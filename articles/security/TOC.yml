@@ -1,56 +1,56 @@
 - name: Azure 보안 설명서
   href: index.md
 - name: 아키텍처 및 디자인
-  href: azure-security.md
+  href: ./fundamentals/overview.md
   expanded: false
   items:
     - name: 고급 위협 검색
       displayName: 'vulnerability, virus, IDs, incident'
-      href: azure-threat-detection.md
+      href: ./fundamentals/threat-detection.md
     - name: Azure 로깅 및 감사
       displayName: incident
-      href: azure-log-audit.md
+      href: ./fundamentals/log-audit.md
     - name: Azure 네트워크 보안
       displayName: 'firewall, ssl, vpn, IDs, gateway, https, application gateway, azure application gateway, ips, waf'
-      href: abstract-azure-network-security.md
+      href: ./fundamentals/abstract-network-security.md
     - name: Azure 서버를 사용하지 않는 플랫폼 보안
-      href: abstract-serverless-platform-security.md
+      href: ./fundamentals/abstract-serverless-platform-security.md
     - name: Azure의 컨테이너 보안
-      href: abstract-container-security-microsoft-azure.md
+      href: ./fundamentals/abstract-container-security.md
     - name: 운영 보안 사용
       displayName: 'policy, policies, azure monitor, soc'
-      href: abstract-azure-operational-security.md
+      href: ./fundamentals/abstract-operational-security.md
     - name: Azure 클라우드에서 격리
       displayName: trust boundary
-      href: azure-isolation.md
+      href: ./fundamentals/isolation-choices.md
     - name: 하이브리드 네트워크 아키텍처 보안
       displayName: trust boundary
       href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
     - name: 보안 기술 기능
-      href: azure-security-technical-capabilities.md
+      href: ./fundamentals/technical-capabilities.md
     - name: Azure에서 보안 앱 개발
-      href: abstract-develop-secure-apps.md
+      href: ./fundamentals/abstract-develop-secure-apps.md
 - name: 데이터 보안 및 암호화
-  href: security-azure-encryption-overview.md
+  href: ./fundamentals/encryption-overview.md
   items:
     - name: 데이터베이스 보안
-      href: azure-database-security-overview.md
+      href: ./fundamentals/database-security-overview.md
       items:
         - name: 모범 사례
-          href: azure-database-security-best-practices.md
+          href: ./fundamentals/database-best-practices.md
         - name: 보안 검사 목록
-          href: azure-database-security-checklist.md
+          href: ./fundamentals/database-security-checklist.md
     - name: 디스크 암호화
       items:
         - name: 모범 사례
           displayName: transit
-          href: azure-security-data-encryption-best-practices.md
+          href: ./fundamentals/data-encryption-best-practices.md
         - name: 미사용 데이터 암호화
-          href: azure-security-encryption-atrest.md
+          href: ./fundamentals/encryption-atrest.md
         - name: IaaS VM용 디스크 암호화
           items:
             - name: Azure Disk Encryption 정보
-              displayName: 'Bitlocker, bek'
+              displayName: 'BitLocker, bek'
               href: azure-security-disk-encryption-overview.md
             - name: 빠른 시작
               items:
@@ -70,7 +70,7 @@
                   href: azure-security-disk-encryption-windows.md
                 - name: Linux VM용 디스크 암호화
                   href: azure-security-disk-encryption-linux.md
-                - name: VMSS 확장 시퀀싱을 사용하여 디스크 암호화
+                - name: 가상 머신 확장 집합 확장 시퀀싱을 사용하여 디스크 암호화
                   href: azure-security-disk-encryption-extension-sequencing.md
                 - name: 디스크 암호화에 대한 부록
                   href: azure-security-disk-encryption-appendix.md
@@ -91,86 +91,89 @@
                       displayName: active directory
                       href: azure-security-disk-encryption-linux-aad.md
     - name: Azure Storage 보안
-      href: security-storage-overview.md
-    - name: 저장소 보안 지침
+      href: ./fundamentals/storage-overview.md
+    - name: 스토리지 보안 지침
       href: ../storage/common/storage-security-guide.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: 고객 Lockbox
-      href: azure-customer-lockbox-overview.md
+      href: ./fundamentals/customer-lockbox-overview.md
 - name: 플랫폼 및 인프라
   items:
     - name: 인프라 보안
-      href: azure-security-infrastructure.md
+      href: ./fundamentals/infrastructure.md
       items:
         - name: 물리적 보안
-          href: azure-physical-security.md
+          href: ./fundamentals/physical-security.md
         - name: 가용성
-          href: azure-infrastructure-availability.md
+          href: ./fundamentals/infrastructure-availability.md
         - name: 구성 요소 및 경계
-          href: azure-infrastructure-components.md
+          href: ./fundamentals/infrastructure-components.md
         - name: 네트워크 아키텍처
           displayName: 'ssl, https'
-          href: azure-infrastructure-network.md
+          href: ./fundamentals/infrastructure-network.md
         - name: 프로덕션 네트워크
-          href: azure-production-network.md
+          href: ./fundamentals/production-network.md
         - name: SQL Database
-          href: azure-infrastructure-sql.md
+          href: ./fundamentals/infrastructure-sql.md
         - name: 작업
-          href: azure-infrastructure-operations.md
+          href: ./fundamentals/infrastructure-operations.md
         - name: 모니터링
-          href: azure-infrastructure-monitoring.md
+          href: ./fundamentals/infrastructure-monitoring.md
         - name: 무결성
-          href: azure-infrastructure-integrity.md
+          href: ./fundamentals/infrastructure-integrity.md
         - name: 데이터 보호
-          href: azure-protection-of-customer-data.md
+          href: ./fundamentals/protection-customer-data.md
     - name: Microsoft 맬웨어 방지
       displayName: virus
-      href: azure-security-antimalware.md
+      href: ./fundamentals/antimalware.md
     - name: IaaS 보안
-      href: security-virtual-machines-overview.md
+      href: ./fundamentals/virtual-machines-overview.md
       items:
         - name: 모범 사례 - IaaS 워크로드
           displayName: patch
-          href: azure-security-iaas.md
+          href: ./fundamentals/iaas.md
         - name: Azure Marketplace 이미지
-          href: security-recommendations-azure-marketplace-images.md
+          href: ./fundamentals/azure-marketplace-images.md
     - name: ID 관리
-      href: security-identity-management-overview.md
+      href: ./fundamentals/identity-management-overview.md
       items:
         - name: Azure AD 인증 선택
           displayName: 'identity, active directory, seamless sso'
-          href: azure-ad-choose-authn.md
+          href: ./fundamentals/choose-ad-authn.md
         - name: 보안 검사 목록
           displayName: 'identity, active directory, password'
-          href: azure-ad-secure-steps.md
+          href: ./fundamentals/steps-secure-identity.md
+        - name: 암호 없음 선택
+          displayName: 'identity, active directory, passwordless'
+          href: ./fundamentals/ad-passwordless.md
         - name: 모범 사례
           displayName: 'password, identity, active directory'
-          href: azure-security-identity-management-best-practices.md
+          href: ./fundamentals/identity-management-best-practices.md
         - name: 구독 관리자에서 MFA 적용
           displayName: identity
-          href: azure-security-global-admin.md
+          href: ./fundamentals/global-admin.md
     - name: 네트워크 보안
       displayName: 'firewall, ssl, vpn, IDs, gateway, https, azure application gateway, application gateway, ips, waf'
-      href: security-network-overview.md
+      href: ./fundamentals/network-overview.md
       items:
         - name: 모범 사례
-          href: azure-security-network-security-best-practices.md
+          href: ./fundamentals/network-best-practices.md
         - name: DDoS Protection
-          href: azure-ddos-best-practices.md
+          href: ./fundamentals/ddos-best-practices.md
         - name: 경계 보안
           href: ../best-practices-network-security.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
 - name: 애플리케이션
   items:
     - name: PaaS
-      href: security-paas-deployments.md
+      href: ./fundamentals/paas-deployments.md
       items:
         - name: PaaS용 Azure App Service
-          href: security-paas-applications-using-app-services.md
+          href: ./fundamentals/paas-applications-using-app-services.md
         - name: PaaS용 Azure Storage
-          href: security-paas-applications-using-storage.md
+          href: ./fundamentals/paas-applications-using-storage.md
         - name: PaaS용 DB 모범 사례
-          href: security-paas-applications-using-sql.md
+          href: ./fundamentals/paas-applications-using-sql.md
     - name: IoT
-      href: security-internet-of-things-overview.md
+      href: ./fundamentals/iot-overview.md
       items:
         - name: IoT 보안 모범 사례
           href: ../iot-accelerators/iot-security-best-practices.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
@@ -179,14 +182,14 @@
         - name: IoT 배포 보안 유지
           href: ../iot-accelerators/iot-accelerators-security-deployment.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Azure Service Fabric 보안
-      href: azure-service-fabric-security-overview.md
+      href: ./fundamentals/service-fabric-overview.md
       items:
         - name: 모범 사례
-          href: azure-service-fabric-security-best-practices.md
+          href: ./fundamentals/service-fabric-best-practices.md
         - name: 보안 검사 목록
-          href: azure-service-fabric-security-checklist.md
+          href: ./fundamentals/service-fabric-checklist.md
 - name: '모니터링, 감사 및 작업'
-  href: security-management-and-monitoring-overview.md
+  href: ./fundamentals/management-monitoring-overview.md
   items:
     - name: 감사 및 로깅
       items:
@@ -194,31 +197,31 @@
           displayName: 'vulnerability, incident, virus,'
           href: ../security-center/security-center-intro.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
         - name: 원격 관리 보안
-          href: azure-security-management.md
+          href: ./fundamentals/management.md
         - name: Azure 로그 통합
           items:
             - name: 소개
-              href: security-azure-log-integration-overview.md
+              href: ./fundamentals/azure-log-integration-overview.md
             - name: 시작하기
-              href: security-azure-log-integration-get-started.md
+              href: ./fundamentals/azure-log-integration-get-started.md
             - name: Azure AD 감사 로그 통합
               displayName: active directory
-              href: security-azure-log-integration-ad.md
+              href: ./fundamentals/azure-log-integration-ad.md
             - name: Security Center 경고 통합
               displayName: splunk
               href: ../security-center/security-center-export-data-to-siem.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
             - name: Key Vault의 로그 통합
               displayName: keyvault
-              href: security-azure-log-integration-keyvault-eventhub.md
+              href: ./fundamentals/azure-log-integration-keyvault-eventhub.md
             - name: FAQ
-              href: security-azure-log-integration-faq.md
+              href: ./fundamentals/azure-log-integration-faq.md
     - name: 운영 보안
-      href: azure-operational-security-overview.md
+      href: ./fundamentals/operational-overview.md
       items:
         - name: 모범 사례
-          href: azure-operational-security-best-practices.md
+          href: ./fundamentals/operational-best-practices.md
         - name: 보안 검사 목록
-          href: azure-operational-security-checklist.md
+          href: ./fundamentals/operational-checklist.md
 - name: 거버넌스 및 규정 준수
   displayName: 'blueprint, privacy, certifications'
   items:
@@ -309,67 +312,23 @@
         - name: PaaS 웹 애플리케이션
           href: ./blueprints/ukofficial-paaswa-overview.md
 - name: 백서
-  href: security-white-papers.md
+  href: ./fundamentals/white-papers.md
 - name: Azure 보안 서비스
-  href: azure-security-services-technologies.md
+  href: ./fundamentals/services-technologies.md
 - name: 기술 개요
-  href: security-overviews.md
+  href: ./fundamentals/overviews.md
 - name: 모범 사례
-  href: security-best-practices-and-patterns.md
+  href: ./fundamentals/best-practices-and-patterns.md
 - name: 리소스
   items:
     - name: 일반적인 보안 특성
-      href: common-security-attributes.md
+      href: ./fundamentals/common-security-attributes.md
     - name: Azure 보안 MVP 프로그램
-      href: azure-security-mvp.md
+      href: ./fundamentals/mvp.md
     - name: 사이버 보안 컨설팅
-      href: azure-security-cyber-services.md
+      href: ./fundamentals/cyber-services.md
     - name: 보안 이벤트 지원 티켓 로깅
-      href: azure-security-event-support-ticket.md
+      href: ./fundamentals/event-support-ticket.md
     - name: 펜 테스트
       displayName: penetration
-      href: azure-security-pen-testing.md
-    - name: Microsoft 위협 모델링 도구
-      displayName: stride
-      href: azure-security-threat-modeling-tool.md
-      items:
-        - name: 시작
-          href: azure-security-threat-modeling-tool-getting-started.md
-        - name: 기능 개요
-          href: azure-security-threat-modeling-tool-feature-overview.md
-        - name: 위협
-          href: azure-security-threat-modeling-tool-threats.md
-        - name: 릴리스
-          href: azure-security-threat-modeling-tool-releases.md
-          items:
-            - name: Threat Modeling Tool GA 릴리스 7.1.5091.2 - 2018년 9월 12일
-              href: azure-security-threat-modeling-tool-releases-71509112.md
-            - name: Threat Modeling Tool 업데이트 릴리스 7.1.51023.1 - 2018년 11월 1일
-              href: azure-security-threat-modeling-tool-releases-71510231.md
-            - name: Threat Modeling Tool 업데이트 릴리스 7.1.60126.1 - 2019년 1월 29일
-              href: azure-security-threat-modeling-tool-releases-71601261.md
-            - name: Threat Modeling Tool 업데이트 릴리스 7.1.60408.1 - 2019년 4월 9일
-              href: azure-security-threat-modeling-tool-releases-71604081.md
-        - name: 해결 방법
-          href: azure-security-threat-modeling-tool-mitigations.md
-          items:
-            - name: 감사 및 로깅
-              href: azure-security-threat-modeling-tool-auditing-and-logging.md
-            - name: 인증
-              href: azure-security-threat-modeling-tool-authentication.md
-            - name: 권한 부여
-              href: azure-security-threat-modeling-tool-authorization.md
-            - name: 통신 보안
-              href: azure-security-threat-modeling-tool-communication-security.md
-            - name: 구성 관리
-              href: azure-security-threat-modeling-tool-configuration-management.md
-            - name: 암호화
-              href: azure-security-threat-modeling-tool-cryptography.md
-            - name: 예외 관리
-              href: azure-security-threat-modeling-tool-exception-management.md
-            - name: 입력 유효성 검사
-              href: azure-security-threat-modeling-tool-input-validation.md
-            - name: 중요한 데이터
-              href: azure-security-threat-modeling-tool-sensitive-data.md
-            - name: 세션 관리
-              href: azure-security-threat-modeling-tool-session-management.md
+      href: ./fundamentals/pen-testing.md

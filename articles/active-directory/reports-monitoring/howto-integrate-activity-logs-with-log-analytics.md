@@ -1,9 +1,9 @@
 ---
-title: Azure Monitor 로그로 Azure Active Directory 로그 Stream | Microsoft Docs
-description: Azure Monitor 로그를 사용 하 여 Azure Active Directory 로그를 통합 하는 방법에 알아봅니다.
+title: Azure Active Directory 로그를 Azure Monitor 로그로 스트림 | Microsoft Docs
+description: Azure Active Directory 로그를 Azure Monitor 로그와 통합 하는 방법 알아보기
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 213fb6e73ae2fc4314320d0e3e593632d8eb7f85
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bffe16d604ac6b86b489092f50fbdc0b856867b3
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60437317"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989761"
 ---
-# <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Azure Monitor 로그로 로그를 Azure AD 통합
+# <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Azure Monitor 로그와 Azure AD 로그 통합
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -51,16 +51,16 @@ Ignite 세션의 다음 비디오는 실제 사용자 시나리오에서 Azure A
 > B2C 관련 감사 및 로그인 활동 로그는 현재 지원되지 않습니다.
 >
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>필수 구성 요소 
 
 이 기능을 사용하려면 다음이 필요합니다.
 
 * Azure 구독. Azure 구독이 없으면 [평가판](https://azure.microsoft.com/free/)에 등록할 수 있습니다.
 * Azure AD 테넌트.
 * Azure AD 테넌트의 *글로벌 관리자* 또는 *보안 관리자*인 사용자.
-* Azure 구독의 Log Analytics 작업 영역. [Log Analytics 작업 영역을 만드는 방법](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace)을 알아보세요.
+* Azure 구독의 Log Analytics 작업 영역. [Log Analytics 작업 영역을 만드는 방법](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace)을 알아봅니다.
 
-## <a name="send-logs-to-azure-monitor"></a>Azure Monitor 로그 보내기
+## <a name="send-logs-to-azure-monitor"></a>Azure Monitor로 로그 보내기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
@@ -83,4 +83,4 @@ Ignite 세션의 다음 비디오는 실제 사용자 시나리오에서 Azure A
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Monitor 로그를 사용하여 Azure AD 활동 로그 분석](howto-analyze-activity-logs-log-analytics.md)
-* [Azure Active Directory용 Log Analytics 보기 설치 및 사용](howto-install-use-log-analytics-views.md)
+* [Azure Active Directory용 로그 분석 보기 설치 및 사용](howto-install-use-log-analytics-views.md)

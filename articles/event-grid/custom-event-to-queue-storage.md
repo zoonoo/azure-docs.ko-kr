@@ -1,6 +1,6 @@
 ---
 title: 스토리지 큐에 사용자 지정 이벤트 보내기 - Event Grid, Azure CLI
-description: Azure Event Grid 및 Azure CLI를 사용하여 토픽을 게시하고 해당 이벤트를 구독합니다. 저장소 큐가 엔드포인트에 사용됩니다.
+description: Azure Event Grid 및 Azure CLI를 사용하여 토픽을 게시하고 해당 이벤트를 구독합니다. 스토리지 큐가 엔드포인트에 사용됩니다.
 services: event-grid
 keywords: ''
 author: spelluru
@@ -16,9 +16,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "66170241"
 ---
-# <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>빠른 시작: Azure CLI 및 Event Grid를 사용하여 Azure Queue 저장소로 사용자 지정 이벤트 라우팅
+# <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>빠른 시작: Azure CLI 및 Event Grid를 사용하여 Azure Queue storage로 사용자 지정 이벤트 라우팅
 
-Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. Azure Queue 저장소는 지원되는 이벤트 처리기 중 하나입니다. 이 문서에서는 Azure CLI를 사용하여 사용자 지정 항목을 만들고 사용자 지정 항목을 구독하며 이벤트를 트리거하여 결과를 확인합니다. Queue 저장소에 이벤트를 보냅니다.
+Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. Azure Queue storage는 지원되는 이벤트 처리기 중 하나입니다. 이 문서에서는 Azure CLI를 사용하여 사용자 지정 항목을 만들고 사용자 지정 항목을 구독하며 이벤트를 트리거하여 결과를 확인합니다. Queue storage에 이벤트를 보냅니다.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -53,9 +53,9 @@ Event Grid 항목은 이벤트를 게시하는 사용자 정의 엔드포인트�
 az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 ```
 
-## <a name="create-queue-storage"></a>Queue 저장소 만들기
+## <a name="create-queue-storage"></a>Queue storage 만들기
 
-사용자 지정 토픽을 구독하기 전에 이벤트 메시지에 대한 엔드포인트를 만들어 보겠습니다. 이벤트를 수집하기 위한 Queue 저장소를 만듭니다.
+사용자 지정 토픽을 구독하기 전에 이벤트 메시지에 대한 엔드포인트를 만들어 보겠습니다. 이벤트를 수집하기 위한 Queue storage를 만듭니다.
 
 ```azurecli-interactive
 storagename="<unique-storage-name>"
@@ -67,11 +67,11 @@ az storage queue create --name $queuename --account-name $storagename
 
 ## <a name="subscribe-to-a-custom-topic"></a>사용자 지정 항목 구독
 
-사용자 지정 항목을 구독하여 Event Grid에 추적하려는 이벤트를 알립니다. 다음 예제에서는 직접 만든 사용자 지정 항목을 구독하고 엔드포인트에 대한 Queue Storage의 리소스 ID를 전달합니다. Azure CLI를 사용하여 Queue 저장소 ID를 엔드포인트로 전달합니다. 엔드포인트는 다음과 같은 형식입니다.
+사용자 지정 항목을 구독하여 Event Grid에 추적하려는 이벤트를 알립니다. 다음 예제에서는 직접 만든 사용자 지정 항목을 구독하고 엔드포인트에 대한 Queue Storage의 리소스 ID를 전달합니다. Azure CLI를 사용하여 Queue storage ID를 엔드포인트로 전달합니다. 엔드포인트는 다음과 같은 형식입니다.
 
 `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/queueservices/default/queues/<queue-name>`
 
-다음 스크립트는 큐에 대한 저장소 계정의 리소스 ID를 가져옵니다. Queue 저장소의 ID를 생성하고 Event Grid 토픽을 구독합니다. 엔드포인트 유형을 `storagequeue`로 설정하고 엔드포인트에 대한 큐 ID를 사용합니다.
+다음 스크립트는 큐에 대한 스토리지 계정의 리소스 ID를 가져옵니다. Queue storage의 ID를 생성하고 Event Grid 토픽을 구독합니다. 엔드포인트 유형을 `storagequeue`로 설정하고 엔드포인트에 대한 큐 ID를 사용합니다.
 
 ```azurecli-interactive
 storageid=$(az storage account show --name $storagename --resource-group gridResourceGroup --query id --output tsv)
@@ -88,7 +88,7 @@ az eventgrid event-subscription create \
 
 이벤트 구독을 만드는 계정에는 Queue Storage에 대한 쓰기 권한이 있어야 합니다. 구독의 [만료 날짜](concepts.md#event-subscription-expiration)가 설정되었습니다.
 
-REST API를 사용하여 구독을 만들 경우 저장소 계정의 ID와 큐의 이름을 별도 매개 변수로 전달 합니다.
+REST API를 사용하여 구독을 만들 경우 스토리지 계정의 ID와 큐의 이름을 별도 매개 변수로 전달 합니다.
 
 ```json
 "destination": {
@@ -119,7 +119,7 @@ do
 done
 ```
 
-포털에서 Queue 저장소로 이동하고 Event Grid에서 이 세 개의 이벤트를 큐로 보냈음을 확인합니다.
+포털에서 Queue storage로 이동하고 Event Grid에서 이 세 개의 이벤트를 큐로 보냈음을 확인합니다.
 
 ![메시지 표시](./media/custom-event-to-queue-storage/messages.png)
 

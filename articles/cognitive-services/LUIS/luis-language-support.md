@@ -1,5 +1,5 @@
 ---
-title: 언어 지원
+title: 언어 지원 - LUIS
 titleSuffix: Azure Cognitive Services
 description: LUIS는 서비스 내에 다양한 기능을 포함합니다. 모든 기능이 동일한 언어 패리티에 있는 것은 아닙니다. 관심 있는 기능이 사용자가 원하는 언어 문화권에서 지원되는지 확인합니다. LUIS 앱은 문화권에 관련되며 설정된 후에는 변경할 수 없습니다.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 8f067bc005c4de9ddc87ed598b1717f8fbb29a6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f46757b97fb2dd38be36459e5aafb70f5b5a3bf6
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072372"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932705"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS에 대한 언어 및 지역 지원
 
@@ -35,7 +35,7 @@ LUIS는 발화를 다음 언어로 이해합니다.
 | 미국 영어 |`en-US` | ✔ | ✔  |✔|✔|
 | *[중국어](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
 | 네덜란드어 |`nl-NL` |-|  -   |-|✔|
-| 프랑스어(프랑스) |`fr-FR` |-| ✔ |✔ |✔|
+| 프랑스어 (프랑스) |`fr-FR` |-| ✔ |✔ |✔|
 | 프랑스어(캐나다) |`fr-CA` |-|   -   |-|✔|
 | 독일어 |`de-DE` |-| ✔ |✔ |✔|
 | 이탈리아어 |`it-IT` |-| ✔ |✔|✔|
@@ -53,7 +53,7 @@ LUIS는 발화를 다음 언어로 이해합니다.
 
  - `zh-cn` 문화권에서 LUIS는 기존 문자 집합 대신 중국어 간체 문자 집합을 예상합니다.
  - 의도, 엔터티, 기능 및 정규식의 이름은 중국어 또는 로마 문자일 수 있습니다.
- - 참조를 [미리 빌드된 도메인 참조](luis-reference-prebuilt-domains.md) 미리 작성 된 도메인에서 지원 되는 내용은 `zh-cn` 문화권입니다.
+ - `zh-cn` 문화권에서 지원 되는 미리 빌드된 도메인에 대 한 자세한 내용은 미리 작성 된 [도메인 참조](luis-reference-prebuilt-domains.md) 를 참조 하세요.
 <!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->
 
 ### <a name="japanese-support-notes"></a>*일본어 지원 참고
@@ -95,16 +95,16 @@ Speech 받아쓰기 모드 언어에 대해서는 Speech [지원되는 언어](h
 |스페인어(es-ES)|✔||||
 |스페인어(es-MX)|✔||||
 
-### <a name="custom-tokenizer-versions"></a>사용자 지정 토크 나이저 버전
+### <a name="custom-tokenizer-versions"></a>사용자 지정 토크 버전
 
-다음 문화권에는 사용자 지정 토크 나이저 버전이:
+다음 문화권에는 사용자 지정 토크 버전이 있습니다.
 
-|Culture|Version|목적|
+|Culture|버전|용도|
 |--|--|--|
-|독일어<br>`de-de`|1.0.0|Machine learning 기반 토크 나이저를 복합 단어는 단일 구성 요소로 세분화 하려고 하는 사용 하 여 분할 하 여 단어를 토큰화 합니다.<br>사용자가 입력 `Ich fahre einen krankenwagen` 설정 된를 utterance로 `Ich fahre einen kranken wagen`입니다. 표시를 허용 `kranken` 및 `wagen` 다른 엔터티로 독립적으로 유지 합니다.|
-|독일어<br>`de-de`|1.0.2|공간에 분할 하 여 단어를 토큰화 합니다.<br> 사용자가 입력 `Ich fahre einen krankenwagen` 단일 토큰을 utterance로 유지 합니다. 따라서 `krankenwagen` 단일 엔터티로 표시 됩니다. |
+|독일어<br>`de-de`|1.0.0|복합 단어를 단일 구성 요소로 분할 하는 기계 학습 기반 토크 토큰화를 사용 하 여 단어를 분할 합니다.<br>사용자가 utterance으로 `Ich fahre einen krankenwagen` 들어가면로 `Ich fahre einen kranken wagen`설정 됩니다. `kranken` 및`wagen` 를 다른 엔터티로 독립적으로 표시할 수 있습니다.|
+|독일어<br>`de-de`|1.0.2|단어를 공백으로 분할 하 여 단어를 토큰화.<br> 사용자가 utterance으로 `Ich fahre einen krankenwagen` 들어가면 단일 토큰으로 유지 됩니다. 따라서 `krankenwagen` 는 단일 엔터티로 표시 됩니다. |
 
-### <a name="migrating-between-tokenizer-versions"></a>토크 나이저 버전 간의 마이그레이션
+### <a name="migrating-between-tokenizer-versions"></a>토크 버전 간 마이그레이션
 <!--
 Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID. 
 
@@ -207,6 +207,6 @@ Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersi
 ```
 -->
 
-토큰화 앱 수준에서 발생합니다. 버전 수준 토큰화에 대 한 지원은 없습니다. 
+토큰화는 앱 수준에서 발생 합니다. 버전 수준 토큰화는 지원 되지 않습니다. 
 
-[새 앱으로 파일을 가져올](luis-how-to-start-new-app.md#import-an-app-from-file), 버전을 대신 합니다. 이 작업에는 새 앱에 다양 한 앱 ID가 있지만 파일에 지정 된 토크 나이저 버전을 사용 하 여 의미 합니다. 
+버전이 아닌 [새 앱으로 파일을 가져옵니다](luis-how-to-start-new-app.md#import-an-app-from-file). 이 작업은 새 앱의 앱 ID가 다르지만 파일에 지정 된 토크 토크 버전을 사용 함을 의미 합니다. 

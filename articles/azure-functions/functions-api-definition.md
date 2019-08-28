@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: 6d11961f06a75341e633c7a8963e6b83ed37cf13
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1bc53fadfb622794703deaff560c9083ca6a1a10
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61341710"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656829"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Azure Functions에서 OpenAPI 2.0 메타데이터 지원(미리 보기)
 Azure Functions의 OpenAPI 2.0(이전의 Swagger) 메타데이터 지원은 함수 앱 내에 OpenAPI 2.0 정의를 작성하는 데 사용할 수 있는 미리 보기 기능입니다. 그런 다음 함수 앱을 사용하여 해당 파일을 호스팅할 수 있습니다.
@@ -45,7 +45,7 @@ Azure Functions의 OpenAPI 2.0(이전의 Swagger) 메타데이터 지원은 함�
 
 ### <a name="templates"></a>사용 가능한 템플릿
 
-|이름| 설명 |
+|이름| Description |
 |:-----|:-----|
 |생성된 정의|최대 정보량을 포함하여 함수의 기존 메타데이터에서 유추할 수 있는 OpenAPI 정의|
 
@@ -75,7 +75,7 @@ Azure Functions의 OpenAPI 2.0(이전의 Swagger) 메타데이터 지원은 함�
    1. **API 정의 원본**을 **함수**로 설정합니다.
    1. 나중에 수정할 수 있도록 템플릿 정의를 만들려면 **API 정의 템플릿 생성**을 클릭한 다음 **저장**을 클릭합니다.
    1. API 정의 URL 및 키를 적어 둡니다.
-1. [CI/CD(연속 통합/연속 배포)를 설정합니다](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment#continuous-deployment-requirements).
+1. [CI/CD(연속 통합/연속 배포)를 설정합니다](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment#requirements-for-continuous-deployment).
 2. \site\wwwroot\.azurefunctions\swagger\swagger.json의 원본 제어에서 swagger.json을 수정합니다.
 
 이제 리포지토리의 swagger.json에 대한 변경 내용이 1.c 단계에서 적어 둔 API 정의 URL과 키에서 함수 앱에 의해 호스팅됩니다.

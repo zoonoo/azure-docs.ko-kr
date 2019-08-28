@@ -3,7 +3,7 @@ title: Terraform을 사용하여 Packer 사용자 지정 이미지에서 Azure �
 description: Terraform을 사용하여 Packer에서 생성한 사용자 지정 이미지에서 Azure 가상 머신 확장 집합을 구성하고 버전을 지정합니다(가상 네트워크 및 관리되는 연결 디스크로 완성).
 services: terraform
 ms.service: azure
-keywords: terraform, devops, 확장 집합, 가상 머신, 네트워크, 저장소, 모듈, 사용자 지정 이미지, packer
+keywords: terraform, devops, 확장 집합, 가상 머신, 네트워크, 스토리지, 모듈, 사용자 지정 이미지, packer
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher

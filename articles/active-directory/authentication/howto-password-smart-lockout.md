@@ -1,22 +1,22 @@
 ---
-title: 스마트 잠금-Azure Active Directory를 Azure AD를 사용 하 여 방지 무차별 대입 공격
+title: Azure AD 스마트 잠금을 사용 하 여 무차별 암호 대입 공격 방지-Azure Active Directory
 description: Azure Active Directory 스마트 잠금을 통해 암호를 추측하려는 무차별 암호 대입 공격으로부터 조직을 보호합니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 07/25/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 150ecbdfcc21ee7ec0bf54fd5b824bc93e0c76ce
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 8df01c204a6893f4e2ff1c2ff22fa337d77c519b
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483313"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637585"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory 스마트 잠금
 
@@ -29,7 +29,9 @@ ms.locfileid: "67483313"
  > [!NOTE]
  > 통과 인증을 사용하도록 설정한 고객은 인증이 클라우드가 아닌 온-프레미스에서 발생하므로 해시 추적 기능을 사용할 수 없습니다.
 
-스마트 잠금은 보안 및 유용성의 적절한 혼합을 제공하는 기본 설정으로 모든 Azure AD 고객에 대해 항상 활성 상태입니다. 조직에 특수한 값이 있는 스마트 잠금 설정의 사용자 지정에는 Azure AD Basic 또는 사용자에 대한 높은 라이선스가 필요합니다.
+AD FS 2016 및 AF FS 2019을 사용 하는 페더레이션된 배포는 [엑스트라넷 잠금 및 엑스트라넷 스마트 잠금 AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection)를 사용 하 여 비슷한 이점을 제공할 수 있습니다.
+
+스마트 잠금은 보안 및 유용성의 적절한 혼합을 제공하는 기본 설정으로 모든 Azure AD 고객에 대해 항상 활성 상태입니다. 사용자의 조직에 특정 한 값을 사용 하 여 스마트 잠금 설정의 사용자 지정에는 사용자에 대 한 유료 Azure AD 라이선스가 필요 합니다.
 
 스마트 잠금 기능을 사용해도 진정한 사용자가 절대 잠금되지 않는다고 보장할 수 없습니다. 스마트 잠금 기능이 사용자 계정을 잠글 때 진정한 사용자는 잠기지 않도록 최선을 다해 노력합니다. 잠금 서비스는 악의적인 행위자가 진정한 사용자 계정에 액세스할 수 없도록 합니다.  
 
@@ -41,12 +43,12 @@ ms.locfileid: "67483313"
 [통과 인증](../hybrid/how-to-connect-pta.md)을 사용하는 경우 다음을 확인해야 합니다.
 
 * Azure AD 잠금 임계값이 Active Directory 계정 잠금 임계값**보다 작습니다**. Active Directory의 계정 잠금 임계값을 Azure AD의 잠금 임계값보다 최소 2~3배 이상 크게 설정합니다. 
-* Azure AD 잠금 기간 Active Directory 기간 후 계정 잠금 카운터 재설정 이상으로 설정 되어야 합니다. Azure AD 기간 (초)에서 설정할지를 광고 하는 동안 지속 시간은 분 단위로 설정 됩니다 알아야 합니다. 
+* Azure AD 잠금 기간은 Active Directory 계정 잠금 해제 카운터 다시 설정 기간 보다 길게 설정 해야 합니다. Azure AD 기간은 초 단위로 설정 되지만 AD 기간은 분 단위로 설정 됩니다. 
 
-예를 들어 AD 보다 높을 수 하 여 Azure AD 카운터를 하려는 경우 다음 Azure AD는 것에 온 프레미스 AD는 1 분 (60 초)으로 설정 하는 동안 120 초 (2 분)입니다.
+예를 들어 Azure AD 카운터가 AD 보다 더 높은 경우 Azure AD는 120 초 (2 분)가 되 고 프레미스 AD는 1 분 (60 초)으로 설정 됩니다.
 
 > [!IMPORTANT]
-> 현재로서는 사용자의 클라우드 계정이 스마트 잠금 기능에 의해 잠긴 경우 관리자가 잠금을 해제할 수 없습니다. 잠금 기간이 만료될 때까지 기다려야 합니다.
+> 현재 관리자는 스마트 잠금 기능에 의해 잠긴 경우 사용자의 클라우드 계정을 잠금 해제할 수 없습니다. 잠금 기간이 만료될 때까지 기다려야 합니다. 그러나 사용자는 신뢰할 수 있는 장치 또는 위치에서 SSPR (셀프 서비스 암호 재설정)를 사용 하 여 잠금을 해제할 수 있습니다.
 
 ## <a name="verify-on-premises-account-lockout-policy"></a>온-프레미스 계정 잠금 정책 확인
 
@@ -61,7 +63,7 @@ ms.locfileid: "67483313"
 
 ## <a name="manage-azure-ad-smart-lockout-values"></a>Azure AD 스마트 잠금 값 관리
 
-조직의 요구 사항에 따라 스마트 잠금 값은 사용자 지정되어야 할 수 있습니다. 조직에 특수한 값이 있는 스마트 잠금 설정의 사용자 지정에는 Azure AD Basic 또는 사용자에 대한 높은 라이선스가 필요합니다.
+조직의 요구 사항에 따라 스마트 잠금 값은 사용자 지정되어야 할 수 있습니다. 사용자의 조직에 특정 한 값을 사용 하 여 스마트 잠금 설정의 사용자 지정에는 사용자에 대 한 유료 Azure AD 라이선스가 필요 합니다.
 
 조직에 대한 스마트 잠금 값을 확인하거나 수정하려면 다음 단계를 사용합니다.
 
@@ -74,9 +76,9 @@ ms.locfileid: "67483313"
 
 ![Azure Portal에서 Azure AD 스마트 잠금 정책 사용자 지정](./media/howto-password-smart-lockout/azure-active-directory-custom-smart-lockout-policy.png)
 
-## <a name="how-to-determine-if-the-smart-lockout-feature-is-working-or-not"></a>스마트 잠금 기능 작동 하는지 확인 하는 방법
+## <a name="how-to-determine-if-the-smart-lockout-feature-is-working-or-not"></a>스마트 잠금 기능이 작동 하는지 여부를 확인 하는 방법
 
-스마트 잠금 임계값 트리거되면 계정이 잠겨 있는 동안 다음 메시지가 나타납니다.
+스마트 잠금 임계값이 트리거되면 계정이 잠겨 있는 동안 다음 메시지가 표시 됩니다.
 
 **권한 없는 사용을 방지하기 위해 계정이 일시적으로 잠겨 있습니다. 나중에 다시 시도하세요. 문제가 계속 발생하면 관리자에게 문의하세요.**
 

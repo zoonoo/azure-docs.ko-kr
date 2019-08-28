@@ -3,24 +3,24 @@ title: 사전이란? - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: 사전이란 사용자가 Microsoft Translator에서 항상 동일한 방식으로 번역하길 원하는 구 또는 문장(및 해당 번역)의 목록을 지정하는 정렬된 문서입니다. 사전은 종종 용어집 또는 용어 기반이라고도 합니다.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: c837399778723b0b084c26422b7bea762f0e7709
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5103526956b5041771a1d8e4abb5e8800b971059
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447356"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595377"
 ---
 # <a name="what-is-a-dictionary"></a>사전이란?
 
 사전은 구 또는 문장의 목록과 해당 번역을 지정하는 문서의 정렬된 쌍입니다. 사용자가 항상 Microsoft Translator에서 사용자가 사전에 제공한 번역을 사용하여 원본 구 또는 문장의 인스턴스를 번역하길 원하는 경우 학습의 사전을 사용합니다. 사전은 종종 용어집 또는 용어 기반이라고도 합니다. 사전을 사용자가 나열한 모든 용어에 대해 무차별적인 “복사 및 바꾸기”로 생각할 수 있습니다.
 
-사전은 그 뒤에 완벽하게 지원되는 Microsoft NMT(인공신경망 기계 번역) 시스템을 갖춘 언어 쌍의 프로젝트에서만 작동합니다. [언어의 전체 목록을 보려면](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization)합니다.
+사전은 그 뒤에 완벽하게 지원되는 Microsoft NMT(인공신경망 기계 번역) 시스템을 갖춘 언어 쌍의 프로젝트에서만 작동합니다. [전체 언어 목록을 봅니다](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
 
 ## <a name="phrase-dictionary"></a>구 사전
 모델을 학습할 때 구 사전을 포함하면 나열된 단어 또는 구는 사용자가 지정한 방식으로 번역됩니다. 문장의 나머지는 일반적인 방법으로 번역됩니다. 구 사전을 사용하여 번역하면 안 되는 구를 지정할 수 있습니다. 사전의 원본 및 대상 파일에 번역되지 않은 동일한 구를 제공하면 됩니다.

@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/13/2019
+ms.date: 06/12/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: db9424ff4ddd2663ae1342294181dc885c6ed937
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 4a5352e96e522a8bd32c428957b3bbfd62c5fa9b
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479546"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275927"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>Azure 리소스에 대한 RBAC(역할 기반 액세스 제어)란?
 
@@ -34,7 +34,7 @@ RBAC로 다음과 같은 일을 할 수 있습니다.
 - 한 사용자는 구독의 가상 머신을 관리하고 다른 사용자는 가상 네트워크를 관리하도록 허용
 - DBA 그룹이 구독의 SQL 데이터베이스를 관리하도록 허용
 - 사용자가 가상 머신, 웹 사이트, 서브넷 등 리소스 그룹의 모든 리소스를 관리하도록 허용
-- 응용 프로그램이 리소스 그룹의 모든 리소스에 액세스하도록 허용
+- 애플리케이션이 리소스 그룹의 모든 리소스에 액세스하도록 허용
 
 ## <a name="best-practice-for-using-rbac"></a>RBAC 사용 모범 사례
 
@@ -56,7 +56,7 @@ RBAC를 사용하여 리소스에 대한 액세스를 제어하는 방법은 역
 
 - 사용자 - Azure Active Directory에 프로필이 있는 개인. 다른 테넌트의 사용자에게 역할을 할당할 수도 있습니다. 다른 조직의 사용자에 대한 내용은 [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md)를 참조하세요.
 - 그룹 - Azure Active Directory에서 만든 사용자 집합. 그룹에 역할을 할당하면 해당 그룹의 모든 사용자가 같은 역할을 갖습니다. 
-- 서비스 주체 - 애플리케이션 또는 서비스에서 특정 Azure 리소스에 액세스하기 위해 사용하는 보안 ID. 응용 프로그램의 *사용자 ID*(사용자 이름과 암호 또는 인증서)로 생각하시면 됩니다.
+- 서비스 주체 - 애플리케이션 또는 서비스에서 특정 Azure 리소스에 액세스하기 위해 사용하는 보안 ID. 애플리케이션의 *사용자 ID*(사용자 이름과 암호 또는 인증서)로 생각하시면 됩니다.
 - 관리 ID - Azure에서 자동으로 관리되는 Azure Active Directory의 ID입니다. 일반적으로 Azure 서비스에 인증하기 위한 자격 증명을 관리하는 클라우드 애플리케이션을 개발하는 경우 [ID 관리](../active-directory/managed-identities-azure-resources/overview.md)를 사용합니다.
 
 ### <a name="role-definition"></a>역할 정의
@@ -74,7 +74,7 @@ Azure에는 사용 가능한 [기본 제공 역할](built-in-roles.md)이 여러
 
 나머지 기본 제공 역할은 특정 Azure 리소스의 관리를 허용합니다. 예를 들어 [Virtual Machine 기여자](built-in-roles.md#virtual-machine-contributor) 역할을 사용하면 사용자가 가상 머신을 만들고 관리할 수 있습니다. 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않는 경우 [Azure 리소스에 대한 사용자 지정 역할](custom-roles.md)을 만들면 됩니다.
 
-Azure에는 개체 내 데이터에 대한 액세스 권한을 부여할 수 있는 데이터 작업(현재 미리 보기)이 도입되었습니다. 예를 들어 사용자가 저장소 계정에 대한 데이터 읽기 액세스 권한을 갖고 있는 경우 해당 저장소 계정 내의 BLOB 또는 메시지를 읽을 수 있습니다. 자세한 내용은 [Azure 리소스에 대한 역할 정의 이해](role-definitions.md)를 참조하세요.
+Azure에는 개체 내 데이터에 대한 액세스 권한을 부여할 수 있는 데이터 작업이 있습니다. 예를 들어 사용자가 스토리지 계정에 대한 데이터 읽기 액세스 권한을 갖고 있는 경우 해당 스토리지 계정 내의 BLOB 또는 메시지를 읽을 수 있습니다. 자세한 내용은 [Azure 리소스에 대한 역할 정의 이해](role-definitions.md)를 참조하세요.
 
 ### <a name="scope"></a>범위
 
@@ -88,7 +88,7 @@ Azure는 여러 수준([관리 그룹](../governance/management-groups/index.md)
 
 - 관리 그룹 범위에서 [소유자](built-in-roles.md#owner) 역할을 사용자에게 할당하는 경우 해당 사용자는 모든 관리 그룹의 모든 구독에서 모든 항목을 관리할 수 있습니다.
 - 구독 범위에서 그룹에 [읽기 권한자](built-in-roles.md#reader) 역할을 할당하면 해당 그룹의 멤버가 구독의 모든 리소스 그룹 및 리소스를 볼 수 있습니다.
-- 리소스 그룹 범위에서 응용 프로그램에 [기여자](built-in-roles.md#contributor) 역할을 할당하면 해당 응용 프로그램은 해당 리소스 그룹의 모든 리소스 종류를 관리할 수 있지만, 구독의 다른 리소스 그룹을 관리할 수 없습니다.
+- 리소스 그룹 범위에서 애플리케이션에 [기여자](built-in-roles.md#contributor) 역할을 할당하면 해당 애플리케이션은 해당 리소스 그룹의 모든 리소스 종류를 관리할 수 있지만, 구독의 다른 리소스 그룹을 관리할 수 없습니다.
 
 ### <a name="role-assignments"></a>역할 할당
 
@@ -108,10 +108,7 @@ Azure Portal, Azure CLI, Azure PowerShell, Azure SDK 또는 REST API를 사용�
 
 ## <a name="deny-assignments"></a>거부 할당
 
-이전에는 RBAC가 거부가 없는 허용 전용 모델이었지만 이제 RBAC는 제한된 방식으로 거부 할당을 지원합니다. *거부 할당*은 역할 할당과 마찬가지로 액세스를 거부하기 위해 특정 범위에서 사용자, 그룹, 서비스 주체 또는 관리 ID에게 거부 작업 세트를 연결합니다. 역할 할당은 *허용된* 일련의 작업을 정의하고 거부 할당은 *허용되지 않는* 일련의 작업을 정의합니다. 즉, 거부 할당은 역할 할당이 사용자에게 액세스 권한을 부여하더라도 지정된 작업을 사용자가 수행할 수 없도록 차단합니다. 거부 할당은 역할 할당보다 우선합니다. 자세한 내용은 [Azure 리소스에 대한 거부 할당 이해](deny-assignments.md) 및 [Azure Portal을 사용하여 Azure 리소스에 대한 거부 할당 보기](deny-assignments-portal.md)를 참조하세요.
-
-> [!NOTE]
-> 현재 자체 거부 할당을 추가할 수 있는 유일한 방법은 Azure Blueprints를 사용하는 것입니다. 자세한 내용은 [Azure Blueprints 리소스 잠금으로 새 리소스 보호](../governance/blueprints/tutorials/protect-new-resources.md)를 참조하세요.
+이전에는 RBAC가 거부가 없는 허용 전용 모델이었지만 이제 RBAC는 제한된 방식으로 거부 할당을 지원합니다. *거부 할당*은 역할 할당과 마찬가지로 액세스를 거부하기 위해 특정 범위에서 사용자, 그룹, 서비스 주체 또는 관리 ID에게 거부 작업 세트를 연결합니다. 역할 할당은 *허용된* 일련의 작업을 정의하고 거부 할당은 *허용되지 않는* 일련의 작업을 정의합니다. 즉, 거부 할당은 역할 할당이 사용자에게 액세스 권한을 부여하더라도 지정된 작업을 사용자가 수행할 수 없도록 차단합니다. 거부 할당은 역할 할당보다 우선합니다. 자세한 내용은 [Azure 리소스에 대한 거부 할당 이해](deny-assignments.md)를 참조하세요.
 
 ## <a name="how-rbac-determines-if-a-user-has-access-to-a-resource"></a>RBAC에서 사용자가 리소스에 액세스 권한이 있는지 확인하는 방법
 

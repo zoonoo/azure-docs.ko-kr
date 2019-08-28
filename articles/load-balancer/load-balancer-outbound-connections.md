@@ -4,21 +4,21 @@ titlesuffix: Azure Load Balancer
 description: 이 문서에서는 Azure에서 VM이 공용 인터넷 서비스를 사용하여 통신하는 방법을 설명합니다.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/02/2019
-ms.author: kumud
-ms.openlocfilehash: f9742d14fc14230f2424d005aa6aa8b1db3cece4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/07/2019
+ms.author: allensu
+ms.openlocfilehash: 9dcc5fa201c08ca4b1e65b8aae88118731eba427
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967725"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881063"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure에서 아웃바운드 연결
 
@@ -34,33 +34,33 @@ Azure에서는 SNAT(원본 네트워크 주소 변환)를 사용하여 이 기�
 여러 개의 [아웃바운드 시나리오](#scenarios)가 있습니다. 필요에 따라 이러한 시나리오를 결합할 수 있습니다. 주의 깊게 살펴보고 배포 모델 및 애플리케이션 시나리오에 적용되는 기능, 제약 조건 및 패턴을 이해합니다. [시나리오 관리](#snatexhaust) 지침을 검토합니다.
 
 >[!IMPORTANT] 
->표준 Load Balancer 및 표준 공용 IP는 아웃바웃드 연결에 새로운 기능 및 서로 다른 동작을 도입합니다.  이는 기본 SKU와 동일하지 않습니다.  표준 SKU로 작업하는 경우 아웃바운드 연결을 하려는 경우 표준 공용 IP 주소 또는 표준 공용 Load Balancer를 사용하여 명시적으로 정의해야 합니다.  여기에 내부 표준 Load Balancer를 사용 하는 경우 아웃 바운드 연결을 만듭니다.  표준 공용 Load Balancer에서 항상 아웃바운드 규칙을 사용하는 것이 좋습니다.  [시나리오 3](#defaultsnat)은 표준 SKU에서 사용할 수 없습니다.  즉, 내부 표준 Load Balancer를 사용하는 경우 아웃바운드 연결을 원하면 백 엔드 풀의 VM에 대한 아웃바운드 연결을 만드는 단계를 수행해야 합니다.  아웃바운드 연결, 단일 독립 실행형 VM, 가용성 세트의 모든 VM의 컨텍스트에서 VMSS의 모든 인스턴스는 그룹으로 작동합니다. 즉, 가용성 세트의 단일 VM을 표준 SKU와 연결하면 개별 인스턴스가 직접 표준 SKU와 연결되지 않더라도 해당 가용성 세트 내의 모든 VM 인스턴스는 이제 표준 SKU에 연결된 것처럼 동일한 규칙에 따라 작동합니다.  전반적인 개념을 이해하고 SKU 간 차이점에 대해 [표준 Load Balancer](load-balancer-standard-overview.md)를 검토하고 [아웃바운드 규칙](load-balancer-outbound-rules-overview.md)을 검토하려면 이 전체 문서를 검토합니다.  아웃바운드 규칙을 사용하면 아웃바운드 연결의 모든 측면에 대해 정밀하게 제어할 수 있습니다.
+>표준 Load Balancer 및 표준 공용 IP는 아웃바웃드 연결에 새로운 기능 및 서로 다른 동작을 도입합니다.  이는 기본 SKU와 동일하지 않습니다.  표준 SKU로 작업하는 경우 아웃바운드 연결을 하려는 경우 표준 공용 IP 주소 또는 표준 공용 Load Balancer를 사용하여 명시적으로 정의해야 합니다.  여기에는 내부 표준 Load Balancer를 사용 하는 경우 아웃 바운드 연결을 만드는 작업이 포함 됩니다.  표준 공용 Load Balancer에서 항상 아웃바운드 규칙을 사용하는 것이 좋습니다.  [시나리오 3](#defaultsnat)은 표준 SKU에서 사용할 수 없습니다.  즉, 내부 표준 Load Balancer를 사용하는 경우 아웃바운드 연결을 원하면 백 엔드 풀의 VM에 대한 아웃바운드 연결을 만드는 단계를 수행해야 합니다.  아웃바운드 연결, 단일 독립 실행형 VM, 가용성 세트의 모든 VM의 컨텍스트에서 VMSS의 모든 인스턴스는 그룹으로 작동합니다. 즉, 가용성 세트의 단일 VM을 표준 SKU와 연결하면 개별 인스턴스가 직접 표준 SKU와 연결되지 않더라도 해당 가용성 세트 내의 모든 VM 인스턴스는 이제 표준 SKU에 연결된 것처럼 동일한 규칙에 따라 작동합니다.  전반적인 개념을 이해하고 SKU 간 차이점에 대해 [표준 Load Balancer](load-balancer-standard-overview.md)를 검토하고 [아웃바운드 규칙](load-balancer-outbound-rules-overview.md)을 검토하려면 이 전체 문서를 검토합니다.  아웃바운드 규칙을 사용하면 아웃바운드 연결의 모든 측면에 대해 정밀하게 제어할 수 있습니다.
 
 ## <a name="scenarios"></a>시나리오 개요
 
 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 사용하는 경우 Azure Load Balancer 및 관련 리소스가 명시적으로 정의됩니다.  현재 Azure는 Azure Resource Manager 리소스에 대한 아웃바운드 연결을 달성할 수 있는 세 가지 방법을 제공합니다. 
 
-| SKU | 시나리오 | 방법 | IP 프로토콜 | 설명 |
+| SKU | 시나리오 | 메서드 | IP 프로토콜 | 설명 |
 | --- | --- | --- | --- | --- |
-| 표준, 기본 | [1. 인스턴스 수준 공용 IP 주소를 가진 VM(Load Balancer 있음 또는 없음)](#ilpip) | SNAT, 포트 가장 사용 안 함 | TCP, UDP, ICMP, ESP | Azure는 인스턴스 NIC의 IP 구성에 할당된 공용 IP를 사용합니다. 인스턴스에 있는 모든 삭제 포트를 사용할 수 있습니다. 표준 Load Balancer를 사용하는 경우 아웃바운드 연결을 명시적으로 정의하려면 [아웃바운드 규칙](load-balancer-outbound-rules-overview.md)을 사용해야 합니다. |
-| 표준, 기본 | [2. VM과 연결된 공용 Load Balancer(인스턴스에 인스턴스 수준 공용 IP 주소 없음)](#lb) | Load Balancer 프런트 엔드를 사용하여 포트를 가장하는(PAT) SNAT | TCP, UDP |Azure는 공용 Load Balancer 프런트 엔드의 공용 IP 주소를 여러 개인 IP 주소와 공유합니다. Azure는 프런트 엔드의 삭제 포트를 PAT에 사용합니다. |
-| 없음 또는 기본 | [3. 독립 실행형 VM(Load Balancer 없음, 인스턴스 수준 공용 IP 주소 없음)](#defaultsnat) | 포트를 가장하는(PAT) SNAT | TCP, UDP | Azure는 자동으로 SNAT에 대한 공용 IP 주소를 지정하고, 이 공용 IP 주소를 가용성 집합의 여러 개인 IP 주소와 공유하고, 이 공용 IP 주소의 삭제 포트를 사용합니다. 이 시나리오는 이전 시나리오의 대체 시나리오입니다. 가시성 및 제어 기능이 필요한 경우에는 권장되지 않습니다. |
+| 표준, 기본 | [1. 공용 IP 주소가 있는 VM (Load Balancer 포함 또는 포함 안 함)](#ilpip) | SNAT, 포트 가장 사용 안 함 | TCP, UDP, ICMP, ESP | Azure는 인스턴스 NIC의 IP 구성에 할당된 공용 IP를 사용합니다. 인스턴스에 있는 모든 삭제 포트를 사용할 수 있습니다. 표준 Load Balancer를 사용하는 경우 아웃바운드 연결을 명시적으로 정의하려면 [아웃바운드 규칙](load-balancer-outbound-rules-overview.md)을 사용해야 합니다. |
+| 표준, 기본 | [2. VM과 연결 된 공용 Load Balancer (인스턴스에 공용 IP 주소 없음)](#lb) | Load Balancer 프런트 엔드를 사용하여 포트를 가장하는(PAT) SNAT | TCP, UDP |Azure는 공용 Load Balancer 프런트 엔드의 공용 IP 주소를 여러 개인 IP 주소와 공유합니다. Azure는 프런트 엔드의 삭제 포트를 PAT에 사용합니다. |
+| 없음 또는 기본 | [3. 독립 실행형 VM (Load Balancer 없음, 공용 IP 주소 없음)](#defaultsnat) | 포트를 가장하는(PAT) SNAT | TCP, UDP | Azure는 자동으로 SNAT에 대한 공용 IP 주소를 지정하고, 이 공용 IP 주소를 가용성 집합의 여러 개인 IP 주소와 공유하고, 이 공용 IP 주소의 삭제 포트를 사용합니다. 이 시나리오는 이전 시나리오의 대체 시나리오입니다. 가시성 및 제어 기능이 필요한 경우에는 권장되지 않습니다. |
 
 VM이 공용 IP 주소 공간에 있는 Azure 외부에서 엔드포인트와 통신하지 않게 하려면 NSG(네트워크 보안 그룹)를 사용하여 필요에 따라 액세스를 차단할 수 있습니다. NSG 사용에 대한 자세한 내용은 [아웃바운드 연결 방지](#preventoutbound)에서 다룹니다. 아웃바운드 액세스 없이 가상 네트워크를 설계, 구현 및 관리하는 방법은 이 문서의 범위를 벗어납니다.
 
-### <a name="ilpip"></a>시나리오 1: 인스턴스 수준 공용 IP 주소가 있는 VM
+### <a name="ilpip"></a>시나리오 1: 공용 IP 주소가 있는 VM
 
-이 시나리오에서 VM에는 ILPIP(인스턴스 수준 공용 IP)가 할당되어 있습니다. 아웃바운드 연결에 있어서는 VM이 부하 분산되었는지 여부는 중요하지 않습니다. 이 시나리오는 다른 시나리오에 우선합니다. ILPIP가 사용되면 VM은 모든 아웃바운드 흐름에 ILPIP를 사용합니다.  
+이 시나리오에서 VM에는 할당 된 공용 IP가 있습니다. 아웃바운드 연결에 있어서는 VM이 부하 분산되었는지 여부는 중요하지 않습니다. 이 시나리오는 다른 시나리오에 우선합니다. 공용 IP 주소를 사용 하는 경우 VM은 모든 아웃 바운드 흐름에 대해 공용 IP 주소를 사용 합니다.  
 
 VM에 할당된 공용 IP는 1:다가 아닌 1:1 관계이며 상태 비저장 1:1 NAT로 구현됩니다.  포트 가장(PAT)은 사용되지 않으며 VM에는 사용 가능한 모든 삭제 포트가 있습니다.
 
-애플리케이션이 아웃바운드 흐름을 시작하고 SNAT 포트 소모가 발생하는 경우 [ILPIP를 할당하여 SNAT 제약 조건을 완화](#assignilpip)하는 방안을 고려해야 합니다. [SNAT 고갈 관리](#snatexhaust)를 전체적으로 검토합니다.
+응용 프로그램에서 많은 아웃 바운드 흐름을 시작 하 고 SNAT 포트 소모가 발생 하는 경우 [snat 제약 조건을 완화 하기 위해 공용 IP 주소](#assignilpip)를 할당 하는 것이 좋습니다. [SNAT 고갈 관리](#snatexhaust)를 전체적으로 검토합니다.
 
-### <a name="lb"></a>시나리오 2: 인스턴스 수준 공용 IP 주소가 없는 부하 분산 VM
+### <a name="lb"></a>시나리오 2: 공용 IP 주소가 없는 부하 분산 VM
 
 이 시나리오에서 VM은 공용 Load Balancer 백 엔드 풀의 일부입니다. VM에는 할당된 공용 IP 주소가 없습니다. 부하 분산 장치 리소스는 공용 IP 프런트 엔드와 백 엔드 풀 간의 연결을 만드는 부하 분산 장치 규칙으로 구성해야 합니다.
 
-이 규칙 구성을 완료하지 않으면 동작은 [인스턴스 수준 공용 IP가 없는 독립 실행형 VM](#defaultsnat)에 대한 시나리오에 설명된 대로 나타납니다. 백 엔드 풀 또는 상태 프로브에 작업 수신기가 있어야만 규칙이 성공하는 것은 아닙니다.
+이 규칙 구성을 완료 하지 않으면 동작은 [공용 IP가 없는 독립 실행형 VM](#defaultsnat)에 대 한 시나리오에 설명 된 것과 같습니다. 백 엔드 풀 또는 상태 프로브에 작업 수신기가 있어야만 규칙이 성공하는 것은 아닙니다.
 
 부하 분산 VM이 아웃바운드 흐름을 만든 경우 Azure에서는 아웃바운드 흐름의 프라이빗 원본 IP 주소를 공용 부하 분산 장치 프론트 엔드의 공용 IP 주소로 변환합니다. Azure는 SNAT을 사용하여 이 기능을 수행합니다. 또한 Azure는 [PAT](#pat)를 사용하여 공용 IP 주소 뒤에서 여러 개인 IP 주소를 가장합니다. 
 
@@ -70,11 +70,11 @@ SNAT 포트는 [SNAT 및 PAT 이해](#snat) 섹션에 설명된 대로 미리 �
 
 [여러 공용 IP 주소가 Load Balancer 기본에 연결](load-balancer-multivip-overview.md)된 경우 이러한 공용 IP 주소가 아웃바운드 흐름의 후보가 되며 그 중 하나가 임의로 선택됩니다.  
 
-Load Balancer 기본을 사용 하 여 아웃 바운드 연결의 상태를 모니터링 하려면 사용할 수 있습니다 [부하 분산 장치에 대 한 Azure Monitor 로그](load-balancer-monitor-log.md) 하 고 [경고 이벤트 로그](load-balancer-monitor-log.md#alert-event-log) SNAT 포트 소모 메시지를 모니터링 합니다.
+Load Balancer Basic을 사용 하 여 아웃 바운드 연결의 상태를 모니터링 하려면 [Load Balancer에 대해 Azure Monitor 로그](load-balancer-monitor-log.md) 를 사용 하 고 SNAT 포트 소모 메시지를 모니터링 하는 [경고 이벤트 로그](load-balancer-monitor-log.md#alert-event-log) 를 사용할 수 있습니다.
 
-### <a name="defaultsnat"></a>시나리오 3: 인스턴스 수준 공용 IP 주소가 없는 독립 실행형 VM
+### <a name="defaultsnat"></a>시나리오 3: 공용 IP 주소가 없는 독립 실행형 VM
 
-이 시나리오에서 VM은 공용 Load Balancer 풀의 일부가 아니며(내부 표준 Load Balancer 풀의 부분이 아님) 할당된 ILPIP 주소가 없습니다. VM이 아웃바운드 흐름을 만든 경우 Azure에서는 아웃바운드 흐름의 프라이빗 원본 IP 주소를 공용 원본 IP 주소로 변환합니다. 이 아웃바운드 흐름에 사용된 공용 IP 주소는 구성할 수 없으며 구독의 공용 IP 리소스 제한에 불리하게 작용하지 않습니다. 이 공용 IP 주소는 사용자의 소유가 아니며 예약할 수 없습니다. VM 또는 가용성 집합이나 가상 머신 확장 집합을 재배포하는 경우에는 이 공용 IP 주소가 해제되고 새 공용 IP 주소가 요청됩니다. IP 주소를 허용 목록에 추가할 때는 이 시나리오를 사용하지 말고, 아웃바운드 시나리오와 아웃바운드 연결에 사용할 공용 IP 주소를 명시적으로 선언하는 두 시나리오 중 하나를 사용하세요.
+이 시나리오에서 VM은 내부 표준 Load Balancer 풀의 일부가 아닌 공용 Load Balancer 풀에 속하지 않으며, 할당 된 공용 IP 주소가 없습니다. VM이 아웃바운드 흐름을 만든 경우 Azure에서는 아웃바운드 흐름의 프라이빗 원본 IP 주소를 공용 원본 IP 주소로 변환합니다. 이 아웃바운드 흐름에 사용된 공용 IP 주소는 구성할 수 없으며 구독의 공용 IP 리소스 제한에 불리하게 작용하지 않습니다. 이 공용 IP 주소는 사용자의 소유가 아니며 예약할 수 없습니다. VM 또는 가용성 집합이나 가상 머신 확장 집합을 재배포하는 경우에는 이 공용 IP 주소가 해제되고 새 공용 IP 주소가 요청됩니다. IP 주소를 허용 목록에 추가할 때는 이 시나리오를 사용하지 말고, 아웃바운드 시나리오와 아웃바운드 연결에 사용할 공용 IP 주소를 명시적으로 선언하는 두 시나리오 중 하나를 사용하세요.
 
 >[!IMPORTANT] 
 >또한 이 시나리오는 내부 기본 Load Balancer가 연결된 경우에__만__ 적용됩니다. 시나리오 3은 내부 표준 Load Balancer가 VM에 연결된 경우에는 __사용할 수 없습니다__.  내부 표준 Load Balancer를 사용하는 것 외에도 명시적으로 [시나리오 1](#ilpip) 또는 [시나리오 2](#lb)를 만들어야 합니다.
@@ -133,6 +133,10 @@ SNAT 포트는 [SNAT 및 PAT 이해](#snat) 섹션에 설명된 대로 미리 �
 
 UDP SNAT 포트는 TCP SNAT 포트와는 다른 알고리즘을 통해 관리됩니다.  부하 분산 장치는 UDP에 "포트 제한 원뿔형 NAT"이라고 하는 알고리즘을 사용합니다.  대상 IP 주소, 포트에 관계없이 각 흐름당 하나의 SNAT 포트가 사용됩니다.
 
+#### <a name="snat-port-reuse"></a>SNAT 포트 다시 사용
+
+포트를 해제 한 후에는 필요에 따라 포트를 재사용할 수 있습니다.  SNAT 포트는 지정 된 시나리오에서 사용 가능한 최하위에서 가장 높은 시퀀스로 간주할 수 있으며, 첫 번째 사용 가능한 SNAT 포트는 새 연결에 사용 됩니다. 
+ 
 #### <a name="exhaustion"></a>고갈
 
 SNAT 포트 리소스가 고갈되면 기존 흐름에서 SNAT 포트를 릴리스할 때까지 아웃바운드 흐름이 실패합니다. Load Balancer는 흐름이 닫히면 SNAT 포트를 회수하고 유휴 흐름에서 SNAT 포트를 회수하기 위해 [4분 유휴 시간 제한](#idletimeout)을 사용합니다.
@@ -176,20 +180,20 @@ SNAT 포트 할당은 IP 전송 프로토콜과 관련이 있으며(TCP 및 UDP�
 
 ### <a name="tcp-snat-port-release"></a>TCP SNAT 포트 해제
 
-- 두 서버/클라이언트 FINACK를 보내는 경우 240 초 후 SNAT 포트가 릴리스됩니다.
+- 서버/클라이언트에서 FINACK를 보내는 경우 240 초 후 SNAT 포트가 해제 됩니다.
 - RST가 표시되는 경우 15초 후에 SNAT 포트가 해제됩니다.
-- 유휴 시간 제한에 도달 하는 경우 포트가 해제 됩니다.
+- 유휴 시간 제한에 도달 하면 포트가 해제 됩니다.
 
 ### <a name="udp-snat-port-release"></a>UDP SNAT 포트 해제
 
-- 유휴 시간 제한에 도달 하는 경우 포트가 해제 됩니다.
+- 유휴 시간 제한에 도달 하면 포트가 해제 됩니다.
 
 ## <a name="problemsolving"></a> 문제 해결 
 
 이 섹션은 Azure의 아웃바운드 연결에서 발생할 수 있는 SNAT 고갈을 완화하는 데 도움을 주고자 합니다.
 
 ### <a name="snatexhaust"></a> SNAT(PAT) 포트 고갈 관리
-[PAT](#pat)에 사용되는 [삭제 포트](#preallocatedports)는 [인스턴스 수준 공용 IP 주소 없는 독립 실행형 VM](#defaultsnat) 및 [인스턴스 수준 공용 IP 주소가 없는 부하 분산 VM](#lb)에 설명된 것처럼 고갈될 수 있는 리소스입니다.
+[PAT](#pat) 에 사용 되는 사용 [후 삭제 포트](#preallocatedports) 는 공용 Ip [주소가 없는 독립 실행형 vm](#defaultsnat) 및 [공용 ip 주소가 없는 부하 분산 vm](#lb)에 설명 된 대로 소모 성 리소스입니다.
 
 동일한 대상 IP 주소 및 포트에 대해 많은 아웃바운드 TCP 또는 UDP 연결을 시작할 것인지 알고 있는 경우 실패하는 아웃바운드 연결을 확인하고, 지원 서비스에서 SNAT 포트([PAT](#pat)에서 사용하는 미리 할당된 [삭제 포트](#preallocatedports))가 고갈될 것이라는 알림을 받는 경우 몇 가지 일반적인 완화 옵션을 사용할 수 있습니다. 다음 옵션을 검토하고 시나리오에 가장 적합한 옵션을 결정합니다. 한 가지 이상의 옵션이 이 시나리오를 관리하는 데 도움이 될 수 있습니다.
 
@@ -210,8 +214,8 @@ SNAT 포트 할당은 IP 전송 프로토콜과 관련이 있으며(TCP 및 UDP�
 
 삭제 포트의 유휴 시간 제한은 4분입니다(조정 불가능). 다시 시도 횟수가 너무 엄격하면 고갈이 스스로 지울 수 있는 기회가 없습니다. 따라서 디자인할 때 애플리케이션이 트랜잭션을 어떤 방식으로 얼마나 자주 다시 시도하는지 고려하는 것이 중요합니다.
 
-#### <a name="assignilpip"></a>각 VM에 인스턴스 수준 공용 IP 할당
-ILPIP를 할당하면 시나리오가 [VM에 대한 인스턴스 수준 공용 IP](#ilpip)로 변경됩니다. 각 VM에 사용되는 공용 IP의 모든 삭제 포트를 VM에 사용할 수 있습니다. (공용 IP의 삭제 포트가 해당 백 엔드 풀과 연결된 모든 VM과 공유되는 시나리오와는 반대입니다.) 공용 IP 주소의 추가 비용 및 많은 수의 개별 IP 주소를 허용 목록에 포함할 때 나타날 수 있는 잠재적 영향 등이 상충되는 고려 사항일 수 있습니다.
+#### <a name="assignilpip"></a>각 VM에 공용 IP 할당
+공용 IP 주소를 할당 하면 시나리오가 [VM에 대 한 공용 ip](#ilpip)로 변경 됩니다. 각 VM에 사용되는 공용 IP의 모든 삭제 포트를 VM에 사용할 수 있습니다. (공용 IP의 삭제 포트가 해당 백 엔드 풀과 연결된 모든 VM과 공유되는 시나리오와는 반대입니다.) 공용 IP 주소의 추가 비용 및 많은 수의 개별 IP 주소를 허용 목록에 포함할 때 나타날 수 있는 잠재적 영향 등이 상충되는 고려 사항일 수 있습니다.
 
 >[!NOTE] 
 >이 옵션은 웹 작업자 역할에는 사용할 수 없습니다.

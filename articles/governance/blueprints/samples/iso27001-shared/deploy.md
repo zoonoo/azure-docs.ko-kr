@@ -112,7 +112,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |\[미리 보기\]: Windows VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포|정책 할당|선택 사항: 범위에 추가할 Windows OS를 지원하는 VM 이미지 목록|(선택 사항) 기본값은 _["없음"]_ 입니다.|
 |\[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포|정책 할당|선택 사항: 범위에 추가할 Windows OS를 지원하는 VM 이미지 목록|(선택 사항) 기본값은 _["없음"]_ 입니다.|
 |허용되는 리소스 유형|정책 할당|허용되는 리소스 유형|배포할 수 있는 리소스 종류 목록입니다. 이 목록은 Shared Services에 배포된 모든 리소스 종류로 구성 됩니다.|
-|허용되는 저장소 계정 SKU|정책 할당|허용되는 스토리지 SKU|허용되는 진단 로그 스토리지 계정 SKU의 목록입니다. 기본값은 _["Standard_LRS"]_ 입니다.|
+|허용되는 스토리지 계정 SKU|정책 할당|허용되는 스토리지 SKU|허용되는 진단 로그 스토리지 계정 SKU의 목록입니다. 기본값은 _["Standard_LRS"]_ 입니다.|
 |허용되는 가상 머신 SKU|정책 할당|배포할 수 있는 가상 머신 SKU의 목록입니다. 기본값은 _["Standard_DS1_v2", "Standard_DS2_v2"]_ 입니다.|
 |ISO 27001의 청사진 이니셔티브|정책 할당|진단 로그를 감사하는 리소스 종류|진단 로그 설정을 사용하도록 설정하지 않은 경우 감사할 리소스 종류의 목록입니다. 허용되는 값은 [Azure Monitor 진단 로그 스키마](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type)에서 확인할 수 있습니다.|
 |Log Analytics 리소스 그룹|리소스 그룹|Name|**잠김** - **조직 이름**을 `-sharedsvsc-log-rg`와 연결하여 리소스 그룹을 고유하게 만듭니다.|

@@ -5,6 +5,7 @@
     - name: Azure Maps란?
       href: about-azure-maps.md
 - name: 빠른 시작
+  expanded: true
   items:
     - name: 웹앱 만들기
       href: quick-demo-map-app.md
@@ -24,6 +25,8 @@
       items:
         - name: 지오펜스 설정
           href: tutorial-geofence.md
+        - name: 공간 분석
+          href: tutorial-iot-hub-maps.md
 - name: 개념
   items:
     - name: Azure Maps 인증
@@ -90,21 +93,27 @@
               href: choose-map-style.md
             - name: 맵에 컨트롤 추가
               href: map-add-controls.md
+            - name: 데이터 소스 만들기
+              href: create-data-source-web-sdk.md
             - name: 기호 계층 추가
               href: map-add-pin.md
-            - name: 팝업 추가
-              href: map-add-popup.md
             - name: 거품형 계층 추가
               href: map-add-bubble-layer.md
-            - name: 셰이프 추가
+            - name: 선 계층 추가
+              href: map-add-line-layer.md
+            - name: 다각형 계층 추가
               href: map-add-shape.md
             - name: 열 지도 계층 추가
               href: map-add-heat-map-layer.md
+            - name: 팝업 추가
+              href: map-add-popup.md
             - name: 클러스터 지점 데이터
               href: clustering-point-data-web-sdk.md
             - name: 데이터 기반 스타일 식 사용
               href: data-driven-style-expressions-web-sdk.md
-            - name: 이미지 오버레이
+            - name: 이미지 템플릿을 사용하는 방법
+              href: how-to-use-image-templates-web-sdk.md
+            - name: 이미지 계층 추가
               href: map-add-image-layer.md
             - name: 타일 레이어 추가
               href: map-add-tile-layer.md
@@ -130,12 +139,18 @@
       items:
         - name: Android 지도 컨트롤 시작
           href: how-to-use-android-map-control-library.md
+        - name: 맵 스타일 변경
+          href: set-android-map-styles.md
         - name: 기호 계층 추가
           href: how-to-add-symbol-to-android-map.md
         - name: 셰이프 추가
           href: how-to-add-shapes-to-android-map.md
-        - name: 맵 스타일 변경
-          href: set-android-map-styles.md
+        - name: 기능 정보 표시
+          href: display-feature-information-android.md
+        - name: 타일 계층 추가
+          href: how-to-add-tile-layer-android-map.md
+    - name: 데이터 피드백 제공
+      href: how-to-use-feedback-tool.md
 - name: 참고 자료
   items:
     - name: API 및 매개 변수 확장
@@ -218,7 +233,9 @@
       items:
         - name: IoT Hub
           href: /azure/iot-hub
-        - name: IoT Hub Device Provisioning 서비스
+        - name: IoT 플러그 앤 플레이
+          href: /azure/iot-pnp
+        - name: IoT Hub Device Provisioning Service
           href: /azure/iot-dps
         - name: 지도
           href: /azure/azure-maps

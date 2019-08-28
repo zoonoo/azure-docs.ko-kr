@@ -1,21 +1,21 @@
 ---
-title: 지원 및 도움말 옵션
-titlesuffix: Azure Cognitive Services
-description: Speech Service와 통합되는 응용 프로그램을 만들 때 질문 및 문제에 대한 도움과 지원을 얻는 방법입니다.
+title: 지원 및 도움말 옵션-Speech Service
+titleSuffix: Azure Cognitive Services
+description: Speech Service와 통합되는 애플리케이션을 만들 때 질문 및 문제에 대한 도움과 지원을 얻는 방법입니다.
 services: cognitive-services
-author: wolfma61
+author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/26/2018
-ms.author: wolfma
-ms.openlocfilehash: 4099bc7bfce6de620504e03be3afc5392281d8d8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/23/2019
+ms.author: jhakulin
+ms.openlocfilehash: 26d66868ab4c003dbd962e0c94009bc38bb36345
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072368"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558837"
 ---
 # <a name="support-and-help-options"></a>지원 및 도움말 옵션
 
@@ -64,14 +64,14 @@ Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널입니다. 
 
 검색을 통해 문제에 대한 답변을 찾을 수 없으면 새 질문을 Stack Overflow에 제출합니다. 질문을 작성할 때 다음 태그 중 하나를 사용합니다.
 
-|구성 요소/영역  |태그들  |
+|구성 요소/영역  |Tags  |
 |---------|---------|
 |음성 인식 |[[microsoft-cognitive+speech-to-text]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
 |음성 합성 |[[microsoft-cognitive+text-to-speech]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
 |음성 번역 |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
 |음성 의도 |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
 |일반 음성 SDK |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
-| 음성 우선 가상 도우미 (미리 보기) | [[microsoft-cognitive+virtual-assistant+botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) | 
+| 음성 우선 가상 도우미 (미리 보기) | [[microsoft-cognitive+virtual-assistant+botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) |
 
 > [!TIP]
 > Stack Overflow의 다음 게시물에는 질문을 작성하고 소스 코드를 추가하는 방법에 대한 팁이 포함되어 있습니다. 다음 지침을 따르면 커뮤니티 구성원이 질문을 신속하게 평가하고 답변할 수 있는 기회를 늘릴 수 있습니다.  
@@ -85,7 +85,7 @@ Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널입니다. 
 * [Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
 * [Speech Devices SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
 
-기능 요청, 버그 보고서를 만드는 또는 일반 질문을 게시 하 고 모범 사례를 공유할 수 있습니다. 버그 보고서의 경우 다음과 같이 제공되는 템플릿을 따릅니다.
+버그 보고서를 작성 하거나 기능 요청을 하거나 일반적인 질문을 하 고 모범 사례를 공유할 수 있습니다. 버그 보고서의 경우 다음과 같이 제공되는 템플릿을 따릅니다.
 
 **버그 설명**
 
@@ -120,6 +120,6 @@ Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널입니다. 
 
 ## <a name="uservoice-forum"></a>UserVoice 포럼
 
-Cognitive Services를 만드는 아이디어를 공유하세요. 함께 제공되는 API는 개발하는 애플리케이션에서 더 잘 작동합니다. 증가하는 기술 자료를 사용하여 일반적인 질문에 대한 답변을 찾으세요.
+Cognitive Services와 함께 제공되는 API가 개발하는 애플리케이션에서 더 잘 작동할 수 있도록 아이디어를 공유해 주세요. 더욱 풍부해지고 있는 기술 자료를 사용하여 일반적인 질문에 대한 답변을 찾아보세요.
 
 [UserVoice](https://cognitive.uservoice.com/)

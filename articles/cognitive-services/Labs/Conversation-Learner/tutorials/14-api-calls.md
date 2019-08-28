@@ -10,12 +10,13 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 1f7c7c72703d7c3134dd2acdcc466fc0182fa38a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 261536932cc82a28ad4ee3ffc3575ea41fe9ec5b
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389950"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68703921"
 ---
 # <a name="how-to-add-api-calls-to-a-conversation-learner-model"></a>Conversation Learner 모델에 API 호출을 추가하는 방법
 
@@ -58,7 +59,7 @@ API 호출 코드는 `C:\<installedpath>\src\demos\tutorialAPICalls.ts` 정의 �
 - `ClearEntities` 콜백은 사용자가 다른 숫자를 입력할 수 있도록 숫자 엔터티를 지웁니다. 
     - API 호출이 엔터티를 조작하는 방법을 보여줍니다.
 
-### <a name="actions"></a>작업
+### <a name="actions"></a>동작
 네 가지 작업을 만들었습니다. 이 중 세 가지는 "비대기" API 작업이며, 네 번째 작업은 사용자에게 다른 자습서에서 살펴본 것과 비슷한 질문을 하는 "텍스트" 작업입니다. 각 작업을 만드는 방법을 확인하려면 다음을 수행합니다.
 1. 왼쪽 패널에서 "작업"을 클릭한 다음, 그리드에 나열된 네 가지 작업 중 하나를 클릭합니다.
 2. 표시되는 양식에서 각 필드의 값을 확인합니다.

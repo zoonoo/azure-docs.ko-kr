@@ -1,21 +1,21 @@
 ---
 title: Bing Entity Search API를 사용하여 엔터티 검색
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Bing Entity Search API를 사용하여 검색 쿼리에서 엔터티 및 위치를 추출하고 검색합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: c205f792138ebd7e8094b3bd7cd303d54dfa8d8f
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: HT
+ms.openlocfilehash: 1805f6f7a61f7e0b0a6e4d5bd6931c0a7d1f1b6f
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389853"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883696"
 ---
 # <a name="searching-for-entities-with-the-bing-entity-api"></a>Bing Entity API를 사용하여 엔터티 검색
 

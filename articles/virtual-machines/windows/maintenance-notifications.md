@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2019
 ms.author: shants
-ms.openlocfilehash: fccc99f78d038a5f96b9dfe01b575dedcdcb4cdc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4c8e17cec4ff3595945225dbceb909f8f054a08b
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65405606"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018858"
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Windows 가상 머신에 대한 계획된 유지 관리 알림 처리
 
@@ -27,13 +27,13 @@ Azure에서는 가상 머신에 대한 호스트 인프라의 안정성, 성능 
 
 - 유지 관리를 다시 부팅하지 않아도 되는 경우 Azure에서는 호스트를 업데이트하는 동안 바로 마이그레이션을 사용하여 VM을 일시 중지합니다. 이러한 재부팅 불가능 유지 관리 작업은 장애 도메인에 의해 적용된 장애 도메인이고 경고 상태 신호를 받는 경우 진행률이 중지됩니다. 
 
-- 유지 관리를 다시 부팅해야 하는 경우 유지 관리가 계획된 시기에 대해 알림을 받을 수 있습니다. 이러한 경우에는 기간을 일반적으로 30 일 동안 유지 관리를 시작할 수 있는 사용자가 직접를 작동 하는 경우 제공 됩니다.
+- 유지 관리를 다시 부팅해야 하는 경우 유지 관리가 계획된 시기에 대해 알림을 받을 수 있습니다. 이러한 경우에는 사용자에 게 유지 관리를 직접 시작할 수 있는 시간 창이 제공 됩니다 (일반적으로 35 일).
 
 
 다시 부팅해야 하는 계획된 유지 관리는 웨이브에서 예약됩니다. 각 웨이브는 범위(지역)이 다릅니다.
 
 - 웨이브는 고객에게 알림을 보내면서 시작합니다. 기본적으로 알림은 구독 소유자 및 공동 소유자에게 전송됩니다. Azure [활동 로그 경고](../../azure-monitor/platform/activity-logs-overview.md)를 사용하여 추가 수신자나 전자 메일, SMS 및 웹후크와 같은 메시지 옵션을 추가할 수 있습니다.  
-- 알림과 동시에 *셀프 서비스 기간*이 제공됩니다. 30 일 동안 일반적으로이 기간 동안이 웨이브에 포함 되 고 사전에 고유한 요구를 일정에 따라 유지 관리를 시작 있는 가상 머신을 찾을 수 있습니다.
+- 알림과 동시에 *셀프 서비스 기간*이 제공됩니다. 일반적으로 35 일인이 기간 동안이 웨이브에 포함 되어 있는 가상 컴퓨터를 찾고 예약 요구 사항에 따라 사전에 유지 관리를 시작할 수 있습니다.
 - 셀프 서비스 기간이 끝나면 *예약된 유지 관리 기간*이 시작됩니다. 이 기간 중 어떤 시점에 Azure는 가상 머신에 필요한 유지 관리를 예약하고 적용합니다. 
 
 두 기간이 존재하는 이유는 Azure에서 유지 관리를 자동으로 시작하는 시기를 파악하면서 유지 관리를 시작하고 가상 머신을 다시 부팅하는 데 충분한 시간을 제공하기 위한 것입니다.
@@ -170,7 +170,7 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 
 **A:** 가용성 집합 또는 가상 머신 확장 집합에 배포된 가상 머신에는 UD(업데이트 도메인) 개념이 있습니다. 유지 관리를 수행할 때 Azure는 UD 제약 조건을 적용하고 다른 UD(동일한 가용성 집합 내)의 가상 머신을 다시 부팅하지 않습니다.  또 Azure는 다음 가상 머신 그룹으로 이동하기 전에 30분 이상 대기합니다. 
 
-고가용성에 대한 자세한 내용은 [Azure에서 가상 머신의 지역 및 가용성](regions-and-availability.MD)을 참조하세요.
+고가용성에 대 한 자세한 내용은 [Azure의 가상 컴퓨터 가용성](availability.MD)을 참조 하세요.
 
 **Q: 계획된 유지 관리에 관한 알림은 어떻게 받나요?**
 

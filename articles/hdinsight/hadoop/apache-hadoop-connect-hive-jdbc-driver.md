@@ -8,36 +8,36 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: hrasheed
-ms.openlocfilehash: 56a2b89277cbf8866c1992a6738bd80106ef3313
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 36233dc986752ded409389a0a8e267c92a40b5a5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480013"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562600"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>HDInsight에서 JDBC 드라이버를 통해 Apache Hive 쿼리
 
 [!INCLUDE [ODBC-JDBC-selector](../../../includes/hdinsight-selector-odbc-jdbc.md)]
 
-Java 애플리케이션에서 JDBC 드라이버를 사용하여 Azure HDInsight의 Apache Hadoop에 Apache Hive 쿼리를 제출하는 방법을 알아봅니다. 이 문서에서는 SQuirreL SQL 클라이언트에서 프로그래밍 방식으로 연결 하는 방법에 설명 합니다.
+Java 애플리케이션에서 JDBC 드라이버를 사용하여 Azure HDInsight의 Apache Hadoop에 Apache Hive 쿼리를 제출하는 방법을 알아봅니다. 이 문서의 정보는 SQuirreL SQL 클라이언트에서 프로그래밍 방식으로 연결 하는 방법을 보여 줍니다.
 
 Hive JDBC 인터페이스에 대한 자세한 내용은 [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * HDInsight Hadoop 클러스터. 만들려면 [Azure HDInsight 시작](apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
-* 합니다 [Java 개발자 키트 (JDK) 버전 11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html) 이상.
+* [JDK (Java Developer Kit) 버전 11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html) 이상
 * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL은 JDBC 클라이언트 애플리케이션입니다.
 
 ## <a name="jdbc-connection-string"></a>JDBC 연결 문자열
 
-Azure에서 HDInsight 클러스터에 대 한 JDBC 연결은 포트 443 통해 수행 하 고는 트래픽이 SSL을 사용 하 여 보호 됩니다. 클러스터가 뒤에 있는 공용 게이트웨이는 HiveServer2에서 실제로 수신하는 포트로 트래픽을 리디렉션합니다. 다음 연결 문자열은 HDInsight에 사용할 형식을 보여줍니다.
+Azure의 HDInsight 클러스터에 대 한 JDBC 연결은 포트 443을 통해 이루어지며, 트래픽은 SSL을 사용 하 여 보호 됩니다. 클러스터가 뒤에 있는 공용 게이트웨이는 HiveServer2에서 실제로 수신하는 포트로 트래픽을 리디렉션합니다. 다음 연결 문자열은 HDInsight에 사용할 형식을 보여줍니다.
 
     jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
 
 `CLUSTERNAME`을 HDInsight 클러스터 이름으로 바꿉니다.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>인증
 
 연결을 설정할 때 HDInsight 클러스터 관리자 이름 및 암호를 사용하여 클러스터 게이트웨이에 대해 인증해야 합니다. SQuirreL SQL 등의 JDBC 클라이언트에서 연결할 때 클라이언트 설정에 관리자 이름 및 암호를 입력해야 합니다.
 
@@ -51,14 +51,14 @@ DriverManager.getConnection(connectionString,clusterAdmin,clusterPassword);
 
 SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실행하는 데 사용할 수 있는 JDBC 클라이언트입니다. 다음 단계에서는 SQuirreL SQL을 이미 설치했다고 가정합니다.
 
-1. 클러스터에서 복사할 특정 파일을 포함할 디렉터리를 만듭니다.
+1. 클러스터에서 복사할 특정 파일을 포함 하는 디렉터리를 만듭니다.
 
-2. 다음 스크립트에서 바꾸기 `sshuser` 클러스터에 대 한 SSH 사용자 계정 이름입니다.  `CLUSTERNAME`은 HDInsight 클러스터 이름으로 바꿉니다.  명령줄에서 이전 단계에서 만든 작업 디렉터리로 변경 하 고 HDInsight 클러스터에서 파일을 복사 하려면 다음 명령을 입력 합니다.
+2. 다음 스크립트에서을 클러스터의 `sshuser` SSH 사용자 계정 이름으로 바꿉니다.  `CLUSTERNAME`은 HDInsight 클러스터 이름으로 바꿉니다.  명령줄에서, 이전 단계에서 만든 것으로 작업 디렉터리를 변경한 후 다음 명령을 입력 하 여 HDInsight 클러스터에서 파일을 복사 합니다.
 
     ```cmd
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/{hadoop-auth.jar,hadoop-common.jar,lib/log4j-*.jar,lib/slf4j-*.jar} .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/{hadoop-auth.jar,hadoop-common.jar,lib/log4j-*.jar,lib/slf4j-*.jar,lib/curator-*.jar} .
 
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/{commons-codec*.jar,commons-logging-*.jar,hive-*-1.2*.jar,httpclient-*.jar,httpcore-*.jar,libfb*.jar,libthrift-*.jar} .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/{commons-codec*.jar,commons-logging-*.jar,hive-*-*.jar,httpclient-*.jar,httpcore-*.jar,libfb*.jar,libthrift-*.jar} .
     ```
 
 3. SQuirreL SQL 애플리케이션을 시작합니다. 왼쪽 창에서 **드라이버**를 선택합니다.
@@ -73,14 +73,14 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
 
     * **이름**: Hive
     * **예제 URL**: `jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`
-    * **추가 클래스 경로**: 사용 된 **추가** 이전에 다운로드 한 jar 파일의 모든 추가 단추
+    * **추가 클래스 경로**: **추가** 단추를 사용 하 여 이전에 다운로드 한 모든 jar 파일을 추가 합니다.
     * **클래스 이름**: org.apache.hive.jdbc.HiveDriver
 
    ![드라이버 추가 대화 상자](./media/apache-hadoop-connect-hive-jdbc-driver/adddriver.png)
 
-   선택 **확인** 이러한 설정을 저장 합니다.
+   **확인** 을 선택 하 여 이러한 설정을 저장 합니다.
 
-6. SQuirreL SQL 창의 왼쪽에서 **별칭**을 선택합니다. 다음을 선택 합니다 **+** 연결 별칭을 만들려면 아이콘.
+6. SQuirreL SQL 창의 왼쪽에서 **별칭**을 선택합니다. 그런 다음 아이콘 **+** 을 선택 하 여 연결 별칭을 만듭니다.
 
     ![새 별칭 추가](./media/apache-hadoop-connect-hive-jdbc-driver/aliases.png)
 
@@ -88,7 +88,7 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
 
     * **이름**: HDInsight의 Hive
 
-    * **드라이버**: 드롭다운을 사용 하 여 선택 합니다 **Hive** 드라이버
+    * **드라이버**: 드롭다운을 사용 하 여 **Hive** 드라이버를 선택 합니다.
 
     * **URL**: `jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2`
 
@@ -109,7 +109,7 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
 
     ![연결 대화 상자](./media/apache-hadoop-connect-hive-jdbc-driver/connect.png)
 
-9. 연결 되 면 SQL 쿼리 대화 상자에 다음 쿼리를 입력 한 다음 선택 합니다 **실행** 아이콘 (실행 중인 person). 결과 영역에 쿼리 결과가 표시됩니다.
+9. 연결 되 면 SQL 쿼리 대화 상자에 다음 쿼리를 입력 한 다음 **실행** 아이콘 (실행 중인 사용자)을 선택 합니다. 결과 영역에 쿼리 결과가 표시됩니다.
 
     ```hql
     select * from hivesampletable limit 10;

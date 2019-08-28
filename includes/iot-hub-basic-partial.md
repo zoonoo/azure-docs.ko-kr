@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/01/2018
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: 0b4d3455748e775aaf07b2853b8a7ccee335b71d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: b0b3825e5afe31f16553a5c7cacbe8cb1fb40295
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182297"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050232"
 ---
 >[!NOTE]
->클라우드-디바이스 메시지, 디바이스 트윈스, 디바이스 관리 등 이 문서에 언급된 일부 기능은 IoT Hub의 표준 계층에서만 사용할 수 있습니다. 기본 및 표준 IoT Hub 계층에 대한 자세한 내용은 [적합한 IoT Hub 계층 선택 방법](../articles/iot-hub/iot-hub-scaling.md)을 참조하세요.
+>이 문서에서 설명 하는 기능 중 일부는 클라우드-장치 메시징, 장치 쌍 및 장치 관리와 같이 IoT Hub 표준 계층 에서만 사용할 수 있습니다. 기본 및 표준 IoT Hub 계층에 대한 자세한 내용은 [적합한 IoT Hub 계층 선택 방법](../articles/iot-hub/iot-hub-scaling.md)을 참조하세요.

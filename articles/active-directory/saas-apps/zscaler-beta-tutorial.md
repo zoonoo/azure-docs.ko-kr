@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f31361dc3d7e24092677f1a78b2c405ae84578ed
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 07b0f8112f724c857ffb46378f7aa7ef605b9bbb
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230066"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943285"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>자습서: Zscaler Beta와 Azure Active Directory 통합
 
@@ -112,7 +112,7 @@ Zscaler Beta에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
     > [!NOTE]
     > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL 값으로 업데이트합니다. 이 값을 얻으려면 [Zscaler Beta 클라이언트 지원 팀](https://www.zscaler.com/company/contact)에 문의하세요.
 
-5. Zscaler Beta 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.  **편집**을 선택하여 **사용자 특성** 대화 상자를 엽니다.
+5. Zscaler Beta 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **편집**을 선택하여 **사용자 특성** 대화 상자를 엽니다.
 
     ![사용자 특성 대화 상자](common/edit-attribute.png)
 

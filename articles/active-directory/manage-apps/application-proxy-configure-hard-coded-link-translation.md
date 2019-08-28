@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 08/15/2019
 ms.author: mimart
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0899a127566c4d06de7d42443a956c2660a7a6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aa0dc2081aff5a24fb830b756131cccd5c6ce810
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65956892"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533690"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 게시된 앱에 대해 하드 코드된 링크 리디렉션
 
@@ -30,13 +30,16 @@ Azure AD 애플리케이션 프록시는 원격 사용자가 자신의 디바이
 링크가 회사 네트워크의 내부와 외부에서 동일하게 작동하는지 확인하는 가장 좋은 방법은 앱의 외부 URL을 내부 URL과 동일하도록 구성하는 것입니다. [사용자 지정 도메인](application-proxy-configure-custom-domain.md)을 사용하여 외부 URL이 기본 애플리케이션 프록시 도메인 대신 회사 도메인 이름을 갖도록 구성합니다.
 
 
-테넌트에서 사용자 지정 도메인을 사용할 수 없는 경우 이 기능을 제공하기 위한 몇 가지 다른 옵션이 있습니다. 이러한 모든 기능은 사용자 지정 도메인 및 서로 간에 호환이 가능하므로 필요한 경우 다른 솔루션 및 사용자 지정을 구성할 수 있습니다. 
+테넌트에서 사용자 지정 도메인을 사용할 수 없는 경우 이 기능을 제공하기 위한 몇 가지 다른 옵션이 있습니다. 이러한 모든 기능은 사용자 지정 도메인 및 서로 간에 호환이 가능하므로 필요한 경우 다른 솔루션 및 사용자 지정을 구성할 수 있습니다.
 
-**옵션 1: Managed Browser 사용** – 이 솔루션은 사용자가 Intune Managed Browser를 통해 애플리케이션에 액세스하도록 권장하거나 요구할 계획인 경우에만 적용될 수 있습니다. 모든 게시된 URL을 처리합니다. 
+> [!NOTE]
+> Javascript를 통해 생성 된 하드 코드 된 내부 Url에 대해서는 링크 변환이 지원 되지 않습니다.
+
+**옵션 1: Managed Browser 또는 microsoft edge** 사용-이 솔루션은 사용자가 Intune Managed Browser 또는 microsoft edge 브라우저를 통해 응용 프로그램에 액세스 하도록 권장 하거나 요구 하는 경우에만 적용할 수 있습니다. 모든 게시된 URL을 처리합니다. 
 
 **옵션 2: MyApps 확장 사용** – 이 솔루션에서는 사용자가 클라이언트 쪽 브라우저 확장을 설치할 것을 요구하지만 게시된 모든 URL 및 작업을 인기 브라우저로 처리합니다. 
 
-**옵션 3: 링크 변환 설정 사용** – 사용자가 볼 수 없는 관리자 쪽 설정입니다. 그러나 HTML 및 CSS의 URL만 처리합니다. Javascript를 통해 생성된 하드 코딩된 내부 URL(예)은 작동하지 않습니다.  
+**옵션 3: 링크 변환 설정 사용** – 사용자가 볼 수 없는 관리자 쪽 설정입니다. 그러나 HTML 및 CSS의 URL만 처리합니다.   
 
 이 세 가지 기능은 사용자가 어디에 있든 관계 없이 링크를 계속 작동시킵니다. 내부 엔드포인트나 포트를 직접 가리키는 앱을 사용하는 경우 이러한 내부 URL을 게시된 외부 애플리케이션 프록시 URL에 매핑할 수 있습니다. 
 
@@ -47,9 +50,9 @@ Azure AD 애플리케이션 프록시는 원격 사용자가 자신의 디바이
 > 또는 링크 변환으로 구성해야 하는 애플리케이션이 SharePoint인 경우 링크 매핑에 대한 다른 방법으로 [SharePoint 2013에 대한 대체 액세스 매핑 구성](https://technet.microsoft.com/library/cc263208.aspx)을 참조하세요. 
 
  
-### <a name="option-1-intune-managed-browser-integration"></a>옵션 1: Intune Managed Browser 통합 
+### <a name="option-1-intune-managed-browser-and-microsoft-edge-integration"></a>옵션 1: Intune Managed Browser 및 Microsoft Edge 통합 
 
-Intune Managed Browser를 사용하여 애플리케이션과 콘텐츠를 더욱 안전하게 보호할 수 있습니다. 이 솔루션을 사용하려면 Intune Managed Browser를 통해 사용자가 애플리케이션에 액세스하도록 요구/권장해야 합니다. 애플리케이션 프록시로 게시된 모든 내부 URL은 Managed Browser에서 인식하고 해당 외부 URL로 리디렉션됩니다. 이렇게 하면 모든 하드 코딩된 내부 URL이 작동하고 사용자가 브라우저로 이동하여 내부 URL을 직접 입력하면 사용자가 원격인 경우에도 작동합니다.  
+Intune Managed Browser 또는 Microsoft Edge를 사용 하 여 응용 프로그램 및 콘텐츠를 더 안전 하 게 보호할 수 있습니다. 이 솔루션을 사용하려면 Intune Managed Browser를 통해 사용자가 애플리케이션에 액세스하도록 요구/권장해야 합니다. 애플리케이션 프록시로 게시된 모든 내부 URL은 Managed Browser에서 인식하고 해당 외부 URL로 리디렉션됩니다. 이렇게 하면 모든 하드 코딩된 내부 URL이 작동하고 사용자가 브라우저로 이동하여 내부 URL을 직접 입력하면 사용자가 원격인 경우에도 작동합니다.  
 
 이 옵션을 구성하는 방법을 비롯한 자세한 내용은 [Managed Browser](https://docs.microsoft.com/intune/app-configuration-managed-browser) 문서를 참조하세요.  
 
@@ -59,14 +62,14 @@ MyApps 브라우저 확장을 사용하여 애플리케이션 프록시로 게�
 
 이 기능을 사용하려면 사용자가 확장을 다운로드하고 로그인해야 합니다. 관리자 또는 사용자에게 필요한 다른 구성은 없습니다. 
 
-이 옵션을 구성 하는 방법을 비롯 한 자세한 내용은를 참조 하십시오 합니다 [MyApps 브라우저 확장](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension) 설명서.
+이 옵션을 구성 하는 방법을 포함 하 여 자세히 알아보려면 [Myapps 브라우저 확장](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension) 설명서를 참조 하세요.
 
 ### <a name="option-3-link-translation-setting"></a>옵션 3: 링크 변환 설정 
 
-링크 변환을 사용하도록 설정하면 애플리케이션 프록시 서비스에서 게시된 내부 링크에 대한 HTML 및 CSS를 검색하고 변환하므로 사용자가 중단 없이 환경을 이용할 수 있습니다. MyApps 브라우저 확장을 사용 하 여는 사용자에 게는 더 많은 성능이 뛰어난 환경을 제공 하기 때문 링크 변환을 설정 하는 것이 좋습니다.
+링크 변환을 사용하도록 설정하면 애플리케이션 프록시 서비스에서 게시된 내부 링크에 대한 HTML 및 CSS를 검색하고 변환하므로 사용자가 중단 없이 환경을 이용할 수 있습니다. 사용자에 게 더 높은 성능의 환경을 제공 하기 때문에 MyApps 브라우저 확장을 사용 하는 것이 링크 변환 설정에 좋습니다.
 
 > [!NOTE]
-> 옵션 2 또는 3을 사용 하는 경우 다음 중 하나에 한 번에 설정 되어야 합니다.
+> 옵션 2 또는 3을 사용 하는 경우 한 번에 하나씩만 사용 하도록 설정 해야 합니다.
 
 ## <a name="how-link-translation-works"></a>링크 변환의 작동 방식
 
@@ -83,30 +86,30 @@ MyApps 브라우저 확장을 사용하여 애플리케이션 프록시로 게�
 - **상대 내부 링크** - `/claims/claims.html` 같은 로컬 파일 구조에서 공유 리소스를 가리킵니다. 이러한 링크는 애플리케이션 프록시를 통해 게시되는 앱에서 자동으로 작동하며 링크 변환과 관계없이 계속 작동합니다. 
 - **하드 코드된 내부 링크** - `http://expenses` 같은 다른 온-프레미스 앱이나 `http://expenses/logo.jpg` 같은 게시된 파일에 대한 링크입니다. 링크 변환 기능은 하드 코드된 내부 링크에서 작동하며 해당 링크를 원격 사용자가 통과해야 하는 외부 URL을 가리키도록 변경합니다.
 
-포함에 대 한 응용 프로그램 프록시 링크 변환 지 HTML 코드 태그의 전체 목록:
-* 하나
+응용 프로그램 프록시에서 링크 변환을 지 원하는 HTML 코드 태그의 전체 목록은 다음과 같습니다.
+* a
 * audio
-* 자료
+* base
 * 단추
 * div
 * 포함
-* 폼
-* 프레임
-* head
+* 용지
+* 프레임씩
+* 사장
 * html
 * iframe
 * 이미지
-* input
-* link
+* 입력
+* 링크
 * menuitem
-* meta
-* object
-* script
-* source
-* 추적
-* video
+* 메타
+* 개체(object)
+* 스크립트(script)
+* 원본(source)
+* 추적이
+* 비디오
 
-또한 CSS 내 URL 특성 또한 변환 됩니다.
+또한 CSS 내에서 URL 특성도 변환 됩니다.
 
 ### <a name="how-do-apps-link-to-each-other"></a>앱이 서로 연결되는 방식
 

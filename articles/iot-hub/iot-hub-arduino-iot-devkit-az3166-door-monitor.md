@@ -201,4 +201,4 @@ DevKit가 안정적인 자기 필드가 있는 경우 프로그램이 먼저 초
 Azure IoT 원격 모니터링 솔루션 가속기에 DevKit 디바이스를 연결하는 방법에 대해 알아보고 SendGrid 서비스를 사용하여 이메일을 보냈습니다. 권장되는 단계는 다음과 같습니다.
 
 * [Azure IoT 원격 모니터링 솔루션 가속기 개요](https://docs.microsoft.com/azure/iot-suite/)
-* [Azure IoT Central 애플리케이션에 MXChip IoT DevKit 장치 연결](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [Azure IoT Central 애플리케이션에 MXChip IoT DevKit 디바이스 연결](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

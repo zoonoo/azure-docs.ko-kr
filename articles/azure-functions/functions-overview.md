@@ -1,11 +1,10 @@
 ---
 title: Azure Functions 개요 | Microsoft Docs
 description: Azure Functions를 사용하여 비동기 워크로드를 몇 분 이내에 최적화하는 방법에 대해 이해합니다.
-services: functions
 documentationcenter: na
 author: mattchenderson
 manager: jeconnoc
-keywords: Azure 함수, 함수, 이벤트 처리, webhook, 동적 계산, 서버리스 아키텍처
+keywords: Azure 함수, 함수, 이벤트 처리, webhook, 동적 컴퓨팅, 서버리스 아키텍처
 ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.service: azure-functions
 ms.devlang: multiple
@@ -13,22 +12,22 @@ ms.topic: overview
 ms.date: 10/03/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: b8d57a2bbaa53a0291dc9c05ab234c3238322a71
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 36dbfca577f69c3a7c49d03ef31bc18c71222f95
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605447"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881285"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Azure Functions 소개  
-Azure Functions는 클라우드에서 작은 코드 또는 "함수"를 실행하기 위한 솔루션입니다. 실행할 전체 애플리케이션 또는 인프라를 염려하지 않고 당면한 문제에 필요한 코드를 작성할 수 있습니다. Azure Functions는 개발 생산성을 높일 수 있으며 C#, F#, Node.js, Java, PHP 등 선택한 개발 언어를 사용할 수 있습니다. 코드를 실행한 시간에 따라 지불하고 Azure를 신뢰하여 필요에 따라 크기를 조정합니다. Azure Functions를 사용하면 Microsoft Azure에서 [서버를 사용하지 않는](https://azure.microsoft.com/solutions/serverless/) 애플리케이션을 개발할 수 있습니다.
+Azure Functions는 클라우드에서 작은 코드 또는 "함수"를 실행하기 위한 솔루션입니다. 실행할 전체 애플리케이션 또는 인프라를 염려하지 않고 당면한 문제에 필요한 코드를 작성할 수 있습니다. Functions는 개발 생산성을 높일 수 있으며 C#, Java, JavaScript, PowerShell 및 Python 등 원하는 개발 언어를 사용할 수 있습니다. 코드를 실행한 시간에 따라 지불하고 Azure를 신뢰하여 필요에 따라 크기를 조정합니다. Azure Functions를 사용하면 Microsoft Azure에서 [서버를 사용하지 않는](https://azure.microsoft.com/solutions/serverless/) 애플리케이션을 개발할 수 있습니다.
 
 이 항목에서는 Azure Functions에 대한 간략한 개요를 제공합니다. Azure Functions를 바로 시작하려면 [첫 번째 Azure Function 만들기](functions-create-first-azure-function.md)를 시작합니다. Functions에 대한 자세한 기술 정보는 [개발자 참조](functions-reference.md)를 참조하세요.
 
 ## <a name="features"></a>기능
 Azure Functions의 몇 가지 주요 기능은 다음과 같습니다.
 
-* **언어 선택** - C#, F# 또는 Javascript를 사용하여 함수를 작성합니다. 다른 옵션은 [지원되는 언어](supported-languages.md)를 참조하세요.
+* **언어 선택** - C#, Java, Javascript, Python 등 원하는 언어를 사용하여 함수를 작성합니다. 전체 목록은 [지원되는 언어](supported-languages.md)를 참조하세요.
 * **사용량에 따른 가격 책정 모델** - 코드를 실행하는 데 사용한 시간에 대해서만 지불합니다. [가격 책정 섹션](#pricing)에서 소비 호스팅 요금제 옵션을 참조하세요.  
 * **고유한 종속성 가져오기** - Functions는 NuGet 및 NPM을 지원하므로 즐겨찾는 라이브러리를 사용할 수 있습니다.  
 * **통합 보안** - Azure Active Directory, Facebook, Google, Twitter, Microsoft 계정 등의 OAuth 공급자를 사용하여 HTTP 트리거 함수를 보호합니다.  
@@ -45,7 +44,7 @@ Functions는 다음을 포함한 주요 시나리오로 시작할 수 있는 템
 * **TimerTrigger** - 사전 정의된 일정에 따라 정리 또는 다른 배치 작업을 실행합니다. 예제를 보려면 [타이머를 통해 트리거되는 함수 만들기](functions-create-scheduled-function.md)를 참조하세요.
 * **CosmosDBTrigger** - NoSQL 데이터베이스의 컬렉션에 추가되거나 업데이트될 때 Azure Cosmos DB 문서를 처리합니다. 자세한 내용은 [Azure Cosmos DB 바인딩](functions-bindings-cosmosdb-v2.md)을 참조하세요.
 * **BlobTrigger** - 컨테이너에 Azure Storage Blob을 추가할 때 해당 Blob을 처리합니다. 이 함수를 이미지 크기 조정에 사용할 수 있습니다. 자세한 내용은 [Blob Storage 바인딩](functions-bindings-storage-blob.md)을 참조하세요.
-* **QueueTrigger** - Azure Storage 큐에 도착하는 메시지에 대응합니다. 자세한 내용은 [Azure Queue 저장소 바인딩](functions-bindings-storage-queue.md)을 참조하세요.
+* **QueueTrigger** - Azure Storage 큐에 도착하는 메시지에 대응합니다. 자세한 내용은 [Azure Queue storage 바인딩](functions-bindings-storage-queue.md)을 참조하세요.
 * **EventGridTrigger** - Azure Event Grid의 구독에 전달된 이벤트에 응답합니다. 필터링을 포함하는 이벤트를 수신하기 위한 구독 기반 모델을 지원합니다. 이벤트 기반 아키텍처를 구축하기 위한 좋은 솔루션입니다. 예를 들어 [Event Grid를 사용하여 업로드된 이미지 크기 자동 조정](../event-grid/resize-images-on-storage-blob-upload-event.md)을 참조하세요.
 * **EventHubTrigger** - Azure Event Hub에 전달된 이벤트에 응답합니다. 애플리케이션 계측, 사용자 경험 또는 워크플로 처리 및 사물 인터넷(IoT) 시나리오에서 특히 유용합니다. 자세한 내용은 [Event Hubs 바인딩](functions-bindings-event-hubs.md)을 참조하세요.
 * **ServiceBusQueueTrigger** - 메시지 큐를 수신하여 다른 Azure 서비스 또는 온-프레미스 서비스에 코드를 연결합니다. 자세한 내용은 [Service Bus 바인딩](functions-bindings-service-bus.md)을 참조하세요.
@@ -75,11 +74,11 @@ Azure Functions에는 두 종류의 가격 책정 계획이 있습니다. 사용
 
 ## <a name="next-steps"></a>다음 단계
 * [첫 번째 Azure 함수 만들기](functions-create-first-azure-function.md)  
-   Azure Functions 빠른 시작을 사용하여 바로 첫 번째 함수를 만듭니다. 
+  Azure Functions 빠른 시작을 사용하여 바로 첫 번째 함수를 만듭니다. 
 * [Azure Functions 개발자 참조](functions-reference.md)  
-   Azure Functions 런타임, 함수 코딩, 트리거 및 바인딩 정의에 대한 참조에 대해 더욱 기술적인 정보를 제공합니다.
+  Azure Functions 런타임, 함수 코딩, 트리거 및 바인딩 정의에 대한 참조에 대해 더욱 기술적인 정보를 제공합니다.
 * [Azure Functions 테스트](functions-test-a-function.md)  
-   함수를 테스트하는 다양한 도구와 기법을 설명합니다.
+  함수를 테스트하는 다양한 도구와 기법을 설명합니다.
 * [Azure Functions 크기 조정 방법](functions-scale.md)  
   소비 호스팅 요금제, 올바른 요금제 선택 방법을 포함하여 Azure Functions에서 사용 가능한 서비스 요금제에 대해 설명합니다. 
 * [Azure App Service에 대해 자세히 알아보기](../app-service/overview.md)  

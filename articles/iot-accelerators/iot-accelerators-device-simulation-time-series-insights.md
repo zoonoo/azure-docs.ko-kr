@@ -53,7 +53,7 @@ Time Series Insights에 원격 분석을 스트리밍하도록 전용 소비자 
 
 ## <a name="create-a-new-time-series-insights-environment"></a>새로운 Time Series Insights 환경을 만듭니다.
 
-[Azure Time Series Insights](../../articles/time-series-insights/time-series-insights-overview.md)는 클라우드에서 IoT 규모 시계열 데이터를 관리하기 위한 완전 관리형 분석, 저장 및 가상화 서비스입니다. 새로운 Time Series Insights 환경을 만들려면:
+[Azure Time Series Insights](../../articles/time-series-insights/time-series-insights-overview.md)는 클라우드에서 IoT 규모 시계열 데이터를 관리하기 위한 완전 관리형 분석, 스토리지 및 가상화 서비스입니다. 새로운 Time Series Insights 환경을 만들려면:
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 

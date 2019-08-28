@@ -3,7 +3,7 @@ title: Azure에서 Service Fabric과 API Management 통합 | Microsoft Docs
 description: Azure API Management를 빠르게 시작하고 Service Fabric에서 백 엔드 서비스로 트래픽을 라우팅하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -12,19 +12,19 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/26/2018
-ms.author: aljo
+ms.date: 07/10/2019
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: fc2c23d93a1800232b81c5eb2f861e8b71c3e437
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 470eacee5c71742678497edf48169e14a4073829
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428061"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598834"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Azure에서 Service Fabric과 API Management 통합
 
-Service Fabric을 사용한 Azure API Management 배포는 고급 시나리오입니다.  API Management는 백 엔드 Service Fabric 서비스에 대한 풍부한 라우팅 규칙 집합을 API를 게시해야 할 경우에 유용합니다. 일반적으로 클라우드 애플리케이션에는 사용자, 장치 또는 기타 애플리케이션 수신을 위한 단일 지점을 제공하는 프런트 엔드 게이트웨이가 필요합니다. Service Fabric에서 게이트웨이는 ASP.NET Core 애플리케이션, Event Hubs, IoT Hub 또는 Azure API Management와 같이 트래픽 수신용으로 설계된 상태 비저장 서비스일 수 있습니다.
+Service Fabric을 사용한 Azure API Management 배포는 고급 시나리오입니다.  API Management는 백 엔드 Service Fabric 서비스에 대한 풍부한 라우팅 규칙 집합을 API를 게시해야 할 경우에 유용합니다. 일반적으로 클라우드 애플리케이션에는 사용자, 디바이스 또는 기타 애플리케이션 수신을 위한 단일 지점을 제공하는 프런트 엔드 게이트웨이가 필요합니다. Service Fabric에서 게이트웨이는 ASP.NET Core 애플리케이션, Event Hubs, IoT Hub 또는 Azure API Management와 같이 트래픽 수신용으로 설계된 상태 비저장 서비스일 수 있습니다.
 
 이 문서에서는 Service Fabric을 사용하여 [Azure API Management](../api-management/api-management-key-concepts.md)를 설정하여 Service Fabric의 백 엔드 서비스로 트래픽을 라우팅하는 방법을 보여줍니다.  작업을 완료한 경우 VNET에 API Management가 배포되고, 백 엔드 상태 비저장 서비스에 트래픽을 전송하도록 API 작업이 구성됩니다. Service Fabric을 사용하는 Azure API Management 시나리오에 대해 자세히 알아보려면 [개요](service-fabric-api-management-overview.md) 문서를 참조하세요.
 
@@ -36,7 +36,7 @@ Service Fabric을 사용한 Azure API Management 배포는 고급 시나리오�
 > [!IMPORTANT]
 > 이 기능은 필수 가상 네트워크 지원으로 인해 API Management의 **프리미엄** 및 **개발자** 계층에서 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에
 
@@ -77,7 +77,7 @@ Visual Studio를 관리자 권한으로 시작하고 ASP.NET Core 서비스를 �
  1. Visual Studio에서 파일 -> 새 프로젝트를 선택합니다.
  2. 클라우드에서 Service Fabric 애플리케이션 템플릿을 선택하고 이름을 **"ApiApplication"** 으로 지정합니다.
  3. 상태 비저장 ASP.NET Core 서비스 템플릿을 선택하고 프로젝트 이름을 **"WebApiService"** 로 지정합니다.
- 4. Web API ASP.NET Core 2.0 프로젝트 템플릿을 선택합니다.
+ 4. Web API ASP.NET Core 2.1 프로젝트 템플릿을 선택 합니다.
  5. 프로젝트가 만들어지면 `PackageRoot\ServiceManifest.xml`을 열고 엔드포인트 리소스 구성에서 `Port` 특성을 제거합니다.
 
     ```xml
@@ -88,7 +88,7 @@ Visual Studio를 관리자 권한으로 시작하고 ASP.NET Core 서비스를 �
     </Resources>
     ```
 
-    포트를 제거 하면 Service Fabric이 네트워크 보안 그룹을 통해 클러스터 Resource Manager 템플릿에서 트래픽이 흐르도록 수 있습니다를 API Management에서 연 응용 프로그램 포트 범위에서 동적으로 포트를 지정할 수 있습니다.
+    포트를 제거 하면 Service Fabric는 클러스터 리소스 관리자 템플릿에서 네트워크 보안 그룹을 통해 연 응용 프로그램 포트 범위에서 동적으로 포트를 지정 하 여 트래픽이 API Management에서 전송 될 수 있도록 합니다.
 
  6. Web API를 로컬에서 사용할 수 있는지 확인하려면 Visual Studio에서 F5 키를 누릅니다.
 
@@ -108,10 +108,10 @@ Visual Studio를 관리자 권한으로 시작하고 ASP.NET Core 서비스를 �
 
 다음 리소스 관리자 템플릿 및 매개 변수 파일을 다운로드하고 저장합니다.
 
-* [network-apim.json][network-arm]
-* [network-apim.parameters.json][network-parameters-arm]
-* [apim.json][apim-arm]
-* [apim.parameters.json][apim-parameters-arm]
+* [네트워크-apim. json][network-arm]
+* [네트워크-apim. parameters. json][network-parameters-arm]
+* [apim. json][apim-arm]
+* [apim. parameters. json][apim-parameters-arm]
 
 *network-apim.json* 템플릿은 Service Fabric 클러스터가 배포된 가상 네트워크에 새로운 서브넷 및 네트워크 보안 그룹을 배포합니다.
 
@@ -145,7 +145,7 @@ Service Fabric 백 엔드의 경우 특정 Service Fabric 서비스가 아니라
 
 * **displayName**은 API에 대한 어떤 이름도 될 수 있습니다. 이 문서에서는 "Service Fabric 앱"을 사용합니다.
 * **name**은 API를 설명하는 고유한 이름(예: "service-fabric-app")을 제공합니다. 개발자 및 게시자 포털에 표시됩니다.
-* **serviceUrl**은 API를 구현하는 HTTP 서비스를 참조합니다. API 관리는 이 주소로 요청을 전달합니다. Service Fabric 백 엔드에는 이 URL 값이 사용되지 않습니다. 여기에 임의의 값을 입력할 수 있습니다. 예를 들어가이 문서에 대 한 "http:\//servicefabric"입니다.
+* **serviceUrl**은 API를 구현하는 HTTP 서비스를 참조합니다. API 관리는 이 주소로 요청을 전달합니다. Service Fabric 백 엔드에는 이 URL 값이 사용되지 않습니다. 여기에 임의의 값을 입력할 수 있습니다. 이 문서의 경우 (예: "http:\//servicefabric").
 * **path**는 API Management 서비스의 기본 URL에 추가됩니다. 기본 URL은 API Management 서비스 인스턴스에서 호스트되는 모든 API에 공통으로 사용됩니다. API Management는 접미사를 사용하여 API를 구분하므로, 접미사는 지정된 게시자의 모든 API에 대해 고유해야 합니다.
 * **protocols**는 API에 액세스하는 데 사용할 수 있는 프로토콜을 결정합니다. 이 문서에서는 **http** 및 **https**가 나열됩니다.
 * **path**는 API에 대한 접미사입니다. 이 문서에서는 "myapp"을 사용합니다.
@@ -197,7 +197,7 @@ Service Fabric 백 엔드의 경우 특정 Service Fabric 서비스가 아니라
 
 사용자 배포의 *cluster.parameters.json*에 다음의 빈 매개 변수를 입력합니다.
 
-|매개 변수|Value|
+|매개 변수|값|
 |---|---|
 |apimInstanceName|sf-apim|
 |apimPublisherEmail|myemail@contosos.com|
@@ -288,7 +288,7 @@ az group deployment create --name ApiMgmtDeployment --resource-group $ResourceGr
 
 클러스터는 클러스터 리소스 외에도 다른 Azure 리소스로 이루어져 있습니다. 클러스터 및 클러스터에서 사용하는 모든 리소스를 삭제하는 가장 간단한 방법은 리소스 그룹을 삭제하는 것입니다.
 
-Azure에 로그인하고, 클러스터를 제거하려는 구독 ID를 선택합니다.  [Azure Portal](https://portal.azure.com)에 로그인하여 구독 ID를 찾을 수 있습니다. 리소스 그룹 및 사용 하 여 모든 클러스터 리소스를 삭제 합니다 [제거 AzResourceGroup cmdlet](/en-us/powershell/module/az.resources/remove-azresourcegroup)합니다.
+Azure에 로그인하고, 클러스터를 제거하려는 구독 ID를 선택합니다.  [Azure Portal](https://portal.azure.com)에 로그인하여 구독 ID를 찾을 수 있습니다. [AzResourceGroup cmdlet](/en-us/powershell/module/az.resources/remove-azresourcegroup)을 사용 하 여 리소스 그룹 및 모든 클러스터 리소스를 삭제 합니다.
 
 ```powershell
 $ResourceGroupName = "sfclustertutorialgroup"

@@ -4,7 +4,7 @@ services: virtual-machines-windows
 documentationcenter: ''
 description: PowerShell을 사용하여 Windows를 실행하는 가상 머신에서 Azure Diagnostics를 사용하도록 설정하는 방법 알아보기
 author: sbtron
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 2e6d88f2-1980-4a24-827e-a81616a0d247
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-ms.openlocfilehash: bd2bcc9284c24f9fa6a02556d7101c1b788ee71e
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 19d30d207e67e1dfd8cdec2fe9951c763a921a0e
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154988"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "67706079"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>PowerShell을 사용하여 Windows를 실행하는 가상 머신에서 Azure Diagnostics를 사용하도록 설정
 
@@ -41,7 +41,7 @@ Resource Manager 배포 모델을 통해 만든 기존 VM에서 진단 확장을
 
 *$diagnosticsconfig_path*는 아래 [샘플](#sample-diagnostics-configuration)에 설명된 XML의 진단 구성이 포함된 파일의 경로입니다.  
 
-진단 구성 파일이 스토리지 계정 이름으로 **StorageAccount** 요소를 지정할 경우 *Set-AzVMDiagnosticsExtension* 스크립트에서 해당 스토리지 계정으로 진단 데이터를 보내도록 진단 확장을 자동으로 설정합니다. 이렇게 작동하려면, 저장소 계정이 VM과 동일한 구독 내에 있어야 합니다.
+진단 구성 파일이 스토리지 계정 이름으로 **StorageAccount** 요소를 지정할 경우 *Set-AzVMDiagnosticsExtension* 스크립트에서 해당 스토리지 계정으로 진단 데이터를 보내도록 진단 확장을 자동으로 설정합니다. 이렇게 작동하려면, 스토리지 계정이 VM과 동일한 구독 내에 있어야 합니다.
 
 진단 구성에 **StorageAccount** 가 지정되지 않은 경우 cmdlet에 *StorageAccountName* 매개 변수를 전달해야 합니다. *StorageAccountName* 매개 변수가 지정된 경우 cmdlet은 항상 진단 구성 파일에 지정된 스토리지 계정이 아닌 매개 변수에 지정된 스토리지 계정을 사용합니다.
 

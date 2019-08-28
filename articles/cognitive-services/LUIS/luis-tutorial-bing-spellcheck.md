@@ -1,6 +1,6 @@
 ---
-title: 맞춤법이 틀린 단어 수정
-titleSuffix: Azure
+title: 철자가 잘못 된 단어 수정-LUIS
+titleSuffix: Azure Cognitive Services
 description: LUIS 엔드포인트 쿼리에 Bing Spell Check API V7을 추가하여 발화에서 맞춤법이 틀린 단어를 수정합니다.
 services: cognitive-services
 author: diberry
@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: 1e5536b08b3b78f35426207369f444e6eb21c87d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f8f22c70870b149f916eb767c5eb310e063d7413
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60495031"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945085"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Bing Spell Check로 맞춤법이 틀린 단어 수정
 
@@ -28,8 +28,8 @@ LUIS 앱을 [Bing Spell Check API V7](https://azure.microsoft.com/services/cogni
 ![무료 키 만들기](./media/luis-tutorial-bing-spellcheck/free-key.png)
 
 <a name"create-subscription-key"></a>
-## <a name="create-endpoint-key"></a>끝점 키 만들기
-무료 키가 만료되면 끝점 키를 만듭니다.
+## <a name="create-endpoint-key"></a>엔드포인트 키 만들기
+무료 키가 만료되면 엔드포인트 키를 만듭니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 

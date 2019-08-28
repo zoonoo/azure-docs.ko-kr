@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 49e80c3fc8935064aceef8ef4e2bd3257c41e5e7
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 6916eea26f03d7b9cd0b3792fa65354619f97f74
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514187"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828494"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Linux에서 개발 환경 준비
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Linux 개발 컴퓨터에서 [Azure Service Fabric 애플리케이션](service-f
 Linux용 Windows 하위 시스템에 Service Fabric 런타임 및 SDK를 설치하는 것은 지원되지 않습니다. 지원되는 Azure Service Fabric CLI(명령줄 인터페이스)를 사용하여 클라우드 또는 온-프레미스의 다른 곳에서 호스팅된 Service Fabric 엔터티를 관리할 수 있습니다. CLI를 설치하는 방법에 대한 정보는 [Service Fabric CLI 설정](./service-fabric-cli.md)을 참조하세요.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 개발을 위해 이러한 운영 체제 버전이 지원됩니다.
 
@@ -106,8 +106,8 @@ apt-get 명령줄 도구를 통해 SDK 및 관련 런타임 패키지를 설치�
 7. APT 키링에 Azul JDK 키를 추가하고 해당 리포지토리를 설정합니다.
 
     ```bash
-    curl -fsSL https://repos.azul.com/azul-repo.key | sudo apt-key add -
-    sudo add-apt-repository 'deb http://repos.azulsystems.com/ubuntu stable main'
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
+    sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
     ```
 
 8. 새로 추가된 리포지토리에 따라 패키지 목록을 새로 고칩니다.
@@ -272,7 +272,7 @@ Java 개발자용 또는 Java EE 개발자용 Eclipse IDE 내에서 Service Fabr
 > 
 > Ubuntu의 경우 패키지 설치 관리자(`apt` 또는 `apt-get`)를 사용하는 대신 Eclipse 사이트에서 직접 설치하는 것이 좋습니다. 이렇게 하면 최신 버전의 Eclipse를 확보할 수 있습니다. Java 개발자용 또는 Java EE 개발자용 Eclipse IDE를 설치할 수 있습니다.
 
-1. Eclipse에서 Eclipse Neon 이상 및 Buildship 버전 2.2.1 이상이 설치되어 있는지 확인합니다. **도움말** > **Eclipse정보** > **설치 세부 정보**를 차례로 선택하여 설치된 구성 요소의 버전을 확인합니다. [Eclipse Buildship: 플러그 인 Gradle 용 eclipse][buildship-update]합니다.
+1. Eclipse에서 Eclipse Neon 이상 및 Buildship 버전 2.2.1 이상이 설치되어 있는지 확인합니다. **도움말** > **Eclipse정보** > **설치 세부 정보**를 차례로 선택하여 설치된 구성 요소의 버전을 확인합니다. [Eclipse Buildship: Gradle][buildship-update]용 Eclipse 플러그 인입니다.
 
 2. Service Fabric 플러그 인을 설치하려면 **도움말** > **새 소프트웨어 설치**를 차례로 선택합니다.
 

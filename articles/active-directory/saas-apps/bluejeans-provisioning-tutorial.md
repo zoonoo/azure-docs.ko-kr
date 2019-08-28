@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: v-ant
+ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d8fedb372fb245b7bc35cb440bd758336ab2a68
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 84870ef03e07cdabe994da7c04a103bead48d34f
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60281918"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672990"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 BlueJeans 구성
 
@@ -104,7 +104,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 5. **관리자 자격 증명** 섹션에 BlueJeans 계정의 **관리자 사용자 이름** 및 **관리자 암호**를 입력합니다. 이러한 값의 예는 다음과 같습니다.
 
-   * **관리자 사용자 이름** 필드에 BlueJeans 테넌트에서 관리자 계정의 사용자 이름을 채웁니다. 예: admin@contoso.com.
+   * **관리자 사용자 이름** 필드에 BlueJeans 테넌트에서 관리자 계정의 사용자 이름을 채웁니다. 예를 들어, admin@contoso.com 같은 형식입니다.
 
    * **관리자 암호** 필드에 관리자 사용자 이름에 해당하는 암호를 채웁니다.
 
@@ -148,7 +148,7 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 
 * Bluejeans는 30자를 초과하는 사용자 이름을 허용하지 않습니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)

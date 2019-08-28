@@ -56,7 +56,8 @@
     - name: 사용자 지정 자동 제안 환경 구성
       href: define-custom-suggestions.md
     - name: 적중 항목 강조 표시 처리
-      href: hit-highlighting.md
+      href: ../Bing-Web-Search/hit-highlighting.md
+      maintainContext: true
     - name: 웹 페이지를 통한 페이지
       href: page-webpages.md
 - name: 참고 자료
@@ -77,9 +78,9 @@
         - name: .NET
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-dotnet'
         - name: Java - Custom Search
-          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customsearch?view=azure-java-stable'
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-java-stable'
         - name: Java - Custom Image Search
-          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customimagesearch?view=azure-java-stable'
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingcustomimagesearch?view=azure-java-stable'
         - name: Python
           href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customsearch?view=azure-python'
         - name: Node.js

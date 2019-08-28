@@ -4,7 +4,7 @@ description: Azure PowerShell을 사용하여 OS 디스크를 복구 VM에 연�
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: d28710bf249bd940ae9d685560e9f7140234e3a1
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: e634213a4a6249dfbfe944e0ab42af27d78c057a
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64683234"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997975"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Azure PowerShell을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Windows VM 문제 해결
 Azure에서 Windows 가상 머신(VM)에 부팅 또는 디스크 오류가 발생하는 경우 디스크 자체에서 문제 해결 단계를 수행해야 할 수 있습니다. 일반적인 예로는 애플리케이션 업데이트가 실패하여 VM이 성공적으로 부팅되지 않는 경우입니다. 이 문서에서는 디스크를 다른 Windows VM에 연결하여 모든 오류를 수정한 다음, 원래 VM을 복구하기 위해 Azure PowerShell을 사용하는 방법을 자세히 설명합니다. 
@@ -126,8 +126,8 @@ $diskName = 'newOSDisk'
 #Provide the size of the disks in GB. It should be greater than the VHD file size.
 $diskSize = '128'
 
-#Provide the storage type for Managed Disk. PremiumLRS or StandardLRS.
-$storageType = 'StandardLRS'
+#Provide the storage type for Managed Disk. Premium_LRS or Standard_LRS.
+$storageType = 'Standard_LRS'
 
 #Provide the Azure region (e.g. westus) where Managed Disks will be located.
 #This location should be same as the snapshot location

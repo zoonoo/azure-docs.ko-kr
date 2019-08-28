@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/10/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28201e09a4025c0c8820abc6836a5923e48eb885
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f531174c889948308e27109ab4fd80a481ec6bdc
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66742300"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798197"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>사용자 지정 금지 암호 목록 구성
 
@@ -29,7 +29,7 @@ ms.locfileid: "66742300"
 1. 에 로그인 하는 [Azure portal](https://portal.azure.com) 로 이동한 **Azure Active Directory**, **인증 방법**, 한 다음 **암호 보호**합니다.
 1. **Enforce custom list**(사용자 지정 목록 적용) 옵션을 **예**로 설정합니다.
 1. **Custom banned password list**(사용자 지정 금지 암호 목록)에 문자열을 한 줄당 하나씩 추가합니다.
-   * 사용자 지정 금지 암호 목록에는 단어를 1000개까지 포함할 수 있습니다.
+   * 사용자 지정 차단된 암호 목록을 최대 1,000 개의 용어를 포함할 수 있습니다.
    * 사용자 지정 금지 암호 목록에서는 대/소문자가 구별됩니다.
    * 사용자 지정 금지 암호 목록에는 일반적인 문자 대체가 고려됩니다.
       * 예: "o"와 "0" 또는 "a"와 "\@"
@@ -39,6 +39,9 @@ ms.locfileid: "66742300"
 > [!NOTE]
 > 사용자 지정 금지 암호 목록을 적용하기 위한 업데이트에는 몇 시간 정도가 소요됩니다.
 
+> [!NOTE]
+> 금지 된 암호를 사용자 지정 목록에 최대 1000 조건의 제한 됩니다. 매우 큰 암호 목록을 차단에 대 한 설계 되지는 않았습니다. 사용자 지정 차단된 암호 목록 이점은 완벽 하 게 활용 하려면 먼저 검토 하는 것이 좋습니다 의도 한 디자인 및 사용자 지정 금지 된 암호 목록의 사용을 이해 하 고 (참조 [사용자 지정 암호 목록을 차단](concept-password-ban-bad.md#custom-banned-password-list)), 알고리즘과 암호 평가 (참조 [암호 평가 되는 방식을](concept-password-ban-bad.md#how-are-passwords-evaluated)).
+
 ![Azure Portal의 인증 방법에서 사용자 지정 금지 암호 목록 수정](./media/howto-password-ban-bad/authentication-methods-password-protection.png)
 
 ## <a name="how-it-works"></a>작동 방법
@@ -47,9 +50,10 @@ ms.locfileid: "66742300"
 
 ## <a name="what-do-users-see"></a>사용자에게 표시되는 내용
 
-사용자가 암호를 금지된 문자열로 재설정하려고 하면 다음과 같은 오류 메시지가 표시됩니다.
+사용자를 차단 하는 것에 암호를 재설정 하려고 하면 다음 오류 메시지 중 하나를 참조는:
 
-암호에 쉽게 추측할 수 있는 단어, 구 또는 패턴이 포함되어 있습니다. 다른 암호로 다시 시도하세요.
+* 암호에 쉽게 추측할 수 있는 단어, 구 또는 패턴이 포함되어 있습니다. 다른 암호로 다시 시도하세요.
+* 그러나 관리자가 차단 된 문자나 단어 포함 되어 있으므로 해당 암호를 사용할 수 없습니다. 다른 암호로 다시 시도하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 6115d7f70c2c75898b18a27af298a44ca87ca1bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2c24a87377eb4b893cbcae1b9a36522e586a6d56
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240878"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570153"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>추출된 데이터를 사용하여 교차 테넌트 분석 - 단일 테넌트 앱
  
@@ -44,7 +43,7 @@ ms.locfileid: "66240878"
 
 모든 데이터가 하나의 다중 테넌트 데이터베이스에 저장되어 있다면 모든 테넌트가 손쉽게 데이터에 액세스할 수 있습니다. 그러나 데이터가 수천 개의 데이터베이스에 잠재적으로 분산되어 저장되어 있다면 액세스가 복잡해집니다. 이러한 복잡성을 해결하고 트랜잭션 데이터에 대한 분석 쿼리의 영향을 최소화하는 한 가지 방법은 데이터를 목적이 있는 분석 데이터베이스 또는 데이터 웨어하우스로 추출하는 것입니다.
 
-이 자습서에서는 Wingtip Tickets SaaS 애플리케이션에 대한 분석 시나리오를 처음부터 끝까지 살펴봅니다. 먼저 ‘탄력적 작업’은 각 테넌트 데이터베이스에서 데이터를 추출하여 분석 저장소의 준비 테이블에 로드하는 데 사용됩니다.  분석 저장소로 SQL Database나 SQL Data Warehouse를 사용할 수 있습니다. 대규모 데이터 추출 시에는 [Azure Data Factory](../data-factory/introduction.md)를 사용하는 것이 권장됩니다.
+이 자습서에서는 Wingtip Tickets SaaS 애플리케이션에 대한 분석 시나리오를 처음부터 끝까지 살펴봅니다. 먼저 ‘탄력적 작업’은 각 테넌트 데이터베이스에서 데이터를 추출하여 분석 저장소의 준비 테이블에 로드하는 데 사용됩니다. 분석 저장소로 SQL Database나 SQL Data Warehouse를 사용할 수 있습니다. 대규모 데이터 추출 시에는 [Azure Data Factory](../data-factory/introduction.md)를 사용하는 것이 권장됩니다.
 
 다음으로, 집계된 데이터를 일련의 [스타 스키마](https://www.wikipedia.org/wiki/Star_schema) 테이블로 변환합니다. 테이블은 중앙의 팩트 테이블과 관련 차원 테이블로 이루어집니다.  Wingtip Tickets의 경우 다음과 같습니다.
 
@@ -65,7 +64,7 @@ ms.locfileid: "66240878"
 
 ## <a name="setup"></a>설정
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 수행하려면 다음 필수 조건이 충족되었는지 확인합니다.
 
@@ -91,9 +90,9 @@ ms.locfileid: "66240878"
 2. 선택한 분석 저장소에 맞도록 $DemoScenario 값을 설정합니다.
     - 열 저장소가 없는 SQL 데이터베이스를 사용하려면 **$DemoScenario** = **2**로 설정합니다.
     - 열 저장소가 있는 SQL 데이터베이스를 사용하려면 **$DemoScenario** = **3**으로 설정합니다.  
-3. 키를 누릅니다 **F5** 데모 스크립트를 실행 (호출 하는 합니다 *Deploy-tenantanalytics\<XX >. ps1* 스크립트) 테 넌 트 분석 저장소를 만듭니다. 
+3. **F5** 키를 눌러 테 넌 트 분석 저장소를 만드는 데모 스크립트 ( *tenantanalytics\<XX >. ps1* 스크립트)를 실행 합니다. 
 
-사용 하 여 응용 프로그램을 배포 하 고 관심 있는 테 넌 트 데이터를 사용 하 여 입력 했으므로 [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 연결할 **tenants1-dpt-&lt;사용자&gt;**  및 **catalog-dpt-&lt;사용자&gt;**  로그인을 사용 하 여 서버 = *개발자*, 암호 = *P\@ssword1*합니다. 자세한 내용은 [입문용 자습서](saas-dbpertenant-wingtip-app-overview.md)를 참조하세요.
+응용 프로그램을 배포 하 고 관심 있는 테 넌 트 데이터로 채운 후에 [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 를 사용 하 여 **tenants1-&lt;user&gt;**  및 **user-&lt;user와연결합니다.&gt;** Login = *developer*, Password = *P\@ssword1*를 사용 하는 서버 자세한 내용은 [입문용 자습서](saas-dbpertenant-wingtip-app-overview.md)를 참조하세요.
 
 ![architectureOverView](media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
@@ -175,13 +174,13 @@ SSMS 개체 탐색기에서 분석 저장소 노드를 확장하여 다음과 �
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. 선택 **데이터베이스** 왼쪽된 창에서 다음 사용자 이름을 입력 = *개발자*에 암호를 입력 하 고 = *P\@ssword1*합니다. **Connect**를 클릭합니다.  
+5. 왼쪽 창에서 **데이터베이스** 를 선택 하 고 사용자 이름 = *개발자*를 입력 한 다음 password = *P\@ssword1*을 입력 합니다. **연결**을 클릭합니다.  
 
     ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
 6. **탐색기** 패널의 분석 데이터베이스 아래에서 스타 스키마 테이블(fact_Tickets, dim_Events, dim_Venues, dim_Customers, dim_Dates)을 선택합니다. 그런 다음 **로드**를 선택합니다. 
 
-축하합니다! Power BI에 데이터를 성공적으로 로드했습니다. 지금부터 시각화 데이터를 살펴보고 테넌트에 대한 유용한 정보를 얻을 수 있습니다. 이번에는 Wingtip Tickets 비즈니스 팀이 분석을 사용하여 데이터 기반 권장 사항을 확인하는 예를 살펴보겠습니다. 권장 사항을 바탕으로 비즈니스 모델과 고객 경험을 최적화할 수 있습니다.
+축하합니다. Power BI에 데이터를 성공적으로 로드했습니다. 지금부터 시각화 데이터를 살펴보고 테넌트에 대한 유용한 정보를 얻을 수 있습니다. 이번에는 Wingtip Tickets 비즈니스 팀이 분석을 사용하여 데이터 기반 권장 사항을 확인하는 예를 살펴보겠습니다. 권장 사항을 바탕으로 비즈니스 모델과 고객 경험을 최적화할 수 있습니다.
 
 먼저 티켓 판매량 데이터를 분석하여 행사장별 판매량의 차이를 확인합니다. Power BI에서 아래 그림과 같이 옵션을 선택하여 각 행사장에서 판매된 총 티켓 수를 막대형 차트로 표시합니다. 티켓 생성기가 임의로 작동하기 때문에 결과가 그림과 다르게 나타날 수 있습니다.
  
@@ -227,7 +226,7 @@ AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CA
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업을 수행하는 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > - 사전 정의된 스타 스키마 테이블을 사용하여 테넌트 분석 데이터베이스 배포하기
@@ -236,9 +235,9 @@ AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CA
 > - 분석 데이터베이스 쿼리하기 
 > - 데이터 시각화를 위해 Power BI를 사용하여 테넌트 데이터의 추세 관찰하기 
 
-축하합니다!
+축하합니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 - [Wingtip SaaS 애플리케이션을 사용하는 또 다른 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
 - [탄력적 작업](elastic-jobs-overview.md).

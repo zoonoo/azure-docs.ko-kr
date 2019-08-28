@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 음성 인식, C++(macOS) - Speech Services'
+title: '빠른 시작: 음성 인식, C++(macOS) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Speech SDK를 사용하여 macOS에서 C++로 음성을 인식하는 방법 알아보기
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 04/03/2019
+ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 7f8822a34b0f87beaf522656a91e8d40c724a7a9
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: d7d35c251848af5cfd5852080d01831085401227
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485009"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68554134"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-macos-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 macOS에서 C++로 음성 인식
 
@@ -115,4 +115,3 @@ SDK를 다음과 같이 다운로드하고 설치합니다.
 
 - [음향 모델 사용자 지정](how-to-customize-acoustic-models.md)
 - [언어 모델 사용자 지정](how-to-customize-language-model.md)
-

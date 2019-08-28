@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: d0ef9f34d6b657a063e50b0f144197c41905e809
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "60949167"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>서비스 패브릭 상태 모니터링 소개
@@ -196,7 +196,7 @@ Health 스토어에서 모든 자식을 평가한 후 비정상 자식에 대해
 * **SourceId**. 상태 이벤트의 보고자를 고유하게 식별하는 문자열입니다.
 * **엔터티 식별자**. 보고서가 적용되는 엔터티를 식별합니다. 다음과 같은 [엔터티 유형](service-fabric-health-introduction.md#health-entities-and-hierarchy)에 따라 달라집니다.
   
-  * 클러스터. 없음.
+  * 클러스터. 없음
   * 노드. 노드 이름(문자열).
   * 애플리케이션을 클릭합니다. 애플리케이션 이름(URI). 클러스터에 배포된 애플리케이션 인스턴스의 이름을 나타냅니다.
   * 서비스. 서비스 이름(URI). 클러스터에 배포된 서비스 인스턴스의 이름을 나타냅니다.
@@ -204,7 +204,7 @@ Health 스토어에서 모든 자식을 평가한 후 비정상 자식에 대해
   * 복제본. 상태 저장 서비스 복제본 ID 또는 상태 비저장 서비스 인스턴스 ID(INT64).
   * DeployedApplication. 애플리케이션 이름(URI) 및 노드 이름(문자열).
   * DeployedServicePackage. 애플리케이션 이름(URI), 노드 이름(문자열) 및 서비스 매니페스트 이름(문자열).
-* **속성**. 보고자가 엔터티의 특정 속성에 대한 상태 이벤트를 분류하도록 허용하는 *문자열* (고정된 열거형 아님). 예를 들어, 보고자 A는 Node01 "저장소" 속성의 상태를 보고할 수 있으며 보고자 B는 Node01 "연결" 속성의 상태를 보고할 수 있습니다. Health 스토어에서 이 보고서는 Node01 엔터티에 대한 별도의 상태 이벤트로 처리됩니다.
+* **속성**. 보고자가 엔터티의 특정 속성에 대한 상태 이벤트를 분류하도록 허용하는 *문자열* (고정된 열거형 아님). 예를 들어, 보고자 A는 Node01 &quot;스토리지&quot; 속성의 상태를 보고할 수 있으며 보고자 B는 Node01 &quot;연결&quot; 속성의 상태를 보고할 수 있습니다. Health 스토어에서 이 보고서는 Node01 엔터티에 대한 별도의 상태 이벤트로 처리됩니다.
 * **설명**. 보고자가 상태 이벤트에 대한 세부 정보를 제공하도록 허용하는 문자열. **SourceId**, **속성** 및 **HealthState**는 보고서를 완벽하게 설명해야 합니다. 설명을 통해 보고서에 대한 알기 쉬운 정보를 추가하면 관리자와 사용자가 상태 보고서를 손쉽게 이해할 수 있습니다.
 * **HealthState**. 보고서의 성능 상태를 설명하는 [열거형](service-fabric-health-introduction.md#health-states) . 허용되는 값은 정상, 경고 및 오류입니다.
 * **TimeToLive**. 상태 보고서가 유효 상태를 유지하는 기간. **RemoveWhenExpired**와 연결되어 있으므로 Health 스토어에서 만료된 이벤트를 평가하는 방법을 알 수 있습니다. 기본적으로 이 값은 무한대이고 보고서는 영원히 유효합니다.

@@ -46,7 +46,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 템플릿을 처음부터 만드는 대신 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)에서 템플릿을 엽니다. Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니다.
 
-이 빠른 시작에서 사용되는 템플릿은 [표준 저장소 계정 만들기](https://azure.microsoft.com/resources/templates/101-storage-account-create/)라고 합니다. 이 템플릿은 Azure Storage 계정 리소스를 정의합니다.
+이 빠른 시작에서 사용되는 템플릿은 [표준 스토리지 계정 만들기](https://azure.microsoft.com/resources/templates/101-storage-account-create/)라고 합니다. 이 템플릿은 Azure Storage 계정 리소스를 정의합니다.
 
 1. Visual Studio Code에서 **파일**>**파일 열기**를 차례로 선택합니다.
 2. **파일 이름**에서 다음 URL을 붙여넣습니다.
@@ -175,9 +175,9 @@ Visual Studio Code를 사용하여 템플릿을 편집하는 방법을 경험하
     
     ---
 
-    스크린샷에는 출력 섹션의 저장소 계정 이름과 저장소 URL이 강조 표시되었습니다. 그 다음 단계에서 저장소 계정 이름이 필요합니다.
+    스크린샷에는 출력 섹션의 스토리지 계정 이름과 스토리지 URL이 강조 표시되었습니다. 그 다음 단계에서 스토리지 계정 이름이 필요합니다.
 
-5. 다음 CLI 또는 PowerShell 명령을 실행하여 새로 만든 저장소 계정을 나열합니다.
+5. 다음 CLI 또는 PowerShell 명령을 실행하여 새로 만든 스토리지 계정을 나열합니다.
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
     ```azurecli
@@ -214,4 +214,4 @@ Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭
 이 빠른 시작은 Visual Studio Code를 사용하여 Azure 빠른 시작 템플릿에서 기존 템플릿을 편집하는 데 집중하고 있습니다. 또한 Azure Cloud Shell의 CLI 또는 PowerShell을 사용하여 템플릿을 배포하는 방법도 알아보았습니다. Azure 빠른 시작 템플릿의 템플릿은 필요한 모든 것을 제공하지 않을 수도 있습니다. 다음 자습서에서는 템플릿 참조에서 정보를 찾아 암호화된 Azure Storage 계정을 만드는 방법을 보여 줍니다.
 
 > [!div class="nextstepaction"]
-> [암호화된 저장소 계정 만들기](./resource-manager-tutorial-create-encrypted-storage-accounts.md)
+> [암호화된 스토리지 계정 만들기](./resource-manager-tutorial-create-encrypted-storage-accounts.md)

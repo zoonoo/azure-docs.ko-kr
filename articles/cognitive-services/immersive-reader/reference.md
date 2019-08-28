@@ -1,57 +1,58 @@
 ---
 title: 몰입 형 판독기 SDK 참조
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 몰입 형 판독기 SDK에 대 한 참조
 services: cognitive-services
 author: metanMSFT
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: c128608b3c4a8e1155c3ac962bcfd07f589fbf23
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 1d9fc20055fe3adb571b5a77330cc6537998cb5f
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67311795"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534477"
 ---
 # <a name="immersive-reader-sdk-reference"></a>몰입 형 판독기 SDK 참조
 
-몰입 형 판독기 SDK에는 몰입 형 판독기를 웹 응용 프로그램에 통합할 수 있는 JavaScript 라이브러리입니다.
+몰입 형 판독기 SDK는 몰입 형 판독기를 웹 응용 프로그램에 통합할 수 있는 JavaScript 라이브러리입니다.
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>함수
 
-SDK는 단일 함수로 노출 `ImmersiveReader.launchAsync(token, resourceName, content, options)`합니다.
+SDK는 단일 함수인를 `ImmersiveReader.launchAsync(token, subdomain, content, options)`노출 합니다.
 
 ### <a name="launchasync"></a>launchAsync
 
-몰입 형 판독기 내에서 시작을 `iframe` 웹 응용 프로그램에서 합니다.
+웹 응용 프로그램 `iframe` 의 내에서 몰입 형 판독기를 시작 합니다.
 
 ```typescript
-launchAsync(token: string, resourceName: string, content: Content, options?: Options): Promise<HTMLDivElement>;
+launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<HTMLDivElement>;
 ```
 
 #### <a name="parameters"></a>매개 변수
 
-| 이름 | 형식 | 설명 |
+| 이름 | 형식 | Description |
 | ---- | ---- |------------ |
-| `token` | 문자열 | 에 대 한 호출에서 얻은 액세스 토큰을 `issueToken` 끝점입니다. |
-| `resourceName` | 문자열 | 예약되어 있습니다. `null`로 설정해야 합니다. |
+| `token` | string | Azure AD 인증 토큰입니다. [AZURE AD 인증 방법을](./azure-active-directory-authentication.md)참조 하세요. |
+| `subdomain` | string | Azure에서 몰입 형 판독기 리소스의 사용자 지정 하위 도메인입니다. [AZURE AD 인증 방법을](./azure-active-directory-authentication.md)참조 하세요. |
 | `content` | [콘텐츠](#content) | 몰입 형 판독기에 표시할 콘텐츠를 포함 하는 개체입니다. |
 | `options` | [옵션](#options) | 몰입 형 판독기의 특정 동작을 구성 하기 위한 옵션입니다. 선택 사항입니다. |
 
 #### <a name="returns"></a>반환 값
 
-반환 된 `Promise<HTMLDivElement>` 몰입 형 판독기를 로드할 때를 확인 하는 합니다. `Promise` 로 확인 되는 `div` 만 해당 자식 요소는 `iframe` 몰입 형 판독기 페이지를 포함 하는 요소입니다.
+몰입 형 `Promise<HTMLDivElement>` 판독기가 로드 될 때를 확인 하는을 반환 합니다. 는 `Promise` 자식만이 `div` `iframe` 몰입 형 판독기 페이지가 포함 된 요소인 요소로 확인 됩니다.
 
 #### <a name="exceptions"></a>예외
 
-반환 된 `Promise` 거부 되며를 [ `Error` ](#error) 개체 몰입 형 판독기 로드 되지 않습니다. 자세한 내용은 참조는 [오류 코드](#error-codes)합니다.
+몰입 형 `Promise` 판독기를 로드 하지 못하는 [`Error`](#error) 경우 반환 된는 개체와 함께 거부 됩니다. 자세한 내용은 [오류 코드](#error-codes)를 참조 하세요.
 
 ## <a name="types"></a>유형
 
-### <a name="content"></a>Content
+### <a name="content"></a>콘텐츠
 
 몰입 형 판독기에 표시할 콘텐츠를 포함 합니다.
 
@@ -71,7 +72,8 @@ launchAsync(token: string, resourceName: string, content: Content, options?: Opt
 | MIME 형식 | 설명 |
 | --------- | ----------- |
 | 텍스트/일반 | 일반 텍스트입니다. |
-| application/mathml+xml | 수학 Markup Language (MathML)입니다. [자세히 알아보기](https://developer.mozilla.org/en-US/docs/Web/MathML).
+| application/mathml + xml | MathML (수학 Markup Language). [자세히 알아보기](https://developer.mozilla.org/en-US/docs/Web/MathML).
+| application/vnd. vnd.openxmlformats-officedocument.spreadsheetml.sheet. wordprocessingml | Microsoft Word .docx 형식 문서입니다.
 
 ### <a name="options"></a>옵션
 
@@ -86,9 +88,9 @@ launchAsync(token: string, resourceName: string, content: Content, options?: Opt
 }
 ```
 
-### <a name="error"></a>오류
+### <a name="error"></a>Error
 
-오류에 대 한 정보를 포함합니다.
+오류에 대 한 정보를 포함 합니다.
 
 ```typescript
 {
@@ -99,15 +101,16 @@ launchAsync(token: string, resourceName: string, content: Content, options?: Opt
 
 #### <a name="error-codes"></a>오류 코드
 
-| 코드 | 설명 |
+| 코드 | Description |
 | ---- | ----------- |
-| BadArgument | 제공 된 인수가 잘못 되었습니다. 내용은 `message` 세부 정보에 대 한 합니다. |
-| 시간 제한 | 몰입 형 판독기를 지정된 된 시간 제한 내에서 로드 하지 못했습니다. |
-| TokenExpired| 제공 된 토큰이 만료 되었습니다. |
+| BadArgument | 제공 된 인수가 잘못 되었습니다. `message` 자세한 내용은를 참조 하십시오. |
+| 제한 시간 | 몰입 형 판독기를 지정 된 시간 제한 내에 로드 하지 못했습니다. |
+| TokenExpired | 제공 된 토큰이 만료 되었습니다. |
+| 정체됨 | 호출 속도로 제한을 초과 했습니다. |
 
-## <a name="launching-the-immersive-reader"></a>몰입 형 판독기를 시작합니다.
+## <a name="launching-the-immersive-reader"></a>몰입 형 판독기 시작
 
-SDK는 몰입 형 판독기를 시작 하는 단추에 대 한 기본 스타일을 제공 합니다. 사용 된 `immersive-reader-button` 클래스 특성을이 스타일을 사용 합니다.
+SDK는 몰입 형 판독기를 시작 하기 위한 단추에 대 한 기본 스타일을 제공 합니다. 이 스타일을 사용 하려면 class특성을사용합니다.`immersive-reader-button`
 
 ```html
 <div class='immersive-reader-button'></div>
@@ -115,17 +118,17 @@ SDK는 몰입 형 판독기를 시작 하는 단추에 대 한 기본 스타일�
 
 ### <a name="optional-attributes"></a>선택적 특성
 
-단추의 모양과 느낌을 구성 하려면 다음 특성을 사용 합니다.
+다음 특성을 사용 하 여 단추의 모양과 느낌을 구성할 수 있습니다.
 
-| 특성 | 설명 |
+| 특성 | Description |
 | --------- | ----------- |
-| `data-button-style` | 단추 스타일을 설정합니다. `icon`, `text` 또는 `iconAndText`일 수 있습니다. 기본값은 `icon`입니다. |
-| `data-locale` | 설정 하는 예를 들어 `en-US`, `fr-FR`합니다. 영어 기본값은입니다. |
-| `data-icon-px-size` | 아이콘의 크기를 픽셀 단위로 설정합니다. 20px 기본값은입니다. |
+| `data-button-style` | 단추의 스타일을 설정 합니다. `icon`, `text` 또는 `iconAndText`일 수 있습니다. 기본값은 `icon`입니다. |
+| `data-locale` | 로캘을 설정 합니다 `en-US` `fr-FR`(예:). 기본값은 영어입니다. |
+| `data-icon-px-size` | 아이콘의 크기 (픽셀)를 설정 합니다. 기본값은 20px입니다. |
 
 ## <a name="browser-support"></a>브라우저 지원
 
-몰입 형 판독기를 사용 하 여 최상의 환경을 위해 다음 브라우저의 최신 버전을 사용 합니다.
+몰입 형 판독기를 사용 하 여 최상의 환경을 제공 하려면 다음 브라우저의 최신 버전을 사용 합니다.
 
 * Microsoft Edge
 * Internet Explorer 11
@@ -135,5 +138,5 @@ SDK는 몰입 형 판독기를 시작 하는 단추에 대 한 기본 스타일�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 탐색을 [몰입 형 판독기 github SDK](https://github.com/Microsoft/immersive-reader-sdk)
-* [빠른 시작: 몰입 형 판독기를 시작 하는 웹 앱 만들기 (C#)](./quickstart.md)
+* [GitHub의 몰입형 리더 SDK](https://github.com/microsoft/immersive-reader-sdk) 탐색
+* [빠른 시작: 몰입 형 판독기를 시작 하는 웹 앱 만들기C#()](./quickstart.md)

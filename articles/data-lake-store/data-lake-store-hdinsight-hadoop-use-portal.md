@@ -22,13 +22,13 @@ ms.locfileid: "60877698"
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Storage Gen1로 HDInsight 클러스터 만들기
 > [!div class="op_single_selector"]
 > * [Azure Portal 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
-> * [PowerShell 사용(기본 저장소의 경우)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-> * [PowerShell 사용(추가 저장소의 경우)](data-lake-store-hdinsight-hadoop-use-powershell.md)
+> * [PowerShell 사용(기본 스토리지의 경우)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+> * [PowerShell 사용(추가 스토리지의 경우)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 > * [Resource Manager 사용](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 >
 >
 
-Azure Portal을 사용해 기본 스토리지나 추가 스토리지로 Azure Data Lake Storage Gen1 계정을 사용하는 HDInsight 클러스터를 만드는 방법에 대해 알아봅니다. 추가 저장소는 HDInsight 클러스터에 대해 선택적 사항이지만 추가 저장소 계정에 비즈니스 데이터를 저장하는 것이 좋습니다.
+Azure Portal을 사용해 기본 스토리지나 추가 스토리지로 Azure Data Lake Storage Gen1 계정을 사용하는 HDInsight 클러스터를 만드는 방법에 대해 알아봅니다. 추가 스토리지는 HDInsight 클러스터에 대해 선택적 사항이지만 추가 스토리지 계정에 비즈니스 데이터를 저장하는 것이 좋습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에 다음 요구 사항을 충족하는지 확인합니다.
@@ -77,12 +77,12 @@ Azure Portal을 사용해 기본 스토리지나 추가 스토리지로 Azure Da
 
     - **선택 메서드**: 다음 옵션 중 하나를 사용합니다.
 
-        * Azure 구독의 일부인 저장소 계정을 지정하려면 **내 구독**을 선택한 다음 저장소 계정을 선택합니다.
-        * Azure 구독 외부에 있는 저장소 계정을 지정하려면 **선택키**를 선택한 다음 외부 저장소 계정에 대한 정보를 제공합니다.
+        * Azure 구독의 일부인 스토리지 계정을 지정하려면 **내 구독**을 선택한 다음 스토리지 계정을 선택합니다.
+        * Azure 구독 외부에 있는 스토리지 계정을 지정하려면 **선택키**를 선택한 다음 외부 스토리지 계정에 대한 정보를 제공합니다.
 
     - **기본 컨테이너**: 기본값을 사용하거나 고유한 이름을 지정합니다.
 
-    - 추가 저장소 계정: 추가 저장소로 Azure 저장소 계정을 더 추가합니다.
+    - 추가 스토리지 계정: 추가 스토리지로 Azure Storage 계정을 더 추가합니다.
     - Data Lake Store 액세스: Data Lake Storage Gen1 계정과 HDInsight 클러스터 간의 액세스를 구성합니다. 지침은 [Data Lake Storage Gen1 액세스 구성](#configure-data-lake-storage-gen1-access)을 참조하세요.
 
 ## <a name="configure-data-lake-storage-gen1-access"></a>Data Lake Storage Gen1 액세스 구성 
@@ -95,7 +95,7 @@ Azure Portal에서 기존 서비스 주체를 사용하거나 새로 만들 수 
 
 **Azure Portal에서 서비스 주체를 만들려면**
 
-1. 저장소 블레이드에서 **Data Lake Store 액세스**를 클릭합니다.
+1. 스토리지 블레이드에서 **Data Lake Store 액세스**를 클릭합니다.
 2. **Data Lake Storage Gen1 액세스** 블레이드에서 **새로 만들기**를 클릭합니다.
 3. **서비스 주체**를 클릭한 다음 지침에 따라 서비스 주체를 만듭니다.
 4. 나중에 다시 사용하려는 경우 인증서를 다운로드합니다. 추가 HDInsight 클러스터를 만들 때 동일한 서비스 주체를 사용하려면 인증서를 다운로드하는 것이 유용합니다.
@@ -119,13 +119,13 @@ Azure Portal에서 기존 서비스 주체를 사용하거나 새로 만들 수 
 
 ### <a name="configure-file-permissions"></a>파일 권한 구성
 
-구성은 계정이 기본 저장소 또는 추가 저장소 계정으로 사용되는지 여부에 따라 달라집니다.
+구성은 계정이 기본 스토리지 또는 추가 스토리지 계정으로 사용되는지 여부에 따라 달라집니다.
 
-- 기본 저장소로 사용됨
+- 기본 스토리지로 사용됨
 
     - Data Lake Storage Gen1 계정의 루트 수준 권한
-    - HDInsight 클러스터 저장소의 루트 수준에서 권한 예를 들어 자습서의 앞부분에서 사용된 __/clusters__ 폴더입니다.
-- 추가 저장소로 사용
+    - HDInsight 클러스터 스토리지의 루트 수준에서 권한 예를 들어 자습서의 앞부분에서 사용된 __/clusters__ 폴더입니다.
+- 추가 스토리지로 사용
 
     - 파일 액세스가 필요한 폴더에서 권한
 
@@ -146,7 +146,7 @@ Azure Portal에서 기존 서비스 주체를 사용하거나 새로 만들 수 
 
 1. **Data Lake Storage Gen1 액세스** 블레이드에서 **액세스**를 클릭합니다. **파일 권한 선택** 블레이드가 열립니다. 그리고 구독의 모든 Data Lake Storage Gen1 계정이 나열됩니다.
 1. **파일 권한 선택** 블레이드에서 Data Lake Storage Gen1 계정 이름을 클릭하여 해당 내용을 표시합니다.
-2. 폴더 왼쪽의 확인란을 선택하여 HDInsight 클러스터 저장소 루트를 선택합니다. 위의 스크린샷에 나와 있는 것처럼 클러스터 스토리지 루트는 Data Lake Storage Gen1을 기본 스토리지로 선택할 때 지정한 __/clusters__ 폴더입니다.
+2. 폴더 왼쪽의 확인란을 선택하여 HDInsight 클러스터 스토리지 루트를 선택합니다. 위의 스크린샷에 나와 있는 것처럼 클러스터 스토리지 루트는 Data Lake Storage Gen1을 기본 스토리지로 선택할 때 지정한 __/clusters__ 폴더입니다.
 3. 폴더에 권한을 설정합니다.  기본적으로 읽기, 쓰기 및 실행이 모두 선택되어 있습니다.
 4. 페이지 아래쪽에서 **선택**을 클릭합니다.
 5. **실행**을 클릭합니다.

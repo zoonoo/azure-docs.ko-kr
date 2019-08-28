@@ -3,17 +3,18 @@ title: Azure Container Instances 및 컨테이너 오케스트레이션
 description: Azure Container Instances가 컨테이너 오케스트레이터와 상호 작용하는 방법을 이해합니다
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: df9c3ecbec6dccd9ba8db2b375cfab3276005098
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 044b74e1a8683c6beb0220c1cf9fb97403286a95
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072979"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972242"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances 및 컨테이너 오케스트레이터
 
@@ -60,7 +61,7 @@ Azure Container Instances를 포함한 오케스트레이터 통합이 여전히
 
 가상 노드는 현재 Linux 컨테이너 인스턴스를 지원합니다. [Azure CLI](https://go.microsoft.com/fwlink/?linkid=2047538) 또는 [Azure Portal](https://go.microsoft.com/fwlink/?linkid=2047545)을 사용하여 가상 노드를 시작합니다.
 
-가상 노드는 무제한 용량의 노드로 등록하여 Kubernetes [kubelet][kubelet-doc]을 모방하도록 오픈 소스 [Virtual Kubelet][aci-connector-k8s]을 사용합니다. Virtual Kubelet은 Azure Container Instances의 컨테이너 그룹으로 [Pod][pod-doc]의 생성을 디스패치합니다.
+가상 노드는 용량이 무제한 인 노드로 등록 하 여 Kubernetes [Kubelet][kubelet-doc] 를 모방 하기 위해 오픈 소스 [가상 Kubelet][aci-connector-k8s] 를 사용 합니다. 가상 Kubelet는 Azure Container Instances의 컨테이너 그룹으로 [pod][pod-doc] 만들기를 디스패치합니다.
 
 Kubernetes API를 서버리스 컨테이너 플랫폼으로 확장하는 추가 예제는 [Virtual Kubelet](https://github.com/virtual-kubelet/virtual-kubelet) 프로젝트를 참조하세요.
 
@@ -71,6 +72,6 @@ Kubernetes API를 서버리스 컨테이너 플랫폼으로 확장하는 추가 
 <!-- IMAGES -->
 
 <!-- LINKS -->
-[aci-connector-k8s]: https://github.com/virtual-kubelet/virtual-kubelet/tree/master/providers/azure
+[aci-connector-k8s]: https://github.com/virtual-kubelet/azure-aci
 [kubelet-doc]: https://kubernetes.io/docs/admin/kubelet/
 [pod-doc]: https://kubernetes.io/docs/concepts/workloads/pods/pod/

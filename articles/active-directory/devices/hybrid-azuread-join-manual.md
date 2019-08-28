@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8db7e2588b03807a42f82fd0fcd4e71855e55c1d
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 5722d0b14c43bcdee7a06ebf5545cfc6254f7508
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66426332"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562344"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>자습서: 하이브리드 Azure Active Directory 조인 디바이스를 수동으로 구성
 
@@ -71,6 +71,8 @@ Azure AD에 컴퓨터를 등록하려면 조직 네트워크 내에 있는 컴�
 버전 1703 이하의 Windows 10 디바이스를 사용하며 조직에서 아웃바운드 프록시를 통해 인터넷에 액세스해야 하는 경우 Windows 10 컴퓨터에서 Azure AD에 등록할 수 있도록 WPAD(웹 프록시 자동 검색)를 구현해야 합니다.
 
 Windows 10 1803부터는 페더레이션된 도메인에서 AD FS를 사용한 디바이스의 하이브리드 Azure AD 조인 시도가 실패하더라도 Azure AD Connect가 컴퓨터/디바이스 개체를 Azure AD와 동기화하도록 구성되어 있으면 디바이스가 동기화된 컴퓨터/디바이스를 사용하여 하이브리드 Azure AD 조인을 완료하려고 시도합니다.
+
+디바이스가 시스템 계정으로 위의 Microsoft 리소스에 액세스할 수 있는지 확인하기 위해 [디바이스 등록 연결 테스트](https://gallery.technet.microsoft.com/Test-Device-Registration-3dc944c0) 스크립트를 사용할 수 있습니다.
 
 ## <a name="verify-configuration-steps"></a>구성 확인 단계
 
@@ -139,7 +141,7 @@ cmdlet:
 
 * Active Directory PowerShell 모듈 및 Azure AD DS(Azure Active Directory Domain Services) 도구를 사용합니다. 이러한 도구는 도메인 컨트롤러에서 실행되는 Active Directory Web Services를 사용합니다. Active Directory Web Services는 Windows Server 2008 R2 이상을 실행하는 도메인 컨트롤러에서 지원됩니다.
 * MSOnline PowerShell 모듈 버전 1.1.166.0에서만 지원됩니다. 이 모듈을 다운로드하려면 이 [링크](https://msconfiggallery.cloudapp.net/packages/MSOnline/1.1.166.0/)를 사용합니다.
-* Azure AD DS 도구가 설치되지 않은 경우 `Initialize-ADSyncDomainJoinedComputerSync`에 실패합니다. **기능** > **원격 서버 관리 도구** > **역할 관리 도구** 아래에서 서버 관리자를 통해 Azure AD DS 도구를 설치할 수 있습니다.
+* Azure AD DS 도구가 설치되지 않은 경우 `Initialize-ADSyncDomainJoinedComputerSync`에 실패합니다. **기능** > **원격 서버 관리 도구** > **역할 관리 도구** 아래에서 서버 관리자를 통해 AD DS 도구를 설치할 수 있습니다.
 
 Windows Server 2008 이하 버전을 실행하는 도메인 컨트롤러의 경우 다음 스크립트를 사용하여 서비스 연결점을 만듭니다. 다중 포리스트 구성에서는 다음 스크립트를 사용하여 컴퓨터가 있는 각 포리스트에 서비스 연결점을 만듭니다.
 
@@ -174,10 +176,19 @@ Windows Server 2008 이하 버전을 실행하는 도메인 컨트롤러의 경�
 
 Windows 최신 디바이스는 Windows 통합 인증을 사용하여 온-프레미스 페더레이션 서비스에서 호스트하는 활성 WS-Trust 엔드포인트(1.3 또는 2005 버전)에 인증합니다.
 
+AD FS를 사용하는 경우 다음 WS-Trust 엔드포인트를 사용하도록 설정해야 합니다.
+- `/adfs/services/trust/2005/windowstransport`
+- `/adfs/services/trust/13/windowstransport`
+- `/adfs/services/trust/2005/usernamemixed`
+- `/adfs/services/trust/13/usernamemixed`
+- `/adfs/services/trust/2005/certificatemixed`
+- `/adfs/services/trust/13/certificatemixed`
+
+> [!WARNING]
+> **adfs/services/trust/2005/windowstransport** 또는 **adfs/services/trust/13/windowstransport**는 모두 인트라넷 연결 엔드포인트로만 사용하도록 설정해야 하며 웹 애플리케이션 프록시를 통해 엑스트라넷 연결 엔드포인트로 노출되어서는 안됩니다. WS-Trust Windows 엔드포인트를 비활성화는 방법에 대해 자세히 알아보려면 [프록시에서 WS-Trust Windows 엔드포인트 사용 안 함](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet)을 참조하세요. **서비스** > **엔드포인트**에서 AD FS 관리 콘솔을 통해 어떤 엔드포인트가 사용하도록 설정되었는지 확인할 수 있습니다.
+
 > [!NOTE]
-> AD FS를 사용하는 경우 **adfs/services/trust/13/windowstransport** 또는 **adfs/services/trust/2005/windowstransport**를 사용하도록 설정해야 합니다. 또한 웹 인증 프록시를 사용하는 경우 이 엔드포인트가 프록시를 통해 게시되어야 합니다. **서비스** > **엔드포인트**에서 AD FS 관리 콘솔을 통해 어떤 엔드포인트가 사용하도록 설정되었는지 확인할 수 있습니다.
->
-> 온-프레미스 페더레이션 서비스로 사용되는 AD FS가 없으면 공급업체의 지침에 따라 WS-Trust 1.3 또는 2005 버전이 지원되는지 확인하고, 메타데이터 교환 파일(MEX)을 통해 게시되는지 확인합니다.
+>온-프레미스 페더레이션 서비스로 사용되는 AD FS가 없으면 공급업체의 지침에 따라 WS-Trust 1.3 또는 2005 버전이 지원되는지 확인하고, 메타데이터 교환 파일(MEX)을 통해 게시되는지 확인합니다.
 
 디바이스 등록을 마치려면 Azure DRS가 수신하는 토큰에 다음 클레임이 있어야 합니다. Azure DRS는 이 정보 중 일부를 사용하여 Azure AD에 디바이스 개체를 만듭니다. 그러면 Azure AD Connect가 이 정보를 사용하여 새로 만든 디바이스 개체를 온-프레미스 컴퓨터 계정에 연결합니다.
 
@@ -546,8 +557,8 @@ Windows 하위 수준 디바이스를 등록하려면 다운로드 센터에서 
 
 도메인 조인 Windows 디바이스에 대한 하이브리드 Azure AD 조인을 완료할 때 문제가 발생하면 다음을 참조하세요.
 
-* [Windows 최신 장치의 하이브리드 Azure AD 조인 문제 해결](troubleshoot-hybrid-join-windows-current.md)
-* [Windows 하위 수준 장치의 하이브리드 Azure AD 조인 문제 해결](troubleshoot-hybrid-join-windows-legacy.md)
+* [Windows 최신 디바이스의 하이브리드 Azure AD 조인 문제 해결](troubleshoot-hybrid-join-windows-current.md)
+* [Windows 하위 수준 디바이스의 하이브리드 Azure AD 조인 문제 해결](troubleshoot-hybrid-join-windows-legacy.md)
 
 ## <a name="next-steps"></a>다음 단계
 

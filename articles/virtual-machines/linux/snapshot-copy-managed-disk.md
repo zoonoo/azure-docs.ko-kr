@@ -51,7 +51,7 @@ az snapshot create \
 ```
 
 > [!NOTE]
-> 스냅샷을 영역 중복 저장소에 저장하려는 경우 [가용성 영역](../../availability-zones/az-overview.md)을 지원하고 **--sku Standard_ZRS** 매개 변수를 포함하는 지역에 만들어야 합니다.
+> 스냅샷을 영역 중복 스토리지에 저장하려는 경우 [가용성 영역](../../availability-zones/az-overview.md)을 지원하고 **--sku Standard_ZRS** 매개 변수를 포함하는 지역에 만들어야 합니다.
 
 [az snapshot list](/cli/azure/snapshot#az-snapshot-list)를 사용하여 스냅숏 목록을 볼 수 있습니다.
 

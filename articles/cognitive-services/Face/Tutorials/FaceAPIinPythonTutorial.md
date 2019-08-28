@@ -1,25 +1,25 @@
 ---
 title: '빠른 시작: Python SDK를 사용하여 이미지에서 얼굴 감지 및 포착'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 Face API를 사용하여 원격 이미지에서 얼굴을 감지하고 포착하는 간단한 Python 스크립트를 만들 것입니다.
+description: 이 빠른 시작에서는 Face API를 사용하여 원격 이미지에서 얼굴을 감지하고 포착하는 Python 스크립트를 만들 것입니다.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 11/13/2018
+ms.date: 08/08/2019
 ms.author: sbowles
-ms.openlocfilehash: b816f4b78921c4bace1d15dd408b3fd701a3d6c5
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 502523e3c62f993af4484c8ab922c36fa51a60f1
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67339369"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945886"
 ---
 # <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>빠른 시작: 이미지에서 얼굴을 감지 및 포착하는 Python 스크립트 만들기
 
-이 빠른 시작에서는 Azure Face API를 사용하여 Python SDK를 통해 원격 이미지에서 사람 얼굴을 감지하는 간단한 Python 스크립트를 만들 것입니다. 이 애플리케이션은 선택한 이미지를 표시하고 감지된 각 얼굴 주위에 프레임을 그립니다.
+이 빠른 시작에서는 Azure Face API를 사용하여 Python SDK를 통해 원격 이미지에서 사람 얼굴을 감지하는 Python 스크립트를 만들 것입니다. 이 애플리케이션은 선택한 이미지를 표시하고 감지된 각 얼굴 주위에 프레임을 그립니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
@@ -34,29 +34,29 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 명령 프롬프트를 열고 다음 명령을 실행하여 Face Python SDK를 설치합니다.
 
 ```shell
-pip install cognitive_face
+pip install azure-cognitiveservices-vision-face
 ```
 
 ## <a name="detect-faces-in-an-image"></a>이미지에서 얼굴 감지
 
-_FaceQuickstart.py_라는 새 Python 스크립트를 만들고 다음 코드를 추가합니다. 얼굴 감지의 핵심 기능입니다. `<Subscription Key>`를 키 값으로 바꿔야 합니다. 또한 키의 올바른 지역 식별자를 사용하도록 `BASE_URL` 값을 변경해야 할 수도 있습니다(모든 지역 엔드포인트 목록에 대해서는 [Face API 설명서](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 참조). 평가판 구독 키는 **westus** 지역에 생성됩니다. 필요에 따라 `img_url`을 사용하려는 이미지의 URL로 설정합니다.
+_FaceQuickstart.py_라는 새 Python 스크립트를 만들고 다음 코드를 추가합니다. 이 코드는 얼굴 감지의 핵심 기능을 처리합니다. `<Subscription Key>`를 키 값으로 바꿔야 합니다. 또한 키의 올바른 지역 식별자를 사용하도록 `BASE_URL` 값을 변경해야 할 수도 있습니다(모든 지역 엔드포인트 목록에 대해서는 [Face API 설명서](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 참조). 평가판 구독 키는 **westus** 지역에 생성됩니다. 필요에 따라 `img_url`을 사용하려는 이미지의 URL로 설정합니다.
 
-이 스크립트는 [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API를 래핑하고 얼굴 목록을 반환하는 **cognitive_face.face.detect** 메서드를 호출하여 얼굴을 감지합니다.
+이 스크립트는 [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API를 래핑하고 얼굴 목록을 반환하는 **FaceClient.face.detect_with_url** 메서드를 호출하여 얼굴을 감지합니다.
 
 ```python
-import cognitive_face as CF
+from azure.cognitiveservices.vision.face import FaceClient
 
 # Replace with a valid subscription key (keeping the quotes in place).
 KEY = '<Subscription Key>'
-CF.Key.set(KEY)
 
 # Replace with your regional Base URL
-BASE_URL = 'https://westus.api.cognitive.microsoft.com/face/v1.0/'
-CF.BaseUrl.set(BASE_URL)
+BASE_URL = 'https://westus.api.cognitive.microsoft.com/'
+
+faceClient = FaceClient(BASE_URL, CognitiveServicesCredentials(KEY))
 
 # You can use this example JPG or replace the URL below with your own URL to a JPEG image.
 img_url = 'https://raw.githubusercontent.com/Microsoft/Cognitive-Face-Windows/master/Data/detection1.jpg'
-faces = CF.face.detect(img_url)
+faces = faceClient.face.detect_with_url(img_url)
 print(faces)
 ```
 
@@ -64,11 +64,11 @@ print(faces)
 
 `python FaceQuickstart.py` 명령으로 앱을 실행합니다. 콘솔 창에 다음과 같은 텍스트 응답이 표시됩니다.
 
-```shell
+```console
 [{'faceId': '26d8face-9714-4f3e-bfa1-f19a7a7aa240', 'faceRectangle': {'top': 124, 'left': 459, 'width': 227, 'height': 227}}]
 ```
 
-이것은 감지된 얼굴 목록입니다. 목록의 각 항목은 **dict** 인스턴스이고, 여기서 `faceId`는 감지된 얼굴의 고유 ID이고 `faceRectangle`은 감지된 얼굴의 위치를 설명합니다. 
+출력은 감지된 얼굴 목록을 나타냅니다. 목록의 각 항목은 **dict** 인스턴스이고, 여기서 `faceId`는 감지된 얼굴의 고유 ID이고 `faceRectangle`은 감지된 얼굴의 위치를 설명합니다. 
 
 > [!NOTE]
 > Face ID는 24시간 후에 만료됩니다. 장기간 유지하려면 얼굴 데이터를 명시적으로 저장해야 합니다.
@@ -83,7 +83,7 @@ from io import BytesIO
 from PIL import Image, ImageDraw
 ```
 
-그런 다음, 스크립트 맨 아래에 다음 코드를 추가합니다. 이렇게 하면 사각형 좌표를 구문 분석하는 간단한 함수가 만들어지고, Pillow를 사용하여 원래 이미지에 사각형이 그려집니다. 그런 다음, 기본 이미지 뷰어에 이미지가 표시됩니다.
+그런 다음, 스크립트 맨 아래에 다음 코드를 추가합니다. 이 코드는 사각형 좌표를 구문 분석하는 간단한 함수를 만들고, Pillow를 사용하여 원래 이미지에 사각형을 그립니다. 그런 다음, 기본 이미지 뷰어에 이미지가 표시됩니다.
 
 ```python
 # Convert width height to a point in a rectangle

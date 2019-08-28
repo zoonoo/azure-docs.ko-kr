@@ -8,27 +8,26 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 1e0955ef2a52a6313f0449b956229e03f0a5b5e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6819bb32eecf8477e2c0727b50641858db21c784
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61038451"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035907"
 ---
 # <a name="sfctl-mesh-service-replica"></a>sfctl mesh service-replica
 복제본 세부 정보를 가져오고 애플리케이션 리소스에 있는 지정된 서비스의 복제본을 나열합니다.
 
 ## <a name="commands"></a>명령
 
-|명령|설명|
+|명령|Description|
 | --- | --- |
-| list | 서비스의 모든 복제본을 나열합니다. |
+| 목록 | 서비스의 모든 복제본을 나열합니다. |
 | 표시 | 애플리케이션 서비스의 지정된 복제본을 가져옵니다. |
 
 ## <a name="sfctl-mesh-service-replica-list"></a>sfctl mesh service-replica list
@@ -38,10 +37,10 @@ ms.locfileid: "61038451"
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --app-name --application-name[필수] | 애플리케이션 이름입니다. |
-| --service-name[필수] | 서비스의 이름입니다. |
+| --app-name --application-name[필수] | 애플리케이션의 이름입니다. |
+| --service-name[필수] | 서비스 이름입니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 
@@ -62,13 +61,13 @@ ms.locfileid: "61038451"
 
 |인수|설명|
 | --- | --- |
-| --app-name --application-name[필수] | 애플리케이션 이름입니다. |
+| --app-name --application-name[필수] | 애플리케이션의 이름입니다. |
 | --name -n[필수] | 서비스 복제본의 이름입니다. |
-| --service-name[필수] | 서비스의 이름입니다. |
+| --service-name[필수] | 서비스 이름입니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |

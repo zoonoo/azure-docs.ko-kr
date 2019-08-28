@@ -11,12 +11,13 @@ ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: nolachar
 comment: As a bot developer, I want my bot to be able to handle small talk in a consistent tone so that my bot appears more complete and conversational.
-ms.openlocfilehash: 88dfbb2a547b44de1bb98ca536c7841570a12168
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: e763e3c3731858e20226efbd354927f38c3d5d70
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60829976"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704233"
 ---
 # <a name="frequently-asked-questions"></a>질문과 대답
 
@@ -34,4 +35,4 @@ Zo, Cortana 및 프로젝트 개인 정보 채팅을 지원하는 서비스는 �
 
 ## <a name="can-this-service-lead-to-bad-customer-experiences"></a>이 서비스가 고객에게 좋지 않은 경험을 줄 수 있나요?
 
-보다 풍부한 경험을 제공하기 위해 Personality Chat은 설명 데이터 시트에 있는 응답 이외의 응답을 생성할 수 있으며 모든 사용자 입력을 해석하려고 합니다. 따라서 응답이 컨텍스트에서 적절하지 않은 것처럼 보일 수 있습니다. 적절하지 않은 응답을 방지하고 Zo 같은 지능형 에이전트에서 기술 자료를 구축하는 데 도움을 주기 위해 다양한 컨트롤이 추가되었습니다. 기본적으로 Project Personality Chat은 인식된 사용자 의도에만 대응하도록 설정됩니다. Project Personality Chat이 사용자 환경에 적절한지 여부를 테스트할 수도 있습니다. 추가 학습이 필요한 부분이 확인되면 언제든지 의견을 보내주세요. 앞으로 고객에게 이 서비스를 사용할 경우, 실시간 사용자 상호 작용에서 발생하는 문제를 식별하기 위해 익명 로깅을 사용하는 것이 좋습니다.
+보다 풍부한 경험을 제공하기 위해 Personality Chat은 설명 데이터 세트에 있는 응답 이외의 응답을 생성할 수 있으며 모든 사용자 입력을 해석하려고 합니다. 따라서 응답이 컨텍스트에서 적절하지 않은 것처럼 보일 수 있습니다. 적절하지 않은 응답을 방지하고 Zo 같은 지능형 에이전트에서 기술 자료를 구축하는 데 도움을 주기 위해 다양한 컨트롤이 추가되었습니다. 기본적으로 Project Personality Chat은 인식된 사용자 의도에만 대응하도록 설정됩니다. Project Personality Chat이 사용자 환경에 적절한지 여부를 테스트할 수도 있습니다. 추가 학습이 필요한 부분이 확인되면 언제든지 의견을 보내주세요. 앞으로 고객에게 이 서비스를 사용할 경우, 실시간 사용자 상호 작용에서 발생하는 문제를 식별하기 위해 익명 로깅을 사용하는 것이 좋습니다.

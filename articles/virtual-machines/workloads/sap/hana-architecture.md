@@ -4,7 +4,7 @@ description: Azure(대규모 인스턴스)에서 SAP HANA를 배포하는 방법
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d077487f85c789bcdfea3d91e29ee0d44ce82de0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f322ddab19a8c8635009d2e2b7e7e748fb1e73ab
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66239425"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709766"
 ---
 # <a name="sap-hana-large-instances-architecture-on-azure"></a>Azure의 SAP HANA(대규모 인스턴스) 아키텍처
 
@@ -51,7 +51,7 @@ Azure 큰 인스턴스 스탬프 자체는 다음 구성 요소를 결합합니�
 
 - **컴퓨팅**: 다른 차세대 필요한 컴퓨팅 기능을 제공 하 고 SAP hana 인증 된 Intel Xeon 프로세서를 기반으로 하는 서버입니다.
 - **네트워크**: 컴퓨팅, 저장소 및 LAN 구성 요소를 상호 연결 하는 통합 된 고속 네트워크 패브릭입니다.
-- **저장소**: 통합된 된 네트워크 패브릭을 통해 액세스 되는 저장소 인프라입니다. 제공되는 특정 저장소 용량은 배포되는 특정 SAP HANA on Azure(대규모 인스턴스) 구성에 따라 다릅니다. 추가 저장소 용량은 추가 월별 비용으로 사용할 수 있습니다.
+- **스토리지**: 통합된 된 네트워크 패브릭을 통해 액세스 되는 저장소 인프라입니다. 제공되는 특정 스토리지 용량은 배포되는 특정 SAP HANA on Azure(대규모 인스턴스) 구성에 따라 다릅니다. 추가 스토리지 용량은 추가 월별 비용으로 사용할 수 있습니다.
 
 큰 인스턴스 스탬프의 다중 테넌트 인프라 내에서 고객이 격리된 테넌트로 배포됩니다. 테넌트 배포 시 Azure 등록 내에서 Azure 구독 이름을 지정합니다. Azure 구독은 HANA 대규모 인스턴스가 청구되는 구독입니다. 이러한 테넌트는 Azure 구독과 1:1 관계를 포함합니다. 네트워크의 경우 서로 다른 Azure 구독에 속한 다른 가상 네트워크에서 한 Azure 지역의 한 테넌트에 배포된 HANA 대규모 인스턴스 장치에 액세스할 수 있습니다. 이러한 Azure 구독은 동일한 Azure 등록에 속해야 합니다. 
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 07/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 533770d98b146dea01e91e1249115c4b5c074b3c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c14abf3acce0084507a03f3d34fdd59566d88c28
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62101571"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854286"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 가상 머신 만들기 
 
@@ -30,13 +30,13 @@ ms.locfileid: "62101571"
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="multi-vm-vs-single-vm-resource-manager-templates"></a>다중 VM 및 단일 VM Resource Manager 템플릿
-두 가지 방법으로 Resource Manager 템플릿을 사용 하 여 DevTest Labs에서 Vm을 만들려면: Microsoft.DevTestLab/labs/virtualmachines 리소스를 프로 비전 또는 microsoft.compute/virtualmachines 리소스를 프로 비전 합니다. 각 방법은 서로 다른 시나리오에서 사용되며, 필요한 사용 권한도 다릅니다.
+리소스 관리자 템플릿을 사용 하 여 DevTest Labs에서 Vm을 만들 수 있는 두 가지 방법이 있습니다. virtualmachines 리소스를 프로 비전 하거나/virtualmachines 리소스를 프로 비전 합니다. 각 방법은 서로 다른 시나리오에서 사용되며, 필요한 사용 권한도 다릅니다.
 
 - Microsoft.DevTestLab/labs/virtualmachines 리소스 종류(템플릿의 “resource” 속성에 선언됨)를 사용하는 Resource Manager 템플릿은 개별 랩 VM을 프로비전할 수 있습니다. 그러면 각 VM이 DevTest Labs 가상 머신 목록에서 단일 항목으로 표시됩니다.
 
    ![DevTest Labs 가상 머신 목록에서 단일 항목으로 표시되는 VM 목록](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-item.png)
 
-   이 형식의 Resource Manager 템플릿은 Azure PowerShell 명령을 통해 프로 비전 할 수 **새로 만들기-AzResourceGroupDeployment** 또는 Azure CLI 명령을 통해 **az 그룹 배포 만들기**합니다. 관리자 권한이 필요하므로 DevTest Labs 사용자 역할이 할당된 사용자는 배포를 수행할 수 없습니다. 
+   이 유형의 리소스 관리자 템플릿은 Azure PowerShell 명령 **AzResourceGroupDeployment** 을 통해 프로 비전 하거나 명령 **az group deployment create**를 Azure CLI 통해 프로 비전 할 수 있습니다. 관리자 권한이 필요하므로 DevTest Labs 사용자 역할이 할당된 사용자는 배포를 수행할 수 없습니다. 
 
 - Microsoft.Compute/virtualmachines 리소스 종류를 사용하는 Resource Manager 템플릿은 여러 VM을 DevTest Labs 가상 머신 목록의 단일 환경으로 프로비전할 수 있습니다.
 
@@ -51,9 +51,8 @@ ms.locfileid: "62101571"
 ## <a name="view-and-save-a-virtual-machines-resource-manager-template"></a>가상 머신의 Resource Manager 템플릿 보기 및 저장
 1. [랩에서 첫 번째 VM 만들기](tutorial-create-custom-lab.md#add-a-vm-to-the-lab)의 단계에 따라 가상 머신 생성을 시작합니다.
 1. 가상 머신에 대한 필요한 정보를 입력하고 이 VM에 사용하려는 아티팩트를 모두 추가합니다.
+1. **고급 설정** 탭으로 스위치. 
 1. 설정 구성 창의 맨 아래에서 **ARM 템플릿 보기**를 선택합니다.
-
-   ![ARM 템플릿 보기 단추](./media/devtest-lab-use-arm-template/devtestlab-lab-view-rm-template.png)
 1. 나중에 다른 가상 머신을 만드는 데 사용할 Resource Manager 템플릿을 복사하고 저장합니다.
 
    ![나중에 사용하기 위해 저장할 Resource Manager 템플릿](./media/devtest-lab-use-arm-template/devtestlab-lab-copy-rm-template.png)
@@ -63,6 +62,11 @@ Resource Manager 템플릿을 저장한 후 먼저 템플릿의 매개 변수 �
 ![JSON 파일을 사용하여 매개 변수 사용자 지정](./media/devtest-lab-use-arm-template/devtestlab-lab-custom-params.png)
 
 이제 [VM을 만드는](devtest-lab-create-environment-from-arm.md) 데 Resource Manager 템플릿을 사용할 준비가 되었습니다.
+
+## <a name="set-expiration-date"></a>만료 날짜 설정
+학습, 데모, 시험 등의 시나리오에서 가상 컴퓨터를 만들고 고정 기간 후에 자동으로 삭제 하 여 불필요 한 비용이 발생 하지 않도록 할 수 있습니다. VM에 대 한 **expirationDate** 속성을 지정 하 여 만료 날짜를 사용 하 여 랩 vm을 만들 수 있습니다. [GitHub 리포지토리에서](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates/101-dtl-create-vm-username-pwd-customimage-with-expiration)동일한 리소스 관리자 템플릿을 확인 하세요.
+
+
 
 ### <a name="next-steps"></a>다음 단계
 * [Resource Manager 템플릿으로 다중 VM 환경을 만드는](devtest-lab-create-environment-from-arm.md) 방법을 알아봅니다.

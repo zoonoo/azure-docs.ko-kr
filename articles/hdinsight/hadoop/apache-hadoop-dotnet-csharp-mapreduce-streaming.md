@@ -46,7 +46,7 @@ __Linux 기반 HDInsight__ 클러스터는 [Mono(https://mono-project.com)](http
 
 * .NET Framework 4.5를 대상으로 하는 C# 코드 작성 및 빌드에 대해 잘 알고 있어야 합니다. 이 문서의 단계는 Visual Studio 2017을 사용합니다.
 
-* 클러스터로 .exe 파일을 업로드하는 방법. 이 문서의 단계는 Data Lake Tools for Visual Studio를 사용하여 클러스터의 기본 저장소로 파일을 업로드합니다.
+* 클러스터로 .exe 파일을 업로드하는 방법. 이 문서의 단계는 Data Lake Tools for Visual Studio를 사용하여 클러스터의 기본 스토리지로 파일을 업로드합니다.
 
 * Azure PowerShell 또는 SSH 클라이언트.
 
@@ -142,7 +142,7 @@ namespace reducer
 
 애플리케이션을 만든 후 빌드하여 프로젝트 디렉터리에 `/bin/Debug/reducer.exe` 파일을 생성합니다.
 
-## <a name="upload-to-storage"></a>저장소에 업로드
+## <a name="upload-to-storage"></a>스토리지에 업로드
 
 1. Visual Studio에서 **서버 탐색기**를 엽니다.
 
@@ -152,9 +152,9 @@ namespace reducer
 
 4. 이 애플리케이션을 배포하려는 HDInsight 클러스터를 확장합니다. 텍스트가 포함된 항목 __(기본 Storage 계정)__ 이 목록에 표시됩니다.
 
-    ![클러스터에 대한 저장소 계정을 보여주는 서버 탐색기](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/storage.png)
+    ![클러스터에 대한 스토리지 계정을 보여주는 서버 탐색기](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/storage.png)
 
-    * 이 항목을 확장할 수 있는 경우 클러스터의 기본 스토리지로 __Azure Storage 계정__을 사용하고 있음을 의미합니다. 클러스터의 기본 저장소에서 파일을 보려면 항목을 확장한 다음 __(기본 컨테이너)__ 를 두 번 클릭합니다.
+    * 이 항목을 확장할 수 있는 경우 클러스터의 기본 스토리지로 __Azure Storage 계정__을 사용하고 있음을 의미합니다. 클러스터의 기본 스토리지에서 파일을 보려면 항목을 확장한 다음 __(기본 컨테이너)__ 를 두 번 클릭합니다.
 
     * 이 항목을 확장할 수 없는 경우 클러스터의 기본 스토리지로 __Azure Data Lake Storage__를 사용하고 있음을 의미합니다. 클러스터의 기본 스토리지에 있는 파일을 보려면 항목을 확장한 다음 __(기본 Storage 계정)__ 을 두 번 클릭합니다.
 

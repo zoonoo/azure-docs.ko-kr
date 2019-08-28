@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: e91d55c29d325301b8ac70ddc63fb408961fbb2c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c9767ff1e6f0b31270f37842cf99d71cab561505
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66742972"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033857"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-facebook-login"></a>Facebook 로그인을 사용하도록 App Service 애플리케이션을 구성하는 방법
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -31,28 +31,32 @@ ms.locfileid: "66742972"
 
 ## <a name="register"></a>Facebook을 사용하여 애플리케이션 등록
 1. [Facebook 개발자] 웹 사이트로 이동한 다음 Facebook 계정 자격 증명으로 로그인합니다.
-3. (선택 사항) 개발자 계정에 대 한 Facebook에 없는 경우 클릭 **시작** 등록 단계를 수행 합니다.
-4. 클릭 **My Apps** > **새 앱 추가**합니다.
+3. 필드 개발자 용 Facebook 계정이 없는 경우 **시작** 을 클릭 하 고 등록 단계를 따릅니다.
+4. **내 앱** > **새 앱 추가**를 클릭 합니다.
 5. **표시 이름**에 고유한 앱 이름을 입력합니다. 또 **연락처 이메일**을 입력한 다음, **앱 ID 만들기**를 클릭하고 보안 검사를 완료합니다. 새 Facebook 앱에 대한 개발자 대시보드로 이동됩니다.
-6. 클릭 **대시보드** > **Facebook 로그인** > **설정** > **웹**합니다.
-1. 왼쪽 탐색 창 아래에서 **Facebook 로그인**, 클릭 **설정**합니다.
-1. **유효한 OAuth 리디렉션 Uri**, 형식 `https://<app-name>.azurewebsites.net/.auth/login/facebook/callback` 바꾸고  *\<앱 이름 >* Azure App Service 앱의 이름입니다. 클릭 **변경 내용을 저장**합니다.
-8. 왼쪽 탐색 창에서 **설정** > **기본**을 클릭합니다. 에 **앱 비밀** 필드, 클릭 **표시**합니다. 값을 복사 합니다 **앱 ID** 하 고 **App Secret**합니다. 사용 하 여 이러한 나중에 Azure에서 App Service 앱을 구성.
+6. **대시보드**Facebook로그인 > 설정웹을 클릭 합니다. >  > 
+1. **Facebook 로그인**아래의 왼쪽 탐색 영역에서 **설정**을 클릭 합니다.
+1. **유효한 OAuth 리디렉션 uri**에서 `https://<app-name>.azurewebsites.net/.auth/login/facebook/callback`  *\<앱 이름 >* 를 Azure App Service 앱의 이름으로 입력 하 고 바꿉니다. 클릭 **변경 내용을 저장**합니다.
+8. 왼쪽 탐색 창에서 **설정** > **기본**을 클릭합니다. **앱 비밀** 필드에서 **표시**를 클릭 합니다. **앱 ID** 및 **앱 암호**의 값을 복사 합니다. 나중에이를 사용 하 여 Azure에서 App Service 앱을 구성 합니다.
    
    > [!IMPORTANT]
    > 앱 암호는 중요한 보안 자격 증명입니다. 다른 사람과 이 암호를 공유하거나 클라이언트 애플리케이션 내에 배포하지 마세요.
    > 
    > 
-9. 애플리케이션을 등록하는 데 사용된 Facebook 계정이 앱의 관리자입니다. 지금은 관리자만 이 애플리케이션에 로그인할 수 있습니다. 다른 Facebook 계정을 인증 하려면 **앱 검토** 사용 하도록 설정 하 고 **확인 \<your 앱 이름 > 공용** Facebook 인증을 사용 하 여 일반 공용 액세스를 사용 하도록 설정 합니다.
+9. 애플리케이션을 등록하는 데 사용된 Facebook 계정이 앱의 관리자입니다. 지금은 관리자만 이 애플리케이션에 로그인할 수 있습니다. 다른 facebook 계정을 인증 하려면 **앱 검토** 를 클릭 하 고 **앱 \<이름 > 공개** 로 설정을 사용 하도록 설정 하 여 Facebook 인증을 사용 하는 일반 공용 액세스를 사용 하도록 설정 합니다.
 
 ## <a name="secrets"></a>애플리케이션에 Facebook 정보 추가
-1. 에 로그인 합니다 [Azure portal] App Service 앱으로 이동 합니다. **설정** > **인증 / 권한 부여**를 클릭하고 **App Service 인증**이 **켜기**인지 확인합니다.
+1. [Azure Portal] 에 로그인 하 여 App Service 앱으로 이동 합니다. **설정** > **인증 / 권한 부여**를 클릭하고 **App Service 인증**이 **켜기**인지 확인합니다.
 2. **Facebook**을 클릭하고 이전에 가져온 앱 ID 및 앱 암호 값을 붙여넣습니다. 필요한 경우 애플리케이션에 필요한 모든 범위를 사용하도록 설정한 다음 **확인**을 클릭합니다.
    
     ![][0]
    
     기본적으로 App Service는 인증을 제공하지만 사이트 콘텐츠 및 API에 액세스하는 권한을 제한하지는 않습니다. 앱 코드에서 사용자 권한을 부여해야 합니다.
 3. (옵션) Facebook에서 인증된 사용자만 사이트에 액세스하도록 제한하려면 **Facebook**에 **요청이 인증되지 않으면 수행할 동작**을 설정합니다. 이렇게 하려면 모든 요청이 인증되어야 하며 모든 인증되지 않은 요청은 인증을 위해 Facebook에 리디렉션되어야 합니다.
+ 
+> [!CAUTION]
+> 이러한 방식으로 액세스를 제한 하는 것은 앱에 대 한 모든 호출에 적용 됩니다 .이는 여러 단일 페이지 응용 프로그램과 마찬가지로 공개적으로 사용 가능한 홈 페이지를 사용 하는 앱에는 바람직하지 않을 수 있습니다. 이러한 응용 프로그램의 경우 [여기](overview-authentication-authorization.md#authentication-flow)에 설명 된 대로 **익명 요청 허용 (작업 없음)** 을 사용 하는 것이 좋습니다. 앱은 수동으로 로그인을 시작 합니다.
+
 4. 인증 구성이 완료되면 **저장**을 클릭합니다.
 
 이제 앱에서 Facebook을 인증에 사용할 준비가 되었습니다.

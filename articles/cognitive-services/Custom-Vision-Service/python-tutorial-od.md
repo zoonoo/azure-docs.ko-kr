@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Python용 Custom Vision SDK를 사용하여 개체 검색 프로젝트 만들기'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Python SDK를 사용하여 프로젝트를 만들고, 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 교육하고, 개체를 검색합니다.
 services: cognitive-services
 author: areddish
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 03/21/2019
+ms.date: 08/08/2019
 ms.author: areddish
-ms.openlocfilehash: 15c7df52dcc2b9ab6977ee9d67d7997ff8b14287
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: e5de456cb4f5779cbef58ffaf0ccb89e9e9134e0
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485971"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946110"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>빠른 시작: Custom Vision Python SDK를 사용하여 개체 검색 프로젝트 만들기
 
@@ -46,7 +46,7 @@ pip install azure-cognitiveservices-vision-customvision
 
 ### <a name="create-the-custom-vision-service-project"></a>Custom Vision Service 프로젝트 만들기
 
-새 Custom Vision Service 프로젝트를 만드는 다음 코드를 스크립트에 추가합니다. 구독 키를 적절한 정의에 삽입합니다. 개체 검색 프로젝트와 이미지 분류 프로젝트를 만드는 작업 간의 차이점은 **create_project** 호출에 지정되는 도메인입니다.
+새 Custom Vision Service 프로젝트를 만드는 다음 코드를 스크립트에 추가합니다. 구독 키를 적절한 정의에 삽입합니다. 프로젝트를 만들 때 다른 옵션을 지정하려면 [create_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.custom_vision_training_client.customvisiontrainingclient?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config- ) 메서드를 참조하세요([탐지기 빌드](get-started-build-detector.md) 웹 포털 가이드에 설명되어 있음).  
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
@@ -85,7 +85,7 @@ scissors_tag = trainer.create_tag(project.id, "scissors")
 
 개체 검색 프로젝트의 이미지에 태그를 지정할 때 정규화된 좌표를 사용하여 태그가 지정된 각 개체의 지역을 지정해야 합니다.
 
-프로젝트에 이미지, 태그 및 지역을 추가하려면 태그를 만든 후 다음 코드를 삽입합니다. 이 자습서에서 지역은 코드의 인라인에 하드 코드됩니다. 지역은 정규화된 좌표에서 경계 상자를 지정하며, 좌표는 왼쪽, 위쪽, 너비, 높이 순서대로 지정됩니다.
+프로젝트에 이미지, 태그 및 지역을 추가하려면 태그를 만든 후 다음 코드를 삽입합니다. 이 자습서에서 지역이 코드와 함께 인라인에 하드 코드됩니다. 지역은 정규화된 좌표에서 경계 상자를 지정하며, 좌표는 왼쪽, 위쪽, 너비, 높이 순서대로 지정됩니다.
 
 ```Python
 fork_image_regions = {
@@ -135,7 +135,7 @@ scissors_image_regions = {
 }
 ```
 
-그런 다음, 이 연결 맵을 사용하여 해당 지역 좌표로 각 샘플 이미지를 업로드합니다. 다음 코드를 추가합니다.
+그런 다음, 이 연결 맵을 사용하여 해당 지역 좌표로 각 샘플 이미지를 업로드합니다(단일 일괄 처리에서 최대 64개의 이미지를 업로드할 수 있음). 다음 코드를 추가합니다.
 
 ```Python
 # Update this with the path to where you downloaded the images.

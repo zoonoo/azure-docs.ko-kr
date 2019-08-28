@@ -1,19 +1,19 @@
 ---
-title: Azure PowerShell 스크립트-Azure Cosmos 계정에서 해제 인덱싱 컨테이너 만들기
-description: Azure PowerShell 스크립트 샘플-Azure Cosmos 계정에서 해제 인덱싱 컨테이너 만들기
+title: Azure PowerShell 스크립트 - Azure Cosmos 계정에서 해제된 컨테이너 인덱싱 만들기
+description: Azure PowerShell 스크립트 샘플 - Azure Cosmos 계정에서 해제된 컨테이너 인덱싱 만들기
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: 4fc75eadd0f3ad87d313d10a9005997d46103666
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
-ms.translationtype: MT
+ms.openlocfilehash: 7cec954bc85873d300a4abb96396025600e17201
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67566818"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603875"
 ---
-# <a name="create-a-container-indexing-turned-off-in-an-azure-cosmos-account-using-powershell"></a>PowerShell을 사용 하 여 Azure Cosmos 계정에서 해제 인덱싱 컨테이너 만들기
+# <a name="create-a-container-indexing-turned-off-in-an-azure-cosmos-account-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos 계정에서 해제된 컨테이너 인덱싱 만들기
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

@@ -16,7 +16,7 @@ Azure Functions [트리거 및 바인딩](../articles/azure-functions/functions-
 다음 트리거에는 기본 제공 재시도 지원이 있습니다.
 
 * [Azure Blob Storage](../articles/azure-functions/functions-bindings-storage-blob.md)
-* [Azure Queue 저장소](../articles/azure-functions/functions-bindings-storage-queue.md)
+* [Azure Queue storage](../articles/azure-functions/functions-bindings-storage-queue.md)
 * [Azure Service Bus(큐/토픽)](../articles/azure-functions/functions-bindings-service-bus.md)
 
 기본적으로 이러한 트리거는 최대 5번까지 재시도됩니다. 5번째 재시도 후에 이러한 트리거는 특별 [포이즌 큐](../articles/azure-functions/functions-bindings-storage-queue.md#trigger---poison-messages)에 메시지를 씁니다.

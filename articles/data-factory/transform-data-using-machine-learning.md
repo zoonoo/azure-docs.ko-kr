@@ -136,7 +136,7 @@ Azure Machine Learning은 예측 실험에 클래식 웹 서비스 및 새 웹 �
 
 ### <a name="scenario-1-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>시나리오 1: Azure Blob Storage의 데이터를 참조하는 웹 서비스 입력/출력을 사용하여 실험
 
-이 시나리오에서는 Azure Machine Learning 웹 서비스는 Azure Blob Storage의 파일에서 데이터를 사용하여 예측을 만들고 Blob Storage에 예측 결과를 저장합니다. 다음 JSON은 AzureMLBatchExecution 작업이 포함된 Data Factory 파이프라인을 정의합니다. Azure 블로그 저장소의 입력 및 출력 데이터는 LinkedName 및 FilePath 쌍을 사용하여 참조됩니다. 서로 다른 입력 및 출력의 연결된 서비스 샘플에서는 Data Factory의 각 입력/출력에 대해 서로 다른 연결된 서비스를 사용하여 올바른 파일을 선택하고 이를 Azure Machine Learning Studio 웹 서비스에 보낼 수 있습니다.
+이 시나리오에서는 Azure Machine Learning 웹 서비스는 Azure Blob Storage의 파일에서 데이터를 사용하여 예측을 만들고 Blob Storage에 예측 결과를 저장합니다. 다음 JSON은 AzureMLBatchExecution 작업이 포함된 Data Factory 파이프라인을 정의합니다. Azure 블로그 스토리지의 입력 및 출력 데이터는 LinkedName 및 FilePath 쌍을 사용하여 참조됩니다. 서로 다른 입력 및 출력의 연결된 서비스 샘플에서는 Data Factory의 각 입력/출력에 대해 서로 다른 연결된 서비스를 사용하여 올바른 파일을 선택하고 이를 Azure Machine Learning Studio 웹 서비스에 보낼 수 있습니다.
 
 > [!IMPORTANT]
 > Azure Machine Learning Studio 실험에서 웹 서비스 입력 및 출력 포트와 글로벌 매개 변수에는 사용자 지정할 수 있는 기본 이름("input1", "input2")이 있습니다. WebServiceInputs, webServiceOutputs 및 globalParameters 설정에 대해 사용하는 이름은 실험에서의 이름과 정확히 일치해야 합니다. Azure Machine Learning Studio 엔드포인트에 대한 일괄 처리 실행 도움말 페이지에서 요청 페이로드 샘플을 보고 예상되는 매핑을 확인할 수 있습니다.

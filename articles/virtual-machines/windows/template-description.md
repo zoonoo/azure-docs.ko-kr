@@ -4,7 +4,7 @@ description: Azure Resource Manager 템플릿에서 가상 머신 리소스를 �
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: f63ab5cc-45b8-43aa-a4e7-69dc42adbb99
@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: f4a69fd57bf2e9535fdb1664365b074927e27585
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd4fad40ef4809c756321493854f38fd813569ca
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707266"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710293"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿의 가상 머신
 
-이 문서에서는 가상 머신에 적용되는 Azure Resource Manager 템플릿의 측면을 설명합니다. 이 문서는 가상 머신을 만들기 위한 완전한 템플릿 설명하지 않습니다. 이를 위해 저장소 계정, 네트워크 인터페이스, 공용 IP 주소 및 가상 네트워크에 대한 리소스 정의가 필요합니다. 이러한 리소스를 함께 정의할 수 있는 방법에 대한 자세한 내용은 [Resource Manager 템플릿 연습](../../azure-resource-manager/resource-manager-template-walkthrough.md)을 참조하세요.
+이 문서에서는 가상 머신에 적용되는 Azure Resource Manager 템플릿의 측면을 설명합니다. 이 문서는 가상 머신을 만들기 위한 완전한 템플릿 설명하지 않습니다. 이를 위해 스토리지 계정, 네트워크 인터페이스, 공용 IP 주소 및 가상 네트워크에 대한 리소스 정의가 필요합니다. 이러한 리소스를 함께 정의할 수 있는 방법에 대한 자세한 내용은 [Resource Manager 템플릿 연습](../../azure-resource-manager/resource-manager-template-walkthrough.md)을 참조하세요.
 
 갤러리에 VM 리소스를 포함하는 [많은 템플릿](https://azure.microsoft.com/documentation/templates/?term=VM)이 있습니다. 템플릿에 포함될 수 있는 모든 요소가 여기에 설명되어 있지 않습니다.
 
@@ -148,7 +148,7 @@ ms.locfileid: "64707266"
 ``` 
 
 > [!NOTE] 
->이 예제에서는 이전에 만든 저장소 계정을 사용합니다. 템플릿에서 배포하여 저장소 계정을 만들 수 있습니다. 예제에서는 또한 템플릿에서 정의될 수 있는 네트워크 인터페이스 및 해당 종속 리소스에 의존합니다. 이러한 리소스는 예제에 표시되지 않습니다.
+>이 예제에서는 이전에 만든 스토리지 계정을 사용합니다. 템플릿에서 배포하여 스토리지 계정을 만들 수 있습니다. 예제에서는 또한 템플릿에서 정의될 수 있는 네트워크 인터페이스 및 해당 종속 리소스에 의존합니다. 이러한 리소스는 예제에 표시되지 않습니다.
 >
 >
 
@@ -216,7 +216,7 @@ ms.locfileid: "64707266"
 }, 
 ```
 
-예제 템플릿을 배포할 때 이전에 만든 저장소 계정의 이름 및 식별자에 대한 변수 값이 사용됩니다. 변수는 진단 확장에 대한 설정을 제공하는 데에도 사용됩니다. [Azure Resource Manager 템플릿 생성 모범 사례](../../resource-manager-template-best-practices.md)를 사용하여 템플릿에서 매개 변수 및 변수를 구성하는 방법을 결정할 수 있습니다.
+예제 템플릿을 배포할 때 이전에 만든 스토리지 계정의 이름 및 식별자에 대한 변수 값이 사용됩니다. 변수는 진단 확장에 대한 설정을 제공하는 데에도 사용됩니다. [Azure Resource Manager 템플릿 생성 모범 사례](../../resource-manager-template-best-practices.md)를 사용하여 템플릿에서 매개 변수 및 변수를 구성하는 방법을 결정할 수 있습니다.
 
 ## <a name="resource-loops"></a>리소스 루프
 
@@ -410,7 +410,7 @@ Linux 운영 체제를 만들려는 경우 이 정의를 사용할 수 있습니
 },
 ```
 
-이 확장 리소스는 storageName 변수 및 진단 변수를 사용하여 값을 제공합니다. 이 확장에서 수집되는 데이터를 변경하려는 경우 wadperfcounters 변수에 더 많은 성능 카운터를 추가할 수 있습니다. VM 디스크가 저장되는 위치가 아닌 다른 저장소 계정에 진단 데이터를 넣도록 선택할 수도 있습니다.
+이 확장 리소스는 storageName 변수 및 진단 변수를 사용하여 값을 제공합니다. 이 확장에서 수집되는 데이터를 변경하려는 경우 wadperfcounters 변수에 더 많은 성능 카운터를 추가할 수 있습니다. VM 디스크가 저장되는 위치가 아닌 다른 스토리지 계정에 진단 데이터를 넣도록 선택할 수도 있습니다.
 
 VM에 설치할 수 있는 많은 확장이 있지만 가장 유용한 것은 [사용자 지정 스크립트 확장](extensions-customscript.md)입니다. 예제에서 start.ps1이라는 PowerShell 스크립트는 처음 시작할 때 각 VM에서 실행됩니다.
 
@@ -439,7 +439,7 @@ VM에 설치할 수 있는 많은 확장이 있지만 가장 유용한 것은 [�
 }
 ```
 
-start.ps1 스크립트는 여러 구성 작업을 수행할 수 있습니다. 예를 들어 예제에서 VM에 추가되는 데이터 디스크는 초기화되지 않습니다. 사용자 지정 스크립트를 사용하여 초기화할 수 있습니다. 수행할 여러 시작 작업이 있는 경우 start.ps1 파일을 사용하여 Azure 저장소에서 다른 PowerShell 스크립트를 호출할 수 있습니다. 예제에서는 PowerShell을 사용하지만 사용 중인 운영 체제에서 사용할 수 있는 모든 스크립팅 메서드를 사용할 수 있습니다.
+start.ps1 스크립트는 여러 구성 작업을 수행할 수 있습니다. 예를 들어 예제에서 VM에 추가되는 데이터 디스크는 초기화되지 않습니다. 사용자 지정 스크립트를 사용하여 초기화할 수 있습니다. 수행할 여러 시작 작업이 있는 경우 start.ps1 파일을 사용하여 Azure Storage에서 다른 PowerShell 스크립트를 호출할 수 있습니다. 예제에서는 PowerShell을 사용하지만 사용 중인 운영 체제에서 사용할 수 있는 모든 스크립팅 메서드를 사용할 수 있습니다.
 
 포털의 확장 설정에서 설치된 확장의 상태를 확인할 수 있습니다.
 

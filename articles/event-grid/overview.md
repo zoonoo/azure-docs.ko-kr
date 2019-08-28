@@ -9,16 +9,16 @@ ms.topic: overview
 ms.date: 05/25/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: bfc8b62c61e2b9d01ffa0c582468b6236c92cccc
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: b262a06bc3d80bd1f8105c6629bbc07e6ccd34eb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257935"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077150"
 ---
 # <a name="what-is-azure-event-grid"></a>Azure Event Grid란?
 
-Azure Event Grid를 사용하면 이벤트 기반 아키텍처를 가진 애플리케이션을 쉽게 빌드할 수 있습니다. 먼저 구독할 Azure 리소스를 선택한 다음, 이벤트를 전송할 이벤트 처리기 또는 WebHook 엔드포인트를 제공합니다. Event Grid는 기본적으로 저장소 Blob 및 리소스 그룹과 같은 Azure 서비스의 이벤트를 지원합니다. 또한 Event Grid는 사용자 지정 토픽을 사용하여 사용자 고유의 이벤트를 지원합니다. 
+Azure Event Grid를 사용하면 이벤트 기반 아키텍처를 가진 애플리케이션을 쉽게 빌드할 수 있습니다. 먼저 구독할 Azure 리소스를 선택한 다음, 이벤트를 전송할 이벤트 처리기 또는 WebHook 엔드포인트를 제공합니다. Event Grid는 기본적으로 스토리지 Blob 및 리소스 그룹과 같은 Azure 서비스의 이벤트를 지원합니다. 또한 Event Grid는 사용자 지정 토픽을 사용하여 사용자 고유의 이벤트를 지원합니다. 
 
 필터를 사용하여 다른 엔드포인트에 대한 특정 이벤트를 라우팅하고, 여러 엔드포인트로 멀티캐스트하며, 이벤트가 안정적으로 배달되도록 할 수 있습니다.
 
@@ -56,6 +56,7 @@ Azure Event Grid는 각 지역의 여러 장애 도메인과 가용성 영역(�
 * [Logic Apps](event-handlers.md#logic-apps)
 * [Microsoft Flow](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
 * [Queue Storage](event-handlers.md#queue-storage)
+* [Service Bus](event-handlers.md#service-bus-queue-preview)(미리 보기)
 * [웹후크](event-handlers.md#webhooks)
 
 ## <a name="concepts"></a>개념

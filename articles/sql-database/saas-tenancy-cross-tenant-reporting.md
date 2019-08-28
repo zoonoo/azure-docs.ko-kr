@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewers: billgib,ayolubek
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 9562d0cd1ad97a459c3630456a6070ac2b6e63f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fa8dbbbb09fbdc14049e168afe6eb4810ccc8254
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61484743"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570243"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>분산 쿼리를 사용한 교차 테넌트 보고
 
@@ -93,7 +92,7 @@ Wingtip Tickets SaaS Database Per Tenant 애플리케이션에서는 각각의 �
 
 1. **개체 탐색기**에서 **contosoconcethall** > **보기**를 확장합니다.
 
-   ![뷰](media/saas-tenancy-cross-tenant-reporting/views.png)
+   ![보기](media/saas-tenancy-cross-tenant-reporting/views.png)
 
 2. **dbo.Venues**를 마우스 오른쪽 단추로 클릭합니다.
 3. **뷰 스크립팅** > **CREATE** > **새 쿼리 편집기 창**를 선택합니다.
@@ -106,7 +105,7 @@ Wingtip Tickets SaaS Database Per Tenant 애플리케이션에서는 각각의 �
 
 1. *PowerShell ISE*에서 \\학습 모듈\\운영 분석\\임시 보고\\*Demo-AdhocReporting.ps1*을 엽니다. 
 
-1. 설정 **$DemoScenario = 2**하십시오 _배포 임시 보고 데이터베이스_합니다.
+1. **$DemoScenario = 2**를 설정 하 고 _임시 보고 데이터베이스를 배포_합니다.
 
 1. 스크립트를 실행하고 *adhocreporting* 데이터베이스를 만들려면 **F5** 키를 누릅니다.
 
@@ -148,7 +147,7 @@ Wingtip Tickets SaaS Database Per Tenant 애플리케이션에서는 각각의 �
 
 실행 계획을 검사할 때 자세한 내용을 보려면 계획 아이콘 위로 마우스를 가져갑니다. 
 
-기억할 점으로, 외부 데이터 원본이 정의되었을 때 **DISTRIBUTION = SHARDED(VenueId)** 를 설정하면 여러 시나리오의 성능이 향상됩니다. 각 *VenueId* 개별 데이터베이스에 지도 쉽게 필터링 원격으로 필요한 데이터만 반환 합니다.
+기억할 점으로, 외부 데이터 원본이 정의되었을 때 **DISTRIBUTION = SHARDED(VenueId)** 를 설정하면 여러 시나리오의 성능이 향상됩니다. 각 *Venueid* 가 개별 데이터베이스에 매핑되면 필터링은 원격으로 쉽게 수행 되며 필요한 데이터만 반환 합니다.
 
 1. SSMS에서 \\학습 모듈\\운영 분석\\임시 보고\\*Demo-AdhocReportingQueries.sql*을 엽니다.
 2. **adhocreporting** 데이터베이스에 연결되었는지 확인합니다.
@@ -188,7 +187,7 @@ Wingtip Tickets SaaS Database Per Tenant 애플리케이션에서는 각각의 �
 
 이제 [테넌트 분석 자습서](saas-tenancy-tenant-analytics.md)를 시도하여 복잡한 분석을 처리하기 위해 별도 분석 데이터베이스에 추출하는 데이터를 탐색합니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 * [Tickets SaaS Database Per Tenant 애플리케이션을 기반으로 빌드되는 추가 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [탄력적 쿼리](sql-database-elastic-query-overview.md)

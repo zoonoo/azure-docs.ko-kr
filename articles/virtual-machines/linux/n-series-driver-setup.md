@@ -4,7 +4,7 @@ description: Azure에서 Linux를 실행하는 N 시리즈 VM의 NVIDIA GPU 드�
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: d91695d0-64b9-4e6b-84bd-18401eaecdde
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 769d3dda7b1e49612279c9bfa6a3dd586e50e4c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7e798b4316b8ccdc2f76512d4651365f5bb151ce
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479111"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68278315"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Linux를 실행하는 N 시리즈 VM의 NVIDIA GPU 드라이버 설치
 
@@ -29,7 +29,7 @@ Linux를 실행하는 Azure N 시리즈 VM의 GPU 기능을 최대한 활용하�
 
 GPU 드라이버를 수동으로 설치하려는 경우 이 문서는 지원되는 배포판, 드라이버 및 설치 및 확인 단계를 제공합니다. [Windows VM](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 대한 드라이버 수동 설치 정보도 제공합니다.
 
-N 시리즈 VM 사양, 저장소 용량 및 디스크 세부 정보는 [GPU Linux VM 크기](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요. 
+N 시리즈 VM 사양, 스토리지 용량 및 디스크 세부 정보는 [GPU Linux VM 크기](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요. 
 
 [!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
 
@@ -160,7 +160,7 @@ GPU 디바이스 상태를 쿼리하려면 VM에 대해 SSH를 실행하고 드�
 
 동일한 가용성 집합 또는 VM 확장 집합의 단일 배치 그룹에 배포된 NC24r과 같은 RDMA 지원 N 시리즈 VM에서 RDMA 네트워크 연결을 사용할 수 있습니다. RDMA 네트워크는 Intel MPI 5.x 이상 버전을 사용하여 실행되는 애플리케이션에 대한 MPI(Message Passing Interface) 트래픽을 지원합니다. 추가 요구 사항은 다음과 같습니다.
 
-### <a name="distributions"></a>배포
+### <a name="distributions"></a>분포
 
 N 시리즈 VM에서 RDMA 연결을 지원하는 Azure Marketplace의 이미지 중 하나에서 RDMA 지원 N 시리즈 VM을 배포합니다.
   
@@ -170,9 +170,9 @@ N 시리즈 VM에서 RDMA 연결을 지원하는 Azure Marketplace의 이미지 
 
 * **CentOS 기반 7.4 HPC** - RDMA 드라이버 및 Intel MPI 5.1은 VM에 설치됩니다.
 
-## <a name="install-grid-drivers-on-nv-or-nvv2-series-vms"></a>NV 또는 NVv2 시리즈 VM에 GRID 드라이버 설치
+## <a name="install-grid-drivers-on-nv-or-nvv3-series-vms"></a>NV 또는 NVv3 시리즈 Vm에 그리드 드라이버 설치
 
-NVIDIA GRID 드라이버를 NV 또는 NVv2 시리즈 VM에 설치하려면 각 VM에 대한 SSH 연결을 확인하고 Linux 배포에 필요한 단계를 수행합니다. 
+NV 또는 NVv3 시리즈 Vm에 NVIDIA GRID 드라이버를 설치 하려면 각 VM에 SSH 연결을 설정 하 고 Linux 배포에 대 한 단계를 수행 합니다. 
 
 ### <a name="ubuntu"></a>Ubuntu 
 
@@ -188,8 +188,10 @@ NVIDIA GRID 드라이버를 NV 또는 NVv2 시리즈 VM에 설치하려면 각 V
    sudo apt-get dist-upgrade -y
 
    sudo apt-get install build-essential ubuntu-desktop -y
+   
+   sudo apt-get install linux-azure -y
    ```
-3. NVIDIA 드라이버와 호환되지 않는 Nouveau 커널 드라이버를 사용하지 않도록 설정합니다. (NV 또는 NVv2 VM에서 NVIDIA 드라이버만 사용합니다.) 이렇게 하려면에 파일을 만듭니다 `/etc/modprobe.d` 라는 `nouveau.conf` 다음 내용으로:
+3. NVIDIA 드라이버와 호환되지 않는 Nouveau 커널 드라이버를 사용하지 않도록 설정합니다. (NV 또는 NVv2 VM에서 NVIDIA 드라이버만 사용합니다.) 이렇게 하려면 다음 내용을 사용 하 여 `/etc/modprobe.d` 라는 `nouveau.conf` 파일을 만듭니다.
 
    ```
    blacklist nouveau
@@ -226,8 +228,15 @@ NVIDIA GRID 드라이버를 NV 또는 NVv2 시리즈 VM에 설치하려면 각 V
  
    ```
    IgnoreSP=FALSE
+   EnableUI=FALSE
    ```
-9. VM 다시 부팅하고 계속해서 설치를 확인합니다.
+   
+9. 다음을 제거 합니다 `/etc/nvidia/gridd.conf` (있는 경우).
+ 
+   ```
+   FeatureType=0
+   ```
+10. VM 다시 부팅하고 계속해서 설치를 확인합니다.
 
 
 ### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS 또는 Red Hat Enterprise Linux 
@@ -242,9 +251,11 @@ NVIDIA GRID 드라이버를 NV 또는 NVv2 시리즈 VM에 설치하려면 각 V
    sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
  
    sudo yum install dkms
+   
+   sudo yum install hyperv-daemons
    ```
 
-2. NVIDIA 드라이버와 호환되지 않는 Nouveau 커널 드라이버를 사용하지 않도록 설정합니다. (NV 또는 NV2 VM에서 NVIDIA 드라이버만 사용합니다.) 이렇게 하려면에 파일을 만듭니다 `/etc/modprobe.d` 라는 `nouveau.conf` 다음 내용으로:
+2. NVIDIA 드라이버와 호환되지 않는 Nouveau 커널 드라이버를 사용하지 않도록 설정합니다. (NV 또는 NV2 VM에서 NVIDIA 드라이버만 사용합니다.) 이렇게 하려면 다음 내용을 사용 하 여 `/etc/modprobe.d` 라는 `nouveau.conf` 파일을 만듭니다.
 
    ```
    blacklist nouveau
@@ -290,8 +301,15 @@ NVIDIA GRID 드라이버를 NV 또는 NVv2 시리즈 VM에 설치하려면 각 V
  
    ```
    IgnoreSP=FALSE
+   EnableUI=FALSE 
    ```
-9. VM 다시 부팅하고 계속해서 설치를 확인합니다.
+9. 다음을 제거 합니다 `/etc/nvidia/gridd.conf` (있는 경우).
+ 
+   ```
+   FeatureType=0
+   ```
+10. VM 다시 부팅하고 계속해서 설치를 확인합니다.
+
 
 ### <a name="verify-driver-installation"></a>드라이버 설치 확인
 

@@ -3,17 +3,18 @@ title: 자습서 - Azure Container Instances에 사용할 컨테이너 이미지
 description: Azure Container Instances 자습서 1/3부 - 컨테이너 이미지에서 Azure Container Instances에 배포할 앱 준비
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: f5d6ac81cc2553cc4a2d7b86c21417aa5ab1d572
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 719237f63d387cf56ab7947f8f168e0aa4351376
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57990631"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68325579"
 ---
 # <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>자습서: Azure Container Instances에 배포할 컨테이너 이미지 만들기
 
@@ -59,7 +60,7 @@ RUN npm install
 CMD node /usr/src/app/index.js
 ```
 
-[docker build][docker-build] 명령을 사용하여 컨테이너 이미지를 만들고 *aci-tutorial-app*으로 태깅합니다.
+다음과 같이 [docker build][docker-build] 명령을 사용하여 컨테이너 이미지를 만들고 *aci-tutorial-app*이라는 태그를 지정합니다.
 
 ```bash
 docker build ./aci-helloworld -t aci-tutorial-app
@@ -87,7 +88,7 @@ Successfully built 6edad76d09e9
 Successfully tagged aci-tutorial-app:latest
 ```
 
-빌드된 이미지를 보려면 [docker images][docker-images] 명령을 사용합니다.
+빌드된 이미지를 보려면 다음과 같이 [docker images][docker-images] 명령을 사용합니다.
 
 ```bash
 docker images

@@ -1,20 +1,20 @@
 ---
-title: Bing Local Business Search API의 검색 범주 | Microsoft Docs
+title: Bing Local Business Search API의 검색 범주
 titleSuffix: Azure Cognitive Services
 description: 이 문서를 사용하여 Bing Local Business Search API 엔드포인트에 대한 검색 범주를 지정하는 방법을 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 61bd230ffdb79b31390e96179e5beb3646902142
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: rosh
+ms.openlocfilehash: 6574731e5484e3c7d3542ec160a38dbdc112054d
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65796741"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68942633"
 ---
 # <a name="search-categories-for-the-bing-local-business-search-api"></a>Bing Local Business Search API의 검색 범주
 

@@ -1,9 +1,9 @@
 ---
-title: Azure AD 보고 데이터를 저장 하는 기간 | Microsoft Docs
-description: Azure는 다양 한 보고 데이터를 저장 하는 기간에 대해 알아봅니다.
+title: Azure AD 저장소에서 데이터를 보고 하는 기간은 얼마 인가요? | Microsoft Docs
+description: Azure에서 다양 한 유형의 보고 데이터를 저장 하는 기간을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41fa12c9d79d14a6602d995ed93b5d1a23be8a4d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c52f8873527d92e621ef032f5bc3e82d3364a691
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65781052"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989576"
 ---
-# <a name="how-long-does-azure-ad-store-reporting-data"></a>Azure AD 보고 데이터를 저장 하는 기간
+# <a name="how-long-does-azure-ad-store-reporting-data"></a>Azure AD 저장소에서 데이터를 보고 하는 기간은 얼마 인가요?
 
 이 문서에서는 Azure Active Directory의 다른 작업 보고서에 대한 데이터 보존 정책에 대해 알아봅니다. 
 
@@ -68,8 +68,8 @@ ms.locfileid: "65781052"
 
 | 보고서                 | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--            | :--                 | :--                 |
-| 감사 로그             | 7 일        |  7 일        | 30일             | 30일             |
-| 로그인               | N/A           |  N/A           | 30일             | 30일             |
+| 감사 로그             | 7일        |  7일        | 30일             | 30일             |
+| 로그인               | 해당 사항 없음           |  해당 사항 없음           | 30일             | 30일             |
 | Azure MFA 사용        | 30일       |  30일       | 30일             | 30일             |
 
 Azure Monitor를 사용하여 스토리지 계정으로 라우팅하여 위에서 설명한 기본 보존 기간보다 오랫동안 감사 및 로그인 활동 데이터를 유지할 수 있습니다. 자세한 내용은 [Azure 스토리지 계정에 Azure AD 로그 보관](quickstart-azure-monitor-route-logs-to-storage-account.md)을 참조하세요.
@@ -78,7 +78,7 @@ Azure Monitor를 사용하여 스토리지 계정으로 라우팅하여 위에�
 
 | 보고서         | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--            | :--           | :--            | :--                 | :--                 |
-| 위험에 노출된 사용자  | 7 일        | 7 일         | 30일             | 90일             |
-| 위험한 로그인 | 7 일        | 7 일         |  30일            | 90일             |
+| 위험에 노출된 사용자  | 7일        | 7일         | 30일             | 90일             |
+| 위험한 로그인 | 7일        | 7일         |  30일            | 90일             |
 
 ---

@@ -7,19 +7,19 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: ef90adc1-580e-4955-8ff1-bde3f3cafc5d
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 67bab857e66edd8e9fae7d45c6157f018da81ccf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b0eec2425f8a1663eb7a09c83a6bad037d1d79c
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64867028"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594104"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Azure CDN 고급 HTTP 보고서를 사용하여 사용 현황 통계 분석
 ## <a name="overview"></a>개요
@@ -48,7 +48,7 @@ ms.locfileid: "64867028"
 
 맵 기반 지리 보고서의 각 유형에 대한 간략한 설명이 아래에 제공됩니다.
 
-| 보고서 이름 | 설명 |
+| 보고서 이름 | Description |
 | --- | --- |
 | 전 세계 맵 |이 보고서를 사용하면 CDN 콘텐츠에 대한 전 세계 수요를 볼 수 있습니다. 각 국가/지역은 해당 지역에서 발생 한 적중 항목의 백분율을 나타냅니다 전 세계 맵에 색으로 구분 합니다. |
 | 미국 맵 |이 보고서를 사용하면 미국에서 CDN 콘텐츠에 대한 수요를 볼 수 있습니다. 각 주가 이 맵에 색으로 지정되어 해당 지역에서 발생한 적중 항목의 백분율을 나타냅니다. |
@@ -71,7 +71,7 @@ ms.locfileid: "64867028"
 
 아래에서 두 가지 유형의 보고서에 대한 간략한 설명을 제공합니다.
 
-| 보고서 이름 | 설명 |
+| 보고서 이름 | Description |
 | --- | --- |
 | 상위 도시 |이 보고서는 해당 지역에서 발생한 적중 횟수에 따라 도시의 순위를 매깁니다. |
 | 상위 국가 |이 보고서는 해당 국가/지역에서 발생 한 적중 항목 수에 따라 국가/지역 순위를 지정 합니다. |
@@ -199,7 +199,7 @@ ms.locfileid: "64867028"
 
 가로 막대형 차트 바로 아래에는 상위 250개 요청된 자산에 대해 상대 경로(파일 이름 포함), 404 찾을 수 없음 상태 코드가 발생한 요청 수, 자산이 요청된 총 횟수, 404 찾을 수 없음 상태 코드가 발생한 요청의 백분율 등의 정보가 나열됩니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 * [Azure CDN 개요](cdn-overview.md)
 * [Microsoft Azure CDN의 실시간 통계](cdn-real-time-stats.md)
 * [규칙 엔진을 사용하여 기본 HTTP 동작 재정의](cdn-rules-engine.md)

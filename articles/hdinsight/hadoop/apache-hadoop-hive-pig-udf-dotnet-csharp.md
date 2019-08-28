@@ -151,7 +151,7 @@ Hive 및 Pig 모두 외부 애플리케이션으로 데이터를 전달해 처�
 
 3. **Program.cs**를 저장한 다음 프로젝트를 빌드합니다.
 
-## <a name="upload-to-storage"></a>저장소에 업로드
+## <a name="upload-to-storage"></a>스토리지에 업로드
 
 1. Visual Studio에서 **서버 탐색기**를 엽니다.
 
@@ -161,9 +161,9 @@ Hive 및 Pig 모두 외부 애플리케이션으로 데이터를 전달해 처�
 
 4. 이 애플리케이션을 배포하려는 HDInsight 클러스터를 확장합니다. 텍스트가 포함된 항목 __(기본 Storage 계정)__ 이 목록에 표시됩니다.
 
-    ![클러스터에 대한 저장소 계정을 보여주는 서버 탐색기](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/storage.png)
+    ![클러스터에 대한 스토리지 계정을 보여주는 서버 탐색기](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/storage.png)
 
-    * 이 항목을 확장할 수 있는 경우 클러스터의 기본 스토리지로 __Azure Storage 계정__을 사용하고 있음을 의미합니다. 클러스터의 기본 저장소에서 파일을 보려면 항목을 확장한 다음 __(기본 컨테이너)__ 를 두 번 클릭합니다.
+    * 이 항목을 확장할 수 있는 경우 클러스터의 기본 스토리지로 __Azure Storage 계정__을 사용하고 있음을 의미합니다. 클러스터의 기본 스토리지에서 파일을 보려면 항목을 확장한 다음 __(기본 컨테이너)__ 를 두 번 클릭합니다.
 
     * 이 항목을 확장할 수 없는 경우 클러스터의 기본 스토리지로 __Azure Data Lake Storage__를 사용하고 있음을 의미합니다. 클러스터의 기본 스토리지에 있는 파일을 보려면 항목을 확장한 다음 __(기본 Storage 계정)__ 을 두 번 클릭합니다.
 
@@ -203,9 +203,9 @@ Hive 및 Pig 모두 외부 애플리케이션으로 데이터를 전달해 처�
     ```
 
     > [!IMPORTANT]
-    > 클러스터에 사용되는 기본 저장소의 유형과 일치하는 `add file` 문에서 주석 처리를 제거합니다.
+    > 클러스터에 사용되는 기본 스토리지의 유형과 일치하는 `add file` 문에서 주석 처리를 제거합니다.
 
-    이 쿼리는 `hivesampletable`에서 `clientid`, `devicemake` 및 `devicemodel` 필드를 선택하고 해당 필드를 HiveCSharp.exe 애플리케이션으로 전달합니다. 쿼리는 애플리케이션이 3개의 필드를 반환할 것을 예상하며 `clientid`, `phoneLabel` 및 `phoneHash`로 저장됩니다. 또한 쿼리는 기본 저장소 컨테이너의 루트에서 HiveCSharp.exe를 찾는다고 예상합니다.
+    이 쿼리는 `hivesampletable`에서 `clientid`, `devicemake` 및 `devicemodel` 필드를 선택하고 해당 필드를 HiveCSharp.exe 애플리케이션으로 전달합니다. 쿼리는 애플리케이션이 3개의 필드를 반환할 것을 예상하며 `clientid`, `phoneLabel` 및 `phoneHash`로 저장됩니다. 또한 쿼리는 기본 스토리지 컨테이너의 루트에서 HiveCSharp.exe를 찾는다고 예상합니다.
 
 5. **제출** 을 클릭하여 HDInsight 클러스터에 작업을 제출합니다. **Hive 작업 요약** 창이 열립니다.
 
@@ -236,7 +236,7 @@ Hive 및 Pig 모두 외부 애플리케이션으로 데이터를 전달해 처�
         DETAILS = STREAM LOG through streamer as (col1, col2, col3, col4, col5);
         DUMP DETAILS;
 
-    `DEFINE` 문은 pigudf.exe 애플리케이션에 대한 `streamer`의 별칭을 만들고 `CACHE`는 클러스터의 기본 저장소에서 로드합니다. 나중에 `streamer`는 `STREAM` 연산자와 함께 사용되어 로그에 포함된 단일 줄을 처리하고 일련의 열로 데이터를 반환합니다.
+    `DEFINE` 문은 pigudf.exe 애플리케이션에 대한 `streamer`의 별칭을 만들고 `CACHE`는 클러스터의 기본 스토리지에서 로드합니다. 나중에 `streamer`는 `STREAM` 연산자와 함께 사용되어 로그에 포함된 단일 줄을 처리하고 일련의 열로 데이터를 반환합니다.
 
     > [!NOTE]
     > 스트리밍에 사용되는 애플리케이션 이름은 별칭이 지정된 경우 \`(기호) 문자로 묶어야 하며 `SHIP`와 함께 사용된 경우 '(작은따옴표)로 묶어야 합니다.

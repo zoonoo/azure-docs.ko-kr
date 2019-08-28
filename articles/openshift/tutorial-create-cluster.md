@@ -6,14 +6,14 @@ author: jimzim
 ms.author: jzim
 manager: jeconnoc
 ms.topic: tutorial
-ms.service: openshift
+ms.service: container-service
 ms.date: 05/14/2019
-ms.openlocfilehash: 651236c25ed912ebd7399d351677a67e3826278c
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 4c186787af08a565dc100dfbd79d166688d89d8f
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306192"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013431"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>자습서: Azure Red Hat OpenShift 클러스터 만들기
 
@@ -107,6 +107,10 @@ az group create --name $CLUSTER_NAME --location $LOCATION
 
 지금 만들고 있는 클러스터의 가상 네트워크(VNET)를 피어링을 통해 기존 VNET에 연결할 필요가 없으면 이 단계를 건너뜁니다.
 
+기본 구독 외부의 네트워크에 피어링한 경우 해당 구독에서 Microsoft.ContainerService 공급자도 등록해야 합니다. 이렇게 하려면 해당 구독에서 아래 명령을 실행합니다. 그렇지 않은 경우 피어링 중인 VNET가 동일한 구독에 있으면 등록 단계를 건너뛸 수 있습니다. 
+
+`az provider register -n Microsoft.ContainerService --wait`
+
 먼저, 기존 VNET의 식별자를 가져옵니다. 식별자는 `/subscriptions/{subscription id}/resourceGroups/{resource group of VNET}/providers/Microsoft.Network/virtualNetworks/{VNET name}` 형식입니다.
 
 기존 VNET이 속한 네트워크 이름 또는 리소스 그룹을 모르는 경우 [가상 네트워크 블레이드](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Network%2FvirtualNetworks)로 이동하여 해당하는 가상 네트워크를 클릭합니다. 가상 네트워크 페이지가 열리고 가상 네트워크가 속한 네트워크 이름 및 리소스 그룹이 나열됩니다.
@@ -136,7 +140,7 @@ az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCA
 ```
 
 > [!NOTE]
-> 클러스터 이름이 고유하지 않으면 호스트 이름을 사용할 수 없다는 오류가 발생할 수 있습니다. 원래 앱 등록을 삭제하고, 다른 클러스터 이름을 사용하여 [새 앱 등록 만들기](howto-aad-app-configuration.md#create-a-new-app-registration)의 단계를 다시 실행해보세요. 새 사용자 및 보안 그룹을 만드는 단계는 생략합니다.
+> 클러스터 이름이 고유하지 않으면 호스트 이름을 사용할 수 없다는 오류가 발생할 수 있습니다. 원래 앱 등록을 삭제하고 다른 클러스터 이름을 사용하여 [새 앱 등록 만들기](howto-aad-app-configuration.md#create-an-azure-ad-app-registration)의 단계를 다시 실행해보세요. 새 사용자 및 보안 그룹을 만드는 단계는 생략합니다.
 
 몇 분 후 `az openshift create`가 완료됩니다.
 

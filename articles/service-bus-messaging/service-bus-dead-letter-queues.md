@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2019
 ms.author: aschhab
-ms.openlocfilehash: af67b27dacf3bb86c2dd5c878a2751e027a53acb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: afa2e6e46579d9ce2906e2686cf40adf4b65ab2b
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66003130"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516585"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Service Bus 배달 못 한 편지 큐의 개요
 
@@ -49,7 +49,7 @@ broker에 의해 메시지가 이동되면 broker가 메시지의 [DeadLetter](/
 | !TopicDescription.<br />EnableFilteringMessagesBeforePublishing and SubscriptionDescription.<br />EnableDeadLetteringOnFilterEvaluationExceptions |exception.GetType().Name |exception.Message |
 | EnableDeadLetteringOnMessageExpiration |TTLExpiredException |메시지가 만료되어 배달 못 한 편지로 처리되었습니다. |
 | SubscriptionDescription.RequiresSession |세션 ID가 null입니다. |세션이 활성화된 엔터티가 세션 식별자가 null인 메시지를 허용하지 않습니다. |
-| !dead letter queue |MaxTransferHopCountExceeded |Null |
+| !dead letter queue | MaxTransferHopCountExceeded | 큐를 전달할 때 허용 되는 최대 홉 수입니다. 값은 4로 설정 됩니다. |
 | 애플리케이션에서 명시적으로 배달 못 한 편지로 처리 |애플리케이션에서 지정 |애플리케이션에서 지정 |
 
 ## <a name="exceeding-maxdeliverycount"></a>Exceeding MaxDeliveryCount
@@ -82,7 +82,7 @@ broker에 의해 메시지가 이동되면 broker가 메시지의 [DeadLetter](/
 
 이러한 배달 못한 메시지를 검색하기 위해 [FormatTransferDeadletterPath](/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formattransferdeadletterpath) 유틸리티 메서드를 사용하여 받는 사람을 만들 수 있습니다.
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
 다음은 메시지 수신자를 만드는 코드 조각입니다. 기본 큐의 수신 루프에서, 이 코드는 [Receive(TimeSpan.Zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver)가 포함된 메시지를 검색합니다. 이 속성은 broker에 즉시 사용 가능한 메시지를 즉시 반환하도록 또는 결과 없이 반환하도록 요청합니다. 이 코드는 메시지를 받으면 그 즉시 메시지를 중단하며, 이로 인해 `DeliveryCount`가 증가합니다. 시스템에서 메시지를 DLQ로 이동하면 [ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver)에서 **null**을 반환하기 때문에 기본 큐가 비어 있고 루프가 종료됩니다.
 
@@ -103,15 +103,15 @@ while(true)
 }
 ```
 
-## <a name="path-to-the-dead-letter-queue"></a>배달 못 한 편지 큐에 대 한 경로
-다음 구문을 사용 하 여 배달 못 한 편지 큐를 액세스할 수 있습니다.
+## <a name="path-to-the-dead-letter-queue"></a>배달 못 한 편지 큐의 경로
+다음 구문을 사용 하 여 배달 못 한 편지 큐에 액세스할 수 있습니다.
 
 ```
 <queue path>/$deadletterqueue
-<topic path>/Subscription/<subscription path>/$deadletterqueue
+<topic path>/Subscriptions/<subscription path>/$deadletterqueue
 ```
 
-.NET SDK를 사용 하는 경우에 SubscriptionClient.FormatDeadLetterPath() 메서드를 사용 하 여 배달 못 한 편지 큐의 경로 가져올 수 있습니다. 이 메서드는 항목 이름/구독 이름을 받아서 사용 하 여 접미사 **/$DeadLetterQueue**합니다.
+.NET SDK를 사용 하는 경우 FormatDeadLetterPath () 메서드를 사용 하 여 배달 못 한 편지 큐의 경로를 가져올 수 있습니다. 이 메서드는 **/$DeadLetterQueue**항목 이름/구독 이름 및 접미사를 사용 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

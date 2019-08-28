@@ -7,21 +7,20 @@ author: raiye
 editor: ''
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/6/2019
+ms.date: 7/26/2019
 ms.author: raiye
-ms.openlocfilehash: bdb3d0af93a69c1d15bd34a4badef5915ec0f01f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63c0502cb7b5abf6b6005683cc97d3229ec90e47
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743022"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945439"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스
-Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 제공합니다. 이 정보는 게스트 OS를 사용하지 않도록 설정하기 전에 업그레이드 경로를 계획하는 데 도움이 됩니다. [Azure 게스트 OS 업데이트 설정][Azure Guest OS Update Settings]의 설명에 따라 *자동* 게스트 OS 업데이트를 사용하도록 역할을 구성하는 경우, 이 페이지를 읽지 않아도 됩니다.
+Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 제공합니다. 이 정보는 게스트 OS를 사용하지 않도록 설정하기 전에 업그레이드 경로를 계획하는 데 도움이 됩니다. *Azure 게스트 OS 업데이트 설정* 의 설명에 따라 [자동][Azure Guest OS Update Settings]게스트 OS 업데이트를 사용하도록 역할을 구성하는 경우, 이 페이지를 읽지 않아도 됩니다.
 
 > [!IMPORTANT]
 > 이 페이지는 게스트 OS를 기반으로 실행하는 Cloud Services 웹 및 작업자 역할에 적용됩니다. IaaS Virtual Machines에 **적용되지 않습니다** .
@@ -39,11 +38,17 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 >
 >
 
-게스트 OS를 업데이트하는 방법에 대해 불확실한가요? [이것][cloud updates]을 확인하세요.
+게스트 OS를 업데이트하는 방법에 대해 불확실한가요? [이][cloud updates] 를 확인 하세요.
 
 ## <a name="news-updates"></a>새 업데이트
 
-###### <a name="june-6-2019"></a>**2019 년 6 월 6 일**
+###### <a name="july-26-2019"></a>**2019 년 7 월 26 일**
+7월 게스트 OS가 릴리스되었습니다.
+
+###### <a name="july-8-2019"></a>**2019 년 7 월 8 일**
+6월 게스트 OS가 릴리스되었습니다.
+
+###### <a name="june-6-2019"></a>**6 월 6 일, 2019**
 5월 게스트 OS가 릴리스되었습니다.
 
 ###### <a name="may-7-2019"></a>**2019 년 5 월 7 일**
@@ -81,23 +86,25 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 설치된 .NET Framework: 3.5, 4.7.2
 
 > [!NOTE]
-> .NET용 Microsoft Azure SDK - 3.0은 [여기][Windows Azure SDK]서 다운로드할 수 있습니다.
+> Windows Azure SDK for .NET-3.0을 [여기][Windows Azure SDK]에서 다운로드할 수 있습니다.
 >
 >설치 단계:
->1. MicrosoftAzureAuthoringTools*.msi의 이전 버전을 제거 하세요.
->2. 설치는 [Azure SDK for.NET-3.0][Windows Azure SDK]
->3. 컴퓨터를 다시 시작
->4. 새 클라우드 서비스 프로젝트를 만들고 단일 작업자 역할 추가
->5. OS 제품군을 6으로 변경 하 고 패키지 빌드
->6. Azure portal 또는 Visual Studio를 사용 하 여 Azure에 패키지 배포
+>1. MicrosoftAzureAuthoringTools*의 이전 버전을 제거 하세요.
+>2. [.Net 용 AZURE SDK-3.0][Windows Azure SDK] 설치
+>3. 컴퓨터 다시 시작
+>4. 새 클라우드 서비스 프로젝트를 만들고 단일 작업자 역할을 추가 합니다.
+>5. OS 제품군을 6으로 변경 하 고 패키지를 빌드합니다.
+>6. Azure Portal 또는 Visual Studio를 사용 하 여 패키지를 Azure에 배포
 >
 
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 |
 | --- | --- | --- |
-| WA-GUEST-OS-6.7_201905-01 |2019 년 6 월 6 일 |Post 6.9 |
-| WA-GUEST-OS-6.6_201904-01 |2019 년 5 월 7 일 |Post 6.8 |
-|~~WA-GUEST-OS-6.5_201903-01~~ |2019년 3월 26일 |2019 년 6 월 6 일 |
+| WA-게스트-OS-6.9 _201907-01 |2019 년 7 월 26 일 |6\.11 게시 |
+| WA-GUEST-OS-6.8_201906-01 |2019 년 7 월 8 일 |Post 6.10 |
+|~~WA-게스트-OS-6.7 _201905-01~~ |6 월 6 일, 2019 |2019 년 7 월 26 일 |
+|~~WA-GUEST-OS-6.6_201904-01~~ |2019 년 5 월 7 일 |2019 년 7 월 8 일 |
+|~~WA-GUEST-OS-6.5_201903-01~~ |2019년 3월 26일 |6 월 6 일, 2019 |
 |~~WA-GUEST-OS-6.4_201902-01~~ |2019년 3월 12일 |2019 년 5 월 7 일 |
 |~~WA-GUEST-OS-6.3_201901-01~~ |2019년 2월 5일 |2019년 3월 26일 |
 |~~WA-GUEST-OS-6.2_201812-01~~ |2019년 1월 24일 |2019년 3월 12일 |
@@ -106,7 +113,7 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 ## <a name="family-5-releases"></a>제품군 5 릴리스
 **Windows Server 2016**
 
-설치된 .NET Framework: 3.5, 4.6.2
+설치된 .NET Framework: 3.5, 4.6
 
 > [!NOTE]
 > OS 제품군 5의 RDP 암호는 10자 이상이어야 합니다.
@@ -115,9 +122,11 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 |
 | --- | --- | --- |
-| WA-GUEST-OS-5.31_201905-01 |2019 년 6 월 6 일 |Post 5.33 |
-| WA-GUEST-OS-5.30_201904-01 |2019 년 5 월 7 일 |Post 5.32 |
-|~~WA-GUEST-OS-5.29_201903-01~~ |2019년 3월 26일 |2019 년 6 월 6 일 |
+| WA-게스트-OS-5.33 _201907-01 |2019 년 7 월 26 일 |5\.35 게시 |  
+| WA-GUEST-OS-5.32_201906-01 |2019 년 7 월 8 일 |Post 5.34 |
+|~~WA-게스트-OS-5.31 _201905-01~~ |6 월 6 일, 2019 |2019 년 7 월 26 일 |
+|~~WA-GUEST-OS-5.30_201904-01~~ |2019 년 5 월 7 일 |2019 년 7 월 8 일 |
+|~~WA-GUEST-OS-5.29_201903-01~~ |2019년 3월 26일 |6 월 6 일, 2019 |
 |~~WA-GUEST-OS-5.28_201902-01~~ |2019년 3월 12일 |2019 년 5 월 7 일 |
 |~~WA-GUEST-OS-5.27_201901-01~~ |2019년 2월 5일 |2019년 3월 26일 |
 |~~WA-GUEST-OS-5.26_201812-01~~ |2019년 1월 7일 |2019년 3월 12일 |
@@ -128,13 +137,15 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 ## <a name="family-4-releases"></a>제품군 4 릴리스
 **Windows Server 2012 R2**
 
-설치된 .NET Framework: 3.5, 4.5.1
+설치된 .NET Framework: 3.5, 4.5.1, 4.5.2
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 |
 | --- | --- | --- |
-| WA-GUEST-OS-4.66_201905-01 |2019 년 6 월 6 일 |Post 4.68 |
-| WA-GUEST-OS-4.65_201904-01 |2019 년 5 월 7 일 |Post 4.67 |
-|~~WA-GUEST-OS-4.64_201903-01~~ |2019년 3월 26일 |2019 년 6 월 6 일 |
+| WA-게스트-OS-4.68 _201907-01 | 2019 년 7 월 26 일  |4\.70 게시 |
+| WA-GUEST-OS-4.67_201906-01 |2019 년 7 월 8 일 |Post 4.69 |
+|~~WA-게스트-OS-4.66 _201905-01~~ |6 월 6 일, 2019 |2019 년 7 월 26 일 |
+|~~WA-GUEST-OS-4.65_201904-01~~ |2019 년 5 월 7 일 |2019 년 7 월 8 일 |
+|~~WA-GUEST-OS-4.64_201903-01~~ |2019년 3월 26일 |6 월 6 일, 2019 |
 |~~WA-GUEST-OS-4.63_201902-01~~ |2019년 3월 12일 |2019 년 5 월 7 일 |
 |~~WA-GUEST-OS-4.62_201901-01~~ |2019년 2월 5일 |2019년 3월 26일 |
 |~~WA-GUEST-OS-4.61_201812-01~~ |2019년 1월 7일 |2019년 3월 12일 |
@@ -149,9 +160,11 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 |
 | --- | --- | --- |
-| WA-GUEST-OS-3.73_201905-01 |2019 년 6 월 67을 |Post 3.75 |
-| WA-GUEST-OS-3.72_201904-01 |2019 년 5 월 7 일 |Post 3.74 |
-|~~WA-GUEST-OS-3.71_201903-01~~ |2019년 3월 26일 |2019 년 6 월 6 일 |
+| WA-게스트-OS-3.75 _201907-01 | 2019 년 7 월 26 일 |3\.77 게시 |
+| WA-GUEST-OS-3.74_201906-01 |2019 년 7 월 8 일 |Post 3.76 |
+|~~WA-게스트-OS-3.73 _201905-01~~ |6 월 6 일, 2019 |2019 년 7 월 26 일 |
+|~~WA-GUEST-OS-3.72_201904-01~~ |2019 년 5 월 7 일 |2019 년 7 월 8 일 |
+|~~WA-GUEST-OS-3.71_201903-01~~ |2019년 3월 26일 |6 월 6 일, 2019 |
 |~~WA-GUEST-OS-3.70_201902-01~~ |2019년 3월 12일 |2019 년 5 월 7 일 |
 |~~WA-GUEST-OS-3.69_201901-01~~ |2019년 2월 5일 |2019년 3월 26일 |
 |~~WA-GUEST-OS-3.68_201812-01~~ |2019년 1월 7일 |2019년 3월 12일 |
@@ -162,13 +175,15 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 ## <a name="family-2-releases"></a>제품군 2 릴리스
 **Windows Server 2008 R2 SP1**
 
-설치된 .NET Framework: 3.5(2.0 및 3.0 포함)
+설치된 .NET Framework: 3.5 (2.0 및 3.0 포함), 4.5
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 |
 | --- | --- | --- |
-| WA-GUEST-OS-2.86_201905-01 |2019 년 6 월 6 일 |Post 2.88 |
-| WA-GUEST-OS-2.85_201904-01 |2019 년 5 월 7 일 |Post 2.87 |
-|~~WA-GUEST-OS-2.84_201903-01~~ |2019년 3월 26일 |2019 년 6 월 6 일 |
+| WA-게스트-OS-2.88 _201907-01 | 2019 년 7 월 26 일 |2\.90 게시 |
+| WA-GUEST-OS-2.87_201906-01 |2019 년 7 월 8 일 |Post 2.89 |
+|~~WA-게스트-OS-2.86 _201905-01~~ |6 월 6 일, 2019 |2019 년 7 월 26 일 |
+|~~WA-GUEST-OS-2.85_201904-01~~ |2019 년 5 월 7 일 |2019 년 7 월 8 일 |
+|~~WA-GUEST-OS-2.84_201903-01~~ |2019년 3월 26일 |6 월 6 일, 2019 |
 |~~WA-GUEST-OS-2.83_201902-01~~ |2019년 3월 12일 |2019 년 5 월 7 일 |
 |~~WA-GUEST-OS-2.82_201901-01~~ |2019년 2월 5일 |2019년 3월 26일 |
 |~~WA-GUEST-OS-2.81_201812-01~~ |2019년 1월 7일 |2019년 3월 12일 |
@@ -177,10 +192,10 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 |~~WA-GUEST-OS-2.78_201809-01~~ |2018년 10월 12일 |2018년 12월 14일 |
 
 ## <a name="msrc-patch-updates"></a>MSRC 패치 업데이트
-매달 각 게스트 OS 릴리스에 포함된 패치 목록은 [여기][patches]에서 사용 가능합니다.
+각 월별 게스트 OS 릴리스에 포함 된 패치 목록은 [여기][patches]에서 사용할 수 있습니다.
 
 ## <a name="sdk-support"></a>SDK 지원
-[Azure SDK에 대한 사용 중지 정책][retire policy sdk]에 2.2 이후 버전만 지원된다고 나와 있더라도 특정 게스트 OS 제품군을 통해 이전 버전을 사용할 수 있습니다. 항상 지원되는 최신 SDK를 사용해야 합니다.
+[AZURE SDK에 대 한][retire policy sdk] 사용 중지 정책은 2.2 이상의 버전만 지원 됨을 나타내지만 특정 게스트 OS 제품군을 통해 이전 버전을 사용할 수 있습니다. 항상 지원되는 최신 SDK를 사용해야 합니다.
 
 | 게스트 OS 제품군 | 호환되는 SDK 버전 |
 | --- | --- |
@@ -196,7 +211,7 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 
 **비활성화** 날짜와 **만료** 날짜 사이의 기간 동안 한 게스트 OS에서 다른 게스트 OS로 간편하게 전환할 수 있습니다. 게스트 OS로 *자동* 을 사용하는 경우 항상 최신 버전이 유지되므로 만료에 대해 걱정할 필요가 없습니다.
 
-**만료** 날짜가 지났는데 여전히 해당 게스트 OS를 사용 중인 Cloud Service는 중지, 삭제 또는 강제 업그레이드됩니다. 사용 중지 정책에 대한 자세한 내용은 [여기][retirepolicy]서 확인할 수 있습니다.
+**만료** 날짜가 지났는데 여전히 해당 게스트 OS를 사용 중인 Cloud Service는 중지, 삭제 또는 강제 업그레이드됩니다. [여기][retirepolicy]에서 사용 중지 정책에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="guest-os-family-version-explanation"></a>게스트 OS 제품군 버전 설명
 게스트 OS 제품군은 출시된 Microsoft Windows Server 버전을 기반으로 합니다. 게스트 OS는 Azure Cloud Services가 실행되는 기본 운영 체제입니다. 각 게스트 OS에는 제품군, 버전 및 릴리스 번호가 있습니다.
@@ -204,7 +219,7 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 * **Guest OS family**  
   은 게스트 OS가 기반으로 하는 Windows Server 운영 체제 릴리스입니다. 예를 들어 *제품군 3* 은 Windows Server 2012를 기반으로 합니다.
 * **게스트 OS 버전**  
-  새 게스트 OS 버전이 생성되는 날짜에 사용 가능한 게스트 OS 제품군 이미지 및 관련 MSRC([Microsoft 보안 대응 센터)][msrc] 패치로 한정됩니다. 일부 패치는 포함될 수 있습니다.
+  새 게스트 OS 버전이 생성 되는 날짜에 사용할 수 있는 게스트 OS 제품군 이미지 및 관련 [MSRC (Microsoft 보안 대응 센터)][msrc] 패치와 관련 됩니다. 일부 패치는 포함될 수 있습니다.
 
     0에서 시작하고 새 업데이트 집합이 추가 될 때마다 1씩 증가하는 숫자입니다. 중요한 경우.후행 0만 표시됩니다. 즉, 버전 2.10은 다르며, 버전 2.1 버전보다 더 한참 후의 버전입니다.
 * **게스트 OS 릴리스**  
@@ -225,12 +240,12 @@ Microsoft Azure는 지속적으로 업데이트를 릴리스하고 있습니다.
 
 게스트 OS의 새 릴리스를 게시하는 경우 Azure에 완전히 전파하는데 시간이 걸릴 수 있습니다. 서비스가 새 게스트 OS에 대해 업데이트되므로 업데이트 도메인을 구분하지 않고 다시 부팅됩니다. "자동" 업데이트를 사용하도록 설정된 서비스가 처음 릴리스됩니다. 업데이트 후 Azure Portal에서 서비스에 대해 나열된 새 게스트 OS 버전을 볼 수 있습니다. 이 기간 동안 다시 릴리스할 수 있습니다. 일부 버전은 오랜 시간을 통해 배포할 수 있으며 공식 릴리스 날짜 이후 수 주 동안 자동 업그레이드 재부팅이 발생하지 않을 수 있습니다. 게스트 OS를 사용할 수 있으면, 구성 파일이나 포털에서 해당 버전을 명시적으로 찾을 수 있습니다.
 
-게스트 및 호스트 OS 업데이트의 기술 세부 정보에 대한 포인터 및 시작에 관한 중요 정보 처리는 [OS 업그레이드로 인한 역할 인스턴스 다시 시작][restarts]이라는 MSDN 블로그 게시물을 참조하세요.
+다시 시작에 대 한 중요 한 정보와 게스트 및 호스트 OS 업데이트의 기술 세부 정보에 대 한 포인터는 [OS 업그레이드로 인 한 역할 인스턴스 다시 시작][restarts]이라는 MSDN 블로그 게시물을 참조 하세요.
 
-게스트 OS를 수동으로 업데이트하는 경우 추가 정보는 [게스트 OS 사용 중지 정책][retirepolicy]을 참조하세요.
+게스트 OS를 수동으로 업데이트 하는 경우 추가 정보는 [게스트 os][retirepolicy] 사용 중지 정책을 참조 하십시오.
 
 ## <a name="guest-os-supportability-and-retirement-policy"></a>게스트 OS 지원 가능성 및 사용 중지 정책
-게스트 OS 지원 가능성 및 사용 중지 정책은 [여기][retirepolicy]에 설명됩니다.
+게스트 OS 지원 가능성 및 사용 중지 정책은 [여기][retirepolicy]에 설명 되어 있습니다.
 
 [cloud updates]: https://docs.microsoft.com/azure/cloud-services/cloud-services-update-azure-service
 [게스트 OS 업데이트 RSS 피드]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml

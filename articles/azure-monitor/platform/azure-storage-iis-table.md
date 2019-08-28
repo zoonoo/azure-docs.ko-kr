@@ -110,7 +110,7 @@ Windows 이벤트 로그를 사용하도록 설정하거나 scheduledTransferPer
     </DiagnosticMonitorConfiguration>
 ```
 
-다음 예에서처럼 ConfigurationSettings이 저장소 계정을 지정하는지 확인합니다.
+다음 예에서처럼 ConfigurationSettings이 스토리지 계정을 지정하는지 확인합니다.
 
 ```xml
     <ConfigurationSettings>
@@ -118,7 +118,7 @@ Windows 이벤트 로그를 사용하도록 설정하거나 scheduledTransferPer
     </ConfigurationSettings>
 ```
 
-**AccountName** 및 **AccountKey** 값은 Azure Portal 저장소 계정 대시보드의 액세스 키 관리 아래에 있습니다. 연결 문자열에 대한 프로토콜은 **https**여야 합니다.
+**AccountName** 및 **AccountKey** 값은 Azure Portal 스토리지 계정 대시보드의 액세스 키 관리 아래에 있습니다. 연결 문자열에 대한 프로토콜은 **https**여야 합니다.
 
 업데이트 된 진단 구성이 클라우드 서비스에 적용 되 고 Azure Storage에 진단을 작성 하면 다음 준비가 Log Analytics 작업 영역을 구성 합니다.
 
@@ -135,7 +135,7 @@ Azure Portal에서 Log Analytics 작업 영역으로 이동하여 다음 작업�
 1. *Storage 계정 로그*를 클릭합니다.
 2. 작업 *추가*를 클릭합니다.
 3. 진단 로그를 포함하는 Storage 계정을 선택합니다.
-   * 이 계정은 클래식 저장소 계정 또는 Azure Resource Manager 저장소 계정일 수 있습니다.
+   * 이 계정은 클래식 스토리지 계정 또는 Azure Resource Manager 스토리지 계정일 수 있습니다.
 4. 로그를 수집할 대상 데이터 형식을 선택합니다.
    * 선택 항목은 IIS 로그, 이벤트, Syslog(Linux), ETW 로그 및 Service Fabric 이벤트입니다.
 5. 원본 값은 데이터 형식에 따라 자동으로 채워지며 변경할 수 없습니다.
@@ -143,10 +143,10 @@ Azure Portal에서 Log Analytics 작업 영역으로 이동하여 다음 작업�
 
 추가 저장소 계정 및 작업 영역에 수집 하려는 데이터 형식에 대해 단계 2-6을 반복 합니다.
 
-약 30 분 하면 Log Analytics 작업 영역에서 저장소 계정에서 데이터를 볼 수 있습니다. 구성이 적용된 후에 저장소에 기록된 데이터만 볼 수 있습니다. 작업 영역 저장소 계정에서 기존 데이터를 읽지 않습니다.
+약 30 분 하면 Log Analytics 작업 영역에서 저장소 계정에서 데이터를 볼 수 있습니다. 구성이 적용된 후에 스토리지에 기록된 데이터만 볼 수 있습니다. 작업 영역 저장소 계정에서 기존 데이터를 읽지 않습니다.
 
 > [!NOTE]
-> 포털은 원본이 저장소 계정에 있는지 또는 새 데이터를 쓰는 중인지 확인하지 않습니다.
+> 포털은 원본이 스토리지 계정에 있는지 또는 새 데이터를 쓰는 중인지 확인하지 않습니다.
 >
 >
 
@@ -161,7 +161,7 @@ Azure PowerShell을 사용하여 Azure Storage에 기록된 이벤트를 보다 
 
 다음 PowerShell 스크립트를 사용하여 Azure 진단을 사용하도록 설정하고 업데이트할 수 있습니다.
 또한 사용자 지정 로깅 구성을 사용하여 이 스크립트를 사용할 수 있습니다.
-스크립트를 수정하여 저장소 계정, 서비스 이름 및 가상 머신 이름을 설정합니다.
+스크립트를 수정하여 스토리지 계정, 서비스 이름 및 가상 머신 이름을 설정합니다.
 스크립트는 클래식 가상 머신에 대한 cmdlet을 사용합니다.
 
 다음 스크립트 샘플을 검토하고 복사하며 필요에 따라 수정하고, 샘플을 PowerShell 스크립트 파일로 저장한 다음 스크립트를 실행합니다.

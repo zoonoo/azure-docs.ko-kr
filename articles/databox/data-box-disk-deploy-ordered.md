@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 02/27/2019
+ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 1d25ea2ce6e365e0d04fab325f9c13bb37382758
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 39d39b313cd2e65989989080d4cb0729b0be1e65
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603174"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561461"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>자습서: Azure Data Box Disk 주문
 
@@ -34,7 +34,7 @@ Azure Data Box Disk는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-�
 ### <a name="for-service"></a>서비스의 경우
 
 시작하기 전에 다음 사항을 확인합니다.
-- 액세스 자격 증명이 있는 Microsoft Azure 저장소 계정이 있습니다.
+- 액세스 자격 증명이 있는 Microsoft Azure Storage 계정이 있습니다.
 - Data Box 서비스에 사용할 구독이 다음 형식 중 하나인지 확인합니다.
     - Microsoft EA(기업계약). [EA 구독](https://azure.microsoft.com/pricing/enterprise-agreement/)에 대해 자세히 알아보세요.
     - CSP(클라우드 솔루션 공급자). [CSP 프로그램](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)에 대해 자세히 알아보세요.
@@ -49,7 +49,12 @@ Azure Data Box Disk는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-�
 
 ## <a name="order-data-box-disk"></a>Data Box Disk 주문
 
-Data Box Disk를 주문하려면 [Azure Portal](https://aka.ms/azuredataboxfromdiskdocs)에서 다음 단계를 수행합니다.
+로그인합니다.
+
+- Azure Portal(https://portal.azure.com )에 로그인하여 Data Box Disk를 주문합니다.
+- 또는 URL https://portal.azure.us 에서 Azure Government 포털에 로그인합니다. 자세한 내용을 보려면 [포털을 사용하여 Azure Government에 연결](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal)로 이동합니다.
+
+Data Box Disk를 주문하려면 다음 단계를 수행합니다.
 
 1. 포털의 왼쪽 위 모서리에서 **+ 리소스 만들기**를 클릭하고 *Azure Data Box*를 검색합니다. **Azure Data Box**를 클릭합니다.
     
@@ -77,12 +82,12 @@ Data Box Disk를 주문하려면 [Azure Portal](https://aka.ms/azuredataboxfromd
 
     |설정|값|
     |---|---|
-    |Name|주문을 추적하는 데 친숙한 이름을 입력합니다.<br> 이 이름은 2~24자 사이의 문자, 숫자 및 하이픈일 수 있습니다. <br> 이름은 문자 또는 숫자로 시작하고 끝나야 합니다. |
+    |이름|주문을 추적하는 데 친숙한 이름을 입력합니다.<br> 이 이름은 2~24자 사이의 문자, 숫자 및 하이픈일 수 있습니다. <br> 이름은 문자 또는 숫자로 시작하고 끝나야 합니다. |
     |리소스 그룹| 기존 그룹을 사용하거나 새 그룹을 만듭니다. <br> 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다. |
-    |대상 Azure 지역| 저장소 계정에 대한 지역을 선택합니다.<br> 현재 미국, 서유럽, 북유럽, 캐나다 및 오스트레일리아 모든 지역의 저장소 계정이 지원됩니다. |
+    |대상 Azure 지역| 스토리지 계정에 대한 지역을 선택합니다.<br> 현재 미국, 서유럽, 북유럽, 캐나다 및 오스트레일리아 모든 지역의 스토리지 계정이 지원됩니다. |
     |TB 단위의 데이터 크기 추정됨| 추정값을 TB 단위로 입력합니다. <br>데이터 크기에 따라 Microsoft에서 적절한 개수의 8TB SSD(사용 가능한 용량: 7TB)를 보냅니다. <br>5개 디스크에서 사용 가능한 최대 용량은 최대 35TB입니다. |
     |디스크 암호| **Azure에서 생성한 암호가 아닌 사용자 지정 키 사용**을 선택하는 경우 디스크 암호를 제공합니다. <br> 적어도 하나의 숫자 및 하나의 특수 문자를 포함한 12~32개 영숫자 키를 제공합니다. 허용되는 특수 문자는 `@?_+`입니다. <br> 이 옵션을 건너뛰고 Azure에서 생성된 암호를 사용하여 디스크의 잠금을 해제하도록 선택할 수 있습니다.|
-    |스토리지 대상     | 스토리지 계정이나 관리형 디스크 또는 둘 다를 선택합니다. <br> 지정한 Azure 지역에 따라 필터링된 기존 스토리지 계정 목록에서 스토리지 계정을 선택합니다. Data Box는 최대 10개의 저장소 계정과 연결할 수 있습니다. <br> 새 **범용 v1**, **범용 v2** 또는 **Blob Storage 계정**도 만들 수 있습니다. <br>규칙이 구성된 스토리지 계정은 사용할 수 없습니다. 스토리지 계정은 방화벽 및 가상 네트워크 섹션의 **모든 네트워크에서 액세스할 수 있어야** 합니다.|
+    |스토리지 대상     | 스토리지 계정이나 관리형 디스크 또는 둘 다를 선택합니다. <br> 지정한 Azure 지역에 따라 필터링된 기존 스토리지 계정 목록에서 스토리지 계정을 선택합니다. Data Box Disk는 1개의 스토리지 계정에만 연결할 수 있습니다. <br> 새 **범용 v1**, **범용 v2** 또는 **Blob Storage 계정**도 만들 수 있습니다. <br>가상 네트워크를 사용하는 스토리지 계정은 지원됩니다. Data Box 서비스에서 보안 스토리지 계정을 사용하려면 스토리지 계정 네트워크 방화벽 설정 내에서 신뢰할 수 있는 서비스를 사용하도록 설정합니다. 자세한 내용은 [Azure Data Box를 신뢰할 수 있는 서비스로 추가](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)하는 방법을 참조하세요.|
 
     스토리지 계정을 스토리지 대상으로 사용하는 경우 다음 스크린샷을 참조하세요.
 

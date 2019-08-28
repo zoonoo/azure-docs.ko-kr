@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: e7ba8057cd22c5cc1080b4a6d95f17bf76d4acb2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5657490474a401d9e3074ed6ab250a34ef0a5d8d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60585430"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568533"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>여러 스키마를 사용하여 클라우드 데이터베이스에서 쿼리(미리 보기)
 
@@ -25,7 +24,7 @@ ms.locfileid: "60585430"
 
 수직 분할 데이터베이스는 서로 다른 데이터베이스에서 다양한 테이블 집합을 사용합니다. 즉 스키마가 데이터베이스마다 서로 다릅니다. 예를 들어, 재고의 모든 테이블은 한 데이터베이스 안에 있지만 모든 회계 관련 테이블은 보조 데이터베이스에 있습니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * 사용자는 모든 외부 데이터 원본 ALTER 권한이 있어야 합니다. 이 사용 권한은 ALTER DATABASE 권한에 포함됩니다.
 * 기본 데이터 원본을 참조하기 위해 ALTER ANY EXTERNAL DATA SOURCE 권한이 필요합니다.
@@ -56,7 +55,7 @@ ms.locfileid: "60585430"
 
 ## <a name="create-external-data-sources"></a>외부 데이터 원본 만들기
 
-구문
+구문:
 
     <External_Data_Source> ::=
     CREATE EXTERNAL DATA SOURCE <data_source_name> WITH 
@@ -70,7 +69,7 @@ ms.locfileid: "60585430"
 > TYPE 매개 변수는 **RDBMS**로 설정해야 합니다. 
 >
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 예제에서는 외부 데이터 원본에 대한 CREATE 문 사용을 보여줍니다. 
 
@@ -89,7 +88,7 @@ ms.locfileid: "60585430"
 
 ### <a name="external-tables"></a>외부 테이블
 
-구문
+구문:
 
     CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name . ] table_name  
     ( { <column_definition> } [ ,...n ])     
@@ -101,7 +100,7 @@ ms.locfileid: "60585430"
       [ SCHEMA_NAME = N'nonescaped_schema_name',] 
       [ OBJECT_NAME = N'nonescaped_object_name',] 
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 ```sql
     CREATE EXTERNAL TABLE [dbo].[customer]( 

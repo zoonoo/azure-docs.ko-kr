@@ -48,9 +48,9 @@ Remove-AzResourceGroup -Name containerdeletetestrg
 
 | 명령 | 메모 |
 |---|---|
-| [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) | 리소스 그룹 또는 구독의 지정된 저장소 계정 또는 모든 저장소 계정을 가져옵니다. |
-| [Get-AzStorageContainer](/powershell/module/az.storage/Get-AzStorageContainer) | 저장소 계정에 연결된 저장소 컨테이너를 나열합니다. |
-| [Remove-AzStorageContainer](/powershell/module/az.storage/Remove-AzStorageContainer) | 지정된 저장소 컨테이너를 제합니다. |
+| [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) | 리소스 그룹 또는 구독의 지정된 스토리지 계정 또는 모든 스토리지 계정을 가져옵니다. |
+| [Get-AzStorageContainer](/powershell/module/az.storage/Get-AzStorageContainer) | 스토리지 계정에 연결된 스토리지 컨테이너를 나열합니다. |
+| [Remove-AzStorageContainer](/powershell/module/az.storage/Remove-AzStorageContainer) | 지정된 스토리지 컨테이너를 제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

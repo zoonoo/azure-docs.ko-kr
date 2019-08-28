@@ -1,27 +1,25 @@
 ---
-title: 사용자 지정 음성-음성 서비스에 대한 정확도를 평가합니다.
-titlesuffix: Azure Cognitive Services
-description: 이 문서에서는 Microsoft의 음성-텍스트 모델 또는 사용자 지정 모델의 품질을 정량적으로 측정하는 방법을 알아봅니다. 오디오 + 사람 레이블 기록 데이터가 정확도를 테스트하는 데 필요하며 30분에서 5시간의 대표적인 오디오를 제공해야 합니다.
+title: Custom Speech 음성 서비스에 대 한 정확도 평가
+titleSuffix: Azure Cognitive Services
+description: 이 문서에서는 음성 텍스트 모델 또는 사용자 지정 모델의 품질을 quantitatively 측정 하는 방법에 대해 알아봅니다. 오디오 + 사람 레이블 기록 데이터가 정확도를 테스트하는 데 필요하고 30분에서 5시간의 대표 오디오를 제공해야 합니다.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 7c1b3602b09c1a129923180c4b1d4a5f8293de2c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd8bbc28247ecd924db25cb4b916d1d466065606
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65026727"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562868"
 ---
 # <a name="evaluate-custom-speech-accuracy"></a>사용자 지정 음성 정확도 평가
 
-
 이 문서에서는 Microsoft의 음성-텍스트 모델 또는 사용자 지정 모델의 품질을 정량적으로 측정하는 방법을 알아봅니다. 오디오 + 사람 레이블 기록 데이터가 정확도를 테스트하는 데 필요하고 30분에서 5시간의 대표 오디오를 제공해야 합니다.
-
 
 ## <a name="what-is-word-error-rate-wer"></a>WER(Word Error Rate, 단어 오류율)이란?
 
@@ -53,9 +51,7 @@ ms.locfileid: "65026727"
 
 모델을 나란히 평가하려면:
 
-
 1. **음성-텍스트 > 사용자 지정 음성 > 테스트**로 이동합니다.
-
 2. **테스트 추가**를 클릭합니다.
 3. **정확도 평가**를 선택합니다. 테스트 이름, 설명을 제공하고 사용자의 오디오 + 사람 레이블 기록 데이터 집합을 선택합니다.
 4. 테스트 하려고 하는 최대 두 개의 모델을 선택합니다.
@@ -72,7 +68,7 @@ ms.locfileid: "65026727"
 * [모델 학습](how-to-custom-speech-train-model.md)
 * [모델 배포](how-to-custom-speech-deploy-model.md)
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
-* [준비 및 테스트 데이터](how-to-custom-speech-test-data.md)
-* [데이터를 검사 합니다.](how-to-custom-speech-inspect-data.md)
+* [데이터 준비 및 테스트](how-to-custom-speech-test-data.md)
+* [데이터 검사](how-to-custom-speech-inspect-data.md)

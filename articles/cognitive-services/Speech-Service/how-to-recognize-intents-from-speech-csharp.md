@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 0e24f66369cf990f6b271b894a31dc8395068e17
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: d61141a0955f916b1d4bfeabb22454ec38415cea
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257339"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603232"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>자습서: C#용 Speech SDK를 사용하여 음성에서 의도 인식
 
@@ -24,7 +24,7 @@ Cognitive Services [Speech SDK](~/articles/cognitive-services/speech-service/spe
 > [!NOTE]
 > LUIS 애플리케이션은 인식할 의도와 엔터티를 정의합니다. 음성 서비스를 사용하는 C# 애플리케이션과는 다릅니다. 이 문서에서 "앱"은 LUIS 앱을 의미하고, "애플리케이션"은 C# 코드를 의미합니다.
 
-이 자습서에서는 Speech SDK를 사용하여 장치의 마이크를 통해 사용자의 말에서 의도를 추론하는 C# 콘솔 애플리케이션을 개발합니다. 이 문서에서 배울 내용은 다음과 같습니다.
+이 자습서에서는 Speech SDK를 사용하여 디바이스의 마이크를 통해 사용자의 말에서 의도를 추론하는 C# 콘솔 애플리케이션을 개발합니다. 이 문서에서 배울 내용은 다음과 같습니다.
 
 > [!div class="checklist"]
 > * Speech SDK NuGet 패키지를 참조하는 Visual Studio 프로젝트 만들기

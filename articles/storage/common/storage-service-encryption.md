@@ -42,7 +42,7 @@ Microsoft 관리 키 저장소 계정의 암호화에 사용 하거나 Azure Key
 
 고객 관리 키를 사용 하 여 Azure Storage 암호화를 관리할 수 있습니다. 고객 관리 키 만들기, 회전, 해제 및 액세스 제어를 취소 하는 데 더 많은 유연성을 제공 합니다. 또한 데이터를 보호 하기 위해 사용 되는 암호화 키를 감사할 수 있습니다. 
 
-Azure Key Vault를 사용 하 여 키 관리를 키 사용을 감사 합니다. 사용자 고유의 키를 생성 하 고 key vault에 저장 하거나 Azure Key Vault Api를 사용 하 여 키를 생성 하 합니다. 저장소 계정 및 키 자격 증명 모음은 동일한 지역에 있어야 하지만 서로 다른 구독에 있을 수도 있습니다. Azure Key Vault에 대 한 자세한 내용은 참조 하세요. [Azure Key Vault 란?](../../key-vault/key-vault-overview.md)합니다.
+Azure Key Vault를 사용 하 여 키 관리를 키 사용을 감사 합니다. 사용자 고유의 키를 생성 하 고 key vault에 저장 하거나 Azure Key Vault Api를 사용 하 여 키를 생성 하 합니다. 스토리지 계정 및 키 자격 증명 모음은 동일한 지역에 있어야 하지만 서로 다른 구독에 있을 수도 있습니다. Azure Key Vault에 대 한 자세한 내용은 참조 하세요. [Azure Key Vault 란?](../../key-vault/key-vault-overview.md)합니다.
 
 고객 관리 키에 대 한 액세스를 해지 하려면 참조 [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) 하 고 [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault)합니다. 효율적으로 액세스 권한을 취소할 해제 되는 암호화 키를 Azure Storage에서 액세스할 수 있는 저장소 계정에서 모든 데이터에 대 한 액세스를 차단 합니다.
 

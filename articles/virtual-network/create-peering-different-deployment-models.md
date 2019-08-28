@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2018
-ms.author: kumud;anavin
-ms.openlocfilehash: 56474ee56051c3b0b7482e81b0174b7945537654
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: kumud
+ms.reviewer: anavin
+ms.openlocfilehash: 720351463a9f8d5712c76401f3fbba64c3177e84
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64694721"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871962"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>가상 네트워크 피어링 만들기 - 서로 다른 배포 모델 및 같은 구독
 
@@ -51,7 +52,7 @@ Azure Portal, Azure CLI([명령줄 인터페이스](#cli)), Azure [PowerShell](#
     - **서브넷 주소 범위**: *10.0.0.0/24*
     - **구독**: 구독 선택
     - **리소스 그룹**: **새로 만들기**를 선택하고, *myResourceGroup*을 입력합니다.
-    - **Location**: *미국 동부*
+    - **위치**: *미국 동부*
 4. **+새로 만들기**를 클릭합니다. **Marketplace 검색** 상자에 *가상 네트워크*를 입력합니다. 검색 결과에 표시되는 **가상 네트워크**를 클릭합니다.
 5. **가상 네트워크** 블레이드의 **배포 모델 선택** 상자에서 **클래식**을 선택한 다음 **만들기**를 클릭합니다.
 6. **가상 네트워크 만들기** 블레이드에서 다음 설정에 대한 값을 입력하거나 선택한 다음 **만들기**를 클릭합니다.
@@ -61,7 +62,7 @@ Azure Portal, Azure CLI([명령줄 인터페이스](#cli)), Azure [PowerShell](#
     - **서브넷 주소 범위**: *10.1.0.0/24*
     - **구독**: 구독 선택
     - **리소스 그룹**: **기존 항목 사용**을 선택하고, *myResourceGroup*을 선택합니다.
-    - **Location**: *미국 동부*
+    - **위치**: *미국 동부*
 7. 포털 위쪽에 있는 **리소스 검색** 상자에 *myResourceGroup*을 입력합니다. **myResourceGroup**이 검색 결과에 표시되면 클릭합니다. **myresourcegroup** 리소스 그룹에 대한 블레이드가 나타납니다. 리소스 그룹에는 이전 단계에서 만든 두 가상 네트워크가 포함되어 있습니다.
 8. **myVNet1**을 클릭합니다.
 9. 나타나는 **myVnet1** 블레이드의 왼쪽에 있는 세로 옵션 목록에서 **피어링**을 클릭합니다.
@@ -144,7 +145,7 @@ Azure 클래식 CLI와 Azure CLI를 사용하여 다음 단계를 완료합니�
 
 ## <a name="powershell"></a>피어링 만들기 - PowerShell
 
-1. 최신 버전의 PowerShell 설치 [Azure](https://www.powershellgallery.com/packages/Azure) 하 고 [Az](https://www.powershellgallery.com/packages/Az/) 모듈입니다. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell 개요](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
+1. 최신 버전의 PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) 및 [Az](https://www.powershellgallery.com/packages/Az/) modules을 설치 합니다. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell 개요](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 2. PowerShell 세션을 시작합니다.
 3. PowerShell에서 `Add-AzureAccount` 명령을 입력하여 Azure에 로그인합니다. 로그인하는 데 사용하는 계정에 가상 네트워크 피어링을 만드는 데 필요한 권한이 있어야 합니다. 사용 권한 목록은 [가상 네트워크 피어링 사용 권한](virtual-network-manage-peering.md#requirements-and-constraints)을 참조하세요.
 4. PowerShell에 가상 네트워크(클래식)를 만들려면 기존 네트워크 구성 파일을 새로 만들거나 수정해야 합니다. [네트워크 구성 파일 내보내기, 업데이트 및 가져오기](virtual-networks-using-network-configuration-file.md) 방법을 확인합니다. 파일에는 이 자습서에서 사용되는 가상 네트워크에 대한 **VirtualNetworkSite** 요소가 있어야 합니다.

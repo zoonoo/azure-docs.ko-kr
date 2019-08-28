@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 06/28/2019
+ms.date: 07/28/2019
 ms.author: aahi
-ms.openlocfilehash: 835dc8d25ad1d6a30020408636b556c3f247200d
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 3ef7f65bbb27992278eb467f840c1443ac0db0b8
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478369"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725891"
 ---
 # <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>빠른 시작: Python REST API를 사용하여 Text Analytics Cognitive Service 호출 
 <a name="HOLTop"></a>
@@ -27,8 +27,6 @@ API 기술 문서는 [API 정의](//go.microsoft.com/fwlink/?LinkID=759346)를 �
 ## <a name="prerequisites"></a>필수 조건
 
 * [Python 3.x](https://python.org)
-
-* 등록하는 동안 생성된 [엔드포인트 및 액세스 키](../How-tos/text-analytics-how-to-access-key.md).
 
 * Python 요청 라이브러리
     
@@ -73,18 +71,18 @@ language_api_url = text_analytics_base_url + "languages"
 API에 대한 페이로드는 각각 `id` 및 `text` 특성이 포함된 튜플인 `documents`의 목록으로 구성됩니다. `text` 특성은 분석할 텍스트를 저장하며, `id`는 임의의 값이 될 수 있습니다. 
 
 ```python
-documents = { "documents": [
-    { "id": "1", "text": "This is a document written in English." },
-    { "id": "2", "text": "Este es un document escrito en Español." },
-    { "id": "3", "text": "这是一个用中文写的文件" }
+documents = {"documents": [
+    {"id": "1", "text": "This is a document written in English."},
+    {"id": "2", "text": "Este es un document escrito en Español."},
+    {"id": "3", "text": "这是一个用中文写的文件"}
 ]}
 ```
 
 요청 라이브러리를 사용하여 API에 문서를 보냅니다. `Ocp-Apim-Subscription-Key` 헤더에 구독 키를 추가하고 `requests.post()`를 사용하여 요청을 보냅니다. 
 
 ```python
-headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
-response  = requests.post(language_api_url, headers=headers, json=documents)
+headers = {"Ocp-Apim-Subscription-Key": subscription_key}
+response = requests.post(language_api_url, headers=headers, json=documents)
 languages = response.json()
 pprint(languages)
 ```
@@ -142,19 +140,23 @@ sentiment_url = text_analytics_base_url + "sentiment"
 언어 검색 예제와 마찬가지로, 문서 목록으로 구성된 `documents` 키가 있는 사전을 만듭니다. 각 문서는 `id`, 분석할 `text` 및 텍스트의 `language`로 구성된 튜플입니다. 
 
 ```python
-documents = {"documents" : [
-  {"id": "1", "language": "en", "text": "I had a wonderful experience! The rooms were wonderful and the staff was helpful."},
-  {"id": "2", "language": "en", "text": "I had a terrible time at the hotel. The staff was rude and the food was awful."},  
-  {"id": "3", "language": "es", "text": "Los caminos que llevan hasta Monte Rainier son espectaculares y hermosos."},  
-  {"id": "4", "language": "es", "text": "La carretera estaba atascada. Había mucho tráfico el día de ayer."}
+documents = {"documents": [
+    {"id": "1", "language": "en",
+        "text": "I had a wonderful experience! The rooms were wonderful and the staff was helpful."},
+    {"id": "2", "language": "en",
+        "text": "I had a terrible time at the hotel. The staff was rude and the food was awful."},
+    {"id": "3", "language": "es",
+        "text": "Los caminos que llevan hasta Monte Rainier son espectaculares y hermosos."},
+    {"id": "4", "language": "es",
+     "text": "La carretera estaba atascada. Había mucho tráfico el día de ayer."}
 ]}
 ```
 
 요청 라이브러리를 사용하여 API에 문서를 보냅니다. `Ocp-Apim-Subscription-Key` 헤더에 구독 키를 추가하고 `requests.post()`를 사용하여 요청을 보냅니다. 
 
 ```python
-headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
-response  = requests.post(sentiment_url, headers=headers, json=documents)
+headers = {"Ocp-Apim-Subscription-Key": subscription_key}
+response = requests.post(sentiment_url, headers=headers, json=documents)
 sentiments = response.json()
 pprint(sentiments)
 ```
@@ -183,9 +185,7 @@ pprint(sentiments)
       "score":0.334433376789093
     }
   ],
-  "errors":[
-
-  ]
+  "errors":[]
 }
 ```
 
@@ -202,19 +202,23 @@ keyphrase_url = text_analytics_base_url + "keyPhrases"
 이 문서 컬렉션은 감정 분석 예제에 사용된 것과 동일합니다.
 
 ```python
-documents = {"documents" : [
-  {"id": "1", "language": "en", "text": "I had a wonderful experience! The rooms were wonderful and the staff was helpful."},
-  {"id": "2", "language": "en", "text": "I had a terrible time at the hotel. The staff was rude and the food was awful."},  
-  {"id": "3", "language": "es", "text": "Los caminos que llevan hasta Monte Rainier son espectaculares y hermosos."},  
-  {"id": "4", "language": "es", "text": "La carretera estaba atascada. Había mucho tráfico el día de ayer."}
+documents = {"documents": [
+    {"id": "1", "language": "en",
+        "text": "I had a wonderful experience! The rooms were wonderful and the staff was helpful."},
+    {"id": "2", "language": "en",
+        "text": "I had a terrible time at the hotel. The staff was rude and the food was awful."},
+    {"id": "3", "language": "es",
+        "text": "Los caminos que llevan hasta Monte Rainier son espectaculares y hermosos."},
+    {"id": "4", "language": "es",
+     "text": "La carretera estaba atascada. Había mucho tráfico el día de ayer."}
 ]}
 ```
 
 요청 라이브러리를 사용하여 API에 문서를 보냅니다. `Ocp-Apim-Subscription-Key` 헤더에 구독 키를 추가하고 `requests.post()`를 사용하여 요청을 보냅니다. 
 
 ```python
-headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
-response  = requests.post(keyphrase_url, headers=headers, json=documents)
+headers = {"Ocp-Apim-Subscription-Key": subscription_key}
+response = requests.post(keyphrase_url, headers=headers, json=documents)
 key_phrases = response.json()
 pprint(key_phrases)
 ```
@@ -257,9 +261,7 @@ pprint(key_phrases)
       "id":"4"
     }
   ],
-  "errors":[
-
-  ]
+  "errors":[]
 }
 ```
 
@@ -276,97 +278,173 @@ entities_url = text_analytics_base_url + "entities"
 이전 예제에서와 같은 문서 컬렉션을 만듭니다. 
 
 ```python
-documents = {"documents" : [
-  {"id": "1", "text": "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800."}
+documents = {"documents": [
+    {"id": "1", "text": "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800."}
 ]}
 ```
 
 요청 라이브러리를 사용하여 API에 문서를 보냅니다. `Ocp-Apim-Subscription-Key` 헤더에 구독 키를 추가하고 `requests.post()`를 사용하여 요청을 보냅니다.
 
 ```python
-headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
-response  = requests.post(entities_url, headers=headers, json=documents)
+headers = {"Ocp-Apim-Subscription-Key": subscription_key}
+response = requests.post(entities_url, headers=headers, json=documents)
 entities = response.json()
+pprint(entities)
 ```
 
 ### <a name="output"></a>출력
 
 ```json
-{'documents': [{'id': '1',
-   'entities': [{'name': 'Microsoft',
-     'matches': [{'wikipediaScore': 0.502357972145024,
-       'entityTypeScore': 1.0,
-       'text': 'Microsoft',
-       'offset': 0,
-       'length': 9}],
-     'wikipediaLanguage': 'en',
-     'wikipediaId': 'Microsoft',
-     'wikipediaUrl': 'https://en.wikipedia.org/wiki/Microsoft',
-     'bingId': 'a093e9b9-90f5-a3d5-c4b8-5855e1b01f85',
-     'type': 'Organization'},
-    {'name': 'Bill Gates',
-     'matches': [{'wikipediaScore': 0.5849375085784292,
-       'entityTypeScore': 0.999847412109375,
-       'text': 'Bill Gates',
-       'offset': 25,
-       'length': 10}],
-     'wikipediaLanguage': 'en',
-     'wikipediaId': 'Bill Gates',
-     'wikipediaUrl': 'https://en.wikipedia.org/wiki/Bill_Gates',
-     'bingId': '0d47c987-0042-5576-15e8-97af601614fa',
-     'type': 'Person'},
-    {'name': 'Paul Allen',
-     'matches': [{'wikipediaScore': 0.5314163053043621,
-       'entityTypeScore': 0.9988409876823425,
-       'text': 'Paul Allen',
-       'offset': 40,
-       'length': 10}],
-     'wikipediaLanguage': 'en',
-     'wikipediaId': 'Paul Allen',
-     'wikipediaUrl': 'https://en.wikipedia.org/wiki/Paul_Allen',
-     'bingId': 'df2c4376-9923-6a54-893f-2ee5a5badbc7',
-     'type': 'Person'},
-    {'name': 'April 4',
-     'matches': [{'wikipediaScore': 0.37312706493069636,
-       'entityTypeScore': 0.8,
-       'text': 'April 4',
-       'offset': 54,
-       'length': 7}],
-     'wikipediaLanguage': 'en',
-     'wikipediaId': 'April 4',
-     'wikipediaUrl': 'https://en.wikipedia.org/wiki/April_4',
-     'bingId': '52535f87-235e-b513-54fe-c03e4233ac6e',
-     'type': 'Other'},
-    {'name': 'April 4, 1975',
-     'matches': [{'entityTypeScore': 0.8,
-       'text': 'April 4, 1975',
-       'offset': 54,
-       'length': 13}],
-     'type': 'DateTime',
-     'subType': 'Date'},
-    {'name': 'BASIC',
-     'matches': [{'wikipediaScore': 0.35916049097766867,
-       'entityTypeScore': 0.8,
-       'text': 'BASIC',
-       'offset': 89,
-       'length': 5}],
-     'wikipediaLanguage': 'en',
-     'wikipediaId': 'BASIC',
-     'wikipediaUrl': 'https://en.wikipedia.org/wiki/BASIC',
-     'bingId': '5b16443d-501c-58f3-352e-611bbe75aa6e',
-     'type': 'Other'},
-    {'name': 'Altair 8800',
-     'matches': [{'wikipediaScore': 0.8697256853652899,
-       'entityTypeScore': 0.8,
-       'text': 'Altair 8800',
-       'offset': 116,
-       'length': 11}],
-     'wikipediaLanguage': 'en',
-     'wikipediaId': 'Altair 8800',
-     'wikipediaUrl': 'https://en.wikipedia.org/wiki/Altair_8800',
-     'bingId': '7216c654-3779-68a2-c7b7-12ff3dad5606',
-     'type': 'Other'}]}],
- 'errors': []}
+{
+   "documents" : [
+      {
+         "id" : "1",
+         "entities" : [
+            {
+               "name" : "Microsoft",
+               "matches" : [
+                  {
+                     "wikipediaScore" : 0.49897989655674446,
+                     "entityTypeScore" : 1.0,
+                     "text" : "Microsoft",
+                     "offset" : 0,
+                     "length" : 9
+                  }
+               ],
+               "wikipediaLanguage" : "en",
+               "wikipediaId" : "Microsoft",
+               "wikipediaUrl" : "https://en.wikipedia.org/wiki/Microsoft",
+               "bingId" : "a093e9b9-90f5-a3d5-c4b8-5855e1b01f85",
+               "type" : "Organization"
+            },
+            {
+               "name" : "Bill Gates",
+               "matches" : [
+                  {
+                     "wikipediaScore" : 0.58357497243368983,
+                     "entityTypeScore" : 0.999847412109375,
+                     "text" : "Bill Gates",
+                     "offset" : 25,
+                     "length" : 10
+                  }
+               ],
+               "wikipediaLanguage" : "en",
+               "wikipediaId" : "Bill Gates",
+               "wikipediaUrl" : "https://en.wikipedia.org/wiki/Bill_Gates",
+               "bingId" : "0d47c987-0042-5576-15e8-97af601614fa",
+               "type" : "Person"
+            },
+            {
+               "name" : "Paul Allen",
+               "matches" : [
+                  {
+                     "wikipediaScore" : 0.52977533244176866,
+                     "entityTypeScore" : 0.99884098768234253,
+                     "text" : "Paul Allen",
+                     "offset" : 40,
+                     "length" : 10
+                  }
+               ],
+               "wikipediaLanguage" : "en",
+               "wikipediaId" : "Paul Allen",
+               "wikipediaUrl" : "https://en.wikipedia.org/wiki/Paul_Allen",
+               "bingId" : "df2c4376-9923-6a54-893f-2ee5a5badbc7",
+               "type" : "Person"
+            },
+            {
+               "name" : "April 4",
+               "matches" : [
+                  {
+                     "wikipediaScore" : 0.37220990924571939,
+                     "entityTypeScore" : 0.8,
+                     "text" : "April 4",
+                     "offset" : 54,
+                     "length" : 7
+                  }
+               ],
+               "wikipediaLanguage" : "en",
+               "wikipediaId" : "April 4",
+               "wikipediaUrl" : "https://en.wikipedia.org/wiki/April_4",
+               "bingId" : "52535f87-235e-b513-54fe-c03e4233ac6e",
+               "type" : "Other"
+            },
+            {
+               "name" : "April 4, 1975",
+               "matches" : [
+                  {
+                     "entityTypeScore" : 0.8,
+                     "text" : "April 4, 1975",
+                     "offset" : 54,
+                     "length" : 13
+                  }
+               ],
+               "type" : "DateTime",
+               "subType" : "Date"
+            },
+            {
+               "name" : "BASIC",
+               "matches" : [
+                  {
+                     "wikipediaScore" : 0.35686239324548041,
+                     "entityTypeScore" : 0.8,
+                     "text" : "BASIC",
+                     "offset" : 89,
+                     "length" : 5
+                  }
+               ],
+               "wikipediaLanguage" : "en",
+               "wikipediaId" : "BASIC",
+               "wikipediaUrl" : "https://en.wikipedia.org/wiki/BASIC",
+               "bingId" : "5b16443d-501c-58f3-352e-611bbe75aa6e",
+               "type" : "Other"
+            },
+            {
+               "name" : "Altair 8800",
+               "matches" : [
+                  {
+                     "wikipediaScore" : 0.868324676465041,
+                     "entityTypeScore" : 0.8,
+                     "text" : "Altair 8800",
+                     "offset" : 116,
+                     "length" : 11
+                  }
+               ],
+               "wikipediaLanguage" : "en",
+               "wikipediaId" : "Altair 8800",
+               "wikipediaUrl" : "https://en.wikipedia.org/wiki/Altair_8800",
+               "bingId" : "7216c654-3779-68a2-c7b7-12ff3dad5606",
+               "type" : "Other"
+            },
+            {
+               "name" : "Altair",
+               "matches" : [
+                  {
+                     "entityTypeScore" : 0.52505272626876831,
+                     "text" : "Altair",
+                     "offset" : 116,
+                     "length" : 6
+                  }
+               ],
+               "type" : "Organization"
+            },
+            {
+               "name" : "8800",
+               "matches" : [
+                  {
+                     "entityTypeScore" : 0.8,
+                     "text" : "8800",
+                     "offset" : 123,
+                     "length" : 4
+                  }
+               ],
+               "type" : "Quantity",
+               "subType" : "Number"
+            }
+         ]
+      }
+   ],
+   "errors" : []
+}
 ```
 
 ## <a name="next-steps"></a>다음 단계

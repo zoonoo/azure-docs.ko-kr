@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Bing Spell Check REST API 및 Java로 맞춤법 검사'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Bing Spell Check REST API를 사용하여 맞춤법 및 문법 검사를 시작합니다.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: eeec278a1c9e4888aa4a63af3d9c86e7a8c1615c
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 6680ddd65ce43a71873acb823f8ae57b449a56be
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67502918"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423529"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>빠른 시작: Bing Spell Check REST API 및 Java로 맞춤법 검사
 

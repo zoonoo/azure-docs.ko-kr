@@ -64,7 +64,7 @@ Spark 작업의 샘플 JSON 정의는 다음과 같습니다.
 | description           | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아닙니다.       |
 | 형식                  | Spark 작업의 경우 작업 유형은 HDInsightSpark입니다. | 예      |
 | linkedServiceName     | Spark 프로그램이 실행되는 HDInsight Spark 연결된 서비스의 이름입니다. 이 연결된 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](compute-linked-services.md) 문서를 참조하세요. | 예      |
-| SparkJobLinkedService | Spark 작업 파일, 종속성 및 로그를 보유하는 Azure Storage 연결된 서비스입니다.  이 속성에 대한 값을 지정하지 않으면 HDInsight 클러스터와 연결된 저장소가 사용됩니다. 이 속성의 값은 Azure Storage 연결된 서비스만 될 수 있습니다. | 아닙니다.       |
+| SparkJobLinkedService | Spark 작업 파일, 종속성 및 로그를 보유하는 Azure Storage 연결된 서비스입니다.  이 속성에 대한 값을 지정하지 않으면 HDInsight 클러스터와 연결된 스토리지가 사용됩니다. 이 속성의 값은 Azure Storage 연결된 서비스만 될 수 있습니다. | 아닙니다.       |
 | rootPath              | Spark 파일이 포함된 Azure Blob 컨테이너 및 폴더입니다. 파일 이름은 대/소문자를 구분합니다. 이 폴더의 구조에 대한 자세한 내용은 폴더 구조 섹션(다음 섹션)을 참조하세요. | 예      |
 | entryFilePath         | Spark 코드/패키지의 루트 폴더에 대한 상대 경로입니다. 항목 파일은 Python 파일이나 .jar 파일이어야 합니다. | 예      |
 | className             | 애플리케이션의 Java/Spark main 클래스      | 아닙니다.       |
@@ -80,7 +80,7 @@ HDInsight 연결된 서비스에서 참조하는 Azure Blob Storage에 다음 �
 
 | path                  | 설명                              | 필수 | Type   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
-| `.`(root)            | 저장소 연결된 서비스에서 Spark 작업의 루트 경로 | 예      | 폴더 |
+| `.`(root)            | 스토리지 연결된 서비스에서 Spark 작업의 루트 경로 | 예      | 폴더 |
 | &lt;사용자 정의 &gt; | Spark 작업의 엔트리 파일을 가리키는 경로 | 예      | 파일   |
 | ./jars                | 이 폴더 아래 모든 파일이 업로드되고 클러스터의 java classpath에 배치됨 | 아닙니다.       | 폴더 |
 | ./pyFiles             | 이 폴더 아래 모든 파일이 업로드되고 클러스터의 PYTHONPATH에 배치됨 | 아닙니다.       | 폴더 |

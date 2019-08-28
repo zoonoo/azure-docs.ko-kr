@@ -2,33 +2,26 @@
 title: 클라우드 서비스를 업데이트하는 방법 | Microsoft Docs
 description: Azure에서 클라우드 서비스를 업데이트하는 방법에 대해 알아봅니다. 가용성을 보장하도록 클라우드 서비스에서 업데이트가 진행되는 방법에 대해 알아봅니다.
 services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: c6a8b5e6-5c99-454c-9911-5c7ae8d1af63
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: jeconnoc
-ms.openlocfilehash: ff4dd571911719e4f2ec27952785432960a56d42
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: gwallace
+ms.openlocfilehash: ae9d124391a1b17187ca98964874f681352498da
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60653911"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945342"
 ---
 # <a name="how-to-update-a-cloud-service"></a>클라우드 서비스를 업데이트하는 방법
 
-해당 역할 및 게스트 OS를 포함한 클라우드 서비스 업데이트는 3단계 프로세스입니다. 먼저 새 클라우드 서비스 또는 OS 버전에 대한 이진 및 구성 파일을 업로드해야 합니다. 다음으로 Azure는 새 클라우드 서비스 버전의 요구 사항에 따라 클라우드 서비스에 대한 계산 및 네트워크 리소스를 예약합니다. 마지막으로 Azure는 가용성을 유지하면서 새 버전 또는 게스트 OS로 테넌트를 증분 방식으로 업데이트하도록 롤링 업그레이드를 수행합니다. 이 문서에서는 롤링 업그레이드 마지막 단계에 대한 세부 정보를 설명합니다.
+해당 역할 및 게스트 OS를 포함한 클라우드 서비스 업데이트는 3단계 프로세스입니다. 먼저 새 클라우드 서비스 또는 OS 버전에 대한 이진 및 구성 파일을 업로드해야 합니다. 다음으로 Azure는 새 클라우드 서비스 버전의 요구 사항에 따라 클라우드 서비스에 대한 컴퓨팅 및 네트워크 리소스를 예약합니다. 마지막으로 Azure는 가용성을 유지하면서 새 버전 또는 게스트 OS로 테넌트를 증분 방식으로 업데이트하도록 롤링 업그레이드를 수행합니다. 이 문서에서는 롤링 업그레이드 마지막 단계에 대한 세부 정보를 설명합니다.
 
 ## <a name="update-an-azure-service"></a>Azure 서비스 업데이트
 Azure는 업그레이드 도메인(UD)이라는 논리적 그룹으로 역할 인스턴스를 구성합니다. 업그레이드 도메인(UD)은 그룹으로 업데이트되는 역할 인스턴스의 논리적 집합입니다.  Azure는 클라우드 서비스를 한 번에 하나의 UD로 업데이트하며 이는 다른 UD의 인스턴스를 계속해서 트래픽을 제공하도록 합니다.
 
-업그레이드 도메인의 기본값은 5입니다. 서비스 정의 파일(.csdef)의 upgradeDomainCount 특성을 포함하여 다른 수의 업그레이드 도메인을 지정할 수 있습니다. upgradeDomainCount 특성에 대한 자세한 내용은 [WebRole 스키마](/previous-versions/azure/reference/gg557553(v=azure.100)) 또는 [WorkerRole 스키마](/previous-versions/azure/reference/gg557552(v=azure.100))를 참조하세요.
+업그레이드 도메인의 기본값은 5입니다. 서비스 정의 파일(.csdef)의 upgradeDomainCount 특성을 포함하여 다른 수의 업그레이드 도메인을 지정할 수 있습니다. UpgradeDomainCount 특성에 대 한 자세한 내용은 [Azure Cloud Services 정의 스키마 (.Csdef 파일)](https://docs.microsoft.com/azure/cloud-services/schema-csdef-file)를 참조 하세요.
 
 서비스에서 하나 이상의 역할에 대한 전체 업데이트를 수행하면 Azure는 자신이 속한 업그레이드 도메인에 따라 역할 인스턴스의 집합을 업데이트합니다. Azure는 주어진 업그레이드 도메인 - 중지, 업데이트, 다시 온라인으로 전환 - 으로 모든 인스턴스를 업데이트하고 다음 도메인으로 이동합니다. 현재 업그레이드 도메인에서 실행 중인 인스턴스만 중지하여 Azure는 실행 중인 서비스에 가능한 한 최소한의 영향으로 업데이트를 발생하도록 합니다. 자세한 내용은 이 문서의 뒷부분에 나오는 [업데이트 진행 방법](#howanupgradeproceeds) 을 참조하세요.
 
@@ -57,10 +50,10 @@ Azure는 업그레이드 도메인(UD)이라는 논리적 그룹으로 역할 �
 | 운영 체제 버전 |예 |예 |예 |
 | .NET 신뢰 수준 |예 |예 |예 |
 | 가상 머신 크기<sup>1</sup> |예<sup>2</sup> |예 |예 |
-| 로컬 저장소 설정 |증가만<sup>2</sup> |예 |예 |
+| 로컬 스토리지 설정 |증가만<sup>2</sup> |예 |예 |
 | 서비스에서 역할 추가 또는 제거 |예 |예 |예 |
 | 특정 역할의 인스턴스 수 |예 |예 |예 |
-| 서비스에 대한 엔드포인트의 개수 또는 유형 |예<sup>2</sup> |아닙니다. |예 |
+| 서비스에 대한 엔드포인트의 개수 또는 유형 |예<sup>2</sup> |아니요 |예 |
 | 구성 설정의 이름 및 값 |예 |예 |예 |
 | 구성 설정의 값(이름 제외) |예 |예 |예 |
 | 새 인증서 추가 |예 |예 |예 |
@@ -141,12 +134,12 @@ Azure는 Azure 패브릭 컨트롤러에 의해 초기 업데이트 요청이 �
   1. Locked 요소를 사용하면 지정된 배포에서 변경 작업을 호출할 수 있는 시기를 찾아낼 수 있습니다.
   2. RollbackAllowed 요소를 사용하면 지정된 배포에서 [업데이트 또는 업그레이드 롤백](/previous-versions/azure/reference/hh403977(v=azure.100)) 작업을 호출할 수 있는 시기를 찾아낼 수 있습니다.
 
-  롤백을 수행하려면 Locked 및 RollbackAllowed 요소를 모두 확인할 필요가 없습니다. RollbackAllowed가 true로 설정되어 있는지 확인하는 것으로 충분합니다. 이러한 요소는으로 설정 된 요청 헤더를 사용 하 여 두이 메서드는 호출 하는 경우에 반환 됩니다 "x-ms-버전: 2011-10-01 "이상 버전. 버전 관리 헤더에 대한 자세한 내용은 [서비스 관리 버전 관리](/previous-versions/azure/gg592580(v=azure.100))를 참조하세요.
+  롤백을 수행하려면 Locked 및 RollbackAllowed 요소를 모두 확인할 필요가 없습니다. RollbackAllowed가 true로 설정되어 있는지 확인하는 것으로 충분합니다. 이러한 요소는 "x-y-version"으로 설정 된 요청 헤더를 사용 하 여 이러한 메서드를 호출 하는 경우에만 반환 됩니다. 2011-10-01 "이상 버전 버전 관리 헤더에 대한 자세한 내용은 [서비스 관리 버전 관리](/previous-versions/azure/gg592580(v=azure.100))를 참조하세요.
 
 업데이트 또는 업그레이드의 롤백이 지원되지 않는 경우는 다음과 같습니다.
 
 * 로컬 리소스 감소 - 업데이트에서 역할에 대한 로컬 리소스를 증가시키는 경우 Azure 플랫폼은 롤백을 허용하지 않습니다.
-* 할당량 제한 - 업데이트가 규모 축소 작업이었던 경우 롤백 작업을 완료할 충분한 계산 할당량이 없게 됩니다. 각 Azure 구독에는 해당 구독에 속하는 모든 호스팅된 서비스에서 사용할 수 있는 코어의 최대 수를 지정하는 연결된 할당량이 있습니다. 특정 업데이트의 롤백 수행으로 구독이 할당량을 초과하게 되는 경우 해당 롤백을 사용할 수 없습니다.
+* 할당량 제한 - 업데이트가 규모 축소 작업이었던 경우 롤백 작업을 완료할 충분한 컴퓨팅 할당량이 없게 됩니다. 각 Azure 구독에는 해당 구독에 속하는 모든 호스팅된 서비스에서 사용할 수 있는 코어의 최대 수를 지정하는 연결된 할당량이 있습니다. 특정 업데이트의 롤백 수행으로 구독이 할당량을 초과하게 되는 경우 해당 롤백을 사용할 수 없습니다.
 * 경합 상태 - 초기 업데이트가 완료된 경우 롤백할 수 없습니다.
 
 업데이트 롤백이 유용한 경우의 예는 Azure 호스티드 서비스로 주요 전체 업그레이드가 롤아웃되는 속도를 제어하도록 수동 모드에서 [업그레이드 배포](/previous-versions/azure/reference/ee460793(v=azure.100)) 작업을 수행하는 경우입니다.
@@ -162,11 +155,11 @@ Azure 패브릭 컨트롤러에서 서비스 업데이트 또는 업그레이드
 
 첫 번째 업데이트가 진행 중일 동안 두 번째 업데이트 작업을 시작하는 것은 롤백 작업과 유사하게 수행됩니다. 두 번째 업데이트가 자동 모드에 있는 경우 첫 번째 업그레이드 도메인은 동일한 지점에서 오프라인되는 여러 업그레이드 도메인에서 인스턴스를 이끌도록 즉시 업그레이드됩니다.
 
-변경 작업은 다음과 같습니다. [배포 구성 변경](/previous-versions/azure/reference/ee460809(v=azure.100)), [배포 업그레이드](/previous-versions/azure/reference/ee460793(v=azure.100)), [배포 상태를 업데이트할](/previous-versions/azure/reference/ee460808(v=azure.100))를 [배포를 삭제](/previous-versions/azure/reference/ee460815(v=azure.100)), 및 [롤백 업데이트 또는 업그레이드](/previous-versions/azure/reference/hh403977(v=azure.100))합니다.
+변경 작업은 다음과 같습니다. [배포 구성을 변경](/previous-versions/azure/reference/ee460809(v=azure.100))하 고 [배포를 업그레이드](/previous-versions/azure/reference/ee460793(v=azure.100))하 고 [배포 상태를 업데이트](/previous-versions/azure/reference/ee460808(v=azure.100))하 고 배포를 [삭제](/previous-versions/azure/reference/ee460815(v=azure.100))하 고 [업데이트 또는 업그레이드를 롤백합니다](/previous-versions/azure/reference/hh403977(v=azure.100)).
 
 두 작업 [배포 가져오기](/previous-versions/azure/reference/ee460804(v=azure.100)) 및 [클라우드 서비스 속성 가져오기](/previous-versions/azure/reference/ee460806(v=azure.100))는 지정된 배포에서 변경 작업을 호출할 수 있는지 여부를 확인하도록 검사할 수 있는 Locked 플래그를 반환합니다.
 
-Locked 플래그를 반환 하는 이러한 메서드의 버전을 호출 하려면 요청 헤더를 설정 해야 합니다 있습니다 "x-ms-버전: 2011-10-01 "이상. 버전 관리 헤더에 대한 자세한 내용은 [서비스 관리 버전 관리](/previous-versions/azure/gg592580(v=azure.100))를 참조하세요.
+잠긴 플래그를 반환 하는 이러한 메서드의 버전을 호출 하려면 요청 헤더를 "x-y-버전: 2011-10-01 이상. 버전 관리 헤더에 대한 자세한 내용은 [서비스 관리 버전 관리](/previous-versions/azure/gg592580(v=azure.100))를 참조하세요.
 
 <a name="distributiondfroles"></a>
 

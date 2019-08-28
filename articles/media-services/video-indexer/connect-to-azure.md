@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 08/05/2019
 ms.author: juliako
-ms.openlocfilehash: 33493f1bdff6071737aad4bfb8c7d0e5e22896db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f67b2e37e264febf11f3fa55b4469d392c59712
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799837"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815675"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Azure에 연결되는 Video Indexer 계정 만들기
 
@@ -23,7 +23,7 @@ Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 �
 
 이 문서에서는 Azure 구독 및 Azure Media Services 계정에 연결되는 Video Indexer 계정을 만드는 방법에 대해 설명합니다. 이 토픽에서는 자동(기본값) 흐름을 사용하여 Azure에 연결하는 단계를 설명합니다. Azure에 수동으로 연결하는 방법도 보여줍니다(고급).
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독.
 
@@ -33,7 +33,7 @@ Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 �
 
     Azure AD 도메인이 없는 경우 Azure 구독을 사용하여 이 도메인을 만듭니다. 자세한 내용은 [Azure Active Directory에서 사용자 지정 도메인 이름 관리](../../active-directory/users-groups-roles/domains-manage.md)를 참조하세요.
 
-* Azure AD 도메인의 사용자 및 멤버. 이 멤버는 Video Indexer 계정을 Azure에 연결할 때 사용합니다.
+* **응용 프로그램 관리자** 역할을 사용 하는 Azure AD 도메인의 사용자입니다. 이 멤버는 Video Indexer 계정을 Azure에 연결할 때 사용합니다.
 
     이 사용자는 outlook.com, live.com 또는 hotmail.com 같은 개인 계정이 아닌 회사 또는 학교 계정이 있는 Azure AD 사용자여야 합니다.
 
@@ -59,9 +59,12 @@ Azure Portal을 사용하여 EventGrid 리소스 공급자를 등록합니다.
 
 ## <a name="connect-to-azure"></a>Azure에 연결
 
+> [!NOTE]
+> Azure 구독에서 인증서 기반 multi-factor authentication을 사용 하는 경우 필수 인증서가 설치 된 장치에서 다음 단계를 수행 하는 것이 중요 합니다.
+
 1. [Video Indexer](https://www.videoindexer.ai/) 웹 사이트로 이동하고 로그인합니다.
 
-2. 클릭 합니다 **새 계정 만들기** 단추:
+2. **새 계정 만들기** 단추를 클릭 합니다.
 
     ![Azure에 연결](./media/create-account/connect-to-azure.png)
 
@@ -98,13 +101,13 @@ Azure Portal을 사용하여 EventGrid 리소스 공급자를 등록합니다.
 Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 수 있습니다.
 
 > [!NOTE]
-> Media Services 계정과 연결하는 Video Indexer 계정, 그리고 같은 Media Services 계정에 연결된 Azure 저장소 계정의 3개 계정은 같은 지역에 있는 것이 좋습니다.
+> Media Services 계정과 연결하는 Video Indexer 계정, 그리고 같은 Media Services 계정에 연결된 Azure Storage 계정의 3개 계정은 같은 지역에 있는 것이 좋습니다.
 
 ### <a name="create-and-configure-a-media-services-account"></a>Media Services 계정을 만들고 구성
 
 1. [Azure](https://portal.azure.com/) Portal을 사용하여 [계정 만들기](../previous/media-services-portal-create-account.md)에 설명된 대로 Azure Media Services 계정을 만듭니다.
 
-    Media Services 계정에 대 한 저장소 계정을 만들 때 선택할 **StorageV2** 계정 종류 및 **지역 중복 (GRS)** 복제 필드에 대 한 합니다.
+    Media Services 계정에 대 한 저장소 계정을 만들 때 복제 필드의 계정 종류 및 **지역 중복 (GRS)** 에 대해 **StorageV2** 를 선택 합니다.
 
     ![새 AMS 계정](./media/create-account/create-ams-account1.png)
 
@@ -137,15 +140,15 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
 
 대화 상자에서 다음 정보를 입력합니다.
 
-|설정|설명|
+|설정|Description|
 |---|---|
-|Video Indexer 계정 지역|Video Indexer 계정 지역의 이름입니다. 성능을 향상시키고 비용을 절감하려면 Azure Media Services 리소스와 Azure Storage 계정이 있는 지역의 이름을 지정하는 것이 좋습니다. |
+|Video Indexer 계정 영역|Video Indexer 계정 지역의 이름입니다. 성능을 향상시키고 비용을 절감하려면 Azure Media Services 리소스와 Azure Storage 계정이 있는 지역의 이름을 지정하는 것이 좋습니다. |
 |AAD(Azure Active Directory) 테넌트|Azure AD 테넌트의 이름입니다(예: "contoso.onmicrosoft.com"). Azure Portal에서 테넌트 정보를 검색할 수 있습니다. 오른쪽 위 모서리에서 로그인한 사용자의 이름 위로 커서를 이동합니다. **도메인** 오른쪽에서 이름을 찾습니다.|
 |구독 ID|이 연결을 만들어야 하는 Azure 구독입니다. 구독 ID는 Azure Portal에서 검색할 수 있습니다. 왼쪽 패널에서 **모든 서비스**를 클릭하고 "구독"을 검색합니다. **구독**을 선택하고 구독 목록에서 원하는 ID를 선택합니다.|
 |Azure Media Services 리소스 그룹 이름|Media Services 계정을 만든 리소스 그룹의 이름입니다.|
 |Media Services 리소스 이름|이전 섹션에서 만든 Azure Media Services 계정의 이름입니다.|
-|애플리케이션 UI|이전 섹션에서 만든 Azure AD 애플리케이션 ID(지정된 Media Services 계정에 대한 권한이 있는)입니다.|
-|애플리케이션 키|이전 섹션에서 만든 Azure AD 애플리케이션 키입니다. |
+|애플리케이션 ID|이전 섹션에서 만든 Azure AD 애플리케이션 ID(지정된 Media Services 계정에 대한 권한이 있는)입니다.|
+|응용 프로그램 키|이전 섹션에서 만든 Azure AD 애플리케이션 키입니다. |
 
 ## <a name="considerations"></a>고려 사항
 
@@ -162,7 +165,7 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
 
 * 새 Media Services 계정에 연결하면 Video Indexer가 그 안에서 자동으로 기본 **스트리밍 엔드포인트**를 시작합니다.
 
-    ![Media Services 스트리밍 끝점](./media/create-account/ams-streaming-endpoint.png)
+    ![Media Services 스트리밍 엔드포인트](./media/create-account/ams-streaming-endpoint.png)
 
     스트리밍 엔드포인트의 시작 시간이 깁니다. 따라서 계정을 Azure에 연결하는 시점부터 Video Indexer 웹 애플리케이션에서 비디오를 스트리밍하고 시청할 수 있게 되는 시점까지 몇 분 정도 걸릴 수 있습니다.
 

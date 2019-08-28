@@ -1,8 +1,8 @@
 ---
-title: "\"단순\" 검색 구문-Azure Search를 사용 하 여 쿼리 예제"
+title: "\"Simple\" 검색 구문을 사용 하는 쿼리 예제-Azure Search"
 description: 전체 텍스트 검색, 필터 검색, 지리적 검색, 패싯 검색 및 Azure Search 인덱스 쿼리에 사용되는 기타 쿼리 문자열에 대한 단순 쿼리 예제입니다.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 tags: Simple query analyzer syntax
 services: search
 ms.service: search
@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4658de97bc8b8a175934286a5be3f074968ff7bd
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: df84686e512db90351d5a9815706890bce49848b
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485369"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647628"
 ---
-# <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>"단순" 검색 구문을 사용 하 여 Azure Search의 쿼리 예제
+# <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>Azure Search에서 "단순" 검색 구문을 사용 하는 쿼리 예제
 
 [단순 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)은 Azure Search 인덱스에 대해 전체 텍스트 검색 쿼리를 실행하기 위해 기본 쿼리 파서를 호출합니다. 단순 쿼리 분석기는 신속하며, Azure Search에서 전체 텍스트 검색, 필터링 및 패싯 검색, 지리적 검색 등의 일반적인 시나리오를 처리합니다. 이 문서에서는 단순 구문을 사용할 때 사용할 수 있는 쿼리 작업을 보여 주는 예제를 단계별로 진행합니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "67485369"
 
 ### <a name="set-the-request-url"></a>요청 URL 설정
 
-요청은 Azure Search 끝점 및 검색 문자열을 포함하는 URL과 연결되는 GET 명령입니다.
+요청은 Azure Search 엔드포인트 및 검색 문자열을 포함하는 URL과 연결되는 GET 명령입니다.
 
   ![Postman 요청 헤더](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
 
@@ -55,9 +55,9 @@ URL 구성에는 다음 요소가 있습니다.
 
 ## <a name="send-your-first-query"></a>첫 번째 쿼리 전송
 
-확인 단계에서 다음 요청을 GET에 붙여넣고 **보내기**를 클릭합니다. 결과는 자세한 JSON 문서로 반환됩니다. 모든 필드 및 모든 값을 볼 수 있는 전체 문서가 반환 됩니다.
+확인 단계에서 다음 요청을 GET에 붙여넣고 **보내기**를 클릭합니다. 결과는 자세한 JSON 문서로 반환됩니다. 모든 필드와 모든 값을 볼 수 있는 전체 문서가 반환 됩니다.
 
-유효성 검사 단계로 및 문서 구조를 보려면 REST 클라이언트에이 URL을 붙여 넣습니다.
+이 URL을 REST 클라이언트에 유효성 검사 단계로 붙여넣고 문서 구조를 봅니다.
 
   ```http
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=*
@@ -77,13 +77,13 @@ URL 구성에는 다음 요소가 있습니다.
 
 간단히 하기 위해 쿼리는 *business_title*만을 대상으로 하며, 직함만 반환되도록 지정합니다. 이 구문은 business_title 필드로만 쿼리 실행을 제한하며 응답에 포함되는 필드를 지정하도록 **선택**하는 **searchFields**입니다.
 
-### <a name="partial-query-string"></a>일부 쿼리 문자열
+### <a name="partial-query-string"></a>부분 쿼리 문자열
 
 ```http
 searchFields=business_title&$select=business_title&search=*
 ```
 
-쉼표로 구분 된 목록에서 여러 필드를 사용 하 여 동일한 쿼리는 다음과 같습니다.
+쉼표로 구분 된 목록에 여러 필드가 있는 동일한 쿼리는 다음과 같습니다.
 
 ```http
 search=*&searchFields=business_title, posting_type&$select=business_title, posting_type
@@ -101,7 +101,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 응답에서 검색 점수를 보았을 수 있습니다. 순위가 없으면 검색이 전체 텍스트 검색이 아니거나 어떤 조건도 적용되지 않기 때문에 균일하게 점수 1이 지정됩니다. 조건 없는 Null 검색의 경우 행은 임의의 순서로 반환됩니다. 실제 조건을 포함하는 경우 검색 점수가 의미 있는 값으로 바뀌는 것을 볼 수 있습니다.
 
-## <a name="example-2-look-up-by-id"></a>예 2: ID별 조회
+## <a name="example-2-look-up-by-id"></a>예제 2: ID별 조회
 
 이 예제는 약간 특이하지만, 검색 동작을 평가할 때 결과에 포함되거나 제외된 이유를 이해하기 위해 특정 문서 전체를 확인하려고 할 수 있습니다. 단일 문서 전체를 반환하려면 [조회 작업](https://docs.microsoft.com/rest/api/searchservice/lookup-document)을 사용하여 문서 ID를 전달합니다.
 
@@ -117,9 +117,9 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2019-05-06&$count=true&search=*
 ```
 
-## <a name="example-3-filter-queries"></a>예 3: 쿼리 필터링
+## <a name="example-3-filter-queries"></a>예제 3: 쿼리 필터링
 
-[구문 필터링](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples)은 **검색** 또는 자체로 사용할 수 있는 OData 식입니다. 검색 매개 변수가 없는 독립 실행형 필터는 필터 식이 관심 있는 문서를 정규화할 수 있을 때 유용합니다. 쿼리 문자열이 없으면 어휘 또는 언어 분석, 점수 매기기(모든 점수는 1) 및 순위 지정 등이 없습니다. 검색 문자열은 비어 있습니다.
+[구문 필터링](https://docs.microsoft.com/azure/search/search-query-odata-filter)은 **검색** 또는 자체로 사용할 수 있는 OData 식입니다. 검색 매개 변수가 없는 독립 실행형 필터는 필터 식이 관심 있는 문서를 정규화할 수 있을 때 유용합니다. 쿼리 문자열이 없으면 어휘 또는 언어 분석, 점수 매기기(모든 점수는 1) 및 순위 지정 등이 없습니다. 검색 문자열은 비어 있습니다.
 
 ```http
 POST /indexes/nycjobs/docs/search?api-version=2019-05-06
@@ -147,7 +147,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
 ```
 
-함수에 대한 자세한 내용은 ["필터 예제"의 search.ismatch](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples)를 참조하세요.
+함수에 대한 자세한 내용은 ["필터 예제"의 search.ismatch](https://docs.microsoft.com/azure/search/search-query-odata-full-text-search-functions#examples)를 참조하세요.
 
 ## <a name="example-4-range-filters"></a>예제 4: 범위 필터
 
@@ -198,7 +198,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 ## <a name="example-5-geo-search"></a>예제 5: 지리적 검색
 
-샘플 인덱스에는 위도 및 경도 좌표를 사용한 geo_location 필드가 포함됩니다. 이 예제에서는 시작 지점의 원주 내에서 사용자가 지정하는 임의의 거리(킬로미터 단위)에 문서를 필터링하는 [geo.distance 함수](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples)를 사용합니다. 쿼리 노출 영역을 줄이거나 확장하려면 쿼리(4)에서 마지막 값을 조정할 수 있습니다.
+샘플 인덱스에는 위도 및 경도 좌표를 사용한 geo_location 필드가 포함됩니다. 이 예제에서는 시작 지점의 원주 내에서 사용자가 지정하는 임의의 거리(킬로미터 단위)에 문서를 필터링하는 [geo.distance 함수](https://docs.microsoft.com/azure/search/search-query-odata-geo-spatial-functions#examples)를 사용합니다. 쿼리 노출 영역을 줄이거나 확장하려면 쿼리(4)에서 마지막 값을 조정할 수 있습니다.
 
 다음 예제는 가독성을 위해 POST 형식으로 돼 있습니다.
 
@@ -211,7 +211,7 @@ POST /indexes/nycjobs/docs/search?api-version=2019-05-06
       "count": "true"
     }
 ```
-좀 더 읽기 쉬운 결과 대 한 작업 ID, 직책 및 작업 위치를 포함 하도록 검색 결과 잘립니다. 인덱스(Staten 섬에 작업 위치가 있는 경우)의 임의 문서에서 시작 좌표를 가져왔습니다.
+보다 읽기 쉬운 결과를 위해 작업 ID, 직위 및 작업 위치를 포함 하도록 검색 결과가 잘립니다. 인덱스(Staten 섬에 작업 위치가 있는 경우)의 임의 문서에서 시작 좌표를 가져왔습니다.
 
 GET을 사용하여 Postman에서 이를 시도해 볼 수 있습니다.
 

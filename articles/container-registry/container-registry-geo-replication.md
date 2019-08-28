@@ -3,17 +3,17 @@ title: Azure Container Registry의 지리적 복제
 description: 지리적 복제된 Azure Container Registry 만들기 및 관리를 시작합니다.
 services: container-registry
 author: stevelas
-manager: jeconnoc
+manager: gwallace
 ms.service: container-registry
 ms.topic: overview
-ms.date: 05/24/2019
+ms.date: 08/16/2019
 ms.author: stevelas
-ms.openlocfilehash: a26b261a900dfae742e00d9540e744524b781815
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 73d497b4784a91974fab8a94c6f9fe595770ea45
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66384114"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574393"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Azure Container Registry의 지리적 복제
 
@@ -60,7 +60,7 @@ Azure Container Registry의 지리적 복제 기능을 사용하면 다음과 �
 
 * 모든 지역에서 단일 레지스트리 관리: `contoso.azurecr.io`
 * 모든 지역에서 동일한 이미지 URL을 사용하므로 모든 이미지 배포에 대해 단일 구성 관리 가능: `contoso.azurecr.io/public/products/web:1.2`
-* 단일 레지스트리로 푸시하면 ACR이 지역 복제를 관리합니다. 특정 복제본의 이벤트를 알리도록 지역별 [webhook](container-registry-webhook.md)를 구성할 수 있습니다.
+* 단일 레지스트리로 푸시하면 ACR이 지역 복제를 관리합니다. 특정 복제본의 이벤트를 알리도록 지역 [웹후크](container-registry-webhook.md)를 구성할 수 있습니다.
 
 ## <a name="configure-geo-replication"></a>지역에서 복제 구성
 
@@ -105,6 +105,14 @@ ACR이 구성된 복제본 사이의 이미지 동기화를 시작합니다. 동
 지리적 복제 기능은 Azure Container Registry의 [Premium SKU](container-registry-skus.md) 기능입니다. 레지스트리를 원하는 지역으로 복제하면 각 지역별로 Premium 레지스트리 요금이 발생합니다.
 
 앞의 예에서 Contoso는 미국 동부, 캐나다 중부, 유럽 서부에 복제본을 추가하여 두 개의 레지스트리를 하나로 통합했습니다. Contoso는 지금부터 매월 4배의 프리미엄 요금을 지불하게 되며, 구성 또는 관리에 추가로 부과되는 요금은 없습니다. 각 지역은 이제 로컬에서 이미지를 가져오기 때문에 성능과 안정성이 개선되며, 미국 서부에서 캐나다와 미국 동부로 네트워크 송신 요금이 발생하지 않습니다.
+
+## <a name="troubleshoot-push-operations-with-geo-replicated-registries"></a>지역에서 복제된 레지스트리를 사용하여 푸시 작업 문제 해결
+ 
+지리적으로 복제된 레지스트리에 이미지를 푸시하는 Docker 클라이언트는 모든 이미지 레이어와 해당 매니페스트를 단일 복제 지역에 푸시할 수 없습니다. 이 문제는 Azure Traffic Manager가 레지스트리 요청을 네트워크에서 가장 가까운 복제 레지스트리로 라우팅하기 때문에 발생할 수 있습니다. 레지스트리에 두 개의 *인접* 복제 지역이 있는 경우 이미지 레이어와 매니페스트를 두 사이트에 배포할 수 있으며 매니페스트의 유효성을 검사할 때 푸시 작업이 실패합니다. 이 문제는 일부 Linux 호스트에서 레지스트리의 DNS 이름이 확인되기 때문에 발생합니다. 클라이언트 쪽 DNS 캐시를 제공하는 Windows에서는 이 문제가 발생하지 않습니다.
+ 
+이 문제가 발생하는 경우 한 가지 해결 방법은 Linux 호스트에서 `dnsmasq`와 같은 클라이언트 쪽 DNS 캐시를 적용하는 것입니다. 이렇게 하면 레지스트리의 이름이 일관되게 확인됩니다. Azure에서 Linux VM을 사용하여 레지스트리에 푸시하는 경우 [Azure의 Linux 가상 머신에 대한 DNS 이름 확인 옵션](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/azure-dns)의 옵션을 참조하세요.
+
+이미지를 푸시할 때 가장 가까운 복제본에 대한 DNS 확인을 최적화하려면 Azure 외부에서 작업할 때 푸시 작업의 원본과 동일한 Azure 지역 또는 가장 가까운 지역의 지역 복제 레지스트리를 구성합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,6 +1,6 @@
 ---
-title: '자습서: Azure에서 읽기 액세스 중복 저장소 액세스 오류 시뮬레이션 | Microsoft Docs'
-description: 읽기 액세스 지역 중복 저장소 액세스 오류 시뮬레이션
+title: '자습서: Azure에서 읽기 액세스 중복 스토리지 액세스 오류 시뮬레이션 | Microsoft Docs'
+description: 읽기 액세스 지역 중복 스토리지 액세스 오류 시뮬레이션
 services: storage
 author: tamram
 ms.service: storage
@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 05/09/2019
 ms.locfileid: "65508091"
 ---
-# <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>자습서: 읽기 액세스 중복 저장소 액세스 오류 시뮬레이션
+# <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>자습서: 읽기 액세스 중복 스토리지 액세스 오류 시뮬레이션
 
 이 자습서는 시리즈의 2부입니다. 여기서는 오류를 시뮬레이션하여 [RA-GRS(읽기 액세스 지역 중복 스토리지)](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage)의 이점에 대해 알아봅니다.
 
@@ -40,7 +40,7 @@ Fiddler를 사용하여 실패를 시뮬레이트하려면 [Fiddler를 다운로
 
 ## <a name="simulate-a-failure-with-an-invalid-static-route"></a>잘못된 고정 경로를 사용하여 실패 시뮬레이션
 
-[RA-GRS(읽기 액세스 지역 중복 저장소)](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) 계정의 기본 엔드포인트에 대한 모든 요청에 대해 잘못된 고정 경로를 만들 수 있습니다. 이 자습서에서는 로컬 호스트가 저장소 계정에 대한 요청을 라우팅하기 위한 게이트웨이로 사용됩니다. 로컬 호스트를 게이트웨이로 사용하면 저장소 계정의 기본 엔드포인트에 대한 모든 요청이 호스트 내부로 루프 백되어 실패가 발생하게 됩니다. 다음 단계에 따라 실패를 시뮬레이션하고 잘못된 고정 경로를 사용하여 기본 엔드포인트를 복원합니다.
+[RA-GRS(읽기 액세스 지역 중복 스토리지)](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) 계정의 기본 엔드포인트에 대한 모든 요청에 대해 잘못된 고정 경로를 만들 수 있습니다. 이 자습서에서는 로컬 호스트가 스토리지 계정에 대한 요청을 라우팅하기 위한 게이트웨이로 사용됩니다. 로컬 호스트를 게이트웨이로 사용하면 스토리지 계정의 기본 엔드포인트에 대한 모든 요청이 호스트 내부로 루프 백되어 실패가 발생하게 됩니다. 다음 단계에 따라 실패를 시뮬레이션하고 잘못된 고정 경로를 사용하여 기본 엔드포인트를 복원합니다.
 
 ### <a name="start-and-pause-the-application"></a>애플리케이션 시작 및 일시 중지
 
@@ -56,7 +56,7 @@ Fiddler를 사용하여 실패를 시뮬레이트하려면 [Fiddler를 다운로
 nslookup STORAGEACCOUNTNAME.blob.core.windows.net
 ```
 
-나중에 사용하기 위해 저장소 계정의 IP 주소를 텍스트 편집기에 복사합니다.
+나중에 사용하기 위해 스토리지 계정의 IP 주소를 텍스트 편집기에 복사합니다.
 
 로컬 호스트의 IP 주소를 가져오려면 Windows 명령 프롬프트에서 `ipconfig`를 입력하거나 Linux 터미널에서 `ifconfig`를 입력합니다.
 
@@ -68,7 +68,7 @@ nslookup STORAGEACCOUNTNAME.blob.core.windows.net
 route add <destination_ip> gw <gateway_ip>
 ```
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 ```
 route add <destination_ip> <gateway_ip>
@@ -86,7 +86,7 @@ route add <destination_ip> <gateway_ip>
 route del <destination_ip> gw <gateway_ip>
 ```
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 ```
 route delete <destination_ip>

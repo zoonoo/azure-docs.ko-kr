@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 1ed8dac90527de396e0b7ae59e5d19939a4a36be
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bf054cb3a965e94f7f18e39065d744b4376b6527
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904357"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102184"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-formcom"></a>자습서: Azure Active Directory와 Form.com 통합
 
@@ -30,7 +30,7 @@ Form.com을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 * 사용자가 해당 Azure AD 계정으로 Form.com에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -56,7 +56,7 @@ Form.com의 Azure AD 통합을 구성하려면 갤러리의 Form.com을 관리�
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -134,7 +134,7 @@ Form.com에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 ### <a name="configure-formcom-single-sign-on"></a>Form.com Single Sign-On 구성
 
-**Form.com** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)**, **앱 페더레이션 메타데이터 URL** 및 적절히 복사한 URL을 [Form.com 지원 팀](https://form.com/about/company/contact-us/)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Form.com** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)** , **앱 페더레이션 메타데이터 URL** 및 적절히 복사한 URL을 [Form.com 지원 팀](https://form.com/about/company/contact-us/)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 

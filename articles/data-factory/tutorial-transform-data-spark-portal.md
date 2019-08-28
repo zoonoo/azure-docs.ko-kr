@@ -11,12 +11,12 @@ ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: de99d1a58cac12c80748b34ef4a1b07c9fb2a78e
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 34c8c49166ea13d67c1f3d51805671c63dbb352b
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576857"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312420"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Azure Data Factory에서 Spark 작업을 사용하여 클라우드의 데이터 변환
 이 자습서에서는 Azure Portal을 사용하여 Azure Data Factory 파이프라인을 만듭니다. 이 파이프라인은 Spark 활동 및 주문형 HDInsight 연결된 서비스를 사용하여 데이터를 변환합니다. 
@@ -35,10 +35,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Azure Storage 계정**. Python 스크립트와 입력 파일을 만들고 Azure Storage에 업로드합니다. Spark 프로그램의 출력은 이 저장소 계정에 저장됩니다. 주문형 Spark 클러스터는 기본 저장소와 동일한 저장소 계정을 사용합니다.  
+* **Azure Storage 계정**. Python 스크립트와 입력 파일을 만들고 Azure Storage에 업로드합니다. Spark 프로그램의 출력은 이 스토리지 계정에 저장됩니다. 주문형 Spark 클러스터는 기본 스토리지와 동일한 스토리지 계정을 사용합니다.  
 
 > [!NOTE]
-> HdInsight는 표준 계층을 포함하는 범용 저장소 계정만 지원합니다. 계정이 프리미엄 또는 BLOB 전용 저장소 계정인지 확인합니다.
+> HdInsight는 표준 계층을 포함하는 범용 스토리지 계정만 지원합니다. 계정이 프리미엄 또는 BLOB 전용 스토리지 계정인지 확인합니다.
 
 * **Azure PowerShell**. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-Az-ps)의 지침을 따르세요.
 
@@ -115,7 +115,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
 이 섹션에서는 두 개의 연결된 서비스를 작성합니다. 
     
-- Azure Storage 계정을 데이터 팩터리에 연결하는 **Azure Storage 연결된 서비스**. 이 저장소는 주문형 HDInsight 클러스터에서 사용됩니다. 실행될 Spark 스크립트도 포함되어 있습니다. 
+- Azure Storage 계정을 데이터 팩터리에 연결하는 **Azure Storage 연결된 서비스**. 이 스토리지는 주문형 HDInsight 클러스터에서 사용됩니다. 실행될 Spark 스크립트도 포함되어 있습니다. 
 - **주문형 HDInsight 연결된 서비스**. Azure Data Factory는 HDInsight 클러스터를 자동으로 만들고 Spark 프로그램을 실행합니다. 그런 다음 클러스터가 미리 구성된 시간 동안 유휴 상태를 유지하면 HDInsight 클러스터를 삭제합니다. 
 
 ### <a name="create-an-azure-storage-linked-service"></a>Azure Storage 연결된 서비스 만들기
@@ -130,9 +130,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. **새 연결된 서비스** 창에서 **데이터 저장소** > **Azure Blob Storage**를 선택한 다음, **계속**을 선택합니다. 
 
    !["Azure Blob Storage" 타일 선택](./media/tutorial-transform-data-spark-portal/select-azure-storage.png)
-1. **저장소 계정 이름**의 목록에서 이름을 선택한 후 **저장**을 선택합니다. 
+1. **스토리지 계정 이름**의 목록에서 이름을 선택한 후 **저장**을 선택합니다. 
 
-   ![저장소 계정 이름을 지정하는 상자](./media/tutorial-transform-data-spark-portal/new-azure-storage-linked-service.png)
+   ![스토리지 계정 이름을 지정하는 상자](./media/tutorial-transform-data-spark-portal/new-azure-storage-linked-service.png)
 
 
 ### <a name="create-an-on-demand-hdinsight-linked-service"></a>주문형 HDInsight 연결된 서비스 만들기
@@ -147,7 +147,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    
    b. **유형**에 **주문형 HDInsight**가 선택되었는지 확인합니다.
    
-   다. **Azure Storage 연결된 서비스**에 **AzureStorage1**을 선택합니다. 이 연결된 서비스는 앞에서 먼저 만들었습니다. 다른 이름을 사용한 경우 여기에 올바른 이름을 지정합니다. 
+   다. **Azure Storage 연결 서비스**에 대해 **AzureBlobStorage1**을 선택합니다. 이 연결된 서비스는 앞에서 먼저 만들었습니다. 다른 이름을 사용한 경우 여기에 올바른 이름을 지정합니다. 
    
    d. **클러스터 유형**에 **spark**를 선택합니다.
    
@@ -174,7 +174,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
 
-1. **+**(더하기) 단추를 선택한 다음 메뉴에서 **파이프라인**을 선택합니다.
+1. **+** (더하기) 단추를 선택한 다음 메뉴에서 **파이프라인**을 선택합니다.
 
    ![새 파이프라인 만들기에 대한 단추](./media/tutorial-transform-data-spark-portal/new-pipeline-menu.png)
 1. **활동** 도구 상자에서 **HDInsight**를 확장합니다. **활동** 도구 상자에서 **Spark** 활동을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 
@@ -189,15 +189,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    ![HDInsight 연결된 서비스 지정](./media/tutorial-transform-data-spark-portal/select-hdinsight-linked-service.png)
 1. **스크립트/Jar** 탭으로 전환하고 다음 단계를 완료합니다. 
 
-   a. **작업 연결된 서비스**에 **AzureStorage1**을 선택합니다.
+   a. **작업 연결 서비스**에 **AzureBlobStorage1**을 선택합니다.
    
-   b. **저장소 찾아보기**를 선택합니다.
+   b. **스토리지 찾아보기**를 선택합니다.
 
    !["스크립트/Jar" 탭에서 Spark 스크립트 지정](./media/tutorial-transform-data-spark-portal/specify-spark-script.png)
    
    다. **adftutorial/spark/script** 폴더로 이동한 후 **WordCount_Spark.py**를 선택한 후 **마침**을 선택합니다.      
 
-1. 파이프라인에 대한 유효성을 검사하려면 도구 모음에서 **유효성 검사** 단추를 선택합니다. **>>**(오른쪽 화살표) 단추를 선택하여 유효성 검사 창을 닫습니다. 
+1. 파이프라인에 대한 유효성을 검사하려면 도구 모음에서 **유효성 검사** 단추를 선택합니다. **>>** (오른쪽 화살표) 단추를 선택하여 유효성 검사 창을 닫습니다. 
     
    !["유효성 검사" 단추](./media/tutorial-transform-data-spark-portal/validate-button.png)
 1. **모두 게시**를 선택합니다. Data Factory UI는 엔터티(연결된 서비스 및 파이프라인)를 Azure Data Factory 서비스에 게시합니다. 
@@ -206,7 +206,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 
 ## <a name="trigger-a-pipeline-run"></a>파이프라인 실행 트리거
-도구 모음에서 **트리거**를 선택한 다음 **지금 트리거**를 선택합니다. 
+도구 모음에서 **트리거 추가**를 선택한 다음, **지금 트리거**를 선택합니다. 
 
 !["트리거" 및 "지금 트리거" 단추](./media/tutorial-transform-data-spark-portal/trigger-now-menu.png)
 
@@ -222,7 +222,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    ![파이프라인 실행 상태](./media/tutorial-transform-data-spark-portal/pipeline-run-succeeded.png) 
 
-   위쪽의 **파이프라인** 링크를 선택하여 파이프라인 실행 보기로 다시 전환할 수 있습니다.
+   위쪽의 **모든 파이프라인 실행** 링크를 선택하여 파이프라인 실행 보기로 다시 전환할 수 있습니다.
 
    !["활동 실행" 보기](./media/tutorial-transform-data-spark-portal/activity-runs.png)
 
@@ -231,7 +231,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ![출력 파일의 위치](./media/tutorial-transform-data-spark-portal/verity-output.png)
 
-파일에는 입력 텍스트 파일의 각 단어 및 해당 단어가 파일에 나타난 횟수가 있어야 합니다. 예를 들면 다음과 같습니다. 
+파일에는 입력 텍스트 파일의 각 단어 및 해당 단어가 파일에 나타난 횟수가 있어야 합니다. 예: 
 
 ```
 (u'This', 1)

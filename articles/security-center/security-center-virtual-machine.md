@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/24/2017
 ms.author: yurid
-ms.openlocfilehash: 527ae9eb59e09885b9b606d74e72817351c31a7f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5d13e7375c9e3cd874bc61b686ff2549c38da1f3
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62121767"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036361"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines"></a>Azure Security Center 및 Azure Virtual Machines
 [Azure Security Center](https://azure.microsoft.com/services/security-center/)를 통해 위협을 예방하고 감지하며 대응할 수 있습니다. 이는 Azure 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
@@ -34,7 +34,7 @@ Security Center를 사용하면 가상 머신의 보안 설정에 가시성을 �
 * 엔드포인트 보호 권장 사항
 * 디스크 암호화 유효성 검사
 * 취약점 평가 및 재구성
-* 위협 감지
+* 위협 검색
 
 Security Center는 Azure VM을 보호하는 것 외에도, Cloud Services, App Services, Virtual Network 등에 대한 보안 모니터링 및 관리도 제공합니다. 
 
@@ -43,7 +43,7 @@ Security Center는 Azure VM을 보호하는 것 외에도, Cloud Services, App S
 > 
 > 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 Azure Security Center를 시작하려면 다음 사항을 이해하고 고려해야 합니다.
 
 * Microsoft Azure를 구독해야 합니다. 보안 센터의 무료 및 표준 계층에 대한 자세한 내용은 [보안 센터 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)을 참조하세요.
@@ -59,25 +59,23 @@ Azure Security Center에서 구성한 보안 정책을 기반으로 생성된 �
 
 > [!NOTE]
 > 사용 가능한 각 **방지 정책**을 알아보려면 [보안 정책 설정](tutorial-security-policy.md) 문서를 참조하세요.
-> 
-> 
 
 ## <a name="manage-security-recommendations"></a>보안 권장 사항 관리
 보안 센터에서는 Azure 리소스의 보안 상태를 분석합니다. 보안 센터가 잠재적인 보안 취약점을 식별하는 경우 권장 사항을 만듭니다. 권장 사항은 필요한 컨트롤을 구성하는 과정을 안내합니다.
 
 보안 정책이 설정되면 보안 센터는 리소스의 보안 상태를 분석하여 잠재적인 취약성을 식별합니다. 권장 사항은 각 줄이 한 가지 특정 권장을 나타내는 표 형식으로 표시됩니다. 아래 표는 Azure VM에 대한 권장 사항의 일부 예 및 적용할 경우 각 권장 사항의 역할을 제공합니다. 권장 사항을 선택하면 보안 센터에서 권장 사항을 구현하는 방법을 보여 주는 정보가 제공됩니다.
 
-| 권장 사항 | 설명 |
+| 권장 | 설명 |
 | --- | --- |
-| [구독에 대해 데이터 수집 활성화](security-center-enable-data-collection.md) |구독 또는 구독의 VM(가상 머신) 각각에 대해 보안 정책에서 데이터 수집을 켜는 것이 좋습니다. |
-| [OS 취약성 해결](security-center-remediate-os-vulnerabilities.md) |OS 구성을 권장 구성 규칙과 정렬하라는 권장 사항입니다. 예를 들어 암호 저장을 허용하지 않습니다. |
-| [시스템 업데이트 적용](security-center-apply-system-updates.md) |누락된 시스템 보안 및 중요 업데이트를 VM에 배포하는 것이 좋습니다. |
-| [시스템 업데이트 후 다시 부팅](security-center-apply-system-updates.md#reboot-after-system-updates) |시스템 업데이트 적용 프로세스를 완료하려면 VM을 다시 부팅하는 것이 좋습니다. |
-| [Endpoint Protection 설치](security-center-install-endpoint-protection.md) |VM(Windows VM만 해당)에 맬웨어 방지 프로그램을 프로비전하는 것이 좋습니다. |
-| [VM 에이전트 사용](security-center-enable-vm-agent.md) |VM 에이전트가 필요한 VM을 확인할 수 있습니다. 패치 검색, 기준 검색 및 맬웨어 방지 프로그램을 프로비전하려면 VM에 VM 에이전트가 설치되어 있어야 합니다. Azure Marketplace에서 배포된 VM에 VM 에이전트가 기본적으로 설치됩니다. [VM 에이전트 및 확장 - 2부](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) 문서에 VM 에이전트 설치 방법이 설명되어 있습니다. |
-| [디스크 암호화 적용](security-center-apply-disk-encryption.md) |Azure 디스크 암호화(Windows 및 Linux VM)를 사용하여 VM 디스크를 암호화하는 것이 좋습니다. VM에서 OS 및 데이터 볼륨에 암호화를 사용하는 것이 좋습니다. |
-| [취약점 평가 설치되지 않음](security-center-vulnerability-assessment-recommendations.md) |VM에 취약점 평가 솔루션을 설치하는 것이 좋습니다. |
-| [취약점 해결](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |VM에 설치된 취약점 평가 솔루션에 감지되는 시스템 및 애플리케이션 취약점을 볼 수 있습니다. |
+| 구독에 대한 데이터 수집 사용 |구독 또는 구독의 VM(가상 머신) 각각에 대해 보안 정책에서 데이터 수집을 켜는 것이 좋습니다. |
+| OS 취약성 해결 |OS 구성을 권장 구성 규칙과 정렬하라는 권장 사항입니다. 예를 들어 암호 저장을 허용하지 않습니다. |
+| 시스템 업데이트 적용 |누락된 시스템 보안 및 중요 업데이트를 VM에 배포하는 것이 좋습니다. |
+| 시스템 업데이트 적용 후 다시 부팅 |시스템 업데이트 적용 프로세스를 완료하려면 VM을 다시 부팅하는 것이 좋습니다. |
+| Endpoint Protection 설치 |VM(Windows VM만 해당)에 맬웨어 방지 프로그램을 프로비전하는 것이 좋습니다. |
+| VM 에이전트 사용 |VM 에이전트가 필요한 VM을 확인할 수 있습니다. 패치 검색, 기준 검색 및 맬웨어 방지 프로그램을 프로비전하려면 VM에 VM 에이전트가 설치되어 있어야 합니다. Azure Marketplace에서 배포된 VM에 VM 에이전트가 기본적으로 설치됩니다. [VM 에이전트 및 확장 - 2부](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) 문서에 VM 에이전트 설치 방법이 설명되어 있습니다. |
+| 디스크 암호화 적용 |Azure 디스크 암호화(Windows 및 Linux VM)를 사용하여 VM 디스크를 암호화하는 것이 좋습니다. VM에서 OS 및 데이터 볼륨에 암호화를 사용하는 것이 좋습니다. |
+| 취약성 평가 설치되지 않음 |VM에 취약점 평가 솔루션을 설치하는 것이 좋습니다. |
+| 취약성 해결 |VM에 설치된 취약점 평가 솔루션에 감지되는 시스템 및 애플리케이션 취약점을 볼 수 있습니다. |
 
 > [!NOTE]
 > 권장 사항에 대한 자세한 내용은 [보안 권장 사항 관리](security-center-recommendations.md) 문서를 참조하세요.
@@ -90,13 +88,13 @@ Azure Security Center에서 구성한 보안 정책을 기반으로 생성된 �
 ![보안 상태](./media/security-center-virtual-machine/security-center-virtual-machine-fig2.png)
 
 ## <a name="manage-and-respond-to-security-alerts"></a>보안 경고 관리 및 응답
-보안 센터는 방화벽 및 엔드포인트 보호 솔루션과 같은 Azure 리소스, 네트워크 및 연결된 파트너 솔루션의 로그 데이터를 자동으로 수집하고 분석하며 통합하여 실제 위협을 감지하고 가양성을 줄입니다. [검색 기능](security-center-detection-capabilities.md)의 다양한 집계를 활용하여 보안 센터는 신속하게 문제를 조사하고 가능한 공격을 해결하는 방법에 대한 권장 사항을 제공할 수 있도록 우선 순위가 지정된 보안 경고를 생성할 수 있습니다.
+보안 센터는 방화벽 및 엔드포인트 보호 솔루션과 같은 Azure 리소스, 네트워크 및 연결된 파트너 솔루션의 로그 데이터를 자동으로 수집하고 분석하며 통합하여 실제 위협을 감지하고 가양성을 줄입니다. [검색 기능](security-center-alerts-overview.md#detect-threats)의 다양한 집계를 활용하여 보안 센터는 신속하게 문제를 조사하고 가능한 공격을 해결하는 방법에 대한 권장 사항을 제공할 수 있도록 우선 순위가 지정된 보안 경고를 생성할 수 있습니다.
 
 ![보안 경고](./media/security-center-virtual-machine/security-center-virtual-machine-fig3.png)
 
-보안 경고를 선택하여 해당 경고를 트리거하는 이벤트 및 공격을 완화하기 위해 수행해야 하는 단계(있는 경우)에 대해 자세히 알아봅니다. 보안 경고는 [형식](security-center-alerts-type.md) 및 날짜별로 그룹화됩니다.
+보안 경고를 선택하여 해당 경고를 트리거하는 이벤트 및 공격을 완화하기 위해 수행해야 하는 단계(있는 경우)에 대해 자세히 알아봅니다. 보안 경고는 형식 및 날짜별로 그룹화됩니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md) -- Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.

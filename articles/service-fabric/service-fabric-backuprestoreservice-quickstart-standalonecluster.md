@@ -44,7 +44,7 @@ Service Fabric은 특정 시점 [백업 및 복원](service-fabric-reliable-serv
 
 Service Fabric에서는 정기적 백업 및 복원 기능과 관련된 다음 기능을 가능하게 해주는 API 집합을 제공합니다.
 
-- (외부) 저장소 위치에 백업을 업로드할 수 있도록 지원하여 Reliable Stateful 서비스 및 Reliable Actors의 정기적 백업을 예약합니다. 지원되는 저장소 위치
+- (외부) 스토리지 위치에 백업을 업로드할 수 있도록 지원하여 Reliable Stateful 서비스 및 Reliable Actors의 정기적 백업을 예약합니다. 지원되는 스토리지 위치
     - Azure Storage
     - 파일 공유(온-프레미스)
 - 백업 열거
@@ -55,7 +55,7 @@ Service Fabric에서는 정기적 백업 및 복원 기능과 관련된 다음 �
 
 ## <a name="prerequisites"></a>필수 조건
 * Service Fabric 클러스터 패브릭 버전 6.4 이상. 필요한 패키지를 다운로드하는 단계는 이 [문서](service-fabric-cluster-creation-for-windows-server.md)를 참조하세요.
-* 백업을 저장하기 위해 저장소에 연결하는 데 필요한 비밀 암호화를 위한 X.509 인증서. 자체 서명된 X.509 인증서를 획득 또는 만드는 방법을 알아보려면 [문서](service-fabric-windows-cluster-x509-security.md)를 참조하세요.
+* 백업을 저장하기 위해 스토리지에 연결하는 데 필요한 비밀 암호화를 위한 X.509 인증서. 자체 서명된 X.509 인증서를 획득 또는 만드는 방법을 알아보려면 [문서](service-fabric-windows-cluster-x509-security.md)를 참조하세요.
 
 * Service Fabric SDK 버전 3.0 이상을 사용하여 빌드된 Service Fabric Reliable Stateful 애플리케이션. .Net Core 2.0을 대상으로 하는 애플리케이션은 Service Fabric SDK 버전 3.1 이상을 사용하여 빌드되어야 합니다.
 * 구성을 호출 하는 것에 대 한 Microsoft.ServiceFabric.Powershell.Http 모듈 [미리 보기]를 설치 합니다.
@@ -98,7 +98,7 @@ Service Fabric에서는 정기적 백업 및 복원 기능과 관련된 다음 �
 
     ```
 
-3. 자격 증명의 암호화를 위해 X.509 인증서를 구성합니다. 저장소에 연결하기 위해 제공된 자격 증명을 저장하기 전에 암호화되도록 하는 것이 중요합니다. 다음 코드 조각과 같이 다음 `BackupRestoreService` 섹션을 `fabricSettings` 섹션 아래에 추가하여 암호화 인증서를 구성합니다. 
+3. 자격 증명의 암호화를 위해 X.509 인증서를 구성합니다. 스토리지에 연결하기 위해 제공된 자격 증명을 저장하기 전에 암호화되도록 하는 것이 중요합니다. 다음 코드 조각과 같이 다음 `BackupRestoreService` 섹션을 `fabricSettings` 섹션 아래에 추가하여 암호화 인증서를 구성합니다. 
 
     ```json
     "properties": {
@@ -126,7 +126,7 @@ Reliable Stateful 서비스 및 Reliable Actors에 대한 정기적 백업을 �
 
 첫 번째 단계는 백업 일정, 백업 데이터의 대상 스토리지, 정책 이름, 전체 백업을 트리거하기 전에 허용할 최대 증분 백업 및 백업 스토리지를 위한 보존 정책을 설명하는 백업 정책을 만드는 것입니다. 
 
-백업 저장소의 경우 파일 공유를 만들고 이 파일 공유에 모든 Service Fabric 노드 컴퓨터에 대한 ReadWrite 액세스 권한을 부여합니다. 이 예에서는 `BackupStore` 이름의 공유가 `StorageServer`에 있다고 가정합니다.
+백업 스토리지의 경우 파일 공유를 만들고 이 파일 공유에 모든 Service Fabric 노드 컴퓨터에 대한 ReadWrite 액세스 권한을 부여합니다. 이 예에서는 `BackupStore` 이름의 공유가 `StorageServer`에 있다고 가정합니다.
 
 
 #### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>Microsoft.ServiceFabric.Powershell.Http 모듈을 사용 하 여 Powershell

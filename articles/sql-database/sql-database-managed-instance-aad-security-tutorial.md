@@ -8,14 +8,13 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 5d168264cbc392e1ba426707429f47dea70d1ea8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 87bd22ec4f2cfae62d1f80284ad8346ca292d016
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58882058"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567672"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>자습서: Azure SQL Database에서 Azure AD 서버 보안 주체(로그인)를 사용하는 관리형 인스턴스 보안
 
@@ -84,7 +83,7 @@ ms.locfileid: "58882058"
     GO
     ```
 
-    이 예제는 nativeuser@aadsqlmi.onmicrosoft.com 계정의 로그인을 만듭니다.
+    다음 예제에서는 nativeuser@aadsqlmi.onmicrosoft.com 계정의 로그인을 만듭니다.
 
     ```sql
     USE master
@@ -122,7 +121,7 @@ ms.locfileid: "58882058"
 - 마스터에 새로 만든 Azure AD 서버 보안 주체(로그인)에 부여된 표준 권한은 기본적으로 **CONNECT SQL** 및 **VIEW ANY DATABASE**가 부여됩니다.
 - `sysadmin` 서버 역할은 관리되는 인스턴스 내의 여러 Azure AD 서버 보안 주체(로그인)에 부여할 수 있습니다.
 
-`sysadmin` 서버 역할에 로그인을 추가하려면:
+`sysadmin` 서버 역할에 로그인을 추가하려면
 
 1. 관리되는 인스턴스에 다시 로그인하거나 `sysadmin`인 SQL 보안 주체와의 기존 연결을 사용합니다.
 
@@ -154,7 +153,7 @@ Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이
 
      ![ssms-login-prompt.png](media/sql-database-managed-instance-security-tutorial/ssms-login-prompt.png)
 
-     자세한 내용은 다음 문서를 참조하세요. [SQL Database 및 SQL Data Warehouse에 대한 유니버설 인증(MFA에 대한 SSMS 지원)](sql-database-ssms-mfa-authentication.md)
+     자세한 내용은 [SQL Database 및 SQL Data Warehouse에 대한 유니버설 인증(MFA에 대한 SSMS 지원)](sql-database-ssms-mfa-authentication.md) 문서를 참조하세요.
 
 1. **Active Directory - MFA 지원을 통한 유니버설 인증**을 선택합니다. 그러면 MFA(Multi-Factor Authentication) 로그인 창이 열립니다. Azure AD 암호를 사용하여 로그인합니다.
 

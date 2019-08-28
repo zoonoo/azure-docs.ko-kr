@@ -7,7 +7,8 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: 5a4ae93c-d648-41fb-8fb8-96a025d2f73e
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 07839c6372e0048048b62fbfedd58bfa9b9942f5
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: c6434b4f5808c349d5e0ab04dafc5233f6ec63ac
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65207527"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780478"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel-preview"></a>빠른 시작: Azure Sentinel 미리 보기 시작
 
@@ -29,11 +30,11 @@ ms.locfileid: "65207527"
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 
-이 빠른 시작에서는 Azure Sentinel을 사용하여 작업 환경에서 발생하는 상황을 빠르게 보고 모니터링하는 방법을 알아봅니다. Azure Sentinel에 데이터 원본을 연결하면 데이터가 바로 시각화되고 분석되므로 연결된 모든 데이터 원본에서 발생하는 상황을 파악할 수 있습니다. Azure Sentinel은 로그 및 쿼리 분석을 제공하기 위해 기본적으로 제공되는 표와 차트뿐만 아니라 Azure에서 이미 사용할 수 있는 전체 도구 기능을 제공하는 대시보드를 지원합니다. 기본 제공 대시보드를 사용할 수도 있고, 기존 대시보드를 토대로 또는 처음부터 완전히 새롭게 새 대시보드를 만들 수도 있습니다. 
+이 빠른 시작에서는 Azure Sentinel을 사용하여 작업 환경에서 발생하는 상황을 빠르게 보고 모니터링하는 방법을 알아봅니다. Azure Sentinel에 데이터 원본을 연결하면 데이터가 바로 시각화되고 분석되므로 연결된 모든 데이터 원본에서 발생하는 상황을 파악할 수 있습니다. Azure Sentinel에는 로그 및 쿼리 분석을 제공하기 위해 기본적으로 제공되는 표와 차트뿐만 아니라 Azure에서 이미 사용할 수 있는 전체 도구 기능을 제공하는 대시보드가 있습니다. 기본 제공 대시보드를 사용할 수도 있고, 기존 대시보드를 토대로 또는 처음부터 완전히 새롭게 새 대시보드를 만들 수도 있습니다. 
 
-## <a name="get-visualization"></a>데이터 시각화
+## <a name="get-visualization"></a>시각화 가져오기
 
-작업 환경에서 발생하는 상황을 시각화하고 분석하려면 먼저 개요 대시보드를 통해 조직의 보안 상황을 파악합니다. 이러한 타일의 각 요소를 클릭하여 생성 시 기반이 된 원시 데이터로 드릴다운할 수 있습니다. 노이즈를 줄이고 검토 및 조사해야 하는 경고의 수를 최소화하기 위해 Azure Sentinel은 Fusion 기법을 통해 경고와 사례 간 상관 관계를 파악합니다. **사례**는 조사하고 해결할 수 있는 실행 가능한 인시던트를 만드는 데 사용되는 관련 경고 그룹입니다.
+작업 환경에서 발생하는 상황을 시각화하고 분석하려면 먼저 개요 대시보드를 통해 조직의 보안 상황을 파악합니다. 이러한 타일의 각 요소를 클릭하여 생성 시 기반이 된 원시 데이터로 드릴다운할 수 있습니다. 노이즈를 줄이고 검토 및 조사해야 하는 경고의 수를 최소화하기 위해 Azure Sentinel은 Fusion 기법을 통해 경고와 인시던트 간 상관 관계를 파악합니다. **인시던트**는 조사하고 해결할 수 있는 실행 가능한 인시던트를 만드는 데 사용되는 관련 경고 그룹입니다.
 
 - Azure Portal에서 Azure Sentinel을 선택하고 모니터링하려는 작업 영역을 선택합니다.
 
@@ -52,7 +53,7 @@ ms.locfileid: "65207527"
    ![Azure Sentinel 맵](./media/qs-get-visibility/map.png)
 
 
-- **최근 사례**: 최근 사례, 해당 심각도, 사례와 연결된 경고 수를 보려면 특정 유형의 경고에서 갑작스러운 피크가 확인되면 현재 활성 공격이 진행되고 있는 것일 수 있습니다. 예를 들어, Azure ATP에서 20개의 Pass-the-hash 이벤트가 갑자기 발생하면 누군가가 사용자를 공격하려고 하는 것일 수 있습니다.
+- **최근 인시던트**: 최근 인시던트, 해당 심각도, 인시던트와 연결된 경고 수를 보려면 다음을 수행합니다. 특정 유형의 경고에서 갑작스러운 피크가 확인되면 현재 활성 공격이 진행되고 있는 것일 수 있습니다. 예를 들어, Azure ATP에서 20개의 Pass-the-hash 이벤트가 갑자기 발생하면 누군가가 사용자를 공격하려고 하는 것일 수 있습니다.
 
 - **데이터 원본 오류**: Microsoft의 데이터 분석가는 데이터 원본 데이터에 오류가 있는지를 지속적으로 검색하는 모델을 만들었습니다. 오류가 있으면 아무것도 표시되지 않습니다. 오류가 감지되면 자세히 검토하여 원인을 파악해야 합니다. 예를 들어, Azure 활동에서 스파이크 부분을 클릭합니다. **차트**를 클릭하여 스파이크가 발생한 시간을 확인한 후 해당 기간 동안 발생한 활동을 필터링하여 스파이크의 원인을 파악할 수 있습니다.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 5b3e839af886dc23bdfb11dacfb1854a2277bf3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 762e5ae1782ee037b33156e16a0503ed1e7391ff
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65862655"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68823733"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-floqast"></a>자습서: Azure Active Directory와 FloQast 통합
 
@@ -30,7 +30,7 @@ FloQast를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 * 사용자가 해당 Azure AD 계정으로 FloQast에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -56,7 +56,7 @@ FloQast의 Azure AD 통합을 구성하려면 갤러리의 FloQast를 관리되�
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -106,13 +106,13 @@ FloQast에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
     **식별자** 텍스트 상자에 URL을 입력합니다. `https://go.floqast.com/`
 
-5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
+5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
     ![이미지](common/both-preintegrated-signon.png)
 
     **로그온 URL** 텍스트 상자에 `https://go.floqast.com/login/sso` URL을 입력합니다.
 
-6. FloQast 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.  **편집**  아이콘을 클릭하여 특성을 추가합니다.
+6. FloQast 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **편집** 아이콘을 클릭하여 특성을 추가합니다.
 
     ![이미지](common/edit-attribute.png)
 
@@ -223,7 +223,7 @@ FloQast에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 ### <a name="create-floqast-test-user"></a>FloQast 테스트 사용자 만들기
 
-이 섹션에서는 FloQast에서 Britta Simon이라는 사용자를 만듭니다.  [FloQast 지원 팀](mailto:support@floqast.com)과 협력하여 FloQast 플랫폼에서 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 FloQast에서 Britta Simon이라는 사용자를 만듭니다. FloQast 플랫폼에서 사용자를 추가하려면 [FloQast 지원 팀](mailto:support@floqast.com)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 

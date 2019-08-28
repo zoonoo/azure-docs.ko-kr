@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9709d18b00d65578ca3a63fe5044e0b9f7b52d58
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: a4395105c66756c4743373707309a88e2afa96b7
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515574"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534808"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>자습서: Azure Container Instance에서 이미지 분류 모델 배포
 
@@ -38,10 +38,10 @@ Container Instances는 워크플로를 테스트 및 이해하기 위한 훌륭�
 > 이 문서의 코드는 Azure Machine Learning SDK 버전 1.0.41에서 테스트되었습니다.
 
 ## <a name="prerequisites"></a>필수 조건
-[개발 환경 설정](#start)으로 건너뛰어 Notebook 단계를 읽어봅니다.  
 
-Notebook을 실행하려면 먼저 [자습서(1부): Azure Machine Learning Service를 사용하여 이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 노트북에서 모델 학습을 수행합니다.   그런 다음, 동일한 Notebook 서버를 사용하여 **tutorials/img-classification-part2-deploy.ipynb** Notebook을 실행합니다.
+Notebook을 실행하려면 먼저 [자습서(1부): 이미지 분류 모델 학습시키기](tutorial-train-models-with-aml.md)를 참조하세요.   그런 다음, 동일한 Notebook 서버를 사용하여 **tutorials/img-classification-part2-deploy.ipynb** Notebook을 엽니다.
 
+이 자습서는 고유의 [로컬 환경](how-to-configure-environment.md#local)에서 사용하려는 경우 [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials)에서도 사용할 수 있습니다.  사용자 환경에 `matplotlib` 및 `scikit-learn`을 설치했는지 확인합니다. 
 
 ## <a name="start"></a>환경 설정
 
@@ -72,9 +72,9 @@ print("Azure ML SDK Version: ", azureml.core.VERSION)
 ```python
 from azureml.core import Workspace
 from azureml.core.model import Model
-import os 
+import os
 ws = Workspace.from_config()
-model=Model(ws, 'sklearn_mnist')
+model = Model(ws, 'sklearn_mnist')
 
 model.download(target_dir=os.getcwd(), exist_ok=True)
 
@@ -102,7 +102,8 @@ import os
 data_folder = os.path.join(os.getcwd(), 'data')
 # note we also shrink the intensity values (X) from 0-255 to 0-1. This helps the neural network converge faster
 X_test = load_data(os.path.join(data_folder, 'test-images.gz'), False) / 255.0
-y_test = load_data(os.path.join(data_folder, 'test-labels.gz'), True).reshape(-1)
+y_test = load_data(os.path.join(
+    data_folder, 'test-labels.gz'), True).reshape(-1)
 ```
 
 ### <a name="predict-test-data"></a>테스트 데이터 예측
@@ -113,7 +114,7 @@ y_test = load_data(os.path.join(data_folder, 'test-labels.gz'), True).reshape(-1
 import pickle
 from sklearn.externals import joblib
 
-clf = joblib.load( os.path.join(os.getcwd(), 'sklearn_mnist_model.pkl'))
+clf = joblib.load(os.path.join(os.getcwd(), 'sklearn_mnist_model.pkl'))
 y_hat = clf.predict(X_test)
 ```
 
@@ -152,7 +153,7 @@ row_sums = conf_mx.sum(axis=1, keepdims=True)
 norm_conf_mx = conf_mx / row_sums
 np.fill_diagonal(norm_conf_mx, 0)
 
-fig = plt.figure(figsize=(8,5))
+fig = plt.figure(figsize=(8, 5))
 ax = fig.add_subplot(111)
 cax = ax.matshow(norm_conf_mx, cmap=plt.cm.bone)
 ticks = np.arange(0, 10, 1)
@@ -222,18 +223,18 @@ def run(raw_data):
 다음으로, 스크립트의 패키지 종속성을 모두 지정하는 **myenv.yml**이라는 환경 파일을 만듭니다. 이 파일은 해당 종속성 모두가 Docker 이미지에 설치되도록 하는 데 사용됩니다. 이 모델에는 `scikit-learn` 및 `azureml-sdk`가 필요합니다.
 
 ```python
-from azureml.core.conda_dependencies import CondaDependencies 
+from azureml.core.conda_dependencies import CondaDependencies
 
 myenv = CondaDependencies()
 myenv.add_conda_package("scikit-learn")
 
-with open("myenv.yml","w") as f:
+with open("myenv.yml", "w") as f:
     f.write(myenv.serialize_to_string())
 ```
 `myenv.yml` 파일의 콘텐츠를 검토합니다.
 
 ```python
-with open("myenv.yml","r") as f:
+with open("myenv.yml", "r") as f:
     print(f.read())
 ```
 
@@ -244,9 +245,10 @@ with open("myenv.yml","r") as f:
 ```python
 from azureml.core.webservice import AciWebservice
 
-aciconfig = AciWebservice.deploy_configuration(cpu_cores=1, 
-                                               memory_gb=1, 
-                                               tags={"data": "MNIST",  "method" : "sklearn"}, 
+aciconfig = AciWebservice.deploy_configuration(cpu_cores=1,
+                                               memory_gb=1,
+                                               tags={"data": "MNIST",
+                                                     "method": "sklearn"},
                                                description='Predict MNIST with sklearn')
 ```
 
@@ -319,20 +321,20 @@ result = service.run(input_data=test_samples)
 
 # compare actual value vs. the predicted values:
 i = 0
-plt.figure(figsize = (20, 1))
+plt.figure(figsize=(20, 1))
 
 for s in sample_indices:
     plt.subplot(1, n, i + 1)
     plt.axhline('')
     plt.axvline('')
-    
+
     # use different color for misclassified sample
     font_color = 'red' if y_test[s] != result[i] else 'black'
     clr_map = plt.cm.gray if y_test[s] != result[i] else plt.cm.Greys
-    
-    plt.text(x=10, y =-10, s=result[i], fontsize=18, color=font_color)
+
+    plt.text(x=10, y=-10, s=result[i], fontsize=18, color=font_color)
     plt.imshow(X_test[s].reshape(28, 28), cmap=clr_map)
-    
+
     i = i + 1
 plt.show()
 ```
@@ -350,11 +352,11 @@ import requests
 random_index = np.random.randint(0, len(X_test)-1)
 input_data = "{\"data\": [" + str(list(X_test[random_index])) + "]}"
 
-headers = {'Content-Type':'application/json'}
+headers = {'Content-Type': 'application/json'}
 
 # for AKS deployment you'd need to the service key in the header as well
 # api_key = service.get_key()
-# headers = {'Content-Type':'application/json',  'Authorization':('Bearer '+ api_key)} 
+# headers = {'Content-Type':'application/json',  'Authorization':('Bearer '+ api_key)}
 
 resp = requests.post(service.scoring_uri, input_data, headers=headers)
 

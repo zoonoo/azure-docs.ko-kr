@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 05/08/2019
-ms.openlocfilehash: 783a8f0bc25717f1c2bf78a9c0d40b209a07939b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1292dbf43b5246fe3da95ead4d5d9113b4bc84f9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65473355"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569028"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-access-control"></a>Azure SQL Database 및 SQL Data Warehouse 액세스 제어
 
@@ -34,7 +33,7 @@ Azure SQL Database 서비스는 TCP 포트 1433을 통해서만 사용할 수 �
 
 연결 프로세스의 일부로 Azure 가상 머신에서 연결은 각 작업자 역할에 대한 고유한 다른 IP 주소 및 포트에 리디렉션됩니다. 포트 번호의 범위는 11000~11999입니다. TCP 포트에 대한 자세한 내용은 [ADO.NET 4.5 및 SQL Database2에 대한 1433 이외의 포트](sql-database-develop-direct-route-ports-adonet-v12.md)를 참조하세요.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>인증
 
 SQL Database는 두 가지 인증 유형을 지원합니다.
 
@@ -51,7 +50,7 @@ SQL Database는 두 가지 인증 유형을 지원합니다.
 
 가장 좋은 방법은 애플리케이션이 전용 계정을 사용하여 인증하는 것입니다. 이 방법을 사용하면 애플리케이션에 부여되는 사용 권한을 제한하여 애플리케이션 코드가 SQL 삽입 공격에 취약한 경우 악의적인 활동의 위험을 줄일 수 있습니다. 응용 프로그램을 통해 데이터베이스에 직접 인증할 수 있는 [포함된 데이터베이스 사용자](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)를 만드는 것이 좋습니다. 
 
-## <a name="authorization"></a>권한 부여
+## <a name="authorization"></a>Authorization
 
 권한 부여는 사용자가 Azure SQL Database에서 수행할 수 있는 작업을 나타내며, 사용자 계정의 데이터베이스 [역할 멤버 자격](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles)과 [개체 수준 사용 권한](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine)으로 제어합니다. 사용자에게 필요한 최소한의 권한을 부여하는 것이 가장 좋습니다. 연결 중인 서버 관리자 계정은 데이터베이스 내에서 작업을 수행할 권한이 있는 db_owner의 구성원입니다. 스키마 업그레이드 및 기타 관리 작업을 배포하기 위해서는 이 계정을 저장합니다. 애플리케이션에서 해당 애플리케이션에 필요한 최소한의 권한이 있는 데이터베이스에 연결하려면 보다 제한된 사용 권한을 가진 "ApplicationUser" 계정을 사용합니다. 자세한 내용은 [로그인 관리](sql-database-manage-logins.md)를 참조하세요.
 

@@ -8,25 +8,25 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: 977b59c3344eaf2c4877f51afea176455d22ecc9
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 45925b1c4252b0ff0080a2c287e7ed2fae444168
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546690"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986292"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Node.js에서 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## <a name="overview"></a>개요
-이 문서에서는 Node.js 응용 프로그램의 Azure Table service 또는 Azure Cosmos DB를 사용하는 일반 시나리오를 수행하는 방법을 설명합니다.
+이 문서에서는 Node.js 애플리케이션의 Azure Table service 또는 Azure Cosmos DB를 사용하는 일반 시나리오를 수행하는 방법을 설명합니다.
 
 ## <a name="create-an-azure-service-account"></a>Azure 서비스 계정 만들기
 
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-### <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
+### <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
@@ -34,7 +34,7 @@ ms.locfileid: "59546690"
 
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
-## <a name="configure-your-application-to-access-azure-storage-or-the-azure-cosmos-db-table-api"></a>Azure Storage 또는 Azure Cosmos DB Table API에 액세스하도록 응용 프로그램 구성
+## <a name="configure-your-application-to-access-azure-storage-or-the-azure-cosmos-db-table-api"></a>Azure Storage 또는 Azure Cosmos DB Table API에 액세스하도록 애플리케이션 구성
 Azure Storage 또는 Azure Cosmos DB를 사용하려면 저장소 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함되어 있는 Node.js용 Azure Storage SDK가 필요합니다.
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>NPM(Node Package Manager)을 사용하여 패키지 설치
@@ -54,7 +54,7 @@ Azure Storage 또는 Azure Cosmos DB를 사용하려면 저장소 REST 서비스
 3. **ls** 명령을 수동으로 실행하여 **node_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서 저장소에 액세스하는 데 필요한 라이브러리가 들어 있는 **azure-storage** 패키지를 찾습니다.
 
 ### <a name="import-the-package"></a>패키지 가져오기
-응용 프로그램에서 아래 코드를 **server.js** 파일의 맨 위에 추가합니다.
+애플리케이션에서 아래 코드를 **server.js** 파일의 맨 위에 추가합니다.
 
 ```javascript
 var azure = require('azure-storage');
@@ -68,7 +68,7 @@ var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
 ## <a name="add-an-azure-cosmos-db-connection"></a>Azure Cosmos DB 연결 추가
-Azure Cosmos DB 연결을 추가하려면 **TableService** 개체를 만들고 계정 이름, 기본 키 및 엔드포인트를 지정합니다. Cosmos DB 계정에 대한 Azure Portal의 **설정** > **연결 문자열**에서 이러한 값을 복사할 수 있습니다. 예: 
+Azure Cosmos DB 연결을 추가하려면 **TableService** 개체를 만들고 계정 이름, 기본 키 및 엔드포인트를 지정합니다. Cosmos DB 계정에 대한 Azure Portal의 **설정** > **연결 문자열**에서 이러한 값을 복사할 수 있습니다. 예:
 
 ```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
@@ -198,10 +198,10 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 > 기본적으로는 엔터티를 업데이트할 때 업데이트할 데이터를 다른 프로세서에서 이전에 수정했는지 확인하지 않습니다. 동시 업데이트를 지원하려면:
 >
 > 1. 업데이트할 개체의 ETag를 가져옵니다. 모든 엔터티 관련 작업에서의 `response`의 일부로 반환되며 `response['.metadata'].etag`를 통해 검색할 수 있습니다.
-> 2. 엔터티에서 업데이트 작업을 수행할 때 이전에 검색한 ETag 정보를 새 엔터티에 추가합니다. 예: 
+> 2. 엔터티에서 업데이트 작업을 수행할 때 이전에 검색한 ETag 정보를 새 엔터티에 추가합니다. 예:
 >
 >       entity2['.metadata'].etag = currentEtag;
-> 3. 업데이트 작업을 수행합니다. ETag 값을 검색한 후에 응용 프로그램의 다른 인스턴스 등에서 엔터티가 수정된 경우에는 요청에 지정된 업데이트 조건이 충족되지 않았다는 내용의 `error`가 반환됩니다.
+> 3. 업데이트 작업을 수행합니다. ETag 값을 검색한 후에 애플리케이션의 다른 인스턴스 등에서 엔터티가 수정된 경우에는 요청에 지정된 업데이트 조건이 충족되지 않았다는 내용의 `error`가 반환됩니다.
 >
 >
 
@@ -327,7 +327,7 @@ tableSvc.deleteEntity('mytable', task, function(error, response){
 >
 
 ## <a name="delete-a-table"></a>테이블 삭제
-다음 코드는 저장소 계정에서 테이블을 삭제합니다.
+다음 코드는 스토리지 계정에서 테이블을 삭제합니다.
 
 ```javascript
 tableSvc.deleteTable('mytable', function(error, response){
@@ -368,7 +368,7 @@ dc.table.queryEntities(tableName,
 `top`을 `continuationToken`과 함께 사용하여 페이지 크기를 설정할 수도 있습니다. 
 
 ## <a name="work-with-shared-access-signatures"></a>공유 액세스 서명 작업
-SAS(공유 액세스 서명)는 저장소 계정 이름이나 키를 제공하지 않으면서 테이블에 세분화된 액세스 권한을 안전하게 제공하는 방법입니다. SAS는 모바일 앱에서 레코드를 쿼리하는 경우와 같이 데이터에 대해 제한된 액세스를 제공하는 경우에 자주 사용합니다.
+SAS(공유 액세스 서명)는 스토리지 계정 이름이나 키를 제공하지 않으면서 테이블에 세분화된 액세스 권한을 안전하게 제공하는 방법입니다. SAS는 모바일 앱에서 레코드를 쿼리하는 경우와 같이 데이터에 대해 제한된 액세스를 제공하는 경우에 자주 사용합니다.
 
 클라우드 기반 서비스와 같이 신뢰할 수 있는 애플리케이션에서는 **TableService**의 **generateSharedAccessSignature**를 사용하여 SAS를 생성하고, 이를 모바일 앱과 같은 신뢰할 수 없거나 신뢰가 약한 애플리케이션에 제공합니다. SAS는 SAS가 유효한 시작 및 종료 날짜와 SAS 소유자에게 부여되는 액세스 수준을 설명하는 정책을 사용하여 생성됩니다.
 
@@ -394,7 +394,7 @@ var host = tableSvc.host;
 
 SAS 소유자가 테이블에 액세스할 때 필요하므로 호스트 정보도 제공해야 합니다.
 
-그러고 나면 클라이언트 응용 프로그램에서 **TableServiceWithSAS** 에 SAS를 사용하여 테이블에 대한 작업을 수행합니다. 다음 예에서는 테이블을 연결하고 쿼리를 수행합니다. tableSAS의 형식에 대해서는 [공유 액세스 서명 사용](../storage/common/storage-dotnet-shared-access-signature-part-1.md#examples-of-sas-uris)을 참조하세요. 
+그러고 나면 클라이언트 애플리케이션에서 **TableServiceWithSAS** 에 SAS를 사용하여 테이블에 대한 작업을 수행합니다. 다음 예에서는 테이블을 연결하고 쿼리를 수행합니다. tableSAS 형식은 [SAS(공유 액세스 서명)를 사용하여 Azure Storage 리소스에 대한 제한된 액세스 권한 부여](../storage/common/storage-sas-overview.md) 문서를 참조하세요. 
 
 ```javascript
 // Note in the following command, host is in the format: `https://<your_storage_account_name>.table.core.windows.net` and the tableSAS is in the format: `sv=2018-03-28&si=saspolicy&tn=mytable&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D`;
@@ -457,8 +457,8 @@ tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 다음 리소스를 참조하세요.
 
-* [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, MacOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, macOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.
 * GitHub의 [Azure Storage SDK for Node](https://github.com/Azure/azure-storage-node) 리포지토리
 * [Node.js 개발자용 Azure](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest)
 * [Azure에서 Node.js 웹앱 만들기](../app-service/app-service-web-get-started-nodejs.md)
-* [Node.js 응용 프로그램 빌드 및 Azure 클라우드 서비스에 배포](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (Windows PowerShell 사용)
+* [Node.js 애플리케이션 빌드 및 Azure 클라우드 서비스에 배포](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (Windows PowerShell 사용)

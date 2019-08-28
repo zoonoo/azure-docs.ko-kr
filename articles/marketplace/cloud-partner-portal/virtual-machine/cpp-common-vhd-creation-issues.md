@@ -1,18 +1,19 @@
 ---
-title: Azure Marketplace에 대 한 VHD 만드는 (FAQ) 동안 일반적인 문제
+title: Azure Marketplace에 대 한 VHD를 만드는 동안 발생 하는 일반적인 문제 (FAQ)
 description: VHD 만들기 및 관련 문제에 대한 질문과 대답입니다.
 services: Azure Marketplace
 author: HannibalSII
 ms.service: marketplace
 ms.topic: article
 ms.date: 10/02/2018
-ms.author: hascipio; v-divte; v-miclar
-ms.openlocfilehash: d8b532793282db18d6182237bb921bc118ea717b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: hascipio
+ms.reviewer: v-divte; v-miclar
+ms.openlocfilehash: bb7e62138dbefdd8ff4933ef10602986a5da2bf6
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938443"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875008"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>일반적인 VHD 만들기 문제(FAQ)
 
@@ -74,7 +75,7 @@ Azure Resource Manager 배포 모델을 사용하는 경우 VPN을 설정하는 
 일반적으로 그렇지 않습니다.  Azure VM에 지원되는 운영 체제 및 표준 서비스는 모두 64비트입니다.  그러나 기술적인 관점에서 대부분의 64비트 운영 체제는 이전 버전과의 호환성을 위해 32비트 버전의 애플리케이션을 실행할 수 있습니다.  그러나 32비트 애플리케이션은 VM 솔루션의 일부로 사용하도록 지원되지 않으므로 *매우 권장되지 않습니다*.  대신 애플리케이션을 64비트 프로젝트로 다시 컴파일하세요.
 
 자세한 내용은 다음 문서를 참조하세요.
-- [32비트 응용 프로그램 실행](https://docs.microsoft.com/windows/desktop/WinProg64/running-32-bit-applications)
+- [32비트 애플리케이션 실행](https://docs.microsoft.com/windows/desktop/WinProg64/running-32-bit-applications)
 - [Azure 가상 머신에 32비트 운영 체제 지원](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines)
 - [Microsoft Azure 가상 머신에 대한 Microsoft 서버 소프트웨어 지원](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
 

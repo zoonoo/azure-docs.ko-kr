@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: 321dbf891c77007952f01b32bb509a15c2ac3e6f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5dae268e2c659bcd39c7b274f2f12c64b4504353
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60853063"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67719789"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Azure App Service Windows의 노드 애플리케이션에 대한 모범 사례 및 문제 해결 가이드
 
@@ -94,7 +94,7 @@ IIS는 기본적으로 플러시하기 전에 또는 응답이 끝날 때까지(
 
 ### <a name="recyclesignalenabled"></a>recycleSignalEnabled
 
-기본값은 False입니다. 설정된 경우 노드 애플리케이션에서 명명된 파이프(환경 변수 IISNODE\_CONTROL\_PIPE)에 연결할 수 있으며 "재활용" 메시지를 보낼 수 있습니다. 그러면 w3wp가 정상적으로 재활용됩니다.
+기본값은 false입니다. 설정된 경우 노드 애플리케이션에서 명명된 파이프(환경 변수 IISNODE\_CONTROL\_PIPE)에 연결할 수 있으며 "재활용" 메시지를 보낼 수 있습니다. 그러면 w3wp가 정상적으로 재활용됩니다.
 
 ### <a name="idlepageouttimeperiod"></a>idlePageOutTimePeriod
 
@@ -106,7 +106,7 @@ IIS는 기본적으로 플러시하기 전에 또는 응답이 끝날 때까지(
 
 ### <a name="debugheaderenabled"></a>debugHeaderEnabled
 
-기본값은 False입니다. true로 설정되면 iisnode에서 HTTP 응답 헤더 `iisnode-debug`를 보내는 모든 HTTP 응답에 추가하고 `iisnode-debug` 헤더 값은 URL입니다. 개별 진단 정보 조각은 URL 조각을 확인하여 얻을 수 있지만 브라우저에서 URL을 열면 시각화를 달성할 수 있습니다.
+기본값은 false입니다. true로 설정되면 iisnode에서 HTTP 응답 헤더 `iisnode-debug`를 보내는 모든 HTTP 응답에 추가하고 `iisnode-debug` 헤더 값은 URL입니다. 개별 진단 정보 조각은 URL 조각을 확인하여 얻을 수 있지만 브라우저에서 URL을 열면 시각화를 달성할 수 있습니다.
 
 ### <a name="loggingenabled"></a>loggingEnabled
 
@@ -114,7 +114,7 @@ IIS는 기본적으로 플러시하기 전에 또는 응답이 끝날 때까지(
 
 ### <a name="deverrorsenabled"></a>devErrorsEnabled
 
-기본값은 False입니다. true로 설정하면 iisnode에서 HTTP 상태 코드 및 Win32 오류 코드가 브라우저에 표시됩니다. win32 코드는 특정 유형의 문제를 디버깅하는 데 유용합니다.
+기본값은 false입니다. true로 설정하면 iisnode에서 HTTP 상태 코드 및 Win32 오류 코드가 브라우저에 표시됩니다. win32 코드는 특정 유형의 문제를 디버깅하는 데 유용합니다.
 
 ### <a name="debuggingenabled-do-not-enable-on-live-production-site"></a>debuggingEnabled(라이브 프로덕션 사이트에서 사용 안 함)
 
@@ -281,7 +281,7 @@ NODE.exe에 `NODE_PENDING_PIPE_INSTANCES`라는 설정이 있습니다. Azure Ap
 Azure App Service에서 다음 링크를 따라 node.js 애플리케이션에 대해 자세히 알아보세요.
 
 * [Azure App Service에서 Node.js 웹앱 시작](app-service-web-get-started-nodejs.md)
-* [Azure App Service에서 Node.js 웹앱을 디버그하는 방법](app-service-web-tutorial-nodejs-mongodb-app.md)
+* [Azure App Service에서 Node.js 웹앱을 디버그하는 방법](https://blogs.msdn.microsoft.com/azureossds/2018/08/03/debugging-node-js-apps-on-azure-app-services/)
 * [Azure 애플리케이션에 Node.js 모듈 사용](../nodejs-use-node-modules-azure-apps.md)
 * [Azure App Service Web Apps: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Node.js 개발자 센터](../nodejs-use-node-modules-azure-apps.md)

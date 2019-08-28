@@ -35,7 +35,7 @@ WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:movies /logdir:c:\logs /sk:8
 ## <a name="copy-two-directories-to-a-hard-drive"></a>하드 드라이브에 2개의 디렉터리 복사  
  두 개의 원본 디렉터리를 드라이브에 복사하려면 다음 명령을 사용합니다.  
   
- 첫 번째 명령은 로그 디렉터리, 저장소 계정 키, 대상 드라이브 문자 및 `format/encrypt` 요구 사항 및 일반적인 매개 변수를 지정합니다.  
+ 첫 번째 명령은 로그 디렉터리, 스토리지 계정 키, 대상 드라이브 문자 및 `format/encrypt` 요구 사항 및 일반적인 매개 변수를 지정합니다.  
   
 ```  
 WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:movies /logdir:c:\logs /sk:8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg== /t:x /format /encrypt /srcdir:d:\Movies /dstdir:entertainment/movies/  

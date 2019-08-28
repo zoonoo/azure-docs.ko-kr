@@ -3,16 +3,16 @@ title: 온 보 딩 루트 또는 루트 도메인을 Azure portal을 사용 하�
 description: 에 대해 알아봅니다 어떻게 등록 하려면 Azure portal을 사용 하는 기존 프런트 도어 루트 또는 루트 도메인을.
 services: front-door
 author: sharad4u
-ms.service: front-door
+ms.service: frontdoor
 ms.topic: article
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: 464c38b0ece274d2ea7df89ab9fd7c0a60dc4b58
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 8fe8da95a61d2f2bb35095236131670cb6ef0e70
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332815"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605787"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>등록 하면 첫 번째 관문에서 루트 또는 루트 도메인
 Azure 프런트 도어 CNAME 레코드를 사용 하 여 온 보 딩을 사용자 지정 도메인에 대 한 도메인 소유권을 확인 합니다. 또한 첫 번째 관문에서 프런트 도어 프로필과 연결 된 프런트 엔드 IP 주소를 노출 하지 않습니다 하 고 따라서 매핑할 수 없습니다 루트 도메인을 IP 주소로 인 경우 의도 온 보 딩이 Azure 프런트 도어를.

@@ -4,7 +4,7 @@ description: Microsoft Azure에서 OSS 또는 Pivotal Cloud Foundry 실행
 services: virtual-machines-linux
 documentationcenter: ''
 author: seanmck
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 keywords: ''
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: 68ae01b814de08098c0ba6b5713f420cfebc3d97
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e042c9cbce985882b468472425d6803862e82941
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127030"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668322"
 ---
 # <a name="cloud-foundry-on-azure"></a>Azure의 Cloud Foundry
 
@@ -58,7 +58,7 @@ Cloud Foundry는 상태 비저장 애플리케이션 프로세스와 상태 저�
 
 Pivotal Cloud Foundry를 사용하는 경우 Service Broker는 Pivotal Network의 [타일로도 제공](https://docs.pivotal.io/azure-sb/installing.html)됩니다.
 
-## <a name="related-resources"></a>관련 리소스
+## <a name="related-resources"></a>관련 참고 자료
 
 ### <a name="azure-devops-services-plugin"></a>Azure DevOps Services 플러그인
 

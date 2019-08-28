@@ -4,7 +4,7 @@ description: 리소스 관리자 배포 모델에서 리소스를 관리하는 A
 services: virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services
 documentationcenter: ''
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: be37da5b-72fe-41a1-9fa0-8937b69464ec
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-ms.openlocfilehash: ac1a6136eae79700c427b27c8869bc9241c62abc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4a155159759a4b817842087bff7d4167ed8ed0c5
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64717802"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722836"
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>리소스 관리자 모드에서 Azure CLI 명령
 이 문서에서는 Azure Resource Manager 배포 모델에서 일반적으로 Azure 리소스를 만들고 관리하는 데 사용한 Azure CLI(명령줄 인터페이스) 명령에 대한 구문 및 옵션이 제공됩니다. ARM(Azure Resource Manager) 모드에서 CLI를 실행하여 이러한 명령에 액세스합니다. 전체 참조는 아니며 CLI 버전에서 약간 다른 명령 또는 매개 변수를 표시할 수도 있습니다. Azure 리소스 및 리소스 그룹에 대한 일반적인 개요는 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
@@ -1562,7 +1562,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     role assignment list [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
     role assignment delete [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
 
-## <a name="azure-storage-commands-to-manage-your-storage-objects"></a>azure storage: 저장소 개체를 관리하는 명령
+## <a name="azure-storage-commands-to-manage-your-storage-objects"></a>azure storage: 스토리지 개체를 관리하는 명령
 **Storage 계정을 관리하는 명령**
 
     storage account list [options]
@@ -1576,11 +1576,11 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     storage account keys list [options] <name>
     storage account keys renew [options] <name>
 
-**저장소 연결 문자열을 표시하는 명령**
+**스토리지 연결 문자열을 표시하는 명령**
 
     storage account connectionstring show [options] <name>
 
-**저장소 컨테이너를 관리하는 명령**
+**스토리지 컨테이너를 관리하는 명령**
 
     storage container list [options] [prefix]
     storage container show [options] [container]
@@ -1588,11 +1588,11 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     storage container delete [options] [container]
     storage container set [options] [container]
 
-**저장소 컨테이너의 공유 액세스 서명을 관리하는 명령**
+**스토리지 컨테이너의 공유 액세스 서명을 관리하는 명령**
 
     storage container sas create [options] [container] [permissions] [expiry]
 
-**저장소 컨테이너의 저장된 액세스 정책을 관리하는 명령**
+**스토리지 컨테이너의 저장된 액세스 정책을 관리하는 명령**
 
     storage container policy create [options] [container] [name]
     storage container policy show [options] [container] [name]
@@ -1600,7 +1600,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     storage container policy set [options] [container] [name]
     storage container policy delete [options] [container] [name]
 
-**저장소 BLOB를 관리하는 명령**
+**스토리지 BLOB를 관리하는 명령**
 
     storage blob list [options] [container] [prefix]
     storage blob show [options] [container] [blob]
@@ -1614,41 +1614,41 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     storage blob copy show [options] [container] [blob]
     storage blob copy stop [options] [container] [blob] [copyid]
 
-**저장소 BLOB의 공유 액세스 서명을 관리하는 명령**
+**스토리지 BLOB의 공유 액세스 서명을 관리하는 명령**
 
     storage blob sas create [options] [container] [blob] [permissions] [expiry]
 
-**저장소 파일 공유를 관리하는 명령**
+**스토리지 파일 공유를 관리하는 명령**
 
     storage share create [options] [share]
     storage share show [options] [share]
     storage share delete [options] [share]
     storage share list [options] [prefix]
 
-**저장소 파일을 관리하는 명령**
+**스토리지 파일을 관리하는 명령**
 
     storage file list [options] [share] [path]
     storage file delete [options] [share] [path]
     storage file upload [options] [source] [share] [path]
     storage file download [options] [share] [path] [destination]
 
-**저장소 파일 디렉터리를 관리하는 명령**
+**스토리지 파일 디렉터리를 관리하는 명령**
 
     storage directory create [options] [share] [path]
     storage directory delete [options] [share] [path]
 
-**저장소 대기열을 관리하는 명령**
+**스토리지 대기열을 관리하는 명령**
 
     storage queue create [options] [queue]
     storage queue list [options] [prefix]
     storage queue show [options] [queue]
     storage queue delete [options] [queue]
 
-**저장소 대기열의 공유 액세스 서명을 관리하는 명령**
+**스토리지 대기열의 공유 액세스 서명을 관리하는 명령**
 
     storage queue sas create [options] [queue] [permissions] [expiry]
 
-**저장소 대기열의 공유 액세스 정책을 관리하는 명령**
+**스토리지 대기열의 공유 액세스 정책을 관리하는 명령**
 
     storage queue policy create [options] [queue] [name]
     storage queue policy show [options] [queue] [name]
@@ -1656,7 +1656,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     storage queue policy set [options] [queue] [name]
     storage queue policy delete [options] [queue] [name]
 
-**저장소 로깅 속성을 관리하는 명령**
+**스토리지 로깅 속성을 관리하는 명령**
 
     storage logging show [options]
     storage logging set [options]
@@ -1666,18 +1666,18 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     storage metrics show [options]
     storage metrics set [options]
 
-**저장소 테이블을 관리하는 명령**
+**스토리지 테이블을 관리하는 명령**
 
     storage table create [options] [table]
     storage table list [options] [prefix]
     storage table show [options] [table]
     storage table delete [options] [table]
 
-**저장소 테이블의 공유 액세스 서명을 관리하는 명령**
+**스토리지 테이블의 공유 액세스 서명을 관리하는 명령**
 
     storage table sas create [options] [table] [permissions] [expiry]
 
-**저장소 테이블의 공유 액세스 정책을 관리하는 명령**
+**스토리지 테이블의 공유 액세스 정책을 관리하는 명령**
 
     storage table policy create [options] [table] [name]
     storage table policy show [options] [table] [name]

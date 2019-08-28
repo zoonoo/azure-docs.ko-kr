@@ -1,5 +1,5 @@
 ---
-title: Python 구성 요소-Azure HDInsight를 사용 하 여 Apache Storm
+title: Python 구성 요소 Apache Storm-Azure HDInsight
 description: Python 구성 요소를 사용하는 Apache Storm 토폴로지를 만드는 방법에 대해 알아봅니다.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3b808a12c7a669a272bf6a1bbb253ed6b4625288
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b9faf33734ba17e9912246fe9c5c2ac45c55ba44
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078208"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598466"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>HDInsight에서 Python을 사용하여 Apache Storm 토폴로지 개발
 
@@ -25,7 +25,7 @@ Python 구성 요소를 사용하는 [Apache Storm](https://storm.apache.org/) �
 
 이 프로젝트에 대한 코드는 [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount)에서 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * Python 2.7 이상
 
@@ -33,7 +33,7 @@ Python 구성 요소를 사용하는 [Apache Storm](https://storm.apache.org/) �
 
 * [Apache Maven 3](https://maven.apache.org/download.cgi)
 
-* (선택 사항) 로컬 Storm 개발 환경 - 로컬 Storm 환경은 토폴로지를 로컬로 실행하려는 경우에만 필요합니다. 자세한 내용은 [개발 환경 설정](https://storm.apache.org/releases/1.1.2/Setting-up-development-environment.html)(영문)을 참조하세요.
+* (선택 사항) 로컬 Storm 개발 환경 - 로컬 Storm 환경은 토폴로지를 로컬로 실행하려는 경우에만 필요합니다. 자세한 내용은 [개발 환경 설정](http://storm.apache.org/releases/current/Setting-up-development-environment.html)(영문)을 참조하세요.
 
 ## <a name="storm-multi-language-support"></a>Storm 다중 언어 지원
 

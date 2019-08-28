@@ -9,26 +9,29 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 12/03/2018
+ms.date: 08/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8fd7af7c2a075258e337b51c3aaca3da9e3d497f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 03579d75ad9cbaceca1a5d42913ff546088f6cfe
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66692870"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982788"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>웹 서비스로 배포된 Azure Machine Learning 모델 사용
 
 Azure Machine Learning 모델을 웹 서비스로 배포하면 REST API가 생성됩니다. 이 API로 데이터를 보내고 모델에서 반환된 예측을 받을 수 있습니다. 이 문서에서는 C#, Go, Java 및 Python을 사용하여 웹 서비스용 클라이언트를 만드는 방법에 대해 알아봅니다.
 
-Azure Container Instances, Azure Kubernetes 서비스 또는 현장에서 프로그래밍 FPGA (gate array)에 이미지를 배포할 때 웹 서비스를 만듭니다. 등록된 모델과 채점 파일에서 이미지를 만듭니다. [Azure Machine Learning SDK](https://aka.ms/aml-sdk)를 사용하여 웹 서비스에 액세스하는 데 사용되는 URI를 검색합니다. 인증이 사용 가능한 경우 SDK를 사용하여 인증 키를 가져올 수도 있습니다.
+Azure Container Instances, Azure Kubernetes Service 또는 FPGA (필드 프로그래밍 가능 게이트 배열)에 이미지를 배포할 때 웹 서비스를 만듭니다. 등록된 모델과 채점 파일에서 이미지를 만듭니다. [Azure Machine Learning SDK](https://aka.ms/aml-sdk)를 사용하여 웹 서비스에 액세스하는 데 사용되는 URI를 검색합니다. 인증을 사용 하는 경우 SDK를 사용 하 여 인증 키 또는 토큰을 가져올 수도 있습니다.
 
 기계 학습 웹 서비스를 사용하는 클라이언트를 만들기 위한 일반적인 워크플로는 다음과 같습니다.
 
 1. SDK를 사용하여 연결 정보를 가져옵니다.
 1. 모델에서 사용하는 요청 데이터의 형식을 결정합니다.
 1. 웹 서비스를 호출하는 애플리케이션을 만듭니다.
+
+> [!TIP]
+> 이 문서의 예제는 OpenAPI (Swagger) 사양을 사용 하지 않고 수동으로 생성 됩니다. 배포에 대 한 OpenAPI 사양을 활성화 한 경우 [swagger-codegen](https://github.com/swagger-api/swagger-codegen) 와 같은 도구를 사용 하 여 서비스에 대 한 클라이언트 라이브러리를 만들 수 있습니다.
 
 ## <a name="connection-information"></a>연결 정보
 
@@ -37,8 +40,10 @@ Azure Container Instances, Azure Kubernetes 서비스 또는 현장에서 프로
 
 [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) 클래스는 클라이언트를 만드는 데 필요한 정보를 제공합니다. 다음 `Webservice` 속성은 클라이언트 애플리케이션을 만드는 데 유용합니다.
 
-* `auth_enabled` - 인증을 사용하도록 설정한 경우 `True`이고, 그렇지 않으면 `False`입니다.
+* `auth_enabled`키 인증을 `True`사용 하면이 고, `False`그렇지 않으면입니다.
+* `token_auth_enabled`토큰 인증을 `True`사용 하면이 고, `False`그렇지 않으면입니다.
 * `scoring_uri` - REST API 주소입니다.
+* `swagger_uri`-OpenAPI 사양의 주소입니다. 자동 스키마 생성을 사용 하도록 설정한 경우이 URI를 사용할 수 있습니다. 자세한 내용은 [Azure Machine Learning 서비스를 사용 하 여 모델 배포](how-to-deploy-and-where.md#schema)를 참조 하세요.
 
 배포된 웹 서비스에 대해 이 정보를 검색하는 세 가지 방법이 있습니다.
 
@@ -51,6 +56,7 @@ Azure Container Instances, Azure Kubernetes 서비스 또는 현장에서 프로
                                            image_config=image_config,
                                            workspace=ws)
     print(service.scoring_uri)
+    print(service.swagger_uri)
     ```
 
 * `Webservice.list`를 사용하여 작업 영역의 모델에 대해 배포된 웹 서비스 목록을 검색할 수 있습니다. 필터를 추가하여 반환되는 정보의 목록을 좁힐 수 있습니다. 필터링할 수 있는 항목에 대한 자세한 내용은 [Webservice.list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) 참조 설명서를 참조하세요.
@@ -58,6 +64,7 @@ Azure Container Instances, Azure Kubernetes 서비스 또는 현장에서 프로
     ```python
     services = Webservice.list(ws)
     print(services[0].scoring_uri)
+    print(services[0].swagger_uri)
     ```
 
 * 배포된 서비스의 이름을 알고 있으면 `Webservice`의 새 인스턴스 만들고 작업 영역 및 서비스 이름을 매개 변수로 제공할 수 있습니다. 새 개체에는 배포된 서비스에 대한 정보가 포함되어 있습니다.
@@ -65,9 +72,21 @@ Azure Container Instances, Azure Kubernetes 서비스 또는 현장에서 프로
     ```python
     service = Webservice(workspace=ws, name='myservice')
     print(service.scoring_uri)
+    print(service.swagger_uri)
     ```
 
-### <a name="authentication-key"></a>인증 키
+### <a name="authentication-for-services"></a>서비스에 대 한 인증
+
+Azure Machine Learning은 웹 서비스에 대 한 액세스를 제어 하는 두 가지 방법을 제공 합니다.
+
+|인증 방법|ACI|AKS|
+|---|---|---|
+|Key|기본적으로 사용 안 함| 기본적으로 사용|
+|토큰| 사용할 수 없음| 기본적으로 사용 안 함 |
+
+키 또는 토큰으로 보안이 설정 된 서비스로 요청을 보낼 때 __권한 부여__ 헤더를 사용 하 여 키 또는 토큰을 전달 합니다. 키 또는 토큰은로 `Bearer <key-or-token>`형식이 지정 되어야 합니다. 여기서 `<key-or-token>` 은 키 또는 토큰 값입니다.
+
+#### <a name="authentication-with-keys"></a>키를 사용 하 여 인증
 
 배포에 대해 인증을 사용하도록 설정하면 자동으로 인증 키를 만듭니다.
 
@@ -85,6 +104,25 @@ print(primary)
 
 > [!IMPORTANT]
 > 키를 다시 생성해야 하는 경우 [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)를 사용합니다.
+
+#### <a name="authentication-with-tokens"></a>토큰을 사용한 인증
+
+웹 서비스에 대 한 토큰 인증을 사용 하도록 설정 하는 경우 사용자는 액세스할 수 있도록 웹 서비스에 Azure Machine Learning JWT 토큰을 제공 해야 합니다. 
+
+* 토큰 인증은 Azure Kubernetes Service에 배포할 때 기본적으로 사용 하지 않도록 설정 됩니다.
+* Azure Container Instances에 배포 하는 경우에는 토큰 인증이 지원 되지 않습니다.
+
+토큰 인증을 제어 하려면 배포를 `token_auth_enabled` 만들거나 업데이트할 때 매개 변수를 사용 합니다.
+
+토큰 인증을 사용 하는 경우 `get_token` 메서드를 사용 하 여 전달자 토큰을 검색 하 고 해당 토큰 만료 시간을 지정할 수 있습니다.
+
+```python
+token, refresh_by = service.get_token()
+print(token)
+```
+
+> [!IMPORTANT]
+> 토큰의 `refresh_by` 시간 이후에 새 토큰을 요청 해야 합니다. 
 
 ## <a name="request-data"></a>요청 데이터
 
@@ -122,48 +160,17 @@ REST API는 요청 본문이 다음과 같은 구조의 JSON 문서가 될 것�
             ]
         ]
 }
-``` 
+```
 
 웹 서비스는 한 번의 요청으로 여러 데이터 세트를 수락할 수 있습니다. 응답 배열을 포함하는 JSON 문서를 반환합니다.
 
 ### <a name="binary-data"></a>이진 데이터
 
-모델이 이미지와 같이 이진 데이터를 허용하는 경우 원시 HTTP 요청을 수락하도록 배포에 사용되는 `score.py` 파일을 수정해야 합니다. 예로 `score.py` 이진 데이터를 받아들이는:
+서비스에서 이진 데이터에 대 한 지원을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [이진 데이터](how-to-deploy-and-where.md#binary)를 참조 하세요.
 
-```python 
-from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
-from azureml.contrib.services.aml_response import AMLResponse
+### <a name="cross-origin-resource-sharing-cors"></a>CORS (원본 간 리소스 공유)
 
-def init():
-    print("This is init()")
-
-@rawhttp
-def run(request):
-    print("This is run()")
-    print("Request: [{0}]".format(request))
-    if request.method == 'GET':
-        # For this example, just return the URL for GETs
-        respBody = str.encode(request.full_path)
-        return AMLResponse(respBody, 200)
-    elif request.method == 'POST':
-        reqBody = request.get_data(False)
-        # For a real world solution, you would load the data from reqBody 
-        # and send to the model. Then return the response.
-        
-        # For demonstration purposes, this example just returns the posted data as the response.
-        return AMLResponse(reqBody, 200)
-    else:
-        return AMLResponse("bad request", 500)
-```
-
-> [!IMPORTANT]
-> 서비스를 개선을 위해 노력하므로 `azureml.contrib` 네임스페이스는 자주 변경됩니다. 따라서 이 네임 스페이스의 모든 것을 미리 보기로 간주하므로 Microsoft에서 완벽히 지원하지 않아도 됩니다.
->
-> 로컬 개발 환경에서 이를 테스트해야 하는 경우 다음 명령을 사용하여 `contrib` 네임스페이스에 구성 요소를 설치할 수 있습니다.
-> 
-> ```shell
-> pip install azureml-contrib-services
-> ```
+서비스에서 CORS 지원을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [크로스-원본 리소스 공유](how-to-deploy-and-where.md#cors)를 참조 하세요.
 
 ## <a name="call-the-service-c"></a>서비스 호출(C#)
 
@@ -191,9 +198,9 @@ namespace MLWebServiceClient
     {
         static void Main(string[] args)
         {
-            // Set the scoring URI and authentication key
+            // Set the scoring URI and authentication key or token
             string scoringUri = "<your web service URI>";
-            string authKey = "<your key>";
+            string authKey = "<your key or token>";
 
             // Set the data to be sent to the service.
             // In this case, we are sending two sets of data to be scored.
@@ -307,8 +314,8 @@ var exampleData = []Features{
 
 // Set to the URI for your service
 var serviceUri string = "<your web service URI>"
-// Set to the authentication key (if any) for your service
-var authKey string = "<your key>"
+// Set to the authentication key or token (if any) for your service
+var authKey string = "<your key or token>"
 
 func main() {
     // Create the input data from example data
@@ -362,8 +369,8 @@ public class App {
     public static void sendRequest(String data) {
         // Replace with the scoring_uri of your service
         String uri = "<your web service URI>";
-        // If using authentication, replace with the auth key
-        String key = "<your key>";
+        // If using authentication, replace with the auth key or token
+        String key = "<your key or token>";
         try {
             // Create the request
             Content content = Request.Post(uri)
@@ -436,49 +443,48 @@ import json
 
 # URL for the web service
 scoring_uri = '<your web service URI>'
-# If the service is authenticated, set the key
-key = '<your key>'
+# If the service is authenticated, set the key or token
+key = '<your key or token>'
 
 # Two sets of data to score, so we get two results back
-data = {"data": 
+data = {"data":
+        [
             [
-                [
-                    0.0199132141783263, 
-                    0.0506801187398187, 
-                    0.104808689473925, 
-                    0.0700725447072635, 
-                    -0.0359677812752396, 
-                    -0.0266789028311707, 
-                    -0.0249926566315915, 
-                    -0.00259226199818282, 
-                    0.00371173823343597, 
-                    0.0403433716478807
-                ],
-                [
-                    -0.0127796318808497, 
-                    -0.044641636506989, 
-                    0.0606183944448076, 
-                    0.0528581912385822, 
-                    0.0479653430750293, 
-                    0.0293746718291555, 
-                    -0.0176293810234174, 
-                    0.0343088588777263, 
-                    0.0702112981933102, 
-                    0.00720651632920303]
-            ]
+                0.0199132141783263,
+                0.0506801187398187,
+                0.104808689473925,
+                0.0700725447072635,
+                -0.0359677812752396,
+                -0.0266789028311707,
+                -0.0249926566315915,
+                -0.00259226199818282,
+                0.00371173823343597,
+                0.0403433716478807
+            ],
+            [
+                -0.0127796318808497,
+                -0.044641636506989,
+                0.0606183944448076,
+                0.0528581912385822,
+                0.0479653430750293,
+                0.0293746718291555,
+                -0.0176293810234174,
+                0.0343088588777263,
+                0.0702112981933102,
+                0.00720651632920303]
+        ]
         }
 # Convert to JSON string
 input_data = json.dumps(data)
 
 # Set the content type
-headers = { 'Content-Type':'application/json' }
+headers = {'Content-Type': 'application/json'}
 # If authentication is enabled, set the authorization header
-headers['Authorization']=f'Bearer {key}'
+headers['Authorization'] = f'Bearer {key}'
 
 # Make the request and display the response
-resp = requests.post(scoring_uri, input_data, headers = headers)
+resp = requests.post(scoring_uri, input_data, headers=headers)
 print(resp.text)
-
 ```
 
 반환되는 결과는 JSON 문서와 유사합니다.
@@ -489,8 +495,12 @@ print(resp.text)
 
 ## <a name="consume-the-service-from-power-bi"></a>Power BI에서 서비스 사용
 
-Power BI는 예측을 사용 하 여 Power BI에서 데이터를 보강 하는 Azure Machine Learning 웹 서비스의 사용을 지원 합니다. 
+Power BI에서는 Azure Machine Learning 웹 서비스를 사용 하 여 예측을 통해 Power BI 데이터를 보강 합니다. 
 
-Power BI에서 사용 하기 위해 지원 되는 웹 서비스를 생성 하려면 스키마에는 Power BI에 필요한 형식을 지원 해야 합니다. [Power BI에서 지 원하는 스키마를 만드는 방법 알아보기](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#Example-script-with-dictionary-input-Support-consumption-from-Power-BI)합니다.
+Power BI에서 사용 하도록 지원 되는 웹 서비스를 생성 하려면 스키마가 Power BI에 필요한 형식을 지원 해야 합니다. [Power BI 지원 스키마를 만드는 방법에 대해 알아봅니다](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#example-entry-script).
 
-웹 서비스가 배포 되 면 Power BI 데이터 흐름에서 사용 됩니다. [Power BI에서 Azure Machine Learning 웹 서비스를 사용 하는 방법을 알아봅니다](https://docs.microsoft.com/power-bi/service-machine-learning-integration)합니다.
+웹 서비스가 배포 되 면 Power BI 데이터 흐름에서 사용할 수 있습니다. [Power BI에서 Azure Machine Learning 웹 서비스를 사용 하는 방법을 알아봅니다](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
+
+## <a name="next-steps"></a>다음 단계
+
+Python 및 심층 학습 모델에 대 한 실시간 점수 매기기를 위한 참조 아키텍처를 보려면 [Azure 아키텍처 센터](/azure/architecture/reference-architectures/ai/realtime-scoring-python)로 이동 하세요.

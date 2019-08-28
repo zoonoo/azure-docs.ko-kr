@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f354d0413d023e7af6d1719d86e0fbff59cf2b2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 10d43de00c9daefdb86a92d92ebe2cfe39fd3248
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813314"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164407"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-surveymonkey-enterprise"></a>자습서: SurveyMonkey Enterprise와 Azure Active Directory 연결
 
@@ -32,7 +32,7 @@ SurveyMonkey Enterprise를 Azure AD와 연결하면 다음과 같은 이점을 �
 * 사용자가 자신의 Azure AD 계정으로 SurveyMonkey Enterprise에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -58,7 +58,7 @@ SurveyMonkey Enterprise의 Azure AD 연결을 구성하려면 갤러리의 Surve
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -106,11 +106,11 @@ SurveyMonkey Enterprise에서 Azure AD Single Sign-on을 구성하려면 다음 
 
     ![SurveyMonkey Enterprise 도메인 및 URL Single Sign-On 정보](common/preintegrated.png)
 
-5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
+5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
     ![SurveyMonkey Enterprise 도메인 및 URL Single Sign-On 정보](common/both-signonurl.png)
 
-    **로그온 URL** 텍스트 상자에 ` https://www.surveymonkey.com/user/sign-in/sso/?ut_source=megamenu` URL을 입력합니다.
+    **로그온 URL** 텍스트 상자에 `https://www.surveymonkey.com/user/sign-in/sso/?ut_source=megamenu` URL을 입력합니다.
 
 6. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
 

@@ -2,18 +2,18 @@
 title: Microsoft Power BI 작업 영역 컬렉션 시작
 description: Power BI 작업 영역 컬렉션은 애플리케이션 개발자가 자신의 애플리케이션에 대화형 Power BI 보고서를 추가할 수 있는 Azure 서비스입니다.
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 author: rkarlin
 ms.author: rkarlin
 ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.openlocfilehash: d1011a8fd8f181233be8e1fa27c3bfaea3d86141
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2b3381166e40f6d9586306e351b5f3ea77cc2ad8
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64685176"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67669135"
 ---
 # <a name="get-started-with-microsoft-power-bi-workspace-collections"></a>Microsoft Power BI 작업 영역 컬렉션 시작
 
@@ -77,7 +77,7 @@ Power BI REST API를 호출하는 데 필요한 정보의 가장 중요한 부�
 
 ## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app-using-power-bi-desktop"></a>Power BI Desktop을 사용하여 앱에 포함할 Power BI 데이터 세트 및 보고서 만들기
 
-이제 애플리케이션에 대한 Power BI의 인스턴스를 만들었고 **선택키**가 있으므로 포함하려는 Power BI 데이터 집합 및 보고서를 만들어야 합니다. 데이터 세트 및 보고서는 **Power BI 데스크톱**을 사용하여 만들 수 있습니다. [Power BI 데스크톱은 무료로](https://go.microsoft.com/fwlink/?LinkId=521662)다운로드할 수 있습니다. 또는 빠르게 시작하려면 [소매 분석 샘플 PBIX](https://go.microsoft.com/fwlink/?LinkID=780547)를 다운로드할 수 있습니다.
+이제 애플리케이션에 대한 Power BI의 인스턴스를 만들었고 **선택키**가 있으므로 포함하려는 Power BI 데이터 세트 및 보고서를 만들어야 합니다. 데이터 세트 및 보고서는 **Power BI 데스크톱**을 사용하여 만들 수 있습니다. [Power BI 데스크톱은 무료로](https://go.microsoft.com/fwlink/?LinkId=521662)다운로드할 수 있습니다. 또는 빠르게 시작하려면 [소매 분석 샘플 PBIX](https://go.microsoft.com/fwlink/?LinkID=780547)를 다운로드할 수 있습니다.
 
 > [!NOTE]
 > **Power BI Desktop**을 사용하는 방법에 대해 알아보려면 [Power BI Desktop 시작](https://powerbi.microsoft.com/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop)을 참조하세요.

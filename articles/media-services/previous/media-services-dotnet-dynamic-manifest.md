@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: juliako;cenkdin
-ms.openlocfilehash: 05b899658b5c58e15b2f30ab759eb49319979fee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.reviewer: cenkdin
+ms.openlocfilehash: c60b223f91a151bf63cabc5e95816f2545022503
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61465561"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69016598"
 ---
 # <a name="creating-filters-with-media-services-net-sdk"></a>Media Services .NET SDK로 필터 만들기 
 > [!div class="op_single_selector"]
@@ -134,6 +135,6 @@ Media Services 2.17 버전부터 자산에 대한 필터를 정의할 수 있습
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 [동적 매니페스트 개요](media-services-dynamic-manifest-overview.md)
 

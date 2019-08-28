@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b628f88e3d0d644cf5a9471be1d7a766c2b9575b
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: b4b70a45758f697c469895bcef6ea8d203065e26
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67143936"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853969"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Azure App Service의 고급 인증 및 권한 부여 사용
 
@@ -43,7 +43,7 @@ ms.locfileid: "67143936"
 
 **요청이 인증되지 않은 경우 수행할 작업**에서 **익명 요청 허용(작업 없음)** 을 선택합니다.
 
-로그인 페이지, 탐색 모음 또는 앱의 다른 위치에서 사용하도록 설정한 각 공급자에 로그인 링크를 추가합니다(`/.auth/login/<provider>`). 예를 들면 다음과 같습니다.
+로그인 페이지, 탐색 모음 또는 앱의 다른 위치에서 사용하도록 설정한 각 공급자에 로그인 링크를 추가합니다(`/.auth/login/<provider>`). 예:
 
 ```HTML
 <a href="/.auth/login/aad">Log in with Azure AD</a>
@@ -65,7 +65,7 @@ ms.locfileid: "67143936"
 
 클라이언트 리디렉션 로그인에 애플리케이션은 사용자가 수동으로 공급자에 로그인한 다음, 유효성 검사를 위해 인증 토큰을 App Service에 제출합니다([인증 흐름](overview-authentication-authorization.md#authentication-flow) 참조). 이 유효성 검사 자체는 실제로 원하는 앱 리소스에 대한 액세스 권한을 부여하지 않지만, 유효성 검사가 성공하면 앱 리소스에 액세스하는 데 사용할 수 있는 세션 토큰이 제공됩니다. 
 
-공급자 토큰의 유효성을 검사하려면 먼저 원하는 공급자를 사용하여 App Service 앱을 구성해야 합니다. 런타임 시 공급자에서 인증 토큰을 검색한 후 유효성 검사를 위해 토큰을 `/.auth/login/<provider>`에 게시합니다. 예를 들면 다음과 같습니다. 
+공급자 토큰의 유효성을 검사하려면 먼저 원하는 공급자를 사용하여 App Service 앱을 구성해야 합니다. 런타임 시 공급자에서 인증 토큰을 검색한 후 유효성 검사를 위해 토큰을 `/.auth/login/<provider>`에 게시합니다. 예를 들어: 
 
 ```
 POST https://<appname>.azurewebsites.net/.auth/login/aad HTTP/1.1
@@ -76,7 +76,7 @@ Content-Type: application/json
 
 토큰 형식은 공급자에 따라 약간 다릅니다. 자세한 내용은 다음 표를 참조하세요.
 
-| 공급자 값 | 요청 본문에 필요 | 설명 |
+| 공급자 값 | 요청 본문에 필요 | 주석 |
 |-|-|-|
 | `aad` | `{"access_token":"<access_token>"}` | |
 | `microsoftaccount` | `{"access_token":"<token>"}` | `expires_in` 속성은 선택 사항입니다. <br/>Live 서비스에서 토큰을 요청하는 경우 항상 `wl.basic` 범위를 요청합니다. |
@@ -96,7 +96,7 @@ Content-Type: application/json
 }
 ```
 
-이 세션 토큰이 있으면 `X-ZUMO-AUTH` 헤더를 HTTP 요청에 추가하여 보호된 앱 리소스에 액세스할 수 있습니다. 예를 들면 다음과 같습니다. 
+이 세션 토큰이 있으면 `X-ZUMO-AUTH` 헤더를 HTTP 요청에 추가하여 보호된 앱 리소스에 액세스할 수 있습니다. 예를 들어: 
 
 ```
 GET https://<appname>.azurewebsites.net/api/products/1
@@ -117,7 +117,7 @@ X-ZUMO-AUTH: <authenticationToken_value>
 <a href="/.auth/logout">Sign out</a>
 ```
 
-기본적으로 성공적인 로그아웃은 클라이언트를 `/.auth/logout/done` URL로 리디렉션합니다. `post_logout_redirect_uri` 쿼리 매개 변수를 추가하여 로그아웃 후 리디렉션 페이지를 변경할 수 있습니다. 예를 들면 다음과 같습니다.
+기본적으로 성공적인 로그아웃은 클라이언트를 `/.auth/logout/done` URL로 리디렉션합니다. `post_logout_redirect_uri` 쿼리 매개 변수를 추가하여 로그아웃 후 리디렉션 페이지를 변경할 수 있습니다. 예:
 
 ```
 GET /.auth/logout?post_logout_redirect_uri=/index.html
@@ -186,7 +186,7 @@ App Service는 특수 헤더를 사용하여 사용자 클레임을 애플리케
 - **Microsoft 계정**: [Microsoft 계정 인증 설정을 구성](configure-authentication-provider-microsoft.md)할 때 `wl.offline_access` 범위를 선택합니다.
 - **Azure Active Directory**: [https://resources.azure.com](https://resources.azure.com)에서 다음 단계를 수행합니다.
     1. 페이지의 위쪽에서 **읽기/쓰기**를 선택합니다.
-    2. 왼쪽 브라우저에서 **subscriptions** >  ** _\<subscription\_name_**  > **resourceGroups** >  _ **\<resource\_group\_name>** _ > **providers** > **Microsoft.Web** > **사이트** >  _ **\<app\_name>** _ > **config** > **authsettings**로 이동합니다. 
+    2. 왼쪽 브라우저에서 **subscriptions** >  **_\<subscription\_name_**  > **resourceGroups** >  **_\<resource\_group\_name>_**  > **providers** > **Microsoft.Web** > **사이트** >  **_\<app\_name>_**  > **config** > **authsettings**로 이동합니다. 
     3. **편집**을 클릭합니다.
     4. 다음 속성을 수정합니다. _\<app\_id&gt;_ 를 액세스하려는 서비스의 Azure Active Directory 애플리케이션 ID로 바꿉니다.
 
@@ -233,7 +233,7 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 Microsoft 계정과 Azure Active Directory는 모두 여러 도메인에서 로그인할 수 있습니다. 예를 들어 Microsoft 계정은 _outlook.com_, _live.com_ 및 _hotmail.com_ 계정을 허용합니다. Azure Active Directory는 로그인 계정에 대해 여러 사용자 지정 도메인을 허용합니다. 이 동작은 _outlook.com_ 계정을 사용하는 사람이 액세스하는 것을 원치 않는 내부 앱의 경우 바람직하지 않을 수도 있습니다. 로그인 계정의 도메인 이름을 제한하려면 다음 단계를 수행합니다.
 
-[https://resources.azure.com](https://resources.azure.com)에서 **subscriptions** >  ** _\< subscription\_ name_**  > **resourceGroups** >  _ **\< resource\_ group\_ name>** _ > **providers** > **Microsoft.Web** > **사이트** >  _ **\< app\_ name>** _ > **config** > **authsettings**로 이동합니다. 
+[https://resources.azure.com](https://resources.azure.com)에서 **subscriptions** >  **_\< subscription\_ name_**  > **resourceGroups** >  **_\< resource\_ group\_ name>_**  > **providers** > **Microsoft.Web** > **사이트** >  **_\< app\_ name>_**  > **config** > **authsettings**로 이동합니다. 
 
 **편집**을 클릭하고 다음 속성을 수정한 다음, **배치**를 클릭합니다. _\<domain\_name>_ 을 원하는 도메인으로 바꿨는지 확인합니다.
 

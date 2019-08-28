@@ -3,26 +3,26 @@ title: MSAL 애플리케이션의 로깅 | Azure
 description: MSAL(Microsoft 인증 라이브러리) 애플리케이션에서 로깅하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/22/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58f18995d46ca61ae68a7b226bbfc9a286e73a0b
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: HT
+ms.openlocfilehash: 2f52ca8062ed1ed196a67d25385b712451afe8ae
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544108"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532734"
 ---
 # <a name="logging"></a>로깅
 MSAL(Microsoft 인증 라이브러리) 앱은 문제를 진단하고 세부 정보를 제공하는 데 도움이 되는 로그 메시지를 생성합니다. 앱은 몇 줄의 코드를 사용하여 로깅을 구성하고 세부 정보 수준 및 개인 데이터와 조직 데이터가 기록되는지 여부에 대한 제어를 사용자 지정할 수 있습니다. MSAL 로깅 콜백을 설정하고 사용자에게 인증 문제가 있을 때 로그를 제출할 수 있는 방법을 제공하는 것이 좋습니다.
@@ -34,12 +34,16 @@ MSAL의 로거에서 세부 정보를 캡처하는 데 고려할 수 있는 여�
 - 오류: 무언가 잘못되어 오류가 발생했음을 나타냅니다. 디버깅 및 문제 식별에 사용합니다.
 - 경고: 앱 및 의심스러운 이벤트에 대한 자세한 정보가 필요합니다. 오류 또는 장애가 발생한 것은 아니지만, 문제를 진단하고 정확히 지적하는 데 사용합니다.
 - Info(정보): MSAL은 반드시 디버그하기 위한 것이 아니라 정보를 제공하기 위해 사용되는 이벤트를 기록합니다.
-- Verbose(자세한 정보): 기본값 MSAL은 많은 양의 정보를 기록하고 특정 라이브러리 동작에 대한 자세한 정보를 제공합니다.
+- Verbose(자세한 정보): 기본. MSAL은 많은 양의 정보를 기록하고 특정 라이브러리 동작에 대한 자세한 정보를 제공합니다.
 
 ## <a name="personal-and-organizational-data"></a>개인 및 조직 데이터
 기본적으로 MSAL 로거는 매우 중요한 개인 또는 조직 데이터를 캡처하지 않습니다. 라이브러리는 개인 및 조직 데이터 로깅을 사용하도록 설정하는 옵션을 제공합니다.
 
 ## <a name="logging-in-msalnet"></a>MSAL.NET의 로깅
+
+ > [!NOTE]
+ > MSAL.NET에 대 한 자세한 내용은 [MSAL.NET wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki)를 참조 하세요. MSAL.NET 로깅 등의 샘플을 가져옵니다. 
+ 
 MSAL 3.x에서 로깅은 앱을 만들 때 `.WithLogging` 작성기 한정자를 사용하여 앱별로 설정됩니다. 이 메서드에서 사용하는 매개 변수는 다음과 같습니다.
 
 - *Level*을 사용하면 원하는 로깅 수준을 결정할 수 있습니다. Errors로 설정하면 오류만 발생합니다.
@@ -69,7 +73,7 @@ class Program
                       .Build();
 
     AuthenticationResult result = application.AcquireTokenInteractive(scopes)
-                                             .ExecuteAsnc();
+                                             .ExecuteAsync().Result;
   }
  }
  ```

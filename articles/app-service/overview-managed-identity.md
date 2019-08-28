@@ -9,19 +9,17 @@ ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/20/2018
+ms.date: 08/15/2019
 ms.author: mahender
-ms.openlocfilehash: 0942d5ba7b31ddb2c0dec5fe979f1331d1bf3bfd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.reviewer: yevbronsh
+ms.openlocfilehash: a2b8a4e496094c6275710328e70a09376ce0e5fc
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66136956"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563033"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>App Service 및 Azure Functions에 대한 관리 ID를 사용하는 방법
-
-> [!NOTE] 
-> Linux의 App Service 및 Web App for Containers의 관리 ID 지원은 현재 미리 보기 중입니다.
 
 > [!Important] 
 > 앱이 구독/테넌트 간에 마이그레이션되면 App Service 및 Azure Functions에 대한 관리 ID가 예상대로 작동하지 않습니다. 앱에서 새 ID를 확보해야 하며 해당 기능을 사용 중지했다가 다시 사용하도록 설정하여 확보할 수 있습니다. 아래 [ID 제거](#remove)를 참조하세요. 다운스트림 리소스에도 새 ID를 사용하려면 액세스 정책을 업데이트해야 합니다.
@@ -29,8 +27,8 @@ ms.locfileid: "66136956"
 이 항목에서는 App Service 및 Azure Functions 애플리케이션에 대한 관리 ID를 만드는 방법과 다른 리소스에 액세스하는 데 사용하는 방법을 보여 줍니다. Azure Active Directory의 관리 ID를 사용하면 앱에서 다른 AAD 보호 리소스(예: Azure Key Vault)에 쉽게 액세스할 수 있습니다. ID는 Azure 플랫폼에서 관리하며 비밀을 프로비전하거나 회전할 필요가 없습니다. AAD의 관리 ID에 대한 자세한 내용은 [Azure 리소스에 대한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
 
 애플리케이션에 두 가지 형식의 ID를 부여할 수 있습니다. 
-- **시스템 할당 ID**는 애플리케이션에 연결되어 있어 해당 앱을 삭제하면 이 ID도 삭제됩니다. 앱에는 하나의 시스템 할당 ID만 있을 수 있습니다. 시스템 할당 ID는 일반적으로 Windows 앱에만 지원됩니다. 
-- **사용자 할당 ID**는 앱에 할당할 수 있는 독립 실행형 Azure 리소스입니다. 앱에는 여러 사용자 할당 ID가 있을 수 있습니다. 사용자 할당 ID 지원은 모든 앱 형식에 대해 미리 보기 중입니다.
+- **시스템 할당 ID**는 애플리케이션에 연결되어 있어 해당 앱을 삭제하면 이 ID도 삭제됩니다. 앱에는 하나의 시스템 할당 ID만 있을 수 있습니다.
+- **사용자 할당 ID**는 앱에 할당할 수 있는 독립 실행형 Azure 리소스입니다. 앱에는 여러 사용자 할당 ID가 있을 수 있습니다.
 
 ## <a name="adding-a-system-assigned-identity"></a>시스템 할당 ID 추가
 
@@ -46,7 +44,7 @@ ms.locfileid: "66136956"
 
 3. **관리 ID**를 선택합니다.
 
-4. **시스템 할당** 탭에서 **상태**를 **켜기**로 바꿉니다. **저장**을 클릭합니다.
+4. **시스템 할당** 탭에서 **상태**를 **켜기**로 바꿉니다. **Save**을 클릭합니다.
 
 ![App Service의 관리 ID](media/app-service-managed-service-identity/msi-blade-system.png)
 
@@ -157,17 +155,11 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스 배포를 자�
 여기서 `<TENANTID>` 및 `<PRINCIPALID>`는 GUID로 대체됩니다. tenantId 속성은 ID가 속한 AAD 테넌트를 식별합니다. principalId는 애플리케이션 새 ID의 고유 식별자입니다. AAD 내에서 서비스 주체는 사용자가 App Service 또는 Azure Functions 인스턴스에 지정한 이름과 동일한 이름을 갖습니다.
 
 
-## <a name="adding-a-user-assigned-identity-preview"></a>사용자 할당 ID 추가(미리 보기)
-
-> [!NOTE] 
-> 사용자 할당 ID는 현재 미리 보기 중입니다. 소버린 클라우드는 아직 지원되지 않습니다.
+## <a name="adding-a-user-assigned-identity"></a>사용자 할당 id 추가
 
 사용자 할당 ID로 앱을 만들려면 ID를 만든 다음, 앱 구성에 리소스 ID를 추가해야 합니다.
 
 ### <a name="using-the-azure-portal"></a>Azure Portal 사용
-
-> [!NOTE] 
-> 이 포털 환경은 배포될 예정이며 일부 지역에서는 지원되지 않을 수 있습니다.
 
 먼저, 사용자 할당 ID 리소스를 만들어야 합니다.
 
@@ -179,7 +171,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스 배포를 자�
 
 4. **관리 ID**를 선택합니다.
 
-5. **사용자 할당(미리 보기)** 탭 내에서 **추가**를 클릭합니다.
+5. **사용자 할당 됨** 탭에서 **추가**를 클릭 합니다.
 
 6. 이전에 만든 ID를 검색한 후 선택합니다. **추가**를 클릭합니다.
 
@@ -276,6 +268,34 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServi
 
 Microsoft.Azure.Services.AppAuthentication 및 노출하는 작업에 대한 자세한 내용은 [Microsoft.Azure.Services.AppAuthentication 참조] 및 [MSI .NET이 포함된 App Service 및 KeyVault](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet)를 참조하세요.
 
+
+### <a name="using-the-azure-sdk-for-java"></a>Java 용 Azure SDK 사용
+
+Java 응용 프로그램 및 함수의 경우 관리 되는 id를 사용 하는 가장 간단한 방법은 [java 용 AZURE SDK](https://github.com/Azure/azure-sdk-for-java)를 사용 하는 것입니다. 이 섹션에서는 코드에서 이 라이브러리를 시작하는 방법을 보여 줍니다.
+
+1. [AZURE SDK 라이브러리](https://mvnrepository.com/artifact/com.microsoft.azure/azure)에 대 한 참조를 추가 합니다. Maven 프로젝트의 경우 프로젝트의 POM 파일 `dependencies` 섹션에이 코드 조각을 추가할 수 있습니다.
+
+```xml
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>azure</artifactId>
+    <version>1.23.0</version>
+</dependency>
+```
+
+2. 인증에 `AppServiceMSICredentials` 개체를 사용 합니다. 이 예에서는이 메커니즘을 사용 하 여 Azure Key Vault 작업을 수행할 수 있는 방법을 보여 줍니다.
+
+```java
+import com.microsoft.azure.AzureEnvironment;
+import com.microsoft.azure.management.Azure;
+import com.microsoft.azure.management.keyvault.Vault
+//...
+Azure azure = Azure.authenticate(new AppServiceMSICredentials(AzureEnvironment.AZURE))
+        .withSubscription(subscriptionId);
+Vault myKeyVault = azure.vaults().getByResourceGroup(resourceGroup, keyvaultName);
+
+```
+
 ### <a name="using-the-rest-protocol"></a>REST 프로토콜 사용
 
 관리 ID가 있는 앱에는 다음 두 가지 환경 변수가 정의되어 있습니다.
@@ -285,16 +305,16 @@ Microsoft.Azure.Services.AppAuthentication 및 노출하는 작업에 대한 자
 
 **MSI_ENDPOINT**는 앱이 토큰을 요청할 수 있는 로컬 URL입니다. 리소스 토큰을 가져오려면 이 엔드포인트에 다음 매개 변수를 포함하여 HTTP GET 요청을 보냅니다.
 
-> |매개 변수 이름|그런 다음|설명|
+> |매개 변수 이름|입력|Description|
 > |-----|-----|-----|
-> |resource|쿼리|토큰을 가져와야 하는 리소스의 AAD 리소스 URI입니다. [Azure AD 인증](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) 또는 기타 리소스 URI를 지원하는 Azure 서비스 중 하나일 수 있습니다.|
-> |api-version|쿼리|사용할 토큰 API의 버전입니다. "2017-09-01"은 현재 지원되는 유일한 버전입니다.|
+> |resource|Query|토큰을 가져와야 하는 리소스의 AAD 리소스 URI입니다. [Azure AD 인증](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) 또는 기타 리소스 URI를 지원하는 Azure 서비스 중 하나일 수 있습니다.|
+> |api-version|Query|사용할 토큰 API의 버전입니다. "2017-09-01"은 현재 지원되는 유일한 버전입니다.|
 > |secret|헤더|MSI_SECRET 환경 변수의 값입니다. 이 헤더는 SSRF(서버 쪽 요청 위조) 공격을 완화하는 데 사용됩니다.|
-> |clientid|쿼리|(선택 사항) 사용할 사용자 할당 ID의 식별자입니다. 생략하면 시스템 할당 ID가 사용됩니다.|
+> |clientid|Query|(선택 사항) 사용할 사용자 할당 ID의 식별자입니다. 생략하면 시스템 할당 ID가 사용됩니다.|
 
 성공적인 200 OK 응답에는 다음 속성을 가진 JSON 본문이 포함됩니다.
 
-> |속성 이름|설명|
+> |속성 이름|Description|
 > |-------------|----------|
 > |access_token|요청된 액세스 토큰입니다. 호출 웹 서비스는 이 토큰을 사용하여 수신 웹 서비스에 인증할 수 있습니다.|
 > |expires_on|액세스 토큰이 만료되는 시간입니다. 날짜는 1970-01-01T0:0:0Z UTC부터 만료 시간까지 기간(초)으로 표시됩니다. 이 값은 캐시된 토큰의 수명을 결정하는 데 사용됩니다.|
@@ -359,6 +379,25 @@ const getToken = function(resource, apiver, cb) {
     rp(options)
         .then(cb);
 }
+```
+
+<a name="token-python"></a>Python에서:
+
+```python
+import os
+import requests
+
+msi_endpoint = os.environ["MSI_ENDPOINT"]
+msi_secret = os.environ["MSI_SECRET"]
+
+def get_bearer_token(resource_uri, token_api_version):
+    token_auth_uri = f"{msi_endpoint}?resource={resource_uri}&api-version={token_api_version}"
+    head_msi = {'Secret':msi_secret}
+
+    resp = requests.get(token_auth_uri, headers=head_msi)
+    access_token = resp.json()['access_token']
+
+    return access_token
 ```
 
 <a name="token-powershell"></a>PowerShell:

@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: hrasheed
-ms.openlocfilehash: dcfcd4b55f848e1725e286e6ef2a87a2c36e5a71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d94716600305d3d2a567068fc719a83ce94c83d
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64684923"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69557800"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Apache Hive와 Apache Beeline 클라이언트 사용
 
@@ -20,11 +20,11 @@ ms.locfileid: "64684923"
 
 Beeline은 HDInsight 클러스터의 헤드 노드에 포함된 Hive 클라이언트입니다. Beeline은 JDBC를 사용하여 HDInsight 클러스터에서 호스팅되는 서비스인 HiveServer2에 연결합니다. 또한 Beeline을 사용하면 인터넷을 통해 HDInsight의 Hive에 원격으로 액세스할 수 있습니다. 다음 예에서는 Beeline에서 HDInsight에 연결하는 데 사용되는 가장 일반적인 연결 문자열을 제공합니다.
 
-## <a name="types-of-connections"></a>연결 형식
+## <a name="types-of-connections"></a>연결 유형
 
 ### <a name="from-an-ssh-session"></a>SSH 세션에서
 
-에 연결할 때 SSH 세션에서 클러스터 헤드 노드에 연결할 수 있습니다 다음 합니다 `headnodehost` 포트에서 주소 `10001`:
+SSH 세션에서 클러스터 헤드 노드에 연결 하는 경우 포트 `headnodehost` `10001`에서 주소에 연결할 수 있습니다.
 
 ```bash
 beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
@@ -32,34 +32,34 @@ beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
 
 ---
 
-### <a name="over-an-azure-virtual-network"></a>Azure Virtual Network를 통해
+### <a name="over-an-azure-virtual-network"></a>Azure Virtual Network에서
 
-에 연결할 때 클라이언트에서 HDInsight Azure Virtual Network를 통해 클러스터 헤드 노드의 정규화 된 도메인 이름 (FQDN)을 제공 해야 합니다. 이 연결은 클러스터 노드로 직접 설정되므로 연결은 포트 `10001`을 사용합니다.
+Azure Virtual Network를 통해 클라이언트에서 HDInsight로 연결 하는 경우 클러스터 헤드 노드의 FQDN (정규화 된 도메인 이름)을 제공 해야 합니다. 이 연결은 클러스터 노드로 직접 설정되므로 연결은 포트 `10001`을 사용합니다.
 
 ```bash
 beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
 ```
 
-대체 `<headnode-FQDN>` 클러스터 헤드 노드의 정규화 된 도메인 이름입니다. 헤드 노드의 정규화된 도메인 이름을 찾으려면 [Apache Ambari REST API를 사용하여 HDInsight 관리](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) 문서의 정보를 사용합니다.
+을 `<headnode-FQDN>` 클러스터 헤드 노드의 정규화 된 도메인 이름으로 바꿉니다. 헤드 노드의 정규화된 도메인 이름을 찾으려면 [Apache Ambari REST API를 사용하여 HDInsight 관리](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) 문서의 정보를 사용합니다.
 
 ---
 
-### <a name="to-hdinsight-enterprise-security-package-esp-cluster"></a>HDInsight 엔터프라이즈 보안 패키지 (ESP) 클러스터
+### <a name="to-hdinsight-enterprise-security-package-esp-cluster"></a>HDInsight Enterprise Security Package (ESP) 클러스터로
 
-엔터프라이즈 보안 패키지 (ESP) 클러스터에 클라이언트에서 연결 하려면 Active Directory (AAD (Azure)에 가입 하는 경우 도메인 이름을 지정 해야 `<AAD-Domain>` 클러스터에 액세스할 수 있는 권한이 있는 도메인 사용자 계정의 이름과 `<username>`:
+클라이언트에서 클러스터의 동일한 영역에 있는 컴퓨터의 AAD (Azure Active Directory) 클러스터에 연결 Enterprise Security Package 하는 경우에는에 대 한 권한이 있는 도메인 사용자 계정의 이름 및 도메인 이름을 `<AAD-Domain>` 지정 해야 합니다. 클러스터 `<username>`에 액세스 합니다.
 
 ```bash
 kinit <username>
 beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>
 ```
 
-`<username>`을 클러스터에 액세스할 수 있는 권한이 있는 도메인의 계정 이름으로 바꿉니다. 대체 `<AAD-DOMAIN>` 의 Active Directory AAD (Azure) 클러스터에 포함 된 이름입니다. 에 대 한 대문자 문자열을 사용 하 여는 `<AAD-DOMAIN>` 값 그렇지 않은 경우 자격 증명을 찾을 수 없습니다. 확인 `/etc/krb5.conf` 필요한 경우 영역 이름에 대 한 합니다.
+`<username>`을 클러스터에 액세스할 수 있는 권한이 있는 도메인의 계정 이름으로 바꿉니다. 을 `<AAD-DOMAIN>` 클러스터가 조인 된 AAD (Azure Active Directory)의 이름으로 바꿉니다. `<AAD-DOMAIN>` 값에 대문자 문자열을 사용 합니다. 그렇지 않으면 자격 증명을 찾을 수 없습니다. 필요한 `/etc/krb5.conf` 경우 영역 이름을 확인 합니다.
 
 ---
 
 ### <a name="over-public-internet"></a>공용 인터넷을 통해
 
-공용 인터넷을 통해 연결할 때 클러스터 로그인 계정 이름(기본 `admin`) 및 암호를 제공해야 합니다. 예를 들어 클라이언트 시스템에서 Beeline을 사용하여 `<clustername>.azurehdinsight.net` 주소에 연결합니다. 이 연결은 `443` 포트를 통해 이루어지며 SSL을 사용하여 암호화됩니다.
+공용 인터넷을 통해 비 esp 또는 AAD (Azure Active Directory)에 연결 된 esp 클러스터에 연결 하는 경우 클러스터 로그인 계정 이름 (기본값 `admin`) 및 암호를 제공 해야 합니다. 예를 들어 클라이언트 시스템에서 Beeline을 사용하여 `<clustername>.azurehdinsight.net` 주소에 연결합니다. 이 연결은 `443` 포트를 통해 이루어지며 SSL을 사용하여 암호화됩니다.
 
 ```bash
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password
@@ -73,9 +73,9 @@ beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportM
 
 Apache Spark는 자체적으로 HiveServer2를 구현하며, HiveServer2는 종종 Spark Thrift 서버라고 합니다. 이 서비스는 Hive 대신 Spark SQL을 사용하여 쿼리를 해결하고, 쿼리에 따라 더 나은 성능을 제공할 수 있습니다.
 
-#### <a name="over-public-internet-with-apache-spark"></a>Apache Spark를 사용 하 여 공용 인터넷을 통해
+#### <a name="over-public-internet-with-apache-spark"></a>Apache Spark를 사용 하는 공용 인터넷을 통해
 
-인터넷을 통해 연결할 때 사용 된 연결 문자열은 약간 다릅니다. 포함 하는 대신 `httpPath=/hive2` 것이 `httpPath/sparkhive2`:
+인터넷을 통해 연결할 때 사용 되는 연결 문자열은 약간 다릅니다. 이를 포함 `httpPath=/hive2` 하는 `httpPath/sparkhive2`대신 다음을 수행 합니다.
 
 ```bash 
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
@@ -83,7 +83,7 @@ beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportM
 
 ---
 
-#### <a name="from-cluster-head-or-inside-azure-virtual-network-with-apache-spark"></a>클러스터에서 Apache Spark를 사용 하 여 헤드 또는 내부 Azure Virtual Network
+#### <a name="from-cluster-head-or-inside-azure-virtual-network-with-apache-spark"></a>Apache Spark를 사용 하 여 클러스터 헤드 또는 Azure Virtual Network 내에서
 
 클러스터 헤드 노드에서 직접 연결하거나 HDInsight 클러스터와 동일한 Azure Virtual Network 내부의 리소스에서 연결하는 경우 `10001` 포트 대신 `10002` 포트를 Spark Thrift 서버에 사용해야 합니다. 다음 예제에서는 헤드 노드에 직접 연결 하는 방법을 보여 줍니다.
 
@@ -95,9 +95,9 @@ beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
 
 ## <a id="prereq"></a>필수 조건
 
-* HDInsight에서 Hadoop 클러스터입니다. [Linux에서 HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
+* HDInsight의 Hadoop 클러스터 [Linux에서 HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
-* 표시 된 [URI 체계](../hdinsight-hadoop-linux-information.md#URI-and-scheme) 클러스터의 기본 저장소에 대 한 합니다. 예를 들어 `wasb://` Azure Storage에 대 한 `abfs://` 에 대 한 Azure Data Lake 저장소 Gen2 또는 `adl://` Azure 데이터 레이크 저장소 Gen1에 대 한 합니다. 에 대해 Azure Storage 또는 Data Lake 저장소 Gen2 전송 보안을 사용 하는 경우 URI는 `wasbs://` 또는 `abfss://`, 각각. 자세한 내용은 [보안 전송](../../storage/common/storage-require-secure-transfer.md)합니다.
+* 클러스터의 기본 저장소에 대 한 [URI 체계](../hdinsight-hadoop-linux-information.md#URI-and-scheme) 를 확인 합니다. 예 `wasb://` 를 들어 `abfs://` Azure Storage, Azure Data Lake Storage Gen2, `adl://` Azure Data Lake Storage Gen1의 경우입니다. Azure Storage 또는 Data Lake Storage Gen2에 대해 보안 전송이 사용 되는 경우 URI `wasbs://` 는 각각 또는 `abfss://`입니다. 자세한 내용은 [보안 전송](../../storage/common/storage-require-secure-transfer.md)을 참조 하세요.
 
 
 * 옵션 1: SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요. 이 문서에 나온 대부분의 단계는 SSH 세션에서 클러스터까지 Beeline을 사용한다고 가정합니다.
@@ -107,15 +107,15 @@ beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
 
 ## <a id="beeline"></a>Hive 쿼리 실행
 
-이 예제에서는 SSH 연결에서 Beeline 클라이언트를 사용 하는 기반으로 합니다.
+이 예제는 SSH 연결에서 Beeline client를 사용 하는 것을 기반으로 합니다.
 
-1. 아래 코드를 사용 하 여 클러스터에 대 한 SSH 연결을 엽니다. `sshuser`은 클러스터의 SSH 사용자로, `CLUSTERNAME`은 클러스터 이름으로 바꿉니다. 메시지가 표시 되 면 SSH 사용자 계정의 암호를 입력 합니다.
+1. 아래 코드를 사용 하 여 클러스터에 대 한 SSH 연결을 엽니다. `sshuser`은 클러스터의 SSH 사용자로, `CLUSTERNAME`은 클러스터 이름으로 바꿉니다. 메시지가 표시 되 면 SSH 사용자 계정에 대 한 암호를 입력 합니다.
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-2. HiveServer2에 연결 Beeline 클라이언트를 사용 하 여 열린 SSH 세션에서 다음 명령을 입력 하 여:
+2. 다음 명령을 입력 하 여 열려 있는 SSH 세션에서 Beeline 클라이언트를 사용 하 여 HiveServer2에 연결 합니다.
 
     ```bash
     beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
@@ -158,7 +158,7 @@ beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
 
     이 정보는 테이블의 열을 설명합니다.
 
-5. 다음 문을 입력하여 HDInsight 클러스터와 함께 제공되는 샘플 데이터로 **log4jLogs**라는 새 테이블을 만듭니다. (필요에 따라 수정에 따라 프로그램 [URI 체계](../hdinsight-hadoop-linux-information.md#URI-and-scheme).)
+5. 다음 문을 입력하여 HDInsight 클러스터와 함께 제공되는 샘플 데이터로 **log4jLogs**라는 새 테이블을 만듭니다. [URI 체계](../hdinsight-hadoop-linux-information.md#URI-and-scheme)에 따라 필요에 따라 수정 합니다.
 
     ```hiveql
     DROP TABLE log4jLogs;
@@ -224,7 +224,7 @@ beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
 
 ## <a id="file"></a>HiveQL 파일 실행
 
-이전 예제에서 연속 작업입니다. 다음 단계를 사용하여 파일을 만든 다음 Beeline를 사용하여 실행합니다.
+이전 예제에서 연속 된 작업입니다. 다음 단계를 사용하여 파일을 만든 다음 Beeline를 사용하여 실행합니다.
 
 1. 다음 명령을 사용하여 **query.hql**이라는 파일을 만듭니다.
 

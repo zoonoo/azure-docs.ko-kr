@@ -10,12 +10,13 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 010245480d8e1f59d5c1b92a9e717f73b5ba7f4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4d42121468b8a875ecd13fb936d810728bd4b644
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389151"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68703435"
 ---
 # <a name="demo-pizza-order"></a>데모: 피자 주문
 이 데모에서는 다음을 통해 피자 한 판 주문을 지원하는 피자 주문 봇을 설명합니다.
@@ -47,7 +48,7 @@ Web UI의 모델 목록에서 TutorialDemo 피자 주문을 클릭합니다.
 
 ![](../media/tutorial_pizza_entities.PNG)
 
-### <a name="actions"></a>작업
+### <a name="actions"></a>동작
 
 모델은 사용자의 토핑 선택, 누적된 토핑 등을 묻는 작업 세트를 포함합니다.
 

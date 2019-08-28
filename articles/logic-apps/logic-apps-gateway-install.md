@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 10a6e5c33f6a3c23d98e6eb3380de0d6dc6ac216
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61a9b319b9ea44f766bc6f014b76bc48d15efc57
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544473"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598463"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps에 온-프레미스 데이터 게이트웨이 설치
 
@@ -32,7 +32,7 @@ Power BI, Microsoft Flow, PowerApps 및 Azure Analysis Services와 같은 기타
 *   IBM Informix
 *   IBM MQ
 *   MySQL
-*   Oracle 데이터베이스
+*   Oracle Database
 *   PostgreSQL
 *   SAP 애플리케이션 서버 
 *   SAP 메시지 서버
@@ -49,7 +49,7 @@ Power BI, Microsoft Flow, PowerApps 및 Azure Analysis Services와 같은 기타
 
 <a name="requirements"></a>
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Azure 구독](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access)이 있는 [회사 또는 학교 계정](../active-directory/fundamentals/sign-up-organization.md) 
 
@@ -95,9 +95,9 @@ Power BI, Microsoft Flow, PowerApps 및 Azure Analysis Services와 같은 기타
   * 게이트웨이 설치를 위해 선택한 지역은 나중에 Azure 리소스를 만들어 Azure에서 게이트웨이를 등록하는 위치를 결정합니다. 
   Azure에서 이 게이트웨이 리소스를 만들 때 게이트웨이 설치와 *동일한* 위치를 선택해야 합니다. 기본 지역은 Azure 계정을 관리하는 Azure AD 테넌트와 동일한 위치이지만 게이트웨이 설치하는 동안 이 위치를 변경할 수 있습니다.
 
-  * 14\.16.6317.4보다 이전 버전인 설치 관리자를 사용하여 설정한 게이트웨이가 이미 있는 경우 최신 설치 관리자를 실행하여 게이트웨이 위치를 변경할 수 없습니다. 그러나 최신 설치 관리자를 사용하여 새 게이트웨이를 원하는 위치로 설정할 수 있습니다.
+  * 14.16.6317.4보다 이전 버전인 설치 관리자를 사용하여 설정한 게이트웨이가 이미 있는 경우 최신 설치 관리자를 실행하여 게이트웨이 위치를 변경할 수 없습니다. 그러나 최신 설치 관리자를 사용하여 새 게이트웨이를 원하는 위치로 설정할 수 있습니다.
   
-    14\.16.6317.4보다 이전 버전인 게이트웨이 설치 관리자가 있지만 게이트웨이를 아직 설치하지 않은 경우 대신, 최신 설치 관리자를 다운로드하여 사용할 수 있습니다.
+    14.16.6317.4보다 이전 버전인 게이트웨이 설치 관리자가 있지만 게이트웨이를 아직 설치하지 않은 경우 대신, 최신 설치 관리자를 다운로드하여 사용할 수 있습니다.
 
 ## <a name="high-availability-support"></a>고가용성 지원
 
@@ -296,7 +296,7 @@ Azure Portal에서 게이트웨이를 만들고 유지 관리하려면 Windows �
 
 ## <a name="tenant-level-administration"></a>테넌트 수준 관리 
 
-현재, 테넌트 관리자가 다른 사용자가 설치 및 구성한 모든 게이트웨이를 관리할 수 있는 단일 위치가 없습니다. 테넌트 관리자인 경우 조직의 사용자에게 설치한 모든 게이트웨이에 대한 관리자로 추가해줄 것을 요청할 수 있습니다. 이와 같이 게이트웨이 설정 페이지 또는 [PowerShell 명령](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters#powershell-support-for-gateway-clusters)을 통해 조직에서 모든 게이트웨이를 관리할 수 있습니다. 
+현재, 테넌트 관리자가 다른 사용자가 설치 및 구성한 모든 게이트웨이를 관리할 수 있는 단일 위치가 없습니다. 테넌트 관리자인 경우 조직의 사용자에게 설치한 모든 게이트웨이에 대한 관리자로 추가해줄 것을 요청할 수 있습니다. 이와 같이 게이트웨이 설정 페이지 또는 [PowerShell 명령](/data-integration/gateway/service-gateway-powershell-support)을 통해 조직에서 모든 게이트웨이를 관리할 수 있습니다. 
 
 <a name="gateway-cloud-service"></a>
 
@@ -418,7 +418,7 @@ Azure Portal에서 게이트웨이 등록을 확인하려면 *모든* Azure 구�
 
 다양한 로그를 찾을 수 있는 다른 위치는 다음과 같습니다.
 
-| 로그 형식 | Location | 
+| 로그 형식 | 위치 | 
 |----------|----------| 
 | **설치 관리자 로그** | %localappdata%\Temp\On-premises_data_gateway_<*yyyymmdd*>.<*number*>.log | 
 | **구성 로그** | C:\Users\<*username*>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator<*yyyymmdd*>.<*number*>.log | 
@@ -430,7 +430,7 @@ Azure Portal에서 게이트웨이 등록을 확인하려면 *모든* Azure 구�
 게이트웨이에 대한 이벤트 로그를 찾으려면 다음 단계를 수행합니다.
 
 1. 게이트웨이가 설치된 컴퓨터에서 **이벤트 뷰어**를 엽니다. 
-2. **이벤트 뷰어(로컬)**  > **응용 프로그램 및 서비스 로그**를 확장합니다. 
+2. **이벤트 뷰어(로컬)**  > **애플리케이션 및 서비스 로그**를 확장합니다. 
 3. **온-프레미스 데이터 게이트웨이 서비스**를 선택합니다.
 
    ![게이트웨이에 대한 이벤트 로그 보기](./media/logic-apps-gateway-install/event-viewer.png)
@@ -485,7 +485,7 @@ Azure Portal에서 게이트웨이 등록을 확인하려면 *모든* Azure 구�
 
    2. 쿼리를 찾으려면 다음과 같은 활동 유형을 검색합니다. 
 
-      | 활동 유형 | 설명 | 
+      | 활동 유형 | Description | 
       |---------------|-------------| 
       | MGEQ | ADO.NET을 통해 실행되는 쿼리입니다. | 
       | MGEO | OLEDB를 통해 실행되는 쿼리입니다. | 

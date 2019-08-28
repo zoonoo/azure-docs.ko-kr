@@ -56,7 +56,7 @@ Resource Manager 템플릿을 사용하여 Azure에서 Marketplace의 새 IaaS W
 | --- | --- |
 | adminUserName | 가상 머신의 관리 사용자 이름 |
 | adminPassword | 가상 머신의 관리 사용자 암호 |
-| newStorageAccountName | OS 및 데이터 VHD를 저장할 저장소 계정의 이름 |
+| newStorageAccountName | OS 및 데이터 VHD를 저장할 스토리지 계정의 이름 |
 | vmSize | VM의 크기. 현재 표준 A, D 및 G 시리즈만 지원됩니다. |
 | virtualNetworkName | VM NIC가 속해야 하는 VNet의 이름 |
 | subnetName | VM NIC가 속해야 하는 VNet의 서브넷 이름 |

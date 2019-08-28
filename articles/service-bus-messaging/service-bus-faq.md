@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus FAQ | Microsoft Docs
-description: Azure Service Bus에 대 한 일부 자주 묻는 질문을 답변합니다.
+description: Azure Service Bus에 대 한 몇 가지 자주 묻는 질문에 답변 합니다.
 services: service-bus-messaging
 author: axisc
 manager: timlt
@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 8461764a3f1f682ffb97420a4efdf2803f518872
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80809afc9f2a8e8da2f6adecfe916141c4cd3e45
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707142"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68278333"
 ---
 # <a name="service-bus-faq"></a>Service Bus FAQ
 
@@ -42,51 +42,51 @@ ms.locfileid: "64707142"
 
  분할된 엔터티는 [프리미엄 SKU](service-bus-premium-messaging.md)에서 지원되지 않습니다. 
 
-### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>어떤 포트가 방화벽에서 열려는 하나요? 
-Azure Service Bus를 사용 하 여 메시지를 수신 하는 다음 프로토콜을 사용할 수 있습니다.
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>방화벽에서 열어야 하는 포트는 무엇 인가요? 
+Azure Service Bus에서 다음 프로토콜을 사용 하 여 메시지를 보내고 받을 수 있습니다.
 
 - AMQP(고급 메시지 큐 프로토콜)
 - SBMP(Service Bus 메시징 프로토콜)
 - HTTP
 
-Azure Event Hubs를 사용 하 여 통신 하도록 이러한 프로토콜을 사용 하 여 필요한 아웃 바운드 포트 다음 표를 참조 하세요. 
+이러한 프로토콜을 사용 하 여 Azure Event Hubs와 통신 하기 위해 열어야 하는 아웃 바운드 포트는 다음 표를 참조 하세요. 
 
 | 프로토콜 | 포트 | 세부 정보 | 
 | -------- | ----- | ------- | 
-| AMQP | 5671 및 5672 | 참조 [AMQP 프로토콜 가이드](service-bus-amqp-protocol-guide.md) | 
-| SBMP | 9350 ~ 9354 | 참조 [연결 모드](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
+| AMQP | 5671 및 5672 | [Amqp 프로토콜 가이드](service-bus-amqp-protocol-guide.md) 를 참조 하세요. | 
+| SBMP | 9350 ~ 9354 | [연결 모드](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) 를 참조 하세요. |
 | HTTP, HTTPS | 80, 443 | 
 
-### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>어떤 IP 주소를 화이트 리스트 하나요?
-연결에 대 한 허용 목록에 올바른 IP 주소를 찾으려면 다음이 단계를 수행 합니다.
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>허용 목록 하는 데 필요한 IP 주소는 무엇 인가요?
+연결에 대 한 적절 한 IP 주소 목록을 찾으려면 다음 단계를 수행 합니다.
 
 1. 명령 프롬프트에서 다음 명령을 실행 합니다. 
 
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. 반환 된 IP 주소를 적어둡니다 `Non-authoritative answer`합니다. 이 IP 주소는 정적입니다. 유일한 시점을 변경할 경우 다른 클러스터에 네임 스페이스를 복원 하는 경우
+2. 에서 `Non-authoritative answer`반환 된 IP 주소를 적어둡니다. 이 IP 주소는 정적입니다. 다른 클러스터에 네임 스페이스를 복원 하는 경우에만 변경 되는 유일한 시점입니다.
 
-네임 스페이스에 대 한 영역 중복을 사용 하는 경우에 몇 가지 추가 단계를 수행 해야 합니다. 
+네임 스페이스에 영역 중복성을 사용 하는 경우 몇 가지 추가 단계를 수행 해야 합니다. 
 
-1. 첫째, 네임 스페이스에서 nslookup을 실행합니다.
+1. 먼저 네임 스페이스에서 nslookup을 실행 합니다.
 
     ```
     nslookup <yournamespace>.servicebus.windows.net
     ```
-2. 이름 적어 합니다 **신뢰할 수 없는 응답** 섹션에서 다음 형식 중 하나: 
+2. 다음 형식 중 하나에 해당 하는 **신뢰할 수 없는 응답** 섹션의 이름을 적어둡니다. 
 
     ```
     <name>-s1.servicebus.windows.net
     <name>-s2.servicebus.windows.net
     <name>-s3.servicebus.windows.net
     ```
-3. 접미사 s1, s2 및 s3 세 가용성 영역에서 실행 중인 모든 세 인스턴스의 IP 주소를 사용 하 여 각각에 대해 nslookup을 실행 합니다. 
+3. 접미사 s1, s2 및 s 3이 포함 된 각 항목에 대해 nslookup을 실행 하 여 세 개의 가용성 영역에서 실행 되는 세 인스턴스의 IP 주소를 가져옵니다. 
 
 
 ## <a name="best-practices"></a>모범 사례
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>일부 Azure Service Bus 모범 사례는 무엇인가요?
-[Service Bus를 사용한 성능 향상에 대한 모범 사례][Best practices for performance improvements using Service Bus] 참조 - 이 문서에서는 메시지를 교환할 때 성능을 최적화하는 방법을 설명합니다.
+[Service Bus를 사용한 성능 향상에 대 한 모범 사례][Best practices for performance improvements using Service Bus] -이 문서에서는 메시지를 교환할 때 성능을 최적화 하는 방법을 설명 합니다.
 
 ### <a name="what-should-i-know-before-creating-entities"></a>엔터티를 만들기 전에 무엇을 알아야 하나요?
 큐 및 토픽에서 다음 속성을 변경할 수 없습니다. 엔터티를 프로비전할 때 이러한 제한 사항을 고려하세요. 새 대체 엔터티를 만들지 않은 경우 이러한 속성을 수정할 수 없기 때문입니다.
@@ -109,19 +109,19 @@ Service Bus 가격 책정에 대한 전체 내용은 [Service Bus 가격 책정 
 ### <a name="what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not"></a>Service Bus를 어떻게 사용하면 데이터가 전송의 대상이 되나요? 어떤 경우에 대상이 아닌가요?
 지정된 Azure 지역 내에서 데이터 전송은 비용뿐만 아니라 인바운드 데이터 전송 없이 제공됩니다. 지역 외부의 데이터 전송은 [여기](https://azure.microsoft.com/pricing/details/bandwidth/)에서 찾을 수 있는 송신 요금이 청구됩니다.
 
-### <a name="does-service-bus-charge-for-storage"></a>Service Bus는 저장소에 대한 요금을 청구하나요?
-아니요, Service Bus는 저장소에 대한 요금을 청구하지 않습니다. 하지만 큐/항목 당 지속될 수 있는 데이터의 최대 크기를 제한하는 할당량이 있습니다. 다음 FAQ를 참조하세요.
+### <a name="does-service-bus-charge-for-storage"></a>Service Bus는 스토리지에 대한 요금을 청구하나요?
+아니요, Service Bus는 스토리지에 대한 요금을 청구하지 않습니다. 하지만 큐/항목 당 지속될 수 있는 데이터의 최대 크기를 제한하는 할당량이 있습니다. 다음 FAQ를 참조하세요.
 
 ## <a name="quotas"></a>할당량
 
-Service Bus 제한 및 할당량 목록은 [Service Bus 할당량 개요][Quotas overview]를 참조하세요.
+Service Bus 제한 및 할당량 목록은 [Service Bus 할당량 개요][Quotas overview]를 참조 하세요.
 
 ### <a name="does-service-bus-have-any-usage-quotas"></a>Service Bus는 사용 할당량이 있나요?
 기본적으로 모든 클라우드 서비스의 경우 Microsoft는 모든 고객의 구독에 대해 계산되는 월별 사용 할당량을 집계합니다. 이러한 한도보다 많이 필요한 경우 이러한 한도를 적절하게 조정하기 위해 고객 서비스에 언제든지 문의할 수 있습니다. Service Bus의 경우 집계 사용 할당량은 매월 5십억 개의 메시지입니다.
 
 Microsoft는 지정된 달에 사용 할당량을 초과하는 고객의 계정을 사용하지 않도록 설정하는 권한을 보유하지만 이메일 알림이 전송되고 조치를 취하기 전에 고객에게 연락을 여러 번 시도합니다. 이러한 할당량을 초과하는 고객은 할당량을 초과하는 요금을 지불해야 합니다.
 
-Azure에서 다른 서비스와 마찬가지로 Service Bus는 리소스의 공정한 사용을 보장하기 위해 특정한 할당량 집합을 적용합니다. [Service Bus 할당량 개요][Quotas overview]에서 이러한 할당량에 대한 자세한 정보를 확인할 수 있습니다.
+Azure에서 다른 서비스와 마찬가지로 Service Bus는 리소스의 공정한 사용을 보장하기 위해 특정한 할당량 집합을 적용합니다. 이러한 할당량에 대 한 자세한 내용은 [Service Bus 할당량 개요][Quotas overview]에서 찾을 수 있습니다.
 
 ### <a name="how-to-handle-messages-of-size--1-mb"></a>1MB를 초과하는 메시지 크기를 처리하는 방법
 Service Bus 메시징 서비스(큐 및 토픽/구독)를 사용하면 애플리케이션이 최대 256KB(표준 계층) 또는 1MB(프리미엄 계층) 크기의 메시지를 보낼 수 있습니다. 1MB보다 큰 크기의 메시지를 처리하는 경우 [이 블로그 게시물](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern)에 설명된 클레임 검사 패턴을 사용합니다.
@@ -131,10 +131,10 @@ Service Bus 메시징 서비스(큐 및 토픽/구독)를 사용하면 애플리
 구독에서 네임스페이스를 삭제한 후에 다른 구독에서 동일한 이름으로 다시 만들려면 4시간 정도 기다려야 합니다. 그렇지 않으면 다음 오류 메시지가 표시될 수 있습니다. `Namespace already exists` 
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Azure Service Bus API 및 해당 제안된 작업에 의해 생성된 일부 예외는 무엇인가요?
-가능한 Service Bus 예외의 목록은 [예외 개요][Exceptions overview]를 참조하세요.
+가능한 Service Bus 예외의 목록은 [예외 개요][Exceptions overview]를 참조 하세요.
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>공유 액세스 서명이란 무엇이고 어떤 언어가 서명 생성을 지원하나요?
-공유 액세스 서명은 SHA-256 보안 해시 또는 URI에 따른 인증 메커니즘입니다. Node.js, PHP, Java 및 C\#에서 직접 서명을 생성하는 방법에 대한 내용은 [공유 액세스 서명][Shared Access Signatures] 문서를 참조하세요.
+공유 액세스 서명은 SHA-256 보안 해시 또는 URI에 따른 인증 메커니즘입니다. Node.js, PHP, Java, Python 및 C#에서 사용자 고유의 서명을 생성 하는 방법에 대 한 자세한 내용은 [공유 액세스 서명][Shared Access Signatures] 문서를 참조 하세요.
 
 ## <a name="subscription-and-namespace-management"></a>구독 및 네임스페이스 관리
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>다른 Azure 구독으로 네임스페이스를 마이그레이션하려면 어떻게 해야 하나요?
@@ -143,7 +143,7 @@ Service Bus 메시징 서비스(큐 및 토픽/구독)를 사용하면 애플리
 
 #### <a name="portal"></a>포털
 
-Azure Portal을 사용하여 Service Bus 네임스페이스를 다른 구독으로 마이그레이션하려면 [여기](../azure-resource-manager/resource-group-move-resources.md#use-portal)에 있는 지침을 따르세요. 
+Azure Portal을 사용하여 Service Bus 네임스페이스를 다른 구독으로 마이그레이션하려면 [여기](../azure-resource-manager/resource-group-move-resources.md#use-the-portal)에 있는 지침을 따르세요. 
 
 #### <a name="powershell"></a>PowerShell
 

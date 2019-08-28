@@ -8,16 +8,16 @@ ms.topic: include
 author: sgilley
 ms.author: sgilley
 ms.date: 05/06/2019
-ms.openlocfilehash: 43232dd181f9375b3f3eedc74fc499b0a8cc2965
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 5313c7be52beed7095bf019f74dcc811147ede77
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182619"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845954"
 ---
-1. 아직 없는 경우 [Azure Machine Learning 작업 영역을 만듭니다](../articles/machine-learning/service/setup-create-workspace.md#portal).
+1. [Azure Machine Learning 서비스 작업 영역을 만듭니다](../articles/machine-learning/service/how-to-manage-workspace.md) (없는 경우).
 
-1. [Azure Portal](https://portal.azure.com/)에서 작업 영역을 엽니다.  포털에서 작업 영역을 찾는 방법을 잘 모르는 경우 [작업 영역을 찾는 방법](../articles/machine-learning/service/how-to-manage-workspace.md#view)합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 작업 영역을 엽니다.  포털에서 작업 영역을 찾는 방법을 잘 모르겠으면 [작업 영역을 찾는 방법](../articles/machine-learning/service/how-to-manage-workspace.md#view)을 참조 하세요.
 
 1. 작업 영역에서 **그래픽 인터페이스**를 선택합니다.  그런 다음, **그래픽 인터페이스 시작**을 선택합니다.  
  

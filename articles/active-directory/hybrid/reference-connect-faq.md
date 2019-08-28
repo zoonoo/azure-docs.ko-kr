@@ -11,36 +11,36 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 05/03/2019
+ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2caca430de5ad666f4f4341e0723bc3173d6d91a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0442b987c502533bfbd55990f201a5c02b119804
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65137794"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011306"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect FAQ
 
 ## <a name="general-installation"></a>일반 설치
 
-**Q: 내 Azure AD Connect 서버 보안 공격 노출 영역을 줄이기 위해을 강화할 수 있습니다 하는 방법**
+**Q: 보안 공격 노출 영역을 줄이기 위해 Azure AD Connect 서버를 강화 하려면 어떻게 해야 하나요?**
 
-IT 환경의 중요 한이 구성 요소에 대 한 보안 공격 노출 영역을 줄이기 위해 Azure AD Connect 서버를 강화 하는 것이 좋습니다.  아래 권장 사항을 따르면 조직에 보안 위험이 줄어듭니다.
+IT 환경의이 중요 한 구성 요소에 대 한 보안 공격 노출 영역을 줄이려면 Azure AD Connect 서버를 강화 하는 것이 좋습니다.  아래의 권장 사항에 따라 조직의 보안 위험을 줄일 수 있습니다.
 
-* 도메인 가입된 서버에 Azure AD Connect를 배포 하 고 도메인 관리자 또는 다른 엄격 하 게 제어 하는 보안 그룹에 대 한 관리 액세스 제한
+* 도메인에 가입 된 서버에 Azure AD Connect 배포 하 고 도메인 관리자 또는 엄격 하 게 제어 되는 다른 보안 그룹에 대 한 관리 액세스 제한
 
 자세한 내용은 다음을 참조하세요. 
 
-* [보안 관리자 그룹](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
+* [관리자 그룹 보안](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
 
 * [기본 제공 관리자 계정 보안](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
 
-* [보안 향상 및 공격 노출 영역을 줄여 sustainment](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
+* [공격 노출 영역을 줄임으로써 보안 향상 및 sustainment](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
 
-* [Active Directory 공격 노출 영역 감소](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
+* [Active Directory 공격 노출 영역 축소](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
 
 **Q: Azure AD(Azure Active Directory) 글로벌 관리자가 2FA(2단계 인증)를 사용하도록 설정한 경우 설치가 작동하나요?**  
 이 시나리오는 2016년 2월 빌드부터 지원됩니다.
@@ -78,46 +78,46 @@ Azure AD Connect 설치는 설치 마법사를 사용하는 경우에만 지원�
 
 간단히 하려면 SQL의 시스템 관리자로 Azure AD Connect를 설치하는 것이 좋습니다. 그러나 최신 빌드를 사용하면 이제 [SQL 위임된 관리자 권한을 사용하여 Azure AD Connect 설치](how-to-connect-install-sql-delegation.md)에서 설명한 대로 SQL 위임된 관리자를 사용할 수 있습니다.
 
-**Q: 일부 필드에서 모범 사례는 무엇 인가요?**  
+**Q: 필드에서 제공 하는 몇 가지 모범 사례는 무엇입니까?**  
 
-다음 엔지니어링을 지 원하는 몇 가지 모범 사례를 제공 하는 정보 제공 용 이므로 문서를 이며 당사의 컨설턴트 년간 개발 했습니다.  이 신속 하 게 참조할 수 있는 글머리 기호 목록에 표시 됩니다.  이 목록에 포괄적 하려고 하지만 하지 수행이 목록에 아직 추가 모범 사례 있을 수 있습니다.
+다음은 엔지니어링, 지원 및 컨설턴트 들이 몇 년 동안 개발한 모범 사례 중 일부를 제공 하는 정보 문서입니다.  이는 빠르게 참조할 수 있는 글머리 기호 목록으로 표시 됩니다.  이 목록은 포괄적 이지만 목록에 아직 적용 되지 않은 추가 모범 사례가 있을 수 있습니다.
 
-- 로컬 두어야 하는 다음 전체 SQL을 사용 하는 경우 원격 비교
-    - 홉이 적기
-    - 보다 쉽게 해결할 수
-    - 보다 간편 하 게
-    - SQL 리소스를 지정 하 고 Azure AD Connect 및 OS에 대 한 오버 헤드를 허용 해야
-- 가능한 경우 프록시 사용 안 함, 시간 제한 값을 5 분 보다 크면 되도록 한 다음 프록시를 우회 하도록 수 없는 경우.
-- Machine.config 파일에 프록시를 추가 해야 합니다 프록시가 필요한 경우
-- 로컬 SQL 작업 및 유지 관리 및 어떤 영향을 미치는지 특히 인덱싱을 다시 수행 하 여 Azure AD Connect-인식
-- DNS를 외부적으로 해결할 수 있습니다 보다 확인
-- 했는지 [서버 사양](how-to-connect-install-prerequisites.md#hardware-requirements-for-azure-ad-connect) 실제 또는 가상 서버를 사용 하는 여부는 권장 기준
-- 필요한 리소스는 전용 가상 서버를 사용 하는 경우 확인
-- 디스크 및 SQL Server에 대 한 모범 사례를 충족 하는 디스크 구성 했는지 확인
-- 설치 하 고 모니터링 하는 것에 대 한 Azure AD Connect Health 구성
-- Azure AD Connect로 빌드되는 삭제 임계값을 사용 합니다.
-- 모든 변경 내용과 추가 될 수 있는 새 특성에 대 한 준비가 릴리스 업데이트 신중 하 게 검토
-- 모든 백업
-    - 키 백업
+- 전체 SQL을 사용 하는 경우 로컬 및 원격으로 유지 해야 합니다.
+    - 홉 수 줄이기
+    - 문제 해결이 용이 합니다.
+    - 복잡성 감소
+    - 리소스를 SQL로 지정 하 고 Azure AD Connect 및 OS에 대 한 오버 헤드를 허용 해야 합니다.
+- 프록시 사용 가능 하지 않은 경우 프록시를 무시할 수 없으면 시간 제한 값이 5 분 보다 큰지 확인 해야 합니다.
+- 프록시가 필요한 경우에는 machine.config 파일에 프록시를 추가 해야 합니다.
+- 로컬 SQL 작업 및 유지 관리 및 유지 관리에 미치는 영향 Azure AD Connect-특히 다시 인덱싱
+- DNS가 외부적으로 확인할 수 있는지 확인
+- 실제 서버 또는 가상 서버를 사용 하 고 있는지 여부에 따라 [서버 사양이](how-to-connect-install-prerequisites.md#hardware-requirements-for-azure-ad-connect) 권장 사항에 따라 결정 되는지 확인 합니다.
+- 필요한 리소스를 전용으로 사용 하는 가상 서버를 사용 하 고 있는지 확인 합니다.
+- 디스크 및 디스크 구성이 모범 사례를 충족 하는지 확인 하십시오 SQL Server
+- 모니터링을 위한 Azure AD Connect Health 설치 및 구성
+- Azure AD Connect에 기본 제공 되는 삭제 임계값을 사용 합니다.
+- 추가 될 수 있는 모든 변경 내용 및 새 특성에 대해 준비할 릴리스 업데이트를 신중 하 게 검토 합니다.
+- 모든 항목 백업
+    - 백업 키
     - 백업 동기화 규칙
     - 백업 서버 구성
-    - SQL Database 백업
-- SQL VSS 기록기 (타사 파티 스냅숏 사용 하 여 가상 서버에서 공통) 하지 않고 SQL 백업 하는 타사 파티 백업 에이전트가 없습니다 있는지 확인
-- 복잡성 추가 하는 대로 사용 되는 사용자 지정 동기화 규칙의 양을 제한합니다
-- Azure AD 처리 계층 0 서버 서버 연결
-- 영향 및 적절 한 비즈니스 드라이버의 훌륭한 이해 하지 않고 클라우드 동기화 규칙을 수정 하는 거듭 수
-- 올바른 URL 및 방화벽 포트를 열고 Azure AD Connect 및 Azure AD Connect Health에 대 한 지원 되는지 확인
-- 클라우드를 활용 하 여 문제를 해결 하 고 가상 개체를 방지 하는 특성 필터링
-- 스테이징 서버를 사용 하 여 서버 간에 일관성을 위해 Azure AD Connect 구성 구조를 사용 하 고 있는지 확인
-- 스테이징 서버가 별도 데이터 센터 (물리적 위치에에서 있어야 합니다.
-- 준비 서버는 고가용성 솔루션을 사용할 계획이 없는 있을 수 없지만 여러 준비 서버
-- 오류 발생 시 일부 잠재적인 가동 중지 시간을 완화할 수 "지연" 스테이징 서버를 소개 합니다.
-- 테스트 및 스테이징 서버에서 모든 업그레이드를 먼저 유효성 검사
-- 항상 내보내기가 비즈니스 영향을 줄이기 위해 전체 가져오기 및 전체 동기화에 대 한 스테이징 서버 준비 serverLeverage를 전환 하기 전에 유효성 검사
-- Azure AD Connect 서버 간 버전 일관성을 최대한 유지 
+    - 백업 SQL Database
+- SQL VSS 기록기를 사용 하지 않고 SQL을 백업 하는 타사 백업 에이전트가 없는지 확인 (타사 스냅숏을 사용 하는 가상 서버에 공통)
+- 복잡성을 더할 때 사용 되는 사용자 지정 동기화 규칙의 크기 제한
+- Azure AD Connect 서버를 계층 0 서버로 처리
+- 영향 및 적절 한 비즈니스 드라이버를 잘 이해 하지 않고도 클라우드 동기화 규칙을 수정 leery
+- Azure AD Connect 및를 지원 하기 위해 올바른 URL 및 방화벽 포트가 열려 있는지 확인 Azure AD Connect Health
+- 클라우드 필터링 된 특성을 활용 하 여 가상 개체의 문제 해결 및 방지
+- 준비 서버를 사용 하 여 서버 간 일관성을 위해 Azure AD Connect 구성 구조 분석을 사용 하는지 확인 합니다.
+- 스테이징 서버는 별도의 데이터 센터 (실제 위치)에 있어야 합니다.
+- 스테이징 서버는 고가용성 솔루션은 아니지만 스테이징 서버는 여러 개 있을 수 있습니다.
+- "지연" 준비 서버를 도입 하면 오류가 발생 하는 경우 잠재적인 가동 중지 시간을 줄일 수 있습니다.
+- 스테이징 서버에 대 한 모든 업그레이드를 먼저 테스트 및 유효성 검사
+- 준비 서버로 전환 하기 전에 항상 내보내기 유효성 검사-전체 가져오기 및 전체 동기화를 위해 준비 서버를 활용 하 여 비즈니스 영향을 줄입니다.
+- 가능한 한 Azure AD Connect 서버 간의 버전 일관성 유지 
 
-**Q: Azure AD Connect 작업 그룹 컴퓨터에 Azure AD 커넥터 계정 만들기를 허용 합니까?**
-아니요.  Azure AD Connect를 Azure AD 커넥터 계정 자동 만들기를 허용 하기 위해 도메인에 가입 된 컴퓨터 여야 합니다.  
+**Q: Azure AD Connect를 사용 하 여 작업 그룹 컴퓨터에서 Azure AD Connector 계정을 만들 수 있나요?**
+아니요.  Azure AD Connect에서 Azure AD Connector 계정을 자동으로 만들도록 허용 하려면 컴퓨터가 도메인에 가입 되어 있어야 합니다.  
 
 ## <a name="network"></a>네트워크
 **Q: 방화벽, 네트워크 디바이스 또는 연결을 네트워크에서 열려 있는 상태로 유지할 수 있는 시간을 제한하는 다른 요소가 있습니다. Azure AD Connect를 사용하는 경우 클라이언트 쪽 시간 제한 임계값은 어떻게 되나요?**  
@@ -136,7 +136,7 @@ Azure AD Connect 설치는 설치 마법사를 사용하는 경우에만 지원�
 아니요. Azure AD Connect는 순수한 IPv6 환경을 지원하지 않습니다.
 
 **Q: 다중 포리스트 환경으로, 두 포리스트 간 네트워크에서 NAT(Network Address Translation)를 사용하고 있습니다. 이러한 두 포리스트 간에 Azure AD Connect를 사용하는 것이 지원되나요?**</br>
- 아니요. NAT를 통한 Azure AD Connect 사용은 지원되지 않습니다. 
+아니요. NAT를 통한 Azure AD Connect 사용은 지원되지 않습니다. 
 
 ## <a name="federation"></a>페더레이션
 **Q: 내 Office 365 인증서를 갱신하도록 요청하는 이메일을 받으면 어떻게 해야 하나요?**  
@@ -145,12 +145,18 @@ Azure AD Connect 설치는 설치 마법사를 사용하는 경우에만 지원�
 **Q: Office 365 신뢰 당사자에 대해 "신뢰 당사자 자동 업데이트"를 설정했습니다. 토큰 서명 인증서가 자동으로 롤오버될 때 어떤 조치를 취해야 하나요?**  
 [인증서 갱신](how-to-connect-fed-o365-certs.md) 문서에 설명된 지침을 사용하세요.
 
-## <a name="environment"></a>Environment
+## <a name="environment"></a>환경
 **Q: Azure AD Connect가 설치되면 서버 이름을 바꿀 수 있나요?**  
 아니요. 서버 이름을 변경하면 동기화 엔진이 SQL 데이터베이스 인스턴스에 연결할 수 없으므로 서비스를 시작할 수 없습니다.
 
-**Q: 다음 세대 암호화 (NGC) 동기화 규칙 FIPS 사용 컴퓨터에서 지원 되나요?**  
+**Q: FIPS 사용 컴퓨터에서 다음 세대 암호화 (NGC) 동기화 규칙이 지원 되나요?**  
 아니요.  지원 되지 않습니다.
+
+**Q. 동기화 된 장치를 사용 하지 않도록 설정 하는 경우 (예: HAADJ)를 다시 사용 하도록 설정 하는 이유 Azure Portal는 무엇 인가요?**<br>
+동기화 된 장치는 온-프레미스에서 작성 또는 마스터 될 수 있습니다. 동기화 된 장치가 온-프레미스에서 사용 하도록 설정 된 경우 이전에 관리자가 사용 하지 않도록 설정한 경우에도 Azure Portal에서 다시 사용 하도록 설정할 수 있습니다. 동기화 된 장치를 사용 하지 않도록 설정 하려면 온-프레미스 Active Directory를 사용 하 여 컴퓨터 계정을 사용 하지 않도록 설정 합니다.
+
+**Q. 동기화 된 사용자를 위해 Office 365 또는 Azure AD 포털에서 사용자 로그인을 차단 하는 경우 다시 로그인 할 때 차단이 해제 되는 이유는 무엇 인가요?**<br>
+동기화 된 사용자는 온-프레미스에서 작성 또는 마스터 될 수 있습니다. 계정이 온-프레미스에서 사용 하도록 설정 된 경우 관리자가 설정한 로그인 블록의 차단을 해제할 수 있습니다.
 
 ## <a name="identity-data"></a>ID 데이터
 **Q: Azure AD의 userPrincipalName(UPN) 특성이 온-프레미스 UPN과 일치하지 않는 이유는 무엇인가요?**  
@@ -264,3 +270,7 @@ Office 팀은 Office 포털 업데이트에서 현재 제품 이름을 반영하
 * [Azure AD 커뮤니티](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required)로 이동하여 기술 관련 질문 및 대답을 검색하거나 직접 질문하세요.
 
 [Azure AD에 대한 지원 받기](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
+
+**Q: 동기화 단계 오류가 발생 한 후 이벤트 6311 및 6401이 표시 되는 이유는 무엇 인가요?**
+
+이벤트 6311- **서버에서 콜백 및 6401를 수행 하는 동안 예기치 않은 오류가 발생 했습니다** . **관리 에이전트 컨트롤러에서 예기치 않은 오류가** 발생 했습니다. 동기화 단계 오류가 발생 한 후에 항상 기록 됩니다. 이러한 오류를 해결 하려면 동기화 단계 오류를 정리 해야 합니다.  자세한 내용은 [동기화 중 오류 문제 해결](tshoot-connect-sync-errors.md) 및 [Azure AD Connect 동기화를 사용 하 여 개체 동기화 문제](/tshoot-connect-objectsync.md) 해결을 참조 하세요.

@@ -7,7 +7,8 @@ author: rwike77
 manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: develop
+ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,16 +16,16 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 579fd5e536e3d632f957cfc3500485f0371da8a5
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 62a82fd71da5741b6ff7747f92dd38650f6a0fae
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476140"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68324638"
 ---
 # <a name="how-to-recognize-differences-between-delegated-and-application-permissions"></a>위임된 권한과 애플리케이션 권한 간의 차이점을 인식하는 방법
 
-## <a name="recommended-documents"></a>권장 문서
+## <a name="recommended-documents"></a>권장되는 문서
 
 - 클라이언트 애플리케이션에서 [위임된 권한 및 애플리케이션 권한 요청](developer-glossary.md#permissions)을 사용하여 리소스에 액세스하는 방법을 알아보세요.
 - [클라이언트 애플리케이션의 권한 요청 구성](quickstart-configure-app-access-web-apis.md) 방법에 관한 단계별 지침을 참조하세요.

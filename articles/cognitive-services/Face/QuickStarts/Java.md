@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: c0c1b9c1e9afc84e9702f6c1897d372a017be868
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: d014785a0e866301e228458fe3742b899bd1f192
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629890"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606970"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>빠른 시작: REST API 및 Java를 사용하여 이미지에서 얼굴 감지
 
@@ -159,7 +159,7 @@ public class Main {
 
 ## <a name="run-the-app"></a>앱 실행
 
-코드를 컴파일하고 실행합니다. 성공적인 응답은 얼굴 데이터를 쉽게 읽을 수 있는 JSON 형식으로 콘솔 창에서 표시합니다. 예: 
+코드를 컴파일하고 실행합니다. 성공적인 응답은 얼굴 데이터를 쉽게 읽을 수 있는 JSON 형식으로 콘솔 창에서 표시합니다. 예:
 
 ```json
 [{

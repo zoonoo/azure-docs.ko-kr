@@ -340,7 +340,7 @@ GET /admin/extensions/DurableTaskExtension/instances/instance123
 ```
 
 > [!WARNING]
-> 사용자 지정 상태 페이로드는 Azure Table Storage 열에 맞아야 하므로 16KB의 UTF-16 JSON 텍스트로 제한됩니다. 개발자는 더 큰 페이로드가 필요한 경우 외부 저장소를 사용하면 됩니다.
+> 사용자 지정 상태 페이로드는 Azure Table Storage 열에 맞아야 하므로 16KB의 UTF-16 JSON 텍스트로 제한됩니다. 개발자는 더 큰 페이로드가 필요한 경우 외부 스토리지를 사용하면 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

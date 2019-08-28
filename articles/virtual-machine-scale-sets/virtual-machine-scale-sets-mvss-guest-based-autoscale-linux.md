@@ -32,7 +32,7 @@ ms.locfileid: "64868980"
 
 에 [이전 문서](virtual-machine-scale-sets-mvss-start.md) 기본 확장 집합 템플릿을 작성 합니다. 이제 이전 템플릿을 사용 하 여 하 고 수정 하 여 Linux 확장을 게스트 메트릭 기반된 자동 크기 조정 집합을 배포 하는 템플릿을 만듭니다.
 
-먼저, `storageAccountName` 및 `storageAccountSasToken`의 매개 변수를 추가합니다. 진단 에이전트가 이 저장소 계정의 [테이블](../cosmos-db/table-storage-how-to-use-dotnet.md)에 메트릭 데이터를 보관합니다. Linux 진단 에이전트 버전 3.0부터는 저장소 액세스 키를 사용하는 것이 지원되지 않습니다. 대신 [SAS 토큰](../storage/common/storage-dotnet-shared-access-signature-part-1.md)을 사용합니다.
+먼저, `storageAccountName` 및 `storageAccountSasToken`의 매개 변수를 추가합니다. 진단 에이전트가 이 스토리지 계정의 [테이블](../cosmos-db/table-storage-how-to-use-dotnet.md)에 메트릭 데이터를 보관합니다. Linux 진단 에이전트 버전 3.0부터는 스토리지 액세스 키를 사용하는 것이 지원되지 않습니다. 대신 [SAS 토큰](../storage/common/storage-dotnet-shared-access-signature-part-1.md)을 사용합니다.
 
 ```diff
      },
@@ -48,7 +48,7 @@ ms.locfileid: "64868980"
    },
 ```
 
-다음으로, 진단 확장을 포함하도록 `extensionProfile` 확장 집합을 수정합니다. 이 구성에서는 메트릭 수집 출처인 확장 집합의 리소스 ID뿐만 아니라 이 메트릭을 저장하는 데 사용할 저장소 계정 및 SAS 토큰도 지정합니다. 메트릭이 집계되는 빈도(이 경우에는 1분마다)와 추적할 메트릭(이 경우에는 사용된 메모리의 비율)을 지정합니다. 이 구성 및 사용된 메모리 비율 외의 다른 메트릭에 대한 자세한 내용은 [이 설명서](../virtual-machines/linux/diagnostic-extension.md)를 참조하세요.
+다음으로, 진단 확장을 포함하도록 `extensionProfile` 확장 집합을 수정합니다. 이 구성에서는 메트릭 수집 출처인 확장 집합의 리소스 ID뿐만 아니라 이 메트릭을 저장하는 데 사용할 스토리지 계정 및 SAS 토큰도 지정합니다. 메트릭이 집계되는 빈도(이 경우에는 1분마다)와 추적할 메트릭(이 경우에는 사용된 메모리의 비율)을 지정합니다. 이 구성 및 사용된 메모리 비율 외의 다른 메트릭에 대한 자세한 내용은 [이 설명서](../virtual-machines/linux/diagnostic-extension.md)를 참조하세요.
 
 ```diff
                  }

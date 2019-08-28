@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 716c60cf5155bf0583b2d602e8f46f8ba7c1cfcd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 641fc41c25746a67b4b1fe3d5316df17f14f113c
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64726828"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377253"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>확장된 Apache Spark 기록 서버를 사용하여 Apache Spark 애플리케이션 디버그 및 진단
 
@@ -305,7 +305,7 @@ Spark 기록 서버 웹 UI는 다음과 같습니다.
     
     + **스크립트 유형**: **사용자 지정**을 선택합니다.
     + **이름**: 스크립트 이름을 지정합니다.
-    + **Bash 스크립트 URI**: 개인 클러스터에 Bash 파일을 업로드한 다음, 여기에 URL을 복사합니다. 또는 제공된 URI를 사용합니다.
+    + **Bash 스크립트 URI**: 프라이빗 클러스터에 Bash 파일을 업로드한 다음, 여기에 URL을 복사합니다. 또는 제공된 URI를 사용합니다.
     
    ```upgrade_spark_enhancement
     https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upgrade_spark_enhancement.sh
@@ -319,7 +319,7 @@ Spark 기록 서버 웹 UI는 다음과 같습니다.
 
 ## <a name="known-issues"></a>알려진 문제
 
-1.  현재 Spark 2.3 클러스터에 대해서만 작동합니다.
+1.  현재는 Spark 2.3 및 2.4 클러스터에 대해서만 작동 합니다.
 
 2.  RDD를 사용한 데이터 입/출력은 데이터 탭에 표시되지 않습니다.
 
@@ -329,6 +329,6 @@ Spark 기록 서버 웹 UI는 다음과 같습니다.
 * [Apache Spark 설정 구성](apache-spark-settings.md)
 
 
-## <a name="contact-us"></a>문의처
+## <a name="contact-us"></a>문의
 
 의견이 있거나 이 도구를 사용할 때 다른 문제가 발생하는 경우 ([hdivstool@microsoft.com](mailto:hdivstool@microsoft.com))으로 메일을 보내주시기 바랍니다.

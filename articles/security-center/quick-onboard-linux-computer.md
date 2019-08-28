@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: 9f4e001909fb739aa368e5201649e85cce9906d3
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 110dcb1531390b207ae741af07fe0ad18964aae1
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521923"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816129"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>빠른 시작: Azure Security Center에 Linux 컴퓨터 온보딩
-Azure 구독을 온보딩한 후 Linux 에이전트를 프로비전하여 Azure 외부(예: 온-프레미스 또는 다른 클라우드)에서 실행되는 Linux 리소스에 Security Center를 사용하도록 설정할 수 있습니다.
+Azure 구독을 온보딩한 후 에이전트를 프로비저닝하여 Azure 외부(예: 온-프레미스 또는 다른 클라우드)에서 실행되는 Linux 리소스에 Security Center를 사용하도록 설정할 수 있습니다. 에이전트는 MMA(Microsoft Monitoring Agent)라고 하지만 OMS 에이전트라고도 합니다.
 
-이 빠른 시작에서는 Linux 컴퓨터에 Linux 에이전트를 설치하는 방법을 보여 줍니다.
+이 빠른 시작에서는 Linux 컴퓨터에 에이전트를 설치하는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
 Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야 합니다. 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)으로 등록할 수 있습니다.
@@ -57,15 +57,15 @@ Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야
 
    ![에이전트 설치][5]
 
-Linux용 Security Center 에이전트에 대한 로그는 */var/opt/microsoft/omsagent/\<workspace id>/log/* 에서 확인할 수 있습니다.
+에이전트에 대한 로그는 */var/opt/microsoft/omsagent/\<workspace id>/log/* 에서 확인할 수 있습니다.
 
   ![에이전트에 대한 로그][6]
 
 잠시 후에(최대 30분까지 걸릴 수 있음) 새 Linux 컴퓨터가 Security Center에 나타납니다.
 
-이제 Azure VM과 비 Azure 컴퓨터를 한곳에서 모니터링할 수 있습니다. **계산** 아래에는 모든 VM 및 컴퓨터의 개요가 권장 사항과 함께 나와 있습니다. 각 열에 하나의 권장 사항 집합이 표시됩니다. 색은 해당 권장 사항에 대한 VM 또는 컴퓨터의 현재 보안 상태를 나타냅니다. Security Center는 보안 경고를 통해서도 이러한 컴퓨터에서 검색된 내용을 표시합니다.
+이제 Azure VM과 비 Azure 컴퓨터를 한곳에서 모니터링할 수 있습니다. **컴퓨팅** 아래에는 모든 VM 및 컴퓨터의 개요가 권장 사항과 함께 나와 있습니다. 각 열에 하나의 권장 사항 집합이 표시됩니다. 색은 해당 권장 사항에 대한 VM 또는 컴퓨터의 현재 보안 상태를 나타냅니다. Security Center는 보안 경고를 통해서도 이러한 컴퓨터에서 검색된 내용을 표시합니다.
 
-  ![계산 블레이드][7] **계산** 블레이드에는 두 가지 유형의 아이콘이 표시됩니다.
+  ![컴퓨팅 블레이드][7]**컴퓨팅** 블레이드에는 두 가지 유형의 아이콘이 표시됩니다.
 
   ![icon1](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) 비 Azure 컴퓨터
 

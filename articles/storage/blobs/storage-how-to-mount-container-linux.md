@@ -1,24 +1,23 @@
 ---
 title: Azure Blob Storage를 Linux의 파일 시스템으로 탑재하는 방법 | Microsoft Docs
 description: Linux에 FUSE가 있는 Azure Blob Storage 컨테이너를 탑재합니다.
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 2/1/2019
 ms.author: normesta
-ms.reviewer: seguler
-ms.openlocfilehash: d5077b75ff9e760917e9d5d02bea49dc4967a08b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.reviewer: dineshm
+ms.openlocfilehash: 88002999baacf38b4afd40b574686457c48546e4
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473456"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845013"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>blobfuse를 사용하여 Blob Storage를 파일 시스템으로 탑재하는 방법
 
 ## <a name="overview"></a>개요
-[Blobfuse](https://github.com/Azure/azure-storage-fuse)는 Azure Blob Storage의 가상 파일 시스템 드라이버입니다. Blobfuse를 사용하여 Linux 파일 시스템을 통해 스토리지 계정의 기존 블록 Blob 데이터에 액세스할 수 있습니다. Blobfuse는 구분 기호로 '/'는 슬래시를 사용 하 여 가상 디렉터리 체계를 사용합니다.  
+[Blobfuse](https://github.com/Azure/azure-storage-fuse)는 Azure Blob Storage의 가상 파일 시스템 드라이버입니다. Blobfuse를 사용하여 Linux 파일 시스템을 통해 스토리지 계정의 기존 블록 Blob 데이터에 액세스할 수 있습니다. Blobfuse는 슬래시 ('/')를 구분 기호로 사용 하는 가상 디렉터리 체계를 사용 합니다.  
 
 이 가이드에서는 blobfuse를 사용하고, Blob Storage 컨테이너를 Linux에 탑재하고, 데이터에 액세스하는 방법을 보여 줍니다. blobfuse에 대한 자세한 내용은 [blobfuse 리포지토리](https://github.com/Azure/azure-storage-fuse)의 세부 정보를 참조하세요.
 
@@ -30,7 +29,7 @@ ms.locfileid: "66473456"
 ## <a name="install-blobfuse-on-linux"></a>Linux에 blobfuse 설치
 Blobfuse 이진 파일은 Ubuntu 및 RHEL 배포를 위한 [Linux용 Microsoft 소프트웨어 리포지토리](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software)에서 사용할 수 있습니다. 해당 배포에서 Blobfuse를 설치하려면 목록에서 리포지토리 중 하나를 구성합니다. 배포에 사용할 수 있는 이진 파일이 없는 경우 [Azure Storage 설치 단계](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source)에 따라 소스 코드에서 이진 파일을 빌드할 수도 있습니다.
 
-Blobfuse는 Ubuntu 14.04, 16.04, 및 18.04에서 설치를 지원합니다. 이 명령을 실행하면 해당 버전 중 하나가 배포되었는지 확인할 수 있습니다.
+Blobfuse는 Ubuntu 14.04, 16.04 및 18.04에 대 한 설치를 지원 합니다. 이 명령을 실행하면 해당 버전 중 하나가 배포되었는지 확인할 수 있습니다.
 ```
 lsb_release -a
 ```
@@ -52,7 +51,7 @@ sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
 ```
 
-마찬가지로 URL을 변경 `.../ubuntu/16.04/...` 또는 `.../ubuntu/18.04/...` 다른 Ubuntu 버전을 참조 합니다.
+마찬가지로 URL을 또는 `.../ubuntu/16.04/...` `.../ubuntu/18.04/...` 로 변경 하 여 다른 Ubuntu 버전을 참조 합니다.
 
 ### <a name="install-blobfuse"></a>blobfuse 설치
 
@@ -98,15 +97,15 @@ accountName myaccount
 accountKey storageaccesskey
 containerName mycontainer
 ```
-`accountName` 는 전체 URL이 아닌 저장소 계정에 대 한 접두사입니다.
+는 `accountName` 저장소 계정에 대 한 접두사 이며 전체 URL이 아닙니다.
 
-사용 하 여이 파일을 만듭니다.
+다음을 사용 하 여이 파일을 만듭니다.
 
 ```
 touch ~/fuse_connection.cfg
 ```
 
-생성 하 고이 파일을 편집 하면, 다른 사용자가 읽을 수 없도록 액세스를 제한 해야 합니다.
+이 파일을 만들고 편집한 후에는 다른 사용자가 읽을 수 없도록 액세스를 제한 해야 합니다.
 ```bash
 chmod 600 fuse_connection.cfg
 ```

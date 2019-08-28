@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: bd39b0aae5b76f37e2153f8e4c4502be994fa5b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a652e157ec0e7e33c8dce7be2f4af2c240edac9e
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61462006"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839923"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 PostgreSQL에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
@@ -33,7 +33,7 @@ ms.locfileid: "61462006"
 
 온-프레미스 PostgreSQL 데이터 저장소의 데이터를 지원되는 싱크 데이터 저장소로 복사할 수 있습니다. 복사 작업의 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)를 참조하세요. 현재 데이터 팩터리는 다른 데이터 저장소에서 PostgreSQL 데이터베이스로 데이터 이동이 아닌 PostgreSQL 데이터베이스에서 다른 데이터 저장소로 데이터 이동만을 지원합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 데이터 팩터리 서비스는 데이터 관리 게이트웨이를 사용하여 온-프레미스 PostgreSQL 원본에 연결을 지원합니다. 데이터 관리 게이트웨이 및 게이트웨이 설정에 대한 단계별 지침을 알아보려면 [온-프레미스 위치 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
 
@@ -50,7 +50,6 @@ PostgreSQL 데이터베이스에 연결할 데이터 관리 게이트웨이의 �
 
 - 파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용하는 것입니다. 단계별 지침은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습을 볼 수 있습니다.
 - 또한 다음 도구를 사용하여 파이프라인을 만들 수 있습니다.
-  - Azure 포털
   - Visual Studio
   - Azure PowerShell
   - Azure Resource Manager 템플릿
@@ -72,15 +71,15 @@ PostgreSQL 데이터베이스에 연결할 데이터 관리 게이트웨이의 �
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 표에서는 PostgreSQL 연결된 서비스와 관련된 JSON 요소에 대한 설명을 제공합니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | type |type 속성을 다음으로 설정해야 합니다. **OnPremisesPostgreSql** |예 |
 | server |PostgreSQL 서버의 이름입니다. |예 |
 | database |PostgreSQL 데이터베이스의 이름입니다. |예 |
-| schema |데이터베이스에서 스키마의 이름입니다. schema 이름은 대/소문자를 구분합니다. |아닙니다. |
-| authenticationType |PostgreSQL 데이터베이스에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 다음과 같습니다. 익명, 기본 및 Windows입니다. |예 |
-| username |기본 또는 Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. |아닙니다. |
-| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |아닙니다. |
+| 스키마 |데이터베이스에서 스키마의 이름입니다. schema 이름은 대/소문자를 구분합니다. |아니요 |
+| authenticationType |PostgreSQL 데이터베이스에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 익명, 기본 및 Windows입니다. |예 |
+| username |기본 또는 Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. |아니요 |
+| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |아니요 |
 | gatewayName |데이터 팩터리 서비스가 온-프레미스 PostgreSQL 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |예 |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
@@ -88,7 +87,7 @@ PostgreSQL 데이터베이스에 연결할 데이터 관리 게이트웨이의 �
 
 typeProperties 섹션은 데이터 세트의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **RelationalTable** 형식의 데이터 세트(PostgreSQL 데이터 세트를 포함)에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 PostgreSQL 데이터베이스 인스턴스에서 테이블의 이름입니다. tableName은 대/소문자를 구분합니다. |아니요(**RelationalSource**의 **쿼리**가 지정된 경우) |
 
@@ -99,9 +98,9 @@ typeProperties 섹션은 데이터 세트의 각 형식에 따라 다르며 데�
 
 원본이 **RelationalSource**(PostgreSQL 포함) 형식인 경우 typeProperties 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-| 자산 | 설명 | 허용되는 값 | 필수 |
+| 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: `"query": "select * from \"MySchema\".\"MyTable\""` |아니요(**데이터 세트**의 **tableName**이 지정된 경우) |
+| query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예를 들어 `"query": "select * from \"MySchema\".\"MyTable\""`을 참조하십시오. |아니요(**데이터 세트**의 **tableName**이 지정된 경우) |
 
 > [!NOTE]
 > 스키마 및 테이블 이름은 대/소문자를 구분합니다. 쿼리에서 `""`(큰따옴표)로 묶습니다.
@@ -111,7 +110,7 @@ typeProperties 섹션은 데이터 세트의 각 형식에 따라 다르며 데�
  `"query": "select * from \"MySchema\".\"MyTable\""`
 
 ## <a name="json-example-copy-data-from-postgresql-to-azure-blob"></a>JSON 예제: PostgreSQL에서 Azure Blob으로 데이터 복사
-다음 예제에서는 [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. 이 샘플은 PostgreSQL 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 에 설명한 싱크로 데이터를 복사할 수 있습니다.
+이 예제에서는 사용 하 여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의 제공 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 하거나 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)합니다. 이 샘플은 PostgreSQL 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 에 설명한 싱크로 데이터를 복사할 수 있습니다.
 
 > [!IMPORTANT]
 > 이 샘플은 JSON 코드 조각을 제공합니다. 데이터 팩터리를 만들기 위한 단계별 지침은 포함하지 않습니다. 단계별 지침은 [온-프레미스 위치와 클라우드 간에 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
@@ -306,27 +305,27 @@ PostgreSQL로 데이터를 이동하는 경우 PostgreSQL 형식에서 .NET 형�
 
 | PostgreSQL 데이터베이스 형식 | PostgresSQL 별칭 | .NET Framework 형식 |
 | --- | --- | --- |
-| abstime | |DateTime |
-| bigint |int8 |Int64 |
+| abstime | |Datetime |
+| BIGINT |int8 |Int64 |
 | bigserial |serial8 |Int64 |
 | bit [(n)] | |Byte[], String |
 | bit varying [ (n) ] |varbit |Byte[], String |
-| 부울 |bool |Boolean |
+| boolean |bool |Boolean |
 | box | |Byte[], String |
 | bytea | |Byte[], String |
-| character [(n)] |char [(n)] |String |
-| character varying [(n)] |varchar [(n)] |String |
+| character [(n)] |char [(n)] |문자열 |
+| character varying [(n)] |varchar [(n)] |문자열 |
 | cid | |String |
 | cidr | |String |
 | circle | |Byte[], String |
-| date | |DateTime |
+| 날짜 | |Datetime |
 | daterange | |String |
 | double precision |float8 |Double |
 | inet | |Byte[], String |
-| intarry | |String |
+| intarry | |문자열 |
 | int4range | |String |
-| int8range | |String |
-| 정수 |int, int4 |Int32 |
+| int8range | |문자열 |
+| integer |int, int4 |Int32 |
 | interval [fields] [(p)] | |Timespan |
 | json : | |String |
 | jsonb | |Byte[] |
@@ -337,12 +336,12 @@ PostgreSQL로 데이터를 이동하는 경우 PostgreSQL 형식에서 .NET 형�
 | numeric [(p, s)] |decimal [(p, s)] |Decimal |
 | numrange | |String |
 | oid | |Int32 |
-| 경로 | |Byte[], String |
+| path | |Byte[], String |
 | pg_lsn | |Int64 |
 | point | |Byte[], String |
 | polygon | |Byte[], String |
 | real |float4 |Single |
-| smallint |int2 |Int16 |
+| SMALLINT |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | serial |serial4 |Int32 |
 | text | |String |

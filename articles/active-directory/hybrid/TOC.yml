@@ -29,7 +29,7 @@
         - name: Azure AD Connect 및 Connect Health란?
           href: whatis-azure-ad-connect.md
         - name: 올바른 인증 선택
-          href: 'https://docs.microsoft.com/azure/security/azure-ad-choose-authn'
+          href: 'https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn'
         - name: ID 동기화 및 중복 특성 복원력
           href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
     - name: 암호 해시 동기화
@@ -180,9 +180,9 @@
               href: plan-hybrid-identity-design-considerations-tools-comparison.md
     - name: Azure AD Connect 관리
       items:
-        - name: 장치 쓰기 저장 사용
+        - name: 디바이스 쓰기 저장 사용
           href: how-to-connect-device-writeback.md
-        - name: 장치 옵션
+        - name: 디바이스 옵션
           href: how-to-connect-device-options.md
         - name: Azure AD Connect에서 추가 기능
           href: how-to-connect-preview.md
@@ -350,3 +350,5 @@
       href: reference-connect-adsynctools.md
     - name: ADConnectivityTools 참조
       href: reference-connect-adconnectivitytools.md
+    - name: msExchUserHoldPolicies 및 cloudMSExchUserHoldPolicies
+      href: reference-connect-msexchuserholdpolicies.md

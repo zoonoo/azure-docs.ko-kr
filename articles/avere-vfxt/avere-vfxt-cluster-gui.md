@@ -25,7 +25,7 @@ vFXT 클러스터는 프라이빗 가상 네트워크 내에 있으므로 SSH �
 > [!NOTE] 
 > 이 문서에서는 클러스터 컨트롤러 또는 클러스터의 가상 네트워크 내부에 있는 다른 VM에 공용 IP 주소를 설정했다고 가정합니다. 이 문서에서는 호스트로 해당 VM을 사용하여 클러스터에 액세스하는 방법을 설명합니다. VPN 또는 ExpressRoute를 사용하여 vnet에 액세스하는 경우 [Avere 제어판에 연결](#connect-to-the-avere-control-panel-in-a-browser)로 건너뜁니다.
 
-연결하기 전에 클러스터 컨트롤러를 만들 때 사용한 SSH 공개/개인 키 쌍이 로컬 머신에 설치되어 있는지 확인합니다. 도움이 필요한 경우 [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) 또는 [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)용 SSH 키 설명서를 참조하세요. 공개 키 대신 암호를 사용한 경우에는 연결 시 암호를 입력하라는 메시지가 표시됩니다. 
+연결하기 전에 클러스터 컨트롤러를 만들 때 사용한 SSH 퍼블릭/프라이빗 키 쌍이 로컬 머신에 설치되어 있는지 확인합니다. 도움이 필요한 경우 [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) 또는 [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)용 SSH 키 설명서를 참조하세요. 공개 키 대신 암호를 사용한 경우에는 연결 시 암호를 입력하라는 메시지가 표시됩니다. 
 
 ## <a name="create-an-ssh-tunnel"></a>SSH 터널 만들기 
 

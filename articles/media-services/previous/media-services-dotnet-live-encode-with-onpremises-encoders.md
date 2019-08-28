@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: cenkdin;juliako
-ms.openlocfilehash: 8baff356e1a4916bcc21b28f422a6e98342c0d34
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.openlocfilehash: bc7c8a059e1e17b7b280a7061206b10ed6c530aa
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64869472"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "69015833"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>.NET을 사용하여 온-프레미스 인코더로 라이브 스트리밍을 수행하는 방법
 > [!div class="op_single_selector"]
@@ -29,11 +29,11 @@ ms.locfileid: "64869472"
 > 
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 참고: [v2에서 v3 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
 
 이 자습서에서는 Azure Media Services .NET SDK를 사용하여 통과 배달을 위해 구성된 **채널** 을 만드는 단계를 안내합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
 
 * Azure 계정.
@@ -51,7 +51,7 @@ ms.locfileid: "64869472"
 
 개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
 다음 코드 예제는 다음 작업을 수행하는 방법을 보여 줍니다.
 

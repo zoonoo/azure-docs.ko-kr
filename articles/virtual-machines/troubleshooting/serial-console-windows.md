@@ -1,10 +1,10 @@
 ---
-title: Windows 용 azure 직렬 콘솔 | Microsoft Docs
-description: Azure Virtual Machines 및 Virtual Machine Scale Sets에 대 한 양방향 직렬 콘솔입니다.
+title: Windows 용 Azure 직렬 콘솔 | Microsoft Docs
+description: Azure Virtual Machines 및 Virtual Machine Scale Sets에 대 한 양방향 직렬 콘솔
 services: virtual-machines-windows
 documentationcenter: ''
 author: asinn826
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
@@ -14,73 +14,73 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 32d385416c83f81553e734d9471d0b502a458b07
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a6e303c26278eff290a2d4efb6f96e9962cf2f87
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66390498"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775358"
 ---
-# <a name="azure-serial-console-for-windows"></a>Windows 용 azure 직렬 콘솔
+# <a name="azure-serial-console-for-windows"></a>Windows 용 Azure 직렬 콘솔
 
-가상 머신 확장 집합 인스턴스 및 Azure portal에서 직렬 콘솔 Windows 가상 머신 (Vm)에 대 한 텍스트 기반 콘솔에 대 한 액세스를 제공 합니다. 이 직렬 연결의 VM 또는 가상 머신 확장 집합 인스턴스, 네트워크 또는 운영 체제 상태와 관계 없이에 대 한 액세스를 제공 COM1 직렬 포트에 연결 합니다. 직렬 콘솔 Azure portal을 사용 하 여 액세스할 수 있습니다 이며 VM 또는 가상 머신 확장 집합에 이상 참가자의 액세스 역할을가지고 있는 사용자만 사용할 수 있습니다.
+Azure Portal의 직렬 콘솔은 Windows Vm (가상 머신) 및 가상 머신 확장 집합 인스턴스의 텍스트 기반 콘솔에 대 한 액세스를 제공 합니다. 이 직렬 연결은 VM 또는 가상 머신 확장 집합 인스턴스의 COM1 직렬 포트에 연결 하 여 네트워크 또는 운영 체제 상태와 무관 하 게 액세스를 제공 합니다. 직렬 콘솔은 Azure Portal를 사용 하 여 액세스할 수 있으며, 참가자 이상의 액세스 역할이 있는 사용자 (VM 또는 가상 머신 확장 집합)에 대해서만 허용 됩니다.
 
-가상 머신 확장 집합 인스턴스 직렬 콘솔 Vm에서 동일한 방식으로 작동 하며 이 문서에서 Vm에 모든 멘 션 암시적으로 포함 됩니다 가상 머신 확장 집합 인스턴스 달리 언급 하지 않으면.
+직렬 콘솔은 Vm 및 가상 머신 확장 집합 인스턴스에 대해 동일한 방식으로 작동 합니다. 이 문서에서 Vm에 대 한 모든 멘 션은 별도로 명시 되지 않는 한 가상 머신 확장 집합 인스턴스를 암시적으로 포함 합니다.
 
-Linux Vm 및 가상 머신 확장 집합에 대 한 직렬 콘솔 설명서를 참조 하세요 [Azure Linux 용 직렬 콘솔](serial-console-linux.md)합니다.
+Linux Vm 및 가상 머신 확장 집합에 대 한 직렬 콘솔 설명서는 [linux 용 Azure 직렬 콘솔](serial-console-linux.md)을 참조 하세요.
 
 > [!NOTE]
-> 직렬 콘솔 글로벌 Azure 지역에서 일반 공급 됩니다. 아직 Azure Government 또는 Azure 중국 클라우드에서는 지원되지 않습니다.
+> 직렬 콘솔은 일반적으로 글로벌 Azure 지역에서 사용할 수 있습니다. 아직 Azure Government 또는 Azure 중국 클라우드에서는 지원되지 않습니다.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
-* VM 또는 가상 머신 확장 집합 인스턴스에 리소스 관리 배포 모델을 사용 해야 합니다. 클래식 배포는 지원되지 않습니다.
+* VM 또는 가상 머신 확장 집합 인스턴스는 리소스 관리 배포 모델을 사용 해야 합니다. 클래식 배포는 지원되지 않습니다.
 
-- 직렬 콘솔을 사용 하 여 해당 계정에 있어야 합니다 [Virtual Machine 참여자 역할](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) VM에 대 한 및 [부트 진단](boot-diagnostics.md) 저장소 계정
+- 직렬 콘솔을 사용 하는 계정에는 VM 및 [부트 진단](boot-diagnostics.md) 저장소 계정에 대 한 [가상 머신 참가자 역할이](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) 있어야 합니다.
 
-- 암호 기반 사용자를 VM 또는 가상 머신 확장 집합 인스턴스에 있어야 합니다. VM 액세스 확장의 [암호 재설정](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) 기능으로 이러한 계정을 만들 수 있습니다. **지원 + 문제 해결** 섹션에서 **암호 재설정**을 선택합니다.
+- VM 또는 가상 머신 확장 집합 인스턴스에 암호 기반 사용자가 있어야 합니다. VM 액세스 확장의 [암호 재설정](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) 기능으로 이러한 계정을 만들 수 있습니다. **지원 + 문제 해결** 섹션에서 **암호 재설정**을 선택합니다.
 
 * 직렬 콘솔에 액세스하는 VM에서는 [부트 진단](boot-diagnostics.md)을 사용하도록 설정해야 합니다.
 
     ![부트 진단 설정](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
 ## <a name="get-started-with-the-serial-console"></a>직렬 콘솔 시작하기
-Vm 및 가상 머신 확장 집합에 대 한 직렬 콘솔은 Azure 포털을 통해서만 액세스할 수 있습니다.
+Vm 및 가상 머신 확장 집합에 대 한 직렬 콘솔은 Azure Portal를 통해서만 액세스할 수 있습니다.
 
-### <a name="serial-console-for-virtual-machines"></a>가상 머신 용 직렬 콘솔
-Vm에 대 한 직렬 콘솔은 클릭으로 간단 **직렬 콘솔** 내 합니다 **지원 + 문제 해결** 섹션에서는 Azure portal에서 합니다.
+### <a name="serial-console-for-virtual-machines"></a>Virtual Machines 용 직렬 콘솔
+Vm 용 직렬 콘솔은 Azure Portal의 **지원 + 문제 해결** 섹션 내에서 **직렬 콘솔** 를 클릭 하는 것 만큼 간단 합니다.
   1. [Azure Portal](https://portal.azure.com)을 엽니다.
 
-  1. 이동할 **모든 리소스** 가상 머신을 선택 합니다. VM에 대한 개요 페이지가 열립니다.
+  1. **모든 리소스** 로 이동 하 여 가상 컴퓨터를 선택 합니다. VM에 대한 개요 페이지가 열립니다.
 
   1. **지원 + 문제 해결** 섹션까지 아래로 스크롤하여 **직렬 콘솔**을 선택합니다. 직렬 콘솔이 있는 새 창이 열리고 연결이 시작됩니다.
 
-### <a name="serial-console-for-virtual-machine-scale-sets"></a>Virtual Machine Scale Sets에 대 한 직렬 콘솔
-직렬 콘솔은 virtual machine scale sets는 인스턴스 단위로 제공 됩니다. 표시 하기 전에 가상 머신 확장 집합의 개별 인스턴스를 이동 해야 합니다 **직렬 콘솔** 단추입니다. 가상 머신 확장 집합에 부팅 진단을 사용 하도록 설정 하는 경우 부팅 진단을 사용 하도록 설정 하 여 직렬 콘솔에 액세스 하기 위해 새 모델에 모든 인스턴스를 업그레이드 한 후에 가상 머신 확장 집합 모델을 업데이트 해야 합니다.
+### <a name="serial-console-for-virtual-machine-scale-sets"></a>Virtual Machine Scale Sets 용 직렬 콘솔
+직렬 콘솔은 가상 머신 확장 집합에 대 한 인스턴스별 기준으로 사용할 수 있습니다. **직렬 콘솔** 단추를 표시 하기 전에 가상 머신 확장 집합의 개별 인스턴스로 이동 해야 합니다. 가상 머신 확장 집합에 부트 진단이 사용 하도록 설정 되어 있지 않으면 가상 머신 확장 집합 모델을 업데이트 하 여 부팅 진단을 사용 하도록 설정 하 고 직렬 콘솔에 액세스 하기 위해 모든 인스턴스를 새 모델로 업그레이드 해야 합니다.
   1. [Azure Portal](https://portal.azure.com)을 엽니다.
 
-  1. 이동할 **모든 리소스** 가상 머신 확장 집합을 선택 합니다. 가상 머신 확장에 대 한 개요 페이지가 열리고를 설정합니다.
+  1. **모든 리소스** 로 이동 하 여 가상 머신 확장 집합을 선택 합니다. 가상 머신 확장 집합에 대 한 개요 페이지가 열립니다.
 
-  1. 이동할 **인스턴스**
+  1. **인스턴스로** 이동
 
-  1. 가상 머신 확장 집합 인스턴스를 선택 합니다.
+  1. 가상 머신 확장 집합 인스턴스를 선택 하십시오.
 
-  1. **지원 + 문제 해결** 섹션에서 **직렬 콘솔**합니다. 직렬 콘솔이 있는 새 창이 열리고 연결이 시작됩니다.
+  1. **지원 + 문제 해결** 섹션에서 **직렬 콘솔**을 선택 합니다. 직렬 콘솔이 있는 새 창이 열리고 연결이 시작됩니다.
 
-## <a name="enable-serial-console-functionality"></a>직렬 콘솔 기능을 사용 하도록 설정
+## <a name="enable-serial-console-functionality"></a>직렬 콘솔 기능 사용
 
 > [!NOTE]
-> 직렬 콘솔에 아무 것도 표시 되지 않는 경우 해당 부팅 진단 VM 또는 가상 머신 확장 집합에 대해 활성화 되어 있는지 확인 합니다.
+> 직렬 콘솔에 아무것도 표시 되지 않는 경우 VM 또는 가상 머신 확장 집합에서 부팅 진단이 사용 하도록 설정 되어 있는지 확인 합니다.
 
 ### <a name="enable-the-serial-console-in-custom-or-older-images"></a>사용자 지정 또는 이전 이미지에서 직렬 콘솔 사용
 Azure의 최신 Windows Server 이미지에는 기본적으로 SAC([Special Administrative Console](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx))가 사용되도록 설정되어 있습니다. SAC는 서버 버전의 Windows에서 지원되지만, 클라이언트 버전(예: Windows 10, Windows 8 또는 Windows 7)에서는 사용할 수 없습니다.
 
-2018년 2월 전에 만든 이전 Windows Server 이미지의 경우 Azure Portal의 실행 명령 기능을 통해 직렬 콘솔을 자동으로 사용하도록 설정할 수 있습니다. Azure portal에서 선택 **명령을 실행**, 선택한 라는 명령이 **EnableEMS** 목록에서.
+2018년 2월 전에 만든 이전 Windows Server 이미지의 경우 Azure Portal의 실행 명령 기능을 통해 직렬 콘솔을 자동으로 사용하도록 설정할 수 있습니다. Azure Portal에서 **명령 실행**을 선택 하 고 목록에서 **enableems** 라는 명령을 선택 합니다.
 
 ![명령 실행 목록](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-runcommand.png)
 
-또는 수동으로 2018 년 2 월 이전에 만든 Windows Vm/가상 머신 확장 집합에 대 한 직렬 콘솔을 사용 하도록 설정 하려면 다음이 단계를 수행 합니다.
+또는 2018 2 월 이전에 생성 된 Windows Vm/가상 머신 확장 집합에 대 한 직렬 콘솔을 수동으로 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
 
 1. 원격 데스크톱을 사용하여 Windows 가상 머신에 연결합니다.
 1. 관리자 명령 프롬프트에서 다음 명령을 실행합니다.
@@ -106,7 +106,7 @@ Azure의 최신 Windows Server 이미지에는 기본적으로 SAC([Special Admi
 
 Windows 부팅 로더 프롬프트를 사용하도록 설정하여 직렬 콘솔에 표시해야 할 경우 부팅 구성 데이터에 다음과 같은 추가 옵션을 추가할 수 있습니다. 자세한 내용은 [bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set)를 참조하세요.
 
-1. Windows VM에 연결 하거나 원격 데스크톱을 사용 하 여 가상 머신 확장 집합 인스턴스.
+1. 원격 데스크톱을 사용 하 여 Windows VM 또는 가상 머신 확장 집합 인스턴스에 연결 합니다.
 
 1. 관리자 명령 프롬프트에서 다음 명령을 실행합니다.
    - `bcdedit /set {bootmgr} displaybootmenu yes`
@@ -120,7 +120,7 @@ Windows 부팅 로더 프롬프트를 사용하도록 설정하여 직렬 콘솔
 
 ## <a name="use-serial-console"></a>직렬 콘솔 사용
 
-### <a name="use-cmd-or-powershell-in-serial-console"></a>직렬 콘솔에 CMD 또는 PowerShell을 사용 합니다.
+### <a name="use-cmd-or-powershell-in-serial-console"></a>직렬 콘솔에서 CMD 또는 PowerShell 사용
 
 1. 직렬 콘솔에 연결합니다. 연결에 성공하면 프롬프트가 **SAC>** 입니다.
 
@@ -128,7 +128,7 @@ Windows 부팅 로더 프롬프트를 사용하도록 설정하여 직렬 콘솔
 
 1.  `cmd`를 입력하여 CMD 인스턴스가 있는 채널을 만듭니다.
 
-1.  `ch -si 1`을 입력하여 CMD 인스턴스를 실행하는 채널로 전환합니다.
+1.  CMD `ch -si 1` 인스턴스를 `<esc>+<tab>` 실행 하는 채널로 전환 하려면 바로 가기 키를 입력 하거나 누릅니다.
 
 1.  **Enter** 키를 누른 다음, 관리자 권한으로 로그인 자격 증명을 입력합니다.
 
@@ -139,7 +139,7 @@ Windows 부팅 로더 프롬프트를 사용하도록 설정하여 직렬 콘솔
     ![PowerShell 인스턴스 열기](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
 
 ### <a name="use-the-serial-console-for-nmi-calls"></a>NMI 호출에 대해 직렬 콘솔 사용
-NMI(마스크 불가능 인터럽트)는 가상 머신에 있는 소프트웨어가 무시하는 신호를 만들도록 설계되었습니다. 지금까지 NMI는 특정 응답 시간이 필요한 시스템에서 하드웨어 문제를 모니터링하는 데 사용되었습니다. 현재, 프로그래머 및 시스템 관리자는 종종 디버그 하거나 응답 하지 않는 시스템 문제를 해결 하려면 메커니즘으로 NMI를 사용 합니다.
+NMI(마스크 불가능 인터럽트)는 가상 머신에 있는 소프트웨어가 무시하는 신호를 만들도록 설계되었습니다. 지금까지 NMI는 특정 응답 시간이 필요한 시스템에서 하드웨어 문제를 모니터링하는 데 사용되었습니다. 현재 프로그래머 및 시스템 관리자는 응답 하지 않는 시스템을 디버그 하거나 문제를 해결 하는 메커니즘으로 NMI를 사용 하는 경우가 많습니다.
 
 명령줄에서 키보드 아이콘을 사용하여 NMI를 Azure 가상 머신에 전송하는 데 직렬 콘솔을 사용할 수 있습니다. NMI가 전달되면 가상 머신 구성이 시스템의 응답을 제어하게 됩니다. NMI를 받는 경우 메모리 덤프의 작동을 중단하고 메모리 덤프 파일을 만들도록 Windows를 구성할 수 있습니다.
 
@@ -148,15 +148,15 @@ NMI(마스크 불가능 인터럽트)는 가상 머신에 있는 소프트웨어
 NMI를 받을 때 크래시 덤프 파일을 만들도록 Windows 구성에 대한 정보는 [NMI를 사용하여 크래시 덤프 파일을 생성하는 방법](https://support.microsoft.com/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)을 참조하세요.
 
 ### <a name="use-function-keys-in-serial-console"></a>직렬 콘솔에 기능 키 사용
-기능 키는 Windows VM의 직렬 콘솔의 사용량에 대해 사용하도록 설정됩니다. 직렬 콘솔 드롭다운의 F8은 고급 부팅 설정 메뉴를 쉽게 입력하는 편리함을 제공하지만 직렬 콘솔은 다른 모든 기능 키와 호환됩니다. 키를 눌러야 **Fn** + **F1** (또는 F3, F2 등)에서 직렬 콘솔을 사용 중인 컴퓨터에 따라 키보드에 있습니다.
+기능 키는 Windows VM의 직렬 콘솔의 사용량에 대해 사용하도록 설정됩니다. 직렬 콘솔 드롭다운의 F8은 고급 부팅 설정 메뉴를 쉽게 입력하는 편리함을 제공하지만 직렬 콘솔은 다른 모든 기능 키와 호환됩니다. 직렬 콘솔을 사용 하는 컴퓨터에 따라 키보드에서 **Fn** + **F1** (또는 F2, F3, 등)를 눌러야 할 수 있습니다.
 
 ### <a name="use-wsl-in-serial-console"></a>직렬 콘솔에서 WSL 사용
 Linux(WSL)용 Windows 하위 시스템은 Windows Server 2019 이상에서 사용하도록 설정됐으므로 Windows Server 2019 이상을 실행하는 경우 직렬 콘솔 내에서 사용을 위해 WSL을 사용하도록 설정할 수 있습니다. 이 기능은 또한 Linux 명령에 익숙한 사용자에게 유용할 수 있습니다. Windows Server용 WSL를 사용하도록 설정하는 지침은 [설치 가이드](https://docs.microsoft.com/windows/wsl/install-on-server)를 참조하세요.
 
-### <a name="restart-your-windows-vmvirtual-machine-scale-set-instance-within-serial-console"></a>직렬 콘솔에 Windows V m/가상 머신 확장 집합 인스턴스를 다시 시작
-전원 단추를 탐색 하 고 "VM 다시 시작"을 클릭 하 여 직렬 콘솔 내에서 다시 시작을 시작할 수 있습니다. 그러면 VM 다시 시작을 시작하고, 다시 시작에 대해 Azure Portal 내에 알림이 표시됩니다.
+### <a name="restart-your-windows-vmvirtual-machine-scale-set-instance-within-serial-console"></a>직렬 콘솔 내에서 Windows v m/가상 머신 확장 집합 인스턴스를 다시 시작 합니다.
+전원 단추로 이동 하 고 "VM 다시 시작"을 클릭 하 여 직렬 콘솔 내에서 다시 시작을 시작할 수 있습니다. 그러면 VM 다시 시작을 시작하고, 다시 시작에 대해 Azure Portal 내에 알림이 표시됩니다.
 
-직렬 콘솔 환경을 종료 하지 않고 부팅 메뉴에 액세스 하려는 경우에 유용 합니다.
+이는 직렬 콘솔 환경을 벗어나지 않고도 부팅 메뉴에 액세스할 수 있는 경우에 유용 합니다.
 
 ![Windows 직렬 콘솔 다시 시작](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-windows.gif)
 
@@ -164,15 +164,15 @@ Linux(WSL)용 Windows 하위 시스템은 Windows Server 2019 이상에서 사�
 기본적으로 모든 구독에는 모든 VM에 대한 직렬 콘솔 액세스가 활성화되어 있습니다. 구독 수준 또는 VM 수준에서 직렬 콘솔을 비활성화할 수 있습니다.
 
 ### <a name="vmvirtual-machine-scale-set-level-disable"></a>V m/가상 머신 확장 집합 수준 사용 안 함
-특정 VM 또는 가상 머신 확장 집합을 부트 진단 설정을 사용 하지 않도록 설정 하 여 직렬 콘솔을 해제할 수 있습니다. VM 또는 가상 머신 확장 집합에 대 한 직렬 콘솔을 사용 하지 않도록 설정 하려면 Azure portal에서 부트 진단을 해제 합니다. 직렬 콘솔을 사용 하 여 가상 머신 확장 집합에는, 경우에 가상 머신 확장 집합 인스턴스에 최신 모델로 업그레이드를 확인 합니다.
+부팅 진단 설정을 사용 하지 않도록 설정 하 여 특정 VM 또는 가상 머신 확장 집합에 대해 직렬 콘솔을 사용 하지 않도록 설정할 수 있습니다. VM 또는 가상 머신 확장 집합에 대 한 직렬 콘솔을 사용 하지 않도록 설정 하려면 Azure Portal에서 부트 진단을 끕니다. 가상 머신 확장 집합에서 직렬 콘솔을 사용 하는 경우 가상 머신 확장 집합 인스턴스를 최신 모델로 업그레이드 해야 합니다.
 
 > [!NOTE]
 > 직렬 콘솔을 사용하거나 사용하지 않도록 설정하려면 구독에 대한 쓰기 권한이 있어야 합니다. 이러한 권한에는 관리자 또는 소유자 역할이 포함되지만 이에 국한되지 않습니다. 사용자 지정 역할에는 쓰기 권한도 있을 수 있습니다.
 
 ### <a name="subscription-level-disable"></a>구독 수준에서 비활성화
-[콘솔 REST API 호출 비활성화](/rest/api/serialconsole/console/disableconsole)를 통해 전체 구독의 직렬 콘솔을 비활성화할 수 있습니다. 이 작업에 대 한 참가자 수준 액세스 필요 이상 구독에 있습니다. API 설명서 페이지에서 지원되는 **사용해 보기** 기능을 사용하여 구독의 직렬 콘솔을 비활성화하거나 활성화할 수 있습니다. **subscriptionId**에 대한 구독 ID를 입력하고, **기본값**에 대한 “기본값”을 입력한 다음, **실행**을 선택합니다. Azure CLI 명령은 아직 지원되지 않습니다.
+[콘솔 REST API 호출 비활성화](/rest/api/serialconsole/console/disableconsole)를 통해 전체 구독의 직렬 콘솔을 비활성화할 수 있습니다. 이 작업을 수행 하려면 구독에 대 한 참가자 수준 액세스 권한이 있어야 합니다. API 설명서 페이지에서 지원되는 **사용해 보기** 기능을 사용하여 구독의 직렬 콘솔을 비활성화하거나 활성화할 수 있습니다. **subscriptionId**에 대한 구독 ID를 입력하고, **기본값**에 대한 “기본값”을 입력한 다음, **실행**을 선택합니다. Azure CLI 명령은 아직 지원되지 않습니다.
 
-직렬 콘솔에 대 한 구독을 다시 설정 하려면 사용 합니다 [콘솔을 사용 하도록 설정 REST API 호출](/rest/api/serialconsole/console/enableconsole)합니다.
+구독에 대 한 직렬 콘솔을 다시 사용 하려면 [콘솔 사용 REST API 호출](/rest/api/serialconsole/console/enableconsole)을 사용 합니다.
 
 ![REST API 사용해 보기](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 
@@ -223,7 +223,7 @@ Linux(WSL)용 Windows 하위 시스템은 Windows Server 2019 이상에서 사�
 > [!CAUTION]
 > 그렇다고 연결이 끊어진 사용자가 로그아웃되지는 않습니다. SIGHUP 또는 유사한 메커니즘을 사용하여 연결 해제 시 로그아웃을 강제 적용하는 기능은 아직 계획 중입니다. Windows의 경우 SAC에 자동 시간 제한을 사용하도록 설정되어 있고 Linux의 경우에는 터미널 시간 제한 설정을 구성할 수 있습니다.
 
-## <a name="accessibility"></a>내게 필요한 옵션
+## <a name="accessibility"></a>액세스 가능성
 접근성은 Azure 직렬 콘솔의 핵심 기능입니다. 이를 위해 마우스를 사용하지 못할 수 있는 사람뿐만 아니라 시력 및 청력 장애가 있는 사람이 직렬 콘솔에 액세스할 수 있도록 했습니다.
 
 ### <a name="keyboard-navigation"></a>키보드 탐색
@@ -244,22 +244,22 @@ RDP 구성 문제 | 직렬 콘솔에 액세스하여 설정을 변경합니다. 
 
 
 ## <a name="errors"></a>오류
-대부분의 오류는 일시적이므로 연결을 다시 시도하면 해결되는 경우가 많습니다. 다음 표에서 오류 및 두 Vm에 대 한 완화 방법의 목록을 표시 하 고 가상 머신 확장 집합 인스턴스.
+대부분의 오류는 일시적이므로 연결을 다시 시도하면 해결되는 경우가 많습니다. 다음 표에서는 Vm 및 가상 머신 확장 집합 인스턴스 모두에 대 한 오류 및 완화의 목록을 보여 줍니다.
 
-오류                            |   해결 방법
+Error                            |   완화
 :---------------------------------|:--------------------------------------------|
 *&lt;VMNAME&gt;* 에 대한 부트 진단 설정을 검색할 수 없습니다. 직렬 콘솔을 사용하려면 부트 진단이 VM에 활성화되어 있는지 확인하세요. | VM에 [부트 진단](boot-diagnostics.md)이 사용되도록 설정되어 있는지 확인합니다.
 VM이 중지된 할당 취소 상태입니다. VM을 시작하고 직렬 콘솔 연결을 다시 시도합니다. | 직렬 콘솔에 액세스하려면 가상 머신이 시작된 상태여야 합니다.
 직렬 콘솔 VM을 사용하는 데 필요한 권한이 없습니다. Virtual Machine Contributor 역할 이상의 권한이 있는지 확인합니다.| 직렬 콘솔 액세스에는 특정 사용 권한이 필요합니다. 자세한 내용은 [필수 구성 요소](#prerequisites)를 참조하세요.
-부트 진단 스토리지 계정인 *&lt;STORAGEACCOUNTNAME&gt;* 에 대한 리소스 그룹을 확인할 수 없습니다. 이 VM에 부트 진단이 활성화되어 있고 저장소 계정에 액세스 권한이 있는지 확인합니다. | 직렬 콘솔 액세스에는 특정 사용 권한이 필요합니다. 자세한 내용은 [필수 구성 요소](#prerequisites)를 참조하세요.
-이 VM의 부트 진단 저장소 계정에 액세스할 경우 "사용할 수 없음" 응답이 발생했습니다. | 부트 진단에 계정 방화벽이 없는지 확인하세요. 직렬 콘솔이 작동하려면 액세스 가능한 부트 진단 저장소 계정이 필요합니다.
+부트 진단 스토리지 계정인 *&lt;STORAGEACCOUNTNAME&gt;* 에 대한 리소스 그룹을 확인할 수 없습니다. 이 VM에 부트 진단이 활성화되어 있고 스토리지 계정에 액세스 권한이 있는지 확인합니다. | 직렬 콘솔 액세스에는 특정 사용 권한이 필요합니다. 자세한 내용은 [필수 구성 요소](#prerequisites)를 참조하세요.
+이 VM의 부트 진단 저장소 계정에 액세스할 경우 "사용할 수 없음" 응답이 발생했습니다. | 부트 진단에 계정 방화벽이 없는지 확인하세요. 직렬 콘솔이 작동하려면 액세스 가능한 부트 진단 스토리지 계정이 필요합니다.
 웹 소켓이 닫혀 있거나 열 수 없습니다. | `*.console.azure.com`을 허용 목록에 추가해야 할 수 있습니다. 더 자세하지만 더 오래 걸리는 방법은 매우 정기적으로 변경되는 [Microsoft Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 허용 목록에 추가하는 것입니다.
 Windows VM에 연결할 때 상태 정보만 표시됩니다.| Windows 이미지에 Special Administrative Console을 사용하도록 설정하지 않은 경우 이 오류가 발생합니다. Windows VM에서 SAC를 수동으로 설정하는 방법에 대한 정보는 [사용자 지정 또는 이전 이미지에서 직렬 콘솔 사용](#enable-the-serial-console-in-custom-or-older-images)을 참조하세요. 자세한 내용은 [Windows 상태 신호](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md)를 참조하세요.
 
 ## <a name="known-issues"></a>알려진 문제
-직렬 콘솔에 관한 몇 가지 문제를 인식하고 있습니다. 이러한 문제 목록 및 완화 단계는 다음과 같습니다. 두 Vm에 적용 하는 이러한 문제 및 완화 방법 및 가상 머신 확장 집합 인스턴스.
+직렬 콘솔에 관한 몇 가지 문제를 인식하고 있습니다. 이러한 문제 목록 및 완화 단계는 다음과 같습니다. 이러한 문제와 완화는 Vm과 가상 머신 확장 집합 인스턴스 모두에 적용 됩니다.
 
-문제                             |   해결 방법
+문제점                             |   완화
 :---------------------------------|:--------------------------------------------|
 연결 배너에서 로그인 프롬프트가 표시되지 않으면 **Enter** 키를 누릅니다. | 자세한 내용은 [Enter를 누르면 아무 작업도 수행되지 않습니다](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md)를 참조하세요. 이 오류는 Windows가 직렬 포트에 제대로 연결하지 못하게 하는 사용자 지정 VM, 강화된 어플라이언스 또는 부팅 구성을 실행하는 경우 발생할 수 있습니다. Windows 10 클라이언트 VM을 실행하는 경우에도 이 오류가 발생합니다. Windows Server VM만 EMS를 사용하도록 구성되었기 때문입니다.
 커널 디버깅을 사용할 수 있으면 SAC 프롬프트에 입력할 수 없습니다. | VM에 RDP하고 관리자 권한 명령 프롬프트에서 `bcdedit /debug {current} off`을 실행합니다. RDP할 수 없는 경우 대신 `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`를 실행하여 데이터 디스크로 연결하는 동안 다른 Azure VM에 OS 디스크를 연결하고 수정한 다음, 다시 디스크를 교체합니다.
@@ -267,7 +267,7 @@ Windows VM에 연결할 때 상태 정보만 표시됩니다.| Windows 이미지
 일부 키보드 입력이 이상한 SAC 출력을 생성합니다(예: **[A**, **[3~** ). | [VT100](https://aka.ms/vtsequences) 이스케이프 시퀀스는 SAC 프롬프트에서 지원되지 않습니다.
 긴 문자열을 붙여넣는 작업이 작동하지 않습니다. | 직렬 콘솔은 터미널에 붙여넣는 문자열의 길이를 2048자로 제한하여 직렬 포트 대역폭을 오버로드하지 않도록 방지합니다.
 직렬 콘솔은 스토리지 계정 방화벽에서 작동하지 않습니다. | 직렬 콘솔은 기본적으로 부트 진단 스토리지 계정에서 사용하도록 설정된 스토리지 계정 방화벽과 함께 작동할 수 없습니다.
-직렬 콘솔 계층적 네임 스페이스를 사용 하 여 Azure Data Lake 저장소 Gen2를 사용 하 여 저장소 계정을 사용 하 여 작동 하지 않습니다. | 계층적 네임 스페이스를 사용 하 여 알려진된 문제입니다. 를 완화 하기 위해 VM의 부트 진단 저장소 계정이 생성 되지 않도록 Azure Data Lake 저장소 Gen2를 사용 하 여 확인 합니다. 이 옵션은 저장소 계정 만들 때만 설정할 수 있습니다. 이 문제를 완화 하려면 사용 하도록 설정 하는 Azure Data Lake 저장소 Gen2 없이 별도 부트 진단 저장소 계정을 만들려면 해야 합니다.
+직렬 콘솔는 계층적 네임 스페이스와 Azure Data Lake Storage Gen2를 사용 하는 저장소 계정에서 작동 하지 않습니다. | 이는 계층적 네임 스페이스의 알려진 문제입니다. 이를 완화 하려면 VM의 부트 진단 저장소 계정이 Azure Data Lake Storage Gen2를 사용 하 여 만들어지지 않았는지 확인 합니다. 이 옵션은 저장소 계정을 만드는 경우에만 설정할 수 있습니다. 이 문제를 완화 하기 위해 Azure Data Lake Storage Gen2 사용 하도록 설정 하지 않고 별도의 부트 진단 저장소 계정을 만들어야 할 수 있습니다.
 
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
@@ -278,7 +278,7 @@ Windows VM에 연결할 때 상태 정보만 표시됩니다.| Windows 이미지
 
 **Q. 직렬 콘솔이 복사/붙여넣기를 지원하나요?**
 
-a. 예. **Ctrl**+**Shift**+**C** 및 **Ctrl**+**Shift**+**V**를 사용하여 복사하고 터미널에 붙여넣습니다.
+1\. 예. **Ctrl**+**Shift**+**C** 및 **Ctrl**+**Shift**+**V**를 사용하여 복사하고 터미널에 붙여넣습니다.
 
 **Q. 내 구독에 직렬 콘솔을 사용하거나 사용하지 않도록 설정할 수 있나요?**
 
@@ -286,15 +286,15 @@ a. 예. **Ctrl**+**Shift**+**C** 및 **Ctrl**+**Shift**+**V**를 사용하여 �
 
 **Q. 내 VM의 직렬 콘솔에 액세스할 수 있는 사용자는 누구인가요?**
 
-a. VM의 직렬 콘솔에 액세스하려면 VM의 Virtual Machine Contributor 역할 이상이 있어야 합니다.
+1\. VM의 직렬 콘솔에 액세스하려면 VM의 Virtual Machine Contributor 역할 이상이 있어야 합니다.
 
 **Q. 내 직렬 콘솔에 아무 것도 표시되지 않으면 어떻게 하나요?**
 
-a. 사용자의 이미지가 직렬 콘솔 액세스에 대해 잘못 구성되었습니다. 직렬 콘솔을 사용하도록 이미지를 구성하는 방법에 대한 자세한 내용은 [사용자 지정 또는 이전 이미지에서 직렬 콘솔 사용](#enable-the-serial-console-in-custom-or-older-images)을 참조하세요.
+1\. 사용자의 이미지가 직렬 콘솔 액세스에 대해 잘못 구성되었습니다. 직렬 콘솔을 사용하도록 이미지를 구성하는 방법에 대한 자세한 내용은 [사용자 지정 또는 이전 이미지에서 직렬 콘솔 사용](#enable-the-serial-console-in-custom-or-older-images)을 참조하세요.
 
 **Q. 가상 머신 확장 집합에 대해 직렬 콘솔을 사용할 수 있나요?**
 
-a. 현재는 가상 머신 확장 집합 인스턴스의 직렬 콘솔에 대한 액세스가 지원되지 않습니다.
+1\. 현재는 가상 머신 확장 집합 인스턴스의 직렬 콘솔에 대한 액세스가 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * Windows SAC에서 사용할 수 있는 CMD 및 PowerShell 명령에 대한 심층 가이드는 [Windows 명령: CMD 및 PowerShell](serial-console-cmd-ps-commands.md)을 참조하세요.

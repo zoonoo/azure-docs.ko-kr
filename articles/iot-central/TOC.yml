@@ -101,14 +101,18 @@
       items:
         - name: 애플리케이션 관리
           href: howto-administer.md
+        - name: 사용자 및 역할 관리
+          href: howto-manage-users-roles.md
+        - name: 청구서 보기
+          href: howto-view-bill.md
+        - name: 애플리케이션 UI 사용자 지정
+          href: howto-customize-ui.md
         - name: 이미지 준비 및 업로드
           href: howto-prepare-images.md
         - name: 애플리케이션 대시보드 구성
           href: howto-configure-homepage.md
         - name: 대시보드 타일 사용
           href: howto-use-tiles.md
-        - name: 애플리케이션 UI 사용자 지정
-          href: howto-customize-ui.md
         - name: 애플리케이션 템플릿 사용
           href: howto-use-app-templates.md
         - name: Azure Portal에서 관리
@@ -131,20 +135,22 @@
   items:
     - name: 솔루션
       items:
-        - name: IoT 솔루션 가속기
-          href: /azure/iot-suite
         - name: IoT Central
-          href: /microsoft-iot-central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+        - name: IoT 솔루션 가속기
+          href: /azure/iot-accelerators
     - name: 플랫폼 서비스
       items:
         - name: IoT Hub
           href: /azure/iot-hub
+        - name: IoT 플러그 앤 플레이
+          href: /azure/iot-pnp
         - name: IoT Hub Device Provisioning Service
           href: /azure/iot-dps
-        - name: 위치 기반 서비스
-          href: /azure/location-based-services
-        - name: 서비스 SDK
+        - name: IoT 서비스 SDK
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: 지도
+          href: /azure/azure-maps
         - name: Time Series Insights
           href: /azure/time-series-insights
     - name: IoT Edge

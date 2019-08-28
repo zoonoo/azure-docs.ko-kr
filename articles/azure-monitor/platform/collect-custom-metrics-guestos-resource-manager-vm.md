@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: a0a9af2098c4b45b8988e190a3984724cfce46ac
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 85f7395cbfa4ef2ba6ab448c9541b3f107eb0e96
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67143685"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68249814"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Windows 가상 머신용 Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기
 
@@ -27,7 +27,7 @@ Azure Monitor [진단 확장](diagnostics-extension-overview.md)을 사용하여
 
 Resource Manager 템플릿을 처음 사용하는 경우 [템플릿 배포](../../azure-resource-manager/resource-group-overview.md)와 해당 구조 및 구문에 대해 알아보세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 구독이 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)에 등록되어야 합니다.
 
@@ -145,8 +145,8 @@ Azure에서 MSI 확장에 시스템 ID를 할당하도록 VM 리소스에 **iden
 //Start of section to add
 "resources": [
 {
-            "type": "extensions",
-            "name": "Microsoft.Insights.VMDiagnosticsSettings",
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(variables('vmName'), '/', 'Microsoft.Insights.VMDiagnosticsSettings')]",
             "apiVersion": "2017-12-01",
             "location": "[resourceGroup().location]",
             "dependsOn": [

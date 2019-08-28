@@ -229,7 +229,7 @@ Han은 ISO, SOC 및 HiTrust에 대한 감사 경험이 있는 공인 감사자�
 -   Key Vault에 저장된 데이터에는 다음 항목이 포함됩니다.
 
     -   Application Insight 키
-    -   환자 데이터 저장소 액세스 키
+    -   환자 데이터 스토리지 액세스 키
     -   환자 연결 문자열
     -   환자 데이터 테이블 이름
     -   Azure ML 웹 서비스 엔드포인트
@@ -254,7 +254,7 @@ Han은 ISO, SOC 및 HiTrust에 대한 감사 경험이 있는 공인 감사자�
 데모 스크립트. .\\HealthcareDemo.ps1을 **BulkPatientAdmission** 스위치와 함께 사용하는 경우 **데모 배포 및 실행**의 설명에 따라 다음 처리 파이프라인을 실행합니다.
 1. **Azure Blob Storage** - 환자 데이터 .csv 파일 샘플이 스토리지에 업로드됩니다.
 2. **Event Grid** - 이벤트에서 Azure Function(대량 가져오기 - Blob 이벤트)에 데이터를 게시합니다.
-3. **Azure Function** - 처리를 수행하고 보안 함수 - 이벤트(유형, Blob URL)를 사용하여 데이터를 SQL 저장소에 저장합니다.
+3. **Azure Function** - 처리를 수행하고 보안 함수 - 이벤트(유형, Blob URL)를 사용하여 데이터를 SQL 스토리지에 저장합니다.
 4. **SQL DB** - 분류에 대한 태그를 사용하는 환자 데이터용 데이터베이스 저장소이며, ML 프로세스를 시작하여 학습 실험을 수행합니다.
 
 ![](images/dataflow.png)
@@ -278,7 +278,7 @@ Han은 ISO, SOC 및 HiTrust에 대한 감사 경험이 있는 공인 감사자�
 
 **5. Azure Function**에서 연결 문자열을 사용하여 SQL Database에 안전하게 연결하고 ePHI 데이터를 저장하기 위한 추가 처리를 계속합니다.
 
-데이터 저장소를 얻기 위해 FHIR(Fast Healthcare Interoperability Resources, '파이어'로 발음)에 따라 공통 API 스키마가 구현되었습니다. 함수에서 다음과 같은 FHIR 교환 요소가 제공되었습니다.
+데이터 스토리지를 얻기 위해 FHIR(Fast Healthcare Interoperability Resources, '파이어'로 발음)에 따라 공통 API 스키마가 구현되었습니다. 함수에서 다음과 같은 FHIR 교환 요소가 제공되었습니다.
 
 -   [Patient 스키마](https://www.hl7.org/fhir/patient.html)는 환자에 대한 "인물" 정보를 다루고 있습니다.
 
@@ -334,7 +334,7 @@ Han은 ISO, SOC 및 HiTrust에 대한 감사 경험이 있는 공인 감사자�
 
 -   익명 활동을 추적하기 위한 경고 규칙이 구성됩니다.
 
--   HTTPS는 저장소 계정 리소스에 액세스하는 데 필요합니다.
+-   HTTPS는 스토리지 계정 리소스에 액세스하는 데 필요합니다.
 
 -   인증 요청 데이터가 기록되고 모니터링됩니다.
 

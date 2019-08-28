@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e61207ea23b9b9560668b58b33e3f32f5f70ab2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6c5a08677759f0ed1a39f5507d936c777516b237
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083949"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608108"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
@@ -76,7 +76,7 @@ does the article really start here?-->
 
 ## <a name="stage-1-critical-items-that-we-recommend-you-do-right-away"></a>스테이지 1: 즉시 수행하도록 권장되는 중요한 항목
 
-![먼저 수행할 작업에 중요 한 항목 1 단계](./media/directory-admin-roles-secure/stage-one.png)
+![가장 먼저 수행할 중요 한 항목 1 단계](./media/directory-admin-roles-secure/stage-one.png)
 
 로드맵의 1단계는 빠르고 쉽게 구현할 수 있는 중요한 작업에 집중합니다. 기본 수준의 권한 있는 보안 액세스를 보장하기 위해 처음 24~48시간 내에 이러한 몇 가지 항목을 즉시 수행하는 것이 좋습니다. 권한 있는 보안 액세스 로드맵의 이 단계에 포함되는 작업은 다음과 같습니다.
 
@@ -102,7 +102,7 @@ Azure AD Privileged Identity Management가 설정되면 다음을 수행합니�
 
 #### <a name="identify-and-categorize-accounts-that-are-in-highly-privileged-roles"></a>권한이 높은 역할이 있는 계정 식별 및 분류 
 
-Azure AD Privileged Identity Management가 설정되면, 디렉터리 역할 전역 관리자, 권한 있는 역할 관리자, Exchange Online 관리자 및 SharePoint Online 관리자에 속한 사용자를 확인합니다. 테넌트에 Azure AD PIM이 없으면 [PowerShell API](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)를 사용할 수 있습니다. 이 역할은 제네릭 전역 관리자 역할을 시작 합니다:이 관리자 역할이 할당 된 사용자는 조직에서 구독, Microsoft 365에서이 역할에 할당 된 여부에 관계 없이 모든 클라우드 서비스에서 동일한 권한을 가진 Azure 포털 또는 Microsoft PowerShell 용 Azure AD 모듈을 사용 하 여 관리 센터. 
+Azure AD Privileged Identity Management가 설정되면, 디렉터리 역할 전역 관리자, 권한 있는 역할 관리자, Exchange Online 관리자 및 SharePoint Online 관리자에 속한 사용자를 확인합니다. 테넌트에 Azure AD PIM이 없으면 [PowerShell API](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)를 사용할 수 있습니다. 이 역할은 일반적인 역할을 하므로 전역 관리자 역할로 시작 합니다 .이 관리자 역할이 할당 된 사용자는 조직에서 구독 한 모든 클라우드 서비스에 대해이 역할이 할당 되었는지 여부에 관계 없이 동일한 사용 권한을 갖습니다 Microsoft 365 Microsoft PowerShell 용 Azure AD 모듈을 사용 하 여 관리 센터, Azure Portal 또는을 (를) 사용 합니다. 
 
 이러한 역할에 더 이상 필요하지 않은 계정을 모두 제거합니다. 그런 다음, 관리자 역할에 할당된 나머지 계정을 분류합니다.
 
@@ -127,7 +127,7 @@ Azure AD Privileged Identity Management가 설정되면, 디렉터리 역할 전
 
 ## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>스테이지 2: 가장 자주 사용되는 공격 기법에 대한 완화
 
-![2 단계 Mitigate 자주 사용 되는 공격](./media/directory-admin-roles-secure/stage-two.png)
+![2 단계는 자주 사용 하는 공격을 완화 합니다.](./media/directory-admin-roles-secure/stage-two.png)
 
 로드맵의 2단계는 가장 자주 사용되는 자격 증명 도난 공격 기법과 악용을 완화하는 데 집중하며, 약 2-4주 내에 구현할 수 있습니다. 권한 있는 보안 액세스 로드맵의 이 단계에 포함되는 작업은 다음과 같습니다.
 
@@ -135,11 +135,11 @@ Azure AD Privileged Identity Management가 설정되면, 디렉터리 역할 전
 
 #### <a name="conduct-an-inventory-of-services-owners-and-admins"></a>서비스, 소유자 및 관리자의 인벤토리 수행
 
-BYOD(Bring-Your-Own-Device) 및 재택 근무 정책이 증가하고 기업의 무선 연결이 확장됨에 따라 네트워크에 연결된 사용자를 모니터링하는 것이 중요합니다. 효과적인 보안 감사의 경우 네트워크에서 실행되지만 IT에서 지원하지 않아 안전하지 않을 수 있는 장치, 애플리케이션 및 프로그램이 표시되는 경우가 많습니다. 자세한 내용은 [Azure 보안 관리 및 모니터링 개요](../../security/security-management-and-monitoring-overview.md)를 참조하세요. 인벤토리 프로세스에는 다음 작업이 모두 포함되어야 합니다. 
+BYOD(Bring-Your-Own-Device) 및 재택 근무 정책이 증가하고 기업의 무선 연결이 확장됨에 따라 네트워크에 연결된 사용자를 모니터링하는 것이 중요합니다. 효과적인 보안 감사의 경우 네트워크에서 실행되지만 IT에서 지원하지 않아 안전하지 않을 수 있는 디바이스, 애플리케이션 및 프로그램이 표시되는 경우가 많습니다. 자세한 내용은 [Azure 보안 관리 및 모니터링 개요](../../security/fundamentals/management-monitoring-overview.md)를 참조하세요. 인벤토리 프로세스에는 다음 작업이 모두 포함되어야 합니다. 
 
 * 관리 역할과 관리할 수 있는 서비스가 있는 사용자를 식별합니다.
 * Azure AD PIM을 사용하여 Azure AD에 대한 관리자 액세스 권한(1단계에 나열된 역할 외의 추가 역할 포함)이 있는 조직의 사용자를 확인합니다.
-* Azure AD에 정의된 역할 외에도, Office 365에는 조직의 사용자에게 할당할 수 있는 일단의 관리자 역할이 제공됩니다. 각 관리자 역할 일반적인 비즈니스 기능에 매핑하고 특정 작업을 수행 하 여 조직 권한에서 사용자를 제공 합니다 [Microsoft 365 관리 센터](https://admin.microsoft.com)합니다. Microsoft 365 관리 센터를 사용 하 여 조직의 어떤 사용자가 Office 365, Azure AD에서 관리 되지 않는 역할을 포함 하 여 관리자 액세스 권한이 확인 합니다. 자세한 내용은 [Office 365 관리자 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) 및 [Office 365에 대한 보안 모범 사례](https://support.office.com/article/Security-best-practices-for-Office-365-9295e396-e53d-49b9-ae9b-0b5828cdedc3)를 참조하세요.
+* Azure AD에 정의된 역할 외에도, Office 365에는 조직의 사용자에게 할당할 수 있는 일단의 관리자 역할이 제공됩니다. 각 관리자 역할은 일반적인 비즈니스 기능에 매핑되고 조직의 사용자에 게 [Microsoft 365 관리 센터](https://admin.microsoft.com)에서 특정 작업을 수행할 수 있는 권한을 부여 합니다. Microsoft 365 관리 센터를 사용 하 여 Azure AD에서 관리 되지 않는 역할을 비롯 하 여 조직 내 사용자에 게 Office 365에 대 한 관리자 액세스 권한이 있는 사용자를 확인 합니다. 자세한 내용은 [Office 365 관리자 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) 및 [Office 365에 대한 보안 모범 사례](https://support.office.com/article/Security-best-practices-for-Office-365-9295e396-e53d-49b9-ae9b-0b5828cdedc3)를 참조하세요.
 * Azure, Intune 또는 Dynamics 365와 같이 조직에서 사용하는 다른 서비스에서 인벤토리를 수행합니다.
 * 관리자 계정(사용자의 일상적인 계정뿐만 아니라 관리 용도로 사용되는 계정)에 연결된 작업 이메일 주소가 있고 Azure MFA에 등록되었거나 온-프레미스에서 MFA를 사용하는지 확인합니다.
 * 사용자에게 관리 액세스 권한에 대한 비즈니스상의 사유를 요청합니다.
@@ -169,7 +169,7 @@ Azure AD에서는 계정이 손상된 경우 당한 영향을 미칠 수 있는 
 
 설정되는 MFA는 다음과 같습니다.
 
-* [조건부 액세스 정책을 사용 하 여 MFA](../authentication/howto-mfa-getstarted.md) 조직의 모든 사용자에 대 한 합니다.
+* 조직의 모든 사용자에 대해 [조건부 액세스 정책을 사용 하는 MFA](../authentication/howto-mfa-getstarted.md)
 
 비즈니스용 Windows Hello를 사용하는 경우 Windows Hello 로그인 환경을 사용하여 MFA 요구 사항을 충족할 수 있습니다. 자세한 내용은 [Windows Hello](https://docs.microsoft.com/windows/uwp/security/microsoft-passport)를 참조하세요. 
 
@@ -187,7 +187,7 @@ Azure AD Identity Protection은 조직의 ID에 영향을 주는 잠재적 취�
 
 #### <a name="configure-office-365-activity-monitoring-if-using-office-365"></a>Office 365 활동 모니터링 구성(Office365를 사용하는 경우)
 
-조직의 사용자가 Office 365 서비스를 사용하는 방법을 모니터링하여 관리 계정이 있는 사용자와 해당 포털에 로그인하지 않으므로 Office 365 액세스 권한이 필요하지 않은 사용자를 확인할 수 있습니다. 자세한 내용은 [Microsoft 365 관리 센터의 활동 보고서](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263)합니다.
+조직의 사용자가 Office 365 서비스를 사용하는 방법을 모니터링하여 관리 계정이 있는 사용자와 해당 포털에 로그인하지 않으므로 Office 365 액세스 권한이 필요하지 않은 사용자를 확인할 수 있습니다. 자세한 내용은 [Microsoft 365 관리 센터의 작업 보고서](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263)를 참조 하세요.
 
 #### <a name="establish-incidentemergency-response-plan-owners"></a>인시던트/비상 대응 계획 소유자 설정
 
@@ -205,7 +205,7 @@ Azure Active Directory 테넌트가 온-프레미스 Active Directory와 동기�
 
 #### <a name="remove-microsoft-accounts-from-admin-roles"></a>관리자 역할에서 Microsoft 계정 제거
 
-Xbox, Live 및 Outlook과 같은 다른 프로그램의 Microsoft 계정은 조직 구독에 대한 관리자 계정으로 사용하면 안됩니다. 모든 Microsoft 계정에서 관리자 상태를 제거 하 고 Azure Active Directory를 바꿉니다 (예를 들어 chris@contoso.com) 회사 또는 학교 계정.
+Xbox, Live 및 Outlook과 같은 다른 프로그램의 Microsoft 계정은 조직 구독에 대한 관리자 계정으로 사용하면 안됩니다. 모든 Microsoft 계정에서 관리자 상태를 제거 하 고 Azure Active Directory (예: chris@contoso.com) 회사 또는 학교 계정으로 대체 합니다.
 
 #### <a name="monitor-azure-activity"></a>Azure 활동 모니터링
 
@@ -215,12 +215,12 @@ Azure 활동 로그는 Azure에서 구독 수준 이벤트 기록을 제공합�
 
 #### <a name="configure-conditional-access-policies"></a>조건부 액세스 정책 구성
 
-온-프레미스 및 클라우드 호스팅 응용 프로그램에 대 한 조건부 액세스 정책을 준비 합니다. 사용자 작업 공간 연결 장치에 있는 경우에서 자세한 내용을 보려면 [설정 온-프레미스 조건부 액세스로 Azure Active Directory 장치 등록을 사용 하 여](../active-directory-device-registration-on-premises-setup.md)입니다.
+온-프레미스 및 클라우드 호스팅 응용 프로그램에 대 한 조건부 액세스 정책을 준비 합니다. 사용자 작업 공간에 연결 된 장치를 사용 하는 경우 [Azure Active Directory 장치 등록을 사용 하 여 온-프레미스 조건부 액세스 설정](../active-directory-device-registration-on-premises-setup.md)에서 자세한 정보를 확인 하세요.
 
 
 ## <a name="stage-3-build-visibility-and-take-full-control-of-admin-activity"></a>3단계: 가시성 빌드 및 관리자 활동에 대한 완전한 제어
 
-![3 단계 제어할 관리자 활동](./media/directory-admin-roles-secure/stage-three.png)
+![3 단계 관리 활동 제어](./media/directory-admin-roles-secure/stage-three.png)
 
 3단계는 2단계의 완화를 기반으로 하며, 약 1~3개월 내에 구현되도록 설계되었습니다. 권한 있는 보안 액세스 로드맵의 이 단계에 포함되는 구성 요소는 다음과 같습니다.
 
@@ -261,7 +261,7 @@ Azure AD Privileged Identity Management를 이미 사용하고 있는 경우 필
 
 #### <a name="determine-exposure-to-password-based-sign-in-protocols-if-using-exchange-online"></a>암호 기반 로그인 프로토콜에 대한 노출 확인(Exchange Online을 사용하는 경우)
 
-과거에는 프로토콜에서 사용자 이름/암호 조합이 디바이스, 이메일 계정, 전화 등에 포함되어 있다고 가정했습니다. 하지만 이제는 클라우드에서 사이버 공격에 대 한 위험이 좋습니다 모든 잠재적 사용자에 게 자격 증명 손상 된 경우 조직에 치명적일 수 수 및 사용자를 통해 이메일에 로그인 할 수 없도록 제외를 식별 / 강력한 인증 요구 사항 및 조건부 액세스를 구현 하 여 암호입니다. 차단할 수 있습니다 [조건부 액세스를 사용 하 여 레거시 인증](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication)합니다. 에 세부 정보를 확인 하십시오 [기본 인증을 차단 하는 방법](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) Exchnage 온라인을 통해. 
+과거에는 프로토콜에서 사용자 이름/암호 조합이 디바이스, 이메일 계정, 전화 등에 포함되어 있다고 가정했습니다. 그러나 이제 클라우드의 사이버 공격에 대 한 위험이 있으므로 자격 증명이 손상 된 경우 조직에 치명적이 될 수 있는 모든 잠재적 사용자를 식별 하 고, 사용자 이름을 통해 해당 전자 메일에 로그인 할 수 없도록 제외 하는 것이 좋습니다. 강력한 인증 요구 사항 및 조건부 액세스를 구현 하 여 암호를 입력 합니다. [조건부 액세스를 사용 하 여 레거시 인증](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication)을 차단할 수 있습니다. Exchnage online을 통해 [기본 인증을 차단 하는 방법](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) 에 대 한 세부 정보를 확인 하세요. 
 
 #### <a name="complete-a-roles-review-assessment-for-office-365-roles-if-using-office-365"></a>Office 365 역할에 대한 역할 검토 평가 수행(Office 365를 사용하는 경우)
 
@@ -291,7 +291,7 @@ Azure AD 관리자 역할이 있는 Privileged Identity Management를 사용하�
 
 #### <a name="use-azure-log-integrations-to-send-relevant-azure-logs-to-your-siem-systems"></a>Azure 로그 통합을 사용하여 SIEM 시스템에 관련 Azure 로그 보내기 
 
-Azure 로그 통합을 사용하면 Azure 리소스의 원시 로그를 조직의 기존 SIEM(보안 정보 및 이벤트 관리) 시스템에 통합할 수 있습니다. [Azure 로그 통합](../../security/security-azure-log-integration-overview.md)은 Windows 이벤트 뷰어 로그에서 Windows 이벤트를 수집하고, Azure 활동 로그, Azure Security Center 경고 및 Azure 진단 로그에서 Azure 리소스를 수집합니다. 
+Azure 로그 통합을 사용하면 Azure 리소스의 원시 로그를 조직의 기존 SIEM(보안 정보 및 이벤트 관리) 시스템에 통합할 수 있습니다. [Azure 로그 통합](../../security/fundamentals/azure-log-integration-overview.md)은 Windows 이벤트 뷰어 로그에서 Windows 이벤트를 수집하고, Azure 활동 로그, Azure Security Center 경고 및 Azure 진단 로그에서 Azure 리소스를 수집합니다. 
 
 
 ### <a name="additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad"></a>Azure AD를 통해 다른 클라우드 앱에 대한 액세스를 관리하는 조직을 위한 추가 단계
@@ -304,9 +304,9 @@ Azure AD를 사용하면 Dropbox, Salesforce, ServiceNow 등과 같은 클라우
 
 MCAS를 사용하면 Azure Information Protection 분류 레이블을 기반으로 하여 파일을 조사하고 정책을 설정하여 클라우드에서 데이터를 더 잘 표시하고 제어할 수 있습니다. 클라우드에서 파일을 검색 및 분류하고 Azure Information Protection 레이블을 적용합니다. 자세한 내용은 [Azure Information Protection 통합](https://docs.microsoft.com/cloud-app-security/azip-integration)을 참조하세요.
 
-#### <a name="configure-conditional-access"></a>조건부 액세스를 구성 합니다.
+#### <a name="configure-conditional-access"></a>조건부 액세스 구성
 
-그룹, 위치 및 응용 프로그램 민감도에 따라 조건부 액세스 구성 [SaaS 앱](https://azure.microsoft.com/overview/what-is-saas/) 및 Azure AD 앱을 연결 합니다. 
+[SaaS 앱](https://azure.microsoft.com/overview/what-is-saas/) 및 Azure AD 연결 앱에 대 한 그룹, 위치 및 응용 프로그램 민감도에 따라 조건부 액세스를 구성 합니다. 
 
 #### <a name="monitor-activity-in-connected-cloud-apps"></a>연결된 클라우드 앱의 활동 모니터링
 
@@ -322,11 +322,11 @@ Cloud App Security SIEM 에이전트는 Cloud App Security와 SIEM 서버를 통
 
 ## <a name="stage-4-continue-building-defenses-to-a-more-proactive-security-posture"></a>스테이지 4: 사전 예방적인 보안 상태에 대한 방어 체계 구축 계속
 
-![4 단계 보안 태세를 채택 합니다.](./media/directory-admin-roles-secure/stage-four.png)
+![사전 보안 상태를 채택 하는 4 단계](./media/directory-admin-roles-secure/stage-four.png)
 
 로드맵의 4단계는 3단계의 가시성을 기반으로 하며, 6개월 정도에 걸쳐 구현되도록 설계되었습니다. 로드맵을 완성하면 현재 알려져 있고 사용 가능한 잠재적 공격으로부터 강력한 권한 있는 액세스 보호를 개발할 수 있습니다. 그러나 보안 위협은 지속적으로 진화하고 변화하므로 비용을 높이고 환경을 대상으로 하는 악의적 사용자의 성공률을 줄이는 데 초점을 맞춘 지속적인 프로세스로 보안을 확인하는 것이 좋습니다.
 
-권한 있는 액세스 보호는 현대 조직에서 비즈니스 자산에 대한 보안 보장을 확립하는 중요한 첫 번째 단계이지만, 정책, 운영, 정보 보안, 서버, 애플리케이션, PC, 장치, 클라우드 패브릭 및 기타 구성 요소와 같은 요소가 포함된 완전한 보안 프로그램의 유일한 부분이 아니며, 지속적인 보안 보장을 제공합니다. 
+권한 있는 액세스 보호는 현대 조직에서 비즈니스 자산에 대한 보안 보장을 확립하는 중요한 첫 번째 단계이지만, 정책, 운영, 정보 보안, 서버, 애플리케이션, PC, 디바이스, 클라우드 패브릭 및 기타 구성 요소와 같은 요소가 포함된 완전한 보안 프로그램의 유일한 부분이 아니며, 지속적인 보안 보장을 제공합니다. 
 
 권한 있는 액세스 계정을 관리하는 것 외에도 다음 사항을 지속적으로 검토하는 것이 좋습니다.
 
@@ -367,7 +367,7 @@ Office 365를 사용하는 경우
 
 ## <a name="break-glass-what-to-do-in-an-emergency"></a>"비상": 긴급 상황에서 수행할 작업
 
-![긴급 중단 투명 액세스에 대 한 계정](./media/directory-admin-roles-secure/emergency.jpeg)
+![응급 투명 액세스를 위한 계정](./media/directory-admin-roles-secure/emergency.jpeg)
 
 1. 주요 관리자와 보안 책임자에게 인시던트와 관련된 정보를 알립니다.
 
@@ -433,8 +433,8 @@ Microsoft Office 365에서 보안 인시던트를 처리하는 방법에 대한 
 
 * [위험 평가 수행 방법에 대한 지침](https://www.microsoft.com/trustcenter/guidance/risk-assessment) - Microsoft 클라우드 서비스에 대한 보안 및 규정 준수 요구 사항 관리
 
-### <a name="other-microsoft-online-services"></a>다른 Microsoft Online Services
+### <a name="other-microsoft-online-services"></a>기타 Microsoft Online Services
 
-* [Microsoft Intune 보안](https://www.microsoft.com/trustcenter/security/intune-security) – Intune은 클라우드에서 모바일 장치 관리, 모바일 애플리케이션 관리 및 PC 관리 기능을 제공합니다.
+* [Microsoft Intune 보안](https://www.microsoft.com/trustcenter/security/intune-security) – Intune은 클라우드에서 모바일 디바이스 관리, 모바일 애플리케이션 관리 및 PC 관리 기능을 제공합니다.
 
 * [Microsoft Dynamics 365 보안](https://www.microsoft.com/trustcenter/security/dynamics365-security) – Dynamics 365는 CRM(고객 관계 관리) 및 ERP(전사적 자원 관리) 기능을 통합하는 Microsoft 클라우드 기반 솔루션입니다.

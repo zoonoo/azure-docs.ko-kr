@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
-ms.openlocfilehash: bbb907a7d73036352d4f5b8f36ccefacd89681ae
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: fe470165d11b24ffb1df704ecaa9804663fc9e5c
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478863"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67796025"
 ---
 # <a name="custom-resource-proxy-reference"></a>사용자 지정 리소스 프록시 참조
 
@@ -67,10 +67,10 @@ ms.locfileid: "67478863"
 
 매개 변수 참조:
 
-자산 | 샘플 | 설명
+속성 | 예제 | Description
 ---|---|---
 name | '{myCustomResourceName}' | 사용자 지정 리소스의 이름입니다.
-형식 | 'Microsoft.CustomProviders/resourceProviders/{resourceTypeName}' | 리소스 형식 네임 스페이스입니다.
+type | 'Microsoft.CustomProviders/resourceProviders/{resourceTypeName}' | 리소스 형식 네임 스페이스입니다.
 id | '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{myCustomResourceName}' | 리소스 id입니다.
 
 ### <a name="create-a-custom-resource"></a>사용자 지정 리소스 만들기
@@ -323,6 +323,7 @@ Content-Type: application/json; charset=utf-8
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure 사용자 지정 리소스 공급자에 대 한 개요](./custom-providers-overview.md)
-- [자습서: Azure 사용자 지정 리소스 공급자를 만들고 사용자 지정 리소스를 배포 합니다.](./create-custom-provider.md)
+- [빠른 시작: Azure 사용자 지정 리소스 공급자를 만들고 사용자 지정 리소스를 배포 합니다.](./create-custom-provider.md)
+- [자습서: Azure에서 사용자 지정 작업 및 리소스 만들기](./tutorial-custom-providers-101.md)
 - [방법: Azure REST API에 사용자 지정 작업 추가](./custom-providers-action-endpoint-how-to.md)
 - [참조: 사용자 지정 리소스 캐시 참조](./custom-providers-proxy-cache-resource-endpoint-reference.md)

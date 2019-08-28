@@ -5,14 +5,14 @@ author: mattwojo
 manager: evansma
 ms.author: parthp
 ms.service: marketplace
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 5cb4caa6f0f8098e68d693be6cc2f33b5ccbeb32
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e0c9f1fcf2d9d7e806645f1bdf9e8a6c74245a60
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752835"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67619326"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상용 Marketplace 계정을 관리 하는 방법 
 
@@ -307,7 +307,7 @@ Azure AD 응용 프로그램 읽기 및 Microsoft Azure AD에서에서 데이터
 전역 관리자, 사용자 관리자 및 CSP 역할 참고 Azure Active Directory (AAD) 테 넌 트 역할에 포함 됩니다. 비-AAD 역할은 테 넌 트를 관리 하지 않는 해당 역할 등이 MPN 관리, 비즈니스 프로필 관리, 조회 관리자, 인센티브 관리자 인센티브 사용자입니다.
 
 
-|**역할**|**권한**|
+|**역할**|**사용 권한**|
 |----------------------------------|:---------------------------------|
 |글로벌 관리자|• 모든 Microsoft 계정/서비스 전체 권한으로 액세스할 수 있습니다.
 |      |• 파트너 센터에 대 한 지원 티켓 만들기

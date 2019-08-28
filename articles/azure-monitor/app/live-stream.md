@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 607da7983cabe4c36c01171ba8d88c752b99ce3d
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 4e1d83d99f6df9407e24e2ae57af70f68858092d
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303806"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012747"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>라이브 메트릭 스트림: 1초 대기 시간으로 모니터링 및 진단
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md)의 라이브 메트릭 스트림을 사용하여 프로덕션 웹 애플리케이션에서 실시간 심장 박동을 검사합니다. 메트릭과 성능 카운터를 선택 및 필터링하여 서비스에 지장 없이 실시간으로 확인합니다. 실패한 요청 및 예외 샘플에서 스택 추적을 검사합니다. 와 함께 [Profiler](../../azure-monitor/app/profiler.md)하십시오 [스냅숏 디버거](../../azure-monitor/app/snapshot-debugger.md)합니다. 라이브 메트릭 Stream 라이브 웹 사이트에 대 한 강력 하 고 비침해 적인 진단 도구를 제공합니다.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md)의 라이브 메트릭 스트림을 사용하여 프로덕션 웹 애플리케이션에서 실시간 심장 박동을 검사합니다. 메트릭과 성능 카운터를 선택 및 필터링하여 서비스에 지장 없이 실시간으로 확인합니다. 실패한 요청 및 예외 샘플에서 스택 추적을 검사합니다. [프로파일러](../../azure-monitor/app/profiler.md), [스냅숏 디버거와](../../azure-monitor/app/snapshot-debugger.md)함께 사용 됩니다. 라이브 메트릭 스트림는 라이브 웹 사이트를 위한 강력 하 고 비 침입 진단 도구를 제공 합니다.
 
 라이브 메트릭 스트림을 사용하여 다음을 수행할 수 있습니다.
 
@@ -36,9 +36,9 @@ ms.locfileid: "67303806"
 
 [![라이브 메트릭 스트림 비디오](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
-라이브 메트릭은 현재 ASP.NET, ASP.NET Core, Azure Functions, Java 및 Node.js 앱에 대 한 지원 됩니다.
+라이브 메트릭은 현재 ASP.NET, ASP.NET Core, Azure Functions, Java 및 node.js 앱에 대해 지원 됩니다.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 1. 웹앱에 [Application Insights를 아직 설치](../../azure-monitor/azure-monitor-app-hub.md)하지 않은 경우 지금 수행합니다.
 2. 표준 Application Insights 패키지 외에 [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/)는 라이브 메트릭 스트림을 활성화하는 데 필요합니다.
@@ -52,7 +52,7 @@ ms.locfileid: "67303806"
 
 ### <a name="nodejs"></a>Node.js
 
-Node.js를 사용 하 여 라이브 메트릭을 사용 하 여 SDK의 1.30 이상 버전으로 업데이트 해야 합니다. 기본적으로 라이브 메트릭이 Node.js SDK에서 비활성화 되었습니다. 사용할 수 있도록 라이브 메트릭 추가 `setSendLiveMetrics(true)` 에 사용자 [구성 메서드](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) SDK를 초기화 하는 대로 합니다.
+Node.js에서 라이브 메트릭을 사용 하려면 SDK 버전 1.30 이상으로 업데이트 해야 합니다. 기본적으로 라이브 메트릭은 node.js SDK에서 사용 하지 않도록 설정 됩니다. 라이브 메트릭을 사용 하도록 설정 `setSendLiveMetrics(true)` 하려면 SDK를 초기화할 때 [구성 방법](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) 에를 추가 합니다.
 
 ### <a name="no-data-check-your-server-firewall"></a>데이터가 없나요? 서버 방화벽을 확인합니다.
 
@@ -65,7 +65,7 @@ Node.js를 사용 하 여 라이브 메트릭을 사용 하 여 SDK의 1.30 이�
 |대기 시간|데이터가 1초 내에 표시됨|몇 분에 걸쳐 집계됨|
 |보존 없음|데이터가 차트에 있는 동안 지속된 후 삭제됨|[데이터가 90일 동안 유지됨](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
 |주문형|라이브 메트릭을 여는 동안 데이터가 스트리밍됨|SDK가 설치되고 사용될 때마다 데이터가 전송됨|
-|무료|라이브 스트림 데이터 무료|[가격 책정](../../azure-monitor/app/pricing.md)에 따라 다름
+|Free|라이브 스트림 데이터 무료|[가격 책정](../../azure-monitor/app/pricing.md)에 따라 다름
 |샘플링|선택한 모든 메트릭 및 카운터가 전송되고 오류 및 스택 추적이 샘플링되며 TelemetryProcessors가 적용되지 않음|이벤트가 [샘플링](../../azure-monitor/app/api-filtering-sampling.md)될 수 있음|
 |컨트롤 채널|필터 제어 신호가 SDK로 전송되며 이 채널을 보호하는 것이 좋습니다.|포털로의 단방향 통신임|
 
@@ -107,7 +107,12 @@ Application Insights 원격 분석 외에, 스트림 옵션 중에서 선택하�
 ![샘플링된 라이브 실패](./media/live-stream/live-stream-filter.png)
 
 ## <a name="sdk-requirements"></a>SDK 요구 사항
+
+### <a name="net"></a>.NET
 사용자 지정 라이브 메트릭 스트림은 버전 2.4.0-beta2 또는 최신 버전의 [웹용 Application Insights SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/)에서 사용할 수 있습니다. NuGet 패키지 관리자에서 "시험판 포함" 옵션을 선택해야 합니다.
+
+### <a name="nodejs"></a>Node.js
+라이브 메트릭 스트림는 [node.js 용 APPLICATION INSIGHTS SDK](https://npmjs.com/package/applicationinsights)의 버전 1.3.0 이상에서 사용할 수 있습니다. 코드에서 SDK `setSendLiveMetrics(true)` 를 구성 하는 동안를 사용 해야 합니다.
 
 ## <a name="secure-the-control-channel"></a>컨트롤 채널 보호
 지정한 사용자 지정 필터 조건이 Application Insights SDK의 라이브 메트릭 구성 요소에 다시 전송됩니다. 필터는 customerid와 같은 잠재적으로 중요한 정보를 포함할 수 있습니다. 계측 키 외에도 비밀 API 키를 사용해서 채널 보안을 유지할 수 있습니다.
@@ -163,11 +168,11 @@ using Microsoft.ApplicationInsights.Extensibility;
 
 ```
 
-### <a name="azure-function-apps"></a>Azure Function App
+### <a name="azure-function-apps"></a>Azure 함수 앱
 
-Azure Function App(v2)의 경우 환경 변수를 사용하여 API 키로 채널 보안을 수행할 수 있습니다. 
+Azure 함수 앱(v2)의 경우 환경 변수를 사용하여 API 키로 채널 보안을 수행할 수 있습니다. 
 
-Application Insights 리소스 내에서 API 키를 만들고 Function App에 대한 **애플리케이션 설정**으로 이동합니다. **새 설정 추가**를 선택하고 `APPINSIGHTS_QUICKPULSEAUTHAPIKEY`의 이름 및 API 키에 해당하는 값을 입력합니다.
+Application Insights 리소스 내에서 API 키를 만들고 함수 앱에 대한 **애플리케이션 설정**으로 이동합니다. **새 설정 추가**를 선택하고 `APPINSIGHTS_QUICKPULSEAUTHAPIKEY`의 이름 및 API 키에 해당하는 값을 입력합니다.
 
 ### <a name="aspnet-core-requires-application-insights-aspnet-core-sdk-230-beta-or-greater"></a>ASP.NET Core(Application Insights ASP.NET Core SDK 2.3.0 베타 이상 필요)
 
@@ -175,13 +180,13 @@ Application Insights 리소스 내에서 API 키를 만들고 Function App에 �
 
 먼저 추가
 
-``` C#
+```csharp
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
 ```
 
 그런 다음, ConfigureServices 메서드 내에 다음을 추가합니다.
 
-``` C#
+```csharp
 services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
 ```
 

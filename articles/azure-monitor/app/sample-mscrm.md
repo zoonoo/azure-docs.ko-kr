@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.reviewer: mazhar
 ms.author: mbullwin
-ms.openlocfilehash: 6119f1116d255f7cd2a2bfc20e86eeca9e5dfe82
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 470f723782ca29409549e0df8e900edf86cd446e
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60523052"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534287"
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>연습: Application Insights를 사용하여 Microsoft Dynamics CRM Online 작업에 대한 원격 분석 설정
 이 문서에서는 [Azure Application Insights](https://azure.microsoft.com/services/application-insights/)를 사용하여 [Microsoft Dynamics CRM Online](https://www.dynamics.com/)에서 원격 분석 데이터를 가져오는 방법을 보여 줍니다. 애플리케이션에 Application Insights 스크립트 추가, 데이터 캡처 및 데이터 시각화의 전체 프로세스를 연습합니다.
@@ -38,7 +38,7 @@ ms.locfileid: "60523052"
     ![+, 개발자 서비스, Application Insights를 클릭합니다.](./media/sample-mscrm/01.png)
 
     애플리케이션 유형으로 ASP.NET을 선택합니다.
-3. 지침에 따라 [앱용 JavaScript SDK 스크립트를 가져오고](../../azure-monitor/app/javascript.md#set-up-application-insights-for-your-web-page), JavaScript 코드 조각을 복사하고 계측 키를 Application Insights 리소스에 대한 올바른 값으로 바꿉니다.
+3. 지침에 따라 [앱용 JavaScript SDK 스크립트를 가져오고](../../azure-monitor/app/javascript.md), JavaScript 코드 조각을 복사하고 계측 키를 Application Insights 리소스에 대한 올바른 값으로 바꿉니다.
 
 ### <a name="create-a-javascript-web-resource-in-microsoft-dynamics-crm"></a>Microsoft Dynamics CRM의 JavaScript 웹 리소스 만들기
 1. CRM Online 인스턴스를 열고 관리자 권한으로 로그인합니다.
@@ -95,7 +95,7 @@ ms.locfileid: "60523052"
 
 ![예외 목록](./media/sample-mscrm/18.png)
 
-#### <a name="usage"></a>사용 현황
+#### <a name="usage"></a>사용법
 ![사용자, 세션 및 페이지 보기](./media/sample-mscrm/19.png)
 
 ![세션 차트](./media/sample-mscrm/20.png)

@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Python을 사용하여 Bing Custom Search 엔드포인트 호출 | Microsoft Docs'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작을 사용하여 Python을 사용하여 Bing Custom Search 인스턴스의 검색 결과를 요청할 수 있습니다.
 services: cognitive-services
 author: aahill
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 03/04/2019
+ms.date: 07/26/2019
 ms.author: aahi
-ms.openlocfilehash: a6f8d3964c71d036053fe0d4136468fde690f872
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 24416bc2259fdd35581699b11f599ea48e349d5a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337280"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564635"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-python"></a>빠른 시작: Python을 사용하여 Bing Custom Search 엔드포인트 호출
 

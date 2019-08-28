@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/27/2018
-ms.author: lyrana
-ms.openlocfilehash: bfc73a71a0ccda5c135e6a740d6f63bd37522a9b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/29/2019
+ms.author: lyhughes
+ms.openlocfilehash: 6602a4df2c6e313156010102780240ba19fbac95
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60534135"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815574"
 ---
 # <a name="role-based-access-control-in-azure-digital-twins"></a>Azure Digital Twins의 역할 기반 액세스 제어
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 03/25/2019
+ms.date: 08/23/2019
 ms.author: genli
-ms.openlocfilehash: e60188496e060eeea14fc7b7f1cc9a662551b286
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: c96c8ef5e5bd9758cf270946da1e90bb12e8bca0
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485166"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997997"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Azure VM의 BitLocker 부팅 오류
 
@@ -41,14 +41,14 @@ ms.locfileid: "67485166"
 
 이 문제는 VM이 암호화된 디스크의 암호를 해독하기 위한 BEK(BitLocker 복구 키) 파일을 찾을 수 없는 경우에 발생할 수 있습니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 이 문제를 해결하려면 VM을 중지하고 할당을 취소했다가 다시 시작합니다. 이 작업을 수행하면 VM이 강제로 Azure Key Vault에서 BEK 파일을 검색한 후 암호화된 디스크에 넣습니다. 
 
 이 방법으로 문제가 해결되지 않으면 다음 단계에 따라 BEK 파일을 수동으로 복원합니다.
 
 1. 영향을 받는 VM의 시스템 디스크의 스냅샷을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
-2. [복구 VM에 OS 디스크를 연결합니다](troubleshoot-recovery-disks-portal-windows.md). 실행 하는 [관리 bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) 7 단계에서 명령을 합니다 **BitLocker 드라이브 암호화** 복구 VM에서에서 기능을 사용할 수 있어야 합니다.
+2. [복구 VM에 시스템 디스크 연결](troubleshoot-recovery-disks-portal-windows.md). 7 단계에서 [manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) 명령을 실행 하려면 복구 VM에서 **BitLocker 드라이브 암호화** 기능을 사용 하도록 설정 해야 합니다.
 
     관리 디스크를 연결할 때 “암호화 설정이 포함되어 있으므로 데이터 디스크로 사용할 수 없습니다.” 오류 메시지가 표시될 수 있습니다. 이 경우 다음 스크립트를 실행하여 디스크를 다시 연결합니다.
 
@@ -83,7 +83,7 @@ ms.locfileid: "67485166"
     ```powershell
     $vmName = "myVM"
     $vault = "myKeyVault"
-    Get-AzureKeyVaultSecret -VaultName $vault | where {($_.Tags.MachineName -eq $vmName) -and ($_.ContentType -match 'BEK')} `
+    Get-AzKeyVaultSecret -VaultName $vault | where {($_.Tags.MachineName -eq $vmName) -and ($_.ContentType -match 'BEK')} `
             | Sort-Object -Property Created `
             | ft  Created, `
                 @{Label="Content Type";Expression={$_.ContentType}}, `
@@ -112,41 +112,42 @@ ms.locfileid: "67485166"
 
     ```powershell
     $vault = "myKeyVault"
-    $bek = " EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK"
-    $keyVaultSecret = Get-AzureKeyVaultSecret -VaultName $vault -Name $bek
+    $bek = " EF7B2F5A-50C6-4637-9F13-7F599C12F85C"
+    $keyVaultSecret = Get-AzKeyVaultSecret -VaultName $vault -Name $bek
     $bekSecretBase64 = $keyVaultSecret.SecretValueText
     $bekFileBytes = [Convert]::FromBase64String($bekSecretbase64)
     $path = "C:\BEK\DiskEncryptionKeyFileName.BEK"
     [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
     ```
 
-7.  BEK 파일이 사용 하 여 연결 된 디스크의 잠금을 해제 하려면 다음 명령을 실행 합니다.
+7.  BEK 파일을 사용 하 여 연결 된 디스크의 잠금을 해제 하려면 다음 명령을 실행 합니다.
 
     ```powershell
     manage-bde -unlock F: -RecoveryKey "C:\BEK\EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK
     ```
     이 샘플에서 연결된 OS 디스크는 드라이브 F입니다. 올바른 드라이브 문자를 사용하는지 확인합니다. 
 
-    - 디스크 BEK 키를 사용하여 성공적으로 잠금 해제된 경우 생각 BitLocker 문제를 해결할 수 있습니다. 
+8. BEK 키를 사용 하 여 디스크 잠금을 해제 한 후 복구 VM에서 디스크를 분리 하 고이 새 OS 디스크를 사용 하 여 VM을 다시 만듭니다.
 
-    - BEK 키를 사용해도 디스크의 잠금이 해제되지 않으면 다음 명령으로 보호 일시 중단을 사용하여 일시적으로 BitLocker를 끌 수 있습니다.
-    
-        ```powershell
-        manage-bde -protectors -disable F: -rc 0
-        ```      
-    - dytem 디스크를 사용하여 VM을 다시 작성하려는 경우 드라이브를 완전히 암호 해독해야 합니다. 이렇게 하려면 다음 명령을 실행합니다.
+    > [!NOTE]
+    > 디스크 암호화를 사용 하는 Vm에 대해서는 OS 디스크 교환이 지원 되지 않습니다.
 
-        ```powershell
-        manage-bde -off F:
-        ```
-8.  복구 VM에서 디스크를 분리했다가 영향을 받는 VM에 시스템 디스크로서 다시 연결합니다. 자세한 내용은 [OS 디스크를 복구 VM에 연결함으로써 Windows VM 문제 해결](troubleshoot-recovery-disks-windows.md)을 참조하세요.
+9. 새 VM이 정상적으로 부팅할 수 없는 경우 드라이브 잠금을 해제 한 후 다음 단계 중 하나를 수행 합니다.
+
+    - 보호를 일시 중단 하 여 다음을 실행 함으로써 BitLocker를 일시적으로 해제 합니다.
+
+                    manage-bde -protectors -disable F: -rc 0
+           
+    - 드라이브의 암호를 완전히 해독 합니다. 이렇게 하려면 다음 명령을 실행합니다.
+
+                    manage-bde -off F:
 
 ### <a name="key-encryption-key-scenario"></a>키 암호화 키 시나리오
 
 키 암호화 키 시나리오의 경우 다음 단계를 수행합니다.
 
 1. **사용자|키 권한|암호화 작업 |키 래핑 해제**의 Key Vault 액세스 정책에서 로그인한 사용자 계정에 “래핑 해제된” 권한이 필요한지 확인합니다.
-2. 다음 스크립트를 .PS1 파일에 저장합니다.
+2. 에 다음 스크립트를 저장 합니다. PS1 파일:
 
     ```powershell
     #Set the Parameters for the script
@@ -184,6 +185,7 @@ ms.locfileid: "67485166"
     # Create Authentication Context tied to Azure AD Tenant
     $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList $authority
     # Acquire token
+    $platformParameters = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.PlatformParameters" -ArgumentList "Auto"
     $authResult = $authContext.AcquireTokenAsync($resourceAppIdURI, $clientId, $redirectUri, $platformParameters).result
     # Generate auth header 
     $authHeader = $authResult.CreateAuthorizationHeader()
@@ -231,7 +233,7 @@ ms.locfileid: "67485166"
     $bekFileBytes = [System.Convert]::FromBase64String($base64Bek);
     [System.IO.File]::WriteAllBytes($bekFilePath,$bekFileBytes)
     ```
-3. 매개 변수를 설정합니다. 스크립트는 KEK 암호를 처리하여 BEK 키를 만든 다음, 복구 VM의 로컬 폴더에 저장합니다.
+3. 매개 변수를 설정합니다. 스크립트는 KEK 암호를 처리하여 BEK 키를 만든 다음, 복구 VM의 로컬 폴더에 저장합니다. 스크립트를 실행할 때 오류가 발생 하는 경우 [스크립트 문제 해결](#script-troubleshooting) 섹션을 참조 하세요.
 
 4. 스크립트가 시작되면 다음 출력이 표시됩니다.
 
@@ -254,17 +256,38 @@ ms.locfileid: "67485166"
     ```
     이 샘플에서 연결된 OS 디스크는 드라이브 F입니다. 올바른 드라이브 문자를 사용하는지 확인합니다. 
 
-    - 디스크 BEK 키를 사용하여 성공적으로 잠금 해제된 경우 생각 BitLocker 문제를 해결할 수 있습니다. 
+6. BEK 키를 사용 하 여 디스크 잠금을 해제 한 후 복구 VM에서 디스크를 분리 하 고이 새 OS 디스크를 사용 하 여 VM을 다시 만듭니다. 
 
-    - BEK 키를 사용해도 디스크의 잠금이 해제되지 않으면 다음 명령으로 보호 일시 중단을 사용하여 일시적으로 BitLocker를 끌 수 있습니다.
-    
-        ```powershell
-        manage-bde -protectors -disable F: -rc 0
-        ```      
-    - dytem 디스크를 사용하여 VM을 다시 작성하려는 경우 드라이브를 완전히 암호 해독해야 합니다. 이렇게 하려면 다음 명령을 실행합니다.
+    > [!NOTE]
+    > 디스크 암호화를 사용 하는 Vm에 대해서는 OS 디스크 교환이 지원 되지 않습니다.
 
-        ```powershell
-        manage-bde -off F:
-        ```
+7. 새 VM이 정상적으로 부팅할 수 없는 경우 드라이브 잠금을 해제 한 후 다음 단계 중 하나를 수행 합니다.
 
-6. 복구 VM에서 디스크를 분리했다가 영향을 받는 VM에 시스템 디스크로서 다시 연결합니다. 자세한 내용은 [OS 디스크를 복구 VM에 연결함으로써 Windows VM 문제 해결](troubleshoot-recovery-disks-windows.md)을 참조하세요.
+    - 다음 명령을 실행 하 여 보호를 일시 중단 하 여 일시적으로 BitLocker를 해제 합니다.
+
+             manage-bde -protectors -disable F: -rc 0
+           
+    - 드라이브의 암호를 완전히 해독 합니다. 이렇게 하려면 다음 명령을 실행합니다.
+
+                    manage-bde -off F:
+## <a name="script-troubleshooting"></a>스크립트 문제 해결
+
+**오류: 파일이 나 어셈블리를 로드할 수 없습니다.**
+
+이 오류는 ADAL 어셈블리의 경로가 잘못 되었기 때문에 발생 합니다. AZ module이 현재 사용자에 대해 설치 된 경우 ADAL 어셈블리는에 `C:\Users\<username>\Documents\WindowsPowerShell\Modules\Az.Accounts\<version>`배치 됩니다.
+
+`Az.Accounts` 폴더를 검색 하 여 올바른 경로를 찾을 수도 있습니다.
+
+**오류: AzKeyVaultSecret 또는 AzKeyVaultSecret는 cmdlet의 이름으로 인식 되지 않습니다.**
+
+이전 AZ PowerShell 모듈을 사용 하는 경우 두 개의 명령을 및 `Get-AzureKeyVaultSecret` `Get-AzureKeyVaultSecret`로 변경 해야 합니다.
+
+**매개 변수 샘플**
+
+| 매개 변수  | 값 샘플  |주석   |
+|---|---|---|
+|  $keyVaultName | myKeyVault2112852926  | 키를 저장 하는 키 자격 증명 모음의 이름입니다. |
+|$kekName   |mykey   | VM을 암호화 하는 데 사용 되는 키의 이름입니다.|
+|$secretName   |7EB4F531-5FBA-4970-8E2D-C11FD6B0C69D  | VM 키의 암호 이름|
+|$bekFilePath   |c:\bek\7EB4F531-5FBA-4970-8E2D-C11FD6B0C69D. BEK |BEK 파일을 쓰기 위한 경로입니다.|
+|$adTenant  |contoso.onmicrosoft.com   | 키 자격 증명 모음을 호스트 하는 Azure Active Directory의 FQDN 또는 GUID |

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/01/2019
+ms.date: 08/01/2019
 ms.author: jowargo
-ms.openlocfilehash: 09e5f5526c2d6953c574a7d7dd2425159ad88307
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 39fa004b62bf7e2e2a50500f32fa7edcb0c4b6ba
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240717"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742420"
 ---
 # <a name="tutorial-push-notifications-to-xamarinandroid-apps-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 Xamarin.Android 앱에 알림 푸시
 
@@ -52,10 +52,10 @@ ms.locfileid: "66240717"
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-### <a name="configure-gcm-settings-for-the-notification-hub"></a>알림 허브에 대한 GCM 설정 구성
+### <a name="configure-gcmfcm-settings-for-the-notification-hub"></a>알림 허브에 대한 GCM/FCM 설정 구성
 
-1. **알림 설정** 섹션에서 **Google(GCM)** 을 선택합니다.
-2. Google Firebase 콘솔에서 적어둔 **레거시 서버 키**를 입력합니다.
+1. 왼쪽 메뉴의 **설정** 섹션에서 **Google(GCM/FCM)** 을 선택합니다.
+2. Google Firebase 콘솔에서 적어둔 **서버 키**를 입력합니다.
 3. 도구 모음에서 **저장**을 선택합니다.
 
     ![](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
@@ -65,6 +65,9 @@ ms.locfileid: "66240717"
 ## <a name="create-a-xamarinandroid-app-and-connect-it-to-notification-hub"></a>Xamarin.Android 앱 만들기 및 알림 허브에 연결
 
 ### <a name="create-visual-studio-project-and-add-nuget-packages"></a>Visual Studio 프로젝트 생성 및 NuGet 패키지 설치
+
+> [!NOTE]
+> 이 자습서에 설명된 단계는 Visual Studio 2017에 대한 것입니다. 
 
 1. Visual Studio에서 **파일** 메뉴를 열고 **새로 만들기**를 선택한 다음, **프로젝트**를 선택합니다. **새 프로젝트** 창에서 다음 단계를 수행합니다.
     1. **설치됨**, **Visual C#** 을 확장한 후 **Android**를 클릭합니다.
@@ -80,12 +83,18 @@ ms.locfileid: "66240717"
 3. **솔루션 탐색기** 창에서 **속성**을 확장하고 **AndroidManifest.xml**을 클릭합니다. Google Firebase 콘솔에서 Firebase Cloud Messaging을 프로젝트에 추가할 때 입력한 패키지 이름과 일치하도록 패키지 이름을 업데이트합니다.
 
     ![GCM의 패키지 이름](./media/partner-xamarin-notification-hubs-android-get-started/package-name-gcm.png)
-4. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
-5. **찾아보기** 탭을 선택합니다. **Xamarin.GooglePlayServices.Base**를 검색합니다. 결과 목록에서 **Xamarin.GooglePlayServices.Base**를 선택합니다. 그런 후 **설치**를 선택합니다.
+4. 다음 단계를 수행하여 프로젝트에 대한 대상 Android 버전을 **Android 9.0(원형)** 으로 설정합니다. 
+    1. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. 
+    1. **Android 버전을 사용하여 컴파일: (대상 프레임워크)** 필드의 경우 **Android 9.0(원형)** 을 선택합니다. 
+    1. 대상 프레임워크 변경을 계속하려면 메시지 상자에서 **예**를 선택합니다.
+1. 다음 단계를 수행하여 필요한 NuGet 패키지를 프로젝트에 추가합니다.
+    1. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
+    1. **설치됨** 탭으로 전환하고, **Xamarin.Android.Support.Design**을 선택하고, 오른쪽 창에서 **업데이트**를 선택하여 패키지를 최신 버전으로 업데이트합니다.
+    1. **찾아보기** 탭으로 전환합니다. **Xamarin.GooglePlayServices.Base**를 검색합니다. 결과 목록에서 **Xamarin.GooglePlayServices.Base**를 선택합니다. 그런 후 **설치**를 선택합니다.
 
-    ![Google Play 서비스 NuGet](./media/partner-xamarin-notification-hubs-android-get-started/google-play-services-nuget.png)
-6. **NuGet 패키지 관리자** 창에서 **Xamarin.Firebase.Messaging**을 검색합니다. 결과 목록에서 **Xamarin.Firebase.Messaging**을 선택합니다. 그런 후 **설치**를 선택합니다.
-7. 이제 **Xamarin.Azure.NotificationHubs.Android**를 검색합니다. 결과 목록에서 **Xamarin.Azure.NotificationHubs.Android**를 선택합니다. 그런 후 **설치**를 선택합니다.
+        ![Google Play 서비스 NuGet](./media/partner-xamarin-notification-hubs-android-get-started/google-play-services-nuget.png)
+    6. **NuGet 패키지 관리자** 창에서 **Xamarin.Firebase.Messaging**을 검색합니다. 결과 목록에서 **Xamarin.Firebase.Messaging**을 선택합니다. 그런 후 **설치**를 선택합니다.
+    7. 이제 **Xamarin.Azure.NotificationHubs.Android**를 검색합니다. 결과 목록에서 **Xamarin.Azure.NotificationHubs.Android**를 선택합니다. 그런 후 **설치**를 선택합니다.
 
 ### <a name="add-the-google-services-json-file"></a>Google Services JSON 파일 추가
 
@@ -218,57 +227,14 @@ ms.locfileid: "66240717"
     CreateNotificationChannel();
     ```
 
-11. `Constants` 클래스를 만들었던 것처럼 새 클래스 `MyFirebaseIIDService`를 만듭니다.
-12. 명령문을 사용하여 다음 항목을 `MyFirebaseIIDService.cs`에 추가합니다.
-
-    ```csharp
-    using Android.Util;
-    using WindowsAzure.Messaging;
-    using Firebase.Iid;
-    ```
-
-13. `MyFirebaseIIDService.cs`에서 다음 `class` 선언을 추가하고 클래스가 `FirebaseInstanceIdService`에서 상속되도록 합니다.
-
-    ```csharp
-    [Service]
-    [IntentFilter(new[] { "com.google.firebase.INSTANCE_ID_EVENT" })]
-    public class MyFirebaseIIDService : FirebaseInstanceIdService
-    ```
-
-14. `MyFirebaseIIDService.cs`에서 다음 코드를 추가합니다.
-
-    ```csharp
-    const string TAG = "MyFirebaseIIDService";
-    NotificationHub hub;
-
-    public override void OnTokenRefresh()
-    {
-        var refreshedToken = FirebaseInstanceId.Instance.Token;
-        Log.Debug(TAG, "FCM token: " + refreshedToken);
-        SendRegistrationToServer(refreshedToken);
-    }
-
-    void SendRegistrationToServer(string token)
-    {
-        // Register with Notification Hubs
-        hub = new NotificationHub(Constants.NotificationHubName,
-                                    Constants.ListenConnectionString, this);
-
-        var tags = new List<string>() { };
-        var regID = hub.Register(token, tags.ToArray()).RegistrationId;
-
-        Log.Debug(TAG, $"Successful registration of ID {regID}");
-    }
-    ```
-
-15. 프로젝트에 대한 또 다른 클래스를 새로 만들고, 이름을 `MyFirebaseMessagingService`로 지정합니다.
+15. `MyFirebaseMessagingService`라는 클래스를 프로젝트에 추가합니다. 
 16. 명령문을 사용하여 다음 항목을 `MyFirebaseMessagingService.cs`에 추가합니다.
 
     ```csharp
     using Android.Util;
     using Firebase.Messaging;
-    using Android.Support.V4.App;
-    using Build = Android.OS.Build;
+    using Android.Support.V4.App;    
+    using WindowsAzure.Messaging;
     ```
 
 17. 클래스 선언 위에 다음을 추가하고, 클래스가 `FirebaseMessagingService`에서 상속되도록 합니다.
@@ -276,57 +242,77 @@ ms.locfileid: "66240717"
     ```csharp
     [Service]
     [IntentFilter(new[] { "com.google.firebase.MESSAGING_EVENT" })]
+    [IntentFilter(new[] { "com.google.firebase.INSTANCE_ID_EVENT" })]
     public class MyFirebaseMessagingService : FirebaseMessagingService
     ```
 
-18. 다음 코드를 `MyFirebaseMessagingService.cs`에 추가합니다.
+18. `MyFirebaseMessagingService.cs`에 다음 코드를 추가하여 수신된 메시지를 처리합니다. 
 
     ```csharp
-    const string TAG = "MyFirebaseMsgService";
-    public override void OnMessageReceived(RemoteMessage message)
-    {
-        Log.Debug(TAG, "From: " + message.From);
-        if(message.GetNotification()!= null)
+        const string TAG = "MyFirebaseMsgService";
+        NotificationHub hub;
+    
+        public override void OnMessageReceived(RemoteMessage message)
         {
-            //These is how most messages will be received
-            Log.Debug(TAG, "Notification Message Body: " + message.GetNotification().Body);
-            SendNotification(message.GetNotification().Body);
+            Log.Debug(TAG, "From: " + message.From);
+            if (message.GetNotification() != null)
+            {
+                //These is how most messages will be received
+                Log.Debug(TAG, "Notification Message Body: " + message.GetNotification().Body);
+                SendNotification(message.GetNotification().Body);
+            }
+            else
+            {
+                //Only used for debugging payloads sent from the Azure portal
+                SendNotification(message.Data.Values.First());
+    
+            }
         }
-        else
+    
+        void SendNotification(string messageBody)
         {
-            //Only used for debugging payloads sent from the Azure portal
-            SendNotification(message.Data.Values.First());
-
+            var intent = new Intent(this, typeof(MainActivity));
+            intent.AddFlags(ActivityFlags.ClearTop);
+            var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
+    
+            var notificationBuilder = new NotificationCompat.Builder(this, MainActivity.CHANNEL_ID);
+    
+            notificationBuilder.SetContentTitle("FCM Message")
+                        .SetSmallIcon(Resource.Drawable.ic_launcher)
+                        .SetContentText(messageBody)
+                        .SetAutoCancel(true)
+                        .SetShowWhen(false)
+                        .SetContentIntent(pendingIntent);
+    
+            var notificationManager = NotificationManager.FromContext(this);
+    
+            notificationManager.Notify(0, notificationBuilder.Build());
         }
-    }
-
-    void SendNotification(string messageBody)
-    {
-        var intent = new Intent(this, typeof(MainActivity));
-        intent.AddFlags(ActivityFlags.ClearTop);
-        var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
-
-        var notificationBuilder = new NotificationCompat.Builder(this)
-                    .SetContentTitle("FCM Message")
-                    .SetSmallIcon(Resource.Drawable.ic_launcher)
-                    .SetContentText(messageBody)
-                    .SetAutoCancel(true)
-                    .SetShowWhen(false)
-                    .SetContentIntent(pendingIntent);
-
-        if (Build.VERSION.SdkInt >= BuildVersionCodes.O)
-        {
-            notificationBuilder.SetChannelId(MainActivity.CHANNEL_ID);
-        }
-
-        var notificationManager = NotificationManager.FromContext(this);
-
-        notificationManager.Notify(0, notificationBuilder.Build());
-    }
     ```
 
-19. 프로젝트를 **빌드**합니다.
-20. 디바이스 또는 로드된 에뮬레이터에서 앱을 **실행**합니다.
+19. MyFirebaseMessagingService 클래스에 다음 메서드를 추가하여 FCM 등록 토큰을 받고 Notification Hubs 인스턴스(허브)로 보냅니다. 
+
+    ```csharp
+        public override void OnNewToken(string token)
+        {
+            Log.Debug(TAG, "FCM token: " + token);
+            SendRegistrationToServer(token);
+        }
+
+        void SendRegistrationToServer(string token)
+        {
+            // Register with Notification Hubs
+            hub = new NotificationHub(Constants.NotificationHubName,
+                                        Constants.ListenConnectionString, this);
+
+            var tags = new List<string>() { };
+            var regID = hub.Register(token, tags.ToArray()).RegistrationId;
+
+            Log.Debug(TAG, $"Successful registration of ID {regID}");
+        }
+    ```
+1. 프로젝트를 **빌드**합니다.
+1. 디바이스 또는 로드된 에뮬레이터에서 앱을 **실행**합니다.
 
 ## <a name="send-test-notification-from-the-azure-portal"></a>Azure Portal에서 테스트 알림 전송
 

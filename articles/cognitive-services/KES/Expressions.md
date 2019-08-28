@@ -19,7 +19,7 @@ ms.locfileid: "60815105"
 ---
 # <a name="structured-query-expression"></a>구조화된 쿼리 식
 
-구조화된 쿼리 식은 데이터 인덱스에 대해 평가하도록 작업의 집합을 지정합니다.  특성 쿼리 식과 상위 수준 함수로 구성됩니다.  [*evaluate*](evaluateMethod.md) 메서드를 사용하여 식과 일치하는 개체를 계산합니다.  다음은 2013년 이후 Jaime Teevan이 쓴 저서를 반환하는 학술 저서 도메인의 예제입니다.
+구조화된 쿼리 식은 데이터 인덱스에 대해 평가하도록 작업의 집합을 지정합니다.  특성 쿼리 식과 상위 수준 함수로 구성됩니다.  [*evaluate*](evaluateMethod.md) 메서드를 사용하여 식과 일치하는 개체를 컴퓨팅합니다.  다음은 2013년 이후 Jaime Teevan이 쓴 저서를 반환하는 학술 저서 도메인의 예제입니다.
 
 `And(Composite(Author.Name=='jaime teevan'),Y>=2013)`
 

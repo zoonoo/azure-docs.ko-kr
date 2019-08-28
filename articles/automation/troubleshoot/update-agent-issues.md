@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 3555ec74b7e7c8a0f7606f24f8c6f2c4fe36b52d
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 956e31c157c667acd2f830702467249d869648cb
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477093"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971286"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>업데이트 관리에서 Windows 에이전트 확인 결과 이해
 
@@ -27,7 +27,7 @@ ms.locfileid: "67477093"
 * **구성되지 않음** - 업데이트 에이전트가 확인되지 않거나 온보딩을 완료하지 않았습니다.
 
 > [!NOTE]
-> Azure 포털에 표시 하 고 컴퓨터의 현재 상태 간에 약간의 지연이 있을 수 있습니다.
+> Azure Portal 표시 되는 내용과 컴퓨터의 현재 상태 사이에 약간의 지연이 있을 수 있습니다.
 
 ## <a name="start-the-troubleshooter"></a>문제 해결사 시작
 
@@ -52,18 +52,18 @@ Azure 머신의 경우 포털의 **업데이트 에이전트 준비** 열에서 
 
 운영 체제 검사는 Hybrid Runbook Worker에서 다음 운영 체제 중 하나가 실행 중인지 확인합니다.
 
-|운영 체제  |메모  |
+|운영 체제  |참고  |
 |---------|---------|
 |Windows Server 2008 R2 RTM, Windows Server 2008 | 업데이트 평가만 지원합니다.         |
-|Windows Server 2008 R2 SP1 이상 |.NET Framework 4.5.1 이상이 필요합니다. ([.NET Framework 다운로드](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 이상이 필요합니다. ([Windows Management Framework 4.0 다운로드](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1은 안정성 개선을 위해 필요합니다.  ([Windows Management Framework 5.1 다운로드](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 SP1 이상 |.NET Framework 4.6.1 이상이 필요합니다. ([.NET Framework 다운로드](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 5.1이 필요 합니다.  ([Windows Management Framework 5.1 다운로드](https://www.microsoft.com/download/details.aspx?id=54616))        |
 
-### <a name="net-451"></a>.NET 4.5.1
+### <a name="net-461"></a>.NET 4.6.1 +
 
-.NET Framework 검사는 시스템에 최소한 [.NET Framework 4.5.1](https://www.microsoft.com/download/details.aspx?id=30653)이 설치됐는지 확인합니다.
+.NET Framework 검사는 시스템에 최소 [.NET Framework 4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49981) 가 설치 되어 있는지 확인 합니다.
 
 ### <a name="wmf-51"></a>WMF 5.1
 
-WMF 검사는 시스템에 필요한 버전의 WMF(Windows Management Framework)가 있는지 확인합니다. [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855)은 지원되는 가장 빠른 버전입니다. Hybrid Runbook Worker의 안정성 향상을 위해 [Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616)을 설치하는 것이 좋습니다.
+WMF 검사는 시스템에 WMF (Windows Management Framework)의 필수 버전이 있는지 확인 합니다.- [Windows Management framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616).
 
 ### <a name="tls-12"></a>TLS 1.2
 
@@ -107,7 +107,9 @@ Microsoft Monitoring Agent를 다시 설치하려면 [Microsoft Monitoring Agent
 
 ## <a name="troubleshoot-offline"></a>오프라인으로 문제 해결
 
-스크립트를 로컬로 실행하여 Hybrid Runbook Worker에서 오프라인으로 문제 해결사를 사용할 수 있습니다. PowerShell 갤러리에서 [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration) 스크립트를 가져올 수 있습니다. 이 스트립트의 출력은 다음 예제와 같이 표시됩니다.
+스크립트를 로컬로 실행하여 Hybrid Runbook Worker에서 오프라인으로 문제 해결사를 사용할 수 있습니다. PowerShell 갤러리에서 [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration) 스크립트를 가져올 수 있습니다. 스크립트를 실행 하려면 WMF 4.0 이상 버전이 설치 되어 있어야 합니다. 최신 버전의 PowerShell을 다운로드 하려면 [다양 한 버전의 Powershell 설치](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell)를 참조 하세요.
+
+이 스트립트의 출력은 다음 예제와 같이 표시됩니다.
 
 ```output
 RuleId                      : OperatingSystemCheck
@@ -144,7 +146,7 @@ RuleId                      : AutomationAgentServiceConnectivityCheck1
 RuleGroupId                 : connectivity
 RuleName                    : Registration endpoint
 RuleGroupName               : connectivity
-RuleDescription             : 
+RuleDescription             :
 CheckResult                 : Failed
 CheckResultMessage          : Unable to find Workspace registration information in registry
 CheckResultMessageId        : AutomationAgentServiceConnectivityCheck1.Failed.NoRegistrationFound

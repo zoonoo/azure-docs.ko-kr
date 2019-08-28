@@ -50,7 +50,7 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Storage 계정을 만듭니다. |
-| [New-AzStorageContainer](/powershell/module/az.storage/new-AzStoragecontainer) | Azure 저장소 컨테이너를 만듭니다. |
+| [New-AzStorageContainer](/powershell/module/az.storage/new-AzStoragecontainer) | Azure Storage 컨테이너를 만듭니다. |
 | [New-AzStorageContainerSASToken](/powershell/module/az.storage/new-AzStoragecontainersastoken) | Azure Storage 컨테이너에 대한 SAS 토큰을 생성합니다.  |
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | App Service 계획을 만듭니다. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | 웹앱을 만듭니다. |

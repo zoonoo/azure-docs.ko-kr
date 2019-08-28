@@ -135,6 +135,6 @@ DevKit 디바이스를 Azure IoT 원격 모니터링 솔루션 가속기에 연�
 
 * [Azure IoT 솔루션 가속기 개요](https://docs.microsoft.com/azure/iot-suite/)
 
-* [Azure IoT Central 애플리케이션에 MXChip IoT DevKit 장치 연결](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [Azure IoT Central 애플리케이션에 MXChip IoT DevKit 디바이스 연결](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
 
 * [IoT 개발자 키트](https://microsoft.github.io/azure-iot-developer-kit/) 

@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/18/2019
+ms.date: 07/29/2019
 ms.author: mayg
-ms.openlocfilehash: 42ef6087663c48cad965be768f14920efa777a62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e1d27d133b2eb4e0d4d45a5de563e119513c79f
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244321"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68620049"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>VMware에서 Azure로의 Azure Site Recovery Deployment Planner 정보
 이 문서는 VMware에서 Azure로의 프로덕션 배포를 위한 Azure Site Recovery의 Deployment Planner 사용자 가이드입니다.
@@ -21,9 +21,9 @@ ms.locfileid: "66244321"
 
 Azure Site Recovery를 사용하여 VMware VM(가상 머신) 보호를 시작하기 전에 원하는 RPO(복구 지점 목표)를 충족하도록 일별 데이터 변경률에 따라 충분한 대역폭을 할당합니다. 적절한 수의 구성 서버와 프로세스 서버를 온-프레미스에 배포해야 합니다.
 
-또한 올바른 유형 및 수의 대상 Azure Storage 계정도 만들어야 합니다. 시간이 지남에 따라 사용량이 증가하므로 원본 프로덕션 서버상의 증가를 고려하여 표준 또는 Premium Storage 계정을 만듭니다. 작업 특성(예: 초당 읽기/쓰기 I/O 작업 수[IOPS] 또는 데이터 변동) 및 Site Recovery에 따라 VM별로 저장소 유형을 선택합니다.
+또한 올바른 유형 및 수의 대상 Azure Storage 계정도 만들어야 합니다. 시간이 지남에 따라 사용량이 증가하므로 원본 프로덕션 서버상의 증가를 고려하여 표준 또는 Premium Storage 계정을 만듭니다. 작업 특성(예: 초당 읽기/쓰기 I/O 작업 수[IOPS] 또는 데이터 변동) 및 Site Recovery에 따라 VM별로 스토리지 유형을 선택합니다.
 
- Site Recovery Deployment Planner는 Hyper-V에서 Azure로 및 VMware에서 Azure로의 재해 복구 시나리오를 위한 명령줄 도구입니다. 이 도구를 통해 VMware VM을 원격으로 프로파일링하여(프로덕션에 전혀 영향을 미치지 않음) 성공적인 복제 및 테스트 장애 조치를 위한 대역폭 및 저장소 요구 사항을 파악할 수 있습니다. Site Recovery 구성 요소를 온-프레미스에 설치하지 않고도 도구를 실행할 수 있습니다. 달성된 처리량에 대한 정확한 결과를 얻으려면 프로덕션 배포의 첫 번째 단계 중 하나로 배포해야 하는 Site Recovery 구성 서버의 최소 요구 사항이 충족되는 Windows Server에서 Deployment Planner를 실행합니다.
+ Site Recovery Deployment Planner는 Hyper-V에서 Azure로 및 VMware에서 Azure로의 재해 복구 시나리오를 위한 명령줄 도구입니다. 이 도구를 통해 VMware VM을 원격으로 프로파일링하여(프로덕션에 전혀 영향을 미치지 않음) 성공적인 복제 및 테스트 장애 조치를 위한 대역폭 및 스토리지 요구 사항을 파악할 수 있습니다. Site Recovery 구성 요소를 온-프레미스에 설치하지 않고도 도구를 실행할 수 있습니다. 달성된 처리량에 대한 정확한 결과를 얻으려면 프로덕션 배포의 첫 번째 단계 중 하나로 배포해야 하는 Site Recovery 구성 서버의 최소 요구 사항이 충족되는 Windows Server에서 Deployment Planner를 실행합니다.
 
 이 도구는 다음과 같은 세부 정보를 제공합니다.
 
@@ -41,10 +41,9 @@ Azure Site Recovery를 사용하여 VMware VM(가상 머신) 보호를 시작하
 
 **Azure 인프라 요구 사항**
 
-* 각 VM에 대한 스토리지 유형(표준 또는 Premium Storage 계정) 요구 사항
-* 복제를 위해 설정할 표준 및 Premium Storage 계정의 총 수
+* 각 VM에 대 한 저장소 유형 (standard 또는 premium storage) 요구 사항
+* 복제에 대해 설정할 표준 및 프리미엄 저장소 계정의 총 수 (캐시 저장소 계정 포함)
 * Storage 지침에 따른 스토리지 계정 명명 제안
-* 모든 VM에 대한 저장소 계정 배치
 * 구독에 대한 테스트 장애 조치 또는 장애 조치 이전에 설정할 Azure 코어의 수
 * 각 온-프레미스 VM에 대한 Azure VM 권장 크기
 
@@ -52,7 +51,7 @@ Azure Site Recovery를 사용하여 VMware VM(가상 머신) 보호를 시작하
 * 온-프레미스에 배포하는 데 필요한 구성 서버 및 프로세스 서버의 수
 
 **Azure에 대한 예상 재해 복구 비용**
-* Azure로 재해 복구하는 데 예상되는 총 비용: 계산, 스토리지, 네트워크 및 Site Recovery 라이선스 비용
+* Azure로 재해 복구하는 데 예상되는 총 비용: 컴퓨팅, 스토리지, 네트워크 및 Site Recovery 라이선스 비용
 * VM별 자세한 비용 분석
 
 
@@ -65,14 +64,14 @@ Azure Site Recovery를 사용하여 VMware VM(가상 머신) 보호를 시작하
 
 | | **VMware에서 Azure로** |**Hyper-V에서 Azure로**|**Azure 간**|**Hyper-V에서 보조 사이트로**|**VMware에서 보조 사이트로**
 --|--|--|--|--|--
-지원되는 시나리오 |예|예|아닙니다.|예*|아닙니다.
-지원되는 버전 | vCenter 6.7, 6.5, 6.0 또는 5.5| Windows Server 2016, Windows Server 2012 R2 | 해당 없음 |Windows Server 2016, Windows Server 2012 R2|해당 없음
-지원되는 구성|vCenter, ESXi| Hyper-V 클러스터, Hyper-V 호스트|해당 없음|Hyper-V 클러스터, Hyper-V 호스트|해당 없음|
-Site Recovery Deployment Planner의 실행 인스턴스당 프로파일링할 수 있는 서버 수 |한 개(하나의 vCenter Server 또는 하나의 ESXi 서버에 속하는 VM을 한 번에 프로파일링할 수 있습니다.)|여러 개(여러 호스트 또는 호스트 클러스터 간에 VM을 한 번에 프로파일링할 수 있음)| 해당 없음 |여러 개(여러 호스트 또는 호스트 클러스터 간에 VM을 한 번에 프로파일링할 수 있음)| 해당 없음
+지원되는 시나리오 |예|예|아니요|예*|아니요
+지원되는 버전 | vCenter 6.7, 6.5, 6.0 또는 5.5| Windows Server 2016, Windows Server 2012 R2 | NA |Windows Server 2016, Windows Server 2012 R2|NA
+지원되는 구성|vCenter, ESXi| Hyper-V 클러스터, Hyper-V 호스트|NA|Hyper-V 클러스터, Hyper-V 호스트|NA|
+Site Recovery Deployment Planner의 실행 인스턴스당 프로파일링할 수 있는 서버 수 |한 개(하나의 vCenter Server 또는 하나의 ESXi 서버에 속하는 VM을 한 번에 프로파일링할 수 있습니다.)|여러 개(여러 호스트 또는 호스트 클러스터 간에 VM을 한 번에 프로파일링할 수 있음)| NA |여러 개(여러 호스트 또는 호스트 클러스터 간에 VM을 한 번에 프로파일링할 수 있음)| NA
 
-*이 도구는 주로 Hyper-V에서 Azure로 재해 복구 시나리오용입니다. Hyper-V를 보조 사이트 재해 복구에 사용하는 경우, 원본 쪽 권장 사항(예: 필요한 네트워크 대역폭, 원본 Hyper-V 서버 각각에 필요한 사용 가능한 저장소 공간 및 초기 복제 일괄 처리 번호/일괄 처리 정의)을 파악하는 데만 사용할 수 있습니다. 보고서의 Azure 권장 사항 및 비용은 무시하세요. 또한 Hyper-V에서 보조 사이트로의 재해 복구 시나리오에는 처리량 가져오기 작업을 적용할 수 없습니다.
+*이 도구는 주로 Hyper-V에서 Azure로 재해 복구 시나리오용입니다. Hyper-V를 보조 사이트 재해 복구에 사용하는 경우, 원본 쪽 권장 사항(예: 필요한 네트워크 대역폭, 원본 Hyper-V 서버 각각에 필요한 사용 가능한 스토리지 공간 및 초기 복제 일괄 처리 번호/일괄 처리 정의)을 파악하는 데만 사용할 수 있습니다. 보고서의 Azure 권장 사항 및 비용은 무시하세요. 또한 Hyper-V에서 보조 사이트로의 재해 복구 시나리오에는 처리량 가져오기 작업을 적용할 수 없습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 도구에는 두 가지 주요 단계, 즉 프로파일링과 보고서 생성 단계가 있습니다. 또한 처리량만 계산하는 세 번째 옵션도 있습니다. 다음 표에는 프로파일링 및 처리량 측정이 시작되는 서버에 대한 요구 사항이 나와 있습니다.
 
 | 서버 요구 사항 | 설명|
@@ -93,7 +92,7 @@ Site Recovery Deployment Planner의 실행 인스턴스당 프로파일링할 �
 2. 도구를 실행하려는 Windows Server에 zip 폴더를 복사합니다.
 서버가 프로파일링할 VM을 보유하는 vCenter 서버/vSphere ESXi 호스트에 연결할 네트워크 액세스 권한을 가지고 있는 경우 Windows Server 2012 R2에서 도구를 실행할 수 있습니다. 그러나 하드웨어 구성이 [구성 서버 크기 조정 지침](https://aka.ms/asr-v2a-on-prem-components)을 충족하는 서버에서 도구를 실행하는 것이 좋습니다. 이미 Site Recovery 구성 요소를 온-프레미스에 배포한 경우 구성 서버에서 도구를 실행합니다.
 
-    도구를 실행하는 서버에 구성 서버(기본 제공 프로세스 서버가 있는)와 같은 하드웨어 구성이 있는 것이 좋습니다. 그러한 구성이 있으면 도구가 보고하는 달성된 처리량이 Site Recovery에서 복제 중에 달성할 수 있는 실제 처리량과 확실히 일치합니다. 처리량 계산은 서버에서 사용 가능한 네트워크 대역폭 및 서버의 하드웨어 구성(예: CPU 및 저장소)에 따라 달라집니다. 다른 서버에서 도구를 실행하는 경우 해당 서버에서 Azure로의 처리량이 계산됩니다. 또한 서버의 하드웨어 구성은 구성 서버와 다를 수 있으므로 도구가 보고하는 달성된 처리량이 정확하지 않을 수 있습니다.
+    도구를 실행하는 서버에 구성 서버(기본 제공 프로세스 서버가 있는)와 같은 하드웨어 구성이 있는 것이 좋습니다. 그러한 구성이 있으면 도구가 보고하는 달성된 처리량이 Site Recovery에서 복제 중에 달성할 수 있는 실제 처리량과 확실히 일치합니다. 처리량 계산은 서버에서 사용 가능한 네트워크 대역폭 및 서버의 하드웨어 구성(예: CPU 및 스토리지)에 따라 달라집니다. 다른 서버에서 도구를 실행하는 경우 해당 서버에서 Azure로의 처리량이 계산됩니다. 또한 서버의 하드웨어 구성은 구성 서버와 다를 수 있으므로 도구가 보고하는 달성된 처리량이 정확하지 않을 수 있습니다.
 
 3. .zip 폴더의 압축을 풉니다.
 폴더에 여러 개의 파일과 하위 폴더가 있습니다. 실행 파일은 부모 폴더에 있는 ASRDeploymentPlanner.exe입니다.
@@ -105,7 +104,7 @@ Site Recovery Deployment Planner의 실행 인스턴스당 프로파일링할 �
 
 ### <a name="update-to-the-latest-version-of-deployment-planner"></a>최신 버전의 Deployment Planner로 업데이트
 
-Deployment Planner의 최신 업데이트를 요약 되어 있습니다 [버전 기록](site-recovery-deployment-planner-history.md)합니다.
+최신 업데이트는 Deployment Planner [버전 기록](site-recovery-deployment-planner-history.md)에 요약 되어 있습니다.
 
 이전 버전의 Deployment Planner가 있는 경우 다음 중 하나를 수행합니다.
  * 최신 버전에 프로파일링 수정 프로그램이 없고 현재 버전의 Planner에서 프로파일링을 이미 진행 중인 경우 프로파일링을 계속합니다.
@@ -120,7 +119,7 @@ Deployment Planner의 최신 업데이트를 요약 되어 있습니다 [버전 
 
 
 ## <a name="version-history"></a>버전 기록
-최신 Site Recovery Deployment Planner 도구 버전은 2.4입니다.
+최신 Site Recovery Deployment Planner 도구 버전은 2.5입니다.
 각 업데이트에 추가된 수정 사항은 [Site Recovery Deployment Planner 버전 기록](https://docs.microsoft.com/azure/site-recovery/site-recovery-deployment-planner-history) 페이지를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계

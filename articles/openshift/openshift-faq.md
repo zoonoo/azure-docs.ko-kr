@@ -1,6 +1,6 @@
 ---
 title: Azure Red Hat OpenShift에 대 한 질문과 대답 | Microsoft Docs
-description: 다음은 Microsoft Azure의 Red Hat OpenShift에 대 한 일반적인 질문에 대답
+description: Microsoft Azure Red Hat OpenShift에 대 한 일반적인 질문에 대 한 답변은 다음과 같습니다.
 services: container-service
 author: jimzim
 ms.author: jzim
@@ -8,83 +8,159 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 32eb2c47ed46aed8e2e3755a83437a21391295c5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6ba252ccf7a46e93b2057b6822f2aae298f537d1
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67122957"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991637"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift FAQ
 
-이 문서에서는 Microsoft Azure의 Red Hat OpenShift에 대 한 질문과 대답을 (Faq)를 다룹니다.
+이 문서에서는 Red Hat OpenShift Microsoft Azure에 대 한 Faq (질문과 대답)를 다룹니다.
 
 ## <a name="how-do-i-get-started"></a>어떻게 시작하나요?
 
-Azure Red Hat OpenShift를 사용 하려면 먼저 Azure Red Hat OpenShift 예약 응용 프로그램 노드 4 개를 구매 해야 합니다.
+Azure Red Hat OpenShift를 사용 하려면 최소 4 개의 Azure Red Hat OpenShift 예약 응용 프로그램 노드를 구매 해야 합니다.
 
-Azure 고객으로 라면[Azure Red Hat OpenShift 예약 인스턴스 구매](https://aka.ms/openshift/buy) Azure portal을 통해. 를 구입 후 수 클러스터 프로 비전을 24 시간 내 구독 활성화 됩니다.
+Azure 고객 인 경우 Azure Portal를 통해[Azure Red Hat OpenShift 예약 인스턴스를 구입](https://aka.ms/openshift/buy) 합니다. 구매한 후에 구독을 24 시간 이내에 활성화 하 여 클러스터를 프로 비전 할 수 있게 됩니다.
 
-Azure는 고객이 아닌 경우 [영업 팀에 문의](https://aka.ms/openshift/contact-sales) 고 프로세스를 시작 하려면 페이지 맨 아래에 판매 양식을 작성 합니다.
+Azure 고객이 아닌 경우 [영업 담당자에 게 연락](https://aka.ms/openshift/contact-sales) 하 여 페이지 맨 아래에 있는 판매 양식을 작성 하 여 프로세스를 시작 합니다.
 
-참조를 [가격 책정 페이지 Azure Red Hat OpenShift](https://aka.ms/openshift/pricing) 자세한 합니다.
+자세한 내용은 [Azure Red Hat OpenShift 가격 책정 페이지](https://aka.ms/openshift/pricing) 를 참조 하세요.
 
-## <a name="which-azure-regions-are-supported"></a>어떤 Azure 지역이 지원 됩니까?
+## <a name="which-azure-regions-are-supported"></a>지원 되는 Azure 지역은 무엇 인가요?
 
-참조 [지원 되는 리소스](supported-resources.md#azure-regions) Azure Red Hat OpenShift의 지원 되는 전 세계 지역 목록은 합니다.
+Azure Red Hat OpenShift가 지원 되는 글로벌 지역 목록은 지원 되는 [리소스](supported-resources.md#azure-regions) 를 참조 하세요.
 
-## <a name="can-i-deploy-a-cluster-into-an-existing-virtual-network"></a>기존 가상 네트워크에 클러스터를 배포할 수 있습니까?
+## <a name="can-i-deploy-a-cluster-into-an-existing-virtual-network"></a>클러스터를 기존 가상 네트워크에 배포할 수 있나요?
 
-아니요. 하지만 Azure Red Hat OpenShift 클러스터를 피어 링을 통해 기존 VNET을 연결할 수 있습니다. 참조 [기존 가상 네트워크는 클러스터의 가상 네트워크를 연결할 ](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) 세부 정보에 대 한 합니다.
+아니요. 그러나 피어 링을 통해 Azure Red Hat OpenShift 클러스터를 기존 VNET에 연결할 수 있습니다. 자세한 내용은 [기존 가상 네트워크에 클러스터의 가상 네트워크 연결](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) 을 참조 하세요.
 
-## <a name="what-cluster-operations-are-available"></a>클러스터 작업에 사용할 수 있습니까?
+## <a name="what-cluster-operations-are-available"></a>사용할 수 있는 클러스터 작업은 무엇 인가요?
 
-계산 노드 수를 위아래로 확장할 수 있습니다. 기타 수정 작업을 수 여 `Microsoft.ContainerService/openShiftManagedClusters` 를 만든 후 리소스. 계산 노드의 최대 수는 20 개로 제한 합니다.
+계산 노드 수를 확장 하거나 축소할 수만 있습니다. 리소스를 만든 후에는 `Microsoft.ContainerService/openShiftManagedClusters` 다른 수정 작업을 수행할 수 없습니다. 최대 계산 노드 수는 20 개로 제한 됩니다.
 
 ## <a name="what-virtual-machine-sizes-can-i-use"></a>어떤 가상 머신 크기를 사용할 수 있나요?
 
-참조 [Red Hat OpenShift Azure 가상 머신 크기](supported-resources.md#virtual-machine-sizes) Azure Red Hat OpenShift 클러스터를 사용할 수 있는 virtual machine 크기 목록에 대 한 합니다.
+Azure Red Hat OpenShift 클러스터에서 사용할 수 있는 가상 머신 크기 목록은 [Azure Red Hat openshift 가상 머신 크기](supported-resources.md#virtual-machine-sizes) 를 참조 하세요.
 
-## <a name="is-data-on-my-cluster-encrypted"></a>암호화 된 클러스터에 데이터가 포함 되어 있습니까?
+## <a name="is-data-on-my-cluster-encrypted"></a>내 클러스터의 데이터가 암호화 되나요?
 
-기본적으로 미사용 암호화에 있습니다. Azure Storage 플랫폼 및 해독 검색 전 해당 데이터를 유지 하기 전에 데이터를 자동으로 암호화 합니다. 참조 [미사용 데이터에 대 한 Azure Storage 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) 세부 정보에 대 한 합니다.
+기본적으로 미사용 암호화가 있습니다. Azure Storage 플랫폼은 데이터를 유지 하기 전에 자동으로 암호화 하 고 검색 하기 전에 데이터를 해독 합니다. 자세한 내용은 [미사용 데이터에 대 한 서비스 암호화 Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) 를 참조 하세요.
 
-## <a name="can-i-use-prometheusgrafana-to-monitor-my-applications"></a>내 응용 프로그램을 모니터링 한 Prometheus/Grafana를 사용할 수 있나요?
+## <a name="can-i-use-prometheusgrafana-to-monitor-my-applications"></a>프로메테우스/Grafana를 사용 하 여 응용 프로그램을 모니터링할 수 있나요?
 
-예, 네임 스페이스에서 네임 스페이스 및 모니터 응용 프로그램에서 Prometheus를 배포할 수 있습니다.
+예, 네임 스페이스에 프로메테우스를 배포 하 고 네임 스페이스에서 응용 프로그램을 모니터링할 수 있습니다.
 
-## <a name="can-i-use-prometheusgrafana-to-monitor-metrics-related-to-cluster-health-and-capacity"></a>클러스터 상태 및 용량 관련 된 메트릭을 모니터링 하려면 Prometheus/Grafana를 사용할 수 있나요?
+## <a name="can-i-use-prometheusgrafana-to-monitor-metrics-related-to-cluster-health-and-capacity"></a>프로메테우스/Grafana를 사용 하 여 클러스터 상태 및 용량과 관련 된 메트릭을 모니터링할 수 있나요?
 
-아니요, 현재 시간에 없습니다.
+아니요, 현재는 그렇지 않습니다.
 
-## <a name="is-the-docker-registry-available-externally-so-i-can-use-tools-such-as-jenkins"></a>이므로 Docker 레지스트리 사용 가능한 외부에서 Jenkins와 같은 도구를 사용할 수 있습니까?
+## <a name="is-the-docker-registry-available-externally-so-i-can-use-tools-such-as-jenkins"></a>Docker 레지스트리는 외부에서 사용할 수 있으므로 Jenkins와 같은 도구를 사용할 수 있나요?
 
-그러나 Docker 레지스트리는에서 사용할 수 있는 `https://docker-registry.apps.<clustername>.<region>.azmosa.io/` 강력한 저장소 내구성 보증을 제공 하지 않으면. 사용할 수도 있습니다 [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)합니다.
+그러나에서 `https://docker-registry.apps.<clustername>.<region>.azmosa.io/` Docker 레지스트리를 사용할 수 있지만 강력한 저장소 내구성 보장은 제공 되지 않습니다. [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)를 사용할 수도 있습니다.
 
-## <a name="is-cross-namespace-networking-supported"></a>네임 스페이스 간 네트워킹 지원 되나요?
+## <a name="is-cross-namespace-networking-supported"></a>네임 스페이스 간 네트워킹이 지원 되나요?
 
-프로젝트별으로 사용 하 여 네임 스페이스 간 네트워킹 (거부) 사용자 지정할 수 있습니다 고객 및 개별 프로젝트 관리자 `NetworkPolicy` 개체입니다.
+고객 및 개별 프로젝트 관리자는 개체를 사용 하 여 `NetworkPolicy` 프로젝트 단위로 상호 네임 스페이스 네트워킹 (거부 포함)을 사용자 지정할 수 있습니다.
 
-## <a name="can-an-admin-manage-users-and-quotas"></a>사용자 및 할당량 관리자로 관리할 수 있습니까?
+## <a name="can-an-admin-manage-users-and-quotas"></a>관리자가 사용자 및 할당량을 관리할 수 있나요?
 
-예. 사용자 및 모든 사용자가 만든 프로젝트에 액세스 하는 것 외에도 할당량 Azure Red Hat OpenShift 관리자로 관리할 수 있습니다.
+예. Azure Red Hat OpenShift 관리자는 사용자가 만든 모든 프로젝트에 액세스 하는 것 외에도 사용자 및 할당량을 관리할 수 있습니다.
 
-## <a name="can-i-restrict-a-cluster-to-only-certain-azure-ad-users"></a>특정 Azure AD 사용자만 클러스터를 제한할 수 있습니까?
+## <a name="can-i-restrict-a-cluster-to-only-certain-azure-ad-users"></a>클러스터를 특정 Azure AD 사용자로만 제한할 수 있나요?
 
-예. Azure를 제한할 수 있습니다 AD 사용자가 Azure AD 응용 프로그램을 구성 하 여 클러스터에 서명할 수 있습니다. 세부 정보를 참조 하세요. [방법: 사용자 집합에 대 한 앱 제한](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users)
+예. Azure ad 응용 프로그램을 구성 하 여 클러스터에 로그인 할 수 있는 Azure AD 사용자를 제한할 수 있습니다. 자세한 [내용은 방법: 사용자 집합으로 앱 제한](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users)
 
-## <a name="can-a-cluster-have-compute-nodes-across-multiple-azure-regions"></a>클러스터 수에 여러 Azure 지역에서 계산 노드가?
+## <a name="can-a-cluster-have-compute-nodes-across-multiple-azure-regions"></a>클러스터가 여러 Azure 지역에 계산 노드를 가질 수 있나요?
 
-아니요. Azure Red Hat OpenShift 클러스터의 모든 노드는 동일한 Azure 지역에서 생성 되어야 합니다.
+아니요. Azure Red Hat OpenShift 클러스터의 모든 노드는 동일한 Azure 지역에서 시작 되어야 합니다.
 
-## <a name="are-master-and-infrastructure-nodes-abstracted-away-as-they-are-with-azure-kubernetes-service-aks"></a>추상화 된 경우 마스터와 인프라 노드 Azure Kubernetes Service (AKS)를 사용 하 여 그대로?
+## <a name="are-master-and-infrastructure-nodes-abstracted-away-as-they-are-with-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)를 사용 하는 경우 마스터 및 인프라 노드가 추출 되나요?
 
-아니요. 모든 리소스를 클러스터 마스터를 포함 하 여 고객 구독에서 실행 합니다. 이러한 유형의 리소스는 읽기 전용 리소스 그룹에 배치 됩니다.
+아니요. 클러스터 마스터를 비롯 한 모든 리소스는 고객 구독에서 실행 됩니다. 이러한 유형의 리소스는 읽기 전용 리소스 그룹에 배치 됩니다.
 
-## <a name="is-open-service-broker-for-azure-osba-supported"></a>Open Service Broker에 대 한 Azure (OSBA) 지원 인지 확인 합니다.
+## <a name="is-open-service-broker-for-azure-osba-supported"></a>OSBA (Open Service Broker for Azure)가 지원 되나요?
 
-예. Azure Red Hat OpenShift를 사용 하 여 OSBA를 사용할 수 있습니다. 참조 [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure#openshift-project-template) 자세한 내용은 합니다.
+예. Azure Red Hat OpenShift와 함께 OSBA를 사용할 수 있습니다. 자세한 내용은 [Azure에 대 한 Open Service Broker](https://github.com/Azure/open-service-broker-azure#openshift-project-template) 를 참조 하세요.
 
-## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>다른 구독의 가상 네트워크에 피어 링 하려고 고 했지만 시작 `Failed to get vnet CIDR` 오류입니다.
+## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>다른 구독의 가상 네트워크에 피어 링 하려고 했지만 `Failed to get vnet CIDR` 오류가 발생 했습니다.
 
-가상 네트워크가 있는 구독에 등록할 수 있는지 확인 `Microsoft.ContainerService` 공급자 `az provider register -n Microsoft.ContainerService --wait` 
+가상 네트워크가 있는 구독에서 공급자를에 등록 `Microsoft.ContainerService` 해야 합니다.`az provider register -n Microsoft.ContainerService --wait` 
+
+## <a name="what-is-the-azure-red-hat-openshift-aro-maintenance-process"></a>Azure Red Hat OpenShift (ARO) 유지 관리 프로세스는 무엇 인가요?
+
+ARO는 업그레이드, etcd 데이터 백업 및 복원, 클라우드 공급자 시작 유지 관리의 세 가지 유형이 있습니다.
+
++ 업그레이드에는 소프트웨어 업그레이드와 CVEs가 포함 됩니다. CVE 업데이트는를 실행 `yum update` 하 여 시작 시 발생 하며 즉각적인 완화를 위해 제공 됩니다.  병렬로 새 이미지 빌드는 나중에 클러스터 만들기를 위해 만들어집니다.
+
++ Etcd 데이터의 백업 및 관리는 작업에 따라 클러스터 가동 중지 시간이 필요할 수 있는 자동화 된 프로세스입니다. Etcd 데이터베이스가 백업에서 복원 되는 경우 가동 중지 시간이 발생 합니다. Etcd를 매시간 백업 하 고 최근 6 시간 동안 백업을 유지 합니다.
+
++ 클라우드 공급자에서 시작 된 유지 관리에는 네트워크, 저장소 및 지역 중단이 포함 됩니다. 유지 관리는 클라우드 공급자에 따라 다르며 공급자가 제공한 업데이트를 사용 합니다.
+
+## <a name="what-is-the-general-upgrade-process"></a>일반적인 업그레이드 프로세스는 무엇 인가요?
+
+업그레이드 실행은 안전 하 게 실행 해야 하며 클러스터 서비스를 중단 해서는 안 됩니다. 새 버전을 사용할 수 있거나 CVEs가 해결 되지 않으면 SRE에서 업그레이드 프로세스를 트리거할 수 있습니다.
+
+사용 가능한 업데이트는 단계 환경에서 테스트 한 다음 프로덕션 클러스터에 적용 됩니다. 적용 되 면 새 노드가 일시적으로 추가 되 고 pod에서 복제본 수를 유지 관리할 수 있도록 회전 방식으로 노드가 업데이트 됩니다. 다음 모범 사례에 따라 가동 중지 시간을 최소화 하는 데 도움이 됩니다.
+
+보류 중인 업그레이드 또는 업데이트의 심각도에 따라 업데이트를 신속 하 게 적용 하 여 서비스에서 CVE로의 노출을 완화할 수 있다는 점에서 프로세스가 다를 수 있습니다. 새 이미지는 비동기적으로 빌드되고 테스트 되 고 클러스터 업그레이드로 롤아웃 됩니다. 그 외에는 응급 유지 관리와 계획 된 유지 관리 간에 차이가 없습니다. 계획 된 유지 관리는 고객과 prescheduled 되지 않습니다.
+
+고객에 대 한 통신이 필요한 경우 ICM 및 전자 메일을 통해 알림을 보낼 수 있습니다.
+
+## <a name="what-about-emergency-vs-planned-maintenance-windows"></a>비상 및 계획 된 유지 관리 기간에 대 한 정보
+
+두 가지 유형의 유지 관리를 구분 하지 않습니다. Microsoft 팀은 24/7/365을 사용할 수 있으며 기존의 예약 된 "시간 제한" 유지 관리 기간을 사용 하지 않습니다.
+
+## <a name="how-will-host-operating-system-and-openshift-software-be-updated"></a>운영 체제 및 OpenShift 소프트웨어를 호스트 하는 방법은 무엇입니까?
+
+호스트 운영 체제 및 OpenShift 소프트웨어는 일반적인 업그레이드 및 이미지 빌드 프로세스를 통해 업데이트 됩니다.
+
+## <a name="whats-the-process-to-reboot-the-updated-node"></a>업데이트 된 노드를 다시 부팅 하는 프로세스는 무엇 인가요?
+
+업그레이드의 일부로 처리 되어야 합니다.
+
+## <a name="is-data-stored-in-etcd-encrypted-on-aro"></a>데이터는 ARO로 암호화 된 etcd에 저장 되나요?
+
+Etcd 수준에서 암호화 되지 않습니다. 이 기능을 설정 하는 옵션은 현재 지원 되지 않습니다. OpenShift는이 기능을 지원 하지만도로 지도에서 엔지니어링 노력을 해야 합니다. 데이터는 디스크 수준에서 암호화 됩니다. 자세한 내용은 [데이터 저장소 계층에서 데이터 암호화](https://docs.openshift.com/container-platform/3.11/admin_guide/encrypting_data.html) 를 참조 하세요.
+
+## <a name="can-logs-of-underlying-vms-be-streamed-out-to-a-customer-log-analysis-system"></a>기본 Vm의 로그를 고객 로그 분석 시스템으로 스트리밍할 수 있나요?
+
+Syslog, docker 로그, 저널 및 dmesg는 관리 서비스에서 처리 되며 고객에 게 노출 되지 않습니다.
+
+## <a name="how-can-a-customer-get-access-to-metrics-like-cpumemory-at-the-node-level-to-take-action-to-scale-debug-issues-etc-i-cannot-seem-to-run-kubectl-top-on-an-aro-cluster"></a>사용자가 노드 수준에서 CPU/메모리와 같은 메트릭에 액세스 하 여 확장, 문제 해결 등의 작업을 수행 하는 방법에 대해 알아봅니다. ARO 클러스터에서 실행 `kubectl top` 되지 않는 것 같습니다.
+
+`kubectl top`Red Hat OpenShift에서 사용할 수 없습니다. 지원 메트릭 원본 (Heapster (사용 되지 않음) 또는 메트릭-서버 (incubating 또는 alpha)이 필요 합니다 .이는 OpenShift 모니터링 스택에 포함 되지 않습니다.
+
+## <a name="what-is-the-default-pod-scheduler-configuration-for-aro"></a>ARO의 기본 pod 스케줄러 구성은 무엇입니까?
+
+ARO는 OpenShift에서 제공 되는 기본 스케줄러를 사용 합니다. ARO에서 지원 되지 않는 몇 가지 추가 메커니즘이 있습니다. 자세한 내용은 [기본 scheduler 설명서](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/scheduler.html#generic-scheduler) 및 [마스터 스케줄러 설명서](https://github.com/openshift/openshift-azure/blob/master/pkg/startup/v6/data/master/etc/origin/master/scheduler.json) 를 참조 하세요.
+
+고급/사용자 지정 일정은 현재 지원 되지 않습니다. 자세한 내용은 [일정 설명서](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/index.html) 를 참조 하세요.
+
+## <a name="if-we-scale-up-the-deployment-how-do-azure-fault-domains-map-into-pod-placement-to-ensure-all-pods-for-a-service-do-not-get-knocked-out-by-a-failure-in-a-single-fault-domain"></a>배포를 강화 하는 경우 Azure 장애 도메인을 pod 배치로 매핑하여 서비스에 대 한 모든 pod 단일 장애 도메인의 오류로 인해 끊으면 되지 않도록 할 수 있나요?
+
+Azure에서 가상 머신 확장 집합을 사용 하는 경우 기본적으로 5 개의 장애 도메인이 있습니다. 확장 집합의 각 가상 머신 인스턴스는 이러한 장애 도메인 중 하나에 배치 됩니다. 이렇게 하면 클러스터의 계산 노드에 배포 된 응용 프로그램이 별도의 오류 도메인에 배치 됩니다.
+
+자세한 내용은 [가상 머신 확장 집합의 올바른 장애 도메인 수 선택](https://docs.microsoft.com//azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains) 을 참조 하세요.
+
+## <a name="is-there-a-way-to-manage-pod-placement"></a>Pod 배치를 관리 하는 방법이 있나요?
+
+고객 관리 업데이트를 통해 고객은 노드를 가져오고 레이블을 볼 수 있습니다.  이렇게 하면 확장 집합의 모든 VM을 대상으로 지정할 수 있습니다.
+
+특정 레이블을 사용 하는 경우 주의 해야 합니다.
+
+- 호스트 이름을 사용 하지 않아야 합니다. 호스트 이름은 업그레이드 및 업데이트로 자주 회전 되며 변경 될 수 있습니다.
+
+- 고객이 특정 레이블이나 배포 전략에 대 한 요청을 수행 하는 경우이 작업은 가능 하지만 엔지니어링 노력이 필요 하며 현재 지원 되지 않습니다.
+
+## <a name="what-is-the-maximum-number-of-pods-in-an-aro-cluster-what-is-the-maximum-number-of-pods-per-node-in-aro"></a>ARO 클러스터의 최대 pod 수는 얼마 인가요?  ARO의 노드당 최대 pod 수는 얼마 인가요?
+
+자세한 내용은 [업스트림 OpenShift 문서](https://docs.openshift.com/container-platform/3.11/scaling_performance/cluster_limits.html#scaling-performance-current-cluster-limits) 를 참조 하세요. Red Hat OpenShift 3.11은 250-pod/노드 제한을 포함 하는 반면, [aro는 20 개의 계산 노드 제한을 가지](https://docs.microsoft.com/azure/openshift/openshift-faq#what-cluster-operations-are-available)므로,이는 aro 클러스터에서 지원 되는 최대 pod 수를 250 * 20 = 5000로 제한 합니다.
+
+## <a name="can-we-specify-ip-ranges-for-deployment-on-the-private-vnet-avoiding-clashes-with-other-corporate-vnets-once-peered"></a>사설 VNET에서 배포 하기 위한 IP 범위를 지정 하 여 다른 회사 Vnet 피어 링 한 후 충돌을 방지할 수 있나요?
+
+Azure Red Hat OpenShift는 VNET 피어 링을 지원 하며, 고객이 피어 링을 제공할 수 있도록 하 고, OpenShift 네트워크에서 작동 하는 VNET CIDR을 제공 합니다.
+
+ARO에서 만든 VNET은 보호 되며 구성 변경을 허용 하지 않습니다. 피어 링 된 VNET은 고객에 의해 제어 되며 구독에 상주 합니다.

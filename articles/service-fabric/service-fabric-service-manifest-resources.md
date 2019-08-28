@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 8707a9cb90afe1bf72f3aef6377f8ada409a1c64
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 82b6e701a5f76aa4c2cea78417ca9bcbeeb10308
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837762"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927682"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>서비스 매니페스트에서 리소스 지정
 ## <a name="overview"></a>개요
@@ -27,6 +27,10 @@ ms.locfileid: "60837762"
 
 ## <a name="endpoints"></a>엔드포인트
 서비스 매니페스트에 엔드포인트 리소스가 정의되면 서비스 패브릭에서는 포트가 명시적으로 지정되지 않을 경우 예약된 애플리케이션 포트 범위에 포함되는 포트를 할당합니다. 예를 들어 이 단락 다음에 제공된 매니페스트 코드 조각에 지정된 엔드포인트 *ServiceEndpoint1* 을 보세요. 또한 서비스에서 리소스의 특정 포트를 요청할 수도 있습니다. 다른 클러스터 노드에서 실행되는 서비스 복제본을 다른 포트 번호에 할당할 수 있으며, 같은 노드에서 실행되는 서비스의 복제본은 포트를 공유합니다. 그러면 서비스 복제본은 복제 및 클라이언트 요청의 수신 대기를 위해 필요한 경우 이러한 포트를 사용할 수 있습니다.
+
+> [!WARNING] 
+> 의도적으로 정적 포트는 ClusterManifest에 지정 된 응용 프로그램 포트 범위와 겹치면 안 됩니다. 정적 포트를 지정 하는 경우에는 응용 프로그램 포트 범위 외부에 할당 합니다. 그렇지 않으면 포트 충돌이 발생 합니다. Release 6.5를 사용 하면 이러한 충돌을 감지 하면 **상태 경고가** cu2 배포를 계속 해 서 배송 된 6.5 동작으로 동기화 할 수 있습니다. 그러나 다음 주요 릴리스에서는 응용 프로그램을 배포 하지 못할 수 있습니다.
+>
 
 ```xml
 <Resources>
@@ -192,7 +196,7 @@ Parameters에서 아래 내용을 추가합니다.
   </Parameters>
 ```
 
-애플리케이션을 배포하는 동안 이러한 값을 ApplicationParameters로 제공할 수 있습니다.  예를 들면 다음과 같습니다.
+애플리케이션을 배포하는 동안 이러한 값을 ApplicationParameters로 제공할 수 있습니다.  예를 들어:
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
@@ -200,7 +204,7 @@ PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -Application
 
 참고: ApplicationParameters에 제공된 값이 비어 있으면 해당 EndPointName에 대한 ServiceManifest에 제공된 기본값으로 돌아갑니다.
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 ServiceManifest에서 다음을 지정했습니다.
 

@@ -4,16 +4,16 @@ description: Azure 파일 동기화 에이전트에 대한 릴리스 정보
 services: storage
 author: wmgries
 ms.service: storage
-ms.topic: article
-ms.date: 6/27/2019
+ms.topic: conceptual
+ms.date: 8/14/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 2399fcaa683e5807d2a5cd69d3dd3357d804fd28
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f4ea820eb116c4efe550997cbe7c9ed69713c965
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449966"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019123"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 파일 동기화 에이전트에 대한 릴리스 정보
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Windows Server 설치는 Azure 파일 공유의 빠른 캐시로 변환됩니다. 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다(SMB, NFS 및 FTPS 포함). 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -23,55 +23,80 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 ## <a name="supported-versions"></a>지원되는 버전
 다음 버전은 Azure 파일 동기화 에이전트에 대해 지원됩니다.
 
-| Milestone | 에이전트 버전 번호 | 릴리스 날짜 | 상태 |
+| Milestone | 에이전트 버전 번호 | 릴리스 날짜 | Status |
 |----|----------------------|--------------|------------------|
-| V7 릴리스- [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 2019 년 6 월 19 일 | [플 라이팅](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#automatic-agent-lifecycle-management) |
-| 2019 년 6 월 업데이트 롤업- [KB4489739](https://support.microsoft.com/help/4489739)| 6.3.0.0 | 2019 년 6 월 27 일 | 지원됨(권장 버전) |
-| 2019 년 6 월 업데이트 롤업- [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 2019 년 6 월 13 일 | 지원됨 |
+| 7 월 2019 업데이트 롤업- [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 2019년 7월 24일 | 지원됨 |
+| 7 월 2019 업데이트 롤업- [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 2019 년 7 월 12 일 | 지원됨 |
+| V7 릴리스- [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 2019 년 6 월 19 일 | 지원됨 |
+| 6 월 2019 업데이트 롤업- [KB4489739](https://support.microsoft.com/help/4489739)| 6.3.0.0 | 2019 년 6 월 27 일 | 지원됨 |
+| 6 월 2019 업데이트 롤업- [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | June 13, 2019 | 지원됨 |
 | 2019 년 5 월 업데이트 롤업- [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 2019 년 5 월 7 일 | 지원됨 |
 | V6 릴리스- [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | 2019 년 4 월 21 일 | 지원됨 |
-| 2019 년 4 월 업데이트 롤업- [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | 2019 년 4 월 4 일 | 지원됨 |
-| 2019 년 3 월 업데이트 롤업- [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | 2019 년 3 월 7 일 | 지원됨 |
+| 4 월 2019 업데이트 롤업- [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | 2019 4 월 4 일 | 지원됨 |
+| 3 월 2019 업데이트 롤업- [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | 2019 년 3 월 7 일 | 지원됨 |
 | V5 릴리스 - [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 2019년 2월 12일 | 지원됨 |
 | 2019년 1월 업데이트 롤업 - [KB4481059](https://support.microsoft.com/help/4481059)| 4.3.0.0 | 2019년 1월 14일 | 지원됨 |
 | 2018년 12월 업데이트 롤업 - [KB4459990](https://support.microsoft.com/help/4459990)| 4.2.0.0 | 2018년 12월 10일 | 지원됨 |
 | 2018년 12월 업데이트 롤업 | 4.1.0.0 | 2018년 12월 4일 | 지원됨 |
 | V4 릴리스 | 4.0.1.0 | 2018년 11월 13일 | 지원됨 |
-| 2018년 9월 업데이트 롤업 | 3.3.0.0 | 2018년 9월 24일 | 지원됨 - 에이전트 버전은 2019년 7월 19일에 만료됩니다. |
-| 2018년 8월 업데이트 롤업 | 3.2.0.0 | 2018년 8월 15일 | 지원됨 - 에이전트 버전은 2019년 7월 19일에 만료됩니다. |
-| 일반 공급 | 3.1.0.0 | 2018년 7월 19일 | 지원됨 - 에이전트 버전은 2019년 7월 19일에 만료됩니다. |
-| 만료된 에이전트 | 1.1.0.0 - 3.0.13.0 | N/A | 미지원 - 2018년 10월 1일에 에이전트 버전 만료 |
+| 2018년 9월 업데이트 롤업 | 3.3.0.0 | 2018년 9월 24일 | 지원 됨-에이전트 버전이 2019 년 8 월 19 일에 만료 됩니다. |
+| 2018년 8월 업데이트 롤업 | 3.2.0.0 | 2018년 8월 15일 | 지원 됨-에이전트 버전이 2019 년 8 월 19 일에 만료 됩니다. |
+| 일반 공급 | 3.1.0.0 | 2018년 7월 19일 | 지원 됨-에이전트 버전이 2019 년 8 월 19 일에 만료 됩니다. |
+| 만료된 에이전트 | 1.1.0.0 - 3.0.13.0 | 해당 사항 없음 | 미지원 - 2018년 10월 1일에 에이전트 버전 만료 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure 파일 동기화 에이전트 업데이트 정책
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
+## <a name="agent-version-7200"></a>에이전트 버전 7.2.0.0
+다음 릴리스 정보는 2019 년 7 월 24 일에 릴리스된 Azure File Sync 에이전트의 버전 7.2.0.0에 대 한 것입니다. 이러한 메모는 버전 7.0.0.0에 대해 나열 된 릴리스 정보에 추가 되었습니다.
+
+이 릴리스에서 해결된 문제 목록:  
+- 프록시 구성이 null 인 경우 저장소 동기화 에이전트 (Filedataservice Csvc)가 충돌 합니다.
+- 서버 끝점은 서버에서 여러 끝점의 이름이 같은 경우 BCDR를 시작 합니다 (오류 0x80c80257-ECS_E_BCDR_IN_PROGRESS).
+- 클라우드 계층화 안정성 향상.
+
+## <a name="agent-version-7100"></a>에이전트 버전 7.1.0.0
+다음 릴리스 정보는 2019 년 7 월 12 일에 릴리스된 Azure File Sync 에이전트의 버전 7.1.0.0에 대 한 것입니다. 이러한 메모는 버전 7.0.0.0에 대해 나열 된 릴리스 정보에 추가 되었습니다.
+
+이 릴리스에서 해결된 문제 목록:  
+- Windows Server 2012 r 2에서 SMB를 통한 서버 끝점 위치 액세스 또는 검색 속도가 느립니다. 
+- Azure File Sync v6 에이전트를 설치한 후 CPU 사용률이 증가 했습니다.
+- 클라우드 계층화 원격 분석 개선
+- 클라우드 계층화 및 동기화의 기타 안정성 개선
+
 ## <a name="agent-version-7000"></a>에이전트 버전 7.0.0.0
-다음 릴리스 정보 (2019 년 6 월 19 일 출시)에서 Azure File Sync 에이전트의 버전 7.0.0.0 됩니다.
+다음 릴리스 정보는 Azure File Sync 에이전트의 버전 7.0.0.0 (2019 년 6 월 19 일 출시)입니다.
 
 ### <a name="improvements-and-issues-that-are-fixed"></a>개선 사항 및 해결된 문제
 
-- 더 큰 파일 공유 크기에 대 한 지원
-    - 대규모 Azure 파일 공유의 미리 보기를 사용 하 여 file sync에이 지원 제한 증가 했습니다. 이 첫 번째 단계에서는 Azure File Sync는 이제 등록 단일에서 25TB 및 50million 파일에 네임 스페이스를 동기화 합니다. 대용량 파일 공유 미리 보기에 적용 하려면이 양식을 작성 https://aka.ms/azurefilesatscalesurvey 합니다. 
+- 더 큰 파일 공유 크기 지원
+    - 대규모 Azure 파일 공유의 미리 보기를 사용 하 여 파일 동기화에 대 한 지원 제한을 늘립니다. 이 첫 번째 단계에서는 현재 Azure File Sync에서 단일 동기화 네임 스페이스에 최대 25TB 및 50million 개의 파일을 지원 합니다. 대량 파일 공유 미리 보기에 적용 하려면이 양식을 https://aka.ms/azurefilesatscalesurvey 작성 합니다. 
+- 저장소 계정에 대 한 방화벽 및 가상 네트워크 설정 지원
+    - 이제 Azure File Sync에서 저장소 계정에 대 한 방화벽 및 가상 네트워크 설정을 지원 합니다. 방화벽 및 가상 네트워크 설정에서 작동 하도록 배포를 구성 하려면 [방화벽 및 가상 네트워크 설정 구성](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)을 참조 하세요.
+- Azure 파일 공유에서 변경 된 파일을 즉시 동기화 하는 PowerShell cmdlet
+    - Azure 파일 공유에서 변경 된 파일을 즉시 동기화 하기 위해 AzStorageSyncChangeDetection PowerShell cmdlet을 사용 하 여 Azure 파일 공유의 변경 내용 검색을 수동으로 시작할 수 있습니다. 이 cmdlet은 일부 유형의 자동화 된 프로세스에서 Azure 파일 공유를 변경 하거나 관리자가 변경 작업을 수행 하는 시나리오를 위한 것입니다 (예: 파일 및 디렉터리를 공유로 이동). 최종 사용자 변경의 경우 IaaS VM에 Azure File Sync 에이전트를 설치 하 고, 최종 사용자가 IaaS VM을 통해 파일 공유에 액세스할 수 있도록 하는 것이 좋습니다. 이렇게 하면 AzStorageSyncChangeDetection cmdlet을 사용 하지 않고 모든 변경 내용을 신속 하 게 다른 에이전트와 동기화 할 수 있습니다. 자세히 알아보려면 [AzStorageSyncChangeDetection](https://docs.microsoft.com/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) 설명서를 참조 하세요.
+- 동기화 되지 않는 파일이 발견 된 경우 포털 환경 개선
+    - 동기화에 실패 한 파일이 있는 경우 이제는 포털에서 일시적 오류와 영구 오류를 구분 합니다. 일시적 오류는 일반적으로 관리자 작업이 필요 하지 않고 자체적으로 해결 됩니다. 예를 들어 현재 사용 중인 파일은 파일 핸들이 닫힐 때까지 동기화 되지 않습니다. 지속적인 오류의 경우 이제 각 오류의 영향을 받는 파일 수를 표시 합니다. 영구 오류 수는 동기화 그룹에 있는 모든 서버 끝점의 동기화 되지 않은 파일 열에도 표시 됩니다.
 - 향상 된 Azure Backup 파일 수준 복원
-    - 이제 Azure Backup을 사용 하 여 복원 하는 개별 파일 검색 되며 서버 끝점을 더 빠르게 동기화 합니다.
-- 향상 된 클라우드 계층화가 회수 cmdlet 안정성 
-    - 클라우드 계층화 회수 cmdlet (Invoke StorageSyncFileRecall) 이제 파일당 지원 재시도 횟수 및 다시 시도 지연, robocopy와 비슷합니다.
-- TLS 1.2에 대 한 지원만 (TLS 1.0 및 1.1 해제)
-    - Azure File Sync 이제 TLS 1.2를 사용 하 여 TLS 1.0 및 1.1 사용 하지 않도록 설정 하는 서버에만 지원 합니다. 이러한 향상 된이 기능을 하기 전에 서버에서 TLS 1.0 및 1.1 비활성화 된 경우 서버 등록 실패 합니다.
-- 기타 성능 및 안정성 향상 된 기능에 대 한 동기화 및 클라우드 계층화
-    - 이 릴리스에서 안정성 및 성능 향상을 여러 가지가 있습니다. 그 중 일부를 대상으로 하 개선 더 효율적으로 계층화 하는 클라우드 및 Azure File Sync는 전체 작업으로 이러한 상황에서는 대역폭 일정 집합을 제한 해야 하는 경우.
+    - 이제 Azure Backup를 사용 하 여 복원 된 개별 파일이 검색 되 고 서버 끝점에 더 빠르게 동기화 됩니다.
+- 클라우드 계층화 회수 cmdlet 안정성 향상 
+    - 이제 클라우드 계층화 리콜 cmdlet (Invoke-storagesyncfilerecall)은 robocopy와 유사 하 게 파일 다시 시도 횟수와 다시 시도 지연 시간을 지원 합니다.
+- TLS 1.2에 대 한 지원만 (TLS 1.0 및 1.1 사용 안 함)
+    - 이제 Azure File Sync TLS 1.0 및 1.1을 사용 하지 않는 서버 에서만 TLS 1.2을 사용할 수 있습니다. 이러한 향상 전에 서버에서 TLS 1.0 및 1.1을 사용 하지 않도록 설정 하면 서버 등록이 실패 합니다.
+- 동기화 및 클라우드 계층화를 위한 기타 성능 및 안정성 향상
+    - 이 릴리스에서는 몇 가지 안정성과 성능 향상이 있습니다. 이러한 작업 중 일부는 클라우드 계층화를 보다 효율적으로 만들고 Azure File Sync 대역폭 제한 일정을 설정 하는 경우 해당 상황에서 전체 작업을 수행 합니다.
 
 ### <a name="evaluation-tool"></a>평가 도구
-Azure 파일 동기화를 배포하기 전에 Azure 파일 동기화 평가 도구를 사용하여 시스템과 호환되는지 여부를 평가해야 합니다. 이 도구는 Azure PowerShell cmdlet이며, 지원되지 않는 문자 또는 지원되지 않는 OS 버전과 같은 파일 시스템과 데이터 세트와 관련된 잠재적인 문제를 확인합니다. 설치 및 사용 지침에 대해서는 계획 가이드의 [평가 도구](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-tool) 섹션을 참조하세요. 
+Azure 파일 동기화를 배포하기 전에 Azure 파일 동기화 평가 도구를 사용하여 시스템과 호환되는지 여부를 평가해야 합니다. 이 도구는 Azure PowerShell cmdlet이며, 지원되지 않는 문자 또는 지원되지 않는 OS 버전과 같은 파일 시스템과 데이터 세트와 관련된 잠재적인 문제를 확인합니다. 설치 및 사용 지침에 대해서는 계획 가이드의 [평가 도구](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) 섹션을 참조하세요. 
 
 ### <a name="agent-installation-and-server-configuration"></a>에이전트 설치 및 서버 구성
 Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구성하는 방법에 대한 자세한 내용은 [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md) 및 [Azure 파일 동기화를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요.
 
 - 에이전트 설치 패키지는 상승된(관리자) 권한으로 설치되어야 합니다.
-- 에이전트는 Nano Server 배포 옵션에서 지원 되지 않습니다.
+- 에이전트가 Nano 서버 배포 옵션에서 지원 되지 않습니다.
 - 에이전트는 Windows Server 2019, Windows Server 2016 및 Windows Server 2012 R2에서만 지원됩니다.
 - 에이전트에는 2GiB 이상의 메모리가 필요합니다. 서버가 동적 메모리를 사용하도록 설정된 가상 머신에서 실행되는 경우 VM을 2,048MiB 이상의 메모리로 구성해야 합니다.
-- 저장소 동기화 에이전트(FileSyncSvc) 서비스는 SVI(시스템 볼륨 정보) 디렉터리가 압축된 볼륨에 있는 서버 엔드포인트를 지원하지 않습니다. 이 구성은 예기치 않은 결과를 발생시킵니다.
+- 스토리지 동기화 에이전트(FileSyncSvc) 서비스는 SVI(시스템 볼륨 정보) 디렉터리가 압축된 볼륨에 있는 서버 엔드포인트를 지원하지 않습니다. 이 구성은 예기치 않은 결과를 발생시킵니다.
 
 ### <a name="interoperability"></a>상호 운용성
 - 바이러스 백신, 백업, 그리고 계층화된 파일에 액세스하는 기타 애플리케이션은 오프라인 특성을 존중하여 해당 파일의 내용 읽기를 건너뛰지 않는 경우 원치 않은 회수가 발생할 수 있습니다. 자세한 내용은 [Azure 파일 동기화 문제 해결](storage-sync-files-troubleshoot.md)을 참조하세요.
@@ -106,69 +131,69 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
 
 ### <a name="cloud-endpoint"></a>클라우드 엔드포인트
 - Azure 파일 동기화는 Azure 파일 공유를 직접 변경하도록 지원합니다. 그러나 먼저 Azure 파일 공유의 변경 내용이 Azure 파일 동기화 변경 검색 작업에서 검색되어야 합니다. 변경 내용 검색 작업은 클라우드 엔드포인트에 대해 24시간마다 한 번씩 시작됩니다. 또한 REST 프로토콜을 통해 수행한 Azure 파일 공유 변경 내용은 SMB 마지막 수정 시간을 업데이트하지 않으며 동기화 기능에서 변경 내용으로 표시되지 않습니다.
-- 저장소 동기화 서비스 및/또는 저장소 계정은 기존 Azure AD 테넌트 내의 다른 리소스 그룹 또는 구독으로 이동할 수 있습니다. 저장소 계정이 이동되는 경우 저장소 계정에 대한 액세스 권한을 하이브리드 파일 동기화 서비스에 부여해야 합니다([Azure 파일 동기화가 저장소 계정에 액세스할 수 있는지 확인합니다.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac) 참조).
+- 스토리지 동기화 서비스 및/또는 스토리지 계정은 기존 Azure AD 테넌트 내의 다른 리소스 그룹 또는 구독으로 이동할 수 있습니다. 스토리지 계정이 이동되는 경우 스토리지 계정에 대한 액세스 권한을 하이브리드 파일 동기화 서비스에 부여해야 합니다([Azure 파일 동기화가 스토리지 계정에 액세스할 수 있는지 확인합니다.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac) 참조).
 
     > [!Note]  
-    > Azure 파일 동기화는 구독을 다른 Azure AD 테넌트로 이동할 수 없습니다.
+    > Azure 파일 동기화는 구독을 다른 Azure AD 테넌트로 이동하는 작업을 지원하지 않습니다.
 
 ### <a name="cloud-tiering"></a>클라우드 계층화
 - 계층화된 파일이 Robocopy를 사용하여 다른 위치로 복사되는 경우 결과 파일은 계층화되지 않습니다. Robocopy에서 복사 작업에 해당 특성을 잘못 포함하므로 오프라인 특성을 설정할 수 있습니다.
 - robocopy를 사용하여 파일을 복사할 때는 /MIR 옵션을 사용하여 파일 타임스탬프를 보존해야 합니다. 이렇게 하면 오래된 파일이 최근에 액세스한 파일보다 먼저 계층화됩니다.
 
 ## <a name="agent-version-6300"></a>에이전트 버전 6.3.0.0
-다음 릴리스 정보는 2019 년 6 월 27 일 릴리스된 Azure File Sync 에이전트의 버전 6.3.0.0 합니다. 이러한 정보는 6.0.0.0 버전에 대해 나열 된 릴리스 정보입니다.
+다음 릴리스 정보는 2019 년 6 월 27 일에 릴리스된 Azure File Sync 에이전트의 버전 6.3.0.0에 대 한 것입니다. 이러한 메모는 버전 6.0.0.0에 대해 나열 된 릴리스 정보에 추가 되었습니다.
 
 이 릴리스에서 해결된 문제 목록:  
-- Windows Server 2012 R2에서 액세스 하거나 SMB를 통한 서버 끝점 위치를 찾아보는 느림 
+- Windows Server 2012 r 2에서 SMB를 통한 서버 끝점 위치 액세스 또는 검색 속도가 느립니다. 
 - Azure File Sync v6 에이전트를 설치한 후 CPU 사용률 증가
-- 클라우드 계층화 원격 분석 향상
+- 클라우드 계층화 원격 분석 개선
 
 ## <a name="agent-version-6200"></a>에이전트 버전 6.2.0.0
-다음 릴리스 정보는 2019 년 6 월 13 일 릴리스된 Azure File Sync 에이전트의 버전 6.2.0.0 합니다. 이러한 정보는 6.0.0.0 버전에 대해 나열 된 릴리스 정보입니다.
+다음 릴리스 정보는 2019 년 6 월 13 일에 릴리스된 Azure File Sync 에이전트의 버전 6.2.0.0에 대 한 것입니다. 이러한 메모는 버전 6.0.0.0에 대해 나열 된 릴리스 정보에 추가 되었습니다.
 
 이 릴리스에서 해결된 문제 목록:  
-- 서버 엔드포인트를 만든 후 높은 CPU 사용량 백그라운드 회수는 서버에 파일을 다운로드할 때 발생할 수 있습니다.
-- 동기화 및 클라우드 계층화 작업 토큰 만료로 인해 ECS_E_SERVER_CREDENTIAL_NEEDED 오류로 실패할 수 있습니다.
-- 파일을 다운로드 하는 URL 예약 된 문자를 포함 하는 경우 실패할 수 있습니다는 파일을 회수 
+- 서버 끝점을 만든 후 백그라운드 회수가 서버에 파일을 다운로드 하는 경우 높은 CPU 사용량이 발생할 수 있습니다.
+- 토큰 만료로 인해 ECS_E_SERVER_CREDENTIAL_NEEDED 오류로 인해 동기화 및 클라우드 계층화 작업이 실패할 수 있음
+- 파일을 다운로드 하는 URL이 예약 된 문자를 포함 하는 경우 파일을 회수 하지 못할 수 있음 
 
 ## <a name="agent-version-6100"></a>에이전트 버전 6.1.0.0
-다음 릴리스 정보는 2019 년 5 월 6 일 릴리스된 Azure File Sync 에이전트의 버전 6.1.0.0 합니다. 이러한 정보는 6.0.0.0 버전에 대해 나열 된 릴리스 정보입니다.
+다음 릴리스 정보는 2019 년 5 월 6 일에 릴리스된 Azure File Sync 에이전트의 버전 6.1.0.0입니다. 이러한 메모는 버전 6.0.0.0에 대해 나열 된 릴리스 정보에 추가 되었습니다.
 
 이 릴리스에서 해결된 문제 목록:  
-- Windows Admin Center Azure File Sync 에이전트 버전 6.0이 설치 되어 있는 서버의 에이전트 버전 및 서버 끝점 구성이 표시 되지 않습니다.
+- Windows 관리 센터는 Azure File Sync 에이전트 버전 6.0이 설치 된 서버에 에이전트 버전 및 서버 끝점 구성을 표시 하지 못합니다.
 
 ## <a name="agent-version-6000"></a>에이전트 버전 6.0.0.0
-다음 릴리스 정보 (2019 년 4 월 22 일 출시)에서 Azure File Sync 에이전트의 버전 6.0.0.0 됩니다.
+다음 릴리스 정보는 Azure File Sync 에이전트의 버전 6.0.0.0 (2019 4 월 22 일에 출시 됨)에 대 한 정보입니다.
 
 ### <a name="improvements-and-issues-that-are-fixed"></a>개선 사항 및 해결된 문제
 
 - 에이전트 자동 업데이트 지원
-  - 여러분의 피드백 하 고 Azure File Sync 서버 에이전트에 자동 업데이트 기능을 추가 했습니다. 자세한 내용은 [Azure File Sync 에이전트 업데이트 정책](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#azure-file-sync-agent-update-policy)합니다.
-- Acl을 공유 하는 Azure 파일에 대 한 지원
-  - Azure File Sync는 항상 Acl 서버 끝점 간의 동기화 지원 하지만 Acl 클라우드 끝점 (Azure 파일 공유)에 동기화 되지 않았습니다. 이 이번에는 서버와 클라우드 끝점 동기화 Acl에 대 한 지원이 추가 되었습니다.
-- 병렬 업로드와 다운로드 서버 끝점에 대 한 동기화 세션 
-  - 서버 엔드포인트는 이제 파일 업로드 및 다운로드 동시를 지원 합니다. Azure 파일 공유에 더 이상 기다리는 다운로드를 완료 하므로 파일을 업로드할 수 있습니다. 
-- 볼륨 및 계층 상태를 새 클라우드 계층화 cmdlet
-  - 이제 두 개의 새, 서버 로컬 PowerShell cmdlet 클라우드 계층화 및 파일 회수 정보를 가져오는 데 사용할 수 있습니다. 할 서버의 두 이벤트 채널에서 로깅 정보는 사용할 수 있습니다.
-    - Get-StorageSyncFileTieringResult 모든 파일 및 계층화 하지 않은 해당 경로 및 원인에는 보고서를 이유 나열 됩니다.
-    - Get-StorageSyncFileRecallResult 모든 파일 회수 이벤트를 보고합니다. 회수 하는 모든 파일 및 해당 경로 나열 및 성공 또는 오류 정보는 회수 합니다.
-  - 기본적으로 모두 이벤트 채널에는 최대 1MB 각 저장할 수 있습니다 – 이벤트 채널 크기를 늘려 보고 하는 파일의 크기를 늘릴 수 있습니다.
-- FIPS 모드에 대 한 지원
-  - Azure File Sync는 이제 Azure File Sync 에이전트가 설치 되어 있는 서버에서 사용 하도록 설정 하면 FIPS 모드를 지원 합니다.
-    - 서버에서 FIPS 모드를 사용 하기 전에 Azure File Sync 에이전트를 설치 하 고 [PackageManagement 모듈](https://www.powershellgallery.com/packages/PackageManagement/1.1.7.2) 서버의 합니다. 서버에서 FIPS 이미 사용 하도록 설정 하는 경우 [수동으로 다운로드](https://docs.microsoft.com/powershell/gallery/how-to/working-with-packages/manual-download) 는 [PackageManagement 모듈](https://www.powershellgallery.com/packages/PackageManagement/1.1.7.2) 서버로 합니다.
-- 기타 안정성 향상에 대 한 클라우드 계층화 및 동기화
+  - 사용자 의견을 들었습니다. Azure File Sync 서버 에이전트에 자동 업데이트 기능을 추가 했습니다. 자세한 내용은 [Azure File Sync 에이전트 업데이트 정책](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#azure-file-sync-agent-update-policy)을 참조 하세요.
+- Azure 파일 공유 Acl에 대 한 지원
+  - Azure File Sync는 항상 서버 끝점 간에 Acl 동기화를 지원 하지만 Acl은 클라우드 끝점 (Azure 파일 공유)과 동기화 되지 않았습니다. 이 릴리스는 서버와 클라우드 끝점 간에 Acl을 동기화 하기 위한 지원을 추가 합니다.
+- 서버 끝점에 대 한 병렬 업로드 및 동기화 세션 다운로드 
+  - 이제 서버 끝점에서 파일 업로드 및 다운로드를 동시에 지원 합니다. 다운로드가 완료 될 때까지 기다리지 않으므로 파일이 Azure 파일 공유에 업로드 될 수 있습니다. 
+- 볼륨 및 계층화 상태를 가져오기 위한 새 클라우드 계층화 cmdlet
+  - 이제 두 개의 새로운 서버 로컬 PowerShell cmdlet을 사용 하 여 클라우드 계층화 및 파일 회수 정보를 얻을 수 있습니다. 서버에서 사용할 수 있는 두 이벤트 채널의 로깅 정보를 제공 합니다.
+    - StorageSyncFileTieringResult는 계층화 되지 않은 모든 파일 및 해당 경로를 나열 하 고 이유를 보고 합니다.
+    - StorageSyncFileRecallResult는 모든 파일 회수 이벤트를 보고 합니다. 회수 된 모든 파일 및 해당 경로 뿐만 아니라 해당 리콜에 대 한 성공 또는 오류를 표시 합니다.
+  - 기본적으로 두 이벤트 채널 모두 최대 1MB를 저장할 수 있습니다. 이벤트 채널 크기를 늘려 보고 되는 파일의 양을 늘릴 수 있습니다.
+- FIPS 모드 지원
+  - 이제 Azure File Sync Azure File Sync 에이전트가 설치 된 서버에서 FIPS 모드를 사용 하도록 지원 합니다.
+    - 서버에서 FIPS 모드를 사용 하도록 설정 하기 전에 서버에 Azure File Sync 에이전트 및 [PackageManagement 모듈](https://www.powershellgallery.com/packages/PackageManagement/1.1.7.2) 을 설치 합니다. 서버에서 FIPS를 이미 사용 하도록 설정한 경우 서버에 [PackageManagement 모듈](https://www.powershellgallery.com/packages/PackageManagement/1.1.7.2) 을 [수동으로 다운로드](https://docs.microsoft.com/powershell/gallery/how-to/working-with-packages/manual-download) 합니다.
+- 클라우드 계층화 및 동기화에 대 한 기타 안정성 향상
 
 ### <a name="evaluation-tool"></a>평가 도구
-Azure 파일 동기화를 배포하기 전에 Azure 파일 동기화 평가 도구를 사용하여 시스템과 호환되는지 여부를 평가해야 합니다. 이 도구는 Azure PowerShell cmdlet이며, 지원되지 않는 문자 또는 지원되지 않는 OS 버전과 같은 파일 시스템과 데이터 세트와 관련된 잠재적인 문제를 확인합니다. 설치 및 사용 지침에 대해서는 계획 가이드의 [평가 도구](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-tool) 섹션을 참조하세요. 
+Azure 파일 동기화를 배포하기 전에 Azure 파일 동기화 평가 도구를 사용하여 시스템과 호환되는지 여부를 평가해야 합니다. 이 도구는 Azure PowerShell cmdlet이며, 지원되지 않는 문자 또는 지원되지 않는 OS 버전과 같은 파일 시스템과 데이터 세트와 관련된 잠재적인 문제를 확인합니다. 설치 및 사용 지침에 대해서는 계획 가이드의 [평가 도구](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) 섹션을 참조하세요. 
 
 ### <a name="agent-installation-and-server-configuration"></a>에이전트 설치 및 서버 구성
 Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구성하는 방법에 대한 자세한 내용은 [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md) 및 [Azure 파일 동기화를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요.
 
 - 에이전트 설치 패키지는 상승된(관리자) 권한으로 설치되어야 합니다.
-- 에이전트는 Nano Server 배포 옵션에서 지원 되지 않습니다.
+- 에이전트가 Nano 서버 배포 옵션에서 지원 되지 않습니다.
 - 에이전트는 Windows Server 2019, Windows Server 2016 및 Windows Server 2012 R2에서만 지원됩니다.
 - 에이전트에는 2GiB 이상의 메모리가 필요합니다. 서버가 동적 메모리를 사용하도록 설정된 가상 머신에서 실행되는 경우 VM을 2,048MiB 이상의 메모리로 구성해야 합니다.
-- 저장소 동기화 에이전트(FileSyncSvc) 서비스는 SVI(시스템 볼륨 정보) 디렉터리가 압축된 볼륨에 있는 서버 엔드포인트를 지원하지 않습니다. 이 구성은 예기치 않은 결과를 발생시킵니다.
+- 스토리지 동기화 에이전트(FileSyncSvc) 서비스는 SVI(시스템 볼륨 정보) 디렉터리가 압축된 볼륨에 있는 서버 엔드포인트를 지원하지 않습니다. 이 구성은 예기치 않은 결과를 발생시킵니다.
 
 ### <a name="interoperability"></a>상호 운용성
 - 바이러스 백신, 백업, 그리고 계층화된 파일에 액세스하는 기타 애플리케이션은 오프라인 특성을 존중하여 해당 파일의 내용 읽기를 건너뛰지 않는 경우 원치 않은 회수가 발생할 수 있습니다. 자세한 내용은 [Azure 파일 동기화 문제 해결](storage-sync-files-troubleshoot.md)을 참조하세요.
@@ -203,32 +228,32 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
 
 ### <a name="cloud-endpoint"></a>클라우드 엔드포인트
 - Azure 파일 동기화는 Azure 파일 공유를 직접 변경하도록 지원합니다. 그러나 먼저 Azure 파일 공유의 변경 내용이 Azure 파일 동기화 변경 검색 작업에서 검색되어야 합니다. 변경 내용 검색 작업은 클라우드 엔드포인트에 대해 24시간마다 한 번씩 시작됩니다. 또한 REST 프로토콜을 통해 수행한 Azure 파일 공유 변경 내용은 SMB 마지막 수정 시간을 업데이트하지 않으며 동기화 기능에서 변경 내용으로 표시되지 않습니다.
-- 저장소 동기화 서비스 및/또는 저장소 계정은 기존 Azure AD 테넌트 내의 다른 리소스 그룹 또는 구독으로 이동할 수 있습니다. 저장소 계정이 이동되는 경우 저장소 계정에 대한 액세스 권한을 하이브리드 파일 동기화 서비스에 부여해야 합니다([Azure 파일 동기화가 저장소 계정에 액세스할 수 있는지 확인합니다.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac) 참조).
+- 스토리지 동기화 서비스 및/또는 스토리지 계정은 기존 Azure AD 테넌트 내의 다른 리소스 그룹 또는 구독으로 이동할 수 있습니다. 스토리지 계정이 이동되는 경우 스토리지 계정에 대한 액세스 권한을 하이브리드 파일 동기화 서비스에 부여해야 합니다([Azure 파일 동기화가 스토리지 계정에 액세스할 수 있는지 확인합니다.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac) 참조).
 
     > [!Note]  
-    > Azure 파일 동기화는 구독을 다른 Azure AD 테넌트로 이동할 수 없습니다.
+    > Azure 파일 동기화는 구독을 다른 Azure AD 테넌트로 이동하는 작업을 지원하지 않습니다.
 
 ### <a name="cloud-tiering"></a>클라우드 계층화
 - 계층화된 파일이 Robocopy를 사용하여 다른 위치로 복사되는 경우 결과 파일은 계층화되지 않습니다. Robocopy에서 복사 작업에 해당 특성을 잘못 포함하므로 오프라인 특성을 설정할 수 있습니다.
 - robocopy를 사용하여 파일을 복사할 때는 /MIR 옵션을 사용하여 파일 타임스탬프를 보존해야 합니다. 이렇게 하면 오래된 파일이 최근에 액세스한 파일보다 먼저 계층화됩니다.
 - SMB 클라이언트에서 파일 속성을 볼 때 오프라인 특성은 파일 메타데이터의 SMB 캐싱으로 인해 잘못 설정되도록 나타날 수 있습니다.
 
-## <a name="agent-version-5200"></a>에이전트 버전 5.2.0.0입니다
-다음 릴리스 정보는 2019 년 4 월 4 일 릴리스된 Azure File Sync 에이전트의 버전 5.2.0.0입니다. 이러한 정보는 5.0.2.0 버전에 대해 나열 된 릴리스 정보입니다.
+## <a name="agent-version-5200"></a>에이전트 버전 5.2.0.0
+다음 릴리스 정보는 2019 년 4 월 4 일에 릴리스된 Azure File Sync 에이전트의 버전 5.2.0.0에 대 한 것입니다. 이러한 메모는 버전 5.0.2.0에 대해 나열 된 릴리스 정보에 추가 되었습니다.
 
 이 릴리스에서 해결된 문제 목록:  
-- 오프 라인 데이터 전송 및 데이터 전송의 안정성 개선 기능을 다시 시작
-- 동기화 원격 분석 향상
+- 오프 라인 데이터 전송 및 데이터 전송 다시 시작 기능을 위한 안정성 향상
+- 동기화 원격 분석 개선
 
 ## <a name="agent-version-5100"></a>에이전트 버전 5.1.0.0
-다음 릴리스 정보는 2019 년 3 월 7 일 릴리스된 Azure File Sync 에이전트의 버전 5.1.0.0 합니다. 이러한 정보는 5.0.2.0 버전에 대해 나열 된 릴리스 정보입니다.
+다음 릴리스 정보는 2019 년 3 월 7 일에 릴리스된 Azure File Sync 에이전트의 버전 5.1.0.0에 대 한 것입니다. 이러한 메모는 버전 5.0.2.0에 대해 나열 된 릴리스 정보에 추가 되었습니다.
 
 이 릴리스에서 해결된 문제 목록:  
-- 파일 서버의 변경 내용 열거 실패 하는 경우 오류 0x80c8031d (ECS_E_CONCURRENCY_CHECK_FAILED)와 동기화 되지 않을 수 있습니다.
-- 동기화 세션 또는 파일을 0x80072f78 (WININET_E_INVALID_SERVER_RESPONSE) 오류를 수신 하는 경우 동기화는 현재 작업을 다시 시도
-- 파일 오류 0x80c80203 (ECS_E_SYNC_INVALID_STAGED_FILE)와 동기화 되지 않을 수 있습니다.
-- 높은 메모리 사용량 파일을 회수 하는 경우 발생할 수 있습니다.
-- 클라우드 계층화 원격 분석 향상 
+- 서버에서 변경 내용 열거가 실패 한 경우 파일을 오류 0x80c8031d (ECS_E_CONCURRENCY_CHECK_FAILED)와 동기화 하지 못할 수 있습니다.
+- 동기화 세션 또는 파일에서 오류 0x80072f78 (WININET_E_INVALID_SERVER_RESPONSE)를 수신 하는 경우 동기화는 이제 작업을 다시 시도 합니다.
+- 파일이 오류 0x80c80203 (ECS_E_SYNC_INVALID_STAGED_FILE)과 동기화 되지 않을 수 있습니다.
+- 파일을 회수할 때 높은 메모리 사용량이 발생할 수 있습니다.
+- 클라우드 계층화 원격 분석 개선 
 
 ## <a name="agent-version-5020"></a>에이전트 버전 5.0.2.0
 다음 릴리스 정보는 2019년 2월 12일 릴리스된 Azure 파일 동기화 에이전트의 버전 5.0.2.0에 대한 것입니다.
@@ -256,7 +281,7 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
     - 동기화는 대규모 파일의 전송이 중단될 경우 재전송하지 않고 데이터 전송을 다시 시작합니다. 
 
 ### <a name="evaluation-tool"></a>평가 도구
-Azure 파일 동기화를 배포하기 전에 Azure 파일 동기화 평가 도구를 사용하여 시스템과 호환되는지 여부를 평가해야 합니다. 이 도구는 Azure PowerShell cmdlet이며, 지원되지 않는 문자 또는 지원되지 않는 OS 버전과 같은 파일 시스템과 데이터 세트와 관련된 잠재적인 문제를 확인합니다. 설치 및 사용 지침에 대해서는 계획 가이드의 [평가 도구](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-tool) 섹션을 참조하세요. 
+Azure 파일 동기화를 배포하기 전에 Azure 파일 동기화 평가 도구를 사용하여 시스템과 호환되는지 여부를 평가해야 합니다. 이 도구는 Azure PowerShell cmdlet이며, 지원되지 않는 문자 또는 지원되지 않는 OS 버전과 같은 파일 시스템과 데이터 세트와 관련된 잠재적인 문제를 확인합니다. 설치 및 사용 지침에 대해서는 계획 가이드의 [평가 도구](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) 섹션을 참조하세요. 
 
 ### <a name="agent-installation-and-server-configuration"></a>에이전트 설치 및 서버 구성
 Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구성하는 방법에 대한 자세한 내용은 [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md) 및 [Azure 파일 동기화를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요.
@@ -265,7 +290,7 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
 - 에이전트는 Windows Server Core 또는 Nano Server 배포 옵션에서 지원되지 않습니다.
 - 에이전트는 Windows Server 2019, Windows Server 2016 및 Windows Server 2012 R2에서만 지원됩니다.
 - 에이전트에는 2GiB 이상의 메모리가 필요합니다. 서버가 동적 메모리를 사용하도록 설정된 가상 머신에서 실행되는 경우 VM을 2,048MiB 이상의 메모리로 구성해야 합니다.
-- 저장소 동기화 에이전트(FileSyncSvc) 서비스는 SVI(시스템 볼륨 정보) 디렉터리가 압축된 볼륨에 있는 서버 엔드포인트를 지원하지 않습니다. 이 구성은 예기치 않은 결과를 발생시킵니다.
+- 스토리지 동기화 에이전트(FileSyncSvc) 서비스는 SVI(시스템 볼륨 정보) 디렉터리가 압축된 볼륨에 있는 서버 엔드포인트를 지원하지 않습니다. 이 구성은 예기치 않은 결과를 발생시킵니다.
 - FIPS 모드는 지원되지 않으므로 사용하지 않도록 설정해야 합니다. 
 
 ### <a name="interoperability"></a>상호 운용성
@@ -301,10 +326,10 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
 
 ### <a name="cloud-endpoint"></a>클라우드 엔드포인트
 - Azure 파일 동기화는 Azure 파일 공유를 직접 변경하도록 지원합니다. 그러나 먼저 Azure 파일 공유의 변경 내용이 Azure 파일 동기화 변경 검색 작업에서 검색되어야 합니다. 변경 내용 검색 작업은 클라우드 엔드포인트에 대해 24시간마다 한 번씩 시작됩니다. 또한 REST 프로토콜을 통해 수행한 Azure 파일 공유 변경 내용은 SMB 마지막 수정 시간을 업데이트하지 않으며 동기화 기능에서 변경 내용으로 표시되지 않습니다.
-- 저장소 동기화 서비스 및/또는 저장소 계정은 기존 Azure AD 테넌트 내의 다른 리소스 그룹 또는 구독으로 이동할 수 있습니다. 저장소 계정이 이동되는 경우 저장소 계정에 대한 액세스 권한을 하이브리드 파일 동기화 서비스에 부여해야 합니다([Azure 파일 동기화가 저장소 계정에 액세스할 수 있는지 확인합니다.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac) 참조).
+- 스토리지 동기화 서비스 및/또는 스토리지 계정은 기존 Azure AD 테넌트 내의 다른 리소스 그룹 또는 구독으로 이동할 수 있습니다. 스토리지 계정이 이동되는 경우 스토리지 계정에 대한 액세스 권한을 하이브리드 파일 동기화 서비스에 부여해야 합니다([Azure 파일 동기화가 스토리지 계정에 액세스할 수 있는지 확인합니다.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac) 참조).
 
     > [!Note]  
-    > Azure 파일 동기화는 구독을 다른 Azure AD 테넌트로 이동할 수 없습니다.
+    > Azure 파일 동기화는 구독을 다른 Azure AD 테넌트로 이동하는 작업을 지원하지 않습니다.
 
 ### <a name="cloud-tiering"></a>클라우드 계층화
 - 계층화된 파일이 Robocopy를 사용하여 다른 위치로 복사되는 경우 결과 파일은 계층화되지 않습니다. Robocopy에서 복사 작업에 해당 특성을 잘못 포함하므로 오프라인 특성을 설정할 수 있습니다.
@@ -315,7 +340,7 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
 다음 릴리스 정보는 2019년 1월 14일 릴리스된 Azure 파일 동기화 에이전트의 버전 4.3.0.0에 대한 것입니다. 이러한 정보는 버전 4.0.1.0에 대해 나열된 릴리스 정보에 대한 추가 사항입니다.
 
 이 릴리스에서 해결된 문제 목록:  
-- Azure File Sync 에이전트를 버전 4.x로 업그레이드한 후 파일이 계층화되지 않습니다.
+- Azure 파일 동기화 에이전트를 버전 4.x로 업그레이드한 후 파일이 계층화되지 않습니다.
 - AfsUpdater.exe는 이제 Windows Server 2019에서 지원됩니다.
 - 동기화의 기타 안정성 개선 
 
@@ -339,7 +364,7 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
 다음 릴리스 정보는 2018년 11월 13일 릴리스된 Azure 파일 동기화 에이전트의 버전 4.0.1.0에 대한 것입니다.
 
 ### <a name="evaluation-tool"></a>평가 도구
-Azure 파일 동기화를 배포하기 전에 Azure 파일 동기화 평가 도구를 사용하여 시스템과 호환되는지 여부를 평가해야 합니다. 이 도구는 Azure PowerShell cmdlet이며, 지원되지 않는 문자 또는 지원되지 않는 OS 버전과 같은 파일 시스템과 데이터 세트와 관련된 잠재적인 문제를 확인합니다. 설치 및 사용 지침에 대해서는 계획 가이드의 [평가 도구](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-tool) 섹션을 참조하세요. 
+Azure 파일 동기화를 배포하기 전에 Azure 파일 동기화 평가 도구를 사용하여 시스템과 호환되는지 여부를 평가해야 합니다. 이 도구는 Azure PowerShell cmdlet이며, 지원되지 않는 문자 또는 지원되지 않는 OS 버전과 같은 파일 시스템과 데이터 세트와 관련된 잠재적인 문제를 확인합니다. 설치 및 사용 지침에 대해서는 계획 가이드의 [평가 도구](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) 섹션을 참조하세요. 
 
 ### <a name="agent-installation-and-server-configuration"></a>에이전트 설치 및 서버 구성
 Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구성하는 방법에 대한 자세한 내용은 [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md) 및 [Azure 파일 동기화를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요.
@@ -348,7 +373,7 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
 - 에이전트는 Windows Server Core 또는 Nano Server 배포 옵션에서 지원되지 않습니다.
 - 에이전트는 Windows Server 2019, Windows Server 2016 및 Windows Server 2012 R2에서만 지원됩니다.
 - 에이전트에는 2GiB 이상의 메모리가 필요합니다. 서버가 동적 메모리를 사용하도록 설정된 가상 머신에서 실행되는 경우 VM을 2,048MiB 이상의 메모리로 구성해야 합니다.
-- 저장소 동기화 에이전트(FileSyncSvc) 서비스는 SVI(시스템 볼륨 정보) 디렉터리가 압축된 볼륨에 있는 서버 엔드포인트를 지원하지 않습니다. 이 구성은 예기치 않은 결과를 발생시킵니다.
+- 스토리지 동기화 에이전트(FileSyncSvc) 서비스는 SVI(시스템 볼륨 정보) 디렉터리가 압축된 볼륨에 있는 서버 엔드포인트를 지원하지 않습니다. 이 구성은 예기치 않은 결과를 발생시킵니다.
 - FIPS 모드는 지원되지 않으므로 사용하지 않도록 설정해야 합니다. 
 - VSS 스냅샷이 생성될 때 중지 오류 0x3B 또는 중지 오류 0x1E가 발생할 수 있습니다.
 
@@ -386,10 +411,10 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
 
 ### <a name="cloud-endpoint"></a>클라우드 엔드포인트
 - Azure 파일 동기화는 Azure 파일 공유를 직접 변경하도록 지원합니다. 그러나 먼저 Azure 파일 공유의 변경 내용이 Azure 파일 동기화 변경 검색 작업에서 검색되어야 합니다. 변경 내용 검색 작업은 클라우드 엔드포인트에 대해 24시간마다 한 번씩 시작됩니다. 또한 REST 프로토콜을 통해 수행한 Azure 파일 공유 변경 내용은 SMB 마지막 수정 시간을 업데이트하지 않으며 동기화 기능에서 변경 내용으로 표시되지 않습니다.
-- 저장소 동기화 서비스 및/또는 저장소 계정은 기존 Azure AD 테넌트 내의 다른 리소스 그룹 또는 구독으로 이동할 수 있습니다. 저장소 계정이 이동되는 경우 저장소 계정에 대한 액세스 권한을 하이브리드 파일 동기화 서비스에 부여해야 합니다([Azure 파일 동기화가 저장소 계정에 액세스할 수 있는지 확인합니다.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac) 참조).
+- 스토리지 동기화 서비스 및/또는 스토리지 계정은 기존 Azure AD 테넌트 내의 다른 리소스 그룹 또는 구독으로 이동할 수 있습니다. 스토리지 계정이 이동되는 경우 스토리지 계정에 대한 액세스 권한을 하이브리드 파일 동기화 서비스에 부여해야 합니다([Azure 파일 동기화가 스토리지 계정에 액세스할 수 있는지 확인합니다.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac) 참조).
 
     > [!Note]  
-    > Azure 파일 동기화는 구독을 다른 Azure AD 테넌트로 이동할 수 없습니다.
+    > Azure 파일 동기화는 구독을 다른 Azure AD 테넌트로 이동하는 작업을 지원하지 않습니다.
 
 ### <a name="cloud-tiering"></a>클라우드 계층화
 - 날짜 기반 클라우드 계층화 정책 설정은 지정된 일 수 안에 액세스되는 경우 캐시해야 하는 파일을 지정하는 데 사용됩니다. 자세한 내용은 [클라우드 계층화 개요](https://docs.microsoft.com/azure/storage/files/storage-sync-cloud-tiering#afs-force-tiering)를 참조하세요.
@@ -398,10 +423,10 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
 - SMB 클라이언트에서 파일 속성을 볼 때 오프라인 특성은 파일 메타데이터의 SMB 캐싱으로 인해 잘못 설정되도록 나타날 수 있습니다.
 
 ## <a name="agent-version-3300"></a>에이전트 버전 3.3.0.0
-아래에는 2018년 9월 24일에 릴리스된 Azure File Sync 에이전트 버전 3.3.0.0의 릴리스 정보가 나와 있습니다. 이러한 정보는 버전 3.1.0.0에 대해 나열된 릴리스 정보에 대한 추가 사항입니다.
+아래에는 2018년 9월 24일에 릴리스된 Azure 파일 동기화 에이전트 버전 3.3.0.0의 릴리스 정보가 나와 있습니다. 이러한 정보는 버전 3.1.0.0에 대해 나열된 릴리스 정보에 대한 추가 사항입니다.
 
 이 릴리스에서 해결된 문제 목록:
-- Azure File Sync 에이전트를 버전 3.1 또는 3.2로 업그레이드하고 나면 등록된 서버 상태가 “오프라인으로 나타남”으로 표시됩니다.
+- Azure 파일 동기화 에이전트를 버전 3.1 또는 3.2로 업그레이드하고 나면 등록된 서버 상태가 “오프라인으로 나타남”으로 표시됩니다.
 - 경로가 긴 파일로 인해 Storage 동기화 에이전트(FileSyncSvc) 서비스 작동이 중단됩니다.
 - 서버 등록이 실패하며 "파일 또는 어셈블리 Kailani.Afs.StorageSyncProtocol.V3을(를) 로드할 수 없습니다." 오류가 발생합니다.
 
@@ -415,7 +440,7 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
 다음 릴리스 정보는 2018년 7월 19일 릴리스된 Azure 파일 동기화 에이전트의 버전 3.1.0.0에 대한 것입니다.
 
 ### <a name="evaluation-tool"></a>평가 도구
-Azure 파일 동기화를 배포하기 전에 Azure 파일 동기화 평가 도구를 사용하여 시스템과 호환되는지 여부를 평가해야 합니다. 이 도구는 Azure PowerShell cmdlet이며, 지원되지 않는 문자 또는 지원되지 않는 OS 버전과 같은 파일 시스템과 데이터 세트와 관련된 잠재적인 문제를 확인합니다. 설치 및 사용 지침에 대해서는 계획 가이드의 [평가 도구](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-tool) 섹션을 참조하세요. 
+Azure 파일 동기화를 배포하기 전에 Azure 파일 동기화 평가 도구를 사용하여 시스템과 호환되는지 여부를 평가해야 합니다. 이 도구는 Azure PowerShell cmdlet이며, 지원되지 않는 문자 또는 지원되지 않는 OS 버전과 같은 파일 시스템과 데이터 세트와 관련된 잠재적인 문제를 확인합니다. 설치 및 사용 지침에 대해서는 계획 가이드의 [평가 도구](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) 섹션을 참조하세요. 
 
 ### <a name="agent-installation-and-server-configuration"></a>에이전트 설치 및 서버 구성
 Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구성하는 방법에 대한 자세한 내용은 [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md) 및 [Azure 파일 동기화를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요.
@@ -424,7 +449,7 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
 - 에이전트는 Windows Server Core 또는 Nano Server 배포 옵션에서 지원되지 않습니다.
 - 에이전트는 Windows Server 2016 및 Windows Server 2012 R2에서만 지원됩니다.
 - 에이전트에는 2GB 이상의 실제 메모리가 필요합니다.
-- 저장소 동기화 에이전트(FileSyncSvc) 서비스는 SVI(시스템 볼륨 정보) 디렉터리가 압축된 볼륨에 있는 서버 엔드포인트를 지원하지 않습니다. 이 구성은 예기치 않은 결과를 발생시킵니다.
+- 스토리지 동기화 에이전트(FileSyncSvc) 서비스는 SVI(시스템 볼륨 정보) 디렉터리가 압축된 볼륨에 있는 서버 엔드포인트를 지원하지 않습니다. 이 구성은 예기치 않은 결과를 발생시킵니다.
 - FIPS 모드는 지원되지 않으므로 사용하지 않도록 설정해야 합니다. 
 
 ### <a name="interoperability"></a>상호 운용성
@@ -459,10 +484,10 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
 
 ### <a name="cloud-endpoint"></a>클라우드 엔드포인트
 - Azure 파일 동기화는 Azure 파일 공유를 직접 변경하도록 지원합니다. 그러나 먼저 Azure 파일 공유의 변경 내용이 Azure 파일 동기화 변경 검색 작업에서 검색되어야 합니다. 변경 내용 검색 작업은 클라우드 엔드포인트에 대해 24시간마다 한 번씩 시작됩니다. 또한 REST 프로토콜을 통해 수행한 Azure 파일 공유 변경 내용은 SMB 마지막 수정 시간을 업데이트하지 않으며 동기화 기능에서 변경 내용으로 표시되지 않습니다.
-- 저장소 동기화 서비스 및/또는 저장소 계정은 기존 Azure AD 테넌트 내의 다른 리소스 그룹 또는 구독으로 이동할 수 있습니다. 저장소 계정이 이동되는 경우 저장소 계정에 대한 액세스 권한을 하이브리드 파일 동기화 서비스에 부여해야 합니다([Azure 파일 동기화가 저장소 계정에 액세스할 수 있는지 확인합니다.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac) 참조).
+- 스토리지 동기화 서비스 및/또는 스토리지 계정은 기존 Azure AD 테넌트 내의 다른 리소스 그룹 또는 구독으로 이동할 수 있습니다. 스토리지 계정이 이동되는 경우 스토리지 계정에 대한 액세스 권한을 하이브리드 파일 동기화 서비스에 부여해야 합니다([Azure 파일 동기화가 스토리지 계정에 액세스할 수 있는지 확인합니다.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac) 참조).
 
     > [!Note]  
-    > Azure 파일 동기화는 구독을 다른 Azure AD 테넌트로 이동할 수 없습니다.
+    > Azure 파일 동기화는 구독을 다른 Azure AD 테넌트로 이동하는 작업을 지원하지 않습니다.
 
 ### <a name="cloud-tiering"></a>클라우드 계층화
 - 계층화된 파일이 Robocopy를 사용하여 다른 위치로 복사되는 경우 결과 파일은 계층화되지 않습니다. Robocopy에서 복사 작업에 해당 특성을 잘못 포함하므로 오프라인 특성을 설정할 수 있습니다.

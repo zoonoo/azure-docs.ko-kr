@@ -31,11 +31,11 @@ ms.locfileid: "66002069"
     ![Google Cloud Platform 콘솔에 표시된 프로젝트 이름 및 프로젝트 ID](./media/connect-google-account/gcp-console01.png)
 3. 청구가 사용하도록 설정 및 프로젝트에 연결되지 않은 경우 청구 계정을 만듭니다. 자세한 내용은 [새 청구 계정 만들기](https://cloud.google.com/billing/docs/how-to/manage-billing-account#create/_a/_new/_billing/_account)를 참조하세요.
 
-## <a name="enable-storage-bucket-billing-export"></a>저장소 버킷 청구 내보내기 사용
+## <a name="enable-storage-bucket-billing-export"></a>스토리지 버킷 청구 내보내기 사용
 
-Cloudyn은 저장소 버킷에서 Google 청구 데이터를 검색합니다. 나중에 Cloudyn 등록 중에 사용할 수 있도록 **버킷 이름** 및 **보고서 접두사** 정보를 보관합니다.
+Cloudyn은 스토리지 버킷에서 Google 청구 데이터를 검색합니다. 나중에 Cloudyn 등록 중에 사용할 수 있도록 **버킷 이름** 및 **보고서 접두사** 정보를 보관합니다.
 
-Google Cloud Storage를 사용하여 사용 보고서를 저장하는 경우 최소 요금이 발생합니다. 자세한 내용은 [클라우드 저장소 가격 책정](https://cloud.google.com/storage/pricing)을 참조하세요.
+Google Cloud Storage를 사용하여 사용 보고서를 저장하는 경우 최소 요금이 발생합니다. 자세한 내용은 [클라우드 스토리지 가격 책정](https://cloud.google.com/storage/pricing)을 참조하세요.
 
 1. 파일로 청구 내보내기를 사용하도록 설정하지 않은 경우 [파일로 청구 내보내기를 사용하도록 설정하는 방법](https://cloud.google.com/billing/docs/how-to/export-data-file#how_to_enable_billing_export_to_a_file)의 지침을 따르세요. JSON 또는 CSV 청구 내보내기 형식을 사용할 수 있습니다.
 2. 사용하도록 설정한 경우에는 Google Cloud Platform 콘솔에서 **청구** > **청구 내보내기**로 이동합니다. 청구 **버킷 이름** 및 **보고서 접두사**를 적어둡니다.  

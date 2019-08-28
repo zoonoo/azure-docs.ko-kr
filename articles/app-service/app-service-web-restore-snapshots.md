@@ -12,24 +12,25 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.date: 04/04/2018
-ms.author: aelnably;nicking
+ms.author: aelnably
+ms.reviewer: nicking
 ms.custom: seodec18
-ms.openlocfilehash: 8d4290f1411749e2d8d3d27fbd792ceeeea47ef7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4b3b10177b119c9362f807206a915d4b0b367e16
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60851368"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639747"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>스냅샷에서 Azure의 앱 복원
 이 문서에서는 스냅샷에서 [Azure App Service](../app-service/overview.md)의 앱을 복원하는 방법을 설명합니다. 앱의 스냅샷 중 하나를 기반으로 이전 상태로 앱을 복원할 수 있습니다. 스냅샷 백업을 사용하도록 설정할 필요는 없으며 플랫폼이 데이터 복구를 위해 모든 앱의 스냅샷을 자동으로 저장합니다.
 
 스냅샷은 증분 섀도 복사본으로, 일반 [백업](manage-backup.md)보다 몇 가지 장점이 있습니다.
 - 파일 잠금으로 인한 파일 복사 오류가 없습니다.
-- 저장소 크기 제한이 없습니다.
+- 스토리지 크기 제한이 없습니다.
 - 구성이 필요 없습니다.
 
-스냅샷 복원은 **프리미엄** 계층 이상에서 실행되는 앱에서 사용할 수 있습니다. 앱 확장에 대한 자세한 내용은 [Azure에서 앱 확장](web-sites-scale.md)을 참조하세요.
+스냅샷 복원은 **프리미엄** 계층 이상에서 실행되는 앱에서 사용할 수 있습니다. 앱 확장에 대한 자세한 내용은 [Azure에서 앱 확장](manage-scale-up.md)을 참조하세요.
 
 ## <a name="limitations"></a>제한 사항
 
@@ -47,7 +48,7 @@ ms.locfileid: "60851368"
    
     ![](./media/app-service-web-restore-snapshots/1.png)
 
-2. **복원** 페이지에서 복원할 스냅숏을 선택합니다.
+2. **복원** 페이지에서 복원할 스냅샷을 선택합니다.
    
     ![](./media/app-service-web-restore-snapshots/2.png)
    

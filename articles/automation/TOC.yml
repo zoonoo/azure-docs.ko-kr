@@ -20,10 +20,14 @@
       displayName: RBAC
     - name: Automation 계정을 다른 구독으로 이동
       href: how-to/move-account.md
+    - name: Automation Services의 온보딩 자동화
+      href: /azure/architecture/cloud-adoption/operations/azure-server-management/onboarding-automation
 - name: 프로세스 Automation
   items:
     - name: Hybrid Runbook Worker 개요
       href: automation-hybrid-runbook-worker.md
+    - name: Runbook 갤러리
+      href: automation-runbook-gallery.md
     - name: 개념
       items:
         - name: Runbook 형식
@@ -212,9 +216,6 @@
         - name: VM에서 변경 내용 문제 해결
           href: automation-tutorial-troubleshoot-changes.md
           displayName: inventory
-        - name: 인벤토리 컬렉션을 사용하여 VM 관리
-          href: automation-vm-inventory.md
-          displayName: inventory
     - name: 문제 해결
       items:
         - name: 온보딩
@@ -234,7 +235,7 @@
         - name: 시작하기
           href: automation-dsc-getting-started.md
           displayName: DSC
-        - name: DSC 구성 만들기
+        - name: Linux 구성 관리
           href: automation-quickstart-dsc-configuration.md
           displayName: 'DSC, state configuration, config, node configuration, node'
     - name: 온보딩
@@ -253,6 +254,9 @@
         - name: DSC 구성 컴파일
           href: automation-dsc-compile.md
           displayName: 'state configuration, composite resources, configurationData'
+        - name: 비준수 DSC 서버 수정
+          href: automation-dsc-remediate.md
+          displayName: 'state configuration, DSC, remediate'
         - name: 복합 리소스를 사용하여 DSC 구성 작성
           href: compose-configurationwithcompositeresources.md
         - name: Chocolatey를 사용하여 연속 배포
@@ -269,6 +273,22 @@
         - name: 상태 구성(DSC) 문제 해결
           href: troubleshoot/desired-state-configuration.md
           displayName: 'Desired State Configuration, troubleshoot'
+    - name: 참고 자료
+      items:
+        - name: 커뮤니티 솔루션
+          items:
+            - name: 규모에 맞는 구성 데이터
+              href: automation-dsc-config-data-at-scale.md
+              displayName: 'DSC, Configuration Data, ConfigData'
+            - name: 서버에서 구성 만들기
+              href: automation-dsc-config-from-server.md
+              displayName: 'DSC, ReverseDSC'
+            - name: STIG 기반 구성
+              href: automation-dsc-configuration-based-on-stig.md
+              displayName: 'DSC, Configuration'
+            - name: 구성을 복합 리소스로 변환
+              href: automation-dsc-create-composite.md
+              displayName: 'DSC, composite'
 - name: 공유 리소스 관리
   items:
     - name: 인증서
@@ -292,8 +312,8 @@
       displayName: 'module, import'
 - name: 구성 요소 간 시나리오
   items:
-    - name: Runbook 갤러리
-      href: automation-runbook-gallery.md
+    - name: SendGrid로 Runbook에서 이메일 보내기
+      href: automation-send-email.md
     - name: 메트릭 경고로 Runbook 모니터링
       href: automation-alert-metric.md
     - name: Azure 경고에서 Runbook 시작
@@ -311,6 +331,8 @@
       href: automation-deploy-template-runbook.md
     - name: Azure Automation과 Event Grid 통합
       href: ../event-grid/ensure-tags-exists-on-new-virtual-machines.md?toc=%2fazure%2fautomation%2ftoc.json
+    - name: Azure-SSIS IR을 시작/중지하는 Azure Automation Runbook 만들기 및 예약
+      href: '../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir'
 - name: 모니터
   items:
     - name: Log Analytics에 Azure Automation 작업 데이터 전달

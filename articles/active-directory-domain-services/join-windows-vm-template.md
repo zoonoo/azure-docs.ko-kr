@@ -15,25 +15,25 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 3d16a4240b7a30a483b70b068ab7d91ca7bdcb17
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 599d474b7c45274c87878c622149a86bc93af318
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473029"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69612281"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 관리되는 도메인에 Windows Server 가상 머신 조인
 이 문서에서는 Resource Manager 템플릿을 사용하여 Azure AD Domain Services 관리되는 도메인에 Windows Server 가상 머신을 조인하는 방법에 대해 설명합니다.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 이 문서에 나열된 작업을 수행하려면 다음이 필요합니다.
 1. 유효한 **Azure 구독**.
 2. **Azure AD 디렉터리** - 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화됩니다.
-3. **Azure AD 도메인 서비스** 를 사용하도록 설정해야 합니다. 그렇지 않은 경우 [시작 가이드](create-instance.md)에 간략히 설명된 모든 작업을 따릅니다.
-4. 관리되는 도메인의 IP 주소를 가상 네트워크에 대한 DNS 서버로 구성했는지 확인합니다. 자세한 내용은 [Azure 가상 네트워크에 대한 DNS 설정을 업데이트하는 방법](active-directory-ds-getting-started-dns.md)을 참조하세요.
-5. [Azure AD Domain Services 관리되는 도메인에 암호를 동기화](active-directory-ds-getting-started-password-sync.md)하는 데 필요한 단계를 완료합니다.
+3. **Azure AD 도메인 서비스** 를 사용하도록 설정해야 합니다. 그렇지 않은 경우 [시작 가이드](tutorial-create-instance.md)에 간략히 설명된 모든 작업을 따릅니다.
+4. 관리되는 도메인의 IP 주소를 가상 네트워크에 대한 DNS 서버로 구성했는지 확인합니다. 자세한 내용은 [Azure 가상 네트워크에 대한 DNS 설정을 업데이트하는 방법](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network)을 참조하세요.
+5. [Azure AD Domain Services 관리되는 도메인에 암호를 동기화](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)하는 데 필요한 단계를 완료합니다.
 
 
 ## <a name="install-and-configure-required-tools"></a>필요한 도구 설치 및 구성
@@ -46,7 +46,7 @@ ms.locfileid: "67473029"
 **빠른 시작 템플릿 이름**: [201-vm-domain-join](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
 
 Windows Server 가상 컴퓨터를 배포하고 관리되는 도메인에 조인하려면 다음 단계를 수행합니다.
-1. [빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)으로 이동합니다.
+1. [빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)으로 이동 합니다.
 2. **Deploy to Azure**를 클릭합니다.
 3. **사용자 지정 배포** 페이지에서 가상 머신을 프로비전하는 데 필요한 정보를 제공합니다.
 4. 가상 머신을 프로비전할 **Azure 구독**을 선택합니다. Azure AD Domain Services를 사용하도록 설정한 동일한 Azure 구독을 선택합니다.
@@ -77,7 +77,7 @@ Windows Server 가상 컴퓨터를 배포하고 관리되는 도메인에 조인
 **빠른 시작 템플릿**: [201-vm-domain-join-existing](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
 
 관리되는 도메인에 기존 Windows Server 가상 머신을 조인하려면 다음 단계를 수행합니다.
-1. [빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)으로 이동합니다.
+1. [빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)으로 이동 합니다.
 2. **Deploy to Azure**를 클릭합니다.
 3. **사용자 지정 배포** 페이지에서 가상 머신을 프로비전하는 데 필요한 정보를 제공합니다.
 4. 가상 머신을 프로비전할 **Azure 구독**을 선택합니다. Azure AD Domain Services를 사용하도록 설정한 동일한 Azure 구독을 선택합니다.
@@ -101,6 +101,6 @@ Windows Server 가상 컴퓨터를 배포하고 관리되는 도메인에 조인
 
 ## <a name="related-content"></a>관련 내용
 * [Azure PowerShell 개요](/powershell/azure/overview)
-* [Azure 빠른 시작 템플릿 - 도메인에 새 VM 조인](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
-* [Azure 빠른 시작 템플릿 - 도메인에 기존 VM 조인](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
+* [Azure 빠른 시작 템플릿-도메인 가입 새 VM](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
+* [Azure 빠른 시작 템플릿-도메인 가입 기존 Vm](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
 * [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../azure-resource-manager/resource-group-template-deploy.md)

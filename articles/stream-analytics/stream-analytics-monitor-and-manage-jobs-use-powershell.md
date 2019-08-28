@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: b7e6201d75556908cc16d97734d1c074efd0a587
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cdc09973a192924c5b9a81cd4ed49b9f36fc0eb1
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66148427"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "67612306"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Azure PowerShell cmdlet을 사용하여 Stream Analytics 작업 모니터링 및 관리
 기본 Stream Analytics 작업을 실행하는 Azure PowerShell cmdlet 및 PowerShell 스크립팅을 사용하여 Stream Analytics 리소스를 모니터링 및 관리하는 방법을 알아봅니다.
@@ -58,7 +58,7 @@ New-AzResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 
 ## <a name="azure-powershell-cmdlets-for-stream-analytics"></a>Stream Analytics용 Azure PowerShell cmdlet
 다음 Azure PowerShell cmdlet은 Azure Stream Analytics 작업을 모니터링하고 관리하는 데 사용할 수 있습니다. Azure PowerShell에는 여러 버전이 있습니다. 
-**나열된 예제에서 첫 번째 명령은 Azure PowerShell 0.9.8에 적용되고, 두 번째 명령은 Azure PowerShell 1.0에 적용됩니다.** Azure PowerShell 1.0 명령은 항상 "Az" 명령에서 됩니다.
+**나열된 예제에서 첫 번째 명령은 Azure PowerShell 0.9.8에 적용되고, 두 번째 명령은 Azure PowerShell 1.0에 적용됩니다.** Azure PowerShell 1.0 명령은 항상 명령에 "Az"가 있습니다.
 
 ### <a name="get-azurestreamanalyticsjob--get-azstreamanalyticsjob"></a>Get-AzureStreamAnalyticsJob | Get-AzStreamAnalyticsJob
 Azure 구독 또는 지정한 리소스 그룹에 정의된 모든 Stream Analytics 작업을 나열하거나 리소스 그룹 내의 특정 작업에 대한 작업 정보를 가져옵니다.
@@ -228,9 +228,9 @@ Stream Analytics 작업 내에서 새 입력을 만들거나 지정한 기존 �
 
 –Force 매개 변수와 기존 입력 이름을 지정하면 확인 없이 입력이 대체됩니다.
 
-JSON 파일 구조 및 내용에 대한 자세한 내용은 [Stream Analytics 관리 REST API 참조 라이브러리][stream.analytics.rest.api.reference]의 [입력 만들기(Azure 스트림 분석)][msdn-rest-api-create-stream-analytics-input]을 참조하세요.
+JSON 파일 구조 및 내용에 대 한 자세한 내용은 [Stream Analytics Management REST API 참조 라이브러리][stream.analytics.rest.api.reference]의 [입력 만들기 (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-input] 섹션을 참조 하세요.
 
-**예 1**
+**예제 1**
 
 Azure PowerShell 0.9.8:  
 
@@ -287,7 +287,7 @@ Microsoft Azure에 새 Stream Analytics 작업을 만들거나 지정한 기존 
 
 –Force 매개 변수와 기존 작업 이름을 지정하면 확인 없이 작업 정의가 대체됩니다.
 
-JSON 파일 구조 및 내용에 대한 자세한 내용은 [Stream Analytics 관리 REST API 참조 라이브러리][stream.analytics.rest.api.reference]의 [스트림 분석 작업 만들기][msdn-rest-api-create-stream-analytics-job] 섹션을 참조하세요.
+JSON 파일 구조 및 내용에 대 한 자세한 내용은 [Stream Analytics Management REST API 참조 라이브러리][stream.analytics.rest.api.reference]의 [Stream Analytics 작업 만들기][msdn-rest-api-create-stream-analytics-job] 섹션을 참조 하세요.
 
 **예제 1**
 
@@ -330,7 +330,7 @@ Stream Analytics 작업 내에서 새 출력을 만들거나 기존 출력을 �
 
 –Force 매개 변수와 기존 출력 이름을 지정하면 확인 없이 출력이 대체됩니다.
 
-JSON 파일 구조 및 내용에 대한 자세한 내용은 [Stream Analytics 관리 REST API 참조 라이브러리][stream.analytics.rest.api.reference]의 [출력 만들기(Azure 스트림 분석)][msdn-rest-api-create-stream-analytics-output]을 참조하세요.
+JSON 파일 구조 및 내용에 대 한 자세한 내용은 [Stream Analytics Management REST API 참조 라이브러리][stream.analytics.rest.api.reference]의 [출력 만들기 (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-output] 섹션을 참조 하세요.
 
 **예제 1**
 
@@ -373,7 +373,7 @@ Stream Analytics 작업 내에서 새 변환을 만들거나 기존 변환을 �
 
 –Force 매개 변수와 기존 변환 이름을 지정하면 확인 없이 변환이 대체됩니다.
 
-JSON 파일 구조 및 내용에 대한 자세한 내용은 [Stream Analytics 관리 REST API 참조 라이브러리][stream.analytics.rest.api.reference]의 [변환 만들기(Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-transformation]를 참조하세요.
+JSON 파일 구조 및 내용에 대 한 자세한 내용은 [Stream Analytics Management REST API 참조 라이브러리][stream.analytics.rest.api.reference]의 [변환 만들기 (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-transformation] 섹션을 참조 하세요.
 
 **예제 1**
 
@@ -486,7 +486,7 @@ Start-AzStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US
 
 이 PowerShell 명령은 사용자 지정 출력 시작 시간이 2012년 12월 12일 12:12:12 UTC로 설정되어 StreamingJob 작업을 시작합니다.
 
-### <a name="stop-azurestreamanalyticsjob--stop-azstreamanalyticsjob"></a>Stop-AzureStreamAnalyticsJob | Stop-AzStreamAnalyticsJob
+### <a name="stop-azurestreamanalyticsjob--stop-azstreamanalyticsjob"></a>AzureStreamAnalyticsJob | AzStreamAnalyticsJob
 Microsoft Azure에서 실행 중인 Stream Analytics 작업을 비동기적으로 중지하고 사용하던 리소스를 할당 취소합니다. 작업 정의와 메타데이터는 작업을 편집하고 다시 시작할 수 있도록 Azure 포털과 관리 API를 통해 구독 내에서 계속 사용할 수 있습니다. 중지됨 상태의 작업에 대해서는 요금이 부과되지 않습니다.
 
 **예제 1**
@@ -550,7 +550,7 @@ Test-AzStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 [msdn-switch-azuremode]: https://msdn.microsoft.com/library/dn722470.aspx

@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: cherylmc
-ms.openlocfilehash: e7210b2b1be072f5326070d768d5fe12c386ee0b
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 5312ad2593e732f4c84eb67ed263bc9e4666a67a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191604"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594186"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion-preview"></a>NSG 액세스 및 Azure 배스 천 (미리 보기) 사용
 
@@ -44,9 +44,9 @@ Azure 배스 천으로 작업할 경우에 네트워크 보안 그룹 (Nsg)을 �
 
 Nsg를 적용 하는 경우는 **AzureBastionSubnet**, Azure 제어 평면 및 인프라에 대 한 다음 두 서비스 태그를 허용 합니다.
 
-* **(리소스 관리자에만 해당) GatewayManager**: 이 태그는 Azure Gateway Manager 서비스의 주소 접두사를 나타냅니다. 값에 대 한 GatewayManager를 지정 하는 경우에 트래픽이 허용 되거나 GatewayManager 거부 합니다.
+* **(리소스 관리자에만 해당) GatewayManager**: 이 태그는 Azure Gateway Manager 서비스의 주소 접두사를 나타냅니다. 값에 대 한 GatewayManager를 지정 하는 경우에 트래픽이 허용 되거나 GatewayManager 거부 합니다.  AzureBastionSubnet에서 Nsg를 만드는 경우 인바운드 트래픽에 대해 GatewayManager 태그를 사용 하도록 설정 합니다.
 
-* **AzureCloud (Resource Manager만 해당)** : 이 태그는 모든 데이터 센터 공용 IP 주소를 포함 하 여 Azure에 대 한 IP 주소 공간을 나타냅니다. 값에 대 한 azure 클라우드를 지정 하는 경우에 트래픽이 허용 되거나 Azure 공용 IP 주소를 거부 합니다. AzureCloud 특정 지역에서에 대 한 액세스를 허용 하려는 경우 지역을 지정할 수 있습니다. 예를 들어, 미국 동부 지역에서 Azure AzureCloud만 액세스할 수 있도록 하려는 경우 AzureCloud.EastUS를 서비스 태그로 지정할 수 있습니다.
+* **AzureCloud (Resource Manager만 해당)** : 이 태그는 모든 데이터 센터 공용 IP 주소를 포함 하 여 Azure에 대 한 IP 주소 공간을 나타냅니다. 값에 대 한 azure 클라우드를 지정 하는 경우에 트래픽이 허용 되거나 Azure 공용 IP 주소를 거부 합니다. AzureCloud 특정 지역에만 액세스할 수 있도록 하려는 경우 지역을 지정할 수 있습니다. 예를 들어, 미국 동부 지역에서 Azure AzureCloud만 액세스할 수 있도록 하려는 경우 AzureCloud.EastUS를 서비스 태그로 지정할 수 있습니다. AzureBastionSubnet에서 Nsg를 만드는 경우 아웃 바운드 트래픽에 대해 AzureCloud 태그를 사용 하도록 설정 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

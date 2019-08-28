@@ -24,11 +24,11 @@ Azure Stream Analytics 도구는 Visual Studio 2017, 2015 및 2013을 지원합�
 ## <a name="install"></a>설치
 ### <a name="recommended-visual-studio-2019-and-2017"></a>권장: Visual Studio 2019 및 2017
 * [Visual Studio 2019(미리 보기 2 이상) 및 Visual Studio 2017(15.3 이상)](https://www.visualstudio.com/)을 다운로드합니다. Enterprise(Ultimate/Premium), Professional 및 Community Edition이 지원됩니다. Express Edition은 지원되지 않습니다. Mac의 Visual Studio 2017은 지원되지 않습니다. 
-* Stream Analytics 도구는 Visual Studio 2017에서 **Azure 개발**과 **데이터 저장 및 처리** 워크로드의 일부입니다. Visual Studio 설치의 일부로 이러한 두 워크로드 중 하나를 사용하도록 설정합니다.
+* Stream Analytics 도구는 Visual Studio 2017에서 **Azure 개발**과 **데이터 스토리지 및 처리** 워크로드의 일부입니다. Visual Studio 설치의 일부로 이러한 두 워크로드 중 하나를 사용하도록 설정합니다.
 
-다음과 같이 **데이터 저장 및 처리** 워크로드를 사용하도록 설정합니다.
+다음과 같이 **데이터 스토리지 및 처리** 워크로드를 사용하도록 설정합니다.
 
-![데이터 저장 및 처리 워크로드가 선택되었습니다.](./media/stream-analytics-tools-for-visual-studio-install/stream-analytics-tools-for-vs-2017-install-01.png)
+![데이터 스토리지 및 처리 워크로드가 선택되었습니다.](./media/stream-analytics-tools-for-visual-studio-install/stream-analytics-tools-for-vs-2017-install-01.png)
 
 다음과 같이 **Azure 개발** 워크로드를 사용하도록 설정합니다.
 
@@ -57,7 +57,7 @@ Visual Studio 알림 영역에 새 버전 미리 알림이 표시됩니다.
 ## <a name="uninstall"></a>제거
 
 ### <a name="visual-studio-2019-and-2017"></a>Visual Studio 2019 및 2017
-Visual Studio 설치 관리자를 두 번 클릭하고 **수정**을 선택합니다. **데이터 저장 및 처리** 워크로드 또는 **Azure 개발** 워크로드에서 **Azure Data Lake 및 Stream Analytics 도구** 확인란을 선택 취소합니다.
+Visual Studio 설치 관리자를 두 번 클릭하고 **수정**을 선택합니다. **데이터 스토리지 및 처리** 워크로드 또는 **Azure 개발** 워크로드에서 **Azure Data Lake 및 Stream Analytics 도구** 확인란을 선택 취소합니다.
 
 ### <a name="visual-studio-2015-and-2013"></a>Visual Studio 2015 및 2013
 [제어판]으로 이동하고 **Microsoft Azure Data Lake 및 Visual Studio용 Stream Analytics 도구**를 제거합니다.

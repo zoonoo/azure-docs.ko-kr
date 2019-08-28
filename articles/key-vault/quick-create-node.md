@@ -9,22 +9,22 @@ ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 5e8c29e033d895e24047754e686420fb4db86142
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 5ca6289b1af02a54d8c66d5a9835e24f61c58559
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236650"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934451"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>빠른 시작: Node 웹앱을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색 
 
-이 빠른 시작에서는 Azure Key Vault에 비밀을 저장하는 방법 및 웹앱을 사용하여 비밀을 검색하는 방법을 보여줍니다. Key Vault를 사용하여 정보를 안전하게 보호할 수 있습니다. 비밀 값을 확인하려면 Azure에서 이 빠른 시작을 실행해야 합니다. 빠른 시작에서는 Node.js 및 Azure 리소스의 관리 ID를 사용합니다. 다음 방법에 대해 알아봅니다.
+이 빠른 시작에서는 Azure Key Vault에 비밀을 저장하는 방법 및 웹앱을 사용하여 비밀을 검색하는 방법을 보여줍니다. Key Vault를 사용하여 정보를 안전하게 보호할 수 있습니다. 비밀 값을 확인하려면 Azure에서 이 빠른 시작을 실행해야 합니다. 빠른 시작에서는 Node.js 및 Azure 리소스의 관리 ID를 사용합니다. 다음 방법을 알아봅니다.
 
 * 키 자격 증명 모음을 만듭니다.
 * 키 자격 증명 모음에 비밀을 저장합니다.
 * 키 자격 증명 모음에서 비밀을 검색합니다.
 * Azure 웹 애플리케이션을 만듭니다.
-* 웹앱의 [관리 ID](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)를 사용하도록 설정합니다.
+* 웹앱의 [관리 ID](../active-directory/managed-service-identity/overview.md)를 사용하도록 설정합니다.
 * 웹 애플리케이션이 키 자격 증명 모음에서 데이터를 읽는 데 필요한 권한을 부여합니다.
 
 계속 진행하기 전에 [Key Vault에 대한 기본 개념](key-vault-whatis.md#basic-concepts)을 숙지하시기 바랍니다.

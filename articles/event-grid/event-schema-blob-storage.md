@@ -18,7 +18,7 @@ ms.locfileid: "67445777"
 
 이 문서에서는 Blob Storage 이벤트에 대한 속성 및 스키마를 제공합니다. 이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요.
 
-샘플 스크립트 및 자습서 목록은 [저장소 이벤트 원본](event-sources.md#storage)을 참조하세요.
+샘플 스크립트 및 자습서 목록은 [스토리지 이벤트 원본](event-sources.md#storage)을 참조하세요.
 
 ## <a name="list-of-events-for-blob-rest-apis"></a>Blob REST Api에 대 한 이벤트 목록
 
@@ -309,7 +309,7 @@ ms.locfileid: "67445777"
 | -------- | ---- | ----------- |
 | api | 문자열 | 이벤트를 트리거하는 작업입니다. |
 | clientRequestId | 문자열 | 저장소 API 작업에 대 한 클라이언트에서 제공 된 요청 id입니다. 이 id는 로그에서 "클라이언트 요청 id" 필드를 사용 하 여 Azure Storage 진단 로그에 상관 관계를 사용할 수 있으며 "x-ms-클라이언트 요청 id" 헤더를 사용 하 여 클라이언트 요청에 제공할 수 있습니다. [로그 형식](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format)을 참조하세요. |
-| requestId | 문자열 | 저장소 API 작업에 대한 서비스에서 생성된 요청 ID입니다. 로그의 "request-id-header" 필드를 사용하여 Azure Storage 진단 로그와의 상관 관계를 지정하는 데 사용할 수 있으며, 'x-ms-request-id' 헤더에서 API 호출을 시작하여 반환됩니다. [로그 형식](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format)을 참조하세요. |
+| requestId | 문자열 | 스토리지 API 작업에 대한 서비스 생성 요청 ID. 로그의 "request-id-header" 필드를 사용하여 Azure Storage 진단 로그와의 상관 관계를 지정하는 데 사용할 수 있으며, 'x-ms-request-id' 헤더에서 API 호출을 시작하여 반환됩니다. [로그 형식](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format)을 참조하세요. |
 | eTag | 문자열 | 조건부로 작업을 수행하는 데 사용할 수 있는 값입니다. |
 | contentType | 문자열 | Blob에 대해 지정된 콘텐츠 형식입니다. |
 | contentLength | 정수 | Blob의 크기(바이트)입니다. |

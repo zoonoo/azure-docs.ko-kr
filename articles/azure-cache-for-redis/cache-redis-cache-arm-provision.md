@@ -25,7 +25,7 @@ ms.locfileid: "66132786"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-이 항목에서는 Azure Cache for Redis를 배포하는 Azure Resource Manager 템플릿을 만드는 방법에 대해 알아봅니다. 기존 저장소 계정과 함께 캐시를 사용하여 진단 데이터를 유지할 수 있습니다. 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법도 알아봅니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
+이 항목에서는 Azure Cache for Redis를 배포하는 Azure Resource Manager 템플릿을 만드는 방법에 대해 알아봅니다. 기존 스토리지 계정과 함께 캐시를 사용하여 진단 데이터를 유지할 수 있습니다. 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법도 알아봅니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
 
 현재 진단 설정은 구독에 대한 동일한 지역의 모든 캐시에서 공유됩니다. 지역의 캐시 하나를 업데이트하면 해당 지역의 다른 모든 캐시에 영향을 줍니다.
 
@@ -65,7 +65,7 @@ Azure Cache for Redis의 위치입니다. 최상의 성능을 위해 캐시와 �
     }
 
 ### <a name="existingdiagnosticsstorageaccountname"></a>existingDiagnosticsStorageAccountName
-진단에 사용할 기존 저장소 계정의 이름입니다. 
+진단에 사용할 기존 스토리지 계정의 이름입니다. 
 
     "existingDiagnosticsStorageAccountName": {
       "type": "string"

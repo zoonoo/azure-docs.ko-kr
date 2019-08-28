@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 05/23/2019
+ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 18c6175ede1e8459d3a9ca60f7890cc43d75e5ba
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: f1a1a8a6b32567a1571c70e76a4ae6c570d27ca5
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236288"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900560"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: 질문과 대답
 
@@ -33,10 +33,10 @@ Microsoft Azure Data Box 하이브리드 솔루션을 사용하면 이전 디바
 ## <a name="about-the-service"></a>서비스 정보
 
 ### <a name="q-what-is-azure-data-box-service"></a>Q. Azure Data Box 서비스란? 
-a.  Azure Data Box 서비스는 오프라인 데이터 수집을 위해 설계되었습니다. 이 서비스는 다양한 저장 용량의 데이터 전송에 맞게 조정된 일련의 제품을 관리합니다. 
+a.  Azure Data Box 서비스는 오프라인 데이터 수집을 위해 설계되었습니다. 이 서비스는 다양한 스토리지 용량의 데이터 전송에 맞게 조정된 일련의 제품을 관리합니다. 
 
 ### <a name="q-what-is-azure-data-box"></a>Q. Azure Data Box란?
-a. Azure Data Box를 사용하면 테라바이트 단위의 데이터를 빠르고 저렴하게 신뢰할 수 있는 방식으로 Azure로 전송할 수 있습니다. Azure Portal을 통해 Data Box 디바이스를 주문합니다. Microsoft가 지역 이동 통신 사업자를 통해 80TB용량의 사용 가능한 저장 디바이스를 배송합니다. 
+a. Azure Data Box를 사용하면 테라바이트 단위의 데이터를 빠르고 저렴하게 신뢰할 수 있는 방식으로 Azure로 전송할 수 있습니다. Azure Portal을 통해 Data Box 디바이스를 주문합니다. Microsoft가 지역 이동 통신 사업자를 통해 80TB용량의 사용 가능한 스토리지 디바이스를 배송합니다. 
 
 디바이스를 받게 되면 로컬 웹 UI를 사용하여 신속하게 설정합니다. 서버에서 디바이스로 데이터를 복사하고 디바이스를 다시 Azure에 배송합니다. Azure 데이터 센터에서 사용자의 데이터는 디바이스에서 Azure로 자동으로 업로드됩니다. 전체 프로세스는 Azure Portal의 Data Box 서비스에 의해 엔드투엔드 추적됩니다.
 
@@ -44,7 +44,7 @@ a. Azure Data Box를 사용하면 테라바이트 단위의 데이터를 빠르�
 a. Azure로 전송할 데이터가 40~500TB이면 Data Box를 사용하는 것이 유리합니다. 데이터 크기가 40TB 미만이면 Data Box Disk를 사용하고, 500TB가 넘으면 [Data Box Heavy](data-box-heavy-overview.md)에 가입합니다.
 
 ### <a name="q-what-is-the-price-of-data-box"></a>Q. Data Box 가격은 어떻게 되나요?
-a. Data Box는 10일에 대한 명목 요금으로 사용할 수 있습니다. Azure Portal에서 주문 중에 제품 모델을 선택하면 디바이스 요금이 표시됩니다. 또한 배송료는 무료이지만, Azure 저장소에 대한 비용이 부과됩니다. 자세한 내용은 [Azure Data Box 가격 책정](https://azure.microsoft.com/pricing/details/storage/databox/)을 참조하세요. 
+a. Data Box는 10일에 대한 명목 요금으로 사용할 수 있습니다. Azure Portal에서 주문 중에 제품 모델을 선택하면 디바이스 요금이 표시됩니다. 또한 배송료는 무료이지만, Azure Storage에 대한 비용이 부과됩니다. 자세한 내용은 [Azure Data Box 가격 책정](https://azure.microsoft.com/pricing/details/storage/databox/)을 참조하세요. 
 
 ### <a name="q-what-is-the-maximum-amount-of-data-i-can-transfer-with-data-box-in-one-instance"></a>Q. 한 인스턴스에서 Data Box를 통해 전송할 수 있는 최대 데이터 양은 어떻게 되나요?
 a. Data Box의 원시 용량은 100TB, 사용 가능한 용량은 80TB입니다. Data Box를 사용하여 최대 80TB의 데이터를 전송할 수 있습니다. 더 많은 데이터를 전송하려면 디바이스를 더 주문해야 합니다.
@@ -53,7 +53,7 @@ a. Data Box의 원시 용량은 100TB, 사용 가능한 용량은 80TB입니다.
 a.  Data Box를 사용할 수 있는 국가/지역에 대한 내용은 [지역 가용성](data-box-overview.md#region-availability)을 참조하세요.  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box"></a>Q. Data Box에 데이터를 저장할 수 있는 지역은 어떻게 되나요?
-a. Data Box는 미국, 유럽 서부, 유럽 북부, 프랑스 및 영국 내의 모든 지역에서 지원됩니다. Azure 공용 클라우드 지역만 지원됩니다. Azure Government 또는 다른 소버린 클라우드는 지원되지 않습니다. 자세한 내용은 [지역 가용성](data-box-overview.md#region-availability)을 참조하세요.
+a. Data Box는 미국, 서유럽, 북유럽, 프랑스, 영국, 일본, 오스트레일리아 및 캐나다 내의 모든 지역에서 지원됩니다. 자세한 내용은 [지역 가용성](data-box-overview.md#region-availability)을 참조하세요.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues-with-data-box"></a>Q. Data Box에 문제가 발생하면 어디로 연락해야 하나요?
 a. Data Box에 문제가 발생하면 [Microsoft 지원](data-box-disk-contact-microsoft-support.md)에 문의하세요.
@@ -119,7 +119,7 @@ A.-->
 a. 시스템 결함 표시기 LED가 켜져 있으면 시스템이 정상 상태가 아님을 나타냅니다. [Microsoft 지원에 문의](data-box-disk-contact-microsoft-support.md)하세요.
 
 ### <a name="q-i-cant-access-the-data-box-unlock-password-in-the-azure-portal-why-would-this-be"></a>Q. Azure Portal에서 Data Box 잠금 해제 암호에 액세스할 수 없습니다. 왜 그럴까요?
-a. Azure Portal의 잠금 해제 암호에 액세스할 수 없다면 구독 및 저장소 계정의 권한을 확인합니다. 리소스 그룹 수준에서 기여자 또는 소유자 권한이 있는지 확인합니다. 없는 경우 액세스 자격 증명을 보려면 최소한 Data Box 운영자 역할 권한이 있어야 합니다.
+a. Azure Portal의 잠금 해제 암호에 액세스할 수 없다면 구독 및 스토리지 계정의 권한을 확인합니다. 리소스 그룹 수준에서 기여자 또는 소유자 권한이 있는지 확인합니다. 없는 경우 액세스 자격 증명을 보려면 최소한 Data Box 운영자 역할 권한이 있어야 합니다.
 
 ### <a name="q-is-port-channel-configuration-supported-on-data-box-how-about-mpio"></a>Q. Data Box에서 포트 채널 구성이 지원되나요? MPIO는 어떤가요?
 a. 포트 채널 구성, MPIO(다중 경로 IO) 구성 또는 vLAN 구성은 Data Box에 지원되지 않습니다.
@@ -138,7 +138,7 @@ a. Azure Portal에서 Data Box 주문, **개요**로 차례로 이동할 수 있
 ## <a name="migrate-data"></a>데이터 마이그레이션
 
 ### <a name="q-what-is-the-maximum-data-size-that-can-be-used-with-data-box"></a>Q. Data Box에 사용할 수 있는 최대 데이터 크기는 어떻게 되나요?  
-a.  Data Box에는 80TB의 사용 가능한 저장소 용량이 있습니다. 크기가 40 ~ 80TB에 해당하는 데이터에는 단일 Data Box 디바이스를 사용할 수 있습니다. 최대 500TB의 데이터 크기가 필요한 경우 여러 개의 Data Box 디바이스를 주문할 수 있습니다. 500TB가 넘는 데이터는 Data Box Heavy에 가입하세요.  
+a.  Data Box에는 80TB의 사용 가능한 스토리지 용량이 있습니다. 크기가 40 ~ 80TB에 해당하는 데이터에는 단일 Data Box 디바이스를 사용할 수 있습니다. 최대 500TB의 데이터 크기가 필요한 경우 여러 개의 Data Box 디바이스를 주문할 수 있습니다. 500TB가 넘는 데이터는 Data Box Heavy에 가입하세요.  
 
 ### <a name="q-what-are-the-maximum-block-blob-and-page-blob-sizes-supported-by-data-box"></a>Q. Data Box에서 지원하는 블록 Blob 및 페이지 Blob에 대한 최대 크기는 어떻게 되나요? 
 a.  최대 크기는 Azure Storage 제한으로 관리됩니다. 최대 블록 Blob 크기는 대략 4.768TiB이고, 최대 페이지 Blob 크기는 8TiB입니다. 자세한 내용은 [Azure Storage 확장성 및 성능 목표](../storage/common/storage-scalability-targets.md)를 참조하세요. 
@@ -169,8 +169,8 @@ A.  To speed up the copy process:
 - Copy files to the VM’s disk.-->
 
 
-### <a name="q-can-i-use-multiple-storage-accounts-with-data-box"></a>Q. Data Box에 여러 개의 저장소 계정을 사용할 수 있나요?
-a.  예. Data Box에서는 최대 10개의 스토리지 계정, 범용, 클래식 또는 Blob Storage 계정이 지원됩니다. 핫 및 쿨 Blob은 모두 지원됩니다. GA 릴리스 중에는 Azure 공용 클라우드에서 미국, 유럽 서부, 유럽 북부, 프랑스 및 영국의 모든 지역의 저장소 계정이 지원됩니다.
+### <a name="q-can-i-use-multiple-storage-accounts-with-data-box"></a>Q. Data Box에 여러 개의 스토리지 계정을 사용할 수 있나요?
+a.  예. Data Box에서는 최대 10개의 스토리지 계정, 범용, 클래식 또는 Blob Storage 계정이 지원됩니다. 핫 및 쿨 Blob은 모두 지원됩니다. 
 
 
 ## <a name="ship-device"></a>디바이스 배송
@@ -185,6 +185,9 @@ a. Data Box 서비스에서는 Microsoft가 Azure 데이터 센터로의 배송�
 
 ### <a name="q-will-my-data-box-devices-cross-country-borders-during-shipping"></a>Q. 배송 중에 내 Data Box 디바이스가 국가 경계를 넘을 수 있나요?
 a. 모든 Data Box 디바이스는 목적지와 동일한 국가 내에서 배송되며 국경을 넘지 않습니다. 유일한 예외는 디바이스가 모든 EU 국가 간에 발송될 수 있는 EU(유럽 연합) 내에서의 주문입니다. Data Box와 Data Box Heavy 디바이스에 모두 적용됩니다.
+
+### <a name="q-i-ordered-a-data-box-in-us-east-but-i-received-a-device-that-was-shipped-from-a-location-in-us-west-where-should-i-return-the-device-to"></a>Q. 미국 동부에서 Data Box를 주문했으나 미국 서부의 위치에서 배송된 디바이스를 받았습니다. 디바이스를 어디로 반환해야 하나요?
+a. Data Box 디바이스를 최대한 빨리 배송해 드리려고 합니다. 스토리지 계정 위치에 가장 가까운 데이터 센터에서 배송의 우선 순위를 지정하지만, 사용 가능한 재고가 있는 모든 Azure 데이터 센터에서 디바이스가 제공됩니다. Data Box를 배송 레이블에 표시된 것과 동일한 위치로 반환하시면 됩니다.
 
 ### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>Q. E 잉크 표시가 반송 레이블에 없습니다. 어떻게 해야 하나요?
 a. 반송 레이블에 E 잉크가 표시되지 않으면 다음 단계를 수행합니다.

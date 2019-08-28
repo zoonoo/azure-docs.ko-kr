@@ -8,25 +8,24 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 2039dd9222809d2c05aaeaf01f9d38c51f3b3797
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 998a94350250402d4face64f64e12f32cf5b2a36
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837322"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036491"
 ---
 # <a name="sfctl-is"></a>sfctl is
 쿼리하고 인프라 서비스에 명령을 보냅니다.
 
 ## <a name="commands"></a>명령
 
-|명령|설명|
+|명령|Description|
 | --- | --- |
 | command | 지정된 인프라 서비스 인스턴스에 대한 관리 명령을 호출합니다. |
 | 쿼리 | 지정된 인프라 서비스 인스턴스에 대한 읽기 전용 쿼리를 호출합니다. |
@@ -38,7 +37,7 @@ ms.locfileid: "60837322"
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --command[필수] | 호출할 명령의 텍스트입니다. 명령의 콘텐츠는 인프라에 따라 다릅니다. |
 | --service-id | 인프라 서비스의 ID입니다. <br><br> 'fabric\:' URI 스키마가 없는 인프라 서비스의 전체 이름입니다. 이 매개 변수는 실행 중인 하나 이상의 인프라 서비스 인스턴스가 있는 클러스터에만 필요합니다. |
@@ -46,7 +45,7 @@ ms.locfileid: "60837322"
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -61,7 +60,7 @@ ms.locfileid: "60837322"
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --command[필수] | 호출할 명령의 텍스트입니다. 명령의 콘텐츠는 인프라에 따라 다릅니다. |
 | --service-id | 인프라 서비스의 ID입니다. <br><br> 'fabric\:' URI 스키마가 없는 인프라 서비스의 전체 이름입니다. 이 매개 변수는 실행 중인 하나 이상의 인프라 서비스 인스턴스가 있는 클러스터에만 필요합니다. |
@@ -69,7 +68,7 @@ ms.locfileid: "60837322"
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |

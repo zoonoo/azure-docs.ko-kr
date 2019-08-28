@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Table API와 Java - Azure Cosmos DB'
-description: 이 빠른 시작은 Azure Portal 및 Java와 함께 Azure Cosmos DB Table API를 사용하여 애플리케이션을 만드는 방법을 보여줍니다.
+title: Table API 및 Java를 사용하여 앱 빌드 - Azure Cosmos DB
+description: 이 빠른 시작은 Azure Portal 및 Java와 함께 Azure Cosmos DB 테이블 API를 사용하여 애플리케이션을 만드는 방법을 보여줍니다.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -8,12 +8,13 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: 22d5aea119d71553afc02ee923fab5cf5ead5ce0
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.custom: seo-java-august2019
+ms.openlocfilehash: d1eade1b5bdbbce2bc47c5e6177d21c7ff835936
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65519041"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933947"
 ---
 # <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>빠른 시작: Java 및 Azure Cosmos DB를 사용하여 Table API 앱 빌드
 
@@ -58,7 +59,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 [!INCLUDE [cosmos-db-create-table-add-sample-data](../../includes/cosmos-db-create-table-add-sample-data.md)]
 
-## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
+## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
 이제 GitHub에서 Table 앱을 복제하고 연결 문자열을 설정한 다음 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
 
@@ -84,7 +85,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져와서 앱에 복사합니다. 이를 통해 앱이 호스팅된 데이터베이스와 통신할 수 있게 됩니다. 
 
-1. [Azure Portal](https://portal.azure.com/)에서 **연결 문자열**을 클릭합니다. 
+1. [Azure Portal](https://portal.azure.com/)에서 **연결 문자열**을 선택합니다. 
 
    ![[연결 문자열] 창에서 필요한 연결 문자열 정보 보기 및 복사](./media/create-table-java/connection-string.png)
 
@@ -94,7 +95,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 5. 첫 번째 줄을 주석으로 처리하고 두 번째 줄의 주석 처리를 제거합니다. 이제 처음 두 줄은 아래와 같은 모양입니다.
 
-    ```
+    ```xml
     #StorageConnectionString = UseDevelopmentStorage=true
     StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=[ACCOUNTNAME];AccountKey=[ACCOUNTKEY]
     ```

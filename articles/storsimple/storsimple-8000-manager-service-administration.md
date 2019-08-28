@@ -60,7 +60,7 @@ StorSimple Device Manager 서비스는 Microsoft Azure에서 실행되며 여러
 | 볼륨에 대한 백업 목록</br>백업 세트를 선택합니다.</br>백업 세트 삭제 |[백업 관리](storsimple-8000-manage-backup-catalog.md) |
 | 볼륨 복제 |[볼륨 복제](storsimple-8000-clone-volume-u2.md) |
 | 백업 세트 복원 |[백업 세트 복원](storsimple-8000-restore-from-backup-set-u2.md) |
-| Storage 계정 정보</br>저장소 계정 추가</br>저장소 계정 편집</br>저장소 계정 삭제</br>저장소 계정의 키 회전 |[저장소 계정 관리](storsimple-8000-manage-storage-accounts.md) |
+| Storage 계정 정보</br>스토리지 계정 추가</br>스토리지 계정 편집</br>스토리지 계정 삭제</br>스토리지 계정의 키 회전 |[스토리지 계정 관리](storsimple-8000-manage-storage-accounts.md) |
 | 대역폭 템플릿 정보</br>대역폭 템플릿 추가</br>대역폭 템플릿 편집</br>대역폭 템플릿 삭제</br>기본 대역폭 템플릿 사용</br>지정된 시간에 시작되는 하루 종일 대역폭 템플릿 만들기 |[대역폭 템플릿 관리](storsimple-8000-manage-bandwidth-templates.md) |
 | 액세스 제어 레코드 정보</br>액세스 제어 레코드 만들기</br>액세스 제어 레코드 편집</br>액세스 제어 레코드 삭제 |[액세스 제어 레코드 관리](storsimple-8000-manage-acrs.md) |
 | 작업 세부 정보 보기</br>작업 취소 |[작업 관리](storsimple-8000-manage-jobs-u2.md) |

@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 05/29/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 8453a3592c1822489a3724dacdf8f0ff5e8492f1
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: c7fbd37ff8d40f27e0ca18a6f9816d3d96422ab9
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427917"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592406"
 ---
-# <a name="tutorial-order-azure-data-box-heavy-preview"></a>자습서: Azure Data Box Heavy 주문(미리 보기)
+# <a name="tutorial-order-azure-data-box-heavy"></a>자습서: Azure Data Box Heavy 주문
 
 
 Azure Data Box Heavy는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-프레미스 데이터를 Azure로 가져올 수 있는 하이브리드 솔루션입니다. Microsoft에서 제공한 770TB(대략적인 사용 가능한 용량) 스토리지 디바이스에 데이터를 전송한 다음, 디바이스를 다시 제공합니다. 그런 다음, 이 데이터는 Azure에 업로드됩니다.
@@ -36,7 +36,7 @@ Azure Data Box Heavy는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-�
 
 시작하기 전에 다음 사항을 확인합니다.
 
-- 디바이스가 표준 출입구 및 통로를 통과하기에 맞는 크기인지 여부 단, 디바이스가 모든 통로를 통과하기에 맞는 크기인지 확인합니다. 디바이스 치수: 너비: 26” 길이: 48” 높이: 28”
+- 디바이스가 표준 출입구 및 통로를 통과하기에 맞는 크기인지 여부 단, 디바이스가 모든 통로를 통과하기에 맞는 크기인지 확인합니다. 디바이스 치수: 너비: 26", 길이: 48", 높이: 28”
 - 지층 이외의 층에 설치된 경우 엘리베이터 또는 경사로를 통해 디바이스에 접근해야 합니다. 디바이스 중량은 대략 500lb(약 227kg)입니다.
 - 사용 가능한 네트워크 연결에 근접한 데이터 센터에 이 공간을 차지하는 디바이스를 수용할 수 있는 평평한 부분이 있어야 합니다.
 
@@ -44,7 +44,7 @@ Azure Data Box Heavy는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-�
 ### <a name="for-service"></a>서비스의 경우
 
 시작하기 전에 다음 사항을 확인합니다.
-- 액세스 자격 증명이 있는 Microsoft Azure 저장소 계정이 있습니다.
+- 액세스 자격 증명이 있는 Microsoft Azure Storage 계정이 있습니다.
 - Data Box 서비스에 사용할 구독이 다음 형식 중 하나인지 확인합니다.
     - Microsoft EA(기업계약). [EA 구독](https://azure.microsoft.com/pricing/enterprise-agreement/)에 대해 자세히 알아보세요.
     - CSP(클라우드 솔루션 공급자). [CSP 프로그램](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)에 대해 자세히 알아보세요.
@@ -97,8 +97,8 @@ Azure Data Box Heavy는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-�
     |---------|---------|
     |이름     | 주문을 추적하는 데 친숙한 이름을 입력합니다. <br> 이 이름은 2~24자 사이의 문자, 숫자 및 하이픈일 수 있습니다. <br> 이름은 문자 또는 숫자로 시작하고 끝나야 합니다.      |
     |리소스 그룹     | 기존 그룹을 사용하거나 새 그룹을 만듭니다. <br> 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다.         |
-    |대상 Azure 지역     | 저장소 계정에 대한 지역을 선택합니다. <br> 자세한 내용은 [지역 가용성](https://azure.microsoft.com/global-infrastructure/services/?products=databox)을 참조하세요.        |
-    |스토리지 대상     | 스토리지 계정이나 관리형 디스크 또는 둘 다를 선택합니다. <br> 지정된 Azure 지역에 따라 필터링된 기존 저장소 계정 목록에서 하나 이상의 저장소 계정을 선택합니다. <br>Data Box Heavy는 최대 10개의 스토리지 계정과 연결할 수 있습니다. <br> 새 **범용 v1**, **범용 v2** 또는 **Blob Storage 계정**도 만들 수 있습니다. <br> Azure Data Lake Storage Gen 2 계정은 지원되지 않습니다. [디바이스에 지원되는 스토리지 계정](data-box-heavy-system-requirements.md#supported-storage-accounts)을 참조하세요. <br>가상 네트워크를 사용하는 스토리지 계정은 지원됩니다. Data Box 서비스에서 보안 스토리지 계정을 사용하려면 스토리지 계정 네트워크 방화벽 설정 내에서 신뢰할 수 있는 서비스를 사용하도록 설정합니다. 자세한 내용은 [Azure Data Box 서비스를 신뢰할 수 있는 서비스로 추가](../storage/common/storage-network-security.md#exceptions)하는 방법을 참조하세요.|
+    |대상 Azure 지역     | 스토리지 계정에 대한 지역을 선택합니다. <br> 자세한 내용은 [지역 가용성](https://azure.microsoft.com/global-infrastructure/services/?products=databox)을 참조하세요.        |
+    |스토리지 대상     | 스토리지 계정이나 관리형 디스크 또는 둘 다를 선택합니다. <br> 지정된 Azure 지역에 따라 필터링된 기존 스토리지 계정 목록에서 하나 이상의 스토리지 계정을 선택합니다. <br>Data Box Heavy는 최대 10개의 스토리지 계정과 연결할 수 있습니다. <br> 새 **범용 v1**, **범용 v2** 또는 **Blob Storage 계정**도 만들 수 있습니다. <br> Azure Data Lake Storage Gen 2 계정은 지원되지 않습니다. [디바이스에 지원되는 스토리지 계정](data-box-heavy-system-requirements.md#supported-storage-accounts)을 참조하세요. <br>가상 네트워크를 사용하는 스토리지 계정은 지원됩니다. Data Box 서비스에서 보안 스토리지 계정을 사용하려면 스토리지 계정 네트워크 방화벽 설정 내에서 신뢰할 수 있는 서비스를 사용하도록 설정합니다. 자세한 내용은 [Azure Data Box 서비스를 신뢰할 수 있는 서비스로 추가](../storage/common/storage-network-security.md#exceptions)하는 방법을 참조하세요.|
 
     스토리지 계정을 스토리지 대상으로 사용하는 경우 다음 스크린샷을 참조하세요.
 
@@ -133,7 +133,7 @@ Azure Data Box Heavy는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-�
 
 디바이스를 사용할 수 없는 경우 알림을 받습니다. 디바이스를 사용할 수 있으면 Microsoft에서는 배송할 디바이스를 확인하고 배송을 준비합니다. 디바이스를 준비하는 동안 수행되는 작업은 다음과 같습니다.
 
-- 디바이스와 연결된 각 저장소 계정에 대해 SMB 공유가 생성됩니다.
+- 디바이스와 연결된 각 스토리지 계정에 대해 SMB 공유가 생성됩니다.
 - 각 공유에 대한 사용자 이름 및 암호와 같은 액세스 자격 증명이 생성됩니다.
 - 디바이스의 잠금을 해제하는 데 도움이 되는 디바이스 암호도 생성됩니다.
 - Data Box Heavy는 언제든지 디바이스에 대한 권한이 없는 액세스를 방지하기 위해 잠겨 있습니다.

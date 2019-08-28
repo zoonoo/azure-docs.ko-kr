@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: 기술 자료에서 답변 찾기 - REST, C# - QnA Maker'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 이 C# REST 기반 빠른 시작은 기술 자료에서 프로그래밍 방식으로 답변을 가져오는 방법을 안내합니다.
 services: cognitive-services
 author: diberry
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 02/28/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 614d7c0b58ee318461cf3c97e934a77c84221ef7
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: ba128f5ad87083f8d57c33011969756f3b3a8c93
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827600"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559816"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-c"></a>C#을 사용하여 기술 자료에서 질문에 대한 답변 얻기
 

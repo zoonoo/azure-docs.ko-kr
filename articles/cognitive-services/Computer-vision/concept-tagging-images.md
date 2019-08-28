@@ -1,5 +1,5 @@
 ---
-title: 이미지에 콘텐츠 태그 적용 - Computer Vision
+title: 콘텐츠 태그-Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Computer Vision API의 이미지 태그 지정 기능과 관련된 개념에 대해 알아봅니다.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: aeb03566a650fe46286d77913e0d36dcbb19f436
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad01751f7f7c573352c8fd15cc0f8cc2ebbbe700
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60759676"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945114"
 ---
 # <a name="applying-content-tags-to-images"></a>이미지에 콘텐츠 태그 적용
 
@@ -28,7 +28,7 @@ Computer Vision에서는 수천 개의 인식할 수 있는 개체, 생물, 경�
 
 다음 JSON 응답에서는 예제 이미지에서 검색된 시각적 기능의 태그를 지정할 때 Computer Vision이 반환하는 내용을 보여줍니다.
 
-![파란색 집 및 앞 마당](./Images/house_yard.png).
+![파란색 집 및 앞 마당](./Images/house_yard.png)을 선택합니다.
 
 ```json
 {

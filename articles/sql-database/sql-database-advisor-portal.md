@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: d80581aae56fc9d65d6f24d21f2c582cb74b3f2d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6bcb2650cd11ed97b6e81fda6aaafe7fca61202
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61420382"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569602"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>성능 권장 사항 찾기 및 적용
 
@@ -39,10 +38,10 @@ Azure Portal을 사용하여 Azure SQL Database의 성능을 최적화할 수 �
 
 권장 사항은 성능의 잠재적 영향 순으로 다음과 같은 카테고리에 정렬됩니다.
 
-| 영향 | 설명 |
+| 영향 | Description |
 |:--- |:--- |
 | 높음 |높은 영향 권장사항은 가장 중요한 성능 영향을 제공합니다. |
-| 중간 |중간 영향 권장 사항은 성능을 향상시키지만, 크게 향상시키지는 않습니다. |
+| 보통 |중간 영향 권장 사항은 성능을 향상시키지만, 크게 향상시키지는 않습니다. |
 | 낮음 |낮은 영향 권장 사항은 없는 것보다 나은 성능을 제공하지만, 향상된 기능이 눈에 띄지는 않습니다. |
 
 
@@ -111,11 +110,11 @@ Azure SQL Database가 권장 사항을 자동으로 구현하도록 설정할 �
 
 원하는 구성을 선택한 후 적용을 클릭합니다.
 
-### <a name="manually-apply-recommendations-through-t-sql"></a>수동으로 T-SQL을 통해 권장 사항을 적용합니다
+### <a name="manually-apply-recommendations-through-t-sql"></a>T-sql을 통해 수동으로 권장 사항 적용
 
 권장 사항을 선택한 다음 **스크립트 보기**를 클릭합니다. 권장 구성을 수동으로 적용하도록 데이터베이스에 대해 이 스크립트를 실행합니다.
 
-*수동으로 실행된 인덱스는 성능에 미치는 서비스 영향에 대해 모니터링하고 유효성 검사를 실시하지 않으므로* 필요한 경우 인덱스 생성 후 인덱스를 성능을 향상시키거나 조절 또는 삭제하기 위해 모니터링하는 것이 좋습니다. 인덱스 만들기에 대한 세부 정보는 [CREATE INDEX (TRANSACT-SQL)](https://msdn.microsoft.com/library/ms188783.aspx)를 참조하세요. 또한 수동으로 적용 된 권장 사항을 24 ~ 48 시간에 대 한 활성 및 권장 사항 목록에 표시 된 유지 됩니다. 전에 자동으로 시스템을 삭제 합니다. 권장 사항을 더 빨리 제거 하려는 경우 수동으로 취소할 수 있습니다.
+*수동으로 실행된 인덱스는 성능에 미치는 서비스 영향에 대해 모니터링하고 유효성 검사를 실시하지 않으므로* 필요한 경우 인덱스 생성 후 인덱스를 성능을 향상시키거나 조절 또는 삭제하기 위해 모니터링하는 것이 좋습니다. 인덱스 만들기에 대한 세부 정보는 [CREATE INDEX (TRANSACT-SQL)](https://msdn.microsoft.com/library/ms188783.aspx)를 참조하세요. 또한 수동으로 적용 된 권장 사항은 활성 상태로 유지 되 고 24-48 시간에 대 한 권장 사항 목록에 표시 됩니다. 시스템에서 자동으로 인출 합니다. 권장 사항을 더 일찍 제거 하려면 수동으로 삭제할 수 있습니다.
 
 ### <a name="canceling-recommendations"></a>권장 사항 취소
 
@@ -128,13 +127,13 @@ Azure SQL Database가 권장 사항을 자동으로 구현하도록 설정할 �
 
 권장 구성을 적용해도 즉각적으로 일어나지 않을 수 있습니다. 포털에서는 권장 사항의 상태에 대한 세부 정보를 제공합니다. 다음은 인덱스 안에 나타날 수 있는 상태입니다.
 
-| 상태 | 설명 |
+| Status | Description |
 |:--- |:--- |
-| Pending |권장 사항 적용 명령을 수신했고 실행이 예약됩니다. |
+| 대기 중 |권장 사항 적용 명령을 수신했고 실행이 예약됩니다. |
 | 실행 중 |권장 사항을 적용 중입니다. |
 | 유효성 검사 중 |권장 사항이 성공적으로 적용되면 서비스가 성능을 측정합니다. |
-| 성공 |권장 사항이 성공적으로 적용되면 성능을 측정합니다. |
-| 오류 |권장 사항을 적용하는 과정 중에 오류가 발생했습니다. 일시적인 문제일 수도 있고, 테이블의 스키마변경 문제일 수도 있고, 스크립트가 더 이상 유효하지 않을 수도 있습니다. |
+| Success |권장 사항이 성공적으로 적용되면 성능을 측정합니다. |
+| Error |권장 사항을 적용하는 과정 중에 오류가 발생했습니다. 일시적인 문제일 수도 있고, 테이블의 스키마변경 문제일 수도 있고, 스크립트가 더 이상 유효하지 않을 수도 있습니다. |
 | 되돌리기 |권장 사항이 적용되었지만 효율적이지 않은 것으로 간주되어 자동으로 되돌리고 있습니다. |
 | 되돌림 |권장 사항을 되돌렸습니다. |
 
@@ -165,7 +164,7 @@ Azure SQL Database는 SQL 데이터베이스 성능을 향상하기 위한 권�
 * Azure SQL Database 성능 권장 사항에 대한 개요는 [성능 권장 사항](sql-database-advisor.md)을 참조하세요.
 * 상위 쿼리의 성능에 미치는 영향을 알아보려면 [Query Performance Insights](sql-database-query-performance.md)를 참조하세요.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 * [쿼리 저장소](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
 * [역할 기반 액세스 제어](../role-based-access-control/overview.md)

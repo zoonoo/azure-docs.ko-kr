@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: 보안 LDAP 구성 문제 해결 | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: 보안 LDAP 문제 해결 | Microsoft Docs'
 description: Azure AD Domain Services에 대한 보안 LDAP 문제 해결
 services: active-directory-ds
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 453018f486ca3fda91d8447208fe3d936722522e
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 8f9f4a8b52548dad011f5e825fa42c50da970ea7
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473947"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69613165"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Azure AD Domain Services - 보안 LDAP 구성 문제 해결
 
-이 문서에서는 Azure AD Domain Services에 대한 [보안 LDAP를 구성](configure-ldaps.md)할 때 발생하는 일반적인 문제에 대한 해결 방법을 제공합니다.
+이 문서에서는 Azure AD Domain Services에 대한 [보안 LDAP를 구성](tutorial-configure-ldaps.md)할 때 발생하는 일반적인 문제에 대한 해결 방법을 제공합니다.
 
 ## <a name="aadds101-secure-ldap-network-security-group-configuration"></a>AADDS101: 보안 LDAP 네트워크 보안 그룹 구성
 
@@ -62,7 +62,7 @@ ms.locfileid: "67473947"
 
 **해결 방법:**
 
-[보안 LDAP 구성](configure-ldaps.md) 아티클에 설명된 단계를 수행하여 새 보안 LDAP 인증서를 만듭니다.
+[보안 LDAP 구성](tutorial-configure-ldaps.md) 아티클에 설명된 단계를 수행하여 새 보안 LDAP 인증서를 만듭니다.
 
-## <a name="contact-us"></a>문의처
+## <a name="contact-us"></a>문의
 [지원이 필요하거나 피드백을 공유하려면](contact-us.md)Azure Active Directory Domain Services 제품 팀에 문의하세요.

@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: sohamnchatterjee
 ms.assetid: 0b50230b-fe82-4740-90aa-95d4dde8bd4f
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: magattus
-ms.openlocfilehash: 94d9fb0878458f3de0a64fac57af4a70e1875112
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff877810cb32d22cffd2af79880b6223c41d7d73
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65909686"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593522"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Azure CDN 엔드포인트 제거
 ## <a name="overview"></a>개요
@@ -73,7 +73,7 @@ Azure CDN 가장자리 노드는 자산의 TTL(Time-to-Live)이 만료될 때 �
 > 
 > 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 * [Azure CDN 엔드포인트에 자산 미리 로드](cdn-preload-endpoint.md)
 * [Azure CDN REST API 참조 - 엔드포인트 제거 또는 미리 로드](/rest/api/cdn/endpoints)
 

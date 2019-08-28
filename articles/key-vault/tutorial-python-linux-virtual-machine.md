@@ -7,14 +7,14 @@ manager: rajvijan
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/05/2018
-ms.author: pryerram
+ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: e5fbb4e6f6599d8f9560561fc219dbf57ac0cee1
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f002a4d67ee782b11cd8f39784eb48b136328c89
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "66147751"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876698"
 ---
 # <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>자습서: Linux VM 및 Python 앱을 사용하여 Azure Key Vault에 비밀 저장
 
@@ -99,7 +99,7 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 
 `az vm create` 명령을 사용하여 VM을 만듭니다.
 
-다음 예제에서는 **myVM**이라는 VM을 만들고 **azureuser**라는 사용자 계정을 추가합니다. `--generate-ssh-keys` 매개 변수는 SSH 키를 자동으로 생성하고 이를 기본 키 위치(**~/.ssh**)에 배치합니다. 특정 키 집합을 대신 만들려면 `--ssh-key-value` 옵션을 사용합니다.
+다음 예제에서는 **myVM**이라는 VM을 만들고 **azureuser**라는 사용자 계정을 추가합니다. `--generate-ssh-keys` 매개 변수는 SSH 키를 자동으로 생성하고 이를 기본 키 위치( **~/.ssh**)에 배치합니다. 특정 키 집합을 대신 만들려면 `--ssh-key-value` 옵션을 사용합니다.
 
 ```azurecli-interactive
 az vm create \

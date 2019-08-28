@@ -54,9 +54,9 @@ Azure Data Lake Storage Gen1은 다음 원본에서 데이터를 복사하기 �
 
 | 옵션 | 설명 |
 | --- | --- |
-| 원본 |Azure 저장소 Blob에서 원본 데이터의 위치를 지정합니다. 원본은 Blob 컨테이너, Blob 또는 다른 Data Lake Storage Gen1 계정일 수 있습니다. |
+| 원본 |Azure Storage Blob에서 원본 데이터의 위치를 지정합니다. 원본은 Blob 컨테이너, Blob 또는 다른 Data Lake Storage Gen1 계정일 수 있습니다. |
 | Dest |복사할 Data Lake Storage Gen1 대상을 지정합니다. |
-| SourceKey |Azure 저장소 Blob 원본에 대한 저장소 액세스 키를 지정합니다. 원본이 Blob 컨테이너 또는 Blob인 경우에만 필요합니다. |
+| SourceKey |Azure Storage Blob 원본에 대한 스토리지 액세스 키를 지정합니다. 원본이 Blob 컨테이너 또는 Blob인 경우에만 필요합니다. |
 | 계좌 |**옵션**. 복사 작업을 실행하기 위해 Azure 데이터 레이크 분석 계정을 사용하려는 경우 사용합니다. 구문에서 /Account 옵션을 사용하지만 데이터 레이크 분석 계정을 지정하지 않으면 AdlCopy는 기본 계정을 사용하여 작업을 실행합니다. 또한 이 옵션을 사용하는 경우 원본(Azure Storage Blob) 및 대상(Azure Data Lake Storage Gen1)을 Data Lake Analytics 계정에 대한 데이터 원본으로 추가해야 합니다. |
 | Units |복사 작업에 사용할 데이터 레이크 분석 단위의 수를 지정합니다. 이 옵션은 **/Account** 옵션을 사용하여 데이터 레이크 분석 계정을 지정하는 경우 필수입니다. |
 | 패턴 |복사할 Blob 또는 파일을 나타내는 regex 패턴을 지정합니다. AdlCopy는 대/소문자 구분 일치를 사용합니다. 패턴을 지정하지 않았을 때 사용되는 기본 패턴은 모든 항목을 복사하는 것입니다. 여러 파일 패턴을 지정할 수는 없습니다. |

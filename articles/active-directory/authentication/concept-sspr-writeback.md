@@ -1,5 +1,5 @@
 ---
-title: Azure AD SSPR-Azure Active Directory 통합과 암호 쓰기 저장 온-프레미스
+title: Azure AD SSPR와 온-프레미스 비밀 번호 쓰기 저장 통합-Azure Active Directory
 description: 온-프레미스 AD 인프라에 클라우드 비밀번호 쓰기 저장
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dbf27301e738978e7f03d2423a4d23fd63c97b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 07069d22d57540c6a16472bc7278821e14f1f18e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113490"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561287"
 ---
 # <a name="what-is-password-writeback"></a>비밀번호 쓰기 저장이란?
 
@@ -43,7 +43,7 @@ ms.locfileid: "67113490"
 * **인바운드 방화벽 규칙 필요 없음**: 비밀번호 쓰기 저장은 Azure Service Bus Relay를 기본 통신 채널로 사용합니다. 모든 통신은 포트 443을 통해 아웃바운드됩니다.
 
 > [!NOTE]
-> 온-프레미스 Active Directory의 보호 그룹 내에 있는 사용자 계정은 비밀번호 쓰기 저장에 사용할 수 없습니다. 온-프레미스 AD의 보호 그룹 내에 있는 관리자 계정은 비밀번호 쓰기 저장에 사용할 수 없습니다. 보호 그룹에 대한 자세한 내용은 [Active Directory의 보호 계정 및 그룹](https://technet.microsoft.com/library/dn535499.aspx)을 참조하세요.
+> 온-프레미스 AD의 보호 그룹 내에 있는 관리자 계정은 비밀번호 쓰기 저장에 사용할 수 없습니다. 관리자는 클라우드에서 암호를 변경할 수 있지만 암호 재설정을 사용 하 여 잊어버린 암호를 재설정할 수 없습니다. 보호 그룹에 대한 자세한 내용은 [Active Directory의 보호 계정 및 그룹](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory)을 참조하세요.
 
 ## <a name="licensing-requirements-for-password-writeback"></a>비밀번호 쓰기 저장에 대한 라이선스 요구 사항
 
@@ -161,10 +161,10 @@ ms.locfileid: "67113490"
    * PowerShell 버전 1, 버전 2 또는 Azure AD Graph API를 사용하여 자신의 암호를 재설정하는 최종 사용자
 * **지원되지 않는 관리자 작업**
    * PowerShell 버전 1, 버전 2 또는 Azure AD Graph API에서 관리자 시작 최종 사용자 암호 재설정
-   * 모든 관리자 시작 최종 사용자 암호를 재설정 합니다 [Microsoft 365 관리 센터](https://admin.microsoft.com)
+   * [Microsoft 365 관리 센터](https://admin.microsoft.com) 에서 관리자가 시작한 최종 사용자 암호 재설정
 
 > [!WARNING]
-> 확인란의 "반드시 암호 변경 다음 로그온 할 때" Active Directory 사용자 및 컴퓨터 또는 Active Directory 관리 센터와 같은 온-프레미스 Active Directory 관리 도구에서 사용 하 여 지원 되지 않습니다. 암호를 변경 하는 경우 온-프레미스가이 옵션을 선택 하지 마십시오.
+> 온-프레미스 Active Directory Active Directory 사용자 및 컴퓨터와 같은 관리 도구를 사용 하거나 Active Directory 관리 센터 지원 되지 않으므로 "다음 로그온 할 때 반드시 암호를 변경 해야 합니다." 확인란을 사용 합니다. 온-프레미스에서 암호를 변경 하는 경우이 옵션을 선택 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

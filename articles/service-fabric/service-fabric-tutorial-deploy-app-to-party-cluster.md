@@ -3,7 +3,7 @@ title: Azure의 클러스터에 Service Fabric 앱 배포 | Microsoft Docs
 description: Visual Studio에서 애플리케이션을 클러스터에 배포하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: msfussell
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/14/2019
-ms.author: aljo,mikhegn
+ms.date: 07/22/2019
+ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 4b3922ea97391a83d729bcf8b25c489a45119046
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: d637b01eb9e4d1664def9eb537b810603eea18ea
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66302450"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598819"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>자습서: Azure의 클러스터에 Service Fabric 애플리케이션 배포
 

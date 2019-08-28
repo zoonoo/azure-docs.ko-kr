@@ -1,6 +1,6 @@
 ---
-title: 기술 자료 게시, REST, Go
-titleSuffix: QnA Maker - Azure Cognitive Services
+title: '빠른 시작: 기술 자료, REST, Go - QnA Maker 게시'
+titleSuffix: Azure Cognitive Services
 description: 이 Go REST 기반 빠른 시작에서는 테스트된 최신 버전의 기술 자료를 게시된 기술 자료를 나타내는 Azure Search 인덱스에 푸시하는 방법(KB 게시)을 안내합니다. 또한 애플리케이션 또는 챗봇에서 호출할 수 있는 엔드포인트를 만듭니다.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 5c0d3c5d33d41ddd01b9d0c0ccf4f468d52f6a9e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c752a0ef4a908ba9a3771a0e0fb4f5f034f97707
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790808"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562952"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-go"></a>빠른 시작: Go를 사용하여 QnA Maker 기술 자료 게시
 

@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- **Azure Storage 계정**. Hive 스크립트를 만들어 Azure 저장소에 업로드합니다. Hive 스크립트의 출력은 이 저장소 계정에 저장됩니다. 이 샘플에서 HDInsight 클러스터는 이 Azure Storage 계정을 기본 스토리지로 사용합니다. 
+- **Azure Storage 계정**. Hive 스크립트를 만들어 Azure Storage에 업로드합니다. Hive 스크립트의 출력은 이 스토리지 계정에 저장됩니다. 이 샘플에서 HDInsight 클러스터는 이 Azure Storage 계정을 기본 스토리지로 사용합니다. 
 - **Azure Virtual Network** - 아직 없는 경우 [이 지침](../virtual-network/quick-create-portal.md)에 따라 Azure Virtual Network를 만듭니다. 이 샘플에서 HDInsight는 Azure Virtual Network에 있습니다. 다음은 Azure Virtual Network의 샘플 구성입니다. 
 
     ![가상 네트워크 만들기](media/tutorial-transform-data-using-hive-in-vnet/create-virtual-network.png)
@@ -161,7 +161,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ## <a name="author-linked-services"></a>연결된 서비스 작성
 
 이 섹션에서는 두 개의 연결된 서비스를 작성하고 배포합니다.
-- Azure Storage 계정을 데이터 팩터리에 연결하는 Azure Storage 연결된 서비스 - 이 저장소는 HDInsight 클러스터에서 사용하는 기본 저장소입니다. 여기서는 Azure Storage 계정을 사용하여 Hive 스크립트와 이 스크립트의 출력을 유지합니다.
+- Azure Storage 계정을 데이터 팩터리에 연결하는 Azure Storage 연결된 서비스 - 이 스토리지는 HDInsight 클러스터에서 사용하는 기본 스토리지입니다. 여기서는 Azure Storage 계정을 사용하여 Hive 스크립트와 이 스크립트의 출력을 유지합니다.
 - HDInsight 연결된 서비스 - Azure Data Factory에서 Hive 스크립트를 이 HDInsight 클러스터에 제출하여 실행합니다.
 
 ### <a name="azure-storage-linked-service"></a>Azure Storage 연결된 서비스

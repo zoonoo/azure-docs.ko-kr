@@ -5,6 +5,10 @@
   items:
     - name: Cognitive Services란?
       href: Welcome.md
+    - name: Cognitive Services용 사용자 지정 하위 도메인
+      href: cognitive-services-custom-subdomains.md
+    - name: Cognitive Services 및 기계 학습
+      href: cognitive-services-and-machine-learning.md
     - name: 언어 지원
       href: language-support.md
 - name: 컨테이너 지원
@@ -31,9 +35,9 @@
           href: ../aks/tutorial-kubernetes-prepare-app.md
 - name: 빠른 시작
   items:
-    - name: Azure Portal을 사용하여 계정 만들기
+    - name: Azure Portal를 사용하여 새 리소스 만들기
       href: cognitive-services-apis-create-account.md
-    - name: Azure CLI를 사용하여 계정 만들기
+    - name: Azure CLI를 사용하여 새 리소스 만들기
       href: cognitive-services-apis-create-account-cli.md
     - name: 인증
       href: authentication.md
@@ -49,6 +53,8 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 규정 준수
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: SLA(서비스 수준 약정)
+      href: 'https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/'
     - name: 동영상
       href: 'https://azure.microsoft.com/resources/videos/index/?services=cognitive-services'
     - name: 블로그

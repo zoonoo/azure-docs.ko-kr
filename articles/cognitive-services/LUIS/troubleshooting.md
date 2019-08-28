@@ -1,5 +1,5 @@
 ---
-title: 질문과 대답(FAQ)
+title: FAQ (질문과 대답)-LUIS
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 LUIS(Language Understanding)에 대한 FAQ(질문과 대답)에 대해 알아봅니다.
 author: diberry
@@ -8,15 +8,15 @@ ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 06/18/2019
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 7e1e61d96b066c395668ce1dd9cdba4cb4ecb2be
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: b80c32fea0d62bb5800a677ff30cb0787e83afa2
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204111"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945833"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding FAQ(질문과 대답)
 
@@ -24,11 +24,11 @@ ms.locfileid: "67204111"
 
 ## <a name="whats-new"></a>새로운 기능
 
-[자세한](whats-new.md) Language Understanding의 새로운 기능에 대 한 합니다.
+Language Understanding의 새로운 기능에 [대해 자세히 알아보세요](whats-new.md) .
 
 <a name="luis-authoring"></a>
 
-## <a name="authoring"></a>작성
+## <a name="authoring"></a>제작
 
 ### <a name="what-are-the-luis-best-practices"></a>LUIS 모범 사례는 무엇인가요?
 [작성 주기](luis-concept-app-iteration.md)부터 시작해서 [모범 사례](luis-concept-best-practices.md)를 읽어봅니다.
@@ -68,13 +68,13 @@ Cortana의 미리 빌드된 앱은 2017년부터 더 이상 사용되지 않습�
 ### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>LUIS 앱의 소유권을 양도하려면 어떻게 해야 하나요?
 LUIS 앱을 다른 Azure 구독으로 이전하려면 LUIS 앱을 내보낸 후 새 계정을 사용하여 가져옵니다. LUIS 앱을 호출하는 클라이언트 애플리케이션에서 해당 앱 ID를 업데이트합니다. 새 앱은 원래 앱과는 약간 다른 LUIS 점수를 반환할 수 있습니다.
 
-### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>미리 작성 된 엔터티 내 사용자 지정 엔터티 대신는 예제 utterance에서 태그가 지정 됩니다. 어떻게 해결할 수 있나요? 
+### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>미리 빌드된 엔터티에는 사용자 지정 엔터티가 아닌 예제 utterance 태그가 지정 됩니다. 어떻게 해결할 수 있나요? 
 
-참조 [미리 빌드된 엔터티로 문제 해결](luis-concept-entity-types.md#troubleshooting-prebuilt-entities)합니다.
+미리 작성 한 [엔터티 문제 해결](luis-concept-entity-types.md#troubleshooting-prebuilt-entities)을 참조 하세요.
 
-### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>앱 또는 버전 파일을 가져올 하려고 하는 경우 가져왔습니다 오류가 어떻게 되었습니까? 
+### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>앱 또는 버전 파일을 가져오려고 했지만 오류가 발생 했습니다. 문제가 발생 한 경우 
 
-에 대해 자세히 알아보세요 [버전 가져오기 오류가](luis-how-to-manage-versions.md#import-errors) 하 고 [응용 프로그램 가져오기 오류](luis-how-to-start-new-app.md#import-errors)합니다.
+[버전 가져오기 오류](luis-how-to-manage-versions.md#import-errors) 및 [앱 가져오기 오류](luis-how-to-start-new-app.md#import-errors)에 대해 자세히 알아보세요.
 
 <a name="luis-collaborating"></a>
 
@@ -108,9 +108,9 @@ Azure에서 [서비스](https://azure.microsoft.com/pricing/details/cognitive-se
 시스템은 해당 값에 관계 없이 점수가 가장 높은 의도를 사용해야 합니다. 예를 들어, 0.5(50%) 미만 점수라고 해서 LUIS가 반드시 낮은 신뢰도를 갖는다는 것을 의미하는 것은 아닙니다. 더 많은 학습 데이터를 제공하면 가능성이 가장 높은 의도의 [점수](luis-concept-prediction-score.md)를 높일 수 있습니다.
 
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>내 앱의 대시보드에서 엔드포인트 적중이 표시되지 않는 이유는 무엇인가요?
-앱의 대시보드에 표시되는 총 끝점 적중은 주기적으로 업데이트되지만 Azure Portal의 LUIS 끝점 키와 연결된 메트릭은 좀 더 자주 업데이트됩니다.
+앱의 대시보드에 표시되는 총 엔드포인트 적중은 주기적으로 업데이트되지만 Azure Portal의 LUIS 엔드포인트 키와 연결된 메트릭은 좀 더 자주 업데이트됩니다.
 
-업데이트된 엔드포인트 적중이 대시보드에 보이지 않는 경우 Azure Portal에 로그인하고 LUIS 엔드포인트 키와 연결된 리소스를 찾은 다음, **메트릭**을 열어 **총 호출 수** 메트릭을 선택합니다. 끝점 키가 둘 이상의 LUIS 앱에 사용되는 경우 Azure Portal의 메트릭은 해당 메트릭을 사용하는 모든 LUIS 앱의 집계된 호출 수를 나타냅니다.
+업데이트된 엔드포인트 적중이 대시보드에 보이지 않는 경우 Azure Portal에 로그인하고 LUIS 엔드포인트 키와 연결된 리소스를 찾은 다음, **메트릭**을 열어 **총 호출 수** 메트릭을 선택합니다. 엔드포인트 키가 둘 이상의 LUIS 앱에 사용되는 경우 Azure Portal의 메트릭은 해당 메트릭을 사용하는 모든 LUIS 앱의 집계된 호출 수를 나타냅니다.
 
 ### <a name="is-there-a-powershell-command-get-to-the-endpoint-quota"></a>엔드포인트 할당량을 확인할 수 있는 PowerShell 명령이 있나요?
 
@@ -123,7 +123,7 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 ``` 
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>내 LUIS 앱이 어제도 작동했으나 오늘 403 오류가 발생하고 있습니다. 앱을 변경한 적도 없었습니다. 이 문제를 어떻게 해결하나요?
-다음은 LUIS 엔드포인트 키 만들고 앱에 할당하기 위한 다음 FAQ의 [지침](#how-do-i-create-and-assign-a-luis-endpoint-key)입니다. 그런 후 엔드포인트에 대한 HTTP 요청을 [새 엔드포인트 키를 사용하도록](luis-concept-keys.md#use-endpoint-key-in-query) 변경해야 합니다.
+다음 [지침](#how-do-i-create-and-assign-a-luis-endpoint-key) 에 따라 LUIS 끝점 키를 만들고 앱에 할당 합니다. 그런 다음 [새 끝점 키를 사용](luis-concept-keys.md#use-endpoint-key-in-query)하도록 클라이언트 응용 프로그램의 HTTP 요청을 끝점으로 변경 해야 합니다. 다른 지역에서 새 리소스를 만든 경우 HTTP 클라이언트 요청 영역도 변경 합니다.
 
 ### <a name="how-do-i-secure-my-luis-endpoint"></a>내 LUIS 엔드포인트를 어떻게 보호하나요?
 [엔드포인트 보안](luis-concept-security.md#securing-the-endpoint)을 참조하세요.
@@ -189,11 +189,11 @@ Azure에서 테넌트는 서비스와 연결된 클라이언트 또는 조직을
 
 ### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>할당량 초과 오류가 발생합니다. 이 문제를 어떻게 해결하나요? 
 
-하세요 [해결 HTTP 상태 코드 403 및 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) 에 대해 자세히 알아보세요.
+자세한 내용은 [HTTP 상태 코드 403 및 429 수정](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) 을 참조 하세요.
 
 ### <a name="i-need-to-handle-more-endpoint-queries-how-do-i-do-that"></a>많은 엔드포인트 쿼리를 처리해야 합니다. 어떻게 할까요? 
 
-하세요 [해결 HTTP 상태 코드 403 및 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) 에 대해 자세히 알아보세요.
+자세한 내용은 [HTTP 상태 코드 403 및 429 수정](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) 을 참조 하세요.
 
 
 
@@ -205,7 +205,7 @@ Azure에서 테넌트는 서비스와 연결된 클라이언트 또는 조직을
 ### <a name="how-can-i-disable-the-logging-of-utterances"></a>발언 로깅을 사용하지 않도록 설정하려면 어떻게 해야 하나요?
 클라이언트 애플리케이션이 LUIS를 쿼리하는 사용하는 엔드포인트 URL에서 `log=false`를 설정하여 사용자 발언의 로깅을 해제할 수 있습니다. 그렇지만 로깅을 해제하면 [활성 학습](luis-concept-review-endpoint-utterances.md#what-is-active-learning)에 따라 발언을 제안하거나 성능을 향상시키는 LUIS 앱 기능을 사용할 수 없게 됩니다. 데이터 개인 정보 문제 때문에 `log=false`를 설정하는 경우 LUIS에서 해당 사용자 발언의 기록을 다운로드하거나 해당 발언을 사용하여 앱을 향상시킬 수 없습니다.
 
-로깅은 발언의 유일한 저장소입니다.
+로깅은 발언의 유일한 스토리지입니다.
 
 ### <a name="why-dont-i-want-all-my-endpoint-utterances-logged"></a>모든 내 엔드포인트 발언을 로깅하지 않아도 되는 이유는 무엇인가요?
 예측 분석을 위해 로그를 사용하는 경우에는 로그에 테스트 발언을 캡처하지 않도록 합니다.
@@ -233,7 +233,7 @@ Azure에서 테넌트는 서비스와 연결된 클라이언트 또는 조직을
 ## <a name="app-notification"></a>앱 알림
 
 ### <a name="why-did-i-get-an-email-saying-im-almost-out-of-quota"></a>할당량이 거의 초과되려고 한다는 전자 메일이 수신되는 이유는 무엇인가요?
-작성/시작 키는 매월 1,000개의 엔드포인트 쿼리만 허용합니다. LUIS 끝점 키(무료 또는 유료)를 만들고 끝점 쿼리를 만들 때 해당 키를 사용합니다. 봇이나 다른 클라이언트 애플리케이션에서 엔드포인트 쿼리를 만드는 경우 해당 위치에서 LUIS 엔드포인트를 변경해야 합니다.
+작성/시작 키는 매월 1,000개의 엔드포인트 쿼리만 허용합니다. LUIS 엔드포인트 키(무료 또는 유료)를 만들고 엔드포인트 쿼리를 만들 때 해당 키를 사용합니다. 봇이나 다른 클라이언트 애플리케이션에서 엔드포인트 쿼리를 만드는 경우 해당 위치에서 LUIS 엔드포인트를 변경해야 합니다.
 
 ## <a name="bots"></a>봇
 
@@ -288,15 +288,15 @@ LUIS 샘플을 사용하여 C# 또는 Node.Js를 통해 프로그래밍 방식�
 
 ## <a name="migrating-to-the-next-version"></a>다음 버전으로 마이그레이션
 
-### <a name="how-do-i-migrate-to-preview-v3-api"></a>V3 API 미리 보기를 마이그레이션하려면 어떻게 하나요? 
+### <a name="how-do-i-migrate-to-preview-v3-api"></a>Preview V3 API로 마이그레이션할 어떻게 할까요? 있나요? 
 
-참조 [LUIS 앱에 대 한 API v2-v3 마이그레이션 가이드](luis-migration-api-v3.md)
+[LUIS apps에 대 한 API v2에서 V3 마이그레이션 가이드를](luis-migration-api-v3.md) 참조 하세요.
 
-## <a name="build-2019-conference-announcements"></a>빌드 2019 컨퍼런스에서 발표
+## <a name="build-2019-conference-announcements"></a>빌드 2019 회의 알림
 
-다음 기능은 빌드 2019 컨퍼런스에서 발표 된:
+다음 기능은 빌드 2019 회의에서 릴리스 되었습니다.
 
-* [V3 API 마이그레이션 가이드의 미리 보기](luis-migration-api-v3.md)
+* [V3 API 마이그레이션 가이드 미리 보기](luis-migration-api-v3.md)
 * [향상 된 분석 대시보드](luis-how-to-use-dashboard.md)
 * [향상 된 미리 작성 된 도메인](luis-reference-prebuilt-domains.md) 
 * [동적 목록 엔터티](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
@@ -304,7 +304,7 @@ LUIS 샘플을 사용하여 C# 또는 Node.Js를 통해 프로그래밍 방식�
 
 비디오:
 
-* [Azure 대화형 AI를 사용 하 여 차세대 비즈니스를 확장 하는 방법](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
+* [Azure 대화형 AI를 사용 하 여 차세대 비즈니스를 위해 비즈니스를 확장 하는 방법](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: manayar
-ms.openlocfilehash: 2415d0dc2b9a2c4229d9910b42eb8ec9309ac7a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ed75a72360253996471034b001e12e8190cf733
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64869104"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935273"
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Azure 확장 집합 템플릿에 사용자 지정 이미지 추가
 
-이 문서를 수정 하는 방법을 보여 줍니다 합니다 [기본 확장 집합 템플릿](virtual-machine-scale-sets-mvss-start.md) 사용자 지정 이미지에서 배포 하도록 합니다.
+이 문서에서는 사용자 지정 이미지에서 배포 하도록 [기본 확장 집합 템플릿을](virtual-machine-scale-sets-mvss-start.md) 수정 하는 방법을 보여 줍니다.
 
 ## <a name="change-the-template-definition"></a>템플릿 정의 변경
-에 [이전 문서](virtual-machine-scale-sets-mvss-start.md) 기본 확장 집합 템플릿을 작성 합니다. 이제 이전 템플릿을 사용 하 여 하 고 수정 하 여 사용자 지정 이미지에서 확장 집합을 배포 하는 템플릿을 만듭니다.  
+[이전 문서](virtual-machine-scale-sets-mvss-start.md) 에서는 기본 확장 집합 템플릿을 만들었습니다. 이제 이전 템플릿을 사용 하 고 수정 하 여 사용자 지정 이미지에서 확장 집합을 배포 하는 템플릿을 만듭니다.  
 
 ### <a name="creating-a-managed-disk-image"></a>Managed Disk 이미지 만들기
 
@@ -51,7 +51,7 @@ ms.locfileid: "64869104"
    "variables": {},
 ```
 
-다음으로 `sourceImageVhdUri` URI에 있는 일반화된 Blob을 기준으로 하는 Managed Disk 이미지에 해당하는 `Microsoft.Compute/images` 형식의 리소스를 추가합니다. 이 이미지는 사용되는 확장 집합과 동일한 하위 지역에 있어야 합니다. 이미지의 속성에서 OS 운영 체제, blob의 위치(`sourceImageVhdUri` 매개 변수) 및 저장소 계정 유형을 지정합니다.
+다음으로 `sourceImageVhdUri` URI에 있는 일반화된 Blob을 기준으로 하는 Managed Disk 이미지에 해당하는 `Microsoft.Compute/images` 형식의 리소스를 추가합니다. 이 이미지는 사용되는 확장 집합과 동일한 하위 지역에 있어야 합니다. 이미지의 속성에서 OS 운영 체제, blob의 위치(`sourceImageVhdUri` 매개 변수) 및 스토리지 계정 유형을 지정합니다.
 
 ```diff
    "resources": [
@@ -97,15 +97,11 @@ ms.locfileid: "64869104"
 
 확장 집합 `storageProfile`의 `imageReference`에서, 플랫폼 이미지의 게시자, 제품, SKU 및 버전을 지정하는 대신, `Microsoft.Compute/images` 리소스의 `id`를 지정합니다.
 
-```diff
+```json
          "virtualMachineProfile": {
            "storageProfile": {
              "imageReference": {
--              "publisher": "Canonical",
--              "offer": "UbuntuServer",
--              "sku": "16.04-LTS",
--              "version": "latest"
-+              "id": "[resourceId('Microsoft.Compute/images', 'myCustomImage')]"
+              "id": "[resourceId('Microsoft.Compute/images', 'myCustomImage')]"
              }
            },
            "osProfile": {

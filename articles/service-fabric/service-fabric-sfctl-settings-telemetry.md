@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 42a82ab0be37f260a48a1da6cecab5120c24d293
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cf5ebbeb4d9b4757e0c55eeb1a9268065efb2c7c
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60556341"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035203"
 ---
 # <a name="sfctl-settings-telemetry"></a>sfctl settings telemetry
 이 sfctl 인스턴스에 로컬인 원격 분석 설정을 구성합니다.
@@ -28,7 +27,7 @@ sfctl telemetry는 제공된 매개 변수 없이 명령 이름이나 해당 값
 
 ## <a name="commands"></a>명령
 
-|명령|설명|
+|명령|Description|
 | --- | --- |
 | set-telemetry | 원격 분석을 켜거나 끕니다. |
 
@@ -40,11 +39,11 @@ sfctl telemetry는 제공된 매개 변수 없이 명령 이름이나 해당 값
 |인수|설명|
 | --- | --- |
 | --off | 원격 분석을 끕니다. |
-| --on | 원격 분석을 켭니다. 기본값입니다. |
+| --on | 원격 분석을 켭니다. 이것은 기본값입니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |

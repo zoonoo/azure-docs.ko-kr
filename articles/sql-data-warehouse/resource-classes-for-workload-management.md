@@ -1,21 +1,21 @@
 ---
 title: Azure SQL Data Warehouse의 워크 로드 관리를 위한 리소스 클래스 | Microsoft Docs
-description: Azure SQL Data Warehouse의 쿼리에 대한 계산 리소스 및 동시성 리소스를 관리하는 리소스 클래스 사용 지침입니다.
+description: Azure SQL Data Warehouse의 쿼리에 대한 컴퓨팅 리소스 및 동시성 리소스를 관리하는 리소스 클래스 사용 지침입니다.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: workload management
+ms.subservice: workload-management
 ms.date: 06/20/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: d1983f0842f8c04d627e66727ddddf618969992d
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 548271e888344eeb0d111c074153ef7492af5b33
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303309"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595530"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 리소스 클래스로 워크로드 관리
 
@@ -116,7 +116,7 @@ Gen1에서 동적 리소스 클래스의 세부 정보를 검토해 보면, 동�
 - SELECT(사용자 테이블을 쿼리하는 경우)
 - ALTER INDEX - REBUILD 또는 REORGANIZE
 - ALTER TABLE REBUILD
-- CREATE INDEX
+- CREATE  INDEX
 - CREATE CLUSTERED COLUMNSTORE INDEX
 - CREATE TABLE AS SELECT (CTAS)
 - 데이터 로드
@@ -158,7 +158,7 @@ Removed as these two are not confirmed / supported under SQL DW
 
 동시성 슬롯은 쿼리 실행에 사용할 수 있는 리소스를 추적하는 편리한 방법입니다. 동시성 슬롯은 콘서트의 좌석이 제한되어 있으므로 좌석을 예약하기 위해 구매하는 티켓과 같습니다. 데이터 웨어하우스 당 동시성 슬롯의 총 수는 서비스 수준에 의해 결정됩니다. 쿼리를 실행하려면 먼저 충분한 동시성 슬롯을 예약할 수 있어야 합니다. 쿼리가 완료되면 해당 동시성 슬롯을 해제합니다.  
 
-- 10개의 동시성 슬롯으로 쿼리를 실행하면 2개의 동시성 슬롯으로 쿼리를 실행하는 것보다 5배 이상의 계산 리소스에 액세스할 수 있습니다.
+- 10개의 동시성 슬롯으로 쿼리를 실행하면 2개의 동시성 슬롯으로 쿼리를 실행하는 것보다 5배 이상의 컴퓨팅 리소스에 액세스할 수 있습니다.
 - 각 쿼리에 10개의 동시성 슬롯이 필요하고 40개의 동시성 슬롯이 있는 경우에는 4개의 쿼리만 동시에 실행할 수 있습니다.
 
 쿼리에 사용되는 리소스만 동시성 슬롯을 사용합니다. 시스템 쿼리와 일부 간단한 쿼리는 슬롯을 사용 하지 않습니다. 사용 하는 동시성 슬롯의 정확한 수는 쿼리의 리소스 클래스에 의해 결정 됩니다.
@@ -248,9 +248,9 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 >
 >예를 들어 DW100에서 부여 가능한 최대 메모리는 400MB이고, 테이블 스키마 크기가 400MB의 요구 사항을 충족할 크기여야 합니다.
 
-### <a name="usage-example"></a>사용 예
+### <a name="usage-example"></a>사용 예제
 
-구문  
+구문:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`
   
 1. @DWU: NULL 매개 변수를 제공하여 DW DB에서 현재 DWU를 추출하거나 지원되는 모든 DWU를 'DW100' 형식으로 제공

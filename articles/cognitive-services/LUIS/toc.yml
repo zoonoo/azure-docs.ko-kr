@@ -21,8 +21,14 @@
           displayName: 'assign key, assign resource, add key, add resource, test, deploy, endpoint, query, publish'
     - name: .NET SDK 사용
       items:
+        - name: 앱 만들기 및 관리
+          href: sdk-csharp-quickstart-authoring-app.md
         - name: 예측 엔드포인트 쿼리
           href: sdk-csharp-quickstart-query-prediction-endpoint.md
+    - name: Python SDK 사용
+      items:
+        - name: 앱 만들기 및 관리
+          href: sdk-python-quickstart-authoring-app.md
     - name: REST API 사용
       items:
         - name: 의도 알기
@@ -112,6 +118,9 @@
     - name: 모범 사례
       href: luis-concept-best-practices.md
       displayName: 'phrase list, pattern, intent, utterance, version, do, don''t, example utterances, iteration, cycle, correct, right'
+    - name: LUIS 및 QnA Maker 사용
+      href: choose-natural-language-processing-service.md
+      displayName: 'nlp, qna maker'
     - name: 앱 계획
       displayName: 'simple, composite, prebuilt, list, regex, regular expression'
       href: luis-how-plan-your-app.md
@@ -158,7 +167,7 @@
         - name: 데이터 추출
           href: luis-concept-data-extraction.md
           displayName: roles
-        - name: 데이터 저장소
+        - name: 데이터 스토리지
           href: luis-concept-data-storage.md
     - name: 테스트
       items:
@@ -266,6 +275,8 @@
           href: luis-container-howto.md
         - name: 컨테이너 구성
           href: luis-container-configuration.md
+        - name: 컨테이너 인스턴스 사용
+          href: deploy-luis-on-container-instances.md
 - name: 참고 자료
   items:
     - name: 사용자 개인 정보
@@ -317,6 +328,18 @@
     - name: 미리 작성된 도메인 참조
       href: luis-reference-prebuilt-domains.md
       displayName: 'Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web'
+    - name: 사용자 지정 엔터티 참조
+      items:
+        - name: 복합 엔터티
+          href: reference-entity-composite.md
+        - name: 목록 엔터티
+          href: reference-entity-list.md
+        - name: Pattern.any 엔터티
+          href: reference-entity-pattern-any.md
+        - name: 정규식 엔터티
+          href: reference-entity-regular-expression.md
+        - name: 단순 엔터티
+          href: reference-entity-simple.md
     - name: Azure CLI
       href: 'https://go.microsoft.com/fwlink/?linkid=2092156'
     - name: Azure RM PowerShell

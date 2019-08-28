@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/22/2018
 ms.author: allensu
-ms.openlocfilehash: 3c5459d0474ecd45501e634c4777fa178386183c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8815d852ad9f8a1823e1c21cc2d233409518da33
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071148"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333799"
 ---
 # <a name="nested-traffic-manager-profiles"></a>중첩 Traffic Manager 프로필
 
@@ -46,7 +46,7 @@ Traffic Manager에는 Traffic Manager가 각 최종 사용자의 트래픽을 �
 
 상위 프로필에서 '성능' 트래픽 라우팅 메서드를 사용하는 경우 각 엔드포인트는 할당된 위치여야 합니다. 위치는 엔드포인트를 구성할 때 할당됩니다. 배포에 가장 가까운 Azure 지역을 선택합니다. Azure 지역은 인터넷 대기 시간 테이블에서 지원되는 위치 값입니다. 자세한 내용은 [Traffic Manager '성능' 트래픽 라우팅 메서드](traffic-manager-routing-methods.md#performance)를 참조하세요.
 
-## <a name="example-2-endpoint-monitoring-in-nested-profiles"></a>예 2: 중첩 프로필의 엔드포인트 모니터링
+## <a name="example-2-endpoint-monitoring-in-nested-profiles"></a>예제 2: 중첩 프로필의 엔드포인트 모니터링
 
 Traffic Manager는 적극적으로 각 서비스 엔드포인트의 상태를 모니터링합니다. 엔드포인트 상태가 정상이 아닌 경우 Traffic Manager는 서비스의 가용성을 유지하기 위해 사용자를 대체 엔드포인트로 보냅니다. 이 엔드포인트 모니터링 및 장애 조치(Failover) 동작은 모든 트래픽 라우팅 방법에 적용됩니다. 자세한 내용은 [Traffic Manager 엔드포인트 모니터링](traffic-manager-monitoring.md)을 참조하세요. 엔드포인트 모니터링은 중첩 프로필에 대해 다르게 작동합니다. 상위 프로필에서는 중첩 프로필을 사용하여 하위 프로필에 대한 상태 검사를 직접 수행하지 않습니다. 대신, 하위 프로필 엔드포인트의 상태는 하위 프로필의 전반적인 상태를 계산하는 데 사용됩니다. 이 상태 정보는 중첩 프로필 계층 구조로 전파됩니다. 상위 프로필은 이 집계된 상태를 사용하여 하위 프로필에 트래픽을 보낼지 결정합니다. 중첩 프로필의 상태 모니터링에 대한 자세한 내용은 [FAQ](traffic-manager-FAQs.md#traffic-manager-nested-profiles)를 참조하세요.
 
@@ -63,7 +63,7 @@ Traffic Manager는 적극적으로 각 서비스 엔드포인트의 상태를 �
 > [!NOTE]
 > '우선 순위' 트래픽 라우팅 메서드는 단일 엔드포인트에 모든 트래픽을 배포합니다. 따라서 하위 프로필의 경우 MinChildEndpoints '1'이 아닌 값을 설정합니다.
 
-## <a name="example-3-prioritized-failover-regions-in-performance-traffic-routing"></a>예 3: '성능' 트래픽 라우팅에서 우선 순위가 지정된 장애 조치(Failover) 지역
+## <a name="example-3-prioritized-failover-regions-in-performance-traffic-routing"></a>예제 3: '성능' 트래픽 라우팅에서 우선 순위가 지정된 장애 조치(Failover) 지역
 
 엔드포인트가 서로 다른 지역에 있고 최종 사용자가 가장 짧은 네트워크 대기 시간을 기준으로 "가장 가까운" 엔드포인트에 라우팅되는 경우 '성능' 트래픽-라우팅 방법의 기본 동작입니다.
 
@@ -94,6 +94,20 @@ Traffic Manager를 사용하여 기존 온-프레미스 웹 사이트에서 Azur
 Traffic Manager 프로필에서 모니터링 설정은 단일 프로필 내의 모든 엔드포인트에 적용됩니다. 중첩 프로필로 사이트별로 여러 하위 프로필을 사용하여 다른 모니터링 설정을 정의할 수 있습니다.
 
 ![엔드포인트 기준 설정을 사용하는 Traffic Manager 엔드포인트 모니터링][10]
+
+## <a name="faqs"></a>FAQ
+
+* [중첩 프로필을 구성 어떻게 할까요??](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#traffic-manager-endpoint-monitoring)
+
+* [트래픽 관리자가 지 원하는 중첩 계층은 몇 개입니까?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-layers-of-nesting-does-traffic-manger-support)
+
+* [동일한 Traffic Manager 프로필에서 다른 끝점 형식을 중첩 된 자식 프로필과 혼합할 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile)
+
+* [중첩 프로필에 대 한 청구 모델은 어떻게 적용 되나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-the-billing-model-apply-for-nested-profiles)
+
+* [중첩 프로필에 대 한 성능에 영향이 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-there-a-performance-impact-for-nested-profiles)
+
+* [부모 프로필에서 중첩 된 끝점의 상태를 계산 Traffic Manager는 방법](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile)
 
 ## <a name="next-steps"></a>다음 단계
 

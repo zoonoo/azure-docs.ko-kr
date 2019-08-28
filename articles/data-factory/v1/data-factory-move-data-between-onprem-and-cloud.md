@@ -177,10 +177,10 @@ ms.locfileid: "60825985"
 
       ![트리 보기에서 SQL Server에 연결된 서비스](./media/data-factory-move-data-between-onprem-and-cloud/sql-linked-service-in-tree-view.png)    
 
-#### <a name="add-a-linked-service-for-an-azure-storage-account"></a>Azure 저장소 계정에 대한 연결된 서비스 추가
-1. **데이터 팩터리 편집기**의 명령 모음에서 **새 데이터 집합**을 클릭하고 **Azure 저장소**를 클릭합니다.
-2. **계정 이름**에 Azure 저장소 계정의 이름을 입력합니다.
-3. **계정 키**에 Azure 저장소 계정의 키를 입력합니다.
+#### <a name="add-a-linked-service-for-an-azure-storage-account"></a>Azure Storage 계정에 대한 연결된 서비스 추가
+1. **데이터 팩터리 편집기**의 명령 모음에서 **새 데이터 세트**을 클릭하고 **Azure Storage**를 클릭합니다.
+2. **계정 이름**에 Azure Storage 계정의 이름을 입력합니다.
+3. **계정 키**에 Azure Storage 계정의 키를 입력합니다.
 4. **배포**를 클릭하여 **AzureStorageLinkedService**를 배포합니다.
 
 ## <a name="create-datasets"></a>데이터 세트 만들기
@@ -250,7 +250,7 @@ ms.locfileid: "60825985"
 
 ### <a name="create-output-dataset"></a>출력 데이터 세트 만들기
 
-1. **데이터 팩터리 편집기**의 명령 모음에서 **새 데이터 집합**을 클릭하고 **Azure Blob Storage**를 클릭합니다.
+1. **데이터 팩터리 편집기**의 명령 모음에서 **새 데이터 세트**를 클릭하고 **Azure Blob Storage**를 클릭합니다.
 2. 오른쪽 창의 JSON을 다음 텍스트로 바꿉니다.
 
     ```JSON   

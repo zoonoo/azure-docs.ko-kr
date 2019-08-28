@@ -46,7 +46,7 @@ MySQL 도구를 사용하여 다음과 같은 시나리오에서 Azure MySQL 데
 - 테이블 이외의 다른 데이터베이스 개체를 이동할 때 해당 개체를 명시적으로 만듭니다. 마이그레이션하려는 제약 조건(기본 키, 외래 키, 인덱스), 뷰, 함수, 프로시저, 트리거 및 다른 모든 데이터베이스 개체를 포함합니다.
 - MySQL 데이터베이스 이외의 외부 데이터 원본에서 데이터를 마이그레이션하는 경우 플랫 파일을 만들고 [mysqlimport](https://dev.mysql.com/doc/refman/5.7/en/mysqlimport.html)를 사용하여 가져옵니다.
 
-데이터베이스의 모든 테이블이 데이터를 Azure Database for MySQL로 로드할 때 InnoDB 저장소 엔진을 사용하도록 합니다. Azure Database for MySQL은 InnoDB 저장소 엔진만을 지원하므로 대체 저장소 엔진을 지원하지 않습니다. 테이블에 대체 저장소 엔진이 필요한 경우 Azure Database for MySQL로 마이그레이션 전에 InnoDB 엔진 형식으로 사용하도록 변환해야 합니다. 
+데이터베이스의 모든 테이블이 데이터를 Azure Database for MySQL로 로드할 때 InnoDB 스토리지 엔진을 사용하도록 합니다. Azure Database for MySQL은 InnoDB 스토리지 엔진만을 지원하므로 대체 스토리지 엔진을 지원하지 않습니다. 테이블에 대체 스토리지 엔진이 필요한 경우 Azure Database for MySQL로 마이그레이션 전에 InnoDB 엔진 형식으로 사용하도록 변환해야 합니다. 
 
 예를 들어 MyISAM 엔진을 사용하는 WordPress 또는 웹앱이 있는 경우 먼저 데이터를 InnoDB 테이블로 마이그레이션하여 테이블을 변환합니다. 그런 다음 Azure Database for MySQL로 복원합니다. `ENGINE=INNODB` 절을 사용하여 테이블을 만들기 위한 엔진을 설정한 다음 마이그레이션 전에 데이터를 호환되는 테이블로 전송합니다. 
 

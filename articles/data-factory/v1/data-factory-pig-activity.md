@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 78ee2c1ce402a29f1a9dfdd29f31daef09134eba
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 09fd569ebfe8bc7f287eeb2a0b830399250c3a7a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60611330"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701506"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Azure Data Factory에서 Pig 활동을 사용하여 데이터 변환
 > [!div class="op_single_selector" title1="변환 활동"]
@@ -83,19 +83,19 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 HDInsight Pi
 
 ## <a name="syntax-details"></a>구문 세부 정보
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | name |작업의 이름 |예 |
-| description |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |아닙니다. |
+| description |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |아니요 |
 | type |HDinsightPig |예 |
-| inputs |Pig 활동에서 사용하는 하나 이상의 입력 |아닙니다. |
+| inputs |Pig 활동에서 사용하는 하나 이상의 입력 |아니요 |
 | outputs |Pig 활동에서 생성하는 하나 이상의 출력 |예 |
 | linkedServiceName |데이터 팩터리에서 연결된 서비스로 등록된 HDInsight 클러스터에 대한 참조 |예 |
-| script |Pig 스크립트 인라인 지정 |아닙니다. |
-| scriptPath |Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 클라우드에서 파일 공유를 제공하는 서비스입니다. 'script' 또는 'scriptPath' 속성을 사용합니다. 둘 모두를 사용할 수는 없습니다. 파일 이름은 대/소문자를 구분합니다. |아닙니다. |
-| defines |Pig 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정 |아닙니다. |
+| 스크립트(script) |Pig 스크립트 인라인 지정 |아니요 |
+| scriptPath |Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 클라우드에서 파일 공유를 제공하는 서비스입니다. 'script' 또는 'scriptPath' 속성을 사용합니다. 둘 모두를 사용할 수는 없습니다. 파일 이름은 대/소문자를 구분합니다. |아니요 |
+| defines |Pig 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정 |아니요 |
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 회사에서 출시한 게임을 플레이어가 플레이한 시간을 파악하려는 게임 로그 분석의 예를 살펴보겠습니다.
 
 다음 샘플 게임 로그는 쉼표(,)로 구분된 파일입니다. 이 파일에는 ProfileID, SessionStart, Duration, SrcIPAddress 및 GameType 필드가 포함되어 있습니다.

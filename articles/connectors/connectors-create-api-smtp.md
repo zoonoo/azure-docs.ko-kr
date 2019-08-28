@@ -11,20 +11,20 @@ ms.assetid: d4141c08-88d7-4e59-a757-c06d0dc74300
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 78b1eb6272fa97ef392e97723454d29cf56bb4bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1649f197d4dbd88e2b485ab32f254a2d09696a84
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62106153"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050749"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 SMTP 계정에서 이메일 보내기
 
 Azure Logic Apps 및 SMTP(Simple Mail Transfer Protocol) 커넥터를 사용하여 SMTP 계정에서 이메일을 전송하는 자동화된 작업 및 워크플로를 만들 수 있습니다. 또한 다른 작업에서 SMTP 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어 SMTP에서 이메일을 보낸 후 Slack 커넥터를 사용하여 Slack 팀에 알릴 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독. Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다. 
+* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 
 
 * SMTP 계정 및 사용자 자격 증명
 
@@ -53,14 +53,14 @@ Azure Logic Apps 및 SMTP(Simple Mail Transfer Protocol) 커넥터를 사용하�
 
 1. 메시지가 표시되면 이 연결 정보를 제공합니다.
 
-   | 자산 | 필수 | 설명 |
+   | 속성 | 필수 | Description |
    |----------|----------|-------------|
    | **연결 이름** | 예 | SMTP 서버에 대한 연결의 이름 | 
    | **SMTP 서버 주소** | 예 | SMTP 서버에 대한 주소 | 
    | **사용자 이름** | 예 | SMTP 계정에 대한 사용자 이름 | 
    | **암호** | 예 | SMTP 계정에 대한 암호 | 
-   | **SMTP 서버 포트** | 아닙니다. | 사용하려는 SMTP 서버의 특정 포트 | 
-   | **SSL 사용?** | 아닙니다. | SSL 암호화를 설정하거나 해제합니다. | 
+   | **SMTP 서버 포트** | 아니요 | 사용하려는 SMTP 서버의 특정 포트 | 
+   | **SSL 사용?** | 아니요 | SSL 암호화를 설정하거나 해제합니다. | 
    |||| 
 
 1. 선택한 작업에 필요한 정보를 입력합니다. 

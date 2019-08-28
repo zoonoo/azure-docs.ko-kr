@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/29/2019
-ms.openlocfilehash: 0bd271dbf173885cbd5f7835c5dc6b672a3e6035
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.date: 07/04/2019
+ms.openlocfilehash: 17f1b36ba5d5b699cce621db3917ef92654047ff
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66298957"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565573"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>자습서: DMS를 사용하여 온라인 방식으로 MongoDB를 Azure Cosmos DB의 MongoDB API로 마이그레이션
 
@@ -150,7 +150,14 @@ Azure Database Migration Service를 사용하여 데이터베이스를 MongoDB �
 
      * JSON 덤프의 경우 Blob 컨테이너의 파일은 포함한 데이터베이스를 따라 이름이 지정된 폴더에 배치되어야 합니다. 각 데이터베이스 폴더 내에서 데이터 파일은 "data"라고 하는 하위 폴더에 배치되고 *collection*.json 형식을 사용하여 이름이 지정되어야 합니다. 메타데이터 파일(있는 경우)은 "metadata"라고 하는 하위 폴더에 배치되고 *collection*.json과 동일한 형식을 사용하여 이름이 지정되어야 합니다. 메타데이터 파일은 MongoDB bsondump 도구에서 생성한 것과 동일한 형식이어야 합니다.
 
-   DNS 이름을 확인할 수 없는 경우에는 IP 주소를 사용할 수 있습니다.
+    > [!IMPORTANT]
+    > mongo 서버에서 자체 서명된 인증서를 사용하는 것은 바람직하지 않습니다. 그러나 하나를 사용할 경우 **연결 문자열 모드**를 사용하여 서버에 연결하고 연결 문자열에 “”가 있는지 확인합니다.
+    >
+    >```
+    >&sslVerifyCertificate=false
+    >```
+
+    DNS 이름을 확인할 수 없는 경우에는 IP 주소를 사용할 수 있습니다.
 
    ![원본 세부 정보 지정](media/tutorial-mongodb-to-cosmosdb-online/dms-specify-source1.png)
 
@@ -188,7 +195,7 @@ Azure Database Migration Service를 사용하여 데이터베이스를 MongoDB �
    컬렉션에서 사용할 RU의 수를 지정할 수 있습니다. 대부분의 경우 500(분할된 컬렉션의 경우 최소 1000)과 4000 사이의 값이면 충분합니다. Azure Database Migration Service는 컬렉션 크기에 따라 스마트 기본값을 제공합니다.
 
     > [!NOTE]
-    > 필요에 따라 Azure Database Migration Service 인스턴스를 여러 개 사용하여 데이터베이스 마이그레이션 및 수집을 병렬로 수행하여 속도를 높일 수 있습니다.
+    > 필요에 따라 Azure Database Migration Service 인스턴스를 여러 개 사용하여 데이터베이스 마이그레이션 및 컬렉션을 병렬로 수행하여 속도를 높일 수 있습니다.
 
    확장성을 최적화하기 위해 [Azure Cosmos DB에서 분할](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview)을 활용하도록 분할된 데이터베이스 키를 지정할 수도 있습니다. [분할된 데이터베이스/파티션 키를 선택하는 모범 사례](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey)를 검토해야 합니다. 파티션 키가 없으면 처리량을 향상시키기 위해 항상 **_id**를 분할 키로 사용할 수 있습니다.
 
@@ -234,7 +241,7 @@ Azure Database Migration Service를 사용하여 데이터베이스를 MongoDB �
 
 ## <a name="post-migration-optimization"></a>마이그레이션 후 최적화
 
-MongoDB 데이터베이스에 저장된 데이터를 MongoDB용 Azure Cosmos DB의 API로 마이그레이션한 후 Azure Cosmos DB에 연결하고 데이터를 관리할 수 있습니다. 인덱싱 정책 최적화, 기본 일관성 수준 업데이트 또는 Azure Cosmos DB 계정에 대한 글로벌 배포 구성과 같은 다른 마이그레이션 후 최적화 단계를 수행할 수도 있습니다. 자세한 내용은 [마이그레이션 후 최적화](../cosmos-db/mongodb-post-migration.md) 문서를 참조하세요.
+MongoDB 데이터베이스에 저장된 데이터를 MongoDB용 Azure Cosmos DB의 API로 마이그레이션한 후 Azure Cosmos DB에 연결하고 데이터를 관리할 수 있습니다. 인덱싱 정책 최적화와 같은 다른 마이그레이션 후 최적화 단계를 수행하거나, 기본 일관성 수준을 업데이트하거나, Azure Cosmos DB 계정에 대한 글로벌 배포를 구성할 수도 있습니다. 자세한 내용은 [마이그레이션 후 최적화](../cosmos-db/mongodb-post-migration.md) 문서를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

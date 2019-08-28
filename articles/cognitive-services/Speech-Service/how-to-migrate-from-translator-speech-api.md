@@ -1,7 +1,7 @@
 ---
 title: Translator Speech API에서 음성 서비스로 마이그레이션
 titleSuffix: Azure Cognitive Services
-description: Translator Speech API에서 음성 서비스에 응용 프로그램을 마이그레이션하는 방법에 알아봅니다.
+description: Translator Speech API에서 Speech Service로 애플리케이션을 마이그레이션하는 방법을 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 1ed494cea1ccf8845a25a3ab49d3194cc6a55509
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7b61aef13b113d9b2502c24e3001da25fa186c76
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65785671"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559574"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Translator Speech API에서 음성 서비스로 마이그레이션
 
@@ -43,8 +43,8 @@ ms.locfileid: "65785671"
 | 다른 파일 형식을 입력으로 사용                         | :heavy_minus_sign:                                              | :heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
 | 부분 결과                                   | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | 타이밍 정보                                       | :heavy_check_mark:                                              | :heavy_minus_sign:                 |                                                                                                                                                                 |
-| 상관관계 ID                                    | :heavy_check_mark:                                              | :heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
-| Custom Speech 모델                              | :heavy_minus_sign:                                              | :heavy_check_mark:                 | Speech Services는 조직의 고유한 어휘로 음성 인식 기능을 사용자 지정할 수 있도록 하는 사용자 지정 음성 모델을 제공 합니다.                                                                                                                                           |
+| 상관 관계 ID                                    | :heavy_check_mark:                                              | :heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
+| Custom Speech 모델                              | :heavy_minus_sign:                                              | :heavy_check_mark:                 | 음성 서비스는 조직의 고유한 어휘에 대 한 음성 인식을 사용자 지정할 수 있는 사용자 지정 음성 모델을 제공 합니다.                                                                                                                                           |
 | 사용자 지정 번역 모델                         | :heavy_minus_sign:                                              | :heavy_check_mark:                 | Microsoft Text Translation API를 구독하면 [Custom Translator](https://www.microsoft.com/translator/business/customization/)를 사용하여 보다 정확한 번역을 위해 자체 데이터를 사용할 수 있습니다.                                                 |
 
 ## <a name="migration-strategies"></a>마이그레이션 전략
@@ -61,10 +61,10 @@ ms.locfileid: "65785671"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [음성 서비스를 무료로 체험](get-started.md)
+* [음성 서비스를 무료로 사용해 보세요.](get-started.md)
 * [빠른 시작: Speech SDK를 사용하여 UWP 앱에서 음성 인식](quickstart-csharp-uwp.md)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
-* [Speech Service란](overview.md)
-* [음성 서비스 및 Speech SDK 설명서](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg)
+* [음성 서비스란](overview.md)
+* [음성 서비스 및 음성 SDK 설명서](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg)

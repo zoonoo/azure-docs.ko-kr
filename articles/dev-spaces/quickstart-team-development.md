@@ -9,13 +9,13 @@ ms.date: 04/25/2019
 ms.topic: quickstart
 description: Azure에서 컨테이너와 마이크로서비스를 사용하여 Kubernetes 팀 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
-manager: jeconnoc
-ms.openlocfilehash: 8160e72657be83af6f9af5226b7cd77c692dcd82
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+manager: gwallace
+ms.openlocfilehash: cb1cc62125e668544eb4af9f84b477b273bfe30e
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061849"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706264"
 ---
 # <a name="quickstart-team-development-on-kubernetes-using-azure-dev-spaces"></a>빠른 시작: Azure Dev Spaces를 사용한 Kubernetes의 팀 개발
 

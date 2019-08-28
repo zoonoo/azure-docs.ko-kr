@@ -24,7 +24,7 @@ Table Storage를 사용하여 매우 큰 구조화된 비관계형 데이터 집
 ## <a name="table-storage-concepts"></a>Table Storage 개념
 Table Storage에 포함되는 구성 요소는 다음과 같습니다.
 
-![테이블 저장소 구성 요소 다이어그램][Table1]
+![테이블 스토리지 구성 요소 다이어그램][Table1]
 
 * **URL 형식:** Azure Table Storage 계정은 이 형식을 사용합니다. `http://<storage account>.table.core.windows.net/<table>`
 

@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 11/14/2018
-ms.openlocfilehash: 712ccfa71c85629111428a4e0c7acaea050942b8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b1c3f49808a59576f02178dee1107b4019e34b5e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60331346"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566267"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Azure SQL 데이터 동기화에서 스키마 변경 복제 자동화
 
@@ -226,7 +225,7 @@ SQL 데이터 동기화에 대한 자세한 내용은 다음을 참조하세요.
 -   데이터 동기화 설정
     - 포털에서 - [자습서: Azure SQL Database와 SQL Server 온-프레미스 간에 데이터를 동기화하도록 SQL 데이터 동기화 설정](sql-database-get-started-sql-data-sync.md)
     - PowerShell 사용
-        -  [PowerShell을 사용하여 여러 Azure SQL Database 간 동기화](scripts/sql-database-sync-data-between-sql-databases.md)
+        -  [PowerShell을 사용하여 여러 Azure SQL 데이터베이스 간 동기화](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [PowerShell을 사용하여 Azure SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화](scripts/sql-database-sync-data-between-azure-onprem.md)
 -   데이터 동기화 에이전트 - [Azure SQL 데이타 동기화용 데이터 동기화 에이전트](sql-database-data-sync-agent.md)
 -   모범 사례 - [Azure SQL 데이터 동기화에 대한 모범 사례](sql-database-best-practices-data-sync.md)

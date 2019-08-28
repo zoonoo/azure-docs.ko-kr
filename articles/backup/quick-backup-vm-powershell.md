@@ -1,21 +1,20 @@
 ---
 title: Azure 빠른 시작 - PowerShell을 사용하여 VM 백업
 description: Azure PowerShell을 사용하여 가상 머신을 백업하는 방법을 알아봅니다.
-services: backup
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 04/16/2019
-ms.author: raynew
+ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 05432f5a38c3d907afa95ac7b1b3adfe9c5515fe
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: ea4f982409f339487cd570230ebbb75682f409ec
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236346"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874610"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>PowerShell을 사용하여 Azure에서 가상 머신 백업
 
@@ -105,14 +104,13 @@ Azure VM에 대해 백업을 사용하도록 설정하고 백업 정책을 지�
         -Policy $policy
     ```
 
-
 ## <a name="start-a-backup-job"></a>백업 작업 시작
 
 백업은 백업 정책에 지정된 일정에 따라 실행됩니다. 또한 임시 백업을 실행할 수도 있습니다.
 
 - 첫 번째 초기 백업 작업에서는 전체 복구 지점이 만들어집니다.
 - 초기 백업 후에는 각 백업 작업에서 증분 복구 지점이 만들어집니다.
-- 증분 복구 지점은 마지막 백업 이후 변경된 내용만을 전송하기 때문에 저장소 및 시간 효율적입니다.
+- 증분 복구 지점은 마지막 백업 이후 변경된 내용만을 전송하기 때문에 스토리지 및 시간 효율적입니다.
 
 임시 백업을 실행하려면 [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem)을 사용합니다. 
 - [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer)를 사용하여 백업 데이터를 보관하는 컨테이너를 자격 증명 모음에 지정합니다.
@@ -146,7 +144,7 @@ Azure VM에 대해 백업을 사용하도록 설정하고 백업 정책을 지�
     ```
     출력은 다음 예제와 비슷합니다. 여기서는 작업 상태를 **InProgress**(진행 중)로 보여 줍니다.
 
-    ```
+    ```output
     WorkloadName   Operation         Status       StartTime              EndTime                JobID
     ------------   ---------         ------       ---------              -------                -----
     myvm           Backup            InProgress   9/18/2017 9:38:02 PM                          9f9e8f14

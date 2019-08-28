@@ -26,7 +26,7 @@ ms.locfileid: "60461032"
 
 VMware 복제를 설정하려면 다음을 수행해야 합니다.
 
-- Azure 구독, Azure Virtual Network 및 저장소 계정을 포함하는 Azure 리소스를 [준비](tutorial-prepare-azure.md)합니다.
+- Azure 구독, Azure Virtual Network 및 스토리지 계정을 포함하는 Azure 리소스를 [준비](tutorial-prepare-azure.md)합니다.
 - 온-프레미스 VMware 서버 및 VM을 [준비](vmware-azure-tutorial-prepare-on-premises.md)합니다.
 - 각 테넌트에서 테넌트 VM 및 vCenter server와 통신할 수 있는 별도의 관리 서버를 만듭니다. 파트너로써만 이 관리 서버에 대한 액세스 권한을 가집니다. [다중 테넌트 환경](vmware-azure-multi-tenant-overview.md)에 대해 자세히 알아봅니다.
 

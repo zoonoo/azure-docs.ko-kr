@@ -1,24 +1,24 @@
 ---
-title: Azure 빠른 시작 - Python을 사용하여 개체 저장소에 Blob 만들기 | Microsoft Docs
-description: 이 빠른 시작에서는 개체(Blob) 저장소에서 저장소 계정 및 컨테이너를 만듭니다. 그런 다음, Python용 스토리지 클라이언트 라이브러리를 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다.
-services: storage
+title: Azure 빠른 시작 - Python을 사용하여 개체 스토리지에 Blob 만들기 | Microsoft Docs
+description: 이 빠른 시작에서는 개체(Blob) 스토리지에서 스토리지 계정 및 컨테이너를 만듭니다. 그런 다음, Python용 스토리지 클라이언트 라이브러리를 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다.
 author: mhopkins-msft
-ms.custom: mvc
-ms.service: storage
-ms.topic: quickstart
-ms.date: 12/14/2018
 ms.author: mhopkins
-ms.reviewer: seguler
-ms.openlocfilehash: 0ae47a7898e380a25618a8d6ae6a1e0251fe466c
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.date: 12/14/2018
+ms.service: storage
+ms.subservice: blobs
+ms.topic: quickstart
+ms.openlocfilehash: 0eb4558b7c9c08fc6df964a7e45328a83c60352b
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514583"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721994"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-python"></a>빠른 시작: Python을 사용하여 Blob 업로드, 다운로드 및 나열
 
 이 빠른 시작에서 Python을 사용하여 Azure Blob Storage의 컨테이너에 블록 Blob을 업로드 및 다운로드하고, 나열하는 방법을 알아봅니다. Blob은 텍스트 또는 이진 데이터(예: 이미지, 문서, 스트리밍 미디어, 저장 데이터 등)를 어느 정도 저장할 수 있는 간단한 개체로, 파일 공유, 테이블 스키마 및 메시지 큐의 Azure Storage에서 뚜렷이 나타납니다. (자세한 내용은 [Azure Storage 소개](/azure/storage/common/storage-introduction)를 참조하세요.)
+
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -42,11 +42,12 @@ git clone https://github.com/Azure-Samples/storage-blobs-python-quickstart.git
 
 [!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
-## <a name="configure-your-storage-connection-string"></a>저장소 연결 문자열 구성
-애플리케이션에서 저장소 계정 이름과 계정 키를 입력하여 `BlockBlobService` 개체를 만듭니다. IDE의 솔루션 탐색기에서 *example.py* 파일을 엽니다. `accountname` 및 `accountkey` 값을 사용자의 계정 이름 및 키로 바꿉니다. 
+## <a name="configure-your-storage-connection-string"></a>스토리지 연결 문자열 구성
+애플리케이션에서 스토리지 계정 이름과 계정 키를 입력하여 `BlockBlobService` 개체를 만듭니다. IDE의 솔루션 탐색기에서 *example.py* 파일을 엽니다. `accountname` 및 `accountkey` 값을 사용자의 계정 이름 및 키로 바꿉니다. 
 
-```python 
-block_blob_service = BlockBlobService(account_name = 'accountname', account_key = 'accountkey') 
+```python
+block_blob_service = BlockBlobService(
+    account_name='accountname', account_key='accountkey')
 ```
 
 ## <a name="run-the-sample"></a>샘플 실행
@@ -80,10 +81,10 @@ Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-9
 
 작동 방식을 이해하기 위해 샘플 코드를 따라 진행하겠습니다.
 
-### <a name="get-references-to-the-storage-objects"></a>저장소 개체에 대한 참조 가져오기
+### <a name="get-references-to-the-storage-objects"></a>스토리지 개체에 대한 참조 가져오기
 먼저 Blob Storage에 액세스하고 관리하는 데 사용되는 개체의 참조를 만듭니다. 이러한 개체는 서로를 기준으로 작성됩니다. 즉, 각 개체가 목록의 다음 개체에 사용됩니다.
 
-* 저장소 계정의 Blob 서비스를 가리키는 **CloudBlobClient** 개체를 인스턴스화합니다. 
+* 스토리지 계정의 Blob 서비스를 가리키는 **CloudBlobClient** 개체를 인스턴스화합니다. 
 
 * 액세스하는 컨테이너를 나타내는 **CloudBlobContainer** 개체를 인스턴스화합니다. 컨테이너는 컴퓨터에서 폴더를 사용하여 파일을 구성하는 것과 같이 blob을 구성하는 데 사용됩니다.
 
@@ -94,16 +95,18 @@ Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-9
 
 이 섹션에서는 개체를 인스턴스화하고, 새 컨테이너를 만든 다음, 컨테이너에 대해 사용 권한을 설정하여 Blob를 공용 Blob로 유지합니다. 컨테이너를 **quickstartblobs**로 지칭합니다. 
 
-```python 
+```python
 # Create the BlockBlockService that is used to call the Blob service for the storage account.
-block_blob_service = BlockBlobService(account_name = 'accountname', account_key = 'accountkey') 
- 
+block_blob_service = BlockBlobService(
+    account_name='accountname', account_key='accountkey')
+
 # Create a container called 'quickstartblobs'.
 container_name = 'quickstartblobs'
-block_blob_service.create_container(container_name) 
+block_blob_service.create_container(container_name)
 
 # Set the permission so the blobs are public.
-block_blob_service.set_container_acl(container_name, public_access=PublicAccess.Container)
+block_blob_service.set_container_acl(
+    container_name, public_access=PublicAccess.Container)
 ```
 ### <a name="upload-blobs-to-the-container"></a>컨테이너에 Blob 업로드
 
@@ -128,7 +131,8 @@ print("Temp file = " + full_path_to_file)
 print("\nUploading to Blob storage as blob" + local_file_name)
 
 # Upload the created file, use local_file_name for the blob name.
-block_blob_service.create_blob_from_path(container_name, local_file_name, full_path_to_file)
+block_blob_service.create_blob_from_path(
+    container_name, local_file_name, full_path_to_file)
 ```
 
 Blob Storage에서 사용할 수 있는 몇 가지 업로드 메서드가 있습니다. 예를 들어 메모리 스트림이 있는 경우 `create_blob_from_path` 대신 `create_blob_from_stream` 메서드를 사용할 수 있습니다. 
@@ -154,9 +158,11 @@ for blob in generator:
 ```python
 # Download the blob(s).
 # Add '_DOWNLOADED' as prefix to '.txt' so you can see both files in Documents.
-full_path_to_file2 = os.path.join(local_path, string.replace(local_file_name, '.txt', '_DOWNLOADED.txt'))
+full_path_to_file2 = os.path.join(local_path, string.replace(
+    local_file_name, '.txt', '_DOWNLOADED.txt'))
 print("\nDownloading blob to " + full_path_to_file2)
-block_blob_service.get_blob_to_path(container_name, local_file_name, full_path_to_file2)
+block_blob_service.get_blob_to_path(
+    container_name, local_file_name, full_path_to_file2)
 ```
 
 ### <a name="clean-up-resources"></a>리소스 정리

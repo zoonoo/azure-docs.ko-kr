@@ -45,7 +45,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 5. 계정이 성공적으로 만들어지면 해당 계정을 열고 계정 메뉴의 설정 섹션을 찾습니다. **키**를 선택하여 Azure Maps 계정에 대한 기본 및 보조 키를 확인합니다. **기본 키** 값은 로컬 클립보드에 복사하여 다음 섹션에서 사용합니다.
 
-## <a name="download-the-application"></a>응용 프로그램 다운로드
+## <a name="download-the-application"></a>애플리케이션 다운로드
 
 1. [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html) 파일의 콘텐츠를 다운로드하거나 복사합니다.
 2. 이 파일의 콘텐츠를 **AzureMapDemo.html**에 로컬로 저장합니다. 텍스트 편집기에서 엽니다.

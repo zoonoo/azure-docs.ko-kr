@@ -7,17 +7,17 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 221f559dde2017c9b5d13dd4e06a140a6bcb5e2e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 91db369f9a2a0439bdbaf8600d1b329f0da00aa0
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935417"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786463"
 ---
 <a name="cloud-partner-portal-gdpr-compliance"></a>클라우드 파트너 포털 GDPR 규정 준수
 ====================================
 
-[GDPR(일반 데이터 보호 규정)](https://ec.europa.eu/justice/data-protection/reform/index_en.htm)은 EU(유럽 연합)의 데이터 보호 및 프라이버시 법률입니다. GDPR은 회사, 정부 기관, 비영리 단체 및 기타 조직에 대해 상품 및 서비스를 제공하거나 EU 거주자와 연결된 데이터를 수집하고 분석하는 규칙을 수립합니다.
+[GDPR(일반 데이터 보호 규정)](https://ec.europa.eu/info/law/law-topic/data-protection/reform_en/)은 EU(유럽 연합)의 데이터 보호 및 프라이버시 법률입니다. GDPR은 회사, 정부 기관, 비영리 단체 및 기타 조직에 대해 상품 및 서비스를 제공하거나 EU 거주자와 연결된 데이터를 수집하고 분석하는 규칙을 수립합니다.
 
 클라우드 파트너 포털에서는 고객 데이터 처리 및 해당 데이터를 보호하는 데 사용되는 보안 조치와 관련된 상세 정보를 제공합니다. 제품 내 환경을 통해 이 정보에 액세스할 수 있습니다.
 

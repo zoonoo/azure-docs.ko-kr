@@ -1,10 +1,10 @@
 ---
 title: Azure Windows VM 크기 - 범용 | Microsoft Docs
-description: Azure의 Windows 가상 머신에 사용할 수 있는 다양한 범용 크기를 나열합니다. 이 시리즈의 크기에 대한 저장소 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다.
+description: Azure의 Windows 가상 머신에 사용할 수 있는 다양한 범용 크기를 나열합니다. 이 시리즈의 크기에 대한 스토리지 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다.
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/01/2018
+ms.date: 08/08/2019
 ms.author: jonbeck
-ms.openlocfilehash: 543629e8b14039ce6e9a229d7bd5be05ade4d3ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02bd309557c55ed76a6751962b6281ecb83ded3b
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64513829"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884040"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>범용 가상 머신 크기
 
@@ -30,13 +30,13 @@ ms.locfileid: "64513829"
 
 
 ## <a name="other-sizes"></a>기타 크기
-- [Compute에 최적화](sizes-compute.md)
+- [컴퓨팅 최적화](sizes-compute.md)
 - [메모리에 최적화](../virtual-machines-windows-sizes-memory.md)
 - [Storage에 최적화](../virtual-machines-windows-sizes-storage.md)
 - [GPU에 최적화](sizes-gpu.md)
-- [고성능 계산](sizes-hpc.md)
+- [고성능 컴퓨팅](sizes-hpc.md)
 - [이전 세대](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>다음 단계
-[ACU(Azure Compute 단위)](acu.md)가 Azure SKU 간의 Compute 성능을 비교하는 데 어떻게 도움을 줄 수 있는지 알아봅니다.
+[ACU(Azure 컴퓨팅 단위)](acu.md)가 Azure SKU 간의 Compute 성능을 비교하는 데 어떻게 도움을 줄 수 있는지 알아봅니다.
 

@@ -8,15 +8,14 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 02/08/2019
+ms.date: 07/29/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: d09af0a4c2d09004d5c1bbf3261a14850eef7714
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 9850285482db4f5981c183b51152ba1a3ac4975c
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496440"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640135"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>자습서: 단일 또는 풀링된 데이터베이스 보호
 
@@ -39,6 +38,9 @@ Azure SQL Database는 다음과 같은 방법으로 단일 또는 풀링된 데�
 > 관리형 인스턴스의 Azure SQL 데이터베이스는 [Azure SQL 데이터베이스 관리되는 인스턴스](sql-database-managed-instance-index.yml) 및 [연결 아키텍처](sql-database-managed-instance-connectivity-architecture.md)에서 설명한 대로 네트워크 보안 규칙 및 프라이빗 엔드포인트를 사용하여 보호됩니다.
 
 자세한 내용은 [Azure SQL Database 보안 개요](/azure/sql-database/sql-database-security-index) 및 [기능](sql-database-security-overview.md) 문서를 참조하세요.
+
+> [!TIP]
+> 다음 Microsoft Learn 모듈을 사용하면 [Azure SQL Database 보안](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/) 방법에 대해 무료로 배울 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -141,9 +143,9 @@ Azure AD 관리자를 설정하려면,
 
 Azure AD를 구성하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
-- [Azure AD와 온-프레미스 ID 통합](../active-directory/hybrid/whatis-hybrid-identity.md)
+- [Azure AD와 온-프레미스 ID의 통합](../active-directory/hybrid/whatis-hybrid-identity.md)
 - [Azure AD에 고유한 도메인 이름 추가](../active-directory/active-directory-domains-add-azure-portal.md)
-- [Microsoft Azure는 이제 Windows Server AD를 통한 페더레이션 지원](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
+- [Microsoft Azure에서 Windows Server AD와의 페더레이션 지원](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
 - [Azure AD 디렉터리 관리](../active-directory/fundamentals/active-directory-administer.md)
 - [PowerShell을 사용하여 Azure AD 관리](/powershell/azure/overview?view=azureadps-2.0)
 - [포트 및 프로토콜이 필요한 하이브리드 ID](../active-directory/hybrid/reference-connect-ports.md)
@@ -350,4 +352,4 @@ Azure SQL Database는 Azure Portal을 사용하여 액세스하는 보안 기능
 지리적 배포를 구현하는 방법에 대해 알아보려면 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
->[지리적으로 분산된 데이터베이스 구현](sql-database-implement-geo-distributed-database.md)
+>[지역 분산 데이터베이스 구현](sql-database-implement-geo-distributed-database.md)

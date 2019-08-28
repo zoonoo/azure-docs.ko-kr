@@ -51,7 +51,7 @@ ms.locfileid: "62101917"
 | [Windows 에이전트](../../azure-monitor/platform/agent-windows.md) | 예 | 솔루션에서 Windows 에이전트의 용량 및 성능 데이터 정보를 수집합니다. |
 | [Linux 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md) | 아닙니다.    | 솔루션에서 Linux 에이전트의 용량 및 성능 데이터 정보를 직접 수집하지 않습니다.|
 | [SCOM 관리 그룹](../../azure-monitor/platform/om-agents.md) | 예 |솔루션에서 연결된 SCOM 관리 그룹에 있는 에이전트의 용량 및 성능 데이터를 수집합니다. SCOM에서 Log Analytics로 직접 연결은 필요하지 않습니다.|
-| [Azure 저장소 계정](../../azure-monitor/platform/collect-azure-metrics-logs.md) | 아닙니다. | Azure 저장소는 용량 및 성능 데이터를 포함하지 않습니다.|
+| [Azure Storage 계정](../../azure-monitor/platform/collect-azure-metrics-logs.md) | 아닙니다. | Azure Storage는 용량 및 성능 데이터를 포함하지 않습니다.|
 
 ## <a name="prerequisites"></a>필수 조건
 

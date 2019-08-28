@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
-ms.openlocfilehash: 6ccb9afb528edf67b29c781217ca1de97b81e017
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2e01e42a53f6f099191c03f45d6521668ea73a1
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969208"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616678"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Azure Cosmos DB에서 데이터 액세스 보호
 
@@ -28,7 +28,7 @@ Azure Cosmos DB는 두 가지 유형의 키를 사용하여 사용자를 인증�
 
 ## <a name="master-keys"></a>마스터 키 
 
-마스터 키는 데이터베이스 계정에 대한 모든 관리 리소스에 대한 액세스를 제공합니다. 마스터 키:  
+마스터 키는 데이터베이스 계정에 대 한 모든 관리 리소스에 대 한 액세스를 제공 합니다. 마스터 키:  
 - 계정, 데이터베이스, 사용자 및 사용 권한에 대한 액세스를 제공합니다. 
 - 컨테이너 및 문서에 대한 세분화된 액세스를 제공하는 데 사용할 수 없습니다.
 - 계정 생성 중에 만들어집니다.
@@ -105,7 +105,7 @@ Cosmos DB 리소스 토큰은 사용자가 부여한 권한에 따라 마스터 
 <a id="users"></a>
 
 ## <a name="users"></a>사용자
-Cosmos DB 사용자는 Cosmos DB 데이터베이스와 연결됩니다.  각 데이터베이스는 0개 이상의 Cosmos DB 사용자를 포함할 수 있습니다.  다음 코드 샘플에서는 Cosmos DB 사용자 리소스를 만드는 방법을 보여 줍니다.
+사용자 Cosmos DB Cosmos 데이터베이스와 연결 됩니다.  각 데이터베이스는 0개 이상의 Cosmos DB 사용자를 포함할 수 있습니다.  다음 코드 샘플에서는 Cosmos DB 사용자 리소스를 만드는 방법을 보여 줍니다.
 
 ```csharp
 //Create a user.
@@ -124,7 +124,7 @@ docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUs
 
 <a id="permissions"></a>
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 Cosmos DB 권한 리소스는 Cosmos DB 사용자와 연결됩니다.  각 사용자는 0개 이상의 Cosmos DB 권한을 포함할 수 있습니다.  권한 리소스는 사용자가 특정 애플리케이션 리소스에 액세스하려고 시도할 때 필요한 보안 토큰에 대한 액세스 권한을 제공합니다.
 권한 리소스에서 제공될 수 있는 사용 가능한 액세스 수준은 다음 두 가지입니다.
 
@@ -183,7 +183,7 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 4. **다음에 대한 액세스 할당** 상자에서 **Azure AD 사용자, 그룹 또는 애플리케이션**을 선택합니다.
 5. 액세스 권한을 부여하려는 디렉터리에서 사용자, 그룹 또는 애플리케이션을 선택합니다.  표시 이름, 이메일 주소 또는 개체 식별자로 디렉터리를 검색할 수 있습니다.
     선택한 사용자, 그룹 또는 애플리케이션이 선택한 멤버 목록에 나타납니다.
-6. **저장**을 클릭합니다.
+6. **Save**을 클릭합니다.
 
 이제 엔터티는 Azure Cosmos DB 리소스를 읽을 수 있습니다.
 
@@ -193,5 +193,5 @@ Azure Cosmos DB를 사용하면 데이터베이스 또는 컬렉션에 있는 �
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="next-steps"></a>다음 단계
-* Cosmos DB 데이터베이스 보안에 대한 자세한 내용은 [Cosmos DB: 데이터베이스 보안](database-security.md)을 참조하세요.
+* Cosmos 데이터베이스 보안에 대 한 자세한 내용은 Cosmos DB [를 참조 하세요. 데이터베이스 보안](database-security.md)을 참조하세요.
 * Azure Cosmos DB 권한 부여 토큰을 생성하는 방법에 대한 자세한 내용은 [Azure Cosmos DB 리소스에 대한 Access Control](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources)을 참조하세요.

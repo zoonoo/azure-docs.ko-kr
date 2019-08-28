@@ -18,7 +18,7 @@ ms.locfileid: "60370750"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Azure Cosmos DB에 예약 할인이 적용되는 방식 이해
 
-Azure Cosmos DB 예약된 용량을 구입하고 나면 예약의 특성 및 수량과 일치하는 Azure Cosmos DB 리소스에 예약 할인이 자동으로 적용됩니다. 예약은 Azure Cosmos DB 리소스에 대해 프로비전된 처리량을 포함합니다. 소프트웨어, 네트워킹, 저장소 또는 미리 정의된 컨테이너 요금은 포함하지 않습니다.
+Azure Cosmos DB 예약된 용량을 구입하고 나면 예약의 특성 및 수량과 일치하는 Azure Cosmos DB 리소스에 예약 할인이 자동으로 적용됩니다. 예약은 Azure Cosmos DB 리소스에 대해 프로비전된 처리량을 포함합니다. 소프트웨어, 네트워킹, 스토리지 또는 미리 정의된 컨테이너 요금은 포함하지 않습니다.
 
 ## <a name="how-reservation-discount-is-applied"></a>예약 할인은 적용 하는 방법
 

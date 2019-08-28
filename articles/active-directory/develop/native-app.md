@@ -63,5 +63,5 @@ Azure AD의 v1.0 끝점을 사용 하 여 응용 프로그램을 등록, 참조 
 
 ## <a name="next-steps"></a>다음 단계
 
-- 다른 [응용 프로그램 유형 및 시나리오](app-types.md)에 대해 자세히 알아보기
+- 다른 [애플리케이션 유형 및 시나리오](app-types.md)에 대해 자세히 알아보기
 - Azure AD [인증 기본 사항](authentication-scenarios.md)에 대해 자세히 알아보기

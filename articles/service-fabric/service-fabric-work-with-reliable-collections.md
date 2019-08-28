@@ -3,7 +3,7 @@ title: 신뢰할 수 있는 컬렉션 작업 | Microsoft Docs
 description: 신뢰할 수 있는 컬렉션으로 작업하는 모범 사례를 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: 39e0cd6b-32c4-4b97-bbcf-33dad93dcad1
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/22/2019
-ms.author: aljo
-ms.openlocfilehash: bb99e5984f91edb0cf40f3bdc485624b9ec59833
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: 2d1284115a35881087e0ced0ee735ea38ce3f5ce
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60506742"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598712"
 ---
 # <a name="working-with-reliable-collections"></a>신뢰할 수 있는 컬렉션 작업
 Service Fabric은 신뢰할 수 있는 컬렉션을 통해 .NET 개발자에게 사용할 수 있는 상태 저장 프로그래밍 모델을 제공합니다. 즉, 서비스 패브릭은 신뢰할 수 있는 사전 및 신뢰할 수 있는 큐 클래스를 제공합니다. 이러한 클래스를 사용하는 경우 상태가 분할되고(확장성의 경우) 복제되며(가용성의 경우) 파티션 내에서 트랜잭션 처리됩니다(ACID 의미 체계의 경우). 신뢰할 수 있는 사전 개체의 일반적인 사용을 살펴보고 실제로 어떤 역할을 하는지 살펴보겠습니다.
@@ -207,7 +207,7 @@ public struct ItemId
 
 > [!WARNING]
 > 키의 스키마를 수정할 수 있는 반면 키의 해시 코드 및 같음 알고리즘이 안정적인지 확인해야 합니다. 이러한 알고리즘 중 하나의 작동 방법을 변경하면 신뢰할 수 있는 사전 내에서 키를 다시 검색할 수 없습니다.
-> .NET 문자열 키만-키로 문자열 자체를 사용 하 여 사용 하지 마십시오 String.GetHashCode의 결과 키로 사용할 수 있습니다.
+> .NET 문자열은 키로 사용 될 수 있지만 문자열 자체를 키로 사용할 수 있습니다. GetHashCode의 결과를 키로 사용 하지 마십시오.
 
 또는 일반적으로 참조되는 요소를 2단계 업그레이드로 수행할 수 있습니다. 2단계 업그레이드로 V1에서 V2로 서비스를 업그레이드합니다. V2는 새 스키마 변경을 처리하는 방법을 알지만 이 코드가 실행하지 않는 코드를 포함합니다. V2 코드가 V1 데이터를 읽는 경우 해당 위치에서 작동하고 V1 데이터를 작성합니다. 그런 다음 모든 업그레이드 도메인에서 업그레이드가 완료되면 어떤 이유로든 실행 중인 V2 인스턴스에 업그레이드가 완료되었음을 알릴 수 있습니다. (이를 신호하는 한 가지 방법은 구성 업그레이드를 롤아웃하는 것이며 이는 2단계 업그레이드를 사용합니다.) 이제 V2 인스턴스는 V1 데이터를 읽고 V2 데이터에 변환하며 해당 위치에서 작업하고 V2 데이터로 작성할 수 있습니다. 다른 인스턴스가 V2 데이터를 읽을 경우 변환할 필요가 없이 해당 위치에서 작동하고 V2 데이터를 작성합니다.
 

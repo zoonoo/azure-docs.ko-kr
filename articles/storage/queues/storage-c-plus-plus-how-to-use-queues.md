@@ -1,21 +1,19 @@
 ---
-title: Queue storage를 사용 하는 방법 (C++)-Azure Storage
-description: Azure Queue storage 서비스를 사용 하는 방법에 알아봅니다. 샘플은 C++로 작성되었습니다.
-services: storage
+title: Queue storage를 사용 하는C++방법 ()-Azure Storage
+description: Azure에서 Queue storage 서비스를 사용 하는 방법에 대해 알아봅니다. 샘플은 C++로 작성되었습니다.
 author: mhopkins-msft
-ms.service: storage
-ms.devlang: cpp
-ms.topic: article
-ms.date: 05/11/2017
 ms.author: mhopkins
-ms.reviewer: cbrooks
+ms.date: 05/11/2017
+ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 440033233bbd60421cc3245a04544cd04caec6f4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+ms.reviewer: cbrooks
+ms.openlocfilehash: e268e30e8f8c512dd6efb5a50da45f173e526b62
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153115"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721648"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>C++에서 Queue Storage를 사용하는 방법
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -49,22 +47,22 @@ Install-Package wastorage
 ```
 
 ## <a name="configure-your-application-to-access-queue-storage"></a>Queue Storage에 액세스하도록 애플리케이션 구성
-Azure 저장소 API를 사용하여 큐에 액세스하려는 C++ 파일의 맨 위에 다음 include 문을 추가합니다.  
+Azure Storage API를 사용하여 큐에 액세스하려는 C++ 파일의 맨 위에 다음 include 문을 추가합니다.  
 
 ```cpp
 #include <was/storage_account.h>
 #include <was/queue.h>
 ```
 
-## <a name="set-up-an-azure-storage-connection-string"></a>Azure 저장소 연결 문자열 설정
-Azure 저장소 클라이언트는 저장소 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 엔드포인트 및 자격 증명을 저장합니다. 클라이언트 애플리케이션에서 실행할 경우, 스토리지 계정의 이름 및 [Azure Portal](https://portal.azure.com)에 나열된 스토리지 계정의 스토리지 액세스 키를 *AccountName* 및 *AccountKey* 값에 사용하여 다음 형식의 스토리지 연결 문자열을 제공해야 합니다. Storage 계정 및 액세스 키에 대한 자세한 내용은 [Azure Storage 계정 정보](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)를 참조하세요. 이 예제는 정적 필드가 연결 문자열을 포함할 수 있도록 선언하는 방법을 보여 줍니다.  
+## <a name="set-up-an-azure-storage-connection-string"></a>Azure Storage 연결 문자열 설정
+Azure Storage 클라이언트는 스토리지 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 엔드포인트 및 자격 증명을 저장합니다. 클라이언트 애플리케이션에서 실행할 경우, 스토리지 계정의 이름 및 [Azure Portal](https://portal.azure.com)에 나열된 스토리지 계정의 스토리지 액세스 키를 *AccountName* 및 *AccountKey* 값에 사용하여 다음 형식의 스토리지 연결 문자열을 제공해야 합니다. Storage 계정 및 액세스 키에 대한 자세한 내용은 [Azure Storage 계정 정보](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)를 참조하세요. 이 예제는 정적 필드가 연결 문자열을 포함할 수 있도록 선언하는 방법을 보여 줍니다.  
 
 ```cpp
 // Define the connection-string with your values.
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 ```
 
-로컬 Windows 컴퓨터에서 애플리케이션을 테스트하려면 [Azure SDK](https://azure.microsoft.com/downloads/)와 함께 설치된 Microsoft Azure [스토리지 에뮬레이터](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)를 사용할 수 있습니다. 저장소 에뮬레이터는 로컬 개발 컴퓨터의Azure에서 사용할 수 있는 Blob, 큐 및 Table service를 시뮬레이션하는 유틸리티입니다. 다음 예제에서는 로컬 저장소 에뮬레이터에 연결 문자열을 포함할 수 있도록 정적 필드를 선언하는 방법을 보여줍니다.  
+로컬 Windows 컴퓨터에서 애플리케이션을 테스트하려면 [Azure SDK](https://azure.microsoft.com/downloads/)와 함께 설치된 Microsoft Azure [스토리지 에뮬레이터](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)를 사용할 수 있습니다. 스토리지 에뮬레이터는 로컬 개발 컴퓨터의Azure에서 사용할 수 있는 Blob, 큐 및 Table service를 시뮬레이션하는 유틸리티입니다. 다음 예제에서는 로컬 스토리지 에뮬레이터에 연결 문자열을 포함할 수 있도록 정적 필드를 선언하는 방법을 보여줍니다.  
 
 ```cpp
 // Define the connection-string with Azure Storage Emulator.
@@ -73,10 +71,10 @@ const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;
 
 Azure Storage 에뮬레이터를 시작하려면 **시작** 단추를 선택하거나 **Windows** 키를 누릅니다. **Azure Storage 에뮬레이터** 입력을 시작하고 애플리케이션 목록에서 **Microsoft Azure Storage 에뮬레이터**를 선택합니다.
 
-다음 샘플에서는 저장소 연결 문자열을 가져오기 위해 위의 두 메서드 중 하나를 사용한 것으로 가정합니다.
+다음 샘플에서는 스토리지 연결 문자열을 가져오기 위해 위의 두 메서드 중 하나를 사용한 것으로 가정합니다.
 
 ## <a name="retrieve-your-connection-string"></a>연결 문자열 검색
-**cloud_storage_account** 클래스를 사용하여 Storage 계정 정보를 나타낼 수 있습니다. 저장소 연결 문자열에서 저장소 계정 정보를 검색하려면 **구문 분석** 메서드를 사용할 수 있습니다.
+**cloud_storage_account** 클래스를 사용하여 Storage 계정 정보를 나타낼 수 있습니다. 스토리지 연결 문자열에서 스토리지 계정 정보를 검색하려면 **구문 분석** 메서드를 사용할 수 있습니다.
 
 ```cpp
 // Retrieve storage account from connection string.

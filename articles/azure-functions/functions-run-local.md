@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: dd6259173792585a83effd42c75ff9a7a7d572e4
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 481e6c5f2271651627577af3d03f9dd4da725146
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448379"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949920"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
@@ -25,15 +25,15 @@ Azure Functions 핵심 도구를 사용하여 명령 프롬프트 또는 터미�
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
 
-로컬 컴퓨터에 함수를 개발 하 고 핵심 도구를 사용 하 여 Azure에 게시 하는 이러한 기본 단계를 따릅니다.
+핵심 도구를 사용 하 여 로컬 컴퓨터에서 함수를 개발 하 고 Azure에 게시 하는 작업은 다음과 같은 기본 단계를 따릅니다.
 
 > [!div class="checklist"]
 > * [핵심 도구 및 종속성을 설치 합니다.](#v2)
-> * [언어별 서식 파일에서 함수 앱 프로젝트를 만듭니다.](#create-a-local-functions-project)
+> * [언어별 템플릿에서 함수 앱 프로젝트를 만듭니다.](#create-a-local-functions-project)
 > * [트리거 및 바인딩 확장을 등록 합니다.](#register-extensions)
 > * [저장소 및 기타 연결을 정의 합니다.](#local-settings-file)
-> * [트리거 및 언어 관련 템플릿 함수를 만듭니다.](#create-func)
-> * [함수를 로컬로 실행](#start)
+> * [트리거와 언어별 템플릿에서 함수를 만듭니다.](#create-func)
+> * [로컬에서 함수 실행](#start)
 > * [Azure에 프로젝트 게시](#publish)
 
 ## <a name="core-tools-versions"></a>핵심 도구 버전
@@ -55,7 +55,7 @@ Azure Functions 핵심 도구에는 두 가지 버전이 있습니다. 사용 �
 버전 2.x 도구는 .NET Core를 기반으로 하는 Azure Functions 런타임 2.x를 사용합니다. 이 버전은 [Windows](#windows-npm), [macOS](#brew) 및 [Linux](#linux)를 포함하여 .NET Core 2.x에서 지원하는 모든 플랫폼에서 지원됩니다. 
 
 > [!IMPORTANT]
-> .NET Core를 설치 하기 위한 요구 사항을 무시할 수 있습니다 사용 하 여 SDK 2.x [확장 번들]합니다.
+> [확장 번들]을 사용 하 여 .net CORE 2.x SDK를 설치 하기 위한 요구 사항을 무시할 수 있습니다.
 
 #### <a name="windows-npm"></a>Windows
 
@@ -69,9 +69,9 @@ Azure Functions 핵심 도구에는 두 가지 버전이 있습니다. 사용 �
     npm install -g azure-functions-core-tools
     ```
 
-   Npm 다운로드 하 고 핵심 도구 패키지를 설치까지 몇 분 정도 걸릴 수 있습니다.
+   Npm에서 핵심 도구 패키지를 다운로드 하 고 설치 하는 데 몇 분 정도 걸릴 수 있습니다.
 
-1. 사용 하려면 [확장 번들]를 설치 합니다 [Windows에 대 한.NET Core 2.x SDK](https://www.microsoft.com/net/download/windows)합니다.
+1. [확장 번들]을 사용 하지 않으려는 경우 [Windows 용 .NET Core 2.x SDK](https://www.microsoft.com/net/download/windows)를 설치 합니다.
 
 #### <a name="brew"></a>Homebrew가 있는 MacOS
 
@@ -86,14 +86,14 @@ Azure Functions 핵심 도구에는 두 가지 버전이 있습니다. 사용 �
     brew install azure-functions-core-tools
     ```
 
-1. 사용 하려면 [확장 번들]를 설치 [.NET Core 2.x SDK macOS 용](https://www.microsoft.com/net/download/macos)합니다.
+1. [확장 번들]을 사용 하지 않으려는 경우 [macos 용 .NET Core 2.x SDK](https://www.microsoft.com/net/download/macos)를 설치 합니다.
 
 
 #### <a name="linux"></a>APT가 있는 Linux(Debian/Ubuntu)
 
 다음 단계에서는 [APT](https://wiki.debian.org/Apt)를 사용하여 Ubuntu/Debian Linux 배포판에 핵심 도구를 설치합니다. 다른 Linux 배포판의 경우 [핵심 도구 추가 정보](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux)를 참조하세요.
 
-1. Microsoft 제품 키를 신뢰할 수 있는 키로 등록합니다.
+1. Microsoft package repository GPG 키를 설치 하 여 패키지 무결성의 유효성을 검사 합니다.
 
     ```bash
     curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
@@ -107,7 +107,7 @@ Azure Functions 핵심 도구에는 두 가지 버전이 있습니다. 사용 �
     sudo apt-get update
     ```
 
-    | Linux 배포 | Version |
+    | Linux 배포 | 버전 |
     | --------------- | ----------- |
     | Ubuntu 18.10    | `cosmic`    |
     | Ubuntu 18.04    | `bionic`    |
@@ -120,7 +120,7 @@ Azure Functions 핵심 도구에는 두 가지 버전이 있습니다. 사용 �
     sudo apt-get install azure-functions-core-tools
     ```
 
-1. 사용 하려면 [확장 번들]를 설치 [.NET Core 2.x SDK Linux 용](https://www.microsoft.com/net/download/linux)합니다.
+1. [확장 번들]을 사용 하지 않으려는 경우 [Linux 용 .NET Core 2.x SDK](https://www.microsoft.com/net/download/linux)를 설치 합니다.
 
 ## <a name="create-a-local-functions-project"></a>로컬 Functions 프로젝트 만들기
 
@@ -135,15 +135,19 @@ func init MyFunctionProj
 ```
 
 프로젝트 이름을 제공하면 해당 이름을 사용한 새 폴더가 생성되고 초기화됩니다. 그렇지 않으면 현재 폴더는 초기화됩니다.  
-버전 2.x에서는 명령을 실행할 때 프로젝트에 대한 런타임을 선택해야 합니다. JavaScript 함수를 개발하려는 경우 **노드**를 선택합니다.
+버전 2.x에서는 명령을 실행할 때 프로젝트에 대한 런타임을 선택해야 합니다. 
 
 ```output
 Select a worker runtime:
 dotnet
 node
+python (preview)
+powershell (preview)
 ```
 
-위쪽/아래쪽 화살표 키를 사용하여 언어를 선택한 다음, Enter 키를 누릅니다. 출력은 JavaScript 프로젝트에 대한 다음 예제와 유사합니다.
+위쪽/아래쪽 화살표 키를 사용하여 언어를 선택한 다음, Enter 키를 누릅니다. JavaScript 또는 TypeScript 함수를 개발 하려는 경우에는 **노드**를 선택 하 고 언어를 선택 합니다. TypeScript에는 [몇 가지 추가 요구 사항이](functions-reference-node.md#typescript)있습니다. 
+
+출력은 JavaScript 프로젝트에 대한 다음 예제와 유사합니다.
 
 ```output
 Select a worker runtime: node
@@ -181,19 +185,19 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
 
-올바른 저장소 연결 문자열 설정 된 경우 [ `AzureWebJobsStorage` ] 에뮬레이터를 사용 하지 않을, 다음 오류 메시지가 표시 됩니다.
+에 대해 [`AzureWebJobsStorage`] 유효한 저장소 연결 문자열을 설정 하지 않고 에뮬레이터를 사용 하지 않는 경우 다음 오류 메시지가 표시 됩니다.
 
 > local.settings.json에 AzureWebJobsStorage 값이 없습니다. 이 값은 HTTP 이외의 모든 트리거에 필요합니다. 'func azure functionapp fetch-app-settings \<functionAppName\>'을 실행하거나 local.settings.json에서 연결 문자열을 지정할 수 있습니다.
 
-### <a name="get-your-storage-connection-strings"></a>저장소 연결 문자열 가져오기
+### <a name="get-your-storage-connection-strings"></a>스토리지 연결 문자열 가져오기
 
-개발을 위해 저장소 에뮬레이터를 사용하는 경우라도 실제 저장소 연결을 테스트하고 싶을 수 있습니다. 이미 [저장소 계정을 만든](../storage/common/storage-create-storage-account.md) 것으로 가정하면 다음 방법 중 하나에서 유효한 저장소 연결 문자열을 가져올 수 있습니다.
+개발을 위해 스토리지 에뮬레이터를 사용하는 경우라도 실제 스토리지 연결을 테스트하고 싶을 수 있습니다. 이미 [스토리지 계정을 만든](../storage/common/storage-create-storage-account.md) 것으로 가정하면 다음 방법 중 하나에서 유효한 스토리지 연결 문자열을 가져올 수 있습니다.
 
-+ [Azure Portal] 저장소 계정으로 이동하여 **설정**에서 **액세스 키**를 선택한 다음, **연결 문자열** 값 중 하나를 복사합니다.
++ [Azure Portal] 스토리지 계정으로 이동하여 **설정**에서 **액세스 키**를 선택한 다음, **연결 문자열** 값 중 하나를 복사합니다.
 
   ![Azure Portal에서 연결 문자열 복사](./media/functions-run-local/copy-storage-connection-portal.png)
 
-+ [Azure Storage 탐색기](https://storageexplorer.com/)를 사용하여 Azure 계정에 연결합니다. **탐색기**에서 구독을 확장하고, 저장소 계정을 선택하고, 기본 또는 보조 연결 문자열을 복사합니다.
++ [Azure Storage Explorer](https://storageexplorer.com/)를 사용하여 Azure 계정에 연결합니다. **탐색기**에서 구독을 확장하고, 스토리지 계정을 선택하고, 기본 또는 보조 연결 문자열을 복사합니다.
 
   ![Storage Explorer에서 연결 문자열 복사](./media/functions-run-local/storage-explorer.png)
 
@@ -204,7 +208,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
     ```bash
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
-  + 특정 저장소 계정에 대한 연결 문자열을 가져옵니다.
+  + 특정 스토리지 계정에 대한 연결 문자열을 가져옵니다.
 
     ```bash
     func azure storage fetch-connection-string <StorageAccountName>
@@ -269,32 +273,55 @@ func new --template "Queue Trigger" --name QueueTriggerJS
 
 ## <a name="start"></a>로컬로 함수 실행
 
-Functions 프로젝트를 실행하려면 Functions 호스트를 실행합니다. 이 호스트는 프로젝트의 모든 함수에 대한 트리거를 활성화합니다.
+Functions 프로젝트를 실행하려면 Functions 호스트를 실행합니다. 호스트는 프로젝트의 모든 함수에 대해 트리거를 사용 하도록 설정 합니다. 
 
-```bash
+### <a name="version-2x"></a>버전 2.x
+
+런타임의 버전 2.x에서 시작 명령은 프로젝트 언어에 따라 달라 집니다.
+
+#### <a name="c"></a>C\#
+
+```command
+func start --build
+```
+
+#### <a name="javascript"></a>JavaScript
+
+```command
+func start
+```
+
+#### <a name="typescript"></a>TypeScript
+
+```command
+npm install
+npm start     
+```
+
+### <a name="version-1x"></a>버전 1.x
+
+함수 런타임의 버전 1.x에는 다음 예제와 같이 `host` 명령이 필요 합니다.
+
+```command
 func host start
 ```
 
-`host` 명령은 버전 1.x에서만 필요합니다.
+`func start`은 다음 옵션을 지원합니다.
 
-`func host start`은 다음 옵션을 지원합니다.
-
-| 옵션     | 설명                            |
+| 옵션     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--no-build`** | 실행 전에 현재 프로젝트를 빌드하지 않도록 합니다. dotnet 프로젝트에만 해당합니다. 기본값은 false로 설정하는 것입니다. 버전 2.x 전용입니다. |
 | **`--cert`** | 프라이빗 키가 포함된 .pfx 파일에 대한 경로입니다. `--useHttps`을 통해서만 사용됩니다. 버전 2.x 전용입니다. |
 | **`--cors-credentials`** | 원본 간 인증된 요청(즉, 쿠키 및 인증 헤더)을 허용하며, 버전 2.x 전용입니다. |
 | **`--cors`** | CORS 원본의 공백 없이 쉼표로 구분된 목록입니다. |
 | **`--language-worker`** | 언어 작업자를 구성하는 인수입니다. 버전 2.x 전용입니다. |
-| **`--nodeDebugPort -n`** | 사용할 노드 디버거의 포트입니다. Default: launch.json 값 또는 5858. 버전 1.x 전용입니다. |
+| **`--nodeDebugPort -n`** | 사용할 노드 디버거의 포트입니다. 기본값: launch.json 값 또는 5858. 버전 1.x 전용입니다. |
 | **`--password`** | .pfx 파일에 대한 암호가 포함된 암호 또는 파일입니다. `--cert`을 통해서만 사용됩니다. 버전 2.x 전용입니다. |
 | **`--port -p`** | 수신 대기할 로컬 포트입니다. 기본값: 7071. |
 | **`--pause-on-error`** | 프로세스를 종료하기 전에 추가 입력에 대해 일시 중지합니다. IDE(통합 개발 환경)에서 Core Tools를 시작할 때만 사용됩니다.|
 | **`--script-root --prefix`** | 실행하거나 배포할 함수 앱의 루트 경로를 지정하는 데 사용됩니다. 하위 폴더에 프로젝트 파일을 생성하는 컴파일된 프로젝트용으로 사용됩니다. 예를 들어 C# 클래스 라이브러리 프로젝트를 작성할 때는 `MyProject/bin/Debug/netstandard2.0`과 같은 경로를 사용하여 *root* 하위 폴더에 host.json, local.settings.json 및 function.json 파일이 생성됩니다. 이 경우 접두사를 `--script-root MyProject/bin/Debug/netstandard2.0`으로 설정합니다. 이 접두사는 Azure에서 실행할 때의 함수 앱 루트입니다. |
-| **`--timeout -t`** | Functions 호스트를 시작할 제한 시간(초)입니다. Default: 20초.|
+| **`--timeout -t`** | Functions 호스트를 시작할 제한 시간(초)입니다. 기본값: 20초.|
 | **`--useHttps`** | `http://localhost:{port}`가 아닌 `https://localhost:{port}`에 바인딩합니다. 기본적으로 이 옵션은 사용자 컴퓨터에 신뢰할 수 있는 인증서를 만듭니다.|
-
-C# 클래스 라이브러리 프로젝트(.csproj)의 경우 library.dll을 생성하려면 `--build` 옵션을 포함해야 합니다.
 
 Functions 호스트가 시작되면 HTTP 트리거 함수의 URL이 출력됩니다.
 
@@ -314,7 +341,7 @@ Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 로컬로 함수를 테스트하려면 [Functions 호스트를 시작](#start)하고 HTTP 요청을 사용하여 로컬 서버에서 엔드포인트를 호출합니다. 호출하는 엔드포인트는 함수의 형식에 따라 달라집니다.
 
 >[!NOTE]
-> 이 항목의 예제에서는 cURL 도구를 사용하여 터미널 또는 명령 프롬프트의 HTTP 요청을 보냅니다. 로컬 서버에 HTTP 요청을 보내도록 선택한 도구를 사용할 수 있습니다. cURL 도구는 Linux 기반 시스템에서 기본적으로 사용할 수 있습니다. Windows에서는 먼저 [cURL 도구](https://curl.haxx.se/)를 다운로드한 후 설치해야 합니다.
+> 이 항목의 예제에서는 cURL 도구를 사용하여 터미널 또는 명령 프롬프트의 HTTP 요청을 보냅니다. 로컬 서버에 HTTP 요청을 보내도록 선택한 도구를 사용할 수 있습니다. 말아 넘기기 도구는 Linux 기반 시스템 및 Windows 10 빌드 17063 이상에서 기본적으로 사용할 수 있습니다. 이전 창에서는 먼저 [말아 넘기기 도구](https://curl.haxx.se/)를 다운로드 하 여 설치 해야 합니다.
 
 함수를 테스트하는 방법에 대한 일반적인 내용은 [Azure Functions에서 코드를 테스트하기 위한 전략](functions-test-a-function.md)을 참조하세요.
 
@@ -387,27 +414,27 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 ## <a name="publish"></a>Azure에 게시
 
-Azure Functions 핵심 도구는 두 가지 유형의 배포: 함수 프로젝트 파일을 통해 함수 앱에 직접 배포 [Zip 배포](functions-deployment-technologies.md#zip-deploy) 하 고 [사용자 지정 Docker 컨테이너 배포](functions-deployment-technologies.md#docker-container)합니다. 이미 있어야 [함수 앱을 Azure 구독에서 만든](functions-cli-samples.md#create), 코드를 배포 합니다. 컴파일해야 하는 프로젝트는 이진 파일을 배포할 수 있는 방식으로 빌드해야 합니다.
+Azure Functions Core Tools는 [Zip](functions-deployment-technologies.md#zip-deploy) 배포 및 [사용자 지정 Docker 컨테이너](functions-deployment-technologies.md#docker-container)배포를 통해 함수 앱에 함수 프로젝트 파일을 직접 배포 하는 두 가지 유형의 배포를 지원 합니다. [Azure 구독에서](functions-cli-samples.md#create)코드를 배포할 함수 앱을 이미 만들어야 합니다. 컴파일해야 하는 프로젝트는 이진 파일을 배포할 수 있는 방식으로 빌드해야 합니다.
 
 ### <a name="project-file-deployment"></a>배포 (프로젝트 파일)
 
-Azure에서 함수 앱에 로컬 코드를 게시 하려면 사용 된 `publish` 명령:
+Azure의 함수 앱에 로컬 코드를 게시 하려면 다음 명령을 사용 합니다 `publish` .
 
 ```bash
 func azure functionapp publish <FunctionAppName>
 ```
 
-이 명령은 Azure에서 기존 함수 앱에 게시합니다. 게시 하려고 하면 오류를 얻게 된 `<FunctionAppName>` 구독에 존재 하지 않는 합니다. Azure CLI를 사용하여 명령 프롬프트 또는 터미널 창에서 함수 앱을 만드는 방법을 알아보려면 [서버를 사용하지 않고 실행하기 위한 Function App 만들기](./scripts/functions-cli-create-serverless.md)를 참조하세요. 기본적으로이 명령은 앱에서 실행을 통해 [패키지에서 실행](run-functions-from-deployment-package.md) 모드입니다.
+이 명령은 Azure에서 기존 함수 앱에 게시합니다. 구독에 존재 하지 `<FunctionAppName>` 않는에 게시 하려고 하면 오류가 발생 합니다. Azure CLI를 사용하여 명령 프롬프트 또는 터미널 창에서 함수 앱을 만드는 방법을 알아보려면 [서버를 사용하지 않고 실행하기 위한 Function App 만들기](./scripts/functions-cli-create-serverless.md)를 참조하세요. 기본적으로이 명령은 [배포 패키지에서 실행](run-functions-from-deployment-package.md)되도록 앱을 배포 합니다. 권장 배포 모드를 사용 하지 않도록 설정 하려면 `--nozip` 옵션을 사용 합니다.
 
 >[!IMPORTANT]
 > Azure Portal에서 함수 앱을 만들 때는 기본적으로 Function 런타임 버전 2.x가 사용됩니다. 함수 앱이 런타임 버전 1.x를 사용하도록 하려면 [버전 1.x에서 실행](functions-versions.md#creating-1x-apps)의 지침을 따르세요.
 > 기존 함수가 있는 함수 앱의 런타임 버전은 변경할 수 없습니다.
 
-버전 1.x 및 2.x에 대 한 다음 게시 옵션을 적용 됩니다.
+다음 게시 옵션은 1. x 및 2.x 버전 모두에 적용 됩니다.
 
-| 옵션     | 설명                            |
+| 옵션     | Description                            |
 | ------------ | -------------------------------------- |
-| **`--publish-local-settings -i`** |  local.settings.json의 설정을 Azure에 게시하고, 설정이 이미 있는 경우 덮어쓸지 묻습니다. 저장소 에뮬레이터를 사용 하는 경우 먼저 앱 설정 변경 된 [실제 저장소 연결](#get-your-storage-connection-strings)합니다. |
+| **`--publish-local-settings -i`** |  local.settings.json의 설정을 Azure에 게시하고, 설정이 이미 있는 경우 덮어쓸지 묻습니다. 저장소 에뮬레이터를 사용 하는 경우 먼저 앱 설정을 [실제 저장소 연결](#get-your-storage-connection-strings)로 변경 합니다. |
 | **`--overwrite-settings -y`** | `--publish-local-settings -i` 사용 시 앱 설정을 덮어쓴다는 메시지를 표시하지 않습니다.|
 
 다음 게시 옵션은 버전 2.x에서만 지원됩니다.
@@ -419,7 +446,7 @@ func azure functionapp publish <FunctionAppName>
 | **`--list-included-files`** | .funcignore 파일을 기준으로 하여 게시되는 파일 목록을 표시합니다. |
 | **`--nozip`** | 기본 `Run-From-Package` 모드를 끕니다. |
 | **`--build-native-deps`** | Python 함수 앱을 게시할 때 .wheels 폴더 생성을 건너뜁니다. |
-| **`--additional-packages`** | 네이티브 종속성을 빌드할 때 설치할 패키지 목록입니다. 예: `python3-dev libevent-dev` |
+| **`--additional-packages`** | 네이티브 종속성을 빌드할 때 설치할 패키지 목록입니다. 예를 들어 `python3-dev libevent-dev`을 참조하십시오. |
 | **`--force`** | 특정 시나리오에서 게시 전 확인을 무시합니다. |
 | **`--csx`** | C# 스크립트(.csx) 프로젝트를 게시합니다. |
 | **`--no-build`** | dotnet 함수 작성을 건너뜁니다. |
@@ -427,7 +454,7 @@ func azure functionapp publish <FunctionAppName>
 
 ### <a name="deployment-custom-container"></a>배포 (사용자 지정 컨테이너)
 
-Azure Functions에서 함수 프로젝트를 배포 하면는 [사용자 지정 Docker 컨테이너](functions-deployment-technologies.md#docker-container)합니다. 자세한 내용은 [사용자 지정 이미지를 사용하여 Linux에서 함수 만들기](functions-create-function-linux-custom-image.md)를 참조하세요. 사용자 지정 컨테이너에는 Dockerfile이 있어야 합니다. Dockerfile을 사용 하 여 앱을 만들려고-dockerfile 옵션에서 사용 하 여 `func init`입니다.
+Azure Functions를 사용 하 여 [사용자 지정 Docker 컨테이너](functions-deployment-technologies.md#docker-container)에 함수 프로젝트를 배포할 수 있습니다. 자세한 내용은 [사용자 지정 이미지를 사용하여 Linux에서 함수 만들기](functions-create-function-linux-custom-image.md)를 참조하세요. 사용자 지정 컨테이너에는 Dockerfile이 있어야 합니다. Dockerfile을 사용 하 여 앱을 만들려면에서 `func init`--dockerfile 옵션을 사용 합니다.
 
 ```bash
 func deploy
@@ -435,7 +462,7 @@ func deploy
 
 다음과 같은 사용자 지정 컨테이너 배포 옵션을 사용할 수 있습니다.
 
-| 옵션     | 설명                            |
+| 옵션     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--registry`** | 현재 사용자가 로그인되어 있는 Docker 레지스트리의 이름입니다. |
 | **`--platform`** | 함수 앱의 호스팅 플랫폼입니다. 유효한 옵션은 `kubernetes`입니다. |
@@ -446,13 +473,25 @@ func deploy
 
 ## <a name="monitoring-functions"></a>함수 모니터링
 
-함수 실행을 모니터링 하려면 Azure Application Insights와 통합 하 여는 것이 좋습니다. Azure Portal에서 함수 앱을 만들 때는 이 통합이 기본적으로 자동 수행됩니다. 그러나 Azure CLI를 사용하여 함수 앱을 만드는 경우 Azure에서 함수 앱 통합이 수행되지 않습니다.
+함수 실행을 모니터링 하는 권장 방법은 Azure 애플리케이션 Insights와 통합 하는 것입니다. 실행 로그를 로컬 컴퓨터로 스트리밍할 수도 있습니다. 자세히 알아보려면 [Azure Functions 모니터링](functions-monitoring.md)을 참조하세요.
 
-함수 앱에 대해 Application Insights를 사용하도록 설정하려면 다음 단계를 수행합니다.
+### <a name="enable-application-insights-integration"></a>Application Insights 통합 사용
+
+Azure Portal에서 함수 앱을 만들 때 기본적으로 Application Insights 통합이 수행 됩니다. 그러나 Azure CLI를 사용하여 함수 앱을 만드는 경우 Azure에서 함수 앱 통합이 수행되지 않습니다.
 
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
-자세히 알아보려면 [Azure Functions 모니터링](functions-monitoring.md)을 참조하세요.
+### <a name="enable-streaming-logs"></a>스트리밍 로그 사용
+
+로컬 컴퓨터의 명령줄 세션에서 함수에 의해 생성 되는 로그 파일의 스트림을 볼 수 있습니다. 
+
+#### <a name="native-streaming-logs"></a>네이티브 스트리밍 로그
+
+[!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
+
+이 유형의 스트리밍 로그에는 함수 앱에 대 한 [Application Insights 통합을 사용 하도록 설정](#enable-application-insights-integration) 해야 합니다.   
+
+
 ## <a name="next-steps"></a>다음 단계
 
 Azure Functions 핵심 도구는 [오픈 소스이며 GitHub에서 호스팅](https://github.com/azure/azure-functions-cli)됩니다.  
@@ -462,7 +501,7 @@ Azure Functions 핵심 도구는 [오픈 소스이며 GitHub에서 호스팅](ht
 
 [Azure Functions 핵심 도구]: https://www.npmjs.com/package/azure-functions-core-tools
 [Azure Portal]: https://portal.azure.com 
-[Node.JS]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
+[Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
 [확장 번들]: functions-bindings-register.md#extension-bundles

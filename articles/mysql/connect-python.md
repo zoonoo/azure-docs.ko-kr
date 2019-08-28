@@ -7,13 +7,13 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: f1059fac4d44138a4e9bc04c858501234974dc43
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.date: 08/08/2019
+ms.openlocfilehash: 5d7414d13b3fb1390b12084f0480e0549a380264
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350975"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931617"
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Azure Database for MySQL: Python을 사용하여 데이터 연결 및 쿼리
 이 빠른 시작에서는 [Python](https://python.org)을 사용하여 MySQL용 Azure Database에 연결하는 방법을 보여 줍니다. SQL 문을 사용하여 Mac OS, Ubuntu Linux 및 Windows 플랫폼에서 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제합니다. 이 항목에서는 Python을 사용하여 개발하는 데 익숙하고 MySQL용 Azure Database를 처음 사용한다고 가정합니다.
@@ -30,9 +30,9 @@ ms.locfileid: "58350975"
 > 이 빠른 시작은 쿼리를 실행하는 MySQL에 연결하는 원시 SQL 쿼리 접근 방식을 사용합니다. 웹 프레임워크를 사용하는 경우 이러한 프레임워크에 대한 권장되는 커넥터를 사용합니다. 예를 들어 Django 사용에 대해 [mysqlclient](https://pypi.org/project/mysqlclient/)가 제안됩니다.
 >
 
-### <a name="windows"></a> Windows
-1. [python.org](https://www.python.org/downloads/windows/)에서 Python 2.7을 다운로드하고 설치합니다. 
-2. 명령 프롬프트를 실행하여 Python 설치를 확인합니다. 대문자 V 스위치와 함께 `C:\python27\python.exe -V` 명령을 실행하여 버전 번호를 확인합니다.
+### <a name="windows"></a>Windows
+1. [python.org](https://www.python.org/downloads/windows/)에서 Python 3.7을 다운로드하고 설치합니다. 
+2. 명령 프롬프트를 실행하여 Python 설치를 확인합니다. 대문자 V 스위치와 함께 `C:\python37\python.exe -V` 명령을 실행하여 버전 번호를 확인합니다.
 3. [mysql.com](https://dev.mysql.com/downloads/connector/python/)에서 자신의 Python 버전에 해당하는 MySQL용 Python 커넥터를 설치합니다.
 
 ### <a name="linux-ubuntu"></a>Linux(Ubuntu)

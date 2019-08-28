@@ -4,7 +4,7 @@ description: Azure Automation을 사용하여 모니터링 경고에 대한 응�
 services: virtual-machines-windows
 documentationcenter: ''
 author: singhkays
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 4f964713-fb67-4bcc-8246-3431452ddf7d
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/18/2019
 ms.author: kasing
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 581471bb20b0774625dda8a5fa1fdd27d571a5b5
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 5d255662f7db12537365f57eb71355ca2e11cc51
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483872"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947247"
 ---
 # <a name="vertically-scale-windows-vms-with-azure-automation"></a>Azure Automation을 사용하여 Windows VM 수직 확장
 
@@ -37,26 +37,27 @@ ms.locfileid: "67483872"
 3. Runbook에 Webhook 추가
 4. Virtual Machine에 경고 추가
 
-## <a name="scale-limitations"></a>확장 제한
+
+## <a name="scale-limitations"></a>크기 조정 제한
 
 첫 번째 Virtual Machine의 크기로 인해 확장할 수 있는 크기가 제한될 수 있습니다. 이는 현재 Virtual Machine이 배포된 클러스터에서 다른 크기의 가용성 때문입니다. 이 문서에서 사용된 게시된 자동화 runbook에서는 이 점을 염두에 두고 VM 크기 쌍 이내에서만 확장합니다. 따라서 Standard_D1v2 Virtual Machine이 갑자기 Standard_G5로 확장되거나 Basic_A0으로 축소되지 않습니다. 또한 제한 된 가상 머신 크기 확장/축소는 지원 되지 않습니다. 
 
 다음 규모 쌍 범위로 규모 조정하도록 선택할 수 있습니다.
 
-* [A 시리즈](#a-series)
-* [B-Series](#b-series)
+* [A-시리즈](#a-series)
+* [B 시리즈](#b-series)
 * [D 시리즈](#d-series)
 * [E 시리즈](#e-series)
 * [F 시리즈](#f-series)
-* [G-Series](#g-series)
+* [G 시리즈](#g-series)
 * [H 시리즈](#h-series)
-* [L-Series](#l-series)
+* [L 시리즈](#l-series)
 * [M 시리즈](#m-series)
 * [N 시리즈](#n-series)
 
 ### <a name="a-series"></a>A 시리즈
 
-| 처음 크기 | 크기 확장 | 
+| 처음 크기 | 크기 조정 | 
 | --- | --- |
 | Basic_A0 | Basic_A1 |
 | Basic_A1 | Basic_A2 |
@@ -78,7 +79,7 @@ ms.locfileid: "67483872"
 
 ### <a name="b-series"></a>B 시리즈
 
-| 처음 크기 | 크기 확장 | 
+| 처음 크기 | 크기 조정 | 
 | --- | --- |
 | Standard_B1s | Standard_B2s |
 | Standard_B1ms | Standard_B2ms |
@@ -87,7 +88,7 @@ ms.locfileid: "67483872"
 
 ### <a name="d-series"></a>D 시리즈
 
-| 처음 크기 | 크기 확장 | 
+| 처음 크기 | 크기 조정 | 
 | --- | --- |
 | Standard_D1 | Standard_D2 |
 | Standard_D2 | Standard_D3 |
@@ -129,7 +130,7 @@ ms.locfileid: "67483872"
 
 ### <a name="e-series"></a>E 시리즈
 
-| 처음 크기 | 크기 확장 | 
+| 처음 크기 | 크기 조정 | 
 | --- | --- |
 | Standard_E2_v3 | Standard_E4_v3 |
 | Standard_E4_v3 | Standard_E8_v3 |
@@ -146,7 +147,7 @@ ms.locfileid: "67483872"
 
 ### <a name="f-series"></a>F 시리즈
 
-| 처음 크기 | 크기 확장 | 
+| 처음 크기 | 크기 조정 | 
 | --- | --- |
 | Standard_F1 | Standard_F2 |
 | Standard_F2 | Standard_F4 |
@@ -165,7 +166,7 @@ ms.locfileid: "67483872"
 
 ### <a name="g-series"></a>G 시리즈
 
-| 처음 크기 | 크기 확장 | 
+| 처음 크기 | 크기 조정 | 
 | --- | --- |
 | Standard_G1 | Standard_G2 |
 | Standard_G2 | Standard_G3 |
@@ -178,14 +179,14 @@ ms.locfileid: "67483872"
 
 ### <a name="h-series"></a>H 시리즈
 
-| 처음 크기 | 크기 확장 | 
+| 처음 크기 | 크기 조정 | 
 | --- | --- |
 | Standard_H8 | Standard_H16 |
 | Standard_H8m | Standard_H16m |
 
 ### <a name="l-series"></a>L 시리즈
 
-| 처음 크기 | 크기 확장 | 
+| 처음 크기 | 크기 조정 | 
 | --- | --- |
 | Standard_L4s | Standard_L8s |
 | Standard_L8s | Standard_L16s |
@@ -197,7 +198,7 @@ ms.locfileid: "67483872"
 
 ### <a name="m-series"></a>M 시리즈
 
-| 처음 크기 | 크기 확장 | 
+| 처음 크기 | 크기 조정 | 
 | --- | --- |
 | Standard_M8ms | Standard_M16ms |
 | Standard_M16ms | Standard_M32ms |
@@ -210,7 +211,7 @@ ms.locfileid: "67483872"
 
 ### <a name="n-series"></a>N 시리즈
 
-| 처음 크기 | 크기 확장 | 
+| 처음 크기 | 크기 조정 | 
 | --- | --- |
 | Standard_NC6 | Standard_NC12 |
 | Standard_NC12 | Standard_NC24 |
@@ -224,6 +225,7 @@ ms.locfileid: "67483872"
 | Standard_NV12 | Standard_NV24 |
 | Standard_NV6s_v2 | Standard_NV12s_v2 |
 | Standard_NV12s_v2 | Standard_NV24s_v2 |
+| Standard_NV12s_v3 |Standard_NV48s_v3 |
 
 ## <a name="setup-azure-automation-to-access-your-virtual-machines"></a>Virtual Machines에 액세스하도록 Azure Automation 설정
 가장 먼저 해야 할 일은 Virtual Machine의 규모를 조정하는 데 사용하는 Runbook을 호스트할 Azure Automation 계정을 만드는 것입니다. 최근 Automation 서비스에서는 사용자 대신 Runbook을 자동으로 매우 쉽게 실행하기 위한 서비스 주체를 설정하는 "실행 계정" 기능을 도입했습니다. 이에 대한 자세한 내용은 아래 문서를 참조하세요.

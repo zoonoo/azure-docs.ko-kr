@@ -3,7 +3,7 @@ title: Azure에서 Service Fabric 클러스터 크기 조정 | Microsoft Docs
 description: 이 자습서에서는 Azure에서 Service Fabric 클러스터의 크기를 조정하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/19/2019
-ms.author: aljo
+ms.date: 07/22/2019
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: fa9b091beacbc98c6939ec0454bd04da2b7561e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b1f226fba43428cdf5f46d41425ac534219de7f
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66157971"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619049"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>자습서: Azure에서 Service Fabric 클러스터 크기 조정
 
@@ -68,7 +68,7 @@ Azure 클러스터 크기를 조정할 때는 다음 지침에 유의하세요.
 * 프로덕션 워크로드를 실행하는 주 노드 유형에는 Gold 또는 Silver의 [내구성 수준][durability]이 있어야 하며 항상 5개 이상의 노드가 있어야 합니다.
 * 상태 저장 프로덕션 워크로드를 실행하는 주 이외의 노드 유형에는 항상 5개 이상의 노드가 있어야 합니다.
 * 상태 비저장 프로덕션 워크로드를 실행하는 주 이외의 노드 유형에는 항상 둘 이상의 노드가 있어야 합니다.
-* [내구성 수준][durability]이 Gold 또는 Silver인 모든 노드 유형에는 항상 5개 이상의 노드가 있어야 합니다.
+* [내구성 수준][durability]이 골드 또는 실버인 모든 노드 형식에는 항상 5개 이상의 노드가 있어야 합니다.
 * 주 노드 유형의 크기를 축소(노드 제거)하는 경우 인스턴스 수를 [안정성 수준][reliability]에 필요한 것보다 적게 줄이면 안 됩니다.
 
 자세한 내용은 [클러스터 용량 지침](service-fabric-cluster-capacity.md)을 참조하세요.
@@ -91,7 +91,7 @@ Azure 클러스터 크기를 조정할 때는 다음 지침에 유의하세요.
 
 ### <a name="update-the-template"></a>템플릿 업데이트
 
-가장 최근 배포에 대한 리소스 그룹에서 [템플릿 및 매개 변수 파일을 내보냅니다](#export-the-template-for-the-resource-group).  *parameters.json* 파일을 엽니다.  이 자습서에서 [샘플 템플릿][template]을 사용하여 클러스터를 배포한 경우, 클러스터에는 3개의 노드 유형과 각 노드 유형의 노드 수가 설정되는 3개의 매개 변수(*nt0InstanceCount*, *nt1InstanceCount* 및 *nt2InstanceCount*)가 있습니다.  예를 들어 *nt1InstanceCount* 매개 변수는 두 번째 노드 유형에 대한 인스턴스 수 및 연결되는 가상 머신 확장 집합의 VM 수를 설정합니다.
+가장 최근 배포에 대한 리소스 그룹에서 [템플릿 및 매개 변수 파일을 내보냅니다](#export-the-template-for-the-resource-group).  *parameters.json* 파일을 엽니다.  이 자습서에서 [샘플 템플릿][template]을 사용하여 클러스터를 배포한 경우 클러스터에는 3개의 노드 유형과 각 노드 유형의 노드 수가 설정되는 3개의 매개 변수(*nt0InstanceCount*, *nt1InstanceCount* 및 *nt2InstanceCount*)가 있습니다.  예를 들어 *nt1InstanceCount* 매개 변수는 두 번째 노드 유형에 대한 인스턴스 수 및 연결되는 가상 머신 확장 집합의 VM 수를 설정합니다.
 
 따라서 *nt1InstanceCount*의 값을 업데이트하여 두 번째 노드 유형의 노드 수를 변경합니다.  한 노드 유형의 노드 수는 100개를 초과할 수 없습니다.  상태 저장 프로덕션 워크로드를 실행하는 주 이외의 노드 유형에는 항상 5개 이상의 노드가 있어야 합니다. 상태 비저장 프로덕션 워크로드를 실행하는 주 이외의 노드 유형에는 항상 둘 이상의 노드가 있어야 합니다.
 
@@ -888,7 +888,7 @@ az group deployment create --resource-group sfclustertutorialgroup --template-fi
 [reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json
-nd 규모 감축))
+
 > * 노드 유형 추가 및 제거(규모 확장 및 규모 감축)
 > * 노드 리소스 증가(강화)
 

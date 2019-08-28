@@ -47,7 +47,7 @@ StorSimple 볼륨은 다음과 같을 수 있습니다.
 | 로컬로 고정된 볼륨의 최대 크기                    | 500GB        |
 
 ## <a name="the-volumes-blade"></a>볼륨 블레이드
-StorSimple 서비스 요약 블레이드의 **볼륨** 메뉴에서는 지정된 StorSimple 배열의 저장소 볼륨의 목록을 표시하고 관리할 수 있습니다.
+StorSimple 서비스 요약 블레이드의 **볼륨** 메뉴에서는 지정된 StorSimple 배열의 스토리지 볼륨의 목록을 표시하고 관리할 수 있습니다.
 
 ![볼륨 블레이드](./media/storsimple-virtual-array-manage-volumes/volumes-blade.png)
 

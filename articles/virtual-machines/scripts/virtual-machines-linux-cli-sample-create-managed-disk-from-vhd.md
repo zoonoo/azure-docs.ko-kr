@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 스크립트 샘플 - 동일한 구독에 있는 저장소 계정의 VHD 파일에서 관리 디스크 만들기 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - 동일한 구독에 있는 저장소 계정의 VHD 파일에서 관리 디스크 만들기
+title: Azure CLI 스크립트 샘플 - 동일한 구독에 있는 스토리지 계정의 VHD 파일에서 관리 디스크 만들기 | Microsoft Docs
+description: Azure CLI 스크립트 샘플 - 동일한 구독에 있는 스토리지 계정의 VHD 파일에서 관리 디스크 만들기
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -23,9 +23,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 02/04/2019
 ms.locfileid: "55691391"
 ---
-# <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-the-same-subscription-with-cli"></a>CLI를 사용하여 동일한 구독에 있는 저장소 계정의 VHD 파일에서 관리 디스크 만들기
+# <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-the-same-subscription-with-cli"></a>CLI를 사용하여 동일한 구독에 있는 스토리지 계정의 VHD 파일에서 관리 디스크 만들기
 
-이 스크립트는 동일한 구독에 있는 저장소 계정의 VHD 파일에서 관리 디스크를 만듭니다. 이 스크립트를 사용하여 관리 OS 디스크에 특수화된(일반화/sysprep되지 않음) VHD를 가져와 가상 머신을 만듭니다 또는 데이터 VHD를 관리되는 데이터 디스크로 가져오는 데 사용합니다. 
+이 스크립트는 동일한 구독에 있는 스토리지 계정의 VHD 파일에서 관리 디스크를 만듭니다. 이 스크립트를 사용하여 관리 OS 디스크에 특수화된(일반화/sysprep되지 않음) VHD를 가져와 가상 머신을 만듭니다 또는 데이터 VHD를 관리되는 데이터 디스크로 가져오는 데 사용합니다. 
 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
@@ -43,7 +43,7 @@ ms.locfileid: "55691391"
 
 | 명령 | 메모 |
 |---|---|
-| [az disk create](https://docs.microsoft.com/cli/azure/disk) | 동일한 구독에 있는 저장소 계정의 VHD URI를 사용하여 관리 디스크 만들기 |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk) | 동일한 구독에 있는 스토리지 계정의 VHD URI를 사용하여 관리 디스크 만들기 |
 
 ## <a name="next-steps"></a>다음 단계
 

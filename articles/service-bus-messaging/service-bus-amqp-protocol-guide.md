@@ -45,7 +45,7 @@ AMQP는 프레이밍 및 전송 프로토콜입니다. 프레이밍은 네트워
 
 일부 메시지 브로커에서는 아직 사용되고 있는 AMQP 작업 그룹에서 생성한 만료된 이전 초안 이전 버전과 달리, 이 작업 그룹의 표준화된 최종 AMQP 1.0 프로토콜에서는 메시지 브로커의 존재 또는 메시지 브로커 내 엔터티에 대한 특정 토폴로지의 존재를 규정하지 않습니다.
 
-이 프로토콜은 Azure Service Bus와 마찬가지로, 큐 및 게시/구독 엔터티를 지원하는 메시지 브로커와의 상호 작용을 위해 대칭 피어-투-피어 통신에 사용될 수 있습니다. 또한 Azure Event Hubs의 경우와 마찬가지로 상호 작용 패턴이 일반 큐와 다른 메시징 인프라와의 상호 작용에도 사용될 수 있습니다. 이벤트 허브는 이벤트가 전송될 때는 큐처럼 작동하지만, 이벤트가 읽혀질 때 직렬 저장소 서비스처럼 작동합니다. 따라서 테이프 드라이브와 유사한 부분이 있습니다. 클라이언트는 사용 가능한 데이터 스트림으로의 오프셋을 선택한 다음 모든 이벤트를 최신 해당 오프셋에서 사용 가능한 최신 오프셋으로 처리합니다.
+이 프로토콜은 Azure Service Bus와 마찬가지로, 큐 및 게시/구독 엔터티를 지원하는 메시지 브로커와의 상호 작용을 위해 대칭 피어-투-피어 통신에 사용될 수 있습니다. 또한 Azure Event Hubs의 경우와 마찬가지로 상호 작용 패턴이 일반 큐와 다른 메시징 인프라와의 상호 작용에도 사용될 수 있습니다. 이벤트 허브는 이벤트가 전송될 때는 큐처럼 작동하지만, 이벤트가 읽혀질 때 직렬 스토리지 서비스처럼 작동합니다. 따라서 테이프 드라이브와 유사한 부분이 있습니다. 클라이언트는 사용 가능한 데이터 스트림으로의 오프셋을 선택한 다음 모든 이벤트를 최신 해당 오프셋에서 사용 가능한 최신 오프셋으로 처리합니다.
 
 AMQP 1.0 프로토콜은 확장 가능하게 설계되었으며 사양을 추가하여 기능을 향상할 수 있습니다. 이 문서에서 설명하는 세 가지 확장 사양이 이러한 경우를 보여 줍니다. 기존 HTTPS/WebSocket 인프라를 통한 통신에서는 네이티브 AMQP TCP 포트를 구성하기가 어려울 수 있습니다. WebSocket을 통해 AMQP를 계층화하는 방법은 바인딩 사양에서 정의됩니다. 관리를 위해 요청/응답 방식으로 메시지 인프라와 상호 작용하거나 고급 기능을 제공하기 위해 AMQP 관리 사양은 필요한 기본적인 상호 작용 기본 형식을 정의합니다. 페더레이션된 인증 모델 통합을 위해 AMQP 클레임 기반 보안 사양은 권한 부여 토큰을 연결하고 링크와 연결된 이러한 토큰을 갱신하는 방법을 정의합니다.
 
@@ -212,8 +212,8 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 
 | 필드 이름 | 사용 현황 | API 이름 |
 | --- | --- | --- |
-| 지속성 |- |- |
-| 우선 순위 |- |- |
+| durable |- |- |
+| priority |- |- |
 | ttl |이 메시지에 대한 TTL(Time to live) |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | first-acquirer |- |- |
 | delivery-count |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
@@ -225,7 +225,7 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 | message-id |이 메시지에 대한 애플리케이션 정의 자유 형식 식별자입니다. 중복 검색에 사용됩니다. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | user-id |Service Bus에서 해석되지 않는 애플리케이션 정의 사용자 식별자입니다. |Service Bus API를 통해 액세스할 수 없습니다. |
 | to |Service Bus에서 해석되지 않는 애플리케이션 정의 대상 식별자입니다. |[To](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| 제목 |Service Bus에서 해석되지 않는 애플리케이션 정의 메시지 용도 식별자입니다. |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| subject |Service Bus에서 해석되지 않는 애플리케이션 정의 메시지 용도 식별자입니다. |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | reply-to |Service Bus에서 해석되지 않는 애플리케이션 정의 회산 경로 식별자입니다. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | correlation-id |Service Bus에서 해석되지 않는 애플리케이션 정의 상관 관계 식별자입니다. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | content-type |Service Bus에서 해석되지 않는 본문에 대한 애플리케이션 정의 콘텐츠 형식 지표입니다. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
@@ -362,8 +362,8 @@ CBS는 *$cbs*라는 가상 관리 노드가 메시징 인프라에 의해 제공
 | 키 | 옵션 | 값 형식 | 값 내용 |
 | --- | --- | --- | --- |
 | operation |아닙니다. |문자열 |**put-token** |
-| 형식 |아닙니다. |문자열 |배치되는 토큰의 형식입니다. |
-| 이름 |아닙니다. |문자열 |토큰이 적용되는 "대상"입니다. |
+| type |아닙니다. |문자열 |배치되는 토큰의 형식입니다. |
+| name |아닙니다. |문자열 |토큰이 적용되는 "대상"입니다. |
 | expiration |예 |timestamp |토큰의 만료 시간입니다. |
 
 *name* 속성은 토큰이 연결되어야 하는 엔터티를 식별합니다. Service Bus에서 큐 또는 토픽/구독에 대한 경로에 해당합니다. *type* 속성은 토큰 형식을 식별합니다.

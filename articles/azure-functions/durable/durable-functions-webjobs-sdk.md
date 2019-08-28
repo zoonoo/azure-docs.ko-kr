@@ -194,7 +194,7 @@ while (true)
 
 ### <a name="run-locally"></a>로컬 실행
 
-1. 저장소 에뮬레이터가 실행되고 있는지 확인합니다([필수 구성 요소](#prerequisites) 참조).
+1. 스토리지 에뮬레이터가 실행되고 있는지 확인합니다([필수 구성 요소](#prerequisites) 참조).
 
 1. 프로젝트를 로컬로 실행 하는 경우 Application Insights에서 로그를 확인 하려면:
 
@@ -206,7 +206,7 @@ while (true)
 
 ### <a name="run-in-azure"></a>Azure에서 실행
 
-1. 웹앱 및 저장소 계정을 만듭니다.
+1. 웹앱 및 스토리지 계정을 만듭니다.
 
 1. 웹 앱에서 라는 앱 설정에서 저장소 연결 문자열을 저장 `AzureWebJobsStorage`합니다.
 

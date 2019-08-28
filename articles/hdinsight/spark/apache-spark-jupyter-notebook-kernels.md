@@ -114,7 +114,7 @@ HDInsight의 Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight에�
 
 ## <a name="where-are-the-notebooks-stored"></a>Notebook이 저장되는 위치
 
-클러스터에 Azure Storage를 기본 스토리지 계정으로 사용하는 경우 Jupyter 노트가 **/HdiNotebooks** 폴더 아래의 스토리지 계정에 저장됩니다.  Jupyter 내에서 만든 Notebook, 텍스트 파일 및 폴더는 저장소 계정에서 액세스할 수 있습니다.  예를 들어 Jupyter를 사용하여 **myfolder** 폴더와 **myfolder/mynotebook.ipynb** Notebook을 만든 경우 저장소 계정 내, `/HdiNotebooks/myfolder/mynotebook.ipynb`에서 이 Notebook에 액세스할 수 있습니다.  반대의 경우도 마찬가지입니다. 즉, `/HdiNotebooks/mynotebook1.ipynb`에서 저장소 계정에 직접 Notebook을 업로드한 경우 Jupyter에서도 이 Notebook을 볼 수 있습니다.  Notebook은 클러스터를 삭제한 후에도 저장소 계정에 유지됩니다.
+클러스터에 Azure Storage를 기본 스토리지 계정으로 사용하는 경우 Jupyter 노트가 **/HdiNotebooks** 폴더 아래의 스토리지 계정에 저장됩니다.  Jupyter 내에서 만든 Notebook, 텍스트 파일 및 폴더는 스토리지 계정에서 액세스할 수 있습니다.  예를 들어 Jupyter를 사용하여 **myfolder** 폴더와 **myfolder/mynotebook.ipynb** Notebook을 만든 경우 스토리지 계정 내, `/HdiNotebooks/myfolder/mynotebook.ipynb`에서 이 Notebook에 액세스할 수 있습니다.  반대의 경우도 마찬가지입니다. 즉, `/HdiNotebooks/mynotebook1.ipynb`에서 스토리지 계정에 직접 Notebook을 업로드한 경우 Jupyter에서도 이 Notebook을 볼 수 있습니다.  Notebook은 클러스터를 삭제한 후에도 스토리지 계정에 유지됩니다.
 
 > [!NOTE]  
 > 기본 스토리지로 Azure Data Lake Storage를 사용하는 HDInsight 클러스터는 연결된 스토리지에 노트를 저장하지 않습니다.

@@ -7,14 +7,14 @@ ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 07/09/2019
 ms.author: gregman
-ms.openlocfilehash: 7062bd2dbd8c375b8dd3fad348e5cc26de8f36d2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f4bab6ab837b746c6a569cc6de95a95023bf83f4
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60595123"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986999"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Ubuntu Virtual Machines에서 Azure IoT Edge 실행
 
@@ -41,15 +41,11 @@ IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자
     1.  잠시 기다리면, 연결 문자열이 설정되었음을 나타내는 성공 메시지가 화면에 표시됩니다.
 
 
-## <a name="deploy-from-the-azure-portal"></a>Azure portal에서 배포
+## <a name="deploy-from-the-azure-portal"></a>Azure Portal에서 배포
 Azure Portal에서 “Azure IoT Edge”를 검색하고 **Ubuntu Server 16.04 LTS + Azure IoT Edge 런타임**을 선택하여 VM 생성 워크플로를 시작합니다. 여기에서, 위의 “Azure Marketplace에서 배포” 지침에 있는 3-4단계를 완료합니다.
 
 ## <a name="deploy-from-azure-cli"></a>Azure CLI에서 배포
-1. CLI에서 가상 머신을 처음 배포하는 경우 Azure 구독에 대해 프로그래밍 방식 배포를 사용하도록 설정해야 합니다.
-   1. [Azure IoT Edge on Ubuntu](https://aka.ms/azure-iot-edge-ubuntuvm) Marketplace 제품을 엽니다.
-   1. **지금 가져오기**를 선택하고 후속 대화 상자에서 **계속**을 선택합니다.
-   1. 포털 내의 대화 상자 맨 아래에서 **프로그래밍 방식으로 배포하시겠습니까? 시작**을 선택합니다.
-   1. **프로그래밍 방식 배포 구성** 페이지에서 **사용** 단추를 클릭한 다음, **저장**을 클릭합니다.
+
 1. 데스크톱에서 Azure CLI를 사용하는 경우 다음에 로그인하여 시작합니다.
 
    ```azurecli-interactive
@@ -63,8 +59,9 @@ Azure Portal에서 “Azure IoT Edge”를 검색하고 **Ubuntu Server 16.04 LT
       az account list --output table
       ```
     
-   1. 사용하려는 구독의 SubscriptionID 필드를 복사합니다.
-   1. 방금 복사한 ID로 이 명령을 실행합니다.
+   1. 사용 하려는 구독에 대 한 SubscriptionID 필드를 복사 합니다.
+
+   1. 방금 복사한 ID를 사용 하 여 작업 구독을 설정 합니다.
     
       ```azurecli-interactive 
       az account set -s {SubscriptionId}
@@ -75,11 +72,17 @@ Azure Portal에서 “Azure IoT Edge”를 검색하고 **Ubuntu Server 16.04 LT
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus2
    ```
-    
+
+1. 가상 컴퓨터에 대 한 사용 약관에 동의 합니다. 먼저 약관을 검토 하려면 [Azure Marketplace에서 배포](#deploy-from-the-azure-marketplace)의 단계를 따르세요.
+
+   ```azurecli-interactive
+   az vm image accept-terms --urn microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest
+   ```
+
 1. 새 가상 머신을 만듭니다.
 
    ```azurecli-interactive
-   az vm create --resource-group IoTEdgeResources --name EdgeVM –-image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
+   az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys
    ```
 
 1. 디바이스 연결 문자열을 설정합니다. 이 프로세스에 익숙하지 않은 경우 [Azure CLI를 사용하여 새 Azure IoT Edge 디바이스 등록](how-to-register-device-cli.md) 방법 가이드를 따를 수 있습니다.
@@ -95,6 +98,8 @@ Azure Portal에서 “Azure IoT Edge”를 검색하고 **Ubuntu Server 16.04 LT
 
 런타임을 설치하여 IoT Edge 디바이스를 프로비전했으므로 [IoT Edge 모듈을 배포](how-to-deploy-modules-portal.md)할 수 있습니다.
 
-IoT Edge 런타임이 제대로 설치를 사용 하 여 문제가 경우 체크 아웃 합니다 [문제 해결](troubleshoot.md) 페이지입니다.
+IoT Edge 런타임에 제대로 설치 하는 데 문제가 있는 경우 [문제 해결](troubleshoot.md) 페이지를 확인 하세요.
 
 기존 설치를 최신 버전의 IoT Edge로 업데이트하려면 [IoT Edge 보안 디먼 및 런타임 업데이트](how-to-update-iot-edge.md)를 참조하세요.
+
+SSH 또는 다른 인바운드 연결을 통해 VM에 액세스 하는 포트를 열려면 [LINUX VM에 대 한 포트 및 끝점을 여](../virtual-machines/linux/nsg-quickstart.md) 는 방법에 대 한 Azure 가상 머신 설명서를 참조 하세요.

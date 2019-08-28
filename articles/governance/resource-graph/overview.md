@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 9d3385b688208065e5854b6358819b5afad8fe65
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: faad0a0166c1b11f51f814bb6ce3351d7a017239
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66162071"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900018"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Azure Resource Graph 서비스 개요
 
@@ -28,6 +28,8 @@ Azure Resource Graph는 제공된 구독 세트에서 대규모로 쿼리를 수
 > [!NOTE]
 > Azure Resource Graph는 Azure Portal의 검색 창, 새로운 찾아보기 ‘모든 리소스’ 환경 및 Azure Policy의 [변경 내용](../policy/how-to/determine-non-compliance.md#change-history-preview)
 > _visual diff_에서 사용됩니다. 이 기능은 고객이 대규모 환경을 관리할 수 있도록 디자인되었습니다.
+
+[!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="how-does-resource-graph-complement-azure-resource-manager"></a>Resource Graph가 Azure Resource Manager를 보완하는 방법
 
@@ -61,6 +63,9 @@ Resource Graph를 사용하려면 쿼리하려는 리소스에 대해 적어도 
 > [!NOTE]
 > Resource Graph는 로그인하는 동안 보안 주체에 제공되는 구독을 사용합니다. 활성 세션 중에 추가된 새 구독의 리소스를 보려면 보안 주체가 컨텍스트를 새로 고쳐야 합니다. 이 작업은 로그아웃했다가 다시 로그인하면 자동으로 수행됩니다.
 
+Azure CLI 및 Azure PowerShell에서는 사용자가 액세스할 수 있는 구독을 사용합니다. REST API를 직접 사용하는 경우 구독 목록은 사용자가 제공합니다. 사용자가 목록에 있는 구독에 액세스할 수 있는 경우 사용자가 액세스할 수 있는 구독에 대한 쿼리 결과가 반환됩니다. 이 동작은 [리소스 그룹 - 목록](/rest/api/resources/resourcegroups/list)을 호출하는 경우와 동일합니다. \-즉, 결과가 부분적일 수 있음을 표시하지 않고 액세스할 수 있는 리소스 그룹을 나열합니다.
+사용자에게 적절한 권한이 있는 구독 목록에서 구독이 없는 경우 응답은 _403_(사용할 수 없음)입니다.
+
 ## <a name="throttling"></a>제한
 
 무료 서비스로서, Resource Graph에 대한 쿼리는 모든 고객에게 최상의 경험과 응답 시간을 제공하도록 제한됩니다. 자주 수행되는 대규모 쿼리에 Resource Graph API를 사용하려는 조직은 [Resource Graph 포털 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/ResourceGraph)의 ‘피드백’ 포털을 사용하세요.
@@ -71,7 +76,7 @@ Resource Graph는 사용자 수준에서 쿼리를 제한합니다. 서비스 �
 - `x-ms-user-quota-remaining`(int): 사용자의 나머지 리소스 할당량입니다. 이 값은 쿼리 수에 매핑됩니다.
 - `x-ms-user-quota-resets-after`(hh:mm:ss): 사용자의 할당량 소비가 재설정될 때까지 남은 기간
 
-자세한 내용은 [Resource Manager 요청 제한](../../azure-resource-manager/resource-manager-request-limits.md)을 참조하세요.
+자세한 내용은 [제한된 요청에 대한 지침](./concepts/guidance-for-throttled-requests.md)을 참조하세요.
 
 ## <a name="running-your-first-query"></a>첫 번째 쿼리 실행
 

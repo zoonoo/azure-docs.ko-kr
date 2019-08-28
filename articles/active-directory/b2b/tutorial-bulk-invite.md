@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f91d51bda4c41a314c7cc1c2cc895e36bde0500
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d3bd02afa1fe1aaba6602201f839468a58673c29
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65768217"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277992"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>자습서: Azure AD B2B 협업 사용자 일괄 초대
 
@@ -27,7 +27,7 @@ Azure AD(Azure Active Directory) B2B 협업을 사용하여 외부 파트너와 
 > * PowerShell 스크립트를 실행하여 초대 보내기
 > * 사용자가 디렉터리에 추가되었는지 확인
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다. 
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 

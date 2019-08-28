@@ -3,19 +3,19 @@ title: 시나리오 평가 - Personalizer
 titleSuffix: Azure Cognitive Services
 description: 애플리케이션에서 표시할 적절한 항목, 작업 또는 제품을 선택할 수 있는 모든 상황에 Personalizer를 적용하여 환경을 더 효율적으로 만들거나, 더 나은 비즈니스 결과를 달성하거나, 생산성을 향상시킬 수 있습니다.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/07/2019
-ms.author: edjez
-ms.openlocfilehash: e51ef9afd0e49b690a4f9cab09fdfbd3e86eee66
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
-ms.translationtype: HT
+ms.author: diberry
+ms.openlocfilehash: 465fba3a466aceaf9ef7b71e4b1957bfdbcad766
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65441047"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663647"
 ---
 # <a name="where-can-you-use-personalizer"></a>Personalizer를 사용할 수 있는 경우
 

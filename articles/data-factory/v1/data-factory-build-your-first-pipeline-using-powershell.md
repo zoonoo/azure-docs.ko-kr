@@ -14,17 +14,16 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 9d273886b3add43818af80915e42b4aa7ca69a89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0f18fc8a18cbcf5d85b68ed40790eda36d653812
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66146869"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836584"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 첫 번째 Azure Data Factory 빌드
 > [!div class="op_single_selector"]
 > * [개요 및 필수 구성 요소](data-factory-build-your-first-pipeline.md)
-> * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager 템플릿](data-factory-build-your-first-pipeline-using-arm.md)
@@ -121,7 +120,7 @@ ms.locfileid: "66146869"
         }
     }
     ```
-    **계정 이름**을 Azure 저장소 계정 이름으로 변경하고 **계정 키**를 Azure 저장소 계정의 액세스 키로 변경합니다. 저장소 액세스 키를 가져오는 방법은 [저장소 계정 관리](../../storage/common/storage-account-manage.md#access-keys)의 저장소 액세스 키 보기, 복사 및 생성 방법 정보를 참조하세요.
+    **계정 이름**을 Azure Storage 계정 이름으로 변경하고 **계정 키**를 Azure Storage 계정의 액세스 키로 변경합니다. 스토리지 액세스 키를 가져오는 방법은 [스토리지 계정 관리](../../storage/common/storage-account-manage.md#access-keys)의 스토리지 액세스 키 보기, 복사 및 생성 방법 정보를 참조하세요.
 2. Azure PowerShell에서 ADFGetStarted 폴더로 전환합니다.
 3. 연결된 서비스를 만드는 **New-AzDataFactoryLinkedService** cmdlet을 사용할 수 있습니다. 이 자습서에서 사용하는 이 cmdlet 및 다른 데이터 팩터리 cmdlet의 경우 *ResourceGroupName* 및 *DataFactoryName* 매개 변수의 값을 전달해야 합니다. 또는 **Get-AzDataFactory**를 사용하여 **DataFactory** 개체를 가져온 다음, cmdlet을 실행할 때마다 *ResourceGroupName* 및 *DataFactoryName*을 입력하지 않고 개체를 전달할 수 있습니다. 다음 명령을 실행하여 **Get-AzDataFactory** cmdlet의 출력을 **$df** 변수에 할당합니다.
 
@@ -174,7 +173,7 @@ ms.locfileid: "66146869"
    * 주문형 HDInsight 클러스터를 사용하는 대신 **고유의 HDInsight 클러스터** 를 사용할 수 있습니다. 자세한 내용은 [HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) 를 참조하세요.
    * HDInsight 클러스터는 JSON(**linkedServiceName**)에서 지정한 Blob Storage에 **기본 컨테이너**를 만듭니다. HDInsight는 클러스터가 삭제될 때 이 컨테이너를 삭제하지 않습니다. 이 동작은 의도된 것입니다. 주문형 HDInsight 연결된 서비스에서는 기존 라이브 클러스터(**timeToLive**)가 없는 한 슬라이스를 처리할 때마다 HDInsight 클러스터가 만들어집니다. 클러스터는 처리가 완료되면 자동으로 삭제됩니다.
 
-       온-프레미스 응용 프로그램은 File Storage REST API를 호출하여 파일 공유의 데이터에 액세스할 수 있습니다. 작업의 문제 해결을 위해 이 항목들이 필요하지 않다면 저장소 비용을 줄이기 위해 삭제할 수 있습니다. 이 컨테이너의 이름은 "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp" 패턴을 따릅니다. [Microsoft 스토리지 탐색기](https://storageexplorer.com/) 같은 도구를 사용하여 Azure Blob Storage에서 컨테이너를 삭제합니다.
+       온-프레미스 응용 프로그램은 File Storage REST API를 호출하여 파일 공유의 데이터에 액세스할 수 있습니다. 작업의 문제 해결을 위해 이 항목들이 필요하지 않다면 스토리지 비용을 줄이기 위해 삭제할 수 있습니다. 이 컨테이너의 이름은 "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp" 패턴을 따릅니다. [Microsoft Storage Explorer](https://storageexplorer.com/) 같은 도구를 사용하여 Azure Blob Storage에서 컨테이너를 삭제합니다.
 
      자세한 내용은 [주문형 HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) 를 참조하세요.
 2. HDInsightOnDemandLinkedService라는 연결된 서비스를 만드는 **New-AzDataFactoryLinkedService** cmdlet을 실행합니다.
@@ -184,7 +183,7 @@ ms.locfileid: "66146869"
     ```
 
 ## <a name="create-datasets"></a>데이터 세트 만들기
-이 단계에서는 Hive 처리에 대한 입력 및 출력 데이터를 나타내는 데이터 세트를 만듭니다. 이러한 데이터 세트는 이 자습서의 앞부분에서 만든 **StorageLinkedService** 를 참조합니다. 연결된 서비스는 Azure Storage 계정을 가리키고 데이터 집합은 입력 및 출력 데이터를 가진 스토리지의 컨테이너, 폴더, 파일 이름을 지정합니다.
+이 단계에서는 Hive 처리에 대한 입력 및 출력 데이터를 나타내는 데이터 세트를 만듭니다. 이러한 데이터 세트는 이 자습서의 앞부분에서 만든 **StorageLinkedService** 를 참조합니다. 연결된 서비스는 Azure Storage 계정을 가리키고 데이터 세트은 입력 및 출력 데이터를 가진 스토리지의 컨테이너, 폴더, 파일 이름을 지정합니다.
 
 ### <a name="create-input-dataset"></a>입력 데이터 세트 만들기
 1. **C:\ADFGetStarted** 폴더에 다음과 같은 내용으로 **InputTable.json**이라는 JSON 파일을 만듭니다.
@@ -325,7 +324,7 @@ Azure File Storage 정보가 포함된 파일이 없으면 이 섹션의 끝에 
 
     파이프라인의 **start** 및 **end** 속성은 파이프라인의 활성 기간을 지정합니다.
 
-    작업 JSON에서 **linkedServiceName** – **HDInsightOnDemandLinkedService**에서 지정한 계산에 대해 Hive 스크립트가 실행되도록 지정합니다.
+    작업 JSON에서 **linkedServiceName** – **HDInsightOnDemandLinkedService**에서 지정한 컴퓨팅에 대해 Hive 스크립트가 실행되도록 지정합니다.
 
    > [!NOTE]
    > 예제에서 사용되는 JSON 속성에 대한 자세한 내용은 [Azure Data Factory의 파이프라인 및 활동](data-factory-create-pipelines.md)에서 “파이프라인 JSON”을 참조하세요.

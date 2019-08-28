@@ -4,7 +4,7 @@ description: Azure에서 Windows 가상 머신에 연결할 수 없는 원격 �
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 keywords: 원격 데스크탑에 연결할 수 없습니다, 원격 데스크톱 문제 해결, 원격 데스크톱을 연결할 수 없습니다, 원격 데스크톱 오류, 원격 데스크톱 문제 해결, 원격 데스크톱 문제
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 4b4d2e2099f0d49c7dd9a150ac659ffde62eaa21
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 56fa1363e9737a2ce06ba5f0215235a84ee70ce6
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64693079"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709905"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Azure의 Windows VM에 대한 원격 데스크톱 연결 문제의 자세한 문제 해결 단계
 이 문서에서는 Windows 기반 Azure 가상 머신에 대한 복잡한 원격 데스크톱 오류를 진단 및 해결하는 자세한 문제 해결 단계를 제공합니다.
@@ -40,7 +40,7 @@ ms.locfileid: "64693079"
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_0.png)
 
-진행하기 전에 마지막으로 VM에 대한 원격 데스크톱 연결을 성공한 이후로 변경된 사항을 마음속으로 생각해보는 것이 도움이 될 수 있습니다. 예를 들면 다음과 같습니다.
+진행하기 전에 마지막으로 VM에 대한 원격 데스크톱 연결을 성공한 이후로 변경된 사항을 마음속으로 생각해보는 것이 도움이 될 수 있습니다. 예를 들어:
 
 * VM 또는 VM을 포함하는 클라우드 서비스의 공용 IP 주소(가상 IP 주소 [VIP](https://en.wikipedia.org/wiki/Virtual_IP_address)라고도 함)가 변경되었습니다. DNS 클라이언트 캐시에 DNS 이름에 대해 등록된 *이전 IP 주소* 가 있으므로 RDP 오류가 발생할 수 있습니다. DNS 클라이언트 캐시를 플러시하고 VM 연결을 다시 시도하세요. 또는 새 VIP와 직접 연결을 시도하세요.
 * Azure Portal에서 생성된 연결을 사용하는 대신, 타사 애플리케이션을 사용하여 원격 데스크톱 연결을 관리하고 있습니다. 애플리케이션 구성에 원격 데스크톱 트래픽에 대한 올바른 TCP 포트가 포함되어 있는지 확인합니다. [Azure Portal](https://portal.azure.com)에서 VM의 설정 &gt; 엔드포인트를 클릭하여 클래식 가상 컴퓨터에 대한 이 포트를 확인할 수 있습니다.
@@ -192,7 +192,7 @@ Exit-PSSession
 
 Azure VM에 대한 원격 데스크톱 엔드포인트도 TCP 포트 3398을 내부 포트로 사용하고 있는지 확인합니다. Azure VM을 다시 시작한 후 원격 데스크톱 연결을 다시 시도합니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 [Windows 가상 머신에 대한 원격 데스크톱 서비스 또는 암호를 다시 설정하는 방법](../windows/reset-rdp.md)
 
 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview)

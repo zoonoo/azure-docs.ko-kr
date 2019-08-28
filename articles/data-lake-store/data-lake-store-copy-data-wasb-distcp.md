@@ -44,7 +44,7 @@ HDInsight 클러스터는 서로 다른 원본에서 HDInsight 클러스터로 �
 
         hdfs dfs –ls wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
 
-    출력에 저장소 BLOB의 콘텐츠 목록이 제공되어야 합니다.
+    출력에 스토리지 BLOB의 콘텐츠 목록이 제공되어야 합니다.
 
 3. 마찬가지로, 클러스터에서 Data Lake Storage Gen1 계정에 액세스할 수 있는지 확인합니다. 다음 명령 실행:
 

@@ -1,21 +1,21 @@
 ---
 title: Bing Spell Check API에 요청 보내기
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Bing Spell Check 모드, 설정 및 API와 관련된 기타 정보에 대해 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: 2b33c27e7af603c73bf7b7c6188bd9aef5ebc669
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
-ms.translationtype: HT
+ms.openlocfilehash: 893317b8f46415b1df540d67ebf28b65c5ba6d32
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542709"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883447"
 ---
 # <a name="sending-requests-to-the-bing-spell-check-api"></a>Bing Spell Check API에 요청 보내기
 

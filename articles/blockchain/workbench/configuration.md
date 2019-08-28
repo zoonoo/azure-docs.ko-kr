@@ -55,15 +55,15 @@ Azure Blockchain Workbench 애플리케이션은 구성 메타데이터 및 스�
 
 | 필드 | Description | 필수 | 최대 길이 |
 |-------|-------------|:--------:|-----------:|
-| 이름 | 고유 워크플로 이름. 해당 스마트 계약은 적용 가능한 계약 클래스에 대해 동일한 **Name**을 사용해야 합니다. | 예 | 50 |
+| Name | 고유 워크플로 이름. 해당 스마트 계약은 적용 가능한 계약 클래스에 대해 동일한 **Name**을 사용해야 합니다. | 예 | 50 |
 | DisplayName | 워크플로의 친숙한 표시 이름. | 예 | 255 |
 | Description | 워크플로에 대한 설명. | 아닙니다. | 255 |
-| 개시 장치 | [ApplicationRoles](#application-roles)의 콜렉션. 워크플로에서 계약을 만들 권한이 있는 사용자에게 할당된 역할. | 예 | |
+| Initiators | [ApplicationRoles](#application-roles)의 콜렉션. 워크플로에서 계약을 만들 권한이 있는 사용자에게 할당된 역할. | 예 | |
 | StartState | 워크플로의 초기 상태 이름. | 예 | |
-| properties | [식별자](#identifiers)의 콜렉션. 사용자 경험 도구에서 오프 체인으로 읽히거나 또는 시각화 될 수 있는 데이터를 나타냅니다. | 예 | |
-| 생성자 | 워크플로의 인스턴스를 만들기 위한 입력 매개 변수를 정의합니다. | 예 | |
+| Properties | [식별자](#identifiers)의 콜렉션. 사용자 경험 도구에서 오프 체인으로 읽히거나 또는 시각화 될 수 있는 데이터를 나타냅니다. | 예 | |
+| Constructor | 워크플로의 인스턴스를 만들기 위한 입력 매개 변수를 정의합니다. | 예 | |
 | Functions | 워크플로에서 실행할 수 있는 [함수](#functions) 컬렉션. | 예 | |
-| 상태 | 워크플로 [상태](#states)의 컬렉션. | 예 | |
+| States | 워크플로 [상태](#states)의 컬렉션. | 예 | |
 
 예를 들어 [구성 파일 예제](#configuration-file-example)를 참조하세요.
 
@@ -170,7 +170,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 
 ```
 
-## <a name="constructor"></a>생성자
+## <a name="constructor"></a>Constructor
 
 워크플로 인스턴스에 대한 입력 매개 변수를 정의합니다.
 
@@ -209,7 +209,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 
 | 필드 | Description | 필수 | 최대 길이 |
 |-------|-------------|:--------:|-----------:|
-| 이름 | 함수의 고유한 이름. 해당 스마트 계약은 적용 가능한 함수에 대해 동일한 **Name**을 사용해야 합니다. | 예 | 50 |
+| Name | 함수의 고유한 이름. 해당 스마트 계약은 적용 가능한 함수에 대해 동일한 **Name**을 사용해야 합니다. | 예 | 50 |
 | DisplayName | 함수의 친숙한 표시 이름. | 예 | 255 |
 | Description | 함수에 대한 설명 | 아닙니다. | 255 |
 | 매개 변수 | 함수의 매개 변수에 해당하는 [식별자](#identifiers)의 컬렉션. | 예 | |
@@ -251,13 +251,13 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 
 ```
 
-## <a name="states"></a>상태
+## <a name="states"></a>States
 
 워크플로 내에서 고유 상태의 컬렉션. 각 상태는 비즈니스 논리의 제어 흐름에서 한 단계를 캡처합니다. 
 
 | 필드 | Description | 필수 | 최대 길이 |
 |-------|-------------|:--------:|-----------:|
-| 이름 | 상태의 고유 이름. 해당 스마트 계약은 적용 가능한 상태에 대해 동일한 **Name**을 사용해야 합니다. | 예 | 50 |
+| Name | 상태의 고유 이름. 해당 스마트 계약은 적용 가능한 상태에 대해 동일한 **Name**을 사용해야 합니다. | 예 | 50 |
 | DisplayName | 상태의 친숙한 표시 이름. | 예 | 255 |
 | Description | 상태에 대한 설명. | 아닙니다. | 255 |
 | PercentComplete | Blockchain Workbench 사용자 인터페이스에 표시되는 정수 값은 비즈니스 논리 제어 흐름 내에서의 진행 상황을 보여줍니다. | 예 | |
@@ -371,7 +371,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 
 | 필드 | Description | 필수 | 최대 길이 |
 |-------|-------------|:--------:|-----------:|
-| 이름 | 애플리케이션 역할의 고유한 이름입니다. 해당 스마트 계약은 적용 가능한 역할에 대해 동일한 **Name**을 사용해야 합니다. 기본 형식 이름은 예약되어 있습니다. [형식](#type)과 같은 이름으로 애플리케이션 역할의 이름을 지정할 수 없습니다.| 예 | 50 |
+| Name | 애플리케이션 역할의 고유한 이름입니다. 해당 스마트 계약은 적용 가능한 역할에 대해 동일한 **Name**을 사용해야 합니다. 기본 형식 이름은 예약되어 있습니다. [형식](#type)과 같은 이름으로 애플리케이션 역할의 이름을 지정할 수 없습니다.| 예 | 50 |
 | Description | 애플리케이션 역할에 대한 설명. | 아닙니다. | 255 |
 
 ### <a name="application-roles-example"></a>애플리케이션 역할 예제
@@ -394,7 +394,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 
 | 필드 | Description | 필수 | 최대 길이 |
 |-------|-------------|:--------:|-----------:|
-| 이름 | 속성 또는 매개 변수의 고유 이름. 해당 스마트 계약은 적용 가능한 속성 또는 매개 변수에 대해 동일한 **Name**을 사용해야 합니다. | 예 | 50 |
+| Name | 속성 또는 매개 변수의 고유 이름. 해당 스마트 계약은 적용 가능한 속성 또는 매개 변수에 대해 동일한 **Name**을 사용해야 합니다. | 예 | 50 |
 | DisplayName | 속성 또는 매개 변수의 친숙한 표시 이름. | 예 | 255 |
 | Description | 속성 또는 매개 변수에 대한 설명. | 아닙니다. | 255 |
 

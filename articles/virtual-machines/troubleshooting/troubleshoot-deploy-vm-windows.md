@@ -4,7 +4,7 @@ description: Azure Resource Manager 배포 모델에서 배포 Windows 가상 �
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 4e383427-4aff-4bf3-a0f4-dbff5c6f0c81
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 5752731f08a7dc9ae8661e698aef9655837c6220
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 76841484595b0a8809b8ab10db3199fc8cd28b04
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60593257"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710447"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Azure에서 Windows 가상 머신 배포 문제 해결
 
@@ -63,7 +63,7 @@ Azure 하이브리드 사용 혜택을 사용하여 Windows 가상 머신을 배
 
 • 사용자 지정 VM을 업로드하거나 Resource Manager 템플릿 또는 Azure PowerShell을 사용하여 배포합니다.
 
-자세한 내용은 다음 리소스를 참조하세요.
+자세한 내용은 다음 리소스를 참조하십시오.
 
  - [Azure Hybrid Use Benefit 개요](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 

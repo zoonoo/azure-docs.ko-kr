@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 09/14/2018
 ms.author: antchu
 ms.custom: include file
-ms.openlocfilehash: 4e8bdc63daa7450a88c2fcf4b7e878e18cea260d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: ac77f0b6a1d90fd78db64618c1e03ade198a67c0
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182571"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882124"
 ---
 ## <a name="create-an-azure-signalr-service-instance"></a>Azure SignalR Service 인스턴스 만들기
 
@@ -34,6 +34,7 @@ ms.locfileid: "67182571"
     | **위치**: | 미국 서부 | 근처 [지역](https://azure.microsoft.com/regions/)을 선택하세요. |
     | **가격 책정 계층** | 무료 | Azure SignalR Service를 체험해 보세요. |
     | **단위 수** |  해당 없음 | 단위 수는 SignalR Service 인스턴스가 허용할 수 있는 연결 수를 지정합니다. 표준 계층에서만 구성할 수 있습니다. |
+    | **서비스 모드** |  서버를 사용하지 않음 | Azure Functions 또는 REST API와 함께 사용합니다. |
 
     ![SignalR Service 만들기](../media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-create.png)
 

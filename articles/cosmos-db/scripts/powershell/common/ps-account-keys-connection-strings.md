@@ -1,19 +1,19 @@
 ---
-title: Azure PowerShell 스크립트-계정 키 및 연결 문자열을 Azure Cosmos 계정에 대 한 작업
-description: Azure PowerShell 스크립트 샘플-Azure Cosmos 계정의 계정 키 및 연결 문자열 작업
+title: Azure PowerShell 스크립트 - Azure Cosmos 계정에 대한 계정 키 및 연결 문자열 작업
+description: Azure PowerShell 스크립트 샘플 - Azure Cosmos 계정에 대한 계정 키 및 연결 문자열 작업
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: a7f86bfee0ee2472260b622dc709dc437e53414c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 55f28ef6c6ff82f0b82b10ac1dd7931ac46aa2fc
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247861"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67602503"
 ---
-# <a name="connection-string-and-account-key-operations-for-an-azure-cosmos-account-using-powershell"></a>연결 문자열 및 계정 키 PowerShell을 사용 하 여 Azure Cosmos 계정에 대 한 작업
+# <a name="connection-string-and-account-key-operations-for-an-azure-cosmos-account-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos 계정에 대한 연결 문자열 및 계정 키 작업
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -21,7 +21,7 @@ ms.locfileid: "66247861"
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-이 샘플 리소스 그룹 및 계정을 존재 해야 합니다. 기존 PowerShell을 사용 하 여 먼저 계정을 프로 비전 하는 샘플을 만듭니다.
+이 샘플에는 리소스 그룹 및 계정이 있어야 합니다. 기존 PowerShell 만들기 샘플을 사용하여 계정을 먼저 프로비저닝합니다.
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-keys-connection-strings.ps1 "Connection strings and account keys for Azure Cosmos account")]
 
@@ -40,7 +40,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 | 명령 | 메모 |
 |---|---|
 |**Azure 리소스**| |
-| [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction) | 리소스에 대 한 작업을 호출합니다. |
+| [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction) | 리소스에서 작업을 호출합니다. |
 |**Azure 리소스 그룹**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 |||

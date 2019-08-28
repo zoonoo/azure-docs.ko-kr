@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: a5842d590a4597253bac39c0b7a6f62e6acad908
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0ac257d4eb9fb9e26739f1a63049751f9298efb5
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66243524"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616778"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용한 성능 및 규모 테스트
 
@@ -42,7 +42,7 @@ Azure Cosmos DB의 성능 향상을 위한 클라이언트 쪽 구성 옵션에 
 **2단계:** App.config에서 EndpointUrl, AuthorizationKey, CollectionThroughput 및 DocumentTemplate(옵션)에 대한 설정을 수정합니다.
 
 > [!NOTE]
-> 높은 처리량의 컬렉션을 프로비전하기 전에 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하여 컬렉션당 비용을 추정합니다. Azure Cosmos DB는 시간 단위로 저장소 및 처리량을 독립적으로 청구합니다. 테스트 후 Azure Cosmos DB 컬렉션을 삭제하거나 처리량을 낮추어 비용을 절감할 수 있습니다.
+> 높은 처리량의 컬렉션을 프로비전하기 전에 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하여 컬렉션당 비용을 추정합니다. Azure Cosmos DB는 시간 단위로 스토리지 및 처리량을 독립적으로 청구합니다. 테스트 후 Azure Cosmos 컨테이너의 처리량을 삭제 하거나 줄여 비용을 절감할 수 있습니다.
 > 
 > 
 

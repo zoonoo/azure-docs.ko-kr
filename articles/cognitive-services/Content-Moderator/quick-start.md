@@ -1,21 +1,21 @@
 ---
 title: '빠른 시작: 웹에서 Content Moderator 사용해 보기 - Content Moderator'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 코드를 작성할 필요 없이 온라인 Content Moderator 검토 도구를 사용하여 Content Moderator의 기본 기능을 테스트합니다.
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: conceptual
-ms.date: 01/10/2019
+ms.topic: quickstart
+ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: d1c65b590fd68f68fdaeb110c0fd00e0c5a6649a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: e5b20bb45c08330c59fc72712b9e65b488c8c68b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127669"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564444"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>빠른 시작: 웹에서 Content Moderator 사용해 보기
 
@@ -69,5 +69,5 @@ Content Moderator 검토 도구를 사용하는 방법에 대해 자세히 알�
 
 앱에서 Moderation API 자체를 사용하는 방법을 알아봅니다.
 - 이미지 조정을 구현합니다. [API 콘솔](try-image-api.md) 또는 [C# 빠른 시작](image-moderation-quickstart-dotnet.md)을 사용하여 이미지를 검사하고 태그, 신뢰도 점수, 기타 추출된 정보를 사용하여 성인/외설 콘텐츠를 검색합니다.
-- 텍스트 조정을 구현합니다. 사용 하 여는 [API 콘솔](try-text-api.md) 사용 또는 [ C# 빠른 시작](text-moderation-quickstart-dotnet.md) 잠재적인 불경 한 언어, 원치 않는 텍스트 컴퓨터 기반 분류 (미리 보기) 및 개인 데이터에 대 한 텍스트 콘텐츠를 검색 합니다.
+- 텍스트 조정을 구현합니다. [API 콘솔](try-text-api.md) 또는 [C# 빠른 시작](text-moderation-quickstart-dotnet.md)을 사용하여 텍스트 콘텐츠에 욕설, 원치 않는 기계 지원 텍스트 분류(미리 보기) 및 개인 데이터가 있는지 검사합니다.
 - 비디오 조정을 구현합니다. [C#의 비디오 조정 방법 가이드](video-moderation-api.md)에 따라 비디오를 검사하고 성인/외설 콘텐츠를 검색합니다. 

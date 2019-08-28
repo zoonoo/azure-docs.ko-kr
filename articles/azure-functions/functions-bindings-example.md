@@ -107,7 +107,7 @@ function generateRandomId() {
 
 ## <a name="class-library-example"></a>클래스 라이브러리 예제
 
-클래스 라이브러리에서 동일한 트리거 및 바인딩 정보(큐 및 테이블 이름, 저장소 계정, 입력 및 출력에 대한 함수 매개 변수)는 function.json 파일 대신 특성에 의해 제공됩니다. 예를 들면 다음과 같습니다.
+클래스 라이브러리에서 동일한 트리거 및 바인딩 정보(큐 및 테이블 이름, 스토리지 계정, 입력 및 출력에 대한 함수 매개 변수)는 function.json 파일 대신 특성에 의해 제공됩니다. 예를 들면 다음과 같습니다.
 
 ```csharp
 public static class QueueTriggerTableOutput

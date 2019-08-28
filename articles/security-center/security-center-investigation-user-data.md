@@ -7,19 +7,19 @@ author: rkarlin
 manager: barbkess
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
-ms.service: operations-management-suite
+ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: bec9be627937913c268d65bb6cdadcf68c7a3fb4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1fd979be117104186b2dfce47cc79947a092eb9e
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60909216"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672337"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Azure Security Center 조사에서 사용자 데이터 관리
 이 아티클에서는 Azure Security Center 조사 기능에서 사용자 데이터를 관리하는 방법에 대한 정보를 제공합니다. 조사 데이터에 저장 됩니다 [Azure Monitor 로그](../log-analytics/log-analytics-overview.md) Security Center에서 노출 합니다. 사용자 데이터 관리에는 데이터를 삭제하거나, 내보내는 기능이 포함됩니다.

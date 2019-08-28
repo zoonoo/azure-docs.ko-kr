@@ -10,12 +10,12 @@ ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 91a074cf98291b105864a69730314efff3482254
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61ea7eb0b81c5489ad2bf20e8148d2481bb4fb13
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62126412"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840169"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Visual Studio Code에서 Azure IoT Edge 모듈 배포
 
@@ -23,11 +23,11 @@ ms.locfileid: "62126412"
 
 이 아티클에서는 JSON 배포 매니페스트를 만든 다음, 해당 파일을 사용하여 IoT Edge 디바이스에 배포를 푸시하는 방법을 보여줍니다. 해당 공유 태그에 따라 다중 디바이스를 대상으로 지정하는 배포를 만드는 방법에 대한 정보는 [대규모 IoT Edge 모듈 배포 및 모니터링](how-to-deploy-monitor.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독의 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)
 * IoT Edge 런타임이 설치된 [IoT Edge 디바이스](how-to-register-device-portal.md)
-* [Visual Studio Code](https://code.visualstudio.com/)
+* 및[Visual Studio Code](https://code.visualstudio.com/)가 있습니다.
 * Visual Studio Code용 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview)
 
 ## <a name="configure-a-deployment-manifest"></a>배포 매니페스트 구성
@@ -71,7 +71,7 @@ Visual Studio Code를 사용하여 모듈을 배포하려면 배포 매니페스
              }
            },
            "modules": {
-             "tempSensor": {
+             "SimulatedTemperatureSensor": {
                "version": "1.0",
                "type": "docker",
                "status": "running",
@@ -95,7 +95,7 @@ Visual Studio Code를 사용하여 모듈을 배포하려면 배포 매니페스
            }
          }
        },
-       "tempSensor": {
+       "SimulatedTemperatureSensor": {
          "properties.desired": {}
        }
      }

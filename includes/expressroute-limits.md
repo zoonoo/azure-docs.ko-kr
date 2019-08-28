@@ -5,17 +5,17 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 05/28/2019
+ms.date: 07/25/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 9f7f9b1504533e0ec503e97c086c380da71671a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45d34297bf37a6e46bc57e95ff49def49051e32e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66299709"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67622111"
 ---
-| Resource | 기본/최대 제한 |
+| 리소스 | 기본/최대 제한 |
 | --- | --- |
 | 구독당 ExpressRoute 회로 |10 |
 | Azure Resource Manager를 사용 하 여 구독 당 지역별 ExpressRoute 회로 |10 |
@@ -42,4 +42,4 @@ ms.locfileid: "66299709"
 | 40 g b p s * |10 |100 |
 | 100 g b p s * |10 |100 |
 
-\* ExpressRoute 직접만
+**100 Gbps ExpressRoute 직접만*

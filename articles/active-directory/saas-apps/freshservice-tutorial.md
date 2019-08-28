@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c87b23c338788804be22639f73acfb61ce8d6973
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 8fbf69ba814b99434e933ed700fb0c8c842c3312
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65989405"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101851"
 ---
 # <a name="tutorial-integrate-freshservice-with-azure-active-directory"></a>자습서: Azure Active Directory와 Freshservice 통합
 
@@ -148,7 +148,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `Britta Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에 username@companydomain.extension을 입력합니다. 예: `BrittaSimon@contoso.com`
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `BrittaSimon@contoso.com`
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 
@@ -167,7 +167,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     ![사용자 추가 링크](common/add-assign-user.png)
 
 1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
-1. SAML 어설션에서 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에게 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
+1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
 ### <a name="create-freshservice-test-user"></a>Freshservice 테스트 사용자 만들기

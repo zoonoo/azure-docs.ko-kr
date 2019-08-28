@@ -47,11 +47,13 @@
 - name: 방법 가이드
   items:
     - name: 적중 항목 강조 표시 처리
-      href: hit-highlighting.md
+      href: ../Bing-Web-Search/hit-highlighting.md
+      maintainContext: true
     - name: 페이지 소식
       href: paging-news.md
     - name: 크기 조정 및 자르기 썸네일
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: API v5에서 v7로 업그레이드
       href: bing-news-upgrade-guide-v5-to-v7.md
     - name: Visual Studio 작업
@@ -75,7 +77,7 @@
         - name: .NET
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingnews?view=azure-dotnet'
         - name: Java
-          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/newssearch?view=azure-java-stable'
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingnewssearch?view=azure-java-stable'
         - name: Python
           href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/newssearch?view=azure-python'
         - name: Node.js

@@ -44,7 +44,7 @@ ms.locfileid: "60879040"
 | Azure Storage Blob |<ul> <li>[Azure 데이터 팩터리](../data-factory/connector-azure-data-lake-store.md)</li> <li>[AdlCopy 도구](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[HDInsight 클러스터에서 실행되는 DistCp](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>스트리밍된 데이터
-애플리케이션, 장치, 센서 등 다양한 원본을 통해 생성할 수 있는 데이터를 나타냅니다. 이 데이터는 다양한 도구를 통해 Data Lake Storage Gen1에 수집할 수 있습니다. 이러한 도구는 일반적으로 데이터를 이벤트별로 실시간으로 캡처하고 처리한 다음, 이벤트를 추가로 처리할 수 있도록 해당 이벤트를 일괄 처리 방식으로 Data Lake Storage Gen1에 씁니다.
+애플리케이션, 디바이스, 센서 등 다양한 원본을 통해 생성할 수 있는 데이터를 나타냅니다. 이 데이터는 다양한 도구를 통해 Data Lake Storage Gen1에 수집할 수 있습니다. 이러한 도구는 일반적으로 데이터를 이벤트별로 실시간으로 캡처하고 처리한 다음, 이벤트를 추가로 처리할 수 있도록 해당 이벤트를 일괄 처리 방식으로 Data Lake Storage Gen1에 씁니다.
 
 다음은 사용할 수 있는 도구입니다.
 
@@ -59,7 +59,7 @@ ms.locfileid: "60879040"
 * [Azure 데이터 팩터리](../data-factory/copy-activity-overview.md)
 
 ### <a name="web-server-log-data-upload-using-custom-applications"></a>웹 서버 로그 데이터(사용자 지정 애플리케이션을 사용하여 업로드)
-웹 서버 로그 데이터 분석은 빅 데이터 응용 프로그램에 대한 일반적인 사용 사례이며 대용량 로그 파일을 Data Lake Storage Gen1에 업로드해야 하므로 이러한 유형의 데이터 세트가 특별히 호출됩니다. 다음 중 아무 도구를 사용하여 이러한 데이터를 업로드하는 고유의 스크립트 또는 애플리케이션을 작성할 수 있습니다.
+웹 서버 로그 데이터 분석은 빅 데이터 애플리케이션에 대한 일반적인 사용 사례이며 대용량 로그 파일을 Data Lake Storage Gen1에 업로드해야 하므로 이러한 유형의 데이터 세트가 특별히 호출됩니다. 다음 중 아무 도구를 사용하여 이러한 데이터를 업로드하는 고유의 스크립트 또는 애플리케이션을 작성할 수 있습니다.
 
 * [Azure CLI](data-lake-store-get-started-cli-2.0.md)
 * [Azure PowerShell](data-lake-store-get-started-powershell.md)
@@ -119,7 +119,7 @@ Data Lake Storage Gen1의 데이터를 사용할 수 있게 되면 지원되는 
 * [Azure 데이터 팩터리](../data-factory/copy-activity-overview.md)
 * [Apache DistCp](data-lake-store-copy-data-wasb-distcp.md)
 
-또한 다음 방법을 사용하여 Data Lake Storage Gen1에서 데이터를 다운로드하는 사용자 고유의 스크립트/응용 프로그램을 작성할 수도 있습니다.
+또한 다음 방법을 사용하여 Data Lake Storage Gen1에서 데이터를 다운로드하는 사용자 고유의 스크립트/애플리케이션을 작성할 수도 있습니다.
 
 * [Azure CLI](data-lake-store-get-started-cli-2.0.md)
 * [Azure PowerShell](data-lake-store-get-started-powershell.md)

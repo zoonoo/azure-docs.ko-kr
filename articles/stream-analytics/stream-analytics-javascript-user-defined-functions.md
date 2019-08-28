@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.openlocfilehash: ff8e61c53774429087ffe1a9137d40b155eb3f68
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: c7414ee159303465d6698ce9c47d04ba37c0c46e
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192278"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329374"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>자습서: Azure Stream Analytics JavaScript 사용자 정의 함수
  
@@ -120,6 +120,8 @@ Object | 레코드
 Array | Array
 Null, Undefined | NULL
 기타 다른 형식(예: 함수 또는 오류) | 지원되지 않음(런타임 오류 발생)
+
+JavaScript 언어는 대/소문자를 구분하며 JavaScript 코드에서 개체 필드의 대/소문자는 들어오는 데이터의 필드 대/소문자와 일치해야 합니다. 호환성 수준이 1.0인 작업은 SQL SELECT 문에서 필드를 소문자로 변환합니다. 호환성 수준 1.1 이상에서 SELECT 문의 필드에는 SQL 쿼리에 지정된 것과 동일한 대/소문자가 있습니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 JavaScript 런타임 오류는 치명적인 것으로 간주되고 활동 로그를 통해 표시됩니다. Azure Portal에서 로그를 검색하려면 작업으로 이동하고 **활동 로그**를 선택합니다.

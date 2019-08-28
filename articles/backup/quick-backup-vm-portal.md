@@ -1,22 +1,22 @@
 ---
 title: Azure 빠른 시작 - Azure Portal을 사용하여 VM 백업
 description: Azure Portal을 사용하여 가상 머신을 백업하는 방법을 알아봅니다.
-services: backup
-author: saurabhsensharma
-manager: shivamg
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 7/17/2018
-ms.author: saurse
+ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: d167ed012e3f0e45988c88b64040208d87623518
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 93c96e89824eccd9f75f84549da647598fe9aec6
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59275503"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688448"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Azure에서 가상 머신 백업
 Azure Portal을 통해 Azure Backup을 만들 수 있습니다. 이 방법은 Azure Backup 및 관련된 모든 리소스를 만들고 구성하기 위한 브라우저 기반 사용자 인터페이스를 제공합니다. 정기적으로 백업을 수행하여 데이터를 보호할 수 있습니다. Azure Backup은 지역 중복 복구 자격 증명 모음에 저장될 수 있는 복구 지점을 만듭니다. 이 문서에서는 Azure Portal에서 VM(가상 머신)을 백업하는 방법을 자세히 설명합니다. 
@@ -43,7 +43,7 @@ Recovery Services 자격 증명 모음은 Azure VM과 같은 각 보호된 리�
 
     ![Azure Portal에서 VM 백업 사용](./media/quick-backup-vm-portal/enable-backup.png)
 
-    기본적으로 자격 증명 모음이 지역 중복 저장소에 설정됩니다. 데이터를 추가로 보호하려면 이 저장소 중복 수준을 통해 백업 데이터를 주 지역으로부터 수백 마일 떨어진 보조 Azure 지역에 복제하도록 합니다.
+    기본적으로 자격 증명 모음이 지역 중복 스토리지에 설정됩니다. 데이터를 추가로 보호하려면 이 스토리지 중복 수준을 통해 백업 데이터를 주 지역으로부터 수백 마일 떨어진 보조 Azure 지역에 복제하도록 합니다.
 
     정책을 만들고 사용하여 백업 작업을 실행하는 시점 및 복구 지점이 저장되는 기간을 정의합니다. 기본 보호 정책은 매일 백업 작업을 실행하고 복구 지점을 30일 동안 유지합니다. VM을 신속하게 보호하기 위해 이러한 기본 정책 값을 사용할 수 있습니다. 
 
@@ -53,7 +53,7 @@ Recovery Services 자격 증명 모음을 만드는 데 몇 분 정도 걸립니
 
 
 ## <a name="start-a-backup-job"></a>백업 작업 시작
-예약된 시간에 작업을 실행하는 기본 정책을 대기하지 않고 지금 백업을 시작할 수 있습니다. 이 첫 번째 백업 작업에서 전체 복구 지점이 생성됩니다. 이 초기 백업 후에 각 백업 작업에서 증분 복구 지점이 생성됩니다. 증분 복구 지점은 마지막 백업 이후 변경된 내용만을 전송하기 때문에 저장소 및 시간 효율적입니다.
+예약된 시간에 작업을 실행하는 기본 정책을 대기하지 않고 지금 백업을 시작할 수 있습니다. 이 첫 번째 백업 작업에서 전체 복구 지점이 생성됩니다. 이 초기 백업 후에 각 백업 작업에서 증분 복구 지점이 생성됩니다. 증분 복구 지점은 마지막 백업 이후 변경된 내용만을 전송하기 때문에 스토리지 및 시간 효율적입니다.
 
 1. VM의 **백업** 창에서 **지금 백업**을 선택합니다.
 

@@ -1,17 +1,17 @@
 ---
 title: Azure Data Catalog 만들기
-description: Azure Data Catalog를 만드는 방법에 대한 빠른 시작입니다.
+description: 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Data Catalog를 만드는 방법을 설명합니다.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
-ms.date: 04/05/2019
-ms.openlocfilehash: f00e9eaf56f3973b357792a8d1923a4b5998e0a2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.date: 08/01/2019
+ms.openlocfilehash: 854760ea0158d356cc5449c9f1fdab6161588640
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997736"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976870"
 ---
 # <a name="quickstart-create-an-azure-data-catalog"></a>빠른 시작: Azure Data Catalog 만들기
 
@@ -19,7 +19,7 @@ Azure Data Catalog는 기업 데이터 자산의 등록 시스템 및 검색 시
 
 이 빠른 시작은 Azure Data Catalog 만들기를 시작하는 데 도움이 됩니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. [Azure Portal](https://portal.azure.com) > **리소스 만들기**로 이동하고 **Data Catalog**를 선택합니다.
 
-    ![Data Catalog 만들기](media/data-catalog-get-started/data-catalog-create.png)
+    ![Azure Data Catalog 만들기 단추](media/data-catalog-get-started/data-catalog-create.png)
 
 2. 데이터 카탈로그의 **이름**, 사용하려는 **구독** 및 카탈로그의 **위치**, **가격 책정 계층**을 지정합니다. 그런 다음 **만들기**를 선택합니다.
 
@@ -88,7 +88,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
     ![Azure Data Catalog - Azure 찾아보기](media/data-catalog-get-started/data-catalog-browse-azure-portal.png)
 
-     만든 데이터 카탈로그가 표시됩니다.
+    만든 데이터 카탈로그가 표시됩니다.
 
     ![Azure Data Catalog - 목록에서 카탈로그 보기](media/data-catalog-get-started/data-catalog-azure-portal-show-catalog.png)
 

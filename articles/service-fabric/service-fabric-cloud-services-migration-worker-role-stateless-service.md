@@ -121,7 +121,7 @@ Cloud Services 환경 API는 현재 VM 인스턴스에 대한 정보 및 기능 
 | **환경 작업** | **Cloud Services** | **Service Fabric** |
 | --- | --- | --- |
 | 구성 설정 및 변경 알림 |`RoleEnvironment` |`CodePackageActivationContext` |
-| 로컬 저장소 |`RoleEnvironment` |`CodePackageActivationContext` |
+| 로컬 스토리지 |`RoleEnvironment` |`CodePackageActivationContext` |
 | 엔드포인트 정보 |`RoleInstance` <ul><li>현재 인스턴스: `RoleEnvironment.CurrentRoleInstance`</li><li>다른 역할 및 인스턴스: `RoleEnvironment.Roles`</li> |<ul><li>현재 노드 주소의 경우 `NodeContext`</li><li>서비스 엔드포인트 검색의 경우 `FabricClient` 및 `ServicePartitionResolver`</li> |
 | 환경 에뮬레이션 |`RoleEnvironment.IsEmulated` |N/A |
 | 동시 변경 이벤트 |`RoleEnvironment` |N/A |

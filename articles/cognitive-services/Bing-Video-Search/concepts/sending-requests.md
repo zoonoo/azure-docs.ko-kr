@@ -1,21 +1,21 @@
 ---
 title: Bing Video Search API에 검색 요청 전송
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Bing Video Search API에 검색 쿼리를 전송하는 데 관해 알아봅니다.
 services: cognitive-services
 author: aahi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahill
-ms.openlocfilehash: 93c2a5f9cd9fb3141e79559429ae69c0c42a96c1
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
-ms.translationtype: HT
+ms.openlocfilehash: ba2036c58ae54cc665623e63129ecea6c530b27d
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542688"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878981"
 ---
 # <a name="sending-search-requests-to-the-bing-video-search-api"></a>Bing Video Search API에 검색 요청 전송
 

@@ -27,7 +27,7 @@ ms.locfileid: "60320587"
 |K:\Temp\FavoriteMovie.ISO|Blu-Ray™ 디스크 이미지, 25GB|  
 |\\\bigshare\john\music|네트워크 공유에서 음악 파일 컬렉션, 총 10GB|  
   
-가져오기 작업은 저장소 계정의 다음 대상으로 이 데이터를 가져옵니다.  
+가져오기 작업은 스토리지 계정의 다음 대상으로 이 데이터를 가져옵니다.  
   
 |source|대상 가상 디렉터리 또는 Blob|  
 |------------|-------------------------------------------|  
@@ -38,7 +38,7 @@ ms.locfileid: "60320587"
   
 매핑을 사용 하 여이 파일 `H:\Video\Drama\GreatMovie.mov` blob https로 가져온:\//mystorageaccount.blob.core.windows.net/video/Drama/GreatMovie.mov 합니다.  
   
-다음으로 필요한 하드 드라이브 수를 확인하려면 데이터의 크기를 계산합니다.  
+다음으로 필요한 하드 드라이브 수를 확인하려면 데이터의 크기를 컴퓨팅합니다.  
   
 `5TB + 30GB + 25GB + 10GB = 5TB + 65GB`  
   
@@ -52,7 +52,7 @@ ms.locfileid: "60320587"
 |K:\Temp\FavoriteMovies.ISO|25GB|https:\//mystorageaccount.blob.core.windows.net/favorite/FavoriteMovies.ISO|  
 |\\\bigshare\john\music|10 GB|https:\//mystorageaccount.blob.core.windows.net/music|  
   
- `H:\Video` 디렉터리가 두 개의 디렉터리로 분할되었더라도 저장소 계정에서 동일한 대상 가상 디렉터리를 가리키도록 합니다. 이러한 방식으로 모든 비디오 파일을 저장소 계정의 `video` 단일 컨테이너에 유지합니다.  
+ `H:\Video` 디렉터리가 두 개의 디렉터리로 분할되었더라도 스토리지 계정에서 동일한 대상 가상 디렉터리를 가리키도록 합니다. 이러한 방식으로 모든 비디오 파일을 스토리지 계정의 `video` 단일 컨테이너에 유지합니다.  
   
  다음으로 이전 원본 디렉터리가 두 하드 드라이브에 고르게 분산됩니다.  
   
@@ -109,11 +109,11 @@ ms.locfileid: "60320587"
   
 -   두 번째 드라이브는 드라이브 Y로 탑재됩니다.  
   
--   저장소 계정 `mystorageaccount`에 대한 키는 `8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg==`입니다.  
+-   스토리지 계정 `mystorageaccount`에 대한 키는 `8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg==`입니다.  
 
 ## <a name="preparing-disk-for-import-when-data-is-pre-loaded"></a>데이터를 미리 로드하는 경우 가져오기에 대한 디스크 준비
  
- 가져올 데이터가 이미 디스크에 있으면 /skipwrite 플래그를 사용합니다. /t와 /srcdir의 값은 모두 가져오기에 대해 준비된 디스크를 가리켜야 합니다. 가져올 데이터 전부가 동일한 대상 가상 디렉터리 또는 저장소 계정의 루트로 이동되지는 않을 경우 각 대상 디렉터리에 대해 별도로 동일한 명령을 실행하고 모든 실행에서 /id 값을 동일하게 유지합니다.
+ 가져올 데이터가 이미 디스크에 있으면 /skipwrite 플래그를 사용합니다. /t와 /srcdir의 값은 모두 가져오기에 대해 준비된 디스크를 가리켜야 합니다. 가져올 데이터 전부가 동일한 대상 가상 디렉터리 또는 스토리지 계정의 루트로 이동되지는 않을 경우 각 대상 디렉터리에 대해 별도로 동일한 명령을 실행하고 모든 실행에서 /id 값을 동일하게 유지합니다.
 
 >[!NOTE] 
 >디스크에서 데이터를 초기화하기 때문에 /format을 지정하지 않습니다. 디스크가 암호화되었는지 여부에 따라 /encrypt 또는 /bk를 지정할 수 있습니다. 

@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: ce559e50d5a34ebad9113f0e21dcb732adc40dd2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f0994f92444da338b18447eb1b248c74df9aa2d2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233766"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566108"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>SQL Database의 확장 이벤트에 대한 이벤트 파일 대상 코드
 
@@ -35,11 +34,11 @@ Microsoft SQL Server의 [이벤트 파일 대상](https://msdn.microsoft.com/lib
   * Azure Storage 컨테이너를 이벤트 파일 대상에 할당합니다.
   * 이벤트 세션 등을 만들고 시작합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager 모듈은 Azure SQL 데이터베이스에서 계속 지원되지만 향후 모든 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
 * Azure 계정 및 구독 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 * 테이블을 만들 수 있는 데이터베이스.
@@ -52,7 +51,7 @@ Microsoft SQL Server의 [이벤트 파일 대상](https://msdn.microsoft.com/lib
   * [직접 다운로드 링크](https://go.microsoft.com/fwlink/?linkid=616025)
 * [Azure PowerShell 모듈](https://go.microsoft.com/?linkid=9811175) 이 설치되어 있어야 합니다.
   
-  * 예:-모듈의 명령을 제공 **새로 만들기-AzStorageAccount**합니다.
+  * 모듈은- **AzStorageAccount**등의 명령을 제공 합니다.
 
 ## <a name="phase-1-powershell-code-for-azure-storage-container"></a>1단계: Azure Storage 컨테이너용 PowerShell 코드
 
@@ -72,7 +71,7 @@ Microsoft SQL Server의 [이벤트 파일 대상](https://msdn.microsoft.com/lib
 
 ### <a name="powershell-code"></a>PowerShell 코드
 
-이 PowerShell 스크립트 Az 모듈이 이미 설치 했다고 가정 합니다. 정보를 참조 하세요 [Azure PowerShell 모듈을 설치](/powershell/azure/install-Az-ps)합니다.
+이 PowerShell 스크립트는 Az module을 이미 설치 했다고 가정 합니다. 자세한 내용은 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조 하세요.
 
 ```powershell
 ## TODO: Before running, find all 'TODO' and make each edit!!
@@ -464,9 +463,9 @@ GO
 
 ## <a name="output"></a>출력
 
-Transact-SQL 스크립트가 완료되면 **event_data_XML** 열 헤더 아래 셀을 클릭합니다. 하나의  **\<이벤트 >** 요소는 하나의 UPDATE 문이 표시 됩니다.
+Transact-SQL 스크립트가 완료되면 **event_data_XML** 열 헤더 아래 셀을 클릭합니다. 하나의 UPDATE 문을 표시 하는 하나의  **\<이벤트 >** 요소가 표시 됩니다.
 
-같습니다  **\<이벤트 >** 테스트 중 생성 된 요소:
+다음은 테스트 중에 생성 된 하나의  **\<이벤트 >** 요소입니다.
 
 
 ```xml

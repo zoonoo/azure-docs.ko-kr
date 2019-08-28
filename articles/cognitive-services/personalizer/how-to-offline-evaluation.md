@@ -1,21 +1,21 @@
 ---
-title: 오프라인 평가
-titleSuffix: Personalizer - Azure Cognitive Services
+title: 오프 라인 평가-Personalizer
+titleSuffix: Azure Cognitive Services
 description: 오프라인 평가를 통해 학습 루프를 분석하는 방법 알아보기
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/07/2019
-ms.author: edjez
-ms.openlocfilehash: e99a8242e438ef5a8ab7fd917724450f8080bb41
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: HT
+ms.author: diberry
+ms.openlocfilehash: a8a75601daf36ca21ea56a5930219d7d467f0c85
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026641"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69557813"
 ---
 # <a name="how-to-analyze-your-learning-loop-with-an-offline-evaluation"></a>오프라인 평가를 통해 학습 루프를 분석하는 방법
 
@@ -27,10 +27,10 @@ ms.locfileid: "65026641"
 자세한 내용은 [오프라인 평가](concepts-offline-evaluation.md)를 참조하세요.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 1. Personalizer 루프가 구성되어 있어야 합니다.
-1. 의미 있는 평가 결과를 얻으려면 Personalizer 루프의 로그에 50,000개 이상의 이벤트가 있어야 합니다.
+1. Personalizer 루프에는 의미 있는 평가 결과를 위해 로그에서 5만 개 이상의 이벤트를 recommmend 하는 개략적인 데이터의 대표 금액이 있어야 합니다.
 
 필요에 따라 이전에 내보낸 _학습 정책_ 파일을 동일한 평가에서 비교하고 테스트할 수 있습니다.
 

@@ -1,24 +1,24 @@
 ---
-title: 'Azure 빠른 시작: Java Storage SDK V10을 사용하여 개체 스토리지에 Blob 만들기 | Microsoft Docs'
+title: '빠른 시작: Java Storage SDK를 사용하여 Blob 만들기'
 description: 이 빠른 시작에서는 Java Storage SDK를 사용하여 개체(Azure Blob) 스토리지에 컨테이너를 만들고, 파일을 업로드하고, 개체를 나열하고, 다운로드합니다.
-services: storage
 author: mhopkins-msft
-ms.custom: mvc
+ms.author: mhopkins
+ms.date: 11/14/2018
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/14/2018
-ms.author: mhopkins
-ms.reviewer: seguler
-ms.openlocfilehash: f023f3fdbc82960f3994f8e5763310dc95ca1c2f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.custom: seo-java-july2019
+ms.openlocfilehash: 633054d0e06a78124b8fdcefface665b2bf8c25d
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152794"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900451"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10"></a>빠른 시작: Java Storage SDK V10을 사용하여 Blob 업로드, 다운로드 및 나열
 
 이 빠른 시작에서 새 Java Storage SDK를 사용하여 Azure Blob Storage의 컨테이너에 블록 Blob을 업로드하고, 다운로드하고, 나열하는 방법을 알아봅니다. 새 Java SDK는 RxJava를 통해 사후 프로그래밍 모델을 사용하여 비동기 연산을 제공합니다. RxJava [Java VM용 사후 확장](https://github.com/ReactiveX/RxJava)에 대해 자세히 알아보세요. 
+
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -45,19 +45,19 @@ git clone https://github.com/Azure-Samples/storage-blobs-java-v10-quickstart.git
 
 [!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
-## <a name="configure-your-storage-connection-string"></a>저장소 연결 문자열 구성
-이 솔루션은 저장소 계정의 이름 및 키를 안전하게 저장해야 합니다. 샘플을 실행하는 머신에 로컬인 환경 변수에 저장합니다. 운영 체제에 따라 Linux 또는 Windows 예제를 따라 환경 변수를 만듭니다.
+## <a name="configure-your-storage-connection-string"></a>스토리지 연결 문자열 구성
+이 솔루션은 스토리지 계정의 이름 및 키를 안전하게 저장해야 합니다. 샘플을 실행하는 머신에 로컬인 환경 변수에 저장합니다. 운영 체제에 따라 Linux 또는 Windows 예제를 따라 환경 변수를 만듭니다.
 
 ### <a name="linux-example"></a>Linux 예제
 
-```
+```bash
 export AZURE_STORAGE_ACCOUNT="<youraccountname>"
 export AZURE_STORAGE_ACCESS_KEY="<youraccountkey>"
 ```
 
 ### <a name="windows-example"></a>Windows 예제
 
-```
+```CMD
 setx AZURE_STORAGE_ACCOUNT "<youraccountname>"
 setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
 ```
@@ -74,7 +74,7 @@ setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
 
 이 예제는 Windows에서 애플리케이션을 실행할 때의 출력을 보여줍니다.
 
-```
+```Output
 Created quickstart container
 Enter a command
 (P)utBlob | (L)istBlobs | (G)etBlob | (D)eleteBlobs | (E)xitSample
@@ -101,7 +101,7 @@ Cleaning up the sample and exiting!
 
 샘플을 제어할 수 있으므로 코드를 실행하는 명령을 입력합니다. 입력은 대/소문자를 구분합니다.
 
-[Azure Storage 탐색기](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 같은 도구를 사용하여 Blob Storage의 파일을 볼 수도 있습니다. Azure Storage Explorer는 스토리지 계정 정보에 액세스할 수 있는 무료 플랫폼 간 도구입니다. 
+[Azure Storage Explorer](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 같은 도구를 사용하여 Blob Storage의 파일을 볼 수도 있습니다. Azure Storage Explorer는 스토리지 계정 정보에 액세스할 수 있는 무료 플랫폼 간 도구입니다. 
 
 파일을 확인합니다. 그런 다음, **E**를 선택하고 **Enter** 키를 눌러 데모를 완료하고 테스트 파일을 삭제합니다. 이 샘플의 용도를 파악했으므로 **Quickstart.java** 파일을 열고 코드를 확인합니다. 
 
@@ -109,7 +109,7 @@ Cleaning up the sample and exiting!
 
 다음 섹션에서는 작동 방식을 이해할 수 있도록 샘플 코드를 연습해 보겠습니다.
 
-### <a name="get-references-to-the-storage-objects"></a>저장소 개체에 대한 참조 가져오기
+### <a name="get-references-to-the-storage-objects"></a>스토리지 개체에 대한 참조 가져오기
 
 먼저 Blob Storage에 액세스하고 관리하는 데 사용되는 개체의 참조를 만듭니다. 이러한 개체는 서로를 기반으로 합니다. 각각은 목록의 그 다음 개체에서 사용됩니다.
 
@@ -289,5 +289,5 @@ containerURL.delete(null).blockingGet();
 
 > [!div class="nextstepaction"]
 > [Java 소스 코드에 대한 Storage SDK V10](https://github.com/Azure/azure-storage-java/)
-> [API 참조](https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-stable)
+> [API 참조](https://docs.microsoft.com/java/api/overview/azure/storage)
 > [RxJava에 대해 자세히 알아보기](https://github.com/ReactiveX/RxJava)

@@ -69,7 +69,7 @@ Azure|해당 없음|예
 
 모든 IIS 웹 팜 가상 머신을 Azure로 복제하려면 [Site Recovery에서 Azure로 장애 조치 테스트](site-recovery-test-failover-to-azure.md)의 지침을 따릅니다.
 
-고정 IP 주소를 사용하는 경우 가상 머신에서 사용할 IP 주소를 지정할 수 있습니다. IP 주소를 설정하려면 **계산 및 네트워크 설정** > **대상 IP**로 차례로 이동합니다.
+고정 IP 주소를 사용하는 경우 가상 머신에서 사용할 IP 주소를 지정할 수 있습니다. IP 주소를 설정하려면 **컴퓨팅 및 네트워크 설정** > **대상 IP**로 차례로 이동합니다.
 
 ![Site Recovery 계산 및 네트워크 창에서 대상 IP를 설정하는 방법을 보여주는 스크린샷](./media/site-recovery-active-directory/dns-target-ip.png)
 

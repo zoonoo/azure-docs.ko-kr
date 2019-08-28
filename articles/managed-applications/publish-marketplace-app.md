@@ -8,14 +8,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 06/04/2019
+ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 40132f67b135b0dc081180c34361047e59776b81
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: 0e2e161c22ee87d11156c4818bd689c316799e87
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688573"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305611"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Marketplace에서 Azure 관리되는 애플리케이션
 
@@ -27,7 +27,7 @@ ms.locfileid: "66688573"
 
 이 문서를 완료하려면 먼저 관리되는 애플리케이션 정의에 대한 .zip 파일이 필요합니다. 자세한 내용은 [서비스 카탈로그 애플리케이션 만들기](publish-service-catalog-app.md)를 참조하세요.
 
-또한 여러 비즈니스 사전 요구 사항이 있습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
+여러 가지 비즈니스 사전 요구 사항이 있습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
 
 * 회사 또는 해당 자회사는 Marketplace에서 지원하는 판매처 국가/지역에 위치해야 합니다.
 * 제품은 마켓플레이스에서 지원하는 청구 모델과 호환되는 방식으로 허가를 받아야 합니다.
@@ -37,14 +37,7 @@ ms.locfileid: "66688573"
 * Azure Marketplace 참가 정책 및 게시자 약관의 조건에 동의합니다.
 * 사용 약관, Microsoft 개인정보처리방침 및 Microsoft Azure Certified 프로그램 계약을 준수한다는 데 동의합니다.
 
-## <a name="become-a-publisher"></a>게시자 되기
-
-Azure Marketplace에서 게시자가 되려면 다음을 수행해야 합니다.
-
-1. Microsoft ID 만들기 - 회사 도메인에 속하지만 단일 개인이 아닌 메일 주소를 사용하여 Microsoft 계정을 만듭니다. 이 메일 주소는 Microsoft 개발자 센터 및 Cloud 파트너 포털에 모두 사용됩니다. 자세한 내용은 [Azure Marketplace 게시자 가이드](https://aka.ms/sellerguide)를 참조하세요.
-1. [Azure Marketplace 추천 양식](https://aka.ms/ampnomination) 제출 - **Solution that you intend to publish?** (게시할 솔루션)를 보려면 **관리형 애플리케이션**을 선택합니다. 양식이 제출되면 Marketplace 온보딩 팀에서 애플리케이션을 검토하고 요청의 유효성을 검사합니다. 승인 프로세스는 1~3일이 걸릴 수 있습니다. 추천이 승인되면 개발자 센터에 대한 등록 요금을 면제받을 수 있는 프로모션 코드를 받게 됩니다. Marketplace 추천 양식을 완료하지 **않을** 경우 $99의 등록 요금이 청구됩니다.
-1. [개발자 센터](https://dev.windows.com/registration?accountprogram=azure)에 등록 - Microsoft는 조직이 등록된 국가/지역의 올바른 세금 ID를 가진 유효한 법인인지 유효성을 검사합니다. 승인 프로세스는 5~10일이 걸릴 수 있습니다. 등록 요금을 내지 않으려면 추천 프로세스에서 메일로 받은 프로모션 코드를 사용합니다. 자세한 내용은 [Azure Marketplace 게시자 가이드](https://aka.ms/sellerguide)를 참조하세요.
-1. [Cloud 파트너 포털](https://cloudpartner.azure.com)에 로그인 - 게시자 프로필에서 Marketplace 게시자 프로필에 개발자 센터 계정을 연결합니다. 자세한 내용은 [Azure Marketplace 게시자 가이드](https://aka.ms/sellerguide)를 참조하세요.
+또한 Marketplace 계정이 있어야 합니다. 계정을 만들려면 [파트너 센터에서 상용 Marketplace 계정을 만드는 방법](..//marketplace/partner-center-portal/create-account.md)을 참조하세요.
 
 ## <a name="create-a-new-azure-application-offer"></a>새 Azure 애플리케이션 제품 만들기
 
@@ -105,6 +98,10 @@ SKU는 마켓플레이스의 부모 제품 아래에 표시됩니다. Azure Port
    * **패키지 파일(.zip)** : 이 패키지에는 .zip 패키지로 압축된 두 개의 필수 파일이 포함되어 있습니다. 한 파일은 관리되는 애플리케이션에 배포할 리소스를 정의하는 Resource Manager 템플릿입니다. 다른 한 파일은 포털을 통해 관리되는 애플리케이션을 배포하는 소비자를 위한 [사용자 인터페이스](create-uidefinition-overview.md)를 정의합니다. 사용자 인터페이스에서 소비자가 매개 변수 값을 제공할 수 있도록 하는 요소를 지정합니다.
    * **테넌트 ID**: 계정에 액세스할 수 있는 테넌트 ID입니다.
    * **JIT 액세스 사용**: **예**를 선택하여 계정에 대한 [Just-In-Time 액세스 제어](request-just-in-time-access.md)를 활성화합니다. 사용하도록 설정하면 지정된 기간 동안 소비자의 계정에 대한 액세스를 요청합니다. 관리형 애플리케이션의 소비자 계정에 영구 액세스 권한을 부여하도록 요구하려면 **아니요**를 선택합니다.
+   * **허용되는 고객 작업을 사용자 지정하시겠습니까?** : 관리되는 리소스에서 소비자가 수행할 수 있는 작업을 지정하려면 **예**를 선택합니다.
+   * **허용되는 고객 작업**: 이전 설정에서 **예**를 선택하는 경우 [Azure 리소스에 대한 거부 할당](../role-based-access-control/deny-assignments.md)을 사용하여 소비자에게 허용되는 작업을 지정할 수 있습니다.
+
+     사용 가능한 작업에 대해서는 [Azure Resource Manager 리소스 공급자 작업](../role-based-access-control/resource-provider-operations.md)을 참조하세요. 예를 들어 소비자가 가상 머신을 다시 시작하도록 허용하려면 허용되는 작업에 `Microsoft.Compute/virtualMachines/restart/action`을 추가합니다. `*/read` 작업은 자동으로 허용되므로 해당 설정을 포함할 필요가 없습니다.
    * **PrincipalId**: 이 속성은 고객 구독에서 리소스에 대한 액세스 권한이 부여된 사용자, 사용자 그룹 또는 애플리케이션의 Azure AD(Azure Active Directory) 식별자입니다. 역할 정의는 권한을 설명합니다.
    * **역할 정의**: 이 속성은 Azure AD가 제공한 모든 기본 제공 RBAC(역할 기반 액세스 제어) 역할 목록입니다. 고객을 대신하여 리소스를 관리하는 데 사용할 가장 적합한 역할을 선택할 수 있습니다.
    * **정책 설정**: 배포된 솔루션에 대한 규정 준수 요구 사항을 지정하려면 [Azure Policy](../governance/policy/overview.md)를 관리되는 애플리케이션에 적용합니다. 사용 가능한 옵션에서 적용할 정책을 선택합니다. **정책 매개 변수**의 경우 JSON 문자열에 매개 변수 값을 제공합니다. 매개 변수 값의 형식 및 정책 정의는 [Azure Policy 샘플](../governance/policy/samples/index.md)을 참조하세요.

@@ -1,6 +1,6 @@
 ---
 title: Azure 클래식 Storage 계정, 컨테이너 또는 VHD를 삭제하는 경우 발생하는 오류 문제 해결 | Microsoft Docs
-description: 연결된 VHD가 포함된 저장소 리소스를 삭제할 때 발생하는 문제 해결 방법입니다.
+description: 연결된 VHD가 포함된 스토리지 리소스를 삭제할 때 발생하는 문제 해결 방법입니다.
 services: storage
 author: AngshumanNayakMSFT
 tags: top-support-issue,azure-service-management

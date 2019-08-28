@@ -3,16 +3,17 @@ title: Azure Container Instances 리소스 가용성
 description: 여러 다른 Azure 지역의 Azure Container Instances 서비스에 대한 컴퓨팅 및 메모리 리소스 가용성입니다.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: overview
 ms.date: 05/14/2019
 ms.author: danlep
-ms.openlocfilehash: 64b60178413e470cc7fe9b3991c6fc29b5a0f860
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 14e7b9a3ea11e59aabeb901c4039e69208ea0cfd
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794312"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325714"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Azure 지역의 Azure Container Instances에 대한 리소스 가용성
 
@@ -35,9 +36,9 @@ ms.locfileid: "65794312"
 | 유럽 서부, 미국 서부 2 | Linux | 4 | 14 |
 | 오스트레일리아 동부, 일본 동부 | Linux | 2 | 8 |
 | 미국 중북부, 인도 남부 | Linux | 2 | 3.5 |
-| 서유럽 |  Windows | 4 | 16 |
-| 미국 동부, 미국 서부 |  Windows | 4 | 14 |
-| 오스트레일리아 동부, 캐나다 중부, 인도 중부, 미국 중부, 동아시아, 미국 동부 2, 일본 동부, 미국 중북부, 유럽 북부, 미국 중남부, 동남 아시아, 인도 남부, 영국 남부, 미국 서부 2 |  Windows | 2 | 3.5 |
+| 서유럽 | Windows | 4 | 16 |
+| 미국 동부, 미국 서부 | Windows | 4 | 14 |
+| 오스트레일리아 동부, 캐나다 중부, 인도 중부, 미국 중부, 동아시아, 미국 동부 2, 일본 동부, 미국 중북부, 유럽 북부, 미국 중남부, 동남 아시아, 인도 남부, 영국 남부, 미국 서부 2 | Windows | 2 | 3.5 |
 
 ## <a name="availability---windows-server-2019-ltsc-1809-deployments-preview"></a>가용성 - Windows Server 2019 LTSC, 1809 배포(미리 보기)
 
@@ -45,8 +46,8 @@ ms.locfileid: "65794312"
 
 | 위치 | OS | CPU | 메모리(GB) |
 | -------- | -- | :---: | :-----------: |
-| 동남 아시아, 북유럽, 서유럽, 미국 중부, 미국 동부, 미국 서부, 미국 서부 2 |  Windows | 4 | 16 |
-| 미국 동부 2 |  Windows | 2 | 3.5 |
+| 동남 아시아, 북유럽, 서유럽, 미국 중부, 미국 동부, 미국 서부, 미국 서부 2 | Windows | 4 | 16 |
+| 미국 동부 2 | Windows | 2 | 3.5 |
 
 
 ## <a name="availability---virtual-network-deployment-preview"></a>가용성 - 가상 네트워크 배포(미리 보기)

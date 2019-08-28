@@ -5,17 +5,17 @@ services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: hedidin
-ms.author: b-hoedid
-ms.reviewer: estfan, LADocs
+ms.author: estfan
+ms.reviewer: LADocs
 ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: 58e59e4faa135e24124f494d90437b49caa30129
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ec01f738ee4943659de1b49ab8d52218e6a8fb79
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60599462"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385469"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>시나리오: 논리 앱에 대한 예외 처리 및 오류 로깅
 
@@ -485,4 +485,4 @@ Logic Apps 예외 관리 API 애플리케이션에 대한 소스 코드는 이 [
 
 * [논리 앱 예제 및 시나리오 더 보기](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Logic Apps 모니터링에 대해 알아보기](../logic-apps/logic-apps-monitor-your-logic-apps.md)
-* [Logic Apps용 자동화된 배포 템플릿 만들기](../logic-apps/logic-apps-create-deploy-template.md)
+* [논리 앱 배포 자동화](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)

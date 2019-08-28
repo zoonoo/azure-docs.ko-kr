@@ -10,12 +10,13 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 7ea0b246a16ff196a4160d9822b5db15cd39a4a6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 857e899764d284e2d78f1172fa8eeac04c57d618
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66385194"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705188"
 ---
 # <a name="managing-user-data"></a>사용자 데이터 관리
 
@@ -39,7 +40,7 @@ Conversation Learner는 각 기록된 대화에 대한 고유 ID를 만듭니다
 
 기록된 대화를 사용자 ID에 연결하는 기능이 중요한 경우가 많습니다. 예를 들어 특정 사용자에서 기록된 대화를 검색하거나 삭제하는 데 필요합니다.  Conversation Learner는 사용자 식별자를 저장하지 않으므로 이 연결은 개발자의 코드에서 유지 관리해야 합니다.  
 
-이 매핑을 만들려면 `EntityDetectionCallback`에서 기록된 대화의 ID를 가져온 다음, 봇의 저장소에 사용자 ID와 이 기록된 대화 간의 연결을 저장합니다.  
+이 매핑을 만들려면 `EntityDetectionCallback`에서 기록된 대화의 ID를 가져온 다음, 봇의 스토리지에 사용자 ID와 이 기록된 대화 간의 연결을 저장합니다.  
 
 ```
 cl.EntityDetectionCallback(async (text: string, memoryManager: ClientMemoryManager): Promise<void> => {

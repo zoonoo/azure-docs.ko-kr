@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 122028217a78463fa2ceaed63248a74257206345
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: eb2a6933b711804f957056353d7d609dbdbbe5d5
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66808781"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036460"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>자습서: Windows 디바이스용 C# IoT Edge 모듈 개발
 
@@ -51,10 +51,10 @@ Visual Studio를 사용하여 C# 코드를 개발하고 Azure IoT Edge를 실행
 * [Azure IoT Edge를 실행하는 Windows 디바이스](quickstart.md)
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/)와 같은 컨테이너 레지스트리
 * [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) 확장을 사용하여 구성된 [Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio)
-* Windows 컨테이너를 실행하도록 구성된 [Docker CE](https://docs.docker.com/install/)
+* Windows 컨테이너를 실행하도록 구성된 [Docker Desktop](https://docs.docker.com/docker-for-windows/install/).
 
 > [!TIP]
-> Visual Studio 2017(버전 15.7 이상)을 사용하는 경우 Visual Studio Marketplace에서 VS 2017용 [Azure IoT Edge Tools(미리 보기)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)를 다운로드하여 설치합니다.
+> Visual Studio 2017(버전 15.7 이상)을 사용하는 경우 Visual Studio Marketplace에서 VS 2017용 [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)를 다운로드하여 설치합니다.
 
 ## <a name="create-a-module-project"></a>모듈 프로젝트 만들기
 
@@ -268,7 +268,7 @@ Azure IoT Edge Tools에서는 Visual Studio에서 지원되는 모든 IoT Edge �
 
 8. Program.cs 파일을 저장합니다.
 
-9. IoT Edge 솔루션에서 **deployment.template.json** 파일을 엽니다. 이 파일은 배포할 모듈(이 경우 **tempSensor** 및 **CSharpModule**)을 IoT Edge 에이전트에 알려주고, 메시지를 라우팅하는 방법을 IoT Edge 허브에 알려줍니다.
+9. IoT Edge 솔루션에서 **deployment.template.json** 파일을 엽니다. 이 파일은 배포할 모듈(이 경우 **SimulatedTemperatureSensor** 및 **CSharpModule**)을 IoT Edge 에이전트에 알려주고, 메시지를 라우팅하는 방법을 IoT Edge 허브에 알려줍니다.
 
 10. **CSharpModule** 모듈 쌍을 배포 매니페스트에 추가합니다. **$edgeHub** 모듈 쌍 뒤에 있는 **modulesContent** 섹션의 아래쪽에 다음 JSON 내용을 삽입합니다. 
 
@@ -295,7 +295,7 @@ Azure IoT Edge Tools에서는 Visual Studio에서 지원되는 모든 IoT Edge �
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-   `--password-stdin` 사용을 권장하는 보안 경고가 표시될 수 있습니다. 이 모범 사례는 프로덕션 시나리오에 권장되지만 이 자습서에는 포함되지 않습니다. 자세한 내용은 [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) 참조를 참조하세요.
+   `--password-stdin` 사용을 권장하는 보안 경고가 표시될 수 있습니다. 이 모범 사례는 프로덕션 시나리오에 권장되지만 이 자습서의 범위를 벗어납니다. 자세한 내용은 [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) 참조를 참조하세요.
 
 2. Visual Studio 솔루션 탐색기에서 빌드하려는 프로젝트 이름을 마우스 오른쪽 단추로 클릭합니다. 기본 이름은 **AzureIotEdgeApp1**이며, Windows 모듈을 빌드해야 하므로 확장은 **Windows.Amd64**가 됩니다. 
 

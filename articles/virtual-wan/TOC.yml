@@ -10,8 +10,6 @@
       href: virtual-wan-site-to-site-portal.md
     - name: ExpressRoute 연결 만들기
       href: virtual-wan-expressroute-portal.md
-    - name: 지점 및 사이트 간 연결 만들기
-      href: virtual-wan-point-to-site-portal.md
 - name: 개념
   items:
     - name: 위치 및 파트너 정보

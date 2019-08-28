@@ -1,29 +1,28 @@
 ---
-title: Azure Dev Spaces를 사용하여 Kubernetes에서 Java로 개발
+title: Azure Dev Spaces를 사용하는 Kubernetes에서 Visual Studio Code 및 Java로 디버깅 및 반복
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 ms.author: zarhoads
-ms.date: 03/22/2019
+ms.date: 07/08/2019
 ms.topic: quickstart
 description: Azure에서 컨테이너 및 마이크로서비스 및 Java로 신속하게 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Java, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
-manager: jeconnoc
-ms.openlocfilehash: b3074fc280098d0aa55292c48a1562b8dfeb3cc0
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+manager: gwallace
+ms.openlocfilehash: 146812a5553643d3cbe3b308d6b7d7bed1e66dad
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503093"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725877"
 ---
-# <a name="quickstart-develop-with-java-on-kubernetes-using-azure-dev-spaces"></a>빠른 시작: Azure Dev Spaces를 사용하여 Kubernetes에서 Java로 개발
+# <a name="quickstart-debug-and-iterate-with-visual-studio-code-and-java-on-kubernetes-using-azure-dev-spaces"></a>빠른 시작: Azure Dev Spaces를 사용하는 Kubernetes에서 Visual Studio Code 및 Java로 디버깅 및 반복
 
 이 가이드에서는 다음을 수행하는 방법을 배우게 됩니다.
 
 - Azure에서 관리되는 Kubernetes 클러스터를 사용하여 Azure Dev Spaces를 설정합니다.
-- Visual Studio Code 및 명령줄을 사용하여 컨테이너에서 반복적으로 코드를 개발합니다.
+- Visual Studio Code를 사용하여 컨테이너에서 반복적으로 코드를 개발합니다.
 - Visual Studio Code의 개발 공간에서 코드를 디버그합니다.
 
 
@@ -70,96 +69,31 @@ Managed Kubernetes cluster 'MyAKS' in resource group 'MyResourceGroup' is ready 
 
 이 문서에서는 [Azure Dev Spaces 샘플 애플리케이션](https://github.com/Azure/dev-spaces)을 사용하여 Azure Dev Spaces 사용법을 시연합니다.
 
-GitHub의 애플리케이션을 복제하고 *dev-spaces/samples/java/getting-started/webfrontend* 디렉터리로 이동합니다.
+GitHub에서 애플리케이션을 복제합니다.
 
 ```cmd
 git clone https://github.com/Azure/dev-spaces
-cd dev-spaces/samples/java/getting-started/webfrontend
 ```
 
-## <a name="prepare-the-application"></a>애플리케이션 준비
-
-`azds prep` 명령을 사용하여 Kubernetes에서 애플리케이션을 실행하는 데 필요한 Docker 및 Helm 차트 자산을 생성합니다.
-
-```cmd
-azds prep --public
-```
-
-*dev-spaces/samples/java/getting-started/webfrontend* 디렉터리에서 `prep` 명령을 실행하여 Docker 및 Helm 차트 자산을 올바르게 생성해야 합니다.
-
-## <a name="build-and-run-code-in-kubernetes"></a>Kubernetes에서 코드 빌드 및 실행
-
-`azds up` 명령을 사용하여 AKS에서 코드를 빌드하고 실행합니다.
-
-```cmd
-$ azds up
-Using dev space 'default' with target 'MyAKS'
-Synchronizing files...3s
-Installing Helm chart...8s
-Waiting for container image build...28s
-Building container image...
-Step 1/8 : FROM maven:3.5-jdk-8-slim
-Step 2/8 : EXPOSE 8080
-Step 3/8 : WORKDIR /usr/src/app
-Step 4/8 : COPY pom.xml ./
-Step 5/8 : RUN /usr/local/bin/mvn-entrypoint.sh     mvn package -Dmaven.test.skip=true -Dcheckstyle.skip=true -Dmaven.javadoc.skip=true --fail-never
-Step 6/8 : COPY . .
-Step 7/8 : RUN mvn package -Dmaven.test.skip=true -Dcheckstyle.skip=true -Dmaven.javadoc.skip=true
-Step 8/8 : ENTRYPOINT ["java","-jar","target/webfrontend-0.1.0.jar"]
-Built container image in 37s
-Waiting for container...57s
-Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
-Service 'webfrontend' port 80 (http) is available at http://localhost:54256
-...
-```
-
-`azds up` 명령의 출력에 표시되는 공용 URL을 열어서 실행 중인 서비스를 볼 수 있습니다. 이 예제에서 공용 URL은 *http://webfrontend.1234567890abcdef1234.eus.azds.io/* 입니다.
-
-*Ctrl+c*를 사용하여 `azds up` 명령을 중지하면 서비스가 AKS에서 계속 실행되고, 공용 URL은 사용 가능한 상태로 유지됩니다.
-
-## <a name="update-code"></a>코드 업데이트
-
-서비스의 업데이트된 버전을 배포하려면 프로젝트의 파일을 업데이트하고 `azds up` 명령을 다시 실행하면 됩니다. 예:
-
-1. `azds up`가 계속 실행 중인 경우 *Ctrl+c*를 누르세요.
-1. [`src/main/java/com/ms/sample/webfrontend/Application.java`의 19줄](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19)을 다음으로 업데이트합니다.
-    
-    ```java
-    return "Hello from webfrontend in Azure!";
-    ```
-
-1. 변경 내용을 저장합니다.
-1. `azds up` 명령을 다시 실행합니다.
-
-    ```cmd
-    $ azds up
-    Using dev space 'default' with target 'MyAKS'
-    Synchronizing files...1s
-    Installing Helm chart...3s
-    Waiting for container image build...
-    ...    
-    ```
-
-1. 실행 중인 서비스로 이동하고 변경 내용을 살펴봅니다.
-1. *Ctrl+c*를 눌러서 `azds up` 명령을 중지합니다.
-
-## <a name="enable-visual-studio-code-to-debug-in-kubernetes"></a>Visual Studio Code가 Kubernetes에서 디버깅하도록 허용
+## <a name="prepare-the-sample-application-in-visual-studio-code"></a>Visual Studio Code에서 샘플 애플리케이션 준비
 
 Visual Studio Code를 열고 *파일*, *열기...* 를 차례로 클릭하고 *dev-spaces/samples/java/getting-started/webfrontend* 디렉터리로 이동한 후 *열기*를 클릭합니다.
 
-이제 `azds up` 명령을 사용하여 실행한 것과 동일한 서비스인 *webfrontend* 프로젝트가 Visual Studio Code에 열립니다. `azds up`를 직접 사용하지 않고 Visual Studio Code를 사용하여 AKS에서 이 서비스를 디버그하려면 Visual Studio Code를 사용하여 개발 공간과 통신하도록 이 프로젝트를 준비해야 합니다.
+이제 Visual Studio Code에서 *webfrontend* 프로젝트를 열었습니다. 개발 공간에서 애플리케이션을 실행하려면 명령 팔레트에서 Azure Dev Spaces 확장을 사용하여 Docker 및 Helm 차트 자산을 생성합니다.
 
 Visual Studio Code에서 명령 팔레트를 열려면 *보기*, *명령 팔레트*를 차례로 클릭합니다. `Azure Dev Spaces`를 입력하기 시작하고 `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`를 클릭합니다.
 
 ![Azure Dev Spaces에 대한 구성 파일 준비](./media/common/command-palette.png)
 
-Visual Studio Code에도 기본 이미지와 노출된 포트를 구성하라는 메시지가 표시되면 기본 이미지에 `Azul Zulu OpenJDK for Azure (Free LTS)`를 선택하고 노출된 포트에 `8080`을 선택합니다.
+Visual Studio Code에도 기본 이미지, 노출된 포트 및 공용 엔드포인트를 구성하라는 메시지가 표시되면 기본 이미지에 `Azul Zulu OpenJDK for Azure (Free LTS)`를 선택하고 노출된 포트에 `8080`을 선택하고, `Yes`를 선택하여 공용 엔드포인트를 활성화합니다.
 
 ![기본 이미지 선택](media/get-started-java/select-base-image.png)
 
 ![노출된 포트 선택](media/get-started-java/select-exposed-port.png)
 
-이 명령은 Visual Studio Code에서 바로 Azure Dev Spaces에서 실행하도록 프로젝트를 준비합니다. 또한 프로젝트의 루트에서 디버깅 구성을 사용하여 *.vscode* 디렉터리를 생성합니다.
+![공용 엔드포인트 선택](media/get-started-java/select-public-endpoint.png)
+
+이 명령은 Dockerfile 및 Helm 차트를 생성하여 Azure Dev Spaces에서 실행하도록 프로젝트를 준비합니다. 또한 프로젝트의 루트에서 디버깅 구성을 사용하여 *.vscode* 디렉터리를 생성합니다.
 
 ## <a name="build-and-run-code-in-kubernetes-from-visual-studio"></a>Visual Studio에서 Kubernetes의 코드 빌드 및 실행
 
@@ -167,16 +101,34 @@ Visual Studio Code에도 기본 이미지와 노출된 포트를 구성하라는
 
 ![Java 프로그램 시작](media/get-started-java/debug-configuration.png)
 
-이 명령은 디버깅 모드에서 Azure Dev Spaces의 서비스를 빌드하고 실행합니다. 아래쪽에 있는 *터미널* 창에 Azure Dev Spaces를 실행 중인 서비스의 URL과 빌드 출력이 표시됩니다. *디버그 콘솔*에 로그 출력이 표시됩니다.
+이 명령은 Azure Dev Spaces의 서비스를 빌드하고 실행합니다. 아래쪽에 있는 *터미널* 창에 Azure Dev Spaces를 실행 중인 서비스의 URL과 빌드 출력이 표시됩니다. *디버그 콘솔*에 로그 출력이 표시됩니다.
 
 > [!Note]
 > *명령 팔레트*에 Azure Dev Spaces 명령이 보이지 않으면 [Azure Dev Spaces용 Visual Studio Code 확장 프로그램](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds)을 설치했는지 확인합니다. 또한 Visual Studio Code에서 *dev-spaces/samples/java/getting-started/webfrontend* 디렉터리를 열었는지 확인합니다.
 
+공용 URL을 열어 실행되는 서비스를 볼 수 있습니다.
+
 *디버그*와 *디버깅 중지*를 차례로 클릭하여 디버거를 중지합니다.
+
+## <a name="update-code"></a>코드 업데이트
+
+서비스의 업데이트된 버전을 배포하려면 프로젝트의 파일을 업데이트하고 *Java 프로그램 시작(AZDS)* 을 다시 실행하면 됩니다. 예:
+
+1. 애플리케이션이 여전히 실행되는 경우 *디버그*, *디버깅 중지*를 차례로 클릭하여 중지합니다.
+1. [`src/main/java/com/ms/sample/webfrontend/Application.java`의 19줄](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19)을 다음으로 업데이트합니다.
+    
+    ```java
+    return "Hello from webfrontend in Azure!";
+    ```
+
+1. 변경 내용을 저장합니다.
+1. *Java 프로그램 시작(AZDS)* 을 다시 실행합니다.
+1. 실행 중인 서비스로 이동하고 변경 내용을 살펴봅니다.
+1. *디버그*, *디버깅 중지*를 차례로 클릭하여 애플리케이션을 중지합니다.
 
 ## <a name="setting-and-using-breakpoints-for-debugging"></a>디버깅용 중단점 설정 및 사용
 
-*Java 프로그램 시작(AZDS)* 을 사용하여 디버깅 모드에서 서비스를 시작합니다.
+*Java 프로그램 시작(AZDS)* 을 사용하여 서비스를 시작합니다. 이렇게 하면 서비스가 디버깅 모드에서 실행됩니다.
 
 *보기*, *탐색기*를 차례로 클릭하여 *탐색기* 보기로 다시 이동합니다. `src/main/java/com/ms/sample/webfrontend/Application.java`를 열고 19줄의 아무 곳이나 클릭하여 커서를 놓습니다. 중단점을 설정하려면 *F9* 키를 누르거나 *디버그*를 클릭한 후 *중단점 설정/해제*를 클릭합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 음성 합성, .NET Framework(Windows) - Speech Services'
+title: '빠른 시작: 음성 합성, .NET Framework(Windows) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: 이 가이드에 따라 Windows용 .NET Framework 및 Speech SDK를 사용하여 텍스트를 음성으로 변환하는 콘솔 애플리케이션을 만들 수 있습니다. 마치면, 텍스트를 음성으로 합성하여 스피커를 통해 실시간으로 들을 수 있습니다.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 4/03/2019
+ms.date: 07/05/2019
 ms.author: yinhew
-ms.openlocfilehash: 3b7addd369d5e26554dd4300e65bee66b8a62768
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 65db847c5df1a05671e3b1c0ac4541f00506c8fd
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465570"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854689"
 ---
 # <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-framework-windows"></a>빠른 시작: .NET Framework용 Speech SDK를 사용하여 음성 합성(Windows)
 
@@ -31,7 +31,7 @@ GitHub에서 최신 [Cognitive Services Speech SDK 샘플](https://github.com/Az
 
 이 프로젝트를 완료하려면 다음이 필요합니다.
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 * Speech Service에 대한 구독 키 [무료로 가져올 수 있습니다](get-started.md).
 * 스피커(또는 헤드셋)를 사용할 수 있습니다.
 

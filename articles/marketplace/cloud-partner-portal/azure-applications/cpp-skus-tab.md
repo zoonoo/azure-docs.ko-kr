@@ -87,7 +87,7 @@ ms.locfileid: "64943429"
 
 - **버전\***  -업로드 하는 패키지의 버전입니다. 버전 태그는 X.Y.Z 형식이며, X, Y 및 Z는 정수여야 합니다.
 - **패키지 파일 (.zip)\***  -이 패키지는.zip 파일에 저장 된 다음 파일을 포함 합니다.
-  - MainTemplate.json - 솔루션/응용 프로그램을 배포하고 솔루션에 대해 정의된 리소스를 만드는 데 사용되는 배포 템플릿 파일입니다. 자세한 내용은 [배포 템플릿 파일을 작성하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)을 참조하세요.
+  - MainTemplate.json - 솔루션/애플리케이션을 배포하고 솔루션에 대해 정의된 리소스를 만드는 데 사용되는 배포 템플릿 파일입니다. 자세한 내용은 [배포 템플릿 파일을 작성하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)을 참조하세요.
   - createUIDefinition.json - 이 파일은 Azure Portal에서 이 솔루션/애플리케이션을 프로비전하기 위한 사용자 인터페이스를 생성하는 데 사용됩니다. 자세한 내용은 [관리되는 애플리케이션에 대한 Azure Portal 사용자 인터페이스 만들기](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview)를 참조하세요.
 
   >[!IMPORTANT] 

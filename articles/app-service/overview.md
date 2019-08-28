@@ -15,20 +15,20 @@ ms.topic: overview
 ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a3ff9b6fc1abf36bf2feddf518e4e920f18a3c23
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8a7268ebae80df5a0004e824641e24b979b9c79f
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60835348"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637707"
 ---
 # <a name="app-service-overview"></a>App Service 개요
 
-*Azure App Service*는 웹 애플리케이션, REST API 및 모바일 백 엔드를 호스트하는 서비스입니다. .NET, .NET Core, Java, Ruby, Node.js, PHP 또는 Python 등 원하는 언어로 개발할 수 있습니다. Windows 및 Linux 기반 환경에서 애플리케이션을 쉽게 실행하고 확장할 수 있습니다. Linux 기반 환경에 대한 자세한 내용은 [Linux의 App Service](containers/app-service-linux-intro.md)를 참조하세요. 
+*Azure App Service*는 웹 애플리케이션, REST API 및 모바일 백 엔드를 호스트하는 HTTP 기반 서비스입니다. .NET, .NET Core, Java, Ruby, Node.js, PHP 또는 Python 등 원하는 언어로 개발할 수 있습니다. Windows 및 Linux 기반 환경에서 애플리케이션을 쉽게 실행하고 확장할 수 있습니다. Linux 기반 환경에 대한 자세한 내용은 [Linux의 App Service](containers/app-service-linux-intro.md)를 참조하세요. 
 
 App Service는 보안, 부하 분산, 자동 크기 조정 및 자동화된 관리와 같이 Microsoft Azure의 강력한 기능을 애플리케이션에 추가합니다. 또한 Azure DevOps, GitHub, Docker 허브 및 기타 원본, 패키지 관리, 스테이징 환경, 사용자 지정 도메인 및 SSL 인증서의 지속적인 배포와 같은 DevOps 기능도 활용할 수 있습니다. 
 
-App Service를 사용하면 Azure 계산 리소스에 대한 비용을 지불하게 됩니다. 사용할 컴퓨팅 리소스는 앱을 실행하는 _App Service 계획_ 에 따라 결정됩니다. 자세한 내용은 [Azure App Service 계획 개요](overview-hosting-plans.md)를 참조하세요.
+App Service를 사용하면 Azure 컴퓨팅 리소스에 대한 비용을 지불하게 됩니다. 사용할 컴퓨팅 리소스는 앱을 실행하는 _App Service 계획_ 에 따라 결정됩니다. 자세한 내용은 [Azure App Service 계획 개요](overview-hosting-plans.md)를 참조하세요.
 
 ## <a name="why-use-app-service"></a>App Service를 사용하는 이유는 무엇인가요?
 
@@ -36,7 +36,7 @@ App Service의 주요 기능은 다음과 같습니다.
 
 * **여러 언어 및 프레임워크** - App Service는 ASP.NET, ASP.NET Core, Java, Ruby, Node.js, PHP 또는 Python에 대한 고급 지원을 제공합니다. [PowerShell 및 기타 스크립트 또는 실행 파일](webjobs-create.md)을 백그라운드 서비스로 실행할 수도 있습니다.
 * **DevOps 최적화** - Azure DevOps, GitHub, BitBucket, Docker 허브 또는 Azure Container Registry를 사용하여 [연속 통합 및 배포](deploy-continuous-deployment.md)를 설정합니다. [테스트 및 스테이징 환경](deploy-staging-slots.md)을 통해 업데이트를 승격합니다. [Azure PowerShell](/powershell/azureps-cmdlets-docs) 또는 [플랫폼 간 CLI(명령줄 인터페이스)](/cli/azure/install-azure-cli)를 사용하여 App Service에서 앱을 관리합니다.
-* **고가용성을 가진 글로벌 규모 조정** - 수동 또는 자동으로 규모를 [강화](web-sites-scale.md) 또는 [확장](../monitoring-and-diagnostics/insights-how-to-scale.md)합니다. Microsoft의 글로벌 데이터 센터 인프라의 모든 위치에서 앱을 호스팅하고 App Service [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) 를 사용하면 고가용성이 보장됩니다.
+* **고가용성을 가진 글로벌 규모 조정** - 수동 또는 자동으로 규모를 [강화](manage-scale-up.md) 또는 [확장](../monitoring-and-diagnostics/insights-how-to-scale.md)합니다. Microsoft의 글로벌 데이터 센터 인프라의 모든 위치에서 앱을 호스팅하고 App Service [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) 를 사용하면 고가용성이 보장됩니다.
 * **SaaS 플랫폼 및 온-프레미스 데이터에 연결** - 엔터프라이즈 시스템(예: SAP), SaaS 서비스(예: Salesforce) 및 인터넷 서비스(예: Facebook)를 위해 50개 이상의 [커넥터](../connectors/apis-list.md)에서 선택합니다. [하이브리드 연결](app-service-hybrid-connections.md) 및 [Azure Virtual Networks](web-sites-integrate-with-vnet.md)를 사용하여 온-프레미스 데이터에 액세스합니다.
 * **보안 및 규정 준수** - App Service는 [ISO, SOC 및 PCI 규격](https://www.microsoft.com/en-us/trustcenter)입니다. [Azure Active Directory](configure-authentication-provider-aad.md) 또는 소셜 로그인([Google](configure-authentication-provider-google.md), [Facebook](configure-authentication-provider-facebook.md), [Twitter](configure-authentication-provider-twitter.md) 및 [Microsoft](configure-authentication-provider-microsoft.md))을 사용하여 사용자를 인증합니다. [IP 주소 제한](app-service-ip-restrictions.md)을 만들고 [서비스 ID를 관리](overview-managed-identity.md)합니다.
 * **애플리케이션 템플릿** - [Azure Marketplace](https://azure.microsoft.com/marketplace/)(예: WordPress, Joomla 및 Drupal)의 광범위한 애플리케이션 템플릿 목록에서 선택합니다.

@@ -25,7 +25,7 @@ ms.locfileid: "60515593"
   * [지원 및 모니터링 설정 사용자 지정](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_support.html#config-support>)에서는 지원 업로드 설정을 사용자 지정하고, 원격 모니터링을 사용하도록 설정하는 방법을 설명합니다. 
   * [VServers 및 글로벌 네임스페이스 구성](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_vserver.html#config-vserver>)에는 클라이언트 측 네임스페이스를 만드는 방법에 대한 정보가 나와 있습니다.
   * [Avere 클러스터에 대한 DNS를 구성](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_network.html#dns-overview>)에서는 라운드 로빈 DNS를 구성하는 방법을 설명합니다.
-  * [백 엔드 저장소 추가](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_core_filer.html#add-core-filer>)에서는 코어 파일러를 추가하는 방법을 설명합니다.
+  * [백 엔드 스토리지 추가](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_core_filer.html#add-core-filer>)에서는 코어 파일러를 추가하는 방법을 설명합니다.
 
 * [클러스터 구성 가이드](<https://azure.github.io/Avere/#operations>)는 Avere 클러스터에 대한 설정 및 옵션에 대한 전체 참조입니다. vFXT 클러스터는 이러한 옵션의 하위 집합을 사용하지만, 동일한 구성 페이지의 대부분이 적용됩니다.
 

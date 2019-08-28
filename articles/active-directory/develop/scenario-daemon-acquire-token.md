@@ -1,6 +1,6 @@
 ---
-title: 디먼 앱 호출 web Api (응용 프로그램에 대 한 토큰을 얻기)-Microsoft id 플랫폼
-description: 디먼 앱을 작성 하는 방법은 웹 Api (토큰을 얻기)를 호출 되는
+title: 웹 Api를 호출 하는 디먼 앱 (앱에 대 한 토큰 획득)-Microsoft identity platform
+description: 웹 Api를 호출 하는 디먼 앱을 빌드하는 방법 알아보기 (토큰 획득)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,20 +16,20 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa4f5dc7a5aceaf81f71eacd36d131471a57e5c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a5f15aa5264c0abf87cb15f0468e8a3a924e0b5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65075372"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562348"
 ---
-# <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>토큰을 획득 하는 웹 Api를 호출 하는 데몬 앱
+# <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>웹 Api를 호출 하는 디먼 앱-토큰 획득
 
-기밀 클라이언트 응용 프로그램 생성 되 고 나면 호출 하 여 앱에 대 한 토큰을 얻을 수 있습니다 ``AcquireTokenForClient``, 범위 및 강제 또는 토큰의 새로 고침 되지를 전달 합니다.
+기밀 클라이언트 응용 프로그램을 생성 한 후에는를 호출 ``AcquireTokenForClient``하 고, 범위를 전달 하 고, 토큰을 강제로 새로 고치지 않고 앱에 대 한 토큰을 가져올 수 있습니다.
 
-## <a name="scopes-to-request"></a>요청에 범위
+## <a name="scopes-to-request"></a>요청할 범위
 
-뒤에 클라이언트 자격 증명 흐름은 리소스의 이름에 대 한 요청에 범위 `/.default`합니다. 이 표기법을 사용 하 여 Azure AD를 나타냅니다 합니다 **응용 프로그램 수준 권한을** 응용 프로그램 등록 중에 정적으로 선언 합니다. 또한 앞서 살펴보았듯이 이러한 API 권한은 부여 해야 테 넌 트 관리자가
+클라이언트 자격 증명 흐름에 대해 요청할 범위는 리소스의 이름 뒤에 나옵니다 `/.default`. 이 표기법은 Azure AD에서 응용 프로그램 등록 중에 정적으로 선언 된 **응용 프로그램 수준 권한을** 사용 하도록 지시 합니다. 또한 앞서 살펴본 것 처럼 테 넌 트 관리자가 이러한 API 권한을 부여 해야 합니다.
 
 ### <a name="net"></a>.NET
 
@@ -40,7 +40,7 @@ var scopes = new [] {  ResourceId+"/.default"};
 
 ### <a name="python"></a>Python
 
-MSAL에서. Python 구성 파일을 다음 코드 조각 처럼 보입니다.
+MSAL에서 Python의 구성 파일은 다음 코드 조각과 같습니다.
 
 ```Python
 {
@@ -59,13 +59,13 @@ public final static String KEYVAULT_DEFAULT_SCOPE = "https://vault.azure.net/.de
 
 ### <a name="all"></a>모두
 
-클라이언트 자격 증명에 사용할 범위는 항상 resourceId + "/.default"
+클라이언트 자격 증명에 사용 되는 범위는 항상 resourceId + "/.default" 여야 합니다.
 
-### <a name="case-of-v10-resources"></a>V1.0 리소스의 경우
+### <a name="case-of-azure-ad-v10-resources"></a>Azure AD (v1.0) 리소스의 사례
 
 > [!IMPORTANT]
-> Azure AD v1.0 액세스 토큰을 수락 하는 리소스에 대 한 액세스 토큰을 요청 MSAL ((v2.0 끝점)에 대 한 마지막 슬래시 앞에 나오는 모든 가져오고 리소스 식별자로 사용 하 여 요청된 된 범위에서 원하는 대상을 구문 분석 합니다.
-> 따라서 Azure SQL과 같은 경우 ( **https://database.windows.net** ) 리소스는 슬래시로 끝나는 대상 (Azure SQL에 대 한: `https://database.windows.net/` ), 범위를 요청 해야 `https://database.windows.net//.default` (이중 슬래시 참고). MSAL.NET를 참조 하세요. 문제가 [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Sql 인증 실패를 발생 시킨 리소스 url의 후행 슬래시는 생략 됩니다.
+> MSAL (Microsoft id 플랫폼 끝점)의 경우, v1.0 액세스 토큰을 수락 하는 리소스에 대 한 액세스 토큰을 요청 하는 경우, Azure AD는 마지막 슬래시 앞에 있는 모든 항목을 사용 하 고 리소스 식별자로 사용 하 여 요청 된 범위에서 원하는 대상 그룹을 구문 분석 합니다.
+> 따라서 azure sql ( **https://database.windows.net** )와 같이 리소스에서 슬래시 (azure `https://database.windows.net/` sql의 경우)로 끝나는 대상이 필요한 경우 범위 `https://database.windows.net//.default` 를 요청 해야 합니다 (이중 슬래시 참고). 참고 항목 MSAL.NET issue [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): 리소스 url의 후행 슬래시가 생략 되어 sql 인증 실패가 발생 했습니다.
 
 ## <a name="acquiretokenforclient-api"></a>AcquireTokenForClient API
 
@@ -100,7 +100,7 @@ catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
 
 #### <a name="application-token-cache"></a>응용 프로그램 토큰 캐시
 
-MSAL.NET을에서 `AcquireTokenForClient` 사용 하는 **응용 프로그램 토큰 캐시** (다른 모든 AcquireTokenXX 메서드는 사용자 토큰 캐시를 사용 하는 데 사용)를 호출 하지 마세요 `AcquireTokenSilent` 호출 하기 전에 `AcquireTokenForClient` 으로 `AcquireTokenSilent` 사용 합니다 **사용자** 토큰 캐시입니다. `AcquireTokenForClient` 확인 합니다 **응용 프로그램** 토큰 자체를 캐시 하 고 업데이트 합니다.
+MSAL.NET에서는 `AcquireTokenForClient` 를 호출 `AcquireTokenSilent` 하기 `AcquireTokenForClient` 전에 `AcquireTokenSilent` **사용자** 토큰 캐시를 사용 하 여 **응용 프로그램 토큰 캐시** 를 사용 합니다 (다른 모든 AcquireTokenXX 메서드는 사용자 토큰 캐시를 사용 함). `AcquireTokenForClient`**응용 프로그램** 토큰 캐시 자체를 확인 하 고 업데이트 합니다.
 
 ### <a name="python"></a>Python
 
@@ -128,9 +128,9 @@ CompletableFuture<AuthenticationResult> future = cca.acquireToken(parameters);
 AuthenticationResult result = future.get();
 ```
 
-### <a name="protocol"></a>Protocol
+### <a name="protocol"></a>프로토콜
 
-없는 아직 프로토콜을 직접 사용 하려는 선택한 언어에 대 한 라이브러리:
+선택한 언어에 대 한 라이브러리가 아직 없는 경우 프로토콜을 직접 사용 하는 것이 좋습니다.
 
 #### <a name="first-case-access-token-request-with-a-shared-secret"></a>첫 번째 사례: 공유 비밀을 사용하여 액세스 토큰 요청
 
@@ -159,20 +159,20 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 &grant_type=client_credentials
 ```
 
-### <a name="learn-more-about-the-protocol"></a>프로토콜에 자세히 알아보기
+### <a name="learn-more-about-the-protocol"></a>프로토콜에 대 한 자세한 정보
 
-자세한 내용은 프로토콜 설명서를 참조 하세요. [Azure Active Directory v2.0 및 OAuth 2.0 클라이언트 자격 증명 흐름](v2-oauth2-client-creds-grant-flow.md)합니다.
+자세한 내용은 프로토콜 설명서를 참조 하세요. [Microsoft id 플랫폼 및 OAuth 2.0 클라이언트 자격 증명 흐름](v2-oauth2-client-creds-grant-flow.md)
 
 ## <a name="troubleshooting"></a>문제 해결
 
-### <a name="did-you-use-the-resourcedefault-scope"></a>리소스/.default 범위 사용 했나요?
+### <a name="did-you-use-the-resourcedefault-scope"></a>리소스/. 기본 범위를 사용 했나요?
 
-잘못 된 범위를 사용 하는, 아마도 사용 하지 않은 사용자에 게 알리는 오류 메시지가 표시 되는 경우는 `resource/.default` 범위입니다.
+잘못 된 범위를 사용 했음을 나타내는 오류 메시지가 표시 되 면 `resource/.default` 범위를 사용 하지 않았을 수 있습니다.
 
-### <a name="did-you-forget-to-provide-admin-consent-daemon-apps-need-it"></a>관리자 동의 제공 하 시겠습니까? 디먼 앱이 필요합니다.
+### <a name="did-you-forget-to-provide-admin-consent-daemon-apps-need-it"></a>관리자 동의를 제공 해야 하나요? 디먼 앱에 필요 합니다!
 
-API를 호출할 때 오류가 발생 하는 경우 **작업을 완료할 수 있는 권한이**, 테 넌 트 관리자가 응용 프로그램에 권한을 부여 해야 합니다. 위의 클라이언트 앱 등록의 6 단계를 참조 하세요.
-일반적으로 표시 하 고 오류 같은 오류 설명:
+API를 호출 **하 여 작업을 완료할 수**없는 경우 오류가 발생 하는 경우 테 넌 트 관리자는 응용 프로그램에 권한을 부여 해야 합니다. 위의 클라이언트 앱 등록 6 단계를 참조 하세요.
+일반적으로 다음과 같은 오류 설명과 같은 오류가 표시 됩니다.
 
 ```JSon
 Failed to call the web API: Forbidden

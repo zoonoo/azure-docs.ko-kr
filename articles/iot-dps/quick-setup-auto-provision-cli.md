@@ -10,10 +10,10 @@ services: iot-dps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: 3062fb640985498ba35e23f6310828a2bd59bfed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "60363719"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Azure CLI를 사용하여 IoT Hub Device Provisioning Service 설정
@@ -26,6 +26,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 > 이 빠른 시작에서 만드는 IoT 허브 및 프로비전 서비스는 모두 DNS 엔드포인트로 공개적으로 검색할 수 있습니다. 이러한 리소스에 사용되는 이름을 변경하려는 경우 중요한 정보가 공개되지 않도록 합니다.
 >
 
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기

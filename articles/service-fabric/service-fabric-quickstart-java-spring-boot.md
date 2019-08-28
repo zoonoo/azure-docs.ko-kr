@@ -1,5 +1,5 @@
 ---
-title: Azure의 Service Fabric에서 Spring Boot 앱 만들기 | Microsoft Docs
+title: '빠른 시작: Azure Service Fabric에서 Spring Boot 앱 만들기'
 description: 이 자습서에서는 Spring Boot 애플리케이션 예제를 사용하여 Azure Service Fabric에 Spring Boot 애플리케이션을 배포합니다.
 services: service-fabric
 documentationcenter: java
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 2c98b069e042f9cbd07ccee643028ac84b3471c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.custom: mvc, devcenter, seo-java-august2019
+ms.openlocfilehash: 403eec7bf4d45b5b210009588c783cc244d24387
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886695"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68977081"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>빠른 시작: Service Fabric에 Java Spring Boot 애플리케이션 배포
 
@@ -90,7 +90,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
     java -jar gs-spring-boot-0.1.0.jar
     ```
 
-1. `gs-spring-boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/ServiceManifest.xml` 파일의 **엔드포인트** 리소스
+1. *gs-spring-boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/ServiceManifest.xml* 파일에 **엔드포인트** 리소스 추가
 
     ```xml 
         <Resources>
@@ -145,11 +145,11 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
     docker run --name sftestcluster -d -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 -p 8080:8080 mysfcluster
     ```
 
-    로컬 클러스터를 시작하는 데 몇 시간이 걸립니다. 클러스터가 완전히 작동 중인지 확인하려면 **http://localhost:19080**에서 Service Fabric Explorer에 액세스합니다. 5개의 정상 노드는 로컬 클러스터가 작동되어 실행 중임을 나타냅니다. 
+    로컬 클러스터를 시작하는 데 몇 시간이 걸립니다. 클러스터가 완전히 작동 중인지 확인하려면 **http://localhost:19080** 에서 Service Fabric Explorer에 액세스합니다. 5개의 정상 노드는 로컬 클러스터가 작동되어 실행 중임을 나타냅니다. 
     
     ![로컬 클러스터 정상](./media/service-fabric-quickstart-java-spring-boot/sfxlocalhost.png)
 
-1. `gs-spring-boot/SpringServiceFabric` 폴더로 이동합니다.
+1. `gs-spring-boot/SpringServiceFabric` 폴더를 엽니다.
 1. 다음 명령을 실행하여 로컬 클러스터에 연결합니다.
 
     ```bash
@@ -176,13 +176,13 @@ Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고
 웹 프런트 엔드 서비스의 크기를 조정하려면 다음을 수행합니다.
 
 1. 클러스터에서 Service Fabric Explorer를 엽니다. 예: `http://localhost:19080`
-1. 트리 뷰에서 **fabric:/SpringServiceFabric/SpringGettingStarted** 노드 옆에 있는 줄임표(...)를 클릭하고 **서비스 크기 조정**을 선택합니다.
+1. 트리 뷰에서 **fabric:/SpringServiceFabric/SpringGettingStarted** 노드 옆에 있는 줄임표( **...** )를 선택하고 **서비스 크기 조정**을 선택합니다.
 
     ![Service Fabric Explorer Scale Service](./media/service-fabric-quickstart-java-spring-boot/sfxscaleservicehowto.png)
 
     이제 서비스의 인스턴스 수를 조정하도록 선택할 수 있습니다.
 
-1. 숫자를 **3**으로 변경하고 **Scale Service**를 클릭합니다.
+1. 숫자를 **3**으로 변경하고 **서비스 크기 조정**을 선택합니다.
 
     명령줄을 사용하여 서비스의 크기를 조정하는 다른 방법은 다음과 같습니다.
 
@@ -194,7 +194,7 @@ Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고
     sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted' --instance-count 3 --stateless 
     ``` 
 
-1. 트리 뷰에서 **fabric:/SpringServiceFabric/SpringGettingStarted** 노드를 클릭하고 파티션 노드(GUID로 표현됨)를 확장합니다.
+1. 트리 뷰에서 **fabric:/SpringServiceFabric/SpringGettingStarted** 노드를 선택하고 파티션 노드(GUID로 표현됨)를 확장합니다.
 
     ![Service Fabric Explorer Scale Service 완료](./media/service-fabric-quickstart-java-spring-boot/sfxscaledservice.png)
 
@@ -207,7 +207,7 @@ Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고
 서비스 장애 조치를 보여 주기 위해 Service Fabric Explorer를 사용하여 노드 다시 시작을 시뮬레이션합니다. 서비스의 인스턴스 하나만 실행되고 있는지 확인합니다.
 
 1. 클러스터에서 Service Fabric Explorer를 엽니다. 예: `http://localhost:19080`
-1. 서비스의 인스턴스를 실행하는 노드 옆에 있는 줄임표(...)를 클릭하고 노드를 다시 시작합니다.
+1. 서비스의 인스턴스를 실행하는 노드 옆에 있는 줄임표( **...** )를 선택하고 노드를 다시 시작합니다.
 
     ![Service Fabric Explorer 다시 시작 노드](./media/service-fabric-quickstart-java-spring-boot/sfxhowtofailover.png)
 1. 서비스의 인스턴스가 다른 노드로 이동되고, 애플리케이션에서 가동 중지 시간이 발생하지 않습니다.

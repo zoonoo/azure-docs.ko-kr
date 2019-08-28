@@ -4,7 +4,7 @@ description: Azure Virtual Machines 에이전트 개요
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 0a1f212e-053e-4a39-9910-8d622959f594
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/30/2018
+ms.date: 07/20/2019
 ms.author: roiyz
-ms.openlocfilehash: d17d7c9d7b57e6ca040e4f81c9665789c8bc26e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c3b7b0588e6c1446203f7bb4a3ec7f168f08988f
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60799778"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637503"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Azure Virtual Machines 에이전트 개요
 Microsoft Azure VM 에이전트(가상 머신 에이전트)는 Azure 패브릭 컨트롤러와 VM(가상 머신)의 상호 작용을 관리하는 안전하고 간단한 프로세스입니다. VM 에이전트는 Azure 가상 머신 확장을 설정하고 실행하는 데 기본적인 역할을 수행합니다. VM 확장을 사용하면 소프트웨어 설치 및 구성과 같은 VM의 배포 후 구성을 설정할 수 있습니다. 또한 VM 확장을 사용하면 VM의 관리 암호를 다시 설정하는 등의 복구 기능도 사용할 수 있습니다. Azure VM 에이전트가 없으면 VM 확장을 실행할 수 없습니다.
@@ -60,7 +60,7 @@ VM을 부팅하려면 VM에 PA가 설치되어 있어야 하지만 WinGA는 설�
 에이전트가 설치되어 있지 않으면 Azure Backup 또는 Azure Security와 같은 일부 Azure 서비스를 사용할 수 없습니다. 이러한 서비스를 사용하려면 확장을 설치해야 합니다. WinGA 없이 VM을 배포한 경우 나중에 최신 버전의 에이전트를 설치할 수 있습니다.
 
 ### <a name="manual-installation"></a>수동 설치
-Windows VM 에이전트는 Windows 설치 관리자 패키지를 사용하여 수동으로 설치할 수 있습니다. Azure에 배포된 사용자 지정 VM 이미지를 만들 때 수동 설치가 필요할 수 있습니다. Windows VM 에이전트를 수동으로 설치하려면 [VM 에이전트 설치 관리자를 다운로드합니다](https://go.microsoft.com/fwlink/?LinkID=394789).
+Windows VM 에이전트는 Windows 설치 관리자 패키지를 사용하여 수동으로 설치할 수 있습니다. Azure에 배포된 사용자 지정 VM 이미지를 만들 때 수동 설치가 필요할 수 있습니다. Windows VM 에이전트를 수동으로 설치하려면 [VM 에이전트 설치 관리자를 다운로드합니다](https://go.microsoft.com/fwlink/?LinkID=394789). VM 에이전트는 Windows Server 2008 R2 이상에서 지원 됩니다.
 
 VM 에이전트는 Windows 설치 관리자 파일을 두 번 클릭하여 설치할 수 있습니다. VM 에이전트를 자동 또는 무인으로 설치하려면 다음 명령을 실행합니다.
 

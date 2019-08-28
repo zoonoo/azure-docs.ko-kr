@@ -3,7 +3,7 @@ title: Azure Service Fabric Docker Compose 배포 미리 보기
 description: Azure Service Fabric은 Service Fabric을 사용하여 기존 컨테이너를 보다 쉽게 조정할 수 있도록 Docker Compose 형식을 수락합니다. 이 지원은 현재 미리 보기로 제공되고 있습니다.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: aljo, subramar
-ms.openlocfilehash: da86ed9a3e6979bd1dc05aef6ef70c7b8533a8c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: subramar
+ms.openlocfilehash: de02c9a8580527ab708418aa266f1b56411fb95b
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60948837"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599584"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Azure Service Fabric의 Docker Compose 배포 지원(미리 보기)
 

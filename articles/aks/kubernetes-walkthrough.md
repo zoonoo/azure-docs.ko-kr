@@ -2,18 +2,18 @@
 title: 빠른 시작 - AKS(Azure Kubernetes Service) 클러스터 만들기
 description: Azure CLI를 사용하여 Kubernetes 클러스터를 빠르게 만들고 애플리케이션을 배포하고 AKS(Azure Kubernetes Service)에서 성능을 모니터링하는 방법을 알아봅니다.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 05/20/2019
-ms.author: iainfou
+ms.author: mlearned
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: b99ee8e6a379a1e86eaf37bb232176c3ca13c0d9
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: 8a5fb9313fca2a8d787d0fbde47401f6d3e1d229
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687954"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68880673"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 AKS(Azure Kubernetes Service) 클러스터 배포
 
@@ -93,7 +93,7 @@ kubectl get nodes
 
 다음 예제 출력은 이전 단계에서 만든 단일 노드를 보여줍니다. 노드 상태가 *준비*인지 확인합니다.
 
-```
+```output
 NAME                       STATUS   ROLES   AGE     VERSION
 aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 ```
@@ -200,7 +200,7 @@ kubectl apply -f azure-vote.yaml
 
 다음 예제 출력에는 성공적으로 만들어진 배포 및 서비스가 나와 있습니다.
 
-```
+```output
 deployment "azure-vote-back" created
 service "azure-vote-back" created
 deployment "azure-vote-front" created
@@ -211,7 +211,7 @@ service "azure-vote-front" created
 
 애플리케이션이 실행되면 애플리케이션 프런트 엔드를 인터넷에 공개하는 Kubernetes 서비스가 만들어집니다. 이 프로세스를 완료하는 데 몇 분이 걸릴 수 있습니다.
 
-진행 상황을 모니터링하려면 `--watch` 인수와 함께 [kubectl get service][kubectl-get] 명령을 사용합니다.
+진행 상태를 모니터링하려면 `--watch` 인수와 함께 [kubectl get service][kubectl-get] 명령을 사용합니다.
 
 ```azurecli-interactive
 kubectl get service azure-vote-front --watch
@@ -219,14 +219,14 @@ kubectl get service azure-vote-front --watch
 
 처음에는 *azure-vote-front* 서비스에 대한 *EXTERNAL-IP*가 *보류 중*으로 표시됩니다.
 
-```
+```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
 *EXTERNAL-IP* 주소가 *보류 중*에서 실제 공용 IP 주소로 변경되면 `CTRL-C`를 사용하여 `kubectl` 조사식 프로세스를 중지합니다. 다음 예제 출력은 서비스에 할당된 유효한 공용 IP 주소를 보여줍니다.
 
-```
+```output
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
@@ -243,15 +243,15 @@ Azure Vote Pod의 현재 상태, 작동 시간 및 리소스 사용량을 보려
 1. 웹 브라우저를 열고 Azure Portal [https://portal.azure.com][azure-portal]로 이동합니다.
 1. *myResourceGroup* 같은 리소스 그룹을 선택하고, *myAKSCluster* 같은 AKS 클러스터를 선택합니다.
 1. 왼쪽에 있는 **모니터링**에서 **인사이트**를 선택합니다.
-1. 상단에서 **+ 필터 추가**를 클릭합니다.
+1. 위쪽에서 **+ 필터 추가**를 선택합니다.
 1. *네임스페이스*를 속성으로 선택한 다음, *\<All but kube-system\>* 을 선택합니다.
-1. **컨테이너** 보기를 선택합니다.
+1. **컨테이너**를 선택합니다.
 
 다음 예와 같이 *azure-vote-back* 및 *azure-vote-front* 컨테이너가 표시됩니다.
 
 ![AKS에서 실행 중인 컨테이너의 상태 보기](media/kubernetes-walkthrough/monitor-containers.png)
 
-`azure-vote-back` Pod에 대한 로그를 보려면 **분석에서 보기** 옵션을 선택한 다음, 컨테이너 목록의 오른쪽에서 **컨테이너 로그 보기** 링크를 클릭합니다. 이러한 로그는 컨테이너의 *stdout* 및 *stderr* 스트림을 포함합니다.
+`azure-vote-back` Pod에 대한 로그를 보려면 **분석에서 보기** 옵션을 선택한 다음, 컨테이너 목록의 오른쪽에서 **컨테이너 로그 보기** 링크를 선택합니다. 이러한 로그는 컨테이너의 *stdout* 및 *stderr* 스트림을 포함합니다.
 
 ![AKS에서 컨테이너 로그 보기](media/kubernetes-walkthrough/monitor-container-logs.png)
 

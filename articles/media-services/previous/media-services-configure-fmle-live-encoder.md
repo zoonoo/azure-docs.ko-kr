@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 01bb628a6520488dcebf49a1e868213b955abc31
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.reviewer: cenkdin;anilmur
+ms.openlocfilehash: 09d9bdffefe9204e9f58b8f07af5b21228269f6c
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61466015"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69016749"
 ---
 # <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>FMLE 인코더를 사용하여 단일 비트 전송률 라이브 스트림 보내기 
 > [!div class="op_single_selector"]
@@ -35,7 +36,7 @@ ms.locfileid: "61466015"
 
 이 자습서에서는 AAC 사용 방법을 설명합니다. 그러나 FMLE는 AAC를 기본적으로 지원하지 않습니다. MainConcept과 같은 곳에서 AAC 인코딩에 대한 플러그 인: [AAC 플러그 인](https://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)을 구매해야 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 * [Azure Media Services 계정 만들기](media-services-portal-create-account.md)
 * 실행 중인 스트리밍 엔드포인트가 있는지 확인합니다. 자세한 내용은 [Media Services 계정에서 스트리밍 엔드포인트 관리](media-services-portal-manage-streaming-endpoints.md)
 * 최신 버전의 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 도구를 설치합니다.
@@ -102,7 +103,7 @@ ms.locfileid: "61466015"
      인터레이스된 원본을 사용하는 경우 "디인터레이스" 옵션에 확인 표시를 합니다.
 2. 형식 옆에 있는 렌치 아이콘을 선택합니다. 이러한 추가 설정은 다음과 같이 설정되어야 합니다.
 
-   * 프로필 기본
+   * 프로필 주
    * 수준: 4.0
    * 키 프레임 빈도: 2초
 
@@ -148,7 +149,7 @@ AMSE 도구로 이동하고 테스트할 채널을 마우스 오른쪽 단추로
 1. 채널 재생이 확인되면 프로그램을 만듭니다. AMSE 도구의 **라이브** 탭에서 프로그램 영역 안을 마우스 오른쪽 단추로 클릭하고 **새 프로그램 만들기**를 선택합니다.  
 
     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle9.png)
-2. 프로그램 이름을 지정하고 필요한 경우 **보관 창 길이** (기본값은 4시간)를 조정합니다. 또한 저장소 위치를 지정하거나 기본값을 그대로 둘 수 있습니다.  
+2. 프로그램 이름을 지정하고 필요한 경우 **보관 창 길이** (기본값은 4시간)를 조정합니다. 또한 스토리지 위치를 지정하거나 기본값을 그대로 둘 수 있습니다.  
 3. **지금 프로그램 시작** 상자를 선택합니다.
 4. **프로그램 만들기**를 클릭합니다.  
 

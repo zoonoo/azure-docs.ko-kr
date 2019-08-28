@@ -50,7 +50,7 @@ ms.locfileid: "56806626"
 
 * Service Fabric 런타임, SDK, Docker 및 Visual Studio 2017 설치가 포함된 [개발 환경을 설정](service-fabric-mesh-howto-setup-developer-environment-sdk.md)했는지 확인합니다.
 
-## <a name="download-the-to-do-sample-application"></a>할 일 애플리케이션 샘플 다운로드
+## <a name="download-the-to-do-sample-application"></a>할 일 애플리케이션 예제 다운로드
 
 [이 자습서 시리즈의 2부](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)에서 할 일 애플리케이션 샘플을 빌드하지 않은 경우 다운로드할 수 있습니다. 명령 창에서 다음 명령을 실행하여 로컬 컴퓨터에 샘플 앱 리포지토리를 복제합니다.
 

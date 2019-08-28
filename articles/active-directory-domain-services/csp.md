@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: iainfou
-ms.openlocfilehash: a0ea28f3b62e6560e4adf8ea6bcb1fe984a1dbe6
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: dc4ad7d8cf9f3267713fd066fa79a4d9d8ab733f
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473568"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69612974"
 ---
 # <a name="azure-active-directory-ad-domain-services-for-azure-cloud-solution-providers-csp"></a>Azure CSP(클라우드 솔루션 공급자)의 Azure AD(Active Directory) Domain Services
 이 문서에서는 Azure CSP 구독에서 Azure AD Domain Services를 사용하는 방법을 설명합니다.
@@ -60,7 +60,7 @@ Azure AD Domain Services를 비롯한 해당 구독에서 사용하는 Azure 리
 
 
 ### <a name="peered-deployment-model"></a>피어링된 배포 모델
-이 배포 모델에서 Azure AD Domain Services는 고객에게 속한 가상 네트워크, 즉, 고객별로 지불되는 직접 Azure 구독 내에서 사용됩니다. 그런 다음 CSP 파트너는 고객의 CSP 구독에 속한 가상 네트워크 내에서 애플리케이션을 배포할 수 있습니다. 가상 네트워크는 Azure Virtual Network 피어링을 사용하여 연결할 수 있습니다. 결과적으로 Azure CSP 구독에서 CSP 파트너에 의해 배포된 워크로드/응용 프로그램은 고객의 직접 Azure 구독에서 프로비전된 고객의 관리되는 도메인에 연결할 수 있습니다.
+이 배포 모델에서 Azure AD Domain Services는 고객에게 속한 가상 네트워크, 즉, 고객별로 지불되는 직접 Azure 구독 내에서 사용됩니다. 그런 다음 CSP 파트너는 고객의 CSP 구독에 속한 가상 네트워크 내에서 애플리케이션을 배포할 수 있습니다. 가상 네트워크는 Azure Virtual Network 피어링을 사용하여 연결할 수 있습니다. 결과적으로 Azure CSP 구독에서 CSP 파트너에 의해 배포된 워크로드/애플리케이션은 고객의 직접 Azure 구독에서 프로비전된 고객의 관리되는 도메인에 연결할 수 있습니다.
 
 ![피어링된 배포 모델](./media/csp/csp_peered_deployment_model.png)
 
@@ -90,4 +90,4 @@ Azure CSP 구독에서 관리되는 도메인을 관리하는 경우 다음과 �
 * [Azure CSP 프로그램에 등록](https://docs.microsoft.com/partner-center/enrolling-in-the-csp-program)하고 Azure CSP를 통해 비즈니스를 만듭니다.
 * [Azure CSP에서 사용할 수 있는 Azure 서비스](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services) 목록을 검토합니다.
 * [PowerShell을 사용하여 Azure AD Domain Services 사용](powershell-create-instance.md)
-* [Azure AD 도메인 서비스 시작](create-instance.md)
+* [Azure AD 도메인 서비스 시작](tutorial-create-instance.md)

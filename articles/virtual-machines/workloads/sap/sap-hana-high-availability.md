@@ -4,7 +4,7 @@ description: SUSE Linux Enterprise Server의 Azure VM에 있는 SAP HANA의 고�
 services: virtual-machines-linux
 documentationcenter: ''
 author: MSSedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 3d59fc48f1f6f6931ca18e09a420fdbccc7d53dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 78d14add09a89b7ec4d4844a12ffa0434d714b3a
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64922281"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "67709092"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server의 Azure VM에 있는 SAP HANA의 고가용성
 
@@ -47,7 +47,7 @@ ms.locfileid: "64922281"
 [template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
 [template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged-md%2Fazuredeploy.json
 
-온-프레미스 개발에서 HANA 시스템 복제를 사용하거나 공유 저장소를 사용하여 SAP HANA의 고가용성을 설정할 수 있습니다.
+온-프레미스 개발에서 HANA 시스템 복제를 사용하거나 공유 스토리지를 사용하여 SAP HANA의 고가용성을 설정할 수 있습니다.
 Azure VM(Virtual Machines)에서 Azure의 HANA 시스템 복제는 현재 지원되는 유일한 고가용성 기능입니다. SAP HANA 복제는 하나의 기본 노드와 하나 이상의 보조 노드로 구성됩니다. 기본 노드의 데이터를 변경하면 보조 노드에 동기적 또는 비동기적으로 복제됩니다.
 
 이 문서에서는 가상 머신을 배포 및 구성하며, 클러스터 프레임워크를 설치하고, SAP HANA 시스템 복제를 설치 및 구성하는 방법을 설명합니다.
@@ -71,10 +71,10 @@ Azure VM(Virtual Machines)에서 Azure의 HANA 시스템 복제는 현재 지원
 * SAP Note [401162]는 HANA 시스템 복제를 설정할 때 “이미 사용 중인 주소”를 피하는 방법에 대한 정보를 포함하고 있습니다.
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes)는 Linux에 필요한 모든 SAP Note를 포함하고 있습니다.
 * [SAP HANA 인증 IaaS 플랫폼](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
-* [Linux에서 SAP용 Azure Virtual Machines 계획 및 구현][planning-guide] 가이드.
-* [Linux에서 SAP용 Azure Virtual Machines 배포][deployment-guide](이 문서).
-* [Linux에서 SAP용 Azure Virtual Machines DBMS 배포][dbms-guide] 가이드.
-* [SAP 애플리케이션 12 SP3용 SUSE Linux Enterprise Server 모범 사례 가이드][sles-for-sap-bp]
+* [Linux에서 SAP 용 Azure Virtual Machines 계획 및 구현][planning-guide] 가이드를 참조 하세요.
+* [Linux에서 SAP 용 Azure Virtual Machines 배포][deployment-guide] (이 문서).
+* [Linux에서 SAP 용 Azure VIRTUAL MACHINES DBMS 배포][dbms-guide] 가이드를 참조 하세요.
+* [SAP 응용 프로그램용 SUSE Linux Enterprise Server 12 SP3 모범 사례 가이드][sles-for-sap-bp]
   * SAP HANA SR 성능 최적화 인프라 설정(SAP 애플리케이션 12 SP1용 SLES). 이 가이드에는 온-프레미스 개발을 위해 SAP HANA 시스템 복제를 설정하는 데 필요한 모든 정보가 들어 있습니다. 이 가이드를 기준으로 사용합니다.
   * SAP HANA SR 비용 최적화 인프라 설정(SAP 애플리케이션 12 SP1용 SLES).
 
@@ -101,8 +101,8 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
 GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든 리소스를 배포할 수 있습니다. 템플릿에서 가상 머신, 부하 분산 장치, 가용성 집합 등을 배포합니다.
 템플릿을 배포하려면 다음 단계를 따릅니다.
 
-1. Azure Portal에서 [데이터베이스 템플릿][template-multisid-db] 또는 [수렴 템플릿][template-converged]을 엽니다. 
-    데이터베이스 템플릿은 데이터베이스에 대해서만 부하 분산 규칙을 만듭니다. 또한 수렴형 템플릿은 ASCS/SCS 및 ERS(Linux 전용) 인스턴스에 대해 부하 분산 규칙을 만듭니다. SAP NetWeaver 기반 시스템을 설치하고 동일한 컴퓨터에 ASCS/SCS 인스턴스를 설치하려는 경우 [수렴 템플릿][template-converged]을 사용합니다.
+1. Azure Portal에서 [데이터베이스 템플릿][template-multisid-db] 또는 [수렴 형 템플릿을][template-converged] 엽니다. 
+    데이터베이스 템플릿은 데이터베이스에 대해서만 부하 분산 규칙을 만듭니다. 또한 수렴형 템플릿은 ASCS/SCS 및 ERS(Linux 전용) 인스턴스에 대해 부하 분산 규칙을 만듭니다. SAP NetWeaver 기반 시스템을 설치 하려는 경우 동일한 컴퓨터에 ASCS/SCS 인스턴스를 설치 하려면 [수렴 된 템플릿을][template-converged]사용 합니다.
 
 1. 다음 매개 변수를 입력합니다.
     - **SAP 시스템 ID**: 설치하려는 SAP 시스템의 SAP 시스템 ID를 입력합니다. 이 ID는 배포되는 리소스의 접두사로 사용됩니다.
@@ -111,7 +111,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
     - **Db 형식**: **HANA**를 선택합니다.
     - **SAP 시스템 크기**: 새 시스템에서 제공할 SAP의 수를 입력합니다. 시스템에 필요한 SAP의 수를 모를 경우 SAP 기술 파트너 또는 시스템 통합자에 문의하세요.
     - **시스템 가용성**: **HA**를 선택합니다.
-    - **관리자 사용자 이름 및 관리자 암호**: 새 사용자가 만들어진 컴퓨터에 로그인 할 수 있습니다.
+    - **관리자 사용자 이름 및 관리자 암호**: 컴퓨터에 로그인 하는 데 사용할 수 있는 새 사용자가 만들어집니다.
     - **새 서브넷 또는 기존 서브넷**: 새 가상 네트워크 및 서브넷을 만들어야 하는지 또는 기존 서브넷을 사용해야 하는지 결정합니다. 온-프레미스 네트워크에 연결되어 있는 가상 네트워크가 이미 있는 경우 **기존**을 선택합니다.
     - **서브넷 ID**: 서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 대개 **/subscriptions/\<구독 ID>/resourceGroups/\<리소스 그룹 이름>/providers/Microsoft.Network/virtualNetworks/\<가상 네트워크 이름>/subnets/\<서브넷 이름>** 과 같은 형식입니다.
 
@@ -191,11 +191,11 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    1. **확인**을 선택합니다.
    1. 포트 3**03**41 및 3**03**42에 대해 이러한 단계를 반복합니다.
 
-SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 데이터베이스](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) 가이드의 [테넌트 데이터베이스에 연결](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) 챕터 또는 [SAP Note 2388694][2388694]를 참조하세요.
+SAP HANA에 필요한 포트에 대 한 자세한 내용은 [SAP HANA 테 넌 트 데이터베이스](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) 가이드 또는 [SAP Note 2388694][2388694]에 있는 [테 넌 트 데이터베이스에](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) 대 한 연결 챕터를 참조 하세요.
 
 > [!IMPORTANT]
-> Azure Load Balancer 뒤에 배치 하는 Azure Vm에서 TCP 타임 스탬프를 사용 하지 마십시오. TCP 타임 스탬프를 사용 하도록 설정 하면 상태 프로브 실패 합니다. 매개 변수를 설정 **net.ipv4.tcp_timestamps** 하 **0**합니다. 자세한 내용은 참조 하십시오 [부하 분산 장치 상태 프로브](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)합니다.
-> SAP 참고 참고 [2382421](https://launchpad.support.sap.com/#/notes/2382421)합니다. 
+> Azure Load Balancer 뒤에 배치 되는 Azure Vm에서 TCP 타임 스탬프를 사용 하도록 설정 하지 마세요. TCP 타임 스탬프를 사용 하도록 설정 하면 상태 프로브가 실패 합니다. 매개 변수 **net.tcp. tcp 타임 스탬프** 를 **0**으로 설정 합니다. 자세한 내용은 [Load Balancer 상태 프로브](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)를 참조 하세요.
+> SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421)도 참조 하세요. 
 
 ## <a name="create-a-pacemaker-cluster"></a>Pacemaker 클러스터 만들기
 
@@ -343,11 +343,11 @@ SAP HANA 시스템 복제를 설치하려면 [SAP HANA SR 성능 최적화 시�
    * 데이터베이스 사용자(SYSTEM) 암호 입력: 데이터베이스 사용자 암호를 입력합니다.
    * 데이터베이스 사용자(SYSTEM) 암호 확인: 데이터베이스 사용자 암호를 다시 입력하여 확인합니다.
    * 컴퓨터를 다시 부팅한 다음 시스템 다시 시작? [n]: Enter 키를 선택합니다.
-   * 계속할까요? (y/n): 요약의 유효성을 검사합니다. 계속하려면 **y**를 입력합니다.
+   * 계속하시겠습니까? (y/n): 요약의 유효성을 검사합니다. 계속하려면 **y**를 입력합니다.
 
 1. **[A]** SAP 호스트 에이전트를 업그레이드합니다.
 
-   [SAP Software Center][sap-swcenter]에서 최신 SAP 호스트 에이전트 아카이브를 다운로드하고 다음 명령을 실행하여 에이전트를 업그레이드합니다. 다운로드한 파일을 가리키도록 아카이브의 경로를 바꿉니다.
+   [Sap 소프트웨어 센터][sap-swcenter] 에서 최신 Sap Host Agent archive를 다운로드 하 고 다음 명령을 실행 하 여 에이전트를 업그레이드 합니다. 다운로드한 파일을 가리키도록 아카이브의 경로를 바꿉니다.
 
    <pre><code>sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive &lt;path to SAP Host Agent SAR&gt;
    </code></pre>
@@ -364,14 +364,14 @@ SAP HANA 시스템 복제를 설치하려면 [SAP HANA SR 성능 최적화 시�
 
    SAP HANA 2.0 또는 MDC를 사용하는 경우 SAP NetWeaver 시스템에 대한 테넌트 데이터베이스를 만듭니다. **NW1**을 SAP 시스템의 SID로 바꿉니다.
 
-   로 다음 명령을 실행할 < hanasid\>adm:
+   < Hanasid\>adm으로 다음 명령을 실행 합니다.
 
    <pre><code>hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
    </code></pre>
 
 1. **[1]** 첫 번째 노드에서 시스템 복제를 구성합니다.
 
-   데이터베이스를 백업 < hanasid\>adm:
+   Hanasid\>adm < 데이터베이스를 백업 합니다.
 
    <pre><code>hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
    hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
@@ -391,7 +391,7 @@ SAP HANA 시스템 복제를 설치하려면 [SAP HANA SR 성능 최적화 시�
 
 1. **[2]** 두 번째 노드에서 시스템 복제를 구성합니다.
     
-   두 번째 노드를 등록하여 시스템 복제를 시작합니다. 로 다음 명령을 < hanasid\>adm:
+   두 번째 노드를 등록하여 시스템 복제를 시작합니다. Hanasid\>adm < 다음 명령을 실행 합니다.
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
@@ -407,7 +407,7 @@ SAP HANA 시스템 복제를 설치하려면 [SAP HANA SR 성능 최적화 시�
 
 1. **[1]** 필요한 사용자를 만듭니다.
 
-   다음 명령을 루트로 실행 합니다. 굵은 글꼴 문자열(HANA 시스템 ID **HN1** 및 인스턴스 번호 **03**)을 SAP HANA 설치의 값으로 바꿉니다.
+   루트로 다음 명령을 실행 합니다. 굵은 글꼴 문자열(HANA 시스템 ID **HN1** 및 인스턴스 번호 **03**)을 SAP HANA 설치의 값으로 바꿉니다.
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -u system -i <b>03</b> 'CREATE USER <b>hdb</b>hasync PASSWORD "<b>passwd</b>"'
@@ -417,7 +417,7 @@ SAP HANA 시스템 복제를 설치하려면 [SAP HANA SR 성능 최적화 시�
 
 1. **[A]** 키 저장소 항목을 만듭니다.
 
-   새 키 저장소 항목을 만드는 루트로 다음 명령을 실행 합니다.
+   Root로 다음 명령을 실행 하 여 새 키 저장소 항목을 만듭니다.
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>passwd</b>
@@ -425,7 +425,7 @@ SAP HANA 시스템 복제를 설치하려면 [SAP HANA SR 성능 최적화 시�
 
 1. **[1]** 데이터베이스를 백업합니다.
 
-   루트로 데이터베이스 백업:
+   루트로 데이터베이스를 백업 합니다.
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -d SYSTEMDB -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
@@ -438,7 +438,7 @@ SAP HANA 시스템 복제를 설치하려면 [SAP HANA SR 성능 최적화 시�
 
 1. **[1]** 첫 번째 노드에서 시스템 복제를 구성합니다.
 
-   기본 사이트를 만들려면 < hanasid\>adm:
+   기본 사이트를 < hanasid\>adm으로 만듭니다.
 
    <pre><code>su - <b>hdb</b>adm
    hdbnsutil -sr_enable –-name=<b>SITE1</b>
@@ -446,7 +446,7 @@ SAP HANA 시스템 복제를 설치하려면 [SAP HANA SR 성능 최적화 시�
 
 1. **[2]** 보조 노드에서 시스템 복제를 구성합니다.
 
-   보조 사이트에 등록 < hanasid\>adm:
+   보조 사이트를 < hanasid\>adm으로 등록 합니다.
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
@@ -688,12 +688,12 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 > [!IMPORTANT]
 > 선택한 OS가 사용 중인 특정 VM 유형에서 SAP HANA용으로 인증된 SAP인지 반드시 확인하세요. 이 항목에 대한 SAP HANA 인증 VM 형식 및 OS 릴리스 목록은 [SAP HANA 인증 IaaS 플랫폼](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)에서 조회할 수 있습니다. 특정 VM 형식에 대한 SAP HANA 지원 OS 릴리스의 전체 목록을 보려면 목록에 있는 VM 유형의 세부 정보를 클릭하세요.
 
-사용 사례에 따라 SAP HANA SR 성능 최적화 시나리오 또는 SAP HANA SR 비용 최적화 시나리오 가이드에 나열된 모든 테스트 사례를 실행합니다. 가이드는 [SAP용 SLES 모범 사례 페이지][sles-for-sap-bp]에서 찾을 수 있습니다.
+사용 사례에 따라 SAP HANA SR 성능 최적화 시나리오 또는 SAP HANA SR 비용 최적화 시나리오 가이드에 나열된 모든 테스트 사례를 실행합니다. [SLES FOR SAP 모범 사례 페이지][sles-for-sap-bp]에서 가이드를 찾을 수 있습니다.
 
 다음 테스트는 SAP HANA SR 성능 최적화 시나리오 SAP 애플리케이션 12 SP1용 SUSE Linux Enterprise Server 가이드의 테스트 설명을 복사한 것입니다. 최신 버전의 경우 항상 자체 가이드를 읽습니다. 테스트를 시작하기 전에 항상 HANA가 동기화되어 있는지 확인하고, Pacemaker 구성이 올바른지 확인합니다.
 
 다음 테스트 설명에서는 PREFER_SITE_TAKEOVER=“true” 및 AUTOMATED_REGISTER=“false”로 가정합니다.
-참고:  다음 테스트는 순서대로 실행되도록 설계되었으며, 이전 테스트의 종료 상태에 따라 달라집니다.
+참고: 다음 테스트는 순서대로 실행되도록 설계되었으며, 이전 테스트의 종료 상태에 따라 달라집니다.
 
 1. 테스트 1: 노드 1에서 주 데이터베이스 중지
 
@@ -709,7 +709,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-   명령을 실행 하 여 다음으로 < hanasid\>adm 노드 hn1-db-0에서:
+   H n 1-db-0에서 hanasid\>adm < 하는 다음 명령을 실행 합니다.
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -750,7 +750,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
    </code></pre>
 
-   명령을 실행 하 여 다음으로 < hanasid\>adm 노드 hn1-db-1에서:
+   H n 1-1 노드에서 hanasid\>adm < 하는 다음 명령을 실행 합니다.
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -791,7 +791,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-   명령을 실행 하 여 다음으로 < hanasid\>adm 노드 hn1-db-0에서:
+   H n 1-db-0에서 hanasid\>adm < 하는 다음 명령을 실행 합니다.
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
@@ -832,7 +832,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
    </code></pre>
 
-   명령을 실행 하 여 다음으로 < hanasid\>adm 노드 hn1-db-1에서:
+   H n 1-1 노드에서 hanasid\>adm < 하는 다음 명령을 실행 합니다.
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
@@ -975,7 +975,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-   명령을 실행 하 여 다음으로 < hanasid\>adm 노드 hn1-db-1에서:
+   H n 1-1 노드에서 hanasid\>adm < 하는 다음 명령을 실행 합니다.
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -1012,7 +1012,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-   명령을 실행 하 여 다음으로 < hanasid\>adm 노드 hn1-db-1에서:
+   H n 1-1 노드에서 hanasid\>adm < 하는 다음 명령을 실행 합니다.
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
@@ -1084,7 +1084,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 
 ## <a name="next-steps"></a>다음 단계
 
-* [SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]
-* [SAP용 Azure Virtual Machines 배포][deployment-guide]
-* [SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
+* [SAP 용 Azure Virtual Machines 계획 및 구현][planning-guide]
+* [SAP 용 Azure Virtual Machines 배포][deployment-guide]
+* [SAP 용 Azure Virtual Machines DBMS 배포][dbms-guide]
 * Azure의 SAP HANA(큰 인스턴스)에 대한 고가용성 및 재해 복구 계획을 설정하는 방법을 알아보려면 [Azure의 SAP HANA(큰 인스턴스) 고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md)를 참조하세요.

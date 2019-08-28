@@ -4,7 +4,7 @@ description: Visual Studio 구독 혜택을 사용하여 개발/테스트 시나
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 91c3880a-cede-44f1-ae25-f8f9f5b6eaa4
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: f791b17f2729af3efd2dff5d7884a168f8377154
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fcd97b07416526d71d5bee9bc198eb0d912e1c55
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61403099"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67719146"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>개발/테스트 시나리오용으로 Azure에서 Windows 클라이언트 사용
 적절한 Visual Studio(이전의 MSDN) 구독이 있으면 Azure에서 개발/테스트 시나리오에 Windows 7, Windows 8 또는 Windows 10 Enterprise(x64)를 사용할 수 있습니다. 이 문서에서는 Azure에서 Windows 7, Windows 8.1, Windows 10 Enterprise를 실행하고 다음 Azure 갤러리 이미지를 사용하기 위한 적격성 요구 사항에 대해 대략적으로 설명합니다.
@@ -41,14 +41,14 @@ ms.locfileid: "61403099"
 
 | 제품 이름 | 제품 번호 | 사용 가능한 클라이언트 이미지 |
 |:--- |:---:|:---:|
-| [종량제 개발/테스트](https://azure.microsoft.com/offers/ms-azr-0023p/) |0023P |윈도우 10 |
-| [Visual Studio Enterprise(MPN) 구독자](https://azure.microsoft.com/offers/ms-azr-0029p/) |0029P |윈도우 10 |
-| [Visual Studio Professional 구독자](https://azure.microsoft.com/offers/ms-azr-0059p/) |0059P |윈도우 10 |
-| [Visual Studio Test Professional 구독자](https://azure.microsoft.com/offers/ms-azr-0060p/) |0060P |윈도우 10 |
-| [Visual Studio Premium with MSDN(혜택)](https://azure.microsoft.com/offers/ms-azr-0061p/) |0061P |윈도우 10 |
-| [Visual Studio Enterprise 구독자](https://azure.microsoft.com/offers/ms-azr-0063p/) |0063P |윈도우 10 |
-| [Visual Studio Enterprise(BizSpark) 구독자](https://azure.microsoft.com/offers/ms-azr-0064p/) |0064P |윈도우 10 |
-| [Enterprise 개발/테스트](https://azure.microsoft.com/offers/ms-azr-0148p/) |0148P |윈도우 10 |
+| [종량제 개발/테스트](https://azure.microsoft.com/offers/ms-azr-0023p/) |0023P |Windows 10 |
+| [Visual Studio Enterprise(MPN) 구독자](https://azure.microsoft.com/offers/ms-azr-0029p/) |0029P |Windows 10 |
+| [Visual Studio Professional 구독자](https://azure.microsoft.com/offers/ms-azr-0059p/) |0059P |Windows 10 |
+| [Visual Studio Test Professional 구독자](https://azure.microsoft.com/offers/ms-azr-0060p/) |0060P |Windows 10 |
+| [Visual Studio Premium with MSDN(혜택)](https://azure.microsoft.com/offers/ms-azr-0061p/) |0061P |Windows 10 |
+| [Visual Studio Enterprise 구독자](https://azure.microsoft.com/offers/ms-azr-0063p/) |0063P |Windows 10 |
+| [Visual Studio Enterprise(BizSpark) 구독자](https://azure.microsoft.com/offers/ms-azr-0064p/) |0064P |Windows 10 |
+| [Enterprise 개발/테스트](https://azure.microsoft.com/offers/ms-azr-0148p/) |0148P |Windows 10 |
 
 ## <a name="check-your-azure-subscription"></a>Azure 구독 확인
 제품 ID를 모르는 경우 다음 두 방법 중 하나로 Azure Portal을 통해 얻을 수 있습니다.  

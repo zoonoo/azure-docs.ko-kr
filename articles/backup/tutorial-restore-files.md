@@ -1,7 +1,6 @@
 ---
 title: Azure Backup을 사용하여 VM에 파일 복원
 description: Backup 및 Recovery Services를 사용하여 Azure VM에서 파일 수준 복원을 수행하는 방법을 알아봅니다.
-services: backup
 author: dcurwin
 manager: carmonm
 ms.service: backup
@@ -9,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 801d812f44eacb4953ca3df942d65bd77f210478
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 9e71757215f6a0a5b664abd3f8a9ee632b1535f3
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273921"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876364"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Azure에서 가상 머신에 파일 복원
 Azure Backup은 지역 중복 복구 자격 증명 모음에 저장되는 복구 지점을 만듭니다. 복구 지점에서 복원하는 경우 전체 VM 또는 개별 파일을 복원할 수 있습니다. 이 문서에서는 개별 파일을 복원하는 방법에 대해 자세히 설명합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -34,7 +33,7 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 자습서�
 
 
 ## <a name="backup-overview"></a>Backup 개요
-Azure에서 백업을 시작하면 VM에 대한 백업 확장에서 특정 시점 스냅샷을 만듭니다. 첫 번째 백업이 요청될 때 백업 확장이 VM에 설치됩니다. 또한 백업이 수행될 때 VM이 실행되고 있지 않으면 Azure Backup에서 기본 저장소의 스냅샷을 만들 수도 있습니다.
+Azure에서 백업을 시작하면 VM에 대한 백업 확장에서 특정 시점 스냅샷을 만듭니다. 첫 번째 백업이 요청될 때 백업 확장이 VM에 설치됩니다. 또한 백업이 수행될 때 VM이 실행되고 있지 않으면 Azure Backup에서 기본 스토리지의 스냅샷을 만들 수도 있습니다.
 
 기본적으로 Azure Backup은 파일 시스템 일치 백업을 만듭니다. Azure Backup에서 스냅샷을 만들면 데이터가 Recovery Services 자격 증명 모음으로 전송됩니다. 효율성을 극대화하기 위해 Azure Backup은 이전 백업 이후에 변경된 데이터 블록만 식별하여 전송합니다.
 
@@ -143,7 +142,7 @@ Azure에서 백업을 시작하면 VM에 대한 백업 확장에서 특정 시�
 
     스크립트의 출력에서 복구 지점에 대한 경로가 제공됩니다. 다음 예제 출력에서는 복구 지점이 */home/azureuser/myVM-20170919213536/Volume1*에 탑재되었음을 보여 줍니다.
 
-    ```
+    ```output
     Microsoft Azure VM Backup - File Recovery
     ______________________________________________
     Please enter the password as shown on the portal to securely connect to the recovery point. : c068a041ce12465

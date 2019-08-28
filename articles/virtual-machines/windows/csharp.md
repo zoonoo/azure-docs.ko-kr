@@ -4,7 +4,7 @@ description: C# 및 Azure Resource Manager를 사용하여 가상 컴퓨터 및 
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 87524373-5f52-4f4b-94af-50bf7b65c277
@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 55b73f5f4e6998eb1eb8c5ebc873fa20f8722a3e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b88bade886bf8cf22387e8733b8710414c944988
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304584"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68361126"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>C#을 사용하여 Azure에서 Windows VM 생성 및 관리 #
 
-[Azure VM(Virtual Machine)](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 몇 가지 지원 Azure 리소스가 필요합니다. 이 문서에서는 C#을 사용하여 VM 리소스 만들기, 관리 및 삭제에 대해 설명합니다. 다음 방법에 대해 알아봅니다.
+[Azure VM(Virtual Machine)](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 몇 가지 지원 Azure 리소스가 필요합니다. 이 문서에서는 C#을 사용하여 VM 리소스 만들기, 관리 및 삭제에 대해 설명합니다. 여기에서는 다음과 같은 작업을 수행하는 방법에 대해 배우게 됩니다.
 
 > [!div class="checklist"]
 > * Visual Studio 프로젝트 만들기
@@ -85,9 +85,9 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 
 ### <a name="create-the-management-client"></a>관리 클라이언트 만들기
 
-1. 사용자가 만든 프로젝트의 Program.cs 파일을 엽니다. 그런 다음 기존 문에 다음 using 문을 파일의 맨 위에 있는 추가 합니다.
+1. 만든 프로젝트에 대 한 Program.cs 파일을 엽니다. 그런 다음 using 문을 파일 맨 위에 있는 기존 문에 추가 합니다.
 
-    ```
+    ```csharp
     using Microsoft.Azure.Management.Compute.Fluent;
     using Microsoft.Azure.Management.Compute.Fluent.Models;
     using Microsoft.Azure.Management.Fluent;
@@ -97,7 +97,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 
 2. 관리 클라이언트를 만들려면 다음 코드를 Main 메서드에 추가합니다.
 
-    ```
+    ```csharp
     var credentials = SdkContext.AzureCredentialsFactory
         .FromFile(Environment.GetEnvironmentVariable("AZURE_AUTH_LOCATION"));
 
@@ -116,7 +116,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 
 애플리케이션의 값을 지정하고 리소스 그룹을 만들려면 Main 메서드에 다음 코드를 추가합니다.
 
-```
+```csharp
 var groupName = "myResourceGroup";
 var vmName = "myVM";
 var location = Region.USWest;
@@ -133,7 +133,7 @@ var resourceGroup = azure.ResourceGroups.Define(groupName)
 
 가용성 집합을 만들려면 Main 메서드에 다음 코드를 추가합니다.
 
-```
+```csharp
 Console.WriteLine("Creating availability set...");
 var availabilitySet = azure.AvailabilitySets.Define("myAVSet")
     .WithRegion(location)
@@ -148,7 +148,7 @@ var availabilitySet = azure.AvailabilitySets.Define("myAVSet")
 
 가상 머신의 공용 IP 주소를 만들려면 Main 메서드에 다음 코드를 추가합니다.
    
-```
+```csharp
 Console.WriteLine("Creating public IP address...");
 var publicIPAddress = azure.PublicIPAddresses.Define("myPublicIP")
     .WithRegion(location)
@@ -163,7 +163,7 @@ var publicIPAddress = azure.PublicIPAddresses.Define("myPublicIP")
 
 서브넷 및 가상 네트워크를 만들려면 Main 메서드에 다음 코드를 추가합니다.
 
-```
+```csharp
 Console.WriteLine("Creating virtual network...");
 var network = azure.Networks.Define("myVNet")
     .WithRegion(location)
@@ -179,7 +179,7 @@ var network = azure.Networks.Define("myVNet")
 
 네트워크 인터페이스를 만들려면 Main 메서드에 다음 코드를 추가합니다.
 
-```
+```csharp
 Console.WriteLine("Creating network interface...");
 var networkInterface = azure.NetworkInterfaces.Define("myNIC")
     .WithRegion(location)
@@ -197,7 +197,7 @@ var networkInterface = azure.NetworkInterfaces.Define("myNIC")
 
 가상 머신을 만들려면 Main 메서드에 다음 코드를 추가합니다.
 
-```
+```csharp
 Console.WriteLine("Creating virtual machine...");
 azure.VirtualMachines.Define(vmName)
     .WithRegion(location)
@@ -219,7 +219,7 @@ azure.VirtualMachines.Define(vmName)
 
 마켓플레이스 이미지 대신 기존 디스크를 사용하려면 다음 코드를 사용합니다.
 
-```
+```csharp
 var managedDisk = azure.Disks.Define("myosdisk")
     .WithRegion(location)
     .WithExistingResourceGroup(groupName)
@@ -244,7 +244,7 @@ azure.VirtualMachines.Define("myVM")
 
 VM에서 작업을 수행해야 하는 경우 VM의 인스턴스를 가져와야 합니다.
 
-```
+```csharp
 var vm = azure.VirtualMachines.GetByResourceGroup(groupName, vmName);
 ```
 
@@ -252,7 +252,7 @@ var vm = azure.VirtualMachines.GetByResourceGroup(groupName, vmName);
 
 가상 컴퓨터에 대한 정보를 가져오려면 Main 메서드에 다음 코드를 추가합니다.
 
-```
+```csharp
 Console.WriteLine("Getting information about the virtual machine...");
 Console.WriteLine("hardwareProfile");
 Console.WriteLine("   vmSize: " + vm.Size);
@@ -324,7 +324,7 @@ Console.ReadLine();
 
 할당을 취소하지 않고 가상 머신을 중지하려면 Main 메서드에 다음 코드를 추가합니다.
 
-```
+```csharp
 Console.WriteLine("Stopping vm...");
 vm.PowerOff();
 Console.WriteLine("Press enter to continue...");
@@ -333,7 +333,7 @@ Console.ReadLine();
 
 가상 머신의 할당을 취소하려는 경우 PowerOff 호출을 이 코드로 변경합니다.
 
-```
+```csharp
 vm.Deallocate();
 ```
 
@@ -341,7 +341,7 @@ vm.Deallocate();
 
 가상 머신을 시작하려면 Main 메서드에 다음 코드를 추가합니다.
 
-```
+```csharp
 Console.WriteLine("Starting vm...");
 vm.Start();
 Console.WriteLine("Press enter to continue...");
@@ -354,7 +354,7 @@ Console.ReadLine();
 
 가상 머신의 크기를 변경하려면 Main 메서드에 다음 코드를 추가합니다.
 
-```
+```csharp
 Console.WriteLine("Resizing vm...");
 vm.Update()
     .WithSize(VirtualMachineSizeTypes.StandardDS2) 
@@ -365,9 +365,9 @@ Console.ReadLine();
 
 ### <a name="add-a-data-disk-to-the-vm"></a>VM에 데이터 디스크 추가
 
-가상 머신에 데이터 디스크를 추가 하려면 Main 메서드에이 코드를 추가 합니다. 이 예제에서는 데이터 디스크를 lun이 0 이며 캐싱 형식이 읽기/쓰기 크기가 2GB를 추가 합니다.
+가상 컴퓨터에 데이터 디스크를 추가 하려면 Main 메서드에이 코드를 추가 합니다. 이 예에서는 크기가 2gb이 고, 두 개의 LUN이 0이 고, 캐싱 유형이 ReadWrite 인 데이터 디스크를 추가 합니다.
 
-```
+```csharp
 Console.WriteLine("Adding data disk to vm...");
 vm.Update()
     .WithNewDataDisk(2, 0, CachingTypes.ReadWrite) 
@@ -382,7 +382,7 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
 
 리소스 그룹을 삭제하려면 Main 메서드에 다음 코드를 추가합니다.
 
-```
+```csharp
 azure.ResourceGroups.DeleteByName(groupName);
 ```
 
@@ -397,4 +397,3 @@ azure.ResourceGroups.DeleteByName(groupName);
 ## <a name="next-steps"></a>다음 단계
 * [C# 및 Resource Manager 템플릿을 사용하여 Azure Virtual Machine 배포](csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)의 정보를 사용하여 가상 머신을 만드는 데 템플릿을 활용합니다.
 * [.NET용 Azure 라이브러리](https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet) 사용에 대해 자세히 알아봅니다.
-

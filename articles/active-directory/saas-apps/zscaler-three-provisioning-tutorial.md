@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
-ms.author: v-ant-msft
-ms.openlocfilehash: d96444984c503da68ccbda3aef9fea0ede5c7ff9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: jeedes
+ms.openlocfilehash: 43ae028e57578634c34c69357a264fdb180b8a1f
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "67049066"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68515371"
 ---
 # <a name="tutorial-configure-zscaler-three-for-automatic-user-provisioning"></a>자습서: Zscaler Three에 대한 자동 사용자 프로비저닝 구성
 
@@ -28,8 +28,6 @@ ms.locfileid: "67049066"
 
 > [!NOTE]
 > 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션에 대한 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../active-directory-saas-app-provisioning.md)를 참조하세요.
->
-> 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능의 Azure 일반 사용 약관에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 

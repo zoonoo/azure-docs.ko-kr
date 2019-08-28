@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/22/2019
 ms.author: juliako
-ms.openlocfilehash: 15b2408113d8bd19d2e988643442ac5e3b305237
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f9ca4b54db305a5c088b4dda27a6844c8439fa1a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149222"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055293"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>자습서: URL에 따라 원격 파일 인코딩 및 비디오 스트림 - REST
 
@@ -236,7 +236,7 @@ Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설
 
 **스트리밍 로케이터**를 만드는 과정을 게시라고 합니다. 기본적으로 **스트리밍 로케이터**는 API 호출을 수행한 직후부터 유효하며, 선택적인 시작 및 종료 시간을 구성하지 않는 한 삭제될 때까지 지속됩니다. 
 
-[스트리밍 로케이터](https://docs.microsoft.com/rest/api/media/streaminglocators)를 만들 때 원하는 **StreamingPolicyName**을 지정해야 합니다. 이 예제에서는 미리 정의된 암호화되지 않은 스트리밍 정책(**PredefinedStreamingPolicy.ClearStreamingOnly**)을 사용하도록 암호화되지 않은(in-the-clear 또는 non-encrypted) 콘텐츠를 스트림합니다.
+[스트리밍 로케이터](https://docs.microsoft.com/rest/api/media/streaminglocators)를 만들 때 원하는 **StreamingPolicyName**을 지정해야 합니다. 이 예제에서는 미리 정의된 암호화되지 않은 스트리밍 정책(“Predefined_ClearStreamingOnly”)을 사용하도록 암호화되지 않은(in-the-clear 또는 non-encrypted) 콘텐츠를 스트림합니다.
 
 > [!IMPORTANT]
 > 사용자 지정 [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies)를 사용하는 경우 Media Service 계정에 대해 이러한 정책을 제한적으로 설계하고 동일한 암호화 옵션 및 프로토콜이 필요할 때마다 StreamingLocator에 다시 사용해야 합니다. 
@@ -356,7 +356,7 @@ Azure Media Player는 테스트용으로 사용할 수 있지만 프로덕션 �
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서에서 만든 Media Services 및 저장소 계정을 포함하여 리소스 그룹의 리소스가 더 이상 필요하지 않으면, 앞서 만든 리소스 그룹을 삭제합니다.  
+이 자습서에서 만든 Media Services 및 스토리지 계정을 포함하여 리소스 그룹의 리소스가 더 이상 필요하지 않으면, 앞서 만든 리소스 그룹을 삭제합니다.  
 
 다음 CLI 명령을 실행합니다.
 

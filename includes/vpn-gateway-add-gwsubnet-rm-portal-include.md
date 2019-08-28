@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: eb2555cdc163ee0f88149248b9e7d83a51d34a1b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 42e983ead6f7562c6a31cf9ef4ad2d97d0ff9707
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182049"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673437"
 ---
-1. [Azure Portal](http://portal.azure.com)에서 가상 네트워크 게이트웨이를 만들려는 Resource Manager 가상 네트워크를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 가상 네트워크 게이트웨이를 만들려는 Resource Manager 가상 네트워크를 선택합니다.
 
 2. 가상 네트워크 페이지의 **설정** 섹션에서 **서브넷**을 선택하여 **서브넷** 페이지를 확장합니다.
 

@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/11/2018
+ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 5bc326bbc16ef93d484425f26b6f8226150c77c6
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 5e5260a2001d9cb0a38f4182e923a5416f76712b
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66302433"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68384984"
 ---
 # <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>자습서: Service Fabric 독립 실행형 클러스터에 애플리케이션 배포
 
@@ -51,7 +51,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ### <a name="deploy-the-app-to-the-service-fabric-cluster"></a>Service Fabric 클러스터에 앱 배포
 
-응용 프로그램이 다운로드되면 Visual Studio에서 클러스터에 직접 배포할 수 있습니다.
+애플리케이션이 다운로드되면 Visual Studio에서 클러스터에 직접 배포할 수 있습니다.
 
 1. Visual Studio 열기
 
@@ -61,7 +61,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 4. 솔루션 탐색기에서 `Voting` 애플리케이션 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 선택
 
-5. **연결 엔드포인트**에 대한 드롭다운을 선택하고 클러스터에서 노드 중 하나의 공용 DNS 이름을 입력합니다.  예를 들어 `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`
+5. **연결 엔드포인트**에 대한 드롭다운을 선택하고 클러스터에서 노드 중 하나의 공용 DNS 이름을 입력합니다.  예: `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000` Azure에서는 FQDN(정규화된 도메인 이름)이 자동으로 제공되지 않지만 [VM 개요 페이지에서 쉽게 설정](https://docs.microsoft.com/azure/virtual-machines/linux/portal-create-fqdn)할 수 있습니다.
 
 6. 기본 설정 브라우저 및 유형을 클러스터 주소(이 앱이 포트 8080에 배포하는 연결 엔드포인트 - 예를 들어 ec2-34-215-183-77.us-west-2.compute.amazonaws.com:8080)를 엽니다.
 
@@ -69,7 +69,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="next-steps"></a>다음 단계
 
-시리즈의 3부에서 클러스터에 응용 프로그램을 배포하는 방법을 알아보았습니다.
+시리즈의 3부에서 클러스터에 애플리케이션을 배포하는 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 샘플 앱 다운로드

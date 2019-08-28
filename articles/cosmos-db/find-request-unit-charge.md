@@ -4,14 +4,14 @@ description: Azure Cosmos 컨테이너에 대해 실행한 작업의 RU(요청 �
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
+ms.date: 06/14/2019
 ms.author: thweiss
-ms.openlocfilehash: 0671556a1ad049782090ffede509072adbac4c6a
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 96c36067456a49a5760d6fde488dcb4ad8311a90
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66416043"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356451"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Azure Cosmos DB에서 요청 단위 요금 알아보기
 
@@ -39,7 +39,8 @@ SQL API를 사용하는 경우 Azure Cosmos 컨테이너에 대해 실행한 작
 
 ![Azure Portal의 SQL 쿼리 요청 요금 스크린샷](./media/find-request-unit-charge/portal-sql-query.png)
 
-### <a name="use-the-net-sdk-v2"></a>.NET SDK V2 사용
+### <a name="use-the-net-sdk"></a>.NET SDK 사용
+### <a name="net-v2-sdk"></a>.Net V2 SDK
 
 [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)에서 반환되는 개체는 다음과 같이 `RequestCharge` 속성을 표시합니다.
 
@@ -73,6 +74,12 @@ while (query.HasMoreResults)
     requestCharge = queryResponse.RequestCharge;
 }
 ```
+
+### <a name="net-v3-sdk"></a>.Net V3 SDK
+
+[.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)에서 반환되는 개체는 다음과 같이 `RequestCharge` 속성을 표시합니다.
+
+[!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/CustomDocsSampleCode.cs?name=GetRequestCharge)]
 
 자세한 내용은 [빠른 시작: Azure Cosmos DB의 SQL API 계정을 사용하여 .NET 웹앱 빌드](create-sql-api-dotnet.md)를 참조하세요.
 
@@ -146,10 +153,12 @@ while (query.hasMoreResults()) {
 [Python SDK](https://pypi.org/project/azure-cosmos/)의 `CosmosClient` 개체는 마지막으로 실행된 작업의 기본 HTTP API에서 반환된 모든 헤더를 매핑하는 `last_response_headers` 사전을 표시합니다. 요청 요금은 다음과 같이 `x-ms-request-charge` 키 아래에서 확인할 수 있습니다.
 
 ```python
-response = client.ReadItem('dbs/database/colls/container/docs/itemId', { 'partitionKey': 'partitionKey' })
+response = client.ReadItem(
+    'dbs/database/colls/container/docs/itemId', {'partitionKey': 'partitionKey'})
 request_charge = client.last_response_headers['x-ms-request-charge']
 
-response = client.ExecuteStoredProcedure('dbs/database/colls/container/sprocs/storedProcedureId', None, { 'partitionKey': 'partitionKey' })
+response = client.ExecuteStoredProcedure(
+    'dbs/database/colls/container/sprocs/storedProcedureId', None, {'partitionKey': 'partitionKey'})
 request_charge = client.last_response_headers['x-ms-request-charge']
 ```
 
@@ -302,3 +311,4 @@ RU 사용량을 최적화하는 방법에 대한 자세한 내용은 다음 문�
 * [프로비저닝된 처리량을 전역적으로 크기 조정](scaling-throughput.md)
 * [컨테이너 및 데이터베이스의 처리량 프로비전](set-throughput.md)
 * [컨테이너의 처리량 프로비전](how-to-provision-container-throughput.md)
+* [Azure Cosmos DB에서 메트릭을 사용하여 모니터링 및 디버그](use-metrics.md)

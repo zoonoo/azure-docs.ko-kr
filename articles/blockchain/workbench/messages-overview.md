@@ -158,7 +158,7 @@ Blockchain Workbench는 다음 필드가 포함된 응답을 반환합니다.
 | connectionId             | 블록체인 연결에 대한 고유 식별자입니다.                               |
 | messageSchemaVersion     | 메시징 스키마 버전입니다.                                                         |
 | messageName              | **CreateContractUpdate**                                                      |
-| status                   | 계약 생성 요청의 상태입니다.  가능한 값: **제출**, **커밋됨**, **실패**  |
+| status                   | 계약 생성 요청의 상태입니다.  가능한 값: **Submitted**, **Committed**, **Failure**  |
 | additionalInformation    | 상태에 따라 제공되는 추가 정보입니다.                              |
 
 Blockchain Workbench의 제출된 **계약 만들기** 응답 예:
@@ -261,7 +261,7 @@ Blockchain Workbench는 다음 필드가 포함된 응답을 반환합니다.
 | connectionId          | 블록체인 연결에 대한 고유 식별자입니다. |
 | messageSchemaVersion  | 메시징 스키마 버전입니다. |
 | messageName           | **CreateContractActionUpdate** |
-| status                | 계약 작업 요청의 상태입니다. 가능한 값: **제출**, **커밋됨**, **실패**                         |
+| status                | 계약 작업 요청의 상태입니다. 가능한 값: **Submitted**, **Committed**, **Failure**                         |
 | additionalInformation | 상태에 따라 제공되는 추가 정보입니다. |
 
 Blockchain Workbench의 제출된 **계약 작업 만들기** 응답 예:
@@ -341,7 +341,7 @@ Blockchain Workbench의 커밋된 **계약 작업 만들기** 응답 예:
 
 사용자가 Event Grid를 사용하여 Blockchain Workbench에서 발생하는 이벤트에 대한 알림을 받기 원할 경우 Azure Functions를 사용하여 Event Grid의 이벤트를 사용할 수 있습니다.
 
-1. Azure Portal에서 **Azure Function App**을 만듭니다.
+1. Azure Portal에서 **Azure 함수 앱**을 만듭니다.
 2. 새 함수를 만듭니다.
 3. Event Grid에 대한 템플릿을 찾습니다. 메시지를 읽기 위한 기본 템플릿 코드가 표시됩니다. 필요에 따라 코드를 수정합니다.
 4. 함수를 저장합니다. 

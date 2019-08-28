@@ -46,7 +46,7 @@ Azure Cost Management by Cloudyn에서는 모든 클라우드 리소스 데이�
 
 ![리소스 종류](./media/cost-management-create-account-view-data/actual-cost-04.png)
 
-리소스 종류를 마우스 오른쪽 단추로 클릭하고 **비용 엔터티**를 선택하여 리소스를 사용한 비용 엔터티 및 서비스를 봅니다. 다음 예제 이미지에서 로컬 중복 저장소는 리소스 유형으로 설정되어 있습니다. Contoso|Azure/Storage에서 $15.65를 사용했습니다. Engineering|Azure Storage에서 $164.25를 사용했습니다. Shared Infrastructure|Azure/Storage에서 $116.58를 사용했습니다. 서비스의 총 비용은 $296입니다.
+리소스 종류를 마우스 오른쪽 단추로 클릭하고 **비용 엔터티**를 선택하여 리소스를 사용한 비용 엔터티 및 서비스를 봅니다. 다음 예제 이미지에서 로컬 중복 스토리지는 리소스 유형으로 설정되어 있습니다. Contoso|Azure/Storage에서 $15.65를 사용했습니다. Engineering|Azure Storage에서 $164.25를 사용했습니다. Shared Infrastructure|Azure/Storage에서 $116.58를 사용했습니다. 서비스의 총 비용은 $296입니다.
 
 ![비용 엔터티 및 서비스](./media/cost-management-create-account-view-data/actual-cost-05.png)
 

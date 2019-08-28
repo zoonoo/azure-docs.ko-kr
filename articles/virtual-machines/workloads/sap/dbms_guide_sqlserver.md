@@ -328,7 +328,7 @@ ms.locfileid: "60835540"
 계속하기 전에 다음과 같은 IaaS의 SQL Server 관련 정보를 참조하세요.
 
 * **SQL 지원 버전**: SAP 고객의 경우 Microsoft Azure Virtual Machine에서 SQL Server 2008 R2 이상이 지원됩니다. 이전 버전은 지원되지 않습니다. 자세한 내용은 이 일반 [지원 설명](https://support.microsoft.com/kb/956893) 을 참조하세요. 일반적으로 SQL Server 2008은 Microsoft에서도 지원됩니다. 그러나 SQL Server 2008 R2에 SAP용 중요 기능이 도입되어 있으므로 SQL Server 2008 R2 이상 릴리스를 사용해야 합니다. 일반적으로 최신 SQL Server 릴리스를 사용하여 Azure IaaS에서 SAP 작업을 실행하는 것이 좋습니다. 최신 SQL Server 릴리스는 Azure 서비스 및 기능 중 일부와 더 효율적으로 통합됩니다. 또는 Azure IaaS 인프라에서 작업을 최적화하도록 변경되었습니다. 따라서 이 문서는 SQL Server 2016 및 SQL Server 2017로 제한됩니다.
-* **SQL 성능**: Microsoft Azure에서 호스트하는 Virtual Machines는 다른 공용 클라우드 가상화 제품에 비해 뛰어난 성능을 제공하지만 개별 결과는 다를 수 있습니다. [Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance) 문서를 확인하세요.
+* **SQL 성능**: Microsoft Azure에서 호스트하는 Virtual Machines는 다른 퍼블릭 클라우드 가상화 제품에 비해 뛰어난 성능을 제공하지만 개별 결과는 다를 수 있습니다. [Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance) 문서를 확인하세요.
 * **Azure Marketplace의 이미지 사용**: 새 Microsoft Azure VM을 배포하는 가장 빠른 방법은 Azure Marketplace의 이미지를 사용하는 것입니다. Azure Marketplace에는 최신 SQL Server 릴리스가 포함된 이미지가 있습니다. SQL Server가 이미 설치된 이미지는 SAP NetWeaver 애플리케이션에 즉시 사용할 수 없습니다. 그 이유는 이러한 이미지 내에 SAP NetWeaver 시스템에 필요한 데이터 정렬이 아닌 기본 SQL Server 데이터 정렬이 설치되어 있기 때문입니다. 이러한 이미지를 사용하려면 [Microsoft Azure Marketplace에서 SQL Server 이미지 사용][dbms-guide-5.6] 챕터에서 설명하는 단계를 확인하세요. 
 
 
@@ -350,7 +350,7 @@ SQL Server와 SAP 데이터베이스를 실행하고 tempdb 데이터 및 tempdb
 
 위의 다이어그램에서는 간단한 경우를 보여 줍니다. [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md) 문서에서 쉽게 이해되지 않았던 것처럼 Premium Storage 디스크의 수와 크기는 다양한 요소에 따라 다릅니다. 그러나 일반적으로 다음과 같이 권장됩니다.
 
-- 저장소 공간을 사용하여 SQL Server 데이터 파일을 포함하는 하나 또는 적은 수의 볼륨을 구성합니다. 이 구성을 지지하는 이유는 실제 상황에서 다른 I/O 워크로드와 다른 크기의 데이터베이스 파일이 포함된 수많은 SAP 데이터베이스가 있다는 것입니다.
+- 스토리지 공간을 사용하여 SQL Server 데이터 파일을 포함하는 하나 또는 적은 수의 볼륨을 구성합니다. 이 구성을 지지하는 이유는 실제 상황에서 다른 I/O 워크로드와 다른 크기의 데이터베이스 파일이 포함된 수많은 SAP 데이터베이스가 있다는 것입니다.
 - Storage 공간을 사용하여 충분한 IOPS와 SQL Server 트랜잭션 로그 파일을 제공합니다. 잠재적인 IOPS 워크로드는 종종 트랜잭션 로그 볼륨의 크기 조정을 위한 지침일 뿐이며 SQL Server 트랜잭션 볼륨의 잠재적 볼륨은 아닙니다
 - 성능이 충분하면 tempdb에 D:\ 드라이브를 사용합니다. tmepdb가 D:\ 드라이브에 위치하여 전체 워크로드의 성능이 제한되는 경우 [이 문서](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance)에서 권장하는 대로 tempdb를 별도의 Premium Storage 디스크로 이동해야 할 수도 있습니다.
 
@@ -380,8 +380,8 @@ SQL Server 2014 이상 릴리스에서는 VHD의 '래퍼' 없이 Azure Blob Stor
 
 * 사용된 Storage 계정이 SQL Server가 실행 중인 VM을 배포하는 데 사용된 것과 동일한 Azure 지역에 있어야 합니다.
 * 앞 부분에서 설명한 여러 Azure Storage 계정에 VHD 분산과 관련된 고려 사항이 이 배포 방법에도 적용됩니다. Azure Storage 계정의 제한에 대한 I/O 작업 수를 의미합니다.
-* SQL Server 데이터 및 로그 파일을 나타내는 저장소 Blob에 대한 트래픽은 VM의 저장소 I/O 할당량을 계산하는 대신 특정 VM 유형의 VM 네트워크 대역폭으로 계산됩니다. 특정 VM 유형의 네트워크 및 저장소 대역폭은 [Azure에서 Windows 가상 머신에 대한 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) 문서를 참조하세요.
-* 네트워크 할당량을 통해 파일 I/O 푸시의 결과로 저장소 할당량을 주로 스트랜딩하고 이와 함께 VM의 전체 대역폭을 부분적으로만 사용합니다.
+* SQL Server 데이터 및 로그 파일을 나타내는 스토리지 Blob에 대한 트래픽은 VM의 스토리지 I/O 할당량을 계산하는 대신 특정 VM 유형의 VM 네트워크 대역폭으로 계산됩니다. 특정 VM 유형의 네트워크 및 스토리지 대역폭은 [Azure에서 Windows 가상 머신에 대한 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) 문서를 참조하세요.
+* 네트워크 할당량을 통해 파일 I/O 푸시의 결과로 스토리지 할당량을 주로 스트랜딩하고 이와 함께 VM의 전체 대역폭을 부분적으로만 사용합니다.
 * Azure Premium Storage에서 유지되는 다른 디스크 크기에 대한 IOPS 및 I/O 처리량 성능 목표는 더 이상 적용되지 않습니다. 만든 Blob이 Azure Premium Storage에 있는 경우에도 마찬가지입니다. 목표는 [VM의 고성능 Premium Storage 및 관리 디스크](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) 문서에서 설명하고 있습니다. Azure Premium Storage에 저장된 Blob에 SQL Server 데이터 파일과 로그 파일을 직접 배치한 결과로 Azure Premium Storage의 VHD에 비해 성능 특성이 다를 수 있습니다.
 * Azure Premium Storage 디스크에 사용할 수 있는 호스트 기반 캐싱은 Azure Blob에서 SQL Server 데이터 파일을 직접 배치할 때 사용할 수 없습니다.
 * M 시리즈 VM에서는 Azure Write Accelerator를 사용하여 SQL Server 트랜잭션 로그 파일에 대한 밀리초 미만의 쓰기를 지원할 수 없습니다. 
@@ -392,7 +392,7 @@ SQL Server 2014 이상 릴리스에서는 VHD의 '래퍼' 없이 Azure Blob Stor
 
 
 ## <a name="sql-server-2014-buffer-pool-extension"></a>SQL Server 2014 버퍼 풀 확장
-SQL Server 2014에는 [버퍼 풀 확장](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension?view=sql-server-2017)이라는 새로운 기능이 도입되었습니다. 이 기능은 서버 또는 VM의 로컬 SSD에서 지원되는 보조 수준 캐시를 사용하여 메모리에서 유지되는 SQL Server의 버퍼 풀을 확장합니다. 버퍼 풀 확장을 사용하면 데이터의 더 큰 작업 집합을 '메모리 내에서' 유지할 수 있습니다. Azure Standard Storage 액세스에 비해 Azure VM의 로컬 SSD에 저장된 버퍼 풀 확장에 대한 액세스는 많은 요소를 더 빠르게 만듭니다. SQL Server 데이터 파일에 권장된 것처럼 버퍼 풀 확장을 Azure Premium Storage 읽기 캐시와 비교하면 버퍼 풀 확장에 상당한 이점이 없습니다. 이는 두 캐시(SQL Server 버퍼 풀 확장 및 Premium Storage 읽기 캐시) 모두에서 Azure 계산 노드의 로컬 디스크를 사용하기 때문입니다.
+SQL Server 2014에는 [버퍼 풀 확장](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension?view=sql-server-2017)이라는 새로운 기능이 도입되었습니다. 이 기능은 서버 또는 VM의 로컬 SSD에서 지원되는 보조 수준 캐시를 사용하여 메모리에서 유지되는 SQL Server의 버퍼 풀을 확장합니다. 버퍼 풀 확장을 사용하면 데이터의 더 큰 작업 집합을 '메모리 내에서' 유지할 수 있습니다. Azure Standard Storage 액세스에 비해 Azure VM의 로컬 SSD에 저장된 버퍼 풀 확장에 대한 액세스는 많은 요소를 더 빠르게 만듭니다. SQL Server 데이터 파일에 권장된 것처럼 버퍼 풀 확장을 Azure Premium Storage 읽기 캐시와 비교하면 버퍼 풀 확장에 상당한 이점이 없습니다. 이는 두 캐시(SQL Server 버퍼 풀 확장 및 Premium Storage 읽기 캐시) 모두에서 Azure 컴퓨팅 노드의 로컬 디스크를 사용하기 때문입니다.
 
 SAP 워크플로가 포함된 SQL Server 버퍼 풀 확장을 통해 얻은 경험은 엇갈리고 있으며, 아직도 모든 경우에 사용할지 여부에 대한 명확한 권장 사항이 허용되지 않고 있습니다. 이상적으로는 SAP 애플리케이션에 필요한 작업 집합이 주 메모리에 적합하다는 것입니다. 한편 Azure는 최대 4TB의 메모리가 있는 VM을 제공하므로 작업 집합을 메모리에서 유지할 수 있습니다. 따라서 버퍼 풀 확장은 일부 드문 경우에만 사용하도록 제한되며 일반적인 사례로 사용되지 않아야 합니다.  
 
@@ -405,10 +405,10 @@ Azure에서 다양한 SQL Server 백업 가능성을 살펴보려면 [Azure Virt
 '수동' 백업을 수행할 수 있는 몇 가지 방법은 다음과 같습니다.
 
 1. 직접 연결된 Azure 디스크에 기존 SQL Server 백업을 수행합니다. 이 방법의 경우 백업을 시스템 새로 고침에 빠르게 사용할 수 있고, 새 시스템을 기존 SAP 시스템의 복사본으로 구축할 수 있다는 이점이 있습니다.
-2.  SQL Server 2012 CU4 이상에서는 데이터베이스를 Azure 저장소 URL에 백업할 수 있습니다.
-3.  Azure Blob Storage의 데이터베이스 파일에 대한 파일-스냅숏 백업 이 방법은 SQL Server 데이터 및 로그 파일이 Azure Blob Storage에 있는 경우에만 작동합니다.
+2.  SQL Server 2012 CU4 이상에서는 데이터베이스를 Azure Storage URL에 백업할 수 있습니다.
+3.  Azure Blob Storage의 데이터베이스 파일에 대한 파일-스냅샷 백업 이 방법은 SQL Server 데이터 및 로그 파일이 Azure Blob Storage에 있는 경우에만 작동합니다.
 
-첫 번째 방법은 잘 알려져 있고도 온-프레미스 환경에서 대부분의 경우에 적용 합니다. 그럼에도 불구하고 사용자가 장기 백업 위치를 해결해야 합니다. 로컬로 연결된 Azure Storage에서 30일 이상 백업을 유지하지 않으려면, Azure Backup 서비스 또는 백업에 대한 액세스 및 보존 관리가 포함된 다른 타사 백업/복구 도구 중 하나를 사용해야 합니다. 또는 Windows 저장소 공간을 사용하여 Azure에서 대형 파일 서버를 구축합니다.
+첫 번째 방법은 잘 알려져 있고도 온-프레미스 환경에서 대부분의 경우에 적용 합니다. 그럼에도 불구하고 사용자가 장기 백업 위치를 해결해야 합니다. 로컬로 연결된 Azure Storage에서 30일 이상 백업을 유지하지 않으려면, Azure Backup 서비스 또는 백업에 대한 액세스 및 보존 관리가 포함된 다른 타사 백업/복구 도구 중 하나를 사용해야 합니다. 또는 Windows 스토리지 공간을 사용하여 Azure에서 대형 파일 서버를 구축합니다.
 
 두 번째 방법은 [URL에 대한 SQL Server 백업](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017) 문서에서 자세히 설명하고 있습니다. SQL Server의 다른 릴리스에서는 이 기능이 약간 다릅니다. 따라서 이러한 특정 SQL Server 릴리스와 관련하여 설명서를 확인해야 합니다. 이 문서에는 많은 제한 사항이 나와 있습니다. 다음에 대해 백업을 수행할 수 있습니다.
 
@@ -468,7 +468,7 @@ Azure Marketplace의 SQL Server 이미지는 SAP NetWeaver 애플리케이션에
 SAP용 Azure IaaS 배포에서 SQL Server를 사용하면 DBMS 계층을 고가용성으로 배포하기 위해 추가할 수 있는 여러 가지 다른 가능성이 있습니다. [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에서 이미 설명한 대로 Azure는 Azure 가용성 집합에 배포된 단일 VM과 한 쌍의 VM에 대해 서로 다른 가동 시간 SLA를 제공합니다. Azure 가용성 집합에서 배포가 필요한 프로덕션 배포에 대한 가동 시간 SLA를 추진하고 있다고 가정합니다. 이 경우 가용성 집합에 최소 2개의 VM을 배포해야 합니다. 한 VM에서 활성 SQL Server 인스턴스를 실행하며, 다른 하나의 VM에서는 수동 인스턴스를 실행합니다.
 
 ### <a name="sql-server-clustering-using-windows-scale-out-file-server"></a>Windows 스케일 아웃 파일 서버를 사용하는 SQL Server 클러스터링
-Microsoft는 Windows Server 2016에서 [저장소 공간 직접 배포](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)를 도입했습니다. 저장소 공간 직접 배포에 따라 SQL Server FCI 클러스터링이 지원됩니다. 자세한 내용은 [Azure Virtual Machines에 SQL Server 장애 조치(Failover) 클러스터 인스턴스 구성](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster) 문서에서 찾을 수 있습니다. 이 솔루션에는 클러스터 리소스의 가상 IP 주소를 처리하는 Azure 부하 분산 장치도 필요합니다. SQL Server 데이터베이스 파일은 저장소 공간에 저장됩니다. 따라서 Azure Premium Storage에 기반한 Windows 스토리지 공간을 구축해야 합니다. 이 솔루션은 아직 지원되지 않기 때문에 SAP 프로덕션 시나리오에서 이 솔루션을 사용하는 것으로 알려진 SAP 고객이 없습니다.  
+Microsoft는 Windows Server 2016에서 [스토리지 공간 직접 배포](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)를 도입했습니다. 스토리지 공간 직접 배포에 따라 SQL Server FCI 클러스터링이 지원됩니다. 자세한 내용은 [Azure Virtual Machines에 SQL Server 장애 조치(Failover) 클러스터 인스턴스 구성](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster) 문서에서 찾을 수 있습니다. 이 솔루션에는 클러스터 리소스의 가상 IP 주소를 처리하는 Azure 부하 분산 장치도 필요합니다. SQL Server 데이터베이스 파일은 스토리지 공간에 저장됩니다. 따라서 Azure Premium Storage에 기반한 Windows 스토리지 공간을 구축해야 합니다. 이 솔루션은 아직 지원되지 않기 때문에 SAP 프로덕션 시나리오에서 이 솔루션을 사용하는 것으로 알려진 SAP 고객이 없습니다.  
 
 ### <a name="sql-server-log-shipping"></a>SQL Server 로그 전달
 HA(고가용성) 방법 중 하나는 SQL Server 로그 전달입니다. HA 구성에 참여하는 VM에 이름 확인 작업이 있는 경우 아무 문제가 없으며 Azure 설정이 온-프레미스의 설정과 다르지 않습니다. 로그 전달 및 로그 전달 관련 원칙을 설정하는 것과 관련하여 SQL Server 로그 전달에 대한 자세한 내용은 [로그 전달 정보(SQL Server)](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server?view=sql-server-2017) 문서에서 찾을 수 있습니다.
@@ -526,7 +526,7 @@ Azure에서 SAP SQL Server 데이터베이스를 배포하는 경우 많은 고�
 
 Azure로 온-프레미스에서 SAP SQL Server 데이터베이스를 이동 하는 있는 경우에는 인프라 적용 가장 빠른 암호화를 가져올 수 있습니다에 테스트 하는 것이 좋습니다. 이를 위해 다음 사실에 유념하세요.
 
-- 데이터베이스에 데이터 암호화를 적용하는 데 사용되는 스레드 수는 정의할 수 없습니다. 스레드 수는 주로 SQL Server 데이터 및 로그 파일이 분산되는 디스크 볼륨의 수에 따라 달라집니다. 즉, 더 명확한 볼륨(드라이브 문자)이 있을수록 암호화를 수행하기 위해 더 많은 스레드가 병렬로 참여하게 됩니다. 이러한 구성은 Azure VM에서 SQL Server 데이터베이스 파일용 저장소 공간을 하나 또는 여러 개를 구축하는 경우의 이전 디스크 구성 제안과 약간 충돌합니다. 볼륨 수가 적은 구성에서는 암호화를 실행하는 스레드 수가 적습니다. 단일 스레드 암호화는 64KB 익스텐트를 읽고, 암호화한 다음, 익스텐트가 암호화되었음을 알리는 레코드를 트랜잭션 로그 파일에 기록합니다. 결과적으로 트랜잭션 로그의 부하는 중간 수준입니다.
+- 데이터베이스에 데이터 암호화를 적용하는 데 사용되는 스레드 수는 정의할 수 없습니다. 스레드 수는 주로 SQL Server 데이터 및 로그 파일이 분산되는 디스크 볼륨의 수에 따라 달라집니다. 즉, 더 명확한 볼륨(드라이브 문자)이 있을수록 암호화를 수행하기 위해 더 많은 스레드가 병렬로 참여하게 됩니다. 이러한 구성은 Azure VM에서 SQL Server 데이터베이스 파일용 스토리지 공간을 하나 또는 여러 개를 구축하는 경우의 이전 디스크 구성 제안과 약간 충돌합니다. 볼륨 수가 적은 구성에서는 암호화를 실행하는 스레드 수가 적습니다. 단일 스레드 암호화는 64KB 익스텐트를 읽고, 암호화한 다음, 익스텐트가 암호화되었음을 알리는 레코드를 트랜잭션 로그 파일에 기록합니다. 결과적으로 트랜잭션 로그의 부하는 중간 수준입니다.
 - 이전의 SQL Server 릴리스에서는 SQL Server 데이터베이스를 암호화할 때 백업 압축이 더 이상 효율적이지 못했습니다. 이 동작은 SQL Server 데이터베이스 온-프레미스를 암호화 하 고 Azure에서 데이터베이스를 복원 하는 Azure에 백업 복사를 계획할 때 문제가 발생 개발할 수 있습니다. SQL Server 백업 압축은 일반적으로 요인 4의 압축 비율을 달성합니다.
 - SQL Server 2016에서 SQL Server는 효율적인 방식으로 암호화된 데이터베이스도 압축할 수 있는 새로운 기능을 도입했습니다. 자세한 내용은 [이 블로그](https://blogs.msdn.microsoft.com/sqlcat/2016/06/20/sqlsweet16-episode-1-backup-compression-for-tde-enabled-databases/)를 참조하세요.
  

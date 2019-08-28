@@ -12,14 +12,15 @@ ms.workload: web
 ms.devlang: na
 ms.topic: sample
 ms.date: 12/11/2017
-ms.author: msangapu;cephalin
+ms.author: msangapu
+ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b5f75ded0b51b78d56354bf97b5ebb0488022509
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 48ac455da32084f0ea2c5cf4f9f8b2d2cdc09719
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136888"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613493"
 ---
 # <a name="create-a-scheduled-backup-for-an-app-service-app-using-cli"></a>CLI를 사용하여 App Service 앱에 대한 예약된 백업 만들기
 
@@ -44,8 +45,8 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 Azure CLI 버�
 | 명령 | 메모 |
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [`az storage account create`](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) | 저장소 계정을 만듭니다. |
-| [`az storage container create`](/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) | Azure 저장소 컨테이너를 만듭니다. |
+| [`az storage account create`](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) | 스토리지 계정을 만듭니다. |
+| [`az storage container create`](/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) | Azure Storage 컨테이너를 만듭니다. |
 | [`az storage container generate-sas`](/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-generate-sas) | Azure Storage 컨테이너에 대한 SAS 토큰을 생성합니다.  |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | App Service 계획을 만듭니다. |
 | [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | App Service 앱을 만듭니다. |

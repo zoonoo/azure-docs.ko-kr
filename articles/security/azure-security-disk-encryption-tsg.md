@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 35d494702673d59290a0073c55135138f533b8bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e2464332727b0ef1e616c04a975df5ac475a7b19
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65956700"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610279"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure Disk Encryption 문제 해결 가이드
 
@@ -52,19 +52,19 @@ uname -a
 
 ## <a name="update-the-azure-virtual-machine-agent-and-extension-versions"></a>Azure 가상 머신 에이전트 및 확장 버전 업데이트
 
-Azure 디스크 암호화 작업은 지원 되지 않는 버전의 Azure 가상 머신에 에이전트를 사용 하 여 가상 머신 이미지에 실패할 수 있습니다. 암호화를 사용 하기 전에 2.2.38 이전 에이전트 버전을 사용 하 여 Linux 이미지를 업데이트 해야 합니다. 자세한 내용은 [VM에서 Azure Linux 에이전트를 업데이트 하는 방법](../virtual-machines/extensions/update-linux-agent.md) 하 고 [Azure의 가상 머신 에이전트에 대 한 최소 버전 지원](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)합니다.
+지원 되지 않는 버전의 Azure 가상 컴퓨터 에이전트를 사용 하 여 가상 컴퓨터 이미지에서 Azure Disk Encryption 작업이 실패할 수 있습니다. 2\.2.38 이전 버전의 에이전트를 사용 하는 Linux 이미지는 암호화를 사용 하도록 설정 하기 전에 업데이트 해야 합니다. 자세한 내용은 [VM에서 Azure Linux 에이전트를 업데이트 하는 방법](../virtual-machines/extensions/update-linux-agent.md) 및 [azure의 가상 머신 에이전트에 대 한 최소 버전 지원](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)을 참조 하세요.
 
-올바른 버전 Microsoft.Azure.Security.AzureDiskEncryption 또는 Microsoft.Azure.Security.AzureDiskEncryptionForLinux 게스트 에이전트 확장의 필수 이기도합니다. 확장 버전은 유지 관리 및 Azure Virtual Machine 에이전트 필수 조건을 충족 하 고 virtual machine 에이전트의 지원 되는 버전을 사용 하면 플랫폼에서 자동으로 업데이트 합니다.
+올바른 버전의 Microsoft Azure. AzureDiskEncryption 또는 Microsoft azure. Azurediskdisforlinux 게스트 에이전트 확장도 필요 합니다. 확장 버전은 Azure Virtual Machine 에이전트 필수 구성 요소가 충족 되 고 지원 되는 버전의 가상 컴퓨터 에이전트가 사용 되는 경우 플랫폼에서 자동으로 유지 관리 되 고 업데이트 됩니다.
 
-Microsoft.OSTCExtensions.AzureDiskEncryptionForLinux 확장 되지 않으며 더 이상 지원 되지.  
+Microsoft. OSTCExtensions. AzureDiskEncryptionForLinux 확장은 더 이상 사용 되지 않으며 더 이상 지원 되지 않습니다.  
 
 ## <a name="unable-to-encrypt-linux-disks"></a>Linux 디스크를 암호화할 수 없음
 
 경우에 따라 Linux 디스크 암호화가 "OS 디스크 암호화 시작됨" 상태에서 중단된 것으로 나타나고, SSH가 비활성화됩니다. 암호화 프로세스를 재고 갤러리 이미지에 대해 완료하는 데 3-16시간이 걸릴 수 있습니다. 다중 테라바이트 크기 데이터 디스크가 추가될 경우 이 프로세스는 며칠이 걸릴 수도 있습니다.
 
-Linux OS 디스크 암호화 시퀀스는 OS 드라이브를 일시적으로 탑재 해제합니다. 그런 다음 암호화된 상태로 다시 탑재하기 전에 전체 OS 디스크의 블록 단위로 암호화를 수행합니다. Windows의 Azure Disk Encryption과 달리 Linux 디스크 암호화는 암호화를 진행하는 동안 VM을 동시에 사용할 수 없습니다. VM의 성능 특성은 암호화를 완료하는 데 필요한 시간에 큰 차이를 만들 수 있습니다. 이러한 특성은 디스크 크기 및 저장소 계정이 표준 또는 프리미엄(SSD) 저장소인지 여부를 포함합니다.
+Linux OS 디스크 암호화 시퀀스는 OS 드라이브를 일시적으로 탑재 해제합니다. 그런 다음 암호화된 상태로 다시 탑재하기 전에 전체 OS 디스크의 블록 단위로 암호화를 수행합니다. Windows의 Azure Disk Encryption과 달리 Linux 디스크 암호화는 암호화를 진행하는 동안 VM을 동시에 사용할 수 없습니다. VM의 성능 특성은 암호화를 완료하는 데 필요한 시간에 큰 차이를 만들 수 있습니다. 이러한 특성은 디스크 크기 및 스토리지 계정이 표준 또는 프리미엄(SSD) 스토리지인지 여부를 포함합니다.
 
-암호화 상태를 확인 하려면 폴링 합니다 **ProgressMessage** 에서 반환 된 필드를 [Get AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) 명령. OS 드라이브가 암호화되는 동안 VM은 서비스 상태가 되고 진행 중인 프로세스의 중단을 방지하기 위해 SSH를 비활성화합니다. **EncryptionInProgress** 메시지는 암호화가 진행 중인 동안 대부분의 시간에 대해 보고합니다. 몇 시간 후에 **VMRestartPending** 메시지는 VM을 다시 시작하라는 프롬프트를 표시합니다. 예를 들면 다음과 같습니다.
+암호화 상태를 확인 하려면 [AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) 명령에서 반환 된 **ProgressMessage** 필드를 폴링합니다. OS 드라이브가 암호화되는 동안 VM은 서비스 상태가 되고 진행 중인 프로세스의 중단을 방지하기 위해 SSH를 비활성화합니다. **EncryptionInProgress** 메시지는 암호화가 진행 중인 동안 대부분의 시간에 대해 보고합니다. 몇 시간 후에 **VMRestartPending** 메시지는 VM을 다시 시작하라는 프롬프트를 표시합니다. 예:
 
 
 ```azurepowershell
@@ -100,7 +100,7 @@ VM을 다시 부팅하라는 메시지가 표시된 후, VM이 다시 시작된 
 [Azure AD 자격 증명](azure-security-disk-encryption-prerequisites-aad.md)에 암호화가 사용하도록 설정된 경우 대상 VM은 Azure Active Directory 엔드포인트 및 Key Vault 엔드포인트 모두에 대한 연결을 허용해야 합니다. 현재 Azure Active Directory 인증 엔드포인트는 [Office 365 URL 및 IP 주소 범위](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) 설명서의 56 및 59 섹션에서 유지 관리됩니다. Key Vault 지침은 [방화벽 뒤에 있는 Azure Key Vault에 액세스](../key-vault/key-vault-access-behind-firewall.md)하는 방법에 관한 설명서에서 제공됩니다.
 
 ### <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service 
-VM은 VM 내에서만 액세스할 수 있는 잘 알려진 라우팅이 불가능한 IP 주소(`169.254.169.254`)를 사용하는 [Azure Instance Metadata 서비스](../virtual-machines/windows/instance-metadata-service.md) 엔드포인트에 액세스할 수 있어야 합니다.  로컬 HTTP 트래픽 (예: X-전달 기능에 대 한 헤더를 추가)이 주소로 변경 하는 프록시 구성은 지원 되지 않습니다.
+VM은 VM 내에서만 액세스할 수 있는 잘 알려진 라우팅이 불가능한 IP 주소(`169.254.169.254`)를 사용하는 [Azure Instance Metadata 서비스](../virtual-machines/windows/instance-metadata-service.md) 엔드포인트에 액세스할 수 있어야 합니다.  이 주소에 대 한 로컬 HTTP 트래픽 (예: X 전달 된 헤더 추가)을 변경 하는 프록시 구성은 지원 되지 않습니다.
 
 ### <a name="linux-package-management-behind-a-firewall"></a>방화벽 뒤에 있는 Linux 패키지 관리
 
@@ -130,7 +130,7 @@ Windows Server 2016 Server Core에서 bdehdcfg 구성 요소는 기본적으로 
 
 1. DiskPart를 사용하여 볼륨을 확인한 다음 계속합니다.  
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 ```
 DISKPART> list vol
@@ -148,15 +148,15 @@ If the expected encryption state does not match what is being reported in the po
 
 ## <a name="troubleshooting-encryption-status"></a>암호화 상태 문제 해결 
 
-포털 내 VM에서 암호화 된 후에 암호화 된 디스크를 표시할 수 있습니다.  하위 수준 명령을 직접 더 높은 수준의 Azure Disk Encryption 관리 명령을 사용 하는 대신 VM 내에서 디스크 암호화를 사용할 때 발생할 수 있습니다.  더 높은 수준에는 VM 내에서 디스크 암호화 뿐만 아니라 VM 외부에서 이러한 업데이트 중요 한 플랫폼 수준 암호화가 설정 하 고 VM에 연결 된 확장 프로그램 설정 명령입니다.  이러한 상태로 유지 되지 않으면 맞춤, 플랫폼 암호화 상태를 보고 하거나 VM을 올바르게 프로 비전 되지 않습니다.   
+포털은 VM 내에서 암호화 되지 않은 경우에도 디스크를 암호화 된 상태로 표시할 수 있습니다.  낮은 수준의 명령을 사용 하 여 VM 내에서 디스크의 암호를 직접 해독 하는 데 더 높은 수준의 Azure Disk Encryption 관리 명령을 사용 하는 대신이 오류가 발생할 수 있습니다.  더 높은 수준의 명령은 VM 내에서 디스크의 암호를 해독 하는 것이 아니라 vm 외부의 중요 한 플랫폼 수준 암호화 설정 및 VM에 연결 된 확장 설정도 업데이트 합니다.  이러한 설정이 그대로 유지 되지 않으면 플랫폼이 암호화 상태를 보고 하거나 VM을 올바르게 프로 비전 할 수 없습니다.   
 
-사용 하 여 PowerShell 사용 하 여 Azure Disk Encryption을 사용 하지 않으려면 [사용 안 함-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) 뒤 [제거 AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension)합니다. 암호화를 사용 하지 않도록 설정 하기 전에 제거 AzVMDiskEncryptionExtension 실행이 실패 합니다.
+PowerShell을 사용 하 여 Azure Disk Encryption를 사용 하지 않도록 설정 하려면 [AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) 뒤에 [AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension)을 사용 합니다. 암호화를 사용 하지 않도록 설정 하기 전에 AzVMDiskEncryptionExtension를 실행 하면 오류가 발생 합니다.
 
-사용 하 여 CLI 사용 하 여 Azure Disk Encryption을 사용 하지 않으려면 [az vm 암호화 사용 안 함](/cli/azure/vm/encryption)합니다. 
+CLI를 사용 하 여 Azure Disk Encryption를 사용 하지 않도록 설정 하려면 [az vm Encryption disable](/cli/azure/vm/encryption)을 사용 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 일반적인 Azure Disk Encryption 문제와 해당 문제 해결 방법에 대해 자세히 알아보았습니다. 이 서비스 및 기능에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure Security Center에서 디스크 암호화 적용](../security-center/security-center-apply-disk-encryption.md)
-- [휴지 상태의 Azure 데이터 암호화](azure-security-encryption-atrest.md)
+- [휴지 상태의 Azure 데이터 암호화](fundamentals/encryption-atrest.md)

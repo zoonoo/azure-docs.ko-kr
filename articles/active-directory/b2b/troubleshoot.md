@@ -94,4 +94,4 @@ ID 테넌트가 JIT(Just-In-Time) 또는 "바이럴" 테넌트(별개의 관리�
 
 ## <a name="next-steps"></a>다음 단계
 
-[B2B 공동 작업에 대한 지원 받기](get-support.md)
+[B2B Collaboration에 대한 지원 받기](get-support.md)

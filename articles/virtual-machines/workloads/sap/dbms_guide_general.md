@@ -128,11 +128,11 @@ DBMS 데이터 및 로그 파일은 standard storage 또는 premium storage에 �
 * 단일 디스크당 IOPS 할당량
 * 디스크당 데이터 처리량
 * VM 크기당 가능한 추가 데이터 디스크 수
-* VM에서 제공할 수 있는 전체 저장소 처리량
+* VM에서 제공할 수 있는 전체 스토리지 처리량
 * 다양한 Azure Storage 유형에서 제공할 수 있는 대기 시간
 * VM Sla입니다.
 
-Azure는 데이터 디스크 IOPS 할당량을 적용합니다. 이러한 할당량은 standard storage 및 premium storage에서 호스트 되는 디스크에 대 한 다른입니다. 또한 I/O 대기 시간도 두 저장소 유형 간에 다릅니다. Premium storage는 더 나은 I/O 대기 시간을 제공 합니다. 
+Azure는 데이터 디스크 IOPS 할당량을 적용합니다. 이러한 할당량은 standard storage 및 premium storage에서 호스트 되는 디스크에 대 한 다른입니다. 또한 I/O 대기 시간도 두 스토리지 유형 간에 다릅니다. Premium storage는 더 나은 I/O 대기 시간을 제공 합니다. 
 
 각 VM 유형에 연결할 수 있는 데이터 디스크 수가 제한에 있습니다. 또 다른 제한은 특정 VM 유형만 premium storage를 사용할 수 있습니다. 일반적으로 CPU 및 메모리 요구 사항에 따라 특정 VM 유형을 사용 하도록 결정할 수도 있습니다. 또한 좋습니다 IOPS, 대기 시간 및 디스크 처리량 요구 일반적으로 디스크 수가 또는 프리미엄 저장소 디스크 유형을 사용 하 여 크기가 조정 됩니다. 각 디스크는 처리량 및 IOPS 수를 premium storage 사용 하 여 특히 디스크 크기를 요구할 수 있습니다.
 

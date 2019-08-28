@@ -50,14 +50,6 @@
           href: virtual-machines-windows-classic-sql-automated-backup.md
         - name: 백업 및 복원에 Azure Storage 사용
           href: ../sql/virtual-machines-windows-use-storage-sql-server-backup-restore.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
-    - name: 비즈니스 인텔리전스
-      items:
-        - name: Azure VM의 SQL Server Business Intelligence
-          href: virtual-machines-windows-classic-ps-sql-bi.md
-        - name: Azure에서 호스트되는 웹 사이트에서 ReportViewer 사용
-          href: virtual-machines-windows-classic-sql-server-reportviewer.md
-        - name: Azure PowerShell을 사용하여 보고서 서버로 Azure VM 만들기
-          href: virtual-machines-windows-classic-ps-sql-report.md
     - name: 성능 모범 사례
       href: ../sql/virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
     - name: 애플리케이션 패턴

@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 3/21/2019
+ms.date: 07/10/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 9de11c0049cf3db3feea311a2541640437ba8632
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 1f18aef12978b3df1ba1fd654ea4a0e9548a4b46
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665205"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228088"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>자습서: Application Insights를 사용하여 Service Fabric에서 ASP.NET Core 애플리케이션 모니터링 및 진단
 
@@ -45,8 +45,8 @@ ms.locfileid: "58665205"
 
 이 자습서를 시작하기 전에:
 
-* Azure 구독이 없는 경우 [평가판 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* [Visual Studio 2017을 설치](https://www.visualstudio.com/)하고 **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드를 설치합니다.
+* Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+* [Visual Studio 2019를 설치](https://www.visualstudio.com/)하고 **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드를 설치합니다.
 * [Service Fabric SDK를 설치](service-fabric-get-started.md)합니다.
 
 ## <a name="download-the-voting-sample-application"></a>투표 애플리케이션 예제 다운로드
@@ -74,7 +74,7 @@ Application Insights 리소스를 만들려면 [Azure Portal](https://portal.azu
 
 ## <a name="add-application-insights-to-the-applications-services"></a>애플리케이션의 서비스에 Application Insights 추가
 
-시작 메뉴에서 Visual Studio 아이콘을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택하여 관리자 권한으로 Visual Studio 2017을 시작합니다. **파일** > **열기** > **프로젝트/솔루션**을 클릭하고 자습서의 1부에서 만들었거나 git clone한 Voting 애플리케이션으로 이동합니다. *Voting.sln* 파일을 엽니다. 애플리케이션의 NuGet 패키지를 복원하라는 메시지가 표시되면 **예**를 클릭합니다.
+시작 메뉴에서 Visual Studio 아이콘을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택하여 관리자 권한으로 Visual Studio 2019를 시작합니다. **파일** > **열기** > **프로젝트/솔루션**을 클릭하고 자습서의 1부에서 만들었거나 git clone한 Voting 애플리케이션으로 이동합니다. *Voting.sln* 파일을 엽니다. 애플리케이션의 NuGet 패키지를 복원하라는 메시지가 표시되면 **예**를 클릭합니다.
 
 다음 단계에 따라 VotingWeb 및 VotingData 서비스에 대해 Application Insights를 구성합니다.
 

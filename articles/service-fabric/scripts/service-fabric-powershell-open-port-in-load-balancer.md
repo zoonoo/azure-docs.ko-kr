@@ -3,24 +3,23 @@ title: Azure PowerShell 스크립트 샘플 - Load Balancer에서 애플리케�
 description: Azure PowerShell 스크립트 샘플 - Service Fabric 애플리케이션에 대한 Azure Load Balancer에서 애플리케이션 포트 열기
 services: service-fabric
 documentationcenter: ''
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 tags: azure-service-management
 ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
-ms.devlang: na
 ms.topic: sample
 ms.date: 05/18/2018
-ms.author: aljo
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 942dd995651f4c672d50163e5c380b62155b2227
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e6a0b7f273df96cff5cc9ce1081ddc59eb49382
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66161934"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035548"
 ---
 # <a name="open-an-application-port-in-the-azure-load-balancer"></a>Azure Load Balancer에서 애플리케이션 포트 열기
 

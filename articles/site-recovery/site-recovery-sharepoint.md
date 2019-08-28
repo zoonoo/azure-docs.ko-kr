@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: 4b4edec43d01878bbc5899487f6ee1d2816eb135
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: bc6d9e7214d2b7cd009e7562357bed420e49f185
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491825"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325103"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 다중 계층 SharePoint 애플리케이션에 대한 재해 복구 설정
 
@@ -29,12 +29,12 @@ Microsoft SharePoint는 그룹 또는 부서가 정보를 구성, 공동 작업 
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 SharePoint 애플리케이션을 보호하는 방법을 자세히 설명합니다. 그리고 3계층 SharePoint 애플리케이션을 Azure로 복제하는 방법, 재해 복구 연습을 수행하는 방법 및 애플리케이션을 Azure로 장애 조치하는 방법에 대한 모범 사례를 설명합니다.
 
-볼 수는 아래 비디오를 다중 계층 응용 프로그램을 Azure로 복구 하는 방법에 대 한 합니다.
+Azure에 대 한 다중 계층 응용 프로그램을 복구 하는 방법에 대 한 아래 비디오를 시청 할 수 있습니다.
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 시작하기 전에 다음 항목을 이해해야 합니다.
 
@@ -65,7 +65,7 @@ SharePoint은 계층된 토폴로지 및 서버 역할을 사용하여 한 개 �
 **Hyper-V** | 예 | 예
 **VMware** | 예 | 예
 **물리적 서버** | 예 | 예
-**Azure** | 해당 없음 | 예
+**Azure** | NA | 예
 
 ### <a name="sharepoint-versions"></a>SharePoint 버전
 다음 SharePoint Server 버전이 지원됩니다.
@@ -196,7 +196,7 @@ Traffic Manager가 가용성 사후 장애 조치(Failover)를 자동으로 감�
 
 AD 및 DNS에 대한 테스트 장애 조치(Failover) 수행에 관한 지침은 [AD 및 DNS에 대한 테스트 장애 조치(Failover) 고려 사항](site-recovery-active-directory.md#test-failover-considerations) 문서를 참조하세요.
 
-에 SQL Always ON 가용성 그룹 테스트 장애 조치를 수행에 대 한 지침을 참조 하세요 [테스트 장애 조치를 수행 하 고 Azure Site Recovery를 사용 하 여 응용 프로그램 DR 수행](site-recovery-sql.md#disaster-recovery-of-application) 문서.
+SQL Always ON 가용성 그룹에 대해 테스트 장애 조치 (failover)를 수행 하는 방법에 대 한 지침은 [Azure Site Recovery로 응용 프로그램 DR 수행 및 테스트 장애 조치 (failover)](site-recovery-sql.md#disaster-recovery-of-an-application) 문서 수행
 
 ## <a name="doing-a-failover"></a>장애 조치 수행
 장애 조치(Failover)를 수행할 때 [이 지침](site-recovery-failover.md)을 따릅니다.

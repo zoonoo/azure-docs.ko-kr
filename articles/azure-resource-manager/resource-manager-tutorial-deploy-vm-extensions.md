@@ -4,8 +4,6 @@ description: Azure Resource Manager 템플릿을 사용하여 가상 머신 확�
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
@@ -13,12 +11,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5657ebb2a5b29e4ec5360480c1fef6cb92dad9c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a6d0c3e9daba6f4f37778fabde161751944e174a
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60388536"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774871"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>자습서: Azure Resource Manager 템플릿을 사용하여 가상 머신 확장 배포
 
@@ -39,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 문서를 완료하려면 다음이 필요합니다.
 
-* Resource Manager Tools 확장이 있는 [Visual Studio Code](https://code.visualstudio.com/)  [확장 설치](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)를 참조하세요.
+* Resource Manager Tools 확장이 있는 [Visual Studio Code](https://code.visualstudio.com/) [확장 설치](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)를 참조하세요.
 * 보안을 강화하려면 가상 머신 관리자 계정에 생성된 암호를 사용합니다. 암호를 생성하는 방법에 대한 샘플은 다음과 같습니다.
 
     ```azurecli-interactive
@@ -108,7 +106,7 @@ Azure 빠른 시작 템플릿은 Resource Manager 템플릿용 리포지토리�
 
 이 리소스 정의에 대한 자세한 내용은 [확장 참조](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines/extensions)를 참조하세요. 다음은 중요한 요소입니다.
 
-* **name**: 확장 리소스는 가상 머신 개체의 자식 리소스이므로 이름에 가상 머신 이름 접두사가 있어야 합니다. [자식 리소스](./resource-group-authoring-templates.md#child-resources)를 참조하세요.
+* **name**: 확장 리소스는 가상 머신 개체의 자식 리소스이므로 이름에 가상 머신 이름 접두사가 있어야 합니다. [자식 리소스에 대한 이름 및 형식 설정](child-resource-name-type.md)을 참조하세요.
 * **dependsOn**: 가상 머신을 만든 후 확장 리소스를 만듭니다.
 * **fileUris**: 스크립트 파일이 저장되는 위치입니다. 제공된 위치를 사용하지 않으려면 값을 업데이트해야 합니다.
 * **commandToExecute**: 이 명령은 스크립트를 호출합니다.  

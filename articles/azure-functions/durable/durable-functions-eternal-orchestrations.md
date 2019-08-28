@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 99eabf3bc91887ff19b3a0bc9cf6647d32fa6750
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a93a0cf5dad83ae3c69b15fda9ba6f4268b9a91f
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787558"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624165"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>지속성 함수의 영구 오케스트레이션(Azure Functions)
 
@@ -45,7 +45,7 @@ ms.locfileid: "65787558"
 public static async Task Run(
     [OrchestrationTrigger] DurableOrchestrationContext context)
 {
-    await context.CallActivityAsync("DoCleanup");
+    await context.CallActivityAsync("DoCleanup", null);
 
     // sleep for one hour between cleanups
     DateTime nextCleanup = context.CurrentUtcDateTime.AddHours(1);
@@ -73,6 +73,25 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 이 예제와 타이머 트리거 함수 간의 차이점은 여기서 정리 타이머 시간이 일정에 기반하지 않는다는 것입니다. 예를 들어 매시간 함수를 실행하는 CRON 일정은 1시, 2시, 3시 등에 실행되며 잠재적으로 겹침 문제가 발생할 수 있습니다. 그러나 이 예제에서 정리에 30분이 걸리면 1시, 2시 30분, 4시 등으로 예약되며 겹쳐질 가능성이 없습니다.
+
+## <a name="starting-an-eternal-orchestration"></a>영구 오케스트레이션 시작
+[Startnewasync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) 메서드를 사용 하 여 영구 오케스트레이션을 시작 합니다. 이는 다른 오케스트레이션 함수를 트리거하는 것과는 다릅니다.  
+
+> [!NOTE]
+> Singleton 영구 오케스트레이션을 실행 하 고 있는지 확인 해야 하는 경우 오케스트레이션을 시작할 때 동일한 인스턴스 `id` 를 유지 관리 하는 것이 중요 합니다. 자세한 내용은 [인스턴스 관리](durable-functions-instance-management.md)를 참조하세요.
+
+```csharp
+[FunctionName("Trigger_Eternal_Orchestration")]
+public static async Task<HttpResponseMessage> OrchestrationTrigger(
+    [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequestMessage request,
+    [OrchestrationClient] DurableOrchestrationClientBase client)
+{
+    string instanceId = "StaticId";
+    // Null is used as the input, since there is no input in "Periodic_Cleanup_Loop".
+    await client.StartNewAsync("Periodic_Cleanup_Loop"), instanceId, null); 
+    return client.CreateCheckStatusResponse(request, instanceId);
+}
+```
 
 ## <a name="exit-from-an-eternal-orchestration"></a>영구 오케스트레이션 종료
 

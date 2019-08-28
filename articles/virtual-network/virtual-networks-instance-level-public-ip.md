@@ -76,7 +76,7 @@ New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageN
 | Set-AzurePublicIP -PublicIPName ftpip | New-AzureVM -ServiceName FTPService -Location "Central US"
 
 ```
-다른 저장소 계정을 새 VM 디스크의 위치로 지정하려면 **MediaLocation** 매개 변수를 사용할 수 있습니다.
+다른 스토리지 계정을 새 VM 디스크의 위치로 지정하려면 **MediaLocation** 매개 변수를 사용할 수 있습니다.
 
 ```powershell
     New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageName `

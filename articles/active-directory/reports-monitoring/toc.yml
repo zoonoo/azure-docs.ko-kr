@@ -17,7 +17,7 @@
       href: quickstart-configure-named-locations.md
     - name: Power BI 콘텐츠 팩 설치
       href: quickstart-install-power-bi-content-pack.md
-    - name: 저장소 계정으로 로그 라우팅
+    - name: 스토리지 계정으로 로그 라우팅
       href: quickstart-azure-monitor-route-logs-to-storage-account.md
 - name: 자습서
   items:
@@ -27,6 +27,8 @@
       href: tutorial-azure-monitor-stream-logs-to-event-hub.md
 - name: 개념
   items:
+    - name: 보고 및 모니터링 배포 계획
+      href: plan-monitoring-and-reporting.md
     - name: 감사 로그
       href: concept-audit-logs.md
     - name: 로그인 로그
@@ -58,7 +60,7 @@
           href: howto-power-bi-content-pack.md
         - name: Reporting API를 위한 필수 구성 요소 구성
           href: howto-configure-prerequisites-for-reporting-api.md
-        - name: Azure Monitor workbook 사용 방법
+        - name: Azure AD 통합 문서 사용 방법
           href: howto-use-azure-monitor-workbooks.md
     - name: 모니터링
       items:
@@ -87,6 +89,8 @@
 - name: 참고 자료
   expanded: true
   items:
+    - name: 보고용 Azure AD PowerShell cmdlet
+      href: reference-powershell-reporting.md
     - name: 감사 로그 API 참조
       href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit'
     - name: 로그인 로그 API 참조

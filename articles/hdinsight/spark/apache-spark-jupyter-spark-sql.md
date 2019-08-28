@@ -5,17 +5,17 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 06/12/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 74c5fcfabe0f24127c4eddb3a019f8ea5debe453
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4bfa325017d485a76bfe87c0f7facde4acf8f2b4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714338"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066091"
 ---
-# <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-template"></a>빠른 시작: 템플릿을 사용하여 HDInsight에서 Apache Spark 클러스터 만들기
+# <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-resource-manager-template"></a>빠른 시작: Azure HDInsight에서 Resource Manager 템플릿을 사용하여 Apache Spark 클러스터 만들기
 
 Azure HDInsight에서 [Apache Spark](https://spark.apache.org/) 클러스터를 만드는 방법과 [Apache Hive](https://hive.apache.org/) 테이블에 대해 Spark SQL 쿼리를 실행하는 방법을 알아봅니다. Apache Spark를 통해 메모리 내 처리 기능을 사용하여 데이터 분석 및 클러스터 컴퓨팅을 신속하게 처리합니다. HDInsight의 Spark에 대한 자세한 내용은 [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)를 참조하세요.
 
@@ -42,7 +42,7 @@ Azure Resource Manager 템플릿을 사용하여 HDInsight Spark 클러스터를
     |---|---|
     |**구독**|이 클러스터를 만드는 데 사용되는 Azure 구독을 선택합니다. 이 빠른 시작에 사용되는 구독은 **&lt;Azure 구독 이름>** 입니다. |
     | **리소스 그룹**|리소스 그룹을 만들거나 기존 그룹을 선택합니다. 리소스 그룹은 프로젝트에 대한 Azure 리소스를 관리하는 데 사용됩니다. 이 빠른 시작에 사용되는 새 리소스 그룹 이름은 **myspark20180403rg**입니다.|
-    | **위치**:|리소스 그룹의 위치를 선택합니다. 템플릿에서는 기본 클러스터 저장소뿐만 아니라 클러스터를 만드는 데 이 위치를 사용합니다. 이 빠른 시작에 사용되는 위치는 **미국 동부 2**입니다.|
+    | **위치**:|리소스 그룹의 위치를 선택합니다. 템플릿에서는 기본 클러스터 스토리지뿐만 아니라 클러스터를 만드는 데 이 위치를 사용합니다. 이 빠른 시작에 사용되는 위치는 **미국 동부 2**입니다.|
     | **ClusterName**|만들려는 HDInsight 클러스터의 이름을 입력합니다. 이 빠른 시작에 사용되는 새 클러스터 이름은 **myspark20180403**입니다.|
     | **클러스터 로그인 이름 및 암호**|기본 로그인 이름은 admin입니다. 클러스터 로그인에 대한 암호를 선택합니다. 이 빠른 시작에 사용되는 로그인 이름은 **admin**입니다.|
     | **SSH 사용자 이름 및 암호**|SSH 사용자에 대한 암호를 선택합니다. 이 빠른 시작에 사용되는 SSH 사용자 이름은 **sshuser**입니다.|
@@ -114,13 +114,13 @@ SQL(구조적 쿼리 언어)은 데이터 쿼리 및 변환에 가장 일반적�
 2. Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 선택합니다. Notebook을 종료하면 Spark 애플리케이션을 비롯한 클러스터 리소스가 릴리스됩니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
-HDInsight는 Azure Storage 또는 Azure Data Lake Store에 데이터와 Jupyter Notebook을 저장하므로 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 저장소에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다. [다음 단계](#next-steps)에 나열된 자습서를 즉시 수행하려는 경우 클러스터를 유지할 수 있습니다.
+HDInsight는 Azure Storage 또는 Azure Data Lake Store에 데이터와 Jupyter Notebook을 저장하므로 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 스토리지에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다. [다음 단계](#next-steps)에 나열된 자습서를 즉시 수행하려는 경우 클러스터를 유지할 수 있습니다.
 
 Azure Portal로 다시 전환하고, **삭제**를 선택합니다.
 
 ![HDInsight 클러스터 삭제](./media/apache-spark-jupyter-spark-sql/hdinsight-azure-portal-delete-cluster.png "HDInsight 클러스터 삭제")
 
-또한 리소스 그룹 이름을 선택하여 리소스 그룹 페이지를 연 다음, **리소스 그룹 삭제**를 선택할 수도 있습니다. 리소스 그룹을 삭제하여 HDInsight Spark 클러스터와 기본 저장소 계정을 삭제합니다.
+또한 리소스 그룹 이름을 선택하여 리소스 그룹 페이지를 연 다음, **리소스 그룹 삭제**를 선택할 수도 있습니다. 리소스 그룹을 삭제하여 HDInsight Spark 클러스터와 기본 스토리지 계정을 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

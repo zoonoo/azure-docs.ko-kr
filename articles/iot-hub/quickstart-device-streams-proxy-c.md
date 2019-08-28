@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: b958711c498f0826f2a48d92d4892eb43ec8d18a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 23a005ebb16f4786c7dde9ec5b2a7ae7c5685cb8
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446073"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377242"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>빠른 시작: C 프록시 애플리케이션을 사용하여 IoT Hub 디바이스 스트림을 통해 SSH 및 RDP 사용(미리 보기)
 
@@ -48,7 +48,7 @@ Azure IoT Hub는 현재 디바이스 스트림을 [미리 보기 기능](https:/
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -149,7 +149,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ### <a name="run-the-device-local-proxy-application"></a>디바이스-로컬 프록시 애플리케이션 실행
 
-1. *iothub_client/samples/iothub_client_c2d_streaming_sample* 폴더에 있는 *iotub_client_c2d_streaming_sample.c* 원본 파일을 편집하여 디바이스 연결 문자열, 대상 디바이스 IP/호스트 이름 및 22 SSH 포트를 제공합니다.
+1. *iothub_client/samples/iothub_client_c2d_streaming_proxy_sample* 폴더에 있는 *iothub_client_c2d_streaming_proxy_sample.c* 원본 파일을 편집하여 디바이스 연결 문자열, 대상 디바이스 IP/호스트 이름 및 22 SSH 포트를 제공합니다.
 
    ```C
    /* Paste in your iothub connection string  */

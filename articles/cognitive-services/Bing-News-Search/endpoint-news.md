@@ -1,6 +1,6 @@
 ---
 title: Bing News Search 엔드포인트
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: News Search API 엔드포인트에 대한 요약 정보입니다.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
-ms.openlocfilehash: 6ea218da23d65696c76008cb15e183fcc4bbda10
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 82e37e8fa47b467e7c2fe98f801482675809a266
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66383222"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423773"
 ---
 # <a name="bing-news-search-api-endpoints"></a>Bing News Search API 엔드포인트
 
@@ -31,7 +31,7 @@ Bing News Search API를 사용하여 뉴스 검색 결과를 가져오려면 다
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search
 ```
 
-검색 쿼리를 기준으로 뉴스 항목을 반환합니다. 검색 쿼리가 비어 있으면 API는 다른 범주의 상위 뉴스 기사를 반환합니다. 검색어를 인코딩하고 `q=""` 매개 변수에 추가하여 URL에 따라 쿼리를 전송합니다. 가용성을 참조 하세요 [지원 되는 국가/지역 및 시장](language-support.md#supported-markets-for-news-search-endpoint)합니다.
+검색 쿼리를 기준으로 뉴스 항목을 반환합니다. 검색 쿼리가 비어 있으면 API는 다른 범주의 상위 뉴스 기사를 반환합니다. 검색어를 인코딩하고 `q=""` 매개 변수에 추가하여 URL에 따라 쿼리를 전송합니다. 가용성은 [지원 되는 국가/지역 및 시장을](language-support.md#supported-markets-for-news-search-endpoint)참조 하세요.
 
 ### <a name="top-news-items-by-category"></a>범주별 상위 뉴스 항목
 
@@ -39,7 +39,7 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/news/search
 GET https://api.cognitive.microsoft.com/bing/v7.0/news  
 ```
 
-범주별 상위 뉴스 항목을 반환합니다. `category=business`, `category=sports` 또는 `category=entertainment`를 사용하여 상위 비즈니스, 스포츠 또는 엔터테인먼트 기사를 구체적으로 요청할 수 있습니다.  `category` 매개 변수는 `/news` URL에만 사용할 수 있습니다. 범주를 지정하기 위한 몇 가지 공식적인 요구 사항이 있습니다. 자세한 내용은 [쿼리 매개 변수](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query-parameters) 설명서의 `category`를 참조하세요. 검색어를 인코딩하고 `q=""` 매개 변수에 추가하여 URL에 따라 쿼리를 전송합니다. 가용성을 참조 하세요 [지원 되는 국가/지역 및 시장](language-support.md#supported-markets-for-news-endpoint)합니다.
+범주별 상위 뉴스 항목을 반환합니다. `category=business`, `category=sports` 또는 `category=entertainment`를 사용하여 상위 비즈니스, 스포츠 또는 엔터테인먼트 기사를 구체적으로 요청할 수 있습니다.  `category` 매개 변수는 `/news` URL에만 사용할 수 있습니다. 범주를 지정하기 위한 몇 가지 공식적인 요구 사항이 있습니다. 자세한 내용은 [쿼리 매개 변수](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query-parameters) 설명서의 `category`를 참조하세요. 검색어를 인코딩하고 `q=""` 매개 변수에 추가하여 URL에 따라 쿼리를 전송합니다. 가용성은 [지원 되는 국가/지역 및 시장을](language-support.md#supported-markets-for-news-endpoint)참조 하세요.
 
 ### <a name="trending-news-topics"></a>최신 뉴스 토픽 
 
@@ -47,7 +47,7 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/news
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/trendingtopics
 ```
 
-현재 소셜 네트워크에서 유행하고 있는 최신 토픽을 반환합니다. `/trendingtopics` 옵션이 포함되면 Bing 검색은 `freshness` 및 `?q=""` 같은 여러 가지 다른 매개 변수를 무시합니다. 가용성을 참조 하세요 [지원 되는 국가/지역 및 시장](language-support.md#supported-markets-for-news-trending-endpoint)합니다.
+현재 소셜 네트워크에서 유행하고 있는 최신 토픽을 반환합니다. `/trendingtopics` 옵션이 포함되면 Bing 검색은 `freshness` 및 `?q=""` 같은 여러 가지 다른 매개 변수를 무시합니다. 가용성은 [지원 되는 국가/지역 및 시장을](language-support.md#supported-markets-for-news-trending-endpoint)참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

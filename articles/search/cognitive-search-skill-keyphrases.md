@@ -5,18 +5,17 @@ services: search
 manager: pablocas
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: 1d221e3bcdfd781da79c73e8f228b9e449a7f5bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.subservice: cognitive-search
+ms.openlocfilehash: 1c6b6455176001c752eb99d04deb3fe63a9d4006
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65021809"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639092"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>핵심 문구 추출 인식 기술
 
@@ -34,7 +33,7 @@ ms.locfileid: "65021809"
 Microsoft.Skills.Text.KeyPhraseExtractionSkill 
 
 ## <a name="data-limits"></a>데이터 제한
-레코드의 최대 크기는 `String.Length`에 의해 측정된 대로 50,000자여야 합니다. 핵심 구문 추출기로 보내기 전에 데이터를 분할해야 할 경우 [텍스트 분할 기술](cognitive-search-skill-textsplit.md) 사용을 고려합니다.
+레코드의 최대 크기는에 따라 [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)측정 되는 5만 자 여야 합니다. 핵심 구문 추출기로 보내기 전에 데이터를 분할해야 할 경우 [텍스트 분할 기술](cognitive-search-skill-textsplit.md) 사용을 고려합니다.
 
 ## <a name="skill-parameters"></a>기술 매개 변수
 
@@ -123,7 +122,7 @@ Microsoft.Skills.Text.KeyPhraseExtractionSkill
 텍스트가 비어 있는 경우 경고가 생성됩니다.
 텍스트가 50,000자보다 큰 경우 처음 50,000자만 분석하고 경고를 발생합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 + [미리 정의된 기술](cognitive-search-predefined-skills.md)
 + [기능을 정의하는 방법](cognitive-search-defining-skillset.md)

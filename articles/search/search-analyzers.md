@@ -4,17 +4,16 @@ description: 인덱스의 검색 가능한 텍스트 필드에 분석기를 할�
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/27/2019
+ms.date: 08/08/2019
 ms.author: heidist
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
-ms.custom: seodec2018
-ms.openlocfilehash: f76d944f614f07a4428d4e4100f6a08a375d96dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 387248b2dac7c10ec0e96454f26964ca7f15c56e
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65795790"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650002"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Azure Search의 텍스트 처리용 분석기
 
@@ -27,11 +26,11 @@ ms.locfileid: "65795790"
 + 대문자 단어는 소문자가 됩니다.
 + 단어는 시제에 관계 없이 일치를 찾을 수 있도록 루트 양식으로 세분화됩니다.
 
-언어 분석기는 입력된 텍스트를 정보 저장 및 검색 시 효율적인 원시 형태 또는 루트 형태로 변환합니다. 변환은 인덱싱 중 인덱스가 빌드될 때, 그리고 검색 중 인덱스 읽기가 수행될 때 발생합니다. 두 작업에서 동일한 분석기를 사용하면 예상되는 검색 결과를 얻을 확률이 큽니다.
+언어 분석기는 입력된 텍스트를 정보 스토리지 및 검색 시 효율적인 원시 형태 또는 루트 형태로 변환합니다. 변환은 인덱싱 중 인덱스가 빌드될 때, 그리고 검색 중 인덱스 읽기가 수행될 때 발생합니다. 두 작업에서 동일한 분석기를 사용하면 예상되는 검색 결과를 얻을 확률이 큽니다.
 
 ## <a name="default-analyzer"></a>기본 분석기  
 
-Azure Search는 [Apache Lucene 표준 분석기(표준 Lucene)](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html)를 기본값으로 사용하며, ["유니코드 텍스트 구분"](https://unicode.org/reports/tr29/) 규칙에 따라 텍스트를 요소로 분리합니다. 또한 표준 분석기에서는 모든 문자를 소문자 형식으로 변환합니다. 인덱싱 및 쿼리 처리 중에는 인덱싱된 문서와 검색 용어 둘 다에 대해 분석을 수행합니다.  
+Azure Search는 [Apache Lucene 표준 분석기(표준 Lucene)](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html)를 기본값으로 사용하며, ["유니코드 텍스트 구분"](https://unicode.org/reports/tr29/) 규칙에 따라 텍스트를 요소로 분리합니다. 또한 표준 분석기에서는 모든 문자를 소문자 형식으로 변환합니다. 인덱싱 및 쿼리 처리 중에는 인덱싱된 문서와 검색 용어 둘 다에 대해 분석을 수행합니다.  
 
 모든 검색 가능 필드에 자동으로 사용됩니다. 필드별로 기본 분석기를 재정의할 수 있습니다. [언어 분석기](index-add-language-analyzers.md), [사용자 지정 분석기](index-add-custom-analyzers.md) 또는 [사용 가능한 분석기 목록](index-add-custom-analyzers.md#AnalyzerTable)의 미리 정의된 분석기를 대신 사용할 수 있습니다.
 
@@ -40,9 +39,9 @@ Azure Search는 [Apache Lucene 표준 분석기(표준 Lucene)](https://lucene.a
 
 다음 목록에서는 Azure Search에서 사용 가능한 분석기를 설명합니다.
 
-| Category | 설명 |
+| 범주 | 설명 |
 |----------|-------------|
-| [표준 Lucene 분석기](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | 기본값 사양 또는 구성이 필요하지 않습니다. 이 범용 분석기는 대부분의 언어와 시나리오에서 잘 작동합니다.|
+| [표준 Lucene 분석기](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | 기본. 사양 또는 구성이 필요하지 않습니다. 이 범용 분석기는 대부분의 언어와 시나리오에서 잘 작동합니다.|
 | 미리 정의된 분석기 | 있는 그대로 사용되는 완제품으로 제공됩니다. <br/>특수 및 언어와 같은 두 가지 형식이 있습니다. "미리 정의된"이라는 수식어가 붙은 이유는 구성 또는 사용자 지정 없이 이름으로 참조하기 때문입니다. <br/><br/>[특수(언어 중립적) 분석기](index-add-custom-analyzers.md#AnalyzerTable)는 텍스트 입력에 특수 처리 또는 최소한의 처리가 필요할 때 사용됩니다. 미리 정의된 비언어 분석기는 **Asciifolding**, **키워드**, **패턴**, **단순**, **중지**, **공백**을 포함합니다.<br/><br/>[언어 분석기](index-add-language-analyzers.md)는 개별 언어에 대해 풍부한 언어 지원이 필요할 때 사용됩니다. Azure Search는 35개의 Lucene 언어 분석기 및 50개의 Microsoft 자연어 처리 분석기를 지원합니다. |
 |[사용자 지정 분석기](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | 기존 요소를 결합한 사용자 정의 구성을 말하며, 토크나이저(필수) 하나와 여러 선택적 필터(char 또는 토큰)로 구성됩니다.|
 
@@ -272,22 +271,22 @@ API는 인덱싱 및 검색에 대해 다른 분석기를 지정하기 위한 �
   }
 ~~~~
 
-## <a name="c-examples"></a>C#예제
+## <a name="c-examples"></a>C#예와
 
-.NET SDK 코드 샘플을 사용 하는 경우 사용 하 여 또는 분석기를 구성 하도록 이러한 예제를 추가할 수 있습니다.
+.NET SDK 코드 샘플을 사용 하는 경우 다음 예제를 추가 하 여 분석기를 사용 하거나 구성할 수 있습니다.
 
-+ [기본 제공 분석기를 할당 합니다.](#Assign-a-language-analyzer)
-+ [분석기를 구성 합니다.](#Define-a-custom-analyzer)
++ [기본 제공 분석기 할당](#Assign-a-language-analyzer)
++ [분석기 구성](#Define-a-custom-analyzer)
 
 <a name="Assign-a-language-analyzer"></a>
 
-### <a name="assign-a-language-analyzer"></a>언어 분석기를 할당 합니다.
+### <a name="assign-a-language-analyzer"></a>언어 분석기 할당
 
-로 사용 되는 모든 분석기-를 구성 하지 않고도, 필드 정의에 지정 됩니다. 분석기 구문을 만들기 위한 요건은 없습니다. 
+구성 없이 있는 그대로 사용 되는 모든 분석기는 필드 정의에 지정 됩니다. 분석기 구문을 만들 필요는 없습니다. 
 
-이 예제는 설명 필드에 Microsoft 영어 및 프랑스어 분석기를 할당합니다. 것이 더 큰 hotels.cs 파일에는 호텔 클래스를 사용 하 여 만드는 호텔 인덱스 정의에서 가져온 코드 조각을 합니다 [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) 샘플입니다.
+이 예에서는 설명 필드에 Microsoft 영어 및 프랑스어 분석기를 할당 합니다. [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) 샘플의 hotels.cs 파일에서 호텔 클래스를 사용 하 여 생성 하는 호텔 인덱스의 더 큰 정의에서 가져온 코드 조각입니다.
 
-호출 [분석기](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet)을 지정 하 고는 [AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) Azure Search에서 지원 되는 텍스트 분석기를 제공 하는 형식입니다.
+Azure Search에서 지원 되는 텍스트 분석기를 제공 하는 [AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) 유형을 지정 하는 호출 [분석기](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet).
 
 ```csharp
     public partial class Hotel
@@ -309,11 +308,11 @@ API는 인덱싱 및 검색에 대해 다른 분석기를 지정하기 위한 �
 ```
 <a name="Define-a-custom-analyzer"></a>
 
-### <a name="define-a-custom-analyzer"></a>사용자 지정 분석기를 정의 합니다.
+### <a name="define-a-custom-analyzer"></a>사용자 지정 분석기 정의
 
-사용자 지정 또는 구성이 필요한 경우 인덱스는 분석기 구문 추가 해야 합니다. 이 정의 하 고 나면 추가할 수 있습니다 필드 정의 앞의 예제에서 설명한 것 처럼 합니다.
+사용자 지정 또는 구성이 필요한 경우에는 분석기 구문을 인덱스에 추가 해야 합니다. 정의한 후에는 앞의 예제에서 설명한 대로 필드 정의에 추가할 수 있습니다.
 
-만들기는 [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) 개체입니다. 더 많은 예제를 참조 하세요 [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs)합니다.
+[CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) 개체를 만듭니다. 더 많은 예제를 보려면 [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs)를 참조 하세요.
 
 ```csharp
 {
@@ -345,7 +344,7 @@ API는 인덱싱 및 검색에 대해 다른 분석기를 지정하기 위한 �
 
 + 개별 필드에 대해 최소한의 처리 또는 특수한 처리를 수행하려면 [사용자 지정 분석기를 구성](index-add-custom-analyzers.md)하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
  [문서 검색 REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 

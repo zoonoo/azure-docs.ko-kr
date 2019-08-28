@@ -35,6 +35,8 @@
       href: powershell-samples.md
     - name: Azure CLI
       href: cli-samples.md
+    - name: 리소스 관리자 템플릿
+      href: resource-manager-template-samples.md
 - name: 개념
   items:
     - name: 기본 사항
@@ -95,9 +97,6 @@
           href: tutorial-manage-web-traffic-powershell.md
         - name: Azure CLI
           href: tutorial-manage-web-traffic-cli.md
-        - name: Template
-          displayName: 'ARM, Resource Manager, template'
-          href: create-vmss-template.md
     - name: 내부 부하 분산 장치 구성
       items:
         - name: Azure portal
@@ -122,10 +121,12 @@
               href: application-gateway-end-to-end-ssl-powershell.md
         - name: 인증서 관리
           items:
-            - name: 허용 목록 백 엔드에 대한 인증서 만들기
+            - name: 백 엔드용 인증서
               href: certificates-for-backend-authentication.md
             - name: 인증서 갱신
               href: renew-certificates.md
+            - name: 자체 서명된 인증서 생성
+              href: self-signed-certificates.md
         - name: SSL 정책
           items:
             - name: SSL 정책 구성
@@ -212,7 +213,7 @@
       items:
         - name: App Service Environment에서 ILB
           href: create-gateway-internal-load-balancer-app-service-environment.md
-        - name: App Service의 URL로 리디렉션
+        - name: 앱 서비스 문제
           href: troubleshoot-app-service-redirection-app-service-url.md
         - name: 세션 선호도 문제
           href: how-to-troubleshoot-application-gateway-session-affinity-issues.md
@@ -220,6 +221,10 @@
           href: application-gateway-troubleshooting-502.md
         - name: WAF(웹 애플리케이션 방화벽)
           href: web-application-firewall-troubleshoot.md
+        - name: 리소스 상태
+          href: resource-health-overview.md
+        - name: Log Analytics 사용
+          href: log-analytics.md
     - name: v1에서 v2로 마이그레이션
       href: migrate-v1-v2.md
 - name: 참고 자료
@@ -241,16 +246,20 @@
     - name: REST (영문)
       href: /rest/api/applicationgateway
     - name: Azure 리소스 관리자
+      displayName: ARM
       href: ../azure-resource-manager/resource-group-overview.md
     - name: Resource Manager 템플릿
-      href: 'https://docs.microsoft.com/azure/templates/microsoft.network/allversions'
+      displayName: ARM
+      href: 'https://docs.microsoft.com/azure/templates/microsoft.network/applicationgateways'
 - name: 리소스
   items:
     - name: 작성자 템플릿
+      displayName: ARM
       href: ../azure-resource-manager/resource-group-authoring-templates.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 커뮤니티 템플릿
+      displayName: ARM
       href: 'https://azure.microsoft.com/documentation/templates'
     - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/#Linux'

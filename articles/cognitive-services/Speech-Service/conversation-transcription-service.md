@@ -1,79 +1,79 @@
 ---
 title: 대화 기록-음성 서비스
 titleSuffix: Azure Cognitive Services
-description: 대화 기록에는 실시간 음성 인식, 화자 식별 및 diarization 결합 하는 음성 서비스의 고급 기능입니다. 대화 기록 현지의 회의 발표자를 구분 하는 기능을 사용 하 여 복사에 대 한 완벽 한, 회의 빠르게 집중할 수 있도록 참가자 다음 단계에 따라 무엇을 그리고 언제를 언급 하는 알 수 있습니다. 이 기능에는 내게 필요한 옵션 향상 됩니다. 기록, 사용 하 여 적극적으로 청각 장애가 있는 참가자를 참여할 수 있습니다.
+description: 대화 기록은 실시간 음성 인식, 스피커 식별 및 diarization을 결합 하는 음성 서비스의 고급 기능입니다. 대화에 대 한 정보는 발표자를 구분할 수 있는 찍으면 되므로 간편의 사람에 게 적합 하며, 참가자가 회의에 집중할 수 있도록 하 고 다음 단계를 빠르게 진행할 수 있는 사람을 알 수 있습니다. 이 기능을 통해 접근성도 향상 됩니다. 기록을 사용 하면 청각 장애인에 적극적으로 참가자를 참여 시킬 수 있습니다.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: a31921e229a4bbfccd6fdd871666aad1eeef3232
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: acbf82335523ee226f4b899180f0f22cb94cca5e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66243857"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562885"
 ---
-# <a name="what-is-conversation-transcription"></a>대화 기록 란?
+# <a name="what-is-conversation-transcription"></a>대화 내용 이란?
 
-대화 기록에는 실시간 음성 인식, 화자 식별 및 diarization 결합 하는 음성 서비스의 고급 기능입니다. 대화 기록 현지의 회의 발표자를 구분 하는 기능을 사용 하 여 복사에 대 한 완벽 한, 회의 빠르게 집중할 수 있도록 참가자 다음 단계에 따라 무엇을 그리고 언제를 언급 하는 알 수 있습니다. 이 기능에는 내게 필요한 옵션 향상 됩니다. 기록, 사용 하 여 적극적으로 청각 장애가 있는 참가자를 참여할 수 있습니다.   
+대화 기록은 실시간 음성 인식, 스피커 식별 및 diarization을 결합 하는 음성 서비스의 고급 기능입니다. 대화에 대 한 정보는 발표자를 구분할 수 있는 찍으면 되므로 간편의 사람에 게 적합 하며, 참가자가 회의에 집중할 수 있도록 하 고 다음 단계를 빠르게 진행할 수 있는 사람을 알 수 있습니다. 이 기능을 통해 접근성도 향상 됩니다. 기록을 사용 하면 청각 장애인에 적극적으로 참가자를 참여 시킬 수 있습니다.   
 
-대화 기록 산업 및 회사 관련 어휘를 이해 하려면 조정할 수 있는 사용자 지정 가능한 음성 모델을 사용 하 여 정확 하 게 인식 기능을 제공 합니다. 또한 다중 마이크 장치에 대 한 환경을 최적화 하는 음성 장치 SDK를 사용 하 여 대화 기록 페어링할 수 있습니다.
+대화 기록을 통해 업계 및 회사 관련 어휘를 이해 하도록 조정할 수 있는 사용자 지정 가능한 음성 모델을 사용 하 여 정확한 인식을 제공 합니다. 또한 대화 기록을 음성 장치 SDK와 쌍으로 연결 하 여 다중 마이크 장치에 대 한 환경을 최적화할 수 있습니다.
 
 >[!NOTE]
-> 현재 대화 기록 작은 모임에 권장 됩니다. 확장 규모의 대규모 회의 대 한 대화 기록 하려는 경우 문의해 주세요.
+> 현재 소규모 모임에는 대화 기록을 권장 합니다. 대규모 모임의 대화 기록을 대규모로 확장 하려면 microsoft에 문의 하세요.
 
-이 다이어그램은 하드웨어, 소프트웨어 및 대화 기록 함께 작동 하는 서비스를 보여 줍니다.
+이 다이어그램에서는 대화 내용과 함께 작동 하는 하드웨어, 소프트웨어 및 서비스를 보여 줍니다.
 
-![가져오기 대화 기록 다이어그램](media/scenarios/conversation-transcription-service.png)
+![대화 내용 가져오기 다이어그램](media/scenarios/conversation-transcription-service.png)
 
 >[!IMPORTANT]
-> 특정 기 하 도형 구성 하는 순환 7 마이크 배열 반드시 입력 해야 합니다. 사양 및 디자인 세부 정보를 참조 하세요 [Microsoft 음성 장치 SDK 마이크](https://aka.ms/cts/microphone)합니다. 자세히 알아보거나 개발 키트 구매를 참조 하세요 [Microsoft 음성 장치 SDK 가져오기](https://aka.ms/cts/getsdk)합니다.
+> 특정 geometry 구성이 포함 된 원형 일곱 마이크 배열이 필요 합니다. 사양 및 디자인 세부 정보는 [Microsoft 음성 장치 SDK 마이크](https://aka.ms/cts/microphone)를 참조 하세요. 개발 키트에 대해 자세히 알아보거나 구매 하려면 [Microsoft 음성 장치 SDK 다운로드](https://aka.ms/cts/getsdk)를 참조 하세요.
 
-## <a name="get-started-with-conversation-transcription"></a>대화 기록 시작
+## <a name="get-started-with-conversation-transcription"></a>대화 기록을 시작 합니다.
 
-대화 기록 시작 하는 데 필요한 세 가지 단계가 있습니다.
+대화 기록을 시작 하기 위해 수행 해야 하는 세 가지 단계가 있습니다.
 
 1. 사용자의 음성 샘플을 수집 합니다.
 2. 사용자 음성 샘플을 사용 하 여 사용자 프로필 생성
-3. Speech SDK를 사용 하 여 (스피커) 사용자를 식별 및 음성 기록
+3. Speech SDK를 사용 하 여 사용자 (스피커) 및 높여줄 음성 식별
 
 ## <a name="collect-user-voice-samples"></a>사용자 음성 샘플 수집
 
-첫 번째 단계는 각 사용자의 오디오 녹음/녹화를 수집 하는 것입니다. 사용자 음성 배경 노이즈 없이 훈련 기록 되어야 합니다. 각 오디오 샘플에 대해 권장되는 길이는 30초에서 2분 사이입니다. 긴 오디오 샘플 정확성 향상된 화자를 식별 하는 경우 발생 합니다. 오디오 16 KHz 샘플링 주기를 사용 하 여 mono 채널 이어야 합니다.
+첫 번째 단계는 각 사용자의 오디오 녹음을 수집 하는 것입니다. 사용자 음성이 배경 소음 없이 조용한 환경으로 기록 되어야 합니다. 각 오디오 샘플에 대해 권장되는 길이는 30초에서 2분 사이입니다. 오디오 샘플이 길수록 스피커를 식별할 때 정확도가 향상 됩니다. 오디오는 16Khz 샘플 속도로 mono 채널 이어야 합니다.
 
-오디오 기록 되 고 있습니다-달려 저장 하는 방법에 앞서 언급 한 지침을 넘어 안전한 데이터베이스 권장 됩니다. 다음 섹션에서는이 오디오 Speech SDK를 사용 하 여 화자를 인식 하는 데 사용 되는 사용자 프로필을 생성 하는 방법을 살펴보겠습니다.
+위의 지침을 벗어나서 오디오를 기록 하 고 저장 하는 방법은 사용자가 결정 합니다. 즉, 보안 데이터베이스를 권장 합니다. 다음 섹션에서는이 오디오를 사용 하 여 음성 SDK에서 스피커를 인식 하는 데 사용 되는 사용자 프로필을 생성 하는 방법을 검토 합니다.
 
 ## <a name="generate-user-profiles"></a>사용자 프로필 생성
 
-오디오 녹음/녹화를 전송 해야 하는 다음으로, 오디오를 유효성 검사 및 사용자 프로필을 생성 하려면 서명 생성 서비스에 수집 했습니다. 합니다 [서명 생성 서비스](https://aka.ms/cts/signaturegenservice) 는 생성 하 고 사용자 프로필을 검색할 수 있는 REST Api의 집합입니다.
+다음으로, 수집 된 오디오 녹음을 서명 생성 서비스로 보내 오디오의 유효성을 검사 하 고 사용자 프로필을 생성 해야 합니다. [서명 생성 서비스](https://aka.ms/cts/signaturegenservice) 는 사용자 프로필을 생성 하 고 검색할 수 있도록 하는 REST api 집합입니다.
 
-사용자 프로필을 만들려면 사용 해야는 `GenerateVoiceSignature` API. 사양 세부 정보 및 샘플 코드에 사용할 수 있습니다.
+사용자 프로필을 만들려면 `GenerateVoiceSignature` API를 사용 해야 합니다. 사양 세부 정보 및 샘플 코드를 사용할 수 있습니다.
 
 > [!NOTE]
-> "EN-US" 및에 "ZH-CN" 다음 지역에서 현재 사용할 수 있는 대화 기록 됩니다. `centralus` 및 `eastasia`합니다.
+> 대화 기록을 현재 "en-us" 및 "zh-cn"에서 사용할 수 있습니다. `centralus` `eastasia`
 
 * [REST 사양](https://aka.ms/cts/signaturegenservice)
 * [대화 기록을 사용 하는 방법](https://aka.ms/cts/howto)
 
-## <a name="transcribe-and-identify-speakers"></a>기록 및 화자를 식별
+## <a name="transcribe-and-identify-speakers"></a>높여줄 및 스피커 식별
 
-대화 기록에 기록 생성 화자를 식별 하는 입력으로 다중 채널 오디오 스트림 및 사용자 프로필은 필요 합니다. 오디오 및 사용자 프로필 데이터는 음성 장치 SDK를 사용 하 여 대화 기록 서비스에 전송 됩니다. 언급 한 대로 순환 7 마이크 배열 및 음성 장치 SDK를 사용 하려면 필요 대화 기록 합니다.
+대화 기록은 채널 오디오 스트림과 사용자 프로필을 입력으로 예상 하 고,이를 사용 하 여 스피커를 식별 합니다. 음성 장치 SDK를 사용 하 여 오디오 및 사용자 프로필 데이터를 대화 기록 서비스로 보냅니다. 앞에서 설명한 것 처럼, 대화 기록을 사용 하려면 원형 일곱 개의 마이크 배열과 음성 장치 SDK가 필요 합니다.
 
 >[!NOTE]
-> 사양 및 디자인 세부 정보를 참조 하세요 [Microsoft 음성 장치 SDK 마이크](https://aka.ms/cts/microphone)합니다. 자세히 알아보거나 개발 키트 구매를 참조 하세요 [Microsoft 음성 장치 SDK 가져오기](https://aka.ms/cts/getsdk)합니다.
+> 사양 및 디자인 세부 정보는 [Microsoft 음성 장치 SDK 마이크](https://aka.ms/cts/microphone)를 참조 하세요. 개발 키트에 대해 자세히 알아보거나 구매 하려면 [Microsoft 음성 장치 SDK 다운로드](https://aka.ms/cts/getsdk)를 참조 하세요.
 
-음성 장치 SDK를 사용 하 여 대화 기록을 사용 하는 방법에 알아보려면 참조 [conversation 기록을 사용 하는 방법을](https://aka.ms/cts/howto)합니다.
+음성 장치 SDK에서 대화 기록을 사용 하는 방법에 대 한 자세한 내용은 [대화 기록을 사용 하는 방법](https://aka.ms/cts/howto)을 참조 하세요.
 
 
-## <a name="quick-start-with-a-sample-app"></a>샘플 앱을 사용한 빠른 시작
+## <a name="quick-start-with-a-sample-app"></a>샘플 앱을 사용 하 여 빠른 시작
 
-Microsoft 음성 장치 SDK에 빠른 시작 샘플 앱을 모든 장치 관련 샘플입니다. 대화 기록 하 중 하나입니다. 찾을 수 있습니다 [음성 장치 SDK android 빠른 시작](https://aka.ms/sdsdk-quickstart) 샘플 앱 및 해당 소스 코드에 대 한 참조를 사용 하 여 합니다.
+Microsoft 음성 장치 SDK에는 모든 장치 관련 샘플에 대 한 빠른 시작 샘플 앱이 있습니다. 대화의 기록 중 하나입니다. 참조를 위해 샘플 앱과 해당 소스 코드를 사용 하 여 [음성 장치 SDK android 빠른](https://aka.ms/sdsdk-quickstart) 시작에서 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [음성 장치 SDK에 자세히 알아보기](speech-devices-sdk.md)
+> [음성 장치 SDK에 대 한 자세한 정보](speech-devices-sdk.md)

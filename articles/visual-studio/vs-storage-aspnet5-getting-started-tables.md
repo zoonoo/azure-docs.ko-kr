@@ -3,7 +3,7 @@ title: Table Storage 및 Visual Studio 연결된 서비스 시작 방법(ASP.NET
 description: Visual Studio 연결 서비스를 사용하여 스토리지 계정에 연결한 후 Visual Studio ASP.NET Core 프로젝트에서 Azure Table Storage 사용을 시작하는 방법입니다.
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: c3c451d1-71ff-4222-a348-c41c98a02b85
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ghogen
-ms.openlocfilehash: 1f90ce71084ba3acbf5a0aec5c7b8e9683323766
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7ac610e96d84568b7973f288623730ea1677ceac
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60362121"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510926"
 ---
 # <a name="how-to-get-started-with-azure-table-storage-and-visual-studio-connected-services"></a>Azure Table Storage 및 Visual Studio 연결된 서비스를 시작하는 방법
 
@@ -27,7 +27,7 @@ ms.locfileid: "60362121"
 
 Azure Table Storage 서비스를 사용하면 많은 양의 구조화된 데이터를 저장할 수 있습니다. 이 서비스는 Azure 클라우드 내부 및 외부에서 인증된 호출을 수락하는 NoSQL 데이터 저장소입니다. Azure 테이블은 구조화된 비관계형 데이터를 저장하는 데 적합합니다. Azure Table Storage를 사용하는 방법에 대한 자세한 내용은 [.NET을 사용하여 Azure Table Storage 시작](../storage/storage-dotnet-how-to-use-tables.md)을 참조하세요.
 
-시작하려면 먼저 저장소 계정에서 테이블을 만듭니다. 이 문서에서는 C#으로 테이블을 만드는 방법과 함께 테이블 항목 추가, 수정, 읽기 및 제거 같은 기본 큐 작업을 수행하는 방법을 설명합니다.  코드는 .NET용 Azure Storage 클라이언트 라이브러리를 사용합니다. ASP.NET에 대한 자세한 내용은 [ASP.NET(영문)](https://www.asp.net)을 참조하세요.
+시작하려면 먼저 스토리지 계정에서 테이블을 만듭니다. 이 문서에서는 C#으로 테이블을 만드는 방법과 함께 테이블 항목 추가, 수정, 읽기 및 제거 같은 기본 큐 작업을 수행하는 방법을 설명합니다.  코드는 .NET용 Azure Storage 클라이언트 라이브러리를 사용합니다. ASP.NET에 대한 자세한 내용은 [ASP.NET(영문)](https://www.asp.net)을 참조하세요.
 
 Azure Storage API 중 일부는 비동기적이며 이 문서의 코드는 비동기 메서드를 사용하는 것으로 가정합니다. 자세한 내용은 [비동기 프로그래밍](https://docs.microsoft.com/dotnet/csharp/async)을 참조하세요.
 
@@ -43,7 +43,7 @@ ASP.NET Core 프로젝트의 테이블에 액세스하려면 Azure Table Storage
     using System.Threading.Tasks;
     ```
 
-1. 저장소 계정 정보를 나타내는 `CloudStorageAccount` 개체를 가져옵니다. appSettings.json의 저장소 연결 문자열에서 찾을 수 있는 저장소 계정 이름과 계정 키를 사용하여 다음 코드를 사용합니다.
+1. 스토리지 계정 정보를 나타내는 `CloudStorageAccount` 개체를 가져옵니다. appSettings.json의 스토리지 연결 문자열에서 찾을 수 있는 스토리지 계정 이름과 계정 키를 사용하여 다음 코드를 사용합니다.
 
     ```csharp
         CloudStorageAccount storageAccount = new CloudStorageAccount(
@@ -51,7 +51,7 @@ ASP.NET Core 프로젝트의 테이블에 액세스하려면 Azure Table Storage
                 "<name>", "<account-key>"), true);
     ```
 
-1. 저장소 계정의 테이블 개체를 참조하려면 `CloudTableClient` 개체를 가져옵니다.
+1. 스토리지 계정의 테이블 개체를 참조하려면 `CloudTableClient` 개체를 가져옵니다.
 
     ```csharp
     // Create the table client.

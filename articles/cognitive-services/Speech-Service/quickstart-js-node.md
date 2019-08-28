@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 음성 인식, Node.js - Speech Services'
+title: '빠른 시작: 음성 인식, Node.js - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: 이 가이드에 따라 Node.js용 Speech SDK를 사용하여 음성을 텍스트로 변환하는 콘솔 애플리케이션을 만듭니다. 작업을 마치면 컴퓨터의 마이크를 사용하여 실시간으로 음성을 텍스트로 변환할 수 있습니다.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 1/16/2019
+ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: 5fa0b6d2a361fdbf372ba73fed9d8e2c48cb3630
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1a3d1bc62e995aff43d9538f49b436a7de16f1e9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871220"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68554071"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-nodejs"></a>빠른 시작: Node.js용 Speech SDK를 사용하여 음성 인식
 

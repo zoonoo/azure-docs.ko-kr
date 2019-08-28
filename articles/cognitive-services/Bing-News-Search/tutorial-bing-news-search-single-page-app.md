@@ -1,6 +1,6 @@
 ---
-title: '자습서: 단일 페이지 웹앱 만들기 - Bing News Search API'
-titlesuffix: Azure Cognitive Services
+title: '자습서: Bing News Search API를 사용하여 단일 페이지 웹앱 만들기'
+titleSuffix: Azure Cognitive Services
 description: 이 자습서를 사용하여 검색 쿼리를 Bing News API에 보낼 수 있는 단일 페이지 웹 애플리케이션을 빌드하고 웹 페이지 내에 결과를 표시합니다.
 services: cognitive-services
 author: aahill
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 01/10/2019
+ms.date: 07/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 78a985180fb2b665aed75b39acfc4d39ccd04132
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 424fdc9fa0f31b3de664945ff49b119939488fed
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798569"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423612"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>자습서: 단일 페이지 웹앱 만들기
 
@@ -59,7 +59,7 @@ Bing News Search API를 사용하여 웹을 검색하고 검색 쿼리와 관련
 
 ## <a name="managing-subscription-key"></a>구독 키 관리
 
-Bing Search API 구독 키를 코드에 포함할 필요가 없도록, 여기서는 브라우저의 영구적 저장소를 사용하여 키를 저장합니다. 키가 저장되기 전에 사용자에게 키를 확인하는 메시지가 표시됩니다. 키가 나중에 API에서 거부될 경우 저장된 키를 무효화하므로 사용자에게 다시 메시지가 표시됩니다.
+코드에 Bing Search API 구독 키를 포함할 필요가 없도록, 브라우저의 영구 스토리지를 사용하여 키를 저장합니다. 키가 저장되기 전에 사용자에게 키를 확인하는 메시지가 표시됩니다. 키가 나중에 API에서 거부될 경우 저장된 키를 무효화하므로 사용자에게 다시 메시지가 표시됩니다.
 
 `localStorage` 개체(일부 브라우저에서만 지원) 또는 쿠키를 사용하는 `storeValue` 및 `retrieveValue` 함수를 정의합니다. `getSubscriptionKey()` 함수는 이러한 함수를 사용하여 사용자 키를 저장하고 검색합니다.
 
@@ -381,7 +381,7 @@ searchItemRenderers = {
 > * 이미지와 해당 이미지를 포함하는 페이지에 연결되는 HTML `<a>` 태그를 빌드합니다.
 > * 이미지와 해당 이미지가 있는 사이트에 대한 정보를 표시하는 설명을 빌드합니다.
 
-썸네일 크기는 `<img>` 태그와 썸네일의 URL에 있는 `h` 및 `w` 필드 둘 다에 사용됩니다. 그러면 [Bing 썸네일 서비스](resize-and-crop-thumbnails.md)에서 정확히 해당 크기의 썸네일을 제공합니다.
+썸네일 크기는 `<img>` 태그와 썸네일의 URL에 있는 `h` 및 `w` 필드 둘 다에 사용됩니다. 그러면 [Bing 썸네일 서비스](../bing-web-search/resize-and-crop-thumbnails.md)에서 정확히 해당 크기의 썸네일을 제공합니다.
 
 ## <a name="persisting-client-id"></a>클라이언트 ID 유지
 Bing Search API의 응답에는 후속 요청과 함께 API로 다시 전송되어야 하는 `X-MSEdge-ClientID` 헤더가 포함될 수 있습니다. 여러 개의 Bing Search API를 사용하는 경우 모두 동일한 클라이언트 ID를 사용해야 합니다(가능한 경우).
@@ -397,7 +397,7 @@ Bing Search API의 응답에는 후속 요청과 함께 API로 다시 전송되�
 > [!NOTE]
 > 프로덕션 웹 애플리케이션의 경우 서버 쪽에서 요청을 수행해야 합니다. 그렇지 않은 경우 Bing Search API 키를 웹 페이지에 포함해야만 원본을 보는 누구나 사용할 수 있게 됩니다. 권한 없는 사람이 수행한 요청을 포함하여 API 구독 키를 통한 모든 사용량에 요금이 청구되므로, 키를 노출하지 않는 것이 중요합니다.
 
-개발 목적으로 CORS 프록시를 통해 Bing Web Search API 요청을 수행할 수 있습니다. 이러한 프록시의 응답에는 응답 헤더를 허용 목록에 추가하고 JavaScript에서 응답 헤더를 사용할 수 있게 해주는 `Access-Control-Expose-Headers` 헤더가 포함됩니다.
+개발 목적으로 CORS 프록시를 통해 Bing Web Search API 요청을 수행할 수 있습니다. 이러한 프록시의 응답에는 응답 헤더를 허용하고 JavaScript에서 응답 헤더를 사용할 수 있게 해주는 `Access-Control-Expose-Headers` 헤더가 포함됩니다.
 
 자습서 앱이 클라이언트 ID 헤더에 액세스할 수 있도록 CORS 프록시를 쉽게 설치할 수 있습니다. 먼저 [Node.js가 없는 경우 설치](https://nodejs.org/en/download/)합니다. 그런 다음, 명령 창에서 다음 명령을 실행합니다.
 

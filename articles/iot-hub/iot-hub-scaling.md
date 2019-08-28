@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: wesmc
-ms.openlocfilehash: ea7b38f509fcdaa4e41ce17db3beca44b05a59b2
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 9be0b93335cef919db4efa2fce361bda1f9b934e
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514487"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891988"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>솔루션에 대한 올바른 IoT Hub 계층 선택
 
@@ -35,15 +35,15 @@ IoT Hub의 표준 계층은 모든 기능을 활성화하고 양방향 통신 �
 
 계층 내에서 한 가지 형식의 [버전](https://azure.microsoft.com/pricing/details/iot-hub/)만 IoT Hub에 선택할 수 있습니다. 예를 들어 S1 및 B3 또는 S1 및 S2와 같은 서로 다른 버전의 단위 혼합이 아닌 여러 단위의 S1을 사용하여 IoT Hub를 만들 수 있습니다.
 
-| 기능 | 기본 계층 | 사용 가능한 표준 계층 |
+| 기능 | 기본 계층 | 무료/표준 계층 |
 | ---------- | ---------- | ------------- |
 | [디바이스-클라우드 원격 분석](iot-hub-devguide-messaging.md) | 예 | 예 |
-| [장치당 ID](iot-hub-devguide-identity-registry.md) | 예 | 예 |
+| [디바이스당 ID](iot-hub-devguide-identity-registry.md) | 예 | 예 |
 | [메시지 라우팅](iot-hub-devguide-messages-read-custom.md) 및 [Event Grid 통합](iot-hub-event-grid.md) | 예 | 예 |
 | [HTTP, AMQP 및 MQTT 프로토콜](iot-hub-devguide-protocols.md) | 예 | 예 |
 | [디바이스 프로비저닝 서비스](../iot-dps/about-iot-dps.md) | 예 | 예 |
 | [모니터링 및 진단](iot-hub-monitor-resource-health.md) | 예 | 예 |
-| [클라우드-장치 메시징](iot-hub-devguide-c2d-guidance.md) |   | 예 |
+| [클라우드-디바이스 메시징](iot-hub-devguide-c2d-guidance.md) |   | 예 |
 | [디바이스 쌍](iot-hub-devguide-device-twins.md), [모듈 쌍](iot-hub-devguide-module-twins.md) 및 [디바이스 관리](iot-hub-device-management-overview.md) |   | 예 |
 | [디바이스 스트림(미리 보기)](iot-hub-device-streams-overview.md) |   | 예 |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | 예 |
@@ -54,7 +54,7 @@ IoT Hub는 또한 테스트와 평가를 위한 무료 계층을 제공합니다
 
 Azure IoT Hub에는 [파티션](../event-hubs/event-hubs-features.md#partitions)을 비롯한 [Azure Event Hubs](../event-hubs/event-hubs-features.md)의 많은 핵심 구성 요소가 포함됩니다. IoT Hub의 이벤트 스트림은 일반적으로 다양한 IoT 디바이스에서 보고되는 들어오는 원격 분석 데이터로 채워집니다. 이벤트 스트림의 분할을 통해 동시에 이벤트 스트림을 읽고 작성할 때 발생하는 경합을 줄일 수 없습니다.
 
-IoT Hub를 만들 때 파티션 제한을 선택하고 변경할 수 없습니다. 기본 계층 IoT Hub 및 IoT Hub 표준 계층에 대 한 최대 파티션 제한은 32입니다. 대부분의 IoT Hub는 4개의 파티션만 필요합니다. 파티션을 결정하는 방법에 대한 자세한 내용은 Event Hubs FAQ. [얼마나 많은 파티션이 필요한가요?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)를 참조하세요.
+IoT Hub를 만들 때 파티션 제한을 선택하고 변경할 수 없습니다. 기본 계층 IoT Hub 및 표준 계층 IoT Hub의 최대 파티션 제한은 32입니다. 대부분의 IoT Hub는 4개의 파티션만 필요합니다. 파티션을 결정하는 방법에 대한 자세한 내용은 Event Hubs FAQ. [얼마나 많은 파티션이 필요한가요?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)를 참조하세요.
 
 ## <a name="tier-upgrade"></a>계층 업그레이드
 
@@ -63,13 +63,13 @@ IoT 허브를 만들면 기존 작업을 중단하지 않고 기본 계층에서
 기본 계층에서 표준 계층으로 마이그레이션할 때 파티션 구성은 변경되지 않습니다.
 
 > [!NOTE]
-> 무료 계층 기본 또는 표준으로 업그레이드 하는 것을 지원 하지 않습니다.
+> 무료 계층은 기본 또는 표준으로의 업그레이드를 지원 하지 않습니다.
 
 ## <a name="iot-hub-rest-apis"></a>IoT Hub REST API
 
 IoT Hub의 기본 및 표준 계층 간의 지원되는 기능 차이는 일부 API 호출이 기본 계층 허브와 작동하지 않는 것을 의미합니다. 다음 표는 사용 가능한 API를 보여줍니다.
 
-| API | 기본 계층 | 사용 가능한 표준 계층 |
+| API | 기본 계층 | 무료/표준 계층 |
 | --- | ---------- | ------------- |
 | [디바이스 삭제](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) | 예 | 예 |
 | [디바이스 가져오기](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | 예 | 예 |
@@ -77,13 +77,13 @@ IoT Hub의 기본 및 표준 계층 간의 지원되는 기능 차이는 일부 
 | [모듈 가져오기](https://docs.microsoft.com/rest/api/iothub/service/getmodule) | 예 | 예 |
 | [레지스트리 통계 가져오기](https://docs.microsoft.com/rest/api/iothub/service/getdeviceregistrystatistics) | 예 | 예 |
 | [서비스 통계 가져오기](https://docs.microsoft.com/rest/api/iothub/service/getservicestatistics) | 예 | 예 |
-| [만들거나 장치를 업데이트 합니다.](https://docs.microsoft.com/rest/api/iothub/service/createorupdatedevice) | 예 | 예 |
-| [만들거나 모듈을 업데이트 합니다.](https://docs.microsoft.com/rest/api/iothub/service/createorupdatemodule) | 예 | 예 |
+| [장치 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/iothub/service/createorupdatedevice) | 예 | 예 |
+| [모듈 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/iothub/service/createorupdatemodule) | 예 | 예 |
 | [IoT Hub 쿼리](https://docs.microsoft.com/rest/api/iothub/service/queryiothub) | 예 | 예 |
 | [파일 업로드 SAS URI 만들기](https://docs.microsoft.com/rest/api/iothub/device/createfileuploadsasuri) | 예 | 예 |
 | [바인딩된 디바이스 알림 수신](https://docs.microsoft.com/rest/api/iothub/device/receivedeviceboundnotification) | 예 | 예 |
 | [디바이스 이벤트 보내기](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | 예 | 예 |
-| 모듈 이벤트 보내기 | AMQP 및 MQTT만 | AMQP 및 MQTT만 |
+| 모듈 이벤트 보내기 | AMQP 및 MQTT만 해당 | AMQP 및 MQTT만 해당 |
 | [파일 업로드 상태 업데이트](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | 예 | 예 |
 | [대량 디바이스 작업](https://docs.microsoft.com/rest/api/iothub/service/bulkcreateorupdatedevices) | 예, IoT Edge 기능을 제외하고 맞습니다. | 예 |
 | [명령 큐 제거](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | 예 |
@@ -104,7 +104,7 @@ IoT Hub의 기본 및 표준 계층 간의 지원되는 기능 차이는 일부 
 IoT Hub 솔루션의 크기를 조정하는 가장 적절한 방법은 장치별로 트래픽을 평가하는 것입니다. 특히 다음과 같은 범주의 작업에 필요한 최대 처리량을 고려해야 합니다.
 
 * 디바이스-클라우드 메시지
-* 클라우드-장치 메시지
+* 클라우드-디바이스 메시지
 * ID 레지스트리 작업
 
 트래픽은 허브별이 아니라 단위별로 측정됩니다. 수준 1 또는 2 IoT Hub 인스턴스는 연결된 최대 200 단위를 가질 수 있습니다. 수준 3 IoT Hub 인스턴스는 최대 10개 단위를 가질 수 있습니다. IoT 허브를 만들면 기존 작업을 중단하지 않고 단위 수를 변경하거나 특정 계층 내에서 1, 2 및 3 크기 간에 이동할 수 있습니다. 자세한 내용은 [IoT Hub를 업그레이드하는 방법](iot-hub-upgrade.md)을 참조하세요.
@@ -129,12 +129,8 @@ IoT Hub ID 레지스트리 작업은 대부분이 디바이스 프로비저닝�
 
 IoT Hub에 허용된 메시지 제한에 도달하면 [자동으로 크기 조정하는 이러한 단계](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/)을 사용하여 동일한 IoT Hub 계층에서 IoT Hub 단위를 증가시킬 수 있습니다.
 
-## <a name="sharding"></a>분할
-
-단일 IoT Hub를 수백만 대의 디바이스로 확장할 수 있기는 하지만, 솔루션에서 단일 IoT Hub에서 보장할 수 없는 특정 성능 특성을 필요로 하는 경우가 있습니다. 이 경우에 여러 IoT 허브에서 디바이스를 분할할 수 있습니다. 여러 IoT Hub가 갑작스러운 트래픽 증가를 원활하게 처리하고 필요한 처리량 또는 필요한 작업 속도를 얻습니다.
-
 ## <a name="next-steps"></a>다음 단계
 
-* IoT Hub 기능 및 성능 정보에 대 한 자세한 내용은 참조 하세요. [IoT Hub 가격 책정](https://azure.microsoft.com/pricing/details/iot-hub) 하거나 [IoT Hub 할당량 및 제한](iot-hub-devguide-quotas-throttling.md)합니다.
+* IoT Hub 기능 및 성능 세부 정보에 대 한 자세한 내용은 [IoT Hub 가격 책정](https://azure.microsoft.com/pricing/details/iot-hub) 또는 [IoT Hub 할당량 및 제한](iot-hub-devguide-quotas-throttling.md)을 참조 하세요.
 
 * IoT Hub 계층을 변경하려면 [IoT 허브 업그레이드](iot-hub-upgrade.md)의 단계를 따릅니다.

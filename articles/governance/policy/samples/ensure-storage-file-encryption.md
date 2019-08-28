@@ -16,7 +16,7 @@ ms.locfileid: "59275762"
 ---
 # <a name="sample---ensure-storage-file-encryption"></a>샘플 - 스토리지 파일 암호화 확인
 
-이 정책에서는 저장소 계정에 대해 파일 암호화를 사용할 수 있도록 해야 합니다.
+이 정책에서는 스토리지 계정에 대해 파일 암호화를 사용할 수 있도록 해야 합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -30,7 +30,7 @@ ms.locfileid: "59275762"
 
 [![Azure에 Policy 샘플 배포](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FStorage%2Fstorage-account-file-encryption%2Fazurepolicy.json)
 
-## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포 
+## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포
 
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 

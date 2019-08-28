@@ -30,6 +30,6 @@ sections:
         style: unordered
         items:
           - html: <a href="/azure/bastion/bastion-create-host-portal">Azure Bastion 호스트 생성 및 수정</a>
-          - html: <a href="/azure/bastion/bastion-connect-vm-ssh">Windows 가상 머신에 연결</a>
-          - html: <a href="/azure/bastion/bastion-connect-vm-rdp">Linux 가상 머신에 연결</a>
+          - html: <a href="/azure/bastion/bastion-connect-vm-rdp">Windows 가상 머신에 연결</a>
+          - html: <a href="/azure/bastion/bastion-connect-vm-ssh">Linux 가상 머신에 연결</a>
           - html: <a href="/azure/bastion/bastion-faq">Azure Bastion FAQ 읽기</a>

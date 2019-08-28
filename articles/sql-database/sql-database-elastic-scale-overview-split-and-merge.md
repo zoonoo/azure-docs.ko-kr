@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 2127c05d7e52b0103d91ecfac4fb5977a4815f31
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 841794dcbb41249ea25f615524150df4bd257b45
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66123363"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568381"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>확장된 클라우드 데이터베이스 간 데이터 이동
 
@@ -31,7 +30,7 @@ ms.locfileid: "66123363"
 
 [Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
 
-## <a name="documentation"></a>문서화
+## <a name="documentation"></a>설명서
 
 1. [탄력적 데이터베이스 분할/병합 도구 자습서](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
 2. [분할-병합 보안 구성](sql-database-elastic-scale-split-merge-security-configuration.md)
@@ -79,7 +78,7 @@ ms.locfileid: "66123363"
 
   위에서 설명한 대로 연결 중지를 shardlet의 현재 배치로 제한하면 사용할 수 없는 범위가 한 번에 shardlet의 한 배치로 제한됩니다. 이 접근 방식이 분할 혹은 병합 작업 과정 중 모든 전체 분할된 데이터베이스가 오프라인으로 유지되는 방법보다 선호됩니다. 한 번에 이동할 고유한 shardlet 수로 정의되는 배치의 크기가 구성 매개 변수입니다. 이 매개 변수는 애플리케이션의 가용성 및 성능 요구에 따라 각 분할/병합 작업에 대해 정의할 수 있습니다. 분할된 데이터베이스 맵에서 잠금 중인 범위가 지정된 배치 크기보다 클 수 있습니다. 데이터의 실제 분할 키 값 수가 대략 배치 크기와 같아지도록 서비스가 범위 크기를 선택하기 때문입니다. 특히 드물게 채워진 분할 키에 대해 이 기능을 기억하는 것이 중요합니다.
 
-- **메타데이터 저장소**
+- **메타데이터 스토리지**
 
   분할-병합 서비스는 데이터베이스를 사용하여 해당 상태를 유지 관리하고 요청을 처리하는 동안 로그를 유지합니다. 사용자가 해당 구독에서 이 데이터베이스를 만들고 서비스 배포용 구성 파일에서 이 데이터베이스에 대한 연결 문자열을 제공합니다. 사용자 조직의 관리자는 이 데이터베이스에 연결하여 요청 진행 상황을 검토하고 오류 발생 가능성에 대한 자세한 정보를 확인할 수 있습니다.
 
@@ -101,7 +100,7 @@ ms.locfileid: "66123363"
 
     참조 테이블과 분할된 테이블 비교 정보는 분할된 데이터베이스 맵의 `SchemaInfo`API에서 제공됩니다. 다음 예제에서는 지정된 분할된 데이터베이스 맵 관리자 개체에서 이러한 API 사용을 보여 줍니다.
 
-    ```c#
+    ```csharp
     // Create the schema annotations
     SchemaInfo schemaInfo = new SchemaInfo();
 
@@ -176,7 +175,7 @@ ms.locfileid: "66123363"
 - 요청 처리 과정에서 일부 shardlet 데이터는 원본 및 대상 분할된 데이터베이스 모두에 있을 수 있습니다. shardlet 이동 중 오류가 발생하지 않도록 보호하기 위해 필요합니다. 분할된 데이터베이스 맵과 분할-병합을 통합하면 분할된 데이터베이스 맵에서 **OpenConnectionForKey** 메서드를 사용하여 데이터 종속 라우팅 API를 통해 설정한 연결에서는 불일치하는 중간 상태가 표시되지 않습니다. 그러나 **OpenConnectionForKey** 메서드를 사용하지 않고 원본 또는 대상 분할된 데이터베이스에 연결할 경우 분할/병합/이동 요청이 진행될 때 불일치하는 중간 상태가 표시될 수도 있습니다. 이러한 연결은 타이밍이나 분할된 데이터베이스 기본 연결에 따라 부분적인 결과나 중복된 결과를 표시할 수 있습니다. 현재 이러한 제한 상황에는 탄력적인 확장 다중 분할된 데이터베이스 쿼리를 통해 생성된 연결이 포함됩니다.
 - 분할/병합 서비스용 메타데이터 데이터베이스를 여러 역할 간에 공유하지 않아야 합니다. 예를 들어 스테이징 환경에서 실행되는 분할/병합 서비스의 역할이 프로덕션 역할과는 다른 메타데이터 데이터베이스를 가리켜야 합니다.
 
-## <a name="billing"></a>결제
+## <a name="billing"></a>대금 청구
 
 분할 병합 서비스는 Microsoft Azure 구독에서 클라우드 서비스로 실행 됩니다. 따라서 서비스 인스턴스의 클라우드 서비스에 대한 요금이 적용 됩니다. 분할/병합/이동 작업을 자주 수행하지 않는 한 분할/병합 클라우드 서비스를 삭제하는 것이 좋습니다. 그렇게 하면 실행 중이거나 배포된 클라우드 서비스 인스턴스의 비용이 절감됩니다. 분할/병합 작업을 수행해야 할 때마다 즉시 실행 가능한 구성을 다시 배포하고 시작할 수 있습니다.
 
@@ -186,7 +185,7 @@ ms.locfileid: "66123363"
 
 분할-병합 서비스는 완료된 요청 및 진행 중인 요청의 모니터링을 위해 메타데이터 저장소 데이터베이스에서 **RequestStatus** 테이블을 제공합니다. 이 테이블은 분할/병합 서비스의 이 인스턴스에 제출된 각 분할/병합 요청에 대한 행을 나열하며, 각 요청에 대해 다음 정보를 제공합니다.
 
-- **Timestamp**
+- **타임스탬프**
 
   요청이 시작된 시간 및 날짜입니다.
 
@@ -218,7 +217,7 @@ ms.locfileid: "66123363"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager 모듈은 Azure SQL 데이터베이스에서 계속 지원되지만 향후 모든 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
 모니터링 및 진단 구성을 사용하여NuGet 패키지에서 제공 하는 웹 및 작업자 역할에 대한 진단 유틸리티를 사용하려면 Azure PowerShell을 사용하여 다음 명령을 실행 합니다.
 
@@ -244,7 +243,7 @@ ms.locfileid: "66123363"
 
 위의 그림에서 강조 표시된 WADLogsTable에는 분할/병합 서비스의 애플리케이션 로그에 있는 자세한 이벤트가 포함됩니다. 다운로드한 패키지의 기본 구성이 프로덕션 배포에 맞춰 조정됩니다. 그렇기 때문에, 서비스 인스턴스에서 로그 및 카운터를 가져오는 간격이 큽니다(5 분). 테스트 및 개발을 위해 필요에 따라 웹 또는 작업자 역할의 진단 설정을 조정하여 간격을 낮출 수 있습니다. Visual Studio 서버 탐색기(위 참조)의 역할을 마우스 오른쪽 단추로 클릭하여 이 작업을 수행한 다음 진단 구성 설정용 대화 상자에서 전송 기간을 조정합니다.
 
-![구성][3]
+![Configuration][3]
 
 ## <a name="performance"></a>성능
 

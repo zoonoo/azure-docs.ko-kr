@@ -9,22 +9,22 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: a81b22d8ca538c7dc25a9c6631c2b455d5a6c90e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b74c7b178ee4512067de4b8decba0c3c565ccd4
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257211"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616961"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>대량 실행기 .NET 라이브러리를 사용하여 Azure Cosmos DB에서 대량 작업 수행
 
-이 자습서에서는 Azure Cosmos DB의 Bulk Executor .NET 라이브러리를 사용하여 Azure Cosmos DB 컨테이너에 문서를 가져오고 업데이트하는 데 관한 지침을 제공합니다. Bulk Executor 라이브러리와 방대한 처리량 및 저장소를 활용하는 방법에 대한 자세한 내용은 [Bulk Executor 라이브러리 개요](bulk-executor-overview.md) 문서를 참조하세요. 이 자습서에서는 임의로 생성된 문서를 Azure Cosmos DB 컨테이너에 대량으로 가져오는 샘플 .NET 애플리케이션을 보게 됩니다. 가져온 후에는 특정 문서 필드에서 수행할 작업으로 패치를 지정하여 가져온 데이터를 대량으로 업데이트할 수 있는 방법을 보여 줍니다. 
+이 자습서에서는 Azure Cosmos DB의 bulk executor .NET 라이브러리를 사용 하 여 Azure Cosmos 컨테이너로 문서를 가져오고 업데이트 하는 방법에 대 한 지침을 제공 합니다. Bulk Executor 라이브러리와 방대한 처리량 및 스토리지를 활용하는 방법에 대한 자세한 내용은 [Bulk Executor 라이브러리 개요](bulk-executor-overview.md) 문서를 참조하세요. 이 자습서에서는 무작위로 생성 된 문서를 Azure Cosmos 컨테이너로 대량으로 가져오는 샘플 .NET 응용 프로그램이 표시 됩니다. 가져온 후에는 특정 문서 필드에서 수행할 작업으로 패치를 지정하여 가져온 데이터를 대량으로 업데이트할 수 있는 방법을 보여 줍니다. 
 
 현재 Azure Cosmos DB SQL API 및 Gremlin API 계정에서만 Bulk Executor 라이브러리가 지원됩니다. 이 문서에서는 SQL API 계정을 통해 Bulk Executor .NET 라이브러리를 사용하는 방법을 설명합니다. Bulk Executor .NET 라이브러리 사용에 대해 알아보려면 [Azure Cosmos DB Gremlin API에서 대량 작업 수행](bulk-executor-graph-dotnet.md)을 참조하세요. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
-* 이미 설치 된 Visual Studio 2019에 없는 경우 다운로드 하 고 사용 하 여 수를 [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)합니다. Visual Studio를 설치하는 동안 Azure 개발을 사용하도록 설정합니다.
+* Visual Studio 2019이 아직 설치 되지 않은 경우 [Visual studio 2019 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드 하 여 사용할 수 있습니다. Visual Studio를 설치하는 동안 Azure 개발을 사용하도록 설정합니다.
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다. 
 
@@ -72,7 +72,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
    connectionPolicy)
    ```
 
-4. BulkExecutor 개체에는 스로틀 된 요청 및 대기 시간에 대 한 높은 다시 시도 값으로 초기화 됩니다. 그런 다음, 정체 제어를 해당 수명에 대한 BulkExecutor로 전달하도록 0으로 설정됩니다.  
+4. 대기 시간 및 제한 된 요청에 대 한 높은 다시 시도 값으로 대량 실행자 개체가 초기화 됩니다. 그런 다음, 정체 제어를 해당 수명에 대한 BulkExecutor로 전달하도록 0으로 설정됩니다.  
 
    ```csharp
    // Set retry options high during initialization (default values).
@@ -102,7 +102,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
    
    |**매개 변수**  |**설명** |
    |---------|---------|
-   |enableUpsert    |   문서의 upsert를 사용 하도록 설정 하는 플래그입니다. 주어진 ID의 문서가 이미 존재하는 경우 업데이트됩니다. 기본적으로 false로 설정됩니다.      |
+   |enableUpsert    |   문서 upsert을 사용 하도록 설정 하는 플래그입니다. 주어진 ID의 문서가 이미 존재하는 경우 업데이트됩니다. 기본적으로 false로 설정됩니다.      |
    |disableAutomaticIdGeneration    |    ID의 자동 생성을 사용하지 않도록 설정하는 플래그입니다. 기본적으로 true로 설정됩니다.     |
    |maxConcurrencyPerPartitionKeyRange    | 파티션 키 범위당 최대 동시성 수준으로, null로 설정하면 라이브러리는 기본값 20을 사용하게 됩니다. |
    |maxInMemorySortingBatchSize     |  각 단계에서 API 호출에 전달되는 문서 열거자에서 풀되는 최대 문서 수입니다.  대량 가져오기 이전의 메모리 내 전처리 정렬 단계의 경우 null로 설정하면 라이브러리는 최소 기본값을 사용하게 됩니다(documents.count, 1000000).       |
@@ -115,7 +115,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
    |NumberOfDocumentsImported(long)   |  대량 가져오기 API 호출에 적용된 문서 중에서 성공적으로 가져온 총 문서 수입니다.       |
    |TotalRequestUnitsConsumed(double)   |   대량 가져오기 API 호출에서 사용된 총 요청 단위(RU)입니다.      |
    |TotalTimeTaken(TimeSpan)    |   실행을 완료하기까지 대량 가져오기 API 호출에서 사용하는 총 시간입니다.      |
-   |BadInputDocuments (목록\<개체 >)   |     대량 가져오기 API 호출에 성공적으로 가져오지 못한 잘못된 형식의 문서 목록입니다. 사용자는 반환된 문서를 수정하고 가져오기를 다시 시도해야 합니다. 잘못된 형식의 문서에는 ID 값이 문자열이 아닌 문서가 포함됩니다(null 또는 다른 데이터 형식이 잘못된 것으로 간주됨).    |
+   |Badinputdocuments (목록\<개체 >)   |     대량 가져오기 API 호출에 성공적으로 가져오지 못한 잘못된 형식의 문서 목록입니다. 사용자는 반환된 문서를 수정하고 가져오기를 다시 시도해야 합니다. 잘못된 형식의 문서에는 ID 값이 문자열이 아닌 문서가 포함됩니다(null 또는 다른 데이터 형식이 잘못된 것으로 간주됨).    |
 
 ## <a name="bulk-update-data-in-azure-cosmos-db"></a>Azure Cosmos DB에서 데이터 대량 업데이트
 
@@ -171,11 +171,11 @@ Bulk Executor 라이브러리를 사용하는 경우 성능 향상을 위해 다
 
 * 최상의 성능을 위해 Cosmos DB 계정 작성 지역과 동일한 지역의 Azure 가상 머신에서 애플리케이션을 실행합니다.  
 
-* 특정 Cosmos DB 컨테이너에 해당하는 단일 가상 머신 내에서 전체 애플리케이션에 대한 단일 BulkExecutor 개체를 인스턴스화하는 것이 좋습니다.  
+* 특정 Cosmos 컨테이너에 해당 하는 단일 가상 머신 내에서 전체 응용 프로그램에 대해 하나의 대량 실행자 개체를 인스턴스화하는 것이 좋습니다.  
 
-* 단일 대량 작업 API 실행은 클라이언트 컴퓨터의 CPU 및 네트워크 IO의 대규모 청크를 사용하기 때문입니다. 이는 내부적으로 여러 작업을 생성되며 발생합니다. 대량 작업 API 호출을 각각 실행하는 애플리케이션 내에서 여러 동시 작업이 발생하지 않도록 하십시오. 단일 가상 컴퓨터에서 실행 되는 단일 대량 작업 API 호출을 전체 컨테이너의 처리량을 사용할 수 없는 경우 (하는 경우 컨테이너의 처리량 > 1 백만 RU/s)을 동시에 실행 하도록 개별 가상 머신을 만드는 것이 좋습니다 대량 작업 API 호출 합니다.  
+* 단일 대량 작업 API 실행은 클라이언트 컴퓨터의 CPU 및 네트워크 IO의 대규모 청크를 사용하기 때문입니다. 이는 내부적으로 여러 작업을 생성되며 발생합니다. 대량 작업 API 호출을 각각 실행하는 애플리케이션 내에서 여러 동시 작업이 발생하지 않도록 하십시오. 단일 가상 머신에서 실행 되는 단일 대량 작업 API 호출에서 전체 컨테이너의 처리량을 사용할 수 없는 경우 (컨테이너의 처리량이 100만 r u/초 > 경우), 동시에 실행할 별도의 가상 머신을 만드는 것이 좋습니다. 대량 작업 API 호출.  
 
-* InitializeAsync()가 대상 Cosmos DB 컨테이너 파티션 맵을 가져오기 위해 BulkExecutor 개체를 인스턴스화한 후 호출되는지 확인합니다.  
+* 대상 Cosmos 컨테이너 파티션 맵을 인출 하기 위해 대량 실행자 개체를 인스턴스화한 후 InitializeAsync ()가 호출 되는지 확인 합니다.  
 
 * 애플리케이션의 App.Config에서 성능 향상을 위해 **gcServer**를 사용할 수 있도록 설정되었는지 확인합니다.
   ```xml  
@@ -197,4 +197,4 @@ Bulk Executor 라이브러리를 사용하는 경우 성능 향상을 위해 다
   ```
 
 ## <a name="next-steps"></a>다음 단계
-* Nuget 패키지 세부 정보에 대해 알아보고 bulk executor.NET 라이브러리의 릴리스 정보를 참조 하세요[실행자 SDK 세부 정보를 대량](sql-api-sdk-bulk-executor-dot-net.md)합니다. 
+* 대량 실행자 .NET 라이브러리의 Nuget 패키지 정보 및 릴리스 정보에 대해 자세히 알아보려면[대량 실행자 SDK 세부 정보](sql-api-sdk-bulk-executor-dot-net.md)를 참조 하세요. 

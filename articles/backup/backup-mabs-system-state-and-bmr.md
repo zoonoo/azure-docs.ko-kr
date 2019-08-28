@@ -1,20 +1,19 @@
 ---
 title: Azure Backup Server로 시스템 상태 보호 및 완전 복구로 복원
 description: Azure Backup Server를 사용하여 시스템 상태를 백업하고 BMR(완전 복구) 보호를 제공할 수 있습니다.
-services: backup
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 keywords: ''
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: raynew
-ms.openlocfilehash: 35ab150670cdc27efcedca233928e0c2184aeca6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: dacurwin
+ms.openlocfilehash: 12412122ba116eedc592fadc57949f707e52c355
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62116178"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639675"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Azure Backup Server로 시스템 상태 백업 및 완전 복구로 복원
 
@@ -29,12 +28,12 @@ Azure Backup Server는 시스템 상태를 백업하고 BMR(완전 복구) 보�
 
 다음 표에는 백업 및 복구할 수 있는 항목이 요약되어 있습니다. 시스템 상태 및 BMR로 보호할 수 있는 앱 버전에 대한 자세한 내용은 [Azure Backup Server로 백업할 수 있는 항목](backup-mabs-protection-matrix.md)을 참조하세요.
 
-|Backup|문제|Azure Backup Server 백업에서 복구|시스템 상태 백업에서 복구|BMR|
+|백업|문제점|Azure Backup Server 백업에서 복구|시스템 상태 백업에서 복구|BMR|
 |----------|---------|---------------------------|------------------------------------|-------|
 |**파일 데이터**<br /><br />정기적인 데이터 백업<br /><br />BMR/시스템 상태 백업|손실된 파일 데이터|Y|N|N|
 |**파일 데이터**<br /><br />파일 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실되거나 손상된 운영 체제|N|Y|Y|
 |**파일 데이터**<br /><br />파일 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실된 서버(데이터 볼륨 그대로 유지)|N|N|Y|
-|**파일 데이터**<br /><br />파일 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실된 서버(데이터 볼륨 손실)|Y|아닙니다.|예(BMR, 이후 백업된 파일 데이터의 정기적인 복구 수행)|
+|**파일 데이터**<br /><br />파일 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실된 서버(데이터 볼륨 손실)|Y|아니요|예(BMR, 이후 백업된 파일 데이터의 정기적인 복구 수행)|
 |**SharePoint 데이터**:<br /><br />팜 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실된 사이트, 목록, 목록 항목, 문서|Y|N|N|
 |**SharePoint 데이터**:<br /><br />팜 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실되거나 손상된 운영 체제|N|Y|Y|
 |**SharePoint 데이터**:<br /><br />팜 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|재해 복구|N|N|N|
@@ -51,7 +50,7 @@ Azure Backup Server는 시스템 상태를 백업하고 BMR(완전 복구) 보�
 
 시스템 상태 백업이 실행되면 Backup Server에서는 Windows Server 백업과 통신하여 서버의 시스템 상태 백업을 요청합니다. 기본적으로 Backup Server 및 Windows Server 백업에서는 최대 사용 가능한 공간이 있는 드라이브를 사용합니다. 이 드라이브에 대한 정보는 PSDataSourceConfig.xml 파일에 저장됩니다. Windows Server Backup에서는 백업에 이 드라이브를 사용합니다.
 
-Backup Server에서 상태 백업에 사용하는 드라이브를 사용자 지정할 수 있습니다. 보호된 서버에서 C:\Program Files\Microsoft Data Protection Manager\MABS\Datasources로 이동합니다. 편집을 위해 PSDataSourceConfig.xml 파일을 엽니다. 드라이브 문자의 \<FilesToProtect\> 값을 변경합니다. 파일을 저장하고 닫습니다. 컴퓨터의 시스템 상태를 보호하도록 설정된 보호 그룹이 있는 경우 일관성 확인을 실행합니다. 경고가 생성되면 경고에서 **보호 그룹 수정**을 선택하고 마법사를 완료합니다. 그다음에 추가적인 일관성 확인을 실행합니다.
+Backup Server에서 상태 백업에 사용하는 드라이브를 사용자 지정할 수 있습니다. 보호된 서버에서 C:\Program Files\Microsoft Data Protection Manager\MABS\Datasources로 이동합니다. 편집을 위해 PSDataSourceConfig.xml 파일을 엽니다. 드라이브 문자의 \<FilesToProtect\> 값을 변경합니다. 파일을 저장한 후 닫습니다. 컴퓨터의 시스템 상태를 보호하도록 설정된 보호 그룹이 있는 경우 일관성 확인을 실행합니다. 경고가 생성되면 경고에서 **보호 그룹 수정**을 선택하고 마법사를 완료합니다. 그다음에 추가적인 일관성 확인을 실행합니다.
 
 보호 서버가 클러스터에 있는 경우에는 클러스터 드라이브를 최대 사용 가능한 공간이 있는 드라이브로 선택할 수 있습니다. 해당 드라이브 소유권이 다른 노드로 전환되고 시스템 상태 백업이 실행되면 해당 드라이브를 사용할 수 없고 백업에 실패합니다. 이 시나리오에서는 로컬 드라이브를 가리키도록 PSDataSourceConfig.xml을 수정합니다.
 
@@ -90,17 +89,17 @@ Backup Server에서는 Windows Server 백업을 호출하고 해당 BMR 백업�
 
     시스템 상태 보호에서 BMR 보호로 변경할 경우 BMR 보호를 적용하려면 *복제본 볼륨*에 더 많은 공간이 필요합니다. 볼륨이 자동으로 확장됩니다. 기본 공간 할당을 변경하려면 Modify-DiskAllocation PowerShell cmdlet을 사용합니다.
 
--   BMR 보호에서 시스템 상태 보호로 변경할 경우 복구 지점 볼륨에 더 많은 공간이 필요합니다. Backup Server에서는 자동으로 볼륨을 늘리려고 시도합니다. 저장소 풀에 공간이 부족하면 오류가 발생합니다.
+-   BMR 보호에서 시스템 상태 보호로 변경할 경우 복구 지점 볼륨에 더 많은 공간이 필요합니다. Backup Server에서는 자동으로 볼륨을 늘리려고 시도합니다. 스토리지 풀에 공간이 부족하면 오류가 발생합니다.
 
     BMR 보호에서 시스템 상태 보호로 변경할 경우 보호된 컴퓨터에 공간이 필요합니다. 이는 시스템 상태 보호는 먼저 복제본을 로컬 컴퓨터에 쓰고 나서 Backup Server 컴퓨터로 전송하기 때문입니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
-1.  **Azure Backup Server 배포**. Backup Server가 제대로 배포되어 있는지 확인합니다. 자세한 내용은 다음을 참조하세요.
+1.  **Azure Backup Server 배포**. Backup Server가 제대로 배포되어 있는지 확인합니다. 참조 항목:
     * [System requirements for Azure Backup Server](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)(Azure Backup Server 시스템 요구 사항)
     * [Backup Server 보호 매트릭스](backup-mabs-protection-matrix.md)
 
-2.  **저장소 설정**. 백업 데이터를 디스크 및 테이프에 저장하고 Azure를 통해 클라우드에 저장할 수 있습니다. 자세한 내용은 [Prepare data storage](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage)(데이터 스토리지 준비)를 참조하세요.
+2.  **스토리지 설정**. 백업 데이터를 디스크 및 테이프에 저장하고 Azure를 통해 클라우드에 저장할 수 있습니다. 자세한 내용은 [Prepare data storage](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage)(데이터 스토리지 준비)를 참조하세요.
 
 3.  **보호 에이전트 설치**. 백업할 컴퓨터에 보호 에이전트를 설치합니다. 자세한 내용은 [Deploy the DPM protection agent](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent)(DPM 보호 에이전트 배포)를 참조하세요.
 
@@ -118,11 +117,11 @@ Backup Server에서는 Windows Server 백업을 호출하고 해당 BMR 백업�
 
 4.  **데이터 보호 방법 선택** 페이지에서 단기 및 장기 백업을 처리할 방법을 선택합니다. 단기 백업은 항상 디스크에 먼저 기록되고 Azure Backup을 사용하여 디스크에서 Azure 클라우드로 백업하는 옵션이 있습니다(단기 또는 장기). 클라우드에 대한 장기 백업 대신 Backup Server에 연결되지 않은 독립 실행형 테이프 디바이스 또는 테이프 라이브러리에 대한 장기 백업을 설정할 수도 있습니다.
 
-5.  **단기 목표 선택** 페이지에서 디스크의 단기 저장소에 백업할 방법을 선택합니다.
+5.  **단기 목표 선택** 페이지에서 디스크의 단기 스토리지에 백업할 방법을 선택합니다.
     1. **보존 범위**의 경우 데이터를 디스크에서 유지할 기간을 선택합니다. 
     2. **동기화 빈도**의 경우 디스크에 대한 증분 백업을 실행할 빈도를 선택합니다. 백업 간격을 설정하지 않으려면 **복구 지점 직전** 옵션을 선택하면 됩니다. Backup Server에서는 각 복구 지점이 예약되기 직전에 빠른 전체 백업을 실행합니다.
 
-6.  장기간 저장을 위해 데이터를 테이프에 저장하려면 **장치 목표 지정** 페이지에서 테이프 데이터를 유지할 기간을 선택합니다(1~99년). 
+6.  장기간 스토리지을 위해 데이터를 테이프에 스토리지하려면 **디바이스 목표 지정** 페이지에서 테이프 데이터를 유지할 기간을 선택합니다(1~99년). 
     1. **백업 빈도**의 경우 테이프에 대한 백업을 실행할 빈도를 선택합니다. 빈도는 선택한 보존 범위에 따라 달라집니다.
         * 보존 범위가 1~99년이면 매일, 매주, 격주, 매월, 분기마다, 반년마다 또는 매년 백업을 실행하도록 선택할 수 있습니다.
         * 보존 범위가 1~11개월이면 매일, 매주, 격주 또는 매월 백업을 실행하도록 선택할 수 있습니다.
@@ -130,11 +129,11 @@ Backup Server에서는 Windows Server 백업을 호출하고 해당 BMR 백업�
 
     2. **테이프 및 라이브러리 세부 정보 선택** 페이지에서 사용할 테이프 및 라이브러리와 데이터를 압축 또는 암호화할지 여부를 선택합니다.
 
-7.  **디스크 할당 검토** 페이지에서 보호 그룹에 할당된 저장소 풀 디스크 공간을 검토합니다.
+7.  **디스크 할당 검토** 페이지에서 보호 그룹에 할당된 스토리지 풀 디스크 공간을 검토합니다.
 
     1. **총 데이터 크기**는 백업할 데이터의 크기입니다.
     2. **Disk space to be provisioned on Azure Backup Server**(Azure Backup Server에 프로비전할 디스크 공간)는 Backup Server에서 보호 그룹용으로 권장하는 공간입니다. Backup Server에서는 설정에 따라 가장 적합한 백업 볼륨을 선택합니다. 하지만 **디스크 할당 세부 정보**에서 백업 볼륨 선택을 편집할 수 있습니다. 
-    3. 워크로드의 경우 드롭다운 메뉴에서 원하는 저장소를 선택합니다. 편집을 통해 **사용 가능한 디스크 저장소** 창에서 **총 저장소** 및 **사용 가능한 저장소**의 값을 변경합니다. 미달 프로비전된 공간은 원활한 백업을 위해 Backup Server가 볼륨에 추가하도록 제안하는 저장소 용량입니다.
+    3. 워크로드의 경우 드롭다운 메뉴에서 원하는 스토리지를 선택합니다. 편집을 통해 **사용 가능한 디스크 스토리지** 창에서 **총 스토리지** 및 **사용 가능한 스토리지**의 값을 변경합니다. 미달 프로비전된 공간은 원활한 백업을 위해 Backup Server가 볼륨에 추가하도록 제안하는 스토리지 용량입니다.
 
 8.  **복제본 만들기 방법 선택** 페이지에서 초기 전체 데이터 복제를 처리하는 방법을 선택합니다. 네트워크를 통해 복제할 경우 사용량이 적은 시간을 선택하는 것이 좋습니다. 대용량 데이터이거나 네트워크 상태가 최적화되지 않은 경우 이동식 미디어를 사용하여 데이터를 오프라인으로 복제하는 것을 고려하세요.
 
@@ -164,7 +163,7 @@ Backup Server 컴퓨터에서 복구를 실행합니다.
 
 4.  **대상 지정** 페이지에서 데이터를 복사할 위치를 선택합니다. 선택된 대상에는 충분한 공간이 있어야 합니다. 새 폴더를 만드는 것이 좋습니다.
 
-5.  **복구 옵션 지정** 페이지에서 적용할 보안 설정을 선택합니다. 그런 다음, 더 신속한 복구를 위해 SAN(저장 영역 네트워크) 기반 하드웨어 스냅샷을 사용할지 선택합니다. 이 옵션은 이 기능이 제공되는 SAN이 있고 클론을 만들어 쓰기 가능하도록 분할하는 기능이 있는 경우에만 사용할 수 있습니다. 또한 보호된 컴퓨터 및 Backup Server 컴퓨터는 같은 네트워크에 연결되어야 합니다.
+5.  **복구 옵션 지정** 페이지에서 적용할 보안 설정을 선택합니다. 그런 다음, 더 신속한 복구를 위해 SAN(스토리지 영역 네트워크) 기반 하드웨어 스냅샷을 사용할지 선택합니다. 이 옵션은 이 기능이 제공되는 SAN이 있고 클론을 만들어 쓰기 가능하도록 분할하는 기능이 있는 경우에만 사용할 수 있습니다. 또한 보호된 컴퓨터 및 Backup Server 컴퓨터는 같은 네트워크에 연결되어야 합니다.
 
 6.  알림 옵션을 설정합니다. **확인** 페이지에서 **복구**를 선택합니다.
 

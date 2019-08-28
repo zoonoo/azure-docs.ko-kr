@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/21/2018
-ms.openlocfilehash: 9806855aff54e72da6ac8336338c63f82ffda736
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: ad022f6ac9cebbe92cdca3a4b368524d828a9cbb
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351510"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931569"
 ---
 # <a name="azure-database-for-mysql-use-nodejs-to-connect-and-query-data"></a>Azure Database for MySQL: Node.js를 사용하여 데이터 연결 및 쿼리
 이 빠른 시작에서는 Windows, Ubuntu Linux 및 Mac 플랫폼에서 [Node.js](https://nodejs.org/)를 사용하여 MySQL용 Azure Database에 연결하는 방법을 보여 줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 항목에서는 Node.js를 사용하여 개발하는 데 익숙하고 MySQL용 Azure Database를 처음 사용한다고 가정합니다.
@@ -33,7 +33,7 @@ ms.locfileid: "58351510"
 ### <a name="windows"></a>**Windows**
 1. [Node.js 다운로드 페이지](https://nodejs.org/en/download/)를 방문하여 원하는 Windows 설치 관리자 옵션을 선택합니다.
 2. 로컬 프로젝트 폴더를 만듭니다(예: `nodejsmysql`). 
-3. 명령 프롬프트를 시작하고 디렉터리를 프로젝트 폴더로 변경합니다(예: `cd c:\nodejsmysql\`).
+3. 명령 프롬프트를 연 다음, 디렉터리를 프로젝트 폴더로 변경합니다(예: `cd c:\nodejsmysql\`).
 4. NPM 도구를 실행하여 mysql 라이브러리를 프로젝트 폴더에 설치합니다.
 
    ```cmd
@@ -83,14 +83,14 @@ ms.locfileid: "58351510"
 MySQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 방금 만든 서버를 검색합니다(예: **mydemoserver**).
-3. 서버 이름을 클릭합니다.
+2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 선택한 다음, 생성한 서버를 검색합니다(예: **mydemoserver**).
+3. 서버 이름을 선택합니다.
 4. 서버의 **개요** 패널에 있는 **서버 이름**과 **서버 관리자 로그인 이름**을 기록해 둡니다. 암호를 잊어버리면 이 패널에서 암호를 재설정할 수 있습니다.
  ![MySQL용 Azure Database 서버 이름](./media/connect-nodejs/1_server-overview-name-login.png)
 
 ## <a name="running-the-javascript-code-in-nodejs"></a>Node.js에서 JavaScript 코드 실행
 1. JavaScript 코드를 텍스트 파일에 붙여넣고 .js 파일 확장명이 포함된 프로젝트 폴더(C:\nodejsmysql\createtable.js 또는 /home/username/nodejsmysql/createtable.js)에 저장합니다.
-2. 명령 프롬프트 또는 Bash 셸을 시작한 후 디렉터리를 프로젝트 폴더로 변경합니다(예: `cd nodejsmysql`).
+2. 명령 프롬프트 또는 Bash 셸을 연 다음, 디렉터리를 프로젝트 폴더로 변경합니다(예: `cd nodejsmysql`).
 3. 애플리케이션을 실행하려면 node 명령 다음에 파일 이름을 입력합니다(예: `node createtable.js`).
 4. Windows에서 노드 애플리케이션이 환경 변수 경로에 없는 경우 전체 경로를 사용하여 노드 애플리케이션을 시작해야 할 수도 있습니다(예: `"C:\Program Files\nodejs\node.exe" createtable.js`).
 

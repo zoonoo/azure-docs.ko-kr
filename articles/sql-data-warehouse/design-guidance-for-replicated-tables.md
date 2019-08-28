@@ -2,7 +2,7 @@
 title: 복제 테이블에 대한 디자인 지침 - Azure SQL Data Warehouse | Microsoft Docs
 description: Azure SQL Data Warehouse 스키마로 복제 테이블을 디자인하기 위한 권장 사항입니다. 
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,19 +10,19 @@ ms.subservice: development
 ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 050a0183fd73e64a08550fede440a9bce138a98c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c622edc6c3a37b2bc71323cf0e2c155f7aec6e33
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65850565"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479325"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 복제 테이블 사용에 대한 디자인 지침
 이 문서는 SQL Data Warehouse 스키마로 복제 테이블을 디자인하기 위한 권장 사항을 제공합니다. 이러한 권장 사항을 사용하여 데이터 이동 및 쿼리 복잡성을 줄여서 쿼리 성능을 향상시킵니다.
 
 > [!VIDEO https://www.youtube.com/embed/1VS_F37GI9U]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 문서에서는 사용자가 SQL Data Warehouse의 데이터 배포 및 데이터 이동 개념에 익숙하다고 가정합니다.  자세한 내용은 [아키텍처](massively-parallel-processing-mpp-architecture.md) 문서를 참조하세요. 
 
 테이블 디자인의 일환으로 데이터 및 데이터가 쿼리되는 방식에 대해 최대한 많이 이해하는 것이 좋습니다.  예를 들어 다음 질문을 고려합니다.
@@ -32,7 +32,7 @@ ms.locfileid: "65850565"
 - 데이터 웨어하우스에 팩트 및 차원 테이블이 있나요?   
 
 ## <a name="what-is-a-replicated-table"></a>복제 테이블이란?
-복제 테이블에는 각 Compute 노드에서 액세스할 수 있는 테이블의 전체 복사본이 있습니다. 테이블을 복제하면 조인 또는 집계 전에 Compute 노드 간에 데이터를 전송하지 않아도 됩니다. 테이블에 여러 복사본이 있으므로 복제 테이블은 테이블 크기가 2GB 미만으로 압축되어 있을 때 가장 효과적입니다.  2GB 하드 제한은 없습니다.  데이터가 정적이며 변경되지 않는 경우 더 큰 테이블을 복제할 수 있습니다.
+복제 테이블에는 각 Compute 노드에서 액세스할 수 있는 테이블의 전체 복사본이 있습니다. 테이블을 복제하면 조인 또는 집계 전에 Compute 노드 간에 데이터를 전송하지 않아도 됩니다. 테이블에 여러 복사본이 있으므로 복제 테이블은 테이블 크기가 2GB 미만으로 압축되어 있을 때 가장 효과적입니다.  2gb는 하드 제한이 아닙니다.  데이터가 정적이며 변경되지 않는 경우 더 큰 테이블을 복제할 수 있습니다.
 
 다음은 각 Compute 노드에서 액세스할 수 있는 복제 테이블을 보여주는 다이어그램입니다. SQL Data Warehouse에서 복제 테이블은 각 Compute 노드의 배포 데이터베이스로 완벽하게 복사됩니다. 
 

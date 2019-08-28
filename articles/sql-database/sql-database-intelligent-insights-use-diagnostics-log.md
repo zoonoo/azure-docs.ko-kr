@@ -10,18 +10,17 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 264d4cfc6b09813f34501a0e51d3100f4d2bce78
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8180fc4db10019a3183af40cf21d9d92b0102201
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60703169"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567896"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Intelligent Insights Azure SQL Database 성능 진단 로그 사용
 
-이 페이지에서는 [Intelligent Insights](sql-database-intelligent-insights.md)에서 생성된 Azure SQL Database 성능 진단 로그, 해당 형식 및 사용자 지정 개발 요구 사항을 위해 포함된 데이터를 사용하는 방법을 설명합니다. 이 진단 로그를 보낼 수 있습니다 [Azure Monitor 로그](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)합니다 [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage), 또는 타사 솔루션에 사용자 지정 DevOps 경고 및 보고 기능입니다.
+이 페이지에서는 [Intelligent Insights](sql-database-intelligent-insights.md)에서 생성된 Azure SQL Database 성능 진단 로그, 해당 형식 및 사용자 지정 개발 요구 사항을 위해 포함된 데이터를 사용하는 방법을 설명합니다. 사용자 지정 DevOps 경고 및 보고 기능을 위해이 진단 로그를 [Azure Monitor 로그](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage)또는 타사 솔루션에 보낼 수 있습니다.
 
 ## <a name="log-header"></a>로그 헤더
 
@@ -88,7 +87,7 @@ Intelligent Insights 성능 로그의 다음 섹션에는 기본 제공 인공 �
 | 새 쿼리 | <li>새 쿼리의 쿼리 해시</li> |
 | 비정상적인 대기 통계 | <li>비정상적인 대기 형식</li><li>쿼리 해시</li><li>쿼리 대기 시간</li> |
 | TempDB 경합 | <li>경합을 초래하는 쿼리의 쿼리 해시</li><li>전제 데이터베이스 페이지 래치 경합 대기 시간에 대한 쿼리 특성[%]</li> |
-| 탄력적 풀 DTU 부족 | <li>탄력적 풀</li><li>최상위 DTU 사용 데이터베이스</li><li>최상위 소비자가 사용한 풀 DTU 비율</li> |
+| 탄력적 풀 DTU 부족 | <li>Elastic Pool</li><li>최상위 DTU 사용 데이터베이스</li><li>최상위 소비자가 사용한 풀 DTU 비율</li> |
 | 계획 회귀 | <li>쿼리 해시</li><li>적절한 계획 ID</li><li>부적절한 계획 ID</li> |
 | 데이터베이스 범위 구성 값 변경 | <li>기본값 대비 데이터베이스 범위 구성 변경</li> |
 | 느린 클라이언트 | <li>쿼리 해시</li><li>대기 시간</li> |
@@ -98,7 +97,7 @@ Intelligent Insights 성능 로그의 다음 섹션에는 기본 제공 인공 �
 
 영향(impact) 속성은 검색된 동작이 데이터베이스의 문제에 얼마나 많은 영향을 미쳤는지를 설명합니다. 영향 범위는 1에서 3까지이며 3이 가장 높은 영향, 2가 보통, 1이 가장 낮은 영향을 의미합니다. 특정 요구 사항에 따라 영향 값이 사용자 지정 경고 자동화의 입력으로 사용될 수 있습니다. 영향받는 쿼리(QueryHashes) 속성은 특정 검색이 영향을 미친 쿼리 해시 목록을 제공합니다.
 
-### <a name="impacted-queries"></a>영향받는 쿼리
+### <a name="impacted-queries"></a>영향을 받는 쿼리
 
 Intelligent Insights 로그의 다음 섹션에서는 검색된 성능 문제가 영향을 미친 특정 쿼리에 대한 정보를 제공합니다. 이 정보는 impact_s 속성에 포함된 개체 배열로 공개됩니다. 영향 속성은 엔터티 및 메트릭으로 구성됩니다. 엔터티는 특정 쿼리(형식: Query)를 나타냅니다. 고유한 쿼리 해시는 값(Value) 속성을 통해 공개됩니다. 또한 공개된 각 쿼리 뒤에 검색된 성능 문제를 나타내는 메트릭 및 값이 옵니다.
 
@@ -135,7 +134,7 @@ Intelligent Insights 성능 로그의 마지막 부분은 식별된 성능 저�
 "rootCauseAnalysis_s" : "High data IO caused performance to degrade. It seems that this database is missing some indexes that could help."
 ```
 
-사용 하 여 Intelligent Insights 성능 로그를 사용할 수 있습니다 [Azure Monitor 로그]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) 또는 타사 솔루션에 사용자 지정 DevOps 경고 및 보고 기능을 제공 합니다.
+사용자 지정 DevOps 경고 및 보고 기능을 위해 [Azure Monitor 로그]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) 또는 타사 솔루션과 Intelligent Insights 성능 로그를 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [Intelligent Insights](sql-database-intelligent-insights.md) 개념에 대해 알아봅니다.

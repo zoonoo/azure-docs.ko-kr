@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: magattus
-ms.openlocfilehash: b9f7a5332c8529753f2e22efd6af3d04cb3f44b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5881bea578f2791f8dc0d6e760fd15c6f47e435
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479756"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593257"
 ---
 # <a name="verizon-specific-http-headers-for-azure-cdn-rules-engine"></a>Azure CDN 규칙 엔진의 Verizon 특정 HTTP 헤더
 
@@ -33,7 +33,7 @@ ms.locfileid: "66479756"
 
 다음 표에서는 Verizon CDN POP에서 요청에 추가할 수 있는 헤더를 설명합니다.
 
-요청 헤더 | 설명 | 예
+요청 헤더 | 설명 | 예제
 ---------------|-------------|--------
 [Via](#via-request-header) | 요청을 원본 서버에 프록시한 POP 서버를 식별합니다. | HTTP/1.1 ECS (dca/1A2B)
 X-Forwarded-For | 요청자의 IP 주소를 나타냅니다.| 10.10.10.10

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
-ms.openlocfilehash: b94d59b55a62797e142768dc84ec499d714bd067
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: a3cd1fe69a0d99f9faf3a451f76a3a420d713711
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67479019"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795211"
 ---
 # <a name="adding-custom-resources-to-azure-rest-api"></a>Azure REST API에 사용자 지정 리소스 추가
 
@@ -104,7 +104,7 @@ az resource create --is-full-object \
                     }'
 ```
 
-매개 변수 | 필수 | 설명
+매개 변수 | 필수 | Description
 ---|---|---
 is-full-object | *예* | 속성 개체 위치, 태그, sku 및/또는 계획 등의 다른 옵션을 포함 함을 나타냅니다.
 id | *예* | 사용자 지정 리소스의 리소스 ID입니다. 으로 존재 해야이 **ResourceProvider**
@@ -116,7 +116,7 @@ Azure 사용자 지정 리소스를 삭제 합니다.
 az resource delete --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{resourceTypeName}/{customResourceName}
 ```
 
-매개 변수 | 필수 | 설명
+매개 변수 | 필수 | Description
 ---|---|---
 id | *예* | 사용자 지정 리소스의 리소스 ID입니다. 이것으로 존재 해야 합니다 **ResourceProvider**합니다.
 
@@ -185,7 +185,8 @@ customResourceName | *예* | 사용자 지정 리소스 이름입니다.
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure 사용자 지정 리소스 공급자에 대 한 개요](./custom-providers-overview.md)
-- [자습서: Azure 사용자 지정 리소스 공급자를 만들고 사용자 지정 리소스를 배포 합니다.](./create-custom-provider.md)
+- [빠른 시작: Azure 사용자 지정 리소스 공급자를 만들고 사용자 지정 리소스를 배포 합니다.](./create-custom-provider.md)
+- [자습서: Azure에서 사용자 지정 작업 및 리소스 만들기](./tutorial-custom-providers-101.md)
 - [방법: Azure REST API에 사용자 지정 작업 추가](./custom-providers-action-endpoint-how-to.md)
 - [참조: 사용자 지정 리소스 프록시 참조](./custom-providers-proxy-resource-endpoint-reference.md)
 - [참조: 사용자 지정 리소스 캐시 참조](./custom-providers-proxy-cache-resource-endpoint-reference.md)

@@ -10,41 +10,42 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
-ms.openlocfilehash: 92844b5faf691b67617c9f3424a1322aa05429bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4b9431469a7925d26003ad9c34f6b401e5767f6d
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64875748"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704935"
 ---
 # <a name="paper-entity"></a>Paper 엔터티
 
 <sub> *아래 특성은 Paper 엔터티에 한정됩니다. (Ty = '0') </sub>
 
 
-Name    |설명                                        |Type       | 작업
+이름    |Description                                        |형식       | 작업
 ------- | ------------------------------------------------- | --------- | ----------------------------
-Id      |엔터티 ID                                          |Int64      |같음
-Ti      |논문 제목                                        |String     |Equals,<br/>StartsWith
-L       |문서 언어 코드 구분 하 여 "\@\@\@"          |String     |같음
+ID      |엔터티 ID                                          |Int64      |같음
+Ti      |논문 제목                                        |문자열     |Equals,<br/>StartsWith
+L       |"\@"로구분\@된 용지 언어 코드\@          |String     |같음
 Y       |논문 연도                                         |Int32      |Equals,<br/>IsBetween
-D       |논문 날짜                                         |Date       |Equals,<br/>IsBetween
+D       |논문 날짜                                         |날짜       |Equals,<br/>IsBetween
 CC      |인용 횟수                                     |Int32      |없음  
 ECC     |예상 인용 횟수                           |Int32      |없음
-AA.AuN  |작성자 이름                                        |String     |Equals,<br/>StartsWith
+AA.AuN  |작성자 이름                                        |문자열     |Equals,<br/>StartsWith
 AA.AuId |작성자 ID                                          |Int64      |같음
 AA.AfN  |작성자 소속 조직 이름                            |String     |Equals,<br/>StartsWith
 AA.AfId |작성자 소속 조직 ID                              |Int64      |같음
 AA.S    |논문의 작성자 순서                         |Int32      |같음
 F.FN    |연구 분야 이름                                |String     |Equals,<br/>StartsWith
 F.FId   |연구 분야 ID                                  |Int64      |같음
-J.JN    |저널 이름                                       |문자열     |Equals,<br/>StartsWith
+J.JN    |저널 이름                                       |String     |Equals,<br/>StartsWith
 J.JId   |저널 ID                                         |Int64      |같음
 C.CN    |컨퍼런스 시리즈 이름                             |문자열     |Equals,<br/>StartsWith
 C.CId   |컨퍼런스 시리즈 ID                               |Int64      |같음
 RId     |참조된 논문 ID                              |Int64[]    |같음
 W       |논문 제목 및 요약의 단어                |문자열[]   |같음
-E       |확장된 메타데이터(아래 표 참조)                |String     |없음  
+E       |확장된 메타데이터(아래 표 참조)                |문자열     |없음  
         
 
 

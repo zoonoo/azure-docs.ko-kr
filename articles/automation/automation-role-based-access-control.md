@@ -138,7 +138,7 @@ Log Analytics Contributor 역할은 모든 모니터링 데이터를 읽고 모�
 |*/read|암호를 제외한 모든 유형의 리소스를 읽습니다.|
 |Microsoft.Automation/automationAccounts/*|Automation 계정을 관리합니다.|
 |Microsoft.ClassicCompute/virtualMachines/extensions/*|가상 머신 확장을 만들고 관리합니다.|
-|Microsoft.ClassicStorage/storageAccounts/listKeys/action|클래식 저장소 계정 키를 나열합니다.|
+|Microsoft.ClassicStorage/storageAccounts/listKeys/action|클래식 스토리지 계정 키를 나열합니다.|
 |Microsoft.Compute/virtualMachines/extensions/*|클래식 가상 머신 확장을 만들고 관리합니다.|
 |Microsoft.Insights/alertRules/*|경고 규칙 읽기/쓰기/삭제|
 |Microsoft.Insights/diagnosticSettings/*|진단 설정 읽기/쓰기/삭제|
@@ -146,7 +146,7 @@ Log Analytics Contributor 역할은 모든 모니터링 데이터를 읽고 모�
 |Microsoft.OperationsManagement/*|작업 영역에서 솔루션을 관리합니다.|
 |Microsoft.Resources/deployments/*|리소스 그룹 배포를 만들고 관리합니다.|
 |Microsoft.Resources/subscriptions/resourcegroups/deployments/*|리소스 그룹 배포를 만들고 관리합니다.|
-|Microsoft.Storage/storageAccounts/listKeys/action|저장소 계정 키를 나열합니다.|
+|Microsoft.Storage/storageAccounts/listKeys/action|스토리지 계정 키를 나열합니다.|
 |Microsoft.Support/*|지원 티켓을 만들고 관리합니다.|
 
 ### <a name="log-analytics-reader"></a>Log Analytics 독자

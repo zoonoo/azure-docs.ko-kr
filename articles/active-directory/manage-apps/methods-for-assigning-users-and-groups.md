@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7402778ec8170e60a623255d0d331f12d8389227
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 13c9003baaca11dce5a2192a8183674faddfa6dc
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824298"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967292"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션에 사용자 및 그룹 할당
 이 문서에서는 Azure AD(Azure Active Directory)에서 애플리케이션에 사용자나 그룹을 할당하는 방법을 설명합니다. 사용자를 먼저 애플리케이션에 할당해야 관리자가 해당 사용자에게 다음 작업을 수행할 권한을 부여할 수 있습니다.
@@ -32,15 +32,15 @@ ms.locfileid: "65824298"
 
 -   [Office 365 애플리케이션 시작 관리자](https://support.office.com/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a)에 애플리케이션이 나타나는지 확인합니다.
 
-그룹 기반 할당의 가용성은 사용권 계약에 의해 결정 됩니다. 그룹 기반 할당은 보안 그룹에 지원 하 고 중첩된 그룹 구성원을 현재 지원 되지 않습니다.
+그룹 기반 할당의 사용 가능 여부는 사용권 계약에 따라 결정 됩니다. 그룹 기반 할당은 보안 그룹에 대해서만 지원 됩니다. 중첩 된 그룹 멤버 자격 및 O365 그룹은 현재 지원 되지 않습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 애플리케이션에 사용자 및 그룹을 할당하기 전에 사용자 할당을 요구해야 합니다. 사용자를 할당해야 하도록 설정하려면 다음을 수행합니다.
 
 1. 관리자 계정으로 Azure 포털에 로그인합니다.
 2. 주 메뉴에서 **모든 서비스** 항목을 클릭합니다.
 3. 애플리케이션에 대해 사용하는 디렉터리를 선택합니다.
-4. **엔터프라이즈 응용 프로그램** 탭을 클릭합니다.
+4. **엔터프라이즈 애플리케이션** 탭을 클릭합니다.
 5. 이 디렉터리와 연결된 애플리케이션 목록에서 애플리케이션을 선택합니다.
 6. **속성** 탭을 클릭합니다.
 7. **사용자 할당 필요** 토글을 [예]로 변경합니다.
@@ -82,7 +82,7 @@ ms.locfileid: "65824298"
 
 15. **할당** 단추를 클릭하여 선택한 사용자에게 애플리케이션을 할당합니다.
 
-잠시 후에 선택한 사용자는 솔루션 설명 섹션에 설명된 메서드를 사용하여 이러한 애플리케이션을 시작할 수 있습니다.
+잠시 후 선택한 사용자가 솔루션 설명 섹션에 설명 된 방법을 사용 하 여 이러한 응용 프로그램을 시작할 수 있습니다.
 
 ## <a name="assign-groups"></a>그룹 할당
 
@@ -120,7 +120,7 @@ ms.locfileid: "65824298"
 
 15. **할당** 단추를 클릭하여 선택한 그룹에 애플리케이션을 할당합니다.
 
-잠시 후 선택한 그룹 내 사용자는 솔루션 설명 섹션에 설명된 메서드를 사용하여 이러한 애플리케이션을 시작할 수 있습니다. 동적 그룹인 경우 이러한 할당된 그룹 내 사용자에 대해 표시되는 이러한 할당에 약간의 추가 처리 지연이 있을 수 있습니다.
+잠시 후 선택한 그룹 내의 사용자가 솔루션 설명 섹션에 설명 된 방법을 사용 하 여 이러한 응용 프로그램을 시작할 수 있습니다. 동적 그룹인 경우 이러한 할당된 그룹 내 사용자에 대해 표시되는 이러한 할당에 약간의 추가 처리 지연이 있을 수 있습니다.
 
 ## <a name="enable-self-service-application-access"></a>셀프 서비스 애플리케이션 액세스 사용
 

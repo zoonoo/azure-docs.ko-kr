@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
-ms.openlocfilehash: 22c3987121e2ab3479274c89c359c679f5f1135e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f0f89275006498c0ff4883f259d7e76f723b922b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61087133"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851329"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Azure API Management로 고급 요청 제한
 들어오는 요청을 제한하는 것은 Azure API Management의 중요한 역할입니다. Azure API Management는 요청 속도 또는 전송된 총 요청/데이터를 제어하여 API 공급자가 자신의 API가 남용되지 않도록 보호하고 다양한 API 제품 계층에 대해 가치를 창출할 수 있도록 합니다.
@@ -28,6 +28,9 @@ ms.locfileid: "61087133"
 현재까지, 속도 제한 기능은 Azure Portal에 정의된 특정 제품 구독으로 범위를 제한했습니다. 이렇게 하면 API 공급자가 해당 API를 사용하기 위해 등록한 개발자에게 제한을 적용하는 데는 유용하지만 예를 들어 API의 개별 최종 사용자를 제한하는 데는 도움이 되지 않습니다. 개발자 애플리케이션의 단일 사용자가 전체 할당량을 사용한 후 개발자의 다른 고객이 해당 애플리케이션을 사용하지 못하도록 할 수 있습니다. 또한, 대용량의 요청을 생성할 수 있는 여러 고객이 간헐적 사용자에 대한 액세스를 제한할 수 있습니다.
 
 ## <a name="custom-key-based-throttling"></a>사용자 지정 키 기반 제한
+
+> 참고: Azure API Management `quota-by-key` 의 소비 계층에서는 및정책을사용할수없습니다.`rate-limit-by-key` 
+
 새로운 [rate-limit-by-key](/azure/api-management/api-management-access-restriction-policies#LimitCallRateByKey) 및 [quota-by-key](/azure/api-management/api-management-access-restriction-policies#SetUsageQuotaByKey) 정책은 트래픽 제어에 유연한 솔루션을 제공합니다. 이 새로운 정책을 통해 트래픽 사용량을 추적하는 데 사용할 키를 식별하는 식을 정의할 수 있습니다. 이러한 작동 방식은 예제를 통해 가장 쉽게 이해할 수 있습니다. 
 
 ## <a name="ip-address-throttling"></a>IP 주소 제한

@@ -24,9 +24,9 @@ ms.locfileid: "66808592"
 가져오기 작업을 만들어 Azure Blob Storage로 데이터를 전송하기 전에 이 서비스에 대한 다음 필수 조건 목록을 신중하게 검토하고 완료해야 합니다. 다음이 필요합니다.
 
 - Import/Export 서비스에 사용할 수 있는 활성 Azure 구독이 있어야 합니다.
-- 스토리지 컨테이너가 있는 Azure Storage 계정이 하나 이상 있어야 합니다. [Import/Export 서비스에 지원되는 저장소 계정 및 저장소 형식](storage-import-export-requirements.md) 목록을 참조하세요. 
+- 스토리지 컨테이너가 있는 Azure Storage 계정이 하나 이상 있어야 합니다. [Import/Export 서비스에 지원되는 스토리지 계정 및 스토리지 형식](storage-import-export-requirements.md) 목록을 참조하세요. 
     - 새 Storage 계정 만들기에 대한 자세한 내용은 [Storage 계정을 만드는 방법](storage-quickstart-create-account.md)(영문)을 참조하세요. 
-    - 저장소 컨테이너에 대한 자세한 내용은 [저장소 컨테이너 만들기](../blobs/storage-quickstart-blobs-portal.md#create-a-container)로 이동하세요.
+    - 스토리지 컨테이너에 대한 자세한 내용은 [스토리지 컨테이너 만들기](../blobs/storage-quickstart-blobs-portal.md#create-a-container)로 이동하세요.
 - [지원되는 유형](storage-import-export-requirements.md#supported-disks)에 속한 적절한 개수의 디스크가 있어야 합니다. 
 - [지원되는 OS 버전](storage-import-export-requirements.md#supported-operating-systems)을 실행하는 Windows 시스템이 있어야 합니다. 
 - Windows 시스템에서 BitLocker를 사용하도록 설정합니다. [BitLocker를 사용하도록 설정하는 방법](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/)을 참조하세요.
@@ -41,7 +41,7 @@ ms.locfileid: "66808592"
 
 ## <a name="step-1-prepare-the-drives"></a>1단계: 드라이브 준비
 
-이 단계에서는 업무 일지 파일을 생성합니다. 업무 일지 파일에는 드라이브 일련 번호, 암호화 키 및 저장소 계정 세부 정보와 같은 기본 정보가 저장됩니다. 
+이 단계에서는 업무 일지 파일을 생성합니다. 업무 일지 파일에는 드라이브 일련 번호, 암호화 키 및 스토리지 계정 세부 정보와 같은 기본 정보가 저장됩니다. 
 
 다음 단계를 수행하여 드라이브를 준비합니다.
 
@@ -107,8 +107,8 @@ ms.locfileid: "66808592"
 3. **작업 세부 정보**에서:
 
     - 드라이브 준비 단계에서 얻은 드라이브 저널 파일을 업로드합니다. `waimportexport.exe version1`이 사용된 경우 준비한 각 드라이브에 대해 파일을 하나씩 업로드합니다. 저널 파일 크기가 2MB를 초과하면 저널 파일을 사용하여 만든 `<Journal file name>_DriveInfo_<Drive serial ID>.xml`도 사용할 수 있습니다. 
-    - 데이터가 저장될 대상 저장소 계정을 선택합니다. 
-    - 하차 위치는 선택한 저장소 계정의 지역을 기반으로 자동으로 채워집니다.
+    - 데이터가 저장될 대상 스토리지 계정을 선택합니다. 
+    - 하차 위치는 선택한 스토리지 계정의 지역을 기반으로 자동으로 채워집니다.
    
    ![가져오기 작업 만들기 - 2단계](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 

@@ -2,24 +2,23 @@
 title: 인식 검색 설명서 리소스 - Azure Search
 description: Azure Search에서 인식 검색 작업과 관련된 문서, 자습서, 샘플 및 블로그 게시물에 대해 주석이 달린 목록입니다.
 services: search
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 225ac86efba8a32b085a5fb7fc41bed48c499eab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.subservice: cognitive-search
+ms.openlocfilehash: 88e9db6526733960045e9a7f49e1f73fcaca8cf6
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65022176"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639100"
 ---
 # <a name="documentation-resources-for-cognitive-search-workloads"></a>인식 검색 작업에 대한 설명서 리소스
 
-현재 일반 공급 cognitive search는 Azure Search 인덱싱에 텍스트가 아닌 원본 및 Azure Search에서 전체 텍스트 검색 가능한 콘텐츠를 변환 하는 구분 되지 않는 텍스트에서 잠재 정보를 검색 하는 새 보강 계층.
+현재 일반 공급 되는 인지 검색은 텍스트가 아닌 원본에서 숨어 있는 정보를 찾아 Azure Search의 전체 텍스트 검색 가능 콘텐츠로 변환 하는 Azure Search 인덱싱의 새로운 보강 계층입니다.
 
 다음 문서는 인식 검색에 대한 전체 설명서입니다.
 
@@ -27,7 +26,7 @@ ms.locfileid: "65022176"
 + ["인식 검색이란?"](cognitive-search-concept-intro.md)
 + [빠른 시작: 포털에서 인식 검색 시도](cognitive-search-quickstart-blob.md)
 + [자습서: Cognitive Search API 알아보기](cognitive-search-tutorial-blob.md)
-+ [예제: 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
++ [예제: 인지 검색에 대한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
 
 ## <a name="how-to-guidance"></a>방법 가이드
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
@@ -41,21 +40,29 @@ ms.locfileid: "65022176"
 ## <a name="reference"></a>참조
 
 + [미리 정의된 기술](cognitive-search-predefined-skills.md)
-  + [Microsoft.Skills.Text.KeyPhraseSkill](cognitive-search-skill-keyphrases.md)
+  + [KeyPhraseExtractionSkill.](cognitive-search-skill-keyphrases.md)
   + [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)
-  + [Microsoft.Skills.Text.NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md)
+  + [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md)
   + [Microsoft.Skills.Text.MergeSkill](cognitive-search-skill-textmerger.md)
   + [Microsoft.Skills.Text.SplitSkill](cognitive-search-skill-textsplit.md)
   + [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)
+  + [TranslationSkill.](cognitive-search-skill-text-translation.md)
   + [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md)
   + [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md)
+  + [ConditionalSkill.](cognitive-search-skill-conditional.md)
   + [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md)
+
++ 사용자 지정 기술
+  + [Microsoft.Skills.Custom.WebApiSkill](cognitive-search-custom-skill-web-api.md)
+
++ [사용 되지 않는 기술](cognitive-search-skill-deprecated.md)
+  + [Microsoft.Skills.Text.NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md)
 
 + [REST API](https://docs.microsoft.com/rest/api/searchservice/)
   + [기술 세트 만들기(api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
   + [인덱서 만들기(api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 + [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/)
 + [Azure Search의 인덱서](search-indexer-overview.md)

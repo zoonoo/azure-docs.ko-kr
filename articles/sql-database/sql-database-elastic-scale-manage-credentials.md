@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 8a62ec95c715c08a8fddc09f0c8e5f5bba368556
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d89e83092775828016c2c47a96164319f5474c1e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241766"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568416"
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Elastic Database 클라이언트 라이브러리 액세스에 사용되는 자격 증명
 
@@ -73,7 +72,7 @@ using (SqlConnection conn = rangeMap.OpenConnectionForKey<int>(targetWarehouse, 
 
 관리 자격 증명과 마찬가지로 "username@server" 형태의 값을 사용하지 않습니다. 대신 "username"만 사용합니다.  또한 서버 이름과 데이터베이스 이름은 연결 문자열에 포함되지 않습니다. **OpenConnectionForKey** 호출은 키에 따라 올바른 분할된 데이터베이스로 연결을 자동으로 지정하기 때문입니다. 따라서 데이터베이스 이름과 서버 이름이 제공되지 않습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 [Azure SQL Database에서 데이터베이스 및 로그인 관리](sql-database-manage-logins.md)
 

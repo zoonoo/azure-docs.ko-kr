@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
-manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: c4ff12f0c9adcb9943a6e2426eaf2740ba171e39
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 509a08705d87e8f789e26ebbcec295a31f99f416
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60700482"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567644"
 ---
 # <a name="configure-an-existing-virtual-network-for-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance의 기존 가상 네트워크 구성
 
@@ -31,6 +30,8 @@ Azure SQL Database Managed Instance는 Azure [가상 네트워크](../virtual-ne
 
 > [!Note]
 > Azure Resource Manager 배포 모델을 통해 만든 가상 네트워크에서만 Managed Instance를 만들 수 있습니다. 클래식 배포 모델을 통해 만든 Azure Virtual Network는 지원되지 않습니다. [Managed Instance에 대한 서브넷 크기 확인](sql-database-managed-instance-determine-size-vnet-subnet.md) 문서의 지침에 따라 서브넷 크기를 계산합니다. 리소스를 배포한 후에는 서브넷 크기를 조정할 수 없습니다.
+>
+> 관리 되는 인스턴스를 만든 후에는 관리 되는 인스턴스 또는 VNet을 다른 리소스 그룹 또는 구독으로 이동할 수 없습니다.
 
 ## <a name="validate-and-modify-an-existing-virtual-network"></a>기존 가상 네트워크 유효성 검사 및 수정
 

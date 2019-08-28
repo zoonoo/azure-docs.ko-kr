@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
-manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: efb6d932e616ada6b8dfff637af469c16fc2f293
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 42fc73b5557fba91cc132a0abe8561f0a72bbb64
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60723411"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568865"
 ---
 # <a name="sql-database-application-development-overview"></a>SQL Database 애플리케이션 개발 개요
 
@@ -33,13 +32,13 @@ ms.locfileid: "60723411"
 
 [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [VS Code](https://code.visualstudio.com/)와 같은 오픈 소스 도구를 활용할 수 있습니다. 또한 Azure SQL Database는 [Visual Studio](https://www.visualstudio.com/downloads/) 및 [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx)와 같은 Microsoft 도구로 작동합니다. Azure Portal, PowerShell 및 REST API를 사용하면 추가 생산성을 얻을 수도 있습니다.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>인증
 
 Azure SQL Database에 대한 액세스는 로그인과 방화벽으로 보호됩니다. Azure SQL Database는 SQL Server 및 [AAD(Azure Active Directory) 인증](sql-database-aad-authentication.md) 사용자 및 로그인을 둘 다 지원합니다. AAD 로그인은 Managed Instance에서만 사용할 수 있습니다. 
 
 [데이터베이스 액세스 및 로그인 관리](sql-database-manage-logins.md)에 대해 알아보세요.
 
-## <a name="connections"></a>연결
+## <a name="connections"></a>Connections
 
 클라이언트 연결 논리에서 기본 시간 제한을 30초로 재정의합니다. 기본값 15초는 인터넷에 종속된 연결 시간으로 너무 짧습니다.
 
@@ -55,10 +54,10 @@ Azure SQL 데이터베이스에서 계획된 유지 관리 이벤트를 준비�
 
 ## <a name="network-considerations"></a>네트워크 고려 사항
 
-- 클라이언트 프로그램을 호스팅하는 컴퓨터에서 방화벽이 포트 1433에서 발신 TCP 통신을 허용하는지 확인합니다.  추가 정보: [Azure SQL Database 방화벽 구성](sql-database-configure-firewall-settings.md).
-- Azure VM(가상 머신)에서 클라이언트가 실행되는 동안 클라이언트 프로그램이 SQL Database에 연결하는 경우에는, VM의 특정 포트 범위를 열어야 합니다. 추가 정보: [ADO.NET 4.5 및 SQL Database에 대한 1433 이외의 포트](sql-database-develop-direct-route-ports-adonet-v12.md)
+- 클라이언트 프로그램을 호스팅하는 컴퓨터에서 방화벽이 포트 1433에서 발신 TCP 통신을 허용하는지 확인합니다.  자세한 정보는 [Azure SQL Database 방화벽 구성](sql-database-configure-firewall-settings.md).
+- Azure VM(가상 머신)에서 클라이언트가 실행되는 동안 클라이언트 프로그램이 SQL Database에 연결하는 경우에는, VM의 특정 포트 범위를 열어야 합니다. 자세한 정보는 [ADO.NET 4.5 및 SQL Database에 대한 1433 이외의 포트](sql-database-develop-direct-route-ports-adonet-v12.md)
 - Azure SQL Database에 대한 클라이언트 연결이 프록시를 바이패스하고 데이터베이스와 직접 상호 작용하는 경우가 있습니다. 1433 이외의 포트가 중요해집니다. 자세한 내용은 [Azure SQL Database 연결 아키텍처](sql-database-connectivity-architecture.md) 및 [ADO.NET 4.5 및 SQL Database에 대한 1433 이외의 포트](sql-database-develop-direct-route-ports-adonet-v12.md)를 참조하세요.
-- 관리 되는 인스턴스에 대 한 네트워킹 구성에 대 한 참조 [관리 되는 인스턴스에 대 한 네트워크 구성을](sql-database-howto-managed-instance.md#network-configuration)합니다.
+- 관리 되는 인스턴스의 네트워킹 구성에 대해서 [는 관리 되는 인스턴스의 네트워크 구성](sql-database-howto-managed-instance.md#network-configuration)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

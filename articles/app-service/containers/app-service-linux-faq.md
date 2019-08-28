@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
-ms.author: msangapu-msft
+ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: d465a93a23b7f0098471e0074240dfcbe9658736
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 10452590c9415291cb2a5913aeef5c8a00cdfe12
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448432"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562986"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux의 Azure App Service에 대한 FAQ
 
@@ -41,13 +41,13 @@ Linux의 App Service를 릴리스하면서 현재 플랫폼에 기능을 추가�
 
 | 스택           | 예상 값                                                                         |
 |-----------------|----------------------------------------------------------------------------------------|
-| Java SE         | JAR 앱을 시작 하는 명령 (예를 들어 `java -jar my-app.jar --server.port=80`) |
-| Tomcat, Wildfly | 모든 필요한 구성을 수행 하는 스크립트의 위치 (예를 들어 `/home/site/deployments/tools/startup_script.sh`)          |
+| Java SE         | JAR 앱을 시작 하는 명령 (예: `java -jar my-app.jar --server.port=80`) |
+| Tomcat, Wildfly | 필요한 구성을 수행할 스크립트의 위치입니다 (예: `/home/site/deployments/tools/startup_script.sh`).          |
 | Node.js         | PM2 구성 파일 또는 스크립트 파일                                |
-| .NET Core       | 로 컴파일된 DLL 이름 `dotnet <myapp>.dll`                                 |
-| Ruby            | 사용 하 여 앱을 초기화 하려면 Ruby 스크립트를                     |
+| .NET Core       | 컴파일된 DLL 이름으로,`dotnet <myapp>.dll`                                 |
+| Ruby            | 앱을 초기화 하려는 Ruby 스크립트                     |
 
-기본 제공 Docker 컨테이너 시작 되었지만 코드 전에 응용 프로그램 시작 후 이러한 명령이 나 스크립트가 실행 됩니다.
+이러한 명령이 나 스크립트는 기본 제공 Docker 컨테이너가 시작 된 후 응용 프로그램 코드를 시작 하기 전에 실행 됩니다.
 
 ## <a name="management"></a>관리
 
@@ -60,7 +60,7 @@ Linux의 App Service를 릴리스하면서 현재 플랫폼에 기능을 추가�
 예. SCM(원본 제어 관리) 사이트를 통해 수행할 수 있습니다.
 
 > [!NOTE]
-> SSH, SFTP 또는 Visual Studio Code를 사용하여 로컬 개발 컴퓨터에서 직접 앱 컨테이너에 연결할 수도 있습니다(Node.js 앱 라이브 디버깅을 위해). 자세한 내용은 [Linux App Service의 원격 디버깅 및 SSH](https://aka.ms/linux-debug)를 참조하세요.
+> SSH, SFTP 또는 Visual Studio Code를 사용하여 로컬 개발 컴퓨터에서 직접 앱 컨테이너에 연결할 수도 있습니다(Node.js 앱 라이브 디버깅을 위해). 자세한 내용은 [Linux App Service의 원격 디버깅 및 SSH](https://azure.github.io/AppService/2018/05/07/New-SSH-Experience-and-Remote-Debugging-for-Linux-Web-Apps.html)를 참조하세요.
 >
 
 **SDK 또는 Azure Resource Manager 템플릿을 통해 Linux App Service 계획을 어떻게 만들 수 있나요?**
@@ -85,7 +85,7 @@ Linux의 App Service를 릴리스하면서 현재 플랫폼에 기능을 추가�
 
 Linux 웹앱에 대한 Git 배포가 실패하면 다음 옵션 중 하나를 선택하여 애플리케이션 코드를 배포할 수 있습니다.
 
-- 지속적인 업데이트(미리 보기) 기능 사용: Azure DevOps Git 리포지토리 또는 GitHub 리포지토리를 Azure에 대 한 지속적인 정보를 사용 하 여 앱의 소스 코드를 저장할 수 있습니다. 자세한 내용은 [Linux 웹앱에 지속적인 업데이트를 구성하는 방법](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/)을 참조하세요.
+- 지속적인 업데이트(미리 보기) 기능 사용: Azure 지속적인 업데이트를 사용 하도록 앱의 소스 코드를 Azure DevOps Git 리포지토리 또는 GitHub 리포지토리에 저장할 수 있습니다. 자세한 내용은 [Linux 웹앱에 지속적인 업데이트를 구성하는 방법](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/)을 참조하세요.
 
 - [ZIP 배포 API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file) 사용: 이 API를 사용하려면 [웹앱에 SSH를 실행하고](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support) 코드를 배포할 폴더로 이동합니다. 다음 코드를 실행합니다.
 
@@ -119,25 +119,25 @@ const io = require('socket.io')(server,{
 
 **나만의 사용자 지정 컨테이너를 사용하고 있습니다. `/home/` 디렉터리에 대한 SMB 공유를 플랫폼에 탑재하려 합니다.**
 
-하는 경우 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` 설정은 **지정 되지 않은** 로 설정 하거나 *true*의 `/home/` 디렉터리 **공유 되는** 기록파일과스케일인스턴스간에**지속 됩니다** 다시 시작 합니다. 명시적으로 설정 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` 하 *false* 탑재를 사용 하지 않도록 설정 됩니다.
+설정이 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` **지정** 되지 않았거나 *true*로 설정 된 경우 디렉터리 `/home/` 는 확장 인스턴스 간에 **공유** 되 고 기록 된 파일은 다시 시작 될 때 **유지** 됩니다. 명시적으로 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` *false* 로 설정 하면 탑재를 사용 하지 않도록 설정 됩니다.
 
 **내 사용자 지정 컨테이너는 시작하는 데 시간이 오래 걸리고 플랫폼이 시작을 마무리하기 전에 컨테이너를 다시 시작합니다.**
 
 컨테이너를 다시 시작하기 전에 플랫폼이 대기할 시간을 구성할 수 있습니다. 이를 수행하려면 `WEBSITES_CONTAINER_START_TIME_LIMIT` 앱 설정을 원하는 값으로 설정합니다. 기본값은 230초이고 최댓값은 1800초입니다.
 
-**개인 레지스트리 서버 URL의 형식은 무엇인가요?**
+**프라이빗 레지스트리 서버 URL의 형식은 무엇인가요?**
 
 `http://` 또는 `https://`를 포함하여 전체 레지스트리 URL을 입력합니다.
 
-**개인 레지스트리 옵션에서 이미지 이름의 형식은 무엇인가요?**
+**프라이빗 레지스트리 옵션에서 이미지 이름의 형식은 무엇인가요?**
 
 프라이빗 레지스트리 URL(예: myacr.azurecr.io/dotnet:latest)을 포함하여 전체 이미지 이름을 추가합니다. 사용자 지정 포트를 사용하는 이미지 이름은 [포털을 통해 입력할 수 없습니다](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). `docker-custom-image-name`을 설정하려면 [`az` 명령줄 도구](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set)를 사용합니다.
 
 **사용자 지정 컨테이너 이미지에 포트를 두 개 이상 표시할 수 있나요?**
 
-둘 이상의 포트를 노출할 수 없습니다.
+둘 이상의 포트 노출을 지원 하지 않습니다.
 
-**사용자 고유의 저장소를 가져올 수 있나요?**
+**사용자 고유의 스토리지를 가져올 수 있나요?**
 
 예, [사용자 고유의 스토리지 가져오기](https://docs.microsoft.com/azure/app-service/containers/how-to-serve-content-from-azure-storage)는 미리 보기로 제공됩니다.
 
@@ -153,16 +153,16 @@ SCM 사이트는 별도의 컨테이너에서 실행됩니다. 사용자가 앱 
 
 아니요. 플랫폼에서는 공유 프런트 엔드에서 HTTPS 종료를 처리합니다.
 
-## <a name="multi-container-with-docker-compose"></a>다중 컨테이너 docker Compose
+## <a name="multi-container-with-docker-compose"></a>Docker Compose를 사용 하는 다중 컨테이너
 
 **다중 컨테이너를 사용하도록 ACR(Azure Container Registry)을 구성하려면 어떻게 할까요?**
 
-다중 컨테이너에서 ACR을 사용하기 위해 **모든 컨테이너 이미지**는 동일한 ACR 레지스트리 서버에 호스트되어야 합니다. 동일한 레지스트리 서버에가 응용 프로그램 설정 작성 하 고 다음 ACR 이미지 이름을 포함 하는 Docker Compose 구성 파일을 업데이트 해야 합니다.
+다중 컨테이너에서 ACR을 사용하기 위해 **모든 컨테이너 이미지**는 동일한 ACR 레지스트리 서버에 호스트되어야 합니다. 동일한 레지스트리 서버에 있는 경우 응용 프로그램 설정을 만든 다음 ACR 이미지 이름을 포함 하도록 Docker Compose 구성 파일을 업데이트 해야 합니다.
 
 다음 애플리케이션 설정을 만듭니다.
 
 - DOCKER_REGISTRY_SERVER_USERNAME
-- DOCKER_REGISTRY_SERVER_URL (예: URL, 전체: `https://<server-name>.azurecr.io`)
+- DOCKER_REGISTRY_SERVER_URL (전체 URL, 예: `https://<server-name>.azurecr.io`)
 - DOCKER_REGISTRY_SERVER_PASSWORD(ACR 설정에서 관리자 액세스 사용)
 
 구성 파일 내에서 다음 예제와 같이 ACR 이미지를 참조합니다.

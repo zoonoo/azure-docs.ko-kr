@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: 1bc4bd9b95dc7e45b9b90fbe096ed71c5aa9bedf
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 52cb11b015bb231b91184a2270e333e4c9aa8303
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447245"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424286"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Azure SQL 데이터베이스에서 Azure Blob Storage로 데이터 증분 로드
 이 자습서에서는 Azure SQL 데이터베이스의 테이블에서 Azure Blob Storage로 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다. 
@@ -64,7 +64,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prerequisites"></a>필수 조건
 * **Azure SQL Database**. 데이터베이스를 원본 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 만드는 단계를 [Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)에서 참조하세요.
-* **Azure Storage**. Blob Storage를 싱크 데이터 스토리지로 사용합니다. 저장소 계정이 없는 경우, 계정을 만드는 단계는 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요. adftutorial이라는 컨테이너를 만듭니다. 
+* **Azure Storage**. Blob Storage를 싱크 데이터 스토리지로 사용합니다. 스토리지 계정이 없는 경우, 계정을 만드는 단계는 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요. adftutorial이라는 컨테이너를 만듭니다. 
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>SQL 데이터베이스에 데이터 원본 테이블 만들기
 1. SQL Server Management Studio를 엽니다. **서버 탐색기**에서 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
@@ -201,7 +201,7 @@ END
 7. 데이터 세트에 대한 속성 창에서 **이름**에 대해 **WatermarkDataset**를 입력합니다.
 
    ![워터마크 데이터 세트 - 이름](./media/tutorial-incremental-copy-portal/watermark-dataset-name.png)
-8. **연결** 탭으로 전환하고, **+ 새로 만들기**를 클릭하여 Azure SQL Database에 연결합니다(연결된 서비스 만들기). 
+8. **연결** 탭으로 전환하고, **+ 새로 만들기**를 클릭하여 Azure SQL 데이터베이스에 연결합니다(연결된 서비스 만들기). 
 
    ![새 연결된 서비스 단추](./media/tutorial-incremental-copy-portal/watermark-dataset-new-connection-button.png)
 9. **새 연결된 서비스** 창에서 다음 단계를 수행합니다.
@@ -238,7 +238,7 @@ END
 
         ![두 번째 조회 활동 - 새 데이터 세트](./media/tutorial-incremental-copy-portal/source-dataset-connection.png)
 17. 위쪽의 파이프라인 탭을 클릭하거나 왼쪽의 트리 뷰에서 파이프라인 이름을 클릭하여 파이프라인 편집기로 전환합니다. **조회** 활동에 대한 속성 창에서 **원본 데이터 세트** 필드에 대해 **SourceDataset**가 선택되어 있는지 확인합니다. 
-18. **쿼리 사용** 필드에 대해 **쿼리**를 선택하고, **data_source_table**에서 **LastModifytime**의 최대값만 선택하는 다음 쿼리를 입력합니다. 이 쿼리가 없는 경우 데이터 세트는 데이터 세트 정의에서 테이블 이름(data_source_table)을 지정한 대로 테이블의 모든 행을 가져옵니다.
+18. **쿼리 사용** 필드에 대해 **쿼리**를 선택하고, **data_source_table**에서 **LastModifytime**의 최대값만 선택하는 다음 쿼리를 입력합니다. **첫 번째 행만** 선택했는지도 확인하세요.
 
     ```sql
     select MAX(LastModifytime) as NewWatermarkvalue from data_source_table
@@ -335,7 +335,7 @@ END
     ![작업 실행](./media/tutorial-incremental-copy-portal/activity-runs.png)
 
 ## <a name="review-the-results"></a>결과 검토
-1. [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)와 같은 도구를 사용하여 Azure 스토리지 계정에 연결합니다. 출력 파일이 **adftutorial** 컨테이너의 **incrementalcopy** 폴더에 만들어졌는지 확인합니다.
+1. [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)와 같은 도구를 사용하여 Azure 스토리지 계정에 연결합니다. 출력 파일이 **adftutorial** 컨테이너의 **incrementalcopy** 폴더에 만들어졌는지 확인합니다.
 
     ![첫 번째 출력 파일](./media/tutorial-incremental-copy-portal/first-output-file.png)
 2. 출력 파일을 열고 모든 데이터가 **data_source_table**에서 Blob 파일로 복사되었는지 확인합니다. 

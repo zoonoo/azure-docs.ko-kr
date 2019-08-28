@@ -2,23 +2,23 @@
 title: 기본 그룹 만들기 및 멤버 추가 - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory를 사용하여 기본 그룹을 만드는 방법을 설명하는 지침입니다.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: quickstart
 ms.date: 03/01/2019
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78e83f4a1aea04bbaea12181419de6c5c06034f2
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 011f49596550ef4d515e0261419ab81c990e23cd
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287080"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561942"
 ---
 # <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Azure Active Directory를 사용하여 기본 그룹 만들기 및 멤버 추가
 Azure AD(Azure Active Directory) 포털을 사용하여 기본 그룹을 만들 수 있습니다. 이 문서에서 기본 그룹은 리소스 소유자(관리자)에 의해 단일 리소스에 추가되고 해당 리소스에 액세스해야 하는 특정 멤버(직원)를 포함합니다. 동적 멤버 자격 및 규칙 만들기를 포함한 더 복잡한 시나리오의 경우 [Azure Active Directory 사용자 관리 설명서](../users-groups-roles/index.yml)를 참조하세요.
@@ -43,7 +43,7 @@ Azure AD(Azure Active Directory) 포털을 사용하여 기본 그룹을 만들 
         
        - **Office 365**. 공유 사서함, 일정, 파일, SharePoint 사이트 등에 대한 액세스를 멤버에게 부여하여 협업 기회를 제공합니다. 이 옵션을 통해 조직 외부에 있는 사용자에게 그룹에 대한 액세스를 제공할 수 있습니다. Office 365 그룹에 대한 자세한 내용은 [Learn for Office 365 Groups](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2)(Office 365 그룹에 대한 자세한 정보)를 참조하세요.
 
-   - **그룹 이름(필수).** 기억하기 쉽고 의미 있는 그룹 이름을 추가합니다.
+   - **그룹 이름(필수).** 기억하기 쉽고 의미 있는 그룹 이름을 추가합니다. 이름이 다른 그룹에 이미 사용되고 있는지 확인하는 검사가 수행됩니다. 이름이 이미 사용 중이면 중복된 이름을 지정하지 않도록 그룹 이름을 수정하라는 메시지가 표시됩니다.
 
    - **그룹 설명.** 그룹에 선택적 설명을 추가합니다.
 

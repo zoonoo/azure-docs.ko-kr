@@ -1,6 +1,6 @@
 ---
 title: 문자 수 - Translator Text API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Translator Text API에서 문자 수를 계산하는 방법
 services: cognitive-services
 author: swmachan
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: cfd5823009b66b6b525c7add1fb56953d3c1a507
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e3a16d9272e75f9a94f5381c1681c036d177e0f6
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445258"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595997"
 ---
 # <a name="how-the-translator-text-api-counts-characters"></a>Translator Text API에서 문자 수를 계산하는 방법
 

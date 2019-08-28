@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: e7bc8491071946eaa2e322517e5d36d681a49130
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b1949f87dcdb1e3d9fe8e7fd08d8d8ba3b8203a0
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837643"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036442"
 ---
 # <a name="sfctl-mesh-code-package-log"></a>sfctl mesh code-package-log
 지정된 서비스 복제본에 대해 지정된 코드 패키지의 컨테이너 관련 로그를 가져옵니다.
@@ -37,17 +36,17 @@ ms.locfileid: "60837643"
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --app-name --application-name[필수] | 애플리케이션 이름입니다. |
+| --app-name --application-name[필수] | 애플리케이션의 이름입니다. |
 | --code-package-name           [필수] | 서비스의 코드 패키지 이름입니다. |
 | --replica-name                [필수] | Service Fabric 복제본 이름입니다. |
-| --service-name                [필수] | 서비스의 이름입니다. |
+| --service-name                [필수] | 서비스 이름입니다. |
 | --tail | 로그의 끝에서 표시할 줄의 수입니다. 기본값은 100입니다. 전체 로그를 표시하는 'all'입니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |

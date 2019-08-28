@@ -2,31 +2,25 @@
 title: Azure Active Directory ID 보호 FAQ | Microsoft Docs
 description: Azure AD ID 보호에 대한 질문과 대답입니다.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: 14f7fc83-f4bb-41bf-b6f1-a9bb97717c34
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bea455371938ccc4d512bdb7ffddd72eb9508da
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cc02b8b5dccbec106e90430fc1714253df6ad847
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60454512"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334007"
 ---
 # <a name="azure-active-directory-identity-protection-faq"></a>Azure Active Directory ID 보호 FAQ
 
 이 문서에는 Azure AD(Azure Active Directory) Identity Protection에 대한 질문과 대답이 포함되어 있습니다. 자세한 내용은 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)을 참조하세요. 
-
 
 ## <a name="why-do-some-risk-events-have-closed-system-status"></a>일부 위험 이벤트에 "닫힘(시스템)" 상태가 있는 이유는 무엇인가요?
 

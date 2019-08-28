@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 06/03/2019
-ms.openlocfilehash: 0050745ea9d624adb6b7a28d5db91924d1c54b0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: df9390c00c34fce82de8cc17efb5cc3bce2e4e3d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479454"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569441"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>자동 조정에 대한 전자 메일 알림
 
@@ -27,7 +26,7 @@ SQL Database 자동 조정 권장 구성은 [Azure Portal](sql-database-advisor-
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager 모듈은 Azure SQL 데이터베이스에서 계속 지원되지만 향후 모든 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
 ## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>자동 조정 권장 사항에 대한 전자 메일 알림 자동화
 
@@ -59,9 +58,9 @@ Marketplace의 Automation 앱을 선택하고 구성하는 방법을 통해 Azur
 
 ## <a name="update-azure-automation-modules"></a>Azure Automation 모듈 업데이트
 
-자동 조정 권장 사항을 검색 하는 PowerShell 스크립트를 사용 하 여 [Get AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Get-azResource) 하 고 [Get AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction) 버전 4에는 Azure 모듈에 대 한 명령 및 이상이 필요 합니다.
+자동 조정 권장 사항을 검색 하는 PowerShell 스크립트는 [AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Get-azResource) 및 [AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction) 명령을 사용 하 여 Azure 모듈 버전 4 이상이 필요 합니다.
 
-- Azure 모듈 업데이트에 필요한 경우 참조 [Azure Automation에서 Az 모듈 지원](../automation/az-modules.md)합니다.
+- Azure 모듈을 업데이트 해야 하는 경우 [Azure Automation의 Az module support](../automation/az-modules.md)를 참조 하세요.
 
 ## <a name="create-azure-automation-runbook"></a>Azure Automation Runbook 만들기
 

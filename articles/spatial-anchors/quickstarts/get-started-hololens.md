@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 7a9eedfe851bb8b5519d0831f47cf6787345a1f8
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 94cae186cee099618772f53d2b820e12f20cad64
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996291"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562410"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-spatial-anchors-in-cwinrt-and-directx"></a>빠른 시작: C++/WinRT 및 DirectX로 Azure Spatial Anchors를 사용하여 HoloLens 앱 만들기
 
@@ -31,8 +31,7 @@ ms.locfileid: "59996291"
 ## <a name="prerequisites"></a>필수 조건
 
 이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
-
-- **유니버설 Windows 플랫폼 개발** 워크로드 및 **Windows 10 SDK(10.0.17763.0 이상)** 구성 요소와 함께 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017 이상</a>이 설치된 Windows 머신 및 <a href="https://git-scm.com/download/win" target="_blank">Windows용 Git</a>.
+- **유니버설 Windows 플랫폼 개발** 워크로드 및 **Windows 10 SDK(10.0.18362.0 이상)** 구성 요소와 함께 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a>가 설치된 Windows 머신 및 <a href="https://git-scm.com/download/win" target="_blank">Windows용 Git</a>.
 - Visual Studio용 [C++/WinRT Visual Studio 확장(VSIX)](https://aka.ms/cppwinrt/vsix)은 [Visual Studio Marketplace](https://marketplace.visualstudio.com/)에서 설치합니다.
 - [개발자 모드](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio)가 설정된 HoloLens 디바이스. 이 문서에는 [Windows 10 2018년 10월 업데이트](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018 )(RS5라고도 함)가 있는 HoloLens 디바이스가 필요합니다. HoloLens의 최신 릴리스로 업데이트하려면 **설정** 앱을 열고 **업데이트 및 보안**으로 이동한 다음, **업데이트 확인** 단추를 선택합니다.
 - 앱에서 해당 AppX 매니페스트에 **spatialPerception** 기능을 설정해야 합니다.

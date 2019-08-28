@@ -20,7 +20,7 @@ ms.locfileid: "66257867"
 [Apache Hadoop](https://hadoop.apache.org/)에는 스토리지를 제공하는 [Apache HDFS(Hadoop 분산 파일 시스템)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html)와 처리를 제공하는 [Apache Hadoop YARN(Yet Another Resource Negotiator)](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)이라는 두 가지 핵심 구성 요소가 포함되어 있습니다. 스토리지 및 처리 기능을 사용하면 클러스터에서 [MapReduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) 프로그램을 실행하여 원하는 데이터 처리를 수행할 수 있게 됩니다.
 
 > [!NOTE]  
-> 일반적으로 HDFS는 HDInsight 클러스터 내에 배포되어 저장소를 제공하지 않습니다. 대신 Hadoop 구성 요소에서 HDFS 호환 인터페이스 계층을 사용합니다. 실제 스토리지 용량은 Azure Storage 또는 Azure Data Lake Storage에서 제공합니다. Hadoop의 경우 HDFS가 있는 것처럼 HDInsight 클러스터에서 실행되는 MapReduce 작업이 실행되므로 저장소 요구 사항을 지원하기 위해 변경할 필요가 없습니다. HDInsight의 Hadoop에서 저장소는 아웃소싱되지만 YARN 처리는 핵심 구성 요소로 남아 있습니다. 자세한 내용은 [Azure HDInsight 소개](hadoop/apache-hadoop-introduction.md)를 참조하세요.
+> 일반적으로 HDFS는 HDInsight 클러스터 내에 배포되어 스토리지를 제공하지 않습니다. 대신 Hadoop 구성 요소에서 HDFS 호환 인터페이스 계층을 사용합니다. 실제 스토리지 용량은 Azure Storage 또는 Azure Data Lake Storage에서 제공합니다. Hadoop의 경우 HDFS가 있는 것처럼 HDInsight 클러스터에서 실행되는 MapReduce 작업이 실행되므로 스토리지 요구 사항을 지원하기 위해 변경할 필요가 없습니다. HDInsight의 Hadoop에서 스토리지는 아웃소싱되지만 YARN 처리는 핵심 구성 요소로 남아 있습니다. 자세한 내용은 [Azure HDInsight 소개](hadoop/apache-hadoop-introduction.md)를 참조하세요.
 
 이 문서에서는 YARN과 HDInsight에서 애플리케이션 실행을 조정하는 방법에 대해 소개합니다.
 
@@ -31,7 +31,7 @@ YARN은 Hadoop의 데이터 처리를 제어하고 오케스트레이션합니�
 * ResourceManager 
 * NodeManager
 
-ResourceManager는 MapReduce 작업과 같은 애플리케이션에 클러스터 계산 리소스를 제공합니다. ResourceManager는 이러한 리소스를 컨테이너로 제공하며, 각 컨테이너는 CPU 코어 수 및 RAM 메모리의 할당으로 구성됩니다. 클러스터에서 사용할 수 있는 모든 리소스를 결합한 다음, 코어 및 메모리를 블록으로 분산한 경우 각 리소스 블록이 컨테이너가 됩니다. 클러스터의 각 노드에는 특정 수의 컨테이너에 대한 용량이 있으므로, 클러스터에는 사용할 수 있는 컨테이너 수에 대해 고정된 제한이 있습니다. 컨테이너에 있는 리소스의 할당은 구성할 수 있습니다. 
+ResourceManager는 MapReduce 작업과 같은 애플리케이션에 클러스터 컴퓨팅 리소스를 제공합니다. ResourceManager는 이러한 리소스를 컨테이너로 제공하며, 각 컨테이너는 CPU 코어 수 및 RAM 메모리의 할당으로 구성됩니다. 클러스터에서 사용할 수 있는 모든 리소스를 결합한 다음, 코어 및 메모리를 블록으로 분산한 경우 각 리소스 블록이 컨테이너가 됩니다. 클러스터의 각 노드에는 특정 수의 컨테이너에 대한 용량이 있으므로, 클러스터에는 사용할 수 있는 컨테이너 수에 대해 고정된 제한이 있습니다. 컨테이너에 있는 리소스의 할당은 구성할 수 있습니다. 
 
 MapReduce 애플리케이션이 클러스터에서 실행될 때, ResourceManager는 실행할 컨테이너를 애플리케이션에 제공합니다. ResourceManager는 실행 중인 애플리케이션의 상태와 사용 가능한 클러스터 용량을 추적하고, 리소스가 완료되고 해제될 때 애플리케이션을 추적합니다. 
 

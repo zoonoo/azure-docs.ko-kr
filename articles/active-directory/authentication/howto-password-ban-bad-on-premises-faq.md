@@ -11,14 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bd117b79c2d103225e8f1f29b63eb6ae341031d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8ece7f93b5397db16e03c1eab1d2dc1e568113d9
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64917652"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879253"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Azure AD 암호 보호 온-프레미스 - 질문과 대답
+
+이 섹션에서는 Azure AD 암호 보호와 관련 하 여 자주 묻는 많은 질문에 대 한 답변을 제공 합니다.
 
 ## <a name="general-questions"></a>일반적인 질문
 
@@ -26,23 +28,33 @@ ms.locfileid: "64917652"
 
 이 항목에 대한 Microsoft의 현재 지침은 다음 링크에서 찾을 수 있습니다.
 
-[Microsoft 암호 지침](https://www.microsoft.com/en-us/research/publication/password-guidance)
+[Microsoft 암호 지침](https://www.microsoft.com/research/publication/password-guidance)
 
-**Q: 온-프레미스 Azure AD 암호 보호는 비공용 클라우드에서 지원되나요?**
+**Q: 온-프레미스 Azure AD 암호 보호는 비퍼블릭 클라우드에서 지원되나요?**
 
-아니요 - 온-프레미스 Azure AD 암호 보호는 공용 클라우드에서만 지원됩니다. 비공용 클라우드가 지원되는 날짜는 발표되지 않았습니다.
+아니요 - 온-프레미스 Azure AD 암호 보호는 퍼블릭 클라우드에서만 지원됩니다. 비퍼블릭 클라우드가 지원되는 날짜는 발표되지 않았습니다.
+
+Azure AD 포털에서는 공용이 아닌 클라우드에서 온-프레미스 관련 "Windows Server Active Directory에 대 한 암호 보호" 구성을 수정할 수 있습니다. 이러한 변경 내용은 지속 되지만 그렇지 않은 경우에는 적용 되지 않습니다. 공용이 아닌 클라우드 자격 증명을 사용 하는 경우 온-프레미스 프록시 에이전트 또는 포리스트의 등록이 지원 되지 않으므로 이러한 등록 시도는 항상 실패 합니다.
 
 **Q: Azure AD 암호 보호 혜택을 내 온-프레미스 사용자의 하위 집합에 적용하려면 어떻게 해야 할까요?**
 
 지원되지 않습니다. Azure AD 암호 보호가 배포되고 사용하도록 설정되면 모든 사용자가 차별 없이 동등한 보안 혜택을 받습니다.
 
-**Q: 암호 변경을 암호 설정 (또는 다시 설정) 간의 차이 무엇입니까?**
+**Q: 암호 변경 및 암호 설정 (또는 다시 설정)의 차이점은 무엇 인가요?**
 
-암호 변경을 때 사용자가 이전 암호를 알고 증명 한 후 새 암호를 선택 합니다. 예를 들어,이 사용자가 Windows에 로그인 하 고 새 암호를 선택 하 라는 메시지가 표시 됩니다.
+암호 변경은 사용자가 이전 암호를 알고 있는 사용자를 증명 한 후 새 암호를 선택 하는 경우입니다. 예를 들어 암호 변경은 사용자가 Windows에 로그인 할 때 발생 하는 것으로, 새 암호를 선택 하 라는 메시지가 표시 됩니다.
 
-관리자가 대체는 계정의 암호를 새 암호를 사용 하 여 예를 들어 Active Directory 사용자 및 컴퓨터 관리 도구를 사용 하 여 때 (암호 재설정을 라고도 함) 암호 집합을 표시 합니다. 이 작업을 수행 하려면 높은 수준의 권한 (일반적으로 도메인 관리자), 했으며 일반적으로 작업을 수행 하는 사람에 이전 암호를 알고 있어야 합니다. 지원 센터 시나리오 종종 그렇게 예를 들어 경우 암호를 잊어버린 경우에 사용자를 지원 합니다. 암호는 새로운 사용자 계정 암호를 사용 하 여 처음으로 만들어질 때 이벤트를 설정도 표시 됩니다.
+암호 집합 (암호 재설정이 라고도 함)은 관리자가 Active Directory 사용자 및 컴퓨터 관리 도구를 사용 하는 등의 방법으로 계정의 암호를 새 암호로 바꿀 때입니다. 이 작업을 수행 하려면 높은 수준의 권한 (일반적으로 도메인 관리자)이 필요 하며, 작업을 수행 하는 사용자는 일반적으로 이전 암호를 알지 못합니다. 지원 센터 시나리오에서는 암호를 잊어버린 사용자를 지원할 때 처럼 종종 암호 집합을 수행 합니다. 또한 암호를 사용 하 여 처음으로 새 사용자 계정을 만들 때 암호 설정 이벤트가 표시 됩니다.
 
-암호 유효성 검사 정책을 암호 변경 또는 집합 수행 되는 여부에 관계 없이 동일 하 게 동작 합니다. 암호 변경 여부를 사용자에 게 알리는 다른 이벤트를 기록 하는 Azure AD 암호 보호 DC 에이전트 서비스를 않습니다 또는 설정 작업이 완료 되었습니다.  참조 [Azure AD 암호 보호 모니터링 및 로깅](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor)합니다.
+암호 유효성 검사 정책은 암호 변경 또는 설정의 수행 여부에 관계 없이 동일 하 게 동작 합니다. Azure AD 암호 보호 DC 에이전트 서비스는 다른 이벤트를 기록 하 여 암호 변경 또는 설정 작업이 수행 되었는지 여부를 알려 줍니다.  [AZURE AD 암호 보호 모니터링 및 로깅을](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor)참조 하세요.
+
+**Q: Active Directory 사용자 및 컴퓨터 관리 스냅인을 사용 하 여 약한 암호를 설정 하려고 할 때 중복 된 암호 거부 이벤트가 기록 되는 이유는 무엇 인가요?**
+
+Active Directory 사용자 및 컴퓨터 관리 스냅인은 먼저 Kerberos 프로토콜을 사용 하 여 새 암호를 설정 하려고 시도 합니다. 오류가 발생 하면 스냅인은 레거시 (SAM RPC) 프로토콜을 사용 하 여 두 번째 시도로 암호를 설정 합니다 (사용 되는 특정 프로토콜은 중요 하지 않음). Azure AD 암호 보호에서 새 암호가 약한 것으로 간주 되는 경우이 스냅인 동작은 두 개의 암호 재설정 거부 이벤트 집합을 기록 합니다.
+
+**Q: Azure AD 암호 보호 암호 유효성 검사 이벤트가 빈 사용자 이름으로 기록 되는 이유는 무엇 인가요?**
+
+Active Directory는 [NetValidatePasswordPolicy](https://docs.microsoft.com/windows/win32/api/lmaccess/nf-lmaccess-netvalidatepasswordpolicy) api를 사용 하는 등의 방법으로 도메인의 현재 암호 복잡성 요구 사항을 통과 하는지 확인 하기 위해 암호를 테스트 하는 기능을 지원 합니다. 이러한 방식으로 암호의 유효성을 검사 하는 경우 테스트에는 Azure AD 암호 보호와 같이 암호 필터 dll 기반 제품의 유효성 검사도 포함 되지만 지정 된 암호 필터 dll에 전달 된 사용자 이름은 비어 있습니다. 이 시나리오에서 Azure AD 암호 보호는 현재 영향을 받은 암호 정책을 사용 하 여 암호의 유효성을 검사 하 고 결과를 캡처하기 위해 이벤트 로그 메시지를 발행 하지만 이벤트 로그 메시지에는 빈 사용자 이름 필드가 있습니다.
 
 **Q: Azure AD 암호 보호는 다른 암호 필터 기반 제품과 함께 설치할 수 있나요?**
 
@@ -54,7 +66,7 @@ ms.locfileid: "64917652"
 
 **Q: Active Directory 수준에서 정책의 콘텐츠를 수정하려면 어떻게 해야 하나요?**
 
-지원되지 않습니다. 정책은 Azure AD 관리 포털을 통해서만 관리할 수 있습니다. 이전 질문도 참조하세요.
+지원되지 않습니다. 정책은 Azure AD 포털을 사용 해야만 관리할 수 있습니다. 이전 질문도 참조하세요.
 
 **Q: sysvol 복제에 DFSR이 필요한가요?**
 
@@ -82,9 +94,9 @@ FRS(DFSR에 대한 선행 기술)는 대부분의 알려진 문제를 포함하�
 
 예. Azure AD 암호 보호 프록시 서비스와 Azure AD Connect는 서로 직접적으로 충돌하지 않습니다.
 
-**Q: 어떤 순서로 DC 에이전트 및 프록시를 설치 하 고 해야 등록?**
+**Q: DC 에이전트와 프록시를 설치 하 고 등록 해야 하는 순서는 무엇입니까?**
 
-프록시 에이전트를 설치, DC 에이전트 설치, 포리스트 등록 및 프록시 등록의 순서는 지원 됩니다.
+프록시 에이전트 설치, DC 에이전트 설치, 포리스트 등록 및 프록시 등록 순서가 지원 됩니다.
 
 **Q: 이 기능을 배포할 때 도메인 컨트롤러의 성능 저하가 우려될 수 있나요?**
 
@@ -106,19 +118,23 @@ Azure AD 암호 보호 DC 에이전트 서비스는 기존의 정상적인 Activ
 
 요약하자면, PDC에서 Azure AD 암호 보호 DC 에이전트 서비스를 배포하려면 도메인에서 100%의 기능 보안 검사에 도달해야 합니다. PDC에만 기능을 배포하면 도메인의 다른 DC는 Azure AD 암호 보호 보안 이점을 얻을 수 없습니다.
 
+**Q: 온-프레미스 Active Directory 환경에 에이전트가 설치 된 후에도 사용자 지정 스마트 잠금이 작동 하지 않는 이유는 무엇 인가요?**
+
+사용자 지정 스마트 잠금은 Azure AD 에서만 지원 됩니다. Azure AD 포털에서 사용자 지정 스마트 잠금 설정을 변경 해도 에이전트가 설치 된 경우에도 온-프레미스 Active Directory 환경에는 영향을 주지 않습니다.
+
 **Q: Azure AD 암호 보호에 System Center Operations Manager 관리 팩을 사용할 수 있나요?**
 
 아니요.
 
-**Q: 이유는 Azure 여전히 거부 취약 한 암호 감사 모드로 설정 될 정책을 구성 하는 경우에?**
+**Q: 감사 모드에서 정책을 구성한 경우에도 Azure AD에서 취약 한 암호를 거부 하는 이유는 무엇 인가요?**
 
-감사 모드는 온-프레미스 Active Directory 환경에만 지원 됩니다. Azure는 암시적으로 항상 "강제 적용" 모드에서 암호를 평가 하는 경우.
+감사 모드는 온-프레미스 Active Directory 환경 에서만 지원 됩니다. Azure AD는 암호를 평가할 때 암시적으로 항상 "적용" 모드로 전환 됩니다.
 
 ## <a name="additional-content"></a>추가 콘텐츠
 
 다음 링크는 핵심 Azure AD 암호 보호 설명서에는 포함되지 않지만 기능에 대한 유용한 추가 정보를 제공할 수 있습니다.
 
-[Azure AD 암호 보호 출시 되었습니다!](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-is-now-generally-available/ba-p/377487)
+[Azure AD 암호 보호는 이제 일반 공급 됩니다.](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-is-now-generally-available/ba-p/377487)
 
 [이메일 피싱 보호 가이드 - 15부: Microsoft Azure AD 암호 보호 서비스 구현(온-프레미스에도 사용 가능)](https://blogs.technet.microsoft.com/cloudready/2018/10/14/email-phishing-protection-guide-part-15-implement-the-microsoft-azure-ad-password-protection-service-for-on-premises-too/)
 

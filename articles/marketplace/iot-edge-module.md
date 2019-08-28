@@ -7,13 +7,13 @@ manager: pabutler
 ms.service: marketplace
 ms.topic: article
 ms.date: 09/22/2018
-ms.author: qianw211
-ms.openlocfilehash: c734461f1a57c100b4a00ab5c309659f8b0e903a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: pabutler
+ms.openlocfilehash: 3010b63c7c4c575d915789c19b60710194c79196
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964014"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67874680"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge 모듈
 
@@ -67,7 +67,7 @@ IoT Edge 모듈을 Azure Marketplace에 게시하려면 다음 필수 구성 요
     - 로고 이미지(PNG 형식 및 40x40px, 90x90px, 115x115px, 255x115px를 포함한 고정 이미지 크기)
     - 사용 약관 및 개인정보처리방침
     - 기본 모듈 구성(경로, 원하는 속성 쌍, createOptions, 환경 변수)
-    - 문서화
+    - 설명서
     - 지원 연락처
 
 **기술 요구 사항**
@@ -84,7 +84,7 @@ IoT Edge 모듈 인증을 받고 Azure Marketplace에 모듈을 게시하기 위
 
 - [Microsoft 파트너 네트워크](https://partner.microsoft.com/membership)에 등록합니다.
 - [Microsoft 계정](https://account.microsoft.com/account/)을 만듭니다(Azure Marketplace 거래 제품의 경우 필수, 다른 사용자도 만드는 것이 좋음).
-- [Marketplace 등록 양식](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv)을 제출합니다. 참조 하는 방법 [파트너 센터 계정을 만들](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) 자세한 내용은 합니다.
+- [Marketplace 등록 양식](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv)을 제출합니다. 자세한 내용은 [파트너 센터 계정을 만드는](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) 방법을 참조 하세요.
 
 새 제품을 등록하고 만들거나 기존에서 작업하는 경우
 

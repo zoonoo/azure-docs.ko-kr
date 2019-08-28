@@ -7,25 +7,57 @@ author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 07/24/2018
+ms.date: 08/05/2019
 ms.author: glenga
-ms.openlocfilehash: a32b4815a2716428ceeec034ddc5589e3aa062e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 498bb8c0f1e7bb674605d4a98f0be0f3e0b9a7c9
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60710582"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650490"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Azure Functions에서 함수를 사용하지 않도록 설정하는 방법
 
 이 문서에서는 Azure Functions에서 함수를 사용하지 않도록 설정하는 방법을 설명합니다. 함수를 *사용하지 안도록 설정*하는 것은 함수에 대해 정의된 자동 트리거를 런타임에서 무시하도록 하는 것입니다. 이렇게 하는 방식은 런타임 버전 및 프로그래밍 언어에 따라 다릅니다.
 
-* Functions 1.x
-  * 스크립팅 언어
-  * C# 클래스 라이브러리
-* Functions 2.x
+* 함수 2.x:
   * 모든 언어에 대한 한 가지 방법
   * C# 클래스 라이브러리에 대한 선택적 방법
+* 함수 1.x:
+  * 스크립팅 언어
+  * C# 클래스 라이브러리
+
+## <a name="functions-2x---all-languages"></a>Functions 2.x - 모든 언어
+
+함수 2.x에서 형식의 `AzureWebJobs.<FUNCTION_NAME>.Disabled`앱 설정을 사용 하 여 함수를 사용 하지 않도록 설정 합니다. [Azure CLI](/cli/azure/) 사용 및 [Azure Portal](https://portal.azure.com)의 함수 **관리** 탭에서 비롯 하 여 다양 한 방법으로이 응용 프로그램 설정을 만들고 수정할 수 있습니다. 
+
+### <a name="azure-cli"></a>Azure CLI
+
+Azure CLI에서 [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) 명령을 사용 하 여 앱 설정을 만들고 수정 합니다. 다음 명령은로 `QueueTrigger` `AzureWebJobs.QueueTrigger.Disabled`설정된응용 프로그램설정을만들어라는함수를사용하지않도록설정합니다.`true` 
+
+```azurecli-interactive
+az functionapp config appsettings set --name <myFunctionApp> \
+--resource-group <myResourceGroup> \
+--settings AzureWebJobs.QueueTrigger.Disabled=true
+```
+
+함수를 다시 사용 하도록 설정 하려면 값 `false`을 사용 하 여 동일한 명령을 다시 실행 합니다.
+
+```azurecli-interactive
+az functionapp config appsettings set --name <myFunctionApp> \
+--resource-group <myResourceGroup> \
+--settings AzureWebJobs.QueueTrigger.Disabled=false
+```
+
+### <a name="portal"></a>포털
+
+함수의 **관리** 탭에서 **함수 상태** 스위치를 사용할 수도 있습니다. 스위치는 `AzureWebJobs.<FUNCTION_NAME>.Disabled` 앱 설정을 만들고 삭제함으로써 작동됩니다.
+
+![함수 상태 스위치](media/disable-function/function-state-switch.png)
+
+## <a name="functions-2x---c-class-libraries"></a>Functions 2.x - C# 클래스 라이브러리
+
+Functions 2.x 클래스 라이브러리에서 모든 언어에 대해 작동하는 메서드를 사용하는 것이 좋습니다. 그러나 원한다면 [Functions 1.x에서처럼 사용 안 함 특성을 사용](#functions-1x---c-class-libraries)할 수 있습니다.
 
 ## <a name="functions-1x---scripting-languages"></a>Functions 1.x - 스크립팅 언어
 
@@ -45,7 +77,7 @@ C# 스크립트 및 JavaScript와 같은 스크립팅 언어의 경우 *function
     "disabled": true
 }
 ```
-또는 
+로 구분하거나 여러 
 
 ```json
     "bindings": [
@@ -102,18 +134,6 @@ public static class QueueFunctions
 > **함수 상태** 스위치는 *function.json* 파일을 변경하여 작동하므로 **관리** 탭의 해당 스위치에도 동일하게 적용됩니다.
 >
 > 또한 포털은 함수가 사용 안 함이 아닌 경우 사용 안 함으로 나타낼 수 있습니다.
-
-
-
-## <a name="functions-2x---all-languages"></a>Functions 2.x - 모든 언어
-
-Functions 2.x에서 앱 설정을 사용하여 함수를 사용하지 않도록 설정합니다. 예를 들어 `QueueTrigger`라는 함수를 사용하지 않도록 설정하려면 `AzureWebJobs.QueueTrigger.Disabled`라는 앱 설정을 만들어 `true`로 설정합니다. 함수를 사용하도록 설정하려면 앱 설정을 `false`로 설정합니다. 함수의 **관리** 탭에서 **함수 상태** 스위치를 사용할 수도 있습니다. 스위치는 `AzureWebJobs.<functionname>.Disabled` 앱 설정을 만들고 삭제함으로써 작동됩니다.
-
-![함수 상태 스위치](media/disable-function/function-state-switch.png)
-
-## <a name="functions-2x---c-class-libraries"></a>Functions 2.x - C# 클래스 라이브러리
-
-Functions 2.x 클래스 라이브러리에서 모든 언어에 대해 작동하는 메서드를 사용하는 것이 좋습니다. 그러나 원한다면 [Functions 1.x에서처럼 사용 안 함 특성을 사용](#functions-1x---c-class-libraries)할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -55,7 +55,8 @@
     - name: 이미지의 페이지 표시
       href: paging-images.md
     - name: 크기 조정 및 자르기 썸네일
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: v5에서 v7로 업그레이드
       href: bing-image-upgrade-guide-v5-to-v7.md
 - name: 개념
@@ -79,7 +80,7 @@
         - name: .NET
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingimagesearch?view=azure-dotnet'
         - name: Java
-          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/imagesearch?view=azure-java-stable'
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingimagesearch?view=azure-java-stable'
         - name: Python
           href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/imagesearch?view=azure-python'
         - name: Node.js
@@ -114,6 +115,7 @@
     - name: 언어 및 지역 지원
       href: language-support.md
     - name: Bing Image Search API에 대한 분석
-      href: bing-image-stats.md
+      maintainContext: true
+      href: ../bing-web-search/bing-web-stats.md
     - name: 규정 준수
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

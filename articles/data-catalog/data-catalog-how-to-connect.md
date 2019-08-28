@@ -1,19 +1,17 @@
 ---
 title: Azure Data Catalog에서 데이터 원본에 연결하는 방법
 description: Azure 데이터 카탈로그를 사용하여 검색된 데이터 원본에 연결하는 방법을 강조 표시한 방법 문서
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 4e6b27a5-cf75-4012-b88c-333c1fe638e8
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: c64340491dba11870364610a6c2ff62e25c1328a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: 1190a0f34206004b72730a6af85bbe5db7d9961a
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61001834"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976780"
 ---
 # <a name="how-to-connect-to-data-sources"></a>데이터 원본에 연결하는 방법
 ## <a name="introduction"></a>소개
@@ -30,7 +28,7 @@ ms.locfileid: "61001834"
 
 목록 보기를 사용하는 경우 메뉴는 포털 창의 위쪽에 있는 검색 표시줄에서 사용 가능합니다.
 
- ![검색 표시줄에서 보고서 관리자로 SQL Server Reporting Services 보고서 열기](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
+ ![보고서 관리자에서 SQL Server Reporting Services 보고서 열기](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
 
 ## <a name="supported-client-applications"></a>지원되는 클라이언트 애플리케이션
 Azure Data Catalog 포털에서 데이터 원본에 대한 "열기..." 메뉴를 사용하는 경우 클라이언트 컴퓨터에 올바른 클라이언트 애플리케이션이 설치되어 있어야 합니다.
@@ -61,5 +59,5 @@ Azure Data Catalog 포털에서 데이터 원본에 대한 "열기..." 메뉴를
 ## <a name="summary"></a>요약
 데이터 원본을 **Azure Data Catalog**에 등록하면 구조적 메타데이터 및 설명이 포함된 메타데이터를 데이터 원본에서 카탈로그 서비스로 복사하여 데이터를 검색할 수 있게 합니다. 데이터 원본이 등록되고 검색되면 사용자는 **Azure Data Catalog** 포털 "다음에서 열기..." "메뉴 또는 선택한 자신의 데이터 도구를 사용하여 데이터 원본에 연결할 수 있습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 * [Azure Data Catalog 시작](data-catalog-get-started.md) 자습서.

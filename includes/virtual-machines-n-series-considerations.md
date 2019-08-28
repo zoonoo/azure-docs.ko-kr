@@ -21,7 +21,7 @@ ms.locfileid: "67182164"
 
 * N 시리즈 VM은 Resource Manager 배포 모델에만 배포할 수 있습니다.
 
-* N 시리즈 VM은 디스크에 지원되는 Azure Storage의 유형이 다양합니다. NC 및 NV VM은 표준 디스크 저장소(HDD)로 백업되는 VM 디스크만 지원합니다. NCv2, NCv3, ND, NDv2 및 NVv2 VM은 프리미엄 디스크 스토리지(SSD)로 백업되는 VM 디스크만 지원합니다.
+* N 시리즈 VM은 디스크에 지원되는 Azure Storage의 유형이 다양합니다. NC 및 NV VM은 표준 디스크 스토리지(HDD)로 백업되는 VM 디스크만 지원합니다. NCv2, NCv3, ND, NDv2 및 NVv2 VM은 프리미엄 디스크 스토리지(SSD)로 백업되는 VM 디스크만 지원합니다.
 
 * 몇 개의 N 시리즈 VM을 배포하려는 경우 종량제 구독 또는 기타 구매 옵션을 고려합니다. [Azure 무료 계정](https://azure.microsoft.com/free/)을 사용하는 경우, 제한된 수의 Azure 계산 코어만 사용할 수 있습니다.
 

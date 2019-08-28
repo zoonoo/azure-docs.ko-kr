@@ -16,14 +16,14 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "65209634"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Azure Import/Export 서비스를 사용하여 Azure Blob Storage에서 데이터 내보내기
-이 문서에서는 Azure Import/Export 서비스를 사용하여 Azure Blob Storage에서 많은 양의 데이터를 안전하게 내보내는 방법에 대한 단계별 지침을 제공합니다. 서비스를 사용하려면 빈 드라이브를 Azure 데이터 센터에 배송해야 합니다. 서비스에서 저장소 계정의 데이터를 드라이브로 내보낸 다음, 드라이브를 다시 배송합니다.
+이 문서에서는 Azure Import/Export 서비스를 사용하여 Azure Blob Storage에서 많은 양의 데이터를 안전하게 내보내는 방법에 대한 단계별 지침을 제공합니다. 서비스를 사용하려면 빈 드라이브를 Azure 데이터 센터에 배송해야 합니다. 서비스에서 스토리지 계정의 데이터를 드라이브로 내보낸 다음, 드라이브를 다시 배송합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 내보내기 작업을 만들어 Azure Blob Storage에서 데이터를 전송하기 전에 이 서비스에 대한 다음 필수 조건 목록을 신중하게 검토하고 완료해야 합니다. 다음이 필요합니다.
 
 - Import/Export 서비스에 사용할 수 있는 활성 Azure 구독이 있어야 합니다.
-- Azure Storage 계정이 하나 이상 있어야 합니다. [Import/Export 서비스에 지원되는 저장소 계정 및 저장소 형식](storage-import-export-requirements.md) 목록을 참조하세요. 새 Storage 계정 만들기에 대한 자세한 내용은 [Storage 계정을 만드는 방법](storage-quickstart-create-account.md)(영문)을 참조하세요.
+- Azure Storage 계정이 하나 이상 있어야 합니다. [Import/Export 서비스에 지원되는 스토리지 계정 및 스토리지 형식](storage-import-export-requirements.md) 목록을 참조하세요. 새 Storage 계정 만들기에 대한 자세한 내용은 [Storage 계정을 만드는 방법](storage-quickstart-create-account.md)(영문)을 참조하세요.
 - [지원되는 형식](storage-import-export-requirements.md#supported-disks)에 속한 적절한 개수의 디스크가 있어야 합니다.
 - FedEx/DHL 계정이 있습니다. 이외의 FedEx/DHL 운송 업체를 사용 하려는 경우 Azure 데이터 상자 작업 팀에 문의 `adbops@microsoft.com`합니다. 
     - 계정은 유효해야 하고, 잔액이 있어야 하며, 반품 기능이 있어야 합니다.
@@ -59,10 +59,10 @@ ms.locfileid: "65209634"
     
 3. **작업 세부 정보**에서:
 
-    - 내보낼 데이터가 있는 저장소 계정을 선택합니다. 현재 위치에 가까운 저장소 계정을 사용합니다.
-    - 하차 위치는 선택한 저장소 계정의 지역을 기반으로 자동으로 채워집니다. 
-    - 저장소 계정에서 빈 드라이브로 내보내려는 Blob 데이터를 지정합니다. 
-    - 저장소 계정의 Blob 데이터를 모두 내보내도록 선택합니다(**모두 내보내기**).
+    - 내보낼 데이터가 있는 스토리지 계정을 선택합니다. 현재 위치에 가까운 스토리지 계정을 사용합니다.
+    - 하차 위치는 선택한 스토리지 계정의 지역을 기반으로 자동으로 채워집니다. 
+    - 스토리지 계정에서 빈 드라이브로 내보내려는 Blob 데이터를 지정합니다. 
+    - 스토리지 계정의 Blob 데이터를 모두 내보내도록 선택합니다(**모두 내보내기**).
     
          ![모두 내보내기](./media/storage-import-export-data-from-blobs/export-from-blob4.png) 
 
@@ -142,9 +142,9 @@ ms.locfileid: "65209634"
     |명령줄 매개 변수|설명|  
     |--------------------------|-----------------|  
     |**/logdir:**|선택 사항입니다. 로그 디렉터리입니다. 이 디렉터리에 자세한 로그 파일이 기록됩니다. 지정하지 않으면 현재 디렉터리가 로그 디렉터리로 사용됩니다.|  
-    |**/sn:**|필수 사항입니다. 내보내기 작업에 대한 저장소 계정의 이름입니다.|  
-    |**/sk:**|컨테이너 SAS가 지정되지 않은 경우에만 필요합니다. 내보내기 작업에 대한 저장소 계정의 계정 키입니다.|  
-    |**/csas:**|저장소 계정 키가 지정되지 않은 경우에만 필요합니다. 내보내기 작업에서 내보낼 Blob을 나열하기 위한 컨테이너 SAS입니다.|  
+    |**/sn:**|필수 사항입니다. 내보내기 작업에 대한 스토리지 계정의 이름입니다.|  
+    |**/sk:**|컨테이너 SAS가 지정되지 않은 경우에만 필요합니다. 내보내기 작업에 대한 스토리지 계정의 계정 키입니다.|  
+    |**/csas:**|스토리지 계정 키가 지정되지 않은 경우에만 필요합니다. 내보내기 작업에서 내보낼 Blob을 나열하기 위한 컨테이너 SAS입니다.|  
     |**/ExportBlobListFile:**|필수 사항입니다. 내보낼 Blob에 대한 Blob 경로 또는 Blob 경로 접두사 목록을 포함하고 있는 XML 파일의 경로입니다. Import/Export 서비스 REST API의 [작업 배치](/rest/api/storageimportexport/jobs) 작업에서 `BlobListBlobPath` 요소에 사용되는 파일 형식입니다.|  
     |**/DriveSize:**|필수 사항입니다. 내보내기 작업에 사용할 드라이브의 크기입니다(*예*: 500GB, 1.5TB).|  
 
@@ -195,7 +195,7 @@ Number of drives needed:        3
    
    | 선택기 | Blob 경로 | 설명 |
    | --- | --- | --- |
-   | 시작 단어 |/ |저장소 계정의 모든 Blob을 내보냄 |
+   | 시작 단어 |/ |스토리지 계정의 모든 Blob을 내보냄 |
    | 시작 단어 |/$root/ |루트 컨테이너의 모든 Blob을 내보냄 |
    | 시작 단어 |/book |접두사 **book** |
    | 시작 단어 |/music/ |컨테이너 **music** |

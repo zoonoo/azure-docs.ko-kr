@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB의 API for MongoDB 및 Java SDK를 사용하여 콘솔 앱 빌드
+title: '빠른 시작: Azure API for Mongo DB 및 Java SDK를 사용하여 웹앱 빌드 - Azure Cosmos DB'
 description: Azure Cosmos DB의 API for MongoDB를 사용하여 연결 및 쿼리할 수 있는 Java 코드 샘플을 제공합니다.
 author: rimman
 ms.service: cosmos-db
@@ -8,12 +8,13 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.author: rimman
-ms.openlocfilehash: 2a5cfc417f75e5bb08e416b3243903badcf572e1
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.custom: seo-java-august2019
+ms.openlocfilehash: 693e58cf578b5b2374a1d8fc63da8bb1a77faf1b
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480478"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515836"
 ---
 # <a name="quickstart-build-a-web-app-using-azure-cosmos-dbs-api-for-mongodb-and-java-sdk"></a>빠른 시작: Azure Cosmos DB의 API for MongoDB 및 Java SDK를 사용하여 웹앱 빌드
 
@@ -113,7 +114,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져와서 앱에 복사합니다.
 
-1. 계정에서 **빠른 시작**을 선택하고 Java를 선택한 다음 연결 문자열을 클립보드에 복사합니다.
+1. 계정에서 **빠른 시작**을 선택하고 **Java**를 선택한 다음, 연결 문자열을 클립보드에 복사합니다.
 
 2. `Program.java` 파일을 열고 MongoClientURI 생성자에 대한 인수를 연결 문자열로 바꿉니다. 이제 Azure Cosmos DB와 통신하는 데 필요한 모든 정보로 앱이 업데이트되었습니다. 
     
@@ -121,7 +122,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 1. 터미널에서 `mvn package`를 실행하여 필요한 npm 모듈을 설치합니다.
 
-2. 터미널에서 `mvn exec:java -D exec.mainClass=GetStarted.Program`을 실행하여 Java 응용 프로그램을 시작합니다.
+2. 터미널에서 `mvn exec:java -D exec.mainClass=GetStarted.Program`을 실행하여 Java 애플리케이션을 시작합니다.
 
 이제 [Robomongo](mongodb-robomongo.md) / [Studio 3T](mongodb-mongochef.md)를 사용하여 이 새 데이터를 쿼리, 수정 및 사용할 수 있습니다.
 

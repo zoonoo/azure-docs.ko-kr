@@ -1,7 +1,7 @@
 ---
-title: 의도
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: 사용자 작업을 수행 하려는 또는 단일 의도 작업을 나타냅니다. 사용자의 발언으로 표현되는 목적 또는 목표입니다. 사용자가 애플리케이션에서 수행하려는 작업에 해당하는 의도 집합을 정의합니다.
+title: 의도-LUIS
+titleSuffix: Azure Cognitive Services
+description: 단일 의도는 사용자가 수행 하려는 작업 또는 작업을 나타냅니다. 사용자의 발언으로 표현되는 목적 또는 목표입니다. 사용자가 애플리케이션에서 수행하려는 작업에 해당하는 의도 집합을 정의합니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: e635a11cb99d11befc40703d9f5d2abec8559632
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bb7fa9d930f4c1ab3c241048804060e17fe5a8e4
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813465"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619911"
 ---
 # <a name="concepts-about-intents-in-your-luis-app"></a>LUIS 앱에서 의도에 대한 개념
 
@@ -31,7 +31,7 @@ ms.locfileid: "60813465"
  CheckWeather | “What's the weather like in Boston?” <br/> “Show me the forecast for this weekend” |
  없음         | “Get me a cookie recipe”<br>“Did the Lakers win?” |
 
-미리 정의 된 의도 함께 제공 되는 모든 응용 프로그램 "[None](#none-intent-is-fallback-for-app)"를 대체 (fallback) 의도입니다. 
+모든 응용 프로그램에는 대체 의도 인 미리 정의 된 의도 "[None](#none-intent-is-fallback-for-app)"이 함께 제공 됩니다. 
 
 ## <a name="prebuilt-domains-provide-intents"></a>미리 빌드된 도메인이 의도를 제공함
 사용자가 정의한 의도 외에도 미리 빌드된 도메인 중 하나에서 미리 빌드된 의도를 사용할 수 있습니다. 앱에서 사용하도록 미리 빌드된 도메인에서 의도를 사용자 지정하는 방법에 대한 자세한 내용은 [LUIS 앱에서 미리 빌드된 도메인 사용](luis-how-to-use-prebuilt-domains.md)을 참조하세요.
@@ -42,12 +42,15 @@ ms.locfileid: "60813465"
 ## <a name="intent-compared-to-entity"></a>의도 및 엔터티 비교
 의도는 챗봇이 사용자에게 수행해야 하는 작업을 나타내며 전체 발화를 기반으로 합니다. 엔터티는 발화 내부에 포함된 단어 또는 구문을 나타냅니다. 발화에는 하나의 상위 점수 의도만 포함되지만, 여러 엔터티가 포함될 수 있습니다. 
 
-<a name="how-do-intents-relate-to-entities"></a> 사용자의 ‘의도’가 클라이언트 애플리케이션에서 작업을 트리거할 경우(예: checkweather() 함수 호출) 의도를 만듭니다.  그런 다음, 작업을 실행하는 데 필요한 매개 변수를 나타내는 엔터티를 만듭니다. 
+<a name="how-do-intents-relate-to-entities"></a>
+
+사용자가 checkweather () 함수 호출과 같이 클라이언트 응용 프로그램에서 작업을 트리거하는 의도를 만듭니다. 그런 다음, 작업을 실행하는 데 필요한 매개 변수를 나타내는 엔터티를 만듭니다. 
 
 |예제 의도   | 엔터티 | 예제 발화의 엔터티   | 
 |------------------|------------------------------|------------------------------|
 | CheckWeather | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | What's the weather like in `Seattle` `tomorrow`? |
 | CheckWeather | { "type": "date_range", "entity": "this weekend" } | Show me the forecast for `this weekend` | 
+||||
 
 ## <a name="custom-intents"></a>사용자 지정 의도
 
@@ -59,7 +62,7 @@ ms.locfileid: "60813465"
 
 ## <a name="none-intent"></a>None 의도
 
-합니다 **None** 의도 모든 앱에 중요 하며 0 길이 발언 없어야 합니다.
+모든 앱에는 **아무것도** 중요 하지 않으며 길이 발언는 없어야 합니다.
 
 ### <a name="none-intent-is-fallback-for-app"></a>None 의도는 앱의 대체 의도임
 **None** 의도는 catch-all 또는 대체 의도입니다. 앱 도메인(주체 영역)에서 중요하지 않은 LUIS 발화를 학습시키는 데 사용됩니다. **None** 의도는 애플리케이션에서 총 발화의 10~20% 사이여야 합니다. [없음] 의도를 비워 놓지 마세요. 
@@ -83,9 +86,9 @@ None 의도에 사용할 수 있는 발화 유형은 무엇인가요? “파란�
 
 ## <a name="intents-and-patterns"></a>의도 및 패턴
 
-예제에서는 길이 발언을 일부 또는 전체 정규식으로 정의할 수 있습니다, 있는 경우 사용을 고려 합니다 [정규식 엔터티](luis-concept-entity-types.md#regular-expression-entity) 와 연결을 [패턴](luis-concept-patterns.md)합니다. 
+일부 또는 전체에 정규식으로 정의할 수 있는 예제 길이 발언이 있는 경우 [패턴과](luis-concept-patterns.md)쌍을 이루는 [정규식 엔터티](luis-concept-entity-types.md#regular-expression-entity) 를 사용 하는 것이 좋습니다. 
 
-정규식 엔터티를 사용 하는 패턴 일치 되도록 데이터 추출을 보장 합니다. 패턴 일치는 정확한 의도 되 보장 합니다. 
+정규식 엔터티를 사용 하면 패턴이 일치 하도록 데이터 추출을 보장 합니다. 패턴 일치는 정확한 의도가 반환 되도록 보장 합니다. 
 
 ## <a name="intent-balance"></a>의도 균형
 앱 도메인 의도는 각 의도에 발화를 균형 있게 분산해야 합니다. 한 의도에 10개의 발화를 포함하고 다른 의도에 500개의 발화를 포함하지 마세요. 균형이 맞지 않습니다. 이 상황이 발생하면 500개의 발화가 포함된 의도를 검토하여 많은 의도를 [패턴](luis-concept-patterns.md)으로 재구성할 수 있는지 확인합니다. 

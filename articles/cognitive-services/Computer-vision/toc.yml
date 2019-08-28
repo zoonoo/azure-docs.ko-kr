@@ -53,7 +53,17 @@
               href: QuickStarts/python-thumb.md
             - name: Ruby
               href: QuickStarts/ruby-thumb.md
-        - name: 인쇄된 텍스트 추출
+        - name: 텍스트 추출(API 읽기)
+          items:
+            - name: 'C#'
+              href: QuickStarts/CSharp-hand-text.md
+            - name: Java
+              href: QuickStarts/java-hand-text.md
+            - name: JavaScript
+              href: QuickStarts/javascript-hand-text.md
+            - name: Python
+              href: QuickStarts/python-hand-text.md
+        - name: 인쇄된 텍스트 추출(OCR)
           items:
             - name: 'C#'
               href: QuickStarts/CSharp-print-text.md
@@ -73,16 +83,6 @@
               href: QuickStarts/python-print-text.md
             - name: Ruby
               href: QuickStarts/ruby-print-text.md
-        - name: 필기 텍스트 추출
-          items:
-            - name: 'C#'
-              href: QuickStarts/CSharp-hand-text.md
-            - name: Java
-              href: QuickStarts/java-hand-text.md
-            - name: JavaScript
-              href: QuickStarts/javascript-hand-text.md
-            - name: Python
-              href: QuickStarts/python-hand-text.md
         - name: 도메인 모델 사용
           items:
             - name: PHP
@@ -99,15 +99,17 @@
           href: quickstarts-sdk/csharp-hand-text-sdk.md
     - name: Python SDK 사용
       href: quickstarts-sdk/python-sdk.md
+    - name: Java SDK 사용
+      href: quickstarts-sdk/java-sdk.md
 - name: 자습서
   items:
     - name: 이미지에 대한 메타데이터 생성
       href: Tutorials/storage-lab-tutorial.md
 - name: 개념
   items:
-    - name: 이미지에 태그 지정
+    - name: 콘텐츠 태그
       href: concept-tagging-images.md
-    - name: 개체 검색
+    - name: 개체 감지
       href: concept-object-detection.md
     - name: 브랜드 검색
       href: concept-brand-detection.md
@@ -117,17 +119,17 @@
       href: concept-describing-images.md
     - name: 얼굴 감지
       href: concept-detecting-faces.md
-    - name: 이미지 형식 검색
+    - name: 이미지 형식 감지
       href: concept-detecting-image-types.md
-    - name: 도메인 특정 콘텐츠 검색
+    - name: 도메인 특정 콘텐츠
       href: concept-detecting-domain-content.md
-    - name: 색 구성표 검색
+    - name: 색 구성표 감지
       href: concept-detecting-color-schemes.md
-    - name: 썸네일 생성
+    - name: 스마트하게 자른 썸네일
       href: concept-generating-thumbnails.md
-    - name: 인쇄되고 필기된 텍스트 인식
+    - name: 인쇄 및 필기 텍스트 인식
       href: concept-recognizing-text.md
-    - name: 성인 및 외설 콘텐츠 검색
+    - name: 성인 및 외설 콘텐츠 감지
       href: concept-detecting-adult-content.md
 - name: 방법 가이드
   items:
@@ -137,8 +139,6 @@
           href: Tutorials/java-tutorial.md
         - name: JavaScript
           href: Tutorials/javascript-tutorial.md
-        - name: Python
-          href: Tutorials/PythonTutorial.md
     - name: Computer Vision API 호출
       href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
     - name: 컨테이너 사용
@@ -147,6 +147,10 @@
           href: computer-vision-how-to-install-containers.md
         - name: 컨테이너 구성
           href: computer-vision-resource-container-config.md
+        - name: Kubernetes 및 Helm 활용
+          href: deploy-computer-vision-on-premises.md
+        - name: 컨테이너 인스턴스 사용
+          href: deploy-computer-vision-on-container-instances.md
     - name: Computer Vision 연결 서비스 사용
       href: vs-computer-vision-connected-service.md
     - name: 실시간 비디오 분석
@@ -171,10 +175,8 @@
           href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/computervision?view=azure-python'
         - name: Go
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/computervision'
-        - name: Android(Java)
+        - name: Java
           href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable'
-        - name: Swift
-          href: 'https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK'
 - name: 리소스
   items:
     - name: 샘플

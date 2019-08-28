@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 1/9/2019
+ms.date: 8/2/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 54d7979f9fbe23e9372aa2702b46e42ca64496d2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d7a4a54f979cd4b14e12c5a57792241f1b2388d2
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60522510"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68734714"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>일정에 따라 Azure-SSIS 통합 런타임을 시작하고 중지하는 방법
 이 문서에서는 ADF(Azure Data Factory)를 사용하여 Azure-SSIS IR(통합 런타임)의 시작 및 중지를 예약하는 방법을 설명합니다. Azure-SSIS IR은 SSIS(SQL Server Integration Services) 패키지 전용으로 사용되는 ADF 컴퓨팅 리소스입니다. Azure-SSIS IR 실행 시 관련 비용이 발생합니다. 따라서 일반적으로 Azure에서 SSIS 패키지를 실행해야 할 때만 IR을 실행하고, 더 이상 필요 없으면 중지하는 것이 좋습니다. ADF UI(사용자 인터페이스)/앱 또는 Azure PowerShell을 사용하여 [수동으로 IR을 시작 또는 중지](manage-azure-ssis-integration-runtime.md)할 수 있습니다.
@@ -27,7 +27,7 @@ ms.locfileid: "60522510"
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](tutorial-create-azure-ssis-runtime-portal.md)의 지침에 따라 프로비전하세요. 
 
 ## <a name="create-and-schedule-adf-pipelines-that-start-and-or-stop-azure-ssis-ir"></a>Azure-SSIS IR을 시작 및/또는 중지하는 ADF 파이프라인 만들기 및 예약
@@ -94,7 +94,7 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](tutorial-cr
   
     2. **메서드**로 **POST**를 선택합니다. 
     3. **본문**에 `{"message":"Start my IR"}`를 입력합니다. 
-    4. 에 대 한 **인증**를 선택 **MSI** ADF에 대 한 관리 되는 id를 사용 하려면 참조 [Data Factory에 대 한 관리 id](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) 자세한 문서.
+    4. **인증**의 경우 ADF에 대해 관리 되는 id를 사용 하려면 **MSI** 를 선택 하 고 자세한 내용은 [Data Factory에 대 한 관리 id](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) 문서를 참조 하세요.
     5. **리소스**에 `https://management.azure.com/`을 입력합니다.
     
        ![ADF 웹 작업 일정 SSIS IR](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-schedule-ssis-ir.png)
@@ -114,7 +114,7 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](tutorial-cr
     1. **역할**에 **참가자**를 선택합니다. 
     2. **액세스 할당**에서 **Azure AD 사용자, 그룹 또는 서비스 보안 주체**를 선택합니다. 
     3. **선택**에서 ADF 이름을 검색하여 선택합니다. 
-    4. **저장**을 클릭합니다.
+    4. **Save**을 클릭합니다.
     
    ![ADF 관리 ID 역할 할당](./media/how-to-schedule-azure-ssis-integration-runtime/adf-managed-identity-role-assignment.png)
 
@@ -133,7 +133,7 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](tutorial-cr
     1. **서버 이름**의 경우 **&lt;Azure SQL Database 서버 이름&gt;.database.windows.net**을 입력합니다.
     2. **옵션 >>** 을 선택합니다.
     3. **데이터베이스에 연결**에 대해 **SSISDB**를 선택합니다.
-    4. **연결**을 선택합니다. 
+    4.           **연결**을 선택합니다. 
     5. **Integration Services 카탈로그** -> **SSISDB** -> 사용자 폴더 -> **프로젝트** -> 사용자 SSIS 프로젝트 -> **패키지**를 펼칩니다. 
     6. SSIS 패키지를 마우스 오른쪽 단추로 클릭하고, **보고서** -> **표준 보고서** -> **모든 실행**을 실행 및 선택합니다. 
     7. 실행되었는지 확인합니다. 
@@ -177,7 +177,7 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](tutorial-cr
 
 2. 파이프라인 실행과 연결된 작업 실행을 보려면 **작업** 열에서 첫 번째 링크(**작업 실행 보기**)를 선택합니다. 세 번째 파이프라인에는 파이프라인의 연결된 작업당 하나씩 총 세 개의 작업 실행이 있습니다(IR을 시작하는 웹 작업, 패키지를 실행하는 저장 프로시저 작업, IR을 중지하는 웹 작업). 파이프라인 실행을 다시 보려면 위쪽의 **파이프라인** 링크를 선택합니다.
 
-   ![작업 실행](./media/how-to-schedule-azure-ssis-integration-runtime/activity-runs.png)
+   ![활동 실행](./media/how-to-schedule-azure-ssis-integration-runtime/activity-runs.png)
 
 3. 트리거 실행을 보려면 상단의 **파이프라인 실행** 아래에 있는 드롭다운 목록에서 **트리거 실행**을 선택합니다. 
 
@@ -336,7 +336,7 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](tutorial-cr
     2. **데이터 팩터리 이름**에는 Azure-SSIS IR이 있는 ADF의 이름을 입력합니다. 
     3. **AZURESSISNAME**으로 Azure-SSIS IR의 이름을 입력합니다. 
     4. **OPERATION**에 **START**를 입력합니다. 
-    5. **확인**을 선택합니다.  
+    5.           **확인**을 선택합니다.  
 
    ![Runbook 시작 창](./media/how-to-schedule-azure-ssis-integration-runtime/start-runbook-window.png)
    
@@ -345,6 +345,8 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](tutorial-cr
    ![Azure SSIS IR - 시작됨](./media/how-to-schedule-azure-ssis-integration-runtime/start-completed.png)
     
 7. **OPERATION** 값으로 **STOP**을 사용하여 위의 두 단계를 반복합니다. 도구 모음에서 **시작** 단추를 선택하여 Runbook을 다시 시작합니다. 리소스 그룹, ADF 및 Azure-SSIS IR 이름을 입력합니다. **OPERATION**에 대해 **STOP**을 입력합니다. 출력 창에 **##### Stopping #####** 메시지가 표시된 후 **##### Completed #####** 메시지가 표시될 때까지 기다립니다. Azure-SSIS IR 중지는 시작만큼 오래 걸리지 않습니다. **작업** 창을 닫고 **Runbook** 창으로 돌아갑니다.
+
+8. **웹 후크** 메뉴 항목을 선택 하거나 아래 지정 된 **일정** 메뉴 항목을 선택 하 여 만들 수 있는 일정을 선택 하 여 만들 수 있는 webhook를 통해 runbook을 트리거할 수도 있습니다.  
 
 ## <a name="create-schedules-for-your-runbook-to-startstop-azure-ssis-ir"></a>Azure-SSIS IR을 시작/중지하는 일정 만들기
 
@@ -380,7 +382,7 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](tutorial-cr
 
 ## <a name="next-steps"></a>다음 단계
 다음 블로그 게시물을 참조하십시오.
--   [ADF 파이프라인에서 SSIS 작업을 사용하여 ETL/ELT 워크플로 현대화 및 확장](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/)
+-   [ADF 파이프라인에서 SSIS 작업을 사용하여 ETL/ELT 워크플로 현대화 및 확장](https://techcommunity.microsoft.com/t5/SQL-Server-Integration-Services/Modernize-and-Extend-Your-ETL-ELT-Workflows-with-SSIS-Activities/ba-p/388370)
 
 SSIS 설명서에서 다음 문서를 참조하세요. 
 

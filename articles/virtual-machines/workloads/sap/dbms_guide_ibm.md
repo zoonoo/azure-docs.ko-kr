@@ -342,7 +342,7 @@ Microsoft Azure 가상 컴퓨터 서비스에서 LUW 용 IBM Db2의 SAP는 Db2 �
 지원되는 SAP 제품 및 Azure VM 형식에 대한 내용은 SAP Note [1928533]을 참조하세요.
 
 ## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Linux, UNIX 및 Azure Vm의 SAP 설치에 대 한 구성 지침 Windows 용 IBM Db2
-### <a name="storage-configuration"></a>저장소 구성
+### <a name="storage-configuration"></a>스토리지 구성
 모든 데이터베이스 파일은 직접 연결된 디스크 기반의 NTFS 파일 시스템에 저장되어야 합니다. 이러한 디스크는 Azure VM에 탑재되며, Azure 페이지 Blob Storage(<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) 또는 Managed Disks(<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>)를 기반으로 합니다. 모든 종류의 네트워크 드라이브 또는 다음 Azure 파일 서비스 같은 원격 공유는 데이터베이스 파일에 대해 지원되지 **않습니다** . 
 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx>
@@ -356,11 +356,11 @@ Azure 페이지 BLOB Storage 또는 Managed Disks에 기반한 디스크를 사�
 
 SAP 설치 가이드의 ‘데이터베이스 디렉터리의 데이터 보안 및 성능 고려 사항’ 장에서도 성능 고려 사항을 참조할 수 있습니다.
 
-또는 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 고려 사항](dbms_guide_general.md)에서 설명한 대로 Window 저장소 풀(Windows Server 2012 이상에서만 사용 가능)을 사용하여 탑재된 여러 디스크에 하나의 큰 논리적 디바이스를 만들 수 있습니다.
+또는 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 고려 사항](dbms_guide_general.md)에서 설명한 대로 Window 스토리지 풀(Windows Server 2012 이상에서만 사용 가능)을 사용하여 탑재된 여러 디스크에 하나의 큰 논리적 디바이스를 만들 수 있습니다.
 
 <!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
-Sapdata 및 saptmp 디렉터리에 대 한 Db2 저장소 경로 포함 하는 디스크, 실제 디스크 섹터 크기는 512KB를 지정 해야 합니다. Windows 저장소 풀을 사용하는 경우 `-LogicalSectorSizeDefault` 매개 변수를 사용하여 명령줄 인터페이스를 통해 수동으로 저장소 풀을 만들어야 합니다. 자세한 내용은 <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>을 참조하세요.
+Sapdata 및 saptmp 디렉터리에 대 한 Db2 저장소 경로 포함 하는 디스크, 실제 디스크 섹터 크기는 512KB를 지정 해야 합니다. Windows 스토리지 풀을 사용하는 경우 `-LogicalSectorSizeDefault` 매개 변수를 사용하여 명령줄 인터페이스를 통해 수동으로 스토리지 풀을 만들어야 합니다. 자세한 내용은 <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>을 참조하세요.
 
 Azure M-Series VM의 경우, Azure Write Accelerator를 사용하면 Azure Premium Storage 성능과 비교하여 요소에 의해 트랜잭션 로그에 대한 기록 대기 시간을 줄일 수 있습니다. 따라서 Db2 트랜잭션 로그용 볼륨을 형성 하는 VHD(s)에 대 한 Azure Write Accelerator를 배포 해야 합니다. 자세한 내용은 [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) 문서에서 참조할 수 있습니다.
 
@@ -388,7 +388,7 @@ MSCS(Microsoft Cluster Server)는 지원되지 않습니다.
 
 Db2 고가용성 재해 복구 (HADR) 지원 됩니다. HA 구성의 가상 머신에 이름 확인 작업이 있는 경우 Azure 설정이 온-프레미스의 설정과 다르지 않습니다. IP 확인만 사용하는 것은 권장되지 않습니다.
 
-데이터베이스 디스크를 저장하는 저장소 계정에는 지역에서 복제를 사용하지 마세요. 자세한 내용은 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 고려 사항](dbms_guide_general.md) 문서를 참조하세요. 
+데이터베이스 디스크를 저장하는 스토리지 계정에는 지역에서 복제를 사용하지 마세요. 자세한 내용은 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 고려 사항](dbms_guide_general.md) 문서를 참조하세요. 
 
 ### <a name="accelerated-networking"></a>가속 네트워킹
 Windows에서 Db2 배포에 대 한 것이 좋습니다 문서에 설명 된 대로 가속화 된 네트워킹의 Azure 기능을 사용 하려면 [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/)합니다. 또한 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)도 고려하세요. 

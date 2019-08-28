@@ -1,20 +1,18 @@
 ---
 title: Node.js v2용 클라이언트 라이브러리를 사용하여 Azure Storage에 Blob을 만드는 방법
-description: 개체(Blob) 저장소에서 저장소 계정 및 컨테이너를 만듭니다. 그런 다음, Node.js v2용 Azure Storage 클라이언트 라이브러리를 사용하여 Azure Storage에 Blob을 업로드하고, Blob을 다운로드하고, 컨테이너에 Blob을 나열합니다.
-services: storage
+description: 개체(Blob) 스토리지에서 스토리지 계정 및 컨테이너를 만듭니다. 그런 다음, Node.js v2용 Azure Storage 클라이언트 라이브러리를 사용하여 Azure Storage에 Blob을 업로드하고, Blob을 다운로드하고, 컨테이너에 Blob을 나열합니다.
 author: mhopkins-msft
-ms.custom: mvc
-ms.service: storage
-ms.topic: conceptual
-ms.date: 02/04/2019
 ms.author: mhopkins
-ms.reviewer: seguler
-ms.openlocfilehash: 7ca1eacd1add7453833b4b9ad1d4bd0fbef13ca7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 02/04/2019
+ms.service: storage
+ms.subservice: blobs
+ms.topic: conceptual
+ms.openlocfilehash: 89dbd6cc9a03398427b157fa207adb898d3bfc56
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65149430"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721965"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-nodejs-v2"></a>Node.js SDK v2용 클라이언트 라이브러리를 사용하여 Blob을 업로드, 다운로드 및 나열하는 방법
 
@@ -23,11 +21,11 @@ ms.locfileid: "65149430"
 > [!TIP]
 > Node.js용 Azure Storage 클라이언트 라이브러리의 최신 버전은 v10입니다. 가능한 경우 클라이언트 라이브러리의 최신 버전을 사용 하는 것이 좋습니다. v10을 사용하여 시작하려면 [빠른 시작: JavaScript용 Azure Storage 클라이언트 라이브러리 v10을 사용하여 Blob 업로드, 다운로드, 나열 및 삭제(미리 보기)](storage-quickstart-blobs-nodejs-v10.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-[Azure Portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM)에서 Azure Storage 계정을 만듭니다. 저장소 계정을 만드는 데 도움이 필요한 경우 [저장소 계정 만들기](../common/storage-quickstart-create-account.md)를 참조하세요.
+[Azure Portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM)에서 Azure Storage 계정을 만듭니다. 스토리지 계정을 만드는 데 도움이 필요한 경우 [스토리지 계정 만들기](../common/storage-quickstart-create-account.md)를 참조하세요.
 
 ## <a name="download-the-sample-application"></a>샘플 애플리케이션 다운로드
 
@@ -41,7 +39,7 @@ git clone https://github.com/Azure-Samples/storage-blobs-node-quickstart.git
 
 [!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
-## <a name="configure-your-storage-connection-string"></a>저장소 연결 문자열 구성
+## <a name="configure-your-storage-connection-string"></a>스토리지 연결 문자열 구성
 
 애플리케이션을 실행하기 전에 스토리지 계정에 대한 연결 문자열을 제공해야 합니다. 샘플 리포지토리에는 *.env.example*이라는 파일이 포함되어 있습니다. *.example* 확장명을 제거하여 *.env* 파일이 되도록 이 파일의 이름을 바꿀 수 있습니다. *.env* 파일 내에서 *AZURE_STORAGE_CONNECTION_STRING* 키 뒤에 연결 문자열 값을 추가합니다.
 
@@ -289,7 +287,7 @@ const localFilePath = "./readme.md";
 let response;
 ```
 
-저장소 계정의 컨테이너를 나열하기 위해 listContainers 함수가 호출되고 반환된 컨테이너 목록이 출력 창에 기록됩니다.
+스토리지 계정의 컨테이너를 나열하기 위해 listContainers 함수가 호출되고 반환된 컨테이너 목록이 출력 창에 기록됩니다.
 
 ```javascript
 console.log("Containers:");
@@ -331,7 +329,7 @@ response = await downloadBlob(containerName, blobName);
 console.log(`Downloaded blob content: "${response.text}"`);
 ```
 
-마지막으로, Blob 및 컨테이너가 저장소 계정에서 삭제됩니다.
+마지막으로, Blob 및 컨테이너가 스토리지 계정에서 삭제됩니다.
 
 ```javascript
 await deleteBlob(containerName, blobName);
@@ -342,7 +340,7 @@ console.log(`Container "${containerName}" is deleted`);
 ```
 
 ## <a name="clean-up-resources"></a>리소스 정리
-저장소 계정에 기록된 모든 데이터는 코드 샘플 끝 부분에서 자동으로 삭제됩니다. 
+스토리지 계정에 기록된 모든 데이터는 코드 샘플 끝 부분에서 자동으로 삭제됩니다. 
 
 ## <a name="resources-for-developing-nodejs-applications-with-blobs"></a>BLOB을 사용하여 Node.js 애플리케이션을 개발하기 위한 리소스
 

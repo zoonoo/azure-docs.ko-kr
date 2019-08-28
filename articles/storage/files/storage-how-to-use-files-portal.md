@@ -1,34 +1,33 @@
 ---
 title: Azure Portal을 사용하여 Azure 파일 공유를 관리하기 위한 빠른 시작
 description: 이 빠른 시작을 통해 Azure Portal을 사용하여 Azure Files를 관리하는 방법을 알아봅니다.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 69e7dba06fce14c2411a82dfade344ba1b14a6d3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7d7618d2542b1c1d83ed7328c8a32d80f2d0e66a
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698744"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699520"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure 파일 공유 만들기 및 관리 
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 Windows, Linux 및 macOS에 탑재할 수 있습니다. 이 가이드에서는 [Azure Portal](https://portal.azure.com/)을 사용하여 Azure 파일 공유 작업의 기본 사항을 안내합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="create-a-storage-account"></a>저장소 계정 만들기
+## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 [!INCLUDE [storage-files-create-storage-account-portal](../../../includes/storage-files-create-storage-account-portal.md)]
 
 ## <a name="create-an-azure-file-share"></a>Azure 파일 공유 만들기
 Azure 파일 공유 만들려면:
 
-1. 대시보드에서 저장소 계정을 선택합니다.
-2. 저장소 계정 페이지의 **서비스** 섹션에서 **파일**을 선택합니다.
-    ![저장소 계정의 서비스 섹션에서 파일 서비스 선택에 대한 스크린샷](media/storage-how-to-use-files-portal/create-file-share-1.png)
+1. 대시보드에서 스토리지 계정을 선택합니다.
+2. 스토리지 계정 페이지의 **서비스** 섹션에서 **파일**을 선택합니다.
+    ![스토리지 계정의 서비스 섹션에서 파일 서비스 선택에 대한 스크린샷](media/storage-how-to-use-files-portal/create-file-share-1.png)
 
 3. **파일 서비스** 페이지 위쪽의 메뉴에서 **+ 파일 공유**를 클릭합니다. **새 파일 공유** 페이지가 드롭다운 방식으로 펼쳐집니다.
 4. **이름**에서 *myshare*를 입력합니다.

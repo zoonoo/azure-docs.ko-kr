@@ -5,18 +5,17 @@ services: search
 manager: pablocas
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: f05161dbbfd9293cd7b1cbf447bb7ca1c313250c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.subservice: cognitive-search
+ms.openlocfilehash: 25f6075d1e026745d4db1a60149e109a0f9636a4
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65023456"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69635967"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>엔터티 인식 기술
 
@@ -32,24 +31,24 @@ ms.locfileid: "65023456"
 Microsoft.Skills.Text.EntityRecognitionSkill
 
 ## <a name="data-limits"></a>데이터 제한
-레코드의 최대 크기는 `String.Length`에 의해 측정된 대로 50,000자여야 합니다. 핵심 구문 추출기로 보내기 전에 데이터를 분할해야 할 경우 [텍스트 분할 기술](cognitive-search-skill-textsplit.md) 사용을 고려합니다.
+레코드의 최대 크기는에 따라 [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)측정 되는 5만 자 여야 합니다. 핵심 구문 추출기로 보내기 전에 데이터를 분할해야 할 경우 [텍스트 분할 기술](cognitive-search-skill-textsplit.md) 사용을 고려합니다.
 
 ## <a name="skill-parameters"></a>기술 매개 변수
 
 매개 변수는 대/소문자를 구분하며 모두 선택 사항입니다.
 
-| 매개 변수 이름     | 설명 |
+| 매개 변수 이름     | Description |
 |--------------------|-------------|
-| 범주    | 추출되어야 하는 범주 배열입니다.  가능한 범주 형식: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. 범주가 제공되지 않으면 모든 형식이 반환됩니다.|
+| categories    | 추출되어야 하는 범주 배열입니다.  가능한 범주 형식: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. 범주가 제공되지 않으면 모든 형식이 반환됩니다.|
 |defaultLanguageCode |  입력 텍스트의 언어 코드입니다. 다음 언어 `de, en, es, fr, it`가 지원됩니다.|
-|minimumPrecision | 사용되지 않습니다. 나중에 사용하도록 예약되어 있습니다. |
+|minimumPrecision | 사용되지 않습니다. 나중에 사용하기 위해 예약되어 있습니다. |
 |includeTypelessEntities | 텍스트에 잘 알려진 엔터티가 포함되어 있지만 지원되는 범주 중 하나로 분류할 수 없는 경우 `"entities"` 복합 출력 필드의 일부로 반환됩니다. 
-이러한 값은 잘 알려져 있지만 현재 지원 되는 "범주"의 일환으로 분류 되지 않은 엔터티입니다. 예를 들어 "Windows 10"은 잘 알려진 엔터티 (제품) "제품"에 없지만 현재 지원 되는 범주입니다. 기본값은 `false`입니다. |
+이러한 엔터티는 잘 알려져 있지만 현재 지원 되는 "범주"의 일부로 분류 되지 않습니다. 예를 들어 "Windows 10"은 잘 알려진 엔터티 (a 제품) 이지만 "Products"는 현재 지원 되는 범주에 속하지 않습니다. 기본값은 `false`입니다. |
 
 
 ## <a name="skill-inputs"></a>기술 입력
 
-| 입력 이름      | 설명                   |
+| 이름 입력      | 설명                   |
 |---------------|-------------------------------|
 | languageCode  | 선택 사항입니다. 기본값은 `"en"`입니다.  |
 | text          | 분석할 텍스트입니다.          |
@@ -59,7 +58,7 @@ Microsoft.Skills.Text.EntityRecognitionSkill
 > [!NOTE]
 > 모든 엔터티 범주가 모든 언어로 지원되는 것은 아닙니다. _en_, _es_만 `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"` 형식의 추출을 지원합니다.
 
-| 출력 이름     | 설명                   |
+| 출력 이름     | Description                   |
 |---------------|-------------------------------|
 | persons      | 각 문자열이 사람 이름을 나타내는 경우 문자열 배열입니다. |
 | locations  | 각 문자열이 위치를 나타내는 경우 문자열 배열입니다. |
@@ -194,7 +193,7 @@ Microsoft.Skills.Text.EntityRecognitionSkill
 ## <a name="error-cases"></a>오류 사례
 문서에 대한 언어 코드가 지원되지 않는 경우 오류가 반환되고 엔터티가 추출되지 않습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 + [미리 정의된 기술](cognitive-search-predefined-skills.md)
 + [기능을 정의하는 방법](cognitive-search-defining-skillset.md)

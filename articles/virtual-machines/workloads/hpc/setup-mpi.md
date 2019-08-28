@@ -4,7 +4,7 @@ description: Azure에서 HPC에 대 한 MPI를 설정 하는 방법에 알아봅
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 5356a033dbc3d989dd27019f03b1fe36035ff9a4
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 541e42a72ea604c4d71dc546b14dea2f0857bcc1
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441643"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797504"
 ---
 # <a name="set-up-message-passing-interface-for-hpc"></a>HPC 용 메시지 전달 인터페이스를 설정 합니다.
 
@@ -126,7 +126,7 @@ sudo ./platform_mpi-09.01.04.03r-ce.bin
 
 ## <a name="osu-mpi-benchmarks"></a>OSU MPI 벤치 마크
 
-[OSU MPI 벤치 마크 다운로드] [ http://mvapich.cse.ohio-state.edu/benchmarks/ ](http://mvapich.cse.ohio-state.edu/benchmarks/) 및 여 untar 합니다.
+[MPI 벤치 마크 OSU 다운로드](http://mvapich.cse.ohio-state.edu/benchmarks/) 여 untar 및 합니다.
 
 ```bash
 wget http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-5.5.tar.gz
@@ -146,7 +146,7 @@ MPI 벤치 마크는 `mpi/` 폴더입니다.
 
 ## <a name="discover-partition-keys"></a>파티션 키를 검색 합니다.
 
-다른 Vm과 통신 하는 것에 대 한 파티션 키 (p-키)를 검색 합니다.
+동일한 테 넌 트 (가용성 집합 또는 VM 확장 집합) 내 다른 Vm과 통신에 대 한 파티션 키 (p-키)를 검색 합니다.
 
 ```bash
 /sys/class/infiniband/mlx5_0/ports/1/pkeys/0
@@ -164,13 +164,15 @@ cat /sys/class/infiniband/mlx5_0/ports/1/pkeys/1
 
 기본 (0x7fff) 파티션 키 이외의 파티션을 사용 합니다. UCX 지울 p 키의 MSB 필요 합니다. 예를 들어로 UCX_IB_PKEY 0x000b 0x800b에 대 한 합니다.
 
+(AVSet 또는 VMSS) 테 넌 트 존재는 PKEYs 동일 하 게 유지 note도 합니다. 노드 추가/삭제 된 경우에 마찬가지입니다. 새 테 넌 트에 다른 PKEYs를 가져옵니다.
+
 
 ## <a name="set-up-user-limits-for-mpi"></a>MPI에 대 한 사용자 제한 설정
 
 MPI에 대 한 사용자의 한도 설정 합니다.
 
 ```bash
-cat << EOF >> /etc/security/limits.conf
+cat << EOF | sudo tee -a /etc/security/limits.conf
 *               hard    memlock         unlimited
 *               soft    memlock         unlimited
 *               hard    nofile          65535

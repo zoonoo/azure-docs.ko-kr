@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5b2c153646021aeb8ee0dbb787cfce41af19568d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4b250a5e14ab37553d93453d05f8ff388bf1ba84
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443670"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620516"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Stream Analytics를 사용하여 IoT 솔루션 빌드
 
@@ -164,7 +164,7 @@ ms.locfileid: "67443670"
 
    쿼리를 설명하기 위해 요금소 창구에 진입하는 차량 수를 계산해야 한다고 가정해 보겠습니다. 고속도로 요금소 창구에 차량 진입의 연속 스트림이 있기 때문에 진입 이벤트는 중지되지 않는 스트림과 유사합니다. 스트림을 수량화하기 위해 측정할 "시간"을 정의해야 합니다. 질문을 "3분 간격으로 요금소 창구에 진입하는 차량은 몇 대입니까?"로 더 구체화해 보겠습니다. 이를 일반적으로 연속 개수(Tumbling Count)라고 합니다.
 
-   아시다시피 Azure Stream Analytics는 SQL과 유사한 쿼리를 사용하고 몇 가지 확장을 추가하여 쿼리의 시간 관련 측면을 지정합니다.  자세한 내용은 쿼리에 사용된 [시간 관리](https://msdn.microsoft.com/library/azure/mt582045.aspx) 및 [시간대](https://msdn.microsoft.com/library/azure/dn835019.aspx)(Windowing) 구성을 참조하세요.
+   아시다시피 Azure Stream Analytics는 SQL과 유사한 쿼리를 사용하고 몇 가지 확장을 추가하여 쿼리의 시간 관련 측면을 지정합니다.  자세한 내용은 쿼리에 사용된 [시간 관리](https://docs.microsoft.com/stream-analytics-query/time-management-azure-stream-analytics) 및 [시간대](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics)(Windowing) 구성을 참조하세요.
 
 3. TollApp 샘플 작업의 입력을 검사합니다. 현재 쿼리에 EntryStream 입력만 사용됩니다.
    - **EntryStream** 입력은 자동차가 고속도로의 요금소에 진입할 때마다 나타내는 데이터를 큐에 대기하는 Event Hub 연결입니다. 이 샘플의 일부인 웹앱은 이벤트를 만들고, 해당 데이터는 이 Event Hub에서 큐에 대기합니다. 이 입력은 스트리밍 쿼리의 FROM 절에 쿼리됩니다.
@@ -202,7 +202,7 @@ ms.locfileid: "67443670"
 ## <a name="report-total-time-for-each-car"></a>각 자동차에 대한 총 시간 보고
 자동차가 요금소를 통과하는 데 필요한 평균 시간은 프로세스의 효율성과 고객 경험을 평가하는 데 도움이 됩니다.
 
-총 시간을 확인하려면 ExitTime 스트림과 EntryTime 스트림을 조인합니다. 동일하게 일치하는 TollId 및 LicencePlate 열에서 두 개의 입력 스트림을 조인합니다. **JOIN** 연산자에서는 조인된 이벤트 간에 허용할 수 있는 시간 차이를 설명하는 일시적인 시간 여유를 지정해야 합니다. **DATEDIFF** 함수를 사용하여 이벤트 사이의 간격이 15분 이하가 되도록 지정합니다. **DATEDIFF** 함수를 진출과 진입 시간에 적용하여 차량이 요금소에서 사용하는 실제 시간을 계산합니다. **SELECT** 문에서 **DATEDIFF**를 사용할 때 **JOIN** 조건에서 사용하는 것에 비해 어떤 차이가 있는지 적어둡니다.
+총 시간을 확인하려면 ExitTime 스트림과 EntryTime 스트림을 조인합니다. 동일하게 일치하는 TollId 및 LicencePlate 열에서 두 개의 입력 스트림을 조인합니다. **JOIN** 연산자에서는 조인된 이벤트 간에 허용할 수 있는 시간 차이를 설명하는 일시적인 시간 여유를 지정해야 합니다. **DATEDIFF** 함수를 사용하여 이벤트 사이의 간격이 15분 이하가 되도록 지정합니다. **DATEDIFF** 함수를 진출과 진입 시간에 적용하여 차량이 요금소에서 사용하는 실제 시간을 컴퓨팅합니다. **SELECT** 문에서 **DATEDIFF**를 사용할 때 **JOIN** 조건에서 사용하는 것에 비해 어떤 차이가 있는지 적어둡니다.
 
 ```sql
 SELECT EntryStream.TollId, EntryStream.EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute, EntryStream.EntryTime, ExitStream.ExitTime) AS DurationInMinutes
@@ -304,12 +304,12 @@ GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId
 
 3. 스트리밍 작업의 CONFIGURE 제목 아래에서 **크기 조정**을 선택합니다.
 
-4. **스트리밍 단위** 슬라이더를 1에서 6으로 조정합니다. 스트리밍 단위는 작업이 검색할 수 있는 계산 능력의 크기를 정의합니다. **저장**을 선택합니다.
+4. **스트리밍 단위** 슬라이더를 1에서 6으로 조정합니다. 스트리밍 단위는 작업이 검색할 수 있는 컴퓨팅 능력의 크기를 정의합니다. **저장**을 선택합니다.
 
-5. 추가 규모 조정을 보여주는 스트리밍 작업을 **시작**합니다. Azure Stream Analytics에서는 추가 계산 리소스에 작업을 분산하고 더 많은 처리량을 달성할 뿐만 아니라 PARTITION BY 절에 지정된 열을 사용하여 리소스에 작업을 분할합니다.
+5. 추가 규모 조정을 보여주는 스트리밍 작업을 **시작**합니다. Azure Stream Analytics에서는 추가 컴퓨팅 리소스에 작업을 분산하고 더 많은 처리량을 달성할 뿐만 아니라 PARTITION BY 절에 지정된 열을 사용하여 리소스에 작업을 분할합니다.
 
 ## <a name="monitor-the-job"></a>작업 모니터링
-**모니터링** 영역에는 실행 중인 작업에 대한 통계가 들어 있습니다. 동일한 지역에서 저장소 계정을 사용하는 데 처음으로 구성이 필요합니다(이 문서의 나머지 부분과 같은 이름 toll).
+**모니터링** 영역에는 실행 중인 작업에 대한 통계가 들어 있습니다. 동일한 지역에서 스토리지 계정을 사용하는 데 처음으로 구성이 필요합니다(이 문서의 나머지 부분과 같은 이름 toll).
 
 ![Azure Stream Analytics 작업 모니터링](media/stream-analytics-build-an-iot-solution-using-stream-analytics/stream-analytics-job-monitoring.png)
 

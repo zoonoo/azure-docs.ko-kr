@@ -1,6 +1,6 @@
 ---
-title: Azure Cloud Shell의 Bash 빠른 시작 | Microsoft Docs
-description: Azure Cloud Shell의 Bash에 대한 빠른 시작
+title: Azure Cloud Shell 빠른 시작 | Microsoft Docs
+description: Azure Cloud Shell에 대 한 빠른 시작
 services: ''
 documentationcenter: ''
 author: maertendMSFT
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
-ms.openlocfilehash: b8f96de7214a46c9e38182c141343a46c0e28139
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8151013f263c6cf2f90e89fa1c3b0b3025f2ea38
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60199620"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741979"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Azure Cloud Shell의 Bash에 대한 빠른 시작
 
@@ -32,7 +32,7 @@ ms.locfileid: "60199620"
 1. Azure Portal의 위쪽 탐색 모음에서 **Cloud Shell**을 시작합니다. <br>
 ![](media/quickstart/shell-icon.png)
 
-2. 구독을 선택하여 저장소 계정 및 Microsoft Azure Files 공유를 만듭니다.
+2. 구독을 선택하여 스토리지 계정 및 Microsoft Azure Files 공유를 만듭니다.
 3. "저장소 만들기"를 선택합니다.
 
 > [!TIP]

@@ -1,9 +1,9 @@
 ---
-title: Azure Monitor에서 Azure Active Directory 감사 로그 스키마를 해석 | Microsoft Docs
-description: Azure Monitor에서 사용 하기 위해 Azure AD 감사 로그 스키마를 설명 합니다.
+title: Azure Monitor에서 Azure Active Directory 감사 로그 스키마 해석 Microsoft Docs
+description: Azure Monitor에서 사용할 Azure AD 감사 로그 스키마에 대해 설명 합니다.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9f58b213e50a021651f35112a48d8f74ae59571
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7f75af14e388626a9ebbb54d43079f30dcfdd98a
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60437076"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987950"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Azure Monitor(미리 보기)에서 Azure AD 감사 로그 스키마 해석
 
@@ -149,7 +149,7 @@ ms.locfileid: "60437076"
 
 | 필드 이름 | 설명 |
 |------------|-------------|
-| time       | 날짜 및 시간(UTC)입니다. |
+| Time       | 날짜 및 시간(UTC)입니다. |
 | operationName | 작업의 이름입니다. |
 | operationVersion | 클라이언트에서 요청한 REST API 버전입니다. |
 | category | 현재 *감사*는 유일하게 지원되는 값입니다. |
@@ -160,18 +160,18 @@ ms.locfileid: "60437076"
 | durationMS |  이 필드를 매핑 해제하고 안전하게 무시할 수 있습니다. |
 | callerIpAddress | 요청한 클라이언트의 IP 주소입니다. | 
 | correlationId | 클라이언트에서 전달한 선택적 GUID입니다. 이는 클라이언트 쪽 작업을 서버 쪽 작업과 상관 관계를 지정하는 데 도움이 될 수 있으며, 서비스에 걸쳐 있는 로그를 추적하는 경우에 유용합니다. |
-| ID | 요청할 때 제공된 토큰의 ID입니다. ID는 사용자 계정, 시스템 계정 또는 서비스 사용자일 수 있습니다. |
-| level | 메시지 유형입니다. 감사 로그의 경우 수준은 항상 *정보 제공*입니다. |
-| location | 데이터 센터의 위치입니다. |
-| properties | 감사 로그와 관련된 지원되는 속성을 나열합니다. 자세한 내용은 다음 테이블을 참조하세요. | 
+| identity | 요청할 때 제공된 토큰의 ID입니다. ID는 사용자 계정, 시스템 계정 또는 서비스 사용자일 수 있습니다. |
+| 수준(level) | 메시지 유형입니다. 감사 로그의 경우 수준은 항상 *정보 제공*입니다. |
+| 위치 | 데이터 센터의 위치입니다. |
+| 속성 | 감사 로그와 관련된 지원되는 속성을 나열합니다. 자세한 내용은 다음 테이블을 참조하세요. | 
 
 <br>
 
 | 속성 이름 | 설명 |
 |---------------|-------------|
-| AuditEventCategory | 감사 이벤트의 형식입니다. *사용자 관리*, *응용 프로그램 관리* 또는 다른 형식일 수 있습니다.|
+| AuditEventCategory | 감사 이벤트의 형식입니다. *사용자 관리*, *애플리케이션 관리* 또는 다른 형식일 수 있습니다.|
 | ID 형식 | 형식은 *애플리케이션* 또는 *사용자*일 수 있습니다. |
-| 작업 유형 | 형식은 *추가*, *업데이트*, *삭제* 또는 *기타*일 수 있습니다. |
+| 작업 형식 | 형식은 *추가*, *업데이트*, *삭제* 또는 *기타*일 수 있습니다. |
 | 대상 리소스 종류 | 작업이 수행된 대상 리소스 종류를 지정합니다. 형식은 *애플리케이션*, *사용자*, *역할*, *정책*일 수 있습니다. | 
 | 대상 리소스 이름 | 대상 리소스의 이름입니다. 애플리케이션 이름, 역할 이름, 사용자 계정 이름 또는 서비스 사용자 이름일 수 있습니다. |
 | additionalTargets | 특정 작업에 대한 추가 속성을 나열합니다. 예를 들어 업데이트 작업의 경우 이전 값과 새 값이 *targetUpdatedProperties* 아래에 나열됩니다. | 

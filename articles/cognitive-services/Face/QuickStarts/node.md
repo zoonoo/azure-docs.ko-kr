@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/06/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: bbb5cf9a043f8f4ab4202b6113d1c1b915f3b8a0
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: aade8552e7fd39a61334c1c6c7c9ca62085961be
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312772"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603269"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>빠른 시작: Face REST API 및 Node.js를 사용하여 이미지에서 얼굴 감지
 
@@ -98,7 +98,7 @@ request.post(options, (error, response, body) => {
 node facedetection.js
 ```
 
-콘솔 창에 얼굴 정보가 JSON 데이터로 표시됩니다. 예를 들면 다음과 같습니다.
+콘솔 창에 얼굴 정보가 JSON 데이터로 표시됩니다. 예:
 
 ```json
 [

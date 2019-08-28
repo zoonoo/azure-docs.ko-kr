@@ -21,11 +21,11 @@
       href: azure-netapp-files-metrics.md
     - name: 성능
       items:
-        - name: Azure NetApp Files의 성능 벤치마크
-          href: azure-netapp-files-performance-benchmarks.md
         - name: Azure NetApp Files의 성능 고려 사항
           href: azure-netapp-files-performance-considerations.md
-        - name: Azure NetApp Files 파일을 사용하는 볼륨 성능 및 메트릭에 대한 벤치마크 테스트
+        - name: Azure NetApp Files의 성능 벤치마크 테스트 결과
+          href: azure-netapp-files-performance-benchmarks.md
+        - name: Azure NetApp Files의 성능 벤치마크 테스트 추천 사항
           href: azure-netapp-files-performance-metrics-volumes.md
     - name: Azure NetApp Files 비용 모델
       href: azure-netapp-files-cost-model.md
@@ -45,8 +45,10 @@
       href: azure-netapp-files-set-up-capacity-pool.md
     - name: Azure NetApp Files에 서브넷 위임
       href: azure-netapp-files-delegate-subnet.md
-    - name: Azure NetApp Files에 대한 볼륨 만들기
+    - name: Azure NetApp Files에 대한 NFS 볼륨 만들기
       href: azure-netapp-files-create-volumes.md
+    - name: Azure NetApp Files에 대한 SMB 볼륨 만들기
+      href: azure-netapp-files-create-volumes-smb.md
     - name: NFS 볼륨에 대한 내보내기 정책 구성
       href: azure-netapp-files-configure-export-policy.md
     - name: 볼륨 관리

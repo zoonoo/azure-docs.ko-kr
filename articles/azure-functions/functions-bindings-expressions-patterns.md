@@ -136,13 +136,13 @@ public static void Run(
 
 ```
 
-또한 확장과 같은 파일 이름 부분에 대한 식을 만들 수 있습니다. Blob 경로 문자열에서 식 및 패턴을 사용하는 방법에 대한 자세한 내용은 [저장소 blob 바인딩 참조](functions-bindings-storage-blob.md)를 확인하세요.
+또한 확장과 같은 파일 이름 부분에 대한 식을 만들 수 있습니다. Blob 경로 문자열에서 식 및 패턴을 사용하는 방법에 대한 자세한 내용은 [스토리지 blob 바인딩 참조](functions-bindings-storage-blob.md)를 확인하세요.
 
 ## <a name="trigger-metadata"></a>트리거 메타데이터
 
 트리거가 제공한 데이터 페이로드(예: 함수를 트리거한 큐 메시지의 콘텐츠) 이외에 많은 트리거가 추가 메타데이터 값을 제공합니다. 이러한 값은 C# 및 F#에서 입력 매개 변수로 사용하거나 JavaScript에서 `context.bindings` 개체의 속성으로 사용할 수 있습니다. 
 
-예를 들어 Azure Queue 저장소 트리거는 다음 속성을 지원합니다.
+예를 들어 Azure Queue storage 트리거는 다음 속성을 지원합니다.
 
 * QueueTrigger - 유효한 문자열인 경우 트리거 메시지 내용
 * DequeueCount

@@ -57,7 +57,7 @@ ms.locfileid: "61369851"
 
 7. Azure Resource Manager 템플릿 배포를 마칠 때까지 기다립니다. 완료를 나타내는 *Resource Manager 템플릿 배포: 완료* 메시지가 표시됩니다.
 
-## <a name="deploy-function-app"></a>Function App 배포
+## <a name="deploy-function-app"></a>함수 앱 배포
 
 1. Visual Studio Code에서 **작업** 드롭다운 메뉴를 클릭하고 **작업 실행...**  - **cloud-deploy**를 선택합니다.
 
@@ -117,4 +117,4 @@ MXChip IoT DevKit를 컴퓨터에 연결한 상태로:
 권장되는 단계는 다음과 같습니다.
 
 * [Azure IoT 원격 모니터링 솔루션 가속기 개요](https://docs.microsoft.com/azure/iot-suite/)
-* [Azure IoT Central 애플리케이션에 MXChip IoT DevKit 장치 연결](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [Azure IoT Central 애플리케이션에 MXChip IoT DevKit 디바이스 연결](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

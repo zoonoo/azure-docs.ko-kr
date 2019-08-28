@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/27/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 61537a4cb8ca1e6e98f2fa04959861eb03480fe9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f0b9b59ec09445a170d1f93181c2b432eafb60bf
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61474883"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839978"
 ---
 # <a name="view-a-maintenance-schedule"></a>유지 관리 일정 보기 
 
@@ -27,7 +27,7 @@ ms.locfileid: "61474883"
 
 1.  [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2.  확인하려는 데이터 웨어하우스를 선택합니다. 
-3.  개요 블레이드에서 선택한 데이터 웨어하우스가 열립니다. 데이터 웨어하우스에 적용되어 있는 유지 관리 일정이 **유지 관리 일정(미리 보기)** 아래에 표시됩니다.
+3.  개요 블레이드에서 선택한 데이터 웨어하우스가 열립니다. 데이터 웨어하우스에 적용 되는 유지 관리 일정 아래에 나타납니다 **유지 관리 일정**합니다.
 
 ![개요 블레이드](media/sql-data-warehouse-maintenance-scheduling/clear-overview-blade.PNG)
 

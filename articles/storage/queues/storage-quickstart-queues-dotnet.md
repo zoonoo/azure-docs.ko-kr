@@ -1,20 +1,19 @@
 ---
 title: '빠른 시작: .NET을 사용하여 Azure Storage에 큐 만들기'
 description: 이 빠른 시작에서는 .NET용 Azure Storage 클라이언트 라이브러리를 사용하여 큐를 만들고 메시지를 큐에 추가하는 방법을 알아봅니다. 그런 다음, 큐에서 메시지를 읽고 처리하는 방법을 알아봅니다.
-services: storage
 author: mhopkins-msft
-ms.custom: mvc
-ms.service: storage
-ms.topic: quickstart
-ms.date: 02/06/2018
 ms.author: mhopkins
+ms.date: 02/06/2018
+ms.service: storage
+ms.subservice: queues
+ms.topic: quickstart
 ms.reviewer: cbrooks
-ms.openlocfilehash: 41cb37eb9d96752d4732731d2a36d9bc892cbaa5
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: d3706f8585c2644a31bf1f418f5425e0fa58d2a0
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66159809"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721249"
 ---
 # <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>빠른 시작: .NET을 사용하여 Azure Storage에 큐 만들기
 
@@ -26,7 +25,7 @@ ms.locfileid: "66159809"
 
 다음으로 운영 체제용 .NET Core 2.0을 다운로드 및 설치합니다. Windows를 실행하는 경우 원한다면 Visual Studio를 설치하고 .NET Framework를 사용할 수 있습니다. 또한 운영 체제와 사용할 편집기를 설치하도록 선택할 수도 있습니다.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 - [Windows용 .NET Core](https://www.microsoft.com/net/download/windows) 또는 [.NET Framework](https://www.microsoft.com/net/download/windows)(Windows용 Visual Studio에 포함)를 설치합니다.
 - [Windows용 Visual Studio](https://www.visualstudio.com/)를 설치합니다. .NET Core를 사용하는 경우 Visual Studio는 선택 사항입니다.  
@@ -57,13 +56,13 @@ git clone https://github.com/Azure-Samples/storage-queues-dotnet-quickstart.git
 
 [!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
-## <a name="configure-your-storage-connection-string"></a>저장소 연결 문자열 구성
+## <a name="configure-your-storage-connection-string"></a>스토리지 연결 문자열 구성
 
 애플리케이션을 실행하려면 스토리지 계정에 대한 연결 문자열을 제공해야 합니다. 이 애플리케이션 예제는 환경 변수의 연결 문자열을 읽어서 Azure Storage에 대한 요청 권한을 부여하는 데 사용합니다.
 
 연결 문자열을 복사한 후 애플리케이션을 실행 중인 로컬 컴퓨터의 새 환경 변수에 씁니다. 환경 변수를 설정하려면 콘솔 창을 열고 사용 중인 운영 체제의 지침을 따릅니다. `<yourconnectionstring>`을 실제 연결 문자열로 바꿉니다.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 ```cmd
 setx storageconnectionstring "<yourconnectionstring>"
@@ -93,7 +92,7 @@ export STORAGE_CONNECTION_STRING=<yourconnectionstring>
 
 샘플 애플리케이션이 큐를 만들고 여기에 메시지를 추가합니다. 애플리케이션은 먼저 큐에서 메시지를 제거하지 않고 메시지를 피킹한 다음, 메시지를 검색하여 큐에서 삭제합니다.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 편집기로 Visual Studio를 사용하는 경우 **F5** 키를 눌러 실행할 수 있습니다. 
 
@@ -189,7 +188,7 @@ Console.WriteLine();
 
 메시지는 UTF-8 인코딩을 사용하는 XML 요청에 포함될 수 있는 형식이어야 하며, 크기는 최대 64KB까지 가능합니다. 메시지에 이진 데이터가 포함되어 있으면 메시지를 Base64로 인코딩하는 것이 좋습니다.
 
-기본적으로 메시지의 TTL(Time-To-Live)은 7일로 설정됩니다. 메시지 TTL(Time-To-Live)에 양수를 지정할 수 있으며, 메시지가 만기되지 않는 것을 나타내려면 -1을 지정합니다.
+기본적으로 메시지의 TTL(Time-To-Live)은 7일로 설정됩니다. 메시지 TTL(Time-To-Live)에 임의 양수를 지정할 수 있습니다.
 
 ```csharp
 // Create a message and add it to the queue. Set expiration time to 14 days.
@@ -199,6 +198,12 @@ Console.WriteLine("Added message '{0}' to queue '{1}'", message.Id, queue.Name);
 Console.WriteLine("Message insertion time: {0}", message.InsertionTime.ToString());
 Console.WriteLine("Message expiration time: {0}", message.ExpirationTime.ToString());
 Console.WriteLine();
+```
+
+만기되지 않는 메시지를 추가하려면 [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync) 호출에 `Timespan.FromSeconds(-1)`를 사용합니다.
+
+```csharp
+await queue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
 ```
 
 ### <a name="peek-a-message-from-the-queue"></a>큐의 메시지 피킹

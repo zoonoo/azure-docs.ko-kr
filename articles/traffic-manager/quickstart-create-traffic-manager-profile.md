@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: allensu
-ms.openlocfilehash: d9b1d0624aa94884c269eb33131f8b61671e99ee
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1f7fd3398c24eb82b1a2308f3b52df382c0aab7e
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051002"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68224682"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Traffic Manager 프로필 만들기
 
@@ -36,42 +36,25 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
 이 빠른 시작에는 두 개의 서로 다른 Azure 지역(*미국 동부* 및 *유럽 서부*)에 배포된 두 개의 웹 애플리케이션 인스턴스가 필요합니다. 각각은 Traffic Manager에 대한 기본 및 장애 조치 엔드포인트의 역할을 합니다.
 
 1. 화면의 왼쪽 위에서 **리소스 만들기** > **웹** > **웹앱**을 차례로 선택합니다.
-2. **웹앱**에서 다음 설정을 입력하거나 선택합니다.
 
-    | 설정 | 값 |
-    | ------- | ----- |
-    | 앱 이름 | 웹앱에 대한 고유한 이름을 입력합니다.  |
-    | 구독 | 웹앱에 적용하려는 구독을 선택합니다. |
-    | 리소스 그룹 | **새로 만들기**를 선택하고, *myResourceGroupTM1*을 입력합니다. |
-    | OS | 운영 체제로 **Windows**를 선택합니다. |
-    | 게시 | 게시하려는 형식으로 **코드**를 선택합니다. |
+1. **웹앱 만들기**의 **기본 사항** 탭에서 다음 값을 입력하거나 선택합니다.
 
-3. **App Service 계획/위치**를 선택합니다.
-4. **App Service 계획**에서 **새로 만들기**를 선택합니다.
-5. **새 App Service 계획**에서 다음 설정을 입력하거나 선택합니다.
+   - **구독** > **리소스 그룹**: **새로 만들기**를 선택한 다음, **myResourceGroupTM1**을 입력합니다.
+   - **인스턴스 세부 정보** > **이름**: *myWebAppEastUS*를 입력합니다.
+   - **인스턴스 세부 정보** > **게시**: **코드**를 선택합니다.
+   - **인스턴스 세부 정보** > **런타임 스택**: **ASP.NET V4.7**을 선택합니다.
+   - **인스턴스 세부 정보** > **운영 체제**: **Windows**를 선택합니다.
+   - **인스턴스 세부 정보** > **Azure 지역**:  **미국 동부**를 선택합니다.
+   - **App Service 플랜** > **Windows 플랜(미국 동부)** : **새로 만들기**를 선택하고 **myAppServicePlanEastUS**를 입력합니다.
+   - **App Service 플랜** > **SKU 및 크기**: **표준 S1**을 선택합니다.
+   
+3. **모니터링** 탭을 선택하거나 **다음:모니터링**을 선택합니다.  **모니터링**에서 **Application Insights** > **Application Insights 사용**을 **아니요**로 설정합니다.
 
-    | 설정 | 값 |
-    | ------- | ----- |
-    | App Service 계획 | *myAppServicePlanEastUS*를 입력합니다. |
-    | 위치 | 미국 동부 |
-    | 가격 책정 계층 | S1 표준 |
+4. **검토 및 만들기**를 선택합니다.
 
-6. **확인**을 선택합니다.
+5. 설정을 검토한 다음, **만들기**를 클릭합니다.  웹앱이 성공적으로 배포되면, 그것은 기본 웹 사이트를 만듭니다.
 
-7. **웹앱**에서 **만들기**를 선택합니다. 웹앱이 성공적으로 배포되면, 그것은 기본 웹 사이트를 만듭니다.
-
-8. 다른 Azure 지역에 두 번째 웹 사이트를 만들려면 다음 설정을 사용하여 1-7단계를 반복합니다.
-
-    | 설정 | 값 |
-    | --------| ----- |
-    | 이름 | 웹앱에 대한 고유한 이름을 입력합니다. |
-    | 구독 | 웹앱에 적용하려는 구독을 선택합니다. |
-    | 리소스 그룹 | **새로 만들기**를 선택한 다음, *myResourceGroupTM2*를 입력합니다. |
-    | OS | 운영 체제로 **Windows**를 선택합니다. |
-    | 게시 | 게시하려는 형식으로 **코드**를 선택합니다. |
-    | App Service 계획/위치 | *myAppServicePlanWestEurope*을 입력합니다. |
-    | 위치 | 서유럽 |
-    | 가격 책정 계층 | S1 표준 |
+6. 단계에 따라 **리소스 그룹** 이름은 *myResourceGroupTM2*이고, **지역**은 *서유럽*이고, **App Service 플랜** 이름은 **myAppServicePlanWestEurope**이고, 다른 모든 설정은 *myWebAppEastUS*와 동일한 *myWebAppWestEurope*이라는 두 번째 웹앱을 만듭니다.
 
 ## <a name="create-a-traffic-manager-profile"></a>Traffic Manager 프로필 만들기
 

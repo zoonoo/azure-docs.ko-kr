@@ -1,19 +1,18 @@
 ---
 title: Azure Files 확장성 및 성능 목표 | Microsoft Docs
 description: 용량, 요청 속도 및 인바운드/아웃바운드 대역폭 제한을 포함하여 Azure Files의 확장성 및 성능 목표를 알아봅니다.
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 5/5/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 91ec65e17b77ccb3864fce45e30729ff420a48b6
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: ed4aa832c4ec7ccda760d535aa920be8d5c4e2e3
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542668"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699635"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure Files 확장성 및 성능 목표
 
@@ -21,39 +20,39 @@ ms.locfileid: "67542668"
 
 여기서 나열하는 확장성 및 성능 목표는 고성능 목표이지만 다른 배포 변수의 영향을 받을 수 있습니다. 예를 들어 Azure Files 서비스를 호스팅하는 서버뿐만 아니라 사용 가능한 네트워크 대역폭에 따라 파일 처리량이 제한될 수 있습니다. Azure Files의 확장성 및 성능이 요구 사항을 충족하는지 확인하려면 사용 패턴을 테스트하는 것이 좋습니다. 또한 시간이 지남에 따라 이러한 제한을 높이기 위해 노력하고 있습니다. 아래의 설명 또는 [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)에서 주저하지 마시고 늘리려는 제한에 대한 의견을 보내주세요.
 
-## <a name="azure-storage-account-scale-targets"></a>Azure 저장소 계정의 크기 조정 목표
+## <a name="azure-storage-account-scale-targets"></a>Azure Storage 계정의 크기 조정 목표
 
-Azure 파일 공유에 대한 부모 리소스는 Azure 저장소 계정입니다. 저장소 계정은 Azure에 있는 저장소 풀을 나타내며, Azure Files를 포함한 여러 저장소 서비스에서 데이터를 저장하는 데 사용할 수 있습니다. 스토리지 계정에 데이터를 저장하는 다른 서비스로 Azure Blob Storage, Azure Queue Storage 및 Azure Table Storage가 있습니다. 저장소 계정에 데이터를 저장하는 모든 저장소 서비스를 적용하는 목표는 다음과 같습니다.
+Azure 파일 공유에 대한 부모 리소스는 Azure Storage 계정입니다. 스토리지 계정은 Azure에 있는 스토리지 풀을 나타내며, Azure Files를 포함한 여러 스토리지 서비스에서 데이터를 저장하는 데 사용할 수 있습니다. 스토리지 계정에 데이터를 저장하는 다른 서비스로 Azure Blob Storage, Azure Queue Storage 및 Azure Table Storage가 있습니다. 스토리지 계정에 데이터를 저장하는 모든 스토리지 서비스를 적용하는 목표는 다음과 같습니다.
 
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
 > [!Important]  
-> 다른 저장소 서비스에서 범용 저장소 계정을 활용 저장소 계정의 Azure 파일 공유를 영향을 줍니다. 예를 들어 Azure Blob Storage를 사용하여 최대 스토리지 계정 용량에 도달하면 Azure 파일 공유가 최대 공유 크기보다 작은 경우에도 Azure 파일 공유에 새 파일을 만들 수 없습니다.
+> 다른 저장소 서비스의 범용 저장소 계정 사용률은 저장소 계정의 Azure 파일 공유에 영향을 줍니다. 예를 들어 Azure Blob Storage를 사용하여 최대 스토리지 계정 용량에 도달하면 Azure 파일 공유가 최대 공유 크기보다 작은 경우에도 Azure 파일 공유에 새 파일을 만들 수 없습니다.
 
 ## <a name="azure-files-scale-targets"></a>Azure Files 크기 조정 목표
 
-세 가지 종류의 Azure Files에 대 한 주의 사항: 저장소 계정, 공유 및 파일입니다.
+저장소 계정, 공유 및 파일 Azure Files에 대해 고려할 세 가지 제한 범주가 있습니다.
 
-예를 들면 다음과 같습니다. 프리미엄 파일 공유를 사용 하 여 단일 공유 100,000 IOPS를 달성할 수 있습니다 및 단일 파일에서 최대 5,000 개의 IOPS를 확장할 수 있습니다. 따라서 공유 하나에 3 개의 파일을 사용 하는 경우 해당 공유에서 가져올 수 있습니다 최대 IOPS는 15,000입니다.
+예: 프리미엄 파일 공유를 사용 하는 경우 단일 공유에서 10만 IOPS를 달성할 수 있으며 단일 파일이 5000 IOPS까지 확장 될 수 있습니다. 따라서 한 공유에 세 개의 파일이 있는 경우 해당 공유에서 얻을 수 있는 최대 IOPS는 15000입니다.
 
 ### <a name="standard-storage-account-limits"></a>표준 저장소 계정 제한
 
-참조 된 [Azure storage 계정 크기 조정 목표](#azure-storage-account-scale-targets) 이러한 한도 대 한 섹션입니다.
+이러한 제한에 대해서는 [Azure storage 계정 크기 목표](#azure-storage-account-scale-targets) 섹션을 참조 하세요.
 
 ### <a name="premium-filestorage-account-limits"></a>프리미엄 FileStorage 계정 제한
 
 [!INCLUDE [azure-storage-limits-filestorage](../../../includes/azure-storage-limits-filestorage.md)]
 
 > [!IMPORTANT]
-> 저장소 계정 한도 모든 공유에 적용 됩니다. 최대 FileStorage 계정에 대 한 최대 크기 조정은 FileStorage 계정당 하나의 공유 경우 달성할 수 있습니다.
+> 저장소 계정 제한은 모든 공유에 적용 됩니다. 최대 FileStorage 계정에 대 한 최대 크기 조정은 FileStorage 계정 당 하나의 공유만 있는 경우에만 달성할 수 있습니다.
 
-### <a name="file-share-and-file-scale-targets"></a>파일 공유 및 파일 크기 조정 목표
+### <a name="file-share-and-file-scale-targets"></a>파일 공유 및 파일 크기 조정 대상
 
 > [!NOTE]
-> 표준 파일 공유 5tib 보다 큰 미리 보기 상태 이며 특정 제한 사항이 있습니다.
-> 제한 사항 및 이러한 파일 공유 크기의 미리 보기에 등록 하는 목록에 대 한 참조를 [표준 파일 공유](storage-files-planning.md#standard-file-shares) 계획 가이드의 섹션입니다.
+> 5 TiB 보다 큰 표준 파일 공유는 미리 보기 상태 이며 특정 제한 사항이 있습니다.
+> 제한 사항 목록과 이러한 큰 파일 공유 크기의 미리 보기에 등록 하려면 계획 가이드의 [표준 파일 공유](storage-files-planning.md#standard-file-shares) 섹션을 참조 하세요.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
@@ -82,13 +81,13 @@ Azure 파일 동기화의 경우 다음과 같은 두 단계에서 성능이 중
 | 메모리 | 128GiB |
 | 디스크 | 배터리 지원 캐시를 사용하는 RAID 10을 포함한 SAS 디스크 |
 | 네트워크 | 1Gbps 네트워크 |
-| 워크로드 | 범용 파일 서버|
+| 작업 | 범용 파일 서버|
 
 | 일회성 초기 프로비전  |  |
 |-|-|
 | 개체 수 | 2500만 개 개체 |
-| 데이터 세트 크기| ~4.7 TiB |
-| 평균 파일 크기 | ~ 200 3:n2}kib/ (가장 큰 파일: 100GiB) |
+| 데이터 세트 크기| ~ 4.7 TiB |
+| 평균 파일 크기 | ~ 200 KiB (가장 큰 파일: 100GiB) |
 | 처리량 업로드 | 초당 20개 개체 |
 | 네임스페이스 다운로드 처리량* | 초당 개체 400개 |
 
@@ -112,8 +111,8 @@ Azure 파일 동기화의 경우 다음과 같은 두 단계에서 성능이 중
 - 개체 처리량은 서버의 동기화 그룹 수에 비례하여 크기를 조정합니다. 서버의 여러 동기화 그룹으로 데이터를 분할하면 처리량이 향상됩니다. 처리량은 서버 및 네트워크에 의해서도 제한됩니다
 - 개체 처리량은 초당 MiB 처리량에 반비례합니다. 더 작은 파일의 경우 초당 처리된 개체 수 측면에서 더 높은 처리량이 발생하지만 초당 MiB 처리량은 더 낮습니다. 반대로 큰 파일의 경우 초당 처리되는 개체는 적지만 초당 MiB 처리량은 높습니다. 초당 MiB 처리량은 Azure Files 크기 조정 목표에 의해 제한됩니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 - [Azure 파일 배포에 대한 계획](storage-files-planning.md)
 - [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)
-- [다른 저장소 서비스에 대한 확장성 및 성능 목표](../common/storage-scalability-targets.md)
+- [다른 스토리지 서비스에 대한 확장성 및 성능 목표](../common/storage-scalability-targets.md)

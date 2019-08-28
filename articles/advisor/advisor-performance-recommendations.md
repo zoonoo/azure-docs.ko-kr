@@ -68,7 +68,7 @@ Azure Advisor는 SQL Data Warehouse에서 캐시 사용률이 높고 적중 비�
 
 Advisor는 복제된 테이블이 아니지만 변환을 통해 이득을 얻을 수 있는 테이블을 식별하고 이러한 테이블을 변환하도록 제안합니다. 추천 사항은 SQL Data Warehouse 테이블의 복제된 테이블 크기, 열 수, 테이블 배포 유형 및 파티션 수를 기반으로 합니다. 컨텍스트에 대한 추천 사항에 추가적인 추론이 제공될 수 있습니다. 이 추천 사항을 확인하는 방법에 대한 자세한 내용은 [SQL Data Warehouse 추천 사항](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-recommendations#replicate-tables)을 참조하세요. 
 
-## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-all-of-the-latest-azure-features"></a>저장소 계정을 Azure Resource Manager로 마이그레이션하여 최신 Azure 기능 모두 이용하기
+## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-all-of-the-latest-azure-features"></a>스토리지 계정을 Azure Resource Manager로 마이그레이션하여 최신 Azure 기능 모두 이용하기
 
 스토리지 계정 배포 모델을 Azure Resource Manager(Resource Manager)로 마이그레이션하여 템플릿 배포, 추가 보안 옵션, Azure Storage의 최신 기능 활용을 위해 GPv2 계정으로 업그레이드하는 기능을 활용하세요. Advisor는 Classic 배포 모델을 사용 중인 독립형 스토리지 계정을 식별하고 Resource Manager 배포 모델로 마이그레이션할 것을 권장합니다.
 

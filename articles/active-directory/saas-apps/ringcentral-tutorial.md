@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: jeedes
-ms.openlocfilehash: 2e4f45deb8c63640a328e38cebc2ecbe67233c3b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c374c9e8fd91d50b7e6589f22f9bed09fbe0de39
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66143131"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092868"
 ---
 # <a name="tutorial-integrate-ringcentral-with-azure-active-directory"></a>자습서: RingCentral과 Azure Active Directory 통합
 
@@ -48,7 +48,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 Azure AD에 대한 RingCentral 통합을 구성하려면 갤러리의 RingCentral을 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
-1. 왼쪽 탐색 창에서 **Active Directory** 서비스를 선택합니다.
+1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
 1. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션**을 선택합니다.
 1. **갤러리에서 추가** 섹션의 검색 상자에 **RingCentral**을 입력합니다.

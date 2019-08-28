@@ -1,20 +1,20 @@
 ---
-title: 지리적 경계를 사용하여 Bing Local Business Search API에서 결과를 필터링 | Microsoft Docs
+title: 지리적 경계를 사용하여 Bing Local Business Search API에서 결과를 필터링
 titleSuffix: Azure Cognitive Services
 description: 이 문서를 사용하여 Bing Local Business Search API에서 검색 결과를 필터링하는 방법을 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: e87ef96184974d10f99028be13399d1422a1c774
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: rosh
+ms.openlocfilehash: aec50155089b12122f0c438aecaf8efd737e59f7
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65796589"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881682"
 ---
 # <a name="use-geographic-boundaries-to-filter-results-from-the-bing-local-business-search-api"></a>지리적 경계를 사용하여 Bing Local Business Search API에서 결과를 필터링
 

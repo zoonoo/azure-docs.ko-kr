@@ -10,12 +10,12 @@ ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 8337c8672eb886d79b38b2a38a74037f88604497
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f27484fd1d47a2e29aa5083a7d440e5c7dba11c1
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448557"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839654"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Azure Portal에서 Azure IoT Edge 모듈 배포
 
@@ -23,7 +23,7 @@ ms.locfileid: "67448557"
 
 이 아티클에서는 배포 매니페스트를 만들고 IoT Edge 디바이스에 배포를 푸시하는 방법을 Azure Portal에서 어떻게 설명하는지를 보여줍니다. 해당 공유 태그에 따라 다중 디바이스를 대상으로 지정하는 배포를 만드는 방법에 대한 정보는 [대규모 IoT Edge 모듈 배포 및 모니터링](how-to-deploy-monitor.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독의 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)
 * IoT Edge 런타임이 설치된 [IoT Edge 디바이스](how-to-register-device-portal.md)
@@ -43,9 +43,9 @@ Azure Portal에는 JSON 문서를 수동으로 빌드하지 않고 배포 매니
 
 ### <a name="add-modules"></a>모듈 추가
 
-1. 에 **컨테이너 레지스트리 설정** 섹션 페이지의 모듈 이미지를 포함 하는 모든 개인 컨테이너 레지스트리에 액세스 하려면 자격 증명을 제공 합니다.
+1. 페이지의 **Container Registry 설정** 섹션에서 모듈 이미지를 포함 하는 개인 컨테이너 레지스트리에 액세스 하기 위한 자격 증명을 제공 합니다.
 
-1. 에 **배포 모듈** 선택 페이지의 섹션 **추가**합니다.
+1. 페이지의 **배포 모듈** 섹션에서 **추가**를 선택 합니다.
 
 1. 드롭다운 목록에서 모듈 형식을 살펴봅니다.
 
@@ -55,14 +55,14 @@ Azure Portal에는 JSON 문서를 수동으로 빌드하지 않고 배포 매니
 
 1. **IoT Edge 모듈**을 선택합니다.
 
-1. 모듈에 이름을 입력한 다음, 컨테이너 이미지를 지정합니다. 예를 들면 다음과 같습니다.
+1. 모듈에 이름을 입력한 다음, 컨테이너 이미지를 지정합니다. 예:
 
-   * **이름** - tempSensor
+   * **이름** -SimulatedTemperatureSensor
    * **이미지 URI** - mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
 
 1. 필요한 경우 선택적 필드를 작성합니다. 컨테이너 생성 옵션, 다시 시작 정책 및 원하는 상태에 대한 자세한 내용은 [EdgeAgent desired 속성](module-edgeagent-edgehub.md#edgeagent-desired-properties)을 참조하세요. 모듈 쌍에 대한 자세한 내용은 [desired 속성 정의 또는 업데이트](module-composition.md#define-or-update-desired-properties)을 참조하세요.
 
-1. **저장**을 선택합니다.
+1.           **저장**을 선택합니다.
 
 1. 2-6단계를 반복하여 배포에 모듈을 추가합니다.
 

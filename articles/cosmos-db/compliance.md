@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: af1b3dba0ac73ef30a4be20cab795ce6de595970
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 35c8841220c116cc34ba670eaa9ac7b36dc4cd7a
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66239698"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615528"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Azure Cosmos DB의 규정 준수 
 
@@ -20,7 +20,7 @@ Azure Cosmos DB는 모든 새 Azure 하위 지역에 제공됩니다. Azure Cosm
 
 * **Azure 공용** 클라우드: 전역적으로 사용할 수 있습니다.
 
-* **Azure 중국 21Vianet** Microsoft와 국가의 최대의 인터넷 공급자의 21Vianet 간의 고유한 파트너십을 통해 사용할 수 있습니다.
+* **Azure 중국 21vianet** 은 국가의 가장 큰 인터넷 공급자 중 하나인 Microsoft와 21vianet 간의 고유한 파트너 관계를 통해 사용할 수 있습니다.
 
 * **Azure Germany**: 데이터 트러스티 모델에 따라 서비스를 제공하며 고객 데이터는 Deutsche Telekom 자회사 T-Systems International GmbH가 독일 데이터 신탁 기관으로서 독일에서 관리합니다.
 
@@ -28,7 +28,7 @@ Azure Cosmos DB는 모든 새 Azure 하위 지역에 제공됩니다. Azure Cosm
 
 * **American Department of Defense(미국방부)** : 미국 2개 지역에서 미국방부가 사용할 수 있습니다.
 
-고객이 전 세계의 규제 산업 및 시장에서 규정 준수 의무를 준수하도록 하기 위해 Azure는 너비(총 제품 수) 및 깊이(평가 범위의 고객 서비스 수) 측면에서 업계의 가장 큰 규정 준수 포트폴리오를 유지 관리합니다.  Azure 규정 준수 제안 4 개 세그먼트가-전체적으로 적용, 미국 정부 기관, 특정 산업 및 지역 또는 국가/지역 특정으로 그룹화 됩니다.  규정 준수 제안은 공식 인증, 증명, 유효성 검사, 권한 부여 및 독립적인 타사 감사 회사에서 생성한 평가, 계약 수정, 자체 평가, Microsoft에서 생성한 고객 지침 문서를 포함하는 다양한 확인 유형을 기준으로 합니다.
+고객이 전 세계의 규제 산업 및 시장에서 규정 준수 의무를 준수하도록 하기 위해 Azure는 너비(총 제품 수) 및 깊이(평가 범위의 고객 서비스 수) 측면에서 업계의 가장 큰 규정 준수 포트폴리오를 유지 관리합니다.  Azure 규정 준수 제품은 전 세계적으로 적용 되는, 미국 정부, 산업별, 지역 또는 국가/지역과 관련 된 4 개의 세그먼트로 그룹화 되어 있습니다.  규정 준수 제안은 공식 인증, 증명, 유효성 검사, 권한 부여 및 독립적인 타사 감사 회사에서 생성한 평가, 계약 수정, 자체 평가, Microsoft에서 생성한 고객 지침 문서를 포함하는 다양한 확인 유형을 기준으로 합니다.
 
 ## <a name="azure-cosmos-db-certifications"></a>Azure Cosmos DB 인증  
 
@@ -69,6 +69,6 @@ Azure 규정 준수 인증에 대한 자세한 내용은 다음 문서를 참조
 
 * Azure Cosmos DB의 최신 규정 준수 인증을 확인하려면 [Azure 규정 준수 개요](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)를 참조하세요.  
 
-* Azure Cosmos DB 보안 및 최신 개선 사항에 대한 개요는 [Azure Cosmos DB 데이터베이스 보안](database-security.md) 문서를 참조하세요.
+* Azure Cosmos DB 보안 및 최신 개선 사항에 대 한 개요는 [Azure Cosmos database 보안](database-security.md) 문서를 참조 하세요.
 
 * Microsoft 인증에 대한 자세한 내용은 [Azure 보안 센터](https://azure.microsoft.com/support/trust-center/)를 참조하세요.

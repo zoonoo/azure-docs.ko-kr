@@ -30,9 +30,9 @@ Network Watcher 패킷 캡처를 사용하면 가상 머신 간에 트래픽을 
 ## <a name="before-you-begin"></a>시작하기 전에
 
 패킷 캡처에는 다음 연결이 필요합니다.
-* 포트 443을 통해 저장소 계정에 아웃바운드 연결
-* 169\.254.169.254에 인바운드 및 아웃 바운드 연결
-* 168\.63.129.16에 인바운드 및 아웃 바운드 연결
+* 포트 443을 통해 스토리지 계정에 아웃바운드 연결
+* 169.254.169.254에 인바운드 및 아웃 바운드 연결
+* 168.63.129.16에 인바운드 및 아웃 바운드 연결
 
 네트워크 보안 그룹이 네트워크 인터페이스에 연결되거나 네트워크 인터페이스가 포함된 서브넷에 연결되어 있으면 이전 포트를 허용하는 규칙이 있는지 확인합니다. 
 
@@ -80,7 +80,7 @@ Network Watcher 패킷 캡처를 사용하면 가상 머신 간에 트래픽을 
 2. 패킷 캡처를 삭제할지 확인하는 메시지가 표시됩니다. **예**를 선택합니다.
 
 > [!NOTE]
-> 패킷 캡처를 삭제해도 저장소 계정 또는 가상 머신에서 캡처 파일이 삭제되지는 않습니다.
+> 패킷 캡처를 삭제해도 스토리지 계정 또는 가상 머신에서 캡처 파일이 삭제되지는 않습니다.
 
 ## <a name="stop-a-packet-capture"></a>패킷 캡처 중지
 
@@ -88,9 +88,9 @@ Network Watcher 패킷 캡처를 사용하면 가상 머신 간에 트래픽을 
 
 ## <a name="download-a-packet-capture"></a>패킷 캡처 다운로드
 
-패킷 캡처 세션이 완료되면 캡처 파일을 Blob Storage 또는 가상 머신의 로컬 파일에 업로드합니다. 패킷 캡처의 저장소 위치는 패킷 캡처를 만드는 동안 정의됩니다. 스토리지 계정에 저장되는 캡처 파일에 액세스하는 편리한 도구는 [다운로드](https://storageexplorer.com/)할 수 있는 Microsoft Azure Storage Explorer입니다.
+패킷 캡처 세션이 완료되면 캡처 파일을 Blob Storage 또는 가상 머신의 로컬 파일에 업로드합니다. 패킷 캡처의 스토리지 위치는 패킷 캡처를 만드는 동안 정의됩니다. 스토리지 계정에 저장되는 캡처 파일에 액세스하는 편리한 도구는 [다운로드](https://storageexplorer.com/)할 수 있는 Microsoft Azure Storage Explorer입니다.
 
-저장소 계정이 지정되어 있으면 패킷 캡처 파일은 다음 위치에서 저장소 계정에 저장됩니다.
+스토리지 계정이 지정되어 있으면 패킷 캡처 파일은 다음 위치에서 스토리지 계정에 저장됩니다.
 
 ```
 https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{VMName}/{year}/{month}/{day}/packetCapture_{creationTime}.cap

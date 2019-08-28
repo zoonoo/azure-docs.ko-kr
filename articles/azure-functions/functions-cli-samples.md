@@ -31,7 +31,7 @@ ms.locfileid: "66514446"
 
 | 통합 | 설명|
 |---|---|
-| [함수 앱을 만들고 저장소 계정에 연결](scripts/functions-cli-create-function-app-connect-to-storage-account.md) | 함수 앱을 만들고 저장소 계정에 연결합니다. |
+| [함수 앱을 만들고 스토리지 계정에 연결](scripts/functions-cli-create-function-app-connect-to-storage-account.md) | 함수 앱을 만들고 스토리지 계정에 연결합니다. |
 | [함수 앱을 만들고 Azure Cosmos DB에 연결](scripts/functions-cli-create-function-app-connect-to-cosmos-db.md) | 함수 앱을 만들고 Azure Cosmos DB에 연결합니다. |
 
 | 연속 배포 | 설명|

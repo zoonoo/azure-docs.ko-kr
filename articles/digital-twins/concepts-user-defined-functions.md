@@ -6,29 +6,29 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 07/29/2019
 ms.author: alinast
-ms.openlocfilehash: 4db515a931bc7f423eb11ae31b7304a602f0da46
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4aa7e6660e3febdca6e0e5b1ad9f11bebaa48ea
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60925922"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638466"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>데이터 처리 및 사용자 정의 함수
 
-Azure Digital Twins는 고급 계산 기능을 제공합니다. 개발자는 들어오는 원격 분석 메시지에 대해 사용자 지정 함수를 정의하고 실행하여 미리 정의된 엔드포인트에 이벤트를 보낼 수 있습니다.
+Azure Digital Twins는 고급 컴퓨팅 기능을 제공합니다. 개발자는 들어오는 원격 분석 메시지에 대해 사용자 지정 함수를 정의하고 실행하여 미리 정의된 엔드포인트에 이벤트를 보낼 수 있습니다.
 
 ## <a name="data-processing-flow"></a>데이터 처리 흐름
 
-디바이스에서 원격 분석 데이터를 Azure Digital Twins에 보내면 개발자는 *유효성 검사*, *일치*, *계산* 및 *디스패치*의 네 가지 단계로 데이터를 처리할 수 있습니다.
+디바이스에서 원격 분석 데이터를 Azure Digital Twins에 보내면 개발자는 *유효성 검사*, *일치*, *컴퓨팅* 및 *디스패치*의 네 가지 단계로 데이터를 처리할 수 있습니다.
 
 ![Azure Digital Twins 데이터 처리 흐름][1]
 
 1. 유효성 검사 단계에서는 들어오는 원격 분석 메시지를 일반적으로 이해되는 [데이터 전송 개체](https://docs.microsoft.com/aspnet/web-api/overview/data/using-web-api-with-entity-framework/part-5)형식으로 변환합니다. 이 단계에서는 디바이스 및 센서 유효성 검사도 실행합니다.
 1. 일치 단계는 실행할 적절한 사용자 정의 함수를 찾습니다. 미리 정의된 검사기가 들어오는 원격 분석 메시지의 디바이스, 센서 및 공간 정보를 기반으로 사용자 정의 함수를 찾습니다.
-1. 계산 단계는 이전 단계에서 일치한 사용자 정의 함수를 실행합니다. 이러한 함수는 공간 그래프 노드에서 계산된 값을 읽고 업데이트할 수 있으며 사용자 지정 알림을 내보낼 수 있습니다.
-1. 디스패치 단계는 계산 단계에서 그래프에 정의된 엔드포인트로 사용자 지정 알림을 라우팅합니다.
+1. 컴퓨팅 단계는 이전 단계에서 일치한 사용자 정의 함수를 실행합니다. 이러한 함수는 공간 그래프 노드에서 계산된 값을 읽고 업데이트할 수 있으며 사용자 지정 알림을 내보낼 수 있습니다.
+1. 디스패치 단계는 컴퓨팅 단계에서 그래프에 정의된 엔드포인트로 사용자 지정 알림을 라우팅합니다.
 
 ## <a name="data-processing-objects"></a>데이터 처리 개체
 
@@ -94,7 +94,7 @@ Azure Digital Twins의 데이터 처리는 *검사기*, *사용자 정의 함수
 
 사용자 정의 함수는 격리된 Azure Digital Twins 환경 내에서 실행된 사용자 지정 함수입니다. 사용자 정의 함수는 수신되는 원시 센서 원격 분석 메시지에 액세스할 수 있습니다. 사용자 정의 함수는 공간 그래프 및 디스패처 서비스에 액세스할 수도 있습니다. 사용자 정의 함수가 그래프 내에 등록되면 함수를 실행할 시기를 지정하도록 선택기([위](#matcher)에서 자세히 설명)를 만들어야 합니다. 예를 들어, Azure Digital Twins가 지정 센서에서 새 원격 분석을 수신하는 경우 일치하는 사용자 정의 함수는 마지막 몇 개의 센서 값에 대한 이동 평균을 계산할 수 있습니다.
 
-사용자 정의 함수는 JavaScript로 작성될 수 있습니다. 도우미 메서드는 사용자 정의 실행 환경에서 그래프와 상호 작용합니다. 개발자는 센서 원격 분석 메시지에 대해 사용자 지정 코드 조각을 실행할 수 있습니다. 다음은 이러한 템플릿의 예입니다.
+사용자 정의 함수는 JavaScript로 작성될 수 있습니다. 도우미 메서드는 사용자 정의 실행 환경에서 그래프와 상호 작용합니다. 개발자는 센서 원격 분석 메시지에 대해 사용자 지정 코드 조각을 실행할 수 있습니다. 예를 들어 다음과 같습니다.
 
 - 센서 값을 그래프 내의 센서 개체에 직접 설정합니다.
 - 다양한 센서 값을 기반으로 그래프의 공간 내에서 작업을 수행합니다.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 10131ad306a8a24cb5835e55a02f1b502b20bea4
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 509bd472fe5f930ac830b8b4016129f8acb67324
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473380"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69612890"
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: FAQ(질문과 대답)
 이 페이지는 Azure Active Directory Domain Services에 대한 자주 묻는 질문을 응답합니다. 업데이트를 계속 확인합니다.
@@ -28,9 +28,12 @@ ms.locfileid: "67473380"
 ## <a name="troubleshooting-guide"></a>문제 해결 가이드
 Azure AD Domain Services 구성 또는 관리에서 발생하는 일반적인 문제에 대한 솔루션은 [문제 해결 가이드](troubleshoot.md)를 참조하세요.
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 ### <a name="can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory"></a>단일 Azure AD 디렉터리에 여러 관리되는 도메인을 만들 수 있나요?
 아니요. 단일 Azure AD 디렉터리에 Azure AD Domain Services에서 제공하는 단일 관리되는 도메인만 만들 수 있습니다.  
+
+### <a name="can-i-enable-azure-ad-domain-services-in-a-classic-virtual-network"></a>클래식 가상 네트워크에서 Azure AD Domain Services를 사용 하도록 설정할 수 있나요?
+클래식 가상 네트워크는 새로운 배포에서 지원되지 않습니다. 클래식 가상 네트워크에 배포된 기존의 관리되는 도메인은 계속 지원됩니다.
 
 ### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-resource-manager-virtual-network"></a>Azure Resource Manager 가상 네트워크에서 Azure AD Domain Services를 사용할 수 있습니까?
 예. Azure Resource Manager 가상 네트워크에서 Azure AD Domain Services를 사용할 수 있습니다. 클래식 Azure 가상 네트워크는 새 관리되는 도메인을 만드는 데 더 이상 지원되지 않습니다.
@@ -101,7 +104,7 @@ Azure AD Domain Services 관리되는 도메인의 기본 암호 수명은 90일
 아니요.  현재 Azure AD Domain Services는 지역 중복 배포 모델을 제공하지 않습니다. 지역은 Azure 지역의 단일 가상 네트워크로 제한되어 있습니다. 여러 Azure 지역을 사용하려면 Azure IaaS VM에서 Active Directory 도메인 컨트롤러를 실행해야 합니다.  아키텍처 지침은 [여기](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-extend-domain)에서 찾을 수 있습니다.
 
 ### <a name="can-i-get-azure-ad-domain-services-as-part-of-enterprise-mobility-suite-ems-do-i-need-azure-ad-premium-to-use-azure-ad-domain-services"></a>Enterprise Mobility Suite(EMS)의 일부로 Azure AD 도메인 서비스를 가져올 수 있습니까? Azure AD Domain Services를 사용하려면 Azure AD Premium이 필요합니까?
-아니요. Azure AD Domain Services는 종량제 Azure 서비스이며 EMS의 일부가 아닙니다. Azure AD Domain Services는 모든 에디션의 Azure AD(무료, 기본 및 프리미엄)에 사용할 수 있습니다. 사용 방식에 따라 시간 단위로 청구됩니다.
+아니요. Azure AD Domain Services는 종량제 Azure 서비스이며 EMS의 일부가 아닙니다. Azure AD Domain Services은 모든 버전의 Azure AD (무료 및 프리미엄)에서 사용할 수 있습니다. 사용 방식에 따라 시간 단위로 청구됩니다.
 
 ### <a name="what-azure-regions-is-the-service-available-in"></a>어떤 Azure 지역에서 서비스를 사용할 수 있습니까?
 Azure AD Domain Services를 사용할 수 있는 Azure 지역의 목록을 알아보려면 [지역별 Azure 서비스](https://azure.microsoft.com/regions/#services/) 페이지를 참조하세요.

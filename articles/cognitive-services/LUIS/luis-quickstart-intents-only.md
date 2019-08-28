@@ -1,22 +1,22 @@
 ---
-title: 의도 예측
+title: 의도 예측 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 이 자습서에서는 사용자의 의도를 예측하는 사용자 지정 앱을 만듭니다. 이 앱은 이메일 주소 또는 날짜 등의 발화 텍스트에서 다양한 데이터 요소를 추출하지 않으므로 가장 간단한 형식의 LUIS 앱입니다.
 services: cognitive-services
-author: lingliw
-manager: digimobile
+author: diberry
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/19/19
-ms.author: v-lingwu
-ms.openlocfilehash: 067829a1d9425ede1320242e364eca7c30bb7053
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 07/16/2019
+ms.author: diberry
+ms.openlocfilehash: 249ac689f855d175fa5df7cc5fed9438c0873289
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66123927"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560377"
 ---
 # <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>자습서: 사용자 의도를 확인하는 LUIS 앱 빌드
 
@@ -45,7 +45,7 @@ ms.locfileid: "66123927"
 
 이 앱에는 몇 가지 의도가 있습니다. 
 
-|의도|목적|
+|Intent|목적|
 |--|--|
 |ApplyForJob|사용자가 구직 중인지 확인합니다.|
 |GetJobInformation|사용자가 일반 직무 또는 특정 직무에 대한 정보를 찾고 있는지 확인합니다.|
@@ -61,7 +61,7 @@ ms.locfileid: "66123927"
 
     ![Language Understanding(LUIS) 새 의도 대화 상자 스크린샷](media/luis-quickstart-intents-only/create-intent.png "Language Understanding(LUIS) 새 의도 대화 상자 스크린샷")
 
-1. **완료**를 선택합니다.
+1. **완료** 를 선택합니다.
 
 2. 사용자가 요청할 것으로 예상되는 여러 예제 발언을 이 의도에 추가합니다.
 
@@ -239,7 +239,3 @@ LUIS가 JSON 응답은 반환한 후에 이 요청에서 LUIS가 완료됩니다
 
 > [!div class="nextstepaction"]
 > [이 앱에 미리 빌드된 의도 및 엔터티 추가](luis-tutorial-prebuilt-intents-entities.md)
-
-
-
-

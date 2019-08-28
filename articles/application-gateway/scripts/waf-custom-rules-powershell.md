@@ -34,7 +34,7 @@ Azure PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 �
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
-다음 명령을 실행하여 리소스 그룹, 응용 프로그램 게이트웨이 및 모든 관련 리소스를 제거할 수 있습니다.
+다음 명령을 실행하여 리소스 그룹, 애플리케이션 게이트웨이 및 모든 관련 리소스를 제거할 수 있습니다.
 
 ```powershell
 Remove-AzResourceGroup -Name CustomRulesTest

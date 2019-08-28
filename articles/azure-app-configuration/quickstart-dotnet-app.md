@@ -14,24 +14,22 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: f5837e06f347a4f822ac007dfe54c99fc7457dbb
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 8aa8c8132220965d55097c4fed8ba1b2e9501301
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872982"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326523"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>빠른 시작: Azure App Configuration을 사용하여 .NET Framework 앱 만들기
 
-Azure App Configuration은 Azure의 관리형 구성 서비스로서, 코드와 분리된 한 곳에서 모든 애플리케이션 설정을 쉽게 저장하고 관리할 수 있습니다. 이 빠른 시작은 .NET Framework 기반 Windows 데스크톱 콘솔 앱으로 서비스를 통합하는 방법을 보여줍니다.
-
-![로컬로 수행된 빠른 시작](./media/quickstarts/dotnet-fx-app-run.png)
+이 빠른 시작에서는 Azure App Configuration을 .NET Framework 기반 콘솔 앱에 통합하여 코드와 별도로 애플리케이션 설정의 스토리지 및 관리를 중앙 집중화합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작을 수행하려면 [Visual Studio 2019](https://visualstudio.microsoft.com/vs) 및 [.NET Framework 4.7.1](https://dotnet.microsoft.com/download) 이상을 설치합니다(아직 설치하지 않은 경우).
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
+- [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
+- [.NET Framework 4.7.1](https://dotnet.microsoft.com/download)
 
 ## <a name="create-an-app-configuration-store"></a>앱 구성 저장소 만들기
 

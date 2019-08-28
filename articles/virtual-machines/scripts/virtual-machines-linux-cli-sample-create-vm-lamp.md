@@ -3,25 +3,22 @@ title: Azure CLI 스크립트 샘플 - 부하가 분산된 가상 머신 확장 
 description: 사용자 지정 스크립트 확장을 사용하여 Azure의 부하가 분산된 가상 머신 확장 집합에서 LAMP 스택을 배포합니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: allclark
-manager: douge
-editor: tysonn
+author: cynthn
+ms.author: cynthn
 tags: azure-service-management
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/05/2017
-ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: ff4c41ff6428ba6ef88473508830ec8545be8778
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 04/05/2017
+ms.openlocfilehash: ffbece620ae038307d30ae3b330854280f09bd28
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731107"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963238"
 ---
 # <a name="deploy-the-lamp-stack-in-a-load-balanced-virtual-machine-scale-set"></a>부하가 분산된 가상 머신 확장 집합에서 LAMP 스택 배포
 

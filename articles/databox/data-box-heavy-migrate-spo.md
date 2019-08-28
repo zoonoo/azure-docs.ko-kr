@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 06/05/2019
+ms.date: 07/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 1c432ee5851115e029b55722b6b238b4672e8345
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4955b28dff3193a95950912562cc3b6ec789479d
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446712"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325264"
 ---
 # <a name="use-the-azure-data-box-heavy-to-migrate-your-file-share-content-to-sharepoint-online"></a>Azure Data Box Heavy를 사용하여 파일 공유 콘텐츠를 SharePoint Online으로 마이그레이션
 
@@ -23,7 +23,7 @@ Microsoft Azure Data Box는 Microsoft Azure Portal에서 디바이스를 주문�
 
 - [Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview): 주문당 사용 가능한 용량이 35TB이며 중소형 데이터 세트에 적합합니다.
 - [Data Box](https://docs.microsoft.com/azure/databox/data-box-overview): 디바이스당 사용 가능한 용량이 80TB이며 중대형 데이터 세트에 적합합니다.
-- [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-overview): 디바이스당 사용 가능한 용량이 770TB이며 대형 데이터 세트에 적합합니다. Data Box Heavy는 현재 미리 보기로 있습니다.
+- [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-overview): 디바이스당 사용 가능한 용량이 770TB이며 대형 데이터 세트에 적합합니다.
 
 이 문서에서는 Data Box Heavy를 사용하여 파일 공유 콘텐츠를 SharePoint Online으로 마이그레이션하는 방법을 구체적으로 설명합니다.
 
@@ -66,8 +66,8 @@ Microsoft Azure Data Box는 Microsoft Azure Portal에서 디바이스를 주문�
 2. Data Box Heavy를 받으면, [Data Box Heavy를 설정](data-box-heavy-deploy-set-up.md)합니다. 디바이스에 케이블을 연결하고 두 노드를 모두 구성합니다.
 3. [Azure Data Box Heavy에 데이터를 복사](data-box-heavy-deploy-copy-data.md)합니다. 복사하는 동안, 다음 사항을 지켜야 합니다.
 
-    - Data Box Heavy의 *AzureFile* 폴더만 사용하여 데이터를 복사합니다. 블록 Blob이나 페이지 Blob이 아닌 Azure 파일 공유의 데이터가 복사되어야 하기 때문입니다.
-    - *AzureFile* 폴더 내의 폴더로 파일을 복사합니다. *AzureFile* 폴더 내의 하위 폴더는 파일 공유를 만듭니다. *AzureFile* 폴더로 직접 복사된 모든 파일에 오류가 발생하고 블록 Blob으로 업로드됩니다. 이 파일 공유는 다음 단계에서 VM에 탑재됩니다.
+    - 데이터 복사에는 Data Box Heavy의 *StorageAccountName_AzFile* 폴더만 사용합니다. 블록 Blob이나 페이지 Blob이 아닌 Azure 파일 공유의 데이터가 복사되어야 하기 때문입니다.
+    - *StorageAccountName_AzFile* 폴더 내의 폴더에 파일을 복사합니다. *StorageAccountName_AzFile* 폴더 내의 하위 폴더는 파일 공유를 만듭니다. *StorageAccountName_AzFile* 폴더에 직접 복사된 파일은 오류가 발생하고 블록 Blob으로 업로드됩니다. 이 파일 공유는 다음 단계에서 VM에 탑재됩니다.
     - Data Box Heavy의 두 노드에 데이터를 복사합니다.
 3. 디바이스에서 [배송 준비](data-box-heavy-deploy-picked-up.md#prepare-to-ship)를 실행합니다. 배송 준비에 성공해야 파일을 Azure에 성공적으로 업로드할 수 있습니다.
 4. [디바이스를 반환](data-box-heavy-deploy-picked-up.md#ship-data-box-heavy-back)합니다.
@@ -75,7 +75,7 @@ Microsoft Azure Data Box는 Microsoft Azure Portal에서 디바이스를 주문�
 
 ## <a name="use-spmt-to-migrate-data"></a>SPMT를 사용하여 데이터 마이그레이션
 
-귀하의 데이터 복사가 완료되었다는 Azure 데이터 팀의 확인을 받으면 데이터를 SharePoint Online으로 마이그레이션할 수 있습니다.
+데이터 복사가 완료되었다는 Azure 데이터 팀의 확인 메시지를 받으면 데이터를 SharePoint Online으로 마이그레이션합니다.
 
 최고의 성능과 연결을 위해 Azure VM(가상 머신)을 만드는 것이 좋습니다.
 

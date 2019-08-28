@@ -2,19 +2,19 @@
 title: 리소스에 대한 동시 쓰기를 관리하는 방법 - Azure Search
 description: Azure Search 인덱스, 인덱서, 데이터 원본을 업데이트나 삭제하는 중에 충돌이 발생하지 않도록 하려면 낙관적 동시성을 사용합니다.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 7e569fa30727f2df7411eee5fa6d48f9b9454460
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67f2dad016d3958dc10ba87e785d31694a1c94f5
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65025333"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656730"
 ---
 # <a name="how-to-manage-concurrency-in-azure-search"></a>Azure Search에서 동시성을 관리하는 방법
 
@@ -170,7 +170,7 @@ ms.locfileid: "65025333"
 
 낙관적 동시성 구현을 위한 디자인 패턴에는 액세스 조건 확인을 다시 시도하는 루프와 액세스 조건에 대한 테스트를 포함해야 하며, 필요에 따라 변경 내용을 다시 적용하기 전에 업데이트된 리소스를 검색하는 과정을 포함할 수 있습니다.
 
-다음 코드 조각은 이미 있는 인덱스에 synonymMap을 추가하는 방법을 보여 줍니다. 이 코드는 합니다 [동의어 C# Azure Search에 대 한 예제](search-synonyms-tutorial-sdk.md)합니다.
+다음 코드 조각은 이미 있는 인덱스에 synonymMap을 추가하는 방법을 보여 줍니다. 이 코드는 [Azure Search에 대 C# 한 동의어 예제](search-synonyms-tutorial-sdk.md)에서 가져온 것입니다.
 
 해당 코드 조각은 "hotels" 인덱스를 가져와 업데이트 작업의 개체 버전을 확인한 다음 조건이 실패하면 예외를 throw합니다. 그런 후에 작업을 최대 3회까지 다시 시도하는데, 이때 먼저 서버에서 인덱스를 검색하여 최신 버전을 가져옵니다.
 
@@ -215,7 +215,7 @@ ms.locfileid: "65025333"
 + [GitHub의 REST API 샘플](https://github.com/Azure-Samples/search-rest-api-getting-started)
 + [GitHub의 .NET SDK 샘플](https://github.com/Azure-Samples/search-dotnet-getting-started) 이 솔루션에는 이 문서에 나와 있는 코드를 포함하는 "DotNetEtagsExplainer" 프로젝트가 들어 있습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 [일반 HTTP 요청 및 응답 헤더](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
 [HTTP 상태 코드](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)

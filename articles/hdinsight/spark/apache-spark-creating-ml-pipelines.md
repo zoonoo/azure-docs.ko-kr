@@ -2,18 +2,18 @@
 title: Apache Spark Machine Learning 학습 파이프라인 만들기 - Azure HDInsight
 description: Apache Spark 기계 학습 라이브러리를 사용하여 데이터 파이프라인을 만듭니다.
 ms.service: hdinsight
-author: maxluk
-ms.author: maxluk
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/19/2018
-ms.openlocfilehash: c539460177a0a85938b886d161803e1fdf0e9e68
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/22/2019
+ms.openlocfilehash: 4ad68ef33eb469c7949c3f3efcd55d6765da4158
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64730204"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68441877"
 ---
 # <a name="create-an-apache-spark-machine-learning-pipeline"></a>Apache Spark 기계 학습 파이프라인 만들기
 
@@ -56,19 +56,23 @@ from pyspark.sql import Row
 LabeledDocument = Row("BuildingID", "SystemInfo", "label")
 
 # Define a function that parses the raw CSV file and returns an object of type LabeledDocument
+
+
 def parseDocument(line):
     values = [str(x) for x in line.split(',')]
     if (values[3] > values[2]):
         hot = 1.0
     else:
-        hot = 0.0        
+        hot = 0.0
 
     textValue = str(values[4]) + " " + str(values[5])
 
     return LabeledDocument((values[6]), textValue, hot)
 
+
 # Load the raw HVAC.csv file, parse it using the function
-data = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+data = sc.textFile(
+    "wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
 documents = data.filter(lambda s: "Date" not in s).map(parseDocument)
 training = documents.toDF()
@@ -128,6 +132,6 @@ only showing top 20 rows
 
 이제 `model` 개체를 사용하여 예측을 만들 수 있습니다. 이 기계 학습 애플리케이션의 전체 샘플과 단계별 실행 지침은 [Azure HDInsight에서 Apache Spark 기계 학습 애플리케이션 빌드](apache-spark-ipython-notebook-machine-learning.md)를 참조하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 * [Azure에서 Scala 및 Apache Spark를 사용한 데이터 과학](../../machine-learning/team-data-science-process/scala-walkthrough.md)

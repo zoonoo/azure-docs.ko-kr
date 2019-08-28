@@ -42,7 +42,7 @@ App Service Environment는 다양한 프라이빗 고객 엔드포인트와 통�
 > 
 > 
 
-App Service Environment 역시 관리 및 운영에 필요한 sql DB 및 Azure Storage와 통신할 수 있습니다.  App Service Environment와 통신하는 일부 SQL 및 저장소 리소스는 App Service Environment는와 같은 지역에 위치해 있는 반면, 나머지는 Azure 지역과 멀리 위치해 있습니다.  결과적으로, 인터넷에 대한 아웃 바운드 연결은 항상 제대로 작동하는 App Service Environment에 필요 합니다. 
+App Service Environment 역시 관리 및 운영에 필요한 sql DB 및 Azure Storage와 통신할 수 있습니다.  App Service Environment와 통신하는 일부 SQL 및 스토리지 리소스는 App Service Environment는와 같은 지역에 위치해 있는 반면, 나머지는 Azure 지역과 멀리 위치해 있습니다.  결과적으로, 인터넷에 대한 아웃 바운드 연결은 항상 제대로 작동하는 App Service Environment에 필요 합니다. 
 
 서브넷에 배포된 App Service Environment 때문에, 네트워크 보안 그룹은 서브넷에 인바운드 트래픽을 제어할 때 사용할 수 있습니다.  App Service 환경에 대한 인바운드 트래픽을 제어하는 방법에 대한 자세한 내용은 다음 [문서][controllinginboundtraffic]를 참조하세요.
 
@@ -57,9 +57,9 @@ App Service Environment가 아웃바운드를 호출하는 경우, IP 주소는 
 
 App Service Environment에서 앱을 만든 다음 앱 주소에 대해 *nslookup* 을 수행하여 공용 VIP만 있는 ASE에 대해 이 주소를 확인할 수도 있습니다. 결과 IP 주소는 공용 VIP, App Service Environment의 아웃바운드 NAT 주소 둘 다 해당됩니다.
 
-엔드포인트가 가상 네트워크 토폴리지 **내**에서 호출된 경우, 호출한 응용 프로그램의 아웃바운드 주소는 개별 계산 리소스의 내부 IP 주소입니다.  그러나 앱에 내부 IP 주소를 가상 네트워크의 지속적으로 매핑하지 않습니다.  앱은 다른 계산 리소스에 걸쳐 이동할 수 있고, App Service Environment의 사용 가능한 계산 리소스의 풀은 크기 조정 때문에 변경됩니다.
+엔드포인트가 가상 네트워크 토폴리지 **내**에서 호출된 경우, 호출한 응용 프로그램의 아웃바운드 주소는 개별 계산 리소스의 내부 IP 주소입니다.  그러나 앱에 내부 IP 주소를 가상 네트워크의 지속적으로 매핑하지 않습니다.  앱은 다른 컴퓨팅 리소스에 걸쳐 이동할 수 있고, App Service Environment의 사용 가능한 컴퓨팅 리소스의 풀은 크기 조정 때문에 변경됩니다.
 
-그러나 App Service Environment는 항상 서브넷 내에 위치하므로, 앱을 실행하는 계산 리소스의 내부 IP 주소가 서브넷의 CIDR 범위에 놓인다는 점을 보장 받을 수 있습니다.  결과적으로 세분화 된 ACL 또는 네트워크 보안 그룹은 가상 네트워크 내의 다른 엔드포인트의 액세스를 보호하는 데 사용되고, App Service Environment에 대한 서브넷 범위 조정은 액세스 권한을 부여해야 합니다.
+그러나 App Service Environment는 항상 서브넷 내에 위치하므로, 앱을 실행하는 컴퓨팅 리소스의 내부 IP 주소가 서브넷의 CIDR 범위에 놓인다는 점을 보장 받을 수 있습니다.  결과적으로 세분화 된 ACL 또는 네트워크 보안 그룹은 가상 네트워크 내의 다른 엔드포인트의 액세스를 보호하는 데 사용되고, App Service Environment에 대한 서브넷 범위 조정은 액세스 권한을 부여해야 합니다.
 
 다음 다이어그램에서는 이러한 개념을 자세히 보여줍니다.
 

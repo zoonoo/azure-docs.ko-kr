@@ -38,22 +38,22 @@ ms.locfileid: "65872716"
     (이 예제에서는 클라이언트 브라우저에서 페이지 보기 데이터를 처리하는 데 초점을 두었지만 [Java](../../azure-monitor/app/java-get-started.md) 또는 [ASP.NET](../../azure-monitor/app/asp-net.md) 앱의 서버 쪽에 대한 Application Insights, 프로세스 요청, 종속성 및 기타 서버 원격 분석도 설정할 수 있습니다.)
 2. 앱을 게시하고 Application Insights 리소스에 표시되는 원격 분석 데이터를 확인합니다.
 
-## <a name="create-storage-in-azure"></a>Azure에서 저장소 만들기
+## <a name="create-storage-in-azure"></a>Azure에서 스토리지 만들기
 연속 내보내기는 항상 Azure Storage 계정에 데이터를 출력하므로 스토리지를 먼저 만들어야 합니다.
 
-1. [Azure Portal][portal]에서 구독에 저장소 계정을 만듭니다.
+1. [Azure Portal][portal]에서 구독에 스토리지 계정을 만듭니다.
    
-    ![Azure Portal에서 새로 만들기, 데이터, 저장소를 선택합니다. 클래식을 선택하고 만들기를 선택합니다. 저장소 이름을 제공합니다.](./media/code-sample-export-sql-stream-analytics/040-store.png)
+    ![Azure Portal에서 새로 만들기, 데이터, 스토리지를 선택합니다. 클래식을 선택하고 만들기를 선택합니다. 스토리지 이름을 제공합니다.](./media/code-sample-export-sql-stream-analytics/040-store.png)
 2. 컨테이너 만들기
    
-    ![새 저장소에서 컨테이너를 선택하고 컨테이너 타일, 추가를 차례로 클릭합니다.](./media/code-sample-export-sql-stream-analytics/050-container.png)
-3. 저장소 액세스 키 복사
+    ![새 스토리지에서 컨테이너를 선택하고 컨테이너 타일, 추가를 차례로 클릭합니다.](./media/code-sample-export-sql-stream-analytics/050-container.png)
+3. 스토리지 액세스 키 복사
    
     스트림 분석 서비스에 대한 입력을 설정하려면 곧 이 키가 필요합니다.
    
-    ![저장소에서 설정, 키를 열고 기본 액세스 키 복사](./media/code-sample-export-sql-stream-analytics/21-storage-key.png)
+    ![스토리지에서 설정, 키를 열고 기본 액세스 키 복사](./media/code-sample-export-sql-stream-analytics/21-storage-key.png)
 
-## <a name="start-continuous-export-to-azure-storage"></a>Azure 저장소로 연속 내보내기 시작
+## <a name="start-continuous-export-to-azure-storage"></a>Azure Storage로 연속 내보내기 시작
 1. Azure 포털에서 애플리케이션에 대해 만든 Application Insights 리소스를 찾습니다.
    
     ![찾아보기, Application Insights, 애플리케이션 선택](./media/code-sample-export-sql-stream-analytics/060-browse.png)
@@ -61,7 +61,7 @@ ms.locfileid: "65872716"
    
     ![설정, 연속 내보내기, 추가를 차례로 선택](./media/code-sample-export-sql-stream-analytics/070-export.png)
 
-    이전에 만든 저장소 계정을 선택합니다.
+    이전에 만든 스토리지 계정을 선택합니다.
 
     ![내보내기 대상 설정](./media/code-sample-export-sql-stream-analytics/080-add.png)
 
@@ -72,10 +72,10 @@ ms.locfileid: "65872716"
 
 1. 일부 데이터가 누적되도록 합니다. 한동안 사용자가 애플리케이션을 사용하도록 놓아둡니다. 원격 분석이 제공되어 [메트릭 탐색기](../../azure-monitor/app/metrics-explorer.md)에서 통계 차트가, [진단 검색](../../azure-monitor/app/diagnostic-search.md)에서 개별 이벤트가 표시됩니다. 
    
-    또한 데이터를 저장소로 내보냅니다. 
-2. 포털 또는 Visual Studio에서 내보낸 데이터를 검사합니다. 포털에서 **찾아보기**, 저장소 계정을 선택한 다음 **컨테이너**를 선택합니다. Visual Studio에서 **보기/클라우드 탐색기**를 선택하고 Azure/저장소를 엽니다. (이 메뉴 옵션이 없는 경우 Azure SDK를 설치해야 합니다. 새 프로젝트 대화 상자를 열고 시각적 개체 C# / 클라우드 / .NET용 Microsoft Azure SDK 가져오기를 엽니다.)
+    또한 데이터를 스토리지로 내보냅니다. 
+2. 포털 또는 Visual Studio에서 내보낸 데이터를 검사합니다. 포털에서 **찾아보기**, 스토리지 계정을 선택한 다음 **컨테이너**를 선택합니다. Visual Studio에서 **보기/클라우드 탐색기**를 선택하고 Azure/스토리지를 엽니다. (이 메뉴 옵션이 없는 경우 Azure SDK를 설치해야 합니다. 새 프로젝트 대화 상자를 열고 시각적 개체 C# / 클라우드 / .NET용 Microsoft Azure SDK 가져오기를 엽니다.)
    
-    ![Visual Studio에서 서버 브라우저, Azure, 저장소 열기](./media/code-sample-export-sql-stream-analytics/087-explorer.png)
+    ![Visual Studio에서 서버 브라우저, Azure, 스토리지 열기](./media/code-sample-export-sql-stream-analytics/087-explorer.png)
    
     애플리케이션 이름 및 계측 키에서 파생된 경로 이름의 공통 부분을 적어 둡니다. 
 
@@ -164,7 +164,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 **날짜 형식을 YYYY-MM-DD(파선 포함)로 설정해야 합니다.**
 
-경로 접두사 패턴은 Stream Analytics가 저장소에서 입력 파일을 찾는 방법을 지정합니다. 연속 내보내기에서 데이터를 저장하는 방법과 일치하도록 설정해야 합니다. 다음과 같이 설정합니다.
+경로 접두사 패턴은 Stream Analytics가 스토리지에서 입력 파일을 찾는 방법을 지정합니다. 연속 내보내기에서 데이터를 저장하는 방법과 일치하도록 설정해야 합니다. 다음과 같이 설정합니다.
 
     webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
@@ -178,7 +178,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 Application Insights 리소스의 이름 및 iKey를 가져오려면 해당 개요 페이지에서 필수 항목을 열거나 설정을 엽니다.
 
 > [!TIP]
-> 샘플 함수를 사용하여 입력 경로가 올바르게 설정되었는지 확인합니다. 실패한 경우 선택한 샘플 시간 범위에 대한 스토리지에 데이터가 있는지 확인합니다. 입력 정의를 편집하고 저장소 계정, 경로 접두사 및 날짜 형식이 올바르게 설정되었는지 확인합니다.
+> 샘플 함수를 사용하여 입력 경로가 올바르게 설정되었는지 확인합니다. 실패한 경우 선택한 샘플 시간 범위에 대한 스토리지에 데이터가 있는지 확인합니다. 입력 정의를 편집하고 스토리지 계정, 경로 접두사 및 날짜 형식이 올바르게 설정되었는지 확인합니다.
 
  
 ## <a name="set-query"></a>쿼리 설정

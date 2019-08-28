@@ -11,12 +11,12 @@ ms.assetid: 8bce2183-544d-4668-a2dc-9a62c152d9fa
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 0fbd89202796cb4543dbecbeee605c9b87cc9d05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22b75b2d2b47dbd496eda06c09b418ae66f6403a
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62104989"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050694"
 ---
 # <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Twitter 모니터링 및 관리
 
@@ -27,9 +27,9 @@ Azure Logic Apps 및 Twitter 커넥터를 사용하면 다음과 같이 다른 �
 
 트리거를 사용하여 Twitter 계정에서 응답을 가져오고 다른 작업에서 출력을 사용하도록 할 수 있습니다. Twitter 계정을 사용하여 작업을 수행하는 작업을 사용할 수 있습니다. 또한 다른 작업에서 Twitter 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어 특정 해시태그가 있는 새 트윗이 표시되면 Slack 커넥터를 사용하여 메시지를 보낼 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독. Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다. 
+* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 
 
 * Twitter 계정 및 사용자 자격 증명
 
@@ -72,13 +72,13 @@ Azure Logic Apps 및 Twitter 커넥터를 사용하면 다음과 같이 다른 �
 
 ### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Twitter 트리거: 새 트윗이 게시될 때
 
-이 트리거는 예를 들어 #Seattle이란 해시태그가 있는 새 트윗을 트리거에서 감지하면 논리 앱 워크플로를 시작합니다. 따라서 예를 들어 이러한 트윗을 찾으면 Dropbox 커넥터를 사용하여 Dropbox 계정과 같은 저장소에 트윗의 콘텐츠가 포함된 파일을 추가할 수 있습니다. 
+이 트리거는 예를 들어 #Seattle이란 해시태그가 있는 새 트윗을 트리거에서 감지하면 논리 앱 워크플로를 시작합니다. 따라서 예를 들어 이러한 트윗을 찾으면 Dropbox 커넥터를 사용하여 Dropbox 계정과 같은 스토리지에 트윗의 콘텐츠가 포함된 파일을 추가할 수 있습니다. 
 
 필요에 따라 지정된 최소 팔로워가 있는 사용자의 트윗만 가져오도록 조건을 포함시킬 수 있습니다.
 
-**엔터프라이즈 예제**: 회사에 대 한 트 윗을 모니터링 하 고 SQL database에 트 윗의 콘텐츠를 업로드 하려면이 트리거를 사용할 수 있습니다.
+**엔터프라이즈 예제**: 이 트리거를 사용 하 여 회사에 대 한 트 윗을 모니터링 하 고 트 윗의 콘텐츠를 SQL 데이터베이스에 업로드할 수 있습니다.
 
-### <a name="twitter-action-post-a-tweet"></a>Twitter 작업: 트윗 게시
+### <a name="twitter-action-post-a-tweet"></a>Twitter 동작: 트윗 게시
 
 이 작업은 트윗을 게시하되, 앞에서 설명한 트리거에서 찾은 트윗의 콘텐츠만 포함하도록 작업을 사용자가 설정할 수 있습니다. 
 

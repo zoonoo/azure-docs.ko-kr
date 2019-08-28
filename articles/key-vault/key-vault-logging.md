@@ -2,52 +2,52 @@
 title: Azure Key Vault 로깅 | Microsoft Docs
 description: 이 자습서를 사용하여 Azure Key Vault 로깅을 시작할 수 있습니다.
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
-ms.topic: conceptual
-ms.date: 01/18/2019
-ms.author: barclayn
-ms.openlocfilehash: 0ae977215e52883e190ad3859eefac9e97462968
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
-ms.translationtype: MT
+ms.topic: tutorial
+ms.date: 08/12/2019
+ms.author: mbaldwin
+ms.openlocfilehash: fc0f259a4866f7eb2438938c7a10989db9200aa4
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205956"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976969"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault 로깅
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-하나 이상의 키 자격 증명 모음을 만든 후에 모니터링 하려는 가능성이 키 자격 증명 모음 액세스 및 사용자는 방법 및 시기입니다. 사용자가 제공한 Azure storage 계정에 정보를 저장 하는 Azure Key Vault에 대 한 로깅을 사용 하 여이 수행할 수 있습니다. 라는 새 컨테이너 **insights-로그-auditevent** 지정 된 저장소 계정에 대해 자동으로 만들어집니다. 여러 키 자격 증명 모음에 대 한 로그를 수집 하기 위한이 저장소 계정을 사용할 수 있습니다.
+하나 이상의 키 자격 증명 모음을 만든 후에는 키 자격 증명 모음에 액세스하는 방법, 시기 및 사용자를 모니터링하려고 할 수도 있습니다. 이 작업은 제공하는 정보를 Azure 스토리지 계정에 저장하는 Azure Key Vault에서 로깅을 사용하도록 설정하여 수행할 수 있습니다. 지정한 스토리지 계정에 대해 **insights-logs-auditevent**라는 새 컨테이너가 자동으로 만들어집니다. 여러 키 자격 증명 모음에 대한 로그를 수집하는 데 이 동일한 스토리지 계정을 사용할 수 있습니다.
 
-액세스할 수 있습니다 로깅 정보에 10 분 (최대) 키 자격 증명 모음 작업 후. 대부분의 경우 이것보다 빠릅니다.  저장소 계정의 로그 관리에 따라 다릅니다.
+키 자격 증명 모음 작업 후 최대 10분 동안 로깅 정보에 액세스할 수 있습니다. 대부분의 경우 이것보다 빠릅니다.  스토리지 계정의 로그 관리에 따라 다릅니다.
 
 * 표준 Azure 액세스 제어 메서드를 사용하여 액세스할 수 있는 사용자를 제한하여 로그를 보호합니다.
 * 더 이상 스토리지 계정에 유지하지 않으려는 로그를 삭제합니다.
 
-이 자습서를 사용하여 Azure Key Vault 로깅을 시작할 수 있습니다. 저장소 계정 만들기, 로깅을 활성화 하 고 수집 된 로그 정보를 해석 됩니다.  
+이 자습서를 사용하여 Azure Key Vault 로깅을 시작할 수 있습니다. 스토리지 계정을 만들고, 로깅을 사용하도록 설정하고, 수집된 로그 정보를 해석합니다.  
 
 > [!NOTE]
-> 이 자습서는 키 자격 증명 모음, 키 또는 암호를 만드는 방법에 대한 지침을 다루지 않습니다. 자세한 내용은 [Azure Key Vault란?](key-vault-overview.md)을 참조하세요. 플랫폼 간 Azure CLI 지침을 참조 하세요. 또는 [이 해당 자습서](key-vault-manage-with-cli2.md)합니다.
+> 이 자습서는 키 자격 증명 모음, 키 또는 암호를 만드는 방법에 대한 지침을 다루지 않습니다. 자세한 내용은 [Azure Key Vault란?](key-vault-overview.md)을 참조하세요. 또는 플랫폼 간 Azure CLI 지침에 대해 [이 해당 자습서](key-vault-manage-with-cli2.md)를 참조하세요.
 >
-> 이 문서에서는 진단 로깅 업데이트에 대 한 Azure PowerShell 지침을 제공 합니다. Azure Monitor를 사용 하 여 진단 로깅을 업데이트할 수도 있습니다는 **진단 로그** Azure 포털의 섹션입니다. 
+> 이 문서에서는 진단 로깅을 업데이트하기 위한 Azure PowerShell 지침을 제공합니다. 또한 Azure Portal의 **진단 로그** 섹션에서 Azure Monitor를 사용하여 진단 로깅을 업데이트할 수도 있습니다. 
 >
 
-Key Vault에 대 한 개요 정보를 참조 하세요 [Azure Key Vault 란?](key-vault-whatis.md)합니다. Key Vault를 사용할 수 있는 정보에 대 한 참조를 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/key-vault/)합니다.
+Key Vault에 대한 개요는 [Azure Key Vault란?](key-vault-whatis.md)을 참조하세요. Key Vault를 사용할 수 있는 위치에 대한 자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/key-vault/)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * 사용하고 있는 기존 키 자격 증명 모음  
-* Azure PowerShell, 1.0.0의 최소 버전입니다. Azure PowerShell을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요. 이미 Azure PowerShell을 설치 하 고 Azure PowerShell 콘솔에서 버전을 모르는 경우 입력 `$PSVersionTable.PSVersion`합니다.  
+* Azure PowerShell(최소 버전 1.0.0). Azure PowerShell을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요. Azure PowerShell이 이미 설치되어 있고 버전을 알 수 없는 경우 Azure PowerShell 콘솔에서 `$PSVersionTable.PSVersion`을 입력합니다.  
 * 키 자격 증명 모음 로그에 대한 Azure의 충분한 스토리지.
 
 ## <a id="connect"></a>키 자격 증명 모음 구독에 연결
 
-로그인 하려는 키 자격 증명 모음에 Azure PowerShell이 방법은 키 로깅을 설정 하는 첫 번째 단계입니다.
+키 로깅을 설정하는 첫 번째 단계는 Azure PowerShell에서 로깅하려는 키 자격 증명 모음을 가리키는 것입니다.
 
 Azure PowerShell 세션을 시작하고 다음 명령을 사용하여 Azure 계정에 로그인합니다.  
 
@@ -55,40 +55,40 @@ Azure PowerShell 세션을 시작하고 다음 명령을 사용하여 Azure 계�
 Connect-AzAccount
 ```
 
-팝업 브라우저 창에 Azure 계정 사용자 이름 및 암호를 입력합니다. Azure PowerShell이 계정과 연결 된 모든 구독을 가져옵니다. 기본적으로 PowerShell은 첫 번째를 사용 합니다.
+팝업 브라우저 창에 Azure 계정 사용자 이름 및 암호를 입력합니다. Azure PowerShell에서 이 계정과 연결된 모든 구독을 가져옵니다. PowerShell은 기본적으로 첫 번째 구독을 사용합니다.
 
-키 자격 증명 모음을 만드는 데는 구독을 지정 해야 합니다. 계정에 대 한 구독을 보려면 다음 명령을 입력 합니다.
+키 자격 증명 모음을 만드는 데 사용한 구독을 지정해야 할 수도 있습니다. 다음 명령을 입력하여 계정에 대한 구독을 확인합니다.
 
 ```powershell
 Get-AzSubscription
 ```
 
-그런 다음 로깅하려에서는 key vault와 사용 하 여 연결 된 구독을 지정 하려면 다음을 입력:
+그런 다음, 로깅하려는 키 자격 증명 모음과 연결된 구독을 지정하려면 다음을 입력합니다.
 
 ```powershell
 Set-AzContext -SubscriptionId <subscription ID>
 ```
 
-계정과 연결 된 구독이 여러 개 있는 경우에 특히 중요 한 단계에는 올바른 구독을 사용 하 여 PowerShell 가리키는 합니다. Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
+PowerShell에서 올바른 구독을 가리키는 것은 특히 계정과 연결된 여러 구독이 있는 경우 중요한 단계입니다. Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
 
-## <a id="storage"></a>로그에 대 한 저장소 계정 만들기
+## <a id="storage"></a>로그에 대한 스토리지 계정 만들기
 
-로그에 대 한 기존 저장소 계정을 사용할 수 있지만 키 자격 증명 모음 로그 전용 저장소 계정을 만듭니다. 나중에이 지정 해야 경우에 대 한 편의 위해 라는 변수에 세부 정보를 저장할 것 **sa**합니다.
+로그에 대해 기존 스토리지 계정을 사용할 수 있지만 Key Vault 로그 전용 스토리지 계정을 만듭니다. 나중에 이를 지정해야 하는 경우 편의를 위해 세부 정보를 **sa**라는 변수에 저장합니다.
 
-추가 관리 편의성을 위해 key vault를 포함 하는 것으로 동일한 리소스 그룹을 사용할 수도 됩니다. [-시작 자습서](key-vault-get-started.md),이 리소스 그룹의 이름은 **ContosoResourceGroup**, 동아시아 위치를 사용 하도록 계속 됩니다. 해당 하는 경우 고유의 작업으로 이러한 값을 바꿉니다.
+추가로 쉽게 관리하기 위해 키 자격 증명 모음이 포함된 것과 동일한 리소스 그룹을 사용합니다. [시작 자습서](key-vault-get-started.md)에서 이 리소스 그룹의 이름은 **ContosoResourceGroup** 이며, 동아시아 위치를 계속 사용합니다. 해당하는 경우 이러한 값을 사용자 고유의 값으로 바꿉니다.
 
 ```powershell
  $sa = New-AzStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
 ```
 
 > [!NOTE]
-> 기존 저장소 계정을 사용 하려는 경우 key vault와 동일한 구독을 사용 해야 합니다. 및 클래식 배포 모델 보다는 Azure Resource Manager 배포 모델을 사용 해야 합니다.
+> 기존 스토리지 계정을 사용하려면 키 자격 증명 모음과 동일한 구독을 사용해야 합니다. 그리고 클래식 배포 모델 대신 Azure Resource Manager 배포 모델을 사용해야 합니다.
 >
 >
 
-## <a id="identify"></a>로그에 대한 주요 자격 증명 모음 식별
+## <a id="identify"></a>로그에 대한 키 자격 증명 모음 식별
 
-에 [-시작 자습서](key-vault-get-started.md), 키 자격 증명 모음 이름은 **ContosoKeyVault**합니다. 해당 이름을 사용 하 여 라는 변수에 세부 정보를 저장 및 계속 **kv**:
+[시작 자습서](key-vault-get-started.md)에서 키 자격 증명 모음 이름은 **ContosoKeyVault**였습니다. 이 이름을 계속 사용하고 세부 정보를 **kv**라는 변수에 저장합니다.
 
 ```powershell
 $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
@@ -96,7 +96,7 @@ $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 
 ## <a id="enable"></a>로깅 사용
 
-Key Vault에 대 한 로깅을 사용 하려면 사용 합니다 **집합 AzDiagnosticSetting** 새 저장소 계정 및 key vault 용으로 만든 변수와 함께 cmdlet. 설정 된 **-사용 하도록 설정** 플래그를 **$true** 범주를 설정 하 고 **AuditEvent** (Key Vault 로깅에 대 한 유일한 범주):
+Key Vault에 대한 로깅을 사용하도록 설정하려면 새 스토리지 계정 및 키 자격 증명 모음에 대해 만든 변수와 함께 **Set-AzDiagnosticSetting** cmdlet을 사용합니다. 또한 **-Enabled** 플래그를 **$true**로 설정하고, 범주를 **AuditEvent**(Key Vault 로깅에 대한 유일한 범주)로 설정합니다.
 
 ```powershell
 Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
@@ -114,9 +114,9 @@ Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Ena
         Enabled : False
         Days    : 0
 
-이 출력 확인 키 자격 증명 모음에 대 한 로깅을 사용할 수 정보 저장소 계정에 저장 됩니다.
+이 출력에서는 이제 키 자격 증명 모음에 대한 로깅을 사용하도록 설정되었음을 확인하고, 정보를 스토리지 계정에 저장합니다.
 
-필요에 따라 오래 된 로그는 자동으로 삭제 되도록 로그에 대 한 보존 정책을 설정할 수 있습니다. 예를 들어 보존 정책을 설정 하 여 설정 합니다 **-RetentionEnabled** 플래그를 **$true**를 설정 합니다 **-RetentionInDays** 매개 변수를 **90**90 일 보다 오래 된 로그는 자동으로 삭제 되도록 합니다.
+필요에 따라 오래된 로그가 자동으로 삭제되도록 로그 보존 정책을 설정할 수 있습니다. 예를 들어 **-RetentionEnabled** 플래그를 **$true**로 설정하여 보존 정책을 설정하고, 90일보다 오래된 로그가 자동으로 삭제되도록 **-RetentionInDays** 매개 변수를 **90**으로 설정합니다.
 
 ```powershell
 Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent -RetentionEnabled $true -RetentionInDays 90
@@ -124,24 +124,24 @@ Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Ena
 
 다음이 로깅됩니다.
 
-* 모든 액세스 권한, 시스템 오류 또는 잘못 된 요청으로 인해 실패 한 요청을 포함 하 여 REST API 요청을 인증 합니다.
-* 키에 대 한 작업 자격 증명 모음 자체를 만들기, 삭제, 키 자격 증명 모음 액세스 정책 설정, 등 태그와 같은 키 자격 증명 모음 특성을 업데이트 합니다.
-* Key vault에서 키와 비밀에 대 한 작업 포함:
-  * 만들기, 수정 또는 이러한 키 또는 암호를 삭제 합니다.
-  * 서명, 확인, 암호화, 암호 해독, 래핑 및 래핑 해제 키, 비밀 및 목록 키와 비밀 (및 해당 버전)를 시작 합니다.
-* 401 응답이 발생하는 인증되지 않은 요청. 예로 없는 요청 하는 전달자 토큰 형식이 잘못 되거나 만료 되거나 토큰이 잘못 된는 있습니다.  
+* 인증된 모든 REST API 요청(예: 액세스 권한, 시스템 오류 또는 잘못된 요청으로 인해 실패한 요청)
+* 키 자격 증명 모음 자체에 대한 작업(예: 키 자격 증명 모음 액세스 정책 만들기, 삭제, 설정 및 태그와 같은 키 자격 증명 모음 특성 업데이트)
+* 다음을 포함하여 키 자격 증명 모음의 키 및 비밀에 대한 작업
+  * 이러한 키 또는 비밀 만들기, 수정 또는 삭제
+  * 서명, 확인, 암호화, 암호 해독, 키 래핑 및 래핑 해제, 비밀 가져오기, 키 및 비밀(및 해당 버전) 나열
+* 401 응답이 발생하는 인증되지 않은 요청. 예를 들어 전달자 토큰이 없거나, 형식이 잘못되었거나 만료되었거나, 잘못된 토큰이 있는 요청입니다.  
 
 ## <a id="access"></a>로그에 액세스
 
-키 자격 증명 모음 로그에 저장 됩니다는 **insights-로그-auditevent** 사용자가 제공한 저장소 계정의 컨테이너입니다. 로그를 보려면 blob을 다운로드 해야 합니다.
+Key Vault 로그는 제공한 스토리지 계정의 **insights-logs-auditevent** 컨테이너에 저장됩니다. 로그를 보려면 Blob을 다운로드해야 합니다.
 
-먼저, 컨테이너 이름에 대한 변수를 만듭니다. 이 연습의 나머지 전체에서이 변수를 사용할 수 있습니다.
+먼저, 컨테이너 이름에 대한 변수를 만듭니다. 이 변수는 연습의 나머지 부분에서 사용합니다.
 
 ```powershell
 $container = 'insights-logs-auditevent'
 ```
 
-이 컨테이너에 있는 모든 blob을 나열 하려면 다음을 입력 합니다.
+이 컨테이너의 모든 Blob을 나열하려면 다음을 입력합니다.
 
 ```powershell
 Get-AzStorageBlob -Container $container -Context $sa.Context
@@ -166,9 +166,9 @@ resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CO
 
 날짜 및 시간 값은 UTC를 사용합니다.
 
-동일한 저장소 계정을 여러 리소스에 대 한 로그를 수집 하려면를 사용할 수 있으므로 blob 이름에 전체 리소스 ID에 액세스 하거나 다운로드 해야 하는 blob만 유용 합니다. 하지만 그 전에 먼저 모든 Blob을 다운로드하는 방법을 다룹니다.
+동일한 스토리지 계정을 사용하여 여러 리소스에 대한 로그를 수집할 수 있으므로 Blob 이름의 전체 리소스 ID는 필요한 Blob에 액세스하거나 다운로드하는 데 유용합니다. 하지만 그 전에 먼저 모든 Blob을 다운로드하는 방법을 다룹니다.
 
-Blob을 다운로드할 폴더를 만듭니다. 예를 들면 다음과 같습니다.
+Blob을 다운로드할 폴더를 만듭니다. 예:
 
 ```powershell 
 New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
@@ -180,15 +180,15 @@ New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Forc
 $blobs = Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
-통해이 목록을 파이프 **Get AzStorageBlobContent** 대상 폴더에 blob을 다운로드 하려면:
+**Get-AzStorageBlobContent**를 통해 이 목록을 파이프하여 Blob을 대상 폴더로 다운로드합니다.
 
 ```powershell
 $blobs | Get-AzStorageBlobContent -Destination C:\Users\username\ContosoKeyVaultLogs'
 ```
 
-이 두 번째 명령을 실행할 때 Blob 이름의 **/** 구분 기호는 대상 폴더 아래에 전체 폴더 구조를 만듭니다. 다운로드 하 여 blob을 파일로 저장 하는이 구조를 사용 합니다.
+이 두 번째 명령을 실행할 때 Blob 이름의 **/** 구분 기호는 대상 폴더 아래에 전체 폴더 구조를 만듭니다. 이 구조를 사용하여 Blob을 다운로드하고 파일로 저장합니다.
 
-선택적으로 Blob을 다운로드하려면 와일드카드를 사용합니다. 예를 들면 다음과 같습니다.
+선택적으로 Blob을 다운로드하려면 와일드카드를 사용합니다. 예:
 
 * 여러 키 자격 증명 모음이 있고 CONTOSOKEYVAULT3이라는 하나의 키 자격 증명 모음에 대한 로그를 다운로드하려는 경우:
 
@@ -202,26 +202,26 @@ $blobs | Get-AzStorageBlobContent -Destination C:\Users\username\ContosoKeyVault
   Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
   ```
 
-* 2019 년 1 월에 대 한 모든 로그를 다운로드 하려는 경우 사용 하 여 `-Blob '*/year=2019/m=01/*'`:
+* 2019년 1월의 모든 로그를 다운로드하려면 `-Blob '*/year=2019/m=01/*'`을 사용합니다.
 
   ```powershell
   Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
   ```
 
-이제 로그에 있는 것을 확인할 준비가 되었습니다. 하지만 두 개의 명령도 알아야 할 사실에 진행 하기 전에:
+이제 로그에 있는 것을 확인할 준비가 되었습니다. 그러나 이 작업을 진행하기 전에 추가적으로 다음 두 가지 명령을 알아야 합니다.
 
 * 주요 자격 증명 모음 리소스의 진단 설정 상태를 쿼리하려면: `Get-AzDiagnosticSetting -ResourceId $kv.ResourceId`
 * 주요 자격 증명 모음 리소스의 로깅을 사용하지 않으려면: `Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Category AuditEvent`
 
 ## <a id="interpret"></a>Key Vault 로그 해석
 
-개별 Blob은 JSON Blob 형식으로 텍스트로 저장됩니다. 로그 항목의 예제를 살펴보겠습니다. 다음 명령을 실행합니다.
+개별 Blob은 JSON Blob 형식으로 텍스트로 저장됩니다. 로그 항목 예제를 살펴보겠습니다. 다음 명령을 실행합니다.
 
 ```powershell
 Get-AzKeyVault -VaultName 'contosokeyvault'`
 ```
 
-반환 로그 항목을이 이와 비슷합니다.
+다음과 비슷한 로그 항목을 반환합니다.
 
 ```json
     {
@@ -246,35 +246,35 @@ Get-AzKeyVault -VaultName 'contosokeyvault'`
     }
 ```
 
-다음 표에서 필드 이름 및 설명을 나열합니다.
+다음 표에는 필드 이름 및 설명이 나와 있습니다.
 
 | 필드 이름 | 설명 |
 | --- | --- |
-| **time** |날짜 및 시간 (UTC)입니다. |
+| **time** |UTC 형식의 날짜 및 시간입니다. |
 | **resourceId** |Azure Resource Manager 리소스 ID입니다. 키 자격 증명 모음 로그의 경우 이는 항상 키 자격 증명 모음 리소스 ID입니다. |
 | **operationName** |다음 표에 설명된 대로 작업의 이름입니다. |
 | **operationVersion** |클라이언트에서 요청한 REST API 버전입니다. |
-| **category** |결과의 형식입니다. Key Vault 로그의 경우 **AuditEvent** 단일의 사용 가능한 값입니다. |
+| **category** |결과 유형입니다. Key Vault 로그의 경우 **AuditEvent**는 사용 가능한 단일 값입니다. |
 | **resultType** |REST API 요청의 결과입니다. |
 | **resultSignature** |HTTP 상태입니다. |
 | **resultDescription** |사용 가능한 경우 결과에 대한 추가 설명입니다. |
 | **durationMs** |밀리초 단위로 REST API 요청을 처리하는 데 걸린 시간입니다. 네트워크 대기 시간을 포함하지 않으므로 클라이언트 쪽에서 측정한 시간은 이 시간과 일치하지 않을 수 있습니다. |
 | **callerIpAddress** |요청한 클라이언트의 IP 주소입니다. |
 | **correlationId** |클라이언트가 서비스 쪽(키 자격 증명 모음) 로그를 사용하여 클라이언트 쪽 로그 상관 관계를 지정하도록 전달할 수 있는 선택적 GUID입니다. |
-| **identity** |REST API 요청에 제공 된 토큰의 id입니다. "User"는 일반적으로 "서비스 주체" 또는 Azure PowerShell cmdlet에서 생성 되는 요청의 경우와 같이 "사용자 + appId" 조합 합니다. |
-| **properties** |작업에 따라 달라 지는 정보 (**operationName**). 대부분의 경우이 필드는 클라이언트 정보 (클라이언트에서 전달 된 사용자 에이전트 문자열), 정확한 REST API 요청 URI 및 HTTP 상태 코드를 포함 합니다. 개체가 요청의 결과로 반환 되는 경우에 또한 (예를 들어 **: KeyCreate** 또는 **VaultGet**), 키도 포함 된 URI ("id"), URI 또는 암호 정보 URI에 자격 증명 모음. |
+| **identity** |REST API 요청에 제공된 토큰의 ID입니다. Azure PowerShell cmdlet에서 발생하는 요청의 경우와 마찬가지로 일반적으로 "사용자", "서비스 주체" 또는 "사용자+appId"의 조합입니다. |
+| **properties** |작업(**operationName**)에 따라 달라지는 정보입니다. 대부분의 경우 이 필드에는 클라이언트 정보(클라이언트에서 전달한 사용자 에이전트 문자열), 정확한 REST API 요청 URI 및 HTTP 상태 코드가 포함됩니다. 또한 개체가 요청의 결과로 반환되면(예: **KeyCreate** 또는 **VaultGet**) 키 URI("id"로), 자격 증명 모음 URI 또는 비밀 URI도 포함됩니다. |
 
-합니다 **operationName** 필드 값은 *ObjectVerb* 형식입니다. 예를 들면 다음과 같습니다.
+**operationName** 필드 값은 *ObjectVerb* 형식입니다. 예:
 
-* 모든 주요 자격 증명 모음 작업에는 `Vault<action>` 형식으로 `VaultGet` 및 `VaultCreate`합니다.
-* 모든 주요 작업은는 `Key<action>` 형식으로 `KeySign` 고 `KeyList`입니다.
-* 모든 암호 작업은는 `Secret<action>` 형식으로 `SecretGet` 고 `SecretListVersions`입니다.
+* 모든 키 자격 증명 모음 작업은 `Vault<action>` 형식입니다(예: `VaultGet` 및 `VaultCreate`).
+* 모든 키 작업은 `Key<action>` 형식입니다(예: `KeySign` 및 `KeyList`).
+* 모든 비밀 작업은 `Secret<action>` 형식입니다(예: `SecretGet` 및 `SecretListVersions`).
 
-다음 표에서 **operationName** 값 및 해당 REST API 명령:
+다음 표에는 **operationName** 값 및 해당 REST API 명령이 나와 있습니다.
 
 | operationName | REST API 명령 |
 | --- | --- |
-| **인증** |Azure Active Directory 끝점을 통해 인증 |
+| **인증** |Azure Active Directory 엔드포인트를 통해 인증 |
 | **VaultGet** |[키 자격 증명 모음에 대한 정보 가져오기](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
 | **VaultPut** |[키 자격 증명 모음 만들기 또는 업데이트](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
 | **VaultDelete** |[키 자격 증명 모음 삭제](https://msdn.microsoft.com/library/azure/mt620022.aspx) |
@@ -296,7 +296,7 @@ Get-AzKeyVault -VaultName 'contosokeyvault'`
 | **KeyList** |[자격 증명 모음에 키 나열](https://msdn.microsoft.com/library/azure/dn903629.aspx) |
 | **KeyListVersions** |[키 버전 나열](https://msdn.microsoft.com/library/azure/dn986822.aspx) |
 | **SecretSet** |[암호 만들기](https://msdn.microsoft.com/library/azure/dn903618.aspx) |
-| **SecretGet** |[암호를 가져오려는 경우](https://msdn.microsoft.com/library/azure/dn903633.aspx) |
+| **SecretGet** |[비밀 가져오기](https://msdn.microsoft.com/library/azure/dn903633.aspx) |
 | **SecretUpdate** |[암호 업데이트](https://msdn.microsoft.com/library/azure/dn986818.aspx) |
 | **SecretDelete** |[암호 삭제](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
 | **SecretList** |[자격 증명 모음에 암호 나열](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
@@ -304,16 +304,16 @@ Get-AzKeyVault -VaultName 'contosokeyvault'`
 
 ## <a id="loganalytics"></a>Azure Monitor 로그 사용
 
-Key Vault를 검토 하려면 Azure Monitor 로그에서 Key Vault 솔루션을 사용할 수 있습니다 **AuditEvent** 로그 합니다. Azure Monitor 로그 로그 쿼리를 사용 하 여 데이터 분석에 필요한 정보를 가져옵니다. 
+Azure Monitor 로그에서 Key Vault 솔루션을 사용하여 Key Vault **AuditEvent** 로그를 검토할 수 있습니다. Azure Monitor 로그에서 로그 쿼리를 사용하여 데이터를 분석하고 필요한 정보를 가져옵니다. 
 
-설정 하는 방법을 비롯 한 자세한 내용은 참조 하세요. [Azure Monitor 로그에서 Azure Key Vault 솔루션](../azure-monitor/insights/azure-key-vault.md)합니다. 이 문서에서는 또한 Azure storage 계정에 로그 먼저 라우트된 미리 보기 및 구성 된 Azure Monitor에서에서 읽을 로그는 Azure Monitor 로그 중 제공 된 이전 Key Vault 솔루션에서 마이그레이션해야 할 경우 지침이 포함 되어 있습니다.
+이를 설정하는 방법을 포함한 자세한 내용은 [Azure Monitor 로그의 Azure Key Vault 솔루션](../azure-monitor/insights/azure-key-vault.md)을 참조하세요. 또한 이 문서에는 Azure Monitor 로그 미리 보기 중에 제공된 이전 Key Vault 솔루션에서 마이그레이션해야 하는 경우의 지침이 포함되어 있습니다. 여기서는 먼저 로그를 Azure Storage 계정으로 라우팅하고, 해당 위치에서 읽도록 Azure Monitor 로그를 구성했습니다.
 
 ## <a id="next"></a>다음 단계
 
-.NET 웹 응용 프로그램에서 Azure Key Vault를 사용 하는 자습서를 참조 하세요 [웹 응용 프로그램에서 사용 하 여 Azure Key Vault](tutorial-net-create-vault-azure-web-app.md)합니다.
+.NET 웹 애플리케이션에서 Azure Key Vault를 사용하는 자습서는 [웹 애플리케이션에서 Azure Key Vault 사용](tutorial-net-create-vault-azure-web-app.md)을 참조하세요.
 
 프로그래밍 참조는 [Azure Key Vault 개발자 가이드](key-vault-developers-guide.md)를 참조하세요.
 
-Azure Key Vault에 대 한 Azure PowerShell 1.0 cmdlet 목록은 참조 하세요 [Azure Key Vault cmdlet](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)합니다.
+Azure Key Vault용 Azure PowerShell 1.0 cmdlet 목록은 [Azure Key Vault cmdlet](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)을 참조하세요.
 
-키 회전 및 Azure Key Vault를 사용 하 여 감사 로그에 대 한 자습서를 참조 하세요 [종단 간 키 회전 및 감사를 사용 하 여 Key Vault 설정](key-vault-key-rotation-log-monitoring.md)합니다.
+Azure Key Vault를 사용한 키 회전 및 로그 감사에 대한 자습서는 [엔드투엔드 키 회전 및 감사를 사용하여 Key Vault 설정](key-vault-key-rotation-log-monitoring.md)을 참조하세요.

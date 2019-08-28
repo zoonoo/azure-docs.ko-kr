@@ -13,26 +13,27 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
-ms.author: willzhan, dwgeo
-ms.openlocfilehash: 64c5bff0e48f55406476e71c82763bd8f3c03afd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: willzhan
+ms.reviewer: dwgeo
+ms.openlocfilehash: 694cdf054f74db50bcf1781e60df0f93810ae60c
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937236"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875182"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Android용 오프라인 Widevine 스트리밍  
 
-> [!div class="op_single_selector" title1="사용 하는 Media Services의 버전을 선택 합니다."]
+> [!div class="op_single_selector" title1="사용 중인 Media Services의 버전을 선택 합니다."]
 > * [버전 3](../latest/offline-widevine-for-android.md)
 > * [버전 2](offline-widevine-for-android.md)
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 참고: [v2에서 v3 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
 
 온라인 스트리밍을 위해 콘텐츠를 보호하는 것 외에도, 미디어 콘텐츠 구독 및 임대 서비스는 인터넷에 연결되지 않았을 때 작동하는 다운로드 가능한 콘텐츠를 제공합니다. 네트워크에서 연결이 끊긴 상태로 비행하는 비행기 모드에서 재생하려면 휴대폰이나 태블릿에 콘텐츠를 다운로드해야 할 수 있습니다. 콘텐츠를 다운로드하려는 추가적인 시나리오는 다음과 같습니다.
 
-- 일부 콘텐츠 공급자에는 국가/지역의 테두리 너머로 DRM 라이선스 배달을 허용 되지 않을 수 있습니다. 사용자를 해외 여행을 하면서 콘텐츠를 보려 할 경우 오프 라인 다운로드가 필요합니다.
+- 일부 콘텐츠 공급자는 국가/지역 테두리를 넘어 DRM 라이선스 배달을 허용 하지 않을 수 있습니다. 사용자를 해외 여행을 하면서 콘텐츠를 보려 할 경우 오프 라인 다운로드가 필요합니다.
 - 일부 국가/지역에서는 인터넷 가용성 및/또는 대역폭이 제한 됩니다. 사용자가 만족스러운 보기 환경을 위해 충분히 높은 해상도로 콘텐츠를 볼 수 있도록 콘텐츠를 다운로드하도록 선택할 수도 있습니다.
 
 이 문서에서는 Android 디바이스에서 Widevine에 의해 보호되는 DASH 콘텐츠에 대해 오프라인 모드 재생을 구현하는 방법을 설명합니다. 오프라인 DRM은 콘텐츠에 대해 구독, 임대 및 구매 모델을 제공하여, 서비스 고객이 인터넷에 연결되어 있지 않을 때도 콘텐츠를 쉽게 사용하도록 할 수 있습니다.
@@ -156,7 +157,7 @@ Android 휴대폰에서 모바일 Chrome 브라우저를 v62(또는 이상)로 �
 
 위의 오픈 소스 PWA 앱은 Node.js에서 작성됩니다. Ubuntu 서버에 고유한 버전을 호스트하려는 경우, 재생을 방해할 수 있는 다음과 같은 일반적인 문제가 발생한다는 점에 유의합니다.
 
-1. CORS 문제: 샘플 앱의 샘플 비디오는 https://storage.googleapis.com/biograf-video-files/videos/ 에서 호스트됩니다. Google은 Google 클라우드 저장소 버킷에 호스트되는 모든 테스트 샘플에 대해 CORS를 설정했습니다. CORS 항목 https://biograf-155113.appspot.com (Google에서 해당 샘플을 호스트하는 도메인)을 명시적으로 지정하는 CORS 헤더가 사용되어 다른 사이트의 액세스를 방지합니다. 작업을 시도하면 다음 HTTP 오류가 표시됩니다. https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: 를 로드하지 못했습니다. 요청된 리소스에 'Access-Control-Allow-Origin' 헤더가 없습니다. 원본 ' https:\//13.85.80.81:8080' 따라서 액세스할 수 없습니다. 사용자 요구에 불명확한 응답이 제공되면 요청 모드를 'no-cors'로 설정하여 CORS가 사용되지 않도록 설정된 리소스를 가져옵니다.
+1. CORS 문제: 샘플 앱의 샘플 비디오는 https://storage.googleapis.com/biograf-video-files/videos/ 에서 호스트됩니다. Google은 Google 클라우드 스토리지 버킷에 호스트되는 모든 테스트 샘플에 대해 CORS를 설정했습니다. CORS 항목 https://biograf-155113.appspot.com (Google에서 해당 샘플을 호스트하는 도메인)을 명시적으로 지정하는 CORS 헤더가 사용되어 다른 사이트의 액세스를 방지합니다. 작업을 시도하면 다음 HTTP 오류가 표시됩니다. https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: 를 로드하지 못했습니다. 요청된 리소스에 'Access-Control-Allow-Origin' 헤더가 없습니다. 따라서 원본 ' https\/:/13.85.80.81:8080 '은 액세스가 허용 되지 않습니다. 사용자 요구에 불명확한 응답이 제공되면 요청 모드를 'no-cors'로 설정하여 CORS가 사용되지 않도록 설정된 리소스를 가져옵니다.
 2. 인증서 문제: Chrome v 58부터, Widevine용 EME에는 HTTPS가 필요합니다. 따라서 X509 인증서를 사용해서 HTTPS를 통해 샘플 앱을 호스트해야 합니다. 일반적인 테스트 인증서는 다음 요구 사항으로 인해 작동하지 않습니다. 다음 최소 요구 사항을 충족하는 인증서를 획득해야 합니다.
     - Chrome 및 Firefox에서는 SAN 주체 대체 이름 설정이 인증서에 있어야 합니다.
     - 인증서는 신뢰할 수 있는 CA에서 발급한 것이어야 하고, 자체 서명된 인증서가 작동하지 않습니다.
@@ -174,9 +175,9 @@ Android 휴대폰에서 모바일 Chrome 브라우저를 v62(또는 이상)로 �
 1. IContentKeyAuthorizationPolicyOption 1: 영구 라이선스를 사용하고, license_type = “Persistent”와 같은 클레임을 포함하는 ContentKeyAuthorizationPolicyRestriction 1을 사용합니다.
 2. IContentKeyAuthorizationPolicyOption 2: 비영구 라이선스를 사용하고, license_type = “Nonpersistent”와 같은 클레임을 포함하는 ContentKeyAuthorizationPolicyRestriction 2를 사용합니다.
 
-이러한 방식으로, 라이선스 요청이 클라이언트 앱에서 들어올 경우 라이선스 요청과 차이가 없습니다. 그러나 다른 최종 사용자/장치의 경우, STS에는 다른 클레임(위의 두 license_type 중 하나)을 포함하는 다른 JWT 토큰을 발급하는 비즈니스 논리가 있어야 합니다. JWT 토큰의 클레임 값은 라이선스 서비스에서 발급할 라이선스 유형(영구 또는 비영구)을 결정하는 데 사용됩니다.
+이러한 방식으로, 라이선스 요청이 클라이언트 앱에서 들어올 경우 라이선스 요청과 차이가 없습니다. 그러나 다른 최종 사용자/디바이스의 경우, STS에는 다른 클레임(위의 두 license_type 중 하나)을 포함하는 다른 JWT 토큰을 발급하는 비즈니스 논리가 있어야 합니다. JWT 토큰의 클레임 값은 라이선스 서비스에서 발급할 라이선스 유형(영구 또는 비영구)을 결정하는 데 사용됩니다.
 
-즉, STS(보안 토큰 서비스)는 토큰에 해당 클레임 값을 추가하기 위해 비즈니스 논리 및 클라이언트/장치 정보가 있어야 합니다.
+즉, STS(보안 토큰 서비스)는 토큰에 해당 클레임 값을 추가하기 위해 비즈니스 논리 및 클라이언트/디바이스 정보가 있어야 합니다.
 
 ### <a name="question"></a>질문
 

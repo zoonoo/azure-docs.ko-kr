@@ -8,16 +8,15 @@ ms.custom: ''
 ms.devlang: go
 ms.topic: quickstart
 author: David-Engel
-ms.author: v-daveng
+ms.author: craigg
 ms.reviewer: MightyPen
-manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: 0014dc0edde0eafc153b40eec06c6bd6dc8446b5
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: baa43a93ff0c1e814478bdc195b2fd525d4dbbf3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447862"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569259"
 ---
 # <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>빠른 시작: Golang을 사용하여 Azure SQL 데이터베이스 쿼리
 
@@ -328,7 +327,7 @@ Azure SQL 데이터베이스에 연결하는 데 필요한 연결 정보를 가�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [첫 번째 Azure SQL Database 디자인](sql-database-design-first-database.md)
+- [첫 번째 Azure SQL 데이터베이스 디자인](sql-database-design-first-database.md)
 - [Microsoft SQL Server용 Golang 드라이버](https://github.com/denisenkom/go-mssqldb)
 - [문제 보고 또는 질문(영문)](https://github.com/denisenkom/go-mssqldb/issues)
 

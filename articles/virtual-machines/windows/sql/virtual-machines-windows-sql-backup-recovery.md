@@ -34,9 +34,9 @@ ms.locfileid: "67442633"
 
 | 전략 | SQL 버전 | 설명 |
 |---|---|---|
-| [자동화된 Backup](#automated) | 2014<br/> 2016<br/> 2017 | 자동화된 백업을 통해 SQL Server VM의 모든 데이터베이스에 대해 정기 백업을 예약할 수 있습니다. 백업은 최대 30일 동안 Azure 저장소에 저장됩니다. SQL Server 2016부터 자동화된 백업 v2는 수동 예약 및 전체 및 로그 백업의 빈도 구성과 같은 추가 옵션을 제공합니다. |
+| [자동화된 Backup](#automated) | 2014<br/> 2016<br/> 2017 | 자동화된 백업을 통해 SQL Server VM의 모든 데이터베이스에 대해 정기 백업을 예약할 수 있습니다. 백업은 최대 30일 동안 Azure Storage에 저장됩니다. SQL Server 2016부터 자동화된 백업 v2는 수동 예약 및 전체 및 로그 백업의 빈도 구성과 같은 추가 옵션을 제공합니다. |
 | [SQL VM에 대한 Azure Backup](#azbackup) | 2008<br/> 2012<br/> 2014<br/> 2016<br/> 2017 | Azure Backup은 Azure VM에서 실행 중인 SQL Server에 대한 Enterprise 클래스 백업 기능을 제공합니다. 이 서비스를 사용하여 여러 서버 및 데이터베이스에 대한 백업을 중앙에서 관리할 수 있습니다. 포털에서 특정 시점으로 데이터베이스를 복원할 수 있습니다. 몇 년 동안 백업을 유지할 수 있는 사용자 지정 가능한 보존 정책을 제공합니다. |
-| [수동 백업](#manual) | 모두 | SQL Server의 버전에 따라 Azure VM에서 실행 중인 SQL Server를 수동으로 백업 및 복원하는 다양한 기술이 있습니다. 이 시나리오에서는 데이터베이스가 백업되는 방법 및 저장소 위치 및 이러한 백업 관리를 담당합니다. |
+| [수동 백업](#manual) | 모두 | SQL Server의 버전에 따라 Azure VM에서 실행 중인 SQL Server를 수동으로 백업 및 복원하는 다양한 기술이 있습니다. 이 시나리오에서는 데이터베이스가 백업되는 방법 및 스토리지 위치 및 이러한 백업 관리를 담당합니다. |
 
 다음 섹션에서는 각 옵션에 대해 자세히 설명합니다. 이 문서의 마지막 섹션은 기능 매트릭스의 형태로 요약을 제공합니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "67442633"
 
 자동화된 백업은 Azure의 Windows VM에서 실행 중인 SQL Server Standard 및 Enterprise 버전에 대한 자동 백업 서비스를 제공합니다. 이 서비스는 Azure Portal에서 SQL Server Windows 가상 머신 이미지에 자동으로 설치되는 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)에서 제공됩니다.
 
-모든 데이터베이스는 구성하는 Azure 저장소 계정에 백업됩니다. 백업은 암호화되고 최대 30일 동안 보존될 수 있습니다.
+모든 데이터베이스는 구성하는 Azure Storage 계정에 백업됩니다. 백업은 암호화되고 최대 30일 동안 보존될 수 있습니다.
 
 SQL Server 2016 이상 VM은 자동화된 백업 v2와 함께 더 많은 사용자 지정 옵션을 제공합니다. 향상된 기능은 다음과 같습니다.
 
@@ -52,7 +52,7 @@ SQL Server 2016 이상 VM은 자동화된 백업 v2와 함께 더 많은 사용�
 - 수동 백업 일정 및 시간 창
 - 전체 및 로그 파일 백업 빈도
 
-데이터베이스를 복원하려면 저장소 계정에 필요한 백업 파일을 배치하고 SSMS(SQL Server Management Studio) 또는 Transact-SQL 명령을 사용하여 SQL VM에서 복원을 수행해야 합니다.
+데이터베이스를 복원하려면 스토리지 계정에 필요한 백업 파일을 배치하고 SSMS(SQL Server Management Studio) 또는 Transact-SQL 명령을 사용하여 SQL VM에서 복원을 수행해야 합니다.
 
 SQL VM에 대해 자동화된 백업을 구성하는 방법에 대한 자세한 내용은 다음 문서 중 하나를 참조하세요.
 
@@ -105,7 +105,7 @@ SQL Server 2012 SP1 CU2부터 URL에 백업이라고도 하는 Microsoft Azure B
 | 2016의 향상된 기능 | 세부 정보 |
 | --- | --- |
 | **스트라이프** |Microsoft Azure Blob Storage에 백업하는 경우 SQL Server 2016에서는 대형 데이터베이스를 백업할 수 있도록 최대 12.8TB까지 여러 Blob으로의 백업을 지원합니다. |
-| **스냅숏 백업** |Azure 스냅샷을 사용하는 경우 SQL Server 파일-스냅샷 Backup 기능은 Azure Blob Storage 서비스를 사용하여 저장한 데이터베이스 파일을 거의 즉시 백업하고 신속하게 복원하는 기능을 제공합니다. 이 기능을 사용하면 백업 및 복원 정책을 단순화할 수 있습니다. 또한 파일-스냅숏 백업 기능은 특정 시점 복원도 지원합니다. 자세한 내용은 [Azure에서 데이터베이스 파일에 대한 스냅샷 Backup](https://docs.microsoft.com/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure)을 참조하세요. |
+| **스냅숏 백업** |Azure 스냅샷을 사용하는 경우 SQL Server 파일-스냅샷 Backup 기능은 Azure Blob Storage 서비스를 사용하여 저장한 데이터베이스 파일을 거의 즉시 백업하고 신속하게 복원하는 기능을 제공합니다. 이 기능을 사용하면 백업 및 복원 정책을 단순화할 수 있습니다. 또한 파일-스냅샷 백업 기능은 특정 시점 복원도 지원합니다. 자세한 내용은 [Azure에서 데이터베이스 파일에 대한 스냅샷 Backup](https://docs.microsoft.com/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure)을 참조하세요. |
 
 자세한 내용은 SQL Server의 버전에 따라 다음 문서 중 하나를 참조하세요.
 
@@ -115,7 +115,7 @@ SQL Server 2012 SP1 CU2부터 URL에 백업이라고도 하는 Microsoft Azure B
 
 ### <a name="managed-backup"></a>관리되는 백업
 
-SQL Server 2014부터 관리되는 백업은 Azure 저장소로 백업의 생성을 자동화합니다. 내부적으로 관리되는 백업은 이 문서의 이전 섹션에서 설명된 URL 기능에 대한 백업을 활용합니다. 관리되는 백업은 SQL Server VM 자동화된 백업 서비스를 지원하는 기본 기능이기도 합니다.
+SQL Server 2014부터 관리되는 백업은 Azure Storage로 백업의 생성을 자동화합니다. 내부적으로 관리되는 백업은 이 문서의 이전 섹션에서 설명된 URL 기능에 대한 백업을 활용합니다. 관리되는 백업은 SQL Server VM 자동화된 백업 서비스를 지원하는 기본 기능이기도 합니다.
 
 SQL Server 2016부터 관리되는 백업은 예약, 시스템 데이터베이스 백업 및 전체 및 로그 백업 빈도에 대한 추가 옵션을 가져왔습니다.
 
@@ -140,7 +140,7 @@ SQL Server 2016부터 관리되는 백업은 예약, 시스템 데이터베이�
 | 장기 백업 보존 정책(월, 년) |   | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | SQL Server Always On에 대한 기본 제공 지원 |   | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | Azure Storage 계정에 백업 | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(자동) | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(자동) | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(고객 관리) |
-| 저장소 및 백업 파일의 관리 | | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |  |
+| 스토리지 및 백업 파일의 관리 | | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |  |
 | VM의 연결된 디스크에 백업 |   |   | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 | 사용자 지정 가능한 중앙 백업 보고서 |   | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | 오류에 대한 통합된 이메일 경고 |   | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |

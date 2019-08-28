@@ -3,17 +3,18 @@ title: Azure Container Instances에서 관리 ID 사용
 description: 관리 ID를 사용하여 Azure Container Instances에서 다른 Azure 서비스의 인증을 받는 방법을 알아봅니다.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: c14c3aaf2a5d648572fdc251540264e8057a00f9
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 773650e5e5e85d4a5fca0b3755f3730921cc5f2e
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144313"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325934"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Azure Container Instances에서 관리 ID를 사용하는 방법
 
@@ -51,7 +52,7 @@ Azure Container Instances는 두 가지 유형의 Azure 관리 ID인 사용자 �
 
 ### <a name="use-a-managed-identity"></a>관리 ID 사용
 
-관리 ID를 사용하려면 처음부터 ID에 구독에 있는 하나 이상의 Azure 서비스 리소스(예: 웹앱, Key Vault 또는 저장소 계정)에 대한 액세스 권한을 부여해야 합니다. 실행 중인 컨테이너에서 Azure 리소스에 액세스하려면 코드는 Azure AD 엔드포인트에서 *액세스 토큰*을 획득해야 합니다. 그런 후에 코드는 Azure AD 인증을 지원하는 서비스에 대한 호출에서 액세스 토큰을 전송합니다. 
+관리 ID를 사용하려면 처음부터 ID에 구독에 있는 하나 이상의 Azure 서비스 리소스(예: 웹앱, Key Vault 또는 스토리지 계정)에 대한 액세스 권한을 부여해야 합니다. 실행 중인 컨테이너에서 Azure 리소스에 액세스하려면 코드는 Azure AD 엔드포인트에서 *액세스 토큰*을 획득해야 합니다. 그런 후에 코드는 Azure AD 인증을 지원하는 서비스에 대한 호출에서 액세스 토큰을 전송합니다. 
 
 실행 중인 컨테이너에서 관리 ID를 사용하는 것은 Azure VM에서 ID를 사용하는 것과 기본적으로 동일합니다. [토큰](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md), [Azure PowerShell 또는 Azure CLI](../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md) 또는 [Azure SDK](../active-directory/managed-identities-azure-resources/how-to-use-vm-sdk.md)를 사용하기 위한 VM 지침을 참조하세요.
 
@@ -157,7 +158,7 @@ az container exec --resource-group myResourceGroup --name mycontainer --exec-com
 curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net' -H Metadata:true -s
 ```
 
-출력
+출력:
 
 ```bash
 {"access_token":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSIsImtpZCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSJ9......xxxxxxxxxxxxxxxxx","refresh_token":"","expires_in":"28799","expires_on":"1539927532","not_before":"1539898432","resource":"https://vault.azure.net/","token_type":"Bearer"}
@@ -182,7 +183,7 @@ curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-1
 {"value":"Hello Container Instances!","contentType":"ACIsecret","id":"https://mykeyvault.vault.azure.net/secrets/SampleSecret/xxxxxxxxxxxxxxxxxxxx","attributes":{"enabled":true,"created":1539965967,"updated":1539965967,"recoveryLevel":"Purgeable"},"tags":{"file-encoding":"utf-8"}}
 ```
 
-## <a name="example-2-use-a-system-assigned-identity-to-access-azure-key-vault"></a>예 2: 시스템 할당 ID를 사용하여 Azure Key Vault에 액세스
+## <a name="example-2-use-a-system-assigned-identity-to-access-azure-key-vault"></a>예제 2: 시스템 할당 ID를 사용하여 Azure Key Vault에 액세스
 
 ### <a name="enable-a-system-assigned-identity-on-a-container-group"></a>컨테이너 그룹에서 시스템 할당 ID 사용
 
@@ -239,7 +240,7 @@ az container exec --resource-group myResourceGroup --name mycontainer --exec-com
 curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net%2F' -H Metadata:true -s
 ```
 
-출력
+출력:
 
 ```bash
 {"access_token":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSIsImtpZCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSJ9......xxxxxxxxxxxxxxxxx","refresh_token":"","expires_in":"28799","expires_on":"1539927532","not_before":"1539898432","resource":"https://vault.azure.net/","token_type":"Bearer"}
@@ -252,7 +253,7 @@ token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=
 
 ```
 
-이제 이 액세스 토큰을 사용하여 Key Vault에서 인증을 받고 암호를 읽습니다. URL의 key vault의 이름으로 대체 해야 합니다. (*https:\//mykeyvault.vault.azure.net/...* ):
+이제 이 액세스 토큰을 사용하여 Key Vault에서 인증을 받고 암호를 읽습니다. URL (*https:\//mykeyvault.vault.azure.net/...* )에서 키 자격 증명 모음의 이름을 대체 해야 합니다.
 
 ```bash
 curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $token"

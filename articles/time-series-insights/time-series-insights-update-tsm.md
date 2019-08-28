@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3e6e8ae76c0ae6f688dd4a039b34c52af16b6e0f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2a740d8ee0eb50cfa01f36bd8f5590a58e1e6627
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244021"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931923"
 ---
 # <a name="time-series-model"></a>시계열 모델
 
@@ -25,7 +25,7 @@ ms.locfileid: "66244021"
 
 시계열 모델은 디바이스 및 비 디바이스 엔터티를 컨텍스트화하기 때문에 쿼리 및 탐색에서 중요한 역할을 합니다. 시계열 모델에 유지되는 데이터는 저장된 수식을 활용하여 시계열 쿼리 계산을 구동합니다.
 
-[![시간 시계열 모델 개요](media/v2-update-tsm/tsm.png)](media/v2-update-tsm/tsm.png#lightbox)
+[![시계열 모델 개요](media/v2-update-tsm/tsm.png)](media/v2-update-tsm/tsm.png#lightbox)
 
 ## <a name="key-capabilities"></a>주요 기능
 
@@ -39,11 +39,11 @@ ms.locfileid: "66244021"
 
 시계열 모델에는 세 가지 핵심 구성 요소가 있습니다.
 
-* <a href="#time-series-model-types">시간 시계열 모델 형식</a>
-* <a href="#time-series-model-hierarchies">시간 시계열 모델 계층</a>
-* <a href="#time-series-model-instances">시간 시계열 모델 인스턴스</a>
+* <a href="#time-series-model-types">시계열 모델 유형</a>
+* <a href="#time-series-model-hierarchies">시계열 모델 계층 구조</a>
+* <a href="#time-series-model-instances">시계열 모델 인스턴스</a>
 
-이러한 구성 요소는 시계열 모델을 지정 하 고 Azure Time Series Insights 데이터를 구성에 결합 됩니다.
+이러한 구성 요소를 결합 하 여 시계열 모델을 지정 하 고 Azure Time Series Insights 데이터를 구성 합니다.
 
 ## <a name="time-series-model-types"></a>시계열 모델 형식
 
@@ -76,19 +76,19 @@ ms.locfileid: "66244021"
 
 시계열 모델 형식에 대한 자세한 내용은 [참조 설명서](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api)를 참조하세요.
 
-### <a name="variables"></a>variables
+### <a name="variables"></a>변수
 
 Time Series Insights 형식에는 변수가 있으며, 이러한 변수는 이벤트의 값에 대해 명명되는 계산입니다. Time Series Insights 변수 정의는 수식 및 계산 규칙을 포함합니다. 변수 정의는 *종류*, *값*, *필터*, *감소* 및 *경계*를 포함합니다. 변수는 시계열 모델의 형식 정의에 저장되며, Query API를 통해 인라인으로 제공하여 저장된 정의를 재정의할 수 있습니다.
 
 다음 행렬은 변수 정의에 대한 범례로 작동합니다.
 
-[![변수 정의 테이블 형식](media/v2-update-tsm/table.png)](media/v2-update-tsm/table.png#lightbox)
+[![형식 변수 정의 테이블](media/v2-update-tsm/table.png)](media/v2-update-tsm/table.png#lightbox)
 
-| 정의 | 설명 |
+| 정의 | Description |
 | --- | ---|
-| 변수 종류 |  *숫자* 하 고 *집계* 종류는 지원 |
+| 변수 종류 |  *숫자* 및 *집계* 종류가 지원 됩니다. |
 | 변수 필터 | 변수 필터는 조건에 따라 계산에 넣을 행 수를 제한하는 선택적 필터 절을 지정합니다. |
-| 변수 값 | 변수 값은 계산에 사용되며 또 그래야 합니다. 관련 필드에 데이터 요소에 대 한 참조입니다. |
+| 변수 값 | 변수 값은 계산에 사용되며 또 그래야 합니다. 해당 데이터 요소에 대해 참조할 관련 필드입니다. |
 | 변수 집계 | 변수의 집계 함수는 계산의 일부를 가능하게 합니다. Time Series Insights는 일반 집계(예: *최소*, *최대*, *평균*, *합계*, *개수*)를 지원합니다. |
 
 ## <a name="time-series-model-hierarchies"></a>시계열 모델 계층 구조
@@ -134,7 +134,7 @@ Time Series Insights 형식에는 변수가 있으며, 이러한 변수는 이�
 | ID4 | “building” = “1000”, “floor” = “10”  |
 | ID5 | “building”, “floor” 또는 “room”이 설정되지 않습니다. |
 
-위의 예에서 **ID1** 하 고 **ID4** H1 Azure Time Series Insights 탐색기에서 계층의 일부로 표시 하 고 나머지는 분류 *부모가 아닌 인스턴스* 지정 된 데이터 계층에 준수 하지 있습니다.
+앞의 예제에서 **ID1** 및 **ID4** 는 Azure Time Series Insights 탐색기에서 계층 H1의 일부로 표시 되 고 나머지는 지정 된 데이터 계층 구조를 따르지 않기 때문에 *Unparented 인스턴스로* 분류 됩니다.
 
 ## <a name="time-series-model-instances"></a>시계열 모델 인스턴스
 
@@ -144,7 +144,7 @@ Time Series Insights 형식에는 변수가 있으며, 이러한 변수는 이�
 
 *instanceFields*는 인스턴스 그리고 인스턴스를 정의하는 정적 데이터의 속성입니다. 계층 구조 또는 비 계층 구조의 값을 정의하는 한편 검색 작업을 수행하기 위한 인덱싱도 지원합니다.
 
-합니다 *이름을* 속성은 선택 사항이 며 대/소문자 구분 합니다. *name*을 사용할 수 없는 경우 기본값은 시계열 ID입니다. *name*이 제공되는 경우 시계열 ID는 Well(탐색기의 차트 아래에 있는 그리드)에서 계속 사용할 수 있습니다.
+*Name* 속성은 선택 사항이 며 대/소문자를 구분 합니다. *name*을 사용할 수 없는 경우 기본값은 시계열 ID입니다. *name*이 제공되는 경우 시계열 ID는 Well(탐색기의 차트 아래에 있는 그리드)에서 계속 사용할 수 있습니다.
 
 ### <a name="time-series-model-instance-json-example"></a>시계열 모델 인스턴스 JSON 예제
 

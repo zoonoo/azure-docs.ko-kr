@@ -30,11 +30,11 @@ ms.locfileid: "60641112"
 
 
 ### <a name="manually-failover-microsoft-genomics-workflows-to-another-region"></a>Microsoft Genomics 워크플로를 다른 지역으로 수동 장애 조치(Failover)
-지역 데이터 센터 가동 중단의 경우 개별 데이터 주권 및 비즈니스 연속성 요구 사항에 따라, 보조 지역에 Microsoft Genomics 워크플로를 전송하도록 선택할 수 있습니다. Microsoft Genomics 워크플로를 수동으로 장애 조치(Failover)하려면 다른 지역별 Genomics 계정을 사용하고 해당 지역별 Genomics 및 저장소 계정 자격 증명으로 작업을 전송합니다.
+지역 데이터 센터 가동 중단의 경우 개별 데이터 주권 및 비즈니스 연속성 요구 사항에 따라, 보조 지역에 Microsoft Genomics 워크플로를 전송하도록 선택할 수 있습니다. Microsoft Genomics 워크플로를 수동으로 장애 조치(Failover)하려면 다른 지역별 Genomics 계정을 사용하고 해당 지역별 Genomics 및 스토리지 계정 자격 증명으로 작업을 전송합니다.
 
 특히 다음을 수행해야 합니다.
 * Azure Portal을 사용하여 보조 지역에서 Genomics 계정을 만듭니다. 
-* 보조 지역의 저장소 계정으로 입력 데이터를 마이그레이션하고 보조 지역에서 출력 폴더를 설정합니다.
+* 보조 지역의 스토리지 계정으로 입력 데이터를 마이그레이션하고 보조 지역에서 출력 폴더를 설정합니다.
 * 보조 지역에 워크플로를 제출합니다.
 
 원래 지역이 복원되면 Microsoft Genomics 서비스는 보조 지역의데이 터를 원래 지역으로 다시 마이그레이션하지 않습니다. 보조 지역의 입력 및 출력 파일을 원래 지역으로 다시 이동하도록 선택할 수 있습니다.  해당 데이터를 이동하도록 선택한 경우 Genomics 서비스 외부가 되며, 데이터 이동과 관련된 모든 비용은 사용자의 책임입니다. 

@@ -1,6 +1,6 @@
 ---
-title: Azure Cloud Shell의 PowerShell 빠른 시작 | Microsoft Docs
-description: Azure Cloud Shell의 PowerShell에 대한 빠른 시작
+title: Azure Cloud Shell 빠른 시작 | Microsoft Docs
+description: Azure Cloud Shell에 대 한 빠른 시작
 services: Azure
 documentationcenter: ''
 author: maertendmsft
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: damaerte
-ms.openlocfilehash: 1fc9883e0ea35c384c3bfc83e76b8eded48cbcba
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: 36683d04b6f087f1d326458a07b043a0932191f1
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60199530"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741999"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Azure Cloud Shell의 PowerShell에 대한 빠른 시작
 
@@ -125,9 +125,9 @@ TestVm2   westus     Succeeded         Standard_DS1_v2 WindowsServer 2016-Datace
 > 이는 자식 항목이 향상된 사용자 환경을 위해 메모리에 캐시되기 때문입니다.
 그렇지만, 새로운 데이터를 가져오기 위해 언제나 `dir -Force`을 사용할 수 있습니다.
 
-### <a name="navigate-storage-resources"></a>저장소 리소스 이동
+### <a name="navigate-storage-resources"></a>스토리지 리소스 이동
 
-`StorageAccounts` 디렉터리에 들어가면 모든 저장소 리소스를 쉽게 탐색할 수 있습니다.
+`StorageAccounts` 디렉터리에 들어가면 모든 스토리지 리소스를 쉽게 탐색할 수 있습니다.
 
 ```azurepowershell-interactive
 PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> dir
@@ -147,7 +147,7 @@ MyFileShare3  \\MyStorageAccountName.file.core.windows.net\MyFileShare3;AccountN
 net use <DesiredDriveLetter>: \\<MyStorageAccountName>.file.core.windows.net\<MyFileShareName> <AccountKey> /user:Azure\<MyStorageAccountName>
 ```
 
-자세한 내용은 [Azure Files 공유를 탑재하고 Windows에서 공유에 액세스][azmount]를 참조하세요.
+자세한 내용은 [Azure Files 공유를 탑재 하 고 Windows에서 공유에 액세스][azmount]를 참조 하세요.
 
 또한 Azure Files 공유에서 디렉터리를 다음과 같이 탐색할 수 있습니다.
 
@@ -260,14 +260,14 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 
 ## <a name="ssh"></a>SSH
 
-SSH를 사용하여 서버 또는 VM을 인증하려면 Cloud Shell에서 공개-개인 키 쌍을 생성하고 공개 키를 원격 컴퓨터의 `authorized_keys`(예: `/home/user/.ssh/authorized_keys`)에 게시합니다.
+SSH를 사용하여 서버 또는 VM을 인증하려면 Cloud Shell에서 공개-프라이빗 키 쌍을 생성하고 퍼블릭 키를 원격 컴퓨터의 `authorized_keys`(예: `/home/user/.ssh/authorized_keys`)에 게시합니다.
 
 > [!NOTE]
 > Cloud Shell에서 `ssh-keygen`을 사용하여 SSH 프라이빗-공개 키를 만들고 이 키를 `$env:USERPROFILE\.ssh`에 게시할 수 있습니다.
 
 ### <a name="using-ssh"></a>SSH 사용
 
-지침을 따릅니다 [여기](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) Azure PowerShell cmdlet을 사용 하는 새 VM 구성을 만듭니다.
+Azure PowerShell cmdlet을 사용 하 여 새 VM 구성을 만들려면 [여기](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) 의 지침을 따르세요.
 `New-AzVM`을 호출하여 배포를 시작하기 전에 SSH 공개 키를 VM 구성에 추가합니다.
 새로 만든 VM에는 공개 키가 `~\.ssh\authorized_keys` 위치에 포함되므로 자격 증명이 없는 SSH 세션을 VM에 사용할 수 있습니다.
 
@@ -296,7 +296,7 @@ ssh azureuser@MyVM.Domain.Com
 
 ## <a name="install-custom-modules"></a>사용자 지정 모듈 설치
 
-`Install-Module`을 실행하면 [PowerShell 갤러리][gallery]에서 모듈을 설치할 수 있습니다.
+를 실행 `Install-Module` 하 여 [PowerShell 갤러리][gallery]에서 모듈을 설치할 수 있습니다.
 
 ## <a name="get-help"></a>Get-Help
 
@@ -334,11 +334,11 @@ Hello World!
 PowerShell 프로필 `profile.ps1`(또는 `Microsoft.PowerShell_profile.ps1`)을 만들어 PowerShell 환경을 사용자 지정할 수 있습니다.
 그것을 `$profile.CurrentUserAllHosts`(또는 `$profile.CurrentUserAllHosts`)에 저장하여 Cloud Shell 세션의 모든 PowerShell에 로드될 수 있게 합니다.
 
-프로필을 만드는 방법에 대해서는 [프로필 소개][profile]를 참조합니다.
+프로필을 만드는 방법에 대 한 자세한 내용은 [프로필 정보][profile]를 참조 하세요.
 
 ## <a name="use-git"></a>Git 사용
 
-Cloud Shell에서 Git 리포지토리를 복제하려면 [개인용 액세스 토큰][githubtoken]을 만들고 그것을 사용자 이름으로 사용합니다. 토큰이 있다면 다음과 같이 리포지토리를 복제합니다.
+Cloud Shell에서 Git 리포지토리를 복제 하려면 [개인용 액세스 토큰][githubtoken] 을 만들고 사용자 이름으로 사용 해야 합니다. 토큰이 있다면 다음과 같이 리포지토리를 복제합니다.
 
 ```azurepowershell-interactive
   git clone https://<your-access-token>@github.com/username/repo.git

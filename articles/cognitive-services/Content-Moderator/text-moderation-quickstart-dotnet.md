@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: C#에서 텍스트 콘텐츠 분석 - Content Moderator'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: .NET용 Content Moderator SDK를 사용하여 다양하고 불쾌한 자료에 대한 텍스트 콘텐츠를 분석하는 방법
 services: cognitive-services
 author: sanjeev3
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: 09fd58fa33873c06ac5dab4970af199bc3030479
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 45ac641948531aa27334762704eba3333aebba4d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756540"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564333"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>빠른 시작: C#에서 불쾌한 자료에 대한 텍스트 콘텐츠 분석
 
@@ -61,7 +61,7 @@ _Program.cs_의 **Program** 클래스에 다음 정적 필드를 추가합니다
 
 [!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?range=15-19)]
 
-*TextFile.txt* 입력 파일을 만들고 해당 경로를 적절하게 업데이트해야 합니다(상대 경로는 실행 디렉터리에 상대적). _TextFile.txt_를 열고 조정할 텍스트를 추가합니다. 이 빠른 시작에서는 다음 샘플 텍스트를 사용합니다.
+*TextFile.txt* 입력 파일을 만들고 해당 경로를 업데이트해야 합니다(경로는 실행 디렉터리에 상대적). _TextFile.txt_를 열고 조정할 텍스트를 추가합니다. 이 빠른 시작에서는 다음 샘플 텍스트를 사용합니다.
 
 ```
 Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.

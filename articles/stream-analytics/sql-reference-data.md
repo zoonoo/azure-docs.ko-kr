@@ -66,7 +66,7 @@ Visual Studio를 사용하여 Azure SQL Database를 참조 입력 원본으로 �
 
 2. [Stream Analytics Tools for Visual Studio](stream-analytics-quick-create-vs.md) 빠른 시작을 숙지합니다.
 
-3. 저장소 계정을 만듭니다.
+3. 스토리지 계정을 만듭니다.
 
 ### <a name="create-a-sql-database-table"></a>SQL Database 테이블 만들기
 

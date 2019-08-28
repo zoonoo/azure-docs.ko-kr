@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/18/2019
 ms.author: spelluru
-ms.openlocfilehash: b5abb8d4aad7c58bf673aa578255efe12d32ad4b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ee9a68df685095244fc9471b7d4ab0f6cee0642d
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422901"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360269"
 ---
 # <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>자습서: Azure DevTest Labs에서 랩 액세스
 이 자습서에서는 [자습서: Azure DevTest Labs에서 랩 만들기](tutorial-create-custom-lab.md)에서 만들어진 랩을 사용합니다.
@@ -44,7 +44,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="claim-a-vm"></a>VM 클레임
 
-1. **클레임할 수 있는 가상 머신** 목록에서 **...**(줄임표)를 선택하고 **머신 클레임**을 선택합니다.
+1. **클레임할 수 있는 가상 머신** 목록에서 **...** (줄임표)를 선택하고 **머신 클레임**을 선택합니다.
 
     ![가상 머신 클레임](./media/tutorial-use-custom-lab/claim-virtual-machine.png)
 1. **내 가상 머신** 목록에 VM이 있는지 확인합니다.
@@ -58,8 +58,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     ![가상 머신에 연결](./media/tutorial-use-custom-lab/connect-button.png)
 2. 다운로드한 **RDP** 파일을 하드 디스크에 저장하고 그것을 사용하여 가상 머신에 연결합니다. 이전 섹션에서 VM을 만들 때 언급한 사용자 이름과 암호를 지정합니다. 
 
-    > [!NOTE] 
-    > Linux VM에 연결하려면 VM에 대한 SSH 및/또는 RDP 액세스가 활성화되어야 합니다. RDP를 통해 Linux VM에 연결하는 단계는 [Azure에서 Linux VM에 연결하도록 원격 데스크톱 설치 및 구성](../virtual-machines/linux/use-remote-desktop.md)을 참조하세요. 
+    Linux VM에 연결하려면 VM에 대한 SSH 및/또는 RDP 액세스가 활성화되어야 합니다. RDP를 통해 Linux VM에 연결하는 단계는 [Azure에서 Linux VM에 연결하도록 원격 데스크톱 설치 및 구성](../virtual-machines/linux/use-remote-desktop.md)을 참조하세요. 
+
+    > [!NOTE]
+    > VM의 Virtual Machine 페이지로 이동하는 다른 방법이 있습니다. 다음은 그 중 일부입니다. 
+    > 
+    > 1. 구독의 모든 VM을 검색합니다. VM 목록에서 VM을 선택하여 **Virtual Machine** 페이지로 이동합니다.
+    > 2. 리소스 그룹의 **리소스 그룹** 페이지로 이동합니다. 그런 다음, 리소스 그룹의 리소스 목록에서 VM을 선택하여 **Virtual Machine** 페이지로 이동합니다. 
+    >
+    > 이러한 옵션을 사용하여 나타나는 **Virtual Machine** 페이지의 도구 모음에 있는 **연결** 단추를 사용하지 마세요. 그 대신, 이 문서에서 보여드리는 것처럼 **DevTest Labs** 페이지의 **Virtual Machine** 페이지로 이동한 다음, 도구 모음의 **연결** 단추를 사용하세요.
 
 
 ## <a name="unclaim-the-vm"></a>VM 클레임 취소

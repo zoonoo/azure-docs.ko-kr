@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: lbosq
-ms.openlocfilehash: 24d5c11eb32350b2c11584ca5fc75ed4b619b6cf
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: c4acfc640829d323752619122e5df0e8b4dc58a7
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978745"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735287"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>빠른 시작: Azure Cosmos DB Gremlin API 계정을 사용한 .NET Framework 또는 Core 애플리케이션 빌드
 
@@ -44,7 +44,7 @@ Visual Studio 2019가 아직 설치되지 않은 경우 **체험판** [Visual St
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
-## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
+## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
 이제 GitHub에서 Gremlin API 앱을 복제하고, 연결 문자열을 설정하고, 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
 
@@ -99,10 +99,10 @@ Visual Studio 2019가 아직 설치되지 않은 경우 **체험판** [Visual St
     private static Dictionary<string, string> gremlinQueries = new Dictionary<string, string>
     {
         { "Cleanup",        "g.V().drop()" },
-        { "AddVertex 1",    "g.addV('person').property('id', 'thomas').property('firstName', 'Thomas').property('age', 44)" },
-        { "AddVertex 2",    "g.addV('person').property('id', 'mary').property('firstName', 'Mary').property('lastName', 'Andersen').property('age', 39)" },
-        { "AddVertex 3",    "g.addV('person').property('id', 'ben').property('firstName', 'Ben').property('lastName', 'Miller')" },
-        { "AddVertex 4",    "g.addV('person').property('id', 'robin').property('firstName', 'Robin').property('lastName', 'Wakefield')" },
+        { "AddVertex 1",    "g.addV('person').property('id', 'thomas').property('firstName', 'Thomas').property('age', 44).property('pk', 'pk')" },
+        { "AddVertex 2",    "g.addV('person').property('id', 'mary').property('firstName', 'Mary').property('lastName', 'Andersen').property('age', 39).property('pk', 'pk')" },
+        { "AddVertex 3",    "g.addV('person').property('id', 'ben').property('firstName', 'Ben').property('lastName', 'Miller').property('pk', 'pk')" },
+        { "AddVertex 4",    "g.addV('person').property('id', 'robin').property('firstName', 'Robin').property('lastName', 'Wakefield').property('pk', 'pk')" },
         { "AddEdge 1",      "g.V('thomas').addE('knows').to(g.V('mary'))" },
         { "AddEdge 2",      "g.V('thomas').addE('knows').to(g.V('ben'))" },
         { "AddEdge 3",      "g.V('ben').addE('knows').to(g.V('robin'))" },
@@ -132,7 +132,7 @@ Visual Studio 2019가 아직 설치되지 않은 경우 **체험판** [Visual St
 * 새 `GremlinClient` 개체를 만듭니다(줄 56).
 
     ```csharp
-    var gremlinClient = new GremlinClient(gremlinServer);
+    var gremlinClient = new GremlinClient(gremlinServer, new GraphSON2Reader(), new GraphSON2Writer(), GremlinClient.GraphSON2MimeType);
     ```
 
 * 비동기 작업에 `GremlinClient` 개체를 사용하여 각 Gremlin 쿼리를 실행합니다(줄 63). 이렇게 하면 위에서 정의된 사전에서 Gremlin 쿼리를 읽습니다(줄 26).
@@ -192,7 +192,7 @@ Visual Studio 2019가 아직 설치되지 않은 경우 **체험판** [Visual St
 
 ## <a name="run-the-console-app"></a>콘솔 앱 실행
 
-Ctrl+F5를 눌러 응용 프로그램을 실행합니다. 응용 프로그램이 Gremlin 쿼리 명령과 콘솔의 결과를 모두 인쇄합니다.
+Ctrl+F5를 눌러 애플리케이션을 실행합니다. 애플리케이션이 Gremlin 쿼리 명령과 콘솔의 결과를 모두 인쇄합니다.
 
    그래프에 추가된 꼭짓점 및 에지가 콘솔 창에 표시됩니다. 스크립트가 완료되면 ENTER 키를 눌러 콘솔 창을 닫습니다.
 

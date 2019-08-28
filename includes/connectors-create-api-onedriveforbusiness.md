@@ -4,15 +4,15 @@ ms.service: logic-apps
 ms.topic: include
 ms.date: 11/03/2016
 ms.author: estfan
-ms.openlocfilehash: 48cd41d432c5969fc4128b055ca61fc86a57bdd2
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 6c905842778f43196ac463b99993a3cbcd436fa5
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182458"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036742"
 ---
-### <a name="prerequisites"></a>필수 조건
-* [OneDrive](http://OneDrive.com) 계정 
+### <a name="prerequisites"></a>필수 구성 요소
+* [OneDrive](https://OneDrive.com) 계정 
 
 논리 앱에서 비즈니스용 OneDrive 계정을 사용하려면 먼저 비즈니스용 OneDrive 계정에 연결하도록 논리 앱에 권한을 부여해야 합니다. 다행히 Azure Portal의 논리 앱 내에서 이를 쉽게 수행할 수 있습니다. 
 

@@ -6,35 +6,35 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 05/15/2019
+ms.date: 06/18/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: 194f2b80e9cbf3a69fef6ce382e6755934f1d5bd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 067d818b7d23fc0b83cb1d4255bfbb8659149412
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787447"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204775"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Azure Data Box Disk란?
 
 Microsoft Azure Data Box Disk 솔루션을 사용하면 테라바이트 단위의 온-프레미스 데이터를 빠르고 저렴하게 신뢰할 수 있는 방식으로 Azure로 보낼 수 있습니다. 1-5개의 SSD(반도체 디스크)를 배송함으로써 안전한 데이터 전송이 빨라집니다. 이러한 8TB 암호화된 디스크는 지역 배송업체를 통해 데이터 센터로 보내집니다. 
 
-Azure Portal에서 Data Box 서비스를 통해 디스크를 빠르게 구성, 연결 및 잠금 해제할 수 있습니다. 데이터를 디스크에 복사하고, 이 디스크를 Azure로 반송합니다. Azure 데이터 센터에서 고속 사설망 업로드 링크를 사용하여 데이터를 드라이브에서 클라우드로 자동으로 업로드합니다.
+Azure Portal에서 Data Box 서비스를 통해 디스크를 빠르게 구성, 연결 및 잠금 해제할 수 있습니다. 데이터를 디스크에 복사하고, 이 디스크를 Azure로 반송합니다. Azure 데이터 센터에서 고속 프라이빗망 업로드 링크를 사용하여 데이터를 드라이브에서 클라우드로 자동으로 업로드합니다.
 
 ## <a name="use-cases"></a>사용 사례
 
 네트워크 연결이 제한되지 않는 시나리오에서 Data Box Disk를 사용하여 TB 단위의 데이터를 전송합니다. 데이터 이동은 일회성 전송, 정기적 전송 또는 초기 대량 데이터 전송 후의 정기적 전송일 수 있습니다. 
 
-- **일회성 마이그레이션** - 대량의 온-프레미스 데이터를 Azure로 이동하는 경우입니다. 예를 들어 Azure 쿨 저장소에서 오프라인 테이프의 데이터를 보관 데이터로 이동합니다.
-- **증분 전송** - Data Box Disk(초기값)를 사용하여 초기 대량 전송을 수행한 후에 네트워크를 통해 증분 전송이 수행되는 경우입니다. 예를 들어 Commvault 및 Data Box Disk를 사용하여 백업 복사본을 Azure로 이동합니다. 이 마이그레이션 후에 네트워크를 통해 증분 데이터를 Azure 저장소에 복사합니다. 
+- **일회성 마이그레이션** - 대량의 온-프레미스 데이터를 Azure로 이동하는 경우입니다. 예를 들어 Azure 쿨 스토리지에서 오프라인 테이프의 데이터를 보관 데이터로 이동합니다.
+- **증분 전송** - Data Box Disk(초기값)를 사용하여 초기 대량 전송을 수행한 후에 네트워크를 통해 증분 전송이 수행되는 경우입니다. 예를 들어 Commvault 및 Data Box Disk를 사용하여 백업 복사본을 Azure로 이동합니다. 이 마이그레이션 후에 네트워크를 통해 증분 데이터를 Azure Storage에 복사합니다. 
 - **정기적 업로드** - 대량의 데이터를 정기적으로 생성하고 Azure로 이동해야 하는 경우입니다. 예를 들어 에너지를 탐사할 때 석유 굴착 장치와 풍력 발전 시설에서 비디오 콘텐츠를 생성하는 경우가 있습니다.
 
 ## <a name="the-workflow"></a>워크플로
 
 일반적인 흐름에 포함되는 단계는 다음과 같습니다.
 
-1. **주문** - Azure Portal에서 주문을 만들고, 배송 정보를 제공하고, 데이터에 대한 대상 Azure 저장소 계정을 만듭니다. 디스크를 사용할 수 있는 경우 Azure에서 배송 추적 ID를 사용하여 디스크를 암호화, 준비 및 배송합니다.
+1. **주문** - Azure Portal에서 주문을 만들고, 배송 정보를 제공하고, 데이터에 대한 대상 Azure Storage 계정을 만듭니다. 디스크를 사용할 수 있는 경우 Azure에서 배송 추적 ID를 사용하여 디스크를 암호화, 준비 및 배송합니다.
 
 2. **수취** - 디스크가 전달되면 압축을 풀고 복사할 데이터가 있는 컴퓨터에 디스크를 연결합니다. 디스크의 잠금을 해제합니다.
     
@@ -79,8 +79,8 @@ Data Box Disk는 네트워크에 아무런 영향을 주지 않고 대량의 데
 | 무게                                                  | Box당 2lb 미만, Box에 최대 5개 디스크                |
 | 차원                                              | 디스크 - 2.5" SSD |            
 | 케이블                                                  | 디스크당 1개 USB 3.1 케이블|
-| 주문당 저장 용량                              | 40TB(35TB까지 사용 가능)|
-| 디스크 저장 용량                                   | 8TB(7TB까지 사용 가능)|
+| 주문당 스토리지 용량                              | 40TB(35TB까지 사용 가능)|
+| 디스크 스토리지 용량                                   | 8TB(7TB까지 사용 가능)|
 | 데이터 인터페이스                                          | USB   |
 | 보안                                                | BitLocker 및 보안 업데이트를 사용하여 미리 암호화, <br> 지원 암호로 보호된 디스크, <br> 항상 암호화된 데이터  |
 | 데이터 전송 속도                                      | 파일 크기에 따라 최대 430Mbps      |
@@ -89,7 +89,7 @@ Data Box Disk는 네트워크에 아무런 영향을 주지 않고 대량의 데
 
 ## <a name="region-availability"></a>지역 가용성
 
-지역 가용성에 대한 정보는 [지역별 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)으로 이동하세요.
+지역 가용성에 대한 정보는 [지역별 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)으로 이동하세요. Data Box Disk는 Azure Government 클라우드에도 배포할 수 있습니다. 자세한 내용은 [Azure Government란?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)을 참조하세요.
 
 
 ## <a name="pricing"></a>가격

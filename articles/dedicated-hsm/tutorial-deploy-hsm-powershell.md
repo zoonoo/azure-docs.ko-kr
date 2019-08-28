@@ -130,7 +130,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowBar
 ![파일 공유](media/tutorial-deploy-hsm-powershell/file-share.png)
 
 파일이 업로드되면 리소스를 만들 수 있습니다.
-새 HSM을 만들기 전에 반드시 갖추어야 하는 일부 필수 리소스가 있습니다. 계산, HSM 및 게이트웨이에 대한 서브넷 범위를 지원하는 가상 네트워크가 있어야 합니다. 다음 명령은 이러한 가상 네트워크를 만드는 요소에 대한 예를 보여줍니다.
+새 HSM을 만들기 전에 반드시 갖추어야 하는 일부 필수 리소스가 있습니다. 컴퓨팅, HSM 및 게이트웨이에 대한 서브넷 범위를 지원하는 가상 네트워크가 있어야 합니다. 다음 명령은 이러한 가상 네트워크를 만드는 요소에 대한 예를 보여줍니다.
 
 ```powershell
 $compute = New-AzVirtualNetworkSubnetConfig `

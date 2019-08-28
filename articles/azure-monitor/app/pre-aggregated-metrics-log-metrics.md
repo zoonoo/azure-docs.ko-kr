@@ -34,7 +34,7 @@ ms.locfileid: "66256125"
 
 ## <a name="pre-aggregated-metrics"></a>사전 집계 메트릭
 
-로그 기반 메트릭 외에도 2018년 가을 Application Insights 팀은 시계열에 최적화된 특수 저장소에 저장되는 메트릭의 공개 미리 보기를 발표했습니다. 이 새 메트릭은 이제 속성이 많은 개별 이벤트로 유지되지 않습니다. 그 대신 사전 집계 시계열로 저장되며 키 차원만 있습니다. 이 때문에 쿼리 시간에서는 새 메트릭이 우수합니다. 데이터 검색이 훨씬 빨라지고 계산 능력이 적게 필요하기 때문입니다. 결과적으로 [메트릭 차원에 대한 거의 실시간 경고, ](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts)응답성이 더 우수한 [대시보드](https://docs.microsoft.com/azure/azure-monitor/app/overview-dashboard) 등, 새로운 시나리오가 가능해집니다.
+로그 기반 메트릭 외에도 2018년 가을 Application Insights 팀은 시계열에 최적화된 특수 저장소에 저장되는 메트릭의 공개 미리 보기를 발표했습니다. 이 새 메트릭은 이제 속성이 많은 개별 이벤트로 유지되지 않습니다. 그 대신 사전 집계 시계열로 저장되며 키 차원만 있습니다. 이 때문에 쿼리 시간에서는 새 메트릭이 우수합니다. 데이터 검색이 훨씬 빨라지고 컴퓨팅 능력이 적게 필요하기 때문입니다. 결과적으로 [메트릭 차원에 대한 거의 실시간 경고, ](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts)응답성이 더 우수한 [대시보드](https://docs.microsoft.com/azure/azure-monitor/app/overview-dashboard) 등, 새로운 시나리오가 가능해집니다.
 
 > [!IMPORTANT]
 > Application Insights에는 로그 기반과 사전 집계 메트릭이 함께 있습니다. 이 둘을 구분하기 위해 Application Insights UX에서는 이제 사전 집계 메트릭을 "표준 메트릭(미리 보기)"라 하고 전통적 이벤트 메트릭의 이름을 "로그 기반 메트릭"으로 변경했습니다.

@@ -122,7 +122,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 사용자 *docker compose.yml* 파일을 매핑하는 `volumes` 옵션을 `${WEBAPP_STORAGE_HOME}`. 
 
-`WEBAPP_STORAGE_HOME`은 앱의 영구 저장소에 매핑되는 App Service의 환경 변수입니다. 예를 들면 다음과 같습니다.
+`WEBAPP_STORAGE_HOME`은 앱의 영구 스토리지에 매핑되는 App Service의 환경 변수입니다. 예를 들면 다음과 같습니다.
 
 ```yaml
 wordpress:

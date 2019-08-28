@@ -171,7 +171,7 @@ Content-Type: application/json; charset=utf-8
 
 응답에서 continuationToken이 제공됩니다.
 
-[장치 쌍, 작업 및 메시지 라우팅용 IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)를 사용하여 각 장치에서 작업 실행 상태를 쿼리할 수 있습니다.
+[디바이스 쌍, 작업 및 메시지 라우팅용 IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)를 사용하여 각 디바이스에서 작업 실행 상태를 쿼리할 수 있습니다.
 
 ## <a name="jobs-properties"></a>작업 속성
 
@@ -210,7 +210,7 @@ Content-Type: application/json; charset=utf-8
 
 * [Azure IoT 디바이스 및 서비스 SDK](iot-hub-devguide-sdks.md)는 IoT Hub와 상호 작용하는 디바이스 및 서비스 앱 모두를 개발할 때 사용할 수 있는 다양한 언어 SDK를 나열합니다.
 
-* [장치 쌍, 작업 및 메시지 라우팅용 IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)에서는 IoT Hub 쿼리 언어를 설명합니다. 이 쿼리 언어를 사용하여 IoT Hub에서 디바이스 쌍 및 작업에 대한 정보를 검색합니다.
+* [디바이스 쌍, 작업 및 메시지 라우팅용 IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)에서는 IoT Hub 쿼리 언어를 설명합니다. 이 쿼리 언어를 사용하여 IoT Hub에서 디바이스 쌍 및 작업에 대한 정보를 검색합니다.
 
 * [IoT Hub MQTT 지원](iot-hub-mqtt-support.md)은 MQTT 프로토콜에 대한 IoT Hub 지원에 대해 자세히 설명합니다.
 

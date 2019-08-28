@@ -2,18 +2,18 @@
 title: 빠른 시작 - 포털에서 AKS(Azure Kubernetes Service) 클러스터 만들기
 description: Azure Portal을 사용하여 Kubernetes 클러스터를 빠르게 만들고 애플리케이션을 배포하고 AKS(Azure Kubernetes Service)의 성능을 모니터링하는 방법을 알아봅니다.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 5/31/2019
-ms.author: iainfou
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 58f89ddcf4480df14689541ec99b6c9b2526721a
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: 11a5955d516d3a4144d9b63eec78d9c5741aaab9
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688083"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "67615275"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 AKS(Azure Kubernetes Service) 클러스터 배포
 
@@ -90,7 +90,7 @@ Kubernetes 매니페스트 파일은 어떤 컨테이너 이미지가 실행되�
 > [!TIP]
 > 이 빠른 시작에서는 애플리케이션 매니페스트를 수동으로 만들어 AKS 클러스터에 배포합니다. 더 많은 실제 시나리오에서는 [Azure Dev Spaces][azure-dev-spaces]를 사용하여 AKS 클러스터에서 직접 코드를 신속하게 반복하고 디버깅할 수 있습니다. OS 플랫폼 및 개발 환경 전반에서 Dev Spaces를 사용하고 다른 팀원과 함께 작업할 수 있습니다.
 
-`azure-vote.yaml`이라는 파일을 만들고 다음 YAML 정의에 복사합니다. Azure Cloud Shell에서 가상 또는 실제 시스템에서 작업하는 것처럼 `vi` 또는 `Nano`를 사용하여 파일을 만듭니다.
+Cloud Shell에서 `nano` 또는 `vi`를 사용하여 이름이 `azure-vote.yaml`인 파일을 만들고 다음 YAML 정의에 복사합니다.
 
 ```yaml
 apiVersion: apps/v1
@@ -196,7 +196,7 @@ service "azure-vote-front" created
 
 애플리케이션이 실행되면 애플리케이션 프런트 엔드를 인터넷에 공개하는 Kubernetes 서비스가 만들어집니다. 이 프로세스를 완료하는 데 몇 분이 걸릴 수 있습니다.
 
-진행 상황을 모니터링하려면 `--watch` 인수와 함께 [kubectl get service][kubectl-get] 명령을 사용합니다.
+진행 상태를 모니터링하려면 `--watch` 인수와 함께 [kubectl get service][kubectl-get] 명령을 사용합니다.
 
 ```azurecli-interactive
 kubectl get service azure-vote-front --watch

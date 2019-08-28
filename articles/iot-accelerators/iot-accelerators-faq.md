@@ -74,7 +74,7 @@ Azure 구독이 있는 것이 확실하다면, 구독에 대한 테넌트 매핑
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsolutionscom"></a>Azure portal에서 리소스 그룹을 삭제 하면 azureiotsolutions.com의 솔루션 가속기에서 삭제를 클릭 사이의 차이 무엇입니까?
 
 * 솔루션 가속기를 삭제 하는 경우 [azureiotsolutions.com](https://www.azureiotsolutions.com/), 솔루션 가속기를 만들 때 배포 된 모든 리소스를 삭제 합니다. 리소스 그룹에 리소스를 추가하면 이들 역시 삭제됩니다.
-* [Azure Portal](https://portal.azure.com)에서 리소스 그룹을 삭제하는 경우 해당 리소스 그룹의 리소스만 삭제됩니다. 또한 솔루션 가속기와 연결된 Azure Active Directory 응용 프로그램을 삭제해야 합니다.
+* [Azure Portal](https://portal.azure.com)에서 리소스 그룹을 삭제하는 경우 해당 리소스 그룹의 리소스만 삭제됩니다. 또한 솔루션 가속기와 연결된 Azure Active Directory 애플리케이션을 삭제해야 합니다.
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>Azure IoT 솔루션 가속기에 대한 기존 투자를 계속 활용할 수 있나요?
 

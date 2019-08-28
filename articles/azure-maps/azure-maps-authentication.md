@@ -3,18 +3,18 @@ title: Azure Maps 인증 | Microsoft Docs
 description: Azure Maps 서비스 사용을 위한 인증입니다.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/12/2019
+ms.date: 07/11/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 22aba19e16e4349a5b495b307c9906f7ded5a636
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a4608d0631c9a590fdde583e399883a023275c30
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393665"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838047"
 ---
 # <a name="authentication-with-azure-maps"></a>Azure Maps 인증
 
@@ -31,7 +31,7 @@ Azure Maps는 요청을 인증하는 두 가지 방법인 공유 키와 Azure AD
 
 ## <a name="authentication-with-azure-active-directory-preview"></a>Azure Active Directory 인증(미리 보기)
 
-이제 Azure Maps는 [Azure AD(Azure Active Directory)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)와 통합되므로 Azure Maps 서비스 요청을 인증할 수 있습니다. Azure AD는 Azure Maps 리소스에 대한 사용자 수준 또는 애플리케이션 수준 액세스 권한을 부여할 수 있도록 [RBAC(역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/overview)를 비롯한 ID 기반 인증을 제공합니다. 이어지는 섹션은 Azure AD와의 Azure Maps 통합 개념 및 구성 요소를 이해하는 데 도움이 될 수 있을 것입니다.
+이제 Azure Maps는 [Azure AD(Azure Active Directory)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)와 통합되므로 Azure Maps 서비스 요청을 인증할 수 있습니다. Azure AD는 인증 id를 기반으로 제공 등 [역할 기반 액세스 제어 (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)사용자 수준, 그룹 수준 및 응용 프로그램 수준 리소스 액세스 권한을 부여할 Azure Maps를 합니다. 이어지는 섹션은 Azure AD와의 Azure Maps 통합 개념 및 구성 요소를 이해하는 데 도움이 될 수 있을 것입니다.
 
 ## <a name="authentication-with-oauth-access-tokens"></a>OAuth 액세스 토큰 인증
 
@@ -57,7 +57,7 @@ Azure AD에서 토큰을 수신한 후에는 다음 두 가지 필수 요청 헤
 | 요청 헤더    |    값    |
 |:------------------|:------------|
 | x-ms-client-id    | 30d7cc….9f55|
-| 권한 부여     | Bearer eyJ0e….HNIVN |
+| Authorization     | Bearer eyJ0e….HNIVN |
 
 > [!Note]
 > `x-ms-client-id`는 Azure Maps 인증 페이지에 표시되는 Azure Maps 계정 기반 GUID입니다.
@@ -75,9 +75,9 @@ Authorization: Bearer eyJ0e….HNIVN
 
 ## <a name="control-access-with-rbac"></a>RBAC를 사용하여 액세스 제어
 
-Azure AD에서는 RBAC를 사용하여 보호된 리소스에 대한 액세스를 제어할 수 있습니다. Azure Maps 계정을 만들고 Azure AD 테넌트 내에서 Azure Maps Azure AD 애플리케이션을 등록한 후에는 Azure Maps 계정 포털 페이지에서 사용자, 애플리케이션 또는 Azure 리소스에 대한 RBAC를 설정할 수 있습니다.
+Azure AD에서는 RBAC를 사용하여 보호된 리소스에 대한 액세스를 제어할 수 있습니다. Azure Maps 계정 만들기를 시작한 후 Azure AD 테 넌 트 내에서 Azure Maps Azure AD 응용 프로그램을 등록 사용자, 그룹, 응용 프로그램 또는 Azure Maps 계정 포털 페이지에서 Azure 리소스에 대 한 RBAC를 설정할 수 있습니다.
 
-Azure Maps는 Azure 리소스에 대한 관리형 ID를 통해 개인 Azure AD 사용자, 애플리케이션 및 Azure 서비스에 대한 읽기 액세스 제어를 지원합니다.
+Azure Maps는 개인에 대 한 읽기 액세스 제어를 지 원하는 Azure AD 사용자, 그룹, 응용 프로그램 및 Azure 리소스에 대 한 Azure 서비스를 통해 관리 되는 id입니다.
 
 ![Azure Maps 데이터 판독기(미리 보기)](./media/azure-maps-authentication/concept.png)
 

@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/31/2018
-ms.author: saysa
-ms.openlocfilehash: 3b1e6f769d5c65065d95ac96c4ab4ed10702e5cf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: jeconnoc
+ms.openlocfilehash: b757a0a5f3ce968b396fa89d5b32c18257d620c3
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61038850"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875094"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Jenkins를 사용하여 Linux 애플리케이션 빌드 및 배포
 Jenkins는 앱의 연속 통합 및 배포를 위한 인기 있는 도구입니다. Jenkins를 사용하여 Azure Service Fabric 애플리케이션을 빌드하고 배포하는 방법은 다음과 같습니다.
@@ -82,8 +82,8 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
    ```
 
 1. 다음과 같이 파일 공유에서 Jenkins 컨테이너의 상태를 유지합니다.
-   1. 클러스터와 **동일한 지역**에서 Azure 저장소 계정을 `sfjenkinsstorage1`과 같은 이름으로 만듭니다.
-   1. `sfjenkins` 같은 이름의 저장소 계정에서 **파일 공유**를 만듭니다.
+   1. 클러스터와 **동일한 지역**에서 Azure Storage 계정을 `sfjenkinsstorage1`과 같은 이름으로 만듭니다.
+   1. `sfjenkins` 같은 이름의 스토리지 계정에서 **파일 공유**를 만듭니다.
    1. 파일 공유에 대한 **연결**을 클릭하고 **Linux에서 연결** 아래에 표시된 값을 적어둡니다. 이 값은 다음과 비슷합니다.
 
       ```sh
@@ -94,7 +94,7 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
    > cifs 공유를 마운트하려면 클러스터 노드에 cifs-utils 패키지를 설치해야 합니다.      
    >
 
-1. `setupentrypoint.sh` 스크립트의 자리 표시자 값을 2단계의 Azure Storage 세부 정보로 업데이트합니다.
+1. `setupentrypoint.sh` 스크립트의 자리 표시자 값을 2단계의 Azure 스토리지 세부 정보로 업데이트합니다.
    ```sh
    vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
    ```
@@ -259,7 +259,7 @@ Jenkins를 설정한 후 다음 섹션, [Jenkins 작업 만들기 및 구성](#c
         openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:
         ``` 
 
-        PFX 파일이 암호로 보호되어 있는 경우 `-passin` 매개 변수에 해당 암호를 포함합니다. 예를 들면 다음과 같습니다.
+        PFX 파일이 암호로 보호되어 있는 경우 `-passin` 매개 변수에 해당 암호를 포함합니다. 예:
 
         ```sh
         openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:MyPassword1234!

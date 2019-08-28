@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: de2e848bd587f3b9bf2efe3fa8df3710e24243e4
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 11eae0e3bae501cdf39d7fe1d5d39524c1f83e6c
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241393"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035991"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>자습서: 연결된 Azure Resource Manager 템플릿 만들기
 
@@ -59,8 +59,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니다. 템플릿을 처음부터 새로 만드는 대신 샘플 템플릿을 찾아서 사용자 지정할 수 있습니다. 이 자습서에 사용되는 템플릿의 이름은 [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/)입니다. 이 템플릿은 [자습서: 종속 리소스가 있는 Azure Resource Manager 템플릿 만들기](./resource-manager-tutorial-create-templates-with-dependent-resources.md)에서 사용한 대로 Cloud Shell 배포 방법을 사용합니다. 다음으로 사용될 동일한 두 개의 템플릿 복사본을 저장합니다.
 
-* **기본 템플릿**: 저장소 계정을 제외하고 모든 리소스를 만듭니다.
-* **연결된 템플릿**: 저장소 계정을 만듭니다.
+* **기본 템플릿**: 스토리지 계정을 제외하고 모든 리소스를 만듭니다.
+* **연결된 템플릿**: 스토리지 계정을 만듭니다.
 
 1. Visual Studio Code에서 **파일**>**파일 열기**를 차례로 선택합니다.
 2. **파일 이름**에서 다음 URL을 붙여넣습니다.
@@ -83,7 +83,7 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
 
 ## <a name="create-the-linked-template"></a>연결된 템플릿 만들기
 
-연결된 템플릿은 저장소 계정을 만듭니다. 연결된 템플릿을 독립 실행형 템플릿으로 사용하여 스토리지 계정을 만들 수 있습니다. 이 자습서에서 연결된 템플릿은 두 개의 매개 변수를 사용하고 값을 기본 템플릿으로 다시 전달합니다. 이 "반환" 값은 `outputs` 요소에서 정의됩니다.
+연결된 템플릿은 스토리지 계정을 만듭니다. 연결된 템플릿을 독립 실행형 템플릿으로 사용하여 스토리지 계정을 만들 수 있습니다. 이 자습서에서 연결된 템플릿은 두 개의 매개 변수를 사용하고 값을 기본 템플릿으로 다시 전달합니다. 이 "반환" 값은 `outputs` 요소에서 정의됩니다.
 
 1. 파일이 열려 있지 않은 경우 Visual Studio Code에서 **linkedTemplate.json**을 엽니다.
 2. 다음과 같이 변경합니다.
@@ -227,7 +227,7 @@ echo "Linked template URI with SAS token: $templateURI"
 4. 셸 창의 끝에 있는 두 개의 값(리소스 그룹 이름 및 연결된 템플릿 URI)을 적어 둡니다. 이러한 값은 자습서의 뒷부분에서 필요합니다.
 5. **포커스 모드 종료**를 선택하여 셸 창을 닫습니다.
 
-실제로 기본 템플릿을 배포할 때 SAS 토큰을 생성하고 SAS 토큰에 더 짧은 시간 범위의 만료 시간을 지정하여 보안을 강화합니다. 자세한 내용은 [배포하는 동안 SAS 토큰 제공](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment)을 참조하세요.
+실제로 기본 템플릿을 배포할 때 SAS 토큰을 생성하고 SAS 토큰에 더 짧은 시간 범위의 만료 시간을 지정하여 보안을 강화합니다. 자세한 내용은 [배포하는 동안 SAS 토큰 제공](./secure-template-with-sas-token.md#provide-sas-token-during-deployment)을 참조하세요.
 
 ## <a name="call-the-linked-template"></a>연결된 템플릿 호출
 
@@ -249,7 +249,7 @@ echo "Linked template URI with SAS token: $templateURI"
       "properties": {}
     },
     ```
-3. 저장소 계정 정의가 있던 위치로 다음 json 코드 조각을 추가합니다.
+3. 스토리지 계정 정의가 있던 위치로 다음 json 코드 조각을 추가합니다.
 
     ```json
     {
@@ -285,9 +285,9 @@ echo "Linked template URI with SAS token: $templateURI"
 
 ![Azure Resource Manager 템플릿 종속성 다이어그램](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-visual-studio-code-dependency-diagram.png)
 
-저장소 계정은 이제 연결된 템플릿에서 정의되므로 `Microsoft.Compute/virtualMachines` 리소스의 다음 두 요소를 업데이트해야 합니다.
+스토리지 계정은 이제 연결된 템플릿에서 정의되므로 `Microsoft.Compute/virtualMachines` 리소스의 다음 두 요소를 업데이트해야 합니다.
 
-* `dependOn` 요소를 다시 구성합니다. 저장소 계정 정의가 연결된 템플릿으로 이동합니다.
+* `dependOn` 요소를 다시 구성합니다. 스토리지 계정 정의가 연결된 템플릿으로 이동합니다.
 * `properties/diagnosticsProfile/bootDiagnostics/storageUri` 요소를 다시 구성합니다. [연결된 템플릿 만들기](#create-the-linked-template)에서 출력 값을 추가했습니다.
 
     ```json
@@ -327,7 +327,7 @@ Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭
 프로젝트를 향상시키려면 완성된 프로젝트를 다음과 같이 추가로 변경합니다.
 
 1. 매개 변수를 통해 연결된 템플릿 URI 값을 가져오도록 기본 템플릿(azuredeploy.json)을 수정합니다.
-2. 연결된 템플릿을 업로드할 때 SAS 토큰을 생성하는 대신, 기본 템플릿을 배포할 때 토큰을 생성합니다. 자세한 내용은 [배포하는 동안 SAS 토큰 제공](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment)을 참조하세요.
+2. 연결된 템플릿을 업로드할 때 SAS 토큰을 생성하는 대신, 기본 템플릿을 배포할 때 토큰을 생성합니다. 자세한 내용은 [배포하는 동안 SAS 토큰 제공](./secure-template-with-sas-token.md#provide-sas-token-during-deployment)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

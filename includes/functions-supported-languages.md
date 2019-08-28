@@ -4,17 +4,17 @@ description: 포함 파일
 services: functions
 author: ggailey777
 manager: cfowler
-ms.service: functions
+ms.service: azure-functions
 ms.topic: include
 ms.date: 05/25/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 597742e58c1368a9c2d1f5bba81f7d637e408642
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80132b165c4d7d0f4f192e30f1bf2a525c47c82e
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66271497"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69564397"
 ---
 |언어                                 |1.x         |2.x|
 |-----------------------------------------|------------|---|
@@ -22,10 +22,10 @@ ms.locfileid: "66271497"
 |[JavaScript](../articles/azure-functions/functions-reference-node.md)|GA(Node 6)|GA(Node 8 & 10)|
 |[F#](../articles/azure-functions/functions-reference-fsharp.md)|GA(.NET Framework 4.7)|GA (.NET Core 2.2)|
 |[Java](../articles/azure-functions/functions-reference-java.md)|N/A|GA (Java 8)|
-|[PowerShell](../articles/azure-functions/functions-reference-powershell.md) |실험적|미리 보기 (PowerShell Core 6)|
-|[Python](../articles/azure-functions/functions-reference-python.md)|실험적|미리 보기(Python 3.6)|
-|[TypeScript](../articles/azure-functions/functions-reference-node.md#typescript) |실험적|GA (JavaScript로 트랜스 파일 하려면 통해 지원)|
-|Bash                |실험적|N/A|
+|[PowerShell](../articles/azure-functions/functions-reference-powershell.md) |실험적|Preview (PowerShell Core 6)|
+|[Python](../articles/azure-functions/functions-reference-python.md)|실험적|GA (Python 3.6. x)|
+|[TypeScript](../articles/azure-functions/functions-reference-node.md#typescript) |실험적|GA (트랜스 파일 하려면에서 JavaScript로 지원 됨)|
+|Bash                |실험적|해당 사항 없음|
 |일괄 처리(.cmd, .bat)  |실험적|N/A|
 |PHP                 |실험적|N/A|
 

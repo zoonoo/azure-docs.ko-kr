@@ -161,7 +161,7 @@ TelemetryConfiguration.Active.TelemetryChannel = serverTelemetryChannel;
 
 해당 패키지 및 네임 스페이스의 이름을 "WindowsServer"를 포함 하지만이 채널이 다음 예외를 사용 하 여, Windows 이외의 시스템에서 지원 됩니다. Windows 이외의 시스템에서 채널을 기본적으로 로컬 저장소 폴더를 만들지 않습니다. 로컬 저장소 폴더를 만들고 사용 하도록 채널을 구성 해야 합니다. 로컬 저장소를 구성한 후 채널 동일한 방식으로 모든 시스템에서 작동 합니다.
 
-### <a name="does-the-sdk-create-temporary-local-storage-is-the-data-encrypted-at-storage"></a>SDK에서 임시 로컬 저장소를 작성하나요? 데이터는 저장소에서 암호화가?
+### <a name="does-the-sdk-create-temporary-local-storage-is-the-data-encrypted-at-storage"></a>SDK에서 임시 로컬 스토리지를 작성하나요? 데이터는 저장소에서 암호화가?
 
 SDK는 네트워크 문제 또는 제한 중 로컬 저장소에 원격 분석 항목을 저장합니다. 이 데이터는 로컬로 암호화 되지 않습니다.
 

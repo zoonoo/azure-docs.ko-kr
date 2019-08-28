@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 286c5850400242224e710a7883d3d3dc175cef12
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: bee8c1d2a1cd313c7fe59d8e53379dc57554e98c
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273210"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618578"
 ---
 # <a name="duplicate-detection"></a>중복 검색
 
@@ -37,7 +37,7 @@ ms.locfileid: "67273210"
 *MessageId*는 항상 GUID일 수 있지만 식별자를 비즈니스 프로세스에 고정하면 예측 가능한 반복성을 얻을 수 있으며 이것은 중복 검색 기능을 효과적으로 활용하는 데 바람직합니다.
 
 > [!NOTE]
-> 중복 검색 기능을 사용 하 고 세션 ID 또는 파티션 키 설정 되어 있지 않은 경우 메시지 ID는 파티션 키로 사용 됩니다. 메시지 ID도 설정 하지 않으면,.NET 및 AMQP 라이브러리는 자동으로 메시지에 대 한 메시지 ID를 생성 합니다. 자세한 내용은 [파티션 키 사용](service-bus-partitioning.md#use-of-partition-keys)합니다.
+> 중복 검색을 사용 하도록 설정 하 고 세션 ID 또는 파티션 키를 설정 하지 않은 경우에는 메시지 ID가 파티션 키로 사용 됩니다. 메시지 ID도 설정 되지 않은 경우 .NET 및 AMQP 라이브러리는 메시지에 대 한 메시지 ID를 자동으로 생성 합니다. 자세한 내용은 [파티션 키 사용](service-bus-partitioning.md#use-of-partition-keys)을 참조 하세요.
 
 ## <a name="enable-duplicate-detection"></a>중복 검색 사용
 

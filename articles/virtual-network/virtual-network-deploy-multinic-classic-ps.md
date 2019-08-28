@@ -75,7 +75,7 @@ DB 서버를 만들려면 먼저 이 시나리오에 필요한 모든 리소스�
     ```
 
 ### <a name="step-2---create-necessary-resources-for-your-vms"></a>2단계 - VM에 필요한 리소스 만들기
-새로운 클라우드 서비스, 모든 VM에 대한 데이터 디스크의 저장소 계정을 만들어야 합니다. VM에 대한 로컬 관리자 계정 및 이미지도 지정해야 합니다. 이러한 리소스를 만들려면 다음 단계를 완료합니다.
+새로운 클라우드 서비스, 모든 VM에 대한 데이터 디스크의 스토리지 계정을 만들어야 합니다. VM에 대한 로컬 관리자 계정 및 이미지도 지정해야 합니다. 이러한 리소스를 만들려면 다음 단계를 완료합니다.
 
 1. 새 클라우드 서비스 만들기
 
@@ -89,7 +89,7 @@ DB 서버를 만들려면 먼저 이 시나리오에 필요한 모든 리소스�
     New-AzureStorageAccount -StorageAccountName $prmStorageAccountName `
     -Location $location -Type Premium_LRS
     ```
-3. 앞에서 만든 저장소 계정을 구독에 대한 현재 저장소 계정으로 설정합니다.
+3. 앞에서 만든 스토리지 계정을 구독에 대한 현재 스토리지 계정으로 설정합니다.
 
     ```powershell
     $subscription = Get-AzureSubscription | where {$_.IsCurrent -eq $true}  

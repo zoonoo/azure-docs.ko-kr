@@ -3,18 +3,18 @@ title: Azure Service Fabric Mesh 애플리케이션 비밀 관리 | Microsoft Do
 description: 애플리케이션 비밀을 안전하게 생성하고 배포할 수 있도록 Service Fabric Mesh 애플리케이션을 관리합니다.
 services: service-fabric-mesh
 keywords: secrets
-author: aljo-microsoft
-ms.author: aljo
+author: athinanthny
+ms.author: atsenthi
 ms.date: 4/2/2019
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chackdan
-ms.openlocfilehash: c2548ea3cf892ebe1a56cbb0909bfa5d5e805acf
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: ef3f04437aca7b6ad9aab8806d54e65d00159d87
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503305"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036162"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Service Fabric Mesh 애플리케이션 비밀 관리
 Service Fabric Mesh에서는 비밀을 Azure 리소스로 지원합니다. Service Fabric Mesh 비밀은 스토리지 연결 문자열, 암호, 안전하게 저장하고 전송되어야 하는 기타 값 등 중요한 텍스트 정보일 수 있습니다. 이 문서에서는 Service Fabric 보안 스토리지 서비스를 사용하여 비밀을 배포하고 유지 관리하는 방법을 보여줍니다.
@@ -24,14 +24,14 @@ Mesh 애플리케이션 비밀은 다음으로 이루어져 있습니다.
 * 하나 이상의 **비밀/값** 리소스는 **비밀** 리소스 컨테이너에 저장됩니다. 각 **비밀/값** 리소스는 버전 번호로 구분됩니다. **비밀/값** 리소스의 버전을 수정할 수 없고 새 버전을 추가할 수는 있습니다.
 
 비밀을 관리하는 작업은 다음 단계로 구성됩니다.
-1. 메시를 선언 **비밀** SecretsStoreRef contentType 정의와 inlinedValue 종류를 사용 하 여 Azure 리소스 모델 YAML 또는 JSON 파일에는 리소스입니다.
-2. 메시를 선언 **비밀/값** 에 저장 되는 Azure 리소스 모델 YAML 또는 JSON 파일에 리소스를 **비밀** (1 단계)에서 리소스입니다.
+1. InlinedValue kind 및 SecretsStoreRef contentType 정의를 사용 하 여 Azure 리소스 모델 YAML 또는 JSON 파일에 메시 **비밀** 리소스를 선언 합니다.
+2. **암호** 리소스에 저장 될 Azure 리소스 모델 yaml 또는 JSON 파일에 메시 **암호/값** 리소스를 선언 합니다 (1 단계).
 3. Mesh 비밀 값을 참조하도록 Mesh 애플리케이션을 수정합니다.
 4. 비밀 값을 사용하도록 Mesh 애플리케이션을 배포하거나 롤링 업그레이드합니다.
 5. 보안 스토리지 서비스 수명 주기 관리에 대해 Azure "az" CLI 명령을 사용합니다.
 
 ## <a name="declare-a-mesh-secrets-resource"></a>Mesh 비밀 리소스를 선언합니다.
-메시 비밀 리소스는 Azure 리소스 모델 JSON 또는 YAML 파일 inlinedValue 종류 정의 사용 하 여 선언 됩니다. Mesh 비밀 리소스는 보안 스토리지 서비스 제공 비밀을 지원합니다. 
+메시 비밀 리소스는 inlinedValue kind 정의를 사용 하 여 Azure 리소스 모델 JSON 또는 YAML 파일에서 선언 됩니다. Mesh 비밀 리소스는 보안 스토리지 서비스 제공 비밀을 지원합니다. 
 >
 JSON 파일에서 Mesh 비밀 리소스를 선언하는 방법의 예제는 다음과 같습니다.
 
@@ -206,7 +206,7 @@ az mesh deployment create –-<template-file> or --<template-uri>
 ```
 **template-file** 또는 **template-uri** 중 하나를 전달합니다(둘 다는 안 됨).
 
-예를 들면 다음과 같습니다.
+예:
 - az mesh deployment create --c:\MyMeshTemplates\SecretTemplate1.txt
 - az mesh deployment create --https:\//www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
 

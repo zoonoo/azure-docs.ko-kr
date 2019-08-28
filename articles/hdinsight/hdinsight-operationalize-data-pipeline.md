@@ -113,7 +113,7 @@ Oozie는 *작업*, *워크플로* 및 *코디네이터*의 측면에서 해당 �
 
 7. **스토리지** 창에서 기본 스토리지 유형을 **Azure Storage**로 두고 **새로 만들기**를 선택한 후 새 계정에 대한 이름을 제공합니다.
 
-    ![HDInsight 저장소 계정 설정](./media/hdinsight-operationalize-data-pipeline/hdi-storage.png)
+    ![HDInsight 스토리지 계정 설정](./media/hdinsight-operationalize-data-pipeline/hdi-storage.png)
 
 8. **Metastore 설정**의 **Hive용 SQL 데이터베이스 선택** 아래에서 이전에 만든 데이터베이스를 선택합니다.
 
@@ -161,7 +161,7 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
 
 `bash` 셸 세션에서 SCP를 사용하여 파일을 복사할 수 있습니다.
 
-1. SCP를 사용하여 로컬 컴퓨터에서 HDInsight 클러스터 헤드 노드의 로컬 저장소로 파일을 복사합니다.
+1. SCP를 사용하여 로컬 컴퓨터에서 HDInsight 클러스터 헤드 노드의 로컬 스토리지로 파일을 복사합니다.
 
     ```bash
     scp ./2017-01-FlightData.csv sshuser@[CLUSTERNAME]-ssh.azurehdinsight.net:2017-01-FlightData.csv
@@ -434,9 +434,9 @@ day=03
 
 ### <a name="deploy-and-run-the-oozie-workflow"></a>Oozie 워크플로 배포 및 실행
 
-bash 세션의 SCP를 사용하여 Oozie 워크플로(`workflow.xml`), Hive 쿼리(`hive-load-flights-partition.hql` 및 `hive-create-daily-summary-table.hql`) 및 작업 구성(`job.properties`)을 배포합니다.  Oozie에서는 `job.properties` 파일만 헤드 노드의 로컬 저장소에 있을 수 있습니다. 다른 모든 파일은 HDFS(이 경우 Azure Storage)에 저장되어야 합니다. 워크플로에서 사용되는 Sqoop 작업은 SQL Database와 통신하기 위한 JDBC 드라이버에 따라 달라지며, 헤드 노드에서 HDFS로 복사되어야 합니다.
+bash 세션의 SCP를 사용하여 Oozie 워크플로(`workflow.xml`), Hive 쿼리(`hive-load-flights-partition.hql` 및 `hive-create-daily-summary-table.hql`) 및 작업 구성(`job.properties`)을 배포합니다.  Oozie에서는 `job.properties` 파일만 헤드 노드의 로컬 스토리지에 있을 수 있습니다. 다른 모든 파일은 HDFS(이 경우 Azure Storage)에 저장되어야 합니다. 워크플로에서 사용되는 Sqoop 작업은 SQL Database와 통신하기 위한 JDBC 드라이버에 따라 달라지며, 헤드 노드에서 HDFS로 복사되어야 합니다.
 
-1. 헤드 노드의 로컬 저장소에 있는 사용자의 경로 아래의 `load_flights_by_day` 하위 폴더를 만듭니다.
+1. 헤드 노드의 로컬 스토리지에 있는 사용자의 경로 아래의 `load_flights_by_day` 하위 폴더를 만듭니다.
 
         ssh sshuser@[CLUSTERNAME]-ssh.azurehdinsight.net 'mkdir load_flights_by_day'
 
@@ -614,7 +614,7 @@ sqlDatabaseTableName=dailyflights
 
 코디네이터에 대한 파이프라인을 실행하려면, 워크플로를 포함하는 폴더보다 한 수준 위에 있는 폴더에서 작업하는 경우를 제외하고, 워크플로와 비슷한 방식으로 진행합니다. 이 폴더 규칙은 디스크의 워크플로에서 코디네이터를 구분하여, 한 코디네이터를 다른 하위 워크플로에 연결할 수 있도록 합니다.
 
-1. 로컬 컴퓨터의 SCP를 사용하여 클러스터 헤드 노드의 로컬 저장소로 코디네이터 파일을 복사합니다.
+1. 로컬 컴퓨터의 SCP를 사용하여 클러스터 헤드 노드의 로컬 스토리지로 코디네이터 파일을 복사합니다.
 
     ```bash
     scp ./* sshuser@[CLUSTERNAME]-ssh.azurehdinsight.net:~

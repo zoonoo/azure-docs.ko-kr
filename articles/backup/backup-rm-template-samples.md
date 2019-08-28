@@ -1,20 +1,19 @@
 ---
 title: Azure Backup용 Azure Resource Manager 템플릿
-description: Azure Backup PowerShell 샘플
-services: backup
-author: rayne-wiselman
+description: Recovery Services 자격 증명 모음 및 Azure Backup 기능과 함께 사용할 수 있는 Azure Resource Manager 템플릿
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: sample
 ms.date: 01/31/2019
-ms.author: raynew
+ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: bed2c002cacdac1e47852e6fa3181885af6733d2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: eac7f0050dd819a8ab8d8d453307c7d1ab190fb7
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236795"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68737110"
 ---
 # <a name="azure-resource-manager-templates-for-azure-backup"></a>Azure Backup용 Azure Resource Manager 템플릿
 

@@ -1,36 +1,36 @@
 ---
-title: Verizon 프리미엄의 azure CDN 규칙 엔진 일치 조건 | Microsoft Docs
-description: 규칙 엔진 일치 조건에 Verizon 프리미엄의 Azure Content Delivery Network에 대 한 참조 설명서
+title: Verizon 프리미엄 규칙 엔진 일치 조건의 Azure CDN | Microsoft Docs
+description: Verizon 프리미엄 규칙 엔진 일치 조건의 Azure Content Delivery Network에 대 한 참조 설명서입니다.
 services: cdn
 author: mdgattuso
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: 5197fdfe78b1b091de713754967f58157cc4a1b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1660dca34b2f128ef5889145fcdeed0d2523b9bb
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66481656"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "67593212"
 ---
-# <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>Verizon 프리미엄의 규칙 엔진에서 azure CDN 일치 조건
+# <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>Verizon 프리미엄 규칙 엔진 일치 조건의 Azure CDN
 
-이 문서에서는 제공 되는 일치 조건에 대 한 Azure 콘텐츠 배달 네트워크 (CDN) Verizon 프리미엄의 자세한 설명은 [규칙 엔진](cdn-verizon-premium-rules-engine.md)합니다.
+이 문서에서는 Verizon Premium [규칙 엔진](cdn-verizon-premium-rules-engine.md)의 Azure CONTENT DELIVERY NETWORK (CDN)에 대해 사용 가능한 일치 조건에 대 한 자세한 설명을 나열 합니다.
 
 규칙의 두 번째 부분이 일치 조건입니다. 일치 조건은 기능 집합에 대해 수행할 특정 요청 유형을 식별합니다.
 
 예를 들어 다음을 수행하는 데 일치 조건을 사용할 수 있습니다.
 
 - 특정 위치에서 콘텐츠에 대한 필터 요청
-- 특정 IP 주소 또는 국가/지역에서 생성 된 필터 요청 합니다.
+- 특정 IP 주소 또는 국가/지역에서 생성 된 필터 요청
 - 헤더 정보에 의한 필터 요청
 
 ## <a name="always-match-condition"></a>항상 일치 조건
 
 항상 일치 조건은 모든 요청에 기본 기능 집합을 적용합니다.
 
-이름 | 목적
+이름 | 용도
 -----|--------
 [항상](#always) | 모든 요청에 기본 기능 집합을 적용합니다.
 
@@ -38,33 +38,33 @@ ms.locfileid: "66481656"
 
 디바이스 일치 조건은 속성에 따라 모바일 디바이스에서 생성되는 요청을 식별합니다.  
 
-이름 | 목적
+이름 | 용도
 -----|--------
-[디바이스](#device) | 속성에 따라 모바일 디바이스에서 생성되는 요청을 식별합니다.
+[장치](#device) | 속성에 따라 모바일 디바이스에서 생성되는 요청을 식별합니다.
 
 ## <a name="location-match-conditions"></a>위치 일치 조건
 
 위치 일치 조건은 요청자의 위치에 따라 요청을 식별합니다.
 
-이름 | 목적
+이름 | 용도
 -----|--------
 [AS 숫자](#as-number) | 특정 네트워크에서 발생하는 요청을 식별합니다.
-[국가](#country) | 지정 된 국가/지역에서 발생 하는 요청을 식별 합니다.
+[Country](#country) | 지정 된 국가/지역에서 시작 되는 요청을 식별 합니다.
 
 ## <a name="origin-match-conditions"></a>원본 일치 조건
 
-원본 일치 조건은 Content Delivery Network 저장소 또는 고객 원본 서버를 가리키는 요청을 식별합니다.
+원본 일치 조건은 Content Delivery Network 스토리지 또는 고객 원본 서버를 가리키는 요청을 식별합니다.
 
-이름 | 목적
+이름 | 용도
 -----|--------
-[CDN 원본](#cdn-origin) | Content Delivery Network 저장소에 저장된 콘텐츠에 대한 요청을 식별합니다.
+[CDN 원본](#cdn-origin) | Content Delivery Network 스토리지에 저장된 콘텐츠에 대한 요청을 식별합니다.
 [고객 원본](#customer-origin) | 특정 고객 원본 서버에 저장된 콘텐츠에 대한 요청을 식별합니다.
 
 ## <a name="request-match-conditions"></a>요청 일치 조건
 
 요청 일치 조건은 해당 속성에 따라 요청을 식별합니다.
 
-이름 | 목적
+이름 | 용도
 -----|--------
 [클라이언트 IP 주소](#client-ip-address) | 특정 IP 주소에서 발생하는 요청을 식별합니다.
 [쿠키 매개 변수](#cookie-parameter) | 지정된 값에 대한 각 요청과 관련된 쿠키를 확인합니다.
@@ -81,7 +81,7 @@ ms.locfileid: "66481656"
 
 URL 일치 조건은 해당 URL에 따라 요청을 식별합니다.
 
-이름 | 목적
+이름 | 용도
 -----|--------
 [URL 경로 디렉터리](#url-path-directory) | 해당 상대 경로로 요청을 식별합니다.
 [URL 경로 확장](#url-path-extension) | 해당 파일 이름 확장명으로 요청을 식별합니다.
@@ -98,7 +98,7 @@ URL 일치 조건은 해당 URL에 따라 요청을 식별합니다.
 
 ---
 
-### <a name="always"></a>항상
+### <a name="always"></a>Always
 
 항상 일치 조건은 모든 요청에 기본 기능 집합을 적용합니다.
 
@@ -139,7 +139,7 @@ AS 숫자 네트워크는 해당 ASN(자치 시스템 번호)으로 정의됩니
 
 다음 조건이 모두 충족될 때 CDN 원본 일치 조건이 충족됩니다.
 
-- CDN 저장소의 콘텐츠가 요청되었습니다.
+- CDN 스토리지의 콘텐츠가 요청되었습니다.
 - 요청 URI는 이 일치 조건에서 정의된 콘텐츠 액세스 포인트 유형(예: /000001)을 사용합니다.
   - CDN URL: 요청 URI에 선택한 콘텐츠 액세스 포인트가 포함되어야 합니다.
   - 에지 CNAME URL: 해당 에지 CNAME 구성은 선택한 콘텐츠 액세스 포인트를 가리켜야 합니다.
@@ -165,10 +165,10 @@ AS 숫자 네트워크는 해당 ASN(자치 시스템 번호)으로 정의됩니
 주요 정보:
 
 - CIDR 표기법을 사용합니다.
-- 각각을 단일 공백으로 구분하여 여러 IP 주소 및/또는 IP 주소 블록을 지정합니다. 예를 들면 다음과 같습니다.
+- 각각을 단일 공백으로 구분하여 여러 IP 주소 및/또는 IP 주소 블록을 지정합니다. 예:
   - **IPv4 예제**: 1.2.3.4 10.20.30.40은 1.2.3.4 또는 10.20.30.40 주소에서 도착하는 요청과 일치합니다.
   - **IPv6 예제**: 1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80은 1:2:3:4:5:6:7:8 또는 10:20:30:40:50:60:70:80 주소에서 도착하는 요청과 일치합니다.
-- IP 주소 블록에 대한 구문은 뒤에 슬래시와 접두사 크기가 오는 기본 IP 주소입니다. 예를 들면 다음과 같습니다.
+- IP 주소 블록에 대한 구문은 뒤에 슬래시와 접두사 크기가 오는 기본 IP 주소입니다. 예를 들어:
   - **IPv4 예제**: 5.5.5.64/26은 5.5.5.64에서 5.5.5.127까지의 주소에서 도착하는 요청과 일치합니다.
   - **IPv6 예제**: 1:2:3:/48은 1:2:3:0:0:0:0:0에서 1:2:3:ffff:ffff:ffff:ffff:ffff까지의 주소에서 도착한 요청과 일치합니다.
 - 캐시 설정을 추적하는 방식으로 인해 이 일치 조건은 다음 기능과 호환되지 않습니다.
@@ -249,7 +249,7 @@ AS 숫자 네트워크는 해당 ASN(자치 시스템 번호)으로 정의됩니
 
 ---
 
-### <a name="country"></a>국가
+### <a name="country"></a>Country
 
 해당 국가 번호를 통해 국가를 지정할 수 있습니다. 
 
@@ -330,7 +330,7 @@ AS 숫자 네트워크는 해당 ASN(자치 시스템 번호)으로 정의됩니
 
 WURFL 기능은 일반적으로 숫자, 문자 및 기호의 모든 조합을 허용합니다. 이 기능이 유연하기 때문에 이 일치 조건과 연결된 값이 해석되는 방식을 선택해야 합니다. 다음 테이블에는 사용 가능한 옵션 집합이 설명되어 있습니다.
 
-Type     | 설명
+형식     | Description
 ---------|------------
 리터럴  | 대부분의 문자가 [리터럴 값](cdn-verizon-premium-rules-engine-reference.md#literal-values)을 사용하여 특별한 의미를 갖지 못하게 하려면 이 옵션을 선택합니다.
 와일드카드 | 모든 [와일드카드 문자]([와일드카드 값](cdn-verizon-premium-rules-engine-reference.md#wildcard-values))을 활용하려면 이 옵션을 선택합니다.
@@ -345,7 +345,7 @@ WURFL 기능은 모바일 디바이스를 설명하는 범주를 나타냅니다
 > [!NOTE]
 > 다음 변수는 **클라이언트 요청 헤더 수정** 및 **클라이언트 응답 헤더 수정** 기능에서 지원됩니다.
 
-기능 | 변수 | 설명 | 샘플 값
+기능 | 변수 | Description | 샘플 값
 -----------|----------|-------------|----------------
 브랜드 이름 | %{wurfl_cap_brand_name} | 디바이스의 브랜드 이름을 나타내는 문자열입니다. | Samsung
 디바이스 OS | %{wurfl_cap_device_os} | 디바이스에 설치된 운영 체제를 나타내는 문자열입니다. | IOS
@@ -514,12 +514,12 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
 
 요청 메서드 일치 조건은 선택한 요청 메서드를 통해 자산을 요청한 경우에만 충족됩니다. 사용 가능한 요청 메서드는 다음과 같습니다.
 
-- GET
+- 가져오기
 - HEAD
-- POST
+- 올리기
 - OPTIONS
 - PUT
-- 삭제
+- DELETE
 - TRACE
 - CONNECT
 
@@ -647,7 +647,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
 
 다음 샘플 구성에서는 지정된 확장명 중 하나와 요청이 일치할 때 이 일치 조건이 충족된다고 가정합니다.
 
-값 지정: asp aspx php html
+값 사양: asp aspx php html
 
 이 일치 조건은 다음 확장명으로 끝나는 URL을 찾으면 충족됩니다.
 
@@ -790,7 +790,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
 
 - **기준** 옵션: 이 옵션은 URL 비교 지점을 콘텐츠 액세스 포인트 전에 시작할지 또는 후에 시작할지 여부를 결정합니다.
 
-   이 옵션에 사용할 수 있는 값은 다음과 같습니다.
+   이 옵션은 다음 값을 가질 수 있습니다.
      - **루트**: URL 비교 지점이 CDN 호스트 이름 바로 뒤에 시작됩니다.
 
        예: http:\//wpc.0001.&lt;domain&gt;/**800001/myorigin/myfolder/index.htm**
@@ -864,7 +864,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
 
    문자 | URL 인코딩
    ----------|---------
-   공백     | %20
+   Space     | %20
    &         | %25
 
 - 캐시 설정을 추적하는 방식으로 인해 이 일치 조건은 다음 기능과 호환되지 않습니다.
@@ -904,7 +904,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
 
        문자 | URL 인코딩
        ----------|---------
-       공백     | %20
+       Space     | %20
        &         | %25
 
 - 각 항목을 하나의 공백으로 구분하여 쿼리 문자열 매개 변수 값을 여러 개 지정합니다. 이 일치 조건은 지정된 이름/값 조합 중 하나가 요청에 포함되어 있는 경우에 충족됩니다.
@@ -921,7 +921,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
     
        Parameter1=ValueB
 
-   - 예 2:
+   - 예제 2:
 
      - 구성: 
 
@@ -957,7 +957,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
 ------|-------|--------
 사용자  | Joe   | 이 패턴은 요청된 URL의 쿼리 문자열이 "?user=joe"인 경우에 일치합니다.
 사용자  | *     | 이 패턴은 요청된 URL의 쿼리 문자열에 User 매개 변수가 포함된 경우에 일치합니다.
-Email | Joe\* | 이 패턴은 요청된 URL의 쿼리 문자열에 "Joe"로 시작되는 Email 매개 변수가 포함된 경우에 일치합니다.
+EMail | Joe\* | 이 패턴은 요청된 URL의 쿼리 문자열에 "Joe"로 시작되는 Email 매개 변수가 포함된 경우에 일치합니다.
 
 [맨 위로 이동](#reference-for-rules-engine-match-conditions)
 
@@ -986,14 +986,14 @@ Email | Joe\* | 이 패턴은 요청된 URL의 쿼리 문자열에 "Joe"로 시�
 
    문자 | URL 인코딩 | 값
    ----------|--------------|------
-   공백     | %20          | \%20
+   Space     | %20          | \%20
    &         | %25          | \%25
 
    백분율 기호는 이스케이프해야 합니다.
 
 - 정규식에 백슬래시를 포함하려면 특수 정규식 문자(예: \^$.+)를 두 번 이스케이프합니다.
 
-   예를 들면 다음과 같습니다.
+   예를 들어:
 
    값 | 해석되는 값 
    ------|---------------
@@ -1031,12 +1031,12 @@ Email | Joe\* | 이 패턴은 요청된 URL의 쿼리 문자열에 "Joe"로 시�
 
      문자 | URL 인코딩
      ----------|---------
-     공백     | %20
+     Space     | %20
      &         | %25
 
 - 각각을 하나의 공백으로 구분하여 여러 값을 지정합니다.
 
-   예를 들면 다음과 같습니다. *Parameter1=ValueA* *ValueB* *Parameter1=ValueC&Parameter2=ValueD*
+   예를 들어: *Parameter1=ValueA* *ValueB* *Parameter1=ValueC&Parameter2=ValueD*
 
 - 지정된 쿼리 문자열 패턴 중 하나 이상과 정확히 일치해야만 일치 조건이 충족됩니다.
     
@@ -1053,7 +1053,7 @@ Email | Joe\* | 이 패턴은 요청된 URL의 쿼리 문자열에 "Joe"로 시�
 
 다음 예제는 이 옵션이 특정 상황에서 작동하는 방식을 보여줍니다.
 
- 이름                 | 설명
+ 이름                 | Description
  ---------------------|------------
 user=joe              | 이 패턴은 요청된 URL의 쿼리 문자열이 "?user=joe"인 경우에 일치합니다.
 \*user=\* \*optout=\* | 이 패턴은 CDN URL 쿼리에 user 또는 optout 매개 변수가 포함되는 경우에만 일치합니다.

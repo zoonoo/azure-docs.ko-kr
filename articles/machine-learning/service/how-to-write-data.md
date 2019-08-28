@@ -12,20 +12,20 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6206ad1a7356221bf94134e5d293c27d778cc187
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6753be5613b10b64936cddaafbb9859aad837b02
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752860"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358632"
 ---
-# <a name="write-and-configure-data--with-the-azure-machine-learning-data-prep-sdk"></a>작성 하 고 Azure Machine Learning 데이터 준비 SDK를 사용 하 여 데이터를 구성
+# <a name="write-and-configure-data--with-the-azure-machine-learning-data-prep-sdk"></a>Azure Machine Learning 데이터 준비 SDK를 사용 하 여 데이터 작성 및 구성
 
-이 문서에서는 다양 한 방법을 사용 하 여 데이터를 쓸 알아봅니다 합니다 [Azure Machine Learning 데이터 준비 Python SDK](https://aka.ms/data-prep-sdk) 및 실험에 대 한 데이터를 구성 하는 방법의 [Python용AzureMachineLearningSDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  언제 든 지 데이터 흐름의 출력 데이터를 작성할 수 있습니다. 쓰기 결과 데이터 흐름에는 단계와 다음이 단계 실행 될 때마다 데이터 흐름 실행에 추가 됩니다. 데이터는 병렬 쓰기가 가능하도록 여러 파티션 파일에 기록됩니다.
+이 문서에서는 [Azure Machine Learning 데이터 준비 PYTHON SDK](https://aka.ms/data-prep-sdk) 를 사용 하 여 데이터를 작성 하는 다양 한 방법과 [PYTHON 용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 사용 하 여 실험을 위해 해당 데이터를 구성 하는 방법을 알아봅니다.  출력 데이터는 데이터 흐름의 임의 지점에서 쓸 수 있습니다. 쓰기는 결과 데이터 흐름에 대 한 단계로 추가 되며, 이러한 단계는 데이터 흐름이 실행 될 때마다 실행 됩니다. 데이터는 병렬 쓰기가 가능하도록 여러 파티션 파일에 기록됩니다.
 
 > [!Important]
-> 새 솔루션을 작성 하는 경우는 [Azure Machine Learning 데이터 집합](how-to-explore-prepare-data.md) (미리 보기)를 사용자 데이터를 스냅숏 데이터를 변환 하 여 버전이 지정 된 데이터 집합 정의 저장 합니다. 데이터 집합은 다음 버전의 데이터 준비 SDK, AI 솔루션에서 데이터 집합을 관리 하기 위한 확장된 기능을 제공 합니다.
-> 사용 하는 경우는 `azureml-dataprep` 변환을 사용 하는 대신를 사용 하 여 데이터 흐름을 만들려면 패키지를 `azureml-datasets` 데이터 집합을 만들려면 패키지를 스냅숏 또는 버전이 있는 데이터 집합을 나중에 사용할 수 없습니다.
+> 새 솔루션을 구축 하는 경우 데이터, 스냅숏 데이터 및 저장소 버전 데이터 집합 정의를 변환 하는 [Azure Machine Learning 데이터 집합](how-to-explore-prepare-data.md) (미리 보기)을 시도 합니다. 데이터 집합은 AI 솔루션의 데이터 집합 관리를 위해 확장 된 기능을 제공 하는 다음 버전의 데이터 준비 SDK입니다.
+> 패키지를 사용 하 `azureml-dataprep` 여 데이터 집합을 만드는 대신 `azureml-datasets` 패키지를 사용 하 여 변환을 통해 데이터 흐름을 만드는 경우 나중에 스냅숏 또는 버전이 지정 된 데이터 집합을 사용할 수 없습니다.
 
 파이프라인에 포함되는 쓰기 단계의 수에는 제한이 없으므로 문제 해결 또는 다른 파이프라인에 대한 중간 결과를 얻기 위해 추가 쓰기 단계를 쉽게 추가할 수 있습니다.
 
@@ -37,10 +37,10 @@ ms.locfileid: "66752860"
 -   구분 기호로 분리된 파일(CSV, TSV 등)
 -   Parquet 파일
 
-Azure Machine Learning 데이터 준비 Python SDK를 사용 하 여 데이터를 작성할 수 있습니다.
+Azure Machine Learning 데이터 준비 Python SDK를 사용 하 여 다음에 데이터를 쓸 수 있습니다.
 + 로컬 파일 시스템
 + Azure Blob Storage
-+ Azure Data Lake 스토리지
++ Azure Data Lake Storage
 
 ## <a name="spark-considerations"></a>Spark 고려 사항
 
@@ -52,7 +52,7 @@ Spark에서 데이터 흐름을 실행하는 경우 빈 폴더에 써야 합니�
 
 ## <a name="example-write-code"></a>쓰기 코드 예제
 
-예를 들어 사용 하 여 데이터 흐름에 데이터를 로드 하 여 시작 `auto_read_file()`합니다. 이 데이터를 다른 형식으로 재사용합니다.
+이 예에서는를 사용 하 `auto_read_file()`여 데이터 흐름에 데이터를 로드 하는 것으로 시작 합니다. 이 데이터를 다른 형식으로 재사용합니다.
 
 ```python
 import azureml.dataprep as dprep
@@ -73,10 +73,10 @@ t.head(5)
 
 ### <a name="delimited-file-example"></a>구분 기호로 분리된 파일 예제
 
-다음 코드에서는 합니다 [ `write_to_csv()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#write-to-csv-directory-path--datadestination--separator--str--------na--str----na---error--str----error------azureml-dataprep-api-dataflow-dataflow) 구분 기호로 분리 된 파일로 데이터를 작성 하는 함수입니다.
+다음 코드에서는 [`write_to_csv()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#write-to-csv-directory-path--datadestination--separator--str--------na--str----na---error--str----error------azureml-dataprep-api-dataflow-dataflow) 함수를 사용 하 여 구분 된 파일에 데이터를 씁니다.
 
 ```python
-# Create a new data flow using `write_to_csv` 
+# Create a new data flow using `write_to_csv`
 write_t = t.write_to_csv(directory_path=dprep.LocalFileOutput('./test_out/'))
 
 # Run the data flow to begin the write operation.
@@ -101,7 +101,7 @@ written_files.head(5)
 쓰기 호출의 일부로 매개 변수를 추가하고 null 값을 나타내는 데 사용할 문자열을 지정합니다.
 
 ```python
-write_t = t.write_to_csv(directory_path=dprep.LocalFileOutput('./test_out/'), 
+write_t = t.write_to_csv(directory_path=dprep.LocalFileOutput('./test_out/'),
                          error='BadData',
                          na='NA')
 write_t.run_local()
@@ -121,11 +121,11 @@ written_files.head(5)
 
 ### <a name="parquet-file-example"></a>Parquet 파일 예제
 
-비슷합니다 `write_to_csv()`는 [ `write_to_parquet()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#write-to-parquet-file-path--typing-union--datadestination--nonetype----none--directory-path--typing-union--datadestination--nonetype----none--single-file--bool---false--error--str----error---row-groups--int---0-----azureml-dataprep-api-dataflow-dataflow) 쓰기 데이터 흐름 실행 시 실행 되는 Parquet 단계를 사용 하 여 새 데이터 흐름을 반환 합니다.
+와 마찬가지로 함수는 [`write_to_parquet()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#write-to-parquet-file-path--typing-union--datadestination--nonetype----none--directory-path--typing-union--datadestination--nonetype----none--single-file--bool---false--error--str----error---row-groups--int---0-----azureml-dataprep-api-dataflow-dataflow) 데이터 흐름이 실행 될 때 실행 되는 write Parquet 단계를 사용 하 여 새 데이터 흐름을 반환 합니다. `write_to_csv()`
 
 ```python
 write_parquet_t = t.write_to_parquet(directory_path=dprep.LocalFileOutput('./test_parquet_out/'),
-error='MiscreantData')
+                                     error='MiscreantData')
 ```
 
 데이터 흐름을 실행하여 쓰기 작업을 시작합니다.
@@ -147,11 +147,11 @@ written_parquet_files.head(5)
 |3| 10013.0 | 99999.0 | MiscreantData | 아니요| 아니요| |   MiscreantData|    MiscreantData|    MiscreantData|
 |4| 10014.0 | 99999.0 | MiscreantData | 아니요| 아니요| ENSO|   59783.0|    5350.0| 500.0|
 
-## <a name="configure-data-for-automated-machine-learning-training"></a>자동화 된 machine learning 학습에 대 한 데이터를 구성 합니다.
+## <a name="configure-data-for-automated-machine-learning-training"></a>자동화 된 기계 학습 교육을 위한 데이터 구성
 
-새로 작성 된 데이터 파일을로 전달 된 [ `AutoMLConfig` ](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#automlconfig) 자동화 된 machine learning 학습을 위한 준비 과정에서 개체입니다. 
+자동화 된 기계 학습 교육을 준비 하기 [`AutoMLConfig`](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#automlconfig) 위해 새로 작성 된 데이터 파일을 개체에 전달 합니다. 
 
-다음 코드 예제에서는 Pandas 데이터 프레임에 데이터 흐름 변환 이후에, 자동화 된 machine learning 학습에 학습 및 테스트 데이터 집합으로 분할 하는 방법을 보여 줍니다.
+다음 코드 예제에서는 데이터 흐름을 Pandas 데이터 프레임로 변환한 후 자동화 된 기계 학습 교육을 위해 학습 및 테스트 데이터 집합으로 분할 하는 방법을 보여 줍니다.
 
 ```Python
 from azureml.train.automl import AutoMLConfig
@@ -180,7 +180,7 @@ automated_ml_config = AutoMLConfig(task = 'regression',
 
 ```
 
-앞의 예제에서와 같이 모든 중간 데이터 준비 단계는 필요 하지 않은 경우 데이터 흐름에 직접 전달할 수 있습니다 `AutoMLConfig`합니다.
+앞의 예제와 같은 중간 데이터 준비 단계가 필요 하지 않은 경우 데이터 흐름을에 `AutoMLConfig`직접 전달할 수 있습니다.
 
 ```Python
 automated_ml_config = AutoMLConfig(task = 'regression', 
@@ -193,5 +193,5 @@ automated_ml_config = AutoMLConfig(task = 'regression',
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* SDK를 참조 하세요 [개요](https://aka.ms/data-prep-sdk) 디자인 패턴 및 사용 예제 
-* 자동화 된 기계 학습을 참조 하세요 [자습서](tutorial-auto-train-models.md) 회귀 모델 예제
+* 디자인 패턴 및 사용 예제는 SDK [개요](https://aka.ms/data-prep-sdk) 를 참조 하세요. 
+* 회귀 모델 예제는 자동화 된 machine learning [자습서](tutorial-auto-train-models.md) 를 참조 하세요.

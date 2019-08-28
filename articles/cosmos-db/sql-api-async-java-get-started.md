@@ -9,20 +9,17 @@ ms.topic: tutorial
 ms.date: 12/15/2018
 ms.author: sngun
 Customer intent: As a developer, I want to build a Java application with the Async Java SDK to access and manage Azure Cosmos DB resources so that customers can utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: b46914728c684fe4b28cb1325afb1e0b662522ad
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 2a6f12bfe7aa3de028039d00c259a606d028a0e5
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475819"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614621"
 ---
 # <a name="tutorial-build-a-java-app-with-the-async-java-sdk-to-manage-data-stored-in-a-sql-api-account"></a>자습서: 비동기 Java SDK를 사용하여 SQL API 계정에 저장된 데이터를 관리하는 Java 앱 빌드
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
-> * [.NET(미리 보기)](sql-api-dotnet-get-started-preview.md)
-> * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [.NET Core(미리 보기)](sql-api-dotnet-core-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
 > * [비동기 Java](sql-api-async-java-get-started.md)
 > * [Node.JS](sql-api-nodejs-get-started.md)
@@ -80,7 +77,7 @@ cd azure-cosmosdb-get-started
 
 ## <a id="Connect"></a>Azure Cosmos 계정에 연결
 
-다음으로, [Azure Portal](https://portal.azure.com)로 다시 이동하여 엔드포인트와 기본 마스터 키를 검색합니다. Azure Cosmos DB 엔드포인트와 기본 키는 응용 프로그램에서 연결할 위치를 식별하고 Azure Cosmos DB에서 응용 프로그램의 연결을 신뢰하는 데 필요합니다. `AccountSettings.java` 파일은 기본 키 및 URI 값을 포함하고 있습니다. 
+다음으로, [Azure Portal](https://portal.azure.com)로 다시 이동하여 엔드포인트와 기본 마스터 키를 검색합니다. Azure Cosmos DB 엔드포인트와 기본 키는 애플리케이션에서 연결할 위치를 식별하고 Azure Cosmos DB에서 애플리케이션의 연결을 신뢰하는 데 필요합니다. `AccountSettings.java` 파일은 기본 키 및 URI 값을 포함하고 있습니다. 
 
 Azure Portal에서 Azure Cosmos 계정으로 이동한 다음, **키**를 클릭합니다. 포털에서 URI 및 기본 키를 복사하여 `AccountSettings.java` 파일에 붙여넣습니다. 
 
@@ -117,7 +114,7 @@ client = new AsyncDocumentClient.Builder()
 
 ## <a id="CreateDatabase"></a>데이터베이스 만들기
 
-DB 데이터베이스는 DocumentClient 클래스의 `createDatabaseIfNotExists()` 메서드를 사용하여 Azure Cosmos 만듭니다. 데이터베이스는 여러 컬렉션으로 분할된 JSON 문서 저장소의 논리적 컨테이너입니다.
+DocumentClient 클래스의 `createDatabaseIfNotExists()` 메서드를 사용하여 Azure Cosmos 데이터베이스를 만듭니다. 데이터베이스는 여러 컬렉션으로 분할된 JSON 문서 스토리지의 논리적 컨테이너입니다.
 
 ```java
 private void createDatabaseIfNotExists() throws Exception 

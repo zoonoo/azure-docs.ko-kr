@@ -66,8 +66,8 @@ HDInsight 클러스터를 만들 때 6개 테이블은 기본 Table Storage에�
 2. **파워 쿼리** 메뉴에서 **Azure에서**를 클릭한 다음 **Microsoft Azure Table Storage에서**를 클릭합니다.
    
     ![HDInsight Hadoop Excel 파워 쿼리는 Azure Table Storage를 엽니다](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-open.png)
-3. 저장소 계정 이름(짧은 이름 또는 FQDN)을 입력합니다.
-4. 저장소 계정 키를 입력합니다. 테이블의 목록이 표시됩니다.
+3. 스토리지 계정 이름(짧은 이름 또는 FQDN)을 입력합니다.
+4. 스토리지 계정 키를 입력합니다. 테이블의 목록이 표시됩니다.
    
     ![Azure Table Storage에 저장된 HDInsight Hadoop 로그](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-table-names.png)
 5. **탐색기** 창에서 hadoopservicelog 테이블을 마우스 오른쪽 단추로 클릭하고 **편집**을 선택합니다. 4개의 열이 표시됩니다. 필요에 따라 **파티션 키**, **행 키** 및 **타임스탬프** 열을 선택한 다음 리본 메뉴에 있는 **열 제거**를 클릭하여 옵션에서 삭제합니다.

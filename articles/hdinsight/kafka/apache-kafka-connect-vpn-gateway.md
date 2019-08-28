@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: ddff9ffb00f4167cb8f64a75b129711467de739d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 395bb01247efde82dbb39733c1915bc989b1729d
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66297058"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68402772"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Azure Virtual Network를 통해 HDInsight의 Apache Kafka에 연결
 
@@ -56,7 +56,7 @@ HDInsight는 공용 인터넷을 통해 Kafka에 직접 연결하는 것을 허�
      > * 각 클라이언트는 VPN 소프트웨어 클라이언트를 사용하여 연결해야 합니다.
      > * VPN 클라이언트는 가상 네트워크에 이름 확인 요청을 전달하지 않으므로, Kafka와 통신하기 위해 IP 주소 지정을 사용해야 합니다. IP 통신을 하려면 Kafka 클러스터에 추가 구성을 해야 합니다.
 
-가상 네트워크에서 HDInsight를 사용하는 방법에 대한 자세한 내용은 [Azure Virtual Network를 사용하여 HDInsight 확장](../hdinsight-extend-hadoop-virtual-network.md)을 참조하세요.
+가상 네트워크에서 HDInsight를 사용 하는 방법에 대 한 자세한 내용은 [Azure hdinsight 클러스터에 대 한 가상 네트워크 계획](../hdinsight-plan-virtual-network-deployment.md)을 참조 하세요.
 
 ## <a id="on-premises"></a> 온-프레미스 네트워크에서 Apache Kafka에 연결
 
@@ -242,7 +242,7 @@ Kafka 클라이언트가 온-프레미스에서 클러스터로 연결할 수 �
 
 기본적으로 Apache Zookeeper는 Kafka 브로커의 도메인 이름을 클라이언트에 반환합니다. 이 구성은 가상 네트워크의 엔터티에 대해 이름 확인을 사용할 수 없으므로 VPN 소프트웨어 클라이언트에 작동하지 않습니다. 이 구성의 경우, 다음 단계에 따라 도메인 이름 대신 IP 주소를 보급하도록 Kafka를 구성합니다.
 
-1. 웹 브라우저를 사용하여 `https://CLUSTERNAME.azurehdinsight.net` 으로 이동합니다. 대체 `CLUSTERNAME` HDInsight 클러스터에서 Kafka의 이름입니다.
+1. 웹 브라우저를 사용하여 `https://CLUSTERNAME.azurehdinsight.net` 으로 이동합니다. 을 `CLUSTERNAME` HDInsight 클러스터의 kafka 이름으로 바꿉니다.
 
     메시지가 표시되면, 클러스터의 HTTPS 사용자 이름 및 암호를 입력합니다. 클러스터에 대한 Ambari Web UI가 표시됩니다.
 
@@ -368,7 +368,7 @@ Kafka에 대한 연결 유효성 검사를 하려면, 다음 단계를 사용하
 
 ## <a name="next-steps"></a>다음 단계
 
-HDInsight와 함께 가상 네트워크를 사용하는 방법에 대한 자세한 내용은 [Azure Virtual Network를 사용하여 Azure HDInsight 확장](../hdinsight-extend-hadoop-virtual-network.md) 문서를 참조하세요.
+가상 네트워크에서 HDInsight를 사용 하는 방법에 대 한 자세한 내용은 [Azure hdinsight 클러스터에 대 한 가상 네트워크 배포 계획](../hdinsight-plan-virtual-network-deployment.md) 문서를 참조 하세요.
 
 지점-사이트 간 VPN Gateway를 사용하여 Azure Virtual Network를 만드는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 

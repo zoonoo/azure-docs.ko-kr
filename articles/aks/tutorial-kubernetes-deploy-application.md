@@ -2,26 +2,26 @@
 title: Azure의 Kubernertes 자습서 - 애플리케이션 배포
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 Azure Container Registry에 저장된 사용자 지정 이미지를 사용하여 클러스터에 다중 컨테이너 애플리케이션을 배포합니다.
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: twhitney
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: c579aed1acb555a82d5a04308ab4e68f4bfecb8c
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 85471323a7f8918d80b7c0944fe5c255e9fa836a
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305283"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018911"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 실행
 
-Kubernetes는 컨테이너화된 애플리케이션용 분산 플랫폼을 제공합니다. 고유의 응용 프로그램 및 서비스를 빌드하여 Kubernetes 클러스터에 배포하고, 클러스터가 가용성 및 연결을 관리하게 합니다. 7개 중 4단계인 이 자습서에서는 애플리케이션 예제를 Kubernetes 클러스터에 배포합니다. 다음 방법에 대해 알아봅니다.
+Kubernetes는 컨테이너화된 애플리케이션용 분산 플랫폼을 제공합니다. 고유의 애플리케이션 및 서비스를 빌드하여 Kubernetes 클러스터에 배포하고, 클러스터가 가용성 및 연결을 관리하게 합니다. 7개 중 4단계인 이 자습서에서는 애플리케이션 예제를 Kubernetes 클러스터에 배포합니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Kubernetes 매니페스트 파일 업데이트
-> * Kubernetes에서 응용 프로그램 실행
+> * Kubernetes에서 애플리케이션 실행
 > * 애플리케이션 테스트
 
 추가 자습서에서 이 애플리케이션은 확장되고 업데이트됩니다.
@@ -72,7 +72,7 @@ containers:
 
 ## <a name="deploy-the-application"></a>애플리케이션 배포
 
-응용 프로그램을 배포하려면 [kubectl apply][kubectl-apply] 명령을 사용합니다. 이 명령은 매니페스트 파일을 구문 분석하고 정의된 Kubernetes 개체를 만듭니다. 다음 예제처럼 샘플 매니페스트 파일을 지정합니다.
+애플리케이션을 배포하려면 [kubectl apply][kubectl-apply] 명령을 사용합니다. 이 명령은 매니페스트 파일을 구문 분석하고 정의된 Kubernetes 개체를 만듭니다. 다음 예제처럼 샘플 매니페스트 파일을 지정합니다.
 
 ```console
 kubectl apply -f azure-vote-all-in-one-redis.yaml
@@ -93,7 +93,7 @@ service "azure-vote-front" created
 
 애플리케이션이 실행되면 애플리케이션 프런트 엔드를 인터넷에 공개하는 Kubernetes 서비스가 만들어집니다. 이 프로세스를 완료하는 데 몇 분이 걸릴 수 있습니다.
 
-진행 상황을 모니터링하려면 `--watch` 인수와 함께 [kubectl get service][kubectl-get] 명령을 사용합니다.
+진행 상태를 모니터링하려면 `--watch` 인수와 함께 [kubectl get service][kubectl-get] 명령을 사용합니다.
 
 ```console
 kubectl get service azure-vote-front --watch
@@ -102,13 +102,13 @@ kubectl get service azure-vote-front --watch
 처음에는 *azure-vote-front* 서비스에 대한 *EXTERNAL-IP*가 *보류 중*으로 표시됩니다.
 
 ```
-azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
+azure-vote-front   LoadBalancer   10.0.34.242   <pending>     80:30676/TCP   5s
 ```
 
 *EXTERNAL-IP* 주소가 *보류 중*에서 실제 공용 IP 주소로 변경되면 `CTRL-C`를 사용하여 `kubectl` 조사식 프로세스를 중지합니다. 다음 예제 출력은 서비스에 할당된 유효한 공용 IP 주소를 보여줍니다.
 
 ```
-azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
+azure-vote-front   LoadBalancer   10.0.34.242   52.179.23.131   80:30676/TCP   67s
 ```
 
 애플리케이션이 실제로 작동하는 모습을 보려면 웹 브라우저를 서비스의 외부 IP 주소로 엽니다.
@@ -123,10 +123,10 @@ azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
 
 > [!div class="checklist"]
 > * Kubernetes 매니페스트 파일 업데이트
-> * Kubernetes에서 응용 프로그램 실행
+> * Kubernetes에서 애플리케이션 실행
 > * 애플리케이션 테스트
 
-그 다음 자습서로 이동하여 Kubernetes 응용 프로그램 및 기본 Kubernetes 인프라 규모를 조정하는 방법을 알아보세요.
+그 다음 자습서로 이동하여 Kubernetes 애플리케이션 및 기본 Kubernetes 인프라 규모를 조정하는 방법을 알아보세요.
 
 > [!div class="nextstepaction"]
 > [Kubernetes 애플리케이션 및 인프라 크기 조정][aks-tutorial-scale]

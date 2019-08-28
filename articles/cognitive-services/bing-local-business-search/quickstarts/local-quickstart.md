@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - C#에서 Bing Local Business Search API에 쿼리 보내기 | Microsoft Docs
+title: 빠른 시작 - C#의 Bing Local Business Search API에 쿼리 보내기
 titleSuffix: Azure Cognitive Services
 description: 이 문서를 사용하여 C#에서 Bing Local Business Search API를 시작합니다.
 services: cognitive-services
@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 04/26/2019
-ms.author: rosh, v-gedod
-ms.openlocfilehash: ad00076c9cb5ef1c3d21677adabbb167b05a6228
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: 479429ff6354813468fb529029ca540a8ebc1b70
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051608"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423391"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>빠른 시작: C#에서 Bing Local Business Search API에 쿼리 보내기
 

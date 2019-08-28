@@ -17,7 +17,7 @@ ms.locfileid: "64943294"
 <a name="store-your-appsource-package-to-azure-storage-and-generate-a-url-with-sas-key"></a>Azure Storage에 AppSource 패키지 저장 및 SAS 키를 사용하여 URL 생성
 =============================================================================
 
-파일의 보안을 유지하려면 모든 파트너가 Azure Blob Storage 계정에 AppSource 패키지 파일을 저장하고 SAS 키를 사용하여 해당 파일을 공유해야 합니다. Microsoft는 Azure 저장소 위치에서 패키지 파일을 검색하여 인증을 하고 AppSource 평가판에 사용합니다.
+파일의 보안을 유지하려면 모든 파트너가 Azure Blob Storage 계정에 AppSource 패키지 파일을 저장하고 SAS 키를 사용하여 해당 파일을 공유해야 합니다. Microsoft는 Azure Storage 위치에서 패키지 파일을 검색하여 인증을 하고 AppSource 평가판에 사용합니다.
 
 Blob Storage에 패키지를 업로드하려면 다음 단계를 수행합니다.
 
@@ -25,13 +25,13 @@ Blob Storage에 패키지를 업로드하려면 다음 단계를 수행합니다
 
 2. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-3. **+ 새로 만들기**를 클릭한 다음 **데이터 + 저장소** 계정으로 이동하여 새 저장소 계정을 만듭니다.
+3. **+ 새로 만들기**를 클릭한 다음 **데이터 + 스토리지** 계정으로 이동하여 새 스토리지 계정을 만듭니다.
 
-   ![Microsoft Azure Portal의 데이터 + 저장소 블레이드](media/CRMScreenShot7.png)
+   ![Microsoft Azure Portal의 데이터 + 스토리지 블레이드](media/CRMScreenShot7.png)
 
 4. **이름** 및 **리소스 그룹** 이름을 입력하고 **만들기** 단추를 클릭합니다.
 
-   ![Microsoft Azure 포털에서 저장소 계정 만들기](media/CRMScreenShot8.png)
+   ![Microsoft Azure 포털에서 스토리지 계정 만들기](media/CRMScreenShot8.png)
 
 5. 새로 만든 리소스 그룹으로 이동하여 새 Blob 컨테이너를 만듭니다.
 

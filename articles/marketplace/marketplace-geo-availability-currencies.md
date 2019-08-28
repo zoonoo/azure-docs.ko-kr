@@ -1,22 +1,22 @@
 ---
-title: 지리적 가용성 및 통화 지원 | Azure
-description: Azure Marketplace 및 AppSource에서 지리적 가용성
+title: 지리적 가용성 및 통화 지원 | Microsoft
+description: Azure Marketplace 및 AppSource의 지리적 가용성
 services: Azure, Marketplace, Compute, Storage, Networking
 author: qianw211
 ms.service: marketplace
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: ellacroi
-ms.openlocfilehash: 215a15da2868a4543ba1108899981f40f7bf4e07
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 344479a270119137a256620304d88f139d0b0322
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938264"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619976"
 ---
 # <a name="geographic-availability-and-currency-support"></a>지리적 가용성 및 통화 지원
 
-고객의 청구 주소, 정의 된 대로 141 지역에서 azure Marketplace 제품을 구입할 수 있습니다 하 고 17 통화로 트랜잭션을 완료할 수 있습니다. 나열 합니다. 아래 표에서 지원 지리적 위치, 해당 [ISO 3166 두 자리 알파 코드](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes), 및 할당 된 통화입니다.
+Azure Marketplace 및 AppSource 제품은 고객의 청구 주소에서 정의한 대로 141 지역에서 구매할 수 있으며, 트랜잭션은 17 통화로 완료할 수 있습니다. 아래 표에는 지원 되는 각 지리적 위치, [ISO 3166 2 자리의 알파 코드](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)및 할당 된 통화가 나열 되어 있습니다.
 
 |   국가/지역 이름               |   ISO-2   |   통화   |
 |-------------------------------------|-----------|--------------|
@@ -26,7 +26,7 @@ ms.locfileid: "64938264"
 | 안도라                             | AD        | EUR          |
 | 앙골라                              | AO        | USD          |
 | 아르헨티나                           | AR        | USD          |
-| 아르메니아                             | AM        | USD          |
+| 아르메니아                             | 오전        | USD          |
 | 오스트레일리아                           | AU        | AUD          |
 | 오스트리아                             | AT        | EUR          |
 | 아제르바이잔                          | AZ        | USD          |
@@ -38,7 +38,7 @@ ms.locfileid: "64938264"
 | 벨리즈                              | BZ        | USD          |
 | 버뮤다                             | BM        | USD          |
 | 볼리비아                             | BO        | USD          |
-| 보스니아 헤르체고비나              | BA        | USD          |
+| 보스니아 헤르체코비나              | BA        | USD          |
 | 보츠와나                            | BW        | USD          |
 | 브라질                              | BR        | BRL\*        |
 | 브루나이                              | BN        | USD          |
@@ -52,8 +52,8 @@ ms.locfileid: "64938264"
 | 코스타리카                          | CR        | USD          |
 | 코트디부아르                       | CI        | USD          |
 | 크로아티아                             | HR        | EUR          |
-| 퀴라소                             | CW        | USD          |
-| 키프로스                              | CY        | EUR          |
+| 쿠라카오                             | CW        | USD          |
+| 사이프러스                              | CY        | EUR          |
 | 체코                      | CZ        | EUR          |
 | 덴마크                             | DK        | DKK          |
 | 도미니카 공화국                  | DO        | USD          |
@@ -86,7 +86,7 @@ ms.locfileid: "64938264"
 | 요르단                              | JO        | USD          |
 | 카자흐스탄                          | KZ        | USD          |
 | 케냐                               | KE        | USD          |
-| 한국 (남부)                       | KR        | KRW          |
+| 대한민국 (남부)                       | KR        | KRW          |
 | 쿠웨이트                              | KW        | USD          |
 | 키르기스스탄                          | KG        | USD          |
 | 라트비아                              | LV        | EUR          |
@@ -104,9 +104,9 @@ ms.locfileid: "64938264"
 | 몰도바                             | MD        | USD          |
 | 모나코                              | MC        | EUR          |
 | 몽골                            | MN        | USD          |
-| 몬테네그로                          | ME        | USD          |
+| 몬테네그로 공화국                          | ME        | USD          |
 | 모로코                             | MA        | USD          |
-| 나미비아                             | 해당 없음        | USD          |
+| 나미비아                             | NA        | USD          |
 | 네팔                               | NP        | USD          |
 | 네덜란드                         | NL        | EUR          |
 | 니카라과                           | NI        | USD          |
@@ -115,7 +115,7 @@ ms.locfileid: "64938264"
 | 노르웨이                              | 아니요        | NOK          |
 | 오만                                | OM        | USD          |
 | 파키스탄                            | PK        | USD          |
-| 팔레스타인 자치 정부               | PS        | USD          |
+| 팔레스타인 자치정부               | PS        | USD          |
 | 파나마                              | PA        | USD          |
 | 파라과이                            | PY        | USD          |
 | 페루                                | PE        | USD          |
@@ -127,7 +127,7 @@ ms.locfileid: "64938264"
 | 루마니아                             | RO        | EUR          |
 | 러시아                              | RU        | RUB          |
 | 르완다                              | RW        | USD          |
-| 세인트키츠 네비스               | KN        | USD          |
+| 세인트 크리스토퍼 네비스               | KN        | USD          |
 | 사우디아라비아                        | SA        | USD          |
 | 세네갈                             | SN        | USD          |
 | 세르비아                              | RS        | USD          |
@@ -147,7 +147,7 @@ ms.locfileid: "64938264"
 | 튀니지                             | TN        | USD          |
 | 터키                              | TR        | USD          |
 | 투르크메니스탄                        | TM        | USD          |
-| 바티칸 (교황청)             | VA        | EUR          |
+| 바티칸 시티 (성 참조)             | VA        | EUR          |
 | 미국령 버진아일랜드 | VI        | USD          |
 | 우간다                              | UG        | USD          |
 | 우크라이나                             | UA        | USD          |
@@ -163,4 +163,4 @@ ms.locfileid: "64938264"
 | 짐바브웨                            | ZW        | USD          |
 |   |   |   |
 
-\* 브라질에서 고객의 경우 Marketplace를 통해 클라우드 솔루션 공급자 (CSP) USD를 사용합니다.
+\*브라질 고객의 경우, CSP (클라우드 솔루션 공급자)를 통한 Marketplace에서는 USD를 사용 합니다.

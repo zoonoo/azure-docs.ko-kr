@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 8300baa1afa3e6c738cee4c2a2517463c2af1e88
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0e7d25f2bc8ec32965de912f212bf77df1ee3c2c
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65978846"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971485"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 메트릭 경고 만들기
 
@@ -24,7 +24,7 @@ ms.locfileid: "65978846"
 > [!IMPORTANT]
 > 리소스 형식에 대한 메트릭 경고를 만드는 리소스 템플릿: Azure Log Analytics 작업 영역(예를 들면,) `Microsoft.OperationalInsights/workspaces`에는 추가적인 단계가 필요합니다. 자세한 내용은 [로그에 대한 메트릭 경고 - 리소스 템플릿](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs)의 문서를 참조하세요.
 
-기본적인 단계는 다음과 같습니다.
+기본 단계는 다음과 같습니다.
 
 1. 다음 템플릿 중 하나를 경고 생성 방법을 설명하는 JSON 파일로 사용합니다.
 2. 해당 매개 변수 파일을 편집하고 JSON으로 사용하여 경고를 사용자 지정합니다.
@@ -195,7 +195,7 @@ Resource Manager 템플릿을 사용하여 경고를 만들려면 `Microsoft.Ins
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -448,7 +448,7 @@ Resource Manager 템플릿을 사용하여 경고를 만들려면 `Microsoft.Ins
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -647,7 +647,7 @@ az group deployment create \
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -859,7 +859,7 @@ az group deployment create \
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -942,7 +942,7 @@ az group deployment create \
 
 ## <a name="template-for-metric-alert-that-monitors-multiple-resources"></a>여러 리소스를 모니터링하는 메트릭 경고에 대한 템플릿
 
-이전 섹션에서는 단일 리소스를 모니터링하는 메트릭 경고를 만드는 Azure Resource Manager 템플릿 샘플에 대해 설명했습니다. 이제 Azure Monitor는 하나의 경고 규칙으로 여러 리소스를 모니터링할 수 있습니다. 이 미리 보기 기능은 현재 Azure Resource Manager 템플릿 및 REST API를 통해서만 사용할 수 있으며 가상 머신에만 지원됩니다.
+이전 섹션에서는 단일 리소스를 모니터링하는 메트릭 경고를 만드는 Azure Resource Manager 템플릿 샘플에 대해 설명했습니다. 이제 Azure Monitor는 하나의 경고 규칙으로 여러 리소스를 모니터링할 수 있습니다. 이 기능은 현재 Azure 공용 클라우드에서만 지원 되며 가상 컴퓨터 및 Databox Edge 장치에 대해서만 지원 됩니다.
 
 동적 임계값 경고 규칙은 수백 가지 메트릭 시리즈에 대한 맞춤형 임계값(심지어 다양한 형식의)을 한 번에 만드는 데 유용할 수 있습니다. 그러면 관리할 경고 규칙이 더 적어집니다.
 
@@ -1177,7 +1177,7 @@ az group deployment create \
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1494,7 +1494,7 @@ az group deployment create \
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1796,7 +1796,7 @@ az group deployment create \
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -2110,7 +2110,7 @@ az group deployment create \
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -2409,7 +2409,7 @@ az group deployment create \
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -2726,7 +2726,7 @@ az group deployment create \
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -2803,8 +2803,159 @@ az group deployment create \
     --parameters @list-of-vms-dynamic.parameters.json
 ```
 
-## <a name="next-steps"></a>다음 단계
-* [Azure의 경고](alerts-overview.md)에 대해 자세히 알아보기
-* [Resource Manager 템플릿을 사용하여 작업 그룹을 만드는](action-groups-create-resource-manager-template.md) 방법에 대해 알아보기
-* JSON 구문 및 속성의 경우 [Microsoft.Insights/metricAlerts](/azure/templates/microsoft.insights/metricalerts) 템플릿 참조를 참조하세요.
+## <a name="template-for-a-availability-test-along-with-availability-test-alert"></a>가용성 테스트 경고와 함께 가용성 테스트에 대 한 템플릿
 
+[Application Insights 가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md) 는 전 세계 다양 한 위치에서 웹 사이트/응용 프로그램의 가용성을 모니터링 하는 데 도움이 됩니다. 가용성 테스트 경고는 특정 위치 수에서 가용성 테스트가 실패할 경우 사용자에 게 알립니다.
+메트릭 경고와 동일한 리소스 종류의 가용성 테스트 경고 (metricAlerts/) 다음 샘플 Azure Resource Manager 템플릿을 사용 하 여 간단한 가용성 테스트 및 관련 경고를 설정할 수 있습니다.
+
+이 연습의 목적을 위해 아래 json을 availabilityalert로 저장 합니다.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "appName": {
+      "type": "string"
+    },
+    "pingURL": {
+      "type": "string"
+    },
+    "pingText": {
+      "type": "string",
+      "defaultValue": ""
+    },
+    "actionGroupId": {
+      "type": "string"
+    }
+  },
+  "variables": {
+    "pingTestName": "[concat('PingTest-', toLower(parameters('appName')))]",
+    "pingAlertRuleName": "[concat('PingAlert-', toLower(parameters('appName')), '-', subscription().subscriptionId)]"
+  },
+  "resources": [
+    {
+      "name": "[variables('pingTestName')]",
+      "type": "Microsoft.Insights/webtests",
+      "apiVersion": "2014-04-01",
+      "location": "West Central US",
+      "tags": {
+        "[concat('hidden-link:', resourceId('Microsoft.Insights/components', parameters('appName')))]": "Resource"
+      },
+      "properties": {
+        "Name": "[variables('pingTestName')]",
+        "Description": "Basic ping test",
+        "Enabled": true,
+        "Frequency": 300,
+        "Timeout": 120,
+        "Kind": "ping",
+        "RetryEnabled": true,
+        "Locations": [
+          {
+            "Id": "us-va-ash-azr"
+          },
+          {
+            "Id": "emea-nl-ams-azr"
+          },
+          {
+            "Id": "apac-jp-kaw-edge"
+          }
+        ],
+        "Configuration": {
+          "WebTest": "[concat('<WebTest   Name=\"', variables('pingTestName'), '\"   Enabled=\"True\"         CssProjectStructure=\"\"    CssIteration=\"\"  Timeout=\"120\"  WorkItemIds=\"\"         xmlns=\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\"         Description=\"\"  CredentialUserName=\"\"  CredentialPassword=\"\"         PreAuthenticate=\"True\"  Proxy=\"default\"  StopOnError=\"False\"         RecordedResultFile=\"\"  ResultsLocale=\"\">  <Items>  <Request Method=\"GET\"    Version=\"1.1\"  Url=\"', parameters('pingURL'),   '\" ThinkTime=\"0\"  Timeout=\"300\" ParseDependentRequests=\"True\"         FollowRedirects=\"True\" RecordResult=\"True\" Cache=\"False\"         ResponseTimeGoal=\"0\"  Encoding=\"utf-8\"  ExpectedHttpStatusCode=\"200\"         ExpectedResponseUrl=\"\" ReportingName=\"\" IgnoreHttpStatusCode=\"False\" />        </Items>  <ValidationRules> <ValidationRule  Classname=\"Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidationRuleFindText, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a\" DisplayName=\"Find Text\"         Description=\"Verifies the existence of the specified text in the response.\"         Level=\"High\"  ExecutionOrder=\"BeforeDependents\">  <RuleParameters>        <RuleParameter Name=\"FindText\" Value=\"',   parameters('pingText'), '\" />  <RuleParameter Name=\"IgnoreCase\" Value=\"False\" />  <RuleParameter Name=\"UseRegularExpression\" Value=\"False\" />  <RuleParameter Name=\"PassIfTextFound\" Value=\"True\" />  </RuleParameters> </ValidationRule>  </ValidationRules>  </WebTest>')]"
+        },
+        "SyntheticMonitorId": "[variables('pingTestName')]"
+      }
+    },
+    {
+      "name": "[variables('pingAlertRuleName')]",
+      "type": "Microsoft.Insights/metricAlerts",
+      "apiVersion": "2018-03-01",
+      "location": "global",
+      "dependsOn": [
+        "[resourceId('Microsoft.Insights/webtests', variables('pingTestName'))]"
+      ],
+      "tags": {
+        "[concat('hidden-link:', resourceId('Microsoft.Insights/components', parameters('appName')))]": "Resource",
+        "[concat('hidden-link:', resourceId('Microsoft.Insights/webtests', variables('pingTestName')))]": "Resource"
+      },
+      "properties": {
+        "description": "Alert for web test",
+        "severity": 1,
+        "enabled": true,
+        "scopes": [
+          "[resourceId('Microsoft.Insights/webtests',variables('pingTestName'))]",
+          "[resourceId('Microsoft.Insights/components',parameters('appName'))]"
+        ],
+        "evaluationFrequency": "PT1M",
+        "windowSize": "PT5M",
+        "templateType": 0,
+        "criteria": {
+          "odata.type": "Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria",
+          "webTestId": "[resourceId('Microsoft.Insights/webtests', variables('pingTestName'))]",
+          "componentId": "[resourceId('Microsoft.Insights/components', parameters('appName'))]",
+          "failedLocationCount": 2
+        },
+        "actions": [
+          {
+            "actionGroupId": "[parameters('actionGroupId')]"
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+명령줄 또는 매개 변수 파일을 통해 매개 변수의 값을 설정할 수 있습니다. 샘플 매개 변수 파일이 아래에 제공됩니다.
+
+Json을 availabilityalert로 저장 하 고 필요에 따라 수정 합니다.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "appName": {
+            "value": "Replace with your Application Insights component name"
+        },
+        "pingURL": {
+            "value": "https://www.yoursite.com"
+        },
+        "actionGroupId": {
+            "value": "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resourceGroup-name/providers/microsoft.insights/actiongroups/replace-with-action-group-name"
+        }
+    }
+}
+```
+
+PowerShell 또는 Azure CLI를 사용 하 여 템플릿 및 매개 변수 파일을 사용 하 여 가용성 테스트 및 관련 경고를 만들 수 있습니다.
+
+Azure PowerShell 사용
+
+```powershell
+Connect-AzAccount
+
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
+
+New-AzResourceGroupDeployment -Name AvailabilityAlertDeployment -ResourceGroupName ResourceGroupofApplicationInsightsComponent `
+  -TemplateFile availabilityalert.json -TemplateParameterFile availabilityalert.parameters.json
+```
+
+Azure CLI 사용
+
+```azurecli
+az login
+
+az group deployment create \
+    --name AvailabilityAlertDeployment \
+    --resource-group ResourceGroupofApplicationInsightsComponent \
+    --template-file availabilityalert.json \
+    --parameters @availabilityalert.parameters.json
+```
+
+## <a name="next-steps"></a>다음 단계
+
+- [Azure의 경고](alerts-overview.md)에 대해 자세히 알아보기
+- [Resource Manager 템플릿을 사용하여 작업 그룹을 만드는](action-groups-create-resource-manager-template.md) 방법에 대해 알아보기
+- JSON 구문 및 속성의 경우 [Microsoft.Insights/metricAlerts](/azure/templates/microsoft.insights/metricalerts) 템플릿 참조를 참조하세요.

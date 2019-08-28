@@ -124,7 +124,7 @@ Azure Virtual Machines(VM)는 데이터베이스 관리자가 고가용성 SQL S
           </VirtualNetworkConfiguration>
         </NetworkConfiguration>
 
-5. 만든 선호도 그룹과 연결되는 저장소 계정을 만들고 해당 계정을 구독에서 현재 저장소 계정으로 설정합니다.
+5. 만든 선호도 그룹과 연결되는 스토리지 계정을 만들고 해당 계정을 구독에서 현재 스토리지 계정으로 설정합니다.
 
         New-AzureStorageAccount `
             -StorageAccountName $storageAccountName `

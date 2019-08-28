@@ -62,7 +62,7 @@ Azure AD 역할에 대한 이러한 이메일을 받는 사람은 역할, 이벤
 
 ### <a name="weekly-pim-digest-email-for-azure-ad-roles"></a>Azure AD 역할에 대한 주간 PIM 다이제스트 이메일
 
-Azure AD 역할에 대한 주간 PIM 요약 이메일은 PIM을 사용하도록 설정된 권한 있는 역할 관리자, 보안 관리자 및 글로벌 관리자에게 전송됩니다. 이 주간 이메일은 권한 있는 역할 할당뿐만 아니라 해당 주의 PIM 활동에 대한 스냅샷도 제공합니다. 공용 클라우드의 테넌트에만 제공됩니다. 예를 들면 다음과 같습니다.
+Azure AD 역할에 대한 주간 PIM 요약 이메일은 PIM을 사용하도록 설정된 권한 있는 역할 관리자, 보안 관리자 및 글로벌 관리자에게 전송됩니다. 이 주간 이메일은 권한 있는 역할 할당뿐만 아니라 해당 주의 PIM 활동에 대한 스냅샷도 제공합니다. 퍼블릭 클라우드의 테넌트에만 제공됩니다. 예를 들면 다음과 같습니다.
 
 ![Azure AD 역할에 대한 주간 PIM 다이제스트 이메일](./media/pim-email-notifications/email-directory-weekly.png)
 

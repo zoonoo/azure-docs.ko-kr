@@ -3,19 +3,19 @@ title: 보상 점수 - Personalizer
 titleSuffix: Azure Cognitive Services
 description: 보상 점수는 사용자에 대한 맞춤 설정 선택 항목인 RewardActionID가 효율적으로 수행된 정도를 나타냅니다. 보상 점수의 값은 사용자 동작 관찰 기반의 비즈니스 논리에 따라 결정됩니다. Personalizer는 보상을 평가하여 기계 학습 모델을 학습시킵니다.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
-ms.date: 05/13/2019
-ms.author: edjez
-ms.openlocfilehash: 302f1e18a23bdef9247693f84d3a924370b63f80
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 06/07/2019
+ms.author: diberry
+ms.openlocfilehash: 72c425a1ec9fb83cc2e9dd1bae2c4f521109f162
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244245"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663385"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>보상 점수는 맞춤 설정의 성공을 나타냅니다.
 
@@ -30,6 +30,18 @@ Personalizer는 보상을 평가하여 기계 학습 모델을 학습시킵니�
 나중에 며칠이 될 수 있는 사용자 동작이 수행되면 보상을 보냅니다. 이벤트에 보상이 없거나 기본 보상이 있는 것으로 간주될 때까지 Personalizer에서 기다리는 최대 시간은 Azure Portal에서 [보상 대기 시간](#reward-wait-time)으로 구성됩니다.
 
 이벤트에 대한 보상 점수가 **보상 대기 시간** 내에 수신되지 않으면 **기본 보상**이 적용됩니다. 일반적으로 **[기본 보상](how-to-settings.md#configure-reward-settings-for-the-feedback-loop-based-on-use-case)** 은 0으로 구성됩니다.
+
+
+## <a name="behaviors-and-data-to-consider-for-rewards"></a>보상을 위해 고려할 동작 및 데이터
+
+보상 점수 컨텍스트에 대해 다음 신호 및 동작을 고려합니다.
+
+* 옵션이 관련된 경우 제안에 대한 직접 사용자 입력("X를 의미하나요?")
+* 세션 길이
+* 세션 간 시간
+* 사용자 조작에 대한 감정 분석
+* 봇이 사용자에게 유용성, 정확도에 대한 피드백을 요청하는 미니 설문 및 직접 질문
+* 경고에 대한 응답 또는 경고에 대한 응답 지연
 
 ## <a name="composing-reward-scores"></a>보상 점수 작성
 

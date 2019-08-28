@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: fd68edcc727ab08ed9d3ba765bbe795e88de5fc9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf004f07558ae1f252a6bd26b4fd59ea9e4eea6e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60391311"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069264"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>자습서: Azure Resource Manager 템플릿 배포에서 아티팩트 보호
 
@@ -41,7 +41,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 문서를 완료하려면 다음이 필요합니다.
 
-* Resource Manager Tools 확장이 있는 [Visual Studio Code](https://code.visualstudio.com/)  [확장 설치](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)를 참조하세요.
+* Resource Manager Tools 확장이 있는 [Visual Studio Code](https://code.visualstudio.com/) [확장 설치](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)를 참조하세요.
 * [자습서: Azure Resource Manager 템플릿을 사용하여 SQL BACPAC 파일 가져오기](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md)를 검토합니다. 이 자습서에서 사용된 파일은 해당 자습서에서 개발된 것입니다. 완료된 템플릿의 다운로드 링크는 이 문서에서 제공됩니다.
 * 보안을 강화하려면 SQL Server 관리자 계정에 대해 생성된 암호를 사용하세요. 암호를 생성하는 방법에 대한 샘플은 다음과 같습니다.
 
@@ -66,7 +66,7 @@ PowerShell 스크립트를 사용하여 이러한 단계를 자동화하려면 [
 
 [BACPAC 파일](https://armtutorials.blob.core.windows.net/sqlextensionbacpac/SQLDatabaseExtension.bacpac)을 다운로드하고 **SQLDatabaseExtension.bacpac**라는 동일한 이름으로 로컬 컴퓨터에 파일을 저장합니다.
 
-### <a name="create-a-storage-account"></a>저장소 계정 만들기
+### <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
 1. 다음 이미지를 선택하여 Azure Portal에서 Resource Manager 템플릿을 엽니다.
 
@@ -75,7 +75,7 @@ PowerShell 스크립트를 사용하여 이러한 단계를 자동화하려면 [
 
     * **구독**: Azure 구독을 선택합니다.
     * **리소스 그룹**: **새로 만들기**를 선택하고 이름을 지정합니다. 리소스 그룹은 관리용인 Azure 리소스에 대한 컨테이너입니다. 이 자습서에서는 스토리지 계정 및 Azure SQL Database에 동일한 리소스 그룹을 사용할 수 있습니다. 이 리소스 그룹 이름을 메모해두세요. 자습서의 뒷부분에 나오는 Azure SQL Database를 만들 때 필요합니다.
-    * **위치**: 지역을 선택합니다. 예: **미국 중부** 
+    * **위치**: 지역을 선택합니다. 예: **미국 중부**
     * **스토리지 계정 형식**: **Standard_LRS**라는 기본값을 사용합니다.
     * **위치**: **[resourceGroup().location]** 이라는 기본값을 사용합니다. 즉, 스토리지 계정에 리소스 그룹 위치를 사용합니다.
     * **위에 명시된 사용 약관에 동의함**: (선택됨)
@@ -87,9 +87,9 @@ PowerShell 스크립트를 사용하여 이러한 단계를 자동화하려면 [
 
 ### <a name="create-a-blob-container"></a>Blob 컨테이너 만들기
 
-파일을 업로드하려면 먼저 Blob 컨테이너가 필요합니다. 
+파일을 업로드하려면 먼저 Blob 컨테이너가 필요합니다.
 
-1. 저장소 계정을 선택하여 엽니다. 리소스 그룹에 나열된 스토리지 계정이 표시됩니다. 스토리지 계정 이름은 다음 스크린샷에 표시된 것과 다릅니다.
+1. 스토리지 계정을 선택하여 엽니다. 리소스 그룹에 나열된 스토리지 계정이 표시됩니다. 스토리지 계정 이름은 다음 스크린샷에 표시된 것과 다릅니다.
 
     ![Resource Manager 자습서 스토리지 계정](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-storage-account.png)
 
@@ -99,8 +99,8 @@ PowerShell 스크립트를 사용하여 이러한 단계를 자동화하려면 [
 3. 위쪽에서 **+ 컨테이너**를 선택하여 새 컨테이너를 만듭니다.
 4. 다음 값을 입력합니다.
 
-    * **이름**: **sqlbacpac**를 입력합니다. 
-    * **공용 액세스 수준**: **개인(익명 액세스 없음)** 이라는 기본값을 사용합니다.
+    * **이름**: **sqlbacpac**를 입력합니다.
+    * **공용 액세스 수준**: **프라이빗(익명 액세스 없음)** 이라는 기본값을 사용합니다.
 5. **확인**을 선택합니다.
 6. **sqlbacpac**를 선택하여 새로 만든 컨테이너를 엽니다.
 
@@ -126,7 +126,7 @@ PowerShell 스크립트를 사용하여 이러한 단계를 자동화하려면 [
 3. **URL 및 Blob SAS 토큰 생성**을 선택합니다.
 4. **Blob SAS URL**의 복사본을 만듭니다. URL의 중간에서 파일 이름은 **SQLDatabaseExtension.bacpac**입니다.  파일 이름은 URL을 세 부분으로 나눕니다.
 
-   - **아티팩트 위치**: https://xxxxxxxxxxxxxx.blob.core.windows.net/sqlbacpac/입니다. 위치가 "/"로 끝나야 합니다.
+   - **아티팩트 위치**: https://xxxxxxxxxxxxxx.blob.core.windows.net/sqlbacpac/ 입니다. 위치가 "/"로 끝나야 합니다.
    - **BACPAC 파일 이름**: SQLDatabaseExtension.bacpac입니다.
    - **아티팩트 위치 SAS 토큰**: 토큰이 "?"로 시작해야 합니다.
 
@@ -237,7 +237,7 @@ Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 SAS 토큰을 사용하여 SQL Server, SQL Database를 배포하고 BACPAC 파일을 가져왔습니다. 여러 지역에 Azure 리소스를 배포하는 방법 및 안전한 배포 사례를 사용하는 방법을 알아보려면 다음을 참조하세요.
+이 자습서에서는 SAS 토큰을 사용하여 SQL Server, SQL Database를 배포하고 BACPAC 파일을 가져왔습니다. Azure Pipeline을 만들어 Resource Manager 템플릿을 지속적으로 개발하고 배포하는 방법을 알아보려면 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [Azure Deployment Manager 사용](./resource-manager-tutorial-deploy-vm-extensions.md)
+> [Azure Pipelines를 사용한 연속 통합](./resource-manager-tutorial-use-azure-pipelines.md)

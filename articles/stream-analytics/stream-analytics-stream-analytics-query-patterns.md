@@ -8,41 +8,41 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/16/2019
-ms.openlocfilehash: b0f513462f1e09718dc18e9ce454b82e8978961f
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 729385a2ce9feb6e69f9be29c2175b403093be3f
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329603"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68413372"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>일반적인 Stream Analytics 사용 패턴에 대한 쿼리 예제
 
 Azure Stream Analytics에서 쿼리는 SQL 방식 쿼리 언어로 표현됩니다. 언어 구문은 [Stream Analytics 쿼리 언어 참조](/stream-analytics-query/stream-analytics-query-language-reference) 가이드에 설명되어 있습니다. 
 
-쿼리 디자인을 출력 데이터 저장소로 하나의 입력 스트림에서 이벤트 데이터를 이동 하는 간단한 통과 논리를 표현할 수 있습니다 또는 다양 한 패턴 일치 및 임시 분석에서와 같이 다양 한 시간 범위의 집계를 계산 하는 것은 [IoT 빌드 Stream Analytics를 사용 하 여 솔루션](stream-analytics-build-an-iot-solution-using-stream-analytics.md) 가이드입니다. 스트리밍 이벤트를 결합 하는 여러 입력에서 데이터를 조인할 수 있습니다 하 고 보강 이벤트 값에 대 한 정적 참조 데이터에 대해 조회를 수행할 수 있습니다. 또한 여러 출력에 데이터를 작성할 수 있습니다.
+쿼리 디자인은 단일 입력 스트림에서 이벤트 데이터를 출력 데이터 저장소로 이동 하는 간단한 통과 논리를 표현할 수 있으며, 다양 한 패턴 일치 및 임시 분석을 수행 하 [여 IoT 솔루션 빌드에서와 같이 다양 한 기간에 대 한 집계를 계산할 수 있습니다. Stream Analytics](stream-analytics-build-an-iot-solution-using-stream-analytics.md) 가이드를 사용 합니다. 여러 입력의 데이터를 조인 하 여 스트리밍 이벤트를 결합할 수 있으며, 정적 참조 데이터에 대해 조회를 수행 하 여 이벤트 값을 보강할 수 있습니다. 여러 출력에 데이터를 쓸 수도 있습니다.
 
-이 문서에서는 실제 시나리오를 기반으로 하는 몇 가지 일반적인 쿼리 패턴에 대 한 솔루션을 설명 합니다.
+이 문서에서는 실제 시나리오에 따른 몇 가지 일반적인 쿼리 패턴에 대 한 솔루션을 간략하게 설명 합니다.
 
 ## <a name="work-with-complex-data-types-in-json-and-avro"></a>JSON 및 AVRO에서 복잡한 데이터 형식 작업
 
 Azure Stream Analytics는 CSV, JSON 및 Avro 데이터 형식의 이벤트 처리를 지원합니다.
 
-JSON 및 Avro는 둘 다 중첩된 개체(레코드) 또는 배열과 같은 복합 형식을 포함할 수 있습니다. 이러한 복잡 한 데이터 형식 작업에 대 한 자세한 내용은 참조는 [JSON 구문 분석 및 AVRO 데이터](stream-analytics-parsing-json.md) 문서.
+JSON 및 Avro는 둘 다 중첩된 개체(레코드) 또는 배열과 같은 복합 형식을 포함할 수 있습니다. 이러한 복합 데이터 형식을 사용 하는 방법에 대 한 자세한 내용은 [JSON 및 AVRO 데이터 구문 분석](stream-analytics-parsing-json.md) 문서를 참조 하세요.
 
 ## <a name="query-example-convert-data-types"></a>쿼리 예제: 데이터 형식 변환
 
-**설명**: 입력 스트림의 속성 유형을 정의합니다. 예를 들어, 자동차 가중치 입력 스트림에 문자열로 가져오고 변환할 해야 **INT** 수행 하려면 **합계**합니다.
+**설명**: 입력 스트림의 속성 유형을 정의합니다. 예를 들어 자동차 가중치는 입력 스트림에 문자열로 제공 되며 **합계**를 수행 하기 위해 **INT** 로 변환 해야 합니다.
 
 **입력**:
 
-| 계정을 | Time | 무게 |
+| 계정을 | 시간 | Weight |
 | --- | --- | --- |
 | Honda |2015-01-01T00:오전 12:01.0000000Z |"1000" |
 | Honda |2015-01-01T00:오전 12:02.0000000Z |"2000" |
 
 **출력**:
 
-| 계정을 | 무게 |
+| 계정을 | Weight |
 | --- | --- |
 | Honda |3000 |
 
@@ -61,14 +61,14 @@ JSON 및 Avro는 둘 다 중첩된 개체(레코드) 또는 배열과 같은 복
 
 **설명**: **무게** 필드에서 **CAST** 문을 사용하여 해당 데이터 형식을 지정합니다. [데이터 형식(Azure Stream Analytics)](/stream-analytics-query/data-types-azure-stream-analytics)에서 지원되는 데이터 형식의 목록을 참조하세요.
 
-## <a name="query-example-use-likenot-like-to-do-pattern-matching"></a>쿼리 예제: 사용 하 여 LIKE/NOT LIKE와 일치 하는 패턴을 위해합니다
+## <a name="query-example-use-likenot-like-to-do-pattern-matching"></a>쿼리 예제: LIKE/NOT LIKE를 사용 하 여 패턴 일치를 수행 합니다.
 
 **설명**: 이벤트의 필드 값이 특정 패턴과 일치하는지 확인합니다.
 예를 들어 결과가 A로 시작하고 9로 끝나는 번호판을 반환하는지 확인합니다.
 
 **입력**:
 
-| 계정을 | LicensePlate | Time |
+| 계정을 | LicensePlate | 시간 |
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:오전 12:01.0000000Z |
 | Toyota |AAA-999 |2015-01-01T00:오전 12:02.0000000Z |
@@ -76,7 +76,7 @@ JSON 및 Avro는 둘 다 중첩된 개체(레코드) 또는 배열과 같은 복
 
 **출력**:
 
-| 계정을 | LicensePlate | Time |
+| 계정을 | LicensePlate | 시간 |
 | --- | --- | --- |
 | Toyota |AAA-999 |2015-01-01T00:오전 12:02.0000000Z |
 | Nissan |ABC-369 |2015-01-01T00:오전 12:03.0000000Z |
@@ -92,7 +92,7 @@ JSON 및 Avro는 둘 다 중첩된 개체(레코드) 또는 배열과 같은 복
         LicensePlate LIKE 'A%9'
 ```
 
-**설명**: **LIKE** 문을 사용하여 **LicensePlate** 필드 값을 확인합니다. A 문자로 시작 하 고 0 개 이상 문자의 모든 문자열이, 9 번호로 종료 한 다음 해야 합니다. 
+**설명**: **LIKE** 문을 사용하여 **LicensePlate** 필드 값을 확인합니다. 문자 A로 시작한 다음 0 개 이상의 문자로 이루어진 문자열을 포함 하 고 숫자 9로 끝나야 합니다. 
 
 ## <a name="query-example-specify-logic-for-different-casesvalues-case-statements"></a>쿼리 예제: 다른 사례/값(CASE 문)에 대한 논리를 지정합니다.
 
@@ -100,7 +100,7 @@ JSON 및 Avro는 둘 다 중첩된 개체(레코드) 또는 배열과 같은 복
 
 **입력**:
 
-| 계정을 | Time |
+| 계정을 | 시간 |
 | --- | --- |
 | Honda |2015-01-01T00:오전 12:01.0000000Z |
 | Toyota |2015-01-01T00:오전 12:02.0000000Z |
@@ -108,7 +108,7 @@ JSON 및 Avro는 둘 다 중첩된 개체(레코드) 또는 배열과 같은 복
 
 **출력**:
 
-| CarsPassed | Time |
+| CarsPassed | 시간 |
 | --- | --- |
 | 1 Honda |2015-01-01T00:오전 12:10.0000000Z |
 | 2 Toyotas |2015-01-01T00:오전 12:10.0000000Z |
@@ -121,7 +121,7 @@ JSON 및 Avro는 둘 다 중첩된 개체(레코드) 또는 배열과 같은 복
             WHEN COUNT(*) = 1 THEN CONCAT('1 ', Make)
             ELSE CONCAT(CAST(COUNT(*) AS NVARCHAR(MAX)), ' ', Make, 's')
         END AS CarsPassed,
-        System.TimeStamp() AS Time
+        System.TimeStamp() AS AsaTime
     FROM
         Input TIMESTAMP BY Time
     GROUP BY
@@ -137,7 +137,7 @@ JSON 및 Avro는 둘 다 중첩된 개체(레코드) 또는 배열과 같은 복
 
 **입력**:
 
-| 계정을 | Time |
+| 계정을 | 시간 |
 | --- | --- |
 | Honda |2015-01-01T00:오전 12:01.0000000Z |
 | Honda |2015-01-01T00:오전 12:02.0000000Z |
@@ -147,7 +147,7 @@ JSON 및 Avro는 둘 다 중첩된 개체(레코드) 또는 배열과 같은 복
 
 **출력1**:
 
-| 계정을 | Time |
+| 계정을 | 시간 |
 | --- | --- |
 | Honda |2015-01-01T00:오전 12:01.0000000Z |
 | Honda |2015-01-01T00:오전 12:02.0000000Z |
@@ -157,7 +157,7 @@ JSON 및 Avro는 둘 다 중첩된 개체(레코드) 또는 배열과 같은 복
 
 **출력2**:
 
-| 계정을 | Time | 카운트 |
+| 계정을 | 시간 | 개수 |
 | --- | --- | --- |
 | Toyota |2015-01-01T00:오전 12:10.0000000Z |3 |
 
@@ -173,7 +173,7 @@ JSON 및 Avro는 둘 다 중첩된 개체(레코드) 또는 배열과 같은 복
 
     SELECT
         Make,
-        System.TimeStamp() AS Time,
+        System.TimeStamp() AS AsaTime,
         COUNT(*) AS [Count]
     INTO
         AlertOutput
@@ -186,11 +186,11 @@ JSON 및 Avro는 둘 다 중첩된 개체(레코드) 또는 배열과 같은 복
         [Count] >= 3
 ```
 
-**설명**: **INTO** 절은 이 명령문에서 데이터를 쓸 출력을 Stream Analytics에게 알립니다. 첫 번째 쿼리에서 명명 된 출력에 받은 데이터의 통과 **ArchiveOutput**합니다. 두 번째 쿼리는 일부 간단한 집계와 필터링을 하 고 다운스트림 경고 시스템에 결과 보냅니다 **AlertOutput**합니다.
+**설명**: **INTO** 절은 이 명령문에서 데이터를 쓸 출력을 Stream Analytics에게 알립니다. 첫 번째 쿼리는 **ArchiveOutput**라는 출력으로 수신 되는 데이터의 통과입니다. 두 번째 쿼리는 일부 간단한 집계 및 필터링을 수행 하 고 결과를 결과를 다운스트림 경고 시스템 **Alertoutput**으로 보냅니다.
 
 여러 출력 문에서 공통 테이블 식(CTE)(예: **WITH** 문)의 결과를 다시 사용할 수도 있습니다. 이 옵션에는 입력 원본에 대해 더 적은 독자를 여는 추가 이점이 있습니다.
 
-예를 들면 다음과 같습니다. 
+예를 들어: 
 
 ```SQL
     WITH AllRedCars AS (
@@ -211,7 +211,7 @@ JSON 및 Avro는 둘 다 중첩된 개체(레코드) 또는 배열과 같은 복
 
 **입력**:
 
-| 계정을 | Time |
+| 계정을 | 시간 |
 | --- | --- |
 | Honda |2015-01-01T00:오전 12:01.0000000Z |
 | Honda |2015-01-01T00:오전 12:02.0000000Z |
@@ -221,7 +221,7 @@ JSON 및 Avro는 둘 다 중첩된 개체(레코드) 또는 배열과 같은 복
 
 **출력:**
 
-| CountMake | Time |
+| CountMake | 시간 |
 | --- | --- |
 | 2 |2015-01-01T00:오전 12:02.000Z |
 | 1 |2015-01-01T00:오전 12:04.000Z |
@@ -231,7 +231,7 @@ JSON 및 Avro는 둘 다 중첩된 개체(레코드) 또는 배열과 같은 복
 ```SQL
 SELECT
      COUNT(DISTINCT Make) AS CountMake,
-     System.TIMESTAMP() AS TIME
+     System.TIMESTAMP() AS AsaTIME
 FROM Input TIMESTAMP BY TIME
 GROUP BY 
      TumblingWindow(second, 2)
@@ -247,14 +247,14 @@ GROUP BY
 
 **입력**:
 
-| 계정을 | Time |
+| 계정을 | 시간 |
 | --- | --- |
 | Honda |2015-01-01T00:오전 12:01.0000000Z |
 | Toyota |2015-01-01T00:오전 12:02.0000000Z |
 
 **출력**:
 
-| 계정을 | Time |
+| 계정을 | 시간 |
 | --- | --- |
 | Toyota |2015-01-01T00:오전 12:02.0000000Z |
 
@@ -278,7 +278,7 @@ GROUP BY
 
 **입력**:
 
-| LicensePlate | 계정을 | Time |
+| LicensePlate | 계정을 | 시간 |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:오전 12:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:오전 2:17.0000000Z |
@@ -290,7 +290,7 @@ GROUP BY
 
 **출력**:
 
-| LicensePlate | 계정을 | Time |
+| LicensePlate | 계정을 | 시간 |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:오전 12:05.0000000Z |
 | QYF 9358 |Honda |2015-07-27T00:오후 12:02.0000000Z |
@@ -308,9 +308,9 @@ GROUP BY
         IsFirst(minute, 10) = 1
 ```
 
-이제 보겠습니다 문제를 변경 하 고 10 분 간격 마다 특정 브랜드의 첫 번째 자동차를 찾습니다.
+이제 문제를 변경 하 고 10 분 간격 마다 특정의 첫 번째 자동차를 찾습니다.
 
-| LicensePlate | 계정을 | Time |
+| LicensePlate | 계정을 | 시간 |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:오전 12:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:오전 2:17.0000000Z |
@@ -337,7 +337,7 @@ GROUP BY
 
 **입력**:
 
-| LicensePlate | 계정을 | Time |
+| LicensePlate | 계정을 | 시간 |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:오전 12:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:오전 2:17.0000000Z |
@@ -349,7 +349,7 @@ GROUP BY
 
 **출력**:
 
-| LicensePlate | 계정을 | Time |
+| LicensePlate | 계정을 | 시간 |
 | --- | --- | --- |
 | VFE 1616 |Toyota |2015-07-27T00:오전 9:31.0000000Z |
 | MDR 6128 |BMW |2015-07-27T00:오후 1:45.0000000Z |
@@ -379,14 +379,13 @@ GROUP BY
 
 **설명**: 쿼리에는 두 단계가 있습니다. 첫 번째 단계는 10분 간격으로 최신 타임스탬프를 찾습니다. 두 번째 단계는 각 창의 최신 타임스탬프와 일치하는 이벤트를 찾기 위해 원본 스트림을 사용한 첫 번째 쿼리의 결과를 조인합니다. 
 
-## <a name="query-example-detect-the-absence-of-events"></a>쿼리 예제: 이벤트의 부재 감지
+## <a name="query-example-locate-correlated-events-in-a-stream"></a>쿼리 예제: 스트림에서 상호 관련 된 이벤트 찾기
 
-**설명**: 스트림에 특정 조건에 일치하지 않는 값이 있는지 확인합니다.
-예를 들어 최근 90초 이내에 동일한 브랜드의 차 2대가 연속해서 유료 도로로 진입했는지 확인합니다.
+**설명**: 스트림에서 상호 관련 된 이벤트를 찾습니다. 예를 들어 최근 90초 이내에 동일한 브랜드의 차 2대가 연속해서 유료 도로로 진입했는지 확인합니다.
 
 **입력**:
 
-| 계정을 | LicensePlate | Time |
+| 계정을 | LicensePlate | 시간 |
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:오전 12:01.0000000Z |
 | Honda |AAA-999 |2015-01-01T00:오전 12:02.0000000Z |
@@ -395,7 +394,7 @@ GROUP BY
 
 **출력**:
 
-| 계정을 | Time | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
+| 계정을 | 시간 | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
 | --- | --- | --- | --- | --- |
 | Honda |2015-01-01T00:오전 12:02.0000000Z |AAA-999 |ABC-123 |2015-01-01T00:오전 12:01.0000000Z |
 
@@ -422,14 +421,14 @@ GROUP BY
 
 **입력**:  
 
-| 사용자 | 기능 | 행사 | Time |
+| 사용자 | 기능 | 이벤트 | 시간 |
 | --- | --- | --- | --- |
 | user@location.com |RightMenu |시작 |2015-01-01T00:오전 12:01.0000000Z |
-| user@location.com |RightMenu |끝 |2015-01-01T00:오전 12:08.0000000Z |
+| user@location.com |RightMenu |종료 |2015-01-01T00:오전 12:08.0000000Z |
 
 **출력**:  
 
-| 사용자 | 기능 | 기간 |
+| 사용자 | 기능 | Duration |
 | --- | --- | --- |
 | user@location.com |RightMenu |7 |
 
@@ -456,7 +455,7 @@ GROUP BY
 
 **입력**:
 
-| 계정을 | Time | 무게 |
+| 계정을 | 시간 | Weight |
 | --- | --- | --- |
 | Honda |2015-01-01T00:오전 12:01.0000000Z |2000 |
 | Toyota |2015-01-01T00:오전 12:02.0000000Z |25000 |
@@ -502,7 +501,7 @@ GROUP BY
 
 **입력**:
 
-| t | 값 |
+| t | value |
 | --- | --- |
 | "2014-01-01T06:01:00" |1 |
 | "2014-01-01T06:오전 1:05" |2 |
@@ -537,7 +536,7 @@ GROUP BY
     GROUP BY HOPPINGWINDOW(second, 300, 5)
 ```
 
-**설명**: 이 쿼리는 5초마다 이벤트를 생성하고 이전에 수신했던 마지막 이벤트를 출력합니다. 합니다 [도약 창](/stream-analytics-query/hopping-window-azure-stream-analytics) 최신 이벤트 (이 예에서는 300 초)을 찾으려고 얼마나 돌아가야 쿼리는 검색 기간 결정 합니다.
+**설명**: 이 쿼리는 5초마다 이벤트를 생성하고 이전에 수신했던 마지막 이벤트를 출력합니다. [도약 창](/stream-analytics-query/hopping-window-azure-stream-analytics) 지속 시간은 쿼리를 통해 최신 이벤트 (이 예제에서는 300 초)를 찾는 정도를 결정 합니다.
 
 
 ## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>쿼리 예제: 동일한 스트림 내에서 두 가지 이벤트 유형에 상관 관계 지정
@@ -546,7 +545,7 @@ GROUP BY
 
 **입력**:
 
-| 실시간 | deviceId | sensorName | 값 |
+| Time | deviceId | sensorName | value |
 | --- | --- | --- | --- |
 | "2018-01-01T16:01:00" | "Oven1" | "temp" |120 |
 | "2018-01-01T16:01:00" | "Oven1" | "power" |15 |
@@ -615,11 +614,11 @@ WHERE
 
 ## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>쿼리 예제: 디바이스 클록 스큐(하위 스트림)와 무관한 이벤트 처리
 
-**설명**: 이벤트 생성자 간의 클록 스큐, 파티션 간 클럭 스큐 또는 네트워크 대기 시간으로 인해 이벤트가 늦게 도착하거나 순서대로 도착하지 못할 수 있습니다. 다음 예에서 TollID 2에 대 한 장치 시간은 5 초 TollID 1 뒤 이며 TollID 3에 대 한 장치 시간은 TollID 1 뒤에 10 초입니다. 
+**설명**: 이벤트 생성자 간의 클록 스큐, 파티션 간 클럭 스큐 또는 네트워크 대기 시간으로 인해 이벤트가 늦게 도착하거나 순서대로 도착하지 못할 수 있습니다. 다음 예제에서 TollID 2에 대 한 장치 클록은 TollID 1에서 5 초 뒤 이며 TollID 3의 장치 클록은 TollID 1 보다 10 초 뒤입니다. 
 
 **입력**:
 
-| LicensePlate | 계정을 | Time | TollId |
+| LicensePlate | 계정을 | 시간 | TollId |
 | --- | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1 |
 | YHN 6970 |Toyota |2015-07-27T00:오전 12:05.0000000Z | 1 |
@@ -632,7 +631,7 @@ WHERE
 
 **출력**:
 
-| TollId | 카운트 |
+| TollId | 개수 |
 | --- | --- |
 | 1 | 2 |
 | 2 | 2 |
@@ -656,11 +655,11 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 ## <a name="query-example-remove-duplicate-events-in-a-window"></a>쿼리 예제: 창에서 중복된 이벤트 제거
 
-**설명**: 지정된 시간 범위에서 이벤트에 대한 평균 계산과 같은 작업을 수행하는 경우 중복 이벤트를 필터링해야 합니다. 다음 예제에서는 두 번째 이벤트에는 첫 번째 중복 됩니다.
+**설명**: 지정된 시간 범위에서 이벤트에 대한 평균 계산과 같은 작업을 수행하는 경우 중복 이벤트를 필터링해야 합니다. 다음 예제에서 두 번째 이벤트는 첫 번째 이벤트와 중복 됩니다.
 
 **입력**:  
 
-| deviceId | Time | 특성 | 값 |
+| DeviceID | 시간 | 특성 | 값 |
 | --- | --- | --- | --- |
 | 1 |2018-07-27T00:00:01.0000000Z |온도 |50 |
 | 1 |2018-07-27T00:00:01.0000000Z |온도 |50 |
@@ -671,7 +670,7 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 **출력**:  
 
-| AverageValue | deviceId |
+| AverageValue | DeviceID |
 | --- | --- |
 | 70 | 1 |
 |45 | 2 |
@@ -701,14 +700,14 @@ GROUP BY DeviceId,TumblingWindow(minute, 5)
 
 **설명**: [COUNT(DISTINCT Time)](/stream-analytics-query/count-azure-stream-analytics)는 시간 범위 내에서 Time 열의 고유한 값 수를 반환합니다. 그러면 중복 항목을 삭제하여 디바이스당 평균을 컴퓨팅하는 데 이 단계의 출력을 사용할 수 있습니다.
 
-## <a name="geofencing-and-geospatial-queries"></a>지 오 펜싱 및 지리 공간 쿼리
-Azure Stream Analytics fleet 관리와 같은 시나리오를 구현 하 여 공유, 연결 된 자동차 및 자산 추적 재정의를 사용할 수 있는 기본 제공 지리 공간적 함수를 제공 합니다. 지리 공간적 데이터 이벤트 스트림의 일부로 GeoJSON 또는 WKT 형식에서 수집할 수 있습니다 하거나 데이터를 참조 합니다. 자세한 내용은 참조는 [Azure Stream Analytics를 사용 하 여 지 오 펜싱 및 지리 공간 집계 시나리오](geospatial-scenarios.md) 문서.
+## <a name="geofencing-and-geospatial-queries"></a>지 오 펜싱 및 지리 공간적 쿼리
+Azure Stream Analytics는 지역 관리, 공동 공유, 연결 된 자동차 및 자산 추적과 같은 시나리오를 구현 하는 데 사용할 수 있는 기본 제공 지리 공간적 함수를 제공 합니다. 지리 공간적 데이터는 이벤트 스트림 또는 참조 데이터의 일부로 GeoJSON 또는 WKT 형식으로 수집 수 있습니다. 자세한 내용은 [Azure Stream Analytics 문서 지 오 펜싱 및 지리 공간적 집계 시나리오](geospatial-scenarios.md) 를 참조 하세요.
 
-## <a name="language-extensibility-through-javascript-and-c"></a>JavaScript 통해 언어 확장성 및C#
-Azure Stream Ananlytics 쿼리 langugae JavaScript로 작성 된 사용자 지정 함수를 사용 하 여 확장할 수 있습니다 또는 C# 언어입니다. 자세한 내용은 다음 항목이 문서를 참조 합니다.
-* [Azure Stream Analytics JavaScript 사용자 정의 함수](stream-analytics-javascript-user-defined-functions.md)
-* [Azure Stream Analytics JavaScript 사용자 정의 집계](stream-analytics-javascript-user-defined-aggregates.md)
-* [Azure Stream Analytics Edge 작업에 대 한.NET 표준 사용자 정의 함수를 개발 합니다.](stream-analytics-edge-csharp-udf-methods.md)
+## <a name="language-extensibility-through-javascript-and-c"></a>JavaScript를 통한 언어 확장성 및C#
+Azure Stream Ananlytics query langugae는 JavaScript 또는 C# 언어로 작성 된 사용자 지정 함수로 확장할 수 있습니다. 자세한 내용은 foolowing 문서를 참조 하세요.
+* [JavaScript 사용자 정의 함수 Azure Stream Analytics](stream-analytics-javascript-user-defined-functions.md)
+* [JavaScript 사용자 정의 집계 Azure Stream Analytics](stream-analytics-javascript-user-defined-aggregates.md)
+* [Edge 작업 Azure Stream Analytics에 대 한 .NET Standard 사용자 정의 함수 개발](stream-analytics-edge-csharp-udf-methods.md)
 
 ## <a name="get-help"></a>도움말 보기
 
@@ -718,6 +717,6 @@ Azure Stream Ananlytics 쿼리 langugae JavaScript로 작성 된 사용자 지�
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

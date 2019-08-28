@@ -1,34 +1,34 @@
 ---
-title: 엔터티 추가
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: LUIS (Language Understanding) 앱에서 사용자 표현에서 키 데이터를 추출 하는 엔터티를 만듭니다.
+title: 엔터티 추가-LUIS
+titleSuffix: Azure Cognitive Services
+description: LUIS (user 길이 발언 in Language Understanding) 앱에서 키 데이터를 추출 하는 엔터티를 만듭니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/01/2019
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 241e89ac7fa78184e7c55f9e8065e1534cea9143
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80e1052cb7acbdcec2dcb94f1667cae3c554d18e
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148721"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932934"
 ---
 # <a name="create-entities-without-utterances"></a>발화 없는 엔터티 만들기
 
-엔터티는 추출하려는 발화 내의 단어 또는 구를 나타냅니다. 엔터티 (장소, 사물, 사용자, 이벤트 또는 개념)와 유사한 개체의 컬렉션을 포함 하 여 클래스를 나타냅니다. 엔터티는 의도와 관련된 정보를 설명하며 앱이 작업을 수행하는 데 꼭 필요한 경우도 있습니다. (앞 이나 뒤)에서 utterance 의도 또는 간격을 추가 하면 엔터티를 만들 수 있습니다를 utterance 의도에 추가 합니다.
+엔터티는 추출하려는 발화 내의 단어 또는 구를 나타냅니다. 엔터티는 유사한 개체 (위치, 사물, 사람, 이벤트 또는 개념)의 컬렉션을 포함 하는 클래스를 나타냅니다. 엔터티는 의도와 관련된 정보를 설명하며 앱이 작업을 수행하는 데 꼭 필요한 경우도 있습니다. 의도에 utterance를 추가 하거나 (전후) utterance를 의도에 추가 하는 경우 엔터티를 만들 수 있습니다.
 
 **엔터티** 페이지의 **엔터티 목록**을 통해 LUIS 앱에서 엔터티를 추가, 편집 또는 삭제할 수 있습니다. LUIS는 두 가지 유형의 주요 엔터티인 [미리 빌드된 엔터티](luis-reference-prebuilt-entities.md) 및 고유한 [사용자 지정 엔터티](luis-concept-entity-types.md#types-of-entities)를 제공합니다.
 
-기계 학습 엔터티를 만든 후 해당 엔터티에 있는 모든 의도의 모든 예제 utterance 표시 해야 합니다.
+컴퓨터에서 배운 엔터티를 만든 후에는 모든 예제 utterance에서 해당 엔터티를 표시 해야 합니다.
 
 <a name="add-prebuilt-entity"></a>
 
-## <a name="add-a-prebuilt-entity-to-your-app"></a>앱에 미리 작성 된 엔터티를 추가 합니다.
+## <a name="add-a-prebuilt-entity-to-your-app"></a>앱에 미리 빌드된 엔터티 추가
 
 애플리케이션에 추가되는 일반적인 미리 빌드된 엔터티는 *number*와 *datetimeV2*입니다. 
 
@@ -42,7 +42,7 @@ ms.locfileid: "65148721"
 
 <a name="add-simple-entities"></a>
 
-## <a name="add-simple-entities-for-single-concepts"></a>단일 개념에 대 한 간단한 엔터티를 추가 합니다.
+## <a name="add-simple-entities-for-single-concepts"></a>단일 개념에 대 한 단순 엔터티 추가
 
 단순 엔터티는 단일 개념을 설명합니다. 다음 프로시저를 사용하여 *인적 자원* 또는 *운영*과 같은 회사 부서명을 추출하는 엔터티를 만듭니다.   
 
@@ -56,7 +56,7 @@ ms.locfileid: "65148721"
 
 <a name="add-regular-expression-entities"></a>
 
-## <a name="add-regular-expression-entities-for-highly-structured-concepts"></a>고도로 구조화 된 개념에 대 한 정규식 엔터티를 추가 합니다.
+## <a name="add-regular-expression-entities-for-highly-structured-concepts"></a>매우 구조적인 개념에 대 한 정규식 엔터티 추가
 
 정규식 엔터티는 제공된 정규식에 따라 발언에서 데이터를 끌어오는 데 사용됩니다. 
 
@@ -64,11 +64,11 @@ ms.locfileid: "65148721"
 
 1. 팝업 대화 상자의 **엔터티 이름** 상자에 `Human resources form name`를 입력하고 **엔터티 형식** 목록에서 **정규식**을 선택하고 정규식 `hrf-[0-9]{6}`를 입력한 후 **완료**를 선택합니다. 
 
-    이 정규식 리터럴 문자와 대응 `hrf-`, 인적 자원 폼에는 폼에 다음 6 자리 숫자입니다.
+    이 정규식은 리터럴 문자와 `hrf-`일치 하 고, 인적 자원 폼의 폼 번호를 나타내는 6 자리 숫자를 찾습니다.
 
 <a name="add-composite-entities"></a>
 
-## <a name="add-composite-entities-to-group-into-a-parent-child-relationship"></a>부모-자식 관계를 그룹화 하려면 복합 엔터티 추가
+## <a name="add-composite-entities-to-group-into-a-parent-child-relationship"></a>부모-자식 관계에 그룹화 할 복합 엔터티 추가
 
 복합 엔터티를 만들어 서로 다른 유형의 엔터티 간 관계를 정의할 수 있습니다. 다음 예제에서 엔터티에는 정규식 및 미리 빌드된 이름의 엔터티가 포함됩니다.  
 
@@ -88,11 +88,11 @@ ms.locfileid: "65148721"
 
 1. **자식 #2**의 목록에서 **인적 자원 양식 이름** 엔터티를 선택합니다. 
 
-1. **완료**를 선택합니다.
+1. **완료** 를 선택합니다.
 
 <a name="add-pattern-any-entities"></a>
 
-## <a name="add-patternany-entities-to-capture-free-form-entities"></a>자유 형식 엔터티를 캡처할 Pattern.any 엔터티 추가
+## <a name="add-patternany-entities-to-capture-free-form-entities"></a>패턴 추가. 자유 형식 엔터티를 캡처하기 위한 모든 엔터티
 
 [Pattern.any](luis-concept-entity-types.md) 엔터티는 의도가 아닌 [패턴](luis-how-to-model-intent-pattern.md)에서만 유효합니다. 이 유형의 엔터티는 LUIS가 다양한 길이 및 단어 선택이 포함된 엔터티의 끝을 찾는 데 도움을 줍니다. 이 엔터티는 패턴에 사용되므로 LUIS는 발화 템플릿에서 엔터티의 끝 위치를 알 수 있습니다.
 
@@ -110,17 +110,17 @@ ms.locfileid: "65148721"
 
 <a name="add-a-role-to-pattern-based-entity"></a>
 
-## <a name="add-a-role-to-distinguish-different-contexts"></a>다른 컨텍스트를 구분 하기 위해 역할 추가
+## <a name="add-a-role-to-distinguish-different-contexts"></a>다른 컨텍스트를 구분 하는 역할 추가
 
-역할은 컨텍스트를 기반으로 명명 된 하위 형식입니다. 미리 빌드된 및 기계 학습 되지 않은 엔터티를 포함 하 여 모든 엔터티에서 제공 됩니다. 
+역할은 컨텍스트에 따라 명명 된 하위 형식입니다. 미리 작성 된 엔터티 및 비 컴퓨터에서 학습 한 엔터티를 비롯 한 모든 엔터티에서 사용할 수 있습니다. 
 
-역할에 대 한 구문은 **`{Entityname:Rolename}`** 콜론을 역할 이름으로 엔터티 이름 뒤에 위치 합니다. 예: `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
+역할 **`{Entityname:Rolename}`** 의 구문은 엔터티 이름 뒤에 콜론이 오고 그 뒤의 역할 이름입니다. `Move {personName} from {Location:Origin} to {Location:Destination}` )을 입력합니다.
 
 1. **빌드** 섹션에서 왼쪽 패널의 **엔터티**를 선택합니다.
 
-1. **새 엔터티 만들기**를 선택합니다. `LocationUsingRoles`의 이름을 입력합니다. **단순** 형식을 선택하고 **완료**를 선택합니다. 
+1. **새 엔터티 만들기**를 선택합니다. `Location`의 이름을 입력합니다. **단순** 형식을 선택하고 **완료**를 선택합니다. 
 
-1. 왼쪽 패널에서 **엔터티**를 선택한 다음, 이전 단계에서 만든 새 엔터티 **LocationUsingRoles**을 선택합니다.
+1. 왼쪽 패널에서 **엔터티** 를 선택 하 고 이전 단계에서 만든 새 엔터티 **위치** 를 선택 합니다.
 
 1. **역할 이름** 텍스트 상자에 역할 이름 `Origin`을 입력한 후 Enter 키를 누릅니다. 두 번째 역할 이름 `Destination`을 추가합니다. 
 
@@ -128,7 +128,7 @@ ms.locfileid: "65148721"
 
 <a name="add-list-entities"></a>
 
-## <a name="add-list-entities-for-exact-matches"></a>정확한 일치 항목에 대 한 목록 엔터티를 추가 합니다.
+## <a name="add-list-entities-for-exact-matches"></a>정확히 일치 하는 항목에 대 한 목록 엔터티 추가
 
 목록 엔터티는 관련 단어의 고정된 폐쇄형 집합을 나타냅니다. 
 
@@ -136,7 +136,7 @@ ms.locfileid: "65148721"
 
 1. **빌드** 섹션에서 왼쪽 패널의 **엔터티**를 선택한 다음, **새 엔터티 만들기**를 선택합니다.
 
-1. **엔터티 추가** 대화 상자에서 **엔터티 이름** 상자에 `Department`을 입력하고 **엔터티 형식**으로 **List**를 선택합니다. **완료**를 선택합니다.
+1. **엔터티 추가** 대화 상자에서 **엔터티 이름** 상자에 `Department`을 입력하고 **엔터티 형식**으로 **List**를 선택합니다. **완료** 를 선택합니다.
   
 1. 목록 엔터티 페이지에서 정규화된 이름을 추가할 수 있습니다. **값** 텍스트 상자에 목록의 부서명(예: `HumanResources`)을 입력한 다음, 키보드에서 Enter 키를 누릅니다. 
 
@@ -173,13 +173,13 @@ ms.locfileid: "65148721"
 
 <a name="change-entity-type"></a>
 
-## <a name="do-not-change-entity-type"></a>엔터티 형식을 변경 하지 마세요
+## <a name="do-not-change-entity-type"></a>엔터티 형식 변경 안 함
 
 LUIS에서는 해당 엔터티를 생성하기 위해 추가 또는 제거할 항목을 잘 모르기 때문에 엔터티의 형식을 변경하도록 허용하지 않습니다. 형식을 변경하기 위해서는 약간 다른 이름을 사용하여 올바른 형식의 새 엔터티를 만드는 것이 좋습니다. 엔터티가 만들어지면 각 발언에서 이전 레이블이 지정된 엔터티 이름을 제거한 후 새 엔터티 이름을 추가합니다. 모든 발언에 레이블이 다시 지정되면 이전 엔터티를 삭제합니다. 
 
 <a name="create-a-pattern-from-an-utterance"></a>
 
-## <a name="create-a-pattern-from-an-example-utterance"></a>예제 utterance에서 패턴을 만들려면
+## <a name="create-a-pattern-from-an-example-utterance"></a>예제 utterance에서 패턴 만들기
 
 [의도 또는 엔터티 페이지의 기존 발언에서 패턴 추가](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page)를 참조하세요.
 

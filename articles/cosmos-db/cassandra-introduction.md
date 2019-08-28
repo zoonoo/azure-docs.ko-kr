@@ -23,13 +23,13 @@ Cassandra API를 사용하면 이미 익숙한 CQL(Cassandra 쿼리 언어), Cas
 
 ## <a name="what-is-the-benefit-of-using-apache-cassandra-api-for-azure-cosmos-db"></a>Azure Cosmos DB용 Apache Cassandra API를 사용하는 이점은 무엇인가요?
 
-**운영 관리 없음**: 완전히 관리되는 클라우드 서비스인 Azure Cosmos DB Cassandra API는 OS, JVM, yaml 파일 및 해당 상호 연동에서 무수한 설정을 관리하고 모니터링하는 것에 대한 오버헤드를 없애줍니다. Azure Cosmos DB는 처리량, 대기 시간, 저장소, 가용성 및 구성 가능한 경고에 대한 모니터링을 제공합니다.
+**운영 관리 없음**: 완전히 관리되는 클라우드 서비스인 Azure Cosmos DB Cassandra API는 OS, JVM, yaml 파일 및 해당 상호 연동에서 무수한 설정을 관리하고 모니터링하는 것에 대한 오버헤드를 없애줍니다. Azure Cosmos DB는 처리량, 대기 시간, 스토리지, 가용성 및 구성 가능한 경고에 대한 모니터링을 제공합니다.
 
 **성능 관리**: Azure Cosmos DB는 백분위수 99에서 짧은 대기 시간의 읽기 및 쓰기를 제공하며 SLA로 이를 지원합니다. 사용자는 고성능 및 짧은 대기 시간의 읽기 및 쓰기를 보장하기 위해 운영 오버 헤드를 걱정할 필요가 없습니다. 즉, 사용자는 압축 예약, 삭제 표식 관리, bloom 필터 및 복제본 설정을 수동으로 처리할 필요가 없습니다. Azure Cosmos DB는 이러한 문제를 관리하는 오버헤드를 없애주므로 사용자는 애플리케이션 논리에 집중할 수 있습니다.
 
 **기존 코드 및 도구 사용 가능**: Azure Cosmos DB는 기존 Cassandra SDK 및 도구와 유선 프로토콜 수준의 호환성을 제공합니다. 이 호환성을 통해 간단한 변경 사항이 있는 Azure Cosmos DB Cassandra API와 함께 기존 코드베이스를 사용할 수 있습니다.
 
-**처리량 및 스토리지 탄력성**: Azure Cosmos DB는 Azure Portal, PowerShell 또는 CLI 작업을 통해 지역 전체에서 보장된 처리량을 제공하여 프로비전된 처리량을 크기 조정할 수 있습니다. 예측 가능한 성능으로 필요에 따라 테이블에 대한 처리량 및 저장소를 탄력적으로 확장할 수 있습니다.
+**처리량 및 스토리지 탄력성**: Azure Cosmos DB는 Azure Portal, PowerShell 또는 CLI 작업을 통해 지역 전체에서 보장된 처리량을 제공하여 프로비전된 처리량을 크기 조정할 수 있습니다. 예측 가능한 성능으로 필요에 따라 테이블에 대한 처리량 및 스토리지를 탄력적으로 확장할 수 있습니다.
 
 **글로벌 배포 및 가용성**: Azure Cosmos DB는 전 세계 모든 Azure 지역에서 데이터를 전역적으로 배포하고 대기 시간이 짧은 데이터 액세스 및 높은 가용성을 보장하면서 데이터를 로컬로 제공하는 기능을 제공합니다. Azure Cosmos DB는 한 지역 내에서는 99.99%의 가용성을 제공하고 여러 지역에 걸쳐서는 작업 오버헤드 없이 99.999%의 읽기 및 쓰기 가용성을 제공합니다. [데이터를 글로벌 배포](distribute-data-globally.md) 문서에서 자세히 알아보세요. 
 

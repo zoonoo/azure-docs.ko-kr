@@ -1,6 +1,6 @@
 ---
 title: 프로젝트를 3.0 API로 마이그레이션하는 방법
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 3\.0 이전 버전의 API에서 Custom Vision 프로젝트를 마이그레이션하는 방법을 알아봅니다.
 services: cognitive-services
 author: areddish
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: areddish
-ms.openlocfilehash: 9dd473aadd7123cafc27209f5c34322fdbcffb71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 353fc0a2d8396def17b8e23d9a1c685c755349c5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60816473"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560893"
 ---
 # <a name="migrate-to-the-30-api"></a>3\.0 API로 마이그레이션
 
@@ -23,7 +23,7 @@ Custom Vision은 이제 일반 공급이 되었고 API 업데이트가 완료되
 이 업데이트는 몇 가지 새로운 기능을 포함하며, 중요한 점은 다음과 같은 몇 가지 호환성이 손상되는 변경을 포함한다는 것입니다.
 
 * 예측 API는 이제 프로젝트 유형을 기반으로 두 개로 분할됩니다.
-* 비전 AI 개발자 키트 (VAIDK) 내보내기 옵션에서는 특정 방식으로 프로젝트를 만들어야 합니다.
+* 비전 AI 개발자 키트 (VAIDK) 내보내기 옵션을 사용 하려면 프로젝트를 특정 방식으로 만들어야 합니다.
 * 기본 반복은 제거되고 명명된 반복의 게시/게시 취소가 사용됩니다.
 
 이 가이드에서는 새로운 API 버전을 사용할 수 있도록 프로젝트를 업데이트하는 방법을 보여 줍니다. 변경 내용의 전체 목록은 [릴리스 정보](release-notes.md)를 참조합니다.
@@ -46,7 +46,7 @@ Custom Vision은 이제 일반 공급이 되었고 API 업데이트가 완료되
 
 반복이 학습되면, **[PublishIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c82db28bf6a2b11a8247bbc)** 메서드를 사용하여 예측에 사용 가능하게 할 수 있습니다. 반복을 게시하려면 Custom Vision 웹 사이트의 설정 페이지에서 사용할 수 있는 예측 리소스 ID를 사용해야 합니다.
 
-![설명 된 예측 리소스 ID 사용 하 여 사용자 지정 비전 웹 사이트 설정 페이지입니다.](./media/update-application-to-3.0-sdk/prediction-id.png)
+![예측 리소스 ID가 설명 된 Custom Vision 웹 사이트 설정 페이지입니다.](./media/update-application-to-3.0-sdk/prediction-id.png)
 
 > [!TIP]
 > [Azure Portal](https://portal.azure.com)의 Custom Vision 예측 리소스로 이동하고 **속성**을 선택하여 이 정보를 가져올 수도 있습니다.

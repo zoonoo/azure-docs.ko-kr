@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2018
 ms.author: jingwang
-ms.openlocfilehash: 45208b5c6538ea523a7b87d6dbdeb99e792783ff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3b4f1cfe4dbd15f25b4fab92a4bd3b7aee309cb2
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61262303"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720830"
 ---
 # <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory-preview"></a>Azure Data Factory를 사용하여 아마존 마켓플레이스 웹 서비스에서 데이터 복사(미리 보기)
 
@@ -42,18 +42,18 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 다음은 아마존 마켓플레이스 웹 서비스 연결된 서비스에 대해 지원되는 속성입니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성을 다음으로 설정해야 합니다. **AmazonMWS** | 예 |
-| endpoint | Amazon MWS 서버의 엔드포인트(즉, mws.amazonservices.com)입니다.  | 예 |
+| 엔드포인트(endpoint) | Amazon MWS 서버의 엔드포인트(즉, mws.amazonservices.com)입니다.  | 예 |
 | marketplaceID | 데이터를 검색하려는 Amazon Marketplace ID입니다. 여러 Marketplace ID에서 데이터를 검색하려면 쉼표(`,`)로 구분하세요. 즉, A2EUQ1WTGCTBG2입니다.  | 예 |
 | sellerID | Amazon 판매자 ID입니다.  | 예 |
 | mwsAuthToken | Amazon MWS 인증 토큰입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | accessKeyId | 데이터 액세스에 사용되는 액세스 키 ID입니다.  | 예 |
 | secretKey | 데이터 액세스에 사용되는 비밀 키입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아닙니다. |
-| useHostVerification | SSL을 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 true입니다.  | 아닙니다. |
-| usePeerVerification | SSL을 통해 연결할 때 서버의 ID를 확인할지 여부를 지정합니다. 기본값은 true입니다.  | 아닙니다. |
+| useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
+| useHostVerification | SSL을 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
+| usePeerVerification | SSL을 통해 연결할 때 서버의 ID를 확인할지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
 
 **예제:**
 
@@ -98,11 +98,12 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
     "name": "AmazonMWSDataset",
     "properties": {
         "type": "AmazonMWSObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<AmazonMWS linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 
@@ -116,10 +117,10 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 아마존 마켓플레이스 웹 서비스에서 데이터를 복사하려면 복사 작업의 원본 형식을 **AmazonMWSSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을 **AmazonMWSSource**로 설정해야 합니다. | 예 |
-| query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
+| query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"`. | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**
 

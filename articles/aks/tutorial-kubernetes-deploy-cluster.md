@@ -2,22 +2,22 @@
 title: Azure의 Kubernertes 자습서 - 클러스터 배포
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 AKS 클러스터를 만들고 kubectl을 사용하여 Kubernetes 마스터 노드에 연결합니다.
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: twhitney
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 020b5935595506732c1c1425179741c45f8326d7
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: e0dea5fcc7860e8653d542653e279010f8ede200
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304465"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69898844"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>자습서: AKS(Azure Kubernetes Service) 클러스터 배포
 
-Kubernetes는 컨테이너화된 애플리케이션용 분산 플랫폼을 제공합니다. AKS를 사용하면 프로덕션 준비 Kubernetes 클러스터를 신속하게 만들 수 있습니다. 총 7부 중 3부인 이 자습서에서는 Kubernetes 클러스터가 AKS에 배포됩니다. 다음 방법에 대해 알아봅니다.
+Kubernetes는 컨테이너화된 애플리케이션용 분산 플랫폼을 제공합니다. AKS를 사용하면 프로덕션 준비 Kubernetes 클러스터를 신속하게 만들 수 있습니다. 총 7부 중 3부인 이 자습서에서는 Kubernetes 클러스터가 AKS에 배포됩니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 리소스 상호 작용에 대한 서비스 사용자 만들기
@@ -114,8 +114,8 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 $ kubectl get nodes
 
-NAME                       STATUS   ROLES   AGE     VERSION
-aks-nodepool1-28993262-0   Ready    agent   3m18s   v1.9.11
+NAME                       STATUS   ROLES   AGE   VERSION
+aks-nodepool1-12345678-0   Ready    agent   32m   v1.13.10
 ```
 
 ## <a name="next-steps"></a>다음 단계
@@ -128,7 +128,7 @@ aks-nodepool1-28993262-0   Ready    agent   3m18s   v1.9.11
 > * Kubernetes CLI(kubectl) 설치
 > * AKS 클러스터에 연결하도록 kubectl 구성
 
-그 다음 자습서를 계속 진행하여 클러스터에 응용 프로그램을 배포하는 방법을 알아보세요.
+그 다음 자습서를 계속 진행하여 클러스터에 애플리케이션을 배포하는 방법을 알아보세요.
 
 > [!div class="nextstepaction"]
 > [Kubernetes에서 애플리케이션 배포][aks-tutorial-deploy-app]

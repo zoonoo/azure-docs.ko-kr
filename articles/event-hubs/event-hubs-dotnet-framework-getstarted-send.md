@@ -23,7 +23,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "65603514"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>이벤트를 보내거나.NET Framework를 사용 하 여 Azure Event Hubs에서 이벤트 수신
-Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 장치에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. Event Hub로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/저장소 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.
+Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 디바이스에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. Event Hub로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/스토리지 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.
 
 이 자습서에서.NET Framework 콘솔 응용 프로그램을 만드는 방법을 보여 줍니다 C# 이벤트를 보내거나 eventhub에서 이벤트를 수신 합니다. 
 
@@ -188,7 +188,7 @@ Visual Studio에서 **콘솔 애플리케이션** 프로젝트 템플릿을 사�
       using Microsoft.ServiceBus.Messaging;
       ```
     
-2. `Program` 클래스의 `Main` 메서드를 다음 코드로 바꿉니다. 이 코드는 이전에 저장한 이벤트 허브 이름 및 네임스페이스 수준 연결 문자열과 이전 섹션에서 복사한 저장소 계정 및 키를 대체합니다. 
+2. `Program` 클래스의 `Main` 메서드를 다음 코드로 바꿉니다. 이 코드는 이전에 저장한 이벤트 허브 이름 및 네임스페이스 수준 연결 문자열과 이전 섹션에서 복사한 스토리지 계정 및 키를 대체합니다. 
     
       ```csharp
       static void Main(string[] args)

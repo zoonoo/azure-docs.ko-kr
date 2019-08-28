@@ -131,7 +131,7 @@ Blob Storage, 논리 앱 또는 Azure Function의 자세한 설정을 이 아티
 4. 함수를 저장합니다.
 5. 코드가 올바르게 작동하는지 확인하기 위해 함수를 테스트합니다. 오른쪽 창에서 **테스트** 탭으로 전환하여 테스트를 다음과 같이 구성합니다. 샘플 데이터를 포함한 Blob에 대한 링크를 **요청 본문** 텍스트 상자에 배치합니다. **실행**을 클릭한 후에 **출력** 상자에 JSON 출력이 표시됩니다.
 
-    ![Function App 테스트 코드](./media/create-pipeline-datacollector-api/functions-test-01.png)
+    ![함수 앱 테스트 코드](./media/create-pipeline-datacollector-api/functions-test-01.png)
 
 이제 돌아가서 이전에 빌드하기 시작한 논리 앱이 JSON 형식으로 수집되고 변환된 데이터를 포함하도록 수정해야 합니다.  보기 디자이너를 사용하여 다음과 같이 구성한 다음, 논리 앱을 저장합니다.
 

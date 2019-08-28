@@ -1,6 +1,6 @@
 ---
-title: URL 미리 빌드된 엔터티
-titleSuffix: Azure
+title: URL 미리 작성 한 엔터티-LUIS
+titleSuffix: Azure Cognitive Services
 description: 이 문서에는 LUIS(Language Understanding)의 URL 미리 빌드된 엔터티가 포함됩니다.
 services: cognitive-services
 author: diberry
@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: d59020eb45f7dcced5ea8da04b3b908def34fb70
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b05b4f8638eedc0830c887da59c0c22706a1c4ce
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072240"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933379"
 ---
 # <a name="url-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 URL 미리 빌드된 엔터티
 URL 엔터티는 도메인 이름 또는 IP 주소를 사용하여 URL을 추출합니다. 이 엔터티를 이미 학습했기 때문에 URL을 애플리케이션에 포함하는 예제 발언을 추가할 필요가 없습니다. URL 엔터티는 `en-us` 문화권에서만 지원됩니다. 
@@ -54,9 +54,9 @@ URL은 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/mas
 }
 ```
 
-### <a name="preview-api-version-3x"></a>미리 보기 API 버전 3.x
+### <a name="preview-api-version-3x"></a>Preview API 버전 3(sp3)
 
-다음 JSON을 사용 하는 것은 `verbose` 매개 변수 설정 `false`:
+다음 JSON은 `verbose` 매개 변수를로 `false`설정 하는입니다.
 
 ```json
 {
@@ -78,7 +78,7 @@ URL은 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/mas
 }
 ```
 
-다음 JSON을 사용 하는 것은 `verbose` 매개 변수 설정 `true`:
+다음 JSON은 `verbose` 매개 변수를로 `true`설정 하는입니다.
 
 ```json
 {

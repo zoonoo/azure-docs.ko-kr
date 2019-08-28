@@ -3,23 +3,22 @@ title: 클러스터에 대한 Azure Load Balancer 규칙 만들기
 description: Azure Service Fabric 클러스터에 대한 포트를 열도록 Azure Load Balancer를 구성합니다.
 services: service-fabric
 documentationcenter: na
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
-ms.author: aljo
-ms.openlocfilehash: d95d2802398a61b948ff6c59fb3eab0e1ddddbc5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 2c96c421d768b1e75169615d81a03387602a83ac
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66147467"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036074"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Service Fabric 클러스터에 대한 포트 열기
 
@@ -111,4 +110,4 @@ $lb | Set-AzLoadBalancer
 
 ## <a name="next-steps"></a>다음 단계
 
-에 대해 자세히 알아보세요 [Service Fabric의 네트워킹](service-fabric-patterns-networking.md).rvice fabric-패턴 networking.md).
+Rvice-fabric-patterns-networking.md [Service Fabric의 네트워킹](service-fabric-patterns-networking.md)에 대해 자세히 알아보세요.

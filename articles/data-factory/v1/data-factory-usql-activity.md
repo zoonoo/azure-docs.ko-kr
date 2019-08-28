@@ -211,7 +211,7 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 | 형식                | type 속성은 **DataLakeAnalyticsU-SQL**로 설정되어야 합니다. | 예                                      |
 | linkedServiceName   | Data Factory에서 연결된 서비스로 등록된 Azure Data Lake Analytics에 대한 참조 | 예                                      |
 | scriptPath          | U-SQL 스크립트가 포함된 폴더 경로입니다. 파일 이름은 대/소문자를 구분합니다. | 아니요(스크립트를 사용하는 경우)                   |
-| scriptLinkedService | 스크립트가 포함된 저장소를 Data Factory에 연결하는 연결된 서비스입니다. | 아니요(스크립트를 사용하는 경우)                   |
+| scriptLinkedService | 스크립트가 포함된 스토리지를 Data Factory에 연결하는 연결된 서비스입니다. | 아니요(스크립트를 사용하는 경우)                   |
 | script              | scriptPath 및 scriptLinkedService를 지정하는 대신 인라인 스크립트를 지정합니다. 예: `"script": "CREATE DATABASE test"` | 아니요(scriptPath 및 scriptLinkedService를 사용하는 경우) |
 | degreeOfParallelism | 작업을 실행하는 데 동시에 사용되는 최대 노드 수입니다. | 아닙니다.                                       |
 | 우선 순위            | 대기열에 있는 모든 작업 중에서 먼저 실행해야 하는 작업을 결정합니다. 번호가 낮을수록 우선 순위가 높습니다. | 아닙니다.                                       |

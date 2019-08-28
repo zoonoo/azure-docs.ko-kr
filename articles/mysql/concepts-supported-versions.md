@@ -5,19 +5,22 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/13/2019
-ms.openlocfilehash: e7e81632b2be135fb74d375ab8a11f1b4b3ef39d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 08/09/2019
+ms.openlocfilehash: 28d635dc5042799790d032ef4b46bf28118cb326
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60525928"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947167"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>지원되는 MySQL용 Azure 데이터베이스 서버 버전
 
 Azure Database for MySQL은 [MySQL Community Edition](https://www.mysql.com/products/community/)에서 InnoDB 엔진을 사용하여 개발되었습니다.
 
 MySQL은 X.Y.Z 명명 체계를 사용합니다. X는 주 버전, Y는 부 버전이며, Z는 버그 수정 릴리스입니다. 스키마에 대한 자세한 내용은 [MySQL 설명서](https://dev.mysql.com/doc/refman/5.7/en/which-version.html)를 참조하세요.
+
+> [!NOTE]
+> 서비스에서 게이트웨이를 사용하여 새 인스턴스로 연결을 리디렉션합니다. 연결이 설정되면 MySQL 클라이언트는 MySQL Server 인스턴스에서 실행 중인 실제 버전이 아닌 게이트웨이에서 설정된 MySQL 버전을 표시합니다. MySQL Server 인스턴스의 버전을 확인하려면 MySQL 프롬프트에서 `SELECT VERSION();` 명령을 사용합니다.
 
 Azure Database for MySQL은 현재 다음 버전을 지원합니다.
 
@@ -33,8 +36,14 @@ MySQL 5.6.42의 향상된 기능 및 수정에 대한 자세한 내용은 Mysql 
 
 ySQL 5.7.24의 향상된 기능 및 수정 사항에 대한 자세한 내용은 Mysql [릴리스 노트](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-24.html) 를 참조합니다.
 
-> [!NOTE]
-> 서비스에서 게이트웨이를 사용하여 새 인스턴스로 연결을 리디렉션합니다. 연결이 설정되면 MySQL 클라이언트는 MySQL Server 인스턴스에서 실행 중인 실제 버전이 아닌 게이트웨이에서 설정된 MySQL 버전을 표시합니다. MySQL Server 인스턴스의 버전을 확인하려면 MySQL 프롬프트에서 `SELECT VERSION();` 명령을 사용합니다.
+## <a name="mysql-version-80"></a>MySQL 버전 8.0
+
+> [!IMPORTANT]
+> MySQL 8.0은 현재 미리 보기로 제공 됩니다.
+
+버그 수정 릴리스: 8.0.15
+
+Mysql 8.0.15의 향상 된 기능 및 수정 내용에 대 한 자세한 내용은 MySQL [릴리스 정보](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) 를 참조 하세요.
 
 ## <a name="managing-updates-and-upgrades"></a>업데이트 및 업그레이드 관리
 서비스는 버그 수정 버전 업데이트에 대한 패치를 자동으로 관리합니다. 예: 5.7.20~5.7.21  

@@ -8,29 +8,29 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: 1cb6889305e5f6bce5728039712a1834dc2e9353
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 27b548d03e6b05179da744e636a5c887e6b01ad5
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60626743"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624669"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Node.js SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 변경 피드](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Node.JS](sql-api-sdk-node.md)
+> * [Node.js](sql-api-sdk-node.md)
 > * [비동기 Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST (영문)](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [대량 실행자-.NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [대량 실행자-Java](sql-api-sdk-bulk-executor-java.md)
 
-|Resource  |연결  |
+|리소스  |링크  |
 |---------|---------|
 |SDK 다운로드  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
 |API 설명서  |  [JavaScript SDK 참조 설명서](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
@@ -39,9 +39,212 @@ ms.locfileid: "60626743"
 | 샘플 | [Node.js 코드 샘플](sql-api-nodejs-samples.md)
 | 시작 자습서 | [JavaScript SDK 시작](sql-api-nodejs-get-started.md)
 | 웹앱 자습서 | [Azure Cosmos DB를 사용하여 Node.js 웹 애플리케이션 빌드](sql-api-nodejs-application.md)
-| 현재 지원되는 플랫폼 | [Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/) - SDK 버전 2.0.0 이상이 필요합니다.<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> [Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> [Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
+| 현재 지원되는 플랫폼 | [Node.js v12](https://nodejs.org/en/blog/release/v12.7.0/) -SDK 버전 3.x. x. x<br/>[Node.js v10](https://nodejs.org/en/blog/release/v10.6.0/) -SDK 버전 3.x. x. x<br/>[Node.js v8](https://nodejs.org/en/blog/release/v8.16.0/) -SDK 버전 3.x. x. x<br/>[Node.js v6. x](https://nodejs.org/en/blog/release/v6.10.3/) SDK 버전 2.x. x<br/>[Node.js v 4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)-SDK 버전 1.x<br/> [Node.js v 0.12](https://nodejs.org/en/blog/release/v0.12.0/)-SDK 버전 1.x<br/> [Node.js v 0.10](https://nodejs.org/en/blog/release/v0.10.0/)-SDK 버전 1.x
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="3.1.0"/>3.1.0</a>
+* 기본 ResponseContinuationTokenLimitInKB를 1kb로 설정 합니다. 기본적으로 긴 헤더를 사용 하지 않도록 1kb (node.js는 전역 헤더 크기 제한을 50,). 사용자는이 필드를 긴 헤더를 허용 하도록 설정 하 여 백 엔드에서 쿼리 실행을 최적화 하는 데 도움이 될 수 있습니다.
+* DisableSSLVerification을 제거 합니다. 이 옵션에는에 설명 된 새로운 대안이 [#388](https://github.com/Azure/azure-cosmos-js/pull/388)
+
+### <a name="3.0.4"/>3.0.4</a>
+* InitialHeaders 파티션 키 헤더를 명시적으로 설정 하도록 허용
+* Package # 파일을 사용 하 여 불필요 한 파일이 게시 되지 않도록 합니다.
+* 이전 버전의 node + v8에서 라우팅 맵 정렬 오류 수정
+* 사용자가 부분 다시 시도 옵션을 제공 하면 버그를 수정 합니다.
+
+### <a name="3.0.3"/>3.0.3</a>
+* Webpack에서 필수로 호출 된 모듈을 확인 하지 못하도록 방지
+
+### <a name="3.0.2"/>3.0.2</a>
+* RUs가 집계 쿼리에 대해 항상 0으로 보고 되는 긴 미해결 버그를 수정 합니다.
+
+### <a name="3.0.0"/>3.0.0</a>
+
+🎉 v3 릴리스 새 기능, 버그 수정 및 몇 가지 주요 변경 내용을 🎉 합니다. 이 릴리스의 주요 목표:
+
+* 주요 새로운 기능 구현
+  * 고유 쿼리
+  * 제한/오프셋 쿼리
+  * 사용자가 취소할 때 요청
+* 모든 컨테이너가 무제한으로 확장 된 최신 Cosmos REST API 버전으로 업데이트
+* 브라우저에서 Cosmos을 보다 쉽게 사용할 수 있도록 합니다.
+* 새 Azure JS SDK 지침에 맞게 조정
+
+#### <a name="migration-guide-for-breaking-changes"></a>주요 변경 내용에 대 한 마이그레이션 가이드
+##### <a name="improved-client-constructor-options"></a>향상 된 클라이언트 생성자 옵션
+
+생성자 옵션이 간소화 되었습니다.
+
+* masterKey가 key로 이름이 바뀌고 최상위 수준으로 이동 되었습니다.
+* 이전에 옵션 아래에 있는 속성. auth가 최상위 수준으로 이동 했습니다.
+
+``` js
+// v2
+const client = new CosmosClient({
+    endpoint: "https://your-database.cosmos.azure.com",
+    auth: {
+        masterKey: "your-primary-key"
+    }
+})
+
+// v3
+const client = new CosmosClient({
+    endpoint: "https://your-database.cosmos.azure.com",
+    key: "your-primary-key"
+})
+```
+
+##### <a name="simplified-queryiterator-api"></a>간소화 된 QueryIterator API
+V2에서는 쿼리 결과를 반복 하거나 검색 하는 다양 한 방법이 있었습니다. V3 API를 간소화 하 고 유사 하거나 중복 된 Api를 제거 하려고 했습니다.
+
+* Iterator를 제거 합니다. next () 및 iterator. current (). FetchNext ()를 사용 하 여 결과 페이지를 가져옵니다.
+* Iterator. forEach ()를 제거 합니다. 대신 비동기 반복기를 사용 합니다.
+* iterator. executeNext () 이름이 iterator로 바뀌었습니다. fetchNext ()
+* iterator. toArray () 이름이 iterator로 바뀌었습니다. fetchAll ()
+* 이제 페이지는 일반 JS 개체 대신 적절 한 응답 개체입니다.
+* const container = client.msi (dbId). 컨테이너 (containerId)
+
+``` js
+// v2
+container.items.query('SELECT * from c').toArray()
+container.items.query('SELECT * from c').executeNext()
+container.items.query('SELECT * from c').forEach(({ body: item }) => { console.log(item.id) })
+
+// v3
+container.items.query('SELECT * from c').fetchAll()
+container.items.query('SELECT * from c').fetchNext()
+for await(const { result: item } in client.databases.readAll().getAsyncIterator()) {
+    console.log(item.id)
+}
+```
+
+##### <a name="fixed-containers-are-now-partitioned"></a>이제 고정 컨테이너가 분할 됩니다.
+이제 Cosmos 서비스는 이전에 고정 컨테이너로 만든 컨테이너를 포함 하 여 모든 컨테이너의 파티션 키를 지원 합니다. V3 SDK는이 변경 내용을 구현 하는 최신 API 버전으로 업데이트 되지만 중단 되지 않습니다. 작업에 대 한 파티션 키를 제공 하지 않으면 기존 컨테이너와 문서 모두에서 작동 하는 시스템 키가 기본값으로 사용 됩니다.
+
+##### <a name="upsert-removed-for-stored-procedures"></a>저장 프로시저에 대 한 Upsert 제거 됨
+이전에는 분할 되지 않은 컬렉션에 대해 upsert를 허용 했지만 API 버전 업데이트를 사용 하는 경우 모든 컬렉션이 분할 되므로 완전히 제거 되었습니다.
+
+##### <a name="item-reads-will-not-throw-on-404"></a>항목 읽기는 404에서 throw 되지 않습니다.
+const container = client.msi (dbId). 컨테이너 (containerId)
+
+``` js
+// v2
+try {
+    container.items.read(id, undefined)
+} catch (e) {
+    if (e.code === 404) { console.log('item not found') }
+}
+
+// v3
+const { result: item }  = container.items.read(id, undefined)
+if (item === undefined) { console.log('item not found') }
+```
+
+##### <a name="default-multi-region-write"></a>기본 다중 지역 쓰기
+이제 Cosmos 구성에서 지 원하는 경우 SDK는 기본적으로 여러 지역에 작성 됩니다. 이는 이전에 옵트인 동작 이었습니다.
+
+##### <a name="proper-error-objects"></a>적절 한 오류 개체
+이제 실패 한 요청은 적절 한 오류 또는 오류 하위 클래스를 throw 합니다. 이전에는 일반 JS 개체를 throw 했습니다.
+
+#### <a name="new-features"></a>새 기능
+##### <a name="user-cancelable-requests"></a>사용자가 취소할 때 요청
+내부적으로 fetch로 이동 하면 browser AbortController API를 사용 하 여 사용자가 취소할 수 있는 작업을 지원할 수 있습니다. 여러 요청이 잠재적으로 진행 중인 작업 (예: 파티션 간 쿼리)의 경우 작업에 대 한 모든 요청이 취소 됩니다. 최신 브라우저 사용자는 이미 AbortController을가지고 있습니다. Node.js 사용자가 safehtml 라이브러리를 사용 해야 합니다.
+
+``` js
+ const controller = new AbortController()
+ const {result: item} = await items.query('SELECT * from c', { abortSignal: controller.signal});
+ controller.abort()
+```
+
+##### <a name="set-throughput-as-part-of-dbcontainer-create-operation"></a>Db/컨테이너 만들기 작업의 일부로 처리량 설정
+``` js
+const { database }  = client.databases.create({ id: 'my-database', throughput: 10000 })
+database.containers.create({ id: 'my-container', throughput: 10000 })
+```
+
+##### <a name="azurecosmos-sign"></a>@azure/cosmos-sign
+헤더 토큰 생성이 새 라이브러리인 @azure/cosmos-sign로 분할 되었습니다. Cosmos REST API를 직접 호출 하는 모든 사용자는 내부 @azure/cosmos에서 호출 하는 동일한 코드를 사용 하 여 헤더에 서명 하는 데 사용할 수 있습니다
+
+##### <a name="uuid-for-generated-ids"></a>생성 된 Id의 UUID
+v2에는 항목 Id를 생성 하는 사용자 지정 코드가 있습니다. 잘 알려진 커뮤니티 라이브러리 uuid로 전환 했습니다.
+
+##### <a name="connection-strings"></a>연결 문자열
+이제 Azure Portal에서 복사 된 연결 문자열을 전달할 수 있습니다.
+
+``` js
+const client = new CosmosClient("AccountEndpoint=https://test-account.documents.azure.com:443/;AccountKey=c213asdasdefgdfgrtweaYPpgoeCsHbpRTHhxuMsTaw==;")
+Add DISTINCT and LIMIT/OFFSET queries (#306)
+ const { results } = await items.query('SELECT DISTINCT VALUE r.name FROM ROOT').fetchAll()
+ const { results } = await items.query('SELECT * FROM root r OFFSET 1 LIMIT 2').fetchAll()
+```
+
+#### <a name="improved-browser-experience"></a>향상 된 브라우저 환경
+브라우저에서 v2 SDK를 사용할 수 있지만 이상적인 환경은 아닙니다. 여러 node.js 기본 제공 라이브러리를 safehtml 하 고 Webpack 또는 Parcel와 같은 번들러을 사용 해야 합니다. V3 SDK를 사용 하면 브라우저 사용자에 게 가장 적합 한 환경을 사용할 수 있습니다.
+
+* 요청 내부를 fetch로 바꾸기 (#245)
+* 버퍼 사용 제거 (#330)
+* 유니버설 패키지/a p i를 사용 하 여 노드 builtin 사용을 제거 합니다 (#328).
+* 노드 중단으로 전환 (#294)
+
+#### <a name="bug-fixes"></a>버그 수정
+* 제품 읽기 및 다시 가져오기 제품 수정 (#224)
+* EnableEndpointDiscovery 수정 (#207)
+* 페이지가 매겨진 결과에서 누락 된 RUs 수정 (#360)
+* SQL 쿼리 매개 변수 형식 확장 (#346)
+* ItemDefinition에 ttl 추가 (#341)
+* CP 쿼리 메트릭 수정 (#311)
+* FeedResponse에 활동 id 추가 (#293)
+* Ts 형식에서 숫자 (#252)로 전환 (#295)
+* 요청 요금 집계 수정 (#289)
+* 빈 문자열 파티션 키 허용 (#277)
+* 충돌 쿼리 유형에 문자열 추가 (#237)
+* 컨테이너에 uniqueKeyPolicy 추가 (#234)
+
+#### <a name="engineering-systems"></a>엔지니어링 시스템
+항상 가장 눈에 띄는 변경 사항은 아니지만 팀이 더 나은 코드를 더 빠르게 제공 하는 데 도움이 됩니다.
+
+* 프로덕션 빌드에 대해 rollup 사용 (#104)
+* Typescript 3.5로 업데이트 (#327)
+* TS 프로젝트 참조로 변환 합니다. 테스트 폴더 추출 (#270)
+* NoUnusedLocals 및 noUnusedParameters (#275) 사용
+* CI 빌드에 대 한 Azure Pipelines YAML (#298)
+
+### <a name="2.1.5"/>2.1.5</a>
+* 코드는 변경 되지 않습니다. 2\.1.4 패키지에 추가 파일이 포함 된 문제를 해결 합니다.
+
+### <a name="2.1.4"/>2.1.4</a>
+* 재시도 정책 내에서 지역별 장애 조치 (failover) 수정
+* ChangeFeed hasMoreResults 속성 수정
+* Dev 종속성 업데이트
+* PolicheckExclusions 추가
+
+### <a name="2.1.3"/>2.1.3</a>
+* Ts 형식을 문자열에서 숫자로 전환 (_s)
+* 기본 인덱싱 테스트 수정
+* 백 포트 uniqueKeyPolicy v2
+* 데모 및 데모 디버깅 수정
+
+### <a name="2.1.2"/>2.1.2</a>
+* V3 분기의 백 포트 제공 수정
+* ExecuteNext () 형식 시그니처의 버그 수정
+* 오타가 수정
+
+### <a name="2.1.1"/>2.1.1</a>
+* 빌드 재구성. 빌드 시 SDK 버전을 끌어올 수 있습니다.
+
+### <a name="2.1.0"/>2.1.0</a>
+#### <a name="new-features"></a>새 기능
+* 추가 된 ChangeFeed 지원 (#196)
+* 인덱싱에 대 한 MultiPolygon 데이터 형식을 추가 했습니다 (#191).
+* MasterKey (#202)에 대 한 별칭으로 생성자에 "key" 속성을 추가 합니다.
+
+#### <a name="fixes"></a>수정 프로그램
+* Next ()가 반복기에서 잘못 된 값을 반환 하는 버그를 수정 합니다.
+
+#### <a name="engineering-improvements"></a>엔지니어링 기능 향상
+* Typescript 소비에 대 한 통합 테스트 추가 (#199)
+* GitHub에서 직접 설치 (#194) 사용
 
 ### <a name="2.0.5"/>2.0.5</a>
 * 노드 에이전트 형식의 인터페이스를 추가합니다. Typescript 사용자는 더 이상 @types/node를 종속성으로 설치할 필요가 없습니다.
@@ -183,7 +386,7 @@ ms.locfileid: "60626743"
 
 ### <a name="1.2.0"/>1.2.0</a>
 * 지리 공간 인덱스에 대한 지원이 추가되었습니다.
-* 모든 리소스에 대한 ID 속성의 유효성을 검사합니다. 리소스의 ID는 ?, /, #, &#47;&#47; 문자를 포함할 수 없으며 공백으로 끝날 수도 없습니다.
+* 모든 리소스에 대한 ID 속성의 유효성을 검사합니다. 리소스 id에는?,/, #, &#47; &#47;, 문자를 사용할 수 없으며 공백으로 끝날 수 없습니다.
 * 새 헤더 "인덱스 변환 진행률"을 ResourceResponse에 추가합니다.
 
 ### <a name="1.1.0"/>1.1.0</a>
@@ -212,7 +415,7 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 
 <br/>
 
-| Version | 릴리스 날짜 | 사용 중지 날짜 |
+| 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
 | [2.0.0-3(RC)](#2.0.0-3) |2018년 8월 2일 |--- |
 | [1.14.4](#1.14.4) |2018년 5월 3일 |--- |
@@ -253,6 +456,6 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 Cosmos DB에 대한 자세한 내용은 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 서비스 페이지를 참조하세요.
 

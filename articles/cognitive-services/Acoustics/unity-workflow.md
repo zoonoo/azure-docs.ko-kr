@@ -3,19 +3,20 @@ title: Project Acoustics Unity 디자인 자습서
 titlesuffix: Azure Cognitive Services
 description: 이 자습서에서는 Unity의 Project Acoustics 디자인 워크플로에 대해 설명합니다.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
-ms.author: kegodin
-ms.openlocfilehash: 01783aa12f586f61583b1503c796f9b523770104
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.author: noelc
+ROBOTS: NOINDEX
+ms.openlocfilehash: fd00e4105ce4edae9d014df2a83c5ae3aaf778da
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310628"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854274"
 ---
 # <a name="project-acoustics-unity-design-tutorial"></a>Project Acoustics Unity 디자인 자습서
 이 자습서에서는 Unity의 Project Acoustics 디자인 도구 및 워크플로에 대해 설명합니다.

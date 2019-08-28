@@ -10,18 +10,18 @@ ms.date: 05/11/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d04c1e137a190b01554106c041853aa2fd6786d7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cd8ba51b960703fa25371d874ed2bb50e7df2fde
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65146906"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360048"
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Microsoft Azure Storage용 Python을 이용한 클라이언트쪽 암호화
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>개요
-[Python용 Azure 스토리지 클라이언트 라이브러리](https://pypi.python.org/pypi/azure-storage) 는 Azure Storage에 업로드하기 전에 클라이언트 응용 프로그램 내부에서 데이터를 암호화하고 클라이언트로 다운로드하는 동안 데이터 암호를 해독하는 기능을 지원합니다.
+[Python용 Azure 스토리지 클라이언트 라이브러리](https://pypi.python.org/pypi/azure-storage) 는 Azure Storage에 업로드하기 전에 클라이언트 애플리케이션 내부에서 데이터를 암호화하고 클라이언트로 다운로드하는 동안 데이터 암호를 해독하는 기능을 지원합니다.
 
 > [!NOTE]
 > Azure Storage Python 라이브러리는 미리 보기 상태입니다.
@@ -34,10 +34,10 @@ ms.locfileid: "65146906"
 ### <a name="encryption-via-the-envelope-technique"></a>봉투(Envelope) 기술을 통해 암호화
 암호화는 봉투(Envelope) 기술을 통해 다음과 같은 방식으로 작동합니다.
 
-1. Azure 저장소 클라이언트 라이브러리는 1회용 대칭 키인 콘텐츠 암호화 키(CEK)를 생성합니다.
+1. Azure Storage 클라이언트 라이브러리는 1회용 대칭 키인 콘텐츠 암호화 키(CEK)를 생성합니다.
 2. 사용자 데이터는 이 CEK를 사용하여 암호화됩니다.
 3. 그런 다음 키 암호화 KEK를 사용하여 CEK를 래핑(암호화)합니다. KEK는 키 식별자로 식별되고 비대칭 키 쌍 또는 대칭 키일 수 있으며 로컬로 관리됩니다.
-   저장소 클라이언트 라이브러리 자체는 KEK에 액세스할 수 없습니다. 라이브러리는 KEK에서 제공하는 키 래핑 알고리즘을 호출합니다. 사용자는 원하는 경우 키 래핑/래핑 해제를 위해 사용자 지정 공급자를 사용하도록 선택할 수 있습니다.
+   스토리지 클라이언트 라이브러리 자체는 KEK에 액세스할 수 없습니다. 라이브러리는 KEK에서 제공하는 키 래핑 알고리즘을 호출합니다. 사용자는 원하는 경우 키 래핑/래핑 해제를 위해 사용자 지정 공급자를 사용하도록 선택할 수 있습니다.
 4. 그런 다음 암호화된 데이터를 Azure Storage 서비스에 업로드합니다. 일부 추가 암호화 메타데이터와 함께 래핑된 키에 메타 데이터로(Blob) 저장 되거나 암호화 된 데이터 (메시지 큐 및 테이블 엔터티)와 보관 합니다.
 
 ### <a name="decryption-via-the-envelope-technique"></a>봉투(Envelope) 기술을 통해 암호해독
@@ -49,7 +49,7 @@ ms.locfileid: "65146906"
 4. 그리고 콘텐츠 암호화 키 (CEK)는  암호화 된 사용자 데이터의 암호를 해독 하는데 사용 됩니다.
 
 ## <a name="encryption-mechanism"></a>암호화 메커니즘
-저장소 클라이언트 라이브러리는 사용자 데이터를 암호화하기 위해 [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 를 사용합니다. 특히, AES를 이용한 [CBC(암호화 블록 체인)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) 모드입니다. 각 서비스는 하는 일이 각각 다르므로 여기서 이것들을 살펴볼 것입니다.
+스토리지 클라이언트 라이브러리는 사용자 데이터를 암호화하기 위해 [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 를 사용합니다. 특히, AES를 이용한 [CBC(암호화 블록 체인)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) 모드입니다. 각 서비스는 하는 일이 각각 다르므로 여기서 이것들을 살펴볼 것입니다.
 
 ### <a name="blobs"></a>Blob
 클라이언트 라이브러리는 현재 전체 blob 암호화만 지원합니다. 특히 사용자가 **create*** 메서드를 사용할 때 암호화가 지원됩니다. 다운로드로는 전체 및 범위 다운로드가 지원되며, 업로드 및 다운로드의 병렬화를 사용할 수 있습니다.
@@ -117,10 +117,10 @@ tableservice batch() 메서드를 통해 배치가 컨텍스트 관리자로 생
 > * 암호화된 blob에서 메타데이터를 설정하는 경우 메타데이터의 설정은 가산적이 아니므로 암호 해독에 필요한 암호화 관련 메타데이터를 덮어쓸 수도 있습니다. 이것은 스냅샷에 대해서 마찬가지입니다. 암호화된 blob의 스냅샷을 생성하는 동안 메타데이터를 지정하지 않도록 하세요. 메타데이터가 설정되어야 하는 경우 먼저 **get_blob_metadata** 메서드를 호출하여 현재 암호화 메타데이터를 가져오고, 메타데이터가 설정되는 동안에는 동시 쓰기를 피합니다.
 > * 암호화된 데이터에만 작동해야 하는 사용자의 서비스 개체에 **require_encryption** 플래그를 사용하도록 설정합니다. 자세한 내용은 다음을 참조하세요.
 
-저장소 클라이언트 라이브러리는 제공된 KEK 및 키 확인자가 다음 인터페이스를 구현할 것으로 예상합니다. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 지원이 보류 중이며, 완료 시 이 라이브러리에 통합될 예정입니다.
+스토리지 클라이언트 라이브러리는 제공된 KEK 및 키 확인자가 다음 인터페이스를 구현할 것으로 예상합니다. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 지원이 보류 중이며, 완료 시 이 라이브러리에 통합될 예정입니다.
 
 ## <a name="client-api--interface"></a>클라이언트 API / 인터페이스
-저장소 서비스 개체(예: blockblobservice)가 생성된 후에 사용자는 암호화 정책 key_encryption_key, key_resolver_function 및 require_encryption을 구성하는 필드에 값을 할당할 수 있습니다. 사용자는 KEK만, 확인자만 또는 둘 다를 제공할 수 있습니다. key_encryption_key는 key 래핑/래핑 해제에 대한 논리를 제공하고 키 식별자를 사용하여 식별 되는 기본 키 유형입니다. key_resolver_function은 암호 해독 프로세스에서 키를 해독하기 위해 사용됩니다. 지정된 키 식별자에 대해 유효한 KEK를 반환합니다. 이것은 사용자에게 여러 위치에서 관리되는 여러 키 중 하나를 선택할 수 있게 합니다.
+스토리지 서비스 개체(예: blockblobservice)가 생성된 후에 사용자는 암호화 정책 key_encryption_key, key_resolver_function 및 require_encryption을 구성하는 필드에 값을 할당할 수 있습니다. 사용자는 KEK만, 확인자만 또는 둘 다를 제공할 수 있습니다. key_encryption_key는 key 래핑/래핑 해제에 대한 논리를 제공하고 키 식별자를 사용하여 식별 되는 기본 키 유형입니다. key_resolver_function은 암호 해독 프로세스에서 키를 해독하기 위해 사용됩니다. 지정된 키 식별자에 대해 유효한 KEK를 반환합니다. 이것은 사용자에게 여러 위치에서 관리되는 여러 키 중 하나를 선택할 수 있게 합니다.
 
 KEK는 데이터를 성공적으로 암호화하기 위해 다음 메서드를 구현해야 합니다.
 
@@ -139,7 +139,7 @@ KEK는 데이터를 성공적으로 암호화하기 위해 다음 메서드를 �
   * 키 확인자는 키를 가져오기 위해 지정된 경우 호출됩니다. 확인자를 지정 하 고 키 식별자에 대한 매핑이 없는 경우, 오류가 전달됩니다.
   * 확인자는 지정하지 않고 키는 지정한 경우 해당 식별자가 필요한 키 식별자와 일치하는 경우 키가 사용됩니다. 식별자가 일치하지 않으면 오류가 throw됩니다.
 
-    Azure.storage.samples의 암호화 샘플은 blob, 큐 및 테이블에 대 한 보다 자세한 종단 간 시나리오를 보여 줍니다.
+    Azure. samples의 암호화 샘플은 blob, 큐 및 테이블에 대 한 보다 자세한 종단 간 시나리오를 보여 줍니다.
       KEK 및 키 확인자의 샘플 구현은 예제 파일에 각각 KeyWrapper 및 KeyResolver로 제공됩니다.
 
 ### <a name="requireencryption-mode"></a>RequireEncryption 모드
@@ -151,7 +151,7 @@ blockblobservice 개체에 대해 암호화 정책 필드를 설정합니다. �
 ```python
 # Create the KEK used for encryption.
 # KeyWrapper is the provided sample implementation, but the user may use their own object as long as it implements the interface above.
-kek = KeyWrapper('local:key1') # Key identifier
+kek = KeyWrapper('local:key1')  # Key identifier
 
 # Create the key resolver used for decryption.
 # KeyResolver is the provided sample implementation, but the user may use whatever implementation they choose so long as the function set on the service object behaves appropriately.
@@ -163,7 +163,8 @@ my_block_blob_service.key_encryption_key = kek
 my_block_blob_service.key_resolver_funcion = key_resolver.resolve_key
 
 # Upload the encrypted contents to the blob.
-my_block_blob_service.create_blob_from_stream(container_name, blob_name, stream)
+my_block_blob_service.create_blob_from_stream(
+    container_name, blob_name, stream)
 
 # Download and decrypt the encrypted contents from the blob.
 blob = my_block_blob_service.get_blob_to_bytes(container_name, blob_name)
@@ -175,7 +176,7 @@ queueservice 개체에 대해 암호화 정책 필드를 설정합니다. 다른
 ```python
 # Create the KEK used for encryption.
 # KeyWrapper is the provided sample implementation, but the user may use their own object as long as it implements the interface above.
-kek = KeyWrapper('local:key1') # Key identifier
+kek = KeyWrapper('local:key1')  # Key identifier
 
 # Create the key resolver used for decryption.
 # KeyResolver is the provided sample implementation, but the user may use whatever implementation they choose so long as the function set on the service object behaves appropriately.
@@ -201,7 +202,7 @@ retrieved_message_list = my_queue_service.get_messages(queue_name)
 ```python
 # Create the KEK used for encryption.
 # KeyWrapper is the provided sample implementation, but the user may use their own object as long as it implements the interface above.
-kek = KeyWrapper('local:key1') # Key identifier
+kek = KeyWrapper('local:key1')  # Key identifier
 
 # Create the key resolver used for decryption.
 # KeyResolver is the provided sample implementation, but the user may use whatever implementation they choose so long as the function set on the service object behaves appropriately.
@@ -209,10 +210,13 @@ key_resolver = KeyResolver()
 key_resolver.put_key(kek)
 
 # Define the encryption resolver_function.
+
+
 def my_encryption_resolver(pk, rk, property_name):
     if property_name == 'foo':
         return True
     return False
+
 
 # Set the KEK and key resolver on the service object.
 my_table_service.key_encryption_key = kek
@@ -224,7 +228,8 @@ my_table_service.insert_entity(table_name, entity)
 
 # Retrieve Entity
 # Note: No need to specify an encryption resolver for retrieve, but it is harmless to leave the property set.
-my_table_service.get_entity(table_name, entity['PartitionKey'], entity['RowKey'])
+my_table_service.get_entity(
+    table_name, entity['PartitionKey'], entity['RowKey'])
 ```
 
 ### <a name="using-attributes"></a>특성을 사용하여
@@ -235,7 +240,7 @@ encrypted_property_1 = EntityProperty(EdmType.STRING, value, encrypt=True)
 ```
 
 ## <a name="encryption-and-performance"></a>암호화 및 성능
-저장소 데이터를 암호화하면 추가 성능 오버헤드가 발생합니다. 콘텐츠 키 및 IV를 생성해야 하고, 콘텐츠 자체를 암호화해야 하고, 추가 메타데이터의 형식을 지정한 후 업로드해야 합니다. 이 오버헤드는 암호화되는 데이터의 양에 따라 달라집니다. 고객은 항상 개발 중에 애플리케이션 성능을 테스트하는 것이 좋습니다.
+스토리지 데이터를 암호화하면 추가 성능 오버헤드가 발생합니다. 콘텐츠 키 및 IV를 생성해야 하고, 콘텐츠 자체를 암호화해야 하고, 추가 메타데이터의 형식을 지정한 후 업로드해야 합니다. 이 오버헤드는 암호화되는 데이터의 양에 따라 달라집니다. 고객은 항상 개발 중에 애플리케이션 성능을 테스트하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Java PyPi 패키지에 대한 Azure Storage 클라이언트 라이브러리](https://pypi.python.org/pypi/azure-storage)

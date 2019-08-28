@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 12/06/2018
-ms.openlocfilehash: c89567115079887295704e216cd4046fae99c9d1
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.date: 06/25/2019
+ms.openlocfilehash: 181d052501b9c418fad10a2069dde928a7ff9f38
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64873023"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840245"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>자습서: HDInsight에서 Apache Storm 및 Apache Kafka 사용
 
@@ -38,7 +38,7 @@ ms.locfileid: "64873023"
 
 * Storm 솔루션(토폴로지) 빌드 및 배포 방법 이해. 특히, [Apache Storm Flux](https://storm.apache.org/releases/current/flux.html) 프레임워크를 사용하는 토폴로지에 대한 기본 지식이 필요합니다. 자세한 내용은 [Java에서 Apache Storm 토폴로지 만들기](./storm/apache-storm-develop-java-topology.md) 문서를 참조하세요.
 
-* [Java JDK 1.8](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) 이상 - HDInsight 3.5 이상에는 Java 8이 필요합니다.
+* [Java JDK 1.8](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) 이상 \- HDInsight 3.5 이상에는 Java 8이 필요합니다.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -58,7 +58,7 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
 > 
 > 사용자의 편의를 위해, 이 문서는 필요한 모든 Azure 리소스를 만들 수 있는 템플릿에 연결되어 있습니다. 
 >
-> 가상 네트워크에서 HDInsight를 사용하는 방법에 대한 자세한 내용은 [가상 네트워크를 사용하여 HDInsight 확장](hdinsight-extend-hadoop-virtual-network.md)을 참조하세요.
+> 가상 네트워크에서 HDInsight 사용에 대한 자세한 내용은 [HDInsight용 가상 네트워크 계획](hdinsight-plan-virtual-network-deployment.md) 문서를 참조하세요.
 
 ## <a name="storm-and-kafka"></a>Storm 및 Kafka
 
@@ -124,13 +124,13 @@ Apache Storm은 Apache Kafka로 작업하기 위한 몇 가지 구성 요소를 
 * Kafka-reader: Kafka에서 데이터를 읽고 Storm 클러스터의 HDFS 호환 파일 저장소에 저장합니다.
 
     > [!WARNING]  
-    > Storm이 HDInsight에서 사용되는 HDFS 호환 저장소를 사용할 수 있도록 하려면 스크립트 작업이 필요합니다. 이 스크립트는 여러 개의 jar 파일을 Storm에 대한 `extlib` 경로에 설치합니다. 이 자습서의 템플릿은 클러스터 생성 중에 자동으로 이 스크립트를 사용합니다.
+    > Storm이 HDInsight에서 사용되는 HDFS 호환 스토리지를 사용할 수 있도록 하려면 스크립트 작업이 필요합니다. 이 스크립트는 여러 개의 jar 파일을 Storm에 대한 `extlib` 경로에 설치합니다. 이 자습서의 템플릿은 클러스터 생성 중에 자동으로 이 스크립트를 사용합니다.
     >
     > Storm 클러스터를 만드는 데 이 문서의 템플릿을 사용하지 않을 경우 클러스터에 스크립트 작업을 수동으로 적용해야 합니다.
     >
     > 스크립트 작업은 [https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh](https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh)에 있으며, Storm 클러스터의 supervisor 및 nimbus 노드에 적용됩니다. 스크립트 작업 사용에 대한 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md) 문서를 참조하세요.
 
-토폴로지는 [Flux](https://storm.apache.org/releases/1.1.2/flux.html)를 사용하여 정의됩니다. Flux는 Storm 0.10.x에서 소개되었으며, 토폴로지 구성을 코드에서 분리할 수 있습니다. Flux 프레임워크를 사용하는 토폴로지의 경우 토폴로지는 YAML 파일에 정의됩니다. YAML 파일은 토폴로지의 일부로 포함할 수 있습니다. 또는 토폴로지를 전송할 때 독립 실행형 파일로 사용할 수도 있습니다. Flux는 런타임 시 변수 대체도 지원하며, 이 예제에서 사용됩니다.
+토폴로지는 [Flux](https://storm.apache.org/releases/current/flux.html)를 사용하여 정의됩니다. Flux는 Storm 0.10.x에서 소개되었으며, 토폴로지 구성을 코드에서 분리할 수 있습니다. Flux 프레임워크를 사용하는 토폴로지의 경우 토폴로지는 YAML 파일에 정의됩니다. YAML 파일은 토폴로지의 일부로 포함할 수 있습니다. 또는 토폴로지를 전송할 때 독립 실행형 파일로 사용할 수도 있습니다. Flux는 런타임 시 변수 대체도 지원하며, 이 예제에서 사용됩니다.
 
 이러한 토폴로지에 대해 런타임에 다음 매개 변수가 설정됩니다.
 
@@ -144,7 +144,7 @@ Apache Storm은 Apache Kafka로 작업하기 위한 몇 가지 구성 요소를 
 
 * `${hdfs.write.dir}`: 데이터가 기록된 디렉터리입니다.
 
-Flux 토폴로지에 대한 자세한 내용은 [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html)을 참조하세요.
+Flux 토폴로지에 대한 자세한 내용은 [https://storm.apache.org/releases/current/flux.html](https://storm.apache.org/releases/current/flux.html)을 참조하세요.
 
 ### <a name="kafka-writer"></a>Kafka-writer
 
@@ -408,8 +408,8 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Storm 클러스터를 �
 
       | 설정 | 값 |
       | --- | --- |
-      | 구독 | Azure 구독 |
-      | 리소스 그룹 | 리소스를 포함하는 리소스 그룹입니다. |
+      | Subscription | Azure 구독 |
+      | Resource group | 리소스를 포함하는 리소스 그룹입니다. |
       | 위치 | 리소스가 만들어지는 Azure 지역입니다. |
       | Kafka 클러스터 이름 | Kafka 클러스터의 이름입니다. |
       | Storm 클러스터 이름 | Storm 클러스터의 이름입니다. |
@@ -471,7 +471,9 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Storm 클러스터를 �
 
     반환되는 값은 다음 텍스트와 유사합니다.
 
+        ```output
         wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
+        ```
 
     > [!IMPORTANT]  
     > 클러스터에 대해 두 개 이상의 브로커 호스트가 있을 수 있습니다. 클라이언트에 대한 모든 호스트의 전체 목록을 제공할 필요는 없습니다. 하나 또는 두 개로도 충분합니다.
@@ -629,15 +631,9 @@ Azure Portal을 사용하여 리소스 그룹을 제거하려면:
 2. 삭제할 리소스 그룹을 찾은 다음 목록 오른쪽에 있는 __자세히__ 단추(...)를 마우스 오른쪽 단추로 클릭합니다.
 3. __리소스 그룹 삭제__를 선택한 다음 확인합니다.
 
-> [!WARNING]  
-> 클러스터가 만들어지면 HDInsight 클러스터 청구가 시작되고 클러스터가 삭제되면 중지됩니다. 분 단위로 청구되므로 더 이상 사용하지 않으면 항상 클러스터를 삭제해야 합니다.
-> 
-> HDInsight 클러스터의 Kafka를 삭제하면 Kafka에 저장된 데이터가 모두 삭제됩니다.
-
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 [Apache Storm](https://storm.apache.org/) 토폴로지를 사용하여 HDInsight의 [Apache Kafka](https://kafka.apache.org/)에서 읽고 쓰는 방법을 알아보았습니다. 또한 HDInsight에서 사용되는 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) 호환 스토리지에 데이터를 저장하는 방법도 배웠습니다.
 
-HDInsight의 Kafka 사용에 대한 자세한 내용은 [Apache Kafka 생산자 및 소비자 API 사용](kafka/apache-kafka-producer-consumer-api.md) 문서를 참조하세요.
-
-Linux 기반 HDInsight에서 토폴로지 배포 및 모니터링에 대한 정보는 [Linux 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리](storm/apache-storm-deploy-monitor-topology-linux.md)를 참조하세요.
+> [!div class="nextstepaction"]
+> [Apache Kafka 생산자 및 소비자 API 사용](kafka/apache-kafka-producer-consumer-api.md)

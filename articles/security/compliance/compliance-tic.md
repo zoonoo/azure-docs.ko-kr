@@ -80,7 +80,7 @@ TIC 준수를 지원하는 가장 간단한 시나리오는 가상 머신 또는
 
 Azure는 시스템 경로를 자동으로 만들고 가상 네트워크의 각 서브넷에 경로를 할당합니다. 시스템 경로는 만들거나 제거할 수 없지만, 일부 시스템 경로는 사용자 지정 경로를 사용하여 재정의할 수 있습니다. Azure는 각 서브넷에 대한 기본 시스템 경로를 만듭니다. Azure는 특정 Azure 기능을 사용하는 경우 특정 서브넷 또는 모든 서브넷에 선택적 기본 경로를 추가합니다. 이 유형의 라우팅은 다음을 보장합니다.
 - 가상 네트워크 내에서 예정된 트래픽은 가상 네트워크 내에서 유지됩니다.
-- 10\.0.0.0/8과 같이 IANA에서 지정한 프라이빗 주소 공간은 가상 네트워크 주소 공간에 포함되지 않으면 삭제됩니다.
+- 10.0.0.0/8과 같이 IANA에서 지정한 프라이빗 주소 공간은 가상 네트워크 주소 공간에 포함되지 않으면 삭제됩니다.
 - "마지막 수단"으로 가상 네트워크 인터넷 엔드포인트에 0.0.0.0/0을 라우팅합니다.
 
 ![TIC 강제 터널링](media/tic-diagram-c.png)
@@ -120,7 +120,7 @@ Network Watcher를 사용하여 IP 트래픽을 둘러싼 메타데이터를 나
 
 ## <a name="azure-platform-as-a-service-offerings"></a>Azure Platform as a Service 제품
 
-Azure Storage와 같은 Azure PaaS 서비스는 인터넷 연결 가능한 URL을 통해 액세스할 수 있습니다. 승인된 자격 증명만 있으면 누구든지 TIC을 트래버스하지 않고 임의 위치에서 저장소 계정 등의 리소스에 액세스할 수 있습니다. 이러한 이유로 많은 정부 고객은 Azure PaaS 서비스에서 TIC 정책을 준수하지 않는다고 잘못된 결론을 내립니다. 많은 Azure PaaS 서비스는 TIC 정책을 준수할 수 있습니다. 아키텍처가 [앞에서 설명한 대로](https://docs.microsoft.com/azure/security/compliance/compliance-tic#azure-infrastructure-as-a-service-offerings) TIC 준수 IaaS 환경과 동일하고 서비스가 Azure 가상 네트워크에 연결되면 해당 서비스에서 이러한 정책을 준수합니다.
+Azure Storage와 같은 Azure PaaS 서비스는 인터넷 연결 가능한 URL을 통해 액세스할 수 있습니다. 승인된 자격 증명만 있으면 누구든지 TIC을 트래버스하지 않고 임의 위치에서 스토리지 계정 등의 리소스에 액세스할 수 있습니다. 이러한 이유로 많은 정부 고객은 Azure PaaS 서비스에서 TIC 정책을 준수하지 않는다고 잘못된 결론을 내립니다. 많은 Azure PaaS 서비스는 TIC 정책을 준수할 수 있습니다. 아키텍처가 [앞에서 설명한 대로](https://docs.microsoft.com/azure/security/compliance/compliance-tic#azure-infrastructure-as-a-service-offerings) TIC 준수 IaaS 환경과 동일하고 서비스가 Azure 가상 네트워크에 연결되면 해당 서비스에서 이러한 정책을 준수합니다.
 
 Azure PaaS 서비스가 가상 네트워크와 통합되면 해당 가상 네트워크에서 비공개로 이 서비스에 액세스할 수 있습니다. 사용자 정의 경로 또는 BGP를 통해 0.0.0.0/0에 대한 사용자 지정 라우팅을 적용할 수 있습니다. 사용자 지정 라우팅을 사용하면 모든 인터넷에 바인딩된 모든 트래픽이 온-프레미스에서 TIC를 트래버스하도록 라우팅할 수 있습니다. 다음 패턴을 사용하여 Azure 서비스를 가상 네트워크에 통합합니다.
 
@@ -264,10 +264,10 @@ Microsoft Azure, Office 365 및 Dynamics 365에 대한 액세스를 쉽게 구�
 | 데이터베이스 | Azure SQL Data Warehouse | | | 예 |
 | 데이터베이스 | Azure Cosmos DB | | | 예 |
 | 데이터베이스 | Azure Cache for Redis | | 예 | |
-| Storage | Linux에서 File Storage 사용에 대한 자세한 내용은 Linux에서 Azure 파일 스토리지 사용 방법을 참조하세요. | 예 | | |
-| Storage | Azure 파일 | 예 | | |
-| Storage | Azure Queue 저장소 | 예 | | |
-| Storage | Azure Table Storage | 예 | | |
-| Storage | Azure Disk Storage | 예 | | |
+| 스토리지 | Linux에서 File Storage 사용에 대한 자세한 내용은 Linux에서 Azure 파일 스토리지 사용 방법을 참조하세요. | 예 | | |
+| 스토리지 | Azure 파일 | 예 | | |
+| 스토리지 | Azure Queue storage | 예 | | |
+| 스토리지 | Azure Table Storage | 예 | | |
+| 스토리지 | Azure Disk Storage | 예 | | |
 
 \* Azure Government의 공개 미리 보기, 2018년 5월 기준

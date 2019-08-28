@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa400d678fb1e0793ea1a0cfd53bdfb715a5bc77
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a85cafce13cffcebbcce3ebf022941ce899fa72b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785031"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852762"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>빠른 시작: Windows 데스크톱 앱에서 토큰 가져오기 및 Microsoft Graph API 호출
 
@@ -70,7 +70,7 @@ ms.locfileid: "65785031"
 
 #### <a name="step-2-download-your-visual-studio-project"></a>2단계: Visual Studio 프로젝트 다운로드
 
-[Visual Studio 프로젝트 다운로드](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)([Github에서 프로젝트 보기](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/))
+[Visual Studio 프로젝트 다운로드](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)([GitHub에서 프로젝트 보기](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/))
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>3단계: Visual Studio 프로젝트 구성
 
@@ -82,6 +82,9 @@ ms.locfileid: "65785031"
     private static string ClientId = "Enter_the_Application_Id_here";
     private static string Tenant = "Enter_the_Tenant_Info_Here";
     ```
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > 이 빠른 시작에서는 Enter_the_Supported_Account_Info_Here를 지원합니다.
 
 > [!div renderon="docs"]
 > 위치:
@@ -133,7 +136,7 @@ MSAL에는 토큰 가져오기에 사용되는 두 가지 메서드인 `AcquireT
 
 상황에 따라 사용자가 팝업 창을 통해 Microsoft ID 플랫폼 엔드포인트와 상호 작용하여 자격 증명의 유효성을 검사하거나 동의를 제공해야 합니다. 일부 사례:
 
-- 처음으로 사용자가 응용 프로그램에 로그인한 경우
+- 처음으로 사용자가 애플리케이션에 로그인한 경우
 - 암호가 만료되어 사용자가 자격 증명을 다시 입력해야 할 경우
 - 애플리케이션이 사용자 동의가 필요한 리소스에 액세스를 요청하고 있는 경우
 - 2단계 인증이 필요한 경우
@@ -149,7 +152,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
 
 #### <a name="get-a-user-token-silently"></a>자동으로 사용자 토큰 가져오기
 
-사용자가 리소스에 액세스해야 할 때마다 자격 증명의 유효성을 검사할 필요가 없도록 하려고 합니다. 대부분은 사용자 개입 없이 토큰 가져오기 및 갱신을 자동으로 처리하려고 합니다. 초기 `AcquireTokenInteractive` 메서드 다음에 `AcquireTokenSilentAsync` 메서드를 사용하여 토큰을 가져와서 보호된 리소스에 액세스할 수 있습니다.
+사용자가 리소스에 액세스해야 할 때마다 자격 증명의 유효성을 검사할 필요가 없도록 하려고 합니다. 대부분은 사용자 개입 없이 토큰 가져오기 및 갱신을 자동으로 처리하려고 합니다. 초기 `AcquireTokenInteractive` 메서드 다음에 `AcquireTokenSilent` 메서드를 사용하여 토큰을 가져와서 보호된 리소스에 액세스할 수 있습니다.
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();
@@ -172,3 +175,7 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
 > [!div class="nextstepaction"]
 > [Graph API 호출 자습서](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-windesktop)
 
+Microsoft ID 플랫폼을 개선할 수 있도록 도와주세요. 간단한 두 가지 설문 조사를 완료하여 의견을 알려주세요.
+
+> [!div class="nextstepaction"]
+> [Microsoft ID 플랫폼 설문 조사](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

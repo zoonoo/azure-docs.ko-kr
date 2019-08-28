@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 05/22/2019
+ms.date: 06/26/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: a4bbb43cb00eeb5a9e741016e1648ce915935eb9
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 931de532aa6e09b2cd00955df6ba1f05d7e4f42c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236589"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428505"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>ASP.NET Core 웹 애플리케이션 모니터링 시작
 
@@ -47,14 +47,14 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 
 1. **리소스 만들기** > **개발자 도구** > **Application Insights**를 선택합니다.
 
-   ![Application Insights 리소스 추가](./media/dotnetcore-quick-start/1createresourceappinsight.png)
+   > [!NOTE]
+   >Application Insights 리소스를 처음 만드는 경우 자세한 내용은 [Application Insights 리소스 만들기](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) 문서를 참조하세요.
 
     구성 상자가 표시되면 다음 표를 사용하여 입력 필드를 채웁니다.
 
-    | 설정        |  값           | 설명  |
+   | 설정        |  값           | 설명  |
    | ------------- |:-------------|:-----|
    | **Name**      | 전역적으로 고유한 값 | 모니터링하는 응용 프로그램을 식별하는 이름입니다. |
-   | **애플리케이션 유형** | ASP.NET 웹 애플리케이션 | 모니터링하는 응용 프로그램의 유형입니다. |
    | **리소스 그룹**     | myResourceGroup      | Application Insights 데이터를 호스팅할 새 리소스 그룹의 이름입니다. |
    | **위치**: | 미국 동부 | 가까운 위치 또는 응용 프로그램이 호스팅되는 위치 근처를 선택합니다. |
 

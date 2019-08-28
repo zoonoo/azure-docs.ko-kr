@@ -8,19 +8,18 @@ manager: chakdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
-ms.devlang: azure-cli
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fa078f17768d4885403f2f3e3d6b91251f0aaced
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e02afde27335e9a512d1e297880993b19fa4304e
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60419376"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034719"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Service Fabric Mesh 애플리케이션에서 Azure Files 기반 볼륨 사용 
 
@@ -28,7 +27,18 @@ ms.locfileid: "60419376"
 
 서비스에 볼륨을 탑재하려면 Service Fabric Mesh 애플리케이션에 볼륨 리소스를 만든 다음, 사용자 서비스에서 해당 볼륨을 참조합니다.  볼륨 리소스를 선언하고 서비스 리소스에서 참조하는 작업은 [YAML 기반 리소스 파일](#declare-a-volume-resource-and-update-the-service-resource-yaml) 또는 [JSON 기반 배포 템플릿](#declare-a-volume-resource-and-update-the-service-resource-json)에서 수행할 수 있습니다. 볼륨을 탑재하기 전에 먼저 Azure Storage 계정을 만들고 [Azure Files에 파일 공유](/azure/storage/files/storage-how-to-create-file-share)를 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
+> [!NOTE]
+> **Windows RS5 개발 컴퓨터에 대 한 배포의 알려진 문제:** Azurefile 볼륨의 탑재를 방지 하는 RS5 Windows 컴퓨터에 Powershell cmdlet SmbGlobalMapping에 대 한 오픈 버그가 있습니다. 다음은 AzureFile 기반 볼륨이 로컬 개발 컴퓨터에 탑재 될 때 발생 하는 샘플 오류입니다.
+```
+Error event: SourceId='System.Hosting', Property='CodePackageActivation:counterService:EntryPoint:131884291000691067'.
+There was an error during CodePackage activation.System.Fabric.FabricException (-2147017731)
+Failed to start Container. ContainerName=sf-2-63fc668f-362d-4220-873d-85abaaacc83e_6d6879cf-dd43-4092-887d-17d23ed9cc78, ApplicationId=SingleInstance_0_App2, ApplicationName=fabric:/counterApp. DockerRequest returned StatusCode=InternalServerError with ResponseBody={"message":"error while mounting volume '': mount failed"}
+```
+문제에 대 한 해결 방법은 1) 아래 명령을 Powershell 관리자로 실행 하 고 2) 컴퓨터를 다시 부팅 하는 것입니다.
+```powershell
+PS C:\WINDOWS\system32> Mofcomp c:\windows\system32\wbem\smbwmiv2.mof
+```
 
 Azure Cloud Shell 또는 Azure CLI의 로컬 설치를 사용하여 이 문서를 완료할 수 있습니다. 
 
@@ -74,8 +84,8 @@ az storage account keys list --account-name <storageAccountName> --query "[?keyN
 
 [Azure Portal](https://portal.azure.com)에서 이러한 값을 찾을 수도 있습니다.
 * `<storageAccountName>` - **스토리지 계정** 아래에서 파일 공유를 만들 때 사용한 스토리지 계정 이름입니다.
-* `<storageAccountKey>` - **저장소 계정**에서 저장소 계정을 선택한 다음, **액세스 키**를 선택하고 **key1** 아래의 값을 사용합니다.
-* `<fileShareName>` - **저장소 계정**에서 저장소 계정을 선택한 다음, **파일**을 선택합니다. 사용할 이름은 만든 파일 공유의 이름입니다.
+* `<storageAccountKey>` - **스토리지 계정**에서 스토리지 계정을 선택한 다음, **액세스 키**를 선택하고 **key1** 아래의 값을 사용합니다.
+* `<fileShareName>` - **스토리지 계정**에서 스토리지 계정을 선택한 다음, **파일**을 선택합니다. 사용할 이름은 만든 파일 공유의 이름입니다.
 
 ## <a name="declare-a-volume-resource-and-update-the-service-resource-json"></a>볼륨 리소스 선언 및 서비스 리소스 업데이트(JSON)
 

@@ -353,7 +353,7 @@ SAP 설치 설명서에 따라 모든 Oracle 관련 파일을 VM의 OS 디스크
 
 tempfiles를 위한 적절한 양의 공간 크기를 결정하려면 기존 시스템의 tempfiles 크기를 확인할 수 있습니다.
 
-### <a name="storage-configuration"></a>Storage 구성
+### <a name="storage-configuration"></a>스토리지 구성
 NTFS로 포맷된 디스크를 사용하는 하나의 Oracle 인스턴스만 지원됩니다. 모든 데이터베이스 파일은 Managed Disks(권장) 또는 VHD의 NTFS 파일 시스템에 저장되어야 합니다. 이러한 디스크는 Azure VM에 탑재되며, [Azure 페이지 Blob 스토리지](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) 또는 [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview)를 기준으로 합니다. 
 
 [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview)를 사용하는 것이 좋습니다. 또한 Oracle Database 배포에는 [프리미엄 SSD](../../windows/disks-types.md)를 사용하는 것이 좋습니다.
@@ -441,7 +441,7 @@ SAP 설치 설명서에 따라 Oracle 관련 파일을 VM의 부팅 디스크용
 이 경우에는 Oracle 홈, 단계, saptrace, saparch, sapbackup, sapcheck 또는 sapreorg를 부팅 디스크에 설치/배치하는 것이 좋습니다. Oracle DBMS 구성 요소의 이러한 부분은 I/O 및 I/O 처리량에 무리는 아닙니다. 따라서 OS 디스크는 I/O 요구 사항을 처리할 수 있습니다. OS 디스크의 기본 크기는 30GB입니다. Azure Portal, PowerShell 또는 CLI를 통해 부팅 디스크를 확장할 수 있습니다. 부팅 디스크를 확장한 후 Oracle 이진 파일에 대한 추가 파티션을 추가할 수 있습니다.
 
 
-### <a name="storage-configuration"></a>Storage 구성
+### <a name="storage-configuration"></a>스토리지 구성
 
 ext4, xfs 또는 Oracle ASM의 파일 시스템은 Azure에서 Oracle Database 파일에 대해 지원됩니다. 모든 데이터베이스 파일은 VHD 또는 Managed Disks 기반의 파일 시스템에 저장되어야 합니다. 이러한 디스크는 Azure VM에 탑재되며, [Azure 페이지 Blob 스토리지](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) 또는 [Azure Managed Disks](../../windows/managed-disks-overview.md)를 기준으로 합니다.
 

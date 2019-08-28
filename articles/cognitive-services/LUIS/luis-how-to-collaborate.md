@@ -1,6 +1,6 @@
 ---
-title: 다른 사람과 공동 작업
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 다른 사람들과 공동 작업-LUIS
+titleSuffix: Azure Cognitive Services
 description: 앱 소유자는 앱에 협력자를 추가할 수 있습니다. 이러한 협력자는 모델을 수정하고, 앱을 학습시키고, 게시할 수 있습니다.
 services: cognitive-services
 author: diberry
@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 02/12/2019
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: f23212a854fb37dda89fd2bf6b223cf0dc69526b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2aaedb27d6875335b34c757505981f1a58462541
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60198766"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932831"
 ---
 # <a name="how-to-manage-authors-and-collaborators"></a>작성자 및 협력자를 관리하는 방법 
 

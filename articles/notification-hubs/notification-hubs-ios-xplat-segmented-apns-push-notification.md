@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 07/28/2019
 ms.author: jowargo
-ms.openlocfilehash: dd625dba0e125ccf993af524a0ab0c0cc66555fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f83afa62859dee5963749daf2555af08cf6a0e0b
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60873173"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663831"
 ---
 # <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 특정 iOS 디바이스에 알림 푸시
 
@@ -39,9 +39,9 @@ ms.locfileid: "60873173"
 > * 디바이스에서 알림 보내기
 > * 앱 실행 및 알림 생성
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-이 토픽은 [자습서: Azure Notification Hubs를 사용하여 iOS 앱에 알림 푸시][get-started]에서 만든 앱을 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [자습서: Azure Notification Hubs를 사용하여 iOS 앱에 알림 푸시][get-started]를 완료해야 합니다.
+이 토픽은 [자습서: Azure Notification Hubs][get-started]을 사용 하 여 iOS 앱에 알림 푸시. 이 자습서를 시작하기 전에 먼저 [자습서: Azure Notification Hubs][get-started]을 사용 하 여 iOS 앱에 알림 푸시.
 
 ## <a name="add-category-selection-to-the-app"></a>앱에 범주 선택 추가
 
@@ -133,7 +133,7 @@ ms.locfileid: "60873173"
     }
     ```
 
-    이 클래스는 로컬 저장소를 사용하여 이 디바이스에서 받을 뉴스의 범주를 저장하고 검색합니다. 또한 [템플릿](notification-hubs-templates-cross-platform-push-messages.md) 등록을 사용하여 이러한 범주에 등록하는 메서드도 포함되어 있습니다.
+    이 클래스는 로컬 스토리지를 사용하여 이 디바이스에서 받을 뉴스의 범주를 저장하고 검색합니다. 또한 [템플릿](notification-hubs-templates-cross-platform-push-messages.md) 등록을 사용하여 이러한 범주에 등록하는 메서드도 포함되어 있습니다.
 
 7. `AppDelegate.h` 파일에서 `Notifications.h`에 대한 import 문을 추가하고 `Notifications` 클래스의 인스턴스에 대한 속성을 추가합니다.
 
@@ -174,10 +174,10 @@ ms.locfileid: "60873173"
 
     이때 `didRegisterForRemoteNotificationsWithDeviceToken` 메서드에 다른 코드가 있어서는 안 됩니다.
 
-10. 다음 메서드는 [Notification Hubs 시작][get-started] 자습서를 완료할 때부터 `AppDelegate.m`에 있어야 합니다. 그렇지 않은 경우 메서드를 추가합니다.
+10. `AppDelegate.m` [Notification Hubs 시작][get-started] 자습서를 완료 하려면에 다음 메서드가 이미 있어야 합니다. 그렇지 않은 경우 메서드를 추가합니다.
 
     ```objc
-    -(void)MessageBox:(NSString *)title message:(NSString *)messageText
+    - (void)MessageBox:(NSString *)title message:(NSString *)messageText
     {
 
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:messageText delegate:self
@@ -185,7 +185,7 @@ ms.locfileid: "60873173"
         [alert show];
     }
 
-    * (void)application:(UIApplication *)application didReceiveRemoteNotification:
+    - (void)application:(UIApplication *)application didReceiveRemoteNotification:
        (NSDictionary *)userInfo {
        NSLog(@"%@", userInfo);
        [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]];
@@ -212,7 +212,9 @@ ms.locfileid: "60873173"
 
     [notifications storeCategoriesAndSubscribeWithCategories:categories completion: ^(NSError* error) {
         if (!error) {
-            [(AppDelegate*)[[UIApplication sharedApplication]delegate] MessageBox:@"Notification" message:@"Subscribed!"];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:"Notification" message:"Subscribed" delegate:self
+            cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alert show];
         } else {
             NSLog(@"Error subscribing: %@", error);
         }
@@ -238,7 +240,7 @@ ms.locfileid: "60873173"
     if ([categories containsObject:@"Sports"]) self.SportsSwitch.on = true;
     ```
 
-이제 앱은 앱이 시작할 때마다 알림 허브에 등록하는 데 사용한 디바이스 로컬 저장소에 범주 집합을 저장할 수 있습니다. 사용자는 런타임 시 범주 선택 사항을 변경하고 `subscribe` 메서드를 클릭하여 디바이스에 대한 등록을 업데이트할 수 있습니다. 다음으로 앱 자체에서 직접 속보 알림을 보내도록 앱을 업데이트합니다.
+이제 앱은 앱이 시작할 때마다 알림 허브에 등록하는 데 사용한 디바이스 로컬 스토리지에 범주 집합을 저장할 수 있습니다. 사용자는 런타임 시 범주 선택 사항을 변경하고 `subscribe` 메서드를 클릭하여 디바이스에 대한 등록을 업데이트할 수 있습니다. 다음으로 앱 자체에서 직접 속보 알림을 보내도록 앱을 업데이트합니다.
 
 ## <a name="optional-send-tagged-notifications"></a>(선택 사항) 태그가 지정된 알림 보내기
 
@@ -248,7 +250,7 @@ Visual Studio에 액세스할 수 없는 경우 다음 섹션으로 건너뛰고
 
 ## <a name="optional-send-notifications-from-the-device"></a>(선택 사항) 디바이스에서 알림 보내기
 
-일반적으로 백 엔드 서비스에서 알림을 보내지만 속보 알림은 앱 자체에서 직접 보낼 수 있습니다. 이렇게 하기 위해 [Notification Hubs 시작][get-started] 자습서에 정의한 `SendNotificationRESTAPI` 메서드를 업데이트합니다.
+일반적으로 백 엔드 서비스에서 알림을 보내지만 속보 알림은 앱 자체에서 직접 보낼 수 있습니다. 이렇게 하려면 [Notification Hubs 시작][get-started] 자습서에서 정의한 `SendNotificationRESTAPI` 메서드를 업데이트 합니다.
 
 1. `ViewController.m`에서 범주 태그에 대한 매개 변수를 허용하고 적절한 [템플릿](notification-hubs-templates-cross-platform-push-messages.md) 알림을 보내도록 다음과 같이 `SendNotificationRESTAPI` 메서드를 업데이트합니다.
 

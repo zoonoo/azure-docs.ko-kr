@@ -4,12 +4,12 @@ ms.author: crdun
 ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
-ms.openlocfilehash: d1dcd7895025ea608e5f6c4db5e0967817934f2a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3c6147cc24f285fc32dce145e594f743c9633c20
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182716"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68857446"
 ---
 백 엔드 프로젝트 형식&mdash;([.NET 백 엔드](#dotnet) 또는[ Node.js 백 엔드](#nodejs))과 일치하는 절차를 사용합니다.
 
@@ -69,7 +69,7 @@ ms.locfileid: "67182716"
 
 ### <a name="nodejs"></a>Node.js 백 엔드 프로젝트
 
-1. 아직 수행하지 않은 경우 [빠른 시작 프로젝트를 다운로드](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart)하거나 [Azure Portal에서 온라인 편집기](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor)를 사용합니다.
+1. 백 엔드 프로젝트를 설정 합니다.
 2. todoitem.js 파일의 기존 코드를 다음으로 바꿉니다.
 
     ```javascript

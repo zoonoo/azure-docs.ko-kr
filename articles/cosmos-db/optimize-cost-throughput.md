@@ -4,14 +4,14 @@ description: 이 문서에서는 Azure Cosmos DB에 저장된 데이터의 처�
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 08/26/2019
 ms.author: rimman
-ms.openlocfilehash: ddbec882675dba4724406ad1ea8079df377c34fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d874f1ba8823ceddbef378decde127cef4ff8885
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967309"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020101"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 프로비전된 처리량 비용 최적화
 
@@ -29,11 +29,11 @@ Azure Cosmos DB는 프로비전된 처리량 모델을 제공하여 규모에 �
 
 다음은 프로비전된 처리량 전략을 결정하기 위한 몇 가지 지침입니다.
 
-**다음과 같은 경우 Azure Cosmos DB 데이터베이스(컨테이너 세트 포함)에 대한 처리량을 프로비전하는 것이 좋습니다.** :
+다음과 같은 **경우 Azure Cosmos 데이터베이스 (컨테이너 집합 포함)에서 처리량을 프로 비전 하는 것이 좋습니다**.
 
 1. Azure Cosmos 컨테이너가 몇십 개 정도 있으며 일부 또는 전체에서 처리량을 공유하려고 합니다. 
 
-2. IaaS 호스팅된 VM 또는 온-프레미스(예를 들어, NoSQL 또는 관계형 데이터베이스)에서 실행되도록 설계된 단일 테넌트 데이터베이스에서 Azure Cosmos DB로 마이그레이션하려고 합니다. 많은 컬렉션/테이블/그래프 및 있는지 및 하지 않으려는 데이터 모델을 변경 합니다. Note 하지 업데이트 하는 경우 데이터 모델에서 온-프레미스 데이터베이스를 마이그레이션하는 경우 Azure Cosmos DB에서 제공 하는 이점 중 일부를 손상 할 수 있습니다. 최대의 성능을 얻고 비용 최적화를 이루려면 항상 데이터 모델에 다시 액세스하는 것이 좋습니다. 
+2. IaaS 호스팅된 VM 또는 온-프레미스(예를 들어, NoSQL 또는 관계형 데이터베이스)에서 실행되도록 설계된 단일 테넌트 데이터베이스에서 Azure Cosmos DB로 마이그레이션하려고 합니다. 컬렉션/테이블/그래프가 많고 데이터 모델을 변경 하지 않으려는 경우. 온-프레미스 데이터베이스에서 마이그레이션할 때 데이터 모델을 업데이트 하지 않는 경우 Azure Cosmos DB에서 제공 하는 몇 가지 혜택을 피해 야 할 수 있습니다. 최대의 성능을 얻고 비용 최적화를 이루려면 항상 데이터 모델에 다시 액세스하는 것이 좋습니다. 
 
 3. 데이터베이스 수준에서 풀링되는 처리량으로 예기치 않은 워크로드 급증을 완화하려고 합니다. 
 
@@ -56,16 +56,16 @@ Azure Cosmos DB는 프로비전된 처리량 모델을 제공하여 규모에 �
 |API|**공유** 처리량의 경우 구성 항목 |**전용** 처리량의 경우 구성 항목 |
 |----|----|----|
 |SQL API|데이터베이스|컨테이너|
-|Azure Cosmos DB의 API for MongoDB|데이터베이스|컬렉션|
-|Cassandra API|Keyspace|테이블|
+|Azure Cosmos DB의 API for MongoDB|데이터베이스|Collection|
+|Cassandra API|키스페이스|Table|
 |Gremlin API|데이터베이스 계정|그래프|
-|테이블 API|데이터베이스 계정|테이블|
+|테이블 API|데이터베이스 계정|Table|
 
 다양한 수준에서 처리량을 프로비전하여 워크로드의 특징을 기준으로 비용을 최적화할 수 있습니다. 앞에서 설명한 것처럼 프로비전된 처리량을 개별 컨테이너에 대해 또는 컨테이너 세트에 대해 전체적으로 언제든지 프로그래밍 방식으로 늘리거나 줄일 수 있습니다. 워크로드가 변경되면서 처리량 규모를 탄력적으로 조정할 수 있으므로 구성한 처리량에 대해서만 비용을 지불하면 됩니다. 컨테이너 또는 컨테이너 세트가 여러 지역에 분산될 경우 컨테이너 또는 컨테이너 세트에 대해 구성한 처리량을 모든 지역에서 사용할 수 있도록 보장됩니다.
 
 ## <a name="optimize-with-rate-limiting-your-requests"></a>요청 속도 제한 최적화
 
-대기 시간이 중요하지 않은 워크로드의 경우 더 적은 처리량을 프로비전한 후, 실제 처리량이 프로비전된 처리량을 초과할 때 애플리케이션이 속도 제한을 처리하도록 할 수 있습니다. 서버에서 RequestRateTooLarge(HTTP 상태 코드 429)를 사용하여 선제적으로 요청을 종료하고, 사용자가 요청을 다시 시도할 수 있을 때까지 기다려야 하는 시간을 밀리초 단위로 표시하는 `x-ms-retry-after-ms` 헤더를 반환합니다. 
+대기 시간이 중요하지 않은 워크로드의 경우 더 적은 처리량을 프로비전한 후, 실제 처리량이 프로비전된 처리량을 초과할 때 애플리케이션이 속도 제한을 처리하도록 할 수 있습니다. 서버는 미리 (HTTP 상태 코드 429 `RequestRateTooLarge` )를 사용 하 여 요청을 종료 하 `x-ms-retry-after-ms` 고 요청을 다시 시도 하기 전에 사용자가 대기 해야 하는 시간 (밀리초)을 나타내는 헤더를 반환 합니다. 
 
 ```html
 HTTP Status 429, 
@@ -77,15 +77,13 @@ HTTP Status 429,
 
 기본 SDK(.NET/.NET Core, Java, Node.js 및 Python)는 이 응답을 암시적으로 모두 catch하고, server-specified retry-after 헤더를 준수하고 요청을 다시 시도합니다. 동시에 여러 클라이언트가 계정에 액세스하지만 않으면 다음 재시도가 성공할 것입니다.
 
-둘 이상의 클라이언트가 요청 속도 이상으로 누적해서 계속 작동할 경우 현재 9로 설정된 기본 재시도 횟수가 충분하지 않을 수 있습니다. 이러한 경우 클라이언트는 상태 코드 429의 `DocumentClientException`을 애플리케이션에 throw합니다. 기본 재시도 횟수는 ConnectionPolicy 인스턴스에서 `RetryOptions`를 설정하여 변경할 수 있습니다. 기본적으로, 요청이 계속 요청 속도 이상으로 작동하는 경우 상태 코드가 429인 DocumentClientException은 누적 대기 시간 30초 후에 반환됩니다. 현재 재시도 횟수가 최대 재시도 횟수보다 작은 경우에도 이러한 현상이 발생하기 때문에 기본값인 9 또는 사용자 정의 값으로 두세요. 
+둘 이상의 클라이언트가 요청 속도 이상으로 누적해서 계속 작동할 경우 현재 9로 설정된 기본 재시도 횟수가 충분하지 않을 수 있습니다. 이러한 경우 클라이언트는 상태 코드 429의 `DocumentClientException`을 애플리케이션에 throw합니다. 기본 재시도 횟수는 ConnectionPolicy 인스턴스에서 `RetryOptions`를 설정하여 변경할 수 있습니다. 기본적 `DocumentClientException` 으로 요청이 요청 률을 초과 하 여 계속 작동 하는 경우 누적 대기 시간 30 초 후에 상태 코드 429이 반환 됩니다. 현재 재시도 횟수가 최대 재시도 횟수보다 작은 경우에도 이러한 현상이 발생하기 때문에 기본값인 9 또는 사용자 정의 값으로 두세요. 
 
-[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) 는 3으로 설정됩니다. 이 경우 요청 작업이 컬렉션에 대해 예약된 처리량을 초과하여 속도가 제한되면 요청 작업은 애플리케이션에 예외를 throw하기 전에 3번 다시 시도합니다.  [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) 는 60으로 설정됩니다. 이 경우 첫 번째 요청 이후의 누적 재시도 시간 대기 시간(초)이 60초를 초과하면 예외가 throw됩니다.
+[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) 은 3으로 설정 되므로이 경우 요청 작업은 컨테이너에 대 한 예약 된 처리량을 초과 하 여 속도가 제한 되는 경우 요청 작업은 응용 프로그램에 예외를 throw 하기 전에 3 번 다시 시도 합니다. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) 가 60로 설정 되어 있으므로이 경우 첫 번째 요청이 60 초를 초과 하 여 누적 된 재시도 대기 시간 (초)이 초를 초과 하면 예외가 throw 됩니다.
 
 ```csharp
 ConnectionPolicy connectionPolicy = new ConnectionPolicy(); 
-
 connectionPolicy.RetryOptions.MaxRetryAttemptsOnThrottledRequests = 3; 
-
 connectionPolicy.RetryOptions.MaxRetryWaitTimeInSeconds = 60;
 ```
 
@@ -113,7 +111,7 @@ connectionPolicy.RetryOptions.MaxRetryWaitTimeInSeconds = 60;
 
 ## <a name="optimize-by-changing-indexing-policy"></a>인덱싱 정책을 변경하여 최적화 
 
-기본적으로 Azure Cosmos DB는 모든 레코드의 모든 속성을 자동으로 인덱싱합니다. 이 쉬운 개발 및 다양 한 임시 쿼리 우수한 성능을 유지 하기 위한 것입니다. 수천 개의 속성이 있는 대규모 레코드를 사용하는 경우 모든 속성을 인덱싱하기 위한 처리량 비용을 지불하는 것은 유용하지 않을 수 있습니다. 특히 이러한 속성 중에서 10개 또는 20개만 쿼리하는 경우에는 더욱 비효율적입니다. 특정 워크로드를 보다 적절히 처리할 수 있으면 인덱스 정책을 조정하는 것이 좋습니다. Azure Cosmos DB 인덱싱 정책에 대한 자세한 내용은 [여기](indexing-policies.md)에서 찾을 수 있습니다. 
+기본적으로 Azure Cosmos DB는 모든 레코드의 모든 속성을 자동으로 인덱싱합니다. 이는 다양 한 유형의 임시 쿼리에서 개발을 용이 하 게 하 고 뛰어난 성능을 보장 하기 위한 것입니다. 수천 개의 속성이 있는 대규모 레코드를 사용하는 경우 모든 속성을 인덱싱하기 위한 처리량 비용을 지불하는 것은 유용하지 않을 수 있습니다. 특히 이러한 속성 중에서 10개 또는 20개만 쿼리하는 경우에는 더욱 비효율적입니다. 특정 워크로드를 보다 적절히 처리할 수 있으면 인덱스 정책을 조정하는 것이 좋습니다. Azure Cosmos DB 인덱싱 정책에 대한 자세한 내용은 [여기](indexing-policies.md)에서 찾을 수 있습니다. 
 
 ## <a name="monitoring-provisioned-and-consumed-throughput"></a>프로비전 및 사용된 처리량 모니터링 
 
@@ -159,7 +157,7 @@ Azure Cosmos DB를 사용할 경우 다음 단계를 따르면 가용성이 뛰�
 
 2. 애플리케이션에 필요한 예약된 처리량을 예측하는 한 가지 방법은 애플리케이션에서 사용하는 대표적인 Azure Cosmos 컨테이너 또는 데이터베이스에 대해 실행되는 일반 작업과 연결된 요청 단위 RU 요금을 기록한 다음, 예상되는 초당 수행되는 작업 수를 추정하는 것입니다. 일반 쿼리 및 해당 사용량도 측정하여 포함해야 합니다. 프로그래밍 방식으로 또는 포털을 사용하여 쿼리의 RU 비용을 추정하는 방법을 알아보려면 [쿼리 비용 최적화](online-backup-and-restore.md)를 참조하세요. 
 
-3. Ru에 작업 및 해당 비용을 가져오는 다른 방법은 작업/기간 및 요청 요금 분석 결과 제공 하는 Azure Monitor 로그를 사용 하는 것입니다. Azure Cosmos DB는 모든 작업에 대해 요청 요금을 제공하므로, 모든 작업 요금이 응답에서 다시 저장된 후 분석에 사용될 수 있습니다. 
+3. RUs에서 작업 및 비용을 가져오는 또 다른 방법은 작업/기간 및 요청 요금에 대 한 분석을 제공 하는 Azure Monitor 로그를 사용 하는 것입니다. Azure Cosmos DB는 모든 작업에 대해 요청 요금을 제공하므로, 모든 작업 요금이 응답에서 다시 저장된 후 분석에 사용될 수 있습니다. 
 
 4. 프로비전된 처리량 규모를 워크로드 요구에 맞게 필요한 만큼 탄력적으로 확장 및 축소할 수 있습니다. 
 

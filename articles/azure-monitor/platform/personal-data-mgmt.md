@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 0cf5a80e3eedbe7efb8463162b5b3ed489ac08c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a443931b8340552251fbcbe534f009eeeaf953aa
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61087290"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617299"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Log Analytics 및 Application Insights에 저장된 개인 데이터에 대한 지침
 
@@ -75,7 +75,7 @@ Log Analytics는 스키마를 데이터에 지정하는 동안 모든 필드를 
     | project $table, timestamp, name, customDimensions 
     ```
 * *메모리 내 및 전송 중 데이터*: Application Insights는 예외, 요청, 종속성 호출 및 추적을 추적합니다. 프라이빗 데이터는 자주 코드 및 HTTP 호출 수준에서 수집될 수 있습니다. 이러한 데이터를 식별하려면 예외, 요청, 종속성 및 추적 테이블을 검토합니다. 이 데이터를 난독 처리할 수 있는 경우 [원격 분석 이니셜라이저](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling)를 사용합니다.
-* *스냅숏 디버거 캡처*: Application Insights의 [스냅샷 디버거](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) 기능을 사용하면 애플리케이션의 프로덕션 인스턴스에서 예외가 catch될 때마다 디버그 스냅샷을 수집할 수 있습니다. 스냅샷은 예외 및 스택의 모든 단계에서 로컬 변수에 대한 값으로 이끄는 전체 스택 추적을 공개합니다. 그러나 이 기능은 맞춤 지점의 선택적 삭제 또는 스냅샷 내에서 데이터에 프로그래밍 방식의 액세스를 허용하지 않습니다. 따라서 기본 스냅샷 보존 속도가 규정 준수 요구 사항을 충족하지 못하는 경우 기능을 해제하는 것이 좋습니다.
+* *스냅샷 디버거 캡처*: Application Insights의 [스냅샷 디버거](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) 기능을 사용하면 애플리케이션의 프로덕션 인스턴스에서 예외가 catch될 때마다 디버그 스냅샷을 수집할 수 있습니다. 스냅샷은 예외 및 스택의 모든 단계에서 로컬 변수에 대한 값으로 이끄는 전체 스택 추적을 공개합니다. 그러나 이 기능은 맞춤 지점의 선택적 삭제 또는 스냅샷 내에서 데이터에 프로그래밍 방식의 액세스를 허용하지 않습니다. 따라서 기본 스냅샷 보존 속도가 규정 준수 요구 사항을 충족하지 못하는 경우 기능을 해제하는 것이 좋습니다.
 
 ## <a name="how-to-export-and-delete-private-data"></a>프라이빗 데이터를 내보내고 삭제하는 방법
 
@@ -88,7 +88,7 @@ Log Analytics는 스키마를 데이터에 지정하는 동안 모든 필드를 
 데이터 보기 및 내보내기 요청 둘 다에서 [Log Analytics 쿼리 API](https://dev.loganalytics.io/) 또는 [Application Insights 쿼리 API](https://dev.applicationinsights.io/quickstart)를 사용해야 합니다. 데이터의 모양을 적절한 형식으로 변환하여 사용자에게 전달하는 논리의 구현은 사용자에게 달려 있습니다. [Azure Functions](https://azure.microsoft.com/services/functions/)는 이러한 논리를 호스팅하는 데 적합합니다.
 
 > [!IMPORTANT]
->  대부분 제거 작업의 SLA 보다 훨씬 더 빠르게 완료할 수 있습니다 하는 동안 **정식 제거 작업의 완료에 대 한 SLA은 30 일로 설정 되어** 사용 되는 데이터 플랫폼에 대 한 과도 한 영향 때문입니다. 이 자동화 된 프로세스입니다. 작업을 더 빠르게 처리 하도록 요청 하려면 방법이 없습니다.
+>  대부분의 제거 작업이 SLA 보다 훨씬 더 빠르게 완료 될 수 있지만 **제거 작업의 완료에 대 한 공식 SLA** 는 사용 되는 데이터 플랫폼에 미치는 영향 때문에 30 일 후에 설정 됩니다. 이는 자동화 된 프로세스입니다. 작업을 더 빠르게 처리 하도록 요청할 수 있는 방법은 없습니다.
 
 ### <a name="delete"></a>삭제
 
@@ -99,15 +99,20 @@ Log Analytics는 스키마를 데이터에 지정하는 동안 모든 필드를 
 
 제거는 높은 수준의 권한이 필요한 작업으로 Azure의 사용자(리소스 소유자도 포함) 또는 앱이 Azure Resource Manager에서 명시적으로 역할을 부여받아야 실행할 수 있습니다. 이 역할은 _데이터 제거자_이며, 데이터 손실 가능성 때문에 신중하게 위임해야 합니다. 
 
+> [!IMPORTANT]
+> 시스템 리소스를 관리 하기 위해 제거 요청은 시간당 50 요청에 의해 제한 됩니다. 제거 해야 하는 모든 사용자 id가 조건자에 포함 된 단일 명령을 보내서 제거 요청 실행을 일괄 처리 해야 합니다. 여러 id를 지정 하려면 [in 연산자](/azure/kusto/query/inoperator) 를 사용 합니다. 결과를 예상 하는지 확인 하려면 제거 요청을 실행 하기 전에 쿼리를 실행 해야 합니다. 
+
+
+
 Azure Resource Manager 역할이 할당되면 두 개의 새 API 경로를 사용할 수 있습니다. 
 
 #### <a name="log-data"></a>로그 데이터
 
 * [게시 제거](https://docs.microsoft.com/rest/api/loganalytics/workspaces%202015-03-20/purge) - 삭제할 데이터의 매개 변수를 지정하는 개체를 사용하고 참조 GUID를 반환합니다. 
-* GET 상태 가져오기 - POST 제거 호출은 제거 API의 상태를 결정하기 위해 호출할 수 있는 URL이 포함된 'x-ms-status-location' 헤더를 반환합니다. 예를 들면 다음과 같습니다.
+* GET 상태 가져오기 - POST 제거 호출은 제거 API의 상태를 결정하기 위해 호출할 수 있는 URL이 포함된 'x-ms-status-location' 헤더를 반환합니다. 예를 들어:
 
     ```
-    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperatonalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20
+    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperationalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20
     ```
 
 > [!IMPORTANT]
@@ -116,7 +121,7 @@ Azure Resource Manager 역할이 할당되면 두 개의 새 API 경로를 사�
 #### <a name="application-data"></a>애플리케이션 데이터
 
 * [게시 제거](https://docs.microsoft.com/rest/api/application-insights/components/purge) - 삭제할 데이터의 매개 변수를 지정하는 개체를 사용하고 참조 GUID를 반환합니다.
-* GET 상태 가져오기 - POST 제거 호출은 제거 API의 상태를 결정하기 위해 호출할 수 있는 URL이 포함된 'x-ms-status-location' 헤더를 반환합니다. 예를 들면 다음과 같습니다.
+* GET 상태 가져오기 - POST 제거 호출은 제거 API의 상태를 결정하기 위해 호출할 수 있는 URL이 포함된 'x-ms-status-location' 헤더를 반환합니다. 예를 들어:
 
    ```
    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/microsoft.insights/components/[ComponentName]/operations/purge-[PurgeOperationId]?api-version=2015-05-01

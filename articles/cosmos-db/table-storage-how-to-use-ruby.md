@@ -26,7 +26,7 @@ ms.locfileid: "54036259"
 ## <a name="create-an-azure-service-account"></a>Azure 서비스 계정 만들기
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-### <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
+### <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
 ### <a name="create-an-azure-cosmos-db-account"></a>Azure Cosmos DB 계정 만들기
@@ -40,7 +40,7 @@ Azure Storage 또는 Azure Cosmos DB를 사용하려면 Table REST 서비스와 
 2. 명령 창에서 **gem install azure-storage-table**을 입력하여 gem 및 종속성을 설치합니다.
 
 ### <a name="import-the-package"></a>패키지 가져오기
-주로 사용하는 텍스트 편집기에서 저장소를 사용할 Ruby 파일의 맨 위에 다음을 추가합니다.
+주로 사용하는 텍스트 편집기에서 스토리지를 사용할 Ruby 파일의 맨 위에 다음을 추가합니다.
 
 ```ruby
 require "azure/storage/table"
@@ -54,7 +54,7 @@ Azure.config.storage_account_name = "<your Azure Storage account>"
 Azure.config.storage_access_key = "<your Azure Storage access key>"
 ```
 
-Azure 포털의 클래식 또는 Resource Manager 저장소 계정에서 이러한 값을 가져오려면
+Azure 포털의 클래식 또는 Resource Manager 스토리지 계정에서 이러한 값을 가져오려면
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 사용하려는 Storage 계정으로 이동합니다.

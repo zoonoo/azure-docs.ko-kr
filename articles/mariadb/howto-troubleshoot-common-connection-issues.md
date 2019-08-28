@@ -24,7 +24,7 @@ ms.locfileid: "61038499"
 * 일부 Azure Database for MariaDB 리소스에서 최대 제한 도달
 * 서비스 인프라 관련 문제
 * 서비스에서 유지 관리 수행 중
-* vCores 수를 조정하거나 다른 서비스 계층으로 이동하여 서버의 계산 할당 변경
+* vCores 수를 조정하거나 다른 서비스 계층으로 이동하여 서버의 컴퓨팅 할당 변경
 
 일반적으로 Azure Database for MariaDB에 대한 연결 문제는 다음과 같이 분류할 수 있습니다.
 

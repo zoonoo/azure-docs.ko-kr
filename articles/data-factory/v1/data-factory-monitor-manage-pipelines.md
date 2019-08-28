@@ -98,7 +98,7 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 <td>DatasetDependencies</td><td>업스트림 종속성이 준비되지 않습니다.</td>
 </tr>
 <tr>
-<td>ComputeResources</td><td>계산 리소스를 사용할 수 없습니다.</td>
+<td>ComputeResources</td><td>컴퓨팅 리소스를 사용할 수 없습니다.</td>
 </tr>
 <tr>
 <td>ConcurrencyLimit</td> <td>모든 활동 인스턴스는 다른 조각을 실행하고 있습니다.</td>

@@ -7,7 +7,7 @@ ms.service: search
 ms.topic: conceptual
 author: Yahnoosh
 ms.author: jlembicz
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,16 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: deea16b8670623acd2ae92ba62f579f5474d12ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e54fa449e0ed7f3208d9924b69946c6598a00444
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65790909"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648819"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Azure Search 인덱스에 언어 분석기 추가
 
-‘언어 분석기’는 대상 언어의 언어 규칙을 사용하여 어휘 분석을 수행하는 특정 유형의 [텍스트 분석기](search-analyzers.md)입니다.  검색 가능한 모든 필드에 **analyzer** 속성이 있습니다. 영어 및 중국어 텍스트의 개별 필드와 같이 인덱스에 번역된 문자열이 포함되어 있는 경우 각 필드에 언어 분석기를 지정하여 해당 분석기의 풍부한 언어 기능에 액세스할 수 있습니다.  
+‘언어 분석기’는 대상 언어의 언어 규칙을 사용하여 어휘 분석을 수행하는 특정 유형의 [텍스트 분석기](search-analyzers.md)입니다. 검색 가능한 모든 필드에 **analyzer** 속성이 있습니다. 영어 및 중국어 텍스트의 개별 필드와 같이 인덱스에 번역된 문자열이 포함되어 있는 경우 각 필드에 언어 분석기를 지정하여 해당 분석기의 풍부한 언어 기능에 액세스할 수 있습니다.  
 
 Azure Search는 Lucene를 통해 지원되는 35개 분석기와 Office 및 Bing에서 사용되는 Microsoft 소유 자연어 처리 기술을 통해 지원되는 50개 분석기를 지원합니다.
 
@@ -118,9 +118,9 @@ Azure Search는 Lucene를 통해 지원되는 35개 분석기와 Office 및 Bing
 |우르두어|ur.microsoft||  
 |베트남어|vi.microsoft||  
 
- 이름에 **Lucene** 주석이 포함된 모든 분석기는 [Apache Lucene 언어 분석기](https://lucene.apache.org/core/4_9_0/core/overview-summary.html )를 통해 구동됩니다.
+ 이름에 **Lucene** 주석이 포함된 모든 분석기는 [Apache Lucene 언어 분석기](https://lucene.apache.org/core/6_6_1/core/overview-summary.html )를 통해 구동됩니다.
 
-## <a name="see-also"></a>참고 항목  
+## <a name="see-also"></a>참고자료  
  [인덱스 만들기 &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
  [AnalyzerName 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername)  
  [비디오: Azure Search MVA 프레젠테이션의 모듈 7](https://channel9.msdn.com/Series/Adding-Microsoft-Azure-Search-to-Your-Websites-and-Apps/07)  

@@ -1,19 +1,19 @@
 ---
 title: System Center 2012 R2 DPM을 사용하여 Azure Backup에 Exchange 서버 백업
 description: System Center 2012 R2 DPM을 사용하여 Azure Backup에 Exchange 서버를 백업하는 방법을 알아봅니다.
-services: backup
-author: kasinh
-manager: vvithal
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.author: kasinh
-ms.openlocfilehash: ef976667ec580ea75dd1b8566c7bdddf35eeb0fc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: dacurwin
+ms.openlocfilehash: 0c8975aed79e78b4bb66ce1516b85ceeb78628e8
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60647266"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689415"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>System Center 2012 R2 DPM을 사용하여 Azure Backup에 Exchange 서버 백업
 이 문서에서는 System Center 2012 R2 Data Protection Manager(DPM) 서버를 구성하여 Azure Backup에 Microsoft Exchange server를 백업하는 방법을 설명합니다.  
@@ -26,7 +26,7 @@ Azure Backup을 사용하여 DPM 서버를 성공적으로 등록하려면 Syste
 >
 >
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 계속하기 전에 워크로드를 보호하기 위하여 Microsoft Azure Backup 사용을 위한 [필수 구성 요소](backup-azure-dpm-introduction.md#prerequisites-and-limitations) 를 모두 충족하는지 확인합니다. 이러한 필수 구성 요소는 다음과 같습니다.
 
 * Azure 사이트에서 백업 자격 증명 모음을 만들었습니다.
@@ -82,10 +82,10 @@ Exchange 서버에서 DPM 보호 에이전트를 설치하려면 다음 이 단�
 11. 사용 가능한 디스크 공간을 검토하고 **다음**을 클릭합니다.
 12. DPM 서버가 초기 복제 만들 시기를 선택하고 **다음**을 클릭합니다.
 13. 일관성 확인 옵션을 선택하고 **다음**을 클릭합니다.
-14. Azure에 백업하려는 데이터베이스를 선택하고 **다음**을 클릭합니다. 예를 들면 다음과 같습니다.
+14. Azure에 백업하려는 데이터베이스를 선택하고 **다음**을 클릭합니다. 예:
 
     ![온라인 보호 데이터 지정](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. **Azure Backup**에 대한 일정을 정의하고 **다음**을 클릭합니다. 예를 들면 다음과 같습니다.
+15. **Azure Backup**에 대한 일정을 정의하고 **다음**을 클릭합니다. 예:
 
     ![온라인 백업 일정 지정](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 

@@ -44,7 +44,7 @@ Monitoring Reader 역할이 할당된 사용자는 구독에서 모든 모니터
 * Log Analytics 작업 영역 저장소 구성을 검색 합니다.
 
 > [!NOTE]
-> 이 역할은 이벤트 허브에 스트리밍되었거나 저장소 계정에 저장된 로그 데이터에 대한 읽기 액세스를 부여하지 않습니다. [아래를 참조하세요](#security-considerations-for-monitoring-data) .
+> 이 역할은 이벤트 허브에 스트리밍되었거나 스토리지 계정에 저장된 로그 데이터에 대한 읽기 액세스를 부여하지 않습니다. [아래를 참조하세요](#security-considerations-for-monitoring-data) .
 > 
 > 
 
@@ -64,7 +64,7 @@ Monitoring Reader 역할이 할당된 사용자는 구독의 모든 모니터링
 \*또한 개별적으로 사용자가 로그 프로필이 나 진단 설정을 설정 하려면 대상 리소스 (저장소 계정 또는 이벤트 허브 네임 스페이스)에 대 한 Listkey 권한이 부여 되어야 합니다.
 
 > [!NOTE]
-> 이 역할은 이벤트 허브에 스트리밍되었거나 저장소 계정에 저장된 로그 데이터에 대한 읽기 액세스를 부여하지 않습니다. [아래를 참조하세요](#security-considerations-for-monitoring-data) .
+> 이 역할은 이벤트 허브에 스트리밍되었거나 스토리지 계정에 저장된 로그 데이터에 대한 읽기 액세스를 부여하지 않습니다. [아래를 참조하세요](#security-considerations-for-monitoring-data) .
 > 
 > 
 
@@ -84,7 +84,7 @@ Monitoring Reader 역할이 할당된 사용자는 구독의 모든 모니터링
 | Microsoft.Insights/eventtypes/values/Read |구독에서 활동 로그 이벤트(관리 이벤트)를 나열합니다. 이 권한은 활동 로그에 대한 프로그래밍 방식 및 포털 액세스 모두에 적용 가능합니다. |
 | Microsoft.Insights/ExtendedDiagnosticSettings/[Read, Write, Delete] | 네트워크 흐름 로그의 진단 설정을 읽고 쓰고 삭제합니다. |
 | Microsoft.Insights/LogDefinitions/Read |이 사용 권한은 포털을 통해 활동 로그에 액세스해야 하는 사용자에게 필요합니다. |
-| Microsoft.Insights/LogProfiles/[Read, Write, Delete] |로그 프로필을 읽고 쓰고 삭제합니다(이벤트 허브 또는 저장소 계정으로 활동 로그 스트리밍). |
+| Microsoft.Insights/LogProfiles/[Read, Write, Delete] |로그 프로필을 읽고 쓰고 삭제합니다(이벤트 허브 또는 스토리지 계정으로 활동 로그 스트리밍). |
 | Microsoft.Insights/MetricAlerts/[Read, Write, Delete] |근 실시간 메트릭 경고를 읽고 쓰고 삭제합니다. |
 | Microsoft.Insights/MetricDefinitions/Read |메트릭 정의(리소스에 사용 가능한 메트릭 형식 목록)를 읽습니다. |
 | Microsoft.Insights/Metrics/Read |리소스에 대한 메트릭을 읽습니다. |
@@ -94,7 +94,7 @@ Monitoring Reader 역할이 할당된 사용자는 구독의 모든 모니터링
 
 
 > [!NOTE]
-> 리소스에 대한 알림, 진단 설정 및 메트릭에 액세스하려면 해당 사용자에게 리소스 형식과 리소스 범위에 대한 읽기 액세스 권한이 있어야 합니다. 저장소 계정에 보관하거나 이벤트 허브에 스트리밍하는 진단 설정 또는 로그 프로필을 만들려면 해당 사용자에게 대상 리소스에 대한 ListKeys 권한도 있어야 합니다.
+> 리소스에 대한 알림, 진단 설정 및 메트릭에 액세스하려면 해당 사용자에게 리소스 형식과 리소스 범위에 대한 읽기 액세스 권한이 있어야 합니다. 스토리지 계정에 보관하거나 이벤트 허브에 스트리밍하는 진단 설정 또는 로그 프로필을 만들려면 해당 사용자에게 대상 리소스에 대한 ListKeys 권한도 있어야 합니다.
 > 
 > 
 
@@ -119,24 +119,24 @@ New-AzRoleDefinition -Role $role
 2. 진단 로그. 리소스가 내보낸 로그입니다.
 3. 메트릭. 리소스가 내보낸 항목입니다.
 
-이 세 데이터 형식은 저장소 계정에 저장되거나 이벤트 허브에 스트리밍되며, 모두 범용 Azure 리소스입니다. 범용 리소스이기 때문에 이 항목의 만들기, 삭제 및 액세스는 관리자에게 예약된 권한이 필요한 작업입니다. 오용을 방지하기 위해 모니터링 관련 리소스에는 다음 방법을 적용하는 것이 좋습니다.
+이 세 데이터 형식은 스토리지 계정에 저장되거나 이벤트 허브에 스트리밍되며, 모두 범용 Azure 리소스입니다. 범용 리소스이기 때문에 이 항목의 만들기, 삭제 및 액세스는 관리자에게 예약된 권한이 필요한 작업입니다. 오용을 방지하기 위해 모니터링 관련 리소스에는 다음 방법을 적용하는 것이 좋습니다.
 
-* 모니터링 데이터에는 단일 전용 저장소 계정을 사용합니다. 모니터링 데이터를 여러 저장소 계정으로 분리해야 할 경우, 모니터링 데이터와 비 모니터링 데이터 간에 저장소 계정을 공유하여 사용하지 않습니다. 모니터링 데이터에 대한 액세스 권한만 필요한 대상(예: 타사 SIEM)에게 부주의하게 비 모니터링 데이터에 대한 액세스 권한을 줄 가능성이 있기 때문입니다.
+* 모니터링 데이터에는 단일 전용 스토리지 계정을 사용합니다. 모니터링 데이터를 여러 스토리지 계정으로 분리해야 할 경우, 모니터링 데이터와 비 모니터링 데이터 간에 스토리지 계정을 공유하여 사용하지 않습니다. 모니터링 데이터에 대한 액세스 권한만 필요한 대상(예: 타사 SIEM)에게 부주의하게 비 모니터링 데이터에 대한 액세스 권한을 줄 가능성이 있기 때문입니다.
 * 같은 이유로 모든 진단 설정에서 단일 전용 Service Bus 또는 Event Hub 네임스페이스를 사용합니다.
-* 별도의 리소스 그룹을 유지하여 모니터링 관련 저장소 계정이나 이벤트 허브에 대한 액세스를 제한하고, 모니터링 역할에 [범위를 사용하여](../../role-based-access-control/overview.md#scope) 액세스를 해당 리소스 그룹으로만 한정합니다.
-* 사용자가 모니터링 데이터 액세스만 필요할 경우 구독에서 이벤트 허브나 저장소 계정에 ListKeys 권한을 부여해서는 안 됩니다. 그 대신 리소스나 리소스 그룹(전용 모니터링 리소스 그룹이 있는 경우) 범위에서 사용자에게 해당 건한을 부여합니다.
+* 별도의 리소스 그룹을 유지하여 모니터링 관련 스토리지 계정이나 이벤트 허브에 대한 액세스를 제한하고, 모니터링 역할에 [범위를 사용하여](../../role-based-access-control/overview.md#scope) 액세스를 해당 리소스 그룹으로만 한정합니다.
+* 사용자가 모니터링 데이터 액세스만 필요할 경우 구독에서 이벤트 허브나 스토리지 계정에 ListKeys 권한을 부여해서는 안 됩니다. 그 대신 리소스나 리소스 그룹(전용 모니터링 리소스 그룹이 있는 경우) 범위에서 사용자에게 해당 건한을 부여합니다.
 
-### <a name="limiting-access-to-monitoring-related-storage-accounts"></a>모니터링 관련 저장소 계정에 대한 액세스 제한
-사용자나 응용 프로그램이 저장소 계정의 모니터링 데이터에 대한 액세스를 필요로 할 경우, Blob 저장소에 대한 서비스 수준 읽기 전용 액세스 권한을 통해 모니터링 데이터를 포함하는 저장소 계정에서 [계정 SAS를 생성](https://msdn.microsoft.com/library/azure/mt584140.aspx) 해야 합니다. PowerShell에서는 다음과 같습니다.
+### <a name="limiting-access-to-monitoring-related-storage-accounts"></a>모니터링 관련 스토리지 계정에 대한 액세스 제한
+사용자나 애플리케이션이 스토리지 계정의 모니터링 데이터에 대한 액세스를 필요로 할 경우, Blob Storage에 대한 서비스 수준 읽기 전용 액세스 권한을 통해 모니터링 데이터를 포함하는 스토리지 계정에서 [계정 SAS를 생성](https://msdn.microsoft.com/library/azure/mt584140.aspx) 해야 합니다. PowerShell에서는 다음과 같습니다.
 
 ```powershell
 $context = New-AzStorageContext -ConnectionString "[connection string for your monitoring Storage Account]"
 $token = New-AzStorageAccountSASToken -ResourceType Service -Service Blob -Permission "rl" -Context $context
 ```
 
-그런 다음 해당 저장소 계정에서의 읽기가 필요한 개체에게 토큰을 부여하면 해당 저장소 계정의 모든 Blob을 나열하고 읽을 수 있습니다.
+그런 다음 해당 스토리지 계정에서의 읽기가 필요한 개체에게 토큰을 부여하면 해당 스토리지 계정의 모든 Blob을 나열하고 읽을 수 있습니다.
 
-또는 RBAC로 이 권한을 제어해야 할 경우 해당 특정 스토리지 계정에서 개체에 Microsoft.Storage/storageAccounts/listkeys/action 권한을 부여할 수 있습니다. 저장소 계정에 보관하기 위해 로그 프로필이나 진단 설정을 구성할 수 있는 사용자에게 필요한 항목입니다. 예를 들어, 한 저장소 계정에서 읽기만 필요한 사용자 또는 애플리케이션에 대해 다음 사용자 지정 RBAC 역할을 만들 수 있습니다.
+또는 RBAC로 이 권한을 제어해야 할 경우 해당 특정 스토리지 계정에서 개체에 Microsoft.Storage/storageAccounts/listkeys/action 권한을 부여할 수 있습니다. 스토리지 계정에 보관하기 위해 로그 프로필이나 진단 설정을 구성할 수 있는 사용자에게 필요한 항목입니다. 예를 들어, 한 스토리지 계정에서 읽기만 필요한 사용자 또는 애플리케이션에 대해 다음 사용자 지정 RBAC 역할을 만들 수 있습니다.
 
 ```powershell
 $role = Get-AzRoleDefinition "Reader"
@@ -152,7 +152,7 @@ New-AzRoleDefinition -Role $role
 ```
 
 > [!WARNING]
-> ListKeys 권한이 있는 사용자는 기본 및 보조 저장소 계정 키를 나열할 수 있습니다. 이러한 키는 사용자에게 해당 저장소 계정의 모든 서명된 서비스(Blob, 큐, 테이블, 파일) 전체에서 모든 서명된 권한(읽기, 쓰기, Blob 만들기, Blob 삭제 등)을 부여합니다. 가능한 경우 위에서 설명한 계정 SAS를 사용하는 것이 좋습니다.
+> ListKeys 권한이 있는 사용자는 기본 및 보조 스토리지 계정 키를 나열할 수 있습니다. 이러한 키는 사용자에게 해당 스토리지 계정의 모든 서명된 서비스(Blob, 큐, 테이블, 파일) 전체에서 모든 서명된 권한(읽기, 쓰기, Blob 만들기, Blob 삭제 등)을 부여합니다. 가능한 경우 위에서 설명한 계정 SAS를 사용하는 것이 좋습니다.
 > 
 > 
 
@@ -179,9 +179,9 @@ New-AzRoleDefinition -Role $role
 
 Azure Monitor에서 사용하도록 설정하는 서비스를 제공하려면 Azure 리소스에 액세스해야 합니다. 공용 인터넷에 액세스할 수 없도록 보호하는 동시에 Azure 리소스를 모니터링하려는 경우 다음 설정을 사용하도록 설정할 수 있습니다.
 
-### <a name="secured-storage-accounts"></a>보안 저장소 계정 
+### <a name="secured-storage-accounts"></a>보안 스토리지 계정 
 
-모니터링 데이터는 저장소 계정에 기록되는 경우가 많습니다. 저장소 계정에 복사한 데이터는 인증되지 않은 사용자가 액세스할 수 없도록 하는 것이 좋습니다. 추가 보안을 위해, “선택된 네트워크”를 사용하도록 저장소 계정을 제한하여 권한 있는 리소스 및 신뢰할 수 있는 Microsoft 서비스만 저장소 계정에 액세스할 수 있도록 네트워크 액세스를 잠글 수 있습니다.
+모니터링 데이터는 스토리지 계정에 기록되는 경우가 많습니다. 스토리지 계정에 복사한 데이터는 인증되지 않은 사용자가 액세스할 수 없도록 하는 것이 좋습니다. 추가 보안을 위해, “선택된 네트워크”를 사용하도록 저장소 계정을 제한하여 권한 있는 리소스 및 신뢰할 수 있는 Microsoft 서비스만 저장소 계정에 액세스할 수 있도록 네트워크 액세스를 잠글 수 있습니다.
 ![Azure Storage 설정 대화 상자](./media/roles-permissions-security/secured-storage-example.png) Azure Monitor는 이러한 “신뢰할 수 있는 Microsoft 서비스” 중 하나로 간주됩니다. 신뢰할 수 있는 Microsoft 서비스가 보안 스토리지에 액세스할 수 있도록 허용하면 Azure Monitor에서 보안 스토리지 계정에 액세스할 수 있으며, 이러한 보호된 조건에서 Azure Monitor 진단 로그, 활동 로그 및 메트릭을 스토리지 계정에 작성할 수 있습니다. Log Analytics에서 보안 스토리지의 로그를 읽을 수도 있습니다.   
 
 

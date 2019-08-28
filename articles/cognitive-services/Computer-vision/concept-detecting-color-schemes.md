@@ -1,5 +1,5 @@
 ---
-title: 색 구성표 감지 - Computer Vision
+title: 색 구성표 검색-Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Computer Vision API를 사용하여 이미지에서 색 구성표를 감지하는 데 관련된 개념입니다.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ff7af2204f9e05a1ba4ef800c63c3ad462242350
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e0fa85b8a90ea57d9b81bd2eeaa6d080b7582acd
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60368590"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945285"
 ---
 # <a name="detect-color-schemes-in-images"></a>이미지에서 색 구성표 감지
 
@@ -30,7 +30,7 @@ Computer Vision은 주요 색과 채도의 조합을 기반으로 하여 이미�
 
 다음 예제에서는 예제 이미지의 색 구성표를 검색할 때 Computer Vision에서 반환된 JSON 응답을 보여줍니다. 이 경우 예제 이미지는 흑백 이미지가 아니라 주요 전경색 및 배경색이 검은색이고 전체 이미지의 주요 색이 검은색과 흰색입니다.
 
-![야외 Mountain 일몰, 개인의 실루엣을 사용 하 여](./Images/mountain_vista.png)
+![사용자의 실루엣을 사용한 일몰 전 실외 산](./Images/mountain_vista.png)
 
 ```json
 {
@@ -56,7 +56,7 @@ Computer Vision은 주요 색과 채도의 조합을 기반으로 하여 이미�
 
 | 이미지 | 주요 색 |
 |-------|-----------------|
-|![녹색 배경의 흰색 꽃](./Images/flower.png)| 전경: 검정<br/>배경: 흰색<br/>색: 검은색, 흰색, 녹색|
+|![녹색 배경의 흰색 꽃](./Images/flower.png)| 전경: 검정<br/>배경: 하얀<br/>색: 검은색, 흰색, 녹색|
 ![역을 달리는 열차](./Images/train_station.png) | 전경: 검정<br/>배경: 검정<br/>색: 검정 |
 
 ### <a name="accent-color-examples"></a>강조색 예제

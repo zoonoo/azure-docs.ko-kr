@@ -53,9 +53,9 @@ Spark는 csv, json, xml, parquet, orc, avro 등의 여러 가지 형식을 지�
 
 성능에 가장 적합한 형식은 *snappy 압축*을 사용하는 parquet으로, Spark 2.x의 기본값입니다. Parquet은 데이터를 열 형식으로 저장하며 Spark에서 매우 최적화되어 있습니다.
 
-## <a name="select-default-storage"></a>기본 저장소 선택
+## <a name="select-default-storage"></a>기본 스토리지 선택
 
-새 Spark 클러스터를 만들 때 Azure Blob Storage 또는 Azure Data Lake Storage를 클러스터의 기본 스토리지로 선택할 수 있습니다. 두 옵션 모두 임시 클러스터의 장기간 저장소의 이점을 제공하므로 클러스터를 삭제할 때 데이터가 자동으로 삭제되지 않습니다. 임시 클러스터를 다시 만들고 해당 데이터에 계속 액세스할 수 있습니다.
+새 Spark 클러스터를 만들 때 Azure Blob Storage 또는 Azure Data Lake Storage를 클러스터의 기본 스토리지로 선택할 수 있습니다. 두 옵션 모두 임시 클러스터의 장기간 스토리지의 이점을 제공하므로 클러스터를 삭제할 때 데이터가 자동으로 삭제되지 않습니다. 임시 클러스터를 다시 만들고 해당 데이터에 계속 액세스할 수 있습니다.
 
 | 저장소 유형 | 파일 시스템 | 속도 | 임시 | 사용 사례 |
 | --- | --- | --- | --- | --- |
@@ -66,13 +66,13 @@ Spark는 csv, json, xml, parquet, orc, avro 등의 여러 가지 형식을 지�
 
 ## <a name="use-the-cache"></a>캐시 사용
 
-Spark는 `.persist()`, `.cache()`, `CACHE TABLE`과 같은 다양한 방법을 통해 사용할 수 있는 자체 기본 캐싱 메커니즘을 제공합니다. 이 기본 캐싱은 중간 결과를 캐시해야 하는 ETL 파이프라인뿐만 아니라 작은 데이터 집합에서도 효과적입니다. 그러나 현재 Spark 기본 캐싱은 캐시된 테이블이 분할 데이터를 유지하지 않으므로 분할에서 잘 작동하지 않습니다. 보다 일반적이며 신뢰할 수 있는 캐싱 기술은 *저장소 계층 캐싱*입니다.
+Spark는 `.persist()`, `.cache()`, `CACHE TABLE`과 같은 다양한 방법을 통해 사용할 수 있는 자체 기본 캐싱 메커니즘을 제공합니다. 이 기본 캐싱은 중간 결과를 캐시해야 하는 ETL 파이프라인뿐만 아니라 작은 데이터 집합에서도 효과적입니다. 그러나 현재 Spark 기본 캐싱은 캐시된 테이블이 분할 데이터를 유지하지 않으므로 분할에서 잘 작동하지 않습니다. 보다 일반적이며 신뢰할 수 있는 캐싱 기술은 *스토리지 계층 캐싱*입니다.
 
 * 기본 Spark 캐싱(권장하지 않음)
     * 작은 데이터 세트에 적합
     * 분할에서는 작동하지 않으며 향후 Spark 릴리스에서 변경될 수 있음
 
-* 저장소 수준 캐싱(권장)
+* 스토리지 수준 캐싱(권장)
     * [Alluxio](https://www.alluxio.org/)를 사용하여 구현될 수 있음
     * 메모리 내 캐싱 및 SSD 캐싱 사용
 
@@ -201,7 +201,7 @@ Spark 클러스터 워크로드에 따라 기본이 아닌 Spark 구성을 사�
 
 성능 문제에 대해 정기적으로 실행 중인 작업을 모니터링합니다. 특정 문제에 대한 자세한 통찰력이 필요한 경우 다음과 같은 성능 프로파일링 도구 중 하나를 고려합니다.
 
-* [Intel PAL 도구](https://github.com/intel-hadoop/PAT)는 CPU, 저장소 및 네트워크 대역폭 사용률을 모니터링합니다.
+* [Intel PAL 도구](https://github.com/intel-hadoop/PAT)는 CPU, 스토리지 및 네트워크 대역폭 사용률을 모니터링합니다.
 * [Oracle Java 8 Mission Control](https://www.oracle.com/technetwork/java/javaseproducts/mission-control/java-mission-control-1998576.html)은 Spark 및 실행기 코드를 프로파일링합니다.
 
 Spark 2.x 쿼리 성능의 핵심은 텅스텐 엔진으로, 전단계 코드 생성에 따라 달라집니다. 경우에 따라 전단계 코드 생성이 사용하지 않도록 설정될 수 있습니다. 예를 들어 집계식에서 변경이 불가능한 유형(`string`)을 사용하면 `HashAggregate` 대신 `SortAggregate`이 표시됩니다. 예를 들어 성능을 향상시키려면 다음을 시도한 다음 코드 생성을 다시 사용하도록 설정합니다.

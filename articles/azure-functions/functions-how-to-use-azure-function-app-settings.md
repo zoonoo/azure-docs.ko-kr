@@ -1,24 +1,22 @@
 ---
-title: Azure Function App 설정 구성 | Microsoft Docs
+title: Azure 함수 앱 설정 구성 | Microsoft Docs
 description: Azure 함수 앱 설정을 구성하는 방법에 알아봅니다.
-services: ''
-documentationcenter: .net
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 92ca09040836dfc55a9d709b12a0ee01192d6bac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 27e56c3bcaa08fee25c362cdfed64c61b92873cb
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65957400"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982650"
 ---
-# <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Azure Portal에서 함수 앱을 관리하는 방법 
+# <a name="how-to-manage-a-function-app"></a>함수 앱을 관리 하는 방법
 
 Azure Functions에서 함수 앱은 개별 함수에 대한 실행 컨텍스트를 제공합니다. 함수 앱 동작은 지정된 함수 앱에서 호스트하는 모든 함수에 적용됩니다. 이 항목에서는 Azure Portal에서 함수 앱을 구성 및 관리하는 방법을 설명합니다.
 
@@ -26,25 +24,25 @@ Azure Functions에서 함수 앱은 개별 함수에 대한 실행 컨텍스트�
 
 ![Azure Portal의 함수 앱 개요](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
-특히 개요 페이지에서 함수 앱을 관리 하는 데 필요한 모든 이동할 수 있습니다 합니다 **[응용 프로그램 설정](#settings)** 하 고 **[플랫폼기능](#platform-features)** .
+개요 페이지, 특히 **[응용 프로그램 설정](#settings)** 및 **[플랫폼 기능](#platform-features)** 에서 함수 앱을 관리 하는 데 필요한 모든 항목으로 이동할 수 있습니다.
 
 ## <a name="settings"></a>애플리케이션 설정
 
-합니다 **응용 프로그램 설정** 탭에는 함수 앱에서 사용 되는 설정을 유지 합니다.
+**응용 프로그램 설정** 탭은 함수 앱에서 사용 하는 설정을 유지 합니다.
 
-![Azure portal에서 함수 앱 설정입니다.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
+![Azure Portal의 함수 앱 설정입니다.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-이러한 설정은 암호화 저장 됩니다 하 고 선택 해야 합니다 **값을 표시** 포털에서 값을 확인할 수 있습니다.
+이러한 설정은 암호화 되어 저장 되므로 **값 표시** 를 선택 하 여 포털에서 값을 확인 해야 합니다.
 
-설정을 추가 하려면 **새 응용 프로그램 설정을** 새 키-값 쌍을 추가 합니다.
+설정을 추가 하려면 **새 응용 프로그램 설정** 을 선택 하 고 새 키-값 쌍을 추가 합니다.
 
 [!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
 
-로컬 함수 앱을 개발할 때 이러한 값 local.settings.json 프로젝트 파일에 유지 됩니다.
+함수 앱을 로컬로 개발 하는 경우 이러한 값은 로컬 설정 json 프로젝트 파일에서 유지 관리 됩니다.
 
 ## <a name="platform-features"></a>플랫폼 기능
 
-![함수 응용 프로그램 플랫폼 기능 탭](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-features-tab.png)
+![함수 앱 플랫폼 기능 탭.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-features-tab.png)
 
 함수 앱은 Azure App Service 플랫폼에서 실행되고 유지 관리됩니다. 따라서 함수 앱은 Azure의 핵심 웹 호스팅 플랫폼 기능 대부분에 액세스할 수 있습니다. **플랫폼 기능** 탭에서는 함수 앱에서 사용할 수 있는 App Service 플랫폼의 많은 기능에 액세스할 수 있습니다. 
 
@@ -101,7 +99,7 @@ App Service 설정을 사용하는 방법에 대한 자세한 내용은 [Azure A
 |-|-|
 | ![Azure Portal의 함수 앱 CORS](./media/functions-how-to-use-azure-function-app-settings/function-app-cors.png) | 서비스의 악의적인 코드 실행을 방지하기 위해 App Service는 외부 원본의 함수 앱에 대한 호출을 차단합니다. Functions는 CORS(원본 간 리소스 공유)를 지원하여 함수가 원격 요청을 수락할 수 있는 허용 원본을 나타내는 “허용 목록"을 정의할 수 있도록 합니다.  |
 
-![Function App CORS 구성](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-cors.png)
+![함수 앱 CORS 구성](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-cors.png)
 
 ### <a name="auth"></a>인증
 
@@ -118,7 +116,7 @@ App Service 설정을 사용하는 방법에 대한 자세한 내용은 [Azure A
 |-|-|
 | ![Azure Portal의 함수 앱 API swagger 정의](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Functions는 클라이언트가 HTTP에서 트리거한 함수를 더 쉽게 사용할 수 있도록 하는 Swagger를 지원합니다. Swagger를 사용하여 API 정의를 만드는 방법에 대한 자세한 내용은 [Azure App Service에서 CORS를 통해 RESTful API 호스팅](../app-service/app-service-web-tutorial-rest-api.md)을 방문하세요. 또한 Functions 프록시를 사용하여 여러 함수에 대해 단일 API 화면을 정의할 수도 있습니다. 자세한 내용은 [Azure Functions 프록시 사용](functions-proxies.md)을 참조하세요. |
 
-![Function App API 구성](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-apidef.png)
+![함수 앱 API 구성](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-apidef.png)
 
 
 

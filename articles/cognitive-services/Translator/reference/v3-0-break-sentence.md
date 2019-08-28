@@ -1,6 +1,6 @@
 ---
 title: Translator Text API BreakSentence 메서드
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Translator Text API BreakSentence 메서드를 사용합니다.
 services: cognitive-services
 author: swmachan
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 59f6957f1781852e4ab4c0713742581b5c884f25
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 184677589b3aa777ec556215455f8018e0d71f3f
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357872"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934049"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>Translator Text API 3.0: BreakSentence
 
@@ -35,17 +35,17 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 <table width="100%">
   <th width="20%">쿼리 매개 변수</th>
-  <th>설명</th>
+  <th>Description</th>
   <tr>
     <td>api-version</td>
     <td>*필수 쿼리 매개 변수*입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 `3.0`이어야 합니다.</td>
   </tr>
   <tr>
-    <td>언어</td>
+    <td>language</td>
     <td>*선택적 쿼리 매개 변수*입니다.<br/>입력 텍스트의 언어를 식별하는 언어 태그입니다. 코드를 지정하지 않으면 자동 언어 검색이 적용됩니다.</td>
   </tr>
   <tr>
-    <td>script</td>
+    <td>스크립트(script)</td>
     <td>*선택적 쿼리 매개 변수*입니다.<br/>입력 텍스트에서 사용되는 스크립트를 식별하는 스크립트 태그입니다. 스크립트를 지정하지 않으면 언어의 기본 스크립트가 가정됩니다.</td>
   </tr>
 </table> 
@@ -54,13 +54,13 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 <table width="100%">
   <th width="20%">헤더</th>
-  <th>설명</th>
+  <th>Description</th>
   <tr>
     <td>인증 헤더</td>
     <td><em>필수 요청 헤더</em><br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요.</td>
   </tr>
   <tr>
-    <td>콘텐츠 형식</td>
+    <td>Content-Type</td>
     <td>*필수 요청 헤더*<br/>페이로드의 콘텐츠 형식을 지정합니다. 가능한 값은 `application/json`입니다.</td>
   </tr>
   <tr>
@@ -83,7 +83,7 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 ]
 ```
 
-다음 제한 사항이 적용됩니다.
+다음과 같은 제한 사항이 적용됩니다.
 
 * 배열에는 최대 100개 요소가 있을 수 있습니다.
 * 배열 요소의 텍스트 값은 공백을 포함하여 10,000자를 초과할 수 없습니다.
@@ -122,7 +122,7 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 <table width="100%">
   <th width="20%">헤더</th>
-  <th>설명</th>
+  <th>Description</th>
   <tr>
     <td>X-RequestId</td>
     <td>요청을 식별하기 위해 서비스에서 생성한 값입니다. 문제 해결을 위해 사용됩니다.</td>
@@ -138,7 +138,7 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
   <th>설명</th>
   <tr>
     <td>200</td>
-    <td>성공.</td>
+    <td>명령 실행 성공</td>
   </tr>
   <tr>
     <td>400</td>
@@ -154,7 +154,7 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
   </tr>
   <tr>
     <td>429</td>
-    <td>서버는 클라이언트 요청 한도 초과 했기 때문에 요청을 거부 합니다.</td>
+    <td>클라이언트에서 요청 제한을 초과 하 여 서버가 요청을 거부 했습니다.</td>
   </tr>
   <tr>
     <td>500</td>
@@ -172,11 +172,7 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 다음 예제에서는 단일 문장에 대한 문장 경계를 가져오는 방법을 보여 줍니다. 문장의 언어는 서비스에서 자동으로 검색됩니다.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"
 ```
-
----
 

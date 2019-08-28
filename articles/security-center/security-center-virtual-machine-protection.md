@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 4e0a8473dfadc151ab861a4d749d9ff5e1622fb9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cb6025b47aec50121a0f96f7b6cba7ad726db291
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428393"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907965"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Azure Security Center에서 머신 및 애플리케이션 보호
-Azure Security Center는 Azure 리소스, 비 Azure 서버 및 가상 컴퓨터의 보안 상태를 분석합니다. 보안 센터가 잠재적인 보안 취약점을 식별하는 경우 필요한 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다. 이러한 권장 사항은 VM(가상 머신)과 컴퓨터, 애플리케이션, 네트워킹, SQL과 ID 및 액세스 등의 Azure 리소스 유형에 적용됩니다.
+Azure Security Center는 Azure 리소스, 비 Azure 서버 및 가상 컴퓨터의 보안 상태를 분석 합니다. 보안 센터가 잠재적인 보안 취약점을 식별하는 경우 필요한 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다. 이러한 권장 사항은 VM(가상 머신)과 컴퓨터, 애플리케이션, 네트워킹, SQL과 ID 및 액세스 등의 Azure 리소스 유형에 적용됩니다.
 
 이 문서에서는 머신과 애플리케이션에 적용되는 권장 사항에 대해 설명합니다.
 
@@ -44,7 +44,7 @@ Compute 및 App Services 권장 사항의 전체 목록은 [권장 사항](secur
 - **Cloud Services**: Security Center에서 모니터링되는 웹 및 작업자 역할의 목록입니다.
 - **App Services**: App Service 환경 목록과 각각의 현재 보안 상태입니다.
 - **컨테이너(미리 보기)** : IaaS Linux 컴퓨터에서 호스트되는 컨테이너 목록과 해당 Docker 구성의 보안 평가입니다.
-- **계산 리소스(미리 보기)** : Service Fabric 클러스터 및 Event Hubs와 같은 계산 리소스에 대한 권장 사항 목록입니다.
+- **컴퓨팅 리소스(미리 보기)** : Service Fabric 클러스터 및 Event Hubs와 같은 컴퓨팅 리소스에 대한 권장 사항 목록입니다.
 
 계속하려면 **리소스 보안 예방 조치** 아래에서 **Compute 및 앱**을 선택합니다.
 
@@ -53,7 +53,7 @@ Compute 및 App Services 권장 사항의 전체 목록은 [권장 사항](secur
 각 탭에는 여러 섹션이 있으며, 각 섹션에서 개별 옵션을 선택하면 특정 문제를 해결하는 권장 단계에 관한 자세한 내용을 볼 수 있습니다.
 
 ### 모니터링되지 않는 VM 및 컴퓨터 <a name="unmonitored-vms-and-computers"></a>
-머신에서 Microsoft Monitoring Agent 확장을 실행하지 않으면 Security Center에서 VM 또는 컴퓨터를 모니터링하지 않습니다. 컴퓨터는 로컬 에이전트가 이미 설치 되어 있을 수 있습니다, 예를 들어 OMS 직접 에이전트 또는 System Center Operations Manager 에이전트입니다. 이러한 에이전트가 설치된 머신은 Security Center에서 완전히 지원되지 않으므로 모니터링되지 않는 것으로 식별됩니다. Security Center의 모든 기능을 최대한 활용하려면 Microsoft Monitoring Agent 확장이 필요합니다.
+머신에서 Microsoft Monitoring Agent 확장을 실행하지 않으면 Security Center에서 VM 또는 컴퓨터를 모니터링하지 않습니다. 컴퓨터에는 OMS 직접 에이전트 또는 System Center Operations Manager 에이전트와 같은 로컬 에이전트가 이미 설치 되어 있을 수 있습니다. 이러한 에이전트가 설치된 머신은 Security Center에서 완전히 지원되지 않으므로 모니터링되지 않는 것으로 식별됩니다. Security Center의 모든 기능을 최대한 활용하려면 Microsoft Monitoring Agent 확장이 필요합니다.
 
 확장은 이미 설치된 로컬 에이전트 외에도 모니터링되지 않는 VM이나 컴퓨터에 설치할 수 있습니다. 두 에이전트를 동일하게 구성하여 동일한 작업 영역에 연결합니다. 이렇게 하면 Security Center에서 Microsoft Monitoring Agent Extension과 상호 작용하고 데이터를 수집할 수 있습니다. Microsoft Monitoring Agent 확장을 설치하는 방법에 대한 지침은 [VM 확장 사용](../azure-monitor/learn/quick-collect-azurevm.md)을 참조하세요.
 
@@ -103,7 +103,7 @@ VM 및 컴퓨터 섹션에는 모든 VM과 컴퓨터의 권장 사항에 대한 
 ![Azure 클래식 VM](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon3.png) Azure 클래식 VM입니다.
 
 
-![작업 영역에서 식별된 VM](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png) 본 구독의 일부인 작업 영역에서만 식별되는 VM 이 Vm이 포함 됩니다 다른 구독에서 보고 하는이 구독 및 직접 에이전트를 Operations Manager를 함께 설치 된 Vm에서 작업 영역에 있고 없는 리소스 id입니다.
+![작업 영역에서 식별된 VM](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png) 본 구독의 일부인 작업 영역에서만 식별되는 VM 여기에는이 구독의 작업 영역에 보고 하는 다른 구독의 Vm, Operations Manager direct agent와 함께 설치 된 Vm 및 리소스 ID가 없습니다.
 
 각 권장 사항에 표시되는 아이콘은 주의를 기울여야 하는 VM과 컴퓨터 및 권장 사항의 형식을 식별하는 데 도움이 됩니다. 필터를 사용하여 **리소스 종류** 및 **심각도**를 기준으로 목록을 검색할 수도 있습니다.
 
@@ -111,10 +111,10 @@ VM 및 컴퓨터 섹션에는 모든 VM과 컴퓨터의 권장 사항에 대한 
 VM 또는 컴퓨터에 대한 보안 세부 정보는 다음과 같습니다. 맨 아래에서 권장되는 작업과 각 문제의 심각도를 볼 수 있습니다.
 ![Cloud services](./media/security-center-virtual-machine-recommendations/recommendation-list.png)
 
-### <a name="cloud-services"></a>클라우드 서비스
+### <a name="cloud-services"></a>Cloud Services
 클라우드 서비스에는 운영 체제 버전이 오래된 경우 권장 사항이 표시됩니다.
 
-![클라우드 서비스](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig1-new006-2017.png)
+![Cloud Services](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig1-new006-2017.png)
 
 권장 사항(이전 예제에는 해당되지 않음)이 있는 시나리오의 경우 권장 사항의 단계를 따라 운영 체제 버전을 업데이트해야 합니다. 업데이트를 사용할 수 있는 경우 경고가 표시됩니다(문제의 심각도에 따라 빨간색 또는 주황색). IIS에 자동으로 배포된 웹앱으로 Windows Server를 실행하는 WebRole1 또는 WorkerRole1 행에 있는 이 경고를 선택하면 해당 권장 사항에 대한 자세한 정보가 표시됩니다.
 
@@ -124,7 +124,7 @@ VM 또는 컴퓨터에 대한 보안 세부 정보는 다음과 같습니다. �
 
 ![OS 버전 업데이트](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png)
 
-### <a name="app-services"></a>App Services
+### <a name="app-services"></a>앱 서비스
 App Service 정보를 확인하려면 구독에서 App Service를 사용하도록 설정해야 합니다. 이 기능을 사용하는 방법에 대한 지침은 [Azure Security Center를 통해 App Service 보호](security-center-app-services.md)를 참조하세요.
 [!NOTE]
 > App Service 모니터링은 미리 보기로 제공되며 Security Center의 표준 계층에서만 사용할 수 있습니다.
@@ -132,7 +132,7 @@ App Service 정보를 확인하려면 구독에서 App Service를 사용하도�
 
 **App Services**에는 App Service 환경 목록과 Security Center에서 수행된 평가에 기반한 상태 요약이 있습니다.
 
-![App Services](./media/security-center-virtual-machine-recommendations/app-services.png)
+![앱 서비스](./media/security-center-virtual-machine-recommendations/app-services.png)
 
 이 목록에는 세 가지 유형의 아이콘이 표시됩니다.
 
@@ -160,7 +160,7 @@ App Service 정보를 확인하려면 구독에서 App Service를 사용하도�
 
      ![App Service 수정](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
 
-## <a name="virtual-machine-scale-sets"></a>가상 머신 크기 집합
+## <a name="virtual-machine-scale-sets"></a>Virtual Machine Scale Sets
 Security Center는 사용자에게 확장 집합이 있는지를 자동으로 검색한 후 이러한 확장 집합에 Microsoft Monitoring Agent를 설치하도록 권장합니다. 
 
 Microsoft Monitoring Agent를 설치하려면 
@@ -172,7 +172,7 @@ Microsoft Monitoring Agent를 설치하려면
 
 Microsoft Monitoring Agent를 자동으로 설치하도록 새 확장 집합을 설정하려면
 1. Azure Policy로 이동한 후 **정의**를 클릭합니다.
-2. 정책에 대 한 검색 **Windows 가상 머신 확장 집합에 대 한 Log Analytics 배포 에이전트** 해당 항목을 클릭 합니다.
+2. **Windows 가상 머신 확장 집합에 대 한 정책 배포 Log Analytics 에이전트** 를 검색 하 고 클릭 합니다.
 3. **할당**을 클릭합니다.
 4. **범위** 및 **Log Analytics 작업 영역**을 설정하고 **할당**을 클릭합니다.
 
@@ -180,54 +180,54 @@ Microsoft Monitoring Agent를 설치하도록 기존의 모든 확장 집합을 
 
 
 ## <a name="compute-and-app-recommendations"></a>컴퓨팅 및 앱 권장 사항
-|리소스 종류|보안 점수|권장 사항|설명|
+|리소스 형식|보안 점수|권장|Description|
 |----|----|----|----|
-|App Service|20|웹 애플리케이션에 HTTPS를 통해서만 액세스 가능|웹 애플리케이션의 액세스를 HTTPS 사용으로 제한합니다.|
-|App Service|20|Function App에 HTTPS를 통해서만 액세스 가능|Function App의 액세스를 HTTPS 사용으로 제한합니다.|
-|App Service|5|App Services에서 진단 로그를 사용 해야|로그를 사용하도록 설정하고 최대 1년 간 보존합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 활동 내역을 다시 만들 수 있습니다. |
-|App Service|10|웹 애플리케이션에 대해 원격 디버깅을 해제해야 함|더 이상 사용할 필요가 없으면 웹 애플리케이션에 대해 디버깅을 해제합니다. 원격 디버깅에 Function App에서 열리는 인바운드 포트가 필요합니다.|
-|App Service|10|함수 애플리케이션에 대해 원격 디버깅을 해제해야 함|더 이상 사용할 필요가 없는 경우 Function App에 대한 디버깅을 해제합니다. 원격 디버깅에 Function App에서 열리는 인바운드 포트가 필요합니다.|
-|App Service|10|애플리케이션에 액세스하는 모든('*') 리소스를 허용하지 마십시오.| WEBSITE_LOAD_CERTIFICATES 매개 변수의 "" 설정을 허용하지 않습니다. 매개 변수를 “로 설정하는 것은 모든 인증서가 웹 애플리케이션 개인 인증서 저장소로 로드되는 것을 의미합니다. 사이트는 런타임 시 모든 인증서에 대한 액세스가 필요하지 않으므로 최소 권한의 원칙이 악용될 수 있습니다.|
-|App Service|20|CORS에서 모든 리소스가 웹 애플리케이션에 액세스하도록 허용하지 않아야 함|필요한 도메인만 웹 애플리케이션과 상호 작용할 수 있도록 허용합니다. CORS(교차 원본 리소스 공유)는 웹 애플리케이션에 액세스하는 모든 도메인을 허용하지 않아야 합니다.|
-|App Service|20|CORS에서 모든 리소스가 Function App에 액세스하도록 허용하지 않아야 함| 필요한 도메인만 함수 애플리케이션과 상호 작용할 수 있도록 허용합니다. CORS(교차 원본 리소스 공유)는 함수 애플리케이션에 액세스하는 모든 도메인을 허용하지 않아야 합니다.|
-|Compute 리소스(Batch)|1|Batch 계정에서 메트릭 경고 규칙을 구성 해야|Batch 계정에 메트릭 경고 규칙을 구성하고 메트릭 풀 삭제 완료 이벤트 및 풀 삭제 시작 이벤트를 사용하도록 설정합니다.|
-|Compute 리소스(Service Fabric)|10|Service Fabric 클러스터에만 클라이언트 인증을 위해 Azure Active Directory 사용 해야|Service Fabric에서 Azure Active Directory를 통해서만 클라이언트 인증을 수행합니다.|
-|Compute 리소스(Automation 계정)|5|Automation 계정 변수를 암호화 해야|중요한 데이터를 저장할 때 Automation 계정 변수 자산의 암호화를 사용하도록 설정합니다.|
+|앱 서비스|20|웹 애플리케이션에 HTTPS를 통해서만 액세스 가능|웹 애플리케이션의 액세스를 HTTPS 사용으로 제한합니다.|
+|앱 서비스|20|함수 앱에 HTTPS를 통해서만 액세스 가능|함수 앱의 액세스를 HTTPS 사용으로 제한합니다.|
+|앱 서비스|5|App Services의 진단 로그를 사용 하도록 설정 해야 합니다.|로그를 사용하도록 설정하고 최대 1년 간 보존합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 활동 내역을 다시 만들 수 있습니다. |
+|앱 서비스|10|웹 애플리케이션에 대해 원격 디버깅을 해제해야 함|더 이상 사용할 필요가 없으면 웹 애플리케이션에 대해 디버깅을 해제합니다. 원격 디버깅에 함수 앱에서 열리는 인바운드 포트가 필요합니다.|
+|앱 서비스|10|함수 애플리케이션에 대해 원격 디버깅을 해제해야 함|더 이상 사용할 필요가 없는 경우 함수 앱에 대한 디버깅을 해제합니다. 원격 디버깅에 함수 앱에서 열리는 인바운드 포트가 필요합니다.|
+|앱 서비스|10|애플리케이션에 액세스하는 모든('*') 리소스를 허용하지 마십시오.| WEBSITE_LOAD_CERTIFICATES 매개 변수의 "" 설정을 허용하지 않습니다. 매개 변수를 “로 설정하는 것은 모든 인증서가 웹 애플리케이션 개인 인증서 저장소로 로드되는 것을 의미합니다. 사이트는 런타임 시 모든 인증서에 대한 액세스가 필요하지 않으므로 최소 권한의 원칙이 악용될 수 있습니다.|
+|앱 서비스|20|CORS에서 모든 리소스가 웹 애플리케이션에 액세스하도록 허용하지 않아야 함|필요한 도메인만 웹 애플리케이션과 상호 작용할 수 있도록 허용합니다. CORS(교차 원본 리소스 공유)는 웹 애플리케이션에 액세스하는 모든 도메인을 허용하지 않아야 합니다.|
+|앱 서비스|20|CORS에서 모든 리소스가 함수 앱에 액세스하도록 허용하지 않아야 함| 필요한 도메인만 함수 애플리케이션과 상호 작용할 수 있도록 허용합니다. CORS(교차 원본 리소스 공유)는 함수 애플리케이션에 액세스하는 모든 도메인을 허용하지 않아야 합니다.|
+|Compute 리소스(Batch)|1|Batch 계정에서 메트릭 경고 규칙을 구성 해야 합니다.|Batch 계정에 메트릭 경고 규칙을 구성하고 메트릭 풀 삭제 완료 이벤트 및 풀 삭제 시작 이벤트를 사용하도록 설정합니다.|
+|Compute 리소스(Service Fabric)|10|Service Fabric 클러스터는 클라이언트 인증에 대해서만 Azure Active Directory를 사용해야 합니다.|Service Fabric에서 Azure Active Directory를 통해서만 클라이언트 인증을 수행합니다.|
+|Compute 리소스(Automation 계정)|5|Automation 계정 변수는 암호화 되어야 합니다.|중요한 데이터를 저장할 때 Automation 계정 변수 자산의 암호화를 사용하도록 설정합니다.|
 |Compute 리소스(검색)|5|Search 서비스에 대 한 진단 로그 사용 감사|로그를 사용하도록 설정하고 최대 1년 간 보존합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 활동 내역을 다시 만들 수 있습니다. |
-|Compute 리소스(Service Bus)|5|Service Bus의 진단 로그를 사용 해야|로그를 사용하도록 설정하고 최대 1년 간 보존합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 활동 내역을 다시 만들 수 있습니다. |
-|Compute 리소스(스트림 분석)|5|Azure Stream Analytics에서 진단 로그를 사용 해야|로그를 사용하도록 설정하고 최대 1년 간 보존합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 활동 내역을 다시 만들 수 있습니다. |
+|Compute 리소스(Service Bus)|5|Service Bus의 진단 로그를 사용 하도록 설정 해야 합니다.|로그를 사용하도록 설정하고 최대 1년 간 보존합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 활동 내역을 다시 만들 수 있습니다. |
+|Compute 리소스(스트림 분석)|5|Azure Stream Analytics의 진단 로그를 사용 하도록 설정 해야 합니다.|로그를 사용하도록 설정하고 최대 1년 간 보존합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 활동 내역을 다시 만들 수 있습니다. |
 |Compute 리소스(Batch)|5|Batch 계정에서 진단 로그 사용|로그를 사용하도록 설정하고 최대 1년 간 보존합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 활동 내역을 다시 만들 수 있습니다. |
-|Compute 리소스(이벤트 허브)|5|이벤트 허브에서 진단 로그를 사용 해야|로그를 사용하도록 설정하고 최대 1년 간 보존합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 활동 내역을 다시 만들 수 있습니다. |
+|Compute 리소스(이벤트 허브)|5|이벤트 허브의 진단 로그를 사용 하도록 설정 해야 합니다.|로그를 사용하도록 설정하고 최대 1년 간 보존합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 활동 내역을 다시 만들 수 있습니다. |
 |Compute 리소스(Logic Apps)|5|Logic Apps에서 진단 로그 사용|로그를 사용하도록 설정하고 최대 1년 간 보존합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 활동 내역을 다시 만들 수 있습니다. |
 |Compute 리소스(Service Fabric)|15|Service Fabric에서 ClusterProtectionLevel 속성을 EncryptAndSign으로 설정|Service Fabric은 기본 클러스터 인증서를 사용하여 노드 간 통신을 위한 3단계 보호(None, Sign 및 EncryptAndSign)를 제공합니다.  모든 노드 간 메시지가 암호화되고 디지털로 서명될 수 있게 보호 수준을 설정합니다. |
 |Compute 리소스(Service Bus)|1|Service Bus 네임스페이스에서 RootManageSharedAccessKey를 제외한 모든 권한 부여 규칙 제거 |Service Bus 클라이언트는 네임스페이스의 모든 큐 및 토픽에 대한 액세스를 제공하는 네임스페이스 수준 액세스 정책을 사용하지 않아야 합니다. 최소 권한 보안 모델에 맞게 큐 및 토픽에 대한 엔터티 수준의 액세스 정책을 만들어 특정 엔터티에만 액세스를 제공해야 합니다.|
-|Compute 리소스(이벤트 허브)|1|이벤트 허브 네임 스페이스에서 RootManageSharedAccessKey 제외한 모든 권한 부여 규칙을 제거 해야|이벤트 허브 클라이언트는 네임스페이스의 모든 큐 및 토픽에 대한 액세스를 제공하는 네임스페이스 수준 액세스 정책을 사용하지 않아야 합니다. 최소 권한 보안 모델에 맞게 큐 및 토픽에 대한 엔터티 수준의 액세스 정책을 만들어 특정 엔터티에만 액세스를 제공해야 합니다.|
-|Compute 리소스(이벤트 허브)|5|이벤트 허브 엔터티 권한 부여 규칙을 정의 합니다.|최소 액세스 권한을 부여하기 위해 이벤트 허브 엔터티에 대한 권한 부여 규칙을 감사합니다.|
+|Compute 리소스(이벤트 허브)|1|RootManageSharedAccessKey를 제외한 모든 권한 부여 규칙은 Event Hub 네임 스페이스에서 제거 해야 합니다.|이벤트 허브 클라이언트는 네임스페이스의 모든 큐 및 토픽에 대한 액세스를 제공하는 네임스페이스 수준 액세스 정책을 사용하지 않아야 합니다. 최소 권한 보안 모델에 맞게 큐 및 토픽에 대한 엔터티 수준의 액세스 정책을 만들어 특정 엔터티에만 액세스를 제공해야 합니다.|
+|Compute 리소스(이벤트 허브)|5|이벤트 허브 엔터티에 대 한 권한 부여 규칙을 정의 해야 합니다.|최소 액세스 권한을 부여하기 위해 이벤트 허브 엔터티에 대한 권한 부여 규칙을 감사합니다.|
 |Machine|50|머신에 모니터링 에이전트 설치|모니터링 에이전트를 설치하여 각 머신에서 데이터 수집, 업데이트 검사, 기준 검사 및 엔드포인트 보호를 사용하도록 설정합니다.|
 |Machine|50|구독에 대한 자동 프로비전 및 데이터 수집을 사용하도록 설정 |구독에 추가된 각 머신에서 데이터 수집, 업데이트 검사, 기준 검사 및 엔드포인트 보호를 사용하기 위해 구독의 머신에 대해 자동 프로비전 및 데이터 수집을 사용하도록 설정합니다.|
 |Machine|40|머신의 모니터링 에이전트 상태 문제 해결|완벽한 Security Center 보호를 위해 문제 해결 가이드의 지침에 따라 머신에서 모니터링 에이전트 문제를 해결합니다.| 
 |Machine|40|머신의 엔드포인트 보호 상태 문제 해결|완벽한 Security Center 보호를 위해 문제 해결 가이드의 지침에 따라 머신에서 모니터링 에이전트 문제를 해결합니다.|
 |Machine|40|머신의 검사 데이터 누락 문제 해결|가상 머신 및 컴퓨터에서 검사 데이터 누락 문제를 해결합니다. 머신의 검사 데이터 누락은 업데이트 검사, 기준 검사 같은 보안 평가 누락과 엔드포인트 보호 솔루션 검사 누락을 초래합니다.|
-|Machine|40|컴퓨터에서 시스템 업데이트 설치|누락된 시스템 보안 및 중요 업데이트를 설치하여 Windows 및 Linux 가상 머신과 컴퓨터를 보호합니다.
+|Machine|40|시스템 업데이트를 컴퓨터에 설치 해야 합니다.|누락된 시스템 보안 및 중요 업데이트를 설치하여 Windows 및 Linux 가상 머신과 컴퓨터를 보호합니다.
 |Machine|15|웹 애플리케이션 방화벽 추가| WAF(웹 애플리케이션 방화벽) 솔루션을 배포하여 웹 애플리케이션을 보호합니다. |
 |Machine|40|클라우드 서비스 역할에 대한 OS 버전 업데이트|클라우드 서비스 역할의 OS(운영 체제) 버전을 OS 제품군의 사용 가능한 최신 버전으로 업데이트합니다.|
-|Machine|35|취약점으로 인 한 컴퓨터에서 보안 구성 수정 되어야 합니다.|머신의 보안 구성에서 취약성을 수정하여 공격으로부터 보호합니다.|
+|Machine|35|컴퓨터에서 보안 구성의 취약성을 재구성 해야 함|머신의 보안 구성에서 취약성을 수정하여 공격으로부터 보호합니다.|
 |Machine|35|컨테이너의 보안 구성에서 취약성 수정|Docker가 설치된 머신의 보안 구성에서 취약성을 수정하여 공격으로부터 보호합니다.|
 |Machine|25|적응형 애플리케이션 제어 사용|애플리케이션 제어를 사용하도록 설정하여 Azure에 있는 VM에서 실행할 수 있는 애플리케이션을 제어합니다. 이렇게 하면 VM을 강화하여 맬웨어로부터 보호할 수 있습니다. Security Center는 기계 학습을 통해 각 VM에서 실행 중인 애플리케이션을 분석하고 이러한 인텔리전스를 사용하여 허용 목록 규칙을 적용할 수 있습니다. 이 기능은 애플리케이션 허용 목록의 구성 및 유지 관리 프로세스를 간소화합니다.|
 |Machine|20|머신에 Endpoint Protection 솔루션 설치|가상 머신에 엔드포인트 보호 솔루션을 설치하여 위협 및 취약성으로부터 보호합니다.|
 |Machine|20|시스템 업데이트를 적용하려면 머신 다시 시작|시스템 업데이트를 적용하고 취약성으로부터 머신을 보호하려면 머신을 다시 시작합니다.|
-|Machine|15|가상 컴퓨터에서 디스크 암호화 적용|Windows 및 Linux 가상 머신 모두에 Azure Disk Encryption를 사용하여 가상 머신 디스크를 암호화합니다. ADE(Azure Disk Encryption)는 OS 및 데이터 암호화를 제공하는 Windows의 업계 표준 BitLocker 기능 및 Linux의 DM-Crypt 기능을 활용하여 데이터를 보호하고 고객 Azure Key Vault에서 조직 보안 및 규정 준수 약정을 충족하는 데 도움이 됩니다. 규정 준수 및 보안 요구 사항에서 임시(로컬로 임시 연결) 디스크 암호화를 포함하여 암호화 키를 사용한 데이터의 종단 간 암호화를 요구할 경우 Azure Disk Encryption을 사용합니다. 또는 기본적으로 Managed Disks는 Azure Storage Service Encryption을 사용하여 암호화되며 암호화 키가 Azure에서 Microsoft 관리 키입니다. 이것이 규정 준수 및 보안 요구 사항을 충족한다면 기본 관리 디스크 암호화를 사용하여 요구 사항에 부합할 수 있습니다.|
+|Machine|15|가상 머신에서 디스크 암호화를 적용해야 합니다.|Windows 및 Linux 가상 머신 모두에 Azure Disk Encryption를 사용하여 가상 머신 디스크를 암호화합니다. ADE(Azure Disk Encryption)는 OS 및 데이터 암호화를 제공하는 Windows의 업계 표준 BitLocker 기능 및 Linux의 DM-Crypt 기능을 활용하여 데이터를 보호하고 고객 Azure Key Vault에서 조직 보안 및 규정 준수 약정을 충족하는 데 도움이 됩니다. 규정 준수 및 보안 요구 사항에서 임시(로컬로 임시 연결) 디스크 암호화를 포함하여 암호화 키를 사용한 데이터의 종단 간 암호화를 요구할 경우 Azure Disk Encryption을 사용합니다. 또는 기본적으로 Managed Disks는 Azure Storage Service Encryption을 사용하여 암호화되며 암호화 키가 Azure에서 Microsoft 관리 키입니다. 이것이 규정 준수 및 보안 요구 사항을 충족한다면 기본 관리 디스크 암호화를 사용하여 요구 사항에 부합할 수 있습니다.|
 |Machine|30|가상 머신에 취약성 평가 솔루션 설치|가상 머신에 취약성 평가 솔루션 설치|
 |Machine|15|웹 애플리케이션 방화벽 추가| WAF(웹 애플리케이션 방화벽) 솔루션을 배포하여 웹 애플리케이션을 보호합니다. |
-|Machine|30|취약점으로 인 한 취약성 평가 솔루션에서 수정 되어야 합니다.|취약성 평가 타사 솔루션이 배포된 가상 머신이 애플리케이션 및 OS 취약성에 대해 연속적으로 평가됩니다. 이러한 취약성 항목이 발견될 때마다 이 내용을 자세한 권장 구성의 일부로 사용할 수 있습니다.|
+|Machine|30|취약성 평가 솔루션으로 취약성을 수정해야 합니다.|취약성 평가 타사 솔루션이 배포된 가상 머신이 애플리케이션 및 OS 취약성에 대해 연속적으로 평가됩니다. 이러한 취약성 항목이 발견될 때마다 이 내용을 자세한 권장 구성의 일부로 사용할 수 있습니다.|
 |Machine|30|가상 머신에 취약성 평가 솔루션 설치|가상 머신에 취약성 평가 솔루션 설치|
-|Machine|1|가상 컴퓨터를 새 AzureRM 리소스 마이그레이션해야|가상 머신에 Azure Resource Manager를 사용하여 더 강력한 액세스 제어(RBAC), 더욱 효율적인 감사, Resource Manager 기반 배포 및 관리, 관리 ID 액세스, 비밀용 Key Vault 액세스, Azure AD 기반 인증, 더욱 쉬운 보안 관리를 위한 태그 및 리소스 그룹 지원과 같이 향상된 보안 기능을 제공합니다. |
-|Machine|30|취약점으로 인 한 취약성 평가 솔루션에서 수정 되어야 합니다.|취약성 평가 타사 솔루션이 배포된 가상 머신이 애플리케이션 및 OS 취약성에 대해 연속적으로 평가됩니다. 이러한 취약성 항목이 발견될 때마다 이 내용을 자세한 권장 구성의 일부로 사용할 수 있습니다.|
-|가상 머신 크기 집합 |4|Virtual Machine Scale Sets에서 진단 로그를 사용 해야|로그를 사용하도록 설정하고 최대 1년간 보존합니다. 이 옵션을 사용하면 조사를 위해 작업 내역을 다시 만들 수 있습니다. 이 옵션은 보안 인시던트가 발생하거나 네트워크가 손상된 경우에 유용합니다.|
-|가상 머신 크기 집합|35|취약점으로 인 한 가상 머신 확장 집합에 대 한 보안 구성 수정 되어야 합니다.|가상 머신 확장 집합의 보안 구성에서 취약성을 수정하여 공격으로부터 보호합니다. |
-|가상 머신 크기 집합|5|가상 머신 확장 집합에 대한 엔드포인트 보호 상태 오류 수정|가상 머신 확장 집합에 대한 엔드포인트 보호 상태 오류를 수정하여 위협 및 취약성으로부터 보호합니다. |
-|가상 머신 크기 집합|10|가상 컴퓨터에 endpoint protection은 설치 해야|가상 머신 확장 집합에 엔드포인트 보호 솔루션을 설치하여 위협 및 취약성으로부터 보호합니다. |
-|가상 머신 크기 집합|40|가상 머신 확장 집합에서 시스템 업데이트 설치|누락된 시스템 보안 및 중요 업데이트를 설치하여 Windows 및 Linux 가상 머신 확장 집합을 보호합니다. |
+|Machine|1|가상 컴퓨터를 새 AzureRM 리소스에 마이그레이션해야 합니다.|가상 머신에 Azure Resource Manager를 사용하여 더 강력한 액세스 제어(RBAC), 더욱 효율적인 감사, Resource Manager 기반 배포 및 관리, 관리 ID 액세스, 비밀용 Key Vault 액세스, Azure AD 기반 인증, 더욱 쉬운 보안 관리를 위한 태그 및 리소스 그룹 지원과 같이 향상된 보안 기능을 제공합니다. |
+|Machine|30|취약성 평가 솔루션으로 취약성을 수정해야 합니다.|취약성 평가 타사 솔루션이 배포된 가상 머신이 애플리케이션 및 OS 취약성에 대해 연속적으로 평가됩니다. 이러한 취약성 항목이 발견될 때마다 이 내용을 자세한 권장 구성의 일부로 사용할 수 있습니다.|
+|가상 머신 확장 집합 |4|Virtual Machine Scale Sets의 진단 로그를 사용 하도록 설정 해야 합니다.|로그를 사용하도록 설정하고 최대 1년간 보존합니다. 이 옵션을 사용하면 조사를 위해 작업 내역을 다시 만들 수 있습니다. 이 옵션은 보안 인시던트가 발생하거나 네트워크가 손상된 경우에 유용합니다.|
+|가상 머신 확장 집합|35|가상 머신 확장 집합에서 보안 구성의 취약성을 수정해야 합니다.|가상 머신 확장 집합의 보안 구성에서 취약성을 수정하여 공격으로부터 보호합니다. |
+|가상 머신 확장 집합|5|가상 머신 확장 집합에 대한 엔드포인트 보호 상태 오류 수정|가상 머신 확장 집합에 대한 엔드포인트 보호 상태 오류를 수정하여 위협 및 취약성으로부터 보호합니다. |
+|가상 머신 확장 집합|10|가상 컴퓨터에 Endpoint protection을 설치 해야 합니다.|가상 머신 확장 집합에 엔드포인트 보호 솔루션을 설치하여 위협 및 취약성으로부터 보호합니다. |
+|가상 머신 확장 집합|40|가상 머신 확장 집합에 대한 시스템 업데이트를 설치해야 합니다.|누락된 시스템 보안 및 중요 업데이트를 설치하여 Windows 및 Linux 가상 머신 확장 집합을 보호합니다. |
  
 
 
@@ -238,7 +238,7 @@ Microsoft Monitoring Agent를 설치하도록 기존의 모든 확장 집합을 
 다른 Azure 리소스 유형에 적용되는 권장 사항에 대해 자세히 알아보려면 다음을 참조하세요.
 
 
-* [가상 머신에 대한 Azure Security Center 권장 사항 이해](security-center-virtual-machine-recommendations.md)
+* [Azure Security Center에서 머신 및 애플리케이션 보호](security-center-virtual-machine-protection.md)
 * [Azure Security Center에서 ID 및 액세스 모니터링](security-center-identity-access.md)
 * [Azure Security Center에서 네트워크 보호](security-center-network-recommendations.md)
 * [Azure Security Center에서 Azure SQL 서비스 보호](security-center-sql-service-recommendations.md)

@@ -1,6 +1,6 @@
 ---
 title: C#을 사용하여 Linux에서 Azure Service Fabric 앱 처음 만들기 | Microsoft Docs
-description: C# 및 .NET Core 2.0을 사용하여 Service Fabric 응용 프로그램을 만들고 배포하는 방법을 알아봅니다.
+description: C# 및 .NET Core 2.0을 사용하여 Service Fabric 애플리케이션을 만들고 배포하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: csharp
 author: mani-ramaswamy

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/13/2019
 ms.author: victorh
-ms.openlocfilehash: 6aad0502b5739906d1fa8fa896f8d0af8cc38e30
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 8e79fd1a839113cad5a3a36c01855d98793d7032
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205007"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655305"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>자동 크기 조정 및 영역 중복 응용 프로그램 게이트웨이 v2 
 
@@ -35,7 +35,7 @@ Application Gateway 및 웹 응용 프로그램 방화벽 (WAF) Standard_v2 및 
 
 ## <a name="supported-regions"></a>지원되는 지역
 
-Standard_v2 및 WAF_v2 SKU는 다음 지역에서 제공 됩니다. 미국 중북부, 미국 중남부, 미국 서부, 미국 서부 2, 미국 동부, 미국 동부 2, 미국 중부, 북유럽, 서유럽, 동남 아시아, 프랑스 중부, 영국 서부, 일본 동부, 일본 서부 추가 지역 나중에 추가 됩니다.
+Standard_v2 및 WAF_v2 SKU는 다음 지역에서 제공 됩니다. 미국 중 북부, 미국 중남부, 미국 서 부, 미국 서 부 2, 미국 동부, 미국 동부 2, 미국 중부, 북유럽, 유럽 서 부, 동남 아시아, 프랑스 중부, 영국 서 부, 일본 동부, 일본 서 부, 오스트레일리아 동부, 오스트레일리아 남동부, 캐나다 중부, 캐나다 동부, 동남 아시아, 한국 중부, 대한민국 남부, 인도 남부, 영국 남부, 인도 중부, 인도 서 부, 인도 남부입니다.
 
 ## <a name="pricing"></a>가격
 

@@ -1,6 +1,6 @@
 ---
 title: 'Application Insights: 언어, 플랫폼 및 통합 | Microsoft Docs'
-description: Application Insights에 사용할 수 있는 언어, 플랫폼 및 통합
+description: Application Insights 사용할 수 있는 언어, 플랫폼 및 통합
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -10,79 +10,51 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 07/18/2019
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 99245dd7628aa4d25e44266a3e798e2f96501f1e
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: ab573d1d9ca9d9db39135ea76e555bb0720d7b68
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275393"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878784"
 ---
-# <a name="developer-analytics-languages-platforms-and-integrations"></a>개발자 분석: 언어, 플랫폼 및 통합
-이러한 항목은 타사에서 제공하는 구현을 포함하여 이미 알고 있는 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 의 구현입니다.
+# <a name="supported-languages"></a>지원되는 언어
 
-## <a name="languages---officially-supported-by-application-insights-team"></a>언어 - Application Insights 팀에서 공식적으로 지원
 * [C#|VB (.NET)](../../azure-monitor/app/asp-net.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
-* [JavaScript 웹 페이지](../../azure-monitor/app/javascript.md)
+* [JavaScript](../../azure-monitor/app/javascript.md)
 * [Node.JS](../../azure-monitor/app/nodejs.md)
 
-## <a name="languages---community-supported"></a>언어 - 커뮤니티 지원
-* [F#](https://safe-stack.github.io/docs/template-azure-ai/)
-* [Go](https://github.com/Microsoft/ApplicationInsights-go)
-* [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
-* [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
-* [Ruby](https://rubygems.org/gems/application_insights)
-* [다른 항목](#projects)
+## <a name="supported-platforms-and-frameworks"></a>지원되는 플랫폼 및 프레임워크
 
-## <a name="platforms-and-frameworks"></a>플랫폼 및 프레임워크
-* [ASP.NET](../../azure-monitor/app/asp-net.md)
+### <a name="instrumentation-for-already-deployed-applications-codeless-agent-based"></a>이미 배포 된 응용 프로그램에 대 한 계측 (코드 없는, 에이전트 기반)
+* [Azure VM 및 Azure 가상 머신 확장 집합](../../azure-monitor/app/azure-vm-vmss-apps.md)
+* [Azure App Service](../../azure-monitor/app/azure-web-apps.md)
 * [ASP.NET - 이미 운영 중인 앱용](../../azure-monitor/app/monitor-performance-live-website-now.md)
+* 웹 및 작업자 역할을 모두 포함 하는 [Azure Cloud Services](../../azure-monitor/app/cloudservices.md)
+* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
+### <a name="instrumentation-through-code-sdks"></a>코드를 통한 계측 (Sdk)
+* [ASP.NET](../../azure-monitor/app/asp-net.md)
 * [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 * [Android](../../azure-monitor/learn/mobile-center-quickstart.md)(App Center)
-* [Android](https://github.com/Microsoft/ApplicationInsights-Android)(App Center)
-* [Angular](https://github.com/MarkPieszak/angular-application-insights)
-* [Azure App Service](../../azure-monitor/app/azure-web-apps.md)
-* 웹 및 작업자 역할을 모두 포함하는 [Azure Cloud Services](../../azure-monitor/app/cloudservices.md)
-* [Azure 기능](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
-* [Docker](../../azure-monitor/app/docker.md)
-* [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
 * [iOS](../../azure-monitor/learn/mobile-center-quickstart.md)(App Center)
-* [Ionic](https://github.com/SoftwarePioniere/ionic-application-insights)
-* [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)(App Center)
 * [Java EE](../../azure-monitor/app/java-get-started.md)
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
-* [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
-* [안전 스택](https://safe-stack.github.io/docs/template-azure-ai/)
 * [유니버설 Windows 앱](../../azure-monitor/learn/mobile-center-quickstart.md)(App Center)
-* [WCF](https://github.com/Microsoft/ApplicationInsights-SDK-Labs/blob/master/WCF/readme.md)
 * [Windows 데스크톱 애플리케이션, 서비스 및 작업자 역할](../../azure-monitor/app/windows-desktop.md)
-* [다른 항목](#projects)
 
 ## <a name="logging-frameworks"></a>로깅 프레임워크
 * [ILogger](https://docs.microsoft.com/azure/azure-monitor/app/ilogger)
 * [Log4Net, NLog 또는 System.Diagnostics.Trace](../../azure-monitor/app/asp-net-trace-logs.md)
 * [Java, Log4J 또는 Logback](../../azure-monitor/app/java-trace-logs.md)
-* [의미 체계 로깅(SLAB)](https://github.com/fidmor89/SLAB_AppInsights) - [의미 체계 로깅 애플리케이션 블록](https://msdn.microsoft.com/library/dn440729.aspx)과 통합
-* [클라우드 기반 부하 테스트](https://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 * [LogStash 플러그 인](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
-* [Logary](https://www.nuget.org/packages/Logary.Targets.AppInsights/)
-* [Logrus](https://github.com/jjcollinge/logrus-appinsights)
 * [Azure Monitor](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
-
-## <a name="content-management-systems"></a>콘텐츠 관리 시스템
-* [Concrete](https://github.com/fidmor89/appInsights-Concrete)
-* [Drupal](https://github.com/fidmor89/AppInsights-Drupal)
-* [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
-* [Orchard](https://azure.microsoft.com/blog/integrating-application-insights-into-a-modular-cms-and-a-multi-tenant-public-saas/preview/)
-* [SharePoint](../../azure-monitor/app/sharepoint.md)
-* [WordPress](https://wordpress.org/plugins/application-insights/)
 
 ## <a name="export-and-data-analysis"></a>내보내기 및 데이터 분석
 * [Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
-* [Stream Analytics](../../azure-monitor/app/export-power-bi.md )
+* [Stream Analytics](../../azure-monitor/app/export-power-bi.md)
 
-## <a name="projects"></a> 사용자 고유의 SDK를 빌드합니다
-아직 사용자 언어나 플랫폼에 대한 SDK가 없다면 빌드하고자 합니까? [GitHub에서 Application Insights SDK 프로젝트](https://github.com/Microsoft/AppInsights-Home)에 나열된 기존 SDK의 코드를 살펴보십시오.
+## <a name="unsupported-sdks"></a>지원 되지 않는 Sdk
+커뮤니티에서 지 원하는 여러 Sdk가 있습니다. 그러나 Azure Monitor은이 페이지에 나열 된 지원 되는 Sdk를 사용할 때만 지원 합니다. 다른 언어에 대 한 지원을 확장 하는 기회를 지속적으로 평가 하 고 있으므로 [GitHub 발표](https://github.com/microsoft/ApplicationInsights-Announcements/issues) 페이지에 따라 최신 SDK 뉴스를 받을 수 있습니다. 

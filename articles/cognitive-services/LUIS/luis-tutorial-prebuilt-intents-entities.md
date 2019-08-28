@@ -1,5 +1,5 @@
 ---
-title: 미리 작성된 의도 및 엔터티
+title: 미리 빌드된 의도 및 엔터티 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 이 자습서에서는 미리 빌드된 의도 및 엔터티를 앱에 추가하여 의도 예측 및 데이터 추출을 빠르게 수행합니다. 미리 빌드된 엔터티를 사용하여 발화에 레이블을 지정할 필요가 없습니다. 엔터티는 자동으로 검색됩니다.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: 87e006cc5d56e0c7eb5455147c5ce9eb40afc162
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4697bad15a374bed0de08b7cabc5aceaad7f1259
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086618"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876718"
 ---
 # <a name="tutorial-identify-common-intents-and-entities"></a>자습서: 일반적인 의도 및 엔터티 식별
 
@@ -51,18 +51,7 @@ LUIS는 일반적인 사용자 의도에 도움이 되도록 여러 가지 미�
 
 1. `Utilities`를 검색합니다. 
 
-    [![검색 상자에 Utilities가 입력된 미리 빌드된 의도 대화 상자의 스크린샷](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png)](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png#lightbox)
-
-1. 다음 의도를 선택하고 **완료**를 선택합니다. 
-
-   * Utilities.Cancel
-   * Utilities.Confirm
-   * Utilities.Help
-   * Utilities.StartOver
-   * Utilities.Stop
-
-     이러한 의도는 대화에서 사용자가 어디에 있고 무엇을 하려 하는지 확인하는 데 유용합니다. 
-
+1. 모든 의도를 선택하고 **완료**를 선택합니다. 이러한 의도는 대화에서 사용자가 어디에 있고 무엇을 하려 하는지 확인하는 데 유용합니다. 
 
 ## <a name="add-prebuilt-entities-to-help-with-common-data-type-extraction"></a>일반적인 데이터 형식 추출에 도움이 되도록 미리 빌드된 엔터티 추가
 
@@ -77,7 +66,7 @@ LUIS는 일반적인 데이터 추출을 위해 여러 가지 미리 빌드된 �
    * **[PersonName](luis-reference-prebuilt-person.md)** 
    * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
 
-     ![number가 선택된 미리 빌드된 엔터티 대화 상자의 스크린샷](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
+     ![미리 빌드된 엔터티 대화 상자에서 선택한 번호의 스크린샷](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
      이러한 엔터티는 클라이언트 애플리케이션 이름 및 위치 인식 기능을 추가하는 데 도움이 됩니다.
 
@@ -101,35 +90,75 @@ LUIS는 일반적인 데이터 추출을 위해 여러 가지 미리 빌드된 �
 
     ```json
     {
-      "query": "I want to cancel my trip to Seattle to see Bob Smith",
+      "query": "I want to cancel my trip to Seattle to see Bob Smith.",
       "topScoringIntent": {
-        "intent": "Utilities.Cancel",
-        "score": 0.807676256
+        "intent": "Utilities.ReadAloud",
+        "score": 0.100361854
       },
       "intents": [
         {
-          "intent": "Utilities.Cancel",
-          "score": 0.807676256
-        },
-        {
-          "intent": "Utilities.StartOver",
-          "score": 0.0487322025
-        },
-        {
-          "intent": "Utilities.Help",
-          "score": 0.0208660364
-        },
-        {
-          "intent": "None",
-          "score": 0.008789532
+          "intent": "Utilities.ReadAloud",
+          "score": 0.100361854
         },
         {
           "intent": "Utilities.Stop",
-          "score": 0.006929268
+          "score": 0.08102781
+        },
+        {
+          "intent": "Utilities.SelectNone",
+          "score": 0.0398852825
+        },
+        {
+          "intent": "Utilities.Cancel",
+          "score": 0.0277276486
+        },
+        {
+          "intent": "Utilities.SelectItem",
+          "score": 0.0220712926
+        },
+        {
+          "intent": "Utilities.StartOver",
+          "score": 0.0145813478
+        },
+        {
+          "intent": "None",
+          "score": 0.012434179
+        },
+        {
+          "intent": "Utilities.Escalate",
+          "score": 0.0122632384
+        },
+        {
+          "intent": "Utilities.ShowNext",
+          "score": 0.008534077
+        },
+        {
+          "intent": "Utilities.ShowPrevious",
+          "score": 0.00547111453
+        },
+        {
+          "intent": "Utilities.SelectAny",
+          "score": 0.00152912608
+        },
+        {
+          "intent": "Utilities.Repeat",
+          "score": 0.0005556819
+        },
+        {
+          "intent": "Utilities.FinishTask",
+          "score": 0.000169488427
         },
         {
           "intent": "Utilities.Confirm",
-          "score": 0.00136293867
+          "score": 0.000149565312
+        },
+        {
+          "intent": "Utilities.GoBack",
+          "score": 0.000141017343
+        },
+        {
+          "intent": "Utilities.Reject",
+          "score": 6.27324E-06
         }
       ],
       "entities": [

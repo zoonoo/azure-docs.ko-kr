@@ -38,7 +38,7 @@ ms.locfileid: "54158706"
 자습서의 이 부분을 시작하기 전에 자습서 [2부](tutorial-develop-mongodb-nodejs-part2.md)의 단계를 완료했는지 확인합니다.
 
 > [!TIP]
-> 이 자습서에서는 애플리케이션을 구축하는 단계를 단계별로 설명합니다. 완료된 프로젝트를 다운로드하려는 경우 GitHub의 [angular-cosmosdb repo](https://github.com/Azure-Samples/angular-cosmosdb)에서 완성된 응용 프로그램을 가져올 수 있습니다.
+> 이 자습서에서는 애플리케이션을 구축하는 단계를 단계별로 설명합니다. 완료된 프로젝트를 다운로드하려는 경우 GitHub의 [angular-cosmosdb repo](https://github.com/Azure-Samples/angular-cosmosdb)에서 완성된 애플리케이션을 가져올 수 있습니다.
 
 ## <a name="build-the-ui"></a>UI 빌드
 
@@ -491,7 +491,7 @@ ms.locfileid: "54158706"
 
 3. 이제 인터넷 브라우저를 열고 **localhost:3000**으로 이동하고 로컬로 실행 중인 앱을 확인합니다.
 
-     ![로컬로 Hero 응용 프로그램 실행](./media/tutorial-develop-mongodb-nodejs-part3/azure-cosmos-db-mongodb-mean-app.png)
+     ![로컬로 Hero 애플리케이션 실행](./media/tutorial-develop-mongodb-nodejs-part3/azure-cosmos-db-mongodb-mean-app.png)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,5 +1,5 @@
 ---
-title: Java로 Azure Cosmos DB 문서 데이터베이스 만들기
+title: Java를 사용하여 문서 데이터베이스 만들기 - Azure Cosmos DB
 description: Azure Cosmos DB SQL API에 연결하고 쿼리하는 데 사용할 수 있는 Java 코드 샘플을 제공합니다.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,25 +8,25 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: c97b974919c5aec4c902867604d207cda11e8594
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.custom: seo-java-august2019
+ms.openlocfilehash: a7e2089b8dfff1f021c31d2b13591b54dcd9c4ac
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754304"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616979"
 ---
 # <a name="quickstart-build-a-java-application-using-azure-cosmos-db-sql-api-account"></a>빠른 시작: Azure Cosmos DB SQL API 계정을 사용하여 Java 애플리케이션 빌드
 
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
-> * [.NET(미리 보기)](create-sql-api-dotnet-preview.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.JS](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-이 빠른 시작에서는 Java 응용 프로그램을 사용하여 Azure Cosmos DB [SQL API](sql-api-introduction.md) 계정 리소스를 만들고 관리하는 방법을 보여줍니다. 먼저 Azure Portal을 사용하여 Azure Cosmos DB SQL API 계정을 만들고, [SQL Java SDK](sql-api-sdk-async-java.md)를 사용하여 Java 앱을 만들고, Java 응용 프로그램을 사용하여 Cosmos DB 계정에 리소스를 추가합니다. 이 빠른 시작의 지침은 Java를 실행할 수 있는 모든 운영 체제에 적용될 수 있습니다. 이 빠른 시작을 완료하면 UI를 사용하여 또는 프로그래밍 방식으로 Cosmos DB 데이터베이스 컨테이너를 만들고 수정하는 방법을 익힐 수 있습니다.
+이 빠른 시작에서는 Java 애플리케이션을 사용하여 Azure Cosmos DB [SQL API](sql-api-introduction.md) 계정 리소스를 만들고 관리하는 방법을 보여줍니다. 먼저 Azure Portal을 사용하여 Azure Cosmos DB SQL API 계정을 만들고, [SQL Java SDK](sql-api-sdk-async-java.md)를 사용하여 Java 앱을 만들고, Java 애플리케이션을 사용하여 Cosmos DB 계정에 리소스를 추가합니다. 이 빠른 시작의 지침은 Java를 실행할 수 있는 모든 운영 체제에 적용될 수 있습니다. 이 빠른 시작을 완료하면 UI를 사용하여 또는 프로그래밍 방식으로 Cosmos 데이터베이스 컨테이너를 만들고 수정하는 방법을 익힐 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -61,7 +61,7 @@ ms.locfileid: "66754304"
 
 [!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
 
-## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
+## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
 이제 코드 사용으로 전환해 보겠습니다. GitHub에서 SQL API 앱을 복제하고 연결 문자열을 설정한 다음 실행해보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
 
@@ -172,7 +172,7 @@ ms.locfileid: "66754304"
     mvn package
     ```
 
-3. git 터미널 창에서 다음 명령을 사용하여 Java 응용 프로그램을 시작합니다. (YOUR_COSMOS_DB_HOSTNAME을 포털의 따옴표가 붙은 URI 값으로 바꾸고, YOUR_COSMOS_DB_MASTER_KEY를 포털의 따옴표가 붙은 기본 키로 바꿉니다.)
+3. git 터미널 창에서 다음 명령을 사용하여 Java 애플리케이션을 시작합니다. (YOUR_COSMOS_DB_HOSTNAME을 포털의 따옴표가 붙은 URI 값으로 바꾸고, YOUR_COSMOS_DB_MASTER_KEY를 포털의 따옴표가 붙은 기본 키로 바꿉니다.)
 
     ```bash
     mvn exec:java -DACCOUNT_HOST=YOUR_COSMOS_DB_HOSTNAME -DACCOUNT_KEY=YOUR_COSMOS_DB_MASTER_KEY

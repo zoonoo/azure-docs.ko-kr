@@ -13,7 +13,7 @@
     - name: SAP
       href: workloads/sap/get-started.md
     - name: 고성능 컴퓨팅
-      href: workloads/hpc/configure.md
+      href: workloads/hpc/overview.md
     - name: 메인프레임 재호스팅
       href: workloads/mainframe-rehosting/overview.md
 - name: 클래식 배포

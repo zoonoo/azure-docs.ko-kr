@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 07/13/2018
 ms.author: spelluru
-ms.openlocfilehash: a4ca5cba924a3269f279469f26e68acdb0ad0659
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3c23cc4fc7647cffa98cff9310498f683fda6328
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59257623"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275715"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>Azure Lab Services 소개
 Azure Lab Services를 사용하면 클라우드에서 팀 환경(예: 개발 환경, 테스트 환경, 클래스룸 랩 환경)을 신속하게 설정할 수 있습니다. 랩 소유자는 랩을 만들고, Windows 또는 Linux 가상 머신을 프로비전하고, 필요한 소프트웨어 및 도구를 설치하고, 랩 사용자가 사용할 수 있게 합니다. 랩 사용자는 랩의 VM(가상 머신)에 연결하여 그것들을 일상 업무, 단기 프로젝트 또는 클래스룸 연습에 사용합니다. 사용자가 랩에서 리소스를 활용하기 시작하면 랩 관리자는 여러 랩의 비용 및 사용을 분석하고, 조직 또는 팀의 비용을 최적화하기 위해 포괄적인 정책을 설정할 수 있습니다.

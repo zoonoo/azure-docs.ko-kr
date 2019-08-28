@@ -47,7 +47,7 @@ Mahout에서 제공하는 기능 중 하나가 추천 엔진입니다. 이 엔�
 
 ### <a name="understanding-the-data"></a>데이터 이해
 
-편리 하 게 [GroupLens Research](https://grouplens.org/datasets/movielens/) 영화 Mahout과 호환 되는 형식에 대 한 평가 데이터를 제공 합니다. 이 데이터는 클러스터의 기본 저장소( `/HdiSamples/HdiSamples/MahoutMovieData`)에서 사용할 수 있습니다.
+편리 하 게 [GroupLens Research](https://grouplens.org/datasets/movielens/) 영화 Mahout과 호환 되는 형식에 대 한 평가 데이터를 제공 합니다. 이 데이터는 클러스터의 기본 스토리지( `/HdiSamples/HdiSamples/MahoutMovieData`)에서 사용할 수 있습니다.
 
 `moviedb.txt` 및 `user-ratings.txt` 등 두 가지 파일이 있습니다. `user-ratings.txt` 파일은 분석 중 사용됩니다. `moviedb.txt`은 결과를 볼 때 사용자 친화적인 텍스트 정보를 제공하기 위해 사용됩니다.
 

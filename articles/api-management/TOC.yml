@@ -73,7 +73,7 @@
           href: restify-soap-api.md
         - name: API 앱 가져오기
           href: import-api-app-as-api.md
-        - name: Function App 가져오기
+        - name: 함수 앱 가져오기
           href: import-function-app-as-api.md
         - name: 논리 앱 가져오기
           href: import-logic-app-as-api.md
@@ -193,6 +193,8 @@
           href: api-management-howto-create-groups.md
         - name: 여러 Azure 지역에 배포
           href: api-management-howto-deploy-multi-region.md
+        - name: IP 주소 검색
+          href: api-management-howto-ip-addresses.md
         - name: Azure Event Hubs에 이벤트 기록
           href: api-management-howto-log-event-hubs.md
         - name: Azure Application Insights를 사용하여 로그 요청
@@ -205,6 +207,8 @@
           href: api-management-configuration-repository-git.md
         - name: 역할 기반 액세스 제어 사용
           href: api-management-role-based-access-control.md
+        - name: API Management 인스턴스 마이그레이션
+          href: api-management-howto-migrate.md
         - name: Azure 리소스에 대한 관리 ID 사용
           href: api-management-howto-use-managed-service-identity.md
         - name: Service Fabric과 통합
@@ -245,3 +249,5 @@
       href: 'https://docs.microsoft.com/azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json'
     - name: API 구현 지침
       href: 'https://docs.microsoft.com/azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json'
+    - name: 호스트 이름 오류를 업데이트하지 못하는 문제 해결
+      href: api-management-troubleshoot-cannot-add-custom-domain.md

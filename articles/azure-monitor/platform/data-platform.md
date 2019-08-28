@@ -5,18 +5,18 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 8883c1e7f2874e1e2e61b8eca122f2ec294c7849
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00c0fea9d8ca7ee299a9a19473917eba90edd675
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60808941"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606986"
 ---
 # <a name="azure-monitor-data-platform"></a>Azure Monitor 데이터 플랫폼
 
@@ -70,9 +70,9 @@ Azure Monitor에서 분산된 추적을 사용 하 여 사용할 수는 [Applica
 | 특성  | metrics | 로그 |
 |:---|:---|:---|
 | 이점 | 간단 하 고 거의 실시간으로 경고 하는 등의 시나리오의 수입니다. 빠른 검색 문제에 적합 합니다. | 풍부한 분석 쿼리 언어입니다. 심층 분석 하 고 근본 원인을 식별에 적합 합니다. |
-| Data | 숫자 값만 | 텍스트 또는 숫자 데이터 |
+| 보기 | 숫자 값만 | 텍스트 또는 숫자 데이터 |
 | 구조 | 샘플 시간 모니터링 되는 리소스, 숫자 값을 포함 하는 속성의 표준 집합입니다. 일부 메트릭은 추가 정의 대 한 여러 차원을 포함합니다. | 고유한 로그 유형에 따라 속성 집합입니다. |
-| 컬렉션 | 정기적으로 수집 합니다. | 이벤트 트리거는 레코드를 만들 수를 산발적으로 수집할 수 있습니다. |
+| Collection | 정기적으로 수집 합니다. | 이벤트 트리거는 레코드를 만들 수를 산발적으로 수집할 수 있습니다. |
 | Azure 포털에서 보기 | 메트릭 탐색기 | Log Analytics |
 | 데이터 원본 포함 | Azure 리소스의 플랫폼 메트릭을 수집 합니다.<br>Application Insights에서 모니터링 하는 응용 프로그램입니다.<br>응용 프로그램 또는 API에 의해 정의 된 사용자 지정 합니다. | 응용 프로그램 및 진단 로그입니다.<br>솔루션을 모니터링 합니다.<br>에이전트 및 VM 확장 합니다.<br>응용 프로그램 요청 및 예외입니다.<br>Azure Security Center입니다.<br>데이터 수집기 API입니다. |
 

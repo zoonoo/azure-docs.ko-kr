@@ -4,12 +4,12 @@ ms.author: crdun
 ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
-ms.openlocfilehash: c664b089f316255fabc4c8dc36b291d7d63e6280
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 675ad278cb8bdc0ced4eff3bd77572f44c9808fc
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182704"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68857444"
 ---
 이 섹션에서는 새 항목이 추가될 때마다 푸시 알림을 보내도록 기존 Mobile Apps 백 엔드 프로젝트의 코드를 업데이트합니다. 이 프로세스는 플랫폼 간 푸시를 구현하는 Azure Notification Hubs의 [템플릿](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) 기능으로 구동됩니다. 템플릿을 사용한 푸시 알림에 대해 다양한 클라이언트가 등록되며 단일 범용 푸시를 통해 모든 클라이언트 플랫폼을 가져올 수 있습니다.
 
@@ -70,7 +70,7 @@ ms.locfileid: "67182704"
 
 ### <a name="nodejs"></a>Node.js 백 엔드 프로젝트
 
-1. 아직 수행하지 않은 경우 [빠른 시작 백 엔드 프로젝트를 다운로드](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart)하거나 [Azure Portal에서 온라인 편집기](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor)를 사용합니다.
+1. 백 엔드 프로젝트를 설정 합니다.
 2. todoitem.js의 기존 코드를 다음 코드로 바꿉니다.
 
     ```javascript

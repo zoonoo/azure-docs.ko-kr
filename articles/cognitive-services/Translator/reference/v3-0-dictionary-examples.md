@@ -1,6 +1,6 @@
 ---
 title: Translator Text API 사전 예제 메서드
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Translator Text API 사전 예제 메서드를 사용합니다.
 services: cognitive-services
 author: swmachan
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: e4665157803409b884c3333d9a3514403e5630bd
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 419e11862b2c584686922cfc8d1db72ee4751a03
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435115"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934029"
 ---
 # <a name="translator-text-api-30-dictionary-examples"></a>Translator Text API 3.0: 사전 예제
 
@@ -35,7 +35,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 
 <table width="100%">
   <th width="20%">쿼리 매개 변수</th>
-  <th>설명</th>
+  <th>Description</th>
   <tr>
     <td>api-version</td>
     <td>*필수 매개 변수*입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 `3.0`이어야 합니다.</td>
@@ -45,7 +45,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
     <td>*필수 매개 변수*입니다.<br/>입력 텍스트의 언어를 지정합니다. 원본 언어는 `dictionary` 범위에 포함된 [지원되는 언어](./v3-0-languages.md) 중 하나여야 합니다.</td>
   </tr>
   <tr>
-    <td>to</td>
+    <td>다음으로 변경:</td>
     <td>*필수 매개 변수*입니다.<br/>출력 텍스트의 언어를 지정합니다. 대상 언어는 `dictionary` 범위에 포함된 [지원되는 언어](./v3-0-languages.md) 중 하나여야 합니다.</td>
   </tr>
 </table>
@@ -60,7 +60,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
     <td><em>필수 요청 헤더</em><br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요.</td>
   </tr>
   <tr>
-    <td>콘텐츠 형식</td>
+    <td>Content-Type</td>
     <td>*필수 요청 헤더*<br/>페이로드의 콘텐츠 형식을 지정합니다. 가능한 값은 `application/json`입니다.</td>
   </tr>
   <tr>
@@ -89,7 +89,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 ]
 ```
 
-다음 제한 사항이 적용됩니다.
+다음과 같은 제한 사항이 적용됩니다.
 
 * 배열에는 최대 10개 요소가 있을 수 있습니다.
 * 배열 요소의 텍스트 값은 공백을 포함하여 100자를 초과할 수 없습니다.
@@ -123,13 +123,9 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 
 이 예제에서는 영어 용어 `fly` 및 해당 스페인어 번역 `volar`로 구성된 쌍의 예제를 조회하는 방법을 보여 줍니다.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly', 'Translation':'volar'}]"
 ```
-
----
 
 응답 본문은 다음과 같습니다(명확히 나타내기 위해 축약됨).
 

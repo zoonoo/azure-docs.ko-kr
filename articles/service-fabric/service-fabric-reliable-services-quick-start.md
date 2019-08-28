@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/16/2018
+ms.date: 07/10/2019
 ms.author: vturecek
-ms.openlocfilehash: d27702983a4378becdbc67f3f156c92be3dc3af6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f3b3d5c3dcea7d190724ae946a27c47b34a26c31
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130095"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68225080"
 ---
 # <a name="get-started-with-reliable-services"></a>Reliable Services로 시작하기
 > [!div class="op_single_selector"]
@@ -41,11 +41,11 @@ Reliable Services를 시작하려면 몇 가지 기본 개념만 이해하면 �
 ## <a name="create-a-stateless-service"></a>상태 비저장 서비스 만들기
 상태 비저장 서비스는 현재 클라우드 애플리케이션에서 정상인 서비스 유형입니다. 서비스 자체가 안정적으로 저장되거나 항상 사용 가능해야 하는 데이터를 포함하기 때문에 상태 비저장으로 간주됩니다. 상태 비저장 서비스의 인스턴스가 종료되면 모든 내부 상태가 손실됩니다. 이러한 서비스 유형에서는 Azure 테이블 또는 SQL 데이터베이스와 같은 외부 저장소에 상태를 항상 유지하고 이를 위해 높은 가용성과 안정성을 유지해야 합니다.
 
-관리자 권한으로 Visual Studio 2015 또는 Visual Studio 2017을 시작하고 *HelloWorld*라는 새로운 Service Fabric 애플리케이션 프로젝트를 만듭니다.
+관리자 권한으로 Visual Studio 2017 또는 Visual Studio 2019를 시작 하 고 *HelloWorld*라는 새 Service Fabric 응용 프로그램 프로젝트를 만듭니다.
 
 ![새 프로젝트 대화 상자를 사용하여 새 Service Fabric 애플리케이션 만들기](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
-다음을 사용 하 여 상태 비저장 서비스 프로젝트를 만듭니다 **.NET Core 2.0** 라는 *HelloWorldStateless*:
+그런 다음 *HelloWorldStateless*라는 **.net Core 2.0** 를 사용 하 여 상태 비저장 서비스 프로젝트를 만듭니다.
 
 ![두 번째 대화 상자에서 상태 비저장 서비스 프로젝트 만들기](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
 
@@ -57,7 +57,7 @@ Reliable Services를 시작하려면 몇 가지 기본 개념만 이해하면 �
 ## <a name="implement-the-service"></a>서비스 구현
 서비스 프로젝트에서 **HelloWorldStateless.cs** 파일을 엽니다. 서비스 패브릭에서 서비스는 모든 비즈니스 논리를 실행할 수 있습니다. 서비스 API는 코드에 대한 두 진입점을 제공합니다.
 
-* 장기 실행 계산 워크로드 등 모든 워크로드의 실행을 시작할 수 있는 *RunAsync*라는 개방형 진입점 메서드.
+* 장기 실행 컴퓨팅 워크로드 등 모든 워크로드의 실행을 시작할 수 있는 *RunAsync*라는 개방형 진입점 메서드.
 
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
@@ -127,7 +127,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 
 ![Service Fabric 애플리케이션에 서비스 추가](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
 
-선택 **-> 상태 저장 서비스를.NET Core 2.0** 하 고 이름을 *HelloWorldStateful*합니다. **확인**을 클릭합니다.
+**.Net Core 2.0-> 상태 저장 서비스** 를 선택 하 고 이름을 *HelloWorldStateful*로 선택 합니다. **확인**을 클릭합니다.
 
 ![새 프로젝트 대화 상자를 사용하여 새 서비스 패브릭 상태 저장 서비스 만들기](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 

@@ -107,7 +107,7 @@ Microsoft는 리드 향상에 적극적으로 노력하고 있으며, 여기에 
 -   [Dynamics CRM Online](./cloud-partner-portal-lead-management-instructions-dynamics.md) - 잠재 고객 확보용으로 Dynamics CRM Online을 구성하는 방법의 지침을 확인할 수 있습니다.
 -   [Marketo](./cloud-partner-portal-lead-management-instructions-marketo.md) - 잠재 고객 확보용으로 Marketo 잠재 고객 구성을 설정하는 방법의 지침을 확인할 수 있습니다.
 -    [Salesforce](./cloud-partner-portal-lead-management-instructions-salesforce.md) - 잠재 고객 확보를 위한 Salesforce 인스턴스를 설정하는 방법의 지침을 확인할 수 있습니다.
--    [Azure 테이블](./cloud-partner-portal-lead-management-instructions-azure-table.md) – Azure 테이블에서 잠재 고객 확보를 위한 Azure 저장소 계정을 설정하는 방법의 지침을 확인할 수 있습니다.
+-    [Azure 테이블](./cloud-partner-portal-lead-management-instructions-azure-table.md) – Azure 테이블에서 잠재 고객 확보를 위한 Azure Storage 계정을 설정하는 방법의 지침을 확인할 수 있습니다.
 -   [Https 엔드포인트](./cloud-partner-portal-lead-management-instructions-https.md) - 잠재 고객 확보를 위한 Https 엔드포인트를 설정하는 방법의 지침을 확인할 수 있습니다.
 
 잠재 고객 작성 대상을 구성하고 제품을 게시하면 Microsoft에서 연결 유효성을 검사하고 테스트 잠재 고객을 전송합니다. 제품을 라이브로 전환하기 전에 확인할 때 미리보기 환경에서 직접 제품을 구매하여 리드 연결을 테스트할 수도 있습니다. 잠재 고객 이탈을 방지하려면 잠재 고객 설정을 최신 상태로 유지해야 하므로, 파트너 정보가 변경될 때마다 이러한 연결을 업데이트해야 합니다.

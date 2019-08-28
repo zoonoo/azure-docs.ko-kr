@@ -3,7 +3,7 @@ title: Azure Security Center란? | Microsoft Docs
 description: Azure Security Center, 주요 기능 및 작동 방법에 대해 알아봅니다.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 45b9756b-6449-49ec-950b-5ed1e7c56daa
@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/15/2019
-ms.author: rkarlin
-ms.openlocfilehash: 13526268480c69798ee52078f7448605fc1afa9a
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.date: 6/06/2019
+ms.author: v-mohabe
+ms.openlocfilehash: 2ef207a14582e6ba0d9f8a25c0314c5ec639c7cb
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242040"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882858"
 ---
 # <a name="what-is-azure-security-center"></a>Azure Security Center란?
 
@@ -32,9 +32,9 @@ Azure Security Center는 다음 세 가지의 가장 긴급한 보안 문제를 
 
 -   **빠르게 변화하는 워크로드** - 이는 클라우드의 장점인 동시에 문제이기도 합니다. 한편으로는 최종 사용자에게 더 많은 작업을 수행할 수 있는 권한이 부여됩니다. 하지만 사람들이 사용하고 만드는, 계속 변화하는 서비스가 보안 표준을 준수하고 모범 사례를 따르는지 어떻게 확인할 수 있을까요?
 
--   **점점 더 정교해지는 공격**  - 어디서 워크로드를 실행하든, 공격이 점점 더 정교해지고 있습니다. 공용 클라우드 워크로드의 보안을 유지해야 하는데 이는 사실상 인터넷 연결 워크로드로, 보안 모범 사례를 따르지 않을 경우 훨씬 더 취약해질 수 있습니다.
+-   **점점 더 정교해지는 공격** - 어디서 워크로드를 실행하든, 공격이 점점 더 정교해지고 있습니다. 퍼블릭 클라우드 워크로드의 보안을 유지해야 하는데 이는 사실상 인터넷 연결 워크로드로, 보안 모범 사례를 따르지 않을 경우 훨씬 더 취약해질 수 있습니다.
 
--   **보안 기술의 공급 부족**  - 보안 경고 및 경고 시스템 수가 환경을 보호하는 데 필요한 배경 및 경험을 갖춘 관리자 수보다 훨씬 많습니다. 최신 공격을 통해 최신 상태를 유지하는 것은 지속적인 문제로, 보안 업계가 계속 변화하는 동안 이 상태를 유지하는 것은 불가능합니다.
+-   **보안 기술의 공급 부족** - 보안 경고 및 경고 시스템 수가 환경을 보호하는 데 필요한 배경 및 경험을 갖춘 관리자 수보다 훨씬 많습니다. 최신 공격을 통해 최신 상태를 유지하는 것은 지속적인 문제로, 보안 업계가 계속 변화하는 동안 이 상태를 유지하는 것은 불가능합니다.
 
 이러한 문제로부터 보호하는 데 도움이 되도록 Security Center에서는 다음과 같은 도구를 제공합니다.
 
@@ -60,15 +60,15 @@ Azure Security Center를 사용하여 보안 상태를 강화할 수 있습니�
 
 ### <a name="manage-organization-security-policy-and-compliance"></a>조직 보안 정책 및 준수 관리
 
-워크로드가 안전한지 알고 확인하는 것이 보안의 기본 사항이며, 이는 맞춤화된 보안 정책을 구현하는 것에서 시작됩니다. Security Center의 모든 정책은 Azure Policy 제어를 바탕으로 구축되므로  **최고 수준의 정책 솔루션**이 제공하는 포괄적인 범위와 유연성을 얻을 수 있습니다. Security Center에서는 관리 그룹, 전체 구독 및 전체 테넌트에 대해 실행할 정책까지 설정할 수 있습니다.
+워크로드가 안전한지 알고 확인하는 것이 보안의 기본 사항이며, 이는 맞춤화된 보안 정책을 구현하는 것에서 시작됩니다. Security Center의 모든 정책은 Azure Policy 제어를 바탕으로 구축되므로 **최고 수준의 정책 솔루션**이 제공하는 포괄적인 범위와 유연성을 얻을 수 있습니다. Security Center에서는 관리 그룹, 전체 구독 및 전체 테넌트에 대해 실행할 정책까지 설정할 수 있습니다.
 
 ![Security Center 대시보드](media/security-center-intro/sc-dashboard.png)
 
-Security Center를 사용하면  **섀도 IT 구독을 확인**할 수 있습니다. 대시보드에서 **검사되지 않음** 레이블이 표시된 구독을 살펴보면 새로 만든 구독이 있을 때 즉시 알 수 있으며, 해당 구독이 정책에 의해 검사되고 Azure Security Center에서 보호되도록 할 수 있습니다.
+Security Center를 사용하면 **섀도 IT 구독을 확인**할 수 있습니다. 대시보드에서 **검사되지 않음** 레이블이 표시된 구독을 살펴보면 새로 만든 구독이 있을 때 즉시 알 수 있으며, 해당 구독이 정책에 의해 검사되고 Azure Security Center에서 보호되도록 할 수 있습니다.
 
 ![Security Center 정책 대시보드](media/security-center-intro/sc-policy-dashboard.png)
 
-Security Center의 고급 모니터링 기능을 사용하면  **시간에 따른 준수 및 거버넌스를 추적하고 관리**할 수 있습니다.  **전반적인 준수** 에서는 구독이 워크로드와 관련된 정책을 준수하는 정도에 대한 측정값을 제공합니다. 
+Security Center의 고급 모니터링 기능을 사용하면 **시간에 따른 준수 및 거버넌스를 추적하고 관리**할 수 있습니다. **전반적인 준수**에서는 구독이 워크로드와 관련된 정책을 준수하는 정도에 대한 측정값을 제공합니다. 
 
 ![시간에 따른 Security Center 정책](media/security-center-intro/sc-policy-time.png)
 
@@ -76,11 +76,11 @@ Security Center의 고급 모니터링 기능을 사용하면  **시간에 따�
 
 Security Center는 워크로드 전체에 배포되는 새 리소스를 지속적으로 검색하고 보안 모범 사례에 따라 구성되었는지 여부를 평가하며, 그렇지 않은 경우 리소스에 플래그가 지정되어 머신을 보호하기 위해 수정해야 하는 권장 사항 목록이 우선 순위에 따라 작성됩니다.
 
-Security Center에서 네트워크의 보안 상태를 지속적으로 모니터링하기 위해 제공하는 가장 강력한 도구 중 하나는  **네트워크 맵**입니다. 맵을 사용하여 워크로드의 토폴로지를 살펴보고 각 노드가 제대로 구성되었는지 확인할 수 있습니다. 노드가 연결된 방식을 확인할 수 있으며, 이 정보를 통해 공격자가 네트워크를 쉽게 탐색할 수 있게 하는 원치 않는 연결을 차단할 수 있습니다.
+Security Center에서 네트워크의 보안 상태를 지속적으로 모니터링하기 위해 제공하는 가장 강력한 도구 중 하나는 **네트워크 맵**입니다. 맵을 사용하여 워크로드의 토폴로지를 살펴보고 각 노드가 제대로 구성되었는지 확인할 수 있습니다. 노드가 연결된 방식을 확인할 수 있으며, 이 정보를 통해 공격자가 네트워크를 쉽게 탐색할 수 있게 하는 원치 않는 연결을 차단할 수 있습니다.
 
 ![Security Center 네트워크 맵](media/security-center-intro/sc-net-map.png)
 
-Security Center에서는  **보안 점수**를 추가하여 보안 경고를 한층 더 쉽게 완화할 수 있도록 합니다. 이제 수신되는 각 권장 사항에 보안 점수가 연결되어, 각 권장 사항이 전반적인 보안 상태에 얼마나 중요한지 파악하는 데 도움이 됩니다. 이는  **보안 작업의 우선 순위를 지정**하는 데 중요합니다.
+Security Center에서는 **보안 점수**를 추가하여 보안 경고를 한층 더 쉽게 완화할 수 있도록 합니다. 이제 수신되는 각 권장 사항에 보안 점수가 연결되어, 각 권장 사항이 전반적인 보안 상태에 얼마나 중요한지 파악하는 데 도움이 됩니다. 이는 **보안 작업의 우선 순위를 지정**하는 데 중요합니다.
 
 ![Security Center 보안 점수](media/security-center-intro/sc-secure-score.png)
 
@@ -125,6 +125,10 @@ Security Center는 무차별 암호 대입 공격(brute force attack)에 대한 
 ### <a name="protect-data-services"></a>데이터 서비스 보호
 
 Security Center에는 Azure SQL에서 데이터 자동 분류를 수행하는 데 도움이 되는 기능이 포함되어 있습니다. Azure SQL 및 Storage 서비스 전체의 잠재적 취약성 평가 및 취약성을 완화하는 방법에 대한 권장 사항을 확인할 수도 있습니다.
+
+### <a name="protect-iot-and-hybrid-cloud-workloads"></a>IoT 및 하이브리드 클라우드 워크로드 보호
+
+IoT(사물 인터넷)를 위한 Azure Security Center는 에지, 온-프레미스, Azure 및 기타 클라우드에 걸쳐 실행 중인 워크로드에 통합된 가시성과 제어, 적응형 위협 예방, 지능형 위협 탐지 및 응답을 제공하여 하이브리드 워크로드 보호를 간소화합니다. 자세한 내용은 [IoT용 Azure Security Center](https://docs.microsoft.com/azure/asc-for-iot/)를 참조하세요.
 
 ## <a name="get-secure-faster"></a>보다 신속한 보안 설정
 

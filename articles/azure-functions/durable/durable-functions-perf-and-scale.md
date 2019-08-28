@@ -58,7 +58,7 @@ ms.locfileid: "60733246"
 > [!NOTE]
 > Azure Functions 소비 및 Premium 계획에서 실행 하는 경우는 [Azure Functions 크기 조정 컨트롤러](../functions-scale.md#how-the-consumption-and-premium-plans-work) 10 초 마다 한 번씩 각 제어 및 작업 항목 큐를 폴링하고 됩니다. 이 추가 폴링은 함수 앱 인스턴스를 활성화 하 고 크기 조정 결정을 내릴 때를 결정 하는 데 필요한입니다. 작성 시이 10 초 간격 상수 이며 구성할 수 없습니다.
 
-## <a name="storage-account-selection"></a>저장소 계정 선택
+## <a name="storage-account-selection"></a>스토리지 계정 선택
 
 큐, 테이블 및 blob Durable Functions에서 사용 하는 구성 된 Azure Storage 계정에 만들어집니다. 사용할 계정은 **host.json** 파일에서 `durableTask/azureStorageConnectionStringName` 설정을 사용하여 지정할 수 있습니다.
 
@@ -84,7 +84,7 @@ ms.locfileid: "60733246"
 }
 ```
 
-계정을 지정하지 않으면 기본 `AzureWebJobsStorage` 저장소 계정이 사용됩니다. 그렇지만 성능이 중요한 워크로드에서는 기본이 아닌 저장소 계정을 구성하는 것이 좋습니다. 지속형 함수는 Azure Storage를 과도하게 사용하며, 전용 스토리지 계정을 사용하면 지속형 함수 스토리지 사용이 Azure Functions 호스트의 내부 사용과 분리됩니다.
+계정을 지정하지 않으면 기본 `AzureWebJobsStorage` 스토리지 계정이 사용됩니다. 그렇지만 성능이 중요한 워크로드에서는 기본이 아닌 스토리지 계정을 구성하는 것이 좋습니다. 지속형 함수는 Azure Storage를 과도하게 사용하며, 전용 스토리지 계정을 사용하면 지속형 함수 스토리지 사용이 Azure Functions 호스트의 내부 사용과 분리됩니다.
 
 ## <a name="orchestrator-scale-out"></a>오케스트레이터 확장
 
@@ -116,7 +116,7 @@ ms.locfileid: "60733246"
 
 여러 함수 호스트 인스턴스(일반적으로 서로 다른 VM에 있음)로 확장하는 경우 각 인스턴스는 제어 큐 중 하나에 대한 잠금을 얻습니다. 이러한 잠금은 내부적으로 Blob Storage 임대로 구현되며, 오케스트레이션 인스턴스가 한 번에 단일 호스트 인스턴스에서만 실행되도록 합니다. 작업 허브에 세 개의 제어 큐가 구성되어 있으면 오케스트레이션 인스턴스를 세 개의 VM에서 부하를 분산할 수 있습니다. 작업 함수 실행을 위한 용량을 늘리기 위해 추가 VM을 추가할 수 있습니다.
 
-다음 다이어그램에서는 Azure Functions 호스트에서 확장된 환경의 저장소 엔터티와 상호 작용하는 방법을 보여 줍니다.
+다음 다이어그램에서는 Azure Functions 호스트에서 확장된 환경의 스토리지 엔터티와 상호 작용하는 방법을 보여 줍니다.
 
 ![크기 조정 다이어그램](./media/durable-functions-perf-and-scale/scale-diagram.png)
 
@@ -239,7 +239,7 @@ Azure Functions는 단일 응용 프로그램 인스턴스 내에서 여러 함�
 > [!NOTE]
 > 이러한 수치는 지속형 함수 확장의 v1.4.0(GA) 릴리스 당시의 최신 값입니다. 이러한 수치는 시간이 지나면서 기능이 완성되고 최적화가 진행됨에 따라 달라질 수 있습니다.
 
-예상되는 처리량 수치가 표시되지 않는데 CPU 및 메모리 사용량이 정상으로 표시되면 해당 원인이 [저장소 계정의 상태](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance)와 관련이 있는 것인지 확인합니다. 지속형 함수 확장은 Azure Storage 계정에 과도한 부하를 발생할 수 있으며 충분히 높은 부하는 스토리지 계정 제한을 유발할 수 있습니다.
+예상되는 처리량 수치가 표시되지 않는데 CPU 및 메모리 사용량이 정상으로 표시되면 해당 원인이 [스토리지 계정의 상태](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance)와 관련이 있는 것인지 확인합니다. 지속형 함수 확장은 Azure Storage 계정에 과도한 부하를 발생할 수 있으며 충분히 높은 부하는 스토리지 계정 제한을 유발할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

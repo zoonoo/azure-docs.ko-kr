@@ -1,6 +1,6 @@
 ---
 title: Azure SQL의 DNS 별칭에 대한 PowerShell | Microsoft Docs
-description: 새 AzSqlServerDNSAlias와 같은 PowerShell cmdlet을 사용 하면 모든 클라이언트 구성을 변경 하지 않고도 다른 Azure SQL Database 서버에 새 클라이언트 연결을 리디렉션할 수 있습니다.
+description: AzSqlServerDNSAlias와 같은 PowerShell cmdlet을 사용 하면 클라이언트 구성을 건드리지 않고도 새 클라이언트 연결을 다른 Azure SQL Database 서버로 리디렉션할 수 있습니다.
 keywords: dns sql database
 services: sql-database
 ms.service: sql-database
@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: genemi,amagarwa,maboja, jrasnick
-manager: craigg
 ms.date: 05/14/2019
-ms.openlocfilehash: 4318e6557dc72dff7200beb8783575131659b77f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5afa25a9a92b45c48c30d56428f5cf4e1d2f5d49
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65797694"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561351"
 ---
 # <a name="powershell-for-dns-alias-to-azure-sql-database"></a>Azure SQL Database의 DNS 별칭에 대한 PowerShell
 
@@ -38,12 +37,12 @@ ms.locfileid: "65797694"
 
 - 예제 서버 문자열: `any-unique-alias-name.database.windows.net`
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에 제공된 데모 PowerShell 스크립트를 실행하려는 경우 다음과 같은 필수 조건이 적용됩니다.
 
-- Azure 구독 및 계정 평가판의 경우 [https://azure.microsoft.com/free/][https://azure.microsoft.com/free/]를 클릭합니다.
-- Cmdlet 사용 하 여 azure PowerShell 모듈 **새로 만들기-AzSqlServerDNSAlias**합니다.
+- Azure 구독 및 계정 무료 평가판의 경우를 클릭 [https://azure.microsoft.com/free/][https://azure.microsoft.com/free/]합니다.
+- Azure PowerShell 모듈, cmdlet **AzSqlServerDNSAlias**.
   - 설치 또는 업그레이드하려면 [Azure PowerShell 모듈 설치][install-Az-ps-84p]를 참조하세요.
   - powershell\_ise.exe에서 `Get-Module -ListAvailable Az;`을 실행합니다.
 - 두 개의 Azure SQL Database 서버.
@@ -154,7 +153,7 @@ gm-rg-dns-2       gm-sqldb-dns-2     unique-alias-name-food
 
 ## <a name="next-steps"></a>다음 단계
 
-SQL Database에 대한 DNS 별칭 기능의 전체 설명을 보려면 [Azure SQL Database에 대한 DNS 별칭][dns-alias-overview-37v]을 참조하세요.
+SQL Database에 대 한 DNS 별칭 기능에 대 한 자세한 내용은 [Azure SQL Database에 대 한 dns 별칭][dns-alias-overview-37v]을 참조 하세요.
 
 <!-- Article links. -->
 

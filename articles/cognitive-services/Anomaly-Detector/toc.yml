@@ -16,7 +16,7 @@
           href: quickstarts/detect-data-anomalies-java.md
         - name: Python 사용
           href: quickstarts/detect-data-anomalies-python.md
-    - name: SDK)
+    - name: 클라이언트
       items:
         - name: 'C# 사용'
           href: quickstarts/detect-data-anomalies-csharp-sdk.md
@@ -40,6 +40,8 @@
         - name: 컨테이너 구성
           href: anomaly-detector-container-configuration.md
           displayName: 'docker, container, apikey, billing, log, mount, run, pull, port'
+        - name: 컨테이너 인스턴스 사용
+          href: how-to/deploy-anomaly-detection-on-container-instances.md
 - name: 개념
   items:
     - name: Anomaly Detection API 모범 사례
@@ -58,6 +60,8 @@
           href: 'https://go.microsoft.com/fwlink/?linkid=2090370'
         - name: Node.js
           href: 'https://go.microsoft.com/fwlink/?linkid=2090788'
+    - name: KDD 2019에서 발표한 SR-CNN 관련 논문
+      href: 'https://arxiv.org/abs/1906.03821'
 - name: 리소스
   items:
     - name: 가격

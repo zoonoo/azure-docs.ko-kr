@@ -1,26 +1,25 @@
 ---
-title: Azure Dev Spaces와 Visual Studio를 사용하여 AKS에서 .NET Core로 개발
+title: Azure Dev Spaces를 사용하여 AKS에서 Visual Studio 및 .NET Core로 디버깅 및 반복
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 ms.author: zarhoads
 ms.date: 03/22/2019
 ms.topic: quickstart
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s
-manager: jeconnoc
+manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 110962c03f0236ebb26c9ed586981b51f36c635f
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: ece47c86fba6bc975a4146f596fa001014352a4f
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399215"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725852"
 ---
-# <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio"></a>빠른 시작: Azure Dev Spaces(Visual Studio)를 사용하여 Kubernetes에서 .NET Core로 개발
+# <a name="quickstart-debug-and-iterate-with-visual-studio-and-net-core-on-kubernetes-with-azure-dev-spaces"></a>빠른 시작: Azure Dev Spaces를 사용하여 Kubernetes에서 Visual Studio 및 .NET Core로 디버깅 및 반복
 
 이 가이드에서는 다음을 수행하는 방법을 배우게 됩니다.
 
@@ -39,7 +38,7 @@ ms.locfileid: "66399215"
 
 1. [Azure 포털](https://portal.azure.com)
 1. *+ 리소스 만들기> Kubernetes 서비스*를 선택합니다. 
-1. _구독_, _리소스 그룹_, _Kubernetes 클러스터 이름_, _지역_, _Kubernetes 버전_ 및 _DNS 이름 접두사_를 입력합니다.
+1. _구독_, _리소스 그룹_, _Kubernetes 클러스터 이름_, _지역_, _Kubernetes 버전_ 및 _DNS 이름 접두사_ 를 입력합니다.
 
     ![Azure Portal에서 AKS 만들기](media/get-started-netcore-visualstudio/create-aks-portal.png)
 
@@ -96,7 +95,7 @@ Completed warmup for project 'webfrontend' in 125 seconds.
 
 위의 예제에서 공용 URL은 http://webfrontend.1234567890abcdef1234.eus.azds.io/ 입니다. 서비스의 공용 URL로 이동하여 개발 공간에서 실행 중인 서비스와 상호 작용합니다.
 
-이 프로세스는 서비스에 대한 공용 액세스가 비활성화되었을 수 있습니다. 공용 액세스를 활성화하기 위해 [*values.yaml*][ingress-update]에서 수신 값을 업데이트할 수 있습니다.
+이 프로세스는 서비스에 대한 공용 액세스가 비활성화되었을 수 있습니다. 공용 액세스를 활성화하기 위해 [*values.yaml*에서 수신 값][ingress-update]을 업데이트할 수 있습니다.
 
 ## <a name="update-code"></a>코드 업데이트
 

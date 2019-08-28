@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB에서 일관성을 관리하는 방법 알아보기
 description: Azure Cosmos DB에서 일관성을 관리하는 방법 알아보기
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
-ms.author: rimman
-ms.openlocfilehash: 5b43d822bf29ce07f292403a3a24ad8c13964038
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.date: 07/08/2019
+ms.author: mjbrown
+ms.openlocfilehash: 2617aba0d790209d83f410ee632ffad43c952d55
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389129"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356429"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB의 일관성 수준 관리
 
@@ -27,10 +27,10 @@ ms.locfileid: "66389129"
 
 ```bash
 # create with a default consistency
-az cosmosdb create --name <name of Cosmos DB Account> --resource-group <resource group name> --default-consistency-level Strong
+az cosmosdb create --name <name of Cosmos DB Account> --resource-group <resource group name> --default-consistency-level Session
 
 # update an existing account's default consistency
-az cosmosdb update --name <name of Cosmos DB Account> --resource-group <resource group name> --default-consistency-level BoundedStaleness
+az cosmosdb update --name <name of Cosmos DB Account> --resource-group <resource group name> --default-consistency-level Eventual
 ```
 
 ### <a name="powershell"></a>PowerShell
@@ -69,22 +69,29 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 클라이언트는 서비스에서 설정한 기본 일관성 수준을 재정의할 수 있습니다. 일관성 수준을 요청별로 설정할 수 있으며, 이렇게 하면 계정 수준에서 설정된 기본 일관성 수준이 재정의됩니다.
 
-### <a id="override-default-consistency-dotnet"></a>.NET SDK
+### <a id="override-default-consistency-dotnet"></a>.NET SDK V2
 
 ```csharp
 // Override consistency at the client level
-ConsistencyPolicy consistencyPolicy = new ConsistencyPolicy
-    {
-        DefaultConsistencyLevel = ConsistencyLevel.BoundedStaleness,
-        MaxStalenessIntervalInSeconds = 5,
-        MaxStalenessPrefix = 100
-    };
-documentClient = new DocumentClient(new Uri(endpoint), authKey, connectionPolicy, consistencyPolicy);
+documentClient = new DocumentClient(new Uri(endpoint), authKey, connectionPolicy, ConsistencyLevel.Eventual);
 
 // Override consistency at the request level via request options
-RequestOptions requestOptions = new RequestOptions { ConsistencyLevel = ConsistencyLevel.Strong };
+RequestOptions requestOptions = new RequestOptions { ConsistencyLevel = ConsistencyLevel.Eventual };
 
 var response = await client.CreateDocumentAsync(collectionUri, document, requestOptions);
+```
+
+### <a id="override-default-consistency-dotnet-v3"></a>.NET SDK V3
+
+```csharp
+// Override consistency at the request level via request options
+ItemRequestOptions requestOptions = new ItemRequestOptions { ConsistencyLevel = ConsistencyLevel.Strong };
+
+var response = await client.GetContainer(databaseName, containerName)
+    .CreateItemAsync(
+        item, 
+        new PartitionKey(itemPartitionKey), 
+        requestOptions);
 ```
 
 ### <a id="override-default-consistency-java-async"></a>Java 비동기 SDK
@@ -106,7 +113,7 @@ AsyncDocumentClient client =
 ```java
 // Override consistency at the client level
 ConnectionPolicy connectionPolicy = new ConnectionPolicy();
-DocumentClient client = new DocumentClient(accountEndpoint, accountKey, connectionPolicy, ConsistencyLevel.Strong);
+DocumentClient client = new DocumentClient(accountEndpoint, accountKey, connectionPolicy, ConsistencyLevel.Eventual);
 ```
 
 ### <a id="override-default-consistency-javascript"></a>Node.js/JavaScript/TypeScript SDK
@@ -115,7 +122,7 @@ DocumentClient client = new DocumentClient(accountEndpoint, accountKey, connecti
 // Override consistency at the client level
 const client = new CosmosClient({
   /* other config... */
-  consistencyLevel: ConsistencyLevel.Strong
+  consistencyLevel: ConsistencyLevel.Eventual
 });
 
 // Override consistency at the request level via request options
@@ -127,7 +134,8 @@ const { body } = await item.read({ consistencyLevel: ConsistencyLevel.Eventual }
 ```python
 # Override consistency at the client level
 connection_policy = documents.ConnectionPolicy()
-client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.account_key}, connection_policy, documents.ConsistencyLevel.Strong)
+client = cosmos_client.CosmosClient(self.account_endpoint, {
+                                    'masterKey': self.account_key}, connection_policy, documents.ConsistencyLevel.Eventual)
 ```
 
 ## <a name="utilize-session-tokens"></a>세션 토큰 사용
@@ -136,7 +144,7 @@ Azure Cosmos DB의 일관성 수준 중 하나는 *세션* 일관성입니다. �
 
 세션 토큰을 수동으로 관리하려면 응답에서 세션 토큰을 가져와서 요청별로 설정합니다. 세션 토큰을 수동으로 관리할 필요가 없으면 다음 샘플을 사용할 필요가 없습니다. SDK는 세션 토큰을 자동으로 추적합니다. 세션 토큰을 수동으로 설정하지 않으면 기본적으로 SDK에서 최신 세션 토큰을 사용합니다.
 
-### <a id="utilize-session-tokens-dotnet"></a>.NET SDK
+### <a id="utilize-session-tokens-dotnet"></a>.NET SDK V2
 
 ```csharp
 var response = await client.ReadDocumentAsync(
@@ -147,6 +155,18 @@ RequestOptions options = new RequestOptions();
 options.SessionToken = sessionToken;
 var response = await client.ReadDocumentAsync(
                 UriFactory.CreateDocumentUri(databaseName, collectionName, "SalesOrder1"), options);
+```
+
+### <a id="utilize-session-tokens-dotnet-v3"></a>.NET SDK V3
+
+```csharp
+Container container = client.GetContainer(databaseName, collectionName);
+ItemResponse<SalesOrder> response = await container.CreateItemAsync<SalesOrder>(salesOrder);
+string sessionToken = response.Headers.Session;
+
+ItemRequestOptions options = new ItemRequestOptions();
+options.SessionToken = sessionToken;
+ItemResponse<SalesOrder> response = await container.ReadItemAsync<SalesOrder>(salesOrder.Id, new PartitionKey(salesOrder.PartitionKey), options);
 ```
 
 ### <a id="utilize-session-tokens-java-async"></a>Java 비동기 SDK

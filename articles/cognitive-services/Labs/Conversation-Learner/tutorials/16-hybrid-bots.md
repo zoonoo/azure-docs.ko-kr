@@ -10,12 +10,13 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: nitinme
-ms.openlocfilehash: d6af927e395532e43c7cc51c39665e2e42ac6781
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: c964c62c34f952a547d077e93e7bb4d0eb7b192d
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389972"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68703671"
 ---
 # <a name="how-to-use-conversation-learner-with-other-bot-building-technologies"></a>다른 봇 빌드 기술과 함께 Conversation Learner를 사용하는 방법
 
@@ -57,17 +58,17 @@ Conversation Learner를 일부 초기 상태 및 반환 값을 가져오는 함�
 
 이러한 엔터티가 사용되는 방식을 이해하려면 파일 `C:\<installedpath>\src\demos\tutorialHybrid.ts`를 열어 콜백을 확인합니다.
 
-`OnSessionStartCallback`의 코드는 BotBuilder 대화 저장소의 `storeIsOpen` 값을 Conversation Learner에서 사용할 수 있도록 `isOpen` 엔터티의 값으로 복사합니다. 다음 코드를 확인합니다.
+`OnSessionStartCallback`의 코드는 BotBuilder 대화 스토리지의 `storeIsOpen` 값을 Conversation Learner에서 사용할 수 있도록 `isOpen` 엔터티의 값으로 복사합니다. 다음 코드를 확인합니다.
 
 ![](../media/tutorial17_sessionstart.PNG)
 
-마찬가지로 `OnSessionEndCallback`의 코드(단지 시간 초과 때문이 아니라 학습된 활동 때문에 세션이 종료된 경우)는 엔터티 `purchaseItem`의 값을 BotBuilder 저장소 `purchaseItem`으로 복사합니다. 다음 코드를 확인합니다.
+마찬가지로 `OnSessionEndCallback`의 코드(단지 시간 초과 때문이 아니라 학습된 활동 때문에 세션이 종료된 경우)는 엔터티 `purchaseItem`의 값을 BotBuilder 스토리지 `purchaseItem`으로 복사합니다. 다음 코드를 확인합니다.
 
 ![](../media/tutorial17_sessionend.PNG)
 
 이제 작업을 살펴보겠습니다.
 
-## <a name="actions"></a>작업
+## <a name="actions"></a>동작
 
 이 모델에는 4개의 작업이 있습니다.
 

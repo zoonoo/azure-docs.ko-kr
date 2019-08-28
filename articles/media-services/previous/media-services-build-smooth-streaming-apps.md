@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: b8c1513838fb848388946e18698a0410aa7a0332
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ff961638aa170948d51793a21e86d18dd7e1d80
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65949616"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "69016784"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>부드러운 스트리밍 Windows 스토어 애플리케이션을 빌드하는 방법  
 
@@ -32,13 +32,13 @@ Smooth Streaming Client SDK for Windows 8을 사용하면 개발자가 주문형
 3. 부드러운 스트리밍 스트림 선택
 4. 부드러운 스트리밍 트랙 선택
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 > [!NOTE]
 > Windows 스토어 프로젝트 버전 8.1 및 이전 버전은 Visual Studio 2017에서 지원되지 않습니다.  자세한 내용은 [Visual Studio 2017 플랫폼 대상 지정 및 호환성](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs)을 참조하세요.
 
 * Windows 8 32비트 또는 64비트.
 * Visual Studio 버전 2012~2015.
-* [Microsoft Smooth Streaming Client SDK for Windows 8](https://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home https://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home)
+* [Microsoft Smooth Streaming Client SDK for Windows 8](https://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home)
 
 각 단원에 대해 완성된 솔루션은 MSDN 개발자 코드 샘플(코드 갤러리)에서 다운로드할 수 있습니다. 
 
@@ -69,7 +69,7 @@ Windows 스토어 애플리케이션 개발에 대한 자세한 내용은 [유�
     | 이름 | 값 |
     | --- | --- |
     | 템플릿 그룹 |Installed/Templates/Visual C#/Windows Store |
-    | Template |새 응용 프로그램(XAML) |
+    | 템플릿 |새 응용 프로그램(XAML) |
     | 이름 |SSPlayer |
     | 위치 |C:\SSTutorials |
     | 솔루션 이름 |SSPlayer |
@@ -77,7 +77,7 @@ Windows 스토어 애플리케이션 개발에 대한 자세한 내용은 [유�
 
 1. **확인**을 클릭합니다.
 
-### <a name="to-add-a-reference-to-the-smooth-streaming-client-sdk"></a>Smooth Streaming Client SDK에 대 한 참조를 추가 하려면
+### <a name="to-add-a-reference-to-the-smooth-streaming-client-sdk"></a>부드러운 스트리밍 클라이언트 SDK에 대 한 참조를 추가 하려면
 
 1. [솔루션 탐색기]에서 **SSPlayer**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**를 클릭합니다.
 1. 다음 값을 입력하거나 선택합니다.
@@ -147,7 +147,7 @@ MediaElement 컨트롤은 기본적으로 부드러운 스트리밍 콘텐츠를
 
 이 XAML 파일에서는 일부 이벤트 처리기가 컨트롤과 연결되어 있습니다.  해당 이벤트 처리기를 정의해야 합니다.
 
-### <a name="to-modify-the-code-behind-file"></a>코드 숨김 파일을 수정 하려면
+### <a name="to-modify-the-code-behind-file"></a>코드 숨겨진 파일을 수정 하려면
 
 1. [솔루션 탐색기]에서 **MainPage.xaml**을 마우스 오른쪽 단추로 클릭하고 **코드 보기**를 클릭합니다.
 2. 파일 맨 위에 다음 using 문을 추가합니다.
@@ -211,12 +211,12 @@ MediaElement 컨트롤은 기본적으로 부드러운 스트리밍 콘텐츠를
 
 ![부드러운 스트리밍 Windows 스토어 애플리케이션에 대한 Visual Studio의 Codeview][CodeViewPic]
 
-### <a name="to-compile-and-test-the-application"></a>컴파일하고 응용 프로그램 테스트
+### <a name="to-compile-and-test-the-application"></a>응용 프로그램을 컴파일 및 테스트 하려면
 
 1. **빌드** 메뉴에서 **구성 관리자**를 클릭합니다.
 2. 개발 플랫폼과 일치하도록 **활성 솔루션 플랫폼** 을 변경합니다.
 3. **F6** 키를 눌러 프로젝트를 컴파일합니다. 
-4. **F5** 키를 눌러 애플리케이션을 실행합니다.
+4. **F5** 키를 눌러 응용 프로그램을 실행합니다.
 5. 애플리케이션 맨 위에 기본 부드러운 스트리밍 URL을 사용하거나 다른 URL을 입력할 수 있습니다. 
 6. **원본 설정**을 클릭합니다. 기본적으로 **자동 재생** 이 사용되기 때문에 미디어가 자동으로 재생됩니다.  **재생**, **일시 중지** 및 **중지** 단추를 사용하여 미디어를 제어할 수 있습니다.  세로 슬라이더를 사용하여 미디어 볼륨을 제어할 수 있습니다.  그러나 미디어 진행을 제어하기 위한 가로 슬라이더는 아직 완전히 구현되지 않았습니다. 
 
@@ -399,7 +399,7 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
    ```
 4. **Ctrl+S** 를 눌러 파일을 저장합니다.
 
-### <a name="to-add-slider-bar-related-code"></a>슬라이더 막대를 추가 하려면 관련 코드
+### <a name="to-add-slider-bar-related-code"></a>슬라이더 막대 관련 코드를 추가 하려면
 
 1. [솔루션 탐색기]에서 **MainPage.xaml**을 마우스 오른쪽 단추로 클릭하고 **코드 보기**를 클릭합니다.
 2. 파일의 시작 부분에 다음 using 문을 추가합니다.
@@ -507,7 +507,7 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
    ```
 
    > [!NOTE]
-   > CoreDispatcher는 비UI 스레드에서 UI 스레드를 변경하는 데 사용됩니다. 디스패처 스레드에서 병목이, 발생할 경우 개발자는 업데이트 하려는 UI 요소에서 제공 하는 디스패처를 사용 하도록 선택할 수 있습니다.  예를 들면 다음과 같습니다.
+   > CoreDispatcher는 비UI 스레드에서 UI 스레드를 변경하는 데 사용됩니다. 디스패처 스레드에 병목 현상이 발생 하는 경우 개발자는 업데이트 하려는 UI 요소에서 제공 하는 디스패처를 사용 하도록 선택할 수 있습니다.  예를 들어:
 
    ```csharp
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
@@ -532,10 +532,10 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
    ```
 8. **Ctrl+S** 를 눌러 파일을 저장합니다.
 
-### <a name="to-compile-and-test-the-application"></a>컴파일하고 응용 프로그램 테스트
+### <a name="to-compile-and-test-the-application"></a>응용 프로그램을 컴파일 및 테스트 하려면
 
 1. **F6** 키를 눌러 프로젝트를 컴파일합니다. 
-2. **F5** 키를 눌러 애플리케이션을 실행합니다.
+2. **F5** 키를 눌러 응용 프로그램을 실행합니다.
 3. 애플리케이션 맨 위에 기본 부드러운 스트리밍 URL을 사용하거나 다른 URL을 입력할 수 있습니다. 
 4. **원본 설정**을 클릭합니다. 
 5. 슬라이더 막대를 테스트합니다.
@@ -592,7 +592,7 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
    ```
 4. **Ctrl+S** 를 눌러 변경 내용을 저장합니다.
 
-### <a name="to-modify-the-code-behind-file"></a>코드 숨김 파일을 수정 하려면
+### <a name="to-modify-the-code-behind-file"></a>코드 숨겨진 파일을 수정 하려면
 
 1. [솔루션 탐색기]에서 **MainPage.xaml**을 마우스 오른쪽 단추로 클릭하고 **코드 보기**를 클릭합니다.
 2. SSPlayer 네임스페이스 내에 새 클래스를 추가합니다.
@@ -809,10 +809,10 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
         }
    ```
 
-### <a name="to-compile-and-test-the-application"></a>컴파일하고 응용 프로그램 테스트
+### <a name="to-compile-and-test-the-application"></a>응용 프로그램을 컴파일 및 테스트 하려면
 
 1. **F6** 키를 눌러 프로젝트를 컴파일합니다. 
-2. **F5** 키를 눌러 애플리케이션을 실행합니다.
+2. **F5** 키를 눌러 응용 프로그램을 실행합니다.
 3. 애플리케이션 맨 위에 기본 부드러운 스트리밍 URL을 사용하거나 다른 URL을 입력할 수 있습니다. 
 4. **원본 설정**을 클릭합니다. 
 5. 기본 언어는 audio_eng입니다. audio_eng와 audio_es 간에 전환해 보세요. 새 스트림을 선택할 때마다 제출 단추를 클릭해야 합니다.
@@ -847,9 +847,9 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
          </ListBox>
          </StackPanel>
    ```
-3. 키를 눌러 **CTRL + S** 변경 내용을 저장 하려면
+3. **Ctrl + S** 를 눌러 변경 내용을 저장 합니다.
 
-### <a name="to-modify-the-code-behind-file"></a>코드 숨김 파일을 수정 하려면
+### <a name="to-modify-the-code-behind-file"></a>코드 숨겨진 파일을 수정 하려면
 
 1. [솔루션 탐색기]에서 **MainPage.xaml**을 마우스 오른쪽 단추로 클릭하고 **코드 보기**를 클릭합니다.
 2. SSPlayer 네임스페이스 내에 새 클래스를 추가합니다.
@@ -1013,10 +1013,10 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
          }
    ```
    
-### <a name="to-compile-and-test-the-application"></a>컴파일하고 응용 프로그램 테스트
+### <a name="to-compile-and-test-the-application"></a>응용 프로그램을 컴파일 및 테스트 하려면
 
 1. **F6** 키를 눌러 프로젝트를 컴파일합니다. 
-2. **F5** 키를 눌러 애플리케이션을 실행합니다.
+2. **F5** 키를 눌러 응용 프로그램을 실행합니다.
 3. 애플리케이션 맨 위에 기본 부드러운 스트리밍 URL을 사용하거나 다른 URL을 입력할 수 있습니다. 
 4. **원본 설정**을 클릭합니다. 
 5. 기본적으로 비디오 스트림의 모든 트랙이 선택됩니다. 비트 전송률 변경을 실험하려면 사용 가능한 가장 낮은 비트 전송률을 선택한 후 사용 가능한 가장 높은 비트 전송률을 선택합니다. 각 변경 후에 제출을 클릭해야 합니다.  비디오 품질 변경을 확인할 수 있습니다.

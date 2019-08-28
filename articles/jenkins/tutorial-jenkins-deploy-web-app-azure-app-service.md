@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Jenkins를 사용하여 GitHub에서 Azure App Service로 배포
+title: '자습서: Jenkins를 사용하여 GitHub에서 Azure App Service로 배포'
 description: GitHub에서의 CI(지속적인 통합) 및 Java 웹앱용 Azure App Service로의 CD(연속 배포)를 위해 Jenkins 설정
 services: jenkins
 ms.service: jenkins
@@ -8,12 +8,13 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: 90f89f9ffb1d55e7621c87f168375251c78d9730
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.custom: seo-java-august2019
+ms.openlocfilehash: 955ce9724d576e56766ab3d87a374a65e4ca5c0e
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533496"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967115"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>자습서: Jenkins 연속 통합 및 배포를 사용하여 GitHub에서 Azure App Service로 배포
 
@@ -122,7 +123,7 @@ Jenkins가 GitHub를 모니터링하고, GitHub 포크의 웹앱으로 새 커�
 
 ## <a name="create-service-principal"></a>서비스 주체 만들기
 
-이후 섹션에서는 GitHub에서 앱을 빌드하고 Azure App Service에 앱을 배포하는 Jenkins 파이프라인 작업을 만듭니다. 자격 증명을 입력하지 않고 Jenkins가 Azure에 액세스하도록 하려면 Jenkins용 Azure Active Directory에서 [서비스 주체](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)를 만듭니다. 서비스 주체는 Azure 리소스에 대한 액세스를 인증하기 위해 Jenkins가 사용할 수 있는 별도 ID입니다. 이 서비스 주체를 만들려면 로컬 명령줄 또는 Azure Cloud Shell에서 Azure CLI 명령 [**`az ad sp create-for-rbac`**](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)을 실행합니다. 예를 들면 다음과 같습니다. 
+이후 섹션에서는 GitHub에서 앱을 빌드하고 Azure App Service에 앱을 배포하는 Jenkins 파이프라인 작업을 만듭니다. 자격 증명을 입력하지 않고 Jenkins가 Azure에 액세스하도록 하려면 Jenkins용 Azure Active Directory에서 [서비스 주체](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)를 만듭니다. 서비스 주체는 Azure 리소스에 대한 액세스를 인증하기 위해 Jenkins가 사용할 수 있는 별도 ID입니다. 이 서비스 주체를 만들려면 로컬 명령줄 또는 Azure Cloud Shell에서 Azure CLI 명령 [ **`az ad sp create-for-rbac`** ](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)을 실행합니다. 예를 들면 다음과 같습니다. 
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "yourAzureServicePrincipalName" --password yourSecurePassword
@@ -169,9 +170,8 @@ az ad sp create-for-rbac --name "yourAzureServicePrincipalName" --password yourS
    | **클라이언트 암호** | <*yourSecurePassword*> | Azure 서비스 주체에 대해 제공한 `password` 값 또는 "비밀"입니다. | 
    | **테넌트 ID** | <*yourAzureActiveDirectoryTenant-ID*> | Azure Active Directory 테넌트에 대한 `tenant` GUID 값입니다. | 
    | **ID** | <*yourAzureServicePrincipalName*> | Azure 서비스 주체에 대한 `displayName` 값입니다. | 
-   |||| 
 
-1. 서비스 주체가 작동하는지 확인하려면 **서비스 주체 확인**을 선택합니다. 작업을 완료하면 **확인**을 선택합니다.
+1. 서비스 주체가 작동하는지 확인하려면 **서비스 주체 확인**을 선택합니다. 완료되면 **확인**을 선택합니다.
 
 다음으로, 앱을 빌드하고 배포하는 Jenkins 파이프라인을 만듭니다.
 
@@ -183,7 +183,7 @@ Jenkins에서 앱을 빌드하고 배포하기 위한 파이프라인 작업을 
 
    ![“새 항목”을 선택](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-new-item.png)
 
-1. 파이프라인 작업의 이름(예: "My-Java-Web-App")을 제공하고 **파이프라인**을 선택합니다. 맨 아래에서 **확인**을 선택합니다.  
+1. 파이프라인 작업의 이름(예: "My-Java-Web-App")을 제공하고 **파이프라인**을 선택합니다. 아래쪽에서 **확인**을 선택합니다.  
 
    !["파이프라인" 선택](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-pipeline.png)
 
@@ -201,7 +201,7 @@ Jenkins에서 앱을 빌드하고 배포하기 위한 파이프라인 작업을 
 
       !["실행 환경 준비" 선택 및 환경 변수 설정](media/tutorial-jenkins-deploy-web-app-azure-app-service/prepare-environment-for-run.png)
 
-1. 완료하면 **저장**을 선택합니다.
+1. 완료되면 **저장**을 선택합니다.
 
 다음으로, Jenkins에 대한 빌드 및 배포 스크립트를 만듭니다.
 
@@ -274,7 +274,7 @@ Jenkins에서 앱을 빌드하고 배포하기 위한 파이프라인 작업을 
 
    ![스크립트에서 파이프라인 지정](media/tutorial-jenkins-deploy-web-app-azure-app-service/set-up-jenkins-github.png)
 
-1. 완료하면 **저장**을 선택합니다.
+1. 완료되면 **저장**을 선택합니다.
 
 다음으로, 앱을 빌드하고 Azure App Service에 배포합니다. 
 

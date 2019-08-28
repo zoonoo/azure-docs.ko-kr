@@ -4,19 +4,19 @@ description: Azure DevOps Projects를 사용하면 Azure를 쉽게 시작할 수
 author: shizn
 manager: ''
 ms.author: xshi
-ms.date: 01/22/2019
+ms.date: 07/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 02977032c5975de4098600ddbebccfcbb9b0fafd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 109a7e327217a342f485dd61b53115569f2346cd
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60595321"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722989"
 ---
-# <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects-preview"></a>Azure DevOps Projects(미리 보기)를 사용하여 IoT Edge에 대한 CI/CD 파이프라인 만들기
+# <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects"></a>Azure DevOps Projects를 사용 하 여 IoT Edge에 대 한 CI/CD 파이프라인 만들기
 
 DevOps 프로젝트를 사용하여 IoT Edge 애플리케이션에 대한 지속적인 통합(CI) 및 지속적인 업데이트(CD)를 구성합니다. DevOps Projects는 Azure Pipelines에서 빌드 및 릴리스 파이프라인의 초기 구성을 간소화합니다.
 
@@ -38,7 +38,7 @@ DevOps Projects는 Azure DevOps에 CI/CD 파이프라인을 만듭니다. 새 Az
 
    ![언어를 선택하여 새 애플리케이션을 만듭니다.](./media/how-to-devops-project/select-language.png)
 
-2. 애플리케이션 프레임워크로 **단순 IoT(미리 보기)** 를 선택하고, **다음**을 선택합니다.
+2. 선택 **간단한 IoT** 응용 프로그램 프레임 워크와 선택 **다음**합니다.
 
    ![Simple IoT 프레임 워크 선택](media/how-to-devops-project/select-iot.png)
 

@@ -1,26 +1,26 @@
 ---
-title: '빠른 시작: 필기 텍스트 추출 - REST, Java'
+title: '빠른 시작: 인쇄 및 필기 텍스트 추출 - REST, Java'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 Java와 함께 Computer Vision API를 사용하여 이미지의 필기 텍스트를 추출합니다.
+description: 이 빠른 시작에서는 Java와 함께 Computer Vision API를 사용하여 이미지의 인쇄 및 필기 텍스트를 추출합니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/04/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 9d057628f79eb5edbbd3424d29aa7683b5d99eb7
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 545bd3acbd212a26b3e35020559ab62788ab7257
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357217"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68312005"
 ---
-# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-java-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 Java를 사용하여 필기 텍스트 추출
+# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-java"></a>빠른 시작: Computer Vision REST API 및 Java를 사용하여 인쇄 및 필기 텍스트 추출
 
-이 빠른 시작에서는 Computer Vision의 REST API를 사용하여 이미지의 필기 텍스트를 추출합니다. [일괄 읽기](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) API 및 [읽기 작업 결과](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) API를 사용하면 이미지의 필기 텍스트를 감지한 후 인식된 문자를 머신에서 사용 가능한 문자 스트림으로 추출할 수 있습니다.
+이 빠른 시작에서는 Computer Vision의 REST API를 사용하여 이미지의 인쇄 및/또는 필기 텍스트를 추출합니다. [일괄 읽기](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) 및 [읽기 작업 결과](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) 메서드를 사용하면 이미지의 텍스트를 감지한 후 인식된 문자를 머신에서 판독 가능한 문자 스트림으로 추출할 수 있습니다. API는 각 텍스트 줄에 사용할 인식 모델을 결정하므로, 인쇄 텍스트와 필기 텍스트를 사용하는 이미지를 모두 지원합니다.
 
 > [!IMPORTANT]
 > [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 메서드와 달리, [일괄 읽기](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) 메서드는 비동기적으로 실행됩니다. 이 메서드는 성공한 응답의 본문에 있는 정보를 반환하지 않습니다. 대신, 일괄 읽기 메서드는 `Operation-Content` 응답 헤더 필드의 값으로 URI를 반환합니다. 그러면 상태를 확인하고 일괄 읽기 메서드 호출 결과를 반환하기 위해 [읽기 작업 결과](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) 메서드를 나타내는 이 URI를 호출할 수 있습니다.
@@ -61,7 +61,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. `Main` 공용 클래스를 다음 코드로 바꾼 다음, 필요한 코드에 다음 변경 내용을 만듭니다.
    1. `subscriptionKey`의 값을 구독 키로 바꿉니다.
    1. 필요한 경우 `uriBase`의 값을 구독 키를 가져온 Azure 지역의 [일괄 읽기](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) 메서드에 대한 엔드포인트 URL로 바꿉니다.
-   1. 필요에 따라 `imageToAnalyze`의 값을 필기 텍스트를 추출하려는 다른 이미지의 URL로 바꿉니다.
+   1. 필요에 따라 `imageToAnalyze`의 값을 텍스트를 추출하려는 다른 이미지의 URL로 바꿉니다.
 1. 저장한 다음, Java 프로젝트를 빌드합니다.
 1. IDE를 사용하는 경우 `Main`을 실행합니다. 그렇지 않은 경우 명령 프롬프트 창을 연 다음, `java` 명령을 사용하여 컴파일된 클래스를 실행합니다. 예: `java Main`
 
@@ -79,11 +79,11 @@ public class Main {
     // from the West US region, replace "westcentralus" in the URL
     // below with "westus".
     //
-    // Free trial subscription keys are generated in the "westus" region.
+    // Free trial subscription keys are generated in the "westcentralus" region.
     // If you use a free trial subscription key, you shouldn't need to change
     // this region.
     private static final String uriBase =
-        "https://westus.api.cognitive.microsoft.com/vision/v2.0/read/core/asyncBatchAnalyze";
+        "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/read/core/asyncBatchAnalyze";
 
     private static final String imageToAnalyze =
         "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/" +
@@ -112,7 +112,7 @@ public class Main {
                     new StringEntity("{\"url\":\"" + imageToAnalyze + "\"}");
             request.setEntity(requestEntity);
 
-            // Two REST API methods are required to extract handwritten text.
+            // Two REST API methods are required to extract text.
             // One method to submit the image for processing, the other method
             // to retrieve the text found in the image.
 
@@ -152,12 +152,12 @@ public class Main {
             // If the first REST API method completes successfully, the second
             // REST API method retrieves the text written in the image.
             //
-            // Note: The response may not be immediately available. Handwriting
+            // Note: The response may not be immediately available. Text
             // recognition is an asynchronous operation that can take a variable
-            // amount of time depending on the length of the handwritten text.
+            // amount of time depending on the length of the text.
             // You may need to wait or retry this operation.
 
-            System.out.println("\nHandwritten text submitted.\n" +
+            System.out.println("\nText submitted.\n" +
                     "Waiting 10 seconds to retrieve the recognized text.\n");
             Thread.sleep(10000);
 
@@ -187,7 +187,7 @@ public class Main {
 성공적인 응답이 JSON을 통해 반환됩니다. 애플리케이션 예제는 다음 예제와 유사하게 콘솔 창에서 성공한 응답을 구문 분석하고 표시합니다.
 
 ```json
-Handwritten text submitted. Waiting 10 seconds to retrieve the recognized text.
+Text submitted. Waiting 10 seconds to retrieve the recognized text.
 
 Text recognition result response:
 

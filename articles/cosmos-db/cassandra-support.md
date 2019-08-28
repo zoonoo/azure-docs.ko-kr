@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 46eea21e1eafce1696ed1cf77a1f334798f0bc17
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a6fc9f1a5c32fc9ffa1e1e6ebe525b72030fe803
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58848406"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155666"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API에서 지원하는 Apache Cassandra 기능 
 
@@ -57,7 +57,7 @@ Azure Cosmos DB Cassandra API는 다음 CQL 데이터 형식을 지원합니다.
 * set  
 * smallint  
 * text  
-* 실시간  
+* time  
 * timestamp  
 * timeuuid  
 * tinyint  
@@ -74,6 +74,8 @@ Azure Cosmos DB Cassandra API는 다음 CQL 데이터 형식을 지원합니다.
 Azure Cosmos DB Cassandra API는 다음 CQL 함수를 지원합니다.
 
 * 토큰  
+* 집계 함수
+  * min, max, avg, count
 * Blob 변환 함수 
   * typeAsBlob(value)  
   * blobAsType(value)
@@ -88,7 +90,8 @@ Azure Cosmos DB Cassandra API는 다음 CQL 함수를 지원합니다.
   * toDate(timestamp)  
   * toUnixTimestamp(timestamp)  
   * toTimestamp(date)  
-  * toUnixTimestamp(date)  
+  * toUnixTimestamp(date) 
+  
 
 
 ## <a name="cassandra-query-language-limits"></a>Cassandra Query Language의 제한
@@ -154,11 +157,11 @@ foreach (string key in insertResult.Info.IncomingPayload)
 
 ## <a name="consistency-mapping"></a>일관성 매핑 
 
-Azure Cosmos DB Cassandra API에서는 읽기 작업을 일관되게 수행할지 여부를 선택할 수 있습니다. 모든 쓰기 작업은 계정 일치 여부에 관계없이 항상 쓰기 성능 SLA에 따라 기록됩니다.
+Azure Cosmos DB Cassandra API에서는 읽기 작업을 일관되게 수행할지 여부를 선택할 수 있습니다.  일관성 매핑에 대한 자세한 내용은 여기(https://docs.microsoft.com/azure/cosmos-db/consistency-levels-across-apis#cassandra-mapping) )를 참조하세요.
 
 ## <a name="permission-and-role-management"></a>권한 및 역할 관리
 
-Azure Cosmos DB는 [Azure Portal](https://portal.azure.com)을 통해 가져올 수 있는 RBAC(역할 기반 액세스 제어)와 읽기-쓰기 및 읽기 전용 암호/키를 지원합니다. 데이터 평면 활동을 위한 사용자와 역할은 아직 지원되지 않습니다. 
+Azure Cosmos DB는 프로비전, 키 회전, 메트릭 보기를 위한 RBAC(역할 기반 액세스 제어)와 [Azure Portal](https://portal.azure.com)을 통해 가져올 수 있는 읽기-쓰기 및 읽기 전용 암호/키를 지원합니다. CRUD 활동을 위한 사용자와 역할은 아직 지원되지 않습니다. 
 
 ## <a name="planned-support"></a>계획된 지원 
 * create keyspace 명령의 지역 이름은 현재 무시됩니다. 데이터 배포는 기본 Cosmos DB 플랫폼에서 구현되고, 포털 또는 PowerShell을 통해 계정에 제공됩니다. 

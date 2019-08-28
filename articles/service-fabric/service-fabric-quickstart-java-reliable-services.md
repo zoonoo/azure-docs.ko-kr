@@ -1,5 +1,5 @@
 ---
-title: Azure의 Service Fabric에서 Java 앱 만들기 | Microsoft Docs
+title: '빠른 시작: Azure Service Fabric에서 Java 앱 만들기'
 description: 이 빠른 시작에서는 Service Fabric 안정적인 서비스 애플리케이션 예제를 사용하여 Azure용 Java 애플리케이션을 만듭니다.
 services: service-fabric
 documentationcenter: java
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
-ms.custom: mvc, devcenter
-ms.openlocfilehash: ddd56b8479678b288424dd896baadea6a41a2aef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.custom: mvc, devcenter, seo-java-august2019
+ms.openlocfilehash: a69590adc329361ac1c2191e7a984757af4f69af
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008149"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68977102"
 ---
 # <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>빠른 시작: Service Fabric에 Java Reliable Services 애플리케이션 배포
 
@@ -60,18 +60,18 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
-    로컬 클러스터를 시작하는 데 몇 시간이 걸립니다. 클러스터가 완전히 작동 중인지 확인하려면 **http://localhost:19080**에서 Service Fabric Explorer에 액세스합니다. 5개의 정상 노드는 로컬 클러스터가 작동되어 실행 중임을 나타냅니다.
+    로컬 클러스터를 시작하는 데 몇 시간이 걸립니다. 클러스터가 완전히 작동 중인지 확인하려면 **http://localhost:19080** 에서 Service Fabric Explorer에 액세스합니다. 5개의 정상 노드는 로컬 클러스터가 작동되어 실행 중임을 나타냅니다.
 
     ![로컬 클러스터 정상](./media/service-fabric-quickstart-java/localclusterup.png)
 
 2. Eclipse를 엽니다.
-3. 파일 -> 가져오기 -> Gradle-> 기존 Gradle 프로젝트를 클릭하고 마법사를 따릅니다.
-4. 디렉터리를 클릭하고 GitHub에서 복제한 `service-fabric-java-quickstart` 폴더에서 `Voting` 디렉터리를 선택합니다. Finish를 클릭합니다.
+3. **파일** > **가져오기** > **Gradle** > **기존 Gradle 프로젝트**를 선택하고 마법사를 따릅니다.
+4. **디렉터리**를 선택하고 GitHub에서 복제한 `service-fabric-java-quickstart` 폴더에서 `Voting` 디렉터리를 선택합니다. **마침**을 선택합니다.
 
     ![Eclipse Import 대화 상자](./media/service-fabric-quickstart-java/eclipseimport.png)
 
 5. 이제 Eclipse용 Package Explorer에 `Voting` 프로젝트가 있습니다.
-6. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Service Fabric** 드롭다운 아래에서 **Publish Application...** 을 클릭합니다. **PublishProfiles/Local.json**을 Target Profile로 선택하고 Publish를 클릭합니다.
+6. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Service Fabric** 드롭다운 아래에서 **Publish Application**을 선택합니다. **PublishProfiles/Local.json**을 Target Profile로 선택하고 **Publish**를 선택합니다.
 
     ![Publish Dialog Local](./media/service-fabric-quickstart-java/localjson.png)
 
@@ -90,14 +90,14 @@ Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고
 웹 프런트 엔드 서비스의 크기를 조정하려면 다음을 수행합니다.
 
 1. 클러스터에서 Service Fabric Explorer를 엽니다. 예: `https://localhost:19080`
-2. 트리 뷰에서 **fabric:/Voting/VotingWeb** 노드 옆에 있는 줄임표(...)를 클릭하고 **Scale Service**를 선택합니다.
+2. 트리 뷰에서 **fabric:/Voting/VotingWeb** 노드 옆에 있는 줄임표( **...** )를 선택하고 **서비스 크기 조정**을 선택합니다.
 
     ![Service Fabric Explorer Scale Service](./media/service-fabric-quickstart-java/scaleservicejavaquickstart.png)
 
     이제 웹 프런트 엔드 서비스의 인스턴스 수를 조정하도록 선택할 수 있습니다.
 
-3. 이 수를 **2**로 변경하고 **Scale Service**를 클릭합니다.
-4. 트리 뷰에서 **fabric:/Voting/VotingWeb** 노드를 클릭하고 파티션 노드(GUID로 표현됨)를 확장합니다.
+3. 숫자를 **2**로 변경하고 **서비스 크기 조정**을 선택합니다.
+4. 트리 뷰에서 **fabric:/Voting/VotingWeb** 노드를 선택하고 파티션 노드(GUID로 표현됨)를 확장합니다.
 
     ![Service Fabric Explorer Scale Service 완료](./media/service-fabric-quickstart-java/servicescaled.png)
 

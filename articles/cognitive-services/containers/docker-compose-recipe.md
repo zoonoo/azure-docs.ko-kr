@@ -1,7 +1,7 @@
 ---
-title: Docker는 컨테이너 레시피를 작성 합니다.
+title: Docker Compose를 사용 하 여 여러 컨테이너 배포
 titleSuffix: Azure Cognitive Services
-description: Cognitive Services의 여러 컨테이너를 배포 하는 방법에 알아봅니다. 이 절차에서는 Docker Compose 사용 하 여 여러 Docker 컨테이너 이미지를 오케스트레이션 하는 방법을 보여 줍니다.
+description: 여러 Cognitive Services 컨테이너를 배포 하는 방법을 알아봅니다. 이 문서에서는 Docker Compose를 사용 하 여 여러 Docker 컨테이너 이미지를 오케스트레이션 하는 방법을 보여 줍니다.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,43 +10,43 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: 8afb7e866bc2a5fefe28a71653c4a2a87fdc7a5b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 95ec80af88e0b89f61bebed08f4b96a09947f401
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445784"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311547"
 ---
-# <a name="use-multiple-containers-in-a-private-network-with-docker-compose"></a>Docker Compose를 통한 개인 네트워크에서 여러 컨테이너를 사용 합니다.
+# <a name="use-docker-compose-to-deploy-multiple-containers"></a>Docker Compose를 사용 하 여 여러 컨테이너 배포
 
-Cognitive Services의 여러 컨테이너를 배포 하는 방법에 알아봅니다. 이 절차에서는 Docker Compose 사용 하 여 여러 Docker 컨테이너 이미지를 오케스트레이션 하는 방법을 보여 줍니다.
+이 문서에서는 여러 Azure Cognitive Services 컨테이너를 배포 하는 방법을 보여 줍니다. 특히 Docker Compose를 사용 하 여 여러 Docker 컨테이너 이미지를 오케스트레이션 하는 방법을 알아봅니다.
 
-> [Docker Compose](https://docs.docker.com/compose/) 정의 및 다중 컨테이너 Docker 응용 프로그램 실행을 위한 도구입니다. Compose를 사용 하 여 YAML 파일을 응용 프로그램의 서비스 구성. 그런 다음 단일 명령으로 만들고 구성에서 모든 서비스를 시작 합니다.
+> [Docker Compose](https://docs.docker.com/compose/) 는 다중 컨테이너 Docker 응용 프로그램을 정의 하 고 실행 하기 위한 도구입니다. 작성 시 YAML 파일을 사용 하 여 응용 프로그램의 서비스를 구성 합니다. 그런 다음 단일 명령을 실행 하 여 구성에서 모든 서비스를 만들고 시작 합니다.
 
-해당 하는 경우에 단일 호스트 컴퓨터에서 여러 컨테이너 이미지를 오케스트레이션 매력적인 될 수 있습니다. 이 문서에서는 끌어올 텍스트 인식 서비스 및 폼 인식기 서비스 함께 합니다.
+단일 호스트 컴퓨터에서 여러 컨테이너 이미지를 오케스트레이션 하는 것이 유용할 수 있습니다. 이 문서에서는 텍스트 인식 및 폼 인식기 컨테이너를 함께 가져옵니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-이 절차를 수행하려면 로컬로 설치 및 실행해야 하는 몇 가지 도구가 필요합니다.
+이 절차를 수행 하려면 로컬에 설치 하 고 실행 해야 하는 여러 도구가 필요 합니다.
 
-* Azure 구독을 사용합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-* [Docker 엔진](https://www.docker.com/products/docker-engine). 콘솔 창에서 Docker CLI를 가 작동하는지 확인합니다.
-* 올바른 가격 책정 계층이 지정된 Azure 리소스. 모든 가격 책정 계층이 이 컨테이너에 작동하는 것은 아닙니다.
-  * **Computer Vision** F0 또는 표준 가격 책정을 사용 하 여 리소스 계층 에서만.
-  * **인식기를 형성** F0 또는 표준 가격 책정을 사용 하 여 리소스 계층 에서만.
+* Azure 구독. 구독이 없으면 시작하기 전에 [계정](https://azure.microsoft.com/free/)을 만드세요.
+* [Docker 엔진](https://www.docker.com/products/docker-engine). Docker CLI가 콘솔 창에서 작동 하는지 확인 합니다.
+* 올바른 가격 책정 계층이 지정된 Azure 리소스. 다음 가격 책정 계층만이 컨테이너에서 작동 합니다.
+  * F0 또는 표준 가격 책정 계층을 사용 하 여 리소스를 **Computer Vision** 합니다.
+  * F0 또는 표준 가격 책정 계층을 사용 하는 **폼 인식기** 리소스
   * S0 가격 책정 계층이 있는 **Cognitive Services** 리소스
 
 ## <a name="request-access-to-the-container-registry"></a>컨테이너 레지스트리에 대한 액세스 요청
 
-완료 하 고 제출 합니다 [Cognitive Services 음성 컨테이너 요청 양식](https://aka.ms/speechcontainerspreview/) 컨테이너에 액세스를 요청 합니다. 
+[Cognitive Services 음성 컨테이너 요청 양식을](https://aka.ms/speechcontainerspreview/)완료 하 고 제출 합니다. 
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
 [!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
 
-## <a name="docker-compose-file"></a>Docker compose 파일
+## <a name="docker-compose-file"></a>Docker Compose 파일
 
-YAML 파일을 배포할 모든 서비스를 정의 합니다. 이러한 서비스 중 하나는 사용을 `DockerFile` 기존 컨테이너 이미지를이 경우에서는 또는 두 개의 미리 보기 이미지입니다. 다음 YAML 파일을 복사 및 붙여넣고 저장 *docker-compose.yaml*합니다. 적절 한 제공 _apikey_, _청구_, 및 _끝점 URI_ 값을 _docker compose.yml_ 아래 파일입니다.
+YAML 파일은 배포할 모든 서비스를 정의 합니다. 이러한 서비스는 `DockerFile` 또는 기존 컨테이너 이미지를 사용 합니다. 이 경우 두 개의 미리 보기 이미지를 사용 합니다. 다음 YAML 파일을 복사 하 여 붙여넣고 *docker로 작성 합니다. yaml*로 저장 합니다. 파일에 적절 한 **apikey**, **청구**및 **endpointuri** 값을 제공 합니다.
 
 ```yaml
 version: '3.7'
@@ -61,10 +61,10 @@ services:
        FormRecognizer__ComputerVisionEndpointUri: # < Your form recognizer URI >
     volumes:
        - type: bind
-         source: e:\publicpreview\output
+         source: E:\publicpreview\output
          target: /output
        - type: bind
-         source: e:\publicpreview\input
+         source: E:\publicpreview\input
          target: /input
     ports:
       - "5010:5000"
@@ -80,22 +80,22 @@ services:
 ```
 
 > [!IMPORTANT]
-> 아래 지정 된 호스트 컴퓨터에서 디렉터리를 만들기는 `volumes` 노드. 이것이 필요한 디렉터리 볼륨 바인딩을 사용 하 여 이미지를 탑재 하기 전에 존재 해야 합니다.
+> 호스트 컴퓨터에서 **볼륨** 노드 아래에 지정 된 디렉터리를 만듭니다. 이 방법은 볼륨 바인딩을 사용 하 여 이미지를 탑재 하기 전에 디렉터리가 있어야 하기 때문에 필요 합니다.
 
-## <a name="start-the-configured-docker-compose-services"></a>시작 구성 된 docker compose 서비스
+## <a name="start-the-configured-docker-compose-services"></a>구성 된 Docker Compose 서비스 시작
 
-Docker compose 파일에서는 모든 정의 된 서비스의 수명 주기; 관리 시작/중지 및 서비스를 다시 작성에서 서비스 상태 및 스트리밍 로그를 봅니다. 프로젝트 디렉터리에서 명령줄 인터페이스를 엽니다 (여기서는 *docker-compose.yaml* 위치한 파일).
+Docker Compose 파일을 사용 하면 정의 된 서비스의 수명 주기 (서비스 시작, 중지 및 다시 작성)의 모든 단계를 관리할 수 있습니다. 서비스 상태 보기 및 로그 스트리밍이 있습니다. 프로젝트 디렉터리 (docker 작성 .yaml 파일이 있는)에서 명령줄 인터페이스를 엽니다.
 
 > [!NOTE]
-> 오류를 방지 하려면 호스트 컴퓨터와 드라이브를 공유 하 고 올바르게를 확인 합니다 **Docker 엔진**합니다. 예를 들어, 경우 *e:\publicpreview* 으로 디렉터리에 사용 되는 *docker-compose.yaml* 공유는 *E 드라이브* docker를 사용 하 여.
+> 오류를 방지 하려면 호스트 컴퓨터가 Docker 엔진과 드라이브를 올바르게 공유 하는지 확인 합니다. 예를 들어 E:\publicpreview이 docker-작성 .yaml 파일에서 디렉터리로 사용 되는 경우 드라이브 E를 Docker와 공유 합니다.
 
-명령줄 인터페이스에서에서 정의 된 모든 서비스를 시작 (또는 다시 시작) 다음 명령을 실행 합니다 *docker-compose.yaml*:
+명령줄 인터페이스에서 다음 명령을 실행 하 여 docker-작성 .yaml 파일에 정의 된 모든 서비스를 시작 하거나 다시 시작 합니다.
 
 ```console
 docker-compose up
 ```
 
-실행 하는 첫 번째 시간 합니다 `docker-compose up` 이 구성을 사용 하 여 명령을 **Docker** 아래에 구성 된 이미지를 끌어오면는 `services` 노드-이러한 다운로드/탑재:
+Docker는이 구성을 사용 하 여 **docker** 구성 명령을 처음 실행할 때 **서비스** 노드 아래에 구성 된 이미지를 가져와서 다운로드 하 고 탑재 합니다.
 
 ```console
 Pulling forms (containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:)...
@@ -126,7 +126,7 @@ c56511552241: Waiting
 e91d2aa0f1ad: Downloading [==============================================>    ]  162.2MB/176.1MB
 ```
 
-이미지 서비스는 시작 이미지 다운로드 됩니다.
+이미지를 다운로드 한 후 이미지 서비스가 시작 됩니다.
 
 ```console
 Starting docker_ocr_1   ... done
@@ -162,7 +162,7 @@ ocr_1    | Application started. Press Ctrl+C to shut down.
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-다음은 예제 출력:
+다음은 몇 가지 출력 예제입니다.
 
 ```
 IMAGE ID            REPOSITORY                                                                 TAG
@@ -170,17 +170,17 @@ IMAGE ID            REPOSITORY                                                  
 4be104c126c5        containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text    latest
 ```
 
-### <a name="test-the-recognize-text-container"></a>Recognize 텍스트 컨테이너 테스트
+### <a name="test-the-recognize-text-container"></a>텍스트 인식 컨테이너 테스트
 
-호스트 컴퓨터에서 브라우저를 열고 이동할 `localhost` 에서 지정된 된 포트를 사용 하 여 합니다 *docker-compose.yaml*, 예를 들어 `http://localhost:5021/swagger/index.html`합니다. Try이 기능을 사용할 수 있습니다 recognize 텍스트 끝점을 테스트 하는 API입니다.
+호스트 컴퓨터에서 브라우저를 열고 docker-작성 파일  (예: http://localhost:5021/swagger/index.html )의 지정 된 포트를 사용 하 여 localhost로 이동 합니다. API에서 "사용해 보세요." 기능을 사용 하 여 텍스트 인식 끝점을 테스트할 수 있습니다.
 
-![텍스트 Swagger를 인식 합니다.](media/recognize-text-swagger-page.png)
+![텍스트 인식 컨테이너](media/recognize-text-swagger-page.png)
 
-### <a name="test-the-form-recognizer-container"></a>폼 인식기 컨테이너 테스트
+### <a name="test-the-form-recognizer-container"></a>양식 인식기 컨테이너 테스트
 
-호스트 컴퓨터에서 브라우저를 열고 이동할 `localhost` 에서 지정된 된 포트를 사용 하 여 합니다 *docker-compose.yaml*, 예를 들어 `http://localhost:5010/swagger/index.html`합니다. Try이 기능을 사용할 수 있습니다 폼 인식기 끝점을 테스트 하는 API입니다.
+호스트 컴퓨터에서 브라우저를 열고 docker-작성 파일  (예: http://localhost:5010/swagger/index.html )의 지정 된 포트를 사용 하 여 localhost로 이동 합니다. API에서 "사용해 보세요." 기능을 사용 하 여 폼 인식기 끝점을 테스트할 수 있습니다.
 
-![폼 인식기 Swagger](media/form-recognizer-swagger-page.png)
+![양식 인식기 컨테이너](media/form-recognizer-swagger-page.png)
 
 ## <a name="next-steps"></a>다음 단계
 

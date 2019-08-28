@@ -3,29 +3,24 @@ title: PowerShell을 사용하여 Azure Cloud Services에 진단 사용 | Micros
 description: PowerShell을 사용하여 클라우드 서비스에 진단을 사용하도록 설정하는 방법을 알아봅니다.
 services: cloud-services
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 66e08754-8639-4022-ae18-4237749ba17d
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/06/2016
-ms.author: jeconnoc
-ms.openlocfilehash: 13a855c5770281e2578523bfc1813b2e03df6651
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 4beed4dd874c23c36e125b5855e2e8380859ef83
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65539240"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359165"
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>PowerShell을 사용하여 Azure Cloud Services에 진단 사용
 Azure Diagnostics 확장을 사용하여 클라우드 서비스로부터 애플리케이션 로그, 성능 카운터 등과 같은 진단 데이터를 수집할 수 있습니다. 이 문서는 PowerShell을 사용하여 클라우드 서비스에 대해 Azure Diagnostics 확장을 사용하도록 설정하는 방법을 설명합니다.  이 문서에 요구되는 필수 조건은 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview) 을 참조하세요.
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>클라우드 서비스 배포의 일부로 진단 확장을 사용하도록 설정
-이 접근 방식은 진단 확장이 클라우드 서비스의 배포 중 일부로 사용될 수 있는 연속 통합 형식의 시나리오에 적용됩니다. 전달 하 여 진단 확장을 설정할 수 있습니다. 새 클라우드 서비스 배포를 만들 때 합니다 *ExtensionConfiguration* 매개 변수를 [New-azuredeployment](/powershell/module/servicemanagement/azure/new-azuredeployment?view=azuresmps-3.7.0) cmdlet. *ExtensionConfiguration* 매개 변수는 [New-AzureServiceDiagnosticsExtensionConfig](/powershell/module/servicemanagement/azure/new-azureservicediagnosticsextensionconfig?view=azuresmps-3.7.0) cmdlet을 사용하여 만들 수 있는 진단 구성 배열을 사용합니다.
+이 접근 방식은 진단 확장이 클라우드 서비스의 배포 중 일부로 사용될 수 있는 연속 통합 형식의 시나리오에 적용됩니다. 새 클라우드 서비스 배포를 만들 때 *Extensionconfiguration* 매개 변수를 [새-azuredeployment](/powershell/module/servicemanagement/azure/new-azuredeployment?view=azuresmps-3.7.0) cmdlet에 전달 하 여 진단 확장을 사용 하도록 설정할 수 있습니다. *ExtensionConfiguration* 매개 변수는 [New-AzureServiceDiagnosticsExtensionConfig](/powershell/module/servicemanagement/azure/new-azureservicediagnosticsextensionconfig?view=azuresmps-3.7.0) cmdlet을 사용하여 만들 수 있는 진단 구성 배열을 사용합니다.
 
 다음 예제는 각각 진단 구성이 다른 WebRole 및 WorkerRole을 사용하여 클라우드 서비스에 대해 진단을 사용하도록 설정하는 방법을 보여줍니다.
 
@@ -42,9 +37,9 @@ $workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "Worke
 New-AzureDeployment -ServiceName $service_name -Slot Production -Package $service_package -Configuration $service_config -ExtensionConfiguration @($webrole_diagconfig,$workerrole_diagconfig)
 ```
 
-진단 구성 파일이 저장소 계정 이름으로 `StorageAccount` 요소를 지정할 경우 `New-AzureServiceDiagnosticsExtensionConfig` cmdlet에서 해당 저장소 계정을 자동으로 사용합니다. 이렇게 작동하려면, 저장소 계정이 배포된 클라우드 서비스와 동일한 구독에 있어야 합니다.
+진단 구성 파일이 스토리지 계정 이름으로 `StorageAccount` 요소를 지정할 경우 `New-AzureServiceDiagnosticsExtensionConfig` cmdlet에서 해당 스토리지 계정을 자동으로 사용합니다. 이렇게 작동하려면, 스토리지 계정이 배포된 클라우드 서비스와 동일한 구독에 있어야 합니다.
 
-Azure SDK 2.6 이후부터 MSBuild 게시 대상 출력에 의해 생성된 확장 구성 파일은 서비스 구성 파일(.cscfg)에 지정된 진단 구성 문자열에 기반한 저장소 계정 이름을 포함합니다. 아래의 스크립트에서는 게시 대상 출력에서 확장 구성 파일을 구문 분석하고 클라우드 서비스를 배포할 때 각 역할에 대한 진단 확장을 구성하는 방법을 보여줍니다.
+Azure SDK 2.6 이후부터 MSBuild 게시 대상 출력에 의해 생성된 확장 구성 파일은 서비스 구성 파일(.cscfg)에 지정된 진단 구성 문자열에 기반한 스토리지 계정 이름을 포함합니다. 아래의 스크립트에서는 게시 대상 출력에서 확장 구성 파일을 구문 분석하고 클라우드 서비스를 배포할 때 각 역할에 대한 진단 확장을 구성하는 방법을 보여줍니다.
 
 ```powershell
 $service_name = "MyService"
@@ -120,13 +115,13 @@ Get-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 ```
 
 ## <a name="remove-diagnostics-extension"></a>진단 확장 제거
-클라우드 서비스에서 진단을 해제 하려면 사용 합니다 [Remove-azureservicediagnosticsextension](/powershell/module/servicemanagement/azure/remove-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet.
+클라우드 서비스에서 진단을 해제 하려면 [set-azureservicediagnosticsextension](/powershell/module/servicemanagement/azure/remove-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet을 사용할 수 있습니다.
 
 ```powershell
 Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 ```
 
-사용 하 여 진단 확장을 사용 하도록 설정한 경우 *Set-azureservicediagnosticsextension* 또는 *New-azureservicediagnosticsextensionconfig* 없이 *역할*매개 변수를 사용 하 여 확장을 제거할 수 있습니다 *Remove-azureservicediagnosticsextension* 없이 *역할* 매개 변수입니다. 경우는 *역할* 매개 변수는 확장을 사용 하도록 설정할 때 사용한 다음 확장을 제거 하는 경우에 사용 해야 합니다.
+*Set-azureservicediagnosticsextension* 또는 *new-azureservicediagnosticsextensionconfig* 를 사용 하 여 진단 확장을 사용 하도록 설정한 경우 *역할* 매개 변수 없이 확장 *을 제거할 수 있습니다.*  *Role* 매개 변수를 사용 하지 않고 set-azureservicediagnosticsextension을 제거 합니다. 확장을 사용 하도록 설정할 때 *Role* 매개 변수가 사용 된 경우 확장을 제거할 때에도이 매개 변수를 사용 해야 합니다.
 
 각각의 개별 역할에서 진단 확장을 제거하려면:
 

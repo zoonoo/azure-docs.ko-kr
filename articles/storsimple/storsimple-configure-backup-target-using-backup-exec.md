@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
-ms.author: hkanna
-ms.openlocfilehash: e11d541f0450c0de4ba6d60f889fc7471b1fa1aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: matd
+ms.openlocfilehash: 85c04b6ea3e40f1f1dcd12eb5d6f4a8f53836867
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60724515"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "67876793"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>Backup Exec에서 백업 대상으로 StorSimple 구성
 
 ## <a name="overview"></a>개요
 
-Azure StorSimple은 Microsoft의 하이브리드 클라우드 저장소 솔루션입니다. StorSimple은 Azure Storage 계정을 온-프레미스 솔루션의 확장으로 사용하고 온-프레미스 스토리지 및 클라우드 스토리지 전반에 걸쳐 데이터를 자동으로 계층화하여 지수 데이터 증가의 복잡성을 해결합니다.
+Azure StorSimple은 Microsoft의 하이브리드 클라우드 스토리지 솔루션입니다. StorSimple은 Azure Storage 계정을 온-프레미스 솔루션의 확장으로 사용하고 온-프레미스 스토리지 및 클라우드 스토리지 전반에 걸쳐 데이터를 자동으로 계층화하여 지수 데이터 증가의 복잡성을 해결합니다.
 
 이 문서에서는 Veritas Backup Exec과 StorSimple의 통합 및 두 솔루션을 통합하는 모범 사례에 대해 설명합니다. 또한 StorSimple과 가장 잘 통합되도록 Backup Exec을 설정하는 방법에 대한 권장 사항을 제공합니다. 개별 백업 요구 사항 및 SLA(서비스 수준 약정)를 충족하도록 Backup Exec을 설정하는 가장 좋은 방법은 Veritas 모범 사례, 백업 설계자 및 관리자에게 맡기는 것입니다.
 
@@ -33,7 +33,7 @@ Azure StorSimple은 Microsoft의 하이브리드 클라우드 저장소 솔루�
 
 ### <a name="who-should-read-this"></a>이 문서의 대상
 
-이 문서의 정보는 저장소, Windows Server 2012 R2, 이더넷, 클라우드 서비스 및 Backup Exec에 대한 지식이 있는 백업 관리자, 저장소 관리자 및 저장소 설계자에게 가장 유용합니다.
+이 문서의 정보는 스토리지, Windows Server 2012 R2, 이더넷, 클라우드 서비스 및 Backup Exec에 대한 지식이 있는 백업 관리자, 스토리지 관리자 및 스토리지 설계자에게 가장 유용합니다.
 
 ## <a name="supported-versions"></a>지원되는 버전
 
@@ -45,15 +45,15 @@ Azure StorSimple은 Microsoft의 하이브리드 클라우드 저장소 솔루�
 
 StorSimple이 백업 대상으로 적합한 이유는 다음과 같습니다.
 
--   변경 없이 빠른 백업 대상으로 사용할 백업 애플리케이션용 표준 로컬 저장소를 제공합니다. StorSimple을 사용하여 최근 백업을 빠르게 복원할 수도 있습니다.
+-   변경 없이 빠른 백업 대상으로 사용할 백업 애플리케이션용 표준 로컬 스토리지를 제공합니다. StorSimple을 사용하여 최근 백업을 빠르게 복원할 수도 있습니다.
 -   클라우드 계층화는 비용 효율적인 Azure Storage를 사용할 수 있도록 Azure 클라우드 스토리지 계정과 완벽하게 통합됩니다.
--   재해 복구를 위해 오프사이트 저장소를 자동으로 제공합니다.
+-   재해 복구를 위해 오프사이트 스토리지를 자동으로 제공합니다.
 
 ## <a name="key-concepts"></a>주요 개념
 
-모든 저장소 솔루션과 마찬가지로 중요한 성공 요소로서 솔루션의 저장소 성능, SLA, 변경률 및 용량 증가 요구 사항을 신중하게 평가해야 합니다. 기본 아이디어는 해당 작업을 수행하기 위해 클라우드 계층, 액세스 시간 및 처리량을 클라우드에 도입하여 StorSimple의 기능에서 중심적인 역할을 수행하는 것입니다.
+모든 스토리지 솔루션과 마찬가지로 중요한 성공 요소로서 솔루션의 스토리지 성능, SLA, 변경률 및 용량 증가 요구 사항을 신중하게 평가해야 합니다. 기본 아이디어는 해당 작업을 수행하기 위해 클라우드 계층, 액세스 시간 및 처리량을 클라우드에 도입하여 StorSimple의 기능에서 중심적인 역할을 수행하는 것입니다.
 
-StorSimple은 잘 정의된 데이터(핫 데이터)의 작업 집합에서 작동하는 애플리케이션에 대한 저장소를 제공하도록 설계되었습니다. 이 모델에서 데이터의 작업 집합은 로컬 계층에 저장되고 데이터의 나머지 비작업/콜드/보관 집합은 클라우드에서 계층화됩니다. 다음 그림에서 이 모델을 나타냅니다. 평평한 녹색선은 StorSimple 디바이스의 로컬 계층에 저장된 데이터를 나타냅니다. 빨간색 선은 모든 계층에서 StorSimple 솔루션에 저장된 총 데이터 양을 나타냅니다. 평편한 녹색선과 빨강색 지수 곡선 사이의 간격은 클라우드에 저장된 데이터의 총량을 나타냅니다.
+StorSimple은 잘 정의된 데이터(핫 데이터)의 작업 집합에서 작동하는 애플리케이션에 대한 스토리지를 제공하도록 설계되었습니다. 이 모델에서 데이터의 작업 집합은 로컬 계층에 저장되고 데이터의 나머지 비작업/콜드/보관 집합은 클라우드에서 계층화됩니다. 다음 그림에서 이 모델을 나타냅니다. 평평한 녹색선은 StorSimple 디바이스의 로컬 계층에 저장된 데이터를 나타냅니다. 빨간색 선은 모든 계층에서 StorSimple 솔루션에 저장된 총 데이터 양을 나타냅니다. 평편한 녹색선과 빨강색 지수 곡선 사이의 간격은 클라우드에 저장된 데이터의 총량을 나타냅니다.
 
 **StorSimple 계층화**
 ![StorSimple 계층화 다이어그램](./media/storsimple-configure-backup-target-using-backup-exec/image1.jpg)
@@ -64,7 +64,7 @@ StorSimple은 잘 정의된 데이터(핫 데이터)의 작업 집합에서 작�
 
 ## <a name="storsimple-benefits"></a>StorSimple 이점
 
-StorSimple은 온-프레미스 및 클라우드 저장소에 대한 원활한 액세스를 활용하여 Microsoft Azure와 원활하게 통합된 온-프레미스 솔루션을 제공합니다.
+StorSimple은 온-프레미스 및 클라우드 스토리지에 대한 원활한 액세스를 활용하여 Microsoft Azure와 원활하게 통합된 온-프레미스 솔루션을 제공합니다.
 
 StorSimple은 SSD(Solid-State Device) 및 SAS(Serial-Attached SCSI) 스토리지가 있는 온-프레미스 장치와 Azure Storage 간에 자동 계층화를 사용합니다. 자동 계층화는 자주 액세스하는 데이터를 SSD 및 SAS 계층에서 로컬로 유지하지만, 그렇지 않은 데이터는 Azure Storage로 이동합니다.
 
@@ -77,7 +77,7 @@ StorSimple은 다음과 같은 이점을 제공합니다.
 -   클라우드의 데이터 암호화
 -   향상된 재해 복구 및 규정 준수
 
-StorSimple은 기본 백업 대상과 보조 백업 대상이라는 두 가지 주요 배포 시나리오를 제공하지만 기본적으로는 일반 블록 저장소 디바이스입니다. StorSimple은 모든 압축 및 중복 제거를 수행합니다. 클라우드와 애플리케이션 및 파일 시스템 간에 데이터를 원활하게 전송하고 검색합니다.
+StorSimple은 기본 백업 대상과 보조 백업 대상이라는 두 가지 주요 배포 시나리오를 제공하지만 기본적으로는 일반 블록 스토리지 디바이스입니다. StorSimple은 모든 압축 및 중복 제거를 수행합니다. 클라우드와 애플리케이션 및 파일 시스템 간에 데이터를 원활하게 전송하고 검색합니다.
 
 StorSimple에 대한 자세한 내용은 [StorSimple 8000 시리즈: 하이브리드 클라우드 스토리지 솔루션](storsimple-overview.md)을 참조하세요. 또한 [StorSimple 8000 시리즈 기술 사양](storsimple-technical-specifications-and-compliance.md)도 검토할 수 있습니다.
 
@@ -88,20 +88,20 @@ StorSimple에 대한 자세한 내용은 [StorSimple 8000 시리즈: 하이브�
 
 다음 표에서는 디바이스 모델-아키텍처 초기 지침을 보여줍니다.
 
-**로컬 및 클라우드 저장소의 StorSimple 용량**
+**로컬 및 클라우드 스토리지의 StorSimple 용량**
 
-| 저장소 용량       | 8100          | 8600            |
+| 스토리지 용량       | 8100          | 8600            |
 |------------------------|---------------|-----------------|
-| 로컬 저장소 용량 | &lt; 10TiB\*  | &lt; 20TiB\*  |
-| 클라우드 저장소 용량 | &gt; 200TiB\* | &gt; 500TiB\* |
+| 로컬 스토리지 용량 | &lt; 10TiB\*  | &lt; 20TiB\*  |
+| 클라우드 스토리지 용량 | &gt; 200TiB\* | &gt; 500TiB\* |
 
-\*저장소 크기는 중복 제거 또는 압축을 사용한다고 가정하지 않습니다.
+\*스토리지 크기는 중복 제거 또는 압축을 사용한다고 가정하지 않습니다.
 
 **기본 및 보조 백업의 StorSimple 용량**
 
-| Backup 시나리오  | 로컬 저장소 용량  | 클라우드 저장소 용량  |
+| Backup 시나리오  | 로컬 스토리지 용량  | 클라우드 스토리지 용량  |
 |---|---|---|
-| 기본 백업  | RPO(복구 지점 목표)를 충족하기 위해 빠른 복구용 로컬 저장소에 최근 백업 저장 | 클라우드 용량에 적합한 Backup 기록(RPO) |
+| 기본 백업  | RPO(복구 지점 목표)를 충족하기 위해 빠른 복구용 로컬 스토리지에 최근 백업 저장 | 클라우드 용량에 적합한 Backup 기록(RPO) |
 | 보조 백업 | 클라우드 용량에 백업 데이터의 보조 복사본을 저장할 수 있습니다.  | N/A  |
 
 ## <a name="storsimple-as-a-primary-backup-target"></a>기본 백업 대상인 StorSimple
@@ -121,7 +121,7 @@ StorSimple에 대한 자세한 내용은 [StorSimple 8000 시리즈: 하이브�
 
 ### <a name="primary-target-restore-logical-steps"></a>기본 대상 복원 논리 단계
 
-1.  백업 서버에서 저장소 리포지토리로부터 해당 데이터를 복원하기 시작합니다.
+1.  백업 서버에서 스토리지 리포지토리로부터 해당 데이터를 복원하기 시작합니다.
 2.  백업 에이전트에서 백업 서버로부터 데이터를 수신합니다.
 3.  백업 서버에서 복원 작업을 완료합니다.
 
@@ -138,7 +138,7 @@ StorSimple에 대한 자세한 내용은 [StorSimple 8000 시리즈: 하이브�
 ### <a name="secondary-target-backup-logical-steps"></a>보조 대상 백업 논리 단계
 
 1.  백업 서버에서 대상 백업 에이전트에 연결하고, 백업 에이전트는 백업 서버에 데이터를 전송합니다.
-2.  백업 서버에서 고성능 저장소에 데이터를 씁니다.
+2.  백업 서버에서 고성능 스토리지에 데이터를 씁니다.
 3.  백업 서버에서 카탈로그 데이터베이스를 업데이트한 다음 백업 작업을 완료합니다.
 4.  백업 서버에서 보존 정책에 따라 StorSimple에 백업을 복사합니다.
 5.  스냅샷 스크립트에서 StorSimple 클라우드 스냅샷 관리자를 트리거합니다(시작 또는 삭제).
@@ -146,7 +146,7 @@ StorSimple에 대한 자세한 내용은 [StorSimple 8000 시리즈: 하이브�
 
 ### <a name="secondary-target-restore-logical-steps"></a>보조 대상 복원 논리 단계
 
-1.  백업 서버에서 저장소 리포지토리로부터 해당 데이터를 복원하기 시작합니다.
+1.  백업 서버에서 스토리지 리포지토리로부터 해당 데이터를 복원하기 시작합니다.
 2.  백업 에이전트에서 백업 서버로부터 데이터를 수신합니다.
 3.  백업 서버에서 복원 작업을 완료합니다.
 
@@ -161,7 +161,7 @@ StorSimple에 대한 자세한 내용은 [StorSimple 8000 시리즈: 하이브�
 
 ### <a name="set-up-the-network"></a>네트워크 설정
 
-StorSimple은 Azure 클라우드와 통합된 솔루션이기 때문에 StorSimple에는 Azure 클라우드에 대한 활성 연결이 필요합니다. 이 연결은 클라우드 스냅샷, 관리 및 메타데이터 전송과 같은 작업에서 오래되고 자주 액세스되지 않는 데이터를 Azure 클라우드 저장소에 계층화하는 데 사용됩니다.
+StorSimple은 Azure 클라우드와 통합된 솔루션이기 때문에 StorSimple에는 Azure 클라우드에 대한 활성 연결이 필요합니다. 이 연결은 클라우드 스냅샷, 관리 및 메타데이터 전송과 같은 작업에서 오래되고 자주 액세스되지 않는 데이터를 Azure 클라우드 스토리지에 계층화하는 데 사용됩니다.
 
 솔루션을 최적으로 수행하려면 다음과 같은 네트워킹 모범 사례를 따르는 것이 좋습니다.
 
@@ -191,9 +191,9 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 | 모든 백업 대상 볼륨에 대한 고유한 StorSimple 백업 정책을 만듭니다. | StorSimple 백업 정책은 볼륨 일관성 그룹을 정의합니다. |
 | 스냅샷이 만료될 때 일정을 사용하지 않도록 설정합니다. | 스냅샷은 후처리 작업으로 트리거됩니다. |
 
-### <a name="set-up-the-host-backup-server-storage"></a>호스트 백업 서버 저장소 설정
+### <a name="set-up-the-host-backup-server-storage"></a>호스트 백업 서버 스토리지 설정
 
-다음 지침에 따라 호스트 백업 서버 저장소를 설정합니다.  
+다음 지침에 따라 호스트 백업 서버 스토리지를 설정합니다.  
 
 - [Windows 디스크 관리]에서 만든 스팬 볼륨은 사용하지 않습니다. 스팬 디스크는 지원하지 않습니다.
 - 64KB 할당 크기의 NTFS를 사용하여 볼륨을 포맷합니다.
@@ -227,13 +227,13 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 ### <a name="backup-exec-best-practices"></a>Backup Exec 모범 사례
 
 -   Backup Exec은 StorSimple 볼륨이 아니라 서버의 로컬 드라이브에 설치해야 합니다.
--   Backup Exec 저장소 **동시 쓰기 작업**은 허용되는 최대값으로 설정합니다.
-    -   Backup Exec 저장소 **블록 및 버퍼 크기**는 512KB로 설정합니다.
-    -   Backup Exec 저장소 **버퍼링된 읽기 및 쓰기**로 설정합니다.
+-   Backup Exec 스토리지 **동시 쓰기 작업**은 허용되는 최대값으로 설정합니다.
+    -   Backup Exec 스토리지 **블록 및 버퍼 크기**는 512KB로 설정합니다.
+    -   Backup Exec 스토리지 **버퍼링된 읽기 및 쓰기**로 설정합니다.
 -   StorSimple은 Backup Exec 전체 백업과 증분 백업을 지원합니다. 가상 백업과 차등 백업은 사용하지 않는 것이 좋습니다.
 -   Backup 데이터 파일에는 특정 작업에 대한 데이터만 포함되어야 합니다. 예를 들어 다른 작업에 미디어 추가가 허용되지 않습니다.
 -   작업 검증을 사용하지 않도록 설정합니다. 필요한 경우 최신 백업 작업 후에 검증을 예약해야 합니다. 이 작업이 백업 창에 주는 영향을 이해하는 것이 중요합니다.
--   **저장소** > **사용자 디스크** > **세부 정보** > **속성**을 차례로 선택합니다. **디스크 공간 미리 할당**을 해제합니다.
+-   **스토리지** > **사용자 디스크** > **세부 정보** > **속성**을 차례로 선택합니다. **디스크 공간 미리 할당**을 해제합니다.
 
 최신 Backup Exec 설정 및 이러한 요구 사항을 구현하는 모범 사례에 대해서는 [Veritas 사이트](https://www.veritas.com)를 참조하세요.
 
@@ -263,25 +263,25 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 
 \* GFS 승수는 백업 정책 요구 사항을 충족하기 위해 보호하고 유지해야 하는 복사본의 수입니다.
 
-## <a name="set-up-backup-exec-storage"></a>Backup Exec 저장소 설정
+## <a name="set-up-backup-exec-storage"></a>Backup Exec 스토리지 설정
 
-### <a name="to-set-up-backup-exec-storage"></a>Backup Exec 저장소를 설정하려면
+### <a name="to-set-up-backup-exec-storage"></a>Backup Exec 스토리지를 설정하려면
 
-1.  Backup Exec 관리 콘솔에서 **저장소** > **저장소 구성** > **디스크 기반 저장소** > **다음**을 차례로 선택합니다.
+1.  Backup Exec 관리 콘솔에서 **스토리지** > **스토리지 구성** > **디스크 기반 스토리지** > **다음**을 차례로 선택합니다.
 
-    ![Backup Exec 관리 콘솔 - 저장소 구성 페이지](./media/storsimple-configure-backup-target-using-backup-exec/image4.png)
+    ![Backup Exec 관리 콘솔 - 스토리지 구성 페이지](./media/storsimple-configure-backup-target-using-backup-exec/image4.png)
 
-2.  **디스크 저장소**, **다음**을 차례로 선택합니다.
+2.  **디스크 스토리지**, **다음**을 차례로 선택합니다.
 
-    ![Backup Exec 관리 콘솔 - 저장소 선택 페이지](./media/storsimple-configure-backup-target-using-backup-exec/image5.png)
+    ![Backup Exec 관리 콘솔 - 스토리지 선택 페이지](./media/storsimple-configure-backup-target-using-backup-exec/image5.png)
 
 3.  대표 이름을 입력합니다(예: **토요일 전체** 및 설명). **다음**을 선택합니다.
 
     ![Backup Exec 관리 콘솔 - 이름 및 설명 페이지](./media/storsimple-configure-backup-target-using-backup-exec/image7.png)
 
-4.  디스크 저장소 디바이스를 만들 디스크를 선택한 후 **다음**을 선택합니다.
+4.  디스크 스토리지 디바이스를 만들 디스크를 선택한 후 **다음**을 선택합니다.
 
-    ![Backup Exec 관리 콘솔 - 저장소 디스크 선택 페이지](./media/storsimple-configure-backup-target-using-backup-exec/image9.png)
+    ![Backup Exec 관리 콘솔 - 스토리지 디스크 선택 페이지](./media/storsimple-configure-backup-target-using-backup-exec/image9.png)
 
 5.  쓰기 작업 수를 **16**으로 늘린 후 **다음**을 선택합니다.
 
@@ -289,11 +289,11 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 
 6.  설정을 검토한 다음 **마침**을 선택합니다.
 
-    ![Backup Exec 관리 콘솔 - 저장소 구성 요약 페이지](./media/storsimple-configure-backup-target-using-backup-exec/image11.png)
+    ![Backup Exec 관리 콘솔 - 스토리지 구성 요약 페이지](./media/storsimple-configure-backup-target-using-backup-exec/image11.png)
 
-7.  각 볼륨 할당의 끝에서 [StorSimple 및 Backup Exec에 대한 모범 사례](#best-practices-for-storsimple-and-backup-exec)에서 권장하는 설정과 일치하도록 저장소 디바이스 설정을 변경합니다.
+7.  각 볼륨 할당의 끝에서 [StorSimple 및 Backup Exec에 대한 모범 사례](#best-practices-for-storsimple-and-backup-exec)에서 권장하는 설정과 일치하도록 스토리지 디바이스 설정을 변경합니다.
 
-    ![Backup Exec 관리 콘솔 - 저장소 디바이스 설정 페이지](./media/storsimple-configure-backup-target-using-backup-exec/image12.png)
+    ![Backup Exec 관리 콘솔 - 스토리지 디바이스 설정 페이지](./media/storsimple-configure-backup-target-using-backup-exec/image12.png)
 
 8.  Backup Exec에 대한 StorSimple 볼륨 할당을 마칠 때까지 1-7단계를 반복합니다.
 
@@ -310,7 +310,7 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 
 다음은 GFS 회전 일정(4주, 매월 및 매년)의 예입니다.
 
-| 빈도/백업 유형 | 전체 | 증분(1-5일)  |   
+| 빈도/백업 유형 | 모든 | 증분(1-5일)  |   
 |---|---|---|
 | 매주(1-4주) | 토요일 | 월요일-금요일 |
 | 매월  | 토요일  |   |
@@ -335,7 +335,7 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 
 4.  **Backup 옵션** 대화 상자에서 **Storage**를 선택합니다.
 
-    ![Backup Exec 관리 콘솔 - 백업 옵션 저장소 대화 상자](./media/storsimple-configure-backup-target-using-backup-exec/image16.png)
+    ![Backup Exec 관리 콘솔 - 백업 옵션 스토리지 대화 상자](./media/storsimple-configure-backup-target-using-backup-exec/image16.png)
 
 5.  백업 일정에 해당하는 StorSimple 볼륨을 할당합니다.
 
@@ -356,7 +356,7 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 > [!NOTE]
 >클라우드에 계층화된 백업에서 데이터를 복원하는 경우 클라우드 속도로 수행됩니다.
 
-이 모델에서 임시 캐시의 역할을 하는 StorSimple 이외의 저장소 미디어가 있어야 합니다. 예를 들어 RAID(Redundant Array of Independent Disks) 볼륨을 사용하여 공간, I/O(입출력) 및 대역폭을 수용할 수 있습니다. RAID 5, 50 및 10을 사용하는 것이 좋습니다.
+이 모델에서 임시 캐시의 역할을 하는 StorSimple 이외의 스토리지 미디어가 있어야 합니다. 예를 들어 RAID(Redundant Array of Independent Disks) 볼륨을 사용하여 공간, I/O(입출력) 및 대역폭을 수용할 수 있습니다. RAID 5, 50 및 10을 사용하는 것이 좋습니다.
 
 다음 그림에서는 일반적인 단기 보존 로컬(서버 쪽) 볼륨 및 장기 보존 보관 볼륨을 보여 줍니다. 이 시나리오에서 모든 백업은 서버 쪽 로컬 RAID 볼륨에서 실행됩니다. 이러한 백업은 정기적으로 복제되고 보관 볼륨에 보관됩니다. 단기 보존 용량 및 성능 요구 사항을 처리할 수 있도록 서버 쪽 로컬 RAID 볼륨의 크기를 조정하는 것이 중요합니다.
 
@@ -368,7 +368,7 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 
 ### <a name="backup-configuration-and-capacity-requirements"></a>Backup 구성 및 용량 요구 사항
 
-| Backup 유형 및 보존 | 구성된 저장소 | 크기(TiB) | GFS 승수 | 총 용량\*(TiB) |
+| Backup 유형 및 보존 | 구성된 스토리지 | 크기(TiB) | GFS 승수 | 총 용량\*(TiB) |
 |---|---|---|---|---|
 | 1주차(전체 및 증분) |로컬 디스크(단기)| 1 | 1 | 1 |
 | StorSimple 2-4주 |StorSimple 디스크(장기) | 1 | 4 | 4 |
@@ -381,10 +381,10 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 
 ### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>GFS 예제 일정: GFS 회전 매주, 매월 및 매년 일정
 
-| 주 | 전체 | 증분 1일차 | 증분 2일차 | 증분 3일차 | 증분 4일차 | 증분 5일차 |
+| 주 | 모든 | 증분 1일차 | 증분 2일차 | 증분 3일차 | 증분 4일차 | 증분 5일차 |
 |---|---|---|---|---|---|---|
-| 1주차 | 로컬 RAID 볼륨  | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 |
-| 2주차 | StorSimple 2-4주 |   |   |   |   |   |
+| 1 주 | 로컬 RAID 볼륨  | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 |
+| 2 주 | StorSimple 2-4주 |   |   |   |   |   |
 | 3주차 | StorSimple 2-4주 |   |   |   |   |   |
 | 4주차 | StorSimple 2-4주 |   |   |   |   |   |
 | 매월 | StorSimple 매월 |   |   |   |   |   |
@@ -407,7 +407,7 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 
     ![Backup Exec 관리 콘솔 - 백업 정의 속성 및 복제 옵션](./media/storsimple-configure-backup-target-using-backup-exec/image21.png)
 
-4.  **저장소** 드롭다운 목록에서 데이터를 저장할 보관 작업을 배치할 StorSimple 볼륨을 선택합니다.
+4.  **스토리지** 드롭다운 목록에서 데이터를 저장할 보관 작업을 배치할 StorSimple 볼륨을 선택합니다.
 
     ![Backup Exec 관리 콘솔 - 백업 정의 속성 및 복제 옵션](./media/storsimple-configure-backup-target-using-backup-exec/image22.png)
 
@@ -423,7 +423,7 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 
 ## <a name="storsimple-cloud-snapshots"></a>StorSimple 클라우드 스냅샷
 
-StorSimple 클라우드 스냅샷은 StorSimple 디바이스에 있는 데이터를 보호합니다. 클라우드 스냅샷을 만드는 것은 로컬 백업 테이프를 오프 사이트 시설로 전달하는 것과 같습니다. Azure 지역 중복 저장소를 사용하는 경우 클라우드 스냅샷을 만드는 것은 백업 테이프를 여러 사이트로 전달하는 것과 같습니다. 재해 발생 후 디바이스를 복원해야 하는 경우 다른 StorSimple 디바이스를 온라인 상태로 전환하여 장애 조치를 수행할 수 있습니다. 장애 조치 후에 최근의 클라우드 스냅샷에서 클라우드 속도로 데이터에 액세스할 수 있습니다.
+StorSimple 클라우드 스냅샷은 StorSimple 디바이스에 있는 데이터를 보호합니다. 클라우드 스냅샷을 만드는 것은 로컬 백업 테이프를 오프 사이트 시설로 전달하는 것과 같습니다. Azure 지역 중복 스토리지를 사용하는 경우 클라우드 스냅샷을 만드는 것은 백업 테이프를 여러 사이트로 전달하는 것과 같습니다. 재해 발생 후 디바이스를 복원해야 하는 경우 다른 StorSimple 디바이스를 온라인 상태로 전환하여 장애 조치를 수행할 수 있습니다. 장애 조치 후에 최근의 클라우드 스냅샷에서 클라우드 속도로 데이터에 액세스할 수 있습니다.
 
 다음 섹션에서는 백업 후처리 중에 StorSimple 클라우드 스냅샷을 시작하고 삭제하는 간단한 스크립트를 만드는 방법에 대해 설명합니다.
 
@@ -463,7 +463,7 @@ StorSimple 클라우드 스냅샷은 StorSimple 디바이스에 있는 데이터
 
 ## <a name="storsimple-as-a-restore-source"></a>복원 원본인 StorSimple
 
-StorSimple 디바이스에서 복원하면 모든 블록 저장소 디바이스에서 복원하는 것처럼 작동합니다. 클라우드에 계층화된 데이터를 복원하는 경우 복원은 클라우드 속도로 수행됩니다. 로컬 데이터의 경우 복원은 디바이스의 로컬 디스크 속도로 수행됩니다. 복원을 수행하는 방법에 대한 자세한 내용은 Backup Exec 설명서를 참조하세요. Backup Exec 복원 모범 사례를 따르는 것이 좋습니다.
+StorSimple 디바이스에서 복원하면 모든 블록 스토리지 디바이스에서 복원하는 것처럼 작동합니다. 클라우드에 계층화된 데이터를 복원하는 경우 복원은 클라우드 속도로 수행됩니다. 로컬 데이터의 경우 복원은 디바이스의 로컬 디스크 속도로 수행됩니다. 복원을 수행하는 방법에 대한 자세한 내용은 Backup Exec 설명서를 참조하세요. Backup Exec 복원 모범 사례를 따르는 것이 좋습니다.
 
 ## <a name="storsimple-failover-and-disaster-recovery"></a>StorSimple 장애 조치(failover) 및 재해 복구
 
@@ -472,13 +472,13 @@ StorSimple 디바이스에서 복원하면 모든 블록 저장소 디바이스�
 
 재해는 다양한 요인으로 발생할 수 있습니다. 다음 표에서는 일반적인 재해 복구 시나리오를 나열합니다.
 
-| 시나리오 | 영향 | 복구 방법 | 메모 |
+| 시나리오 | 영향 | 복구 방법 | 참고 |
 |---|---|---|---|
 | StorSimple 디바이스 오류 | Backup 및 복원 작업이 중단됩니다. | 실패한 디바이스를 교체하고 [StorSimple 장애 조치 및 재해 복구](storsimple-device-failover-disaster-recovery.md)를 수행합니다. | 디바이스 복구 후에 복원을 수행해야 하는 경우 전체 데이터 작업 집합이 클라우드에서 새 디바이스로 검색됩니다. 모든 작업이 클라우드 속도로 수행됩니다. 인덱싱 및 카탈로그 작업 재검색 프로세스로 인해 모든 백업 세트를 검색하고 클라우드 계층에서 로컬 디바이스 계층으로 가져오므로 많은 시간이 소요될 수 있습니다. |
 | Backup Exec 서버 오류 | Backup 및 복원 작업이 중단됩니다. | [BEDB(Backup Exec 데이터베이스)의 수동 백업 및 복원을 수행하는 방법](http://www.veritas.com/docs/000041083)에 설명된 대로 백업 서버를 다시 빌드하고 데이터베이스 복원을 수행합니다. | 재해 복구 사이트에서 Backup Exec 서버를 다시 빌드하거나 복원해야 합니다. 데이터베이스를 가장 최근의 지점으로 복원합니다. 복원된 Backup Exec 데이터베이스가 최신 백업 작업과 동기화되지 않은 경우 인덱싱 및 카탈로그 작업이 필요합니다. 이 인덱스 및 카탈로그 재검색 프로세스로 인해 모든 백업 세트를 검색하고 클라우드 계층에서 로컬 디바이스 계층으로 가져올 수 있습니다. 그러면 더욱 시간이 많이 걸립니다. |
 | 백업 서버와 StorSimple이 모두 손실되는 사이트 오류 | Backup 및 복원 작업이 중단됩니다. | 먼저 StorSimple을 복원한 다음 Backup Exec을 복원합니다. | 먼저 StorSimple을 복원한 다음 Backup Exec을 복원합니다. 디바이스 복구 후에 복원을 수행해야 하는 경우 전체 데이터 작업 집합이 클라우드에서 새 디바이스로 검색됩니다. 모든 작업이 클라우드 속도로 수행됩니다. |
 
-## <a name="references"></a>참조
+## <a name="references"></a>참조 항목
 
 이 문서에서는 다음 문서를 참조했습니다.
 

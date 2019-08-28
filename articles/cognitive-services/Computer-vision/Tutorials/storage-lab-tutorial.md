@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 75e52398386e7ef1b338d13a8cfe8f20c06abcc6
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 00cca0cbf500ea4e884a9f9334896a18fe7b0978
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541520"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597858"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>자습서: Computer Vision을 사용하여 Azure Storage에서 이미지 메타데이터 생성
 
@@ -27,7 +27,7 @@ ms.locfileid: "65541520"
 > * Azure에서 Computer Vision 리소스 만들기
 > * Azure Storage 이미지에서 이미지 분석 수행
 > * Azure Storage 이미지에 메타데이터 연결
-> * Azure Storage 탐색기를 사용하여 이미지 메타데이터 확인
+> * Azure Storage Explorer를 사용하여 이미지 메타데이터 확인
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. 
 
@@ -35,14 +35,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 - [Visual Studio 2017 Community 버전](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) 이상("ASP.NET 및 웹 개발" 및 "Azure 개발" 워크로드가 설치되어 있음)
 - 이미지에 할당된 Blob 컨테이너가 있는 Azure Storage 계정입니다(이 단계에서 도움이 필요한 경우 [Azure Storage 랩의 연습 1](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise1) 수행)
-- Azure Storage 탐색기 도구(이 단계에서 도움이 필요한 경우 [Azure Storage 랩의 연습 2](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise2) 수행)
+- Azure Storage Explorer 도구(이 단계에서 도움이 필요한 경우 [Azure Storage 랩의 연습 2](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise2) 수행)
 - Azure Storage에 액세스할 수 있는 ASP.NET 웹 애플리케이션([Azure Storage 랩의 연습 3](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise3)에 따라 앱을 빠르게 만듦)
 
 ## <a name="create-a-computer-vision-resource"></a>Computer Vision 리소스 만들기
 
 Azure 계정에 사용할 Computer Vision 리소스를 만들어야 합니다. 이 리소스는 Azure의 Computer Vision 서비스에 대한 액세스를 관리합니다. 
 
-1. [Azure Cognitive Services 리소스 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription)의 지침에 따라 Computer Vision 리소스를 만듭니다.
+1. [Azure Cognitive Services 리소스 만들기](../../cognitive-services-apis-create-account.md#single-service-resource)의 지침에 따라 Computer Vision 리소스를 만듭니다.
 
 1. 그런 다음, 리소스 그룹의 메뉴로 이동하여 방금 만든 Computer Vision API 구독을 클릭합니다. **엔드포인트** 아래의 URL을 잠시 후에 쉽게 검색할 수 있는 위치에 복사합니다. 그런 다음, **액세스 키 표시**를 클릭합니다.
 
@@ -128,7 +128,7 @@ Visual Studio에서 변경 내용을 저장하고 **Ctrl+F5**를 눌러 브라�
 
 ![컴퓨터에서 생성된 캡션](../Images/thumbnail-with-tooltip.png)
 
-연결된 모든 메타데이터를 보려면 Azure Storage 탐색기를 사용하여 이미지에 사용하고 있는 스토리지 컨테이너를 봅니다. 컨테이너에서 임의의 Blob을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. 대화 상자에서 키-값 쌍 목록이 표시됩니다. 컴퓨터에서 생성된 이미지 설명은 "캡션" 항목에 저장되고, 검색 키워드는 "Tag0", "Tag1" 등에 저장됩니다. 완료되면 **취소**를 클릭하여 대화 상자를 닫습니다.
+연결된 모든 메타데이터를 보려면 Azure Storage Explorer를 사용하여 이미지에 사용하고 있는 스토리지 컨테이너를 봅니다. 컨테이너에서 임의의 Blob을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. 대화 상자에서 키-값 쌍 목록이 표시됩니다. 컴퓨터에서 생성된 이미지 설명은 "캡션" 항목에 저장되고, 검색 키워드는 "Tag0", "Tag1" 등에 저장됩니다. 완료되면 **취소**를 클릭하여 대화 상자를 닫습니다.
 
 ![메타데이터 태그가 나열된 이미지 속성 대화 상자 창](../Images/blob-metadata.png)
 

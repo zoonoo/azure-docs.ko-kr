@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 76531de279dfe6e9b73b3895f0ef63c4c88b63cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1dbdd428a54ebf38c7b880bb9530935c0f748226
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65979003"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616820"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Power BI 커넥터를 사용하여 Azure Cosmos DB 데이터 시각화
 
@@ -25,14 +25,14 @@ ms.locfileid: "65979003"
 > [!NOTE]
 > Azure Cosmos DB와 Power BI 커넥터 연결은 현재 Azure Cosmos DB SQL API 및 Gremlin API 계정에서만 지원됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 이 Power BI 자습서의 지침을 따르기 전에 다음 리소스에 액세스할 수 있는지 확인하세요.
 
 * [최신 버전의 Power BI Desktop 다운로드](https://powerbi.microsoft.com/desktop).
 
 * GitHub에서 [샘플 화산 데이터](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/master/SampleData/VolcanoData.json)를 다운로드합니다.
 
-* [Azure Cosmos DB 데이터 마이그레이션 도구](import-data.md)를 사용하여 [Azure Cosmos DB 데이터베이스 계정을 만들고](https://azure.microsoft.com/documentation/articles/create-account/) 화산 데이터를 가져옵니다. 데이터를 가져올 때 데이터 마이그레이션 도구의 원본 및 대상에 대한 다음 설정을 고려합니다.
+* [Azure Cosmos 데이터베이스 계정을 만들고](https://azure.microsoft.com/documentation/articles/create-account/) [Azure Cosmos DB 데이터 마이그레이션 도구](import-data.md)를 사용 하 여 화산 데이터를 가져옵니다. 데이터를 가져올 때 데이터 마이그레이션 도구의 원본 및 대상에 대한 다음 설정을 고려합니다.
 
    * **원본 매개 변수** 
 
@@ -48,7 +48,7 @@ ms.locfileid: "65979003"
 
 PowerBI.com에서 보고서를 공유하려면 PowerBI.com에 계정이 있어야 합니다.  Power BI 및 Power BI Pro에 대한 자세한 내용은 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing)을 참조하세요.
 
-## <a name="lets-get-started"></a>시작하기
+## <a name="lets-get-started"></a>이제 시작하겠습니다.
 이 자습서에서는 전세계 화산을 연구하는 지질학자라고 보겠습니다. 화산 데이터는 Azure Cosmos DB 계정에 저장되며, JSON 문서 형식은 다음과 같습니다.
 
     {

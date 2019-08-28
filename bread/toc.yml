@@ -15,7 +15,7 @@
         - name: ID 보호
           tocHref: /azure/active-directory/identity-protection/
           topicHref: /azure/active-directory/identity-protection/
-        - name: 장치
+        - name: 디바이스
           tocHref: /azure/active-directory/devices/
           topicHref: /azure/active-directory/devices/
         - name: 조건부 액세스
@@ -55,7 +55,7 @@
           tocHref: /azure/active-directory/manage-apps/
           topicHref: /azure/active-directory/manage-apps/
           items:
-            - name: SaaS 응용 프로그램 자습서
+            - name: SaaS 애플리케이션 자습서
               tocHref: /azure/active-directory/saas-apps/
               topicHref: /azure/active-directory/saas-apps/tutorial-list
         - name: 보고 및 모니터링
@@ -74,6 +74,9 @@
         - name: Azure PowerShell
           tocHref: /azure/api-management/scripts/
           topicHref: /azure/api-management/powershell-samples/
+    - name: Avere vFXT for Azure
+      tocHref: /azure/avere-vfxt/
+      topicHref: /azure/avere-vfxt/
     - name: Azure App Configuration
       tocHref: /azure/azure-app-configuration/
       topicHref: /azure/azure-app-configuration/
@@ -117,6 +120,9 @@
     - name: Azure Digital Twins
       tocHref: /azure/digital-twins/
       topicHref: /azure/digital-twins/
+    - name: Azure Lighthouse
+      tocHref: /azure/lighthouse/
+      topicHref: /azure/lighthouse/
     - name: Azure Monitor
       tocHref: /azure/azure-monitor/
       topicHref: /azure/azure-monitor/
@@ -136,6 +142,9 @@
         - name: 지속성 함수
           tocHref: /azure/azure-functions/durable/
           topicHref: /azure/azure-functions/durable/durable-functions-overview
+    - name: Azure Australia
+      tocHref: /azure/azure-australia/
+      topicHref: /azure/azure-australia/
     - name: Azure Government
       tocHref: /azure/azure-government/
       topicHref: /azure/azure-government/
@@ -164,6 +173,9 @@
         - name: IoT Edge
           tocHref: /azure/iot-edge/
           topicHref: /azure/iot-edge/
+        - name: IoT 플러그 앤 플레이
+          tocHref: /azure/iot-pnp/
+          topicHref: /azure/iot-pnp/
         - name: Azure Digital Twins
           tocHref: /azure/digital-twins/
           topicHref: /azure/digital-twins/
@@ -422,6 +434,9 @@
     - name: Front Door Service
       tocHref: /azure/frontdoor/
       topicHref: /azure/frontdoor/
+    - name: FXT Edge Filer
+      tocHref: /azure/fxt-edge-filer/
+      topicHref: /azure/fxt-edge-filer/
     - name: Genomics
       tocHref: /azure/genomics/
       topicHref: /azure/genomics/
@@ -532,6 +547,9 @@
         - name: 비디오 인덱서
           tocHref: /azure/media-services/video-indexer/
           topicHref: /azure/media-services/video-indexer/
+    - name: 마이그레이션
+      tocHref: /azure/migrate/
+      topicHref: /azure/migrate/
     - name: Mobile Engagement
       tocHref: /azure/mobile-engagement/
       topicHref: /azure/mobile-engagement/

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: 2c669f00ae65667f85976aca218ce51d630159ee
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: bd7e1f87fea03d0aac7fd9f746b777e3b15e917e
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67465496"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606634"
 ---
 # <a name="voice-first-virtual-assistants-preview-frequently-asked-questions"></a>음성 우선 가상 도우미 미리 보기: 질문과 대답
 
@@ -31,7 +31,7 @@ ms.locfileid: "67465496"
 
 **A:** 음성 우선 가상 도우미를 만드는 방식으로 시작 하려면 가장은 시작 하기 [기본 Bot Framework 봇 만들기](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)합니다. 다음으로 연결 하면 봇이 마치 합니다 [직접 줄 음성 채널](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)합니다.
 
-## <a name="debugging"></a>디버그
+## <a name="debugging"></a>디버깅
 
 **Q: 연결할 때는 401 오류 메시지가 표시 하 고 아무 것도 작동 합니다. 필자는 필자의 음성 구독 키가 유효 합니다. 무슨 일이죠?**
 

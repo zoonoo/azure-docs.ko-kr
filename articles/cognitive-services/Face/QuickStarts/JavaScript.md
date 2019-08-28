@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: d1aa3e3a23acf82af8435cbb075fac38353500e5
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 70c496aef0ff2f34c917fd594767d464cab3e625
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538734"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603420"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>빠른 시작: REST API 및 JavaScript를 사용하여 이미지에서 얼굴 감지
 
@@ -41,7 +41,7 @@ ms.locfileid: "57538734"
 </html>
 ```
 
-그런 다음, 문서의 `body` 요소 내에 다음 코드를 추가합니다. 그러면 URL 필드, **얼굴 분석** 단추, 응답 창 및 이미지 표시 창으로 구성된 기본 사용자 인터페이스가 설정됩니다.
+그런 다음, 문서의 `body` 요소 내에 다음 코드를 추가합니다. 이 코드는 URL 필드, **얼굴 분석** 단추, 응답 창 및 이미지 표시 창이 있는 기본 사용자 인터페이스를 설정합니다.
 
 ```html
 <h1>Detect Faces:</h1>
@@ -65,7 +65,7 @@ Image to analyze: <input type="text" name="inputImage" id="inputImage"
 
 ## <a name="write-the-javascript-script"></a>JavaScript 스크립트 작성
 
-문서의 `h1` 요소 바로 위에 다음 코드를 추가합니다. 그러면 Face API를 호출하는 JavaScript 코드가 설정됩니다.
+문서의 `h1` 요소 바로 위에 다음 코드를 추가합니다. 이 코드는 Face API를 호출하는 JavaScript 코드를 설정합니다.
 
 ```html
 <script type="text/javascript">
@@ -140,7 +140,7 @@ Image to analyze: <input type="text" name="inputImage" id="inputImage"
 
 ![GettingStartCSharpScreenshot](../Images/face-detect-javascript.png)
 
-다음은 성공적인 JSON 응답의 예제입니다.
+다음 텍스트는 성공적인 JSON 응답의 예제입니다.
 
 ```json
 [

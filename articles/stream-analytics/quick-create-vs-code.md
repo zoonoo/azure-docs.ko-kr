@@ -85,11 +85,11 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
 
 ## <a name="create-blob-storage"></a>Blob Storage 만들기
 
-1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** > **저장소** > **저장소 계정**을 선택합니다.
+1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** > **스토리지** > **스토리지 계정**을 선택합니다.
 
 2. **스토리지 계정 만들기** 창에서 스토리지 계정 이름, 위치 및 리소스 그룹을 입력합니다. 자신이 만든 IoT Hub와 동일한 위치 및 리소스 그룹을 선택합니다. 그런 다음, **검토 + 만들기**를 클릭하여 계정을 만듭니다.
 
-   ![저장소 계정 만들기](./media/quick-create-vs-code/create-storage-account.png)
+   ![스토리지 계정 만들기](./media/quick-create-vs-code/create-storage-account.png)
 
 3. 스토리지 계정이 생성되면 **개요** 창에서 **Blob** 타일을 선택합니다.
 
@@ -109,7 +109,7 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
 
     ![프로젝트 이름 만들기](./media/quick-create-vs-code/create-project-name.png)
 
-3. 새 프로젝트는 작업 영역에 추가됩니다. ASA 프로젝트는 쿼리 스크립트 **(*.asaql)**, **JobConfig.json** 파일 및 **asaproj.json** 구성 파일로 이루어집니다.
+3. 새 프로젝트는 작업 영역에 추가됩니다. ASA 프로젝트는 쿼리 스크립트 **(*.asaql)** , **JobConfig.json** 파일 및 **asaproj.json** 구성 파일로 이루어집니다.
 
    ![VS Code의 Stream Analytics 프로젝트 파일](./media/quick-create-vs-code/asa-project-files.png)
 
@@ -162,8 +162,8 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
    |설정|제안 값|설명|
    |-------|---------------|-----------|
    |Name|출력| 작업의 출력을 식별하는 이름을 입력합니다.|
-   |Storage 계정|asaquickstartstorage|스토리지 계정의 이름을 선택하거나 입력합니다. 저장소 계정 이름은 동일한 구독에 만들어진 경우에 자동으로 감지됩니다.|
-   |컨테이너|container1|저장소 계정에서 만든 기존 컨테이너를 선택합니다.|
+   |스토리지 계정|asaquickstartstorage|스토리지 계정의 이름을 선택하거나 입력합니다. 스토리지 계정 이름은 동일한 구독에 만들어진 경우에 자동으로 감지됩니다.|
+   |컨테이너|container1|스토리지 계정에서 만든 기존 컨테이너를 선택합니다.|
    |경로 패턴|output|컨테이너 내에서 만들 파일 경로 이름을 입력합니다.|
 
 ## <a name="define-the-transformation-query"></a>변환 쿼리 정의

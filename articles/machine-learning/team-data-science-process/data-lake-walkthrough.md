@@ -65,7 +65,7 @@ Azure Machine Learning Studio는 예측 모델을 빌드 및 배포하는 데 �
 
 
 > [!NOTE]
-> **Azure Data Lake Store**는 별도로 만들거나 **Azure Data Lake Analytics**을 만들 때 기본 저장소로 만들 수 있습니다. 이러한 각 리소스를 만들기 위한 지침이 별도로 참조되지만 Data Lake 스토리지 계정을 별도의 단계로 만들지 않아도 됩니다.
+> **Azure Data Lake Store**는 별도로 만들거나 **Azure Data Lake Analytics**을 만들 때 기본 스토리지로 만들 수 있습니다. 이러한 각 리소스를 만들기 위한 지침이 별도로 참조되지만 Data Lake 스토리지 계정을 별도의 단계로 만들지 않아도 됩니다.
 >
 >
 
@@ -82,7 +82,7 @@ Azure Machine Learning Studio는 예측 모델을 빌드 및 배포하는 데 �
  ![4](./media/data-lake-walkthrough/4-create-ADLA-new.PNG)
 
 ### <a name="create-an-azure-blob-storage-account"></a>Azure Blob Storage 계정 만들기
-[Azure Portal](https://portal.azure.com)에서 Azure Blob Storage 계정을 만듭니다. 자세한 내용은 [Azure 저장소 계정 정보](../../storage/common/storage-create-storage-account.md)의 저장소 계정 만들기 섹션을 참조하세요.
+[Azure Portal](https://portal.azure.com)에서 Azure Blob Storage 계정을 만듭니다. 자세한 내용은 [Azure Storage 계정 정보](../../storage/common/storage-create-storage-account.md)의 스토리지 계정 만들기 섹션을 참조하세요.
 
  ![5](./media/data-lake-walkthrough/5-Create-Azure-Blob.PNG)
 
@@ -121,7 +121,7 @@ Azure Machine Learning Studio는 예측 모델을 빌드 및 배포하는 데 �
        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및 pickup\_datetime이라는 세 가지 필드로 구성됩니다. 공용 Azure 저장소 Blob에서 원시 CSV 파일을 액세스할 수 있습니다. 이 조인에 대한 U-SQL 스크립트는 [trip 및 fare 테이블 조인](#join) 섹션에 나와 있습니다.
+trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및 pickup\_datetime이라는 세 가지 필드로 구성됩니다. 공용 Azure Storage Blob에서 원시 CSV 파일을 액세스할 수 있습니다. 이 조인에 대한 U-SQL 스크립트는 [trip 및 fare 테이블 조인](#join) 섹션에 나와 있습니다.
 
 ## <a name="process-data-with-u-sql"></a>U-SQL로 데이터 처리
 이 섹션에서 설명하는 데이터 처리 작업에는 데이터 수집, 품질 검사, 탐색 및 샘플링이 포함됩니다. 또한 trip 및 fare 테이블을 조인하는 방법도 보여줍니다. 마지막 섹션에서는 Azure 포털에서 U-SQL 스크립트 작업을 실행하는 방법을 보여 줍니다. 각 하위 섹션에 대한 링크는 다음과 같습니다.
@@ -657,7 +657,7 @@ Azure Machine Learning Studio에서는 Azure Data Lake 저장소에서 직접 �
 3. 다음 Hive 스크립트를 **Hive 데이터베이스 쿼리** 편집기에 붙여 넣습니다.
 
         select * from nyc_stratified_sample;
-4. HDInsight 클러스터의 URI(Azure Portal에서 찾을 수 있음), Hadoop 자격 증명, 출력 데이터의 위치, Azure 저장소 계정 이름/키/컨테이너 이름을 입력합니다.
+4. HDInsight 클러스터의 URI(Azure Portal에서 찾을 수 있음), Hadoop 자격 증명, 출력 데이터의 위치, Azure Storage 계정 이름/키/컨테이너 이름을 입력합니다.
 
    ![23](./media/data-lake-walkthrough/23-reader-module-v3.PNG)
 

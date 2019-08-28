@@ -23,7 +23,7 @@ AWS(Amazon Web Services)를 Cloudyn에 연결하는 옵션은 두 가지입니�
 
 AWS IAM ID에 대한 자세한 내용은 [ID(사용자, 그룹 및 역할)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html)를 참조하세요.
 
-또한 ASW 상세 청구 보고서를 사용하도록 설정하고 해당 정보를 AWS 단순 저장소 서비스(S3) 버킷에 저장합니다. 상세 청구 보고서는 태그와 시간별 리소스 정보를 포함하는 청구 정보를 제공합니다. 보고서를 저장하면 Cloudyn이 버킷에서 정보를 가져와 해당 보고서에 표시할 수 있습니다.
+또한 ASW 상세 청구 보고서를 사용하도록 설정하고 해당 정보를 AWS 단순 스토리지 서비스(S3) 버킷에 저장합니다. 상세 청구 보고서는 태그와 시간별 리소스 정보를 포함하는 청구 정보를 제공합니다. 보고서를 저장하면 Cloudyn이 버킷에서 정보를 가져와 해당 보고서에 표시할 수 있습니다.
 
 
 ## <a name="aws-role-based-access"></a>AWS 역할 기반 액세스
@@ -49,7 +49,7 @@ AWS IAM ID에 대한 자세한 내용은 [ID(사용자, 그룹 및 역할)](http
     ![Cloudyn의 외부 ID를 역할 만들기 페이지에 붙여넣기](./media/connect-aws-account/create-role01.png)
 5. **권한 연결 정책**의 **정책 유형** 필터 상자 검색에 `ReadOnlyAccess`를 입력하고 **ReadOnlyAccess**를 선택한 다음, **다음: 검토**를 클릭합니다.  
     ![정책 이름 목록에서 읽기 전용 액세스 선택](./media/connect-aws-account/readonlyaccess.png)
-6. 검토 페이지에서 선택 내용이 올바른지 확인하고 **역할 이름**을 입력합니다. 예: *Azure-Cost-Mgt*. **역할 설명**을 입력합니다. 예를 들어 ‘Cloudyn을 위한 역할 할당’을 입력한 다음, **역할 만들기**를 클릭합니다. 
+6. 검토 페이지에서 선택 내용이 올바른지 확인하고 **역할 이름**을 입력합니다. 예: *Azure-Cost-Mgt*. **역할 설명**을 입력합니다. 예를 들어 ‘Cloudyn을 위한 역할 할당’을 입력한 다음, **역할 만들기**를 클릭합니다.
 7. 만들어진 역할을 **역할** 목록에서 클릭하고 요약 페이지에서 **역할 ARN** 값을 복사합니다. 역할 ARN(Amazon Resource Name) 값은 나중에 Cloudyn에서 구성을 등록할 때 사용합니다.  
     ![요약 페이지에서 역할 ARN 복사](./media/connect-aws-account/role-arn.png)
 

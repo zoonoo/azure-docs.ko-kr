@@ -8,14 +8,14 @@ manager: gwallace
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 02/25/2019
+ms.date: 07/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 88ffd6ec24ed19dd3b1e57277884c8759cdac1f9
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 5969c3e0d270b45347f8132b2d655ba2e56cb2c0
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480328"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625889"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Azure Functions 바인딩 확장 등록
 
@@ -31,10 +31,10 @@ Azure Functions 버전에서 2.x [바인딩](./functions-triggers-bindings.md) f
 
 | 개발 환경 |등록<br/> (Functions 1.x)  |등록<br/> (Functions 2.x)  |
 |-------------------------|------------------------------------|------------------------------------|
-|Azure portal|자동|자동|
+|Azure Portal|자동|자동|
 |비.NET 언어 또는 로컬 Azure 핵심 도구 개발|자동|[Azure Functions 핵심 도구 및 확장 번들을 사용 하 여](#extension-bundles)|
-|C#Visual Studio 2019를 사용 하 여 클래스 라이브러리|[NuGet 도구 사용](#c-class-library-with-visual-studio-2019)|[NuGet 도구 사용](#c-class-library-with-visual-studio-2019)|
-|Visual Studio Code를 사용하는 C# 클래스 라이브러리|N/A|[.NET Core CLI 사용](#c-class-library-with-visual-studio-code)|
+|C#Visual Studio를 사용 하 여 클래스 라이브러리|[NuGet 도구 사용](#vs)|[NuGet 도구 사용](#vs)|
+|Visual Studio Code를 사용하는 C# 클래스 라이브러리|해당 사항 없음|[.NET Core CLI 사용](#vs-code)|
 
 ## <a name="extension-bundles"></a>로컬 개발에 대 한 확장 번들
 
@@ -58,7 +58,7 @@ Azure Functions 핵심 도구 또는 Visual Studio Code를 사용 하 여 모든
 
 다음 속성을 사용할 `extensionBundle`:
 
-| 자산 | 설명 |
+| 속성 | Description |
 | -------- | ----------- |
 | **`id`** | Microsoft Azure Functions 확장 번들에 대 한 네임 스페이스입니다. |
 | **`version`** | 설치 하는 번들의 버전입니다. 함수 런타임에서 항상 버전 범위 또는 간격에 의해 정의 된 최대 허용 버전을 선택 합니다. 위의 버전 값을 최대 1.0.0 제외한 2.0.0에서 모든 번들 버전 수 있습니다. 자세한 내용은 참조는 [버전 범위를 지정 하기 위한 간격 표기법](https://docs.microsoft.com/nuget/reference/package-versioning#version-ranges-and-wildcards)합니다. |
@@ -69,9 +69,9 @@ Azure Functions 핵심 도구 또는 Visual Studio Code를 사용 하 여 모든
 
 <a name="local-csharp"></a>
 
-## <a name="c-class-library-with-visual-studio-2019"></a>C\# Visual Studio 2019로 클래스 라이브러리
+## <a name="vs"></a> C\# Visual Studio를 사용 하 여 클래스 라이브러리
 
-**Visual Studio 2019**를 사용 하 여 패키지 관리자 콘솔에서 패키지를 설치할 수 있습니다 합니다 [Install-package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) 명령을 다음 예와에서 같이:
+**Visual Studio**를 사용 하 여 패키지 관리자 콘솔에서 패키지를 설치할 수 있습니다 합니다 [Install-package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) 명령을 다음 예와에서 같이:
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_VERSION>
@@ -81,24 +81,25 @@ Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_V
 
 예제의 `<TARGET_VERSION>`을 패키지의 특정 버전(예: `3.0.0-beta5`)으로 바꿉니다. 유효한 버전은 [NuGet.org](https://nuget.org)의 개별 패키지 페이지에 나열되어 있습니다. Functions 참조 1.x 또는 2.x에 해당하는 주요 버전은 바인딩에 대한 참조 문서에 지정되어 있습니다.
 
-## <a name="c-class-library-with-visual-studio-code"></a>Visual Studio Code를 통한 C# 클래스 라이브러리
+사용 하는 경우 `Install-Package` 바인딩을 참조 필요가 없습니다 사용 하도록 [확장 번들](#extension-bundles)합니다. 이 방법은 Visual Studio에서 작성 하는 클래스 라이브러리에 대 한 특정 합니다.
+
+## <a name="vs-code"></a> C#Visual Studio Code를 사용 하 여 클래스 라이브러리
 
 > [!NOTE]
 > 사용 하는 것이 좋습니다 [확장 번들](#extension-bundles) 함수 바인딩 확장 패키지의 호환 가능한 집합을 자동으로 설치 해야 합니다.
 
-**Visual Studio Code**, 패키지를 설치를 C# 사용 하 여 명령 프롬프트에서 클래스 라이브러리 프로젝트를 [dotnet 패키지를 추가](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) 다음 예제에서와 같이.NET Core CLI 명령:
+**Visual Studio Code**, 패키지를 설치를 C# 사용 하 여 명령 프롬프트에서 클래스 라이브러리 프로젝트를 [dotnet 패키지를 추가](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) .NET Core CLI 명령을 합니다. 다음 예에서는 바인딩을 추가 하는 방법을 보여 줍니다.
 
 ```terminal
-dotnet add package Microsoft.Azure.WebJobs.Extensions.ServiceBus --version <TARGET_VERSION>
+dotnet add package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE_NAME> --version <TARGET_VERSION>
 ```
 
 .NET Core CLI는 Azure Functions 2.x 개발에만 사용할 수 있습니다.
 
-지정된 바인딩에 사용할 패키지의 이름은 해당 바인딩에 대한 참조 문서에 제공됩니다. 예를 들어 [Service Bus 바인딩 참조 문서의 패키지 섹션](functions-bindings-service-bus.md#packages---functions-1x)을 참조하세요.
+대체 `<BINDING_TYPE_NAME>` 에 원하는 바인딩에 대 한 참조 문서에서 제공 하는 패키지의 이름입니다. 원하는 바인딩 참조 문서를 찾을 수 있습니다 합니다 [지원 되는 바인딩 목록을](./functions-triggers-bindings.md#supported-bindings)합니다.
 
 예제의 `<TARGET_VERSION>`을 패키지의 특정 버전(예: `3.0.0-beta5`)으로 바꿉니다. 유효한 버전은 [NuGet.org](https://nuget.org)의 개별 패키지 페이지에 나열되어 있습니다. Functions 참조 1.x 또는 2.x에 해당하는 주요 버전은 바인딩에 대한 참조 문서에 지정되어 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
 > [Azure 함수 트리거 및 바인딩 예제](./functions-bindings-example.md)
-

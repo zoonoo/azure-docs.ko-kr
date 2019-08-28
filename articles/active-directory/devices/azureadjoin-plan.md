@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36429feed99c421984ed55d4e506954aa30f0040
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: c739e827589a9fd6adeb10255f869acef29a4f16
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482122"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562218"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>방법: Azure AD 조인 구현 계획
 
@@ -24,13 +24,13 @@ Azure AD 조인을 사용하면 사용자의 생산성과 보안을 유지하면
 
 이 문서에서는 Azure AD 조인 구현을 계획하는 데 필요한 정보를 제공합니다.
  
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 사용자가 [Azure Active Directory의 디바이스 관리 소개](../device-management-introduction.md)를 잘 알고 있다고 가정합니다.
 
 ## <a name="plan-your-implementation"></a>구현 계획
 
-Azure AD 조인 구현 하려는 있습니다 잘 이해 해야 합니다.
+Azure AD 조인 구현을 계획 하려면 다음을 숙지 해야 합니다.
 
 |   |   |
 |---|---|
@@ -40,7 +40,7 @@ Azure AD 조인 구현 하려는 있습니다 잘 이해 해야 합니다.
 |![확인][1]|애플리케이션 및 리소스에 대한 고려 사항 이해|
 |![확인][1]|프로비전 옵션 이해|
 |![확인][1]|엔터프라이즈 상태 로밍 구성|
-|![확인][1]|조건부 액세스를 구성 합니다.|
+|![확인][1]|조건부 액세스 구성|
 
 ## <a name="review-your-scenarios"></a>시나리오 검토 
 
@@ -68,9 +68,18 @@ Azure AD 조인은 관리 환경 및 페더레이션 환경 모두에서 작동�
 페더레이션 환경은 WS-Trust 및 WS-Fed 프로토콜을 지원하는 ID 공급자가 있어야 합니다.
 
 - **WS-Fed:** 이 프로토콜은 디바이스를 Azure AD에 조인하는 데 필요합니다.
-- **WS-Trust:** 이 프로토콜은 Azure AD 조인 디바이스에 로그인하는 데 필요합니다. 
+- **WS-Trust:** 이 프로토콜은 Azure AD 조인 디바이스에 로그인하는 데 필요합니다.
 
-ID 공급자가 이러한 프로토콜을 지원하지 않는 경우 Azure AD 조인이 기본적으로 작동하지 않습니다. Windows 10 1809부터는 사용자가 [Windows 10의 웹 로그인](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10)을 통해 Azure AD 조인 디바이스에 SAML 기반 ID 공급자로 로그인할 수 있습니다. 현재 웹 로그인은 미리 보기 전용 기능입니다.
+AD FS를 사용하는 경우 다음 WS-Trust 엔드포인트를 사용하도록 설정해야 합니다. `/adfs/services/trust/2005/usernamemixed`
+ `/adfs/services/trust/13/usernamemixed`
+ `/adfs/services/trust/2005/certificatemixed`
+ `/adfs/services/trust/13/certificatemixed`
+
+ID 공급자가 이러한 프로토콜을 지원하지 않는 경우 Azure AD 조인이 기본적으로 작동하지 않습니다. Windows 10 1809부터는 사용자가 [Windows 10의 웹 로그인](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10)을 통해 Azure AD 조인 디바이스에 SAML 기반 ID 공급자로 로그인할 수 있습니다. 현재 웹 로그인은 미리 보기 기능이 며 프로덕션 배포에는 권장 되지 않습니다.
+
+>[!NOTE]
+> 현재 Azure AD 조인은 [기본 인증 방법으로 외부 인증 공급자를 사용 하 여 구성 된 AD FS 2019](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary)에서 작동 하지 않습니다. Azure AD 조인은 기본 방법으로 암호 인증을 기본값으로 설정 하므로이 시나리오에서 인증 오류가 발생 합니다.
+
 
 ### <a name="smartcards-and-certificate-based-authentication"></a>스마트 카드 및 인증서 기반 인증
 
@@ -101,10 +110,10 @@ Azure AD 조인:
 
 ### <a name="management-platform"></a>관리 플랫폼
 
-Azure AD 가입 장치에 대 한 장치 관리는 Intune 및 MDM Csp 같은 MDM 플랫폼을 기반으로 합니다. Windows 10에는 모든 호환 MDM 솔루션과 함께 작동하는 MDM 에이전트가 기본적으로 제공됩니다.
+Azure AD 가입 장치에 대 한 장치 관리는 Intune 및 MDM Csp와 같은 MDM 플랫폼을 기반으로 합니다. Windows 10에는 모든 호환 MDM 솔루션과 함께 작동하는 MDM 에이전트가 기본적으로 제공됩니다.
 
 > [!NOTE]
-> 그룹 정책으로 온-프레미스 Active Directory에 연결 되지 않은 Azure AD 가입 장치에서 지원 되지 않습니다. Azure AD 가입 장치를 관리는 MDM을 통한 가능
+> 그룹 정책은 온-프레미스 Active Directory에 연결 되어 있지 않으므로 Azure AD 조인 장치에서 지원 되지 않습니다. MDM을 통해서만 Azure AD 조인 장치를 관리할 수 있습니다.
 
 Azure AD 조인 디바이스를 관리하는 두 가지 방법이 있습니다.
 
@@ -188,11 +197,11 @@ Azure AD 조인 디바이스에 원격 데스크톱 연결을 설정하려면 �
  
 |   | 셀프 서비스 설정 | Windows Autopilot | 대량 등록 |
 | --- | --- | --- | --- |
-| 설정에서 사용자 상호 작용이 필요 | 예 | 예 | 아닙니다. |
-| IT 활동이 필요 | 아닙니다. | 예 | 예 |
+| 설정에서 사용자 상호 작용이 필요 | 예 | 예 | 아니요 |
+| IT 활동이 필요 | 아니요 | 예 | 예 |
 | 적용 흐름 | OOBE 및 설정 | OOBE만 | OOBE만 |
-| 기본 사용자에 대한 로컬 관리자 권한 | 기본적으로 예 | 구성 가능 여부 | 아닙니다. |
-| 디바이스 OEM 지원 필요 | 아닙니다. | 사용자 계정 컨트롤 | 아닙니다. |
+| 기본 사용자에 대한 로컬 관리자 권한 | 기본적으로 예 | 구성 가능 여부 | 아니요 |
+| 디바이스 OEM 지원 필요 | 아니요 | 예 | 아니요 |
 | 지원되는 버전 | 1511+ | 1709+ | 1703+ |
  
 위의 표를 검토하고 방법 채택에 대한 다음 고려 사항을 검토하여 배포 접근 방식을 선택합니다.  
@@ -238,7 +247,7 @@ Azure Portal에서 조직의 Azure AD 조인 디바이스 배포를 제어할 �
 1. **애플리케이션 추가**를 클릭합니다.
 1. 목록에서 MDM 공급자를 선택합니다.
 
-   ![애플리케이션 추가](./media/azureadjoin-plan/04.png)
+   ![응용 프로그램 추가](./media/azureadjoin-plan/04.png)
 
 MDM 공급자를 선택하여 관련 설정을 구성합니다. 
 
@@ -261,7 +270,7 @@ MDM 구성과 관련된 세 가지 URL이 있습니다.
 - MDM 검색 URL 
 - MDM 규정 준수 URL
 
-![애플리케이션 추가](./media/azureadjoin-plan/06.png)
+![응용 프로그램 추가](./media/azureadjoin-plan/06.png)
 
 각 URL에는 미리 정의된 기본값이 있습니다. 이러한 필드가 비어 있으면 MDM 공급자에게 자세한 정보를 문의하세요.
 
@@ -271,17 +280,17 @@ MAM은 Azure AD 조인에 적용되지 않습니다.
 
 ## <a name="configure-enterprise-state-roaming"></a>엔터프라이즈 상태 로밍 구성
 
-사용자가 자신의 설정을 디바이스 간에 동기화 할 수 있도록 Azure AD에 상태 로밍을 사용하려면 [Azure Active Directory에서 엔터프라이즈 상태 로밍 사용](https://docs.microsoft.com/azure/active-directory/devices/enterprise-state-roaming-enable)을 참조하세요. 
+사용자가 자신의 설정을 디바이스 간에 동기화 할 수 있도록 Azure AD에 상태 로밍을 사용하려면 [Azure Active Directory에서 엔터프라이즈 상태 로밍 사용](enterprise-state-roaming-enable.md)을 참조하세요. 
 
 **권장 사항**: 하이브리드 Azure AD 조인 디바이스에도 이 설정을 사용하세요.
 
-## <a name="configure-conditional-access"></a>조건부 액세스를 구성 합니다.
+## <a name="configure-conditional-access"></a>조건부 액세스 구성
 
 Azure AD 조인 디바이스에 대한 MDM 공급자가 구성된 경우 공급자는 디바이스 관리가 시작되는 즉시 디바이스에 준수 플래그를 지정합니다. 
 
-![규정 준수 디바이스](./media/azureadjoin-plan/46.png)
+![준수 디바이스](./media/azureadjoin-plan/46.png)
 
-이 구현을 사용할 수 있습니다 [조건부 액세스를 사용 하 여 클라우드 앱 액세스를 위해 관리 되는 장치가](../conditional-access/require-managed-devices.md)합니다.
+이 구현을 사용 하 여 [조건부 액세스를 통해 클라우드 앱 액세스를 위한 관리 되는 장치를 요구할](../conditional-access/require-managed-devices.md)수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

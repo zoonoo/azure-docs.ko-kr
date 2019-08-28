@@ -3,7 +3,7 @@ title: Azure Active Directory 위험 이벤트 | Microsoft Docs
 description: 이 문서에서는 위험 이벤트의 자세한 개요를 제공합니다.
 services: active-directory
 keywords: Azure Active Directory ID 보호, 보안, 위험, 위험 이벤트, 취약점, 보안 정책
-author: MarkusVi
+author: cawrites
 manager: daveba
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e50cc4ca9c98cb6a8e0f19cfcf6c1f86f1949beb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5711d900653ae7786899ce1c53f22cf181f5b8bf
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67107690"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988279"
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory 위험 이벤트
 
@@ -52,9 +52,9 @@ ms.locfileid: "67107690"
 감지된 위험 이벤트에 대해 얻은 정보는 Azure AD 구독에 연결됩니다. 
 
 * **Azure AD Premium P2 버전**에서 모든 기본 감지에 대한 가장 자세한 정보를 가져옵니다. 
-* 사용 하 여 합니다 **Azure AD Premium P1 버전**고급 검색 (예: 알 수 없는 로그인 속성)를 라이선스에서 다루지 않는 및 이름 아래에 표시 됩니다 **검색 하는 추가 위험이 있는 로그인** . 또한 위험 수준 및 위험 세부 정보 필드는 숨겨집니다.
+* **Azure AD Premium P1 버전**을 사용 하면 고급 검색 (예: 익숙하지 않은 로그인 속성)이 라이선스에 포함 되지 않으며, 이름 로그인 아래에 **추가 위험이 검색**된 것으로 나타납니다. 또한 위험 수준 및 위험 정보 필드는 숨겨집니다.
 
-위험 이벤트의 감지를 이미 id 보호의 중요 한 측면을 나타내는 동안 해결 수동으로 또는 조건부 액세스 정책을 구성 하 여 자동화 된 응답을 구현 하는 옵션이 있습니다. 자세한 내용은 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)을 참조하세요.
+위험 이벤트 검색은 이미 id를 보호 하는 중요 한 측면을 나타내므로 조건부 액세스 정책을 구성 하 여 수동으로 해결 하거나 자동화 된 응답을 구현 하는 옵션도 있습니다. 자세한 내용은 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)을 참조하세요.
 
 ## <a name="risk-event-types"></a>위험 이벤트 유형
 
@@ -65,7 +65,7 @@ ms.locfileid: "67107690"
 - 기존 위험 이벤트의 검색 정확도 향상 
 - 향후 추가될 새 위험 이벤트 유형
 
-### <a name="leaked-credentials"></a>유출된 자격 증명
+### <a name="leaked-credentials"></a>손실된 자격 증명
 
 사이버 범죄자가 합법적인 사용자의 유효한 암호를 손상시키는 경우 범죄자는 종종 이러한 자격 증명을 공유합니다. 보통 이러한 작업은 Dark 웹 또는 붙여넣기 사이트에 공개적으로 게시하거나 암시장에서 자격 증명을 거래 또는 판매하는 방식으로 이루어집니다. Microsoft 유출된 자격 증명 서비스는 공개 및 Dark 웹 사이트를 모니터링하고 다음 대상과 협력하여 사용자 이름/암호 쌍을 획득합니다.
 
@@ -76,11 +76,11 @@ ms.locfileid: "67107690"
 
 서비스에서 사용자 이름/암호 쌍을 획득하면 AAD에 대해 사용자의 현재 유효한 자격 증명인지 확인합니다. 일치하면 사용자의 암호가 손상된 것이며 **누출된 자격 증명 위험 이벤트**가 만들어집니다.
 
-### <a name="sign-ins-from-anonymous-ip-addresses"></a>익명 IP 주소에서 로그인
+### <a name="sign-ins-from-anonymous-ip-addresses"></a>익명 IP 주소에서의 로그인
 
 이 위험 이벤트 유형은 익명 프록시 IP 주소로 식별된 IP 주소에서 시도하여 성공적으로 로그인한 사용자를 식별합니다. 이 프록시는 해당 디바이스의 IP 주소를 숨기려는 사용자가 사용하며 악의적인 의도로 사용될 수 있습니다.
 
-### <a name="impossible-travel-to-atypical-locations"></a>비정상적 위치로 불가능한 이동
+### <a name="impossible-travel-to-atypical-locations"></a>비정상적 위치 간 이동 불가능
 
 이 위험 이벤트 유형은 지역적으로 떨어진 위치에서 시작한 두 번의 로그인을 식별합니다. 과거 동작을 고려하면 이 위치 중 하나 이상이 사용자에 대해 불규칙적입니다. 다른 요인 중에서 이 Machine Learning 알고리즘은 두 번의 로그인 간 시간과 사용자가 첫 번째 위치에서 두 번째 위치로 이동하는 데 걸리는 시간을 고려하여 서로 다른 사용자가 동일한 자격 증명을 사용하고 있음을 나타냅니다.
 
@@ -92,11 +92,11 @@ ms.locfileid: "67107690"
 
 ID 보호는 기본 인증/레거시 프로토콜에 대한 일반적이지 않은 위치에서의 로그인을 검색합니다. 이러한 프로토콜에는 클라이언트 ID와 같은 친숙한 현대적인 기능이 없기 때문에 거짓 긍정을 줄일 만큼 원격 분석이 충분하지 않습니다. 검색된 위험 이벤트 수를 줄이려면 최신 인증으로 이동해야 합니다.   
 
-### <a name="sign-ins-from-infected-devices"></a>감염된 디바이스에서 로그인
+### <a name="sign-ins-from-infected-devices"></a>감염된 디바이스에서의 로그인
 
 이 위험 이벤트 유형은 적극적으로 봇 서버와 통신한다고 알려진 맬웨어로 감염된 디바이스에서 시도한 로그인을 식별합니다. 봇 서버와 접촉했던 IP 주소에 대해 사용자의 디바이스의 IP 주소를 상호 연결하여 결정됩니다. 
 
-### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>의심스러운 작업이 있는 IP 주소에서 로그인
+### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>의심스러운 활동을 포함하는 IP 주소에서의 로그인
 이 위험 이벤트 유형은 짧은 기간 동안에 여러 사용자 계정에서 실패한 로그인 시도가 많이 확인되는 IP 주소를 식별합니다. 이는 공격자가 사용하는 IP 주소의 트래픽 패턴과 일치하며 계정이 이미 또는 손상되었거나 손상될 것이라는 확실한 지표입니다. 조직의 다른 사용자가 정기적으로 사용하는 IP 주소와 같은 명백한 가양성을 무시하는 기계 학습 알고리즘입니다.  시스템에는 새 사용자 및 새 테넌트의 로그인 동작을 알아보는 14일의 초기 학습 기간이 있습니다.
 
 ## <a name="detection-type"></a>검색 유형
@@ -139,16 +139,16 @@ Azure Active Directory가 검색하는 위험 이벤트 유형의 경우 검색 
 
 ![위험 수준](./media/concept-risk-events/01.png)
 
-### <a name="leaked-credentials"></a>유출된 자격 증명
+### <a name="leaked-credentials"></a>손실된 자격 증명
 
 사용자 이름 및 암호를 공격자가 사용할 수 있다고 명백히 표시하기 때문에 유출된 자격 증명 위험 이벤트는 **높음**으로 분류됩니다.
 
-### <a name="sign-ins-from-anonymous-ip-addresses"></a>익명 IP 주소에서 로그인
+### <a name="sign-ins-from-anonymous-ip-addresses"></a>익명 IP 주소에서의 로그인
 
 익명 IP 주소는 계정 손상을 확실히 표시하지 않기 때문에 이 위험 이벤트 유형의 위험 수준은 **보통**입니다. 사용자에게 즉시 문의하여 익명 IP 주소를 사용했는지를 확인하는 것이 좋습니다.
 
 
-### <a name="impossible-travel-to-atypical-locations"></a>비정상적 위치로 불가능한 이동
+### <a name="impossible-travel-to-atypical-locations"></a>비정상적 위치 간 이동 불가능
 
 불가능한 이동은 일반적으로 해커가 성공적으로 로그인할 수 있는 훌륭한 지표입니다. 그러나 사용자가 새 디바이스를 사용하거나 조직의 다른 사용자가 일반적으로 사용하지 않는 VPN을 사용하여 이동하는 경우 가양성이 발생할 수 있습니다. 가양성의 다른 원본은 서버 IP 및 클라이언트 IP를 정확하지 않게 전달하는 애플리케이션이며 애플리케이션의 백 엔드가 호스팅되는 데이터 센터에서 발생하는 로그인의 모양을 가져올 수 있습니다(대개 이러한 Microsoft 데이터 센터는 Microsoft에서 소유한 고유의 IP 주소를 발생시키는 로그인의 모양을 제공할 수 있음). 이러한 가양성의 결과로 이 위험 이벤트에 대한 위험 수준은 **보통**입니다.
 
@@ -167,7 +167,7 @@ Azure Active Directory가 검색하는 위험 이벤트 유형의 경우 검색 
 
 맬웨어 감염을 해결하는 방법에 대한 자세한 내용은 [맬웨어 보호 센터](https://www.microsoft.com/en-us/security/portal/definitions/adl.aspx/)(영문)를 참조하세요.
 
-### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>의심스러운 작업이 있는 IP 주소에서 로그인
+### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>의심스러운 활동을 포함하는 IP 주소에서의 로그인
 
 사용자에게 문의하여 의심스럽다고 표시된 IP 주소에서 실제로 로그인했는지를 확인하는 것이 좋습니다. 일부가 의심스러운 작업에 책임이 있을 수 있는 반면 동일한 IP 주소에 여러 디바이스가 있을 수 있으므로 이 이벤트 유형의 위험 수준은 "**보통**"입니다. 
 

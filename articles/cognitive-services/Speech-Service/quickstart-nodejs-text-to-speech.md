@@ -8,21 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 01/11/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: f5f777238b4682cfd5873ceeb34452218d4c46f3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: 72be99ec666bb9e04ffca6e14ab4fcafa889ae68
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068264"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553938"
 ---
 # <a name="quickstart-convert-text-to-speech-using-nodejs"></a>빠른 시작: Node.js를 사용하여 텍스트 음성 변환
 
 이 빠른 시작에서는 Node.js 및 Text-to-Speech REST API를 사용하여 텍스트를 음성으로 변환하는 방법을 알아봅니다. 이 가이드의 요청 본문은 [SSML(Speech Synthesis Markup Language)](speech-synthesis-markup.md)로 구조화되어 있으므로 응답의 음성 및 언어를 선택할 수 있습니다.
 
-이 빠른 시작에서는 [Azure Cognitive Services 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 음성 서비스 리소스를 사용 하 여 합니다. 계정이 없는 경우 [평가판](get-started.md)을 사용하여 구독 키를 가져올 수 있습니다.
+이 빠른 시작에는 Speech Service 리소스와 함께 [Azure Cognitive Services 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 필요합니다. 계정이 없는 경우 [평가판](get-started.md)을 사용하여 구독 키를 가져올 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -53,9 +52,9 @@ const xmlbuilder = require('xmlbuilder');
 
 ## <a name="get-an-access-token"></a>액세스 토큰 가져오기
 
-Text-to-Speech REST API에는 인증을 위한 액세스 토큰이 필요합니다. 액세스 토큰을 가져오려면 교환이 필요합니다. 액세스 토큰 사용에 대 한 음성 서비스 구독 키를 교환 하는이 함수는 `issueToken` 끝점입니다.
+Text-to-Speech REST API에는 인증을 위한 액세스 토큰이 필요합니다. 액세스 토큰을 가져오려면 교환이 필요합니다. 이 함수에서는 `issueToken` 엔드포인트를 사용하여 액세스 토큰의 Speech Service 구독 키를 교환합니다.
 
-이 샘플 음성 서비스 구독의 미국 서 부 지역에 있다고 가정 합니다. 다른 지역을 사용하는 경우 `uri` 값을 업데이트합니다. 전체 목록은 [지역](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis)을 참조하세요.
+이 샘플에서는 Speech Service 구독이 미국 서부 지역에 있다고 가정합니다. 다른 지역을 사용하는 경우 `uri` 값을 업데이트합니다. 전체 목록은 [지역](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis)을 참조하세요.
 
 이 코드를 프로젝트에 복사합니다.
 
@@ -80,7 +79,7 @@ function getAccessToken(subscriptionKey) {
 
 ## <a name="make-a-request-and-save-the-response"></a>요청을 작성하고 응답을 저장합니다.
 
-여기서 Text-to-Speech API에 대한 요청을 작성하고 음성 응답을 저장합니다. 이 샘플에서는 사용자가 미국 서부 엔드포인트를 사용하고 있다고 가정합니다. 리소스가 다른 지역에 등록된 경우에는 `uri`을 업데이트해야 합니다. 자세한 내용은 [Speech Services 영역](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech)합니다.
+여기서 Text-to-Speech API에 대한 요청을 작성하고 음성 응답을 저장합니다. 이 샘플에서는 사용자가 미국 서부 엔드포인트를 사용하고 있다고 가정합니다. 리소스가 다른 지역에 등록된 경우에는 `uri`을 업데이트해야 합니다. 자세한 내용은 [Speech Service 지역](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech)을 참조하세요.
 
 그런 다음, 요청에 필요한 헤더를 추가해야 합니다. Azure Portal에 있는 리소스 이름을 사용하여 `User-Agent`를 업데이트하고 `X-Microsoft-OutputFormat`을 선호하는 오디오 출력으로 설정해야 합니다. 출력 형식의 전체 목록은 [오디오 출력](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)을 참조하세요.
 
@@ -136,9 +135,9 @@ function textToSpeech(accessToken, text) {
 
 ## <a name="put-it-all-together"></a>모든 요소 결합
 
-이제 거의 완료되었습니다. 마지막 단계는 비동기 함수를 만드는 것입니다. 이 함수는 구독 키를 읽을 텍스트에 대 한 프롬프트 환경 변수에서 토큰을 가져오려면, 요청을 완료 하 고는 텍스트 음성 변환는.wav 오디오 저장 될 때까지 기다립니다.
+이제 거의 완료되었습니다. 마지막 단계는 비동기 함수를 만드는 것입니다. 이 함수는 환경 변수에서 구독 키를 읽고, 텍스트에 대한 프롬프트를 표시하고, 토큰을 가져오고, 요청이 완료될 때까지 기다린 다음, 텍스트 음성 변환을 변환하고 .wav로 오디오를 저장합니다.
 
-환경 변수를 사용 하 여 친숙 하지 않은 사용자 구독 키 하드 코드 된 문자열을 사용 하 여 테스트 하려는 경우 대체 `process.env.SPEECH_SERVICE_KEY` 문자열로 구독 키를 사용 하 여 합니다.
+환경 변수를 사용하는 데 친숙하지 않거나 문자열로 하드 코딩된 구독 키를 사용하여 테스트하려는 경우 `process.env.SPEECH_SERVICE_KEY`를 문자열로 구독 키로 바꿉니다.
 
 ```javascript
 // Use async and await to get the token before attempting

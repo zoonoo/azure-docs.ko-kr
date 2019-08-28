@@ -2,7 +2,7 @@
 title: Azure SQL Data Warehouse에 연결 | Microsoft Azure
 description: Azure SQL Data Warehouse에 연결
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 2c937285b9c54072c6d1e1b0628c3d5fbfe786f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 71f5c8ca56bc188c0664604a78c38a05be3c3b01
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873661"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68479744"
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 연결
 Azure SQL Data Warehouse에 연결
@@ -23,7 +23,7 @@ Azure SQL Data Warehouse에 연결
 ## <a name="find-your-server-name"></a>서버 이름 찾기
 다음 예제에서 서버 이름은 samplesvr.database.windows.net입니다. 정규화된 서버 이름을 찾으려면:
 
-1. [Azure Portal][Azure portal]로 이동합니다.
+1. [Azure 포털][Azure portal]로 이동합니다.
 2. **SQL 데이터 웨어하우스**를 클릭합니다.
 3. 연결하려는 데이터 웨어하우스를 클릭합니다.
 4. 전체 서버 이름을 찾습니다.
@@ -31,7 +31,7 @@ Azure SQL Data Warehouse에 연결
     ![전체 서버 이름][1]
 
 ## <a name="supported-drivers-and-connection-strings"></a>지원되는 드라이버 및 연결 문자열
-Azure SQL Data Warehouse는 [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] 및 [JDBC][JDBC]를 지원합니다. 최신 버전 및 설명서를 찾으려면 이전 드라이버 중 하나를 클릭합니다. Azure Portal에서 사용 중인 드라이버에 대한 연결 문자열을 자동으로 생성하려면 앞의 예제에서 **데이터베이스 연결 문자열 표시**를 클릭합니다. 또한 각 드라이버에 대한 연결 문자열의 모양에 대한 몇 가지 예는 다음과 같습니다.
+Azure SQL Data Warehouse은 [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP]및 [JDBC][JDBC]를 지원 합니다. 최신 버전 및 설명서를 찾으려면 이전 드라이버 중 하나를 클릭합니다. Azure Portal에서 사용 중인 드라이버에 대한 연결 문자열을 자동으로 생성하려면 앞의 예제에서 **데이터베이스 연결 문자열 표시**를 클릭합니다. 또한 각 드라이버에 대한 연결 문자열의 모양에 대한 몇 가지 예는 다음과 같습니다.
 
 > [!NOTE]
 > 사용 불가능한 짧은 시간 동안 연결이 효력을 유지하려면 연결 제한 시간을 300초로 설정하는 것이 좋습니다.

@@ -10,29 +10,29 @@ services: logic-apps
 ms.reviewer: klam, divswa, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: d677c0eae9c92f90783ed4ebd95a528b34c872ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 31f6a3fc281b8dc309ddcd237246c870c85ae20b
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60847478"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971638"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Azure Logic Apps에서 SAP 시스템에 연결
 
 > [!NOTE]
-> 이 SAP 커넥터는 사용 중단 될 예정입니다. 사용 하거나 마이그레이션하는 [새롭고 더 많은 고급 SAP 커넥터](./logic-apps-using-sap-connector.md)합니다. 
+> 이 SAP 커넥터는 사용 중단 하도록 예약 되어 있습니다. 을 (를) 사용 하거나 [최신 및 고급 SAP 커넥터로](./logic-apps-using-sap-connector.md)마이그레이션해야 합니다. 
 
 이 문서에서는 SAP 애플리케이션 서버 및 SAP 메시지 서버 커넥터를 사용하여 논리 앱 내부에서 SAP 리소스에 액세스할 수 있는 방법을 보여 줍니다. 이런 식으로 작업, 프로세스 및 논리 앱을 만들어 SAP 데이터 및 리소스를 관리하는 워크플로를 자동화할 수 있습니다.
 
 이 예제에서는 HTTP 요청으로 트리거할 수 있는 논리 앱을 사용합니다. 논리 앱은 IDoc(중간 문서)를 SAP 서버로 전송하고, 논리 앱을 호출한 요청자에게 응답을 반환합니다.
 현재 SAP 커넥터에는 작업만 있고 트리거가 없으므로 이 예제에서는 논리 앱 워크플로의 첫 번째 단계로 [HTTP 요청 트리거](../connectors/connectors-native-reqres.md)를 사용합니다. SAP 커넥터 관련 기술 정보는 다음 참조 문서를 참조하세요. 
 
-* <a href="https://docs.microsoft.com/connectors/sapapplicationserver/" target="blank">SAP 애플리케이션 서버 커넥터</a>
-* <a href="https://docs.microsoft.com/connectors/sapmessageserver/" target="blank">SAP 메시지 서버 커넥터</a>
+* <a href="https://docs.microsoft.com/connectors/sap" target="blank">SAP 애플리케이션 서버 커넥터</a>
+* <a href="https://docs.microsoft.com/connectors/sap/#send-message-to-sap" target="blank">SAP 메시지 서버 커넥터</a>
 
 아직 Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서를 따르려면 다음 항목이 필요합니다.
 
@@ -91,7 +91,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
    * **SAP 애플리케이션 서버 - SAP로 보내기**
    * **SAP 메시지 서버 - SAP로 보내기**
 
-   이 예제에서는이 작업을 사용합니다. **SAP 애플리케이션 서버 - SAP로 보내기**
+   이 예제에서는 다음 작업을 수행 합니다. **SAP 애플리케이션 서버 - SAP로 보내기**
 
    ![“SAP 애플리케이션 서버” 또는 “SAP 메시지 서버” 선택](media/logic-apps-using-sap-connector-old/select-sap-action.png)
 
@@ -190,8 +190,8 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
 커넥터의 Swagger 파일에 설명된 커넥터에 대한 기술 정보는 다음 참조 문서를 참조하세요. 
 
-* [SAP 애플리케이션 서버](/connectors/sapapplicationserver/)
-* [SAP 메시지 서버](/connectors/sapmessageserver/)
+* [SAP 애플리케이션 서버](/connectors/sap)
+* [SAP 메시지 서버](/connectors/sap/#send-message-to-sap)
 
 ## <a name="get-support"></a>지원 받기
 

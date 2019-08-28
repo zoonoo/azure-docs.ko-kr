@@ -1,19 +1,19 @@
 ---
 title: Azure Backup - PowerShell을 사용하여 DPM 워크로드 백업
 description: PowerShell을 사용하여 DPM(Data Protection Manager)에 대해 Azure Backup을 배포 및 관리하는 방법을 알아봅니다.
-services: backup
-author: kasinh
-manager: vvithal
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 1/23/2017
-ms.author: adigan
-ms.openlocfilehash: b16963265c971e604f03b51fd63f7fe411bab36e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: dacurwin
+ms.openlocfilehash: 8e17747e2f1f29243215eac85e4e5fa761e11692
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66127742"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688924"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>PowerShell을 사용하여 DPM(Data Protection Manager) 서버용 Azure 백업 배포 및 관리
 
@@ -42,7 +42,7 @@ Sample DPM scripts: Get-DPMSampleScript
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-시작 하려면 [최신 Azure PowerShell을 다운로드](/powershell/azure/install-az-ps)합니다.
+시작 하려면 [최신 Azure PowerShell를 다운로드](/powershell/azure/install-az-ps)하세요.
 
 PowerShell로 다음과 같은 설정 및 등록 작업을 자동화할 수 있습니다.
 
@@ -68,13 +68,13 @@ PowerShell로 다음과 같은 설정 및 등록 작업을 자동화할 수 있�
     New-AzResourceGroup –Name "test-rg" –Location "West US"
     ```
 
-3. 사용 하 여는 **새로 만들기-AzRecoveryServicesVault** cmdlet을 새 자격 증명 모음을 만듭니다. 리소스 그룹에 사용된 동일한 위치를 자격 증명 모음에도 지정해야 합니다.
+3. **AzRecoveryServicesVault** cmdlet을 사용 하 여 새 자격 증명 모음을 만듭니다. 리소스 그룹에 사용된 동일한 위치를 자격 증명 모음에도 지정해야 합니다.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
 
-4. [LRS(로컬 중복 저장소)](../storage/common/storage-redundancy-lrs.md) 또는 [GRS(지역 중복 저장소)](../storage/common/storage-redundancy-grs.md) 중에 사용할 저장소 중복 유형을 지정합니다. 다음 예제는 testVault에 대한 BackupStorageRedundancy 옵션이 GeoRedundant로 설정된 것을 보여 줍니다.
+4. [LRS(로컬 중복 스토리지)](../storage/common/storage-redundancy-lrs.md) 또는 [GRS(지역 중복 스토리지)](../storage/common/storage-redundancy-grs.md) 중에 사용할 스토리지 중복 유형을 지정합니다. 다음 예제는 testVault에 대한 BackupStorageRedundancy 옵션이 GeoRedundant로 설정된 것을 보여 줍니다.
 
    > [!TIP]
    > 많은 Azure Backup cmdlet에는 Recovery Services 자격 증명 모음 개체가 입력으로 필요합니다. 이런 이유 때문에, 백업 Recovery Services 자격 증명 모음 개체를 변수에 저장하는 것이 편리합니다.
@@ -88,9 +88,9 @@ PowerShell로 다음과 같은 설정 및 등록 작업을 자동화할 수 있�
 
 ## <a name="view-the-vaults-in-a-subscription"></a>구독의 자격 증명 모음 보기
 
-사용 하 여 **Get AzRecoveryServicesVault** 현재 구독의 모든 자격 증명 모음 목록을 볼 수 있습니다. 이 명령을 사용하여 새 자격 증명 모음이 만들어졌는지 확인하거나 구독에서 사용할 수 있는 자격 증명 모음을 확인할 수 있습니다.
+**AzRecoveryServicesVault** 를 사용 하 여 현재 구독의 모든 자격 증명 모음 목록을 볼 수 있습니다. 이 명령을 사용하여 새 자격 증명 모음이 만들어졌는지 확인하거나 구독에서 사용할 수 있는 자격 증명 모음을 확인할 수 있습니다.
 
-Get-AzRecoveryServicesVault 명령을 실행 하 고 구독의 모든 자격 증명 모음이 나열 됩니다.
+AzRecoveryServicesVault 및 구독의 모든 자격 증명 모음이 나열 된 명령을 실행 합니다.
 
 ```powershell
 Get-AzRecoveryServicesVault
@@ -121,7 +121,7 @@ MARSAgentInstaller.exe /q
 
 설치된 프로그램 목록에 에이전트가 표시됩니다. 설치된 프로그램 목록을 보려면 **제어판** > **프로그램** > **프로그램 및 기능**으로 이동합니다.
 
-![에이전트 설치됨](./media/backup-dpm-automation/installed-agent-listing.png)
+![에이전트가 설치됨](./media/backup-dpm-automation/installed-agent-listing.png)
 
 ### <a name="installation-options"></a>설치 옵션
 
@@ -205,7 +205,7 @@ Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSett
 
 ## <a name="configuring-the-staging-area"></a>스테이징 영역 구성
 
-DPM 서버에서 실행 중인 Azure Backup 에이전트에는 클라우드로부터 복원된 데이터를 위한 임시 저장소가 필요합니다(로컬 스테이징 영역). [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) cmdlet과 ```-StagingAreaPath``` 매개 변수를 사용하여 스테이징 영역을 구성합니다.
+DPM 서버에서 실행 중인 Azure Backup 에이전트에는 클라우드로부터 복원된 데이터를 위한 임시 스토리지가 필요합니다(로컬 스테이징 영역). [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) cmdlet과 ```-StagingAreaPath``` 매개 변수를 사용하여 스테이징 영역을 구성합니다.
 
 ```powershell
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -StagingAreaPath "C:\StagingArea"
@@ -238,7 +238,7 @@ Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSett
 
 ## <a name="protect-data-to-azure-backup"></a>Azure Backup에 데이터 보호
 
-이 섹션에서는 DPM에 프로덕션 서버를 추가한 후 데이터를 로컬 DPM 저장소에 보호한 다음 Azure Backup에 보호합니다. 예제에서 파일과 폴더를 백업하는 방법을 보여 줍니다. 논리는 모든 DPM 지원 데이터 소스를 백업하도록 쉽게 확장될 수 있습니다. 모든 DPM 백업은 4개 부분으로 구성된 보호 그룹(PG)에 의해 제어됩니다.
+이 섹션에서는 DPM에 프로덕션 서버를 추가한 후 데이터를 로컬 DPM 스토리지에 보호한 다음 Azure Backup에 보호합니다. 예제에서 파일과 폴더를 백업하는 방법을 보여 줍니다. 논리는 모든 DPM 지원 데이터 소스를 백업하도록 쉽게 확장될 수 있습니다. 모든 DPM 백업은 4개 부분으로 구성된 보호 그룹(PG)에 의해 제어됩니다.
 
 1. **그룹 멤버**는 동일한 보호 그룹 내에서 보호하려는 모든 보호 개체(DPM에서는 *데이터 원본*)의 목록입니다. 예를 들어, 백업 요구 사항이 다르기 때문에 하나의 보호 그룹에서는 프로덕션 VM을 보호하고 다른 보호 그룹에서는 SQL Server 데이터베이스를 보호할 수 있습니다. 프로덕션 서버에 데이터 원본을 백업할 수 있으려면 DPM 에이전트가 서버에 설치되어 있고 DPM에 의해 관리되는지 확인해야 합니다. [DPM 에이전트를 설치](https://technet.microsoft.com/library/bb870935.aspx)하고 해당 DPM 서버에 링크하는 단계를 따릅니다.
 2. **데이터 보호 방법**은 대상 백업 위치(테이프, 디스크 및 클라우드)를 지정합니다. 이 예에서는 데이터를 로컬 디스크와 클라우드에 보호합니다.
@@ -274,7 +274,7 @@ DPM 에이전트가 설치되어 있고 DPM 서버에 의해 관리되고 있는
 $server = Get-ProductionServer -DPMServerName "TestingServer" | Where-Object {($_.servername) –contains “productionserver01”}
 ```
 
-이제 [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605) cmdlet을 사용하여 ```$server```에서 데이터 원본 목록을 가져옵니다. 볼륨에 대 한 필터링이 예제의 *d:\\*  백업을 위해 구성 하려는 합니다. 그런 다음 이 데이터 원본은 [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732) cmdlet을 사용하여 보호 그룹에 추가됩니다. 추가하려면 *수정 가능한* ```$MPG``` 보호 그룹 개체를 사용해야 합니다.
+이제 [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605) cmdlet을 사용하여 ```$server```에서 데이터 원본 목록을 가져옵니다. 이 예제에서는 백업을 위해 구성 하려는 *D:\\*  볼륨을 필터링 합니다. 그런 다음 이 데이터 원본은 [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732) cmdlet을 사용하여 보호 그룹에 추가됩니다. 추가하려면 *수정 가능한* ```$MPG``` 보호 그룹 개체를 사용해야 합니다.
 
 ```powershell
 $DS = Get-Datasource -ProductionServer $server -Inquire | Where-Object { $_.Name -contains “D:\” }

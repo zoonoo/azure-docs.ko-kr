@@ -4,7 +4,7 @@ description: 클라우드에서 대규모 병렬 작업을 실행하도록 Azure
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
 ms.service: batch
@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86747b72c436c4dac3bbf0a752fee4d24cb47f60
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4bf7b894a23f0054485ddb6dbb91c4df2122222
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60722577"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907333"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Azure Portal에서 Batch 계정 만들기
 
-[Azure Portal][azure_portal]에 Azure Batch 계정을 만들고 계산 시나리오에 적합한 계정 속성을 선택하는 방법에 대해 알아봅니다. 액세스 키 및 계정 URL과 같은 중요한 계정 속성을 찾는 위치에 대해 알아봅니다.
+[Azure Portal][azure_portal]에서 Azure Batch 계정을 만들고 계산 시나리오에 맞는 계정 속성을 선택 하는 방법에 대해 알아봅니다. 액세스 키 및 계정 URL과 같은 중요한 계정 속성을 찾는 위치에 대해 알아봅니다.
 
 Batch 계정 및 시나리오에 대한 배경은 [기능 개요](batch-api-basics.md)를 참조하세요.
 
@@ -46,7 +46,7 @@ Batch 계정 및 시나리오에 대한 배경은 [기능 개요](batch-api-basi
 
     b. **리소스 그룹**: 새 Batch 계정에 대한 기존 리소스 그룹을 선택하거나 필요에 따라 새 리소스 그룹을 만듭니다.
 
-    다. **계정 이름**: 선택한 이름은 계정을 만든 Azure 지역 내에서 고유해야 합니다(아래 **위치** 참조). 계정 이름은 소문자 또는 숫자만 포함할 수 있으며 길이는 3-24자여야 합니다.
+    c. **계정 이름**: 선택한 이름은 계정을 만든 Azure 지역 내에서 고유해야 합니다(아래 **위치** 참조). 계정 이름은 소문자 또는 숫자만 포함할 수 있으며 길이는 3-24자여야 합니다.
 
     d. **위치**: Batch 계정을 만들 Azure 지역입니다. 구독 및 리소스 그룹에서 지원하는 지역만 옵션으로 표시됩니다.
 
@@ -109,17 +109,21 @@ Batch 계정 및 시나리오에 대한 배경은 [기능 개요](batch-api-basi
 
 사용자 구독 모드에서 Azure 키 자격 증명 모음은 만들려는 Batch 계정과 동일한 리소스 그룹에 속해야 합니다. Batch를 [사용할 수 있고](https://azure.microsoft.com/regions/services/) 구독에서 지원하는 지역에 리소스 그룹이 있는지 확인합니다.
 
-1. [Azure Portal][azure_portal]에서 **새로 만들기** > **보안** > **Key Vault**를 차례로 선택합니다.
+1. [Azure Portal][azure_portal]에서 **새로 만들기** > **보안** > **Key Vault**을 선택 합니다.
 
 1. **Key Vault 만들기** 페이지에서 키 자격 증명 모음의 이름을 입력하고, Batch 계정에 사용할 지역에 리소스 그룹을 만듭니다. 나머지 설정은 기본값으로 그대로 두고 **만들기**를 선택합니다.
 
-사용자 구독 모드에서 Batch 계정을 만들 때 키 자격 증명 모음에 대한 리소스 그룹을 사용하고, 풀 할당 모드로 **사용자 구독**을 지정하고, 키 자격 증명 모음을 선택합니다.
+사용자 구독 모드에서 Batch 계정을 만들 때 키 자격 증명 모음에 대 한 리소스 그룹을 사용 합니다. **사용자 구독** 을 풀 할당 모드로 지정 하 고, 키 자격 증명 모음을 선택 하 고, 키 자격 증명 모음에 대 한 Azure Batch 액세스 권한을 부여 하는 확인란을 선택 합니다. 
+
+키 자격 증명 모음에 대 한 액세스 권한을 수동으로 부여 하려면 키 자격 증명 모음의 **액세스 정책** 섹션으로 이동 하 여 **액세스 정책 추가** 를 선택 하 고 **Microsoft Azure Batch**를 검색 합니다. 선택한 후에는 드롭다운 메뉴를 사용 하 여 **비밀 권한을** 구성 해야 합니다. Azure Batch에는 최소한 **Get**, **List**, **Set**및 **Delete** 권한이 제공 되어야 합니다.
+
+![Azure Batch에 대 한 보안 권한](./media/batch-account-create-portal/secret-permissions.png)
 
 ### <a name="configure-subscription-quotas"></a>구독 할당량 구성
 
 코어 할당량은 사용자 구독 배치 계정에 기본적으로 설정되지 않습니다. 표준 Batch 코어 할당량은 사용자 구독 모드의 계정에 적용되지 않으므로 코어 할당량을 수동으로 설정해야 합니다.
 
-1. [Azure Portal][azure_portal]에서 사용자 구독 모드 배치 계정을 선택하여 해당 설정과 속성을 표시합니다.
+1. [Azure Portal][azure_portal]에서 사용자 구독 모드 Batch 계정을 선택 하 여 해당 설정 및 속성을 표시 합니다.
 
 1. 왼쪽 메뉴에서 **할당량**을 선택하여 배치 계정과 연결된 코어 할당량을 보고 구성합니다.
 
@@ -135,8 +139,8 @@ Azure Portal을 사용하는 것 외에도 다음을 포함하는 도구로 Batc
 
 ## <a name="next-steps"></a>다음 단계
 
-* Batch 서비스의 개념 및 기능에 대한 자세한 내용은 [Batch 기능 개요](batch-api-basics.md)를 참조하세요. 이 문서에서는 풀, 계산 노드, 작업 및 태스크 등의 기본 Batch 리소스에 대해 설명하고 대규모 계산 워크로드를 위한 서비스 기능 개요를 제공합니다.
-* [Batch .NET 클라이언트 라이브러리](quick-run-dotnet.md) 또는 [Python](quick-run-python.md)을 사용하여 Batch 지원 응용 프로그램 개발에 대한 기본 사항을 알아봅니다. 이러한 빠른 시작에서는 Batch 서비스를 사용하여 여러 계산 노드에서 워크로드를 실행하는 애플리케이션 예제를 단계별로 안내하며, Azure Storage를 사용하여 워크로드 파일을 준비하고 검색하는 방법을 설명합니다.
+* Batch 서비스의 개념 및 기능에 대한 자세한 내용은 [Batch 기능 개요](batch-api-basics.md)를 참조하세요. 이 문서에서는 풀, 컴퓨팅 노드, 작업 및 태스크 등의 기본 Batch 리소스에 대해 설명하고 대규모 컴퓨팅 워크로드를 위한 서비스 기능 개요를 제공합니다.
+* [Batch .NET 클라이언트 라이브러리](quick-run-dotnet.md) 또는 [Python](quick-run-python.md)을 사용하여 Batch 지원 애플리케이션 개발에 대한 기본 사항을 알아봅니다. 이러한 빠른 시작에서는 Batch 서비스를 사용하여 여러 컴퓨팅 노드에서 워크로드를 실행하는 애플리케이션 예제를 단계별로 안내하며, Azure Storage를 사용하여 워크로드 파일을 준비하고 검색하는 방법을 설명합니다.
 
 [azure_portal]: https://portal.azure.com
 [batch_pricing]: https://azure.microsoft.com/pricing/details/batch/

@@ -36,7 +36,7 @@ ms.locfileid: "67442739"
 
 거의 실시간 분석 시스템을 위한 가장 간단한 디자인은 무한 루프로, 여기서는 각 반복에서 프레임을 잡아 분석한 다음, 결과를 사용합니다.
 
-```CSharp
+```csharp
 while (true)
 {
     Frame f = GrabFrame();
@@ -54,7 +54,7 @@ while (true)
 
 간단한 단일 스레드 루프는 경량 클라이언트 쪽 알고리즘에 적합하지만 클라우드 API 호출과 관련된 대기 시간에는 적합하지 않습니다. 이 문제에 대한 해결 방법은 프레임 잡기를 사용하여 장기 실행 API 호출이 병렬로 실행될 수 있도록 하는 것입니다. 예를 들어 C#에서 작업 기반 병렬 처리를 사용하여 이 작업을 완수할 수 있었습니다.
 
-```CSharp
+```csharp
 while (true)
 {
     Frame f = GrabFrame();
@@ -75,7 +75,7 @@ while (true)
 
 최종 “생산자-소비자” 시스템에서는 이전의 무한 루프와 유사한 생산자 스레드가 있습니다. 그러나 분석 결과가 제공되는 즉시 사용하는 대신 생산자는 단순히 작업을 큐에 배치하여 추적합니다.
 
-```CSharp
+```csharp
 // Queue that will contain the API call tasks. 
 var taskQueue = new BlockingCollection<Task<ResultWrapper>>();
      
@@ -112,7 +112,7 @@ while (true)
 
 또한 큐에서 작업을 시작하고 완료될 때까지 기다린 다음, 결과를 표시하거나 throw된 예외를 발생하는 소비자 스레드도 있습니다. 큐를 사용하면 시스템의 최대 프레임 속도를 제한하지 않고 결과가 한 번에 하나씩, 올바른 순서로 사용되도록 할 수 있습니다.
 
-```CSharp
+```csharp
 // Consumer thread. 
 while (true)
 {
@@ -144,7 +144,7 @@ while (true)
 
 몇 가지 가능성을 설명하기 위해 라이브러리를 사용하는 두 개의 샘플 앱이 있습니다. 첫 번째는 간단한 콘솔 앱이며, 간소화된 버전이 아래에 재현되어 있습니다. 이 앱은 기본 웹캠에서 프레임을 잡아 얼굴 감지를 위해 Face API에 제출합니다.
 
-```CSharp
+```csharp
 using System;
 using VideoFrameAnalyzer;
 using Microsoft.ProjectOxford.Face;

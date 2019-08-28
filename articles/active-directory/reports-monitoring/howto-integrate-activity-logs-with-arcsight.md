@@ -1,9 +1,9 @@
 ---
-title: Azure Monitor를 사용 하 여 ArcSight를 사용 하 여 Azure Active Directory 로그를 통합 하는 방법 | Microsoft Docs
-description: Azure Monitor를 사용 하 여 ArcSight와 Azure Active Directory 로그를 통합 하는 방법 알아보기
+title: Azure Monitor를 사용 하 여 ArcSight와 Azure Active Directory 로그를 통합 하는 방법 Microsoft Docs
+description: 를 사용 하 여 ArcSight와 Azure Active Directory 로그를 통합 하는 방법을 알아봅니다 Azure Monitor
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: b37bef0d-982e-4e28-86b2-6c61ca524ae1
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/19/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08a265637274f396497da37706391bf44e0c9107
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6e4f0f81c5f135e885fe06d4fb4fa67514e8781b
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60437025"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988151"
 ---
 # <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Azure Monitor를 사용 하 여 ArcSight와 Azure Active Directory 로그 통합
 
@@ -30,7 +30,7 @@ ms.locfileid: "60437025"
 
 이 문서에서는 Azure Monitor를 사용하여 ArcSight로 Azure AD 로그를 라우팅하는 방법을 배웁니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 기능을 사용하려면 다음이 필요합니다.
 * Azure AD 활동 로그를 포함하는 Azure 이벤트 허브입니다. [활동 로그를 이벤트 허브로 스트림](quickstart-azure-monitor-stream-logs-to-event-hub.md)하는 방법을 알아봅니다. 
@@ -50,7 +50,7 @@ ms.locfileid: "60437025"
 3. **Azure에서 배포 확인**의 단계를 사용하여 커넥터가 제대로 설정되어 기능하는지 확인합니다. 다음 사항을 확인합니다.
     * 필수 Azure 함수는 Azure 구독에서 만들어집니다.
     * Azure AD 로그가 올바른 대상으로 스트리밍됩니다. 
-    * 배포의 애플리케이션 설정은 Azure Function Apps의 애플리케이션 설정에서 그대로 유지됩니다. 
+    * 배포의 애플리케이션 설정은 Azure 함수 앱의 애플리케이션 설정에서 그대로 유지됩니다. 
     * ArcSight 커넥터에 대한 Azure AD 애플리케이션과 CEF 형식으로 매핑된 파일을 포함한 스토리지 계정과 함께, ArcSight에 대한 새 리소스 그룹이 Azure에 생성됩니다.
 
 4. 마지막으로, 구성 가이드의 **배포 후 구성**에 있는 배포 후 단계를 완료합니다. 이 섹션에서는 App Service 계획을 사용하고 있는 경우 함수 앱이 일정한 시간 제한 기간 후 유휴 상태가 되지 않도록 추가 구성을 실행하고 이벤트 허브에서 진단 로그 스트리밍을 구성하며 새로 만들어진 스토리지 계정과 연결하도록 SysLog NG Daemon SmartConnector 키 스토리지 인증서를 업데이트하는 방법에 대해 설명합니다.

@@ -155,7 +155,7 @@ SecurityEvent
 위의 시간 필터에서 `ago(30m)`는 "30분 전"을 의미하므로 이 쿼리는 최근 30분의 레코드만을 반환합니다. 기타 시간 단위에는 일(2d), 분(25m) 및 초(10s)가 포함됩니다.
 
 
-## <a name="project-and-extend-select-and-compute-columns"></a>Project 및 Extend: 열 선택 및 계산
+## <a name="project-and-extend-select-and-compute-columns"></a>Project 및 Extend: 열 선택 및 컴퓨팅
 **project**를 사용하여 결과에 포함할 특정 열을 선택합니다.
 
 ```Kusto

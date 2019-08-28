@@ -1,10 +1,10 @@
 ---
 title: Azure 클래식 CLI를 사용하여 전체 Linux 환경 만들기 | Microsoft Docs
-description: Azure 클래식 CLI를 사용하여 저장소, Linux VM, 가상 네트워크 및 서브넷, 부하 분산 장치, NIC, 공용 IP, 네트워크 보안 그룹을 모두 처음부터 새로 만듭니다.
+description: Azure 클래식 CLI를 사용하여 스토리지, Linux VM, 가상 네트워크 및 서브넷, 부하 분산 디바이스, NIC, 공용 IP, 네트워크 보안 그룹을 모두 처음부터 새로 만듭니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 4ba4060b-ce95-4747-a735-1d7c68597a1a
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 04c1d69fc46b9a918038e93c4fc56681f225d365
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5fbcbc63b3038151a7d45a70ce88eb7ca9829fe5
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60328717"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668020"
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-classic-cli"></a>Azure 클래식 CLI를 사용하여 전체 Linux 환경 만들기
 이 문서에서는 개발 및 간단한 계산에 유용한 부하 분산 장치와 한 쌍의 VM을 사용하여 간단한 네트워크를 빌드해 보겠습니다. 인터넷 어디에서나 안전하게 실행되는 두 개의 Linux VM에 연결할 수 있을 때까지 프로세스를 명령별로 진행합니다. 그 후에는 좀 더 복잡한 네트워크 및 환경으로 넘어갈 수 있습니다.
@@ -66,14 +66,14 @@ JSON 파서를 사용하여 리소스 그룹을 확인합니다.
 azure group show myResourceGroup --json | jq '.'
 ```
 
-저장소 계정을 만듭니다. 다음 예제에서는 `mystorageaccount`라는 저장소 계정을 만듭니다. (저장소 계정 이름은 고유해야 하므로 자신만의 이름을 제공하세요.)
+스토리지 계정을 만듭니다. 다음 예제에서는 `mystorageaccount`라는 스토리지 계정을 만듭니다. 스토리지 계정 이름은 고유해야 하므로 자신만의 이름을 제공하세요.
 
 ```azurecli
 azure storage account create -g myResourceGroup -l westeurope \
   --kind Storage --sku-name GRS mystorageaccount
 ```
 
-JSON 파서를 사용하여 저장소 계정을 확인합니다.
+JSON 파서를 사용하여 스토리지 계정을 확인합니다.
 
 ```azurecli
 azure storage account show -g myResourceGroup mystorageaccount --json | jq '.'
@@ -285,7 +285,7 @@ Azure 리소스 그룹은 리소스 배포를 논리적으로 관리할 수 있�
 azure group create --name myResourceGroup --location westeurope
 ```
 
-출력
+출력:
 
 ```azurecli                        
 info:    Executing command group create
@@ -301,10 +301,10 @@ data:
 info:    group create command OK
 ```
 
-## <a name="create-a-storage-account"></a>저장소 계정 만들기
-VM 디스크 및 추가하려는 추가 데이터 디스크에 대한 저장소 계정이 필요합니다. 리소스 그룹을 만든 후 거의 즉시 저장소 계정을 만들게 됩니다.
+## <a name="create-a-storage-account"></a>스토리지 계정 만들기
+VM 디스크 및 추가하려는 추가 데이터 디스크에 대한 스토리지 계정이 필요합니다. 리소스 그룹을 만든 후 거의 즉시 스토리지 계정을 만들게 됩니다.
 
-여기서는 `azure storage account create` 명령을 사용하여 계정 위치, 계정을 제어할 리소스 그룹, 원하는 저장소 지원 형식을 전달합니다. 다음 예제에서는 `mystorageaccount`라는 저장소 계정을 만듭니다.
+여기서는 `azure storage account create` 명령을 사용하여 계정 위치, 계정을 제어할 리소스 그룹, 원하는 스토리지 지원 형식을 전달합니다. 다음 예제에서는 `mystorageaccount`라는 스토리지 계정을 만듭니다.
 
 ```azurecli
 azure storage account create \  
@@ -314,7 +314,7 @@ azure storage account create \
   mystorageaccount
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command storage account create
@@ -328,7 +328,7 @@ info:    storage account create command OK
 azure group show myResourceGroup --json | jq '.'
 ```
 
-출력
+출력:
 
 ```json
 {
@@ -360,19 +360,19 @@ azure group show myResourceGroup --json | jq '.'
 }
 ```
 
-CLI를 사용하여 저장소 계정을 조사하려면 먼저 계정 이름과 키를 설정해야 합니다. 다음 예제의 저장소 계정 이름을 원하는 이름으로 바꿉니다.
+CLI를 사용하여 스토리지 계정을 조사하려면 먼저 계정 이름과 키를 설정해야 합니다. 다음 예제의 스토리지 계정 이름을 원하는 이름으로 바꿉니다.
 
 ```bash
 export AZURE_STORAGE_CONNECTION_STRING="$(azure storage account connectionstring show mystorageaccount --resource-group myResourceGroup --json | jq -r '.string')"
 ```
 
-그러면 저장소 정보를 쉽게 볼 수 있습니다.
+그러면 스토리지 정보를 쉽게 볼 수 있습니다.
 
 ```azurecli
 azure storage container list
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command storage container list
@@ -391,7 +391,7 @@ azure network vnet create --resource-group myResourceGroup --location westeurope
   --name myVnet --address-prefixes 192.168.0.0/16
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command network vnet create
@@ -414,7 +414,7 @@ json 옵션 `azure group show` 및 `jq`를 사용하여 리소스를 빌드하�
 azure group show myResourceGroup --json | jq '.'
 ```
 
-출력
+출력:
 
 ```json
 {
@@ -460,7 +460,7 @@ azure network vnet subnet create --resource-group myResourceGroup \
   --vnet-name myVnet --name mySubnet --address-prefix 192.168.1.0/24
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command network vnet subnet create
@@ -482,7 +482,7 @@ info:    network vnet subnet create command OK
 azure network vnet show myResourceGroup myVnet --json | jq '.'
 ```
 
-출력
+출력:
 
 ```json
 {
@@ -521,7 +521,7 @@ azure network public-ip create --resource-group myResourceGroup \
   --location westeurope --name myPublicIP --domain-name-label mypublicdns
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command network public-ip create
@@ -546,7 +546,7 @@ info:    network public-ip create command OK
 azure group show myResourceGroup --json | jq '.'
 ```
 
-출력
+출력:
 
 ```json
 {
@@ -598,7 +598,7 @@ azure group show myResourceGroup --json | jq '.'
 azure network public-ip show myResourceGroup myPublicIP --json | jq '.'
 ```
 
-출력
+출력:
 
 ```json
 {
@@ -625,7 +625,7 @@ azure network lb create --resource-group myResourceGroup --location westeurope \
   --name myLoadBalancer
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command network lb create
@@ -649,7 +649,7 @@ azure network lb frontend-ip create --resource-group myResourceGroup \
   --name myFrontEndPool
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command network lb frontend-ip create
@@ -672,7 +672,7 @@ azure network lb address-pool create --resource-group myResourceGroup \
   --lb-name myLoadBalancer --name myBackEndPool
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command network lb address-pool create
@@ -689,7 +689,7 @@ info:    network lb address-pool create command OK
 azure network lb show myResourceGroup myLoadBalancer --json | jq '.'
 ```
 
-출력
+출력:
 
 ```json
 {
@@ -737,7 +737,7 @@ azure network lb inbound-nat-rule create --resource-group myResourceGroup \
   --protocol tcp --frontend-port 4222 --backend-port 22
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command network lb inbound-nat-rule create
@@ -774,7 +774,7 @@ azure network lb rule create --resource-group myResourceGroup \
   --backend-address-pool-name myBackEndPool
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command network lb rule create
@@ -805,7 +805,7 @@ azure network lb probe create --resource-group myResourceGroup \
   --interval 15 --count 4
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command network lb probe create
@@ -839,7 +839,7 @@ azure network lb show --resource-group myResourceGroup \
   --name myLoadBalancer --json | jq '.'
 ```
 
-출력
+출력:
 
 ```json
 {
@@ -969,7 +969,7 @@ azure network nic create --resource-group myResourceGroup --location westeurope 
   --lb-inbound-nat-rule-ids /subscriptions/########-####-####-####-############/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/inboundNatRules/myLoadBalancerRuleSSH1
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command network nic create
@@ -1002,7 +1002,7 @@ info:    network nic create command OK
 azure network nic show myResourceGroup myNic1 --json | jq '.'
 ```
 
-출력
+출력:
 
 ```json
 {
@@ -1112,7 +1112,7 @@ azure availset create --resource-group myResourceGroup --location westeurope
 [VM의 가용성 관리](manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 대한 자세한 내용을 참조하세요.
 
 ## <a name="create-the-linux-vms"></a>Linux VM 만들기
-인터넷에서 액세스 가능한 VM을 지원하기 위해 저장소 및 네트워크 리소스를 만들었습니다. 이제 해당 VM을 만들고 암호 없이 SSH 키를 사용하여 VM을 보호하겠습니다. 이 예에서는 가장 최근의 LTS를 기반으로 Ubuntu VM을 만들겠습니다. [Azure VM 이미지 찾기](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 설명된 대로 `azure vm image list`를 사용하여 해당 이미지 정보를 찾을 것입니다.
+인터넷에서 액세스 가능한 VM을 지원하기 위해 스토리지 및 네트워크 리소스를 만들었습니다. 이제 해당 VM을 만들고 암호 없이 SSH 키를 사용하여 VM을 보호하겠습니다. 이 예에서는 가장 최근의 LTS를 기반으로 Ubuntu VM을 만들겠습니다. [Azure VM 이미지 찾기](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 설명된 대로 `azure vm image list`를 사용하여 해당 이미지 정보를 찾을 것입니다.
 
 `azure vm image list westeurope canonical | grep LTS`명령을 사용하여 이미지는 선택했습니다. 이 경우 `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`을 사용합니다. 나중에 항상 가장 최근 빌드를 가져오도록 마지막 필드에는 `latest` 를 제공합니다. (사용하는 문자열은 `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`입니다.)
 
@@ -1141,7 +1141,7 @@ azure vm create \
   --admin-username azureuser
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command vm create
@@ -1166,7 +1166,7 @@ info:    vm create command OK
 ssh ops@mypublicdns.westeurope.cloudapp.azure.com -p 4222
 ```
 
-출력
+출력:
 
 ```bash
 The authenticity of host '[mypublicdns.westeurope.cloudapp.azure.com]:4222 ([xx.xx.xx.xx]:4222)' can't be established.
@@ -1212,7 +1212,7 @@ azure vm create \
 azure vm show --resource-group myResourceGroup --name myVM1
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command vm show
@@ -1286,7 +1286,7 @@ azure group deployment create --resource-group myNewResourceGroup \
   --template-file myResourceGroup.json
 ```
 
-[템플릿에서 배포하는 방법에 대해 자세히 읽어볼 수 있습니다](../../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 환경을 점진적으로 업데이트하고, 매개 변수 파일을 사용하고, 단일 저장소 위치에서 템플릿에 액세스하는 방법을 알아봅니다.
+[템플릿에서 배포하는 방법에 대해 자세히 읽어볼 수 있습니다](../../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 환경을 점진적으로 업데이트하고, 매개 변수 파일을 사용하고, 단일 스토리지 위치에서 템플릿에 액세스하는 방법을 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 이제 여러 네트워킹 구성 요소 및 VM을 사용할 준비가 되셨습니다. 이 샘플 환경에 사용하여 여기에 소개된 핵심 구성 요소로 애플리케이션을 빌드할 수 있습니다.

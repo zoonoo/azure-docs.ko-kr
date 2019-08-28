@@ -22,7 +22,7 @@ sections:
   - title: 5분 빠른 시작
     items:
       - type: paragraph
-        text: 화살표 링크를 선택하여 Azure API for FHIR이 Azure에서 어떻게 의료 상호 운용성을 지원하는지 알아보세요. <img src="media/index/link.jpg" height="15" width="15"></img>.
+        text: 화살표 링크를 선택하여 Azure API for FHIR 미리 보기가 Azure에서 의료 상호 운용성을 지원하는 방법 알아보기 <img src="media/index/link.jpg" height="15" width="15"></img>.
       - type: table
         style: dataMatrix
         columns:

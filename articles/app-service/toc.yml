@@ -63,12 +63,12 @@
       href: samples-resource-manager-templates.md
 - name: 개념
   items:
-    - name: App Service 작동 방법
-      href: app-service-how-works-readme.md
     - name: App Service 계획
       href: overview-hosting-plans.md
     - name: OS 기능
       href: operating-system-functionality.md
+    - name: 배포 모범 사례
+      href: deploy-best-practices.md
     - name: 보안
       items:
         - name: 권장 사항
@@ -105,6 +105,10 @@
           href: web-sites-php-configure.md
         - name: Java 구성
           href: configure-language-java.md
+        - name: 온-프레미스 리소스에 연결
+          href: web-sites-integrate-with-vnet.md
+        - name: Azure Storage(컨테이너) 구성
+          href: configure-connect-to-azure-storage.md
     - name: Deploy to Azure
       items:
         - name: 앱 배포
@@ -166,7 +170,7 @@
     - name: 앱 크기 조정
       items:
         - name: 서버 용량 강화
-          href: web-sites-scale.md
+          href: manage-scale-up.md
         - name: PremiumV2 계층 구성
           href: app-service-configure-premium-tier.md
         - name: 여러 인스턴스로 규모 확장
@@ -215,6 +219,8 @@
       href: /azure/templates/microsoft.web/allversions
 - name: 리소스
   items:
+    - name: App Service 블로그
+      href: 'https://aka.ms/appserviceblog'
     - name: Microsoft Learn을 통해 기술 쌓기
       href: /learn/browse/
     - name: Azure 로드맵
@@ -225,6 +231,8 @@
       href: '../azure-subscription-service-limits.md#app-service-limits'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=app-service'
+    - name: Migration Assistant 가이드
+      href: 'https://github.com/Azure/App-Service-Migration-Assistant/tree/master/MigrationDocs'
     - name: 모범 사례
       href: app-service-best-practices.md
     - name: 샘플

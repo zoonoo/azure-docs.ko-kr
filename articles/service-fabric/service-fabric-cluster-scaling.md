@@ -3,9 +3,8 @@ title: Azure Service Fabric 클러스터 크기 조정 | Microsoft Docs
 description: Azure Service Fabric 클러스터의 스케일 인 또는 스케일 아웃, 규모 확장 또는 규모 축소에 대해 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
-editor: aljo
 ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/13/2018
-ms.author: aljo
-ms.openlocfilehash: cb9cb3998ed8208ff7b19aee8a984e4c057408ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: c4d7027438f19cd16fd87d629364cdf725e91607
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66302256"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599851"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Azure Service Fabric 클러스터 크기 조정
 Service Fabric 클러스터는 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 머신 집합입니다. 클러스터의 일부인 머신 또는 VM을 노드라고 합니다. 클러스터는 잠재적으로 수천 개의 노드를 포함할 수 있습니다. Service Fabric 클러스터를 만든 후에 수평으로(노드 수 변경) 또는 수직으로(노드의 리소스 변경) 클러스터 크기를 조정할 수 있습니다.  클러스터에서 워크로드가 실행되는 경우에도 언제든지 클러스터의 크기를 조정할 수 있습니다.  클러스터의 크기를 조정하면 애플리케이션 크기도 자동으로 조정됩니다.
@@ -32,7 +31,7 @@ Service Fabric 클러스터는 마이크로 서비스가 배포되고 관리되�
 - 장점 이론적으로는 제한 없이 확장할 수 있습니다.  애플리케이션이 확장 가능하게 디자인된 경우, 더 많은 노드를 추가하여 제한없이 증가할 수 있습니다.  클라우드 환경의 도구를 사용하면 노드를 손쉽게 추가 또는 제거할 수 있으므로 용량을 쉽게 조정할 수 있고, 사용한 리소스에 대해서만 비용을 지불하게 됩니다.  
 - 단점 애플리케이션을 [확장 가능하게 디자인](service-fabric-concepts-scalability.md)해야 합니다.  애플리케이션 데이터베이스 및 지속성도 확장하려면 추가적인 아키텍처 작업이 필요할 수 있습니다.  그렇지만 Service Fabric 상태 저장 서비스의 [신뢰할 수 있는 컬렉션](service-fabric-reliable-services-reliable-collections.md)을 사용하면 애플리케이션 데이터를 훨씬 더 쉽게 확장할 수 있습니다.
 
-가상 머신 확장 집합은 가상 머신의 컬렉션을 집합으로 배포하고 관리하는 데 사용할 수 있는 Azure 계산 리소스입니다. Azure 클러스터에 정의된 모든 노드 유형은 [별도의 확장 집합으로 설정](service-fabric-cluster-nodetypes.md)됩니다. 각 노드 형식은 독립적으로 확장 또는 축소되고, 다른 포트의 집합을 열며 다른 용량 메트릭을 가질 수 있습니다. 
+가상 머신 확장 집합은 가상 머신의 컬렉션을 집합으로 배포하고 관리하는 데 사용할 수 있는 Azure 컴퓨팅 리소스입니다. Azure 클러스터에 정의된 모든 노드 유형은 [별도의 확장 집합으로 설정](service-fabric-cluster-nodetypes.md)됩니다. 각 노드 형식은 독립적으로 확장 또는 축소되고, 다른 포트의 집합을 열며 다른 용량 메트릭을 가질 수 있습니다. 
 
 Azure 클러스터 크기를 조정할 때는 다음 지침에 유의하세요.
 - 프로덕션 워크로드를 실행하는 주 노드 형식에는 항상 5개 이상의 노드가 있어야 합니다.
@@ -47,7 +46,7 @@ Azure 클러스터 크기를 조정할 때는 다음 지침에 유의하세요.
 ### <a name="programmatic-scaling"></a>프로그래밍 방식으로 크기 조정
 많은 시나리오에서 [수동으로 또는 자동 크기 조정 규칙을 통해 클러스터 크기를 조정](service-fabric-cluster-scale-up-down.md)하는 것은 적절한 해결 방법입니다. 그러나 고급 시나리오에서는 이 방법이 적절하지 않을 수 있습니다. 이러한 접근 방식의 잠재적 단점은 다음과 같습니다.
 
-- 수동으로 확장에 로그인 하 여 명시적으로 크기 조정 작업을 요청 해야 합니다. 크기 조정 작업을 자주 또는 예기치 않은 시점에 수행해야 하는 경우에는 이 방법이 좋지 않을 수 있습니다.
+- 수동으로 크기를 조정 하려면 로그인 하 고 크기 조정 작업을 명시적으로 요청 해야 합니다. 크기 조정 작업을 자주 또는 예기치 않은 시점에 수행해야 하는 경우에는 이 방법이 좋지 않을 수 있습니다.
 - 자동 크기 조정 규칙은 가상 머신 확장 집합에서 인스턴스를 제거할 때 노드 형식의 내구성 수준이 Silver 또는 Gold가 아닌 한 연결된 Service Fabric 클러스터에서 해당 노드의 지식을 제거하지 않습니다. 자동 크기 조정 규칙은 Service Fabric 수준이 아닌 확장 집합 수준에서 작동하기 때문에 Service Fabric 노드를 정상적으로 종료하지 않아도 자동 크기 조정 규칙이 Service Fabric 노드를 제거할 수 있습니다. 이 강제 노드 제거는 규모 감축 작업 후 'ghost' Service Fabric 노드 상태를 남깁니다. 개인(또는 서비스)은 Service Fabric 클러스터에서 제거된 노드 상태를 주기적으로 정리해야 합니다.
 - 내구성 수준이 Gold 또는 Silver인 노드 유형은 제거된 노드를 자동으로 정리하므로 추가 정리가 필요하지 않습니다.
 - 자동 크기 조정 규칙이 지원되는 [여러 메트릭](../azure-monitor/platform/autoscale-common-metrics.md)이 있지만 아직은 제한된 집합입니다. 이 집합에 포함되지 않는 일부 메트릭을 기반으로 하는 크기 조정이 필요한 시나리오의 경우 자동 크기 조정 규칙은 좋은 옵션이 아닐 수 있습니다.
@@ -65,11 +64,11 @@ Service Fabric 크기 조정에 접근하는 방식은 시나리오에 달렸습
 이러한 제한에 따라 [보다 사용자 지정된 자동 크기 조정 모델을 구현](service-fabric-cluster-programmatic-scaling.md)하고자 할 수 있습니다.
 
 ## <a name="scaling-up-and-down-or-vertical-scaling"></a>규모 확장 및 축소 또는 수직적 크기 조정 
-클러스터에 있는 노드의 리소스(CPU, 메모리 또는 저장소)를 변경합니다.
+클러스터에 있는 노드의 리소스(CPU, 메모리 또는 스토리지)를 변경합니다.
 - 장점 소프트웨어 및 애플리케이션 아키텍처가 동일하게 유지됩니다.
 - 단점 개별 노드에서 늘릴 수 있는 리소스 양이 제한되어 있으므로 확장 한계가 있습니다. 리소스를 추가하거나 제거하기 위해 물리적 컴퓨터 또는 가상 머신을 오프라인으로 전환해야 하므로 가동 중지 시간이 발생합니다.
 
-가상 머신 확장 집합은 가상 머신의 컬렉션을 집합으로 배포하고 관리하는 데 사용할 수 있는 Azure 계산 리소스입니다. Azure 클러스터에 정의된 모든 노드 유형은 [별도의 확장 집합으로 설정](service-fabric-cluster-nodetypes.md)됩니다. 각 노드 형식을 별도로 관리할 수 있습니다.  노드 형식의 규모를 확장 또는 축소할 경우 확장 집합에 있는 가상 머신 인스턴스의 SKU가 변경됩니다. 
+가상 머신 확장 집합은 가상 머신의 컬렉션을 집합으로 배포하고 관리하는 데 사용할 수 있는 Azure 컴퓨팅 리소스입니다. Azure 클러스터에 정의된 모든 노드 유형은 [별도의 확장 집합으로 설정](service-fabric-cluster-nodetypes.md)됩니다. 각 노드 형식을 별도로 관리할 수 있습니다.  노드 형식의 규모를 확장 또는 축소할 경우 확장 집합에 있는 가상 머신 인스턴스의 SKU가 변경됩니다. 
 
 > [!WARNING]
 > [실버 내구성 이상](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster)에서 실행되는 경우가 아니면 확장 집합/노드 형식의 VM SKU를 변경하지 않는 것이 좋습니다. VM SKU 크기 변경은 데이터 파괴적 내부 인프라 작업입니다. 이러한 변경을 지연하거나 모니터링하는 기능이 없으면 이러한 작업으로 인해 상태 저장 서비스에 대해 데이터 손실이 발생하거나 상태 비저장 워크로드의 경우에도 예기치 못한 다른 작동 문제가 발생할 수 있습니다. 
@@ -81,7 +80,7 @@ Azure 클러스터 크기를 조정할 때는 다음 지침에 유의하세요.
 노드 형식 규모 확장 또는 축소 프로세스는 주 노드 형식인지 아닌지에 따라 달라집니다.
 
 ### <a name="scaling-non-primary-node-types"></a>주가 아닌 노드 형식 크기 조정
-필요한 리소스를 사용하여 새 노드 형식을 만듭니다.  새 노드 형식을 포함하도록 실행 중인 서비스의 배치 제약 조건을 업데이트합니다.  클러스터의 안정성에 영향을 주지 않도록 점진적으로(한 번에 하나씩) 이전 노드 형식 인스턴스의 수를 0까지 줄입니다.  이전 노드 형식이 서비스 해제 되었습니다.으로 새 노드 형식에 서비스 점진적으로 마이그레이션됩니다.
+필요한 리소스를 사용하여 새 노드 형식을 만듭니다.  새 노드 형식을 포함하도록 실행 중인 서비스의 배치 제약 조건을 업데이트합니다.  클러스터의 안정성에 영향을 주지 않도록 점진적으로(한 번에 하나씩) 이전 노드 형식 인스턴스의 수를 0까지 줄입니다.  이전 노드 유형이 서비스 해제 됨에 따라 서비스는 새 노드 유형으로 점진적으로 마이그레이션됩니다.
 
 ### <a name="scaling-the-primary-node-type"></a>주 노드 형식 크기 조정
 주 노드 형식의 VM SKU는 변경하지 않는 것이 좋습니다. 클러스터 용량이 더 필요한 경우 인스턴스를 더 추가하는 것이 좋습니다. 

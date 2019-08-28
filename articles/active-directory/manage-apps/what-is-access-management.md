@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f86dfd414309e8420dc19c92c1cd20c40a5a13a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 99c7947b6469f64f2ea05b2290305710db1ee796
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108177"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477104"
 ---
 # <a name="managing-access-to-apps"></a>앱에 대한 액세스 관리
 앱이 조직의 ID 시스템에 통합된 후에 진행 중인 액세스 관리, 사용 평가 및 보고는 계속 쉽지 않을 것입니다. 대부분의 경우 IT 관리자나 기술 지원팀이 앱에 대한 액세스를 관리하는 데 지속적이고 적극적인 역할을 맡습니다. 경우에 따라 할당은 일반 또는 부서 IT 팀에서 수행됩니다. 종종 할당 의사 결정은 비즈니스 의사 결정자에게 위임되며 IT가 할당을 수행하기 전에 승인을 필요로 합니다.  다른 조직에서는 역할 기반 Access Control(RBAC) 또는 특성 기반 Access Control(ABAC)과 같은 기존의 자동화된 ID 및 액세스 관리 시스템의 통합에 투자합니다. 통합 및 규칙 개발은 모두 전문화되고 비용이 높은 경향이 있습니다. 관리 방법에 대한 모니터링 또는 보고는 별도로 비용이 드는 복잡한 투자입니다.
@@ -27,7 +27,7 @@ ms.locfileid: "67108177"
 ## <a name="how-does-azure-active-directory-help"></a>Azure Active Directory는 어떻게 지원합니까?
  Azure AD는 구성된 애플리케이션에 대한 광범위한 액세스 관리를 지원하며 이는 조직이 위임을 통해 자동으로 특성 기반 할당(ABAC 또는 RBAC 시나리오)에 걸쳐서 관리자 관리를 포함하는 올바른 액세스 정책을 쉽게 달성할 수 있도록 합니다. Azure AD를 사용하여 단일 애플리케이션에 여러 관리 모델을 결합하는 복잡한 정책을 쉽게 달성할 수 있으며 동일한 대상 그룹이 있는 애플리케이션에서 관리 규칙을 다시 사용할 수도 있습니다.
 
-* [신규 또는 기존 애플리케이션 추가](configure-single-sign-on-portal.md)
+* [신규 또는 기존 애플리케이션 추가](add-gallery-app.md)
 
   Azure AD의 애플리케이션 할당은 두 가지 기본 할당 모드에 중점을 둡니다.
 
@@ -51,7 +51,7 @@ Azure AD를 사용하여 Single Sign-On(SSO) 및 자동화된 프로비전에 Sa
 
 이 경우 해당 역할 할당이 Salesforce에서 업데이트된 다른 그룹에 추가되면서 모든 할당된 사용자는 자동으로 Salesforce에 프로비전됩니다. 사용자는 Microsoft 애플리케이션 액세스 패널, Office 웹 클라이언트를 통하거나 해당 조직의 Salesforce 로그인 페이지로 이동하여 Salesforce를 검색하고 액세스할 수 있습니다. 관리자는 Azure AD 보고를 사용하여 사용 및 할당 상태를 쉽게 볼 수 있습니다.
 
-관리자가 사용할 수 있습니다 [Azure AD 조건부 액세스](../active-directory-conditional-access-azure-portal.md) 특정 역할에 대 한 액세스 정책을 설정할 수 있습니다. 이러한 정책은 기업 환경 외부 및 Multi-Factor Authentication 또는 디바이스 요구에 액세스가 허용되는지 여부를 포함하여 다양한 경우에 액세스를 달성할 수 있습니다.
+관리자는 [AZURE AD 조건부 액세스](../active-directory-conditional-access-azure-portal.md) 를 사용 하 여 특정 역할에 대 한 액세스 정책을 설정할 수 있습니다. 이러한 정책은 기업 환경 외부 및 Multi-Factor Authentication 또는 디바이스 요구에 액세스가 허용되는지 여부를 포함하여 다양한 경우에 액세스를 달성할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [조건부 액세스를 사용 하 여 앱 보호](../active-directory-conditional-access-azure-portal.md)

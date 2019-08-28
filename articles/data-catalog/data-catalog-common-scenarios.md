@@ -1,19 +1,17 @@
 ---
 title: Azure 데이터 카탈로그 일반적인 시나리오
 description: 높은 가치의 데이터 원본 등록 및 검색을 포함한 Azure Data Catalog에 대한 일반적인 시나리오의 개요를 통해 셀프서비스 비즈니스 인텔리전스를 실현하고 데이터 원본과 프로세스에 대한 기존 정보를 획득합니다.
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 60930d78-d2d4-4d5d-9651-bdda50b0da0e
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: e95cc64b9086a6fb4c5e2d42521a5fd3f44244ba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: aeae505b510f563a6640726c384ea358983eb24f
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61003959"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736452"
 ---
 # <a name="azure-data-catalog-common-scenarios"></a>Azure 데이터 카탈로그 일반적인 시나리오
 이 문서에서는 조직에서 Azure Data Catalog를 통해 기존 데이터 원본에서 더 많은 가치를 얻을 수 있는 일반적인 시나리오를 보여줍니다.
@@ -47,7 +45,7 @@ Azure Data Catalog를 사용하면 조직에서 이 반복되는 활동을 없�
 
 이 시나리오에서는 셀프 서비스 BI에 중점을 두고 있지만 대규모 기업 BI 프로젝트에도 동일한 패턴과 과제가 적용됩니다. Data Catalog를 사용하면 조직에서 데이터 원본 수동 검색 프로세스가 개입되는 모든 활동을 개선할 수 있습니다.
 
-## <a name="scenario-3-capturing-tribal-knowledge"></a>시나리오 3: 에 관한 정보
+## <a name="scenario-3-capturing-tribal-knowledge"></a>시나리오 3: 부족 기술 자료 캡처
 작업을 수행하는 데 어떤 데이터가 필요하고 해당 데이터가 어디에 있는지 어떻게 알 수 있나요?
 
 일정 시간 동안 일하면 아마도 그냥 알게 될 것입니다. 점진적 학습 과정을 겪고 시간이 지남에 따라 일상적인 작업에 중요한 데이터 원본에 대해 배우게 됩니다.

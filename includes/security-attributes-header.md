@@ -2,24 +2,15 @@
 author: msmbaldwin
 ms.service: security
 ms.topic: include
-ms.date: 04/17/2019
+ms.date: 07/23/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cd0ab47a46e452701307986d3fbfc7cdfe040c58
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 4aea8c1d1d7112ac1f9ff9042ff01d173ed986c5
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67181921"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68440871"
 ---
-보안 특성을 품질 또는 예방, 감지 및 보안 취약성에 대응 하는 서비스의 기능에 영향을 주는 Azure 서비스의 기능입니다.
+보안 특성은 Azure 서비스의 품질 또는 기능입니다. 이 서비스는 보안 취약성을 예방, 감지 및 대응 하는 서비스의 기능에 기여 합니다.
 
-보안 특성은 다음과 같이 분류됩니다.
-* 예방
-* 네트워크 구분
-* 감지
-* ID 및 액세스 관리 지원
-* 감사 내역
-* 액세스 제어(사용하는 경우)
-* 구성 관리(사용하는 경우)
-
-각 범주에서 특성이 사용되는지 여부를 식별합니다(예/아니오). 일부 서비스에 대 한 특성이 적용 되지 않을 수 있습니다 하 고 n/A로 표시 됩니다. 특성과 관련된 자세한 정보에 대한 참고 사항 또는 링크가 제공될 수도 있습니다.
+각 범주에 "예" 또는 "아니요"를 표시 하 여 특성이 사용 되는지 여부를 나타냅니다. 일부 서비스의 경우 해당 되지 않는 특성에 대해 "N/A"를 표시 합니다. 또한 특성에 대 한 추가 정보를 제공 하는 참고 사항 또는 링크도 제공 될 것입니다.

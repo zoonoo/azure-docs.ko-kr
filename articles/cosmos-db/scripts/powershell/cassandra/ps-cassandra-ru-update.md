@@ -1,19 +1,19 @@
 ---
-title: Azure PowerShell 스크립트-RU/s Cassandra API에 대 한 Azure Cosmos DB 업데이트
-description: Azure PowerShell 스크립트-RU/s Cassandra API에 대 한 Azure Cosmos DB 업데이트
+title: Azure PowerShell 스크립트 - Azure Cosmos DB Cassandra API용 업데이트 RU/s
+description: Azure PowerShell 스크립트 - Azure Cosmos DB Cassandra API용 업데이트 RU/s
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 05ff4379c0a5d5436525f25bd755a7fce46d8121
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 9df7884d56acf47d3bb7bdcf7679631713cf2725
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247921"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67602531"
 ---
-# <a name="update-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Azure Cosmos DB Cassandra API에 대 한 RU/s keyspace 또는 테이블에 대 한 업데이트
+# <a name="update-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Azure Cosmos DB - Cassandra API용 키스페이스 또는 테이블에 대한 업데이트 RU/s
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

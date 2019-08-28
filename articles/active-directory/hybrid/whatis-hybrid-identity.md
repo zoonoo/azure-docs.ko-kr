@@ -13,12 +13,12 @@ ms.date: 05/17/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c43238d44b2309d105ef14e696a5a16848d0b58
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: c3d681dd06f07f6174e31b59cccf42df5dc16a1e
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65896823"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779842"
 ---
 # <a name="what-is-hybrid-identity-with-azure-active-directory"></a>Azure Active Directory에 대한 하이브리드 ID란?
 
@@ -36,7 +36,7 @@ Azure AD에서 하이브리드 ID를 구현하려면 시나리오에 따라 세 
 
 또한 이러한 인증 방법은 [Single Sign-On](how-to-connect-sso.md) 기능도 제공합니다.  Single Sign-On은 회사 네트워크에 연결된 회사 디바이스에 있을 때 사용자를 자동으로 서명합니다.
 
-자세한 내용은 [Azure Active Directory 하이브리드 ID 솔루션에 적합한 인증 방법 선택](https://docs.microsoft.com/azure/security/azure-ad-choose-authn)을 참조하세요. 
+자세한 내용은 [Azure Active Directory 하이브리드 ID 솔루션에 적합한 인증 방법 선택](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn)을 참조하세요. 
 
 ## <a name="common-scenarios-and-recommendations"></a>일반적인 시나리오 및 권장 사항 
 

@@ -66,7 +66,7 @@ Add-MsolRoleMember -RoleObjectId 95e79109-95c0-4d8e-aee3-d01accf2d47b -RoleMembe
 Azure AD B2B 협업에 대한 다음 문서를 살펴보세요.
 
 - [Azure AD B2B 공동 작업이란?](what-is-b2b.md)
-- [초대 없이 B2B 공동 작업 게스트 사용자 추가](add-user-without-invite.md)
+- [초대 없이 B2B Collaboration 게스트 사용자 추가](add-user-without-invite.md)
 - [역할에 B2B 공동 작업 사용자 추가](add-guest-to-role.md)
 
 

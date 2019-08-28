@@ -36,11 +36,16 @@
   items:
     - name: 개요
       href: concepts-overview.md
-    - name: 클라우드 업로드 및 저장
+    - name: 계정
       items:
-        - name: Storage
+        - name: Media Services 계정
+          displayName: subscription
+          href: media-services-account-concept.md
+        - name: Storage 계정
           href: storage-account-concept.md
           displayName: Storage side encryption
+    - name: 업로드
+      items:
         - name: 자산
           href: assets-concept.md
     - name: Encoding
@@ -88,12 +93,13 @@
           href: streaming-policy-concept.md
         - name: 스트리밍 엔드포인트 오류 코드
           href: streaming-endpoint-error-codes.md
-    - name: 동적 암호화 및 키 전달
+    - name: 콘텐츠 보호
       items:
-        - name: 스트리밍 프로토콜 및 암호화 유형
-          displayName: 'dynamic, encryption, content protection, PlayReady, Widevine, FairPlay'
+        - name: 동적 암호화 및 키 전달
+          displayName: 'content protection, streaming protocols, encryption types, content protection, PlayReady, Widevine, FairPlay'
           href: content-protection-overview.md
-        - name: 액세스 제어를 포함한 다중 DRM 시스템
+        - name: 다중 DRM 시스템 디자인
+          displayName: 'drm, access control'
           href: design-multi-drm-system-with-access-control.md
         - name: DRM 라이선스
           items:
@@ -143,7 +149,7 @@
       items:
         - name: 개요
           href: media-services-apis-overview.md
-          displayName: 'accessing, naming, long-running'
+          displayName: 'accessing, naming, long-running, invalid character'
         - name: '엔터티 필터링, 순서 지정 및 페이징'
           href: entities-overview.md
         - name: RBAC
@@ -237,6 +243,12 @@
           href: monitor-events-portal-how-to.md
         - name: 이벤트 모니터링 - CLI
           href: job-state-events-cli-how-to.md
+    - name: Azure Monitor 사용
+      items:
+        - name: 메트릭 모니터링
+          href: media-services-metrics-howto.md
+        - name: 진단 로그 모니터링
+          href: media-services-diagnostic-logs-howto.md
     - name: 콘텐츠 보호
       items:
         - name: 콘텐츠 키 정책 가져오기 - .NET

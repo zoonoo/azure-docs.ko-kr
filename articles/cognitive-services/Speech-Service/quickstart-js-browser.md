@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 음성 인식, JavaScript(브라우저) - Speech Services'
+title: '빠른 시작: 음성 인식, JavaScript(브라우저) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Speech SDK를 사용하여 브라우저에서 JavaScript로 음성을 인식하는 방법을 알아봅니다.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: bda38825cd65f1d44b497de1445ead5689428917
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 69ec6062d0dba1f1044f9a7dcfbe75924887d2b4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020725"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559406"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 브라우저에서 JavaScript로 음성 인식
 

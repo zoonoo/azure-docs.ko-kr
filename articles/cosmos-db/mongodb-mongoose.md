@@ -9,12 +9,12 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: 23275bc639b445b55cafb72c929514541ba00660
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3955b84df401e5832668fa091274caea9af2466e
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61333467"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876615"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Azure Cosmos DB에 Node.js Mongoose 애플리케이션 연결
 
@@ -22,7 +22,7 @@ ms.locfileid: "61333467"
 
 Cosmos DB는 전역적으로 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Cosmos DB의 핵심인 글로벌 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -65,11 +65,11 @@ Cosmos 계정을 만들겠습니다. 사용하려는 계정이 이미 있는 경
     var env = require('dotenv').load();    //Use the .env file to load the variables
     ```
 
-1. Cosmos DB 연결 문자열과 Cosmos DB 이름을 ```.env``` 파일에 추가합니다.
+1. Cosmos DB 연결 문자열과 Cosmos DB 이름을 ```.env``` 파일에 추가합니다. 자리 표시자 {cosmos} 및 {dbname}을 (를) 중괄호 기호 없이 고유한 Cosmos 계정 이름 및 데이터베이스 이름으로 바꿉니다.
 
     ```JavaScript
-    COSMOSDB_CONNSTR=mongodb://{cosmos-user}.documents.azure.com:10255/{dbname}
-    COSMODDB_USER=cosmos-user
+    COSMOSDB_CONNSTR=mongodb://{cosmos-account-name}.documents.azure.com:10255/{dbname}
+    COSMODDB_USER=cosmos-account-name
     COSMOSDB_PASSWORD=cosmos-secret
     ```
 
@@ -183,7 +183,7 @@ Mongoose는 사용자가 만드는 각 모델에 대한 새 컬렉션을 만듭�
 
 1. 이제 Azure Portal로 이동하면 Cosmos DB에 두 개의 컬렉션이 생성된 것을 확인할 수 있습니다.
 
-    ![Node.js 자습서-Azure 포털 스크린샷, 여러 컬렉션 이름을 강조 표시를 사용 하 여 Azure Cosmos DB 계정을 보여 주는-노드 데이터베이스][multiple-coll]
+    ![Node.js 자습서-여러 컬렉션 이름이 강조 표시 된 Azure Cosmos DB 계정을 보여 주는 Azure Portal의 스크린샷-노드 데이터베이스][multiple-coll]
 
 1. 마지막으로, Cosmos DB에서 데이터를 읽겠습니다. 기본 Mongoose 운영 모델을 사용하고 있으므로 읽기는 Mongoose를 사용한 다른 읽기와 동일합니다.
 
@@ -288,7 +288,7 @@ Mongoose는 사용자가 만드는 각 모델에 대한 새 컬렉션을 만듭�
 
 1. 이제 Azure Portal로 돌아가면 ‘Family’ 및 ‘VacationDestinations’ 데이터가 둘 다 포함된 ```alldata```라는 하나의 컬렉션만 표시됩니다.
 
-    ![Node.js 자습서-Azure 포털 스크린샷, 컬렉션 이름을 강조 표시를 사용 하 여 Azure Cosmos DB 계정을 보여 주는-노드 데이터베이스][alldata]
+    ![Node.js 자습서-컬렉션 이름이 강조 표시 된 노드 데이터베이스를 사용 하 여 Azure Cosmos DB 계정을 보여 주는 Azure Portal의 스크린샷][alldata]
 
 1. 또한 각 개체에 ```__type```이라는 다른 특성이 있습니다. 이 특성은 두 가지 개체 모델을 구별하는 데 도움이 됩니다.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b007aa4619effbd34e4e969e4ce7b58f3b0c4cf6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1690adfe5336ea85328e16755c5e3bc82b6d240a
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510534"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835620"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>클라이언트 인증서를 사용하여 RESTful 서비스 보호
 
@@ -33,7 +33,7 @@ ms.locfileid: "66510534"
 * Azure AD B2C 정책 키에 인증서 업로드
 * 클라이언트 인증서를 사용하도록 사용자 지정 정책 구성
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 * [REST API 클레임 교환 통합](active-directory-b2c-custom-rest-api-netfw.md) 문서의 단계 완료
 * 유효한 인증서(프라이빗 키를 포함한 .pfx 파일) 가져오기.
 
@@ -47,24 +47,24 @@ ms.locfileid: "66510534"
 >**clientCertEnabled** 속성을 설정하는 방법에 대한 자세한 내용은 [웹앱에 TLS 상호 인증 구성](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth)을 참조하세요.
 
 ## <a name="step-2-upload-your-certificate-to-azure-ad-b2c-policy-keys"></a>2단계: Azure AD B2C 정책 키에 인증서 업로드
-`clientCertEnabled`를 *true*로 설정한 후에 RESTful API와 통신하기 위해 클라이언트 인증서가 필요합니다. Azure AD B2C 테넌트에서 클라이언트 인증서를 가져오고, 업로드하고, 저장하려면 다음을 수행합니다. 
+`clientCertEnabled`를 *true*로 설정한 후에 RESTful API와 통신하기 위해 클라이언트 인증서가 필요합니다. Azure AD B2C 테넌트에서 클라이언트 인증서를 가져오고, 업로드하고, 저장하려면 다음을 수행합니다.
 1. Azure AD B2C 테넌트에서 **B2C 설정** > **ID 경험 프레임워크**를 차례로 선택합니다.
 
 2. 테넌트에 사용 가능한 키를 보려면 **정책 키**를 선택합니다.
 
-3. **추가**를 선택합니다.  
+3. **추가**를 선택합니다.
     **키 만들기** 창이 열립니다.
 
 4. **옵션** 상자에서 **업로드**를 선택합니다.
 
-5. **이름** 상자에 **B2cRestClientCertificate**를 입력합니다.  
+5. **이름** 상자에 **B2cRestClientCertificate**를 입력합니다.
     *B2C_1A_* 접두사가 자동으로 추가됩니다.
 
-6. **파일 업로드** 상자에서 개인 키가 있는 인증서 .pfx 파일을 선택합니다.
+6. **파일 업로드** 상자에서 프라이빗 키가 있는 인증서 .pfx 파일을 선택합니다.
 
 7. **암호** 상자에 인증서의 암호를 입력합니다.
 
-    ![정책 키 업로드](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-upload.png)
+    ![Azure portal의 키 페이지 만들기에서 정책 키 업로드](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-upload.png)
 
 7. **만들기**를 선택합니다.
 
@@ -85,7 +85,7 @@ ms.locfileid: "66510534"
     <Item Key="AuthenticationType">ClientCertificate</Item>
     ```
 
-5. `<Metadata>` 요소를 닫은 직후 다음 XML 코드 조각을 추가합니다. 
+5. `<Metadata>` 요소를 닫은 직후 다음 XML 코드 조각을 추가합니다.
 
     ```xml
     <CryptographicKeys>
@@ -119,12 +119,12 @@ ms.locfileid: "66510534"
 
 2. 업로드한 RP(신뢰 당사자) 사용자 지정 정책인 **B2C_1A_signup_signin**을 연 다음 **지금 실행**을 선택합니다.
 
-3. **지정된 이름** 상자에 **테스트**를 입력하여 프로세스를 테스트합니다.  
-    Azure AD B2C는 창의 위쪽에 오류 메시지를 표시합니다.    
+3. **지정된 이름** 상자에 **테스트**를 입력하여 프로세스를 테스트합니다.
+    Azure AD B2C는 창의 위쪽에 오류 메시지를 표시합니다.
 
-    ![ID API 테스트](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-test.png)
+    ![지정 된 이름 텍스트 상자 강조 표시 및 입력 유효성 검사 오류 표시](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-test.png)
 
-4. **지정된 이름** 상자에서 ("Test" 이외의) 이름을 입력합니다.  
+4. **지정된 이름** 상자에서 ("Test" 이외의) 이름을 입력합니다.
     Azure AD B2C는 사용자를 등록한 후 전용 번호를 애플리케이션에 보냅니다. 이 JWT 예제의 번호를 적어둡니다.
 
    ```
@@ -152,7 +152,7 @@ ms.locfileid: "66510534"
    >*이름이 유효하지 않습니다. 유효한 이름을 입력하세요.* 라는 오류 메시지가 표시되면 Azure AD B2C에서 클라이언트 인증서를 제공하는 동안 성공적으로 RESTful 서비스를 호출했음을 의미합니다. 다음 단계에서는 인증서의 유효성을 검사합니다.
 
 ## <a name="step-6-add-certificate-validation"></a>6단계: 인증서 유효성 검사 추가
-Azure AD B2C에서 RESTful 서비스에 전송한 클라이언트 인증서는 인증서가 있는지를 확인하는 것을 제외하고 Azure App Service 플랫폼에 의한 유효성 검사를 거치지 않습니다. 인증서의 유효성을 검사하는 작업은 웹앱에서 담당합니다. 
+Azure AD B2C에서 RESTful 서비스에 전송한 클라이언트 인증서는 인증서가 있는지를 확인하는 것을 제외하고 Azure App Service 플랫폼에 의한 유효성 검사를 거치지 않습니다. 인증서의 유효성을 검사하는 작업은 웹앱에서 담당합니다.
 
 이 섹션에서는 인증을 위해 인증서 속성의 유효성을 검사하는 샘플 ASP.NET 코드를 추가합니다.
 
@@ -171,7 +171,7 @@ Azure AD B2C에서 RESTful 서비스에 전송한 클라이언트 인증서는 �
 인증서의 **주체 이름**, **발급자 이름** 및 **인증서 지문** 값을 인증서 값으로 바꿉니다.
 
 ### <a name="62-add-the-isvalidclientcertificate-function"></a>6.2 IsValidClientCertificate 함수 추가
-*Controllers\IdentityController.cs* 파일을 열고 다음 함수를 `Identity` 컨트롤러 클래스에 추가합니다. 
+*Controllers\IdentityController.cs* 파일을 열고 다음 함수를 `Identity` 컨트롤러 클래스에 추가합니다.
 
 ```csharp
 private bool IsValidClientCertificate()
@@ -219,7 +219,7 @@ private bool IsValidClientCertificate()
         Trace.TraceError($"Subject name '{clientCertInRequest.Subject}' is not valid");
         return false;
     }
-    
+
     // 3. Check the issuer name of the certificate
     bool foundIssuerCN = false;
     string[] certIssuerData = clientCertInRequest.Issuer.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
@@ -273,7 +273,7 @@ private bool IsValidClientCertificate()
 >서비스의 중요도에 따라 더 많은 유효성 검사를 추가해야 합니다. 예를 들어 인증서가 신뢰할 수 있는 루트 인증 기관, 발급자 조직 이름 유효성 검사 등에 연결되었는지 테스트해야 합니다.
 
 ### <a name="63-call-the-isvalidclientcertificate-function"></a>6.3 IsValidClientCertificate 함수 호출
-*Controllers\IdentityController.cs* 파일을 열고 `SignUp()` 함수의 시작 부분에서 다음 코드 조각을 추가합니다. 
+*Controllers\IdentityController.cs* 파일을 열고 `SignUp()` 함수의 시작 부분에서 다음 코드 조각을 추가합니다.
 
 ```csharp
 if (IsValidClientCertificate() == false)
@@ -299,4 +299,4 @@ if (IsValidClientCertificate() == false)
 
 ## <a name="optional-download-the-complete-policy-files-and-code"></a>(선택 사항)완성 정책 파일 및 코드 다운로드
 * [사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md) 연습을 완료한 후에 고유한 사용자 지정 정책 파일을 사용하여 시나리오를 빌드하는 것이 좋습니다. 참조를 위해 [샘플 정책 파일](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw-secure-cert)을 제공했습니다.
-* [참조를 위한 Visual Studio 솔루션 샘플](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/Contoso.AADB2C.API)에서 전체 코드를 다운로드할 수 있습니다. 
+* [참조를 위한 Visual Studio 솔루션 샘플](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/Contoso.AADB2C.API)에서 전체 코드를 다운로드할 수 있습니다.

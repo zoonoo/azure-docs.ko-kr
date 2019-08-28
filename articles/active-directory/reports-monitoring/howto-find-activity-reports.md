@@ -3,7 +3,7 @@ title: Azure Portal에서 Azure Active Directory 사용자 작업 보고서 찾�
 description: Azure Portal에서 Azure Active Directory 사용자 작업 보고서가 어디에 위치하는지 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d47072713c57576abe780134792c3a5cbc27127c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 356412bfca19e72d09338faf8c8bcac5ec8f273a
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60438329"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988296"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Azure Portal에서 작업 보고서 찾기
 
@@ -41,22 +41,22 @@ ms.locfileid: "60438329"
 * 암호 재설정 활동
 * 암호 재설정 등록 활동
 * 셀프 서비스 그룹 작업
-* Office 365 그룹 이름 변경
+* Office365 그룹 이름 변경 내용
 * 계정 프로비전 활동
 * 암호 롤오버 상태
 * 계정 프로비전 오류
 
 ### <a name="filtering-on-audit-logs"></a>감사 로그 필터링
 
-감사 보고서에서 고급 필터링 하 여 감사 데이터를 특정 범주에 지정 하 여 액세스 합니다 **범주** 필터입니다. 예를 들어, 사용자와 관련 된 모든 활동을 보려면 선택 합니다 **UserManagement** 범주입니다. 
+감사 보고서에서 고급 필터링을 사용 하 여 **범주** 필터에 지정 하는 방식으로 감사 데이터의 특정 범주에 액세스할 수 있습니다. 예를 들어 사용자와 관련 된 모든 활동을 보려면 **Usermanagement** 범주를 선택 합니다. 
 
 범주는 다음과 같습니다.
 
-- 모두
+- All
 - AdministrativeUnit
 - ApplicationManagement
-- Authentication
-- 권한 부여
+- 인증
+- Authorization
 - 연락처
 - 디바이스
 - DeviceConfiguration
@@ -69,14 +69,14 @@ ms.locfileid: "60438329"
 - RoleManagement
 - UserManagement
 
-필터링 할 수도 있습니다 사용 하 여 특정 서비스를 **서비스** 드롭다운 필터입니다. 예를 들어 셀프 서비스 암호 관리와 관련 된 모든 감사 이벤트를 가져오려면 선택 합니다 **셀프 서비스 암호 관리** 필터입니다.
+**서비스** 드롭다운 필터를 사용 하 여 특정 서비스에 대해 필터링 할 수도 있습니다. 예를 들어 셀프 서비스 암호 관리와 관련 된 모든 감사 이벤트를 가져오려면 **셀프 서비스 암호 관리** 필터를 선택 합니다.
 
 서비스에는 다음이 포함됩니다.
 
-- 모두
+- All
 - 액세스 검토
 - 계정 프로비전 
-- SSO 응용 프로그램
+- 응용 프로그램 SSO
 - 인증 방법
 - B2C
 - 조건부 액세스
@@ -119,11 +119,11 @@ ms.locfileid: "60438329"
 
 | Azure AD 비정상 작업 보고서 |  ID 보호 위험 이벤트 유형|
 | :--- | :--- |
-| 자격 증명이 손실된 사용자 | 유출된 자격 증명 |
-| 비정상적인 로그인 작업 | 비정상적 위치로 불가능한 이동 |
-| 감염 가능성이 있는 디바이스에서 로그인 | 감염된 디바이스에서 로그인|
-| 알 수 없는 원본에서 로그인 | 익명 IP 주소에서 로그인 |
-| 의심스러운 작업이 있는 IP 주소에서 로그인 | 의심스러운 작업이 있는 IP 주소에서 로그인 |
+| 자격 증명이 유출된 사용자 | 손실된 자격 증명 |
+| 비정상적인 로그인 작업 | 비정상적 위치 간 이동 불가능 |
+| 감염 가능성이 있는 디바이스에서 로그인 | 감염된 디바이스에서의 로그인|
+| 알 수 없는 원본에서 로그인 | 익명 IP 주소에서의 로그인 |
+| 의심스러운 활동을 포함하는 IP 주소에서의 로그인 | 의심스러운 활동을 포함하는 IP 주소에서의 로그인 |
 | - | 알 수 없는 위치에서 로그인 |
 
 다음 Azure AD 비정상 작업 보안 보고서는 Azure Portal에 위험 이벤트로 포함되지 않습니다.
@@ -147,13 +147,13 @@ ms.locfileid: "60438329"
 
 #### <a name="symptoms"></a>증상 
 
-활동 로그(감사 또는 로그인)를 다운로드했고 선택한 시간에 대한 모든 레코드가 표시되지 않습니다. 그 이유는 
+활동 로그(감사 또는 로그인)를 다운로드했고 선택한 시간에 대한 모든 레코드가 표시되지 않습니다. 이유가 무엇일까요? 
 
  ![보고](./media/troubleshoot-missing-data-download/01.png)
  
 #### <a name="cause"></a>원인
 
-Azure portal에서 활동 로그를 다운로드 하면 최근 순으로 정렬 하는 250000 레코드 크기 조정을 제한을 두고 있습니다. 
+Azure Portal에서 활동 로그를 다운로드 하는 경우 가장 최근의 가장 먼저 정렬 된 25만 레코드로 크기를 제한 합니다. 
 
 #### <a name="resolution"></a>해결 방법
 
@@ -174,7 +174,7 @@ Azure Portal에서 일부 작업을 수행했고 `Activity logs > Audit Logs` �
 | 보고서 | &nbsp; | 대기 시간(P95) | 대기 시간(P99) |
 |--------|--------|---------------|---------------|
 | 디렉터리 감사 | &nbsp; | 2분 | 5분 |
-| 로그인 작업 | &nbsp; | 2분 | 5분 | 
+| 로그인 활동 | &nbsp; | 2분 | 5분 | 
 
 #### <a name="resolution"></a>해결 방법
 
@@ -195,7 +195,7 @@ Azure Portal에서 일부 작업을 수행했고 `Activity logs > Audit Logs` �
 | 보고서 | &nbsp; | 대기 시간(P95) | 대기 시간(P99) |
 |--------|--------|---------------|---------------|
 | 디렉터리 감사 | &nbsp; | 2분 | 5분 |
-| 로그인 작업 | &nbsp; | 2분 | 5분 | 
+| 로그인 활동 | &nbsp; | 2분 | 5분 | 
 
 #### <a name="resolution"></a>해결 방법
 
@@ -205,7 +205,7 @@ Azure Portal에서 일부 작업을 수행했고 `Activity logs > Audit Logs` �
 
 #### <a name="symptoms"></a>증상
 
-Azure Portal에서 30일이 초과된 로그인 및 감사 데이터를 볼 수 없습니다. 그 이유는 
+Azure Portal에서 30일이 초과된 로그인 및 감사 데이터를 볼 수 없습니다. 이유가 무엇일까요? 
 
  ![보고](./media/troubleshoot-missing-audit-data/03.png)
 
@@ -215,7 +215,7 @@ Azure Active Directory 작업은 사용자 라이선스에 따라 다음 기간 
 
 | 보고서           | &nbsp; |  Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
 | ---              | ----   |  ---           | ---                 | ---                 |
-| 디렉터리 감사  | &nbsp; |   7 일     | 30일             | 30일             |
+| 디렉터리 감사  | &nbsp; |   7일     | 30일             | 30일             |
 | 로그인 작업 | &nbsp; | 사용할 수 없습니다. 로그인 작업은 개별 사용자 프로필 블레이드에서 7일 동안 액세스할 수 있습니다. | 30일 | 30일             |
 
 자세한 내용은 [Azure Active Directory 보고서 보존 정책](reference-reports-data-retention.md)을 참조하세요.  

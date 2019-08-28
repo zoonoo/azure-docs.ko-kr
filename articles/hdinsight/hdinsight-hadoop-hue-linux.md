@@ -1,6 +1,6 @@
 ---
 title: HDInsight Linux 기반 클러스터에서 Hadoop으로 Hue - Azure
-description: HDInsight 클러스터에서 Hue를 설치하고 터널링을 사용하여 Hue로 요청을 라우팅하는 방법을 알아봅니다. Hue를 사용하여 저장소를 찾은 후 Hive 또는 Pig를 실행합니다.
+description: HDInsight 클러스터에서 Hue를 설치하고 터널링을 사용하여 Hue로 요청을 라우팅하는 방법을 알아봅니다. Hue를 사용하여 스토리지를 찾은 후 Hive 또는 Pig를 실행합니다.
 keywords: hue hadoop
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -21,7 +21,7 @@ ms.locfileid: "67059430"
 HDInsight 클러스터에서 Hue를 설치하고 터널링을 사용하여 Hue로 요청을 라우팅하는 방법을 알아봅니다.
 
 ## <a name="what-is-hue"></a>Hue 정의
-Hue는 Apache Hadoop 클러스터와 상호 작용하는 데 사용되는 웹 애플리케이션 세트입니다. Hue를 사용하여 Hadoop 클러스터(HDInsight 클러스터의 경우, WASB)와 연결된 저장소를 찾아보고 Hive 작업 및 Pig 스크립트 등을 실행할 수 있습니다. HDInsight Hadoop 클러스터에서 Hue 설치는 다음 구성 요소를 지원합니다.
+Hue는 Apache Hadoop 클러스터와 상호 작용하는 데 사용되는 웹 애플리케이션 세트입니다. Hue를 사용하여 Hadoop 클러스터(HDInsight 클러스터의 경우, WASB)와 연결된 스토리지를 찾아보고 Hive 작업 및 Pig 스크립트 등을 실행할 수 있습니다. HDInsight Hadoop 클러스터에서 Hue 설치는 다음 구성 요소를 지원합니다.
 
 * Beeswax Hive 편집기
 * Apache Pig
@@ -110,15 +110,15 @@ SSH 터널링이 실행되면 클러스터에서 Hue를 액세스하는 유일�
 
     **차트** 탭을 사용하여 결과를 시각적으로 표시할 수 있습니다.
 
-### <a name="browse-the-cluster-storage"></a>클러스터 저장소 찾아보기
+### <a name="browse-the-cluster-storage"></a>클러스터 스토리지 찾아보기
 1. Hue 포털에서 메뉴 모음의 오른쪽 위에 있는 **파일 브라우저** 를 클릭합니다.
-2. 기본적으로 **/user/myuser** 디렉터리에서 파일 브라우저를 엽니다. 경로에서 사용자 디렉터리 바로 앞 슬래시를 클릭하여 클러스터와 연결된 Azure 저장소 컨테이너의 루트로 이동합니다.
+2. 기본적으로 **/user/myuser** 디렉터리에서 파일 브라우저를 엽니다. 경로에서 사용자 디렉터리 바로 앞 슬래시를 클릭하여 클러스터와 연결된 Azure Storage 컨테이너의 루트로 이동합니다.
 
     ![파일 브라우저 사용](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-file-browser.png "파일 브라우저 사용")
 3. 파일 또는 폴더를 마우스 오른쪽 단추로 클릭하여 사용 가능한 작업을 참조하세요. 오른쪽 모서리에서 **업로드** 단추를 사용하여 현재 디렉터리에 파일을 업로드합니다. **새로 만들기** 단추를 사용하여 새 파일 또는 디렉터리를 만듭니다.
 
 > [!NOTE]  
-> Hue 파일 브라우저는 HDInsight 클러스터와 연결된 기본 컨테이너의 콘텐츠만을 표시할 수 있습니다. 클러스터와 연결된 모든 추가 저장소 계정/컨테이너는 파일 브라우저를 사용하여 액세스할 수 없습니다. 그러나 클러스터와 관련된 추가 컨테이너는 항상 Hive 작업에 액세스할 수 있습니다. 예를 들어 하이브 편집기에 명령 `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net` 을 입력하는 경우 추가 컨테이너의 내용도 볼 수 있습니다. 이 명령에서 **newcontainer** 는 클러스터와 연결된 기본 컨테이너가 아닙니다.
+> Hue 파일 브라우저는 HDInsight 클러스터와 연결된 기본 컨테이너의 콘텐츠만을 표시할 수 있습니다. 클러스터와 연결된 모든 추가 스토리지 계정/컨테이너는 파일 브라우저를 사용하여 액세스할 수 없습니다. 그러나 클러스터와 관련된 추가 컨테이너는 항상 Hive 작업에 액세스할 수 있습니다. 예를 들어 하이브 편집기에 명령 `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net` 을 입력하는 경우 추가 컨테이너의 내용도 볼 수 있습니다. 이 명령에서 **newcontainer** 는 클러스터와 연결된 기본 컨테이너가 아닙니다.
 >
 >
 

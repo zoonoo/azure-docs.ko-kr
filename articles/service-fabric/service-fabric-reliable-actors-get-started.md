@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/16/2018
+ms.date: 07/10/2019
 ms.author: vturecek
-ms.openlocfilehash: b6ca4810d86bb3c8413f0a740ac4483a848b8e10
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d870690416f96a2e1c24e6de16bdc8faa060f6bd
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60726392"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68225137"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Reliable Actors 시작
 > [!div class="op_single_selector"]
@@ -28,17 +28,17 @@ ms.locfileid: "60726392"
 
 이 문서에서는 Visual Studio에서 간단한 Reliable Actor 애플리케이션을 만들고 디버그하는 과정을 안내합니다. Reliable Actors에 대한 자세한 내용은 [Service Fabric Reliable Actors 소개](service-fabric-reliable-actors-introduction.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 컴퓨터에 Visual Studio를 비롯한 Service Fabric 개발 환경이 설정되어 있는지 확인합니다. 자세한 내용은 [개발 환경 설정 방법](service-fabric-get-started.md)을 참조하세요.
 
 ## <a name="create-a-new-project-in-visual-studio"></a>Visual Studio에서 새 프로젝트 만들기
 
-관리자 권한으로 Visual Studio 2015 이상을 시작하고 새로운 **Service Fabric 애플리케이션** 프로젝트를 만듭니다.
+관리자 권한으로 Visual Studio 2019 이상을 시작한 후 새 **Service Fabric 응용 프로그램** 프로젝트를 만듭니다.
 
 ![Visual Studio용 서비스 패브릭 도구 - 새 프로젝트][1]
 
-다음 대화 상자에서 선택 **행위자 서비스** 아래에서 **.NET Core 2.0** 서비스에 대 한 이름을 입력 합니다.
+다음 대화 상자에서 **.Net Core 2.0** 아래에 있는 **행위자 서비스** 를 선택 하 고 서비스의 이름을 입력 합니다.
 
 ![서비스 패브릭 프로젝트 템플릿][5]
 

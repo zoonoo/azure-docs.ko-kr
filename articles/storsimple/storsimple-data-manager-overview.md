@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/21/2018
-ms.author: vidarmsft
-ms.openlocfilehash: c5ffe3ec2ec3cb06297df6be4ba7021f692633bf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: alkohli
+ms.openlocfilehash: 2ffe17bf7ef4f01c18d2c26f4a045add7302272d
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60630702"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876111"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>StorSimple 데이터 관리자 솔루션 개요
 
 ## <a name="overview"></a>개요
 
-Microsoft Azure StorSimple은 클라우드 저장소를 온-프레미스 솔루션의 확장으로 사용하여 자동으로 온-프레미스 솔루션 및 클라우드에서 데이터를 계층화합니다. 최대 효율성 및 비용 절감을 위해 데이터는 중복 제거 및 압축된 형식으로 클라우드에 저장됩니다. 데이터가 StorSimple 형식으로 저장되면 사용하려고 할 수 있는 다른 클라우드 애플리케이션에서 쉽게 사용할 수 없게 됩니다.
+Microsoft Azure StorSimple은 클라우드 스토리지를 온-프레미스 솔루션의 확장으로 사용하여 자동으로 온-프레미스 솔루션 및 클라우드에서 데이터를 계층화합니다. 최대 효율성 및 비용 절감을 위해 데이터는 중복 제거 및 압축된 형식으로 클라우드에 저장됩니다. 데이터가 StorSimple 형식으로 저장되면 사용하려고 할 수 있는 다른 클라우드 애플리케이션에서 쉽게 사용할 수 없게 됩니다.
 
 StorSimple 데이터 관리자를 사용하면 클라우드의 StorSimple 형식 데이터를 원활하게 액세스하고 사용할 수 있습니다. StorSimple 형식을 기본 Blob 및 파일로 변환하여 Azure Media Services, Azure HDInsights, Azure Machine Learning 등의 다른 서비스에서 사용할 수 있도록 합니다.
 
@@ -48,11 +48,11 @@ Azure Functions, Azure Automation 및 Azure Data Factory에서 이 데이터 관
 StorSimple 데이터 관리자는 다음 7개 지역에서 사용할 수 있습니다.
 
  - 동남아시아
- - 미국 동부
+ - East US
  - 미국 서부
  - 미국 서부 2
  - 미국 중서부
- - 유럽 북부
+ - 북유럽
  - 서유럽
 
 그러나 다음 지역에서는 StorSimple 데이터 관리자를 사용하여 데이터를 변환할 수 있습니다. 
@@ -65,12 +65,12 @@ StorSimple 데이터 관리자는 다음 7개 지역에서 사용할 수 있습�
 ## <a name="choosing-a-region"></a>지역 선택
 
 다음이 권장됩니다.
- - 원본 저장소 계정(StorSimple 디바이스와 연결된 계정) 및 대상 저장소 계정(데이터를 네이티브 형식으로 유지하려는 계정)은 같은 Azure 지역에 있는 것이 좋습니다.
- - StorSimple 저장소 계정을 포함하는 지역에서 데이터 관리자 및 작업 정의를 불러옵니다. 이것이 가능하지 않은 경우, 가장 가까운 Azure 지역에서 데이터 관리자를 불러온 다음, StorSimple 저장소 계정과 동일한 지역에 작업 정의를 만듭니다. 
+ - 원본 스토리지 계정(StorSimple 디바이스와 연결된 계정) 및 대상 스토리지 계정(데이터를 네이티브 형식으로 유지하려는 계정)은 같은 Azure 지역에 있는 것이 좋습니다.
+ - StorSimple 스토리지 계정을 포함하는 지역에서 데이터 관리자 및 작업 정의를 불러옵니다. 이것이 가능하지 않은 경우, 가장 가까운 Azure 지역에서 데이터 관리자를 불러온 다음, StorSimple 스토리지 계정과 동일한 지역에 작업 정의를 만듭니다. 
 
-    StorSimple 저장소 계정 작업 정의 생성을 지 원하는 26 개 지역에 없는 경우에 긴 대기 시간 및 잠재적인 송신 요금을 표시 된 대로 StorSimple 데이터 관리자 실행 하지 않는 것이 좋습니다.
+    StorSimple 저장소 계정이 작업 정의 생성을 지 원하는 26 개 지역에 있지 않은 경우 긴 대기 시간 및 잠재적인 송신 요금이 표시 되므로 StorSimple Data Manager를 실행 하지 않는 것이 좋습니다.
     
-Microsoft Azure 서비스는 항상 사용 가능한 모든 지역에서 확인 하려고 합니다. 그러나 특정 지역의 짧은 기간에 대 한 계획 되지 않은 서비스 중단이 발생할 수 있습니다. 이러한 경우에, 가동 중단의 영향을 받지 않는 지역에서 데이터 관리자 및 작업 정의 표시 하 고 변환 작업을 실행할 수 있습니다. 이러한 시나리오에서 일부 추가 지연이 발생할 수 있지만이 드물게 지역 가동 중단에서에서 복구 전략을 수 있습니다.
+Microsoft는 모든 지역에서 Azure 서비스를 항상 사용할 수 있도록 하기 위해 노력 하 고 있습니다. 그러나 계획 되지 않은 서비스 중단이 특정 지역의 짧은 기간 동안 발생할 수 있습니다. 이러한 경우 중단의 영향을 받지 않는 지역에서 Data Manager 및 작업 정의를 가져와 변환 작업을 실행할 수 있습니다. 이러한 시나리오에서는 몇 가지 추가 대기 시간이 발생할 수 있지만이는 지역 가동 중단 시 드물게 복구 전략이 될 수 있습니다.
 
 ## <a name="security-considerations"></a>보안 고려 사항
 
@@ -78,7 +78,7 @@ StorSimple 데이터 관리자는 StorSimple 형식에서 네이티브 형식으
 
 입력으로 제공되는 서비스 데이터 암호화 키는 데이터 관리자를 만들 때 생성되는 Key Vault에 저장됩니다. 이 자격 증명 모음은 StorSimple 데이터 관리자와 동일한 Azure 지역에 있습니다. 이 키는 데이터 관리자 서비스를 삭제하면 삭제됩니다.
 
-이 키는 계산 리소스에서 변환을 수행하는 데 사용합니다. 이러한 게산 리소스는 작업 정의와 동일한 Azure 지역에 있습니다. 이 지역은 데이터 관리자를 불러오는 지역과 같은 지역일 수도 있고 다른 지역일 수도 있습니다.
+이 키는 컴퓨팅 리소스에서 변환을 수행하는 데 사용합니다. 이러한 게산 리소스는 작업 정의와 동일한 Azure 지역에 있습니다. 이 지역은 데이터 관리자를 불러오는 지역과 같은 지역일 수도 있고 다른 지역일 수도 있습니다.
 
 데이터 관리자 지역이 작업 정의 지역과 다른 경우, 이러한 각 지역에 있는 데이터/메타데이터를 이해하는 것이 중요합니다. 다음 다이어그램에서는 데이터 관리자 및 작업 정의에 대해 서로 다른 지역을 유지할 때의 결과를 보여 줍니다.
 

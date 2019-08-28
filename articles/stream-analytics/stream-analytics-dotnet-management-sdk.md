@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: b2da78f5c750dbc694085bb46a6ed43e74884d45
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 73b1392adb2beee9e60d078d865257889b3205f8
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66303031"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612717"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>관리 .NET SDK: .NET용 Azure Stream Analytics API를 사용하여 분석 작업 설정 및 실행
 관리 .NET SDK에서 .NET용 Azure Stream Analytics API를 사용하여 분석 작업을 설정 및 실행하는 방법을 알아봅니다. 프로젝트를 설정하고, 입출력 소스를 만들고, 변환하고, 작업을 시작 및 중지합니다. 다른 Azure 스토리지 서비스와 마찬가지로, File Storage는 공유의 데이터에 액세스하기 위한 REST API를 제공합니다.
@@ -26,7 +26,7 @@ Azure Stream Analytics은 완전히 관리되는 서비스로, 클라우드의 �
 > [!NOTE]
 > 이 문서의 샘플 코드를 Azure Stream Analytics Management .NET SDK v2.x 버전으로 업데이트했습니다. 레거시(1.x) SDK 버전을 사용하는 샘플 코드는 [Stream Analytics용 관리 .NET SDK v1.x](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-dotnet-management-sdk-v1)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 문서를 시작 하기 전에 다음 요구 사항이 있어야 합니다.
 
 * Visual Studio 2019 또는 2015를 설치 합니다.
@@ -295,7 +295,7 @@ Stream Analytics 작업 및 해당 입력, 출력 및 변환을 만든 후, **St
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics 관리 .NET SDK](https://msdn.microsoft.com/library/azure/dn889315.aspx).
-* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Image references-->

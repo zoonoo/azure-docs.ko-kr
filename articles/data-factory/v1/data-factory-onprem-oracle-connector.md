@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4ff7f92d1d13966be5d17f37210bef961f64faf2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51fae63b6db99f28a5b3bed056dadc0c2513ff0f
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61462414"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839927"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 다른 곳에서 Oracle 온-프레미스로 또는 그 반대로 데이터 복사
 
@@ -27,7 +27,7 @@ ms.locfileid: "61462414"
 > * [버전 2(현재 버전)](../connector-oracle.md)
 
 > [!NOTE]
-> 이 아티클은 Azure Data Factory 버전 1에 적용됩니다. 현재 버전의 Azure Data Factory 서비스를 사용 중인 경우, [V2의 Oracle 커넥터](../connector-oracle.md)를 참조하세요.
+> 이 문서의 내용은 Azure Data Factory 버전 1에 적용됩니다. 현재 버전의 Azure Data Factory 서비스를 사용 중인 경우, [V2의 Oracle 커넥터](../connector-oracle.md)를 참조하세요.
 
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 온-프레미스 Oracle 데이터베이스에서 다른 곳으로 또는 그 반대로 데이터를 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 작업](data-factory-data-movement-activities.md)을 기반으로 합니다.
@@ -42,7 +42,7 @@ ms.locfileid: "61462414"
 
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미스 Oracle 원본에 연결하도록 지원합니다. 데이터 관리 게이트웨이에 대해 자세히 알아보려면 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 참조하세요. 데이터 이동을 위해 데이터 파이프라인에서 게이트웨이를 설정하는 방법에 대한 단계별 지침은 [온-프레미스에서 클라우드로 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)을 참조하세요.
 
@@ -77,13 +77,13 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 
 복사 마법사를 사용하여 복사 파이프라인을 작성하는 경우 드라이버 형식은 자동으로 결정됩니다. 게이트웨이 버전이 2.7 이전이거나 싱크로 Oracle을 선택한 경우 외에는 Microsoft 드라이버가 기본적으로 사용됩니다.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 복사 작업이 있는 파이프라인을 만들 수 있습니다. 파이프라인은 다른 도구 또는 API를 사용하여 다른 곳에서 온-프레미스 Oracle 데이터베이스로 또는 그 반대로 데이터를 이동합니다.
 
 파이프라인을 만드는 가장 쉬운 방법은 복사 마법사를 사용하는 것입니다. 단계별 지침은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습을 볼 수 있습니다.
 
-또한 **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager 템플릿**, **.NET API** 또는 **REST API**를 포함한 도구를 사용하여 파이프라인을 만들 수 있습니다. 복사 작업이 포함된 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
+파이프라인을 만들려면 다음 도구 중 하나를 사용할 수도 있습니다. **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager 템플릿을**서 **.NET API**, 또는 **REST API**합니다. 복사 작업이 포함된 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
 도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만듭니다.
 
@@ -100,10 +100,10 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 
 다음 테이블은 Oracle 연결 서비스에 해당하는 JSON 요소에 대해 설명합니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| 형식 |**type** 속성은 **OnPremisesOracle**로 설정해야 합니다. |예 |
-| driverType | Oracle 데이터베이스에서 다른 곳으로 또는 그 반대로 데이터를 복사하는 데 사용할 드라이버를 지정합니다. 허용되는 값은 **Microsoft** 및 **ODP**(기본값)입니다. 드라이버 세부 정보에 대해서는 [지원되는 버전 및 설치](#supported-versions-and-installation)를 참조하세요. | 아닙니다. |
+| type |**type** 속성은 **OnPremisesOracle**로 설정해야 합니다. |예 |
+| driverType | Oracle 데이터베이스에서 다른 곳으로 또는 그 반대로 데이터를 복사하는 데 사용할 드라이버를 지정합니다. 허용되는 값은 **Microsoft** 및 **ODP**(기본값)입니다. 드라이버 세부 정보에 대해서는 [지원되는 버전 및 설치](#supported-versions-and-installation)를 참조하세요. | 아니요 |
 | connectionString | **connectionString** 속성에 대한 Oracle 데이터베이스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. | 예 |
 | gatewayName | 온-프레미스 Oracle 서버에 연결하는 데 사용되는 게이트웨이 이름입니다. |예 |
 
@@ -151,7 +151,7 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 
 **typeProperties** 섹션은 데이터 세트의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **OracleTable** 형식의 데이터 집합에 대한 **typeProperties** 섹션에는 다음 속성이 있습니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 Oracle 데이터베이스에 있는 테이블의 이름입니다. |아니요(**oracleReaderQuery** 또는 **OracleSource**가 지정된 경우) |
 
@@ -170,24 +170,24 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 
 원본이 **OracleSource** 형식인 복사 작업의 경우 **typeProperties** 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-| 자산 | 설명 | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| oracleReaderQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예를 들어 “select \* from **MyTable**”입니다. <br/><br/>지정하지 않은 경우 “select \* from **MyTable**” SQL 문이 실행됩니다. |아닙니다.<br />(**dataset**의 **tableName**이 지정된 경우) |
+| oracleReaderQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예를 들어 “select \* from **MyTable**”입니다. <br/><br/>지정하지 않은 경우 “select \* from **MyTable**” SQL 문이 실행됩니다. |아니요<br />(**dataset**의 **tableName**이 지정된 경우) |
 
 ### <a name="oraclesink"></a>파이프라인
 
 **OracleSink** 는 다음 속성을 지원합니다.
 
-| 자산 | 설명 | 허용되는 값 | 필수 |
+| 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. |**timespan**<br/><br/> 예제: 00:30:00(30분) |아닙니다. |
+| writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. |**timespan**<br/><br/> 예제: 00:30:00(30분) |아니요 |
 | writeBatchSize |버퍼 크기가 **writeBatchSize** 값에 도달하면 SQL 테이블에 데이터를 삽입합니다. |정수(행 수) |아니요(기본값: 100) |
-| sqlWriterCleanupScript |특정 조각의 데이터를 정리하기 위해 복사 작업에 대해 실행할 쿼리를 지정합니다. |쿼리 문입니다. |아닙니다. |
-| sliceIdentifierColumnName |자동으로 생성된 조각 식별자를 사용하여 채울 복사 작업에 대한 열 이름을 지정합니다. 다시 실행할 때 특정 조각의 데이터를 정리하는 데 **sliceIdentifierColumnName**에 대한 값이 사용됩니다. |**이진(32)** 데이터 형식이 있는 열의 열 이름입니다. |아닙니다. |
+| sqlWriterCleanupScript |특정 조각의 데이터를 정리하기 위해 복사 작업에 대해 실행할 쿼리를 지정합니다. |쿼리 문입니다. |아니요 |
+| sliceIdentifierColumnName |자동으로 생성된 조각 식별자를 사용하여 채울 복사 작업에 대한 열 이름을 지정합니다. 다시 실행할 때 특정 조각의 데이터를 정리하는 데 **sliceIdentifierColumnName**에 대한 값이 사용됩니다. |**이진(32)** 데이터 형식이 있는 열의 열 이름입니다. |아니요 |
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>다른 곳에서 Oracle 데이터베이스로 또는 그 반대로 데이터를 복사하는 JSON 예제
 
-다음 예제에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공하며, 샘플은 Oracle 데이터베이스에서 다른 곳으로 또는 그 반대로, 다른 곳에서 Azure Blob Storage로 또는 그 반대로 데이터를 복사하는 방법을 보여줍니다. 단, 데이터는 Azure Data Factory의 복사 작업을 사용하여 [지원되는 데이터 저장소 및 형식](data-factory-data-movement-activities.md#supported-data-stores-and-formats)에 나열된 싱크로 직접 복사할 수 있습니다.
+다음 예제를 사용 하 여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의 제공 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 하거나 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)합니다. 샘플은 Oracle 데이터베이스에서 다른 곳으로 또는 그 반대로, 다른 곳에서 Azure Blob Storage로 또는 그 반대로 데이터를 복사하는 방법을 보여줍니다. 단, 데이터는 Azure Data Factory의 복사 작업을 사용하여 [지원되는 데이터 저장소 및 형식](data-factory-data-movement-activities.md#supported-data-stores-and-formats)에 나열된 싱크로 직접 복사할 수 있습니다.
 
 **예제: Oracle에서 Azure Blob Storage로 데이터 복사**
 
@@ -599,7 +599,7 @@ Oracle에서 데이터를 이동할 때 Oracle 데이터 형식에서 .NET 형�
 | --- | --- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(Microsoft 드라이버를 사용하는 경우 Oracle 10g 이상 버전에서만 지원됩니다.) |
-| CHAR |String |
+| CHAR |문자열 |
 | CLOB |String |
 | DATE |DateTime |
 | FLOAT |Decimal, 문자열(전체 자릿수의 경우 > 28) |
@@ -608,7 +608,7 @@ Oracle에서 데이터를 이동할 때 Oracle 데이터 형식에서 .NET 형�
 | INTERVAL DAY TO SECOND |timespan |
 | LONG |String |
 | LONG RAW |Byte[] |
-| NCHAR |String |
+| NCHAR |문자열 |
 | NCLOB |String |
 | NUMBER |Decimal, 문자열(전체 자릿수의 경우 > 28) |
 | NVARCHAR2 |String |

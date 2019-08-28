@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/13/2018
 ms.author: victorh
-ms.openlocfilehash: c887c5ea72a64828749bfc62756e59a8a22ea9df
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e29966473a467ddf9d7e683a9d198ca692eab338
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66729647"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785753"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Azure PowerShell을 사용하여 내부 리디렉션으로 애플리케이션 게이트웨이 만들기
 
@@ -296,11 +296,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
-브라우저의 주소 표시줄에 도메인 이름을 입력합니다. 예: http://www.contoso.com
+브라우저의 주소 표시줄에 도메인 이름을 입력합니다. Such as, http\://www.contoso.com.
 
 ![애플리케이션 게이트웨이에서 contoso 사이트 테스트](./media/redirect-internal-site-powershell/application-gateway-iistest.png)
 
-예를 들어 다른 도메인에 주소를 변경 http://www.contoso.org 는 트래픽이 www의 수신기로 다시 리디렉션 되었다고는 표시 및\. contoso.com입니다.
+다른 도메인에 예를 들어 http 주소를 변경\:/ www.contoso.org 하는 트래픽이 www의 수신기로 다시 리디렉션 되었다고를 참조 해야\.contoso.com입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

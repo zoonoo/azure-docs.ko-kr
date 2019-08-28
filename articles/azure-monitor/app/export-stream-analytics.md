@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: b791d74c2b3e94465a1903299d5db0b281ec9355
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d4a4196aa601fc8da79da3962faec026eff5ec87
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67053319"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625069"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Stream Analytics를 사용하여 Application Insights에서 내보낸 데이터 처리
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)는 [Application Insights에서 내보낸](export-telemetry.md) 데이터를 처리하는 위한 이상적인 도구입니다. Stream Analytics는 다양한 원본의 데이터를 가져와서 변환하고 필터링한 다음 다양한 싱크로 라우팅할 수 있습니다.
@@ -31,23 +31,23 @@ ms.locfileid: "67053319"
 
 ![SA를 통해 PBI로 내보내기에 대한 블록 다이어그램](./media/export-stream-analytics/020.png)
 
-## <a name="create-storage-in-azure"></a>Azure에서 저장소 만들기
+## <a name="create-storage-in-azure"></a>Azure에서 스토리지 만들기
 연속 내보내기는 항상 Azure Storage 계정에 데이터를 출력하므로 스토리지를 먼저 만들어야 합니다.
 
 1. [Azure 포털](https://portal.azure.com)에서 구독에 "클래식" 저장소 계정을 만듭니다.
    
-   ![Azure Portal에서 새로 만들기, 데이터, 저장소 선택](./media/export-stream-analytics/030.png)
+   ![Azure Portal에서 새로 만들기, 데이터, 스토리지 선택](./media/export-stream-analytics/030.png)
 2. 컨테이너 만들기
    
-    ![새 저장소에서 컨테이너를 선택하고 컨테이너 타일, 추가를 차례로 클릭합니다.](./media/export-stream-analytics/040.png)
-3. 저장소 액세스 키 복사
+    ![새 스토리지에서 컨테이너를 선택하고 컨테이너 타일, 추가를 차례로 클릭합니다.](./media/export-stream-analytics/040.png)
+3. 스토리지 액세스 키 복사
    
     스트림 분석 서비스에 대한 입력을 설정하려면 곧 이 키가 필요합니다.
    
-    ![저장소에서 설정, 키를 열고 기본 액세스 키 복사](./media/export-stream-analytics/045.png)
+    ![스토리지에서 설정, 키를 열고 기본 액세스 키 복사](./media/export-stream-analytics/045.png)
 
-## <a name="start-continuous-export-to-azure-storage"></a>Azure 저장소로 연속 내보내기 시작
-[연속 내보내기](export-telemetry.md)는 Application Insights에서 Azure 저장소로 데이터를 이동합니다.
+## <a name="start-continuous-export-to-azure-storage"></a>Azure Storage로 연속 내보내기 시작
+[연속 내보내기](export-telemetry.md)는 Application Insights에서 Azure Storage로 데이터를 이동합니다.
 
 1. Azure 포털에서 애플리케이션에 대해 만든 Application Insights 리소스를 찾습니다.
    
@@ -56,7 +56,7 @@ ms.locfileid: "67053319"
    
     ![설정, 연속 내보내기, 추가를 차례로 선택](./media/export-stream-analytics/060.png)
 
-    이전에 만든 저장소 계정을 선택합니다.
+    이전에 만든 스토리지 계정을 선택합니다.
 
     ![내보내기 대상 설정](./media/export-stream-analytics/070.png)
 
@@ -66,8 +66,8 @@ ms.locfileid: "67053319"
 
 1. 일부 데이터가 누적되도록 합니다. 한동안 사용자가 애플리케이션을 사용하도록 놓아둡니다. 원격 분석이 제공되어 [메트릭 탐색기](../../azure-monitor/app/metrics-explorer.md)에서 통계 차트가, [진단 검색](../../azure-monitor/app/diagnostic-search.md)에서 개별 이벤트가 표시됩니다. 
    
-    또한 데이터를 저장소로 내보냅니다. 
-2. 내보낸 데이터를 검사합니다. Visual Studio에서 **보기/클라우드 탐색기**를 선택하고 Azure/저장소를 엽니다. (이 메뉴 옵션이 없는 경우 Azure SDK를 설치해야 합니다. 새 프로젝트 대화 상자를 열고 시각적 개체 C# / 클라우드 / .NET용 Microsoft Azure SDK 가져오기를 엽니다.)
+    또한 데이터를 스토리지로 내보냅니다. 
+2. 내보낸 데이터를 검사합니다. Visual Studio에서 **보기/클라우드 탐색기**를 선택하고 Azure/스토리지를 엽니다. (이 메뉴 옵션이 없는 경우 Azure SDK를 설치해야 합니다. 새 프로젝트 대화 상자를 열고 시각적 개체 C# / 클라우드 / .NET용 Microsoft Azure SDK 가져오기를 엽니다.)
    
     ![](./media/export-stream-analytics/04-data.png)
    
@@ -100,7 +100,7 @@ ms.locfileid: "67053319"
 
 **날짜 형식을 YYYY-MM-DD(파선 포함)로 설정해야 합니다.**
 
-전위 패턴은 Stream Analytics가 저장소에서 입력 파일을 찾는 위치를 지정합니다. 연속 내보내기에서 데이터를 저장하는 방법과 일치하도록 설정해야 합니다. 다음과 같이 설정합니다.
+전위 패턴은 Stream Analytics가 스토리지에서 입력 파일을 찾는 위치를 지정합니다. 연속 내보내기에서 데이터를 저장하는 방법과 일치하도록 설정해야 합니다. 다음과 같이 설정합니다.
 
     webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
@@ -112,7 +112,7 @@ ms.locfileid: "67053319"
 * `/{date}/{time}` 은 문자로 기록된 패턴입니다.
 
 > [!NOTE]
-> 저장소를 검사하여 올바른 경로를 가져오는지 확인합니다.
+> 스토리지를 검사하여 올바른 경로를 가져오는지 확인합니다.
 > 
 
 ## <a name="add-new-output"></a>새 출력 추가
@@ -148,7 +148,7 @@ Test 함수를 사용하여 올바른 출력이 표시되는지 확인합니다.
 
 * 내보내기 입력은 스트림 입력에 제공된 별칭입니다.
 * pbi 출력은 정의한 출력 별칭입니다.
-* 이벤트 이름은 중첩된 JSON 배열에 있으므로 [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) 를 사용합니다. 그런 다음 Select는 기간의 해당 이름이 있는 인스턴스의 수의 개수와 함께 이벤트 이름을 선택합니다. [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) 절은 요소를 1분의 기간으로 그룹화합니다.
+* 이벤트 이름은 중첩된 JSON 배열에 있으므로 [OUTER APPLY GetElements](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) 를 사용합니다. 그런 다음 Select는 기간의 해당 이름이 있는 인스턴스의 수의 개수와 함께 이벤트 이름을 선택합니다. [Group By](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) 절은 요소를 1분의 기간으로 그룹화합니다.
 
 ### <a name="query-to-display-metric-values"></a>메트릭 값을 표시하는 쿼리
 ```SQL

@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Azure 표준 Load Balancer 기능 개요
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 ms.custom: seodec18
 ms.service: load-balancer
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2019
-ms.author: kumud
-ms.openlocfilehash: 266630cb7c9601af69073a6c9beb7d7ada9b8034
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 8eb8134452685add53b9dc339437ac262ecc8a9f
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65957478"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274392"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Azure 표준 Load Balancer 개요
 
-Azure Load Balancer를 사용하면 애플리케이션의 크기를 조정하고 서비스에 대한 고가용성을 만들 수 있습니다. Load Balancer는 인바운드 및 아웃바운드 시나리오에 사용할 수 있으며, 짧은 대기 시간과 높은 처리량을 제공하고, 모든 TCP 및 UDP 애플리케이션에 대해 수백만 개의 흐름으로 확장됩니다. 
+Azure Load Balancer를 사용하여 애플리케이션 크기를 조정하고 서비스에 대한 고가용성을 구현할 수 있습니다. Load Balancer는 인바운드 및 아웃바운드 시나리오에 사용할 수 있으며, 짧은 대기 시간과 높은 처리량을 제공하고, 모든 TCP 및 UDP 애플리케이션에 대해 수백만 개의 흐름으로 확장됩니다. 
 
 이 문서에서는 표준 Load Balancer에 대해 설명합니다.  Azure Load Balancer에 대한 보다 일반적인 개요를 보려면 [Load Balancer 개요](load-balancer-overview.md)도 검토하세요.
 
@@ -75,7 +75,7 @@ Load Balancer 리소스는 만들려는 시나리오를 달성하기 위해 Azur
 ### <a name="az"></a> 가용성 영역
 
 >[!IMPORTANT]
->검토 [가용성 영역](../availability-zones/az-overview.md) 관련된 항목에 대 한 지역 특정 정보를 포함 합니다.
+>지역별 관련 정보를 포함 하 여 관련 항목에 대 한 [가용성 영역](../availability-zones/az-overview.md) 를 검토 합니다.
 
 표준 Load Balancer는 가용성 영역을 사용할 수 있는 지역에서 추가 기능을 지원합니다.  이러한 기능은 모든 표준 Load Balancer 제공 기능에 추가됩니다.  가용성 영역 구성은 공용 및 내부 표준 Load Balancer에 사용할 수 있습니다.
 
@@ -206,7 +206,7 @@ SKU는 변경할 수 없습니다. 이 섹션의 단계에 따라 리소스 SKU 
 
 ## <a name="region-availability"></a>지역 가용성
 
-표준 Load Balancer는 현재 모든 공용 클라우드 지역에서 사용 가능합니다.
+표준 Load Balancer는 현재 모든 퍼블릭 클라우드 지역에서 사용 가능합니다.
 
 ## <a name="sla"></a>SLA
 

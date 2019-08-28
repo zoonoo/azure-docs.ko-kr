@@ -60,7 +60,7 @@ Get-AzSubscription
 Set-AzContext -SubscriptionId <subscriptionID>
 ```
 
-이 문서에서는 저장소 계정 키를 비밀로 저장하는 방법을 설명하므로 해당 저장소 계정 키를 가져와야 합니다.
+이 문서에서는 스토리지 계정 키를 비밀로 저장하는 방법을 설명하므로 해당 스토리지 계정 키를 가져와야 합니다.
 
 ```powershell
 Get-AzStorageAccountKey -ResourceGroupName <resourceGroupName> -Name <storageAccountName>
@@ -99,7 +99,7 @@ Get-AzKeyVaultSecret –VaultName <vaultName>
 
     ![애플리케이션 등록 만들기](./media/keyvault-keyrotation/create-app.png)
 
-5. 응용 프로그램이 Azure Active Directory에 추가 된 후 응용 프로그램 페이지를 엽니다. 선택 **설정을**를 선택한 후 **속성**합니다. **응용 프로그램 ID** 값을 복사합니다. 이후 단계에서 필요 합니다.
+5. 응용 프로그램이 Azure Active Directory에 추가 된 후 응용 프로그램 페이지를 엽니다. 선택 **설정을**를 선택한 후 **속성**합니다. **애플리케이션 ID** 값을 복사합니다. 이후 단계에서 필요 합니다.
 
 다음으로, Azure Active Directory와 상호 작용할 수 있도록 응용 프로그램에 대 한 키를 생성 합니다. 선택 키를 만들려면 **키** 아래에서 **설정**합니다. Azure Active Directory 응용 프로그램에 대 한 새로 생성 된 키를 적어 둡니다. 이후 단계에서 필요합니다. 이 섹션을 나간 후에 키를 사용할 수 없습니다. 
 
@@ -390,7 +390,7 @@ static string GetContainerSasUri(CloudBlockBlob blob)
 > [!NOTE]
 > Key vault 로그가 기록 되는 저장소 계정, 이전에 만든 Service Bus 인스턴스 및 key vault 저장소 로그에 특정 경로 가리키도록 위의 코드에서 변수를 변경 합니다.
 
-이 함수는 Key Vault 로그가 기록된 저장소 계정에서 최신 로그 파일을 선택하고 해당 파일에서 최신 이벤트를 가져와 Service Bus 큐에 푸시합니다. 
+이 함수는 Key Vault 로그가 기록된 스토리지 계정에서 최신 로그 파일을 선택하고 해당 파일에서 최신 이벤트를 가져와 Service Bus 큐에 푸시합니다. 
 
 단일 파일에서 여러 이벤트를 가질 수 있으므로 함수 훌륭하면서도에서 선택 된 마지막 이벤트의 타임 스탬프를 확인 하는 sync.txt 파일을 만들어야 합니다. 이 파일을 사용 하는 푸시 하지 않게 같은 이벤트가 여러 번 확인 합니다. 
 

@@ -24,7 +24,7 @@ ms.locfileid: "60615263"
 # <a name="set-up-an-encryption-certificate-and-encrypt-secrets-on-windows-clusters"></a>Windows 클러스터에서 암호화 인증서 설정 및 비밀 암호화
 이 문서에서는 Windows 클러스터에서 암호화 인증서를 설정하고 이를 사용하여 비밀을 암호화하는 방법을 알아봅니다. Linux 클러스터의 경우 [Linux 클러스터에서 암호화 인증서 설정 및 비밀 암호화][secret-management-linux-specific-link]를 참조하세요.
 
-[Azure Key Vault][key-vault-get-started]는 인증서에 대한 안전한 저장소 위치이자 Azure의 Service Fabric 클러스터에 설치된 인증서를 가져오는 수단으로 사용됩니다. Azure에 배포하지 않는 경우 서비스 패브릭 애플리케이션의 비밀을 관리하기 위해 주요 자격 증명 모음을 사용할 필요가 없습니다. 하지만 애플리케이션에서 비밀을 *사용* 하는 것은 클라우드 플랫폼에 구애를 받지 않으므로 그 어디에 호스트된 클러스터에도 애플리케이션을 배포할 수 있습니다. 
+[Azure Key Vault][key-vault-get-started]는 인증서에 대한 안전한 스토리지 위치이자 Azure의 Service Fabric 클러스터에 설치된 인증서를 가져오는 수단으로 사용됩니다. Azure에 배포하지 않는 경우 서비스 패브릭 애플리케이션의 비밀을 관리하기 위해 주요 자격 증명 모음을 사용할 필요가 없습니다. 하지만 애플리케이션에서 비밀을 *사용* 하는 것은 클라우드 플랫폼에 구애를 받지 않으므로 그 어디에 호스트된 클러스터에도 애플리케이션을 배포할 수 있습니다. 
 
 ## <a name="obtain-a-data-encipherment-certificate"></a>데이터 암호화 인증서 가져오기
 데이터 암호화 인증서는 서비스의 Settings.xml에 포함된 [매개 변수][parameters-link] 및 서비스의 ServiceManifest.xml에 있는 [환경 변수][environment-variables-link]를 암호화 및 해독하는 용도로만 엄격하게 사용됩니다. 인증 또는 암호화 텍스트의 서명에는 사용되지 않습니다. 인증서는 다음 요구 사항을 충족해야 합니다.

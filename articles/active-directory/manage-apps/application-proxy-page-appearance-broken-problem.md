@@ -1,5 +1,5 @@
 ---
-title: 애플리케이션 페이지가 애플리케이션 프록시 애플리케이션에 올바르게 표시되지 않음 | Microsoft Docs
+title: 응용 프로그램 프록시 앱에 대 한 앱 페이지가 제대로 표시 되지 않음 | Microsoft Docs
 description: 페이지에서 Azure AD와 통합한 애플리케이션 프록시 애플리케이션을 제대로 표시하지 않는 경우 가이드입니다.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.date: 05/21/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99c2c53f3bf723c1d45edf2e62cd404615924c9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 13e73f0ed56648ce162f00d6df5e7b86a922ca01
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65783728"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381419"
 ---
 # <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>애플리케이션 페이지가 애플리케이션 프록시 애플리케이션에 올바르게 표시되지 않음
 

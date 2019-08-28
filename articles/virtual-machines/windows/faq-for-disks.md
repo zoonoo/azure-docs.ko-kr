@@ -1,25 +1,18 @@
 ---
 title: Azure IaaS Windows VM 디스크에 대한 질문과 대답(FAQ) | Microsoft Docs
 description: Azure IaaS Windows VM 디스크 및 프리미엄 디스크(관리 및 관리되지 않는 디스크)에 대한 질문과 대답
-services: virtual-machines-windows
-documentationcenter: ''
 author: roygara
-manager: twooley
-editor: tysonn
-ms.assetid: e2a20625-6224-4187-8401-abadc8f1de91
 ms.service: virtual-machines-windows
 ms.workload: storage
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
-ms.topic: article
-ms.date: 06/15/2017
+ms.topic: conceptual
+ms.date: 08/15/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 81cdb0273f64bd70fc77a6e61007290bdd4627c5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: edd9ca4b00031351c5cfcc8e6971653df267268d
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64727454"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69516076"
 ---
 [!INCLUDE [virtual-machines-faq-for-disks](../../../includes/virtual-machines-faq-for-disks.md)]

@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Java용 Custom Vision SDK를 사용하여 개체 검색 프로젝트 만들기'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Java SDK를 사용하여 프로젝트를 만들고, 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 교육하고, 개체를 검색합니다.
 services: cognitive-services
 author: areddish
@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 03/21/2019
+ms.date: 08/08/2019
 ms.author: areddish
-ms.openlocfilehash: 00684df614771437f33655538a808468ee778d29
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 2513f6ad96a8c2c6fd42f81d1123cccdc59cdd5f
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487008"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946176"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-sdk-for-java"></a>빠른 시작: Java용 Custom Vision SDK를 사용하여 개체 검색 프로젝트 만들기
 
-이 문서에서는 Java와 함께 Custom Vision SDK를 사용하여 개체 검색 모델 빌드를 시작할 수 있도록 도와주는 정보와 샘플 코드를 제공합니다. 프로젝트를 만든 후에는 태그가 지정된 지역을 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 프로젝트의 기본 예측 엔드포인트 URL를 획득하고, 해당 엔드포인트를 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. Java 응용 프로그램을 빌드하기 위한 템플릿으로 이 예제를 사용하세요.
+이 문서에서는 Java와 함께 Custom Vision SDK를 사용하여 개체 검색 모델 빌드를 시작할 수 있도록 도와주는 정보와 샘플 코드를 제공합니다. 프로젝트를 만든 후에는 태그가 지정된 지역을 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 프로젝트의 기본 예측 엔드포인트 URL를 획득하고, 해당 엔드포인트를 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. Java 애플리케이션을 빌드하기 위한 템플릿으로 이 예제를 사용하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -29,7 +29,7 @@ ms.locfileid: "58487008"
 
 ## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Custom Vision SDK 및 샘플 코드 다운로드
 
-Custom Vision을 사용하는 Java 앱을 작성하려면 Custom Vision maven 패키지가 필요합니다. 이러한 요소는 여러분이 다운로드할 샘플 프로젝트에 포함되어 있지만, 여기서 개별적으로 액세스할 수도 있습니다.
+Custom Vision을 사용하는 Java 앱을 작성하려면 Custom Vision maven 패키지가 필요합니다. 이러한 패키지는 다운로드할 샘플 프로젝트에 포함되어 있지만, 여기서 개별적으로 액세스할 수도 있습니다.
 
 Maven 중앙 리포지토리에서 Custom Vision SDK를 설치할 수 있습니다.
 - [교육 SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
@@ -50,11 +50,11 @@ $env:AZURE_CUSTOMVISION_PREDICTION_API_KEY ="<your prediction api key>"
 
 ## <a name="understand-the-code"></a>코드 이해
 
-Java IDE에서 `Vision/CustomVision` 프로젝트를 로드하고 _CustomVisionSamples.java_ 파일을 엽니다. **runSample** 메서드를 찾아서 **ImageClassification_Sample** 메서드 호출이라는 주석으로 처리합니다. 이렇게 하면 이미지 분류 시나리오가 실행되는데, 이 내용은 본 가이드에서 다루지 않습니다. **ObjectDetection_Sample** 메서드는 이 빠른 시작의 기본 기능을 구현합니다. 이 메서드의 정의로 이동하여 코드를 검사하세요. 
+Java IDE에서 `Vision/CustomVision` 프로젝트를 로드하고 _CustomVisionSamples.java_ 파일을 엽니다. **runSample** 메서드를 찾아서 **ImageClassification_Sample** 메서드 호출&mdash;이라는 주석으로 처리합니다. 이 메서드는 본 가이드에서 다루지 않는 이미지 분류 시나리오를 실행합니다. **ObjectDetection_Sample** 메서드는 이 빠른 시작의 기본 기능을 구현합니다. 이 메서드의 정의로 이동하여 코드를 검사하세요. 
 
 ### <a name="create-a-new-custom-vision-service-project"></a>새 Custom Vision Service 프로젝트 만들기
 
-교육 클라이언트 및 개체 검색 프로젝트를 만드는 코드 블록으로 이동합니다. 생성된 프로젝트는 앞에서 방문한 [Custom Vision 웹 사이트](https://customvision.ai/)에 표시됩니다. 
+교육 클라이언트 및 개체 검색 프로젝트를 만드는 코드 블록으로 이동합니다. 생성된 프로젝트는 앞에서 방문한 [Custom Vision 웹 사이트](https://customvision.ai/)에 표시됩니다. 프로젝트를 만들 때 다른 옵션을 지정하려면 [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) 메서드 오버로드를 참조하세요([탐지기 빌드](get-started-build-detector.md) 웹 포털 가이드에 설명되어 있음).
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=181-206)]
 
@@ -72,7 +72,7 @@ Java IDE에서 `Vision/CustomVision` 프로젝트를 로드하고 _CustomVisionS
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=220-231)]
 
-이전 코드 조각은 이미지를 리소스 스트림으로 검색하여 서비스에 업로드하는 두 개의 도우미 함수를 사용합니다.
+이전 코드 조각은 이미지를 리소스 스트림으로 검색하여 서비스에 업로드하는 두 개의 도우미 함수를 사용합니다(단일 일괄 처리에서 최대 64개의 이미지를 업로드할 수 있음).
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=277-314)]
 

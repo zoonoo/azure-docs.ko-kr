@@ -3,24 +3,23 @@ title: Azure PowerShell 스크립트 샘플 - 클러스터에 애플리케이션
 description: Azure PowerShell 스크립트 샘플 - Service Fabric 클러스터에 애플리케이션 인증서 추가
 services: service-fabric
 documentationcenter: ''
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 tags: azure-service-management
 ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
-ms.devlang: na
 ms.topic: sample
 ms.date: 01/18/2018
-ms.author: aljo
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 313a1b7e4f0109a0a5cb94214918d97c25b5cf5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 89094dc959f3a258370afc3cfb720aa3b101d1b7
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66153839"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036139"
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Service Fabric 클러스터에 애플리케이션 인증서 추가
 

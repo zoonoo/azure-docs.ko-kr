@@ -1,7 +1,7 @@
 ---
 title: 시각적 인터페이스
 titleSuffix: Azure Machine Learning service
-description: 용어, 개념 및 Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 보기)를 구성 하는 워크플로 알아봅니다.
+description: Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 보기)를 구성 하는 용어, 개념 및 워크플로에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,95 +9,94 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/15/2019
-ms.openlocfilehash: be07e0f3438ea93312d4eb440e7e63b8f98e11b8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1cb56386f52d1c7b1ec357b912c648c1961b4c1d
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077371"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677979"
 ---
-# <a name="what-is-the-visual-interface-for-azure-machine-learning-service"></a>Azure Machine Learning 서비스에 대 한 시각적 인터페이스는 무엇입니까? 
+# <a name="what-is-the-visual-interface-for-azure-machine-learning-service"></a>Azure Machine Learning 서비스에 대 한 시각적 인터페이스는 무엇 인가요? 
 
-Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 보기)를 사용 하면 데이터 준비, 학습, 테스트, 배포, 관리 및 코드를 작성 하지 않고 기계 학습 모델을 추적할 수 있습니다.
+Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 보기)를 사용 하면 코드를 작성 하지 않고도 데이터를 준비 하 고, 학습, 테스트, 배포, 관리, 기계 학습 모델을 추적할 수 있습니다.
 
-필요한 프로그래밍 없이, 시각적으로 연결 [데이터 집합](#dataset) 하 고 [모듈](#module) 모델을 생성 합니다.
+모델을 생성 하기 위해 [데이터 집합](#dataset) 및 [모듈](#module) 을 시각적으로 연결 하는 데 필요한 프로그래밍은 없습니다.
 
-Azure Machine Learning 서비스를 사용 하는 시각적 인터페이스 [작업 영역](concept-workspace.md) 에:
+시각적 인터페이스는 Azure Machine Learning 서비스 [작업 영역](concept-workspace.md) 을 사용 하 여 다음 작업을 수행 합니다.
 
-+ 아티팩트를 작성 [실험](#experiment) 작업 영역으로 실행 합니다.
-+ 액세스 [데이터 집합](#dataset)합니다.
-+ 사용 된 [계산 리소스](#compute) 실험을 실행 하려면 작업 영역에서 합니다. 
-+ 등록할 [모델](concept-azure-machine-learning-architecture.md#models)합니다.
-+ [배포](#deployment) 모델에서 웹 서비스 작업 영역에서 리소스를 계산 합니다.
++ [실험](#experiment) 실행의 아티팩트를 작업 영역으로 작성 합니다.
++ [데이터 집합](#dataset)에 액세스 합니다.
++ 작업 영역의 [계산 리소스](#compute) 를 사용 하 여 실험을 실행 합니다. 
++ [모델](concept-azure-machine-learning-architecture.md#models)을 등록 합니다.
++ 작업 영역의 계산 리소스에 웹 서비스로 모델을 [배포](#deployment) 합니다.
 
 ![시각적 인터페이스 개요](media/ui-concept-visual-interface/overview.png)
 
 ## <a name="workflow"></a>워크플로
 
-시각적 인터페이스는 신속 하 게 빌드, 테스트 및 반복 모델을 시각적, 대화형 캔버스를 제공 합니다. 
+시각적 인터페이스는 모델을 신속 하 게 빌드, 테스트 및 반복 하는 대화형 시각적 캔버스를 제공 합니다. 
 
-+ 하면 끌어서 놓기 [모듈](#module) 캔버스로 합니다.
-+ 폼에 모듈을 함께 연결 된 [실험](#experiment)합니다.
++ [모듈](#module) 을 캔버스로 끌어서 놓습니다.
++ 모듈을 함께 연결 하 여 [실험](#experiment)을 구성 합니다.
 + Machine Learning 서비스 작업 영역의 계산 리소스를 사용 하 여 실험을 실행 합니다.
 + 실험을 편집 하 고 다시 실행 하 여 모델 디자인을 반복 합니다.
-+ 준비 된 경우 변환에 **학습 실험** 에 **예측 실험**합니다.
-+ [배포](#deployment) 예측 실험을 웹 서비스 모델에 다른 사용자가 액세스할 수 있도록 합니다.
++ 준비가 되 면 **학습 실험** 을 **예측 실험**으로 변환 합니다.
++ 다른 사용자가 모델에 액세스할 수 있도록 예측 실험을 웹 서비스로 [배포](#deployment) 합니다.
 
-## <a name="experiment"></a>실험
+## <a name="experiment"></a>Experiment
 
-실험을 처음부터 만들거나 기존 샘플 실험을 템플릿으로 사용 합니다.  실험을 실행할 때마다 아티팩트 작업 영역에 저장 됩니다.
+처음부터 실험을 만들거나 기존 샘플 실험을 템플릿으로 사용 합니다.  실험을 실행할 때마다 아티팩트는 작업 영역에 저장 됩니다.
 
-데이터 집합 및 모델을 생성 하는 함께 연결 하는 분석 모듈을 실험 구성 됩니다. 특히 유효한 실험에는 다음 특성이 포함됩니다.
+실험은 모델을 생성 하기 위해 함께 연결 하는 데이터 집합 및 분석 모듈로 구성 됩니다. 특히 유효한 실험에는 다음 특성이 포함됩니다.
 
-* 데이터 집합 모듈에만 연결할 수 있습니다.
-* 모듈은 데이터 집합 또는 다른 모듈에 연결할 수 있습니다.
-* 모듈에 대 한 모든 입력된 포트에는 데이터 흐름에 대 한 연결이 있어야 합니다.
-* 모든 필요한 각 모듈에 대 한 매개 변수를 설정 해야 합니다.
+* 데이터 집합은 모듈에만 연결 될 수 있습니다.
+* 모듈은 데이터 집합 또는 다른 모듈에 연결 될 수 있습니다.
+* 모듈에 대 한 모든 입력 포트는 데이터 흐름에 대 한 일부 연결을 포함 해야 합니다.
+* 각 모듈에 필요한 모든 매개 변수를 설정 해야 합니다.
 
-간단한 실험의 예제를 참조 하세요. [빠른 시작: 준비 하 고 Azure Machine Learning에서 코드를 작성 하지 않고도 데이터를 시각화](ui-quickstart-run-experiment.md)합니다.
 
-예측 분석 솔루션의 자세한 연습을 참조 하세요. [자습서: 시각적 인터페이스를 사용 하 여 자동차 가격 예측](ui-tutorial-automobile-price-train-score.md)합니다.
+시각적 인터페이스를 시작 하는 방법에 대 한 자세한 내용은 [자습서: 시각적 인터페이스](ui-tutorial-automobile-price-train-score.md)를 사용 하 여 자동차 가격을 예측 합니다.
 
-## <a name="dataset"></a>데이터 세트
+## <a name="dataset"></a>데이터 집합
 
-데이터 집합은 모델링 프로세스에서 사용 하는 시각적 인터페이스에 업로드 된 데이터입니다. 다양 한 샘플 데이터 집합을 실험할 수 포함 되며 필요에 따라 추가 데이터 집합을 업로드할 수 있습니다.
+데이터 집합은 모델링 프로세스에서 사용할 시각적 인터페이스에 업로드 된 데이터입니다. 시험해 볼 수 있는 다양 한 샘플 데이터 집합이 포함 되어 있으며 필요에 따라 더 많은 데이터 집합을 업로드할 수 있습니다.
 
 ## <a name="module"></a>모듈
 
-모듈은 데이터에 대해 수행할 수 있는 알고리즘입니다. 시각적 인터페이스에 다양 한 학습, 점수 매기기 및 유효성 검사 프로세스에서 데이터 수신 함수 사이의 모듈이 있습니다.
+모듈은 데이터에 대해 수행할 수 있는 알고리즘입니다. 시각적 인터페이스에는 데이터 수신 기능부터 학습, 점수 매기기 및 유효성 검사 프로세스에 이르는 다양 한 모듈이 있습니다.
 
-모듈에는 모듈 내부 알고리즘을 구성하는 데 사용할 수 있는 매개 변수 집합이 포함될 수 있습니다. 캔버스에서 모듈을 선택 하면 모듈의 매개 변수는 캔버스의 오른쪽 속성 창에 표시 됩니다. 해당 창에서 매개 변수를 수정하여 모델을 튜닝할 수 있습니다.
+모듈에는 모듈 내부 알고리즘을 구성하는 데 사용할 수 있는 매개 변수 집합이 포함될 수 있습니다. 캔버스에서 모듈을 선택 하면 모듈의 매개 변수가 캔버스 오른쪽의 속성 창에 표시 됩니다. 해당 창에서 매개 변수를 수정하여 모델을 튜닝할 수 있습니다.
 
 ![모듈 속성](media/ui-concept-visual-interface/properties.png)
 
-탐색 하기 위한 일부 도움말 가능한 기계 학습 알고리즘의 라이브러리를 참조 하세요. [알고리즘 및 모듈 참조 개요](../algorithm-module-reference/module-reference.md)
+사용 가능한 기계 학습 알고리즘 라이브러리를 탐색 하는 데 도움이 필요한 경우 [알고리즘 & 모듈 참조 개요](../algorithm-module-reference/module-reference.md) 를 참조 하세요.
 
-## <a name="compute"></a> 계산 리소스
+## <a name="compute"></a>계산 리소스
 
-사용 하 여 웹 서비스로 실험 또는 호스트에 배포 된 모델을 실행을 위해 작업 영역에서 리소스를 계산 합니다. 지원되는 계산 대상은 다음과 같습니다.
+작업 영역의 계산 리소스를 사용 하 여 실험을 실행 하거나 배포 된 모델을 웹 서비스로 호스트할 수 있습니다. 지원되는 컴퓨팅 대상은 다음과 같습니다.
 
 
-| 계산 대상 | 교육 | 배포 |
+| 컴퓨팅 대상 | 학습 | 배포 |
 | ---- |:----:|:----:|
 | Azure Machine Learning 컴퓨팅 | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
-계산 대상은 Machine Learning에 연결 된 [작업 영역](concept-workspace.md)합니다. 계산 대상에서 작업 영역에서 관리 하는 [Azure portal](https://portal.azure.com)합니다.
+계산 대상은 Machine Learning [작업 영역](concept-workspace.md)에 연결 됩니다. [Azure Portal](https://portal.azure.com)의 작업 영역에서 계산 대상을 관리 합니다.
 
 ## <a name="deployment"></a>배포
 
-예측 분석 모델이 준비 되 면 시각적 인터페이스에서 직접 웹 서비스로 배포 합니다.
+예측 분석 모델이 준비 되 면 시각적 인터페이스에서 바로 웹 서비스로 배포 합니다.
 
-웹 서비스 응용 프로그램 및 점수 매기기 모델 간의 인터페이스를 제공 합니다. 외부 응용 프로그램은 실시간에서 점수 매기기 모델을 사용 하 여 통신할 수 있습니다. 웹 서비스에 대 한 호출 외부 응용 프로그램에 예측 결과 반환합니다. 웹 서비스를 호출하려면 웹 서비스를 배포할 때 만들어진 API 키를 전달합니다. 웹 서비스는 웹 프로그래밍 프로젝트에 널리 사용 되는 아키텍처인 REST를 기반으로 합니다.
+웹 서비스는 응용 프로그램과 점수 매기기 모델 간의 인터페이스를 제공 합니다. 외부 응용 프로그램은 실제 시간에 점수 매기기 모델과 통신할 수 있습니다. 웹 서비스에 대 한 호출은 외부 응용 프로그램에 예측 결과를 반환 합니다. 웹 서비스를 호출하려면 웹 서비스를 배포할 때 만들어진 API 키를 전달합니다. 웹 서비스는 웹 프로그래밍 프로젝트에서 널리 사용 되는 인기 있는 아키텍처를 기반으로 합니다.
 
-모델을 배포 하는 방법에 알아보려면 참조 [자습서: 시각적 인터페이스를 사용 하 여 기계 학습 모델을 배포](ui-tutorial-automobile-price-deploy.md)합니다.
+모델을 배포 하는 방법에 대 한 [자세한 내용은 자습서: 시각적 인터페이스](ui-tutorial-automobile-price-deploy.md)를 사용 하 여 machine learning 모델을 배포 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* 예측 분석의 기본 사항을 알아보고 기계 학습으로 [빠른 시작: 준비 하 고 Azure Machine Learning에서 코드를 작성 하지 않고도 데이터를 시각화](ui-quickstart-run-experiment.md)합니다.
-* 샘플 중 하나를 사용 하 고 도구 모음에 맞게 수정 합니다.
-    * [1-회귀 샘플: 가격 예측](ui-sample-regression-predict-automobile-price-basic.md)
-    * [2-회귀 샘플: 가격을 예측 하 고 알고리즘 비교](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-    * [3-분류 샘플: 신용 위험 예측](ui-sample-classification-predict-credit-risk-basic.md)
-    * [4-분류 샘플: (중요 한 비용) 신용 위험 예측](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-    * [5-분류 샘플: 변동, 욕구를 및 상향 판매를 예측 합니다.](ui-sample-classification-predict-churn.md)
+* 자습서를 사용 하 여 [예측 분석 및 기계 학습의 기본 사항에 대해 알아봅니다. 그래픽 인터페이스를 사용하여 자동차 가격 예측](ui-tutorial-automobile-price-train-score.md)
+* 샘플 중 하나를 사용 하 고 요구 사항에 맞게 수정 합니다.
+    * [샘플 1-회귀: 예측 가격](ui-sample-regression-predict-automobile-price-basic.md)
+    * [샘플 2-회귀: 가격 예측 및 알고리즘 비교](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+    * [샘플 3-분류: 신용 위험 예측](ui-sample-classification-predict-credit-risk-basic.md)
+    * [샘플 4-분류: 신용 위험 예측 (비용 구분)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+    * [샘플 5-분류: 변동, 욕구 및 업 판매 예측](ui-sample-classification-predict-churn.md)

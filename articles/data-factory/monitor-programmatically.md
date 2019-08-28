@@ -11,12 +11,12 @@ ms.date: 01/16/2018
 author: gauravmalhot
 ms.author: gamal
 manager: craigg
-ms.openlocfilehash: 035e12da67d28e8e3fb46ac295717dd6b579922c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4538cb987d88c92e379640e69b29ad5c8c75a520
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66167046"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360395"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Azure Data Factory를 프로그래밍 방식으로 모니터링
 이 문서에서는 다른 SDK(소프트웨어 개발 키트)를 사용하여 Data Factory에서 파이프라인을 모니터링하는 방법을 설명합니다. 
@@ -73,11 +73,13 @@ Python SDK를 사용하여 파이프라인을 만들고 모니터링하는 전�
 파이프라인 실행을 모니터링하려면 다음 코드를 추가합니다.
 
 ```python
-#Monitor the pipeline run
+# Monitor the pipeline run
 time.sleep(30)
-pipeline_run = adf_client.pipeline_runs.get(rg_name, df_name, run_response.run_id)
+pipeline_run = adf_client.pipeline_runs.get(
+    rg_name, df_name, run_response.run_id)
 print("\n\tPipeline run status: {}".format(pipeline_run.status))
-activity_runs_paged = list(adf_client.activity_runs.list_by_pipeline_run(rg_name, df_name, pipeline_run.run_id, datetime.now() - timedelta(1),  datetime.now() + timedelta(1)))
+activity_runs_paged = list(adf_client.activity_runs.list_by_pipeline_run(
+    rg_name, df_name, pipeline_run.run_id, datetime.now() - timedelta(1),  datetime.now() + timedelta(1)))
 print_activity_run_details(activity_runs_paged[0])
 ```
 

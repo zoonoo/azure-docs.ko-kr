@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 8e531de34302ef8aee571c960955d33a4832aa11
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 49877994e7eef89f099e19d92e26de48bd9d41f4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60331516"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566467"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Azure SQL Database 및 SQL Server용 Spark 커넥터를 통해 실시간 빅 데이터 분석 가속화
 
@@ -28,7 +27,7 @@ Azure SQL Database 및 SQL Server용 Spark 커넥터를 사용하면 Azure SQL D
 
 ## <a name="official-supported-versions"></a>공식 지원되는 버전
 
-| 구성 요소                            |Version                  |
+| 구성 요소                            |버전                  |
 | :----------------------------------- | :---------------------- |
 | Apache Spark                         |2.0.2 이상           |
 | 스칼라                                |2.10 이상            |
@@ -45,7 +44,7 @@ Azure SQL Database 및 SQL Server용 Spark 커넥터는 SQL Server용 Microsoft 
 
 아래 다이어그램은 데이터 흐름을 보여 줍니다.
 
-   ![아키텍처](./media/sql-database-spark-connector/architecture.png)
+   ![architecture](./media/sql-database-spark-connector/architecture.png)
 
 ### <a name="build-the-spark-to-sql-db-connector"></a>Spark - SQL DB 커넥터 빌드
 현재 커넥터 프로젝트는 maven을 사용합니다. 종속성 없이 커넥터를 빌드하려면 다음을 실행할 수 있습니다.
@@ -202,7 +201,6 @@ val bulkCopyConfig = Config(Map(
   "databaseName"      -> "MyDatabase",
   "user"              -> "username",
   "password"          -> "*********",
-  "databaseName"      -> "zeqisql",
   "dbTable"           -> "dbo.Clients",
   "bulkCopyBatchSize" -> "2500",
   "bulkCopyTableLock" -> "true",

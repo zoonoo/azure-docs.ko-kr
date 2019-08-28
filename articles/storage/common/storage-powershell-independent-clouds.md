@@ -17,7 +17,7 @@ ms.locfileid: "65145876"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>PowerShell을 사용하여 Azure 독립 클라우드에서 Storage 관리
 
-대부분의 사람들은 글로벌 Azure 배포에 Azure Public Cloud를 사용합니다. 또한 통치권 등의 사유로 인한 몇 가지 Microsoft Azure 독립 배포도 존재합니다. 이러한 독립 배포를 "환경"이라고 칭합니다. 다음 목록에서는 현재 사용할 수 있는 독립 클라우드에 대해 자세히 설명합니다.
+대부분의 사람들은 전역 Azure 배포에 Azure Public Cloud를 사용합니다. 또한 통치권 등의 사유로 인한 몇 가지 Microsoft Azure 독립 배포도 존재합니다. 이러한 독립 배포를 "환경"이라고 칭합니다. 다음 목록에서는 현재 사용할 수 있는 독립 클라우드에 대해 자세히 설명합니다.
 
 * [Azure Government Cloud](https://azure.microsoft.com/features/gov/)
 * [중국 21Vianet이 운영하는 Azure China Cloud](http://www.windowsazure.cn/)
@@ -71,7 +71,7 @@ Get-AzLocation | select Location, DisplayName
 
 ### <a name="get-endpoint-using-get-azenvironment"></a>Get-AzEnvironment를 사용하여 엔드포인트 가져오기 
 
-[Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment)를 사용하여 엔드포인트 접미사를 검색합니다. 엔드포인트는 환경의 *StorageEndpointSuffix* 속성입니다. 다음 코드 조각에서는 이 방법을 보여 줍니다. 이 명령은 모두 "core.cloudapp.net" 또는 "core.cloudapi.de" 등과 유사한 항목을 반환합니다. 해당 서비스에 액세스하는 저장소 서비스에 이 항목을 추가합니다. 예를 들어 "queue.core.cloudapi.de"는 독일 클라우드의 큐 서비스에 액세스하게 됩니다.
+[Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment)를 사용하여 엔드포인트 접미사를 검색합니다. 엔드포인트는 환경의 *StorageEndpointSuffix* 속성입니다. 다음 코드 조각에서는 이 방법을 보여 줍니다. 이 명령은 모두 "core.cloudapp.net" 또는 "core.cloudapi.de" 등과 유사한 항목을 반환합니다. 해당 서비스에 액세스하는 스토리지 서비스에 이 항목을 추가합니다. 예를 들어 "queue.core.cloudapi.de"는 독일 클라우드의 큐 서비스에 액세스하게 됩니다.
 
 이 코드 조각은 각각에 대한 모든 환경과 엔드포인트 접미사를 검색합니다.
 
@@ -81,7 +81,7 @@ Get-AzEnvironment | select Name, StorageEndpointSuffix
 
 이 명령은 다음 결과를 반환합니다.
 
-| 이름| StorageEndpointSuffix|
+| Name| StorageEndpointSuffix|
 |----|----|
 | AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |
@@ -98,7 +98,7 @@ Get-AzEnvironment -Name AzureGermanCloud
 
 |속성 이름|값|
 |----|----|
-| 이름 | AzureGermanCloud |
+| Name | AzureGermanCloud |
 | EnableAdfsAuthentication | False |
 | ActiveDirectoryServiceEndpointResourceI | http://management.core.cloudapi.de/ |
 | GalleryURL | https://gallery.cloudapi.de/ |
@@ -110,7 +110,7 @@ Get-AzEnvironment -Name AzureGermanCloud
 | **StorageEndpointSuffix** | core.cloudapi.de |
 | ... | ... | 
 
-저장소 엔드포인트 접미사 속성만 검색하려면 특정 클라우드를 검색하고 해당 속성 하나만 요청합니다.
+스토리지 엔드포인트 접미사 속성만 검색하려면 특정 클라우드를 검색하고 해당 속성 하나만 요청합니다.
 
 ```powershell
 $environment = Get-AzEnvironment -Name AzureGermanCloud
@@ -123,9 +123,9 @@ Write-Host "Storage EndPoint Suffix = " $environment.StorageEndpointSuffix
 Storage Endpoint Suffix = core.cloudapi.de
 ```
 
-### <a name="get-endpoint-from-a-storage-account"></a>저장소 계정에서 엔드포인트를 가져오기
+### <a name="get-endpoint-from-a-storage-account"></a>스토리지 계정에서 엔드포인트를 가져오기
 
-엔드포인트를 가져오기 위해 저장소 계정의 속성을 조사할 수도 있습니다. 이것은 PowerShell 스크립트에서 이미 저장소 계정을 사용하고 있을 때 유용하며 필요한 엔드포인트만 검색할 수 있습니다. 
+엔드포인트를 가져오기 위해 스토리지 계정의 속성을 조사할 수도 있습니다. 이것은 PowerShell 스크립트에서 이미 스토리지 계정을 사용하고 있을 때 유용하며 필요한 엔드포인트만 검색할 수 있습니다. 
 
 ```powershell
 # Get a reference to the storage account.
@@ -141,7 +141,7 @@ Write-Host "queue endpoint = " $storageAccount.PrimaryEndPoints.Queue
 Write-Host "table endpoint = " $storageAccount.PrimaryEndPoints.Table
 ```
 
-정부 클라우드의 저장소 계정의 경우 다음을 반환합니다. 
+정부 클라우드의 스토리지 계정의 경우 다음을 반환합니다. 
 
 ```
 blob endpoint = http://myexistingstorageaccount.blob.core.usgovcloudapi.net/
@@ -156,7 +156,7 @@ table endpoint = http://myexistingstorageaccount.table.core.usgovcloudapi.net/
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 연습에 대해 새 리소스 그룹과 저장소 계정을 만든 후에는 리소스 그룹을 제거하여 모든 자산을 제거할 수 있습니다. 이렇게 하면 그룹 내에 포함된 모든 리소스가 삭제됩니다. 이 사례에서는 만든 저장소 계정 및 리소스 그룹 자체가 제거됩니다.
+이 연습에 대해 새 리소스 그룹과 스토리지 계정을 만든 후에는 리소스 그룹을 제거하여 모든 자산을 제거할 수 있습니다. 이렇게 하면 그룹 내에 포함된 모든 리소스가 삭제됩니다. 이 사례에서는 만든 스토리지 계정 및 리소스 그룹 자체가 제거됩니다.
 
 ```powershell
 Remove-AzResourceGroup -Name $resourceGroup
@@ -165,7 +165,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 ## <a name="next-steps"></a>다음 단계
 
 * [PowerShell 세션 간 사용자 로그인 유지](/powershell/azure/context-persistence)
-* [Azure Government 저장소](../../azure-government/documentation-government-services-storage.md)
+* [Azure Government 스토리지](../../azure-government/documentation-government-services-storage.md)
 * [Microsoft Azure Government 개발자 가이드](../../azure-government/documentation-government-developer-guide.md)
 * [Azure China Applications 개발자 노트](https://msdn.microsoft.com/library/azure/dn578439.aspx)
 * [Azure Germany 설명서](../../germany/germany-welcome.md)

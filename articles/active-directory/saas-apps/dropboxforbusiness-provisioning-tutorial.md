@@ -8,19 +8,19 @@ writer: zchia
 manager: beatrizd
 ms.assetid: na
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/20/2019
-ms.author: zchia
-ms.openlocfilehash: c95346ff9026b7fc8c9141234fb3cde9c0809d23
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: jeedes
+ms.openlocfilehash: d7a7a76c86100041b544916c7d10e43bf3aaa44d
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67053540"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672903"
 ---
 # <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Dropbox for Business 구성
 
@@ -29,7 +29,7 @@ ms.locfileid: "67053540"
 > [!NOTE]
 > 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -114,7 +114,7 @@ ms.locfileid: "67053540"
 
     ![알림 전자 메일](common/provisioning-notification-email.png)
 
-9. **저장**을 클릭합니다.
+9. **Save**을 클릭합니다.
 
 10. 아래는 **매핑을** 섹션에서 **동기화 할 Azure Active Directory 사용자를 Dropbox**합니다.
 
@@ -154,7 +154,7 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
  
 * Dropbox 초대 된 사용자를 일시 중단 하는 것을 지원 하지 않습니다. 초대 된 사용자는 일시 중단 된 경우 해당 사용자 삭제 됩니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)

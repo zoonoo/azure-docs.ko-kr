@@ -1,9 +1,9 @@
 ---
-title: .NET 용 Microsoft 인증 라이브러리의 AD FS 지원 | Azure
-description: Active Directory Federation Services (AD FS) 지원에에서 대 한 Microsoft 인증 라이브러리.NET (MSAL.NET)에 대해 알아봅니다.
+title: .NET 용 Microsoft 인증 라이브러리에서 AD FS 지원 | Microsoft
+description: MSAL.NET (Microsoft Authentication Library for .NET)의 Active Directory Federation Services (AD FS) 지원에 대해 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -12,44 +12,54 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/03/2019
-ms.author: jmprieur
+ms.date: 07/16/2019
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5963c5e83b5af3848edd934328caa1f095bd184
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: beb1bcc4599a891b8748b63c5e7c5c09f5acdac7
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66676730"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532677"
 ---
-# <a name="active-directory-federation-services-support-in-msalnet"></a>Active Directory Federation Services MSAL.NET 지원
-Active Directory Federation Services (AD FS) Windows server에서를 사용 하면 OpenID Connect를 추가할 수 있습니다 하 고 OAuth 2.0 인증 기반 응용 프로그램을 개발 하는 하 고 해당 응용 프로그램에 권한 부여는 AD FS에 대해 직접 사용자를 인증 합니다. 자세한 내용은 [개발자를 위한 AD FS 시나리오](/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers)합니다.
+# <a name="active-directory-federation-services-support-in-msalnet"></a>MSAL.NET에서 지원 Active Directory Federation Services
+Windows Server의 Active Directory Federation Services (AD FS)를 사용 하면 개발 중인 응용 프로그램에 Openid connect Connect 및 OAuth 2.0 기반 인증 및 권한 부여를 추가할 수 있습니다. 이러한 응용 프로그램은 AD FS에 대해 직접 사용자를 인증할 수 있습니다. 자세한 내용은 [개발자를 위한 AD FS 시나리오](/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers)를 참조 하세요.
 
-Microsoft 인증 라이브러리.NET (MSAL.NET)에 대 한 AD FS에 대해 인증 하기 위한 두 가지 시나리오를 지원 합니다.
+Microsoft Authentication Library for .NET (MSAL.NET)은 AD FS에 대해 인증 하는 두 가지 시나리오를 지원 합니다.
 
-- Azure Active directory, MSAL.NET 설명 됩니다 *페더레이션* AD FS를 사용 합니다.
-- MSAL.NET 토크 *직접* 을 AD FS 버전에는 OpenID Connect (AD FS 2019부터) 규정을 준수 하는 위치, AD FS 권한. 실행 되는 앱을 사용 하 여 인증 하는 MSAL.NET을 사용 하면 AD FS에 직접 연결 [Azure Stack](https://azure.microsoft.com/overview/azure-stack/)합니다.
+- MSAL.NET는 AD FS와 *페더레이션* 되는 Azure Active Directory에 대해 설명 합니다.
+- MSAL.NET는 ADFS 기관에 **직접** 통신 합니다. AD FS 2019 이상 에서만 지원 됩니다. 이러한 강조 표시 되는 시나리오 중 하나는 지원 [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) 입니다.
 
-## <a name="msal-connects-to-azure-ad-which-is-federated-with-ad-fs"></a>MSAL이 AD FS와 페더레이션 되는 Azure AD에 연결
-MSAL.NET (사용자를 Azure AD에서 관리 되는) 관리-사용자가 로그인 또는 사용자 (사용자가 AD FS와 같은 다른 id 공급자에서 관리)를 페더레이션 하는 Azure AD에 연결을 지원 합니다. 사용자가 페더레이션 되는 팩트에 대 한 MSAL.NET을 인식 하지 못합니다. 와 관련 된 것으로 Azure AD에 설명 합니다.
 
-합니다 [기관](msal-client-application-configuration.md#authority) 있습니다이 경우에 사용 하는 일반적인 기관 (인증 기관 호스트 이름 + 테 넌 트, 공통 된 또는 조직).
+## <a name="msal-connects-to-azure-ad-which-is-federated-with-ad-fs"></a>MSAL은 AD FS와 페더레이션된 Azure AD에 연결 합니다.
+MSAL.NET는 관리 되는 사용자 (Azure AD에서 관리 되는 사용자) 또는 페더레이션된 사용자 (AD FS와 같은 다른 id 공급자가 관리 하는 사용자)에 로그인 하는 Azure AD에 대 한 연결을 지원 합니다. MSAL.NET는 사용자가 페더레이션 된다는 사실을 알지 못합니다. 중요 한 것 처럼 Azure AD와 통신 합니다.
 
-### <a name="acquiring-a-token-interactively"></a>대화형 토큰 획득
-호출 하는 경우는 `AcquireTokenInteractive` 메서드를 사용자 환경은 일반적으로:
+이 경우 사용 하는 [기관은](msal-client-application-configuration.md#authority) 일반적인 인증 기관 (기관 호스트 이름 + 테 넌 트, 공용 또는 조직)입니다.
 
-1. 사용자가 계정 ID 입력
-2. Azure AD는 간단 하 게 "페이지로 이동 하 여 조직의" 메시지를 표시 합니다.
-3. 사용자가 id 공급자의 로그인 페이지로 리디렉션됩니다. 조직 로고를 사용 하 여 로그인 페이지 사용자 지정 일반적으로 됩니다.
+### <a name="acquiring-a-token-interactively"></a>대화형으로 토큰 가져오기
+`AcquireTokenInteractive` 메서드를 호출 하는 경우 사용자 환경은 일반적으로 다음과 같습니다.
 
-이 페더레이션된 시나리오에서 지원 되는 AD FS 버전은 AD FS v2, AD FS v3 (Windows Server 2012 R2) 및 AD FS v4 (AD FS 2016).
+1. 사용자가 자신의 계정 ID를 입력 합니다.
+2. Azure AD는 "조직의 페이지로 이동" 메시지를 잠깐 표시 합니다.
+3. 사용자가 id 공급자의 로그인 페이지로 리디렉션됩니다. 로그인 페이지는 일반적으로 조직의 로고를 사용 하 여 사용자 지정 됩니다.
+
+이 페더레이션된 시나리오에서 지원 되는 AD FS 버전은 AD FS v2, AD FS v3 (Windows Server 2012 R2) 및 AD FS v4 (AD FS 2016)입니다.
 
 ### <a name="acquiring-a-token-using-acquiretokenbyintegratedauthentication-or-acquiretokenbyusernamepassword"></a>AcquireTokenByIntegratedAuthentication 또는 AcquireTokenByUsernamePassword를 사용 하 여 토큰 가져오기
-사용 하 여 토큰을 획득 하는 경우는 `AcquireTokenByIntegratedAuthentication` 또는 `AcquireTokenByUsernamePassword` 메서드 MSAL.NET 가져옵니다는 id 공급자에 연결할 사용자 이름에 기반 합니다.  MSAL.NET 수신를 [SAML 1.1 토큰](reference-saml-tokens.md) id 공급자에 연결 합니다.  MSAL.NET 사용자 어설션으로 Azure AD에 SAML 토큰을 제공 (비슷합니다는 [-대신-의 흐름](msal-authentication-flows.md#on-behalf-of)) JWT 돌아옵니다.
+`AcquireTokenByIntegratedAuthentication` 또는`AcquireTokenByUsernamePassword` 메서드를 사용 하 여 토큰을 획득 하는 경우 MSAL.NET는 사용자 이름을 기준으로 연락할 id 공급자를 가져옵니다.  MSAL.NET는 id 공급자에 연결한 후 [SAML 1.1 토큰](reference-saml-tokens.md) 을 수신 합니다.  그런 다음 MSAL.NET은 JWT를 가져오기 위해 Azure AD에 사용자 어설션으로 SAML 토큰을 제공 합니다 (단계별 [흐름과](msal-authentication-flows.md#on-behalf-of)비슷함).
 
-## <a name="msal-connects-directly-to-ad-fs"></a>MSAL은 AD FS에 직접 연결
-MSAL.NET Open ID Connect 호환 되는 AD FS 2019에 연결을 지원 합니다. AD FS에 직접 연결 하는 경우 응용 프로그램 빌드를 사용 하는 것이 좋습니다 기관 비슷합니다 `https://mysite.contoso.com/adfs/`합니다.
+## <a name="msal-connects-directly-to-ad-fs"></a>MSAL은 AD FS에 직접 연결 됩니다.
+MSAL.NET는 Open ID Connect 규격 이며 PKCE 및 범위를 이해 하는 AD FS 2019에 대 한 연결을 지원 합니다. 이 지원을 사용 하려면 Service Pack [KB 4490481](https://support.microsoft.com/en-us/help/4490481/windows-10-update-kb4490481) 가 Windows Server에 적용 되어야 합니다. AD FS에 직접 연결 하는 경우 응용 프로그램을 빌드하는 데 사용 하려는 기관은와 비슷합니다 `https://mysite.contoso.com/adfs/`.
 
-현재 AD FS 2016에서 AD FS v2에 직접 연결을 지원 하기 위해 (하지 않는 OpenID Connect 규격) 계획이 없는 합니다. AD FS 2016에 직접 연결을 요구 하는 시나리오를 지원 해야 하는 경우 최신 버전의를 사용 하세요 [Azure Active Directory 인증 라이브러리](active-directory-authentication-libraries.md#microsoft-supported-client-libraries)합니다. AD FS 2019에 온-프레미스 시스템을 업그레이드 하는 경우 MSAL.NET을 사용할 수 있습니다.
+현재 다음에 대 한 직접 연결을 지원할 계획이 없습니다.
+
+- 16 AD FS PKCE를 지원 하지 않고 범위를 사용 하지 않고 리소스를 계속 사용 합니다.
+- OIDC 규격이 아닌 AD FS v2
+
+ AD FS 2016에 대 한 직접 연결을 요구 하는 시나리오를 지원 해야 하는 경우 [Azure Active Directory 인증 라이브러리](active-directory-authentication-libraries.md#microsoft-supported-client-libraries)의 최신 버전을 사용 합니다. 온-프레미스 시스템을 AD FS 2019으로 업그레이드 한 경우 MSAL.NET를 사용할 수 있습니다.
+
+## <a name="see-also"></a>참고자료
+
+페더레이션된 사례는 [홈 영역 검색 정책을 사용 하 여 응용 프로그램에 대 한 Azure Active Directory 로그인 동작 구성](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal) 을 참조 하세요.

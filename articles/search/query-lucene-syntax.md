@@ -4,10 +4,10 @@ description: Azure Search에서 사용되는 전체 Lucene 구문에 대한 참�
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 08/08/2019
 author: brjohnstmsft
 ms.author: brjohnst
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,15 +19,15 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 26935b53d8f852289513a5a7b5d31e3befe3e3b2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d667588cea5902700c225dd7b597d8f03d93d200
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002241"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650058"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Azure Search의 Lucene 쿼리 구문
-특수한 쿼리 형식을 위한 풍부한 [Lucene 쿼리 파서](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) 구문(예: 와일드카드, 유사 항목 검색, 근접 검색, 정규식)을 기준으로 Azure Search에 대한 쿼리를 작성할 수 있습니다. Lucene 쿼리 파서 구문의 상당 부분이 [Azure Search에서 그대로 구현](search-lucene-query-architecture.md)됩니다. 물론, Azure Search에서 `$filter` 식을 통해 생성되는 *범위 검색*과 같은 예외도 있습니다. 
+특수한 쿼리 형식을 위한 풍부한 [Lucene 쿼리 파서](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) 구문(예: 와일드카드, 유사 항목 검색, 근접 검색, 정규식)을 기준으로 Azure Search에 대한 쿼리를 작성할 수 있습니다. Lucene 쿼리 파서 구문의 상당 부분이 [Azure Search에서 그대로 구현](search-lucene-query-architecture.md)됩니다. 물론, Azure Search에서 `$filter` 식을 통해 생성되는 *범위 검색*과 같은 예외도 있습니다. 
 
 ## <a name="how-to-invoke-full-parsing"></a>전체 구문 분석을 호출하는 방법
 
@@ -79,7 +79,7 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
  검색 텍스트의 일부로 사용하려면 특수 문자를 이스케이프해야 합니다. 백슬래시(\\)를 접두사로 사용하여 이스케이프할 수 있습니다. 이스케이프해야 하는 특수 문자는 다음과 같습니다.  
 `+ - && || ! ( ) { } [ ] ^ " ~ * ? : \ /`  
 
- 예를 들어, 와일드 카드 문자를 이스케이프를 사용 하 여 \\ \*합니다.
+ 예를 들어 와일드 카드 문자를 이스케이프 하려면를 \\사용 \*합니다.
 
 ### <a name="encoding-unsafe-and-reserved-characters-in-urls"></a>URL에서 안전하지 않은 문자 및 예약된 문자 인코딩
 
@@ -95,7 +95,7 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
 ### <a name="searchmode-parameter-considerations"></a>SearchMode 매개 변수 고려 사항  
  [Azure Search의 단순 쿼리 구문](query-simple-syntax.md)에 설명된 것처럼 `searchMode`가 쿼리에 미치는 영향이 Lucene 쿼리 구문에도 동일하게 적용됩니다. 즉, NOT 연산자와 `searchMode` 연산자를 함께 사용하는 경우, 매개 변수를 설정하는 방법이 미치는 영향을 잘 모를 경우에는 이상하게 보일 수 있는 쿼리 결과가 나타날 수 있습니다. 기본값인 `searchMode=any`를 유지하고 NOT 연산자를 사용하면 연산은 OR 작업으로 계산되므로 “New York” NOT “Seattle”은 시애틀이 아닌 모든 도시를 반환합니다.  
 
-##  <a name="bkmk_boolean"></a> 부울 연산자 (AND, OR, NOT) 
+##  <a name="bkmk_boolean"></a>부울 연산자 (AND, OR, NOT) 
  항상 텍스트 부울 연산자(AND, OR, NOT)는 모두 대문자로 지정합니다.  
 
 ### <a name="or-operator-or-or-"></a>OR 연산자 `OR` 또는 `||`
@@ -121,8 +121,8 @@ NOT 연산자는 느낌표 또는 빼기 기호입니다. 예를 들어, `wifi !
 ##  <a name="bkmk_searchscoreforwildcardandregexqueries"></a> 와일드카드 및 정규식 쿼리 점수 매기기
  Azure Search는 텍스트 쿼리에 빈도 기반 점수 매기기([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf))를 사용합니다. 그러나 용어 범위가 광범위할 수 있는 와일드카드 및 정규식 쿼리의 경우 순위 오류가 발생하여 더 드물게 나오는 용어가 검색되지 않도록 빈도 계수가 무시됩니다. 모든 일치 항목은 와일드카드 및 정규식에 대한 동일하게 처리됩니다.
 
-##  <a name="bkmk_fields"></a> 검색 필드 지정된  
-사용 하 여 필드 지정된 검색 작업을 정의할 수 있습니다는 `fieldName:searchExpression` 검색 식은 단일 단어 또는 구 또는 필요에 따라 부울 연산자를 사용 하 여 복잡 한 식에 있는 괄호 안에 수 있는 구문입니다. 몇 가지 예제는 다음과 같습니다.  
+##  <a name="bkmk_fields"></a>필드 지정 검색  
+`fieldName:searchExpression` 구문을 사용 하 여 필드 지정 search 작업을 정의할 수 있습니다. 여기서 검색 식은 단일 단어나 구 또는 괄호 안의 보다 복잡 한 식입니다. 선택적으로 부울 연산자를 사용할 수 있습니다. 몇 가지 예제는 다음과 같습니다.  
 
 - genre:jazz NOT history  
 
@@ -133,14 +133,14 @@ NOT 연산자는 느낌표 또는 빼기 기호입니다. 예를 들어, `wifi !
 `fieldName:searchExpression`에 지정한 필드는 `searchable` 필드여야 합니다.  필드 정의에서 인덱스 특성이 사용되는 방법에 대한 자세한 내용은 [인덱스 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index)를 참조하세요.  
 
 > [!NOTE]
-> 사용 하 여 한 검색 식 때 필요가 없습니다 사용 하는 `searchFields` 매개 변수 검색 식 한 각 때문에 필드 이름을 명시적으로 지정 합니다. 그러나 여전히 사용할 수는 `searchFields` 일부 특정 필드에 범위가 지정 됩니다 하 고 나머지는 여러 필드에 적용할 수 있는 쿼리를 실행 하려는 경우 매개 변수입니다. 예를 들어, 쿼리 `search=genre:jazz NOT history&searchFields=description` 일치 `jazz` 에 합니다 `genre` 필드에 일치 하는 동안 `NOT history` 사용 하 여는 `description` 필드. 에 제공 된 필드 이름 `fieldName:searchExpression` 항상 우선 합니다 `searchFields` 상태인 이유이 예제에서는 매개 변수에서는 포함 않아도 `genre` 에 `searchFields` 매개 변수.
+> 필드 지정 검색 식을 사용할 때 각 필드 지정 검색 식에 명시적으로 지정 `searchFields` 된 필드 이름이 있으므로 매개 변수를 사용할 필요가 없습니다. 그러나 일부 부분의 범위가 특정 필드로 지정 `searchFields` 되 고 나머지는 여러 필드에 적용 될 수 있는 쿼리를 실행 하려는 경우에도 매개 변수를 사용할 수 있습니다. 예를 들어 `search=genre:jazz NOT history&searchFields=description` 쿼리는 필드 `NOT history` 와 `jazz` 일치 하지만 `description` 필드 `genre` 와 일치 하지 않습니다. 에서 `fieldName:searchExpression` 제공 하는 필드 이름이 항상 `searchFields` 매개 변수 보다 우선적으로 적용 됩니다. 따라서이 예제에서는 `searchFields` 매개 변수에를 포함할 `genre` 필요가 없습니다.
 
 ##  <a name="bkmk_fuzzy"></a> 유사 항목 검색  
- 유사 항목 검색은 용어에서 구조가 유사한 일치 항목을 찾습니다. [Lucene 문서](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)에 따라 유사 항목 검색은 [다메라우-레펜슈타인(Damerau-Levenshtein) 거리](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance)에 기반합니다. 유사 항목 검색은 거리 조건을 충족하는 최대 50개 용어로 확장할 수 있습니다. 
+ 유사 항목 검색은 용어에서 구조가 유사한 일치 항목을 찾습니다. [Lucene 문서](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)에 따라 유사 항목 검색은 [다메라우-레펜슈타인(Damerau-Levenshtein) 거리](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance)에 기반합니다. 유사 항목 검색은 거리 조건을 충족하는 최대 50개 용어로 확장할 수 있습니다. 
 
  유사 항목 검색을 수행하려면 한 단어의 끝에 물결표("~") 기호를 붙입니다. 그리고 선택적으로 편집 거리를 지정하는 0과 2(기본값) 사이의 수를 매개 변수로 붙입니다. 예를 들어, "blue~" 또는 "blue~1"은 "blue", "blues" 및 "glue"를 반환합니다.
 
- 유사 항목 검색만 적용할 수 없습니다 구 말해 하지만 다중 부분으로 된 이름 또는 구를에서 개별적으로 각 용어에 물결표를 추가할 수 있습니다. 예를 들어, "Unviersty ~의 ~" Wshington ~ "" University of Washington "에 일치 합니다.
+ 유사 항목 검색은 구가 아니라 용어에만 적용할 수 있지만 각 용어에 물결표를 여러 부분으로 구성 된 이름이 나 구에 추가할 수 있습니다. 예를 들어 "Unviersty ~ of ~" Wshington ~ "는" 대학 대학 "과 일치 합니다.
  
 
 ##  <a name="bkmk_proximity"></a> 근접 검색  
@@ -155,7 +155,7 @@ NOT 연산자는 느낌표 또는 빼기 기호입니다. 예를 들어, `wifi !
  용어를 상승시키려면 검색하려는 용어 끝 부분에 상승 계수(숫자)와 함께 캐럿("^") 기호를 사용합니다. 또한 구를 상승시킬 수도 있습니다. 상승 계수가 높을수록 해당 용어는 다른 검색어에 비해 더 관련성이 높아집니다. 기본적으로, 상승 계수는 1입니다. 상승 계수는 양수여야 하지만, 1 미만일 수도 있습니다(예: 0.20).  
 
 ##  <a name="bkmk_regex"></a> 정규식 검색  
- 정규식 검색은 [RegExp 클래스](https://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html)에 나와 있는 것처럼 슬래시("/") 사이의 내용에 기반하여 일치 항목을 찾습니다.  
+ 정규식 검색은 [RegExp 클래스](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html)에 나와 있는 것처럼 슬래시("/") 사이의 내용에 기반하여 일치 항목을 찾습니다.  
 
  예를 들어 "motel" 또는 "호텔"를 포함하는 문서를 찾으려면 `/[mh]otel/`을 지정합니다.  정규식 검색은 단일 단어를 기준으로 일치 항목을 찾습니다.   
 
@@ -168,7 +168,7 @@ NOT 연산자는 느낌표 또는 빼기 기호입니다. 예를 들어, `wifi !
 >  검색의 첫 문자로 * 또는 ? 기호를 사용할 수 없습니다.  
 >  와일드카드 검색 쿼리에서는 텍스트 분석이 수행되지 않습니다. 쿼리 타임 때 와일드카드 쿼리 용어는 검색 인덱스의 분석된 용어와 비교 후 확장됩니다.
 
-## <a name="see-also"></a>참고 항목  
+## <a name="see-also"></a>참고자료  
 
 + [문서 검색](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 + [필터 및 정렬을 위한 OData 식 구문](query-odata-filter-orderby-syntax.md)   

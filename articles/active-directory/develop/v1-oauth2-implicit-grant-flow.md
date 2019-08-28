@@ -10,20 +10,20 @@ ms.assetid: 90e42ff9-43b0-4b4f-a222-51df847b2a8d
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 08/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fe0ee8021ae7e70654a161e37d072195bbc035f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eb751d4cad036135865af9f97e159da104749388
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545261"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532413"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Azure AD(Active Directory)의 OAuth2 암시적 허용 흐름 이해
 
@@ -35,7 +35,7 @@ OAuth2 암시적 허용은 OAuth2 사양에서 보안 문제가 가장 많은 �
 
 전형적인 [OAuth2 인증 코드 권한 부여](https://tools.ietf.org/html/rfc6749#section-1.3.1) 는 별개의 두 엔드포인트를 사용하는 권한 부여입니다. 권한 부여 엔드포인트는 권한 부여 코드가 되는 사용자 상호 작용 단계에서 사용됩니다. 토큰 엔드포인트는 액세스 토큰, 종종 새로 고침 토큰에 대한 코드를 교환하기 위해 클라이언트에서 사용됩니다. 웹 애플리케이션은 권한 부여 서버가 클라이언트를 인증할 수 있도록 자신의 고유 애플리케이션 자격 증명을 토큰 엔드포인트에 제공해야 합니다.
 
-[OAuth2 암시적 허용](https://tools.ietf.org/html/rfc6749#section-1.3.2)은 다른 권한 부여의 변형입니다. 클라이언트가 토큰 엔드포인트에 접촉하거나 인증하지 않고 권한 부여 엔드포인트에서 직접 액세스 토큰(및 [OpenId Connect](https://openid.net/specs/openid-connect-core-1_0.html)를 사용하는 경우 id_token)을 가져올 수 있도록 합니다. 이 변형은 웹 브라우저에서 실행되는 JavaScript 기반 애플리케이션용으로 설계되었습니다. 원래의 OAuth2 사양에서는 토큰이 URI 조각으로 반환됩니다. 이 방법으로 토큰 비트를 클라이언트의 JavaScript 코드에 사용할 수 있도록 하지만 서버를 향한 리디렉션에 이 비트가 포함되지 않도록 보증합니다. 브라우저를 통한 토큰 반환은 권한 부여 엔드포인트에서 직접 리디렉션합니다. 또한 JavaScript 애플리케이션이 토큰 엔드포인트를 문의하는 데 필수인 경우 필요한 크로스 원본 호출에 대한 요구 사항을 제거하는 이점이 있습니다.
+[OAuth2 암시적 허용](https://tools.ietf.org/html/rfc6749#section-1.3.2)은 다른 권한 부여의 변형입니다. 클라이언트가 토큰 엔드포인트에 접촉하거나 인증하지 않고 권한 부여 엔드포인트에서 직접 액세스 토큰(및 [OpenId Connect](https://openid.net/specs/openid-connect-core-1_0.html)를 사용하는 경우 id_token)을 가져올 수 있도록 합니다. 이 변형은 웹 브라우저에서 실행되는 JavaScript 기반 애플리케이션용으로 설계되었습니다. 원래의 OAuth2 사양에서는 토큰이 URI 조각으로 반환됩니다. 이 방법으로 토큰 비트를 클라이언트의 JavaScript 코드에 사용할 수 있도록 하지만 서버를 향한 리디렉션에 이 비트가 포함되지 않도록 보증합니다. OAuth2 암시적 grant에서 권한 부여 끝점은 이전에 제공 된 리디렉션 URI를 사용 하 여 클라이언트에 직접 액세스 토큰을 발급 합니다. 또한 JavaScript 애플리케이션이 토큰 엔드포인트를 문의하는 데 필수인 경우 필요한 크로스 원본 호출에 대한 요구 사항을 제거하는 이점이 있습니다.
 
 OAuth2 암시적 허용의 중요한 특징은 그러한 흐름이 새로 고침 토큰을 클라이언트에 반환하지 않는다는 사실입니다. 다음 섹션에서는 이 작업이 필요하지 않으며 실제로 보안 문제가 되는 방법을 보여 줍니다.
 
@@ -51,7 +51,7 @@ JavaScript 기반 접근 방법을 극한까지 확장하는 애플리케이션�
 
 * 토큰을 원래 호출과 교차할 필요 없이 신뢰성 있게 가져올 수 있음 - 토큰을 반환하는 리디렉션 URI의 필수 등록을 통해 토큰이 이동되지 않도록 보증
 * JavaScript 애플리케이션이 대상으로 하는 웹 API 수만큼 액세스 토큰을 필요한 대로 가져올 수 있음 - 도메인에 대한 제한 없음
-* 세션 또는 로컬 저장소와 같은 HTML5 기능이 토큰 캐싱 및 수명 관리를 완전히 제어할 수 있으면서도 쿠키 관리는 앱에서 신경쓸 필요가 없음
+* 세션 또는 로컬 스토리지와 같은 HTML5 기능이 토큰 캐싱 및 수명 관리를 완전히 제어할 수 있으면서도 쿠키 관리는 앱에서 신경쓸 필요가 없음
 * 액세스 토큰이 교차 사이트 요청 위조(CSRF) 공격에 취약하지 않음
 
 암시적 허용 흐름은 대부분 보안상의 이유로 새로 고침 토큰을 발급하지 않습니다. 새로 고침 토큰은 액세스 토큰처럼 범위가 좁지 않으므로 권한이 클수록 누출될 경우 훨씬 더 큰 피해를 입힙니다. 암시적 흐름에서 토큰은 URL에 전달되므로 가로채기 위험이 인증 코드 부여보다 더 높습니다.
@@ -62,7 +62,7 @@ JavaScript 기반 접근 방법을 극한까지 확장하는 애플리케이션�
 
 ## <a name="is-the-implicit-grant-suitable-for-my-app"></a>암시적 허용이 내 앱에 적합할까요?
 
-암시적 허용은 다른 허용보다 더 많은 위험을 초래하며, 주의해야 하는 영역은 잘 문서화되어 있습니다(예: [암시적 흐름에서 리소스 소유자를 가장하는 액세스 토큰 오용][OAuth2-Spec-Implicit-Misuse] 및 [OAuth 2.0 위협 모델 및 보안 고려 사항][OAuth2-Threat-Model-And-Security-Implications]). 그러나 더 높은 위험 프로필은 주로 원격 리소스에서 브라우저에 제공한 활성 코드를 실행하는 애플리케이션을 사용하도록 설정하는 것을 의미한다는 사실 때문입니다. SPA 아키텍처를 계획하는 경우 백 엔드 구성 요소가 없거나 JavaScript를 통해 웹 API를 호출하려고 하므로 토큰 획득을 위해 암시적 흐름을 사용하는 것이 좋습니다.
+암시적 권한 부여는 다른 권한 부여 보다 더 많은 위험을 표시 하며 주의 해야 하는 영역 (예: [암시적 흐름에서 리소스 소유자를 가장 하는 액세스 토큰 오용][OAuth2-Spec-Implicit-Misuse] 및 [OAuth 2.0 위협 모델 및 보안)이 잘 문서화 되어 있습니다. 고려 사항][OAuth2-Threat-Model-And-Security-Implications]). 그러나 더 높은 위험 프로필은 주로 원격 리소스에서 브라우저에 제공한 활성 코드를 실행하는 애플리케이션을 사용하도록 설정하는 것을 의미한다는 사실 때문입니다. SPA 아키텍처를 계획하는 경우 백 엔드 구성 요소가 없거나 JavaScript를 통해 웹 API를 호출하려고 하므로 토큰 획득을 위해 암시적 흐름을 사용하는 것이 좋습니다.
 
 애플리케이션이 네이티브 클라이언트인 경우 암시적 흐름은 그다지 적합하지 않습니다. 네이티브 클라이언트 상황에서 Azure AD 세션 쿠키가 없으면 오래 지속되는 세션을 유지 관리하는 수단에서 애플리케이션을 사용하지 않게 됩니다. 즉 애플리케이션은 새 리소스에 대한 액세스 토큰을 가져올 때 사용자에게 반복해서 메시지를 표시합니다.
 
@@ -70,8 +70,8 @@ JavaScript 기반 접근 방법을 극한까지 확장하는 애플리케이션�
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure AD가 지원하는 프로토콜 및 OAuth2 권한 부여 흐름에 대한 참조 정보를 비롯한 개발자 리소스의 전체 목록은 [Azure AD 개발자 가이드][AAD-Developers-Guide] 참조
-* 애플리케이션 통합 프로세스에 대한 추가 심층 정보는 [애플리케이션을 Azure AD와 통합하는 방법][ACOM-How-To-Integrate]을 참조하세요.
+* Azure AD에서 지 원하는 프로토콜 및 OAuth2 권한 부여 흐름에 대 한 참조 정보를 비롯 한 개발자 리소스의 전체 목록은 [AZURE Ad 개발자 가이드][AAD-Developers-Guide] 를 참조 하세요.
+* 응용 프로그램 통합 프로세스에 대 한 추가 깊이는 [응용 프로그램을 AZURE AD와 통합 하는 방법을][ACOM-How-To-Integrate] 참조 하세요.
 
 <!--Image references-->
 

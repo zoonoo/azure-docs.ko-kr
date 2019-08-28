@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 706311e2895f311c228b55db971eb88a859530f5
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e2fd226f1c605821f0fd595832b2cbe26d994fb4
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441675"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612331"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Azure Stream Analytics의 변칙 검색
 
@@ -114,7 +114,7 @@ FROM AnomalyDetectionStep
 * **이벤트 부하** 큼-합니다 **이벤트 부하**더 작업을 수행 됩니다 모델에서 CPU 사용량에 영향을 줍니다. 병렬 더 입력된 파티션을 사용 하려면 비즈니스 논리에 적합 한 것으로 가정 하 여 작업을 스케일 아웃할 수 있습니다.
 * **함수 수준 분할** - **함수 수준 분할** 사용 하 여 ```PARTITION BY``` 변칙 검색 함수 호출 내에서. 분할이 유형의 상태를 한 번에 여러 모델에 대 한 유지 해야 하는 대로 오버 헤드를 추가 합니다. 함수 수준 분할 장치 수준 분할 등의 시나리오에서 사용 됩니다.
 
-### <a name="relationship"></a>관계
+### <a name="relationship"></a>Relationship
 기록 크기, 기간, 및 총 이벤트 로드에는 다음과 같은 방법으로 관련이 있습니다.
 
 windowDuration (in ms) = 1000 * historySize / (Total Input Events Per Sec / Input Partition Count)
@@ -160,6 +160,6 @@ windowDuration (in ms) = 1000 * historySize / (Total Input Events Per Sec / Inpu
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.ASpx)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

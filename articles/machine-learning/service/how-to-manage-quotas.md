@@ -11,20 +11,20 @@ author: nishankgu
 ms.author: nigup
 ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8754eedc8284aab01006ea71bfd870064b91ea17
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 110040592474ec432912e7f545abad19ca3ae1ff
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65851131"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991984"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Azure 리소스에 대한 할당량 관리 및 요청
 
-다른 Azure 서비스와 마찬가지로, Azure Machine Learning 서비스와 연결된 특정 리소스에 대한 한도가 있습니다. 이러한 제한 범위는 다양 한 작업 영역에 cap에서 모델 학습 또는 유추/점수 매기기에 사용 되는 실제 기본 계산에 대 한 제한에 만들 수 있습니다. 
+다른 Azure 서비스와 마찬가지로, Azure Machine Learning 서비스와 연결된 특정 리소스에 대한 한도가 있습니다. 이러한 제한 범위는 모델 학습 또는 유추/점수 매기기에 사용 되는 실제 기본 계산을 제한 하기 위해 만들 수 있는 작업 영역 수의 상한 범위에 있습니다. 
 
 이 문서에서는 구독에 사용되는 다양한 Azure 리소스에 대해 미리 구성된 한도를 자세히 설명하고, 각 리소스 유형의 할당량 증가를 요청할 수 있는 간편한 링크를 제공합니다. 사기로 인해 예산이 초과되는 것을 방지하고 Azure 용량 제약 조건을 준수하려면 이러한 한도를 적용해야 합니다.
 
-프로덕션 워크로드용 Azure Machine Learning Service 리소스를 설계 및 강화할 때는 이러한 할당량을 고려해야 합니다. 예를 들어, 클러스터에서 지정한 노드의 대상 수에 도달 하지 하는 경우 다음 수에 도달 했습니다.는 Azure Machine Learning Compute 코어 제한 구독에 대 한 기본 제한 이상으로 제한 또는 할당량을 높이려는 경우 비용 없이 온라인 고객 지원 요청을 개설합니다. Azure 용량 제약 조건으로 인해 다음 표에 표시되는 최대 한도 값 이상으로 한도를 높일 수 없습니다. 최대 한도 열이 없는 경우 리소스에 조정 가능한 한도가 없는 것입니다.
+프로덕션 워크로드용 Azure Machine Learning Service 리소스를 설계 및 강화할 때는 이러한 할당량을 고려해야 합니다. 예를 들어 클러스터가 지정한 대상 노드 수에 도달 하지 않은 경우 구독에 대 한 Azure Machine Learning 계산 코어 제한에 도달 했을 수 있습니다. 기본 제한 이상으로 제한 또는 할당량을 높이려는 경우 비용 없이 온라인 고객 지원 요청을 개설합니다. Azure 용량 제약 조건으로 인해 다음 표에 표시되는 최대 한도 값 이상으로 한도를 높일 수 없습니다. 최대 한도 열이 없는 경우 리소스에 조정 가능한 한도가 없는 것입니다.
 
 ## <a name="special-considerations"></a>특별 고려 사항
 
@@ -54,28 +54,36 @@ ms.locfileid: "65851131"
 Azure Machine Learning 컴퓨팅의 경우 구독의 영역당 허용되는 코어 수 및 고유한 컴퓨팅 리소스 수의 기본 할당량 한도가 있습니다. 이 할당량은 위의 VM 코어 할당량과 별개이며 코어 한도는 현재 두 리소스 유형 간에 공유되지 않습니다.
 
 사용 가능한 리소스:
-+ 지역 계정당 전용된 코어 수 구독 제공 형식에 따라 24-300의 기본 한도가 있습니다.  구독당 전용 코어 수를 늘릴 수 있습니다. 증가 옵션은 고객 지원에 문의하세요.
++ 지역별 전용 코어는 구독 제안 유형에 따라 24-300의 기본 제한이 있습니다.  구독당 전용 코어 수를 늘릴 수 있습니다. 증가 옵션은 고객 지원에 문의하세요.
 
-+ 지역당 우선 순위가 낮은 코어 24-300 구독 제품 유형에 따라 기본 한도가 있습니다.  구독당 우선 순위가 낮은 코어 수를 늘릴 수 있습니다. 증가 옵션은 고객 지원에 문의하세요.
++ 지역별 낮은 우선 순위의 코어는 구독 제안 유형에 따라 24-300의 기본 제한이 있습니다.  구독당 우선 순위가 낮은 코어 수를 늘릴 수 있습니다. 증가 옵션은 고객 지원에 문의하세요.
 
 + 영역당 클러스터 수의 기본 한도는 100이고 최대 한도는 200입니다. 이 제한을 초과하여 늘리려면 Azure 고객 지원에 문의하세요.
 
 + 적중되고 나면 초과할 수 없는 **기타 엄격한 한도**가 있습니다.
 
-| **리소스** | **최대 한도** |
+| **Resource** | **최대 한도** |
 | --- | --- |
 | 리소스 그룹당 최대 작업 영역 | 800 |
 | 단일 Azure Machine Learning 컴퓨팅(AmlCompute) 리소스의 최대 노드 수 | 100개 노드 |
 | 노드당 최대 GPU MPI 프로세스 | 1-4 |
 | 노드당 최대 GPU 작업자 수 | 1-4 |
-| 최대 작업 수명 | 90 일 동안<sup>1</sup> |
-| 낮은 우선 순위 노드에서 최대 작업 수명 | 1 day<sup>2</sup> |
+| 최대 작업 수명 | 90 일<sup>1</sup> |
+| 낮은 우선 순위의 노드의 최대 작업 수명 | 1 일<sup>2</sup> |
 | 노드당 최대 매개 변수 서버 수 | 1 |
 
 <sup>1</sup> 최대 수명은 실행이 시작되는 시간과 완료되는 시간을 나타냅니다. 완료된 실행은 무기한 저장됩니다. 최대 수명 이내에 완료되지 않은 실행에 대한 데이터는 액세스할 수 없습니다.
-<sup>2</sup> 우선 순위가 낮은 노드에서 작업에 용량 제약 조건이 있는 언제 든 지 선점 될 수 있습니다. 작업에서 검사점을 구현 하는 것이 좋습니다.
+용량 제약 조건이 있는 경우에는 우선 순위가 낮은 노드의 <sup>2 개</sup> 작업이 선점 될 수 있습니다. 작업에서 검사점을 구현 하는 것이 좋습니다.
 
-### <a name="container-instances"></a>Container instances
+### <a name="azure-machine-learning-pipelines"></a>Azure Machine Learning 파이프라인
+Azure Machine Learning 파이프라인의 경우 파이프라인의 단계 수와 구독에서 지역별 게시 된 파이프라인의 일정 기반 실행 수에 대 한 할당량 한도가 있습니다.
+- 파이프라인에서 허용 되는 최대 단계 수는 3만입니다.
+- 월별 구독 당 게시 된 파이프라인의 최대 일정 기반 실행 수는 10만입니다.
+
+> [!NOTE]
+> 이 제한을 높이려면 [Microsoft 지원](https://azure.microsoft.com/support/options/)에 문의하세요.
+
+### <a name="container-instances"></a>Container Instances
 
 특정 기간에(시간 단위로 범위 지정) 또는 전체 구독에서 작동할 수 있는 컨테이너 인스턴스의 수에도 제한이 있습니다.
 
@@ -83,8 +91,8 @@ Azure Machine Learning 컴퓨팅의 경우 구독의 영역당 허용되는 코�
 
 좀 더 구체적인 최신 할당량 한도 목록은 [여기](https://docs.microsoft.com/azure/azure-subscription-service-limits#container-instances-limits)서 Azure 전체 할당량 문서를 참조하세요.
 
-### <a name="storage"></a>Storage
-영역당 및 특정 구독당 저장소 계정의 수가 제한되어 있습니다. 기본 제한은 200이고 표준 및 Premium Storage 계정이 모두 포함됩니다. 지정된 지역에서 저장소 계정이 200개 이상 필요한 경우 [Azure 지원](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/)에 요청합니다. Azure Storage 팀이 비즈니스 사례를 검토하고 지정된 지역에 대해 Storage 계정을 250개까지 승인할 수 있습니다.
+### <a name="storage"></a>저장 공간
+영역당 및 특정 구독당 스토리지 계정의 수가 제한되어 있습니다. 기본 제한은 200이고 표준 및 Premium Storage 계정이 모두 포함됩니다. 지정된 지역에서 스토리지 계정이 200개 이상 필요한 경우 [Azure 지원](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/)에 요청합니다. Azure Storage 팀이 비즈니스 사례를 검토하고 지정된 지역에 대해 Storage 계정을 250개까지 승인할 수 있습니다.
 
 
 ## <a name="find-your-quotas"></a>할당량 찾기
@@ -95,9 +103,9 @@ Virtual Machines, Storage, Network 등의 다양한 리소스에 대한 할당�
 
 1. 구독 목록에서 할당량을 보려는 구독을 선택합니다.
 
-   특히 Azure Machine Learning 컴퓨팅 할당량 보기와 관련하여 **주의할 점**이 있습니다. 앞서 언급했듯이, 이 할당량은 구독의 계산 할당량과는 별개입니다.
+   특히 Azure Machine Learning 컴퓨팅 할당량 보기와 관련하여 **주의할 점**이 있습니다. 앞서 언급했듯이, 이 할당량은 구독의 컴퓨팅 할당량과는 별개입니다.
 
-1. 왼쪽된 창에서 선택 **Machine Learning 서비스** 표시 된 목록에서 모든 작업 영역을 선택 합니다
+1. 왼쪽 창에서 **Machine Learning 서비스** 를 선택 하 고 표시 된 목록에서 작업 영역을 선택 합니다.
 
 1. 다음 블레이드의 **지원 + 문제 해결 섹션**에서 **사용량 + 할당량**을 선택하여 현재 할당량 한도 및 사용량을 확인합니다.
 

@@ -12,18 +12,18 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/19/2017
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06fd36935c1f43cc14697748666eccd9e6d31168
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 66c509b1b901889241d6837611a2c373750fdb3a
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545958"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834784"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Single Sign-Out SAML 프로토콜
 
@@ -47,7 +47,7 @@ Azure AD(Azure Active Directory)에서는 SAML 2.0 웹 브라우저 Single Sign-
 Azure AD로 전송된 `LogoutRequest` 요소에는 다음 특성이 필요합니다.
 
 * `ID` - 로그아웃 요청을 식별합니다. `ID` 값은 숫자로 시작할 수 없습니다. 일반적인 방법은 **id** 를 GUID의 문자열 표현에 추가하는 것입니다.
-* `Version` - 이 요소의 값을 **2.0**으로 설정합니다. 이 값은 필수입니다.
+* `Version` - 이 요소의 값을 **2.0**으로 설정합니다. 이 값은 필수 사항입니다.
 * `IssueInstant` - UTC(Coordinate Universal Time) 값과 [왕복 형식("o")](https://msdn.microsoft.com/library/az4se3k1.aspx)이 포함된 `DateTime` 문자열입니다. Azure AD에는 이 형식의 값이 필요하지만 적용되지는 않습니다.
 
 ### <a name="issuer"></a>발급자
@@ -72,9 +72,9 @@ Azure AD는 `LogoutRequest` 요소에 대한 응답에 `LogoutResponse`를 보�
 Azure AD는 `LogoutResponse` 요소에 `ID`, `Version` 및 `IssueInstant` 값을 설정합니다. 또한 `InResponseTo` 요소를 응답을 도출한 `LogoutRequest`의 `ID` 특성 값으로 설정합니다.
 
 ### <a name="issuer"></a>발급자
-이 값을 설정 하는 azure AD `https://login.microsoftonline.com/<TenantIdGUID>/` 여기서 \<TenantIdGUID > Azure AD 테 넌 트의 테 넌 트 ID입니다.
+Azure ad는이 값을 `https://login.microsoftonline.com/<TenantIdGUID>/` 로 \<설정 합니다. 여기서 TenantIdGUID >는 Azure ad 테 넌 트의 테 넌 트 ID입니다.
 
 `Issuer` 요소 값을 평가하려면 애플리케이션 등록 중에 제공한 **앱 ID URI** 값을 사용합니다.
 
-### <a name="status"></a>상태
+### <a name="status"></a>Status
 Azure AD에서는 `Status` 요소의 `StatusCode` 요소를 사용하여 로그아웃의 성공 여부를 나타냅니다. 로그아웃 시도가 실패하면 `StatusCode` 요소는 사용자 지정 오류 메시지를 포함할 수도 있습니다.

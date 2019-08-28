@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: 7be57733f9bb5936747c77aa06bde3397eb84fa1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bf84a5b89e4769e37c45714a30d5d98300a4328d
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66302894"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612248"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>프로그래밍 방식으로 Stream Analytics 작업 모니터 만들기
 
 이 문서에서는 Stream Analytics 작업에 대한 모니터링을 사용하는 방법을 보여줍니다. REST API, Azure SDK 또는 PowerShell을 통해 생성된 Stream Analytics 작업은 기본적으로 모니터링이 설정되어 있지 않습니다. 작업의 모니터 페이지로 이동하고 사용 버튼을 클릭하여 Azure Portal에서 수동으로 설정하거나 이 문서의 단계를 수행하여 이 프로세스를 자동화할 수 있습니다. 모니터링 데이터는 Stream Analytics 작업에 대해 Azure Portal의 “모니터” 탭에서 볼 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 프로세스를 시작 하기 전에 다음 필수 조건이 있어야 합니다.
 
@@ -140,13 +140,13 @@ ms.locfileid: "66302894"
 다음 코드는 **기존** Stream Analytics 작업에 모니터링을 사용합니다. 코드의 첫 번째 부분은 Stream Analytics 서비스에 대해 GET 요청을 수행하여 특정 Stream Analytics 작업에 대한 정보를 검색합니다. 사용 된 *ID* 두 번째 Stream Analytics 작업에 대 한 모니터링을 사용 하도록 Insights 서비스에 요청을 PUT을 전송 하는 코드의 절반에서 Put 메서드에 매개 변수로 속성 (GET 요청에서 검색 됨).
 
 > [!WARNING]
-> Azure Portal을 통해 또는 아래 코드를 통해 프로그래밍 방식으로 서로 다른 Stream Analytics 작업에 대한 모니터링을 이전에 설정한 경우, **이전에 모니터링을 활성화했을 때 사용했던 동일한 저장소 계정 이름을 제공하는 것이 좋습니다.**
+> Azure Portal을 통해 또는 아래 코드를 통해 프로그래밍 방식으로 서로 다른 Stream Analytics 작업에 대한 모니터링을 이전에 설정한 경우, **이전에 모니터링을 활성화했을 때 사용했던 동일한 스토리지 계정 이름을 제공하는 것이 좋습니다.**
 > 
-> 저장소 계정은 작업 자체에 특정되지 않고 Stream Analytics 작업에서 만든 지역에 연결됩니다.
+> 스토리지 계정은 작업 자체에 특정되지 않고 Stream Analytics 작업에서 만든 지역에 연결됩니다.
 > 
-> 동일 지역의 모든 Stream Analytics 작업(및 다른 모든 Azure 리소스)은 이 저장소 계정을 공유하여 모니터링 데이터를 저장합니다. 사용자가 다른 저장소 계정을 제공하면, 다른 Stream Analytics 작업 또는 다른 Azure 리소스에 대한 모니터링에 의도하지 않은 부작용이 발생할 수 있습니다.
+> 동일 지역의 모든 Stream Analytics 작업(및 다른 모든 Azure 리소스)은 이 스토리지 계정을 공유하여 모니터링 데이터를 저장합니다. 사용자가 다른 스토리지 계정을 제공하면, 다른 Stream Analytics 작업 또는 다른 Azure 리소스에 대한 모니터링에 의도하지 않은 부작용이 발생할 수 있습니다.
 > 
-> 다음 코드의 `<YOUR STORAGE ACCOUNT NAME>`을 바꾸는 데 사용한 저장소 계정 이름은 모니터링을 사용할 Stream Analytics 작업과 동일한 구독에 있는 저장소 계정이어야 합니다.
+> 다음 코드의 `<YOUR STORAGE ACCOUNT NAME>`을 바꾸는 데 사용한 스토리지 계정 이름은 모니터링을 사용할 Stream Analytics 작업과 동일한 구독에 있는 스토리지 계정이어야 합니다.
 > 
 > 
 >    ```csharp
@@ -178,5 +178,5 @@ ms.locfileid: "66302894"
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)

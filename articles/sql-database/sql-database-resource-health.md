@@ -10,20 +10,19 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: c3b9fecd3ad404385732e55a9cf3aa65a6e388b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1c2720d61c7b4ea918a3d0c1ff7f41984ea42c69
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61483065"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566910"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Resource Health를 사용하여 Azure SQL Database 연결 문제 해결
 
 ## <a name="overview"></a>개요
 
-SQL Database용 [Resource Health](../service-health/resource-health-overview.md#getting-started)는 Azure 문제가 SQL 리소스에 영향을 줄 때 문제를 진단하고 지원을 받는 데 도움이 됩니다. 리소스의 현재 및 이전 상태에 대해 알려주고 문제를 완화하는 데 도움이 됩니다. Resource Health는 Azure 서비스 문제와 관련된 도움이 필요할 때 기술 지원을 제공합니다.
+SQL Database용 [Resource Health](../service-health/resource-health-overview.md#get-started)는 Azure 문제가 SQL 리소스에 영향을 줄 때 문제를 진단하고 지원을 받는 데 도움이 됩니다. 리소스의 현재 및 이전 상태에 대해 알려주고 문제를 완화하는 데 도움이 됩니다. Resource Health는 Azure 서비스 문제와 관련된 도움이 필요할 때 기술 지원을 제공합니다.
 
 ![개요](./media/sql-database-resource-health/sql-resource-health-overview.jpg)
 
@@ -39,11 +38,11 @@ Resource Health는 리소스에 대한 로그인의 성공 및 실패를 검사�
 
 ![사용 가능](./media/sql-database-resource-health/sql-resource-health-available.jpg)
 
-### <a name="degraded"></a>성능 저하됨
+### <a name="degraded"></a>저하됨
 
 **성능 저하됨** 상태는 Resource Health가 대부분의 성공적인 로그인을 감지했지만 일부 오류도 감지했음을 의미합니다. 이러한 오류는 일시적인 로그인 오류일 가능성이 높습니다. 일시적인 로그인 오류로 인한 연결 문제의 영향을 줄이려면 코드에서 [재시도 논리](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)를 구현하세요.
 
-![성능 저하됨](./media/sql-database-resource-health/sql-resource-health-degraded.jpg)
+![저하됨](./media/sql-database-resource-health/sql-resource-health-degraded.jpg)
 
 ### <a name="unavailable"></a>사용할 수 없음
 
@@ -65,7 +64,7 @@ Resource Health의 상태 기록 섹션에서 최대 14일 동안의 상태 기�
 
 SQL Database에 가동 중지 시간이 발생하면 이유를 확인하기 위해 분석이 수행됩니다. 사용 가능한 경우 가동 중지 시간 이유가 Resource Health의 상태 기록 섹션에 보고됩니다. 가동 중지 시간 이유는 일반적으로 이벤트 발생 후 30분에 게시됩니다.
 
-#### <a name="planned-maintenance"></a>계획된 유지 보수
+#### <a name="planned-maintenance"></a>계획된 유지 관리
 
 Azure 인프라는 정기적으로 계획된 유지 관리(데이터 센터의 하드웨어 또는 소프트웨어 구성 요소 업그레이드)를 수행합니다. 데이터베이스에서 유지 관리를 수행하는 동안 SQL은 일부 기존 연결을 종료하고 새 연결을 거부할 수 있습니다. 계획된 유지 관리를 수행하는 동안 발생하는 로그인 실패는 일반적으로 일시적이며 [다시 시도 논리](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)로 그 영향을 줄일 수 있습니다. 로그인 오류가 계속 발생하면 고객 지원팀에 문의하세요.
 

@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/20/2019
 ms.author: zhshang
-ms.openlocfilehash: cda1eddc5fa40e97038274cf9b4c3c2cb9552871
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2020ee02d236ca13431adb736d9f48171d33b4f3
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154492"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147428"
 ---
 # <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>빠른 시작: ASP.NET과 SignalR Service를 사용하여 대화방 만들기
 

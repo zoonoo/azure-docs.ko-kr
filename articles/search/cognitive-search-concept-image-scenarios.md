@@ -5,18 +5,17 @@ services: search
 manager: pablocas
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
+ms.subservice: cognitive-search
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: 8bea47467d141869b1a668668bc57451a882a54b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 216be226f3ce6d1a288462d1a1b79f2bb0d3efe5
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448443"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639924"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>인식 검색 시나리오의 이미지에서 정보를 처리하고 추출하는 방법
 
@@ -30,11 +29,11 @@ ms.locfileid: "67448443"
 
 문서 해독의 일환으로 이미지 파일이나 파일에 포함된 이미지를 처리하기 위한 새로운 인덱서 구성 매개 변수 집합이 있습니다. 이러한 매개 변수는 추가 다운스트림 처리를 위해 이미지를 정규화하는 데 사용됩니다. 이미지를 정규화하면 보다 일관되게 만들 수 있습니다. 큰 이미지는 사용 가능하도록 최대 높이 및 너비로 크기가 조정됩니다. 방향에 메타데이터를 제공하는 이미지의 경우 세로 로드를 위해 이미지 회전이 조정됩니다. 메타데이터 조정은 각 이미지에 대해 만든 복합 형식으로 캡처됩니다. 
 
-이미지 정규화를 해제할 수 없습니다. 이미지에서 기술을 반복하려면 정규화된 이미지를 사용하는 것이 좋습니다. 인덱서에 이미지 정규화를 사용 하도록 설정 하면 기술 집합에는 인덱서 연결할 수 있는지에 필요 합니다.
+이미지 정규화를 해제할 수 없습니다. 이미지에서 기술을 반복하려면 정규화된 이미지를 사용하는 것이 좋습니다. 인덱서에 대해 이미지 정규화를 사용 하도록 설정 하려면 기술를 해당 인덱서에 연결 해야 합니다.
 
-| 구성 매개 변수 | 설명 |
+| 구성 매개 변수 | Description |
 |--------------------|-------------|
-| imageAction   | 포함된 이미지 또는 이미지 파일이 있을 때 아무 작업도 수행하지 않아야 하는 경우 "없음"으로 설정합니다. <br/>정규화된 이미지의 배열을 문서 해독의 일부로 생성하려 "generateNormalizedImages"로 설정합니다.<br/>정규화된 이미지 배열을 생성하려면 “generateNormalizedImagePerPage”로 설정합니다. 여기서 데이터 원본에 있는 PDF의 경우 각 페이지가 하나의 출력 이미지로 렌더링됩니다.  기능은 비 PDF 파일 형식에 대한 “generateNormalizedImages”와 동일합니다.<br/>“none”이 아닌 옵션의 경우 이미지가 *normalized_images* 필드에 공개됩니다. <br/>기본값은 "없음"입니다. 이 구성은 "dataToExtract"가 "contentAndMetadata"로 설정된 경우 Blob 데이터 원본에만 관련됩니다. <br/>최대 1000 이미지의 지정된 된 문서에서 추출 됩니다. 문서에서 1,000 개 보다 많은 이미지 없으면 처음 1,000 개의 추출 됩니다 하 고 경고가 생성 됩니다. |
+| imageAction   | 포함된 이미지 또는 이미지 파일이 있을 때 아무 작업도 수행하지 않아야 하는 경우 "없음"으로 설정합니다. <br/>정규화된 이미지의 배열을 문서 해독의 일부로 생성하려 "generateNormalizedImages"로 설정합니다.<br/>정규화된 이미지 배열을 생성하려면 “generateNormalizedImagePerPage”로 설정합니다. 여기서 데이터 원본에 있는 PDF의 경우 각 페이지가 하나의 출력 이미지로 렌더링됩니다.  기능은 비 PDF 파일 형식에 대한 “generateNormalizedImages”와 동일합니다.<br/>“none”이 아닌 옵션의 경우 이미지가 *normalized_images* 필드에 공개됩니다. <br/>기본값은 "없음"입니다. 이 구성은 "dataToExtract"가 "contentAndMetadata"로 설정된 경우 Blob 데이터 원본에만 관련됩니다. <br/>지정 된 문서에서 최대 1000 개의 이미지가 추출 됩니다. 문서에 1000 개가 넘는 이미지가 있으면 첫 번째 1000이 추출 되 고 경고가 생성 됩니다. |
 |  normalizedImageMaxWidth | 정규화된 이미지의 최대 너비(픽셀 단위)가 생성되었습니다. 기본값은 2000입니다.|
 |  normalizedImageMaxHeight | 정규화된 이미지의 최대 높이(픽셀 단위)가 생성되었습니다. 기본값은 2000입니다.|
 
@@ -64,15 +63,16 @@ ms.locfileid: "67448443"
 
 *imageAction*을 “none” 이외의 값으로 설정한 경우 새 *normalized_images* 필드에는 이미지 배열이 포함됩니다. 각 이미지는 다음 멤버가 포함된 복합 형식입니다.
 
-| 이미지 멤버       | 설명                             |
+| 이미지 멤버       | Description                             |
 |--------------------|-----------------------------------------|
-| data               | JPEG 형식의 BASE64 인코딩된 정규화된 이미지 문자열입니다.   |
+| 데이터               | JPEG 형식의 BASE64 인코딩된 정규화된 이미지 문자열입니다.   |
 | width              | 픽셀 단위로 정규화된 이미지의 너비입니다. |
 | height             | 픽셀 단위로 정규화된 이미지의 높이입니다. |
 | originalWidth      | 정규화 이전에 이미지의 원래 너비입니다. |
 | originalHeight      | 정규화 이전에 이미지의 원래 높이입니다. |
 | rotationFromOriginal |  정규화된 이미지를 만들기 위해 발생한 시계 반대 방향 회전입니다. 0도에서 360도 사이의 값입니다. 이 단계에서는 카메라 또는 스캐너에서 생성하는 이미지의 메타데이터를 읽습니다. 일반적으로 90도의 배수입니다. |
-| contentOffset |이미지가 추출된 콘텐츠 필드 내의 문자 오프셋입니다. 이 필드는 포함된 이미지가 있는 파일에만 적용됩니다. |
+| contentOffset | 이미지가 추출된 콘텐츠 필드 내의 문자 오프셋입니다. 이 필드는 포함된 이미지가 있는 파일에만 적용됩니다. |
+| pageNumber | 이미지를 추출 하거나 PDF에서 렌더링 하는 경우이 필드에는 1부터 시작 하 여 추출 되거나 렌더링 된 PDF의 페이지 번호가 포함 됩니다.  이미지가 PDF의 이미지가 아닌 경우이 필드는 0이 됩니다.  |
 
  *normalized_images* 샘플 값:
 ```json
@@ -84,7 +84,8 @@ ms.locfileid: "67448443"
     "originalWidth": 5000,  
     "originalHeight": 3000,
     "rotationFromOriginal": 90,
-    "contentOffset": 500  
+    "contentOffset": 500,
+    "pageNumber": 2
   }
 ]
 ```
@@ -102,8 +103,6 @@ ms.locfileid: "67448443"
 ### <a name="ocr-skill"></a>OCR 기술
 
 [OCR 기술](cognitive-search-skill-ocr.md)은 JPG, PNG 및 비트맵 이미지와 같은 파일에서 텍스트를 추출합니다. 레이아웃 정보뿐만 아니라 텍스트도 추출할 수 있습니다. 레이아웃 정보는 식별된 문자열 각각에 대한 경계 상자를 제공합니다.
-
-OCR 기술을 사용하면 이미지에서 텍스트를 검색하는 데 사용할 알고리즘을 선택할 수 있습니다. 현재 인쇄된 텍스트에 하나, 필기된 텍스트에 하나 등 두 개의 알고리즘을 지원합니다.
 
 ## <a name="embedded-image-scenario"></a>포함된 이미지 시나리오
 
@@ -217,7 +216,7 @@ merged_text 필드가 있으므로 인덱서 정의에서 검색 가능한 필�
         }
 ```
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 + [인덱서 만들기(REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 + [이미지 기술 분석](cognitive-search-skill-image-analysis.md)
 + [OCR 기술](cognitive-search-skill-ocr.md)

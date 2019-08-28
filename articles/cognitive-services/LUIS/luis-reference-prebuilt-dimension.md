@@ -1,6 +1,6 @@
 ---
-title: Dimension 미리 빌드된 엔터티
-titleSuffix: Azure
+title: 미리 작성 한 차원 엔터티-LUIS
+titleSuffix: Azure Cognitive Services
 description: 이 문서에는 LUIS(Language Understanding)의 dimension 미리 빌드된 엔터티가 포함됩니다.
 services: cognitive-services
 ms.custom: seodec18
@@ -8,15 +8,15 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: e77cd2290981de62ba7fce7f04174cd0c5ec2af3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 37b9ca071ca5b2e423d7efd93e4089e3a77b4e50
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072194"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933600"
 ---
 # <a name="dimension-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 Dimension 미리 빌드된 엔터티
 미리 빌드된 dimension 엔터티는 LUIS 앱 문화권에 관계없이 다양한 유형의 차원을 검색합니다. 이 엔터티를 이미 학습했기 때문에 dimension을 포함하는 예제 발언을 애플리케이션 의도에 추가할 필요가 없습니다. Dimension 엔터티는 [여러 문화권](luis-reference-prebuilt-entities.md)에서 지원됩니다. 
@@ -60,9 +60,9 @@ Dimension은 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/bl
 }
 ```
 
-### <a name="preview-api-version-3x"></a>미리 보기 API 버전 3.x
+### <a name="preview-api-version-3x"></a>Preview API 버전 3(sp3)
 
-다음 JSON을 사용 하는 것은 `verbose` 매개 변수 설정 `false`:
+다음 JSON은 `verbose` 매개 변수를로 `false`설정 하는입니다.
 
 ```json
 {
@@ -87,7 +87,7 @@ Dimension은 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/bl
 }
 ```
 
-다음 JSON을 사용 하는 것은 `verbose` 매개 변수 설정 `true`:
+다음 JSON은 `verbose` 매개 변수를로 `true`설정 하는입니다.
 
 ```json
 {

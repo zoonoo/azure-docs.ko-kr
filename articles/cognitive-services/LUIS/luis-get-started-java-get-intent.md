@@ -1,6 +1,6 @@
 ---
-title: 의도 가져오기, Java
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 의도 가져오기, Java - LUIS
+titleSuffix: Azure Cognitive Services
 description: 이 Java 빠른 시작에서는 사용 가능한 공용 LUIS 앱을 통해 대화형 텍스트에서 사용자의 의도를 판단합니다.
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 01/23/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 5e5a186be19c0ecc9730bc79bddff41fb6bbb571
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 7a80aefd7a88727cf3a2261115c076853bd45b3f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401652"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563810"
 ---
 # <a name="quickstart-get-intent-using-java"></a>빠른 시작: Java를 사용하여 의도 가져오기
 

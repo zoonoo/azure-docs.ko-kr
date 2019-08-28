@@ -4,7 +4,7 @@ description: Azure 환경의 Oracle Database 12c 데이터베이스에 대한 �
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 09df1421d6deae6db305cef2a46d6c40d0c12ba3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: db0b9887b80f13938045a5d11fb09ed0a43efc19
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60835879"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706975"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Azure 환경의 Oracle Database 12c 데이터베이스 재해 복구
 
-## <a name="assumptions"></a>가정
+## <a name="assumptions"></a>Assumptions
 
 - Oracle Data Guard 설계 및 Azure 환경에 대해 이해하고 있습니다.
 
@@ -96,7 +96,7 @@ TCP 포트를 외부에 공개하므로 직접 연결은 사용하지 않는 것
 
 ![DR 토폴로지 페이지의 스크린샷](./media/oracle-disaster-recovery/oracle_topology_03.png)
 
-## <a name="additional-reading"></a>추가 참조 자료
+## <a name="additional-reading"></a>추가 참조 항목
 
 - [Azure에서 Oracle 데이터베이스 설계 및 구현](oracle-design.md)
 - [Oracle Data Guard 구성](configure-oracle-dataguard.md)

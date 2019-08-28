@@ -21,7 +21,7 @@ ms.locfileid: "60780845"
 이 문서에는 입력된 파일이 단일 BAM 파일인 경우 Microsoft Genomics 서비스에 워크플로 제출 하는 방법을 보여 줍니다. 이 항목에서는 사용자가 이미 `msgen` 클라이언트를 설치하여 실행하고 있으며 Azure Storage 사용 방법에 익숙하다고 가정합니다. 제공된 된 샘플 데이터를 사용 하 여 워크플로 성공적으로 제출한 경우이 문서를 진행할 준비가 되었습니다. 
 
 ## <a name="set-up-upload-your-bam-file-to-azure-storage"></a>설정: Azure storage에 BAM 파일을 업로드 합니다.
-*reads.bam*이라는 단일 BAM 파일이 있고 Azure의 개인 저장소 계정인 *myaccount*(**https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/inputs/reads<span></span>.bam<span></span>** )에 업로드했다고 가정합니다. API URL과 액세스 키를 보유하고 있습니다. **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>** 에 출력하려 합니다.
+*reads.bam*이라는 단일 BAM 파일이 있고 Azure의 개인 스토리지 계정인 *myaccount*(**https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/inputs/reads<span></span>.bam<span></span>** )에 업로드했다고 가정합니다. API URL과 액세스 키를 보유하고 있습니다. **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>** 에 출력하려 합니다.
 
 
 
@@ -82,4 +82,4 @@ output_storage_account_container: outputs
 이 호출로 `config.txt` 파일 제출: `msgen submit -f config.txt`
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure 저장소에 BAM 파일을 업로드했고 `msgen` python 클라이언트를 통해 Microsoft Genomics 서비스에 워크플로를 제출했습니다. Microsoft Genomics 서비스에서 사용할 수 있는 워크플로 제출 및 기타 명령에 대한 추가 정보는 [FAQ](frequently-asked-questions-genomics.md)를 참조하세요. 
+이 문서에서는 Azure Storage에 BAM 파일을 업로드했고 `msgen` python 클라이언트를 통해 Microsoft Genomics 서비스에 워크플로를 제출했습니다. Microsoft Genomics 서비스에서 사용할 수 있는 워크플로 제출 및 기타 명령에 대한 추가 정보는 [FAQ](frequently-asked-questions-genomics.md)를 참조하세요. 

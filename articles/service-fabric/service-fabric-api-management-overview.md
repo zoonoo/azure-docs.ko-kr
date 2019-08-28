@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: 0dac2730bcc13b979de6a8faaaa53c0aaf15e902
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 52f9584a2f793ff513100afcb7b7bd6acd2a4742
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60621890"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900530"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric 및 API Management 개요
 
-일반적으로 클라우드 애플리케이션에는 사용자, 장치 또는 기타 애플리케이션 수신을 위한 단일 지점을 제공하는 프런트 엔드 게이트웨이가 필요합니다. Service Fabric에서 게이트웨이는 [ASP.NET Core 애플리케이션](service-fabric-reliable-services-communication-aspnetcore.md), 트래픽 수신을 위해 설계된 기타 서비스(예: [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/), [Azure API Management](https://docs.microsoft.com/azure/api-management/))와 같은 상태 비저장 서비스일 수 있습니다.
+일반적으로 클라우드 애플리케이션에는 사용자, 디바이스 또는 기타 애플리케이션 수신을 위한 단일 지점을 제공하는 프런트 엔드 게이트웨이가 필요합니다. Service Fabric에서 게이트웨이는 [ASP.NET Core 애플리케이션](service-fabric-reliable-services-communication-aspnetcore.md), 트래픽 수신을 위해 설계된 기타 서비스(예: [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/), [Azure API Management](https://docs.microsoft.com/azure/api-management/))와 같은 상태 비저장 서비스일 수 있습니다.
 
 이 문서에서는 Service Fabric 애플리케이션에 대한 게이트웨이로 Azure API Management를 사용하는 것을 소개합니다. API Management는 Service Fabric과 직접 통합되므로 다양한 라우팅 규칙 집합을 사용하여 백 엔드 Service Fabric 서비스에 API를 게시할 수 있습니다. 
 
@@ -54,9 +54,9 @@ Service Fabric의 서비스는 상태 비저장 또는 상태 저장일 수 있�
 
 ## <a name="send-traffic-to-a-stateless-service"></a>트래픽을 상태 비저장 서비스로 보내기
 
-가장 간단한 경우, 트래픽은 상태 비저장 서비스 인스턴스로 전달됩니다. 이를 위해 API Management 작업에는 Service Fabric 백 엔드에서 특정 상태 비저장 서비스 인스턴스에 매핑되는 Service Fabric 백 엔드가 있는 인바운드 처리 정책이 포함됩니다. 해당 서비스에 전송된 요청은 상태 비저장 서비스 인스턴스의 임의 복제본으로 전송됩니다.
+가장 간단한 경우, 트래픽은 상태 비저장 서비스 인스턴스로 전달됩니다. 이를 위해 API Management 작업에는 Service Fabric 백 엔드에서 특정 상태 비저장 서비스 인스턴스에 매핑되는 Service Fabric 백 엔드가 있는 인바운드 처리 정책이 포함됩니다. 해당 서비스에 전송 된 요청은 임의의 서비스 인스턴스로 전송 됩니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 다음 시나리오에서 Service Fabric 애플리케이션에는 내부 HTTP API를 노출하는 `fabric:/app/fooservice` 이름의 상태 비저장 서비스가 포함됩니다. 서비스 인스턴스 이름은 잘 알려져 있으며 API Management 인바운드 처리 정책에 직접 하드 코딩될 수 있습니다. 
 
 ![Service Fabric 및 Azure API Management 토폴로지 개요][sf-apim-static-stateless]
@@ -65,11 +65,11 @@ Service Fabric의 서비스는 상태 비저장 또는 상태 저장일 수 있�
 
 상태 비저장 서비스 시나리오와 마찬가지로 트래픽을 상태 저장 서비스 인스턴스에 전달할 수 있습니다. 이 경우 API Management 작업에는 요청을 특정 *상태 저장* 서비스 인스턴스의 특정 파티션에 매핑하는 Service Fabric 백 엔드가 있는 인바운드 처리 정책이 포함됩니다. 각 요청을 매핑할 파티션은 들어오는 HTTP 요청에서 입력(예: URL 경로의 값)을 사용하는 람다 메서드를 통해 계산됩니다. 요청을 주 복제본에만 또는 읽기 작업을 위해 임의 복제본으로 보내도록 정책을 구성할 수 있습니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 다음 시나리오에서 Service Fabric 애플리케이션에는 내부 HTTP API를 노출하는 `fabric:/app/userservice` 이름의 분할된 상태 저장 서비스가 포함됩니다. 서비스 인스턴스 이름은 잘 알려져 있으며 API Management 인바운드 처리 정책에 직접 하드 코딩될 수 있습니다.  
 
-서비스는 두 파티션을 포함하고 키 범위가 `Int64.MinValue` ~ `Int64.MaxValue`인 Int64 파티션 체계를 사용하여 분할됩니다. 여기서 파티션 키 계산을 위해 어떤 알고리즘이라도 사용할 수 있지만, 백 엔드 정책은 URL 요청 경로에 제공된 `id` 값을 64비트 정수로 변환하여 해당 범위 내에서 파티션 키를 계산합니다. 
+서비스는 두 파티션을 포함하고 키 범위가 `Int64.MinValue` ~ `Int64.MaxValue`인 Int64 파티션 체계를 사용하여 분할됩니다. 여기서 파티션 키 컴퓨팅을 위해 어떤 알고리즘이라도 사용할 수 있지만, 백 엔드 정책은 URL 요청 경로에 제공된 `id` 값을 64비트 정수로 변환하여 해당 범위 내에서 파티션 키를 계산합니다. 
 
 ![Service Fabric 및 Azure API Management 토폴로지 개요][sf-apim-static-stateful]
 
@@ -77,15 +77,15 @@ Service Fabric의 서비스는 상태 비저장 또는 상태 저장일 수 있�
 
 보다 고급 시나리오에서는 요청을 둘 이상의 서비스 인스턴스로 매핑하는 API Management 작업을 정의할 수 있습니다. 이 경우 각 작업은 요청을 들어오는 HTTP 요청의 값(예: URL 경로 또는 쿼리 문자열, 상태 저장 서비스의 경우 서비스 인스턴스 내에 있는 파티션)에 따라 특정 서비스 인스턴스로 매핑하는 정책을 포함합니다. 
 
-이를 위해 API Management 작업에는 들어오는 HTTP 요청에서 검색된 값에 따라 Service Fabric 백 엔드에서 상태 비저장 서비스 인스턴스에 매핑되는 Service Fabric 백 엔드가 있는 인바운드 처리 정책이 포함됩니다. 서비스 인스턴스에 대한 요청은 서비스 인스턴스의 임의 복제본으로 전송됩니다.
+이를 위해 API Management 작업에는 들어오는 HTTP 요청에서 검색된 값에 따라 Service Fabric 백 엔드에서 상태 비저장 서비스 인스턴스에 매핑되는 Service Fabric 백 엔드가 있는 인바운드 처리 정책이 포함됩니다. 서비스에 대 한 요청은 임의의 서비스 인스턴스로 전송 됩니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 이 예제에서는 애플리케이션의 각 사용자에 대한 새로운 상태 비저장 서비스 인스턴스가 다음 수식을 사용하여 동적으로 생성된 이름으로 만들어집니다.
  
 - `fabric:/app/users/<username>`
 
-  각 서비스에는 고유한 이름이 있지만 사용자 또는 관리자 입력에 대한 응답으로 서비스가 생성되어 APIM 정책이나 라우팅 규칙에 하드 코딩될 수 없기 때문에 이름을 미리 알 수 없습니다. 대신, 요청을 보낼 서비스 이름은 URL 요청 경로에 제공된 `name` 값에서 백 엔드 정책 정의에 생성됩니다. 예를 들면 다음과 같습니다.
+  각 서비스에는 고유한 이름이 있지만 사용자 또는 관리자 입력에 대한 응답으로 서비스가 생성되어 APIM 정책이나 라우팅 규칙에 하드 코딩될 수 없기 때문에 이름을 미리 알 수 없습니다. 대신, 요청을 보낼 서비스 이름은 URL 요청 경로에 제공된 `name` 값에서 백 엔드 정책 정의에 생성됩니다. 예를 들어:
 
   - `/api/users/foo`에 대한 요청은 서비스 인스턴스 `fabric:/app/users/foo`로 라우팅됩니다.
   - `/api/users/bar`에 대한 요청은 서비스 인스턴스 `fabric:/app/users/bar`로 라우팅됩니다.
@@ -98,18 +98,18 @@ Service Fabric의 서비스는 상태 비저장 또는 상태 저장일 수 있�
 
 이를 위해 API Management 작업에는 들어오는 HTTP 요청에서 검색된 값에 따라 Service Fabric 백 엔드에서 상태 저장 서비스 인스턴스에 매핑되는 Service Fabric 백 엔드가 있는 인바운드 처리 정책이 포함됩니다. 요청을 특정 서비스 인스턴스에 매핑하는 것 외에도, 요청을 서비스 인스턴스 내의 특정 파티션이나 필요에 따라 해당 파티션 내의 주 복제본 또는 임의 보조 복제본에 매핑할 수도 있습니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 이 예제에서는 애플리케이션의 각 사용자에 대한 새로운 상태 저장 서비스 인스턴스가 다음 수식을 사용하여 동적으로 생성된 이름으로 만들어집니다.
  
 - `fabric:/app/users/<username>`
 
-  각 서비스에는 고유한 이름이 있지만 사용자 또는 관리자 입력에 대한 응답으로 서비스가 생성되어 APIM 정책이나 라우팅 규칙에 하드 코딩될 수 없기 때문에 이름을 미리 알 수 없습니다. 대신, 요청을 보낼 서비스 이름은 URL 요청 경로에 제공된 `name` 값에서 백 엔드 정책 정의에 생성됩니다. 예를 들면 다음과 같습니다.
+  각 서비스에는 고유한 이름이 있지만 사용자 또는 관리자 입력에 대한 응답으로 서비스가 생성되어 APIM 정책이나 라우팅 규칙에 하드 코딩될 수 없기 때문에 이름을 미리 알 수 없습니다. 대신, 요청을 보낼 서비스 이름은 URL 요청 경로에 제공된 `name` 값에서 백 엔드 정책 정의에 생성됩니다. 예를 들어:
 
   - `/api/users/foo`에 대한 요청은 서비스 인스턴스 `fabric:/app/users/foo`로 라우팅됩니다.
   - `/api/users/bar`에 대한 요청은 서비스 인스턴스 `fabric:/app/users/bar`로 라우팅됩니다.
 
-각 서비스 인스턴스는 두 파티션을 포함하고 키 범위가 `Int64.MinValue` ~ `Int64.MaxValue`인 Int64 파티션 체계를 사용해서도 분할됩니다. 여기서 파티션 키 계산을 위해 어떤 알고리즘이라도 사용할 수 있지만, 백 엔드 정책은 URL 요청 경로에 제공된 `id` 값을 64비트 정수로 변환하여 해당 범위 내에서 파티션 키를 계산합니다. 
+각 서비스 인스턴스는 두 파티션을 포함하고 키 범위가 `Int64.MinValue` ~ `Int64.MaxValue`인 Int64 파티션 체계를 사용해서도 분할됩니다. 여기서 파티션 키 컴퓨팅을 위해 어떤 알고리즘이라도 사용할 수 있지만, 백 엔드 정책은 URL 요청 경로에 제공된 `id` 값을 64비트 정수로 변환하여 해당 범위 내에서 파티션 키를 계산합니다. 
 
 ![Service Fabric 및 Azure API Management 토폴로지 개요][sf-apim-dynamic-stateful]
 

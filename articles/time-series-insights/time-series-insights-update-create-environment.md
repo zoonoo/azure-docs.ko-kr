@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 04/25/2019
+ms.date: 07/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 77b7b90b63ffebc14498183fc179b9c8ae76a722
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 998471d99a785eeff39ef7c99e60e1d9b49e0d7a
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237857"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725826"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>자습서: Azure Time Series Insights 미리 보기 환경 설정
 
@@ -23,15 +23,25 @@ ms.locfileid: "66237857"
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
-* Azure Time Series Insights 미리 보기 환경 만들기
-* Azure Event Hubs에서 이벤트 허브에 Azure Time Series Insights 미리 보기 환경 연결
-* Azure Time Series Insights 미리 보기 환경으로 데이터를 스트리밍하도록 솔루션 가속기 샘플 실행
-* 데이터에 대한 기본 분석을 수행합니다.
-* 시계열 모델 형식 및 계층 구조 정의 및 인스턴스와 연결
+> [!div class="checklist"]
+> * Azure Time Series Insights 미리 보기 환경 만들기
+> * Azure Event Hubs에서 이벤트 허브에 Azure Time Series Insights 미리 보기 환경 연결
+> * Azure Time Series Insights 미리 보기 환경으로 데이터를 스트리밍하도록 솔루션 가속기 샘플 실행
+> * 데이터에 대한 기본 분석을 수행합니다.
+> * 시계열 모델 형식 및 계층 구조 정의 및 인스턴스와 연결
+
+>[!TIP]
+> [IoT 솔루션 가속기](https://www.azureiotsolutions.com/Accelerators)는 사용자 지정 IoT 솔루션의 개발 속도를 높이는 데 사용할 수 있는 미리 구성된 엔터프라이즈급 솔루션을 제공합니다.
+
+아직 Azure 구독이 없는 경우 [평가판 Azure 구독](https://azure.microsoft.com/free/)에 등록합니다.
+
+## <a name="prerequisites"></a>필수 조건
+
+* 또한 Azure 로그인 계정은 구독에 대한 **소유자** 역할의 멤버여야 합니다. 자세한 내용은 [역할 기반 액세스 제어 및 Azure Portal을 사용하여 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
 ## <a name="create-a-device-simulation"></a>디바이스 시뮬레이션 만들기
 
-이 섹션에서는 Azure IoT Hub의 인스턴스로 데이터를 보내는 세 개의 시뮬레이션된 디바이스를 만듭니다.
+이 섹션에서는 Azure IoT Hub 인스턴스로 데이터를 보내는 세 개의 시뮬레이션된 디바이스를 만듭니다.
 
 1. [Azure IoT 솔루션 가속기 페이지](https://www.azureiotsolutions.com/Accelerators)로 이동합니다. 페이지에는 몇 가지 미리 작성된 예제가 표시됩니다. Azure 계정을 사용하여 로그인합니다. 그런 다음, **디바이스 시뮬레이션**을 선택합니다.
 
@@ -43,58 +53,18 @@ ms.locfileid: "66237857"
 
     | 매개 변수 | 조치 |
     | --- | --- |
-    | **솔루션 이름** | 새 리소스 그룹에 대한 고유 값을 입력합니다. 나열된 Azure 리소스가 생성되어 리소스 그룹에 할당됩니다. |
-    | **구독** | Time Series Insights 환경을 만드는 데 사용한 구독을 선택합니다. |
-    | **지역** | Time Series Insights 환경을 만드는 데 사용한 지역을 선택합니다. |
-    | **선택적 Azure 리소스 배포** | **IoT Hub** 확인란을 선택한 상태로 둡니다. 시뮬레이션된 디바이스는 IoT Hub를 사용하여 데이터를 연결하고 스트림합니다. |
+    | **배포 이름** | 새 리소스 그룹에 대한 고유 값을 입력합니다. 나열된 Azure 리소스가 생성되어 리소스 그룹에 할당됩니다. |
+    | **Azure 구독** | Time Series Insights 환경을 만드는 데 사용한 구독을 선택합니다. |
+    | **Azure 위치** | Time Series Insights 환경을 만드는 데 사용한 지역을 선택합니다. |
+    | **배포 옵션** | **새 IoT Hub 프로비전**을 선택합니다. |
  
-    **솔루션 만들기**를 선택합니다. 솔루션을 배포되도록 10~15분 동안 기다립니다.
+    **솔루션 만들기**를 선택합니다. 솔루션의 배포를 완료하려면 최대 20분이 걸릴 수 있습니다.
 
     [![디바이스 시뮬레이션 솔루션 만들기 페이지](media/v2-update-provision/device-two-create.png)](media/v2-update-provision/device-two-create.png#lightbox)
 
-1. 솔루션 가속기 대시보드에서 **시작**을 선택합니다.
+## <a name="create-a-preview-payg-environment"></a>Preview PAYG 환경 만들기
 
-    [![디바이스 시뮬레이션 솔루션 시작](media/v2-update-provision/device-three-launch.png)](media/v2-update-provision/device-three-launch.png#lightbox)
-
-1. **Microsoft Azure IoT 디바이스 시뮬레이션** 페이지로 리디렉션됩니다. 페이지의 오른쪽 위 모서리에서 **새 시뮬레이션**을 선택합니다.
-
-    [![Azure IoT 시뮬레이션 페이지](media/v2-update-provision/device-four-iot-sim-page.png)](media/v2-update-provision/device-four-iot-sim-page.png#lightbox)
-
-1. **시뮬레이션 설정** 창에서 다음 매개 변수를 설정합니다.
-
-    | 매개 변수 | 조치 |
-    | --- | --- |
-    | **Name** | 시뮬레이터에 사용할 고유한 이름을 입력합니다. |
-    | **설명** | 정의를 입력합니다. |
-    | **시뮬레이션 기간** | **무기한 실행**으로 설정합니다. |
-    | **디바이스 모델** | **이름**: **냉각기**를 입력합니다. <br />**수량**: **3**을 입력합니다. |
-    | **대상 IoT Hub** | **사전 프로비전된 IoT Hub 사용**으로 설정합니다. |
-
-    [![매개 변수 설정](media/v2-update-provision/device-five-params.png)](media/v2-update-provision/device-five-params.png#lightbox)
-
-    **시뮬레이션 시작**을 선택합니다.
-
-    디바이스 시뮬레이션 대시보드에서 **활성 디바이스** 및 **초당 메시지 수**에 대해 표시된 정보를 적어둡니다.
-
-    [![Azure IoT 시뮬레이션 대시보드](media/v2-update-provision/device-seven-dashboard.png)](media/v2-update-provision/device-seven-dashboard.png#lightbox)
-
-## <a name="list-device-simulation-properties"></a>디바이스 시뮬레이션 속성 나열
-
-Azure Time Series Insights 환경을 만들기 전에 IoT Hub, 구독 및 리소스 그룹의 이름이 필요합니다.
-
-1. 솔루션 가속기 대시보드로 이동합니다. 동일한 Azure 구독 계정을 사용하여 로그인합니다. 이전 섹션에서 만든 디바이스 시뮬레이션을 찾습니다.
-
-1. 해당 디바이스 시뮬레이터를 선택한 다음, **시작**을 선택합니다. 오른쪽의 디바이스 시뮬레이터 솔루션 가속기 창에서 **Azure 관리 포털** 옵션을 선택합니다.
-
-    [![시뮬레이터 목록](media/v2-update-provision/device-six-listings.png)](media/v2-update-provision/device-six-listings.png#lightbox)
-
-1. IoT Hub, 구독 및 리소스 그룹의 이름을 적어둡니다.
-
-    [![Azure Portal 디바이스 시뮬레이터 대시보드 세부 정보](media/v2-update-provision/device-eight-portal.png)](media/v2-update-provision/device-eight-portal.png#lightbox)
-
-## <a name="create-a-time-series-insights-preview-payg-environment"></a>Time Series Insights 미리 보기 PAYG 환경 만들기
-
-이 섹션에서는 [Azure Portal](https://portal.azure.com/)을 사용하여 Azure Time Series Insights 미리 보기 환경을 만드는 방법에 대해 설명합니다.
+이 섹션에서는 Azure Time Series Insights 미리 보기 환경을 만들고 [Azure Portal](https://portal.azure.com/)을 사용하여 IoT 솔루션 가속기에서 만든 IoT Hub에 연결하는 방법에 대해 설명합니다.
 
 1. 구독 계정을 사용하여 Azure Portal에 로그인합니다.
 
@@ -109,7 +79,7 @@ Azure Time Series Insights 환경을 만들기 전에 IoT Hub, 구독 및 리소
     | **환경 이름** | Azure Time Series Insights 미리 보기 환경에 대한 고유 이름을 입력합니다. |
     | **구독** | Azure Time Series Insights 미리 보기 환경을 만들려는 구독을 입력합니다. 디바이스 시뮬레이터에서 만든 나머지 IoT 리소스와 동일한 구독을 사용하는 것이 좋습니다. |
     | **리소스 그룹** | Azure Time Series Insights 미리 보기 환경 리소스에 대해 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스에 대한 컨테이너입니다. 디바이스 시뮬레이터에서 만든 다른 IoT 리소스와 동일한 리소스 그룹을 사용하는 것이 좋습니다. |
-    | **위치**: | Azure Time Series Insights 미리 보기 환경에 대한 데이터 센터 지역을 선택합니다. 대역폭 비용과 대기 시간이 추가되지 않도록 Azure Time Series Insights 미리 보기 환경을 다른 IoT 리소스와 동일한 지역에 만드는 것이 가장 좋습니다. |
+    | **위치**: | Azure Time Series Insights 미리 보기 환경에 대한 데이터 센터 지역을 선택합니다. 대기 시간이 추가되지 않도록 Azure Time Series Insights 미리 보기 환경을 다른 IoT 리소스와 동일한 지역에 만드는 것이 가장 좋습니다. |
     | **계층** |  **PAYG**(*종량제*)를 선택합니다. Azure Time Series Insights 미리 보기 제품에 대한 SKU입니다. |
     | **속성 ID** | 시계열 인스턴스를 고유하게 식별하는 값을 입력합니다. **속성 ID** 상자에 입력한 값은 변경할 수 없으며, 나중에 변경할 수도 없습니다. 이 자습서에서는 **iothub-connection-device-id**를 입력합니다. 시계열 ID에 대한 자세한 내용은 [시계열 ID 선택 모범 사례](./time-series-insights-update-how-to-id.md)를 참조하세요. |
     | **스토리지 계정 이름** | 새로 만들 스토리지 계정에 대해 글로벌로 고유한 이름을 입력합니다. |
@@ -160,7 +130,37 @@ Azure Time Series Insights 환경을 만들기 전에 IoT Hub, 구독 및 리소
 
    자격 증명이 나열되어 있지 않으면 환경에 대한 액세스 권한을 자신에게 부여해야 합니다. 사용 권한 설정에 대해 자세히 알아보려면 [데이터 액세스 권한 부여](./time-series-insights-data-access.md)를 읽어보세요.
 
-## <a name="analyze-data-in-your-environment"></a>환경에서 데이터 분석
+## <a name="stream-data"></a>스트림 데이터
+
+이제 Time Series Insights 환경을 배포했으므로 분석을 위해 데이터를 스트리밍합니다.
+
+1. [Azure IoT 솔루션 가속기 페이지](https://www.azureiotsolutions.com/Accelerators)로 다시 이동합니다. 솔루션 가속기 대시보드에서 솔루션을 찾습니다. 그런 다음 **시작**을 선택합니다.
+
+    [![디바이스 시뮬레이션 솔루션 시작](media/v2-update-provision/device-three-launch.png)](media/v2-update-provision/device-three-launch.png#lightbox)
+
+1. **Microsoft Azure IoT 디바이스 시뮬레이션** 페이지로 리디렉션됩니다. 페이지의 오른쪽 위 모서리에서 **새 시뮬레이션**을 선택합니다.
+
+    [![Azure IoT 시뮬레이션 페이지](media/v2-update-provision/device-four-iot-sim-page.png)](media/v2-update-provision/device-four-iot-sim-page.png#lightbox)
+
+1. **시뮬레이션 설정** 창에서 다음 매개 변수를 설정합니다.
+
+    | 매개 변수 | 조치 |
+    | --- | --- |
+    | **Name** | 시뮬레이터에 사용할 고유한 이름을 입력합니다. |
+    | **설명** | 정의를 입력합니다. |
+    | **시뮬레이션 기간** | **무기한 실행**으로 설정합니다. |
+    | **디바이스 모델** | **이름**: **냉각기**를 입력합니다. <br />**수량**: **3**을 입력합니다. |
+    | **대상 IoT Hub** | **사전 프로비전된 IoT Hub 사용**으로 설정합니다. |
+
+    [![매개 변수 설정](media/v2-update-provision/device-five-params.png)](media/v2-update-provision/device-five-params.png#lightbox)
+
+    **시뮬레이션 시작**을 선택합니다.
+
+    디바이스 시뮬레이션 대시보드에서 **활성 디바이스** 및 **초당 메시지 수**에 대해 표시된 정보를 적어둡니다.
+
+    [![Azure IoT 시뮬레이션 대시보드](media/v2-update-provision/device-seven-dashboard.png)](media/v2-update-provision/device-seven-dashboard.png#lightbox)
+
+## <a name="analyze-data"></a>데이터 분석
 
 이 섹션에서는 [Azure Time Series Insights 미리 보기 탐색기](./time-series-insights-update-explorer.md)를 사용하여 시계열 데이터에 대해 기본 분석을 수행합니다.
 
@@ -330,6 +330,14 @@ Azure Time Series Insights 환경을 만들기 전에 IoT Hub, 구독 및 리소
 1. 이벤트 세부 정보를 보려면 지역을 선택한 다음, 마우스 오른쪽 단추로 차트를 클릭합니다.
 
    [![이벤트의 자세한 목록](media/v2-update-provision/define-eighteen.png)](media/v2-update-provision/define-eighteen.png#lightbox)
+
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+이제 자습서를 완료했으므로 만든 리소스를 정리합니다.
+
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **모든 리소스**를 선택하고 Azure Time Series Insights 리소스 그룹을 찾습니다.
+1. **삭제**를 선택하여 전체 리소스 그룹(및 그 안에 포함된 모든 리소스)을 삭제하거나 각 리소스를 개별적으로 제거합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/24/2019
-ms.openlocfilehash: c8c99d976f416d0c1d07fb3a266d37ecd6235fdb
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: fef551c254eb4fa212333a55bde3d642645a16b6
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295363"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489801"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>자습서: HDInsight에서 Azure Event Hubs 및 Apache Spark를 사용하여 트윗 처리
 
@@ -46,9 +46,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     |자산 |값 |
     |---|---|
-    |이름|애플리케이션 이름을 제공합니다. 이 자습서에 사용되는 값은 **HDISparkStreamApp0423**입니다. 이 이름은 고유한 이름이어야 합니다.|
+    |Name|애플리케이션 이름을 제공합니다. 이 자습서에 사용되는 값은 **HDISparkStreamApp0423**입니다. 이 이름은 고유한 이름이어야 합니다.|
     |설명|애플리케이션에 대한 간단한 설명을 제공합니다. 이 자습서에 사용되는 값은 **간단한 HDInsight Spark 스트리밍 애플리케이션**입니다.|
-    |Website|애플리케이션의 웹 사이트를 제공합니다. 유효한 웹 사이트를 입력하지 않아도 됩니다.  이 자습서에 사용되는 값은 **http://www.contoso.com** 입니다.|
+    |Website|애플리케이션의 웹 사이트를 제공합니다. 유효한 웹 사이트를 입력하지 않아도 됩니다.  이 자습서에 사용되는 값은 `http://www.contoso.com`입니다.|
     |콜백 URL|비워 둘 수 있습니다.|
 
 1. **예, Twitter 개발자 계약을 읽고 동의합니다**를 선택한 다음, **Twitter 애플리케이션 만들기**를 선택합니다.
@@ -82,10 +82,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     |자산 |값 |
     |---|---|
-    |이름|이벤트 허브의 이름을 입력합니다.  이 자습서에 사용되는 값은 **myeventhubns20180403**입니다.|
+    |Name|이벤트 허브의 이름을 입력합니다.  이 자습서에 사용되는 값은 **myeventhubns20180403**입니다.|
     |가격 책정 계층|**표준**을 선택합니다.|
-    |구독|내게 적합한 구독을 선택합니다.|
-    |리소스 그룹|드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기**를 선택하여 새 리소스 그룹을 만듭니다.|
+    |Subscription|내게 적합한 구독을 선택합니다.|
+    |Resource group|드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기**를 선택하여 새 리소스 그룹을 만듭니다.|
     |위치|대기 시간 및 비용을 줄이려면 HDInsight의 Apache Spark 클러스터와 동일한 **위치**를 선택합니다.|
     |자동 팽창 사용(선택 사항) |자동 팽창은 트래픽이 Event Hubs 네임스페이스에 할당된 처리량 단위의 용량을 초과할 때 Event Hubs 네임스페이스에 할당된 처리량 단위의 수를 자동으로 조정합니다.  |
     |자동 팽창 최대 처리량 단위(선택 사항)|슬라이더는 **자동 팽창 사용**을 선택한 경우에만 나타납니다.  |
@@ -254,7 +254,7 @@ Azure Portal에서 클러스터를 열고 **삭제**를 선택합니다.
 
 ![HDInsight 클러스터 삭제](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "HDInsight 클러스터 삭제")
 
-또한 리소스 그룹 이름을 선택하여 리소스 그룹 페이지를 연 다음, **리소스 그룹 삭제**를 선택할 수도 있습니다. 리소스 그룹을 삭제하여 HDInsight Spark 클러스터와 기본 저장소 계정을 삭제합니다.
+또한 리소스 그룹 이름을 선택하여 리소스 그룹 페이지를 연 다음, **리소스 그룹 삭제**를 선택할 수도 있습니다. 리소스 그룹을 삭제하여 HDInsight Spark 클러스터와 기본 스토리지 계정을 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

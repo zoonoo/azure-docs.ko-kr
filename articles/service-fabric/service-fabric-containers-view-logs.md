@@ -3,7 +3,7 @@ title: Azure Service Fabric에서 컨테이너 로그 보기 | Microsoft Docs
 description: Service Fabric Explorer를 사용하여 실행 중인 Service Fabric 컨테이너 서비스에 대한 컨테이너 로그를 보는 방법을 설명합니다.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
-ms.author: aljo
-ms.openlocfilehash: 0408010a49b8ec83aa02c74887139f663788ad80
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 3fa40d794d02da08d29b6cac652edf493977f8e1
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60881489"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599737"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Service Fabric 컨테이너 서비스에 대한 로그 보기
 Azure Service Fabric은 컨테이너 오케스트레이터이며 [Windows 및 Linux 컨테이너](service-fabric-containers-overview.md)를 모두 지원합니다.  이 문서에서는 문제를 진단하고 해결할 수 있도록 실행 중인 컨테이너 서비스 또는 비활성 컨테이너의 컨테이너 로그를 보는 방법을 설명합니다.
@@ -46,8 +46,8 @@ v6.2부터 [REST API](/rest/api/servicefabric/sfclient-index) 또는 [SFCTL(Serv
 
 설정 **RunInteractive**는 Docker의 `--interactive` 및 `tty` [플래그](https://docs.docker.com/engine/reference/commandline/run/#options)에 해당합니다. 매니페스트 파일에서 이 설정을 true로 지정하면 이러한 플래그가 컨테이너를 시작하는 데 사용됩니다.  
 
-### <a name="rest"></a>REST (영문)
-[노드에 배포된 컨테이너 로그 가져오기](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) 작업을 사용하여 손상된 컨테이너에 대한 로그를 가져옵니다. 컨테이너가 실행되었던 노드의 이름, 애플리케이션 이름, 서비스 매니페스트 이름 및 코드 패키지 이름을 지정합니다.  `&Previous=true`를 지정합니다. 응답은 코드 패키지 인스턴스의 비활성 컨테이너에 대한 컨테이너 로그를 포함합니다.
+### <a name="rest"></a>REST(영문)
+[노드에 배포된 컨테이너 로그 가져오기](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) 작업을 사용하여 손상된 컨테이너에 대한 로그를 가져옵니다. 컨테이너가 실행되었던 노드의 이름, 애플리케이션 이름, 서비스 매니페스트 이름 및 코드 패키지 이름을 지정합니다.  `&Previous=true`을 지정합니다. 응답은 코드 패키지 인스턴스의 비활성 컨테이너에 대한 컨테이너 로그를 포함합니다.
 
 요청 URI의 형식은 다음과 같습니다.
 

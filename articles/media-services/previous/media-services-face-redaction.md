@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: juliako;
-ms.openlocfilehash: 1fe003ae13bc5f195932f4f140e17c4dc2791959
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.openlocfilehash: e350b6ed90324e7ed645d85c046fd74c0a089452
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61247403"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69016026"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Azure 미디어 분석으로 얼굴 편집 
 ## <a name="overview"></a>개요
@@ -34,7 +34,7 @@ ms.locfileid: "61247403"
 ### <a name="combined-mode"></a>결합된 모드
 이 모드는 수동 입력 없이 자동으로 편집된 mp4를 생성합니다.
 
-| 단계 | 파일 이름 | 메모 |
+| 단계 | 파일 이름 | 참고 |
 | --- | --- | --- |
 | 입력 자산 |foo.bar |WMV, MOV 또는 MP4 형식의 동영상 |
 | 입력 구성 |작업 구성 사전 설정 |{'version':'1.0', 'options': {'mode':'combined'}} |
@@ -49,7 +49,7 @@ ms.locfileid: "61247403"
 ### <a name="analyze-mode"></a>분석 모드
 2단계 워크플로의 **분석** 단계는 동영상 입력을 사용하여 얼굴 위치의 JSON 파일과 검색된 각 얼굴의 jpg 이미지를 생성합니다.
 
-| 단계 | 파일 이름 | 메모 |
+| 단계 | 파일 이름 | 참고 |
 | --- | --- | --- |
 | 입력 자산 |foo.bar |WMV, MPV 또는 MP4 형식의 동영상 |
 | 입력 구성 |작업 구성 사전 설정 |{'version':'1.0', 'options': {'mode':'analyze'}} |
@@ -114,7 +114,7 @@ ms.locfileid: "61247403"
 
 분석 단계의 출력에는 원본 동영상이 포함되지 않습니다. 동영상을 편집 모드 작업의 입력 자산으로 업로드하고 기본 파일로 선택해야 합니다.
 
-| 단계 | 파일 이름 | 메모 |
+| 단계 | 파일 이름 | 참고 |
 | --- | --- | --- |
 | 입력 자산 |foo.bar |WMV, MPV 또는 MP4 형식의 동영상. 1단계와 동일한 동영상입니다. |
 | 입력 자산 |foo_annotations.json |1단계의 주석 메타데이터 파일 및 수정 사항(선택 사항) |
@@ -157,9 +157,9 @@ IDList에서 하나의 ID가 선택된 출력입니다.
 
 ![높음](./media/media-services-face-redaction/blur3.png)
 
-#### <a name="box"></a>Box
+#### <a name="box"></a>상자
 
-![Box](./media/media-services-face-redaction/blur4.png)
+![상자](./media/media-services-face-redaction/blur4.png)
 
 #### <a name="black"></a>검정
 
@@ -193,7 +193,7 @@ IDList에서 하나의 ID가 선택된 출력입니다.
 
 개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```csharp
 using System;

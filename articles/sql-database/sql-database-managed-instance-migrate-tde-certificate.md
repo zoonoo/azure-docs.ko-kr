@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
-manager: craigg
 ms.date: 04/25/2019
-ms.openlocfilehash: f54950ab96664b17aab056b468db0644216e8654
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6f9c1cefafdf6f7f33db3c5143e6b97b328fe699
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64706105"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567418"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>TDE 보호 데이터베이스의 인증서를 Azure SQL Database Managed Instance로 마이그레이션
 
@@ -31,20 +30,20 @@ ms.locfileid: "64706105"
 완전히 관리되는 서비스를 사용하여 TDE 보호 데이터베이스와 해당 인증서를 원활하게 마이그레이션하는 대체 옵션은 [Azure Database Migration Service를 사용하여 온-프레미스 데이터베이스를 Managed Instance로 마이그레이션하는 방법](../dms/tutorial-sql-server-to-managed-instance.md)을 참조하세요.
 
 > [!IMPORTANT]
-> 마이그레이션된 인증서는 TDE 보호 데이터베이스 복원에만 사용됩니다. 다른 보호기를 마이그레이션된 인증서 바꾼 다음 복원이 완료 된 후에 곧 서비스 관리 인증서 또는 비대칭 키에서 key vault 인스턴스에서 설정한 투명 한 데이터 암호화의 유형에 따라 합니다.
+> 마이그레이션된 인증서는 TDE 보호 데이터베이스 복원에만 사용됩니다. 복원이 완료 된 후 곧 마이그레이션된 인증서가 인스턴스에 설정 된 투명 한 데이터 암호화의 유형에 따라 키 자격 증명 모음에서 서비스 관리 인증서 또는 비대칭 키와 같은 다른 보호기로 바뀝니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager 모듈은 Azure SQL 데이터베이스에서 계속 지원되지만 향후 모든 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
 이 문서의 단계를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
 - 파일로 내보낸 인증서에 대한 액세스 권한이 있는 온-프레미스 서버나 기타 시스템에 설치된 [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) 명령줄 도구. Pvk2Pfx 도구는 [Enterprise Windows 드라이버 키트](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk)에 속하며 독립 실행형 자체 포함 명령줄 환경입니다.
 - [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell) 버전 5.0 이상 설치.
-- Azure PowerShell 모듈 [설치 하 고 업데이트](https://docs.microsoft.com/powershell/azure/install-az-ps)합니다.
-- [Az.Sql 모듈](https://www.powershellgallery.com/packages/Az.Sql)합니다.
+- 모듈 [을 설치 하 고 업데이트](https://docs.microsoft.com/powershell/azure/install-az-ps)Azure PowerShell 합니다.
+- [Az .sql module](https://www.powershellgallery.com/packages/Az.Sql).
   PowerShell 모듈을 설치/업데이트하려면 PowerShell에서 다음 명령을 실행하십시오.
 
    ```powershell

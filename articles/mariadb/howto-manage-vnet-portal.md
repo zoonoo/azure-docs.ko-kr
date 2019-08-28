@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 6644b6ae3a9482a1bd3f840a814d3bb6361517fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 392428c0498458f49c439a0553d581a302c0c242
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60745919"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610104"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MariaDB VNet 서비스 엔드포인트와 VNet 규칙 만들기 및 관리
 
@@ -45,7 +45,7 @@ VNet(Virtual Network) 서비스 엔드포인트 및 규칙이 Virtual Network의
     
    [기본 제공 역할](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) 및 [사용자 지정 역할](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles)에 특정 권한 할당에 대해 자세히 알아보세요.
     
-   VNet 및 Azure 서비스 리소스가 동일한 구독이나 다른 구독에 있을 수 있습니다. VNet 및 Azure 서비스 리소스가 서로 다른 구독에 있는 경우 리소스가 동일한 AD(Active Directory) 테넌트에 있어야 합니다.
+   VNet 및 Azure 서비스 리소스가 동일한 구독이나 다른 구독에 있을 수 있습니다. VNet 및 Azure 서비스 리소스가 서로 다른 구독에 있는 경우 리소스가 동일한 AD(Active Directory) 테넌트에 있어야 합니다. 두 구독 모두에 **Microsoft .sql** 리소스 공급자가 등록 되어 있는지 확인 합니다. 자세한 내용은 [resource manager-등록][resource-manager-portal] 을 참조 하세요.
 
    > [!IMPORTANT]
    > 서비스 엔드포인트를 구성하기 전에 서비스 엔드포인트 및 고려 사항에 대한 이 문서를 읽어보는 것이 매우 좋습니다. **Virtual Network 서비스 엔드포인트:** [Virtual Network 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)는 속성 값에 하나 이상의 정식 Azure 서비스 유형 이름이 포함된 서브넷입니다. VNet 서비스 엔드포인트는 SQL Database라는 Azure 서비스를 나타내는 서비스 형식 이름 **Microsoft.Sql**을 사용합니다. 이 서비스 태그는 Azure SQL Database, Azure Database for MariaDB, PostgreSQL 및 MySQL 서비스에도 적용됩니다. **Microsoft.Sql** 서비스 태그를 VNet 서비스 엔드포인트에 적용하는 경우 Azure SQL Database, Azure Database for PostgreSQL, Azure Database for MariaDB 및 Azure Database for MySQL 서버를 포함하는 모든 Azure Database 서비스의 서비스 엔드포인트 트래픽을 서브넷에서 구성합니다.
@@ -58,3 +58,6 @@ VNet(Virtual Network) 서비스 엔드포인트 및 규칙이 Virtual Network의
 ## <a name="next-steps"></a>다음 단계
 - [Azure Database for MariaDB에서 SSL을 구성하는 방법](howto-configure-ssl.md)에 대해 자세히 알아보기
 - 마찬가지로 [Azure CLI를 사용하여 Azure Database for MariaDB에 대한 VNET 규칙을 만들고 VNet 서비스 엔드포인트를 사용](howto-manage-vnet-cli.md)하도록 스크립팅할 수 있습니다.
+
+<!-- Link references, to text, Within this same GitHub repo. --> 
+[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md

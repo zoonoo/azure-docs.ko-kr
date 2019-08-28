@@ -7,15 +7,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 6f4c354c89fa00d5fc65c635f5f6315761be2f01
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca3821b6088e45730334d1b0971e270b1d86dfce
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66384153"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881914"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Bing Image Search API에 대한 언어 및 지역 지원
 
@@ -49,10 +49,10 @@ Bing Image Search API는 수십 개의 국가/지역을 지원하며, 이 중에
 |독일|DE|
 |홍콩 특별 행정구|HK|
 |인도|IN|
-|인도네시아|id|
+|인도네시아|ID|
 |이탈리아|IT|
 |일본|JP|
-|한국|KR|
+|대한민국|KR|
 |말레이시아|MY|
 |멕시코|MX|
 |네덜란드|NL|
@@ -96,7 +96,7 @@ Bing Image Search API는 수십 개의 국가/지역을 지원하며, 이 중에
 |인도네시아|영어|en-ID|
 |이탈리아|이탈리아어|it-IT|
 |일본|일본어|ja-JP|
-|한국|한국어|en-US|
+|대한민국|한국어|ko-KR|
 |말레이시아|영어|en-MY|
 |멕시코|스페인어|es-MX|
 |네덜란드|네덜란드어|nl-NL|
@@ -115,7 +115,7 @@ Bing Image Search API는 수십 개의 국가/지역을 지원하며, 이 중에
 |대만|중국어(번체)|zh-TW|
 |터키|터키어|tr-TR|
 |영국|영어|en-GB|
-|미국|영어|en-US|
+|미국|영어|ko-KR|
 |미국|스페인어|es (미국)|
 
 ## <a name="next-steps"></a>다음 단계

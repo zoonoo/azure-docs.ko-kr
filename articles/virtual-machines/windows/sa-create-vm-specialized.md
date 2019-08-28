@@ -4,7 +4,7 @@ description: Resource Manager 배포 모델에서 특수한 비관리 디스크�
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: f2110a749c41f59b11a6d400faa2e42e751305fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8833ddf487c36446b5e5b4ce1d6cfc6363d3ceeb
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64693823"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710383"
 ---
-# <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>저장소 계정의 특수한 VHD에서 VM 만들기
+# <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>스토리지 계정의 특수한 VHD에서 VM 만들기
 
 Powershell을 사용하여 특수한 비관리 디스크를 OS 디스크로 연결하여 새 VM을 만듭니다. 특수한 디스크는 기존 VM의 VHD 복사본으로 사용자 계정, 애플리케이션 및 원본 VM의 기타 상태 데이터를 유지합니다. 
 
-다음 두 가지 옵션을 사용할 수 있습니다.
+두 가지가 있습니다.
 * [VHD 업로드](sa-create-vm-specialized.md#option-1-upload-a-specialized-vhd)
 * [기존 Azure VM의 VHD 복사](sa-create-vm-specialized.md#option-2-copy-the-vhd-from-an-existing-azure-vm)
 
@@ -46,10 +46,10 @@ Hyper-V와 같은 온-프레미스 가상화 도구를 사용하여 만든 특�
   * VM이 DHCP를 통해 해당 IP 주소 및 DNS 설정을 가져오도록 구성되었는지 확인합니다. 이렇게 하면 서버를 시작할 때 VNet 내의 IP 주소를 가져옵니다. 
 
 
-### <a name="get-the-storage-account"></a>저장소 계정 가져오기
-업로드한 VM 이미지를 저장할 Azure 저장소 계정이 필요합니다. 기존 저장소 계정을 사용하거나 새 계정을 만들 수 있습니다. 
+### <a name="get-the-storage-account"></a>스토리지 계정 가져오기
+업로드한 VM 이미지를 저장할 Azure 스토리지 계정이 필요합니다. 기존 스토리지 계정을 사용하거나 새 계정을 만들 수 있습니다. 
 
-사용 가능한 저장소 계정을 표시하려면 다음을 입력합니다.
+사용 가능한 스토리지 계정을 표시하려면 다음을 입력합니다.
 
 ```powershell
 Get-AzStorageAccount
@@ -57,9 +57,9 @@ Get-AzStorageAccount
 
 기존 스토리지 계정을 사용하려면 VM 이미지 업로드 섹션으로 이동합니다.
 
-저장소 계정을 만들어야 하는 경우 다음 단계를 따릅니다.
+스토리지 계정을 만들어야 하는 경우 다음 단계를 따릅니다.
 
-1. 저장소 계정을 만들어야 하는 리소스 그룹의 이름을 알아야 합니다. 구독의 모든 리소스 그룹을 찾으려면 다음을 입력합니다.
+1. 스토리지 계정을 만들어야 하는 리소스 그룹의 이름을 알아야 합니다. 구독의 모든 리소스 그룹을 찾으려면 다음을 입력합니다.
    
     ```powershell
     Get-AzResourceGroup
@@ -78,7 +78,7 @@ Get-AzStorageAccount
         -SkuName "Standard_LRS" -Kind "Storage"
     ```
    
-### <a name="upload-the-vhd-to-your-storage-account"></a>저장소 계정에 VHD 업로드
+### <a name="upload-the-vhd-to-your-storage-account"></a>스토리지 계정에 VHD 업로드
 [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) cmdlet을 사용하여 스토리지 계정의 컨테이너에 이미지를 업로드합니다. 이 예제에서는 `"C:\Users\Public\Documents\Virtual hard disks\"`에서 **myResourceGroup** 리소스 그룹의 **mystorageaccount**라는 스토리지 계정에 파일 **myVHD.vhd**를 업로드합니다. 파일은 **mycontainer**라는 컨테이너에 배치되고 새 파일 이름은 **myUploadedVHD.vhd**가 됩니다.
 
 ```powershell
@@ -108,12 +108,12 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontain
 
 ## <a name="option-2-copy-the-vhd-from-an-existing-azure-vm"></a>옵션 2: 기존 Azure VM에서 VHD 복사
 
-중복된 새 VM을 만들 때 사용할 다른 저장소 계정에 VHD를 복사할 수 있습니다.
+중복된 새 VM을 만들 때 사용할 다른 스토리지 계정에 VHD를 복사할 수 있습니다.
 
-### <a name="before-you-begin"></a>시작하기 전에
+### <a name="before-you-begin"></a>시작하기 전 주의 사항
 다음 사항을 확인합니다.
 
-* **원본 및 대상 저장소 계정**에 대한 정보가 있습니다. 원본 VM의 경우 저장소 계정 및 컨테이너 이름이 필요합니다. 일반적으로 컨테이너 이름은 **vhds**가 됩니다. 또한 대상 저장소 계정도 있어야 합니다. 아직 없는 경우 포털(**모든 서비스** > 스토리지 계정 > 추가) 또는 [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet을 사용하여 만들 수 있습니다. 
+* **원본 및 대상 스토리지 계정**에 대한 정보가 있습니다. 원본 VM의 경우 스토리지 계정 및 컨테이너 이름이 필요합니다. 일반적으로 컨테이너 이름은 **vhds**가 됩니다. 또한 대상 스토리지 계정도 있어야 합니다. 아직 없는 경우 포털(**모든 서비스** > 스토리지 계정 > 추가) 또는 [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet을 사용하여 만들 수 있습니다. 
 * [AzCopy 도구](../../storage/common/storage-use-azcopy.md)를 다운로드 및 설치했습니다. 
 
 ### <a name="deallocate-the-vm"></a>VM 할당을 취소합니다.
@@ -128,8 +128,8 @@ Stop-AzVM -ResourceGroupName myResourceGroup -Name myVM
 
 Azure Portal의 VM에 대한 **상태**가 **중지됨**에서 **중지됨(할당 취소됨)** 으로 변경됩니다.
 
-### <a name="get-the-storage-account-urls"></a>저장소 계정 URL 가져오기
-원본 및 대상 저장소 계정의 URL이 필요합니다. URL은 `https://<storageaccount>.blob.core.windows.net/<containerName>/` 형태입니다. 저장소 계정 및 컨테이너 이름을 이미 알고 있는 경우 괄호 사이의 정보를 바꿔서 URL을 만듭니다. 
+### <a name="get-the-storage-account-urls"></a>스토리지 계정 URL 가져오기
+원본 및 대상 스토리지 계정의 URL이 필요합니다. URL은 `https://<storageaccount>.blob.core.windows.net/<containerName>/` 형태입니다. 스토리지 계정 및 컨테이너 이름을 이미 알고 있는 경우 괄호 사이의 정보를 바꿔서 URL을 만듭니다. 
 
 Azure 포털 또는 Azure PowerShell을 사용하여 URL을 가져옵니다.
 
@@ -140,8 +140,8 @@ Azure 포털 또는 Azure PowerShell을 사용하여 URL을 가져옵니다.
 Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ``` 
 
-## <a name="get-the-storage-access-keys"></a>저장소 액세스 키 가져오기
-원본 및 대상 저장소 계정에 대한 액세스 키를 찾습니다. 액세스 키에 대한 자세한 내용은 [Azure 저장소 계정 방법](../../storage/common/storage-create-storage-account.md)을 참조하세요.
+## <a name="get-the-storage-access-keys"></a>스토리지 액세스 키 가져오기
+원본 및 대상 스토리지 계정에 대한 액세스 키를 찾습니다. 액세스 키에 대한 자세한 내용은 [Azure Storage 계정 방법](../../storage/common/storage-create-storage-account.md)을 참조하세요.
 
 * **포털**: **모든 서비스** > **스토리지 계정** > *스토리지 계정* > **액세스 키**를 클릭합니다. **key1**로 레이블이 지정된 키를 복사합니다.
 * **Powershell**: [Get-AzStorageAccountKey](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey)를 사용하여 **myResourceGroup** 리소스 그룹에서 **mystorageaccount** 스토리지 계정에 대한 스토리지 키를 가져옵니다. **key1**로 레이블이 지정된 키를 복사합니다.
@@ -151,11 +151,11 @@ Get-AzStorageAccountKey -Name mystorageaccount -ResourceGroupName myResourceGrou
 ```
 
 ### <a name="copy-the-vhd"></a>VHD 복사
-AzCopy를 사용하여 저장소 계정 간에 파일을 복사할 수 있습니다. 대상 컨테이너에 대해 지정된 컨테이너가 존재하지 않는 경우 컨테이너가 만들어집니다. 
+AzCopy를 사용하여 스토리지 계정 간에 파일을 복사할 수 있습니다. 대상 컨테이너에 대해 지정된 컨테이너가 존재하지 않는 경우 컨테이너가 만들어집니다. 
 
 AzCopy를 사용하려면 로컬 컴퓨터에서 명령 프롬프트를 열고 AzCopy가 설치된 폴더로 이동합니다. 이 폴더는 *C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy*와 유사합니다. 
 
-컨테이너 내의 모든 파일을 복사하려면 **/S** 스위치를 사용합니다. 동일한 컨테이너에 있는 경우 OS VHD 및 모든 데이터 디스크를 복사하는 데 사용할 수 있습니다. 이 예에서는 **mysourcestorageaccount** 스토리지 계정의 **mysourcecontainer** 컨테이너에 있는 모든 파일을 **mydestinationstorageaccount** 스토리지 계정의 **mydestinationcontainer** 컨테이너로 복사하는 방법을 보여 줍니다. 저장소 계정 및 컨테이너의 이름을 사용자 고유 값으로 바꿉니다. `<sourceStorageAccountKey1>` 및 `<destinationStorageAccountKey1>`을 사용자 고유 키로 바꿉니다.
+컨테이너 내의 모든 파일을 복사하려면 **/S** 스위치를 사용합니다. 동일한 컨테이너에 있는 경우 OS VHD 및 모든 데이터 디스크를 복사하는 데 사용할 수 있습니다. 이 예에서는 **mysourcestorageaccount** 스토리지 계정의 **mysourcecontainer** 컨테이너에 있는 모든 파일을 **mydestinationstorageaccount** 스토리지 계정의 **mydestinationcontainer** 컨테이너로 복사하는 방법을 보여 줍니다. 스토리지 계정 및 컨테이너의 이름을 사용자 고유 값으로 바꿉니다. `<sourceStorageAccountKey1>` 및 `<destinationStorageAccountKey1>`을 사용자 고유 키로 바꿉니다.
 
 ```
 AzCopy /Source:https://mysourcestorageaccount.blob.core.windows.net/mysourcecontainer `
@@ -187,7 +187,7 @@ Elapsed time:            00.00:13:07
 ```
 
 ### <a name="troubleshooting"></a>문제 해결
-* AZCopy를 사용하는 경우 “서버가 요청을 인증하지 못했습니다.”라는 오류 메시지가 표시되면 권한 부여 헤더의 값이 서명을 포함하여 올바른 형식으로 지정되었는지 확인합니다. 키 2 또는 보조 저장소 키를 사용 중인 경우 주 또는 첫 번째 저장소 키를 사용해 보세요.
+* AZCopy를 사용하는 경우 “서버가 요청을 인증하지 못했습니다.”라는 오류 메시지가 표시되면 권한 부여 헤더의 값이 서명을 포함하여 올바른 형식으로 지정되었는지 확인합니다. 키 2 또는 보조 스토리지 키를 사용 중인 경우 주 또는 첫 번째 스토리지 키를 사용해 보세요.
 
 ## <a name="create-the-new-vm"></a>새 VM 만들기 
 
@@ -285,7 +285,7 @@ $dataDiskName = $vmName + "dataDisk"
 $vm = Add-AzVMDataDisk -VM $vm -Name $dataDiskName -VhdUri $dataDiskUri -Lun 1 -CreateOption attach
 ```
 
-저장소 계정을 사용하는 경우 데이터 및 운영 체제 디스크 URL은 `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd` 형식입니다. 포털에서 대상 저장소 컨테이너로 이동하고 운영 체제 또는 복사된 데이터 VHD를 클릭한 다음 URL의 내용을 복사하여 이 내용을 찾을 수 있습니다.
+스토리지 계정을 사용하는 경우 데이터 및 운영 체제 디스크 URL은 `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd` 형식입니다. 포털에서 대상 스토리지 컨테이너로 이동하고 운영 체제 또는 복사된 데이터 VHD를 클릭한 다음 URL의 내용을 복사하여 이 내용을 찾을 수 있습니다.
 
 
 ### <a name="complete-the-vm"></a>VM 완료 

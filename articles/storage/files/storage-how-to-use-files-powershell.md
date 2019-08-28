@@ -1,19 +1,18 @@
 ---
 title: Azure PowerShell을 사용하여 Azure 파일 공유를 관리하기 위한 빠른 시작
 description: 이 빠른 시작을 사용하여 Azure PowerShell을 사용하여 Azure 파일 공유를 관리하는 방법을 알아봅니다.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e32aead791fb84415da1b00f1e979a6ac0f28155
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 802ad497f95a43665665d7e7dbd06c9081eba74a
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729032"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699511"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure 파일 공유 만들기 및 관리 
 이 가이드에서는 PowerShell을 사용하여 [Azure 파일 공유](storage-files-introduction.md)로 작업하는 기본 사항을 설명합니다. Azure 파일 공유는 다른 파일 공유와 유사하지만, 클라우드에 저장되고 Azure Platform에서 지원합니다. Azure 파일 공유는 산업 표준 SMB 프로토콜을 지원하며 여러 머신, 애플리케이션 및 인스턴스 전반에서 파일 공유를 활성화합니다. 
@@ -37,10 +36,10 @@ New-AzResourceGroup `
     -Location EastUS
 ```
 
-## <a name="create-a-storage-account"></a>저장소 계정 만들기
-저장소 계정은 Azure 파일 공유 또는 Blob나 큐와 같은 다른 저장소 리소스를 배포하는 데 사용할 수 있는 저장소의 공유 풀입니다. 저장소 계정에 포함할 수 있는 공유 수에는 제한이 없으며, 공유에 저장할 수 있는 파일 수에는 저장소 계정의 최대 용량 한도까지 제한이 없습니다.
+## <a name="create-a-storage-account"></a>스토리지 계정 만들기
+스토리지 계정은 Azure 파일 공유 또는 Blob나 큐와 같은 다른 스토리지 리소스를 배포하는 데 사용할 수 있는 스토리지의 공유 풀입니다. 스토리지 계정에 포함할 수 있는 공유 수에는 제한이 없으며, 공유에 저장할 수 있는 파일 수에는 스토리지 계정의 최대 용량 한도까지 제한이 없습니다.
 
-이 예제에서는 [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) cmdlet을 사용하여 스토리지 계정을 만듭니다. 스토리지 계정의 이름은 *mystorageaccount\<임의 번호>* 이며, 해당 스토리지 계정에 대한 참조는 **$storageAcct** 변수에 저장됩니다. 저장소 계정 이름은 고유해야 합니다. 따라서 `Get-Random`를 사용하여 고유하게 만들 이름에 숫자를 추가합니다. 
+이 예제에서는 [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) cmdlet을 사용하여 스토리지 계정을 만듭니다. 스토리지 계정의 이름은 *mystorageaccount\<임의 번호>* 이며, 해당 스토리지 계정에 대한 참조는 **$storageAcct** 변수에 저장됩니다. 스토리지 계정 이름은 고유해야 합니다. 따라서 `Get-Random`를 사용하여 고유하게 만들 이름에 숫자를 추가합니다. 
 
 ```azurepowershell-interactive 
 $storageAcct = New-AzStorageAccount `

@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 공용 기본 부하 분산 장치를 만드는 방법을 보여줍니다.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: db781899a3fe0d13d030943ed3ab4ebd3d105ad1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9819111c8264493648233f40252db4fb4410aaf1
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64727585"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274092"
 ---
 # <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 기본 Load Balancer 만들기
 
@@ -42,12 +42,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | 구독               | 구독을 선택합니다.    |    
     | 리소스 그룹         | **새로 만들기**를 선택하고 텍스트 상자에 *MyResourceGroupLB*를 입력합니다.|
     | 이름                   | *myLoadBalancer*                                   |
-    | 지역         | **유럽 서부**를 선택합니다.                                        |
-    | Type          | **공용**을 선택합니다.                                        |
+    | Region         | **유럽 서부**를 선택합니다.                                        |
+    | 형식          | **공용**을 선택합니다.                                        |
     | SKU           | **기본**을 선택합니다.                          |
     | 공용 IP 주소 | **새로 만들기**를 선택합니다. |
     | 공용 IP 주소 이름              | *MyPublicIP*   |
-    | 할당| 공용|
+    | 할당| 정적|
 
 3. **리뷰 + 만들기** 탭에서 **만들기**를 클릭합니다.   
 
@@ -153,7 +153,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    1. 백 엔드 풀에 만든 각각의 가상 머신(**MyVM1** 및 **MyVM2**)을 추가합니다.
    2. 각각의 머신이 추가되면 드롭다운하고 **네트워크 IP 구성**을 선택합니다. 
    
-1. **확인**을 선택합니다.
+1.           **확인**을 선택합니다.
    
    ![백 엔드 주소 풀 추가](./media/load-balancer-get-started-internet-portal/3-load-balancer-backend-02.png)
    
@@ -205,7 +205,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    - **백 엔드 풀**: **MyBackendPool**을 선택합니다.
    - **상태 프로브**: **MyHealthProbe**를 선택합니다. 
    
-1. **확인**을 선택합니다.
+1.           **확인**을 선택합니다.
    
    ![부하 분산 장치 규칙 추가](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
 

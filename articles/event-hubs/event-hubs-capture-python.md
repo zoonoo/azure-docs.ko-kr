@@ -45,12 +45,12 @@ ms.locfileid: "60822405"
 
 ## <a name="create-an-azure-blob-storage-account"></a>Azure Blob Storage 계정 만들기
 1. [Azure Portal][Azure portal]에 로그인합니다.
-2. Azure Portal에서 **새로 만들기** > **저장소** > **저장소 계정**을 선택합니다.
-3. **저장소 계정 만들기** 창에서 선택 항목을 완료한 다음, **만들기**를 선택합니다.
+2. Azure Portal에서 **새로 만들기** > **스토리지** > **스토리지 계정**을 선택합니다.
+3. **스토리지 계정 만들기** 창에서 선택 항목을 완료한 다음, **만들기**를 선택합니다.
    
    !["저장소 계정 만들기" 창][1]
-4. **배포 성공** 메시지가 나타나면 새 저장소 계정의 이름을 선택한 다음, **Essentials** 블레이드에서 **Blob**을 선택합니다. **Blob service** 창이 열리면 맨 위의 **+ 컨테이너**를 선택합니다. 컨테이너 이름을 **capture**로 지정한 다음, **Blob service** 창을 닫습니다.
-5. 왼쪽 창에서 **액세스 키**를 선택하고 저장소 계정 이름과 **key1** 값을 복사합니다. 메모장이나 기타 다른 위치에 임시로 이 값을 저장합니다.
+4. **배포 성공** 메시지가 나타나면 새 스토리지 계정의 이름을 선택한 다음, **Essentials** 블레이드에서 **Blob**을 선택합니다. **Blob service** 창이 열리면 맨 위의 **+ 컨테이너**를 선택합니다. 컨테이너 이름을 **capture**로 지정한 다음, **Blob service** 창을 닫습니다.
+5. 왼쪽 창에서 **액세스 키**를 선택하고 스토리지 계정 이름과 **key1** 값을 복사합니다. 메모장이나 기타 다른 위치에 임시로 이 값을 저장합니다.
 
 ## <a name="create-a-python-script-to-send-events-to-your-event-hub"></a>이벤트 허브로 이벤트를 보내는 Python 스크립트 만들기
 1. 선호하는 Python 편집기(예: [Visual Studio Code][Visual Studio Code])를 엽니다.
@@ -127,7 +127,7 @@ ms.locfileid: "60822405"
            block_blob_service.delete_blob(container, blob.name)
    startProcessing('YOUR STORAGE ACCOUNT NAME', 'YOUR KEY', 'capture')
    ```
-4. 호출의 저장소 계정 이름 및 키의 적절한 값을 `startProcessing`에 붙여넣습니다.
+4. 호출의 스토리지 계정 이름 및 키의 적절한 값을 `startProcessing`에 붙여넣습니다.
 
 ## <a name="run-the-scripts"></a>스크립트 실행
 1. 해당 경로에 Python을 포함하는 명령 프롬프트를 열고 다음 명령을 실행하여 Python 필수 구성 요소 패키지를 설치합니다.
@@ -158,7 +158,7 @@ ms.locfileid: "60822405"
    python capturereader.py
    ```
 
-   이 캡처 프로세서는 로컬 디렉터리를 사용하여 저장소 계정/컨테이너에서 모든 Blob을 다운로드합니다. 비어 있지 않은 모든 Blob을 처리하고 로컬 디렉터리에 .csv 파일로 결과를 작성합니다.
+   이 캡처 프로세서는 로컬 디렉터리를 사용하여 스토리지 계정/컨테이너에서 모든 Blob을 다운로드합니다. 비어 있지 않은 모든 Blob을 처리하고 로컬 디렉터리에 .csv 파일로 결과를 작성합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

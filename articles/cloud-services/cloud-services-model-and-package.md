@@ -2,24 +2,17 @@
 title: 클라우드 서비스 모델 및 패키지 정의 | Microsoft Docs
 description: Azure의 클라우드 서비스 모델(.csdef,.cscfg) 및 패키지(.cspkg)에 대해 설명합니다.
 services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 4ce2feb5-0437-496c-98da-1fb6dcb7f59e
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 6c8833dc0db80dde96dda92c426c7840c44c1f1b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: gwallace
+ms.openlocfilehash: 47d031e339b3677e0bf6ddcbad9456041c53c6e2
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080753"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359546"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>클라우드 서비스 모델 정의 및 패키지 방법
 클라우드 서비스는 서비스 정의 *(.csdef)* , 서비스 구성 *(.cscfg)* , 서비스 패키지 *(.cspkg)* 의 세 구성 요소에서 생성됩니다. **ServiceDefinition.csdef** 및 **ServiceConfig.cscfg** 파일은 둘 다 XML 기반으로, 클라우드 서비스의 구조 및 구성 방법(합쳐서 모델이라고 함)을 설명합니다. **ServicePackage.cspkg**는 **ServiceDefinition.csdef** 및 다른 구성 요소에서 생성되는 zip 파일로, 필수 이진 기반 종속성을 모두 포함합니다. Azure는 **ServicePackage.cspkg**와 **ServiceConfig.cscfg**에서 모두 클라우드 서비스를 만듭니다.
@@ -32,9 +25,9 @@ Azure에서 클라우드 서비스가 실행 중이면 **ServiceConfig.cscfg** �
 * [ServicePackage.cspkg](#cspkg)를 만들려고 합니다.
 * Visual Studio를 사용하여 다음 작업을 수행하려고 합니다.
   * [클라우드 서비스 만들기][vs_create]
-  * [기존 클라우드 서비스 재구성][vs_reconfigure]
+  * [기존 클라우드 서비스 다시 구성][vs_reconfigure]
   * [클라우드 서비스 프로젝트 배포][vs_deploy]
-  * [원격 데스크톱에서 클라우드 서비스 인스턴스에 연결][remotedesktop]
+  * [클라우드 서비스 인스턴스에 원격 데스크톱][remotedesktop]
 
 <a name="csdef"></a>
 
@@ -108,7 +101,7 @@ IIS7에서 호스트되는 웹 사이트 또는 웹 애플리케이션에 대한
 역할에 필요한 인증서에 대한 정의를 포함합니다. 앞의 코드 예제에서는 Azure Connect 구성에 사용되는 인증서를 보여 줍니다.
 
 **LocalResources**  
-로컬 저장소 리소스에 대한 정의를 포함합니다. 로컬 저장소 리소스는 역할의 인스턴스가 실행 중인 가상 머신의 파일 시스템에 예약된 디렉터리입니다.
+로컬 스토리지 리소스에 대한 정의를 포함합니다. 로컬 스토리지 리소스는 역할의 인스턴스가 실행 중인 가상 머신의 파일 시스템에 예약된 디렉터리입니다.
 
 **Imports**  
 가져온 모듈에 대한 정의를 포함합니다. 앞의 코드 예제에서는 원격 데스크톱 연결 및 Azure Connect에 대한 모듈을 보여 줍니다.
@@ -280,15 +273,15 @@ cspack [DirectoryName]\[ServiceDefinition]
 ## <a name="next-steps"></a>다음 단계
 클라우드 서비스 패키지를 만들고 있으며 다음 작업을 수행하려고 합니다.
 
-* [클라우드 서비스 인스턴스에 대해 원격 데스크톱 설정][remotedesktop]
+* [클라우드 서비스 인스턴스에 대 한 원격 데스크톱 설정][remotedesktop]
 * [클라우드 서비스 프로젝트 배포][deploy]
 
 Visual Studio를 사용하여 다음 작업을 수행하려고 합니다.
 
 * [새 클라우드 서비스 만들기][vs_create]
-* [기존 클라우드 서비스 재구성][vs_reconfigure]
+* [기존 클라우드 서비스 다시 구성][vs_reconfigure]
 * [클라우드 서비스 프로젝트 배포][vs_deploy]
-* [클라우드 서비스 인스턴스에 대해 원격 데스크톱 설정][vs_remote]
+* [클라우드 서비스 인스턴스에 대 한 원격 데스크톱 설정][vs_remote]
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop-new-portal.md

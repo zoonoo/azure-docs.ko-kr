@@ -1,7 +1,7 @@
 ---
 title: Azureml 데이터 집합을 사용 하 여 데이터에 액세스 하는 데이터 집합 만들기
 titleSuffix: Azure Machine Learning service
-description: 다양 한 원본에서 데이터 집합 만들기 및 작업 영역을 사용 하 여 데이터 집합을 등록 하는 방법을 알아봅니다
+description: 다양 한 원본에서 데이터 집합을 만들고 작업 영역에 데이터 집합을 등록 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,83 +10,56 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 05/21/2019
-ms.openlocfilehash: a879fa17244977277dab3e2e66c5888a44759764
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 08/22/2019
+ms.openlocfilehash: 497a00570d85ab83f71416e979e485db4685b64a
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444040"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992108"
 ---
-# <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>만들기 및 Azure Machine Learning에서 데이터 집합 (미리 보기)에 액세스
+# <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 집합 만들기 및 액세스 (미리 보기)
 
-이 문서에서는 Azure Machine Learning 데이터 집합 (미리 보기)를 만드는 방법 및 로컬 및 원격 실험에서 데이터에 액세스 하는 방법을 알아봅니다.
+이 문서에서는 Azure Machine Learning 데이터 집합을 만드는 방법 (미리 보기)과 로컬 또는 원격 실험에서 데이터에 액세스 하는 방법에 대해 알아봅니다.
 
-관리 되는 데이터 집합을 사용 하 여 다음을 수행할 수 있습니다. 
-* **모델을 학습 하는 동안 데이터에 쉽게 액세스할** 기본 저장소에 다시 연결 하지 않고
+Azure Machine Learning 데이터 집합을 사용 하 여 다음을 수행할 수 있습니다. 
 
-* **데이터 일관성 및 재현성 확인** 실험에서 동일한 포인터를 사용 하 여: 노트북, 자동화 된 기계 학습, 파이프라인, 시각적 인터페이스
+* 데이터 집합에서 참조 하 **는 저장소에 데이터의 단일 복사본을 유지** 합니다. 
 
-* **데이터를 공유 및 공동 작업** 다른 사용자와
+* 연결 문자열 또는 데이터 경로에 대해 걱정 하지 않고 **모델 학습 중에 데이터에 쉽게 액세스** 합니다.
 
-* **데이터 탐색** & 데이터 스냅숏 및 버전의 수명 주기 관리
+* 다른 사용자와 **공동으로 데이터 & 공유** 합니다.
 
-* **데이터 비교** 프로덕션 교육에
+## <a name="prerequisites"></a>필수 구성 요소
 
-
-## <a name="prerequisites"></a>필수 조건
-
-를 만들고 데이터 집합을 사용 하려면 다음을 수행 해야 합니다.
+데이터 집합을 만들고 작업 하려면 다음이 필요 합니다.
 
 * Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
 
-* [Azure Machine learning 서비스](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace)
+* [Azure Machine Learning 서비스 작업 영역](how-to-manage-workspace.md)
 
-* 합니다 [설치 된 Python에 대 한 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), azureml 데이터 집합 패키지를 포함 하는 합니다.
+* Azureml 데이터 집합 패키지가 포함 된 [Python 용 AZURE MACHINE LEARNING SDK가 설치 되어](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)있습니다.
 
 > [!Note]
-> 일부 데이터 집합 클래스 (미리 보기)에 종속 되어는 [azureml dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) 패키지 (GA). Linux 사용자에 대 한 이러한 클래스는 다음 배포판에 대해서만 지원 됩니다.  Red Hat Enterprise Linux, Ubuntu, Fedora 및 CentOS
+> 일부 데이터 집합 클래스 (미리 보기)에는 [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) 패키지에 대 한 종속성이 있습니다. Linux 사용자의 경우 이러한 클래스는 다음 배포판 에서만 지원 됩니다.  Red Hat Enterprise Linux, Ubuntu, Fedora 및 CentOS입니다.
 
-## <a name="data-formats"></a>데이터 형식
+## <a name="dataset-types"></a>데이터 집합 형식
 
-다음 데이터에서 Azure Machine Learning 데이터 집합을 만들 수 있습니다.
-+ [delimited](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset#from-delimited-files-path--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---encoding--fileencoding-utf8--0---quoting-false--infer-column-types-true--skip-rows-0--skip-mode--skiplinesbehavior-no-rows--0---comment-none--include-path-false--archive-options-none-)
-+ [binary](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-binary-files-path-)
-+ [json](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-json-files-path--encoding--fileencoding-utf8--0---flatten-nested-arrays-false--include-path-false-)
-+ [Excel](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-excel-files-path--sheet-name-none--use-column-headers-false--skip-rows-0--include-path-false--infer-column-types-true-)
-+ [Parquet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-parquet-files-path--include-path-false-)
-+ [Azure SQL Database](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-sql-query-data-source--query-)
-+ [Azure Data Lake 일반 1](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-sql-query-data-source--query-)
+데이터 집합은 사용자가 학습에서 사용 하는 방법에 따라 다양 한 형식으로 분류 됩니다. 현재는 제공 된 파일 또는 파일 목록을 구문 분석 하 여 테이블 형식으로 데이터를 나타내는 [TabularDatasets](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) 을 지원 합니다. 이를 통해 pandas 데이터 프레임로 데이터를 구체화할 수 있습니다. Csv, tsv, parquet 파일, SQL 쿼리 결과 등에서 개체를만들수있습니다.`TabularDataset` 전체 목록은 설명서를 참조 하세요.
+
+예정 된 API 변경에 대 한 자세한 내용은 [Azure Machine Learning service 란?](https://aka.ms/tabular-dataset) 을 참조 하세요. 
 
 ## <a name="create-datasets"></a>데이터 세트 만들기 
 
-데이터 집합에서 azureml 데이터 집합 패키지와 상호 작용할 수 있습니다 합니다 [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 및 특히 [는 `Dataset` 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py)합니다.
+데이터 집합을 만들면 데이터 원본 위치에 대 한 참조와 해당 메타 데이터의 복사본을 만듭니다. 데이터는 기존 위치에 그대로 남아 있으므로 추가 저장소 비용이 발생 하지 않습니다.
 
-### <a name="create-from-local-files"></a>로컬 파일에서 만들기
+Azure Machine Learning 서비스에서 데이터에 액세스할 수 있도록 하려면 [Azure 데이터 저장소](how-to-access-data.md) 또는 공용 웹 url의 경로에서 데이터 집합을 만들어야 합니다.
 
-사용 하 여 파일 또는 폴더 경로 지정 하 여 로컬 컴퓨터에서 파일을 로드 합니다 [ `auto_read_files()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#auto-read-files-path--include-path-false-) 메서드에서 `Dataset` 클래스입니다.  이 메서드는 파일 형식을 지정 하도록 요구 하거나 인수 구문 분석 하지 않고 다음 단계를 수행 합니다.
+[Azure 데이터 저장소](how-to-access-data.md)에서 데이터 집합을 만들려면 다음을 수행 합니다.
 
-* 유추 및 구분 기호를 설정 합니다.
-* 파일의 맨 위에 있는 빈 레코드를 건너뜁니다.
-* 유추 하 고 머리글 행을 설정 합니다.
-* 유추 하 고 열 데이터 형식으로 변환 합니다.
+* 등록 된 Azure `contributor` 데이터 `owner` 저장소에 대 한 액세스 권한이 있는지 확인 합니다.
 
-```Python
-from azureml.core.dataset import Dataset
-
-dataset = Dataset.auto_read_files('./data/crime.csv')
-```
-
-또는 사용 하 여 파일에 관한 함수 파일의 구문 분석을 명시적으로 제어 합니다. 
-
-
-### <a name="create-from-azure-datastores"></a>Azure 데이터 저장소에서 만들기
-
-Azure 데이터 저장소에서 데이터 집합을 만들려면:
-
-* 했는지 확인 `contributor` 또는 `owner` 등록 된 Azure 데이터 저장소에 액세스 합니다.
-
-* 가져오기의 [ `Workspace` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) 하 고 [ `Datastore` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#definition) 및 `Dataset` SDK에서 패키지 합니다.
+* 데이터 저장소에서 경로를 참조 하 여 데이터 집합을 만듭니다.
 
 ```Python
 from azureml.core.workspace import Workspace
@@ -97,57 +70,93 @@ datastore_name = 'your datastore name'
 
 # get existing workspace
 workspace = Workspace.from_config()
-```
 
- `get()` 메서드는 작업 영역에서 데이터를 기존 저장소를 검색 합니다.
-
+# retrieve an existing datastore in the workspace by name
+datastore = Datastore.get(workspace, datastore_name)
 ```
-dstore = Datastore.get(workspace, datastore_name)
-```
+### <a name="create-tabulardatasets"></a>TabularDatasets 만들기
 
-사용 된 `from_delimited_files()` 메서드를 구분 기호로 분리 된 파일에서 읽기 및 등록 되지 않은 데이터 집합을 만듭니다.
+클래스의 `from_delimited_files()` `TabularDatasetFactory` 메서드를 사용 하 여 csv 또는 tsv 형식의 파일을 읽고 등록 되지 않은 TabularDataset를 만듭니다. 여러 파일에서 읽는 경우 결과는 하나의 테이블 형식 표현으로 집계 됩니다.
 
 ```Python
-# create an in-memory Dataset on your local machine
-datapath = dstore.path('data/src/crime.csv')
-dataset = Dataset.from_delimited_files(datapath)
+# create a TabularDataset from multiple paths in datastore
+datastore_paths = [
+                  (datastore, 'weather/2018/11.csv'),
+                  (datastore, 'weather/2018/12.csv'),
+                  (datastore, 'weather/2019/*.csv')
+                 ]
+weather_ds = Dataset.Tabular.from_delimited_files(path=datastore_paths)
 
-# returns the first 5 rows of the Dataset as a pandas Dataframe.
-dataset.head(5)
+# create a TabularDataset from a delimited file behind a public web url
+web_path ='https://dprepdata.blob.core.windows.net/demo/Titanic.csv'
+titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path)
+
+# preview the first 3 rows of titanic_ds
+titanic_ds.take(3).to_pandas_dataframe()
 ```
 
-## <a name="register-datasets"></a>등록 데이터 집합
+| |PassengerId|Survived|Pclass|이름|성|나이|SibSp|Parch|적합|택시|Cabin|Embarked
+-|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
+0|1|0|3|Braund, Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
+1|2|1|1|Cumings, Mrs Bradley (Florence Briggs Th ...|female|38.0|1|0|PC 17599|71.2833|C85|C
+2|3|1|3|Heikkinen, 누락. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
 
-만들기 프로세스를 완료 하려면 작업 영역을 사용 하 여 데이터 집합을 등록 합니다.
+## <a name="register-datasets"></a>데이터 집합 등록
 
-사용 된 [ `register()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-) 다른 사람과 공유 하 고 다양 한 실험에 재사용할 수 있도록 작업 영역에 데이터 집합을 등록 하는 방법입니다.
+만들기 프로세스를 완료 하려면 작업 영역에 데이터 집합을 등록 합니다.
+
+메서드를 `register()` 사용 하 여 다른 사용자와 공유 하 고 다양 한 실험에서 다시 사용할 수 있도록 작업 영역에 데이터 집합을 등록 합니다.
 
 ```Python
-dataset = dataset.register(workspace = workspace,
-                           name = 'dataset_crime',
-                           description = 'Training data',
-                           exist_ok = False
-                           )
+titanic_ds = titanic_ds.register(workspace = workspace,
+                                 name = 'titanic_ds',
+                                 description = 'titanic training data')
 ```
 
->[!NOTE]
-> 경우 `exist_ok = False` (기본값) 이면 오류가 발생 하는 다른, 동일한 이름의 데이터 집합을 등록 하려고 합니다. 로 `True` 기존 덮어쓸 수 있습니다.
+## <a name="version-datasets"></a>버전 데이터 집합
 
-## <a name="access-data-in-datasets"></a>데이터 집합의 데이터에 액세스
-
-등록 된 데이터 집합은 로컬, 원격 및 Azure Machine Learning compute와 같은 계산 클러스터에 액세스할 수 및 사용할 수 있는입니다. 실험에 대해 등록 된 데이터 집합을 재사용 하 고 계산 환경에 다음 코드를 사용 하 여 이름을 기준으로 작업 영역 및 등록 된 데이터 집합을 가져옵니다.
+새 버전을 만들어 동일한 이름으로 새 데이터 집합을 등록할 수 있습니다. 데이터 집합 버전은 실험 또는 향후 복제를 위해 데이터 집합의 특정 버전을 적용할 수 있도록 데이터의 상태에 책갈피를 지정 하는 방법입니다. 버전 관리를 고려 하는 일반적인 시나리오: 
+* 새 데이터를 다시 학습에 사용할 수 있는 경우.
+* 다른 데이터 준비 또는 기능 엔지니어링 방법을 적용 하는 경우
 
 ```Python
-workspace = Workspace.from_config()
+# create a TabularDataset from new Titanic training data
+web_paths = [
+            'https://dprepdata.blob.core.windows.net/demo/Titanic.csv',
+            'https://dprepdata.blob.core.windows.net/demo/Titanic2.csv'
+           ]          
+titanic_ds = Dataset.Tabular.from_delimited_files(path=web_paths)
 
-# See list of datasets registered in workspace.
-Dataset.list(workspace)
+# create a new version of titanic_ds
+titanic_ds = titanic_ds.register(workspace = workspace,
+                                 name = 'titanic_ds',
+                                 description = 'new titanic training data',
+                                 create_new_version = True)
+```
 
-# Get dataset by name
-dataset = workspace.datasets['dataset_crime']
+
+## <a name="access-your-data-during-training"></a>학습 중 데이터 액세스
+
+등록 된 데이터 집합은 Azure Machine Learning 계산과 같은 계산 클러스터에서 로컬로 또는 원격으로 액세스할 수 있습니다. 실험에서 등록 된 데이터 집합에 액세스 하려면 다음 코드를 사용 하 여 작업 영역과 등록 된 데이터 집합을 이름별로 가져옵니다. 기본적 [`get_by_name()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) 으로 `Dataset` 클래스의 메서드는 작업 영역에 등록 된 데이터 집합의 최신 버전을 반환 합니다.
+
+```Python
+%%writefile $script_folder/train.py
+
+from azureml.core import Dataset, Run
+
+run = Run.get_context()
+workspace = run.experiment.workspace
+
+dataset_name = 'titanic_ds'
+
+# Get a dataset by name
+titanic_ds = Dataset.get_by_name(workspace=workspace, name=dataset_name)
+
+# Load a TabularDataset into pandas DataFrame
+df = titanic_ds.to_pandas_dataframe()
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
-* [탐색 하 고 데이터 집합 준비](how-to-explore-prepare-data.md)합니다.
-* 데이터 집합을 사용 하 여 예제를 참조 하세요. 합니다 [샘플 notebook](https://aka.ms/dataset-tutorial)합니다.
+* 자동화 된 machine learning을 사용 하 여 [TabularDatasets으로 학습](https://aka.ms/automl-dataset)합니다.
+* 데이터 집합에 대 한 학습의 추가 예제는 [샘플 노트북](https://aka.ms/dataset-tutorial)을 참조 하세요.

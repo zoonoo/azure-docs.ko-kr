@@ -1,43 +1,43 @@
 ---
-title: Azure 웹 응용 프로그램 방화벽 (WAF) v2 사용자 지정 규칙
-description: 이 문서에서는 Azure Application Gateway에서 웹 응용 프로그램 방화벽 (WAF) v2 사용자 지정 규칙의 개요를 제공합니다.
+title: Azure WAF (웹 응용 프로그램 방화벽) v2 사용자 지정 규칙
+description: 이 문서에서는 Azure 애플리케이션 Gateway의 WAF (웹 응용 프로그램 방화벽) v2 사용자 지정 규칙에 대 한 개요를 제공 합니다.
 services: application-gateway
 ms.topic: article
 author: vhorne
 ms.service: application-gateway
 ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: f6ea831771a8ffecfdd4c7c0d6374c16894e25ed
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 9c04f805cf410d2306eda76c84a201a67b022b84
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164655"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716617"
 ---
-# <a name="custom-rules-for-web-application-firewall-v2"></a>웹 응용 프로그램 방화벽 v2에 대 한 사용자 지정 규칙
+# <a name="custom-rules-for-web-application-firewall-v2"></a>웹 응용 프로그램 방화벽 v2의 사용자 지정 규칙
 
-Azure Application Gateway 웹 응용 프로그램 방화벽 (WAF) v2는 다양 한 유형의 공격 으로부터 보호를 제공 하는 미리 구성 된, 플랫폼에서 관리 하는 규칙 집합을 사용 하 여 제공 됩니다. 이러한 공격 교차 사이트 스크립팅, SQL 주입 등 포함 됩니다. WAF 관리자 인 경우에 (CR) 규칙을 설정 하는 고유한 규칙 핵심 규칙 확장을 작성 하는 것이 좋습니다. 규칙을 차단 하거나 일치 조건에 따라 요청된 트래픽을 허용 합니다.
+Azure 애플리케이션 게이트웨이 WAF (웹 응용 프로그램 방화벽) v2는 다양 한 유형의 공격 으로부터 보호 하는 미리 구성 된 플랫폼 관리 규칙 집합을 제공 합니다. 이러한 공격에는 사이트 간 스크립팅, SQL 삽입 및 기타 기능이 포함 됩니다. WAF 관리자 인 경우 CRS (핵심 규칙 집합) 규칙을 보강 하는 고유한 규칙을 작성 하는 것이 좋습니다. 규칙은 일치 조건에 따라 요청 된 트래픽을 차단 하거나 허용할 수 있습니다.
 
-사용자 지정 규칙을 사용 하 여 WAF를 통해 전달 되는 각 요청에 대해 계산 되는 사용자 고유의 규칙을 만들 수 있습니다. 이러한 규칙 관리 되는 규칙 집합에서 규칙의 나머지 부분 보다 더 높은 우선 순위를 보유합니다. 사용자 지정 규칙은 규칙 이름, 규칙 우선 순위 및 조건과 일치 하는 배열을 포함 합니다. 이러한 조건이 충족 되는 작업 (허용 또는 차단)에 수행 됩니다.
+사용자 지정 규칙을 사용 하면 WAF를 통과 하는 각 요청에 대해 평가 되는 사용자 고유의 규칙을 만들 수 있습니다. 이러한 규칙은 관리 되는 규칙 집합의 나머지 규칙 보다 높은 우선 순위를 보유 합니다. 사용자 지정 규칙에는 규칙 이름, 규칙 우선 순위 및 일치 조건의 배열이 포함 되어 있습니다. 이러한 조건이 충족 되 면 허용 또는 차단에 대 한 작업이 수행 됩니다.
 
-예를 들어, IP 주소 범위 192.168.5.4/24에서 모든 요청을 차단할 수 있습니다. 이 규칙에서는 연산자가 *IPMatch*는 matchValues IP 주소 범위 (192.168.5.4/24) 이며 차단 동작입니다. 규칙의 이름 및 우선 순위 설정할 수도 있습니다.
+예를 들어 192.168.5.4/24 범위의 IP 주소에서 모든 요청을 차단할 수 있습니다. 이 규칙에서 연산자는 *Ipmatch*이 고 MATCHVALUES는 IP 주소 범위 (192.168.5.4/24) 이며 작업은 트래픽을 차단 하는 것입니다. 또한 규칙의 이름 및 우선 순위를 설정 합니다.
 
-사용자 지정 규칙 말고 논리를 사용 하 여 고급 규칙 보안 요구에 해당 주소 수 있도록 지원 합니다. 예를 들어 (조건 1 **하 고** 조건 2) **또는** 조건 3).  이 예제에서는 의미 조건 1 **하 고** 조건 2 충족 되 면 **또는** 3 조건이 충족 되 면 WAF를 사용자 지정 규칙에 지정 된 작업을 수행 해야 합니다.
+사용자 지정 규칙은 그래야만 논리를 사용 하 여 보안 요구 사항을 해결 하는 고급 규칙을 지원 합니다. 예를 들면 (Condition 1 **and** condition 2) **또는** condition 3)입니다.  이 예에서는 조건 1 **과** 조건 2를 만족 **하거나** 조건 3이 충족 되 면 waf가 사용자 지정 규칙에 지정 된 작업을 수행 해야 함을 의미 합니다.
 
-동일한 규칙 내에서 일치 하는 다양 한 조건을 사용 하 여 항상 중요 **고**입니다. 예를 들어, 특정 IP 주소의 트래픽을 차단할 때 특정 브라우저를 사용 중인 경우에 합니다.
+동일한 규칙 내의 서로 다른 일치 조건은 항상 **및**을 사용 하 여 복합 됩니다. 예를 들어 특정 IP 주소에서 트래픽을 차단 하 고 특정 브라우저를 사용 하는 경우에만 트래픽을 차단 합니다.
 
-않으려면 **또는** 두 여러 가지 조건에 두 가지 조건 다른 규칙에 있어야 합니다. 특정 브라우저를 사용 하는 경우에 예를 들어, 특정 IP 주소 또는 블록 트래픽이 트래픽과 차단 합니다.
+**또는** 두 개의 다른 조건을 원할 경우 두 조건이 서로 다른 규칙에 있어야 합니다. 예를 들어 특정 브라우저를 사용 하는 경우 특정 IP 주소에서 트래픽을 차단 하거나 트래픽을 차단 합니다.
 
 > [!NOTE]
-> 최대 WAF 사용자 지정 규칙은 100입니다. Application Gateway 제한에 대 한 자세한 내용은 참조 하세요. [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md#application-gateway-limits)합니다.
+> WAF 사용자 지정 규칙의 최대 수는 100입니다. Application Gateway 제한에 대 한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md#application-gateway-limits)을 참조 하세요.
 
-정규식 에서도 지원 되 사용자 지정 규칙에서 마찬가지로 CRS 규칙 집합입니다. 이러한 예가 예제 3 및 5를 참조 하세요. [사용자 지정 웹 응용 프로그램 방화벽 규칙 만들기 및 사용 하 여](create-custom-waf-rules.md)입니다.
+정규식은 CRS 규칙 집합에서와 마찬가지로 사용자 지정 규칙 에서도 지원 됩니다. 이에 대 한 예제는 [사용자 지정 웹 응용 프로그램 방화벽 규칙 만들기 및 사용](create-custom-waf-rules.md)의 예제 3 및 5를 참조 하세요.
 
-## <a name="allowing-vs-blocking"></a>허용 및 차단
+## <a name="allowing-vs-blocking"></a>차단 및 차단 허용
 
-허용 및 차단 트래픽을 사용자 지정 규칙을 사용 하 여 간단 합니다. 예를 들어, 일정 범위의 IP 주소에서 들어오는 모든 트래픽을 차단할 수 있습니다. 특정 브라우저에서 요청 하는 경우 트래픽을 허용 하는 다른 규칙을 만들 수 있습니다.
+사용자 지정 규칙을 사용 하 여 트래픽을 허용 하 고 차단 하는 것은 간단 합니다. 예를 들어 IP 주소 범위에서 들어오는 모든 트래픽을 차단할 수 있습니다. 특정 브라우저에서 요청을 가져오는 경우 트래픽을 허용 하는 다른 규칙을 만들 수 있습니다.
 
-것을 허용 하려면 있는지를 확인 합니다 `-Action` 매개 변수는 설정 **허용**합니다. 것을 차단 하려면 있는지를 확인 합니다 `-Action` 매개 변수는 설정 **블록**합니다.
+항목을 허용 하려면 `-Action` 매개 변수가 **허용**으로 설정 되어 있는지 확인 합니다. 항목을 차단 하려면 `-Action` 매개 변수가 **block**으로 설정 되어 있는지 확인 합니다.
 
 ```azurepowershell
 $AllowRule = New-AzApplicationGatewayFirewallCustomRule `
@@ -55,7 +55,7 @@ $BlockRule = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-이전 `$BlockRule` Azure Resource Manager에서 다음 사용자 지정 규칙에 매핑됩니다.
+이전 `$BlockRule` 은 Azure Resource Manager의 다음 사용자 지정 규칙에 매핑됩니다.
 
 ```json
 "customRules": [
@@ -86,62 +86,62 @@ $BlockRule = New-AzApplicationGatewayFirewallCustomRule `
     ], 
 ```
 
-이 사용자 지정 규칙 이름, 우선 순위, 작업 및 작업 수행을 위해 충족 해야 하는 조건과 일치 하는 배열을 포함 합니다. 에 대 한 자세한 내용은 이러한 필드는 다음 필드 설명을 참조 하십시오. 예를 들어 사용자 지정 규칙을 확인할 [사용자 지정 웹 응용 프로그램 방화벽 규칙 만들기 및 사용 하 여](create-custom-waf-rules.md)입니다.
+이 사용자 지정 규칙에는 작업을 수행 하기 위해 충족 해야 하는 이름, 우선 순위, 동작 및 일치 조건의 배열이 포함 되어 있습니다. 이러한 필드에 대 한 자세한 설명은 다음 필드 설명을 참조 하십시오. 사용자 지정 규칙 예제는 [사용자 지정 웹 응용 프로그램 방화벽 규칙 만들기 및 사용](create-custom-waf-rules.md)을 참조 하세요.
 
 ## <a name="fields-for-custom-rules"></a>사용자 지정 규칙에 대 한 필드
 
 ### <a name="name-optional"></a>이름 [선택 사항]
 
-이 규칙의 이름입니다. 이 이름은 로그에 나타납니다.
+규칙의 이름입니다. 이 이름은 로그에 표시 됩니다.
 
 ### <a name="priority-required"></a>우선 순위 [필수]
 
-- 규칙에서 평가 되는 순서를 결정 합니다. 낮은 값이 고, 규칙의 이전 평가 합니다.
--여야 모든 사용자 지정 규칙 내에서 고유 합니다. 우선 순위가 100 규칙 우선 순위가 200 인 규칙 보다 먼저 평가 됩니다.
+- 규칙을 평가 하는 순서를 결정 합니다. 값이 낮을수록 규칙의 이전 계산입니다.
+-모든 사용자 지정 규칙 간에 고유 해야 합니다. 우선 순위가 100 인 규칙은 우선 순위가 200 인 규칙 보다 먼저 평가 됩니다.
 
 ### <a name="rule-type-required"></a>규칙 유형 [필수]
 
-현재, 있어야 **MatchRule**합니다.
+현재는 **Matchrule**이어야 합니다.
 
 ### <a name="match-variable-required"></a>일치 변수 [필수]
 
 변수 중 하나 여야 합니다.
 
-- RemoteAddr-원격 컴퓨터 연결의 IP 주소/호스트
-- RequestMethod – HTTP 요청 메서드 (GET, POST, PUT, DELETE 및 등입니다.)
-- QueryString-URI의 변수
-- PostArgs – 인수는 POST 본문이 전송
-- RequestUri – 요청 URI
-- RequestHeaders – 요청 헤더
-- RequestBody-요청 본문
-- RequestCookies – 요청 쿠키
+- RemoteAddr – 원격 컴퓨터 연결의 IP 주소/호스트 이름
+- RequestMethod – HTTP 요청 메서드 (GET, POST, PUT, DELETE 등)
+- QueryString – URI의 변수
+- PostArgs – POST 본문에 전달 된 인수입니다. 이 일치 변수를 사용 하는 사용자 지정 규칙은 ' Content-type ' 헤더가 ' application/x-www-form-urlencoded ' 및 ' multipart/'로 설정 된 경우에만 적용 됩니다.
+- RequestUri – 요청의 URI
+- RequestHeaders – 요청의 헤더
+- RequestBody – 전체 요청 본문을 포함 합니다. 이 일치 변수를 사용 하는 사용자 지정 규칙은 ' Content-type ' 헤더가 ' application/x-www-form-urlencoded '로 설정 된 경우에만 적용 됩니다. 
+- RequestCookies – 요청의 쿠키
 
-### <a name="selector-optional"></a>[선택 사항] 선택기
+### <a name="selector-optional"></a>선택기 [선택 사항]
 
-MatchVariable 컬렉션의 필드를 설명합니다. 선택기에 있을 수는 matchVariable RequestHeaders 인 경우에 예를 들어 합니다 *User-agent* 헤더입니다.
+MatchVariable 컬렉션의 필드에 대해 설명 합니다. 예를 들어 matchVariable이 RequestHeaders 인 경우 선택기는 *사용자 에이전트* 헤더에 있을 수 있습니다.
 
-### <a name="operator-required"></a>[필수] 연산자
+### <a name="operator-required"></a>연산자 [필수]
 
 다음 연산자 중 하나 여야 합니다.
 
-- IPMatch-변수 일치 하는 경우에 사용 *RemoteAddr*
-- Equals – 입력을 MatchValue 동일
+- IPMatch-일치 변수가 *Remoteaddr* 인 경우에만 사용 됩니다.
+- Equals – 입력이 MatchValue와 동일 합니다.
 - 포함
-- LessThan
-- GreaterThan
+- 보다작음
+- 보다큼
 - LessThanOrEqual
 - GreaterThanOrEqual
 - 시작 문자
-- endsWith
+- EndsWith
 - Regex
 
-### <a name="negate-condition-optional"></a>부정할 조건 [옵션]
+### <a name="negate-condition-optional"></a>부정 조건 [선택 사항]
 
-현재 상태를 부정합니다.
+현재 조건을 부정 합니다.
 
-### <a name="transform-optional"></a>변환 [선택 사항]
+### <a name="transform-optional"></a>Transform [선택 사항]
 
-일치 항목 앞 작업을 수행 하는 변환의 이름으로 문자열 목록을 시도 됩니다. 다음 변환은 일 수 있습니다.
+일치를 시도 하기 전에 변환 이름이 포함 된 문자열의 목록입니다. 이러한 변환은 다음과 같을 수 있습니다.
 
 - 소문자
 - Trim
@@ -150,16 +150,16 @@ MatchVariable 컬렉션의 필드를 설명합니다. 선택기에 있을 수는
 - RemoveNulls
 - HtmlEntityDecode
 
-### <a name="match-values-required"></a>[필수] 값과 일치
+### <a name="match-values-required"></a>값 일치 [필수]
 
-것으로 간주 될 수 있는, 비교할 값 목록을 *또는*' ed 합니다. 예를 들어, IP 주소 또는 기타 문자열 수 있습니다. 값 형식으로 이전 연산자에 따라 달라 집니다.
+와 일치 하는 값 목록으로, *또는*' ed '로 간주할 수 있습니다. 예를 들어 IP 주소 또는 다른 문자열일 수 있습니다. 값 형식은 이전 연산자에 따라 달라 집니다.
 
 ### <a name="action-required"></a>작업 [필수]
 
-- 허용-모든 후속 규칙 건너뛰기 트랜잭션 권한을 부여 합니다. 즉, 지정된 된 요청 추가 허용 목록와 일치 하면 요청 중지 추가 평가 하 고 백 엔드 풀으로 전송 됩니다. 허용 목록에 있는 규칙은 사용자 지정 규칙 추가 또는 관리 되는 규칙에 대해 평가 되지 않습니다.
-- 블록 – 차단를 바탕으로 트랜잭션을 *SecDefaultAction* (검색/방지 모드). 허용 동작 마찬가지로 요청 평가 되 고 차단 목록에 추가 되 면 평가 중지 되 고 요청이 차단 합니다. 후 동일한 조건을 충족 하는 모든 요청 평가 되지 않습니다 하 고만 차단 됩니다. 
-- 로그 – 규칙 로그에 쓸 수 있지만 나머지 규칙 평가 대 한 실행 수 있습니다. 후속 사용자 지정 규칙은 다음 관리 되는 규칙이 우선 순위에 따라에서 평가 됩니다.
+- Allow – 트랜잭션을 승인 하 고 모든 후속 규칙을 건너뜁니다. 이는 지정 된 요청을 허용 목록에 추가 하 고 일치 하는 경우 요청에서 추가 평가를 중지 하 고 백 엔드 풀로 전송 됨을 의미 합니다. 허용 목록에 있는 규칙은 추가 사용자 지정 규칙 또는 관리 규칙에 대해 평가 되지 않습니다.
+- Block – *SecDefaultAction* (검색/방지 모드)를 기반으로 트랜잭션을 차단 합니다. 허용 동작과 마찬가지로 요청이 평가 되 고 차단 목록에 추가 되 면 평가가 중지 되 고 요청이 차단 됩니다. 같은 조건을 충족 하는 모든 요청은 평가 되지 않고 차단 됩니다. 
+- 로그 – 규칙을 로그에 기록할 수 있지만 나머지 규칙은 평가를 위해 실행할 수 있습니다. 후속 사용자 지정 규칙은 우선 순위에 따라 관리 되는 규칙에 따라 평가 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-사용자 지정 규칙에 대 한 파악 한 후 [사용자 고유의 사용자 지정 규칙을 만들](create-custom-waf-rules.md)합니다.
+사용자 지정 규칙에 대 한 자세한 내용을 확인 한 후 [사용자 지정 규칙을 만듭니다](create-custom-waf-rules.md).

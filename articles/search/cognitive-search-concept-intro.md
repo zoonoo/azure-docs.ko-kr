@@ -1,21 +1,20 @@
 ---
-title: Cognitive Search, 데이터 추출, 자연어 AI 프로세스 - Azure Search
+title: 인지 검색 및 AI 보강 소개 - Azure Search
 description: 인식 기술 및 AI 알고리즘을 사용하여 Azure Search 인덱싱에서 검색 가능한 콘텐츠를 만들기 위한 콘텐츠 추출, NLP(자연어 처리) 및 이미지 처리입니다.
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
-ms.devlang: NA
+ms.subservice: cognitive-search
 ms.topic: overview
-ms.date: 05/28/2019
+ms.date: 08/15/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 8af927bee11d66c473707b603951fa693f6840e3
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 4987c17eabf5d9e140352e3581b38a7d29049c5f
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299025"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899973"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Azure Search에서 "Cognitive Search"란?
 
@@ -35,13 +34,33 @@ Azure Search의 인식 기술은 [Computer Vision](https://docs.microsoft.com/az
 > 처리 빈도를 늘리거나 문서를 추가하거나 AI 알고리즘을 추가하여 범위를 확장할 때 [청구 가능한 Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다. Cognitive Services에서 API를 호출할 때와 Azure Search에서 문서 해독 단계의 일부로 이미지를 추출할 때는 요금이 누적됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
 >
 > 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격 책정 정보는 [Azure Search 가격 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)에 설명되어 있습니다.
-## <a name="components-of-cognitive-search"></a>Cognitive Search의 구성 요소
+
+## <a name="when-to-use-cognitive-search"></a>인지 검색을 사용하는 경우
+
+미리 빌드된 기술을 사용하는 인지 검색은 다음과 같은 애플리케이션 시나리오에 적합합니다.
+
++ 전체 텍스트를 검색 가능하게 만들고 싶은 스캔한 문서(JPEG). OCR(광학 문자 인식) 기술을 연결하여 JPEG 파일의 텍스트를 식별, 추출 및 수집할 수 있습니다.
+
++ 이미지와 텍스트가 결합된 PDF PDF의 텍스트는 Azure Search 인덱싱을 수행하는 동안 인지 검색 없이 추출할 수 있지만, 이미지 및 자연어 처리를 추가하면 표준 인덱싱보다 좋은 결과를 얻을 수 있습니다.
+
++ 언어 검색 그리고 가능하다면 텍스트 번역을 적용하고 싶은 다국어 콘텐츠
+
++ 내재된 의미가 있는 콘텐츠 또는 더 큰 문서에 숨겨진 컨텍스트를 포함하고 있는 비정형 또는 반정형 문서 
+
+  특히 Blob은 단일 "필드"로 압축된 큰 콘텐츠 본문을 포함하는 경우가 많습니다. 이미지 및 자연어 처리 기술을 인덱서에 연결하면 원시 콘텐츠에 존재하지만, 그렇지 않은 경우 별도의 필드로 표시되는 새 정보를 만들 수 있습니다. 즉시 사용 가능한 기본 제공 인식 기술로는 핵심 문구 추출, 감정 분석 및 엔터티 인식(사람, 조직 및 위치)이 있습니다.
+
+  또한 미리 빌드된 기술을 사용하여 텍스트 분할, 병합 및 셰이프 작업을 통해 콘텐츠를 재구성할 수도 있습니다.
+
+사용자 지정 기술은 양식 인식, 또는 [사용자 지정 기술 웹 인터페이스](cognitive-search-custom-skill-interface.md)에서 제공하고 래핑하는 모델을 사용하는 사용자 지정 엔터티 검색처럼 좀 더 복잡한 시나리오를 지원할 수 있습니다. 사용자 지정 기술의 예로는 [Form Recognizer](/azure/cognitive-services/form-recognizer/overview), [Bing Entity Search API](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example) 통합, [사용자 지정 엔터티 인식](https://github.com/Microsoft/SkillsExtractorCognitiveSearch) 등이 있습니다.
+
+
+## <a name="component-pipeline-of-cognitive-search"></a>인지 검색의 구성 요소 파이프라인
 
 Cognitive Search 파이프라인은 데이터 원본을 탐색하고 엔드투엔드 인덱스 프로세싱을 제공하는 [Azure Search *인덱서*](search-indexer-overview.md)를 기반으로 합니다. 기술이 인덱서에 연결되어 문서를 가로채서 사용자가 정의한 기술에 따라 문서를 보강합니다. 인덱스가 완료되면 [Azure Search에서 지원하는 모든 쿼리 유형](search-query-overview.md)에서 검색 요청을 통해 콘텐츠에 액세스할 수 있습니다.  인덱서를 처음 접하는 경우, 이 섹션의 단계별 안내를 참조하세요.
 
 ### <a name="step-1-connection-and-document-cracking-phase"></a>1단계: 연결 및 문서 크래킹 단계
 
-파이프라인의 시작 부분에는 구조화되지 않은 텍스트 또는 텍스트가 아닌 콘텐츠(예: 이미지 및 스캔한 문서 JPEG 파일)가 있습니다. 데이터는 인덱서가 액세스할 수 있는 Azure 데이터 저장소 서비스에 있어야 합니다. 인덱서는 원본 문서에서 텍스트를 추출하기 위해 원본 문서를 "크래킹"할 수 있습니다.
+파이프라인의 시작 부분에는 구조화되지 않은 텍스트 또는 텍스트가 아닌 콘텐츠(예: 이미지 및 스캔한 문서 JPEG 파일)가 있습니다. 데이터는 인덱서가 액세스할 수 있는 Azure 데이터 스토리지 서비스에 있어야 합니다. 인덱서는 원본 문서에서 텍스트를 추출하기 위해 원본 문서를 "크래킹"할 수 있습니다.
 
 ![문서 크래킹 단계](./media/cognitive-search-intro/document-cracking-phase-blowup.png "문서 크래킹")
 
@@ -101,9 +120,9 @@ Cognitive Search 파이프라인은 데이터 원본을 탐색하고 엔드투�
 
 + [빠른 시작(포털)](cognitive-search-quickstart-blob.md)
 + [자습서(HTTP 요청)](cognitive-search-tutorial-blob.md)
-+ [예제 사용자 지정 기술(C#)](cognitive-search-create-custom-skill-example.md)
++ [예제: Cognitive Search에 대한 사용자 지정 기술 만들기(C#)](cognitive-search-create-custom-skill-example.md)
 
-학습 목적이라면 무료 서비스를 권장하지만 무료 트랜잭션 수는 하루 20개 문서로 제한된다는 것을 알고 있어야 합니다. 하루에 빠른 시작과 자습서를 모두 실행하려면 더 작은 파일 세트(10개 문서)를 사용해야 두 연습에 모두 맞출 수 있습니다.
+학습 목적이라면 무료 서비스를 추천하지만, 무료 트랜잭션 수는 하루에 문서 20개로 제한됩니다. 빠른 시작과 자습서를 하루에 모두 실행하려면 두 연습에 맞출 수 있도록 작은 파일 세트(10개 문서)를 사용하거나, 빠른 시작 또는 자습서에서 사용한 인덱스를 삭제합니다.
 
 **3단계: API 검토**
 
@@ -114,9 +133,9 @@ Cognitive Search 파이프라인은 데이터 원본을 탐색하고 엔드투�
 | REST API | 설명 |
 |-----|-------------|
 | [데이터 원본 만들기](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | 보강된 문서를 만드는 데 사용되는 원본 데이터를 제공하는 외부 데이터 원본을 식별하는 리소스입니다.  |
-| [기술 세트 만들기(api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | 인덱싱 중에 강화 파이프라인에 사용되는 [미리 정의된 기술](cognitive-search-predefined-skills.md) 및 [사용자 지정 인지 기술](cognitive-search-custom-skill-interface.md)의 사용을 조정하는 리소스입니다. |
+| [기술 세트 만들기(api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | 이 API는 인지 검색에만 적용됩니다. 인덱싱 중에 강화 파이프라인에 사용되는 [미리 정의된 기술](cognitive-search-predefined-skills.md) 및 [사용자 지정 인지 기술](cognitive-search-custom-skill-interface.md)의 사용을 조정하는 리소스입니다. |
 | [인덱스 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Azure Search 인덱스를 표현하는 스키마입니다. 원본 데이터 또는 보강 단계에서 생성되는 필드에 매핑되는 인덱스의 필드(예: 엔터티 인식으로 생성된 조직 이름에 대한 필드)입니다. |
-| [인덱서 만들기(api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | 데이터 원본, 기술 집합, 원본 및 중간 데이터 구조에서 대상 인덱스로 필드 연결 및 인덱스 자체를 포함하는 인덱싱 중에 사용되는 리소스를 정의하는 구성 요소입니다. 데이터 수집 및 보강을 위한 트리거가 인덱서를 실행합니다. 출력은 원본 데이터로 채워지고 기술 세트를 통해 보강된 인덱스 스키마 기반의 검색 인덱스입니다.  |
+| [인덱서 만들기(api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | 데이터 원본, 기술 집합, 원본 및 중간 데이터 구조에서 대상 인덱스로 필드 연결 및 인덱스 자체를 포함하는 인덱싱 중에 사용되는 리소스를 정의하는 구성 요소입니다. 데이터 수집 및 보강을 위한 트리거가 인덱서를 실행합니다. 출력은 원본 데이터로 채워지고 기술 세트를 통해 보강된 인덱스 스키마 기반의 검색 인덱스입니다. 이 기존 API는 기술 세트 속성을 포함하는 인지 검색 시나리오를 위해 확장되었습니다. |
 
 **검사 목록: 일반적인 워크플로**
 

@@ -12,7 +12,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "66242169"
 ---
-Data Box 디바이스에 대해 지원되는 저장소 형식의 목록은 다음과 같습니다.
+Data Box 디바이스에 대해 지원되는 스토리지 형식의 목록은 다음과 같습니다.
 
 | **파일 형식** | **참고 사항** |
 | --- | --- |

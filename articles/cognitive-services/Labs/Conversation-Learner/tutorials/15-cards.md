@@ -10,12 +10,13 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: d0b87597c506aca5c3b4f6f3815f58656203ac3c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 426d7c8de29abeb88833e94962a7291a641702ac
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389514"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68703755"
 ---
 # <a name="how-to-use-cards-part-1-of-2"></a>카드 사용 방법(2부 중 1부)
 
@@ -53,7 +54,7 @@ ms.locfileid: "66389514"
 > 텍스트 필드에서 본문 형식 "TextBlock" 및 "{{question}}" 자리 표시자를 확인합니다.
 > 두 개의 제출 단추와 각 단추에 대해 제출되는 텍스트가 있습니다.
 
-### <a name="actions"></a>작업
+### <a name="actions"></a>동작
 
 세 가지 작업을 만들었습니다. 아래와 같이 첫 번째 작업은 카드입니다.
 

@@ -8,18 +8,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 06/12/2019
-ms.openlocfilehash: d24686a094c524c5ce913eee4b711daf1c60100d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5108424c4e39c1c47710c0e25e4e22c4474e68ad
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67130627"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68941690"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Azure HDInsight에서 ML Services란
 
 Microsoft Machine Learning Server를 사용하면 Azure에서 HDInsight 클러스터를 만들 때 배포 옵션으로 사용할 수 있습니다. 이 옵션을 제공하는 클러스터 유형을 **ML Services**라고 합니다. 이 기능은 데이터 과학자, 통계학자 및 R 프로그래머에게 HDInsight의 확장 가능한 분산형 분석 방법에 요청 시 액세스할 수 있도록 해줍니다.
 
-HDInsight의 ML Services는 Azure Blob 또는 Data Lake Store에 로드된 거의 모든 크기의 데이터 집합에서 R 기반 분석을 위한 최신 기능을 제공합니다. ML Services 클러스터는 오픈 소스 R을 기반으로 하기 때문에 빌드한 R 기반 애플리케이션은 8000개 이상의 오픈 소스 R 패키지를 활용할 수 있습니다. Microsoft의 빅 데이터 분석 패키지인 ScaleR의 루틴도 사용 가능합니다.
+HDInsight의 ML Services는 Azure Blob 또는 Data Lake Store에 로드된 거의 모든 크기의 데이터 세트에서 R 기반 분석을 위한 최신 기능을 제공합니다. ML Services 클러스터는 오픈 소스 R을 기반으로 하기 때문에 빌드한 R 기반 애플리케이션은 8000개 이상의 오픈 소스 R 패키지를 활용할 수 있습니다. Microsoft의 빅 데이터 분석 패키지인 ScaleR의 루틴도 사용 가능합니다.
 
 클러스터의 에지 노드는 클러스터에 연결하고 R 스크립트를 실행하는 데 편리한 위치를 제공합니다. 에지 노드를 사용하는 경우 에지 노드 서버의 코어에서 ScaleR의 병렬화된 분산 함수를 실행하는 옵션이 제공됩니다. 또한 ScaleR의 Hadoop Map Reduce 또는 Apache Spark 컴퓨팅 컨텍스트를 사용하여 클러스터의 노드 전반에 함수를 실행할 수도 있습니다.
 
@@ -27,7 +27,7 @@ HDInsight의 ML Services는 Azure Blob 또는 Data Lake Store에 로드된 거�
 
 ## <a name="get-started-with-ml-services-on-hdinsight"></a>HDInsight에서 ML Services 시작
 
-Azure HDInsight에 ML Services 클러스터를 만들려면 Azure Portal을 사용하여 HDInsight 클러스터를 만들 때 **ML Services** 클러스터 유형을 선택합니다. ML Services 클러스터 유형으로 클러스터의 데이터 노드에 있는 ML Services 및 ML Services 기반 분석을 위한 연결 영역으로서 에지 노드에 있는 ML Server가 있습니다. 클러스터를 만드는 방법에 대한 연습은 [HDInsight의 ML Services 시작](r-server-get-started.md)을 참조하세요.
+Azure HDInsight에 ML Services 클러스터를 만들려면 Azure Portal을 사용하여 HDInsight 클러스터를 만들 때 **ML Services** 클러스터 유형을 선택합니다. ML Services 클러스터 유형으로 클러스터의 데이터 노드에 있는 ML Services 및 ML Services 기반 분석을 위한 연결 영역으로서 에지 노드에 있는 ML Server가 있습니다. 클러스터를 만드는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하세요.
 
 ## <a name="why-choose-ml-services-in-hdinsight"></a>HDInsight에서 ML Services를 사용하는 이유
 
@@ -64,21 +64,21 @@ HDInsight의 ML Services에는 다음 기능이 포함됩니다.
 | [원격 실행](r-server-hdinsight-manage.md#connect-remotely-to-microsoft-ml-services) | 클라이언트 워크스테이션에서 네트워크의 ML Services에 대한 원격 세션을 시작합니다. |
 
 
-## <a name="data-storage-options-for-ml-services-on-hdinsight"></a>HDInsight의 ML Services에 대한 데이터 저장소 옵션
+## <a name="data-storage-options-for-ml-services-on-hdinsight"></a>HDInsight의 ML Services에 대한 데이터 스토리지 옵션
 
-HDInsight 클러스터의 HDFS 파일 시스템을 위한 기본 스토리지는 Azure Storage 계정 또는 Azure Data Lake Storage와 연결될 수 있습니다. 이러한 연결을 통해 분석 중에 클러스터 저장소에 업로드되는 모든 데이터가 영구적으로 유지되고, 클러스터를 삭제한 후에도 해당 데이터를 사용할 수 있습니다. 저장소 계정의 포털 기반 업로드 기능과 [AzCopy](../../storage/common/storage-use-azcopy.md) 유틸리티를 포함하여 선택한 저장소 옵션에 대한 데이터 전송을 처리할 수 있는 다양한 도구가 있습니다.
+HDInsight 클러스터의 HDFS 파일 시스템을 위한 기본 스토리지는 Azure Storage 계정 또는 Azure Data Lake Storage와 연결될 수 있습니다. 이러한 연결을 통해 분석 중에 클러스터 스토리지에 업로드되는 모든 데이터가 영구적으로 유지되고, 클러스터를 삭제한 후에도 해당 데이터를 사용할 수 있습니다. 스토리지 계정의 포털 기반 업로드 기능과 [AzCopy](../../storage/common/storage-use-azcopy.md) 유틸리티를 포함하여 선택한 스토리지 옵션에 대한 데이터 전송을 처리할 수 있는 다양한 도구가 있습니다.
 
-사용 중인 기본 저장소 옵션과 관계없이 클러스터 프로비전 프로세스 중에 추가 Blob 및 Data Lake Store에 대한 액세스를 구현하는 옵션이 있습니다. 추가 계정에 액세스 추가에 대한 자세한 내용은 [HDInsight의 ML Services 시작](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-get-started)을 참조하세요. 여러 스토리지 계정 사용에 대해 자세히 알아보려면 [HDInsight의 ML Services에 대한 Azure Storage 옵션](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-storage) 문서를 참조하세요.
+사용 중인 기본 스토리지 옵션과 관계없이 클러스터 프로비전 프로세스 중에 추가 Blob 및 Data Lake Store에 대한 액세스를 구현하는 옵션이 있습니다.  여러 스토리지 계정 사용에 대해 자세히 알아보려면 [HDInsight의 ML Services에 대한 Azure Storage 옵션](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-storage) 문서를 참조하세요.
 
-[Azure 파일](../../storage/files/storage-how-to-use-files-linux.md) 을 에지 노드용 저장소 옵션으로 사용할 수도 있습니다. Azure 파일을 사용하면 Azure Storage에서 만든 파일 공유를 Linux 파일 시스템에 마운트할 수 있습니다. HDInsight 클러스터의 ML Services에 대한 데이터 스토리지 옵션에 대한 자세한 내용은 [HDInsight의 ML Services에 대한 Azure Storage 옵션](r-server-storage.md)을 참조하세요.
+[Azure 파일](../../storage/files/storage-how-to-use-files-linux.md) 을 에지 노드용 스토리지 옵션으로 사용할 수도 있습니다. Azure 파일을 사용하면 Azure Storage에서 만든 파일 공유를 Linux 파일 시스템에 마운트할 수 있습니다. HDInsight 클러스터의 ML Services에 대한 데이터 스토리지 옵션에 대한 자세한 내용은 [HDInsight의 ML Services에 대한 Azure Storage 옵션](r-server-storage.md)을 참조하세요.
 
 ## <a name="access-ml-services-edge-node"></a>ML Services 에지 노드 액세스
 
-브라우저를 사용하여 에지 노드의 Microsoft ML Server에 연결할 수 있습니다. 클러스터를 만드는 동안 기본적으로 설치됩니다. 자세한 내용은 [HDInsight에서 ML Services 시작](r-server-get-started.md)을 참조하세요. R 콘솔에 액세스하기 위해 SSH/PuTTY를 사용하여 명령줄에서 클러스터 에지 노드에 연결할 수도 있습니다.
+브라우저를 사용하여 에지 노드의 Microsoft ML Server에 연결할 수 있습니다. 클러스터를 만드는 동안 기본적으로 설치됩니다.  R 콘솔에 액세스하기 위해 SSH/PuTTY를 사용하여 명령줄에서 클러스터 에지 노드에 연결할 수도 있습니다.
 
 ## <a name="develop-and-run-r-scripts"></a>R 스크립트 개발 및 실행
 
-사용자가 만들고 실행하는 R 스크립트는 ScaleR 라이브러리에서 사용 가능한 병렬화된 분산 루틴 외에 8000개 이상의 오픈 소스 R 패키지를 사용할 수 있습니다. 일반적으로 에지 노드의 ML Services에서 실행되는 스크립트는 해당 노드의 R 인터프리터에서 실행됩니다. 예외는 Hadoop Map Reduce(RxHadoopMR) 또는 Spark(RxSpark)로 설정된 계산 컨텍스트를 사용하여 ScaleR 함수를 호출해야 하는 단계입니다. 이러한 경우 함수는 참조 데이터와 연결된 클러스터의 데이터(작업) 노드에서 분산된 방식으로 실행됩니다. 다양한 계산 컨텍스트 옵션에 대한 자세한 내용은 [HDInsight에서 R Server의 ML Services 컨텍스트 옵션](r-server-compute-contexts.md)을 참조하세요.
+사용자가 만들고 실행하는 R 스크립트는 ScaleR 라이브러리에서 사용 가능한 병렬화된 분산 루틴 외에 8000개 이상의 오픈 소스 R 패키지를 사용할 수 있습니다. 일반적으로 에지 노드의 ML Services에서 실행되는 스크립트는 해당 노드의 R 인터프리터에서 실행됩니다. 예외는 Hadoop Map Reduce(RxHadoopMR) 또는 Spark(RxSpark)로 설정된 컴퓨팅 컨텍스트를 사용하여 ScaleR 함수를 호출해야 하는 단계입니다. 이러한 경우 함수는 참조 데이터와 연결된 클러스터의 데이터(작업) 노드에서 분산된 방식으로 실행됩니다. 다양한 컴퓨팅 컨텍스트 옵션에 대한 자세한 내용은 [HDInsight에서 R Server의 ML Services 컨텍스트 옵션](r-server-compute-contexts.md)을 참조하세요.
 
 ## <a name="operationalize-a-model"></a>모델 운영
 
@@ -86,11 +86,11 @@ HDInsight 클러스터의 HDFS 파일 시스템을 위한 기본 스토리지는
 
 ### <a name="score-in-hdinsight"></a>HDInsight에서 점수 매기기
 
-HDInsight에서 점수를 매기려면 모델을 호출하여 저장소 계정에 로드한 새 데이터 파일에 대해 예측하는 R 함수를 작성합니다. 그런 다음 예측을 저장소 계정에 다시 저장합니다. 클러스터의 에지 노드에서 요청 시 루틴을 실행하거나 예약된 작업을 사용하여 루틴을 실행할 수 있습니다.
+HDInsight에서 점수를 매기려면 모델을 호출하여 스토리지 계정에 로드한 새 데이터 파일에 대해 예측하는 R 함수를 작성합니다. 그런 다음 예측을 스토리지 계정에 다시 저장합니다. 클러스터의 에지 노드에서 요청 시 루틴을 실행하거나 예약된 작업을 사용하여 루틴을 실행할 수 있습니다.
 
 ### <a name="score-in-azure-machine-learning-aml"></a>AML(Azure Machine Learning)에서 점수 매기기
 
-Azure Machine Learning을 사용하여 점수를 매기려면 [AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html)로 알려진 오픈 소스 Azure Machine Learning R 패키지를 사용하여 모델을 Azure 웹 서비스로 게시합니다. 이 패키지는 편의상 에지 노드에 미리 설치됩니다. 다음으로, Azure Machine Learning의 기능을 사용하여 웹 서비스에 대한 사용자 인터페이스를 만든 후 점수 매기기에 필요한 대로 웹 서비스를 호출합니다.
+Azure Machine Learning을 사용하여 점수를 매기려면 [AzureML](https://cran.r-project.org/src/contrib/Archive/AzureML/)로 알려진 오픈 소스 Azure Machine Learning R 패키지를 사용하여 모델을 Azure 웹 서비스로 게시합니다. 이 패키지는 편의상 에지 노드에 미리 설치됩니다. 다음으로, Azure Machine Learning의 기능을 사용하여 웹 서비스에 대한 사용자 인터페이스를 만든 후 점수 매기기에 필요한 대로 웹 서비스를 호출합니다.
 
 이 옵션을 선택한 경우 ScaleR 모델 개체를 웹 서비스에서 사용할 동등한 오픈 소스 모델 개체로 변환해야 합니다. 이 변환은 앙상블 기반 모델에 대해 ScaleR 강제 변환 함수(예: `as.randomForest()` )를 통해 수행할 수 있습니다.
 
@@ -130,7 +130,7 @@ OS 패치 및 기타 업데이트를 적용하는 유지 관리는 업무 외 �
 
 HDInsight 클러스터의 Linux 에지 노드는 R 기반 분석의 연결 영역입니다. 최신 버전의 HDInsight는 에지 노드에 RStudio Server의 기본 설치를 브라우저 기반 IDE로 제공합니다. R 스크립트의 개발과 실행을 위한 IDE로 RStudio Server를 사용하면 R 콘솔만 사용하는 것보다 훨씬 더 생산적일 수 있습니다.
 
-또한 데스크톱 IDE를 설치하고 원격 Map Reduce 또는 Spark 계산 컨텍스트를 사용하여 클러스터에 액세스하는 것입니다. Microsoft의 RTVS([Visual Studio용 R 도구](https://www.visualstudio.com/features/rtvs-vs.aspx)), RStudio 및 Walware의 Eclipse 기반 [StatET](http://www.walware.de/goto/statet) 등의 옵션도 있습니다.
+또한 데스크톱 IDE를 설치하고 원격 Map Reduce 또는 Spark 컴퓨팅 컨텍스트를 사용하여 클러스터에 액세스하는 것입니다. Microsoft의 RTVS([Visual Studio용 R 도구](https://www.visualstudio.com/features/rtvs-vs.aspx)), RStudio 및 Walware의 Eclipse 기반 [StatET](http://www.walware.de/goto/statet) 등의 옵션도 있습니다.
 
 또한 SSH 또는 PuTTY를 통해 연결한 후 Linux 명령 프롬프트에서 **R**을 입력하면 에지 노드의 R 콘솔에 액세스할 수 있습니다. 콘솔 인터페이스 사용 시 R 스크립트 개발용 텍스트 편집기를 다른 창에서 실행하고 필요에 따라 스크립트의 섹션을 복사하여 R 콘솔에 붙여 넣으면 편리합니다.
 
@@ -142,6 +142,6 @@ ML Services HDInsight 클러스터와 연관된 요금은 다른 HDInsight 클�
 
 HDInsight 클러스터에서 ML Services를 사용하는 방법에 대한 자세한 내용은 다음 항목을 참조하세요.
 
-* [HDInsight에서 ML Services 클러스터 시작](r-server-get-started.md)
-* [HDInsight에서 ML Services 클러스터에 대한 계산 컨텍스트 옵션](r-server-compute-contexts.md)
-* [HDInsight에서 ML Services 클러스터에 대한 저장소 옵션](r-server-storage.md)
+* [RStudio Server를 사용하여 Azure HDInsight의 ML Services 클러스터에서 R 스크립트 실행](machine-learning-services-quickstart-job-rstudio.md)
+* [HDInsight에서 ML Services 클러스터에 대한 컴퓨팅 컨텍스트 옵션](r-server-compute-contexts.md)
+* [HDInsight에서 ML Services 클러스터에 대한 스토리지 옵션](r-server-storage.md)

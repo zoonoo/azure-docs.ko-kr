@@ -9,12 +9,12 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: 9b0a6393d2372c831fdc964dee18acbccfd39a77
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46cac6720bbef133d6b3f7a269cf97a81cddd0c5
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61332048"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70062124"
 ---
 # <a name="connect-to-cosmos-account-using-studio-3t"></a>Studio 3T를 사용하여 Cosmos 계정에 연결
 
@@ -22,6 +22,9 @@ Azure Cosmos DB의 MongoDB API를 사용하여 Cosmos 계정에 연결하려면 
 
 * [Studio 3T](https://studio3t.com/)를 다운로드 및 설치
 * Cosmos DB [연결 문자열](connect-mongodb-account.md) 정보 확보
+
+> [!NOTE]
+> 현재 Robo 3T v 1.2 및 lower는 Cosmos DB의 MongoDB API에서 지원 됩니다. 
 
 ## <a name="create-the-connection-in-studio-3t"></a>Studio 3T에서 연결 만들기
 Cosmos 계정을 Studio 3T 연결 관리자에 추가하려면 다음 단계를 수행합니다.
@@ -43,7 +46,7 @@ Cosmos 계정을 Studio 3T 연결 관리자에 추가하려면 다음 단계를 
     ![Studio 3T 연결 관리자 SSL 탭의 스크린샷](./media/mongodb-mongochef/ConnectionManagerSSLTab.png)
 6. **연결 테스트** 단추를 클릭하여 연결 정보의 유효성을 검사하고 **확인**을 클릭하여 새 연결 창으로 돌아간 다음 **저장**을 클릭합니다.
 
-    ![Studio 3T 스크린샷 테스트 연결 창](./media/mongodb-mongochef/TestConnectionResults.png)
+    ![Studio 3T 연결 테스트 창의 스크린샷](./media/mongodb-mongochef/TestConnectionResults.png)
 
 ## <a name="use-studio-3t-to-create-a-database-collection-and-documents"></a>Studio 3T를 사용하여 데이터베이스, 컬렉션 및 문서 만들기
 Studio 3T를 사용하여 데이터베이스, 컬렉션 및 문서를 만들려면 다음 단계를 수행합니다.
@@ -107,7 +110,7 @@ Studio 3T를 사용하여 데이터베이스, 컬렉션 및 문서를 만들려�
         }
 7. 샘플 쿼리를 실행합니다. 예를 들어 'Andersen' 성을 가진 가족을 검색하고 부모 및 상태 필드를 반환합니다.
 
-    ![스크린 샷: Mongochef 쿼리 결과](./media/mongodb-mongochef/QueryDocument1.png)
+    ![Mongo Chef 쿼리 결과 스크린샷](./media/mongodb-mongochef/QueryDocument1.png)
 
 ## <a name="next-steps"></a>다음 단계
 

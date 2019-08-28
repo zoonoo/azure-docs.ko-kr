@@ -4,7 +4,7 @@ description: 이 자습서에서는 Azure PowerShell은 사용하여 가상 머�
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -17,12 +17,12 @@ ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: 4a60d3d77408e7c05311a2bd6bcceeb9331bd1af
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: b6098d6a8752737ef0bffaf35c8ba4b6e5223d22
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924693"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707980"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>자습서- Azure PowerShell을 사용하여 Azure 디스크 관리
 
@@ -51,13 +51,13 @@ Azure Virtual Machine을 만들면 두 개의 디스크가 자동으로 가상 �
 
 ## <a name="azure-data-disks"></a>Azure 데이터 디스크
 
-애플리케이션을 설치하고 데이터를 저장하기 위해 데이터 디스크를 더 추가할 수 있습니다. 데이터 디스크는 지속형 및 반응형 데이터 저장소가 필요한 경우에 사용해야 합니다. 가상 컴퓨터의 크기에 따라 VM에 연결할 수 있는 데이터 디스크 수가 결정됩니다. 각 VM vCPU에 대해 네 개의 데이터 디스크를 연결할 수 있습니다.
+애플리케이션을 설치하고 데이터를 저장하기 위해 데이터 디스크를 더 추가할 수 있습니다. 데이터 디스크는 지속형 및 반응형 데이터 스토리지가 필요한 경우에 사용해야 합니다. 가상 컴퓨터의 크기에 따라 VM에 연결할 수 있는 데이터 디스크 수가 결정됩니다. 각 VM vCPU에 대해 네 개의 데이터 디스크를 연결할 수 있습니다.
 
 ## <a name="vm-disk-types"></a>VM 디스크 유형
 
 Azure는 두 가지 형식의 디스크를 제공합니다.
 
-**표준 디스크**는 HDD에 의해 지원되며 성능은 그대로이면서 비용 효율적인 저장소를 제공합니다. 표준 디스크는 비용 효율적인 개발 및 테스트 워크로드에 적합합니다.
+**표준 디스크**는 HDD에 의해 지원되며 성능은 그대로이면서 비용 효율적인 스토리지를 제공합니다. 표준 디스크는 비용 효율적인 개발 및 테스트 워크로드에 적합합니다.
 
 **프리미엄 디스크**는 SSD 기반 고성능의 대기 시간이 짧은 디스크에서 지원합니다. 프로덕션 워크로드를 실행하는 VM에 완벽한 디스크입니다. Premium Storage는 DS 시리즈, DSv2 시리즈, GS 시리즈 및 FS 시리즈 VM을 지원합니다. 프리미엄 디스크는 다섯 가지 유형(P10, P20, P30, P40, P50)으로 제공되며 디스크 크기에 따라 디스크 유형이 결정됩니다. 디스크 유형 선택 시 디스크 크기 값은 다음 유형으로 반올림됩니다. 예를 들어 디스크 크기가 128GB 미만인 경우 디스크 유형은 P10이고, 129-512GB인 경우 P20입니다.
 

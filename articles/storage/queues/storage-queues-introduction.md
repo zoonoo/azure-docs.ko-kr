@@ -1,20 +1,19 @@
 ---
 title: Azure 큐 소개 - Azure Storage
 description: Azure 큐 소개
-services: storage
 author: mhopkins-msft
-ms.service: storage
-ms.topic: overview
-ms.date: 06/07/2019
 ms.author: mhopkins
-ms.reviewer: cbrooks
+ms.date: 06/07/2019
+ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: bc3045e3d3b6977555818fcdb3dcaf3246ebd200
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.topic: overview
+ms.reviewer: cbrooks
+ms.openlocfilehash: 67e4874fcca93633140b7630ceadd273d1646f86
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754816"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721166"
 ---
 # <a name="what-are-azure-queues"></a>Azure 큐란?
 
@@ -49,5 +48,5 @@ Queue Storage의 일반적인 사용은 다음과 같습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [저장소 계정을 만드는](../storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+* [스토리지 계정을 만드는](../storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 * [.NET을 사용하여 큐 시작하기](storage-dotnet-how-to-use-queues.md)

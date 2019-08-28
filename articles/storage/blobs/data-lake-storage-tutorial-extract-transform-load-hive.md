@@ -1,7 +1,6 @@
 ---
 title: '자습서: Azure HDInsight에서 Apache Hive를 사용하여 ETL(추출, 변환, 로드) 작업 수행'
 description: 이 자습서에서는 원시 CSV 데이터 세트에서 데이터를 추출하고, Azure HDInsight에서 Apache Hive를 사용하여 데이터를 변환한 다음, Sqoop을 사용하여 변환된 데이터를 Azure SQL Database로 로드하는 방법을 알아봅니다.
-services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -9,12 +8,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: f28cae7ed56b694f4194adf78c288ffa87eb71d8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 344dddb4e16f23ae40028c090c499d210adb8837
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447738"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855464"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>자습서: Azure HDInsight에서 Apache Hive를 사용하여 데이터 추출, 변환 및 로드
 
@@ -51,7 +50,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 2. 페이지에서 다음 값을 선택합니다.
 
-   | 이름 | 값 |
+   | Name | 값 |
    | --- | --- |
    | Filter Year |2013 |
    | Filter Period |January |

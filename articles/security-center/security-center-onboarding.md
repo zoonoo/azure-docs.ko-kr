@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 19/02/2019
+ms.date: 02/19/2019
 ms.author: v-mohabe
-ms.openlocfilehash: fe8ceb8c196f7329027502847fba481169458d86
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5d93d2f1f1c082610cb14a5ea621e0919a41866
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966793"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67589008"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>보안 개선을 위해 Azure Security Center 표준 계층으로 온보딩
 Security Center 표준 계층으로 업그레이드하면 하이브리드 클라우드 작업을 위해 강화된 보안 관리 및 위협 방지 기능을 활용할 수 있습니다.  표준 평가판을 사용해 볼 수 있습니다. 자세한 내용은 Security Center [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
@@ -90,7 +90,7 @@ Security Center에서 비 Azure 컴퓨터의 보안 태세를 모니터링할 �
 
 **기존 작업 영역을 선택하고 컴퓨터 추가**
 
-위에 나와 있는 것처럼 **온보딩**의 워크플로에 따라 컴퓨터를 추가할 수 있습니다. **계산**의 워크플로에 따라 컴퓨터를 추가할 수도 있습니다. 이 예제에서는 **계산**을 사용합니다.
+위에 나와 있는 것처럼 **온보딩**의 워크플로에 따라 컴퓨터를 추가할 수 있습니다. **계산**의 워크플로에 따라 컴퓨터를 추가할 수도 있습니다. 이 예제에서는 **컴퓨팅**을 사용합니다.
 
 1. 보안 센터 주 메뉴의 **개요** 대시보드로 돌아옵니다.
 
@@ -99,7 +99,7 @@ Security Center에서 비 Azure 컴퓨터의 보안 태세를 모니터링할 �
 2. **계산 및 앱**을 선택합니다.
 3. **계산 및 앱** 아래에서 **컴퓨터 추가**를 선택합니다.
 
-   ![계산 블레이드][6]
+   ![컴퓨팅 블레이드][6]
 
 4. **새로운 비 Azure 컴퓨터 추가** 아래에서 컴퓨터를 연결할 작업 영역을 선택하고 **컴퓨터 추가**를 클릭합니다.
 

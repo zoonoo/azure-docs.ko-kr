@@ -4,7 +4,7 @@ description: 여러 Data Science Virtual Machines에 사용할 수 있는 일반
 keywords: 딥 러닝, AI, 데이터 과학 도구, 데이터 과학 가상 머신, 지리 공간적 분석, 팀 데이터 과학 프로세스
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
-ms.author: gokuma
-ms.openlocfilehash: 0146ee6ee37c2eb9e98d831b54df2218d7de5b62
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: vijetaj
+ms.openlocfilehash: 34303c8832a58e4d97ba4e712d624edf321b84a1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60502392"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558294"
 ---
 # <a name="set-up-a-common-identity-on-the-data-science-virtual-machine"></a>Data Science Virtual Machine에서 일반적인 ID 설정
 
@@ -70,7 +70,7 @@ Azure AD DS를 사용하면 Azure에서 완전히 관리되는 서비스를 제�
 
    a. [Azure Files 공유 만들기](../../storage/files/storage-how-to-create-file-share.md)
     
-   b. Linux DSVM에 탑재합니다. Azure Portal의 저장소 계정에서 Azure Files 공유에 대해 **연결** 단추를 선택하면 Linux DSVM의 bash 셸에서 실행할 명령이 나타납니다. 이 명령은 다음과 같습니다.
+   b. Linux DSVM에 탑재합니다. Azure Portal의 스토리지 계정에서 Azure Files 공유에 대해 **연결** 단추를 선택하면 Linux DSVM의 bash 셸에서 실행할 명령이 나타납니다. 이 명령은 다음과 같습니다.
    
    ```
    sudo mount -t cifs //[STORAGEACCT].file.core.windows.net/workspace [Your mount point] -o vers=3.0,username=[STORAGEACCT],password=[Access Key or SAS],dir_mode=0777,file_mode=0777,sec=ntlmssp

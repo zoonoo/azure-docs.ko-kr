@@ -1,18 +1,18 @@
 ---
 title: Azure IoT 디바이스 SDK 플랫폼 지원 | Microsoft Docs
 description: 개념 - Azure IoT 디바이스 SDK에서 지원하는 플랫폼 목록
-author: yzhong94
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.author: yizhon
-ms.openlocfilehash: 7bcc1bf6b734abe202c5fec5d515604f4bf8e4a7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: robinsh
+ms.openlocfilehash: 1fbaa54be4419d493d5179a6d6d0884393c8138a
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60398708"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967334"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Azure IoT SDK 플랫폼 지원
 
@@ -44,7 +44,7 @@ Microsoft는 다양한 운영 체제/플랫폼/프레임워크를 지원하며, 
 | Ubuntu 18.04 LTS    | X64  | gcc-7.3              | WolfSSL – 1.13    |
 | Ubuntu 18.04 LTS    | X64  | Clang 6.0.X          | Openssl – 1.1.0g  |
 | OSX 10.13.4         | x64  | XCode 9.4.1          | 네이티브 OSX        |
-| Windows Server 2016 | x64  | Visual Studio 14.0.X | SChannel          |
+| Windows Server 2016 | X64  | Visual Studio 14.0.X | SChannel          |
 | Windows Server 2016 | x86  | Visual Studio 14.0.X | SChannel          |
 | Debian 9 Stretch    | x64  | gcc-7.3              | Openssl – 1.1.0f  |
 
@@ -53,12 +53,12 @@ Microsoft는 다양한 운영 체제/플랫폼/프레임워크를 지원하며, 
 | OS                  | 아키텍처 | 컴파일러   | TLS 라이브러리 |
 |---------------------|------|------------|-------------|
 | Windows Server 2016 | x86  | Python 2.7 | openssl     |
-| Windows Server 2016 | x64  | Python 2.7 | openssl     |
+| Windows Server 2016 | X64  | Python 2.7 | openssl     |
 | Windows Server 2016 | x86  | Python 3.5 | openssl     |
-| Windows Server 2016 | x64  | Python 3.5 | openssl     |
+| Windows Server 2016 | X64  | Python 3.5 | openssl     |
 | Ubuntu 18.04 LTS    | x86  | Python 2.7 | openssl     |
 | Ubuntu 18.04 LTS    | x86  | Python 3.4 | openssl     |
-| MacOS High Sierra   | x64  | Python 2.7 | openssl     |
+| MacOS High Sierra   | X64  | Python 2.7 | openssl     |
 
 ### <a name="net-sdk"></a>.NET SDK
 
@@ -67,7 +67,7 @@ Microsoft는 다양한 운영 체제/플랫폼/프레임워크를 지원하며, 
 | Ubuntu 16.04 LTS    | X64  | .NET Core 2.1        | .NET Standard 2.0 |
 | Windows Server 2016 | X64  | .NET Core 2.1        | .NET Standard 2.0 |
 | Windows Server 2016 | X64  | .NET Framework 4.7   | .NET Standard 2.0 |
-| Windows Server 2016 | X64  | .NET Framework 4.5.1 | N/A               |
+| Windows Server 2016 | X64  | .NET Framework 4.5.1 | 해당 사항 없음               |
 
 ### <a name="nodejs-sdk"></a>Node.js SDK
 
@@ -83,18 +83,18 @@ Microsoft는 다양한 운영 체제/플랫폼/프레임워크를 지원하며, 
 | Ubuntu 16.04 LTS    | X64  | Java 8       |
 | Windows Server 2016 | X64  | Java 8       |
 | Android API 28 | X64  | Java 8       |
-| Android 작업 | X64  | Java 8      |
+| Android 사물 | X64  | Java 8      |
 
 ## <a name="partner-supported-platforms"></a>파트너 지원 플랫폼
 
 고객은 Azure IoT C SDK를 이식하여, 특히 SDK의 PAL(플랫폼 추상화 계층)을 만들어서 플랫폼 지원을 확장할 수 있습니다. Microsoft는 파트너와 협력하여 확장된 지원을 제공합니다. 파트너 목록은 C SDK를 더 많은 플랫폼에 이식하고 PAL을 유지 관리합니다.
 
-| 파트너             | 디바이스                            | 연결                     | 지원 |
+| 파트너             | 디바이스                            | 링크                     | 지원 |
 |---------------------|------------------------------------|--------------------------|---------|
 | Espressif           | ESP32 <br/> ESP8266                              | [Esp-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
 | OPC 클래식            | Qualcomm MDM9206 LTE IoT 모뎀     | [IoT SDK용 Qualcomm LTE](https://developer.qualcomm.com/software/lte-iot-sdk) | [포럼](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |
 | ST Microelectronics | STM32L4 시리즈 <br/> STM32F4 시리즈 <br/>  STM32F7 시리즈 <br/>  IoT 노드용 STM32L4 Discovery Kit    | [X-CUBE-CLOUD](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32cube-expansion-packages/x-cube-cloud.html) <br/> [X-CUBE-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32cube-expansion-packages/x-cube-azure.html) <br/> [P-NUCLEO-AZURE](https://www.st.com/content/st_com/en/products/evaluation-tools/solution-evaluation-tools/communication-and-connectivity-solution-eval-boards/p-nucleo-azure1.html) <br/> [FP-CLD-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32-ode-function-pack-sw/fp-cld-azure1.html)            | [지원](https://www.st.com/content/st_com/en/support/support-home.html)
-| PROFINET   | CC3220SF Launchpad <br/> CC3220S Launchpad <br/> MSP432E4 Launchpad      | [SimpleLink용 Azure IoT 플러그 인](https://github.com/TexasInstruments/azure-iot-pal-simplelink) | [TI E2E 포럼](https://e2e.ti.com) <br/> [CC3220에 대한 TI E2E 포럼](https://e2e.ti.com/support/wireless_connectivity/simplelink_wifi_cc31xx_cc32xx/) <br/> [MSP432E4에 대한 TI E2E 포럼](https://e2e.ti.com/support/microcontrollers/msp430/) |
+| PROFINET   | CC3220SF 실행 패드 </br> CC3220S 실행 패드 </br> CC3235SF 실행 패드 </br> CC3235S 실행 패드 </br> MSP432E4 실행 패드 | [SimpleLink용 Azure IoT 플러그 인](https://github.com/TexasInstruments/azure-iot-pal-simplelink) | [TI E2E 포럼](https://e2e.ti.com) <br/> [CC3220에 대한 TI E2E 포럼](https://e2e.ti.com/support/wireless_connectivity/simplelink_wifi_cc31xx_cc32xx/) <br/> [MSP432E4에 대한 TI E2E 포럼](https://e2e.ti.com/support/microcontrollers/msp430/) |
 
 ## <a name="next-steps"></a>다음 단계
 

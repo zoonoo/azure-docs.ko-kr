@@ -21,7 +21,7 @@ ms.locfileid: "66428181"
 이 비디오에서는 Service Fabric Mesh에 대한 개요를 빠르게 제공합니다.
 > [!VIDEO https://www.youtube.com/embed/7qWeVGzAid0]
 
-Azure Service Fabric Mesh는 개발자가 가상 머신, 저장소 또는 네트워킹을 관리하지 않고 마이크로 서비스 애플리케이션을 배포할 수 있는 완전히 관리되는 서비스입니다. Service Fabric Mesh에서 호스팅되는 애플리케이션은 인프라 전원을 걱정하지 않고 실행되고 크기가 조정됩니다.  Service Fabric Mesh는 수천 대 머신의 클러스터로 구성됩니다.  모든 클러스터 작업은 개발자에게 숨겨집니다. 코드를 업로드하고 필요한 리소스, 가용성 요구 사항 및 리소스 제한을 지정합니다.  Service Fabric Mesh는 애플리케이션을 항상 사용할 수 있도록 자동으로 인프라를 할당하고 인프라 오류를 처리합니다. 인프라가 아니라 애플리케이션의 상태와 응답성을 고려해야 합니다.  
+Azure Service Fabric Mesh는 개발자가 가상 머신, 스토리지 또는 네트워킹을 관리하지 않고 마이크로 서비스 애플리케이션을 배포할 수 있는 완전히 관리되는 서비스입니다. Service Fabric Mesh에서 호스팅되는 애플리케이션은 인프라 전원을 걱정하지 않고 실행되고 크기가 조정됩니다.  Service Fabric Mesh는 수천 대 머신의 클러스터로 구성됩니다.  모든 클러스터 작업은 개발자에게 숨겨집니다. 코드를 업로드하고 필요한 리소스, 가용성 요구 사항 및 리소스 제한을 지정합니다.  Service Fabric Mesh는 애플리케이션을 항상 사용할 수 있도록 자동으로 인프라를 할당하고 인프라 오류를 처리합니다. 인프라가 아니라 애플리케이션의 상태와 응답성을 고려해야 합니다.  
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 

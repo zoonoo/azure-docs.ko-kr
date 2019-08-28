@@ -2,20 +2,20 @@
 title: Azure SQL Data Warehouse - VSTS에 연결 | Microsoft Azure
 description: Visual Studio를 사용하여 SQL Data Warehouse를 쿼리합니다.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: development
-ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.date: 08/15/2019
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6aa707d3c63b7ead6db94f84ebd9214302cc7367
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e6c3de1714d363eb1481bcea5f470d04125b96b9
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873723"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575302"
 ---
 # <a name="connect-to-sql-data-warehouse-with-visual-studio-and-ssdt"></a>Visual Studio 및 SSDT를 사용하여 SQL Data Warehouse에 연결
 > [!div class="op_single_selector"]
@@ -27,17 +27,17 @@ ms.locfileid: "65873723"
 > 
 > 
 
-Visual Studio를 사용하여 단 몇 분 만에 Azure SQL Data Warehouse를 쿼리합니다. 이 메서드는 Visual Studio에서 SQL Server 데이터 도구(SSDT) 확장을 사용합니다. 
+Visual Studio를 사용하여 단 몇 분 만에 Azure SQL Data Warehouse를 쿼리합니다. 이 메서드는 Visual Studio 2019에서 SSDT (SQL Server Data Tools) 확장을 사용 합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 이 자습서를 사용하려면 다음이 필요합니다.
 
-* 기존 SQL 데이터 웨어하우스. 만들려면 [SQL Data Warehouse 만들기][Create a SQL Data Warehouse]를 참조하세요.
+* 기존 SQL Data Warehouse입니다. 만들려면 [SQL Data Warehouse 만들기][Create a SQL Data Warehouse]를 참조하세요.
 * Visual Studio용 SSDT. Visual Studio가 있는 경우 이미 소유하고 있을 것입니다. 설치 지침 및 옵션은 [Visual Studio 및 SSDT 설치][Installing Visual Studio and SSDT]를 참조하세요.
 * 정규화된 SQL 서버 이름. 이를 찾으려면 [SQL Data Warehouse에 연결][Connect to SQL Data Warehouse]을 참조하세요.
 
 ## <a name="1-connect-to-your-sql-data-warehouse"></a>1. SQL Data Warehouse에 연결
-1. Visual Studio 2013 또는 2015 열기
+1. Visual Studio 2019를 엽니다.
 2. SQL Server 개체 탐색기를 엽니다. 그렇게 하려면 **보기** > **SQL Server 개체 탐색기**를 선택합니다.
    
     ![SQL Server 개체 탐색기][1]
@@ -76,7 +76,7 @@ Visual Studio를 사용하여 단 몇 분 만에 Azure SQL Data Warehouse를 쿼
     ![쿼리 결과][7]
 
 ## <a name="next-steps"></a>다음 단계
-이제 연결 및 쿼리할 수 있으므로 [Power BI로 데이터 시각화][visualizing the data with PowerBI]를 시도해 보세요.
+이제 연결 및 쿼리할 수 있으므로 [PowerBI로 데이터 시각화][visualizing the data with PowerBI]를 시도해 보세요.
 
 Azure Active Directory 인증을 위한 환경을 구성하려면 [SQL Data Warehouse에 대한 인증][Authenticate to SQL Data Warehouse]을 참조하세요.
 

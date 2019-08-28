@@ -2,18 +2,18 @@
 title: '자습서: Azure Digital Twins 공간으로부터 이벤트 캡처 | Microsoft Docs'
 description: 이 자습서의 단계에 따라 Azure Digital Twins를 Logic Apps와 통합하여 공간에서 알림을 받는 방법을 알아봅니다.
 services: digital-twins
-author: dsk-2015
+author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 12/18/2018
-ms.author: dkshir
-ms.openlocfilehash: 524ca96687e9395b65ec513326ad0fd4f7c6d429
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.date: 08/05/2019
+ms.author: alinast
+ms.openlocfilehash: 30d43831b73edc52b461512faecac369f6bf00b0
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57528908"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827821"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>자습서: Logic Apps를 사용하여 Azure Digital Twins 공간으로부터 알림 수신
 
@@ -76,16 +76,16 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
       - SpaceChange
       - TopologyOperation
       - UdfCustom
-      connectionString: Primary_connection_string_for_your_Event_Grid
-      secondaryConnectionString: Secondary_connection_string_for_your_Event_Grid
-      path: Event_Grid_Topic_Path
+      connectionString: <Primary connection string for your Event Grid>
+      secondaryConnectionString: <Secondary connection string for your Event Grid>
+      path: <Event Grid Topic Name without https:// and /api/events, e.g. eventgridname.region.eventgrid.azure.net>
     ```
 
-1. 자리 표시자 `Primary_connection_string_for_your_Event_Grid`를 **YOUR_KEY_1** 값으로 바꿉니다.
+1. 자리 표시자 `<Primary connection string for your Event Grid>`를 **YOUR_KEY_1** 값으로 바꿉니다.
 
-1. 자리 표시자 `Secondary_connection_string_for_your_Event_Grid`를 **YOUR_KEY_2** 값으로 바꿉니다.
+1. 자리 표시자 `<Secondary connection string for your Event Grid>`를 **YOUR_KEY_2** 값으로 바꿉니다.
 
-1. 자리 표시자 `Event_Grid_Topic_Path`를 Event Grid 토픽의 경로로 바꿉니다. **토픽 엔드포인트** URL에서 **https://** 및 후행 리소스 경로를 제거하여 이 경로를 가져옵니다. *yourEventGridName.yourLocation.eventgrid.azure.net*과 비슷한 형식입니다.
+1. **경로**의 자리 표시자를 이벤트 그리드 항목의 경로로 바꿉니다. **토픽 엔드포인트** URL에서 **https://** 및 후행 리소스 경로를 제거하여 이 경로를 가져옵니다. *yourEventGridName.yourLocation.eventgrid.azure.net*과 비슷한 형식입니다.
 
     > [!IMPORTANT]
     > 따옴표를 제외한 모든 값을 입력합니다. YAML 파일의 콜론 뒤에 공백이 하나 이상 있어야 합니다. [이 도구](https://onlineyamltools.com/validate-yaml)와 같은 온라인 YAML 유효성 검사기를 사용하여 YAML 파일 콘텐츠의 유효성을 검사할 수도 있습니다.
@@ -114,7 +114,7 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 
 1. Logic Apps 리소스가 배포되면 연 다음, **논리 앱 디자이너** 창을 엽니다. 
 
-1. **Event Grid 이벤트가 발생하는 경우** 트리거를 선택합니다. 메시지가 표시되면 Azure 계정으로 테넌트에 로그인합니다. 메시지가 표시되면 Event Grid 리소스에 대한 **액세스 허용**을 선택합니다. **계속**을 선택합니다.
+1. **Event Grid 리소스 이벤트가 발생하는 경우** 트리거를 선택합니다. 메시지가 표시되면 Azure 계정으로 테넌트에 로그인합니다. 메시지가 표시되면 Event Grid 리소스에 대한 **액세스 허용**을 선택합니다. **계속**을 선택합니다.
 
 1. **리소스 이벤트가 발생하는 경우(미리 보기)** 창에서 다음을 수행합니다. 
    

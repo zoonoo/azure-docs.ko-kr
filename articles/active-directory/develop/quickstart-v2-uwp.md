@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd4b6dd31d620603b765fd33494f399f97915af3
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 46b2ec4a790b5425d837d6a5530b8562ce85ca38
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65784928"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852766"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>빠른 시작: 유니버설 Windows 플랫폼(UWP) 애플리케이션에서 Microsoft Graph API 호출
 
@@ -60,7 +60,7 @@ ms.locfileid: "65784928"
 > 1. **리디렉션 URI** 섹션에서 **URI 추가**를 선택합니다.  **urn:ietf:wg:oauth:2.0:oob**를 입력합니다.
 > 1. **저장**을 선택합니다.
 
-> [!div renderon="portal" class="sxs-lookup alert alert-info"]
+> [!div renderon="portal" class="sxs-lookup"]
 > #### <a name="step-1-configure-your-application"></a>1단계: 애플리케이션 구성
 > 이 빠른 시작의 코드 샘플이 작동하려면 리디렉션 URI를 **urn:ietf:wg:oauth:2.0:oob**로 추가해야 합니다.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
@@ -82,6 +82,9 @@ ms.locfileid: "65784928"
     ```csharp
     private const string ClientId = "Enter_the_Application_Id_here";
     ```
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > 이 빠른 시작에서는 Enter_the_Supported_Account_Info_Here를 지원합니다.    
 
 > [!div renderon="docs"]
 > 위치:
@@ -154,7 +157,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
 
 #### <a name="get-a-user-token-silently"></a>자동으로 사용자 토큰 가져오기
 
-초기 `AcquireTokenAsync` 메서드 다음에 보호된 리소스에 액세스하는 토큰을 가져오려면 `AcquireTokenSilent` 메서드를 사용합니다. 사용자가 리소스에 액세스해야 할 때마다 자격 증명의 유효성을 검사할 필요가 없도록 하려고 합니다. 대부분의 경우 사용자 개입 없이 토큰 획득 및 갱신 처리
+초기 `AcquireTokenInteractive` 메서드 다음에 보호된 리소스에 액세스하는 토큰을 가져오려면 `AcquireTokenSilent` 메서드를 사용합니다. 사용자가 리소스에 액세스해야 할 때마다 자격 증명의 유효성을 검사할 필요가 없도록 하려고 합니다. 대부분의 경우 사용자 개입 없이 토큰 획득 및 갱신 처리
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();
@@ -176,3 +179,8 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
 
 > [!div class="nextstepaction"]
 > [UWP - Graph API 호출 자습서](tutorial-v2-windows-uwp.md)
+
+Microsoft ID 플랫폼을 개선할 수 있도록 도와주세요. 간단한 두 가지 설문 조사를 완료하여 의견을 알려주세요.
+
+> [!div class="nextstepaction"]
+> [Microsoft ID 플랫폼 설문 조사](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

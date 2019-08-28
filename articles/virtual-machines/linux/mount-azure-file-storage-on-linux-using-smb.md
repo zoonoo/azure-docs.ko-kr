@@ -4,7 +4,7 @@ description: Azure CLI에서 SMB를 사용하여 Linux VM에 Azure File 스토�
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: 4b3bba1da5238655ca749f6464c539e53ca48f27
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9ca58bbc6f7b983ff545eb2dca6240359637e214
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60542784"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671220"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>SMB를 사용하여 Linux VM에 Azure File Storage 탑재
 
 이 문서에서는 Azure CLI에서 SMB 탑재를 사용하여 Linux VM에서 Azure File 스토리지 서비스를 사용하는 방법을 보여 줍니다. Azure File Storage는 표준 SMB 프로토콜을 사용하여 클라우드에서 파일 공유를 제공합니다. 
 
-File Storage는 표준 SMB 프로토콜을 사용하는 클라우드에서 파일 공유를 제공합니다. SMB 3.0을 지원하는 모든 OS에서 파일 공유를 탑재할 수 있습니다. Linux에서 SMB 탑재를 사용하면 SLA에서 지원되는 강력한 영구 보관 저장소 위치에 쉽게 백업할 수 있습니다.
+File Storage는 표준 SMB 프로토콜을 사용하는 클라우드에서 파일 공유를 제공합니다. SMB 3.0을 지원하는 모든 OS에서 파일 공유를 탑재할 수 있습니다. Linux에서 SMB 탑재를 사용하면 SLA에서 지원되는 강력한 영구 보관 스토리지 위치에 쉽게 백업할 수 있습니다.
 
 VM에서 File Storage에서 호스팅되는 SMB 탑재로 파일을 이동하는 것은 로그를 디버깅하는 유용한 방법입니다. 동일한 SMB 공유를 Mac, Linux 또는 Windows 워크스테이션에 로컬로 탑재할 수 있습니다. SMB 프로토콜이 이러한 과도한 로깅 작업을 다루도록 빌드되지 않았기 때문에 SMB는 Linux 또는 애플리케이션 로그를 실시간으로 스트리밍하기 위한 최선의 솔루션은 아닐 수 있습니다. Linux 및 애플리케이션 로그 출력을 수집하려는 경우 Fluentd와 같은 전용 통합 로깅 계층 도구가 SMB보다 더 적합할 것입니다.
 
@@ -40,9 +40,9 @@ VM에서 File Storage에서 호스팅되는 SMB 탑재로 파일을 이동하는
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="create-a-storage-account"></a>저장소 계정 만들기
+## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-[az storage account create](/cli/azure/storage/account)를 사용하여 만든 리소스 그룹 내에 새 스토리지 계정을 만듭니다. 이 예제에서는 라는 저장소 계정을 만듭니다 *mySTORAGEACCT\<난수 >* 해당 저장소 계정의 이름을 변수에 넣습니다 **STORAGEACCT**합니다. 저장소 계정 이름은 고유해야 하며, 사용하는 `$RANDOM` 끝에 숫자를 추가하여 고유하게 만듭니다.
+[az storage account create](/cli/azure/storage/account)를 사용하여 만든 리소스 그룹 내에 새 스토리지 계정을 만듭니다. 이 예제에서는 라는 저장소 계정을 만듭니다 *mySTORAGEACCT\<난수 >* 해당 저장소 계정의 이름을 변수에 넣습니다 **STORAGEACCT**합니다. 스토리지 계정 이름은 고유해야 하며, 사용하는 `$RANDOM` 끝에 숫자를 추가하여 고유하게 만듭니다.
 
 ```bash
 STORAGEACCT=$(az storage account create \
@@ -53,9 +53,9 @@ STORAGEACCT=$(az storage account create \
     --query "name" | tr -d '"')
 ```
 
-## <a name="get-the-storage-key"></a>저장소 키 가져오기
+## <a name="get-the-storage-key"></a>스토리지 키 가져오기
 
-저장소 계정을 만드는 경우 서비스 중단 없이 키를 순환할 수 있도록 저장소 계정 키는 쌍으로 만들어집니다. 쌍에서 두 번째 키로 전환하는 경우 새 키 쌍이 만들어집니다. 새 저장소 계정 키는 항상 쌍으로 만들어지므로 전환할 준비가 된 사용하지 않은 저장소 계정 키가 하나 이상 항상 있어야 합니다.
+스토리지 계정을 만드는 경우 서비스 중단 없이 키를 순환할 수 있도록 스토리지 계정 키는 쌍으로 만들어집니다. 쌍에서 두 번째 키로 전환하는 경우 새 키 쌍이 만들어집니다. 새 스토리지 계정 키는 항상 쌍으로 만들어지므로 전환할 준비가 된 사용하지 않은 스토리지 계정 키가 하나 이상 항상 있어야 합니다.
 
 [az storage account keys list](/cli/azure/storage/account/keys)를 사용하여 스토리지 계정 키를 봅니다. 다음 예제에서는 키 1의 값을 **STORAGEKEY** 변수에 저장합니다.
 

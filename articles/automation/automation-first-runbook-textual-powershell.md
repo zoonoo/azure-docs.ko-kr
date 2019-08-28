@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/27/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 10b93e54bc3f13c72889ab7c75b0e4f6e280e7d8
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 9718185b41795da6d95486972441ee20bc250316
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476733"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850697"
 ---
 # <a name="my-first-powershell-runbook"></a>내 첫 번째 PowerShell Runbook
 
@@ -27,14 +27,14 @@ ms.locfileid: "67476733"
 
 이 자습서는 Azure Automation에서 [PowerShell runbook](automation-runbook-types.md#powershell-runbooks)을 만드는 과정을 안내합니다. Runbook 작업의 상태를 추적하는 방법을 알아보면서 테스트하고 게시하는 간단한 Runbook으로 시작합니다. 그런 다음 실제로 Azure 리소스를 관리하도록 Runbook을 수정합니다. 이 경우에 Azure Virtual Machine을 시작합니다. 마지막으로 Runbook 매개 변수를 추가하여 Runbook을 더욱 강력하게 개선합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
 * 동작합니다. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
 * [Automation 계정](automation-quickstart-create-account.md) . 이 계정은 가상 머신을 시작하고 중지할 수 있는 권한이 있어야 합니다.
 * Azure 가상 머신. 프로덕션 VM이 되지 않도록 이 가상 머신을 중지했다가 시작합니다.
-* 해야 할 수 있습니다 [Azure 모듈 업데이트](automation-update-azure-modules.md) 사용할 cmdlet를 기반으로 합니다.
+* 사용 중인 cmdlet에 따라 [Azure 모듈을 업데이트](automation-update-azure-modules.md) 해야 할 수 있습니다.
 
 ## <a name="create-new-runbook"></a>새 Runbook 만들기
 
@@ -53,11 +53,11 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 
 1. Runbook은 현재 비어 있습니다. 스크립트의 본문에 *Write-Output "Hello World"* 를 입력합니다.
 
-   ![Hello World](media/automation-first-runbook-textual-powershell/automation-helloworld.png)  
+   ![Hello World](media/automation-first-runbook-textual-powershell/automation-helloworld.png)
 
 2. **저장**을 클릭하여 Runbook을 저장합니다.
 
-## <a name="step-3---test-the-runbook"> </a> Runbook 테스트
+## <a name="step-3---test-the-runbook"></a> Runbook 테스트
 
 프로덕션 환경에서 사용할 수 있도록 Runbook을 게시하기 전에 제대로 작동하는지 확인하기 위해 테스트합니다. Runbook을 테스트할 때 **초안** 버전을 실행하고 해당 출력을 대화형으로 봅니다.
 
@@ -65,11 +65,11 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 2. **시작** 을 클릭하여 테스트를 시작합니다. 유일하게 사용 가능한 옵션이어야 합니다.
 3. 이 창에서 [runbook 작업](automation-runbook-execution.md) 이 생성되고 상태를 보여줍니다.
 
-   작업 상태는 클라우드의 Runbook Worker를 사용할 수 있을 때까지 기다리고 있음을 나타내는 *대기 중*으로 시작됩니다. 작업자가 작업을 요구한 경우 *시작 중*으로 바뀐 다음 Runbook이 실제로 실행되기 시작하면 *실행 중*으로 바뀝니다.  
+   작업 상태는 클라우드의 Runbook Worker를 사용할 수 있을 때까지 기다리고 있음을 나타내는 *대기 중*으로 시작됩니다. 작업자가 작업을 요구한 경우 *시작 중*으로 바뀐 다음 Runbook이 실제로 실행되기 시작하면 *실행 중*으로 바뀝니다.
 
 4. Runbook 작업이 완료되면 해당 출력이 표시됩니다. 이 예제에서는 *Hello World*가 표시됩니다.
 
-   ![테스트 창 출력](media/automation-first-runbook-textual-powershell/automation-testpane-output.png)  
+   ![테스트 창 출력](media/automation-first-runbook-textual-powershell/automation-testpane-output.png)
 
 5. 캔버스로 돌아가려면 테스트 창을 닫습니다.
 
@@ -79,7 +79,7 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 
 1. **게시**를 클릭하여 Runbook을 게시한 다음 확인 메시지가 표시되면 **예**를 클릭합니다.
 1. 이제 **Runbooks** 창에서 Runbook을 보기 위해 왼쪽으로 스크롤하면 **작성 상태**가 **게시됨**으로 표시됩니다.
-1. 다시 오른쪽으로 스크롤하면 **MyFirstRunbook-PowerShell**창이 표시됩니다.  
+1. 다시 오른쪽으로 스크롤하면 **MyFirstRunbook-PowerShell**창이 표시됩니다.
    위쪽에 표시되는 옵션을 사용하여 Runbook을 시작하거나 보고 미래의 특정 시간에 시작하도록 예약할 수 있으며 [웹후크](automation-webhooks.md)를 생성하여 HTTP 호출을 통해 시작할 수 있습니다.
 1. Runbook을 시작하려면 Runbook 시작 페이지가 열릴 때 **시작**을 클릭하고 **확인**을 클릭합니다.
 1. 만든 Runbook 작업에 대한 작업 페이지가 열립니다. 이 창을 닫아도 되지만, 이 예에서는 작업 진행 상황을 볼 수 있도록 열어 놓겠습니다.
@@ -99,7 +99,7 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 1. [스트림] 및 [작업] 페이지를 닫고 MyFirstRunbook-PowerShell 페이지로 돌아갑니다.
 1. **세부 정보** 아래에서 **작업**을 클릭하여 이 Runbook에 대한 [작업] 창을 엽니다. 이 페이지에는 Runbook에서 만든 모든 작업이 나열됩니다. 작업을 한 번만 실행했으므로 하나의 작업만 표시됩니다.
 
-   ![작업 목록](media/automation-first-runbook-textual-powershell/runbook-control-job-tile.png)  
+   ![작업 목록](media/automation-first-runbook-textual-powershell/runbook-control-job-tile.png)
 
 1. Runbook을 시작했을 때 표시된 동일한 작업창을 열려면 이 작업을 클릭하면 됩니다. 이 작업을 통해 예전으로 돌아가 특정 Runbook에 대해 생성된 모든 작업의 세부 정보를 볼 수 있습니다.
 
@@ -110,7 +110,7 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
    ```powershell
    # Ensures you do not inherit an AzureRMContext in your runbook
    Disable-AzureRmContextAutosave –Scope Process
-   
+
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
 -ApplicationID $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
@@ -139,13 +139,13 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 1. Runbook을 테스트할 수 있도록 **테스트 창**을 클릭합니다.
 1. **시작** 을 클릭하여 테스트를 시작합니다. 일단 완료되면 다음과 비슷한 출력을 수신하여 계정의 기본 정보를 표시해야 합니다. 이 출력에서는 실행 계정이 유효한지 확인합니다.
 
-   ![인증](media/automation-first-runbook-textual-powershell/runbook-auth-output.png)
+   ![Authenticate](media/automation-first-runbook-textual-powershell/runbook-auth-output.png)
 
 ## <a name="add-code-to-start-a-virtual-machine"></a>가상 머신을 시작하기 위한 코드 추가
 
 이제 Runbook에서 Azure 구독을 인증하므로 리소스를 관리할 수 있습니다. 가상 머신을 시작하는 명령을 추가합니다. Azure 구독에서 가상 머신을 선택할 수 있지만, 지금은 해당 이름을 Runbook에 하드 코딩합니다.
 
-1. *Connect-AzureRmAccount* 다음에 *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* 을 입력하여 시작하려는 가상 머신의 이름과 리소스 그룹 이름을 입력합니다.  
+1. *Connect-AzureRmAccount* 다음에 *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* 을 입력하여 시작하려는 가상 머신의 이름과 리소스 그룹 이름을 입력합니다.
 
    ```powershell
    # Ensures you do not inherit an AzureRMContext in your runbook
@@ -184,7 +184,7 @@ Runbook은 현재 Runbook에 하드 코딩된 가상 머신을 시작하지만, 
 1. 창을 닫습니다.
 1. **게시** 를 클릭하여 Runbook의 새 버전을 게시합니다.
 1. 이전 단계에서 실행시킨 가상 머신을 중지합니다.
-1. **확인**을 클릭하여 Runbook을 시작합니다. 시작하려는 가상 머신의 **VMName** 및 **ResourceGroupName**을 입력합니다.<br><br> ![매개 변수 전달](media/automation-first-runbook-textual-powershell/automation-pass-params.png)<br>  
+1. **확인**을 클릭하여 Runbook을 시작합니다. 시작하려는 가상 머신의 **VMName** 및 **ResourceGroupName**을 입력합니다.<br><br> ![매개 변수 전달](media/automation-first-runbook-textual-powershell/automation-pass-params.png)<br>
 1. Runbook이 완료되면 가상 머신이 시작되었다는 것을 확인합니다.
 
 ## <a name="differences-from-powershell-workflow"></a>PowerShell 워크플로의 차이점
@@ -198,6 +198,7 @@ PowerShell Runbook에는 PowerShell 워크플로 Runbook과 동일한 수명 주
 
 ## <a name="next-steps"></a>다음 단계
 
+* 언어 참조 및 학습 모듈을 비롯 한 PowerShell에 대 한 자세한 내용은 [Powershell 문서](/powershell/scripting/overview)를 참조 하세요.
 * 그래픽 Runbook을 시작하려면 [내 첫 번째 그래픽 Runbook](automation-first-runbook-graphical.md)
 * PowerShell 워크플로 Runbook을 시작하려면 [내 첫 번째 PowerShell 워크플로 Runbook](automation-first-runbook-textual.md)
 * Runbook의 형식, 장점 및 제한 사항에 대해 자세히 알아보려면 [Azure Automation Runbook 형식](automation-runbook-types.md)

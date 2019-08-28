@@ -4,7 +4,7 @@ description: 'Windows VM의 D: 드라이브를 데이터 드라이브로 사용�
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 0867a931-0055-4e31-8403-9b38a3eeb904
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
-ms.openlocfilehash: cfd46d5e9750a81d89ed6d3a79bcc9bffdc3d0dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12986068a761b92611c557a0dfcf08905283b8bd
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60844202"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67719246"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>D: 드라이브를 Windows VM의 데이터 드라이브로 사용
 애플리케이션에서 D 드라이브를 사용하여 데이터를 저장해야 하는 경우 다음 지침에 따라 임시 디스크에 다른 드라이브 문자를 사용할 수 있습니다. 보관해야 하는 데이터를 저장하는 데 임시 디스크를 사용하지 마세요.
@@ -47,19 +47,19 @@ Azure에서 임시 디스크를 사용하는 방법에 대한 자세한 내용�
 ## <a name="change-the-drive-letters"></a>드라이브 문자 변경
 1. VM이 다시 시작되면 VM에 다시 로그인합니다.
 2. **시작** 메뉴를 클릭하고 **diskmgmt.msc**를 입력한 후 Enter 키를 누릅니다. 디스크 관리가 시작됩니다.
-3. 임시 저장소 드라이브인 **D**를 마우스 오른쪽 단추로 클릭하고 **드라이브 문자 및 경로 변경**을 선택합니다.
+3. 임시 스토리지 드라이브인 **D**를 마우스 오른쪽 단추로 클릭하고 **드라이브 문자 및 경로 변경**을 선택합니다.
 4. 드라이브 문자에서 **T**와 같은 새 드라이브를 선택한 후 **확인**을 클릭합니다. 
 5. 데이터 디스크를 마우스 오른쪽 단추로 클릭하고 **드라이브 문자 및 경로 변경**을 선택합니다.
 6. 드라이브 문자에서 드라이브 **D**를 선택한 후 **확인**을 클릭합니다. 
 
-## <a name="move-pagefilesys-back-to-the-temporary-storage-drive"></a>pagefile.sys를 임시 저장소 드라이브로 다시 이동합니다.
+## <a name="move-pagefilesys-back-to-the-temporary-storage-drive"></a>pagefile.sys를 임시 스토리지 드라이브로 다시 이동합니다.
 1. **시작** 메뉴를 마우스 오른쪽 단추로 클릭하고 **시스템**을 선택합니다.
 2. 왼쪽 메뉴에서 **고급 시스템 설정**을 선택합니다.
 3. **성능** 섹션에서 **설정**을 선택합니다.
 4. **고급** 탭을 선택합니다.
 5. **가상 메모리** 섹션에서 **변경**을 선택합니다.
 6. OS 드라이브 **C**를 선택하고 **페이징 파일 없음**을 클릭하고 **설정**을 클릭합니다.
-7. 임시 저장소 드라이브 **T**를 선택한 후 **시스템이 관리하는 크기**를 클릭하고 **설정**을 클릭합니다.
+7. 임시 스토리지 드라이브 **T**를 선택한 후 **시스템이 관리하는 크기**를 클릭하고 **설정**을 클릭합니다.
 8. **적용**을 클릭합니다. 변경 내용을 적용하려면 컴퓨터를 다시 시작해야 한다는 경고가 표시됩니다.
 9. 가상 머신을 다시 시작합니다.
 

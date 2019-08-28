@@ -6,12 +6,12 @@ ms.author: mbolz
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: b932ad3148bb1f5ddd229c2674f8a20bbfe1afa8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e5f70a806160355f02ecb649343857c28b9484f
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61458569"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610035"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL VNet 서비스 엔드포인트 및 VNet 규칙 만들기 및 관리
 VNet(가상 네트워크) 서비스 엔드포인트 및 규칙이 가상 네트워크의 프라이빗 주소 공간을 Azure Database for MySQL 서버로 확장합니다. 제한을 포함하여 Azure Database for MySQL VNet 서비스 엔드포인트에 대한 개요는 [Azure Database for MySQL 서버 VNet 서비스 엔드포인트](concepts-data-access-and-security-vnet.md)를 참조하세요. VNet 서비스 엔드포인트는 Azure Database for MySQL에 대한 지원되는 모든 지역에서 사용할 수 있습니다.
@@ -20,6 +20,7 @@ VNet(가상 네트워크) 서비스 엔드포인트 및 규칙이 가상 네트�
 > VNet 서비스 엔드포인트는 범용 및 메모리 최적화 서버에 대해서만 지원됩니다.
 > VNet 피어링의 경우 서비스 엔드포인트가 있는 공통 VNet 게이트웨이를 통해 트래픽이 이동하며 피어로 이동되어야 하는 경우 게이트웨이 VNet의 Azure Virtual Machines가 Azure Database for MySQL 서버에 액세스할 수 있도록 허용하는 ACL/VNet 규칙을 만드세요.
 
+
 ## <a name="create-a-vnet-rule-and-enable-service-endpoints-in-the-azure-portal"></a>VNet 규칙을 만들고 Azure Portal의 서비스 엔드포인트를 사용하도록 설정
 
 1. MySQL 서버 페이지의 설정 제목에서 **연결 보안**을 클릭하여 Azure Database for MySQL에 대한 연결 보안 창을 엽니다. 
@@ -27,7 +28,7 @@ VNet(가상 네트워크) 서비스 엔드포인트 및 규칙이 가상 네트�
 2. Azure 서비스 액세스 허용 컨트롤이 **해제**되어 있는지 확인합니다.
 
 > [!Important]
-> ON으로 설정 하는 컨트롤을 두면 Azure MySQL 데이터베이스 서버는 모든 서브넷 으로부터의 통신을 허용 합니다. 컨트롤을 설정으로 두게 되면 보안 관점에서 과도하게 액세스될 수 있습니다. Microsoft Azure Virtual Network 서비스 엔드포인트 기능 조정 가상 네트워크 규칙 기능을 사용 하 여 Azure Database for MySQL 함께 보안 영역을 줄일 수 있습니다.
+> 제어를 설정 된 상태로 두면 Azure MySQL 데이터베이스 서버가 모든 서브넷의 통신을 수락 합니다. 컨트롤을 설정으로 두게 되면 보안 관점에서 과도하게 액세스할 수도 있습니다. Microsoft Azure Virtual Network 서비스 끝점 기능은 Azure Database for MySQL의 가상 네트워크 규칙 기능을 함께 사용 하 여 보안 노출 영역을 줄일 수 있습니다.
 
 3. 다음으로, **+ 기존 가상 네트워크 추가**를 클릭합니다. 기존 VNet이 없는 경우 **+ 새 가상 네트워크 만들기**를 클릭할 수 있습니다. [빠른 시작: Azure Portal을 사용하여 가상 네트워크 만들기](../virtual-network/quick-create-portal.md)
 
@@ -45,7 +46,7 @@ VNet(가상 네트워크) 서비스 엔드포인트 및 규칙이 가상 네트�
     
    [기본 제공 역할](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) 및 [사용자 지정 역할](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles)에 특정 권한 할당에 대해 자세히 알아보세요.
     
-   VNet 및 Azure 서비스 리소스가 동일한 구독이나 다른 구독에 있을 수 있습니다. VNet 및 Azure 서비스 리소스가 서로 다른 구독에 있는 경우 리소스가 동일한 AD(Active Directory) 테넌트에 있어야 합니다.
+   VNet 및 Azure 서비스 리소스가 동일한 구독이나 다른 구독에 있을 수 있습니다. VNet 및 Azure 서비스 리소스가 서로 다른 구독에 있는 경우 리소스가 동일한 AD(Active Directory) 테넌트에 있어야 합니다. 두 구독 모두에 **Microsoft .sql** 리소스 공급자가 등록 되어 있는지 확인 합니다. 자세한 내용은 [resource manager-등록][resource-manager-portal] 을 참조 하세요.
 
    > [!IMPORTANT]
    > 서비스 엔드포인트를 구성하기 전에 서비스 엔드포인트 및 고려 사항에 대한 이 문서를 읽어보는 것이 매우 좋습니다. **Virtual Network 서비스 엔드포인트:** [Virtual Network 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)는 속성 값에 하나 이상의 정식 Azure 서비스 유형 이름이 포함된 서브넷입니다. VNet 서비스 엔드포인트는 SQL Database라는 Azure 서비스를 나타내는 서비스 형식 이름 **Microsoft.Sql**을 사용합니다. 이 서비스 태그는 Azure SQL Database, Azure Database for PostgreSQL 및 MySQL 서비스에도 적용됩니다. **Microsoft.Sql** 서비스 태그를 VNet 서비스 엔드포인트에 적용하는 경우 Azure SQL Database, Azure Database for PostgreSQL 및 Azure Database for MySQL을 포함하는 모든 Azure Database 서비스에 대한 서비스 엔드포인트 트래픽을 서브넷에서 구성합니다. 
@@ -58,3 +59,6 @@ VNet(가상 네트워크) 서비스 엔드포인트 및 규칙이 가상 네트�
 ## <a name="next-steps"></a>다음 단계
 - 마찬가지로 [Azure CLI를 사용하여 Azure Database for MySQL에 대한 VNET 규칙을 만들고 VNet 서비스 엔드포인트를 사용](howto-manage-vnet-using-cli.md)하도록 스크립팅할 수 있습니다.
 - MySQL용 Azure Database 서버 연결에 대한 도움말은 [MySQL용 Azure Database에 대한 연결 라이브러리](./concepts-connection-libraries.md)를 참조하세요.
+
+<!-- Link references, to text, Within this same GitHub repo. --> 
+[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md

@@ -116,7 +116,7 @@ Azure Cosmos DB에 연결하는 또 다른 방법은 연결 문자열을 사용�
     ![database2 삭제](./media/storage-explorer/delete-database2.png) 
 
 #### <a name="create-a-collection"></a>컬렉션 만들기
-1. 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **컬렉션 만들기**를 선택한 후 **컬렉션 ID**, **저장소 용량**과 같은 정보를 제공합니다. **확인**을 클릭하여 마칩니다. 
+1. 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **컬렉션 만들기**를 선택한 후 **컬렉션 ID**, **스토리지 용량**과 같은 정보를 제공합니다. **확인**을 클릭하여 마칩니다. 
 
     ![collection1 만들기](./media/storage-explorer/create-collection.png)
 

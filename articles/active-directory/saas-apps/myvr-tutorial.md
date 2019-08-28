@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12d76c8079cf904e09a020a3eb242042ffe9e544
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 10473c820cd0dbb7c7db3f33de203ca4d636414b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66245145"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096484"
 ---
 # <a name="tutorial-integrate-myvr-with-azure-active-directory"></a>자습서: Azure Active Directory와 MyVR 통합
 
@@ -83,13 +83,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 사용자가 **기본 SAML 구성** 섹션에서 **IDP** 시작 모드로 애플리케이션을 구성하려는 경우에는 앱이 이미 Azure와 사전 통합되어 있으므로 사용자가 수행해야 하는 단계가 없습니다.
 
-1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
    **로그온 URL** 텍스트 상자에 `https://ess.virtualroster.net/ess/login.aspx` URL을 입력합니다.
 
 1. 위의 이미지와 같이 SAML 토큰 특성을 구성하기 위해 **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 **편집 아이콘**을 사용하여 클레임을 편집하거나 **새 클레임 추가**를 사용하여 클레임을 추가하고, 다음 단계를 수행합니다.
 
-   | Name | 원본 특성|
+   | 이름 | 원본 특성|
    | ---------------| --------------- |
    | givenname | user.givenname |
    | surname | user.surname |

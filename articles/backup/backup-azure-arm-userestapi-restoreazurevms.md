@@ -1,21 +1,21 @@
 ---
 title: 'Azure Backup: REST API를 사용하여 Azure VM 복원'
 description: REST API를 사용하여 Azure VM 백업의 복원 작업 관리
-services: backup
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: REST API, Azure VM 백업, Azure VM 복원,
 ms.service: backup
 ms.topic: conceptual
 ms.date: 09/12/2018
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 4a65e8a855b9be797c1ceeacf4b74fea74697d00
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bdbceec2f1d0a900ffdb392d8a0505ce11419036
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60646659"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954900"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>REST API를 사용하여 Azure Virtual Machines 복원
 
@@ -123,7 +123,7 @@ X-Powered-By: ASP.NET
 
 ## <a name="restore-disks"></a>디스크 복원
 
-백업 데이터에서 VM 만들기를 사용자 지정해야 하는 경우 선택한 스토리지 계정에 디스크를 복원하고 관련 요구 사항에 따라 해당 디스크에서 VM을 만들 수 있습니다. 스토리지 계정은 복원 서비스 자격 증명 모음과 동일한 지역에 있어야 하며 영역이 중복돼서는 안 됩니다. 디스크 뿐만 아니라 백업 VM("vmconfig.json")의 구성도 지정된 스토리지 계정에 저장됩니다.
+백업 데이터에서 VM 만들기를 사용자 지정해야 하는 경우 선택한 스토리지 계정에 디스크를 복원하고 관련 요구 사항에 따라 해당 디스크에서 VM을 만들 수 있습니다. 스토리지 계정은 복원 서비스 자격 증명 모음과 동일한 지역에 있어야 하며 영역이 중복돼서는 안 됩니다. 백업 된 VM ("vmconfig. json")의 구성과 함께 디스크는 지정 된 저장소 계정에 저장 됩니다.
 
 디스크 복원을 트리거하면 *POST*를 요청합니다. 디스크 복원 작업에 대한 자세한 내용은 [REST API "복원 트리거"](https://docs.microsoft.com/rest/api/backup/restores/trigger)를 참조하세요.
 
@@ -137,9 +137,9 @@ POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/
 
 Azure VM 백업에서 디스크 복원을 트리거하려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|이름  |형식  |설명  |
+|이름  |형식  |Description  |
 |---------|---------|---------|
-|properties     | [IaaSVMRestoreRequest](https://docs.microsoft.com/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
+|속성     | [IaaSVMRestoreRequest](https://docs.microsoft.com/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
 요청 본문 및 기타 세부 정보에 대한 전체 정의 목록은 [REST API 문서 복원 트리거](https://docs.microsoft.com/rest/api/backup/restores/trigger#request-body)를 참조하세요.
 
@@ -165,7 +165,7 @@ Azure VM 백업에서 디스크 복원을 트리거하려면 요청 본문의 �
 }
 ```
 
-### <a name="response"></a>response
+### <a name="response"></a>응답
 
 복원 디스크의 트리거는 [비동기 작업](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)입니다. 즉, 이 작업은 별도로 추적해야 하는 다른 작업을 만듭니다.
 

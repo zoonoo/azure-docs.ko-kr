@@ -1,32 +1,32 @@
 ---
 title: .NET을 사용하여 검토 만들기 - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: .NET용 Azure Content Moderator SDK를 사용하여 검토를 만드는 방법입니다.
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 153d42bf4ce4322536d6837be3058d1f9bfb49a2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8c9f8b3733a4b2491c4199f041ba6b24efbb0224
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60607184"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881908"
 ---
-# <a name="create-human-reviews-net"></a>사용자 검토 (.NET) 만들기
+# <a name="create-human-reviews-net"></a>사용자 리뷰 만들기 (.NET)
 
-검토 저장 하 고 평가 하는 조정자에 대 한 콘텐츠를 표시 합니다. 사용자 검토를 완료 되 면 결과 지정 된 콜백 끝점에 전송 됩니다. 이 가이드에서는 정보 제공 및 사용 하는 데 코드 샘플을 시작 합니다 [Content Moderator SDK for.NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 에:
+평가를 위해 인적 중재자의 콘텐츠를 저장 하 고 표시 합니다. 사용자가 검토를 완료 하면 결과가 지정 된 콜백 끝점으로 전송 됩니다. 이 가이드는 [.net 용 CONTENT MODERATOR SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 를 사용 하 여 시작 하는 데 도움이 되는 정보와 코드 샘플을 제공 합니다.
 
 - 사용자 중재자에 대한 검토 집합 만들기
 - 사용자 중재자에 대한 기존 검토의 상태 가져오기
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-- 로그인 또는 Content Moderator에서 계정을 만듭니다 [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 사이트입니다.
+- Content Moderator [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 사이트에서 로그인 하거나 계정을 만드세요.
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>API 키에서 검토 만들기에 대한 검토 API를 호출할 수 있는지 확인
 
@@ -157,9 +157,9 @@ public static class Clients
 > [!NOTE]
 > Content Moderator 서비스 키에는 RPS(초당 요청 수) 속도 제한이 있으며, 제한을 초과하는 경우 SDK에서 429 오류 코드로 예외를 throw합니다.
 >
-> 체험판 계층 키에는 하나의 RPS 속도 제한이 있습니다.
+> 체험 계층 키에는 하나의 RPS 속도 제한이 있습니다.
 
-#### <a name="add-the-following-constants-to-the-program-class-in-programcs"></a>다음 상수를 추가 합니다 **프로그램** Program.cs 클래스
+#### <a name="add-the-following-constants-to-the-program-class-in-programcs"></a>Program.cs의 **Program** 클래스에 다음 상수를 추가 합니다.
 
 ```csharp
 /// <summary>
@@ -181,7 +181,7 @@ public static class Clients
     private const string OutputFile = "OutputLog.txt";
 ```
 
-#### <a name="add-the-following-constants-and-static-fields-to-the-program-class-in-programcs"></a>다음 상수 및 정적 필드를 추가 합니다 **프로그램** Program.cs 클래스
+#### <a name="add-the-following-constants-and-static-fields-to-the-program-class-in-programcs"></a>Program.cs의 **Program** 클래스에 다음 상수 및 정적 필드를 추가 합니다.
 
 구독 및 팀에 관련된 정보를 포함하도록 이러한 값을 업데이트합니다.
 
@@ -238,7 +238,7 @@ private const string MetadataKey = "sc";
 private const string MetadataValue = "true";
 ```
 
-#### <a name="add-the-following-static-fields-to-the-program-class-in-programcs"></a>다음 정적 필드를 추가 합니다 **프로그램** Program.cs 클래스
+#### <a name="add-the-following-static-fields-to-the-program-class-in-programcs"></a>Program.cs의 **Program** 클래스에 다음 정적 필드를 추가 합니다.
 
 이러한 필드를 사용하여 애플리케이션 상태를 추적합니다.
 
@@ -382,7 +382,7 @@ private static void CreateReviews(ContentModeratorClient client)
 
 **Main** 메서드에 다음 코드를 추가합니다.
 
-이 코드는 목록을 정의 및 관리하고 이미지를 차단하도록 목록을 사용하는 데 수행하는 많은 작업을 시뮬레이션합니다. 로깅 기능을 사용 하면 콘텐츠 mModerator 서비스에 SDK 호출에 의해 생성 된 응답 개체를 볼 수 있습니다.
+이 코드는 목록을 정의 및 관리하고 이미지를 차단하도록 목록을 사용하는 데 수행하는 많은 작업을 시뮬레이션합니다. 로깅 기능을 사용 하면 콘텐츠 mModerator 서비스에 대 한 SDK 호출로 생성 된 응답 개체를 볼 수 있습니다.
 
 ```csharp
 using (TextWriter outputWriter = new StreamWriter(OutputFile, false))
@@ -536,4 +536,4 @@ Creating reviews for the following images:
 
 ## <a name="next-steps"></a>다음 단계
 
-가져오기는 [Content Moderator.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 다운로드는 [Visual Studio 솔루션](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) 이 및.NET에 대 한 다른 Content Moderator 빠른 시작에 대 한 통합을 시작 하 고 합니다.
+[Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 를 다운로드 하 여 .Net 용 [Visual Studio 솔루션](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) 을 다운로드 하 고이에 대 한 다른 Content Moderator 퀵 스타트를 다운로드 하 고 통합을 시작 합니다.

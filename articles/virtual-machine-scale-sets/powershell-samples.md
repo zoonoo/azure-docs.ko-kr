@@ -34,7 +34,7 @@ ms.locfileid: "55976251"
 | [완전한 가상 머신 확장 집합 만들기](scripts/powershell-sample-create-complete-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | 구성 파일을 사용하여 가상 머신 확장 집합 및 관련 리소스를 만듭니다. |
 | [사용자 지정 VM 이미지에서 확장 집합 만들기](scripts/powershell-sample-create-scale-set-from-custom-image.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 사용자 지정 VM 이미지를 사용하는 가상 머신 확장 집합을 만듭니다. |
 | [확장 집합에 애플리케이션 설치](scripts/powershell-sample-install-apps.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Azure 사용자 지정 스크립트 확장을 사용하여 기본 웹 애플리케이션을 확장 집합에 설치합니다. |
-|**저장소 관리**||
+|**스토리지 관리**||
 | [확장 집합에 디스크 만들기 및 연결](scripts/powershell-sample-attach-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 연결된 데이터 디스크가 있는 가상 머신 확장 집합을 만듭니다. |
 |**크기 조정 및 중복 관리**||
 | [호스트 기반 자동 크기 조정 사용](scripts/powershell-sample-enable-autoscale.md?toc=%2fpowershell%2fazure%2ftoc.json) | CPU 사용량에 따라 자동으로 크기 조정되도록 구성된 가상 머신 확장 집합을 만듭니다. |

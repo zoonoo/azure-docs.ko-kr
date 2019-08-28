@@ -20,12 +20,12 @@ ms.locfileid: "67479852"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Azure Function Event Grid 트리거 로컬 디버깅
 
-이 문서에서는 저장소 계정에서 발생하는 Azure Event Grid 이벤트를 처리하는 로컬 함수를 디버그하는 방법을 설명합니다. 
+이 문서에서는 스토리지 계정에서 발생하는 Azure Event Grid 이벤트를 처리하는 로컬 함수를 디버그하는 방법을 설명합니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
 - 기존 함수 앱 만들기 또는 사용
-- 기존 저장소 계정 만들기 또는 사용
+- 기존 스토리지 계정 만들기 또는 사용
 - [ngrok](https://ngrok.com/)를 다운로드하여 Azure에서 로컬 함수를 호출하도록 허용
 
 ## <a name="create-a-new-function"></a>새 함수 만들기
@@ -62,11 +62,11 @@ ngrok http -host-header=localhost 7071
 
 *ngrok*가 실행될 때 생성된 **HTTPS** URL을 복사합니다. 이 값은 Event Grid 이벤트 엔드포인트를 구성할 때 사용됩니다.
 
-## <a name="add-a-storage-event"></a>저장소 이벤트 추가
+## <a name="add-a-storage-event"></a>스토리지 이벤트 추가
 
-Azure Portal을 열고 저장소 계정으로 이동한 후 **이벤트** 옵션을 클릭합니다.
+Azure Portal을 열고 스토리지 계정으로 이동한 후 **이벤트** 옵션을 클릭합니다.
 
-![저장소 계정 이벤트 추가](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-add-event.png)
+![스토리지 계정 이벤트 추가](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-add-event.png)
 
 *이벤트* 창에서 **이벤트 구독** 단추를 클릭합니다. *이벤트 구독* 창에서 *엔드포인트 유형* 드롭다운을 클릭하고 **웹후크**를 선택합니다.
 
@@ -89,7 +89,7 @@ Azure Portal을 열고 저장소 계정으로 이동한 후 **이벤트** 옵션
 
 ## <a name="upload-a-file"></a>파일 업로드
 
-이제 로컬 함수에서 처리할 Event Grid 이벤트를 트리거하기 위해 저장소 계정에 파일을 업로드할 수 있습니다. 
+이제 로컬 함수에서 처리할 Event Grid 이벤트를 트리거하기 위해 스토리지 계정에 파일을 업로드할 수 있습니다. 
 
 [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 열고 스토리지 계정에 연결합니다. 
 
@@ -103,13 +103,13 @@ Azure Portal을 열고 저장소 계정으로 이동한 후 **이벤트** 옵션
 
 ## <a name="debug-the-function"></a>함수 디버그
 
-Event Grid가 저장소 컨테이너에 새 파일이 업로드된 것을 인식하면 로컬 함수에서 중단점이 적중됩니다.
+Event Grid가 스토리지 컨테이너에 새 파일이 업로드된 것을 인식하면 로컬 함수에서 중단점이 적중됩니다.
 
 ![ngrok 시작](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-breakpoint.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 문서에서 만든 리소스를 정리하려면 저장소 계정에서 **test** 컨테이너를 삭제합니다.
+이 문서에서 만든 리소스를 정리하려면 스토리지 계정에서 **test** 컨테이너를 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

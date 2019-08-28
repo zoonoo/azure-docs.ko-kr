@@ -145,4 +145,4 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 이 문서에서는 VM을 만들고 VM에서 네트워크 라우팅을 진단했습니다. Azure가 여러 개의 기본 경로를 만들고 두 개의 다른 대상에 대한 라우팅을 테스트했음을 알아보았습니다. [Azure에서 라우팅](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 및 [사용자 지정 경로를 만드는](../virtual-network/manage-route-table.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-route) 방법을 알아봅니다.
 
-아웃바운드 VM 연결의 경우 Network Watcher의 [연결 문제 해결](network-watcher-connectivity-powershell.md) 기능을 사용하여 VM과 엔드포인트 간의 네트워크 트래픽을 허용하거나 거부하는 대기 시간을 결정할 수도 있습니다. Network Watcher 연결 모니터 기능을 사용하여 시간에 따라 IP 주소 또는 URL과 같은 VM과 엔드포인트 간의 통신을 모니터링할 수 있습니다. 방법을 알아보려면 [네트워크 연결 모니터링](connection-monitor.md)을 참조하세요.
+아웃바운드 VM 연결의 경우 Network Watcher의 [연결 문제 해결](network-watcher-connectivity-powershell.md) 기능을 사용하여 대기 시간 외에도 VM과 엔드포인트 간의 허용 또는 거부되는 네트워크 트래픽을 확인할 수 있습니다. Network Watcher 연결 모니터 기능을 사용하여 시간에 따라 IP 주소 또는 URL과 같은 VM과 엔드포인트 간의 통신을 모니터링할 수 있습니다. 방법을 알아보려면 [네트워크 연결 모니터링](connection-monitor.md)을 참조하세요.

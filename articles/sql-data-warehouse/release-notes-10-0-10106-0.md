@@ -5,17 +5,17 @@ services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 05/13/2019
+ms.date: 07/03/2019
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: 9e5f10c2b4c2108626db79ad9821a8b07e57a2e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ee01ebad9e03aaa34911db49ce344d51b6a756d8
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417706"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798725"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Azure SQL Data Warehouse 릴리스 정보
 
@@ -25,20 +25,31 @@ ms.locfileid: "66417706"
 
 새로운 기능은 모든 지역에 롤아웃 되는 대로 인스턴스 및 기능 가용성에 대 한 최신 Azure SQL DW 릴리스 배포 된 버전을 확인 합니다. Azure SQL DW 버전을 확인 하려면 SQL Server Management Studio (SSMS)를 통해 데이터 웨어하우스에 연결 하 고 실행 `SELECT @@VERSION AS 'SQL Data Warehouse';` Azure SQL DW의 현재 버전을 반환 합니다.
 
-예제 출력: ![SQL Data Warehouse 버전](./media/release-notes/sql_data_warehouse_version.png)
+예제 출력:
+
+![SQL Data Warehouse 버전](./media/release-notes/sql_data_warehouse_version.png)
 
 릴리스는 것인지 확인 된 날짜를 사용 하 여 Azure SQL DW에 적용 되었습니다.
+
+## <a name="july-2019"></a>2019 년 7 월
+
+| 서비스 개선 사항 | 세부 정보 |
+| --- | --- |
+|**구체화 된 뷰 (미리 보기)**|구체화 된 뷰는 뷰 정의 쿼리에서 반환 되는 데이터를 유지 하 고 기본 테이블의 데이터가 변경 될 때 자동으로 업데이트 됩니다. 간단한 유지 관리 작업을 제공 하는 동안 복잡 한 쿼리 (일반적으로 조인 및 집계를 사용 하 여 쿼리)의 성능이 향상 됩니다. 참조 항목: </br> - [CREATE MATERIALIZED VIEW AS SELECT &#40;TRANSACT-SQL&#41;](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest)</br> - [ALTER MATERIALIZED VIEW &#40;TRANSACT-SQL&#41;](/sql/t-sql/statements/alter-materialized-view-transact-sql?view=azure-sqldw-latest) </br> - [Azure SQL Data Warehouse에서 지원 되는 T-SQL 문](/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements)|
+|**추가 T-SQL 지원**|SQL Data Warehouse의 T-SQL 언어 노출 영역에 대 한 지원을 포함 하도록 확장 되었습니다. </br> - [AT TIME ZONE](/sql/t-sql/queries/at-time-zone-transact-sql?view=azure-sqldw-latest)</br> - [STRING_AGG](/sql/t-sql/functions/string-agg-transact-sql?view=azure-sqldw-latest)|
+|**결과 집합 캐싱 (미리 보기)**|DBCC 명령이 추가 이전에 발표 된 결과 관리 하려면 캐시를 설정 합니다. 참조 항목: </br> - [DBCC DROPRESULTSETCACHE &#40;TRANSACT-SQL&#41;](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest)  </br> - [DBCC SHOWRESULTCACHESPACEUSED &#40;TRANSACT-SQL&#41;](/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?view=azure-sqldw-latest) </br></br> 새 result_set_cache 열도 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) 표시 결과 사용 하는 쿼리를 실행된 하는 경우 캐시를 설정 하 합니다.|
+|**클러스터형된 columnstore 인덱스 (미리 보기)를 정렬합니다.**|새 열, column_store_order_ordinal를 추가할 [sys.index_columns](/sql/relational-databases/system-catalog-views/sys-index-columns-transact-sql?view=azure-sqldw-latest) 순서가 지정 된 클러스터형된 columnstore 인덱스의 열 순서를 식별 하 합니다.|
 
 ## <a name="may-2019"></a>2019년 5월
 
 | 서비스 개선 사항 | 세부 정보 |
 | --- | --- |
-|**동적 데이터 마스킹 (미리 보기)**|동적 데이터 마스킹 (DDM) 것에 즉석에서 정의한 마스킹 규칙을 기준으로 쿼리 결과 난독 처리 하 여 데이터 웨어하우스의 중요 한 데이터에 대 한 무단된 액세스를 방지 합니다. 자세한 내용은 [SQL Database 동적 데이터 마스킹](/azure/sql-database/sql-database-dynamic-data-masking-get-started)합니다.|
-|**워크 로드 중요도 이제 일반 공급**|워크 로드 관리 분류 및 중요도의 쿼리 실행된 순서에 영향을 줄 수 있는 기능을 제공 합니다. 워크 로드 중요도에 대 한 자세한 내용은 참조 하세요.는 [분류](sql-data-warehouse-workload-classification.md) 하 고 [중요도](sql-data-warehouse-workload-importance.md) 문서의 개요 문서입니다. 체크 아웃 합니다 [워크 로드 분류자 만들기](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) 문서도 합니다.<br/><br/>실행 중인 워크 로드 중요도 참조는 아래 비디오:<br/> -[워크 로드 관리 개념](https://www.youtube.com/embed/QcCRBAhoXpM)<br/> -[워크 로드 관리 시나리오](https://www.youtube.com/embed/_2rLMljOjw8)|
+|**동적 데이터 마스킹 (미리 보기)**|DDM(동적 데이터 마스킹)은 정의한 마스킹 규칙을 기반으로 쿼리 결과에서 데이터 웨어하우스 내의 중요한 데이터를 즉석에서 난독 처리함으로써 이 중요 데이터에 대한 무단 액세스를 방지합니다. 자세한 내용은 [SQL Database 동적 데이터 마스킹](/azure/sql-database/sql-database-dynamic-data-masking-get-started)합니다.|
+|**워크 로드 중요도 이제 일반 공급**|워크로드 관리 분류 및 중요도는 쿼리 실행 순서에 영향을 미치는 기능을 제공합니다. 워크 로드 중요도에 대 한 자세한 내용은 참조 하세요.는 [분류](sql-data-warehouse-workload-classification.md) 하 고 [중요도](sql-data-warehouse-workload-importance.md) 문서의 개요 문서입니다. 체크 아웃 합니다 [워크 로드 분류자 만들기](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) 문서도 합니다.<br/><br/>실행 중인 워크 로드 중요도 참조는 아래 비디오:<br/> -[워크 로드 관리 개념](https://www.youtube.com/embed/QcCRBAhoXpM)<br/> -[워크 로드 관리 시나리오](https://www.youtube.com/embed/_2rLMljOjw8)|
 |**추가 T-SQL 지원**|SQL Data Warehouse의 T-SQL 언어 노출 영역에 대 한 지원을 포함 하도록 확장 되었습니다. </br> - [TRIM](/sql/t-sql/functions/trim-transact-sql?view=azure-sqldw-latest)|
 |**JSON 함수**|이제 비즈니스 분석가 쿼리하고 다음 새 JSON 함수를 사용 하 여 Azure Data Warehouse의 JSON 데이터로 서식이 지정 된 문서를 조작 하는 데 친숙 한 T-SQL 언어를 사용할 수 있습니다.:</br> - [ISJSON](/sql/t-sql/functions/isjson-transact-sql?view=azure-sqldw-latest)</br> - [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_MODIFY](/sql/t-sql/functions/json-modify-transact-sql?view=azure-sqldw-latest)</br> - [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest)|
-|**결과 집합 캐싱 (미리 보기)**|결과 집합 캐싱 비즈니스 분석가 용 이해에 시간을 줄이고 사용자가 보고 하는 동안 즉시 쿼리 응답 시간을 사용 하도록 설정 합니다. 자세한 내용은 다음을 참조하세요.</br> - [ALTER DATABASE (TRANSACT-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest)</br> - [ALTER DATABASE SET 옵션 (Transact SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)</br> - [집합 결과 집합 캐싱 (Transact SQL)](/sql/t-sql/statements/set-result-set-caching-transact-sql?view=azure-sqldw-latest)</br> - [SET 문 (TRANSACT-SQL)](/sql/t-sql/statements/set-statements-transact-sql)</br> - [sys.databases (TRANSACT-SQL)](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=azure-sqldw-latest)|
-|**클러스터형된 columnstore 인덱스 (미리 보기)를 정렬합니다.**|Columnstore는 저장 하 고 많은 양의 데이터를 효율적으로 쿼리 키 조력자입니다. 각 테이블에 대해 나눕니다 들어오는 데이터 행 그룹과 행 그룹 폼의 각 열에는 디스크에 있는 세그먼트.  정렬 클러스터형된 columnstore 인덱스를 더 효율적인 세그먼트 제거를 사용 하 여 쿼리 실행을 최적화 합니다.   자세한 내용은 다음을 참조하세요.</br> -  [CREATE TABLE (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest)</br> -  [CREATE COLUMNSTORE INDEX (TRANSACT-SQL)](/sql/t-sql/statements/create-columnstore-index-transact-sql?view=azure-sqldw-latest)합니다.|
+|**결과 집합 캐싱 (미리 보기)**|결과 집합 캐싱 비즈니스 분석가 용 이해에 시간을 줄이고 사용자가 보고 하는 동안 즉시 쿼리 응답 시간을 사용 하도록 설정 합니다. 참조 항목:</br> - [ALTER DATABASE (TRANSACT-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest)</br> - [ALTER DATABASE SET 옵션 (Transact SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)</br> - [집합 결과 집합 캐싱 (Transact SQL)](/sql/t-sql/statements/set-result-set-caching-transact-sql?view=azure-sqldw-latest)</br> - [SET 문 (TRANSACT-SQL)](/sql/t-sql/statements/set-statements-transact-sql)</br> - [sys.databases (TRANSACT-SQL)](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=azure-sqldw-latest)|
+|**클러스터형된 columnstore 인덱스 (미리 보기)를 정렬합니다.**|Columnstore는 대량의 데이터를 저장하고 효율적으로 쿼리할 수 있게 하는 주요 요소입니다. 테이블별로 들어오는 데이터를 행 그룹으로 나누며, 각 행 그룹 열은 디스크의 세그먼트를 형성합니다.  순서가 지정된 클러스터형 columnstore 인덱스는 효율적인 세그먼트 제거를 가능하게 하여 쿼리 실행을 추가로 최적화합니다.   참조 항목:</br> -  [CREATE TABLE (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest)</br> -  [CREATE COLUMNSTORE INDEX (TRANSACT-SQL)](/sql/t-sql/statements/create-columnstore-index-transact-sql?view=azure-sqldw-latest)합니다.|
 
 ## <a name="march-2019"></a>2019 년 3 월
 
@@ -84,7 +95,7 @@ ms.locfileid: "66417706"
 | --- | --- |
 |**일반적으로 사용할 수 있는 virtual Network 서비스 끝점**|이 릴리스에는 모든 Azure 지역의 Azure SQL Data Warehouse에 대한 VNet(가상 네트워크) 서비스 엔드포인트의 일반 공급 버전이 포함됩니다. VNet 서비스 엔드포인트를 사용하면 가상 네트워크 내 지정된 서브넷 또는 서브넷 세트의 논리 서버 연결을 격리할 수 있습니다. VNet에서 Azure SQL Data Warehouse로 전송되는 트래픽은 항상 Azure 백본 네트워크에 유지됩니다. 가상 어플라이언스나 온-프레미스를 통해 인터넷 트래픽을 가져오는 특정 경로보다 이러한 직접 경로를 사용하는 것이 좋습니다. 서비스 엔드포인트를 통한 가상 네트워크 액세스에 대해서는 추가 요금이 부과되지 않습니다. [Azure SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2/)에 대한 현재 가격 책정 모델은 있는 그대로 적용됩니다.<br/><br/>이번 릴리스에서는 [ABFS(Azure Blob FileSystem)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-abfs-driver) 드라이버를 통해 [ADLS(Azure Data Lake Storage Gen2)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)로의 PolyBase 연결도 활성화되었습니다. Azure Data Lake Storage Gen2는 분석 데이터의 전체 수명 주기에 필요한 모든 특성을 Azure Storage에 제공합니다. 두 개의 기존 Azure Storage 서비스인 Azure Blob Storage 및 Azure Data Lake Storage Gen1 기능이 통합됩니다. 파일 시스템 의미 체계, 파일 수준 보안 및 크기 조정과 같은 [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index)의 기능이 [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)의 낮은 비용, 계층화된 스토리지, 고가용성/재해 복구 기능과 결합됩니다.<br/><br/>PolyBase를 사용하면 VNet에서 보안이 적용된 Azure Storage에서 Azure SQL Data Warehouse로 데이터를 가져올 수 있습니다. 마찬가지로 Polybase를 통해 Azure SQL Data Warehouse로부터 VNet에서 보안이 적용된 Azure Storage로 데이터를 내보낼 수도 있습니다.<br/><br/>Azure SQL Data Warehouse의 VNet 서비스 엔드포인트에 대한 자세한 내용은 [블로그 게시물](https://azure.microsoft.com/blog/general-availability-of-vnet-service-endpoints-for-azure-sql-data-warehouse/) 또는 [설명서](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/sql-data-warehouse/toc.json)를 참조하세요.|
 |**자동 성능 모니터링 (미리 보기)**|[쿼리 저장소](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-2017)는 이제 Azure SQL Data Warehouse에 대한 미리 보기로 제공됩니다. 쿼리 저장소는 데이터 웨어하우스의 작업 및 성능을 모니터링하기 위해 쿼리, 쿼리 계획, 런타임 통계 및 쿼리 기록을 추적함으로써 쿼리 성능 문제를 해결하는 데 도움을 주도록 디자인되었습니다. 쿼리 저장소는 다음을 지원하는 내부 저장소 및 DMV(동적 관리 뷰) 세트입니다.<br/><br/>&bull; &nbsp; 식별 및 상위 리소스 소비 쿼리를 조정 합니다.<br/>&bull; &nbsp; 식별 및 계획 되지 않은 워크 로드를 개선 합니다.<br/>&bull; &nbsp; 변경 내용을 통계, 인덱스 또는 시스템 크기 (DWU 설정) 하 여 쿼리 성능 및 계획에 영향을 평가<br/>&bull; &nbsp; 모든 쿼리 실행에 대 한 전체 쿼리 텍스트를 참조 하세요.<br/><br/>쿼리 저장소에는 다음과 같은 3가지 실제 저장소가 포함되어 있습니다.<br/>&bull; &nbsp; 실행 계획 정보를 유지 하기 위한 계획 저장소<br/>&bull; &nbsp; 실행 통계 정보를 유지 하는 것에 대 한 런타임 통계 저장소<br/>&bull; &nbsp; 대기 통계 저장소 대기 통계 정보를 유지 합니다.<br/><br/>SQL Data Warehouse는 이러한 저장소를 자동으로 관리 하 고 추가 비용 없이 지난 7 일 동안 storied 쿼리의 무제한 제공 합니다. 쿼리 저장소를 사용하도록 설정하는 것은 ALTER DATABASE T-SQL 문을 실행하는 것만큼 간단합니다. <br/>sql---ALTER DATABASE [DatabaseName] 설정 QUERY_STORE = ON;---Azure SQL Data Warehouse에서 쿼리 저장소에 대 한 자세한 내용은 문서를 참조 하세요 [쿼리 저장소를 사용 하 여 성능 모니터링](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store), 및 쿼리 저장소 Dmv와 같은 [sys.query_store_query](/sql/relational-databases/system-catalog-views/sys-query-store-query-transact-sql)합니다. 다음은 출시 소식을 발표하는 [블로그 게시물](https://azure.microsoft.com/blog/automatic-performance-monitoring-in-azure-sql-data-warehouse-with-query-store/)입니다.|
-|**Azure SQL Data Warehouse Gen2 낮은 계산 계층**|이제 Azure SQL Data Warehouse Gen2는 하위 컴퓨팅 계층을 지원합니다. 고객은 100 cDWU([데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md))로 시작해서 Azure SQL Data Warehouse의 최고 성능, 유연성 및 보안 기능을 경험할 수 있으며, 몇 분 안에 30,000 cDWU까지 확장할 수 있습니다. 2018년 12월 중순부터, 고객은 [지역](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)의 하위 컴퓨팅 계층에 대한 Gen2 성능 및 유연성을 누릴 수 있으며, 나머지 지역의 경우 2019년 중에 서비스가 지원될 예정입니다.<br/><br/>Microsoft는 차세대 데이터 웨어하우징에 대한 진입점을 낮춰 최적의 평가판 환경이 무엇인지 추측하지 않고 안전한 고성능 데이터 웨어하우스의 모든 이점을 평가하려는 가치 중심 고객에게 문을 열어주고 있습니다. 고객은 현재 500 cDWU 진입점에서 최저 100 cDWU로 시작할 수 있습니다. SQL Data Warehouse Gen2는 일시 중지 및 다시 시작 작업을 계속 지원하며 계산 시 뛰어난 유연성을 제공합니다. 또한 Gen2에서는 쿼리당 2.5배 더 많은 메모리, 최대 128개의 동시 쿼리 및 [적응형 캐싱](https://azure.microsoft.com/blog/adaptive-caching-powers-azure-sql-data-warehouse-performance-gains/) 기능과 함께 제한없는 columnstore 스토리지 용량을 지원합니다. 평균적으로 이러한 기능은 같은 가격으로 제공되는 Gen1의 동일한 데이터 웨어하우스 단위에 비해 5배 더 많은 성능을 보장합니다. 지역 중복 백업은 기본 제공되는 데이터 보호 기능과 함께 Gen2 표준입니다. Azure SQL Data Warehouse Gen2는 필요 시 확장 가능합니다.|
+|**Azure SQL Data Warehouse Gen2 낮은 계산 계층**|이제 Azure SQL Data Warehouse Gen2는 하위 컴퓨팅 계층을 지원합니다. 고객은 100 cDWU([데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md))로 시작해서 Azure SQL Data Warehouse의 최고 성능, 유연성 및 보안 기능을 경험할 수 있으며, 몇 분 안에 30,000 cDWU까지 확장할 수 있습니다. 2018년 12월 중순부터, 고객은 [지역](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)의 하위 컴퓨팅 계층에 대한 Gen2 성능 및 유연성을 누릴 수 있으며, 나머지 지역의 경우 2019년 중에 서비스가 지원될 예정입니다.<br/><br/>Microsoft는 차세대 데이터 웨어하우징에 대한 진입점을 낮춰 최적의 평가판 환경이 무엇인지 추측하지 않고 안전한 고성능 데이터 웨어하우스의 모든 이점을 평가하려는 가치 중심 고객에게 문을 열어주고 있습니다. 고객은 현재 500 cDWU 진입점에서 최저 100 cDWU로 시작할 수 있습니다. SQL Data Warehouse Gen2는 일시 중지 및 다시 시작 작업을 계속 지원하며 컴퓨팅 시 뛰어난 유연성을 제공합니다. 또한 Gen2에서는 쿼리당 2.5배 더 많은 메모리, 최대 128개의 동시 쿼리 및 [적응형 캐싱](https://azure.microsoft.com/blog/adaptive-caching-powers-azure-sql-data-warehouse-performance-gains/) 기능과 함께 제한없는 columnstore 스토리지 용량을 지원합니다. 평균적으로 이러한 기능은 같은 가격으로 제공되는 Gen1의 동일한 데이터 웨어하우스 단위에 비해 5배 더 많은 성능을 보장합니다. 지역 중복 백업은 기본 제공되는 데이터 보호 기능과 함께 Gen2 표준입니다. Azure SQL Data Warehouse Gen2는 필요 시 확장 가능합니다.|
 |**Columnstore 백그라운드 병합**|기본적으로 Azure SQL DW(Azure SQL Data Warehouse)는 [rowgroup](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)이라는 마이크로 파티션을 사용하여 데이터를 열 형식으로 저장합니다. 경우에 따라 인덱스 작성 또는 데이터 로드 시의 메모리 제한으로 인해 rowgroup이 최적 크기인 1백만 개 행보다 더 적은 수로 압축될 수 있습니다. 또한 삭제로 인해 rowgroup이 조각화될 수도 있습니다. 작아지거나 조각화된 rowgroup은 더 많은 메모리를 사용하고 쿼리 실행 효율성이 떨어질 수 있습니다. 이 릴리스의 Azure SQL DW에서는 columnstore 백그라운드 유지 관리 작업이 압축된 작은 rowgroup을 더 큰 rowgroup으로 병합하여 메모리 활용률을 높이고 쿼리 실행 속도를 높입니다.
 | | |
 

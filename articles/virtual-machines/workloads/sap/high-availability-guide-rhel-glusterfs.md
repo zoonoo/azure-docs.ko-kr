@@ -76,7 +76,7 @@ ms.locfileid: "60711284"
 
 ## <a name="overview"></a>개요
 
-SAP NetWeaver의 가용성을 높이려면 공유 저장소가 필요합니다. GlusterFS는 별도의 클러스터에서 구성되며, 여러 SAP 시스템에서 사용할 수 있습니다.
+SAP NetWeaver의 가용성을 높이려면 공유 스토리지가 필요합니다. GlusterFS는 별도의 클러스터에서 구성되며, 여러 SAP 시스템에서 사용할 수 있습니다.
 
 ![SAP NetWeaver 고가용성 개요](./media/high-availability-guide-rhel-glusterfs/rhel-glusterfs.png)
 

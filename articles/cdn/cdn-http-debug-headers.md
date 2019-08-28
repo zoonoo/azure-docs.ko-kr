@@ -7,24 +7,24 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: magattus
-ms.openlocfilehash: e5693e0e191b36aa8d4552824c649a38d2f17b5b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dec753d7c891d226aa2e6d3efa993d8d24adfbaa
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475292"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593834"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Azure CDN 규칙 엔진의 X-EC-Debug HTTP 헤더
 `X-EC-Debug` 디버그 캐시 요청 헤더는 요청된 자산에 적용되는 캐시 정책에 대한 추가 정보를 제공합니다. 이러한 헤더는 **Verizon의 Azure CDN Premium** 제품에만 해당됩니다.
 
-## <a name="usage"></a>사용 현황
+## <a name="usage"></a>사용법
 POP 서버에서 사용자에게 보내는 응답에는 다음 조건이 충족되는 경우에만 `X-EC-Debug` 헤더가 포함됩니다.
 
 - [디버그 캐시 응답 헤더 기능](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers)은 지정된 요청에서 활성화됩니다.

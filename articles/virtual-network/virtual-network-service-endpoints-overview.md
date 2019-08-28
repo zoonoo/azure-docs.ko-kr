@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/15/2018
-ms.author: sumeet.mittal
+ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 54178ae8988266c751ae0e23ae8c5e6ef7a16f20
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: e36e1ca17b5106c79076d1c62e737ba60907ab19
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67544152"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67666468"
 ---
 # <a name="virtual-network-service-endpoints"></a>Virtual Network 서비스 엔드포인트
 
@@ -39,11 +39,12 @@ VNet(Virtual Network) 서비스 엔드포인트는 직접 연결을 통해 가�
 - **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : 모든 Azure 지역에서 일반 공급됩니다.
 - **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : 모든 Azure 지역에서 일반 공급됩니다.
 - **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : ADLS Gen1을 사용할 수 있는 모든 Azure 지역에서 일반 공급됩니다.
+- **[Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)** : App service를 사용할 수 있는 모든 Azure 지역에서 일반 공급
 
 **공개 미리 보기**
 
 - **[Azure Container Registry](../container-registry/container-registry-vnet.md)** : Azure Container Registry를 사용할 수 있는 모든 Azure 지역에서 사용할 수 있는 미리 봅니다.
-- **[Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/app-service-ip-restrictions)** : App service를 사용할 수 있는 모든 Azure 지역에서 사용할 수 있는 미리 봅니다.
+을 선택합니다.
 
 최신 알림은 [Azure Virtual Network 업데이트](https://azure.microsoft.com/updates/?product=virtual-network) 페이지를 확인하세요.
 
@@ -90,7 +91,7 @@ VNet(Virtual Network) 서비스 엔드포인트는 직접 연결을 통해 가�
 
 ### <a name="considerations"></a>고려 사항
 
-- 서비스 엔드포인트를 사용하도록 설정한 후에 서브넷에 있는 가상 머신의 원본 IP 주소는 해당 서브넷의 서비스와 통신할 때 공용 IPv4 주소가 아닌 프라이빗 IPv4 주소를 사용하도록 전환됩니다. 이 전환 중에 서비스에 대한 기존의 모든 오픈 TCP 연결이 닫힙니다. 서브넷의 서비스에 서비스 엔드포인트를 사용하거나 사용하지 않도록 설정하는 경우 중요한 작업이 실행되지 않아야 합니다. 또한 IP 주소를 전환한 후에 응용 프로그램이 Azure 서비스에 자동으로 연결될 수 있어야 합니다.
+- 서비스 엔드포인트를 사용하도록 설정한 후에 서브넷에 있는 가상 머신의 원본 IP 주소는 해당 서브넷의 서비스와 통신할 때 공용 IPv4 주소가 아닌 프라이빗 IPv4 주소를 사용하도록 전환됩니다. 이 전환 중에 서비스에 대한 기존의 모든 오픈 TCP 연결이 닫힙니다. 서브넷의 서비스에 서비스 엔드포인트를 사용하거나 사용하지 않도록 설정하는 경우 중요한 작업이 실행되지 않아야 합니다. 또한 IP 주소를 전환한 후에 애플리케이션이 Azure 서비스에 자동으로 연결될 수 있어야 합니다.
 
   IP 주소 전환은 가상 네트워크의 서비스 트래픽에만 영향을 줍니다. 가상 머신에 할당된 공용 IPv4 주소 간에 주소가 지정된 다른 모든 트래픽에는 영향이 없습니다. Azure 서비스의 경우 Azure 공용 IP 주소를 사용하는 기존 방화벽 규칙이 있는 경우 이러한 규칙은 가상 네트워크 프라이빗 주소로 전환하는 동시에 작동이 중지됩니다.
 - 서비스 엔드포인트에서 Azure 서비스의 DNS 항목은 현재 상태로 유지되고 Azure 서비스에 할당된 공용 IP 주소로 계속 사용됩니다.
@@ -150,6 +151,6 @@ FAQ는 [Virtual Network 서비스 엔드포인트 FAQ](https://docs.microsoft.co
 - [가상 네트워크에 대한 Azure SQL Database 계정을 보호](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)하는 방법에 대한 자세한 내용
 - [Azure SQL Data Warehouse를 가상 네트워크에서 안전하게 보호](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)하는 방법에 대한 자세한 내용
 - [가상 네트워크의 Azure 서비스 통합](virtual-network-for-azure-services.md)에 대한 자세한 내용
-- [Virtual Network 서비스 엔드포인트 정책](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)에 대한 자세한 내용
+- [Virtual Network 서비스 엔드포인트 정책](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)에 대해 알아보기
 -  빠른 시작: VNet의 서브넷에 서비스 엔드포인트를 설정하고 해당 서브넷에 Azure Storage 계정을 보호하기 위한 [Azure Resource Manager 템플릿](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration).
 

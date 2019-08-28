@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: b5ed614fdd378b36d8f95fc90ce7ff98d63ef31a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8357a53ee065812922b5df53fbdef7c14e5f0ff7
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60761916"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621037"
 ---
 # <a name="troubleshoot-input-connections"></a>입력 연결 문제 해결
 
@@ -29,7 +29,7 @@ ms.locfileid: "60761916"
         
     각 입력에 대해 [**샘플 데이터**](stream-analytics-sample-data-input.md) 단추를 사용하고 입력된 샘플 데이터를 다운로드합니다.
         
-    샘플 데이터를 검사하여 데이터의 셰이프(스키마 및 [데이터 형식](https://msdn.microsoft.com/library/azure/dn835065.aspx))를 파악합니다.
+    샘플 데이터를 검사하여 데이터의 셰이프(스키마 및 [데이터 형식](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics))를 파악합니다.
 
 ## <a name="malformed-input-events-causes-deserialization-errors"></a>잘못된 형식의 입력 이벤트로 인해 역직렬화 오류가 발생할 수 있습니다. 
 Stream Analytics 작업의 입력 스트림에 잘못된 형식의 메시지가 포함되어 있으면 역직렬화 문제가 발생합니다. 예를 들어 잘못된 형식의 메시지는 JSON 개체에서 괄호나 중괄호가 누락되거나 시간 필드의 타임스탬프 형식이 잘못된 경우 발생할 수 있습니다. 
@@ -145,5 +145,5 @@ FROM data
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)

@@ -10,18 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: faf0cab55ec0cef034638d218f2172f3676ff39b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: edf475ac11168c33a6b11ccda3482ac44579e8d8
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66245101"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726215"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Search 인덱스에 데이터 복사
 
-> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
+> [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-azure-search-connector.md)
 > * [현재 버전](connector-azure-search.md)
 
@@ -41,15 +41,15 @@ ms.locfileid: "66245101"
 
 Azure Search 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성을 다음으로 설정해야 합니다. **AzureSearch** | 예 |
 | url | Azure Search 서비스의 URL입니다. | 예 |
-| key | Azure Search 서비스의 관리자 키입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 프라이빗 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아닙니다. |
+| Key | Azure Search 서비스의 관리자 키입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 프라이빗 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 > [!IMPORTANT]
-> 연결 된 서비스, 클라우드 데이터 저장소에서 Azure Search에서 Azure Search 인덱스로 데이터를 복사 하는 경우 Azure Integration Runtime connactVia의 명시적 영역으로 참조 해야 합니다. Azure Search가 있는 지역을 설정합니다. [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)에서 자세히 알아봅니다.
+> 클라우드 데이터 저장소에서 Azure Search 인덱스로 데이터를 복사 하는 경우 Azure Search 연결 된 서비스에서 연결 된 서비스에서 명시적 지역이 있는 Azure Integration Runtime을 참조 해야 합니다. Azure Search가 있는 지역을 설정합니다. [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)에서 자세히 알아봅니다.
 
 **예제:**
 
@@ -77,9 +77,9 @@ Azure Search 연결된 서비스에 다음 속성이 지원됩니다.
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 데이터 세트 문서를 참조하세요. 이 섹션에서는 Azure Search 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-Azure Search로 데이터를 복사할에 다음 속성이 지원 됩니다.
+Azure Search에 데이터를 복사 하기 위해 지원 되는 속성은 다음과 같습니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **AzureSearchIndex** | 예 |
 | indexName | Azure Search 인덱스의 이름입니다. Data Factory는 인덱스를 만들지 않습니다. Azure Search에는 인덱스가 있어야 합니다. | 예 |
@@ -91,12 +91,13 @@ Azure Search로 데이터를 복사할에 다음 속성이 지원 됩니다.
     "name": "AzureSearchIndexDataset",
     "properties": {
         "type": "AzureSearchIndex",
+        "typeProperties" : {
+            "indexName": "products"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Azure Search linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties" : {
-            "indexName": "products"
         }
    }
 }
@@ -110,11 +111,11 @@ Azure Search로 데이터를 복사할에 다음 속성이 지원 됩니다.
 
 Azure Search에 데이터를 복사하려면 복사 작업의 원본 형식을 **AzureSearchIndexSink**로 설정합니다. 복사 작업 **sink** 섹션에서 다음 속성이 지원됩니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **AzureSearchIndexSink** | 예 |
-| writeBehavior | 문서가 인덱스에 이미 있는 경우 병합할지 또는 바꿀지를 지정합니다. [WriteBehavior 속성](#writebehavior-property)을 참조하세요.<br/><br/>허용되는 값은 다음과 같습니다. **Merge**(기본값) 및 **Upload**. | 아닙니다. |
-| writeBatchSize | 버퍼 크기가 writeBatchSize에 도달한 경우 Azure Search 인덱스에 데이터를 업로드합니다. 자세한 내용은 [WriteBatchSize 속성](#writebatchsize-property)을 참조하세요.<br/><br/>허용되는 값은 정수 1~1,000이고 기본값은 1,000입니다. | 아닙니다. |
+| writeBehavior | 문서가 인덱스에 이미 있는 경우 병합할지 또는 바꿀지를 지정합니다. [WriteBehavior 속성](#writebehavior-property)을 참조하세요.<br/><br/>허용되는 값은 다음과 같습니다. **Merge**(기본값) 및 **Upload**. | 아니요 |
+| writeBatchSize | 버퍼 크기가 writeBatchSize에 도달한 경우 Azure Search 인덱스에 데이터를 업로드합니다. 자세한 내용은 [WriteBatchSize 속성](#writebatchsize-property)을 참조하세요.<br/><br/>허용되는 값은 정수 1~1,000이고 기본값은 1,000입니다. | 아니요 |
 
 ### <a name="writebehavior-property"></a>WriteBehavior 속성
 

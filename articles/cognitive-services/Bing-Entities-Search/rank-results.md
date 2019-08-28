@@ -1,6 +1,6 @@
 ---
 title: 순위를 사용하여 대답 표시 - Bing Entity Search
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 순위를 사용하여 Bing Entity Search API가 반환하는 응답을 표시하는 방법을 알아봅니다.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 9e2a4075436145a0cc185b7ab1b406fa8d27b8e3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 110cef117683b20170649a231226c8193496edf3
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60309337"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423908"
 ---
 # <a name="using-ranking-to-display-entity-search-results"></a>순위를 사용하여 엔터티 검색 결과 표시  
 
@@ -24,7 +24,7 @@ ms.locfileid: "60309337"
 각 그룹 내에서 [항목](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankinggroup-items) 배열은 콘텐츠를 표시해야 하는 순서를 식별합니다. 각 항목은 답변 내에서 결과를 식별하는 두 가지 방법을 제공합니다.  
  
 
-|필드 | 설명  |
+|필드 | Description  |
 |---------|---------|
 |`answerType` 및 `resultIndex` | `answerType`은 응답(엔터티 또는 장소)을 식별하고 `resultIndex`는 응답 내의 결과(예: 엔터티)를 식별합니다. 인덱스는 0부터 시작합니다.|
 |`value`    | `value`는 답변 또는 답변 내 결과의 ID와 일치하는 ID를 포함합니다. 답변 또는 결과 중 하나만 ID를 포함합니다. |

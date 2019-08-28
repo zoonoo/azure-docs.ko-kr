@@ -7,19 +7,20 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: 91c870e5-2669-437f-9896-ee6c7fe1d51d
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 10dc31e21f20618450de6d99b3fce40d63272d31
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c88c157c5f37bb0bd1e82225bdacfbd60806bbf8
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204365"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620635"
 ---
 # <a name="connect-data-from-azure-ad-identity-protection"></a>Azure AD Id 보호에서 데이터 연결
 
@@ -30,7 +31,7 @@ ms.locfileid: "65204365"
 로그를 스트리밍하려면 [Azure AD Id 보호](https://docs.microsoft.com/azure/information-protection/reports-aip) Azure 대시보드 보기, 사용자 지정 경고를 만들고, 조사가 향상 Sentinel로 스트림 경고를 Azure Sentinel에 합니다. Azure Active Directory Id 보호 위험을 즉시 수정 하 고 나중에 이벤트가 자동으로 해결 하는 정책을 설정 하는 기능을 사용 하 여 위험 사용자, 위험 이벤트 및 취약성에 통합된 된 뷰를 제공 합니다. 서비스는 고객 id를 보호 하는 Microsoft의 경험을 토대로 구축 되었으며에서 신호를 하루 13 십억 로그인 바탕으로 해 놀라울 정도의 정확성. 
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 있어야는 [Azure Active Directory Premium P1 또는 P2 라이선스](https://azure.microsoft.com/pricing/details/active-directory/)
 - 전역 관리자 또는 보안 관리자 권한이 있는 사용자

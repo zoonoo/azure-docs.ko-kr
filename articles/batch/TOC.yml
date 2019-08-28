@@ -27,7 +27,7 @@
       href: tutorial-rendering-batchexplorer-blender.md
     - name: 병렬 R 시뮬레이션
       href: tutorial-r-doazureparallel.md
-    - name: Batch 및 Azure Functions이 있는 OCR
+    - name: Batch 및 Functions를 사용하는 OCR
       href: tutorial-batch-functions.md
 - name: 샘플
   items:
@@ -61,6 +61,8 @@
           href: batch-account-create-portal.md
         - name: Batch Management .NET을 사용하여 배치 계정 관리
           href: batch-management-dotnet.md
+        - name: 비용 분석 및 예산
+          href: budget.md
     - name: Azure AD를 사용하여 인증
       items:
         - name: Batch 서비스 포함 Azure AD
@@ -71,21 +73,23 @@
       href: batch-application-packages.md
     - name: 풀 만들기 및 관리
       items:
-        - name: 자동 크기 조정 계산 노드
+        - name: 자동 크기 조정 컴퓨팅 노드
           href: batch-automatic-scaling.md
-        - name: 계산 노드에 대한 VM 크기 선택
+        - name: 컴퓨팅 노드에 대한 VM 크기 선택
           href: batch-pool-vm-sizes.md
-        - name: 계산 노드에 대한 액세스 구성
+        - name: 컴퓨팅 노드에 대한 액세스 구성
           href: pool-endpoint-configuration.md
-        - name: 사용자 지정 이미지로 풀 만들기
+        - name: Shared Image Gallery를 사용하여 풀 만들기
           href: batch-custom-images.md
         - name: 가상 네트워크에서 풀 만들기
           href: batch-virtual-network.md
+        - name: 가상 파일 시스템 탑재
+          href: virtual-file-mount.md
         - name: Azure 파일 공유 탑재
           href: pool-file-shares.md
         - name: RDMA 또는 GPU 인스턴스 사용
           href: batch-pool-compute-intensive-sizes.md
-        - name: Linux 계산 노드 사용
+        - name: Linux 컴퓨팅 노드 사용
           href: batch-linux-nodes.md
         - name: 우선 순위가 낮은 VM 사용
           href: batch-low-pri-vms.md

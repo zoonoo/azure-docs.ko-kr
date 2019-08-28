@@ -28,7 +28,7 @@ Azure Scheduler REST API는 다음과 같은 주요 엔터티 또는 리소스�
 
 | 엔터티 | 설명 |
 |--------|-------------|
-| **작업** | 간단하거나 복잡한 실행 전략을 통해 단일 되풀이 작업을 정의합니다. 작업에는 HTTP, 저장소 큐, Service Bus 큐 또는 Service Bus 항목 요청이 포함될 수 있습니다. | 
+| **작업** | 간단하거나 복잡한 실행 전략을 통해 단일 되풀이 작업을 정의합니다. 작업에는 HTTP, 스토리지 큐, Service Bus 큐 또는 Service Bus 항목 요청이 포함될 수 있습니다. | 
 | **작업 컬렉션** | 작업 그룹을 포함하며 컬렉션에서 작업이 공유하는 설정, 할당량 및 제한을 유지합니다. Azure 구독 소유자는 작업 컬렉션을 만들고, 사용 또는 애플리케이션 경계를 기준으로 작업을 함께 그룹화할 수 있습니다. 작업 컬렉션은 다음과 같은 특성이 있습니다. <p>- 한 지역으로 제한됩니다. <br>- 컬렉션의 모든 작업에 대해 사용량을 제한할 수 있도록 할당량을 적용할 수 있습니다. <br>- 할당량은 MaxJobs 및 MaxRecurrence를 포함합니다. | 
 | **작업 기록** | 예를 들어, 상태 및 응답 세부 정보와 같은 작업 실행에 대한 정보를 설명합니다. |
 ||| 
@@ -66,7 +66,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 Azure Scheduler는 여러 작업 유형을 지원합니다. 
 
 * 기존 서비스 또는 워크로드에 대한 엔드포인트가 있는 경우를 위한 HTTP 작업(SSL을 지원하는 HTTPS 작업 포함)
-* 저장소 큐에 메시지를 게시하는 등, 저장소 큐를 사용하는 워크로드를 위한 저장소 큐 작업
+* 스토리지 큐에 메시지를 게시하는 등, 스토리지 큐를 사용하는 워크로드를 위한 스토리지 큐 작업
 * Service Bus 큐를 사용하는 워크로드를 위한 Service Bus 큐 작업
 * Service Bus 항목을 사용하는 워크로드를 위한 Service Bus 항목 작업
 
@@ -149,13 +149,13 @@ Azure Scheduler는 여러 작업 유형을 지원합니다.
 
 ## <a name="action"></a>action
 
-Scheduler 작업은 지정된 일정에 따라 기본 **action**을 실행합니다. Scheduler는 HTTP, 저장소 큐, Service Bus 큐 또는 Service Bus 항목 동작을 지원합니다. 기본 **action**이 실패하는 경우 Scheduler는 오류를 처리하는 보조 [**errorAction**](#erroraction)을 실행할 수 있습니다. **action** 개체는 다음과 같은 요소를 설명합니다.
+Scheduler 작업은 지정된 일정에 따라 기본 **action**을 실행합니다. Scheduler는 HTTP, 스토리지 큐, Service Bus 큐 또는 Service Bus 항목 동작을 지원합니다. 기본 **action**이 실패하는 경우 Scheduler는 오류를 처리하는 보조 [**errorAction**](#erroraction)을 실행할 수 있습니다. **action** 개체는 다음과 같은 요소를 설명합니다.
 
 * 동작의 서비스 유형
 * 동작의 세부 정보
 * 대체 **errorAction**
 
-이전 예제에서는 HTTP 동작을 설명합니다. 다음은 저장소 큐 동작의 예입니다.
+이전 예제에서는 HTTP 동작을 설명합니다. 다음은 스토리지 큐 동작의 예입니다.
 
 ```json
 "action": {

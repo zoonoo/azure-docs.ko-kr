@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 05/11/2018
+ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 1c1317726cf29f23e4729c67a5a5794fa459220b
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 50297147d371898c35259bf4be59337eaa716579
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410851"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877890"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 SQL Server 2017 Windows 가상 머신 만들기
 
@@ -42,16 +42,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. Azure Portal에서 **리소스 만들기**를 선택합니다. 
+1. Azure Portal의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. **Azure SQL**이 목록에 없는 경우 **모든 서비스**를 선택한 다음, 검색 상자에 *Azure SQL*을 입력합니다.
+1. **+추가**를 선택하여 **SQL 배포 옵션 선택** 페이지를 엽니다. **SQL 가상 머신** 타일에서 **세부 정보 표시**를 선택하여 추가 정보를 볼 수 있습니다.
+1. **무료 SQL Server 라이선스: Windows Server 2016의 SQL Server 2017 Developer** 이미지를 드롭다운에서 선택합니다.
 
-1. 검색 필드에 `SQL Server 2017 Developer on Windows Server 2016`을 입력하고 ENTER 키를 누릅니다. Windows Server 2016 옵션에서 SQL Server 2017을 확장합니다. 
-
-1. **무료 SQL Server 라이선스: Windows Server 2016의 SQL Server 2017 Developer** 이미지를 선택합니다. Developer 버전은 개발 테스트 목적으로 무료로 제공되는 SQL Server의 모든 기능을 갖춘 버전이므로 이 자습서에서 사용됩니다. VM 실행 비용에 대해서만 비용을 지불합니다. 전체 가격 책정 고려 사항은 [SQL Server Azure VM에 대한 가격 책정 지침](virtual-machines-windows-sql-server-pricing-guidance.md)을 참조하세요.
-
-   ![새 검색 창](./media/quickstart-sql-vm-create-portal/newsearch.png)
-
+   ![새 검색 창](./media/quickstart-sql-vm-create-portal/select-sql-2017-vm-image.png)
 
 1. **만들기**를 선택합니다.
+
+   ![새 검색 창](./media/quickstart-sql-vm-create-portal/create-sql-2017-vm-image.png)
 
 ## <a id="configure"></a>기본 세부 정보 제공
 
@@ -59,12 +58,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **프로젝트 세부 정보** 섹션에서 Azure 구독을 선택한 후 **새로 만들기**를 선택하여 새 리소스 그룹을 만듭니다. 이름에 _SQLVM-RG_를 입력합니다.
 
-   ![구독](media/quickstart-sql-vm-create-portal/basics-project-details.png)
+   ![Subscription](media/quickstart-sql-vm-create-portal/basics-project-details.png)
 
 1. **인스턴스 세부 정보**에서
     1. **가상 머신 이름**에 _SQLVM_을 입력합니다. 
     1. **영역**에 위치를 선택합니다. 
-    1. 이 빠른 시작에서는 **가용성 옵션**을 _인프라 중복성 필요 없음_으로 설정합니다. 가용성 옵션에 대한 자세한 내용을 알아보려면 [Azure 지역 및 가용성](../../windows/regions-and-availability.md)을 참조하세요. 
+    1. 이 빠른 시작에서는 **가용성 옵션**을 _인프라 중복성 필요 없음_으로 설정합니다. 가용성 옵션에 대한 자세한 내용을 알아보려면 [가용성](../../windows/availability.md)을 참조하세요. 
     1. **이미지** 목록에서 _무료 SQL Server 라이선스: Windows Server 2016의 SQL Server 2017 Developer_ 이미지를 선택합니다. 
     1. 가상 머신의 **크기**에서 **크기 변경**을 선택하고 **A2 Basic** 제품을 선택합니다. 리소스를 다 사용했으면 예기치 않은 요금이 청구되지 않도록 리소스를 삭제하세요. 
 

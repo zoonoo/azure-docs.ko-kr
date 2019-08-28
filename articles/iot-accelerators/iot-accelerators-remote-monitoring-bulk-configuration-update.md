@@ -123,7 +123,7 @@ If this is going to be a tutorial - we need to split this include into two so th
 
 Azure 스토리지 계정을 사용하여 클라우드에서 새 펌웨어 파일을 호스팅합니다.
 
-1. Azure Portal의 저장소 계정으로 이동합니다. [서비스] 섹션에서 **Blob**을 선택합니다. 펌웨어 파일을 저장할 **firmware**라는 공용 컨테이너를 만듭니다.
+1. Azure Portal의 스토리지 계정으로 이동합니다. [서비스] 섹션에서 **Blob**을 선택합니다. 펌웨어 파일을 저장할 **firmware**라는 공용 컨테이너를 만듭니다.
 
     ![폴더 만들기](media/iot-accelerators-remote-monitoring-bulk-configuration-update/blob-folder.png)
 

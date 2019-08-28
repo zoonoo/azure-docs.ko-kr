@@ -28,8 +28,8 @@ Microsoft Azure Import/Export 도구는 Microsoft Azure Import/Export 서비스�
 가져오기 작업을 위해 **드라이브를 준비**하는 경우 다음과 같은 필수 조건을 충족해야 합니다.
 
 * 활성 Azure 구독이 있어야 합니다.
-* 구독에는 가져올 파일을 저장할 수 있는 충분한 공간이 있는 저장소 계정이 있어야 합니다.
-* 저장소 계정 액세스 키 중 적어도 하나가 필요합니다.
+* 구독에는 가져올 파일을 저장할 수 있는 충분한 공간이 있는 스토리지 계정이 있어야 합니다.
+* 스토리지 계정 액세스 키 중 적어도 하나가 필요합니다.
 * Windows 7, Windows Server 2008 R2 또는 최신 Windows 운영 체제가 설치된 컴퓨터("복사 컴퓨터")가 필요합니다.
 * .NET Framework 4가 복사 컴퓨터에 설치되어야 합니다.
 * 복사 컴퓨터에서 BitLocker를 사용할 수 있어야 합니다.
@@ -39,13 +39,13 @@ Microsoft Azure Import/Export 도구는 Microsoft Azure Import/Export 서비스�
 부분적으로 실패한 **가져오기를 복구**하려는 경우 다음이 필요합니다.
 
 * 복사 로그 파일
-* 저장소 계정 키입니다.
+* 스토리지 계정 키입니다.
 
 부분적으로 실패한 **내보내기를 복구**하려는 경우 다음이 필요합니다.
 
 * 복사 로그 파일
 * 매니페스트 파일(선택 사항)
-* 저장소 계정 키입니다.
+* 스토리지 계정 키입니다.
 
 ## <a name="installing-the-azure-importexport-tool"></a>Azure Import/Export 도구 설치
 

@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 음성 합성, C++(Windows) - Speech Services'
+title: '빠른 시작: 음성 합성, C++(Windows) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Speech SDK를 사용하여 Windows Desktop에서 C++로 음성을 합성하는 방법 알아보기
 services: cognitive-services
@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 4/03/2019
+ms.date: 07/05/2019
 ms.author: yinhew
-ms.openlocfilehash: 7e9aebd3a49182f84e05473da9ed166499f34a28
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: fdc5e540dd7e84d47aa139768fbfc2614f38b376
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465703"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607724"
 ---
 # <a name="quickstart-synthesize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Windows에서 C++로 음성 합성
 
 빠른 시작은 [음성 인식](quickstart-cpp-windows.md) 및 [음성 번역](quickstart-translate-speech-cpp-windows.md)에도 사용할 수 있습니다.
 
-이 문서에서는 Windows용 C++ 콘솔 애플리케이션을 만듭니다. Cognitive Services [Speech SDK](speech-sdk.md)를 사용하여 실시간으로 텍스트를 음성으로 합성하여 PC 스피커에서 재생합니다. 이 애플리케이션은 [Speech SDK NuGet 패키지](https://aka.ms/csspeech/nuget) 및 Microsoft Visual Studio 2017(모든 버전)로 빌드되었습니다.
+이 문서에서는 Windows용 C++ 콘솔 애플리케이션을 만듭니다. Cognitive Services [Speech SDK](speech-sdk.md)를 사용하여 실시간으로 텍스트를 음성으로 합성하여 PC 스피커에서 재생합니다. 이 애플리케이션은 [Speech SDK NuGet 패키지](https://aka.ms/csspeech/nuget) 및 Microsoft Visual Studio 2017 이상(모든 버전)으로 빌드되었습니다.
 
 이 문서에 설명된 기능은 [Speech SDK 1.5.0](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/1.5.0)에서 사용할 수 있습니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "65465703"
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/cpp-windows/helloworld/helloworld.cpp#code)]
 
-1. 동일한 파일에서 문자열 `YourSubscriptionKey`를 구독 키로 바꿉니다.
+1. 동일한 파일에서 `YourSubscriptionKey` 문자열을 구독 키로 바꿉니다.
 
 1. 문자열 `YourServiceRegion`을 구독과 연결된 [지역](regions.md)으로 바꿉니다(예를 들어 평가판 구독에 대해 `westus`).
 

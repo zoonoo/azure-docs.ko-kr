@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 61821caa2450096bdbdde3461316ad21a82f6f18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ef0a9213d095d0b7ae4343e2af145236a7e005a1
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304291"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305419"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Event Grid 토픽을 관리하는 이벤트 도메인 이해
 
@@ -47,7 +47,7 @@ ms.locfileid: "66304291"
 
 ### <a name="built-in-roles"></a>기본 제공 역할
 
-Event Grid에는 RBAC를 이벤트 도메인 작업에 보다 쉽게 적용할 수 있는 두 개의 기본 제공 역할 정의가 제공됩니다. 이러한 역할은 **EventGrid EventSubscription 기여자(미리 보기)** 및 **EventGrid EventSubscription 읽기 권한자(미리 보기)** 입니다. 이벤트 도메인의 토픽을 구독해야 하는 사용자에게 이러한 역할을 할당합니다. 사용자가 구독 해야 하는 항목에만 역할 할당을 범위를 있습니다.
+Event Grid에는 RBAC를 이벤트 도메인 작업에 보다 쉽게 적용할 수 있는 두 개의 기본 제공 역할 정의가 제공됩니다. 이러한 역할은 **EventGrid EventSubscription 기여자(미리 보기)** 및 **EventGrid EventSubscription 읽기 권한자(미리 보기)** 입니다. 이벤트 도메인의 토픽을 구독해야 하는 사용자에게 이러한 역할을 할당합니다. 사용자가 구독 해야 하는 토픽 으로만 역할 할당의 범위를 지정 합니다.
 
 이러한 역할에 대한 자세한 내용은 [Event Grid의 기본 제공 역할](security-authentication.md#built-in-roles)을 참조하세요.
 
@@ -97,18 +97,18 @@ Event Grid에는 RBAC를 이벤트 도메인 작업에 보다 쉽게 적용할 �
 이벤트 도메인은 토픽에 게시를 자동으로 처리합니다. 관리하는 각 토픽에 개별적으로 이벤트를 게시하는 대신, 도메인의 엔드포인트에 모든 이벤트를 게시할 수 있습니다. Event Grid는 각 이벤트가 올바른 토픽에 전송되도록 합니다.
 
 ## <a name="limits-and-quotas"></a>한도 및 할당량
-제한 및 할당량 도메인 이벤트와 관련 된 다음과 같습니다.
+다음은 이벤트 도메인과 관련 된 제한 및 할당량입니다.
 
-- 이벤트 도메인당 100,000 항목 
-- Azure 구독 당 100 이벤트 도메인 
+- 10만 이벤트 도메인당 항목 
+- 100 Azure 구독 당 이벤트 도메인 
 - 이벤트 도메인 내 토픽당 이벤트 구독 500개
-- 도메인 범위 구독이 50 
-- (도메인)에 두 번째 수집 요금 5,000 이벤트
+- 50 도메인 범위 구독 
+- 5000 초당 이벤트 수집 율 (도메인)
 
-지원 티켓을 열어 또는 전자 메일을 전송 하 여 이러한 제한을 적합 하지 않습니다, 경우 제품 팀 도달할 [ askgrid@microsoft.com ](mailto:askgrid.microsoft.com)합니다. 
+이러한 제한에 맞지 않는 경우 지원 티켓을 열거나로 [askgrid@microsoft.com](mailto:askgrid@microsoft.com)전자 메일을 보내 제품 팀에 연락 하세요. 
 
 ## <a name="pricing"></a>가격
-이벤트 도메인을 사용 하 여 동일한 [가격 책정 작업](https://azure.microsoft.com/pricing/details/event-grid/) Event Grid의 다른 모든 기능을 사용 하는 합니다.
+이벤트 도메인은 Event Grid의 다른 모든 기능에서 사용 하는 것과 동일한 [작업 가격 책정](https://azure.microsoft.com/pricing/details/event-grid/) 을 사용 합니다.
 
 작업은 이벤트 도메인에서도 사용자 지정 토픽과 동일한 방식으로 작동합니다. 각 이벤트가 이벤트 도메인에 수신되는 것도 작업이고, 각 이벤트 전달 시도도 작업입니다.
 

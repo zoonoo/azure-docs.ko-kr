@@ -2,19 +2,19 @@
 title: 트래픽 분석 검색 구현 - Azure Search
 description: 로그 파일에 원격 분석 및 사용자 시작 이벤트를 추가하려면 Azure Search에 대한 트래픽 분석 검색을 사용하도록 설정합니다.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b15ae30151b22509a78b9a39d258991363a05e5b
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: bb12ed2f18df100ab3f679e7a8a3ef1e7c1aca45
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295432"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647810"
 ---
 # <a name="implement-search-traffic-analytics-in-azure-search"></a>Azure Search에서 트래픽 분석 검색 구현
 검색 트래픽 분석은 Search 서비스에 대한 피드백 루프를 구현하기 위한 패턴입니다. 이 패턴은 필요한 데이터 및 여러 플랫폼에서 서비스를 모니터링할 수 있는 업계 선두 제품인 Application Insights를 사용하여 필요한 데이터를 수집하는 방법을 설명합니다.
@@ -98,7 +98,7 @@ Azure Search 서비스의 [포털](https://portal.azure.com) 페이지에 있는
 
 사용자는 검색 요청을 실행할 때마다 Application Insights 사용자 지정 이벤트에서 다음 스키마로 해당 검색 요청을 검색 이벤트로 기록해야 합니다.
 
-**SearchServiceName**: (문자열) 검색 서비스 이름 **SearchId**: (guid) 검색 쿼리의 고유 식별자 (검색 응답에서 제공) **IndexName**: (문자열) 검색 서비스 인덱스를 쿼리할 **QueryTerms**: 사용자가 입력 한 (문자열) 검색 용어 **된 resultcount가**: 반환 된 문서 수 (int) (검색 응답에서 제공)  **ScoringProfile**: 있는 경우 사용 되는 점수 매기기 프로필의 이름 (문자열)
+**Searchservicename**: (문자열) 검색 서비스 이름 **searchservicename**: (guid) 검색 쿼리의 고유 식별자 (검색 응답에 제공 됨) **IndexName**: (문자열) 검색 서비스 인덱스 **queryterms**쿼리: (문자열) 검색 사용자 **Resultcount**에서 입력 한 용어: (int) 반환 된 문서 수 (Int) **ScoringProfile**: (문자열) 사용 하는 점수 매기기 프로필의 이름입니다 (있는 경우).
 
 > [!NOTE]
 > 검색 쿼리에 $count=true를 추가하여 사용자가 생성한 쿼리 수를 요청합니다. 자세한 내용은 [여기](https://docs.microsoft.com/rest/api/searchservice/search-documents#request)를 참조하세요.

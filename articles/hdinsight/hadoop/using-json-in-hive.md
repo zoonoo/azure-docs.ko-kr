@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 904a6a2af4c92c374d5afe4148f50e853e5d1fb2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ec766cea2135f7c00df032ad0df4ada033d6293
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479599"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461980"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Hive를 사용하여 JSON 문서 처리 및 분석
 
@@ -57,7 +57,7 @@ Azure HDInsight에서 Apache Hive를 사용하여 JSON(JavaScript Object Notatio
 
 이 파일은 `wasb://processjson@hditutorialdata.blob.core.windows.net/`에 있습니다. HDInsight에서 Azure Blob Storage를 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 Apache Hadoop을 사용하여 HDFS 호환 Azure Blob Storage 사용](../hdinsight-hadoop-use-blob-storage.md)을 참조하세요. 클러스터의 기본 컨테이너에 파일을 복사할 수 있습니다.
 
-이 자습서에서는 Apache Hive 콘솔을 사용합니다. Hive 콘솔을 여는 방법에 지침은 [HDInsight에서 Apache Hadoop과 함께 사용 하 여 Apache Ambari Hive 보기](apache-hadoop-use-hive-ambari-view.md)합니다.
+이 문서에서는 Apache Hive 콘솔을 사용합니다. Hive 콘솔을 여는 방법에 지침은 [HDInsight에서 Apache Hadoop과 함께 사용 하 여 Apache Ambari Hive 보기](apache-hadoop-use-hive-ambari-view.md)합니다.
 
 ## <a name="flatten-json-documents"></a>JSON 문서 평면화
 다음 섹션에 나열된 메서드에서는 JSON 문서가 단일 행으로 구성되어야 합니다. 따라서 JSON 문서를 문자열로 평면화해야 합니다. JSON 문서가 이미 평면화되어 있으면 이 단계를 건너뛰고 다음 섹션인 JSON 데이터 분석으로 바로 이동할 수 있습니다. JSON 문서를 평면화하려면 다음 스크립트를 실행합니다.
@@ -141,7 +141,7 @@ Hive 콘솔에 표시되는 이 스크립트의 출력은 다음과 같습니다
 json_tuple UDF는 Hive에서 [lateral view](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) 구문을 사용합니다. 이 구문을 사용하면 json\_tuple에서 원래 테이블의 각 행에 UDT 함수를 적용하여 가상 테이블을 만들 수 있습니다. **LATERAL VIEW**를 반복적으로 사용하기 때문에 복잡한 JSON을 다루기가 너무 어려워집니다. 또한 **JSON_TUPLE**은 중첩된 JSON을 처리할 수 없습니다.
 
 ### <a name="use-a-custom-serde"></a>사용자 지정 SerDe 사용
-SerDe는 중첩된 JSON 문서를 구문 분석하기 위한 최상의 선택입니다. 이를 통해 JSON 스키마를 정의한 다음 이 스키마를 사용하여 문서를 구문 분석할 수 있습니다. 자세한 내용은 [Microsoft Azure HDInsight에서 사용자 지정 JSON SerDe를 사용하는 방법](https://web.archive.org/web/20190217104719/ https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/)을 참조하세요.
+SerDe는 중첩된 JSON 문서를 구문 분석하기 위한 최상의 선택입니다. 이를 통해 JSON 스키마를 정의한 다음 이 스키마를 사용하여 문서를 구문 분석할 수 있습니다. 자세한 내용은 [Microsoft Azure HDInsight에서 사용자 지정 JSON SerDe를 사용하는 방법](https://web.archive.org/web/20190217104719/https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/)을 참조하세요.
 
 ## <a name="summary"></a>요약
 결론적으로 선택하는 하이브의 JSON 연산자 유형은 시나리오에 따라 달라집니다. 간단한 JSON 문서가 있고 조회할 필드가 하나뿐인 경우 get_json_object Hive UDF를 사용하도록 선택할 수 있습니다. 조회가 키가 두 개 이상인 경우에는 json_tuple을 사용할 수 있습니다. 중첩된 문서가 있는 경우에는 JSON SerDe를 사용해야 합니다.
@@ -151,5 +151,5 @@ SerDe는 중첩된 JSON 문서를 구문 분석하기 위한 최상의 선택입
 관련 문서는 다음을 참조하세요.
 
 * [샘플 Apache log4j 파일 분석을 위해 HDInsight에서 Apache Hadoop과 함께 Apache Hive 및 HiveQL 사용](../hdinsight-use-hive.md)
-* [HDInsight의 Apache Hive를 사용하여 비행 지연 데이터 분석](../hdinsight-analyze-flight-delay-data-linux.md)
+* [HDInsight에서 대화형 쿼리를 사용 하 여 비행 지연 데이터 분석](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)
 * [HDInsight에서 Apache Hive를 사용하여 Twitter 데이터 분석](../hdinsight-analyze-twitter-data-linux.md)

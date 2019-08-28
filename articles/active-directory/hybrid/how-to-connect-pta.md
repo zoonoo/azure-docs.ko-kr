@@ -16,12 +16,12 @@ ms.date: 10/21/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb5733f43a2b2800d5eb5031dddaaeb7d59aadc2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 814c81b6092c4af3778617e165a0bdbce09d71d7
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67109410"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779118"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Azure Active Directory 통과 인증으로 사용자 로그인
 
@@ -31,7 +31,7 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-이 기능은 조직에 클라우드 인증과 동일한 혜택을 제공하는 [Azure AD 암호 해시 동기화](how-to-connect-password-hash-synchronization.md)에 대한 대안입니다. 그러나 해당 온-프레미스 Active Directory 보안 및 암호 정책을 적용하려는 특정 조직은 대신 통과 인증을 사용하도록 선택할 수 있습니다. 다양한 Azure AD 로그인 방법을 비교한 결과와 조직에 적합한 로그인 방법을 선택하는 방법을 보려면 [이 가이드](https://docs.microsoft.com/azure/security/azure-ad-choose-authn)를 검토하세요.
+이 기능은 조직에 클라우드 인증과 동일한 혜택을 제공하는 [Azure AD 암호 해시 동기화](how-to-connect-password-hash-synchronization.md)에 대한 대안입니다. 그러나 해당 온-프레미스 Active Directory 보안 및 암호 정책을 적용하려는 특정 조직은 대신 통과 인증을 사용하도록 선택할 수 있습니다. 다양한 Azure AD 로그인 방법을 비교한 결과와 조직에 적합한 로그인 방법을 선택하는 방법을 보려면 [이 가이드](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn)를 검토하세요.
 
 ![Azure AD 통과 인증](./media/how-to-connect-pta/pta1.png)
 
@@ -59,7 +59,7 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
 
 - 모든 웹 브라우저 기반 애플리케이션 및 [최신 인증](https://aka.ms/modernauthga)을 사용하는 Microsoft Office 클라이언트 애플리케이션에 사용자 로그인을 지원합니다.
 - 로그인 사용자 이름은 온-프레미스 기본 사용자 이름(`userPrincipalName`) 또는 Azure AD Connect에 구성된 다른 특성(`Alternate ID`라고 함) 중 하나일 수 있습니다.
-- 기능을 원활 하 게 작동 [조건부 액세스](../active-directory-conditional-access-azure-portal.md) 기능 Multi-factor 인증 (MFA)와 같은 사용자를 보호 합니다.
+- 이 기능은 MFA (Multi-factor Authentication)와 같은 [조건부 액세스](../active-directory-conditional-access-azure-portal.md) 기능을 사용 하 여 원활 하 게 작동 하 여 사용자의 보안을 유지 합니다.
 - 온-프레미스 Active Directory에 대한 암호 쓰기 저장 및 일반적으로 사용되는 암호 금지에 의한 암호 보호를 포함하여 클라우드 기반 [셀프 서비스 암호 관리](../authentication/active-directory-passwords-overview.md)와 통합되었습니다.
 - AD 포리스트 간에 포리스트 트러스트가 있고 이름 접미사 라우팅이 제대로 구성된 경우 다중 포리스트 환경이 지원됩니다.
 - 무료 기능이며 이 기능을 사용하는 데는 Azure AD 유료 버전이 필요하지 않습니다.

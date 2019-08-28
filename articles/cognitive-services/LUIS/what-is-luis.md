@@ -1,5 +1,6 @@
 ---
-title: LUIS(Language Understanding)란? - Azure Cognitive Services | Microsoft Docs
+title: LUIS(Language Understanding)란?
+titleSuffix: Azure Cognitive Services
 description: LUIS(Language Understanding)는 사용자 지정 기계 학습 인텔리전스를 사용자의 자연스러운 기존 언어 텍스트에 적용하여 전체적인 의미를 예측하고 관련된 자세한 정보를 추출하는 클라우드 기반 API 서비스입니다.
 services: cognitive-services
 author: diberry
@@ -7,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 01/23/2019
+ms.date: 06/11/2019
 ms.author: diberry
-ms.openlocfilehash: 2bb50f985b99a3fb62e7b8a61bb0f9ce2dd402e1
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 41c5e2f01678996406c586eb20043516beaf2184
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521997"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563185"
 ---
 # <a name="what-is-language-understanding-luis"></a>LUIS(Language Understanding)란?
 
@@ -57,7 +58,7 @@ LUIS 앱은 도메인별 자연어 모델을 포함합니다. 미리 작성된 �
 
 LUIS 모델은 **[의도](luis-concept-intent.md)** 라고 하는 사용자 의도 범주로 시작합니다. 각 의도에는 사용자 **[발언](luis-concept-utterance.md)** 예제가 필요합니다. 각 발언은 **[엔터티](luis-concept-entity-types.md)** 를 사용하여 추출해야 하는 다양한 데이터를 제공할 수 있습니다. 
 
-|예제 사용자 발언|의도|엔터티|
+|예제 사용자 발언|Intent|엔터티|
 |-----------|-----------|-----------|
 |"__시애틀__로 가는 항공편을 예약해줄 수 있나요?"|BookFlight|시애틀|
 |"매장은 몇 시에 __문을 여나요__?"|StoreHoursAndLocation|open|
@@ -101,7 +102,7 @@ LUIS는 클라이언트 애플리케이션 및 언어 모델 수준에서 전체
 LUIS는 REST API로써 HTTP 요청을 만드는 모든 제품, 서비스 또는 프레임워크에 사용할 수 있습니다. 다음 목록은 LUIS에 가장 많이 사용되는 Microsoft 제품 및 서비스입니다.
 
 LUIS에 대한 상위 클라이언트 애플리케이션은 다음과 같습니다.
-* [웹앱 봇](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-3.0)은 신속하게 LUIS 지원 챗봇을 만들어서 텍스트 입력을 통해 사용자와 대화합니다. 완전한 봇 환경을 구축하기 위해 [Bot Framework][bot-framework] 버전 [3.x](https://github.com/Microsoft/BotBuilder) 또는 [4.x](https://github.com/Microsoft/botbuilder-dotnet)를 사용합니다.
+* [웹앱 봇](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)은 신속하게 LUIS 지원 챗봇을 만들어서 텍스트 입력을 통해 사용자와 대화합니다. 완전한 봇 환경을 구축하기 위해 [Bot Framework][bot-framework] 버전 [4.x](https://github.com/Microsoft/botbuilder-dotnet)를 사용합니다.
 
 봇에서 LUIS를 빠르고 쉽게 사용할 수 있는 도구는 다음과 같습니다.
 * [LUIS CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUIS) - NPM 패키지에서 독립 실행형 명령줄 도구 또는 가져오기를 사용하여 작성 및 자동 완성을 제공합니다. 

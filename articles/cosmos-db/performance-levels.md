@@ -26,7 +26,7 @@ ms.locfileid: "60928293"
 - [내 데이터에 중단 없이 액세스하려면 어떻게 해야 합니까?](#uninterrupted-access)
 - [마이그레이션하면 내 컬렉션이 어떻게 변경됩니까?](#collection-change)
 - [단일 파티션 컬렉션으로 마이그레이션하면 요금 청구는 어떻게 변경됩니까?](#billing-change)
-- [저장 용량이 10GB 이상 필요한 경우 어떻게 해야 합니까?](#more-storage-needed)
+- [스토리지 용량이 10GB 이상 필요한 경우 어떻게 해야 합니까?](#more-storage-needed)
 - [계획된 마이그레이션 이전에 S1, S2 및 S3 성능 수준을 변경할 수 있습니까?](#change-before)
 - [S1, S2, S3 성능 수준에서 단일 파티션 컬렉션으로 마이그레이션하려면 어떻게 해야 합니까?](#migrate-diy)
 - [EA 고객에게 미치는 영향은?](#ea-customer)
@@ -35,20 +35,20 @@ ms.locfileid: "60928293"
 
 ## <a name="why-are-the-s1-s2-and-s3-performance-levels-being-retired"></a>S1, S2 및 S3 성능 수준의 사용이 중지되는 이유는?
 
-S1, S2 및 S3 성능 수준은 표준 Azure Cosmos DB 제품이 제공하는 유연성을 제공하지 않습니다. S1, S2, S3 성능 수준에서는 처리량과 저장소 용량이 둘 다 미리 설정되었으며 탄력성을 제공하지 않았습니다. 이제 Azure Cosmos DB는 처리량과 저장소를 사용자 지정할 수 있는 기능을 제공하므로 크기 조정 기능을 필요에 따라 훨씬 더 유연하게 제공할 수 있습니다.
+S1, S2 및 S3 성능 수준은 표준 Azure Cosmos DB 제품이 제공하는 유연성을 제공하지 않습니다. S1, S2, S3 성능 수준에서는 처리량과 스토리지 용량이 둘 다 미리 설정되었으며 탄력성을 제공하지 않았습니다. 이제 Azure Cosmos DB는 처리량과 스토리지를 사용자 지정할 수 있는 기능을 제공하므로 크기 조정 기능을 필요에 따라 훨씬 더 유연하게 제공할 수 있습니다.
 
 <a name="compare"></a>
 
 ## <a name="how-do-single-partition-collections-and-partitioned-collections-compare-to-the-s1-s2-s3-performance-levels"></a>단일 파티션 컬렉션 및 분할된 컬렉션을 S1, S2, S3 성능 수준과 비교하면 어떻습니까?
 
-다음 표에서는 단일 파티션 컬렉션, 분할된 컬렉션 및 S1, S2, S3 성능 수준에서 사용할 수 있는 처리량 및 저장소 옵션을 비교합니다. 다음은 미국 동부 2 지역의 예입니다.
+다음 표에서는 단일 파티션 컬렉션, 분할된 컬렉션 및 S1, S2, S3 성능 수준에서 사용할 수 있는 처리량 및 스토리지 옵션을 비교합니다. 다음은 미국 동부 2 지역의 예입니다.
 
 |   |분할된 컬렉션|단일 파티션 컬렉션|S1|S2|S3|
 |---|---|---|---|---|---|
 |최대 처리량|Unlimited|10,000RU/s|250RU/s|1,000RU/s|2,500RU/s|
 |최소 처리량|2,500RU/s|400RU/s|250RU/s|1,000RU/s|2,500RU/s|
-|최대 저장소|Unlimited|10 GB|10GB|10GB|10 GB|
-|가격(월별)|처리량: $6/100RU/s<br><br>저장소: $0.25/GB|처리량: $6/100RU/s<br><br>저장소: $0.25/GB|$25(미화)|$50(미화)|$100(미화)|
+|최대 스토리지|Unlimited|10 GB|10GB|10GB|10 GB|
+|가격(월별)|처리량: $6/100RU/s<br><br>스토리지: $0.25/GB|처리량: $6/100RU/s<br><br>스토리지: $0.25/GB|$25(미화)|$50(미화)|$100(미화)|
 
 EA 고객입니까? 그렇다면 [EA 고객에게 미치는 영향은?](#ea-customer)을 참조하세요.
 
@@ -74,15 +74,15 @@ S3 컬렉션이 있는 경우 2,500RU/s 처리량의 단일 파티션 컬렉션�
 
 ## <a name="how-will-my-billing-change-after-i-migrated-to-the-single-partition-collections"></a>단일 파티션 컬렉션으로 마이그레이션한 후 요금 청구는 어떻게 변경됩니까?
 
-미국 동부 지역에 각각 10개의 S1 컬렉션(각각 1GB 저장소 사용)이 있고, 이러한 10개 S1 컬렉션을 400RU/s(최소 수준)의 10개 단일 파티션 컬렉션으로 마이그레이션한다고 가정합니다. 한 달 동안 10개의 단일 파티션 컬렉션을 유지하는 경우 청구서는 다음과 같이 표시됩니다.
+미국 동부 지역에 각각 10개의 S1 컬렉션(각각 1GB 스토리지 사용)이 있고, 이러한 10개 S1 컬렉션을 400RU/s(최소 수준)의 10개 단일 파티션 컬렉션으로 마이그레이션한다고 가정합니다. 한 달 동안 10개의 단일 파티션 컬렉션을 유지하는 경우 청구서는 다음과 같이 표시됩니다.
 
 ![10개 S1 컬렉션 및 10개 단일 파티션 컬렉션에 대한 가격 비교](./media/performance-levels/s1-vs-standard-pricing.png)
 
 <a name="more-storage-needed"></a>
 
-## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>저장 용량이 10GB 이상 필요한 경우 어떻게 해야 합니까?
+## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>스토리지 용량이 10GB 이상 필요한 경우 어떻게 해야 합니까?
 
-S1, S2 또는 S3 성능 수준 컬렉션 또는 단일 파티션 컬렉션이 있든 간에 모두 10GB 저장소를 사용할 수 있는 경우 Azure Cosmos DB 데이터 마이그레이션 도구를 사용하여 거의 무제한 저장소가 있는 분할된 컬렉션으로 데이터를 마이그레이션할 수 있습니다. 분할된 컬렉션의 이점에 대한 자세한 내용은 [Azure Cosmos DB의 분할 및 크기 조정](sql-api-partition-data.md)을 참조하세요. 
+S1, S2 또는 S3 성능 수준 컬렉션 또는 단일 파티션 컬렉션이 있든 간에 모두 10GB 스토리지를 사용할 수 있는 경우 Azure Cosmos DB 데이터 마이그레이션 도구를 사용하여 거의 무제한 스토리지가 있는 분할된 컬렉션으로 데이터를 마이그레이션할 수 있습니다. 분할된 컬렉션의 이점에 대한 자세한 내용은 [Azure Cosmos DB의 분할 및 크기 조정](sql-api-partition-data.md)을 참조하세요. 
 
 <a name="change-before"></a>
 
@@ -133,5 +133,5 @@ EA 고객에게 적용한 가격은 현재 계약이 종료될 때까지 보호�
 Azure Cosmos DB의 가격 책정 및 데이터 관리에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
 1.  [Cosmos DB의 데이터 분할](sql-api-partition-data.md). 단일 파티션 컨테이너와 분할된 컨테이너 간의 차이점을 이해하고 매끄럽게 크기를 조정하는 분할 전략을 구현하는 데 유용한 팁을 알아봅니다.
-2.  [Cosmos DB 가격 책정](https://azure.microsoft.com/pricing/details/cosmos-db/). 처리량 프로비전 및 저장소 소비 비용에 대해 알아봅니다.
+2.  [Cosmos DB 가격 책정](https://azure.microsoft.com/pricing/details/cosmos-db/). 처리량 프로비전 및 스토리지 소비 비용에 대해 알아봅니다.
 3.  [요청 단위](request-units.md) 읽기, 쓰기, 쿼리와 같은 다양한 작업 유형의 처리량 사용에 대해 알아봅니다.

@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: magattus
-ms.openlocfilehash: 6bd1d24cdece91265a7355678ea2bc0b0f9e3910
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 08e705d3c3623d4d02ccaea609eb0555aa1c8e33
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60768061"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593916"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Azure CDN을 통해 동적 사이트 가속
 
@@ -27,7 +27,7 @@ ms.locfileid: "60768061"
 
 표준 CDN(콘텐츠 배달 네트워크) 기능에는 고정 파일의 배달 속도를 향상시키기 위해 파일을 최종 사용자에게 가깝게 캐시하는 기능이 포함됩니다. 그러나 동적 웹 애플리케이션에서 서버가 사용자 동작에 대한 응답으로 콘텐츠를 생성하기 때문에 에지 위치에 해당 콘텐츠를 캐싱할 수 없습니다. 이러한 콘텐츠의 배달 속도를 향상시키는 작업은 기존의 에지 캐싱보다 더 복잡하고 배달할 전체 데이터 경로에 있는 각 요소를 처음부터 세밀하게 조정하는 엔드투엔드 솔루션이 필요합니다. Azure CDN DSA(동적 사이트 가속) 최적화를 사용하여 동적 콘텐츠가 포함된 웹 페이지의 성능이 크게 향상되었습니다.
 
-**Akamai의 Azure CDN** 및 **Verizon의 Azure CDN**은 끝점을 만드는 동안 **최적화 목표** 메뉴를 통해 DSA 최적화를 제공합니다. Microsoft의 동적 사이트 가속을 통해 제공 됩니다 [Azure 프런트 도어 서비스](https://docs.microsoft.com/azure/frontdoor/front-door-overview)합니다.
+**Akamai의 Azure CDN** 및 **Verizon의 Azure CDN**은 엔드포인트을 만드는 동안 **최적화 목표** 메뉴를 통해 DSA 최적화를 제공합니다. Microsoft의 동적 사이트 가속을 통해 제공 됩니다 [Azure 프런트 도어 서비스](https://docs.microsoft.com/azure/frontdoor/front-door-overview)합니다.
 
 > [!Important]
 > **Akamai의 Azure CDN** 프로필의 경우 CDN 엔드포인트를 만든 후에 최적화를 변경할 수 있습니다.
@@ -147,7 +147,7 @@ CDN을 사용하면 원본에 직접 연결된 사용자와 비교하여 원본 
 --- | ---  
 JPEG 압축 | .jpg, .jpeg, .jpe, .jig, .jgig, .jgi
 
-## <a name="caching"></a>구성
+## <a name="caching"></a>캐싱
 
 DSA를 사용하면 원본이 응답에서 `Cache-Control` 또는 `Expires` 헤더를 포함하는 경우에도 캐싱이 CDN에서 기본적으로 해제됩니다. DSA는 각 클라이언트에 고유하기 때문에 캐시되지 않아야 하는 동적 자산에 일반적으로 사용됩니다. 캐싱은 이 동작을 손상시킬 수 있습니다.
 

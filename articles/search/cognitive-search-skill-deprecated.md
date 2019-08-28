@@ -5,20 +5,19 @@ services: search
 manager: pablocas
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: a73c7e381cb6001b773251a1812466b3c82373f2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.subservice: cognitive-search
+ms.openlocfilehash: 57dd8e47d44248270920e44268b99c98d399504d
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65541727"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69635899"
 ---
-# <a name="deprecated-cognitive-search-skills"></a>사용 되지 않는 cognitive search 기술
+# <a name="deprecated-cognitive-search-skills"></a>사용 되지 않는 인식 검색 기술
 
 이 문서에서는 사용되지 않는 것으로 간주되는 기술을 설명합니다. 내용에 대해서는 다음 가이드를 사용합니다.
 
@@ -31,7 +30,7 @@ ms.locfileid: "65541727"
 
 ### <a name="last-available-api-version"></a>사용 가능한 마지막 api 버전
 
-2019-05-06-미리 보기
+\2017-11-11-Preview
 
 ### <a name="end-of-support"></a>지원 종료
 
@@ -148,7 +147,7 @@ ms.locfileid: "65541727"
         }
         ```
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 + [미리 정의된 기술](cognitive-search-predefined-skills.md)
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)

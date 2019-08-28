@@ -27,11 +27,11 @@ Azure Resource Graph를 사용하는 쿼리를 이해하는 첫 번째 단계는
 > - [이름의 내림차순으로 모든 가상 머신 나열](#show-vms)
 > - [이름 및 해당 OS 유형별로 처음 5개의 가상 머신 표시](#show-sorted)
 > - [OS 유형별 가상 머신 개수 계산](#count-os)
-> - [저장소를 포함하는 리소스 표시](#show-storage)
+> - [스토리지를 포함하는 리소스 표시](#show-storage)
 > - [모든 공용 IP 주소 나열](#list-publicip)
 > - [구독에 의해 IP 주소가 구성된 리소스 개수 계산](#count-resources-by-ip)
 > - [특정 태그 값이 있는 리소스 나열](#list-tag)
-> - [특정 태그 값이 있는 모든 저장소 계정 나열](#list-specific-tag)
+> - [특정 태그 값이 있는 모든 스토리지 계정 나열](#list-specific-tag)
 > - [가상 머신 리소스에 대한 별칭 표시](#show-aliases)
 > - [특정 별칭에 대한 고유 값 표시](#distinct-alias-values)
 

@@ -11,21 +11,21 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f809fa856d39096a85dcc205d8211ba3551eeb48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f20a10f7c6f98b352e8a2d794fabc3b6b3b57319
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65962859"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835300"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Azure Active Directory에서 서명 키 롤오버
-이 문서에서는 보안 토큰을 서명하기 위해 Azure AD(Azure Active Directory)에 사용되는 공개 키에 대해 알아야 할 내용을 설명합니다. 이러한 키는 주기적으로 롤오버 되며, 긴급 상황에서는 수 곧바로 롤오버 될 것입니다. Azure AD를 사용하는 모든 애플리케이션은 키 롤오버 프로세스를 프로그래밍 방식으로 처리하거나 정기적인 수동 롤오버 프로세스를 설정할 수 있어야 합니다. 키의 작동 방식과 롤오버가 애플리케이션에 미친 영향을 평가하는 방법, 필요한 경우 키 롤오버를 처리하도록 애플리케이션을 업데이트하거나 정기적인 수동 롤오버 프로세스를 설정하는 방법을 이해하려면 계속 읽어 보세요.
+이 문서에서는 보안 토큰을 서명하기 위해 Azure AD(Azure Active Directory)에 사용되는 공개 키에 대해 알아야 할 내용을 설명합니다. 이러한 키는 정기적으로 롤오버 되며 응급 상황에서 즉시 롤오버 될 수 있다는 점에 유의 해야 합니다. Azure AD를 사용하는 모든 애플리케이션은 키 롤오버 프로세스를 프로그래밍 방식으로 처리하거나 정기적인 수동 롤오버 프로세스를 설정할 수 있어야 합니다. 키의 작동 방식과 롤오버가 애플리케이션에 미친 영향을 평가하는 방법, 필요한 경우 키 롤오버를 처리하도록 애플리케이션을 업데이트하거나 정기적인 수동 롤오버 프로세스를 설정하는 방법을 이해하려면 계속 읽어 보세요.
 
 ## <a name="overview-of-signing-keys-in-azure-ad"></a>Azure AD의 서명 키 개요
 Azure AD는 업계 표준을 기반으로 하는 공개 키 암호화를 사용하여 Azure AD 자체 및 이를 사용하는 애플리케이션 간의 트러스트를 설정합니다. 실제로 이 기능은 Azure AD에서 공개 키와 프라이빗 키 쌍으로 구성된 서명 키를 사용하여 작동합니다. 사용자가 인증을 위해 Azure AD를 사용하는 애플리케이션에 로그인하면 Azure AD는 사용자에 대한 정보가 포함된 보안 토큰을 만듭니다. 이 토큰은 애플리케이션으로 다시 전송되기 전에 프라이빗 키를 사용하여 Azure AD에 의해 서명됩니다. 해당 토큰이 유효하고 Azure AD에서 발생한 것인지 확인하기 위해 애플리케이션은 테넌트의 [OpenID Connect Discovery 문서](https://openid.net/specs/openid-connect-discovery-1_0.html) 또는 SAML/WS-Fed [페더레이션 메타데이터 문서](azure-ad-federation-metadata.md)에 포함된 Azure AD가 노출한 공개 키를 사용하여 토큰의 서명을 유효성 검사해야 합니다.
@@ -43,7 +43,7 @@ OpenID Connect discovery 문서와 페더레이션 메타데이터 문서에는 
 * [.NET OWIN OpenID Connect, WS-Fed 또는 WindowsAzureActiveDirectoryBearerAuthentication 미들웨어를 사용하여 리소스를 보호하는 웹 애플리케이션/API](#owin)
 * [.NET Core OpenID Connect 또는 JwtBearerAuthentication 미들웨어를 사용하여 리소스를 보호하는 웹 애플리케이션/API](#owincore)
 * [Node.js passport-azure-ad 모듈을 사용하여 리소스를 보호하는 웹 애플리케이션/API](#passport)
-* [응용 프로그램 웹 Api 리소스를 보호 하며 Visual Studio 2015 이상에서 만든 /](#vs2015)
+* [리소스를 보호 하 고 Visual Studio 2015 이상으로 만든 웹 응용 프로그램/a p i](#vs2015)
 * [리소스를 보호하며 Visual Studio 2013을 사용하여 만든 웹 애플리케이션](#vs2013)
 * 리소스를 보호하며 Visual Studio 2013을 사용하여 만든 웹 API
 * [리소스를 보호하며 Visual Studio 2012를 사용하여 만든 웹 애플리케이션](#vs2012)
@@ -56,12 +56,12 @@ OpenID Connect discovery 문서와 페더레이션 메타데이터 문서에는 
 * 애플리케이션 프록시를 통해 게시된 온-프레미스 애플리케이션은 서명 키에 대해 걱정할 필요가 없습니다.
 
 ### <a name="nativeclient"></a>리소스에 액세스하는 네이티브 클라이언트 애플리케이션
-리소스에만 액세스하는 애플리케이션(즉, Microsoft Graph, KeyVault, Outlook API 및 기타 Microsoft Api) 일반적으로 토큰을 가져오고 리소스 소유자에 게 전달 합니다. 리소스를 보호하지 못한다면 토큰을 검사하지 않으므로 제대로 서명되었는지 확인할 필요도 없습니다.
+리소스에만 액세스하는 애플리케이션(즉, Microsoft Graph, KeyVault, Outlook API 및 기타 Microsoft Api)는 일반적으로 토큰을 가져와 리소스 소유자에 게 전달 합니다. 리소스를 보호하지 못한다면 토큰을 검사하지 않으므로 제대로 서명되었는지 확인할 필요도 없습니다.
 
 데스크톱 또는 모바일의 네티이브 클라이언트 애플리케이션이 이 범주에 해당하므로 롤오버의 영향을 받지 않습니다.
 
 ### <a name="webclient"></a>리소스에 액세스하는 웹 애플리케이션/API
-리소스에만 액세스하는 애플리케이션(즉, Microsoft Graph, KeyVault, Outlook API 및 기타 Microsoft Api) 일반적으로 토큰을 가져오고 리소스 소유자에 게 전달 합니다. 리소스를 보호하지 못한다면 토큰을 검사하지 않으므로 제대로 서명되었는지 확인할 필요도 없습니다.
+리소스에만 액세스하는 애플리케이션(즉, Microsoft Graph, KeyVault, Outlook API 및 기타 Microsoft Api)는 일반적으로 토큰을 가져와 리소스 소유자에 게 전달 합니다. 리소스를 보호하지 못한다면 토큰을 검사하지 않으므로 제대로 서명되었는지 확인할 필요도 없습니다.
 
 앱 전용 흐름을 사용하는 웹 애플리케이션 및 웹 API(클라이언트 자격 증명/클라이언트 인증서)가 이 범주에 해당하므로 롤오버의 영향을 받지 않습니다.
 
@@ -128,8 +128,8 @@ passport.use(new OIDCStrategy({
 ));
 ```
 
-### <a name="vs2015"></a>응용 프로그램 웹 Api 리소스를 보호 하며 Visual Studio 2015 이상에서 만든 /
-Visual Studio 2015 이상에 웹 응용 프로그램 템플릿을 사용 하 여 응용 프로그램을 빌드한 경우 선택한 **회사 또는 학교 계정** 에서 합니다 **인증 변경** 메뉴 이미 필요한 자동으로 키 롤오버를 처리 하는 논리입니다. OWIN OpenID Connect 미들웨어에 포함된 이 논리는 OpenID Connect discovery 문서에서 키를 검색하고 캐시하며 주기적으로 새로 고칩니다.
+### <a name="vs2015"></a>리소스를 보호 하 고 Visual Studio 2015 이상으로 만든 웹 응용 프로그램/a p i
+Visual Studio 2015 이상에서 웹 응용 프로그램 템플릿을 사용 하 여 응용 프로그램을 빌드 했 고 **인증 변경** 메뉴에서 **회사 또는 학교 계정** 을 선택한 경우 자동으로 키 롤오버를 처리 하는 데 필요한 논리가 이미 있는 것입니다. OWIN OpenID Connect 미들웨어에 포함된 이 논리는 OpenID Connect discovery 문서에서 키를 검색하고 캐시하며 주기적으로 새로 고칩니다.
 
 인증을 솔루션에 수동으로 추가하면 애플리케이션에 필요한 키 롤오버 논리가 없을 수도 있습니다. 사용자가 직접 작성하거나 [웹 애플리케이션/다른 라이브러리를 사용하거나 지원되는 프로토콜을 수동으로 구현하는 API](#other)의 단계를 따라야 합니다.
 
@@ -145,7 +145,7 @@ Visual Studio 2013에서 웹 애플리케이션 템플릿을 사용하여 애플
 3. **IssuingAuthorityKeys** 테이블에는 키에 대한 지문 값에 해당하는 행이 하나 이상 있습니다. 테이블의 모든 행을 삭제합니다.
 4. **테넌트** 테이블을 마우스 오른쪽 단추로 클릭하고 **테이블 데이터 표시**를 클릭합니다.
 5. **테넌트** 테이블에는 고유한 디렉터리 테넌트 식별자에 해당하는 행이 하나 이상 있습니다. 테이블의 모든 행을 삭제합니다. **테넌트** 테이블 및 **IssuingAuthorityKeys** 테이블 모두에서 행을 삭제하지 않으면 런타임에 오류가 발생합니다.
-6. 애플리케이션을 빌드 및 실행합니다. 계정에 로그인한 후에 애플리케이션을 중지할 수 있습니다.
+6. 응용 프로그램을 빌드 및 실행합니다. 계정에 로그인한 후에 애플리케이션을 중지할 수 있습니다.
 7. **서버 탐색기**로 돌아가 **IssuingAuthorityKeys** 및 **테넌트** 테이블에서 값을 확인합니다. 페더레이션 메타데이터 문서의 적절한 정보로 자동으로 다시 채워진 것을 알 수 있습니다.
 
 ### <a name="vs2013"></a>리소스를 보호하며 Visual Studio 2013을 사용하여 만든 웹 API
@@ -278,7 +278,7 @@ Microsoft에서 제공하는 코드 샘플 또는 연습 문서를 사용하여 
 
 아래 단계에 따라 키 롤오버 논리가 제대로 작동하는지 확인합니다.
 
-1. 응용 프로그램은 위의 코드를 사용 하 여 확인 한 후 엽니다는 **Web.config** 파일을 이동 합니다  **\<issuerNameRegistry >** 블록, 구체적으로 다음 몇 줄:
+1. 응용 프로그램에서 위의 코드를 사용 하 고 있는지 확인 한 후 web.config 파일 을 열고  **\<issuerNameRegistry >** 블록으로 이동 합니다. 특히 다음 몇 줄을 찾습니다.
    ```
    <issuerNameRegistry type="System.IdentityModel.Tokens.ValidatingIssuerNameRegistry, System.IdentityModel.Tokens.ValidatingIssuerNameRegistry">
         <authority name="https://sts.windows.net/ec4187af-07da-4f01-b18f-64c2f5abecea/">
@@ -286,7 +286,7 @@ Microsoft에서 제공하는 코드 샘플 또는 연습 문서를 사용하여 
             <add thumbprint="3A38FA984E8560F19AADC9F86FE9594BB6AD049B" />
           </keys>
    ```
-2. 에  **\<지문을 추가 = "" >** 문자와 다른 바꿔서 지문 값을 변경 설정 합니다. **Web.config** 파일을 저장합니다.
+2. **Add thumbprint = "" > 설정에서 모든 문자를 다른 문자로 바꿔서 지문 값을 변경 합니다. \<** **Web.config** 파일을 저장합니다.
 3. 애플리케이션을 빌드하고 실행합니다. 로그인 프로세스를 완료할 수 있으면 애플리케이션은 디렉터리의 페더레이션 메타데이터 문서에서 필요한 정보를 다운로드하여 키를 성공적으로 업데이트합니다. 로그인하는 데 문제가 있는 경우 [Azure AD를 사용하여 웹 애플리케이션에 로그온 추가](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) 문서를 참조하거나 [Azure Active Directory용 다중 테넌트 클라우드 애플리케이션](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b) 코드 샘플을 다운로드하고 검사하여 애플리케이션의 변경 내용이 올바른지 확인합니다.
 
 ### <a name="vs2010"></a>리소스를 보호하며 Visual Studio 2008 또는 2010 및 .NET 3.5용 WIF(Windows Identity Foundation) v1.0을 사용하여 만든 웹 애플리케이션
@@ -309,7 +309,7 @@ WIF v1.0에서 애플리케이션을 빌드한 경우 새 키를 사용하도록
 키가 어딘가에 저장되거나 애플리케이션에 하드 코딩되는 경우 이 지침 문서의 끝에 있는 지침에 따라 수동 롤오버를 수행하여 수동으로 키를 검색하고 적절하게 업데이트할 수 있습니다. Azure AD의 롤오버 케이던스가 늘어나거나 긴급 대역외 롤오버가 발생하는 경우, 향후 작업 중단 및 오버헤드를방지 하기 위해 이 문서에 설명된 방법 중 하나를 사용하여 **자동 롤오버를 지원하도록 애플리케이션을 향상하는 것이 아주 좋습니다**.
 
 ## <a name="how-to-test-your-application-to-determine-if-it-will-be-affected"></a>애플리케이션을 테스트하여 영향을 받을지 확인하는 방법
-스크립트를 다운로드하고 [이 GitHub 리포지토리](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey)의 지침에 따라 애플리케이션이 자동 키 롤오버를 지원하는지 여부를 확인할 수 있습니다.
+스크립트를 다운로드하고 [이 GitHub 리포지토리](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey)
 
 ## <a name="how-to-perform-a-manual-rollover-if-your-application-does-not-support-automatic-rollover"></a>애플리케이션이 자동 롤오버를 지원하지 않는 경우 수동 롤오버를 수행하는 방법
 애플리케이션이 자동 롤오버를 지원하지 **않는** 경우 주기적으로 Azure AD의 서명 키를 모니터링하고 적절하게 수동 롤오버를 수행하는 프로세스를 설정해야 합니다. [이 GitHub 리포지토리](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey) 는 이 작업을 수행하는 방법에 대한 스크립트 및 지침을 포함합니다.

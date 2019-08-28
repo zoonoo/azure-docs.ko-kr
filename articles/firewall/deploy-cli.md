@@ -4,15 +4,15 @@ description: 이 문서에서는 배포 및 Azure CLI를 사용 하 여 Azure �
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 06/11/2019
+ms.date: 7/10/2019
 ms.author: victorh
 ms.topic: article
-ms.openlocfilehash: b40ac789fbc331e779e85462724e5c8a8e9bce47
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 24954eecde58c978fa3e14bb3a2d411d708687a3
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083354"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707154"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>배포 및 Azure CLI를 사용 하 여 Azure 방화벽 구성
 
@@ -20,7 +20,7 @@ ms.locfileid: "67083354"
 
 Azure 서브넷에서 아웃바운드 네트워크로의 액세스를 제어하는 한 가지 방법은 Azure Firewall입니다. Azure Firewall을 사용하면 다음을 구성할 수 있습니다.
 
-* 서브넷에서 액세스할 수 있는 FQDN(정규화된 도메인 이름)을 정의하는 애플리케이션 규칙.
+* 서브넷에서 액세스할 수 있는 FQDN(정규화된 도메인 이름)을 정의하는 애플리케이션 규칙. FQDN 수도 [SQL 인스턴스를 포함할](sql-fqdn-filtering.md)합니다.
 * 원본 주소, 프로토콜, 대상 포트 및 대상 주소를 정의하는 네트워크 규칙.
 
 네트워크 트래픽은 서브넷 기본 게이트웨이처럼 방화벽에 네트워크 트래픽을 라우팅할 경우 구성된 방화벽 규칙에 종속됩니다.
@@ -39,7 +39,7 @@ Azure 서브넷에서 아웃바운드 네트워크로의 액세스를 제어하�
 > * 테스트 네트워크 환경 설정
 > * 방화벽 배포
 > * 기본 경로 만들기
-> * www.google.com 액세스를 허용하도록 애플리케이션 규칙 구성
+> * [www.google.com](www.google.com) 액세스를 허용하도록 애플리케이션 규칙 구성
 > * 외부 DNS 서버 액세스를 허용하도록 네트워크 규칙 구성
 > * 방화벽 테스트
 
@@ -49,11 +49,18 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="azure-cli"></a>Azure CLI
 
 로컬로 CLI를 설치하여 사용하기로 선택하는 경우 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. 버전을 찾으려면 **az --version**을 실행합니다. 설치 또는 업그레이드에 대한 자세한 내용은 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+
+Azure 방화벽 확장을 설치 합니다.
+
+```azurecli-interactive
+az extension add -n azure-firewall
+```
+
 
 ## <a name="set-up-the-network"></a>네트워크 설정
 
@@ -267,7 +274,7 @@ az network firewall network-rule create \
 
    두 명령 모두 방화벽을 통해 DNS 쿼리를 가져오고 있는지를 보여 주는 응답을 반환 해야 합니다.
 
-1. 다음 명령을 실행합니다.
+1. 다음 명령을 실행 합니다.
 
    ```
    Invoke-WebRequest -Uri https://www.google.com
@@ -277,7 +284,7 @@ az network firewall network-rule create \
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   www.google.com 요청에 성공 하 고 www.microsoft.com 요청이 실패 합니다. 이 방화벽 규칙에 예상 대로 작동 하는지 보여 줍니다.
+   [www.google.com](www.google.com) 요청에 성공 하 고 www.microsoft.com 요청이 실패 합니다. 이 방화벽 규칙에 예상 대로 작동 하는지 보여 줍니다.
 
 이제 방화벽 규칙이 작동하는지 확인했습니다.
 

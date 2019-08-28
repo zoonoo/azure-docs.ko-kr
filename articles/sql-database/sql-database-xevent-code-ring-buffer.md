@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
-manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: bb493fc0a9d3a9173ef4faf17b3cdd4e3781a557
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f1ec9cd3a4256597ade409fb3e04d44171277554
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60331029"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566167"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>SQL Database의 확장 이벤트에 대한 링 버퍼 대상 코드
 
@@ -41,7 +40,7 @@ ms.locfileid: "60331029"
 7. 링 버퍼 대상을 삭제하여 해당 리소스를 해제합니다.
 8. 이벤트 세션 및 데모 테이블을 삭제합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 계정 및 구독 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 * 테이블을 만들 수 있는 데이터베이스.
@@ -55,7 +54,7 @@ ms.locfileid: "60331029"
 
 ## <a name="code-sample"></a>코드 샘플
 
-다음 링 버퍼 코드 샘플은 약간만 수정하면 Azure SQL Database 또는 Microsoft SQL Server에서 실행할 수 있습니다. 5단계의 FROM 절에 사용되는 일부 DMV(동적 관리 뷰) 이름에 '_database' 노드가 있다는 점이 다릅니다. 예를 들면 다음과 같습니다.
+다음 링 버퍼 코드 샘플은 약간만 수정하면 Azure SQL Database 또는 Microsoft SQL Server에서 실행할 수 있습니다. 5단계의 FROM 절에 사용되는 일부 DMV(동적 관리 뷰) 이름에 '_database' 노드가 있다는 점이 다릅니다. 예:
 
 * sys.dm_xe<strong>_database</strong>_session_targets
 * sys.dm_xe_session_targets
@@ -223,7 +222,7 @@ ssms.exe를 사용하여 코드 샘플을 실행했습니다.
 
 그런 다음 결과 창에서 열 머리글 **target_data_XML** 아래의 셀을 클릭했습니다. 그러면 결과 셀의 콘텐츠가 XML로 표시된 다른 파일 탭이 ssms.exe에 만들어졌습니다.
 
-출력은 다음 블록에 표시되어 있습니다. 해당 길어 보이지만 두는 것  **\<이벤트 >** 요소입니다.
+출력은 다음 블록에 표시되어 있습니다. 긴 것으로 보이지만 두 개의  **\<이벤트 >** 요소입니다.
 
 &nbsp;
 

@@ -11,18 +11,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/22/2017
+ms.date: 07/12/2019
 ms.author: apimpm
-ms.openlocfilehash: b1602af59cd46b4bbcefa6f1df3cd84c0d342b71
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a2d71330dcdac7054b20e0a6222b542fd8815705
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959702"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849583"
 ---
 # <a name="import-an-openapi-specification"></a>OpenAPI 사양 가져오기
 
-이 문서에서는 https://conferenceapi.azurewebsites.net?format=json에 있는 "OpenAPI 사양" 백 엔드 API를 가져오는 방법을 보여줍니다. 이 백 엔드 API는 Microsoft에서 제공하고 Azure에서 호스트됩니다. 또한 APIM API를 테스트하는 방법도 설명합니다.
+이 문서에서는 https://conferenceapi.azurewebsites.net?format=json 에 있는 "OpenAPI 사양" 백 엔드 API를 가져오는 방법을 보여줍니다. 이 백 엔드 API는 Microsoft에서 제공하고 Azure에서 호스트됩니다. 또한 APIM API를 테스트하는 방법도 설명합니다.
 
 > [!IMPORTANT]
 > OpenAPI 가져오기와 관련된 중요한 정보 및 팁은 이 [문서](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/)를 참조하세요.
@@ -60,6 +60,9 @@ ms.locfileid: "52959702"
     |**제품**|*무제한*| API를 제품에 연결하여 API를 게시합니다. 선택적으로 이 새로운 API를 제품에 추가하려면 제품 이름을 입력합니다. 이 단계는 여러 제품에 API 추가를 여러 번 반복할 수 있습니다.<br/>제품은 하나 이상의 API와 연결됩니다. 다양한 API를 포함하고 개발자 포털을 통해 개발자에게 제공할 수 있습니다. 개발자는 API에 액세스하려면 먼저 제품을 구독해야 합니다. 구독할 경우 해당 제품의 모든 API에 적절한 구독 키를 받게 됩니다. APIM 인스턴스를 만든 경우 사용자는 이미 관리자이므로 기본적으로 모든 제품을 구독한 상태가 됩니다.<br/> 기본적으로 각 API Management 인스턴스는 두 개의 샘플 제품과 함께 제공됩니다. **Starter** 및 **Unlimited**입니다. |
 
 4. **만들기**를 선택합니다.
+
+> [!NOTE]
+> API 가져오기 제한 사항은 [다른 문서](api-management-api-import-restrictions.md)에 설명되어 있습니다.
 
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Azure Portal에서 새 APIM API 테스트
 

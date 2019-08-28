@@ -32,7 +32,7 @@ ms.locfileid: "67508064"
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-* **Azure Storage 계정** [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요.
+* **Azure Storage 계정** [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요.
 * **Visual Studio**.
 
 ## <a name="create-clusters"></a>클러스터 만들기

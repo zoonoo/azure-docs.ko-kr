@@ -12,18 +12,18 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 02/01/2018
 ms.author: cshoe
-ms.openlocfilehash: ef8f2d5a63f7924097362f6aa0ebc78cc0f6455f
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: bc0ffec1bfe55ee81573feffc58e1adb11421eec
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480700"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667441"
 ---
 # <a name="azure-functions-error-handling"></a>Azure Functions 오류 처리
 
 이 항목에서는 함수를 실행하는 경우 발생하는 오류를 처리하기 위한 일반적인 지침을 제공합니다. 또한 발생할 수 있는 바인딩 관련 오류를 설명하는 항목에 대한 링크를 제공합니다. 
 
-## <a name="handing-errors-in-functions"></a>함수에서 오류 처리
+## <a name="handling-errors-in-functions"></a>함수의 오류 처리
 [!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
 
  

@@ -72,7 +72,7 @@ Data Lake Storage Gen1의 POSIX 권한 및 감사에는 수많은 작은 파일�
 
 ### <a name="large-file-sizes-and-potential-performance-impact"></a>큰 파일 크기 및 성능에 대한 잠재적 영향
 
-Data Lake Storage Gen1은 최대 페타바이트 크기의 큰 파일을 지원하지만 최적의 성능을 위해 데이터 읽기 프로세스에 따라 평균 2GB를 초과하지 않는 것이 좋을 수 있습니다. 예를 들어 **Distcp**를 사용하여 위치 또는 다른 저장소 계정 간에 데이터를 복사하는 경우 파일은 매핑 작업을 결정하는 데 사용되는 최상의 세분성 수준입니다. 따라서 각각 1TB인 파일 10개를 복사하는 경우 최대 10개의 매퍼가 할당됩니다. 또한 매퍼가 할당된 많은 파일이 있는 경우 처음에는 매퍼가 병렬로 작동하여 큰 파일을 이동합니다. 그러나 작업이 종료되기 시작하면 몇 개의 매퍼만 할당된 상태로 유지되고 큰 파일에 할당된 단일 매퍼를 사용하여 멈출 수 있습니다. Microsoft는 이후의 Hadoop 버전에서 이 문제를 해결하기 위해 Distcp에 대한 향상된 기능을 제출했습니다.
+Data Lake Storage Gen1은 최대 페타바이트 크기의 큰 파일을 지원하지만 최적의 성능을 위해 데이터 읽기 프로세스에 따라 평균 2GB를 초과하지 않는 것이 좋을 수 있습니다. 예를 들어 **Distcp**를 사용하여 위치 또는 다른 스토리지 계정 간에 데이터를 복사하는 경우 파일은 매핑 작업을 결정하는 데 사용되는 최상의 세분성 수준입니다. 따라서 각각 1TB인 파일 10개를 복사하는 경우 최대 10개의 매퍼가 할당됩니다. 또한 매퍼가 할당된 많은 파일이 있는 경우 처음에는 매퍼가 병렬로 작동하여 큰 파일을 이동합니다. 그러나 작업이 종료되기 시작하면 몇 개의 매퍼만 할당된 상태로 유지되고 큰 파일에 할당된 단일 매퍼를 사용하여 멈출 수 있습니다. Microsoft는 이후의 Hadoop 버전에서 이 문제를 해결하기 위해 Distcp에 대한 향상된 기능을 제출했습니다.
 
 고려해야 할 또 다른 예는 Data Lake Storage Gen1에서 Azure Data Lake Analytics를 사용하는 경우입니다. 추출기에서 수행되는 처리에 따라 분할할 수 없는 일부 파일(예: XML, JSON)은 2GB보다 큰 경우 성능이 저하될 수 있습니다. 추출기에서 파일(예: CSV)을 분할할 수 있는 경우 큰 파일을 사용하도록 기본 설정됩니다.
 
@@ -82,7 +82,7 @@ Azure Data Lake Storage Gen1은 Blob Storage 계정에 적용된 하드 IO 제�
 
 ### <a name="optimize-writes-with-the-data-lake-storage-gen1-driver-buffer"></a>Data Lake Storage Gen1 드라이버 버퍼로 “쓰기” 최적화
 
-Hadoop에서 Data Lake Storage Gen1에 쓸 때 성능을 최적화하고 IOPS를 줄이려면 Data Lake Storage Gen1 드라이버 버퍼 크기에 최대한 가깝게 쓰기 작업을 수행합니다. Apache Storm 또는 Spark 스트리밍 작업을 사용하여 스트리밍하는 경우와 같이 플러시하기 전에 버퍼 크기를 초과하지 않도록 합니다. HDInsight/Hadoop에서 Data Lake Storage Gen1에 쓰는 경우 4MB 버퍼가 있는 드라이버가 Data Lake Storage Gen1에 있음을 알고 있어야 합니다. 많은 파일 시스템 드라이버와 마찬가지로, 이 버퍼는 4MB 크기에 도달하기 전에 수동으로 플러시할 수 있습니다. 그렇지 않으면 다음 쓰기에서 버퍼의 최대 크기를 초과하면 저장소에 즉시 플러시됩니다. 가능한 경우 개수 또는 시간 범위에 따라 정책을 동기화/플러시할 때 버퍼의 오버런 또는 중요한 언더런을 방지해야 합니다.
+Hadoop에서 Data Lake Storage Gen1에 쓸 때 성능을 최적화하고 IOPS를 줄이려면 Data Lake Storage Gen1 드라이버 버퍼 크기에 최대한 가깝게 쓰기 작업을 수행합니다. Apache Storm 또는 Spark 스트리밍 작업을 사용하여 스트리밍하는 경우와 같이 플러시하기 전에 버퍼 크기를 초과하지 않도록 합니다. HDInsight/Hadoop에서 Data Lake Storage Gen1에 쓰는 경우 4MB 버퍼가 있는 드라이버가 Data Lake Storage Gen1에 있음을 알고 있어야 합니다. 많은 파일 시스템 드라이버와 마찬가지로, 이 버퍼는 4MB 크기에 도달하기 전에 수동으로 플러시할 수 있습니다. 그렇지 않으면 다음 쓰기에서 버퍼의 최대 크기를 초과하면 스토리지에 즉시 플러시됩니다. 가능한 경우 개수 또는 시간 범위에 따라 정책을 동기화/플러시할 때 버퍼의 오버런 또는 중요한 언더런을 방지해야 합니다.
 
 ## <a name="resiliency-considerations"></a>복원력 고려 사항
 
@@ -108,7 +108,7 @@ Data Lake Storage Gen1을 사용하여 데이터를 복원하는 경우 HA/DR �
 
 ### <a name="use-distcp-for-data-movement-between-two-locations"></a>두 위치 간 데이터 이동에 Distcp 사용
 
-Distcp(Distributed Copy의 약자)는 Hadoop과 함께 제공되고 두 위치 간에 분산된 데이터 이동을 제공하는 Linux 명령줄 도구입니다. 두 위치는 Data Lake Storage Gen1, HDFS, WASB 또는 S3일 수 있습니다. 이 도구는 Hadoop 클러스터(예: HDInsight)에서 MapReduce 작업을 사용하여 모든 노드의 크기를 확장합니다. Distcp는 특별한 네트워크 압축 어플라이언스 없이 빅 데이터를 이동하는 가장 빠른 방법으로 간주됩니다. 또한 Distcp는 두 위치 간의 델타만 업데이트하고 자동 재시도 및 계산의 동적 크기 조정을 처리하는 옵션을 제공합니다. 이 방법은 하나의 디렉터리에 많은 큰 파일을 포함할 수 있는 Hive/Spark 테이블과 같은 것을 복제하고 수정된 데이터만 복사하려는 경우에 매우 효율적입니다. 이러한 이유로 Distcp는 빅 데이터 저장소 간에 데이터를 복사하는 데 가장 많이 권장되는 도구입니다.
+Distcp(Distributed Copy의 약자)는 Hadoop과 함께 제공되고 두 위치 간에 분산된 데이터 이동을 제공하는 Linux 명령줄 도구입니다. 두 위치는 Data Lake Storage Gen1, HDFS, WASB 또는 S3일 수 있습니다. 이 도구는 Hadoop 클러스터(예: HDInsight)에서 MapReduce 작업을 사용하여 모든 노드의 크기를 확장합니다. Distcp는 특별한 네트워크 압축 어플라이언스 없이 빅 데이터를 이동하는 가장 빠른 방법으로 간주됩니다. 또한 Distcp는 두 위치 간의 델타만 업데이트하고 자동 재시도 및 컴퓨팅의 동적 크기 조정을 처리하는 옵션을 제공합니다. 이 방법은 하나의 디렉터리에 많은 큰 파일을 포함할 수 있는 Hive/Spark 테이블과 같은 것을 복제하고 수정된 데이터만 복사하려는 경우에 매우 효율적입니다. 이러한 이유로 Distcp는 빅 데이터 저장소 간에 데이터를 복사하는 데 가장 많이 권장되는 도구입니다.
 
 복사 작업은 Linux cron 작업뿐만 아니라 빈도 또는 데이터 트리거를 사용하는 Apache Oozie 워크플로를 통해서도 트리거될 수 있습니다. 집약적인 복제 작업의 경우 복사 작업을 위해 특별히 튜닝 및 크기 조정할 수 있는 별도의 HDInsight Hadoop 클러스터를 작동하는 것이 좋습니다. 이렇게 하면 복사 작업이 중요한 작업을 방해하지 않습니다. 매우 충분한 빈도로 복제를 실행하는 경우 각 작업 간에 클러스터가 중단될 수도 있습니다. 보조 지역으로 장애 조치(failover)하는 경우 백업할 때 보조 지역에서 또 다른 클러스터가 작동되어 새 데이터를 기본 Data Lake Storage Gen1 계정으로 다시 복제해야 합니다. Distcp 사용 예는 [Distcp를 사용하여 Azure Storage Blob과 Data Lake Storage Gen1 간에 데이터 복사](data-lake-store-copy-data-wasb-distcp.md)를 참조하세요.
 
@@ -124,7 +124,7 @@ Distcp와 마찬가지로, AdlCopy는 Azure Automation 또는 Windows 작업 스
 
 ## <a name="monitoring-considerations"></a>모니터링 고려 사항
 
-Data Lake Storage Gen1은 자세한 진단 로그 및 감사 기능을 제공합니다. Data Lake Storage Gen1은 Azure Portal의 Data Lake Storage Gen1 계정 및 Azure Monitor에서 몇 가지 기본 메트릭을 제공합니다. Data Lake Storage Gen1의 가용성은 Azure Portal에 표시됩니다. 그러나 이 메트릭은 7분마다 새로 고쳐지고 공개적으로 노출된 API를 통해 쿼리할 수 없습니다. Data Lake Storage Gen1 계정의 최신 가용성을 확인하려면 사용자 고유의 가상 테스트를 실행하여 가용성의 유효성을 검사해야 합니다. 총 저장소 사용률, 읽기/쓰기 요청 수 및 수신/송신과 같은 다른 메트릭은 새로 고치는 데 최대 24시간이 걸릴 수 있습니다. 따라서 최신 메트릭은 Hadoop 명령줄 도구 또는 로그 정보 집계를 통해 수동으로 계산해야 합니다. 가장 최근의 저장소 사용률을 가져오는 가장 빠른 방법은 Hadoop 클러스터 노드(예: 헤드 노드)에서 이 HDFS 명령을 실행하는 것입니다.
+Data Lake Storage Gen1은 자세한 진단 로그 및 감사 기능을 제공합니다. Data Lake Storage Gen1은 Azure Portal의 Data Lake Storage Gen1 계정 및 Azure Monitor에서 몇 가지 기본 메트릭을 제공합니다. Data Lake Storage Gen1의 가용성은 Azure Portal에 표시됩니다. 그러나 이 메트릭은 7분마다 새로 고쳐지고 공개적으로 노출된 API를 통해 쿼리할 수 없습니다. Data Lake Storage Gen1 계정의 최신 가용성을 확인하려면 사용자 고유의 가상 테스트를 실행하여 가용성의 유효성을 검사해야 합니다. 총 스토리지 사용률, 읽기/쓰기 요청 수 및 수신/송신과 같은 다른 메트릭은 새로 고치는 데 최대 24시간이 걸릴 수 있습니다. 따라서 최신 메트릭은 Hadoop 명령줄 도구 또는 로그 정보 집계를 통해 수동으로 계산해야 합니다. 가장 최근의 스토리지 사용률을 가져오는 가장 빠른 방법은 Hadoop 클러스터 노드(예: 헤드 노드)에서 이 HDFS 명령을 실행하는 것입니다.
 
     hdfs dfs -du -s -h adl://<adlsg1_account_name>.azuredatalakestore.net:443/
 
@@ -144,7 +144,7 @@ Data Lake Storage Gen1 로그 전달이 켜져 있지 않으면 Azure HDInsight�
 
 ### <a name="run-synthetic-transactions"></a>가상 트랜잭션 실행
 
-현재 Azure Portal의 Data Lake Storage Gen1에 대한 서비스 가용성 메트릭에는 7분 단위의 새로 고침 기간이 있습니다. 또한 공개적으로 노출된 API를 사용하여 쿼리할 수 없습니다. 따라서 최대 분 단위의 가용성을 제공할 수 있는 Data Lake Storage Gen1에 대해 가상 트랜잭션을 수행하는 기본 애플리케이션을 빌드하는 것이 좋습니다. 예를 들어 WebJob, Logic App 또는 Azure Function App을 만들어 Data Lake Storage Gen1에 대한 읽기, 만들기 및 업데이트를 수행하고 결과를 모니터링 솔루션에 보낼 수 있습니다. 작업은 임시 폴더에서 수행한 다음, 테스트 후 삭제할 수 있으며, 요구 사항에 따라 30-60초마다 실행할 수 있습니다.
+현재 Azure Portal의 Data Lake Storage Gen1에 대한 서비스 가용성 메트릭에는 7분 단위의 새로 고침 기간이 있습니다. 또한 공개적으로 노출된 API를 사용하여 쿼리할 수 없습니다. 따라서 최대 분 단위의 가용성을 제공할 수 있는 Data Lake Storage Gen1에 대해 가상 트랜잭션을 수행하는 기본 애플리케이션을 빌드하는 것이 좋습니다. 예를 들어 WebJob, Logic App 또는 Azure 함수 앱을 만들어 Data Lake Storage Gen1에 대한 읽기, 만들기 및 업데이트를 수행하고 결과를 모니터링 솔루션에 보낼 수 있습니다. 작업은 임시 폴더에서 수행한 다음, 테스트 후 삭제할 수 있으며, 요구 사항에 따라 30-60초마다 실행할 수 있습니다.
 
 ## <a name="directory-layout-considerations"></a>디렉터리 레이아웃 고려 사항
 

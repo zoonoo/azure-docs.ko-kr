@@ -11,7 +11,7 @@ metadata:
   manager: jhubbard
   author: j-martens
   ms.author: jmartens
-  ms.date: 05/14/2019
+  ms.date: 08/13/2019
   ms.custom: seodec18
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -27,26 +27,26 @@ abstract:
     href: 'https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/'
     width: 250
 sections:
-  - title: 5분 빠른 시작
-    items:
-      - type: paragraph
-        text: "Azure Machine Learning Service에서 \_ <a href=\"setup-create-workspace\">작업 영역을 만들</a>면 다음과 같은 빠른 시작을 사용하기 시작할 수 있습니다."
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="quickstart-run-cloud-notebook">클라우드에서 실험 실행</a>(설치 필요 없음)
-          - html: <a href="quickstart-run-local-notebook">로컬 Notebook 서버를 사용하여 실험 실행</a>(로컬 SDK 설치)
-          - html: 시각적 개체 인터페이스에서 <a href="ui-quickstart-run-experiment">코드를 작성하지 않고 데이터를 준비하고 시각화합니다</a>.
   - title: 단계별 자습서
     items:
       - type: paragraph
         text: '데이터를 준비하고, 실험을 설정하며, 기계 학습 모델을 학습 및 운영하는 방법에 대해 알아봅니다.'
+      - type: paragraph
+        text: 기계 학습을 위해 사용하기 쉽고 코드 인터페이스가 없는 <b>Azure Portal을 사용</b>합니다.
       - type: list
         style: unordered
         items:
-          - html: 이미지 분류 모델을 <a href="tutorial-train-models-with-aml">학습</a> 및 <a href="tutorial-deploy-models-with-aml">배포</a>합니다(<b>2부 시리즈</b>).
-          - html: <a href="tutorial-data-prep">데이터를 준비</a>하고 <a href="tutorial-auto-train-models">자동화된 기계 학습을 사용</a>하여 회귀 모델을 학습 및 조정합니다(<b>2부 시리즈</b>).
-          - html: 시각적 개체 인터페이스를 사용하여 <a href="ui-tutorial-automobile-price-train-score">자동차 가격을 예측</a>하고 회귀 모델을 <a href="ui-tutorial-automobile-price-deploy">배포합니다</a>.
+          - html: <a href="tutorial-first-experiment-automated-ml">첫 번째 자동화된 기계 학습 실험을 학습합니다</a>.
+          - html: <a href="ui-tutorial-automobile-price-train-score">시각적 개체 인터페이스의 끌어서 놓기 UI에서 첫 번째 실험을 학습합니다.</a>
+      - type: paragraph
+        text: 기계 학습을 위해 스크립트 및 Notebooks에서 <b>Python SDK를 사용</b>합니다.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="tutorial-1st-experiment-sdk-setup">환경을 설정하고 첫 번째 ML 실험을 학습합니다.</a>
+          - html: <a href="tutorial-train-models-with-aml">이미지 분류 모델을 학습 및 배포합니다.</a>
+          - html: <a href="tutorial-data-prep">데이터를 준비하고 자동화된 ML을 사용하여 택시 요금을 예측합니다.</b></a>
+          - html: <a href="how-to-run-batch-predictions">ML 파이프라인을 사용하여 대용량 데이터 세트에서 일괄 처리 예측을 실행합니다.</b></a>
   - title: 샘플
     items:
       - type: paragraph
@@ -56,10 +56,10 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: '<a href="https://aka.ms/aml-sdk">기본 Python SDK</a>: 핵심 기능, 자동화된 기계 학습, 파이프라인 등입니다.'
-          - html: '<a href="https://aka.ms/aml-monitoring-sdk">모니터링</a> Python SDK: 배포된 웹 서비스에서 데이터를 수집합니다.'
-          - html: 시각적 인터페이스에 대한 <a href="../algorithm-module-reference/module-reference.md">알고리즘 및 모듈 참조</a>
-          - html: '<a href="https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest">Azure ML CLI</a>: 기계 학습 명령줄 인터페이스 확장'
+          - html: '<a href="https://aka.ms/aml-sdk">기본 Python SDK</a> 문서: 핵심 기능, 자동화된 ML, 파이프라인 등에 대해 알아봅니다.'
+          - html: '<a href="https://aka.ms/aml-monitoring-sdk">모니터링</a> Python SDK 문서: 배포된 웹 서비스에서 데이터를 수집하는 방법 알아보기'
+          - html: 시각적 인터페이스 모듈에 대한 <a href="../algorithm-module-reference/module-reference.md">알고리즘 및 모듈 참조</a> 문서.
+          - html: '<a href="https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest">Azure ML CLI</a>: ML 명령줄 인터페이스 확장에 대해 알아봅니다.'
   - title: 기타 Azure Machine Learning 기술
     items:
       - type: list

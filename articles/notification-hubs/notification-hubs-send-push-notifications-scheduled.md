@@ -15,12 +15,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: af0de9e8c18644f4ae200f6546c0dd0a41320f9f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 94af0dede158c091ae64ae317db3c3153063ce79
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61457688"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347350"
 ---
 # <a name="how-to-send-scheduled-notifications"></a>방법: 예약된 알림 보내기
 
@@ -30,7 +30,7 @@ ms.locfileid: "61457688"
 ## <a name="schedule-your-notifications"></a>알림 예약
 알림을 보내는 경우 다음 예제와 같이 Notification Hubs SDK에서 [`ScheduledNotification` 클래스](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx)를 사용합니다.
 
-```c#
+```csharp
 Notification notification = new AppleNotification("{\"aps\":{\"alert\":\"Happy birthday!\"}}");
 var scheduled = await hub.ScheduleNotificationAsync(notification, new DateTime(2014, 7, 19, 0, 0, 0));
 ```
@@ -38,7 +38,7 @@ var scheduled = await hub.ScheduleNotificationAsync(notification, new DateTime(2
 ## <a name="cancel-scheduled-notifications"></a>예약된 알림 취소
 또한 해당 notificationId를 사용하여 이전에 예약된 알림을 취소할 수 있습니다.
 
-```c#
+```csharp
 await hub.CancelNotificationAsync(scheduled.ScheduledNotificationId);
 ```
 

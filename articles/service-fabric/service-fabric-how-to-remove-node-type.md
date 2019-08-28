@@ -3,7 +3,7 @@ title: Azure Service Fabric에서 노드 유형 제거 | Microsoft Docs
 description: Azure에서 실행 중인 Service Fabric 클러스터에서 노드 유형을 제거하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chakdan
 editor: vturecek
 ms.assetid: ''
@@ -13,22 +13,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
-ms.author: aljo
-ms.openlocfilehash: 779051135a994574cb2bed7bfc4879270ec1d8fa
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: atsenthi
+ms.openlocfilehash: 44f25adf4168f4339a31e9270c2b23a8466a8889
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443031"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599498"
 ---
 # <a name="remove-a-service-fabric-node-type"></a>Service Fabric 노드 유형 제거
-이 문서에서는 클러스터에서 기존 노드 유형을 제거하여 Azure Service Fabric 클러스터의 크기를 조정하는 방법을 설명합니다. Service Fabric 클러스터는 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 머신 집합입니다. 클러스터의 일부인 머신 또는 VM을 노드라고 합니다. 가상 머신 확장 집합은 가상 머신의 모음을 집합으로 배포하고 관리하는 데 사용할 수 있는 Azure 계산 리소스입니다. Azure 클러스터에 정의된 모든 노드 유형은 [별도의 확장 집합으로 설정](service-fabric-cluster-nodetypes.md)됩니다. 각 노드 형식을 별도로 관리할 수 있습니다. Service Fabric 클러스터를 만든 후에 노드 유형(가상 머신 확장 집합) 및 모든 노드를 제거하여 클러스터를 수평 확장할 수 있습니다.  클러스터에서 워크로드가 실행되는 경우에도 언제든지 클러스터의 크기를 조정할 수 있습니다.  클러스터의 크기를 조정하면 애플리케이션 크기도 자동으로 조정됩니다.
+이 문서에서는 클러스터에서 기존 노드 유형을 제거하여 Azure Service Fabric 클러스터의 크기를 조정하는 방법을 설명합니다. Service Fabric 클러스터는 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 머신 집합입니다. 클러스터의 일부인 머신 또는 VM을 노드라고 합니다. 가상 머신 확장 집합은 가상 머신의 모음을 집합으로 배포하고 관리하는 데 사용할 수 있는 Azure 컴퓨팅 리소스입니다. Azure 클러스터에 정의된 모든 노드 유형은 [별도의 확장 집합으로 설정](service-fabric-cluster-nodetypes.md)됩니다. 각 노드 형식을 별도로 관리할 수 있습니다. Service Fabric 클러스터를 만든 후에 노드 유형(가상 머신 확장 집합) 및 모든 노드를 제거하여 클러스터를 수평 확장할 수 있습니다.  클러스터에서 워크로드가 실행되는 경우에도 언제든지 클러스터의 크기를 조정할 수 있습니다.  클러스터의 크기를 조정하면 애플리케이션 크기도 자동으로 조정됩니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-사용 하 여 [제거 AzServiceFabricNodeType](https://docs.microsoft.com/powershell/module/az.servicefabric/remove-azservicefabricnodetype) Service Fabric 노드 유형을 제거 하려면.
+[AzServiceFabricNodeType](https://docs.microsoft.com/powershell/module/az.servicefabric/remove-azservicefabricnodetype) 를 사용 하 여 Service Fabric 노드 유형을 제거 합니다.
 
-제거-AzServiceFabricNodeType 호출 될 때 발생 하는 세 가지 작업에서는 다음과 같습니다.
+AzServiceFabricNodeType를 호출할 때 발생 하는 세 가지 작업은 다음과 같습니다.
 1.  노드 유형 뒤의 가상 머신 확장 집합이 삭제됩니다.
 2.  노드 유형이 클러스터에서 제거됩니다.
 3.  해당 노드 유형에 포함된 각 노드의 전체 상태가 시스템에서 제거됩니다. 해당 노드에 서비스가 있으면 먼저 서비스가 다른 노드로 옮겨집니다. 클러스터 관리자가 복제본/서비스에 대한 노드를 찾을 수 없으면 작업이 지연/차단됩니다.
@@ -37,7 +37,7 @@ ms.locfileid: "67443031"
 > Remove-AzServiceFabricNodeType을 사용하여 프로덕션 클러스터에서 노드 유형을 제거하는 것은 자주 사용하지 않는 것이 좋습니다. 노드 유형 뒤의 가상 머신 확장 집합 리소스가 삭제되므로 위험한 명령입니다. 
 
 ## <a name="durability-characteristics"></a>내구성 특징
-안전성은 AzServiceFabricNodeType 제거를 사용 하는 경우 속도 보다 우선 적용 됩니다. 다음과 같은 이유로 노드 유형은 실버 또는 골드 [내구성 수준](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster)이어야 합니다.
+AzServiceFabricNodeType를 사용 하는 경우 안전은 속도 보다 우선 순위가 지정 됩니다. 다음과 같은 이유로 노드 유형은 실버 또는 골드 [내구성 수준](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster)이어야 합니다.
 - Bronze는 상태 정보 저장이 전혀 보장되지 않습니다.
 - 실버 및 골드 내구성은 확장 집합에 대한 모든 변경 내용을 트래핑합니다.
 - 골드의 경우 확장 집합 아래에 있는 Azure 업데이트를 제어할 수도 있습니다.
@@ -50,7 +50,7 @@ Bronze 노드 유형을 제거하면 노드 유형의 모든 노드가 즉시 �
 
 ## <a name="recommended-node-type-removal-process"></a>권장되는 노드 유형 제거 프로세스
 
-노드 유형을 제거하려면 [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) cmdlet을 실행합니다.  cmdlet을 완료하는 데 시간이 걸립니다.  ("Down"으로 표시 됨) 모든 Vm이 삭제 되 면 패브릭: / 시스템/InfrastructureService / [nodetype name] 오류 상태를 표시 합니다.
+노드 유형을 제거하려면 [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) cmdlet을 실행합니다.  cmdlet을 완료하는 데 시간이 걸립니다.  모든 Vm이 사라진 후 ("Down"으로 표시 됨) fabric:/System/InfrastructureService/[nodetype name]에 오류 상태가 표시 됩니다.
 
 ```powershell
 $groupname = "mynodetype"
@@ -66,9 +66,9 @@ Connect-ServiceFabricCluster -ConnectionEndpoint mytestcluster.eastus.cloudapp.a
           -StoreLocation CurrentUser -StoreName My
 ```
 
-그런 다음 노드 유형을 제거 하려면 클러스터 리소스를 업데이트할 수 있습니다. ARM 템플릿 배포를 사용 하거나 클러스터 리소스를 통해 편집 합니다 [Azure resource manager](https://resources.azure.com)합니다. 패브릭을 제거 하는 클러스터 업그레이드가 시작 됩니다. / 시스템/InfrastructureService / [nodetype name] 서비스는 오류 상태입니다.
+그런 다음 클러스터 리소스를 업데이트 하 여 노드 유형을 제거할 수 있습니다. ARM 템플릿 배포를 사용 하거나 [Azure resource manager](https://resources.azure.com)를 통해 클러스터 리소스를 편집할 수 있습니다. 그러면 오류 상태인 fabric:/System/InfrastructureService/[nodetype name] 서비스가 제거 되는 클러스터 업그레이드가 시작 됩니다.
 
-"Down" Service Fabric Explorer의 노드는 여전히 표시 됩니다. 제거할 노드마다 [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps)를 실행합니다.
+노드가 Service Fabric Explorer에 "중단" 된 것을 볼 수 있습니다. 제거할 노드마다 [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps)를 실행합니다.
 
 
 ```powershell

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: v-wingf-msft
+ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dbebfa5fa7d9b255cc685696bfe8b3f61d5cf6b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3e203e88de8d806f489e5a7ab9bfd227c8232f84
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64708936"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670907"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Tableau Online 구성
 
@@ -30,7 +30,7 @@ ms.locfileid: "64708936"
 > [!NOTE]
 > 이 자습서는 Azure AD 사용자 프로 비전 서비스를 기반으로 빌드되는 커넥터를 설명 합니다. 이 서비스의 용도, 작동 방법 및 자주 묻는 질문에 대 한 내용은 참조 하세요 [사용자 프로 비전 및 Azure Active Directory를 사용 하 여 소프트웨어-as a service (SaaS) 응용 프로그램에 프로 비전 해제 자동화](../manage-apps/user-provisioning.md)합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 자습서에 설명 된 시나리오에서는 있다고 가정 합니다.
 
@@ -103,7 +103,7 @@ Azure AD를 사용 하 여 프로 비전 하는 자동 사용자를 Tableau Onli
 
    * 에 **도메인** 상자에서 6 단계에 따라 하위 도메인을 입력 합니다.
 
-   * 에 **관리자 사용자 이름** 상자에서 Clarizen 테 넌 트에서 관리자 계정의 사용자 이름을 입력 합니다. 예는 admin@contoso.com입니다.
+   * 에 **관리자 사용자 이름** 상자에서 Clarizen 테 넌 트에서 관리자 계정의 사용자 이름을 입력 합니다. 예제입니다. admin@contoso.com
 
    * 에 **관리자 암호** 상자에서 관리자 사용자 이름에 해당 하는 관리자 계정의 암호를 입력 합니다.
 
@@ -130,7 +130,7 @@ Azure AD를 사용 하 여 프로 비전 하는 자동 사용자를 Tableau Onli
 
     ![Tableau Online 알림 전자 메일](./media/tableau-online-provisioning-tutorial/EmailNotification.png)
 
-9. **저장**을 선택합니다.
+9.           **저장**을 선택합니다.
 
 10. **매핑** 섹션에서 **Azure Active Directory 사용자를 Tableau Online에 동기화**를 선택합니다.
 
@@ -168,7 +168,7 @@ Azure AD를 사용 하 여 프로 비전 하는 자동 사용자를 Tableau Onli
 
 Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../manage-apps/check-status-user-account-provisioning.md)를 참조하세요.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)

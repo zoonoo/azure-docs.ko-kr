@@ -5,20 +5,20 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 07/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 22317372a7d954286ebcb0b59aea293c746b2a58
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: dbacec6e8f91480996150e73f2a81dbcde67550b
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508179"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494800"
 ---
-# <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>리소스, 속성 또는 Azure Resource Manager 템플릿의 변수 반복
+# <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 리소스, 속성 또는 변수 반복
 
-이 문서에서는 Azure Resource Manager 템플릿에서 리소스, 변수 또는 속성의 둘 이상의 인스턴스를 만드는 방법을 보여 줍니다. 여러 인스턴스를 만들려면 추가 `copy` 템플릿에 개체입니다.
+이 문서에서는 Azure Resource Manager 템플릿에서 리소스, 변수 또는 속성의 인스턴스를 두 개 이상 만드는 방법을 보여 줍니다. 여러 인스턴스를 만들려면 `copy` 개체를 템플릿에 추가 합니다.
 
-리소스를 사용 하는 경우 복사 개체의 형식은:
+리소스와 함께 사용 하는 경우 copy 개체의 형식은 다음과 같습니다.
 
 ```json
 "copy": {
@@ -29,7 +29,7 @@ ms.locfileid: "67508179"
 }
 ```
 
-변수 또는 속성을 사용 하는 경우 복사 개체의 형식은:
+변수 또는 속성과 함께 사용 하는 경우 copy 개체의 형식은 다음과 같습니다.
 
 ```json
 "copy": [
@@ -41,23 +41,23 @@ ms.locfileid: "67508179"
 ]
 ```
 
-모두 사용 하 여가이 문서에 자세히 설명 되어 있습니다. 자습서의 경우 [자습서: Resource Manager 템플릿을 사용하여 여러 리소스 인스턴스 만들기](./resource-manager-tutorial-create-multiple-instances.md)를 참조하세요.
+이 문서에서는 두 가지 사용 방법을 자세히 설명 합니다. 자습서의 경우 [자습서: Resource Manager 템플릿을 사용하여 여러 리소스 인스턴스 만들기](./resource-manager-tutorial-create-multiple-instances.md)를 참조하세요.
 
 리소스 배포 여부를 지정해야 하는 경우, [조건 요소](resource-group-authoring-templates.md#condition)를 참조하세요.
 
 ## <a name="copy-limits"></a>복사 제한
 
-반복 횟수를 지정 하려면 count 속성에 대 한 값을 제공 합니다. 개수는 800을 초과할 수 없습니다.
+반복 횟수를 지정 하려면 count 속성의 값을 제공 합니다. 개수는 800를 초과할 수 없습니다.
 
-수는 음수일 수 없습니다. REST API 버전을 사용 하 여 템플릿을 배포 하는 경우 **2019-05-10** 하거나 나중에 개수를 0으로 설정할 수 있습니다. REST API의 이전 버전에는 개수에 0을 지원 하지 않습니다. 현재, Azure CLI 또는 PowerShell 지원 하지 않습니다 개수에 0을 해당 지원은 향후 릴리스에 추가 될 예정입니다.
+개수는 음수일 수 없습니다. REST API 버전 **2019-05-10** 이상을 사용 하 여 템플릿을 배포 하는 경우 count를 0으로 설정할 수 있습니다. 이전 버전의 REST API는 count에 대해 0을 지원 하지 않습니다. 현재 Azure CLI 또는 PowerShell은 count에 대해 0을 지원 하지 않지만 이후 릴리스에서는 해당 지원이 추가 될 예정입니다.
 
-신중 하 게 사용 하 여 수 [모드 배포 완료](deployment-modes.md) 복사 합니다. 리소스 그룹에 전체 모드를 사용 하 여 다시 배포할 경우에 복사 루프를 해결 한 후 템플릿에 지정 되지 않은 모든 리소스가 삭제 됩니다.
+Copy를 사용 하 여 [전체 모드 배포](deployment-modes.md) 를 주의 해 서 사용 합니다. 전체 모드를 사용 하 여 리소스 그룹에 다시 배포 하면 복사 루프를 확인 한 후 템플릿에 지정 되지 않은 모든 리소스가 삭제 됩니다.
 
-개수에 대 한 제한 리소스, 변수 또는 속성을 사용 하 여 사용 여부를 나타내는 동일 합니다.
+개수에 대 한 제한은 리소스, 변수 또는 속성과 함께 사용 되는지에 관계 없이 동일 합니다.
 
 ## <a name="resource-iteration"></a>리소스 반복
 
-배포 중 리소스의 인스턴스를 하나 이상 만들지 결정해야 할 경우에는 `copy` 요소를 리소스 종류에 추가합니다. 복사 요소에서이 루프에 대 한 이름과 반복의 수를 지정 합니다.
+배포 중 리소스의 인스턴스를 하나 이상 만들지 결정해야 할 경우에는 `copy` 요소를 리소스 종류에 추가합니다. Copy 요소에서 반복 횟수와이 루프의 이름을 지정 합니다.
 
 다음 형식으로 리소스를 여러 번 만듭니다.
 
@@ -98,7 +98,7 @@ ms.locfileid: "67508179"
 * storage1
 * storage2
 
-인덱스 값을 오프셋하려면 copyIndex() 함수에 값을 전달하면 됩니다. 반복 횟수는 복사 요소에서 지정 되지만 copyIndex의 값이 지정된 된 값 만큼 오프셋 됩니다. 따라서 예제는 다음과 같습니다.
+인덱스 값을 오프셋하려면 copyIndex() 함수에 값을 전달하면 됩니다. 반복 횟수가 copy 요소에 계속 지정 되어 있지만 copyIndex의 값이 지정 된 값 만큼 오프셋 됩니다. 따라서 예제는 다음과 같습니다.
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
@@ -141,11 +141,11 @@ ms.locfileid: "67508179"
 * storagefabrikam
 * storagecoho
 
-기본적으로 Resource Manager는 병렬로 리소스를 만듭니다. 생성되는 순서는 정해져 있지 않습니다. 그러나 그 결과로 리소스가 배포되도록 지정하려고 합니다. 예를 들어 프로덕션 환경을 업데이트할 때 특정 수를 한 번에 업데이트하도록 업데이트를 늦추려고 할 수 있습니다.
+기본적으로 Resource Manager는 병렬로 리소스를 만듭니다. 템플릿에 있는 리소스의 총 800 제한 수를 제외 하 고 병렬로 배포 되는 리소스의 수에는 제한이 없습니다. 생성되는 순서는 정해져 있지 않습니다.
 
-리소스의 여러 인스턴스를 직렬로 배포하려면 `mode`를 **직렬**로 설정하고 `batchSize`를 한 번에 배포할 인스턴스 수로 설정합니다. Resource Manager는 직렬 모드에서 루프에 이전 인스턴스의 종속성을 만듭니다. 따라서 이전 일괄 처리가 완료될 때까지 하나의 일괄 처리를 시작하지 않습니다.
+그러나 그 결과로 리소스가 배포되도록 지정하려고 합니다. 예를 들어 프로덕션 환경을 업데이트할 때 특정 수를 한 번에 업데이트하도록 업데이트를 늦추려고 할 수 있습니다. 리소스의 여러 인스턴스를 직렬로 배포하려면 `mode`를 **직렬**로 설정하고 `batchSize`를 한 번에 배포할 인스턴스 수로 설정합니다. Resource Manager는 직렬 모드에서 루프에 이전 인스턴스의 종속성을 만듭니다. 따라서 이전 일괄 처리가 완료될 때까지 하나의 일괄 처리를 시작하지 않습니다.
 
-예를 들어 저장소 계정을 한 번에 두 개씩 직렬로 배포하려면 다음을 사용합니다.
+예를 들어 스토리지 계정을 한 번에 두 개씩 직렬로 배포하려면 다음을 사용합니다.
 
 ```json
 {
@@ -176,7 +176,7 @@ ms.locfileid: "67508179"
 
 모드 속성은 기본 값인 **병렬**을 수용합니다.
 
-중첩 된 템플릿을 사용 하 여 복사를 사용 하는 방법에 대 한 내용은 [복사본을 사용 하 여](resource-group-linked-templates.md#using-copy)입니다.
+중첩 된 템플릿과 함께 복사를 사용 하는 방법에 대 한 자세한 내용은 [Copy 사용](resource-group-linked-templates.md#using-copy)을 참조 하세요.
 
 ## <a name="property-iteration"></a>속성 반복
 
@@ -304,7 +304,7 @@ copy 요소는 배열이므로 리소스에 대해 1 초과 속성을 지정할 
 
 변수의 여러 인스턴스를 만들려면 변수 섹션에서 `copy` 속성을 사용합니다. `input` 속성의 값에서 생성된 요소 배열을 만듭니다. 변수 내부 또는 변수 섹션의 최상위 수준에서 `copy` 속성을 사용할 수 있습니다. 변수 반복 내부에 `copyIndex`를 사용하는 경우 반복의 이름을 제공해야 합니다.
 
-문자열 값의 배열을 만드는 간단한 예제를 보려면 [copy 배열 템플릿을](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json)합니다.
+문자열 값의 배열을 만드는 간단한 예제는 [배열 템플릿 복사](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json)를 참조 하세요.
 
 다음 예제에서는 동적으로 생성된 요소로 배열 변수를 만드는 여러 가지 방법을 보여 줍니다. 변수 내부에 copy를 사용하여 개체 및 문자열의 배열을 만드는 방법을 보여 줍니다. 또한 최상위 수준에서 copy를 사용하여 개체, 문자열 및 정수의 배열을 만드는 방법을 보여 줍니다.
 
@@ -380,7 +380,7 @@ copy 요소는 배열이므로 리소스에 대해 1 초과 속성을 지정할 
 }
 ```
 
-생성 되는 변수의 형식이 입력된 개체에 따라 달라 집니다. 예를 들어, 명명 된 변수의 **최상위-level-개체-배열** 앞의 예제를 반환 합니다.
+생성 되는 변수의 형식은 입력 개체에 따라 달라 집니다. 예를 들어 앞의 예제에서 **최상위 개체 배열** 이라는 변수는 다음을 반환 합니다.
 
 ```json
 [
@@ -412,7 +412,7 @@ copy 요소는 배열이므로 리소스에 대해 1 초과 속성을 지정할 
 ]
 ```
 
-및 명명 된 변수의 **최상위-level-문자열-배열** 반환 합니다.
+그리고 **최상위 문자열 배열** 이라는 변수는 다음을 반환 합니다.
 
 ```json
 [
@@ -426,7 +426,7 @@ copy 요소는 배열이므로 리소스에 대해 1 초과 속성을 지정할 
 
 ## <a name="depend-on-resources-in-a-loop"></a>루프의 리소스에 따라 달라짐
 
-`dependsOn` 요소를 사용하여 어떤 리소스를 다른 리소스 다음에 배포하도록 지정합니다. 루프의 리소스 컬렉션에 따라 달라지는 리소스를 배포하려면 dependsOn 요소에 복사 루프의 이름을 제공합니다. 다음 예제에서는 Virtual Machine을 배포하기 전에 저장소 계정 3개를 배포하는 방법을 보여줍니다. 전체 Virtual Machine 정의는 표시되지 않습니다. 참고로 copy 요소의 name은 `storagecopy`로 설정되고 Virtual Machines에 대한 dependsOn 요소도 `storagecopy`로 설정되었습니다.
+`dependsOn` 요소를 사용하여 어떤 리소스를 다른 리소스 다음에 배포하도록 지정합니다. 루프의 리소스 컬렉션에 따라 달라지는 리소스를 배포하려면 dependsOn 요소에 복사 루프의 이름을 제공합니다. 다음 예제에서는 Virtual Machine을 배포하기 전에 스토리지 계정 3개를 배포하는 방법을 보여줍니다. 전체 Virtual Machine 정의는 표시되지 않습니다. 참고로 copy 요소의 name은 `storagecopy`로 설정되고 Virtual Machines에 대한 dependsOn 요소도 `storagecopy`로 설정되었습니다.
 
 ```json
 {
@@ -517,11 +517,11 @@ copy 요소는 배열이므로 리소스에 대해 1 초과 속성을 지정할 
 
 다음 예제에서는 여러 리소스 또는 속성 인스턴스를 만들기 위한 일반적인 시나리오를 보여 줍니다.
 
-|Template  |설명  |
+|템플릿  |Description  |
 |---------|---------|
-|[저장소 복사](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |이름의 인덱스 번호를 사용하여 여러 스토리지 계정을 배포합니다. |
-|[저장소 직렬 복사](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |여러 스토리지 계정을 한 번에 하나씩 배포합니다. 이름에는 인덱스 번호가 포함됩니다. |
-|[배열을 사용하여 저장소 복사](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |여러 스토리지 계정을 배포합니다. 이름에는 배열의 값이 포함됩니다. |
+|[스토리지 복사](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |이름의 인덱스 번호를 사용하여 여러 스토리지 계정을 배포합니다. |
+|[스토리지 직렬 복사](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |여러 스토리지 계정을 한 번에 하나씩 배포합니다. 이름에는 인덱스 번호가 포함됩니다. |
+|[배열을 사용하여 스토리지 복사](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |여러 스토리지 계정을 배포합니다. 이름에는 배열의 값이 포함됩니다. |
 |[가변적인 수의 데이터 디스크를 사용한 VM 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |가상 머신을 사용하여 여러 데이터 디스크를 배포합니다. |
 |[변수 복사](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |변수를 반복하는 다양한 방법을 보여 줍니다. |
 |[다중 보안 규칙](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |네트워크 보안 그룹에 여러 보안 규칙을 배포합니다. 매개 변수에서 보안 규칙을 구성합니다. 매개 변수는 [여러 NSG 매개 변수 파일](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json)을 참조합니다. |

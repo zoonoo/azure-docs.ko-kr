@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 04/17/2019
+ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: e10f7ad4ae8995d9efffec97a37dc64b28fa37b0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 418a72eb9a8f98bca24c863b2f953bfe720979e6
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688034"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249040"
 ---
 # <a name="azure-powershell-samples-for-virtual-network"></a>가상 네트워크에 대한 Azure PowerShell 샘플
 
@@ -32,4 +32,5 @@ ms.locfileid: "64688034"
 | [2개 가상 네트워크 피어링](./scripts/virtual-network-powershell-sample-peer-two-virtual-networks.md) | 동일한 지역에 2개 가상 네트워크를 만들고 연결합니다. |
 | [네트워크 가상 어플라이언스를 통한 트래픽 라우팅](./scripts/virtual-network-powershell-sample-route-traffic-through-nva.md) | 프런트 엔드 및 백 엔드 서브넷과 두 서브넷 간에 트래픽을 라우팅할 수 있는 VM이 있는 가상 네트워크를 만듭니다. |
 | [인바운드 및 아웃바운드 VM 네트워크 트래픽 필터링](./scripts/virtual-network-powershell-sample-filter-network-traffic.md) | 프런트 엔드 및 백 엔드 서브넷이 있는 가상 네트워크를 만듭니다. 프런트 엔드 서브넷에 대한 인바운드 네트워크 트래픽은 HTTP 및 HTTPS로 제한됩니다. 백 엔드 서브넷에서 인터넷으로의 아웃바운드 트래픽은 허용되지 않습니다. |
-|[IPv4 + IPv6 이중 스택 가상 네트워크 구성](./scripts/virtual-network-powershell-sample-ipv6-dual-stack.md)|IPv4 및 IPv6 공용 IP 주소가 있는 Azure Basic Load Balancer 및 두 개의 VM으로 이중 스택(IPv4+IPv6) 가상 네트워크를 배포합니다. |
+|[기본 Load Balancer를 사용하여 IPv4 + IPv6 이중 스택 가상 네트워크 구성](./scripts/virtual-network-powershell-sample-ipv6-dual-stack.md)|IPv4 및 IPv6 공용 IP 주소가 있는 Azure Basic Load Balancer 및 두 개의 VM으로 이중 스택(IPv4+IPv6) 가상 네트워크를 배포합니다. |
+|[표준 Load Balancer를 사용하여 IPv4 + IPv6 이중 스택 가상 네트워크 구성](./scripts/virtual-network-powershell-sample-ipv6-dual-stack-standard-load-balancer.md)|IPv4 및 IPv6 공용 IP 주소가 있는 Azure Standard Load Balancer 및 두 개의 VM으로 이중 스택(IPv4+IPv6) 가상 네트워크를 배포합니다. |

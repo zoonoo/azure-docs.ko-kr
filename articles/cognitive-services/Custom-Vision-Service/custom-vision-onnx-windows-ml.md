@@ -1,6 +1,6 @@
 ---
 title: '자습서: Windows ML과 함께 ONNX 모델 사용 - Custom Vision Service'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Azure Cognitive Services에서 내보낸 ONNX 모델을 사용하는 Windows UWP 앱을 만드는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: larryfr
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 07/03/2019
 ms.author: larryfr
-ms.openlocfilehash: ceb45048d160603a3ee619e3ea0e69a0c188a9ad
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 65956ab9fa182794b4cb9ac1fc1800198f2dcdaa
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725776"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561122"
 ---
 # <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>자습서: Windows ML을 통해 Custom Vision에서 ONNX 모델 사용(미리 보기)
 
@@ -51,7 +51,7 @@ Windows ML을 사용하여 Custom Vision Service에서 내보낸 ONNX 모델을 
 
 1. `F5` 키를 사용하여 Visual Studio에서 애플리케이션을 시작합니다. 개발자 모드를 사용하도록 설정하라는 메시지가 표시될 수 있습니다. 자세한 내용은 [개발을 위해 디바이스를 사용하도록 설정](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development) 문서를 참조하세요.
 
-1. 응용 프로그램이 시작되면 단추를 사용하여 채점할 이미지를 선택합니다.
+1. 애플리케이션이 시작되면 단추를 사용하여 채점할 이미지를 선택합니다.
 
 ## <a name="use-your-own-model"></a>사용자 고유의 모델 사용
 

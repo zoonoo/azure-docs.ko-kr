@@ -7,9 +7,23 @@
       href: overview.md
     - name: 사용자 시나리오 예
       href: text-analytics-user-scenarios.md
+    - name: 새로운 기능
+      href: whats-new.md
 - name: 빠른 시작
   expanded: true
   items:
+    - name: 클라이언트
+      items:
+        - name: 'C#'
+          href: quickstarts/csharp.md
+        - name: Python
+          href: quickstarts/python-sdk.md
+        - name: Go
+          href: quickstarts/go-sdk.md
+        - name: Ruby
+          href: quickstarts/ruby-sdk.md
+        - name: Node.js
+          href: quickstarts/nodejs-sdk.md
     - name: REST API
       items:
         - name: Go
@@ -24,18 +38,6 @@
           href: quickstarts/python.md
         - name: Ruby
           href: quickstarts/ruby.md
-    - name: SDK)
-      items:
-        - name: 'C#'
-          href: quickstarts/csharp.md
-        - name: Python
-          href: quickstarts/python-sdk.md
-        - name: Go
-          href: quickstarts/go-sdk.md
-        - name: Ruby
-          href: quickstarts/ruby-sdk.md
-        - name: Node.js
-          href: quickstarts/nodejs-sdk.md
 - name: 자습서
   items:
     - name: Power BI를 통합하여 고객 피드백 분석
@@ -50,10 +52,6 @@
       href: 'https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis'
 - name: 방법 가이드
   items:
-    - name: 등록
-      href: How-tos/text-analytics-how-to-signup.md
-    - name: 선택키 가져오기
-      href: How-tos/text-analytics-how-to-access-key.md
     - name: 텍스트 분석 API 호출
       href: How-tos/text-analytics-how-to-call-api.md
     - name: 언어 검색
@@ -70,16 +68,10 @@
           href: how-tos/text-analytics-how-to-install-containers.md
         - name: 컨테이너 구성
           href: text-analytics-resource-container-config.md
-        - name: 컨테이너 인스턴스(ACI) 사용
-          items:
-            - name: 정서 분석
-              href: how-tos/use-sentiment-analysis-on-aci.md
+        - name: 컨테이너 인스턴스 사용
+          href: how-tos/text-analytics-how-to-use-container-instances.md
         - name: Kubernetes 서비스(AKS) 사용
-          items:
-            - name: 언어 검색
-              href: how-tos/use-language-detection-on-aks.md
-            - name: 정서 분석
-              href: how-tos/use-sentiment-analysis-on-aks.md
+          href: how-tos/text-analytics-how-to-use-kubernetes-service.md
     - name: 텍스트 분석 연결된 서비스 사용
       href: vs-text-connected-service.md
 - name: 참고 자료
@@ -94,10 +86,10 @@
       items:
         - name: .NET
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet'
-        - name: Java
-          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-java-stable'
         - name: Python
           href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python'
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-java-stable'
         - name: Node.js
           href: 'https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/textanalytics?view=azure-node-latest'
         - name: Go

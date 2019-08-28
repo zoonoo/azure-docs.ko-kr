@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 17b9d11b75e2677e22fa2e38c21a69f018a4bee8
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 8e3b6d0fbefb8e3d3437fd5e24f929e453c573df
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508352"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621020"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>IoT Edge의 Azure Stream Analytics
  
@@ -25,7 +25,7 @@ IoT Edge의 Azure Stream Analytics는 [Azure IoT Edge](https://azure.microsoft.c
 ![IoT Edge의 개괄적인 다이어그램](media/stream-analytics-edge/ASAedge-highlevel-diagram.png)
 
 * **대기 시간이 짧은 명령 및 컨트롤**: 예를 들어 제조 안전 시스템은 매우 짧은 대기 시간으로 운영 데이터에 응답해야 합니다. Azure IoT Edge의 ASA를 사용하면 예외 상황이 감지될 때 거의 실시간으로 센서 데이터를 분석하고 명령을 실행하여 컴퓨터를 중지하거나 경고를 트리거할 수 있습니다.
-*   **클라우드에 대한 연결 제한**: 원격 마이닝 장비, 연결된 선박 또는 해양 굴착 같은 중요한 업무용 시스템은 클라우드 연결이 간헐적으로 끊어지더라도 데이터를 분석하고 대응해야 합니다. ASA를 사용하면 스트리밍 논리가 네트워크 연결과는 별개로 실행되며, 추가 처리 및 저장을 위해 클라우드로 전송할 항목을 선택할 수 있습니다.
+*   **클라우드에 대한 연결 제한**: 원격 마이닝 장비, 연결된 선박 또는 해양 굴착 같은 중요한 업무용 시스템은 클라우드 연결이 간헐적으로 끊어지더라도 데이터를 분석하고 대응해야 합니다. ASA를 사용하면 스트리밍 논리가 네트워크 연결과는 별개로 실행되며, 추가 처리 및 스토리지을 위해 클라우드로 전송할 항목을 선택할 수 있습니다.
 * **제한된 대역폭**: 제트 엔진 또는 연결된 자동차에서 생성하는 데이터 양이 매우 커서 데이터를 클라우드로 전송하기 전에 필터링하고 사전 처리해야 합니다. ASA를 사용하면 클라우드로 전송해야 하는 데이터를 필터링하거나 집계할 수 있습니다.
 * **규정 준수**: 규정 준수에 따라 일부 데이터를 클라우드로 전송하기 전에 로컬로 익명화하거나 집계해야 할 수 있습니다.
 
@@ -44,21 +44,21 @@ ASA는 IoT Hub를 사용하여 디바이스에 Edge 작업을 배포합니다. [
 ### <a name="installation-instructions"></a>설치 지침
 다음 표에는 간단한 단계가 설명되어 있습니다. 더 자세한 내용은 다음 섹션에 제공됩니다.
 
-|      |단계   | 메모   |
+|      |단계   | 참고   |
 | ---   | ---   |  ---      |
-| 1   | **저장소 컨테이너 만들기**   | 저장소 컨테이너는 작업 정의를 저장하는 데 사용되며 IoT 디바이스에서 액세스할 수 있습니다. <br>  모든 기존 저장소 컨테이너를 다시 사용할 수 있습니다.     |
+| 1   | **스토리지 컨테이너 만들기**   | 스토리지 컨테이너는 작업 정의를 저장하는 데 사용되며 IoT 디바이스에서 액세스할 수 있습니다. <br>  모든 기존 스토리지 컨테이너를 다시 사용할 수 있습니다.     |
 | 2   | **ASA Edge 작업 만들기**   |  새 작업을 선택하고 **Edge**를 **호스팅 환경**으로 선택합니다. <br> 이러한 작업은 클라우드에서 생성/관리되며 사용자 고유의 IoT Edge 디바이스에서 실행됩니다.     |
 | 3   | **디바이스에서 IoT Edge 환경 설정**   | [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) 또는 [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux)에 대한 지침          |
-| 4   | **IoT Edge 디바이스에 ASA 배포**   |  ASA 작업 정의는 이전에 만든 저장소 컨테이너로 내보내집니다.       |
+| 4   | **IoT Edge 디바이스에 ASA 배포**   |  ASA 작업 정의는 이전에 만든 스토리지 컨테이너로 내보내집니다.       |
 
 [이 단계별 자습서](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)에 따라 IoT Edge에 첫 번째 ASA 작업을 배포할 수 있습니다. 다음 비디오는 IoT Edge 디바이스에서 Stream Analytics 작업을 실행하는 프로세스를 이해하는 데 도움이 됩니다.  
 
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T157/player]
 
-#### <a name="create-a-storage-container"></a>저장소 컨테이너 만들기
-ASA 컴파일된 쿼리 및 작업 구성을 내보내려면 저장소 컨테이너가 필요합니다. 특정 쿼리로 ASA Docker 이미지를 구성하는 데 사용됩니다. 
-1. [이러한 지침](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)에 따라 Azure Portal에서 저장소 계정을 만듭니다. ASA에서 이 계정을 사용하기 위해 모든 기본 옵션을 유지할 수 있습니다.
+#### <a name="create-a-storage-container"></a>스토리지 컨테이너 만들기
+ASA 컴파일된 쿼리 및 작업 구성을 내보내려면 스토리지 컨테이너가 필요합니다. 특정 쿼리로 ASA Docker 이미지를 구성하는 데 사용됩니다. 
+1. [이러한 지침](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)에 따라 Azure Portal에서 스토리지 계정을 만듭니다. ASA에서 이 계정을 사용하기 위해 모든 기본 옵션을 유지할 수 있습니다.
 2. 새로 만든 스토리지 계정에서 Blob Storage 컨테이너를 만듭니다.
     1. **Blobs**을 클릭한 다음, **+ 컨테이너**를 클릭합니다. 
     2. 이름을 입력하고 컨테이너를 **프라이빗**으로 유지합니다.
@@ -78,16 +78,16 @@ ASA 컴파일된 쿼리 및 작업 구성을 내보내려면 저장소 컨테이
     3. **출력 스트림 정의**. 작업에 대해 하나 또는 여러 개의 출력 스트림을 정의합니다. 
     4. **쿼리 정의**. 인라인 편집기를 사용하여 클라우드에서 ASA 쿼리를 정의합니다. 컴파일러는 ASA Edge에 대해 사용되도록 설정된 구문을 자동으로 확인합니다. 샘플 데이터를 업로드하여 쿼리를 테스트할 수도 있습니다. 
 
-4. **IoT Edge 설정** 메뉴에서 저장소 컨테이너 정보를 설정합니다.
+4. **IoT Edge 설정** 메뉴에서 스토리지 컨테이너 정보를 설정합니다.
 
 5. 선택적 설정 지정
-    1. **이벤트 순서**. Portal에서 정렬되지 않은 정책을 구성할 수 있습니다. [여기](https://msdn.microsoft.com/library/azure/mt674682.aspx?f=255&MSPPError=-2147217396)에서 설명서를 참조할 수 있습니다.
+    1. **이벤트 순서**. Portal에서 정렬되지 않은 정책을 구성할 수 있습니다. [여기](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics)에서 설명서를 참조할 수 있습니다.
     2. **로캘**. 국제화 형식을 설정합니다.
 
 
 
 > [!Note]
-> 배포가 생성되면 ASA는 저장소 컨테이너로 작업 정의를 내보냅니다. 이 작업 정의는 배포 기간 동안 동일하게 유지됩니다. 결과적으로 Edge에서 실행되는 작업을 업데이트하려는 경우 ASA에서 작업을 편집하고 IoT Hub에서 새 배포를 만들어야 합니다.
+> 배포가 생성되면 ASA는 스토리지 컨테이너로 작업 정의를 내보냅니다. 이 작업 정의는 배포 기간 동안 동일하게 유지됩니다. 결과적으로 Edge에서 실행되는 작업을 업데이트하려는 경우 ASA에서 작업을 편집하고 IoT Hub에서 새 배포를 만들어야 합니다.
 
 
 #### <a name="set-up-your-iot-edge-environment-on-your-devices"></a>디바이스에서 IoT Edge 환경 설정
@@ -120,7 +120,7 @@ IoT Edge 배포에 대한 자세한 내용은 [이 페이지](https://docs.micro
 IoT Edge에서는 모듈 간에, 그리고 모듈과 IoT Hub 간에 선언적으로 경로를 지정하는 방법을 제공합니다. 전체 구문은 [여기](https://docs.microsoft.com/azure/iot-edge/module-composition)에 설명되어 있습니다.
 ASA 작업에서 만든 입/출력의 이름은 라우팅을 위한 엔드포인트로 사용할 수 있습니다.  
 
-###### <a name="example"></a>예
+###### <a name="example"></a>예제
 
 ```json
 {

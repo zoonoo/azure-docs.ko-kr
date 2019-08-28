@@ -19,7 +19,7 @@ ms.locfileid: "65788004"
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>자습서: Microsoft Azure Storage에서 Azure Key Vault를 사용하여 Blob 암호화 및 해독
 
 ## <a name="introduction"></a>소개
-이 자습서에서는 Azure Key Vault와 함께 클라이언트 쪽 저장소 암호화를 사용하는 방법을 설명합니다. 이러한 기술을 사용하여 콘솔 애플리케이션에서 Blob를 암호화하고 해독하는 방법을 단계별로 안내 합니다.
+이 자습서에서는 Azure Key Vault와 함께 클라이언트 쪽 스토리지 암호화를 사용하는 방법을 설명합니다. 이러한 기술을 사용하여 콘솔 애플리케이션에서 Blob를 암호화하고 해독하는 방법을 단계별로 안내 합니다.
 
 **예상 완료 시간:** 20분
 
@@ -121,7 +121,7 @@ private async static Task<string> GetToken(string authority, string resource, st
 }
 ```
 
-## <a name="access-storage-and-key-vault-in-your-program"></a>사용자의 프로그램에서 저장소 및 키 자격 증명 모음 액세스
+## <a name="access-storage-and-key-vault-in-your-program"></a>사용자의 프로그램에서 스토리지 및 키 자격 증명 모음 액세스
 
 Main () 메서드에서 다음 코드를 추가 합니다.
 
@@ -153,7 +153,7 @@ KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
 
 ## <a name="encrypt-blob-and-upload"></a>Blob 암호화 및 업로드
 
-Blob을 암호화하고 Azure 저장소 계정에 업로드하는 다음과 같은 코드를 추가합니다. 사용되는 **ResolveKeyAsync** 메서드는 IKey를 반환합니다.
+Blob을 암호화하고 Azure Storage 계정에 업로드하는 다음과 같은 코드를 추가합니다. 사용되는 **ResolveKeyAsync** 메서드는 IKey를 반환합니다.
 
 ```csharp
 // Retrieve the key that you created previously.

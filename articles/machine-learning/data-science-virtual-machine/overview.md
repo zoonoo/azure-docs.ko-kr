@@ -4,7 +4,7 @@ description: Windows 및 Linux 데이터 과학 Virtual Machines에 대한 주�
 keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.assetid: d4f91270-dbd2-4290-ab2b-b7bfad0b2703
 ms.service: machine-learning
@@ -14,28 +14,31 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 02/22/2019
-ms.author: gokuma
-ms.openlocfilehash: 384cb274496670e0b0b5a33e001e78a0babed3f0
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.author: vijetaj
+ms.openlocfilehash: 2814ad51d2f0f868833cf9c6964b7ea4a8424435
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427783"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574916"
 ---
-# <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Linux/Windows용 Azure 데이터 과학 Virtual Machine에 대한 소개
+# <a name="what-is-azure-data-science-virtual-machine-for-linux-and-windows"></a>Linux 및 Windows용 Azure Data Science Virtual Machine이란?
 
-데이터 과학 Virtual Machine(DSVM)은 데이터 과학 수행을 위해 특별히 구축된 Microsoft Azure 클라우드의 사용자 지정 VM 이미지입니다. 여기에는 고급 분석을 위한 지능형 애플리케이션 구축에 바로 뛰어들 수 있도록 다수의 유명한 데이터 과학 및 기타 도구가 미리 설치 및 구성되어 있습니다. Windows Server 및 Linux에서 사용할 수 있습니다. Windows Server 2016 및 2012에서 Windows 버전의 DSVM이 제공됩니다. Ubuntu 16.04 LTS 및 CentOS 7.4에서 DSVM의 Linux 버전을 제공합니다.
+데이터 과학 Virtual Machine(DSVM)은 데이터 과학 수행을 위해 특별히 구축된 Microsoft Azure 클라우드의 사용자 지정 VM 이미지입니다. 여기에는 고급 분석을 위한 지능형 애플리케이션 구축에 바로 뛰어들 수 있도록 다수의 유명한 데이터 과학 및 기타 도구가 미리 설치 및 구성되어 있습니다. 
 
-이 문서에서는 Data Science VM으로 무엇을 할 수 있는지 설명합니다. VM이 사용되는 주요 시나리오에 대해 간략하게 설명하고 Windows 및 Linux 버전에서 사용할 수 있는 주요 기능을 항목별로 정리합니다. 이러한 기능을 사용하여 시작하는 방법에 대한 지침도 제공합니다.
+도구 구성은 안정성 및 일반적인 실행 가능성을 보장하기 위해서 Microsoft의 데이터 과학자와 개발자 및 광범위한 데이터 과학 커뮤니티를 통해 엄격하게 테스트되었습니다.
+
+DSVM은 다음에서 사용할 수 있습니다.
++ Windows Server 2016, Windows Server 2012
++ Ubuntu 16.04 LTS 및 CentOS 7.4
+
+**모든 Deep Learning VM** 도구는 Data Science VM에 포함되었습니다. 
 
 
-## <a name="what-can-i-do-with-the-data-science-virtual-machine"></a>데이터 과학 Virtual Machine으로 무엇을 할 수 있나요?
+## <a name="what-can-i-do-with-dsvm"></a>DSVM으로 무엇을 할 수 있나요?
 DSVM(Data Science Virtual Machine)의 목표는 산업 전반에 걸쳐 모든 기술 수준의 데이터 전문가에게 마찰이 없고, 미리 구성되고, 완벽하게 통합된 데이터 과학 환경을 제공하는 것입니다. 필적할 만한 작업 영역을 직접 롤아웃하는 대신 DSVM을 프로비전하면 설치, 구성 및 패키지 관리 프로세스에 소요되는 _시간_을 절약할 수 있습니다. DSVM이 할당된 후 데이터 과학 프로젝트에 대한 작업을 즉시 시작할 수 있습니다.
 
 데이터 과학 VM은 광범위한 사용 시나리오에서 작동하도록 설계 및 구성되었습니다. 프로젝트 요구 사항의 변화에 따라 환경을 확장하거나 축소할 수 있습니다. 원하는 언어를 사용하여 데이터 과학 작업을 프로그래밍하고, 정확한 요구 사항에 맞게 시스템을 사용자 지정하는 다른 도구를 설치할 수도 있습니다.
-
-## <a name="key-scenarios"></a>주요 시나리오
-이 섹션은 데이터 과학 VM을 배포할 수 있는 주요 시나리오를 제안합니다.
 
 ### <a name="preconfigured-analytics-desktop-in-the-cloud"></a>클라우드에 미리 구성되어 있는 분석 데스크톱
 데이터 과학 VM은 로컬 데스크톱을 관리되는 클라우드 데스크톱으로 바꾸려는 데이터 과학 팀을 위해 기본 구성을 제공합니다. 이러한 기본 구성은 팀의 모든 데이터 과학자가 일관적인 설정을 가지고 실험을 검증하고 협업을 증진할 수 있도록 해 줍니다. 또한 시스템 관리 부담을 줄여 비용을 절감합니다. 시스템 관리 업무가 감소하기 때문에 고급 분석에 필요한 다양한 소프트웨어 패키지를 평가, 설치, 유지 관리하는 데 필요한 시간이 절약됩니다.
@@ -47,24 +50,43 @@ DSVM(Data Science Virtual Machine)의 목표는 산업 전반에 걸쳐 모든 �
 데이터 과학 해카톤/시합 또는 대규모 데이터 모델링 탐사에는, 일반적으로 짧은 기간 동안 확장된 하드웨어 용량이 필요합니다. Data Science VM은 요구에 따라 고성능 컴퓨팅 리소스를 실행해야 하는 실험이 가능하도록 확장된 서버에 신속하게 데이터 과학 환경을 복제할 수 있습니다.
 
 ### <a name="custom-compute-power-for-azure-notebooks"></a>Azure Notebooks의 사용자 지정 컴퓨팅 능력
-
-[Azure Notebooks](/azure/notebooks/azure-notebooks-overview)는 무료 호스트형 서비스이며 설치 없이 클라우드에서 Jupyter Notebook을 개발, 실행 및 공유합니다. 그러나 무료 서비스 계층은 메모리 4GB, 데이터 1GB로 제한됩니다. 모든 한도를 해제하려면 Data Science VM 또는 Jupyter 서버를 실행 중인 다른 모든 VM에 Notebook 프로젝트를 연결하면 됩니다. Azure Active Directory를 사용하는 계정(예: 회사 계정)으로 Azure Notebooks에 로그인하면 Notebooks가 해당 계정과 연결된 모든 구독의 Data Science VM을 자동으로 보여줍니다. 자세한 내용은 [프로젝트 관리 및 구성 - 컴퓨팅 계층](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier)을 참조하세요.
+[Azure Notebooks](../../notebooks/azure-notebooks-overview.md)는 무료 호스트형 서비스이며 설치 없이 클라우드에서 Jupyter Notebook을 개발, 실행 및 공유합니다. 그러나 무료 서비스 계층은 메모리 4GB, 데이터 1GB로 제한됩니다. 모든 한도를 해제하려면 Data Science VM 또는 Jupyter 서버를 실행 중인 다른 모든 VM에 Notebook 프로젝트를 연결하면 됩니다. Azure Active Directory를 사용하는 계정(예: 회사 계정)으로 Azure Notebooks에 로그인하면 Notebooks가 해당 계정과 연결된 모든 구독의 Data Science VM을 자동으로 보여줍니다. [Data Science VM을 Azure Notebooks에 연결](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier)하여 사용 가능한 컴퓨팅 능력을 확장할 수 있습니다.
 
 ### <a name="short-term-experimentation-and-evaluation"></a>단기 실험 및 평가
 데이터 과학 VM은 Microsoft ML Server, SQL Server, Visual Studio Tools, Jupyter, Deep Learning/ML 도구 키트 및 최소한의 설치 업무로 인해 커뮤니티에서 인기를 끌고 있는 새로운 도구를 비롯한 다양한 도구를 평가하거나 학습하는 데 사용할 수 있습니다. Data Science VM은 신속하게 설정할 수 있으므로 다른 단기 사용 시나리오에도 적용할 수 있습니다. 게시된 실험을 복제하고, 데모를 실행하고, 온라인 세션 및 회의 자습서에서 연습을 따라 따라하는 시나리오를 예로 들 수 있습니다.
 
 ### <a name="deep-learning"></a>심층 학습
-Data Science VM은 GPU(그래픽 처리 장치) 기반 하드웨어에서 딥 러닝 알고리즘을 사용하여 모델을 학습하는 데 사용할 수 있습니다. Azure 클라우드의 VM 크기 조정 기능을 활용하면 DSVM을 통해 필요에 따라 클라우드에서 GPU 기반 하드웨어를 사용할 수 있습니다. 큰 모델을 학습할 때 GPU 기반 VM으로 전환하거나, 동일한 OS 디스크를 유지하면서 고속 계산이 필요할 수 있습니다.  Windows Server 2016 버전 DSVM에는 GPU 드라이버, 프레임워크 및 GPU 버전 심층 학습 프레임워크가 미리 설치되어 있습니다. Linux 버전의 경우 CentOS 및 Ubuntu DSVM 모두에서 GPU에 대한 딥 러닝이 활성화됩니다. 비 GPU 기반 Azure 가상 머신에 Ubuntu, CentOS 또는 Windows 2016 버전의 Data Science VM을 배포할 수 있습니다. 이 경우 모든 딥 러닝 프레임워크는 CPU 모드로 다시 대체됩니다.
+Data Science VM은 GPU(그래픽 처리 장치) 기반 하드웨어에서 딥 러닝 알고리즘을 사용하여 모델을 학습하는 데 사용할 수 있습니다. Azure 클라우드의 VM 크기 조정 기능을 활용하면 DSVM을 통해 필요에 따라 클라우드에서 GPU 기반 하드웨어를 사용할 수 있습니다. 큰 모델을 학습할 때 GPU 기반 VM으로 전환하거나, 동일한 OS 디스크를 유지하면서 고속 계산이 필요할 수 있습니다.  Windows Server 2016 버전 DSVM에는 GPU 드라이버, 프레임워크 및 GPU 버전 심층 학습 프레임워크가 미리 설치되어 있습니다. Linux 버전의 경우 CentOS 및 Ubuntu DSVM 모두에서 GPU에 대한 딥 러닝이 활성화됩니다. 비 GPU 기반 Azure 가상 머신에 Ubuntu, CentOS 또는 Windows 2016 버전의 Data Science VM을 배포할 수 있습니다. 이 경우 모든 딥 러닝 프레임워크는 CPU 모드로 다시 대체됩니다. [사용 가능한 딥 러닝 및 AI 프레임워크](dsvm-deep-learning-ai-frameworks.md)에 대해 자세히 알아보세요.
+ 
+[사용 가능한 딥 러닝 및 AI 프레임워크](dsvm-deep-learning-ai-frameworks.md)에 대해 자세히 알아보세요.
 
-## <a name="whats-included-in-the-data-science-vm"></a>데이터 과학 VM에는 무엇이 포함되어 있나요?
-데이터 과학 Virtual Machine에는 다수의 유명한 데이터 과학 및 심층 학습 도구가 이미 설치 및 구성되어 있습니다. 또한 예측 모델 작성을 위한 Microsoft ML Server(R, Python) 또는 대규모 데이터 집합 탐색을 위한 SQL Server 2017과 같은 다양한 Azure 데이터 및 분석 제품을 사용하여 쉽게 작업할 수 있는 도구가 포함되어 있습니다. Data Science VM에는 오픈 소스 커뮤니티 및 Microsoft의 다양한 도구와 샘플 코드 및 Notebook이 포함되어 있습니다. 다음 테이블에는 데이터 과학 Virtual Machine의 Windows 및 Linux 버전에 포함된 주요 구성 요소를 항목별로 정리하여 비교해 두었습니다.
+<a name="included"></a>
 
+## <a name="whats-included-on-dsvm"></a>DSVM에 포함되는 기능은 무엇인가요?
+데이터 과학 Virtual Machine에는 다수의 유명한 데이터 과학 및 심층 학습 도구가 이미 설치 및 구성되어 있습니다. 또한 예측 모델 작성을 위한 Microsoft ML Server(R, Python) 또는 대규모 데이터 집합 탐색을 위한 SQL Server 2017과 같은 다양한 Azure 데이터 및 분석 제품을 사용하여 쉽게 작업할 수 있는 도구가 포함되어 있습니다. Data Science VM에는 오픈 소스 커뮤니티 및 Microsoft의 다양한 도구와 [샘플 코드 및 Notebook](dsvm-samples-and-walkthroughs.md)이 포함되어 있습니다. 
+
+도구 및 플랫폼:
++ [지원되는 프로그래밍 언어](dsvm-languages.md)
+
++ [지원되는 데이터 플랫폼](dsvm-data-platforms.md)
+
++ [개발 도구 및 IDE](dsvm-tools-development.md)
+
++ [딥 러닝 및 AI 프레임워크](dsvm-deep-learning-ai-frameworks.md)
+
++ [기계 학습 및 데이터 과학 도구](dsvm-ml-data-science-tools.md)
+
++ [데이터 수집 도구](dsvm-tools-ingestion.md)
+
++ [데이터 탐색 및 시각화 도구](dsvm-tools-explore-and-visualize.md)
+
+다음 테이블에는 데이터 과학 Virtual Machine의 Windows 및 Linux 버전에 포함된 주요 구성 요소를 항목별로 정리하여 비교해 두었습니다.
 
 | **도구**                                                           | **Windows 버전** | **Linux 버전** |
 | :------------------------------------------------------------------ |:-------------------:|:------------------:|
 | 인기 있는 패키지가 사전 설치된 [Microsoft R Open](https://mran.microsoft.com/open/)   |Y                      | Y             |
 | [Microsoft ML Server(R, Python)](https://docs.microsoft.com/machine-learning-server/) Developer Edition은 다음을 포함합니다. <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [RevoScaleR/revoscalepy](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-revoscaler) 병렬 및 분산 고성능 프레임 워크(R 및 Python)<br />  &nbsp;&nbsp;&nbsp;&nbsp;* [MicrosoftML](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-the-microsoftml-package) -Microsoft의 새로운 기계 학습 알고리즘 <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [R 및 Python 연산화](https://docs.microsoft.com/machine-learning-server/what-is-operationalization)                                            |Y                      | Y |
-| [Microsoft Office](https://products.office.com/en-us/business/office-365-proplus-business-software) Pro-Plus(공유 활성화) - Excel, Word 및 PowerPoint   |Y                      |N              |
+| [Microsoft Office](https://products.office.com/business/office-365-proplus-business-software) Pro-Plus(공유 활성화) - Excel, Word 및 PowerPoint   |Y                      |N              |
 | 인기 있는 패키지가 사전 설치된 [Anaconda Python](https://www.continuum.io/) 2.7, 3.5    |Y                      |Y              |
 | Julia 언어에 대해 인기 있는 패키지가 사전 설치된 [JuliaPro](https://juliacomputing.com/products/juliapro.html)                         |Y                      |Y              |
 | 관계형 데이터베이스                                                            | [SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/)(CentOS),<br/>[SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> 디벨로퍼 버전(Ubuntu) |
@@ -129,18 +151,16 @@ Data Science VM은 GPU(그래픽 처리 장치) 기반 하드웨어에서 딥 �
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow 서비스](https://www.tensorflow.org/serving/) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorRT](https://developer.nvidia.com/tensorrt) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [CUDA, cuDNN, NVIDIA 드라이버](https://developer.nvidia.com/cuda-toolkit) | Y | Y |
-| **빅 데이터 플랫폼(Devtest에만 해당)**|||
-| &nbsp;&nbsp;&nbsp;&nbsp;* 로컬 [Spark](https://spark.apache.org/) 독립 실행형 | Y | Y |
-| &nbsp;&nbsp;&nbsp;&nbsp;* 로컬 [Hadoop](https://hadoop.apache.org/)(HDFS, YARN) | N | Y |
-
-## <a name="get-started"></a>시작하기
-
-### <a name="windows-data-science-vm"></a>Windows 데이터 과학 VM
-* Windows DSVM을 만들고 사용하는 방법에 대한 자세한 내용은 [Windows 데이터 과학 Virtual Machine 프로비전](provision-vm.md)을 참조하세요. Windows DSVM에서 데이터 과학 프로젝트에 필요한 다양한 작업을 수행하는 방법에 대한 자세한 내용은 [데이터 과학 Virtual Machine으로 할 수 있는 10가지 일](vm-do-ten-things.md)을 참조하세요.
-
-### <a name="linux-data-science-vm"></a>Linux 데이터 과학 VM
-* Ubuntu DSVM을 만들고 사용하는 방법에 대한 자세한 내용은 [Linux(Ubuntu)용 데이터 과학 Virtual Machine 프로비전](dsvm-ubuntu-intro.md)을 참조하세요. CentOS DSVM을 만들고 사용하는 방법에 대한 자세한 내용은 [Azure에서 Linux CentOS 데이터 과학 Virtual Machine 프로비전](linux-dsvm-intro.md)을 참조하세요.
-* Linux(CentOS 및 Ubuntu 모두) VM을 사용하여 몇 가지 일반적인 데이터 과학 작업을 수행하는 방법을 보여주는 연습은 [Linux 데이터 과학 Virtual Machine의 데이터 과학](linux-dsvm-walkthrough.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure에 대한 R 개발자 가이드](/azure/architecture/data-guide/technology-choices/r-developers-guide)
+
+다음 문서에서 자세한 내용을 알아보세요.
+
++ Windows:
+  + [Windows DSVM 설정](provision-vm.md)
+  + [Windows DSVM에서 수행할 수 있는 10 가지 작업](vm-do-ten-things.md)
+
++ Linux:
+  + [Linux DSVM(Ubuntu) 설정](dsvm-ubuntu-intro.md)
+  + [Linux DSVM(CentOS) 설정](linux-dsvm-intro.md)
+  + [Linux DSVM의 데이터 과학](linux-dsvm-walkthrough.md)

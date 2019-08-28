@@ -105,7 +105,7 @@ REGISTRY_TAG=v1
 
 ## <a name="prepare-a-spark-job"></a>Spark 작업 준비
 
-다음으로, Spark 작업을 준비합니다. jar 파일은 Spark 작업을 보관하는 데 사용되며 `spark-submit` 명령을 실행할 때 필요합니다. jar는 공용 URL을 통해 액세스하게 할 수도 있고, 컨테이너 이미지 안에 사전 패키지로 제공할 수도 있습니다. 이 예제에서는 Pi 값을 계산하는 샘플 jar을 만듭니다. 그런 후 이 jar 파일을 Azure 저장소에 업로드합니다. 기존 jar 파일이 있는 경우 자유롭게 바꾸셔도 좋습니다.
+다음으로, Spark 작업을 준비합니다. jar 파일은 Spark 작업을 보관하는 데 사용되며 `spark-submit` 명령을 실행할 때 필요합니다. jar는 공용 URL을 통해 액세스하게 할 수도 있고, 컨테이너 이미지 안에 사전 패키지로 제공할 수도 있습니다. 이 예제에서는 Pi 값을 계산하는 샘플 jar을 만듭니다. 그런 후 이 jar 파일을 Azure Storage에 업로드합니다. 기존 jar 파일이 있는 경우 자유롭게 바꾸셔도 좋습니다.
 
 Spark 작업에 대한 프로젝트를 만들 디렉터리를 만듭니다.
 
@@ -169,9 +169,9 @@ sbt assembly
 [success] Total time: 10 s, completed Mar 6, 2018 11:07:54 AM
 ```
 
-## <a name="copy-job-to-storage"></a>저장소에 작업 복사
+## <a name="copy-job-to-storage"></a>스토리지에 작업 복사
 
-jar 파일을 보관할 Azure 저장소 계정 및 컨테이너를 만듭니다.
+jar 파일을 보관할 Azure Storage 계정 및 컨테이너를 만듭니다.
 
 ```azurecli
 RESOURCE_GROUP=sparkdemo
@@ -181,7 +181,7 @@ az storage account create --resource-group $RESOURCE_GROUP --name $STORAGE_ACCT 
 export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string --resource-group $RESOURCE_GROUP --name $STORAGE_ACCT -o tsv`
 ```
 
-다음 명령을 사용하여 jar 파일을 Azure 저장소 계정에 업로드합니다.
+다음 명령을 사용하여 jar 파일을 Azure Storage 계정에 업로드합니다.
 
 ```bash
 CONTAINER_NAME=jars
@@ -278,7 +278,7 @@ Pi is roughly 3.152155760778804
 
 ## <a name="package-jar-with-container-image"></a>컨테이너 이미지를 사용하여 jar 패키징
 
-위의 예제에서는 Spark jar 파일을 Azure 저장소에 업로드했습니다. 또 다른 옵션은 jar 파일을 사용자 지정된 Docker 이미지로 패키징하는 것입니다.
+위의 예제에서는 Spark jar 파일을 Azure Storage에 업로드했습니다. 또 다른 옵션은 jar 파일을 사용자 지정된 Docker 이미지로 패키징하는 것입니다.
 
 이렇게 하려면 `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/` 디렉터리에서 Spark 이미지에 대한 `dockerfile`을 찾습니다. `WORKDIR` 및 `ENTRYPOINT` 선언 사이에 Spark 작업 `jar`에 대한 `ADD` 명령문을 추가합니다.
 

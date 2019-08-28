@@ -1,5 +1,5 @@
 ---
-title: 보안 정보 (미리 보기)를 사용 하 여 문자 메시지-Azure Active Directory 설정 | Microsoft Docs
+title: 텍스트 메시징을 사용 하도록 보안 정보 (미리 보기) 설정-Azure Active Directory | Microsoft Docs
 description: 문자 메시지 및 모바일 디바이스를 사용하여 본인 여부를 확인하도록 보안 정보를 설정하는 방법입니다.
 services: active-directory
 author: eross-msft
@@ -12,14 +12,15 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea9e4ae21ecc6538b33aed1566c10ddcd22b86c7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7c1c6aadcf8fb247a7c2a53cef7d1ed0c85cf374
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60482252"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382841"
 ---
 # <a name="set-up-security-info-preview-to-use-text-messaging"></a>문자 메시지를 사용하도록 보안 정보(미리 보기) 설정
+
 이 단계를 수행하여 2단계 확인 및 암호 재설정 방법을 추가할 수 있습니다. 이 정보를 처음 설정한 후 **보안 정보** 페이지로 돌아가서 보안 정보를 추가, 업데이트 또는 삭제할 수 있습니다.
 
 회사 또는 학교 계정에 로그인한 직후에 이 정보를 설정하라는 메시지가 표시되는 경우 [로그인 페이지 프롬프트에서 보안 정보 설정](security-info-setup-signin.md) 문서의 자세한 단계를 참조하세요.
@@ -30,6 +31,7 @@ ms.locfileid: "60482252"
 >전화 옵션이 보이지 않는 경우 전화 번호를 확인에 사용하는 것을 조직에서 허용하지 않기 때문일 수 있습니다. 이 경우 다른 방법을 선택하거나 관리자에게 문의하여 추가 도움을 받아야 합니다.
 
 ## <a name="set-up-text-messages-from-the-security-info-page"></a>보안 정보 페이지에서 문자 메시지 설정
+
 조직의 설정에 따라 문자 메시지를 보안 정보 방법 중 하나로 사용할 수 있습니다. 문자 메시지 옵션은 전화 옵션의 일부이므로 전화 번호를 설정할 때와 같은 방법으로 설정하면 되지만, Microsoft의 전화를 받는 대신 문자 메시지를 사용하도록 선택합니다.
 
 >[!Note]
@@ -64,6 +66,7 @@ ms.locfileid: "60482252"
     보안 정보가 업데이트되며, 2단계 확인 또는 암호 재설정을 사용할 때 문자 메시지를 사용하여 본인 여부를 확인할 수 있습니다. 문자 메시지를 기본 방법으로 설정하려는 경우 이 문서의 [기본 보안 정보 방법 변경](#change-your-default-security-info-method) 섹션을 참조하세요.
 
 ## <a name="delete-text-messaging-from-your-security-info-methods"></a>보안 정보 방법에서 문자 메시지 삭제
+
 더 이상 문자 메시지를 보안 정보 방법으로 사용하지 않으려는 경우 **보안 정보** 페이지에서 제거할 수 있습니다.
 
 >[!Important]
@@ -78,7 +81,8 @@ ms.locfileid: "60482252"
 2. 확인 상자에서 **예**를 선택하여 **전화** 번호를 삭제합니다. 전화 번호가 삭제되면 보안 정보에서 제거되고 **보안 정보** 페이지에서 사라집니다. **전화**가 기본 방법인 경우 기본값이 사용 가능한 다른 방법으로 바뀝니다.
 
 ## <a name="change-your-default-security-info-method"></a>기본 보안 인증 방식 변경
-2단계 확인을 사용하거나 암호 재설정 요청을 위해 회사 또는 학교 계정에 로그인할 때 사용되는 기본 방법으로 문자 메시지를 설정하려는 경우 **보안 정보** 페이지에서 설정할 수 있습니다.
+
+2 단계 인증을 사용 하 여 회사 또는 학교 계정에 로그인 하거나 암호 재설정 요청을 수행할 때 문자 메시지를 기본 방법으로 사용 하려면 **보안 정보** 페이지에서 설정할 수 있습니다.
 
 ### <a name="to-change-your-default-security-info-method"></a>기본 보안 인증 방식을 변경하려면 다음을 수행합니다.
 
@@ -93,16 +97,19 @@ ms.locfileid: "60482252"
     로그인에 사용되는 기본 방법이 **전화 - 문자( *_your_phone_number_* )** 로 바뀝니다.
 
 ## <a name="additional-security-info-methods"></a>추가 보안 정보 방법
+
 수행하려는 작업에 따라, 조직이 본인 여부를 확인하기 위해 사용자에게 연락하는 방식에 대한 추가 옵션이 제공됩니다. 옵션에는 다음이 포함됩니다.
 
 - **Authenticator 앱.** Authenticator 앱을 다운로드한 후 사용하여 2단계 인증 또는 암호 재설정을 위한 승인 알림 또는 임의로 생성된 승인 코드를 가져올 수 있습니다. Microsoft Authenticator 앱을 설치 및 사용하는 방법에 대한 단계별 지침은 [Authenticator 앱을 사용하도록 보안 정보 설정](security-info-setup-auth-app.md)을 참조하세요.
 
 - **모바일 디바이스 또는 회사 전화 통화.** 모바일 디바이스 번호를 입력하면 2단계 인증 또는 암호 재설정을 위한 전화가 걸려옵니다. 전화 번호를 사용하여 본인 여부를 확인하는 방법에 대한 단계별 지침은 [전화 통화를 사용하도록 보안 정보 설정](security-info-setup-phone-number.md)을 참조하세요.
 
+- **보안 키입니다.** Microsoft 호환 보안 키를 등록 하 고 2 단계 인증 또는 암호 재설정을 위해 PIN과 함께 사용 합니다. 보안 키를 사용 하 여 id를 확인 하는 방법에 대 한 단계별 지침은 보안 [키를 사용 하도록 보안 정보 설정](security-info-setup-security-key.md)을 참조 하세요.
+
 - **이메일 주소.** 회사 또는 학교 이메일 주소를 입력하여 암호 재설정을 위한 이메일을 받습니다. 이 옵션은 2단계 인증에 사용할 수 없습니다. 이메일을 설정하는 방법에 대한 단계별 지침은 [이메일을 사용하도록 보안 정보 설정](security-info-setup-email.md)을 참조하세요.
 
 - **본인 확인 질문.** 조직의 관리자가 만든 몇 가지 보안 질문에 대답합니다. 이 옵션은 2단계 인증이 아닌 암호 재설정에만 사용할 수 있습니다. 보안 질문을 설정하는 방법에 대한 단계별 지침은 [보안 질문을 사용하도록 보안 정보 설정](security-info-setup-questions.md) 문서를 참조하세요.
-    
+
     >[!Note]
     >이러한 옵션 중 일부가 누락된 경우 사용자의 조직에서 해당 방법을 허용하지 않았을 가능성이 있습니다. 이 경우 사용 가능한 방법을 선택하거나 관리자에게 문의하여 자세한 도움을 받아야 합니다.
 

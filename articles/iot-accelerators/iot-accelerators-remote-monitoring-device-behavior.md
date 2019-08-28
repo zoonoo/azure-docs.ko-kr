@@ -210,7 +210,7 @@ function main(context, previousState, previousProperties) {
 메서드의 동작을 구현하는 데 사용할 수 있는 세 가지 전역 함수가 있습니다.
 
 - `updateState` - 시뮬레이션 서비스에 보유된 상태를 업데이트합니다.
-- `updateProperty` - 단일 장치 속성을 업데이트합니다.
+- `updateProperty` - 단일 디바이스 속성을 업데이트합니다.
 - `sleep` - 장기 실행 작업을 시뮬레이트하기 위해 실행을 일시 중지합니다.
 
 다음 예제에서는 시뮬레이션된 냉각기 디바이스가 사용하는 **IncreasePressure-method.js** 스크립트의 축약된 버전을 보여줍니다.

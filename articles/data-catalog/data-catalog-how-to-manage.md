@@ -1,19 +1,17 @@
 ---
 title: Azure Data Catalog에서 데이터 자산 관리
 description: 문서는 Azure Data Catalog에 등록된 데이터 자산의 표시 여부 및 소유권을 제어하는 방법을 강조 표시합니다.
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 623f5ed4-8da7-48f5-943a-448d0b7cba69
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 407e25b7bb1a2220448c9701bbef208195c50b63
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: 9905ed72ec54304bbdb0f7ee607cbb013fc645bb
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65953103"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736336"
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Azure Data Catalog에서 데이터 자산 관리
 ## <a name="introduction"></a>소개
@@ -52,7 +50,7 @@ Azure Data Catalog는 사용자가 분석을 수행하고 결정을 내리는 �
 ### <a name="remove-owners"></a>소유자 제거
 자산 소유자가 공동 소유자를 추가할 수 있는 것처럼 자산 소유자는 공동 소유자를 제거할 수 있습니다.
 
-자신을 소유자에서 제거 하는 자산 소유자는 자산을 더 이상 관리할 수 없습니다. 자산 소유자 소유자로 자신을 제거 하 고 다른 공동 소유자가 하는 경우 자산을 소유 하지 않은 상태로 되돌립니다.
+소유자로 자신을 제거 하는 자산 소유자는 더 이상 자산을 관리할 수 없습니다. 자산 소유자가 자신을 소유자로 제거 하 고 다른 공동 소유자가 없는 경우 자산은 소유 하지 않은 상태로 돌아갑니다.
 
 ## <a name="control-visibility"></a>컨트롤 표시 여부
 데이터 자산 소유자는 자신이 소유한 데이터 자산의 표시 여부를 제어할 수 있습니다. 모든 데이터 카탈로그 사용자가 데이터 자산을 검색하고 볼 수 있는 기본값에서 표시를 제한하려면 자산 소유자는 자산에 대한 속성에서 표시 여부 설정을 **모두**에서 **소유자 및 다음 사용자**로 설정/해제할 수 있습니다. 그런 다음 소유자는 특정 사용자 및 보안 그룹을 추가할 수 있습니다.

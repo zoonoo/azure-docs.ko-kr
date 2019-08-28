@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/17/2018
+ms.date: 08/01/2018
 ms.author: jingwang
-ms.openlocfilehash: e4625b934f9e1cf98254f3dee59f9c26e8e16fb5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 30025499ae3073a04863d711423bd9556e7fc6c4
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60578711"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726027"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP Cloud for Customer(C4C) 간에 데이터 복사
 
@@ -39,7 +39,7 @@ SAP Cloud for Customer에서 지원되는 모든 싱크 데이터 저장소로 �
 
 다음은 SAP Cloud for Customer 연결된 서비스에 대해 지원되는 속성입니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성을 다음으로 설정해야 합니다. **SapCloudForCustomer**. | 예 |
 | url | SAP C4C OData 서비스의 URL입니다. | 예 |
@@ -94,6 +94,7 @@ SAP Cloud for Customer에서 데이터를 복사하려면 데이터 세트의 ty
         "typeProperties": {
             "path": "<path e.g. LeadCollection>"
         },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<SAP C4C linked service>",
             "type": "LinkedServiceReference"
@@ -110,10 +111,10 @@ SAP Cloud for Customer에서 데이터를 복사하려면 데이터 세트의 ty
 
 SAP Cloud for Customer에서 데이터를 복사하려면 복사 작업의 원본 형식을 **SapCloudForCustomerSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성을 다음으로 설정해야 합니다. **SapCloudForCustomerSource**  | 예 |
-| query | 데이터를 읽을 사용자 지정 OData 쿼리를 지정합니다. | 아닙니다. |
+| query | 데이터를 읽을 사용자 지정 OData 쿼리를 지정합니다. | 아니요 |
 
 특정 날짜에 대한 데이터를 가져오는 샘플 쿼리: `"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
 
@@ -153,7 +154,7 @@ SAP Cloud for Customer에서 데이터를 복사하려면 복사 작업의 원�
 
 SAP Cloud for Customer로 데이터를 복사하려면 복사 작업의 싱크 형식을 **SapCloudForCustomerSink**로 설정합니다. 복사 작업 **sink** 섹션에서 다음 속성이 지원됩니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성을 다음으로 설정해야 합니다. **SapCloudForCustomerSink**  | 예 |
 | writeBehavior | 작업의 쓰기 동작입니다. “Insert”, “Update”가 될 수 있습니다. | 아니요. 기본값은 “Insert”입니다. |

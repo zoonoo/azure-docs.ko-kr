@@ -12,20 +12,22 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/27/2017
+ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 5d3525952ec09474d60618c4f99138cef1fce57a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4560ca2b07826e2a071f515f147dfab8cbec3624
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61417310"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516808"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>StorSimple 가상 배열 배포 – Azure Portal을 통해 iSCSI 서버로 설정
 
 ![iscsi 설정 프로세스 흐름](./media/storsimple-virtual-array-deploy3-iscsi-setup/iscsi4.png)
 
 ## <a name="overview"></a>개요
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
 이 배포 자습서는 Microsoft Azure StorSimple 가상 배열에 적용됩니다. 이 자습서는 iSCSI 서버에서 구성된 StorSimple 가상 배열에서 초기 설정을 수행하고, StorSimple iSCSI 서버를 등록하고, 디바이스 설정을 완료하고, StorSimple 가상 디바이스 iSCSI 서버에서 볼륨을 만들고, 탑재하고, 초기화하고, 포맷하는 방법을 설명합니다. 
 
@@ -67,19 +69,19 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
     ![홈 페이지](./media/storsimple-virtual-array-deploy3-iscsi-setup/image5.png)
 4. **네트워크 설정** 페이지의 **네트워크 인터페이스**에서 DATA 0이 자동으로 구성됩니다. 각 네트워크 인터페이스는 IP 주소를 자동으로 가져오도록(DHCP) 기본 설정됩니다. 따라서 IP 주소, 서브넷 및 게이트웨이가 자동으로 할당됩니다(IPv4 및 IPv6 모두에 대해).
    
-    디바이스를 iSCSI 서버(블록 저장소를 프로비전하기 위해)로 배포할 계획이므로, **자동으로 IP 주소 받기** 옵션을 사용하지 않도록 설정하고 고정 IP 주소를 구성하는 것이 좋습니다.
+    디바이스를 iSCSI 서버(블록 스토리지를 프로비전하기 위해)로 배포할 계획이므로, **자동으로 IP 주소 받기** 옵션을 사용하지 않도록 설정하고 고정 IP 주소를 구성하는 것이 좋습니다.
    
     ![네트워크 설정 페이지](./media/storsimple-virtual-array-deploy3-iscsi-setup/image6.png)
    
     디바이스를 프로비전하는 동안 네트워크 인터페이스를 둘 이상 추가한 경우에는 여기에서 구성할 수 있습니다. 네트워크 인터페이스를 IPv4로만 구성하거나 IPv4와 IPv6 둘 다로 구성할 수 있습니다. IPv6 전용 구성은 지원되지 않습니다.
-5. 디바이스가 클라우드 저장소 서비스 공급자와 통신하려고 시도하거나 파일 서버로 구성된 경우 이름으로 디바이스를 확인하려고 시도하는 경우에 DNS 서버가 사용되기 때문에 DNS 서버가 필요합니다. **네트워크 설정** 페이지의 **DNS 서버** 아래에서:
+5. 디바이스가 클라우드 스토리지 서비스 공급자와 통신하려고 시도하거나 파일 서버로 구성된 경우 이름으로 디바이스를 확인하려고 시도하는 경우에 DNS 서버가 사용되기 때문에 DNS 서버가 필요합니다. **네트워크 설정** 페이지의 **DNS 서버** 아래에서:
    
    1. 기본 및 보조 DNS 서버는 자동으로 구성됩니다. 고정 IP 주소를 구성하도록 선택하면 DNS 서버를 지정할 수 있습니다. 고가용성을 위해 기본 및 보조 DNS 서버를 구성하는 것이 좋습니다.
    2. **적용**을 클릭합니다. 네트워크 설정이 적용되고 유효성 검사가 수행됩니다.
 6. **디바이스 설정** 페이지에서:
    
    1. 디바이스에 고유한 **이름**을 할당합니다. 이름에는 1-15자를 사용할 수 있으며 문자, 숫자 및 하이픈을 포함할 수 있습니다.
-   2. 만드는 디바이스의 **유형**에 대해 **iSCSI 서버** 아이콘 ![iSCSI 서버 아이콘](./media/storsimple-virtual-array-deploy3-iscsi-setup/image7.png)을 클릭합니다. iSCSI 서버에서 블록 저장소를 프로비전할 수 있습니다.
+   2. 만드는 디바이스의 **유형**에 대해 **iSCSI 서버** 아이콘 ![iSCSI 서버 아이콘](./media/storsimple-virtual-array-deploy3-iscsi-setup/image7.png)을 클릭합니다. iSCSI 서버에서 블록 스토리지를 프로비전할 수 있습니다.
    3. 이 디바이스를 도메인에 가입할지 지정합니다. 디바이스가 iSCSI 서버인 경우, 도메인 가입은 선택 사항입니다. iSCSI 서버를 도메인에 가입하지 않으려면, **적용**을 클릭하고 설정이 적용될 때까지 기다린 후에 다음 단계로 건너뜁니다.
       
        디바이스를 도메인에 가입하려면 **도메인 이름**을 입력하고 **적용**을 클릭합니다.
@@ -88,7 +90,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
       > iSCSI 서버를 도메인에 연결하는 경우 가상 배열이 Microsoft Azure Active Directory용 자체 OU(조직 구성 단위)에 있으며 GPO(그룹 정책 개체)가 적용되지 않았는지 확인합니다.
       > 
       > 
-   4. 대화 상자가 표시됩니다. 지정된 형식으로 도메인 자격 증명을 입력합니다. 필터 설정 후에 확인 아이콘 ![확인 아이콘](./media/storsimple-virtual-array-deploy3-iscsi-setup/image15.png). 도메인 자격 증명이 확인됩니다. 자격 증명이 올바르지 않으면 오류 메시지가 표시됩니다.
+   4. 대화 상자가 표시됩니다. 지정된 형식으로 도메인 자격 증명을 입력합니다. 필터 설정 후에 확인 아이콘 ![확인 아이콘](./media/storsimple-virtual-array-deploy3-iscsi-setup/image15.png)을 선택합니다. 도메인 자격 증명이 확인됩니다. 자격 증명이 올바르지 않으면 오류 메시지가 표시됩니다.
       
        ![자격 증명](./media/storsimple-virtual-array-deploy3-iscsi-setup/image8.png)
    5. **적용**을 클릭합니다. 디바이스 설정이 적용되고 유효성 검사가 수행됩니다.
@@ -98,7 +100,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
    
     **웹 프록시** 페이지에서:
    
-   1. 제공 된 **웹 프록시 URL** 형식으로: *http:\//host-IP 주소* 또는 *fqdn: port 수*입니다. HTTPS URL은 지원되지 않습니다.
+   1. 다음 형식으로 **웹 프록시 URL** 을 제공 합니다. *http\/:/host-ip 주소* 또는 *FQDN: 포트 번호*. HTTPS URL은 지원되지 않습니다.
    2. **인증**은 **기본** 또는 **없음**으로 지정합니다.
    3. 인증을 사용하는 경우에는 **사용자 이름** 및 **암호**도 제공해야 합니다.
    4. **적용**을 클릭합니다. 구성된 웹 프록시 설정의 유효성을 검사하고 적용합니다.
@@ -140,9 +142,9 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
 3. 디바이스 명령 모음에서 **구성**을 클릭합니다. 그러면 **구성** 블레이드가 열립니다. **구성** 블레이드에서 다음을 수행합니다.
    
    * iSCSI 서버 이름은 자동으로 채워집니다.
-   * 클라우드 저장소 암호화가 **사용**으로 설정되었는지 확인합니다. 이를 통해 이 디바이스에서 클라우드로 전송되는 데이터가 암호화되어 있는지 확인합니다.
+   * 클라우드 스토리지 암호화가 **사용**으로 설정되었는지 확인합니다. 이를 통해 이 디바이스에서 클라우드로 전송되는 데이터가 암호화되어 있는지 확인합니다.
    * 32자 암호화 키를 지정하고 나중에 참조할 수는 키 관리 앱에 기록합니다.
-   * 디바이스에 사용할 저장소 계정을 선택합니다. 구독에서 기존 저장소 계정을 선택하거나 **추가**를 클릭하여 다른 구독에서 계정을 선택할 수 있습니다.
+   * 디바이스에 사용할 스토리지 계정을 선택합니다. 구독에서 기존 스토리지 계정을 선택하거나 **추가**를 클릭하여 다른 구독에서 계정을 선택할 수 있습니다.
      
      ![iSCSI 서버로 디바이스 구성](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis4m.png)
 4. **구성**을 클릭하여 iSCSI 서버 설정을 완료합니다.
@@ -195,7 +197,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
 4. **iSCSI 초기자 속성** 창의 **대상** 탭에서 **검색된 대상**을 찾습니다. (각 볼륨은 검색된 대상이 됩니다.) 디바이스 상태가 **비활성**으로 표시되어야 합니다.
    
     ![검색된 대상](./media/storsimple-virtual-array-deploy3-iscsi-setup/image24.png)
-5. 대상 디바이스를 선택하고 **연결**을 클릭합니다. 디바이스가 연결되면 상태가 **연결됨**으로 변경됩니다. Microsoft iSCSI 초기자 사용에 대한 자세한 내용은 [Microsoft iSCSI 초기자 설치 및 구성][1]을 참조하세요.
+5. 대상 디바이스를 선택하고 **연결**을 클릭합니다. 디바이스가 연결되면 상태가 **연결됨**으로 변경됩니다. Microsoft iSCSI 초기자를 사용 하는 방법에 대 한 자세한 내용은 [Microsoft Iscsi 초기자 설치 및 구성][1]을 참조 하세요.
    
     ![대상 디바이스 선택](./media/storsimple-virtual-array-deploy3-iscsi-setup/image25.png)
 6. Windows 호스트에서 Windows 로고 키 + X를 누르고 **실행**을 클릭합니다.

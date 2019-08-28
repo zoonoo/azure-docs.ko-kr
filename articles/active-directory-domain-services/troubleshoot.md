@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 2df1ac6325f692e2d433238ae0b92d8e3f8482b5
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: c5ec80e81381423bdfdee07b1c020343d14ed559
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472294"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617063"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD Domain Services - 문제 해결 가이드
 이 문서는 Azure AD(Active Directory) 도메인 서비스를 설치하거나 관리할 때 발생할 수 있는 문제에 대한 문제 해결 힌트를 제공합니다.
@@ -32,7 +32,7 @@ ms.locfileid: "67472294"
 
 | **오류 메시지** | **해결 방법** |
 | --- |:--- |
-| *contoso100.com 이름은 이 네트워크에서 이미 사용 중입니다. 사용하지 않는 이름을 지정하십시오.* |[가상 네트워크에서 도메인 이름 충돌](troubleshoot.md#domain-name-conflict) |
+| *Contoso.com 이름이이 네트워크에서 이미 사용 중입니다. 사용하지 않는 이름을 지정하십시오.* |[가상 네트워크에서 도메인 이름 충돌](troubleshoot.md#domain-name-conflict) |
 | *이 Azure AD 테넌트에서는 Domain Services를 사용할 수 없습니다. 이 서비스에는 'Azure AD Domain Services Sync'라는 애플리케이션에 대한 적절한 권한이 없습니다. 'Azure AD Domain Services Sync'라는 애플리케이션을 삭제한 다음 Azure AD 테넌트에 대해 Domain Services를 사용하도록 설정하십시오.* |[Domain Services에 Azure AD Domain Services Sync 애플리케이션에 대한 적절한 권한이 없음](troubleshoot.md#inadequate-permissions) |
 | *이 Azure AD 테넌트에서는 Domain Services를 사용할 수 없습니다. Azure AD 테넌트의 Domain Services 애플리케이션에는 Domain Services를 사용하는 데 필요한 권한이 없습니다. d87dcbc6-a371-462e-88e3-28ad15ec4e64 애플리케이션 식별자를 사용하여 애플리케이션을 삭제한 다음 Azure AD 테넌트에 대해 Domain Services를 사용하도록 설정하십시오.* |[테넌트에서 Domain Services 애플리케이션을 제대로 구성하지 않음](troubleshoot.md#invalid-configuration) |
 | *이 Azure AD 테넌트에서는 Domain Services를 사용할 수 없습니다. Azure AD 테넌트에서 Microsoft Azure AD 애플리케이션을 사용할 수 없습니다. 00000002-0000-0000-c000-000000000000 애플리케이션 식별자를 사용하여 애플리케이션을 사용하도록 설정한 다음 Azure AD 테넌트에 대해 Domain Services를 사용하도록 설정하십시오.* |[Azure AD 테넌트에서 Microsoft Graph 애플리케이션을 사용할 수 없음](troubleshoot.md#microsoft-graph-disabled) |
@@ -40,7 +40,7 @@ ms.locfileid: "67472294"
 ### <a name="domain-name-conflict"></a>도메인 이름 충돌
 **오류 메시지:**
 
-*contoso100.com 이름은 이 네트워크에서 이미 사용 중입니다. 사용하지 않는 이름을 지정하십시오.*
+*Contoso.com 이름이이 네트워크에서 이미 사용 중입니다. 사용하지 않는 이름을 지정하십시오.*
 
 **재구성:**
 
@@ -135,18 +135,21 @@ Azure AD 테넌트에서 하나 이상의 사용자가 새로 만든 관리되�
 >
 >
 
-* 시작 가이드에 설명된 단계에 따라 [암호 동기화를 사용하도록 설정](active-directory-ds-getting-started-password-sync.md) 했는지 확인합니다.
+* 시작 가이드에 설명된 단계에 따라 [암호 동기화를 사용하도록 설정](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) 했는지 확인합니다.
 * **외부 계정:** 영향을 받는 사용자 계정이 Azure AD 테넌트에서 외부 계정이 아닌지 확인합니다. 외부 계정의 예는 Microsoft 계정(예: 'joe@live.com') 또는 외부 Azure AD 디렉터리에서 사용자 계정을 포함합니다. Azure AD 도메인 서비스에는 이러한 사용자 계정에 대한 자격 증명이 없으므로 이러한 사용자는 관리된 도메인에 로그인할 수 없습니다.
 * **동기화된 계정:** 영향을 받는 사용자 계정이 온-프레미스 디렉터리에서 동기화되는 경우 다음을 확인합니다.
 
   * [Azure AD Connect의 최신 권장 사항](https://www.microsoft.com/download/details.aspx?id=47594)으로 배포하거나 업데이트했습니다.
-  * [전체 동기화를 수행](active-directory-ds-getting-started-password-sync.md)하도록 Azure AD Connect를 구성했습니다.
+  * [전체 동기화를 수행](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)하도록 Azure AD Connect를 구성했습니다.
   * 디렉터리의 크기에 따라 사용자 계정 및 해시 자격 증명이 Azure AD 도메인 서비스에서 사용할 수 있도록 하는 데 시간이 걸릴 수 있습니다. 충분히 오래 기다렸다가 인증을 다시 시도해야 합니다.
   * 앞의 단계를 확인한 후에도 문제가 지속되면 Microsoft Azure AD Sync 서비스를 다시 시작해 봅니다. 동기화 컴퓨터에서 명령 프롬프트를 시작하고 다음 명령을 실행합니다.
 
     1. net stop 'Microsoft Azure AD Sync'
     2. net start 'Microsoft Azure AD Sync'
 * **클라우드 전용 계정**: 영향을 받는 사용자 계정이 클라우드 전용 사용자 계정인 경우 Azure AD Domain Services를 사용하도록 설정한 후에 사용자가 암호를 변경했는지 확인합니다. 이 단계를 수행하면 Azure AD 도메인 서비스가 생성되는 데 필요한 자격 증명 해시가 발생합니다.
+* **사용자 계정이 활성 상태 인지 확인 합니다**. 사용자 계정이 잠긴 경우 계정이 다시 활성화 될 때까지 로그인 할 수 없습니다. 관리되는 도메인에서 2분 안에 5차례 암호를 잘못 입력하면 사용자 계정이 30분 동안 잠깁니다. 30분 후 사용자 계정이 자동으로 잠금 해제됩니다.
+  * 관리 되는 도메인에 대 한 잘못 된 암호 시도는 Azure AD에서 사용자 계정을 잠그지 않습니다. 사용자 계정은 Azure AD Domain Services 관리되는 도메인 안에서만 잠깁니다. Azure AD가 아닌 Azure AD DS 관리 되는 도메인에 대해 ADAC (Active Directory 관리 콘솔)를 사용 하 여 사용자 계정 상태를 확인 합니다.
+  * [기본 잠금 임계값 및 기간을 변경 하는 세분화 된 암호 정책을 구성할](https://docs.microsoft.com/azure/active-directory-domain-services/password-policy)수도 있습니다.
 
 ## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>관리되는 도메인에서 하나 이상의 경고 발생
 
@@ -160,5 +163,5 @@ Azure AD 디렉터리에서 동일한 UPN을 사용하여 사용자 계정을 �
 관리되는 도메인에서 사용자 계정을 완전히 제거하려면 Azure AD 테넌트에서 사용자를 영구적으로 삭제합니다. 이 [MSDN 문서](/previous-versions/azure/dn194132(v=azure.100))에 설명된 대로 `Remove-MsolUser` PowerShell cmdlet을 `-RemoveFromRecycleBin` 옵션과 함께 사용합니다.
 
 
-## <a name="contact-us"></a>문의처
+## <a name="contact-us"></a>문의
 [지원이 필요하거나 피드백을 공유하려면](contact-us.md)Azure Active Directory Domain Services 제품 팀에 문의하세요.

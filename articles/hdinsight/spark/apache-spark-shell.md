@@ -2,18 +2,18 @@
 title: Azure HDInsight에서 대화형 Spark 셸 사용
 description: 대화형 Spark 셸은 한 번에 하나의 Spark 명령을 실행하고 결과를 보기 위한 읽기 실행 인쇄 프로세스를 제공합니다.
 ms.service: hdinsight
-author: maxluk
-ms.author: maxluk
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
-ms.openlocfilehash: 9044ed3ad9cf9ffa2f54d130bb50b37df121b86f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7aac2812787a7c14d99377754a4f85e699ef3f09
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696813"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68441885"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Spark 셸에서 Apache Spark 실행
 

@@ -27,10 +27,10 @@ ms.locfileid: "54901465"
 
 ## <a name="prerequisites"></a>필수 조건
 
-+ [Microsoft Azure Storage 탐색기](https://storageexplorer.com/)를 다운로드하고 설치합니다.
++ [Microsoft Azure Storage Explorer](https://storageexplorer.com/)를 다운로드하고 설치합니다.
 + Azure 구독. 구독이 없으면 시작하기 전에 [계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만드세요.
 
-## <a name="create-an-azure-function-app"></a>Azure Function 앱 만들기
+## <a name="create-an-azure-function-app"></a>Azure 함수 앱 만들기
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
@@ -64,7 +64,7 @@ ms.locfileid: "54901465"
     |---|---|---|
     | **Name** | 함수 앱에서 고유 | 이 Blob 트리거 함수의 이름입니다. |
     | **Path**   | samples-workitems/{name}    | 모니터링되는 Blob Storage의 위치입니다. 바인딩에 _name_ 매개 변수로 전달되는 Blob의 파일 이름입니다.  |
-    | **Storage 계정 연결** | AzureWebJobsStorage | 함수 앱에 이미 사용된 저장소 계정 연결을 사용하거나 새로 만들 수 있습니다.  |
+    | **Storage 계정 연결** | AzureWebJobsStorage | 함수 앱에 이미 사용된 스토리지 계정 연결을 사용하거나 새로 만들 수 있습니다.  |
 
 1. **만들기**를 클릭하여 사용자의 함수를 만듭니다.
 
@@ -72,7 +72,7 @@ ms.locfileid: "54901465"
 
 ## <a name="create-the-container"></a>컨테이너 만들기
 
-1. 함수에서 **통합**을 클릭하고 **설명서**를 확장하여 **계정 이름** 및 **계정 키**를 모두 복사합니다. 이러한 자격 증명을 사용하여 저장소 계정에 연결합니다. 저장소 계정에 이미 연결된 경우 4단계로 건너뜁니다.
+1. 함수에서 **통합**을 클릭하고 **설명서**를 확장하여 **계정 이름** 및 **계정 키**를 모두 복사합니다. 이러한 자격 증명을 사용하여 스토리지 계정에 연결합니다. 스토리지 계정에 이미 연결된 경우 4단계로 건너뜁니다.
 
     ![Storage 계정 연결 자격 증명 가져오기.](./media/functions-create-storage-blob-triggered-function/functions-storage-account-connection.png)
 
@@ -82,11 +82,11 @@ ms.locfileid: "54901465"
 
 1. 1단계에서 **계정 이름** 및 **계정 키**를 입력하고 **다음**을 클릭한 후 **연결**을 클릭합니다. 
 
-    ![저장소 자격 증명 입력 및 연결.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-2.png)
+    ![스토리지 자격 증명 입력 및 연결.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-2.png)
 
-1. 연결된 저장소 계정을 확장하고 **Blob 컨테이너**를 마우스 오른쪽 단추로 클릭하고 **Blob 컨테이너 만들기**를 클릭하고 `samples-workitems`를 입력한 후 Enter 키를 누릅니다.
+1. 연결된 스토리지 계정을 확장하고 **Blob 컨테이너**를 마우스 오른쪽 단추로 클릭하고 **Blob 컨테이너 만들기**를 클릭하고 `samples-workitems`를 입력한 후 Enter 키를 누릅니다.
 
-    ![저장소 큐 만들기.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-create-blob-container.png)
+    ![스토리지 큐 만들기.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-create-blob-container.png)
 
 이제 Blob 컨테이너가 있고 컨테이너에 파일을 업로드하여 함수를 테스트할 수 있습니다.
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: f465ac91936b766d2c19ea8efd67b3acc8df6d75
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 20a9ca8e28961a6dc49947a22f745424961b4a3f
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243937"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615273"
 ---
 # <a name="how-to-write-stored-procedures-and-triggers-in-azure-cosmos-db-by-using-the-javascript-query-api"></a>Azure Cosmos DB에서 JavaScript 쿼리 API를 사용하여 저장 프로시저 및 트리거를 작성하는 방법
 
@@ -19,7 +19,7 @@ Azure Cosmos DB를 사용하면 저장 프로시저 또는 트리거를 작성�
 
 ## <a id="stored-procedures"></a>JavaScript 쿼리 API를 사용한 저장 프로시저
 
-다음 코드 샘플은 저장 프로시저의 컨텍스트에서 JavaScript 쿼리 API를 사용하는 방법의 예제입니다. 저장 프로시저는 입력 매개 변수에서 지정된 Azure Cosmos DB 항목을 삽입하고, 입력 항목의 크기 속성에 따라 minSize, maxSize 및 totalSize가 있는 `__.filter()` 메서드를 사용하여 메타데이터 문서를 업데이트합니다.
+다음 코드 샘플은 저장 프로시저의 컨텍스트에서 JavaScript 쿼리 API를 사용하는 방법의 예제입니다. 저장 프로시저는 입력 매개 변수에서 지정된 Azure Cosmos 항목을 삽입하고, 입력 항목의 크기 속성에 따라 minSize, maxSize 및 totalSize가 있는 `__.filter()` 메서드를 사용하여 메타데이터 문서를 업데이트합니다.
 
 > [!NOTE]
 > JavaScript 쿼리 API를 사용하는 경우 `__`(이중 밑줄)은 `getContext().getCollection()`에 대한 별칭입니다.

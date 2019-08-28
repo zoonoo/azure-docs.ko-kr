@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Node.js를 사용하여 Bing Entity Search REST API에 검색 요청 보내기'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작을 사용하여 C#을 통해 Bing Entity Search REST API로 요청을 보내고 JSON 응답을 받습니다.
 services: cognitive-services
 author: aahill
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: 177e0ef0adab3b683657a9b872300cb38185d795
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: e56bf0b3daa38f79e637ece947414b885de3797a
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66384564"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478976"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>빠른 시작: Node.js를 사용하여 Bing Entity Search REST API에 검색 요청 보내기
 

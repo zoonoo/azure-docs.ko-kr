@@ -5,7 +5,7 @@ services: functions
 documentationcenter: na
 author: jeffhollan
 manager: jpconnock
-keywords: Azure Functions, 함수, 이벤트 처리, 계산, 서버리스 아키텍처, Java
+keywords: Azure Functions, 함수, 이벤트 처리, 컴퓨팅, 서버리스 아키텍처, Java
 ms.service: azure-functions
 ms.devlang: java
 ms.topic: conceptual
@@ -14,7 +14,7 @@ ms.author: jehollan
 ms.custom: mvc, devcenter
 ms.openlocfilehash: da93c60b52edf509900adf89fb688a0596d9763b
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "61342227"

@@ -1,21 +1,21 @@
 ---
 title: '빠른 시작: Go용 Custom Vision SDK를 사용하여 이미지 분류 프로젝트 만들기'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Go SDK를 사용하여 프로젝트를 만들고, 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 예측을 수행합니다.
 services: cognitive-services
 author: areddish
 manager: daauld
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 03/21/2019
+ms.date: 08/08/2019
 ms.author: areddish
-ms.openlocfilehash: f740974d17ad5f95bca6530a61619ee0283f819a
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: ed49d5763db4c9ffcb11d24dfa835c899d76aeec
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58479991"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946198"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-go-sdk"></a>빠른 시작: Custom Vision Go SDK를 사용하여 이미지 분류 프로젝트 만들기
 
@@ -29,12 +29,12 @@ ms.locfileid: "58479991"
 
 Go용 Custom Vision Service SDK를 설치하려면 PowerShell에서 다음 명령을 실행합니다.
 
-```
+```shell
 go get -u github.com/Azure/azure-sdk-for-go/...
 ```
 
-dep를 사용하는 경우에는 리포지토리 내에서 다음을 실행합니다.
-```
+`dep`를 사용하는 경우에는 리포지토리 내에서 다음을 실행합니다.
+```shell
 dep ensure -add github.com/Azure/azure-sdk-for-go
 ```
 
@@ -48,7 +48,7 @@ dep ensure -add github.com/Azure/azure-sdk-for-go
 
 ### <a name="create-the-custom-vision-service-project"></a>Custom Vision Service 프로젝트 만들기
 
-새 Custom Vision Service 프로젝트를 만드는 다음 코드를 스크립트에 추가합니다. 구독 키를 적절한 정의에 삽입합니다.
+새 Custom Vision Service 프로젝트를 만드는 다음 코드를 스크립트에 추가합니다. 구독 키를 적절한 정의에 삽입합니다. 프로젝트를 만들 때 다른 옵션을 지정하려면 [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) 메서드를 참조하세요([분류자 빌드](getting-started-build-a-classifier.md) 웹 포털 가이드에 설명되어 있음).
 
 ```go
 import(
@@ -91,42 +91,42 @@ func main() {
 프로젝트에 분류 태그를 만들려면 *sample.go* 끝에 다음 코드를 추가합니다.
 
 ```go
-    // Make two tags in the new project
-    hemlockTag, _ := trainer.CreateTag(ctx, *project.ID, "Hemlock", "Hemlock tree tag", string(training.Regular))
-    cherryTag, _ := trainer.CreateTag(ctx, *project.ID, "Japanese Cherry", "Japanese cherry tree tag", string(training.Regular))
+// Make two tags in the new project
+hemlockTag, _ := trainer.CreateTag(ctx, *project.ID, "Hemlock", "Hemlock tree tag", string(training.Regular))
+cherryTag, _ := trainer.CreateTag(ctx, *project.ID, "Japanese Cherry", "Japanese cherry tree tag", string(training.Regular))
 ```
 
 ### <a name="upload-and-tag-images"></a>이미지 업로드 및 태그 지정
 
-프로젝트에 샘플 이미지를 추가하려면 태그를 만든 후 다음 코드를 삽입합니다. 이 코드는 해당 태그를 사용하여 각 이미지를 업로드합니다. Cognitive Services Go SDK 샘플 프로젝트를 다운로드한 위치를 기반으로 기본 이미지 URL 경로를 입력해야 합니다.
+프로젝트에 샘플 이미지를 추가하려면 태그를 만든 후 다음 코드를 삽입합니다. 이 코드는 해당 태그를 사용하여 각 이미지를 업로드합니다. 단일 일괄 처리에서 최대 64개의 이미지를 업로드할 수 있습니다.
 
 > [!NOTE]
 > 이전에 Cognitive Services Go SDK 샘플 프로젝트를 다운로드한 위치를 기반으로 이미지 경로를 변경해야 합니다.
 
 ```go
-    fmt.Println("Adding images...")
-    japaneseCherryImages, err := ioutil.ReadDir(path.Join(sampleDataDirectory, "Japanese Cherry"))
-    if err != nil {
-        fmt.Println("Error finding Sample images")
-    }
+fmt.Println("Adding images...")
+japaneseCherryImages, err := ioutil.ReadDir(path.Join(sampleDataDirectory, "Japanese Cherry"))
+if err != nil {
+    fmt.Println("Error finding Sample images")
+}
 
-    hemLockImages, err := ioutil.ReadDir(path.Join(sampleDataDirectory, "Hemlock"))
-    if err != nil {
-        fmt.Println("Error finding Sample images")
-    }
+hemLockImages, err := ioutil.ReadDir(path.Join(sampleDataDirectory, "Hemlock"))
+if err != nil {
+    fmt.Println("Error finding Sample images")
+}
 
-    for _, file := range hemLockImages {
-        imageFile, _ := ioutil.ReadFile(path.Join(sampleDataDirectory, "Hemlock", file.Name()))
-        imageData := ioutil.NopCloser(bytes.NewReader(imageFile))
+for _, file := range hemLockImages {
+    imageFile, _ := ioutil.ReadFile(path.Join(sampleDataDirectory, "Hemlock", file.Name()))
+    imageData := ioutil.NopCloser(bytes.NewReader(imageFile))
 
-        trainer.CreateImagesFromData(ctx, *project.ID, imageData, []string{ hemlockTag.ID.String() })
-    }
+    trainer.CreateImagesFromData(ctx, *project.ID, imageData, []string{ hemlockTag.ID.String() })
+}
 
-    for _, file := range japaneseCherryImages {
-        imageFile, _ := ioutil.ReadFile(path.Join(sampleDataDirectory, "Japanese Cherry", file.Name()))
-        imageData := ioutil.NopCloser(bytes.NewReader(imageFile))
-        trainer.CreateImagesFromData(ctx, *project.ID, imageData, []string{ cherryTag.ID.String() })
-    }
+for _, file := range japaneseCherryImages {
+    imageFile, _ := ioutil.ReadFile(path.Join(sampleDataDirectory, "Japanese Cherry", file.Name()))
+    imageData := ioutil.NopCloser(bytes.NewReader(imageFile))
+    trainer.CreateImagesFromData(ctx, *project.ID, imageData, []string{ cherryTag.ID.String() })
+}
 ```
 
 ### <a name="train-the-classifier-and-publish"></a>분류자 학습 및 게시
@@ -134,19 +134,19 @@ func main() {
 이 코드는 프로젝트에서 첫 번째 반복을 만든 다음, 이 반복을 예측 엔드포인트에 게시합니다. 게시된 반복에 부여된 이름은 예측 요청을 보내는 데 사용할 수 있습니다. 반복은 게시될 때까지 예측 엔드포인트에서 사용할 수 없습니다.
 
 ```go
-    fmt.Println("Training...")
-    iteration, _ := trainer.TrainProject(ctx, *project.ID)
-    for {
-        if *iteration.Status != "Training" {
-            break
-        }
-        fmt.Println("Training status: " + *iteration.Status)
-        time.Sleep(1 * time.Second)
-        iteration, _ = trainer.GetIteration(ctx, *project.ID, *iteration.ID)
+fmt.Println("Training...")
+iteration, _ := trainer.TrainProject(ctx, *project.ID)
+for {
+    if *iteration.Status != "Training" {
+        break
     }
     fmt.Println("Training status: " + *iteration.Status)
+    time.Sleep(1 * time.Second)
+    iteration, _ = trainer.GetIteration(ctx, *project.ID, *iteration.ID)
+}
+fmt.Println("Training status: " + *iteration.Status)
 
-    trainer.PublishIteration(ctx, *project.ID, *iteration.ID, iteration_publish_name, prediction_resource_id))
+trainer.PublishIteration(ctx, *project.ID, *iteration.ID, iteration_publish_name, prediction_resource_id))
 ```
 
 ### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>게시된 반복을 예측 엔드포인트에서 가져와서 사용합니다.
@@ -171,13 +171,13 @@ func main() {
 
 *sample.go*를 실행합니다.
 
-```powershell
+```shell
 go run sample.go
 ```
 
 애플리케이션의 출력은 다음 텍스트와 비슷할 것입니다.
 
-```
+```console
 Creating project...
 Adding images...
 Training...
@@ -190,7 +190,7 @@ Done!
         Japanese Cherry: 0.01%
 ```
 
-그러면 테스트 이미지(**<base_image_url>/Images/Test/** 에 있음)에 태그가 적절하게 지정되는지 확인할 수 있습니다. [Custom Vision 웹 사이트](https://customvision.ai)로 돌아가서 새로 만든 프로젝트의 현재 상태를 살펴볼 수도 있습니다.
+그러면 테스트 이미지( **<base_image_url>/Images/Test/** 에 있음)에 태그가 적절하게 지정되는지 확인할 수 있습니다. [Custom Vision 웹 사이트](https://customvision.ai)로 돌아가서 새로 만든 프로젝트의 현재 상태를 살펴볼 수도 있습니다.
 
 [!INCLUDE [clean-ic-project](includes/clean-ic-project.md)]
 

@@ -4,19 +4,19 @@ description: Windows 10 또는 Windows 7에서 Windows 가상 데스크톱 미�
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: helohr
-ms.openlocfilehash: b7d7b25d0355f2379b90313f17e2b595234df827
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 66b423ea27cc0f9112349964fcfd0d75f08c12bd
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65145981"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620112"
 ---
 # <a name="connect-from-windows-10-or-windows-7"></a>Windows 10 또는 Windows 7에서 연결
 
-> 적용 대상 Windows 7 및 Windows 10입니다.
+> 적용 대상: Windows 7 및 Windows 10입니다.
 
 다운로드할 수 있는 클라이언트는 사용할 수 있는 Windows 7 및 Windows 10을 실행 하는 장치에서 Windows 가상 데스크톱 미리 보기 리소스에 액세스를 제공 하는 합니다.
 

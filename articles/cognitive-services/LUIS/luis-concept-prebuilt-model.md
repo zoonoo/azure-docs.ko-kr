@@ -1,6 +1,6 @@
 ---
-title: 미리 작성된 모델
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 미리 빌드된 모델-LUIS
+titleSuffix: Azure Cognitive Services
 description: 미리 빌드된 모델은 도메인, 의도, 발언 및 엔터티를 제공합니다. 미리 빌드된 도메인을 사용하여 앱을 시작할 수도 있고, 나중에 관련 도메인을 앱에 추가할 수도 있습니다.
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/24/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 5d2ea9d971eff22ddeed4122c9697ca3096697b0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b072e265204bba3caa1388576008d5e41adcc33d
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813888"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619720"
 ---
 # <a name="prebuilt-domain-intent-and-entity-models"></a>미리 빌드된 도메인, 의도 및 엔터티 모델
 
@@ -28,7 +28,7 @@ LUIS는 3가지 형식의 미리 빌드된 모델을 제공합니다. 각 모델
 
 |모델 형식|포함|
 |--|--|
-|Domain|의도, 발언, 엔터티|
+|도메인|의도, 발언, 엔터티|
 |의도|의도, 발언|
 |엔터티|엔터티만| 
 

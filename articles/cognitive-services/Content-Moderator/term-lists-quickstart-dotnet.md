@@ -1,23 +1,23 @@
 ---
 title: C#-Content Moderator의 사용자 지정 단어 목록에 대해 텍스트 확인
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: C#용 Content Moderator SDK를 사용하여 사용자 지정 용어 목록으로 텍스트를 조정하는 방법
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: quickstart
-ms.date: 10/10/2018
+ms.topic: conceptual
+ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: da8ad71ccf8b58ddf3ef7cc6a2f9e9c732913caa
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 144137109f97a8c2049430ed1e05117ea6c95d7f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858402"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564420"
 ---
-# <a name="quickstart-check-text-against-a-custom-term-list-in-c"></a>빠른 시작: C#에서 사용자 지정 단어 목록에 대해 텍스트 확인
+# <a name="check-text-against-a-custom-term-list-in-c"></a>C#에서 사용자 지정 단어 목록에 대해 텍스트 확인
 
 Azure Content Moderator에서 기본 전역 용어 목록은 대부분의 콘텐츠 조정 요구에 적합합니다. 그러나 조직에 관련된 용어에 대해 차단해야 할 수 있습니다. 예를 들어 추가 검토를 위해 경쟁 업체 이름에 태그를 지정할 수 있습니다. 
 
@@ -373,7 +373,7 @@ static void DeleteTermList (ContentModeratorClient client, string list_id)
 }
 ```
 
-## <a name="putting-it-all-together"></a>모든 항목 요약
+## <a name="compose-the-main-method"></a>Main 메서드 작성
 
 **TermLists**네임스페이스, **Program** 클래스에 **Main** 메서드 정의를 추가합니다. 마지막으로, **Program** 클래스 및 **TermLists** 네임스페이스를 닫습니다.
 
@@ -415,9 +415,9 @@ static void Main(string[] args)
 
 ## <a name="run-the-application-to-see-the-output"></a>애플리케이션을 실행하여 출력 확인
 
-출력은 다음 줄에 있지만 데이터는 다를 수 있습니다.
+콘솔 출력은 다음과 같습니다.
 
-```
+```console
 Creating term list.
 Term list created. ID: 252.
 Updating information for term list with ID 252.

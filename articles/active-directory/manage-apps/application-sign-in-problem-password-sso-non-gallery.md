@@ -1,6 +1,6 @@
 ---
-title: 암호 Single Sign-On에 대해 구성된 Azure AD 갤러리 애플리케이션에 로그인하는 문제 | Microsoft Docs
-description: 암호 Single Sign-On에 대해 구성된 Azure AD 갤러리 애플리케이션에 로그인하는 것과 관련된 문제를 해결하는 지침을 제공하는 문제 영역을 설명합니다.
+title: 액세스 패널의 암호 기반 SSO (single sign-on) | Microsoft Docs
+description: 암호 single sign-on에 대해 구성 된 Azure AD 갤러리 응용 프로그램에 로그인 하는 것과 관련 된 문제를 해결 하기 위한 지침을 제공 하는 문제 영역을 설명 합니다.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d95703166c3e1ed8034ea8c0d813c54759603fce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ca192c28757df189e531aee0ba2d8da288ba7e6
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65825044"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381227"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>암호 Single Sign-On에 대해 구성된 Azure AD 갤러리 애플리케이션에 로그인하는 문제
 

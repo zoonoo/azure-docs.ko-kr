@@ -4,7 +4,7 @@ description: Windows 가상 머신에서 Azure 메타데이터 서비스를 사�
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
 author: ericrad
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 ms.assetid: 28d8e1f2-8e61-4fbe-bfe8-80a68443baba
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: e6a376803d8617e01ee279e40a33f6c1c3b748fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ddd34147848ecb3a964eac3d618b452f5eb43f19
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65508188"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710298"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata 서비스: Windows VM의 예약된 이벤트
 
@@ -64,11 +64,11 @@ VNET 사용 VM의 경우 메타데이터 서비스를 정적 경로 조정 불�
 ### <a name="version-and-region-availability"></a>버전 및 지역 가용성
 예약된 이벤트 서비스의 버전이 지정됩니다. 버전은 필수이며 최신 버전은 `2017-11-01`입니다.
 
-| Version | 릴리스 종류 | 영역 | 릴리스 정보 | 
+| 버전 | 릴리스 종류 | 영역 | 릴리스 정보 | 
 | - | - | - | - |
 | 2017-11-01 | 일반 공급 | 모두 | <li> 우선 순위가 낮은 VM 제거 EventType 'Preempt'에 대 한 지원 추가<br> | 
 | 2017-08-01 | 일반 공급 | 모두 | <li> IaaS VM의 리소스 이름에서 앞에 붙은 밑줄이 제거됨<br><li>모든 요청에 대해 메타데이터 헤더 요구 사항이 적용됨 | 
-| 2017-03-01 | 미리 보기 | 모두 |<li>최초 릴리스
+| 2017-03-01 | Preview | 모두 |<li>최초 릴리스
 
 > [!NOTE] 
 > 예약된 이벤트의 이전 미리 보기 릴리스는 api-version으로 {최신 버전}을 지원했습니다. 이 형식은 더 이상 지원되지 않으며 향후 사용되지 않을 예정입니다.
@@ -116,10 +116,10 @@ curl http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01 -H @
 DocumentIncarnation은 ETag로, 이벤트 페이로드가 지난 번 쿼리 후 변경되었는지 검사하는 간편한 방법을 제공합니다.
 
 ### <a name="event-properties"></a>이벤트 속성
-|자산  |  설명 |
+|속성  |  Description |
 | - | - |
 | EventId | 이 이벤트의 GUID(Globally Unique Identifier)입니다. <br><br> 예제: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| 이벤트 유형 | 이 이벤트로 인해 발생하는 결과입니다. <br><br> 값 <br><ul><li> `Freeze`: 가상 머신은 몇 초간 일시 중지 되도록 예약 됩니다. CPU 및 네트워크 연결을 일시 중단할 수 있습니다, 있지만 메모리 나 열린 파일에 영향을 주지 않습니다. <li>`Reboot`: Virtual Machine을 다시 부팅하도록 예약합니다(비영구 메모리가 손실됨). <li>`Redeploy`: Virtual Machine을 다른 노드로 이동하도록 예약합니다(임시 디스크가 손실됨). <li>`Preempt`: 우선 순위가 낮은 가상 컴퓨터를 삭제 하는 중 (임시 디스크 손실 됨).|
+| EventType | 이 이벤트로 인해 발생하는 결과입니다. <br><br> 값 <br><ul><li> `Freeze`: 가상 머신은 몇 초간 일시 중지 되도록 예약 됩니다. CPU 및 네트워크 연결을 일시 중단할 수 있습니다, 있지만 메모리 나 열린 파일에 영향을 주지 않습니다. <li>`Reboot`: Virtual Machine을 다시 부팅하도록 예약합니다(비영구 메모리가 손실됨). <li>`Redeploy`: Virtual Machine을 다른 노드로 이동하도록 예약합니다(임시 디스크가 손실됨). <li>`Preempt`: 우선 순위가 낮은 가상 컴퓨터를 삭제 하는 중 (임시 디스크 손실 됨).|
 | ResourceType | 이 이벤트가 영향을 주는 리소스 형식입니다. <br><br> 값 <ul><li>`VirtualMachine`|
 | 리소스| 이 이벤트가 영향을 주는 리소스 목록입니다. 최대 하나의 [업데이트 도메인](manage-availability.md)에 있는 컴퓨터를 포함하지만 UD의 모든 컴퓨터를 포함할 수는 없습니다. <br><br> 예제: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | 이벤트 상태 | 이 이벤트의 상태입니다. <br><br> 값 <ul><li>`Scheduled`: `NotBefore` 속성에 지정된 시간 이후 시작하도록 이 이벤트를 예약합니다.<li>`Started`: 이 이벤트가 시작되었습니다.</ul> `Completed` 또는 유사한 상태가 제공된 적이 없습니다. 이벤트가 완료되면 더 이상 이벤트가 반환되지 않습니다.
@@ -128,7 +128,7 @@ DocumentIncarnation은 ETag로, 이벤트 페이로드가 지난 번 쿼리 후 
 ### <a name="event-scheduling"></a>이벤트 예약
 각 이벤트는 이벤트 유형에 따라 향후 최소한의 시간으로 예약됩니다. 이 시간은 이벤트의 `NotBefore` 속성에 반영됩니다. 
 
-|이벤트 유형  | 최소 공지 |
+|EventType  | 최소 공지 |
 | - | - |
 | 중지| 15분 |
 | Reboot | 15분 |

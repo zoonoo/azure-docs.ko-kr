@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 14b7cc8f8162574380ca21ac515af8b7d3d5ded9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "60911448"
 ---
 # <a name="enable-network-security-groups-in-azure-security-center"></a>Azure Security Center의 네트워크 보안 그룹 활성화
@@ -45,7 +45,7 @@ NSG를 활성화하지 않은 경우 Security Center는 두 가지 권장 사항
 
 NSG를 만드는 경우 [네트워크 보안 그룹 관리](../virtual-network/manage-network-security-group.md)의 단계에 따라 NSG를 만들고 보안 규칙을 설정합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 이 문서에서는 보안 센터 권장 사항 서브넷 또는 가상 머신에 대한 "네트워크 보안 그룹 활성화"를 구현하는 방법을 보여 주었습니다. NSG 활성화에 대한 자세한 내용은 다음을 참조하세요.
 
 * [NSG(네트워크 보안 그룹)란?](../virtual-network/security-overview.md)

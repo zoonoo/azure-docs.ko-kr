@@ -1,7 +1,6 @@
 ---
 title: Azure Blob Storage 이벤트를 웹 엔드포인트에 전송 - Azure CLI | Microsoft Docs
 description: Azure Event Grid를 사용하여 Blob Storage 이벤트를 구독합니다. 이벤트를 웹후크에 보냅니다. 웹 애플리케이션에서 이벤트를 처리합니다.
-services: storage,event-grid
 author: normesta
 ms.author: normesta
 ms.reviewer: cbrooks
@@ -9,13 +8,12 @@ ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: blobs
-ms.custom: seodec18
-ms.openlocfilehash: 7d92614556fdc6822f749002d2e5a8fc92946d0a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: dc8ed420fdb04d04c02c91f2fa90939562b91645
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141123"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845606"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 스토리지 이벤트를 웹 엔드포인트로 라우팅
 
@@ -26,7 +24,6 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문
 이 문서에서 설명하는 단계를 완료하면 이벤트 데이터가 웹앱으로 보내졌음을 알 수 있습니다.
 
 ![구독 이벤트 보기](./media/storage-blob-event-quickstart/view-results.png)
-
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -48,11 +45,11 @@ Event Grid 토픽은 Azure 리소스이며 Azure 리소스 그룹에 배치해�
 az group create --name <resource_group_name> --location westcentralus
 ```
 
-## <a name="create-a-storage-account"></a>저장소 계정 만들기
+## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-Blob Storage 이벤트는 범용 v2 스토리지 계정과 Blob Storage 계정에서 사용할 수 있습니다. **범용 v2** 저장소 계정은 Blob, 파일, 큐 및 테이블을 포함하여 모든 저장소 서비스의 모든 기능을 지원하는 저장소 계정입니다. **Blob Storage 계정**은 Azure Storage에서 Blob와 같은 구조화되지 않은 데이터(개체) 저장을 위한 특수 Storage 계정입니다. Blob Storage 계정은 범용 스토리지 계정과 유사합니다. 블록 Blob과 연결 Blob에 대한 100% API 일관성을 포함하여 현재 제공되는 뛰어난 내구성, 가용성, 확장성은 모두 같습니다. 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.
+Blob Storage 이벤트는 범용 v2 스토리지 계정과 Blob Storage 계정에서 사용할 수 있습니다. **범용 v2** 스토리지 계정은 Blob, 파일, 큐 및 테이블을 포함하여 모든 스토리지 서비스의 모든 기능을 지원하는 스토리지 계정입니다. **Blob Storage 계정**은 Azure Storage에서 Blob와 같은 구조화되지 않은 데이터(개체) 저장을 위한 특수 Storage 계정입니다. Blob Storage 계정은 범용 스토리지 계정과 유사합니다. 블록 Blob과 연결 Blob에 대한 100% API 일관성을 포함하여 현재 제공되는 뛰어난 내구성, 가용성, 확장성은 모두 같습니다. 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.
 
-`<storage_account_name>`을 저장소 계정의 고유한 이름으로 바꾸고 `<resource_group_name>`을 이전에 만든 리소스 그룹으로 바꿉니다.
+`<storage_account_name>`을 스토리지 계정의 고유한 이름으로 바꾸고 `<resource_group_name>`을 이전에 만든 리소스 그룹으로 바꿉니다.
 
 ```azurecli-interactive
 az storage account create \
@@ -85,9 +82,9 @@ az group deployment create \
 
 [!INCLUDE [event-grid-register-provider-cli.md](../../../includes/event-grid-register-provider-cli.md)]
 
-## <a name="subscribe-to-your-storage-account"></a>저장소 계정 구독
+## <a name="subscribe-to-your-storage-account"></a>스토리지 계정 구독
 
-항목을 구독하여 Event Grid에 추적하려는 이벤트와 해당 이벤트를 보낼 위치를 알립니다. 다음 예제에서는 저장소 계정을 구독하고 웹앱의 URL을 이벤트 알림에 대한 엔드포인트로 전달합니다. `<event_subscription_name>`을 이벤트 구독의 이름으로 바꿉니다. `<resource_group_name>` 및 `<storage_account_name>`에는 앞에서 만든 값을 사용합니다.
+항목을 구독하여 Event Grid에 추적하려는 이벤트와 해당 이벤트를 보낼 위치를 알립니다. 다음 예제에서는 스토리지 계정을 구독하고 웹앱의 URL을 이벤트 알림에 대한 엔드포인트로 전달합니다. `<event_subscription_name>`을 이벤트 구독의 이름으로 바꿉니다. `<resource_group_name>` 및 `<storage_account_name>`에는 앞에서 만든 값을 사용합니다.
 
 웹앱에 대한 엔드포인트는 접미사 `/api/updates/`를 포함해야 합니다.
 
@@ -107,7 +104,7 @@ az eventgrid event-subscription create \
 
 ## <a name="trigger-an-event-from-blob-storage"></a>Blob Storage에서 이벤트 트리거
 
-이제 이벤트를 트리거하여 Event Grid가 메시지를 사용자 엔드포인트에 어떻게 배포하는지 살펴 보겠습니다. 먼저 저장소 계정의 이름과 키를 구성하고, 컨테이너를 만든 다음, 파일을 만들고 업로드합니다. `<storage_account_name>` 및 `<resource_group_name>`에 대해 이전에 만든 값을 다시 사용합니다.
+이제 이벤트를 트리거하여 Event Grid가 메시지를 사용자 엔드포인트에 어떻게 배포하는지 살펴 보겠습니다. 먼저 스토리지 계정의 이름과 키를 구성하고, 컨테이너를 만든 다음, 파일을 만들고 업로드합니다. `<storage_account_name>` 및 `<resource_group_name>`에 대해 이전에 만든 값을 다시 사용합니다.
 
 ```azurecli-interactive
 export AZURE_STORAGE_ACCOUNT=<storage_account_name>
@@ -150,7 +147,7 @@ az storage blob upload --file testfile.txt --container-name testcontainer --name
 ```
 
 ## <a name="clean-up-resources"></a>리소스 정리
-이 저장소 계정 및 이벤트 구독을 계속 사용하려면 이 문서에서 만든 리소스를 정리하지 마세요. 계속하지 않으려는 경우 다음 명령을 사용하여 이 문서에서 만든 리소스를 삭제합니다.
+이 스토리지 계정 및 이벤트 구독을 계속 사용하려면 이 문서에서 만든 리소스를 정리하지 마세요. 계속하지 않으려는 경우 다음 명령을 사용하여 이 문서에서 만든 리소스를 삭제합니다.
 
 `<resource_group_name>`을 위에서 만든 리소스 그룹으로 바꿉니다.
 

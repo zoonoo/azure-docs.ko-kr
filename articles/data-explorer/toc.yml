@@ -44,6 +44,8 @@
           href: ingest-data-event-hub.md
         - name: Event Grid
           href: ingest-data-event-grid.md
+        - name: 한 번 클릭으로 수집
+          href: ingest-data-one-click.md
         - name: Kafka
           href: ingest-data-kafka.md
         - name: Python
@@ -66,6 +68,8 @@
           href: write-queries.md
         - name: Azure Data Lake에서 데이터 쿼리
           href: data-lake-query-data.md
+        - name: Azure Monitor에서 데이터 쿼리
+          href: query-monitor-data.md
         - name: Python
           href: python-query-data.md
         - name: 시계열 분석 및 Machine Learning
@@ -96,14 +100,18 @@
           href: sisense.md
     - name: 관리
       items:
-        - name: 데이터베이스 권한 관리
-          href: manage-database-permissions.md
         - name: 클러스터 상태 확인
           href: check-cluster-health.md
+        - name: 클러스터 VM SKU 선택
+          href: manage-cluster-choose-sku.md
         - name: 클러스터 수평적 크기 조정 관리
           href: manage-cluster-horizontal-scaling.md
         - name: 클러스터 수직적 크기 조정 관리
           href: manage-cluster-vertical-scaling.md
+        - name: 클러스터 보안 관리
+          href: manage-cluster-security.md
+        - name: 데이터베이스 권한 관리
+          href: manage-database-permissions.md
         - name: 데이터 삭제
           href: delete-data.md
         - name: 중복 데이터 처리

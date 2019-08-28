@@ -31,8 +31,8 @@ ms.locfileid: "60198980"
 
 ## <a name="1-high-availability-and-scalability"></a>1. 고가용성 및 확장성
 ### <a name="managed-disk"></a>관리 디스크:
-Bosh는 디스크 만들기 및 삭제 루틴에 대 한 Azure CPI (클라우드 공급자 인터페이스)를 사용합니다. 기본적으로 관리되지 않는 디스크가 사용됩니다. 고객이 수동으로 저장소 계정을 만든 다음, CF 매니페스트 파일에서 계정을 구성해야 합니다. 저장소 계정당 디스크 수에 대 한 제한은 때문입니다.
-이제 [관리 디스크](https://azure.microsoft.com/services/managed-disks/)를 사용할 수 있으므로 가상 머신에 대해 관리되는 안전하고 신뢰할 수 있는 디스크 저장소를 제공합니다. 고객은 더 이상 크기 조정 및 HA에서 저장소 계정을 사용하지 않아도 됩니다. Azure에서는 디스크를 자동으로 정렬합니다. 새 또는 기존 배포 든이 Azure CPI 만들거나 CF 배포 동안 관리 디스크의 마이그레이션을 처리 합니다. PCF 1.11를 사용 하 여 지원 됩니다. 참조는 오픈 소스 Cloud Foundry [관리 디스크 지침](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/managed-disks)을 탐색할 수도 있습니다. 
+Bosh는 디스크 만들기 및 삭제 루틴에 대 한 Azure CPI (클라우드 공급자 인터페이스)를 사용합니다. 기본적으로 관리되지 않는 디스크가 사용됩니다. 고객이 수동으로 스토리지 계정을 만든 다음, CF 매니페스트 파일에서 계정을 구성해야 합니다. 저장소 계정당 디스크 수에 대 한 제한은 때문입니다.
+이제 [관리 디스크](https://azure.microsoft.com/services/managed-disks/)를 사용할 수 있으므로 가상 머신에 대해 관리되는 안전하고 신뢰할 수 있는 디스크 스토리지를 제공합니다. 고객은 더 이상 크기 조정 및 HA에서 스토리지 계정을 사용하지 않아도 됩니다. Azure에서는 디스크를 자동으로 정렬합니다. 새 또는 기존 배포 든이 Azure CPI 만들거나 CF 배포 동안 관리 디스크의 마이그레이션을 처리 합니다. PCF 1.11를 사용 하 여 지원 됩니다. 참조는 오픈 소스 Cloud Foundry [관리 디스크 지침](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/managed-disks)을 탐색할 수도 있습니다. 
 ### <a name="availability-zone-"></a>가용성 영역 *
 클라우드-네이티브 애플리케이션 플랫폼인 Cloud Foundry는 [네 가지 수준의 고가용성](https://docs.pivotal.io/pivotalcf/2-1/concepts/high-availability.html)을 포함하여 설계되었습니다. 처음 세 가지 수준의 소프트웨어 오류가 CF 시스템 자체에서 처리될 수 있는 반면 플랫폼 내결함성은 클라우드 공급자에 의해 제공됩니다. 주요 CF 구성 요소는 클라우드 공급자의 플랫폼 HA 솔루션으로 보호되어야 합니다. 여기에는 GoRouters, Diego Brains, CF 데이터베이스 및 서비스 타일이 포함됩니다. 기본적으로 [Azure 가용성 집합](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/deploy-cloudfoundry-with-availability-sets)은 데이터 센터의 클러스터 간 내결함성에 사용됩니다.
 이제 [Azure 가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview )이 릴리스되었으므로 내결함성에서 데이터 센터 간에 대기 시간 중복이 짧아집니다.
@@ -51,8 +51,8 @@ Azure Load Balancer는 계층 4 부하 분산 장치입니다. 부하 분산 집
 ## <a name="3-authentication"></a>3. Authentication 
 [Cloud Foundry 사용자 계정 및 인증](https://docs.cloudfoundry.org/concepts/architecture/uaa.html)은 CF 및 다양한 해당 구성 요소에 대한 중앙 ID 관리 서비스입니다. [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다. 기본적으로 UAA는 Cloud Foundry 인증에 사용됩니다. 고급 옵션으로 UAA는 Azure AD를 외부 사용자 저장소로도 지원합니다. Azure AD 사용자는 Cloud Foundry 계정 없이 해당 LDAP ID를 사용하여 Cloud Foundry에 액세스할 수 있습니다. 다음 단계에 따라 [PCF에서 UAA용 Azure AD를 구성합니다](https://docs.pivotal.io/p-identity/1-6/azure/index.html).
 
-## <a name="4-data-storage-for-cloud-foundry-runtime-system"></a>4. Cloud Foundry 런타임 시스템에 대한 데이터 저장소
-Cloud Foundry에서는 애플리케이션 런타임 시스템 저장소에 Azure Blobstore 또는 Azure MySQL/PostgreSQL 서비스를 사용하는 뛰어난 확장성을 제공합니다.
+## <a name="4-data-storage-for-cloud-foundry-runtime-system"></a>4. Cloud Foundry 런타임 시스템에 대한 데이터 스토리지
+Cloud Foundry에서는 애플리케이션 런타임 시스템 스토리지에 Azure Blobstore 또는 Azure MySQL/PostgreSQL 서비스를 사용하는 뛰어난 확장성을 제공합니다.
 ### <a name="azure-blobstore-for-cloud-foundry-cloud-controller-blobstore"></a>Cloud Foundry 클라우드 컨트롤러에 대한 Azure Blobstore
 클라우드 컨트롤러 Blobstore는 buildpacks, droplets, 패키지 및 리소스 풀에 대한 중요한 데이터 저장소입니다. 기본적으로 NFS 서버는 클라우드 컨트롤러 Blobstore에 사용됩니다. 단일 실패 지점을 방지하려면 Azure Blob Storage를 외부 저장소로 사용합니다. 백그라운드용 [Cloud Foundry 설명서](https://docs.cloudfoundry.org/deploying/common/cc-blobstore-config.html) 및 [Pivotal Cloud Foundry의 옵션](https://docs.pivotal.io/pivotalcf/2-0/customizing/azure.html)을 체크 아웃합니다.
 
@@ -81,7 +81,7 @@ Azure Log Analytics Nozzle은로 메트릭을 전달 하는 Cloud Foundry 구성
 #### <a name="b-series-"></a>B 시리즈: *
 일반적으로 F 및 D VM 시리즈를 Pivotal Cloud Foundry 프로덕션 환경에 일반적으로 권장하는 반면 새롭게 "높은 성능을 발휘할 수 있는" [B 시리즈](https://azure.microsoft.com/blog/introducing-b-series-our-new-burstable-vm-size/)는 새로운 옵션을 제공합니다. B-시리즈 버스터 블 Vm 워크 로드는 소규모 데이터베이스 및 개발 웹 서버와 같이 CPU의 전체 성능이 지속적으로 필요 하지 않습니다 및 테스트 환경에 적합 합니다. 이러한 작업에는 일반적으로 버스트 가능한 성능 요구 사항이 있습니다. $0.05/시간(F1)에 비한 $0.012/시간(B1)입니다. 자세한 내용은 [VM 크기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general) 및 [가격](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) 전체 목록을 참조하세요. 
 #### <a name="managed-standard-disk"></a>관리되는 표준 디스크 
-프리미엄 디스크는 프로덕션에서 신뢰할 수 있는 성능에 대해 권장했습니다.  [관리 디스크](https://azure.microsoft.com/services/managed-disks/)에서 표준 저장소는 다른 성능과 유사한 안정성을 제공할 수도 있습니다. 성능이 중요 하지 않은 워크 로드, 개발/테스트 또는 중요 하지 않은 환경 같은 표준 관리 디스크는 저렴 한 비용을 사용 하 여 다른 옵션을 제공 합니다.  
+프리미엄 디스크는 프로덕션에서 신뢰할 수 있는 성능에 대해 권장했습니다.  [관리 디스크](https://azure.microsoft.com/services/managed-disks/)에서 표준 스토리지는 다른 성능과 유사한 안정성을 제공할 수도 있습니다. 성능이 중요 하지 않은 워크 로드, 개발/테스트 또는 중요 하지 않은 환경 같은 표준 관리 디스크는 저렴 한 비용을 사용 하 여 다른 옵션을 제공 합니다.  
 ### <a name="cost-saving-in-general"></a>일반적인 비용 절감 
 #### <a name="significant-vm-cost-saving-with-azure-reservations"></a>Azure 예약으로 VM 비용 대폭 절감: 
 현재 환경이 일반적으로 무기한으로 가동되더라도 모든 CF VM은 "요청 시" 가격 책정을 사용하여 요금이 청구됩니다. 이제 1년 또는 3년의 VM 용량을 예약하고 45-65%를 할인받을 수 있습니다. 할인은 환경을 변경하지 않고 청구 시스템에 적용됩니다. 자세한 내용은 [Azure 예약의 작동 원리](https://azure.microsoft.com/pricing/reserved-vm-instances/)를 참조하세요. 

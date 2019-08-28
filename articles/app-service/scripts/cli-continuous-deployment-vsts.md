@@ -3,7 +3,7 @@ title: Azure CLI 스크립트 샘플 - Azure Repos에서 앱을 만들고 지속
 description: Azure CLI 스크립트 샘플 - Azure Repos에서 지속적인 배포를 사용하여 앱 만들기
 services: app-service\web
 documentationcenter: ''
-author: msangapu
+author: msangapu-msft
 manager: jeconnoc
 editor: ''
 tags: azure-service-management
@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
-ms.author: jeconnoc
+ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 67e4f99046820aa21392ff1238318e1b48bb5354
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7b28e75e8ae722169f3e41f657ef6292e12cc6b
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136792"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879027"
 ---
 # <a name="create-an-app-service-app-with-continuous-deployment-using-azure-cli"></a>Azure CLI를 통해 지속적인 배포를 사용하여 App Service 앱 만들기
 

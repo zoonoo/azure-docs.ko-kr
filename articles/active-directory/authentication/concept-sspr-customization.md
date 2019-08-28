@@ -1,22 +1,22 @@
 ---
-title: 사용자 지정 Azure AD 셀프 서비스 암호 재설정-Azure Active Directory
+title: Azure AD 셀프 서비스 암호 재설정 사용자 지정-Azure Active Directory
 description: Azure AD 셀프 서비스 암호 재설정의 사용자 지정 옵션
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/30/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d38d93a1c9716cc3a71d904b7b1a46fb8b1c2ee0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 527dd99f122ec70cc47305947a5cbce3207b9664
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60415664"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666309"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Azure AD의 셀프 서비스 암호 재설정 기능 사용자 지정
 
@@ -24,14 +24,22 @@ Azure Active Directory(Azure AD)에서 셀프 서비스 암호 재설정(SSPR)�
 
 ## <a name="customize-the-contact-your-administrator-link"></a>“관리자에게 문의” 링크 사용자 지정
 
-SSPR을 사용하지 않는 경우에도 사용자는 암호 재설정 포털에서 “관리자에게 문의” 링크를 사용할 수 있습니다. 사용자가 이 링크를 선택하면 다음 중 하나가 수행됩니다.
+셀프 서비스 암호 재설정 사용자는 암호 재설정 포털에서 "관리자에 게 문의" 링크를 사용할 수 있습니다. 사용자가이 링크를 선택 하면 다음 두 가지 중 하나를 수행 합니다.
 
-* 관리자에게 사용자 암호 변경 지원을 요청하는 메일이 발송됩니다.
-* 관리자가 지정한 지원 URL이 사용자에게 전송됩니다.
+* 기본 상태로 유지 되는 경우:
+   * 전자 메일이 관리자에 게 전송 되 고 사용자 암호 변경에 대 한 지원을 제공 하도록 요청 합니다. 아래의 [샘플 전자 메일](#sample-email) 을 참조 하세요.
+* 사용자 지정 된 경우:
+   * 사용자를 관리자가 지정한 웹 페이지 또는 전자 메일 주소로 보내 도움을 요청 합니다.
 
-이 링크는 사용자가 이미 지원 질문에 사용하고 있는 메일 주소 또는 웹 사이트로 설정하는 것이 좋습니다.
+> [!TIP]
+> 이를 사용자 지정 하는 경우 사용자가 지원 하기 위해 이미 익숙한 항목으로 설정 하는 것이 좋습니다.
 
-![관리자에 게 전송 하는 전자 메일을 재설정 하는 샘플 요청][Contact]
+> [!WARNING]
+> 암호를 재설정 해야 하는 전자 메일 주소 및 계정을 사용 하 여이 설정을 사용자 지정 하는 경우 사용자가 도움을 요청 하지 못할 수 있습니다.
+
+### <a name="sample-email"></a>샘플 메일
+
+![관리자에 게 보낸 전자 메일 재설정 요청 샘플][Contact]
 
 문의 메일은 다음과 같은 순서로 받는 사람에게 전송됩니다.
 
@@ -68,8 +76,8 @@ Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwor
 
 * 사용자가 사용자 이름을 입력한 뒤
 * 사용자가 다음과 같은 방식으로 사용자 지정된 URL에 액세스하는 경우
-   * 전달 하 여는 `whr` 매개 변수를 암호 재설정 페이지로 `https://login.microsoftonline.com/?whr=contoso.com`
-   * 전달 하 여는 `username` 매개 변수를 암호 재설정 페이지로 `https://login.microsoftonline.com/?username=admin@contoso.com`
+   * 다음과 같이 `whr` 매개 변수를 암호 재설정 페이지에 전달 합니다.`https://login.microsoftonline.com/?whr=contoso.com`
+   * 다음과 같이 `username` 매개 변수를 암호 재설정 페이지에 전달 합니다.`https://login.microsoftonline.com/?username=admin@contoso.com`
 
 회사 브랜딩을 구성하는 방법에 대한 자세한 내용은 문서 [Azure AD에서 로그인 페이지에 회사 브랜딩 추가](../fundamentals/customize-branding.md)에서 찾습니다.
 
@@ -95,4 +103,4 @@ Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwor
 * [무엇인가 손상된 문제가 있습니다. SSPR 문제는 어떻게 해결합니까?](active-directory-passwords-troubleshoot.md)
 * [다른 곳에서 다루지 않았던 질문이 있습니다.](active-directory-passwords-faq.md)
 
-[Contact]: ./media/concept-sspr-customization/sspr-contact-admin.png "암호 전자 메일 예제 재설정에 대한 도움이 필요하면 관리자에게 문의하십시오."
+[Contact]: ./media/concept-sspr-customization/sspr-contact-admin.png "암호 전자 메일을 다시 설정 하는 방법에 대 한 도움말은 관리자에 게 문의 하세요."

@@ -7,20 +7,20 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 04/12/2019
+ms.date: 07/23/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: ff1f613dfdfb5c43b727bcc9c7f7a1f0afca0975
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2dab34ea0ef64f4062819e9b2d475e6a226856b
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60748777"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405428"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>DMV를 사용하여 작업 모니터링
 이 문서에서는 동적 관리 뷰(DMV)를 사용하여 워크로드를 모니터링하는 방법을 설명합니다. 여기에는 Azure SQL Data Warehouse에서 쿼리 실행을 조사하는 것이 포함됩니다.
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 이 문서의 DMV를 쿼리하려면 VIEW DATABASE STATE 또는 CONTROL 권한이 필요합니다. 일반적으로 VIEW DATABASE STATE 권한 부여를 선호합니다. 훨씬 제한적이기 때문입니다.
 
 ```sql
@@ -59,18 +59,13 @@ SELECT TOP 10 *
 FROM sys.dm_pdw_exec_requests 
 ORDER BY total_elapsed_time DESC;
 
--- Find a query with the Label 'My Query'
--- Use brackets when querying the label column, as it it a key word
-SELECT  *
-FROM    sys.dm_pdw_exec_requests
-WHERE   [label] = 'My Query';
 ```
 
 위의 쿼리 결과에서 조사할 쿼리의 **요청 ID를 적어 둡니다** .
 
-**일시 중단**된 쿼리는 활성 실행 중인 쿼리 수가 많아져서 상태 큐에 대기할 수 있습니다. 이러한 쿼리는 UserConcurrencyResourceType 형식으로 [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) 대기 쿼리에도 나타납니다. 동시성 제한에 대한 자세한 내용은 [성능 계층](performance-tiers.md) 또는 [워크로드 관리를 위한 리소스 클래스](resource-classes-for-workload-management.md)를 참조하세요. 쿼리는 개체 잠금 등의 기타 이유로 인해 대기 상태일 수도 있습니다.  쿼리가 리소스를 대기 중인 경우 이 문서 뒷부분의 [리소스를 대기 중인 쿼리 조사][Investigating queries waiting for resources]를 참조하세요.
+**일시 중단**된 쿼리는 활성 실행 중인 쿼리 수가 많아져서 상태 큐에 대기할 수 있습니다. 이러한 쿼리는 UserConcurrencyResourceType 형식으로 [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) 대기 쿼리에도 나타납니다. 동시성 제한에 대한 자세한 내용은 [성능 계층](performance-tiers.md) 또는 [워크로드 관리를 위한 리소스 클래스](resource-classes-for-workload-management.md)를 참조하세요. 쿼리는 개체 잠금 등의 기타 이유로 인해 대기 상태일 수도 있습니다.  쿼리가 리소스를 대기 중인 경우 이 문서 뒷부분의 [리소스를 대기 중인 쿼리 조사][Investigating queries waiting for resources] 를 참조하세요.
 
-[sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 테이블에서 쿼리 조회를 간소화하려면,[LABEL][LABEL] 을 사용하여 sys.dm_pdw_exec_requests 뷰에서 조회할 수 있는 쿼리에 주석을 할당합니다.
+[_Pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 테이블에서 쿼리 조회를 간소화 하려면 [LABEL][LABEL] 을 사용 하 여 _pdw_exec_requests 뷰에서 조회할 수 있는 쿼리에 주석을 할당 합니다.
 
 ```sql
 -- Query with Label
@@ -78,6 +73,12 @@ SELECT *
 FROM sys.tables
 OPTION (LABEL = 'My Query')
 ;
+
+-- Find a query with the Label 'My Query'
+-- Use brackets when querying the label column, as it it a key word
+SELECT  *
+FROM    sys.dm_pdw_exec_requests
+WHERE   [label] = 'My Query';
 ```
 
 ### <a name="step-2-investigate-the-query-plan"></a>2단계: 쿼리 계획 조사
@@ -130,10 +131,10 @@ SELECT * FROM sys.dm_pdw_dms_workers
 WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
-* *total_elapsed_time* 열을 검사하여 특정 분산에서 데이터 이동 시간이 다른 분산보다 오래 걸리는지 확인합니다.
+* *total_elapsed_time* 열을 검사하여 특정 배포에서 데이터 이동 시간이 다른 배포보다 오래 걸리는지 확인합니다.
 * 장기 실행 분산의 경우 *rows_processed* 열을 검사하여 해당 분산에서 이동되는 행 수가 다른 분산보다 훨씬 큰지 확인합니다. 그렇다면 이 결과는 기본 데이터의 왜곡을 나타낼 수 있습니다.
 
-쿼리가 실행되고 있으면 [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN]을 사용하여 특정 분산 내에서 현재 실행 중인 SQL 단계에 대한 SQL Server 계획 캐시에서 SQL Server 예상 계획을 검색할 수 있습니다.
+쿼리가 실행되고 있으면 [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN]을 사용하여 특정 배포 내에서 현재 실행 중인 SQL 단계에 대한 SQL Server 계획 캐시에서 SQL Server 예상 계획을 검색할 수 있습니다.
 
 ```sql
 -- Find the SQL Server estimated plan for a query running on a specific SQL Data Warehouse Compute or Control node.
@@ -262,7 +263,7 @@ GROUP BY t.pdw_node_id, nod.[type]
 ```
 
 ## <a name="next-steps"></a>다음 단계
-DMV에 대한 자세한 내용은 [시스템 뷰][System views]를 참조하세요.
+Dmv에 대 한 자세한 내용은 [시스템 뷰][System views]를 참조 하세요.
 
 
 <!--Image references-->

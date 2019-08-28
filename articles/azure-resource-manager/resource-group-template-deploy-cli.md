@@ -4,14 +4,14 @@ description: Azure Resource Manager 및 Azure CLI를 사용 하 여 Azure에 리
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 08/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 11d5b174dc21392df89def8e91847e8a0dd12562
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: bd43e919cc0b2bcf1d130c7e616b7da064abcc65
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206536"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971022"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>리소스 관리자 템플릿과 Azure CLI로 리소스 배포
 
@@ -23,23 +23,23 @@ Azure CLI가 설치되어 있지 않으면 [Cloud Shell](#deploy-template-from-c
 
 ## <a name="deployment-scope"></a>배포 범위
 
-Azure 구독 또는 구독 내에서 리소스 그룹 배포를 대상으로 지정할 수 있습니다. 대부분의 경우에서 리소스 그룹 배포를 대상으로 수 있습니다. 구독 배포를 사용 하 여 정책 및 역할 할당은 구독에서 적용 하 합니다. 또한 리소스 그룹을 만들고 리소스를 배포할 구독 배포를 사용 합니다. 배포의 범위에 따라 다른 명령을 사용할 수 있습니다.
+구독 내에서 Azure 구독 또는 리소스 그룹에 대 한 배포를 대상으로 지정할 수 있습니다. 대부분의 경우 리소스 그룹에 대 한 배포를 대상으로 합니다. 구독 배포를 사용 하 여 구독에서 정책 및 역할 할당을 적용 합니다. 또한 구독 배포를 사용 하 여 리소스 그룹을 만들고 리소스를 배포 합니다. 배포의 범위에 따라 다른 명령을 사용 합니다.
 
-배포 하는 **리소스 그룹**를 사용 하 여 [az 그룹 배포 만들기](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
+**리소스 그룹**에 배포 하려면 [az group deployment create](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)를 사용 합니다.
 
 ```azurecli
 az group deployment create --resource-group <resource-group-name> --template-file <path-to-template>
 ```
 
-배포 하는 **구독**를 사용 하 여 [az 배포 만들기](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create):
+**구독**에 배포 하려면 [az deployment create](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create)를 사용 합니다.
 
 ```azurecli
 az deployment create --location <location> --template-file <path-to-template>
 ```
 
-현재 REST API를 통해 관리 그룹 배포만 지원 됩니다. 참조 [Resource Manager 템플릿과 Resource Manager REST API를 사용 하 여 리소스 배포](resource-group-template-deploy-rest.md)합니다.
+현재 관리 그룹 배포는 REST API 통해서만 지원 됩니다. [리소스 관리자 템플릿 및 리소스 관리자 REST API를 사용 하 여 리소스 배포를](resource-group-template-deploy-rest.md)참조 하세요.
 
-이 문서의 예제에서는 리소스 그룹 배포를 사용합니다. 구독 배포에 대 한 자세한 내용은 참조 하세요. [구독 수준에서 리소스 그룹 및 리소스를 만드는](deploy-to-subscription.md)합니다.
+이 문서의 예제에서는 리소스 그룹 배포를 사용 합니다. 구독 배포에 대 한 자세한 내용은 [구독 수준에서 리소스 그룹 및 리소스 만들기](deploy-to-subscription.md)를 참조 하세요.
 
 ## <a name="deploy-local-template"></a>로컬 템플릿 배포
 
@@ -49,7 +49,7 @@ Azure에 리소스를 배포할 때 다음을 수행합니다.
 2. 배포된 리소스에 대한 컨테이너 역할을 하는 리소스 그룹을 만듭니다. 리소스 그룹의 이름은 영숫자, 마침표, 밑줄, 하이픈 및 괄호만 포함할 수 있습니다. 최대 90자까지 가능합니다. 마침표로 끝날 수 없습니다.
 3. 만들려는 리소스를 정의하는 템플릿을 리소스 그룹에 배포
 
-템플릿에는 템플릿 배포를 사용자 지정할 수 있도록 하는 매개 변수가 포함될 수 있습니다. 예를 들어 특정 환경(예: 개발, 테스트 및 프로덕션)에 맞게 조정되는 값을 제공할 수 있습니다. 샘플 템플릿은 저장소 계정 SKU에 대한 매개 변수를 정의합니다. 
+템플릿에는 템플릿 배포를 사용자 지정할 수 있도록 하는 매개 변수가 포함될 수 있습니다. 예를 들어 특정 환경(예: 개발, 테스트 및 프로덕션)에 맞게 조정되는 값을 제공할 수 있습니다. 샘플 템플릿은 스토리지 계정 SKU에 대한 매개 변수를 정의합니다. 
 
 다음 예제에서는 리소스 그룹을 만들고 로컬 컴퓨터에서 템플릿을 배포합니다.
 
@@ -98,12 +98,12 @@ az group deployment create --resource-group examplegroup \
 
 ## <a name="redeploy-when-deployment-fails"></a>배포 실패 시 다시 배포
 
-이 기능은 라고도 *오류 발생 시 롤백*합니다. 배포가 실패하면 배포 기록에서 이전에 성공한 배포를 자동으로 다시 배포할 수 있습니다. 재배포를 지정하려면 배포 명령에 `--rollback-on-error` 매개 변수를 사용합니다. 이 기능은 인프라 배포에 대 한 알려진된 좋은 상태로 했습니다를이 상태로 되돌리려는 경우에 유용 합니다. 주의 및 제한 사항이 있습니다.
+이 기능을 *오류 발생 시 롤백*이 라고도 합니다. 배포가 실패하면 배포 기록에서 이전에 성공한 배포를 자동으로 다시 배포할 수 있습니다. 재배포를 지정하려면 배포 명령에 `--rollback-on-error` 매개 변수를 사용합니다. 이 기능은 인프라 배포에 대 한 알려진 양호한 상태를가지고 있으며이 상태로 되돌리려는 경우에 유용 합니다. 몇 가지 주의 사항과 제한 사항이 있습니다.
 
-- 재배포는 동일한 매개 변수를 사용 하 여 이전에 실행 했던 대로 실행 됩니다. 매개 변수를 변경할 수 없습니다.
-- 이전 배포를 사용 하 여 실행 되는 [전체 모드](./deployment-modes.md#complete-mode)합니다. 이전 배포에 포함 되지 모든 리소스가 삭제 되 고 모든 리소스 구성을 이전 상태로 설정 됩니다. 완벽 하 게 이해 해야 합니다 [배포 모드](./deployment-modes.md)합니다.
-- 리소스에만 영향을 줍니다 재배포, 모든 데이터 변경 내용은 영향을 받지 않습니다.
-- 이 기능은 리소스 그룹 배포의 경우 구독 수준 배포에만 지원 됩니다. 구독 수준 배포에 대 한 자세한 내용은 참조 하세요. [구독 수준에서 리소스 그룹 및 리소스를 만드는](./deploy-to-subscription.md)합니다.
+- 재배포는 동일한 매개 변수를 사용 하 여 이전에 실행 된 것과 동일 하 게 실행 됩니다. 매개 변수를 변경할 수 없습니다.
+- 이전 배포는 [전체 모드](./deployment-modes.md#complete-mode)를 사용 하 여 실행 됩니다. 이전 배포에 포함 되지 않은 모든 리소스는 삭제 되 고 모든 리소스 구성은 이전 상태로 설정 됩니다. [배포 모드](./deployment-modes.md)를 완전히 이해 해야 합니다.
+- 재배포는 리소스에만 영향을 주며 데이터 변경 내용은 영향을 받지 않습니다.
+- 이 기능은 구독 수준 배포가 아닌 리소스 그룹 배포 에서만 지원 됩니다. 구독 수준 배포에 대 한 자세한 내용은 [구독 수준에서 리소스 그룹 및 리소스 만들기](./deploy-to-subscription.md)를 참조 하세요.
 
 이 옵션을 사용하려면 배포가 배포 기록에서 식별될 수 있도록 고유한 이름을 지정해야 합니다. 고유한 이름이 없으면 현재 실패한 배포가 기록에서 이전에 성공한 배포를 덮어쓸 수 있습니다. 루트 수준 배포에만 이 옵션을 사용할 수 있습니다. 중첩된 템플릿의 배포는 다시 배포할 수 없습니다.
 
@@ -133,7 +133,7 @@ az group deployment create \
 
 ## <a name="parameters"></a>매개 변수
 
-매개 변수 값을 전달하려면 인라인 매개 변수 또는 매개 변수 파일을 사용할 수 있습니다. 이 문서의 이전 예제에서는 인라인 매개 변수를 보여 줍니다.
+매개 변수 값을 전달하려면 인라인 매개 변수 또는 매개 변수 파일을 사용할 수 있습니다.
 
 ### <a name="inline-parameters"></a>인라인 매개 변수입니다.
 
@@ -145,6 +145,8 @@ az group deployment create \
   --template-file demotemplate.json \
   --parameters exampleString='inline string' exampleArray='("value1", "value2")'
 ```
+
+Windows 명령 프롬프트 (CMD) 또는 PowerShell을 사용 하 여 Azure CLI를 사용 하는 경우 배열을 형식 `exampleArray="['value1','value2']"`으로 전달 합니다.
 
 파일의 콘텐츠를 가져와서 해당 콘텐츠를 인라인 매개 변수로 제공할 수도 있습니다.
 
@@ -170,23 +172,7 @@ arrayContent.json 형식은 다음과 같습니다.
 
 매개 변수를 스크립트에 인라인 값으로 전달하는 것보다는, 매개 변수 값이 포함된 JSON 파일을 사용하는 것이 더 쉬울 수 있습니다. 매개 변수 파일은 로컬 파일이어야 합니다. 외부 매개 변수 파일은 Azure CLI에서 사용할 수 없습니다.
 
-매개 변수 파일은 다음과 같은 형식이어야 합니다.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-     "storageAccountType": {
-         "value": "Standard_GRS"
-     }
-  }
-}
-```
-
-매개 변수 섹션에는 템플릿에 정의된 매개 변수(storageAccountType)와 일치하는 매개 변수 이름이 포함되어 있습니다. 매개 변수 파일에는 매개 변수의 값이 포함됩니다. 이 값은 배포 동안 템플릿에 자동으로 전달됩니다. 둘 이상의 매개 변수 파일을 만든 후 시나리오에 적합한 매개 변수 파일을 전달할 수 있습니다. 
-
-앞의 예제를 복사하고 `storage.parameters.json`이라는 파일로 저장합니다.
+매개 변수 파일에 대 한 자세한 내용은 [리소스 관리자 매개 변수 파일 만들기](resource-manager-parameter-files.md)를 참조 하세요.
 
 로컬 매개 변수 파일을 전달하려면 `@`을 사용하여 storage.parameters.json이라는 로컬 파일을 지정합니다.
 
@@ -196,18 +182,6 @@ az group deployment create \
   --resource-group ExampleGroup \
   --template-file storage.json \
   --parameters @storage.parameters.json
-```
-
-### <a name="parameter-precedence"></a>매개 변수 우선 순위
-
-동일한 배포 작업에서 인라인 매개 변수 및 로컬 매개 변수 파일을 사용할 수 있습니다. 예를 들어 로컬 매개 변수 파일에서 일부 값을 지정하고 배포하는 동안 인라인으로 다른 값을 추가할 수 있습니다. 로컬 매개 변수 파일 및 인라인에서 매개 변수에 대한 값을 제공하는 경우 인라인 값이 우선합니다.
-
-```azurecli
-az group deployment create \
-  --resource-group testgroup \
-  --template-file demotemplate.json \
-  --parameters @demotemplate.parameters.json \
-  --parameters exampleArray=@arrtest.json
 ```
 
 ## <a name="test-a-template-deployment"></a>템플릿 배포 테스트
@@ -230,7 +204,7 @@ az group deployment validate \
       ...
 ```
 
-오류가 감지되면 명령은 오류 메시지를 반환합니다. 예를 들어, 저장소 계정 SKU에 대해 잘못된 값을 전달하면 다음 오류가 반환됩니다.
+오류가 감지되면 명령은 오류 메시지를 반환합니다. 예를 들어, 스토리지 계정 SKU에 대해 잘못된 값을 전달하면 다음 오류가 반환됩니다.
 
 ```azurecli
 {

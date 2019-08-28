@@ -74,7 +74,7 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_license 및
 1. [스토리지 계정 만들기](../../storage/common/storage-quickstart-create-account.md): 이 스토리지 계정은 Azure Blob Storage에 데이터를 저장하는 데 사용됩니다. HDInsight 클러스터에 사용되는 데이터도 여기에 상주합니다.
 2. [고급 분석 프로세스 및 기술을 위한 Azure HDInsight Hadoop 클러스터 사용자 지정](customize-hadoop-cluster.md). 이 단계에서는 모든 노드에 64비트 Anaconda Python 2.7이 설치된 HDInsight Hadoop 클러스터를 만듭니다. HDInsight 클러스터 사용자 지정하는 동안 기억해야 할 중요한 두 단계가 있습니다.
    
-   * HDInsight 클러스터를 만들 때 1단계에서 만든 저장소 계정을 연결해야 합니다. 이 저장소 계정은 클러스터 내에서 처리되는 데이터에 액세스합니다.
+   * HDInsight 클러스터를 만들 때 1단계에서 만든 스토리지 계정을 연결해야 합니다. 이 스토리지 계정은 클러스터 내에서 처리되는 데이터에 액세스합니다.
    * 클러스터를 만든 후에는 클러스터의 헤드 노드에 대한 원격 액세스를 활성화합니다. **구성** 탭으로 이동하고 **원격 사용**을 선택합니다. 이 단계에서는 원격 로그인에 사용되는 사용자 자격 증명을 지정합니다.
 3. [Azure Machine Learning 작업 영역 만들기](../studio/create-workspace.md): 이 작업 영역을 사용하여 기계 학습 모델을 빌드합니다. 이 작업은 초기 데이터 탐색을 완료하고 HDInsight 클러스터를 사용하여 다운 샘플링한 후 처리됩니다.
 
@@ -84,7 +84,7 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_license 및
 > 
 > 
 
-해당 공용 위치에서 [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) 데이터 집합을 컴퓨터로 복사하려면 [Azure Blob Storage에서 데이터 이동](move-azure-blob.md)에 설명된 방법 중 하나를 사용합니다.
+해당 공용 위치에서 [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) 데이터 세트을 컴퓨터로 복사하려면 [Azure Blob Storage에서 데이터 이동](move-azure-blob.md)에 설명된 방법 중 하나를 사용합니다.
 
 여기서는 AzCopy를 사용하여 데이터가 포함된 파일을 전송하는 방법을 설명합니다. AzCopy를 다운로드하여 설치하려면 [AzCopy 명령줄 유틸리티 시작](../../storage/common/storage-use-azcopy.md)의 지침을 따르세요.
 
@@ -717,7 +717,7 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
 이제 Machine Learning의 [데이터 가져오기][import-data] 모듈을 사용하여 액세스할 수 있는 내부 테이블 **nyctaxidb.nyctaxi_downsampled_dataset**가 생성되었습니다. 또한 이 데이터 세트를 사용하여 Machine Learning 모델을 빌드할 수 있습니다.  
 
 ### <a name="use-the-import-data-module-in-machine-learning-to-access-the-down-sampled-data"></a>Machine Learning의 데이터 가져오기 모듈을 사용하여 다운 샘플링된 데이터 액세스
-Machine Learning의 [데이터 가져오기][import-data] 모듈에서 Hive 쿼리를 실행하려면 Machine Learning 작업 영역에 액세스할 수 있어야 합니다. 또한 클러스터의 자격 증명 및 연결된 저장소 계정에 액세스할 수 있어야 합니다.
+Machine Learning의 [데이터 가져오기][import-data] 모듈에서 Hive 쿼리를 실행하려면 Machine Learning 작업 영역에 액세스할 수 있어야 합니다. 또한 클러스터의 자격 증명 및 연결된 스토리지 계정에 액세스할 수 있어야 합니다.
 
 [데이터 가져오기][import-data] 모듈 및 입력할 매개 변수에 대한 세부 정보 중 일부는 다음과 같습니다.
 

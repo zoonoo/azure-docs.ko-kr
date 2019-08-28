@@ -3,17 +3,18 @@ title: 빠른 시작 - Azure에서 프라이빗 Docker 레지스트리 만들기
 description: Azure에서 PowerShell을 사용하여 프라이빗 Docker 컨테이너 레지스트리를 만드는 방법을 빠르게 알아봅니다.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 82771d005ce38972cdb1484a02e071a30e577a06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f99b4ee6dd11a109d1c563c84debc2157cb03337
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66152164"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68309489"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 프라이빗 컨테이너 레지스트리 만들기
 
@@ -47,7 +48,7 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-container-registry"></a>컨테이너 레지스트리 만들기
 
-다음으로 [New-AzContainerRegistry][New-AzContainerRegistry] 명령을 사용하여 새 리소스 그룹에 컨테이너 레지스트리를 만듭니다.
+다음으로, [New-AzContainerRegistry][New-AzContainerRegistry] 명령을 사용하여 새 리소스 그룹에 컨테이너 레지스트리를 만듭니다.
 
 레지스트리 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자만 포함해야 합니다. 다음은 "myContainerRegistry007"이라는 레지스트리를 만드는 예제입니다. 명령에서 *myContainerRegistry007*을 원하는 대로 바꾸고 명령을 실행하여 레지스트리를 만듭니다.
 
@@ -65,7 +66,7 @@ $registry = New-AzContainerRegistry -ResourceGroupName "myResourceGroup" -Name "
 $creds = Get-AzContainerRegistryCredential -Registry $registry
 ```
 
-다음으로 [docker login][docker-login]을 실행하여 로그인합니다.
+다음으로, [docker login][docker-login]을 실행하여 로그인합니다.
 
 ```powershell
 $creds.Password | docker login $registry.LoginServer -u $creds.Username --password-stdin

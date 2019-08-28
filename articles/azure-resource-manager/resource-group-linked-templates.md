@@ -4,14 +4,14 @@ description: Azure Resource Manager 템플릿에서 연결된 템플릿을 사�
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/01/2019
+ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4a5fe1bd2bf57fbec240ab242dd889014dde9578
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: c79429d1a39e975c6bcc7fce191846a6205f9a86
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206440"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311697"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Azure 리소스를 배포할 때 연결 및 중첩된 템플릿 사용
 
@@ -83,20 +83,20 @@ ms.locfileid: "67206440"
 > [!NOTE]
 > 중첩된 템플릿의 경우, 중첩된 템플릿 내에 정의된 매개 변수 또는 변수를 사용할 수 없습니다. 주 템플릿의 매개 변수 및 변수를 사용할 수 있습니다. 앞의 예제에서 `[variables('storageName')]`은 중첩된 템플릿이 아닌 주 템플릿에서 값을 검색합니다. 이러한 제한은 외부 템플릿에 적용되지 않습니다.
 >
-> 내에 정의 된 두 개의 리소스에 대 한 중첩 된 템플릿 및 리소스를 다른, 종속성의 값은 단순히 종속 리소스의 이름:
+> 중첩 된 템플릿 내에 정의 된 두 리소스에 대해 한 리소스가 다른 리소스에 종속 되는 경우 종속성의 값은 단순히 종속 리소스의 이름입니다.
 > ```json
 > "dependsOn": [
 >   "[variables('storageAccountName')]"
 > ],
 > ```
 >
-> `reference` 함수는 중첩된 템플릿의 출력 섹션에 사용할 수 없습니다. 중첩된 템플릿에서 배포된 리소스의 값을 반환하려면 중첩된 템플릿을 연결된 템플릿으로 변환합니다.
+> 중첩 된 템플릿에 배포한 `reference` 리소스에 대해 중첩 된 템플릿의 출력 섹션에서 함수를 사용할 수 없습니다. 중첩된 템플릿에서 배포된 리소스의 값을 반환하려면 중첩된 템플릿을 연결된 템플릿으로 변환합니다.
 
 중첩된 템플릿에는 표준 템플릿과 [동일한 속성](resource-group-authoring-templates.md)이 필요합니다.
 
 ### <a name="external-template-and-external-parameters"></a>외부 템플릿 및 외부 매개 변수
 
-외부 템플릿과 매개 변수 파일에 연결하려면 **templateLink** 및 **parametersLink**를 사용합니다. 템플릿에 연결할 때 Resource Manager 서비스가 해당 템플릿에 액세스할 수 있어야 합니다. 로컬 네트워크에서만 사용 가능한 파일이나 로컬 파일은 지정할 수 없습니다. **http** 또는 **https** 중 하나를 포함하는 URI 값만 제공할 수 있습니다. 한 가지 옵션은 연결된 템플릿을 저장소 계정에 배치하고 해당 항목의 URI를 사용하는 것입니다.
+외부 템플릿과 매개 변수 파일에 연결하려면 **templateLink** 및 **parametersLink**를 사용합니다. 템플릿에 연결할 때 Resource Manager 서비스가 해당 템플릿에 액세스할 수 있어야 합니다. 로컬 네트워크에서만 사용 가능한 파일이나 로컬 파일은 지정할 수 없습니다. **http** 또는 **https** 중 하나를 포함하는 URI 값만 제공할 수 있습니다. 한 가지 옵션은 연결된 템플릿을 스토리지 계정에 배치하고 해당 항목의 URI를 사용하는 것입니다.
 
 ```json
 "resources": [
@@ -147,11 +147,11 @@ ms.locfileid: "67206440"
 ]
 ```
 
-## <a name="using-copy"></a>복사를 사용 하 여
+## <a name="using-copy"></a>Copy 사용
 
-중첩 된 템플릿을 사용 하 여 리소스의 여러 인스턴스를 만들려면 수준에서 copy 요소를 추가 합니다 **microsoft.resources/deployments** 리소스입니다.
+중첩 된 템플릿을 사용 하 여 리소스의 여러 인스턴스를 만들려면 **Microsoft .resources/배포** 리소스 수준에 copy 요소를 추가 합니다.
 
-다음 예제 템플릿은 중첩 된 템플릿을 사용 하 여 복사를 사용 하는 방법을 보여 줍니다.
+다음 예제 템플릿에서는 중첩 된 템플릿과 함께 copy를 사용 하는 방법을 보여 줍니다.
 
 ```json
 "resources": [
@@ -557,4 +557,4 @@ az group deployment create --resource-group ExampleGroup --template-uri $url?$to
 * 자습서를 진행하려면 [자습서: 연결된 Azure Resource Manager 템플릿 만들기](./resource-manager-tutorial-create-linked-templates.md)를 참조하세요.
 * 리소스 배포 순서를 정의하는 방법을 알아보려면 [Azure Resource Manager 템플릿에서 종속성 정의](resource-group-define-dependencies.md)를 참조하세요.
 * 하나의 리소스를 정의하되 해당 리소스의 여러 인스턴스를 만드는 방법을 알아보려면 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
-* 저장소 계정에서 템플릿을 설정하고 SAS 토큰을 생성하는 절차는 [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](resource-group-template-deploy.md) 또는 [Resource Manager 템플릿과 Azure CLI로 리소스 배포](resource-group-template-deploy-cli.md)를 참조하세요.
+* 스토리지 계정에서 템플릿을 설정하고 SAS 토큰을 생성하는 절차는 [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](resource-group-template-deploy.md) 또는 [Resource Manager 템플릿과 Azure CLI로 리소스 배포](resource-group-template-deploy-cli.md)를 참조하세요.

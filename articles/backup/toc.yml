@@ -64,6 +64,8 @@
           href: faq-backup-sql-server.md
         - name: FAQ-Azure Backup Server 및 DPM
           href: backup-azure-dpm-azure-server-faq.md
+        - name: FAQ-Azure Backup 모니터링 경고
+          href: backup-azure-monitor-alert-faq.md
     - name: 백업 아키텍처
       href: backup-architecture.md
     - name: 역할 기반 Access Control
@@ -88,7 +90,7 @@
           items:
             - name: Azure Backup Server 설치
               href: backup-azure-microsoft-azure-backup.md
-            - name: 저장소 추가
+            - name: 스토리지 추가
               href: backup-mabs-add-storage.md
             - name: MABS의 새로운 기능
               href: backup-mabs-whats-new-mabs.md
@@ -98,6 +100,8 @@
               href: backup-mabs-unattended-install.md
         - name: 워크로드 보호
           items:
+            - name: Hyper-V 가상 머신 백업
+              href: back-up-hyper-v-virtual-machines-mabs.md
             - name: VMware 서버
               href: backup-azure-backup-server-vmware.md
             - name: Exchange
@@ -110,6 +114,8 @@
               href: backup-mabs-system-state-and-bmr.md
         - name: Azure Backup Server에서 데이터 복구
           href: backup-azure-alternate-dpm-server.md
+        - name: Azure Backup Server를 사용하여 VMware VM 복원
+          href: restore-azure-backup-server-vmware.md
     - name: Azure Stack의 Azure Backup Server
       items:
         - name: Azure Backup Server 설치

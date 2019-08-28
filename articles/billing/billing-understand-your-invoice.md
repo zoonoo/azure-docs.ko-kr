@@ -60,7 +60,7 @@ ms.locfileid: "60369967"
 
 ![청구서 요약 섹션](./media/billing-understand-your-invoice/2.png)
 
-구독 이름("프로덕션 저장소")은 이 청구서에 대한 구독의 이름입니다.
+구독 이름(&quot;프로덕션 스토리지&quot;)은 이 청구서에 대한 구독의 이름입니다.
 
 #### <a name="understand-the-previous-charges"></a>이전 요금 이해
 청구서의 이전 잔액, 지불 및 미지불 잔액 섹션에는 마지막 청구 기간 이후의 트랜잭션이 요약됩니다.

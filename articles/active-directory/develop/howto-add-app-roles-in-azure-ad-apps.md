@@ -129,7 +129,7 @@ RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여�
 
 ## <a name="more-information"></a>자세한 정보
 
-- [Azure AD 응용 프로그램 역할 &amp; 역할 클레임을 사용하여 웹 앱에서 권한 부여(샘플)](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapp-roleclaims/)
+- [Azure AD 애플리케이션 역할 &amp; 역할 클레임을 사용하여 웹 앱에서 권한 부여(샘플)](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapp-roleclaims/)
 - [앱에서 보안 그룹 및 애플리케이션 역할 사용(비디오)](https://www.youtube.com/watch?v=V8VUPixLSiM)
 - [Azure Active Directory에 그룹 클레임 및 애플리케이션 역할 포함](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles)
 - [Azure Active Directory 앱 매니페스트](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)

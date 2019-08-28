@@ -1,17 +1,17 @@
 ---
 title: .NET에 대한 Azure Cosmos DB 성능 팁
-description: Azure Cosmos DB 데이터베이스 성능 향상을 위한 클라이언트 구성 옵션에 대한 자세한 정보
+description: Azure Cosmos database 성능 향상을 위한 클라이언트 구성 옵션 학습
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
-ms.openlocfilehash: c8907f1b1c8069a3a3e92d01a5fa6341c06ec952
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3c4dbd38edaf36461578e087010d978a25450d06
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688810"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614920"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB 및 .NET에 대한 성능 팁
 
@@ -30,7 +30,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
 1. **연결 정책: 직접 연결 모드 사용**
 
-    클라이언트가 Azure Cosmos DB에 연결하는 방법은 특히 관찰되는 클라이언트 쪽 대기 시간 측면에서 성능에 중요한 영향을 미칩니다. 클라이언트 연결 정책, 즉 연결 ‘모드’와 연결 ‘프로토콜’을 구성하는 데 사용할 수 있는 두 가지 주요 구성 설정이 있습니다.    두 가지 사용 가능한 모드는 같습니다.
+    클라이언트가 Azure Cosmos DB에 연결하는 방법은 특히 관찰되는 클라이언트 쪽 대기 시간 측면에서 성능에 중요한 영향을 미칩니다. 클라이언트 연결 정책, 즉 연결 ‘모드’와 연결 ‘프로토콜’을 구성하는 데 사용할 수 있는 두 가지 주요 구성 설정이 있습니다.  두 가지 사용 가능한 모드는 같습니다.
 
    * 게이트웨이 모드(기본값)
       
@@ -38,7 +38,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
    * 직접 모드
 
-     직접 모드는 TCP 및 HTTPS 프로토콜을 통한 연결을 지원합니다. 최신 버전의.NET SDK를 사용 하는 경우 직접 연결 모드는.NET Standard 2.0 및.NET framework에서 지원 됩니다. 직접 모드를 사용하는 경우 다음과 같이 두 가지 프로토콜 옵션을 사용할 수 있습니다.
+     직접 모드는 TCP 및 HTTPS 프로토콜을 통한 연결을 지원합니다. 최신 버전의 .NET SDK를 사용 하는 경우 .NET Standard 2.0 및 .NET framework에서 직접 연결 모드가 지원 됩니다. 직접 모드를 사용하는 경우 다음과 같이 두 가지 프로토콜 옵션을 사용할 수 있습니다.
 
      * TCP
      * HTTPS
@@ -47,7 +47,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
      |연결 모드  |지원되는 프로토콜  |지원되는 SDK  |API/서비스 포트  |
      |---------|---------|---------|---------|
-     |게이트웨이  |   HTTPS    |  모든 SDK    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(10350), Graph(443)    |
+     |게이트웨이  |   HTTPS    |  모든 SDK    |   SQL (443), Mongo (10250, 10255, 10256), 테이블 (443), Cassandra (10350), 그래프 (443)    |
      |직접    |    HTTPS     |  .NET 및 Java SDK    |   10000-20,000개 범위 내의 포트    |
      |직접    |     TCP    |  .NET SDK    | 10000-20,000개 범위 내의 포트 |
 
@@ -78,7 +78,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
    <a id="same-region"></a>
 3. **성능을 위해 동일한 Azure 지역에 클라이언트 배치**
 
-    가능한 경우 Azure Cosmos DB를 호출하는 모든 애플리케이션을 Azure Cosmos DB 데이터베이스와 동일한 지역에 배치합니다. 대략적으로 비교한다면, 동일한 지역 내의 Azure Cosmos DB 호출은 1-2밀리초 내에 완료되지만 미국 서부와 동부 해안 간의 대기 시간은 50밀리초보다 큽니다. 클라이언트에서 Azure 데이터 센터 경계로 요청이 전달되는 경로에 따라 이러한 요청 간 대기 시간은 달라질 수 있습니다. 호출하는 애플리케이션이 프로비전된 Azure Cosmos DB 엔드포인트와 동일한 Azure 지역 내에 있도록 하면 가능한 최저 대기 시간을 얻을 수 있습니다. 사용 가능한 영역 목록은 [Azure 지역](https://azure.microsoft.com/regions/#services)을 참조하세요.
+    가능 하면 Azure Cosmos DB를 호출 하는 모든 응용 프로그램을 Azure Cosmos 데이터베이스와 동일한 지역에 저장 합니다. 대략적으로 비교한다면, 동일한 지역 내의 Azure Cosmos DB 호출은 1-2밀리초 내에 완료되지만 미국 서부와 동부 해안 간의 대기 시간은 50밀리초보다 큽니다. 클라이언트에서 Azure 데이터 센터 경계로 요청이 전달되는 경로에 따라 이러한 요청 간 대기 시간은 달라질 수 있습니다. 호출하는 애플리케이션이 프로비전된 Azure Cosmos DB 엔드포인트와 동일한 Azure 지역 내에 있도록 하면 가능한 최저 대기 시간을 얻을 수 있습니다. 사용 가능한 영역 목록은 [Azure 지역](https://azure.microsoft.com/regions/#services)을 참조하세요.
 
     ![Azure Cosmos DB 연결 정책 그림](./media/performance-tips/same-region.png)
    <a id="increase-threads"></a>
@@ -86,9 +86,9 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
     Azure Cosmos DB 호출은 네트워크를 통해 수행되므로 클라이언트 애플리케이션이 요청 간에 대기하는 시간이 짧도록 요청의 병렬 처리 수준을 다양하게 지정해야 할 수 있습니다. 예를 들어 .NET의 [작업 병렬 라이브러리](https://msdn.microsoft.com//library/dd460717.aspx)를 사용하는 경우 Azure Cosmos DB를 읽거나 쓰는 작업을 대략 수백 개 만듭니다.
 
-5. **가속화 된 네트워킹을 사용 하도록 설정**
+5. **가속 네트워킹 사용**
 
-   대기 시간 및 CPU 지터 줄이려면는 클라이언트 가상 컴퓨터는 가속화 된 네트워킹 사용 하도록 설정 하는 것이 좋습니다. 참조를 [가속 네트워킹을 사용 하 여 Windows 가상 컴퓨터를 만들](../virtual-network/create-vm-accelerated-networking-powershell.md) 또는 [가속 네트워킹을 사용 하 여 Linux 가상 머신 만들기](../virtual-network/create-vm-accelerated-networking-cli.md) 가속된 네트워킹을 사용 하는 문서입니다.
+   대기 시간 및 CPU 지터를 줄이려면 클라이언트 가상 컴퓨터에서 가속화 된 네트워킹을 사용 하도록 설정 하는 것이 좋습니다. 가속화 된 네트워킹을 사용 하려면 가속화 된 [네트워킹을 사용 하 여 Windows 가상 머신 만들기](../virtual-network/create-vm-accelerated-networking-powershell.md) 또는 가속화 된 네트워킹을 사용 하 여 [Linux 가상 머신 만들기](../virtual-network/create-vm-accelerated-networking-cli.md) 문서를 참조 하세요.
 
 
 ## <a name="sdk-usage"></a>SDK 사용
@@ -142,15 +142,15 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
    모든 적용 가능한 결과를 검색하는 데 필요한 네트워크 왕복 횟수를 줄이려면 [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) 요청 헤더를 사용하는 페이지 크기를 최대 1000으로 늘릴 수 있습니다. 사용자 인터페이스 또는 애플리케이션 API가 한 번에 10개의 결과만 반환하는 것처럼 몇 가지 결과만 표시해야 하는 경우, 읽기 및 쿼리에 사용되는 처리량을 줄이기 위해 페이지 크기를 10으로 줄일 수도 있습니다.
 
    > [!NOTE] 
-   > MaxItemCount 속성 페이지 매김 용도에 사용할 수 해서는 안 됩니다. 기본 사용 단일 페이지에 반환 된 항목의 최대 수를 줄여 쿼리 성능을 향상 시키기 위해.  
+   > MaxItemCount 속성은 페이지 매김 목적 으로만 사용 하면 안 됩니다. 단일 페이지에서 반환 되는 최대 항목 수를 줄여 쿼리 성능을 향상 시키는 데 주로 사용 됩니다.  
 
-   또한 사용할 수 있는 Azure Cosmos DB Sdk를 사용 하 여 페이지 크기를 설정할 수 있습니다. 합니다 [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) FeedOptions의 속성을 사용 하면 enmuration 작업에서 반환할 항목의 최대 수를 설정할 수 있습니다. 때 `maxItemCount` 설정-1로 SDK를 자동으로 검색 문서 크기에 따라 최적의 값입니다. 예를 들면 다음과 같습니다.
+   사용 가능한 Azure Cosmos DB Sdk를 사용 하 여 페이지 크기를 설정할 수도 있습니다. FeedOptions의 [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) 속성을 사용 하면 enmuration 작업에서 반환 되는 최대 항목 수를 설정할 수 있습니다. 이 `maxItemCount` -1로 설정 되 면 SDK는 문서 크기에 따라 가장 적합 한 값을 자동으로 찾습니다. 예를 들어:
     
    ```csharp
     IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
    ```
     
-   쿼리를 실행 하면 결과 데이터는 TCP 패킷을 내에서 전송 됩니다. 에 대 한 너무 낮은 값을 지정 하면 `maxItemCount`, TCP 패킷 내에서 데이터를 보내는 데 필요한 왕복 수는 높은 경우 성능에 영향을 줍니다. 에 대해 설정할 값을 잘 모를 경우 `maxItemCount` 속성인 것이 가장 좋습니다-1로 설정 하는 SDK 기본 값을 선택 합니다. 
+   쿼리가 실행 되 면 결과 데이터가 TCP 패킷 내에 전송 됩니다. 에 대해 `maxItemCount`값을 너무 낮게 지정 하면 TCP 패킷 내에서 데이터를 전송 하는 데 필요한 왕복 횟수가 높아 성능에 영향을 줍니다. 따라서 속성에 대해 `maxItemCount` 설정할 값을 잘 모를 경우-1로 설정 하 고 SDK에서 기본값을 선택 하는 것이 가장 좋습니다. 
 
 10. **스레드/작업의 수 늘리기**
 
@@ -172,7 +172,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
  
 1. **더 빠른 쓰기에 대한 인덱싱에서 사용하지 않는 경로 제외**
 
-    Cosmos DB의 인덱싱 정책을 통해 인덱싱 경로(IndexingPolicy.IncludedPaths 및 IndexingPolicy.ExcludedPaths)를 활용하여 인덱싱에 포함하거나 제외할 문서 경로를 지정할 수도 있습니다. 인덱싱 비용이 인덱싱된 고유 경로 수와 직접 관련이 있기 때문에, 인덱싱 경로를 사용하면 사전에 알려진 쿼리 패턴의 시나리오에 대해 쓰기 성능을 향상시키고 인덱스 저장소를 낮출 수 있습니다.  다음 코드를 사용 하 여 인덱싱에서 (하위) 문서의 전체 섹션을 제외 하는 방법에 표시 하는 예를 들어를 "*" 와일드 카드입니다.
+    Cosmos DB의 인덱싱 정책을 통해 인덱싱 경로(IndexingPolicy.IncludedPaths 및 IndexingPolicy.ExcludedPaths)를 활용하여 인덱싱에 포함하거나 제외할 문서 경로를 지정할 수도 있습니다. 인덱싱 비용이 인덱싱된 고유 경로 수와 직접 관련이 있기 때문에, 인덱싱 경로를 사용하면 사전에 알려진 쿼리 패턴의 시나리오에 대해 쓰기 성능을 향상시키고 인덱스 저장소를 낮출 수 있습니다.  예를 들어 다음 코드는 "*" 와일드 카드를 사용 하 여 인덱싱에서 문서의 전체 섹션 (하위 트리)을 제외 하는 방법을 보여 줍니다.
 
     ```csharp
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
@@ -194,7 +194,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
     쿼리의 복잡성은 작업에 사용되는 요청 단위의 양에 영향을 줍니다. 조건자의 수, 조건자의 특성, UDF 수 및 원본 데이터 집합의 크기는 모두 쿼리 작업의 비용에 영향을 줍니다.
 
-    모든 작업(만들기, 업데이트 또는 삭제)에 대한 오버헤드를 측정하려면 [x-ms-request-charge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) 헤더(또는 .NET SDK의 ResourceResponse<T> 또는 FeedResponse<T>에 있는 동등한 RequestCharge 속성)를 검사하여 이 작업에 사용된 요청 단위 수를 측정합니다.
+    모든 작업 (만들기, 업데이트 또는 삭제)에 대 한 오버 헤드를 측정 하려면 ResourceResponse\< t > 또는 .net SDK의 FeedResponse\<t >의 해당 [x-ms-requestcharge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) 속성을 검사 합니다. 이러한 작업에 사용 된 요청 단위 수를 측정 합니다.
 
     ```csharp
     // Measure the performance (request units) of writes

@@ -2,22 +2,22 @@
 title: '자습서: Azure Digital Twins를 사용하여 공간 모니터링 | Microsoft Docs'
 description: 이 자습서의 단계에 따라 Azure Digital Twins를 사용하여 공간 리소스를 프로비전하고 작업 상태를 모니터링하는 방법을 알아봅니다.
 services: digital-twins
-author: dsk-2015
+author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 12/27/2018
-ms.author: dkshir
-ms.openlocfilehash: ad6c2625dc56dc3a3155183a04b712122a3b10f1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.date: 08/16/2019
+ms.author: alinast
+ms.openlocfilehash: 38df195f787407c4beab2f7251cf00c08a739e09
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535385"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622898"
 ---
-# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>자습서: Azure Digital Twins를 사용하여 건물을 프로비전하고 작업 조건 모니터링
+# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>자습서: Azure Digital Twins 미리 보기를 사용하여 건물 프로비전 및 작업 조건 모니터링
 
-이 자습서에서는 Azure Digital Twins로 공간을 모니터링하여 원하는 온도 조건 및 쾌적도를 유지하는 방법을 알아봅니다. [샘플 건물을 구성](tutorial-facilities-setup.md)한 후, 이 자습서의 단계에 따라 건물을 프로비전하고 센서 데이터에 대해 사용자 지정 함수를 실행할 수 있습니다.
+이 자습서에서는 Azure Digital Twins 미리 보기로 공간을 모니터링하여 원하는 온도 조건 및 쾌적도를 유지하는 방법을 알아봅니다. [샘플 건물을 구성](tutorial-facilities-setup.md)한 후, 이 자습서의 단계에 따라 건물을 프로비전하고 센서 데이터에 대해 사용자 지정 함수를 실행할 수 있습니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -43,14 +43,14 @@ ms.locfileid: "57535385"
 
 **occupancy-quickstart** 샘플 프로젝트에서, **src\actions\provisionSample.yaml** 파일을 Visual Studio Code에서 엽니다. **matchers** 형식으로 시작하는 섹션을 봅니다. 이 형식에 속하는 각 항목은 지정된 **이름**을 사용하여 선택기를 만듭니다. 선택기는 **dataTypeValue** 형식의 센서를 모니터링합니다. **디바이스** 노드가 있고 몇 가지 센서를 포함하고 있는 *Focus Room A1*이라는 이름의 공간과 어떤 관계가 있는지 살펴봅니다. 이러한 센서 중 하나를 추적하는 선택기를 프로비전하려면 **dataTypeValue**가 해당 센서의 **dataType**과 일치하는지 확인합니다. 
 
-기존 선택기 아래에 다음 선택기를 추가합니다. 키가 일치하고 공백이 탭으로 바뀌지 않는지 확인합니다.
+기존 선택기 아래에 다음 선택기를 추가합니다. 키가 일치하고 공백이 탭으로 바뀌지 않는지 확인합니다. 이러한 줄은 *provisionSample.yaml* 파일에도 주석 처리된 줄로 표시됩니다. 각 줄의 앞에서 `#` 문자를 제거하여 주석 처리를 제거할 수 있습니다.
 
 ```yaml
       - name: Matcher Temperature
         dataTypeValue: Temperature
 ```
 
-이 선택기는 [첫 번째 자습서](tutorial-facilities-setup.md)에서 추가한 SAMPLE_SENSOR_TEMPERATURE 센서를 추적합니다. 이러한 줄은 *provisionSample.yaml* 파일에도 주석 처리된 줄로 표시됩니다. 각 줄의 앞에서 `#` 문자를 제거하여 주석 처리를 제거할 수 있습니다.
+이 선택기는 [첫 번째 자습서](tutorial-facilities-setup.md)에서 추가한 SAMPLE_SENSOR_TEMPERATURE 센서를 추적합니다. 
 
 <a id="udf"></a>
 

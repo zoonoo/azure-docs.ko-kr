@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e51437a99217316ead50d4075be52f089225e618
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 7779d01fd59446cf10aabf9fd6fdcce05e76899b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190863"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852993"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>빠른 시작: ASP.NET Core 웹앱에 Microsoft로 로그인 추가
 
@@ -86,6 +86,10 @@ ms.locfileid: "65190863"
     "TenantId": "Enter_the_Tenant_Info_Here"
     ```
 
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > 이 빠른 시작에서는 Enter_the_Supported_Account_Info_Here를 지원합니다.
+
 > [!div renderon="docs"]
 > 위치:
 > - `Enter_the_Application_Id_here` - Azure Portal에 등록된 애플리케이션의 **애플리케이션(클라이언트) ID**입니다. 앱의 **개요** 페이지에서 **애플리케이션(클라이언트) ID**를 찾을 수 있습니다.
@@ -143,7 +147,7 @@ public void ConfigureServices(IServiceCollection services)
 > |Where  |  |
 > |---------|---------|
 > | clientid  | Azure Portal에 등록된 애플리케이션의 애플리케이션(클라이언트) ID입니다. |
-> | Authority | 사용자가 인증하는 STS 엔드포인트. 일반적으로 공용 클라우드의 경우 <https://login.microsoftonline.com/{tenant}/v2.0>입니다. 여기서 {tenant}는 테넌트 이름, 테넌트 ID, 또는 공통 엔드포인트(다중 테넌트 애플리케이션에 사용)에 대한 참조인 경우 *common*입니다. |
+> | Authority | 사용자가 인증하는 STS 엔드포인트. 일반적으로 퍼블릭 클라우드의 경우 <https://login.microsoftonline.com/{tenant}/v2.0>입니다. 여기서 {tenant}는 테넌트 이름, 테넌트 ID, 또는 공통 엔드포인트(다중 테넌트 애플리케이션에 사용)에 대한 참조인 경우 *common*입니다. |
 > | TokenValidationParameters | 토큰 유효성 검사에 대한 매개 변수 목록입니다. 이 경우 `ValidateIssuer`는 개인, 회사 또는 학교 계정의 로그인을 수락할 수 있음을 나타내기 위해 `false`로 설정됩니다. |
 
 
@@ -163,3 +167,8 @@ public void ConfigureServices(IServiceCollection services)
 
 > [!div class="nextstepaction"]
 > [ASP.NET Core 웹앱 자습서](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)
+
+Microsoft ID 플랫폼을 개선할 수 있도록 도와주세요. 간단한 두 가지 설문 조사를 완료하여 의견을 알려주세요.
+
+> [!div class="nextstepaction"]
+> [Microsoft ID 플랫폼 설문 조사](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

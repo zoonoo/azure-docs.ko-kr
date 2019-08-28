@@ -3,39 +3,39 @@ title: 자습서 - Node.js용 Azure Batch 클라이언트 라이브러리 사용
 description: Azure Batch의 기본 개념을 알아보고 Node.js를 사용하여 간단한 솔루션을 빌드합니다.
 services: batch
 author: shwetams
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: shwetams
-ms.openlocfilehash: bb0bfa5eac3dd9031718fb12f270f5fc03bbaea6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: shg
+ms.openlocfilehash: a6895773e0109aa0fb643e4fadf8a31ac5b1a33a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60775233"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323395"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Node.js용 Batch SDK 시작
 
 [Azure Batch Node.js SDK](/javascript/api/overview/azure/batch)를 사용하여 Node.js로 Batch 클라이언트를 빌드하는 기본 사항을 알아봅니다. 일괄 처리 애플리케이션에 대한 시나리오를 단계별로 이해한 다음 Node.js 클라이언트를 사용하여 설정해 보겠습니다.  
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 이 문서에서는 사용자가 Node.js에 대한 작업 지식을 갖고 있으며 Linux에 익숙하다고 가정합니다. 또한 Batch 및 Storage 서비스를 만들 액세스 권한이 있는 Azure 계정을 갖고 있다고 가정합니다.
 
 이 문서에 설명된 단계를 진행하기 전에 [Azure Batch 기술 개요](batch-technical-overview.md)를 읽어 보시기 바랍니다.
 
 ## <a name="the-tutorial-scenario"></a>자습서 시나리오
-일괄 처리 워크플로 시나리오를 살펴보겠습니다. Azure Blob Storage 컨테이너에서 모든 csv 파일을 다운로드하여 JSON으로 변환하는 Python으로 작성된 간단한 스크립트가 있습니다. 여러 저장소 계정 컨테이너를 병렬로 처리하려면 스크립트를 Azure Batch 작업으로 배포하면 됩니다.
+일괄 처리 워크플로 시나리오를 살펴보겠습니다. Azure Blob Storage 컨테이너에서 모든 csv 파일을 다운로드하여 JSON으로 변환하는 Python으로 작성된 간단한 스크립트가 있습니다. 여러 스토리지 계정 컨테이너를 병렬로 처리하려면 스크립트를 Azure Batch 작업으로 배포하면 됩니다.
 
 ## <a name="azure-batch-architecture"></a>Azure Batch 아키텍처
 다음 다이어그램은 Azure Batch 및 Node.js 클라이언트를 사용하여 Python 스크립트를 확장하는 방법을 보여 줍니다.
 
 ![Azure Batch 시나리오](./media/batch-nodejs-get-started/BatchScenario.png)
 
-Node.js 클라이언트는 저장소 계정에 있는 컨테이너의 수에 따라 준비 작업(나중에 자세히 설명)과 작업 집합을 사용하여 일괄 처리 작업을 배포합니다. GitHub 리포지토리에서 스크립트를 다운로드할 수 있습니다.
+Node.js 클라이언트는 스토리지 계정에 있는 컨테이너의 수에 따라 준비 작업(나중에 자세히 설명)과 작업 집합을 사용하여 일괄 처리 작업을 배포합니다. GitHub 리포지토리에서 스크립트를 다운로드할 수 있습니다.
 
 * [Node.js 클라이언트](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/nodejs_batch_client_sample.js)
 * [준비 작업 셸 스크립트](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/startup_prereq.sh)

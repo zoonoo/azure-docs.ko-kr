@@ -114,7 +114,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
     cd azure-iot-sdk-python/provisioning_device_client/samples
     ```
 
-1. Python IDE를 사용하여 **provisioning\_device\_client\_sample.py**라는 python 스크립트를 편집합니다. *GLOBAL\_PROV\_URI* 및 *ID\_SCOPE* 변수를 앞에서 설명한 값으로 수정합니다. 또한 *보안\_장치\_유형*을 `ProvisioningSecurityDeviceType.TPM`으로 설정합니다.
+1. Python IDE를 사용하여 **provisioning\_device\_client\_sample.py**라는 python 스크립트를 편집합니다. *GLOBAL\_PROV\_URI* 및 *ID\_SCOPE* 변수를 앞에서 설명한 값으로 수정합니다. 또한 *보안\_디바이스\_유형*을 `ProvisioningSecurityDeviceType.TPM`으로 설정합니다.
 
     ```python
     GLOBAL_PROV_URI = "{globalServiceEndpoint}"

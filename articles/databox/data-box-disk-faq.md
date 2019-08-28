@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 05/23/2019
+ms.date: 08/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 69068304a6bc72f503ed85edf05229f10e4a8bc0
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 1361224fb59a32ca227c5ea1e6cc92a4b0fdff6e
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236359"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69541804"
 ---
-# <a name="what-is-azure-data-box-disk"></a>Azure Data Box Disk란?
+# <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: 질문과 대답
 
 Microsoft Azure Data Box Disk 클라우드 솔루션을 사용하면 테라바이트 단위의 데이터를 빠르고 저렴하게 신뢰할 수 있는 방식으로 Azure로 보낼 수 있습니다. 이 FAQ에는 Azure Portal에서 Data Box Disk를 사용할 때 제기될 수 있는 질문과 대답이 포함되어 있습니다. 
 
@@ -31,12 +31,12 @@ Microsoft Azure Data Box Disk 클라우드 솔루션을 사용하면 테라바�
 ## <a name="about-the-service"></a>서비스 정보
 
 ### <a name="q-what-is-azure-data-box-service"></a>Q. Azure Data Box 서비스란? 
-a.  Azure Data Box 서비스는 오프라인 데이터 수집을 위해 설계되었습니다. 이 서비스는 다양한 저장 용량의 데이터 전송에 맞게 조정된 일련의 제품을 관리합니다. 
+a.  Azure Data Box 서비스는 오프라인 데이터 수집을 위해 설계되었습니다. 이 서비스는 다양한 스토리지 용량의 데이터 전송에 맞게 조정된 일련의 제품을 관리합니다. 
 
 ### <a name="q-what-are-azure-data-box-disks"></a>Q. Azure Data Box Disk란?
-a. Azure Data Box Disk를 사용하면 Azure에서 테라바이트 단위의 데이터를 빠르고 저렴하게 신뢰할 수 있는 방식으로 전송할 수 있습니다. Microsoft에서 1-5개의 디스크를 제공하며 최대 저장 용량은 35TB입니다. Azure Portal에서 Data Box 서비스를 통해 이러한 디스크를 쉽게 구성, 연결 및 잠금 해제할 수 있습니다.  
+a. Azure Data Box Disk를 사용하면 Azure에서 테라바이트 단위의 데이터를 빠르고 저렴하게 신뢰할 수 있는 방식으로 전송할 수 있습니다. Microsoft에서 1-5개의 디스크를 제공하며 최대 스토리지 용량은 35TB입니다. Azure Portal에서 Data Box 서비스를 통해 이러한 디스크를 쉽게 구성, 연결 및 잠금 해제할 수 있습니다.  
 
-디스크는 Microsoft BitLocker 드라이브 암호화를 통해 암호화되고, 암호화 키는 SSL을 통해 Azure Portal에서 관리됩니다. 그런 다음, 고객의 서버에서 데이터를 복사합니다. 데이터 센터에서 Microsoft는 빠른 사설망 업로드 링크를 사용하여 데이터를 드라이브에서 클라우드로 마이그레이션하고 Azure에 업로드합니다.
+디스크는 Microsoft BitLocker 드라이브 암호화를 통해 암호화되고, 암호화 키는 SSL을 통해 Azure Portal에서 관리됩니다. 그런 다음, 고객의 서버에서 데이터를 복사합니다. 데이터 센터에서 Microsoft는 빠른 프라이빗망 업로드 링크를 사용하여 데이터를 드라이브에서 클라우드로 마이그레이션하고 Azure에 업로드합니다.
 
 ### <a name="q-when-should-i-use-data-box-disks"></a>Q. Data Box Disk는 언제 사용해야 하나요?
 a. Azure로 전송하려는 데이터가 40TB 이하이면 Data Box Disk를 사용하는 것이 좋습니다.
@@ -54,7 +54,7 @@ a. 각각 8TB(사용 가능한 용량: 7TB) 크기의 5개 디스크에 대해 �
 a.  Data Box Disk가 현재 사용 가능한 곳을 보려면 [지역 가용성](data-box-disk-overview.md#region-availability)으로 이동합니다.  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>Q. Data Box Disk에 데이터를 저장할 수 있는 지역은 어떻게 되나요?
-a. Data Box Disk는 미국, 캐나다, 오스트레일리아, 서유럽, 북유럽, 한국 및 일본 내의 모든 지역에서 지원됩니다. Azure 공용 클라우드 지역만 지원됩니다. Azure Government 또는 다른 소버린 클라우드는 지원되지 않습니다.
+a. Data Box Disk는 미국, 캐나다, 오스트레일리아, 서유럽, 북유럽, 한국 및 일본 내의 모든 지역에서 지원됩니다. Azure 퍼블릭 클라우드 지역만 지원됩니다. Azure Government 또는 다른 소버린 클라우드는 지원되지 않습니다.
 
 ### <a name="q-will-my-data-box-disk-cross-country-borders-during-shipping"></a>Q. 배송 중에 내 Data Box Disk가 국가 경계를 넘을 수 있나요?
 a. 모든 Data Box Disk는 목적지와 동일한 국가 내에서 배송되며 국경을 넘지 않습니다. 유일한 예외는 디스크가 모든 EU 국가 간에 발송될 수 있는 EU(유럽 연합) 내에서의 주문입니다.
@@ -118,12 +118,12 @@ a.  복사 프로세스의 속도를 높이려면 다음을 수행합니다.
 ### <a name="q-how-to-speed-up-the-data-if-the-source-data-has-small-files-kbs-or-few-mbs"></a>Q. 원본 데이터에 작은 파일(KB 또는 수 MB)이 있는 경우 데이터의 속도를 높이려면 어떻게 해야 할까요?
 a.  복사 프로세스의 속도를 높이려면 다음을 수행합니다.
 
-- 고속 저장소에 로컬 VHDx를 만들거나, HDD/SSD에 빈 VHD를 만듭니다(속도가 느림).
+- 고속 스토리지에 로컬 VHDx를 만들거나, HDD/SSD에 빈 VHD를 만듭니다(속도가 느림).
 - VM에 탑재합니다.
 - 파일을 VM의 디스크에 복사합니다.
 
-### <a name="q-can-i-use-multiple-storage-accounts-with-data-box-disks"></a>Q. Data Box Disk에 여러 개의 저장소 계정을 사용할 수 있나요?
-a.  아니요. Data Box Disk에는 현재 하나의 저장소 계정(범용 또는 클래식)만 지원됩니다. 핫 및 쿨 Blob은 모두 지원됩니다. 현재 Azure 공용 클라우드에서 미국, 유럽 서부 및 유럽 북부의 스토리지 계정만 지원됩니다.
+### <a name="q-can-i-use-multiple-storage-accounts-with-data-box-disks"></a>Q. Data Box Disk에 여러 개의 스토리지 계정을 사용할 수 있나요?
+a.  아니요. Data Box Disk에는 현재 하나의 스토리지 계정(범용 또는 클래식)만 지원됩니다. 핫 및 쿨 Blob은 모두 지원됩니다. 현재 Azure 퍼블릭 클라우드에서 미국, 유럽 서부 및 유럽 북부의 스토리지 계정만 지원됩니다.
 
 ### <a name="q-what-is-the-toolset-available-for-my-data-with-data-box-disks"></a>Q. Data Box Disk에서 데이터에 사용할 수 있는 도구 세트는 무엇입니까?
 a. Data Box Disk에서 사용할 수 있는 도구 세트로는 세 가지 도구가 있습니다.
@@ -145,7 +145,7 @@ a. Azure Files는 Data Box Disk에 지원되지만, Azure 파일 동기화에는
 a.  데이터 복사에 대한 주문 상태가 완료됨으로 표시되면 데이터에 바로 액세스할 수 있습니다.
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>Q. 업로드되면 Azure에서 내 데이터가 어디에 있나요?
-a.  *BlockBlob* 및 *PageBlob* 폴더 아래에 있는 데이터를 디스크에 복사하면, *BlockBlob* 및 *PageBlob* 폴더 아래의 각 하위 폴더에 대한 컨테이너가 Azure 저장소 계정에 만들어집니다. 파일을 *BlockBlob* 및 *PageBlob* 폴더 아래에 직접 복사한 경우 이러한 파일은 Azure Storage 계정 아래의 *$root* 기본 컨테이너에 있습니다. 데이터를 *AzureFile* 폴더 아래의 폴더에 복사하면 파일 공유가 생성됩니다.
+a.  *BlockBlob* 및 *PageBlob* 폴더 아래에 있는 데이터를 디스크에 복사하면, *BlockBlob* 및 *PageBlob* 폴더 아래의 각 하위 폴더에 대한 컨테이너가 Azure Storage 계정에 만들어집니다. 파일을 *BlockBlob* 및 *PageBlob* 폴더 아래에 직접 복사한 경우 이러한 파일은 Azure Storage 계정 아래의 *$root* 기본 컨테이너에 있습니다. 데이터를 *AzureFile* 폴더 아래의 폴더에 복사하면 파일 공유가 생성됩니다.
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>Q. 방금 내 컨테이너에 대해 Azure 명명 요구 사항을 따르지 않았음을 알게 되었습니다. 이 경우 내 데이터가 Azure에 업로드되지 않나요?
 a. 컨테이너 이름에 대문자가 있으면 자동으로 소문자로 변환됩니다. 이름이 다른 방식(특수 문자, 다른 언어 등)으로 준수되지 않으면 업로드가 실패합니다. 자세한 내용을 보려면 [Azure 명명 규칙](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions)으로 이동하세요.

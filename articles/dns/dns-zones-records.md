@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: victorh
-ms.openlocfilehash: 2b9c8f1bb7407dd36623fd8ad68f9489172a1caf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a62a4d5f06856ca0fe6356ca388047679097e3f
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712230"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68004467"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>DNS 영역 및 레코드 개요
 
@@ -59,7 +59,7 @@ Azure DNS는 [와일드카드 레코드](https://en.wikipedia.org/wiki/Wildcard_
 ### <a name="caa-records"></a>CAA 레코드
 
 CAA 레코드를 사용하면 도메인 소유자가 자신의 도메인에 대한 인증서를 발급할 권한이 있는 CA(인증 기관)를 지정할 수 있습니다. 이렇게 하면 일부 환경에서는 인증서가 착오 발급되는 것을 방지할 수 있습니다. CAA 레코드에는 다음 세 가지 속성이 있습니다.
-* **플래그**: 이 0과 당 특별 한 의미가 있는 중요 한 플래그를 나타내는 데 255 사이의 정수를 [RFC](https://tools.ietf.org/html/rfc6844#section-3)
+* **플래그**: 이 값은 0에서 255 사이의 정수 이며, [RFC](https://tools.ietf.org/html/rfc6844#section-3) 에 따라 특별 한 의미가 있는 중요 플래그를 나타내는 데 사용 됩니다.
 * **Tag**: ASCII 문자열이며 다음 중 하나일 수 있습니다.
     * **issue**: 인증서(모든 유형)를 발급할 권한이 있는 CA를 지정하려는 경우에 사용합니다.
     * **issuewild**: 인증서(와일드카드 인증서만 해당)를 발급할 권한이 있는 CA를 지정하려는 경우에 사용합니다.
@@ -88,6 +88,8 @@ SOA 레코드는 각 영역의 루트(name = '\@')에서 자동으로 생성되�
 
 SOA 레코드에서 'host' 속성(Azure DNS에서 제공한 기본 이름 서버 이름을 참조하도록 사전 구성됨)을 제외한 모든 속성을 수정할 수 있습니다.
 
+SOA 레코드의 영역 일련 번호는 영역에 레코드가 변경 될 때 자동으로 업데이트 되지 않습니다. 필요한 경우 SOA 레코드를 편집 하 여 수동으로 업데이트할 수 있습니다.
+
 ### <a name="spf-records"></a>SPF 레코드
 
 [!INCLUDE [dns-spf-include](../../includes/dns-spf-include.md)]
@@ -111,13 +113,13 @@ DNS 레코드의 여러 문자열을 TXT 레코드 집합의 여러 TXT 레코�
 
 ## <a name="tags-and-metadata"></a>태그 및 메타데이터
 
-### <a name="tags"></a>태그들
+### <a name="tags"></a>Tags
 
 태그는 이름-값 쌍의 목록으로, Azure Resource Manager에서 리소스에 레이블을 지정하는 데 사용됩니다.  Azure Resource Manager는 태그를 사용하여 Azure 청구서를 필터링하여 표시할 수 있으며 태그가 필요한 정책을 설정할 수 있습니다. 태그에 대한 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/resource-group-using-tags.md)을 참조하십시오.
 
 Azure DNS에서는 DNS 영역 리소스에 Azure Resource Manager 태그를 사용할 수 있으며  아래 설명된 대로 대체 ‘메타데이터’가 DNS 레코드 집합에서 지원되기는 하지만 DNS 레코드 집합의 태그는 지원하지 않습니다.
 
-### <a name="metadata"></a>Metadata
+### <a name="metadata"></a>메타데이터
 
 Azure DNS에서는 레코드 집합 태그 대신 '메타데이터'를 사용하여 레코드 집합에 주석을 추가할 수 있습니다.  태그와 유사한 메타데이터를 사용하면 각 레코드 집합에 이름-값 쌍을 연결할 수 있습니다.  이는 각 레코드 집합의 목적을 기록하는 데 유용할 수 있습니다.  태그와 달리, 메타데이터는 Azure 청구서를 필터링하여 표시하는 데 사용할 수 없으며 Azure Resource Manager 정책에서 지정할 수 없습니다.
 
@@ -134,7 +136,7 @@ Azure DNS REST API 수준에서 Etag는 HTTP 헤더를 사용하여 지정됩니
 | 헤더 | 동작 |
 | --- | --- |
 | 없음 |PUT 항상 성공(Etag 검사 안 함) |
-| If-match \<etag > |리소스가 있고 Etag가 일치하는 경우에만 PUT 성공 |
+| -Match \<etag > |리소스가 있고 Etag가 일치하는 경우에만 PUT 성공 |
 | If-match * |리소스가 있는 경우에만 PUT 성공 |
 | If-none-match * |리소스가 없는 경우에만 PUT 성공 |
 

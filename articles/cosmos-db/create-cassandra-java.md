@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Cassandra API와 Java - Azure Cosmos DB'
+title: Cassandra API 및 Java를 사용하여 앱 빌드 - Azure Cosmos DB
 description: 이 빠른 시작은 Azure Portal 및 Java와 함께 Azure Cosmos DB Cassandra API를 사용하여 프로필 애플리케이션을 만드는 방법을 보여 줍니다.
 ms.service: cosmos-db
 author: SnehaGunda
@@ -8,12 +8,13 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: c3bfcffacee7df8a5abf59676a1c47fa283dee7b
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.custom: seo-java-august2019
+ms.openlocfilehash: 7a76ed943a9c3f7312653d1ea4d714e4c02a5294
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65519029"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615620"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-java-sdk-and-azure-cosmos-db"></a>빠른 시작: Java SDK 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
 
@@ -71,7 +72,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ## <a name="review-the-code"></a>코드 검토
 
-이 단계는 선택 사항입니다. 코드로 데이터베이스 리소스를 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 그렇지 않으면 [연결 문자열 업데이트](#update-your-connection-string)로 건너뛸 수 있습니다. 이러한 코드 조각은 모두 `src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java` 파일에서 가져옵니다.  
+이 단계는 선택 사항입니다. 코드로 데이터베이스 리소스를 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 그렇지 않으면 [연결 문자열 업데이트](#update-your-connection-string)로 건너뛸 수 있습니다. 이 코드 조각은 모두 *src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java* 파일에서 가져옵니다.  
 
 * Cassandra 호스트, 포트, 사용자 이름, 암호 및 SSL 옵션이 설정됩니다. 연결 문자열 정보는 Azure Portal의 연결 문자열 페이지에서 가져옵니다.
 
@@ -85,7 +86,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
     return cluster.connect();
     ```
 
-다음 코드 조각은 `src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java` 파일에서 가져옵니다.
+다음 코드 조각은 *src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java* 파일에서 가져온 것입니다.
 
 * 새 keyspace를 만듭니다.
 
@@ -203,7 +204,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
     터미널 창에 키스페이스와 테이블이 작성되었다는 알림이 표시됩니다. 그런 다음, 테이블의 모든 사용자를 선택하여 반환하고 출력을 표시한 후 ID로 행을 선택하고 값을 표시합니다.  
 
-    프로그램 실행을 중지하고 콘솔 창을 닫으려면 CTRL+C를 누릅니다.
+    프로그램 실행을 중지하고 콘솔 창을 닫으려면 **CTRL + C**를 선택합니다.
 
 4. Azure Portal에서 **데이터 탐색기**를 열어 이 새 데이터를 쿼리/수정/사용합니다. 
 
@@ -219,7 +220,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 데이터 탐색기를 사용하여 Azure Cosmos DB 계정, Cassandra 데이터베이스, 컨테이너를 만들고, 프로그래밍 방법으로 같은 작업을 수행하도록 앱을 실행하는 방법을 알아보았습니다. 이제 Azure Cosmos DB 컨테이너에 추가 데이터를 가져올 수 있습니다. 
+이 빠른 시작에서는 데이터 탐색기를 사용하여 Azure Cosmos DB 계정, Cassandra 데이터베이스, 컨테이너를 만들고, 프로그래밍 방법으로 같은 작업을 수행하도록 앱을 실행하는 방법을 알아보았습니다. 이제 Azure Cosmos 컨테이너에 추가 데이터를 가져올 수 있습니다. 
 
 > [!div class="nextstepaction"]
 > [Azure Cosmos DB로 Cassandra 데이터 가져오기](cassandra-import-data.md)

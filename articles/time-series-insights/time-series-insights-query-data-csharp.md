@@ -1,5 +1,5 @@
 ---
-title: 사용 하 여 Azure Time Series Insights GA 환경에서 데이터를 쿼리 C# 코드 | Microsoft Docs
+title: 코드를 사용 하 여 C# Azure Time Series Insights GA 환경에서 데이터 쿼리 | Microsoft Docs
 description: 이 문서에서는 C#(c-sharp) .NET 언어로 작성된 사용자 지정 앱을 코딩하여 Azure Time Series Insights 환경에서 데이터를 쿼리하는 방법을 설명합니다.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,18 +10,18 @@ reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/05/2019
+ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 250dd691c3ef3146d6768123de52bf0628b10e42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 66c79bed59c8966156d6f000e74e5300edc0245a
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66728960"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883915"
 ---
-# <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>사용 하 여 Azure Time Series Insights GA 환경에서 데이터 쿼리C#
+# <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>를 사용 하 여 Azure Time Series Insights GA 환경에서 데이터 쿼리C#
 
-이 C# 예제에서는 Azure Time Series Insights GA 환경에서에서 데이터를 쿼리 하는 방법을 보여 줍니다.
+이 C# 예제에서는 Azure Time Series Insights GA 환경에서 데이터를 쿼리 하는 방법을 보여 줍니다.
 
 이 샘플은 쿼리 API 사용의 몇 가지 기본 예제를 보여 줍니다.
 
@@ -31,11 +31,11 @@ ms.locfileid: "66728960"
 1. 웹 소켓 요청의 예로, 관심 환경에 대해 이벤트 집계 데이터를 요청합니다. 전체 가용성 시간 범위에 대한 데이터가 요청됩니다.
 
 > [!NOTE]
-> 예제 코드에서 제공 됩니다 [ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample)합니다.
+> 예제 코드는에서 [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample)사용할 수 있습니다.
 
 ## <a name="project-dependencies"></a>프로젝트 종속성
 
-NuGet 패키지 추가 `Microsoft.IdentityModel.Clients.ActiveDirectory` 고 `Newtonsoft.Json`입니다.
+NuGet 패키지 `Microsoft.IdentityModel.Clients.ActiveDirectory` 및를 `Newtonsoft.Json`추가 합니다.
 
 ## <a name="c-example"></a>C# 예제
 
@@ -43,6 +43,6 @@ NuGet 패키지 추가 `Microsoft.IdentityModel.Clients.ActiveDirectory` 고 `Ne
 
 ## <a name="next-steps"></a>다음 단계
 
-- 쿼리에 대 한 자세한 내용은 참조는 [쿼리 API 참조](/rest/api/time-series-insights/ga-query-api)합니다.
+- 쿼리에 대 한 자세한 내용은 [쿼리 API 참조를 참조](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api)하세요.
 
-- 읽기 방법 하 [JavaScript 단일 페이지 앱 연결](tutorial-create-tsi-sample-spa.md) Time Series Insights에 있습니다.
+- Time Series Insights에 [JavaScript 단일 페이지 앱을 연결](tutorial-create-tsi-sample-spa.md) 하는 방법을 참조 하세요.

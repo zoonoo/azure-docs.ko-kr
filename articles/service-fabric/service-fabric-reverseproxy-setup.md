@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/13/2018
-ms.author: v-jamebr
-ms.openlocfilehash: 7f1b6f955dd3f59f6c17403b536cf99d666aab08
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: chackdan
+ms.openlocfilehash: 826e7e953bd713bb623ec469b45c56012601490b
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60392997"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69030811"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric에서 역방향 프록시 설정 및 구성
 역방향 프록시는 Service Fabric 클러스터에서 실행되는 마이크로 서비스를 통해 http 엔드포인트가 있는 다른 서비스를 검색하고 통신할 수 있도록 하는 선택적 Azure Service Fabric 서비스입니다. 자세한 내용은 [Azure Service Fabric의 역방향 프록시](service-fabric-reverseproxy.md)를 참조하세요. 이 문서에서는 클러스터에서 역방향 프록시를 설정하고 구성하는 방법에 대해 설명합니다. 
@@ -334,7 +333,7 @@ Azure에서 호스팅되는 클러스터에 대한 Resource Manager 템플릿 �
 
 Azure 클러스터에 대한 패브릭 설정을 업데이트하는 방법에 대한 자세한 내용은 [Resource Manager 템플릿을 사용하여 클러스터 설정 사용자 지정](service-fabric-cluster-config-upgrade-azure.md)을 참조하세요. 독립 실행형 클러스터의 경우 [독립 실행형 클러스터에 대한 클러스터 설정 사용자 지정](service-fabric-cluster-config-upgrade-windows-server.md)을 참조하세요. 
 
-몇 가지 패브릭 설정은 역방향 프록시와 서비스 간의 보안 통신을 설정하는 데 사용됩니다. 이러한 설정에 대 한 자세한 내용은 [역방향 프록시를 사용 하 여 보안 서비스에 연결](service-fabric-reverseproxy-configure-secure-communication.md)합니다.
+몇 가지 패브릭 설정은 역방향 프록시와 서비스 간의 보안 통신을 설정하는 데 사용됩니다. 이러한 설정에 대 한 자세한 내용은 [역방향 프록시를 사용 하 여 보안 서비스에 연결](service-fabric-reverseproxy-configure-secure-communication.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [역방향 프록시를 사용하여 보안 HTTP 서비스에 전달 설정](service-fabric-reverseproxy-configure-secure-communication.md)

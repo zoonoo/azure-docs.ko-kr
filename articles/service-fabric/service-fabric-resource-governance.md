@@ -3,7 +3,7 @@ title: 컨테이너 및 서비스에 대한 Azure Service Fabric 리소스 거�
 description: Azure Service Fabric을 사용하면 컨테이너 내부 또는 외부에서 실행 중인 서비스에 대해 리소스 제한을 지정할 수 있습니다.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
-ms.author: aljo, subramar
-ms.openlocfilehash: e011554e61411fddca034f024c30c2270593e07b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: subramar
+ms.openlocfilehash: ed9ea8f9c340331fd9b8fcc014ab1af88e7b3bae
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60772538"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599242"
 ---
 # <a name="resource-governance"></a>리소스 관리
 

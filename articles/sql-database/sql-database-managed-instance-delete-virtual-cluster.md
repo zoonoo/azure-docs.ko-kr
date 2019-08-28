@@ -1,53 +1,51 @@
 ---
-title: 관리 되는 인스턴스를 Azure SQL Database를 삭제 한 후 서브넷을 삭제 합니다. | Microsoft Docs
-description: 관리 되는 인스턴스를 Azure SQL Database를 삭제 한 후 Azure 가상 네트워크를 삭제 하는 방법에 알아봅니다.
+title: Azure SQL Database 관리 되는 인스턴스를 삭제 한 후 서브넷 삭제 | Microsoft Docs
+description: Azure SQL Database 관리 되는 인스턴스를 삭제 한 후 Azure 가상 네트워크를 삭제 하는 방법에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: management
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
-manager: craigg
 ms.date: 06/26/2019
-ms.openlocfilehash: 4679ecda210fa78aad4315bc6602b67dd1795ce9
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f6e0b55ad2fbd9b4c45dbd1facaebd4750314c63
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427984"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567536"
 ---
-# <a name="delete-a-subnet-after-deleting-an-azure-sql-database-managed-instance"></a>관리 되는 인스턴스를 Azure SQL Database를 삭제 한 후 서브넷을 삭제 합니다.
+# <a name="delete-a-subnet-after-deleting-an-azure-sql-database-managed-instance"></a>Azure SQL Database 관리 되는 인스턴스를 삭제 한 후 서브넷 삭제
 
-이 문서에서는 관리 되는 것에 있는 인스턴스를 마지막으로 Azure SQL Database를 삭제 한 후 서브넷을 수동으로 삭제 하는 방법에 지침을 제공 합니다.
+이 문서에서는 마지막으로 Azure SQL Database 관리 되는 인스턴스를 삭제 한 후 수동으로 서브넷을 삭제 하는 방법에 대 한 지침을 제공 합니다.
 
-SQL Database를 사용 하는 [가상 클러스터](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture) 삭제 된 관리 되는 인스턴스를 포함 합니다. 가상 클러스터 동일한 서브넷에서 관리 되는 인스턴스를 빠르게 만들 수 있도록 하는 인스턴스를 삭제 한 후 12 시간 동안 유지 됩니다. 빈 가상 클러스터를 유지 하는 것에 대 한 요금은 없습니다. 이 기간 동안에는 가상 클러스터와 연결된 서브넷을 삭제할 수 없습니다.
+SQL Database는 [가상 클러스터](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture) 를 사용 하 여 삭제 된 관리 되는 인스턴스를 포함 합니다. 가상 클러스터는 인스턴스 삭제 후 12 시간 동안 지속 되므로 동일한 서브넷에서 관리 되는 인스턴스를 빠르게 만들 수 있습니다. 빈 가상 클러스터를 유지 하는 데에는 요금이 부과 되지 않습니다. 이 기간 동안에는 가상 클러스터와 연결된 서브넷을 삭제할 수 없습니다.
 
-12 시간 동안 기다린 후 가상 클러스터 및 해당 서브넷을 즉시 삭제 하는 것을 선호를 않으려면 되므로 수동으로 수행할 수 있습니다. Azure portal 또는 가상 클러스터 API 사용 하 여 수동으로 가상 클러스터를 삭제 합니다.
+12 시간을 기다리지 않고 가상 클러스터 및 서브넷을 즉시 삭제 하는 것이 좋습니다 .이 작업은 수동으로 수행할 수 있습니다. Azure Portal 또는 가상 클러스터 API를 사용 하 여 가상 클러스터를 수동으로 삭제 합니다.
 
 > [!NOTE]
-> 가상 클러스터 삭제가 성공 하려면에 대 한 관리 되는 인스턴스가 있어야 합니다.
+> 삭제를 성공적으로 수행 하려면 가상 클러스터에 관리 되는 인스턴스가 없어야 합니다.
 
-## <a name="delete-virtual-cluster-from-the-azure-portal"></a>Azure portal에서 가상 클러스터를 삭제 합니다.
+## <a name="delete-virtual-cluster-from-the-azure-portal"></a>Azure Portal에서 가상 클러스터를 삭제 합니다.
 
-Azure portal을 사용 하 여 가상 클러스터를 삭제 하려면 가상 클러스터 리소스를 검색 합니다.
+Azure Portal를 사용 하 여 가상 클러스터를 삭제 하려면 가상 클러스터 리소스를 검색 합니다.
 
-![강조 표시 하는 검색 상자를 사용 하 여 Azure portal의 스크린샷](./media/sql-database-managed-instance-delete-virtual-cluster/virtual-clusters-search.png)
+![검색 상자가 강조 표시 된 Azure Portal의 스크린샷](./media/sql-database-managed-instance-delete-virtual-cluster/virtual-clusters-search.png)
 
-삭제 하려는 가상 클러스터를 찾은 후이 리소스를 선택 하 고 선택 **삭제**합니다. 가상 클러스터를 삭제할 것인지 묻는 메시지가 나타납니다.
+삭제 하려는 가상 클러스터를 찾은 후이 리소스를 선택 하 고 **삭제**를 선택 합니다. 가상 클러스터 삭제를 확인 하는 메시지가 표시 됩니다.
 
-![Azure portal 가상 스크린샷 삭제 옵션이 강조 표시 된 대시보드, 클러스터](./media/sql-database-managed-instance-delete-virtual-cluster/virtual-clusters-delete.png)
+![삭제 옵션이 강조 표시 된 Azure Portal 가상 클러스터 대시보드의 스크린샷](./media/sql-database-managed-instance-delete-virtual-cluster/virtual-clusters-delete.png)
 
-Azure portal 알림 영역 가상 클러스터가 삭제 되었습니다 확인 보여 줍니다. 가상 클러스터 성공적으로 삭제는 즉시 다시 사용할 수 있도록 서브넷을 해제합니다.
+Azure Portal 알림 영역에는 가상 클러스터가 삭제 되었다는 확인 메시지가 표시 됩니다. 가상 클러스터를 성공적으로 삭제 하면 다시 사용할 서브넷을 즉시 해제 합니다.
 
 > [!TIP]
-> 가상 클러스터에 표시 된 관리 되는 인스턴스가 없는 가상 클러스터를 삭제할 수 없는 경우에 필요가 없습니다 지속적인 인스턴스 배포를 진행에서을 확인 합니다. 여기에 여전히 진행 중인 배포를 시작 및 취소 합니다. 배포에 배포 된 리소스 그룹 인스턴스 탭 검토 진행률에 대 한 모든 배포를 표시 합니다. 이 경우 배포 완료에 대 한 await, 관리 되는 인스턴스 및 다음 가상 클러스터 삭제 합니다.
+> 가상 클러스터에 표시 된 관리 되는 인스턴스가 없고 가상 클러스터를 삭제할 수 없는 경우 진행 중인 인스턴스 배포가 진행 되 고 있지 않은지 확인 합니다. 아직 진행 중인 시작 및 취소 된 배포도 포함 됩니다. 인스턴스가 배포 된 리소스 그룹의 배포 검토 탭은 진행 중인 모든 배포를 표시 합니다. 이 경우 배포가 완료 될 때까지 대기 하 고 관리 되는 인스턴스를 삭제 한 다음 가상 클러스터를 삭제 합니다.
 
-## <a name="delete-virtual-cluster-by-using-the-api"></a>API를 사용 하 여 가상 클러스터를 삭제 합니다.
+## <a name="delete-virtual-cluster-by-using-the-api"></a>API를 사용 하 여 가상 클러스터 삭제
 
-API 통해 가상 클러스터를 삭제 하려면에 지정 된 URI 매개 변수를 사용 합니다 [메서드를 삭제 하는 가상 클러스터](https://docs.microsoft.com/rest/api/sql/virtualclusters/delete)합니다.
+API를 통해 가상 클러스터를 삭제 하려면 [가상 클러스터 삭제 방법](https://docs.microsoft.com/rest/api/sql/virtualclusters/delete)에 지정 된 URI 매개 변수를 사용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

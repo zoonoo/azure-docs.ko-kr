@@ -11,18 +11,17 @@ ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
 ms.service: cloud-services
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: fb4b5dde63d8c7c75419d3202d9848cd6fde8b8a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0d70e52b77c7f34444ce12f84f17a5ed2d1afe46
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60337547"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68941770"
 ---
-# <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>응용 프로그램 및 Azure Cloud Services에 대 한 서비스 사용 가능성 문제: FAQ(질문과 대답)
+# <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services에 대 한 응용 프로그램 및 서비스 가용성 문제: FAQ(질문과 대답)
 
 이 문서는 [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services)의 애플리케이션 및 서비스 사용 가능성 문제에 대한 질문과 대답을 포함합니다. 크기 정보는 [Cloud Services VM 크기 페이지](cloud-services-sizes-specs.md) 를 참조할 수도 있습니다.
 

@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 006170b2030b6511ba732a1b12aa5b5b811d8900
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 1342616a0d32d8ac68965bc04f1fd3ca60146369
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447489"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966761"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>QnA Maker의 기술 자료 편집
 
@@ -36,14 +36,14 @@ QnA Maker는 사용하기 쉬운 편집 환경을 제공하여 기술 자료 콘
  
 1. **설정**을 선택합니다. 여기에서 필수 필드인 서비스 이름을 편집할 수 있습니다.
   
-    |목표|액션(Action)|
+    |목표|작업|
     |--|--|
     |URL 추가|**기술 자료 관리 -> '+ URL 추가'** 링크를 클릭하여 기술 자료에 새 FAQ 콘텐츠를 추가할 새 URL을 추가할 수 있습니다.|
     |URL 삭제|삭제 아이콘, 휴지통을 선택하여 기존 URL을 삭제할 수 있습니다.|
     |URL 콘텐츠 새로 고침|기술 자료에서 기존 URL의 최신 콘텐츠를 탐색하도록 하려면 **새로 고침** 확인란을 선택합니다. 이렇게 하면 최신 URL 콘텐츠로 기술 자료가 업데이트됩니다.|
     |파일 추가|**기술 자료 관리**를 선택한 다음, **+ 파일 추가**를 선택하여 기술 자료의 일부가 되도록 지원되는 파일 문서를 추가할 수 있습니다.|
     |가져오기|**기술 자료 가져오기** 단추를 선택하여 기존 기술 자료를 가져올 수도 있습니다. |
-    |주 지역에서|기술 자료의 업데이트는 기술 자료와 관련된 QnA Maker 서비스를 만드는 동안 사용되는 **관리 가격 책정 계층**에 따라 달라집니다. 필요한 경우 Azure Portal에서 관리 계층을 업데이트할 수도 있습니다.
+    |업데이트|기술 자료의 업데이트는 기술 자료와 관련된 QnA Maker 서비스를 만드는 동안 사용되는 **관리 가격 책정 계층**에 따라 달라집니다. 필요한 경우 Azure Portal에서 관리 계층을 업데이트할 수도 있습니다.
 
 1. 기술 자료 변경을 마쳤으면 변경 내용을 유지하기 위해 페이지의 오른쪽 맨 위 모서리에 있는 **저장 후 학습**을 선택합니다.    
 
@@ -54,7 +54,7 @@ QnA Maker는 사용하기 쉬운 편집 환경을 제공하여 기술 자료 콘
 
 ## <a name="add-a-qna-pair"></a>QnA 쌍 추가
 
-에 **설정을** 페이지에서 **QnA 추가 쌍** 기술 자료 테이블에 새 행을 추가 하려면.
+**설정** 페이지에서 **QnA pair 추가** 를 선택 하 여 기술 자료 테이블에 새 행을 추가 합니다.
 
 ![QnA 쌍 추가](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
 
@@ -72,7 +72,7 @@ QnA를 삭제하려면 QnA 행의 맨 오른쪽에 있는 **삭제** 아이콘�
 
 ## <a name="add-metadata"></a>메타데이터 추가
 
-첫 번째 선택 하 여 메타 데이터 쌍을 추가 **옵션을 보려면**를 선택한 다음 **메타 데이터가 표시**합니다. 이 메타 데이터 열을 표시 합니다. 다음을 선택 합니다 **+** 메타 데이터 쌍을 추가 하려면 로그인 합니다. 이 쌍 하나 키 한 개와 값으로 구성 됩니다.
+먼저 **보기 옵션**을 선택한 다음 **메타 데이터 표시**를 선택 하 여 메타 데이터 쌍을 추가 합니다. 메타 데이터 열이 표시 됩니다. 그런 다음, **+** 서명을 선택 하 여 메타 데이터 쌍을 추가 합니다. 이 쌍은 하나의 키와 하나의 값으로 구성 됩니다.
 
 ![메타데이터 추가](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 

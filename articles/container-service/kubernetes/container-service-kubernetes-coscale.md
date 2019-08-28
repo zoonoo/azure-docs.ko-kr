@@ -20,7 +20,7 @@ ms.locfileid: "60713080"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-이 문서에서는 [CoScale](https://web.archive.org/web/20180317071550/ https://www.coscale.com/) 에이전트를 배포하여 Azure Container Service의 Kubernetes 클러스터에 있는 모든 노드 및 컨테이너를 모니터링하는 방법을 보여 줍니다. 이러한 구성을 위해서는 CoScale 계정이 필요합니다. 
+이 문서에서는 [CoScale](https://web.archive.org/web/20180317071550/https://www.coscale.com/) 에이전트를 배포하여 Azure Container Service의 Kubernetes 클러스터에 있는 모든 노드 및 컨테이너를 모니터링하는 방법을 보여 줍니다. 이러한 구성을 위해서는 CoScale 계정이 필요합니다. 
 
 
 ## <a name="about-coscale"></a>CoScale 정보 
@@ -34,7 +34,7 @@ CoScale은 여러 오케스트레이션 플랫폼의 모든 컨테이너에서 �
 
 ## <a name="prerequisites"></a>필수 조건
 
-먼저 [CoScale 계정을 만들어야 합니다](https://web.archive.org/web/20170507123133/ https://www.coscale.com/free-trial).
+먼저 [CoScale 계정을 만들어야 합니다](https://web.archive.org/web/20170507123133/https://www.coscale.com/free-trial).
 
 이 연습에서는 [Azure Container Service를 사용하여 Kubernetes 클러스터를 만들었다고](container-service-kubernetes-walkthrough.md) 가정합니다.
 
@@ -81,5 +81,5 @@ CoScale 에이전트는 클러스터의 새 컴퓨터에 자동으로 배포됩�
 
 ## <a name="next-steps"></a>다음 단계
 
-CoScale 모니터링 솔루션에 대한 자세한 내용은 [CoScale 설명서](https://web.archive.org/web/20180415164304/ http://docs.coscale.com:80/) 및 [블로그](https://web.archive.org/web/20170501021344/ http://www.coscale.com:80/blog)를 참조하세요. 
+CoScale 모니터링 솔루션에 대한 자세한 내용은 [CoScale 설명서](https://web.archive.org/web/20180415164304/http://docs.coscale.com:80/) 및 [블로그](https://web.archive.org/web/20170501021344/http://www.coscale.com:80/blog)를 참조하세요. 
 

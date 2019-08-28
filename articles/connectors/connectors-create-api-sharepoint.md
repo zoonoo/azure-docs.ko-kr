@@ -11,12 +11,12 @@ ms.assetid: e0ec3149-507a-409d-8e7b-d5fbded006ce
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: e636b2bb08477e6c56c6ae41f08983fc5bfa2a9b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8a34ee4e90b551da35aff8802c8badc0d74ff539
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60450746"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050775"
 ---
 # <a name="monitor-and-manage-sharepoint-resources-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 SharePoint 리소스 모니터링 및 관리
 
@@ -37,9 +37,9 @@ Azure Logic Apps 및 SharePoint 커넥터를 사용하여 온-프레미스의 Sh
 트리거를 사용하여 SharePoint에서 응답을 가져오고 다른 작업에서 출력을 사용하도록 할 수 있습니다. 논리 앱에서 작업을 사용하여 SharePoint에서 다양한 작업을 수행할 수 있습니다. 또한 다른 작업에서 SharePoint 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어 SharePoint에서 정기적으로 파일을 인출하는 경우 Slack 커넥터를 사용하여 팀에 메시지를 보낼 수 있습니다.
 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
-* Azure 구독. Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다. 
+* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 
 
 * SharePoint 사이트 주소 및 사용자 자격 증명
 
@@ -72,7 +72,7 @@ Azure Logic Apps 및 SharePoint 커넥터를 사용하여 온-프레미스의 Sh
    단계 사이에서 작업을 추가하려면 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 
    표시되는 더하기 기호( **+** )를 선택한 다음, **작업 추가**를 선택합니다.
 
-1. 로그인하라는 메시지가 표시되면 필요한 연결 정보를 입력합니다. SharePoint Server를 사용 하는 경우 선택 해야 **온-프레미스 데이터 게이트웨이 통해 연결**합니다. 작업을 완료하면 **만들기**를 선택합니다.
+1. 로그인하라는 메시지가 표시되면 필요한 연결 정보를 입력합니다. SharePoint Server를 사용 하는 경우 **온-프레미스 데이터 게이트웨이를 통해 연결**을 선택 해야 합니다. 작업을 완료하면 **만들기**를 선택합니다.
 
 1. 선택한 트리거 또는 작업에 대해 필요한 세부 정보를 제공하고 논리 앱의 워크플로를 계속 빌드합니다.
 

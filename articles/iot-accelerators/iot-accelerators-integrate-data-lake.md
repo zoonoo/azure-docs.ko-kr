@@ -122,7 +122,7 @@ Azure Stream Analytics 작업을 만들어 IoT 허브에서 Azure Data Lake Stor
 
 ## <a name="edit-the-stream-analytics-query"></a>Stream Analytics 쿼리 편집
 
-Azure Stream Analytics는 SQL과 유사한 쿼리 언어를 사용하여 데이터를 스트리밍하고, 원하는대로 데이터를 변환하고, 다양한 저장소 또는 처리 대상에 출력하는 입력 소스를 지정합니다.
+Azure Stream Analytics는 SQL과 유사한 쿼리 언어를 사용하여 데이터를 스트리밍하고, 원하는대로 데이터를 변환하고, 다양한 스토리지 또는 처리 대상에 출력하는 입력 소스를 지정합니다.
 
 1. 개요 탭에서 **쿼리 편집**을 클릭합니다.
 

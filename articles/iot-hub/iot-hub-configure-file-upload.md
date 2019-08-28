@@ -27,7 +27,7 @@ ms.locfileid: "60735058"
 
 * **스토리지 컨테이너**: Azure portal를 사용 하 여 IoT Hub에 연결 하려면 현재 Azure 구독에 Azure Storage 계정에서 blob 컨테이너를 선택 합니다. 필요에 따라 **Storage 계정** 블레이드에 Azure Storage 계정을 만들고 **컨테이너** 블레이드에 Blob 컨테이너를 만들 수 있습니다. IoT Hub는 파일을 업로드하는 경우에 사용할 디바이스에 대한 이 Blob 컨테이너에 쓰기 권한이 있는 SAS URI를 자동으로 생성합니다.
 
-   ![포털에서 파일 업로드에 대한 저장소 컨테이너 보기](./media/iot-hub-configure-file-upload/file-upload-container-selection.png)
+   ![포털에서 파일 업로드에 대한 스토리지 컨테이너 보기](./media/iot-hub-configure-file-upload/file-upload-container-selection.png)
 
 * **업로드된 파일에 대한 알림 받기**: 토글을 통해 파일 업로드 알림을 사용 하지 않도록 설정 하거나 사용 합니다.
 
@@ -52,5 +52,5 @@ Azure IoT Hub를 관리하는 방법에 대한 자세한 내용을 알아보려�
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 * [IoT Hub 개발자 가이드](iot-hub-devguide.md)
-* [Azure IoT Edge를 사용하여 에지 장치에 AI 배포](../iot-edge/tutorial-simulate-device-linux.md)
+* [Azure IoT Edge를 사용하여 에지 디바이스에 AI 배포](../iot-edge/tutorial-simulate-device-linux.md)
 * [처음부터 IoT 솔루션 보안 유지](../iot-fundamentals/iot-security-ground-up.md)

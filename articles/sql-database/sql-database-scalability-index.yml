@@ -19,7 +19,7 @@ metadata:
 sections:
   - items:
       - type: paragraph
-        text: Azure SQL Database를 사용하면 계산 능력을 추가(강화)하거나 데이터베이스 단위를 추가(스케일 아웃)하여 데이터베이스 크기를 쉽게 조정할 수 있습니다.
+        text: Azure SQL Database를 사용하면 컴퓨팅 능력을 추가(강화)하거나 데이터베이스 단위를 추가(스케일 아웃)하여 데이터베이스 크기를 쉽게 조정할 수 있습니다.
       - type: list
         style: cards
         className: cardsM

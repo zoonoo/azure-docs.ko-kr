@@ -4,7 +4,7 @@ description: Azure App Service에 대한 인증/권한 부여 기능의 개념 �
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: erikre
+manager: gwallace
 editor: ''
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.service: app-service
@@ -12,20 +12,21 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/24/2018
-ms.author: mahender,cephalin
+ms.date: 08/12/2019
+ms.author: cephalin
+ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: d914e3ad3043b2671e154d1616c6800f34415c11
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d01994dc4d01baed71bb3de56e069fac5597dc77
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60835603"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69030848"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure App Service의 인증 및 권한 부여
 
 > [!NOTE]
-> 지금은 AAD V2 MSAL 등 Azure App Services 및 Azure Functions에 대 한 지원 되지 않습니다. 업데이트를 다시 확인 하세요.
+> 지금은 AAD V2 (MSAL 포함)가 Azure 앱 서비스 및 Azure Functions에 대해 지원 되지 않습니다. 업데이트를 다시 확인 하세요.
 >
 
 Azure App Service는 내장된 인증 및 권한 부여 지원을 제공하므로 웹앱, RESTful API 및 모바일 백 엔드에 코드를 최소한으로 작성하거나 코드를 작성하지 않고 사용자를 로그인시켜 데이터에 액세스할 수 있으며 [Azure Functions](../azure-functions/functions-overview.md)도 사용할 수 있습니다. 이 문서는 App Service가 앱의 인증 및 권한 부여를 단순화하는 방법에 대해 설명합니다. 
@@ -55,7 +56,7 @@ Azure App Service는 내장된 인증 및 권한 부여 지원을 제공하므�
 
 ### <a name="user-claims"></a>사용자 클레임
 
-모든 언어 프레임워크의 경우 App Service는 요청 헤더에 코드를 삽입하여 사용자의 클레임을 코드에 사용할 수 있게 합니다. ASP.NET 4.6 응용 프로그램의 경우 App Service는 인증된 사용자의 클레임을 사용하여 [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current)를 채우기 때문에 `[Authorize]` 특성을 비롯한 표준 .NET 코드 패턴을 따를 수 있습니다. 마찬가지로 PHP 앱의 경우, App Service는 `_SERVER['REMOTE_USER']` 변수를 채웁니다.
+모든 언어 프레임워크의 경우 App Service는 요청 헤더에 코드를 삽입하여 사용자의 클레임을 코드에 사용할 수 있게 합니다. ASP.NET 4.6 응용 프로그램의 경우 App Service는 인증된 사용자의 클레임을 사용하여 [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current)를 채우기 때문에 `[Authorize]` 특성을 비롯한 표준 .NET 코드 패턴을 따를 수 있습니다. 마찬가지로 PHP 앱의 경우, App Service는 `_SERVER['REMOTE_USER']` 변수를 채웁니다. Java 앱의 경우 [Tomcat 서블릿에서 클레임에 액세스할 수](containers/configure-language-java.md#authenticate-users-easy-auth)있습니다.
 
 [Azure Functions](../azure-functions/functions-overview.md)의 경우, `ClaimsPrincipal.Current`는 .NET 코드에 대해 하이드레이션되지 않지만 요청 헤더에서 사용자 클레임을 찾을 수 있습니다.
 
@@ -90,7 +91,7 @@ App Service는 [페더레이션 ID](https://en.wikipedia.org/wiki/Federated_iden
 | [Google](https://developers.google.com/+/web/api/rest/oauth) | `/.auth/login/google` |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` |
 
-이러한 공급자중 하나를 사용하여 인증 및 권한 부여를 활성화하면 사용자 인증과 공급자의 인증 토큰 유효성 검사에 로그인 엔드포인트를 사용할 수 있습니다. 사용자에게 여러 가지 로그인 옵션을 쉽게 제공할 수 있습니다. 다른 ID 공급자 또는 [사용자 고유의 사용자 지정 ID 솔루션][custom-auth]을 통합할 수도 있습니다.
+이러한 공급자중 하나를 사용하여 인증 및 권한 부여를 활성화하면 사용자 인증과 공급자의 인증 토큰 유효성 검사에 로그인 엔드포인트를 사용할 수 있습니다. 사용자에게 여러 가지 로그인 옵션을 쉽게 제공할 수 있습니다. 다른 id 공급자 또는 [사용자 고유의 사용자 지정 id 솔루션][custom-auth]을 통합할 수도 있습니다.
 
 ## <a name="authentication-flow"></a>인증 흐름
 
@@ -118,17 +119,17 @@ App Service는 [페더레이션 ID](https://en.wikipedia.org/wiki/Federated_iden
 
 ## <a name="authorization-behavior"></a>권한 부여 동작
 
-[Azure Portal](https://portal.azure.com)에서 여러 동작을 통해 App Service 인증을 구성 할 수 있습니다.
+[Azure Portal](https://portal.azure.com)에서 들어오는 요청이 인증 되지 않은 경우 여러 동작을 사용 하 여 App Service 권한 부여를 구성할 수 있습니다.
 
 ![](media/app-service-authentication-overview/authorization-flow.png)
 
 다음 제목은 옵션을 설명합니다.
 
-### <a name="allow-all-requests-default"></a>모든 요청(기본값) 허용
+### <a name="allow-anonymous-requests-no-action"></a>익명 요청 허용(작업 없음)
 
-인증 및 권한 부여는 App Service에서 관리하지 않습니다(사용 중지됨). 
+이 옵션은 응용 프로그램 코드에 대 한 인증 되지 않은 트래픽의 권한 부여를 지연 시킵니다. 인증된 요청의 경우 App Service는 HTTP 헤더의 인증 정보도 전달합니다. 
 
-인증 및 권한 부여가 필요하지 않거나 자체적으로 인증 및 인증 코드를 작성하려는 경우 이 옵션을 선택합니다.
+이 옵션은 익명 요청을 보다 유연하게 처리할 수 있습니다. 예를 들어 [여러 로그인 공급자](app-service-authentication-how-to.md#use-multiple-sign-in-providers)를 사용자에게 제공할 수 있습니다. 그러나 코드를 작성해야 합니다. 
 
 ### <a name="allow-only-authenticated-requests"></a>인증된 요청만 허용
 
@@ -136,11 +137,8 @@ App Service는 [페더레이션 ID](https://en.wikipedia.org/wiki/Federated_iden
 
 이 옵션을 사용하면 앱에서 인증 코드를 작성할 필요가 없습니다. 역할별 권한 부여와 같이 보다 정교한 권한 부여는 사용자의 클레임을 검사하여 처리할 수 있습니다([사용자 클레임 액세스](app-service-authentication-how-to.md#access-user-claims) 참조).
 
-### <a name="allow-all-requests-but-validate-authenticated-requests"></a>모든 요청을 허용하지만 인증된 요청의 유효성 검사
-
-옵션은 **익명 요청 허용**입니다. 이 옵션은 App Service의 인증 및 권한 부여를 활성화하지만 애플리케이션 코드에 대한 권한 결정을 지연시킵니다. 인증된 요청의 경우 App Service는 HTTP 헤더의 인증 정보도 전달합니다. 
-
-이 옵션은 익명 요청을 보다 유연하게 처리할 수 있습니다. 예를 들어 [여러 로그인 공급자](app-service-authentication-how-to.md#use-multiple-sign-in-providers)를 사용자에게 제공할 수 있습니다. 그러나 코드를 작성해야 합니다. 
+> [!CAUTION]
+> 이러한 방식으로 액세스를 제한 하는 것은 앱에 대 한 모든 호출에 적용 됩니다 .이는 여러 단일 페이지 응용 프로그램과 마찬가지로 공개적으로 사용 가능한 홈 페이지를 사용 하는 앱에는 바람직하지 않을 수 있습니다.
 
 ## <a name="more-resources"></a>추가 리소스
 

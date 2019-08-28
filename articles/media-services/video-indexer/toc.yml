@@ -21,6 +21,8 @@
       href: compare-video-indexer-with-media-services-presets.md
     - name: 여러 테넌트 관리
       href: manage-multiple-tenants.md
+    - name: 언어 식별 모델
+      href: language-identification-model.md
     - name: 콘텐츠 모델 사용자 지정
       items:
         - name: 개요
@@ -51,6 +53,8 @@
       href: use-editor-create-project.md
     - name: 애플리케이션에 위젯 포함
       href: video-indexer-embed-widgets.md
+    - name: 재해 복구
+      href: video-indexer-disaster-recovery.md
     - name: 콘텐츠 모델 사용자 지정
       items:
         - name: 사람

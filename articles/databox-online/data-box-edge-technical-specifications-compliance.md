@@ -34,7 +34,7 @@ Microsoft Azure 데이터 상자 Edge 장치의 하드웨어 구성 요소 기�
 
 The following table lists the typical power consumption data (actual values may vary from the published) for the Data Box Edge device.-->
 
-## <a name="storage-specifications"></a>저장소 사양
+## <a name="storage-specifications"></a>스토리지 사양
 
 데이터 가장자리가 상자의 장치에는 1.6TB 용량을 사용 하 여 각 10 X 2.5"NVMe Ssd에. 이러한 ssd 2 운영 체제 디스크가 및 다른 8 개의 데이터 디스크가 있습니다. 장치에 대 한 총 사용 가능한 용량은 약 12.5TB 인. 다음 테이블에 장치의 저장소 용량에 대 한 세부 정보입니다.
 

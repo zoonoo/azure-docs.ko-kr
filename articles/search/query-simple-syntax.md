@@ -4,10 +4,10 @@ description: Azure Search에서 전체 텍스트 검색 쿼리에 사용되는 �
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 08/08/2019
 author: brjohnstmsft
 ms.author: brjohnst
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,15 +19,15 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 75e2d7c493b535c984b0ef61dd9a9fae53aee80a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e6c5ea86534001e0e5de2b02c4151af70631e4ef
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024196"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650024"
 ---
 # <a name="simple-query-syntax-in-azure-search"></a>Azure Search의 단순 쿼리 구문
-Azure Search는 두 Lucene 쿼리 언어인 [단순 쿼리 파서](https://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) 및 [Lucene 쿼리 파서](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)를 구현합니다. Azure Search에서 단순 쿼리 구문에서는 유사 항목 검색 옵션이 제외됩니다.  
+Azure Search는 두 Lucene 쿼리 언어인 [단순 쿼리 파서](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) 및 [Lucene 쿼리 파서](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)를 구현합니다. Azure Search에서 단순 쿼리 구문에서는 유사 항목 검색 옵션이 제외됩니다.  
 
 > [!NOTE]  
 >  Azure Search는 보다 복잡한 쿼리를 위해 대체 [Lucene 쿼리 구문](query-lucene-syntax.md)을 제공합니다. 각 구문의 쿼리 구문 분석 아키텍처 및 장점에 대해 자세히 알아보려면 [Azure Search의 전체 텍스트 검색 작동 방식](search-lucene-query-architecture.md)을 참조하세요.
@@ -46,7 +46,7 @@ Azure Search는 두 Lucene 쿼리 언어인 [단순 쿼리 파서](https://lucen
 
 ## <a name="boolean-operators-and-or-not"></a>부울 연산자 (AND, OR, NOT) 
 
-다양 한 일치 하는 문서 발견 되는 조건 작성 하는 쿼리 문자열에 연산자를 포함할 수 있습니다. 
+쿼리 문자열에 연산자를 포함 하 여 일치 하는 문서를 찾을 수 있는 다양 한 조건 집합을 작성할 수 있습니다. 
 
 ### <a name="and-operator-"></a>AND 연산자 `+`
 
@@ -65,17 +65,17 @@ NOT 연산자는 빼기 기호입니다. 예를 들어, `wifi –luxury`는 `wif
 > [!NOTE]  
 >  `searchMode` 옵션은 `+` 또는 `|` 연산자가 없는 경우 NOT 연산자가 있는 용어가 쿼리의 다른 용어와 AND로 연결될지 또는 OR로 연결될지를 제어합니다. 앞서 설명한 것처럼 `searchMode`를 `any`(기본값) 또는 `all`로 설정할 수 있습니다. `any`를 사용하는 경우 더 많은 결과를 포함하여 쿼리 재현율을 높이고, 기본적으로 `-`은 "OR NOT"으로 해석됩니다. 예를 들어, `wifi -luxury`는 용어 `wifi`를 포함하는 문서 또는 용어 `luxury`를 포함하지 않는 문서를 검색합니다. `all`을 사용하는 경우 더 적은 수의 결과를 포함하여 쿼리 정확도를 높이고, 기본적으로 "AND NOT"으로 해석됩니다. 예를 들어 `wifi -luxury`는 용어 `wifi`를 포함하고 용어 "luxury"를 포함하지 않는 문서를 검색합니다. 이러한 동작이 `-` 연산자의 좀 더 간단한 동작일 것입니다. 따라서 재현율이 아니라 정확도에 따라 최적화하려고 *하며* 사용자가 검색에서 `-` 연산자를 자주 사용하는 경우 `searchMode=any` 대신 `searchMode=all`을 사용하는 것이 좋습니다.
 
-## <a name="suffix-operator"></a>접미사 연산자
+## <a name="suffix-operator"></a>Suffix 연산자
 
-접미사 연산자가 별표 `*`합니다. 예를 들어, `lux*`는 대/소문자를 무시하고 `lux`로 시작하는 용어가 포함된 문서를 검색합니다.  
+접미사 연산자는 별표 `*`입니다. 예를 들어, `lux*`는 대/소문자를 무시하고 `lux`로 시작하는 용어가 포함된 문서를 검색합니다.  
 
 ## <a name="phrase-search-operator"></a>구 검색 연산자
 
-구 연산자 묶지 구 `" "`합니다. 예를 들어, `Roach Motel`(따옴표 제외)은 순서 및 위치에 관계없이 `Roach` 및/또는 `Motel`을 포함하는 문서를 검색하지만, `"Roach Motel"`(따옴표 포함)은 해당 전체 구를 해당 순서로 포함하는 문서만 검색합니다(텍스트 분석은 계속 적용됨).
+구 연산자는 구를 따옴표로 `" "`묶습니다. 예를 들어, `Roach Motel`(따옴표 제외)은 순서 및 위치에 관계없이 `Roach` 및/또는 `Motel`을 포함하는 문서를 검색하지만, `"Roach Motel"`(따옴표 포함)은 해당 전체 구를 해당 순서로 포함하는 문서만 검색합니다(텍스트 분석은 계속 적용됨).
 
-## <a name="precedence-operator"></a>우선 순위 연산자
+## <a name="precedence-operator"></a>선행 연산자
 
-우선 순위 연산자 문자열을 괄호로 묶지 `( )`합니다. 예를 들어 `motel+(wifi | luxury)` motel 용어 및 중 하나를 포함 하는 문서를 검색 `wifi` 또는 `luxury` (또는 둘 다).  
+선행 연산자는 문자열을 괄호로 `( )`묶습니다. 예를 들어 `motel+(wifi | luxury)` 는 motel term을 포함 하는 문서 `wifi` 와 또는 `luxury` (또는 둘 다)를 검색 합니다.  
 
 ## <a name="escaping-search-operators"></a>검색 연산자 이스케이프  
 
@@ -87,7 +87,7 @@ NOT 연산자는 빼기 기호입니다. 예를 들어, `wifi –luxury`는 `wif
 > [!NOTE]  
 >  이스케이프는 토큰을 유지하지만, 분석 모드에 따라 텍스트 분석 시 토큰이 분할될 수 있습니다. 자세한 내용은 [언어 지원 &#40;Azure Search 서비스 REST API&#41;](index-add-language-analyzers.md)를 참조하세요.  
 
-## <a name="see-also"></a>참고 항목  
+## <a name="see-also"></a>참고자료  
 
 + [문서 검색 &#40;Azure Search 서비스 REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 
 + [Lucene 쿼리 구문](query-lucene-syntax.md)

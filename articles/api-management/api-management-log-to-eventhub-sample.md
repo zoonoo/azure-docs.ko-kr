@@ -82,7 +82,7 @@ Event Hubs에는 여러 소비자 그룹에 이벤트를 스트림하는 기능�
 메시지가 순서대로 소비자에게 전달되고 파티션의 부하 배포 기능을 활용하려면 하나의 파티션에 HTTP 요청 메시지를 보내고 다른 파티션에 HTTP 응답 메시지를 보내도록 선택합니다. 이렇게 하면 부하가 고르게 분산되고 모든 요청이 순서대로 사용되고 모든 응답도 순서대로 사용되도록 보장됩니다. 해당 요청 전에 응답이 사용될 수 있지만 응답에 대한 해당 요청이 다른 매커니즘을 가지고 해당 요청이 항상 응답 전에 온다면 문제가 발생합니다.
 
 ### <a name="http-payloads"></a>HTTP 페이로드
-`requestLine`을 빌드한 후에 요청 본문을 잘라냈는지 확인합니다. 요청 본문은 1024에만 잘립니다. 이는 증가할 수 있지만 개별 이벤트 허브 메시지는 256KB로 제한되므로 일부 HTTP 메시지 본문은 단일 메시지에 적합하지 않을 수 있습니다. 로깅 및 분석을 수행할 때 상당한 양의 정보는 HTTP 요청 라인 및 헤더에서 파생될 수 있습니다. 또한 많은 API 요청이 적은 본문을 반환하므로 큰 본문을 자르는 것으로 인한 정보 값의 손실은 모든 본문 내용을 유지하기 위해 전송, 처리 및 저장에 드는 비용 감소에 비교하여 상당히 미미합니다. 본문을 처리하는 방법에서 한 가지 유의할 점은 본문 내용을 읽지만 백 엔드 API가 본문을 읽을 수 있기를 바라기 때문에 `true`를 `As<string>()` 메서드에 전달해야 한다는 것입니다. 이 메서드에 true를 전달하여 본문을 버퍼링하게 되므로 두 번 읽을 수 있습니다. 큰 파일을 업로드하거나 긴 폴링을 사용하는 API가 있는 경우 주의해야 합니다. 이러한 경우에 본문을 읽는 작업을 피하는 것이 좋습니다.
+`requestLine`을 빌드한 후에 요청 본문을 잘라냈는지 확인합니다. 요청 본문은 1024에만 잘립니다. 이는 증가할 수 있지만 개별 이벤트 허브 메시지는 256KB로 제한되므로 일부 HTTP 메시지 본문은 단일 메시지에 적합하지 않을 수 있습니다. 로깅 및 분석을 수행할 때 상당한 양의 정보는 HTTP 요청 라인 및 헤더에서 파생될 수 있습니다. 또한 많은 API 요청이 적은 본문을 반환하므로 큰 본문을 자르는 것으로 인한 정보 값의 손실은 모든 본문 내용을 유지하기 위해 전송, 처리 및 스토리지에 드는 비용 감소에 비교하여 상당히 미미합니다. 본문을 처리하는 방법에서 한 가지 유의할 점은 본문 내용을 읽지만 백 엔드 API가 본문을 읽을 수 있기를 바라기 때문에 `true`를 `As<string>()` 메서드에 전달해야 한다는 것입니다. 이 메서드에 true를 전달하여 본문을 버퍼링하게 되므로 두 번 읽을 수 있습니다. 큰 파일을 업로드하거나 긴 폴링을 사용하는 API가 있는 경우 주의해야 합니다. 이러한 경우에 본문을 읽는 작업을 피하는 것이 좋습니다.
 
 ### <a name="http-headers"></a>HTTP 헤더
 HTTP 헤더는 간단한 키/값 쌍 형식인 메시지 형식을 통해 전송할 수 있습니다. 중요한 특정 보안 필드를 제거하여 불필요하게 자격 증명 정보가 누수되는 것을 방지하려고 합니다. 분석을 위해 API 키 및 기타 자격 증명은 사용될 가능성이 적습니다. 사용자 및 사용자가 사용하는 특정 제품에 대한 분석을 수행하려면 `context` 개체에서 얻고 해당 사항을 메시지에 추가할 수 있습니다.
@@ -293,7 +293,7 @@ public class MoesifHttpMessageProcessor : IHttpMessageProcessor
 }
 ```
 
-`MoesifHttpMessageProcessor`는 HTTP 이벤트 데이터를 해당 서비스로 쉽게 푸시할 수 있게 해주는 [Moesif용 C# API 라이브러리](https://www.moesif.com/docs/api?csharp#events)를 활용합니다. HTTP 데이터를 Moesif Collector API로 보내려면 계정 및 애플리케이션 ID가 필요합니다. [Moesif 웹 사이트](https://www.moesif.com)에서 계정을 만들어 Moesif 애플리케이션 ID를 얻은 다음, ‘오른쪽 위 메뉴’ -> ‘앱 설정’으로 이동합니다.  
+`MoesifHttpMessageProcessor`는 HTTP 이벤트 데이터를 해당 서비스로 쉽게 푸시할 수 있게 해주는 [Moesif용 C# API 라이브러리](https://www.moesif.com/docs/api?csharp#events)를 활용합니다. HTTP 데이터를 Moesif Collector API로 보내려면 계정 및 애플리케이션 ID가 필요합니다. [Moesif 웹 사이트](https://www.moesif.com)에서 계정을 만들어 Moesif 애플리케이션 ID를 얻은 다음, ‘오른쪽 위 메뉴’ -> ‘앱 설정’으로 이동합니다.
 
 ## <a name="complete-sample"></a>전체 샘플
 샘플의 [원본 코드](https://github.com/dgilling/ApimEventProcessor) 및 테스트는 GitHub에 있습니다. 샘플을 직접 실행하려면 [API Management 서비스](get-started-create-service-instance.md), [연결된 Event Hub](api-management-howto-log-event-hubs.md) 및 [Storage 계정](../storage/common/storage-create-storage-account.md)이 있어야 합니다.   

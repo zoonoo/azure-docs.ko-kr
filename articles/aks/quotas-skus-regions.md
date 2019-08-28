@@ -2,17 +2,17 @@
 title: 할당량, Sku 및 Azure Kubernetes Service (AKS)에서 지역 가용성
 description: 기본 할당량, 제한 된 노드 VM SKU 크기 및 Azure Kubernetes Service (AKS)의 지역 가용성에 알아봅니다.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/09/2019
-ms.author: iainfou
-ms.openlocfilehash: 8d4ed8f791858747814972bcf16a9672a7f12610
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 318846cddecdf020e2e751d3a0b9e05fc83bba73
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65901447"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614545"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>할당량, 가상 머신 크기 제한 및 Azure Kubernetes Service (AKS)에서 지역 가용성
 
@@ -51,7 +51,7 @@ VM 유형과 해당 계산 리소스에 대 한 자세한 내용은 참조 하�
 
 ## <a name="next-steps"></a>다음 단계
 
-특정 기본 제한 및 할당량은 증대가 가능합니다. 리소스 증가 지 원하는 경우 통해 증가 요청는 [Azure 지원 요청] [ azure-support] (에 대 한 **문제 유형**선택 **할당량** ).
+특정 기본 제한 및 할당량은 증대가 가능합니다. 리소스 증가 지 원하는 경우 통해 증가 요청는 [Azure 지원 요청][azure-support] (에 대 한 **문제 유형**를 선택 **할당량**).
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

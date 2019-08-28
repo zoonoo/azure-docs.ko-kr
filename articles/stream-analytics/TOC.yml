@@ -7,6 +7,7 @@
     - name: 엔드투엔드 솔루션 범위
       href: stream-analytics-solution-patterns.md
 - name: 빠른 시작
+  expanded: true
   items:
     - name: 작업 만들기 - Azure Portal
       href: stream-analytics-quick-create-portal.md
@@ -94,10 +95,12 @@
           href: stream-analytics-clean-up-your-job.md
         - name: 안정성을 위해 작업 페어링
           href: stream-analytics-job-reliability.md
-        - name: 관리 ID를 사용하여 인증
+        - name: 관리 ID로 인증 - ADLS Gen 1 출력
           href: stream-analytics-managed-identities-adls.md
         - name: SQL 참조 데이터 사용
           href: sql-reference-data.md
+        - name: 관리 ID로 인증 - Blob 출력
+          href: blob-output-managed-identity.md
     - name: 솔루션 빌드
       items:
         - name: Twitter 감정 분석
@@ -118,6 +121,9 @@
           href: stream-analytics-threshold-based-rules.md
         - name: Kafka 이벤트 처리
           href: ../event-hubs/event-hubs-kafka-stream-analytics.md
+          maintainContext: true
+        - name: Event Hubs 데이터 처리
+          href: ../event-hubs/process-data-azure-stream-analytics.md
           maintainContext: true
         - name: 지리 공간적 시나리오
           href: geospatial-scenarios.md
@@ -143,6 +149,8 @@
               href: stream-analytics-scale-jobs.md
         - name: ML 함수로 크기 조정
           href: stream-analytics-scale-with-machine-learning-functions.md
+        - name: 다시 분할하여 크기 조정
+          href: repartition.md
     - name: 자동화
       items:
         - name: .NET SDK 사용

@@ -17,7 +17,7 @@ ms.locfileid: "61483131"
 ---
 # <a name="backing-up-drive-manifests-for-azure-importexport-jobs"></a>Azure Import/Export 작업에 대한 드라이브 배니페스트 백업
 
-드라이브 매니페스트는 [작업 배치](/rest/api/storageimportexport/jobs) 또는 [작업 속성 업데이트](/rest/api/storageimportexport/jobs) REST API 작업에서 `BackupDriveManifest` 속성을 `true`로 설정하여 자동으로 Blob에 백업될 수 있습니다. 기본적으로 드라이브 매니페스트는 백업되지 않습니다. 드라이브 매니페스트 백업은 작업과 연결된 저장소 계정 내의 컨테이너에 블록 blob으로 저장됩니다. 기본적으로 컨테이너 이름은 `waimportexport`이지만 `Put Job` 또는 `Update Job Properties` 작업을 호출할 때 `DiagnosticsPath` 속성에서 다른 이름을 지정할 수 있습니다. 백업 매니페스트 blob은 다음과 같은 형식으로 이름이 지정됩니다: `waies/jobname_driveid_timestamp_manifest.xml`.
+드라이브 매니페스트는 [작업 배치](/rest/api/storageimportexport/jobs) 또는 [작업 속성 업데이트](/rest/api/storageimportexport/jobs) REST API 작업에서 `BackupDriveManifest` 속성을 `true`로 설정하여 자동으로 Blob에 백업될 수 있습니다. 기본적으로 드라이브 매니페스트는 백업되지 않습니다. 드라이브 매니페스트 백업은 작업과 연결된 스토리지 계정 내의 컨테이너에 블록 blob으로 저장됩니다. 기본적으로 컨테이너 이름은 `waimportexport`이지만 `Put Job` 또는 `Update Job Properties` 작업을 호출할 때 `DiagnosticsPath` 속성에서 다른 이름을 지정할 수 있습니다. 백업 매니페스트 blob은 다음과 같은 형식으로 이름이 지정됩니다: `waies/jobname_driveid_timestamp_manifest.xml`.
 
  [작업 가져오기](/rest/api/storageimportexport/jobs) 작업을 호출하여 작업의 백업 드라이브 매니페스트 URI를 검색할 수 있습니다. Blob URI는 각 드라이브에 대한 `ManifestUri` 속성으로 반환됩니다.
 

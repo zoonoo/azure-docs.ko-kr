@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights OpenCensus 분산 추적 로컬 전달자 (미리 보기) | Microsoft docs
+title: Azure 애플리케이션 Insights OpenCensus 분산 추적 로컬 전달자 (미리 보기) | Microsoft 문서
 description: 분산된 전달 OpenCensus는 Python 및 Go와 같은 언어부터 Azure Application Insights까지 추적하고 포괄합니다.
 services: application-insights
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
-ms.openlocfilehash: a7efe663a75fa29a31e7157c5eab24c2973a3758
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: aa64755b636005f4ed8ea5c074ffaada51fb8dd9
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60699344"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348158"
 ---
 # <a name="local-forwarder-preview"></a>로컬 전달자 (미리 보기)
 
@@ -154,7 +154,7 @@ macOS에서는 로컬 전달자가 작동할 수는 있지만 현재 공식적�
 ### <a name="self-hosting"></a>자체 호스팅
 또한 로컬 전달자는 .NET 애플리케이션 자체 내에서 호스트할 수 있도록 .NET Standard NuGet 패키지로 분산됩니다.
 
-```C#
+```csharp
 using Library;
 ...
 Host host = new Host();

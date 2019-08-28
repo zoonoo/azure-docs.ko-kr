@@ -10,12 +10,13 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: d2e628fb7fc502ef9ba81d20680d66f24fd7d138
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 69e701d6727e5410b71e6cf8fbe20a1cd038ddb0
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61339099"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705002"
 ---
 # <a name="evaluate-method"></a>Evaluate 메서드
 
@@ -30,20 +31,20 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?
 
 ## <a name="request-parameters"></a>요청 매개 변수  
 
-이름     | 값 | Required?  | 설명
+이름     | 값 | 필수 여부  | Description
 -----------|-----------|---------|--------
 **expr**       | 텍스트 문자열 | 예 | 반환할 엔터티를 지정하는 쿼리 식입니다.
-**model**      | 텍스트 문자열 | 아닙니다.  | 쿼리할 모델의 이름입니다.  현재 기본값은 *latest*입니다.        
-**attributes** | 텍스트 문자열 | 아닙니다.<br>기본값: Id | 응답에 포함된 특성 값을 지정하는 쉼표로 구분된 목록입니다. 특성 이름은 대/소문자를 구분합니다.
-**count**        | Number | 아닙니다.<br>Default: 10 | 반환할 결과의 수입니다.
-**offset**     | Number |   아닙니다.<br>Default: 0    | 반환할 첫 번째 결과의 인덱스입니다.
-**orderby** |   텍스트 문자열 | 아닙니다.<br>기본값: 확률 감소 | 엔터티 정렬에 사용되는 특성의 이름입니다. 오름차순/내림차순을 선택적으로 지정할 수 있습니다. 형식은 *name:asc* 또는 *name:desc*입니다.
+**model**      | 텍스트 문자열 | 아니요  | 쿼리할 모델의 이름입니다.  현재 기본값은 *latest*입니다.        
+**attributes** | 텍스트 문자열 | 아니요<br>기본값: ID | 응답에 포함된 특성 값을 지정하는 쉼표로 구분된 목록입니다. 특성 이름은 대/소문자를 구분합니다.
+**count**        | 숫자 | 아니요<br>기본값: 10 | 반환할 결과의 수입니다.
+**offset**     | 숫자 |   아니요<br>기본값: 0    | 반환할 첫 번째 결과의 인덱스입니다.
+**orderby** |   텍스트 문자열 | 아니요<br>기본값: 확률 감소 | 엔터티 정렬에 사용되는 특성의 이름입니다. 오름차순/내림차순을 선택적으로 지정할 수 있습니다. 형식은 *name:asc* 또는 *name:desc*입니다.
   
  <br>
 
 ## <a name="response-json"></a>응답(JSON)
 
-Name | 설명
+이름 | 설명
 -------|-----   
 **expr** |  요청의 *expr* 매개 변수입니다.
 **entities** |  쿼리 식과 일치하는 0개 이상의 엔터티 배열입니다. 각 엔터티에는 자연 로그 확률 값 및 다른 요청된 특성의 값이 포함됩니다.

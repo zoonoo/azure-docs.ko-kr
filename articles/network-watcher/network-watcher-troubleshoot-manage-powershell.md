@@ -61,9 +61,9 @@ $networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.Res
 $connection = Get-AzVirtualNetworkGatewayConnection -Name "2to3" -ResourceGroupName "testrg"
 ```
 
-## <a name="create-a-storage-account"></a>저장소 계정 만들기
+## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-리소스 문제 해결은 리소스의 상태에 대한 데이터를 반환하고 검토할 스토리지 계정에 로그를 저장합니다. 이 단계에서는 저장소 계정을 만듭니다. 기존 저장소 계정이 있는 경우 사용할 수 있습니다.
+리소스 문제 해결은 리소스의 상태에 대한 데이터를 반환하고 검토할 스토리지 계정에 로그를 저장합니다. 이 단계에서는 스토리지 계정을 만듭니다. 기존 스토리지 계정이 있는 경우 사용할 수 있습니다.
 
 ```powershell
 $sa = New-AzStorageAccount -Name "contosoexamplesa" -SKU "Standard_LRS" -ResourceGroupName "testrg" -Location "WestCentralUS"
@@ -73,7 +73,7 @@ $sc = New-AzStorageContainer -Name logs
 
 ## <a name="run-network-watcher-resource-troubleshooting"></a>Network Watcher 리소스 문제 해결 실행
 
-`Start-AzNetworkWatcherResourceTroubleshooting` cmdlet을 사용하여 리소스의 문제를 해결합니다. Network Watcher 개체, 연결 또는 Virtual Network 게이트웨이 ID, 저장소 계정의 ID 및 결과를 저장할 경로에 cmdlet을 전달합니다.
+`Start-AzNetworkWatcherResourceTroubleshooting` cmdlet을 사용하여 리소스의 문제를 해결합니다. Network Watcher 개체, 연결 또는 Virtual Network 게이트웨이 ID, 스토리지 계정의 ID 및 결과를 저장할 경로에 cmdlet을 전달합니다.
 
 > [!NOTE]
 > `Start-AzNetworkWatcherResourceTroubleshooting` cmdlet은 장기 실행되며 완료하는 데 몇 분이 소요될 수 있습니다.

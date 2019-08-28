@@ -14,13 +14,13 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
-ms.author: erikre
-ms.openlocfilehash: 5722e05e5a5e3a57b4d12b70b14f8674364f824b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: banders
+ms.openlocfilehash: f706ad86493981d5b38248ec209a7c8b936f6817
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244828"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443223"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>기업 고객을 위한 보고 API 개요
 Azure 기업 고객은 보고 API를 통해 사용량 및 청구 데이터를 기본 데이터 분석 도구로 프로그래밍 방식으로 끌어올 수 있습니다. 기업 고객은 Azure와 [EA(기업 계약)](https://azure.microsoft.com/pricing/enterprise-agreement/)를 체결하여 현금 약정 금액을 협상하고 Azure 리소스에 대한 사용자 지정 가격에 액세스할 수 있습니다.
@@ -31,7 +31,7 @@ Azure 기업 고객은 보고 API를 통해 사용량 및 청구 데이터를 �
 
 |요청 헤더 키 | 값|
 |-|-|
-|권한 부여| **bearer {API_KEY}** 형식의 값을 지정합니다. <br/> 예: bearer eyr....09| 
+|Authorization| **bearer {API_KEY}** 형식의 값을 지정합니다. <br/> 예: bearer eyr....09| 
 
 ## <a name="consumption-apis"></a>사용량 API
 Swagger 엔드포인트는 [AutoRest](https://github.com/Azure/AutoRest) 또는 [Swagger CodeGen](https://swagger.io/swagger-codegen/)을 사용하여 손쉬운 API 검사와 클라이언트 SDK 생성 기능을 사용할 수 있게 하는 아래에서 설명하는 API에 대해 [여기](https://consumption.azure.com/swagger/ui/index)에서 제공됩니다. 2014년 5월 1일부터 시작하는 데이터는 이 API를 통해 사용할 수 있습니다. 
@@ -44,7 +44,7 @@ Swagger 엔드포인트는 [AutoRest](https://github.com/Azure/AutoRest) 또는 
 
 * **가격표** - [가격표 API](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet)는 지정된 등록 및 청구 기간에 대한 각 측정기에 적용할 수 있는 가격을 제공합니다.
 
-* **예약 인스턴스 세부 정보** - [Reserved Instance 사용량 API](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) Reserved Instance 사용 구매를 반환 합니다. 합니다 [예약 인스턴스 요금 API](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) 결제 거래를 보여 줍니다. 
+* 예약 인스턴스 **세부 정보** -예약 된 인스턴스 [사용 API](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) 는 예약 인스턴스 구매 사용을 반환 합니다. [예약 인스턴스 요금 API](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) 에는 청구 트랜잭션이 표시 됩니다. 
 
 ## <a name="data-freshness"></a>데이터 새로 고침
 Etag는 위의 모든 API의 응답에서 반환됩니다. Etag의 변경 내용은 데이터를 새로 고칠 것을 나타냅니다.  동일한 매개 변수를 사용하는 동일한 API에 대한 후속 호출에서는 http 요청의 헤더에서 "If-None-Match" 키를 가진 캡처된 Etag를 전달니다. 데이터가 더 이상 새로 고쳐지지 않고 데이터가 반환되지 않는 경우 응답 상태 코드는 "NotModified"입니다. Etag가 변경될 때마다 API는 필수 기간 동안 전체 데이터 세트를 반환합니다.
@@ -54,10 +54,10 @@ Etag는 위의 모든 API의 응답에서 반환됩니다. Etag의 변경 내용
 
 
 ## <a name="api-response-codes"></a>API 응답 코드   
-|응답 상태 코드|Message|설명|
+|응답 상태 코드|메시지|설명|
 |-|-|-|
 |200| 확인|오류 없음|
-|401| 권한 없음| API 키를 찾을 수 없음, 유효하지 않음, 만료됨 등|
+|401| 인증되지 않음| API 키를 찾을 수 없음, 유효하지 않음, 만료됨 등|
 |404| 사용할 수 없음| 보고서 엔드포인트를 찾을 수 없음|
 |400| 잘못된 요청| 잘못된 매개 변수 - 날짜 범위, EA 숫자 등|
 |500| 서버 오류| 예기치 않은 오류 처리 요청| 

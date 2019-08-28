@@ -15,9 +15,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 06/18/2019
 ms.locfileid: "67181881"
 ---
-## <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
+## <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 
-첫 번째 Azure Storage 계정을 가장 쉽게 만드는 방법은 [Azure Portal](https://portal.azure.com)을 사용하는 것입니다. 자세한 내용은 [저장소 계정 만들기](../articles/storage/common/storage-quickstart-create-account.md)를 참조하십시오.
+첫 번째 Azure Storage 계정을 가장 쉽게 만드는 방법은 [Azure Portal](https://portal.azure.com)을 사용하는 것입니다. 자세한 내용은 [스토리지 계정 만들기](../articles/storage/common/storage-quickstart-create-account.md)를 참조하십시오.
 
 또한 [Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md), [Azure CLI](../articles/storage/common/storage-azure-cli.md) 또는 [.NET용 Azure Storage 리소스 공급자](https://azure.microsoft.com/resources/samples/storage-dotnet-resource-provider-getting-started/)를 사용하여 Azure 스토리지 계정을 만들 수도 있습니다.
 

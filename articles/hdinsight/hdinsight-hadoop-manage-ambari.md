@@ -8,18 +8,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: 49e8fbef7af16e109c1e9f1e0d8c9aab1a008e21
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d0641a1c058db59acd5e9a64b10bb57b334f82bd
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257987"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442062"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Apache Ambari Web UI를 사용하여 HDInsight 클러스터 관리
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Apache Ambari는 손쉬운 Web UI 및 REST API 사용을 제공하여 Apache Hadoop 클러스터의 관리 및 모니터링을 간소화합니다. Ambari는 HDInsight 클러스터에 포함 되 고 클러스터를 모니터링 하 고 구성을 변경 하는 데 사용 됩니다.
+Apache Ambari는 손쉬운 Web UI 및 REST API 사용을 제공하여 Apache Hadoop 클러스터의 관리 및 모니터링을 간소화합니다. Ambari는 HDInsight 클러스터에 포함 되어 있으며 클러스터를 모니터링 하 고 구성을 변경 하는 데 사용 됩니다.
 
 이 문서에서는 HDInsight 클러스터와 Ambari 웹 UI를 사용하는 방법을 배웁니다.
 
@@ -29,7 +29,7 @@ Apache Ambari는 손쉬운 Web UI 및 REST API 사용을 제공하여 Apache Had
 
 ## <a name="connectivity"></a>연결
 
-Ambari 웹 UI는 HDInsight 클러스터에서 사용할 수 있습니다 `https://CLUSTERNAME.azurehdinsight.net`여기서 `CLUSTERNAME` 클러스터의 이름입니다.
+Ambari 웹 UI는의 HDInsight 클러스터 `https://CLUSTERNAME.azurehdinsight.net`에서 사용할 수 있습니다. 여기서 `CLUSTERNAME` 은 클러스터의 이름입니다.
 
 > [!IMPORTANT]  
 > HTTPS를 요구하는 HDInsight에서 Ambari로 연결 인증에 대한 대화 상자가 나타나면 클러스터를 만들 때 제공한 관리자 계정 이름 및 암호를 사용합니다.
@@ -51,19 +51,19 @@ Ambari 웹 UI를 연결할 때 페이지에 인증하라는 메시지가 나옵�
 
 |항목 |설명 |
 |---|---|
-|Ambari 로고|클러스터를 모니터링 하도록 사용할 수 있는 대시보드를 엽니다.|
-|클러스터 이름 # ops|진행 중인 Ambari 작업 수를 표시합니다. 클러스터 이름 또는 **# ops**를 선택하면 백그라운드 작업 목록이 표시됩니다.|
-|# alerts|클러스터에 대 한 경고 또는 위험 경고를 표시 합니다.|
-|대시보드|대시보드를 표시합니다.|
-|Services|클러스터의 서비스에 대 한 정보 및 구성 설정입니다.|
+|Ambari 로고|클러스터를 모니터링 하는 데 사용할 수 있는 대시보드를 엽니다.|
+|클러스터 이름 # ops|진행 중인 Ambari 작업 수를 표시 합니다. 클러스터 이름 또는 **# ops**를 선택하면 백그라운드 작업 목록이 표시됩니다.|
+|경고 개수|클러스터에 대 한 경고 또는 중요 한 알림 (있는 경우)을 표시 합니다.|
+|대시보드|대시보드를 표시 합니다.|
+|서비스|클러스터의 서비스에 대 한 정보 및 구성 설정입니다.|
 |호스트|클러스터의 노드에 대 한 정보 및 구성 설정입니다.|
-|경고|로그 정보, 경고 및 중요 한 알림입니다.|
-|관리자|소프트웨어 스택/서비스에 설치 된 클러스터, 서비스 계정 정보 및 Kerberos 보안입니다.|
-|Admin 단추|Ambari 관리, 사용자 설정 및 로그 아웃 합니다.|
+|,|정보, 경고 및 중요 한 알림 로그입니다.|
+|관리|클러스터에 설치 된 소프트웨어 스택/서비스, 서비스 계정 정보 및 Kerberos 보안.|
+|관리 단추|Ambari 관리, 사용자 설정 및 로그 아웃입니다.|
 
 ## <a name="monitoring"></a>모니터링
 
-### <a name="alerts"></a>경고
+### <a name="alerts"></a>,
 
 다음 목록은 Ambari에서 사용하는 일반적인 경고 상태를 포함합니다.
 
@@ -102,7 +102,7 @@ Ambari 웹 UI를 연결할 때 페이지에 인증하라는 메시지가 나옵�
 
 ![호스트 세부 정보](./media/hdinsight-hadoop-manage-ambari/host-details.png)
 
-### <a name="services"></a>Services
+### <a name="services"></a>서비스
 
 대시보드의 **Services** 세로 막대는 클러스터에서 실행되는 서비스 상태에 대한 빠른 정보를 제공합니다. 다양한 아이콘은 수행해야 하는 상태 또는 작업을 나타내는 데 사용됩니다. 예를 들어 서비스가 재활용되어야 하는 경우 노란색 재활용 기호가 표시됩니다.
 
@@ -133,7 +133,7 @@ Ambari 웹 UI를 연결할 때 페이지에 인증하라는 메시지가 나옵�
 
 ### <a name="ambari-users-groups-and-permissions"></a>Ambari 사용자, 그룹 및 사용 권한
 
-[도메인 가입](./domain-joined/apache-domain-joined-introduction.md) HDInsight 클러스터를 사용할 때 사용자, 그룹 및 권한을 사용하는 작업이 지원됩니다. 도메인 가입 클러스터에서 Ambari 관리 UI를 사용하는 방법에 대한 자세한 내용은 [도메인 가입 HDInsight 클러스터 관리](./domain-joined/apache-domain-joined-introduction.md)를 참조하세요.
+[도메인 가입](./domain-joined/hdinsight-security-overview.md) HDInsight 클러스터를 사용할 때 사용자, 그룹 및 권한을 사용하는 작업이 지원됩니다. 도메인 가입 클러스터에서 Ambari 관리 UI를 사용하는 방법에 대한 자세한 내용은 [도메인 가입 HDInsight 클러스터 관리](./domain-joined/hdinsight-security-overview.md)를 참조하세요.
 
 > [!WARNING]  
 > Linux 기반 HDInsight 클러스터에서 Ambari watchdog(hdinsightwatchdog)의 암호는 변경하지 마세요. 암호를 변경하면 스크립트 동작을 사용하거나 클러스터에서 크기 조정 작업을 수행하는 기능이 중단됩니다.
@@ -151,18 +151,18 @@ Ambari 웹 UI를 연결할 때 페이지에 인증하라는 메시지가 나옵�
 
 2. **Actions** 메뉴를 사용하여 수행할 작업을 선택합니다.
 
-    |항목 |설명 |
+    |항목 |Description |
     |---|---|
-    |모든 구성 요소를 시작 합니다.|호스트에서 모든 구성 요소를 시작 합니다.|
-    |모든 구성 요소를 중지 합니다.|호스트에서 모든 구성 요소를 중지 합니다.|
-    |모든 구성 요소를 다시 시작|중지 하 고 호스트에서 모든 구성 요소를 시작 합니다.|
-    |유지 관리 모드 켜기|호스트에 대 한 경고를 표시 하지 않습니다. 경고를 생성하는 작업을 수행하는 경우 이 모드를 활성화해야 합니다. 예를 들어 서비스를 중지하고 시작합니다.|
-    |유지 관리 모드 끄기|호스트를 정상 경고를 반환합니다.|
-    |중지|호스트에서 DataNode 또는 NodeManagers를 중지합니다.|
-    |시작|호스트에서 DataNode 또는 NodeManagers를 시작합니다.|
-    |다시 시작|중지 하 고 호스트에서 DataNode 또는 NodeManagers를 시작 합니다.|
-    |서비스 해제|클러스터에서 호스트를 제거합니다. **HDInsight 클러스터에서이 작업을 사용 하지 마세요.**|
-    |Recommission|클러스터에 이전에 서비스 호스트를 추가합니다. **HDInsight 클러스터에서이 작업을 사용 하지 마세요.**|
+    |모든 구성 요소 시작|호스트에서 모든 구성 요소를 시작 합니다.|
+    |모든 구성 요소 중지|호스트의 모든 구성 요소를 중지 합니다.|
+    |모든 구성 요소 다시 시작|호스트에서 모든 구성 요소를 중지 하 고 시작 합니다.|
+    |유지 관리 모드 설정|호스트에 대 한 경고를 표시 하지 않습니다. 경고를 생성하는 작업을 수행하는 경우 이 모드를 활성화해야 합니다. 예를 들어 서비스를 중지하고 시작합니다.|
+    |유지 관리 모드 해제|호스트를 정상 경고로 반환 합니다.|
+    |Stop|호스트에서 DataNode 또는 NodeManagers를 중지 합니다.|
+    |시작|호스트에서 DataNode 또는 NodeManagers를 시작 합니다.|
+    |다시 시작|호스트에서 DataNode 또는 NodeManagers를 중지 하 고 시작 합니다.|
+    |서비스 해제|클러스터에서 호스트를 제거 합니다. **HDInsight 클러스터에는이 작업을 사용 하지 마십시오.**|
+    |재승인|이전에 서비스 해제 된 호스트를 클러스터에 추가 합니다. **HDInsight 클러스터에는이 작업을 사용 하지 마십시오.**|
 
 ### <a id="service"></a>Services
 
@@ -199,11 +199,11 @@ Ambari 웹 UI를 연결할 때 페이지에 인증하라는 메시지가 나옵�
 
 3. 구성을 수정하려면 표시된 목록을 클릭하고 **Save**를 선택합니다. 또는 이전 구성을 선택한 다음 **Make current** 를 선택하여 이전 설정으로 롤백할 수 있습니다.
 
-## <a name="ambari-views"></a>Ambari 뷰
+## <a name="ambari-views"></a>Ambari Views
 
 Ambari Views를 사용하면 개발자가 [Apache Ambari Views 프레임워크](https://cwiki.apache.org/confluence/display/AMBARI/Views)를 사용하여 Ambari 웹 UI에 UI 요소를 삽입할 수 있습니다. HDInsight은 Hadoop 클러스터 종류를 사용하여 다음 뷰를 제공합니다.
 
-* Hive 보기: Hive 보기를 사용하면 웹 브라우저에서 직접 Hive 쿼리를 실행할 수 있습니다. 쿼리를 저장하고 결과 확인하며 클러스터 저장소에 결과를 저장하거나 로컬 시스템에 다운로드할 수 있습니다. Hive 보기 사용에 대한 자세한 내용은 [HDInsight와 함께 Apache Hive 보기 사용](hadoop/apache-hadoop-use-hive-ambari-view.md)을 참조하세요.
+* Hive 보기: Hive 보기를 사용하면 웹 브라우저에서 직접 Hive 쿼리를 실행할 수 있습니다. 쿼리를 저장하고 결과 확인하며 클러스터 스토리지에 결과를 저장하거나 로컬 시스템에 다운로드할 수 있습니다. Hive 보기 사용에 대한 자세한 내용은 [HDInsight와 함께 Apache Hive 보기 사용](hadoop/apache-hadoop-use-hive-ambari-view.md)을 참조하세요.
 
 * Tez 보기: Tez 보기를 사용하면 작업을 더 잘 이해하고 최적화할 수 있습니다. Tez 작업 실행 방법 및 사용되는 리소스에 대한 정보를 볼 수 있습니다.
 

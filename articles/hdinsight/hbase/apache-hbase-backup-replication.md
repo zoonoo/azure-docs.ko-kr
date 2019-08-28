@@ -54,13 +54,13 @@ HDInsight의 HBase는 클러스터를 만들 때 선택한 기본 스토리지�
 
 클러스터를 삭제한 후에는 데이터를 그대로 두거나 새 위치에 복사할 수 있습니다.
 
-* 현재 저장소 위치를 가리키는 새 HDInsight 인스턴스를 만듭니다. 새 인스턴스는 기존의 모든 데이터로 만들어집니다.
+* 현재 스토리지 위치를 가리키는 새 HDInsight 인스턴스를 만듭니다. 새 인스턴스는 기존의 모든 데이터로 만들어집니다.
 
 * `hbase` 폴더를 다른 Azure Storage Blob 컨테이너 또는 Data Lake Storage 위치에 복사한 다음, 해당 데이터로 새 클러스터를 시작합니다. Azure Storage의 경우 [AzCopy](../../storage/common/storage-use-azcopy.md)를 사용하고, Data Lake Storage의 경우 [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md)를 사용합니다.
 
 ## <a name="export-then-import"></a>내보낸 후 가져오기
 
-원본 HDInsight 클러스터에서 Export 유틸리티(HBase에 포함)를 사용하여 원본 테이블에서 기본 연결된 저장소로 데이터를 내보냅니다. 그런 다음, 내보낸 폴더를 대상 저장소 위치에 복사하고, 대상 HDInsight 클러스터에서 Import 유틸리티를 실행하면 됩니다.
+원본 HDInsight 클러스터에서 Export 유틸리티(HBase에 포함)를 사용하여 원본 테이블에서 기본 연결된 스토리지로 데이터를 내보냅니다. 그런 다음, 내보낸 폴더를 대상 스토리지 위치에 복사하고, 대상 HDInsight 클러스터에서 Import 유틸리티를 실행하면 됩니다.
 
 테이블을 내보내려면 먼저 원본 HDInsight 클러스터의 헤드 노드에 SSH를 연결하고, 다음 `hbase` 명령을 실행합니다.
 
@@ -70,7 +70,7 @@ HDInsight의 HBase는 클러스터를 만들 때 선택한 기본 스토리지�
 
     hbase org.apache.hadoop.hbase.mapreduce.Import "<tableName>" "/<path>/<to>/<export>"
 
-기본 저장소 또는 연결된 저장소 옵션 중 하나에 대한 전체 내보내기 경로를 지정합니다. 예를 들어 Azure Storage에서 구문은 다음과 같습니다.
+기본 스토리지 또는 연결된 스토리지 옵션 중 하나에 대한 전체 내보내기 경로를 지정합니다. 예를 들어 Azure Storage에서 구문은 다음과 같습니다.
 
     wasbs://<containername>@<accountname>.blob.core.windows.net/<path>
 
@@ -155,7 +155,7 @@ curl 명령은 HBase 구성 정보를 사용하여 JSON 문서를 검색하고, 
 
 ## <a name="snapshots"></a>스냅샷
 
-스냅샷을 사용하면 HBase 데이터 저장소에서 데이터에 대한 특정 시점 백업을 수행할 수 있습니다. 스냅샷 작업은 실질적으로 해당 시점에서 저장소에 있는 모든 파일의 이름을 캡처하는 메타데이터 작업이기 때문에 스냅샷은 최소한의 오버헤드를 가지며 수초 내에 완료됩니다. 스냅샷이 만들어지는 시점에서 실제 데이터는 복사되지 않습니다. 스냅샷은 업데이트, 삭제 및 삽입이 모두 새 데이터로 표시되는 HDFS에 저장된 데이터의 변경 불가능 특성을 사용합니다. 스냅샷은 동일한 클러스터에서 복원(*복제*)하거나 다른 클러스터로 내보낼 수 있습니다.
+스냅샷을 사용하면 HBase 데이터 저장소에서 데이터에 대한 특정 시점 백업을 수행할 수 있습니다. 스냅샷 작업은 실질적으로 해당 시점에서 스토리지에 있는 모든 파일의 이름을 캡처하는 메타데이터 작업이기 때문에 스냅샷은 최소한의 오버헤드를 가지며 수초 내에 완료됩니다. 스냅샷이 만들어지는 시점에서 실제 데이터는 복사되지 않습니다. 스냅샷은 업데이트, 삭제 및 삽입이 모두 새 데이터로 표시되는 HDFS에 저장된 데이터의 변경 불가능 특성을 사용합니다. 스냅샷은 동일한 클러스터에서 복원(*복제*)하거나 다른 클러스터로 내보낼 수 있습니다.
 
 스냅샷을 만들려면 HDInsight HBase 클러스터의 헤드 노드에 SSH를 연결하고 `hbase` 셸을 시작합니다.
 
@@ -179,7 +179,7 @@ hbase 셸 내에서 테이블 및 이 스냅샷의 이름이 포함된 snapshot 
 
      hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot <snapshotName> -copy-to <hdfsHBaseLocation>
 
-`<hdfsHBaseLocation>`은 원본 클러스터에 액세스할 수 있는 저장소 위치 중 하나일 수 있으며, 대상 클러스터에서 사용하는 hbase 폴더를 가리켜야 합니다. 예를 들어 원본 클러스터에 보조 Azure Storage 계정이 연결되어 있고 해당 계정이 대상 클러스터의 기본 스토리지에서 사용하는 컨테이너에 대한 액세스를 제공하는 경우 다음 명령을 사용할 수 있습니다.
+`<hdfsHBaseLocation>`은 원본 클러스터에 액세스할 수 있는 스토리지 위치 중 하나일 수 있으며, 대상 클러스터에서 사용하는 hbase 폴더를 가리켜야 합니다. 예를 들어 원본 클러스터에 보조 Azure Storage 계정이 연결되어 있고 해당 계정이 대상 클러스터의 기본 스토리지에서 사용하는 컨테이너에 대한 액세스를 제공하는 경우 다음 명령을 사용할 수 있습니다.
 
     hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot 'Snapshot1' -copy-to 'wasbs://secondcluster@myaccount.blob.core.windows.net/hbase'
 

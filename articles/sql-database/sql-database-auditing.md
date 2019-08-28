@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 감사 시작 | Microsoft Docs
+title: Azure SQL 데이터베이스 감사 시작 | Microsoft Docs
 description: Azure SQL 데이터베이스 감사를 사용하여 데이터베이스 이벤트를 감사 로그로 추적합니다.
 services: sql-database
 ms.service: sql-database
@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: vainolo
 ms.author: arib
 ms.reviewer: vanto
-manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 1b3a6a18d10b9d9f6ab6456ae2911e54f5c56a71
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 69fe3287083523a3a47975a3db51d7241681f5c4
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67544099"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68569512"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 데이터베이스 감사 시작
 
@@ -29,18 +28,18 @@ Azure [SQL Database](sql-database-technical-overview.md) 및 [SQL Data Warehouse
 
 
 > [!NOTE] 
-> 이 항목은 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다.
+> 이 항목은 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하자면, SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 
-## <a id="subheading-1"></a>Azure SQL Database 감사 개요
+## <a id="subheading-1"></a>Azure SQL 데이터베이스 감사 개요
 
 SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 
 - 선택한 이벤트의 감사 내역을 **유지**합니다. 감사할 데이터베이스 동작의 범주를 정의할 수 있습니다.
-- **보고** 합니다. 미리 구성된 보고서 및 대시보드를 사용하여 활동 및 이벤트 보고를 빠르게 시작할 수 있습니다.
-- **분석** 합니다. 의심스러운 이벤트, 특별한 활동 및 추세를 찾을 수 있습니다.
+- 데이터베이스 활동을 **보고**합니다. 미리 구성된 보고서 및 대시보드를 사용하여 활동 및 이벤트 보고를 빠르게 시작할 수 있습니다.
+- 보고서를 **분석**합니다. 의심스러운 이벤트, 특별한 활동 및 추세를 찾을 수 있습니다.
 
 > [!IMPORTANT]
 > 감사 로그는 Azure 구독의 Azure Blob Storage에 있는 **추가 Blob**에 기록됩니다.
@@ -48,7 +47,7 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 > - 모든 스토리지 종류(v1, v2, Blob)가 지원됩니다.
 > - 모든 스토리지 복제 구성이 지원됩니다.
 > - **프리미엄 스토리지**는 현재 **지원되지 않습니다**.
-> - **VNet의 저장소**는 현재 **지원되지 않습니다**.
+> - **VNet의 스토리지**는 현재 **지원되지 않습니다**.
 > - **방화벽 뒤의 스토리지**는 현재 **지원되지 않습니다**.
 
 ## <a id="subheading-8"></a>서버 수준 및 데이터베이스 수준 감사 정책 정의
@@ -63,7 +62,7 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 
    > [!NOTE]
    > 다음과 같은 경우가 아니면 서버 Blob 감사 및 데이터베이스 Blob 감사를 함께 활성화하지 않아야 합니다.
-    > - 특정 데이터베이스에 대해 다른 *저장소 계정* 또는 *보존 기간*을 사용할 수 있습니다.
+    > - 특정 데이터베이스에 대해 다른 *스토리지 계정* 또는 *보존 기간*을 사용할 수 있습니다.
     > - 서버의 나머지 데이터베이스와는 다른 특정 데이터베이스에 대해 이벤트 형식이나 범주를 감사하려 합니다. 예를 들어 특정 데이터베이스에 대해서만 감사해야 하는 테이블 삽입이 있을 수 있습니다.
    >
    > 그렇지 않으면 서버 수준 Blob 감사만 활성화하고 모든 데이터베이스에 대해 데이터베이스 수준 감사를 비활성화로 유지하는 것이 좋습니다.
@@ -92,11 +91,11 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
    > [!WARNING]
    > Log Analytics에 감사를 사용하면 수집 속도에 따른 요금이 부과됩니다. 이 [옵션](https://azure.microsoft.com/pricing/details/monitor/), 사용 시 관련된 비용에 주의하세요.또는 Azure Storage 계정에 로그인 감사를 저장하는 것을 고려해 보세요.
 
-    ![저장소 옵션](./media/sql-database-auditing-get-started/auditing-select-destination.png)
+    ![스토리지 옵션](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
-6. 저장소 계정에 감사 로그 작성을 구성하려면 **저장소**를 선택하고 **저장소 세부 정보**를 엽니다. 로그를 저장할 Azure 스토리지 계정을 선택한 다음, 보존 기간을 선택합니다. 이전 로그는 삭제됩니다. 그런 후 **OK**를 클릭합니다.
+6. 스토리지 계정에 감사 로그 작성을 구성하려면 **스토리지**를 선택하고 **스토리지 세부 정보**를 엽니다. 로그를 저장할 Azure 스토리지 계정을 선택한 다음, 보존 기간을 선택합니다. 이전 로그는 삭제됩니다. 그런 다음 **확인**을 클릭합니다.
 
-    ![저장소 계정 만들기](./media/sql-database-auditing-get-started/auditing_select_storage.png)
+    ![스토리지 계정 만들기](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
 7. Log Analytics 작업 영역에 감사 로그를 쓰도록 구성하려면 **Log Analytics(미리 보기)** 를 선택하고 **Log Analytics 세부 정보**를 엽니다. 로그를 쓸 Log Analytics 작업 영역을 선택하거나 만든 다음, **확인**을 클릭합니다.
 
@@ -104,21 +103,21 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 
 8. 이벤트 허브에 감사 로그 작성을 구성하려면 **이벤트 허브(미리 보기)** 를 선택하고 **이벤트 허브 세부 정보**를 엽니다. 로그가 작성될 이벤트 허브를 선택한 다음, **확인**을 클릭합니다. 이벤트 허브는 데이터베이스 및 서버와 동일한 지역에 있어야 합니다.
 
-    ![이벤트 허브](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
+    ![Event Hubs](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
 
-9. **저장**을 클릭합니다.
+9. **Save**을 클릭합니다.
 10. 감사 이벤트를 사용자 지정하려면 [PowerShell cmdlet](#subheading-7) 또는 [REST API](#subheading-9)를 통해 다음 작업을 수행합니다.
 11. 감사 설정을 구성했으면 새로운 위협 감지 기능을 켜고, 보안 경고를 받을 전자 메일을 구성할 수 있습니다. 위협 감지를 사용하면 잠재적인 보안 위협을 나타낼 수 있는 비정상적인 데이터베이스 활동에 대해 사전 경고를 받을 수 있습니다. 자세한 내용은 [위협 감지 시작](sql-database-threat-detection-get-started.md)을 참조하세요.
 
 > [!IMPORTANT]
-> 일시 중지 된 Azure SQL Data Warehouse에서 감사를 활성화 수는 없습니다. 사용 하도록 설정 하려면, 데이터 웨어하우스 취소-일시 중지 합니다.
+> 일시 중지 된 Azure SQL Data Warehouse에서 감사를 사용 하도록 설정할 수 없습니다. 이 기능을 사용 하도록 설정 하려면 데이터 웨어하우스를 일시 중지 합니다.
 
 > [!WARNING]
-> 된 서버에 Azure SQL Data Warehouse에서 감사를 활성화 **다시 다시 일시 중지 및 다시 시작 되는 데이터 웨어하우스 하면** 는 요금이 청구에서 발생할 수 있습니다.
+> 서버에 대 한 Azure SQL Data Warehouse 있는 서버에서 감사를 사용 하도록 설정 **하면 데이터 웨어하우스가 다시 시작 되 고 다시 일시 중지 되어** 청구 요금이 발생할 수 있습니다.
 
 ## <a id="subheading-3"></a>감사 로그 및 보고서 분석
 
-Azure Monitor 로그로 감사 로그를 작성 하기로 합니다.
+Azure Monitor 로그에 감사 로그를 기록 하도록 선택한 경우:
 
 - [Azure Portal을 사용](https://portal.azure.com)합니다.  관련 데이터베이스를 엽니다. 데이터베이스의 **감사** 페이지 맨 위에서 **감사 로그 보기**를 클릭합니다.
 
@@ -128,7 +127,7 @@ Azure Monitor 로그로 감사 로그를 작성 하기로 합니다.
 
     ![Log Analytics에서 열기](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
 
-- 또는 Log Analytics 블레이드에서 감사 로그에 액세스할 수도 있습니다. Log Analytics 작업 영역을 열고 **일반** 섹션 아래에서 **로그**를 클릭합니다. *"SQLSecurityAuditEvents" 검색*과 같은 간단한 쿼리로 시작하여 감사 로그를 볼 수 있습니다.
+- 또는 Log Analytics 블레이드에서 감사 로그에 액세스할 수도 있습니다. Log Analytics 작업 영역을 열고 **일반** 섹션 아래에서 **로그**를 클릭합니다. *"SQLSecurityAuditEvents" 검색*과 같은 간단한 쿼리를 시작하여 감사 로그를 볼 수 있습니다.
     여기에서 [Azure Monitor 로그](../log-analytics/log-analytics-log-search.md)를 사용하여 감사 로그 데이터에 대한 고급 검색을 실행할 수도 있습니다. Azure Monitor 로그는 통합된 검색 및 사용자 지정 대시보드를 사용하여 모든 워크로드 및 서버에서 수백만 개의 레코드를 쉽게 분석할 실시간 작업 통찰력을 제공합니다. Azure Monitor 로그 검색 언어 및 명령에 대한 유용한 추가 정보를 위해서는, [Azure Monitor 로그 검색 참조](../log-analytics/log-analytics-log-search.md)를 확인합니다.
 
 이벤트 허브에 감사 로그를 작성하도록 선택한 경우:
@@ -138,7 +137,7 @@ Azure Monitor 로그로 감사 로그를 작성 하기로 합니다.
 
 Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그를 보는 데 사용할 수 있는 여러 가지 방법이 있습니다.
 
-- 감사 로그는 설치 중에 선택한 계정에 집계됩니다. [Azure Storage 탐색기](https://storageexplorer.com/) 등의 도구를 사용하여 감사 로그를 탐색할 수 있습니다. Azure Storage에서 감사 로그는 **sqldbauditlogs**라는 컨테이너 내부에 Blob 파일의 컬렉션으로 저장됩니다. 저장소 폴더의 계층 구조에 대 한 자세한 내용은 명명 규칙 및 로그 형식 참조를 [SQL 데이터베이스 감사 로그 형식](https://go.microsoft.com/fwlink/?linkid=829599)합니다.
+- 감사 로그는 설치 중에 선택한 계정에 집계됩니다. [Azure Storage Explorer](https://storageexplorer.com/) 등의 도구를 사용하여 감사 로그를 살펴볼 수 있습니다. Azure Storage에서 감사 로그는 **sqldbauditlogs**라는 컨테이너 내부에 Blob 파일의 컬렉션으로 저장됩니다. 저장소 폴더의 계층 구조, 명명 규칙 및 로그 형식에 대 한 자세한 내용은 [SQL Database 감사 로그 형식](https://go.microsoft.com/fwlink/?linkid=829599)을 참조 하세요.
 
 - [Azure Portal을 사용](https://portal.azure.com)합니다.  관련 데이터베이스를 엽니다. 데이터베이스의 **감사** 페이지 맨 위에서 **감사 로그 보기**를 클릭합니다.
 
@@ -190,33 +189,33 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
   - 주 데이터베이스에서 감사가 활성화되면 보조 데이터베이스에서도 활성화됩니다.
 
     >[!IMPORTANT]
-    >데이터베이스 수준 감사에서 보조 데이터베이스의 저장소 설정은 주 데이터베이스와 동일하기 때문에 지역 간 트래픽이 발생합니다. 서버 수준 감사만 활성화하고 모든 데이터베이스에 대해 데이터베이스 수준 감사를 비활성화로 유지하는 것이 좋습니다.
+    >데이터베이스 수준 감사에서 보조 데이터베이스의 스토리지 설정은 주 데이터베이스와 동일하기 때문에 지역 간 트래픽이 발생합니다. 서버 수준 감사만 활성화하고 모든 데이터베이스에 대해 데이터베이스 수준 감사를 비활성화로 유지하는 것이 좋습니다.
     > [!WARNING]
     > 서버 수준 감사 로그에 대한 대상으로 이벤트 허브 또는 Azure Monitor 로그를 사용하는 것은 보조 지역에서 복제된 데이터베이스에 대해서 현재 지원되지 않습니다.
 
-### <a id="subheading-6">저장소 키 다시 생성</a>
+### <a id="subheading-6">스토리지 키 다시 생성</a>
 
-프로덕션에서는 저장소 키를 주기적으로 새로 고치게 됩니다. Azure Storage에 감사 로그를 작성하는 경우 키를 새로 고칠 때 감사 정책을 다시 저장해야 합니다. 프로세스는 다음과 같습니다.
+프로덕션에서는 스토리지 키를 주기적으로 새로 고치게 됩니다. Azure Storage에 감사 로그를 작성하는 경우 키를 새로 고칠 때 감사 정책을 다시 저장해야 합니다. 프로세스는 다음과 같습니다.
 
-1. **저장소 세부 정보**를 엽니다. **저장소 액세스 키** 상자에서 **보조**를 선택하고 **확인**을 클릭합니다. 그런 다음, 감사 구성 페이지의 맨 위에서 **저장**을 클릭합니다.
+1. **스토리지 세부 정보**를 엽니다. **스토리지 액세스 키** 상자에서 **보조**를 선택하고 **확인**을 클릭합니다. 그런 다음, 감사 구성 페이지의 맨 위에서 **저장**을 클릭합니다.
 
     ![탐색 창][5]
-2. 저장소 구성 패널로 이동하고 기본 액세스 키를 다시 생성합니다.
+2. 스토리지 구성 패널로 이동하고 기본 액세스 키를 다시 생성합니다.
 
     ![탐색 창][6]
-3. 감사 구성 페이지로 다시 돌아가서 저장소 액세스 키를 보조에서 기본으로 전환한 다음, **확인**을 클릭합니다. 그런 다음, 감사 구성 페이지의 맨 위에서 **저장**을 클릭합니다.
-4. 저장소 구성 페이지로 다시 돌아와서 보조 액세스 키를 다시 생성합니다(다음 키의 새로 고침 주기를 위한 준비).
+3. 감사 구성 페이지로 다시 돌아가서 스토리지 액세스 키를 보조에서 기본으로 전환한 다음, **확인**을 클릭합니다. 그런 다음, 감사 구성 페이지의 맨 위에서 **저장**을 클릭합니다.
+4. 스토리지 구성 페이지로 다시 돌아와서 보조 액세스 키를 다시 생성합니다(다음 키의 새로 고침 주기를 위한 준비).
 
 ## <a name="additional-information"></a>추가 정보
 
-- 로그 형식, 저장소 폴더의 계층 구조 및 명명 규칙에 대한 자세한 내용은 [Blob 감사 로그 형식 참조](https://go.microsoft.com/fwlink/?linkid=829599)를 확인하세요.
+- 로그 형식, 스토리지 폴더의 계층 구조 및 명명 규칙에 대한 자세한 내용은 [Blob 감사 로그 형식 참조](https://go.microsoft.com/fwlink/?linkid=829599)를 참조하세요.
 
     > [!IMPORTANT]
     > Azure SQL 데이터베이스 감사는 감사 레코드의 문자 필드에 대해 4000자의 데이터를 저장합니다. 감사가 가능한 작업에서 반환된 **statement** 또는 **data_sensitivity_information** 값에 4000자가 넘게 포함되면 처음 4000자를 초과하는 문자는 **잘리고 감사되지 않습니다**.
 
 - 감사 로그는 Azure 구독의 Azure Blob Storage에 있는 **추가 Blob**에 기록됩니다.
   - **Premium Storage**는 현재 추가 Blob에서 **지원되지 않습니다**.
-  - **VNet의 저장소**는 현재 **지원되지 않습니다**.
+  - **VNet의 스토리지**는 현재 **지원되지 않습니다**.
 
 - 기본 감사 정책에는 모든 작업 및 다음과 같은 일련의 작업 그룹이 포함됩니다. 여기서는 성공 및 실패한 로그인뿐만 아니라 데이터베이스에 대해 실행된 모든 쿼리 및 저장 프로시저를 감사합니다.
 
@@ -233,12 +232,12 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
 
 **PowerShell cmdlet(추가 필터링을 위한 WHERE 절 지원 포함)** :
 
-- [데이터베이스 감사 정책 (설정-AzSqlDatabaseAudit) 생성 또는 업데이트](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseaudit)
-- [만들기 또는 업데이트 서버 감사 정책 (AzSqlServerAudit 집합)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserveraudit)
-- [데이터베이스 감사 정책 (Get-AzSqlDatabaseAudit) 가져오기](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseaudit)
-- [서버 감사 정책 (Get-AzSqlServerAudit) 가져오기](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserveraudit)
-- [데이터베이스 감사 정책 (AzSqlDatabaseAudit 제거)를 제거 합니다.](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabaseaudit)
-- [서버 감사 정책 (AzSqlServerAudit 제거)를 제거 합니다.](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlserveraudit)
+- [데이터베이스 감사 정책 만들기 또는 업데이트 (AzSqlDatabaseAudit)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseaudit)
+- [서버 감사 정책 만들기 또는 업데이트 (AzSqlServerAudit)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserveraudit)
+- [데이터베이스 감사 정책 가져오기 (AzSqlDatabaseAudit)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseaudit)
+- [서버 감사 정책 가져오기 (AzSqlServerAudit)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserveraudit)
+- [데이터베이스 감사 정책 제거 (AzSqlDatabaseAudit)](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabaseaudit)
+- [서버 감사 정책 제거 (AzSqlServerAudit)](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlserveraudit)
 
 스크립트 예제는 [PowerShell을 사용하여 감사 및 위협 감지 구성](scripts/sql-database-auditing-and-threat-detection-powershell.md)을 참조하세요.
 
@@ -253,10 +252,10 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
 
 WHERE 절 지원을 사용하여 추가 필터링에 대해 확장된 정책입니다.
 
-- [데이터베이스 생성 또는 업데이트 *확장* 감사 정책](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
-- [서버 만들기 또는 업데이트 *확장* 감사 정책](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
-- [데이터베이스 가져오기 *확장* 감사 정책](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
-- [서버를 가져올 *확장* 감사 정책](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
+- [데이터베이스 *확장* 감사 정책 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
+- [서버 *확장* 감사 정책 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
+- [데이터베이스 *확장* 감사 정책 가져오기](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
+- [서버 *확장* 감사 정책 가져오기](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
 ## <a id="subheading-10"></a>ARM 템플릿을 사용하여 SQL 데이터베이스 감사 관리
 

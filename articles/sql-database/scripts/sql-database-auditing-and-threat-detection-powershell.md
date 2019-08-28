@@ -1,6 +1,6 @@
 ---
-title: PowerShell 예제 감사 위협 감지 - Azure SQL Database | Microsoft Docs
-description: Azure SQL Database에서 감사 및 위협 감지를 구성하는 Azure PowerShell 예제 스크립트
+title: 감사 및 Advanced Threat Protection의 PowerShell 예제 - Azure SQL Database | Microsoft Docs
+description: Azure SQL Database에서 감사 및 Advanced Threat Protection을 구성하는 Azure PowerShell 예제 스크립트
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,19 +9,18 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: ronitr
 ms.author: ronitr
-ms.reviewer: carlrab
-manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 9086ddd734a69cf1aa91c88cf39dded3c984f342
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.reviewer: carlrab, vanto
+ms.date: 08/05/2019
+ms.openlocfilehash: f9ef894f4c4d1d0ad0ab43b538c984f9cf5b2d01
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729436"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816696"
 ---
-# <a name="use-powershell-to-configure-sql-database-auditing-and-threat-detection"></a>PowerShell을 사용하여 SQL Database 감사 및 위협 감지 구성
+# <a name="use-powershell-to-configure-sql-database-auditing-and-advanced-threat-protection"></a>PowerShell을 사용하여 SQL Database 감사 및 Advanced Threat Protection 구성
 
-이 PowerShell 예제는 SQL Database 감사 및 위협 감지를 구성합니다.
+이 PowerShell 스크립트 예제는 SQL Database 감사 및 Advanced Threat Protection을 구성합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -52,7 +51,7 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 | [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | 단일 데이터베이스 또는 탄력적 풀을 만듭니다. |
 | [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Storage 계정을 만듭니다. |
 | [Set-AzSqlDatabaseAuditing](/powershell/module/az.sql/set-azsqldatabaseauditing) | 데이터베이스에 대한 감사 정책을 설정합니다. |
-| [Set-AzSqlDatabaseThreatDetectionPolicy](/powershell/module/az.sql/set-azsqldatabasethreatdetectionpolicy) | 데이터베이스에 대한 위협 감지 정책을 설정합니다. |
+| [Set-AzSqlDatabaseThreatDetectionPolicy](/powershell/module/az.sql/set-azsqldatabasethreatdetectionpolicy) | 데이터베이스에 대한 Advanced Threat Protection 정책을 설정합니다. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 |||
 

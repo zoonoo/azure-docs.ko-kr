@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Data Warehouse - MPP 아키텍처 | Microsoft Docs
-description: Azure SQL Data Warehouse가 고성능 및 확장성을 달성하도록 MPP(Massively Parallel Processing)와 Azure 저장소를 결합하는 방법을 알아봅니다.
+description: Azure SQL Data Warehouse가 고성능 및 확장성을 달성하도록 MPP(Massively Parallel Processing)와 Azure Storage를 결합하는 방법을 알아봅니다.
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
@@ -18,7 +18,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "66515806"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL Data Warehouse - MPP(Massively Parallel Processing) 아키텍처
-Azure SQL Data Warehouse가 고성능 및 확장성을 달성하도록 MPP(Massively Parallel Processing)와 Azure 저장소를 결합하는 방법을 알아봅니다. 
+Azure SQL Data Warehouse가 고성능 및 확장성을 달성하도록 MPP(Massively Parallel Processing)와 Azure Storage를 결합하는 방법을 알아봅니다. 
 
 > [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
 
@@ -27,17 +27,17 @@ SQL Data Warehouse는 규모 확장 아키텍처를 활용하여 여러 노드�
 
 ![SQL Data Warehouse 아키텍처](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-SQL Data Warehouse는 노드 기반 아키텍처를 사용합니다. 애플리케이션은 데이터 웨어하우스의 단일 입력 지점인 제어 노드에 연결하고 T-SQL 명령을 보냅니다. 제어 노드는 병렬 처리를 위해 쿼리를 최적화하는 MPP 엔진을 실행한 다음, 연산을 계산 노드에 전달하여 병렬로 처리되도록 합니다. 계산 노드는 모든 사용자 데이터를 Azure Storage에 저장하고 병렬 쿼리를 실행합니다. DMS(Data Movement Service)는 쿼리를 병렬로 실행하고 정확한 결과를 반환하기 위해 필요할 때 노드에서 데이터를 이동시키는 시스템 수준의 내부 서비스입니다. 
+SQL Data Warehouse는 노드 기반 아키텍처를 사용합니다. 애플리케이션은 데이터 웨어하우스의 단일 입력 지점인 제어 노드에 연결하고 T-SQL 명령을 보냅니다. 제어 노드는 병렬 처리를 위해 쿼리를 최적화하는 MPP 엔진을 실행한 다음, 연산을 계산 노드에 전달하여 병렬로 처리되도록 합니다. 컴퓨팅 노드는 모든 사용자 데이터를 Azure Storage에 저장하고 병렬 쿼리를 실행합니다. DMS(Data Movement Service)는 쿼리를 병렬로 실행하고 정확한 결과를 반환하기 위해 필요할 때 노드에서 데이터를 이동시키는 시스템 수준의 내부 서비스입니다. 
 
 분리된 스토리지 및 계산을 통해 SQL Data Warehouse는 다음을 수행할 수 있습니다.
 
 * 스토리지 요구 사항에 관계없이 계산 능력을 독립적으로 조정합니다.
-* 데이터를 이동하지 않고 계산을 확장 또는 축소합니다.
+* 데이터를 이동하지 않고 컴퓨팅을 확장 또는 축소합니다.
 * 데이터를 그대로 둔 채 계산 용량을 일시 중지하여 스토리지 비용만 지불합니다.
-* 운영 시간 동안 계산 용량을 다시 시작합니다.
+* 운영 시간 동안 컴퓨팅 용량을 다시 시작합니다.
 
-### <a name="azure-storage"></a>Azure 저장소
-SQL Data Warehouse는 Azure 저장소를 사용하여 사용자 데이터를 안전하게 유지합니다.  Azure 저장소에서 데이터가 저장되고 관리되기 때문에 SQL Data Warehouse는 저장소 사용량에 대해 별도의 요금을 부과합니다. 데이터 자체는 시스템의 성능을 최적화하기 위해 **분산**으로 분할됩니다. 테이블을 정의할 때 데이터 분산에 사용할 분할 패턴을 선택할 수 있습니다. SQL Data Warehouse는 다음과 같은 분할 패턴을 지원합니다.
+### <a name="azure-storage"></a>Azure Storage
+SQL Data Warehouse는 Azure Storage를 사용하여 사용자 데이터를 안전하게 유지합니다.  Azure Storage에서 데이터가 저장되고 관리되기 때문에 SQL Data Warehouse는 스토리지 사용량에 대해 별도의 요금을 부과합니다. 데이터 자체는 시스템의 성능을 최적화하기 위해 **분산**으로 분할됩니다. 테이블을 정의할 때 데이터 분산에 사용할 분할 패턴을 선택할 수 있습니다. SQL Data Warehouse는 다음과 같은 분할 패턴을 지원합니다.
 
 * 해시
 * 라운드 로빈
@@ -47,18 +47,18 @@ SQL Data Warehouse는 Azure 저장소를 사용하여 사용자 데이터를 안
 
 제어 노드는 데이터 웨어하우스의 두뇌입니다. 모든 애플리케이션 및 연결과 상호 작용하는 프런트 엔드입니다. MPP 엔진은 병렬 쿼리를 최적화하고 조정하기 위해 제어 노드에서 실행됩니다. SQL Data Warehouse에 T-SQL 쿼리를 제출하면 제어 노드는 이것을 각 분산에 대해 병렬로 실행되는 쿼리로 변환합니다.
 
-### <a name="compute-nodes"></a>계산 노드
+### <a name="compute-nodes"></a>컴퓨팅 노드
 
-계산 노드는 계산 능력을 제공합니다. 분산은 처리를 위해 계산 노드로 매핑됩니다. 비용을 지불하는 계산 리소스가 많을수록 SQL Data Warehouse는 사용 가능한 계산 노드에 분산을 다시 매핑합니다. 계산 노드의 수는 1~60 사이이며 데이터 웨어하우스의 서비스 수준에 따라 결정됩니다.
+계산 노드는 계산 능력을 제공합니다. 분산은 처리를 위해 컴퓨팅 노드로 매핑됩니다. 비용을 지불하는 컴퓨팅 리소스가 많을수록 SQL Data Warehouse는 사용 가능한 컴퓨팅 노드에 분산을 다시 매핑합니다. 컴퓨팅 노드의 수는 1~60 사이이며 데이터 웨어하우스의 서비스 수준에 따라 결정됩니다.
 
-각 계산 노드에는 시스템 뷰에 표시되는 노드 ID가 있습니다. 시스템 뷰에서 이름이 sys.pdw_nodes로 시작하는 node_id 열을 검색하여 Compute 노드 ID를 볼 수 있습니다. 시스템 뷰 목록은 [MPP 시스템 뷰](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=aps-pdw-2016-au7)를 참조하세요.
+각 컴퓨팅 노드에는 시스템 뷰에 표시되는 노드 ID가 있습니다. 시스템 뷰에서 이름이 sys.pdw_nodes로 시작하는 node_id 열을 검색하여 Compute 노드 ID를 볼 수 있습니다. 시스템 뷰 목록은 [MPP 시스템 뷰](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=aps-pdw-2016-au7)를 참조하세요.
 
 ### <a name="data-movement-service"></a>데이터 이동 서비스
-DMS(데이터 이동 서비스)는 계산 노드 간의 데이터 이동을 조정하는 데이터 전송 기술입니다. 일부 쿼리는 병렬 쿼리가 정확한 결과를 반환하도록 하려면 데이터 이동이 필요합니다. 데이터 이동이 필요할 때 DMS는 올바른 데이터가 올바른 위치에 도달하도록 보장합니다. 
+DMS(데이터 이동 서비스)는 컴퓨팅 노드 간의 데이터 이동을 조정하는 데이터 전송 기술입니다. 일부 쿼리는 병렬 쿼리가 정확한 결과를 반환하도록 하려면 데이터 이동이 필요합니다. 데이터 이동이 필요할 때 DMS는 올바른 데이터가 올바른 위치에 도달하도록 보장합니다. 
 
 ## <a name="distributions"></a>배포
 
-분산은 분산 데이터에 실행되는 병렬 쿼리의 저장 및 처리의 기본 단위입니다. SQL Data Warehouse가 쿼리를 실행하면 병렬로 실행되는 60개의 작은 쿼리로 작업이 나뉩니다. 60개의 작은 쿼리는 각각 데이터 분산 중 하나에서 실행됩니다. 각 계산 노드는 60개 중 하나 이상의 분산을 관리합니다. 계산 리소스가 최대인 데이터 웨어하우스는 계산 노드당 하나의 분산이 있습니다. 계산 리소스가 최소인 데이터 웨어하우스는 하나의 계산 노드에 모든 분산이 포함됩니다.  
+분산은 분산 데이터에 실행되는 병렬 쿼리의 스토리지 및 처리의 기본 단위입니다. SQL Data Warehouse가 쿼리를 실행하면 병렬로 실행되는 60개의 작은 쿼리로 작업이 나뉩니다. 60개의 작은 쿼리는 각각 데이터 분산 중 하나에서 실행됩니다. 각 컴퓨팅 노드는 60개 중 하나 이상의 분산을 관리합니다. 컴퓨팅 리소스가 최대인 데이터 웨어하우스는 컴퓨팅 노드당 하나의 분산이 있습니다. 컴퓨팅 리소스가 최소인 데이터 웨어하우스는 하나의 컴퓨팅 노드에 모든 분산이 포함됩니다.  
 
 ## <a name="hash-distributed-tables"></a>해시 분산 테이블
 해시 분산 테이블은 대형 테이블의 조인 및 집계에 대해 가장 높은 쿼리 성능을 제공할 수 있습니다. 
@@ -84,9 +84,9 @@ DMS(데이터 이동 서비스)는 계산 노드 간의 데이터 이동을 조�
 ## <a name="replicated-tables"></a>복제된 테이블
 복제된 테이블은 작은 테이블에 가장 빠른 쿼리 성능을 제공합니다.
 
-복제된 테이블은 각 계산 노드에 테이블의 전체 복사본을 캐시합니다. 결과적으로 테이블을 복제하면 조인 또는 집계 전에 계산 노드 간에 데이터를 전송하지 않아도 됩니다. 복제된 테이블은 작은 테이블에서 가장 잘 활용됩니다. 추가 저장소가 필요 하며 대형 테이블을 불가능 하 게 하는 데이터를 쓸 때 발생 하는 추가 오버 헤드가 있습니다.  
+복제된 테이블은 각 컴퓨팅 노드에 테이블의 전체 복사본을 캐시합니다. 결과적으로 테이블을 복제하면 조인 또는 집계 전에 컴퓨팅 노드 간에 데이터를 전송하지 않아도 됩니다. 복제된 테이블은 작은 테이블에서 가장 잘 활용됩니다. 추가 저장소가 필요 하며 대형 테이블을 불가능 하 게 하는 데이터를 쓸 때 발생 하는 추가 오버 헤드가 있습니다.  
 
-다음 다이어그램은 복제된 테이블을 보여줍니다. SQL Data Warehouse의 경우 복제된 테이블은 각 계산 노드의 첫 번째 분산에 캐시됩니다.  
+다음 다이어그램은 복제된 테이블을 보여줍니다. SQL Data Warehouse의 경우 복제된 테이블은 각 컴퓨팅 노드의 첫 번째 분산에 캐시됩니다.  
 
 ![복제 테이블](media/sql-data-warehouse-distributed-data/replicated-table.png "복제 테이블") 
 

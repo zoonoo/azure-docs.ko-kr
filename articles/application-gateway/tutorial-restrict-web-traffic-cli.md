@@ -4,16 +4,16 @@ description: Azure CLI를 사용하여 애플리케이션 게이트웨이에서 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: tutorial
-ms.date: 5/20/2019
+ms.topic: article
+ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 1822fe032a7c7a6382dbae2cb9f7095d1d076008
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: HT
+ms.openlocfilehash: 698191355ab9e014693b01cfb6546fb764a2b647
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955482"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688200"
 ---
 # <a name="enable-web-application-firewall-using-the-azure-cli"></a>Azure CLI를 사용하여 웹 애플리케이션 방화벽 활성화
 
@@ -25,7 +25,7 @@ ms.locfileid: "65955482"
 > * 네트워크 설정
 > * WAF를 사용하는 애플리케이션 게이트웨이 만들기
 > * 가상 머신 확장 집합 만들기
-> * 저장소 계정 만들기 및 진단 구성
+> * 스토리지 계정 만들기 및 진단 구성
 
 ![웹 애플리케이션 방화벽 예제](./media/tutorial-restrict-web-traffic-cli/scenario-waf.png)
 
@@ -35,7 +35,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하여 사용하기로 선택할 경우 이 문서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -47,7 +47,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>네트워크 리소스 만들기
 
-가상 네트워크 및 서브넷을 사용하여 애플리케이션 게이트웨이 및 연결된 리소스에 대한 네트워크 연결을 제공합니다. [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) 및 [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create)를 사용하여 *myVNet*이라는 가상 네트워크와 *myAGSubnet*이라는 서브넷을 만듭니다. [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)를 사용하여 *myAGPublicIPAddress*라는 IP 주소를 만듭니다.
+가상 네트워크 및 서브넷을 사용하여 애플리케이션 게이트웨이 및 연결된 리소스에 대한 네트워크 연결을 제공합니다. *Myvnet* 이라는 가상 네트워크와 *myagsubnet*이라는 서브넷을 만듭니다. 그런 다음 *myAGPublicIPAddress*라는 공용 IP 주소를 만듭니다.
 
 ```azurecli-interactive
 az network vnet create \
@@ -66,12 +66,14 @@ az network vnet subnet create \
 
 az network public-ip create \
   --resource-group myResourceGroupAG \
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress \
+  --allocation-method Static \
+  --sku Standard
 ```
 
 ## <a name="create-an-application-gateway-with-a-waf"></a>WAF를 사용하여 애플리케이션 게이트웨이 만들기
 
-[az network application-gateway create](/cli/azure/network/application-gateway)를 사용하여 *myAppGateway*라는 애플리케이션 게이트웨이를 만들 수 있습니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 애플리케이션 게이트웨이는 앞에서 만든 *myAGSubnet* 및 *myAGPublicIPAddress*에 할당됩니다.
+[az network application-gateway create](/cli/azure/network/application-gateway)를 사용하여 *myAppGateway*라는 애플리케이션 게이트웨이를 만들 수 있습니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. Application gateway는 *Myagsubnet* 및 *myAGPublicIPAddress*에 할당 됩니다.
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -81,7 +83,7 @@ az network application-gateway create \
   --vnet-name myVNet \
   --subnet myAGSubnet \
   --capacity 2 \
-  --sku WAF_Medium \
+  --sku WAF_v2 \
   --http-settings-cookie-based-affinity Disabled \
   --frontend-port 80 \
   --http-settings-port 80 \
@@ -136,11 +138,11 @@ az vmss extension set \
   --settings '{ "fileUris": ["https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/install_nginx.sh"],"commandToExecute": "./install_nginx.sh" }'
 ```
 
-## <a name="create-a-storage-account-and-configure-diagnostics"></a>저장소 계정 만들기 및 진단 구성
+## <a name="create-a-storage-account-and-configure-diagnostics"></a>스토리지 계정 만들기 및 진단 구성
 
 이 문서에서 애플리케이션 게이트웨이는 스토리지 계정을 사용하여 검색 및 방지 목적으로 데이터를 저장합니다. Azure Monitor 로그 또는 Event Hub를 사용하여 데이터를 기록할 수도 있습니다. 
 
-### <a name="create-a-storage-account"></a>저장소 계정 만들기
+### <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
 [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)를 사용하여 *myagstore1*이라는 스토리지 계정을 만듭니다.
 
@@ -155,7 +157,7 @@ az storage account create \
 
 ### <a name="configure-diagnostics"></a>진단 구성
 
-ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog 및 ApplicationGatewayFirewallLog 로그에 데이터를 기록하도록 진단을 구성합니다. `<subscriptionId>`를 구독 식별자로 바꾼 다음, [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create)를 사용하여 진단을 구성합니다.
+ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog 및 ApplicationGatewayFirewallLog 로그에 데이터를 기록하도록 진단을 구성합니다. 를 `<subscriptionId>` 구독 식별자로 바꾸고,을 [az monitor 진단-설정 만들기](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create)를 사용 하 여 진단을 구성 합니다.
 
 ```azurecli-interactive
 appgwid=$(az network application-gateway show --name myAppGateway --resource-group myResourceGroupAG --query id -o tsv)
@@ -191,4 +193,4 @@ az group delete --name myResourceGroupAG
 
 ## <a name="next-steps"></a>다음 단계
 
-* [SSL 종료를 사용하여 애플리케이션 게이트웨이 만들기](./tutorial-ssl-cli.md)
+[SSL 종료를 사용하여 애플리케이션 게이트웨이 만들기](./tutorial-ssl-cli.md)

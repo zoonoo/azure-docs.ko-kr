@@ -109,7 +109,7 @@ Resource Manager DSC 확장 cmdlet에 대한 중요 정보:
 
 - Azure Resource Manager cmdlets는 동기입니다.
 - *ResourceGroupName*, *VMName*, *ArchiveStorageAccountName*, *Version* 및 *Location* 매개 변수는 모두 필수입니다.
-- *ArchiveResourceGroupName* 매개 변수는 선택 사항입니다. 저장소 계정이 VM을 만들 위치가 아닌 다른 리소스 그룹에 속해 있는 경우 이 매개 변수를 지정할 수 있습니다.
+- *ArchiveResourceGroupName* 매개 변수는 선택 사항입니다. 스토리지 계정이 VM을 만들 위치가 아닌 다른 리소스 그룹에 속해 있는 경우 이 매개 변수를 지정할 수 있습니다.
 - **AutoUpdate** 스위치를 사용하면 최신 버전이 제공될 시 확장 처리기를 자동으로 업데이트할 수 있습니다. 이 매개 변수를 사용하면 새 버전의 WMF가 릴리스될 때 VM이 다시 시작될 수 있습니다.
 
 ### <a name="get-started-with-cmdlets"></a>cmdlet으로 시작

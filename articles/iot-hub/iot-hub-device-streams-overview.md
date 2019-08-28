@@ -7,12 +7,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: robinsh
-ms.openlocfilehash: 6c0fa0a3166dce5aa6adc71a46555a24d899c96b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 86f8c6e527f58a7c4cfca6233165f0ab05426409
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441352"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672565"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IoT Hub 디바이스 스트림(미리 보기)
 
@@ -36,7 +36,7 @@ IoT Hub 디바이스 스트림은 다음과 같은 혜택을 제공합니다.
 
 * **TCP/IP 스택과의 호환성:** IoT Hub 디바이스 스트림은 TCP/IP 애플리케이션 트래픽을 수용할 수 있습니다. 즉, 광범위한 소유 프로토콜 및 표준 기반 프로토콜에서 이 기능을 활용할 수 있습니다.
 
-* **개인 네트워크 설정의 사용 편의성:** 서비스에서 디바이스의 IP 주소가 아니라 디바이스 ID를 참조하여 디바이스와 통신할 수 있습니다. 이 기능은 디바이스가 프라이빗 네트워크에 있고 개인 IP 주소를 사용하거나, 해당 IP 주소가 동적으로 할당되고 서비스 쪽에서 알 수 없는 경우에 유용합니다.
+* **프라이빗 네트워크 설정의 사용 편의성:** 서비스에서 디바이스의 IP 주소가 아니라 디바이스 ID를 참조하여 디바이스와 통신할 수 있습니다. 이 기능은 디바이스가 프라이빗 네트워크에 있고 개인 IP 주소를 사용하거나, 해당 IP 주소가 동적으로 할당되고 서비스 쪽에서 알 수 없는 경우에 유용합니다.
 
 ## <a name="device-stream-workflows"></a>장치 stream 워크플로
 
@@ -82,7 +82,7 @@ SDK를 사용하여 디바이스 스트림을 프로그래밍 방식으로 만�
 
 !["장치 stream 끝점"](./media/iot-hub-device-streams-overview/device-stream-in-portal.png)
 
-또는 허브 속성 섹션 아래의 Azure CLI(특히 `property.hostname` 및 `property.deviceStreams` 키)를 사용하여 엔드포인트 정보를 검색할 수 있습니다.
+특히, 허브의 속성 섹션에서 Azure CLI를 사용 하는 끝점 정보를 검색할 있습니다 또는 `property.hostname` 고 `property.deviceStreams` 키입니다.
 
 ```azurecli-interactive
 az iot hub devicestream show --name <YourIoTHubName>
@@ -190,7 +190,7 @@ Echo 예제는 다음과 같습니다.
 
 4. 서비스-로컬 프록시가 사용자의 새 SSH 연결을 기다리도록 지정된 포트에서 수신 대기합니다(샘플에서는 2222 포트가 사용되지만 사용 가능한 다른 포트로 구성될 수 있음). 사용자가 SSH 클라이언트에서 localhost의 서비스-로컬 프록시 포트를 가리킵니다.
 
-### <a name="notes"></a>메모
+### <a name="notes"></a>참고
 
 * 위 단계는 SSH 클라이언트(오른쪽)와 SSH 디먼(왼쪽) 간의 엔드투엔드 터널을 완료합니다. 이 엔드투엔드 연결의 일부는 디바이스 스트림을 통해 IoT Hub로 트래픽을 보내는 것과 관련이 있습니다.
 

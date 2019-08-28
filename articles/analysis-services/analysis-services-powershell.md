@@ -8,44 +8,44 @@ ms.topic: reference
 ms.date: 07/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a958c33e173c881a3ad09a49fe9f71ddb0c9df56
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 38ce44f486616e4ab94e8332884005a187e31008
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508937"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932411"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>PowerShell을 사용하여 Azure Analysis Services 관리
 
 이 문서에서는 Azure Analysis Services 서버 및 데이터베이스 관리 작업을 수행하는 데 사용되는 PowerShell cmdlet에 대해 설명합니다. 
 
-Azure Analysis Services cmdlet을 사용 하는 만들기 또는 서버를 삭제, 일시 중단 또는 서버 작업을 다시 시작 또는 서비스 수준 (계층) 변경과 같은 관리 작업입니다. 역할 멤버 추가 또는 제거, 처리 또는 분할과 같은 기타 데이터베이스 관리 작업에서는 SQL Server Analysis Services와 동일한 SqlServer 모듈에 포함된 cmdlet을 사용합니다.
+서버를 만들거나 삭제 하 고, 서버 작업을 일시 중지 하거나 다시 시작 하거나, 서비스 수준 (계층)을 변경 하는 등의 서버 리소스 관리 작업은 Azure Analysis Services cmdlet을 사용 합니다. 역할 멤버 추가 또는 제거, 처리 또는 분할과 같은 기타 데이터베이스 관리 작업에서는 SQL Server Analysis Services와 동일한 SqlServer 모듈에 포함된 cmdlet을 사용합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 대부분의 PowerShell 작업에는 관리하는 Analysis Services 서버에 대해 관리자 권한이 있어야 합니다. 예약된 PowerShell 작업은 무인 작업입니다. 스케줄러를 실행하는 계정 또는 서비스 주체에게는 Analysis Services 서버에 대해 관리자 권한이 있어야 합니다. 
 
-Azure PowerShell cmdlet을 사용 하 여 서버 작업 계정 또는 스케줄러를 실행 하는 계정에도 속해야 합니다 리소스에 대 한 소유자 역할과 [azure 역할 기반 Access Control (RBAC)](../role-based-access-control/overview.md)합니다. 
+Azure PowerShell cmdlet을 사용 하는 서버 작업의 경우 스케줄러를 실행 하는 계정 또는 계정이 [Azure 역할 기반 Access Control (RBAC)](../role-based-access-control/overview.md)의 리소스에 대 한 소유자 역할에도 속해야 합니다. 
 
 ## <a name="resource-and-server-operations"></a>리소스 및 서버 작업 
 
--모듈을 설치 [Az.AnalysisServices](https://www.powershellgallery.com/packages/Az.AnalysisServices)   
-설명서- [Az.AnalysisServices 참조](/powershell/module/az.analysisservices)
+설치 모듈- [Az. microsoft.analysisservices.sharepoint.integration.dll](https://www.powershellgallery.com/packages/Az.AnalysisServices)   
+설명서- [Az. microsoft.analysisservices.sharepoint.integration.dll reference](/powershell/module/az.analysisservices)
 
 ## <a name="database-operations"></a>데이터베이스 작업
 
-SQL Server Analysis Services와 동일한 SqlServer 모듈을 사용 하는 azure Analysis Services 데이터베이스 작업입니다. 그러나 모든 cmdlet이 Azure Analysis Services에서 지원되는 것은 아닙니다. 
+Azure Analysis Services 데이터베이스 작업은 SQL Server Analysis Services와 동일한 SqlServer 모듈을 사용 합니다. 그러나 모든 cmdlet이 Azure Analysis Services에서 지원되는 것은 아닙니다. 
 
 SqlServer 모듈은 TMSL(테이블 형식 모델 스크립트 언어) 쿼리 또는 스크립트를 허용하는 범용 Invoke-ASCmd cmdlet뿐만 아니라 작업 관련 데이터베이스 관리 cmdlet도 제공합니다. SqlServer 모듈의 다음 cmdlet은 Azure Analysis Services에서 지원됩니다.
 
--모듈을 설치 [SqlServer](https://www.powershellgallery.com/packages/SqlServer)   
+설치 모듈- [SqlServer](https://www.powershellgallery.com/packages/SqlServer)   
 설명서- [SqlServer 참조](/powershell/module/sqlserver)
 
 ### <a name="supported-cmdlets"></a>지원 되는 cmdlet
 
-|Cmdlet|설명|
+|Cmdlet|Description|
 |------------|-----------------| 
 |[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|데이터베이스 역할에 구성원을 추가합니다.| 
 |[Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase)|Analysis Services 데이터베이스를 백업합니다.|  
@@ -64,4 +64,4 @@ SqlServer 모듈은 TMSL(테이블 형식 모델 스크립트 언어) 쿼리 또
 * [SQL Server PowerShell 모듈 다운로드](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
 * [SSMS 다운로드](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
 * [SqlServer module in PowerShell Gallery](https://www.powershellgallery.com/packages/SqlServer)(PowerShell 갤러리의 SqlServer 모듈)    
-* [Tabular Model Programming for Compatibility Level 1200 and higher](/sql/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200)(호환성 수준 1200 이상에 대한 테이블 형식 모델 프로그래밍)
+* [Tabular Model Programming for Compatibility Level 1200 and higher](https://docs.microsoft.com/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200)(호환성 수준 1200 이상에 대한 테이블 형식 모델 프로그래밍)

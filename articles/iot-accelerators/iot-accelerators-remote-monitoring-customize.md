@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: aed63e332375be4f8ed939cf162545c9f366f329
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eb3d5fea68b5b1b6e648943cb3dbaab5857e9e07
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66143461"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608012"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기 사용자 지정
 
@@ -31,15 +31,15 @@ UI를 변경하기 위해 복사본을 로컬로 실행할 수 있습니다. 원
 
 1. **pcs** CLI를 사용하여 솔루션 가속기의 **기본** 인스턴스를 배포합니다. 가상 머신에 대해 제공한 배포 및 자격 증명의 이름을 기록해 둡니다. 자세한 내용은 [CLI를 사용하여 배포](iot-accelerators-remote-monitoring-deploy-cli.md)를 참조하세요.
 
-1. 솔루션에서 마이크로 서비스를 호스팅하는 가상 머신에 대한 SSH 액세스를 사용하도록 설정하기 위해 Azure Portal 또는 Azure Cloud Shell을 사용합니다. 예를 들면 다음과 같습니다.
+1. 솔루션에서 마이크로 서비스를 호스팅하는 가상 머신에 대한 SSH 액세스를 사용하도록 설정하기 위해 Azure Portal 또는 Azure Cloud Shell을 사용합니다. 예를 들어:
 
     ```azurecli-interactive
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
 
-    테스트 및 개발하는 동안 SSH 액세스만 활성화합니다. SSH를 사용하도록 설정할 경우 [사용을 마친 즉시 사용을 중지해야 합니다](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-virtual-machines).
+    테스트 및 개발하는 동안 SSH 액세스만 활성화합니다. SSH를 사용하도록 설정할 경우 [사용을 마친 즉시 사용을 중지해야 합니다](../security/fundamentals/network-best-practices.md#disable-rdpssh-access-to-virtual-machines).
 
-1. Azure Portal 또는 Azure Cloud Shell을 사용하여 가상 머신의 이름 및 공용 IP 주소를 찾습니다. 예를 들면 다음과 같습니다.
+1. Azure Portal 또는 Azure Cloud Shell을 사용하여 가상 머신의 이름 및 공용 IP 주소를 찾습니다. 예를 들어:
 
     ```azurecli-interactive
     az resource list --resource-group {your solution name} -o table
@@ -73,7 +73,7 @@ UI를 변경하기 위해 복사본을 로컬로 실행할 수 있습니다. 원
     npm start
     ```
 
-1. 이전 명령을 로컬로 실행 되는 UI http:\//localhost:3000 / 대시보드. 사이트가 실행되는 동안 코드를 편집하고 동적으로 업데이트하는 것을 확인할 수 있습니다.
+1. 이전 명령은 http:\//hosts: 3000/dashboard에서 UI를 로컬로 실행 합니다. 사이트가 실행되는 동안 코드를 편집하고 동적으로 업데이트하는 것을 확인할 수 있습니다.
 
 ## <a name="customize-the-layout"></a>레이아웃 사용자 지정
 

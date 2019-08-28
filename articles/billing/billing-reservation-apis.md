@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/25/2019
+ms.date: 08/02/2019
 ms.author: banders
-ms.openlocfilehash: 6d63f9a393dbb40c3b0952eba9ab9449fd7b558d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 36bc403c4000e58541f22c2cb44f77a28e81cb72
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64702615"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779898"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>Azure 예약 자동화용 API
 
@@ -30,9 +30,9 @@ Azure API를 사용하여 프로그래밍 방식으로 Azure 서비스 또는 �
 
 ## <a name="buy-a-reservation"></a>예약 구입
 
-REST Api를 사용 하 여 Azure 예약 및 소프트웨어 계획을 프로그래밍 방식으로 구입할 수 있습니다. 자세한 내용은 참조 하세요 [순 예약 구매 API](/rest/api/reserved-vm-instances/reservationorder/purchase)합니다.
+REST Api를 사용 하 여 프로그래밍 방식으로 Azure 예약 및 소프트웨어 계획을 구매할 수 있습니다. 자세히 알아보려면 [예약 주문-구매 API](/rest/api/reserved-vm-instances/reservationorder/purchase)를 참조 하세요.
 
-다음은 REST API를 사용 하 여 구매 하는 샘플 요청이입니다.
+REST API를 사용 하 여 구매 하는 샘플 요청은 다음과 같습니다.
 
 ```
 PUT https://management.azure.com/providers/Microsoft.Capacity/reservationOrders/<GUID>?api-version=2019-04-01
@@ -61,7 +61,7 @@ PUT https://management.azure.com/providers/Microsoft.Capacity/reservationOrders/
 }
 ```
 
-Azure portal에서 예약을 구입할 수도 있습니다. 자세한 내용은 다음 문서를 참조하세요.
+Azure Portal에서 예약을 구매할 수도 있습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 서비스 플랜:
 - [가상 머신](../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json)
@@ -84,7 +84,7 @@ EA 고객인 경우 조직의 예약이 사용되는 방식을 프로그래밍 �
 - 조직이 만드는 가상 머신이 예약의 VM 크기와 일치하는지 확인합니다.
 - 인스턴스 크기 유연성이 켜져 있는지 확인합니다. 자세한 내용은 [예약 관리 - 예약 VM 인스턴스에 대한 최적화 설정 변경](billing-manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances)을 참조하세요.
 - 보다 광범위하게 적용되도록 예약의 범위를 공유로 변경합니다. 자세한 내용은 [예약 관리 - 예약 범위 변경](billing-manage-reserved-vm-instance.md#change-the-reservation-scope)을 참조하세요.
-- 사용하지 않은 수량을 교환합니다. 자세한 내용은 [예약 관리 - 취소 및 교환](billing-manage-reserved-vm-instance.md#cancellations-and-exchanges)을 참조하세요.
+- 사용하지 않은 수량을 교환합니다. 자세한 내용은 [예약 관리](billing-manage-reserved-vm-instance.md)를 참조 하세요.
 
 ## <a name="give-access-to-reservations"></a>예약에 대한 액세스 권한 부여
 
@@ -104,7 +104,7 @@ EA 고객인 경우 조직의 예약이 사용되는 방식을 프로그래밍 �
 
 ## <a name="change-scope-for-a-reservation"></a>예약 범위 변경
 
-예약 범위는 청구 컨텍스트에서 단일 구독이나 모든 구독일 수 있습니다. 단일 구독으로 범위를 설정하는 경우 예약은 선택한 구독에서 실행 중인 리소스와 일치됩니다. 범위를 공유로 설정하는 경우 Azure에서 예약을 청구 컨텍스트 내 모든 구독에서 실행하는 리소스와 일치시킵니다. 청구 컨텍스트는 예약을 구입하는 데 사용되는 구독에 따라 달라집니다. 자세한 내용은 [예약 관리 - 범위 변경](billing-manage-reserved-vm-instance.md#change-the-reservation-scope)을 참조하세요.
+예약 범위는 단일 구독, 단일 리소스 그룹 또는 청구 컨텍스트의 모든 구독 일 수 있습니다. 범위를 단일 구독 또는 단일 리소스 그룹으로 설정 하면 예약이 선택한 구독에서 실행 중인 리소스와 일치 합니다. 구독 또는 리소스 그룹을 삭제 하거나 이동 하는 경우 예약이 활용 되지 않습니다.  범위를 공유로 설정하는 경우 Azure에서 예약을 청구 컨텍스트 내 모든 구독에서 실행하는 리소스와 일치시킵니다. 청구 컨텍스트는 예약을 구입하는 데 사용되는 구독에 따라 달라집니다. 구매 시 범위를 선택 하거나 구매 후 언제 든 지 변경할 수 있습니다. 자세한 내용은 [예약 관리 - 범위 변경](billing-manage-reserved-vm-instance.md#change-the-reservation-scope)을 참조하세요.
 
 범위를 프로그래밍 방식으로 변경하려면 API [예약 - 업데이트](/rest/api/reserved-vm-instances/reservation/update)를 사용합니다.
 

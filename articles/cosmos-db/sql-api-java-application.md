@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/22/2018
 ms.author: ramkris
-ms.openlocfilehash: dfb4e40aeed797a55a7b2cabad32d33920547c06
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: bd2894c23e206ed5f49fec8aa169d6ed852df4c6
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479500"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616666"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Azure Cosmos DB 및 SQL API를 사용하여 Java 웹 애플리케이션 빌드
 
@@ -25,22 +25,22 @@ ms.locfileid: "66479500"
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
-이 Java 웹 응용 프로그램 자습서에서는 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 서비스를 사용하여 Azure App Service Web Apps에 호스트된 Java 응용 프로그램에서 데이터를 저장하고 액세스하는 방법을 보여 줍니다. 이 문서에서는 다음에 대해 알아봅니다.
+이 Java 웹 애플리케이션 자습서에서는 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 서비스를 사용하여 Azure App Service Web Apps에 호스트된 Java 애플리케이션에서 데이터를 저장하고 액세스하는 방법을 보여 줍니다. 이 문서에서는 다음에 대해 알아봅니다.
 
-* Eclipse에서 기본 JSP(JavaServer Pages) 응용 프로그램을 빌드하는 방법.
+* Eclipse에서 기본 JSP(JavaServer Pages) 애플리케이션을 빌드하는 방법.
 * [Azure Cosmos DB Java SDK](https://github.com/Azure/azure-documentdb-java)를 사용하여 Azure Cosmos DB 서비스로 작업하는 방법입니다.
 
-이 Java 응용 프로그램 자습서에서는 다음 이미지에 표시된 것처럼 작업을 생성 및 검색하고 완료로 표시할 수 있게 해주는 웹 기반 작업 관리 응용 프로그램을 만드는 방법을 보여 줍니다. 할 일 목록에 있는 각 작업은 Azure Cosmos DB에서 JSON 문서로 저장됩니다.
+이 Java 애플리케이션 자습서에서는 다음 이미지에 표시된 것처럼 작업을 생성 및 검색하고 완료로 표시할 수 있게 해주는 웹 기반 작업 관리 애플리케이션을 만드는 방법을 보여 줍니다. 할 일 목록에 있는 각 작업은 Azure Cosmos DB에서 JSON 문서로 저장됩니다.
 
-![My ToDo List Java 응용 프로그램](./media/sql-api-java-application/image1.png)
+![My ToDo List Java 애플리케이션](./media/sql-api-java-application/image1.png)
 
 > [!TIP]
-> 이 응용 프로그램 개발 자습서에서는 이전에 Java를 사용한 경험이 있다고 가정합니다. Java 또는 [필수 구성 요소 도구](#Prerequisites)를 처음 사용하는 경우 GitHub에서 전체 [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) 프로젝트를 다운로드하고 [이 문서의 끝에 있는 지침](#GetProject)을 사용하여 이 프로젝트를 빌드하는 것이 좋습니다. 프로젝트를 빌드하고 나면 이 문서를 검토하여 프로젝트의 컨텍스트에서 코드를 이해할 수 있습니다.  
+> 이 애플리케이션 개발 자습서에서는 이전에 Java를 사용한 경험이 있다고 가정합니다. Java 또는 [필수 구성 요소 도구](#Prerequisites)를 처음 사용하는 경우 GitHub에서 전체 [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) 프로젝트를 다운로드하고 [이 문서의 끝에 있는 지침](#GetProject)을 사용하여 이 프로젝트를 빌드하는 것이 좋습니다. 프로젝트를 빌드하고 나면 이 문서를 검토하여 프로젝트의 컨텍스트에서 코드를 이해할 수 있습니다.  
 > 
 > 
 
 ## <a id="Prerequisites"></a>이 Java 웹 애플리케이션 자습서의 필수 구성 요소
-이 응용 프로그램 개발 자습서를 시작하기 전에 다음이 있어야 합니다.
+이 애플리케이션 개발 자습서를 시작하기 전에 다음이 있어야 합니다.
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
@@ -64,7 +64,7 @@ JSP 애플리케이션을 만들려면 다음을 수행합니다.
 
 1. 먼저, Java 프로젝트를 만듭니다. Eclipse를 시작한 후 **파일**, **새로 만들기**, **동적 웹 프로젝트**를 차례로 클릭합니다. **동적 웹 프로젝트**가 사용 가능한 프로젝트로 나열되지 않았으면 다음을 수행합니다. **파일**, **새로 만들기**, **프로젝트**…를 차례로 클릭하고 **웹**을 확장한 후 **동적 웹 프로젝트**를 클릭하고 **다음**을 클릭합니다.
    
-    ![JSP Java 응용 프로그램 개발](./media/sql-api-java-application/image10.png)
+    ![JSP Java 애플리케이션 개발](./media/sql-api-java-application/image10.png)
 2. **프로젝트 이름** 상자에 프로젝트 이름을 입력하고 **대상 런타임** 드롭다운 메뉴에서 선택적으로 값(예: Apache Tomcat v7.0)을 선택한 후 **마침**을 클릭합니다. 대상 런타임을 선택하면 Eclipse를 통해 프로젝트를 로컬로 실행할 수 있습니다.
 3. Eclipse의 Project Explorer 보기에서 프로젝트를 확장합니다. **WebContent**를 마우스 오른쪽 단추로 클릭하고 **New**를 클릭한 후 **JSP File**을 클릭합니다.
 4. **새 JSP 파일** 대화 상자에서 파일 이름을 **index.jsp**로 지정합니다. 다음 그림에 표시된 것처럼 상위 폴더를 **WebContent**로 유지하고 **다음**을 클릭합니다.
@@ -96,7 +96,7 @@ SQL Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은 [Apach
    * **아티팩트 ID** 상자에 azure-documentdb를 입력합니다.
    * **버전** 상자에 1.5.1을 입력합니다.
      
-   ![SQL Java 응용 프로그램 SDK 설치](./media/sql-api-java-application/image13.png)
+   ![SQL Java 애플리케이션 SDK 설치](./media/sql-api-java-application/image13.png)
      
    * 또는 텍스트 편집기를 통해 Group ID 및 Artifact ID에 대한 종속성 XML을 pom.xml에 직접 추가합니다.
         ```xml
@@ -250,7 +250,7 @@ SQL Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은 [Apach
    
             return gson.fromJson(todoItemDocument.toString(), TodoItem.class);
         }
-5. Azure Cosmos DB 데이터베이스 및 컬렉션과 마찬가지로 문서도 셀프 link로 참조됩니다. 다음 도우미 함수에서는 셀프 link가 아닌 다른 특성(예: "id")으로 문서를 검색해 보겠습니다.
+5. Azure Cosmos 데이터베이스 및 컬렉션과 마찬가지로 문서도 셀프 link로 참조됩니다. 다음 도우미 함수에서는 셀프 link가 아닌 다른 특성(예: "id")으로 문서를 검색해 보겠습니다.
    
         private Document getDocumentById(String id) {
             // Retrieve the document using the DocumentClient.
@@ -718,13 +718,13 @@ SQL Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은 [Apach
 ## <a id="Deploy"></a>6단계: Azure 웹 사이트에 Java 애플리케이션 배포
 Azure 웹 사이트에서는 Java 애플리케이션을 간단히 배포할 수 있습니다. 즉, 애플리케이션을 WAR 파일로 내보내고 소스 제어(예: Git) 또는 FTP를 통해 업로드하면 됩니다.
 
-1. 응용 프로그램을 WAR 파일로 내보내려면 **프로젝트 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **내보내기**를 클릭한 후 **WAR 파일**을 클릭합니다.
+1. 애플리케이션을 WAR 파일로 내보내려면 **프로젝트 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **내보내기**를 클릭한 후 **WAR 파일**을 클릭합니다.
 2. **WAR 내보내기** 창에서 다음을 수행합니다.
    
    * 웹 프로젝트 상자에 azure-documentdb-java-sample을 입력합니다.
    * 대상 상자에서 WAR 파일을 저장할 대상을 선택합니다.
    * **Finish**를 클릭합니다.
-3. 이제 WAR 파일이 준비되었으므로 간단히 Azure 웹 사이트의 **webapps** 디렉터리로 업로드하면 됩니다. 파일 업로드에 대한 자세한 내용은 [Azure App Service Web Apps에 Java 응용 프로그램 추가](../app-service/web-sites-java-add-app.md)를 참조하세요.
+3. 이제 WAR 파일이 준비되었으므로 간단히 Azure 웹 사이트의 **webapps** 디렉터리로 업로드하면 됩니다. 파일 업로드에 대한 자세한 내용은 [Azure App Service Web Apps에 Java 애플리케이션 추가](../app-service/web-sites-java-add-app.md)를 참조하세요.
    
     WAR 파일이 webapps 디렉터리에 업로드되면 런타임 환경에서 이 파일이 추가되었음을 감지하고 자동으로 로드합니다.
 4. 완성된 제품을 보려면 `http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/`로 이동하고 작업 추가를 시작하세요.
@@ -737,12 +737,12 @@ Azure 웹 사이트에서는 Java 애플리케이션을 간단히 배포할 수 
 3. Eclipse의 **파일** 메뉴에서 **가져오기**를 클릭합니다.
 4. **가져오기** 창에서 **Git**, **Git의 프로젝트**, **다음**을 차례로 클릭합니다.
 5. **리포지토리 원본 선택** 화면에서 **URI 복제**를 클릭합니다.
-6. **원본 Git 리포지토리** 화면의 **URI** 상자에 https://github.com/Azure-Samples/documentdb-java-todo-app.git를 입력한 다음, **다음**을 클릭합니다.
+6. **원본 Git 리포지토리** 화면의 **URI** 상자에 https://github.com/Azure-Samples/documentdb-java-todo-app.git 를 입력한 다음, **다음**을 클릭합니다.
 7. **분기 선택** 화면에서 **마스터**가 선택되었는지 확인하고 **다음**을 클릭합니다.
 8. **로컬 대상** 화면에서 **찾아보기**를 클릭하여 리포지토리를 복사할 수 있는 폴더를 선택한 후 **다음**을 클릭합니다.
 9. **프로젝트 가져오기에 사용할 마법사 선택** 화면에서 **기존 프로젝트 가져오기**가 선택되었는지 확인하고 **다음**을 클릭합니다.
 10. **프로젝트 가져오기** 화면에서 **DocumentDB** 프로젝트를 선택 취소한 후 **마침**을 클릭합니다. DocumentDB 프로젝트에는 종속성으로 추가할 Azure Cosmos DB Java SDK가 포함됩니다.
-11. **프로젝트 탐색기**에서 azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java로 이동하고 HOST 및 MASTER_KEY 값을 각각 해당 Azure Cosmos DB 계정의 URI 및 기본 키로 바꾸고 파일을 저장합니다. 자세한 내용은 [1단계를 참조하세요. Azure Cosmos DB 데이터베이스 계정 만들기](#CreateDB)를 참조하세요.
+11. **프로젝트 탐색기**에서 azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java로 이동하고 HOST 및 MASTER_KEY 값을 각각 해당 Azure Cosmos DB 계정의 URI 및 기본 키로 바꾸고 파일을 저장합니다. 자세한 내용은 [1단계를 참조하세요. Azure Cosmos 데이터베이스 계정 만들기](#CreateDB)를 참조하세요.
 12. **프로젝트 탐색기**에서 **azure-documentdb-java-sample**을 마우스 오른쪽 단추로 클릭하고 **빌드 경로**를 클릭한 후 **빌드 경로 구성**을 클릭합니다.
 13. **Java 빌드 경로** 화면의 오른쪽 창에서 **라이브러리** 탭을 선택한 후 **외부 JAR 추가**를 클릭합니다. lombok.jar 파일의 위치로 이동하고 **열기**를 클릭한 후 **확인**을 클릭합니다.
 14. 12단계를 수행해서 **속성** 창을 다시 열고 왼쪽 창에서 **대상 런타임**을 클릭합니다.
@@ -753,5 +753,5 @@ Azure 웹 사이트에서는 Java 애플리케이션을 간단히 배포할 수 
 19. **추가 및 제거** 창에서 **azure-documentdb-java-sample**을 **구성됨** 상자로 이동하고 **마침**을 클릭합니다.
 20. **서버** 탭에서 **로컬 호스트의 Tomcat v7.0 서버**를 마우스 오른쪽 단추로 클릭하고 **다시 시작**을 클릭합니다.
 21. 브라우저에서 `http://localhost:8080/azure-documentdb-java-sample/`로 이동하고 작업 목록에 추가하기 시작합니다. 기본 포트 값을 변경한 경우 8080을 선택한 값으로 변경합니다.
-22. 프로젝트를 Azure 웹 사이트에 배포하려면 [6단계. Azure 웹 사이트에 응용 프로그램 배포](#Deploy)를 참조하세요.
+22. 프로젝트를 Azure 웹 사이트에 배포하려면 [6단계. Azure 웹 사이트에 애플리케이션 배포](#Deploy)를 참조하세요.
 

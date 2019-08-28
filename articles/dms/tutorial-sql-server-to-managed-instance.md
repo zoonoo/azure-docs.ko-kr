@@ -133,7 +133,7 @@ Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인
     신뢰할 수 있는 인증서가 설치되어 있지 않으면 인스턴스가 시작될 때 SQL Server에서 자체 서명 인증서를 생성합니다. 이 인증서는 클라이언트 연결에 대한 자격 증명을 암호화하는 데 사용됩니다.
 
     > [!CAUTION]
-    > 자체 서명 인증서를 사용하여 암호화된 SSL 연결은 강력한 보안을 제공하지 않습니다. 메시지 가로채기(man-in-the-middle) 공격을 받기 쉽습니다. 프로덕션 환경이나 인터넷에 연결된 서버에서 자체 서명 인증서를 사용하는 SSL을 신뢰해서는 안 됩니다.
+    > 자체 서명 인증서를 사용하여 암호화된 SSL 연결은 강력한 보안을 제공하지 않습니다. 중간자 공격(man-in-the-middle)을 받기 쉽습니다. 프로덕션 환경이나 인터넷에 연결된 서버에서 자체 서명 인증서를 사용하는 SSL을 신뢰해서는 안 됩니다.
 
    ![원본 세부 정보](media/tutorial-sql-server-to-managed-instance/dms-source-details1.png)
 
@@ -187,7 +187,7 @@ Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인
     |**네트워크 위치 공유** | Azure Database Migration Service가 원본 데이터베이스를 백업하는 데 사용할 수 있는 로컬 SMB 네트워크 공유입니다. 원본 SQL Server 인스턴스를 실행하는 서비스 계정에는 이 네트워크 공유에 대한 쓰기 권한이 있어야 합니다. 네트워크 공유에 있는 서버의 FQDN 또는 IP 주소를 입력합니다(예: '\\\servername.domainname.com\backupfolder' 또는 '\\\IP address\backupfolder').|
     |**사용자 이름** | Windows 사용자가 위에서 입력한 네트워크 공유에 대한 전체 제어 권한을 갖고 있는지 확인합니다. Azure Database Migration Service는 사용자 자격 증명을 가장하여 복원 작업을 위한 Azure Storage 컨테이너에 백업 파일을 업로드합니다. TDE 가능 데이터베이스를 마이그레이션하기로 선택하는 경우 인증서 파일을 업로드하고 삭제할 수 있도록 위의 Windows 사용자가 기본 제공 관리자 계정이어야 하고, Azure Database Migration Service에 [사용자 계정 컨트롤](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/user-account-control-overview)을 사용하지 않도록 설정해야 합니다. |
     |**암호** | 사용자에 대한 암호입니다. |
-    |**저장소 계정 설정** | Azure SQL Database 관리형 인스턴스로 데이터베이스를 마이그레이션하는 데 사용되며 백업 파일을 업로드하는 스토리지 계정 컨테이너에 대한 액세스 권한이 있는 Azure Database Migration Service를 제공하는 SAS URI입니다. [Blob 컨테이너에 대한 SAS URI를 가져오는 방법을 알아봅니다](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container).|
+    |**스토리지 계정 설정** | Azure SQL Database 관리형 인스턴스로 데이터베이스를 마이그레이션하는 데 사용되며 백업 파일을 업로드하는 스토리지 계정 컨테이너에 대한 액세스 권한이 있는 Azure Database Migration Service를 제공하는 SAS URI입니다. [Blob 컨테이너에 대한 SAS URI를 가져오는 방법을 알아봅니다](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container).|
     |**TDE 설정** | TDE(투명한 데이터 암호화)가 설정된 원본 데이터베이스를 마이그레이션하려면 대상 Azure SQL Database 관리형 인스턴스에 대한 쓰기 권한이 필요합니다.  드롭다운 메뉴에서 Azure SQL Database 관리형 인스턴스가 프로비저닝되는 구독을 선택합니다.  드롭다운 메뉴에서 대상 **Azure SQL Database Managed Instance**를 선택합니다. |
 
     ![마이그레이션 설정 구성](media/tutorial-sql-server-to-managed-instance/dms-configure-migration-settings3.png)

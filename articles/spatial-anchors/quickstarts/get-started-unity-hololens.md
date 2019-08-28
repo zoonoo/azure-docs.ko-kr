@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 31c7af3edf6364ebca021f87240e73c74e64ebc4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 56f9901a1468207a295f8223e990f7a926b2d76e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704128"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561420"
 ---
 # <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하는 Unity HoloLens 앱 만들기
 
@@ -33,19 +33,18 @@ ms.locfileid: "64704128"
 
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
-
-- Windows 컴퓨터에 <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3</a> 이상 및 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> 이상이 설치되어 있어야 합니다. 설치된 Visual Studio에 **유니버설 Windows 플랫폼 개발** 워크로드가 포함되어 있어야 합니다. <a href="https://git-scm.com/download/win" target="_blank">Windows용 Git</a>도 설치해야 합니다.
+- Windows 컴퓨터에 <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1</a> 이상 및 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> 이상이 설치되어 있어야 합니다. Visual Studio 설치에는 **유니버설 Windows 플랫폼 개발** 워크로드 및 **Windows 10 SDK(10.0.18362.0 이상)** 구성 요소가 포함되어야 합니다. <a href="https://git-scm.com/download/win" target="_blank">Windows용 Git</a>도 설치해야 합니다.
 - [개발자 모드](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio)가 설정된 HoloLens 디바이스가 필요합니다. 디바이스에 [Windows 10 2018년 10월 업데이트](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018)(RS5라고도 함)가 설치되어 있어야 합니다. HoloLens의 최신 릴리스로 업데이트하려면 **설정** 앱을 열고 **업데이트 및 보안**으로 이동한 다음, **업데이트 확인**을 선택합니다.
 - 앱에서 **SpatialPerception** 기능을 사용하도록 설정해야 합니다. 이 설정은 **빌드 설정** > **플레이어 설정** > **게시 설정** > **기능**에 있습니다.
 - 앱에서 **Windows Mixed Reality SDK**의 **Virtual Reality Supported**(가상 현실 지원)를 사용하도록 설정해야 합니다. 이 설정은 **빌드 설정** > **플레이어 설정** > **XR 설정**에 있습니다.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
-## <a name="open-the-sample-project-in-unity"></a>Unity에서 샘플 프로젝트 열기
+## <a name="download-and-open-the-unity-sample-project"></a>Unity 샘플 프로젝트 다운로드 및 열기
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-Unity에서 Unity 폴더의 프로젝트를 엽니다.
+[!INCLUDE [Open Unity Project](../../../includes/spatial-anchors-open-unity-project.md)]
 
 **파일** > **빌드 설정**을 선택하여 **빌드 설정**을 엽니다.
 
@@ -53,13 +52,13 @@ Unity에서 Unity 폴더의 프로젝트를 엽니다.
 
 **플랫폼 전환**을 선택하여 플랫폼을 **유니버설 Windows 플랫폼**으로 변경합니다. UWP 지원 구성 요소가 누락된 경우 Unity가 이러한 구성 요소를 설치하라고 요청할 수 있습니다.
 
-   ![Unity 빌드 설정 창](./media/get-started-unity-hololens/unity-build-settings.png)
+![Unity 빌드 설정 창](./media/get-started-unity-hololens/unity-build-settings.png)
 
 **빌드 설정** 창을 닫습니다.
 
 ## <a name="configure-the-account-identifier-and-key"></a>계정 식별자 및 키 구성
 
-**프로젝트** 창에서 `Assets/AzureSpatialAnchorsPlugin/Examples`로 이동하여 `AzureSpatialAnchorsBasicDemo.unity` 장면 파일을 엽니다.
+**프로젝트** 창에서 `Assets/AzureSpatialAnchors.Examples/Scenes`로 이동하여 `AzureSpatialAnchorsBasicDemo.unity` 장면 파일을 엽니다.
 
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
 

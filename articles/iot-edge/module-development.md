@@ -4,17 +4,17 @@ description: 런타임 및 IoT Hub과 통신할 수 있는 Azure IoT Edge용 사
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/25/2019
+ms.date: 07/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 5285490ca1a27494cbcd3ea3d6527b78c7d38c8c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 923859fdb0b398d04e710810a96c33fb1c3cd9da
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65833431"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698576"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>사용자 고유의 IoT Edge 모듈 개발
 
@@ -33,9 +33,9 @@ IoT Hub는 다음과 같은 점에서 디바이스와 비슷하게 모듈 인스
 * [디바이스-클라우드 메시지](../iot-hub/iot-hub-devguide-messaging.md)를 보낼 수 있습니다.
 * 특별히 해당 ID에서 대상으로 지정된 [직접 메서드](../iot-hub/iot-hub-devguide-direct-methods.md)를 받을 수 있습니다.
 
-현재 모듈은 클라우드-장치 메시지를 받거나 파일 업로드 기능을 사용할 수 없습니다.
+현재 모듈은 클라우드-디바이스 메시지를 받거나 파일 업로드 기능을 사용할 수 없습니다.
 
-모듈을 작성할 때 [Azure IoT 장치 SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용하여 IoT Edge 허브에 연결하고, 장치 애플리케이션과 함께 IoT Hub를 사용할 때와 동일한 방식으로 위의 기능을 사용할 수 있습니다. 유일한 차이점은 애플리케이션 백 엔드에서 장치 ID 대신 모듈 ID를 참조해야 한다는 것입니다.
+모듈을 작성할 때 [Azure IoT 디바이스 SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용하여 IoT Edge 허브에 연결하고, 디바이스 애플리케이션과 함께 IoT Hub를 사용할 때와 동일한 방식으로 위의 기능을 사용할 수 있습니다. 유일한 차이점은 애플리케이션 백 엔드에서 디바이스 ID 대신 모듈 ID를 참조해야 한다는 것입니다.
 
 ### <a name="device-to-cloud-messages"></a>디바이스-클라우드 메시지
 IoT Edge 허브는 디바이스-클라우드 메시지의 복잡한 처리를 사용할 수 있게 하기 위해 모듈 간 메시지 및 모듈과 IoT Hub 간 메시지의 선언적 라우팅을 제공합니다. 선언적 라우팅을 사용하면 모듈은 다른 모듈에서 보낸 메시지를 가로채고, 처리하고, 복잡한 파이프라인에 전파할 수 있습니다. 자세한 내용은 [IoT Edge에서 모듈 배포 및 경로 설정](module-composition.md)을 참조하세요.
@@ -48,7 +48,7 @@ IoT Edge는 경로 만들기를 간소화하기 위해 모듈 *입력* 및 *출�
 
 마지막으로 Edge 허브에서 처리하는 디바이스-클라우드 메시지는 다음 시스템 속성으로 스탬프 처리됩니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 | -------- | ----------- |
 | $connectionDeviceId | 메시지를 보낸 클라이언트의 디바이스 ID입니다. |
 | $connectionModuleId | 메시지를 보낸 모듈의 모듈 ID입니다. |
@@ -62,12 +62,40 @@ IoT Edge는 경로 만들기를 간소화하기 위해 모듈 *입력* 및 *출�
 
 DeviceClient 인스턴스가 IoT Hub에 IoT 디바이스를 연결하는 방법과 비슷하게 디바이스에서 실행 중인 IoT Edge 허브에 모듈을 연결하는 ModuleClient 인스턴스를 만듭니다. ModuleClient 클래스 및 해당 통신 메서드에 대한 자세한 내용은 원하는 SDK 언어에 대한 API 참조를 참조하세요. (예: [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C 및 Python](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable) 또는 [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).)
 
+## <a name="language-and-architecture-support"></a>언어 및 아키텍처 지원
+
+IoT Edge는 요구 사항과 일치 하는 시나리오를 구축할 수 있도록 여러 운영 체제, 장치 아키텍처 및 개발 언어를 지원 합니다. 이 섹션을 사용 하 여 사용자 지정 IoT Edge 모듈을 개발 하기 위한 옵션을 이해할 수 있습니다. [IoT Edge에 대 한 개발 및 테스트 환경 준비](development-environment.md)에서 각 언어에 대 한 도구 지원 및 요구 사항에 대해 자세히 알아볼 수 있습니다.
+
+### <a name="linux"></a>Linux
+
+다음 표의 모든 언어에 대해 IoT Edge는 AMD64 및 ARM32 Linux 장치에 대 한 개발을 지원 합니다. 
+
+| 개발 언어 | 개발 도구 |
+| -------------------- | ----------------- |
+| C | Visual Studio 코드<br>Visual Studio 2017/2019 |
+| C# | Visual Studio 코드<br>Visual Studio 2017/2019 |
+| Java | Visual Studio 코드 |
+| Node.js | Visual Studio 코드 |
+| Python | Visual Studio 코드 |
+
+>[!NOTE]
+>ARM64 Linux 장치에 대 한 개발 및 디버깅은 [공개 미리 보기로](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)제공 됩니다. 자세한 내용은 [Visual Studio Code(미리 보기)에서 ARM64 IoT Edge 모듈 개발 및 디버그](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview)를 참조하세요.
+
+### <a name="windows"></a>Windows
+
+다음 표의 모든 언어에 대해 IoT Edge는 AMD64 Windows 장치 개발을 지원 합니다.
+
+| 개발 언어 | 개발 도구 |
+| -------------------- | ----------------- |
+| C | Visual Studio 2017/2019 |
+| C# | Visual Studio Code (디버깅 기능 없음)<br>Visual Studio 2017/2019 |
 
 ## <a name="next-steps"></a>다음 단계
 
 [IoT Edge에 대 한 개발 및 테스트 환경 준비](development-environment.md)
 
-[Visual Studio를 사용 하 여 개발 C# IoT Edge 용 모듈](how-to-visual-studio-develop-module.md)
+[Visual Studio를 사용 하 C# 여 IoT Edge 모듈 개발](how-to-visual-studio-develop-module.md)
 
-[Visual Studio 코드를 사용 하 여 IoT Edge 용 모듈 개발](how-to-vs-code-develop-module.md)
+[Visual Studio Code를 사용 하 여 IoT Edge 모듈 개발](how-to-vs-code-develop-module.md)
 
+[Azure IoT Hub Sdk 이해 및 사용](../iot-hub/iot-hub-devguide-sdks.md)

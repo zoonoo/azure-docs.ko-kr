@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 4ed45e1ed18ad630831772997b1fc150882731bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e988724f842ff12cd599eba95c31006fe208fad
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62123402"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68422898"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Azure WCF 릴레이 REST 자습서
 이 자습서에서는 REST 기반 인터페이스를 표시하는 간단한 Azure Relay 호스트 애플리케이션을 구축하는 방법을 설명합니다. REST는 웹 브라우저와 같은 웹 클라이언트가 HTTP 요청을 통해 Service Bus API에 액세스할 수 있도록 합니다.
@@ -35,7 +35,7 @@ ms.locfileid: "62123402"
 > * REST 기반 WCF 서비스 호스트 및 실행
 > * 서비스 실행 및 테스트
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
@@ -118,7 +118,7 @@ WCF 계약과 REST 스타일 계약의 주요 차이는 [OperationContractAttrib
     채널은 서비스 및 클라이언트가 서로 정보를 전달하는 WCF 개체입니다. 나중에 호스트 애플리케이션에서 채널을 만듭니다. Azure Relay는 이 채널을 사용하여 브라우저의 HTTP GET 요청을 **GetImage** 구현으로 전달합니다. 릴레이는 이 채널을 사용하여 **GetImage** 반환 값을 가져와서 클라이언트 브라우저에 대한 HTTP GETRESPONSE로 해석하기도 합니다.
 12. **빌드** 메뉴에서 **솔루션 빌드**를 클릭하여 지금까지 수행한 작업이 정확한지 확인합니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 다음 코드는 WCF 릴레이 계약을 정의하는 기본 인터페이스를 보여 줍니다.
 
 ```csharp
@@ -290,7 +290,7 @@ REST 스타일 WCF 릴레이 서비스를 만들려면 첫째로 계약을 만�
     ```
 6. **빌드** 메뉴에서 **솔루션 빌드**를 클릭하여 전체 솔루션을 빌드합니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 다음 코드는 **WebHttpRelayBinding** 바인딩을 사용하여 Service Bus에서 실행되는 REST 기반 서비스에 대한 계약 및 서비스 구현을 보여줍니다.
 
 ```csharp
@@ -492,7 +492,7 @@ namespace Microsoft.ServiceBus.Samples
     host.Close();
     ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 다음 예제는 자습서에 포함된 이전 단계의 구현 및 서비스 계약을 포함하고 콘솔 애플리케이션에 서비스를 호스트합니다. 다음 코드를 이름이 ImageListener.exe인 실행 파일로 컴파일 합니다.
 
 ```csharp
@@ -578,6 +578,6 @@ namespace Microsoft.ServiceBus.Samples
 이제 Azure Relay 서비스를 사용하는 애플리케이션을 빌드했습니다. 자세한 정보는 다음 문서를 참조하세요.
 
 * [Azure Relay 개요](relay-what-is-it.md)
-* [.NET과 함께 WCF 릴레이 서비스를 사용하는 방법](relay-wcf-dotnet-get-started.md)
+* [.NET과 함께 WCF 릴레이 서비스를 사용하는 방법](service-bus-relay-tutorial.md)
 
 [Azure portal]: https://portal.azure.com

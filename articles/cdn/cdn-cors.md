@@ -7,19 +7,19 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: 86740a96-4269-4060-aba3-a69f00e6f14e
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 5092872433529f11f699aa8a0c5e87d110cb59f7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 204183fa25203a094eecd8df85a8bfd5dcf271cc
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077420"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593965"
 ---
 # <a name="using-azure-cdn-with-cors"></a>CORS에서 Azure CDN 사용
 ## <a name="what-is-cors"></a>CORS의 정의
@@ -36,7 +36,7 @@ CORS 요청에는 *간단한 요청*과 *복잡한 요청*의 두 가지 유형�
 
 2. 서버는 다음으로 응답할 수 있습니다.
 
-   * 허용되는 원본 사이트를 나타내는 응답의 **Access-Control-Allow-Origin** 헤더 예를 들면 다음과 같습니다.
+   * 허용되는 원본 사이트를 나타내는 응답의 **Access-Control-Allow-Origin** 헤더 예를 들어:
 
      `Access-Control-Allow-Origin: https://www.contoso.com`
 
@@ -58,7 +58,7 @@ CORS 요청에는 *간단한 요청*과 *복잡한 요청*의 두 가지 유형�
 ## <a name="wildcard-or-single-origin-scenarios"></a>와일드카드 또는 단일 원본 시나리오
 Azure CDN의 CORS는 **Access-Control-Allow-Origin** 헤더가 와일드카드(*) 또는 단일 원본으로 설정될 때 추가 구성 없이 자동으로 작동합니다.  CDN은 첫 번째 응답을 캐시하며 후속 요청은 동일한 헤더를 사용하게 됩니다.
 
-원본에 대해 설정된 CORS 이전에 CDN에 대해 이미 요청이 수행된 경우 끝점 콘텐츠의 콘텐츠를 제거하여 **Access-Control-Allow-Origin** 헤더가 있는 콘텐츠를 다시 로드해야 합니다.
+원본에 대해 설정된 CORS 이전에 CDN에 대해 이미 요청이 수행된 경우 엔드포인트 콘텐츠의 콘텐츠를 제거하여 **Access-Control-Allow-Origin** 헤더가 있는 콘텐츠를 다시 로드해야 합니다.
 
 ## <a name="multiple-origin-scenarios"></a>여러 원본 시나리오
 특정 목록의 원본이 CORS에 대해 허용되도록 해야 할 경우 문제가 좀 더 복잡해집니다. CDN이 첫 번째 CORS 원본에 대해 **Access-Control-Allow-Origin** 헤더를 캐시할 때 이러한 문제가 발생합니다.  다른 CORS 원본이 후속 요청을 수행하면 CDN은 캐시된 **Access-Control-Allow-Origin** 를 제공하며 이 경우 일치하지 않게 됩니다.  이를 해결하는 몇 가지 방법이 있습니다.

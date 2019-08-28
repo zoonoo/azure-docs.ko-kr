@@ -2,7 +2,7 @@
 title: '빠른 시작: Azure SQL Data Warehouse 만들기 - Azure Powershell | Microsoft Docs'
 description: Azure Powershell을 사용하여 SQL Database 논리 서버, 서버 수준 방화벽 규칙 및 데이터 웨어하우스를 빠르게 만듭니다.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
@@ -10,14 +10,14 @@ ms.subservice: development
 ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: cdaa932a4996d559b5974e39e20cf75acd6571c5
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: f5ee4227b0aeb53be4512dafc91f814468b50c12
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873780"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574895"
 ---
-# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure SQL 데이터 웨어하우스 만들기 및 쿼리
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure SQL Data Warehouse 만들기 및 쿼리
 
 Azure PowerShell을 사용하여 Azure SQL Data Warehouse를 빠르게 만듭니다.
 
@@ -119,7 +119,7 @@ New-AzSqlDatabase `
 
 필수 매개 변수는 다음과 같습니다.
 
-* **RequestedServiceObjectiveName**: 요청 중인 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)의 양입니다. 이 양을 늘리면 계산 비용이 증가합니다. 지원되는 값 목록에 대해서는 [메모리와 동시성 제한](memory-and-concurrency-limits.md)을 참조하세요.
+* **RequestedServiceObjectiveName**: 요청 중인 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)의 양입니다. 이 양을 늘리면 컴퓨팅 비용이 증가합니다. 지원되는 값 목록에 대해서는 [메모리와 동시성 제한](memory-and-concurrency-limits.md)을 참조하세요.
 * **DatabaseName**: 만들려는 SQL Data Warehouse의 이름입니다.
 * **ServerName**: 만드는 데 사용할 서버의 이름입니다.
 * **ResourceGroupName**: 사용 중인 리소스 그룹입니다. 구독에서 사용 가능한 리소스 그룹을 찾으려면 Get-AzureResource를 사용합니다.
@@ -149,4 +149,4 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 지금까지 데이터 웨어하우스를 만들고, 방화벽 규칙을 만들고, 데이터 웨어하우스에 연결하고, 몇 가지 쿼리를 실행했습니다. Azure SQL Data Warehouse에 대해 자세히 알아보려면 데이터 로드에 대한 자습서를 계속 진행하세요.
 > [!div class="nextstepaction"]
->[SQL 데이터 웨어하우스로 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md)
+>[SQL Data Warehouse로 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md)

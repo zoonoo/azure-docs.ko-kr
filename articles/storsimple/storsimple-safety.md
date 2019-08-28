@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2016
 ms.author: alkohli
-ms.openlocfilehash: 9d0c8c01ae0d87c944922dece74e13f00879b02f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4622a8575d7b6a38226ee3a980c05f143c128356
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60629233"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963530"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>StorSimple 디바이스의 안전한 설치 및 작동
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 ![경고 아이콘](./media/storsimple-safety/IC740879.png)
 ![안전성 고지 읽기 아이콘](./media/storsimple-safety/IC740885.png) **안전성 및 상태 정보 읽기**
 
@@ -30,7 +33,7 @@ ms.locfileid: "60629233"
 ## <a name="safety-icon-conventions"></a>안전성 아이콘 표시 규칙
 다음은 Microsoft Azure StorSimple 디바이스를 설정 및 실행할 때 관찰되는 안전 주의 사항을 검토할 때 표시되는 아이콘입니다.
 
-| 아이콘 | 설명 |
+| 아이콘 | Description |
 |:--- |:--- |
 | ![위험 아이콘](./media/storsimple-safety/IC740879.png) **위험!** |피하지 않을 경우 사망 또는 심각한 부상을 당하는 위험한 상황을 나타냅니다. 이 위험도 표시는 가장 극단적인 상황으로 제한됩니다. |
 | ![경고 아이콘](./media/storsimple-safety/IC740879.png) **경고!** |피하지 않을 경우 사망 또는 심각한 부상을 당할 수 있는 위험한 상황을 나타냅니다. |

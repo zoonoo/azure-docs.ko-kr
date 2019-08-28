@@ -3,23 +3,17 @@ title: 클라우드 서비스 수명 주기 이벤트 처리 | Microsoft Docs
 description: .NET에서 클라우드 서비스 역할의 수명 주기 메서드를 사용할 수 있는 방법을 알아봅니다.
 services: cloud-services
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 39b30acd-57b9-48b7-a7c4-40ea3430e451
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 13f500b32bb85bdc0f84b812ef4ef9188a257771
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: gwallace
+ms.openlocfilehash: fa4eebfa64a296e6830db3730de31ca9b0565678
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60406425"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358976"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>.NET에서 웹 또는 작업자 역할의 수명 주기 사용자 지정
 작업자 역할을 만들 때 수명 주기 이벤트에 응답할 수 있게 재정의하도록 메서드를 제공하는 [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) 클래스를 확장합니다. 웹 역할의 경우, 이 클래스는 선택적이므로 수명 주기 이벤트에 응답하는 데 사용합니다.
@@ -48,7 +42,7 @@ Azure에서 역할 인스턴스를 온라인 상태로 가져오면 **OnStart** 
 
 **OnStart**가 **true**를 반환하면, 인스턴스가 성공적으로 초기화되고 Azure는 **RoleEntryPoint.Run** 메서드를 호출합니다. **OnStart**가 **false**를 반환하면, 계획된 종료 시퀀스를 실행하지 않고 역할이 즉시 종료됩니다.
 
-다음 코드 예제는 **OnStart** 메서드를 재정의하는 방법을 보여 줍니다. 역할 인스턴스가 시작되고 저장소 계정에 로깅 데이터의 전송을 설정하면 이 메서드가 구성되어 진단 모니터를 시작합니다.
+다음 코드 예제는 **OnStart** 메서드를 재정의하는 방법을 보여 줍니다. 역할 인스턴스가 시작되고 스토리지 계정에 로깅 데이터의 전송을 설정하면 이 메서드가 구성되어 진단 모니터를 시작합니다.
 
 ```csharp
 public override bool OnStart()

@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib,andrela,stein
-manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: d29baaad6090cea5eb31f5f50bba444cb3771155
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3e8e0c69c93c992f31c515c2033a9ae57d2ee3e0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61485981"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570313"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>공유 다중 테넌트 Azure SQL 데이터베이스를 사용하여 SaaS 애플리케이션에 새 테넌트를 프로비전하고 카탈로그로 만들기
 
@@ -115,7 +114,7 @@ SaaS 애플리케이션에서 이러한 변경 내용은 테넌트 데이터베�
 
 ## <a name="tutorial-begins"></a>자습서 시작
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 다중 테넌트 데이터베이스에 테넌트 프로비전
@@ -123,7 +122,7 @@ SaaS 애플리케이션에서 이러한 변경 내용은 테넌트 데이터베�
 > * 다중 테넌트 및 단일 테넌트 데이터베이스에 테넌트 일괄 처리 프로 비전
 > * 카탈로그에 데이터베이스 및 테넌트 매핑 등록
 
-#### <a name="prerequisites"></a>필수 조건
+#### <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 수행하려면 다음 필수 조건이 완료되었는지 확인합니다.
 
@@ -150,7 +149,7 @@ SaaS 애플리케이션에서 이러한 변경 내용은 테넌트 데이터베�
 - **카탈로그 확장 테이블에 테넌트 이름 추가**: 장소 이름이 카탈로그의 테넌트 테이블에 추가됩니다.  이 추가는 추가적인 애플리케이션 관련 데이터를 지원하도록 카탈로그 데이터베이스를 확장하는 방법입니다.
 - **새 테넌트에 대한 이벤트 페이지 열기**: 브라우저에서 *Bushwillow Blues* 이벤트 페이지가 열립니다.
 
-   ![events](media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
+   ![이벤트](media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
 
 #### <a name="debugger-steps"></a>디버거 단계
 
@@ -190,7 +189,7 @@ PowerShell 스크립트를 디버깅하는 방법에 대한 자세한 내용은 
 - **카탈로그에 테넌트 이름 추가**: 장소 이름이 카탈로그의 테넌트 확장 테이블에 추가됩니다.
 - **새 테넌트에 대한 이벤트 페이지 열기**: 브라우저에서 *Sequoia Soccer* 이벤트 페이지가 열립니다.
 
-   ![events](media/saas-multitenantdb-provision-and-catalog/sequoiasoccer.png)
+   ![이벤트](media/saas-multitenantdb-provision-and-catalog/sequoiasoccer.png)
 
 #### <a name="debugger-steps"></a>디버거 단계
 
@@ -237,7 +236,7 @@ Azure Portal은 테넌트 데이터베이스를 표시하지만 공유 데이터
 - 테넌트 이름이 테넌트 테이블에 저장됩니다.
 - 데이터베이스 이름은 분할 관리 테이블에 저장됩니다.
 
-1. SQL Server 관리 Studio (SSMS)에서 테 넌 트 서버에 연결할 **catalog-mt\<사용자\>. database.windows.net**, 로그인 = **개발자**, 및 암호 = **P\@ssword1**
+1. SSMS (SQL Server Management Studio)에서 database.windows.net의 테 넌 트 서버 **\<\>** 에 연결 하 고 Login = developer, Password = **P\@ssword1** 를 사용 합니다.
 
     ![SSMS 연결 대화 상자](media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 
@@ -261,7 +260,7 @@ Azure Portal은 테넌트 데이터베이스를 표시하지만 공유 데이터
 
 자동화된 서비스의 이 유형은 간단할 수도 있고 복잡할 수도 있습니다. 예를 들어 자동화는 여러 지리적 영역에 걸쳐 프로비전을 처리할 수도 있고, 재해 복구에 대해 지역에서 복제를 설정할 수도 있습니다. 자동 프로비전 패턴에서 클라이언트 애플리케이션 또는 스크립트는 프로비전 서비스에 의해 처리할 프로비전 요청을 큐에 제출합니다. 그런 다음 스크립트는 폴링하여 완료를 결정할 수 있습니다. 미리 프로비전을 사용하는 경우 요청이 신속하게 처리되고, 다른 서비스가 백그라운드에서 대체 데이터베이스 프로비전을 관리합니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 <!-- - Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
 - [Elastic Database 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)

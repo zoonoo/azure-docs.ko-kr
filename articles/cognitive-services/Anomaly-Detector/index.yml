@@ -2,15 +2,15 @@
 documentType: LandingData
 title: Anomaly Detector API 설명서
 metadata:
-  title: 'Anomaly Detector API - 자습서, 빠른 시작, API 참조 - Azure Cognitive Services | Microsoft Docs'
+  title: 'Anomaly Detector API - 자습서, 빠른 시작, API 참조'
+  titleSuffix: Azure Cognitive Services
   description: 'Anomaly Detector API를 사용하여 시간이 지남에 따라 데이터를 모니터링하고 기계 학습 관련 변칙을 검색합니다. 볼륨, 업계 또는 시나리오에 관계없이 데이터에 대한 인사이트를 얻습니다.'
   services: cognitive-services
   author: aahill
-  manager: cgronlun
+  manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: anomaly-detector
   ms.topic: landing-page
   ms.date: 03/26/2019
   ms.author: aahi

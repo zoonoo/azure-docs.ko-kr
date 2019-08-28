@@ -114,7 +114,7 @@ MSCK REPAIR TABLE while hive.exec.dynamic.partition true
 
 ### <a name="example"></a>예
 
-[Azure Stream Analytics Azure Portal](stream-analytics-quick-create-portal.md) 빠른 시작 가이드에 따라 저장소 계정, 리소스 그룹, Stream Analytics 작업 및 입력 원본을 만듭니다. 빠른 시작 가이드에서 사용된 동일한 샘플 데이터를 사용하며 [GitHub](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json)에서도 사용 가능합니다.
+[Azure Stream Analytics Azure Portal](stream-analytics-quick-create-portal.md) 빠른 시작 가이드에 따라 스토리지 계정, 리소스 그룹, Stream Analytics 작업 및 입력 원본을 만듭니다. 빠른 시작 가이드에서 사용된 동일한 샘플 데이터를 사용하며 [GitHub](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json)에서도 사용 가능합니다.
 
 다음 구성을 사용하여 Blob 출력 싱크를 만듭니다.
 

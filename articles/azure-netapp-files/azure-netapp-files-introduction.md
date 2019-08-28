@@ -23,7 +23,7 @@ ms.locfileid: "65522986"
 ---
 # <a name="what-is-azure-netapp-files"></a>Azure NetApp Files란?
 
-Azure NetApp Files 서비스는 엔터프라이즈급, 고성능, 데이터 통신 연결 파일 저장소 서비스입니다. Azure NetApp Files는 모든 워크로드 유형을 지원하며 기본적으로 고가용성입니다. 서비스 및 성능 수준을 선택하고 서비스를 통해 스냅샷을 설정할 수 있습니다. 
+Azure NetApp Files 서비스는 엔터프라이즈급, 고성능, 데이터 통신 연결 파일 스토리지 서비스입니다. Azure NetApp Files는 모든 워크로드 유형을 지원하며 기본적으로 고가용성입니다. 서비스 및 성능 수준을 선택하고 서비스를 통해 스냅샷을 설정할 수 있습니다. 
 
 ## <a name="learn-how-to-use-azure-netapp-files"></a>Azure NetApp Files 사용 방법 알아보기
 

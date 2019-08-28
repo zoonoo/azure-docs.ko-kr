@@ -200,7 +200,7 @@ New-AzVmss `
 
 
 ## <a name="understand-vm-instance-sizes"></a>VM 인스턴스 크기 이해
-VM 인스턴스 크기 또는 *SKU*에 따라 VM 인스턴스에 사용할 수 있는 계산 리소스(예: CPU, GPU, 메모리)의 양이 결정됩니다. 확장 집합의 VM 인스턴스 크기는 예상 작업에 맞게 적절히 조정되어야 합니다.
+VM 인스턴스 크기 또는 *SKU*에 따라 VM 인스턴스에 사용할 수 있는 컴퓨팅 리소스(예: CPU, GPU, 메모리)의 양이 결정됩니다. 확장 집합의 VM 인스턴스 크기는 예상 작업에 맞게 적절히 조정되어야 합니다.
 
 ### <a name="vm-instance-sizes"></a>VM 인스턴스 크기
 다음 표에서는 일반적인 VM 크기를 사용 사례로 분류하고 있습니다.
@@ -296,7 +296,7 @@ Sku        :
 Stop-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "1"
 ```
 
-기본적으로 중지된 VM은 할당을 취소하고 계산 요금을 부과하지 않습니다. VM이 중지될 때 프로비전된 상태로 유지하려는 경우 `-StayProvisioned` 매개 변수를 위의 명령에 추가합니다. 프로비전된 상태로 유지하는 중지된 VM은 기본 계산 요금을 부과합니다.
+기본적으로 중지된 VM은 할당을 취소하고 컴퓨팅 요금을 부과하지 않습니다. VM이 중지될 때 프로비전된 상태로 유지하려는 경우 `-StayProvisioned` 매개 변수를 위의 명령에 추가합니다. 프로비전된 상태로 유지하는 중지된 VM은 기본 컴퓨팅 요금을 부과합니다.
 
 ### <a name="start-vm-instances-in-a-scale-set"></a>확장 집합에서 VM 인스턴스 시작
 확장 집합에서 하나 이상의 VM을 시작하려면 [Start-AzVmss](/powershell/module/az.compute/start-azvmss)를 사용합니다. `-InstanceId` 매개 변수를 사용하면 하나 이상의 가상 컴퓨터를 시작하도록 지정할 수 있습니다. 인스턴스 ID를 지정하지 않으면 확장 집합에서 모든 VM이 시작됩니다. 다음 예제에서는 *1* 인스턴스를 시작합니다.

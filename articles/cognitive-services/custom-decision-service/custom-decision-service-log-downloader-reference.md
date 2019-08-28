@@ -10,25 +10,26 @@ ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: marossi
-ms.openlocfilehash: 8a8f669c33f40fb80dc826ec04203880dee74d82
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 33cc0d0dcf16ff82ac128507566427e123020236
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60829993"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707235"
 ---
 # <a name="logdownloader"></a>LogDownloader
 
 Azure Custom Decision Service에서 생성된 로그 파일을 다운로드하고 실험에서 사용되는 *.gz* 파일을 생성합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Python 3: 경로 내에 설치되어 있어야 합니다. 큰 파일을 처리하려면 64비트 버전을 사용하는 것이 좋습니다.
 - *Microsoft/mwt-ds* 리포지토리: [리포지토리를 복제합니다](https://github.com/Microsoft/mwt-ds).
 - *azure-storage-blob* 패키지: 설치 정보를 확인하려면 [Microsoft Azure Storage Library for Python](https://github.com/Azure/azure-storage-python#option-1-via-pypi)으로 이동합니다.
 - *mwt-ds/DataScience/ds.config*에 Azure Storage 연결 문자열 입력: *my_app_id: my_connectionString* 템플릿의 형식을 따릅니다. 여러 `app_id`를 지정할 수 있습니다. `LogDownloader.py`를 실행하는 경우 `ds.config`에서 입력 `app_id`를 찾을 수 없으면 `LogDownloader.py`는 `$Default` 연결 문자열을 사용합니다.
 
-## <a name="usage"></a>사용 현황
+## <a name="usage"></a>사용법
 
 `mwt-ds/DataScience`로 이동한 후 다음 코드에 설명된 것처럼 관련 인수를 사용해서 `LogDownloader.py`를 실행합니다.
 
@@ -41,7 +42,7 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 
 ### <a name="parameters"></a>매개 변수
 
-| 입력 | 설명 | 기본값 |
+| 입력 | Description | 기본값 |
 | --- | --- | --- |
 | `-h`, `--help` | 도움말 메시지를 표시하고 종료됩니다. | |
 | `-a APP_ID`, `--app_id APP_ID` | 앱 ID(Azure Storage Blob 컨테이너 이름)입니다. | 필수 |

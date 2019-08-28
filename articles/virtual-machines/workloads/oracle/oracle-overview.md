@@ -4,7 +4,7 @@ description: Oracle 응용 프로그램 및 Azure 인프라에서 완전히 실�
 services: virtual-machines-linux
 documentationcenter: ''
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 tags: azure-resource-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
-ms.openlocfilehash: b5e40975fca491f289d949ee273d13053897fc6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b8bfa0dfa82f73cad010a608150eac48c7f3d4c8
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743637"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707440"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Oracle 응용 프로그램 및 솔루션을 Azure에 대 한 개요
 
@@ -77,7 +77,7 @@ Terraform 템플릿을 사용 하 여 Azure 인프라를 설정 하 고 Oracle �
 Azure에서 실행 되는 Oracle 응용 프로그램과 함께에서 Oracle 데이터베이스 클라우드 서비스 (자치 데이터베이스, RAC, Exadata, DBaaS, 단일 노드)를 사용 합니다. 에 대해 자세히 알아보세요 [OCI 데이터베이스 옵션](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm)합니다. 
  
 
-## <a name="licensing"></a>라이선스
+## <a name="licensing"></a>라이선싱
 
 Azure에서 Oracle 응용 프로그램의 배포는 bring your own license 모델을 기반으로 합니다. Oracle 소프트웨어 및 oracle에 현재 지원 계약이 있는지 사용 하 여 적절 한 라이선스가 있으며 간주 됩니다. Oracle에서는 온-프레미스에서 Azure로의 라이선스 이동을 보장합니다. Oracle-Azure를 참조 하세요 [FAQ](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)합니다.
 

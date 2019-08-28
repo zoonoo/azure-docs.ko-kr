@@ -1,6 +1,6 @@
 ---
-title: 기술 자료 만들기 - REST, C#
-titlesuffix: QnA Maker- Azure Cognitive Services
+title: '빠른 시작: 기술 자료 만들기 - REST, C# - QnA Maker'
+titleSuffix: Azure Cognitive Services
 description: 이 C# REST 기반 빠른 시작에서는 Cognitive Services API 계정의 Azure 대시보드에 표시될 QnA Maker 기술 자료 샘플을 프로그래밍 방식으로 만드는 방법을 안내합니다.
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 02/04/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: c1771224c8e6ee8a9fdca3ab2fba59411ac92a27
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8947baba9212fecab8c67eaf679380a2517ed63d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65788538"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559902"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c"></a>빠른 시작: C#을 사용하여 QnA Maker 기술 자료 만들기
 

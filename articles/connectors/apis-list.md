@@ -9,60 +9,64 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: c02361cf69b98da61a0f551ac037e6d35ea42efc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 126c3fb348b1d53769a818ae4b21fcdbbef65615
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65551859"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68517231"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Azure Logic Apps용 커넥터
 
-다른 앱, 서비스, 시스템, 프로토콜 및 플랫폼을 통해 이벤트, 데이터 및 작업을 Azure Logic Apps에서 빠른 액세스를 제공 하는 커넥터. 커넥터를 논리 앱에서 사용 하 여 만들고 이미 보유 하는 데이터를 사용 하 여 작업을 수행 하 여 클라우드 및 온-프레미스 앱에 대 한 기능을 확장 합니다.
+커넥터를 사용하면 Azure Logic Apps에서 다른 앱, 서비스, 시스템, 프로토콜 및 플랫폼에 걸쳐 이벤트, 데이터 및 작업에 빠르게 액세스할 수 있습니다. 이미 만들어 사용하고 있는 데이터로 작업을 수행할 수 있도록, 논리 앱에서 커넥터를 사용하여 클라우드 및 온-프레미스 앱에 대한 기능을 확장합니다.
 
-Logic Apps는 [200개 이상의 커넥터](https://docs.microsoft.com/connectors)를 제공하지만, 이 문서에서는 수천 개의 앱 및 수백만 개의 실행에서 데이터와 정보를 처리하는 데 성공적으로 사용되는 매우 일반적이며 인기 있는 커넥터에 대해 설명합니다. 커넥터 및 트리거, 동작 및 제한 등 각 커넥터의 참조 정보는 전체 목록을 찾으려면 아래의 커넥터 참조 페이지를 검토 [커넥터 개요](https://docs.microsoft.com/connectors)합니다. 또한에 대 한 자세한 [트리거 및 동작](#triggers-actions)를 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md), 및 [Logic Apps 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/logic-apps/)합니다. 
+Logic Apps는 [수백 개의 커넥터](https://docs.microsoft.com/connectors)를 제공 하지만이 문서에서는 수천 개의 앱에서 성공적으로 사용 되는 인기 있는 커넥터와 데이터 및 정보를 처리 하는 수백만 개의 실행을 설명 합니다. 커넥터의 전체 목록과 각 커넥터의 참조 정보 (예: 트리거, 작업 및 제한)를 찾으려면 커넥터 [개요](https://docs.microsoft.com/connectors)에서 커넥터 참조 페이지를 검토 합니다. 또한 [트리거 및 작업](#triggers-actions), [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md)및 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)에 대해 자세히 알아보세요. 
 
 > [!NOTE]
-> 서비스 또는 커넥터가 없는 API를 사용 하 여 통합을 직접 HTTP와 같은 프로토콜을 통해 서비스를 호출 하거나 만드는 [사용자 지정 커넥터](#custom)합니다.
+> 커넥터가 없는 서비스 또는 API와 통합 하려면 HTTP와 같은 프로토콜을 통해 서비스를 직접 호출 하거나 [사용자 지정 커넥터](#custom)를 만들 수 있습니다.
 
-기본 제공 트리거 및 작업으로 또는 관리 커넥터로 커넥터를 사용할 수 있습니다.
+커넥터는 기본 제공 트리거 및 작업 또는 관리 되는 커넥터로 사용할 수 있습니다.
 
-* [**Built-ins**](#built-ins): 이러한 기본 제공 트리거 및 동작 "기본" Azure Logic Apps 및 사용자 지정 일정에 따라 실행, 다른 끝점과 통신, 수신 및 요청에 응답 및 Azure functions, Azure API 앱 (웹 앱), 사용자 고유의 Api를 호출 하는 논리 앱을 만드는 데 도움이 됩니다. 관리 되 고 사용 하 여 게시 된 Azure API Management 및 요청을 받을 수 있는 중첩 된 논리 앱. 또한 논리 앱의 워크플로를 구성 및 제어하고, 데이터를 사용하는 데 도움이 되는 기본 제공 작업을 사용할 수도 있습니다.
+<a name="built-in"></a>
+
+* [**Built-ins**](#built-ins): 이러한 기본 제공 트리거 및 작업은 Azure Logic Apps에 "기본"으로, 사용자 지정 일정에 따라 실행 되 고, 다른 끝점과 통신 하 고, 요청을 수신 하 고 응답 하 고, Azure 함수, Azure API Apps (Web Apps)를 호출 하는 논리 앱을 만드는 데 도움이 됩니다. Azure API Management 및 요청을 받을 수 있는 중첩 된 논리 앱으로 관리 및 게시 됩니다. 또한 논리 앱의 워크플로를 구성 및 제어하고, 데이터를 사용하는 데 도움이 되는 기본 제공 작업을 사용할 수도 있습니다.
 
   > [!NOTE]
-  > 내에서 논리 앱을 [통합 서비스 환경 (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 리소스는 Azure 가상 네트워크에 직접 액세스할 수 있습니다.
-  > ISE를 사용 하면 기본 제공 트리거 및 작업 표시 하는 합니다 **Core** 레이블 logic apps와 동일한 ISE에서 실행 합니다. Logic apps, 기본 제공 트리거 및 가격 책정 ISE 사용에서 실행 되는 기본 제공 작업에는 사용량 기반 가격 책정 계획에서 다른 계획 합니다.
+  > [ISE (통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 내의 논리 앱은 Azure virtual network의 리소스에 직접 액세스할 수 있습니다.
+  > ISE를 사용 하는 경우 기본 제공 트리거와 **코어** 레이블을 표시 하는 작업은 논리 앱과 동일한 ISE에서 실행 됩니다. 논리 앱, 기본 제공 트리거 및 ISE에서 실행 되는 기본 제공 작업은 사용량 기반 요금제와 다른 가격 책정 계획을 사용 합니다.
   >
-  > ISEs를 만드는 방법에 대 한 자세한 내용은 참조 하세요. [Azure Logic Apps에서 Azure 가상 네트워크에 연결](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment)합니다. 
-  > 가격 책정에 대 한 자세한 내용은 참조 하세요. [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md)합니다.
+  > ISEs를 만드는 방법에 대 한 자세한 내용은 [Azure Logic Apps에서 Azure virtual network에 연결](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)을 참조 하세요. 
+  > 가격 책정에 대 한 자세한 내용은 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md)을 참조 하세요.
 
-* **관리형 커넥터**: 배포 된 Microsoft에서 관리 하 고 이러한 커넥터 트리거 및 cloud services, 온-프레미스 시스템 또는 Office 365, Azure Blob Storage, SQL Server, Dynamics, Salesforce, SharePoint 등을 포함 하 여 둘 다에 액세스 하기 위한 작업을 제공 합니다. 일부 커넥터는 특히 기업 간 B2B 통신 시나리오를 지원 하며 필요는 [통합 계정](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 논리 앱에 연결 되어 있는 합니다. 특정 커넥터를 사용 하기 전에 먼저 Azure Logic Apps에서 관리 되는 연결을 만들어야 할 수도 있습니다. 
+<a name="managed-connectors"></a>
 
-  예를 들어 Microsoft BizTalk Server를 사용 하는 경우 논리 앱에 연결할를 사용 하 여 BizTalk Server와 통신 합니다 [BizTalk Server 온-프레미스 커넥터](#on-premises-connectors)합니다. 
+* **관리형 커넥터**: Microsoft에서 배포 및 관리 하는 이러한 커넥터는 Office 365, Azure Blob Storage, SQL Server, Dynamics, Salesforce, SharePoint 등을 포함 하 여 클라우드 서비스, 온-프레미스 시스템 또는 둘 다에 액세스 하기 위한 트리거와 작업을 제공 합니다. 일부 커넥터는 B2B (기업 간) 통신 시나리오를 구체적으로 지원 하 고 논리 앱에 연결 된 [통합 계정이](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 필요 합니다. 특정 커넥터를 사용 하기 전에 먼저 Azure Logic Apps에서 관리 되는 연결을 만들어야 할 수 있습니다. 
+
+  예를 들어 Microsoft BizTalk Server를 사용 하는 경우 논리 앱은 [BizTalk Server 온-프레미스 커넥터](#on-premises-connectors)를 사용 하 여 BizTalk Server에 연결 하 고 해당 사용자와 통신할 수 있습니다. 
   그런 다음, [통합 계정 커넥터](#integration-account-connectors)를 사용하여 논리 앱에서 BizTalk와 비슷한 작업을 확장하거나 수행할 수 있습니다.
 
-  커넥터는 Standard 또는 Enterprise로 분류 됩니다. 
-  [엔터프라이즈 커넥터](#enterprise-connectors) 추가 비용을 3270 IBM, SAP 및 IBM MQ 등 엔터프라이즈 시스템에 대 한 액세스를 제공 합니다. 커넥터를 Standard 또는 Enterprise 인지를 확인 하려면 각 커넥터의 참조 페이지에서 기술 세부 정보를 보려면 [커넥터 개요](https://docs.microsoft.com/connectors)합니다. 
+  커넥터는 Standard 또는 Enterprise 중 하나로 분류 됩니다. 
+  [엔터프라이즈 커넥터](#enterprise-connectors) 는 SAP, ibm MQ 및 IBM 3270 같은 엔터프라이즈 시스템에 대 한 액세스를 제공 하 여 추가 비용을 제공 합니다. 커넥터가 Standard 또는 Enterprise 인지 확인 하려면 커넥터 [개요](https://docs.microsoft.com/connectors)에서 각 커넥터의 참조 페이지의 기술 세부 정보를 참조 하세요. 
 
-  일부 커넥터는 여러 범주를 넘을 수 있지만 이러한 범주를 사용 하 여 커넥터를 식별할 수도 있습니다. 
-  예를 들어, SAP는 엔터프라이즈 커넥터 및 온-프레미스 커넥터는:
+  이러한 범주를 사용 하 여 커넥터를 식별할 수도 있지만 일부 커넥터는 여러 범주를 교차할 수 있습니다. 
+  예를 들어 SAP는 엔터프라이즈 커넥터 및 온-프레미스 커넥터입니다.
 
   |   |   |
   |---|---|
   | [**관리되는 API 커넥터**](#managed-api-connectors) | Azure Blob Storage, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online 등과 같은 서비스를 사용하는 논리 앱을 만듭니다. |
-  | [**온-프레미스 커넥터**](#on-premises-connectors) | [온-프레미스 데이터 게이트웨이][gateway-doc]가 설치 및 설정되면, 이러한 커넥터를 통해 논리 앱에서 온-프레미스 시스템(예: SQL Server, SharePoint Server, Oracle DB, 파일 공유 등)에 액세스할 수 있습니다. |
+  | [**온-프레미스 커넥터**](#on-premises-connectors) | [온-프레미스 데이터 게이트웨이][gateway-doc]를 설치 하 고 설정한 후 이러한 커넥터를 통해 논리 앱이 SQL Server, SharePoint Server, Oracle DB, 파일 공유 등의 온-프레미스 시스템에 액세스할 수 있습니다. |
   | [**통합 계정 커넥터**](#integration-account-connectors) | 통합 계정을 만들고 지불할 때 사용할 수 있는 이러한 커넥터는 AS2, EDIFACT 및 X12 프로토콜을 사용하여 XML 변환 및 유효성 검사, 플랫 파일 인코딩 및 디코딩, B2B(Business-to-Business) 메시지 처리를 수행합니다. |
   |||
 
   > [!NOTE]
-  > 내에서 논리 앱을 [통합 서비스 환경 (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 리소스는 Azure 가상 네트워크에 직접 액세스할 수 있습니다. ISE를 사용 하면 표준 및 엔터프라이즈 커넥터 표시 하는 합니다 **ISE** 레이블 logic apps와 동일한 ISE에서 실행 합니다. ISE 레이블을 표시 하지는 커넥터 전역 Logic Apps 서비스에서 실행 합니다.
+  > [ISE (통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 내의 논리 앱은 Azure virtual network의 리소스에 직접 액세스할 수 있습니다. Ise를 사용 하면 ise 레이블을 표시 하는 표준 및 엔터프라이즈 커넥터 를 논리 앱과 동일한 ise에서 실행할 수 있습니다. ISE 레이블을 표시 하지 않는 커넥터는 글로벌 Logic Apps 서비스에서 실행 됩니다.
   >
-  > Logic apps가 하는 커넥터 중 하나를 사용 하 여 해당 시스템에 직접 액세스할 수 있도록 해당 네트워크를 ISE에는 Azure 가상 네트워크에 연결 된 온-프레미스 시스템 삽입에 대 한는 **ISE** 레이블이나는 HTTP 작업을 [사용자 지정 커넥터](#custom)합니다. Logic apps 및 커넥터 가격 책정 ISE 사용에서 실행 되는 사용량 기반 가격 책정 계획에서 다른 계획 합니다. 
+  > Azure 가상 네트워크에 연결 된 온-프레미스 시스템의 경우, 논리 앱이 **ise** 레이블, HTTP 작업 또는 [사용자 지정 커넥터가](#custom)있는 커넥터를 사용 하 여 해당 시스템에 직접 액세스할 수 있도록 ise를 해당 네트워크에 삽입 합니다. ISE에서 실행 되는 논리 앱 및 커넥터는 사용량 기반 요금제와 다른 가격 책정 계획을 사용 합니다. 
   >
-  > ISEs를 만드는 방법에 대 한 자세한 내용은 참조 하세요. [Azure Logic Apps에서 Azure 가상 네트워크에 연결](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment)합니다.
-  > 가격 책정에 대 한 자세한 내용은 참조 하세요. [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md)합니다.
+  > ISEs를 만드는 방법에 대 한 자세한 내용은 [Azure Logic Apps에서 Azure virtual network에 연결](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)을 참조 하세요.
+  > 가격 책정에 대 한 자세한 내용은 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md)을 참조 하세요.
 
-  OpenAPI로 정의 됨 커넥터 및 트리거, 작업 등의 각 커넥터의 참조 정보를의 전체 목록은 (이전의 Swagger) 설명과 어떠한 제한도에서 전체 목록을 찾을 수 있습니다는 [커넥터 개요 ](/connectors/). 가격 정보를 참조 하세요 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md), 및 [Logic Apps 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/logic-apps/)합니다. 
+  커넥터의 전체 목록과 각 커넥터의 참조 정보 (예: OpenAPI (이전의 Swagger) 설명에 의해 정의 되는 작업 및 트리거) 및 모든 제한에 대해 [커넥터 개요](/connectors/)에서 전체 목록을 찾을 수 있습니다. 가격 책정 정보는 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md)및 [Logic Apps 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/logic-apps/)를 참조 하세요. 
 
 <a name="built-ins"></a>
 
@@ -75,41 +79,41 @@ Logic Apps는 기본 제공 트리거 및 작업을 제공하므로 일정 기�
 | [![API 아이콘][schedule-icon]<br/>**일정**][recurrence-doc] | - **되풀이** 트리거를 사용하여 기본 되풀이에서 복잡한 되풀이에 이르기까지 지정된 일정에 따라 논리 앱을 실행합니다. <p>- **지연** 작업을 사용하여 지정한 기간 동안 논리 앱을 일시 중지합니다. <p>- **다음 기간까지 지연** 작업을 사용하여 지정한 날짜와 시간까지 논리 앱을 일시 중지합니다. | [![API 아이콘][http-icon]<br/>**HTTP**][http-doc] | HTTP, HTTP + Swagger 및 HTTP + 웹후크에 대한 트리거 및 작업 모두를 사용하여 HTTP를 통해 엔드포인트와 통신합니다. | 
 | [![API 아이콘][http-request-icon]<br/>**요청**][http-request-doc] | - 논리 앱을 다른 앱이나 서비스에서 호출할 수 있게 하고, Event Grid 리소스 이벤트를 트리거하거나, **요청** 트리거를 사용하여 Azure Security Center 경고에 대한 응답을 트리거합니다. <p>- **응답** 작업을 사용하여 앱이나 서비스에 응답을 보냅니다. | [![API 아이콘][batch-icon]<br/>**일괄 처리**][batch-doc] | - **일괄 처리 메시지** 트리거를 사용하여 메시지를 일괄적으로 처리합니다. <p>- **일괄 처리로 메시지 보내기** 작업을 사용하여 기존 일괄 처리 트리거가 있는 논리 앱을 호출합니다. | 
 | [![API 아이콘][azure-functions-icon]<br/>**Azure Functions**][azure-functions-doc] | 논리 앱에서 사용자 지정 코드 조각(C# 또는 Node.js)을 실행하는 Azure 함수를 호출합니다. | [![API 아이콘][azure-api-management-icon]</br>**Azure API Management**][azure-api-management-doc] | Azure API Management를 통해 관리하고 게시하는 사용자 고유의 API로 정의된 트리거 및 작업을 호출합니다. | 
-| [![API 아이콘][azure-app-services-icon]<br/>**Azure App Service**][azure-app-services-doc] | Azure App Service에서 호스팅되는 Azure API Apps 또는 Web Apps를 호출합니다. Swagger가 포함되는 경우 이러한 앱에서 정의된 트리거 및 작업은 다른 모든 고급 트리거 및 작업처럼 나타납니다. | [![API 아이콘][azure-logic-apps-icon]<br/>**Azure<br/>Logic Apps**][nested-logic-app-doc] | 요청 트리거를 시작하는 다른 논리 앱을 호출합니다. | 
+| [![API 아이콘][azure-app-services-icon]<br/>**Azure 앱 서비스**][azure-app-services-doc] | Azure App Service에서 호스팅되는 Azure API Apps 또는 Web Apps를 호출합니다. Swagger가 포함되는 경우 이러한 앱에서 정의된 트리거 및 작업은 다른 모든 고급 트리거 및 작업처럼 나타납니다. | [![API 아이콘][azure-logic-apps-icon]<br/>**Azure<br/>Logic Apps**][nested-logic-app-doc] | 요청 트리거를 시작하는 다른 논리 앱을 호출합니다. | 
 ||||| 
 
 ### <a name="control-workflow"></a>워크플로 제어
 
-Logic Apps는 구성 및 논리 앱 워크플로에서 작업을 제어 하기 위한 기본 제공 작업을 제공 합니다.
+Logic Apps는 논리 앱의 워크플로에서 작업을 구성 하 고 제어 하기 위한 기본 제공 작업을 제공 합니다.
 
 |   |   |   |   | 
 |---|---|---|---| 
-| [![기본 제공 아이콘][condition-icon]<br/>**조건**][condition-doc] | 조건을 평가하고, 조건이 true 또는 false인지에 따라 별도의 작업을 실행합니다. | [![기본 제공 아이콘][for-each-icon]</br>**각각**][for-each-doc] | 배열의 모든 항목에 대해 동일한 작업을 수행합니다. | 
+| [![기본 제공 아이콘][condition-icon]<br/>**조건**][condition-doc] | 조건을 평가하고, 조건이 true 또는 false인지에 따라 별도의 작업을 실행합니다. | [![][for-each-icon]</br>**각에 대 한** 기본 제공 아이콘][for-each-doc] | 배열의 모든 항목에 대해 동일한 작업을 수행합니다. | 
 | [![기본 제공 아이콘][scope-icon]<br/>**범위**][scope-doc] | 범위에 속한 작업의 실행이 완료되면 해당 상태를 가져오는 *범위*로 작업을 그룹화합니다. | [![기본 제공 아이콘][switch-icon]</br>**전환**][switch-doc] | 기본 사례를 제외하고는 고유한 값이 할당된 *사례*로 작업을 그룹화합니다. 할당된 값이 식, 개체 또는 토큰의 결과와 일치하는 사례만 실행합니다. 일치하는 사례가 없는 경우 기본 사례를 실행합니다. | 
-| [![기본 제공 아이콘][terminate-icon]<br/>**종료**][terminate-doc] | 활발히 실행 중인 논리 앱 워크플로를 중지합니다. | [![기본 제공 아이콘][until-icon]<br/>**다음까지 종료**][until-doc] | 지정된 조건이 true이거나 일부 상태가 변경될 때까지 작업을 반복합니다. | 
+| [![기본 제공 아이콘][terminate-icon]<br/>**종료**][terminate-doc] | 활발히 실행 중인 논리 앱 워크플로를 중지합니다. | [![다음**까지** 기본 제공][until-icon]<br/>아이콘][until-doc] | 지정된 조건이 true이거나 일부 상태가 변경될 때까지 작업을 반복합니다. | 
 ||||| 
 
 ### <a name="manage-or-manipulate-data"></a>데이터 관리 또는 조작
 
-Logic Apps는 데이터 출력 및 해당 형식을 사용 하 여 작업에 대 한 기본 제공 작업을 제공 합니다.  
+Logic Apps는 데이터 출력 및 해당 형식으로 작업 하기 위한 기본 제공 작업을 제공 합니다.  
 
 |   |   | 
 |---|---| 
-| [![기본 제공 아이콘][data-operations-icon]<br/>**데이터 작업**][data-operations-doc] | 데이터를 사용하여 수행하는 작업: <p>- **Compose**: 다양 한 형식으로 여러 입력에서 단일 출력을 만듭니다. <br>- **CSV 테이블 만들기**: JSON 개체를 사용 하 여 배열에서 쉼표로 구분 된 값 (CSV) 테이블을 만듭니다. <br>- **HTML 테이블 만들기**: JSON 개체를 사용 하 여 배열에서 HTML 테이블을 만듭니다. <br>- **배열 필터링**: 조건을 충족 하는 다른 배열의 항목에서 배열을 만듭니다. <br>- **조인**: 배열에 있는 모든 항목에서 문자열을 만들고 지정된 된 구분 기호를 사용 하 여 해당 항목을 구분 합니다. <br>- **JSON 구문 분석**: 워크플로에서 이러한 속성을 사용할 수 있도록 속성 및 JSON 콘텐츠에서 해당 값에서 친숙 한 토큰을 만듭니다. <br>- **선택**: 항목 또는 다른 배열의 값을 변환 하 고 지정 된 속성에 해당 항목을 매핑 하 여 JSON 개체를 사용 하 여 배열 만들기 | 
-| ![기본 제공 아이콘][date-time-icon]<br/>**날짜/시간 삽입** | 타임스탬프를 사용하여 수행하는 작업: <p>- **시간**: 타임 스탬프에 지정 된 단위 수를 추가 합니다. <br>- **표준 시간대 변환**: 원본 표준 시간대의 타임스탬프를 대상 표준 시간대로 변환합니다. <br>- **현재**: 현재 타임스탬프를 문자열로 반환합니다. <br>- **미래 시간 가져오기**: 지정한 시간 단위를 더한 현재 타임스탬프를 반환합니다. <br>- **과거 시간 가져오기**: 지정한 시간 단위를 뺀 현재 타임스탬프를 반환합니다. <br>- **시간에서 뺄**: 타임스탬프에서 시간 단위 수를 뺍니다. |
-| [![기본 제공 아이콘][variables-icon]<br/>**변수**][variables-doc] | 변수를 사용하여 수행하는 작업: <p>- **배열 변수에 추가**: 변수로 저장 하는 배열의 마지막 항목으로 값을 삽입 합니다. <br>- **문자열 변수에 추가**: 변수로 저장 된 문자열의 마지막 문자 값을 삽입 합니다. <br>- **감소 변수**: 상수 값으로 변수를 줄입니다. <br>- **변수 증가**: 변수를 상수 값을 늘립니다. <br>- **변수 초기화**: 변수를 만들고 해당 데이터 형식 및 초기 값을 선언 합니다. <br>- **변수 설정**: 기존 변수에 다른 값을 할당 합니다. |
+| [![기본 제공 아이콘][data-operations-icon]<br/>**데이터 작업**][data-operations-doc] | 데이터를 사용하여 수행하는 작업: <p>- **작성**: 다양 한 형식을 사용 하 여 여러 입력에서 단일 출력을 만듭니다. <br>- **CSV 테이블 만들기**: JSON 개체를 사용 하 여 배열에서 CSV (쉼표로 구분 된 값) 테이블을 만듭니다. <br>- **HTML 테이블 만들기**: JSON 개체를 사용 하 여 배열에서 HTML 테이블을 만듭니다. <br>- **필터 배열**: 조건을 충족 하는 다른 배열의 항목에서 배열을 만듭니다. <br>- **조인**: 배열의 모든 항목에서 문자열을 만들고 해당 항목을 지정 된 구분 기호로 구분 합니다. <br>- **JSON 구문 분석**: 워크플로에서 이러한 속성을 사용할 수 있도록 JSON 콘텐츠에서 속성 및 해당 값에서 사용자에 게 친숙 한 토큰을 만듭니다. <br>- **선택**: 다른 배열의 항목 또는 값을 변환 하 고 해당 항목을 지정 된 속성에 매핑하여 JSON 개체를 사용 하 여 배열을 만듭니다. | 
+| ![기본 제공 아이콘][date-time-icon]<br/>**날짜/시간 삽입** | 타임스탬프를 사용하여 수행하는 작업: <p>- **시간에 추가**: 타임 스탬프에 지정 된 단위 수를 추가 합니다. <br>- **표준 시간대 변환**: 원본 표준 시간대의 타임스탬프를 대상 표준 시간대로 변환합니다. <br>- **현재 시간**: 현재 타임스탬프를 문자열로 반환합니다. <br>- **미래 시간 가져오기**: 지정한 시간 단위를 더한 현재 타임스탬프를 반환합니다. <br>- **이전 시간 가져오기**: 지정한 시간 단위를 뺀 현재 타임스탬프를 반환합니다. <br>- **시간에서 빼기**: 타임스탬프에서 시간 단위 수를 뺍니다. |
+| [![기본 제공 아이콘][variables-icon]<br/>**변수**][variables-doc] | 변수를 사용하여 수행하는 작업: <p>- **배열 변수에 추가**: 변수에 의해 저장 된 배열의 마지막 항목으로 값을 삽입 합니다. <br>- **문자열 변수에 추가**: 변수에 의해 저장 된 문자열의 마지막 문자로 값을 삽입 합니다. <br>- **감소 변수**: 상수 값으로 변수를 줄입니다. <br>- **증가 변수**: 상수 값으로 변수를 늘립니다. <br>- **초기화 변수**: 변수를 만들고 해당 데이터 형식 및 초기 값을 선언 합니다. <br>- **변수 설정**: 기존 변수에 다른 값을 할당 합니다. |
 |  |  | 
 
 <a name="managed-api-connectors"></a>
 
 ## <a name="managed-api-connectors"></a>관리되는 API 커넥터
 
-Logic Apps 작업, 프로세스 및 이러한 서비스 또는 시스템을 사용 하 여 워크플로 자동화 하는 데 이러한 인기 있는 표준 커넥터를 제공 합니다.
+Logic Apps은 이러한 서비스 또는 시스템을 사용 하 여 작업, 프로세스 및 워크플로를 자동화 하는 데 널리 사용 되는 표준 커넥터를 제공 합니다.
 
 |   |   |   |   | 
 |---|---|---|---| 
 | [![API 아이콘][azure-service-bus-icon]<br/>**Azure Service Bus**][azure-service-bus-doc] | Logic Apps에서 가장 일반적으로 사용되는 커넥터를 사용하여 비동기 메시지, 세션 및 토픽 구독을 관리합니다. | [![API 아이콘][sql-server-icon]<br/>**SQL Server**][sql-server-doc] | 온-프레미스의 SQL Server 또는 클라우드의 Azure SQL Database에 연결하여 레코드를 관리하고 저장 프로시저를 실행하거나 쿼리를 수행할 수 있습니다. | 
-| [![API 아이콘][office-365-outlook-icon]<br/>**Office 365<br/>Outlook**][office-365-outlook-doc] | Office 365 이메일 계정에 연결하여 이메일, 작업, 일정 이벤트 및 회의, 연락처, 요청 등을 만들고 관리할 수 있습니다. | [![API 아이콘][azure-blob-storage-icon]<br/>**Azure Blob<br/>Storage**][azure-blob-storage-doc] | 저장소 계정에 연결하여 Blob 콘텐츠를 만들고 관리할 수 있습니다. | 
+| [![API 아이콘][office-365-outlook-icon]<br/>**Office 365<br/>Outlook**][office-365-outlook-doc] | Office 365 이메일 계정에 연결하여 이메일, 작업, 일정 이벤트 및 회의, 연락처, 요청 등을 만들고 관리할 수 있습니다. | [![API 아이콘][azure-blob-storage-icon]<br/>**Azure Blob<br/>Storage**][azure-blob-storage-doc] | 스토리지 계정에 연결하여 Blob 콘텐츠를 만들고 관리할 수 있습니다. | 
 | [![API 아이콘][sftp-icon]<br/>**SFTP**][sftp-doc] | 인터넷에서 액세스할 수 있는 SFTP 서버에 연결하여 파일 및 폴더를 사용할 수 있습니다. | [![API 아이콘][sharepoint-online-icon]<br/>**SharePoint<br/>Online**][sharepoint-online-doc] | SharePoint Online에 연결하여 파일, 첨부 파일, 폴더 등을 관리할 수 있습니다. | 
 | [![API 아이콘][dynamics-365-icon]<br/>**Dynamics 365<br/>CRM Online**][dynamics-365-doc] | Dynamics 365 계정에 연결하여 레코드, 항목 등을 만들고 관리할 수 있습니다. | [![API 아이콘][ftp-icon]<br/>**FTP**][ftp-doc] | 인터넷에서 액세스할 수 있는 FTP 서버에 연결하여 파일 및 폴더를 사용할 수 있습니다. | 
 | [![API 아이콘][salesforce-icon]<br/>**Salesforce**][salesforce-doc] | Salesforce 계정에 연결하여 레코드, 작업, 개체 등의 항목을 만들고 관리할 수 있습니다. | [![API 아이콘][twitter-icon]<br/>**Twitter**][twitter-doc] | Twitter 계정에 연결하여 트윗, 팔로워, 타임라인 등을 관리할 수 있습니다. 트윗을 SQL, Excel 또는 SharePoint에 저장합니다. | 
@@ -120,11 +124,11 @@ Logic Apps 작업, 프로세스 및 이러한 서비스 또는 시스템을 사�
 
 ## <a name="on-premises-connectors"></a>온-프레미스 커넥터 
 
-Logic Apps 온-프레미스 시스템에서 데이터 및 리소스 액세스를 제공 하는 몇 가지 자주 사용 되는 표준 커넥터는 다음과 같습니다. 온-프레미스 시스템에 대한 연결을 만들려면 먼저 [온-프레미스 데이터 게이트웨이를 다운로드, 설치 및 설정][gateway-doc]해야 합니다. 이 게이트웨이는 필요한 네트워크 인프라를 설정하지 않고도 보안 통신 채널을 제공합니다. 
+다음은 온-프레미스 시스템의 데이터 및 리소스에 액세스 하기 위해 Logic Apps 제공 하는 일반적으로 사용 되는 표준 커넥터입니다. 온-프레미스 시스템에 대 한 연결을 만들려면 먼저 [온-프레미스 데이터 게이트웨이를 다운로드, 설치 및 설정][gateway-doc]해야 합니다. 이 게이트웨이는 필요한 네트워크 인프라를 설정하지 않고도 보안 통신 채널을 제공합니다. 
 
 |   |   |   |   |   | 
 |---|---|---|---|---| 
-| ![API 아이콘][biztalk-server-icon]<br/>**BizTalk**</br> **서버** | [![API 아이콘][file-system-icon]<br/>**파일</br> 시스템**][file-system-doc] | [![API 아이콘][ibm-db2-icon]<br/>**IBM DB2**][ibm-db2-doc] | [![API 아이콘][ibm-informix-icon]<br/>**IBM**</br> **Informix**][ibm-informix-doc] | ![API 아이콘][mysql-icon]<br/>**MySQL** | 
+| ![API 아이콘][biztalk-server-icon]<br/>**BizTalk**</br> **Server** | [![API 아이콘][file-system-icon]<br/>**파일</br> 시스템**][file-system-doc] | [![API 아이콘][ibm-db2-icon]<br/>**IBM DB2**][ibm-db2-doc] | [![API 아이콘][ibm-informix-icon]<br/>**IBM** Informix</br>][ibm-informix-doc] | ![API 아이콘][mysql-icon]<br/>**MySQL** | 
 | [![API 아이콘][oracle-db-icon]<br/>**Oracle DB**][oracle-db-doc] | ![API 아이콘][postgre-sql-icon]<br/>**PostgreSQL** | [![API 아이콘][sharepoint-server-icon]<br/>**SharePoint</br> 서버**][sharepoint-server-doc] | [![API 아이콘][sql-server-icon]<br/>**SQL</br> Server**][sql-server-doc] | ![API 아이콘][teradata-icon]<br/>**Teradata** | 
 |||||
 
@@ -132,52 +136,52 @@ Logic Apps 온-프레미스 시스템에서 데이터 및 리소스 액세스를
 
 ## <a name="integration-account-connectors"></a>통합 계정 커넥터
 
-Logic Apps는 만들고 요금을 지불 하는 경우 logic apps 사용 하 여 기업 간 B2B 솔루션을 구축 하기 위한 표준 커넥터를 제공 된 [통합 계정](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), 엔터프라이즈 통합 팩 (EIP)를 통해 사용할 수 있는 azure. 이 계정을 사용하여 거래 파트너, 계약, 맵, 스키마, 인증서 등과 같은 B2B 아티팩트를 만들고 저장할 수 있습니다. 이러한 아티팩트를 사용하려면 논리 앱을 통합 계정과 연결합니다. 현재 BizTalk Server를 사용하는 경우 이러한 커넥터는 이미 익숙한 것처럼 보일 수 있습니다.
+Logic Apps은 Azure에서 EIP (엔터프라이즈 통합 팩)를 통해 사용할 수 있는 [통합 계정을](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)만들고 지불할 때 논리 앱을 사용 하 여 b2b (기업 간) 솔루션을 빌드하기 위한 표준 커넥터를 제공 합니다. 이 계정을 사용하여 거래 파트너, 계약, 맵, 스키마, 인증서 등과 같은 B2B 아티팩트를 만들고 저장할 수 있습니다. 이러한 아티팩트를 사용하려면 논리 앱을 통합 계정과 연결합니다. 현재 BizTalk Server를 사용하는 경우 이러한 커넥터는 이미 익숙한 것처럼 보일 수 있습니다.
 
 |   |   |   |   | 
 |---|---|---|---| 
 | [![API 아이콘][as2-icon]<br/>**AS2</br> 디코딩**][as2-doc] | [![API 아이콘][as2-icon]<br/>**AS2</br> 인코딩**][as2-doc] | [![API 아이콘][edifact-icon]<br/>**EDIFACT</br> 디코딩**][edifact-decode-doc] | [![API 아이콘][edifact-icon]<br/>**EDIFACT</br> 인코딩**][edifact-encode-doc] | 
-| [![API 아이콘][flat-file-decode-icon]<br/>**플랫 파일</br> 디코딩**][flat-file-decode-doc] | [![API 아이콘][flat-file-encode-icon]<br/>**플랫 파일</br> 인코딩**][flat-file-encode-doc] | [![API 아이콘][integration-account-icon]<br/>**통합<br/>계정**][integration-account-doc] | [![API 아이콘][liquid-icon]<br/>**Liquid**</br>**변환**][json-liquid-transform-doc] | 
-| [![API 아이콘][x12-icon]<br/>**X12</br> 디코딩**][x12-decode-doc] | [![API 아이콘][x12-icon]<br/>**X12</br> 인코딩**][x12-encode-doc] | [![API 아이콘][xml-transform-icon]<br/>**XML**</br>**변환**][xml-transform-doc] | [![API 아이콘][xml-validate-icon]<br/>**XML <br/>유효성 검사**][xml-validate-doc] |  
+| [![API 아이콘][flat-file-decode-icon]<br/>**플랫 파일</br> 디코딩**][flat-file-decode-doc] | [![API 아이콘][flat-file-encode-icon]<br/>**플랫 파일</br> 인코딩**][flat-file-encode-doc] | [![API 아이콘][integration-account-icon]<br/>**통합<br/>계정**][integration-account-doc] | [![API 아이콘][liquid-icon]<br/>**액체**변형</br>][json-liquid-transform-doc] | 
+| [![API 아이콘][x12-icon]<br/>**X12</br> 디코딩**][x12-decode-doc] | [![API 아이콘][x12-icon]<br/>**X12</br> 인코딩**][x12-encode-doc] | [![API 아이콘][xml-transform-icon]<br/>**XML**변환</br>][xml-transform-doc] | [![API 아이콘][xml-validate-icon]<br/> **XML<br/>유효성 검사**][xml-validate-doc] |  
 ||||| 
 
 <a name="enterprise-connectors"></a>
 
 ## <a name="enterprise-connectors"></a>엔터프라이즈 커넥터
 
-Logic Apps는 SAP 및 IBM MQ와 같은 엔터프라이즈 시스템에 액세스 하기 위한 이러한 엔터프라이즈 커넥터를 제공 합니다.
+Logic Apps는 SAP 및 IBM MQ와 같은 엔터프라이즈 시스템에 액세스 하기 위한 엔터프라이즈 커넥터를 제공 합니다.
 
 |   |   |   | 
 |---|---|---| 
-| [![API icon][ibm-3270-icon]<br/>**IBM 3270**][ibm-3270-doc] | [![API 아이콘][ibm-mq-icon]<br/>**IBM MQ**][ibm-mq-doc] | [![API 아이콘][sap-icon]<br/>**SAP**][sap-connector-doc] |
+| [![API 아이콘][ibm-3270-icon]<br/>**IBM 3270**][ibm-3270-doc] | [![API 아이콘][ibm-mq-icon]<br/>**IBM MQ**][ibm-mq-doc] | [![API 아이콘][sap-icon]<br/>**SAP**][sap-connector-doc] |
 |||| 
 
 <a name="triggers-actions"></a>
 
-## <a name="triggers-and-actions---more-info"></a>트리거 및 작업-자세한 정보
+## <a name="triggers-and-actions---more-info"></a>트리거 및 작업-추가 정보
 
-커넥터를 제공할 수 있습니다 *트리거*를 *작업*, 또는 둘 다. A *트리거* 일반적으로 트리거 시작 및 논리 앱 실행을 시작 하는 이벤트를 지정 하는 논리 앱에서 첫 번째 단계입니다. 예를 들어 FTP 커넥터는 "파일을 추가 하거나 수정" 때 논리 앱을 시작 하는 트리거가 있습니다. 일부 트리거는 지정 된 이벤트 나 데이터를 정기적으로 확인 및 다음 지정 된 이벤트 나 데이터를 감지할 때 발생 합니다. 다른 트리거 대기 하지만 새 데이터를 사용할 때 또는 특정 이벤트가 발생할 때 즉시 발생 합니다. 또한 트리거 논리 앱에 필요한 데이터를 따라 전달합니다. 논리 앱 읽고 워크플로 전체에서 해당 데이터를 사용할 수 있습니다.
-예를 들어 Twitter 커넥터는 트리거를 논리 앱 워크플로에 콘텐츠의 "새 트 윗이 게시 될 때", 트 윗을 전달 합니다. 
+커넥터는 *트리거*, *작업*또는 둘 다를 제공할 수 있습니다. *트리거* 는 논리 앱의 첫 번째 단계로, 일반적으로 트리거를 발생 시키고 논리 앱 실행을 시작 하는 이벤트를 지정 합니다. 예를 들어 FTP 커넥터에는 "파일이 추가 되거나 수정 될 때" 논리 앱을 시작 하는 트리거가 있습니다. 일부 트리거는 지정 된 이벤트 또는 데이터를 정기적으로 확인 한 다음 지정 된 이벤트 또는 데이터를 검색할 때 발생 합니다. 다른 트리거는 대기 하지만 특정 이벤트가 발생 하거나 새 데이터를 사용할 수 있는 경우 즉시 발생 합니다. 또한 트리거는 논리 앱에 필요한 데이터를 함께 전달 합니다. 논리 앱은 워크플로 전체에서 해당 데이터를 읽고 사용할 수 있습니다.
+예를 들어 Twitter 커넥터에는 논리 앱의 워크플로에 트 윗의 콘텐츠를 전달 하는 "new 트 윗이 게시 될 때" 트리거가 있습니다. 
 
-트리거가 실행 되 면 Azure Logic Apps 논리 앱 인스턴스에 만들고 실행 하기 시작 합니다 *작업* 논리 앱 워크플로에서 합니다. 작업은 트리거를 따르고 논리 앱 워크플로에서 작업을 수행 하는 단계는 같습니다. 예를 들어, SQL database에서 고객 데이터를 가져오는 논리 앱을 만드는 하 수 이후 작업에서 해당 데이터를 처리 합니다. 
+트리거를 실행 한 후에는 Azure Logic Apps 논리 앱의 인스턴스를 만들고 논리 앱의 워크플로에서 *작업* 을 실행 하기 시작 합니다. 작업은 트리거를 따르고 논리 앱의 워크플로에서 태스크를 수행 하는 단계입니다. 예를 들어 SQL 데이터베이스에서 고객 데이터를 가져오고 이후 작업에서 해당 데이터를 처리 하는 논리 앱을 만들 수 있습니다. 
 
 Azure Logic Apps에서 제공 하는 트리거의 일반적인 종류는 다음과 같습니다.
 
-* *되풀이 트리거*: 이 트리거가 지정 된 일정에 따라 실행 하 고 특정 서비스 또는 시스템을 밀접 하 게 연관 되어 있지 않습니다.
+* *되풀이 트리거*: 이 트리거는 지정 된 일정에 따라 실행 되며 특정 서비스 또는 시스템과 긴밀 하 게 연결 되지 않습니다.
 
-* *폴링 트리거*: 이 트리거는 특정 서비스 또는 새 데이터 또는 특정 이벤트 발생 여부를 확인 하는 지정된 된 일정에 따라 시스템을 정기적으로 폴링합니다. 새 데이터를 사용할 수 또는 특정 이벤트가 발생 한 경우 트리거를 만들고 입력으로 전달 되는 데이터를 이제 사용할 수 있는 논리 앱의 새 인스턴스를 실행 합니다.
+* *폴링 트리거*: 이 트리거는 지정 된 일정에 따라 특정 서비스 또는 시스템을 정기적으로 폴링하여 새 데이터를 확인 하거나 특정 이벤트가 발생 했는지 여부를 확인 합니다. 새 데이터를 사용할 수 있거나 특정 이벤트가 발생 한 경우 트리거는 논리 앱의 새 인스턴스를 만들고 실행 합니다. 그러면 이제 입력으로 전달 된 데이터를 사용할 수 있습니다.
 
-* *밀어넣기 트리거*: 이 트리거가 대기 하 고 새 데이터 또는 발생할 이벤트를 수신 합니다. 새 데이터를 사용할 때나 이벤트가 발생 하면 트리거를 만들고 입력으로 전달 되는 데이터를 이제 사용할 수 있는 논리 앱의 새 인스턴스를 실행 합니다.
+* *밀어넣기 트리거*: 이 트리거는 새 데이터 또는 이벤트 발생을 대기 하 고 수신 합니다. 새 데이터를 사용할 수 있거나 이벤트가 발생할 때 트리거는 이제 입력으로 전달 된 데이터를 사용할 수 있는 논리 앱의 새 인스턴스를 만들고 실행 합니다.
 
 <a name="custom"></a>
 
 ## <a name="connector-configuration"></a>커넥터 구성
 
-각 커넥터의 트리거 및 작업을 구성할 수에 대 한 자신의 속성을 제공 합니다. 많은 커넥터를 처음 만들 필요는 *연결* 대상 서비스 또는 시스템 및 논리 앱에서 트리거 또는 동작을 사용 하기 전에 인증 자격 증명 또는 기타 구성 세부 정보를 제공 합니다. 예를 들어 데이터에 액세스 하거나 사용자를 대신해 게시할 Twitter 계정에 대 한 연결 권한을 부여 해야 합니다. 
+각 커넥터의 트리거 및 작업은 사용자가 구성할 수 있는 고유한 속성을 제공 합니다. 또한 대부분의 커넥터에서는 먼저 대상 서비스 또는 시스템에 대 한 *연결* 을 만들고 인증 자격 증명 또는 기타 구성 정보를 제공 해야 논리 앱에서 트리거 또는 동작을 사용할 수 있습니다. 예를 들어 데이터에 액세스 하거나 사용자 대신 게시 하기 위해 Twitter 계정에 대 한 연결에 권한을 부여 해야 합니다. 
 
-OAuth를 사용 하는 커넥터에 대 한 연결을 만드는 의미, Office 365, Salesforce 또는 GitHub에서 액세스 토큰은 암호화 하 고 안전 하 게 Azure 암호 저장소에 저장 된 같은 서비스에 로그인 합니다. SQL, FTP 등의 다른 커넥터 서버 주소, 사용자 이름 및 암호와 같은 구성 세부 정보를 포함 하는 연결이 필요 합니다. 이러한 연결 구성 세부 정보 또한 암호화된 후 안전하게 저장됩니다. 
+OAuth를 사용 하는 커넥터의 경우 연결을 만들면 액세스 토큰이 암호화 되어 Azure 비밀 저장소에 안전 하 게 저장 되는 Office 365, Salesforce 또는 GitHub와 같은 서비스에 로그인 하는 것을 의미 합니다. FTP 및 SQL과 같은 다른 커넥터에는 서버 주소, 사용자 이름 및 암호와 같은 구성 세부 정보를 포함 하는 연결이 필요 합니다. 이러한 연결 구성 세부 정보 또한 암호화된 후 안전하게 저장됩니다. 
 
-연결 하면 해당 서비스 또는 시스템으로 대상 서비스 또는 시스템에 액세스할 수 있습니다. Office 365, Dynamics 등의 Azure AD (Active Directory) OAuth 연결을 사용 하는 서비스에 대 한 Azure Logic Apps를 새로 고칩니다 액세스 토큰을 무기한. 다른 서비스는 Azure Logic Apps가 새로 고치지 않고 토큰을 사용할 수는 기간에 제한이 있을 수 있습니다. 일반적으로 일부 작업에는 암호를 변경 하는 등의 모든 액세스 토큰을 무효화 합니다.
+서비스 또는 시스템이 허용 하는 한 연결에서 대상 서비스 또는 시스템에 액세스할 수 있습니다. Office 365 및 Dynamics와 같은 AD (Azure Active Directory) OAuth 연결을 사용 하는 서비스의 경우 액세스 토큰을 무기한 새로 고칠 Azure Logic Apps. 다른 서비스의 경우 Azure Logic Apps를 새로 고치지 않고 토큰을 사용할 수 있는 기간에 제한이 있을 수 있습니다. 일반적으로 일부 동작은 암호 변경과 같은 모든 액세스 토큰을 무효화 합니다.
 
 <a name="custom"></a>
 
@@ -187,12 +191,12 @@ OAuth를 사용 하는 커넥터에 대 한 연결을 만드는 의미, Office 3
 Azure에서 모든 사용자가 사용할 수 있도록 사용자 지정 API 앱 또는 커넥터를 공개하려면 [Microsoft 인증을 위해 커넥터를 제출](../logic-apps/custom-connector-submit-certification.md)할 수 있습니다.
 
 > [!NOTE]
-> 내에서 논리 앱을 [통합 서비스 환경 (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 리소스는 Azure 가상 네트워크에 직접 액세스할 수 있습니다.
-> 온-프레미스 데이터 게이트웨이 필요로 하는 사용자 지정 커넥터 있고 ISE 외부 해당 커넥터를 만든 경우는 ISE에서 logic apps는 해당 커넥터를 사용할 수도 있습니다.
+> [ISE (통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 내의 논리 앱은 Azure virtual network의 리소스에 직접 액세스할 수 있습니다.
+> 온-프레미스 데이터 게이트웨이를 필요로 하는 사용자 지정 커넥터를 사용 하 고 ISE 외부에서 커넥터를 만든 경우 ISE의 논리 앱 에서도 이러한 커넥터를 사용할 수 있습니다.
 >
-> ISE를 내에서 만든 사용자 지정 커넥터는 온-프레미스 데이터 게이트웨이와 함께 작동 하지 않습니다. 그러나 이러한 커넥터 ISE 호스팅 Azure 가상 네트워크에 연결 된 온-프레미스 데이터 원본에 직접 액세스할 수 있습니다. 따라서는 ISE에서 logic apps 가능성이 필요 하지 않습니다 데이터 게이트웨이 통해 이러한 리소스와 통신할 때.
+> ISE 내에서 만든 사용자 지정 커넥터는 온-프레미스 데이터 게이트웨이와 작동 하지 않습니다. 그러나 이러한 커넥터는 ISE를 호스트 하는 Azure 가상 네트워크에 연결 된 온-프레미스 데이터 원본에 직접 액세스할 수 있습니다. 따라서 ISE의 논리 앱은 이러한 리소스와 통신할 때 데이터 게이트웨이가 필요 하지 않을 수 있습니다.
 >
-> ISEs를 만드는 방법에 대 한 자세한 내용은 참조 하세요. [Azure Logic Apps에서 Azure 가상 네트워크에 연결](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment)합니다.
+> ISEs를 만드는 방법에 대 한 자세한 내용은 [Azure Logic Apps에서 Azure virtual network에 연결](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -243,7 +247,7 @@ Azure에서 모든 사용자가 사용할 수 있도록 사용자 지정 API 앱
 [google-drive-doc]: ./connectors-create-api-googledrive.md "Google 드라이브에 연결하여 데이터를 사용할 수 있습니다."
 [google-sheets-doc]: ./connectors-create-api-googlesheet.md "Google Sheets에 연결하여 시트를 수정할 수 있습니다."
 [google-tasks-doc]: ./connectors-create-api-googletasks.md "Google 작업에 연결하여 태스크를 관리할 수 있습니다."
-[ibm-3270-doc]: ./connectors-run-3270-apps-ibm-mainframe-create-api-3270.md "IBM 메인프레임에서 3270 응용 프로그램 연결"
+[ibm-3270-doc]: ./connectors-run-3270-apps-ibm-mainframe-create-api-3270.md "IBM 메인프레임에서 3270 앱에 연결"
 [ibm-db2-doc]: ./connectors-create-api-db2.md "클라우드 또는 온-프레미스에서 IBM DB2에 연결합니다. 행 업데이트, 테이블 가져오기 등"
 [ibm-informix-doc]: ./connectors-create-api-informix.md "클라우드 또는 온-프레미스에서 Informix에 연결합니다. 행 읽기, 테이블 나열 등"
 [ibm-mq-doc]: ./connectors-create-api-mq.md "온-프레미스 또는 Azure에서 IBM MQ에 연결하여 메시지 송수신"

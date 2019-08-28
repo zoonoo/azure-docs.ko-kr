@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 07/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ff4f8f45bee86013b3f3603ba12fc121de9d7ce
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 7f631a641ab63d33d27d1e4520a000b4b01132be
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475700"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478575"
 ---
 # <a name="tutorial-integrate-outsystems-azure-ad-with-azure-active-directory"></a>자습서: Azure Active Directory와 OutSystems Azure AD 연결
 
@@ -84,7 +84,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     b. **회신 URL** 텍스트 상자에서 `https://<YOURBASEURL>/IdP/SSO.aspx` 패턴을 사용하여 URL을 입력합니다.
 
-1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
     **로그인 URL** 텍스트 상자에서 `https://<YOURBASEURL>` 패턴을 사용하여 URL을 입력합니다.
 
@@ -101,7 +101,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ### <a name="configure-outsystems-azure-ad"></a>OutSystems Azure AD 구성
 
-**OutSystems** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML**과 적절히 복사한 URL을 [OutSystems 지원 팀](mailto:support@outsystems.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+OutSystems 쪽에서 Single Sign-On을 구성하려면 [IdP 포지](https://www.outsystems.com/forge/component-overview/599/idp) 구성 요소를 다운로드하고 [지침](https://success.outsystems.com/Documentation/Development_FAQs/How_to_configure_OutSystems_to_use_identity_providers_using_SAML#Configure_your_application_to_use_IdP_connector)에 설명된 대로 구성해야 합니다. 구성 요소를 설치하고 필요한 대로 코드를 변경한 후에는 다음 [지침](https://success.outsystems.com/Documentation/Development_FAQs/How_to_configure_OutSystems_to_use_identity_providers_using_SAML#Azure_AD_.2F_ADFS)에 따라 Azure Portal에서 페더레이션 메타데이터 XML을 다운로드하고 OutSystems IdP 구성 요소를 업로드하여 Azure AD를 구성합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -135,7 +135,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ### <a name="create-outsystems-azure-ad-test-user"></a>OutSystems Azure AD 테스트 사용자 만들기
 
-이 섹션에서는 OutSystems에서 Britta Simon이라는 사용자를 만듭니다. OutSystems는 기본적으로 사용하도록 설정되는 Just-In-Time 사용자 프로비저닝을 지원합니다. 이 섹션에 작업 항목이 없습니다. OutSystems에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다.
+이 섹션에서는 OutSystems에서 B.Simon이라는 사용자를 만듭니다. OutSystems는 기본적으로 사용하도록 설정되는 Just-In-Time 사용자 프로비저닝을 지원합니다. 이 섹션에 작업 항목이 없습니다. OutSystems에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다.
 
 ### <a name="test-sso"></a>SSO 테스트
 

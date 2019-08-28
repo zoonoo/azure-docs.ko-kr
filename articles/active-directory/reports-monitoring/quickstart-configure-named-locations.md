@@ -3,7 +3,7 @@ title: Azure Active Directory의 명명된 위치 구성 | Microsoft Docs
 description: 명명된 위치를 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 ms.assetid: f56e042a-78d5-4ea3-be33-94004f2a0fc3
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71b21c4727e7679c25dc2574a6506f8d3932aec2
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 540bc8a4dbfda83ff6e0480bc216a38742bbef2b
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434792"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988088"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>빠른 시작: Azure Active Directory의 명명된 위치 구성
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: 6cc530d2680c0410081ad3ad3e573cd59d5583d6
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: a437927f6ad43f4c3a90433faa5b9fa6f964aa5c
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341954"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839242"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>음성 텍스트 변환에 대한 질문과 대답
 
@@ -63,13 +63,13 @@ ms.locfileid: "67341954"
 
 **A**: 배포는 자동으로 업데이트되지 않습니다.
 
-기준 V1.0의 모델을 적응시키고 배포하면 배포는 원래 상태를 유지합니다. 고객에 게 배포 된 모델을 해제 하 고 기준의 최신 버전을 사용 하 여 다시 조정 하 고 다시 배포할 수 있습니다.
+기준 V1.0의 모델을 적응시키고 배포하면 배포는 원래 상태를 유지합니다. 고객은 배포 된 모델의 서비스를 해제 하 고, 최신 버전의 기준선을 다시 적용 하 고, 다시 배포할 수 있습니다.
 
 **Q: 배포된 모델이 포털에서 제공되는 값보다 더 많은 수의 작업을 동시에 수행해야 하는 경우에는 어떻게 해야 하나요?**
 
 **A**: 동시 요청을 20개씩 추가하여 모델을 강화할 수 있습니다.
 
-연락처 [음성 지원](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text) 더 큰 규모를 해야 하는 경우.
+더 높은 규모를 요구 하는 경우 [음성 지원](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text) 에 문의 하세요.
 
 **Q: 모델을 다운로드하여 로컬에서 실행할 수 있나요?**
 
@@ -77,13 +77,18 @@ ms.locfileid: "67341954"
 
 **Q: 요청은 기록되나요?**
 
-**A**: 배포를 만들 때 추적을 해제하는 옵션을 선택할 수 있습니다. 이 경우 오디오 또는 전사는 기록되지 않습니다. 그렇지 않으면 일반적으로 Azure에서 보안 저장소에 요청이 기록됩니다.
+**A**: 배포를 만들 때 추적을 해제하는 옵션을 선택할 수 있습니다. 이 경우 오디오 또는 전사는 기록되지 않습니다. 그렇지 않으면 일반적으로 Azure에서 보안 스토리지에 요청이 기록됩니다.
 
 **Q: 요청에 제한이 있나요?**
 
 **A**: REST API에서는 요청이 5초당 25개로 제한됩니다. 자세한 내용은 [음성을 텍스트로 변환](speech-to-text.md)에 대한 페이지에서 찾을 수 있습니다.
 
-그 밖의 개인 정보 보호 문제로 인해 Custom Speech Service를 사용할 수 없는 경우에는 지원 채널 중 한 곳에 문의하세요.
+**Q: 이중 채널 오디오에 대 한 요금은 어떻게 청구 되나요?**
+
+**A**: 각 채널을 별도로 제출 하는 경우 (각 채널은 자체 파일에) 각 파일의 기간에 따라 요금이 청구 됩니다. 각 채널이 함께 멀티플렉싱 단일 파일을 제출 하면 단일 파일의 기간에 대 한 요금이 청구 됩니다.
+
+> [!IMPORTANT]
+> 그 밖의 개인 정보 보호 문제로 인해 Custom Speech Service를 사용할 수 없는 경우에는 지원 채널 중 한 곳에 문의하세요.
 
 ## <a name="importing-data"></a>데이터 가져오기
 
@@ -107,7 +112,7 @@ ms.locfileid: "67341954"
 
 **Q: 어떤 데이터를 수집해야 하나요?**
 
-**A**: 애플리케이션 시나리오 및 사용 사례와 최대한 유사한 데이터를 수집합니다. 데이터 컬렉션은 장치, 환경 및 화자 유형과 관련하여 대상 애플리케이션 및 사용자와 일치해야 합니다. 일반적으로 최대한 광범위한 화자의 데이터를 수집해야 합니다. 
+**A**: 애플리케이션 시나리오 및 사용 사례와 최대한 유사한 데이터를 수집합니다. 데이터 컬렉션은 디바이스, 환경 및 화자 유형과 관련하여 대상 애플리케이션 및 사용자와 일치해야 합니다. 일반적으로 최대한 광범위한 화자의 데이터를 수집해야 합니다. 
 
 **Q: 음향 데이터는 어떻게 수집해야 하나요?**
 

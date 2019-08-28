@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 204f540b-09f1-452b-a52f-78143710ef76
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 611867cf5606d5a1078706e1c0f67f673a7fa500
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: e03870322df94a4c9587a3395c70925d2d2e838d
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66254539"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67588215"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect"></a>자습서: Mitel MiCloud Connect와 Azure Active Directory 통합
 
@@ -29,7 +29,7 @@ ms.locfileid: "66254539"
 * 사용자가 해당 Azure AD 계정으로 MiCloud Connect에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -210,7 +210,7 @@ Mitel 계정 포털에 사용자를 추가하는 방법에 대한 자세한 내�
 * **비즈니스 이메일 주소:** `brittasimon@<yourcompanydomain>.<extension>`   
 (예: [brittasimon@contoso.com](mailto:brittasimon@contoso.com))
 
-* **사용자 이름:** `brittasimon@<yourcompanydomain>.<extension> `  
+* **사용자 이름:** `brittasimon@<yourcompanydomain>.<extension>`  
 (예: [brittasimon@contoso.com](mailto:brittasimon@contoso.com). 사용자의 사용자 이름은 일반적으로 사용자의 비즈니스 이메일 주소와 동일합니다.)
 
 **참고:** 사용자의 MiCloud Connect 사용자 이름은 Azure에서 사용자의 이메일 주소와 동일해야 합니다.

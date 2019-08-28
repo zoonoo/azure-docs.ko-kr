@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 9b126d5ccbbf3cb1f22163ffb6ac53a8aff61004
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: c03568ece97bdaad86f4564debf9f3b2fa14c6ed
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357344"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "67786640"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>Python용 Azure Cognitive Services Computer Vision SDK
 
@@ -42,7 +42,7 @@ Computer Vision 서비스는 개발자에게 이미지를 처리하고 정보를
 
 ### <a name="if-you-dont-have-an-azure-subscription"></a>Azure 구독이 없는 경우
 
-Computer Vision 서비스의 **[시도][computervision_resource]** 환경에서 7일 동안 유효한 평가판 키를 만듭니다. 키가 만들어지면 키와 엔드포인트 이름을 복사해 둡니다. 이 값은 [클라이언트를 만들 때](#create-client) 필요합니다.
+Computer Vision 서비스의 **[사용해보기][computervision_resource]** 환경에서 7일 동안 유효한 평가판 키를 만듭니다. 키가 만들어지면 키와 엔드포인트 이름을 복사해 둡니다. 이 값은 [클라이언트를 만들 때](#create-client) 필요합니다.
 
 키를 만든 후에는 다음을 유지합니다.
 
@@ -129,7 +129,7 @@ export ACCOUNT_KEY=$(az cognitiveservices account keys list \
 
 ### <a name="create-client"></a>클라이언트 만들기
 
-환경 변수에서 엔드포인트 및 키를 가져온 후에는 [ComputerVisionClient][ref_computervisionclient] 클라이언트 개체를 만듭니다.
+환경 변수에서 엔드포인트 및 키를 가져온 다음, [ComputerVisionClient][ref_computervisionclient] 클라이언트 개체를 만듭니다.
 
 ```Python
 from azure.cognitiveservices.vision.computervision import ComputerVisionClient
@@ -216,7 +216,7 @@ for caption in analysis.captions:
 
 ### <a name="get-text-from-image"></a>이미지에서 텍스트 가져오기
 
-이미지에서 필기 또는 인쇄된 텍스트를 가져올 수 있습니다. 이를 위해서는 SDK에 대한 두 호출인 [`batch_read_file`](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python#batch-read-file-url--mode--custom-headers-none--raw-false----operation-config-) 및 [`get_read_operation_result`](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python#get-read-operation-result-operation-id--custom-headers-none--raw-false----operation-config-)가 필요합니다. `batch_read_file`에 대한 호출은 비동기입니다. `get_read_operation_result` 호출의 결과에서 텍스트 데이터를 추출하기 전에 첫 번째 호출이 [`TextOperationStatusCodes`][ref_computervision_model_textoperationstatuscodes]로 완료되었는지 확인해야 합니다. 결과에는 텍스트뿐만 아니라 텍스트에 대한 경계 상자 좌표가 포함됩니다.
+이미지에서 필기 또는 인쇄된 텍스트를 가져올 수 있습니다. 이를 위해서는 SDK에 대한 두 호출인 [`batch_read_file`](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python) 및 [`get_read_operation_result`](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python)가 필요합니다. `batch_read_file`에 대한 호출은 비동기입니다. `get_read_operation_result` 호출의 결과에서 텍스트 데이터를 추출하기 전에 첫 번째 호출이 [`TextOperationStatusCodes`][ref_computervision_model_textoperationstatuscodes]로 완료되었는지 확인해야 합니다. 결과에는 텍스트뿐만 아니라 텍스트에 대한 경계 상자 좌표가 포함됩니다.
 
 ```Python
 # import models

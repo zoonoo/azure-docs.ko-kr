@@ -32,8 +32,12 @@
       href: create-host-pools-arm-template.md
     - name: PowerShell을 사용한 호스트 풀 만들기
       href: create-host-pools-powershell.md
-    - name: 호스트 풀에 대한 사용자 프로필 공유 설정
+    - name: Windows Virtual Desktop 세션 호스트에 Windows 라이선스 적용
+      href: apply-windows-license.md
+    - name: 파일 공유를 사용하여 호스트 풀에 대한 프로필 컨테이너 만들기
       href: create-host-pools-user-profile.md
+    - name: Azure NetApp Files를 사용하여 호스트 풀에 대한 프로필 컨테이너 만들기
+      href: create-fslogix-profile-container.md
     - name: Windows Virtual Desktop 부하 분산 방법 구성
       href: configure-host-pool-load-balancing.md
     - name: 마스터 VHD 이미지 준비 및 사용자 지정
@@ -48,6 +52,8 @@
       href: customize-feed-for-virtual-desktop-users.md
     - name: RDP 속성 사용자 지정
       href: customize-rdp-properties.md
+    - name: 진단 도구 배포
+      href: deploy-diagnostics.md
 - name: 개념
   items:
     - name: Windows Virtual Desktop 환경
@@ -58,6 +64,8 @@
       href: host-pool-load-balancing.md
     - name: FSLogix 프로필 컨테이너 및 Azure Files
       href: fslogix-containers-azure-files.md
+    - name: 파트너 통합
+      href: partners.md
 - name: 문제 해결
   items:
     - name: '문제 해결 개요, 피드백 및 지원'
@@ -78,7 +86,11 @@
   items:
     - name: PowerShell
       href: /powershell/windows-virtual-desktop/overview
+    - name: REST API
+      href: /rest/api/virtual-desktop/
 - name: 리소스
   items:
     - name: 기술 커뮤니티 지원 그룹
       href: 'https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop'
+    - name: UserVoice 포럼
+      href: 'https://windowsvirtualdesktop.uservoice.com/forums/921118-general'

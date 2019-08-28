@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Azure CLI를 사용하여 IPv6로 공용 부하 분산 장치를 만드는 방법을 알아봅니다.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 keywords: ipv6, Azure Load Balancer, 이중 스택, 공용 IP, 기본 ipv6, 모바일, iot
 ms.service: load-balancer
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
-ms.author: kumud
-ms.openlocfilehash: 1caa8e7554024c3b2e3d86436d3d494d7995169a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 0ee85a92753845e0e67fff22da894a048acb1b14
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60516692"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274948"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Azure CLI를 사용하여 IPv6로 공용 부하 분산 장치 만들기
 
@@ -264,7 +264,7 @@ NIC를 만들어 NAT 규칙, 부하 분산 장치 규칙 및 프로브와 연결
 
 ## <a name="create-the-back-end-vm-resources-and-attach-each-nic"></a>백 엔드 VM 리소스를 만들고 각 NIC를 연결합니다.
 
-VM을 만들려면 저장소 계정이 있어야 합니다. 부하 분산을 하려면 VM이 가용성 집합의 구성원이어야 합니다. VM 만들기에 대한 자세한 내용은 [PowerShell을 사용하여 Azure VM 만들기](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json)를 참조하세요.
+VM을 만들려면 스토리지 계정이 있어야 합니다. 부하 분산을 하려면 VM이 가용성 집합의 구성원이어야 합니다. VM 만들기에 대한 자세한 내용은 [PowerShell을 사용하여 Azure VM 만들기](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json)를 참조하세요.
 
 1. PowerShell 변수를 설정합니다.
 

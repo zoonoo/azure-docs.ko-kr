@@ -73,7 +73,7 @@ Azure Monitor API에서 Azure Cosmos DB 메트릭을 볼 수 있습니다. Azure
 | AvailableStorage (사용 가능한 저장소) |바이트 (합계) | 지역당 5 분 간격 보고 사용 가능한 총 저장소| DatabaseName, CollectionName, Region| 5M| 사용 가능한 스토리지| 사용 가능한 스토리지 용량을 모니터링하는 데 사용합니다(고정 스토리지 컬렉션에만 해당). 최소 단위는 5분이어야 합니다.| 
 | DataUsage (데이터 사용량) |바이트 (합계) |지역당 5 분 간격 보고 된 총 데이터 사용| DatabaseName, CollectionName, Region| 5M |데이터 크기 | 컬렉션 및 지역의 총 데이터 사용량을 모니터링하는 데 사용합니다. 최소 단위는 5분이어야 합니다.|
 | IndexUsage (인덱스 사용) | 바이트 (합계) |지역당 5 분 간격 보고 된 총 인덱스 사용량| DatabaseName, CollectionName, Region| 5M| 인덱스 크기| 컬렉션 및 지역의 총 데이터 사용량을 모니터링하는 데 사용합니다. 최소 단위는 5분이어야 합니다. |
-| DocumentQuota (문서 할당량) | 바이트 (합계) | 총 저장소 할당량 지역당 5 분 간격 보고 합니다.| DatabaseName, CollectionName, Region| 5M |저장소 용량| 컬렉션 및 지역의 총 할당량을 모니터링하는 데 사용합니다. 최소 단위는 5분이어야 합니다.|
+| DocumentQuota (문서 할당량) | 바이트 (합계) | 총 저장소 할당량 지역당 5 분 간격 보고 합니다.| DatabaseName, CollectionName, Region| 5M |스토리지 용량| 컬렉션 및 지역의 총 할당량을 모니터링하는 데 사용합니다. 최소 단위는 5분이어야 합니다.|
 | DocumentCount (문서 수) | 수 (합계) |지역당 5 분 간격 보고 된 총 문서 수| DatabaseName, CollectionName, Region| 5M |문서 수|컬렉션 및 지역의 문서 수를 모니터링하는 데 사용합니다. 최소 단위는 5분이어야 합니다.|
 
 ### <a name="latency-metrics"></a>대기 시간 메트릭

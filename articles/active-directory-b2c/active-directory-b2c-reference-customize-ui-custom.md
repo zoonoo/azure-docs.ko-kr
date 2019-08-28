@@ -76,23 +76,23 @@ HTML5/CSS 파일을 적절하게 선별하여 원하는 만큼 콘텐츠 페이�
 
 이 CORS 기반 접근 방식 덕분에 최종 사용자는 Azure AD B2C에서 제공하는 페이지와 애플리케이션 간에 일관된 경험을 얻게 됩니다.
 
-## <a name="create-a-storage-account"></a>저장소 계정 만들기
+## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-필수 요소로, 저장소 계정을 만들어야 합니다. Azure Blob Storage 계정을 만들려면 Azure 구독이 필요합니다. [Azure 웹 사이트](https://azure.microsoft.com/pricing/free-trial/)에서 무료 평가판에 등록할 수 있습니다.
+필수 요소로, 스토리지 계정을 만들어야 합니다. Azure Blob Storage 계정을 만들려면 Azure 구독이 필요합니다. [Azure 웹 사이트](https://azure.microsoft.com/pricing/free-trial/)에서 무료 평가판에 등록할 수 있습니다.
 
 1. 브라우저 세션을 열고 [Azure Portal](https://portal.azure.com)로 이동합니다.
 2. 관리자 자격 증명으로 로그인합니다.
-3. **리소스 만들기** > **저장소** > **저장소 계정**을 클릭합니다.  **저장소 계정 만들기** 창이 열립니다.
-4. **이름**에 저장소 계정의 이름을 제공합니다(예: *contoso369b2c*). 이 값은 나중에 *storageAccountName*으로 참조됩니다.
+3. **리소스 만들기** > **스토리지** > **스토리지 계정**을 클릭합니다.  **스토리지 계정 만들기** 창이 열립니다.
+4. **이름**에 스토리지 계정의 이름을 제공합니다(예: *contoso369b2c*). 이 값은 나중에 *storageAccountName*으로 참조됩니다.
 5. 가격 책정 계층, 리소스 그룹 및 구독에 적절한 선택 항목을 고릅니다. **시작 보드에 고정** 옵션이 선택되었는지 확인합니다. **만들기**를 클릭합니다.
-6. 시작 보드에 돌아가서 만든 저장소 계정을 클릭합니다.
+6. 시작 보드에 돌아가서 만든 스토리지 계정을 클릭합니다.
 7. **서비스** 섹션에서 **Blob**을 클릭합니다. **Blob Service 창**이 열립니다.
 8. **+ 컨테이너**를 클릭합니다.
 9. **이름**에 컨테이너의 이름을 입력합니다(예:*b2c*). 이 값은 나중에 *containerName*으로 참조됩니다.
 9. **액세스 유형**으로 **Blob**을 선택합니다. **만들기**를 클릭합니다.
 10. 만든 컨테이너가 **Blob Service 창**의 목록에 표시됩니다.
 11. **Blob** 창을 닫습니다.
-12. **저장소 계정 창**에서 **키** 아이콘을 클릭합니다. **액세스 키 창**이 열립니다.  
+12. **스토리지 계정 창**에서 **키** 아이콘을 클릭합니다. **액세스 키 창**이 열립니다.  
 13. **key1**의 값을 기록해 둡니다. 이 값은 나중에 *key1*로 참조됩니다.
 
 ## <a name="downloading-the-helper-tool"></a>도우미 도구 다운로드
@@ -105,22 +105,22 @@ HTML5/CSS 파일을 적절하게 선별하여 원하는 만큼 콘텐츠 페이�
 ## <a name="upload-the-ui-customization-pack-sample-files"></a>UI-Customization-Pack 샘플 파일 업로드
 
 1.  Windows 탐색기를 사용하여 이전 섹션에서 생성한 *UI-Customization-Pack* 폴더 아래에 있는 *B2C-AzureBlobStorage-Client-master* 폴더로 이동합니다.
-2.  *B2CAzureStorageClient.exe* 파일을 실행합니다. 이 프로그램은 저장소 계정에 사용자가 지정한 디렉터리의 모든 파일을 업로드하고 해당 파일에 대한 CORS 액세스가 가능하도록 합니다.
+2.  *B2CAzureStorageClient.exe* 파일을 실행합니다. 이 프로그램은 스토리지 계정에 사용자가 지정한 디렉터리의 모든 파일을 업로드하고 해당 파일에 대한 CORS 액세스가 가능하도록 합니다.
 3.  메시지가 표시되면 다음을 지정합니다. a.  스토리지 계정의 이름 *storageAccountName*(예: *contoso369b2c*).
     b.  Azure Blob Storage의 기본 액세스 키 *key1*(예: *contoso369b2c*).
     c.  Storage Blob Storage 컨테이너의 이름 *containerName*(예: *b2c*).
     d.  *Starter-Pack* 샘플 파일의 경로(예: *..\B2CTemplates\wingtiptoys*).
 
-이전 단계를 따랐다면 **wingtiptoys**라는 가상의 회사에 대한 *UI-Customization-Pack*의 HTML5 및 CSS 파일은 이제 사용자의 저장소 계정을 가리킵니다.  Azure Portal에서 관련 컨테이너 창을 열어 콘텐츠를 제대로 업로드했는지 확인할 수 있습니다. 또는 브라우저에서 페이지에 액세스하여 콘텐츠를 제대로 업로드했는지 확인할 수 있습니다. 자세한 내용은 [Azure Active Directory B2C: 페이지 UI(사용자 인터페이스) 사용자 지정 기능을 설명하기 위해 사용된 도우미 도구](active-directory-b2c-reference-ui-customization-helper-tool.md)를 참조하세요.
+이전 단계를 따랐다면 **wingtiptoys**라는 가상의 회사에 대한 *UI-Customization-Pack*의 HTML5 및 CSS 파일은 이제 사용자의 스토리지 계정을 가리킵니다.  Azure Portal에서 관련 컨테이너 창을 열어 콘텐츠를 제대로 업로드했는지 확인할 수 있습니다. 또는 브라우저에서 페이지에 액세스하여 콘텐츠를 제대로 업로드했는지 확인할 수 있습니다. 자세한 내용은 [Azure Active Directory B2C: 페이지 UI(사용자 인터페이스) 사용자 지정 기능을 설명하기 위해 사용된 도우미 도구](active-directory-b2c-reference-ui-customization-helper-tool.md)를 참조하세요.
 
-## <a name="ensure-the-storage-account-has-cors-enabled"></a>저장소 계정에 CORS가 활성화되었는지 확인
+## <a name="ensure-the-storage-account-has-cors-enabled"></a>스토리지 계정에 CORS가 활성화되었는지 확인
 
 콘텐츠를 로드하려면 Azure AD B2C에 대한 엔드포인트에서 CORS(원본 간 리소스 공유)를 활성화해야 합니다. 이는 Azure AD B2C가 페이지를 제공하는 도메인이 아닌 다른 도메인에서 콘텐츠가 호스팅되기 때문입니다.
 
-콘텐츠를 호스팅하는 저장소에 CORS를 사용할 수 있는지 확인하려면 다음 단계를 진행합니다.
+콘텐츠를 호스팅하는 스토리지에 CORS를 사용할 수 있는지 확인하려면 다음 단계를 진행합니다.
 
-1. 브라우저 세션을 열고 저장소 계정 `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`에서 해당 위치의 전체 URL을 사용하여 *unified.html* 페이지로 이동합니다. 예: https://contoso369b2c.blob.core.windows.net/b2c/unified.html
-2. https://test-cors.org 로 이동합니다. 이 사이트를 통해 사용 중인 페이지에 CORS가 사용하도록 설정되었는지 확인할 수 있습니다.  
+1. 브라우저 세션을 열고 스토리지 계정 `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`에서 해당 위치의 전체 URL을 사용하여 *unified.html* 페이지로 이동합니다. 예: https://contoso369b2c.blob.core.windows.net/b2c/unified.html
+2. [https://test-cors.org](https://test-cors.org ) 로 이동합니다. 이 사이트를 통해 사용 중인 페이지에 CORS가 사용하도록 설정되었는지 확인할 수 있습니다.  
    <!--
    ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
    -->
@@ -130,7 +130,7 @@ HTML5/CSS 파일을 적절하게 선별하여 원하는 만큼 콘텐츠 페이�
    <!--
    ![CORS enabled](../../media/active-directory-b2c-customize-ui-of-a-user-journey/cors-enabled.png)
    -->
-   이제 저장소 계정에는 *Starter-Pack*의 다음 wingtiptoys 템플릿이 포함된 그림에 *b2c*라는 이름의 Blob 컨테이너가 포함되어야 합니다.
+   이제 스토리지 계정에는 *Starter-Pack*의 다음 wingtiptoys 템플릿이 포함된 그림에 *b2c*라는 이름의 Blob 컨테이너가 포함되어야 합니다.
 
 <!--
 ![Correctly configured storage account](../../articles/active-directory-b2c/media/active-directory-b2c-reference-customize-ui-custom/storage-account-final.png)

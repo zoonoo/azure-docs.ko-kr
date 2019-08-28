@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: a03a778b2a057235b31d02e90e5ce87e9559b38a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f886cb71d4dbc191dae317e8ea72d8c896f37c03
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058566"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442082"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 동기 부여 및 혜택
 
@@ -21,7 +21,7 @@ ms.locfileid: "67058566"
 
 ## <a name="why-to-migrate-to-azure-hdinsight"></a>Azure HDInsight로 마이그레이션하는 이유
 
-Azure HDInsight는 Hadoop 구성 요소는 클라우드 배포. Azure HDInsight는 대량 데이터를 쉽고 빠르며 비용 효율적으로 처리할 수 있도록 합니다. HDInsight는 다음과 같은 가장 인기 있는 오픈 소스 프레임워크를 포함하고 있습니다.
+Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure HDInsight는 대량 데이터를 쉽고 빠르며 비용 효율적으로 처리할 수 있도록 합니다. HDInsight는 다음과 같은 가장 인기 있는 오픈 소스 프레임워크를 포함하고 있습니다.
 
 - Apache Hadoop
 - Apache Spark
@@ -43,7 +43,7 @@ Azure HDInsight는 Hadoop 구성 요소는 클라우드 배포. Azure HDInsight�
 
 - **글로벌 가용성** - HDInsight는 그 어떤 빅 데이터 분석 제품보다 많은 [지역](https://azure.microsoft.com/regions/services/)에서 사용할 수 있습니다. Azure HDInsight는 주요 통치 지역에서 엔터프라이즈 요구 사항을 충족할 수 있도록 Azure Government, 중국 및 독일에서도 사용할 수 있습니다.
 
-- **보안 및 규정 준수** - HDInsight를 사용하면  [Azure Virtual Network](../hdinsight-extend-hadoop-virtual-network.md),  [암호화](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md) 및  [Azure Active Directory](../domain-joined/apache-domain-joined-introduction.md)와 통합을 통해 엔터프라이즈 데이터 자산을 보호할 수 있습니다. 또한 HDInsight는 가장 널리 사용되는 산업 및 정부  [규격 표준](https://azure.microsoft.com/overview/trusted-cloud)을 충족합니다.
+- **보안 및 규정 준수** - HDInsight를 사용하면  [Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md),  [암호화](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md) 및  [Azure Active Directory](../domain-joined/hdinsight-security-overview.md)와 통합을 통해 엔터프라이즈 데이터 자산을 보호할 수 있습니다. 또한 HDInsight는 가장 널리 사용되는 산업 및 정부  [규격 표준](https://azure.microsoft.com/overview/trusted-cloud)을 충족합니다.
 
 - **버전 관리 간소화** - Azure HDInsight는 Hadoop 에코 시스템 구성 요소의 버전을 관리하고 최신 상태로 유지합니다. 소프트웨어 업데이트는 일반적으로 온-프레미스 배포를 위한 복잡한 프로세스입니다.
 
@@ -53,7 +53,7 @@ Azure HDInsight는 Hadoop 구성 요소는 클라우드 배포. Azure HDInsight�
 
 - **사용자 지정 도구 또는 타사 애플리케이션을 통해 확장성 제공** - HDInsight 클러스터는 설치된 구성 요소를 통해 확장 가능하며 Azure 마켓플레이스에서 [원클릭](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) 배포를 사용하여 다른 빅 데이터 솔루션과 통합할 수도 있습니다.
 
-- **간편한 관리, 관리 및 모니터링** -Azure HDInsight 통합 [Azure Monitor 로그](../hdinsight-hadoop-oms-log-analytics-tutorial.md) 모든 클러스터를 모니터링할 수 있는 단일 인터페이스를 제공 합니다.
+- **간편한 관리, 관리 및 모니터링** -Azure HDInsight는 [Azure Monitor 로그](../hdinsight-hadoop-oms-log-analytics-tutorial.md) 와 통합 하 여 모든 클러스터를 모니터링할 수 있는 단일 인터페이스를 제공 합니다.
 
 - **다른 Azure 서비스와 통합** - HDInsight는 다음과 같은 인기 Azure 서비스와 쉽게 통합할 수 있습니다.
 
@@ -82,7 +82,7 @@ Azure HDInsight는 Hadoop 구성 요소는 클라우드 배포. Azure HDInsight�
 이 섹션에서는 다음에 대한 중요한 정보를 수집하는 데 도움이 되는 템플릿 설문지를 제공합니다.
 
 - 온-프레미스 배포
-- 프로젝트 세부 정보
+- 프로젝트 정보
 - Azure 요구 사항
 
 ### <a name="on-premises-deployment-questionnaire"></a>온-프레미스 배포 설문지
@@ -96,7 +96,7 @@ Azure HDInsight는 Hadoop 구성 요소는 클라우드 배포. Azure HDInsight�
 |클러스터 수|4|
 |마스터 노드 수|2|
 |작업자 노드 수|100|
-|Edge 노드 수| 5|
+|에 지 노드 수| 5|
 |총 디스크 공간|100TB|
 |마스터 노드 구성|m/y, cpu, 디스크 등|
 |데이터 노드 구성|m/y, cpu, 디스크 등|
@@ -131,7 +131,7 @@ Azure HDInsight는 Hadoop 구성 요소는 클라우드 배포. Azure HDInsight�
 |프로그래밍 언어|Python, Scala, Java||
 |스크립팅|셸, Python||
 |**항목**: **데이터**|||
-|데이터 원본|플랫 파일, Json, Kafka, RDBMS||
+|데이터 소스|플랫 파일, Json, Kafka, RDBMS||
 |데이터 오케스트레이션|Oozie 워크플로, Airflow||
 |메모리 내 조회|Apache Ignite, Redis||
 |데이터 대상|HDFS, RDBMS, Kafka, MPP ||
@@ -141,7 +141,7 @@ Azure HDInsight는 Hadoop 구성 요소는 클라우드 배포. Azure HDInsight�
 |아니요. Hive 테이블 수|100||
 |아니요. Ranger 정책 수|20||
 |아니요. Oozie 워크플로 수|100||
-|**항목**: **규모**|||
+|**항목**: **소수 자릿수**|||
 |복제를 비롯한 데이터 볼륨|100TB||
 |일일 수집 볼륨|50GB||
 |데이터 증가 속도|연 10%||
@@ -166,7 +166,7 @@ Azure HDInsight는 Hadoop 구성 요소는 클라우드 배포. Azure HDInsight�
 |**항목**: **인프라** |||
 |---|---|---|
 |**질문**|**예제**|**대답**|
-| 기본 지역|미국 동부||
+| 기본 영역|미국 동부||
 |VNet이 기본 설정입니까?|예||
 |HA/DR이 필요합니까?|예||
 |다른 클라우드 서비스와의 통합 여부|ADF, CosmosDB||
@@ -183,7 +183,7 @@ Azure HDInsight는 Hadoop 구성 요소는 클라우드 배포. Azure HDInsight�
 |아니요. 동기화할 AD 사용자 수가 얼마입니까?|          100||
 |암호를 클라우드와 동기화해도 괜찮습니까?|    예||
 |클라우드 전용 사용자입니까?|                 예||
-|MFA가 필요합니까?|                       아닙니다.|| 
+|MFA가 필요합니까?|                       아니요|| 
 |데이터 권한 부여 요구 사항이 있습니까?|  예||
 |역할 기반 액세스 제어를 사용합니까?|        예||
 |감사가 필요합니까?|                  예||
@@ -191,13 +191,13 @@ Azure HDInsight는 Hadoop 구성 요소는 클라우드 배포. Azure HDInsight�
 |전송 중 데이터 암호화를 사용합니까?|       예||
 |**항목**:   **재설계 기본 설정** |||
 |단일 클러스터 vs 특정 클러스터 형식|특정 클러스터 형식||
-|공동 배치된 저장소 Vs 원격 저장소|원격 저장소||
+|공동 배치된 스토리지 Vs 원격 스토리지|원격 스토리지||
 |데이터로 더 작은 클러스터 크기는 원격으로 저장되나요?|더 작은 클러스터 크기||
 |하나의 큰 클러스터 대신 작은 클러스터 여러 개를 사용합니까?|작은 클러스터 여러 개 사용||
 |원격 metastore를 사용합니까?|예||
 |서로 다른 클러스터 간에 metastore를 공유합니까?|예||
 |워크로드를 분해합니까?|Hive 작업을 Spark 작업으로 대체||
-|데이터 오케스트레이션에 ADF를 사용합니까?|아닙니다.||
+|데이터 오케스트레이션에 ADF를 사용합니까?|아니요||
 
 ## <a name="next-steps"></a>다음 단계
 

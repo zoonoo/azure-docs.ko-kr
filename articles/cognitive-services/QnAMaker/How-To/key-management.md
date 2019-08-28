@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b9be1db9be1d4dd57994e101c07ed430425a5912
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b0b82f37b76a6bca6d84a05bc48b7ae9986fb76b
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447433"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967690"
 ---
 # <a name="how-to-manage-keys-in-qna-maker"></a>QnA Maker에서 키를 관리하는 방법
 

@@ -9,18 +9,18 @@ ms.topic: include
 ms.date: 10/20/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 26789a12053fa6275b09836e706c391e181c8efd
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 83f3def8f4972f35df25dc98f4b818e703801d2e
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67181982"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949975"
 ---
 ## <a name="create-a-function"></a>함수 만들기
 
 다음 명령은 이름이 `MyHttpTrigger`인 HTTP 트리거 함수를 만듭니다.
 
-```bash
+```command
 func new --name MyHttpTrigger --template "HttpTrigger"
 ```
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/15/2019
 ms.author: shvija
-ms.openlocfilehash: c5e58f7bc89fbe2d93f6610465abf4a92fd31406
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 66b11ef8e746222074eadab2348f8a2cf9dab39f
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476124"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479143"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs 질문과 대답
 
@@ -24,14 +24,14 @@ ms.locfileid: "66476124"
 ### <a name="what-is-an-event-hubs-namespace"></a>Event Hubs 네임스페이스란?
 네임스페이스는 Event Hub/Kafka 토픽에 대한 범위 지정 컨테이너입니다. 고유한 [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)을 제공합니다. 네임스페이스는 여러 Event Hub/Kafka 토픽을 저장할 수 있는 애플리케이션 컨테이너로 사용됩니다. 
 
-### <a name="when-do-i-create-a-new-namespace-vs-use-an-existing-namespace"></a>새 네임 스페이스를 사용 하 여 및 기존 네임 스페이스도 만들 때
-용량 할당 ([처리량 단위 (Tu)](#throughput-units)) 네임 스페이스 수준에서 요금이 청구 됩니다. 네임 스페이스에 있는 지역과 연결 이기도합니다.
+### <a name="when-do-i-create-a-new-namespace-vs-use-an-existing-namespace"></a>새 네임 스페이스를 만들고 기존 네임 스페이스를 사용 하는 경우
+용량 할당 ([tu) (처리량 단위](#throughput-units))은 네임 스페이스 수준에서 청구 됩니다. 네임 스페이스는 영역에도 연결 되어 있습니다.
 
-하나에서 기존 시나리오에서 다음을 사용 하는 대신 새 네임 스페이스를 만드는 것이 좋습니다. 
+다음 시나리오 중 하나에서 기존 항목을 사용 하는 대신 새 네임 스페이스를 만들 수 있습니다. 
 
-- 새 영역을 사용 하 여 연결 된 이벤트 허브 해야 합니다.
-- 다른 구독에 연결 된 이벤트 허브 해야 합니다.
-- 고유한 용량 할당을 사용 하 여 이벤트 허브를 해야 (즉, 용량 할 추가 이벤트 허브가 있는 네임 스페이스에는 40 TU 임계값을 초과 하 고 전용된 클러스터에 대 한 이동 하지 않으려는)  
+- 새 지역과 연결 된 Event Hub가 필요 합니다.
+- 다른 구독과 연결 된 이벤트 허브가 필요 합니다.
+- 고유한 용량 할당이 있는 이벤트 허브가 필요 합니다. 즉, 추가 된 이벤트 허브가 포함 된 네임 스페이스의 용량 요구는 40 TU 임계값을 초과 하 고 전용 클러스터에 대해 이동 하지 않으려고 합니다.  
 
 ### <a name="what-is-the-difference-between-event-hubs-basic-and-standard-tiers"></a>Event Hubs 기본 및 표준 계층 간의 차이는 무엇입니까?
 
@@ -60,46 +60,46 @@ Event Hubs 표준 계층은 현재 최대 7일의 보존 기간을 지원합니�
 ### <a name="how-do-i-monitor-my-event-hubs"></a>내 Event Hubs를 모니터링하려면 어떻게 할까요?
 Event Hubs는 [Azure Monitor](../azure-monitor/overview.md)에 리소스 상태를 제공하는 자세한 메트릭을 내보냅니다. 또한 네임스페이스 수준뿐만 아니라 엔터티 수준에서도 Event Hubs 서비스의 전반적인 상태를 평가할 수 있습니다. [Azure Event Hubs](event-hubs-metrics-azure-monitor.md)에 제공되는 모니터링에 대해 알아보세요.
 
-### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>어떤 포트가 방화벽에서 열려는 하나요? 
-Azure Service Bus를 사용 하 여 메시지를 수신 하는 다음 프로토콜을 사용할 수 있습니다.
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>방화벽에서 열어야 하는 포트는 무엇 인가요? 
+Azure Service Bus에서 다음 프로토콜을 사용 하 여 메시지를 보내고 받을 수 있습니다.
 
 - AMQP(고급 메시지 큐 프로토콜)
 - HTTP
 - Apache Kafka
 
-Azure Event Hubs를 사용 하 여 통신 하도록 이러한 프로토콜을 사용 하 여 필요한 아웃 바운드 포트 다음 표를 참조 하세요. 
+이러한 프로토콜을 사용 하 여 Azure Event Hubs와 통신 하기 위해 열어야 하는 아웃 바운드 포트는 다음 표를 참조 하세요. 
 
 | 프로토콜 | 포트 | 세부 정보 | 
 | -------- | ----- | ------- | 
-| AMQP | 5671 및 5672 | 참조 [AMQP 프로토콜 가이드](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
+| AMQP | 5671 및 5672 | [Amqp 프로토콜 가이드](../service-bus-messaging/service-bus-amqp-protocol-guide.md) 를 참조 하세요. | 
 | HTTP, HTTPS | 80, 443 |  |
-| Kafka | 9093 | 참조 [Kafka 응용 프로그램에서 사용 하 여 Event Hubs](event-hubs-for-kafka-ecosystem-overview.md)
+| Kafka | 9093 | [Kafka 응용 프로그램에서 Event Hubs 사용을](event-hubs-for-kafka-ecosystem-overview.md) 참조 하세요.
 
-### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>어떤 IP 주소를 화이트 리스트 하나요?
-연결에 대 한 허용 목록에 올바른 IP 주소를 찾으려면 다음이 단계를 수행 합니다.
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>허용 목록 하는 데 필요한 IP 주소는 무엇 인가요?
+연결에 대 한 적절 한 IP 주소 목록을 찾으려면 다음 단계를 수행 합니다.
 
 1. 명령 프롬프트에서 다음 명령을 실행 합니다. 
 
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. 반환 된 IP 주소를 적어둡니다 `Non-authoritative answer`합니다. 이 IP 주소는 정적입니다. 유일한 시점을 변경할 경우 다른 클러스터에 네임 스페이스를 복원 하는 경우
+2. 에서 `Non-authoritative answer`반환 된 IP 주소를 적어둡니다. 다른 클러스터에 네임 스페이스를 복원 하는 경우에만 변경 되는 유일한 시점입니다.
 
-네임 스페이스에 대 한 영역 중복을 사용 하는 경우에 몇 가지 추가 단계를 수행 해야 합니다. 
+네임 스페이스에 영역 중복성을 사용 하는 경우 몇 가지 추가 단계를 수행 해야 합니다. 
 
-1. 첫째, 네임 스페이스에서 nslookup을 실행합니다.
+1. 먼저 네임 스페이스에서 nslookup을 실행 합니다.
 
     ```
     nslookup <yournamespace>.servicebus.windows.net
     ```
-2. 이름 적어 합니다 **신뢰할 수 없는 응답** 섹션에서 다음 형식 중 하나: 
+2. 다음 형식 중 하나에 해당 하는 **신뢰할 수 없는 응답** 섹션의 이름을 적어둡니다. 
 
     ```
     <name>-s1.servicebus.windows.net
     <name>-s2.servicebus.windows.net
     <name>-s3.servicebus.windows.net
     ```
-3. 접미사 s1, s2 및 s3 세 가용성 영역에서 실행 중인 모든 세 인스턴스의 IP 주소를 사용 하 여 각각에 대해 nslookup을 실행 합니다. 
+3. 접미사 s1, s2 및 s 3이 포함 된 각 항목에 대해 nslookup을 실행 하 여 세 개의 가용성 영역에서 실행 되는 세 인스턴스의 IP 주소를 가져옵니다. 
 
 ## <a name="apache-kafka-integration"></a>Apache Kafka 통합
 
@@ -185,14 +185,15 @@ Dedicated 클러스터의 경우 수집하고 스트림할 수 있는 양은 생
 ## <a name="best-practices"></a>모범 사례
 
 ### <a name="how-many-partitions-do-i-need"></a>얼마나 많은 파티션이 필요한가요?
+파티션 수는 만들 때 지정되며 2와 32 사이여야 합니다. 파티션 수는 변경할 수 없으므로 파티션 수를 설정할 때 장기적인 규모를 고려해야 합니다. 파티션은 애플리케이션을 사용하는 데 필요한 다운스트림 병렬 처리와 관련된 데이터 구성 메커니즘입니다. Event Hub의 파티션 수는 예상되는 동시 판독기의 수와 직접적으로 관련이 있습니다. 파티션에 대 한 자세한 내용은 [파티션](event-hubs-features.md#partitions)을 참조 하세요.
 
-설치한 후에는 이벤트 허브의 파티션 수를 수정할 수 없습니다. 이 점을 염두하고 시작하기 전에 필요한 파티션 수를 생각하는 것이 중요합니다. 
+만들 때 가장 높은 값 (32)으로 설정 해야 할 수 있습니다. 두 개 이상의 파티션이 있는 경우에는 두 개 이상의 파티션이 중복 된 상태를 유지 32 하도록 발신자를 구성 하지 않는 한, 순서를 유지 하지 않고 여러 파티션으로 이벤트를 보냅니다. 이전 경우에는 모든 32 파티션에서 이벤트를 읽어야 합니다. 후자의 경우에는 이벤트 프로세서 호스트에서 수행 해야 하는 추가 구성에 대 한 명확한 추가 비용이 없습니다.
 
 Event Hubs는 소비자 그룹당 단일 파티션 판독기를 허용하도록 설계되었습니다. 대부분의 경우 기본 설정인 4개의 파티션만으로도 충분합니다. 이벤트 처리의 크기를 조정하려는 경우 추가 파티션을 추가할지 고려할 수 있습니다. 파티션에 대한 특정 처리량 제한은 없지만 네임스페이스에서 집계 처리량은 처리량 단위 수로 제한됩니다. 네임스페이스에서 처리량 단위 수를 늘리면 추가 파티션을 통해 동시 판독기가 고유한 최대 처리량을 달성하도록 할 수 있습니다.
 
 그러나 애플리케이션에 특정 파티션에 대한 선호도가 있는 모델인 경우 파티션 수를 늘리게 되면 사용자에게 혜택이 돌아오지 않습니다. 자세한 내용은 [가용성 및 일관성](event-hubs-availability-and-consistency.md)을 참조하세요.
 
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 
 ### <a name="where-can-i-find-more-pricing-information"></a>추가 가격 책정 정보는 어디에서 찾을 수 있나요?
 
@@ -200,11 +201,11 @@ Event Hubs 가격 책정에 대한 전체 내용은 [Event Hubs 가격 책정 �
 
 ### <a name="is-there-a-charge-for-retaining-event-hubs-events-for-more-than-24-hours"></a>24시간 이상 Event Hubs 이벤트를 유지 하려면 비용이 청구됩니까?
 
-Event Hubs 표준 계층은 최대 7일 동안 24시간을 초과하는 메시지 보존 기간을 허용합니다. File Storage에 대한 자세한 내용은 파일 서비스 REST API를 참조하세요. 처리량 단위가 최대 수신 허용 한도까지 사용되었더라도 각 처리량 단위의 저장소 허용 한도는 24 시간(기본값) 동안의 보존 기간에 대한 모든 저장소 비용이 포함됩니다.
+Event Hubs 표준 계층은 최대 7일 동안 24시간을 초과하는 메시지 보존 기간을 허용합니다. File Storage에 대한 자세한 내용은 파일 서비스 REST API를 참조하세요. 처리량 단위가 최대 수신 허용 한도까지 사용되었더라도 각 처리량 단위의 스토리지 허용 한도는 24 시간(기본값) 동안의 보존 기간에 대한 모든 스토리지 비용이 포함됩니다.
 
-### <a name="how-is-the-event-hubs-storage-size-calculated-and-charged"></a>Event Hubs 저장소 크기가 계산 및 청구되는 방법
+### <a name="how-is-the-event-hubs-storage-size-calculated-and-charged"></a>Event Hubs 스토리지 크기가 계산 및 청구되는 방법
 
-모든 이벤트 허브의 디스크 저장소 구조 또는 이벤트 헤더의 내부 오버헤드를 포함하여, 저장된 모든 이벤트의 전체 크기가 하루 종일 측정됩니다. 하루가 끝날 때 최대 저장소 크기가 계산됩니다. 일일 저장소 허용 한도는 하루 동안 선택된 최소 처리량 단위 수를 기준으로 계산됩니다(각 처리량 단위는 84GB의 허용 한도를 제공함) . 총 크기가 계산된 일일 스토리지 허용 한도를 초과하면, 초과 스토리지는 Azure Blob Storage 가격을 사용하여 청구됩니다( **로컬 중복 스토리지** 속도로).
+모든 이벤트 허브의 디스크 스토리지 구조 또는 이벤트 헤더의 내부 오버헤드를 포함하여, 저장된 모든 이벤트의 전체 크기가 하루 종일 측정됩니다. 하루가 끝날 때 최고 스토리지 크기가 계산됩니다. 일별 스토리지 허용량은 하루 동안 선택된 처리량 단위의 최소 수를 기준으로 계산됩니다. 각 처리량 단위는 84GB의 허용량을 제공합니다. 총 크기가 계산된 일일 스토리지 허용 한도를 초과하면, 초과 스토리지는 Azure Blob Storage 가격을 사용하여 청구됩니다( **로컬 중복 스토리지** 속도로).
 
 ### <a name="how-are-event-hubs-ingress-events-calculated"></a>Event Hubs 수신 이벤트 계산하는 방법
 
@@ -214,7 +215,7 @@ Event Hubs 표준 계층은 최대 7일 동안 24시간을 초과하는 메시�
 
 ### <a name="do-brokered-connection-charges-apply-to-event-hubs"></a>조정된 연결 요금이 Event Hubs에 적용됩니까?
 
-AMQP 프로토콜을 사용하는 경우에 연결 요금이 적용됩니다. 시스템 또는 디바이스 수에 관계 없이 HTTP를 사용하여 이벤트를 보내는 데에는 연결 요금이 부과되지 않습니다. AMQP를 사용하려는 경우(예: 보다 효율적인 이벤트 스트리밍을 달성하거나 IoT 명령 및 제어 시나리오에서 양방향 통신 설정), 각 서비스 계층에 포함된 연결 수에 대한 자세한 내용은 [Event Hubs 가격 책정 정보](https://azure.microsoft.com/pricing/details/event-hubs/) 페이지를 참조하세요.
+AMQP 프로토콜을 사용하는 경우에 연결 요금이 적용됩니다. 전송하는 시스템 또는 디바이스 수와 관계없이 HTTP를 사용하여 이벤트를 전송하기 위한 연결 요금은 부과되지 않습니다. AMQP를 사용하려는 경우(예: 보다 효율적인 이벤트 스트리밍을 달성하거나 IoT 명령 및 제어 시나리오에서 양방향 통신 설정), 각 서비스 계층에 포함된 연결 수에 대한 자세한 내용은 [Event Hubs 가격 책정 정보](https://azure.microsoft.com/pricing/details/event-hubs/) 페이지를 참조하세요.
 
 ### <a name="how-is-event-hubs-capture-billed"></a>Event Hubs 캡처는 어떻게 청구되나요?
 
@@ -222,7 +223,7 @@ AMQP 프로토콜을 사용하는 경우에 연결 요금이 적용됩니다. �
 
 ### <a name="do-i-get-billed-for-the-storage-account-i-select-for-event-hubs-capture"></a>Event Hubs 캡처에 대해 선택한 스토리지 계정에 요금이 청구되나요?
 
-이벤트 허브에서 설정된 경우 캡처는 사용자가 제공한 저장소 계정을 사용합니다. 사용자의 스토리지 계정이므로 이 구성에 대한 모든 변경은 사용자의 Azure 구독에 청구됩니다.
+이벤트 허브에서 설정된 경우 캡처는 사용자가 제공한 스토리지 계정을 사용합니다. 사용자의 스토리지 계정이므로 이 구성에 대한 모든 변경은 사용자의 Azure 구독에 청구됩니다.
 
 ## <a name="quotas"></a>할당량
 

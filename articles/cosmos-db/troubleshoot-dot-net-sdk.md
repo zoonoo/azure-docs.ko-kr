@@ -5,16 +5,15 @@ author: j82w
 ms.service: cosmos-db
 ms.date: 05/28/2019
 ms.author: jawilley
-ms.devlang: c#
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 7e48809537acc21edbcf12d299a333df486c258f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b9511562b81f7ac0c1582897d703f4c5ccb89716
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257147"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806391"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>진단 및 Azure Cosmos DB.NET SDK를 사용 하는 경우 문제 해결
 이 문서에서는 일반적인 문제, 해결, 진단 단계 및 도구 사용 하는 경우는 [.NET SDK](sql-api-sdk-dotnet.md) Azure Cosmos DB SQL API 계정으로 합니다.

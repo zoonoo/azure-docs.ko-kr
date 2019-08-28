@@ -33,7 +33,7 @@ Azure 함수의 반환 형식은 유효한 `JObject`여야 합니다. ([JArray](
 | **속성** | **설명** | **필수** |
 | --- | --- | --- |
 | type   | type 속성을 다음으로 설정해야 합니다. **AzureFunction** | 예 |
-| 함수 앱 URL | Azure Function App의 URL입니다. 형식은 `https://<accountname>.azurewebsites.net`입니다. 이 URL은 Azure Portal에서 Function App을 볼 때 **URL** 섹션 아래에 표시되는 값입니다.  | 예 |
+| 함수 앱 URL | Azure 함수 앱의 URL입니다. 형식은 `https://<accountname>.azurewebsites.net`입니다. 이 URL은 Azure Portal에서 함수 앱을 볼 때 **URL** 섹션 아래에 표시되는 값입니다.  | 예 |
 | 기능 키 | Azure 함수의 액세스 키입니다. 해당 함수의 **관리** 섹션을 클릭하고 **기능 키** 또는 **호스트 키**를 복사합니다. 자세한 내용은 다음을 참조하세요. [Azure Functions HTTP 트리거 및 바인딩](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) | 예 |
 |   |   |   |
 
@@ -43,8 +43,8 @@ Azure 함수의 반환 형식은 유효한 `JObject`여야 합니다. ([JArray](
 | --- | --- | --- | --- |
 | name  | 파이프라인의 작업 이름입니다.  | String | 예 |
 | 형식  | 작업의 형식은 'AzureFunctionActivity'입니다. | String | 예 |
-| 연결된 서비스 | 해당하는 Azure Function App에 대한 Azure Function 연결된 서비스입니다.  | 연결된 서비스 참조 | 예 |
-| 함수 이름  | Azure Function App에서 이 작업이 호출하는 함수의 이름입니다. | String | 예 |
+| 연결된 서비스 | 해당하는 Azure 함수 앱에 대한 Azure Function 연결된 서비스입니다.  | 연결된 서비스 참조 | 예 |
+| 함수 이름  | Azure 함수 앱에서 이 작업이 호출하는 함수의 이름입니다. | String | 예 |
 | 메서드  | 함수 호출에 대한 REST API 메서드입니다. | 문자열 지원 형식: "GET", "POST", "PUT"   | 예 |
 | 머리글  | 요청에 전송되는 헤더입니다. 예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 씁니다. "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | 문자열(또는 resultType 문자열이 있는 식) | 아닙니다. |
 | 본문  | 함수 API 메서드에 대한 요청과 함께 전송되는 본문입니다.  | 문자열(또는 resultType 문자열이 있는 식) 또는 개체   | PUT/POST 메서드에 필요합니다. |

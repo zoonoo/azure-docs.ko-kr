@@ -1,51 +1,51 @@
 ---
-title: '빠른 시작: Android-음성 서비스에서 음성 장치 SDK를 실행 합니다.'
+title: '빠른 시작: Android에서 Speech Devices SDK 실행 - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: 필수 구성 요소 및 Android 음성 장치 SDK를 사용 하 여 시작 하는 것에 대 한 지침입니다.
+description: Android Speech Devices SDK를 시작하기 위한 필수 구성 요소 및 지침입니다.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 05/02/2019
+ms.topic: quickstart
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 5bebdd77afb9e9c77624ea4266ca217567dbf143
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: f7039b525cf0d52670b8d76a24d8ec3ea5115772
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072383"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559116"
 ---
-# <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>빠른 시작: Android에서 음성 장치 SDK 샘플 앱 실행
+# <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>빠른 시작: Android에서 Speech Devices SDK 샘플 앱 실행
 
-이 빠른 시작에서는 Android 용 음성 장치 SDK를 사용 하 여 음성 지원 제품을 작성 하거나로 사용 하는 방법을 알아봅니다를 [대화 기록](conversation-transcription-service.md) 장치입니다.
+이 빠른 시작에서는 Android용 Speech Devices SDK를 사용하여 음성 지원 제품을 빌드하거나 [대화 전사](conversation-transcription-service.md) 디바이스로 사용하는 방법을 알아봅니다.
 
-이 가이드에서는 [Azure Cognitive Services](get-started.md) 음성 서비스 리소스를 사용 하 여 계정. 계정이 없는 경우 [평가판](https://azure.microsoft.com/try/cognitive-services/)을 사용하여 구독 키를 가져올 수 있습니다.
+이 가이드에는 Speech Service 리소스와 함께 [Azure Cognitive Services](get-started.md) 계정이 필요합니다. 계정이 없는 경우 [평가판](https://azure.microsoft.com/try/cognitive-services/)을 사용하여 구독 키를 가져올 수 있습니다.
 
 샘플 애플리케이션의 소스 코드는 Speech Devices SDK에 포함되어 있으며, [GitHub에서도 사용할 수 있습니다](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
 ## <a name="prerequisites"></a>필수 조건
 
-음성 장치 SDK를 사용 하 여 시작 하기 전에 해야 합니다.
+Speech Devices SDK 사용을 시작하려면 다음 사항이 필요합니다.
 
-* 제공 된 지침에 따라 프로그램 [개발 키트](get-speech-devices-sdk.md) 장치에서 전원 합니다.
+* [개발 키트](get-speech-devices-sdk.md)에 제공된 지침에 따라 디바이스의 전원을 켭니다.
 
-* 최신 버전을 다운로드 합니다 [음성 장치 SDK](https://aka.ms/sdsdk-download), 작업 디렉터리에.zip을 추출 하 고 합니다.
+* [Speech Devices SDK](https://aka.ms/sdsdk-download)의 최신 버전을 다운로드하고 작업 디렉터리에 .zip을 추출합니다.
    > [!NOTE]
-   > 이 빠른 시작 앱 C:\SDSDK\Android-Sample-Release에 추출 되는 가정 및 Android 샘플 앱을 포함 하는 Android-샘플-Release.zip 파일
+   > Android-Sample-Release.zip 파일에는 Android 샘플 앱이 포함되어 있으며 이 빠른 시작에서는 이 앱이 C:\SDSDK\Android-Sample-Release에 추출되었다고 가정합니다.
 
-* 가져오려는 [음성 서비스에 대 한 Azure 구독 키](get-started.md)
+* [Speech Service에 대한 Azure 구독 키](get-started.md)를 확보합니다.
 
-* 대화 기록 사용 하려는 경우 사용 해야는 [순환 마이크 장치](get-speech-devices-sdk.md) 이며이 기능은 현재만 "EN-US" 및에 "ZH-CN" 지역, "centralus" 및 "eastasia"에서 사용할 수 있습니다. 음성 키 대화 기록 사용 하려면 해당 지역 중 하나에 있어야 합니다.
+* 대화 전사를 사용하려는 경우 [순환 마이크 디바이스](get-speech-devices-sdk.md)를 사용해야 하며, 이 기능은 현재 "미국 중부" 및 "동아시아" 지역에서 "en-US" 및 "zh-CN"으로만 사용할 수 있습니다. 대화 전사를 사용하려면 이 지역 중 한 곳에 음성 키가 있어야 합니다.
 
-* 음성 서비스를 사용 하 여 사용자 표현에서 인 텐트 (또는 작업)를 식별 하려는 경우는 [Service LUIS (Language Understanding)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) 구독 합니다. LUIS 및 의도 인식 하는 방법에 대 한 자세한 내용은 참조 하세요 [LUIS 사용 하 여 음성 의도 인식 C# ](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp)합니다.
+* Speech Services를 사용하여 사용자의 발언에서 의도(또는 작업)을 식별하려는 경우에는 [LUIS(Language Understanding Service)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) 구독이 필요합니다. LUIS와 의도 인식에 대해 자세히 알아보려면 [LUIS, C#을 통해 음성 의도 인식](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp)을 참조하세요.
 
     [간단한 LUIS 모델을 만들거나](https://docs.microsoft.com/azure/cognitive-services/luis/) LUIS-example.json LUIS 모델 샘플을 사용할 수 있습니다. LUIS 모델 샘플은 [Speech Devices SDK 다운로드 사이트](https://aka.ms/sdsdk-luis)에서 사용할 수 있습니다. 모델의 JSON 파일을 [LUIS 포털](https://www.luis.ai/home)에 업로드하려면 **새 앱 가져오기**를 선택한 다음, JSON 파일을 선택합니다.
 
 * PC에 [Android Studio](https://developer.android.com/studio/) 및 [Vysor](https://vysor.io/download/)을 설치합니다.
 
-## <a name="set-up-the-device"></a>장치 설정
+## <a name="set-up-the-device"></a>디바이스 설정
 
 1. 컴퓨터에서 Vysor를 시작합니다.
 
@@ -72,7 +72,7 @@ ms.locfileid: "67072383"
 
 ## <a name="run-the-sample-application"></a>샘플 애플리케이션 실행
 
-개발 키트 설정 유효성 검사를 빌드하고 샘플 응용 프로그램을 설치 합니다.
+개발 키트 설정의 유효성을 검사하기 위해 샘플 애플리케이션을 빌드하고 설치합니다.
 
 1. Android Studio를 시작합니다.
 
@@ -82,9 +82,9 @@ ms.locfileid: "67072383"
 
 1. C:\SDSDK\Android-Sample-Release\example로 이동합니다. **확인**을 선택하여 예제 프로젝트를 엽니다.
 
-1. 소스 코드에 음성 구독 키를 추가 합니다. 의도 인식을 사용해 보려면 [Language Understanding 서비스](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) 구독 키 및 애플리케이션 ID를 추가합니다.
+1. 소스 코드에 음성 구독 키를 추가합니다. 의도 인식을 사용해 보려면 [Language Understanding 서비스](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) 구독 키 및 애플리케이션 ID를 추가합니다.
 
-   LUIS와 음성에 대 한 정보 MainActivity.java를 살펴봅니다.
+   음성과 LUIS의 경우 MainActivity.java에 정보가 들어갑니다.
 
    ```java
     // Subscription
@@ -95,7 +95,7 @@ ms.locfileid: "67072383"
     private static String LuisAppId = "<enter your LUIS AppId>";
    ```
 
-    대화 기록을 사용 하는 경우 음성 키 및 지역 정보 conversation.java에도 필요 합니다.
+    대화 전사를 사용하는 경우 conversation.java에도 음성 키 및 지역 정보가 필요합니다.
 
    ```java
     private static final String CTSKey = "<Conversation Transcription Service Key>";
@@ -107,10 +107,10 @@ ms.locfileid: "67072383"
    > [!TIP]
    > [사용자 지정 절전 모드 해제 단어를 만들](speech-devices-sdk-create-kws.md) 수도 있습니다.
 
-    새로운 절전 모드 해제 단어를 사용 하려면에서 다음 두 줄을 업데이트 `MainActivity.java`, 절전 모드 해제 package 앱에 복사 합니다. 예를 들어 절전 모드 해제 word 패키지 kws에서 절전 모드 해제 word 'Machine' 사용 하 여-machine.zip:
+    새로운 절전 모드 해제 단어를 사용하려면 `MainActivity.java`에서 다음 두 줄을 업데이트하고 절전 모드 해제 단어 패키지를 앱에 복사합니다. 예를 들어 절전 모드 해제 단어 패키지 kws-machine.zip에서 절전 모드 해제 단어로 'Machine'을 사용하려면 다음을 수행합니다.
 
-   * 절전 모드 해제 package "C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\" 폴더로 복사 합니다.
-   * 업데이트 된 `MainActivity.java` 키워드와 패키지 이름:
+   * 절전 모드 해제 단어 패키지를 “C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\” 폴더에 복사합니다.
+   * `MainActivity.java`를 키워드와 패키지 이름으로 업데이트합니다.
 
      ```java
      private static final String Keyword = "Machine";
@@ -124,7 +124,7 @@ ms.locfileid: "67072383"
    private static final String SelectedGeometry = "Circular6+1";
    ```
 
-   이 표에서 지원 되는 값을 보여 줍니다.
+   이 표에는 지원되는 값이 나열되어 있습니다.
 
    |변수|의미|사용 가능한 값|
    |--------|-------|----------------|
@@ -145,24 +145,24 @@ ms.locfileid: "67072383"
 
    ![샘플 Speech Devices SDK 예제 애플리케이션 및 옵션](media/speech-devices-sdk/qsg-8.png)
 
-1. 새 대화 기록 데모를 보십시오. 세션 시작 '을 사용 하 여 복사를 시작 합니다. 기본적으로 모든 사용자가 게스트입니다. 그러나 참가자의 음성 서명이 있는 경우 이러한 넣을 수 있습니다 파일로 `/video/participants.properties` 장치의 합니다. 음성 시그니처를 생성 하려면 살펴 [촬영할 대화 (SDK)](how-to-use-conversation-transcription-service.md)합니다.
+1. 새로운 대화 전사 데모를 시도해봅니다. 'Start Session'을 문자로 기록하기 시작합니다. 기본적으로 모든 사람은 게스트입니다. 단, 참가자의 음성 서명이 있으면 디바이스의 `/video/participants.properties` 파일에 넣을 수 있습니다. 음성 서명을 생성하려면 [대화 기록(SDK)](how-to-use-conversation-transcription-service.md)을 참조하세요.
 
-   ![데모 대화 기록 응용 프로그램](media/speech-devices-sdk/qsg-15.png)
+   ![데모 대화 전사 애플리케이션](media/speech-devices-sdk/qsg-15.png)
 
 1. 실험!
 
 ## <a name="troubleshooting"></a>문제 해결
 
-   음성 장치에 연결할 수 없으면입니다. 명령 프롬프트 창에서 다음 명령을 입력 합니다. 장치 목록이 반환 됩니다.
+   음성 디바이스에 연결할 수 없으면, 명령 프롬프트 창에서 다음 명령을 입력합니다. 그러면 디바이스 목록이 반환됩니다.
 
    ```powershell
     adb devices
    ```
 
    > [!NOTE]
-   > 이 명령은 Android Debug Bridge `adb.exe`, Android Studio 설치의 일부인 합니다. 이 도구는 C:\Users\[사용자 이름]\AppData\Local\Android\Sdk\platform-tools에 있습니다. 이 디렉터리를 경로에 추가하면 `adb`를 더 편리하게 호출할 수 있습니다. 그렇지 않으면, `adb`를 호출하는 모든 명령에 adb.exe 설치의 전체 경로를 지정해야 합니다.
+   > 이 명령은 Android Studio 설치의 일부인 Android Debug Bridge, `adb.exe`를 사용합니다. 이 도구는 C:\Users\[사용자 이름]\AppData\Local\Android\Sdk\platform-tools에 있습니다. 이 디렉터리를 경로에 추가하면 `adb`를 더 편리하게 호출할 수 있습니다. 그렇지 않으면, `adb`를 호출하는 모든 명령에 adb.exe 설치의 전체 경로를 지정해야 합니다.
    >
-   > 오류가 표시 되 면 `no devices/emulators found` USB 케이블을 연결 되었는지 확인 하 고 고품질 케이블을 사용 합니다.
+   > `no devices/emulators found` 오류가 보이면 USB 케이블이 연결되어 있는지 확인하고 고품질 케이블이 사용되는지 확인합니다.
    >
 
 ## <a name="next-steps"></a>다음 단계

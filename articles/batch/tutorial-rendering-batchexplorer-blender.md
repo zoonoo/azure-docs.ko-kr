@@ -27,9 +27,9 @@ ms.locfileid: "57791429"
 
 ## <a name="prerequisites"></a>필수 조건
 
-사용량 기준 과금 단위로 일괄 처리에서 렌더링 응용 프로그램을 사용하는 데 종량제 구독 또는 다른 Azure 구입 옵션이 필요합니다. 사용량 기준 과금 라이선스는 금액 크레딧을 제공하는 무료 Azure 제품을 사용하는 경우 지원되지 않습니다.
+사용량 기준 과금 단위로 일괄 처리에서 렌더링 애플리케이션을 사용하는 데 종량제 구독 또는 다른 Azure 구입 옵션이 필요합니다. 사용량 기준 과금 라이선스는 금액 크레딧을 제공하는 무료 Azure 제품을 사용하는 경우 지원되지 않습니다.
 
-저장소 계정이 연결된 Azure Batch 계정이 필요합니다.  [CLI 아티클](https://docs.microsoft.com/azure/batch/quick-create-cli)과 같은 Batch 빠른 시작 아티클 중 하나를 참조하여 Batch 계정을 만듭니다.
+스토리지 계정이 연결된 Azure Batch 계정이 필요합니다.  [CLI 아티클](https://docs.microsoft.com/azure/batch/quick-create-cli)과 같은 Batch 빠른 시작 아티클 중 하나를 참조하여 Batch 계정을 만듭니다.
 
 이 자습서에 지정된 VM 크기 및 VM 수에 대해 우선 순위가 낮은 코어 할당량으로 최소 50개 코어가 필요합니다. 기본 할당량을 사용할 수 있지만 작은 VM 크기를 사용해야 합니다. 그러면 이미지를 렌더링하는 데 더 많은 시간이 걸립니다. 코어 할당량을 증가하도록 요청하는 프로세스는 [이 아티클](https://docs.microsoft.com/azure/batch/batch-quota-limit)에 자세히 설명됩니다.
 
@@ -39,9 +39,9 @@ ms.locfileid: "57791429"
 
 [Blender 데모 파일 웹 페이지](https://www.blender.org/download/demo-files/)에서 Blender에 대한 "클래스룸" 데모 ZIP 파일을 다운로드하고 로컬 드라이브의 압축을 풉니다.
 
-## <a name="upload-a-scene-to-azure-storage"></a>Azure 저장소에 장면 업로드
+## <a name="upload-a-scene-to-azure-storage"></a>Azure Storage에 장면 업로드
 
-데모 장면 파일의 저장소 계정 컨테이너를 만듭니다.
+데모 장면 파일의 스토리지 계정 컨테이너를 만듭니다.
 
 * Batch 탐색기 시작
 * 왼쪽 기본 메뉴에서 '데이터' 메뉴 항목을 선택합니다.
@@ -59,7 +59,7 @@ ms.locfileid: "57791429"
 
 ## <a name="create-azure-storage-container-for-output-images"></a>출력 이미지의 Azure Storage 컨테이너 만들기
 
-데모 장면 출력 파일의 저장소 계정 컨테이너를 만듭니다.
+데모 장면 출력 파일의 스토리지 계정 컨테이너를 만듭니다.
 
 * 왼쪽 기본 메뉴에서 '데이터' 메뉴 항목을 선택합니다.
 * '+' 단추를 선택하고 'render-output'이라는 새로운 '빈 파일 그룹'을 만듭니다.
@@ -111,7 +111,7 @@ Blender 애플리케이션이 포함된 Azure Marketplace VM 이미지를 렌더
 
 작업 및 모든 태스크를 만들면 작업이 작업 태스크와 함께 표시됩니다. ![작업 태스크 목록](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_task_list.png)
 
-태스크가 풀 VM에서 처음으로 실행되기 시작하면 Blender에서 액세스할 수 있도록 저장소 파일 그룹에서 VM에 장면 파일을 복사하는 Batch 작업 준비 태스크가 실행됩니다.
+태스크가 풀 VM에서 처음으로 실행되기 시작하면 Blender에서 액세스할 수 있도록 스토리지 파일 그룹에서 VM에 장면 파일을 복사하는 Batch 작업 준비 태스크가 실행됩니다.
 Blender에서 생성된 stdout.txt 로그 파일을 확인하여 렌더링 상태를 확인할 수 있습니다.  작업을 선택하면 '태스크 출력'이 기본적으로 표시되고, 'stdout.txt' 파일을 선택하고 볼 수 있습니다.
 ![stdout 파일](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_stdout.png)
 

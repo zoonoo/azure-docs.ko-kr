@@ -9,21 +9,22 @@ ms.service: cognitive-services
 ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 04/24/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: f4acab2cb4522048f4a78b12ca41161695a31e18
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.author: rosh
+ROBOTS: NOINDEX
+ms.openlocfilehash: ec9d9757a776601bdf79b796cf6b7b2987411257
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259604"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705181"
 ---
 # <a name="quickstart-url-preview-with-java"></a>빠른 시작: Java를 사용하는 URL 미리 보기
 
-다음 Java 예제에서는 SwiftKey 웹 사이트(https://swiftkey.com/en)에 대한 URL 미리 보기를 만듭니다.
+다음 Java 예제에서는 SwiftKey 웹 사이트(https://swiftkey.com/en )에 대한 URL 미리 보기를 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-[Cognitive Services Labs](https://aka.ms/answersearchsubscription) 평가판에 대한 액세스 키 가져오기
+[Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-answer-search) 평가판에 대한 액세스 키 가져오기
 
 ## <a name="request"></a>요청 
 

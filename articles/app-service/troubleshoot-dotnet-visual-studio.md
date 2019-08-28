@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: cbf6a44f1a3210906ec7ab0d04eecb997bc2c470
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 13ba1ced2d14ed22c89e7df594f3b2a44eea983f
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65412826"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359964"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Visual Studio를 사용하여 Azure App Service에서 앱 문제 해결
 ## <a name="overview"></a>개요
@@ -38,11 +38,11 @@ ms.locfileid: "65412826"
 Visual Studio Ultimate가 있으면 디버깅에 [IntelliTrace](/visualstudio/debugger/intellitrace) 를 사용할 수도 있습니다. IntelliTrace는 이 자습서에서 다루지 않습니다.
 
 ## <a name="prerequisites"></a>필수 조건
-이 자습서에서는 [Azure App Service에서 ASP.NET 앱 만들기](app-service-web-get-started-dotnet-framework.md)에서 설정한 개발 환경, 웹 프로젝트 및 App Service 앱을 사용합니다. WebJobs 섹션의 경우 [Azure WebJobs SDK 시작][GetStartedWJ]에서 만든 애플리케이션이 필요합니다.
+이 자습서에서는 [Azure App Service에서 ASP.NET 앱 만들기](app-service-web-get-started-dotnet-framework.md)에서 설정한 개발 환경, 웹 프로젝트 및 App Service 앱을 사용합니다. WebJobs 섹션의 경우 [AZURE WEBJOBS SDK 시작][GetStartedWJ]에서 만든 응용 프로그램이 필요 합니다.
 
 이 사용설명서에 제시된 코드 샘플은 C# MVC 웹 애플리케이션용이지만 문제 해결 절차는 Visual Basic 및 Web Forms 애플리케이션에도 동일하게 적용됩니다.
 
-이 자습서에서는 Visual Studio 2019를 사용 하는 가정 합니다. 
+이 자습서에서는 Visual Studio 2019을 사용 하 고 있다고 가정 합니다. 
 
 로그 스트리밍 기능은 .NET Framework 4 이상을 대상으로 하는 애플리케이션에 대해서만 작동합니다.
 
@@ -121,18 +121,18 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
 
 1. [Azure App Service에서 ASP.NET 앱 만들기](app-service-web-get-started-dotnet-framework.md)에서 만든 웹 프로젝트를 엽니다.
 
-2. *Controllers\HomeController.cs*를 엽니다.
+1. *Controllers\HomeController.cs*를 엽니다.
 
-3. `About()` 메서드를 삭제하고 그 자리에 다음 코드를 삽입합니다.
+1. `About()` 메서드를 삭제하고 그 자리에 다음 코드를 삽입합니다.
 
-``` c#
-public ActionResult About()
-{
-    string currentTime = DateTime.Now.ToLongTimeString();
-    ViewBag.Message = "The current time is " + currentTime;
-    return View();
-}
-```
+    ```csharp
+    public ActionResult About()
+    {
+        string currentTime = DateTime.Now.ToLongTimeString();
+        ViewBag.Message = "The current time is " + currentTime;
+        return View();
+    }
+    ```
 
 1. `ViewBag.Message` 줄에 [중단점을 설정](https://docs.microsoft.com/visualstudio/debugger/)합니다.
 
@@ -181,7 +181,7 @@ public ActionResult About()
 
 연속 WebJobs에서 원격 디버깅만 작동합니다. 예약 및 주문형 WebJobs은 디버깅을 지원하지 않습니다.
 
-1. [Azure WebJobs SDK 시작][GetStartedWJ]에서 만든 웹 프로젝트를 엽니다.
+1. [AZURE WEBJOBS SDK 시작][GetStartedWJ]에서 만든 웹 프로젝트를 엽니다.
 
 2. ContosoAdsWebJob 프로젝트에서 *Functions.cs*를 엽니다.
 
@@ -244,12 +244,12 @@ public ActionResult About()
 * 디버그하는 동안 서버는 데이터를 Visual Studio로 보내며, 이로 인해 대역폭 사용 요금에 영향을 줄 수 있습니다. 대역폭 요금에 대한 자세한 내용은 [Azure 가격 책정](https://azure.microsoft.com/pricing/calculator/)을 참조하십시오.
 * *Web.config* 파일에서 `compilation` 요소의 `debug` 특성이 true로 설정되어 있어야 합니다. 디버그 빌드 구성을 게시하면 기본적으로 true로 설정됩니다.
 
-``` xml
-<system.web>
-  <compilation debug="true" targetFramework="4.5" />
-  <httpRuntime targetFramework="4.5" />
-</system.web>
-```
+    ```xml
+    <system.web>
+      <compilation debug="true" targetFramework="4.5" />
+      <httpRuntime targetFramework="4.5" />
+    </system.web>
+    ```
 * 디버거에서 디버그하려는 코드가 단계별로 실행되지 않는 경우 "내 코드만" 설정을 변경해야 할 수 있습니다.  자세한 내용은 [Visual Studio에서 Just My Code를 사용하여 사용자 코드만 디버그할지 지정](https://docs.microsoft.com/visualstudio/debugger/just-my-code)을 참조하세요.
 * 원격 디버깅 기능을 사용하도록 설정하면 서버의 타이머가 시작되고 48시간 후 기능이 자동으로 꺼집니다. 이 48시간 제한은 보안 및 성능상의 이유로 제한됩니다. 원하는 횟수만큼 기능을 쉽게 다시 켤 수 있습니다. 디버깅을 활발히 사용하지 않는 경우 이를 사용하지 않는 상태로 두는 것이 좋습니다.
 * 앱 프로세스(w3wp.exe)뿐만 아니라 모든 프로세스에 디버거를 수동으로 연결할 수 있습니다. Visual Studio에서 디버그 모드를 사용하는 방법에 대한 자세한 내용은 [Visual Studio의 디버깅](/visualstudio/debugger/debugging-in-visual-studio)을 참조하십시오.
@@ -282,34 +282,34 @@ WebJob에서 애플리케이션을 만드는 방법에 대한 자세한 내용�
 ### <a name="add-tracing-statements-to-the-application"></a>애플리케이션에 추적 문 추가
 1. *Controllers\HomeController.cs*를 열고 `Index`, `About`, `Contact` 메서드를 다음 코드로 바꾸어 `System.Diagnostics`에 대해 `Trace` 문과 `using` 문을 추가합니다.
 
-```c#
-public ActionResult Index()
-{
-    Trace.WriteLine("Entering Index method");
-    ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-    Trace.TraceInformation("Displaying the Index page at " + DateTime.Now.ToLongTimeString());
-    Trace.WriteLine("Leaving Index method");
-    return View();
-}
-
-public ActionResult About()
-{
-    Trace.WriteLine("Entering About method");
-    ViewBag.Message = "Your app description page.";
-    Trace.TraceWarning("Transient error on the About page at " + DateTime.Now.ToShortTimeString());
-    Trace.WriteLine("Leaving About method");
-    return View();
-}
-
-public ActionResult Contact()
-{
-    Trace.WriteLine("Entering Contact method");
-    ViewBag.Message = "Your contact page.";
-    Trace.TraceError("Fatal error on the Contact page at " + DateTime.Now.ToLongTimeString());
-    Trace.WriteLine("Leaving Contact method");
-    return View();
-}        
-```
+    ```csharp
+    public ActionResult Index()
+    {
+        Trace.WriteLine("Entering Index method");
+        ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+        Trace.TraceInformation("Displaying the Index page at " + DateTime.Now.ToLongTimeString());
+        Trace.WriteLine("Leaving Index method");
+        return View();
+    }
+    
+    public ActionResult About()
+    {
+        Trace.WriteLine("Entering About method");
+        ViewBag.Message = "Your app description page.";
+        Trace.TraceWarning("Transient error on the About page at " + DateTime.Now.ToShortTimeString());
+        Trace.WriteLine("Leaving About method");
+        return View();
+    }
+    
+    public ActionResult Contact()
+    {
+        Trace.WriteLine("Entering Contact method");
+        ViewBag.Message = "Your contact page.";
+        Trace.TraceError("Fatal error on the Contact page at " + DateTime.Now.ToLongTimeString());
+        Trace.WriteLine("Leaving Contact method");
+        return View();
+    }        
+    ```
 
 1. 파일 맨 위에 `using System.Diagnostics;` 문을 추가합니다.
 
@@ -321,32 +321,32 @@ public ActionResult Contact()
     ![디버그 창의 추적](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugtracing.png)
 
     다음 단계는 디버그 모드에서 컴파일하지 않고 웹 페이지에서 추적 출력을 보는 방법을 보여 줍니다.
-2. 프로젝트 폴더에 위치한 애플리케이션 Web.config 파일을 열고 파일 끝에 있는 닫는 `<system.diagnostics>` 요소 바로 앞에 `</configuration>` 요소를 추가합니다.
+1. 프로젝트 폴더에 위치한 애플리케이션 Web.config 파일을 열고 파일 끝에 있는 닫는 `<system.diagnostics>` 요소 바로 앞에 `</configuration>` 요소를 추가합니다.
 
-``` xml
-<system.diagnostics>
-<trace>
-  <listeners>
-    <add name="WebPageTraceListener"
-        type="System.Web.WebPageTraceListener,
-        System.Web,
-        Version=4.0.0.0,
-        Culture=neutral,
-        PublicKeyToken=b03f5f7f11d50a3a" />
-  </listeners>
-</trace>
-</system.diagnostics>
-```
+    ``` xml
+    <system.diagnostics>
+    <trace>
+      <listeners>
+        <add name="WebPageTraceListener"
+            type="System.Web.WebPageTraceListener,
+            System.Web,
+            Version=4.0.0.0,
+            Culture=neutral,
+            PublicKeyToken=b03f5f7f11d50a3a" />
+      </listeners>
+    </trace>
+    </system.diagnostics>
+    ```
 
 `WebPageTraceListener`를 사용하면 `/trace.axd`로 이동하여 추적 출력을 확인할 수 있습니다.
 1. Web.config 파일의 `<system.web>` 아래에 <a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">trace 요소</a>를 다음 예와 같이 추가합니다.
 
-``` xml
-<trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
-```       
+    ``` xml
+    <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
+    ```
 
-1. Ctrl+F5를 눌러 애플리케이션을 실행합니다.
-1. 브라우저 창의 주소 표시줄에 추가할 *trace.axd* URL을 한 다음 Enter 키를 누릅니다 (URL은 비슷한 `http://localhost:53370/trace.axd`).
+1. Ctrl+F5를 눌러 응용 프로그램을 실행합니다.
+1. 브라우저 창의 주소 표시줄에서 *trace.axd* 를 url에 추가한 후 enter 키를 누릅니다. url은와 유사 `http://localhost:53370/trace.axd`합니다.
 1. **애플리케이션 추적** 페이지에서 BrowserLink 줄이 아니라 첫 번째 줄의 **세부 정보 보기**를 클릭합니다.
 
     ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
@@ -434,7 +434,7 @@ public ActionResult Contact()
 
 기본적으로 Visual Studio를 사용하여 웹 서버 로그를 사용하도록 처음 설정하는 경우 Azure는 로그를 파일 시스템에 기록합니다. 또는 Azure Portal을 사용하여 웹 서버 로그가 스토리지 계정의 Blob 컨테이너에 기록되도록 지정할 수 있습니다.
 
-포털을 사용하여 Azure 저장소 계정에 기록하도록 웹 서버 로깅을 설정한 후 Visual Studio에서 로깅을 사용하지 않도록 설정하는 경우 Visual Studio에서 로깅을 사용하도록 다시 설정하면 저장소 계정 설정이 복원됩니다.
+포털을 사용하여 Azure Storage 계정에 기록하도록 웹 서버 로깅을 설정한 후 Visual Studio에서 로깅을 사용하지 않도록 설정하는 경우 Visual Studio에서 로깅을 사용하도록 다시 설정하면 스토리지 계정 설정이 복원됩니다.
 
 ## <a name="detailederrorlogs"></a>자세한 오류 메시지 로그 보기
 자세한 오류 로그에서는 오류 응답 코드(400 이상)를 유발한 HTTP 요청과 관련된 일부 추가 정보가 제공됩니다. **출력** 창에서 웹 서버 로그를 보려면 웹 앱에서 이를 사용하도록 설정하고, Visual Studio에서 이들의 모니터링을 명시적으로 지정해야 합니다.
@@ -586,7 +586,7 @@ Visual Studio를 사용하여 실패한 요청 추적을 사용하도록 설정�
 
 5. 새 브라우저 창에서 앱의 **개요** 페이지의 **FTP 호스트 이름** 또는 **FTPS 호스트 이름** 아래에 표시된 URL로 이동합니다.
 
-6. 이전에 만든 FTP 자격 증명을 사용하여 로그인합니다(사용자 이름 앞에 앱 이름 포함).
+6. 이전에 만든 FTP 자격 증명을 사용 하 여 로그인 합니다 (사용자 이름에 대 한 앱 이름 접두사 포함).
 
     브라우저에 앱의 루트 폴더가 표시됩니다.
 
@@ -659,17 +659,17 @@ App Service 앱 및 WebJob의 원격 디버깅에 대한 자세한 내용은 다
 * [ASP.NET MVC Razor 뷰에서 추적](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
   Razor 뷰의 추적 정보와 더불어, MVC 애플리케이션의 처리되지 않은 모든 예외를 기록할 수 있도록 오류 필터를 만드는 방법을 설명하는 게시물입니다. Web Forms 애플리케이션의 처리되지 않은 모든 예외를 기록하는 방법에 대한 자세한 내용은 MSDN의 [오류 처리기의 전체 예제](/previous-versions/bb397417(v=vs.140))에서 Global.asax를 참조하세요. MVC 또는 Web Forms 중 하나에서 특정 예외를 기록하되 기본 프레임워크 처리 방식은 그대로 적용하려면 다음 예와 같이 해당 오류를 catch한 후 다시 throw하면 됩니다.
 
-``` c#
-try
-{
-   // Your code that might cause an exception to be thrown.
-}
-catch (Exception ex)
-{
-    Trace.TraceError("Exception: " + ex.ToString());
-    throw;
-}
-```
+    ```csharp
+    try
+    {
+       // Your code that might cause an exception to be thrown.
+    }
+    catch (Exception ex)
+    {
+        Trace.TraceError("Exception: " + ex.ToString());
+        throw;
+    }
+    ```
 
 * [Azure 명령줄에서 진단 추적 로깅 스트리밍(Glimpse 포함)](https://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
   이 사용설명서에서 설명한 Visual Studio 관련 작업을 명령줄로 수행하는 방법을 설명합니다. [Glimpse](https://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) 는 ASP.NET 애플리케이션을 디버그하는 데 사용하는 도구입니다.
@@ -685,7 +685,7 @@ catch (Exception ex)
 
 * [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
   웹 서버 로그( *.log* 파일)의 데이터를 보는 데 사용하는 도구입니다.
-* [IIS 성능 문제 또는 LogParser를 사용 하 여 응용 프로그램 오류 문제 해결](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
+* [LogParser를 사용 하 여 IIS 성능 문제 또는 응용 프로그램 오류 문제 해결](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   웹 서버 로그를 분석하는 데 사용할 수 있는 로그 파서 도구를 소개합니다.
 * [Robert McMurray의 LogParser 사용 관련 블로그 게시물](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [IIS 7.0, IIS 7.5 및 IIS 8.0의 HTTP 상태 코드](https://support.microsoft.com/kb/943891)

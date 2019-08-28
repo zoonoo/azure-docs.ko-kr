@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: wesmc
-ms.openlocfilehash: 42c2c0d1a015baf4b846c86ed22e8383e21028b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9af2f0860c415ddb701e24ed8a698fae36d42e1f
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64569587"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838717"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Azure IoT Hub에 Raspberry Pi 온라인 시뮬레이터 연결(Node.js)
 
@@ -67,7 +67,7 @@ ms.locfileid: "64569587"
 
 1. 어셈블리 영역 - 기본 회로에서는 Pi가 BME280 센서 및 LED에 연결됩니다. 미리 보기 버전에서는 이 영역이 잠겨 있으므로 지금은 사용자 지정을 수행할 수 없습니다.
 
-2. 코딩 영역 - Raspberry Pi를 사용하여 코딩할 수 있는 온라인 코드 편집기입니다. 기본 샘플 애플리케이션을 사용하여 BME280 센서에서 센서 데이터를 손쉽게 수집한 후 Azure IoT Hub로 보낼 수 있습니다. 애플리케이션은 실제 Pi 장치와 완벽하게 호환됩니다. 
+2. 코딩 영역 - Raspberry Pi를 사용하여 코딩할 수 있는 온라인 코드 편집기입니다. 기본 샘플 애플리케이션을 사용하여 BME280 센서에서 센서 데이터를 손쉽게 수집한 후 Azure IoT Hub로 보낼 수 있습니다. 애플리케이션은 실제 Pi 디바이스와 완벽하게 호환됩니다. 
 
 3. 통합 콘솔 창 - 코드의 출력을 표시합니다. 이 창의 맨 위에는 세 개의 단추가 있습니다.
 
@@ -86,11 +86,7 @@ ms.locfileid: "64569587"
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>IoT Hub에 대한 연결 문자열 검색
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
-## <a name="register-a-new-device-in-the-iot-hub"></a>IoT 허브에서 새 디바이스 등록
+## <a name="register-a-new-device-in-the-iot-hub"></a>IoT Hub에서 새 디바이스 등록
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 0d7ca38ecb66dbf92678eae4da7d8706f68cbaa2
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 4cc21a4dbab7d5114eed8414c6530eab5f42bb00
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273825"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478855"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Azure Maps를 사용하여 매장 로케이터 만들기
 
@@ -139,7 +139,7 @@ ms.locfileid: "67273825"
 1. Azure Maps 서비스 모듈에 대한 참조를 추가합니다. 이 모듈은 Azure Maps REST 서비스를 래핑하고 JavaScript에서 쉽게 사용할 수 있도록 하는 JavaScript 라이브러리입니다. 이 모듈은 검색 기능을 강화하는 데 유용합니다.
 
     ```HTML
-    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
+    <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
     ```
 
 1. *index.js* 및 *index.css*에 대한 참조를 추가합니다.

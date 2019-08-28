@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: 이 문서에서는 Azure를 통해 클라우드 서비스에서 공용 인터넷 서비스와 통신할 수 있게 하는 방법을 설명합니다.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.custom: seodec18
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
-ms.author: kumud
-ms.openlocfilehash: 3267d79387586f5ca8475d7ac0ed0f86d3f64f0d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 10af3b4838aae1565bac1d996997c117a74cedbc
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60595037"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274660"
 ---
 # <a name="outbound-connections-classic"></a>아웃바운드 연결(클래식)
 
@@ -37,9 +37,9 @@ Azure에서는 SNAT(원본 네트워크 주소 변환)를 사용하여 이 기�
 
 Azure에서는 아웃바운드 연결 클래식 배포를 달성하기 위한 별도의 세 가지 방법을 제공합니다.  모든 클래식 배포에서 세 가지 시나리오를 모두 사용할 수 있는 것은 아닙니다.
 
-| 시나리오 | 방법 | IP 프로토콜 | 설명 | 웹 작업자 역할 | IaaS | 
+| 시나리오 | 메서드 | IP 프로토콜 | 설명 | 웹 작업자 역할 | IaaS | 
 | --- | --- | --- | --- | --- | --- |
-| [1. 인스턴스 수준 공용 IP 주소가 있는 VM](#ilpip) | SNAT, 포트 가장 사용 안 함 | TCP, UDP, ICMP, ESP | Azure에서 공용 IP가 할당된 Virtual Machine을 사용합니다. 인스턴스에 있는 모든 삭제 포트를 사용할 수 있습니다. | 아닙니다. | 예 |
+| [1. 인스턴스 수준 공용 IP 주소가 있는 VM](#ilpip) | SNAT, 포트 가장 사용 안 함 | TCP, UDP, ICMP, ESP | Azure에서 공용 IP가 할당된 Virtual Machine을 사용합니다. 인스턴스에 있는 모든 삭제 포트를 사용할 수 있습니다. | 아니요 | 예 |
 | [2. 부하 분산된 공용 엔드포인트](#publiclbendpoint) | 공용 엔드포인트에 대한 포트 가장(PAT)을 사용하는 SNAT | TCP, UDP | Azure에서 공용 IP 주소 공용 엔드포인트를 여러 프라이빗 엔드포인트와 공유합니다. PAT에 대한 공용 엔드포인트의 사용 후 삭제 포트를 사용합니다. | 예 | 예 |
 | [3. 독립 실행형 VM](#defaultsnat) | 포트를 가장하는(PAT) SNAT | TCP, UDP | Azure에서 자동으로 SNAT에 대한 공용 IP 주소를 지정하고, 이 공용 IP 주소를 전체 배포와 공유하고, PAT에 대한 공용 엔드포인트의 사용 후 삭제 포트를 사용합니다. 이 시나리오는 이전 시나리오의 대체 시나리오입니다. 가시성 및 제어 기능이 필요한 경우에는 권장되지 않습니다. | 예 | 예 |
 

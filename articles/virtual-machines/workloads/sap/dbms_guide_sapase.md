@@ -312,7 +312,7 @@ ms.locfileid: "60835280"
 이 문서에서는 Azure IaaS에서 SAP ASE를 배포할 때 고려할 여러 가지 영역을 다룹니다. 이 문서의 사전 조건으로, [SAP 워크로드용 Azure Virtual Machines DBMS 배포 고려 사항](dbms_guide_general.md) 문서 및 [Azure의 SAP 워크로드 설명서](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started)의 다른 가이드를 읽어야 합니다. 
 
 ## <a name="specifics-to-sap-ase-on-windows"></a>Windows의 SAP ASE에 대한 고유 정보
-Microsoft Azure부터 기존 SAP ASE 응용 프로그램을 Azure Virtual Machines로 마이그레이션할 수 있습니다. Azure Virtual Machine에서 SAP ASE를 사용하면 이러한 응용 프로그램을 Microsoft Azure로 쉽게 마이그레이션하여 엔터프라이즈 수준의 응용 프로그램에 대한 배포, 관리 및 유지 관리의 총 소유 비용을 줄일 수 있습니다. Azure Virtual Machine에서 SAP ASE를 사용하면 관리자와 개발자가 온-프레미스와 동일한 개발 및 관리 도구를 사용할 수 있습니다.
+Microsoft Azure부터 기존 SAP ASE 애플리케이션을 Azure Virtual Machines로 마이그레이션할 수 있습니다. Azure Virtual Machine에서 SAP ASE를 사용하면 이러한 애플리케이션을 Microsoft Azure로 쉽게 마이그레이션하여 엔터프라이즈 수준의 애플리케이션에 대한 배포, 관리 및 유지 관리의 총 소유 비용을 줄일 수 있습니다. Azure Virtual Machine에서 SAP ASE를 사용하면 관리자와 개발자가 온-프레미스와 동일한 개발 및 관리 도구를 사용할 수 있습니다.
 
 Azure Virtual Machines의 SLA는 여기에서 찾을 수 있습니다. <https://azure.microsoft.com/support/legal/sla/virtual-machines>
 
@@ -342,7 +342,7 @@ SAP ASE 실행 파일을 VM의 OS 디스크에 있는 시스템 드라이브(드
 * SAP 설치 루틴에 의해 만들어지는 SAP ASE 및 추가 saptempdb를 설치하여 만들어지는 SAP ASE tempdb
 * ERP/BW 특정 tempdb 요구 사항에 맞게 SAP ASE 및 수동으로 만든 추가 tempdb를 설치하여 만들어지는 SAP ASE tempdb(예: SAP Note [1752266])
 
-특정 ERP 또는 모든 BW 워크로드의 성능상 이유로 추가로 생성된 tempdb 장치를 C:\가 아닌 다른 드라이브에 저장하는 것이 좋습니다. 추가 tempdb가 없는 경우 새로 만드는 것이 좋습니다(SAP Note [1752266]).
+특정 ERP 또는 모든 BW 워크로드의 성능상 이유로 추가로 생성된 tempdb 디바이스를 C:\가 아닌 다른 드라이브에 저장하는 것이 좋습니다. 추가 tempdb가 없는 경우 새로 만드는 것이 좋습니다(SAP Note [1752266]).
 
 이러한 시스템의 경우, 추가로 생성된 tempdb에 대해 다음 단계를 실행해야 합니다.
 
@@ -353,7 +353,7 @@ SAP ASE 실행 파일을 VM의 OS 디스크에 있는 시스템 드라이브(드
 
 SAP ASE 디바이스를 VM의 D:\ 드라이브에 배치하지 마세요. SAP ASE의 경우, 이 조언은 tempdb에도 적용되며 tempdb에 저장된 개체가 임시 개체인 경우에도 마찬가지입니다.
 
-데이터 및 트랜잭션 로그 파일 배포의 경우, [SAP 워크로드용 Azure Virtual Machines DBMS 배포 고려 사항](dbms_guide_general.md)에서 제공된 설명 및 제안 사항이 적용됩니다. Windows 기반 배포의 경우, 충분한 IOPS, 처리량 및 볼륨이 있는 스트라이프 집합을 빌드하는 데는 Windows 저장소 공간을 사용하는 것이 좋습니다.  
+데이터 및 트랜잭션 로그 파일 배포의 경우, [SAP 워크로드용 Azure Virtual Machines DBMS 배포 고려 사항](dbms_guide_general.md)에서 제공된 설명 및 제안 사항이 적용됩니다. Windows 기반 배포의 경우, 충분한 IOPS, 처리량 및 볼륨이 있는 스트라이프 집합을 빌드하는 데는 Windows 스토리지 공간을 사용하는 것이 좋습니다.  
 
 #### <a name="impact-of-database-compression"></a>데이터베이스 압축의 영향
 I/O 대역폭이 제한 요인이 될 수 있는 구성에서 측정마다 IOPS를 줄여 Azure와 같이 IaaS 시나리오에서 실행할 수 있는 워크로드를 늘릴 수 있습니다. 따라서 기존 SAP 데이터베이스를 Azure에 업로드하기 전에 SAP ASE 압축이 사용되는지 확인하는 것이 좋습니다.
@@ -466,7 +466,7 @@ Azure VM을 배포하는 경우 <https://azure.microsoft.com/support/legal/sla>�
 
 SAP 크기 조정 정보 및 SAP 인증 VM SKU 목록은 SAP Note [1928533]을 참조하세요. Azure 가상 머신에 대한 SAP 크기 지정 추가 문서는 <https://blogs.msdn.com/b/saponsqlserver/archive/2015/06/19/how-to-size-sap-systems-running-on-azure-vms.aspx> 및 <https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>에서 찾을 수 있습니다.
 
-이 문서의 처음 네 챕터에서 설명한 것처럼 SAP 응용 프로그램과 함께 SAP ASE를 배포할 때는 Azure Storage 사용, SAP VM 또는 SAP 모니터링 배포와 관련된 설명 및 권장 사항이 적용됩니다.
+이 문서의 처음 네 챕터에서 설명한 것처럼 SAP 애플리케이션과 함께 SAP ASE를 배포할 때는 Azure Storage 사용, SAP VM 또는 SAP 모니터링 배포와 관련된 설명 및 권장 사항이 적용됩니다.
 
 다음 두 SAP Note에는 Linux의 ASE 및 클라우드의 ASE에 대한 일반 정보가 포함되어 있습니다.
 
@@ -495,7 +495,7 @@ SAP ASE 실행 파일을 VM의 루트 파일 시스템(/sybase)에 배치 또는
 * SAP 설치 루틴에 의해 만들어지는 SAP ASE 및 추가 saptempdb를 설치하여 만들어지는 SAP ASE tempdb
 * ERP/BW 특정 tempdb 요구 사항에 맞게 SAP ASE 및 수동으로 만든 추가 tempdb를 설치하여 만들어지는 SAP ASE tempdb(예: SAP Note [1752266])
 
-특정 ERP 또는 모든 BW 워크로드의 성능상 이유로 추가로 생성된 tempdb 장치(SWPM을 통해 또는 수동으로)를 단일 Azure 데이터 디스크 또는 여러 Azure 데이터 디스크에 걸친 Linux RAID로 표현될 수 있는 별도의 파일 시스템에 저장하는 것이 좋습니다. 추가 tempdb가 없는 경우 새로 만드는 것이 좋습니다(SAP Note [1752266]).
+특정 ERP 또는 모든 BW 워크로드의 성능상 이유로 추가로 생성된 tempdb 디바이스(SWPM을 통해 또는 수동으로)를 단일 Azure 데이터 디스크 또는 여러 Azure 데이터 디스크에 걸친 Linux RAID로 표현될 수 있는 별도의 파일 시스템에 저장하는 것이 좋습니다. 추가 tempdb가 없는 경우 새로 만드는 것이 좋습니다(SAP Note [1752266]).
 
 이러한 시스템의 경우 추가로 생성된 tempdb에 대해 다음 단계를 수행해야 합니다.
 

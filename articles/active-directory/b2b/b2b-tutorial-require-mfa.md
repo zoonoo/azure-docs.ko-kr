@@ -12,16 +12,16 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb26a5056ba4cec14218af70f1561c17e637102c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 16a2438133f545c57d1046a0c4db94135f8a426d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813112"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113194"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>자습서: B2B 게스트 사용자에 다단계 인증 적용
 
-외부 B2B 게스트 사용자와 공동 작업하는 경우 MFA(다단계 인증) 정책으로 앱을 보호하는 것이 좋습니다. 이렇게 하면 외부 사용자가 사용자 이름과 암호만으로는 리소스에 액세스할 수 없습니다. Azure AD(Azure Active Directory)에서는 액세스에 MFA가 필요한 조건부 액세스 정책을 사용하여 이 목표를 달성할 수 있습니다. 조직의 멤버에게 MFA 정책을 사용하는 것과 같은 방법으로 MFA 정책을 테넌트, 앱 또는 개별 게스트 사용자 수준에서 적용할 수 있습니다.
+외부 B2B 게스트 사용자와 공동 작업하는 경우 MFA(다단계 인증) 정책으로 앱을 보호하는 것이 좋습니다. 이렇게 하면 외부 사용자가 사용자 이름과 암호만으로는 리소스에 액세스할 수 없습니다. Azure AD(Azure Active Directory)에서는 액세스를 위해 MFA가 필요한 조건부 액세스 정책을 사용하여 이 목표를 달성할 수 있습니다. 조직의 멤버에게 MFA 정책을 사용하는 것과 같은 방법으로 MFA 정책을 테넌트, 앱 또는 개별 게스트 사용자 수준에서 적용할 수 있습니다.
 
 예제:
 
@@ -47,7 +47,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 이 자습서의 시나리오를 완료하려면 다음이 필요합니다.
 
- - 조건부 액세스 정책 기능을 포함하는 **Azure AD Premium Edition에 대한 액세스**. MFA를 적용하려면 Azure AD 조건부 액세스 정책을 만들어야 합니다. 파트너에게 MFA 기능이 있는지 여부에 관계없이 MFA 정책은 조직에서 항상 적용됩니다. 조직에 대한 MFA를 설정할 경우 게스트 사용자를 위해 충분한 Azure AD Premium 라이선스를 보유하고 있는지 확인해야 합니다. 
+ - 조건부 액세스 정책 기능을 포함하는 **Azure AD Premium Edition에 대한 액세스 권한**. MFA를 적용하려면 Azure AD 조건부 액세스 정책을 만들어야 합니다. 파트너에게 MFA 기능이 있는지 여부에 관계없이 MFA 정책은 조직에서 항상 적용됩니다. 조직에 대한 MFA를 설정할 경우 게스트 사용자를 위해 충분한 Azure AD Premium 라이선스를 보유하고 있는지 확인해야 합니다. 
  - 게스트 사용자로 테넌트 디렉터리에 추가하고 로그인하는 데 사용할 수 있는 **유효한 외부 메일 계정**. 게스트 계정을 만드는 방법을 잘 모르는 경우 [Azure Portal에서 B2B 게스트 사용자 추가](add-users-administrator.md)를 참조하세요.
 
 ## <a name="create-a-test-guest-user-in-azure-ad"></a>Azure AD에서 테스트 게스트 사용자 만들기
@@ -71,7 +71,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 2.  로그인 자격 증명만 사용하여 Azure Portal에 액세스할 수 있습니다. 추가 인증이 필요하지 않습니다.
 3.  로그아웃합니다.
 
-## <a name="create-a-conditional-access-policy-that-requires-mfa"></a>MFA가 필요한 조건부 액세스 정책을 만듭니다.
+## <a name="create-a-conditional-access-policy-that-requires-mfa"></a>MFA가 필요한 조건부 액세스 정책 만들기
 1.  [Azure Portal](https://portal.azure.com/)에 보안 관리자 또는 조건부 액세스 관리자 권한으로 로그인합니다.
 2.  Azure Portal에서 **Azure Active Directory**를 선택합니다. 
 3.  **Azure Active Directory** 페이지의 **보안** 섹션에서 **조건부 액세스**를 선택합니다.

@@ -6,10 +6,9 @@ metadata:
   title: 'Language Understanding (LUIS) - 자습서, 빠른 시작, API 참조'
   description: Language Understanding 서비스를 사용하여 애플리케이션이 사람의 말을 통해 무엇을 원하는지 이해하도록 만드는 방법을 알아봅니다.
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: language-understanding
   ms.topic: landing-page
   ms.date: 01/23/2019
   ms.author: nitinme

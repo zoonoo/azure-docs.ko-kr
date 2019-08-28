@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: MightyPen
-manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: 03e5540e34cd99d2b201bc763f13b42c7fa20bf7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e869b2bba3bd64b58d9063e9445889ef709efdc3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65785309"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567944"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>메모리 내 OLTP를 사용하여 SQL Database에서 애플리케이션의 성능 향상
 
@@ -80,7 +79,7 @@ SSMS에서 보고서를 생성합니다.
 2. **개체 탐색기**에서 테이블을 마우스 오른쪽 단추로 클릭한 다음 **메모리 최적화 관리자**를 클릭합니다.
    
    * **테이블 메모리 최적화 관리자** 마법사가 표시됩니다.
-3. 마법사에서 **마이그레이션 유효성 검사**(또는 **다음** 단추)를 클릭하여 메모리 최적화 테이블에서 지원하지 않는 지원되지 않는 기능이 테이블에 있는지 확인합니다. 자세한 내용은 다음을 참조하세요.
+3. 마법사에서 **마이그레이션 유효성 검사**(또는 **다음** 단추)를 클릭하여 메모리 최적화 테이블에서 지원하지 않는 지원되지 않는 기능이 테이블에 있는지 확인합니다. 참조 항목:
    
    * *메모리 최적화 관리자* 의 [메모리 최적화 검사 목록](https://msdn.microsoft.com/library/dn284308.aspx).
    * [메모리 내 OLTP에서 지원되지 않는 TRANSACT-SQL 항목](https://msdn.microsoft.com/library/dn246937.aspx).
@@ -166,7 +165,7 @@ CREATE PROCEDURE schemaname.procedurename
 ## <a name="step-7-post-implementation-monitoring"></a>7단계: 구현 후 모니터링
 프로덕션에서 메모리 내 구현의 성능 효과를 모니터링하는 것이 좋습니다.
 
-* [메모리 내 저장소 모니터링](sql-database-in-memory-oltp-monitoring.md).
+* [메모리 내 스토리지 모니터링](sql-database-in-memory-oltp-monitoring.md).
 * [동적 관리 뷰를 사용하여 Azure SQL Database 모니터링](sql-database-monitoring-with-dmvs.md)
 
 ## <a name="related-links"></a>관련 링크

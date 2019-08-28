@@ -8,12 +8,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: c227abce5adcefd16a41c5590e3ff490d138c424
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8b8c200979b70e145fca64746547b37dee558848
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441446"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67720442"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>HDInsight에서 Enterprise Security Package 사용
 
@@ -37,7 +37,7 @@ HDInsight의 VM(가상 머신)은 제공된 도메인에 가입된 도메인입�
 
 요약하면 다음으로 환경을 설정해야 합니다.
 
-- Active Directory 도메인(Azure AD DS에서 관리함)
+- Active Directory 도메인(Azure AD DS에서 관리함) **도메인 이름은 39 자를 해야 합니다. 또는 Azure HDInsight를 사용 하 합니다.**
 - Azure AD DS에서 사용하도록 설정된 보안 LDAP(LDAPS)
 - 가상 네트워크를 별도로 선택하는 경우, HDInsight 가상 네트워크에서 Azure AD DS 가상 네트워크로 적절한 네트워킹 연결 HDInsight 가상 네트워크 내의 VM은 가상 네트워크 피어링을 통해 Azure AD DS에 연결되어 있어야 합니다. HDInsight 및 Azure AD DS가 동일한 가상 네트워크에 배포된 경우, 연결이 자동으로 제공되며 추가 작업이 필요하지 않습니다.
 

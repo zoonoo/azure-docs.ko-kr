@@ -56,14 +56,14 @@ Azure Active Directory를 사용하기 위해 애플리케이션을 등록해야
 * 기본 사용자 동의 환경 무시
 
 ## <a name="configure-access-rules"></a>액세스 규칙 구성
-SaaS 앱에 응용 프로그램별 액세스 규칙을 구성합니다. 예를 들어 MFA를 요구하거나 신뢰할 수 있는 네트워크의 사용자에 대한 액세스만 허용할 수 있습니다. 이에 대한 세부 정보는 [액세스 규칙 구성](../conditional-access/app-based-mfa.md)문서에서 사용할 수 있습니다.
+SaaS 앱에 애플리케이션별 액세스 규칙을 구성합니다. 예를 들어 MFA를 요구하거나 신뢰할 수 있는 네트워크의 사용자에 대한 액세스만 허용할 수 있습니다. 이에 대한 세부 정보는 [액세스 규칙 구성](../conditional-access/app-based-mfa.md)문서에서 사용할 수 있습니다.
 
 ## <a name="configure-the-app-to-require-user-assignment-and-assign-users"></a>앱을 구성하여 사용자 할당 요구 및 사용자 할당
 기본적으로 사용자는 할당되지 않아도 애플리케이션에 액세스할 수 있습니다. 그러나 애플리케이션이 역할을 노출하거나 애플리케이션을 사용자의 액세스 패널에 표시하려는 경우 사용자 할당이 필요합니다.
 
 Azure AD Premium 또는 Enterprise Mobility Suite(EMS) 구독자인 경우 그룹을 사용하는 것이 좋습니다. 애플리케이션에 그룹을 할당하면 그룹의 소유자에게 지속적인 액세스 관리를 위임할 수 있습니다. 그룹을 만들거나 조직에서 책임 파티를 요청하여 그룹 관리 기능을 사용하여 그룹을 만들 수 있습니다.
 
-[응용 프로그램에 사용자 및 그룹 할당](methods-for-assigning-users-and-groups.md)  
+[애플리케이션에 사용자 및 그룹 할당](methods-for-assigning-users-and-groups.md)  
 
 
 ## <a name="suppress-user-consent"></a>사용자 동의 무시

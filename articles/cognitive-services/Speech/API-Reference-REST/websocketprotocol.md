@@ -164,18 +164,18 @@ Content-Length: 0
 
 클라이언트 애플리케이션이 음성 서비스에 보낸 각 메시지는 *X-Timestamp* 헤더를 포함*해야 합니다*. 이 헤더에 대한 값은 클라이언트가 메시지를 보내는 시간입니다. *X-Timestamp* 헤더가 없거나 잘못된 형식을 사용하는 헤더 값을 가진 요청은 서비스가 WebSocket 연결을 종료하게 합니다.
 
-*X-Timestamp* 헤더 값은 'yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffZ' 형식이어야 합니다. 단, 'fffffff'는 초의 분수입니다. 예를 들어 '12.5'는 '12 + 5/10초'를 의미하며 '12.526'은 '12 plus 526/1000초'를 의미합니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)를 준수하며 표준 HTTP *Date* 헤더와 달리 밀리초 분해능을 제공할 수 있습니다. 클라이언트 애플리케이션은 타임스탬프를 가장 가까운 밀리초로 반올림할 수 있습니다. 클라이언트 애플리케이션은 [NTP(Network Time Protocol) 서버](https://en.wikipedia.org/wiki/Network_Time_Protocol)를 사용하여 장치 시계가 시간을 정확히 추적하도록 해야 합니다.
+*X-Timestamp* 헤더 값은 'yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffZ' 형식이어야 합니다. 단, 'fffffff'는 초의 분수입니다. 예를 들어 '12.5'는 '12 + 5/10초'를 의미하며 '12.526'은 '12 plus 526/1000초'를 의미합니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)를 준수하며 표준 HTTP *Date* 헤더와 달리 밀리초 분해능을 제공할 수 있습니다. 클라이언트 애플리케이션은 타임스탬프를 가장 가까운 밀리초로 반올림할 수 있습니다. 클라이언트 애플리케이션은 [NTP(Network Time Protocol) 서버](https://en.wikipedia.org/wiki/Network_Time_Protocol)를 사용하여 디바이스 시계가 시간을 정확히 추적하도록 해야 합니다.
 
 ### <a name="message-speechconfig"></a>메시지 `speech.config`
 
-음성 서비스가 최상의 예상 음성 인식을 제공하려면 애플리케이션의 특성을 알아야 합니다. 필요한 특성 데이터는 애플리케이션을 구동하는 장치 및 OS에 관한 정보를 포함합니다. 이 정보를 `speech.config` 메시지에 제공합니다.
+음성 서비스가 최상의 예상 음성 인식을 제공하려면 애플리케이션의 특성을 알아야 합니다. 필요한 특성 데이터는 애플리케이션을 구동하는 디바이스 및 OS에 관한 정보를 포함합니다. 이 정보를 `speech.config` 메시지에 제공합니다.
 
 클라이언트는 음성 서비스에 대한 연결을 설정한 후 `audio` 메시지를 보내기 전에 `speech.config` 메시지를 *보내야 합니다*. `speech.config` 메시지를 연결당 한 번만 보내야 합니다.
 
 | 필드 | 설명 |
 |----|----|
 | WebSocket 메시지 인코딩 | 텍스트 |
-| 본문 | JSON 구조인 페이로드 |
+| Body | JSON 구조인 페이로드 |
 
 #### <a name="required-message-headers"></a>필요한 메시지 헤더
 
@@ -213,7 +213,7 @@ Content-Length: 0
 
 ##### <a name="system-element"></a>시스템 요소
 
-`speech.config` 메시지의 system.version 요소는 클라이언트 애플리케이션 또는 장치가 사용한 음성 SDK 소프트웨어의 버전을 포함합니다. 이 값은 *major.minor.build.branch* 형식입니다. *branch* 구성 요소는 해당하지 않는 경우 생략할 수 있습니다.
+`speech.config` 메시지의 system.version 요소는 클라이언트 애플리케이션 또는 디바이스가 사용한 음성 SDK 소프트웨어의 버전을 포함합니다. 이 값은 *major.minor.build.branch* 형식입니다. *branch* 구성 요소는 해당하지 않는 경우 생략할 수 있습니다.
 
 ##### <a name="os-element"></a>OS 요소
 
@@ -244,7 +244,7 @@ Content-Length: 0
 | 필드 | 설명 |
 |-------------|----------------|
 | WebSocket 메시지 인코딩 | 이진 |
-| 본문 | 오디오 청크에 대한 이진 데이터입니다. 최대 크기는 8,192바이트입니다. |
+| Body | 오디오 청크에 대한 이진 데이터입니다. 최대 크기는 8,192바이트입니다. |
 
 #### <a name="required-message-headers"></a>필요한 메시지 헤더
 
@@ -311,7 +311,7 @@ return SDK.CreateRecognizerWithCustomAudioSource(
 | Path | `telemetry` |
 | X-Timestamp | ISO 8601 형식의 UTC 시계 타임스탬프 |
 | Content-Type | `application/json` |
-| 본문 | 회차에 관한 클라이언트 정보를 포함하는 JSON 구조 |
+| Body | 회차에 관한 클라이언트 정보를 포함하는 JSON 구조 |
 
 `telemetry` 메시지의 본문에 대한 스키마는 [원격 분석 스키마](#telemetry-schema) 섹션에서 정의합니다.
 
@@ -332,7 +332,7 @@ return SDK.CreateRecognizerWithCustomAudioSource(
 | WebSocket 메시지 인코딩 | 텍스트 |
 | Path | `speech.startDetected` |
 | Content-Type | application/json; charset=utf-8 |
-| 본문 | 음성 시작이 검색된 경우 조건에 관한 정보를 포함하는 JSON 구조입니다. 이 구조의 *오프셋* 필드는 스트림의 시작을 기준으로 오디오 스트림에서 음성이 검색된 시간의 오프셋(100나노초 단위)을 지정합니다. |
+| Body | 음성 시작이 검색된 경우 조건에 관한 정보를 포함하는 JSON 구조입니다. 이 구조의 *오프셋* 필드는 스트림의 시작을 기준으로 오디오 스트림에서 음성이 검색된 시간의 오프셋(100나노초 단위)을 지정합니다. |
 
 #### <a name="sample-message"></a>샘플 메시지
 
@@ -358,7 +358,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 | Path | `speech.hypothesis` |
 | X-RequestId | "대시 없는" 형식의 UUID |
 | Content-Type | application/json |
-| 본문 | 음성 가설 JSON 구조 |
+| Body | 음성 가설 JSON 구조 |
 
 #### <a name="sample-message"></a>샘플 메시지
 
@@ -389,7 +389,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 | WebSocket 메시지 인코딩 | 텍스트 |
 | Path | `speech.phrase` |
 | Content-Type | application/json |
-| 본문 | 음성 구 JSON 구조 |
+| Body | 음성 구 JSON 구조 |
 
 음성 구 JSON 스키마는 `RecognitionStatus`, `DisplayText`, `Offset` 및 `Duration` 필드를 포함합니다. 이러한 필드에 대한 자세한 내용은 [전사 응답](../concepts.md#transcription-responses)을 참조하세요.
 
@@ -416,7 +416,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 | ------------- | ---------------- |
 | WebSocket 메시지 인코딩 | 텍스트 |
 | Path | `speech.endDetected` |
-| 본문 | 음성 끝이 검색된 시간의 오프셋을 포함하는 JSON 구조입니다. 오프셋은 인식을 위해 사용한 오디오의 시작에서 100나노초 단위 오프셋으로 나타냅니다. |
+| Body | 음성 끝이 검색된 시간의 오프셋을 포함하는 JSON 구조입니다. 오프셋은 인식을 위해 사용한 오디오의 시작에서 100나노초 단위 오프셋으로 나타냅니다. |
 | Content-Type | application/json; charset=utf-8 |
 
 #### <a name="sample-message"></a>샘플 메시지
@@ -442,7 +442,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 | WebSocket 메시지 인코딩 | 텍스트 |
 | Path | `turn.start` |
 | Content-Type | application/json; charset=utf-8 |
-| 본문 | JSON 구조 |
+| Body | JSON 구조 |
 
 #### <a name="sample-message"></a>샘플 메시지
 
@@ -468,7 +468,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 | ------------- | ---------------- |
 | WebSocket 메시지 인코딩 | 텍스트 |
 | Path | `turn.end` |
-| 본문 | 없음 |
+| Body | 없음 |
 
 #### <a name="sample-message"></a>샘플 메시지
 

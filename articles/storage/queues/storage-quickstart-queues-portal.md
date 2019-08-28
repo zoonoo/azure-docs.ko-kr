@@ -1,20 +1,19 @@
 ---
 title: Azure 빠른 시작 - Azure Portal을 사용하여 Azure Storage에 큐 만들기 | Microsoft Docs
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 큐를 만듭니다. 그런 다음, Azure Portal에서 메시지를 추가하고, 메시지의 속성을 보고, 메시지를 큐에서 제거합니다.
-services: storage
 author: mhopkins-msft
-ms.custom: mvc
-ms.service: storage
-ms.topic: quickstart
-ms.date: 03/06/2019
 ms.author: mhopkins
+ms.date: 03/06/2019
+ms.service: storage
+ms.subservice: queues
+ms.topic: quickstart
 ms.reviewer: cbrooks
-ms.openlocfilehash: 3b355aa2f3fd5e381ca922ada1444dd281fe74ec
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d2f7b01c03b877a3dede496fc02f0d0cc9525cef
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138266"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721327"
 ---
 # <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 큐를 만들어서 메시지 추가하기
 
@@ -28,7 +27,7 @@ ms.locfileid: "65138266"
 
 Azure Portal에서 큐를 만들려면 다음 단계를 수행합니다.
 
-1. Azure Portal의 새 저장소 계정으로 이동합니다.
+1. Azure Portal의 새 스토리지 계정으로 이동합니다.
 2. 스토리지 계정의 왼쪽 메뉴에서 **큐 서비스** 섹션이 나올 때까지 스크롤한 다음, **큐**를 선택합니다.
 3. **+ 큐** 단추를 선택합니다.
 4. 새 큐의 이름을 입력합니다. 큐 이름은 소문자여야 하고, 문자 또는 숫자로 시작해야 하며, 문자, 숫자 및 대시(-) 문자만 포함할 수 있습니다.

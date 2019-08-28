@@ -7,15 +7,15 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
-ms.date: 01/14/2019
+ms.topic: conceptual
+ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: f9892acb387a655e173ee5d2bde28e7346a6c535
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 84f13f7e1d83f1ead00303b694b617d3ba1c8931
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447530"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876637"
 ---
 # <a name="create-a-business-continuity-plan-for-your-qna-maker-service"></a>QnA Maker 서비스를 위한 비즈니스 연속성 계획 만들기
 

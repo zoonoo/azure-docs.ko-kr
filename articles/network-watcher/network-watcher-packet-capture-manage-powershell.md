@@ -136,7 +136,7 @@ $networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.Res
 
 ### <a name="step-2"></a>2단계
 
-저장소 계정을 검색합니다. 이 저장소 계정은 패킷 캡처 파일을 저장하는 데 사용됩니다.
+스토리지 계정을 검색합니다. 이 스토리지 계정은 패킷 캡처 파일을 저장하는 데 사용됩니다.
 
 ```powershell
 $storageAccount = Get-AzStorageAccount -ResourceGroupName testrg -Name testrgsa123
@@ -265,13 +265,13 @@ Remove-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCapt
 ```
 
 > [!NOTE]
-> 패킷 캡처를 삭제하면 저장소 계정에서 파일을 삭제하지 않습니다.
+> 패킷 캡처를 삭제하면 스토리지 계정에서 파일을 삭제하지 않습니다.
 
 ## <a name="download-a-packet-capture"></a>패킷 캡처 다운로드
 
-패킷 캡처 세션이 완료되면 캡처 파일을 Blob Storage 또는 VM의 로컬 파일에 업로드할 수 있습니다. 패킷 캡처의 저장 위치는 세션 생성 시 정의됩니다. 스토리지 계정에 저장되는 이러한 캡처 파일에 액세스하는 편리한 도구는 Microsoft Azure Storage Explorer이며 https://storageexplorer.com/ 에서 다운로드할 수 있습니다.
+패킷 캡처 세션이 완료되면 캡처 파일을 Blob Storage 또는 VM의 로컬 파일에 업로드할 수 있습니다. 패킷 캡처의 스토리지 위치는 세션 생성 시 정의됩니다. 스토리지 계정에 저장되는 이러한 캡처 파일에 액세스하는 편리한 도구는 Microsoft Azure Storage Explorer이며 https://storageexplorer.com/ 에서 다운로드할 수 있습니다.
 
-저장소 계정이 지정되어 있으면 패킷 캡처 파일은 다음 위치에서 저장소 계정에 저장됩니다.
+스토리지 계정이 지정되어 있으면 패킷 캡처 파일은 다음 위치에서 스토리지 계정에 저장됩니다.
 
 ```
 https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{VMName}/{year}/{month}/{day}/packetCapture_{creationTime}.cap

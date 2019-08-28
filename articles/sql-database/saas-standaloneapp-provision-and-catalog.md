@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: 28deb9b7ba15744b9bd3d273d02db4398d2b2ef3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9087ff33bccb54497ec8d781a47469553683d65
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61484593"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570276"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>테넌트별 애플리케이션 SaaS 패턴을 사용하여 새 테넌트 프로비전/카탈로그 작업
 
@@ -68,7 +67,7 @@ Azure Resource Manager 템플릿은 애플리케이션을 배포 및 구성하�
 
 이 자습서의 끝 부분에는 각 데이터베이스가 카탈로그에 등록된 독립 실행형 테넌트 애플리케이션이 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 수행하려면 다음 필수 조건이 완료되었는지 확인합니다. 
 
@@ -99,7 +98,7 @@ Azure Resource Manager 템플릿은 애플리케이션을 배포 및 구성하�
 이제 만든 리소스를 살펴봅니다.
 
 1. [Azure 포털](https://portal.azure.com/)을 열어서 리소스 그룹으로 이동합니다.  **wingtip-sa-catalog-\<user\>** 리소스 그룹을 열고 카탈로그 서버 및 데이터베이스를 메모합니다.
-1. 포털에서 데이터베이스를 열고 왼쪽 메뉴에서 *데이터 탐색기*를 선택합니다.  로그인 명령을 클릭 하 고 암호 입력 = **P\@ssword1**합니다.
+1. 포털에서 데이터베이스를 열고 왼쪽 메뉴에서 *데이터 탐색기*를 선택합니다.  Login 명령을 클릭 한 다음 Password = **P\@ssword1**을 입력 합니다.
 
 
 1. *tenantcatalog* 데이터베이스의 스키마로 이동합니다.  
@@ -143,7 +142,7 @@ Azure Resource Manager 템플릿은 애플리케이션을 배포 및 구성하�
 
 샘플 탐색을 마친 후에는 만든 모든 리소스 그룹을 삭제하여 관련 청구를 중지합니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 - 다중 테넌트 SaaS 데이터베이스 애플리케이션에 대해 자세히 알아보려면 [다중 테넌트 SaaS 애플리케이션에 대한 디자인 패턴](saas-tenancy-app-design-patterns.md)을 참조하세요.
 

@@ -1,5 +1,5 @@
 ---
-title: 패턴 역할
+title: 패턴 역할 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 패턴은 적절한 형식의 템플릿 발언에서 데이터를 추출합니다. 템플릿 발언은 간단한 엔터티와 역할을 사용하여 원본 위치 및 대상 위치 같은 관련 데이터를 추출합니다.
 ms.custom: seodec18
@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/01/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: d6a2c9d92d79bed3f0e9a9976a64f6e11debba88
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 7586a81eac95a2e4a08b045b3a2826132d9919f7
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523277"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560026"
 ---
 # <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>자습서: 역할을 사용하여 컨텍스트 관련 패턴 추출
 
@@ -232,7 +232,7 @@ ms.locfileid: "59523277"
 
 4. `move {NewEmployee} from {NewEmployeeRelocation:NewEmployeeReloOrigin} to {NewEmployeeRelocation:NewEmployeeReloDestination}[.]` 패턴을 입력합니다.
 
-    끝점을 학습, 게시 및 쿼리하는 경우 엔터티를 찾을 수 없어서 실망할 수 있습니다. 이 경우 패턴이 일치되지 않으므로 예측이 개선되지 않았을 것입니다. 이러한 상황은 엔터티에 레이블이 지정된 충분한 수의 예제 발언이 없을 때 나타납니다. 더 많은 예제를 추가하는 대신, 구 목록을 추가하여 이 문제를 해결하세요.
+    엔드포인트을 학습, 게시 및 쿼리하는 경우 엔터티를 찾을 수 없어서 실망할 수 있습니다. 이 경우 패턴이 일치되지 않으므로 예측이 개선되지 않았을 것입니다. 이러한 상황은 엔터티에 레이블이 지정된 충분한 수의 예제 발언이 없을 때 나타납니다. 더 많은 예제를 추가하는 대신, 구 목록을 추가하여 이 문제를 해결하세요.
 
 ## <a name="cities-phrase-list"></a>도시 구 목록
 사람의 이름처럼 도시는 단어 및 문장 부호의 어떤 혼합으로도 이루어질 수 있으므로 까다로운 항목입니다. 국가/지역 및 전 세계의 도시가 알려져 있으므로 LUIS에는 학습을 시작할 도시의 구 목록이 필요합니다. 

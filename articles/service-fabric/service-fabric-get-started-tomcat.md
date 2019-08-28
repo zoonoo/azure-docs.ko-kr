@@ -13,20 +13,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/08/2018
-ms.author: v-jamebr
-ms.openlocfilehash: df3156688f018aee4717271557220396827dd9e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: chackdan
+ms.openlocfilehash: f1717cfb7980fc481f01c51c04d076aa2ca0f67d
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306820"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876503"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Linux에서 Apache Tomcat 서버를 실행하는 Service Fabric 컨테이너 만들기
 Apache Tomcat은 Java 서블릿 및 Java 서버 기술의 인기 있는 오픈 소스 구현입니다. 이 문서에서는 Apache Tomcat 및 간단한 웹 애플리케이션이 포함된 컨테이너를 빌드하고, Linux를 실행하는 Service Fabric 클러스터에 이 컨테이너를 배포한 다음, 웹 애플리케이션에 연결하는 방법에 대해 설명합니다.  
 
 Apache Tomcat에 대한 자세한 내용은 [Apache Tomcat 홈페이지](https://tomcat.apache.org/)를 참조하세요. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 * 다음을 실행하는 개발 컴퓨터
   * [Service Fabric SDK 및 도구](service-fabric-get-started-linux.md)
   * [Linux용 Docker CE](https://docs.docker.com/engine/installation/#prior-releases) 
@@ -111,7 +111,7 @@ Apache Tomcat에 대한 자세한 내용은 [Apache Tomcat 홈페이지](https:/
 ## <a name="push-the-tomcat-image-to-your-container-registry"></a>컨테이너 레지스트리에 Tomcat 이미지 푸시
 Tomcat 이미지가 개발 컴퓨터의 컨테이너에서 실행되는지 확인했으므로 이제 이 이미지를 컨테이너 레지스트리의 리포지토리로 푸시합니다. 이 문서에서는 Azure Container Registry를 사용하여 이미지를 저장하지만, 단계를 약간 수정하면 선택한 모든 컨테이너 레지스트리를 사용할 수 있습니다. 이 문서에서 레지스트리 이름은 *myregistry*로 간주되며, 전체 레지스트리 이름은 myregistry.azurecr.io입니다. 시나리오에 맞게 적절하게 변경합니다. 
 
-1. 실행 `docker login` 를 사용 하 여 컨테이너 레지스트리에 로그인 하 여 [레지스트리 자격 증명](../container-registry/container-registry-authentication.md)합니다.
+1. 을 `docker login` 실행 하 여 [레지스트리 자격 증명](../container-registry/container-registry-authentication.md)을 사용 하 여 컨테이너 레지스트리에 로그인 합니다.
 
    다음 예제는 Azure Active Directory [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md)의 ID와 암호를 전달합니다. 예를 들어 자동화 시나리오를 위해 레지스트리에 서비스 주체를 할당할 수 있습니다. 또는 레지스트리 사용자 이름과 암호를 사용 하 여 로그인 할 수 있습니다.
 
@@ -141,9 +141,9 @@ Tomcat 이미지를 컨테이너 레지스트리로 푸시했으므로 이제 �
    ```
    메시지가 표시되면 다음 값을 입력합니다.
 
-   * 응용 프로그램 이름을 지정 합니다. ServiceFabricTomcat
-   * 응용 프로그램 서비스의 이름: TomcatService
-   * 이미지 이름 입력: 컨테이너 레지스트리에서 컨테이너 이미지에 대 한 URL을 제공 합니다. 예를 들어 myregistry.azurecr.io/samples/tomcattest 합니다.
+   * 응용 프로그램 이름: ServiceFabricTomcat
+   * 응용 프로그램 서비스의 이름입니다. TomcatService
+   * 이미지 이름 입력: 컨테이너 레지스트리의 컨테이너 이미지에 대 한 URL을 제공 합니다. 예를 들면 myregistry.azurecr.io/samples/tomcattest입니다.
    * 명령: 이 항목을 비워둡니다. 이 이미지가 워크로드 진입점을 정의하지 않으므로 입력 명령을 명시적으로 지정하지 않아도 됩니다(컨테이너 내에서 명령을 실행하면 시작된 후에 컨테이너가 실행되도록 유지함).
    * 게스트 컨테이너 응용 프로그램의 인스턴스 수: 1
 
@@ -162,7 +162,7 @@ Tomcat 이미지를 컨테이너 레지스트리로 푸시했으므로 이제 �
    </Resources>
    ```
 
-11. 애플리케이션 매니페스트(*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*)의 **ServiceManifestImport** 태그 아래에 다음 XML을 추가합니다. 대체는 **AccountName** 및 **암호** 에 **RepositoryCredentials** 컨테이너 레지스트리 및 로그인 하는 데 필요한 암호의 이름으로 태그입니다.
+11. 애플리케이션 매니페스트(*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*)의 **ServiceManifestImport** 태그 아래에 다음 XML을 추가합니다. **RepositoryCredentials** 태그의 **AccountName** 및 **password** 를 컨테이너 레지스트리 이름으로 바꾸고 로그인에 필요한 암호를 바꿉니다.
 
    ```xml
    <Policies>
@@ -176,7 +176,7 @@ Tomcat 이미지를 컨테이너 레지스트리로 푸시했으므로 이제 �
    **ContainerHostPolicies** 태그는 컨테이너 호스트를 활성화하기 위한 정책을 지정합니다.
     
    * **PortBinding** 태그는 컨테이너 포트-호스트 포트 매핑 정책을 구성합니다. Dockerfile에서 지정한 대로 컨테이너에서 8080 포트를 노출하므로 **ContainerPort** 특성은 8080으로 설정됩니다. **EndpointRef** 특성은 이전 단계의 서비스 매니페스트에 정의된 엔드포인트인 "endpointTest"로 설정됩니다. 따라서 8080 포트에서 서비스로 들어오는 요청은 컨테이너의 8080 포트에 매핑됩니다. 
-   * **RepositoryCredentials** 태그는 컨테이너에서 이미지를 가져오는 리포지토리(개인)를 사용하여 인증해야 하는 자격 증명을 지정합니다. 공용 리포지토리에서 이미지를 가져오는 경우에는 이 정책이 필요하지 않습니다.
+   * **RepositoryCredentials** 태그는 컨테이너에서 이미지를 가져오는 리포지토리(프라이빗)를 사용하여 인증해야 하는 자격 증명을 지정합니다. 공용 리포지토리에서 이미지를 가져오는 경우에는 이 정책이 필요하지 않습니다.
     
 
 12. *ServiceFabricTomcat* 폴더에서 Service Fabric 클러스터에 연결합니다. 

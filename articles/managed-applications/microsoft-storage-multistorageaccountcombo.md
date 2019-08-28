@@ -21,7 +21,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "64725435"
 ---
 # <a name="microsoftstoragemultistorageaccountcombo-ui-element"></a>Microsoft.Storage.MultiStorageAccountCombo UI 요소
-공통 접두사로 시작하는 이름의 저장소 계정을 여러 개 만드는 컨트롤 그룹입니다.
+공통 접두사로 시작하는 이름의 스토리지 계정을 여러 개 만드는 컨트롤 그룹입니다.
 
 ## <a name="ui-sample"></a>UI 샘플
 ![Microsoft.Storage.MultiStorageAccountCombo](./media/managed-application-elements/microsoft.storage.multistorageaccountcombo.png)
@@ -53,11 +53,11 @@ ms.locfileid: "64725435"
 ```
 
 ## <a name="remarks"></a>설명
-- `defaultValue.prefix`의 값은 하나 이상의 정수와 연결되어 저장소 계정 이름의 시퀀스를 생성합니다. 예를 들어 `defaultValue.prefix`가 **sa**이고 `count`가 **2**이면 **sa1** 및 **sa2** 저장소 계정 이름이 생성됩니다. 생성된 저장소 계정 이름의 고유성에 대한 유효성 검사가 자동으로 수행됩니다.
-- 저장소 계정 이름은 `count`에 따라 사전순으로 생성됩니다. 예를 들어 `count`가 10이면 저장소 계정 이름은 두 자리 정수로 끝납니다(01, 02, 03).
+- `defaultValue.prefix`의 값은 하나 이상의 정수와 연결되어 스토리지 계정 이름의 시퀀스를 생성합니다. 예를 들어 `defaultValue.prefix`가 **sa**이고 `count`가 **2**이면 **sa1** 및 **sa2** 스토리지 계정 이름이 생성됩니다. 생성된 스토리지 계정 이름의 고유성에 대한 유효성 검사가 자동으로 수행됩니다.
+- 스토리지 계정 이름은 `count`에 따라 사전순으로 생성됩니다. 예를 들어 `count`가 10이면 스토리지 계정 이름은 두 자리 정수로 끝납니다(01, 02, 03).
 - `defaultValue.prefix`의 기본값은 **null**이고, `defaultValue.type`의 기본값은 **Premium_LRS**입니다.
 - `constraints.allowedTypes`에 지정되지 않은 형식은 숨겨지며, `constraints.excludedTypes`에 지정되지 않은 형식이 표시됩니다. `constraints.allowedTypes` 및 `constraints.excludedTypes`는 모두 선택 사항이지만 동시에 사용할 수는 없습니다.
-- 저장소 계정 이름을 생성하는 것 외에도 `count`는 요소에 적절한 승수를 설정하는 데 사용됩니다. **2**와 같은 정적 값 또는 `[steps('step1').storageAccountCount]`와 같은 다른 요소의 동적 값을 지원합니다. 기본값은 **1**입니다.
+- 스토리지 계정 이름을 생성하는 것 외에도 `count`는 요소에 적절한 승수를 설정하는 데 사용됩니다. **2**와 같은 정적 값 또는 `[steps('step1').storageAccountCount]`와 같은 다른 요소의 동적 값을 지원합니다. 기본값은 **1**입니다.
 
 ## <a name="sample-output"></a>샘플 출력
 

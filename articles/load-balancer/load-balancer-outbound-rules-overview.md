@@ -4,21 +4,21 @@ titlesuffix: Azure Load Balancer
 description: 아웃바운드 규칙을 사용하여 아웃바운드 네트워크 주소 변환을 정의합니다.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/19/2018
-ms.author: kumud
-ms.openlocfilehash: 52fafa7e9dd46b6c78af3776797bae48b22ea8df
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 7/17/2019
+ms.author: allensu
+ms.openlocfilehash: 39a23fa277d7bb389098674556b65b1b13676ead
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64698439"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305573"
 ---
 # <a name="load-balancer-outbound-rules"></a>Load Balancer 아웃바운드 규칙
 
@@ -84,7 +84,7 @@ VM당 10,000개의 SNAT 포트를 할당하려면 다음 매개 변수를 사용
 
           "allocatedOutboundPorts": 10000
 
-아웃바운드 규칙의 모든 프런트 엔드에 있는 각 공용 IP 주소는 SNAT 포트로 사용할 최대 51,200개의 사용 후 삭제 포트를 제공합니다.  Load Balancer는 SNAT 포트를 8의 배수로 할당합니다. 8로 나눌 수 없는 값을 제공하면 구성 작업이 거부됩니다.  공용 IP 주소의 수를 기준으로 사용 가능한 것보다 더 많은 SNAT 포트를 할당하려고 하면 구성 작업이 거부됩니다.  예를 들어, VM 및 7 Vm 당 10,000 포트를 할당 하는 경우 풀에서 백 엔드를 단일 공용 IP 주소를 공유, 구성은 거부 (7 x 10, 000 SNAT 포트 > 51,200 SNAT 포트).  아웃바운드 규칙의 프런트 엔드에 더 많은 공용 IP 주소를 추가하여 시나리오를 사용하도록 설정할 수 있습니다.
+아웃바운드 규칙의 모든 프런트 엔드에 있는 각 공용 IP 주소는 SNAT 포트로 사용할 최대 51,200개의 사용 후 삭제 포트를 제공합니다.  Load Balancer는 SNAT 포트를 8의 배수로 할당합니다. 8로 나눌 수 없는 값을 제공하면 구성 작업이 거부됩니다.  공용 IP 주소의 수를 기준으로 사용 가능한 것보다 더 많은 SNAT 포트를 할당하려고 하면 구성 작업이 거부됩니다.  예를 들어 VM 당 1만 포트를 할당 하 고 백 엔드 풀의 Vm 7 개에서 단일 공용 IP 주소를 공유 하는 경우 구성이 거부 됩니다 (7 x 1만 SNAT 포트 > 51200 SNAT 포트).  아웃바운드 규칙의 프런트 엔드에 더 많은 공용 IP 주소를 추가하여 시나리오를 사용하도록 설정할 수 있습니다.
 
 포트 수로 0을 지정하여 [백 엔드 풀 크기를 기준으로 자동 SNAT 포트 할당](load-balancer-outbound-connections.md#preallocatedports)으로 되돌릴 수 있습니다.
 
@@ -208,7 +208,7 @@ disableOutboundSNAT 매개 변수의 기본값은 false입니다. 즉 부하 분
 - 구성 가능한 아웃바운드 유휴 시간 제한 범위는 4-120분(240-7200초)입니다.
 - Load Balancer는 아웃바운드 NAT에 대해 ICMP를 지원하지 않습니다.
 - 아웃바운드 규칙은 포털을 통해 구성하거나 볼 수 없습니다.  대신 템플릿, REST API, Az CLI 2.0 또는 PowerShell을 사용하세요.
-- 아웃바운드 규칙은 기본 NIC 및 기본 IP 구성에만 적용할 수 있습니다.
+- 아웃 바운드 규칙은 NIC의 기본 IP 구성에만 적용할 수 있습니다.  여러 Nic가 지원 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

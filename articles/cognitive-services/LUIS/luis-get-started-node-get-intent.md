@@ -1,6 +1,6 @@
 ---
-title: 의도 가져오기, Node.js
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 의도 가져오기, Node.js - LUIS
+titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 사용 가능한 공용 LUIS 앱을 통해 대화형 텍스트에서 사용자의 의도를 판단합니다. Node.js를 사용하여 공용 앱의 HTTP 예측 엔드포인트에 사용자의 의도를 텍스트로 보냅니다.
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 01/17/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 161056aa2cfe43375d5e555197b57f85685ca219
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 084d717c1001604a7fb8ed60518777f956dec8b9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65594109"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563795"
 ---
 # <a name="quickstart-get-intent-using-nodejs"></a>빠른 시작: Node.js를 사용하여 의도 가져오기
 

@@ -28,7 +28,7 @@ ms.locfileid: "64938236"
 |  -------------             |   ---------------                                                              |
 | ResourceGroupName          | 기존 Azure 리소스 그룹 이름입니다.  일반적으로 Key Vault와 연결된 동일한 RG를 사용합니다.  |
 | TemplateFile               | 파일 `VHDtoImage.json`의 전체 경로 이름입니다.                                    |
-| userStorageAccountName     | 저장소 계정 이름                                                    |
+| userStorageAccountName     | 스토리지 계정 이름                                                    |
 | sNameForPublicIP           | 공용 IP에 대한 DNS 이름입니다. 소문자여야 합니다.                                  |
 | subscriptionId             | Azure 구독 식별자입니다.                                                  |
 | Location                   | 리소스 그룹의 표준 Azure 지리적 위치입니다.                       |

@@ -8,9 +8,15 @@
       displayName: 'loop, context, feature, action, rank, reward, developer, use case'
 - name: 빠른 시작
   items:
-    - name: 피드백 루프 만들기 및 사용
+    - name: 'C# 사용'
       href: csharp-quickstart-commandline-feedback-loop.md
       displayName: 'code, sample, quickstart, c#'
+    - name: Node.js 사용
+      href: quickstart-command-line-feedback-loop-nodejs-sdk.md
+      displayName: 'code, sample, quickstart, node, npm, sdk'
+    - name: Python 사용
+      href: python-quickstart-commandline-feedback-loop.md
+      displayName: 'code, sample, quickstart, python'
 - name: 개념
   items:
     - name: Personalizer의 작동 원리
@@ -26,7 +32,7 @@
       items:
         - name: 기능 작업 및 컨텍스트
           href: concepts-features.md
-          displayName: 'action, context, feature, namespace, JSON, best practice, set'
+          displayName: 'action, context, feature, namespace, JSON, best practice, set, ID, guid, event id,'
         - name: 능동적 학습
           href: concept-active-learning.md
           displayName: 'active, inactive'
@@ -43,6 +49,8 @@
         - name: 오프라인 평가
           href: concepts-offline-evaluation.md
           displayName: 'learning policy, Counterfactual, features'
+        - name: 기능 평가
+          href: concept-feature-evaluation.md
     - name: 확장성 및 성능
       href: concepts-scalability-performance.md
 - name: 방법 가이드
@@ -68,6 +76,14 @@
               href: 'https://go.microsoft.com/fwlink/?linkid=2092353'
             - name: NuGet 패키지
               href: 'https://go.microsoft.com/fwlink/?linkid=2092272'
+        - name: Go
+          items:
+            - name: SDK)
+              href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/personalizer/v1.0/personalizer'
+        - name: Node.js
+          items:
+            - name: NPM
+              href: 'https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0'
         - name: Python
           items:
             - name: Pypi 패키지

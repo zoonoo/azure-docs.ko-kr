@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: a1a980e1f8b004c4a3dba53e4f83367022074c7c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e3aaf943b5eecd9ec1853c09ea36156b98560d3d
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007972"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648717"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Azure Marketplace 이미지를 사용하여 관리 ID가 있는 Azure 리소스용 Terraform Linux 가상 머신 만들기
 
@@ -65,7 +65,7 @@ Linux Terraform 가상 머신의 인스턴스를 만드는 단계는 다음과 �
 
 4. **구입**
 
-   * 프로비전 프로세스를 시작하려면 **구입**을 선택합니다. 트랜잭션의 조건에는 링크가 제공됩니다. VM에는 크기 단계에서 선택한 서버 크기에 대한 계산 이외의 추가 요금이 없습니다.
+   * 프로비전 프로세스를 시작하려면 **구입**을 선택합니다. 트랜잭션의 조건에는 링크가 제공됩니다. VM에는 크기 단계에서 선택한 서버 크기에 대한 컴퓨팅 이외의 추가 요금이 없습니다.
 
 Terraform VM 이미지에서 수행하는 단계는 다음과 같습니다.
 
@@ -85,13 +85,13 @@ SSH를 사용하여 가상 머신에 연결한 후 가상 머신에서 전체 �
 
 `. ~/tfEnv.sh`
 
-이전 스크립트는 [AZ CLI v 2.0 대화형 로그인](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) 메커니즘을 사용하여 Azure에서 인증하고 전체 구독에 대한 관리 ID 기여자 권한을 가상 머신에 할당합니다. 
+이전 스크립트는 [AZ CLI v 2.0 대화형 로그인](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#sign-in-interactively) 메커니즘을 사용하여 Azure에서 인증하고 전체 구독에 대한 관리 ID 기여자 권한을 가상 머신에 할당합니다. 
 
  VM에는 Terraform 원격 상태 백 엔드가 있습니다. Terraform 배포에서 이를 사용하려면 tfTemplate 디렉터리의 remoteState.tf 파일을 Terraform 스크립트의 루트에 복사합니다.  
 
  `cp  ~/tfTemplate/remoteState.tf .`
 
- 원격 상태 관리에 대한 자세한 내용은 [Terraform 원격 상태에 대한 이 페이지](https://www.terraform.io/docs/state/remote.html)를 참조하세요. 저장소 액세스 키는 이 파일에 노출되며, Terraform 구성 파일을 소스 제어로 커밋하기 전에 제외해야 합니다.
+ 원격 상태 관리에 대한 자세한 내용은 [Terraform 원격 상태에 대한 이 페이지](https://www.terraform.io/docs/state/remote.html)를 참조하세요. 스토리지 액세스 키는 이 파일에 노출되며, Terraform 구성 파일을 소스 제어로 커밋하기 전에 제외해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure에서 Terraform Linux 가상 머신을 설정하는 방법을 알아보았습니다. Azure의 Terraform에 대해 자세히 알아볼 수 있는 몇 가지 추가 리소스는 다음과 같습니다. 

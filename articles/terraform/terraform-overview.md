@@ -18,7 +18,7 @@ ms.locfileid: "57779201"
 ---
 # <a name="terraform-with-azure"></a>Azure의 Terraform
 
-[Hashicorp Terraform](https://www.terraform.io/)은 클라우드 인프라를 프로비전하고 관리하기 위한 오픈 소스 도구입니다. 가상 머신, 저장소 계정 및 네트워킹 인터페이스와 같은 클라우드 리소스의 토폴로지를 설명하는 구성 파일의 인프라를 체계적으로 정리합니다. Terraform의 CLI(명령 줄 인터페이스)는 Azure 또는 기타 지원되는 클라우드에 구성 파일을 배포하고 프로비전하는 간단한 메커니즘을 제공합니다.
+[Hashicorp Terraform](https://www.terraform.io/)은 클라우드 인프라를 프로비전하고 관리하기 위한 오픈 소스 도구입니다. 가상 머신, 스토리지 계정 및 네트워킹 인터페이스와 같은 클라우드 리소스의 토폴로지를 설명하는 구성 파일의 인프라를 체계적으로 정리합니다. Terraform의 CLI(명령 줄 인터페이스)는 Azure 또는 기타 지원되는 클라우드에 구성 파일을 배포하고 프로비전하는 간단한 메커니즘을 제공합니다.
 
 이 문서에서는 Terraform을 사용하여 Azure 인프라를 관리하는 이점에 대해 설명합니다.
 

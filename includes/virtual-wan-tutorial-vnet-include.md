@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/23/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 40c8cb41ad3bcd46e9973a5f96134ff1bfd02fd2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 40ae634897361219c39e60d2161d3576cc44a400
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66150855"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077503"
 ---
-VNet을 신속하게 만들려면 이 문서에서 "사용해 보세요."를 클릭하고 PowerShell 콘솔을 열 수 있습니다. 값을 조정한 다음, 명령을 복사하여 콘솔 창에 붙여 넣습니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](/powershell/azure/new-azureps-module-az)를 참조하세요. Az 모듈 설치 지침은 [Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하세요.
+VNet을 신속하게 만들려면 이 문서에서 "사용해 보세요"를 클릭하고 Azure Cloud Shell에서 PowerShell 콘솔을 열면 됩니다. 값을 조정한 다음, 명령을 복사하여 콘솔 창에 붙여 넣습니다. 
 
 사용자가 만든 VNet에 대한 주소 공간이 연결하려는 다른 VNet의 주소 범위 또는 온-프레미스 네트워크 주소 공간과 겹치지 않도록 해야 합니다.
 

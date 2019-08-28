@@ -4,7 +4,6 @@ description: SAS(공유 액세스 서명) 인증을 사용하여 Service Bus에 
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
-manager: timlt
 editor: spelluru
 ms.assetid: 18bad0ed-1cee-4a5c-a377-facc4785c8c9
 ms.service: service-bus-messaging
@@ -12,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 08/22/2019
 ms.author: aschhab
-ms.openlocfilehash: 7c5a45504b7c44d97ff2250663ef9c47ef6e3595
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7234e33c04e742c77630f8d87481c7831fb00bf2
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60714509"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013239"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Service Bus 인증 및 권한 부여
 
@@ -30,8 +29,19 @@ SAS 토큰은 Service Bus 클라이언트에 의해 직접 생성되거나 또�
 > [!IMPORTANT]
 > Azure Active Directory Access Control(Access Control Service 또는 ACS라고도 함)을 Service Bus와 함께 사용하는 경우 이제 이 메서드에 대한 지원이 제한되고 SAS를 사용하려면 애플리케이션을 마이그레이션해야 합니다. 자세한 내용은 [이 블로그 게시물](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/) 및 [이 문서](service-bus-migrate-acs-sas.md)를 참조하세요.
 
-## <a name="shared-access-signature-authentication"></a>공유 액세스 서명 인증
+## <a name="azure-active-directory"></a>Azure Active Directory
+Service Bus 리소스에 대 한 Azure Active Directory (Azure AD) 통합은 클라이언트의 리소스 액세스를 세부적으로 제어 하기 위해 RBAC (역할 기반 액세스 제어)를 제공 합니다. RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자, 그룹 또는 응용 프로그램 서비스 사용자 일 수 있는 보안 주체에 권한을 부여할 수 있습니다. 보안 주체는 OAuth 2.0 토큰을 반환 하기 위해 Azure AD에서 인증 됩니다. 토큰은 Service Bus 리소스 (큐, 토픽 등)에 액세스 하는 요청에 권한을 부여 하는 데 사용할 수 있습니다.
 
+Azure AD를 사용 하 여 인증 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
+
+- [관리 id를 사용 하 여 인증](service-bus-managed-service-identity.md)
+- [응용 프로그램에서 인증](authenticate-application.md)
+
+> [!IMPORTANT]
+> Azure AD에서 반환 된 OAuth 2.0 토큰을 사용 하는 사용자 또는 응용 프로그램에 대 한 권한 부여는 SAS (공유 액세스 서명)를 통해 뛰어난 보안과 사용 편의성을 제공 합니다. Azure AD를 사용 하는 경우 코드에 토큰을 저장 하 고 잠재적인 보안 취약점을 초래할 필요가 없습니다. 가능 하면 Azure Service Bus 응용 프로그램에서 Azure AD를 사용 하는 것이 좋습니다. 
+
+
+## <a name="shared-access-signature"></a>공유 액세스 서명
 [SAS 인증](service-bus-sas.md)을 사용하면 특정 권한으로 Service Bus 리소스에 사용자 액세스 권한을 부여할 수 있습니다. Service Bus에서 SAS 인증은 Service Bus 리소스에 연결된 권한이 있는 암호화 키의 구성을 포함합니다. 클라이언트는 액세스된 리소스 URI 및 구성된 키로 서명된 만료로 구성된 SAS 토큰을 제공하여 해당 리소스에 대한 액세스를 얻을 수 있습니다.
 
 Service Bus 네임 스페이스에서 SAS에 대한 키를 구성할 수 있습니다. 키는 해당 네임스페이스의 모든 메시징 엔터티에 적용됩니다. 또한 Service Bus 큐 및 항목에 키를 구성할 수 있습니다. SAS는 [Azure Relay](../service-bus-relay/relay-authentication-and-authorization.md)에서도 지원됩니다.

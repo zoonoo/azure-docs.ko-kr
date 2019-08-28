@@ -3,252 +3,252 @@ title: Azure Active Directory 설명서
 summary: Azure AD(Azure Active Directory)는 다중 테넌트, 클라우드 기반 ID 및 액세스 관리 서비스입니다.
 brand: azure
 metadata:
-  title: Azure Active Directory 설명서 - 자습서, API 참조
+  title: Azure Active Directory 설명서
   description: Azure AD(Azure Active Directory)는 Microsoft의 다중 테넌트, 클라우드 기반 디렉터리 및 ID 관리 서비스로, 핵심 디렉터리 서비스, 애플리케이션 액세스 관리 및 ID 보호를 단일 솔루션에 결합합니다.
-  author: mtillman
-  manager: daveba
   ms.service: active-directory
   ms.topic: hub-page
-  ms.date: 04/25/2019
-  ms.author: mtillman
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 1a019b58d4c2f1e5569cc4e8dd9109e08f313d6c
-  ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+  author: mtillman
+  ms.author: mtillman
+  manager: daveba
+  ms.date: 07/27/2019
+  ms.openlocfilehash: f3e8495671b56eda804e33b78667cf75cc2f8e70
+  ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/07/2019
-  ms.locfileid: "66481868"
+  ms.lasthandoff: 07/29/2019
+  ms.locfileid: "68607638"
 highlightedContent:
   items:
   - title: Azure AD란?
     itemType: overview
-    url: /azure/active-directory/fundamentals/active-directory-whatis
+    url: ./fundamentals/active-directory-whatis.md
   - title: Azure AD의 새로운 기능
     itemType: whats-new
-    url: /azure/active-directory/fundamentals/whats-new
+    url: ./fundamentals/whats-new.md
   - title: 사용자에게 역할 할당
     itemType: how-to-guide
-    url: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal
+    url: ./fundamentals/active-directory-users-assign-role-azure-portal.md
   - title: 그룹 만들기 및 멤버 추가
     itemType: how-to-guide
-    url: /azure/active-directory/fundamentals/add-users-azure-active-directory
+    url: ./fundamentals/add-users-azure-active-directory.md
   - title: Azure AD 배포 검사 목록
     itemType: concept
-    url: /azure/active-directory/fundamentals/active-directory-deployment-checklist-p2
+    url: ./fundamentals/active-directory-deployment-checklist-p2.md
   - title: 테넌트에 구독 추가
     itemType: how-to-guide
-    url: /azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory
+    url: ./fundamentals/active-directory-how-subscriptions-associated-directory.md
 conceptualContent:
   items:
   - title: 애플리케이션 관리
     links:
-    - url: /azure/active-directory/manage-apps/what-is-single-sign-on
+    - url: ./manage-apps/what-is-single-sign-on.md
       itemType: concept
       text: SSO(Single Sign-On)란?
-    - url: /azure/active-directory/manage-apps/user-provisioning
+    - url: ./manage-apps/user-provisioning.md
       itemType: tutorial
       text: 자동 사용자 프로비전
-    - url: /azure/active-directory/manage-apps/application-proxy
+    - url: ./manage-apps/application-proxy.md
       itemType: concept
       text: 온-프레미스 앱에 대한 애플리케이션 프록시
     footerLink:
-      url: /azure/active-directory/manage-apps/index
+      url: ./manage-apps/index.yml
       text: 자세히 보기
   - title: 인증
     links:
-    - url: /azure/active-directory/authentication/concept-mfa-howitworks
+    - url: ./authentication/concept-mfa-howitworks.md
       itemType: concept
       text: '작동 방법: Azure MFA'
-    - url: /azure/active-directory/authentication/concept-sspr-howitworks
+    - url: ./authentication/concept-sspr-howitworks.md
       itemType: concept
       text: Azure AD 셀프 서비스 암호 재설정
-    - url: /azure/active-directory/authentication/concept-password-ban-bad
+    - url: ./authentication/concept-password-ban-bad.md
       itemType: concept
       text: Azure AD 암호 보호
     footerLink:
-      url: /azure/active-directory/authentication/index
+      url: ./authentication/index.yml
       text: 자세히 보기
   - title: B2B(Business to Business)
     links:
-    - url: /azure/active-directory/b2b/what-is-b2b
+    - url: ./b2b/what-is-b2b.md
       itemType: overview
       text: Azure AD B2B란?
-    - url: /azure/active-directory/b2b/add-users-administrator
+    - url: ./b2b/add-users-administrator.md
       itemType: how-to-guide
       text: 포털에서 게스트 사용자 추가
-    - url: /azure/active-directory/b2b/o365-external-user
+    - url: ./b2b/o365-external-user.md
       itemType: concept
       text: B2B 및 Office 365 공유
     footerLink:
-      url: /azure/active-directory/b2b/index
+      url: ./b2b/index.yml
       text: 자세히 보기
   - title: B2C(Business to Consumer)
     links:
-    - url: /azure/active-directory-b2c/active-directory-b2c-overview
+    - url: ../active-directory-b2c/active-directory-b2c-overview.md
       itemType: overview
       text: Azure AD B2C란?
-    - url: /azure/active-directory-b2c/tutorial-create-tenant
+    - url: ../active-directory-b2c/tutorial-create-tenant.md
       itemType: tutorial
       text: Azure AD B2C 테넌트 만들기
-    - url: /azure/active-directory-b2c/active-directory-b2c-get-started-custom
+    - url: ../active-directory-b2c/active-directory-b2c-get-started-custom.md
       itemType: how-to-guide
       text: Azure AD B2C의 사용자 지정 정책
     footerLink:
-      url: /azure/active-directory-b2c/index
+      url: ../active-directory-b2c/index.yml
       text: 자세히 보기
   - title: 조건부 액세스
     links:
-    - url: /azure/active-directory/conditional-access/overview
+    - url: ./conditional-access/overview.md
       itemType: overview
       text: 조건부 액세스란?
-    - url: /azure/active-directory/conditional-access/app-based-mfa
+    - url: ./conditional-access/app-based-mfa.md
       itemType: quickstart
       text: 특정 앱에 대한 MFA 필요
-    - url: /azure/active-directory/conditional-access/location-condition
+    - url: ./conditional-access/location-condition.md
       itemType: concept
       text: 위치 기반 조건
     footerLink:
-      url: /azure/active-directory/conditional-access/index
+      url: ./conditional-access/index.yml
       text: 자세히 보기
   - title: 개발자
     links:
-    - url: /azure/active-directory/develop/about-microsoft-identity-platform
+    - url: ./develop/about-microsoft-identity-platform.md
       itemType: overview
       text: Microsoft ID 플랫폼 정보
-    - url: /azure/active-directory/develop/v2-oauth2-auth-code-flow
+    - url: ./develop/v2-oauth2-auth-code-flow.md
       itemType: concept
       text: OAuth 2.0 코드 흐름 부여
-    - url: /azure/active-directory/develop/quickstart-register-app
+    - url: ./develop/quickstart-register-app.md
       itemType: quickstart
       text: Microsoft ID 플랫폼을 사용하여 앱 등록
     footerLink:
-      url: /azure/active-directory/develop/index
+      url: ./develop/index.yml
       text: 자세히 보기
   - title: 디바이스 관리
     links:
-    - url: /azure/active-directory/devices/overview
+    - url: ./devices/overview.md
       itemType: overview
       text: 디바이스 관리란?
-    - url: /azure/active-directory/devices/hybrid-azuread-join-plan
+    - url: ./devices/hybrid-azuread-join-plan.md
       itemType: how-to-guide
       text: 하이브리드 Azure AD 조인 계획
-    - url: /azure/active-directory/devices/azureadjoin-plan
+    - url: ./devices/azureadjoin-plan.md
       itemType: how-to-guide
       text: Azure AD 조인 계획
     footerLink:
-      url: /azure/active-directory/devices/index
+      url: ./devices/index.yml
       text: 자세히 보기
   - title: 도메인 서비스
     links:
-    - url: /azure/active-directory-domain-services/active-directory-ds-overview
+    - url: ../active-directory-domain-services/active-directory-ds-overview.md
       itemType: overview
       text: Azure AD Domain Services란?
-    - url: /azure/active-directory-domain-services/active-directory-ds-getting-started
+    - url: ../active-directory-domain-services/active-directory-ds-getting-started.md
       itemType: quickstart
       text: Azure AD Domain Services 활성화
-    - url: /azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-group-policy
+    - url: ../active-directory-domain-services/active-directory-ds-admin-guide-administer-group-policy.md
       itemType: how-to-guide
       text: 그룹 정책 관리
     footerLink:
-      url: /azure/active-directory-domain-services/index
+      url: ../active-directory-domain-services/index.yml
       text: 자세히 보기
   - title: Enterprise 사용자
     links:
-    - url: /azure/active-directory/users-groups-roles/groups-create-rule
+    - url: ./users-groups-roles/groups-create-rule.md
       itemType: how-to-guide
       text: 동적 그룹 만들기
-    - url: /azure/active-directory/users-groups-roles/groups-settings-v2-cmdlets
+    - url: ./users-groups-roles/groups-settings-v2-cmdlets.md
       itemType: how-to-guide
       text: Azure AD 그룹에 대한 PowerShell
-    - url: /azure/active-directory/users-groups-roles/directory-service-limits-restrictions
+    - url: ./users-groups-roles/directory-service-limits-restrictions.md
       itemType: reference
       text: Azure AD 서비스 제한 및 제한 사항
     footerLink:
-      url: /azure/active-directory/users-groups-roles/index
+      url: ./users-groups-roles/index.yml
       text: 자세히 보기
   - title: 하이브리드 ID
     links:
-    - url: /azure/active-directory/hybrid/whatis-hybrid-identity
+    - url: ./hybrid/whatis-hybrid-identity.md
       itemType: overview
       text: 하이브리드 ID란?
-    - url: /azure/active-directory/hybrid/how-to-connect-sso
+    - url: ./hybrid/how-to-connect-sso.md
       itemType: how-to-guide
       text: Azure AD Connect를 통한 Single Sign-On
-    - url: /azure/active-directory/hybrid/how-to-connect-install-custom
+    - url: ./hybrid/how-to-connect-install-custom.md
       itemType: how-to-guide
       text: Azure AD Connect 사용자 지정 설치
     footerLink:
-      url: /azure/active-directory/hybrid/index
+      url: ./hybrid/index.yml
       text: 자세히 보기
   - title: ID 거버넌스
     links:
-    - url: /azure/active-directory/governance/create-access-review
+    - url: ./governance/create-access-review.md
       itemType: how-to-guide
       text: 액세스 검토 만들기
-    - url: /azure/active-directory/governance/perform-access-review
+    - url: ./governance/perform-access-review.md
       itemType: how-to-guide
       text: 액세스 검토 시작
-    - url: /azure/active-directory/conditional-access/terms-of-use
+    - url: ./conditional-access/terms-of-use.md
       itemType: how-to-guide
       text: 사용 약관 필요
     footerLink:
-      url: /azure/active-directory/governance/index
+      url: ./governance/index.yml
       text: 자세히 보기
   - title: ID 보호
     links:
-    - url: /azure/active-directory/identity-protection/overview
+    - url: ./identity-protection/overview.md
       itemType: overview
       text: ID 보호란?
-    - url: /azure/active-directory/identity-protection/quickstart-sign-in-risk-policy
+    - url: ./identity-protection/quickstart-sign-in-risk-policy.md
       itemType: quickstart
       text: 세션 위험이 탐지되면 액세스 차단
-    - url: /azure/active-directory/identity-protection/howto-unblock-user
+    - url: ./identity-protection/howto-unblock-user.md
       itemType: how-to-guide
       text: 사용자 차단을 해제하는 방법
     footerLink:
-      url: /azure/active-directory/identity-protection/index
+      url: ./identity-protection/index.yml
       text: 자세히 보기
   - title: Azure 리소스에 대한 관리 ID
     links:
-    - url: /azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql
+    - url: ./managed-identities-azure-resources/tutorial-windows-vm-access-sql.md
       itemType: tutorial
       text: Windows VM을 사용하여 Azure SQL에 액세스
-    - url: /azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token
+    - url: ./managed-identities-azure-resources/how-to-use-vm-token.md
       itemType: how-to-guide
       text: Azure VM을 사용하여 토큰 획득
-    - url: /azure/active-directory/managed-identities-azure-resources/services-support-managed-identities
+    - url: ./managed-identities-azure-resources/services-support-managed-identities.md
       itemType: concept
       text: 관리 ID를 지원하는 서비스
     footerLink:
-      url: /azure/active-directory/managed-identities-azure-resources/index
+      url: ./managed-identities-azure-resources/index.yml
       text: 자세히 보기
   - title: PIM(Privileged Identity Management)
     links:
-    - url: /azure/active-directory/privileged-identity-management/pim-getting-started
+    - url: ./privileged-identity-management/pim-getting-started.md
       itemType: how-to-guide
       text: PIM 사용
-    - url: /azure/active-directory/privileged-identity-management/pim-how-to-activate-role
+    - url: ./privileged-identity-management/pim-how-to-activate-role.md
       itemType: how-to-guide
       text: 내 디렉터리 역할 활성화
-    - url: /azure/active-directory/privileged-identity-management/pim-how-to-add-role-to-user
+    - url: ./privileged-identity-management/pim-how-to-add-role-to-user.md
       itemType: how-to-guide
       text: 디렉터리 역할 할당
     footerLink:
-      url: /azure/active-directory/privileged-identity-management/index
+      url: ./privileged-identity-management/index.yml
       text: 자세히 보기
   - title: 보고 및 모니터링
     links:
-    - url: /azure/active-directory/reports-monitoring/concept-audit-logs
+    - url: ./reports-monitoring/concept-audit-logs.md
       itemType: concept
       text: 감사 로그
-    - url: /azure/active-directory/reports-monitoring/concept-sign-ins
+    - url: ./reports-monitoring/concept-sign-ins.md
       itemType: concept
       text: 로그인 로그
-    - url: /azure/active-directory/reports-monitoring/reference-sign-ins-error-codes
+    - url: ./reports-monitoring/reference-sign-ins-error-codes.md
       itemType: reference
       text: 로그인 오류 코드 참조
     footerLink:
-      url: /azure/active-directory/reports-monitoring/index
+      url: ./reports-monitoring/index.yml
       text: 자세히 보기
 additionalContent:
   sections:

@@ -54,17 +54,17 @@ App Service Environment에서 실행 중인 앱은 웹 애플리케이션 방화
 
 App Service Environment의 모든 계산 리소스는 전적으로 단일 구독 전용이며 App Service Environment는 단일 애플리케이션 전용으로 최대 50개 계산 리소스로 구성될 수 있습니다.
 
-App Service Environment는 1~3개 작업자 계산 리소스 풀뿐만 아니라 프런트 엔드 계산 리소스 풀로 구성됩니다.
+App Service Environment는 1~3개 작업자 컴퓨팅 리소스 풀뿐만 아니라 프런트 엔드 컴퓨팅 리소스 풀로 구성됩니다.
 
-프런트 엔드 풀에는 App Service Environment 내의 앱 요청에 대한 자동 부하 분산뿐 아니라 SSL 종료를 담당하는 계산 리소스가 포함되어 있습니다.
+프런트 엔드 풀에는 App Service Environment 내의 앱 요청에 대한 자동 부하 분산뿐 아니라 SSL 종료를 담당하는 컴퓨팅 리소스가 포함되어 있습니다.
 
-각 작업자 풀에는 하나 이상의 Azure App Service 앱을 포함하는 [App Service 계획][AppServicePlan]에 할당된 계산 리소스가 있습니다.  App Service Environment에는 최대 세 가지 작업자 풀을 둘 수 있으므로 작업자 풀마다 다른 계산 리소스를 유연하게 선택할 수 있습니다.  
+각 작업자 풀에는 하나 이상의 Azure App Service 앱을 포함하는 [App Service 계획][AppServicePlan]에 할당된 컴퓨팅 리소스가 있습니다.  App Service Environment에는 최대 세 가지 작업자 풀을 둘 수 있으므로 작업자 풀마다 다른 컴퓨팅 리소스를 유연하게 선택할 수 있습니다.  
 
-예를 들어 앱 개발 또는 테스트용 App Service 계획에 사용하기 위해 성능이 낮은 계산 리소스가 포함된 하나의 작업자 풀을 만들 수 있습니다.  두 번째(또는 세 번째) 작업자 풀은 프로덕션 앱을 실행하는 App Service 계획에 성능이 보다 뛰어난 계산 리소스를 사용할 수 있습니다.
+예를 들어 앱 개발 또는 테스트용 App Service 계획에 사용하기 위해 성능이 낮은 컴퓨팅 리소스가 포함된 하나의 작업자 풀을 만들 수 있습니다.  두 번째(또는 세 번째) 작업자 풀은 프로덕션 앱을 실행하는 App Service 계획에 성능이 보다 뛰어난 컴퓨팅 리소스를 사용할 수 있습니다.
 
-프런트 엔드 및 작업자 풀에 사용할 수 있는 계산 리소스의 양에 대한 자세한 내용은 [App Service 환경을 구성하는 방법][HowToConfigureanAppServiceEnvironment]을 참조하세요.  
+프런트 엔드 및 작업자 풀에 사용할 수 있는 컴퓨팅 리소스의 양에 대한 자세한 내용은 [App Service 환경을 구성하는 방법][HowToConfigureanAppServiceEnvironment]을 참조하세요.  
 
-App Service 환경에서 지원되는 사용 가능한 계산 리소스 크기에 대한 자세한 내용은 [App Service 가격][AppServicePricing] 페이지에서 프리미엄 가격 책정 계층의 App Service 환경에 사용 가능한 옵션을 참조하세요.
+App Service 환경에서 지원되는 사용 가능한 컴퓨팅 리소스 크기에 대한 자세한 내용은 [App Service 가격][AppServicePricing] 페이지에서 프리미엄 가격 책정 계층의 App Service 환경에 사용 가능한 옵션을 참조하세요.
 
 ## <a name="virtual-network-support"></a>Virtual Network 지원
 

@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
-ms.author: rli; juliako;
-ms.openlocfilehash: 3e4844c3174e41ca7f6f5667a2777aba11f70f11
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: ril
+ms.reviewer: juliako
+ms.openlocfilehash: a8db8de6ef062dcf757f3d264379677d6550ea3a
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60875074"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997684"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Azure 미디어 분석으로 얼굴 편집 안내
 
@@ -39,7 +40,7 @@ Redactor를 시작하는 가장 쉬운 방법은 GitHub에서 오픈 소스 AMSE
 
 ### <a name="download-and-setup"></a>다운로드 및 설치
 
-1. AMSE 도구를 [여기서](https://github.com/Azure/Azure-Media-Services-Explorer) 다운로드합니다.
+1. [여기](https://aka.ms/amseforv2)에서 AMS V2 용 amse 도구를 다운로드 합니다.
 1. 서비스 키를 사용하여 Media Services 계정에 로그인합니다.
 
     계정 이름 및 키 정보를 가져오려면 [Azure Portal](https://portal.azure.com/)로 이동하여 AMS 계정을 선택합니다. 그런 후 설정 > 키를 선택합니다. 키 관리 창에 계정 이름과 기본 및 보조 키가 표시됩니다. 계정 이름 및 기본 키 값을 복사해 둡니다.

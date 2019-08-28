@@ -3,15 +3,15 @@ title: Azure database for MariaDB 연결 아키텍처
 description: Azure Database for MariaDB 서버에 대 한 연결 아키텍처를 설명합니다.
 author: kummanish
 ms.author: manishku
-ms.service: mariaDB
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: 126e7ce4d9784a2f6a59f39562dff9a0b9d60ea0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d49e4dff1664d6630c966583a722f8e136061de5
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735393"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595269"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Azure database for MariaDB 연결 아키텍처
 클라이언트 내부 및 외부 Azure에서에서 MariaDB 인스턴스에 대 한 Azure Database에 트래픽이 이동 되는 방법을이 문서에서는 Azure Database for MariaDB 연결 아키텍처에도 설명 합니다.
@@ -53,7 +53,7 @@ Azure Database for MariaDB 연결할 서버에는 클러스터의 물리적 위�
 | 한국 중부 | 52.231.32.42 | |
 | 한국 남부 | 52.231.200.86 |  |
 | 미국 중북부 | 23.98.55.75 | 23.96.178.199 |
-| 유럽 북부 | 191.235.193.75 | 40.113.93.91 |
+| 북유럽 | 191.235.193.75 | 40.113.93.91 |
 | 미국 중남부 | 23.98.162.75 | 13.66.62.124 |
 | 동남아시아 | 23.100.117.95 | 104.43.15.0 |
 | 영국 남부 | 51.140.184.11 | |

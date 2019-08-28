@@ -6,12 +6,12 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.openlocfilehash: 28a4cc854842b66a9fb61134e3ca9ac9a5f38fed
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 04c1466c47d28f638bf7461050cb06b59c7d2396
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65965600"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614234"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>일반적인 Azure Cosmos DB 사용 사례
 이 문서에서는 Azure Cosmos DB의 몇 가지 일반적인 사용 사례를 간략하게 설명합니다.  이 문서의 권장 사항은 Cosmos DB로 애플리케이션을 개발할 때 시작점 역할을 합니다.   
@@ -24,27 +24,27 @@ ms.locfileid: "65965600"
 * Azure Cosmos DB를 웹 및 모바일 애플리케이션에 사용할 경우 어떤 이점이 있나요?
 
 ## <a name="introduction"></a>소개
-[Azure Cosmos DB](../cosmos-db/introduction.md)는 전 세계에 배포된 Microsoft 데이터베이스 서비스입니다. 서비스는 고객이 원하는 수의 지역에서 처리량 및 저장소 크기를 탄력적 및 독립적으로 조정할 수 있도록 설계되었습니다. Azure Cosmos DB는 처리량, 대기 시간, 가용성 및 일관성을 포괄하는 총체적인 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/cosmos-db/)을 제공하는, 현재 출시된 최초의 전역 분산 데이터베이스 서비스입니다. 
+[Azure Cosmos DB](../cosmos-db/introduction.md)는 전 세계에 배포된 Microsoft 데이터베이스 서비스입니다. 서비스는 고객이 원하는 수의 지역에서 처리량 및 스토리지 크기를 탄력적 및 독립적으로 조정할 수 있도록 설계되었습니다. Azure Cosmos DB는 처리량, 대기 시간, 가용성 및 일관성을 포괄하는 총체적인 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/cosmos-db/)을 제공하는, 현재 출시된 최초의 전역 분산 데이터베이스 서비스입니다. 
 
 Azure Cosmos DB는 광범위한 애플리케이션 및 사용 사례에서 사용되는, 전역으로 분산된 다중 모델 데이터베이스입니다. 낮은 응답 시간(밀리초)이 필요하며 신속하게 전역으로 크기를 조정해야 하는 [서버가 없는](https://azure.com/serverless) 애플리케이션에 적합합니다. 여러 데이터 모델(키-값, 문서, 그래프 및 칼럼 형식) 및 [Azure Cosmos DB의 MongoDB API](mongodb-introduction.md), [SQL API](documentdb-introduction.md), [Gremlin API](graph-introduction.md) 및 [Tables API](table-introduction.md) 등의 많은 데이터 액세스용 API를 기본적으로, 그리고 확장 가능한 방식으로 지원합니다. 
 
 전역으로 분산하려는 고성능 애플리케이션에 적합한 Azure Cosmos DB의 몇 가지 특성은 다음과 같습니다.
 
 * Azure Cosmos DB는 기본적으로 고가용성 및 확장성을 위해 데이터를 분할합니다. Azure Cosmos DB는 가용성, 처리량, 짧은 대기 시간 및 일관성에 대한 99.99% 보증을 모든 단일 지역 계정 및 평범한 일관성 수준의 모든 다중 지역 계정에 제공하고, 99.999% 읽기 가용성을 모든 다중 지역 데이터베이스 계정에 제공합니다.
-* Azure Cosmos DB에는 낮은 대기 시간의 응답 시간(밀리초)을 지원하는 SSD 지원 저장소가 있습니다.
+* Azure Cosmos DB에는 낮은 대기 시간의 응답 시간(밀리초)을 지원하는 SSD 지원 스토리지가 있습니다.
 * Azure Cosmos DB는 최종, 일관된 접두사, 세션, 제한된 부실 등의 일관성 수준을 지원하므로 완전한 유연성과 성능 대비 낮은 비용이 제공됩니다. 수준 일관성에서 Azure Cosmos DB만큼 큰 유연성을 제공하는 데이터베이스 서비스는 없습니다. 
-* Azure Cosmos DB에는 저장소 및 처리량을 독립적으로 측정하는, 유연하고 데이터 친화적인 가격 책정 모델이 있습니다.
+* Azure Cosmos DB에는 스토리지 및 처리량을 독립적으로 측정하는, 유연하고 데이터 친화적인 가격 책정 모델이 있습니다.
 * Azure Cosmos DB의 예약된 처리량 모델을 사용하면 기본 하드웨어의 CPU/메모리/IOP 대신 읽기/쓰기 수로 예측할 수 있습니다.
 * Azure Cosmos DB는 일별 요청 수가 조 단위에 이르는 대량 요청 볼륨으로 확장되도록 설계되었습니다.
 
 이러한 특성은 낮은 응답 시간이 필요하고 방대한 양의 읽기 및 쓰기를 처리해야 하는 웹, 모바일, 게임 및 IoT 애플리케이션에 유용합니다.
 
 ## <a name="iot-and-telematics"></a>IoT 및 텔레매틱스
-IoT 사용 사례는 일반적으로 데이터를 수집, 처리 및 저장하는 방법에서 일부 패턴을 공유합니다.  먼저 이러한 시스템이 다양한 로컬의 디바이스 센서에서 데이터 버스트를 수집해야 합니다. 다음으로 이러한 시스템이 스트리밍 데이터를 처리 및 분석하여 실시간 통찰력을 끌어냅니다. 그런 다음 배치 분석에 사용할 수 있도록 데이터를 콜드 저장소에 보관합니다. Microsoft Azure 제품은 Azure Cosmos DB, Azure Event Hubs, Azure Stream Analytics, Azure Notification Hub, Azure Machine Learning, Azure HDInsight 및 PowerBI를 비롯한 IoT 사용 사례에 적용할 수 있는 다양한 서비스를 제공합니다. 
+IoT 사용 사례는 일반적으로 데이터를 수집, 처리 및 저장하는 방법에서 일부 패턴을 공유합니다.  먼저 이러한 시스템이 다양한 로컬의 디바이스 센서에서 데이터 버스트를 수집해야 합니다. 다음으로 이러한 시스템이 스트리밍 데이터를 처리 및 분석하여 실시간 통찰력을 끌어냅니다. 그런 다음 배치 분석에 사용할 수 있도록 데이터를 콜드 스토리지에 보관합니다. Microsoft Azure 제품은 Azure Cosmos DB, Azure Event Hubs, Azure Stream Analytics, Azure Notification Hub, Azure Machine Learning, Azure HDInsight 및 PowerBI를 비롯한 IoT 사용 사례에 적용할 수 있는 다양한 서비스를 제공합니다. 
 
 ![Azure Cosmos DB IoT 참조 아키텍처](./media/use-cases/iot.png)
 
-Azure Event Hubs는 짧은 대기 시간으로 높은 처리량 데이터 수집을 제공하기 때문에 데이터 버스트를 수집할 수 있습니다. 실시간으로 처리해야 하는 수집된 데이터는 분석을 위해 Azure Stream Analytics로 전달할 수 있습니다. 임시 쿼리를 위해 데이터를 Azure Cosmos DB에 로드할 수 있습니다. 데이터가 Azure Cosmos DB에 로드되고 나면 데이터를 쿼리할 수 있습니다. 또한 새 데이터와 기존 데이터의 변경 내용을 변경 피드에서 읽을 수 있습니다. 변경 피드는 영구적이며, Cosmos DB 컨테이너에 대한 변경 내용을 저장하는 로그만 순서대로 추가합니다. 실시간 분석의 일부로 Azure Cosmos DB의 모든 데이터 또는 변경된 데이터만 참조 데이터로 사용할 수 있습니다. 또한 Pig, Hive 또는 Map/Reduce 작업을 위해 Azure Cosmos DB 데이터를 HDInsight에 연결하여 데이터를 추가로 구체화하고 처리할 수 있습니다.  그런 다음 보고를 위해 구체화된 데이터가 Azure Cosmos DB에 다시 로드됩니다.   
+Azure Event Hubs는 짧은 대기 시간으로 높은 처리량 데이터 수집을 제공하기 때문에 데이터 버스트를 수집할 수 있습니다. 실시간으로 처리해야 하는 수집된 데이터는 분석을 위해 Azure Stream Analytics로 전달할 수 있습니다. 임시 쿼리를 위해 데이터를 Azure Cosmos DB에 로드할 수 있습니다. 데이터가 Azure Cosmos DB에 로드되고 나면 데이터를 쿼리할 수 있습니다. 또한 새 데이터와 기존 데이터의 변경 내용을 변경 피드에서 읽을 수 있습니다. 변경 피드는 지속적으로 Cosmos 컨테이너에 대 한 변경 내용을 순차적으로 저장 하는 로그만 추가 합니다. 실시간 분석의 일부로 Azure Cosmos DB의 모든 데이터 또는 변경된 데이터만 참조 데이터로 사용할 수 있습니다. 또한 Pig, Hive 또는 Map/Reduce 작업을 위해 Azure Cosmos DB 데이터를 HDInsight에 연결하여 데이터를 추가로 구체화하고 처리할 수 있습니다.  그런 다음 보고를 위해 구체화된 데이터가 Azure Cosmos DB에 다시 로드됩니다.   
 
 Azure Cosmos DB, EventHub 및 Storm을 사용한 샘플 IoT 솔루션은 [GitHub의 hdinsight-storm-examples 리포지토리](https://github.com/hdinsight/hdinsight-storm-examples/)를 참조하세요.
 
@@ -108,7 +108,7 @@ Azure Cosmos DB를 시작하려면 계정을 만들고 Cosmos DB를 시작하는
 * [Citrix](https://customers.microsoft.com/story/citrix). Citrix는 Azure Service Fabric 및 Azure Cosmos DB를 사용하여 Single-Sign-On 솔루션을 개발합니다.
 * [TEXA](https://customers.microsoft.com/story/texaspa) 차량 소유자를 위한 TEXA의 혁신적인 IoT 솔루션은 시간, 비용, 휘발유 절감뿐 아니라 생명을 구하는 데에도 도움이 됩니다.
 * [Domino's Pizza](https://www.dominos.com). Domino's Pizza Inc.는 미국 체인 피자점입니다.
-* [Johnson Controls](https://www.johnsoncontrols.com). Johnson Controls는를 전역의 다양 한 기술 및 다중 산업 리더 150 개가 넘는 국가/지역에서 광범위 한 고객에 게 서비스를 제공 합니다.
+* [Johnson Controls](https://www.johnsoncontrols.com). Johnson 컨트롤은 150 개 이상의 국가/지역에서 다양 한 고객에 게 제공 하는 글로벌 다양 한 기술 및 멀티 산업 리더입니다.
 * [Microsoft Windows, Universal Store, Azure IoT Hub, Xbox Live 및 기타 인터넷 규모 서비스](https://azure.microsoft.com/blog/how-azure-documentdb-planet-scale-nosql-helps-run-microsoft-s-own-businesses/). Microsoft에서 Azure Cosmos DB를 사용하여 확장성이 뛰어난 서비스를 빌드하는 방법입니다.
 * [Microsoft 데이터 및 분석 팀](https://customers.microsoft.com/story/microsoftdataandanalytics)합니다. Microsoft 데이터 및 분석 팀은 Azure Cosmos DB를 사용하여 글로벌 규모의 빅 데이터 컬렉션을 얻습니다.
 * [Sulekha.com](https://customers.microsoft.com/story/sulekha-uses-azure-documentdb-to-connect-customers-and-businesses-across-india). Sulekha는 Azure Cosmos DB를 사용하여 인도의 고객과 기업을 연결합니다.

@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 7e697329e83b530157e490b04f5155d28d243bb6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e82a39b049c39cb4facfbc38b5e9020bb46de99b
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61271804"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637960"
 ---
 # <a name="back-up-your-app-in-azure"></a>Azure에서 앱 백업
-[Azure App Service](overview.md)의 백업 및 복원 기능을 사용하여 수동으로 또는 일정에 따라 앱 백업을 쉽게 만들 수 있습니다. 기존 앱을 덮어쓰거나 다른 앱으로 복원하여 앱을 이전 상태의 스냅샷으로 복원할 수 있습니다. 
+[Azure App Service](overview.md)의 백업 및 복원 기능을 사용하여 수동으로 또는 일정에 따라 앱 백업을 쉽게 만들 수 있습니다.  백업은 무기한 보존 되도록 구성할 수 있습니다. 기존 앱을 덮어쓰거나 다른 앱으로 복원하여 앱을 이전 상태의 스냅샷으로 복원할 수 있습니다.
 
 앱을 백업에서 복원하는 방법에 대한 자세한 내용은 [Azure에서 앱 복원](web-sites-restore.md)을 참조하세요.
 
@@ -50,14 +50,14 @@ App Service는 앱에서 사용하도록 구성한 Azure Storage 계정과 컨�
 <a name="requirements"></a>
 
 ## <a name="requirements-and-restrictions"></a>요구 사항 및 제한 사항
-* 백업 및 복원 기능을 사용하려면 App Service 계획이 **표준** 계층 또는 **프리미엄** 계층에 있어야 합니다. 더 높은 계층을 사용하도록 App Service 계획을 확장하는 방법에 대한 자세한 내용은 [Azure에서 앱 확장](web-sites-scale.md)을 참조하세요.  
+* 백업 및 복원 기능을 사용하려면 App Service 계획이 **표준** 계층 또는 **프리미엄** 계층에 있어야 합니다. 더 높은 계층을 사용하도록 App Service 계획을 확장하는 방법에 대한 자세한 내용은 [Azure에서 앱 확장](manage-scale-up.md)을 참조하세요.  
   **프리미엄** 계층을 사용하면 **표준** 계층보다 더 많은 매일 백업을 수행할 수 있습니다.
-* 백업하려는 앱과 동일한 구독에 Azure 저장소 계정 및 컨테이너가 필요합니다. Azure Storage 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](https://docs.microsoft.com/azure/storage/common/storage-account-overview)를 참조하세요.
+* 백업하려는 앱과 동일한 구독에 Azure Storage 계정 및 컨테이너가 필요합니다. Azure Storage 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](https://docs.microsoft.com/azure/storage/common/storage-account-overview)를 참조하세요.
 * 최대 10GB의 앱 및 데이터베이스 콘텐츠를 백업할 수 있습니다. 백업 크기가 이 제한을 초과하면 오류가 발생합니다.
 * SSL 지원 Azure Database for MySQL의 백업은 지원되지 않습니다. 백업이 구성된 경우, 실패한 백업이 표시됩니다.
 * SSL 지원 Azure Database for PostgreSQL의 백업은 지원되지 않습니다. 백업이 구성된 경우, 실패한 백업이 표시됩니다.
 * 인앱 MySQL 데이터베이스는 구성 없이도 자동으로 백업됩니다. 연결 문자열 추가 등의 인앱 MySQL 데이터베이스에 대한 설정을 수동으로 수행하는 경우 백업이 제대로 작동하지 않을 수 있습니다.
-* 방화벽 지원 저장소 계정을 백업 대상으로 사용하는 기능은 지원되지 않습니다. 백업이 구성된 경우, 실패한 백업이 표시됩니다.
+* 방화벽 지원 스토리지 계정을 백업 대상으로 사용하는 기능은 지원되지 않습니다. 백업이 구성된 경우, 실패한 백업이 표시됩니다.
 
 
 <a name="manualbackup"></a>
@@ -69,8 +69,8 @@ App Service는 앱에서 사용하도록 구성한 Azure Storage 계정과 컨�
    
    > [!NOTE]
    > 다음 메시지가 표시되면 백업을 계속 진행하기 전에 해당 App Service 계획을 클릭하여 업그레이드해야 합니다.
-   > 자세한 내용은 [Azure에서 앱 확장](web-sites-scale.md)을 참조하세요.  
-   > ![저장소 계정 선택](./media/web-sites-backup/01UpgradePlan1.png)
+   > 자세한 내용은 [Azure에서 앱 확장](manage-scale-up.md)을 참조하세요.  
+   > ![스토리지 계정 선택](./media/web-sites-backup/01UpgradePlan1.png)
    > 
    > 
 
@@ -78,13 +78,13 @@ App Service는 앱에서 사용하도록 구성한 Azure Storage 계정과 컨�
 ![구성 클릭](./media/web-sites-backup/ClickConfigure1.png)을 클릭합니다.
 3. **백업 구성** 페이지에서 **스토리지: 구성되지 않음**을 클릭하여 스토리지 계정을 구성합니다.
    
-    ![저장소 계정 선택][ChooseStorageAccount]
-4. **Storage 계정** 및 **컨테이너**를 선택하여 백업 대상을 선택합니다. 저장소 계정은 백업할 앱이 있는 동일한 구독에 속해야 합니다. 필요한 경우 각 페이지에서 새 저장소 계정이 나 새 컨테이너를 만들 수 있습니다. 완료되면 **선택**을 클릭합니다.
+    ![스토리지 계정 선택][ChooseStorageAccount]
+4. **Storage 계정** 및 **컨테이너**를 선택하여 백업 대상을 선택합니다. 스토리지 계정은 백업할 앱이 있는 동일한 구독에 속해야 합니다. 필요한 경우 각 페이지에서 새 스토리지 계정이 나 새 컨테이너를 만들 수 있습니다. 완료되면 **선택**을 클릭합니다.
    
-    ![저장소 계정 선택](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
+    ![스토리지 계정 선택](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
 5. 왼쪽에 열려 있는 **백업 구성** 페이지에서 **데이터베이스 백업**을 구성한 다음 백업에 포함할 데이터베이스(SQL 데이터베이스 또는 MySQL)를 선택하고 **확인**을 클릭합니다.  
    
-    ![저장소 계정 선택](./media/web-sites-backup/03ConfigureDatabase1.png)
+    ![스토리지 계정 선택](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
    > 이 목록에 표시될 데이터베이스의 경우 연결 문자열은 앱의 **애플리케이션 설정** 페이지에서 **연결 문자열** 섹션에 있어야 합니다. 
@@ -99,14 +99,14 @@ App Service는 앱에서 사용하도록 구성한 Azure Storage 계정과 컨�
    
     백업 프로세스를 수행하는 동안 진행 메시지가 표시됩니다.
 
-저장소 계정과 컨테이너가 구성되면 언제든지 수동 백업을 시작할 수 있습니다.  
+스토리지 계정과 컨테이너가 구성되면 언제든지 수동 백업을 시작할 수 있습니다.  
 
 <a name="automatedbackups"></a>
 
 ## <a name="configure-automated-backups"></a>자동화된 백업 구성
 1. **백업 구성** 페이지에서 **예약된 백업**을 **켜기**로 설정합니다. 
    
-    ![저장소 계정 선택](./media/web-sites-backup/05ScheduleBackup1.png)
+    ![스토리지 계정 선택](./media/web-sites-backup/05ScheduleBackup1.png)
 2. Backup 일정 옵션이 표시되면 **예약된 Backup**을 **켜기**로 설정하고 원하는 대로 백업 일정을 구성한 다음 **확인**을 클릭합니다.
    
     ![자동 백업 사용][SetAutomatedBackupOn]
@@ -123,7 +123,7 @@ App Service는 앱에서 사용하도록 구성한 Azure Storage 계정과 컨�
 부분 백업을 사용하면 백업할 파일을 정확히 선택할 수 있습니다.
 
 > [!NOTE]
-> 백업에서 개별 데이터베이스에는 최대 4GB 수 있지만 백업 총 최대 크기는 10GB
+> 백업의 개별 데이터베이스는 4GB까지 가능 하지만 백업의 총 최대 크기는 10GB입니다.
 
 ### <a name="exclude-files-from-your-backup"></a>백업에서 파일 제외
 한 번 백업되었고 변경하지 않을 로그 파일과 정적 이미지가 포함된 앱이 있다고 가정해 보겠습니다. 이러한 경우 해당 폴더와 파일을 이후의 백업에서 저장하지 않도록 제외할 수 있습니다. 백업에서 파일과 폴더를 제외하려면 앱의 `D:\home\site\wwwroot` 폴더에 `_backup.filter` 파일을 만듭니다. 이 파일에서 제외할 파일과 폴더의 목록을 지정합니다. 
@@ -157,7 +157,7 @@ App Service는 앱에서 사용하도록 구성한 Azure Storage 계정과 컨�
 <a name="aboutbackups"></a>
 
 ## <a name="how-backups-are-stored"></a>백업 저장 방법
-앱에 대해 하나 이상의 백업을 만들면 저장소 계정의 **컨테이너** 페이지와 앱에 해당 백업이 표시됩니다. 저장소 계정에서 각 백업은 백업 데이터가 포함된 `.zip` 파일과 해당 `.zip` 파일 콘텐츠의 매니페스트가 포함된 `.xml` 파일로 구성되어 있습니다. 실제로 앱 복원을 수행하지 않고 백업에 액세스하고자 한다면 이들 파일의 압축을 풀고 찾아볼 수 있습니다.
+앱에 대해 하나 이상의 백업을 만들면 스토리지 계정의 **컨테이너** 페이지와 앱에 해당 백업이 표시됩니다. 스토리지 계정에서 각 백업은 백업 데이터가 포함된 `.zip` 파일과 해당 `.zip` 파일 콘텐츠의 매니페스트가 포함된 `.xml` 파일로 구성되어 있습니다. 실제로 앱 복원을 수행하지 않고 백업에 액세스하고자 한다면 이들 파일의 압축을 풀고 찾아볼 수 있습니다.
 
 앱에 대한 데이터베이스 백업이 .zip 파일의 루트에 저장됩니다. SQL 데이터베이스의 경우 이 파일은 BACPAC 파일(파일 확장명 없음)이며, 가져올 수 있습니다. BACPAC 내보내기를 기반으로 하여 SQL 데이터베이스를 만들려면 [BACPAC 파일을 가져와 새 사용자 데이터베이스 만들기](https://technet.microsoft.com/library/hh710052.aspx)를 참조하세요.
 

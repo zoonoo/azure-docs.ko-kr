@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: dalechen
 ms.author: daleche
 ms.reviewer: jrasnik
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: d278fd6ed06b58db052154e632e565de36853e77
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6dccfca256239f922c2243e2ebfab5c26835ee98
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60331437"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566310"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Azure SQL Database에 대한 연결 문제 해결
 
@@ -85,7 +84,7 @@ Error code 40613: "Database <x> on server <y> is not currently available. Please
 * [Microsoft Azure 설명서 검색](https://azure.microsoft.com/search/documentation/)
 * [Azure SQL Database 서비스에 대한 최신 업데이트 보기](https://azure.microsoft.com/updates/?service=sql-database)
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 * [SQL Database 개발 개요](sql-database-develop-overview.md)
 * [일반적인 일시적 오류 처리 지침](../best-practices-retry-general.md)
 * [SQL Database 및 SQL Server용 연결 라이브러리](sql-database-libraries.md)

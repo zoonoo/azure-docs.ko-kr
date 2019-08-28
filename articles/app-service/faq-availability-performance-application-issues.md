@@ -178,7 +178,7 @@ WebJobs는 백그라운드에서 처리되도록 디자인됩니다. WebJob에�
 
 ## <a name="i-cant-find-my-log-files-in-the-file-structure-of-my-web-app-how-can-i-find-them"></a>내 웹앱의 파일 구조에서 로그 파일을 찾을 수 없습니다. 어떻게 찾을 수 있나요?
 
-App Service의 로컬 캐시 기능을 사용할 경우 App Service 인스턴스에 대한 LogFiles 및 Data 폴더의 폴더 구조에 영향을 미칩니다. 로컬 캐시가 사용될 경우 하위 폴더는 저장소 LogFiles 및 Data 폴더에 생성됩니다. 하위 폴더에는 명명 패턴 "고유 식별자" + 타임스탬프가 사용됩니다. 각 하위 폴더는 웹앱이 실행 중이거나 실행된 VM 인스턴스에 해당합니다.
+App Service의 로컬 캐시 기능을 사용할 경우 App Service 인스턴스에 대한 LogFiles 및 Data 폴더의 폴더 구조에 영향을 미칩니다. 로컬 캐시가 사용될 경우 하위 폴더는 스토리지 LogFiles 및 Data 폴더에 생성됩니다. 하위 폴더에는 명명 패턴 "고유 식별자" + 타임스탬프가 사용됩니다. 각 하위 폴더는 웹앱이 실행 중이거나 실행된 VM 인스턴스에 해당합니다.
 
 로컬 캐시를 사용 중인지 확인하려면 App Service **애플리케이션 설정** 탭을 확인합니다. 로컬 캐시가 사용되고 있으면 앱 설정 `WEBSITE_LOCAL_CACHE_OPTION`이 `Always`로 설정되어 있습니다.
 

@@ -61,7 +61,7 @@
           href: container-instances-restart-policy.md
         - name: 환경 변수 설정(env)
           href: container-instances-environment-variables.md
-        - name: 컨테이너 entrypoint 재정의
+        - name: 컨테이너 시작 명령 설정(entrypoint)
           href: container-instances-start-command.md
         - name: 명령 실행(exec)
           href: container-instances-exec.md
@@ -97,7 +97,7 @@
           href: container-instances-monitor.md
         - name: 컨테이너 로그 및 이벤트 가져오기
           href: container-instances-get-logs.md
-        - name: Azure Log Analytics로 로깅
+        - name: Azure Monitor 로그를 사용하여 로깅
           href: container-instances-log-analytics.md
     - name: 문제 해결
       items:
@@ -121,6 +121,8 @@
       href: /javascript/api/overview/azure/containerinstances
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.containerinstance/containergroups
+    - name: 커넥터
+      href: /connectors/aci
 - name: 리소스
   items:
     - name: Microsoft Learn을 통해 기술 쌓기
@@ -137,3 +139,5 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-container-instances'
     - name: 동영상
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest'
+    - name: FAQ
+      href: container-instances-faq.md

@@ -11,28 +11,28 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 08/21/2019
 ms.author: juliako
-ms.openlocfilehash: c519cf88f40928bbd556b0accfa30d9f8c5c0f11
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff85638a05855d0b755a7b1812ee7025274b559c
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991909"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019302"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services 릴리스 정보
 
 Azure Media Services에 대한 이 릴리스 정보에는 이전 릴리스 이후의 변경 내용과 알려진 문제가 요약되어 있습니다.
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 참고: [v2에서 v3 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
 
 Azure 팀은 고객의 의견을 수렴하여 고객에게 영향을 주는 문제를 해결하기 위해 노력하고 있습니다. 문제를 보고하거나 질문이 있는 경우 [Azure Media Services MSDN 포럼]에서 게시물을 제출하세요. 
 
 ## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>현재 알려진 문제
-### <a name="a-idgeneralissuesmedia-services-general-issues"></a><a id="general_issues"/>Media Services 관련 일반 문제
+### <a name="a-idgeneral_issuesmedia-services-general-issues"></a><a id="general_issues"/>Media Services 관련 일반 문제
 
-| 문제 | 설명 |
+| 문제점 | Description |
 | --- | --- |
 | REST API에 다양한 일반 HTTP 헤더가 제공되지 않습니다. |REST API를 사용하여 Media Services 애플리케이션을 개발하는 경우 CLIENT-REQUEST-ID, REQUEST-ID, RETURN-CLIENT-REQUEST-ID를 비롯한 몇 가지 일반 HTTP 헤더 필드가 지원되지 않습니다. 이 헤더는 이후 업데이트에서 추가될 예정입니다. |
 | 퍼센트 인코딩은 허용되지 않습니다. |Media Services는 스트리밍 콘텐츠의 URL을 작성할 때 속성의 값을 사용합니다(예: `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`). 이러한 이유로 퍼센트 인코딩은 허용되지 않습니다. 이름 속성 값에는 !* '();:@&=+$,/?%#[]"와 같은 [퍼센트 인코딩 예약 문자](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 파일 이름 확장명에는 "." 하나만 사용할 수 있습니다. |
@@ -42,16 +42,24 @@ Azure 팀은 고객의 의견을 수렴하여 고객에게 영향을 주는 문�
 | 일부 클라이언트에 부드러운 스트리밍 매니페스트의 반복 태그 문제가 발생할 수 있습니다. |자세한 내용은 [이 섹션](media-services-deliver-content-overview.md#known-issues)을 참조하세요. |
 | Media Services .NET SDK 개체는 직렬화할 수 없으며 따라서 Azure Redis Cache에서 작동하지 않습니다. |SDK AssetCollection 개체를 직렬화하여 Azure Redis Cache에 추가하려는 경우 예외가 throw됩니다. |
 
-## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>REST API 버전 기록
+## <a name="a-idrest_version_historyrest-api-version-history"></a><a id="rest_version_history"/>REST API 버전 기록
 Media Services REST API 버전 기록에 대한 자세한 내용은 [Azure Media Services REST API 참조]를 참조하세요.
 
-## <a name="march-2019"></a>2019 년 3 월
+## <a name="august-2019"></a>2019년 8월
 
-Azure Media Services의 Media Hyperlapse 미리 보기 기능 사용 되지 않았습니다.
+### <a name="deprecation-of-media-processors"></a>미디어 프로세서의 사용 중단
+
+2019 년 11 월 30 일에 사용이 중지 되는 wame ( *Windows Azure Media Encoder* ) 및 *Azure Media Encoder* (AME) 미디어 프로세서의 사용 중단을 발표 하 고 있습니다.
+
+자세한 내용은 [WAME to Media Encoder Standard로 마이그레이션](https://go.microsoft.com/fwlink/?LinkId=2101334) 및 [AME를 Media Encoder Standard로 마이그레이션](https://go.microsoft.com/fwlink/?LinkId=2101335)을 참조 하세요.
+
+## <a name="march-2019"></a>2019년 3월
+
+Azure Media Services의 미디어 Hyperlapse 미리 보기 기능은 더 이상 사용 되지 않습니다.
 
 ## <a name="december-2018"></a>2018년 12월
 
-Azure Media Services의 Media Hyperlapse 미리 보기 기능은 곧 사용 되지 것입니다. 2018년 12월 19일부터 Media Services는 Media Hyperlapse를 더 이상 변경하거나 개선하지 않습니다. 2019년 3월 29일에 사용 중지되며 더 이상 사용할 수 없습니다.
+Azure Media Services의 미디어 Hyperlapse 미리 보기 기능은 곧 사용이 중지 될 예정입니다. 2018년 12월 19일부터 Media Services는 Media Hyperlapse를 더 이상 변경하거나 개선하지 않습니다. 2019년 3월 29일에 사용 중지되며 더 이상 사용할 수 없습니다.
 
 ## <a name="october-2018"></a>2018년 10월
 
@@ -63,7 +71,7 @@ CMAF를 지원하는 Apple HLS(iOS 11+) 및 MPEG-DASH 플레이어에 대해 CMA
 
 이제 v2 API를 사용하면 Media Services를 사용하여 Web VTT 썸네일 스프라이트를 생성할 수 있습니다. 자세한 내용은 [썸네일 스프라이트 생성](generate-thumbnail-sprite.md)을 참조하세요.
 
-## <a name="july-2018"></a>2018년 7월
+## <a name="july-2018"></a>2018 년 7 월
 
 최신 서비스 릴리스에서는 작업이 실패할 때 서비스가 반환하는 오류 메시지가 두 개 이상의 줄로 분리되는 방식과 관련하여 서식이 약간 변경되었습니다.
 
@@ -136,7 +144,7 @@ Media Services에서 스트리밍 엔드포인트는 추가 배포를 위해 CDN
 
  이제 Media Services를 사용하여 해당 서비스에 대한 원격 분석/메트릭 데이터에 액세스할 수 있습니다. 현재 버전의 Media Services를 사용하여 라이브 채널, 스트리밍 엔드포인트 및 보관 엔터티에 대한 원격 분석 데이터를 수집할 수 있습니다. 자세한 내용은 [Media Services 원격 분석](media-services-telemetry-overview.md)을 참조하세요.
 
-## <a name="a-idjulychanges16july-2016-release"></a><a id="july_changes16"/>2016년 7월 릴리스
+## <a name="a-idjuly_changes16july-2016-release"></a><a id="july_changes16"/>2016년 7월 릴리스
 ### <a name="updates-to-the-manifest-file-ism-generated-by-encoding-tasks"></a>인코딩 작업으로 생성된 매니페스트 파일(*.ISM)에 대한 업데이트
 인코딩 작업이 Media Encoder Standard 또는 Media Encoder Premium에 제출된 경우 인코딩 작업은 출력 자산에 [스트리밍 매니페스트 파일](media-services-deliver-content-overview.md)(*.ism)을 생성합니다. 최신 서비스 릴리스와 함께 이 스트리밍 매니페스트 파일의 구문이 업데이트되었습니다.
 
@@ -243,7 +251,7 @@ Media Services .NET SDK의 현재 버전은 3.4.0.0입니다. 다음이 업데�
 
 * 라이브 보관에 대한 지원이 구현되었습니다. 라이브 아카이브를 포함한 자산은 다운로드할 수 없습니다.
 * 동적 필터에 대한 지원이 구현되었습니다.
-* 사용자가 자산을 삭제하는 동안 저장소 컨테이너를 유지할 수 있도록 기능이 구현되었습니다.
+* 사용자가 자산을 삭제하는 동안 스토리지 컨테이너를 유지할 수 있도록 기능이 구현되었습니다.
 * 채널에서 재시도 정책 관련 버그가 수정되었습니다.
 * Media Encoder Premium Workflow를 활성화했습니다.
 
@@ -369,7 +377,7 @@ Media Services REST 메타데이터의 현재 버전은 2.7입니다. 최신 RES
 * PlayReady 라이선스 배달 서비스 
 * PlayReady 동적 암호화 
 * Media Services PlayReady 라이선스 템플릿 자세한 정보는 [Media Services PlayReady 라이선스 템플릿 개요]를 참조하세요.
-* 저장소에서 암호화된 자산 스트리밍 자세한 내용은 [저장소에서 암호화된 콘텐츠 스트리밍](https://msdn.microsoft.com/library/azure/dn783451.aspx)을 참조하세요.
+* 스토리지에서 암호화된 자산 스트리밍 자세한 내용은 [스토리지에서 암호화된 콘텐츠 스트리밍](https://msdn.microsoft.com/library/azure/dn783451.aspx)을 참조하세요.
 
 ## <a id="august_changes_14"></a>2014년 8월 릴리스
 자산을 인코딩할 때 인코딩 작업이 완료되면 출력 자산이 생성됩니다. 이번 릴리스까지 Media Services 인코더는 출력 자산에 대한 메타데이터를 생성했습니다. 이번 릴리스부터 이 인코더는 입력 자산에 대한 메타데이터도 생성합니다. 자세한 내용은 [입력 메타데이터] 및 [출력 메타데이터]를 참조하세요.
@@ -450,7 +458,7 @@ Media Services SDK 버전 3.0.0.0부터 [Azure AD Access Control Service](https:
 ### <a name="june_13_general_changes"></a>Media Services 변경 내용
 이 섹션에 언급된 다음과 같은 변경 내용은 2013년 6월 Media Services 릴리스에 포함된 업데이트입니다.
 
-* 여러 저장소 계정을 미디어 서비스 계정에 연결할 수 있는 기능 
+* 여러 스토리지 계정을 미디어 서비스 계정에 연결할 수 있는 기능 
     * StorageAccount
     * Asset.StorageAccountName 및 Asset.StorageAccount
 * Job.Priority를 업데이트하는 기능 
@@ -464,7 +472,7 @@ Media Services SDK 버전 3.0.0.0부터 [Azure AD Access Control Service](https:
 ### <a name="june_13_dotnet_changes"></a>Media Services .NET SDK 변경 내용
 2013년 6월 Media Services SDK 릴리스에 포함된 변경 내용은 다음과 같습니다. 최신 Media Services SDK는 GitHub에서 제공됩니다.
 
-* 버전 2.3.0.0부터는 Media Services SDK에서 Media Services 계정에 여러 저장소 계정을 연결하도록 지원합니다. 이 기능을 지원하는 API는 다음과 같습니다.
+* 버전 2.3.0.0부터는 Media Services SDK에서 Media Services 계정에 여러 스토리지 계정을 연결하도록 지원합니다. 이 기능을 지원하는 API는 다음과 같습니다.
   
     * IStorageAccount 형식
     * Microsoft.WindowsAzure.MediaServices.Client.CloudMediaContext.StorageAccounts 속성

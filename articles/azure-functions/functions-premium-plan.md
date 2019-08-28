@@ -1,6 +1,6 @@
 ---
-title: Azure Functions Premium 계획 (미리 보기) | Microsoft Docs
-description: 계획 세부 정보 및 Azure Functions Premium에 대 한 구성 옵션 (VNet에 없는 콜드 시작, 무제한 실행 기간).
+title: Azure Functions Premium 요금제 (미리 보기) | Microsoft Docs
+description: Azure Functions 프리미엄 계획에 대 한 세부 정보 및 구성 옵션 (VNet, 콜드 시작 안 함, 실행 기간 제한 없음)입니다.
 services: functions
 author: jeffhollan
 manager: jeconnoc
@@ -10,45 +10,47 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: dab7561db8f223bff87f41ef756605359c3478e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8ad09550e572c98931346b44a6c6f84da29a85e4
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66492708"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443975"
 ---
-# <a name="azure-functions-premium-plan-preview"></a>Azure Functions Premium 계획 (미리 보기)
+# <a name="azure-functions-premium-plan-preview"></a>Azure Functions 프리미엄 계획 (미리 보기)
 
-Azure Functions 프리미엄 요금제에는 함수 앱에 대 한 호스팅 옵션입니다. 프리미엄 요금제는 VNet 연결과 콜드 시작 안 함, 프리미엄 하드웨어 같은 기능을 제공 합니다.  동일한 Premium 계획에 여러 함수 앱을 배포할 수 있습니다 하 고 계획을 사용 하면 계산 인스턴스 크기, 기본 계획 크기 및 최대 계획 크기를 구성할 수 있습니다.  프리미엄 요금제 및 기타 계획 형식을 비교를 참조 하세요 [함수 크기 조정 및 호스팅 옵션](functions-scale.md)합니다.
+Azure Functions Premium 요금제는 함수 앱에 대 한 호스팅 옵션입니다. 프리미엄 요금제는 VNet 연결, 콜드 부팅 및 프리미엄 하드웨어와 같은 기능을 제공 합니다.  여러 함수 앱을 동일한 프리미엄 계획에 배포할 수 있으며,이 계획을 통해 계산 인스턴스 크기, 기본 계획 크기 및 최대 계획 크기를 구성할 수 있습니다.  프리미엄 계획과 기타 계획 및 호스팅 유형을 비교 하는 방법에 대해서는 [함수 크기 조정 및 호스팅 옵션](functions-scale.md)을 참조 하세요.
 
-> [!NOTE]
-> 프리미엄 계획 미리 보기는 현재 Windows 인프라를 통해.NET, 노드 또는 Java에서 실행 되는 함수를 지원 합니다.
-
-## <a name="create-a-premium-plan"></a>프리미엄 계획 만들기
+## <a name="create-a-premium-plan"></a>프리미엄 요금제 만들기
 
 [!INCLUDE [functions-premium-create](../../includes/functions-premium-create.md)]
 
-Azure CLI에서 프리미엄 계획을 만들 수도 있습니다.
+Azure CLI에서 [az functionapp plan create](/cli/azure/functionapp/plan#az-functionapp-plan-create) 를 사용 하 여 프리미엄 계획을 만들 수도 있습니다. 다음 예에서는 _탄력적 프리미엄 1_ 계층 계획을 만듭니다.
 
 ```azurecli-interactive
-az functionapp plan create -g <resource-group> -n <plan-name> -l <region> --number-of-workers 1 --sku EP1
+az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> \
+--location <REGION> --sku EP1
 ```
+
+이 예제에서을 리소스 `<RESOURCE_GROUP>` `<PLAN_NAME>` 그룹으로 바꾸고를 리소스 그룹에서 고유한 계획의 이름으로 바꿉니다. [지원 되 `<REGION>` ](#regions)는를 지정 합니다. Linux를 지 원하는 프리미엄 요금제를 만들려면 `--is-linux` 옵션을 포함 합니다.
+
+계획을 만든 후에는 [az functionapp create](/cli/azure/functionapp#az-functionapp-create) 를 사용 하 여 함수 앱을 만들 수 있습니다. 포털에서 계획과 앱은 동시에 생성 됩니다. 
 
 ## <a name="features"></a>기능
 
-다음 기능은 프리미엄 계획에 배포 하는 함수 앱에서 사용할 수 있습니다.
+다음 기능은 프리미엄 계획에 배포 된 함수 앱에서 사용할 수 있습니다.
 
 ### <a name="pre-warmed-instances"></a>사전 준비 인스턴스
 
-실행 없고 이벤트 발생 하면 현재 소비 계획에서 앱 0 개 인스턴스로 축소할 수 있습니다. 새 이벤트를 제공 하는 경우 새 인스턴스를 실행 중인 앱을 사용 하 여 특수화할 수 해야 합니다.  특수화의 새 인스턴스를 앱에 따라 다소 시간이 걸릴 수 있습니다.  첫 번째 호출에서이 추가 대기 시간에 응용 프로그램의 콜드 시작을 이라고 합니다.
+현재 소비 계획에서 이벤트 및 실행이 발생 하지 않는 경우 앱이 0 개의 인스턴스로 확장 될 수 있습니다. 새 이벤트가 발생 하는 경우 새 인스턴스는 앱에서 실행 되는 앱과 함께 특수화 되어야 합니다.  특수화 된 새 인스턴스는 앱에 따라 다소 시간이 걸릴 수 있습니다.  첫 번째 호출의 이러한 추가 대기 시간은 종종 앱 콜드 시작 이라고 합니다.
 
-프리미엄 요금제에서는 최소 계획 크기까지 인스턴스의 지정된 된 수에 미리 준비 앱을 할 수 있습니다.  또한 미리 준비 인스턴스 미리 높은 로드 하기 전에 앱을 확장할 수 있습니다. 앱 확장 되 면 대로 먼저 미리 warmed 인스턴스로 조정 합니다. 추가 인스턴스 및 다음 크기 조정 작업에 대 한 준비에서 즉시 웜 버퍼를 계속 합니다. 사전 준비 인스턴스의 버퍼를가지고 있으므로, 콜드 대기 시간을 효과적으로 방지할 수 있습니다.  미리 준비 인스턴스는 프리미엄 요금제 기능 하 고 하나 이상의 인스턴스를 유지 해야 활성 상태인 모든 시간 계획에서 사용할 수 있습니다.
+프리미엄 계획에서는 지정 된 수의 인스턴스에서 최소 계획 크기로 앱을 미리 준비 수 있습니다.  준비 인스턴스를 사용 하 여 높은 로드 전에 앱을 미리 확장할 수도 있습니다. 앱이 확장 될 때 먼저 사전 준비 인스턴스로 확장 됩니다. 추가 인스턴스는 다음 크기 조정 작업을 준비 하기 위해 계속 해 서 버퍼링 되어 즉시 웜 합니다. 준비 인스턴스의 버퍼를 사용 하 여 콜드 시작 대기 시간을 효과적으로 방지할 수 있습니다.  사전 준비 인스턴스는 프리미엄 계획의 기능으로, 실행 중인 인스턴스를 하나 이상 유지 하 고 해당 계획이 활성화 된 상태에서 사용 가능 하 게 유지 해야 합니다.
 
-Azure에서 사전 준비 인스턴스 수를 구성할 수 있습니다 선택 하 여 포털에 **함수 앱**를 진행 하는, 합니다 **플랫폼 기능** 탭을 선택 하는 **Scale Out**옵션입니다. 함수 앱 편집 창에서 해당 앱을 미리 준비 인스턴스 관련이 하 하지만 최소 및 최대 인스턴스 전체 계획에 적용 됩니다.
+**함수 앱**를 선택 하 고 **플랫폼 기능** 탭으로 이동한 다음 **Scale Out** 옵션을 선택 하 여 Azure Portal에서 사전 준비 인스턴스 수를 구성할 수 있습니다. 함수 앱 편집 창에서 사전 준비 인스턴스는 해당 앱에만 적용 되지만 최소 및 최대 인스턴스는 전체 계획에 적용 됩니다.
 
 ![탄력적 크기 조정 설정](./media/functions-premium-plan/scale-out.png)
 
-Azure CLI를 사용 하 여 앱에 대 한 미리 준비 인스턴스를 구성할 수도 있습니다.
+Azure CLI를 사용 하 여 앱에 대 한 사전 준비 인스턴스를 구성할 수도 있습니다.
 
 ```azurecli-interactive
 az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites
@@ -56,34 +58,34 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 ### <a name="private-network-connectivity"></a>개인 네트워크 연결
 
-프리미엄 계획에 배포 하는 azure Functions는 활용 [웹 앱에 대 한 새 VNet 통합](../app-service/web-sites-integrate-with-vnet.md)합니다.  구성 되 면 앱 VNet 내의 리소스와 통신할 수 또는 서비스 끝점을 통해 보호 합니다.  IP 제한 들어오는 트래픽을 제한 하기 위해 앱에서 사용할 수 있습니다.
+프리미엄 계획에 배포 Azure Functions는 [웹 앱에 대 한 새로운 VNet 통합](../app-service/web-sites-integrate-with-vnet.md)을 활용 합니다.  구성 된 앱은 VNet 내의 리소스와 통신 하거나 서비스 끝점을 통해 보안을 설정할 수 있습니다.  IP 제한은 앱에서 들어오는 트래픽을 제한 하는 데에도 사용할 수 있습니다.
 
-프리미엄 계획에서 함수 앱으로 서브넷을 할당 때 잠재적인 각 인스턴스에 대 한 충분 한 IP 주소를 사용 하 여 서브넷을 해야 합니다. 인스턴스의 최대 수는 미리 보기 기간 동안 다를 수 있습니다, 있지만 100 개 이상의 사용 가능한 주소를 사용 하 여 IP 블록이 필요 합니다.
+프리미엄 계획의 함수 앱에 서브넷을 할당 하는 경우 각 잠재적 인스턴스에 대해 충분 한 IP 주소가 있는 서브넷이 필요 합니다. 최대 인스턴스 수는 미리 보기 중에 다를 수 있지만 사용 가능한 주소가 100 이상인 IP 블록이 필요 합니다.
 
-자세한 내용은 (영문)을 참조 하세요 [VNet을 사용 하 여 함수 앱을 통합](functions-create-vnet.md)합니다.
+자세한 내용은 [VNet과 함수 앱 통합](functions-create-vnet.md)을 참조 하세요.
 
 ### <a name="rapid-elastic-scale"></a>신속한 탄력적 확장
 
-추가 계산 인스턴스가 동일한 신속 하 게 크기 조정 논리를 사용 하 여 소비 계획으로 앱에 대 한 자동으로 추가 됩니다.  작동 방법을 크기 조정에 대 한 자세한 내용은 참조 하세요 [크기 조정 및 호스팅 함수](./functions-scale.md#how-the-consumption-and-premium-plans-work)합니다.
+소비 계획과 동일한 빠른 크기 조정 논리를 사용 하 여 앱에 대 한 추가 계산 인스턴스가 자동으로 추가 됩니다.  크기 조정의 작동 방식에 대 한 자세한 내용은 [함수 크기 조정 및 호스팅](./functions-scale.md#how-the-consumption-and-premium-plans-work)을 참조 하세요.
 
-### <a name="unbounded-run-duration"></a>Unbounded 실행 지속 시간
+### <a name="unbounded-run-duration"></a>무제한 실행 지속 시간
 
-Azure Functions 소비 계획에서 단일 실행에 대 일 분으로 제한 됩니다.  프리미엄 계획에서 실행된 기간 기본 런어웨이 실행을 방지 하기 위해 30 분입니다. 그러나 수 있습니다 [host.json 구성을 수정](./functions-host-json.md#functiontimeout) 프리미엄 계획 앱에 대 한 무제한 이렇게 하려면.
+소비 계획의 Azure Functions은 단일 실행에 대해 10 분으로 제한 됩니다.  프리미엄 계획에서 실행 기간은 기본적으로 30 분으로 설정 되어 런어웨이 실행을 방지 합니다. 그러나 프리미엄 계획 앱에 대해이 작업을 수행할 수 없도록 하려면 [호스트 json 구성을 수정할](./functions-host-json.md#functiontimeout) 수 있습니다.
 
-미리 보기에서 프로그램 기간 지난 12 분 보장 되지 않으며 확률이 앱은 하지 해당 최소 작업자 수 확장할 경우 30 분 이상 실행 해야 합니다.
+미리 보기에서 지속 시간은 12 분 이전에 보장 되지 않으며, 앱이 최소 작업자 수 이상으로 조정 되지 않은 경우 30 분 이상 실행 될 가능성이 있습니다.
 
-## <a name="plan-and-sku-settings"></a>계획 및 SKU 설정
+## <a name="plan-and-sku-settings"></a>요금제 및 SKU 설정
 
-두 가지 설정을 구성 하는 계획을 만들면: 인스턴스 (또는 계획 크기)의 최소 및 최대 버스트 용량 한도입니다.  프리미엄 요금제에 대 한 최소 인스턴스 수 1 이며 미리 보기 중 최대 버스트는 20 개입니다.  최소 인스턴스가 항상 실행 되 고 예약 합니다.
+계획을 만들 때 최소 인스턴스 수 (또는 계획 크기)와 최대 버스트 제한의 두 가지 설정을 구성 합니다.  프리미엄 계획의 최소 인스턴스는 1이 고 미리 보기 중의 최대 버스트는 20입니다.  최소 인스턴스는 예약 되어 있으며 항상 실행 중입니다.
 
 > [!IMPORTANT]
-> 할당 된 최소 인스턴스 수에 관계 없이 여부 함수 실행 하는 경우 각 인스턴스에 대 한 요금이 청구 됩니다.
+> 함수 실행 여부에 관계 없이 최소 인스턴스 수에 할당 된 각 인스턴스에 대해 요금이 청구 됩니다.
 
-앱에 필요한 계획 크기 초과 인스턴스, 인스턴스 수가 최대 버스트 제한에 도달 될 때까지 확장 하기 위해 계속 수 있습니다.  동안에 계획 크기의 범위 밖에 있는 인스턴스에 대 한 사용자에 게 청구는 실행 되 고를 임대 합니다.  앱에 대 한 최소 계획 인스턴스는 보장 하지만 정의 된 최대 한도 초과 앱 크기 조정에 최선을 다를 해 드립니다.
+앱이 계획 크기를 초과 하는 인스턴스를 필요로 하는 경우 인스턴스 수가 최대 버스트 제한에 도달할 때까지 계속 규모를 확장할 수 있습니다.  실행 되 고 있는 동안 계획 크기를 초과 하는 인스턴스에 대해서만 요금이 청구 됩니다.  앱을 정의 된 최대 제한까지 확장 하는 것이 가장 좋습니다. 반면 최소 계획 인스턴스는 앱에 대해 보장 됩니다.
 
-계획 크기를 구성할 수 있으며 선택 하 여 Azure portal에서 최대값을 **Scale Out** 계획이 나 해당 계획에 배포 하는 함수 앱에 대 한 옵션 (아래 **플랫폼 기능**).
+계획에서 **Scale Out** 옵션을 선택 하 여 Azure Portal에서 계획 크기 및 최대값을 구성할 수 있습니다 ( **플랫폼 기능**아래).
 
-또한 Azure CLI에서 최대 버스트 제한을 높일 수 있습니다.
+Azure CLI에서 최대 버스트 제한을 늘릴 수도 있습니다.
 
 ```azurecli-interactive
 az resource update -g <resource_group> -n <premium_plan_name> --set properties.maximumElasticWorkerCount=<desired_max_burst> --resource-type Microsoft.Web/serverfarms 
@@ -91,9 +93,9 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 ### <a name="available-instance-skus"></a>사용 가능한 인스턴스 Sku
 
-만들거나 계획 크기 조정 하는 경우 세 인스턴스 크기를 선택할 수 있습니다.  총 코어 수 및 사용 된 초당 메모리에 대 한 청구 됩니다.  앱에 자동으로 규모를 확장할 수 여러 인스턴스가 필요에 따라 합니다.  
+계획을 만들거나 크기를 조정할 때 세 가지 인스턴스 크기 중에서 선택할 수 있습니다.  총 코어 수와 초당 사용 된 메모리에 대 한 요금이 청구 됩니다.  필요에 따라 앱이 여러 인스턴스로 자동 확장 될 수 있습니다.  
 
-|SKU|코어 수|메모리|Storage|
+|SKU|코어|메모리|스토리지|
 |--|--|--|--|
 |EP1|1|3.5GB|250GB|
 |EP2|2|7GB|250GB|
@@ -101,32 +103,34 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 ## <a name="regions"></a>영역
 
-다음은 공개 미리 보기에 대 한 현재 지원 되는 지역입니다.
+다음은 각 OS에 대 한 공개 미리 보기에 대해 현재 지원 되는 지역입니다.
 
-|지역|
-|--|
-|오스트레일리아 동부|
-|오스트레일리아 남동부|
-|캐나다 중부|
-|미국 중부|
-|동아시아|
-|미국 동부 2|
-|프랑스 중부|
-|일본 서부|
-|한국 중부|
-|미국 중북부|
-|유럽 북부|
-|미국 중남부|
-|인도 남부|
-|동남아시아|
-|영국 서부|
-|서유럽|
-|인도 서부|
-|미국 서부|
+|Region| Windows | Linux |
+|--| -- | -- |
+|오스트레일리아 동부| ✔ | |
+|오스트레일리아 남동부 | ✔ | ✔ |
+|캐나다 중부| ✔ |  |
+|미국 중부| ✔ |  |
+|아시아 동부| ✔ |  |
+|East US | | ✔ |
+|미국 동부 2| ✔ |  |
+|프랑스 중부| ✔ |  |
+|일본 동부|  | ✔ |
+|일본 서부| ✔ | |
+|한국 중부| ✔ |  |
+|미국 중북부| ✔ |  |
+|유럽 북부| ✔ | ✔ |
+|미국 중남부| ✔ |  |
+|인도 남부 | ✔ | |
+|동남아시아| ✔ | ✔ |
+|영국 서부| ✔ |  |
+|유럽 서부| ✔ | ✔ |
+|인도 서부| ✔ |  |
+|미국 서부| ✔ | ✔ |
 
 ## <a name="known-issues"></a>알려진 문제
 
-알려진 문제의 상태를 추적할 수는 [GitHub에서 공개 미리 보기](https://github.com/Azure/Azure-Functions/wiki/Premium-plan-known-issues)합니다.
+[GitHub에서 공개 미리 보기](https://github.com/Azure/Azure-Functions/wiki/Premium-plan-known-issues)의 알려진 문제 상태를 추적할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

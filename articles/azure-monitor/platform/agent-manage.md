@@ -1,6 +1,6 @@
 ---
 title: Azure Log Analytics 에이전트 관리 | Microsoft Docs
-description: 이 문서에서는 Log Analytics Windows 또는 Linux 에이전트 컴퓨터에 배포의 수명 주기 동안 일반적으로 수행 하는 다른 관리 작업을 설명 합니다.
+description: 이 문서에서는 컴퓨터에 배포 된 Log Analytics Windows 또는 Linux 에이전트의 수명 주기 동안 일반적으로 수행 하는 다양 한 관리 작업에 대해 설명 합니다.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -14,67 +14,67 @@ ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: magoedte
 ms.openlocfilehash: 0c128aaf8102b3072b6a63c80ea860ceefbf5124
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67146300"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Windows 및 Linux용 Log Analytics 에이전트 관리 및 유지 관리
 
-Log Analytics Windows 또는 Azure Monitor에서 Linux 에이전트의 초기 배포 후 에이전트를 다시 구성, 업그레이드, 또는 해당 수명 주기의 사용 중지 단계에 도달한 경우 컴퓨터에서 제거 해야 합니다. 이러한 일상적인 유지 관리 작업을 수동으로 또는 자동화를 통해 간단히 관리하여 조작 오류와 비용을 모두 줄일 수 있습니다.
+Azure Monitor에서 Log Analytics Windows 또는 Linux 에이전트의 초기 배포 후 에이전트를 다시 구성 하거나, 업그레이드 하거나, 해당 수명 주기의 사용 중지 단계에 도달한 경우 컴퓨터에서 제거 해야 할 수 있습니다. 이러한 일상적인 유지 관리 작업을 수동으로 또는 자동화를 통해 간단히 관리하여 조작 오류와 비용을 모두 줄일 수 있습니다.
 
 ## <a name="upgrading-agent"></a>에이전트 업그레이드
 
-Windows 및 Linux 용 Log Analytics 에이전트를 업그레이드할 수 있습니다 최신 릴리스를 수동 또는 자동으로 배포 시나리오 및 VM에서 실행 중인 환경에 따라. 에이전트를 업그레이드 하려면 다음 메서드를 사용할 수 있습니다.
+Windows 및 Linux 용 Log Analytics 에이전트는 VM이 실행 되는 배포 시나리오 및 환경에 따라 수동으로 또는 자동으로 최신 릴리스로 업그레이드할 수 있습니다. 다음 메서드를 사용 하 여 에이전트를 업그레이드할 수 있습니다.
 
-| Environment | 설치 방법 | 업그레이드 방법 |
+| 환경 | 설치 방법 | 업그레이드 방법 |
 |--------|----------|-------------|
-| Azure VM | Windows/Linux 용 log Analytics 에이전트 VM 확장 | Azure Resource Manager 템플릿에서 속성을 설정 하 여 옵트아웃 하려면 구성한 경우가 아니면 기본적으로 에이전트 자동 업그레이드 됩니다 *autoUpgradeMinorVersion* 하 **false**합니다. |
-| 사용자 지정 Azure VM 이미지 | Windows/Linux 용 Log Analytics 에이전트 수동 설치 | Vm 에이전트의 최신 버전으로 업데이트 Linux 자동 압축 풀기 및 설치 가능한 셸 스크립트 번들을 Windows installer 패키지를 실행 하는 명령줄에서 수행 해야 합니다.|
-| 비 Azure Vm | Windows/Linux 용 Log Analytics 에이전트 수동 설치 | Vm 에이전트의 최신 버전으로 업데이트 Linux 자동 압축 풀기 및 설치 가능한 셸 스크립트 번들을 Windows installer 패키지를 실행 하는 명령줄에서 수행 해야 합니다. |
+| Azure VM | Windows/Linux 용 Log Analytics 에이전트 VM 확장 | *AutoUpgradeMinorVersion* 속성을 **false**로 설정 하 여 옵트아웃 (opt out) 하도록 Azure Resource Manager 템플릿을 구성 하지 않은 경우 에이전트는 기본적으로 자동으로 업그레이드 됩니다. |
+| 사용자 지정 Azure VM 이미지 | Windows/Linux 용 Log Analytics 에이전트 수동 설치 | Vm을 최신 버전으로 업데이트 하려면 Windows installer 패키지를 실행 하는 명령줄 이나 Linux 자동 압축 풀기 및 설치 가능 셸 스크립트 번들에서 수행 해야 합니다.|
+| 비 Azure Vm | Windows/Linux 용 Log Analytics 에이전트 수동 설치 | Vm을 최신 버전으로 업데이트 하려면 Windows installer 패키지를 실행 하는 명령줄 이나 Linux 자동 압축 풀기 및 설치 가능 셸 스크립트 번들에서 수행 해야 합니다. |
 
 ### <a name="upgrade-windows-agent"></a>Windows 에이전트 업그레이드 
 
-Windows VM에 에이전트를 Log Analytics VM 확장을 사용 하 여 설치 되어 있지 최신 버전으로 업데이트를 하거나 또는 실행 하면 명령 프롬프트, 스크립트나 기타 자동화 솔루션 MMASetup-를 사용 하 여\<플랫폼\>.msi 설치 마법사입니다.  
+Windows vm의 에이전트를 Log Analytics VM 확장을 사용 하 여 설치 되지 않은 최신 버전으로 업데이트 하려면 명령 프롬프트, 스크립트 또는 다른 자동화 솔루션에서 또는 mmasetup-\<platform\>.msi 설치 프로그램을 사용 하 여 실행 합니다. 준비.  
 
-다음 단계를 수행 하 여 Log Analytics 작업 영역에서 Windows 에이전트의 최신 버전을 다운로드할 수 있습니다.
+다음 단계를 수행 하 여 Log Analytics 작업 영역에서 최신 버전의 Windows 에이전트를 다운로드할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics 작업 영역**을 선택합니다.
 
-3. Log Analytics 작업 영역 목록에 작업 영역을 선택 합니다.
+3. Log Analytics 작업 영역 목록에서 작업 영역을 선택 합니다.
 
-4. Log Analytics 작업 영역에서 선택 **고급 설정**을 선택한 후 **연결 된 원본**를 차례로 **Windows 서버**합니다.
+4. Log Analytics 작업 영역에서 **고급 설정**을 선택 하 고 **연결 된 원본**, 마지막으로 **Windows 서버**를 차례로 선택 합니다.
 
-5. **Windows 서버** 페이지에서 적절 한 선택 **Windows 에이전트 다운로드** Windows 운영 체제의 프로세서 아키텍처에 따라 다운로드 하는 버전입니다.
+5. Windows **server** 페이지에서 windows 운영 체제의 프로세서 아키텍처에 따라 다운로드할 적절 한 **windows 에이전트** 버전을 선택 합니다.
 
 >[!NOTE]
->Windows에 대 한 Log Analytics 에이전트를 업그레이드 하는 동안에 보고할 작업 영역을 다시 구성 하거나 구성 하지 지원지 않습니다. 에이전트를 구성 하려면 아래에 나열 된 지원 되는 방법 중 하나를 수행 해야 [를 추가 하거나 제거 하려면 작업 영역](#adding-or-removing-a-workspace)합니다.
+>Windows 용 Log Analytics 에이전트를 업그레이드 하는 동안에는 보고할 작업 영역을 구성 하거나 다시 구성 하는 작업을 지원 하지 않습니다. 에이전트를 구성 하려면 [작업 영역 추가 또는 제거](#adding-or-removing-a-workspace)에 나열 된 지원 되는 방법 중 하나를 수행 해야 합니다.
 >
 
 #### <a name="to-upgrade-using-the-setup-wizard"></a>설치 마법사를 사용 하 여 업그레이드 하려면
 
 1. 관리 권한이 있는 계정으로 컴퓨터에 로그인합니다.
 
-2. 실행할 **MMASetup-\<플랫폼\>.exe** 설치 마법사를 시작 합니다.
+2. **\<Mmasetup\>** 를 실행 하 여 설치 마법사를 시작 합니다.
 
-3. 설치 마법사의 첫 번째 페이지에서 클릭 **다음**합니다.
+3. 설치 마법사의 첫 페이지에서 **다음**을 클릭 합니다.
 
-4. 에 **Microsoft Monitoring Agent 설치** 대화 상자에서 클릭 **동의** 라이선스 계약에 동의 합니다.
+4. **Microsoft Monitoring Agent 설정** 대화 상자에서 **동의** 함을 클릭 하 여 사용권 계약에 동의 합니다.
 
-5. 에 **Microsoft Monitoring Agent 설치** 대화 상자, 클릭 **업그레이드**합니다. 상태 페이지에는 업그레이드의 진행률을 표시 합니다.
+5. **Microsoft Monitoring Agent 설치** 대화 상자에서 **업그레이드**를 클릭 합니다. 상태 페이지에 업그레이드 진행률이 표시 됩니다.
 
-6. 경우는 **Microsoft Monitoring Agent 구성을 완료 했습니다.** 페이지에 표시 되 면 클릭 **완료**합니다.
+6. **Microsoft Monitoring Agent 구성이 성공적으로 완료** 된 경우 페이지가 표시 되 면 **마침**을 클릭 합니다.
 
-#### <a name="to-upgrade-from-the-command-line"></a>명령줄에서 업그레이드
+#### <a name="to-upgrade-from-the-command-line"></a>명령줄에서 업그레이드 하려면
 
 1. 관리 권한이 있는 계정으로 컴퓨터에 로그인합니다.
 
 2. 에이전트 설치 파일을 추출하려면 관리자 권한 명령 프롬프트에서 `MMASetup-<platform>.exe /c`를 실행합니다. 그러면 파일을 추출할 경로를 묻은 메시지가 표시됩니다. `MMASetup-<platform>.exe /c /t:<Full Path>` 인수를 전달하여 경로를 지정할 수도 있습니다.
 
-3. 다음 명령을 실행 하는 D:\ 업그레이드 로그 파일의 위치가입니다.
+3. 다음 명령을 실행 합니다. 여기서 D:\ 업그레이드 로그 파일의 위치입니다.
 
     ```dos
     setup.exe /qn /l*v D:\logs\AgentUpgrade.log AcceptEndUserLicenseAgreement=1
@@ -82,16 +82,16 @@ Windows VM에 에이전트를 Log Analytics VM 확장을 사용 하 여 설치 �
 
 ### <a name="upgrade-linux-agent"></a>Linux 에이전트 업그레이드 
 
-이전 버전에서 업그레이드 (> 1.0.0-47) 지원 됩니다. `--upgrade` 명령을 사용하여 설치를 수행하면 에이전트의 모든 구성 요소가 최신 버전으로 업그레이드됩니다.
+이전 버전 (> 1.0.0-47)에서 업그레이드가 지원 됩니다. `--upgrade` 명령을 사용하여 설치를 수행하면 에이전트의 모든 구성 요소가 최신 버전으로 업그레이드됩니다.
 
-에이전트를 업그레이드 하려면 다음 명령을 실행 합니다.
+다음 명령을 실행 하 여 에이전트를 업그레이드 합니다.
 
 `sudo sh ./omsagent-*.universal.x64.sh --upgrade`
 
 ## <a name="adding-or-removing-a-workspace"></a>작업 영역 추가 또는 제거
 
 ### <a name="windows-agent"></a>Windows 에이전트
-이 섹션의 단계는 필요한 뿐만 아니라 다른 작업 영역에 보고 하거나, 해당 구성에서 작업 영역을 제거 하려면 Windows 에이전트를 다시 구성 하려는 경우 또한 (일반적으로 둘 이상의 작업 영역에 보고 하도록 에이전트를 구성 하려는 경우 라고 멀티 호 밍) 합니다. 아래에 설명 된 메서드를 사용 하 여 에이전트의 초기 설치 후 여러 작업 영역에 보고 하도록 Windows 에이전트 구성만 수행할 수 있습니다.    
+Windows 에이전트를 다시 구성 하 여 다른 작업 영역에 보고 하거나 구성에서 작업 영역을 제거할 뿐만 아니라 둘 이상의 작업 영역에 보고 하도록 에이전트를 구성 하려는 경우에이 섹션의 단계가 필요 합니다 (일반적으로 멀티 호 밍 이라고 함). 여러 작업 영역에 보고 하도록 Windows 에이전트를 구성 하는 작업은 에이전트의 초기 설치 후와 아래에 설명 된 방법을 사용 하는 경우에만 수행할 수 있습니다.    
 
 #### <a name="update-settings-from-control-panel"></a>제어판에서 설정 업데이트
 
@@ -105,7 +105,7 @@ Windows VM에 에이전트를 Log Analytics VM 확장을 사용 하 여 설치 �
 
 5. 작업 영역을 추가하려면 **추가**를 클릭하고 **Log Analytics 작업 영역 추가** 대화 상자에서 작업 영역 ID 및 작업 영역 키(기본 키)를 붙여넣습니다. 컴퓨터가 Azure Government 클라우드에서 Log Analytics 작업 영역에 보고해야 하는 경우 Azure Cloud 드롭다운 목록에서 Azure 미국 정부를 선택합니다.
 
-6. **확인**을 클릭하여 변경 내용을 저장합니다.
+6. **확인** 을 클릭하여 변경 내용을 저장합니다.
 
 #### <a name="remove-a-workspace-using-powershell"></a>PowerShell을 사용하여 작업 영역 제거
 
@@ -141,7 +141,7 @@ $mma.ReloadConfiguration()
 >
 
 ### <a name="linux-agent"></a>Linux 에이전트
-다음 단계를 다른 작업 영역을 사용 하 여 등록 또는 해당 구성에서 작업 영역을 제거 하려는 경우 Linux 에이전트를 다시 구성 하는 방법을 보여 줍니다.
+다음 단계에서는 Linux 에이전트를 다른 작업 영역에 등록 하거나 구성에서 작업 영역을 제거 하는 경우 해당 에이전트를 다시 구성 하는 방법을 보여 줍니다.
 
 1. 작업 영역에 등록되었는지 확인하려면 다음 명령을 실행합니다.
 
@@ -161,7 +161,7 @@ $mma.ReloadConfiguration()
 
     `/opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <shared key> [-d <top level domain>]`
     
-4. 변경 내용이 영향을 확인 하려면 다음 명령을 실행 합니다.
+4. 변경 내용이 적용 되었는지 확인 하려면 다음 명령을 실행 합니다.
 
     `/opt/microsoft/omsagent/bin/omsadmin.sh -l`
 
@@ -232,7 +232,7 @@ Linux 컴퓨터가 프록시 서버 또는 Log Analytics 게이트웨이를 통�
     ```
 
 ## <a name="uninstall-agent"></a>에이전트 제거
-명령줄 또는 설치 마법사를 사용 하 여 Windows 또는 Linux 에이전트를 제거 하려면 다음 절차 중 하나를 사용 합니다.
+다음 절차 중 하나를 사용 하 여 명령줄 또는 설치 마법사를 사용 하 여 Windows 또는 Linux 에이전트를 제거 합니다.
 
 ### <a name="windows-agent"></a>Windows 에이전트
 
@@ -300,6 +300,6 @@ System Center Operations Manager 관리 그룹에 보고하도록 Linux용 Log A
 
 ## <a name="next-steps"></a>다음 단계
 
-- 검토 [Linux 에이전트 문제 해결](agent-linux-troubleshoot.md) 설치 또는 Linux 에이전트를 관리 하는 동안 문제가 발생 한 경우.
+- Linux 에이전트를 설치 하거나 관리 하는 동안 문제가 발생 하는 경우 [linux 에이전트 문제 해결](agent-linux-troubleshoot.md) 을 검토 합니다.
 
-- 검토 [Windows 에이전트 문제 해결](agent-windows-troubleshoot.md) 설치 하거나 Windows 에이전트를 관리 하는 동안 문제가 발생 한 경우.
+- Windows 에이전트를 설치 하거나 관리 하는 동안 문제가 발생 하는 경우 [windows 에이전트 문제 해결](agent-windows-troubleshoot.md) 을 검토 합니다.

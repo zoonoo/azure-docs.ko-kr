@@ -5,14 +5,14 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 06/05/2019
-ms.openlocfilehash: f3fb34f263ead9552b8d1d0b1dba4996b355c22a
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: dd68ac502a92b044e958969cc6a2863b5d197416
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503501"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621656"
 ---
 # <a name="how-to-purchase-software-on-microsoft-appsource"></a>Microsoft AppSource에서 소프트웨어를 구입 하는 방법
 
@@ -62,7 +62,7 @@ SaaS 제품을 구매 하려면 다음을 수행 해야 합니다.
     > [!Note]
     > 이 단계는 필수 이며 언제 든 지 종료할 수 있습니다.
 
-## <a name="contact-support"></a>지원 문의
+## <a name="contact-support"></a>지원에 문의
 
 한 수 있습니다 [지원 티켓을 제출](https://admin.microsoft.com/Adminportal/Home?source=applauncher#/homepage) Microsoft 365 관리 센터를 통해.
 

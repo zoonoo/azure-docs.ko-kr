@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: ed2b35c5a1a0a017cb6bea086601282c83956d88
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: df5085011fd2771f094131244c1f466cebcbc89a
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515542"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534792"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>자습서: Azure Machine Learning에서 MNIST 데이터와 scikit-learn을 사용하여 이미지 분류 모델 학습
 
@@ -36,37 +36,19 @@ ms.locfileid: "66515542"
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
 
 >[!NOTE]
-> 이 문서의 코드는 Azure Machine Learning SDK 버전 1.0.41에서 테스트되었습니다.
+> 이 문서의 코드는 Azure Machine Learning SDK 버전 1.0.41에서 테스트 되었습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-[개발 환경 설정](#start)으로 건너뛰어 Notebook 단계를 읽어보거나, 아래 지침에 따라 Notebook을 가져와서 Azure Notebooks 또는 사용자 고유의 Notebook 서버에서 실행합니다.  Notebook을 실행하려면 다음 항목이 필요합니다.
+* 이 자습서를 시작하기 전에 [자습서: 첫 번째 ML 실험 만들기 시작](tutorial-1st-experiment-sdk-setup.md)을 완료하여 다음을 수행합니다.
+    * 작업 영역 만들기
+    * 클라우드 Notebook 서버 만들기
+    * Jupyter Notebook 대시보드 시작
 
-* 다음 요소가 설치된 Python 3.6 Notebook 서버:
-    * Python용 Azure Machine Learning SDK
-    * `matplotlib` 및 `scikit-learn`
-* 자습서 Notebook 및 **utils.py** 파일
-* 기계 학습 작업 영역
-* Notebook과 동일한 디렉터리에 있는 작업 영역에 대한 구성 파일
+* Jupyter Notebook 대시보드를 시작한 후 **tutorials/img-classification-part1-training.ipynb** Notebook을 엽니다.
 
-아래 섹션 중 하나에서 이러한 필수 구성 요소를 모두 가져옵니다.
+자습서 및 함께 제공되는 **utils.py** 파일은 고유의 [로컬 환경](how-to-configure-environment.md#local)에서 사용하려는 경우 [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials)에서도 사용할 수 있습니다.  사용자 환경에 `matplotlib` 및 `scikit-learn`을 설치했는지 확인합니다.
 
-* [작업 영역에서 클라우드 Notebook 서버](#azure) 사용
-* [사용자 고유의 Notebook 서버](#server) 사용
-
-### <a name="azure"></a>작업 영역에서 클라우드 Notebook 서버 사용
-
-사용자 고유의 클라우드 기반 Notebook 서버를 쉽게 시작할 수 있습니다. 이 클라우드 리소스를 만들면 [Python용 Azure Machine Learning SDK](https://aka.ms/aml-sdk)가 이미 설치 및 구성되어 있습니다.
-
-[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
-
-* Notebook 웹 페이지를 시작한 후 **tutorials/img-classification-part1-training.ipynb** Notebook을 엽니다.
-
-### <a name="server"></a>사용자 고유의 Jupyter Notebook 서버 사용
-
-[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
-
- 단계를 완료한 후 복제된 디렉터리에서 **tutorials/img-classification-part1-training.ipynb** Notebook을 실행합니다.
 
 ## <a name="start"></a>개발 환경 설정
 
@@ -100,7 +82,7 @@ print("Azure ML SDK Version: ", azureml.core.VERSION)
 ```python
 # load workspace configuration from the config.json file in the current folder.
 ws = Workspace.from_config()
-print(ws.name, ws.location, ws.resource_group, ws.location, sep = '\t')
+print(ws.name, ws.location, ws.resource_group, sep='\t')
 ```
 
 ### <a name="create-an-experiment"></a>실험 만들기
@@ -108,9 +90,9 @@ print(ws.name, ws.location, ws.resource_group, ws.location, sep = '\t')
 작업 영역에서 실행을 추적하는 실험을 만듭니다. 작업 영역에는 여러 개의 실험이 있을 수 있습니다.
 
 ```python
+from azureml.core import Experiment
 experiment_name = 'sklearn-mnist'
 
-from azureml.core import Experiment
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
 
@@ -140,22 +122,24 @@ if compute_name in ws.compute_targets:
         print('found compute target. just use it. ' + compute_name)
 else:
     print('creating a new compute target...')
-    provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size,
-                                                                min_nodes = compute_min_nodes,
-                                                                max_nodes = compute_max_nodes)
+    provisioning_config = AmlCompute.provisioning_configuration(vm_size=vm_size,
+                                                                min_nodes=compute_min_nodes,
+                                                                max_nodes=compute_max_nodes)
 
     # create the cluster
-    compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
+    compute_target = ComputeTarget.create(
+        ws, compute_name, provisioning_config)
 
     # can poll for a minimum number of nodes and for a specific timeout.
     # if no min node count is provided it will use the scale settings for the cluster
-    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
+    compute_target.wait_for_completion(
+        show_output=True, min_node_count=None, timeout_in_minutes=20)
 
-     # For a more detailed view of current AmlCompute status, use get_status()
+    # For a more detailed view of current AmlCompute status, use get_status()
     print(compute_target.get_status().serialize())
 ```
 
-이제 클라우드에서 모델을 학습하는 데 필요한 패키지 및 계산 리소스가 준비되었습니다.
+이제 클라우드에서 모델을 학습하는 데 필요한 패키지 및 컴퓨팅 리소스가 준비되었습니다.
 
 ## <a name="explore-data"></a>데이터 탐색
 
@@ -174,12 +158,16 @@ import urllib.request
 import os
 
 data_folder = os.path.join(os.getcwd(), 'data')
-os.makedirs(data_folder, exist_ok = True)
+os.makedirs(data_folder, exist_ok=True)
 
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz', filename=os.path.join(data_folder, 'train-images.gz'))
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz', filename=os.path.join(data_folder, 'train-labels.gz'))
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz', filename=os.path.join(data_folder, 'test-images.gz'))
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz', filename=os.path.join(data_folder, 'test-labels.gz'))
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz',
+                           filename=os.path.join(data_folder, 'train-images.gz'))
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz',
+                           filename=os.path.join(data_folder, 'train-labels.gz'))
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz',
+                           filename=os.path.join(data_folder, 'test-images.gz'))
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz',
+                           filename=os.path.join(data_folder, 'test-labels.gz'))
 ```
 
 ```('./data/test-labels.gz', <http.client.HTTPMessage at 0x7f40864c77b8>)``` 같은 출력이 표시됩니다.
@@ -193,15 +181,18 @@ urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ub
 from utils import load_data
 
 # note we also shrink the intensity values (X) from 0-255 to 0-1. This helps the model converge faster.
-X_train = load_data(os.path.join(data_folder, 'train-images.gz'), False) / 255.0
+X_train = load_data(os.path.join(
+    data_folder, 'train-images.gz'), False) / 255.0
 X_test = load_data(os.path.join(data_folder, 'test-images.gz'), False) / 255.0
-y_train = load_data(os.path.join(data_folder, 'train-labels.gz'), True).reshape(-1)
-y_test = load_data(os.path.join(data_folder, 'test-labels.gz'), True).reshape(-1)
+y_train = load_data(os.path.join(
+    data_folder, 'train-labels.gz'), True).reshape(-1)
+y_test = load_data(os.path.join(
+    data_folder, 'test-labels.gz'), True).reshape(-1)
 
 # now let's show some randomly chosen images from the traininng set.
 count = 0
 sample_size = 30
-plt.figure(figsize = (16, 6))
+plt.figure(figsize=(16, 6))
 for i in np.random.permutation(X_train.shape[0])[:sample_size]:
     count = count + 1
     plt.subplot(1, sample_size, count)
@@ -228,7 +219,8 @@ MNIST 파일은 데이터 저장소의 루트에 있는 `mnist` 디렉터리로 
 ds = ws.get_default_datastore()
 print(ds.datastore_type, ds.account_name, ds.container_name)
 
-ds.upload(src_dir=data_folder, target_path='mnist', overwrite=True, show_progress=True)
+ds.upload(src_dir=data_folder, target_path='mnist',
+          overwrite=True, show_progress=True)
 ```
 
 이제 모델 학습을 시작하는 데 필요한 모든 준비가 갖추어졌습니다.
@@ -247,7 +239,7 @@ ds.upload(src_dir=data_folder, target_path='mnist', overwrite=True, show_progres
 
 ```python
 import os
-script_folder  = os.path.join(os.getcwd(), "sklearn-mnist")
+script_folder = os.path.join(os.getcwd(), "sklearn-mnist")
 os.makedirs(script_folder, exist_ok=True)
 ```
 
@@ -326,7 +318,7 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 
 * 추정기 개체의 이름(`est`)
 * 스크립트를 포함하는 디렉터리. 이 디렉터리의 모든 파일은 실행을 위해 클러스터 노드로 업로드됩니다.
-* 계산 대상. 이 경우 만든 Azure Machine Learning 컴퓨팅 클러스터를 사용합니다.
+* 컴퓨팅 대상. 이 경우 만든 Azure Machine Learning 컴퓨팅 클러스터를 사용합니다.
 * 학습 스크립트 이름(**train.py**)
 * 학습 스크립트에서 필요한 매개 변수
 
@@ -341,9 +333,9 @@ script_params = {
 }
 
 est = SKLearn(source_directory=script_folder,
-                script_params=script_params,
-                compute_target=compute_target,
-                entry_script='train.py')
+              script_params=script_params,
+              compute_target=compute_target,
+              entry_script='train.py')
 ```
 
 ### <a name="submit-the-job-to-the-cluster"></a>클러스터에 작업 제출
@@ -377,7 +369,7 @@ run
 
 ### <a name="jupyter-widget"></a>Jupyter 위젯
 
-Jupyter 위젯으로 실행의 진행 상태를 감시합니다. 실행 제출과 마찬가지로, 위젯은 비동기이며 작업이 완료될 때까지 10~15초마다 라이브 업데이트를 제공합니다.
+[Jupyter 위젯](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py)으로 실행의 진행 상태를 감시합니다. 실행 제출과 마찬가지로, 위젯은 비동기이며 작업이 완료될 때까지 10~15초마다 라이브 업데이트를 제공합니다.
 
 ```python
 from azureml.widgets import RunDetails
@@ -395,7 +387,7 @@ RunDetails(run).show()
 모델 학습 및 모니터링은 백그라운드에서 발생합니다. 더 많은 코드를 실행하기 전에 모델 학습이 완료될 때까지 기다립니다. 모델 학습이 완료되는 시간을 표시하려면 `wait_for_completion`을 사용합니다.
 
 ```python
-run.wait_for_completion(show_output=False) # specify True for a verbose log
+run.wait_for_completion(show_output=False)  # specify True for a verbose log
 ```
 
 ### <a name="display-run-results"></a>실행 결과 표시
@@ -426,8 +418,9 @@ print(run.get_file_names())
 
 ```python
 # register model
-model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
-print(model.name, model.id, model.version, sep = '\t')
+model = run.register_model(model_name='sklearn_mnist',
+                           model_path='outputs/sklearn_mnist_model.pkl')
+print(model.name, model.id, model.version, sep='\t')
 ```
 
 ## <a name="clean-up-resources"></a>리소스 정리

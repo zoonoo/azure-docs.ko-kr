@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: REST API를 사용하여 Azure Load Balancer를 만드는 방법을 알아봅니다.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,13 +12,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: load-balancer
 ms.date: 06/06/2018
-ms.author: kumud
-ms.openlocfilehash: 159fe9d6a891858d8d2cc2315e9544b79eb44cff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: ae8fb4494d27d0c145963c9b32757bdb802e0cc7
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60884982"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275554"
 ---
 # <a name="create-an-azure-basic-load-balancer-using-rest-api"></a>REST API를 사용하여 Azure 기본 Load Balancer 만들기
 
@@ -33,11 +33,11 @@ Azure Load Balancer는 규칙 및 상태 프로브에 따라, 부하 분산 장�
   ```
 ### <a name="uri-parameters"></a>URI 매개 변수
 
-|이름  |그런 다음  |필수 |형식 |설명 |
+|이름  |입력  |필수 |형식 |설명 |
 |---------|---------|---------|---------|--------|
-|subscriptionId   |  경로       |  True       |   string      |  Microsoft Azure 구독을 고유하게 식별하는 구독 자격 증명입니다. 구독 ID는 모든 서비스 호출에 대한 URI의 파트를 형성합니다.      |
-|resourceGroupName     |     경로    | True        |  string       |   리소스 그룹의 이름.     |
-|loadBalancerName     |  경로       |      True   |    string     |    부하 분산 장치의 이름입니다.    |
+|subscriptionId   |  path       |  True       |   string      |  Microsoft Azure 구독을 고유하게 식별하는 구독 자격 증명입니다. 구독 ID는 모든 서비스 호출에 대한 URI의 파트를 형성합니다.      |
+|resourceGroupName     |     path    | True        |  string       |   리소스 그룹의 이름.     |
+|loadBalancerName     |  path       |      True   |    string     |    부하 분산 장치의 이름입니다.    |
 |api-version    |   쿼리     |  True       |     string    |  클라이언트 API 버전입니다.      |
 
 

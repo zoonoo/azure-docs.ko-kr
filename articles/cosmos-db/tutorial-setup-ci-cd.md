@@ -7,20 +7,20 @@ ms.topic: tutorial
 ms.date: 05/23/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: b97fb1956c75332c40e242484b9d94419a45eb92
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: dad99a7e3d0463263e912aa05b5312edbcb89c0b
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242552"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597681"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Azure Cosmos DB 에뮬레이터 빌드 작업을 사용하여 Azure DevOps에서 CI/CD 파이프라인 설정
 
-Azure Cosmos DB 에뮬레이터는 개발 목적으로 Azure Cosmos DB 서비스를 에뮬레이트하는 로컬 환경을 제공합니다. 이 에뮬레이터를 사용하면 Azure 구독을 구입하거나 비용을 발생시키지 않고도 로컬에서 응용 프로그램을 테스트할 수 있습니다. 
+Azure Cosmos DB 에뮬레이터는 개발 목적으로 Azure Cosmos DB 서비스를 에뮬레이트하는 로컬 환경을 제공합니다. 이 에뮬레이터를 사용하면 Azure 구독을 구입하거나 비용을 발생시키지 않고도 로컬에서 애플리케이션을 테스트할 수 있습니다. 
 
 Azure DevOps에 대한 Azure Cosmos DB 에뮬레이터 빌드 작업을 사용하면 CI 환경에서와 동일한 작업을 수행할 수 있습니다. 빌드 작업을 사용하면 빌드 및 릴리스 워크플로의 일부로 에뮬레이터에 대한 테스트를 실행할 수 있습니다. 이 작업은 에뮬레이터가 이미 실행 중인 Docker 컨테이너를 스핀업하고, 빌드 정의의 나머지 부분에서 사용할 수 있는 엔드포인트를 제공합니다. 별도 컨테이너에서 실행되는 필요한 만큼 많은 에뮬레이터의 인스턴스를 만들고 시작할 수 있습니다. 
 
-이 문서에서는 Cosmos DB 에뮬레이터 빌드 작업을 사용하여 테스트를 실행하는 ASP.NET 응용 프로그램에 대해 Azure DevOps에서 CI 파이프라인을 설정하는 방법을 설명합니다. 유사한 방법을 사용하여 Node.js 또는 Python 애플리케이션에 대한 CI 파이프라인을 설정할 수 있습니다. 
+이 문서에서는 Cosmos DB 에뮬레이터 빌드 작업을 사용하여 테스트를 실행하는 ASP.NET 애플리케이션에 대해 Azure DevOps에서 CI 파이프라인을 설정하는 방법을 설명합니다. 유사한 방법을 사용하여 Node.js 또는 Python 애플리케이션에 대한 CI 파이프라인을 설정할 수 있습니다. 
 
 ## <a name="install-the-emulator-build-task"></a>에뮬레이터 빌드 작업 설치
 
@@ -31,7 +31,7 @@ Azure DevOps에 대한 Azure Cosmos DB 에뮬레이터 빌드 작업을 사용�
 다음으로, 확장을 설치할 조직을 선택합니다. 
 
 > [!NOTE]
-> Azure DevOps 조직에 확장을 설치하려면 계정 소유자 또는 프로젝트 컬렉션 관리자여야 합니다. 사용 권한이 없지만 계정 멤버인 경우 대신 확장을 요청할 수 있습니다. [자세한 정보](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts#install-request-assign-and-access-extensions)
+> Azure DevOps 조직에 확장을 설치하려면 계정 소유자 또는 프로젝트 컬렉션 관리자여야 합니다. 사용 권한이 없지만 계정 멤버인 경우 대신 확장을 요청할 수 있습니다. [자세한 정보](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts)
 
 ![확장을 설치할 Azure DevOps 조직을 선택합니다.](./media/tutorial-setup-ci-cd/addExtension_2.png)
 
@@ -39,7 +39,7 @@ Azure DevOps에 대한 Azure Cosmos DB 에뮬레이터 빌드 작업을 사용�
 
 이제 확장 기능이 설치되었으므로 Azure DevOps 계정에 로그인하고 프로젝트 대시보드에서 프로젝트를 찾습니다. 프로젝트에 [빌드 파이프라인](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav)을 추가하거나 기존 빌드 파이프라인을 수정합니다. 이미 빌드 파이프라인이 있다면 [빌드 정의에 에뮬레이터 빌드 작업 추가](#addEmulatorBuildTaskToBuildDefinition)로 건너뛸 수 있습니다.
 
-1. 새 빌드 정의를 만들려면 Azure DevOps에서 **빌드** 탭으로 이동합니다. **+새로 만들기**로 이동합니다.  \> **새 빌드 파이프라인**
+1. 새 빌드 정의를 만들려면 Azure DevOps에서 **빌드** 탭으로 이동합니다. **+새로 만들기**로 이동합니다. \> **새 빌드 파이프라인**
 
    ![새 빌드 파이프라인 만들기](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png)
 
@@ -48,6 +48,9 @@ Azure DevOps에 대한 Azure Cosmos DB 에뮬레이터 빌드 작업을 사용�
    ![팀 프로젝트, 리포지토리 및 빌드 파이프라인에 대한 분기 선택](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
 
 3. 마지막으로, 빌드 파이프라인에 대해 원하는 템플릿을 선택합니다. 이 자습서에서는 **ASP.NET** 템플릿을 선택합니다. 
+
+> [!NOTE]
+> CI의 일부로 이전 작업에서 수동으로 설치가 완료되지 않은 경우 이 CI에 대해 선택할 에이전트 풀에 Windows용 Docker가 설치되어 있어야 합니다. 에이전트 풀 선택에 대한 자세한 내용은 [Microsoft에 호스트된 에이전트](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml) 문서를 참조하세요. `Hosted VS2017` 또는 `Hosted VS2019`로 시작하는 것을 추천합니다. 
 
 이제 빌드 파이프라인을 Azure Cosmos DB 에뮬레이터 빌드 작업을 사용하도록 설정할 수 있습니다. 
 

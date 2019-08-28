@@ -1,20 +1,20 @@
 ---
-title: '자습서: JSON blob - Azure Search에서 반구조적 데이터 인덱싱'
+title: 'REST 자습서: JSON blob - Azure Search에서 반구조적 데이터 인덱싱'
 description: Azure Search REST API 및 Postman을 사용하여 반정형 JSON Blob을 인덱싱하고 검색하는 방법을 알아봅니다.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3184b839087944d8d4335927810ec31d8876866e
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: cb9c97efd62a56ad0eac49956f11fb422a448194
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485331"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647867"
 ---
 # <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>REST 자습서: Azure Search에서 반구조적 데이터(JSON blob) 인덱싱 및 검색
 
@@ -76,7 +76,7 @@ Postman을 시작하고 HTTP 요청을 설정합니다. 이 도구가 생소한 
 
   ![반구조화된 검색](media/search-semi-structured-data/postmanoverview.png)
 
-Postman을 통해 데이터 원본, 인덱스 및 인덱서를 만들기 위해 검색 서비스에 대한 API 호출을 세 번 수행합니다. 데이터 원본은 저장소 계정 및 JSON 데이터에 대한 포인터를 포함합니다. 검색 서비스는 데이터를 로드할 때 연결합니다.
+Postman을 통해 데이터 원본, 인덱스 및 인덱서를 만들기 위해 검색 서비스에 대한 API 호출을 세 번 수행합니다. 데이터 원본은 스토리지 계정 및 JSON 데이터에 대한 포인터를 포함합니다. 검색 서비스는 데이터를 로드할 때 연결합니다.
 
 쿼리 문자열은 api-version을 지정해야 하며, 각 호출에서 **201 생성됨**을 반환해야 합니다. JSON 배열을 사용할 수 있도록 일반 공급되는 api-version은 `2019-05-06`입니다.
 

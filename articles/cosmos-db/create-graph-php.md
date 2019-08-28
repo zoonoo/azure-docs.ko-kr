@@ -8,12 +8,12 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2019
 ms.author: lbosq
-ms.openlocfilehash: 15d312ff4dfdb789cb0d9ee85941ea8760ddb08f
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: e38f3e2029bdc8dc8c13ce330e37053d491317f3
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480606"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736637"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>빠른 시작: PHP 및 Azure Portal을 사용하여 Azure Cosmos DB에서 그래프 데이터베이스 만들기
 
@@ -48,7 +48,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
-## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
+## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
 이제 코드 사용으로 전환해 보겠습니다. GitHub에서 Gremlin API 앱을 복제하고, 연결 문자열을 설정하고, 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다.  
 
@@ -113,7 +113,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
     ```php
     $db = new Connection([
-        'host' => 'testgraphacct.graphs.azure.com',
+        'host' => 'testgraphacct.gremlin.cosmosdb.azure.com',
         'username' => '/dbs/<db>/colls/<coll>',
         'password' => 'your_primary_key'
         ,'port' => '443'
@@ -123,9 +123,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
     ]);
     ```
 
-3. 그래프 데이터베이스 계정이 2017년 12월 20일 당일 및 그 이후에 만들어진 경우 호스트 이름에서 `graphs.azure.com`을 `gremlin.cosmosdb.azure.com`으로 변경합니다.
-
-4. 연결 개체의 `username` 매개 변수를 자신의 데이터베이스 및 그래프 이름으로 변경합니다. 권장 값 `sample-database` 및 `sample-graph`를 사용한 경우 다음 코드와 같이 표시됩니다.
+3. 연결 개체의 `username` 매개 변수를 자신의 데이터베이스 및 그래프 이름으로 변경합니다. 권장 값 `sample-database` 및 `sample-graph`를 사용한 경우 다음 코드와 같이 표시됩니다.
 
     `'username' => '/dbs/sample-database/colls/sample-graph'`
 
@@ -133,7 +131,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
     ```php
     $db = new Connection([
-        'host' => 'testgraphacct.graphs.azure.com',
+        'host' => 'testgraphacct.gremlin.cosmosdb.azure.com',
         'username' => '/dbs/sample-database/colls/sample-graph',
         'password' => 'your_primary_key',
         'port' => '443'
@@ -143,7 +141,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
     ]);
     ```
 
-5. Azure Portal에서 복사 단추로 기본 키를 복사하여 암호 매개 변수의 `your_primary_key`에 붙여넣습니다.
+4. Azure Portal에서 복사 단추로 기본 키를 복사하여 암호 매개 변수의 `your_primary_key`에 붙여넣습니다.
 
     이제 연결 개체 초기화는 다음 코드와 비슷하게 표시됩니다.
 
@@ -159,7 +157,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
     ]);
     ```
 
-6. `connect.php` 파일을 저장합니다.
+5. `connect.php` 파일을 저장합니다.
 
 ## <a name="run-the-console-app"></a>콘솔 앱 실행
 
@@ -175,7 +173,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
    composer install
    ```
 
-3. git 터미널 창에서 다음 명령을 사용하여 PHP 응용 프로그램을 시작합니다.
+3. git 터미널 창에서 다음 명령을 사용하여 PHP 애플리케이션을 시작합니다.
     
     ```
     php connect.php
@@ -206,13 +204,13 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 4. *사람*이라는 레이블을 입력합니다.
 
-5. **속성 추가**를 클릭하여 다음 속성 각각을 추가합니다. 그래프의 각 person에 대해 고유한 속성을 만들 수 있습니다. ID 키만 필요합니다.
+5. **속성 추가**를 클릭하여 다음 속성 각각을 추가합니다. 그래프의 각 person에 대해 고유한 속성을 만들 수 있습니다. **ID** 키만 필요합니다.
 
-    key|값|메모
+    키 | 값 | 메모
     ----|----|----
-    id|ashley|꼭짓점의 고유 식별자입니다. ID를 지정하지 않으면 사용자에 대해 하나 생성됩니다.
-    gender|female| 
-    tech | java | 
+    **id** | ashley | 꼭짓점의 고유 식별자입니다. ID를 지정하지 않으면 사용자에 대해 하나 생성됩니다.
+    **gender** | female | 
+    **tech** | java | 
 
     > [!NOTE]
     > 이 빠른 시작에서는 분할되지 않은 컬렉션을 만듭니다. 그러나 컬렉션을 만드는 중 파티션 키를 지정하여 파티션된 컬렉션을 만드는 경우에는 각 새로운 꼭지점에 키로 파티션 키를 포함해야 합니다. 
@@ -224,12 +222,12 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 8. *사람*이라는 레이블을 입력합니다.
 
 9. **속성 추가**를 클릭하여 다음 속성 각각을 추가합니다.
-
-    key|값|메모
+    
+    키 | 값 | 메모
     ----|----|----
-    id|rakesh|꼭짓점의 고유 식별자입니다. ID를 지정하지 않으면 사용자에 대해 하나 생성됩니다.
-    gender|male| 
-    school|MIT| 
+    **id** | rakesh | 꼭짓점의 고유 식별자입니다. ID를 지정하지 않으면 사용자에 대해 하나 생성됩니다.
+    **gender** | male | 
+    **school** | MIT | 
 
 10. **확인**을 클릭합니다. 
 

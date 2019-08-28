@@ -3,7 +3,7 @@ title: Azure Service Fabric에서 실행되는 컨테이너에 인증서 가져�
 description: 이제 Service Fabric 컨테이너 서비스에 인증서 파일을 가져오는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: aljo, subramar
-ms.openlocfilehash: ac461c0d512a5a58ce687623a53e99eeeca399e5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: subramar
+ms.openlocfilehash: 80ac20fd2dc7bfe3fea6a58a6df94e3f7b99a700
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837694"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599227"
 ---
 # <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>Service Fabric에서 실행되는 컨테이너에 인증서 파일 가져오기
 

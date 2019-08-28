@@ -14,18 +14,20 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 9cbdfe957587977b01bc46b46818856f789f46d8
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 9eccb4ca505dac312dd22123a3585863c67f3ad7
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393627"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359862"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>자습서: ASP.NET Core 앱에서 동적 구성 사용
 
-ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 플러그형 구성 시스템이 있습니다. 애플리케이션을 다시 시작하지 않고 변경 내용을 즉시 처리할 수 있습니다. ASP.NET Core는 강력한 형식의 .NET 클래스에 대한 구성 설정 바인딩을 지원합니다. 다양한 `IOptions<T>` 패턴을 사용하여 코드에 삽입합니다. 기본 데이터가 변경되면 특히 이러한 패턴 중 하나인 `IOptionsSnapshot<T>`는 애플리케이션의 구성을 자동으로 다시 로드합니다.
+ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 플러그형 구성 시스템이 있습니다. 애플리케이션을 다시 시작하지 않고 변경 내용을 즉시 처리할 수 있습니다. ASP.NET Core는 강력한 형식의 .NET 클래스에 대한 구성 설정 바인딩을 지원합니다. 다양한 `IOptions<T>` 패턴을 사용하여 코드에 삽입합니다. 기본 데이터가 변경되면 특히 이러한 패턴 중 하나인 `IOptionsSnapshot<T>`는 애플리케이션의 구성을 자동으로 다시 로드합니다. 애플리케이션의 컨트롤러에 `IOptionsSnapshot<T>`을 삽입하여 Azure App Configuration에 저장된 최신 구성에 액세스할 수 있습니다.
 
-애플리케이션의 컨트롤러에 `IOptionsSnapshot<T>`을 삽입하여 Azure App Configuration에 저장된 최신 구성에 액세스할 수 있습니다. 또한 App Configuration ASP.NET Core 클라이언트 라이브러리를 설정하여 앱 구성 저장소의 모든 변경을 지속적으로 모니터링하고 검색할 수 있습니다. 주기적인 폴링 간격을 정의합니다.
+미들웨어를 사용하여 구성 설정 세트를 동적으로 새로 고치도록 App Configuration ASP.NET Core 클라이언트 라이브러리를 설정할 수도 있습니다. 웹앱이 계속해서 요청을 받는 한 구성 설정은 구성 저장소로 계속 업데이트됩니다.
+
+설정을 업데이트하고 구성 저장소에 대한 너무 많은 호출을 피하기 위해 각 설정에 대해 캐시를 사용합니다. 설정의 캐시된 값이 만료될 때까지 새로 고침 작업은 구성 저장소에서 값이 변경된 경우에도 값을 업데이트하지 않습니다. 각 요청의 기본 만료 시간은 30초지만, 필요한 경우 재정의할 수 있습니다.
 
 이 자습서에서는 코드에서 동적 구성 업데이트를 구현하는 방법을 보여줍니다. 빠른 시작에 소개된 웹앱을 기반으로 합니다. 계속 진행하기 전에 먼저 [App Configuration을 사용하여 ASP.NET Core 앱 만들기](./quickstart-aspnet-core-app.md)를 완료합니다.
 
@@ -45,7 +47,7 @@ ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 
 
 ## <a name="reload-data-from-app-configuration"></a>App Configuration에서 데이터 다시 로드
 
-1. *Program.cs*를 열고, `config.AddAzureAppConfiguration()` 메서드를 추가하여 `CreateWebHostBuilder` 메서드를 업데이트합니다.
+1. *Program.cs*를 열고, `CreateWebHostBuilder` 메서드를 업데이트하여 `config.AddAzureAppConfiguration()` 메서드를 추가합니다.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -53,19 +55,22 @@ ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
+
                 config.AddAzureAppConfiguration(options =>
+                {
                     options.Connect(settings["ConnectionStrings:AppConfig"])
-                           .Watch("TestApp:Settings:BackgroundColor")
-                           .Watch("TestApp:Settings:FontColor")
-                           .Watch("TestApp:Settings:Message"));
+                           .ConfigureRefresh(refresh =>
+                           {
+                               refresh.Register("TestApp:Settings:BackgroundColor")
+                                      .Register("TestApp:Settings:FontColor")
+                                      .Register("TestApp:Settings:Message")
+                           });
+                }
             })
             .UseStartup<Startup>();
     ```
 
-    `.Watch` 메서드의 두 번째 매개 변수는 ASP.NET 클라이언트 라이브러리에서 앱 구성 저장소를 쿼리하는 폴링 간격입니다. 클라이언트 라이브러리에서 특정 구성 설정을 확인하여 변경되었는지 확인합니다.
-    
-    > [!NOTE]
-    > `Watch` 확장 메서드의 기본 폴링 간격은 지정하지 않을 경우 30초입니다.
+    `ConfigureRefresh` 메서드는 새로 고침 작업이 트리거될 때 앱 구성 저장소로 구성 데이터를 업데이트하는 데 사용되는 설정을 지정하는 데 사용됩니다. 새로 고침 작업을 실제로 트리거하려면, 변경이 발생할 때 구성 데이터를 새로 고치도록 새로 고침 미들웨어를 애플리케이션에 대해 구성해야 합니다.
 
 2. 새 `Settings` 클래스를 정의하고 구현하는 *Settings.cs* 파일을 추가합니다.
 
@@ -98,6 +103,21 @@ ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 
         services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
     }
     ```
+
+4. `Configure` 메서드를 업데이트하여 ASP.NET Core 웹앱이 요청을 계속 받는 동안 새로 고침을 위해 등록된 구성 설정을 업데이트할 수 있는 미들웨어를 추가합니다.
+
+    ```csharp
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    {
+        app.UseAzureAppConfiguration();
+        app.UseMvc();
+    }
+    ```
+    
+    미들웨어는 `Program.cs`의 `AddAzureAppConfiguration` 메서드에 지정된 새로 고침 구성을 사용하여 ASP.NET Core 웹앱에서 받은 각 요청에 대해 새로 고침을 트리거합니다. 각 요청마다 새로 고침 작업이 트리거되고 클라이언트 라이브러리는 등록된 구성 설정의 캐시된 값이 만료되었는지 확인합니다. 만료된 캐시된 값은, 설정 값이 앱 구성 저장소로 업데이트되고 나머지 값은 그대로 유지됩니다.
+    
+    > [!NOTE]
+    > 구성 설정에 대한 기본 캐시 만료 시간은 30초이지만 `ConfigureRefresh` 메서드에 대한 인수로 전달된 옵션 이니셜라이저의 `SetCacheExpiration` 메서드를 호출하여 재정의할 수 있습니다.
 
 ## <a name="use-the-latest-configuration-data"></a>최신 구성 데이터 사용
 
@@ -173,13 +193,16 @@ ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 
 
     | 키 | 값 |
     |---|---|
-    | TestAppSettings:BackgroundColor | green |
-    | TestAppSettings:FontColor | lightGray |
-    | TestAppSettings:Message | 이제 라이브 업데이트를 사용하여 Azure App Configuration 데이터 업데이트! |
+    | TestApp:Settings:BackgroundColor | green |
+    | TestApp:Settings:FontColor | lightGray |
+    | TestApp:Settings:Message | 이제 라이브 업데이트를 사용하여 Azure App Configuration 데이터 업데이트! |
 
-6. 새 구성 설정을 확인하려면 브라우저 페이지를 새로 고칩니다.
+6. 새 구성 설정을 확인하려면 브라우저 페이지를 새로 고칩니다. 변경 내용이 반영되려면 브라우저 페이지를 두 번 이상 새로 고쳐야 할 수 있습니다.
 
     ![로컬로 빠른 시작 앱 새로 고침](./media/quickstarts/aspnet-core-app-launch-local-after.png)
+    
+    > [!NOTE]
+    > 구성 설정은 기본 만료 시간 30초로 캐시되기 때문에 앱 구성 저장소의 설정이 변경되면 캐시가 만료되어야만 웹앱에 반영됩니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

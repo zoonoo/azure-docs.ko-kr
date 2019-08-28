@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 02/14/2019
+ms.date: 07/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: 54b89b74017b8d5d6e4bd1b52c6b3986d2802702
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 92978815af22e3ce1a549b9ca3e335befca8c918
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60457212"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563038"
 ---
 # <a name="reset-a-vpn-gateway"></a>VPN Gateway 다시 설정
 
@@ -24,7 +24,7 @@ VPN Gateway는 활성-대기 구성에서 실행 중인 두 VM 인스턴스로 �
 
 게이트웨이를 다시 설정하는 명령을 실행하면 Azure VPN Gateway의 현재 활성 인스턴스가 즉시 재부팅됩니다. 활성 인스턴스(재부팅)에서 대기 인스턴스로 장애 조치(Failover) 중에 잠깐의 간격이 있습니다. 이 간격은 1분 미만이어야 합니다.
 
-첫 번째 재부팅 후 연결이 복원되지 않으면 같은 명령을 다시 실행하여 두 번째 VM인스턴스(새 활성 게이트웨이)를 재부팅합니다. 두 번의 재부팅이 연속으로 요청되는 경우 두 VM 인스턴스(활성 및 대기)가 재부팅되는 기간이 약간 길어집니다. 이로 인해 VM에서 재부팅을 완료하는 데 VPN 연결에 최대 2~4분까지 긴 간격이 발생합니다.
+첫 번째 재부팅 후 연결이 복원되지 않으면 같은 명령을 다시 실행하여 두 번째 VM인스턴스(새 활성 게이트웨이)를 재부팅합니다. 두 번의 재부팅이 연속으로 요청되는 경우 두 VM 인스턴스(활성 및 대기)가 재부팅되는 기간이 약간 길어집니다. 이로 인해 Vm이 다시 부팅을 완료 하는 데 최대 30 ~ 45 분까지 VPN 연결에서 더 긴 간격이 발생 합니다.
 
 두 번의 재부팅 후 크로스-프레미스 연결 문제가 여전히 발생하는 경우 Azure Portal에서 지원 요청을 여세요.
 
@@ -56,7 +56,7 @@ Azure Portal을 사용하여 Resource Manager VPN Gateway를 다시 설정할 �
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-게이트웨이를 다시 설정하는 cmdlet은 **Reset-AzVirtualNetworkGateway**입니다. 재설정을 수행 하기 전에 최신 버전의 했는지 확인 합니다 [PowerShell Az cmdlet](https://docs.microsoft.com/powershell/module/az.network)합니다. 다음 예제에서는 TestRG1 리소스 그룹에서 VNet1GW라는 가상 네트워크 게이트웨이를 다시 설정합니다.
+게이트웨이를 다시 설정하는 cmdlet은 **Reset-AzVirtualNetworkGateway**입니다. 다시 설정을 수행 하기 전에 최신 버전의 [PowerShell Az cmdlet](https://docs.microsoft.com/powershell/module/az.network)이 있는지 확인 합니다. 다음 예제에서는 TestRG1 리소스 그룹에서 VNet1GW라는 가상 네트워크 게이트웨이를 다시 설정합니다.
 
 ```powershell
 $gw = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
@@ -69,10 +69,12 @@ Reset-AzVirtualNetworkGateway -VirtualNetworkGateway $gw
 
 ### <a name="resetclassic"></a>클래식 배포 모델
 
-게이트웨이를 다시 설정하는 cmdlet은 **Reset-AzureVNetGateway**입니다. 다시 설정을 수행하기 전에 최신 버전의 [SM(Service Management) PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets)이 있는지 확인합니다. 다음 예제에서는 "ContosoVNet"이라는 가상 네트워크에 대한 게이트웨이를 다시 설정합니다.
+게이트웨이를 다시 설정하는 cmdlet은 **Reset-AzureVNetGateway**입니다. 서비스 관리를 위한 Azure PowerShell cmdlet은 데스크톱에 로컬로 설치 해야 합니다. Azure Cloud Shell를 사용할 수 없습니다. 다시 설정을 수행하기 전에 최신 버전의 [SM(Service Management) PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets)이 있는지 확인합니다. 이 명령을 사용 하는 경우 가상 네트워크의 전체 이름을 사용 하 고 있는지 확인 합니다. 포털을 사용 하 여 만든 클래식 Vnet에는 PowerShell에 필요한 긴 이름이 있습니다. ' Get-AzureVNetConfig-ExportToFile C:\Myfoldername\NetworkConfig.xml '을 사용 하 여 긴 이름을 볼 수 있습니다.
+
+다음 예제에서는 "Group TestRG1 TestVNet1" 이라는 가상 네트워크에 대 한 게이트웨이를 다시 설정 합니다 .이는 포털에서 단순히 "TestVNet1"로 표시 됩니다.
 
 ```powershell
-Reset-AzureVNetGateway –VnetName “ContosoVNet”
+Reset-AzureVNetGateway –VnetName 'Group TestRG1 TestVNet1'
 ```
 
 결과:

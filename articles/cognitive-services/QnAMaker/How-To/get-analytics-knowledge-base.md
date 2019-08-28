@@ -1,5 +1,5 @@
 ---
-title: 기술 자료에 대한 분석
+title: 기술 자료 분석-QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker Service를 생성하는 동안 App Insights를 사용하도록 설정한 경우 QnA Maker는 모든 채팅 로그 및 기타 원격 분석을 저장합니다. App Insights에서 채팅 로그를 가져오려면 샘플 쿼리를 실행합니다.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
-ms.date: 02/04/2019
+ms.topic: conceptual
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 07ee6c27006d8444881d9d3b94cb623f0b0d0b1f
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 961bb7d5f64fa6d6cafa4730a5849abb4b82478f
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447457"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967695"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>기술 자료에 대한 분석 가져오기
 
@@ -33,16 +33,17 @@ ms.locfileid: "67447457"
 3. 다음 쿼리에 붙여넣고 실행합니다.
 
     ```query
-        requests
-        | where url endswith "generateAnswer"
-        | project timestamp, id, name, resultCode, duration
-        | parse kind = regex name with *"(?i)knowledgebases/"KbId"/generateAnswer"
-        | join kind= inner (
-        traces | extend id = operation_ParentId
-        ) on id
-        | extend question = tostring(customDimensions['Question'])
-        | extend answer = tostring(customDimensions['Answer'])
-        | project KbId, timestamp, resultCode, duration, question, answer
+    requests
+    | where url endswith "generateAnswer"
+    | project timestamp, id, name, resultCode, duration, performanceBucket
+    | parse kind = regex name with *"(?i)knowledgebases/"KbId"/generateAnswer"
+    | join kind= inner (
+    traces | extend id = operation_ParentId
+    ) on id
+    | extend question = tostring(customDimensions['Question'])
+    | extend answer = tostring(customDimensions['Answer'])
+    | extend score = tostring(customDimensions['Score'])
+    | project timestamp, resultCode, duration, id, question, answer, score, performanceBucket,KbId 
     ```
 
     **실행**을 선택하여 쿼리를 실행합니다.

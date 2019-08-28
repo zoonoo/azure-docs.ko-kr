@@ -78,7 +78,7 @@ ABAP 애플리케이션 서버에 대한 로그온 그룹을 관리하기 위해
 
 장애 조치 클러스터 환경을 지원하기 위해 [SIOS DataKeeper 클러스터 버전](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8)에서 클러스터 노드가 소유한 독립 디스크를 복제하여 클러스터 공유 볼륨 기능을 수행합니다. Azure는 기본적으로 공유 디스크를 지원하지 않으므로 SIOS에서 제공하는 솔루션이 필요합니다. 
 
-클러스터링을 처리하는 또 다른 방법은 파일 공유 클러스터를 구현하는 것입니다. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster)는 UNC 경로를 통해 /sapmnt 전역 디렉터리에 액세스하도록 Central Services 배포 패턴을 수정했습니다. 그래도 /sapmnt UNC 공유가 고가용성인지 확인하는 것이 좋습니다. 이 작업은 Central Services 인스턴스에서 Windows Server 2016의 SOFS(스케일 아웃 파일 서버) 및 S2D(저장소 공간 다이렉트) 기능이 있는 Windows Server 장애 조치 클러스터를 사용하여 수행할 수 있습니다. 
+클러스터링을 처리하는 또 다른 방법은 파일 공유 클러스터를 구현하는 것입니다. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster)는 UNC 경로를 통해 /sapmnt 전역 디렉터리에 액세스하도록 Central Services 배포 패턴을 수정했습니다. 그래도 /sapmnt UNC 공유가 고가용성인지 확인하는 것이 좋습니다. 이 작업은 Central Services 인스턴스에서 Windows Server 2016의 SOFS(스케일 아웃 파일 서버) 및 S2D(스토리지 공간 다이렉트) 기능이 있는 Windows Server 장애 조치 클러스터를 사용하여 수행할 수 있습니다. 
  > [!NOTE]
  > Azure Site Recovery 지원 저장소 공간 다이렉트 및 수동 노드의 SIOS Datakeeper를 사용 하 여 가상 머신의 복제 일치 시점만 충돌 되는 현재
 
@@ -116,7 +116,7 @@ Azure Site Recovery를 사용하여 Azure 지역에 걸쳐 전체 SAP 배포의 
 
 ## <a name="networking-configuration"></a>네트워킹 구성
 
-고정 IP 주소를 사용하는 경우에는 가상 머신에 부여할 IP 주소를 지정할 수 있습니다. IP 주소를 설정하려면 **계산 및 네트워크 설정** > **네트워크 인터페이스 카드**로 이동합니다.
+고정 IP 주소를 사용하는 경우에는 가상 머신에 부여할 IP 주소를 지정할 수 있습니다. IP 주소를 설정하려면 **컴퓨팅 및 네트워크 설정** > **네트워크 인터페이스 카드**로 이동합니다.
 
 ![Site Recovery 네트워크 인터페이스 카드 창에서 개인 IP 주소를 설정하는 방법을 보여주는 스크린샷](./media/site-recovery-sap/sap-static-ip.png)
 

@@ -108,7 +108,7 @@
 - name: 샘플
   items:
     - name: 코드 샘플
-      href: 'https://azure.microsoft.com/resources/samples/?service=service-fabric'
+      href: 'https://docs.microsoft.com/samples/browse/'
     - name: Azure PowerShell
       href: service-fabric-powershell-samples.md
     - name: Service Fabric CLI
@@ -197,6 +197,8 @@
       items:
         - name: 애플리케이션 모델
           href: service-fabric-application-model.md
+        - name: 애플리케이션 모델 템플릿 만들기
+          href: service-fabric-concept-resource-model.md
         - name: 애플리케이션 및 서비스 매니페스트
           href: service-fabric-application-and-service-manifests.md
         - name: 애플리케이션 및 서비스 매니페스트 예제
@@ -274,7 +276,7 @@
           items:
             - name: Azure 클러스터 개요
               href: service-fabric-azure-clusters-overview.md
-            - name: 노드 유형 및 VM Scale Sets
+            - name: 노드 유형과 가상 머신 확장 집합
               href: service-fabric-cluster-nodetypes.md
             - name: Azure에서 클러스터 업그레이드
               href: service-fabric-cluster-upgrade.md
@@ -350,6 +352,12 @@
           href: service-fabric-diagnostics-partners.md
     - name: API Management와 통합
       href: service-fabric-api-management-overview.md
+    - name: 앱 리소스 모델
+      href: service-fabric-concept-resource-model.md
+    - name: 관리 ID(미리 보기)
+      href: concepts-managed-identity.md
+    - name: 컨테이너 리포지토리 인증 구성
+      href: configure-container-repository-credentials.md
 - name: 방법 가이드
   items:
     - name: 개발 환경 설정
@@ -547,8 +555,8 @@
           href: service-fabric-cloud-services-migration-worker-role-stateless-service.md
         - name: 권장 사례
           href: /azure/architecture/service-fabric/migrate-from-cloud-services
-        - name: 마이그레이션된 앱 리팩터링
-          href: /azure/architecture/service-fabric/refactor-migrated-app
+        - name: 애플리케이션 현대화
+          href: /azure/architecture/service-fabric/modernize-app-azure-service-fabric
     - name: 애플리케이션 수명 주기 관리
       items:
         - name: 애플리케이션 패키지 작성
@@ -741,6 +749,26 @@
           href: service-fabric-reverse-proxy-diagnostics.md
         - name: 로컬 클러스터 문제 해결
           href: service-fabric-troubleshoot-local-cluster-setup.md
+    - name: Service Fabric 앱의 관리 ID 사용(미리 보기)
+      items:
+        - name: 클러스터 설정
+          items:
+            - name: 관리 ID를 사용하여 기존 클러스터 구성
+              href: configure-existing-cluster-enable-managed-identity-token-service.md
+            - name: 관리 ID를 사용하여 새 Azure Service Fabric 클러스터 구성
+              href: configure-new-azure-service-fabric-enable-managed-identity.md
+        - name: 애플리케이션 설정
+          items:
+            - name: 관리 ID를 사용하여 애플리케이션을 배포하는 방법
+              items:
+                - name: 시스템 할당 관리 ID를 사용하여 애플리케이션을 배포하는 방법
+                  href: how-to-deploy-service-fabric-application-system-assigned-managed-identity.md
+                - name: 사용자 할당 관리 ID를 사용하여 애플리케이션을 배포하는 방법
+                  href: how-to-deploy-service-fabric-application-user-assigned-managed-identity.md
+        - name: Service Fabric 애플리케이션 코드에서 MITS 사용
+          href: how-to-managed-identity-service-fabric-app-code.md
+        - name: 다른 Azure 리소스에 대한 액세스 권한 부여
+          href: how-to-grant-access-other-resources.md
 - name: 참고 자료
   items:
     - name: Azure PowerShell

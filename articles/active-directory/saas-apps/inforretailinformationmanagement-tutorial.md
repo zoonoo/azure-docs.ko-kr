@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57764c2c588fd440bf39cfaaa71e9b5ccc738d99
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6572560833e6336495b3bec782a096b584be1ec0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704315"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100279"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-retail--information-management"></a>자습서: Infor Retail – Information Management와 Azure Active Directory 통합
 
@@ -32,7 +32,7 @@ Infor Retail – Information Management와 Azure AD를 통합하면 다음과 �
 * 사용자가 자신의 Azure AD 계정으로 Infor Retail – Information Management에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -58,7 +58,7 @@ Azure AD로의 Infor Retail – Information Management 통합을 구성하려면
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -115,7 +115,7 @@ Infor Retail – Information Management에서 Azure AD Single Sign-On을 구성�
 
     b. **회신 URL** 텍스트 상자에서 `https://<company name>.mingle.infor.com/sp/ACS.saml2` 패턴을 사용하여 URL을 입력합니다.
 
-5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
+5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
     ![Infor Retail – Information Management 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
 

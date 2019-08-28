@@ -2,18 +2,18 @@
 title: Power BI 작업 영역 컬렉션으로 행 수준 보안
 description: Power BI 작업 영역 컬렉션으로 행 수준 보안에 대한 세부 정보
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 author: rkarlin
 ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: 2d0c8629e4abf9e27cd204b9a13b79808b177501
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2a26cc7573abb970dc58c6f7c327dfbc659cb646
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64715209"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672493"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션으로 행 수준 보안
 
@@ -32,7 +32,7 @@ RLS를 활용하기 위해서는 사용자, 역할 및 규칙이라는 세 가�
 
 **규칙** – 역할에는 규칙이 있고 해당 규칙은 데이터에 적용할 실제 필터입니다. "Country = USA"처럼 간단하거나 훨씬 동적일 수 있습니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 이 문서의 나머지 부분에서는 RLS를 작성하는 예를 제공한 후 포함된 애플리케이션 내에서 이를 사용하는 것을 보여 줍니다. 이 예에서는 [소매 분석 샘플](https://go.microsoft.com/fwlink/?LinkID=780547) PBIX 파일을 사용합니다.
 
@@ -99,7 +99,7 @@ RLS는 Power BI Desktop으로 작성됩니다. 데이터 세트 및 보고서가
 
     var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id);
 
-to
+다음으로 변경:
 
     var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id, "Andrew Ma", ["Manager"]);'
 
@@ -111,7 +111,7 @@ to
 
 ![애플리케이션에 표시된 보고서](media/row-level-security/dashboard-13.png)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 [Power를 사용하는 RLS(행 수준 보안)](https://powerbi.microsoft.com/documentation/powerbi-admin-rls/)  
 [Power BI 작업 영역 컬렉션에서 인증 및 권한 부여](app-token-flow.md)  

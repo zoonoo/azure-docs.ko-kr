@@ -1,6 +1,6 @@
 ---
-title: 홈 영역 검색 정책을 사용한 애플리케이션에 대한 로그인 자동 가속화 구성 | Microsoft Docs
-description: 자동 가속 및 도메인 힌트를 포함 한 페더레이션된 사용자에 대 한 Azure Active Directory 인증에 대 한 홈 영역 검색 정책을 구성 하는 방법에 알아봅니다.
+title: 홈 영역 검색 정책을 사용 하 여 로그인 자동 가속화 구성 | Microsoft Docs
+description: 자동 가속 및 도메인 힌트를 포함 하 여 페더레이션 사용자에 대 한 Azure Active Directory 인증에 대 한 홈 영역 검색 정책을 구성 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -15,16 +15,16 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0534037393f4634364b927020595aa21d8e1b7b3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8f8f51fcd69a7115879aad97bbf696833e87877b
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67440367"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477218"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>홈 영역 검색 정책을 사용하여 애플리케이션에 대한 Azure Active Directory 로그인 동작 구성
 
-이 문서에서는 페더레이션된 사용자를 위한 Azure Active Directory 인증 동작 구성 소개를 제공 합니다. 여기서는 페더레이션된 도메인의 사용자에 대한 자동 가속 및 인증 제한을 구성합니다.
+이 문서에서는 페더레이션된 사용자에 대 한 Azure Active Directory 인증 동작을 구성 하는 방법을 소개 합니다. 여기서는 페더레이션된 도메인의 사용자에 대한 자동 가속 및 인증 제한을 구성합니다.
 
 ## <a name="home-realm-discovery"></a>홈 영역 검색
 HRD(홈 영역 검색)는 Azure AD(Azure Active Directory)에서 로그인 시 사용자가 인증해야 하는 위치를 결정할 수 있게 하는 프로세스입니다.  사용자가 Azure AD 테넌트에 로그인하여 리소스 또는 Azure AD 일반 로그인 페이지에 액세스할 때 사용자는 UPN(사용자 이름)을 입력합니다. Azure AD는 이 기능을 사용하여 사용자가 로그인해야 하는 위치를 검색합니다. 
@@ -152,7 +152,7 @@ Azure AD PowerShell cmdlet을 사용하여 다음을 포함한 몇 가지 시나
 - 정책이 구성된 애플리케이션 나열
 
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 다음 예제에서는 Azure AD에서 애플리케이션 서비스 주체에 대해 정책을 생성, 업데이트, 연결 및 삭제합니다.
 
 1.  시작하려면 최신 Azure AD PowerShell cmdlet 미리 보기를 다운로드합니다. 
@@ -211,7 +211,7 @@ HRD 정책을 만든 후에 적용하려면 여러 애플리케이션 서비스 
 
 포털을 사용하거나 [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity)를 쿼리할 수 있습니다. [Graph 탐색기 도구](https://developer.microsoft.com/graph/graph-explorer)로 이동하고 Azure AD 계정에 로그인하여 조직의 모든 서비스 주체를 확인할 수 있습니다. 
 
-PowerShell을 사용 하 고 있으므로 서비스 주체 및 해당 Id를 나열 하려면 다음 cmdlet을 사용할 수 있습니다.
+PowerShell을 사용 하 고 있기 때문에 다음 cmdlet을 사용 하 여 서비스 주체 및 해당 Id를 나열할 수 있습니다.
 
 ``` powershell
 Get-AzureADServicePrincipal
@@ -270,5 +270,5 @@ Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 ## <a name="next-steps"></a>다음 단계
 - Azure AD에서 인증이 작동하는 방법에 대한 자세한 내용은 [Azure AD의 인증 시나리오](../develop/authentication-scenarios.md)를 참조하세요.
-- 사용자 Single Sign-On에 대한 자세한 내용은 [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On](configure-single-sign-on-portal.md)을 참조하세요.
+- 사용자 single sign-on에 대 한 자세한 내용은 [Azure Active Directory의 응용 프로그램에 대 한 single sign-on](what-is-single-sign-on.md)을 참조 하세요.
 - 모든 개발자 관련 콘텐츠에 대한 개요는 [Active Directory 개발자 가이드](../develop/v1-overview.md)를 참조하세요.

@@ -2,52 +2,46 @@
 title: Azure Stream Analytics를 사용하여 실시간 Twitter 감정 분석
 description: 이 아티클에서는 실시간 Twitter 감정 분석에 대해 Stream Analytics를 사용하는 방법을 설명합니다. 이벤트 생성부터 라이브 대시보드의 데이터에 이르는 단계별 지침이 포함되어 있습니다.
 services: stream-analytics
-author: jseb225
-ms.author: jeanb
+author: mamccrea
+ms.author: mamccrea
 ms.reviewer: jasonh
-manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/29/2017
-ms.openlocfilehash: abb2a89f41340e8e2e26fa36cc20b790341618d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/9/2019
+ms.openlocfilehash: a0dd2499f3ddfaa1cd22a58e058c6adb7e40fd7e
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60763360"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68620015"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Azure Stream Analytics에서 실시간 Twitter 감정 분석
 
-> [!IMPORTANT] 
-> Twitter 애플리케이션 만들기는 [apps.twitter.com](https://apps.twitter.com/)을 통해 더 이상 제공되지 않습니다. 이 자습서는 새 Twitter API를 포함하도록 업데이트 중입니다.
+실시간 Twitter 이벤트를 Azure Event Hubs로 가져와서 소셜 미디어 분석을 위한 감정 분석 솔루션을 구축하는 방법을 알아봅니다. 그런 다음 Azure Stream Analytics 쿼리를 작성 하 여 데이터를 분석 하 고 나중에 사용 하기 위해 결과를 저장 하거나 실시간으로 정보를 제공 하는 [Power BI](https://powerbi.com/) 대시보드를 만듭니다.
 
-실시간 Twitter 이벤트를 Azure Event Hubs로 가져와서 소셜 미디어 분석을 위한 감정 분석 솔루션을 구축하는 방법을 알아봅니다. 그런 다음 Azure Stream Analytics 쿼리를 작성하여 데이터를 분석하고 나중에 사용할 수 있도록 결과를 저장하거나 대시보드 및 [Power BI](https://powerbi.com/)를 사용하여 실시간으로 통찰력 있는 정보를 제공할 수 있습니다.
+소셜 미디어 분석 도구는 조직에서 추세 항목을 이해하는 데 도움이 됩니다. 추세 항목은 소셜 미디어에 대 한 많은 양의 게시물이 있는 주제 및 태도입니다. 감정 분석 ( *의견 마이닝*이 라고도 함)은 소셜 미디어 분석 도구를 사용 하 여 제품 또는 아이디어에 대 한 태도를 확인 합니다. 
 
-소셜 미디어 분석 도구는 조직에서 추세 항목을 이해하는 데 도움이 됩니다. 추세 항목은 소셜 미디어에 많은 게시물을 발생시키는 주제 및 입장입니다. *의견 마이닝*이라는 감정 분석은 소셜 미디어 분석 도구를 사용하여 제품, 아이디어 등에 대한 자세를 결정합니다. 
-
-실시간 Twitter 추세 분석은 분석 도구의 아주 좋은 예입니다. 특정 키워드(해시태그)를 수신 대기하고 피드에 대한 감정 분석을 개발할 수 있는 해시 태그 구독 모델을 사용하기 때문입니다.
+실시간 Twitter 추세 분석은 분석 도구의 좋은 예입니다. 해시 태그 구독 모델을 사용 하 여 특정 키워드 (해시 태그)를 수신 하 고 피드의 감정 분석을 개발할 수 있기 때문입니다.
 
 ## <a name="scenario-social-media-sentiment-analysis-in-real-time"></a>시나리오: 소셜 미디어 실시간 감정 분석
 
 뉴스 미디어 웹 사이트를 보유하는 기업은 독자와 직접적으로 관련이 있는 사이트 콘텐츠를 부각시켜 경쟁 우위를 확보하는 데 관심이 있습니다. 이러한 기업은 Twitter 데이터에 대해 실시간으로 감정을 분석하여 독자와 관련된 항목에 대한 소셜 미디어 정보를 사용합니다.
 
-Twitter에서 실시간으로 추세를 분석할 토픽을 식별하기 위해 기업에서는 주요 토픽에 대한 트윗 볼륨 및 감정에 대한 실시간 분석이 필요합니다. 즉, 이 소셜 미디어 피드를 기반으로 하는 감정 분석 엔진이 필요합니다.
+Twitter에서 실시간으로 추세를 분석할 토픽을 식별하기 위해 기업에서는 주요 토픽에 대한 트윗 볼륨 및 감정에 대한 실시간 분석이 필요합니다.
 
-## <a name="prerequisites"></a>필수 조건
-이 자습서에서는 Twitter에 연결하고 특정 해시태그(설정 가능)가 있는 트윗을 찾는 클라이언트 애플리케이션을 사용합니다. 애플리케이션을 실행하고 Azure Streaming Analytics를 사용하여 트윗을 분석하려면 다음이 필요합니다.
+## <a name="prerequisites"></a>전제 조건
+이 방법 가이드에서는 Twitter에 연결 하 고 특정 해시 태그 (설정할 수 있음)가 있는 트 윗를 찾는 클라이언트 응용 프로그램을 사용 합니다. Azure Streaming Analytics를 사용 하 여 응용 프로그램을 실행 하 고 트 윗를 분석 하려면 다음이 있어야 합니다.
 
-* Azure 구독
-* Twitter 계정 
-* Twitter 애플리케이션 및 해당 애플리케이션에 대한 [OAuth 액세스 토큰](https://dev.twitter.com/oauth/overview/application-owner-access-tokens). 나중에 Twitter 애플리케이션을 만드는 방법에 대한 대략적인 지침을 제공합니다.
+* Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+* [Twitter](https://twitter.com) 계정.
 * Twitter 피드를 읽어 오는 TwitterWPFClient 애플리케이션. 이 애플리케이션을 가져오려면 GitHub에서 [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) 파일을 다운로드한 후 컴퓨터의 폴더로 패키지의 압축을 풉니다. 소스 코드를 확인하고 디버거에서 애플리케이션을 실행하려면 [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TwitterClient)에서 소스 코드를 가져올 수 있습니다. 
 
 ## <a name="create-an-event-hub-for-streaming-analytics-input"></a>Streaming Analytics 입력을 위한 이벤트 허브 만들기
 
 애플리케이션 예제에서 이벤트를 생성하여 Azure Event Hub에 푸시합니다. Azure Event Hubs는 Stream Analytics을 위해 이벤트를 수집하는 기본 방법입니다. 자세한 내용은 [Azure Event Hubs 설명서](../event-hubs/event-hubs-what-is-event-hubs.md)를 참조하세요.
 
-
 ### <a name="create-an-event-hub-namespace-and-event-hub"></a>이벤트 허브 네임스페이스 및 이벤트 허브 만들기
-이 절차에서는 이벤트 허브 네임스페이스를 먼저 만든 후 이벤트 허브를 해당 네임스페이스에 추가합니다. 이벤트 허브 네임스페이스는 관련된 이벤트 버스 인스턴스를 논리적으로 그룹화하는 데 사용됩니다. 
+이벤트 허브 네임 스페이스를 만든 다음 해당 네임 스페이스에 이벤트 허브를 추가 합니다. 이벤트 허브 네임스페이스는 관련된 이벤트 버스 인스턴스를 논리적으로 그룹화하는 데 사용됩니다. 
 
 1. Azure Portal에 로그인하고 **리소스 만들기** > **사물 인터넷** > **이벤트 허브**를 클릭합니다. 
 
@@ -113,27 +107,26 @@ Twitter에서 실시간으로 추세를 분석할 토픽을 식별하기 위해 
 클라이언트 애플리케이션이 Twitter에서 트윗 이벤트를 직접 가져옵니다. 이렇게 하려면 Twitter Streaming API를 호출할 수 있는 권한이 필요합니다. 해당 사용 권한을 구성하려면 고유한 자격 증명(예: OAuth 토큰)을 생성하는 애플리케이션을 Twitter에서 만듭니다. 그런 다음 API를 호출할 때 이러한 자격 증명을 사용하도록 클라이언트 애플리케이션을 구성할 수 있습니다. 
 
 ### <a name="create-a-twitter-application"></a>Twitter 애플리케이션 만들기
-이 자습서에 사용할 수 있는 Twitter 애플리케이션이 아직 없는 경우 만들 수 있습니다. Twitter 계정이 이미 있어야 합니다.
+이 방법 가이드에 사용할 수 있는 Twitter 응용 프로그램이 아직 없는 경우 새로 만들 수 있습니다. Twitter 계정이 이미 있어야 합니다.
 
 > [!NOTE]
 > Twitter에서 애플리케이션을 만들고 키, 비밀 및 토큰을 가져오는 정확한 프로세스는 변경될 수 있습니다. 이러한 지침이 Twitter 사이트에 표시되는 내용과 일치하지 않으면 Twitter 개발자 설명서를 참조하세요.
 
-1. [Twitter 애플리케이션 관리 페이지](https://apps.twitter.com/)로 이동합니다. 
+1. 웹 브라우저에서 [개발자용 Twitter](https://developer.twitter.com/en/apps)로 이동하여 **앱 만들기**를 선택합니다. Twitter 개발자 계정을 신청해야 한다는 메시지가 표시될 수 있습니다. 자유롭게 신청할 수 있으며, 신청이 승인되면 확인 이메일이 수신됩니다. 개발자 계정이 승인될 때까지 며칠이 걸릴 수 있습니다.
 
-2. 새 애플리케이션을 만듭니다. 
+   ![Twitter 개발자 계정 확인](./media/stream-analytics-twitter-sentiment-analysis-trends/twitter-dev-confirmation.png "twitter 개발자 계정 확인")
 
-   * 웹 사이트 URL에 대한 유효한 URL을 지정합니다. 라이브 사이트일 필요는 없습니다. (`localhost`만 지정할 수는 없음)
-   * 콜백 필드는 비워 둡니다. 이 자습서에 사용할 클라이언트 애플리케이션에는 콜백이 필요하지 않습니다.
+   ![Twitter 애플리케이션 세부 정보](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details.png "Twitter 애플리케이션 세부 정보")
 
-     ![Twitter에서 애플리케이션 만들기](./media/stream-analytics-twitter-sentiment-analysis-trends/create-twitter-application.png)
+2. **애플리케이션 만들기** 페이지에서 새 앱에 대한 세부 정보를 제공한 다음, **Twitter 애플리케이션 만들기**를 선택합니다.
 
-3. 필요에 따라 애플리케이션 권한을 읽기 전용으로 변경합니다.
+   ![Twitter 애플리케이션 세부 정보](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details-create.png "Twitter 애플리케이션 세부 정보")
 
-4. 애플리케이션이 만들어지면 **키 및 액세스 토큰** 페이지로 이동합니다.
+3. 애플리케이션 페이지에서 **키 및 토큰** 탭을 선택하고, **소비자 API 키** 및 **소비자 API 비밀 키** 값을 복사합니다. 또한 **액세스 토큰 및 액세스 토큰 비밀** 아래에서 **만들기**를 선택하여 액세스 토큰을 생성합니다. **액세스 토큰** 및 **액세스 토큰 비밀**에 대한 값을 복사합니다.
 
-5. 액세스 토큰 및 액세스 토큰 암호를 생성하는 단추를 클릭합니다.
+    ![Twitter 애플리케이션 세부 정보](./media/stream-analytics-twitter-sentiment-analysis-trends/twitter-app-key-secret.png "Twitter 애플리케이션 세부 정보")
 
-다음 절차에 필요하기 때문에 이 정보를 보관해 두세요.
+Twitter 애플리케이션에 대해 검색한 값을 저장합니다. 나중에 방법의 값이 필요 합니다.
 
 >[!NOTE]
 >Twitter 애플리케이션에 대한 키 및 비밀은 Twitter 계정에 대한 액세스를 제공합니다. 이 정보는 Twitter 암호처럼 중요하게 취급합니다. 예를 들어 이 정보를 다른 사람에게 제공하는 애플리케이션에 포함하지 마세요. 
@@ -232,9 +225,9 @@ Microsoft에서는 특정 항목 집합에 대한 트윗 이벤트를 수집하�
 
 ## <a name="specify-the-job-query"></a>작업 쿼리 지정
 
-Stream Analytics는 변환을 설명하는 간단하고 선언적인 쿼리 모델을 지원합니다. 이 언어에 대한 자세한 내용은 [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)를 참조하세요.  이 자습서에서는 Twitter 데이터에 대해 여러 쿼리를 작성하고 테스트하도록 도와줍니다.
+Stream Analytics는 변환을 설명하는 간단하고 선언적인 쿼리 모델을 지원합니다. 이 언어에 대한 자세한 내용은 [Azure Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)를 참조하세요.  이 방법 가이드를 통해 Twitter 데이터에 대해 여러 쿼리를 작성 하 고 테스트할 수 있습니다.
 
-항목 간의 멘션 수를 비교하기 위해 [연속 창](https://msdn.microsoft.com/library/azure/dn835055.aspx)을 활용하여 5초마다 항목별 멘션 수를 수집합니다.
+항목 간의 멘션 수를 비교하기 위해 [연속 창](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics)을 활용하여 5초마다 항목별 멘션 수를 수집합니다.
 
 1. 없는 경우 **입력** 블레이드를 닫습니다.
 
@@ -266,13 +259,13 @@ Stream Analytics는 변환을 설명하는 간단하고 선언적인 쿼리 모�
 
     입력에 대한 별칭으로 `TwitterStream`을 사용하지 않은 경우 쿼리에서 `TwitterStream`에 대한 별칭을 대체합니다.  
 
-    이 쿼리에서는 **TIMESTAMP BY** 키워드를 사용하여 임시 계산에서 사용할 페이로드에 타임스탬프 필드를 지정합니다. 이 필드를 지정하지 않으면 각 이벤트가 이벤트 허브에 도착한 시간을 사용하여 창 작업이 수행됩니다. 자세한 내용은 [Stream Analytics 쿼리 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)에서 “도착 시간과 애플리케이션 시간” 섹션을 참조하세요.
+    이 쿼리에서는 **TIMESTAMP BY** 키워드를 사용하여 임시 계산에서 사용할 페이로드에 타임스탬프 필드를 지정합니다. 이 필드를 지정하지 않으면 각 이벤트가 이벤트 허브에 도착한 시간을 사용하여 창 작업이 수행됩니다. 자세한 내용은 [Stream Analytics 쿼리 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)에서 “도착 시간과 애플리케이션 시간” 섹션을 참조하세요.
 
     또한 이 쿼리는 **System.Timestamp** 속성을 사용하여 각 창 끝부분의 타임스탬프에도 액세스합니다.
 
 5. **테스트**를 클릭합니다. 샘플링된 데이터에 대해 쿼리가 실행됩니다.
     
-6. **저장**을 클릭합니다. 그러면 Streaming Analytics 작업의 일부로 쿼리를 저장합니다. (샘플 데이터를 저장하지 않음)
+6. **Save**을 클릭합니다. 그러면 Streaming Analytics 작업의 일부로 쿼리를 저장합니다. (샘플 데이터를 저장하지 않음)
 
 
 ## <a name="experiment-using-different-fields-from-the-stream"></a>스트림에서 서로 다른 필드를 사용하여 실험 
@@ -292,7 +285,7 @@ Stream Analytics는 변환을 설명하는 간단하고 선언적인 쿼리 모�
 
 이제 이벤트 스트림, 이벤트를 수집할 이벤트 허브 입력 및 스트림 변환을 수행할 쿼리를 정의했습니다. 마지막 단계는 작업에 대한 출력 싱크를 정의하는 것입니다.  
 
-이 자습서에서는 작업 쿼리에서 집계된 트윗 이벤트를 Azure Blob Storage에 기록합니다.  또한 특정 애플리케이션 요구 사항에 따라 Azure SQL Database, Azure Table Storage, Event Hubs 또는 Power BI에 결과를 푸시할 수도 있습니다.
+이 방법 가이드에서는 작업 쿼리에서 집계 된 트 윗 이벤트를 Azure Blob storage에 작성 합니다.  또한 특정 애플리케이션 요구 사항에 따라 Azure SQL Database, Azure Table Storage, Event Hubs 또는 Power BI에 결과를 푸시할 수도 있습니다.
 
 ## <a name="specify-the-job-output"></a>작업 출력 지정
 
@@ -303,9 +296,9 @@ Stream Analytics는 변환을 설명하는 간단하고 선언적인 쿼리 모�
    * **출력 별칭**: 이름 `TwitterStream-Output`을 사용합니다. 
    * **싱크**: **Blob Storage**를 선택합니다.
    * **가져오기 옵션**: **현재 구독의 Blob Storage 사용**을 선택합니다.
-   * **Storage 계정**. **새 저장소 계정 만들기**를 선택합니다.
+   * **Storage 계정**. **새 스토리지 계정 만들기**를 선택합니다.
    * **Storage 계정**(두 번째 상자). `YOURNAMEsa`를 입력합니다. 여기서 `YOURNAME`은 사용자 이름 또는 다른 고유 문자열입니다. 이름으로 소문자 및 숫자만 사용할 수 있으며 Azure 전체에서 고유해야 합니다. 
-   * **컨테이너**. [https://slack.botframework.com](`socialtwitter`) 을 입력합니다.
+   * **컨테이너**. `socialtwitter` 을 입력합니다.
      스토리지 계정 이름 및 컨테이너 이름을 다음과 같이 함께 사용하여 Blob Storage에 대한 URI를 제공해야 합니다. 
 
      `http://YOURNAMEsa.blob.core.windows.net/socialtwitter/...`
@@ -314,7 +307,7 @@ Stream Analytics는 변환을 설명하는 간단하고 선언적인 쿼리 모�
     
 4. **만들기**를 클릭합니다. 
 
-    Azure에서 저장소 계정을 만들고 키를 자동으로 생성합니다. 
+    Azure에서 스토리지 계정을 만들고 키를 자동으로 생성합니다. 
 
 5. **출력** 블레이드를 닫습니다. 
 
@@ -348,9 +341,9 @@ Stream Analytics는 변환을 설명하는 간단하고 선언적인 쿼리 모�
 
 ## <a name="create-another-query-to-identify-trending-topics"></a>추세 항목을 확인하는 다른 쿼리 만들기
 
-Twitter 감정을 이해하는 데 사용할 수 있는 다른 쿼리는 [슬라이딩 윈도우](https://msdn.microsoft.com/library/azure/dn835051.aspx)를 기반으로 합니다. 인기 항목을 식별하기 위해 지정된 기간 동안 멘션의 임계값을 초과한 항목을 찾아봅니다.
+Twitter 감정을 이해하는 데 사용할 수 있는 다른 쿼리는 [슬라이딩 윈도우](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics)를 기반으로 합니다. 인기 항목을 식별하기 위해 지정된 기간 동안 멘션의 임계값을 초과한 항목을 찾아봅니다.
 
-이 자습서에서는 마지막 5초 이내에 20번 넘게 멘션된 항목을 확인합니다.
+이 방법의 목적을 위해 최근 5 초 이내에 20 번 이상 언급 된 항목을 확인 합니다.
 
 1. 작업 블레이드에서 **중지**를 클릭하여 작업을 중지합니다. 
 
@@ -365,7 +358,7 @@ Twitter 감정을 이해하는 데 사용할 수 있는 다른 쿼리는 [슬라
     HAVING COUNT(*) > 20
     ```
 
-4. **저장**을 클릭합니다.
+4. **Save**을 클릭합니다.
 
 5. TwitterWpfClient 애플리케이션이 실행되고 있는지 확인합니다. 
 
@@ -379,5 +372,5 @@ Twitter 감정을 이해하는 데 사용할 수 있는 다른 쿼리는 [슬라
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)

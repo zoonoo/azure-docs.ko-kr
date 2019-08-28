@@ -2,18 +2,18 @@
 title: Azure의 Kubernetes 자습서 - 컨테이너 레지스트리 만들기
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 Azure Container Registry 인스턴스를 만들고 애플리케이션 예제 컨테이너 이미지를 업로드합니다.
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: twhitney
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 1bd41dc464c251a2e7dab3087f3feffb15db785f
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 5089326af1d7f6e057667cd916f35de92bf517ef
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304422"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614237"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>자습서: Azure Container Registry 배포 및 사용
 
@@ -29,7 +29,7 @@ ACR(Azure Container Registry)은 컨테이너 이미지를 위한 프라이빗 �
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-[이전 자습서][aks-tutorial-prepare-app]에서는 간단한 Azure Voting 애플리케이션에 대한 컨테이너 이미지를 만들었습니다. Azure Voting 앱 이미지를 만들지 않은 경우 [자습서 1 - 컨테이너 이미지 만들기][aks-tutorial-prepare-app]로 돌아갑니다.
+[이전 자습서][aks-tutorial-prepare-app]에서는 간단한 Azure Voting 애플리케이션에 컨테이너 이미지를 만들었습니다. Azure Voting 앱 이미지를 만들지 않은 경우 [자습서 1 - 컨테이너 이미지 만들기][aks-tutorial-prepare-app]로 돌아갑니다.
 
 이 자습서의 작업을 수행하려면 Azure CLI 버전 2.0.53 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
@@ -43,7 +43,7 @@ Azure Container Registry를 만들려면 먼저 리소스 그룹이 필요합니
 az group create --name myResourceGroup --location eastus
 ```
 
-[az acr create][az-acr-create] 명령을 사용하여 Azure Container Registry 인스턴스를 만들고 고유한 레지스트리 이름을 입력합니다. 레지스트리 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자만 포함해야 합니다. 이 자습서의 나머지 부분에서는 컨테이너 레지스트리 이름의 자리 표시자로 `<acrName>`을 사용합니다. 사용자 고유의 레지스트리 이름을 제공합니다. *기본* SKU는 개발을 위해 비용에 최적화된 진입점으로, 저장소와 처리량의 균형을 적절하게 맞추었습니다.
+[az acr create][az-acr-create] 명령을 사용하여 Azure Container Registry 인스턴스를 만들고 고유한 레지스트리 이름을 입력합니다. 레지스트리 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자만 포함해야 합니다. 이 자습서의 나머지 부분에서는 컨테이너 레지스트리 이름의 자리 표시자로 `<acrName>`을 사용합니다. 사용자 고유의 레지스트리 이름을 제공합니다. *기본* SKU는 개발을 위해 비용에 최적화된 진입점으로, 스토리지와 처리량의 균형을 적절하게 맞추었습니다.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic

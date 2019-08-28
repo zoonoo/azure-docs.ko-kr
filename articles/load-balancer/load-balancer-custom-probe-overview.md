@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: 상태 프로브를 사용하여 Load Balancer 뒤의 인스턴스를 모니터링하는 방법을 알아봅니다.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 ms.service: load-balancer
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2019
-ms.author: kumud
-ms.openlocfilehash: e488a4a6438279270f3d86dafa16c45eda184059
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 75009530940a0cce7adb8469ead5f55f509a1faa
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65415700"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275344"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer 상태 프로브
 
@@ -30,7 +30,7 @@ Azure Load Balancer는 부하 분산 규칙에 사용하기 위한 상태 프로
 | | 표준 SKU | 기본 SKU |
 | --- | --- | --- |
 | [상태 프로브 유형](#types) | TCP, HTTP, HTTPS | TCP, HTTP |
-| [프로브 다운 동작](#probedown) | 모든 프로브가 다운되고, 모든 TCP 흐름이 계속됩니다. | 아래로 모든 프로브 모든 TCP 흐름에 만료 됩니다. | 
+| [프로브 다운 동작](#probedown) | 모든 프로브가 다운되고, 모든 TCP 흐름이 계속됩니다. | 모든 프로브는 모든 TCP 흐름이 만료 됩니다. | 
 
 > [!IMPORTANT]
 > Load Balancer 상태 프로브는 168.63.129.16 IP 주소에서 시작되며, 프로브에서 인스턴스를 표시하기 위해 차단되지 않아야 합니다.  자세한 내용은 [원본 IP 주소 프로브](#probesource)를 검토하세요.
@@ -178,7 +178,7 @@ Load Balancer는 내부 상태 모델에 분산 프로빙 서비스를 사용합
 
 AzureLoadBalancer 서비스 태그는 [네트워크 보안 그룹](../virtual-network/security-overview.md)에서 이 원본 IP 주소를 식별하고 기본적으로 상태 프로브 트래픽을 허용합니다.
 
-부하 분산 장치 상태 프로브를 외에 [IP 주소를 사용 하는 다음 작업](../virtual-network/what-is-ip-address-168-63-129-16.md):
+상태 프로브를 Load Balancer 하는 것 외에도 [다음 작업은이 IP 주소를 사용](../virtual-network/what-is-ip-address-168-63-129-16.md)합니다.
 
 - VM 에이전트에서 플랫폼과 통신하도록 설정하여 "준비" 상태에 있음을 알립니다.
 - DNS 가상 서버와 통신하도록 설정하여 사용자 지정 DNS 서버를 정의하지 않은 고객에게 필터링된 이름 확인을 제공합니다.  이 필터링을 통해 고객은 배포의 호스트 이름만 확인할 수 있습니다.
@@ -204,7 +204,7 @@ Load Balancer의 상태 프로브에서 인스턴스를 표시하려면 모든 A
 
 상태 프로브 실패를 테스트하거나 개별 인스턴스를 표시하려는 경우 [네트워크 보안 그룹](../virtual-network/security-overview.md)을 사용하여 상태 프로브(대상 포트 또는 [원본 IP](#probesource))를 명시적으로 차단하고 프로브 실패를 시뮬레이트할 수 있습니다.
 
-168\.63.129.16이 포함된 Microsoft 소유의 IP 주소 범위를 사용하여 VNet을 구성하지 않도록 합니다.  이러한 구성은 상태 프로브의 IP 주소와 충돌하여 시나리오 실패를 야기할 수 있습니다.
+168.63.129.16이 포함된 Microsoft 소유의 IP 주소 범위를 사용하여 VNet을 구성하지 않도록 합니다.  이러한 구성은 상태 프로브의 IP 주소와 충돌하여 시나리오 실패를 야기할 수 있습니다.
 
 VM에 여러 인터페이스가 있는 경우 받은 인터페이스의 프로브에 응답하도록 보장해야 합니다.  인터페이스당 VM에서 이 주소를 변환하려면 네트워크 주소를 소싱해야 할 수 있습니다.
 
@@ -212,9 +212,9 @@ VM에 여러 인터페이스가 있는 경우 받은 인터페이스의 프로�
 
 ## <a name="monitoring"></a>모니터링
 
-공용 및 내부 [표준 Load Balancer](load-balancer-standard-overview.md)는 Azure Monitor를 통해 엔드포인트 및 백 엔드 인스턴스별 상태를 다차원 메트릭으로 공개합니다. 이러한 메트릭은 다른 Azure 서비스 또는 파트너 응용 프로그램에서 사용할 수 있습니다. 
+공용 및 내부 [표준 Load Balancer](load-balancer-standard-overview.md)는 Azure Monitor를 통해 엔드포인트 및 백 엔드 인스턴스별 상태를 다차원 메트릭으로 공개합니다. 이러한 메트릭은 다른 Azure 서비스 또는 파트너 응용 프로그램에서 사용 될 수 있습니다. 
 
-기본 공용 Load Balancer 상태 프로브 로그 Azure Monitor를 통해 백 엔드 풀 당 요약을 표시 합니다.  Azure Monitor 로그 내부 기본 부하 분산 장치에 대 한 제공 되지 않습니다.  사용할 수 있습니다 [Azure Monitor 로그](load-balancer-monitor-log.md) 공용 부하 분산 장치 프로브 상태를 확인 및 프로브 수. Power BI 또는 Azure Operational Insights에서 로깅을 사용하여 부하 분산 장치 상태에 대한 통계를 제공할 수 있습니다.
+기본 공용 Load Balancer는 Azure Monitor 로그를 통해 백 엔드 풀에 요약 된 상태 프로브 상태를 노출 합니다.  Azure Monitor 로그는 내부 기본 부하 분산 장치에 사용할 수 없습니다.  [Azure Monitor 로그](load-balancer-monitor-log.md) 를 사용 하 여 공용 부하 분산 장치 프로브 상태 및 프로브 수를 확인할 수 있습니다. Power BI 또는 Azure Operational Insights에서 로깅을 사용하여 부하 분산 장치 상태에 대한 통계를 제공할 수 있습니다.
 
 ## <a name="limitations"></a>제한 사항
 

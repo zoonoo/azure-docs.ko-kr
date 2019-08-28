@@ -8,13 +8,13 @@ ms.service: app-service-web
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
-ms.custom: seodec18
-ms.openlocfilehash: 069bc213695de813ad6b878db54f38a909efd1df
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.custom: seodec18, seo-java-july2019
+ms.openlocfilehash: 625e40b4dcb8ac558831508b292fd5cbcfb90b5b
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956028"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489449"
 ---
 # <a name="tutorial-build-a-java-web-app-using-spring-and-azure-cosmos-db"></a>자습서: Spring 및 Azure Cosmos DB를 사용하여 Java 웹앱 빌드
 
@@ -169,7 +169,7 @@ bash-3.2$ mvn package spring-boot:run
 
 앱이 시작되면 다음 링크를 사용하여 로컬로 Spring 할 일 앱에 액세스할 수 있습니다. [http://localhost:8080/](http://localhost:8080/)
 
- ![](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
+ ![Azure App Service에서 실행 중인 Java 앱](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
 “Started TodoApplication” 메시지 대신 예외가 표시되는 경우 이전 단계에서 `bash` 스크립트가 환경 변수를 제대로 내보냈는지, 생성한 Azure Cosmos DB 데이터베이스에 대한 값이 올바른지 확인합니다.
 
@@ -263,7 +263,7 @@ open https://spring-todo-app.azurewebsites.net
 
 주소 표시줄에는 원격 URL에서 실행 중인 앱이 표시됩니다.
 
- ![](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-in-app-service.jpg)
+ ![Azure App Service에서 실행 중인 Java 앱](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-in-app-service.jpg)
 
 ## <a name="stream-diagnostic-logs"></a>진단 로그 스트림
 

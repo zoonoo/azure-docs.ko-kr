@@ -3,25 +3,25 @@ title: 클라우드에서 장면 렌더링 - Azure Batch
 description: 자습서 - Batch Rendering Service 및 Azure 명령줄 인터페이스를 사용하여 Arnold에서 Autodesk 3ds Max 장면을 렌더링하는 방법을 알아봅니다.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.topic: tutorial
 ms.date: 12/11/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 5abc2e673438a1ffa22e8d010bf2ee395cd521ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0c87a6968e5c6fd0e587c240b0a5df0a73f9909b
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66127289"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321648"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>자습서: Azure Batch를 사용하여 장면 렌더링 
 
 Azure Batch Rendering Service는 클라우드 수준 렌더링 기능을 사용량 기준 과금으로 제공합니다. Azure Batch는 Autodesk Maya, 3ds Max, Arnold, V-Ray 등의 렌더링 앱을 지원합니다. 이 자습서에서는 Azure 명령줄 인터페이스를 사용하여 Batch를 통해 작은 장면을 렌더링하는 단계를 보여 줍니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * Azure 저장소에 장면 업로드
+> * Azure Storage에 장면 업로드
 > * 렌더링을 위한 Batch 풀 만들기
 > * 단일 프레임 장면 렌더링
 > * 풀 크기 조정 및 다중 프레임 장면 렌더링
@@ -41,7 +41,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 ## <a name="create-a-batch-account"></a>Batch 계정 만들기
 
-아직 없는 경우 구독에 리소스 그룹, 배치 계정 및 연결된 저장소 계정을 만듭니다. 
+아직 없는 경우 구독에 리소스 그룹, 배치 계정 및 연결된 스토리지 계정을 만듭니다. 
 
 [az group create](/cli/azure/group#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus2* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
@@ -51,7 +51,7 @@ az group create \
     --location eastus2
 ```
 
-[az storage account create](/cli/azure/storage/account#az-storage-account-create) 명령을 사용하여 리소스 그룹에 Azure Storage 계정을 만듭니다. 이 자습서에서는 저장소 계정을 사용하여 입력된 3ds Max 장면과 렌더링된 출력을 저장합니다.
+[az storage account create](/cli/azure/storage/account#az-storage-account-create) 명령을 사용하여 리소스 그룹에 Azure Storage 계정을 만듭니다. 이 자습서에서는 스토리지 계정을 사용하여 입력된 3ds Max 장면과 렌더링된 출력을 저장합니다.
 
 ```azurecli-interactive
 az storage account create \
@@ -60,7 +60,7 @@ az storage account create \
     --location eastus2 \
     --sku Standard_LRS
 ```
-[az batch account create](/cli/azure/batch/account#az-batch-account-create) 명령을 사용하여 배치 계정을 만듭니다. 다음 예제에서는 *mybatchaccount*라는 배치 계정을 *myResourceGroup*에 만들고, 만든 저장소 계정을 연결합니다.  
+[az batch account create](/cli/azure/batch/account#az-batch-account-create) 명령을 사용하여 배치 계정을 만듭니다. 다음 예제에서는 *mybatchaccount*라는 배치 계정을 *myResourceGroup*에 만들고, 만든 스토리지 계정을 연결합니다.  
 
 ```azurecli-interactive 
 az batch account create \
@@ -70,7 +70,7 @@ az batch account create \
     --location eastus2
 ```
 
-계산 풀 및 작업을 만들고 관리하려면 Batch를 통해 인증해야 합니다. [az batch account login](/cli/azure/batch/account#az-batch-account-login) 명령으로 계정에 로그인합니다. 로그인되면 이 계정 컨텍스트가 `az batch` 명령에 사용됩니다. 다음 예제에서는 배치 계정 이름과 키를 기반으로 하는 공유 키 인증을 사용합니다. 또한 Batch는 [Azure Active Directory](batch-aad-auth.md)를 통한 인증도 지원하여 개별 사용자 또는 무인 애플리케이션을 인증합니다.
+컴퓨팅 풀 및 작업을 만들고 관리하려면 Batch를 통해 인증해야 합니다. [az batch account login](/cli/azure/batch/account#az-batch-account-login) 명령으로 계정에 로그인합니다. 로그인되면 이 계정 컨텍스트가 `az batch` 명령에 사용됩니다. 다음 예제에서는 배치 계정 이름과 키를 기반으로 하는 공유 키 인증을 사용합니다. 또한 Batch는 [Azure Active Directory](batch-aad-auth.md)를 통한 인증도 지원하여 개별 사용자 또는 무인 애플리케이션을 인증합니다.
 
 ```azurecli-interactive 
 az batch account login \
@@ -78,9 +78,9 @@ az batch account login \
     --resource-group myResourceGroup \
     --shared-key-auth
 ```
-## <a name="upload-a-scene-to-storage"></a>저장소에 장면 업로드
+## <a name="upload-a-scene-to-storage"></a>스토리지에 장면 업로드
 
-저장소에 입력 장면을 업로드하려면, 먼저 저장소 계정에 액세스하고 Blob에 대한 대상 컨테이너를 만들어야 합니다. Azure 저장소 계정에 액세스하려면 `AZURE_STORAGE_KEY` 및 `AZURE_STORAGE_ACCOUNT` 환경 변수를 내보냅니다. 첫 번째 Bash 셸 명령은 [az storage account keys list](/cli/azure/storage/account/keys#az-storage-account-keys-list) 명령을 사용하여 첫 번째 계정 키를 가져옵니다. 이러한 환경 변수가 설정되면 이 계정 컨텍스트가 저장소 명령에 사용됩니다.
+스토리지에 입력 장면을 업로드하려면, 먼저 스토리지 계정에 액세스하고 Blob에 대한 대상 컨테이너를 만들어야 합니다. Azure Storage 계정에 액세스하려면 `AZURE_STORAGE_KEY` 및 `AZURE_STORAGE_ACCOUNT` 환경 변수를 내보냅니다. 첫 번째 Bash 셸 명령은 [az storage account keys list](/cli/azure/storage/account/keys#az-storage-account-keys-list) 명령을 사용하여 첫 번째 계정 키를 가져옵니다. 이러한 환경 변수가 설정되면 이 계정 컨텍스트가 스토리지 명령에 사용됩니다.
 
 ```azurecli-interactive
 export AZURE_STORAGE_KEY=$(az storage account keys list --account-name mystorageaccount --resource-group myResourceGroup -o tsv --query [0].value)
@@ -88,7 +88,7 @@ export AZURE_STORAGE_KEY=$(az storage account keys list --account-name mystorage
 export AZURE_STORAGE_ACCOUNT=mystorageaccount
 ```
 
-이제 장면 파일에 대한 저장소 계정에 Blob 컨테이너를 만듭니다. 다음 예제에서는 [az storage container create](/cli/azure/storage/container#az-storage-container-create) 명령을 사용하여 공용 읽기 액세스를 허용하는 *scenefiles*라는 Blob 컨테이너를 만듭니다.
+이제 장면 파일에 대한 스토리지 계정에 Blob 컨테이너를 만듭니다. 다음 예제에서는 [az storage container create](/cli/azure/storage/container#az-storage-container-create) 명령을 사용하여 공용 읽기 액세스를 허용하는 *scenefiles*라는 Blob 컨테이너를 만듭니다.
 
 ```azurecli-interactive
 az storage container create \
@@ -96,7 +96,7 @@ az storage container create \
     --name scenefiles
 ```
 
-[GitHub](https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max)의 `MotionBlur-Dragon-Flying.max` 장면을 로컬 작업 디렉터리로 다운로드합니다. 예: 
+[GitHub](https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max)의 `MotionBlur-Dragon-Flying.max` 장면을 로컬 작업 디렉터리로 다운로드합니다. 예:
 
 ```azurecli-interactive
 wget -O MotionBlur-DragonFlying.max https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max
@@ -160,7 +160,7 @@ az batch pool show \
 
 ## <a name="create-a-blob-container-for-output"></a>출력을 위한 Blob 컨테이너 만들기
 
-이 자습서의 예제에서는 렌더링 작업의 모든 태스크에서 출력 파일을 만듭니다. 작업을 예약하기 전에 저장소 계정에 Blob 컨테이너를 출력 파일에 대한 대상으로 만듭니다. 다음 예제에서는 [az storage container create](/cli/azure/storage/container#az-storage-container-create) 명령을 사용하여 공용 읽기 액세스 권한이 있는 *job-myrenderjob* 컨테이너를 만듭니다. 
+이 자습서의 예제에서는 렌더링 작업의 모든 태스크에서 출력 파일을 만듭니다. 작업을 예약하기 전에 스토리지 계정에 Blob 컨테이너를 출력 파일에 대한 대상으로 만듭니다. 다음 예제에서는 [az storage container create](/cli/azure/storage/container#az-storage-container-create) 명령을 사용하여 공용 읽기 액세스 권한이 있는 *job-myrenderjob* 컨테이너를 만듭니다. 
 
 ```azurecli-interactive
 az storage container create \
@@ -202,7 +202,7 @@ az batch job create \
 
 이 태스크는 *MotionBlur-DragonFlying.max* 장면의 단일 프레임을 렌더링하는 3ds Max 명령을 지정합니다.
 
-저장소 계정 이름과 SAS 토큰이 포함되도록 JSON 파일의 `blobSource` 및 `containerURL` 요소를 수정합니다. 
+스토리지 계정 이름과 SAS 토큰이 포함되도록 JSON 파일의 `blobSource` 및 `containerURL` 요소를 수정합니다. 
 
 > [!TIP]
 > `containerURL`은 SAS 토큰으로 끝나며 다음과 비슷합니다.
@@ -281,7 +281,7 @@ az storage blob download \
 
 ## <a name="scale-the-pool"></a>풀 크기 조정
 
-이제 여러 프레임으로 더 큰 렌더링 작업을 준비하도록 풀을 수정합니다. Batch에서는 태스크 요구 사항이 변경될 때 노드를 추가하거나 제거하는 [자동 크기 조정](batch-automatic-scaling.md)을 포함하여 계산 리소스의 크기를 조정하는 다양한 방법을 제공합니다. 이 기본 예제에서는 [az batch pool resize](/cli/azure/batch/pool#az-batch-pool-resize) 명령을 사용하여 풀에서 우선 순위가 낮은 노드의 수를 *6*으로 늘립니다.
+이제 여러 프레임으로 더 큰 렌더링 작업을 준비하도록 풀을 수정합니다. Batch에서는 태스크 요구 사항이 변경될 때 노드를 추가하거나 제거하는 [자동 크기 조정](batch-automatic-scaling.md)을 포함하여 컴퓨팅 리소스의 크기를 조정하는 다양한 방법을 제공합니다. 이 기본 예제에서는 [az batch pool resize](/cli/azure/batch/pool#az-batch-pool-resize) 명령을 사용하여 풀에서 우선 순위가 낮은 노드의 수를 *6*으로 늘립니다.
 
 ```azurecli-interactive
 az batch pool resize --pool-id myrenderpool --target-dedicated-nodes 0 --target-low-priority-nodes 6
@@ -293,7 +293,7 @@ az batch pool resize --pool-id myrenderpool --target-dedicated-nodes 0 --target-
 
 단일 프레임 예제와 같이 [az batch task create](/cli/azure/batch/task#az-batch-task-create) 명령을 사용하여 *myrenderjob*이라는 작업의 렌더링 태스크를 만듭니다. 여기서는 태스크 설정을 *myrendertask_multi.json* JSON 파일에 지정합니다. (이 파일은 [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json)에서 다운로드할 수 있습니다.) 6개 태스크 각각은 *MotionBlur-DragonFlying.max* 3ds Max 장면의 프레임을 하나씩 렌더링하는 Arnold 명령줄을 지정합니다.
 
-현재의 *myrendertask_multi.json*이라는 셸에서 파일을 만들고, 다운로드한 파일의 내용을 복사하여 붙여넣습니다. 저장소 계정 이름과 SAS 토큰이 포함되도록 JSON 파일의 `blobSource` 및 `containerURL` 요소를 수정합니다. 6개 태스크 각각에 대한 설정을 변경해야 합니다. 파일을 저장하고, 다음 명령을 실행하여 태스크를 큐에 넣습니다.
+현재의 *myrendertask_multi.json*이라는 셸에서 파일을 만들고, 다운로드한 파일의 내용을 복사하여 붙여넣습니다. 스토리지 계정 이름과 SAS 토큰이 포함되도록 JSON 파일의 `blobSource` 및 `containerURL` 요소를 수정합니다. 6개 태스크 각각에 대한 설정을 변경해야 합니다. 파일을 저장하고, 다음 명령을 실행하여 태스크를 큐에 넣습니다.
 
 ```azurecli-interactive
 az batch task create --job-id myrenderjob --json-file myrendertask_multi.json
@@ -301,7 +301,7 @@ az batch task create --job-id myrenderjob --json-file myrendertask_multi.json
 
 ### <a name="view-task-output"></a>태스크 출력 보기
 
-태스크를 실행하는 데 몇 분이 걸립니다. [az batch task list](/cli/azure/batch/task#az-batch-task-list) 명령을 사용하여 태스크의 상태를 봅니다. 예: 
+태스크를 실행하는 데 몇 분이 걸립니다. [az batch task list](/cli/azure/batch/task#az-batch-task-list) 명령을 사용하여 태스크의 상태를 봅니다. 예:
 
 ```azurecli-interactive
 az batch task list \
@@ -309,7 +309,7 @@ az batch task list \
     --output table
 ```
 
-[az batch task show](/cli/azure/batch/task#az-batch-task-show) 명령을 사용하여 개별 태스크에 대한 세부 정보를 봅니다. 예: 
+[az batch task show](/cli/azure/batch/task#az-batch-task-show) 명령을 사용하여 개별 태스크에 대한 세부 정보를 봅니다. 예:
 
 ```azurecli-interactive
 az batch task show \
@@ -317,7 +317,7 @@ az batch task show \
     --task-id mymultitask1
 ```
  
-태스크는 계산 노드에서 *dragon0002.jpg* - *dragon0007.jpg*라는 출력 파일을 생성하고, 스토리지 계정의 *job-myrenderjob* 컨테이너에 업로드합니다. 출력을 보려면 [az storage blob download-batch](/cli/azure/storage/blob) 명령을 사용하여 파일을 로컬 컴퓨터의 폴더로 다운로드합니다. 예: 
+태스크는 계산 노드에서 *dragon0002.jpg* - *dragon0007.jpg*라는 출력 파일을 생성하고, 스토리지 계정의 *job-myrenderjob* 컨테이너에 업로드합니다. 출력을 보려면 [az storage blob download-batch](/cli/azure/storage/blob) 명령을 사용하여 파일을 로컬 컴퓨터의 폴더로 다운로드합니다. 예:
 
 ```azurecli-interactive
 az storage blob download-batch \
@@ -343,7 +343,7 @@ az group delete --name myResourceGroup
 이 자습서에서는 다음을 수행하는 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> * Azure 저장소에 장면 업로드
+> * Azure Storage에 장면 업로드
 > * 렌더링을 위한 Batch 풀 만들기
 > * Arnold를 사용하여 단일 프레임 장면 렌더링
 > * 풀 크기 조정 및 다중 프레임 장면 렌더링

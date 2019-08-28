@@ -92,7 +92,7 @@ ms.locfileid: "67273998"
 3. [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem)을 사용하여 임시 백업을 실행합니다. 
     - 첫 번째 초기 백업 작업에서는 전체 복구 지점이 만들어집니다.
     - 초기 백업 후에는 각 백업 작업에서 증분 복구 지점이 만들어집니다.
-    - 증분 복구 지점은 마지막 백업 이후 변경된 내용만을 전송하기 때문에 저장소 및 시간 효율적입니다.
+    - 증분 복구 지점은 마지막 백업 이후 변경된 내용만을 전송하기 때문에 스토리지 및 시간 효율적입니다.
 
 백업을 사용하도록 설정하고 실행하려면 다음을 수행합니다.
 

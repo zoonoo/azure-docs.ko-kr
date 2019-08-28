@@ -20,7 +20,7 @@ ms.locfileid: "65546292"
 > [!Note] 
 > 향상된 성능과 새로운 기능을 위해 [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md)를 사용하여 새 HDInsight 클러스터를 배포하세요.
 
-HDInsight 클러스터에서 데이터를 분석하기 위해 [Azure Storage](../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md) 또는 [Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md)에 데이터를 저장할 수 있습니다. 모든 저장소 옵션을 사용하면 사용자 데이터 손실 없이 계산에 사용된 HDInsight 클러스터를 안전하게 삭제할 수 있습니다.
+HDInsight 클러스터에서 데이터를 분석하기 위해 [Azure Storage](../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md) 또는 [Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md)에 데이터를 저장할 수 있습니다. 모든 스토리지 옵션을 사용하면 사용자 데이터 손실 없이 계산에 사용된 HDInsight 클러스터를 안전하게 삭제할 수 있습니다.
 
 이 문서에서는 Data Lake Storage Gen1이 HDInsight 클러스터에서 작동하는 방식에 대해 알아봅니다. Azure Storage가 HDInsight 클러스터에서 작동하는 방식에 대해 알아보려면 [Azure HDInsight 클러스터에서 Azure Storage 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요. HDInsight 클러스터를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 
@@ -35,7 +35,7 @@ Apache Hadoop은 기본 파일 시스템의 개념을 지원합니다. 기본 �
 
 HDInsight 클러스터는 Data Lake Storage Gen1을 두 가지 방식으로 사용할 수 있습니다.
 
-* 기본 저장소로
+* 기본 스토리지로
 * 추가 스토리지로, Azure Storage Blob을 기본 스토리지로.
 
 현재는 일부 HDInsight 클러스터 유형/버전에서만 Data Lake Storage Gen1을 기본 스토리지 및 추가 스토리지 계정으로 사용하도록 지원합니다.

@@ -5,14 +5,14 @@ author: luisbosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: quickstart
-ms.date: 01/08/2019
+ms.date: 07/23/2019
 ms.author: lbosq
-ms.openlocfilehash: 277755641047bf311e06d17de5fe9d39bcc3b74b
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 0a6ddfe1337575f4f61f4bba4638a16e54b0cde6
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480588"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735264"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>빠른 시작: Gremlin 콘솔을 사용하여 Azure Cosmos DB 그래프 데이터베이스 만들기, 쿼리 및 트래버스
 
@@ -76,7 +76,7 @@ password: your_primary_key
 connectionPool: {
   enableSsl: true
 }
-serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0, config: { serializeResultToString: true }}
+serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV2d0, config: { serializeResultToString: true }}
 ```
 
 호스트 매개 변수 값을 대괄호 [] 안으로 래핑해야 합니다. 
@@ -107,7 +107,7 @@ g.V().count()
 입력(Thomas):
 
 ```
-g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44).property('userid', 1)
+g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44).property('userid', 1).property('pk', 'pk')
 ```
 
 출력:
@@ -118,7 +118,7 @@ g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen'
 입력(Mary Kay):
 
 ```
-g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39).property('userid', 2)
+g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39).property('userid', 2).property('pk', 'pk')
 
 ```
 
@@ -132,7 +132,7 @@ g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Anderse
 입력(Robin):
 
 ```
-g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield').property('userid', 3)
+g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield').property('userid', 3).property('pk', 'pk')
 ```
 
 출력:
@@ -144,7 +144,7 @@ g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield'
 입력(Ben):
 
 ```
-g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').property('userid', 4)
+g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').property('userid', 4).property('pk', 'pk')
 
 ```
 
@@ -157,7 +157,7 @@ g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').pro
 입력(Jack):
 
 ```
-g.addV('person').property('firstName', 'Jack').property('lastName', 'Connor').property('userid', 5)
+g.addV('person').property('firstName', 'Jack').property('lastName', 'Connor').property('userid', 5).property('pk', 'pk')
 ```
 
 출력:

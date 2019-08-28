@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 01/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d2440b638a9c8eb27505b747d26917de8032e6cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5cc6c8b4947f8c5ebeb27be2dc82f323f84a6902
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510135"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835430"
 ---
 # <a name="link-an-azure-subscription-to-an-azure-active-directory-b2c-tenant"></a>Azure Active Directory B2C 테넌트에 Azure 구독 연결
 
@@ -45,9 +45,9 @@ Azure 구독을 나타내는 Azure AD 테넌트로 이동합니다. [Azure Porta
 
 ## <a name="find-azure-ad-b2c-in-the-azure-marketplace"></a>Azure Marketplace에서 Azure AD B2C 찾기
 
-**리소스 만들기** 단추를 클릭합니다. **마켓플레이스 검색** 필드에 `B2C`를 입력합니다.
+**리소스 만들기** 단추를 클릭합니다. 에 **Marketplace 검색** 필드에 입력 `Active Directory B2C`합니다.
 
-![강조 표시된 추가 단추와 마켓플레이스 검색 필드의 Azure AD B2C 텍스트](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
+![Marketplace 검색에서 ' Active Directory B2C'를 사용 하 여 포털 스크린샷](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 
 결과 목록에서 **Azure AD B2C**를 선택합니다.
 
@@ -67,7 +67,7 @@ Azure AD B2C 리소스 이름은 Azure AD B2C 테넌트의 도메인 이름과 �
 
 리소스 그룹 및 리소스 그룹 위치를 선택합니다. 여기에서 선택한 항목은 Azure AD B2C 테넌트 위치, 성능 또는 청구 상태에 영향을 주지 않습니다.
 
-![B2C 리소스 만들기](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
+![Azure portal에서 Azure AD B2C 리소스 만들기 페이지](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
 
 ## <a name="manage-your-azure-ad-b2c-tenant-resources"></a>Azure AD B2C 테넌트 리소스 관리
 
@@ -80,7 +80,15 @@ Azure 구독 내에서 Azure AD B2C 리소스를 만든 후 "B2C 테넌트" 유�
 - 지원 요청을 제출합니다.
 - Azure AD B2C 테넌트 리소스를 다른 Azure 구독 또는 다른 리소스 그룹으로 이동합니다.
 
-![B2C 리소스 설정](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
+![Azure portal의 B2C 리소스 설정 페이지](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.PNG)
+
+## <a name="change-the-azure-ad-b2c-tenant-billing-subscription"></a>구독 청구는 Azure AD B2C 테 넌 트 변경
+
+Azure AD B2C 테 넌 트 원본 및 대상 구독은 동일한 Azure Active Directory 테 넌 트 내에 존재 하는 경우 다른 구독으로 이동할 수 있습니다.
+
+다른 구독으로 Azure AD B2C 테 넌 트와 같은 Azure 리소스를 이동 하는 방법에 알아보려면 참조 [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/resource-group-move-resources.md)합니다.
+
+이동을 시작 하기 전에 제한 사항 및 이러한 이동에 대 한 요구 사항을 완전히 이해 하려면 전체 문서를 참조 해야 합니다. 리소스 이동에 대 한 지침을 외에도 사전 이동 검사 목록에서 이동 작업의 유효성을 검사 하는 방법 등 중요 한 정보가 포함 됩니다.
 
 ## <a name="known-issues"></a>알려진 문제
 

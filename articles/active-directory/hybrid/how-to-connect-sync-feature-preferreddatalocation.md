@@ -16,12 +16,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 927987237b51a47d0c8b7c66054842b0a7ff09a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff74db14a1621cdcea1b1ae082d351ce6a3a52f6
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473030"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227398"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect 동기화: Office 365 리소스에 대한 기본 설정 데이터 위치 구성
 이 항목의 목적은 Azure AD(Azure Active Directory) Connect 동기화에서 기본 데이터 위치에 대한 특성을 구성하는 방법을 안내하는 것입니다. Office 365에서 다중 지역 기능을 사용하는 경우, 이 특성을 사용하여 사용자의 Office 365 데이터의 지리적 위치를 지정할 수 있습니다. *region(지역)* 과 *Geo(지역)* 라는 용어는 서로 바꿔 사용할 수 있습니다.
@@ -32,7 +32,7 @@ ms.locfileid: "66473030"
 **preferredDataLocation** 특성을 설정하여 사용자의 지역을 정의할 수 있습니다. 사서함 및 OneDrive와 같은 사용자의 Office 365 리소스를 사용자와 동일한 지역에 두고, 전체 조직에 대해 하나의 테넌트만 유지할 수 있습니다.
 
 > [!IMPORTANT]
-> 현재 다중 지역은 Office 365 서비스 구독을 2,500개 이상 보유한 고객에게 제공됩니다. 자세한 내용은 Microsoft 담당자에게 문의하세요.
+> 다중 지역은 현재 최소 500 Office 365 서비스 구독이 있는 고객에 게 제공 됩니다. 자세한 내용은 Microsoft 담당자에게 문의하세요.
 >
 >
 
@@ -49,7 +49,9 @@ Office 365의 모든 지역 목록은 [데이터 위치](https://aka.ms/datamaps
 | 프랑스 | FRA |
 | 인도 | IND |
 | 일본 | JPN |
-| 한국 | KOR |
+| 대한민국 | KOR |
+| 남아프리카 공화국 | ZAF |
+| 아랍 에미리트 연합국 | 하려고 |
 | 영국 | GBR |
 | 미국 | NAM |
 
@@ -59,7 +61,7 @@ Office 365의 모든 지역 목록은 [데이터 위치](https://aka.ms/datamaps
 
 ### <a name="azure-ad-connect-support-for-synchronization"></a>Azure AD Connect 동기화 지원
 
-Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **preferredDataLocation** 특성의 동기화를 지원합니다. 구체적으로 살펴보면 다음과 같습니다.
+Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **preferredDataLocation** 특성의 동기화를 지원합니다. 구체적으로는 다음과 같습니다.
 
 * Azure AD Connector의 **User** 개체 형식의 스키마가 **preferredDataLocation** 특성을 포함하도록 확장되었습니다. 특성의 형식은 단일 값 문자열입니다.
 * 메타버스의 **Person** 개체 형식의 스키마가 **preferredDataLocation** 특성을 포함하도록 확장되었습니다. 특성의 형식은 단일 값 문자열입니다.
@@ -127,7 +129,7 @@ Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **prefe
     | 특성 | 값 | 세부 정보 |
     | --- | --- | --- |
     | 이름 | *이름 제공* | 예: "AD - User preferredDataLocation에서 인바운드" |
-    | 설명 | *사용자 지정 설명 제공* |  |
+    | Description | *사용자 지정 설명 제공* |  |
     | 연결된 시스템 | *온-프레미스 Active Directory Connector 선택* |  |
     | 연결된 시스템 개체 유형 | **User** |  |
     | 메타버스 개체 유형 | **Person** |  |
@@ -137,9 +139,9 @@ Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **prefe
 5. 모든 개체를 포함하려면 **범위 지정 필터**를 비워 둡니다. Azure AD Connect 배포에 따라 범위 지정 필터를 조정해야 할 수도 있습니다.
 6. **변환 탭**으로 이동하여 다음 변환 규칙을 구현합니다.
 
-    | 흐름 형식 | 대상 특성 | source | 한 번 적용 | 병합 종류 |
+    | 흐름 형식 | 대상 특성 | Source | 한 번 적용 | 병합 종류 |
     | --- | --- | --- | --- | --- |
-    |직접 | preferredDataLocation | 원본 특성 선택 | 선택 취소 되어 있음 | 주 지역에서 |
+    |직접 | preferredDataLocation | 원본 특성 선택 | 선택 취소 되어 있음 | 업데이트 |
 
 7. 인바운드 규칙을 만들려면 **추가**를 선택합니다.
 
@@ -174,9 +176,9 @@ Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **prefe
 
 6. **변환** 탭으로 이동하여 다음 변환 규칙을 구현합니다.
 
-    | 흐름 형식 | 대상 특성 | source | 한 번 적용 | 병합 종류 |
+    | 흐름 형식 | 대상 특성 | Source | 한 번 적용 | 병합 종류 |
     | --- | --- | --- | --- | --- |
-    | 직접 | preferredDataLocation | preferredDataLocation | 선택 취소 되어 있음 | 주 지역에서 |
+    | 직접 | preferredDataLocation | preferredDataLocation | 선택 취소 되어 있음 | 업데이트 |
 
 7. **추가**를 클릭하여 아웃바운드 규칙을 만듭니다.
 

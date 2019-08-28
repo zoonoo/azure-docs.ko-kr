@@ -4,16 +4,16 @@ ms.service: service-bus
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: spelluru
-ms.openlocfilehash: b8cf4217ca6c80be998b92e71c3ba29c4f68bce2
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: b150cad22528234286fa7939bf7055e8312ed361
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182452"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68229274"
 ---
 ## <a name="webapi-project"></a>WebAPI 프로젝트
 1. Visual Studio에서 **사용자에게 알림** 자습서에서 만든 **AppBackend** 프로젝트를 엽니다.
-2. Notifications.cs에서 전체 **Notifications** 클래스를 다음 코드로 바꿉니다. 자리 표시자를 알림 허브에 대한 연결 문자열(모든 권한 사용) 및 허브 이름으로 바꿉니다. [Azure Portal](http://portal.azure.com)에서 이러한 값을 가져올 수 있습니다. 이 모듈은 이제 전송할 다른 보안 알림을 나타냅니다. 완전한 구현에서 알림은 데이터베이스에 저장됩니다. 여기서는 단순화를 위해 메모리에 알림을 저장합니다.
+2. Notifications.cs에서 전체 **Notifications** 클래스를 다음 코드로 바꿉니다. 자리 표시자를 알림 허브에 대한 연결 문자열(모든 권한 사용) 및 허브 이름으로 바꿉니다. [Azure Portal](https://portal.azure.com)에서 이러한 값을 가져올 수 있습니다. 이 모듈은 이제 전송할 다른 보안 알림을 나타냅니다. 완전한 구현에서 알림은 데이터베이스에 저장됩니다. 여기서는 단순화를 위해 메모리에 알림을 저장합니다.
    
         public class Notification
         {

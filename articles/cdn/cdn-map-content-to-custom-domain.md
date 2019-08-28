@@ -6,7 +6,7 @@ documentationcenter: ''
 author: mdgattuso
 manager: danielgi
 editor: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: b80cb0d68e6875881f2a9fc97fa52531525c1cdc
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 81db1a7dc01b3d60ee6384f2026ed5ce692ff140
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579192"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67666088"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>자습서: Azure CDN 엔드포인트에 사용자 지정 도메인 추가
 이 자습서에서는 Azure CDN(Content Delivery Network) 엔드포인트에 사용자 지정 도메인을 추가하는 방법을 보여줍니다. CDN 엔드포인트를 사용하여 콘텐츠를 제공할 때 고유한 도메인 이름을 CDN URL에 표시하려는 경우 사용자 지정 도메인이 필요합니다. 볼 수 있는 도메인 이름이 있다면 고객에게 편리하고 브랜딩 목적상 유용합니다. 
@@ -74,7 +74,7 @@ cdnverify 하위 도메인에서 CNAME 레코드를 만들려면:
 
     - 형식: *CNAME*를 입력합니다.
 
-    - 대상: cdnverify 하위 도메인을 비롯한 다음과 같은 형식의 CDN 엔드포인트 호스트 이름을 입력합니다. cdnverify._&lt;엔드포인트 이름&gt;_.azureedge.net 예: cdnverify.contoso.azureedge.net
+    - 대상: cdnverify 하위 도메인을 비롯한 다음과 같은 형식의 CDN 엔드포인트 호스트 이름을 입력합니다. cdnverify. _&lt;엔드포인트 이름&gt;_ .azureedge.net 예: cdnverify.contoso.azureedge.net
 
 4. 변경 내용을 저장합니다.
 
@@ -123,7 +123,7 @@ cdnverify 하위 도메인에서 CNAME 레코드를 만들려면:
 
    **사용자 지정 도메인 추가** 페이지가 열립니다.
 
-4. **엔드포인트 호스트 이름**의 경우 CNAME 레코드의 대상 도메인으로 사용할 엔트포인트 호스트 이름이 *&lt;endpoint hostname&gt;*.azureedge.net 같은 CDN 엔드포인트 URL에서 파생되고 미리 채워집니다. 이는 변경할 수 없습니다.
+4. **엔드포인트 호스트 이름**의 경우 CNAME 레코드의 대상 도메인으로 사용할 엔트포인트 호스트 이름이 *&lt;endpoint hostname&gt;* .azureedge.net 같은 CDN 엔드포인트 URL에서 파생되고 미리 채워집니다. 이는 변경할 수 없습니다.
 
 5. **사용자 지정 호스트 이름**의 경우 CNAME 레코드의 원본 도메인으로 사용하려면 하위 도메인을 포함하여 사용자 지정 도메인을 입력합니다. 예를 들어 www\.contoso.com 또는 cdn.contoso.com과 같습니다. cdnverify 하위 도메인 이름을 사용하지 마십시오.
 
@@ -143,9 +143,9 @@ cdnverify 하위 도메인에서 CNAME 레코드를 만들려면:
 
 사용자 지정 도메인의 등록을 완료한 후에는 사용자 지정 도메인이 CDN 엔드포인트를 참조하는지 확인합니다.
  
-1. 엔드포인트에 캐시된 공용 콘텐츠가 있는지 확인합니다. 예를 들어 CDN 엔드포인트가 저장소 계정과 연결되어 있는 경우 Azure CDN은 공용 컨테이너에 콘텐츠를 캐시합니다. 사용자 지정 도메인을 테스트하려면 컨테이너가 공용 액세스를 허용하도록 설정되고 파일을 하나 이상 포함하는지 확인합니다.
+1. 엔드포인트에 캐시된 공용 콘텐츠가 있는지 확인합니다. 예를 들어 CDN 엔드포인트가 스토리지 계정과 연결되어 있는 경우 Azure CDN은 공용 컨테이너에 콘텐츠를 캐시합니다. 사용자 지정 도메인을 테스트하려면 컨테이너가 공용 액세스를 허용하도록 설정되고 파일을 하나 이상 포함하는지 확인합니다.
 
-2. 브라우저에서 사용자 지정 도메인을 사용하는 파일의 주소로 이동합니다. 예를 들어 사용자 지정 도메인이 cdn.contoso.com인 경우 캐시된 Blob에 대한 URL은 다음 URL과 유사합니다. http:\//cdn.contoso.com/my-public-container/my-file.jpg 결과가 *&lt;endpoint hostname&gt;*.azureedge.net에서 CDN 엔드포인트에 직접 액세스하는 경우와 동일한지 확인합니다.
+2. 브라우저에서 사용자 지정 도메인을 사용하는 파일의 주소로 이동합니다. 예를 들어 사용자 지정 도메인이 [www.contoso.com]\(www.contoso.com) 인 경우 캐시된 Blob에 대한 URL은 다음 URL(http:\//www.cdn.contoso.com/my-public-container/my-file.jpg)과 유사합니다. 결과가 *&lt;endpoint hostname&gt;* .azureedge.net에서 CDN 엔드포인트에 직접 액세스하는 경우와 동일한지 확인합니다.
 
 
 ## <a name="map-the-permanent-custom-domain"></a>영구 사용자 지정 도메인 매핑
@@ -168,7 +168,7 @@ cdnverify 하위 도메인이 엔드포인트에 성공적으로 매핑되었음
 
    - 형식: *CNAME*를 입력합니다.
 
-   - 대상: CDN 엔드포인트 호스트 이름을 입력합니다. 다음과 같은 형식이어야 합니다. _&lt;끝점 이름&gt;_.azureedge.net 예: contoso.azureedge.net
+   - 대상: CDN 엔드포인트 호스트 이름을 입력합니다. 다음과 같은 형식이어야 합니다. _&lt;엔드포인트 이름&gt;_ .azureedge.net 예: contoso.azureedge.net
 
 4. 변경 내용을 저장합니다.
 

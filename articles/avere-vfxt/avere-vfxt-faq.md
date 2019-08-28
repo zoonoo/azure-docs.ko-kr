@@ -25,7 +25,7 @@ Avere vFXT for Azure는 중요한 워크로드를 효율적으로 처리하기 �
 
 ### <a name="is-avere-vfxt-a-storage-solution"></a>Avere vFXT는 스토리지 솔루션인가요?
 
-아니요. Avere vFXT는 EMC, NetApp NAS 또는 Azure Blob 컨테이너와 같은 스토리지 환경에 연결되는 파일 시스템 ‘캐시’입니다.  Avere vFXT는 클라이언트의 데이터 요청을 간소화하고, 규모와 시간 경과에 따라 성능을 향상하기 위해 제공되는 데이터를 캐시합니다. Avere vFXT 자체는 데이터를 저장하지 않습니다. 백그라운드에서 저장된 데이터의 양에 대한 정보가 없습니다.
+아니요. Avere vFXT는 EMC, NetApp NAS 또는 Azure Blob 컨테이너와 같은 스토리지 환경에 연결되는 파일 시스템 ‘캐시’입니다. Avere vFXT는 클라이언트의 데이터 요청을 간소화하고, 규모와 시간 경과에 따라 성능을 향상하기 위해 제공되는 데이터를 캐시합니다. Avere vFXT 자체는 데이터를 저장하지 않습니다. 백그라운드에서 저장된 데이터의 양에 대한 정보가 없습니다.
 
 ### <a name="is-avere-vfxt-a-tiering-solution"></a>Avere vFXT는 계층화 솔루션인가요?
 
@@ -120,7 +120,7 @@ Avere vFXT는 가상 머신 확장 집합 배포를 지원하지 않습니다. �
 
 아니요, Avere vFXT는 독립적인 애플리케이션으로 배포해야 합니다.
 
-### <a name="do-the-avere-vfxt-vms-count-against-my-compute-quota"></a>Avere vFXT VM은 내 계산 할당량에 불리하게 작용하나요?
+### <a name="do-the-avere-vfxt-vms-count-against-my-compute-quota"></a>Avere vFXT VM은 내 컴퓨팅 할당량에 불리하게 작용하나요?
 
 예. 지역에 클러스터를 지원할 수 있을 만큼 충분한 할당량이 있는지 확인합니다.  
 
@@ -240,7 +240,7 @@ Avere vFXT는 스토리지가 아닙니다. 즉, 코어 파일러라고 하는 �
 
 Avere vFXT는 프라이빗 개체 스토리지를 지원하지 않습니다.
 
-### <a name="how-can-i-get-a-specific-storage-product-under-support"></a>지원되는 특정 저장소 제품을 얻으려면 어떻게 해야 하나요?
+### <a name="how-can-i-get-a-specific-storage-product-under-support"></a>지원되는 특정 스토리지 제품을 얻으려면 어떻게 해야 하나요?
 
 지원은 현장의 요구량을 기반으로 합니다. 지정된 NAS 솔루션을 지원하는 데 충분한 수익 기반 요청이 있는 경우 이를 고려합니다. Azure 지원을 통해 요청하세요.
 
@@ -276,7 +276,7 @@ Avere vFXT for Azure 라이선스는 Azure Marketplace를 통해 쉽게 얻을 �
 
 ### <a name="how-much-does-avere-vfxt-cost"></a>Avere vFXT 비용은 어떻게 되나요?
 
-Azure에서는 Avere vFXT 클러스터 사용에 대한 추가 라이선스 요금이 없습니다. 고객은 저장소 및 기타 Azure 사용량 요금을 부담해야 합니다.
+Azure에서는 Avere vFXT 클러스터 사용에 대한 추가 라이선스 요금이 없습니다. 고객은 스토리지 및 기타 Azure 사용량 요금을 부담해야 합니다.
 
 ### <a name="can-avere-vfxt-vms-be-run-as-low-priority"></a>Avere vFXT VM을 낮은 우선 순위로 실행할 수 있나요?
 

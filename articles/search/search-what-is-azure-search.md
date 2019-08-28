@@ -1,33 +1,39 @@
 ---
-title: Azure Search 서비스란? - Azure Search 서비스
-description: Azure Search는 Microsoft에서 제공하는 완전 관리형 호스트 클라우드 검색 서비스입니다. 기능 설명, 개발 워크플로, Azure Search 및 다른 Microsoft 검색 제품 비교, 시작하는 방법을 검토합니다.
-manager: cgronlun
+title: Azure Search 소개 - Azure Search
+description: Azure Search는 Microsoft에서 제공하는 완전 관리형 호스트 클라우드 검색 서비스입니다. 기능 설명, 개발 워크플로, 다른 Microsoft 검색 제품과의 비교 및 시작 방법을 검토합니다.
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 05/02/2019
+ms.date: 08/21/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 7ba653795791f0e6a2c3d3c73ff574a3ed31f314
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 204951f725c2885fe9f8bf33fffe83e55628dd34
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485229"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899677"
 ---
 # <a name="what-is-azure-search"></a>Azure Search란?
-Azure Search는 개발자에게 웹, 모바일 및 엔터프라이즈 애플리케이션의 프라이빗, 이기종 콘텐츠에 대한 풍부한 검색 환경을 추가하기 위한 API 및 도구를 제공하는 SaaS(Search-as-a-Service) 클라우드 솔루션입니다. 쿼리 실행은 사용자 정의 인덱스를 통합니다.
 
-+ 여러 콘텐츠 형식 및 플랫폼에서 얻은 데이터만 포함하는 검색 인덱스를 빌드합니다. 
+Azure Search는 개발자에게 웹, 모바일 및 엔터프라이즈 애플리케이션의 프라이빗, 이기종 콘텐츠에 대한 풍부한 검색 환경을 추가하기 위한 API 및 도구를 제공하는 SaaS(Search-as-a-Service) 클라우드 솔루션입니다. 사용자 지정 코드는 데이터 수집(인덱싱)을 호출하여 인덱스를 만들고 로드합니다. 다른 쪽에서는 애플리케이션 코드가 쿼리 요청을 발행하고 응답을 처리합니다. 검색 환경은 Azure Search에서 만들고, 소유하고, 저장하는 지속형 인덱스에 대한 쿼리를 실행하도록 Azure Search의 기능을 사용하여 클라이언트에 정의됩니다.
 
-+ AI 보강을 활용하여 이미지 파일에서 텍스트 및 기능을 추출하거나 원시 텍스트에서 엔터티 및 핵심 구를 추출합니다.
-
-+ 검색어 자동 수정 "did you mean"에 대한 패싯 탐색 및 필터, 동의어, 자동 완성 및 텍스트 분석을 사용하여 직관적인 검색 환경을 만듭니다. 함수 및 부스팅 논리를 통해 관련성을 튜닝합니다.
-
-+ 특정 사용 사례에 대한 검색 앱을 만듭니다. 지리적 검색은 "내 주변 찾기" 환경을 지원합니다. 다국어 검색은 언어 분석기를 통해 영어 이외 언어의 전체 텍스트 검색을 지원합니다.
+![Azure Search 아키텍처](media/search-what-is-azure-search/azure-search-diagram.svg "Azure Search 아키텍처")
 
 기능은 정보 검색의 내재된 복잡성을 표시하는 간단한 [REST API](/rest/api/searchservice/) 또는 [.NET SDK](search-howto-dotnet-sdk.md)를 통해 표시됩니다. API 외에도 Azure Portal에서 운영 및 콘텐츠 관리 지원과 인덱스 프로토타입 및 쿼리를 위한 도구를 제공합니다. 이 서비스는 클라우드에서 실행되므로 인프라 및 가용성은 Microsoft에서 관리합니다.
+
+## <a name="when-to-use-azure-search"></a>Azure Search를 사용하는 경우
+
+Azure Search가 적합한 애플리케이션 시나리오는 다음과 같습니다.
+
++ 다른 유형의 콘텐츠 형식을 검색 가능한 프라이빗 단일 인덱스로 통합합니다. 쿼리는 항상 문서를 사용하여 만들고 로드하는 인덱스를 통해 수행되며, 인덱스는 항상 Azure Search 서비스의 클라우드에 있습니다. 모든 원본 또는 플랫폼에서 JSON 문서 스트림을 통해 인덱스를 채울 수 있습니다. 또는 Azure에서 원본으로 사용하는 콘텐츠의 경우 *인덱서*를 사용하여 데이터를 인덱스로 가져올 수 있습니다. 인덱스 정의 및 관리/소유권은 Azure Search를 사용하는 주요 이유입니다.
+
++ 검색 관련 기능을 쉽게 구현합니다. Azure Search API는 쿼리 생성, 패싯 탐색, 필터(지리 공간 검색 포함), 동의어 매핑, 자동 완성 쿼리 및 관련성 튜닝을 간소화합니다. 기본 제공 기능을 사용하면 상용 웹 검색 엔진과 비슷한 검색 환경에 대한 최종 사용자의 기대를 충족시킬 수 있습니다.
+
++ 비정형 텍스트를 인덱싱하거나 이미지 파일에서 텍스트와 정보를 추출합니다. Azure Search의 [인지 검색](cognitive-search-concept-intro.md) 기능은 AI 처리를 인덱싱 파이프라인에 추가합니다. 일부 일반적인 사용 사례로 스캔한 문서에 대한 OCR, 엔터티 인식 및 큰 문서에 대한 핵심 구 추출, 언어 감지 및 텍스트 번역, 감정 분석이 있습니다.
+
++ 언어 요구 사항이 Azure Search의 사용자 지정 및 언어 분석기를 사용하여 충족됩니다. 영어가 아닌 콘텐츠가 있는 경우 Azure Search는 Lucene 분석기와 Microsoft의 자연어 프로세서를 모두 지원합니다. 또한 분음 부호 필터링과 같은 원시 콘텐츠의 특수 처리를 수행하도록 분석기를 구성할 수도 있습니다.
 
 <a name="feature-drilldown"></a>
 
@@ -58,16 +64,16 @@ Azure Search는 개발자에게 웹, 모바일 및 엔터프라이즈 애플리�
 | 프로토타입 및 검사용 도구 | 포털에서 [**데이터 가져오기 마법사**](search-import-data-portal.md)를 사용하여 인덱서를 구성하고, 인덱스 디자이너를 사용하여 인덱스를 나타내고, [**검색 탐색기**](search-explorer.md)를 사용하여 쿼리를 테스트하고 점수 매기기 프로필을 구체화할 수 있습니다. 인덱스를 열어 해당 스키마를 볼 수도 있습니다. |
 | 모니터링 및 진단 | 포털에 항상 표시되는 단순한 메트릭 이상을 원하신다면 [**모니터링 기능을 사용하세요**](search-monitor-usage.md). 필요한 추가 구성 없이 포털 페이지에서 초당 쿼리 수, 대기 시간 및 제한에 대한 메트릭이 캡처되고 보고됩니다. <br/><br/>[**검색 트래픽 분석**](search-traffic-analytics.md)은 서버 쪽 및 클라이언트 쪽 데이터를 수집하고 분석하여 사용자가 검색 상자에 입력하는 내용에 대한 인사이트를 얻을 수 있는 또 다른 모니터링 대안입니다. |
 | 서버 쪽 암호화 | [**Microsoft 관리형 저장 데이터 암호화**](search-security-overview.md#encrypted-transmission-and-storage)는 내부 스토리지 레이어에 내장되어 있으며 취소할 수 없습니다. 필요에 따라 [**고객 관리 암호화 키(미리 보기)** ](search-security-manage-encryption-keys.md)를 사용하여 기본 암호화를 보완할 수 있습니다. 고객이 Azure Key Vault에서 만들고 관리하는 키는 Azure Search에서 인덱스 및 동의어 맵을 암호화하는 데 사용됩니다. |
-| 인프라 | **가용성이 높은 플랫폼**은 매우 안정적인 검색 서비스 환경을 보장합니다. 규모를 적절하게 조정하면 [Azure Search는 99.9%의 SLA를 제공](https://azure.microsoft.com/support/legal/sla/search/v1_0/)합니다.<br/><br/> **완벽하게 관리 및 확장되는** 엔드투엔드 솔루션인 Azure Search는 인프라 관리가 전혀 필요 없습니다. 더 많은 문서 저장소, 더 많은 쿼리 부하 또는 둘 모두를 처리할 수 있도록 두 가지 크기를 조정하여 요구 사항에 따라 서비스를 맞춤 구성할 수 있습니다.<br/><br/>|
+| 인프라 | **가용성이 높은 플랫폼**은 매우 안정적인 검색 서비스 환경을 보장합니다. 규모를 적절하게 조정하면 [Azure Search는 99.9%의 SLA를 제공](https://azure.microsoft.com/support/legal/sla/search/v1_0/)합니다.<br/><br/> **완벽하게 관리 및 확장되는** 엔드투엔드 솔루션인 Azure Search는 인프라 관리가 전혀 필요 없습니다. 더 많은 문서 스토리지, 더 많은 쿼리 부하 또는 둘 모두를 처리할 수 있도록 두 가지 크기를 조정하여 요구 사항에 따라 서비스를 맞춤 구성할 수 있습니다.<br/><br/>|
 
 ## <a name="how-to-use-azure-search"></a>Azure Search를 사용하는 방법
 ### <a name="step-1-provision-service"></a>1단계: 서비스 프로비전
 [Azure Portal](https://portal.azure.com/) 또는 [Azure 리소스 관리 API](/rest/api/searchmanagement/)에서 Azure Search 서비스를 프로비저닝할 수 있습니다. 다른 구독자와 공유되는 무료 서비스 또는 서비스에만 사용되는 전용 리소스를 제공하는 [유료 계층](https://azure.microsoft.com/pricing/details/search/) 중에서 선택할 수 있습니다. 유료 계층의 경우 다음 2가지 차원에서 서비스를 확장할 수 있습니다. 
 
 - 복제본을 추가하여 과도한 쿼리 부하를 처리하도록 용량을 늘립니다.   
-- 파티션을 추가하여 더 많은 문서를 위해 저장소를 늘립니다. 
+- 파티션을 추가하여 더 많은 문서를 위해 스토리지를 늘립니다. 
 
-문서 저장소 및 쿼리 처리량을 별도로 처리하여 프로덕션 요구에 따라 리소스 관리를 조정할 수 있습니다.
+문서 스토리지 및 쿼리 처리량을 별도로 처리하여 프로덕션 요구에 따라 리소스 관리를 조정할 수 있습니다.
 
 ### <a name="step-2-create-index"></a>2단계: 인덱스 만들기
 검색 가능한 콘텐츠를 업로드하려면 먼저 Azure Search 인덱스를 정의해야 합니다. 인덱스는 데이터가 보관된 데이터베이스 테이블과 비슷하며 검색 쿼리를 수용할 수 있습니다. 데이터베이스의 필드와 마찬가지로, 매핑할 인덱스 스키마를 정의하여 검색하려는 문서의 구조를 반영합니다.
@@ -82,7 +88,9 @@ Azure Search는 개발자에게 웹, 모바일 및 엔터프라이즈 애플리�
 밀어넣기 모델은 SDK 또는 업데이트된 문서를 인덱스에 보내기 위해 사용되는 REST API를 통해 제공됩니다. JSON 형식을 사용하여 거의 모든 데이터 세트에서 데이터를 밀어넣을 수 있습니다. 데이터 로드에 대한 지침은 [문서 추가, 업데이트 또는 삭제](/rest/api/searchservice/addupdate-or-delete-documents) 또는 [.NET SDK를 사용하는 방법](search-howto-dotnet-sdk.md)을 참조하세요.
 
 ### <a name="step-4-search"></a>4단계: 검색
-인덱스를 채운 후에 REST API 또는 .NET SDK와 함께 간단한 HTTP 요청을 사용하여 서비스 엔드포인트에 [검색 쿼리를 실행](/rest/api/searchservice/Search-Documents) 할 수 있습니다.
+인덱스를 채운 후에 [REST API](/rest/api/searchservice/Search-Documents) 또는 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations)와 함께 간단한 HTTP 요청을 사용하여 서비스 엔드포인트에 [검색 쿼리를 실행](search-query-overview.md)할 수 있습니다.
+
+[첫 번째 검색 앱 만들기](tutorial-csharp-create-first-app.md)를 통해 사용자 입력을 수집하고 결과를 처리하는 웹 페이지를 빌드한 다음, 확장합니다. [대화형 REST용 Postman](search-get-started-postman.md) 호출 또는 Azure Portal에서 기본 제공되는 [Search Explorer](search-explorer.md)를 사용하여 기존 인덱스를 쿼리할 수도 있습니다.
 
 ## <a name="how-it-compares"></a>비교 결과
 
@@ -91,7 +99,7 @@ Azure Search가 다른 검색 관련 솔루션과 어떻게 비교되는지 질�
 | 비교 대상 | 주요 차이점 |
 |-------------|-----------------|
 |Bing | [Bing Web Search API](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/)는 Bing.com의 인덱스에서 일치하는 용어를 검색합니다. 인덱스는 HTML, XML 및 공개 사이트의 다른 웹 콘텐츠로 빌드됩니다. 동일한 기반의 [Bing Custom Search](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/)는 개별 웹 사이트에 적용되는 웹 콘텐츠 유형에 대해 동일한 크롤러 기술을 제공합니다.<br/><br/>Azure Search는 사용자가 정의하고 다양한 출처에서 나오는 사용자가 소유한 데이터 및 문서로 채워지는 색인을 검색합니다. Azure Search는 [인덱서](search-indexer-overview.md)를 통해 일부 데이터 소스에 대한 크롤러 기능을 갖추고 있지만 인덱스 스키마를 준수하는 모든 JSON 문서를 통합 검색이 가능한 단일 리소스로 푸시할 수 있습니다. |
-|데이터베이스 검색 | 많은 데이터베이스 플랫폼에는 기본 제공 검색 환경이 있습니다. SQL Server에는 [전체 텍스트 검색](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) 환경이 있습니다. Cosmos DB 및 유사 기술에는 쿼리 가능한 인덱스가 있습니다. 검색 및 저장소가 결합된 제품을 평가할 때는 어떤 방향으로 갈지 결정하기가 어려울 수 있습니다. 대부분의 솔루션은 둘 다 사용합니다. 즉, 스토리지에는 DBMS를 사용하고, 특수한 검색 기능에는 Azure Search를 사용합니다.<br/><br/>DBMS 검색과 비교했을 때, Azure Search는 이기종 원본의 콘텐츠를 저장하고, 언어 인식 테스트 처리(형태소 분석, 기본형 분석, 단어 형태)와 같은 특수한 텍스트 처리 기능을 [56개 언어](https://docs.microsoft.com/rest/api/searchservice/language-support)로 제공합니다. 또한 오타 자동 교정, [동의어](https://docs.microsoft.com/rest/api/searchservice/synonym-map-operations), [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions), [채점 컨트롤](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [패싯](https://docs.microsoft.com/azure/search/search-filters-facets) 및  [사용자 지정 토큰화](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)도 지원합니다. Azure Search의 [전체 텍스트 검색 엔진](search-lucene-query-architecture.md)은 정보 검색 업계 표준인 Apache Lucene을 기반으로 합니다. Azure Search는 반전 인덱스 형태로 데이터를 보존하지만 진정한 데이터 저장소의 훌륭한 대안입니다. 자세한 내용은 이 [포럼 게시물](https://stackoverflow.com/questions/40101159/can-azure-search-be-used-as-a-primary-database-for-some-data)을 참조하세요. <br/><br/>리소스 사용률도 이 범주의 또 다른 변곡점입니다. 인덱싱 및 일부 쿼리 작업은 계산 집약적인 경우가 많습니다. DBMS에서 클라우드의 전용 솔루션으로 검색을 오프로딩하면 트랜잭션 처리를 위한 시스템 리소스가 보존됩니다. 또한 검색 과정을 외부에서 진행하면 규모를 쿼리 볼륨에 맞게 쉽게 조정할 수 있습니다.|
+|데이터베이스 검색 | 많은 데이터베이스 플랫폼에는 기본 제공 검색 환경이 있습니다. SQL Server에는 [전체 텍스트 검색](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) 환경이 있습니다. Cosmos DB 및 유사 기술에는 쿼리 가능한 인덱스가 있습니다. 검색 및 스토리지가 결합된 제품을 평가할 때는 어떤 방향으로 갈지 결정하기가 어려울 수 있습니다. 대부분의 솔루션은 둘 다 사용합니다. 즉, 스토리지에는 DBMS를 사용하고, 특수한 검색 기능에는 Azure Search를 사용합니다.<br/><br/>DBMS 검색과 비교했을 때, Azure Search는 이기종 원본의 콘텐츠를 저장하고, 언어 인식 테스트 처리(형태소 분석, 기본형 분석, 단어 형태)와 같은 특수한 텍스트 처리 기능을 [56개 언어](https://docs.microsoft.com/rest/api/searchservice/language-support)로 제공합니다. 또한 오타 자동 교정, [동의어](https://docs.microsoft.com/rest/api/searchservice/synonym-map-operations), [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions), [채점 컨트롤](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [패싯](https://docs.microsoft.com/azure/search/search-filters-facets) 및  [사용자 지정 토큰화](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)도 지원합니다. Azure Search의 [전체 텍스트 검색 엔진](search-lucene-query-architecture.md)은 정보 검색 업계 표준인 Apache Lucene을 기반으로 합니다. Azure Search는 반전 인덱스 형태로 데이터를 보존하지만 진정한 데이터 스토리지의 훌륭한 대안입니다. 자세한 내용은 이 [포럼 게시물](https://stackoverflow.com/questions/40101159/can-azure-search-be-used-as-a-primary-database-for-some-data)을 참조하세요. <br/><br/>리소스 사용률도 이 범주의 또 다른 변곡점입니다. 인덱싱 및 일부 쿼리 작업은 계산 집약적인 경우가 많습니다. DBMS에서 클라우드의 전용 솔루션으로 검색을 오프로딩하면 트랜잭션 처리를 위한 시스템 리소스가 보존됩니다. 또한 검색 과정을 외부에서 진행하면 규모를 쿼리 볼륨에 맞게 쉽게 조정할 수 있습니다.|
 |전용 검색 솔루션 | 광범위한 기능을 제공하는 전용 검색을 결정한 경우 온-프레미스 솔루션 또는 클라우드 서비스의 최종 범주 비교를 해야 합니다. 대다수의 검색 기술은 인덱싱 및 쿼리 파이프라인 제어, 풍부한 쿼리 및 필터링 구문에 대한 액세스, 순위 및 관련성 제어, 자체 주도형 및 지능형 검색 기능을 제공합니다. <br/><br/>클라우드 서비스는 최소한의 오버헤드 및 유지 관리, 규모 조정이 가능한 턴키 솔루션을 원하는 경우에 적합합니다. <br/><br/>클라우드 패러다임 내에서는 일부 공급자가 전체 텍스트 검색, 지리적 검색 및 특정 수준의 검색 입력 모호성을 처리하는 기능을 비롯하여 비슷한 기준 기능을 제공합니다. 일반적으로 이러한 기능은 [특수 기능](#feature-drilldown) 또는 자동 맞춤을 결정하는 API, 도구 및 관리의 전반적인 편리성 및 간편성을 나타냅니다. |
 
 클라우드 공급자 중에서 Azure Search는 정보 검색 및 콘텐츠 탐색 작업을 주로 검색 기능에 의존하는 앱을 위한 Azure의 콘텐츠 저장소 및 데이터베이스에 대한 전체 텍스트 검색 워크로드에 가장 강력합니다. 
@@ -101,6 +109,7 @@ Azure Search가 다른 검색 관련 솔루션과 어떻게 비교되는지 질�
 + 인덱싱 계층에서의 Azure 데이터 통합(크롤러)
 + 중앙 관리를 위한 Azure Portal
 + Azure 규모, 안정성 및 세계 수준의 가용성
++ 더 쉽게 검색할 수 있도록 AI에서 원시 데이터를 처리하여 이미지의 텍스트를 포함시키거나 비정형 콘텐츠에서 패턴을 찾을 수 있습니다.
 + 56개 언어로 안정적인 전체 텍스트 검색을 수행하기 위한 분석기를 사용한 언어 및 사용자 지정 분석
 + [검색 중심 앱에 공통적인 핵심 기능](#feature-drilldown): 점수 매기기, 패싯, 제안, 동의어, 지리적 검색 기능 등
 

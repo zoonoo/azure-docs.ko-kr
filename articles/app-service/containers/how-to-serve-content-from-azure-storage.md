@@ -7,19 +7,19 @@ ms.service: app-service
 ms.workload: web
 ms.topic: article
 ms.date: 2/04/2019
-ms.author: msangapu-msft
-ms.openlocfilehash: e6284174089419cd201d094bcb1a8c7e865d2892
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.author: msangapu
+ms.openlocfilehash: 15cb31a3157b034089b1518a4e70eeb93ecc449e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484411"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67617107"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Linux의 App Service에 있는 Azure Storage의 콘텐츠 제공
 
 이 가이드는 [Azure Storage](/azure/storage/common/storage-introduction)를 사용하여 Linux의 App Service에서 정적 콘텐츠를 제공하는 방법을 보여줍니다. 혜택에는 보안된 콘텐츠, 콘텐츠 이식성, 여러 앱에 대한 액세스 및 여러 가지 전송 메서드가 포함됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 - 기존 웹앱(Linux의 App Service 또는 Web App for Containers)
 - [Azure CLI](/cli/azure/install-azure-cli)(2.0.46 이상)
@@ -64,7 +64,7 @@ az webapp config storage-account add --resource-group <group_name> --name <app_n
 
 스토리지 계정에 연결하려는 다른 디렉터리에 대해 이 작업을 수행해야 합니다.
 
-## <a name="verify"></a>확인
+## <a name="verify"></a>Verify
 
 스토리지 컨테이너가 웹앱에 연결되면 다음 명령을 실행하여 이를 확인할 수 있습니다.
 
@@ -76,7 +76,7 @@ az webapp config storage-account list --resource-group <resource_group> --name <
 
 사용자 지정 id를 사용 하 여 다중 컨테이너 앱을 사용 하 여 azure Storage는 탑재할 수 있습니다. 사용자 지정 id 이름을 보려면 실행 [ `az webapp config storage-account list --name <app_name> --resource-group <resource_group>` ](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list)합니다.
 
-사용자 *docker compose.yml* 파일을 매핑하는 `volumes` 옵션을 `custom-id`. 예를 들면 다음과 같습니다.
+사용자 *docker compose.yml* 파일을 매핑하는 `volumes` 옵션을 `custom-id`. 예:
 
 ```yaml
 wordpress:

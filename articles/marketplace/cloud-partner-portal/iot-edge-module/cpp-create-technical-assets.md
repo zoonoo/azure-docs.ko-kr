@@ -49,7 +49,7 @@ IoT Edge에서 지원되는 계층 1 플랫폼의 하위 집합(하나 이상)�
 
 ### <a name="device-dimensions"></a>디바이스 차원
 
-대상 IoT Edge 디바이스의 IoT Edge 모듈 차원(CPU/RAM/저장소/GPU/등)은 다음 요구 사항을 충족해야 합니다.
+대상 IoT Edge 디바이스의 IoT Edge 모듈 차원(CPU/RAM/스토리지/GPU/등)은 다음 요구 사항을 충족해야 합니다.
 
 - 모듈은 [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/) 디바이스 카탈로그에서 **하나 이상의 IoT Edge 인증** 디바이스를 사용하여 작업해야 합니다.
 - **최소 하드웨어 요구 사항**은 제품의 설명에서 마지막 단락으로 문서화되어야 합니다([Marketplace 탭](./cpp-marketplace-tab.md) 아래). 필요에 따라 크게 다를 경우 권장되는 하드웨어 요구 사항을 나열할 수도 있습니다. 예를 들어 제품 설명의 끝에 다음 섹션을 추가합니다.

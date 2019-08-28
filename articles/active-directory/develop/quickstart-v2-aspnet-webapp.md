@@ -8,20 +8,21 @@ manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d63ff648f89a231f0077363c88709a17d157ae8c
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 10911e5100add2dca84475857a6909fb20d452c4
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190894"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891553"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에 Microsoft에 로그인 추가
 
@@ -54,8 +55,10 @@ ms.locfileid: "65190894"
 > 1. **새 등록**을 선택합니다.
 > 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
 >      - **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름(예: `ASPNET-Quickstart`)을 입력합니다.
->      - **리디렉션 URI**에 `https://localhost:44368/`을 추가하고 **등록**을 클릭합니다.
-**인증** 메뉴를 선택하고 **암시적 허용** 아래에서 **ID 토큰**을 설정한 후 **저장을 선택합니다**.
+>      - **리디렉션 URI**에 `http://localhost:44368/`을 추가하고 **등록**을 클릭합니다.
+>      - 관리 섹션 아래의 왼쪽 탐색 창에서 **인증**을 선택합니다.
+>          - **암시적 권한 부여** 하위 섹션에서 **ID 토큰**을 선택합니다.
+>          - 그런 다음, **저장**을 선택합니다.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
@@ -82,17 +85,21 @@ ms.locfileid: "65190894"
     <add key="ClientId" value="Enter_the_Application_Id_here" />
     <add key="Tenant" value="Enter_the_Tenant_Info_Here" />
     ```
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > 이 빠른 시작에서는 Enter_the_Supported_Account_Info_Here를 지원합니다. 
 
 > [!div renderon="docs"]
 > 위치:
 > - `Enter_the_Application_Id_here` - 등록한 애플리케이션의 애플리케이션 ID입니다.
 > - `Enter_the_Tenant_Info_Here` - 아래 옵션 중 하나입니다.
->   - 애플리케이션이 **내 조직만** 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름**(예: contoso.microsoft.com)으로 바꿉니다.
+>   - 애플리케이션이 **내 조직만** 지원하는 경우 이 값을 **테넌트 Id** 또는 **테넌트 이름**(예: contoso.onmicrosoft.com)으로 바꿉니다.
 >   - 애플리케이션이 **모든 조직 디렉터리의 계정**을 지원하는 경우 이 값을 `organizations`로 바꾸세요.
 >   - 애플리케이션이 **모든 Microsoft 계정 사용자**를 지원하는 경우 이 값을 `common`으로 바꾸세요.
 >
 > > [!TIP]
-> > *애플리케이션 ID*, *디렉터리(테넌트) ID* 및 *지원되는 계정 유형*의 값을 찾아보려면 **개요** 페이지로 이동합니다.
+> > - *애플리케이션 ID*, *디렉터리(테넌트) ID* 및 *지원되는 계정 유형*의 값을 찾아보려면 **개요** 페이지로 이동합니다.
+> > - **Web.config**의 `redirectUri` 값이 Azure AD의 앱 등록에 대해 정의된 **리디렉션 URI**와 일치하는지 확인합니다(그렇지 않은 경우 앱 등록을 위한 **인증** 메뉴로 이동하여 **REDIRECT URI**를 일치하도록 업데이트함).
 
 ## <a name="more-information"></a>자세한 정보
 
@@ -150,7 +157,7 @@ public void Configuration(IAppBuilder app)
 > |Where  |  |
 > |---------|---------|
 > | `ClientId`     | Azure Portal에 등록된 애플리케이션의 애플리케이션 ID |
-> | `Authority`    | 사용자가 인증하는 STS 엔드포인트 일반적으로 공용 클라우드의 경우 <https://login.microsoftonline.com/{tenant}/v2.0>입니다. 여기서 {tenant}는 테넌트 이름, 테넌트 ID, 또는 공통 엔드포인트(다중 테넌트 애플리케이션에 사용)에 대한 참조인 경우 *common*입니다. |
+> | `Authority`    | 사용자가 인증하는 STS 엔드포인트 일반적으로 퍼블릭 클라우드의 경우 <https://login.microsoftonline.com/{tenant}/v2.0>입니다. 여기서 {tenant}는 테넌트 이름, 테넌트 ID, 또는 공통 엔드포인트(다중 테넌트 애플리케이션에 사용)에 대한 참조인 경우 *common*입니다. |
 > | `RedirectUri`  | Microsoft ID 플랫폼 엔드포인트에 인증한 후 사용자가 전송되는 URL |
 > | `PostLogoutRedirectUri`     | 서명 해제 후 사용자가 전송되는 URL |
 > | `Scope`     | 요청되는 범위 목록이며 공백으로 구분 |
@@ -196,3 +203,8 @@ public void SignIn()
 > [로그인 자습서](./tutorial-v2-asp-webapp.md)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+Microsoft ID 플랫폼을 개선할 수 있도록 도와주세요. 간단한 두 가지 설문 조사를 완료하여 의견을 알려주세요.
+
+> [!div class="nextstepaction"]
+> [Microsoft ID 플랫폼 설문 조사](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

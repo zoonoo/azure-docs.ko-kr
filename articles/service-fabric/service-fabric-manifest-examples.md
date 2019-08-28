@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: xml
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: pepogors
-ms.openlocfilehash: 85a3066095cfc30da19b06d26f41bdc156f85832
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dc3384821ddfba0a137a74297bc44903b6ed5d1d
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60718226"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650572"
 ---
 # <a name="service-fabric-application-and-service-manifest-examples"></a>Service Fabric 애플리케이션 및 서비스 매니페스트 예제
 이 섹션에는 애플리케이션 및 서비스 매니페스트 예제가 포함되어 있습니다. 이러한 예제의 목적은 중요한 시나리오를 보여주는 것아 아니라 사용 가능한 다양한 설정과 사용 방법을 보여주는 것입니다. 
@@ -28,7 +27,7 @@ ms.locfileid: "60718226"
 
 |기능|매니페스트|
 |---|---|
-|[리소스 관리](service-fabric-resource-governance.md)|[Reliable Services 응용 프로그램 매니페스트](service-fabric-manifest-example-reliable-services-app.md#application-manifest), [컨테이너 응용 프로그램 매니페스트](service-fabric-manifest-example-container-app.md#application-manifest)|
+|[리소스 관리](service-fabric-resource-governance.md)|[Reliable Services 애플리케이션 매니페스트](service-fabric-manifest-example-reliable-services-app.md#application-manifest), [컨테이너 애플리케이션 매니페스트](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[로컬 관리자 계정으로 서비스 실행](service-fabric-application-runas-security.md)|[Reliable Services 애플리케이션 매니페스트](service-fabric-manifest-example-reliable-services-app.md#application-manifest)|
 |[모든 서비스 코드 패키지에 기본 정책 적용](service-fabric-application-runas-security.md#apply-a-default-policy-to-all-service-code-packages)|[Reliable Services 애플리케이션 매니페스트](service-fabric-manifest-example-reliable-services-app.md#application-manifest)|
 |[사용자 및 그룹 보안 주체 만들기](service-fabric-application-runas-security.md)|[Reliable Services 애플리케이션 매니페스트](service-fabric-manifest-example-reliable-services-app.md#application-manifest)|
@@ -40,7 +39,7 @@ ms.locfileid: "60718226"
 |[데이터 패키지 선언](service-fabric-application-and-service-manifests.md)|[VotingData 서비스 매니페스트](service-fabric-manifest-example-reliable-services-app.md#votingdata-service-manifest)|
 |[환경 변수 재정의](service-fabric-get-started-containers.md#configure-and-set-environment-variables)|[컨테이너 애플리케이션 매니페스트](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[컨테이너 포트-호스트 매핑 구성](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery)| [컨테이너 애플리케이션 매니페스트](service-fabric-manifest-example-container-app.md#application-manifest)|
-|[컨테이너 레지스트리 인증 구성](service-fabric-get-started-containers.md#configure-container-registry-authentication)|[컨테이너 애플리케이션 매니페스트](service-fabric-manifest-example-container-app.md#application-manifest)|
+|[컨테이너 레지스트리 인증 구성](service-fabric-get-started-containers.md#configure-container-repository-authentication)|[컨테이너 애플리케이션 매니페스트](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[격리 모드 설정](service-fabric-get-started-containers.md#configure-isolation-mode)|[컨테이너 애플리케이션 매니페스트](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[OS 빌드 관련 컨테이너 이미지 지정](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)|[컨테이너 애플리케이션 매니페스트](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[환경 변수 설정](service-fabric-get-started-containers.md#configure-and-set-environment-variables)|[컨테이너 FrontEndService 서비스 매니페스트](service-fabric-manifest-example-container-app.md#frontendservice-service-manifest), [컨테이너 BackEndService 서비스 매니페스트](service-fabric-manifest-example-container-app.md#backendservice-service-manifest)|

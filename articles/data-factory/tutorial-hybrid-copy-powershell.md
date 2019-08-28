@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: abnarain
-ms.openlocfilehash: 49d9be9f10f0e840cfa3d027901a297de8cbf750
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3f49bed0253a380dbcb0a526364c85c2031b0116
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60328292"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640304"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>자습서: 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터 복사
 이 자습서에서는 Azure PowerShell을 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 Data Factory 파이프라인을 만듭니다. 온-프레미스와 클라우드 데이터 저장소 간에 데이터를 이동하는, 자체 호스팅된 통합 런타임을 생성하고 사용합니다. 
@@ -69,27 +69,25 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 ### <a name="azure-storage-account"></a>Azure Storage 계정
 이 자습서에서는 범용 Azure Storage 계정(특히 Blob Storage)을 대상/싱크 데이터 저장소로 사용합니다. 범용 Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요. 이 자습서에서 만든 데이터 팩터리의 파이프라인은 온-프레미스 SQL Server 데이터베이스(원본)에서 이 Azure Blob Storage(싱크)로 데이터를 복사합니다. 
 
-#### <a name="get-storage-account-name-and-account-key"></a>저장소 계정 이름 및 계정 키 가져오기
-이 자습서에서 Azure Storage 계정 이름 및 키를 사용합니다. 다음을 수행하여 저장소 계정의 이름 및 키를 가져옵니다. 
+#### <a name="get-storage-account-name-and-account-key"></a>스토리지 계정 이름 및 계정 키 가져오기
+이 자습서에서 Azure Storage 계정 이름 및 키를 사용합니다. 다음을 수행하여 스토리지 계정의 이름 및 키를 가져옵니다. 
 
 1. Azure 사용자 이름 및 암호를 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
-1. 왼쪽 창에서 **추가 서비스**를 선택하고, **저장소** 키워드를 사용하여 필터링한 다음 **저장소 계정**을 선택합니다.
+1. 왼쪽 창에서 **추가 서비스**를 선택하고, **스토리지** 키워드를 사용하여 필터링한 다음 **스토리지 계정**을 선택합니다.
 
-    ![저장소 계정 검색](media/tutorial-hybrid-copy-powershell/search-storage-account.png)
+    ![스토리지 계정 검색](media/doc-common-process/search-storage-account.png)
 
-1. 저장소 계정 목록에서 저장소 계정(필요한 경우)을 필터링한 다음 저장소 계정을 선택합니다. 
+1. 스토리지 계정 목록에서 스토리지 계정(필요한 경우)을 필터링한 다음 스토리지 계정을 선택합니다. 
 
-1. **저장소 계정** 창에서 **액세스 키**를 선택합니다.
+1. **스토리지 계정** 창에서 **액세스 키**를 선택합니다.
 
-    ![저장소 계정 이름 및 키 가져오기](media/tutorial-hybrid-copy-powershell/storage-account-name-key.png)
-
-1. **저장소 계정 이름** 및 **key1** 상자에서 값을 복사한 다음 메모장 또는 나중에 자습서에서 사용할 다른 편집기에 붙여넣습니다. 
+1. **스토리지 계정 이름** 및 **key1** 상자에서 값을 복사한 다음 메모장 또는 나중에 자습서에서 사용할 다른 편집기에 붙여넣습니다. 
 
 #### <a name="create-the-adftutorial-container"></a>adftutorial 컨테이너 만들기 
 이 섹션에서는 Azure Blob Storage에 **adftutorial**이라는 Blob 컨테이너를 만듭니다. 
 
-1. **저장소 계정** 창에서 **개요**로 전환한 다음, **Blob**을 선택합니다. 
+1. **스토리지 계정** 창에서 **개요**로 전환한 다음, **Blob**을 선택합니다. 
 
     ![Blob 옵션 선택](media/tutorial-hybrid-copy-powershell/select-blobs.png)
 
@@ -107,7 +105,6 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
 1. **adftutorial**의 **컨테이너** 창을 열어 둡니다. 이 자습서의 끝부분에서 출력을 확인하는 데 사용합니다. 데이터 팩터리는 이 컨테이너에서 출력 폴더를 자동으로 만듭니다. 따라서 새로 만들 필요가 없습니다.
 
-    ![컨테이너 창](media/tutorial-hybrid-copy-powershell/container-page.png)
 
 ### <a name="windows-powershell"></a>Windows PowerShell
 
@@ -415,7 +412,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
     > [!IMPORTANT]
     > - SQL Server 인스턴스에 연결하는 데 사용한 인증에 기반한 섹션을 선택합니다.
     > - **\<integration runtime 이름>** 을 사용자의 Integration Runtime 이름으로 바꿉니다.
-    > - 파일을 저장하기 전에 **\<servername>**, **\<databasename>**, **\<username>** 및 **\<password>** 를 Microsoft SQL Server 인스턴스의 값으로 바꿉니다.
+    > - 파일을 저장하기 전에 **\<servername>** , **\<databasename>** , **\<username>** 및 **\<password>** 를 Microsoft SQL Server 인스턴스의 값으로 바꿉니다.
     > - 백슬래시(\\)를 사용자 계정 또는 서버 이름에 사용해야 하는 경우 앞에 이스케이프 문자(\\)를 사용합니다. 예를 들어 *mydomain\\\\myuser*를 사용합니다. 
 
 1. 중요한 데이터(사용자 이름, 암호 등)를 암호화하려면 `New-AzDataFactoryV2LinkedServiceEncryptedCredential` cmdlet을 실행합니다.  

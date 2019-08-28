@@ -1,20 +1,20 @@
 ---
 title: 대규모로 Azure 가상 머신 백업
 description: Azure에 여러 가상 머신을 동시에 백업
-services: backup
 keywords: 가상 머신 백업; vm 백업; Azure vm 백업; 백업 및 재해 복구
-author: rayne-wiselman
-ms.author: raynew
+author: dcurwin
+manager: carmonm
+ms.author: dacurwin
 ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: 99f5b09d0b5dfc144dca7f19efff3f0656a82b35
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fa9f13bf4f4e06973f7b9125897366ad53d06857
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093248"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688442"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Azure Portal을 사용하여 여러 가상 머신을 백업
 
@@ -54,7 +54,7 @@ Recovery Services 자격 증명 모음은 보호 중인 가상 머신과 동일�
 
 Recovery Services 자격 증명 모음을 만드는 데 몇 분 정도 걸릴 수 있습니다. 포털의 오른쪽 위 영역에 있는 상태 알림을 모니터링합니다. 자격 증명 모음이 생성되면 Recovery Services 자격 증명 모음 목록에 표시됩니다.
 
-Recovery Services 자격 증명 모음을 만들면 기본적으로 자격 증명 모음에 지역 중복 저장소도 만들어집니다. 데이터 복원력을 제공하기 위해 지역 중복 저장소는 두 Azure 영역 간에 여러 번 데이터를 복제합니다.
+Recovery Services 자격 증명 모음을 만들면 기본적으로 자격 증명 모음에 지역 중복 스토리지도 만들어집니다. 데이터 복원력을 제공하기 위해 지역 중복 스토리지는 두 Azure 영역 간에 여러 번 데이터를 복제합니다.
 
 ## <a name="set-backup-policy-to-protect-vms"></a>VM을 보호하기 위한 백업 정책 설정
 

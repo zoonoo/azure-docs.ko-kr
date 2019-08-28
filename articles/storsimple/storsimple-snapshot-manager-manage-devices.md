@@ -23,7 +23,7 @@ ms.locfileid: "64682499"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>StorSimple Snapshot Manager를 사용하여 StorSimple 디바이스 연결 및 관리
 ## <a name="overview"></a>개요
-StorSimple Snapshot Manager의 **범위** 창에서 노드를 사용하여 가져온 StorSimple 디바이스 데이터를 확인하고 연결된 저장소 디바이스를 새로 고칠 수 있습니다. 또한 **디바이스**노드를 클릭하면 연결된 디바이스 목록과 해당 상태 정보를 **결과** 창에서 볼 수 있습니다.
+StorSimple Snapshot Manager의 **범위** 창에서 노드를 사용하여 가져온 StorSimple 디바이스 데이터를 확인하고 연결된 스토리지 디바이스를 새로 고칠 수 있습니다. 또한 **디바이스**노드를 클릭하면 연결된 디바이스 목록과 해당 상태 정보를 **결과** 창에서 볼 수 있습니다.
 
 ![연결된 디바이스](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_connect_devices.png)
 

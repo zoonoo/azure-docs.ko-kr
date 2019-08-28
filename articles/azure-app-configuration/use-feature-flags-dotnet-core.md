@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: fc5215f71af45d3273da437fc796bf0d396ba3f9
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 99559c0c77c3e4b29badec1c0be2d741df1f0621
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393522"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798370"
 ---
-# <a name="tutorial-use-feature-flags-in-a-net-core-app"></a>자습서: .NET Core 앱에서 기능 플래그 사용
+# <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>자습서: ASP.NET Core 앱에서 기능 플래그 사용
 
 .NET Core 기능 관리 라이브러리는 .NET 또는 ASP.NET Core 애플리케이션에서 기능 플래그를 구현할 수 있도록 자연스러운 지원을 제공합니다. 이러한 라이브러리를 사용하면 기능 플래그를 코드에 선언적으로 추가할 수 있으므로 모든 `if` 문을 수동으로 작성할 필요가 없습니다.
 
@@ -86,30 +86,42 @@ public class Startup
 
 기능 플래그를 애플리케이션 외부에 유지하면서 별도로 관리하는 것이 좋습니다. 이렇게 하면 언제든지 플래그 상태를 수정하고 해당 변경 내용을 애플리케이션에 즉시 적용할 수 있습니다. App Configuration은 전용 포털 UI를 통해 모든 기능 플래그를 구성 및 제어하기 위한 중앙 위치를 제공합니다. 또한 App Configuration은 자체의 .NET Core 클라이언트 라이브러리를 통해 플래그를 애플리케이션에 직접 제공합니다.
 
-ASP.NET Core 애플리케이션을 App Configuration에 연결하는 가장 쉬운 방법은 `Microsoft.Extensions.Configuration.AzureAppConfiguration` 구성 공급자입니다. 이 NuGet 패키지를 사용하려면 다음 코드를 *Program.cs* 파일에 추가합니다.
+ASP.NET Core 애플리케이션을 App Configuration에 연결하는 가장 쉬운 방법은 `Microsoft.Azure.AppConfiguration.AspNetCore` 구성 공급자입니다. 이 NuGet 패키지를 사용하려면 이 단계를 수행합니다.
 
-```csharp
-using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+1. *Program.cs* 파일을 열고 다음 코드를 추가합니다.
 
-public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-    WebHost.CreateDefaultBuilder(args)
-           .ConfigureAppConfiguration((hostingContext, config) => {
-               var settings = config.Build();
-               config.AddAzureAppConfiguration(options => {
-                   options.Connect(settings["ConnectionStrings:AppConfig"])
-                          .UseFeatureFlags();
-                });
-           })
-           .UseStartup<Startup>();
-```
+   ```csharp
+   using Microsoft.Extensions.Configuration.AzureAppConfiguration;
 
-기능 플래그 값은 시간이 지나면 변화합니다. 기본적으로 기능 관리자가 30초마다 기능 플래그 값을 새로 고칩니다. 다음 코드는 `options.UseFeatureFlags()` 호출에서 폴링 간격을 5초로 변경하는 방법을 보여줍니다.
+   public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+       WebHost.CreateDefaultBuilder(args)
+              .ConfigureAppConfiguration((hostingContext, config) => {
+                  var settings = config.Build();
+                  config.AddAzureAppConfiguration(options => {
+                      options.Connect(settings["ConnectionStrings:AppConfig"])
+                             .UseFeatureFlags();
+                   });
+              })
+              .UseStartup<Startup>();
+   ```
+
+2. *Startup.cs*를 열고 `Configure` 메서드를 업데이트하여 ASP.NET Core 웹앱이 요청을 계속 수신하는 동안 반복된 간격으로 기능 플래그 값을 새로 고칠 수 있는 미들웨어를 추가합니다.
+
+   ```csharp
+   public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+   {
+       app.UseAzureAppConfiguration();
+       app.UseMvc();
+   }
+   ```
+
+기능 플래그 값은 시간이 지나면 변화합니다. 기본적으로 기능 플래그 값은 30초 동안 캐시되므로 캐시된 값이 만료될 때까지 미들웨어가 요청을 수신할 때 트리거되는 새로 고침 작업은 값을 업데이트하지 않습니다. 다음 코드는 `options.UseFeatureFlags()` 호출에서 캐시 만료 시간 또는 폴링 간격을 5분으로 변경하는 방법을 보여 줍니다.
 
 ```csharp
 config.AddAzureAppConfiguration(options => {
     options.Connect(settings["ConnectionStrings:AppConfig"])
            .UseFeatureFlags(featureFlagOptions => {
-                featureFlagOptions.PollInterval = TimeSpan.FromSeconds(5);
+                featureFlagOptions.CacheExpirationTime = TimeSpan.FromMinutes(5);
            });
 });
 ```
@@ -189,10 +201,10 @@ public class HomeController : Controller
 
 ## <a name="controller-actions"></a>컨트롤러 작업
 
-MVC 컨트롤러에서 `Feature` 특성을 사용하여 전체 컨트롤러 클래스를 사용할 것인지 아니면 특정 작업을 사용할 것인지 제어합니다. 다음 `HomeController` 컨트롤러는 `FeatureA`가 *on*으로 설정되어야만 컨트롤러 클래스에 포함된 작업을 실행할 수 있습니다.
+MVC 컨트롤러에서 `FeatureGate` 특성을 사용하여 전체 컨트롤러 클래스를 사용할 것인지 아니면 특정 작업을 사용할 것인지 제어합니다. 다음 `HomeController` 컨트롤러는 `FeatureA`가 *on*으로 설정되어야만 컨트롤러 클래스에 포함된 작업을 실행할 수 있습니다.
 
 ```csharp
-[Feature(MyFeatureFlags.FeatureA)]
+[FeatureGate(MyFeatureFlags.FeatureA)]
 public class HomeController : Controller
 {
     ...
@@ -202,7 +214,7 @@ public class HomeController : Controller
 다음 `Index` 작업은 `FeatureA`가 *on*으로 설정되어야만 실행할 수 있습니다.
 
 ```csharp
-[Feature(MyFeatureFlags.FeatureA)]
+[FeatureGate(MyFeatureFlags.FeatureA)]
 public IActionResult Index()
 {
     return View();
@@ -218,6 +230,25 @@ MVC 보기에서 `<feature>` 태그를 사용하여 기능 플래그의 사용 �
 ```html
 <feature name="FeatureA">
     <p>This can only be seen if 'FeatureA' is enabled.</p>
+</feature>
+```
+
+요구 사항이 충족되지 않을 경우 대체 콘텐츠를 표시하려면 `negate` 특성을 사용할 수 있습니다.
+
+```html
+<feature name="FeatureA" negate="true">
+    <p>This will be shown if 'FeatureA' is disabled.</p>
+</feature>
+```
+
+목록의 임의 기능 또는 모든 기능을 사용할 수 있는 경우 기능 `<feature>` 태그를 사용하여 콘텐츠를 표시할 수도 있습니다.
+
+```html
+<feature name="FeatureA, FeatureB" requirement="All">
+    <p>This can only be seen if 'FeatureA' and 'FeatureB' are enabled.</p>
+</feature>
+<feature name="FeatureA, FeatureB" requirement="Any">
+    <p>This can be seen if 'FeatureA', 'FeatureB', or both are enabled.</p>
 </feature>
 ```
 

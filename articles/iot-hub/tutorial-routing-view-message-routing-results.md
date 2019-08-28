@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 1417ecdaf6a85f491e1accfb9564e27d15e13445
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f34799bbf2142ba07c29915deae5b5dbe590c9fc
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66163052"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330551"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>자습서: 2부 - 라우팅된 메시지 보기
 
@@ -126,7 +126,7 @@ Power BI 시각화에서 데이터를 보려면 먼저 데이터를 검색하는
 
    **엔드포인트**: **메시징**을 선택합니다. (작업 모니터링을 선택하는 경우 전송하는 데이터가 아닌 IoT Hub에 대한 원격 분석 데이터를 얻게 됩니다.) 
 
-   **공유 액세스 정책 이름**: **iothubowner**를 선택합니다. 포털에서 사용자를 위한 공유 액세스 정책 키가 채워집니다.
+   **공유 액세스 정책 이름**: **서비스**를 선택합니다. 포털에서 사용자를 위한 공유 액세스 정책 키가 채워집니다.
 
    **소비자 그룹**: 이 자습서의 1단계에서 설정한 소비자 그룹을 선택합니다. 이 자습서에서는 **contosoconsumers**를 사용합니다.
    
@@ -174,7 +174,7 @@ Power BI 시각화에서 데이터를 보려면 먼저 데이터를 검색하는
 
 Stream Analytics 작업에서 **시작** > **지금** > **시작**을 차례로 선택합니다. 작업이 성공적으로 시작되면 작업 상태가 **중지됨**에서 **실행 중**으로 변경됩니다.
 
-Power BI 보고서를 설정하려면 장치를 만들고 장치 시뮬레이션 애플리케이션을 실행한 후 Power BI를 설정하기 위한 데이터가 필요합니다.
+Power BI 보고서를 설정하려면 디바이스를 만들고 디바이스 시뮬레이션 애플리케이션을 실행한 후 Power BI를 설정하기 위한 데이터가 필요합니다.
 
 ## <a name="run-simulated-device-app"></a>시뮬레이션된 디바이스 앱 실행
 
@@ -198,7 +198,7 @@ Power BI 보고서를 설정하려면 장치를 만들고 장치 시뮬레이션
 
 콘솔 애플리케이션을 실행합니다. 잠시 기다립니다. 애플리케이션의 콘솔 화면에서 전송되는 메시지를 볼 수 있습니다.
 
-앱은 1초마다 새로운 디바이스-클라우드 메시지를 IoT Hub에 보냅니다. 메시지에는 디바이스 ID, 온도, 습도 및 메시지 수준(기본값이 `normal`)과 함께 JSON 직렬화된 개체가 포함됩니다. `critical` 또는 `storage` 수준을 임의로 할당하므로 메시지는 저장소 계정 또는 Service Bus 큐로 라우팅됩니다(이메일을 보내도록 Logic App을 트리거). 기본값(`normal`) 판독값이 다음에 설정하는 BI 보고서에 표시됩니다.
+앱은 1초마다 새로운 디바이스-클라우드 메시지를 IoT Hub에 보냅니다. 메시지에는 디바이스 ID, 온도, 습도 및 메시지 수준(기본값이 `normal`)과 함께 JSON 직렬화된 개체가 포함됩니다. `critical` 또는 `storage` 수준을 임의로 할당하므로 메시지는 스토리지 계정 또는 Service Bus 큐로 라우팅됩니다(이메일을 보내도록 Logic App을 트리거). 기본값(`normal`) 판독값이 다음에 설정하는 BI 보고서에 표시됩니다.
 
 모든 설정이 올바르면 다음과 같은 결과가 표시됩니다.
 
@@ -212,13 +212,13 @@ Power BI 보고서를 설정하려면 장치를 만들고 장치 시뮬레이션
    * Service Bus 큐의 메시지를 검색하는 Logic App이 제대로 작동합니다.
    * Outlook에 대한 Logic App 커넥터가 제대로 작동합니다. 
 
-2. [Azure Portal](https://portal.azure.com)에서 **리소스 그룹**을 선택하고 리소스 그룹을 선택합니다. 이 자습서에서는 **ContosoResources**를 사용합니다. 스토리지 계정을 선택하고 **Blob**을 선택한 다음, 컨테이너를 선택합니다. 이 자습서에서는 **contosoresults**를 사용합니다. 폴더를 확인하고 하나 이상의 파일이 표시될 때까지 디렉터리를 드릴다운할 수 있습니다. 이러한 파일 중 하나를 열면 저장소 계정으로 라우팅된 항목이 포함되어 있습니다. 
+2. [Azure Portal](https://portal.azure.com)에서 **리소스 그룹**을 선택하고 리소스 그룹을 선택합니다. 이 자습서에서는 **ContosoResources**를 사용합니다. 스토리지 계정을 선택하고 **Blob**을 선택한 다음, 컨테이너를 선택합니다. 이 자습서에서는 **contosoresults**를 사용합니다. 폴더를 확인하고 하나 이상의 파일이 표시될 때까지 디렉터리를 드릴다운할 수 있습니다. 이러한 파일 중 하나를 열면 스토리지 계정으로 라우팅된 항목이 포함되어 있습니다. 
 
    ![스토리지의 결과 파일](./media/tutorial-routing-view-message-routing-results/results-in-storage.png)
 
 이 결과는 다음 내용이 참이라는 의미입니다.
 
-   * 저장소 계정에 대한 라우팅이 제대로 작동합니다.
+   * 스토리지 계정에 대한 라우팅이 제대로 작동합니다.
 
 이제 애플리케이션이 계속 실행 중인 상태에서 기본 라우팅을 통해 들어오는 메시지를 표시하도록 Power BI 시각화를 설정합니다.
 
@@ -266,7 +266,7 @@ Power BI 창 위쪽의 새로 고침 단추를 선택하면 차트를 새로 고
 
 ## <a name="clean-up-resources"></a>리소스 정리 
 
-이 자습서의 두 부분을 통해 만든 리소스를 모두 제거하려면 리소스 그룹을 삭제합니다. 이렇게 하면 그룹 내에 포함된 모든 리소스가 삭제됩니다. 이 경우 IoT Hub, Service Bus 네임스페이스 및 큐, Logic App, 저장소 계정 및 리소스 그룹 자체가 제거됩니다. 
+이 자습서의 두 부분을 통해 만든 리소스를 모두 제거하려면 리소스 그룹을 삭제합니다. 이렇게 하면 그룹 내에 포함된 모든 리소스가 삭제됩니다. 이 경우 IoT Hub, Service Bus 네임스페이스 및 큐, Logic App, 스토리지 계정 및 리소스 그룹 자체가 제거됩니다. 
 
 ### <a name="clean-up-resources-in-the-power-bi-visualization"></a>Power BI 시각화에서 리소스 정리
 
@@ -304,7 +304,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 > * 기본 엔드포인트에 전송된 데이터에 대한 Power BI 시각화를 만듭니다.
 > * 다음에서 결과를 확인합니다.
 > * ...Service Bus 큐 및 이메일에서
-> * ...저장소 계정에서
+> * ...스토리지 계정에서
 > * ...Power BI 시각화에서
 
 IoT 디바이스의 상태를 관리하는 방법에 대해 알아보려면 다음 자습서로 이동합니다. 

@@ -6,30 +6,30 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: workload management
+ms.subservice: workload-management
 ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 3bc1fef1842911e9b2cfb65b3c8cc72e4b615010
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a92c032027e772020eda0b626a6dc6db024bf57
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241261"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595571"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 메모리 및 동시성 제한
 Azure SQL Data Warehouse에서 다양한 성능 수준과 리소스 클래스에 할당된 메모리 및 동시성 제한을 살펴봅니다. 자세한 내용을 참고하고 워크로드 관리 계획에 이러한 기능을 적용하려면 [워크로드 관리를 위한 리소스 클래스](resource-classes-for-workload-management.md)를 확인하세요. 
 
-현재 SQL Data Warehouse에는 1세대와 2세대의 두 세대가 있습니다. SQL Data Warehouse의 2세대를 활용하여 데이터 웨어하우스 작업에 대해 최상의 성능을 얻는 것이 좋습니다. 2세대에서는 CPU에 가장 자주 액세스하는 데이터를 유지하는 새로운 NVMe SSD 디스크 캐시를 도입했습니다. 이렇게 하면 가장 집약적이고 요구가 많은 작업에 대한 원격 I/O가 제거됩니다. 2세대는 성능 외에도 최대 30,000개까지 데이터 웨어하우스 단위를 확장하고 무제한 열 형식 저장소를 제공하여 가장 높은 크기 조정 수준을 제공합니다. 여전히 SQL Data Warehouse의 이전 세대(1세대)도 지원하고 동일한 기능도 유지하지만, 가능한 빨리 [2세대로 업그레이드](upgrade-to-latest-generation.md)하는 것이 좋습니다. 
+현재 SQL Data Warehouse에는 1세대와 2세대의 두 세대가 있습니다. SQL Data Warehouse의 2세대를 활용하여 데이터 웨어하우스 작업에 대해 최상의 성능을 얻는 것이 좋습니다. 2세대에서는 CPU에 가장 자주 액세스하는 데이터를 유지하는 새로운 NVMe SSD 디스크 캐시를 도입했습니다. 이렇게 하면 가장 집약적이고 요구가 많은 작업에 대한 원격 I/O가 제거됩니다. 2세대는 성능 외에도 최대 30,000개까지 데이터 웨어하우스 단위를 확장하고 무제한 열 형식 스토리지를 제공하여 가장 높은 크기 조정 수준을 제공합니다. 여전히 SQL Data Warehouse의 이전 세대(1세대)도 지원하고 동일한 기능도 유지하지만, 가능한 빨리 [2세대로 업그레이드](upgrade-to-latest-generation.md)하는 것이 좋습니다. 
 
 ## <a name="data-warehouse-capacity-settings"></a>데이터 웨어하우스 용량 제한
-다음 표에서는 다양한 성능 수준의 데이터 웨어하우스에 대한 최대 용량을 보여줍니다. 성능 수준을 변경하려면 [계산 조정 - 포털](quickstart-scale-compute-portal.md)을 참조하세요.
+다음 표에서는 다양한 성능 수준의 데이터 웨어하우스에 대한 최대 용량을 보여줍니다. 성능 수준을 변경하려면 [컴퓨팅 조정 - 포털](quickstart-scale-compute-portal.md)을 참조하세요.
 
 ### <a name="gen2"></a>2세대
 
 2세대는 1세대보다 쿼리당 2.5배 더 많은 메모리를 제공합니다. 이 추가 메모리를 통해 2세대에서 빠른 성능을 제공할 수 있습니다.  2세대의 성능 수준은 DW100c에서 DW30000c까지입니다. 
 
-| 성능 수준 | 계산 노드 | 계산 노드당 배포 | 데이터 웨어하우스당 메모리 크기(GB) |
+| 성능 수준 | 컴퓨팅 노드 | 컴퓨팅 노드당 배포 | 데이터 웨어하우스당 메모리 크기(GB) |
 |:-----------------:|:-------------:|:------------------------------:|:------------------------------:|
 | DW100c            | 1             | 60                             |    60                          |
 | DW200c            | 1             | 60                             |   120                          |
@@ -48,13 +48,13 @@ Azure SQL Data Warehouse에서 다양한 성능 수준과 리소스 클래스에
 | DW15000c          | 30            | 2                              |  9000                          |
 | DW30000c          | 60            | 1                              | 18000                          |
 
-2세대 최대 DWU는 DW30000c이며, 60개 계산 노드 및 계산 노드당 하나의 배포를 갖추고 있습니다. 예를 들어 DW30000c에서 600TB 데이터 웨어하우스는 계산 노드당 약 10TB를 처리합니다.
+2세대 최대 DWU는 DW30000c이며, 60개 컴퓨팅 노드 및 컴퓨팅 노드당 하나의 배포를 갖추고 있습니다. 예를 들어 DW30000c에서 600TB 데이터 웨어하우스는 컴퓨팅 노드당 약 10TB를 처리합니다.
 
 ### <a name="gen1"></a>1세대
 
 1세대의 서비스 수준은 DW100에서 DW6000까지입니다. 
 
-| 성능 수준 | 계산 노드 | 계산 노드당 배포 | 데이터 웨어하우스당 메모리 크기(GB) |
+| 성능 수준 | 컴퓨팅 노드 | 컴퓨팅 노드당 배포 | 데이터 웨어하우스당 메모리 크기(GB) |
 |:-----------------:|:-------------:|:------------------------------:|:------------------------------:|
 | DW100             | 1             | 60                             |  24                            |
 | DW200             | 2             | 30                             |  48                            |

@@ -1,6 +1,6 @@
 ---
-title: Azure Virtual Machines 고가용성 SAP NetWeaver NetApp Azure Files를 사용 하 여 SUSE Linux Enterprise Server에 대 한 | Microsoft Docs
-description: SAP 응용 프로그램에 대 한 Azure NetApp 파일을 사용 하 여 SUSE Linux Enterprise Server의 SAP NetWeaver-고가용성 가이드
+title: Azure NetApp Files를 사용 하는 SUSE Linux Enterprise Server에서 SAP NetWeaver에 대 한 Azure Virtual Machines 고가용성 Microsoft Docs
+description: Sap 응용 프로그램용 Azure NetApp Files를 사용 하는 SUSE Linux Enterprise Server의 SAP NetWeaver에 대 한 고가용성 가이드
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: radeltch
-ms.openlocfilehash: b3b5a89b43eaa5c0851962aef414ec9c9b7440da
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8910ac83bbe3d92266ee2d7e9c840139dfb1a5be
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357723"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575529"
 ---
-# <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>SAP 응용 프로그램에 대 한 Azure NetApp 파일을 사용 하 여 SUSE Linux Enterprise Server의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성
+# <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>SAP 응용 프로그램용 Azure NetApp Files를 사용 하 SUSE Linux Enterprise Server의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
@@ -58,14 +58,14 @@ ms.locfileid: "66357723"
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-이 문서에서는 가상 컴퓨터를 배포, 가상 컴퓨터를 구성, 클러스터 프레임 워크 및 고가용성 SAP NetWeaver 7.50 시스템을 설치 하는 방법을 설명를 사용 하 여 [Azure NetApp 파일](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/)합니다.
-예제 구성, 설치 명령 등, ASCS 인스턴스 번호 00, ERS 인스턴스 번호 01, 기본 응용 프로그램 인스턴스 (PA) 02 이며 응용 프로그램 인스턴스 AAS ()는 03 합니다. SAP 시스템 ID QAS 사용 됩니다. 
+이 문서에서는 [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/)를 사용 하 여 가상 머신을 배포 하 고, 가상 머신을 구성 하 고, 클러스터 프레임 워크를 설치 하 고, 항상 사용 가능한 SAP NetWeaver 7.50 시스템을 설치 하는 방법을 설명 합니다.
+예제 구성, 설치 명령 등의 ASCS 인스턴스는 숫자 00, ERS 인스턴스 번호 01, 기본 응용 프로그램 인스턴스 (PAS)는 02 이며 응용 프로그램 인스턴스 (.AAS)는 03입니다. SAP 시스템 ID QAS 사용. 
 
-이 문서에서는 Azure NetApp 파일을 사용 하 여 SAP NetWeaver 응용 프로그램에 대 한 고가용성을 달성 하는 방법에 설명 합니다. 데이터베이스 계층은이 문서에서 자세히 적용 되지 않습니다.
+이 문서에서는 Azure NetApp Files를 사용 하 여 SAP NetWeaver 응용 프로그램에 대 한 고가용성을 구현 하는 방법을 설명 합니다. 데이터베이스 계층은이 문서에 자세히 설명 되어 있지 않습니다.
 
 다음 SAP Note 및 문서를 먼저 읽어 보세요.
 
-* [Azure NetApp 파일 설명서][anf-azure-doc] 
+* [Azure NetApp Files 설명서][anf-azure-doc] 
 * SAP Note [1928533], 다음 항목을 포함합니다.  
   * SAP 소프트웨어 배포에 지원되는 Azure VM 크기 목록
   * Azure VM 크기에 대한 중요한 용량 정보
@@ -80,27 +80,27 @@ ms.locfileid: "66357723"
 * SAP Note [1984787]은 SUSE LINUX Enterprise Server 12에 대한 일반 정보를 포함하고 있습니다.
 * SAP Note [1999351]은 SAP용 Azure 고급 모니터링 확장을 위한 추가 문제 해결 정보를 포함하고 있습니다.
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes)는 Linux에 필요한 모든 SAP Note를 포함하고 있습니다.
-* [Linux에서 SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]
-* [Linux에서 SAP용 Azure Virtual Machines 배포][deployment-guide]
-* [Linux에서 SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
-* [SUSE SAP HA 모범 사례 가이드][suse-ha-guide] 이 가이드에는 Netweaver HA 및 SAP HANA 시스템 복제 온-프레미스를 설정하는 데 필요한 모든 정보가 포함됩니다. 이 가이드를 일반 기준으로 사용하세요. 여기서 훨씬 더 자세한 정보를 제공합니다.
-* [SUSE High Availability Extension 12 SP3 릴리스 정보][suse-ha-12sp3-relnotes]
-* [NetApp Azure Files를 사용 하 여 Microsoft Azure의 NetApp SAP 응용 프로그램][anf-sap-applications-azure]
+* [Linux에서 SAP 용 Azure Virtual Machines 계획 및 구현][planning-guide]
+* [Linux에서 SAP 용 Azure Virtual Machines 배포][deployment-guide]
+* [Linux에서 SAP 용 Azure Virtual Machines DBMS 배포][dbms-guide]
+* [SUSE SAP HA 모범 사례 가이드][suse-ha-guide] 이 가이드에는 온-프레미스에서 Netweaver HA 및 SAP HANA 시스템 복제를 설정 하는 데 필요한 모든 정보가 포함 되어 있습니다. 이 가이드를 일반 기준으로 사용하세요. 여기서 훨씬 더 자세한 정보를 제공합니다.
+* [SUSE 고가용성 확장 12 SP3 릴리스 정보][suse-ha-12sp3-relnotes]
+* [Azure NetApp Files를 사용 하 여 Microsoft Azure에서 NetApp SAP 응용 프로그램][anf-sap-applications-azure]
 
 ## <a name="overview"></a>개요
 
-높은 availability(HA) 중앙 서비스가 SAP Netweaver에 대 한 공유 저장소가 필요 합니다.
-SUSE Linux에서이 위해 지금 필요 했기 별도 항상 사용 가능한 NFS 클러스터를 구축 합니다. 
+SAP Netweaver central services에 대 한 HA (고가용성)에는 공유 저장소가 필요 합니다.
+지금까지 SUSE Linux에서이를 위해 항상 사용 가능한 별도의 NFS 클러스터를 구축 해야 했습니다. 
 
-이제 목표를 달성할 수 SAP Netweaver HA NetApp 파일을 Azure에 배포 된 공유 저장소를 사용 하 여입니다. 공유 저장소가 필요 하지 않습니다.에 대 한 Azure NetApp 파일을 사용 하 여 추가 [NFS 클러스터](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)합니다. Pacemaker는 고가용성 SAP Netweaver 중앙 services(ASCS/SCS) 여전히 필요 합니다.
+이제 Azure NetApp Files에 배포 된 공유 저장소를 사용 하 여 SAP Netweaver HA를 달성할 수 있습니다. 공유 저장소에 Azure NetApp Files를 사용 하면 추가 [NFS 클러스터가](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)필요 하지 않습니다. Pacemaker는 SAP Netweaver central 서비스 (ASCS/SCS)의 HA에 계속 필요 합니다.
 
 
 ![SAP NetWeaver 고가용성 개요](./media/high-availability-guide-suse-anf/high-availability-guide-suse-anf.PNG)
 
-SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터베이스는 가상 호스트 이름 및 가상 IP 주소를 사용합니다. Azure에는 [부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) 가상 IP 주소를 사용 하는 데 필요한 합니다. 아래 목록에서는(A)SCS 및 ERS 부하 분산 장치에 대한 구성이 나와 있습니다.
+SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터베이스는 가상 호스트 이름 및 가상 IP 주소를 사용합니다. Azure에서 [부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) 는 가상 IP 주소를 사용 하는 데 필요 합니다. 아래 목록에서는(A)SCS 및 ERS 부하 분산 장치에 대한 구성이 나와 있습니다.
 
 > [!IMPORTANT]
-> 다중 SID 클러스터링의 SAP ASCS/ERS SUSE Linux를 사용 하 여 Azure Vm에서 게스트 운영 체제가 **지원 되지 않습니다**합니다. 다중 SID 클러스터링 하나의 Pacemaker 클러스터에서 다른 Sid 사용 하 여 여러 SAP ASCS/ERS 인스턴스 설치를 설명 합니다.
+> Azure Vm에서 게스트 운영 체제로 SUSE Linux를 사용 하는 SAP ASCS/ERS의 다중 SID 클러스터링은 **지원 되지 않습니다**. 다중 SID 클러스터링은 하나의 Pacemaker 클러스터에서 서로 다른 Sid를 사용 하 여 여러 SAP ASCS/ERS 인스턴스를 설치 하는 방법을 설명 합니다.
 
 
 ### <a name="ascs"></a>(A)SCS
@@ -135,120 +135,120 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터�
   * 5<strong>&lt;nr&gt;</strong>14 TCP
   * 5<strong>&lt;nr&gt;</strong>16 TCP
 
-## <a name="setting-up-the-azure-netapp-files-infrastructure"></a>Azure NetApp 파일 인프라를 설정 
+## <a name="setting-up-the-azure-netapp-files-infrastructure"></a>Azure NetApp Files 인프라 설정 
 
-SAP NetWeaver에는 전송 및 프로필 디렉터리에 대한 공유 저장소가 필요합니다.  Azure NetApp 파일 인프라에 대 한 설치를 진행 하기 전에 숙지 합니다 [NetApp Azure Files 설명서][anf-azure-doc]합니다. 선택한 Azure 지역에 Azure NetApp 파일 제공 하는 경우를 확인 합니다. 다음 링크를 Azure 지역에 따라 NetApp 파일을 Azure의 가용성을 보여 줍니다. [Azure 지역에 따라 가용성 파일을 azure NetApp][anf-avail-matrix]합니다.
+SAP NetWeaver에는 전송 및 프로필 디렉터리에 대한 공유 스토리지가 필요합니다.  Azure NetApp 파일 인프라의 설치를 계속 하기 전에 [Azure NetApp Files 설명서][anf-azure-doc]를 숙지 하세요. 선택한 Azure 지역에서 Azure NetApp Files를 제공 하는지 확인 합니다. 다음 링크는 Azure 지역에서 Azure NetApp Files의 가용성을 보여 줍니다. [Azure 지역별 가용성을 Azure NetApp Files][anf-avail-matrix]합니다.
 
-Azure NetApp 파일은 몇 가지 사용 가능한 [Azure 지역](https://azure.microsoft.com/global-infrastructure/services/?products=netapp)합니다. NetApp Azure Files를 배포 하기 전에 Azure NetApp 파일을 다음으로 온 보 딩을 요청 합니다 [Azure NetApp 파일 지침에 대 한 등록][anf-register]합니다. 
+Azure NetApp 파일은 여러 [azure 지역](https://azure.microsoft.com/global-infrastructure/services/?products=netapp)에서 사용할 수 있습니다. Azure NetApp Files를 배포 하기 전에 [Azure NetApp 파일 등록 지침][anf-register]에 따라 Azure NetApp Files에 등록을 요청 합니다. 
 
-### <a name="deploy-azure-netapp-files-resources"></a>NetApp 파일 Azure 리소스 배포  
+### <a name="deploy-azure-netapp-files-resources"></a>Azure NetApp Files 리소스 배포  
 
-단계를 이미 배포한 가정 [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)합니다. 동일한 Azure Virtual Network 또는 피어 링 된 Azure Virtual Network에서 Azure NetApp 파일 리소스 및 Azure NetApp 파일 리소스를 탑재할 Vm에 배포 되어야 합니다.  
+이 단계에서는 이미 [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)를 배포 했다고 가정 합니다. Azure NetApp Files 리소스가 탑재 되는 Azure NetApp Files 리소스 및 Vm은 동일한 Azure Virtual Network 또는 피어 링 Azure Virtual Networks에 배포 되어야 합니다.  
 
-1. 아직 수행 하지 않은, 경우 요청 [NetApp 파일을 Azure에 온 보 딩](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register)합니다.  
+1. 아직 수행 하지 않은 경우 [Azure NetApp Files에 대 한 온 보 딩](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register)을 요청 합니다.  
 
-2. 다음 선택한 Azure 지역에서 NetApp 계정을 만들려면 합니다 [NetApp 계정을 만드는 지침은](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-netapp-account)합니다.  
-3. 다음 Azure NetApp Files 용량 풀을 설정 합니다 [NetApp 파일 Azure 용량 풀을 설정 하는 방법에 대 한 지침](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool)합니다.  
-이 문서에서 제공 하는 SAP Netweaver 아키텍처는 단일 Azure NetApp Files 용량 풀, 프리미엄 SKU를 사용 합니다. Azure에서 SAP Netweaver 응용 프로그램 워크 로드에 대 한 Azure NetApp 파일 Premium SKU를 권장합니다.  
+2. [Netapp 계정 만들기 지침](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-netapp-account)에 따라 선택한 Azure 지역에서 netapp 계정을 만듭니다.  
+3. 용량 풀을 [Azure NetApp Files 설정 하는 방법에 대 한 지침](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool)에 따라 Azure NetApp Files 용량 풀을 설정 합니다.  
+이 문서에 제공 된 SAP Netweaver 아키텍처는 단일 Azure NetApp Files 용량 풀, 프리미엄 SKU를 사용 합니다. Azure에서 SAP Netweaver 응용 프로그램 워크 로드에 대 한 Premium SKU를 Azure NetApp Files 하는 것이 좋습니다.  
 
-4. 에 설명 된 대로 Azure NetApp 파일에 서브넷을 위임 합니다 [지침은 위임할 Azure NetApp 파일에 서브넷](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet)합니다.  
+4. [Azure NetApp Files에 서브넷 위임 지침](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet)에 설명 된 대로 Azure netapp 파일에 서브넷을 위임 합니다.  
 
-5. 다음 Azure NetApp 파일 볼륨을 배포 하는 [볼륨을 만들려면 Azure NetApp 파일에 대 한 지침](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes)합니다. 지정된 된 Azure NetApp 파일의 볼륨에 배포할 [서브넷](https://docs.microsoft.com/rest/api/virtualnetwork/subnets)합니다. Azure NetApp 파일 리소스 및 Azure Vm을 동일한 Azure Virtual Network 또는 피어 링 된 Azure Virtual Network 수 있어야 하는 점을 염두에 두십시오. 예를 들어 sapmnt<b>QAS</b>, usrsap<b>QAS</b>등은 볼륨 이름 및 sapmnt<b>qas</b>, usrsap<b>qas</b>등 azure는 filepaths는 NetApp 파일 볼륨입니다.  
+5. [Azure NetApp Files 볼륨을 만들기 위한 지침](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes)에 따라 Azure NetApp Files 볼륨을 배포 합니다. 지정 된 Azure NetApp Files [서브넷](https://docs.microsoft.com/rest/api/virtualnetwork/subnets)에 볼륨을 배포 합니다. Azure NetApp Files 리소스와 Azure Vm은 동일한 Azure Virtual Network 또는 피어 링 Azure Virtual Network에 있어야 합니다. 예를 들어<b></b>sapmnt QAS,<b></b>usrsap QAS 등은 볼륨 이름 및 sapmnt QAS<b></b>, usrsap<b>QAS</b>등은 Azure NetApp Files 볼륨의 filepaths입니다.  
 
-   1. 볼륨 sapmnt<b>QAS</b> (nfs://10.1.0.4/sapmnt<b>qas</b>)
-   2. 볼륨 usrsap<b>QAS</b> (nfs://10.1.0.4/usrsap<b>qas</b>)
-   3. 볼륨 usrsap<b>QAS</b>sys (nfs://10.1.0.5/usrsap<b>qas</b>sys)
-   4. 볼륨 usrsap<b>QAS</b>ers (nfs://10.1.0.4/usrsap<b>qas</b>ers)
-   5. 볼륨 trans (nfs://10.1.0.4/trans)
-   6. 볼륨 usrsap<b>QAS</b>pas (nfs://10.1.0.5/usrsap<b>qas</b>pa)
-   7. 볼륨 usrsap<b>QAS</b>aas (nfs://10.1.0.4/usrsap<b>qas</b>aas)
+   1. volume sapmnt<b>QAS</b> (nfs://10.1.0.4/sapmnt<b>QAS</b>)
+   2. volume usrsap<b>QAS</b> (nfs://10.1.0.4/usrsap<b>QAS</b>)
+   3. 볼륨 usrsap<b>QAS</b>sys (nfs://10.1.0.5/usrsap<b>QAS</b>sys)
+   4. volume usrsap<b>QAS</b>ers (nfs://10.1.0.4/usrsap<b>QAS</b>ers)
+   5. 볼륨 트랜잭션 (nfs://10.1.0.4/trans)
+   6. usrsap<b>QAS</b>pas (nfs://10.1.0.5/usrsap<b>QAS</b>pas)
+   7. usrsap<b>QAS</b>.aas (nfs://10.1.0.4/usrsap<b>QAS</b>.aas)
    
-이 예제에서는 Azure NetApp 파일 사용할 수 있는 방법을 보여 주기 위해 모든 SAP Netweaver 파일 시스템에 대 한 Azure NetApp 파일을 사용 했습니다. NFS를 통해 탑재 하지 않아도 되는 SAP 파일 시스템으로 배포할 수도 있습니다 [Azure 디스크 저장소](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd) 합니다. 이 예제의 <b>a-e</b> Azure NetApp 파일에 있어야 합니다 및 <b>f g</b> (즉, r/sap/<b>QAS</b>/D<b>02</b>,r/sap/<b>QAS </b>/D<b>03</b>) Azure 디스크 저장소로 배포 될 수 있습니다. 
+이 예제에서는 Azure NetApp Files를 사용 하는 방법을 보여 주기 위해 모든 SAP Netweaver 파일 시스템에 대 한 Azure NetApp Files를 사용 했습니다. NFS를 통해 탑재 하지 않아도 되는 SAP 파일 시스템을 [Azure disk storage](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd) 로 배포할 수도 있습니다. 이 예제에서 <b>a-e는</b> Azure NetApp Files에 있어야 하 고 <b>f-g</b> (즉,/usr/sap/<b></b>Qas/d<b></b><b>03</b>)를<b></b>Azure disk storage로 배포할 수 있습니다. 
 
 ### <a name="important-considerations"></a>중요 고려 사항
 
-SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 고려할 때 다음 중요 사항을 고려해 야 합니다.
+SAP Netweaver on SUSE 고가용성 아키텍처에 대 한 Azure NetApp Files 고려 하는 경우 다음과 같은 중요 한 사항을 고려해 야 합니다.
 
-- 최소 용량 풀 4 TiB는입니다. 용량 풀 크기 TiB 4의 배수 여야 합니다.
-- 최소 볼륨이 100gib
-- NetApp Azure Files 볼륨 탑재 될 모든 virtual machines와 azure NetApp 파일이 동일한 Azure Virtual Network 또는 이어야 합니다 [가상 네트워크 피어 링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) 동일한 지역에 있습니다. 동일한 지역에서 VNET 피어 링을 통해 azure NetApp 파일 액세스는 이제 지원 됩니다. 전역 피어 링을 통해 azure NetApp 액세스가 아직 지원 되지 않습니다.
-- 선택한 가상 네트워크에 Azure NetApp 파일에 위임 된 서브넷에 있어야 합니다.
-- Azure NetApp 파일에는 현재 NFSv3만 지원 
-- Azure NetApp 파일 제공 [정책 내보내기](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): 허용 된 클라이언트 액세스 형식 (읽기 및 쓰기, 읽기 전용 등)를 제어할 수 있습니다. 
-- Azure NetApp 파일 기능은 아직 영역을 인식 합니다. 현재 Azure NetApp 파일 기능은 Azure 지역에서 모든 가용성 영역에서 배포 되지 않습니다. 일부 Azure 지역에서 잠재적인 대기 시간 영향에 주의 합니다. 
+- 최소 용량 풀은 4 TiB입니다. 용량 풀 크기는 4 TiB의 배수 여야 합니다.
+- 최소 볼륨은 100 GiB
+- Azure NetApp Files 및 Azure NetApp Files 볼륨이 탑재 되는 모든 가상 머신은 동일한 Azure Virtual Network 또는 동일한 지역의 [피어 링 가상 네트워크](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) 에 있어야 합니다. 동일한 지역에서 VNET 피어 링을 통한 Azure NetApp Files 액세스는 이제 지원 됩니다. 전역 피어 링을 통한 Azure NetApp 액세스는 아직 지원 되지 않습니다.
+- 선택한 가상 네트워크에는 Azure NetApp Files으로 위임 된 서브넷이 있어야 합니다.
+- Azure NetApp Files 현재 NFSv3만 지원 합니다. 
+- Azure NetApp Files에서 [내보내기 정책을](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy)제공 합니다. 허용 되는 클라이언트, 액세스 유형 (읽기 & 쓰기, 읽기 전용 등)을 제어할 수 있습니다. 
+- Azure NetApp Files 기능이 아직 영역을 인식 하지 않습니다. 현재 Azure NetApp Files 기능은 Azure 지역의 모든 가용성 영역에 배포 되지 않습니다. 일부 Azure 지역에서 잠재적 대기 시간 영향을 염두에 두어야 합니다. 
 
-## <a name="deploy-linux-vms-manually-via-azure-portal"></a>Azure portal을 통해 Linux Vm을 수동으로 배포
+## <a name="deploy-linux-vms-manually-via-azure-portal"></a>Azure Portal를 통해 수동으로 Linux Vm 배포
 
-먼저 Azure NetApp 파일 볼륨을 만드는 해야 합니다. Vm을 배포 합니다. 그런 다음, 부하 분산 장치를 만들고 백 엔드 풀의 가상 머신을 사용합니다.
+먼저 Azure NetApp Files 볼륨을 만들어야 합니다. Vm을 배포 합니다. 그런 다음, 부하 분산 장치를 만들고 백 엔드 풀의 가상 머신을 사용합니다.
 
 1. 리소스 그룹 만들기
-1. Virtual Network 만들기
+1. 가상 네트워크 만들기
 1. ASCS에 대 한 가용성 집합 만들기  
    최대 업데이트 도메인 설정
 1. Virtual Machine 1 만들기  
-   이상을 사용 SLES4SAP 12 SP3 이미지는이 예제의 SLES4SAP 12 SP3  
-   ASCS에 대 한 이전에 만든 가용성 집합 선택  
+   SLES4SAP 12 SP3 이상을 사용 합니다 .이 예제에서는 SLES4SAP 12 SP3 이미지가 사용 됩니다.  
+   ASCS에 대해 이전에 만든 가용성 집합 선택  
 1. Virtual Machine 2 만들기  
-   이상을 사용 SLES4SAP 12 SP3 이미지는이 예제의 SLES4SAP 12 SP3  
-   ASCS에 대 한 이전에 만든 가용성 집합 선택  
-1. SAP 응용 프로그램 인스턴스 (PA, AAS)에 대 한 가용성 집합 만들기    
+   SLES4SAP 12 SP3 이상을 사용 합니다 .이 예제에서는 SLES4SAP 12 SP3 이미지가 사용 됩니다.  
+   ASCS에 대해 이전에 만든 가용성 집합 선택  
+1. SAP 응용 프로그램 인스턴스에 대 한 가용성 집합 만들기 (PAS, .AAS)    
    최대 업데이트 도메인 설정
-1. 3 가상 머신 만들기  
-   이상을 사용 SLES4SAP 12 SP3 이미지는이 예제의 SLES4SAP 12 SP3  
-   PAS/AAS에 대해 이전에 만든 가용성 집합 선택   
-1. 가상 머신 4 만들기  
-   이상을 사용 SLES4SAP 12 SP3 이미지는이 예제의 SLES4SAP 12 SP3  
-   PAS/AAS에 대해 이전에 만든 가용성 집합 선택  
+1. 가상 컴퓨터 만들기 3  
+   SLES4SAP 12 SP3 이상을 사용 합니다 .이 예제에서는 SLES4SAP 12 SP3 이미지가 사용 됩니다.  
+   PAS/.AAS에 대해 이전에 만든 가용성 집합 선택   
+1. 가상 컴퓨터 4 만들기  
+   SLES4SAP 12 SP3 이상을 사용 합니다 .이 예제에서는 SLES4SAP 12 SP3 이미지가 사용 됩니다.  
+   PAS/.AAS에 대해 이전에 만든 가용성 집합 선택  
 
 ## <a name="setting-up-ascs"></a>(A)SCS 설정
 
-이 예제에서는 리소스를 배포 된 수동으로 통해 합니다 [Azure portal](https://portal.azure.com/#home) 합니다.
+이 예제에서는 [Azure Portal](https://portal.azure.com/#home) 를 통해 리소스를 수동으로 배포 했습니다.
 
-### <a name="deploy-azure-load-balancer-manually-via-azure-portal"></a>Azure portal을 통해 Azure Load Balancer를 수동으로 배포
+### <a name="deploy-azure-load-balancer-manually-via-azure-portal"></a>Azure Portal를 통해 Azure Load Balancer 수동으로 배포
 
-먼저 Azure NetApp 파일 볼륨을 만드는 해야 합니다. Vm을 배포 합니다. 그런 다음, 부하 분산 장치를 만들고 백 엔드 풀의 가상 머신을 사용합니다.
+먼저 Azure NetApp Files 볼륨을 만들어야 합니다. Vm을 배포 합니다. 그런 다음, 부하 분산 장치를 만들고 백 엔드 풀의 가상 머신을 사용합니다.
 
 1. 부하 분산 장치(내부) 만들기  
    1. 프런트 엔드 IP 주소 만들기
       1. ASCS에 대 한 IP 주소 10.1.1.20
          1. 부하 분산 장치 열기, 프런트 엔드 IP 풀 선택 및 추가 클릭
-         1. 새 프런트 엔드 IP 풀의 이름을 입력 합니다 (예를 들어 **프런트 엔드입니다. QAS 합니다. ASCS**)
-         1. 정적으로 할당을 설정 하 고 IP 주소를 입력 (예를 들어 **10.1.1.20**)
+         1. 새 프런트 엔드 IP 풀의 이름을 입력 합니다 (예: **프런트 엔드). QAS. ASCS**)
+         1. 할당을 정적으로 설정 하 고 IP 주소를 입력 합니다 (예: **10.1.1.20**).
          1. 확인 클릭
       1. ASCS ERS에 대 한 IP 주소 10.1.1.21
-         * ERS에 대 한 IP 주소를 만들려면 "a"에서 위 단계 반복 (예를 들어 **10.1.1.21** 고 **프런트 엔드입니다. QAS 합니다. ERS**)
+         * "A"에서 위의 단계를 반복 하 여 **10.1.1.21** 및 프런트 엔드와 같은 사람에 대 한 IP 주소를 만듭니다 **. QAS. ERS**)
    1. 백 엔드 풀 만들기
       1. ASCS에 대한 백 엔드 풀 만들기
          1. 부하 분산 장치를 열고 백 엔드 풀을 선택한 다음 추가 클릭
-         1. 새 백 엔드 풀의 이름을 입력 합니다 (예를 들어 **백 엔드입니다. QAS**)
+         1. 새 백 엔드 풀의 이름을 입력 합니다 (예: **백 엔드). QAS**)
          1. 가상 머신 추가 클릭
-         1. ASCS에 대 한 이전에 만든 가용성 집합 선택 
+         1. ASCS에 대해 이전에 만든 가용성 집합을 선택 합니다. 
          1. (A)SCS 클러스터의 가상 머신 선택
          1. 확인 클릭
    1. 상태 프로브 만들기
       1. 포트: 620**00**(ASCS용)
          1. 부하 분산 장치를 열고 상태 프로브를 선택한 다음 추가 클릭
-         1. 새 상태 프로브의 이름 입력 (예를 들어 **상태입니다. QAS 합니다. ASCS**)
+         1. 새 상태 프로브 (예: 상태)의 이름을 입력 합니다 **. QAS. ASCS**)
          1. 프로토콜로 TCP를 선택하고, 620**00** 포트를 선택한 다음, 간격은 5, 비정상 임계값은 2로 유지
          1. 확인 클릭
-      1. 포트: 621**01** ASCS ERS에 대 한
-            * "C" ERS에 대 한 상태 프로브를 만들려면 아래에서 위 단계 반복 (예: 621**01** 고 **상태입니다. QAS 합니다. ERS**)
+      1. ASCS ERS에 대 한 포트 621**01**
+            * "C"에서 위의 단계를 반복 하 여 해당 ERS에 대 한 상태 프로브를 만듭니다 (예: 621**01** 및 **health). QAS. ERS**)
    1. 부하 분산 규칙
       1. TCP: 32**00**(ASCS용)
-         1. 부하 분산 장치를 열고, 부하 분산 규칙을 선택 및 추가 클릭
-         1. 새 부하 분산 장치 규칙의 이름을 입력 합니다 (예를 들어 **lb 합니다. QAS 합니다. ASCS.3200**)
-         1. ASCS, 백 엔드 풀 및 상태 프로브를 이전에 만든 프런트 엔드 IP 주소를 선택 합니다. (예를 들어 **프런트 엔드입니다. QAS 합니다. ASCS**)
+         1. 부하 분산 장치를 열고 부하 분산 규칙을 선택한 다음 추가를 클릭 합니다.
+         1. 새 부하 분산 장치 규칙의 이름 (예: lb)을 입력 합니다 **. QAS. ASCS. 3200**)
+         1. 이전에 만든 ASCS, 백 엔드 풀 및 상태 프로브에 대 한 프런트 엔드 IP 주소를 선택 합니다 (예: **프런트 엔드). QAS. ASCS**)
          1. 프로토콜로 **TCP**를 유지하고. 포트로 **3200** 입력
          1. 유휴 상태 시간 제한을 30분으로 증가
          1. **부동 IP를 사용하도록 설정**
          1. 확인 클릭
       1. ASCS에 대한 추가 포트
-         * 36 포트에 대 한 "d"에서 위의 단계를 반복**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 및 ASCS 용 TCP
+         * "D"에서 위의 단계를 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 및 TCP (ascs)에 대해 반복 합니다.
       1. ASCS ERS에 대한 추가 포트
-         * 33 포트에 대 한 "d"에서 위의 단계를 반복**01**, 5**01**13, 5**01**14, 5**01**16 및 ASCS ERS에 대 한 TCP
+         * "D"에서 위의 단계를 33**01**, 5**01**13, 5**01**14, 5**01**16 및 TCP (ascs ERS)에 대 한 TCP로 반복 합니다.
 
 > [!IMPORTANT]
-> Azure Load Balancer 뒤에 배치 하는 Azure Vm에서 TCP 타임 스탬프를 사용 하지 마십시오. TCP 타임 스탬프를 사용 하도록 설정 하면 상태 프로브 실패 합니다. 매개 변수를 설정 **net.ipv4.tcp_timestamps** 하 **0**합니다. 자세한 내용은 참조 하십시오 [부하 분산 장치 상태 프로브](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)합니다.
+> Azure Load Balancer 뒤에 배치 되는 Azure Vm에서 TCP 타임 스탬프를 사용 하도록 설정 하지 마세요. TCP 타임 스탬프를 사용 하도록 설정 하면 상태 프로브가 실패 합니다. 매개 변수 **net.tcp. tcp 타임 스탬프** 를 **0**으로 설정 합니다. 자세한 내용은 [Load Balancer 상태 프로브](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)를 참조 하세요.
 
 ### <a name="create-pacemaker-cluster"></a>Pacemaker 클러스터 만들기
 
@@ -362,9 +362,9 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
    </code></pre>
    
    > [!NOTE]
-   > 현재 Azure NetApp 파일 NFSv3만 지원합니다. nfsvers 생략 하지 않음 = 3 스위치입니다.
+   > 현재 Azure NetApp Files는 NFSv3만 지원 합니다. Nfsvers = 3 스위치를 생략 하지 마십시오.
    
-   다시 시작 `autofs` 새 공유를 탑재 하려면
+   새 `autofs` 공유를 탑재 하려면 다시 시작
     <pre><code>
       sudo systemctl enable autofs
       sudo service autofs restart
@@ -426,20 +426,19 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
    #     fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    <b>Started anftstsapcl1</b>
    #     nc_QAS_ASCS        (ocf::heartbeat:anything):      <b>Started anftstsapcl1</b>
    #     vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started anftstsapcl1</b>
-   #     rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   <b>Started anftstsapcl1</b>
    # stonith-sbd     (stonith:external/sbd): <b>Started anftstsapcl2</b>
    </code></pre>
   
 2. **[1]** SAP NetWeaver ASCS 설치  
 
-   예를 들어 ASCS 용 부하 분산 장치 프런트 엔드 구성의 IP 주소에 매핑되는 가상 호스트 이름을 사용 하 여 첫 번째 노드에 루트로 SAP NetWeaver ASCS를 설치 <b>anftstsapvh</b>하십시오 <b>10.1.1.20</b> 및 예를 들어 부하 분산 장치의 프로브에 사용한 인스턴스 번호 <b>00</b>합니다.
+   ASCS에 대 한 부하 분산 장치 프런트 엔드 구성의 IP 주소 (예: <b>anftstsapvh</b>, <b>10.1.1.20</b> 및에 사용한 인스턴스 번호)에 매핑되는 가상 호스트 이름을 사용 하 여 첫 번째 노드에서 루트로 SAP NetWeaver ascs를 설치 합니다. 부하 분산 장치 프로브 (예: <b>00</b>)
 
-   sapinst 매개 변수 SAPINST_REMOTE_ACCESS_USER를 사용하면 루트 권한이 없는 사용자의 sapinst 연결을 허용할 수 있습니다. SAP 가상 호스트 이름을 사용 하 여 설치 하려면 SAPINST_USE_HOSTNAME 매개 변수를 사용할 수 있습니다.
+   sapinst 매개 변수 SAPINST_REMOTE_ACCESS_USER를 사용하면 루트 권한이 없는 사용자의 sapinst 연결을 허용할 수 있습니다. SAPINST_USE_HOSTNAME 매개 변수를 사용 하 여 가상 호스트 이름을 사용 하 여 SAP를 설치할 수 있습니다.
 
    <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b> SAPINST_USE_HOSTNAME=<b>virtual_hostname</b>
    </code></pre>
 
-   r/sap/하위 폴더를 만들려는 경우 설치에 실패**QAS**/ASCS**00**, 소유자와 ASCS의 그룹을 설정 해 보십시오**00** 폴더 및 다시 시도 합니다. 
+   설치에서/usr/sap/**Qas**/ASCS**00**으로 하위 폴더를 만들지 못하면 ascs**00** 폴더의 소유자와 그룹을 설정 하 고 다시 시도 하세요. 
 
    <pre><code>
    chown <b>qas</b>adm /usr/sap/<b>QAS</b>/ASCS<b>00</b>
@@ -493,9 +492,9 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
 
 4. **[2]** SAP NetWeaver ERS 설치
 
-   예를 들어 ers 부하 분산 장치 프런트 엔드 구성의 IP 주소에 매핑되는 가상 호스트 이름을 사용 하 여 두 번째 노드에 루트로 SAP NetWeaver ERS를 설치 <b>anftstsapers</b>하십시오 <b>10.1.1.21</b> 및 예를 들어 부하 분산 장치의 프로브에 사용한 인스턴스 번호 <b>01</b>합니다.
+   사용자에 대 한 부하 분산 장치 프런트 엔드 구성의 IP 주소 (예: <b>anftstsapers</b>, <b>10.1.1.21</b> 및에 사용한 인스턴스 번호)에 매핑되는 가상 호스트 이름을 사용 하 여 두 번째 노드에 SAP NetWeaver ERS를 루트로 설치 합니다. 부하 분산 장치 프로브 (예: <b>01</b>)
 
-   sapinst 매개 변수 SAPINST_REMOTE_ACCESS_USER를 사용하면 루트 권한이 없는 사용자의 sapinst 연결을 허용할 수 있습니다. SAP 가상 호스트 이름을 사용 하 여 설치 하려면 SAPINST_USE_HOSTNAME 매개 변수를 사용할 수 있습니다.
+   sapinst 매개 변수 SAPINST_REMOTE_ACCESS_USER를 사용하면 루트 권한이 없는 사용자의 sapinst 연결을 허용할 수 있습니다. SAPINST_USE_HOSTNAME 매개 변수를 사용 하 여 가상 호스트 이름을 사용 하 여 SAP를 설치할 수 있습니다.
 
    <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b> SAPINST_USE_HOSTNAME=<b>virtual_hostname</b>
    </code></pre>
@@ -503,7 +502,7 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
    > [!NOTE]
    > SWPM SP 20 PL 05 이상을 사용합니다. 그 이전 버전은 권한을 올바르게 설정하지 않으므로 설치가 실패합니다.
 
-   r/sap/하위 폴더를 만들려는 경우 설치에 실패**QAS**/ERS**01**, 소유자 및 ERS의 그룹을 설정 해 보십시오**01** 폴더 및 다시 시도 합니다.
+   설치에서/usr/sap/**Qas**/ers**01**에 하위 폴더를 만들지 못하면 ers**01** 폴더의 소유자와 그룹을 설정 하 고 다시 시도 하세요.
 
    <pre><code>
    chown qasadm /usr/sap/<b>QAS</b>/ERS<b>01</b>
@@ -549,7 +548,7 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
 
 6. **[A]** 연결 유지 구성
 
-   SAP NetWeaver 애플리케이션 서버와 ASCS/SCS 간의 통신은 소프트웨어 부하 분산 장치를 통해 라우팅됩니다. 부하 분산 장치는 구성 가능한 시간 제한이 지나면 비활성 연결을 끊습니다. 이 연결 끊김을 방지하려면 SAP NetWeaver ASCS/SCS 프로필에서 매개 변수를 설정하고 Linux 시스템 설정을 변경해야 합니다. 자세한 내용은 [SAP Note 1410736][1410736]을 참조하세요.
+   SAP NetWeaver 애플리케이션 서버와 ASCS/SCS 간의 통신은 소프트웨어 부하 분산 장치를 통해 라우팅됩니다. 부하 분산 장치는 구성 가능한 시간 제한이 지나면 비활성 연결을 끊습니다. 이 연결 끊김을 방지하려면 SAP NetWeaver ASCS/SCS 프로필에서 매개 변수를 설정하고 Linux 시스템 설정을 변경해야 합니다. 자세한 내용은 [SAP Note 1410736][1410736] 을 참조 하세요.
 
    ASCS/SCS profile 매개 변수 enque/encni/set_so_keepalive는 마지막 단계에서 이미 추가된 상태입니다.
 
@@ -576,7 +575,7 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
 
 9. **[1]** SAP 클러스터 리소스 만들기
 
-큐에 넣기 서버 1 아키텍처 (ENSA1)를 사용 하는 경우 아래와 같이 리소스를 정의 합니다.
+ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 같이 리소스를 정의 합니다.
 
    <pre><code>sudo crm configure property maintenance-mode="true"
    
@@ -604,8 +603,8 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
-   큐에 넣기 서버 복제의 경우 SAP NW 7.52 기준으로 포함 하 여 2 도입 하는 SAP 지원 합니다. 큐에 넣기 서버 2 ABAP 플랫폼 1809부터 기본적으로 설치 됩니다. SAP 참고 참고 [2630416](https://launchpad.support.sap.com/#/notes/2630416) 큐에 넣기 서버 2 지원에 대 한 합니다.
-큐에 넣기 서버 2 아키텍처를 사용 하는 경우 ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), 리소스를 다음과 같이 정의 합니다.
+   Sap는 복제를 비롯 하 여 SAP NW 7.52에 대 한 지원 서비스를 도입 했습니다. ABAP Platform 1809부터 시작 하 여 큐에 넣기 서버 2가 기본적으로 설치 됩니다. 큐에 넣기 서버 2 지원에 대해서는 SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416) 을 참조 하세요.
+[ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)(큐에 넣기 서버 2 아키텍처)를 사용 하는 경우 다음과 같이 리소스를 정의 합니다.
 
    <pre><code>sudo crm configure property maintenance-mode="true"
    
@@ -631,7 +630,7 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
-   이전 버전에서 업그레이드 하 고 큐에 넣기 서버 2로 전환 하는 경우 참조 SAP 참고 [2641019](https://launchpad.support.sap.com/#/notes/2641019)합니다. 
+   이전 버전에서 업그레이드 하 고 큐에 넣기 서버 2로 전환 하는 경우 SAP note [2641019](https://launchpad.support.sap.com/#/notes/2641019)을 참조 하세요. 
 
    클러스터 상태가 정상이며 모든 리소스가 시작되었는지 확인합니다. 리소스가 실행되는 노드는 중요하지 않습니다.
 
@@ -657,7 +656,7 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
 
 아래 단계에서는 ASCS/SCS 및 HANA 서버와 다른 서버에 애플리케이션 서버를 설치한다고 가정합니다. 그 외의 경우에는 호스트 이름 확인을 구성하는 단계 등 아래의 일부 단계를 수행할 필요가 없습니다.
 
-다음 항목 중 하나를 사용 하 여 접두사가 **[A]** -PA 및 AAS, 둘 다에 적용 **[P]** -PA에만 적용 하거나 **[S]** -AAS에만 적용 합니다.
+다음 항목에는 **[A]** -PAS와 .aas 모두에 적용 됩니다. **[P]** -pas 또는 **[S]** 에만 적용 되며, .aas에만 적용 됩니다.
 
 
 1. **[A]** 운영 체제 구성
@@ -692,7 +691,7 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
    <b>10.1.1.16 anftstsapa02</b>
    </code></pre>
 
-1. **[A]**  Sapmnt 디렉터리를 만듭니다
+1. **[A]** sapmnt 디렉터리를 만듭니다.
 
    <pre><code>
    sudo mkdir -p /sapmnt/<b>QAS</b>
@@ -702,21 +701,21 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
    sudo chattr +i /usr/sap/trans
    </code></pre>
 
-1. **[P]**  PAS 디렉터리 만들기
+1. **[P]** PAS 디렉터리 만들기
 
    <pre><code>
    sudo mkdir -p /usr/sap/<b>QAS</b>/D<b>02</b>
    sudo chattr +i /usr/sap/<b>QAS</b>/D<b>02</b>
    </code></pre>
 
-1. **[S]**  AAS 디렉터리 만들기
+1. **[S]** .aas 디렉터리를 만듭니다.
 
    <pre><code>
    sudo mkdir -p /usr/sap/<b>QAS</b>/D<b>03</b>
    sudo chattr +i /usr/sap/<b>QAS</b>/D<b>03</b>
    </code></pre>
 
-1. **[P]**  PA에 autofs를 구성 합니다.
+1. **[P]** PAS에서 autofs 구성
 
    <pre><code>sudo vi /etc/auto.master
    
@@ -731,17 +730,17 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
    # Add the following lines to the file, save and exit
    /sapmnt/<b>QAS</b> -nfsvers=3,nobind,sync <b>10.1.0.4</b>:/sapmnt<b>qas</b>
    /usr/sap/trans -nfsvers=3,nobind,sync <b>10.1.0.4</b>:/trans
-   /usr/sap/<b>QAS</b>/D<b>02</b> -nfsvers=3,nobind,sync <b>10.1.0.5</b>:/ursap<b>qas</b>pas
+   /usr/sap/<b>QAS</b>/D<b>02</b> -nfsvers=3,nobind,sync <b>10.1.0.5</b>:/usrsap<b>qas</b>pas
    </code></pre>
 
-   다시 시작 `autofs` 새 공유를 탑재 하려면
+   새 `autofs` 공유를 탑재 하려면 다시 시작
 
    <pre><code>
    sudo systemctl enable autofs
    sudo service autofs restart
    </code></pre>
 
-1. **[P]**  AAS에서 autofs 구성
+1. **[P]** .aas에서 autofs 구성
 
    <pre><code>sudo vi /etc/auto.master
    
@@ -759,7 +758,7 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
    /usr/sap/<b>QAS</b>/D<b>03</b> -nfsvers=3,nobind,sync <b>10.1.0.4</b>:/usrsap<b>qas</b>aas
    </code></pre>
 
-   다시 시작 `autofs` 새 공유를 탑재 하려면
+   새 `autofs` 공유를 탑재 하려면 다시 시작
 
    <pre><code>
    sudo systemctl enable autofs
@@ -788,7 +787,7 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
 
 ## <a name="install-database"></a>데이터베이스 설치
 
-이 예제에서는 SAP NetWeaver가 SAP HANA에 설치됩니다. 이 설치에 지원되는 모든 데이터베이스를 사용할 수 있습니다. Azure에서 SAP HANA를 설치하는 방법에 대한 자세한 내용은 [Azure VM(Virtual Machines)의 SAP HANA 고가용성][sap-hana-ha]을 참조하세요. 지원되는 데이터베이스 목록은 [SAP Note 1928533][1928533]을 참조하세요.
+이 예제에서는 SAP NetWeaver가 SAP HANA에 설치됩니다. 이 설치에 지원되는 모든 데이터베이스를 사용할 수 있습니다. Azure에 SAP HANA를 설치 하는 방법에 대 한 자세한 내용은 [azure Virtual Machines (vm)][sap-hana-ha]. For a list of supported databases, see [SAP Note 1928533][1928533]의 SAP HANA 고가용성을 참조 하세요.
 
 * SAP 데이터베이스 인스턴스 설치 실행
 
@@ -803,16 +802,16 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
 
 다음 단계에 따라 SAP 애플리케이션 서버를 설치합니다.
 
-1. **[A]**  챕터의 단계를 수행 하는 응용 프로그램 서버 준비 [SAP NetWeaver 응용 프로그램 서버 준비](high-availability-guide-suse-netapp-files.md#2d6008b0-685d-426c-b59e-6cd281fd45d7) 위의 응용 프로그램 서버를 준비 합니다.
+1. **[A]** 응용 프로그램 서버 준비 위의 [SAP NetWeaver 응용 프로그램 서버 준비](high-availability-guide-suse-netapp-files.md#2d6008b0-685d-426c-b59e-6cd281fd45d7) 챕터에 있는 단계에 따라 응용 프로그램 서버를 준비 합니다.
 
-2. **[A]**  SAP NetWeaver 설치 응용 프로그램 서버를 기본 또는 추가 SAP NetWeaver 응용 프로그램 서버를 설치 합니다.
+2. **[A]** sap NetWeaver 응용 프로그램 서버 설치 기본 또는 추가 sap NetWeaver 응용 프로그램 서버를 설치 합니다.
 
    sapinst 매개 변수 SAPINST_REMOTE_ACCESS_USER를 사용하면 루트 권한이 없는 사용자의 sapinst 연결을 허용할 수 있습니다.
 
    <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
-3. **[A]**  업데이트 SAP HANA 보안 저장소
+3. **[A]** 업데이트 SAP HANA 보안 저장소
 
    설치한 SAP HANA System Replication의 가상 이름을 가리키도록 SAP HANA 보안 저장소를 업데이트합니다.
 
@@ -832,7 +831,7 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
      DATABASE: <b>QAS</b>
    </code></pre>
 
-   출력은 기본 항목의 IP 주소가 부하 분산 장치의 IP 주소가 아니라 가상 머신을 가리키고 있음을 나타냅니다. 이 항목은 부하 분산 장치의 가상 호스트 이름을 가리키도록 변경해야 합니다. 동일한 포트를 사용 하도록 (**30313** 위의 출력에서) 및 데이터베이스 이름 (**QAS** 위의 출력에서).
+   출력은 기본 항목의 IP 주소가 부하 분산 장치의 IP 주소가 아니라 가상 머신을 가리키고 있음을 나타냅니다. 이 항목은 부하 분산 장치의 가상 호스트 이름을 가리키도록 변경해야 합니다. 위의 출력에서와 동일한 포트 (위의 출력에**30313** )와 데이터베이스 이름 (**qas** )을 사용 해야 합니다.
 
    <pre><code>
    su - <b>qas</b>adm
@@ -841,9 +840,9 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
 
 ## <a name="test-the-cluster-setup"></a>클러스터 설정 테스트
 
-다음 테스트는 테스트 사례를 복사 합니다 [모범 사례 가이드는 SUSE][suse-ha-guide]합니다. 이 테스트는 작업자 편의를 위해 복사되었습니다. 또한 항상 모범 사례 가이드를 읽고 추가되었을 수 있는 모든 추가 테스트를 수행해야 합니다.
+다음 테스트는 [SUSE의 모범 사례 가이드][suse-ha-guide]에 있는 테스트 사례의 복사본입니다. 이 테스트는 작업자 편의를 위해 복사되었습니다. 또한 항상 모범 사례 가이드를 읽고 추가되었을 수 있는 모든 추가 테스트를 수행해야 합니다.
 
-1. HAGetFailoverConfig, HACheckConfig, 및 HACheckFailoverConfig 테스트
+1. 테스트 HAGetFailoverConfig, HACheckConfig 및 HACheckFailoverConfig
 
    ASCS 인스턴스를 현재 실행 중인 노드에서 \<sapsid>adm으로 다음 명령을 실행합니다. 이러한 명령이 실패: 메모리 부족을 나타내며 실패할 경우 호스트 이름의 대시 때문일 수 있습니다. 이것은 알려진 문제로, SUSE에서는 sap-suse-cluster-connector 패키지에서 이 문제를 수정할 예정입니다.
 
@@ -967,6 +966,9 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
    # run as root
    # Remove failed actions for the ERS that occurred as part of the migration
    anftstsapcl1:~ # crm resource cleanup rsc_sap_QAS_ERS01
+   # Remove migration constraints
+   anftstsapcl1:~ # crm resource clear rsc_sap_QAS_ASCS00
+   #INFO: Removed migration constraints for rsc_sap_QAS_ASCS00
    </code></pre>
 
    테스트 후 리소스 상태:
@@ -1084,7 +1086,7 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    </code></pre>
 
-   예를 들어 트랜잭션 su01에서 사용자를 편집하여 큐에 넣기 잠금을 만듭니다. 로 다음 명령을 실행 합니다. < sapsid\>ASCS 인스턴스 실행 되 고 있는 노드에서 adm 합니다. 이러한 명령은 ASCS 인스턴스를 중지했다가 다시 시작합니다. 큐에 넣기 서버 1 아키텍처를 사용 하는 경우 큐에 넣기 잠금은이 테스트에서 손실 될 예정입니다. 큐에 넣기 서버 2 아키텍처를 사용 하는 큐에 넣기 유지 됩니다. 
+   예를 들어 트랜잭션 su01에서 사용자를 편집하여 큐에 넣기 잠금을 만듭니다. Ascs 인스턴스가 실행 되는 노드에서\>< sapsid adm으로 다음 명령을 실행 합니다. 이러한 명령은 ASCS 인스턴스를 중지했다가 다시 시작합니다. 큐에 넣기 서버 1 아키텍처를 사용 하는 경우이 테스트에서 큐에 넣기 잠금이 손실 될 것으로 예상 됩니다. 큐에 넣기 서버 2 아키텍처를 사용 하는 경우 큐에 대기 됩니다. 
 
    <pre><code>anftstsapcl2:qasadm 51> sapcontrol -nr 00 -function StopWait 600 2
    </code></pre>
@@ -1099,7 +1101,7 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
    <pre><code>anftstsapcl2:qasadm 52> sapcontrol -nr 00 -function StartWait 600 2
    </code></pre>
 
-   큐에 넣기 서버 1 복제 아키텍처를 사용 하는 경우 트랜잭션 su01의 큐에 넣기 잠금이 손실 여야 하며 백 엔드 재설정 해야 합니다. 테스트 후 리소스 상태:
+   큐에 넣기 서버 복제 1 아키텍처를 사용 하 고 백 엔드를 다시 설정 해야 하는 경우 트랜잭션 su01의 큐에 넣기 잠금이 손실 됩니다. 테스트 후 리소스 상태:
 
    <pre><code>
     Resource Group: g-QAS_ASCS
@@ -1230,7 +1232,7 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
    <pre><code>anftstsapcl1:~ # pgrep er.sapQAS | xargs kill -9
    </code></pre>
 
-   실행 하는 경우만 명령을 한 번 `sapstart` 프로세스를 다시 시작 됩니다. 실행 하는 경우 충분히 자주 `sapstart` 프로세스 다시 시작 되지 것입니다 및 리소스를 중지 된 상태가 됩니다. 테스트 후에 다음 명령을 루트 권한으로 실행하여 ERS 인스턴스의 리소스 상태를 정리합니다.
+   명령을 한 번만 실행 하는 경우 `sapstart` 에서 프로세스를 다시 시작 합니다. 자주 실행 하는 경우에서 `sapstart` 프로세스를 다시 시작 하지 않고 리소스가 중지 된 상태가 됩니다. 테스트 후에 다음 명령을 루트 권한으로 실행하여 ERS 인스턴스의 리소스 상태를 정리합니다.
 
    <pre><code>anftstsapcl1:~ # crm resource cleanup rsc_sap_QAS_ERS01
    </code></pre>
@@ -1296,9 +1298,9 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]
-* [SAP용 Azure Virtual Machines 배포][deployment-guide]
-* [SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
-* 고가용성 및 재해 복구의 SAP에 대 한 계획을 설정 하는 방법을 알아보려면 
-* HANA on Azure (큰 인스턴스)를 참조 하세요 [SAP HANA (큰 인스턴스) 고가용성 및 재해 복구 Azure에서](hana-overview-high-availability-disaster-recovery.md)합니다.
-* Azure VM에서 SAP HANA의 재해 복구를 계획하고 고가용성을 설정하는 방법을 알아보려면 [Azure VM(Virtual Machines)의 SAP HANA 고가용성][sap-hana-ha]을 참조하세요.
+* [SAP 용 Azure Virtual Machines 계획 및 구현][planning-guide]
+* [SAP 용 Azure Virtual Machines 배포][deployment-guide]
+* [SAP 용 Azure Virtual Machines DBMS 배포][dbms-guide]
+* 고가용성을 설정 하 고 SAP의 재해 복구를 계획 하는 방법을 알아보려면 
+* HANA on Azure (큰 인스턴스)에 대 한 자세한 내용은 [azure의 SAP HANA (큰 인스턴스) 고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md)를 참조 하세요.
+* Azure Vm에서 SAP HANA의 고가용성을 설정 하 고 재해 복구를 계획 하는 방법에 대 한 자세한 내용은 [azure Virtual Machines (vm)의 SAP HANA 고가용성][sap-hana-ha] 을 참조 하세요.

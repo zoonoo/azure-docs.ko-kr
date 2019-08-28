@@ -1,6 +1,6 @@
 ---
 title: '자습서: 단일 페이지 Bing Video Search 앱 빌드'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 단일 페이지 웹 애플리케이션에서 Bing Video Search API를 사용하는 방법을 설명합니다.
 services: cognitive-services
 author: aahill
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: tutorial
-ms.date: 01/31/2019
+ms.date: 07/12/2019
 ms.author: aahi
-ms.openlocfilehash: 6ba777754990560526d7981ef497ea7f0441e1b0
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d2cd3d37801fc1a42a9bcbd5f70a6a55e78aaf08
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798468"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500069"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>자습서: 단일 페이지 Video Search 앱
 Bing Video Search API를 사용하여 웹을 검색하고 검색 쿼리와 관련된 비디오 결과를 가져올 수 있습니다. 이 자습서에서는 Bing Search API를 사용하여 페이지에 검색 결과를 표시하는 단일 페이지 웹 애플리케이션을 빌드합니다. 애플리케이션에는 HTML, CSS 및 JavaScript 구성 요소가 포함됩니다.
@@ -62,7 +62,7 @@ Bing Video Search API를 사용하여 웹을 검색하고 검색 쿼리와 관�
 
 ## <a name="managing-subscription-key"></a>구독 키 관리
 
-Bing Search API 구독 키를 코드에 포함할 필요가 없도록, 여기서는 브라우저의 영구적 저장소를 사용하여 키를 저장합니다. 키가 저장되기 전에 사용자에게 키를 확인하는 메시지가 표시됩니다. 키가 나중에 API에서 거부될 경우 저장된 키를 무효화하므로 사용자에게 다시 메시지가 표시됩니다.
+코드에 Bing Search API 구독 키를 포함할 필요가 없도록, 브라우저의 영구 스토리지를 사용하여 키를 저장합니다. 키가 저장되기 전에 사용자에게 키를 확인하는 메시지가 표시됩니다. 키가 나중에 API에서 거부될 경우 저장된 키를 무효화하므로 사용자에게 다시 메시지가 표시됩니다.
 
 `localStorage` 개체(일부 브라우저에서만 지원) 또는 쿠키를 사용하는 `storeValue` 및 `retrieveValue` 함수를 정의합니다. `getSubscriptionKey()` 함수는 이러한 함수를 사용하여 사용자 키를 저장하고 검색합니다.
 
@@ -319,7 +319,7 @@ Bing News Search API는 최대 4가지 종류의 관련 검색을 각각 고유�
 
 ## <a name="rendering-result-items"></a>결과 항목 렌더링
 
-JavaScript 코드에서 `searchItemRenderers` 개체는 각 종류의 검색 결과에 대해 HTML을 생성하는 렌더러 함수를 포함할 수 있습니다. 비디오 검색 페이지는 `videos`만 사용합니다. 다양한 렌더러 유형에 대해서는 다른 자습서를 참조하세요.
+JavaScript 코드에서 `searchItemRenderers` 개체는 각 종류의 검색 결과에 대해 HTML을 생성하는 렌더러  함수를 포함할 수 있습니다. 비디오 검색 페이지는 `videos`만 사용합니다. 다양한 렌더러 유형에 대해서는 다른 자습서를 참조하세요.
 
 ```javascript
 searchItemRenderers = {
@@ -373,7 +373,7 @@ searchItemRenderers = {
 > * 이미지와 해당 이미지를 포함하는 페이지에 연결되는 HTML `<a>` 태그를 빌드합니다.
 > * 이미지와 해당 이미지가 있는 사이트에 대한 정보를 표시하는 설명을 빌드합니다.
 
-썸네일 크기는 `<img>` 태그와 썸네일의 URL에 있는 `h` 및 `w` 필드 둘 다에 사용됩니다. 그러면 [Bing 썸네일 서비스](resize-and-crop-thumbnails.md)에서 정확히 해당 크기의 썸네일을 제공합니다.
+썸네일 크기는 `<img>` 태그와 썸네일의 URL에 있는 `h` 및 `w` 필드 둘 다에 사용됩니다. Bing이 정확히 해당 크기의 [썸네일](../bing-web-search/resize-and-crop-thumbnails.md)을 반환합니다.
 
 ## <a name="persisting-client-id"></a>클라이언트 ID 유지
 Bing Search API의 응답에는 후속 요청과 함께 API로 다시 전송되어야 하는 `X-MSEdge-ClientID` 헤더가 포함될 수 있습니다. 여러 개의 Bing Search API를 사용하는 경우 모두 동일한 클라이언트 ID를 사용해야 합니다(가능한 경우).
@@ -389,7 +389,7 @@ Bing Search API의 응답에는 후속 요청과 함께 API로 다시 전송되�
 > [!NOTE]
 > 프로덕션 웹 애플리케이션의 경우 서버 쪽에서 요청을 수행해야 합니다. 그렇지 않은 경우 Bing Search API 키를 웹 페이지에 포함해야만 원본을 보는 누구나 사용할 수 있게 됩니다. 권한 없는 사람이 수행한 요청을 포함하여 API 구독 키를 통한 모든 사용량에 요금이 청구되므로, 키를 노출하지 않는 것이 중요합니다.
 
-개발 목적으로 CORS 프록시를 통해 Bing Web Search API 요청을 수행할 수 있습니다. 이러한 프록시의 응답에는 응답 헤더를 허용 목록에 추가하고 JavaScript에서 응답 헤더를 사용할 수 있게 해주는 `Access-Control-Expose-Headers` 헤더가 포함됩니다.
+개발 목적으로 CORS 프록시를 통해 Bing Web Search API 요청을 수행할 수 있습니다. 이러한 프록시의 응답에는 응답 헤더를 허용하고 JavaScript에서 응답 헤더를 사용할 수 있게 해주는 `Access-Control-Expose-Headers` 헤더가 포함됩니다.
 
 자습서 앱이 클라이언트 ID 헤더에 액세스할 수 있도록 CORS 프록시를 쉽게 설치할 수 있습니다. 먼저 [Node.js가 없는 경우 설치](https://nodejs.org/en/download/)합니다. 그런 다음, 명령 창에서 다음 명령을 실행합니다.
 

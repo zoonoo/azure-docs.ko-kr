@@ -3,24 +3,23 @@ title: Azure PowerShell 스크립트 샘플 - RDP 포트 범위 변경 | Microso
 description: Azure PowerShell 스크립트 샘플 - 배포된 클러스터의 RDP 포트 범위를 변경합니다.
 services: service-fabric
 documentationcenter: ''
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 tags: azure-service-management
 ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
-ms.devlang: na
 ms.topic: sample
 ms.date: 03/19/2018
-ms.author: aljo
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 001574cef8f0ea074b65fdc94f6d8b255f98bff5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4ca7b4085a3978dc3218480c5c8a42679d80de23
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66159953"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035653"
 ---
 # <a name="update-the-rdp-port-range-values"></a>RDP 포트 범위 값 업데이트
 

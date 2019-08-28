@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 15-04-2019
+ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 573e06f0dd57b92f7621ecf77039159a64249f18
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 0447a8dd464363ae7e076dde2520565005d7c0a5
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786502"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67588246"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sectigo-certificate-manager"></a>자습서: Sectigo Certificate Manager와 Azure Active Directory 통합
 
@@ -33,7 +33,7 @@ Sectigo Certificate Manager를 Azure AD와 연결하면 다음과 같은 이점�
 * 사용자는 자신의 Azure AD 계정으로 Sectigo Certificate Manager에 자동으로 로그인(Single Sign-on)할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS(Software as a Service) 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS(Software as a Service) 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -83,7 +83,7 @@ Sectigo Certificate Manager에서 Azure AD Single Sign-On을 구성하고 테스
 | --- | --- |
 | **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** | 사용자가 이 기능을 사용하도록 설정합니다. |
 | **[Sectigo Certificate Manager Single Sign-On 구성](#configure-sectigo-certificate-manager-single-sign-on)** | 애플리케이션에서 Single Sign-On 설정을 구성합니다. |
-| **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** | Britta Simon 사용자에 대해 Azure AD Single Sign-On을 테스트합니다. |
+| **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** | Britta Simon이라는 사용자에 대한 Azure AD Single Sign-On을 테스트합니다. |
 | **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** | Britta Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다. |
 | **[Sectigo Certificate Manager 테스트 사용자 만들기](#create-a-sectigo-certificate-manager-test-user)** | 사용자 Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Sectigo Certificate Manager에 만듭니다. |
 | **[Single Sign-On 테스트](#test-single-sign-on)** | 구성이 작동하는지 확인합니다. |
@@ -192,7 +192,7 @@ Sectigo Certificate Manager 쪽에서 Single Sign-On을 구성하려면 Azure Po
 
 1. **사용자 및 그룹** 창의 사용자 목록에서 **Britta Simon**을 선택합니다. **선택**을 선택합니다.
 
-1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 창의 목록에서 사용자에게 적합한 역할을 선택합니다. **선택**을 선택합니다.
+1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 창의 목록에서 사용자에 대한 적절한 역할을 선택합니다. **선택**을 선택합니다.
 
 1. **할당 추가** 창에서 **할당**을 선택합니다.
 
@@ -210,7 +210,7 @@ Single Sign-On을 설정한 후에 내 앱 포털에서 **Sectigo Certificate Ma
 
 자세한 내용은 다음 문서를 검토하세요.
 
-- [Azure Active Directory와 SaaS 앱 통합에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [SaaS 앱과 Azure Active Directory를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

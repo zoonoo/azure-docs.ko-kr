@@ -25,7 +25,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-vault"></a>자격 증명 모음 만들기
 
@@ -46,7 +46,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 아래에 나열된 두 개의 속성을 기록합니다.
 
 * **자격 증명 모음 이름**: 이 예에서는 **Contoso-Vault2**입니다. 다른 단계에서 이 이름을 사용합니다.
-* **자격 증명 모음 URI**: 이 예에서는 https://contoso-vault2.vault.azure.net/입니다. REST API를 통해 사용자 자격 증명 모음을 사용하는 애플리케이션은 URI를 사용해야 합니다.
+* **자격 증명 모음 URI**: 이 예에서는 https://contoso-vault2.vault.azure.net/ 입니다. REST API를 통해 사용자 자격 증명 모음을 사용하는 애플리케이션은 URI를 사용해야 합니다.
 
 이때 사용자의 Azure 계정은 이 새 자격 증명 모음에서 작업을 수행할 권한이 있는 유일한 계정입니다.
 
@@ -84,7 +84,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Key Vault를 만들고 비밀을 저장했습니다. Key Vault와 이 Key Vault를 응용 프로그램과 함께 사용하는 방법에 대해 자세히 알아보려면 Key Vault와 함께 작동하는 웹 응용 프로그램에 대한 자습서를 진행합니다.
+이 빠른 시작에서는 Key Vault를 만들고 비밀을 저장했습니다. Key Vault와 이 Key Vault를 애플리케이션과 함께 사용하는 방법에 대해 자세히 알아보려면 Key Vault와 함께 작동하는 웹 애플리케이션에 대한 자습서를 진행합니다.
 
 > [!div class="nextstepaction"]
 > Azure 리소스에 대한 관리 ID를 사용하여 웹 애플리케이션의 Key Vault에서 비밀을 읽는 방법을 알아보려면 [Key Vault에서 비밀을 읽도록 Azure 웹 애플리케이션 구성](quick-create-net.md) 자습서를 계속 진행하세요.

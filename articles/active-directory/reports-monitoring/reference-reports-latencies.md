@@ -3,7 +3,7 @@ title: Azure Active Directory 보고 대기 시간 | Microsoft Docs
 description: Azure Portal에 보고 이벤트를 표시하는 데 걸리는 시간에 대해 알아보기
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 05/13/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d4d02f9e99acb68db126ccde465f73cc2294e06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f57f09f146e542768c83fa034f0b4e65bc6b2ae
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65594026"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987925"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory 보고 대기 시간
 
@@ -59,7 +59,7 @@ ms.locfileid: "65594026"
 
 다음 표에는 보안 보고서에 대한 대기 시간 정보가 나와 있습니다.
 
-| 보고서 | 최소 | 평균 | 최대 |
+| 보고서 | 최소 | 평균 | 최대값 |
 | :-- | --- | --- | --- |
 | 위험에 노출된 사용자          | 5분   | 15분  | 2시간  |
 | 위험한 로그인         | 5분   | 15분  | 2시간  |
@@ -70,14 +70,14 @@ Azure AD는 적응형 기계 학습 알고리즘 및 추론을 사용하여 사�
 
 다음 표에는 위험 이벤트에 대한 대기 시간 정보가 나와 있습니다.
 
-| 보고서 | 최소 | 평균 | 최대 |
+| 보고서 | 최소 | 평균 | 최대값 |
 | :-- | --- | --- | --- |
-| 익명 IP 주소에서 로그인 |5분 |15분 |2시간 |
-| 알 수 없는 위치에서 로그인 |5분 |15분 |2시간 |
-| 자격 증명이 손실된 사용자 |2시간 |4시간 |8시간 |
-| 비정상적 위치로 불가능한 이동 |5분 |1시간 |8시간  |
-| 감염된 디바이스에서 로그인 |2시간 |4시간 |8시간  |
-| 의심스러운 작업이 있는 IP 주소에서 로그인 |2시간 |4시간 |8시간  |
+| 익명 IP 주소에서의 로그인 |5분 |15분 |2시간 |
+| 일반적이지 않은 위치에서의 로그인 |5분 |15분 |2시간 |
+| 자격 증명이 유출된 사용자 |2시간 |4시간 |8시간 |
+| 비정상적 위치 간 이동 불가능 |5분 |1시간 |8시간  |
+| 감염된 디바이스에서의 로그인 |2시간 |4시간 |8시간  |
+| 의심스러운 활동을 포함하는 IP 주소에서의 로그인 |2시간 |4시간 |8시간  |
 
 
 ## <a name="next-steps"></a>다음 단계

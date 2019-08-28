@@ -23,7 +23,7 @@ ms.locfileid: "54329823"
 이 문서에서는 Azure에서 파일 공유를 만들어서 DC/OS 클러스터의 각 에이전트 및 마스터에 탑재하는 방법을 설명합니다. 파일 공유를 설정하면 구성, 액세스, 로그 등과 같은 클러스터 전반에서 파일을 간편하게 공유할 수 있습니다. 이 자습서에서는 다음 태스크를 완료합니다.
 
 > [!div class="checklist"]
-> * Azure 저장소 계정 만들기
+> * Azure Storage 계정 만들기
 > * 파일 공유 만들기
 > * DC/OS 클러스터에 공유 탑재
 
@@ -35,7 +35,7 @@ ms.locfileid: "54329823"
 
 ## <a name="create-a-file-share-on-microsoft-azure"></a>Microsoft Azure에서 파일 공유 만들기
 
-ACS DC/OS 클러스터에서 Azure 파일 공유를 사용하기 전에 저장소 계정 및 파일 공유를 만들어야 합니다. 다음 스크립트를 실행하여 저장소 및 파일 공유를 만듭니다. 사용자 환경에서 해당 항목으로 매개 변수를 업데이트합니다.
+ACS DC/OS 클러스터에서 Azure 파일 공유를 사용하기 전에 스토리지 계정 및 파일 공유를 만들어야 합니다. 다음 스크립트를 실행하여 스토리지 및 파일 공유를 만듭니다. 사용자 환경에서 해당 항목으로 매개 변수를 업데이트합니다.
 
 ```azurecli-interactive
 # Change these four parameters
@@ -147,7 +147,7 @@ sh ./getNodesRunScript.sh
 이 자습서에서는 다음 단계를 사용하여 DC/OS 클러스터에 Azure 파일 공유를 사용할 수 있게 되었습니다.
 
 > [!div class="checklist"]
-> * Azure 저장소 계정 만들기
+> * Azure Storage 계정 만들기
 > * 파일 공유 만들기
 > * DC/OS 클러스터에 공유 탑재
 

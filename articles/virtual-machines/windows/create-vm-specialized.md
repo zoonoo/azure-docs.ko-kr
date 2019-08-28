@@ -4,7 +4,7 @@ description: Resource Manager 배포 모델을 사용하여 특수한 관리 디
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: cynthn
-ms.openlocfilehash: d9390323a5a1af7a5b8ef1a3d0b5f87c27a42c7c
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 8f4169e7d94a5a838ecc11b22e7988223c25e02c
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "64726259"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718819"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>PowerShell을 사용하여 특수 디스크에서 Windows VM 만들기
 
@@ -31,11 +31,11 @@ ms.locfileid: "64726259"
 여러 옵션이 있습니다.
 * [기존 관리 디스크 사용](#option-1-use-an-existing-disk). 이 옵션은 올바르게 작동하지 않는 VM이 있는 경우에 유용합니다. VM을 삭제한 다음, 관리 디스크를 다시 사용하여 새 VM을 만들 수 있습니다. 
 * [VHD 업로드](#option-2-upload-a-specialized-vhd) 
-* [스냅숏을 사용하여 기존 Azure VM 복사](#option-3-copy-an-existing-azure-vm)
+* [스냅샷을 사용하여 기존 Azure VM 복사](#option-3-copy-an-existing-azure-vm)
 
 Azure Portal을 사용하여 [특수 VHD에서 새 VM을 만들](create-vm-specialized-portal.md) 수도 있습니다.
 
-이 문서에서는 관리 디스크를 사용하는 방법을 보여줍니다. 저장소 계정을 사용해야 하는 레거시 배포가 있는 경우 [저장소 계정의 특수한 VHD에서 VM 만들기](sa-create-vm-specialized.md)를 참조하세요.
+이 문서에서는 관리 디스크를 사용하는 방법을 보여줍니다. 스토리지 계정을 사용해야 하는 레거시 배포가 있는 경우 [스토리지 계정의 특수한 VHD에서 VM 만들기](sa-create-vm-specialized.md)를 참조하세요.
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
@@ -64,20 +64,20 @@ VHD를 그대로 사용하여 새 VM을 만듭니다.
   * VM이 DHCP를 통해 IP 주소 및 DNS 설정을 가져오도록 구성되었는지 확인합니다. 이렇게 하면 서버를 시작할 때 가상 네트워크 내의 IP 주소를 가져옵니다. 
 
 
-### <a name="get-the-storage-account"></a>저장소 계정 가져오기
-업로드한 VHD를 저장할 Azure의 저장소 계정이 필요합니다. 기존 저장소 계정을 사용하거나 새 계정을 만들 수 있습니다. 
+### <a name="get-the-storage-account"></a>스토리지 계정 가져오기
+업로드한 VHD를 저장할 Azure의 스토리지 계정이 필요합니다. 기존 스토리지 계정을 사용하거나 새 계정을 만들 수 있습니다. 
 
-사용 가능한 저장소 계정을 표시합니다.
+사용 가능한 스토리지 계정을 표시합니다.
 
 ```powershell
 Get-AzStorageAccount
 ```
 
-기존 저장소 계정을 사용하려면 [VHD 업로드](#upload-the-vhd-to-your-storage-account) 섹션을 진행합니다.
+기존 스토리지 계정을 사용하려면 [VHD 업로드](#upload-the-vhd-to-your-storage-account) 섹션을 진행합니다.
 
-저장소 계정을 만듭니다.
+스토리지 계정을 만듭니다.
 
-1. 저장소 계정을 만들 리소스 그룹의 이름을 알아야 합니다. 구독에 있는 모든 리소스 그룹 목록을 보려면 Get-AzResourceGroup을 사용합니다.
+1. 스토리지 계정을 만들 리소스 그룹의 이름을 알아야 합니다. 구독에 있는 모든 리소스 그룹 목록을 보려면 Get-AzResourceGroup을 사용합니다.
    
     ```powershell
     Get-AzResourceGroup
@@ -102,7 +102,7 @@ Get-AzStorageAccount
        -Kind "Storage"
     ```
 
-### <a name="upload-the-vhd-to-your-storage-account"></a>저장소 계정에 VHD 업로드 
+### <a name="upload-the-vhd-to-your-storage-account"></a>스토리지 계정에 VHD 업로드 
 [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) cmdlet을 사용하여 스토리지 계정의 컨테이너에 VHD를 업로드합니다. 이 예제에서는 “C:\Users\Public\Documents\Virtual hard disks\"의 *myVHD.vhd* 파일을 *myResourceGroup* 리소스 그룹의 *mystorageaccount*라는 스토리지 계정에 업로드합니다. 파일은 *mycontainer*라는 컨테이너에 저장되고 새 파일 이름은 *myUploadedVHD.vhd*가 됩니다.
 
 ```powershell
@@ -132,7 +132,7 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontain
 
 ### <a name="create-a-managed-disk-from-the-vhd"></a>VHD에서 관리 디스크를 만들려면
 
-[New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk)를 사용하여 사용자의 스토리지 계정에 있는 특수한 VHD로 관리 디스크를 만듭니다. 이 예제에서는 디스크 이름에 *myOSDisk1*을 사용하고, 디스크를 *Standard_LRS* 저장소에 배치하고, *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd* 을 원본 VHD의 URI로 사용합니다.
+[New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk)를 사용하여 사용자의 스토리지 계정에 있는 특수한 VHD로 관리 디스크를 만듭니다. 이 예제에서는 디스크 이름에 *myOSDisk1*을 사용하고, 디스크를 *Standard_LRS* 스토리지에 배치하고, *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd* 을 원본 VHD의 URI로 사용합니다.
 
 새 VM에 대한 새 리소스 그룹을 만듭니다.
 
@@ -209,7 +209,7 @@ $snapShot = New-AzSnapshot `
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>스냅샷에서 새 디스크 만들기
 
-[New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk)를 사용하여 스냅숏에서 관리 디스크를 만듭니다. 이 예제에서는 디스크 이름에 *myOSDisk*를 사용합니다.
+[New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk)를 사용하여 스냅샷에서 관리 디스크를 만듭니다. 이 예제에서는 디스크 이름에 *myOSDisk*를 사용합니다.
 
 새 VM에 대한 새 리소스 그룹을 만듭니다.
 

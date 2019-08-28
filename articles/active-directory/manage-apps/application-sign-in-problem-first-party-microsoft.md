@@ -518,9 +518,9 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 ### <a name="perform-administrator-level-consent-for-a-single-tenant-application"></a>단일 테넌트 애플리케이션에 대해 관리자 수준 동의 작업 수행
 
--   사용 권한을 요청하는 **단일 테넌트 응용 프로그램**의 경우(예: 사용자가 개발하거나 조직에서 소유한 응용 프로그램) 전역 관리자로 로그인하고 **응용 프로그램 레지스트리 -&gt; 모든 응용 프로그램 -&gt; 앱 선택 -&gt; 필요한 권한** 창의 맨 위에 있는 **권한 부여** 단추를 클릭하여 모든 사용자를 대신하여 **관리 수준 동의** 작업을 수행할 수 있습니다.
+-   사용 권한을 요청하는 **단일 테넌트 애플리케이션**의 경우(예: 사용자가 개발하거나 조직에서 소유한 애플리케이션) 전역 관리자로 로그인하고 **애플리케이션 레지스트리 -&gt; 모든 애플리케이션 -&gt; 앱 선택 -&gt; 필요한 권한** 창의 맨 위에 있는 **권한 부여** 단추를 클릭하여 모든 사용자를 대신하여 **관리 수준 동의** 작업을 수행할 수 있습니다.
 
--   **V1 또는 V2 응용 프로그램 모델을 사용하여 개발된 응용 프로그램**의 경우 [관리 동의 엔드포인트 사용](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)의 **디렉터리 관리에서 사용 권한 요청** 섹션 아래에 있는 지침에 따라 발생하는 이 관리자 수준 동의를 강제할 수 있습니다.
+-   **V1 또는 V2 애플리케이션 모델을 사용하여 개발된 애플리케이션**의 경우 [관리 동의 엔드포인트 사용](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)의 **디렉터리 관리에서 사용 권한 요청** 섹션 아래에 있는 지침에 따라 발생하는 이 관리자 수준 동의를 강제할 수 있습니다.
 
 ### <a name="perform-administrator-level-consent-for-a-multi-tenant-application"></a>다중 테넌트 애플리케이션에 대해 관리자 수준 동의 작업 수행
 

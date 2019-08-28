@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: b9ced0b08ed26057a45959f759fb90cbd7efe2a5
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 7fca5709a1c7c3ecae11a5fc7de2109f1b20645e
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239811"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839586"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>자습서: Linux 디바이스용 C# IoT Edge 모듈 개발
 
@@ -42,6 +42,9 @@ Visual Studio Code를 사용하여 C# 코드를 개발하고 Azure IoT Edge를 �
 | -- | ------------------ | ------------- |
 | **Linux AMD64** | ![VS Code의 LinuxAMD64용 C# 모듈](./media/tutorial-c-module/green-check.png) | ![Visual Studio의 LinuxAMD64용 C# 모듈](./media/tutorial-c-module/green-check.png) |
 | **Linux ARM32** | ![VS Code의 LinuxARM32용 C# 모듈](./media/tutorial-c-module/green-check.png) | ![Visual Studio의 LinuxARM64용 C# 모듈](./media/tutorial-c-module/green-check.png) |
+
+>[!NOTE]
+>Linux ARM64 디바이스 지원은 [공개 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)로 제공됩니다. 자세한 내용은 [Visual Studio Code(미리 보기)에서 ARM64 IoT Edge 모듈 개발 및 디버그](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -93,7 +96,7 @@ Visual Studio Code를 사용하여 C# 코드를 개발하고 Azure IoT Edge를 �
 
 ### <a name="select-your-target-architecture"></a>대상 아키텍처 선택
 
-현재, Visual Studio Code에서는 Linux AMD64 및 Linux ARM32v7 디바이스용 C 모듈을 개발할 수 있습니다. 컨테이너는 아키텍처 유형별로 다르게 빌드되고 실행되므로 각 솔루션에서 대상으로 지정할 대상 아키텍처를 선택해야 합니다. 기본값은 Linux AMD64입니다. 
+현재 Visual Studio Code에서는 Linux AMD64 및 Linux ARM32v7 디바이스용 C# 모듈을 개발할 수 있습니다. 컨테이너는 아키텍처 유형별로 다르게 빌드되고 실행되므로 각 솔루션에서 대상으로 지정할 대상 아키텍처를 선택해야 합니다. 기본값은 Linux AMD64입니다. 
 
 1. 명령 팔레트를 열고 **Azure IoT Edge: 에지 솔루션용 기본 대상 플랫폼 설정**을 검색하거나 창의 맨 아래에 있는 사이드바에서 바로 가기 아이콘을 선택합니다. 
 
@@ -272,7 +275,7 @@ Visual Studio Code를 사용하여 C# 코드를 개발하고 Azure IoT Edge를 �
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-   `--password-stdin` 사용을 권장하는 보안 경고가 표시될 수 있습니다. 이 모범 사례는 프로덕션 시나리오에 권장되지만 이 자습서에는 포함되지 않습니다. 자세한 내용은 [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) 참조를 참조하세요.
+   `--password-stdin` 사용을 권장하는 보안 경고가 표시될 수 있습니다. 이 모범 사례는 프로덕션 시나리오에 권장되지만 이 자습서의 범위를 벗어납니다. 자세한 내용은 [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) 참조를 참조하세요.
 
 2. VS Code 탐색기에서 **deployment.template.json** 파일을 마우스 오른쪽 단추로 클릭하고 **IoT Edge 솔루션 빌드 및 푸시**를 선택합니다.
 
@@ -290,7 +293,7 @@ IoT Edge 디바이스가 작동되고 실행 중인지 확인합니다.
 
 5. **config** 폴더에서 **deployment.json** 파일을 선택한 다음, **에지 배포 매니페스트 선택**을 클릭합니다. deployment.template.json 파일을 사용하지 마세요. 
 
-6. 새로고침 단추를 클릭합니다. **TempSensor** 모듈과 **$edgeAgent** 및 **$edgeHub**와 함께 실행되는 새 **CSharpModule**이 표시됩니다.  
+6. 새로고침 단추를 클릭합니다. **SimulatedTemperatureSensor** 모듈과 **$edgeAgent** 및 **$edgeHub**와 함께 실행되는 새 **CSharpModule**이 표시됩니다.  
 
 ## <a name="view-generated-data"></a>생성된 데이터 보기
 

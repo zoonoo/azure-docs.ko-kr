@@ -1,51 +1,47 @@
 ---
-title: Azure SQL Data warehouse에서 Azure Data Lake Storage 자습서 부하 | Microsoft Docs
-description: Azure Data Lake Storage에서 Azure SQL Data Warehouse로 데이터 로드를 PolyBase 외부 테이블을 사용 합니다.
+title: 자습서에서 Azure SQL Data Warehouse으로 Azure Data Lake Storage 로드 | Microsoft Docs
+description: PolyBase 외부 테이블을 사용 하 여 Azure Data Lake Storage Azure SQL Data Warehouse에 데이터를 로드 합니다.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: load data
-ms.date: 04/26/2019
+ms.subservice: load-data
+ms.date: 08/08/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a706fca7f7653c6916efc72d07988e79c9015a43
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3db355cf5782620bda3a9e04afbee073c8929856
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244497"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935114"
 ---
-# <a name="load-data-from-azure-data-lake-storage-to-sql-data-warehouse"></a>Azure Data Lake Storage에서 SQL Data Warehouse로 데이터 로드
-Azure Data Lake Storage에서 Azure SQL Data Warehouse로 데이터 로드를 PolyBase 외부 테이블을 사용 합니다. Data Lake Storage에 저장 된 데이터에서 임시 쿼리를 실행할 수 있습니다, 있지만 최상의 성능을 위해 SQL Data Warehouse로 데이터를 가져오는 것이 좋습니다.
+# <a name="load-data-from-azure-data-lake-storage-to-sql-data-warehouse"></a>Azure Data Lake Storage에서 SQL Data Warehouse 데이터 로드
+PolyBase 외부 테이블을 사용 하 여 Azure Data Lake Storage Azure SQL Data Warehouse에 데이터를 로드 합니다. Data Lake Storage에 저장 된 데이터에 대해 임시 쿼리를 실행할 수 있지만 최상의 성능을 위해 데이터를 SQL Data Warehouse으로 가져오는 것이 좋습니다.
 
 > [!div class="checklist"]
-> * 데이터 레이크 저장소에서 로드 하는 데 필요한 데이터베이스 개체를 만듭니다.
-> * 데이터 레이크 저장소 디렉터리에 연결 합니다.
-> * Azure SQL Data Warehouse에 데이터를 로드합니다.
+> * Data Lake Storage에서 로드 하는 데 필요한 데이터베이스 개체를 만듭니다.
+> * Data Lake Storage 디렉터리에 연결 합니다.
+> * Azure SQL Data Warehouse에 데이터 로드
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 이 자습서를 시작하기 전에 최신 버전의 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms))를 다운로드하여 설치합니다.
 
 이 자습서를 실행하려면 다음이 필요합니다.
 
-* Azure Active Directory 응용 프로그램 Gen1에서 로드 하는 경우 서비스 간 인증에 사용 하도록 합니다. 만들려면 [Active Directory 인증](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)을 따릅니다.
-
->[!NOTE] 
-> Azure 데이터 레이크 저장소 Gen1에서 로드 하는 경우 클라이언트 ID, 키 및 SQL Data Warehouse에서 저장소 계정에 연결할 Active Directory 응용 프로그램의 OAuth2.0 토큰 끝점 값 필요 합니다. 이러한 값을 가져오는 방법에 대한 세부 정보는 위의 링크에 있습니다. Azure Active Directory 앱 등록의 경우 '애플리케이션 ID'를 클라이언트 ID로 사용합니다.
-> 
+* 서비스 간 인증에 사용할 Azure Active Directory 애플리케이션. 만들려면 [Active Directory 인증](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)을 따릅니다.
 
 * Azure SQL Data Warehouse. [Azure SQL Data Warehouse 만들기 및 쿼리](create-data-warehouse-portal.md)를 참조합니다.
 
-* Data Lake Storage 계정입니다. 참조 [Azure Data Lake Storage를 사용 하 여 시작](../data-lake-store/data-lake-store-get-started-portal.md)합니다. 
+* Data Lake Storage 계정. [Azure Data Lake Storage 시작을](../data-lake-store/data-lake-store-get-started-portal.md)참조 하세요. 
 
 ##  <a name="create-a-credential"></a>자격 증명 만들기
-Data Lake Storage 계정에 액세스 하려면 다음 단계에서 사용 하 여 자격 증명 비밀을 암호화 하려면 데이터베이스 마스터 키 만들기 해야 합니다. 데이터베이스 범위 자격 증명을 만들 있습니다. Gen1에 대 한 데이터베이스 범위 자격 증명 설정 AAD에서 서비스 주체 자격 증명을 저장 합니다. Gen2의 데이터베이스 범위 자격 증명의 저장소 계정 키를 사용 해야 합니다. 
+Data Lake Storage 계정에 액세스 하려면 다음 단계에서 사용 되는 자격 증명 암호를 암호화 하기 위해 데이터베이스 마스터 키를 만들어야 합니다. 그런 다음 데이터베이스 범위 자격 증명을 만듭니다. 서비스 주체를 사용 하 여 인증 하는 경우 데이터베이스 범위 자격 증명은 AAD에 설정 된 서비스 주체 자격 증명을 저장 합니다. Gen2에 대 한 데이터베이스 범위 자격 증명에서 저장소 계정 키를 사용할 수도 있습니다. 
 
-Data Lake Storage Gen1에 연결하려면 **먼저** Azure Active Directory 애플리케이션을 만들고, 액세스 키를 만들고, Data Lake Storage Gen1 리소스에 대한 액세스 권한을 애플리케이션에 부여해야 합니다. 지침은 [Active Directory를 사용하여 Azure Data Lake Storage Gen1 인증하기](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)를 참조하세요.
+서비스 주체를 사용 하 여 Data Lake Storage에 연결 하려면 **먼저** Azure Active Directory 응용 프로그램을 만들고, 액세스 키를 만들고, Data Lake Storage 계정에 대 한 액세스 권한을 응용 프로그램에 부여 해야 합니다. 지침은 [Active Directory를 사용 하 여 Azure Data Lake Storage에 인증을](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)참조 하세요.
 
 ```sql
 -- A: Create a Database Master Key.
@@ -56,18 +52,19 @@ Data Lake Storage Gen1에 연결하려면 **먼저** Azure Active Directory 애�
 CREATE MASTER KEY;
 
 
--- B (for Gen1): Create a database scoped credential
+-- B (for service principal authentication): Create a database scoped credential
 -- IDENTITY: Pass the client id and OAuth 2.0 Token Endpoint taken from your Azure Active Directory Application
 -- SECRET: Provide your AAD Application Service Principal key.
 -- For more information on Create Database Scoped Credential: https://msdn.microsoft.com/library/mt270260.aspx
 
 CREATE DATABASE SCOPED CREDENTIAL ADLSCredential
 WITH
+    -- Always use the OAuth 2.0 authorization endpoint (v1)
     IDENTITY = '<client_id>@<OAuth_2.0_Token_EndPoint>',
     SECRET = '<key>'
 ;
 
--- B (for Gen2): Create a database scoped credential
+-- B (for Gen2 storage key authentication): Create a database scoped credential
 -- IDENTITY: Provide any string, it is not used for authentication to Azure storage.
 -- SECRET: Provide your Azure storage account key.
 
@@ -77,7 +74,7 @@ WITH
     SECRET = '<azure_storage_account_key>'
 ;
 
--- It should look something like this for Gen1:
+-- It should look something like this when authenticating using service principals:
 CREATE DATABASE SCOPED CREDENTIAL ADLSCredential
 WITH
     IDENTITY = '536540b4-4239-45fe-b9a3-629f97591c0c@https://login.microsoftonline.com/42f988bf-85f1-41af-91ab-2d2cd011da47/oauth2/token',
@@ -109,13 +106,13 @@ WITH (
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStorage
 WITH (
     TYPE = HADOOP,
-    LOCATION='abfs://<container>@<AzureDataLake account_name>.dfs.core.windows.net', -- Please note the abfs endpoint
+    LOCATION='abfs[s]://<container>@<AzureDataLake account_name>.dfs.core.windows.net', -- Please note the abfss endpoint for when your account has secure transfer enabled
     CREDENTIAL = ADLSCredential
 );
 ```
 
 ## <a name="configure-data-format"></a>데이터 형식 구성
-Data Lake Storage에서 데이터를 가져오려면 외부 파일 형식을 지정 해야 합니다. 이 개체는 Data Lake Storage에 파일을 쓰는 방법을 정의 합니다.
+Data Lake Storage에서 데이터를 가져오려면 외부 파일 형식을 지정 해야 합니다. 이 개체는 Data Lake Storage에서 파일을 작성 하는 방법을 정의 합니다.
 전체 목록은 [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql)의 T-SQL 설명서를 참조합니다.
 
 ```sql
@@ -176,7 +173,7 @@ REJECT_TYPE 및 REJECT_VALUE 옵션을 사용하면 최종 테이블에 있어�
 Data Lake Storage Gen1은 RBAC(역할 기반 액세스 제어)를 사용하여 데이터에 대한 액세스를 제어합니다. 즉, 서비스 주체는 LOCATION 매개 변수에서 정의된 디렉터리와 최종 디렉터리 및 파일의 자식 항목에 대해 읽기 권한이 있어야 합니다. 이 경우 PolyBase는 해당 데이터를 인증하고 로드할 수 있습니다. 
 
 ## <a name="load-the-data"></a>데이터 로드
-Data Lake Storage 사용에서 데이터를 로드 하는 [CREATE TABLE AS SELECT (TRANSACT-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 문입니다. 
+Data Lake Storage에서 데이터를 로드 하려면 [SELECT (transact-sql) 문을 CREATE TABLE](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 사용 합니다. 
 
 CTAS는 새 테이블을 만들고 select 문의 결과로 새 테이블을 채웁니다. CTAS는 select 문의 결과와 동일한 열과 데이터 형식을 가지도록 새 테이블을 정의합니다. 외부 테이블에서 모든 열을 선택하는 경우 새 테이블은 외부 테이블의 열과 데이터 형식의 복제본이 됩니다.
 
@@ -221,13 +218,9 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 > * Data Lake Storage Gen1에서 로드하기 위해 데이터베이스 개체를 만들었습니다.
 > * Data Lake Storage Gen1 디렉터리에 연결했습니다.
 > * Azure SQL Data Warehouse에 데이터를 로드했습니다.
-> 
+>
 
 데이터 로드는 SQL Data Warehouse를 사용하여 데이터 웨어하우스 솔루션을 개발하는 첫 번째 단계입니다. 개발 리소스를 확인하세요.
 
 > [!div class="nextstepaction"]
->[SQL Data Warehouse에서 테이블을 개발하는 방법 알아보기](sql-data-warehouse-tables-overview.md)
-
-
-
-
+> [SQL Data Warehouse에서 테이블을 개발하는 방법 알아보기](sql-data-warehouse-tables-overview.md)

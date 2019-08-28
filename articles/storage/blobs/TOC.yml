@@ -5,11 +5,11 @@
   items:
     - name: Azure Blob Storage란?
       href: storage-blobs-overview.md
-- name: Blob 저장소
+- name: Blob Storage
   items:
     - name: 개요
       items:
-        - name: Blob 저장소 소개
+        - name: Blob Storage 소개
           href: storage-blobs-introduction.md
     - name: 빠른 시작
       items:
@@ -53,13 +53,13 @@
               href: ../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 3 - 애플리케이션 데이터 보호
               href: storage-secure-access-application.md
-            - name: 4 - 저장소 모니터링 및 문제 해결
+            - name: 4 - 스토리지 모니터링 및 문제 해결
               href: storage-monitor-troubleshoot-storage-application.md
         - name: AzCopy를 사용하여 클라우드로 데이터 마이그레이션
           href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: 저장소 응용 프로그램 성능 및 확장성 최적화
+        - name: 스토리지 애플리케이션 성능 및 확장성 최적화
           items:
-            - name: 1 - VM 및 저장소 계정 만들기
+            - name: 1 - VM 및 스토리지 계정 만들기
               href: storage-blob-scalable-app-create-vm.md
             - name: 2 - Azure Storage 계정에 대용량 데이터 업로드
               href: storage-blob-scalable-app-upload-files.md
@@ -77,7 +77,7 @@
           items:
             - name: 1 - 고가용성 애플리케이션 만들기
               href: storage-create-geo-redundant-storage.md
-            - name: 2 - RA-GRS 저장소를 사용하여 오류 시뮬레이션
+            - name: 2 - RA-GRS 스토리지를 사용하여 오류 시뮬레이션
               href: storage-simulate-failure-ragrs-account-app.md
         - name: Azure Key Vault를 사용하여 Blob 암호화 및 암호 해독
           href: storage-encrypt-decrypt-blobs-key-vault.md
@@ -106,12 +106,12 @@
             - name: 권한 부여
               href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               items:
-                - name: Azure AD를 사용하여 인증
+                - name: Azure AD를 사용하여 권한 부여
                   href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 공유 키로 권한 부여
                   href: /rest/api/storageservices/authorize-with-shared-key
-                - name: SAS로 권한 부여
-                  href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: SAS(공유 액세스 서명)를 사용하여 액세스 위임
+                  href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Blob에 대한 익명 액세스
                   href: storage-manage-access-to-resources.md
             - name: 변경이 불가능한 Blob
@@ -123,12 +123,14 @@
         - name: 데이터 중복
           href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           items:
-            - name: 로컬 중복 저장소
+            - name: 로컬 중복 스토리지
               href: ../common/storage-redundancy-lrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: 영역 중복 저장소
+            - name: 영역 중복 스토리지
               href: ../common/storage-redundancy-zrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: 지역 중복 저장소
+            - name: 지역 중복 스토리지
               href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: 지역 영역 중복 스토리지
+              href: ../common/storage-redundancy-gzrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 재해 복구 및 장애 조치(Failover)
               href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: RA-GRS를 사용하여 HA 앱 디자인
@@ -137,6 +139,8 @@
           items:
             - name: 액세스 계층
               href: storage-blob-storage-tiers.md
+            - name: Archive Storage에서 데이터 리하이드레이션
+              href: storage-blob-rehydration.md
             - name: Azure Blob Storage 수명 주기 관리
               href: storage-lifecycle-management-concepts.md
         - name: 성능 및 크기 조정
@@ -267,7 +271,7 @@
                   href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 새 메트릭으로 마이그레이션
                   href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: 저장소 분석
+                - name: 스토리지 분석
                   href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 스토리지 분석 메트릭(클래식)
                   href: ../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -281,17 +285,27 @@
           href: storage-blob-static-website.md
     - name: 방법
       items:
-        - name: 저장소 계정 만들기 및 관리
+        - name: 스토리지 계정 만들기 및 관리
           items:
-            - name: 범용 저장소 계정 만들기
+            - name: 범용 스토리지 계정 만들기
               displayName: 'resource manager, resource manager template, template, ARM'
               href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 블록 Blob 스토리지 계정 만들기
               href: storage-blob-create-account-block-blob.md
-            - name: 저장소 계정 관리
+            - name: 스토리지 계정 관리
               href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: 저장소 계정 업그레이드
+            - name: 스토리지 계정 업그레이드
               href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: 계정 유형 및 SKU 이름 가져오기(.NET)
+              href: ../common/storage-account-get-info.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 컨테이너 만들기 및 관리
+          items:
+            - name: 컨테이너 만들기 및 삭제(.NET)
+              href: storage-blob-container-create.md
+            - name: 컨테이너 나열(.NET)
+              href: storage-blob-containers-list.md
+            - name: 속성 및 메타데이터 관리(.NET)
+              href: storage-blob-container-properties-metadata.md
         - name: Blob 데이터 보호
           items:
             - name: Blob 데이터에 대한 액세스 권한 부여
@@ -310,11 +324,11 @@
                       href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: Azure CLI
                       href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Azure AD를 사용하여 인증
+                - name: Azure AD 인증 및 권한 부여
                   items:
-                    - name: 관리 ID로 인증
+                    - name: 관리 ID로 권한 부여
                       href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: 애플리케이션에서 인증
+                    - name: 애플리케이션에서 권한 부여
                       href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 공유 키로 권한 부여
                   items:
@@ -322,6 +336,22 @@
                       href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: Azure Storage REST API 사용
                       href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: SAS(공유 액세스 서명)를 사용하여 액세스 위임
+                  items:
+                    - name: 사용자 위임 SAS 만들기
+                      items:
+                        - name: PowerShell
+                          href: storage-blob-user-delegation-sas-create-powershell.md
+                        - name: Azure CLI
+                          href: storage-blob-user-delegation-sas-create-cli.md
+                        - name: .NET
+                          href: storage-blob-user-delegation-sas-create-dotnet.md
+                    - name: 서비스 SAS(.NET) 만들기
+                      href: storage-blob-service-sas-create-dotnet.md
+                    - name: 계정 SAS(.NET) 만들기
+                      href: ../common/storage-account-sas-create-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: 저장된 액세스 정책 정의
+                      href: ../common/storage-stored-access-policy-define-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 서비스 엔드포인트에 대한 고객 관리형 키 구성
               items:
                 - name: 포털
@@ -352,10 +382,12 @@
               href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 삭제된 Blob 복구
               href: storage-blob-soft-delete.md
-        - name: 저장소 에뮬레이터 사용
-          href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: 속성 및 메타데이터 설정 및 검색
-          href: storage-properties-metadata.md
+        - name: 스토리지 에뮬레이터 사용
+          items:
+            - name: Azurite 오픈 소스 에뮬레이터 사용
+              href: ../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Azure Storage 에뮬레이터 사용
+              href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 정적 웹 사이트 호스트
           href: storage-blob-static-website-how-to.md
         - name: HTTPS를 통해 액세스할 수 있도록 Azure CDN을 사용자 지정 도메인에 매핑
@@ -382,7 +414,7 @@
               href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Linux에서 Blob Storage를 파일 시스템으로 탑재
               href: storage-how-to-mount-container-linux.md
-            - name: 저장소 마이그레이션 FAQ
+            - name: 스토리지 마이그레이션 FAQ
               href: ../common/storage-migration-faq.md
         - name: Blob으로 개발
           items:
@@ -543,12 +575,22 @@
           href: ../blobs/data-lake-storage-data-scenarios.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: 빠른 시작
       items:
-        - name: Storage 계정 만들기
-          href: ../blobs/data-lake-storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Storage Explorer로 데이터 관리
-          href: ../blobs/data-lake-storage-explorer.md
         - name: Databricks로 데이터 분석
           href: ../blobs/data-lake-storage-quickstart-create-databricks-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 코드 없이 Blob 관리
+          items:
+            - name: PowerShell
+              href: storage-quickstart-blobs-powershell.md
+            - name: CLI
+              href: storage-quickstart-blobs-cli.md
+        - name: Blob으로 개발
+          items:
+            - name: .NET
+              href: storage-quickstart-blobs-dotnet.md
+            - name: Java
+              href: storage-quickstart-blobs-java-v10.md
+            - name: Python
+              href: storage-quickstart-blobs-python.md
     - name: 자습서
       items:
         - name: 'Azure Databricks를 사용하여 데이터 추출, 변환 및 로드'
@@ -557,8 +599,12 @@
           href: ../blobs/data-lake-storage-use-databricks-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Azure HDInsight에서 Apache Hive를 사용하여 데이터 추출, 변환 및 로드'
           href: ../blobs/data-lake-storage-tutorial-extract-transform-load-hive.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Event Grid를 사용하여 Databricks 델타 테이블에 데이터 삽입
+          href: ../blobs/data-lake-storage-events.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: 개념
       items:
+        - name: 멀티 프로토콜 액세스
+          href: ../blobs/data-lake-storage-multi-protocol-access.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Hadoop에 대한 Azure Blob 파일 시스템 드라이버
           href: ../blobs/data-lake-storage-abfs-driver.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Azure Blob 파일 시스템 URI
@@ -567,16 +613,38 @@
           href: ../blobs/data-lake-storage-namespace.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 모범 사례
           href: data-lake-storage-best-practices.md
+        - name: 액세스 계층
+          items:
+            - name: 액세스 계층
+              href: storage-blob-storage-tiers.md
+            - name: Azure Blob Storage 수명 주기 관리
+              href: storage-lifecycle-management-concepts.md
         - name: 보안
           items:
             - name: Storage 보안 개요
               href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Access Control
               href: data-lake-storage-access-control.md
+        - name: 로깅
+          items:
+            - name: 스토리지 분석
+              href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: 스토리지 분석 로그
+              href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 이벤트 처리
           href: storage-blob-event-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: 방법
       items:
+        - name: 스토리지 계정 만들기 및 관리
+          items:
+            - name: 범용 스토리지 계정 만들기
+              href: ../blobs/data-lake-storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: 스토리지 계정 관리
+              href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Storage Explorer로 데이터 관리
+              href: ../blobs/data-lake-storage-explorer.md
+            - name: 스토리지 계정 업그레이드
+              href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 데이터 수집
           items:
             - name: AzCopy
@@ -623,6 +691,8 @@
               href: 'https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html'
             - name: Azure SQL Data Warehouse와 함께 사용
               href: '../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-sql-data-warehouse-polybase'
+            - name: Power BI와 함께 사용
+              href: ../blobs/data-lake-storage-use-power-bi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 성능 최적화
           items:
             - name: 개요
@@ -635,6 +705,12 @@
               href: ../blobs/data-lake-storage-performance-tuning-mapreduce.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: HDInsight의 Storm 최적화
               href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 파일(Blob) 관리
+          items:
+            - name: PowerShell
+              href: /powershell/module/azure.storage
+            - name: Azure CLI
+              href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 데이터 마이그레이션
           items:
             - name: Data Lake Storage Gen1에서 업그레이드
@@ -643,8 +719,37 @@
               href: ../blobs/data-lake-storage-migrate-on-premises-HDFS-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: 참고 자료
       items:
+        - name: PowerShell
+          href: /powershell/module/azure.storage
+        - name: Azure CLI
+          href: /cli/azure/storage
+        - name: .NET
+          items:
+            - name: 'Blob, 큐, 테이블 및 파일'
+              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
+            - name: 데이터 이동
+              href: /dotnet/api/microsoft.azure.storage.datamovement
+            - name: 리소스 관리자
+              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
+        - name: Java
+          items:
+            - name: 'Blob, 큐, 테이블 및 파일(v7)'
+              href: 'https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-stable'
+            - name: Blob SDK(v10)
+              href: 'https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-preview'
         - name: REST (영문)
-          href: 'https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2'
+          items:
+            - name: 'Blob, 큐, 테이블 및 파일'
+              href: /rest/api/storageservices
+            - name: Data Lake Storage Gen2
+              href: 'https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2'
+            - name: 리소스 공급자
+              href: /rest/api/storagerp
+            - name: Import/Export
+              href: /rest/api/storageimportexport
+        - name: Resource Manager 템플릿
+          displayName: ARM
+          href: /azure/templates/microsoft.storage/allversions
     - name: 리소스
       items:
         - name: 알려진 문제

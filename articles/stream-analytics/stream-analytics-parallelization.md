@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 4fd862c2442d2637d799a1f690d5f0a091c80562
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5eba5601a50640261fa1b488d959f606d4514737
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449204"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612211"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Azure Stream Analytics에서 쿼리 병렬 처리 사용
 이 문서에서는 Azure Stream Analytics에서 병렬 처리 기능을 활용하는 방법을 보여 줍니다. 입력 파티션을 구성하고, 분석 쿼리 정의를 조정하여 Stream Analytics 작업의 크기를 조정하는 방법을 알아봅니다.
@@ -32,9 +32,9 @@ Stream Analytics 작업 크기 조정은 입력 또는 출력에 있는 파티�
 모든 Azure Stream Analytics 입력은 분할을 사용할 수 있습니다.
 -   EventHub(PARTITION BY 키워드로 파티션 키를 명시적으로 설정해야 함)
 -   IoT Hub(PARTITION BY 키워드로 파티션 키를 명시적으로 설정해야 함)
--   Blob 저장소
+-   Blob Storage
 
-### <a name="outputs"></a>outputs
+### <a name="outputs"></a>출력
 
 Stream Analytics로 작업할 때 다음 출력에서 분할을 활용할 수 있습니다.
 -   Azure Data Lake 스토리지
@@ -77,7 +77,7 @@ Power BI는 분할을 지원하지 않습니다. 그러나 [이 섹션](#multi-s
 ### <a name="simple-query"></a>단순 쿼리
 
 * 입력: 8개의 파티션이 있는 이벤트 허브
-* 출력 8개의 파티션이 있는 이벤트 허브
+* 출력: 8개의 파티션이 있는 이벤트 허브
 
 쿼리:
 
@@ -92,7 +92,7 @@ Power BI는 분할을 지원하지 않습니다. 그러나 [이 섹션](#multi-s
 ### <a name="query-with-a-grouping-key"></a>그룹화 키가 있는 쿼리
 
 * 입력: 8개의 파티션이 있는 이벤트 허브
-* 출력 Blob 저장소
+* 출력: Blob Storage
 
 쿼리:
 
@@ -110,19 +110,19 @@ Power BI는 분할을 지원하지 않습니다. 그러나 [이 섹션](#multi-s
 
 ### <a name="mismatched-partition-count"></a>일치하지 않는 파티션 수
 * 입력: 8개의 파티션이 있는 이벤트 허브
-* 출력 32개의 파티션이 있는 이벤트 허브
+* 출력: 32개의 파티션이 있는 이벤트 허브
 
 이 경우 쿼리 내용은 중요하지 않습니다. 입력 파티션 수가 출력 파티션 수와 일치하지 않는 토폴로지는 병렬 처리가 적합하지 않습니다. 그렇지만 특정 수준의 병렬 처리는 여전히 사용할 수 있습니다.
 
 ### <a name="query-using-non-partitioned-output"></a>분할되지 않은 출력을 사용하여 쿼리
 * 입력: 8개의 파티션이 있는 이벤트 허브
-* 출력 Power BI
+* 출력: Power BI
 
 Power BI 출력은 현재 분할을 지원하지 않습니다. 따라서 이 시나리오는 병렬 처리가 적합하지 않습니다.
 
 ### <a name="multi-step-query-with-different-partition-by-values"></a>서로 다른 PARTITION BY 값이 있는 다중 단계 쿼리
 * 입력: 8개의 파티션이 있는 이벤트 허브
-* 출력 8개의 파티션이 있는 이벤트 허브
+* 출력: 8개의 파티션이 있는 이벤트 허브
 
 쿼리:
 
@@ -144,7 +144,7 @@ Power BI 출력은 현재 분할을 지원하지 않습니다. 따라서 이 시
 
 ### <a name="compatibility-level-12---multi-step-query-with-different-partition-by-values"></a>호환성 수준 1.2-서로 다른 PARTITION BY 값이 있는 다중 단계 쿼리 
 * 입력: 8개의 파티션이 있는 이벤트 허브
-* 출력 8개의 파티션이 있는 이벤트 허브
+* 출력: 8개의 파티션이 있는 이벤트 허브
 
 쿼리:
 
@@ -200,7 +200,7 @@ Stream Analytics 작업에 사용될 수 있는 스트리밍 단위의 총 수�
 하나의 Stream Analytics 작업에 대해 분할되지 않은 모든 단계를 최대 6개의 SU(스트리밍 단위)로 확장할 수 있습니다. 이외에 분할 단계에서 각 파티션에 대해 6개의 SU를 추가할 수 있습니다.
 아래 표에서 일부 **예제**를 확인할 수 있습니다.
 
-| query                                               | 작업에 대한 최대 SU |
+| Query                                               | 작업에 대한 최대 SU |
 | --------------------------------------------------- | ------------------- |
 | <ul><li>쿼리는 한 단계를 포함합니다.</li><li>이 단계는 분할되지 않습니다.</li></ul> | 6 |
 | <ul><li>입력 데이터 스트림은 16으로 분할됩니다.</li><li>쿼리는 한 단계를 포함합니다.</li><li>이 단계는 분할됩니다.</li></ul> | 96(6 * 16개 파티션) |
@@ -312,7 +312,7 @@ Stream Analytics 작업에 사용될 수 있는 스트리밍 단위의 총 수�
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
-* [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Image references-->

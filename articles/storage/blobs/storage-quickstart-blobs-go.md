@@ -1,20 +1,18 @@
 ---
-title: Azure 빠른 시작 - Go를 사용하여 개체 저장소에 Blob 만들기 | Microsoft Docs
-description: 이 빠른 시작에서는 개체(Blob) 저장소에서 저장소 계정 및 컨테이너를 만듭니다. 그런 다음, Go용 스토리지 클라이언트 라이브러리를 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다.
-services: storage
+title: Azure 빠른 시작 - Go를 사용하여 개체 스토리지에 Blob 만들기 | Microsoft Docs
+description: 이 빠른 시작에서는 개체(Blob) 스토리지에서 스토리지 계정 및 컨테이너를 만듭니다. 그런 다음, Go용 스토리지 클라이언트 라이브러리를 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다.
 author: mhopkins-msft
-ms.custom: mvc
-ms.service: storage
-ms.topic: quickstart
-ms.date: 11/14/2018
 ms.author: mhopkins
-ms.reviewer: seguler
-ms.openlocfilehash: 5b5d0663166c6889d25c0fdd578aadbac3436931
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 11/14/2018
+ms.service: storage
+ms.subservice: blobs
+ms.topic: quickstart
+ms.openlocfilehash: f4016349e354c84e9e096ac6d5072a4870e9ef29
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152773"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726452"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>빠른 시작: Go를 사용하여 Blob 업로드, 다운로드 및 나열
 
@@ -49,8 +47,8 @@ git clone https://github.com/Azure-Samples/storage-blobs-go-quickstart
 
 [!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
-## <a name="configure-your-storage-connection-string"></a>저장소 연결 문자열 구성
-이 솔루션에서는 샘플을 실행하는 컴퓨터에 로컬인 환경 변수에 저장소 계정 이름과 키를 안전하게 저장해야 합니다. 운영 체제에 따라 아래 예제 중 하나를 따라 환경 변수를 만듭니다.
+## <a name="configure-your-storage-connection-string"></a>스토리지 연결 문자열 구성
+이 솔루션에서는 샘플을 실행하는 컴퓨터에 로컬인 환경 변수에 스토리지 계정 이름과 키를 안전하게 저장해야 합니다. 운영 체제에 따라 아래 예제 중 하나를 따라 환경 변수를 만듭니다.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
@@ -87,10 +85,10 @@ Downloaded the blob: hello world
 this is a blob
 Press the enter key to delete the sample files, example container, and exit the application.
 ```
-키를 눌러 계속하면 샘플 프로그램이 저장소 컨테이너 및 파일을 삭제합니다. 
+키를 눌러 계속하면 샘플 프로그램이 스토리지 컨테이너 및 파일을 삭제합니다. 
 
 > [!TIP]
-> [Azure Storage 탐색기](https://storageexplorer.com)와 같은 도구를 사용하여 Blob Storage의 파일을 볼 수도 있습니다. Azure Storage Explorer는 스토리지 계정 정보에 액세스할 수 있는 무료 플랫폼 간 도구입니다. 
+> [Azure Storage Explorer](https://storageexplorer.com)와 같은 도구를 사용하여 Blob Storage의 파일을 볼 수도 있습니다. Azure Storage Explorer는 스토리지 계정 정보에 액세스할 수 있는 무료 플랫폼 간 도구입니다. 
 >
 
 ## <a name="understand-the-sample-code"></a>샘플 코드 이해

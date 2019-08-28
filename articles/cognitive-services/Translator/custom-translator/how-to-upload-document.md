@@ -1,24 +1,24 @@
 ---
 title: 문서를 업로드하는 방법 - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: 문서 업로드 기능을 사용하여 훈련에 사용할 병렬 문서를 업로드할 수 있습니다. 병렬 문서는 서로가 서로의 번역인 문서 쌍입니다. 이 쌍에 포함된 하나의 문서에는 소스 언어의 문장이 포함되고, 다른 문서에는 이러한 문장을 대상 언어로 번역한 문장이 포함됩니다.
+description: 문서 업로드 기능을 사용하여 훈련에 사용할 병렬 문서를 업로드할 수 있습니다. 병렬 문서는 서로가 서로의 번역인 문서 쌍입니다. 이 쌍에 포함된 한 문서에는 원본 언어의 문장이 포함되어 있고, 다른 문서에는 이 문장을 대상 언어로 번역한 문장이 포함되어 있습니다.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 948c9628147ae8cf869046b283601b939d35b290
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f2bd6103c27d455265ee967554fb27513f78a472
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447920"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595637"
 ---
 # <a name="upload-a-document"></a>문서 업로드
 
-[Custom Translator](https://portal.customtranslator.azure.ai)에서 번역 모델을 훈련하는 데 사용할 병렬 문서를 업로드할 수 있습니다. [병렬 문서](what-are-parallel-documents.md)는 서로가 서로의 번역인 문서 쌍입니다. 이 쌍에 포함된 하나의 문서에는 소스 언어의 문장이 포함되고, 다른 문서에는 이러한 문장을 대상 언어로 번역한 문장이 포함됩니다.
+[Custom Translator](https://portal.customtranslator.azure.ai)에서 번역 모델을 훈련하는 데 사용할 병렬 문서를 업로드할 수 있습니다. [병렬 문서](what-are-parallel-documents.md)는 서로가 서로의 번역인 문서 쌍입니다. 이 쌍에 포함된 한 문서에는 원본 언어의 문장이 포함되어 있고, 다른 문서에는 이 문장을 대상 언어로 번역한 문장이 포함되어 있습니다.
 
 문서를 업로드하기 전에 [문서 형식 및 명명 규칙 지침](document-formats-naming-convention.md)을 검토하여 Custom Translator에서 파일 형식이 지원되는지 확인하세요.
 

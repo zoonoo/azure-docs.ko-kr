@@ -21,7 +21,7 @@ ms.locfileid: "67165641"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Time Series Insights 환경의 크기를 조정하는 방법
 
-이 문서에서는 Azure Portal을 사용하여 Time Series Insights 환경의 환경 용량을 변경하는 방법에 대해 설명합니다. 용량은 선택한 SKU와 관련된 입력 속도, 저장 용량 및 비용에 적용되는 승수입니다.
+이 문서에서는 Azure Portal을 사용하여 Time Series Insights 환경의 환경 용량을 변경하는 방법에 대해 설명합니다. 용량은 선택한 SKU와 관련된 입력 속도, 스토리지 용량 및 비용에 적용되는 승수입니다.
 
 Azure Portal을 사용하여 지정된 가격 책정 SKU 내에서 용량을 늘리거나 줄일 수 있습니다.
 
@@ -29,14 +29,14 @@ Azure Portal을 사용하여 지정된 가격 책정 SKU 내에서 용량을 늘
 
 ## <a name="s1-sku-ingress-rates-and-capacities"></a>S1 SKU 수신 속도 및 용량
 
-| S1 SKU 용량 | 수신 속도 | 최대 저장소 용량
+| S1 SKU 용량 | 수신 속도 | 최대 스토리지 용량
 | --- | --- | --- |
 | 1 | 1GB(1백만 이벤트) | 매달 30GB(3천만 이벤트) |
 | 10 | 10GB(1천만 이벤트) | 매달 300GB(3억 이벤트) |
 
 ## <a name="s2-sku-ingress-rates-and-capacities"></a>S2 SKU 수신 속도 및 용량
 
-| S2 SKU 용량 | 수신 속도 | 최대 저장소 용량
+| S2 SKU 용량 | 수신 속도 | 최대 스토리지 용량
 | --- | --- | --- |
 | 1 | 10GB(1천만 이벤트) | 매달 300GB(3억 이벤트) |
 | 10 | 100GB(1억 이벤트) | 매달 3TB(30억 이벤트) |
@@ -51,7 +51,7 @@ Azure Portal을 사용하여 지정된 가격 책정 SKU 내에서 용량을 늘
 
    [![configure.png](media/scale-your-environment/configure.png)](media/scale-your-environment/configure.png#lightbox)
 
-1. **용량** 슬라이더를 조정하여 수신 속도 및 저장소 용량에 대한 요구 사항을 충족하는 용량을 선택합니다. **수신 속도**, **저장소 용량** 및 **예상 비용** 업데이트가 변경으로 인한 영향을 동적으로 보여줍니다.
+1. **용량** 슬라이더를 조정하여 수신 속도 및 스토리지 용량에 대한 요구 사항을 충족하는 용량을 선택합니다. **수신 속도**, **스토리지 용량** 및 **예상 비용** 업데이트가 변경으로 인한 영향을 동적으로 보여줍니다.
 
    [![슬라이더](media/scale-your-environment/slider.png)](media/scale-your-environment/slider.png#lightbox)
 

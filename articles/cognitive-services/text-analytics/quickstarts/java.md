@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Java를 사용하여 텍스트 분석 API 호출'
+title: '빠른 시작: Java를 사용하여 Text Analytics REST API 호출'
 titleSuffix: Azure Cognitive Services
 description: Azure Cognitive Services에서 텍스트 분석 API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 확인합니다.
 services: cognitive-services
@@ -8,14 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 04/16/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: fc848feb3f9a0e1160a8e36014ca4a469f792c96
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.custom: seo-java-july2019
+ms.openlocfilehash: 437456ecb700b2efb60f2f6269643ca39d8775e2
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60008582"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697518"
 ---
 # <a name="quickstart-using-java-to-call-the-text-analytics-cognitive-service"></a>빠른 시작: Java를 사용하여 텍스트 분석 Cognitive Service 호출
 <a name="HOLTop"></a>
@@ -28,7 +29,7 @@ API 기술 문서는 [API 정의](//go.microsoft.com/fwlink/?LinkID=759346)를 �
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-등록하는 동안 생성된 [엔드포인트 및 액세스 키](../How-tos/text-analytics-how-to-access-key.md)도 있어야 합니다.
+등록하는 동안 생성된 [엔드포인트 및 액세스 키](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)도 있어야 합니다.
 
 <a name="Detect"></a>
 
@@ -340,7 +341,7 @@ public class GetSentiment {
 
 ### <a name="sentiment-analysis-response"></a>감정 분석 응답
 
-1.0에 가까운 점수이면 결과는 긍정으로 측정되고, 0.0에 가까운 점수이면 부정으로 측정됩니다.
+1\.0에 가까운 점수이면 결과는 긍정으로 측정되고, 0.0에 가까운 점수이면 부정으로 측정됩니다.
 성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다.
 
 ```json

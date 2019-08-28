@@ -4,7 +4,7 @@ description: Azure(큰 인스턴스)의 SAP HANA에 대해 지원되는 시나�
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 501c5ffa86f2360e44c187e087f7285bbf4084fd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3699764cbcad2446067daff9f19e801cad299c47
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60477792"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707291"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>HANA 큰 인스턴스의 지원되는 시나리오
 이 문서에서는 HLI(HANA 큰 인스턴스)에 대한 아키텍처 세부 정보와 지원되는 시나리오에 대해 설명합니다.
@@ -50,7 +50,7 @@ HANA 큰 인스턴스는 사용자의 비즈니스 요구를 충족하기 위해
 이 문서에서는 지원되는 각 아키텍처의 두 구성 요소에 대해 자세히 설명합니다.
 
 - 이더넷
-- Storage
+- 스토리지
 
 ### <a name="ethernet"></a>이더넷
 
@@ -64,13 +64,13 @@ HANA 큰 인스턴스는 사용자의 비즈니스 요구를 충족하기 위해
 
 | NIC 논리적 인터페이스 | SKU 형식 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
-| A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
 | B | 유형 I | eth2.tenant | eno3.tenant | 노드-노드 |
-| C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
+| C | 유형 I | eth1.tenant | eno2.tenant | 노드-스토리지 |
 | D | 유형 I | eth4.tenant | eno4.tenant | STONITH |
-| A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
 | B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드-노드 |
-| C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
+| C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-스토리지 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | STONITH |
 
 HLI 단위에 구성된 토폴로지에 따라 인터페이스를 사용합니다. 예를 들어, 인터페이스 "B"는 스케일 아웃 토폴로지를 구성한 경우에 유용한 노드-노드 통신을 위해 설정됩니다. 단일 노드 강화 구성의 경우 이 인터페이스가 사용되지 않습니다. 이 문서 뒷부분에서 필요한 시나리오를 검토하여 인터페이스 사용에 대한 자세한 정보를 얻으세요. 
@@ -92,13 +92,13 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 
 - 이더넷 “B”는 다른 인스턴스 간의 통신을 위해 etc/hosts에서 유지 관리되도록 독점적으로 사용되어야 합니다. 이 주소는 HANA가 노드 간 구성에 사용하는 IP 주소로 규모 확장 HANA 구성에서 유지해야 하는 IP 주소이기도 합니다.
 
-- 이더넷 “C”에는 NFS 저장소와의 통신에 사용되는 IP 주소가 할당되어 있어야 합니다. 따라서 이 주소 유형은 etc/hosts에서 유지 관리되지 않아야 합니다.
+- 이더넷 “C”에는 NFS 스토리지와의 통신에 사용되는 IP 주소가 할당되어 있어야 합니다. 따라서 이 주소 유형은 etc/hosts에서 유지 관리되지 않아야 합니다.
 
 - 이더넷 “D”는 Pacemaker용 STONITH 디바이스에 액세스하는 데만 사용해야 합니다. 이 인터페이스는 HSR(HANA 시스템 복제)을 구성하며, SBD 기반 디바이스를 사용하여 운영 체제에서 자동 장애 조치(Failover)를 수행하려고 할 때 필요합니다.
 
 
-### <a name="storage"></a>Storage
-저장소는 요청된 토폴로지에 따라 미리 구성됩니다. 볼륨 크기와 탑재 지점은 서버 수, SKU 및 구성된 토폴로지에 따라 달라집니다. 이 문서 뒷부분에서 필요한 시나리오를 검토하여 자세한 정보를 얻으세요. 더 많은 저장소가 필요한 경우 1TB씩 증분해서 구입할 수 있습니다.
+### <a name="storage"></a>스토리지
+스토리지는 요청된 토폴로지에 따라 미리 구성됩니다. 볼륨 크기와 탑재 지점은 서버 수, SKU 및 구성된 토폴로지에 따라 달라집니다. 이 문서 뒷부분에서 필요한 시나리오를 검토하여 자세한 정보를 얻으세요. 더 많은 스토리지가 필요한 경우 1TB씩 증분해서 구입할 수 있습니다.
 
 >[!NOTE]
 >탑재 지점r/sap/\<SID >/hana/공유 탑재 지점에 대 한 기호화 된 링크입니다.
@@ -138,16 +138,16 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 
 | NIC 논리적 인터페이스 | SKU 형식 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
-| A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
 | B | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
-| C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
+| C | 유형 I | eth1.tenant | eno2.tenant | 노드-스토리지 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
-| A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
 | B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
-| C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
+| C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-스토리지 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 다음 탑재 지점은 미리 구성됩니다.
 
 | 탑재 지점 | 사용 사례 | 
@@ -173,16 +173,16 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 
 | NIC 논리적 인터페이스 | SKU 형식 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
-| A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
 | B | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
-| C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
+| C | 유형 I | eth1.tenant | eno2.tenant | 노드-스토리지 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
-| A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
 | B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
-| C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
+| C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-스토리지 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 다음 탑재 지점은 미리 구성됩니다.
 
 | 탑재 지점 | 사용 사례 | 
@@ -202,7 +202,7 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 
 ## <a name="3-single-node-with-dr-normal"></a>3. DR(일반)이 있는 단일 노드
  
-이 토폴로지는 기본 SID에 대한 DR 사이트의 저장소 기반 복제를 포함하는 하나 이상의 SID가 있는 스케일 아웃 구성의 단일 노드를 지원합니다. 이 다이어그램에서는 단일 SID만 기본 사이트에 표시되지만 다중 SID(MCOS)도 지원됩니다.
+이 토폴로지는 기본 SID에 대한 DR 사이트의 스토리지 기반 복제를 포함하는 하나 이상의 SID가 있는 스케일 아웃 구성의 단일 노드를 지원합니다. 이 다이어그램에서는 단일 SID만 기본 사이트에 표시되지만 다중 SID(MCOS)도 지원됩니다.
 
 ### <a name="architecture-diagram"></a>아키텍처 다이어그램  
 
@@ -213,16 +213,16 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 
 | NIC 논리적 인터페이스 | SKU 형식 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
-| A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
 | B | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
-| C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
+| C | 유형 I | eth1.tenant | eno2.tenant | 노드-스토리지 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
-| A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
 | B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
-| C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
+| C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-스토리지 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 다음 탑재 지점은 미리 구성됩니다.
 
 | 탑재 지점 | 사용 사례 | 
@@ -243,7 +243,7 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 
 ## <a name="4-single-node-with-dr-multipurpose"></a>4. DR(다용도)이 있는 단일 노드
  
-이 토폴로지는 기본 SID에 대한 DR 사이트의 저장소 기반 복제를 포함하는 하나 이상의 SID가 있는 스케일 아웃 구성의 단일 노드를 지원합니다. 이 다이어그램에서는 단일 SID만 기본 사이트에 표시되지만 다중 SID(MCOS)도 지원됩니다. DR 사이트에서는 프로덕션 작업이 기본 사이트에서 실행되는 동안 QA 인스턴스에 HLI 단위가 사용됩니다. DR 장애 조치(Failover)(또는 테스트 장애 조치) 시 DR 사이트의 QA 인스턴스가 DR 사이트에서 제거됩니다.
+이 토폴로지는 기본 SID에 대한 DR 사이트의 스토리지 기반 복제를 포함하는 하나 이상의 SID가 있는 스케일 아웃 구성의 단일 노드를 지원합니다. 이 다이어그램에서는 단일 SID만 기본 사이트에 표시되지만 다중 SID(MCOS)도 지원됩니다. DR 사이트에서는 프로덕션 작업이 기본 사이트에서 실행되는 동안 QA 인스턴스에 HLI 단위가 사용됩니다. DR 장애 조치(Failover)(또는 테스트 장애 조치) 시 DR 사이트의 QA 인스턴스가 DR 사이트에서 제거됩니다.
 
 ### <a name="architecture-diagram"></a>아키텍처 다이어그램  
 
@@ -254,16 +254,16 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 
 | NIC 논리적 인터페이스 | SKU 형식 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
-| A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
 | B | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
-| C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
+| C | 유형 I | eth1.tenant | eno2.tenant | 노드-스토리지 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
-| A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
 | B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
-| C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
+| C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-스토리지 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 다음 탑재 지점은 미리 구성됩니다.
 
 | 탑재 지점 | 사용 사례 | 
@@ -308,16 +308,16 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 
 | NIC 논리적 인터페이스 | SKU 형식 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
-| A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
 | B | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
-| C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
+| C | 유형 I | eth1.tenant | eno2.tenant | 노드-스토리지 |
 | D | 유형 I | eth4.tenant | eno4.tenant | STONITH에 사용 |
-| A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
 | B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
-| C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
+| C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-스토리지 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | STONITH에 사용 |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 다음 탑재 지점은 미리 구성됩니다.
 
 | 탑재 지점 | 사용 사례 | 
@@ -356,16 +356,16 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 
 | NIC 논리적 인터페이스 | SKU 형식 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
-| A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
 | B | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
-| C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
+| C | 유형 I | eth1.tenant | eno2.tenant | 노드-스토리지 |
 | D | 유형 I | eth4.tenant | eno4.tenant | STONITH에 사용 |
-| A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
 | B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
-| C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
+| C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-스토리지 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | STONITH에 사용 |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 다음 탑재 지점은 미리 구성됩니다.
 
 | 탑재 지점 | 사용 사례 | 
@@ -415,16 +415,16 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 
 | NIC 논리적 인터페이스 | SKU 형식 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
-| A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
 | B | 유형 I | eth2.tenant | eno3.tenant | 노드 간 통신 |
-| C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
+| C | 유형 I | eth1.tenant | eno2.tenant | 노드-스토리지 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
-| A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
 | B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
-| C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
+| C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-스토리지 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 다음 탑재 지점은 미리 구성됩니다.
 
 | 탑재 지점 | 사용 사례 | 
@@ -456,16 +456,16 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 
 | NIC 논리적 인터페이스 | SKU 형식 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
-| A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
 | B | 유형 I | eth2.tenant | eno3.tenant | 노드 간 통신 |
-| C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
+| C | 유형 I | eth1.tenant | eno2.tenant | 노드-스토리지 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
-| A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
 | B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
-| C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
+| C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-스토리지 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 다음 탑재 지점은 미리 구성됩니다.
 
 | 탑재 지점 | 사용 사례 | 
@@ -492,16 +492,16 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 
 | NIC 논리적 인터페이스 | SKU 형식 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
-| A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
 | B | 유형 I | eth2.tenant | eno3.tenant | 노드 간 통신 |
-| C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
+| C | 유형 I | eth1.tenant | eno2.tenant | 노드-스토리지 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
-| A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
 | B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
-| C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
+| C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-스토리지 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 다음 탑재 지점은 미리 구성됩니다.
 
 | 탑재 지점 | 사용 사례 | 
@@ -531,16 +531,16 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 
 | NIC 논리적 인터페이스 | SKU 형식 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
-| A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
 | B | 유형 I | eth2.tenant | eno3.tenant | 노드 간 통신 |
-| C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
+| C | 유형 I | eth1.tenant | eno2.tenant | 노드-스토리지 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
-| A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
 | B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
-| C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
+| C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-스토리지 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 다음 탑재 지점은 미리 구성됩니다.
 
 | 탑재 지점 | 사용 사례 | 

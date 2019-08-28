@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: 032b6a4f5147d06a4613a827a0372437dca47f47
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5b4be7464a4c19cd0a71d5a786b46091cdbc074b
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60407635"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780205"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Azure Portal에서 사이트 간 연결 만들기
 
@@ -30,7 +30,7 @@ ms.locfileid: "60407635"
 
 ![사이트 간 VPN Gateway 크로스-프레미스 연결 다이어그램](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site-to-site-diagram.png)
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 구성을 시작하기 전에 다음 기준을 충족하는지 확인합니다.
 
@@ -42,11 +42,11 @@ ms.locfileid: "60407635"
 
 이 문서의 예제에서는 다음 값을 사용합니다. 이러한 값을 사용하여 테스트 환경을 만들거나 이 값을 참조하여 이 문서의 예제를 보다 정확하게 이해할 수 있습니다. 특정 게이트웨이 설정에 대한 자세한 내용은 [VPN Gateway 설정 정보](vpn-gateway-about-vpn-gateway-settings.md)를 참조하세요.
 
-* **VNet 이름:** TestVNet1
+* **VNet 이름:** VNet1
 * **주소 공간:** 10.1.0.0/16
 * **구독:** 사용할 구독
 * **리소스 그룹:** TestRG1
-* **위치:** 미국 동부
+* **위치:** East US
 * **서브넷:** 프런트 엔드: 10.1.0.0/24, 백 엔드: 10.1.1.0/24(이 연습의 선택 사항)
 * **게이트웨이 서브넷 이름:** GatewaySubnet(포털에서 자동으로 채워짐)
 * **게이트웨이 서브넷 주소 범위**: 10.1.255.0/27
@@ -66,9 +66,11 @@ ms.locfileid: "60407635"
 
 ## <a name="dns"></a>2. DNS 서버 지정
 
-DNS는 사이트 간 연결을 만들지 않아도 됩니다. 하지만 가상 네트워크에 배포된 리소스에 대한 이름을 확인하려는 경우 DNS 서버를 지정해야 합니다. 이 설정을 통해 이 가상 네트워크에 대한 이름을 확인하는 데 사용하려는 DNS 서버를 지정할 수 있습니다. DNS 서버를 만들지 않습니다. 이름 확인에 대한 자세한 내용은 [VM에서 이름 확인 및 역할 인스턴스](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)를 참조하세요.
+DNS는 사이트 간 연결을 만들지 않아도 됩니다.
 
-[!INCLUDE [Specify a dns server - optional](../../includes/vpn-gateway-specify-dns-portal-include.md)]
+하지만 가상 네트워크에 배포된 리소스에 대한 이름을 확인하려는 경우 DNS 서버를 지정해야 합니다. 이 설정을 통해 이 가상 네트워크에 대한 이름을 확인하는 데 사용하려는 DNS 서버를 지정할 수 있습니다. DNS 서버를 만들지 않습니다. 이름 확인에 대한 자세한 내용은 [VM에서 이름 확인 및 역할 인스턴스](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)를 참조하세요.
+
+[!INCLUDE [Specify a dns server - optional](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## <a name="gatewaysubnet"></a>3. 게이트웨이 서브넷 만들기
 

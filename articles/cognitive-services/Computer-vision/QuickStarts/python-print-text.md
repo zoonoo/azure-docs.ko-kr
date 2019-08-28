@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 65d956b9939144a5a73f224fb90f8bc959e726c6
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: a60d93b081637ca2be5ed0c6d1a21ce185e6cdbb
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341916"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321399"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-python-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 Python을 사용하여 인쇄된 텍스트 추출(OCR)
+# <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-python"></a>빠른 시작: Computer Vision REST API 및 Python을 사용하여 인쇄된 텍스트(OCR) 추출
 
 이 빠른 시작에서는 Computer Vision의 REST API를 사용하여 이미지에서 OCR(광학 문자 인식)이 포함된 인쇄 텍스트를 추출합니다. [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 메서드를 사용하여 이미지의 인쇄 텍스트를 감지하고, 인식된 문자를 머신에서 사용 가능한 문자 스트림으로 추출할 수 있습니다.
 
@@ -105,6 +105,21 @@ for word in word_infos:
     plt.text(origin[0], origin[1], text, fontsize=20, weight="bold", va="top")
 plt.axis("off")
 ```
+
+## <a name="upload-image-from-local-storage"></a>로컬 스토리지의 이미지 업로드
+
+로컬 이미지를 분석하려면 Content-Type 헤더를 애플리케이션/옥텟 스트림으로 설정하고, 요청 본문을 JSON 데이터가 아닌 바이트 배열로 설정합니다.
+
+```python
+image_path = "<path-to-local-image-file>"
+# Read the image into a byte array
+image_data = open(image_path, "rb").read()
+# Set Content-Type to octet-stream
+headers = {'Ocp-Apim-Subscription-Key': subscription_key, 'Content-Type': 'application/octet-stream'}
+# put the byte array into your post request
+response = requests.post(ocr_url, headers=headers, params=params, data = image_data)
+```
+
 
 ## <a name="examine-the-response"></a>응답 검사
 

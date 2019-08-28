@@ -21,7 +21,7 @@
           href: connect-truffle.md
 - name: 자습서
   items:
-    - name: 트랜잭션 보내기
+    - name: 스마트 계약 사용
       href: send-transaction.md
 - name: 개념
   items:

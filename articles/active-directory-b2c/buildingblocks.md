@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 67770661f0660b9a84d16bbbc7d86cfcbca2cfdf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ab2b11749aa57065a1a4d688b02fed97731ab7c
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511580"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464741"
 ---
 # <a name="buildingblocks"></a>BuildingBlocks
 
@@ -67,6 +67,8 @@ ms.locfileid: "66511580"
     - 정책에 제공된 매개 변수에서 문자열 클레임을 만듭니다.
     - 난수 생성기를 사용하여 임의 문자열을 만듭니다.
     - 입력한 형식 문자열에 따라 클레임 서식을 지정합니다. 이 변환에서는 C# `String.Format` 메서드를 사용합니다.
+    
+- InputValidation-이 요소를 사용 하면 *and* 및 *or*와 유사한 부울 집계를 수행할 수 있습니다.
 
 - [ContentDefinitions](contentdefinitions.md) - 사용자 경험에서 사용할 HTML5 템플릿의 URL을 포함합니다. 사용자 지정 정책에서 콘텐츠 정의는 사용자 경험의 지정된 단계에 사용되는 HTML5 페이지 URI를 정의합니다. 로그인/등록, 암호 재설정, 오류 페이지 등을 예로 들 수 있습니다. HTML5 파일의 LoadUri를 재정의하여 모양을 수정할 수 있습니다. 필요에 따라 새 콘텐츠 정의를 만들 수도 있습니다. 이 요소는 지역화 ID를 사용하는 지역화된 리소스 참조를 포함할 수 있습니다.
 

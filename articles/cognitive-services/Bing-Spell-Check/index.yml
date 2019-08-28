@@ -3,17 +3,16 @@ documentType: LandingData
 title: Bing Spell Check API 설명서
 metadata:
   document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
-  title: 'Bing Spell Check API 설명서 - 자습서, API 참조 - Azure Cognitive Services  | Microsoft Docs'
+  title: 'Bing Spell Check API 설명서 - 자습서, API 참조'
+  titleSuffix: Azure Cognitive Services
   description: Bing Spell Check API를 사용하여 텍스트 문서에 대해 제안된 수정을 가져오는 방법을 알아봅니다. 자습서에서는 API를 사용하는 앱을 작성하는 방법을 보여줍니다.
   services: cognitive-services
   author: aahill
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-spell-check
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 02/19/2019
+  ms.date: 07/25/2019
   ms.author: aahi
 abstract:
   description: 'Bing Spell Check API를 사용하면 문맥에 맞는 문법 및 맞춤법 검사를 수행할 수 있습니다. Bing은 기계 학습 및 통계 기계 번역을 활용하여 지속적으로 진화하고 항상 문맥에 맞는 알고리즘을 동적으로 학습하는 웹 기반 맞춤법 검사기를 개발했습니다. 맞춤법 검사기는 웹 검색 및 문서의 대규모 자료를 기반으로 합니다. 빠른 시작, 자습서, 샘플의 여러 방법으로 콘텐츠를 분석하는 방법에 대해 알아봅니다.'
@@ -95,7 +94,7 @@ sections:
           - title: REST (영문)
             html: '<p><a href="https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference">Bing Spell Check API v7 참조</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference">Bing Spell Check API v5 참조</a>(이전 버전)</p>'
           - title: SDK
-            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-spellcheck?view=azure-node-latest">Node.JS</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/spellcheck?view=azure-python">Python</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/spellcheck">Go</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/spellcheck?view=azure-java-stable">Java</a></p>'
+            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-spellcheck?view=azure-node-latest">Node.JS</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/spellcheck?view=azure-python">Python</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/spellcheck">Go</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-java-stable">Java</a></p>'
           - title: PowerShell
             html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
           - title: CLI

@@ -3,17 +3,18 @@ title: 빠른 시작 - Azure Container Instances에 Docker 컨테이너 배포 -
 description: 이 빠른 시작에서는 Azure Portal을 사용하여, 격리된 Azure 컨테이너 인스턴스에서 실행하는 컨테이너화된 웹앱을 신속하게 배포합니다.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 04/17/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 008d6d2a9a4a20e9fd083e9e2f009396a7f14df2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: bf3bea07fa2fcb67a467d4087ea9e2ccbfd95206
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995917"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325792"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure에서 컨테이너 인스턴스 배포
 
@@ -25,9 +26,9 @@ Azure Container Instances를 사용하여 Azure에서 서버리스 Docker 컨테
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 
-Azure 구독이 없는 경우 시작하기 전에 [체험 계정][azure-free-account]을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][azure-free-account]을 만듭니다.
 
 ## <a name="create-a-container-instance"></a>컨테이너 인스턴스 만들기
 

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 76eae5fa049ed1fbf7195277613867aca63c1082
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f0f9b2c974c0a095719973b1c6173d682718dbbf
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64867628"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "69014865"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>REST를 사용한 주문형 콘텐츠 제공 시작  
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 참고: [v2에서 v3 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
 
 이 자습서에서는 AMS(Azure Media Services) REST API를 사용하여 주문형 비디오(VoD) 콘텐츠 제공 애플리케이션을 구현하는 단계를 안내합니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "64867628"
 
 <a href="./media/media-services-rest-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-rest-get-started/media-services-overview-object-model-small.png"></a> 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 Media Services REST API를 사용하여 개발을 시작하려면 다음 필수 조건이 필요합니다.
 
 * Azure 계정. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
@@ -89,9 +89,9 @@ Media Services에서 자산에 디지털 파일을 업로드합니다. **자산*
 
 자산을 만들 때 제공해야 하는 값 중 하나는 자산 생성 옵션입니다. **옵션** 속성은 자산으로 만들 수 있는 암호화 옵션을 설명하는 열거 값입니다. 유효한 값은 이 목록의 값의 조합이 아니라 아래 목록에 있는 값 중 하나입니다.
 
-* **없음** = **0** - 암호화가 사용되지 않습니다. 이 옵션을 사용하면 콘텐츠가 전송 중인 상태이거나 저장소에 저장된 상태일 때 보호되지 않습니다.
+* **없음** = **0** - 암호화가 사용되지 않습니다. 이 옵션을 사용하면 콘텐츠가 전송 중인 상태이거나 스토리지에 저장된 상태일 때 보호되지 않습니다.
     MP4를 배달하려는 경우 이 옵션을 사용하세요.
-* **StorageEncrypted** = **1** - 암호화 되어 있지 않은 콘텐츠를 AES-256 비트 암호화를 사용하여 로컬에서 암호화한 다음 암호화되어 저장되는 Azure Storage에 업로드합니다. 저장소 암호화로 보호된 자산은 자동으로 암호 해제되어 인코딩되기 전에 암호화된 파일 시스템에 배치됩니다. 그리고 필요에 따라 새 출력 자산으로 다시 업로드되기 전에 다시 암호화됩니다. 저장소 암호화를 사용하는 기본적인 사례는 디스크에 저장된 상태일 때 강력한 암호화로 고품질의 입력 미디어 파일을 보호하려는 경우입니다.
+* **StorageEncrypted** = **1** - 암호화 되어 있지 않은 콘텐츠를 AES-256 비트 암호화를 사용하여 로컬에서 암호화한 다음 암호화되어 저장되는 Azure Storage에 업로드합니다. 스토리지 암호화로 보호된 자산은 자동으로 암호 해제되어 인코딩되기 전에 암호화된 파일 시스템에 배치됩니다. 그리고 필요에 따라 새 출력 자산으로 다시 업로드되기 전에 다시 암호화됩니다. 스토리지 암호화를 사용하는 기본적인 사례는 디스크에 저장된 상태일 때 강력한 암호화로 고품질의 입력 미디어 파일을 보호하려는 경우입니다.
 * **CommonEncryptionProtected** = **2** - 이미 암호화되어 일반적인 암호화 또는 PlayReady DRM(예: PlayReady DRM으로 보호되는 부드러운 스트리밍)으로 보호된 콘텐츠를 업로드하는 경우 이 옵션을 사용합니다.
 * **EnvelopeEncryptionProtected** = **4** - AES로 암호화된 HLS를 업로드하는 경우 이 옵션을 사용합니다. 파일을 Transform Manager로 인코딩 및 암호화해야 합니다.
 
@@ -332,14 +332,14 @@ SAS URL의 형식은 다음과 같습니다.
 AccessPolicy와 로케이터를 설정했으면 실제 파일은 Azure Storage REST API를 사용하여 Azure Blob Storage 컨테이너에 업로드됩니다. 블록 blob으로 파일을 업로드해야 합니다. 페이지 blob은 Azure Media Services에서 지원되지 않습니다.  
 
 > [!NOTE]
-> 이전 섹션에서 받은 로케이터 **경로** 값에 업로드하려는 파일에 대한 파일 이름을 추가해야 합니다. 예: `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4?`
+> 이전 섹션에서 받은 로케이터 **경로** 값에 업로드하려는 파일에 대한 파일 이름을 추가해야 합니다. `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4?` )을 입력합니다.
 >
 >
 
-Azure 저장소 Blob 작업에 대한 자세한 내용은 [Blob 서비스 REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API)를 참조하세요.
+Azure Storage Blob 작업에 대한 자세한 내용은 [Blob 서비스 REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API)를 참조하세요.
 
 ### <a name="update-the-assetfile"></a>AssetFile 업데이트
-이제 파일을 업로드했으므로 FileAsset 크기(및 기타) 정보를 업데이트합니다. 예를 들면 다음과 같습니다.
+이제 파일을 업로드했으므로 FileAsset 크기(및 기타) 정보를 업데이트합니다. 이는 아래와 같이 함수의 반환값을 데이터 프레임으로 바로 변환하는 데 사용할 수 있음을 나타냅니다.
 
     MERGE https://wamsbayclus001rest-hs.cloudapp.net/api/Files('nb%3Acid%3AUUID%3Af13a0137-0a62-9d4c-b3b9-ca944b5142c5') HTTP/1.1
     Content-Type: application/json
@@ -809,7 +809,7 @@ MPEG DASH에 대한 스트리밍 URL의 형식은 다음과 같습니다.
 반환된 **경로** 속성은 SAS URL을 포함합니다.
 
 > [!NOTE]
-> 저장소가 암호화된 콘텐츠를 다운로드하는 경우 렌더링하기 전에 수동으로 암호를 해독하거나 처리 작업에서 저장소 암호 해독 미디어 프로세서를 사용하여 암호화되지 않은 상태로 처리된 파일을 OutputAsset으로 출력한 다음 해당 자산에서 다운로드해야 있습니다. 처리에 대한 자세한 내용은 Media Services REST API를 사용하여 Encoding 작업 만들기를 참조하세요. 또한 SAS URL 로케이터를 만들고 나면 업데이트할 수 없습니다. 예를 들어, 업데이트된 StartTime 값으로 동일한 로케이터를 다시 사용할 수 없습니다. SAS URL을 만드는 방식 때문입니다. 로케이터가 만료된 후 다운로드할 자산에 액세스하려면 새 StartTime으로 새 로케이터를 만들어야 합니다.
+> 스토리지가 암호화된 콘텐츠를 다운로드하는 경우 렌더링하기 전에 수동으로 암호를 해독하거나 처리 작업에서 스토리지 암호 해독 미디어 프로세서를 사용하여 암호화되지 않은 상태로 처리된 파일을 OutputAsset으로 출력한 다음 해당 자산에서 다운로드해야 있습니다. 처리에 대한 자세한 내용은 Media Services REST API를 사용하여 Encoding 작업 만들기를 참조하세요. 또한 SAS URL 로케이터를 만들고 나면 업데이트할 수 없습니다. 예를 들어, 업데이트된 StartTime 값으로 동일한 로케이터를 다시 사용할 수 없습니다. SAS URL을 만드는 방식 때문입니다. 로케이터가 만료된 후 다운로드할 자산에 액세스하려면 새 StartTime으로 새 로케이터를 만들어야 합니다.
 >
 >
 
@@ -817,11 +817,11 @@ MPEG DASH에 대한 스트리밍 URL의 형식은 다음과 같습니다.
 AccessPolicy와 로케이터를 설정했으면 Azure Storage REST API를 사용하여 파일을 다운로드할 수 있습니다.  
 
 > [!NOTE]
-> 다운로드하려는 파일의 파일 이름을 이전 섹션에서 받은 로케이터 **경로** 값에 추가해야 합니다. 예를 들어 https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
+> 다운로드하려는 파일의 파일 이름을 이전 섹션에서 받은 로케이터 **경로** 값에 추가해야 합니다. 예를 들어 IPv4 주소를 사용하는 경우 https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? 을 선택합니다. 을 선택합니다. 을 선택합니다.
 
-Azure 저장소 Blob 작업에 대한 자세한 내용은 [Blob 서비스 REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API)를 참조하세요.
+Azure Storage Blob 작업에 대한 자세한 내용은 [Blob 서비스 REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API)를 참조하세요.
 
-이전에 수행한 인코딩 작업(적응 MP4 집합으로 인코딩)의 결과로 점진적으로 다운로드할 수 있는 여러 MP4 파일이 있습니다. 예를 들면 다음과 같습니다.    
+이전에 수행한 인코딩 작업(적응 MP4 집합으로 인코딩)의 결과로 점진적으로 다운로드할 수 있는 여러 MP4 파일이 있습니다. 이는 아래와 같이 함수의 반환값을 데이터 프레임으로 바로 변환하는 데 사용할 수 있음을 나타냅니다.    
 
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
@@ -911,7 +911,7 @@ MPEG DASH를 스트리밍하려면 "/매니페스트" 뒤에 추가(format=mpd-t
 
 
 ## <a id="play"></a>콘텐츠 재생
-비디오를 스트리밍하려면 [Azure Media Services 플레이어](https://amsplayer.azurewebsites.net/azuremediaplayer.html)를 사용합니다.
+비디오를 스트리밍하려면 [Azure Media Services 플레이어](https://aka.ms/azuremediaplayer)를 사용합니다.
 
 점진적 다운로드를 테스트하려면 IE, Chrome, Safari 등의 브라우저에 URL을 붙여 넣습니다.
 

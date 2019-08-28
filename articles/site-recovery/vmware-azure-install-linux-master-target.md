@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: efb49db6cce7ba238d40bf80ddf87b2a1a83834f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5b4b3f5025edef242b87215665fd65f131157943
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479995"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69904406"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>장애 복구(failback)를 위한 Linux 마스터 대상 서버 설치
 Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시 온-프레미스 사이트에 장애 복구할 수 있습니다. 장애 복구하려면 가상 머신을 Azure에서 온-프레미스 사이트로 다시 보호해야 합니다. 이 프로세스를 수행하려면 트래픽을 수신할 온-프레미스 마스터 대상 서버가 필요합니다. 
@@ -29,7 +29,7 @@ Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시
 
 이 문서의 마지막 부분 또는 [Azure Recovery Services 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 의견이나 질문을 게시할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 마스터 대상을 배포해야 하는 호스트를 선택하려면 기존 온-프레미스 가상 머신에 장애 복구를 수행할 것인지 아니면 새 가상 머신에 장애 복구를 수행할 것인지 결정합니다. 
     * 기존 가상 컴퓨터에서 수행하는 경우 마스터 대상의 호스트가 가상 컴퓨터의 데이터 저장소에 액세스할 수 있어야 합니다.
@@ -46,7 +46,7 @@ Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시
 - **보존 드라이브에 대한 추가 디스크 크기**: 1TB
 - **CPU 코어**: 4 코어 이상
 
-다음 Ubuntu 커널 지원 됩니다.
+지원 되는 Ubuntu 커널은 다음과 같습니다.
 
 
 |커널 시리즈  |최대 지원  |
@@ -62,7 +62,7 @@ Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시
 
 다음 단계를 통해 Ubuntu 16.04.2 64비트 운영 체제를 설치합니다.
 
-1.   로 이동 합니다 [다운로드 링크](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), 가장 가까운 미러를 선택 하 고 Ubuntu 16.04.2 최소 64 비트 ISO를 다운로드 합니다.
+1.   [다운로드 링크](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso)로 이동 하 여 가장 가까운 미러를 선택 하 고 Ubuntu 16.04.2 최소 64 비트 ISO를 다운로드 합니다.
 DVD 드라이브에서 Ubuntu 16.04.2 최소 64비트 ISO를 유지하고 시스템을 시작합니다.
 
 1.  기본 설정 언어로 **영어**를 선택하고 **Enter** 키를 선택합니다.
@@ -83,7 +83,7 @@ DVD 드라이브에서 Ubuntu 16.04.2 최소 64비트 ISO를 유지하고 시스
 1. **아니요**(기본 옵션)를 선택하고 **Enter** 키를 선택합니다.
 
      ![키보드 구성](./media/vmware-azure-install-linux-master-target/image5.png)
-1. 선택 **영어 (미국)** 국가/지역 키보드 및 선택에 대 한 원본으로 **Enter**합니다.
+1. 키보드의 원본 국가/지역으로 **영어 (미국)** 를 선택 하 고 **enter 키**를 선택 합니다.
 
 1. 키보드 레이아웃으로 **영어(미국)** 를 선택하고 **Enter** 키를 선택합니다.
 
@@ -214,12 +214,11 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
 
 ### <a name="apply-custom-configuration-changes"></a>사용자 지정 구성 변경 내용 적용
 
-사용자 지정 구성 변경 내용을 적용하려면 다음 단계를 따릅니다.
-
+사용자 지정 구성 변경 내용을 적용 하려면 루트 사용자로 다음 단계를 사용 합니다.
 
 1. 다음 명령을 실행하여 바이너리를 untar합니다.
 
-    `tar -zxvf latestlinuxmobsvc.tar.gz`
+    `tar -xvf latestlinuxmobsvc.tar.gz`
 
     ![실행할 명령 스크린샷](./media/vmware-azure-install-linux-master-target/image16.png)
 
@@ -245,7 +244,7 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
 
     ![다중 경로 ID](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. 드라이브를 포맷한 다음, 새 드라이브에서 파일 시스템을 만듭니다. **mkfs.ext4 /dev/mapper/<Retention disk's multipath id>**
+3. 드라이브를 포맷 하 고 새 드라이브에 파일 시스템을 만듭니다. **mkfs. ext4\</dev/mapper/보존 디스크의 다중 경로 id >** 합니다.
     
     ![파일 시스템](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
@@ -262,7 +261,7 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
     
     **Insert** 키를 눌러 파일을 편집하기 시작합니다. 새 줄을 만들고 다음 텍스트를 삽입합니다. 이전 명령에서 강조 표시된 다중 경로 ID에 따라 디스크 다중 경로 ID를 편집합니다.
 
-    **사용 하기 위해 /dev매퍼/\<보존 디스크 다중 경로 id >/mnt 보존 ext4 rw 0 0**
+    **/dev/mapper/\<보존 디스크 다중 경로 id >/mnt/retention ext4 rw 0 0**
 
     **Esc** 키를 선택하고 **:wq**(쓰기 및 종료)를 입력하여 편집기 창을 닫습니다.
 

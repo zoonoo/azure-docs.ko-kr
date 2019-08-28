@@ -2,7 +2,7 @@
 title: Azure의 데이터 웨어하우스 개발을 위한 리소스 | Microsoft Docs
 description: SQL Data Warehouse에 대한 개발 개념, 디자인 결정, 권장 사항 및 코딩 기술입니다.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 613bcb05dab993989a2ae00b71fef95794953ab8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a78d78618a4cd9bf8d2aaebbd0c0da13697549bc
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65850726"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479467"
 ---
 # <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>SQL Data Warehouse에 대한 디자인 결정 및 코딩 기술
 SQL Data Warehouse에 대한 주요 디자인 결정, 권장 사항 및 코딩 기술을 더 잘 이해하려면 다음 개발 문서를 살펴보세요.
@@ -23,7 +23,7 @@ SQL Data Warehouse에 대한 주요 디자인 결정, 권장 사항 및 코딩 �
 ## <a name="key-design-decisions"></a>주요 디자인 결정
 다음 문서에서는 SQL Data Warehouse를 사용하여 분산된 데이터 웨어하우스를 개발하는 개념 및 디자인 결정 사항을 중점적으로 설명합니다.
 
-* [연결][connections]
+* [connections][connections]
 * [동시성][concurrency]
 * [트랜잭션][transactions]
 * [사용자 정의 스키마][user-defined schemas]

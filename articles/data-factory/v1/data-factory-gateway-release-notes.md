@@ -126,7 +126,7 @@ ms.locfileid: "60486467"
 
     *  재구성되고 간소화된 컨트롤입니다.
 
-    *  [코드가 없는 복사 도구](data-factory-copy-data-wizard-tutorial.md)를 사용하여 저장소에서 데이터를 복사할 수 있습니다. 이 기능에 대한 전반적인 세부 정보는 [준비된 복사](data-factory-copy-activity-performance.md#staged-copy) 를 참조하세요.
+    *  [코드가 없는 복사 도구](data-factory-copy-data-wizard-tutorial.md)를 사용하여 스토리지에서 데이터를 복사할 수 있습니다. 이 기능에 대한 전반적인 세부 정보는 [준비된 복사](data-factory-copy-activity-performance.md#staged-copy) 를 참조하세요.
 *  데이터 관리 게이트웨이를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Machine Learning으로 직접 데이터를 수신할 수 있습니다.
 
 *  성능 개선

@@ -2,7 +2,7 @@
 title: Azure SQL Data Warehouse의 T-SQL 뷰 사용 | Microsoft Docs
 description: 솔루션 개발을 위한 Azure SQL Data Warehouse의 T-SQL 뷰 사용을 위한 팁입니다.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: d4321f8aef6e754d8a1c5b16ac82b4fa62c40949
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8a770e66120e69271744942899186ece39b2a3c3
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873601"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479517"
 ---
 # <a name="views-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 뷰
 솔루션 개발을 위한 Azure SQL Data Warehouse의 T-SQL 뷰 사용을 위한 팁입니다. 
@@ -23,12 +23,18 @@ ms.locfileid: "65873601"
 ## <a name="why-use-views"></a>뷰를 사용하는 이유
 뷰를 여러 가지 다양한 방법으로 사용하여 솔루션의 품질을 개선할 수 있습니다.  이 문서에서는 고려해야 할 제한 사항 뿐만 아니라 뷰를 통해 솔루션을 보완하는 방법의 예도 중점적으로 설명되어 있습니다.
 
+
+> [!IMPORTANT]
+> [구체화 된 뷰를 SELECT로 만들기](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest)에서 새로운 구체화 된 뷰 구문을 참조 하세요.  자세한 내용은 [릴리스 정보](/azure/sql-data-warehouse/release-notes-10-0-10106-0)를 참조 하세요.
+>
+
+
 > [!NOTE]
 > CREATE VIEW에 대한 구문은 이 문서에서 다루지 않습니다. 자세한 내용은 [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql)를 참조하세요.
 > 
-> 
 
 ## <a name="architectural-abstraction"></a>아키텍처 추상화
+
 일반적인 애플리케이션 패턴은 CREATE TABLE AS SELECT (CTAS) 뒤에 데이터 로드 중 개체 이름 바꾸기 패턴을 사용하여 테이블을 다시 작성하는 것입니다.
 
 다음 예제에서는 새 날짜 레코드를 날짜 차원에 추가합니다. 먼저 새 테이블 DimDate_New를 만든 다음, 이름을 바꾸어 원래 버전의 테이블을 바꾸는 방법을 확인합니다.

@@ -4,15 +4,15 @@ description: SQL API를 사용하여 Azure Cosmos DB 전역 배포를 설정하�
 author: rimman
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 05/10/2019
+ms.date: 07/15/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 4f97d1f052cd8684674eecf479133051f2cfb76e
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: a566094f88ba9ffd25eadd046ae7254e26b9c2cf
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480559"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234592"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>SQL API를 사용하여 Azure Cosmos DB 전역 배포 설정
 
@@ -30,7 +30,7 @@ ms.locfileid: "66480559"
 
 ## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a>SQL API를 사용하여 기본 설정 지역에 연결
 
-[전역 배포](distribute-data-globally.md)를 활용하기 위해 클라이언트 응용 프로그램은 문서 작업을 수행하는 데 사용할 정렬된 기본 지역 목록을 지정할 수 있습니다. 이는 연결 정책을 설정하여 수행할 수 있습니다. SQL SDK에서 Azure Cosmos DB 계정 구성, 현재 지역 가용성 및 지정된 기본 설정 목록을 기반으로 하여 쓰기 및 읽기 작업을 수행하는 데 가장 적합한 엔드포인트를 선택합니다.
+[전역 배포](distribute-data-globally.md)를 활용하기 위해 클라이언트 애플리케이션은 문서 작업을 수행하는 데 사용할 정렬된 기본 지역 목록을 지정할 수 있습니다. 이는 연결 정책을 설정하여 수행할 수 있습니다. SQL SDK에서 Azure Cosmos DB 계정 구성, 현재 지역 가용성 및 지정된 기본 설정 목록을 기반으로 하여 쓰기 및 읽기 작업을 수행하는 데 가장 적합한 엔드포인트를 선택합니다.
 
 이 기본 설정 목록은 SQL SDK를 사용하여 연결을 초기화할 때 지정됩니다. SDK는 Azure 지역의 정렬된 목록인 "PreferredLocations"라는 선택적 매개 변수를 수락합니다.
 
@@ -40,7 +40,7 @@ SDK는 현재 쓰기 지역에 모든 쓰기를 자동 전송합니다.
 
 SDK는 PreferredLocations에 지정된 지역에서만 읽기를 시도합니다. 따라서 가령 데이터베이스 계정이 4개 지역에서 사용될 수 있지만 클라이언트는 PreferredLocations에 두 읽기(쓰기 아님) 지역만 지정했다면, PreferredLocations에 지정되지 않은 읽기 지역에서 읽기를 제공하지 않습니다. PreferredLocations에 지정된 읽기 영역을 사용할 수 없는 경우 읽기는 쓰기 영역 외부로 처리됩니다.
 
-응용 프로그램은 두 가지 속성(WirteEndpoint 및 ReadEndpoint)을 확인하여 SDK가 선택한 현재의 쓰기 엔드포인트와 읽기 엔드포인트를 확인할 수 있습니다. SDK 버전 1.8 이상부터 사용 가능합니다.
+애플리케이션은 두 가지 속성(WirteEndpoint 및 ReadEndpoint)을 확인하여 SDK가 선택한 현재의 쓰기 엔드포인트와 읽기 엔드포인트를 확인할 수 있습니다. SDK 버전 1.8 이상부터 사용 가능합니다.
 
 PreferredLocations 속성이 설정되지 않는다면 모든 요청은 현재 쓰기 지역에서 제공됩니다.
 
@@ -78,7 +78,8 @@ DocumentClient docClient = new DocumentClient(
 await docClient.OpenAsync().ConfigureAwait(false);
 ```
 
-## <a name="nodejs-javascript-and-python-sdks"></a>NodeJS, JavaScript 및 Python SDK
+## <a name="nodejsjavascript"></a>Node.js/JavaScript
+
 SDK는 코드 변경 없이 사용할 수 있습니다. 이 경우 SDK는 읽기와 쓰기를 현재 쓰기 지역에 자동으로 가져옵니다.
 
 각 SDK의 1.8 버전 이상에서 DocumentClient 생성자의 ConnectionPolicy 매개 변수에는 DocumentClient.ConnectionPolicy.PreferredLocations라는 새로운 속성이 있습니다. 이 매개 변수는 지역 이름 목록을 가지는 문자열 배열입니다. 이름은 [Azure 지역][regions] 페이지의 지역 이름 열에 따라 서식이 지정됩니다. 또한, 편의 개체 AzureDocuments.Regions에 사전 지정된 상수를 사용할 수도 있습니다.
@@ -90,7 +91,7 @@ SDK는 코드 변경 없이 사용할 수 있습니다. 이 경우 SDK는 읽기
 >
 >
 
-다음은 NodeJS/Javascript의 코드 예제입니다. Python과 Java도 같은 패턴을 따릅니다.
+다음은 Node.js/Javascript의 코드 예제입니다.
 
 ```JavaScript
 // Creating a ConnectionPolicy object
@@ -104,6 +105,34 @@ connectionPolicy.PreferredLocations = ['West US', 'East US', 'North Europe'];
 
 // initialize the connection
 var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPolicy);
+```
+
+## <a name="python-sdk"></a>Python SDK
+
+다음 코드는 Python SDK를 사용하여 기본 위치를 설정하는 방법을 보여줍니다.
+
+```python
+
+connectionPolicy = documents.ConnectionPolicy()
+connectionPolicy.PreferredLocations = ['West US', 'East US', 'North Europe']
+client = cosmos_client.CosmosClient(ENDPOINT, {'masterKey': MASTER_KEY}, connectionPolicy)
+
+```
+
+## <a name="java-v2-sdk"></a>Java V2 SDK
+
+다음 코드는 Java SDK를 사용하여 기본 위치를 설정하는 방법을 보여줍니다.
+
+```java
+ConnectionPolicy policy = new ConnectionPolicy();
+policy.setUsingMultipleWriteLocations(true);
+policy.setPreferredLocations(Arrays.asList("East US", "West US", "Canada Central"));
+AsyncDocumentClient client =
+        new AsyncDocumentClient.Builder()
+                .withMasterKeyOrResourceToken(this.accountKey)
+                .withServiceEndpoint(this.accountEndpoint)
+                .withConnectionPolicy(policy)
+                .build();
 ```
 
 ## <a name="rest"></a>REST (영문)

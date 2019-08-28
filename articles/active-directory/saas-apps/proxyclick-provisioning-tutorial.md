@@ -8,19 +8,19 @@ writer: zchia
 manager: beatrizd
 ms.assetid: na
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
-ms.author: zchia
-ms.openlocfilehash: 2117f481d213c14f8feeb23eb8af3670db81cab4
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.author: jeedes
+ms.openlocfilehash: c1656e6cc0c690e5a2bccfd2efab02aa843875b8
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276640"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672895"
 ---
 # <a name="tutorial-configure-proxyclick-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Proxyclick 구성
 
@@ -31,7 +31,7 @@ ms.locfileid: "67276640"
 >
 > 이 커넥터는 현재 공개 미리 보기로 있습니다. 일반적인 Microsoft Azure 사용 약관 미리 보기 기능에 대 한 자세한 내용은 참조 하세요. [사용 특약 조건의 Microsoft Azure 미리 보기에 대 한](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -136,7 +136,7 @@ Proxyclick 자동 사용자를 Azure AD를 사용 하 여 프로 비전을 구�
 
     ![알림 전자 메일](common/provisioning-notification-email.png)
 
-9. **저장**을 클릭합니다.
+9. **Save**을 클릭합니다.
 
 10. 아래는 **매핑을** 섹션에서 **Azure Active Directory 사용자를 동기화 Proxyclick**합니다.
 
@@ -169,7 +169,7 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 * Proxyclick 필요 **전자 메일** 하 고 **userName** 동일한 원본 값입니다. 두 특성에 대 한 업데이트는 다른 값을 수정 합니다.
 * Proxyclick 그룹에 대 한 프로 비전을 지원 하지 않습니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)

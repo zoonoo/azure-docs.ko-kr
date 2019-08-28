@@ -5,13 +5,13 @@ ms.service: cosmos-db
 author: tknandu
 ms.author: ramkris
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.openlocfilehash: a997f1d0fd304b43f56953c51e6a8944a4c93ce0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: 56f293600d876a5bc52b618ce8eed044e93f424d
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257192"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616881"
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB는 Azure 플랫폼에 람다 아키텍처 구현 
 
@@ -42,7 +42,7 @@ Azure에서 람다 아키텍처를 구현하려면 다음 기술을 결합하여
 
 계속 참조해 가면서 다음을 사용하여 이 아키텍처를 구현할 수 있습니다.
 
-* Azure Cosmos DB 컬렉션
+* Azure Cosmos 컨테이너
 * HDInsight(Apache Spark 2.1) 클러스터
 * Spark 커넥터 [1.0](https://github.com/Azure/azure-cosmosdb-spark/tree/master/releases/azure-cosmosdb-spark_2.1.0_2.11-1.0.0)
 
@@ -114,7 +114,7 @@ Azure Cosmos DB 변경 피드에 대한 자세한 내용은 다음을 참조하�
 
  1. 멀티캐스팅 문제를 방지하기 위해 모든 **데이터**가 Azure Cosmos DB에만 푸시됩니다.
  2. **일괄 처리 계층**에는 Azure Cosmos DB에 저장되는 마스터 데이터 세트(변경 불가능한 추가 전용 원시 데이터 세트)가 있습니다. HDI Spark를 사용하면 집계를 미리 계산하여 계산된 일괄 처리 보기에 저장할 수 있습니다.
- 3. **서비스 계층**은 마스터 데이터 세트 및 계산된 일괄 처리 보기에 대한 컬렉션이 있는 Azure Cosmos DB 데이터베이스입니다.
+ 3. **서비스 계층** 은 마스터 데이터 집합 및 계산 된 일괄 처리 보기에 대 한 컬렉션을 포함 하는 Azure Cosmos 데이터베이스입니다.
  4. **속도 계층**은 이 문서의 뒷부분에서 설명합니다.
  5. 일괄 처리 보기와 실시간 보기의 결과를 병합하거나 개별적으로 ping하여 모든 쿼리에 응답할 수 있습니다.
 
@@ -161,7 +161,7 @@ limit 10
 
 ![해시태그당 트윗 수를 보여 주는 차트](./media/lambda-architecture/lambda-architecture-batch-hashtags-bar-chart.png)
 
-이제 쿼리를 수행했으므로 출력 데이터를 다른 컬렉션에 저장하기 위해 Spark 커넥터를 사용하여 컬렉션에 다시 저장해 보겠습니다.  이 예제에서는 Scala를 사용하여 연결을 보여 줍니다. 이전 예제와 비슷하게 Apache Spark 데이터 프레임을 다른 Azure Cosmos DB 컬렉션에 저장하도록 구성 연결을 만듭니다.
+이제 쿼리를 수행했으므로 출력 데이터를 다른 컬렉션에 저장하기 위해 Spark 커넥터를 사용하여 컬렉션에 다시 저장해 보겠습니다.  이 예제에서는 Scala를 사용하여 연결을 보여 줍니다. 이전 예제와 마찬가지로 Apache Spark 데이터 프레임을 다른 Azure Cosmos 컨테이너에 저장 하는 구성 연결을 만듭니다.
 
 ```
 val writeConfigMap = Map(
@@ -192,7 +192,7 @@ val tweets_bytags = spark.sql("select hashtags.text as hashtags, count(distinct 
 tweets_bytags.write.mode(SaveMode.Overwrite).cosmosDB(writeConfig)
 ```
 
-이제 이 마지막 명령문에서 Spark 데이터 프레임이 새 Azure Cosmos DB 컬렉션에 저장되었습니다. 람다 아키텍처 측면에서 이는 **서비스 계층** 내의 **일괄 처리 보기**입니다.
+이제이 마지막 문이 Spark 데이터 프레임을 새 Azure Cosmos 컨테이너에 저장 했습니다. 람다 아키텍처 관점에서 볼 때이는 **서비스 계층**내의 **일괄 처리 뷰입니다** .
  
 #### <a name="resources"></a>리소스
 
@@ -205,7 +205,7 @@ tweets_bytags.write.mode(SaveMode.Overwrite).cosmosDB(writeConfig)
 
 ![속도 계층을 강조 표시한 람다 아키텍처 다이어그램](./media/lambda-architecture/lambda-architecture-speed.png)
 
-이렇게 하려면 별도의 Azure Cosmos DB 컬렉션을 만들어 구조화된 스트리밍 쿼리의 결과를 저장합니다.  이렇게 하면 Apache Spark뿐 아니라 다른 시스템에서도 이 정보에 액세스할 수 있습니다. Cosmos DB TTL(Time-to-Live) 기능뿐만 아니라 설정된 기간 후에 문서가 자동으로 삭제되도록 구성할 수 있습니다.  Azure Cosmos DB TTL 기능에 대한 자세한 내용은 [TTL(Time To Live)을 사용하여 자동으로 Azure Cosmos DB 컬렉션의 데이터 만료](time-to-live.md)를 참조하세요.
+이렇게 하려면 별도의 Azure Cosmos 컨테이너를 만들어 구조화 된 스트리밍 쿼리의 결과를 저장 합니다.  이렇게 하면 Apache Spark뿐 아니라 다른 시스템에서도 이 정보에 액세스할 수 있습니다. Cosmos DB TTL(Time-to-Live) 기능뿐만 아니라 설정된 기간 후에 문서가 자동으로 삭제되도록 구성할 수 있습니다.  Azure Cosmos DB TTL 기능에 대 한 자세한 내용은 [time to live에서 자동으로 Azure Cosmos 컨테이너의 데이터 만료](time-to-live.md) 를 참조 하세요.
 
 ```
 // Import Libraries
@@ -264,8 +264,8 @@ var streamingQuery = streamingQueryWriter.start()
 * **서비스 계층:** **서비스 계층**은 미리 컴퓨팅된 데이터로 구성되어 빠른 쿼리에 대한 일괄 처리 보기(예: 집계, 특정 슬라이서 등)를 생성합니다.
   * **람다 아키텍처 재개발 - 일괄 처리 및 서비스 계층** 노트북 [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.html)은 일괄 처리 데이터를 서비스 계층으로 푸시합니다. 즉 Spark에서 트윗의 일괄 처리 컬렉션을 쿼리하고, 처리하고, 다른 컬렉션(계산된 일괄 처리)에 저장합니다.
     * **속도 계층:** **속도 계층**은 Azure Cosmos DB 변경 피드를 활용하여 즉시 읽고 작업을 수행하는 Spark로 구성됩니다. 또한 데이터가 *계산된 RT*에 저장되어 다른 시스템에서 실시간 쿼리를 실행하는 것과 달리 처리된 실시간 데이터를 쿼리할 수 있습니다.
-  * [Streaming Query from Cosmos DB Change Feed](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Query%20from%20Cosmos%20DB%20Change%20Feed.scala) Scala 스크립트는 Azure Cosmos DB 변경 피드의 스트리밍 쿼리를 실행하여 spark-shell의 간격 수를 계산합니다.
-  * [Streaming Tags Query from Cosmos DB Change Feed](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Tags%20Query%20from%20Cosmos%20DB%20Change%20Feed%20.scala) Scala 스크립트는 Azure Cosmos DB 변경 피드의 스트리밍 쿼리를 실행하여 spark-shell의 태그 간격 수를 계산합니다.
+  * [Streaming Query from Cosmos DB Change Feed](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Query%20from%20Cosmos%20DB%20Change%20Feed.scala) Scala 스크립트는 Azure Cosmos DB 변경 피드의 스트리밍 쿼리를 실행하여 spark-shell의 간격 수를 컴퓨팅합니다.
+  * [Streaming Tags Query from Cosmos DB Change Feed](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Tags%20Query%20from%20Cosmos%20DB%20Change%20Feed%20.scala) Scala 스크립트는 Azure Cosmos DB 변경 피드의 스트리밍 쿼리를 실행하여 spark-shell의 태그 간격 수를 컴퓨팅합니다.
   
 ## <a name="next-steps"></a>다음 단계
 Cosmos DB와 Spark를 아직 연결하지 않았으면 [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark) GitHub 리포지토리에서 Spark-Azure Cosmos DB 커넥터를 다운로드하고 다음 리포지토리에서 추가 리소스를 탐색합니다.

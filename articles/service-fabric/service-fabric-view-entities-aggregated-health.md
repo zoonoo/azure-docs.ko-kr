@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: e4edcc0aecfbf03aff7cf9bee764522bb1c489f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1721f10f8950577080a89ba58a3eb4dd3a25c188
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60716396"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249176"
 ---
 # <a name="view-service-fabric-health-reports"></a>서비스 패브릭 상태 보고서 보기
 Azure Service Fabric은 시스템 구성 요소와 워치독이 모니터링하는 로컬 조건을 보고할 수 있는 상태 엔터티가 있는 [상태 모델](service-fabric-health-introduction.md)을 사용합니다. [상태 저장소](service-fabric-health-introduction.md#health-store) 는 모든 상태 데이터를 집계하여 엔터티가 정상인지 여부를 판단합니다.
@@ -233,7 +233,7 @@ ApplicationHealthStates :
 HealthEvents            : None
 ```
 
-### <a name="rest"></a>REST (영문)
+### <a name="rest"></a>REST(영문)
 본문에 설명된 상태 정책을 포함하는 [GET 요청](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster) 또는 [POST 요청](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-by-using-a-health-policy)를 사용하여 클러스터 상태를 가져올 수 있습니다.
 
 ## <a name="get-node-health"></a>노드 상태 가져오기
@@ -302,7 +302,7 @@ _Node_1                     Ok
 _Node_0                     Ok
 ```
 
-### <a name="rest"></a>REST (영문)
+### <a name="rest"></a>REST(영문)
 본문에 설명된 상태 정책을 포함하는 [GET 요청](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node) 또는 [POST 요청](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node-by-using-a-health-policy)를 사용하여 노드 상태를 가져올 수 있습니다.
 
 ## <a name="get-application-health"></a>애플리케이션 상태 가져오기
@@ -448,7 +448,7 @@ DeployedApplicationHealthStates : None
 HealthEvents                    : None
 ```
 
-### <a name="rest"></a>REST (영문)
+### <a name="rest"></a>REST(영문)
 본문에 설명된 상태 정책을 포함하는 [GET 요청](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-an-application) 또는 [POST 요청](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-an-application-by-using-an-application-health-policy)를 사용하여 애플리케이션 상태를 가져올 수 있습니다.
 
 ## <a name="get-service-health"></a>서비스 상태 가져오기
@@ -520,7 +520,7 @@ HealthStatistics      :
                         Partition             : 0 Ok, 1 Warning, 0 Error
 ```
 
-### <a name="rest"></a>REST (영문)
+### <a name="rest"></a>REST(영문)
 본문에 설명된 상태 정책을 포함하는 [GET 요청](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service) 또는 [POST 요청](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-by-using-a-health-policy)를 사용하여 서비스 상태를 가져올 수 있습니다.
 
 ## <a name="get-partition-health"></a>파티션 상태 가져오기
@@ -612,7 +612,7 @@ HealthStatistics      :
                         Replica               : 5 Ok, 0 Warning, 0 Error
 ```
 
-### <a name="rest"></a>REST (영문)
+### <a name="rest"></a>REST(영문)
 본문에 설명된 상태 정책을 포함하는 [GET 요청](/rest/api/servicefabric/sfclient-api-getpartitionhealth) 또는 [POST 요청](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy)를 사용하여 파티션 상태를 가져올 수 있습니다.
 
 ## <a name="get-replica-health"></a>복제본 상태 가져오기
@@ -655,7 +655,7 @@ HealthEvents          :
                         Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="rest"></a>REST (영문)
+### <a name="rest"></a>REST(영문)
 본문에 설명된 상태 정책을 포함하는 [GET 요청](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica) 또는 [POST 요청](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica-by-using-a-health-policy)를 사용하여 복제본 상태를 가져올 수 있습니다.
 
 ## <a name="get-deployed-application-health"></a>배포된 애플리케이션 상태 가져오기
@@ -714,7 +714,7 @@ HealthStatistics                   :
                                      DeployedServicePackage : 2 Ok, 0 Warning, 0 Error
 ```
 
-### <a name="rest"></a>REST (영문)
+### <a name="rest"></a>REST(영문)
 본문에 설명된 상태 정책을 포함하는 [GET 요청](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application) 또는 [POST 요청](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application-by-using-a-health-policy)를 사용하여 배포된 애플리케이션 상태를 가져올 수 있습니다.
 
 ## <a name="get-deployed-service-package-health"></a>배포된 서비스 패키지 상태 가져오기
@@ -784,7 +784,7 @@ HealthEvents               :
                              Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="rest"></a>REST (영문)
+### <a name="rest"></a>REST(영문)
 본문에 설명된 상태 정책을 포함하는 [GET 요청](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package) 또는 [POST 요청](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package-by-using-a-health-policy)를 사용하여 배포된 서비스 패키지 상태를 가져올 수 있습니다.
 
 ## <a name="health-chunk-queries"></a>상태 청크 쿼리
@@ -1015,7 +1015,7 @@ ApplicationHealthStateChunks :
                                     HealthState           : Ok
 ```
 
-### <a name="rest"></a>REST (영문)
+### <a name="rest"></a>REST(영문)
 본문에 설명된 상태 정책 및 고급 필터를 포함하는 [GET 요청](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-using-health-chunks) 또는 [POST 요청](https://docs.microsoft.com/rest/api/servicefabric/health-of-cluster)를 사용하여 클러스터 상태 청크를 가져올 수 있습니다.
 
 ## <a name="general-queries"></a>일반 쿼리
@@ -1053,7 +1053,7 @@ ApplicationHealthStateChunks :
   * PowerShell: Get-ServiceFabricDeployedApplication
 
 > [!NOTE]
-> 일부 쿼리는 페이징된 결과를 반환합니다. 반환되는 이러한 쿼리는 [PagedList<T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1)에서 파생된 목록입니다. 결과가 메시지와 맞지 않으면 한 페이지만 반환되고 열거형이 중지된 위치를 추적하는 ContinuationToken이 반환됩니다. 다음 결과를 얻으려면 계속해서 동일한 쿼리를 호출하고 이전 쿼리의 연속 토큰을 전달합니다.
+> 일부 쿼리는 페이징된 결과를 반환합니다. 이러한 쿼리는 [\<PagedList T >](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1)에서 파생 된 목록으로 반환 됩니다. 결과가 메시지와 맞지 않으면 한 페이지만 반환되고 열거형이 중지된 위치를 추적하는 ContinuationToken이 반환됩니다. 다음 결과를 얻으려면 계속해서 동일한 쿼리를 호출하고 이전 쿼리의 연속 토큰을 전달합니다.
 
 ### <a name="examples"></a>예
 다음 코드는 클러스터에서 비정상 애플리케이션을 가져옵니다.

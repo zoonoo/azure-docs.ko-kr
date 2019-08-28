@@ -1,25 +1,25 @@
 ---
 title: '자습서: 사용자 지정 로고 탐지기를 사용하여 Azure 서비스 인식 - Custom Vision'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 이 자습서에서는 로고 탐지 시나리오의 일부로 Azure Custom Vision을 사용하는 샘플 앱을 단계별로 살펴봅니다. 다른 구성 요소와 함께 Custom Vision을 사용하여 엔드투엔드 애플리케이션을 제공하는 방법을 알아봅니다.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 51b2cd42fabe6406f88388e99459a6f3dd3e69f5
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: b0a5b110951d7b13110fab935d5ca1333f7f8c1e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827647"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564207"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>자습서: 카메라 사진에서 Azure 서비스 로고 인식
 
-이 자습서에서는 보다 큰 시나리오의 일부로 Azure Custom Vision을 사용하는 샘플 앱을 살펴봅니다. 모바일 플랫폼용 Xamarin.Forms 앱인 AI Visual Provision 앱은 Azure 서비스 로고의 카메라 사진을 분석하여 실제 서비스를 사용자의 Azure 계정에 배포합니다. 이 문서에서는 다른 구성 요소와 함께 Custom Vision을 사용하여 유용한 엔드투엔드 애플리케이션을 제공하는 방법을 알아봅니다. 전체 앱 시나리오를 직접 실행하거나 설정의 Custom Vision 파트만 완료하고 앱에서 어떻게 사용되는지 살펴보는 것도 가능합니다.
+이 자습서에서는 보다 큰 시나리오의 일부로 Azure Custom Vision을 사용하는 샘플 앱을 살펴봅니다. 모바일 플랫폼용 Xamarin.Forms 앱인 AI Visual Provision 앱은 Azure 서비스 로고의 카메라 사진을 분석하여 실제 서비스를 사용자의 Azure 계정에 배포합니다. 이 문서에서는 다른 구성 요소와 함께 Custom Vision을 사용하여 유용한 엔드투엔드 애플리케이션을 제공하는 방법을 알아봅니다. 전체 앱 시나리오를 직접 실행하거나 설정의 Custom Vision 파트만 완료하고 앱에서 어떻게 사용되는지 살펴볼 수 있습니다.
 
 이 자습서는 다음에 대한 방법을 보여 줍니다.
 
@@ -51,7 +51,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 다음으로, Azure 서비스 로고 이미지를 업로드하고 수동으로 태그를 지정하여 로고 감지 알고리즘을 학습합니다. AIVisualProvision 리포지토리에는 사용 가능한 학습 이미지 세트가 포함되어 있습니다. 웹 사이트의 **학습 이미지** 탭에서 **이미지 추가** 단추를 선택합니다. 그런 다음, 리포지토리의 **Documents/Images/Training_DataSet** 폴더로 이동합니다. 각 이미지의 로고에 수동으로 태그를 지정해야 하므로 이 프로젝트만 테스트하려는 경우 이미지의 일부만 업로드하면 됩니다. 사용하려는 각 태그의 인스턴스를 적어도 15개 업로드합니다.
 
-학습 이미지를 업로드한 후에는 화면에서 첫 번째 이미지를 선택합니다. 그러면 태그 지정 창이 나타날 것입니다. 각 이미지에서 상자를 그리고 각 로고에 대한 태그를 할당합니다. 
+학습 이미지를 업로드한 후에는 화면에서 첫 번째 이미지를 선택합니다. 태그 지정 창이 나타납니다. 각 이미지에서 상자를 그리고 각 로고에 대한 태그를 할당합니다. 
 
 ![Custom Vision 웹 사이트에서 로고 태그 지정](media/azure-logo-tutorial/tag-logos.png)
 
@@ -63,13 +63,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="train-the-object-detector"></a>개체 감지기 학습
 
-왼쪽 창에서 **태그** 스위치를 **태그 있음**으로 설정하면 이미지가 표시됩니다. 그런 다음, 페이지 위쪽에서 모델을 학습하는 녹색 단추를 선택합니다. 그러면 새 이미지에서 동일한 태그를 인식하는 알고리즘이 학습됩니다. 또한 일부 기존 이미지의 모델을 테스트하여 정확도 점수를 생성합니다.
+왼쪽 창에서 **태그** 스위치를 **태그 있음**으로 설정하면 이미지가 표시됩니다. 그런 다음, 페이지 위쪽에서 모델을 학습하는 녹색 단추를 선택합니다. 알고리즘이 새 이미지에서 동일한 태그를 인식하도록 학습합니다. 또한 일부 기존 이미지의 모델을 테스트하여 정확도 점수를 생성합니다.
 
 ![Custom Vision 웹 사이트의 [학습 이미지] 탭. 이 스크린샷에서는 [학습] 단추에 윤곽선이 그려져 있음](media/azure-logo-tutorial/train-model.png)
 
 ## <a name="get-the-prediction-url"></a>예측 URL 가져오기
 
-모델 학습을 마치면 모델을 앱에 통합할 수 있습니다. 이렇게 하려면 엔드포인트 URL(앱에서 쿼리할 모델 주소) 및 예측 키(앱에 예측 요청 액세스를 부여하는 데 사용)를 가져와야 합니다. **성능** 탭에서, 페이지 위쪽에 있는 **예측 URL** 단추를 선택합니다.
+모델 학습을 마치면 모델을 앱에 통합할 수 있습니다. 엔드포인트 URL(앱에서 쿼리할 모델 주소) 및 예측 키(앱에 예측 요청 액세스를 부여하는 데 사용)를 가져와야 합니다. **성능** 탭에서, 페이지 위쪽에 있는 **예측 URL** 단추를 선택합니다.
 
 ![URL 주소 및 API 키가 있는 예측 API 창을 보여 주는 Custom Vision 웹 사이트](media/azure-logo-tutorial/cusvis-endpoint.png)
 

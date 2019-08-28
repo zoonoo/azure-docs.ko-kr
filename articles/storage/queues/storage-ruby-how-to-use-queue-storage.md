@@ -1,21 +1,19 @@
 ---
-title: Ruby에서 Azure Storage에서 큐 저장소를 사용 하는 방법
+title: Ruby에서 큐 저장소를 사용 하는 방법-Azure Storage
 description: Azure 큐 서비스를 사용하여 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법을 알아봅니다. 샘플은 Ruby로 작성되었습니다.
-services: storage
 author: mhopkins-msft
-ms.service: storage
-ms.devlang: ruby
-ms.topic: article
-ms.date: 12/08/2016
 ms.author: mhopkins
-ms.reviewer: cbrooks
+ms.date: 12/08/2016
+ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 30a090aeb2d66c732e70a9acce67d5f3374c32fa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+ms.reviewer: cbrooks
+ms.openlocfilehash: c7211bc805f4ed1d026faedbfdc9d53d3c1dfd93
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153160"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721268"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Ruby에서 Queue Storage를 사용하는 방법
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -34,14 +32,14 @@ ms.locfileid: "65153160"
 Ruby 애플리케이션을 만듭니다. 지침은 [Linux의 App Service에서 Ruby 앱 만들기](https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby)를 참조하세요.
 
 ## <a name="configure-your-application-to-access-storage"></a>스토리지에 액세스하도록 애플리케이션 구성
-Azure 저장소를 사용하려면 저장소 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함된 Ruby Azure 패키지를 다운로드하여 사용해야 합니다.
+Azure Storage를 사용하려면 스토리지 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함된 Ruby Azure 패키지를 다운로드하여 사용해야 합니다.
 
 ### <a name="use-rubygems-to-obtain-the-package"></a>RubyGems를 사용하여 패키지 가져오기
 1. **PowerShell**(Windows), **Terminal**(Mac) 또는 **Bash**(Unix)와 같은 명령줄 인터페이스를 사용합니다.
 2. 명령 창에 "gem install azure"를 입력하여 gem 및 종속성을 설치합니다.
 
 ### <a name="import-the-package"></a>패키지 가져오기
-원하는 텍스트 편집기를 사용하여 저장소를 사용하려는 Ruby 파일의 맨 위에 다음을 추가합니다.
+원하는 텍스트 편집기를 사용하여 스토리지를 사용하려는 Ruby 파일의 맨 위에 다음을 추가합니다.
 
 ```ruby
 require "azure"
@@ -55,10 +53,10 @@ Azure.config.storage_account_name = "<your azure storage account>"
 Azure.config.storage_access_key = "<your Azure storage access key>"
 ```
 
-Azure 포털의 클래식 또는 Resource Manager 저장소 계정에서 이러한 값을 가져오려면
+Azure 포털의 클래식 또는 Resource Manager 스토리지 계정에서 이러한 값을 가져오려면
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 사용하려는 저장소 계정으로 이동합니다.
+2. 사용하려는 스토리지 계정으로 이동합니다.
 3. 오른쪽의 설정 블레이드에서 **액세스 키**를 클릭합니다.
 4. 나타나는 액세스 키 블레이드에 액세스 키 1 및 액세스 키 2가 표시되어 있습니다. 이 둘 중 하나를 사용할 수 있습니다. 
 5. 복사 아이콘을 클릭하여 키를 클립보드에 복사합니다. 

@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/14/2019
-ms.openlocfilehash: 32d8bd528da2823907e4f992f977eef91e55b9b0
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.date: 07/09/2019
+ms.openlocfilehash: c4d2e70d0f200f3a31948cfaa43def8e1b699878
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65605476"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706891"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-offline-using-dms"></a>자습서: DMS를 사용하여 SQL Server를 Azure SQL Database의 단일 데이터베이스 또는 풀링된 데이터베이스로 오프라인 마이그레이션
 
@@ -41,7 +41,7 @@ Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-- [SQL Server 2016 이상](https://www.microsoft.com/sql-server/sql-server-downloads)(모든 버전)을 다운로드 및 설치합니다.
+- [SQL Server 2016 이상](https://www.microsoft.com/sql-server/sql-server-downloads)을 다운로드하여 설치합니다.
 - 문서 [서버 네트워크 프로토콜 사용 또는 사용 안 함](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure)의 지침을 수행하여 SQL Server Express를 설치하는 동안 기본적으로 사용 안 함으로 설정되어 있는 TCP/IP 프로토콜을 사용하도록 설정합니다.
 - [Azure Portal을 사용하여 Azure SQL Database에서 단일 데이터베이스 만들기](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started) 문서의 세부 지침에 따라 Azure SQL Database에 단일(또는 풀링된) 데이터베이스를 만듭니다.
 

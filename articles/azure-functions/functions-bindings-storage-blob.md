@@ -5,18 +5,18 @@ services: functions
 documentationcenter: na
 author: craigshoemaker
 manager: gwallace
-keywords: Azure 함수, 함수, 이벤트 처리, 동적 계산, 서버리스 아키텍처
+keywords: Azure 함수, 함수, 이벤트 처리, 동적 컴퓨팅, 서버리스 아키텍처
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: ad927de0274d415ac268d3a29abf2c135ee22d52
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: e970afbfd9c302dc95667a7c356e95824838e9b4
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480221"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69636467"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions의 Azure Blob Storage 바인딩
 
@@ -63,7 +63,7 @@ Blob Storage 트리거는 신규 또는 업데이트된 Blob를 검색할 때 �
 
 ### <a name="high-scale"></a>높은 확장성
 
-높은 확장성은 100,000개 이상의 BLOB이 있는 컨테이너 또는 초당 100개 이상의 BLOB 업데이트가 있는 저장소 계정으로 정의할 수 있습니다.
+높은 확장성은 100,000개 이상의 BLOB이 있는 컨테이너 또는 초당 100개 이상의 BLOB 업데이트가 있는 스토리지 계정으로 정의할 수 있습니다.
 
 ### <a name="latency-issues"></a>대기 시간 문제
 
@@ -71,7 +71,7 @@ Blob Storage 트리거는 신규 또는 업데이트된 Blob를 검색할 때 �
 
 ### <a name="queue-storage-trigger"></a>Queue Storage 트리거
 
-Event Grid 외에 BLOB 처리를 위한 다른 방법은 Queue 저장소 트리거이지만 BLOB 이벤트에 대해 기본 지원은 되지 않습니다. Blob을 만들거나 업데이트할 때 큐 메시지를 만들어야 합니다. 완료했다고 가정하는 예제는 [이 문서의 뒷부분에 나오는 Blob 입력 바인딩 예제](#input---example)를 참조하세요.
+Event Grid 외에 BLOB 처리를 위한 다른 방법은 Queue storage 트리거이지만 BLOB 이벤트에 대해 기본 지원은 되지 않습니다. Blob을 만들거나 업데이트할 때 큐 메시지를 만들어야 합니다. 완료했다고 가정하는 예제는 [이 문서의 뒷부분에 나오는 Blob 입력 바인딩 예제](#input---example)를 참조하세요.
 
 ## <a name="trigger---example"></a>트리거 - 예제
 
@@ -273,7 +273,7 @@ public void run(
   }
   ```
 
-  다음 예와 같이 사용할 저장소 계정을 지정하도록 `Connection` 속성을 설정할 수 있습니다.
+  다음 예와 같이 사용할 스토리지 계정을 지정하도록 `Connection` 속성을 설정할 수 있습니다.
 
    ```csharp
   [FunctionName("ResizeImage")]
@@ -289,7 +289,7 @@ public void run(
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
-  사용할 저장소 계정을 지정하는 다른 방법을 제공합니다. 생성자는 저장소 연결 문자열을 포함하는 앱 설정의 이름을 사용합니다. 매개 변수, 메서드 또는 클래스 수준에서 특성을 적용할 수 있습니다. 다음 예제에서는 클래스 수준 및 메서드 수준을 보여줍니다.
+  사용할 스토리지 계정을 지정하는 다른 방법을 제공합니다. 생성자는 스토리지 연결 문자열을 포함하는 앱 설정의 이름을 사용합니다. 매개 변수, 메서드 또는 클래스 수준에서 특성을 적용할 수 있습니다. 다음 예제에서는 클래스 수준 및 메서드 수준을 보여줍니다.
 
   ```csharp
   [StorageAccount("ClassLevelStorageAppSetting")]
@@ -303,7 +303,7 @@ public void run(
   }
   ```
 
-사용할 저장소 계정은 다음과 같은 순서로 결정됩니다.
+사용할 스토리지 계정은 다음과 같은 순서로 결정됩니다.
 
 * `BlobTrigger` 특성의 `Connection` 속성
 * `BlobTrigger` 특성과 동일한 매개 변수에 적용된 `StorageAccount` 특성
@@ -315,13 +315,13 @@ public void run(
 
 다음 표에서는 *function.json* 파일 및 `BlobTrigger` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
-|**type** | 해당 없음 | `blobTrigger`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다.|
-|**direction** | 해당 없음 | `in`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. 예외는 [사용](#trigger---usage) 섹션에서 표시됩니다. |
-|**name** | 해당 없음 | 함수 코드에서 Blob을 나타내는 변수의 이름입니다. |
+|**type** | n/a | `blobTrigger`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다.|
+|**direction** | n/a | `in`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. 예외는 [사용](#trigger---usage) 섹션에서 표시됩니다. |
+|**name** | n/a | 함수 코드에서 Blob을 나타내는 변수의 이름입니다. |
 |**path** | **BlobPath** |모니터링할 [컨테이너](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources)입니다.  [Blob 이름 패턴](#trigger---blob-name-patterns)일 수 있습니다. |
-|**연결** | **연결** | 이 바인딩에 사용할 저장소 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 저장소 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob Storage 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 스토리지 계정의 문자열이어야 합니다.|
+|**연결** | **연결** | 이 바인딩에 사용할 스토리지 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob Storage 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 스토리지 계정의 문자열이어야 합니다.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -392,7 +392,7 @@ Blob의 이름이 *{20140101}-soundfile.mp3*인 경우 함수 코드에서 `name
 
 Blob 트리거는 몇 가지 메타데이터 속성을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. 이러한 값은 [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblob?view=azure-dotnet) 형식과 동일한 의미 체계를 가집니다.
 
-|자산  |Type  |설명  |
+|속성  |형식  |Description  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|Blob을 트리거하는 경로입니다.|
 |`Uri`|`System.Uri`|기본 위치에 대한 Blob의 URI입니다.|
@@ -427,13 +427,13 @@ Azure Functions는 사용자 함수 앱에서 사용하는(`AzureWebJobsStorage`
 * Blob 이름
 * ETag(Blob 버전 식별자, 예: “0x8D1DC6E70A277EF”)
 
-Blob을 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해당 Blob에 대한 Blob 수신 확인을 수동으로 삭제하면 됩니다. 재처리 즉시 발생 하지 않을 수 있습니다, 있지만 시간에서 나중에 발생 보장 했습니다.
+Blob을 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해당 Blob에 대한 Blob 수신 확인을 수동으로 삭제하면 됩니다. 다시 처리는 즉시 발생 하지 않을 수 있지만 나중에 발생 하는 것이 보장 됩니다.
 
 ## <a name="trigger---poison-blobs"></a>트리거 - 포이즌 Blob
 
 지정된 Blob에 대한 Blob 트리거 함수가 실패한 경우 Azure Functions는 기본적으로 총 5번 해당 함수를 다시 시도합니다.
 
-5번 모두 실패한 경우 Azure Functions는 *webjobs-blobtrigger-poison*이라는 저장소 큐에 메시지를 추가합니다. 포이즌 Blob에 대한 큐 메시지는 다음 속성을 포함하는 JSON 개체입니다.
+5번 모두 실패한 경우 Azure Functions는 *webjobs-blobtrigger-poison*이라는 스토리지 큐에 메시지를 추가합니다. 포이즌 Blob에 대한 큐 메시지는 다음 속성을 포함하는 JSON 개체입니다.
 
 * FunctionId(형식에서 *&lt;함수 앱 이름>* .Functions. *&lt;함수 이름>* )
 * BlobType("BlockBlob" 또는 "PageBlob")
@@ -451,7 +451,7 @@ JavaScript 및 Java 함수는 전체 Blob을 메모리에 로드하고 C# 함수
 
 ## <a name="trigger---polling"></a>트리거 - 폴링
 
-모니터링 중인 blob 컨테이너에 10,000 개 이상의 blob (모든 컨테이너)에 걸쳐 있으면 함수 런타임 검색 로그 파일을 새롭거나 변경 된 blob에 대 한 합니다. 이 프로세스는 지연이 발생할 수 있습니다. Blob을 만든 후 몇 분이 경과할 때까지 함수가 트리거되지 않을 수도 있습니다.
+모니터링 되는 blob 컨테이너가 모든 컨테이너에서 1만 개 이상의 blob을 포함 하는 경우 함수 런타임은 로그 파일을 스캔 하 여 새 blob 또는 변경 된 blob을 감시 합니다. 이 프로세스는 지연이 발생할 수 있습니다. Blob을 만든 후 몇 분이 경과할 때까지 함수가 트리거되지 않을 수도 있습니다.
 
 > [!WARNING]
 > 또한 [스토리지 로그는 "최선을 다해" 생성됩니다](/rest/api/storageservices/About-Storage-Analytics-Logging). 하지만 모든 이벤트가 캡처되는 것은 아닙니다. 경우에 따라 로그가 누락될 수 있습니다.
@@ -640,7 +640,7 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.Input
 
 ### <a name="input---java-examples"></a>입력 - Java 예제
 
-이 섹션에는 다음 예제가 포함되어 있습니다.
+이 섹션에서는 다음과 같은 예를 보여 줍니다.
 
 * [HTTP 트리거, 쿼리 문자열에서 Blob 이름 조회](#http-trigger-look-up-blob-name-from-query-string-java)
 * [큐 트리거, 큐 메시지에서 Blob 이름 수신](#queue-trigger-receive-blob-name-from-queue-message-java)
@@ -712,7 +712,7 @@ public static void Run(
 
 ```
 
-다음 예와 같이 사용할 저장소 계정을 지정하도록 `Connection` 속성을 설정할 수 있습니다.
+다음 예와 같이 사용할 스토리지 계정을 지정하도록 `Connection` 속성을 설정할 수 있습니다.
 
 ```csharp
 [FunctionName("BlobInput")]
@@ -725,20 +725,20 @@ public static void Run(
 }
 ```
 
-`StorageAccount` 특성을 사용하여 클래스, 메서드 또는 매개 변수 수준에서 저장소 계정을 지정합니다. 자세한 내용은 [트리거 - 특성](#trigger---attributes)을 참조하세요.
+`StorageAccount` 특성을 사용하여 클래스, 메서드 또는 매개 변수 수준에서 스토리지 계정을 지정합니다. 자세한 내용은 [트리거 - 특성](#trigger---attributes)을 참조하세요.
 
 ## <a name="input---configuration"></a>입력 - 구성
 
 다음 표에서는 *function.json* 파일 및 `Blob` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
-|**type** | 해당 없음 | `blob`로 설정해야 합니다. |
-|**direction** | 해당 없음 | `in`로 설정해야 합니다. 예외는 [사용](#input---usage) 섹션에서 표시됩니다. |
-|**name** | 해당 없음 | 함수 코드에서 Blob을 나타내는 변수의 이름입니다.|
+|**type** | n/a | `blob`로 설정해야 합니다. |
+|**direction** | n/a | `in`로 설정해야 합니다. 예외는 [사용](#input---usage) 섹션에서 표시됩니다. |
+|**name** | n/a | 함수 코드에서 Blob을 나타내는 변수의 이름입니다.|
 |**path** |**BlobPath** | Blob에 대한 경로입니다. |
-|**연결** |**연결**| 이 바인딩에 사용할 [스토리지 연결 문자열](../storage/common/storage-configure-connection-string.md)을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 저장소 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 전용 저장소 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 저장소 계정의 문자열이어야 합니다.|
-|해당 없음 | **액세스 권한** | 읽기 또는 쓰기를 나타냅니다. |
+|**연결** |**연결**| 이 바인딩에 사용할 [스토리지 연결 문자열](../storage/common/storage-configure-connection-string.md)을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 전용 스토리지 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 스토리지 계정의 문자열이어야 합니다.|
+|n/a | **액세스 권한** | 읽기 또는 쓰기를 나타냅니다. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -784,23 +784,40 @@ Blob Storage 출력 바인딩을 사용하여 Blob을 작성합니다.
 다음 예제는 하나의 Blob 트리거와 두 개의 출력 Blob 바인딩을 사용하는 [C# 함수](functions-dotnet-class-library.md)입니다. *샘플 이미지* 컨테이너에서 이미지 Blob을 만들어서 함수를 트리거합니다. 그러면 이미지 Blob의 소량 및 중간 크기 복사본을 만듭니다.
 
 ```csharp
+using System.Collections.Generic;
+using System.IO;
+using Microsoft.Azure.WebJobs;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Formats;
+using SixLabors.ImageSharp.PixelFormats;
+using SixLabors.ImageSharp.Processing;
+
 [FunctionName("ResizeImage")]
 public static void Run(
     [BlobTrigger("sample-images/{name}")] Stream image,
     [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall,
     [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageMedium)
 {
-    var imageBuilder = ImageResizer.ImageBuilder.Current;
-    var size = imageDimensionsTable[ImageSize.Small];
+    IImageFormat format;
 
-    imageBuilder.Build(image, imageSmall,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
+    using (Image<Rgba32> input = Image.Load(image, out format))
+    {
+      ResizeImage(input, imageSmall, ImageSize.Small, format);
+    }
 
     image.Position = 0;
-    size = imageDimensionsTable[ImageSize.Medium];
+    using (Image<Rgba32> input = Image.Load(image, out format))
+    {
+      ResizeImage(input, imageMedium, ImageSize.Medium, format);
+    }
+}
 
-    imageBuilder.Build(image, imageMedium,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
+public static void ResizeImage(Image<Rgba32> input, Stream output, ImageSize size, IImageFormat format)
+{
+    var dimensions = imageDimensionsTable[size];
+
+    input.Mutate(x => x.Resize(dimensions.Item1, dimensions.Item2));
+    input.Save(output, format);
 }
 
 public enum ImageSize { ExtraSmall, Small, Medium }
@@ -965,7 +982,7 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
 
 ### <a name="output---java-examples"></a>출력 - Java 예제
 
-이 섹션에는 다음 예제가 포함되어 있습니다.
+이 섹션에서는 다음과 같은 예를 보여 줍니다.
 
 * [HTTP 트리거, OutputBinding 사용](#http-trigger-using-outputbinding-java)
 * [큐 트리거, 함수 반환 값 사용](#queue-trigger-using-function-return-value-java)
@@ -1046,7 +1063,7 @@ public static void Run(
 }
 ```
 
-다음 예와 같이 사용할 저장소 계정을 지정하도록 `Connection` 속성을 설정할 수 있습니다.
+다음 예와 같이 사용할 스토리지 계정을 지정하도록 `Connection` 속성을 설정할 수 있습니다.
 
 ```csharp
 [FunctionName("ResizeImage")]
@@ -1060,20 +1077,20 @@ public static void Run(
 
 전체 예제는 [출력 - C# 예제](#output---c-example)를 참조하세요.
 
-`StorageAccount` 특성을 사용하여 클래스, 메서드 또는 매개 변수 수준에서 저장소 계정을 지정합니다. 자세한 내용은 [트리거 - 특성](#trigger---attributes)을 참조하세요.
+`StorageAccount` 특성을 사용하여 클래스, 메서드 또는 매개 변수 수준에서 스토리지 계정을 지정합니다. 자세한 내용은 [트리거 - 특성](#trigger---attributes)을 참조하세요.
 
 ## <a name="output---configuration"></a>출력 - 구성
 
 다음 표에서는 *function.json* 파일 및 `Blob` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
-|**type** | 해당 없음 | `blob`로 설정해야 합니다. |
-|**direction** | 해당 없음 | 출력 바인딩에 대해 `out`로 설정해야 합니다. 예외는 [사용](#output---usage) 섹션에서 표시됩니다. |
-|**name** | 해당 없음 | 함수 코드에서 Blob을 나타내는 변수의 이름입니다.  `$return`으로 설정하여 함수 반환 값을 참조합니다.|
+|**type** | n/a | `blob`로 설정해야 합니다. |
+|**direction** | n/a | 출력 바인딩에 대해 `out`로 설정해야 합니다. 예외는 [사용](#output---usage) 섹션에서 표시됩니다. |
+|**name** | n/a | 함수 코드에서 Blob을 나타내는 변수의 이름입니다.  `$return`으로 설정하여 함수 반환 값을 참조합니다.|
 |**path** |**BlobPath** | Blob 컨테이너에 대 한 경로입니다. |
-|**연결** |**연결**| 이 바인딩에 사용할 저장소 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 저장소 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 전용 저장소 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 저장소 계정의 문자열이어야 합니다.|
-|해당 없음 | **액세스 권한** | 읽기 또는 쓰기를 나타냅니다. |
+|**연결** |**연결**| 이 바인딩에 사용할 스토리지 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 전용 스토리지 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 스토리지 계정의 문자열이어야 합니다.|
+|n/a | **액세스 권한** | 읽기 또는 쓰기를 나타냅니다. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -1111,7 +1128,7 @@ JavaScript에서는 `context.bindings.<name from function.json>`을 사용하여
 | 바인딩 |  참조 |
 |---|---|
 | Blob | [Blob 오류 코드](https://docs.microsoft.com/rest/api/storageservices/fileservices/blob-service-error-codes) |
-| Blob, 테이블, 큐 |  [저장소 오류 코드](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| Blob, 테이블, 큐 |  [스토리지 오류 코드](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | Blob, 테이블, 큐 |  [문제 해결](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## <a name="next-steps"></a>다음 단계

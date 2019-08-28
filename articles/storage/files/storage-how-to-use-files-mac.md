@@ -1,19 +1,18 @@
 ---
 title: macOS에서 SMB를 통해 Azure 파일 공유 탑재 | Microsoft Docs
 description: macOS를 사용하여 SMB를 통해 Azure 파일 공유를 탑재하는 방법을 알아봅니다.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7f2abbb355513c175329d01b9d5ed8884f2c27ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6bd696ce5a314b0c849256311d0629b917036ea2
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64715955"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699538"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>macOS에서 SMB를 통해 Azure 파일 공유 탑재
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 macOS El Capitan 10.11+의 산업 표준 SMB 3 프로토콜을 사용하여 탑재할 수 있습니다. 이 문서에서는 두 가지 방법, 즉 찾기(Finder) UI 및 터미널을 사용하여 macOS에 Azure 파일 공유를 탑재합니다.
@@ -40,7 +39,7 @@ ms.locfileid: "64715955"
 
 2. **"이동" 메뉴에서 "서버에 연결" 선택**: 필수 구성 요소의 UNC 경로를 사용하여 시작 이중 백슬래시(`\\`)를 `smb://`로 변환하고, 다른 모든 백슬래시(`\`)를 슬래시(`/`)로 변환합니다. 링크는 다음과 같은 모양입니다. !["서버에 연결" 대화 상자](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
 
-3. **사용자 이름과 암호를 묻는 메시지가 표시되면 스토리지 계정 이름과 스토리지 계정 키를 사용합니다**. "서버에 연결" 대화 상자에서 "연결"을 클릭하면 사용자 이름과 암호를 입력하라는 메시지가 표시됩니다. (macOS 사용자 이름으로 자동 채워집니다.) macOS 키 집합에 저장소 계정 이름/저장소 계정 키를 배치할 수 있는 옵션이 있습니다.
+3. **사용자 이름과 암호를 묻는 메시지가 표시되면 스토리지 계정 이름과 스토리지 계정 키를 사용합니다**. "서버에 연결" 대화 상자에서 "연결"을 클릭하면 사용자 이름과 암호를 입력하라는 메시지가 표시됩니다. (macOS 사용자 이름으로 자동 채워집니다.) macOS 키 집합에 스토리지 계정 이름/스토리지 계정 키를 배치할 수 있는 옵션이 있습니다.
 
 4. **Azure 파일 공유를 원하는 대로 사용합니다**. 공유 이름과 스토리지 계정 키를 사용자 이름과 암호로 대체하면 해당 공유가 탑재됩니다. 일반적으로 파일 공유로 파일 끌어 놓기를 포함하여 로컬 폴더/파일 공유를 사용하는 것처럼 사용할 수 있습니다.
 

@@ -1,6 +1,6 @@
 ---
 title: 컨테이너 구성 - Computer Vision
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Computer Vision에서 텍스트 인식 컨테이너에 대한 다양한 설정을 구성합니다.
 services: cognitive-services
 author: IEvangelist
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 4613b576b444059d448cf1094284f2a68e6c31a8
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 3e1dc68ec67e8a7a24c3459519df80a8faf2fc01
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275144"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565655"
 ---
 # <a name="configure-recognize-text-docker-containers"></a>텍스트 인식 Docker 컨테이너 구성
 
@@ -35,7 +35,7 @@ ms.locfileid: "67275144"
 
 이 설정은 다음 위치에서 찾을 수 있습니다.
 
-* Azure Portal: **Cognitive Services** 리소스 관리 아래에 있는 **키**
+* Azure Portal: **Cognitive Services** 리소스 관리, **키** 아래
 
 ## <a name="applicationinsights-setting"></a>ApplicationInsights 설정
 
@@ -43,7 +43,7 @@ ms.locfileid: "67275144"
 
 ## <a name="billing-configuration-setting"></a>청구 구성 설정
 
-`Billing` 설정은 컨테이너에 대한 청구 정보를 계량하기 위해 사용되는 Azure의 _Cognitive Services_ 끝점 URI를 지정합니다. 이 구성 설정에 대한 값을 지정해야 하며 그 값은 Azure의  _Cognitive Services_ 리소스에 대한 유효한 끝점 URI여야 합니다. 컨테이너는 약 10~15분마다 사용량을 보고합니다.
+`Billing` 설정은 컨테이너에 대한 청구 정보를 계량하기 위해 사용되는 Azure _Cognitive Services_ 리소스의 끝점 URI를 지정합니다. 이 구성 설정에 대한 값을 지정해야 하며 그 값은 Azure _Cognitive Services_ 리소스를 위한 유효한 끝점 URI여야 합니다. 컨테이너는 약 10~15분마다 사용량을 보고합니다.
 
 이 설정은 다음 위치에서 찾을 수 있습니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "67275144"
 
 다음 표에 나와 있는 것처럼 끝점 URI로 라우팅할 `vision/v1.0`을 추가해야 합니다. 
 
-|필수| 이름 | 데이터 형식 | 설명 |
+|필수| Name | 데이터 형식 | 설명 |
 |--|------|-----------|-------------|
 |예| `Billing` | 문자열 | 청구 끝점 URI<br><br>예제:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
@@ -73,16 +73,16 @@ ms.locfileid: "67275144"
 
 ## <a name="mount-settings"></a>탑재 설정
 
-바인딩 탑재를 사용하여 컨테이너에서 또는 컨테이너로 읽고 씁니다. [docker run](https://docs.docker.com/engine/reference/commandline/run/) 명령의 `--mount`옵션을 지정하여 입력 탑재 또는 출력 탑재를 지정할 수 있습니다.
+바인딩 탑재를 사용하여 컨테이너에서 또는 컨테이너로 데이터를 읽고 씁니다. [docker run](https://docs.docker.com/engine/reference/commandline/run/) 명령의 `--mount`옵션을 지정하여 입력 탑재 또는 출력 탑재를 지정할 수 있습니다.
 
 Computer Vision 컨테이너는 입력 또는 출력 탑재를 사용하여 학습 또는 서비스 데이터를 저장하지 않습니다. 
 
 호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 Docker 서비스 계정에서 사용하는 권한과 호스트 탑재 위치 권한이 충돌하여 [호스트 컴퓨터](computer-vision-how-to-install-containers.md#the-host-computer)의 탑재 위치에 액세스하지 못할 수도 있습니다. 
 
-|옵션| 이름 | 데이터 형식 | 설명 |
+|Optional| Name | 데이터 형식 | Description |
 |-------|------|-----------|-------------|
-|허용되지 않음| `Input` | 문자열 | Computer Vision 컨테이너에는 사용되지 않습니다.|
-|옵션| `Output` | 문자열 | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
+|허용되지 않음| `Input` | String | Computer Vision 컨테이너에는 사용되지 않습니다.|
+|Optional| `Output` | String | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>docker run 명령 예제 
 
@@ -95,10 +95,10 @@ Computer Vision 컨테이너는 입력 또는 출력 탑재를 사용하여 학�
 
 {_argument_name_}을(를) 사용자 고유 값으로 바꿉니다.
 
-| 자리표시자 | 값 | 형식 또는 예 |
+| Placeholder | 값 | 형식 또는 예 |
 |-------------|-------|---|
-|{BILLING_KEY} | Cognitive Services 리소스의 끝점 키입니다. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | 지역을 포함하는 청구 엔드포인트 값입니다.|`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0`|
+|{API_KEY} | Cognitive Services 리소스의 끝점 키입니다. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{ENDPOINT_URI} | 지역을 포함하는 청구 엔드포인트 값입니다.|`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0`|
 
 > [!IMPORTANT]
 > 컨테이너를 인스턴스화하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](computer-vision-how-to-install-containers.md#billing)를 참조하세요.
@@ -114,8 +114,8 @@ Computer Vision 컨테이너는 입력 또는 출력 탑재를 사용하여 학�
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
   Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} \
-  ApiKey={BILLING_KEY} 
+  Billing={ENDPOINT_URI} \
+  ApiKey={API_KEY} 
   ```
 
 ### <a name="logging-example"></a>로깅 예 
@@ -124,8 +124,8 @@ Computer Vision 컨테이너는 입력 또는 출력 탑재를 사용하여 학�
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
   Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} \
-  ApiKey={BILLING_KEY} \
+  Billing={ENDPOINT_URI} \
+  ApiKey={API_KEY} \
   Logging:Console:LogLevel:Default=Information
   ```
 

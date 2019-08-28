@@ -10,15 +10,15 @@ ms.topic: overview
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 7362bd5b4e15df516478ef4bef20d76fc46b326f
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 242f2fa9885f3f85439caddd061f650baafb8df4
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275367"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314407"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs - 빅 데이터 스트리밍 플랫폼 및 이벤트 수집 서비스
-Azure Event Hubs는 빅 데이터 스트리밍 플랫폼 및 이벤트 수집 서비스입니다. 초당 수백만 개의 이벤트를 수신하고 처리할 수 있습니다. 이벤트 허브로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/저장소 어댑터를 사용하여 변환하고 저장할 수 있습니다.
+Azure Event Hubs는 빅 데이터 스트리밍 플랫폼 및 이벤트 수집 서비스입니다. 초당 수백만 개의 이벤트를 수신하고 처리할 수 있습니다. 이벤트 허브로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/스토리지 어댑터를 사용하여 변환하고 저장할 수 있습니다.
 
 다음 시나리오는 Event Hubs를 사용할 수 있는 일부 시나리오입니다.
 
@@ -29,17 +29,19 @@ Azure Event Hubs는 빅 데이터 스트리밍 플랫폼 및 이벤트 수집 �
 - 데이터 보관
 - 트랜잭션 처리
 - 사용자 원격 분석 처리
-- 디바이스 원격 분석 스트리밍 
+- 디바이스 원격 분석 스트리밍
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/45wgY-VSk9I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## <a name="why-use-event-hubs"></a>Event Hubs를 사용하는 이유
 
 데이터는 쉽게 처리할 수 있고 데이터 원본에서 인사이트를 적시에 얻을 수 있는 경우에만 유용합니다. Event Hubs는 대기 시간이 짧고 매끄럽게 통합되는 분산 스트림 프로세싱 플랫폼을 제공하며, Azure 내부 및 외부에는 완전한 빅 데이터 파이프라인을 만들기 위한 데이터 및 분석 서비스가 있습니다.
 
-Event Hubs는 이벤트 파이프라인의 "현관" 역할을 하며, 솔루션 아키텍처에서는 *이벤트 수집기*라고 부르기도 합니다. 이벤트 ingestor는 이러한 이벤트에서 이벤트 스트림의 프로덕션을 분리하는 이벤트 게시자와 이벤트 소비자 간에 작용하는 구성 요소 또는 서비스입니다. Event Hubs는 통합 스트리밍 플랫폼에 시간 보존 버퍼를 제공하며, 이벤트 소비자로부터 이벤트 생산자를 분리합니다. 
+Event Hubs는 이벤트 파이프라인의 "현관" 역할을 하며, 솔루션 아키텍처에서는 *이벤트 수집기*라고 부르기도 합니다. 이벤트 ingestor는 이러한 이벤트에서 이벤트 스트림의 프로덕션을 분리하는 이벤트 게시자와 이벤트 소비자 간에 작용하는 구성 요소 또는 서비스입니다. Event Hubs는 통합 스트리밍 플랫폼에 시간 보존 버퍼를 제공하며, 이벤트 소비자로부터 이벤트 생산자를 분리합니다.
 
-다음 섹션에서는 Azure Event Hubs 서비스의 주요 기능을 설명합니다. 
+다음 섹션에서는 Azure Event Hubs 서비스의 주요 기능을 설명합니다.
 
-## <a name="fully-managed-paas"></a>완전히 관리되는 PaaS 
+## <a name="fully-managed-paas"></a>완전히 관리되는 PaaS
 
 Event Hubs는 구성 또는 관리 오버헤드가 거의 없는 완전 관리형 PaaS(Platform-as-a-Service)이므로 비즈니스 솔루션에 집중할 수 있습니다. [Apache Kafka 에코시스템을 위한 Event Hubs](event-hubs-for-kafka-ecosystem-overview.md)는 클러스터를 관리, 구성 또는 실행할 필요가 없는 PaaS Kafka 환경을 제공합니다.
 
@@ -51,14 +53,14 @@ Event Hubs는 구성 또는 관리 오버헤드가 거의 없는 완전 관리�
 
 Azure Event Hubs를 [Azure Functions](/azure/azure-functions/)와 통합하여 서버 없는 아키텍처를 구현할 수도 있습니다.
 
-## <a name="scalable"></a>확장성 
+## <a name="scalable"></a>확장성
 
-Event Hubs를 사용하여 메가바이트 단위로 데이터 스트림을 시작하고 이후에 기가바이트 또는 테라바이트 단위로 확장할 수 있습니다. [자동 팽창](event-hubs-auto-inflate.md) 기능은 사용량 요구 사항을 충족하도록 처리량 단위 수를 조정하는 데 사용되는 여러 옵션 중 하나입니다. 
+Event Hubs를 사용하여 메가바이트 단위로 데이터 스트림을 시작하고 이후에 기가바이트 또는 테라바이트 단위로 확장할 수 있습니다. [자동 팽창](event-hubs-auto-inflate.md) 기능은 사용량 요구 사항을 충족하도록 처리량 단위 수를 조정하는 데 사용되는 여러 옵션 중 하나입니다.
 
 ## <a name="rich-ecosystem"></a>풍부한 에코시스템
 
 [Apache Kafka 에코시스템을 위한 Event Hubs](event-hubs-for-kafka-ecosystem-overview.md)를 사용하면 [Apache Kafka(1.0 이상)](https://kafka.apache.org/) 클라이언트 및 애플리케이션이 Event Hubs와 통신합니다. 사용자 고유의 Kafka 클러스터를 설정, 구성 및 관리할 필요가 없습니다.
- 
+
 방대한 에코시스템이 다양한 [언어(.NET, Java, Python, Go, Node.js)](https://github.com/Azure/azure-event-hubs)로 제공되므로 Event Hubs에서 간편하게 스트림 처리를 시작할 수 있습니다. 지원되는 모든 클라이언트 언어는 하위 수준 통합을 제공합니다. 또한 에코시스템은 Azure Stream Analytics 및 Azure Functions와 같은 Azure 서비스와 중단 없이 통합되어 서버리스 아키텍처를 빌드할 수 있습니다.
 
 ## <a name="key-architecture-components"></a>주요 아키텍처 구성 요소
@@ -77,7 +79,7 @@ Event Hubs에는 다음과 같은 [주요 구성 요소](event-hubs-features.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-Event Hubs 사용을 시작하려면 **이벤트 보내기 및 받기** 자습서를 참조하세요. 
+Event Hubs 사용을 시작하려면 **이벤트 보내기 및 받기** 자습서를 참조하세요.
 
 - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
 - [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)

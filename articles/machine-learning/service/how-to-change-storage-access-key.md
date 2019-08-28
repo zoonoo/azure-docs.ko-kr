@@ -1,7 +1,7 @@
 ---
-title: 저장소 계정 액세스 키를 변경 합니다.
+title: 저장소 계정 액세스 키 변경
 titleSuffix: Azure Machine Learning service
-description: 작업 영역에서 사용 하는 Azure Storage 계정에 대 한 액세스 키를 변경 하는 방법에 알아봅니다. Azure Machine Learning 서비스는 Azure Storage 계정을 사용 하 여 데이터 및 모델 저장 합니다. 저장소 계정의 액세스 키를 다시 생성 하면 새 키를 사용 하려면 Azure Machine Learning 서비스를 업데이트 해야 합니다.
+description: 작업 영역에서 사용 하는 Azure Storage 계정의 액세스 키를 변경 하는 방법에 대해 알아봅니다. Azure Machine Learning 서비스는 Azure Storage 계정을 사용 하 여 데이터 및 모델을 저장 합니다. 저장소 계정에 대 한 액세스 키를 다시 생성 하는 경우 새 키를 사용 하도록 Azure Machine Learning 서비스를 업데이트 해야 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,38 +9,38 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 05/17/2019
-ms.openlocfilehash: 488a032e177897caf2897ba6335f4e7f64dc0e4d
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.date: 08/16/2019
+ms.openlocfilehash: e386e34a8326a51753631ee9ea4215d01ba7ceb3
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543836"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558235"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>저장소 계정 액세스 키 다시 생성
 
-Azure Machine Learning 서비스에서 사용 하는 Azure Storage 계정에 대 한 액세스 키를 변경 하는 방법에 알아봅니다. Azure Machine Learning 데이터 또는 학습 된 모델을 저장할 저장소 계정을 사용할 수 있습니다.
+Azure Machine Learning 서비스에서 사용 하는 Azure Storage 계정의 액세스 키를 변경 하는 방법에 대해 알아봅니다. 저장소 계정을 사용 하 여 데이터 나 학습 된 모델을 저장할 수 Azure Machine Learning.
 
-보안상의 이유로 Azure Storage 계정에 대 한 액세스 키를 변경 해야 합니다. 액세스 키를 다시 생성 하면 새 키를 사용 하려면 Azure Machine Learning 업데이트 되어야 합니다. Azure Machine Learning 데이터 저장소와 두 모델 저장소에 대 한 저장소 계정을 사용할 수 있습니다.
+보안을 위해 Azure Storage 계정에 대 한 액세스 키를 변경 해야 할 수 있습니다. 액세스 키를 다시 생성 하는 경우 새 키를 사용 하도록 Azure Machine Learning 업데이트 해야 합니다. Azure Machine Learning은 모델 저장소 및 데이터 저장소에 대 한 저장소 계정을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure Machine Learning 서비스 작업 영역. 자세한 내용은 참조는 [작업 영역 만들기](setup-create-workspace.md) 문서.
+* Azure Machine Learning 서비스 작업 영역. 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md) 문서를 참조 하세요.
 
-* 합니다 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)합니다.
+* [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)입니다.
 
-* 합니다 [Azure Machine Learning CLI 확장](reference-azure-machine-learning-cli.md)합니다.
+* [AZURE MACHINE LEARNING CLI 확장](reference-azure-machine-learning-cli.md)입니다.
 
 <a id="whattoupdate"></a> 
 
-## <a name="what-needs-to-be-updated"></a>업데이트 하는 데 필요한
+## <a name="what-needs-to-be-updated"></a>업데이트 해야 하는 항목
 
-저장소 계정 (로그, 모델, 스냅숏 등 저장) Azure Machine Learning 서비스 작업 영역에서 데이터 저장소로 사용할 수 있습니다. 작업 영역을 업데이트 하는 프로세스는 사용 하는 단일 Azure CLI 명령 및 저장소 키를 업데이트 한 후 실행할 수 있습니다. 데이터 저장소 업데이트 프로세스가 더 복잡 하며 어떤 데이터 저장소는 저장소 계정을 현재 사용 중인 검색 하 고 다시 등록 합니다.
+저장소 계정은 Azure Machine Learning 서비스 작업 영역에서 사용할 수 있습니다. 즉, 로그, 모델, 스냅숏 등을 저장 하 고 데이터 저장소로 사용할 수 있습니다. 작업 영역을 업데이트 하는 프로세스는 단일 Azure CLI 명령이 며 저장소 키를 업데이트 한 후에 실행할 수 있습니다. 데이터 저장소를 업데이트 하는 프로세스는 더 복잡 하며, 현재 저장소 계정을 사용 하는 데이터 저장소를 검색 한 다음 다시 등록 해야 합니다.
 
 > [!IMPORTANT]
-> Azure CLI 및 Python을 사용 하 여 동시에 데이터 저장소를 사용 하 여 작업 영역을 업데이트 합니다. 하나만 또는 다른 업데이트 충분 하지 않습니다 하 고 둘 다가 업데이트 될 때까지 오류가 발생할 수 있습니다.
+> Azure CLI를 사용 하 여 작업 영역을 업데이트 하 고 Python을 사용 하 여 데이터 저장소를 동시에 업데이트 합니다. 하나만 업데이트 해도 충분 하지 않으며 둘 다 업데이트 될 때까지 오류가 발생할 수 있습니다.
 
-사용자 데이터 저장소에서 사용 되는 저장소 계정을 검색 하려면 다음 코드를 사용 합니다.
+Datastores에서 사용 하는 저장소 계정을 검색 하려면 다음 코드를 사용 합니다.
 
 ```python
 import azureml.core
@@ -49,30 +49,37 @@ from azureml.core import Workspace, Datastore
 ws = Workspace.from_config()
 
 default_ds = ws.get_default_datastore()
-print("Default datstore: " + default_ds.name + ", storage account name: " + default_ds.account_name + ", container name: " + ds.container_name)
+print("Default datstore: " + default_ds.name + ", storage account name: " +
+      default_ds.account_name + ", container name: " + default_ds.container_name)
 
 datastores = ws.datastores
 for name, ds in datastores.items():
-    if ds.datastore_type == "AzureBlob" or ds.datastore_type == "AzureFile":
-        print("datastore name: " + name + ", storage account name: " + ds.account_name + ", container name: " + ds.container_name)
+    if ds.datastore_type == "AzureBlob":
+        print("Blob store - datastore name: " + name + ", storage account name: " +
+              ds.account_name + ", container name: " + ds.container_name)
+    if ds.datastore_type == "AzureFile":
+        print("File share - datastore name: " + name + ", storage account name: " +
+              ds.account_name + ", container name: " + ds.container_name)
 ```
 
-이 코드는 Azure Storage를 사용 하는 모든 등록 된 데이터 저장소를 찾습니다 하 고 다음 정보를 나열 합니다.
+이 코드는 Azure Storage를 사용 하는 등록 된 모든 데이터 저장소를 검색 하 고 다음 정보를 나열 합니다.
 
-* 데이터 저장소 이름: 저장소 계정에서 등록 된 데이터 저장소의 이름입니다.
+* 데이터 저장소 이름: 저장소 계정이 등록 된 데이터 저장소의 이름입니다.
 * Storage 계정 이름: Azure Storage 계정의 이름입니다.
-* 컨테이너: 이 등록에서 사용 되는 저장소 계정에 대 한 컨테이너입니다.
+* 컨테이너 이 등록에서 사용 하는 저장소 계정의 컨테이너입니다.
 
-항목에 대 한 액세스 키 다시 생성 하려는 저장소 계정에 있는 경우 데이터 저장소 이름, 저장소 계정 이름 및 컨테이너 이름을 저장 합니다.
+또한 각 유형의 데이터 저장소를 다시 등록 하는 다양 한 방법이 있으므로 데이터 저장소가 Azure Blob 또는 Azure 파일 공유에 대 한 것인지 여부를 나타냅니다.
+
+에 대 한 액세스 키를 다시 생성 하려는 저장소 계정에 대 한 항목이 있는 경우 데이터 저장소 이름, 저장소 계정 이름 및 컨테이너 이름을 저장 합니다.
 
 ## <a name="update-the-access-key"></a>액세스 키 업데이트
 
-새 키를 사용 하려면 Azure Machine Learning 서비스를 업데이트 하려면 다음 단계를 사용 합니다.
+새 키를 사용 하도록 Azure Machine Learning 서비스를 업데이트 하려면 다음 단계를 사용 합니다.
 
 > [!IMPORTANT]
-> 둘 다 CLI 및 Python을 사용 하 여 데이터 저장소를 사용 하 여 작업 영역을 업데이트 하는 모든 단계를 수행 합니다. 둘 다가 업데이트 될 때까지 하나만 또는 다른 업데이트 오류가 발생할 수 있습니다.
+> 모든 단계를 수행 하 여 CLI를 사용 하 여 작업 영역을 업데이트 하 고 Python을 사용 하 여 데이터 저장소를 업데이트 합니다. 하나만 업데이트 하면 둘 다 업데이트 될 때까지 오류가 발생할 수 있습니다.
 
-1. 키 다시 생성 합니다. 액세스 키 다시 생성에 대 한 내용은 참조는 [저장소 계정 관리](/azure/storage/common/storage-account-manage#access-keys) 문서. 새 키를 저장 합니다.
+1. 키를 다시 생성 합니다. 액세스 키를 다시 생성 하는 방법에 대 한 자세한 내용은 [저장소 계정 관리](/azure/storage/common/storage-account-manage#access-keys) 문서를 참조 하세요. 새 키를 저장 합니다.
 
 1. 새 키를 사용 하도록 작업 영역을 업데이트 하려면 다음 단계를 사용 합니다.
 
@@ -82,33 +89,38 @@ for name, ds in datastores.items():
         az login
         ```
 
-    1. Azure Machine Learning 확장을 설치 하려면 다음 명령을 사용 합니다.
-
-        ```azurecli-interactive
-        az extension add -n azure-cli-ml 
-        ```
-
-    1. 새 키를 사용 하도록 작업 영역을 업데이트 하려면 다음 명령을 사용 합니다. 바꿉니다 `myworkspace` 에 Azure Machine Learning 작업 영역 이름으로 바꾸고를 사용 하 여 `myresourcegroup` 작업 영역을 포함 하는 Azure 리소스 그룹의 이름입니다.
+    1. 새 키를 사용 하도록 작업 영역을 업데이트 하려면 다음 명령을 사용 합니다. 을 `myworkspace` Azure Machine Learning 작업 영역 이름으로 바꾸고,을 `myresourcegroup` 작업 영역을 포함 하는 Azure 리소스 그룹의 이름으로 바꿉니다.
 
         ```azurecli-interactive
         az ml workspace sync-keys -w myworkspace -g myresourcegroup
         ```
 
+        [!INCLUDE [install extension](../../../includes/machine-learning-service-install-extension.md)]
+
         이 명령은 작업 영역에서 사용 하는 Azure storage 계정에 대 한 새 키를 자동으로 동기화 합니다.
 
-1. 저장소 계정을 사용 하는 데이터 저장소를 다시 등록 하려면의 값을 사용 합니다 [업데이트 하는 데 필요한](#whattoupdate) 섹션 및 다음 코드를 사용 하 여 1 단계에서 키:
+1. 저장소 계정을 사용 하는 데이터 저장소를 다시 등록 하려면 다음 코드를 사용 하 여 업데이트 해야 할 [항목](#whattoupdate) 섹션과 1 단계에서 제공 하는 키의 값을 사용 합니다.
 
     ```python
-    ds = Datastore.register_azure_blob_container(workspace=ws, 
-                                              datastore_name='your datastore name', 
+    # Re-register the blob container
+    ds_blob = Datastore.register_azure_blob_container(workspace=ws,
+                                              datastore_name='your datastore name',
                                               container_name='your container name',
-                                              account_name='your storage account name', 
+                                              account_name='your storage account name',
                                               account_key='new storage account key',
                                               overwrite=True)
+    # Re-register file shares
+    ds_file = Datastore.register_azure_file_share(workspace=ws,
+                                          datastore_name='your datastore name',
+                                          file_share_name='your container name',
+                                          account_name='your storage account name',
+                                          account_key='new storage account key',
+                                          overwrite=True)
+    
     ```
 
-    이후 `overwrite=True` 를 지정한 경우이 코드는 기존 등록 덮어씁니다 하 고 새 키를 사용 하도록 업데이트 합니다.
+    가 `overwrite=True` 지정 되었으므로이 코드는 기존 등록을 덮어쓰고 새 키를 사용 하도록 업데이트 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-데이터 저장소를 등록에 대 한 자세한 내용은 참조는 [ `Datastore` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) 클래스 참조 합니다.
+Datastores를 등록 하는 [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) 방법에 대 한 자세한 내용은 클래스 참조를 참조 하세요.

@@ -1,56 +1,71 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Azure AD 조건부 액세스 설명서
+summary: Azure Active Directory 조건부 액세스를 구성하고 테스트하는 방법 알아보기
 metadata:
-  document_id: null
-  title: 'Azure Active Directory 조건부 액세스 설명서 - 자습서, 빠른 시작, 개념, 참조 | Microsoft Docs'
-  description: Azure Active Directory 조건부 액세스를 구성하고 테스트하는 방법을 알아봅니다.
+  title: Azure AD 조건부 액세스 설명서
+  description: Azure Active Directory 조건부 액세스를 구성하고 테스트하는 방법 알아보기
   services: active-directory
-  ms.subservice: conditional-access
-  author: MicrosoftGuyJFlo
-  manager: daveba
   ms.service: active-directory
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: conditional-access
   ms.topic: landing-page
-  ms.date: 08/14/2018
+  author: MicrosoftGuyJFlo
   ms.author: joflore
-abstract:
-  description: 'Azure AD 조건부 액세스를 구성하여 보안과 생산성 간의 균형을 이루는 방법을 알아봅니다. 조건부 액세스 정책을 통해, 클라우드 앱이 액세스 결정 사항에 액세스하는 방식을 고려할 수 있습니다. 예를 들어 다음 질문에 대한 액세스 결정 사항을 해결할 수 있습니다.<ul><li>사용자의 네트워크 위치란?</li><li>액세스 시도가 관리 디바이스에서 시작되나요?</li><li>연결 시도가 시작된 클라이언트 앱은 어디인가요?</li><li>위험한 로그인에서 액세스 시도가 수행되었나요?</li></ul>다음 리소스를 통해 신속하게 시작할 수 있습니다.'
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: ./media/index/video.png
-      width: 246
-    title: 조건부 액세스 설명
-    href: 'https://www.youtube.com/watch?v=XruceejcCKQ'
-    width: 246
-sections:
-  - title: 5분 빠른 시작
-    items:
-      - type: paragraph
-        text: 일반적인 액세스 시나리오의 경우 조건부 액세스 정책을 구성하는 방법을 알아봅니다.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ./media/index/i_security-management.png
-            text: 특정 앱에 대한 MFA 필요
-            href: app-based-mfa.md
-          - image:
-              src: ./media/index/i_security-management.png
-            text: 세션 위험이 감지되면 액세스 차단
-            href: app-sign-in-risk.md
-          - image:
-              src: ./media/index/i_security-management.png
-            text: 사용 약관 허용 필요
-            href: require-tou.md
-  - title: 단계별 자습서
-    items:
-      - type: paragraph
-        text: 클래식 조건부 액세스 정책을 마이그레이션하는 방법을 알아봅니다.
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/conditional-access/policy-migration-mfa">다단계 인증이 필요한 클래식 정책 마이그레이션</a>
+  ms.date: 08/20/2019
+  ms.collection: M365-identity-device-management
+  ms.openlocfilehash: 39f9cf3e64e343c2da98f2c4f4b403ccdc0f3f20
+  ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 08/21/2019
+  ms.locfileid: "69874259"
+landingContent:
+- title: 조건부 액세스 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 조건부 액세스란?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: 조건이란?
+      url: conditions.md
+    - text: 위치를 정의하려면 어떻게 해야 하나요?
+      url: location-condition.md
+    - text: 제어란?
+      url: controls.md
+    - text: 조건부 액세스 서비스 종속성
+      url: service-dependencies.md
+- title: 조건부 액세스 배포
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 조건부 액세스 배포 계획
+      url: plan-conditional-access.md
+  - linkListType: how-to-guide
+    links:
+    - text: 레거시 인증 차단
+      url: block-legacy-authentication.md
+    - text: What If 도구를 사용하여 문제 해결
+      url: troubleshoot-conditional-access-what-if.md
+- title: 일반 조건부 액세스 정책
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 일반 조건부 액세스 정책
+      url: concept-conditional-access-policy-common.md
+  - linkListType: how-to-guide
+    links:
+    - text: 관리자용 MFA 필요
+      url: howto-conditional-access-policy-admin-mfa.md
+    - text: Azure 관리용 MFA 필요
+      url: howto-conditional-access-policy-azure-management.md
+    - text: 레거시 인증 차단
+      url: howto-conditional-access-policy-block-legacy.md
+    - text: 위험 기반 조건부 액세스(Azure AD Premium P2 필요)
+      url: howto-conditional-access-policy-risk.md
+    - text: MFA 등록을 위해 신뢰할 수 있는 위치 필요
+      url: howto-conditional-access-policy-registration.md
+    - text: 위치별 액세스 차단
+      url: howto-conditional-access-policy-location.md
+    - text: 규정 준수 디바이스 필요
+      url: howto-conditional-access-policy-compliant-device.md

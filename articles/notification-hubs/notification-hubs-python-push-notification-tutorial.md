@@ -14,12 +14,12 @@ ms.devlang: php
 ms.topic: article
 ms.author: jowargo
 ms.date: 01/04/2019
-ms.openlocfilehash: 43a691ff9025cdb39786f965be6a2fca1b33bd3d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e2d0c7089ea070d82c75337c07fcc4a9df1c7c28
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61458455"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359816"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Python에서 Notification Hubs를 사용하는 방법
 
@@ -109,9 +109,11 @@ def get_expiry():
     # By default returns an expiration of 5 minutes (=300 seconds) from now
     return int(round(time.time() + 300))
 
+
 @staticmethod
 def encode_base64(data):
     return base64.b64encode(data)
+
 
 def sign_string(self, to_sign):
     key = self.SasKeyValue.encode('utf-8')
@@ -120,6 +122,7 @@ def sign_string(self, to_sign):
     digest = signed_hmac_sha256.digest()
     encoded_digest = self.encode_base64(digest)
     return encoded_digest
+
 
 def generate_sas_token(self):
     target_uri = self.Endpoint + self.HubName
@@ -139,7 +142,8 @@ def generate_sas_token(self):
 ```python
 class Notification:
     def __init__(self, notification_format=None, payload=None, debug=0):
-        valid_formats = ['template', 'apple', 'fcm', 'windows', 'windowsphone', "adm", "baidu"]
+        valid_formats = ['template', 'apple', 'fcm',
+                         'windows', 'windowsphone', "adm", "baidu"]
         if not any(x in notification_format for x in valid_formats):
             raise Exception(
                 "Invalid Notification format. " +
@@ -164,7 +168,8 @@ class Notification:
 ```python
 def make_http_request(self, url, payload, headers):
     parsed_url = urllib.parse.urlparse(url)
-    connection = http.client.HTTPSConnection(parsed_url.hostname, parsed_url.port)
+    connection = http.client.HTTPSConnection(
+        parsed_url.hostname, parsed_url.port)
 
     if self.Debug > 0:
         connection.set_debuglevel(self.Debug)
@@ -172,7 +177,8 @@ def make_http_request(self, url, payload, headers):
         url += self.DEBUG_SEND
         print("--- REQUEST ---")
         print("URI: " + url)
-        print("Headers: " + json.dumps(headers, sort_keys=True, indent=4, separators=(' ', ': ')))
+        print("Headers: " + json.dumps(headers, sort_keys=True,
+                                       indent=4, separators=(' ', ': ')))
         print("--- END REQUEST ---\n")
 
     connection.request('POST', url, payload, headers)
@@ -192,6 +198,7 @@ def make_http_request(self, url, payload, headers):
             "Error sending notification. Received HTTP code " + str(response.status) + " " + response.reason)
 
     connection.close()
+
 
 def send_notification(self, notification, tag_or_tag_expression=None):
     url = self.Endpoint + self.HubName + '/messages' + self.API_VERSION
@@ -226,31 +233,39 @@ def send_notification(self, notification, tag_or_tag_expression=None):
 
     self.make_http_request(url, payload_to_send, headers)
 
+
 def send_apple_notification(self, payload, tags=""):
     nh = Notification("apple", payload)
     self.send_notification(nh, tags)
+
 
 def send_fcm_notification(self, payload, tags=""):
     nh = Notification("fcm", payload)
     self.send_notification(nh, tags)
 
+
 def send_adm_notification(self, payload, tags=""):
     nh = Notification("adm", payload)
     self.send_notification(nh, tags)
+
 
 def send_baidu_notification(self, payload, tags=""):
     nh = Notification("baidu", payload)
     self.send_notification(nh, tags)
 
+
 def send_mpns_notification(self, payload, tags=""):
     nh = Notification("windowsphone", payload)
 
     if "<wp:Toast>" in payload:
-        nh.headers = {'X-WindowsPhone-Target': 'toast', 'X-NotificationClass': '2'}
+        nh.headers = {'X-WindowsPhone-Target': 'toast',
+                      'X-NotificationClass': '2'}
     elif "<wp:Tile>" in payload:
-        nh.headers = {'X-WindowsPhone-Target': 'tile', 'X-NotificationClass': '1'}
+        nh.headers = {'X-WindowsPhone-Target': 'tile',
+                      'X-NotificationClass': '1'}
 
     self.send_notification(nh, tags)
+
 
 def send_windows_notification(self, payload, tags=""):
     nh = Notification("windows", payload)
@@ -263,6 +278,7 @@ def send_windows_notification(self, payload, tags=""):
         nh.headers = {'X-WNS-Type': 'wns/badge'}
 
     self.send_notification(nh, tags)
+
 
 def send_template_notification(self, properties, tags=""):
     nh = Notification("template", properties)
@@ -429,7 +445,7 @@ hub.send_template_notification(template_payload)
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Notification Hubs에 대한 Python REST 클라이언트를 만드는 방법을 알아보았습니다. 여기에서 다음을 할 수 있습니다.
+이 문서에서는 Notification Hubs에 대한 Python REST 클라이언트를 만드는 방법을 알아보았습니다. 여기에서 다음과 같은 작업을 할 수 있습니다.
 
 - 이 문서의 모든 코드가 포함된 전체 [Python REST 래퍼 샘플]을 다운로드합니다.
 - [속보 자습서]

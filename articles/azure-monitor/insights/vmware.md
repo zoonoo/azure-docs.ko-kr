@@ -90,7 +90,7 @@ VMware 모니터링 솔루션에서는 사용 설정된 Linux용 Log Analytics �
 
 | 필드 이름 | 설명 |
 | --- | --- |
-| Device_s |VMware 저장 디바이스 |
+| Device_s |VMware 스토리지 디바이스 |
 | ESXIFailure_s |오류 유형 |
 | EventTime_t |이벤트가 발생한 시간 |
 | HostName_s |ESXi 호스트 이름 |
@@ -107,7 +107,7 @@ VMware 모니터링 솔루션에서는 사용 설정된 Linux용 Log Analytics �
 | Computer |호스트 컴퓨터 |
 | TimeGenerated |데이터가 생성된 시간 |
 | DataCenter_s |VMware 데이터 센터 |
-| StorageLatency_s |저장소 대기 시간(밀리초) |
+| StorageLatency_s |스토리지 대기 시간(밀리초) |
 
 ## <a name="vmware-monitoring-solution-overview"></a>VMware 모니터링 솔루션 개요
 VMware 타일이 Log Analytics 작업 영역에 나타납니다. 발생한 모든 오류에 대한 상위 수준 보기를 제공합니다. 타일을 클릭하면 대시보드 보기로 이동합니다.
@@ -152,7 +152,7 @@ ESXi 호스트마다 가상 머신을 만들고 삭제할 수 있습니다. 이�
 ![연습](./media/vmware/createvm.png)
 
 #### <a name="common-log-queries"></a>일반적인 로그 쿼리
-솔루션에는 대규모 저장소 공간, 저장소 대기 시간, 경로 오류 등 ESXi 호스트를 관리하는 데 유용한 쿼리들이 포함되어 있습니다.
+솔루션에는 대규모 스토리지 공간, 스토리지 대기 시간, 경로 오류 등 ESXi 호스트를 관리하는 데 유용한 쿼리들이 포함되어 있습니다.
 
 ![쿼리](./media/vmware/queries.png)
 

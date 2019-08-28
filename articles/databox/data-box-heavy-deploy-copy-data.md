@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 05/28/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 8ee96f2e06071d60eb97596687387fd80ba14cc3
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 1c45e06159e4c2850efa2d3ab3290647961fb7e1
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496267"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592425"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-heavy-via-smb-preview"></a>자습서: SMB를 통해 Azure Data Box Heavy에 데이터 복사(미리 보기)
+# <a name="tutorial-copy-data-to-azure-data-box-heavy-via-smb"></a>자습서: SMB를 통해 Azure Data Box Heavy에 데이터 복사
 
 이 자습서에서는 로컬 웹 UI를 사용하여 호스트 컴퓨터에서 연결하고 데이터를 복사하는 방법을 설명합니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "66496267"
 ## <a name="connect-to-data-box-heavy-shares"></a>Data Box Heavy 공유에 연결
 
 선택한 스토리지 계정에 따라 Data Box Heavy에서 만드는 최대 항목 수는 다음과 같습니다.
-- GPv1 및 GPv2에서 연결된 각 저장소에 대한 공유 3개.
+- GPv1 및 GPv2에서 연결된 각 스토리지에 대한 공유 3개.
 - Premium Storage에 대한 공유 1개
 - Blob 스토리지 계정에 대한 공유 1개
 
@@ -70,7 +70,7 @@ Windows 또는 Linux 클라이언트를 사용하여 연결하는 단계는 서�
 
 Windows Server 호스트 컴퓨터를 사용하는 경우 다음 단계에 따라 Data Box Heavy에 연결합니다.
 
-1. 첫 번째 단계는 세션을 인증하고 시작하는 것입니다. **연결 및 복사**로 이동합니다. **자격 증명 가져오기**를 클릭하여 저장소 계정과 연결된 공유의 액세스 자격 증명을 가져옵니다.
+1. 첫 번째 단계는 세션을 인증하고 시작하는 것입니다. **연결 및 복사**로 이동합니다. **자격 증명 가져오기**를 클릭하여 스토리지 계정과 연결된 공유의 액세스 자격 증명을 가져옵니다.
 
     ![공유 자격 증명 가져오기 1](media/data-box-heavy-deploy-copy-data/get-share-credentials-1.png)
 

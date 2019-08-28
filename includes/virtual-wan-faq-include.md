@@ -5,19 +5,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 06/07/2019
+ms.date: 08/06/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 9d8482fdf8e914801fb77e2ab1712145fa3ccea0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8a4bbe92cc1b34801abffa1e905d873d4382025a
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077479"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912438"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Azure 가상 네트워크 게이트웨이(VPN Gateway)와 Azure Virtual WAN vpngateway 간의 차이점은 무엇입니까?
 
-Virtual WAN은 대규모 사이트 간 연결을 제공하며 처리량, 확장성 및 사용 편의성을 높여 줍니다. ExpressRoute 연결과 지점 및 사이트 간 연결 기능은 현재 미리 보기 상태입니다. CPE 분기 디바이스는 Azure Virtual WAN으로 자동 프로비저닝하고 연결합니다. 이러한 디바이스는 SD-WAN 및 VPN 파트너의 증가하는 에코시스템에서 사용할 수 있습니다. [선호 파트너 목록](https://go.microsoft.com/fwlink/p/?linkid=2019615)을 참조하세요.
+Virtual WAN은 대규모 사이트 간 연결을 제공하며 처리량, 확장성 및 사용 편의성을 높여 줍니다. Virtual WAN 연결용 ExpressRoute는 현재 미리 보기로 제공됩니다. CPE 분기 디바이스는 Azure Virtual WAN으로 자동 프로비저닝하고 연결합니다. 이러한 디바이스는 SD-WAN 및 VPN 파트너의 증가하는 에코시스템에서 사용할 수 있습니다. [선호 파트너 목록](https://go.microsoft.com/fwlink/p/?linkid=2019615)을 참조하세요.
 
 ### <a name="what-is-a-branch-connection-to-azure-virtual-wan"></a>Azure Virtual WAN에 대한 분기 연결이란?
 
@@ -91,7 +91,7 @@ Virtual WAN은 대규모 사이트 간 연결을 제공하며 처리량, 확장�
 
 azurevirtualwan@microsoft.com에 전자 메일을 보냅니다. IKEv1 또는 IKEv2 IPsec 연결용으로 프로비전 가능한 디바이스가 있는 파트너가 적합합니다.
 
-### <a name="what-if-a-device-i-am-using-is-not-in-the-virtual-wan-partner-list-can-i-still-use-it-to-connect-to-azure-virtual-wan-vpn"></a>사용 중인 디바이스가 Virtual WAN 파트너 목록에 없는 경우에는 어떻게 하나요? 계속 Azure Virtual WAN VPN에 연결할 수 있나요?
+### <a name="what-if-a-device-i-am-using-is-not-in-the-virtual-wan-partner-list-can-i-still-use-it-to-connect-to-azure-virtual-wan-vpn"></a>사용 중인 디바이스가 Virtual WAN 파트너 목록에 없는 경우 어떻게 되나요? 계속 Azure Virtual WAN VPN에 연결할 수 있나요?
 
 네, 디바이스가 IPsec IKEv1 또는 IKEv2를 지원하는 경우 연결할 수 있습니다. Virtual WAN 파트너는 디바이스에서 Azure VPN 엔드포인트로의 연결을 자동화합니다. 이는 ‘분기 정보 업로드’, ‘IPsec 및 구성’ 및 ‘연결성’과 같은 단계를 자동화하는 것을 의미합니다. 디바이스가 Virtual WAN 파트너 에코시스템에서 온 것이 아니기 때문에 IPsec 연결을 설정하려면 Azure 구성을 가져오고 디바이스를 업데이트하는 작업을 수동으로 많이 수행해야 합니다. 
 
@@ -101,15 +101,15 @@ azurevirtualwan@microsoft.com에 전자 메일을 보냅니다. IKEv1 또는 IKE
 
 ### <a name="is-branch-to-branch-connectivity-allowed-in-virtual-wan"></a>Virtual WAN에서 분기-분기 연결이 가능한가요?
 
-예. Virtual WAN에서는 VPN 및 VPN에서 ExpressRoute로의 분기 간 연결을 사용할 수 있습니다. 사이트 간 VPN은 일반 공급 상태인 반면 ExpressRoute/지점 및 사이트 간 VPN은 현재 미리 보기 상태입니다.
+예. Virtual WAN에서는 VPN 및 VPN에서 ExpressRoute로의 분기 간 연결을 사용할 수 있습니다. 현재 사이트 간 VPN은 일반 공급되는 반면 ExpressRoute는 미리 보기로 제공됩니다.
 
-### <a name="does-branch-to-branch-traffic-traverse-through-the-azure-virtual-wan"></a>분기-분기 트래픽은 Azure Virtual WAN을 통과하나요?
+### <a name="does-branch-to-branch-traffic-traverse-through-the-azure-virtual-wan"></a>분기 간 트래픽은 Azure Virtual WAN을 통과하나요?
 
 예.
 
 ### <a name="how-is-virtual-wan-different-from-the-existing-azure-virtual-network-gateway"></a>Virtual WAN은 기존 Azure Virtual Network 게이트웨이와 어떻게 다른가요?
 
-Virtual Network 게이트웨이 VPN은 터널 30개로 제한됩니다. 연결에는 대규모 VPN을 위한 Virtual WAN을 사용해야 합니다. 중서부 지역을 제외한 모든 지역의 허브에서 2Gbps의 최대 1,000개 분기 연결을 연결할 수 있습니다. 중서부 지역의 경우 20Gbps를 사용할 수 있습니다. 앞으로 추가 지역에는 20Gbps로 출시됩니다. 연결은 온-프레미스 VPN 디바이스에서 가상 허브로의 활성-활성 터널입니다. 지역당 하나의 허브만 있을 수 있습니다. 즉 허브에서 1,000개가 넘는 분기를 연결할 수 있습니다.
+Virtual Network 게이트웨이 VPN은 터널 30개로 제한됩니다. 연결에는 대규모 VPN을 위한 Virtual WAN을 사용해야 합니다. 모든 지역에 대한 허브에서 20Gbps의 분기 연결을 1,000개까지 설정할 수 있습니다. 연결은 온-프레미스 VPN 디바이스에서 가상 허브로의 활성-활성 터널입니다. 지역당 하나의 허브만 있을 수 있습니다. 즉 허브에서 1,000개가 넘는 분기를 연결할 수 있습니다.
 
 ### <a name="how-is-virtual-wan-supporting-sd-wan-devices"></a>Virtual WAN이 SD-WAN 디바이스를 지원하는 방법
 
@@ -121,7 +121,11 @@ Virtual WAN 파트너는 Azure VPN 엔드포인트로의 IPsec 연결을 자동�
 
 ### <a name="is-there-a-network-throughput-limit-when-using-azure-virtual-wan"></a>Azure Virtual WAN을 사용하는 경우 네트워크 처리량 제한이 있나요?
 
-허브에서 분기 수는 허브/지역당 1,000개 연결, 속도는 총 2Gbps로 제한됩니다. 단, 미국 중서부 지역은 총 20Gbps입니다. 앞으로 다른 지역에는 20Gbps로 출시됩니다.
+허브의 분기 수는 허브/지역당 1,000개 연결, 속도는 총 20Gbps로 제한됩니다.
+
+### <a name="i-dont-see-the-20-gbps-setting-for-the-virtual-hub-in-the-portal-how-do-i-configure-that"></a>포털에는 가상 허브에 대한 20Gbps 설정이 표시되지 않습니다. 이를 구성하려면 어떻게 하나요?
+
+현재 [Update-AzVpnGateway](https://docs.microsoft.com/powershell/module/az.network/update-azvpngateway) cmdlet을 사용하여 게이트웨이 크기 조정 단위를 20Gbps로 구성할 수 있습니다. 이 설정은 포털에서 사용할 수 있는 로드맵에 있습니다.
 
 ### <a name="how-many-vpn-connections-does-a-virtual-wan-hub-support"></a>Virtual WAN 허브에서 지원하는 VPN 연결은 몇 개인가요?
 

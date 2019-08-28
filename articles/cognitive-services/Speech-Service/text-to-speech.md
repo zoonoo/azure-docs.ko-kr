@@ -1,7 +1,7 @@
 ---
-title: Azure 음성 서비스를 사용 하 여 텍스트 음성 변환
+title: 텍스트 음성 변환-음성 서비스
 titleSuffix: Azure Cognitive Services
-description: Azure Speech Services가 제공하는 텍스트 음성 변환은 응용 프로그램, 도구 또는 장치가 인간과 유사한 합성된 음성으로 텍스트를 변환할 수 있도록 해주는 서비스입니다. 표준 및 신경망 음성에서 선택하거나 고유한 제품 또는 브랜드를 만들기 위해 사용자 고유의 사용자 지정 음성을 만듭니다. 75개 이상 표준 음성이 45개 이상의 언어 및 로캘에서 제공되며, 5개의 신경망 음성은 4개 언어 및 로캘에서 사용할 수 있습니다.
+description: 음성 서비스의 텍스트 음성 변환 기능은 응용 프로그램, 도구 또는 장치에서 텍스트를 사용자와 같은 자연 스러운 음성으로 변환 하는 데 사용할 수 있는 기능입니다. 표준 및 신경망 음성에서 선택하거나 고유한 제품 또는 브랜드를 만들기 위해 사용자 고유의 사용자 지정 음성을 만듭니다. 75개 이상 표준 음성이 45개 이상의 언어 및 로캘에서 제공되며, 5개의 신경망 음성은 4개 언어 및 로캘에서 사용할 수 있습니다.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: erhopf
-ms.openlocfilehash: da7259585ad66ac9b58131ce834d82e7b3d4bcf2
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 3d2c3e2bf693f763db13d90961a31e871aa25235
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466956"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558867"
 ---
 # <a name="what-is-text-to-speech"></a>텍스트 음성 변환 이란?
 
@@ -24,17 +24,17 @@ Azure Speech Services가 제공하는 텍스트 음성 변환은 응용 프로�
 텍스트 음성 변환 기술을 통해 콘텐츠 작성자는 사용자와 다양한 방법으로 상호 작용할 수 있습니다. 텍스트 음성 변환으로 콘텐츠와 청각적으로 상호 작용하는 옵션을 사용자에게 제공하여 접근성을 향상할 수 있습니다. 사용자가 시각 장애, 학습 장애가 있거나 운전 중 경로 탐색 정보가 필요한 경우, 텍스트 음성 변환은 기존 환경을 개선할 수 있습니다. 또한 텍스트 음성 변환은 음성 봇 및 가상 도우미에 대한 유용한 추가 기능입니다.
 
 
-개발자는 텍스트 음성 변환 서비스를 사용 하 여 음성 합성 태그 언어 (SSML), XML 기반 태그 언어를 활용 하 여 입력된 텍스트를 지정할 수 합성 된 음성으로 변환 됩니다. SSML, 말하기 속도, 볼륨 및 자세한 피치, 발음을 조정할 수 있습니다. 자세한 내용은 [SSML](#speech-synthesis-markup-language-ssml)합니다.
+XML 기반 태그 언어인 SSML (Speech Markup Language)를 활용 하 여 텍스트 음성 변환 서비스를 사용 하는 개발자는 입력 텍스트가 합성 된 음성으로 변환 되는 방식을 지정할 수 있습니다. SSML를 사용 하면 피치, 발음, 말하기 요금, 볼륨 등을 조정할 수 있습니다. 자세한 내용은 [SSML](#speech-synthesis-markup-language-ssml)를 참조 하세요.
 
 ### <a name="standard-voices"></a>표준 음성
 
-표준 음성은 통계 파라메트릭 합성 및/또는 연결 합성 기술을 사용하여 생성됩니다. 이러한 음성은 알아보기 쉬운 많고 사운드 자연입니다. 다양한 음성 옵션을 사용하여 45개 이상 언어로 말하도록 응용 프로그램을 쉽게 사용 설정할 수 있습니다. 이러한 음성은 약어, 머리글자어 확장, 날짜/시간 해석, 다음자 등에 대한 지원을 포함하여 정확도 높은 발음을 제공합니다. 사용자가 콘텐츠와 청각적으로 상호작용할 수 있도록 하여 응용 프로그램 및 서비스에 대한 접근성을 개선하기 위해서는 표준 음성을 사용하세요.
+표준 음성은 통계 파라메트릭 합성 및/또는 연결 합성 기술을 사용하여 생성됩니다. 이러한 음성은 매우 있는 하 고 자연 스러운 소리를 가집니다. 다양한 음성 옵션을 사용하여 45개 이상 언어로 말하도록 응용 프로그램을 쉽게 사용 설정할 수 있습니다. 이러한 음성은 약어, 머리글자어 확장, 날짜/시간 해석, 다음자 등에 대한 지원을 포함하여 정확도 높은 발음을 제공합니다. 사용자가 콘텐츠와 청각적으로 상호작용할 수 있도록 하여 응용 프로그램 및 서비스에 대한 접근성을 개선하기 위해서는 표준 음성을 사용하세요.
 
 ### <a name="neural-voices"></a>인공신경망 음성
 
-신경망 음성 스트레스 및 음성된 언어 및 컴퓨터 음성에 음성의 단위를 취합 억양의 패턴 일치에서 기존 텍스트 음성 변환 시스템의 한계를 극복 하기 위해 심층 신경망을 사용 합니다. 표준 텍스트 음성 변환 prosody 음향 예측 단계 muffled 음성 합성 개선할 수 있는 독립적인 모델을 통해 제어 되는 별도 언어 분석을 분류 합니다. 우리의 신경망 기능이 않습니다 prosody 예측 및 음성 합성 동시에 더 유연 하 고 자연 발음이 음성 결과입니다.
+신경망 음성은 구어에서 강세 및 억양의 패턴 일치와 음성 단위를 컴퓨터 음성으로 합성하는 데 있어 기존 텍스트 음성 변환 시스템의 한계를 극복하기 위해 심층 신경망을 사용합니다. 표준 텍스트 음성 변환 기능은 독립적인 모델에 의해 제어 되는 별도의 언어 분석 및 음향 예측 단계로 분류 되어 muffled 음성 합성이 발생할 수 있습니다. 우리의 신경 기능은 운율 예측 및 음성 합성을 동시에 수행하는데, 이것은 더 유려하고 자연스럽게 들리는 음성을 만듭니다.
 
-인공신경망 음성을 사용하여 챗봇 및 가상 도우미와의 상호 작용에 더 자연스럽게 참여하도록 만들고, eBook 같은 디지털 텍스트를 오디오북으로 변환하고, 자동차 내부 내비게이션 시스템을 향상시킬 수 있습니다. 인간과 유사한 자연 스러운 prosody와 단어 지우기 할 신경망 음성을 크게 줄일 수신 피로 AI 시스템과 상호 작용 하는 경우.
+신경망 음성을 사용하여 챗봇 및 가상 도우미와의 상호 작용에 더 자연스럽게 참여하도록 만들고, eBook 같은 디지털 텍스트를 오디오북으로 변환하고, 자동차 내부 내비게이션 시스템을 향상시킬 수 있습니다. 인간 같은 자연 스러운 자연 proaaady와 명확한 articulation을 사용 하 여 AI 시스템을 조작할 때 신경망은 듣기 피로를 크게 줄입니다.
 
 신경망 음성은 중립과 경쾌함 같은 다양한 스타일을 지원합니다. 예를 들어, Jessa(EN-US) 음성은 경쾌하게 말할 수 있어 따뜻하고 행복한 대화에 최적화되어 있습니다. [Speech Synthesis Markup Language](speech-synthesis-markup.md)를 사용하여 어조, 피치 및 속도 같은 음성 출력을 조정할 수 있습니다. 사용 가능한 음성의 전체 목록은 [지원되는 언어](language-support.md#text-to-speech)를 참조하세요.
 
@@ -46,23 +46,23 @@ Azure Speech Services가 제공하는 텍스트 음성 변환은 응용 프로�
 
 ## <a name="speech-synthesis-markup-language-ssml"></a>SSML(Speech Synthesis Markup Language)
 
-Speech Synthesis Markup Language (SSML)는 입력된 텍스트를 지정 하는 개발자가 있도록 하는 XML 기반 태그 언어 텍스트 음성 변환 서비스를 사용 하 여 음성으로 변환 됩니다. 일반 텍스트에 비해, SSML 개발자 피치, 발음을 세밀 하 게 말하기 속도, 볼륨 및 텍스트 음성 변환 출력의 자세한 내용은 합니다. 일반 문장 부호, 예: 기간 후 일시 중지 또는 문장 물음표를 사용 하 여 종료 될 때 올바른 억양을 사용 하 여 자동으로 처리 됩니다.
+SSML (Speech 합성 Markup Language)은 텍스트 음성 변환 서비스를 사용 하 여 입력 텍스트가 합성 음성으로 변환 되는 방법을 개발자가 지정할 수 있는 XML 기반 태그 언어입니다. 일반 텍스트와 비교해 서 SSML를 사용 하면 개발자가 피치, 발음, 말하는 요금, 볼륨 및 텍스트 음성 변환의 출력을 세밀 하 게 조정할 수 있습니다. 마침표 뒤에 일시 중지 또는 문장이 끝나는 경우 올바른 intonation를 사용 하는 등의 일반 문장 부호는 자동으로 처리 됩니다.
 
-텍스트 음성 변환 서비스로 전송 되는 모든 텍스트 입력 SSML으로 구조화 되는지 알아야 합니다. 자세한 내용은 [Speech Synthesis Markup Language](speech-synthesis-markup.md)합니다.
+텍스트 음성 변환 서비스로 전송 되는 모든 텍스트 입력은 SSML로 구성 되어야 합니다. 자세한 내용은 [음성 합성 태그 언어](speech-synthesis-markup.md)를 참조 하세요.
 
-### <a name="pricing-note"></a>가격 책정 참고
+### <a name="pricing-note"></a>가격 정보
 
-텍스트 음성 변환 서비스를 사용 하는 경우 문장 부호를 포함 하 여 음성으로 변환 되는 각 문자에 대 한 요금이 청구 됩니다. SSML 문서 자체를 청구 하는 동안 음소 등 피치, 음성 텍스트 변환 되는 방법을 조정 하는 데 사용 되는 선택적 요소는 청구 한 문자로 계산 됩니다. 청구 란 목록을 다음과 같습니다.
+텍스트 음성 변환 서비스를 사용 하는 경우 문장 부호를 포함 하 여 음성으로 변환 되는 각 문자에 대 한 요금이 청구 됩니다. SSML 문서 자체에는 요금이 청구 되지 않지만 음소 및 피치와 같이 텍스트를 음성으로 변환 하는 방법을 조정 하는 데 사용 되는 선택적 요소는 청구 가능 문자로 계산 됩니다. 다음은 청구 가능한 항목 목록입니다.
 
-* SSML 요청 본문에 텍스트 음성 변환 서비스로 전달 하는 텍스트
-* SSML 형식의 요청 본문의 텍스트 필드 내의 모든 태그를 제외한 `<speak>` 고 `<voice>` 태그
+* 요청의 SSML 본문에서 텍스트 음성 변환 서비스에 전달 된 텍스트입니다.
+* `<speak>` 및`<voice>` 태그를 제외한 SSML 형식으로 된 요청 본문의 텍스트 필드에 포함 된 모든 태그
 * 문자, 문장 부호, 공백, 탭, 태그 및 모든 공백 문자
 * 유니코드에 정의된 모든 코드 포인트
 
-자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)합니다.
+자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)을 참조 하세요.
 
 > [!IMPORTANT]
-> 각 중국어, 일본어 및 한국어 언어 문자는 청구에 대 한 두 개의 문자로 계산 됩니다.
+> 각 중국어, 일본어 및 한국어 문자는 청구를 위해 두 문자로 계산 됩니다.
 
 ## <a name="core-features"></a>핵심 기능
 
@@ -71,36 +71,36 @@ Speech Synthesis Markup Language (SSML)는 입력된 텍스트를 지정 하는 
 | 사용 사례 | SDK | REST(영문) |
 |----------|-----|------|
 | 텍스트를 음성으로 변환 합니다. | 예 | 예 |
-| 음성 조정에 대 한 데이터 집합을 업로드 합니다. | 아니요 | 예\* |
-| 음성 글꼴 모델을 만들고 설정 합니다. | 아니요 | 예\* |
-| 만들고 음성 글꼴 배포를 관리 합니다. | 아니요 | 예\* |
+| 음성 조정에 대한 데이터 집합을 업로드합니다. | 아니요 | 예\* |
+| 음성 글꼴 모델을 만들고 관리합니다. | 아니요 | 예\* |
+| 음성 글꼴 배포를 만들고 관리합니다. | 아니요 | 예\* |
 | 음성 글꼴 테스트를 만들고 관리합니다. | 아니요 | 예\* |
 | 구독을 관리합니다. | 아니요 | 예\* |
 
-\* *이러한 서비스 cris.ai 끝점을 사용 하 여 사용할 수 있습니다. 참조 [참조를 Swagger](https://westus.cris.ai/swagger/ui/index)합니다. 이러한 사용자 지정 음성 교육 및 관리 Api는 5 초 당 25로 제한 요청 음성 합성 API 자체는 제한을 구현 하는 동안 허용은 최고 초당 200 요청 제한을 구현 합니다. 제한이 발생 하는 경우 메시지 헤더를 통해 알림을 받게 됩니다.*
+\* *이러한 서비스는 cris.ai 끝점을 사용하여 가능합니다. [Swagger 참조](https://westus.cris.ai/swagger/ui/index)를 확인합니다. 이러한 사용자 지정 음성 학습 및 관리 API는 요청을 5초당 25개로 제한하는 조절을 구현하고, 음성 합성 API 자체는 초당 최대 200개 요청을 허용하는 조절을 구현합니다. 제한이 발생하는 경우 메시지 헤더를 통해 알림을 받게 됩니다.*
 
 ## <a name="get-started-with-text-to-speech"></a>텍스트 음성 변환 시작
 
 10분 이내에 코드를 실행하도록 디자인된 빠른 시작을 제공합니다. 이 표는 언어에 의해 구성된 텍스트 음성 변환 빠른 시작의 목록을 포함합니다.
 
-### <a name="sdk-quickstarts"></a>SDK 빠른 시작
+### <a name="sdk-quickstarts"></a>SDK 퀵 스타트
 
 | 빠른 시작 (SDK) | 플랫폼 | API 참조 |
 |------------|----------|---------------|
-| [C#, .NET Core](quickstart-text-to-speech-dotnetcore.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, .NET Framework](quickstart-text-to-speech-dotnet-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, UWP](quickstart-text-to-speech-csharp-uwp.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, Unity](quickstart-text-to-speech-csharp-unity.md) | Windows, Android | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C++](quickstart-text-to-speech-cpp-windows.md) | Windows | [Browse](https://aka.ms/csspeech/cppref) |
-| [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [Browse](https://aka.ms/csspeech/cppref) |
+| [C#, .NET Core](quickstart-text-to-speech-dotnetcore.md) | Windows | [찾아보기](https://aka.ms/csspeech/csharpref) |
+| [C#, .NET Framework](quickstart-text-to-speech-dotnet-windows.md) | Windows | [찾아보기](https://aka.ms/csspeech/csharpref) |
+| [C#, UWP](quickstart-text-to-speech-csharp-uwp.md) | Windows | [찾아보기](https://aka.ms/csspeech/csharpref) |
+| [C#, Unity](quickstart-text-to-speech-csharp-unity.md) | Windows, Android | [찾아보기](https://aka.ms/csspeech/csharpref) |
+| [C++](quickstart-text-to-speech-cpp-windows.md) | Windows | [찾아보기](https://aka.ms/csspeech/cppref) |
+| [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [찾아보기](https://aka.ms/csspeech/cppref) |
 
 ### <a name="rest-quickstarts"></a>REST 빠른 시작
 
 | 빠른 시작 (REST) | 플랫폼 | API 참조 |
 |------------|----------|---------------|
-| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Node.JS](quickstart-nodejs-text-to-speech.md) | Windows, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Python](quickstart-python-text-to-speech.md) | Windows, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [찾아보기](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Node.js](quickstart-nodejs-text-to-speech.md) | Windows, macOS, Linux | [찾아보기](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Python](quickstart-python-text-to-speech.md) | Windows, macOS, Linux | [찾아보기](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 
 ## <a name="sample-code"></a>샘플 코드
 
@@ -113,7 +113,7 @@ Speech Synthesis Markup Language (SSML)는 입력된 텍스트를 지정 하는 
 
 * [Speech SDK](speech-sdk-reference.md)
 * [Speech Devices SDK](speech-devices-sdk.md)
-* [REST API: 음성 텍스트 변환](rest-speech-to-text.md)
+* [REST API: Speech-to-text](rest-speech-to-text.md)
 * [REST API: 텍스트 음성 변환](rest-text-to-speech.md)
 * [REST API: 일괄 처리 기록 및 사용자 지정](https://westus.cris.ai/swagger/ui/index)
 

@@ -5,7 +5,7 @@ services: active-directory
 manager: daveba
 editor: billmath
 ms.assetid: 7c781f61-848a-48ad-9863-eb29da78f53c
-ms.service: active-directory  
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ author: billmath
 ms.custom: seohack1
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39ac0e9cf11a0c6c212c4beadb6635ad2b6b056d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4fcdf75586de9621bd0e42cba6fa9c80e5d30817
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60244675"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595206"
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>AD FS(Active Directory Federation Services) 팜에 대한 SSL 인증서 업데이트
 
@@ -36,7 +36,7 @@ ms.locfileid: "60244675"
 >[!NOTE]
 >AD FS에서 사용하는 인증서에 대한 자세한 내용은 [AD FS에서 사용하는 인증서 이해](https://technet.microsoft.com/library/cc730660.aspx)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **AD FS 팜**: AD FS 팜이 Windows Server 2012 R2 이상을 기반으로 하는지 확인합니다.
 * **Azure AD Connect**: Azure AD Connect 버전이 1.1.553.0 이상인지 확인합니다. **AD FS SSL 인증서 업데이트** 작업을 사용할 것입니다.

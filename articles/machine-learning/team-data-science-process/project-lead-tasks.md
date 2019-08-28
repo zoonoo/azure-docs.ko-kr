@@ -142,7 +142,7 @@ Azure DevOps를 코드 호스팅 플랫폼으로 사용하는 경우 일반적�
 
 ![9](./media/project-lead-tasks/project-leads-9-clone-project-repository.png)
 
-Azure DevOps를 코드 호스팅 플랫폼으로 사용하는 경우 일반적으로 _프로젝트 리포지토리의 HTTPS URL_은 ***https://\<Azure DevOps Services 이름\>.visualstudio.com/\<프로젝트 이름>/_git/<프로젝트 리포지토리 이름\>*** 입니다. 이 예제에서는 ***https://mysamplegroup.visualstudio.com/MyTeam/_git/DSProject1***을 사용합니다.
+Azure DevOps를 코드 호스팅 플랫폼으로 사용하는 경우 일반적으로 _프로젝트 리포지토리의 HTTPS URL_은 ***https://\<Azure DevOps Services 이름\>.visualstudio.com/\<프로젝트 이름>/_git/<프로젝트 리포지토리 이름\>*** 입니다. 이 예제에서는 ***https://mysamplegroup.visualstudio.com/MyTeam/_git/DSProject1*** 을 사용합니다.
 
 **Linux**
 
@@ -209,7 +209,7 @@ Azure DevOps를 코드 호스팅 플랫폼으로 사용하는 경우 일반적�
 
 ## <a name="6-create-and-mount-azure-file-storage-as-project-resources-optional"></a>6. 프로젝트 리소스로 Azure File Storage 만들기 및 탑재(선택 사항)
 
-프로젝트 원시 데이터 또는 프로젝트에 생성된 기능과 같은 데이터를 공유하기 위해 Azure File Storage를 만들어 모든 프로젝트 구성원이 여러 DSVM의 동일한 데이터 집합에 액세스할 수 있게 하려면 [데이터 과학 팀에 대한 팀 리더 작업](team-lead-tasks.md)의 섹션 3 및 4의 지침을 따릅니다. 
+프로젝트 원시 데이터 또는 프로젝트에 생성된 기능과 같은 데이터를 공유하기 위해 Azure File Storage를 만들어 모든 프로젝트 구성원이 여러 DSVM의 동일한 데이터 세트에 액세스할 수 있게 하려면 [데이터 과학 팀에 대한 팀 리더 작업](team-lead-tasks.md)의 섹션 3 및 4의 지침을 따릅니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

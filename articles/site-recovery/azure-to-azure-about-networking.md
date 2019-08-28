@@ -7,13 +7,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
-ms.author: sujayt
-ms.openlocfilehash: a6c9c690efe8b75cd1a939de1c68cf4e5bd40d70
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: sutalasi
+ms.openlocfilehash: b549e8bf53ca7728b18e04542c7291f0ce720cb0
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60789801"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876451"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Azure 간 복제의 네트워킹 정보
 
@@ -21,7 +21,7 @@ ms.locfileid: "60789801"
 
 이 아티클에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 지역 간에 Azure VM을 복제 및 복구할 때의 네트워킹 지침을 제공합니다.
 
-## <a name="before-you-start"></a>시작하기 전에
+## <a name="before-you-start"></a>시작하기 전 주의 사항
 
 Site Recovery가 [이 시나리오](azure-to-azure-architecture.md)에 재해 복구를 지원하는 방법을 알아봅니다.
 
@@ -48,18 +48,18 @@ URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어�
 
 **URL** | **세부 정보**  
 --- | ---
-\*.blob.core.windows.net | VM에서 원본 지역의 캐시 저장소 계정에 데이터를 쓸 수 있도록 하는 데 필요합니다. 를 알고 있는 경우 모든 캐시 저장소 계정은 Vm에 대 한 하면 허용 목록에 추가할 특정 저장소 계정 Url (예: cache1.blob.core.windows.net 및 cache2.blob.core.windows.net) 대신 *. blob.core.windows.net
+\*.blob.core.windows.net | VM에서 원본 지역의 캐시 스토리지 계정에 데이터를 쓸 수 있도록 하는 데 필요합니다. Vm에 대 한 모든 캐시 저장소 계정을 알고 있는 경우 *. blob.core.windows.net 대신 특정 저장소 계정 Url (예: cache1.blob.core.windows.net 및 cache2.blob.core.windows.net)을 허용 목록 수 있습니다.
 login.microsoftonline.com | Site Recovery 서비스 URL에 대한 권한 부여 및 인증에 필요합니다.
-*.hypervrecoverymanager.windowsazure.com | VM에서 Site Recovery 서비스 통신이 발생할 수 있도록 하는 데 필요합니다. 방화벽 프록시 Ip를 지 원하는 경우에 해당 ' Site Recovery IP'를 사용할 수 있습니다.
-\*.servicebus.windows.net | VM에서 Site Recovery 모니터링 및 진단 데이터를 쓸 수 있도록 하는 데 필요합니다. 방화벽 프록시 Ip를 지 원하는 경우에 해당 ' Site Recovery 모니터링 IP'를 사용할 수 있습니다.
+*.hypervrecoverymanager.windowsazure.com | VM에서 Site Recovery 서비스 통신이 발생할 수 있도록 하는 데 필요합니다. 방화벽 프록시가 Ip를 지 원하는 경우 해당 ' Site Recovery IP '를 사용할 수 있습니다.
+\*.servicebus.windows.net | VM에서 Site Recovery 모니터링 및 진단 데이터를 쓸 수 있도록 하는 데 필요합니다. 방화벽 프록시가 ip를 지 원하는 경우 해당 ' Site Recovery 모니터링 IP '를 사용할 수 있습니다.
 
 ## <a name="outbound-connectivity-for-ip-address-ranges"></a>IP 주소 범위에 대한 아웃바운드 연결
 
 IP 기반 방화벽 프록시 또는 NSG 규칙을 사용하여 아웃바운드 연결을 제어하는 경우 이러한 IP 범위를 허용해야 합니다.
 
-- 원본 지역의 저장소 계정 해당하는 모든 IP 주소 범위
-    - 원본 지역에 대한 NSG 규칙을 기반으로 [저장소 서비스 태그](../virtual-network/security-overview.md#service-tags)를 만듭니다.
-    - VM에서 캐시 저장소 계정에 데이터를 쓸 수 있도록 이러한 주소를 허용합니다.
+- 원본 지역의 스토리지 계정 해당하는 모든 IP 주소 범위
+    - 원본 지역에 대한 NSG 규칙을 기반으로 [스토리지 서비스 태그](../virtual-network/security-overview.md#service-tags)를 만듭니다.
+    - VM에서 캐시 스토리지 계정에 데이터를 쓸 수 있도록 이러한 주소를 허용합니다.
 - AAD에 해당하는 모든 IP 주소에 대한 액세스를 허용하는 [AAD(Azure Active Directory) 서비스 태그](../virtual-network/security-overview.md#service-tags) 기반 NSG 규칙을 만드세요.
     - 나중에 AAD(Azure Active Directory)에 새 주소가 추가될 때 새 NSG 규칙을 만들어야 합니다.
 - Site Recovery 서비스 엔드포인트 IP 주소는 [XML 파일로 제공](https://aka.ms/site-recovery-public-ips)되며 대상 위치에 따라 달라집니다.
@@ -70,14 +70,14 @@ Site Recovery IP 주소 범위는 다음과 같습니다.
 
    **대상** | **Site Recovery IP** |  **Site Recovery 모니터링 IP**
    --- | --- | ---
-   동아시아 | 52.175.17.132 | 13.94.47.61
+   아시아 동부 | 52.175.17.132 | 13.94.47.61
    동남아시아 | 52.187.58.193 | 13.76.179.223
    인도 중부 | 52.172.187.37 | 104.211.98.185
    인도 남부 | 52.172.46.220 | 104.211.224.190
    미국 중북부 | 23.96.195.247 | 168.62.249.226
    유럽 북부 | 40.69.212.238 | 52.169.18.8
-   서유럽 | 52.166.13.64 | 40.68.93.145
-   미국 동부 | 13.82.88.226 | 104.45.147.24
+   유럽 서부 | 52.166.13.64 | 40.68.93.145
+   East US | 13.82.88.226 | 104.45.147.24
    미국 서부 | 40.83.179.48 | 104.40.26.199
    미국 중남부 | 13.84.148.14 | 104.210.146.250
    미국 중부 | 40.69.144.231 | 52.165.34.144
@@ -105,10 +105,15 @@ Site Recovery IP 주소 범위는 다음과 같습니다.
    남아프리카 북부 | 102.133.160.44 | 102.133.154.128
    US Gov 버지니아 | 52.227.178.114 | 23.97.0.197
    US Gov 아이오와 | 13.72.184.23 | 23.97.16.186
-   미국 정부 애리조나 | 52.244.205.45 | 52.244.48.85
-   미국 정부 텍사스 | 52.238.119.218 | 52.238.116.60
-   미국 국방부 동부 | 52.181.164.103 | 52.181.162.129
-   미국 국방부 중부 | 52.182.95.237 | 52.182.90.133
+   US Gov 애리조나 | 52.244.205.45 | 52.244.48.85
+   US Gov 텍사스 | 52.238.119.218 | 52.238.116.60
+   US DoD 동부 | 52.181.164.103 | 52.181.162.129
+   US DoD 중부 | 52.182.95.237 | 52.182.90.133
+   중국 북부 | 40.125.202.254 | 42.159.4.151
+   중국 북부 2 | 40.73.35.193 | 40.73.33.230
+   중국 동부 | 42.159.205.45 | 42.159.132.40
+   중국 동부 2 | 40.73.118.52| 40.73.100.125
+  
 ## <a name="example-nsg-configuration"></a>NSG 구성 예제
 
 이 예제에서는 복제할 VM에 대한 NSG 규칙을 구성하는 방법을 보여 줍니다.
@@ -128,7 +133,7 @@ Site Recovery IP 주소 범위는 다음과 같습니다.
 
 3. 대상 위치에 해당하는 Site Recovery IP에 대한 아웃바운드 HTTPS(443) 규칙을 만듭니다.
 
-   **Location**: | **Site Recovery IP 주소** |  **Site Recovery 모니터링 IP 주소**
+   **위치** | **Site Recovery IP 주소** |  **Site Recovery 모니터링 IP 주소**
     --- | --- | ---
    미국 중부 | 40.69.144.231 | 52.165.34.144
 
@@ -142,9 +147,9 @@ Site Recovery IP 주소 범위는 다음과 같습니다.
 
 3. 원본 위치에 해당하는 Site Recovery IP에 대한 아웃바운드 HTTPS(443) 규칙을 만듭니다.
 
-   **Location**: | **Site Recovery IP 주소** |  **Site Recovery 모니터링 IP 주소**
+   **위치** | **Site Recovery IP 주소** |  **Site Recovery 모니터링 IP 주소**
     --- | --- | ---
-   미국 중부 | 13.82.88.226 | 104.45.147.24
+   East US | 13.82.88.226 | 104.45.147.24
 
 ## <a name="network-virtual-appliance-configuration"></a>네트워크 가상 어플라이언스 구성
 
@@ -161,7 +166,7 @@ NVA(네트워크 가상 어플라이언스)를 사용하여 VM에서 아웃바�
 - '서비스' 아래의 'Microsoft.Storage' 및 '서브넷' 필드 아래의 필요한 서브넷을 선택하고 '추가'를 클릭합니다.
 
 >[!NOTE]
->ASR에 사용되는 저장소 계정에 대한 가상 네트워크 액세스를 제한하지 마십시오. '모든 네트워크'에서 액세스를 허용해야 합니다.
+>ASR에 사용되는 스토리지 계정에 대한 가상 네트워크 액세스를 제한하지 마십시오. '모든 네트워크'에서 액세스를 허용해야 합니다.
 
 ### <a name="forced-tunneling"></a>강제 터널링
 
@@ -170,4 +175,4 @@ NVA(네트워크 가상 어플라이언스)를 사용하여 VM에서 아웃바�
 ## <a name="next-steps"></a>다음 단계
 - [Azure 가상 머신을 복제](site-recovery-azure-to-azure.md)하여 워크로드 보호를 시작합니다.
 - Azure 가상 머신 장애 조치(failover)를 위한 [IP 주소 보존](site-recovery-retain-ip-azure-vm-failover.md)에 대해 자세히 알아보세요.
-- 재해 복구에 자세히 알아보려면 [ExpressRoute 사용 하 여 Azure virtual machines](azure-vm-disaster-recovery-with-expressroute.md)합니다.
+- [Express 경로를 사용 하 여 Azure virtual machines](azure-vm-disaster-recovery-with-expressroute.md)의 재해 복구에 대해 자세히 알아보세요.

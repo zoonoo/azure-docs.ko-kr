@@ -3,19 +3,20 @@ title: Unity 사용한 Project Acoustics 빠른 시작
 titlesuffix: Azure Cognitive Services
 description: 샘플 콘텐츠를 사용하여 Unity에서 Project Acoustics 디자인 컨트롤을 실험하고 Windows Desktop에 배포합니다.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
-ms.author: kegodin
-ms.openlocfilehash: 1c790e0fa726c719d5b888d42b5f59739777566b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.author: noelc
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0ea020ca76381a4ae5d6b6e480c94e63f9aa2dab
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917111"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933112"
 ---
 # <a name="project-acoustics-unity-quickstart"></a>Project Acoustics Unity 빠른 시작
 Unity용 Project Acoustics 샘플 콘텐츠를 사용하여 시뮬레이션 기반 디자인 컨트롤을 실험합니다.
@@ -37,16 +38,35 @@ Unity용 Project Acoustics 샘플 콘텐츠를 사용하여 시뮬레이션 기�
 
 * **ProjectAcoustics.unitypackage** 선택
 
+* **가져오기** 단추를 클릭하여 Unity 패키지를 프로젝트에 통합  
+  
+    ![Unity 패키지 가져오기 대화 상자의 스크린샷](media/import-dialog.png)  
+
 기존 프로젝트에 패키지를 가져오려는 경우 [Unity 통합](unity-integration.md)에서 추가 단계 및 정보를 참조하세요.
+
+>[!NOTE] 
+>가져오기가 완료된 후 몇 가지 오류가 콘솔 로그에 표시됩니다.  다음 단계를 진행하고 Unity를 다시 시작합니다.
 
 ## <a name="restart-unity"></a>Unity 다시 시작
 음향 효과 도구 키트의 준비 부분에는 .NET 4.x 스크립팅 런타임 버전이 필요합니다. 패키지를 가져오면 Unity 플레이어 설정이 업데이트됩니다. 이 설정을 적용하려면 Unity를 다시 시작합니다.
 
 **플레이어 설정**을 열어 이 설정이 적용되었는지 확인할 수 있습니다.
 
-![Unity 플레이어 설정 패널의 스크린샷](media/player-settings.png)
+![Unity 플레이어 설정 패널의 스크린샷](media/player-settings.png)  
 
-![.NET 4.5를 선택한 Unity 플레이어 설정 패널의 스크린샷](media/net45.png)
+![.NET 4.5를 선택한 Unity 플레이어 설정 패널의 스크린샷](media/net45.png)  
+
+>[!NOTE]
+>스크린샷은 Unity 2018.x에서 가져옵니다. 최신 버전의 Unity는 다를 수 있습니다.
+
+## <a name="open-the-project-acoustics-bake-window"></a>Project Acoustics 음향 효과 베이킹 창 열기
+Unity 메뉴에서 **Window > Acoustics**를 차례로 선택합니다.
+
+![음향 효과 창 메뉴 옵션이 강조 표시된 Unity 편집기의 스크린샷](media/window-acoustics.png)
+
+**Acoustics**라는 새 부동 창이 표시됩니다.  이 창은 음향 효과 시뮬레이션의 속성을 설정합니다.
+
+![음향 효과 창이 열려 있는 Unity 편집기의 스크린샷](media/unity-editor-plugin-window.png)  
 
 ## <a name="experiment-with-design-controls"></a>디자인 컨트롤을 실험
 **ProjectAcousticsSample** 폴더에서 샘플 장면을 열고 Unity 편집기에서 재생 단추를 클릭합니다. W, A, S, D 및 마우스를 사용하여 이동합니다. 장면에 음향이 어떻게 포함 또는 포함되지 않는지 비교하려면 **R** 단추를 눌러 오버레이 텍스트가 빨간색으로 변하면 "음향: 사용 안 함"이라고 말합니다. 더 많은 컨트롤에 대한 키보드 바로 바기를 보려면 **F1** 키를 누릅니다. 컨트롤은 마우스 오른쪽 단추를 클릭하여 수행할 작업을 선택하고 왼쪽 단추를 클릭하여 작업을 수행하도록 하여 사용할 수 있습니다.
@@ -55,7 +75,7 @@ Unity용 Project Acoustics 샘플 콘텐츠를 사용하여 시뮬레이션 기�
 
 ![Unity AcousticsAdjust 스크립트의 스크린샷](media/acoustics-adjust.png)
 
-다음에서는 제공된 컨트롤을 사용하여 생성할 수 있는 효과 중 일부를 살펴봅니다. 각 컨트롤에 대한 자세한 정보는 [Project Acoustics Unity 디자인 자습서](unreal-workflow.md)를 참조하세요.
+다음에서는 제공된 컨트롤을 사용하여 생성할 수 있는 효과 중 일부를 살펴봅니다. 각 컨트롤에 대한 자세한 정보는 [Project Acoustics Unity 디자인 자습서](unity-workflow.md)를 참조하세요.
 
 ### <a name="modify-distance-based-attenuation"></a>거리 기반 감쇠 수정
 **Project Acoustics** Unity Spatializer 플러그 인이 제공하는 오디오 DSP는 Unity 편집기에 기본 제공되는 원본별 거리 기반 감쇠를 유지합니다. 거리 기반 감쇠에 대한 컨트롤은 **3D Sound Settings**(3D 소리 설정) 아래에 있는 소리 원본의 **Inspector**(검사기) 패널에 있는 **Audio Source**(오디오 원본) 구성 요소에 있습니다.

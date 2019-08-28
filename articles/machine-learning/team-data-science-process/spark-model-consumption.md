@@ -40,12 +40,12 @@ HDInsight Spark 2.0 클러스터와 함께 사용하도록 Spark 1.6용 Jupyter 
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="setup-storage-locations-libraries-and-the-preset-spark-context"></a>설정: 저장소 위치, 라이브러리 및 사전 설정 Spark 컨텍스트
+## <a name="setup-storage-locations-libraries-and-the-preset-spark-context"></a>설정: 스토리지 위치, 라이브러리 및 사전 설정 Spark 컨텍스트
 Spark는 Azure Storage Blob(WASB)를 읽고 쓸 수 있습니다. 따라서 Spark 및 WASB에 다시 저장된 결과를 사용하여 해당 저장소에 저장된 기존 데이터를 처리할 수 있습니다.
 
-모델 또는 파일을 WASB에 저장하려면 경로를 올바르게 지정해야 합니다. *"wasb///"* 로 시작하는 경로를 사용하여 Spark 클러스터에 연결된 기본 컨테이너를 참조할 수 있습니다. 다음 코드 샘플은 읽을 데이터의 위치 및 모델 출력을 저장할 모델 저장소 디렉터리에 대한 경로를 지정합니다. 
+모델 또는 파일을 WASB에 저장하려면 경로를 올바르게 지정해야 합니다. *"wasb///"* 로 시작하는 경로를 사용하여 Spark 클러스터에 연결된 기본 컨테이너를 참조할 수 있습니다. 다음 코드 샘플은 읽을 데이터의 위치 및 모델 출력을 저장할 모델 스토리지 디렉터리에 대한 경로를 지정합니다. 
 
-### <a name="set-directory-paths-for-storage-locations-in-wasb"></a>WASB의 저장소 위치에 대 한 디렉터리 경로를 설정합니다.
+### <a name="set-directory-paths-for-storage-locations-in-wasb"></a>WASB의 스토리지 위치에 대한 디렉터리 경로를 설정합니다.
 모델 저장 위치: "wasb:///user/remoteuser/NYCTaxi/Models". 이 경로를 올바르게 설정하지 않으면 점수 매기기를 위한 모델이 로드되지 않습니다.
 
 점수를 매긴 결과가 저장된 위치: "wasb:///user/remoteuser/NYCTaxi/ScoredResults". 폴더에 대한 경로가 올바르지 않으면 결과가 해당 폴더에 저장되지 않습니다.   
@@ -530,7 +530,7 @@ Livy를 사용하면 Azure blob에 저장된 파일의 점수를 일괄적으로
 [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py)에서 Python 스크립트를 Spark 클러스터의 Blob에 업로드합니다. **Microsoft Azure Storage Explorer** 또는 **AzCopy** 등과 같은 도구를 사용하여 스크립트를 클러스터 Blob에 복사할 수 있습니다. 여기서는 스크립트를 ***wasb:///example/python/ConsumeGBNYCReg.py***로 업로드했습니다.   
 
 > [!NOTE]
-> 필요한 액세스 키는 Spark 클러스터와 연결된 저장소 계정용 포털에서 찾을 수 있습니다. 
+> 필요한 액세스 키는 Spark 클러스터와 연결된 스토리지 계정용 포털에서 찾을 수 있습니다. 
 > 
 > 
 

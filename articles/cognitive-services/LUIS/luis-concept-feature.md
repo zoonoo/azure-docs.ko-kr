@@ -1,6 +1,6 @@
 ---
-title: 기능
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 기능-LUIS
+titleSuffix: Azure Cognitive Services
 description: 언어 모델에 기능을 추가하여 레이블을 지정하거나 분류하려는 입력을 인식하는 방법에 대한 힌트를 제공합니다.
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 7889f223b607912fd88c798b31ec028f97dfbbd6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 829054064a21b2fb8da2bd975501bfcd0840e7eb
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812929"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624581"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>LUIS 앱의 구문 목록 기능
 
@@ -35,7 +35,7 @@ ms.locfileid: "60812929"
 
 ## <a name="how-to-use-phrase-lists"></a>구문 목록 사용 방법
 
-앱에 다음과 같이 중요한 단어 또는 구문이 있으면 구문 목록을 만듭니다.
+앱에 중요 한 단어나 구가 앱에 있는 경우 다음과 같이 [문구 목록을 만듭니다](luis-how-to-add-features.md) .
 
 * 산업 용어
 * 속어
@@ -46,7 +46,7 @@ ms.locfileid: "60812929"
 
 단어 또는 구문을 입력했으면 **권장** 기능을 사용하여 관련 값을 찾습니다. 관련 값을 검토한 후 구문 목록 값에 추가합니다.
 
-|목록 유형|목적|
+|목록 유형|용도|
 |--|--|
 |서로 교환 가능|목록의 다른 단어 목록으로 변경될 때 의도 및 엔터티 추출이 동일한 동의어 또는 단어입니다.|
 |서로 교환 불가능|일반적으로 해당 언어의 다른 단어에 비해 더 앱에 특화된 앱 어휘입니다.|
@@ -69,7 +69,7 @@ ms.locfileid: "60812929"
 
 ### <a name="non-interchangeable-lists"></a>서로 교환 불가능한 목록
 
-서로 교환 불가능한 구문 목록은 LUIS 검색을 향상하는 신호입니다. 구문 목록은 다른 단어보다 더 중요한 단어 또는 구문을 나타냅니다. 이는 의도 및 엔터티 검색에 도움이 됩니다. 예를 들어 글로벌 여행 같은 주체 도메인(즉, 단일 언어를 사용하는 여러 문화권)이 있다고 가정해 봅시다. 앱에 중요하지만 동의어는 아닌 단어 및 구문이 있습니다. 
+서로 교환 불가능한 구문 목록은 LUIS 검색을 향상하는 신호입니다. 구 목록에는 다른 단어 보다 더 중요 한 단어나 구가 표시 됩니다. 이는 의도 및 엔터티 검색에 도움이 됩니다. 예를 들어 글로벌 여행 같은 주체 도메인(즉, 단일 언어를 사용하는 여러 문화권)이 있다고 가정해 봅시다. 앱에 중요하지만 동의어는 아닌 단어 및 구문이 있습니다. 
 
 또 다른 예로 희귀 단어, 독점 단어 및 외래 단어에는 서로 교환 불가능한 구문 목록을 사용합니다. LUIS가 희귀 및 독점 단어뿐 아니라 앱 문화권 외부의 외래 단어를 인식하지 못할 수 있습니다. 서로 교환 불가능한 설정은 희귀 단어 집합이 LUIS가 인식하도록 학습되어야 하는 클래스를 구성하지만 동의어가 아니고 서로 교환 가능하지 않음을 나타냅니다.
 
@@ -79,7 +79,7 @@ ms.locfileid: "60812929"
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 
-## <a name="phrase-lists-help-identify-simple-interchangeable-entities"></a>구 목록은 단순 Interchangeable 엔터티를 식별하는 데 도움이 됩니다.
+## <a name="phrase-lists-help-identify-simple-interchangeable-entities"></a>지원 되는 간단한 엔터티를 식별 하는 데 도움이 되는 문구 목록
 서로 교환 가능한 구 목록은 LUIS 앱의 성능을 조정하는 좋은 방법입니다. 앱이 올바른 의도에 대한 발화를 예측하거나 엔터티를 인식하는 데 문제가 있는 경우에는 발화에 비정상적인 단어나 의미가 모호할 수 있는 단어가 포함되어 있는지 생각해 보세요. 이러한 단어는 구문 목록에 포함할 좋은 후보입니다.
 
 ## <a name="phrase-lists-help-identify-intents-by-better-understanding-context"></a>구문 목록은 컨텍스트를 보다 잘 이해하여 의도를 식별하는 데 도움이 됨
@@ -88,12 +88,12 @@ ms.locfileid: "60812929"
 의도에 더 많은 예제 발화를 추가하는 대신 구문 목록을 추가할 수 있습니다. 
 
 ## <a name="when-to-use-phrase-lists-versus-list-entities"></a>구문 목록 및 목록 엔터티를 사용하는 경우
-구문 목록과 목록 엔터티는 모든 의도의 발화에 서로 다른 방법으로 영향을 줄 수 있습니다. 구문 목록을 사용하면 의도 예측 점수에 영향을 줍니다. 목록 엔터티를 사용하면 정확한 텍스트 일치를 위해 엔터티 추출에 영향을 줍니다. 
+구 목록과 [목록 엔터티](reference-entity-list.md) 는 모두 길이 발언에 영향을 줄 수 있지만 각각은 다른 방식으로이를 수행 합니다. 구문 목록을 사용하면 의도 예측 점수에 영향을 줍니다. 목록 엔터티를 사용하면 정확한 텍스트 일치를 위해 엔터티 추출에 영향을 줍니다. 
 
 ### <a name="use-a-phrase-list"></a>구문 목록 사용
 구문 목록을 기반으로 LUIS는 여전히 컨텍스트를 고려하고 비슷하지만 정확히 일치하지는 않는 항목을 목록의 항목으로 식별하도록 일반화될 수 있습니다. LUIS 앱이 범주의 새 항목을 일반화하고 식별할 수 있게 하려면 구문 목록을 사용합니다. 
 
-새 연락처 또는 새 제품을 인식 해야 하는 인벤토리 앱의 이름을 인식 해야 하는 회의 scheduler와 같은 특정 엔터티의 새 인스턴스를 인식할 수 하려는 경우에 간단한 엔터티를 같은 컴퓨터에서 학습 엔터티의 다른 형식을 사용 합니다. 그런 다음, LUIS가 엔터티와 유사한 다른 단어를 찾는 데 도움이 되는 단어 및 구문의 구문 목록을 만듭니다. 이 목록은 해당 단어의 값에 중요도를 추가하여 엔터티 예제를 인식하도록 LUIS를 안내합니다. 
+새 연락처의 이름 또는 새 제품을 인식 해야 하는 인벤토리 앱을 인식 해야 하는 모임 스케줄러와 같이 엔터티의 새 인스턴스를 인식할 수 있도록 하려면 간단한 엔터티와 같은 다른 유형의 시스템 학습 엔터티를 사용 합니다. 그런 다음, LUIS가 엔터티와 유사한 다른 단어를 찾는 데 도움이 되는 단어 및 구문의 구문 목록을 만듭니다. 이 목록은 해당 단어의 값에 중요도를 추가하여 엔터티 예제를 인식하도록 LUIS를 안내합니다. 
 
 구문 목록은 의도 및 엔터티 모두의 이해 품질을 개선하도록 도와주는 도메인별 어휘와 비슷합니다. 일반적으로 구문 목록은 도시 이름과 같은 고유 명사에 사용됩니다. 도시 이름은 하이픈이나 아포스트로피를 포함한 여러 단어일 수 있습니다.
  

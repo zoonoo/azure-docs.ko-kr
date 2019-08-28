@@ -86,7 +86,7 @@ Azure IoT C SDK의 샘플 코드를 사용하여 시뮬레이션된 디바이스
         
     이러한 줄도 모두 포함해야 합니다. 
 
-    ![dice 장치 등록 애플리케이션](./media/python-quick-create-simulated-device-x509/dice-device-enrollment.png)
+    ![dice 디바이스 등록 애플리케이션](./media/python-quick-create-simulated-device-x509/dice-device-enrollment.png)
  
 4. Windows 컴퓨터에 **_X509testcertificate.pem_** 이라는 파일을 만들고, 원하는 편집기에서 이 파일을 열고, 클립보드의 내용을 이 파일에 복사합니다. 파일을 저장합니다. 
 
@@ -144,11 +144,11 @@ Azure IoT C SDK의 샘플 코드를 사용하여 시뮬레이션된 디바이스
     python provisioning_device_client_sample.py
     ```
 
-7. 애플리케이션이 연결되어 장치를 등록하고 성공적인 등록 메시지를 표시합니다.
+7. 애플리케이션이 연결되어 디바이스를 등록하고 성공적인 등록 메시지를 표시합니다.
 
     ![성공적인 등록](./media/python-quick-create-simulated-device-x509/enrollment-success.png)
 
-8. 포털에서 프로비전 서비스에 연결된 IoT 허브로 이동하여 **디바이스 탐색기** 블레이드를 엽니다. 시뮬레이션된 X.509 디바이스가 허브에 성공적으로 프로비전되면 디바이스 ID가 **Device Explorer** 블레이드에 표시되고 *상태*가 **사용**으로 표시됩니다. 샘플 장치 애플리케이션을 실행하기 전에 블레이드가 이미 열려 있으면 위쪽의 **새로 고침** 단추를 클릭해야 할 수도 있습니다. 
+8. 포털에서 프로비전 서비스에 연결된 IoT 허브로 이동하여 **디바이스 탐색기** 블레이드를 엽니다. 시뮬레이션된 X.509 디바이스가 허브에 성공적으로 프로비전되면 디바이스 ID가 **Device Explorer** 블레이드에 표시되고 *상태*가 **사용**으로 표시됩니다. 샘플 디바이스 애플리케이션을 실행하기 전에 블레이드가 이미 열려 있으면 위쪽의 **새로 고침** 단추를 클릭해야 할 수도 있습니다. 
 
     ![디바이스가 IoT Hub에 등록됨](./media/python-quick-create-simulated-device-x509/registration.png) 
 

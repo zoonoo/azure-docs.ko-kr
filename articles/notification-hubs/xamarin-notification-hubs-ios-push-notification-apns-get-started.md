@@ -1,6 +1,6 @@
 ---
 title: Azure Notification Hubs를 사용하여 Xamarin.iOS 앱에 알림 푸시 | Microsoft Docs
-description: 이 자습서에서 Azure Notification Hubs를 사용하여 Xamarin iOS 응용 프로그램에 푸시 알림을 보내는 방법을 알아봅니다.
+description: 이 자습서에서 Azure Notification Hubs를 사용하여 Xamarin iOS 애플리케이션에 푸시 알림을 보내는 방법을 알아봅니다.
 services: notification-hubs
 keywords: ios 푸시 알림, 푸시 메시지, 푸시 알림, 푸시 메시지
 documentationcenter: xamarin
@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/23/2019
 ms.author: jowargo
-ms.openlocfilehash: cd6d22e7c689bce5c325863b914c5ee8abcbf40a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: ba392f69c0c5803768a04b94d9f9c0ed4f032fbf
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240770"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775030"
 ---
 # <a name="tutorial-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 Xamarin.iOS 앱에 알림 푸시
 
@@ -45,36 +45,17 @@ ms.locfileid: "66240770"
 ## <a name="prerequisites"></a>필수 조건
 
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* 최신 버전의 [Xcode][Install Xcode]
+* [Xcode][Install Xcode]
 * iOS 10 이상 호환 디바이스
 * [Apple 개발자 프로그램](https://developer.apple.com/programs/) 멤버 자격
 * [Mac용 Visual Studio]
   
   > [!NOTE]
-  > iOS 푸시 알림에 대한 구성 요구 사항 때문에 시뮬레이터 대신 실제 iOS 장치(iPhone 또는 iPad)에서 애플리케이션 예제를 배포 및 테스트해야 합니다.
+  > iOS 푸시 알림에 대한 구성 요구 사항 때문에 시뮬레이터 대신 실제 iOS 디바이스(iPhone 또는 iPad)에서 애플리케이션 예제를 배포 및 테스트해야 합니다.
 
 먼저 이 자습서를 완료해야 Xamarin.iOS 앱에 대한 다른 모든 Notification Hubs 자습서를 진행할 수 있습니다.
 
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
-
-## <a name="configure-your-notification-hub-for-ios-push-notifications"></a>iOS 푸시 알림에 대해 알림 허브 구성
-
-이 섹션에서는 새 알림 허브를 만들고, APNs와 함께 이전에 만든 **.p12** 푸시 인증서를 사용하여 인증을 구성하는 단계를 안내합니다. 이미 만든 알림 허브를 사용하려는 경우 5단계로 건너뛸 수 있습니다.
-
-[!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
-
-### <a name="configure-ios-settings-for-the-notification-hub"></a>알림 허브에 대한 iOS 설정 구성
-
-1. **알림 설정** 그룹에서 **Apple(APNS)** 을 선택합니다.
-2. **인증서**를 선택하고, **파일** 아이콘을 클릭한 다음, 이전에 내보낸 **.p12** 파일을 선택합니다.
-3. 인증서에 대한 **암호**를 지정합니다.
-4. **샌드박스** 모드를 선택합니다. 스토어에서 앱을 구매한 사용자에게 푸시 알림을 보내려는 경우에만 **프로덕션** 모드를 사용합니다.
-
-    ![Azure Portal에서 APNs 구성][6]
-
-    ![Azure Portal에서 APNs 인증 구성][7]
-
-이제 알림 허브가 APNs와 작동하도록 구성되었으며 앱을 등록하고 푸시 알림을 보내기 위한 연결 문자열이 있습니다.
 
 ## <a name="connect-your-app-to-the-notification-hub"></a>알림 허브에 앱 연결
 
@@ -124,7 +105,7 @@ ms.locfileid: "66240770"
     {
         if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
         {
-            UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Sound | UNAuthorizationOptions.Sound,
+            UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Badge | UNAuthorizationOptions.Sound,
                                                                     (granted, error) =>
             {
                 if (granted)

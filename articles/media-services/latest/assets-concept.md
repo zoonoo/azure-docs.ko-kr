@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 07/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 1bd9774cf045d9ed7f16a637fcb2eb1378b48686
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: d0a81d5d7ce8e7569b77007b6ad9c322cf626f16
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565821"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670695"
 ---
 # <a name="assets"></a>자산
 
@@ -101,22 +101,22 @@ curl -X PUT \
 |description|이름|
 |lastModified|LastModified|
 |storageAccountName|StorageAccountName|
-|storageEncryptionFormat| 옵션-만들기 옵션|
-|형식||
+|storageEncryptionFormat| 옵션 (생성 옵션)|
+|type||
 
-## <a name="storage-side-encryption"></a>저장소 쪽 암호화
+## <a name="storage-side-encryption"></a>스토리지 쪽 암호화
 
-미사용 자산을 보호하려면 저장소 쪽 암호화를 사용하여 자산을 암호화해야 합니다. 다음 표는 Media Services에서 저장소 쪽 암호화가 작동하는 원리를 보여줍니다.
+미사용 자산을 보호하려면 스토리지 쪽 암호화를 사용하여 자산을 암호화해야 합니다. 다음 표는 Media Services에서 스토리지 쪽 암호화가 작동하는 원리를 보여줍니다.
 
-|암호화 옵션|설명|Media Services v2|Media Services v3|
+|암호화 옵션|Description|Media Services v2|Media Services v3|
 |---|---|---|---|
-|Media Services 저장소 암호화|AES-256 암호화, Media Services에서 키 관리|지원<sup>(1)</sup>|지원되지 않음<sup>(2)</sup>|
+|Media Services 스토리지 암호화|AES-256 암호화, Media Services에서 키 관리|지원<sup>(1)</sup>|지원되지 않음<sup>(2)</sup>|
 |[미사용 데이터에 대한 Storage 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Azure Storage가 제공하는 서버 쪽 암호화, Azure 또는 고객이 키 관리|지원됨|지원됨|
-|[저장소 클라이언트 쪽 암호화](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Azure Storage가 제공하는 클라이언트 쪽 암호화, Key Vault의 고객이 키 관리|지원되지 않음|지원되지 않음|
+|[스토리지 클라이언트 쪽 암호화](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Azure Storage가 제공하는 클라이언트 쪽 암호화, Key Vault의 고객이 키 관리|지원되지 않음|지원되지 않음|
 
 <sup>1</sup> Media Services가 깨끗한/어떠한 형태의 암호화도 없는 콘텐츠 처리를 지원하기는 하지만, 그렇게 하지 않는 것이 좋습니다.
 
-<sup>2</sup> Media Services v3에서 저장소 암호화(AES-256 암호화)는 자산을 Media Services v2를 사용하여 만들었을 경우 이전 버전과의 호환성에 대해서만 지원됩니다. v3는 기존 저장소 암호화된 자산과 함께 작동하지만 새로 만들기를 허용하지는 않습니다.
+<sup>2</sup> Media Services v3에서 스토리지 암호화(AES-256 암호화)는 자산을 Media Services v2를 사용하여 만들었을 경우 이전 버전과의 호환성에 대해서만 지원됩니다. v3는 기존 스토리지 암호화된 자산과 작동하지만 새로 만들기를 허용하지는 않습니다.
 
 ## <a name="filtering-ordering-paging"></a>필터링, 정렬, 페이징
 

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d03d4bd86367aa29bbf93062f7cc03f57f4cad83
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cd97b50dbfded314cbf37f53a33955a51d36469f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075968"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846229"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Azure Virtual Machines의 자동화된 백업 v2(Resource Manager)
 
@@ -32,7 +32,7 @@ ms.locfileid: "67075968"
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 자동화된 Backup v2를 사용하려면 다음 필수 조건을 고려하세요.
 
 **운영 체제**:
@@ -52,7 +52,7 @@ ms.locfileid: "67075968"
 
 - 대상 데이터베이스는 전체 복구 모델을 사용해야 합니다. 전체 복구 모델이 백업에 미치는 영향에 대한 자세한 내용은 [전체 복구 모델에서 Backup](https://technet.microsoft.com/library/ms190217.aspx)을 참조하세요.
 - 시스템 데이터베이스는 전체 복구 모델을 사용할 필요가 없습니다. 그러나 Model 또는 MSDB에 대해 로그 백업을 수행해야 할 경우 전체 복구 모델을 사용해야 합니다.
-- 대상 데이터베이스 중 하나를 기본 인스턴스에 SQL Server에 있어야 합니다. 또는 [제대로 설치 된](virtual-machines-windows-sql-server-iaas-faq.md#administration) 명명 된 인스턴스. 
+- 대상 데이터베이스는 기본 SQL Server 인스턴스 또는 [올바르게 설치](virtual-machines-windows-sql-server-iaas-faq.md#administration) 된 명명 된 인스턴스에 있어야 합니다. 
 
 > [!NOTE]
 > 자동화된 Backup은 **SQL Server IaaS 에이전트 확장**에 의존합니다. 현재 SQL 가상 머신 갤러리 이미지는 기본적으로 이 확장을 추가합니다. 자세한 내용은 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 참조하세요.
@@ -66,13 +66,13 @@ ms.locfileid: "67075968"
 | --- | --- | --- |
 | **자동화된 Backup** | 사용/사용 안 함(사용 안 함) | SQL Server 2016/2017 Developer, Standard 또는 Enterprise를 실행하는 Azure VM에 대해 자동화된 백업을 사용하거나 사용하지 않도록 설정합니다. |
 | **보존 기간** | 1-30일(30일) | 백업 보존 기간(일 수)입니다. |
-| **Storage 계정** | Azure 저장소 계정 | Cloud Shell은 Azure File Storage를 활용하여 세션 간에 파일을 유지합니다. 모든 백업 파일을 저장하려면 컨테이너를 이 위치에 만듭니다. 백업 파일 명명 규칙에는 날짜, 시간 및 데이터베이스 GUID가 포함됩니다. |
-| **암호화** |사용/사용 안 함(사용 안 함) | 암호화 사용 여부를 설정합니다. 암호화가 활성화되면 백업을 복원하는 데 사용된 인증서는 지정된 저장소 계정에 있습니다. 에서는 동일한 **자동 백업** 동일한 명명 규칙을 사용 하 여 컨테이너입니다. 암호가 변경되면 해당 암호를 사용하여 새 인증서가 생성되지만 이전 인증서도 이전 백업의 복원을 위해 유지됩니다. |
+| **Storage 계정** | Azure Storage 계정 | Cloud Shell은 Azure File Storage를 활용하여 세션 간에 파일을 유지합니다. 모든 백업 파일을 저장하려면 컨테이너를 이 위치에 만듭니다. 백업 파일 명명 규칙에는 날짜, 시간 및 데이터베이스 GUID가 포함됩니다. |
+| **암호화** |사용/사용 안 함(사용 안 함) | 암호화 사용 여부를 설정합니다. 암호화가 활성화되면 백업을 복원하는 데 사용된 인증서는 지정된 스토리지 계정에 있습니다. 동일한 명명 규칙을 사용 하 여 동일한 **자동 백업** 컨테이너를 사용 합니다. 암호가 변경되면 해당 암호를 사용하여 새 인증서가 생성되지만 이전 인증서도 이전 백업의 복원을 위해 유지됩니다. |
 | **암호** |암호 텍스트 | 암호화 키의 암호입니다. 이 암호는 암호화를 사용하는 경우에만 필요합니다. 암호화된 백업을 복원하기 위해서는 올바른 암호 및 백업을 수행할 때 사용한 인증서가 있어야 합니다. |
 
 ### <a name="advanced-settings"></a>고급 설정
 
-| 설정 | 범위(기본값) | 설명 |
+| 설정 | 범위(기본값) | Description |
 | --- | --- | --- |
 | **시스템 데이터베이스 Backup** | 사용/사용 안 함(사용 안 함) | 이 기능을 사용하도록 설정하면 시스템 데이터베이스인 Master, MSDB 및 Model도 백업됩니다. MSDB 및 Model 데이터베이스의 경우 로그 백업이 수행되도록 하려면 전체 복구 모드인지 확인합니다. Master의 경우에는 로그 백업이 수행되지 않습니다. 또한 TempDB에 대해서도 백업이 수행되지 않습니다. |
 | **Backup 일정** | 수동/자동(자동) | 기본적으로 백업 일정은 로그 증가에 따라 자동으로 결정됩니다. 수동 백업 일정을 사용하면 백업에 대한 기간을 지정할 수 있습니다. 이 경우 백업은 지정된 빈도로, 지정된 날의 지정된 기간 동안에만 수행됩니다. |
@@ -127,7 +127,7 @@ Azure Portal을 사용하여 프로비전 중에 또는 기존 SQL Server 2016/2
 
 Azure Portal을 사용하여 Resource Manager 배포 모델에서 새 SQL Server 2016 또는 2017 Virtual Machine을 만들 때 자동화된 백업 v2를 구성합니다.
 
-에 **SQL Server 설정을** 탭을 선택 **사용 하도록 설정** 아래에서 **자동화 된 백업**합니다. 다음 Azure Portal 스크린샷은 **SQL 자동화된 백업** 설정을 보여 줍니다.
+**SQL Server 설정** 탭의 **자동화 된 백업**에서 **사용** 을 선택 합니다. 다음 Azure Portal 스크린샷은 **SQL 자동화된 백업** 설정을 보여 줍니다.
 
 ![Azure Portal에서 SQL 자동화된 Backup 구성](./media/virtual-machines-windows-sql-automated-backup-v2/automated-backup-blade.png)
 
@@ -138,12 +138,12 @@ Azure Portal을 사용하여 Resource Manager 배포 모델에서 새 SQL Server
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-이동할 기존 SQL Server 가상 컴퓨터를 [SQL 가상 컴퓨터 리소스](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource) 선택한 후 **백업을** 자동화 된 백업을 구성 하려면.
+기존 SQL Server 가상 컴퓨터의 경우 [SQL 가상 컴퓨터 리소스로](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) 이동한 후 **백업** 을 선택 하 여 자동화 된 백업을 구성 합니다.
 
 ![기존 VM에 대한 SQL 자동화된 Backup](./media/virtual-machines-windows-sql-automated-backup-v2/sql-server-configuration.png)
 
 
-완료 되 면 클릭 합니다 **적용** 아래쪽에 단추를 **백업을** 변경 내용을 저장 하려면 설정 페이지.
+완료 되 면 **백업** 설정 페이지 아래쪽의 **적용** 단추를 클릭 하 여 변경 내용을 저장 합니다.
 
 처음으로 자동화된 Backup을 사용 설정할 경우 Azure에서 백그라운드로 SQL Server IaaS 에이전트를 구성합니다. 이 시간 동안에는 구성된 자동화된 Backup이 Azure Portal에 표시되지 않을 수 있습니다. 에이전트가 설치 및 구성될 때까지 몇 분 정도 기다리세요. 그 후 Azure Portal에는 새 설정이 반영됩니다.
 
@@ -209,7 +209,7 @@ LogBackupFrequency          : 60
 ### <a name="configure-automated-backup-v2"></a>자동화된 Backup v2 구성
 언제든지 PowerShell을 사용하여 자동화된 Backup을 사용하도록 설정하고 해당 구성 및 동작을 수정할 수 있습니다. 
 
-먼저을 선택 하거나 백업 파일에 대 한 저장소 계정을 만듭니다. 다음 스크립트는 저장소 계정을 선택하거나 없으면 새로 만듭니다.
+먼저 백업 파일에 대 한 저장소 계정을 선택 하거나 만듭니다. 다음 스크립트는 스토리지 계정을 선택하거나 없으면 새로 만듭니다.
 
 ```powershell
 $storage_accountname = “yourstorageaccount”
@@ -320,7 +320,7 @@ Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 
 SQL Server 2016/2017에서 자동화된 백업을 모니터링하려면 두 가지 기본 옵션이 있습니다. 자동화된 백업은 SQL Server 관리 백업 기능을 사용하므로 동일한 모니터링 기술이 둘 다에 적용됩니다.
 
-먼저 [msdb.managed_backup.sp_get_backup_diagnostics](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql)를 호출하여 상태를 폴링할 수 있습니다. 또는 쿼리를 [msdb.managed_backup.fn_get_health_status](https://docs.microsoft.com/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql) 테이블 반환 함수입니다.
+먼저 [msdb.managed_backup.sp_get_backup_diagnostics](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql)를 호출하여 상태를 폴링할 수 있습니다. 또는 [managed_backup. fn_get_health_status](https://docs.microsoft.com/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql) 테이블 반환 함수를 쿼리 합니다.
 
 다른 옵션은 기본 제공 데이터베이스 메일 기능을 알림에 활용하는 것입니다.
 

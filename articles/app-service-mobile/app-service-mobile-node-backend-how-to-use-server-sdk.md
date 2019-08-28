@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 831f6b4bdc99e63859b390f8a9bb88d74301284e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6eaaeba8a36bcba8134d605889185fb8827dd05c
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128103"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851185"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Mobile Apps Node.js SDK를 사용하는 방법
 
@@ -38,7 +38,7 @@ Mobile Apps는 모바일에 최적화된 데이터 액세스 Web API를 웹 애�
 
 [GitHub의 샘플 디렉터리]에서 각 사용 사례에 대한 샘플을 찾을 수 있습니다.
 
-## <a name="supported-platforms"></a>지원되는 플랫폼
+## <a name="supported-platforms"></a>지원 플랫폼
 
 Mobile Apps Node.js SDK는 노드의 최신 LTS 릴리스 이상을 지원합니다. 현재 최신 LTS 버전은 노드 v4.5.0입니다. 다른 버전의 노드는 작동할 수는 있지만 지원되지 않습니다.
 
@@ -135,7 +135,7 @@ Visual Studio 2015는 IDE 내에서 Node.js 애플리케이션 개발하도록 �
 
     파일을 저장합니다.
 
-1. 응용 프로그램을 로컬로 실행 하거나 (API에서 제공 됩니다 `http://localhost:3000`) 또는 Azure에 게시 합니다.
+1. 응용 프로그램을 로컬로 실행 하거나 (API가에서 `http://localhost:3000`제공 됨) Azure에 게시 합니다.
 
 ### <a name="create-node-backend-portal"></a>Azure Portal을 사용하여 Node.js 백 엔드 만들기
 
@@ -192,7 +192,7 @@ var mobile = azureMobileApps({ homePage: true });
 
 azure-mobile-apps Node.js 서버 SDK는 Azure SQL Database에 저장된 데이터 테이블을 Web API로 노출하는 메커니즘을 제공합니다. 다섯 가지 작업을 제공합니다.
 
-| 작업(Operation) | 설명 |
+| 연산 | Description |
 | --- | --- |
 | GET /tables/*tablename* |테이블의 모든 레코드를 가져옵니다. |
 | GET /tables/*tablename*/:id |테이블의 특정 레코드를 가져옵니다. |
@@ -370,9 +370,9 @@ module.exports = {
 
 azureMobile.js 파일에서 대부분의 설정은 [Azure Portal]에서 동일한 앱 설정을 포함합니다. 다음 목록을 사용하여 **앱 설정**에서 앱을 구성합니다.
 
-| 앱 설정 | azureMobile.js 설정 | 설명 | 유효한 값 |
+| 앱 설정 | azureMobile.js 설정 | Description | 유효한 값 |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |name |앱의 이름 |문자열 |
+| **MS_MobileAppName** |name |앱의 이름 |string |
 | **MS_MobileLoggingLevel** |logging.level |로깅할 메시지의 최소 로그 수준 |error, warning, info, verbose, debug, silly |
 | **MS_DebugMode** |디버그 |디버그 모드의 사용 여부 설정 |true, false |
 | **MS_TableSchema** |data.schema |SQL 테이블에 대한 기본 스키마 이름 |string(기본값: dbo) |
@@ -433,7 +433,7 @@ Mobile Apps 백 엔드에 기존 SQL 데이터베이스를 연결하거나 새 S
 
 <!--- END OF ALTERNATE INCLUDE -->
 
-데이터베이스를 만드는 데 몇 분 정도 걸릴 수 있습니다. **알림** 영역을 사용하여 배포의 진행률을 모니터링합니다. 데이터베이스가 성공적으로 배포될 때까지 진행하지 마세요. 데이터베이스가 배포되면 Mobile Apps 백 엔드 앱 설정에서 SQL Database 인스턴스에 대한 연결 문자열이 생성됩니다. **설정** > **응용 프로그램 설정** > **연결 문자열**에서 이 앱 설정을 볼 수 있습니다.
+데이터베이스를 만드는 데 몇 분 정도 걸릴 수 있습니다. **알림** 영역을 사용하여 배포의 진행률을 모니터링합니다. 데이터베이스가 성공적으로 배포될 때까지 진행하지 마세요. 데이터베이스가 배포되면 Mobile Apps 백 엔드 앱 설정에서 SQL Database 인스턴스에 대한 연결 문자열이 생성됩니다. **설정** > **애플리케이션 설정** > **연결 문자열**에서 이 앱 설정을 볼 수 있습니다.
 
 ### <a name="howto-tables-auth"></a>테이블에 대한 액세스 인증 요구
 
@@ -891,7 +891,7 @@ api.get.access = 'authenticated';
 module.exports = api;
 ```
 
-## <a name="Debugging"></a>디버깅, 쉬운 테이블 및 간편한 API
+## <a name="Debugging"></a>디버깅할
 
 ### <a name="howto-diagnostic-logs"></a>Mobile Apps의 디버깅, 진단 및 문제 해결
 
@@ -903,47 +903,6 @@ Node.js Mobile Apps 백 엔드 문제 해결에서 시작하려면 다음 문서
 * [Visual Studio에서 Azure App Service 문제 해결]
 
 Node.js 애플리케이션은 넓은 범위의 진단 로그 도구에 액세스합니다. 내부적으로 Mobile Apps Node.js SDK는 진단 로깅에 [윈스턴]을 사용합니다. [Azure Portal]에서 디버그 모드를 사용하거나 `MS_DebugMode` 앱 설정을 true로 설정할 때 로깅이 자동으로 활성화됩니다. 생성된 로그는 [Azure Portal]의 진단 로그에 표시됩니다.
-
-### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>Azure Portal에서 쉬운 테이블 작업
-
-쉬운 테이블을 사용하여 포털에서 테이블을 만들고 작업할 수 있습니다. 데이터 세트를 CSV 형식의 쉬운 테이블로 업로드할 수 있습니다. Mobile Apps 백 엔드의 시스템 속성 이름과 충돌하는 속성 이름(CSV 데이터 세트)은 사용할 수 없습니다. 시스템 속성 이름은 다음과 같습니다.
-* createdAt
-* updatedAt
-* deleted
-* version
-
-App Service 편집기를 사용하여 테이블 작업을 편집할 수도 있습니다. 백 엔드 사이트 설정에서 **쉬운 테이블**을 선택하면 테이블을 추가, 수정 또는 삭제할 수 있습니다. 테이블의 데이터를 볼 수 있습니다.
-
-![쉬운 테이블 작업](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-tables.png)
-
-다음 명령을 테이블에 대한 명령 모음에서 사용할 수 있습니다.
-
-* **권한 변경**: 작업 테이블에서 읽기, 삽입, 업데이트 및 삭제에 대한 권한을 변경합니다.
- 옵션은 익명 액세스를 허용하거나 인증을 요구하거나 작업에 대한 모든 액세스를 사용할 수 없도록 합니다.
-* **스크립트 편집**: 테이블에 대한 스크립트 파일은 App Service 편집기에서 열립니다.
-* **스키마 관리**: 열을 추가 또는 삭제하거나 테이블 인덱스를 변경합니다.
-* **테이블 지우기**: 기존 테이블을 잘라서 모든 데이터 행을 삭제하지만 스키마를 그대로 둡니다.
-* **행 삭제**: 데이터의 개별 행을 삭제합니다.
-* **스트리밍 로그 보기**: 사이트에 대한 스트리밍 로그 서비스에 연결할 수 있습니다.
-
-### <a name="work-easy-apis"></a>Azure Portal에서 쉬운 API 작업
-
-쉬운 API를 사용하여 포털에서 사용자 지정 API를 만들고 작업할 수 있습니다. App Service 편집기를 사용하여 API 스크립트를 편집할 수 있습니다.
-
-백 엔드 사이트 설정에서 **쉬운 API**를 선택하면 사용자 지정 API 엔드포인트를 추가, 수정 또는 삭제할 수 있습니다.
-
-![쉬운 API 작업](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-apis.png)
-
-포털에서 HTTP 작업에 대한 액세스 권한을 변경하거나, App Service 편집기에서 API 스크립트 파일을 편집하거나, 스트리밍 로그를 볼 수 있습니다.
-
-### <a name="online-editor"></a>App Service 편집기에서 코드 편집
-
-Azure Portal을 사용하여 로컬 컴퓨터에 프로젝트를 다운로드하지 않고도 App Service 편집기에서 Node.js 백 엔드 스크립트 파일을 편집할 수 있습니다. 온라인 편집기에서 스크립트 파일을 편집하려면
-
-1. Mobile Apps 백 엔드에 대한 창에서 **모든 설정** > **쉬운 테이블** 또는 **쉬운 API**를 선택합니다. 테이블 또는 API를 선택한 다음, **스크립트 편집**을 선택합니다. 스크립트 파일이 App Service 편집기에서 열립니다.
-
-   ![App Service 편집기](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
-1. 온라인 편집기에서 코드 파일의 내용을 변경합니다. 변경 내용은 입력할 때 자동으로 저장됩니다.
 
 <!-- Images -->
 [0]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/npm-init.png

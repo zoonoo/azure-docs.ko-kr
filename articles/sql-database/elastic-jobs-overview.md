@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Elastic Database 작업 | Microsoft Docs
-description: 하나 이상의 Azure SQL 데이터베이스 세트에서 T-SQL(Transact-SQL) 스크립트를 실행하도록 Elastic Database 작업 구성
+title: Azure SQL Elastic Database 작업 (미리 보기) | Microsoft Docs
+description: 하나 이상의 Azure SQL 데이터베이스 집합에서 Transact-sql (T-sql) 스크립트를 실행 하도록 Elastic Database 작업 (미리 보기) 구성
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: srinia
 ms.author: srinia
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 62efee57f3663f1dad0446da659de16d2800bf75
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3a0aa6e28ea4c40d5cad5ba99edec344c7979acf
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61482961"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935087"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>탄력적 작업 만들기, 구성 및 관리
 
@@ -66,9 +65,9 @@ ms.locfileid: "61482961"
 
 ## <a name="agent-performance-capacity-and-limitations"></a>에이전트 성능, 용량 및 제한 사항
 
-탄력적 작업은 장기 실행 작업이 완료되기를 기다리는 동안 최소한의 계산 리소스를 사용합니다.
+탄력적 작업은 장기 실행 작업이 완료되기를 기다리는 동안 최소한의 컴퓨팅 리소스를 사용합니다.
 
-작업(동시 작업자 수)에 대한 원하는 실행 시간 및 데이터베이스의 대상 그룹 크기에 따라 에이전트는 *작업 데이터베이스*의 다른 양의 성능 및 계산을 요구합니다(대상 및 작업 수가 많아질수록 필요한 계산 양도 더 많아집니다).
+작업(동시 작업자 수)에 대한 원하는 실행 시간 및 데이터베이스의 대상 그룹 크기에 따라 에이전트는 *작업 데이터베이스*의 다른 양의 성능 및 컴퓨팅을 요구합니다(대상 및 작업 수가 많아질수록 필요한 컴퓨팅 양도 더 많아집니다).
 
 현재 미리 보기의 동시 작업은 100개로 제한됩니다.
 
@@ -76,7 +75,7 @@ ms.locfileid: "61482961"
 
 SQL 탄력적인 풀에서 데이터베이스에 대해 작업을 실행할 때 리소스에 작업 부하를 주지 않도록 하려면 작업이 동시에 실행될 수 있는 데이터베이스의 수를 제한하도록 작업을 구성할 수 있습니다.
 
-작업에서 설정 하 여 실행 하는 동시 데이터베이스 수를 설정 합니다 `sp_add_jobstep` 저장 프로시저의 `@max_parallelism` T-SQL에서 매개 변수 또는 `Add-AzSqlElasticJobStep -MaxParallelism` PowerShell에서.
+T-sql 또는 `sp_add_jobstep` `@max_parallelism` PowerShell`Add-AzSqlElasticJobStep -MaxParallelism` 에서 저장 프로시저의 매개 변수를 설정 하 여 작업이 실행 되는 동시 데이터베이스의 수를 설정 합니다.
 
 ## <a name="best-practices-for-creating-jobs"></a>작업을 만들기 위한 모범 사례
 

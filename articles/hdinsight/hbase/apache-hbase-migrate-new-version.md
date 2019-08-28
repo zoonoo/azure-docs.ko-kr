@@ -54,9 +54,9 @@ Azure HDInsight에서 Apache HBase 클러스터를 업그레이드 하려면 다
 
 1. HBase 호환성 매트릭스 및 릴리스 정보에서 표시한 대로 애플리케이션이 새 버전과 호환되는지 확인합니다. HDInsight 및 HBase의 대상 버전을 실행하는 클러스터에서 애플리케이션을 테스트합니다.
 
-2. 동일한 저장소 계정을 사용하지만 다른 컨테이너 이름으로 [새 대상 HDInsight 클러스터를 설정합니다](../hdinsight-hadoop-provision-linux-clusters.md).
+2. 동일한 스토리지 계정을 사용하지만 다른 컨테이너 이름으로 [새 대상 HDInsight 클러스터를 설정합니다](../hdinsight-hadoop-provision-linux-clusters.md).
 
-    ![동일한 저장소 계정을 사용하지만 다른 컨테이너 만들기](./media/apache-hbase-migrate-new-version/same-storage-different-container.png)
+    ![동일한 스토리지 계정을 사용하지만 다른 컨테이너 만들기](./media/apache-hbase-migrate-new-version/same-storage-different-container.png)
 
 3. 원본 HBase 클러스터를 업그레이드 하는 클러스터를 플러시하십시오. HBase는 들어오는 데이터를 _memstore_라는 메모리 내 저장소에 씁니다. Memstore가 특정 크기에 도달 하면 HBase 클러스터의 저장소 계정에 장기 저장소에 대 한 디스크에 플러시합니다. 이전 클러스터를 삭제하는 경우 memstore가 재활용되어 데이터가 잠재적으로 손실될 수 있습니다. 각 테이블에 대한 memstore를 디스크로 수동으로 플러시하려면 다음 스크립트를 실행합니다. 이 스크립트의 최신 버전은 Azure의 [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/scripts/flush_all_tables.sh)에 있습니다.
 

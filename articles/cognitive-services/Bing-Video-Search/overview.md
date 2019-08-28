@@ -1,6 +1,6 @@
 ---
 title: Bing Video Search API란?
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Bing Video Search API를 사용하여 웹을 통해 비디오를 검색하는 방법을 알아봅니다.
 services: cognitive-services
 author: swhite-msft
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 06/26/2019
 ms.author: scottwhi
-ms.openlocfilehash: 7b17c03b464ed7ccc13de2221c8e4cb36be05c3f
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4f3a52590a9a0c50bdc87f87792027333fc5269f
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442702"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500159"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>Bing Video Search API란?
 
@@ -27,7 +27,7 @@ Bing Video Search API를 통해 쉽게 서비스 및 애플리케이션에 비�
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [실시간 검색 용어 제안](concepts/sending-requests.md#suggest-search-terms-with-the-bing-autosuggest-api) | [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md)를 통해 입력하는 대로 제안되는 검색 용어를 표시하여 응용 프로그램 환경을 향상시킵니다. |
 | [비디오 결과 필터링 및 제한](concepts/get-videos.md#filtering-videos)                      | 쿼리 매개 변수를 편집하여 반환된 비디오를 필터링합니다.                                                                                                       |
-| [썸네일 자르기, 크기 조정 및 표시](resize-and-crop-thumbnails.md)                                                | Bing Video Search API에서 반환하는 비디오에 대한 썸네일 미리 보기를 편집하고 표시합니다.                                                                                      |
+| [썸네일 자르기, 크기 조정 및 표시](../bing-web-search/resize-and-crop-thumbnails.md)                                                | Bing Video Search API에서 반환하는 비디오에 대한 썸네일 미리 보기를 편집하고 표시합니다.                                                                                      |
 | [인기 비디오 가져오기](trending-videos.md) | 전 세계의 최신 비디오를 검색합니다.                                                                                                          |
 | [비디오 인사이트 가져오기](video-insights.md) | 전 세계로부터의 최신 비디오 검색을 사용자 지정합니다.                                                                                                          |
 

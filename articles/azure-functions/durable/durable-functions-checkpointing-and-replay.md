@@ -10,18 +10,18 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: b1fd31a758501620129fdbbc532b8defcf927045
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4ed9e4aced7983cce10a577b38c1c170474cf83d
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60648502"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876871"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>지속성 함수의 검사점 및 재생(Azure Functions)
 
 지속성 함수의 키 특성 중 하나는 **신뢰할 수 있는 실행**입니다. 오케스트레이터 함수 및 작업 함수가 데이터 센터 내의 다른 VM에서 실행 중일 수 있으며 해당 VM 또는 기본 네트워킹 인프라는 100% 신뢰할 수 없습니다.
 
-그럼에도 불구하고 지속성 함수는 오케스트레이션을 안정적으로 실행합니다. 이렇게 하려면 저장소 큐를 사용하여 함수 호출을 수행하고 저장소 테이블에 실행 기록 검사점을 정기적으로 설정합니다([이벤트 소싱](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing)으로 알려진 클라우드 디자인 패턴 사용). 그런 다음 해당 기록을 재생하여 오케스트레이터 함수의 메모리 내 상태를 자동으로 다시 작성할 수 있습니다.
+그럼에도 불구하고 지속성 함수는 오케스트레이션을 안정적으로 실행합니다. 이렇게 하려면 스토리지 큐를 사용하여 함수 호출을 수행하고 스토리지 테이블에 실행 기록 검사점을 정기적으로 설정합니다([이벤트 소싱](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing)으로 알려진 클라우드 디자인 패턴 사용). 그런 다음 해당 기록을 재생하여 오케스트레이터 함수의 메모리 내 상태를 자동으로 다시 작성할 수 있습니다.
 
 ## <a name="orchestration-history"></a>오케스트레이션 기록
 
@@ -74,11 +74,11 @@ module.exports = df.orchestrator(function*(context) {
 검사점이 완료되면 오케스트레이터 함수는 더 많은 작업이 수행될 때까지 메모리에서 자유롭게 제거할 수 있습니다.
 
 > [!NOTE]
-> Azure Storage는 테이블 스토리지와 큐 간의 데이터 저장에 대한 트랜잭션 보장을 제공하지 않습니다. 지속성 함수 저장소 공급자는 실패를 처리하기 위해 *최종 일관성* 패턴을 사용합니다. 이러한 패턴은 검사점 중간에 연결이 충돌하거나 손실되는 경우 데이터가 손실되지 않도록 합니다.
+> Azure Storage는 테이블 스토리지와 큐 간의 데이터 저장에 대한 트랜잭션 보장을 제공하지 않습니다. 지속성 함수 스토리지 공급자는 실패를 처리하기 위해 *최종 일관성* 패턴을 사용합니다. 이러한 패턴은 검사점 중간에 연결이 충돌하거나 손실되는 경우 데이터가 손실되지 않도록 합니다.
 
 완료 시 이전에 표시된 함수의 기록은 Azure Table Storage에서 다음과 비슷합니다(이해를 돕기 위해 약어로 표시).
 
-| PartitionKey(InstanceId)                     | 이벤트 유형             | 타임 스탬프               | 입력 | 이름             | 결과                                                    | 상태 |
+| PartitionKey(InstanceId)                     | 이벤트 유형             | timestamp               | 입력 | 이름             | 결과                                                    | Status |
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
 | eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     |
@@ -94,7 +94,7 @@ module.exports = df.orchestrator(function*(context) {
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     |
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:35.032Z |       |                  |                                                           |                     |
 | eaee885b | TaskCompleted         | 2017-05-05T18:45:34.919Z |       |                  | """Hello London!"""                                       |                     |
-| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044Z |       |                  | "[""Hello Tokyo!"",""Hello Seattle!"",""Hello London!""]" | Completed           |
+| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044Z |       |                  | "[""Hello Tokyo!"",""Hello Seattle!"",""Hello London!""]" | 완료           |
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:35.044Z |       |                  |                                                           |                     |
 
 열 값에 대한 몇 가지 참고 사항:
@@ -145,7 +145,7 @@ module.exports = df.orchestrator(function*(context) {
 
   오케스트레이터가 지연해야 하는 경우 [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_)(.NET) 또는 `createTimer`(JavaScript) API를 사용하면 됩니다.
 
-* 오케스트레이터 코드는 [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) API 또는 `context.df` 개체의 API를 사용하는 경우를 제외하고 **어떤 비동기 작업도 시작하면 안 됩니다**. .NET의 `Task.Run`, `Task.Delay`, `HttpClient.SendAsync` 또는 JavaScript의 `setTimeout()`, `setInterval()`을 예로 들 수 있습니다. 지속성 작업 프레임워크는 오케스트레이터 코드를 단일 스레드에서 실행하며, 다른 비동기 API에서 예약할 수 있는 다른 스레드와 상호 작용할 수 없습니다.
+* 오케스트레이터 코드는 [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) API 또는 `context.df` 개체의 API를 사용하는 경우를 제외하고 **어떤 비동기 작업도 시작하면 안 됩니다**. .NET의 `Task.Run`, `Task.Delay`, `HttpClient.SendAsync` 또는 JavaScript의 `setTimeout()`, `setInterval()`을 예로 들 수 있습니다. 지속성 작업 프레임워크는 오케스트레이터 코드를 단일 스레드에서 실행하며, 다른 비동기 API에서 예약할 수 있는 다른 스레드와 상호 작용할 수 없습니다. 이 오류가 발생 `InvalidOperationException` 하면 예외가 throw 됩니다.
 
 * 오케스트레이터 코드에서 **무한 루프를 사용하면 안됩니다**. 지속성 작업 프레임워크는 오케스트레이션 함수가 진행됨에 따라 실행 기록을 저장하기 때문에 무한 루프로 인해 오케스트레이터 인스턴스의 메모리가 부족해질 수 있습니다. 무한 루프 시나리오의 경우 [ContinueAsNew](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_)(.NET) 또는 `continueAsNew`(JavaScript) 같은 API를 사용하여 함수 실행을 다시 시작하고 이전 실행 기록을 버립니다.
 

@@ -42,7 +42,7 @@ ms.locfileid: "65793732"
   -  VM에 대해 복제를 사용하도록 설정하고 Site Recovery를 사용하여 대상으로 데이터를 복사하려면 Azure 리소스에서 VM을 만들 수 있는 권한이 있어야 합니다. 기본 제공되는 Virtual Machine 참가자 역할에는 이러한 권한이 있습니다. 이 권한이 있으면 다음 작업을 수행할 수 있습니다.
         - 선택한 리소스 그룹에 VM 만들기
         - 선택한 가상 네트워크에 VM 만들기
-        - 선택한 저장소 계정에 쓰기
+        - 선택한 스토리지 계정에 쓰기
 
   - Site Recovery 작업을 관리할 수 있는 권한도 있어야 합니다. Site Recovery 참가자 역할은 Azure Recovery Services 자격 증명 모음에서 Site Recovery 작업을 관리하는 데 필요한 모든 권한을 보유합니다.
 

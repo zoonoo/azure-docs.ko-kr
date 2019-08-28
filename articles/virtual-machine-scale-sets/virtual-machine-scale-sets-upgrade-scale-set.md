@@ -349,7 +349,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 - 가용성 영역
 - 이미지 참조 게시자
 - 이미지 참조 제공
-- 관리되는 OS 디스크 저장소 계정 형식
+- 관리되는 OS 디스크 스토리지 계정 형식
 
 ### <a name="properties-that-can-only-be-changed-based-on-the-current-value"></a>현재 값에 따라서만 변경할 수 있는 속성
 현재 값을 따른다는 점을 제외하고, 일부 속성을 변경할 수 있습니다. 이러한 속성은 다음과 같습니다.

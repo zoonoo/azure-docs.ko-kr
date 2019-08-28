@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a386924be2f82aadafeaccbeadc68e5e27404855
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: ea247907aebc241fb8f1b266ad55bc2fc983607f
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546334"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853980"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Linux의 Azure App Service에서 Python 앱 만들기(미리 보기)
 
@@ -64,7 +64,7 @@ Checking connectivity... done.
 
 샘플 코드가 들어있는 디렉토리로 이동한 후 `az webapp up` 명령을 실행합니다.
 
-다음 명령에서 <app_name>을 고유한 앱 이름으로 바꿉니다.
+다음 예제에서 *\<app_name>* 을 전역적으로 고유한 앱 이름으로 바꿉니다(유효한 문자는 `a-z`, `0-9` 및 `-`).
 
 ```bash
 cd python-docs-hello-world

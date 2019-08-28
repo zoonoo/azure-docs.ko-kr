@@ -23,7 +23,7 @@ ms.lasthandoff: 06/18/2019
 ms.locfileid: "67206806"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>빠른 시작: Security Center 표준에 Azure 구독 온보딩
-Azure Security Center는 하이브리드 클라우드 워크로드에 통합 보안 관리 및 위협 방지 기능을 제공합니다. 체험 계층은 Azure 리소스에 대한 제한된 보안만 제공하지만 표준 계층은 이러한 기능을 온-프레미스 및 기타 클라우드로 확장합니다. Security Center 표준을 사용하면 보안 취약성을 찾아서 수정하고, 액세스 및 응용 프로그램 제어를 적용하여 악성 활동을 차단하고, 분석 및 인텔리전스를 사용하여 위협을 검색하고, 공격을 받을 때 신속하게 대응할 수 있습니다. 비용 없이 Security Center 표준을 사용해 볼 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
+Azure Security Center는 하이브리드 클라우드 워크로드에 통합 보안 관리 및 위협 방지 기능을 제공합니다. 체험 계층은 Azure 리소스에 대한 제한된 보안만 제공하지만 표준 계층은 이러한 기능을 온-프레미스 및 기타 클라우드로 확장합니다. Security Center 표준을 사용하면 보안 취약성을 찾아서 수정하고, 액세스 및 애플리케이션 제어를 적용하여 악성 활동을 차단하고, 분석 및 인텔리전스를 사용하여 위협을 검색하고, 공격을 받을 때 신속하게 대응할 수 있습니다. 비용 없이 Security Center 표준을 사용해 볼 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
 
 이 문서에서는 보안 강화를 위해 표준 계층으로 업그레이드하고 가상 머신에 Microsoft Monitoring Agent를 설치하여 보안 취약성과 위협을 모니터링합니다.
 

@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06566ab81b6af847a7eb174731105b7f43a7197f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 87764ed30182dc548fc3a260582174f121e27e24
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60242632"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965226"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory Seamless Single Sign-On: 빠른 시작
 
@@ -93,10 +93,10 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 ![Azure Portal: Azure AD Connect 창](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> Seamless SSO 만듭니다 라는 컴퓨터 계정이 `AZUREADSSOACC` 온-프레미스 각 AD 포리스트에 있는 Active Directory (AD). `AZUREADSSOACC` 보안상 강력 하 게 보호 해야 하는 컴퓨터 계정입니다. 도메인 관리자만 컴퓨터 계정을 관리할 수 있어야 합니다. 컴퓨터 계정에서 Kerberos 위임을 해제 되 고 Active Directory에 없는 다른 계정 대 한 위임 권한이 있는지 확인 합니다 `AZUREADSSOACC` 컴퓨터 계정입니다. 실수로 인 한 삭제 로부터 안전 하 게 하는 경우 및 도메인 관리자만 액세스할 수 있는 컴퓨터 계정에는 OU (조직 단위)를 저장 합니다.
+> 원활한 SSO는 각 ad 포리스트의 온 `AZUREADSSOACC` -프레미스 Active Directory (ad)에 이름이 지정 된 컴퓨터 계정을 만듭니다. 보안상의 이유로 컴퓨터 계정을 강력 하 게 보호 해야 합니다. `AZUREADSSOACC` 도메인 관리자만 컴퓨터 계정을 관리할 수 있어야 합니다. 컴퓨터 계정에 대 한 Kerberos 위임이 사용 하지 않도록 설정 되어 있고 Active Directory의 다른 계정에 `AZUREADSSOACC` 컴퓨터 계정에 대 한 위임 권한이 없는지 확인 하십시오. 실수로 삭제 되는 것이 안전 하 고 도메인 관리자만 액세스할 수 있는 조직 구성 단위 (OU)에 컴퓨터 계정을 저장 합니다.
 
 >[!NOTE]
-> Pass-the-hash 및 자격 증명 도난 완화 아키텍처를 온-프레미스 환경에서 사용 하는 경우 적절 하 게 변경 하도록는 `AZUREADSSOACC` 격리 컨테이너의 컴퓨터 계정 종료 하지 않습니다. 
+> 온-프레미스 환경에서 해시-해시 및 자격 증명 도난 완화 아키텍처를 사용 하는 경우 `AZUREADSSOACC` 컴퓨터 계정이 격리 컨테이너에서 종료 되지 않도록 적절 하 게 변경 합니다. 
 
 ## <a name="step-3-roll-out-the-feature"></a>3단계: 기능 배포
 
@@ -124,13 +124,13 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 
 1. 그룹 정책 관리 편집기 도구를 엽니다.
 2. 일부 또는 모든 사용자에게 적용되는 그룹 정책을 편집합니다. 예를 들어 **기본 도메인 정책**은 다음과 같습니다.
-3. 이동할 **사용자 구성** > **정책** > **관리 템플릿** > **Windows 구성 요소** > **Internet Explorer** > **인터넷 제어판** > **보안 페이지**. 그런 다음 **영역에 사이트 할당 목록**을 선택합니다.
+3. **사용자 구성** > **정책** **관리 템플릿 Windows 구성**요소internetExplorer > 인터넷으로 이동 합니다. >  >  >  **제어판**보안**페이지**. >  그런 다음 **영역에 사이트 할당 목록**을 선택합니다.
     ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso6.png)
 4. 정책을 사용하도록 설정한 다음, 대화 상자에서 다음 값을 입력합니다.
    - **값 이름**: Kerberos 티켓이 전달되는 Azure AD URL입니다.
    - **값**(데이터): **1**은 인트라넷 영역을 나타냅니다.
 
-     결과는 다음과 유사하게 표시됩니다.
+     결과 다음과 같습니다.
 
      값 이름: `https://autologon.microsoftazuread-sso.com`
   
@@ -142,15 +142,15 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 
 5. **확인**을 선택한 다음, 다시 **확인**을 선택합니다.
 
-    ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso7.png)
+    ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. 이동할 **사용자 구성** > **관리 템플릿** **정책** > * * > **Windows 구성 요소**  >  **Internet Explorer** > **인터넷 제어판** > **보안 페이지**  >   **인트라넷 영역**합니다. 그런 다음 **스크립트를 통해 상태 표시줄에 대한 업데이트 허용**을 선택합니다.
+6. **사용자 구성** > **정책** **관리 템플릿 Windows 구성**요소internetExplorer > 인터넷으로 이동 합니다. >  >  >  **제어판 보안**페이지인트라넷 > **영역**. >  그런 다음 **스크립트를 통해 상태 표시줄에 대한 업데이트 허용**을 선택합니다.
 
-    ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso11.png)
+    ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso11.png)
 
 7. 정책 설정을 활성화한 다음, **확인**을 선택합니다.
 
-    ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso12.png)
+    ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso12.png)
 
 ### <a name="group-policy-preference-option---detailed-steps"></a>"그룹 정책 기본 설정" 옵션 - 자세한 단계
 
@@ -158,7 +158,7 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 2. 일부 또는 모든 사용자에게 적용되는 그룹 정책을 편집합니다. 예를 들어 **기본 도메인 정책**은 다음과 같습니다.
 3. **사용자 구성** > **기본 설정** > **Windows 설정** > **레지스트리** > **새로 만들기** > **레지스트리 항목**으로 이동합니다.
 
-    ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso15.png)
+    ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso15.png)
 
 4. 적절한 필드에서 다음 값을 입력하고 **확인**을 클릭합니다.
    - **키 경로**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
@@ -166,9 +166,9 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
    - **값 형식**: ***REG_DWORD***.
    - **값 데이터**: ***00000001***.
  
-     ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso16.png)
+     ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso16.png)
  
-     ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso17.png)
+     ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso17.png)
 
 ### <a name="browser-considerations"></a>브라우저 고려 사항
 

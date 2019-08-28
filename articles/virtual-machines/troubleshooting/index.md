@@ -4,7 +4,7 @@ description: 가상 머신 배포 문제를 해결하는 방법을 알아봅니�
 title: Azure Virtual Machines 설명서 문제 해결 | Microsoft Docs
 services: virtual-machines
 author: genlin
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: virtual-machines
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 10/3/2018
 ms.author: genli
-ms.openlocfilehash: 1fdf195e5d02c9264bf24d9cf3ac8b1a47ed850b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1db5829abd52a1b010d38dd8e9151ab2df3f1de5
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61227140"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854397"
 ---
 # <a name="troubleshooting-azure-virtual-machines"></a>Azure 가상 머신 문제 해결
 
@@ -34,10 +34,14 @@ ms.locfileid: "61227140"
     - [SSH 문제 해결](troubleshoot-ssh-connection.md)
     - [자세한 SSH 문제 해결](detailed-troubleshoot-ssh-connection.md)
     - [일반적인 오류 메시지](error-messages.md)
-    - [Windows VM 관련 성능 문제](performance-diagnostics.md  )
-    - [PerfInsights를 사용하는 방법](how-to-use-perfInsights.md)
-    - [성능 진단 확장](performance-diagnostics-vm-extension.md)
 - [Windows VM 에이전트 오프라인 설치](install-vm-agent-offline.md)
+- VM 성능 문제 해결
+    - [VM 관련 성능 문제](performance-diagnostics.md)
+    - Windows
+        - [PerfInsights를 사용하는 방법](how-to-use-perfinsights.md)
+        - [성능 진단 확장](performance-diagnostics-vm-extension.md)
+    - Linux
+        - [PerfInsights를 사용하는 방법](how-to-use-perfinsights-linux.md)
 - VM 재배포
     - [Linux](redeploy-to-new-node-linux.md)
     - [Windows](redeploy-to-new-node-windows.md)
@@ -52,7 +56,7 @@ ms.locfileid: "61227140"
         - [직렬 콘솔 NMI/SysRq](serial-console-nmi-sysrq.md)
     - [Windows VM](serial-console-windows.md)
         - [CMD 및 PowerShell 명령](serial-console-cmd-ps-commands.md)
-- [저장소 리소스 삭제 시 오류](storage-resource-deletion-errors.md      )
+- [스토리지 리소스 삭제 시 오류](storage-resource-deletion-errors.md      )
 - [VHD가 연결된 VM이 예기치 않게 다시 부팅되는 경우](unexpected-reboots-attached-vhds.md)
 - [Windows 정품 인증 문제](troubleshoot-activation-problems.md)
 - [애플리케이션 액세스 문제](troubleshoot-app-connection.md)

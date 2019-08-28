@@ -48,8 +48,6 @@
       items:
         - name: 네임스페이스 만들기
           href: relay-create-namespace-portal.md
-        - name: WCF Relay를 사용하여 외부 클라이언트에 WCF 서비스 노출
-          href: relay-wcf-dotnet-get-started.md
         - name: 사용 가능한 API
           href: relay-api-overview.md
           items:

@@ -4,37 +4,37 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 421e0db48f045c5cbce52a0641902e6d2a11276e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 938d7e0cbd493dcb269418e9fd364611d734a085
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67181999"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68589982"
 ---
 ## <a name="trigger"></a>트리거
 
-함수 트리거를 사용 하 여 이벤트 허브 이벤트 스트림에 전송 된 이벤트에 응답 합니다. 트리거를 설정 하려면 기본 이벤트 허브에 읽기 권한이 있어야 합니다. 함수가 트리거될 때 함수에 전달 된 메시지를 문자열로 형식화 됩니다.
+함수 트리거를 사용 하 여 이벤트 허브 이벤트 스트림으로 전송 된 이벤트에 응답 합니다. 트리거를 설정 하려면 기본 이벤트 허브에 대 한 읽기 권한이 있어야 합니다. 함수가 트리거되면 함수에 전달 된 메시지는 문자열로 형식화 됩니다.
 
 ## <a name="trigger---scaling"></a>트리거 - 크기 조정
 
-이벤트가 트리거 함수의 각 인스턴스는 단일 지원 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) 인스턴스. 트리거 (Event Hubs에서 제공)를 통해 하나만 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) 인스턴스는 지정 된 파티션에 임대를 가져올 수 있습니다.
+이벤트 트리거 함수의 각 인스턴스는 단일 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) 인스턴스로 지원 됩니다. 트리거 (Event Hubs 구동)는 지정 된 파티션에서 하나의 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) 인스턴스만 임대를 받을 수 있도록 합니다.
 
 예를 들어, 다음과 같은 Event Hub를 고려합니다.
 
-* 10 개의 파티션
-* 각 파티션에 100 개의 메시지를 사용 하 여 모든 파티션에 균등 하 게 분산 하는 1,000 개의 이벤트
+* 10 개 파티션
+* 1000 각 파티션에 100 메시지를 포함 하 여 모든 파티션에 균등 하 게 분산 된 이벤트
 
-함수를 처음 사용하는 경우 함수 인스턴스가 하나만 있습니다. 첫 번째 함수 인스턴스를 호출 해 보겠습니다. `Function_0`합니다. 합니다 `Function_0` 함수는 단일 인스턴스의 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) 10 개의 모든 파티션에 대해 임대를 보유 하는 합니다. 이 인스턴스는 파티션 0-9에서 이벤트를 읽습니다. 이 지점부터 다음 중 하나가 발생합니다.
+함수를 처음 사용하는 경우 함수 인스턴스가 하나만 있습니다. 첫 번째 함수 인스턴스 `Function_0`를 호출 해 보겠습니다. 이 `Function_0`함수에는 10 개의 모든 파티션에 대 한 임대를 보유 하는 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor)의 단일 인스턴스가 있습니다. 이 인스턴스는 파티션 0-9에서 이벤트를 읽습니다. 이 지점부터 다음 중 하나가 발생합니다.
 
-* **새 함수 인스턴스 필요 하지 않은**: `Function_0` 함수 크기 조정 논리를 적용 하기 전에 모든 1,000 개의 이벤트를 처리할 수 있습니다. 모든 1,000 메시지를 처리 하는 예제의 경우 `Function_0`합니다.
+* **새 함수 인스턴스가 필요 하지 않습니다**. `Function_0` 는 함수 크기 조정 논리가 적용 되기 전에 모든 1000 이벤트를 처리할 수 있습니다. 이 경우 모든 1000 메시지는에 의해 `Function_0`처리 됩니다.
 
-* **추가 함수 인스턴스가 추가됨**: 경우 함수는 결정 논리를 크기 조정 `Function_0` 처리할 수, 새 함수 앱 인스턴스를 보다 더 많은 메시지가 있음 (`Function_1`) 만들어집니다. 이 새 함수 관련된 인스턴스의 역시 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor)합니다. 새 호스트 인스턴스 메시지를 읽으려는 시도 검색 하는 기본 Event Hubs, 부하 분산에 걸친 파티션은 해당 호스트 인스턴스. 예를 들어, 파티션 0-4는 `Function_0`에, 파티션 5-9는 `Function_1`에 할당할 수 있습니다.
+* **추가 함수 인스턴스가 추가됨**: 함수 크기 조정 논리에서 처리할 수 `Function_0` 있는 것 보다 더 많은 메시지가 있는 것으로 확인 되 면 새 함수`Function_1`앱 인스턴스 ()가 만들어집니다. 이 새 함수에는 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor)의 연결 된 인스턴스도 있습니다. 기본 Event Hubs 새 호스트 인스턴스가 메시지 읽기를 시도 하 고 있음을 감지 하는 경우 해당 호스트 인스턴스 간에 파티션의 부하를 분산 합니다. 예를 들어, 파티션 0-4는 `Function_0`에, 파티션 5-9는 `Function_1`에 할당할 수 있습니다.
 
-* **N 이상 함수 인스턴스 추가됨**: 경우 함수 확인 크기 조정 논리 둘 다 `Function_0` 하 고 `Function_1` 자세한 메시지를 처리할 수 있는, 새로운 보다 `Functions_N` 함수 앱 인스턴스가 생성 됩니다.  앱은 지점에 생성 됩니다 여기서 `N` 이벤트 허브 파티션 수보다 큽니다. 이 예에서 Event Hubs는 다시 파티션을 부하 분산합니다(이 경우, 인스턴스 `Function_0`...`Functions_9`로).
+* **N 이상 함수 인스턴스 추가됨**: 함수 크기 조정 논리에서 `Function_0` 및 `Function_1` 가 처리할 수 있는 것 보다 많은 메시지를 갖도록 결정 하 `Functions_N` 는 경우 새 함수 앱 인스턴스가 만들어집니다.  응용 프로그램은 `N` 이 (가) 이벤트 허브 파티션 수보다 큰 지점에 생성 됩니다. 이 예에서 Event Hubs는 다시 파티션을 부하 분산합니다(이 경우, 인스턴스 `Function_0`...`Functions_9`로).
 
-눈금이 때 함수 `N` 인스턴스는 이벤트 허브 파티션 수보다 큰 숫자입니다. 이렇게 되도록 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) 인스턴스가 다른 인스턴스에서 사용 가능 해지면 이러한 파티션에 대 한 잠금을 가져올 수 있습니다. 만 함수 인스턴스가 실행 될 때 사용 하는 리소스에 대 한 요금이 청구 됩니다. 즉,이 과도 한 프로 비전에 대 한 청구 되지 됩니다.
+함수가 확장 `N` 될 때 인스턴스는 이벤트 허브 파티션 수보다 큰 숫자입니다. 이 작업은 다른 인스턴스에서 사용할 수 있게 되 면 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) 인스턴스를 사용 하 여 파티션에 대 한 잠금을 획득할 수 있도록 하기 위한 것입니다. 함수 인스턴스가 실행 될 때 사용 되는 리소스에 대해서만 요금이 청구 됩니다. 즉, 이러한 오버 프로 비전에 대해 요금이 청구 되지 않습니다.
 
-모든 함수 실행이 오류 없이 완료되면 연결된 저장소 계정에 검사점이 추가됩니다. 검사점에 성공 하면 모든 1000 개의 메시지 다시 검색 되지 않습니다.
+모든 함수 실행이 오류 없이 완료되면 연결된 저장소 계정에 검사점이 추가됩니다. 확인이 성공 하면 모든 1000 메시지가 다시 검색 되지 않습니다.
 
 ## <a name="trigger---example"></a>트리거 - 예제
 
@@ -250,7 +250,7 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
 JavaScript 코드는 다음과 같습니다.
 
 ```javascript
-module.exports = function (context, eventHubMessage) {
+module.exports = function (context, myEventHubMessage) {
     context.log('Function triggered to process a message: ', myEventHubMessage);
     context.log('EnqueuedTimeUtc =', context.bindingData.enqueuedTimeUtc);
     context.log('SequenceNumber =', context.bindingData.sequenceNumber);
@@ -327,6 +327,7 @@ module.exports = function (context, eventHubMessages) {
 import logging
 import azure.functions as func
 
+
 def main(event: func.EventHubEvent):
     logging.info('Function triggered to process a message: ', event.get_body())
     logging.info('  EnqueuedTimeUtc =', event.enqueued_time)
@@ -360,7 +361,7 @@ public void eventHubProcessor(
  }
 ```
 
- [Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Event Hub에서 제공되는 매개 변수에 대한 `EventHubTrigger` 주석을 사용합니다. 이러한 주석을 사용하는 매개 변수로 인해 이벤트 도착 시 함수가 실행될 수 있습니다.  옵션 <T>를 사용하여 원시 Java 형식, POJO 또는 null 허용 값으로 이 주석을 사용할 수 있습니다.
+ [Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Event Hub에서 제공되는 매개 변수에 대한 `EventHubTrigger` 주석을 사용합니다. 이러한 주석을 사용하는 매개 변수로 인해 이벤트 도착 시 함수가 실행될 수 있습니다.  이 주석은 기본 Java 형식, pojos 또는 선택적\<T >를 사용 하는 nullable 값에 사용할 수 있습니다.
 
 ## <a name="trigger---attributes"></a>트리거 - 특성
 
@@ -382,16 +383,16 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 다음 표에서는 *function.json* 파일 및 `EventHubTrigger` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
-|**type** | 해당 없음 | `eventHubTrigger`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다.|
-|**direction** | 해당 없음 | `in`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
-|**name** | 해당 없음 | 함수 코드에서 이벤트 항목을 나타내는 변수의 이름입니다. |
+|**type** | n/a | `eventHubTrigger`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다.|
+|**direction** | n/a | `in`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
+|**name** | n/a | 함수 코드에서 이벤트 항목을 나타내는 변수의 이름입니다. |
 |**path** |**EventHubName** | Functions 1.x에만 해당합니다. 이벤트 허브의 이름입니다. 이벤트 허브 이름이 연결 문자열에 있는 경우 해당 값은 런타임 시 이 속성을 재정의합니다. |
 |**eventHubName** |**EventHubName** | Functions 2.x에만 해당합니다. 이벤트 허브의 이름입니다. 이벤트 허브 이름이 연결 문자열에 있는 경우 해당 값은 런타임 시 이 속성을 재정의합니다. |
-|**consumerGroup** |**ConsumerGroup** | 설정 하는 선택적 속성을 [소비자 그룹](../articles/event-hubs/event-hubs-features.md)#event 소비자) 허브에서 이벤트를 구독 하는 데 사용 합니다. 생략한 경우 `$Default` 소비자 그룹이 사용됩니다. |
-|**cardinality** | 해당 없음 | JavaScript의 경우 `many`로 설정하여 일괄 처리할 수 있도록 합니다.  생략되거나 `one`로 설정한 경우 단일 메시지가 함수에 전달됩니다. |
-|**연결** |**연결** | 이벤트 허브의 네임스페이스에 대한 연결 문자열을 포함하는 앱 설정의 이름입니다. 클릭 하 여이 연결 문자열을 복사 합니다 **연결 정보** 단추를 [네임 스페이스](../articles/event-hubs/event-hubs-create.md)#create-에서---event hubs), 이벤트 허브 자체가 아닌 합니다. 트리거를 활성화하려면 이 연결 문자열은 적어도 읽기 권한이 있어야 합니다.|
+|**consumerGroup** |**ConsumerGroup** | 허브에서 이벤트를 구독 하는 데 사용 되는 [소비자 그룹](../articles/event-hubs/event-hubs-features.md)#event 소비자)를 설정 하는 선택적 속성입니다. 생략한 경우 `$Default` 소비자 그룹이 사용됩니다. |
+|**cardinality** | n/a | JavaScript의 경우 `many`로 설정하여 일괄 처리할 수 있도록 합니다.  생략되거나 `one`로 설정한 경우 단일 메시지가 함수에 전달됩니다. |
+|**연결** |**연결** | 이벤트 허브의 네임스페이스에 대한 연결 문자열을 포함하는 앱 설정의 이름입니다. 이벤트 허브 자체가 아닌 [네임 스페이스](../articles/event-hubs/event-hubs-create.md)#create)에 대 한 **연결 정보** 단추를 클릭 하 여이 연결 문자열을 복사 합니다. 트리거를 활성화하려면 이 연결 문자열은 적어도 읽기 권한이 있어야 합니다.|
 |**path**|**EventHubName**|이벤트 허브의 이름입니다. 앱 설정 `%eventHubName%`을 통해 참조할 수 있습니다.|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
@@ -400,7 +401,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 Event Hubs 트리거는 몇 가지 [메타데이터 속성](../articles/azure-functions/./functions-bindings-expressions-patterns.md)을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. [EventData](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata) 클래스의 속성은 다음과 같습니다.
 
-|자산|Type|설명|
+|속성|형식|Description|
 |--------|----|-----------|
 |`PartitionContext`|[PartitionContext](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|`PartitionContext` 인스턴스|
 |`EnqueuedTimeUtc`|`DateTime`|큐에 대기된 시간(UTC)입니다.|
@@ -449,7 +450,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 }
 ```
 
-다음 샘플에 사용 하는 방법을 보여 줍니다는 `IAsyncCollector` 인터페이스 일괄 처리 메시지를 보내도록 합니다. 이 시나리오는 다른 이벤트 허브로 결과 보내고 하나의 이벤트 허브에서 들어오는 메시지를 처리 하는 경우에 일반적입니다.
+다음 샘플에서는 `IAsyncCollector` 인터페이스를 사용 하 여 메시지 일괄 처리를 보내는 방법을 보여 줍니다. 이 시나리오는 하나의 이벤트 허브에서 들어오는 메시지를 처리 하 고 그 결과를 다른 이벤트 허브로 보내는 경우에 일반적입니다.
 
 ```csharp
 [FunctionName("EH2EH")]
@@ -630,9 +631,10 @@ import datetime
 import logging
 import azure.functions as func
 
+
 def main(timer: func.TimerRequest) -> str:
     timestamp = datetime.datetime.utcnow()
-    logging.info('Message created at: %s', timestamp);   
+    logging.info('Message created at: %s', timestamp)
     return 'Message created at: {}'.format(timestamp)
 ```
 
@@ -672,11 +674,11 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 
 다음 표에서는 *function.json* 파일 및 `EventHub` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
-|**type** | 해당 없음 | "eventHub"로 설정해야 합니다. |
-|**direction** | 해당 없음 | "out"으로 설정해야 합니다. 이 매개 변수는 사용자가 Azure Portal에서 바인딩을 만들 때 자동으로 설정됩니다. |
-|**name** | 해당 없음 | 이벤트를 나타내는 함수 코드에서 사용되는 변수 이름입니다. |
+|**type** | n/a | "eventHub"로 설정해야 합니다. |
+|**direction** | n/a | "out"으로 설정해야 합니다. 이 매개 변수는 사용자가 Azure Portal에서 바인딩을 만들 때 자동으로 설정됩니다. |
+|**name** | n/a | 이벤트를 나타내는 함수 코드에서 사용되는 변수 이름입니다. |
 |**path** |**EventHubName** | Functions 1.x에만 해당합니다. 이벤트 허브의 이름입니다. 이벤트 허브 이름이 연결 문자열에 있는 경우 해당 값은 런타임 시 이 속성을 재정의합니다. |
 |**eventHubName** |**EventHubName** | Functions 2.x에만 해당합니다. 이벤트 허브의 이름입니다. 이벤트 허브 이름이 연결 문자열에 있는 경우 해당 값은 런타임 시 이 속성을 재정의합니다. |
 |**연결** |**연결** | 이벤트 허브의 네임스페이스에 대한 연결 문자열을 포함하는 앱 설정의 이름입니다. 이벤트 허브 자체가 아닌 *네임스페이스*에 대한 **연결 정보** 단추를 클릭하여 이 연결 문자열을 복사합니다. 이 연결 문자열에는 이벤트 스트림으로 메시지를 보내기 위해 보내기 사용 권한이 있어야 합니다.|
@@ -693,7 +695,7 @@ JavaScript에서 `context.bindings.<name>`를 사용하여 출력 이벤트에 �
 
 | 바인딩 | 참조 |
 |---|---|
-| 이벤트 허브 | [운영 가이드](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) |
+| Event Hubs | [운영 가이드](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) |
 
 <a name="host-json"></a>  
 
@@ -719,8 +721,8 @@ JavaScript에서 `context.bindings.<name>`를 사용하여 출력 이벤트에 �
 }  
 ```
 
-|자산  |Default | 설명 |
+|속성  |Default | Description |
 |---------|---------|---------|
 |maxBatchSize|64|수신 루프 당 받은 최대 이벤트 수입니다.|
-|prefetchCount|해당 없음|기본 EventProcessorHost에서 사용할 기본 PrefetchCount입니다.|
+|prefetchCount|n/a|기본 EventProcessorHost에서 사용할 기본 PrefetchCount입니다.|
 |batchCheckpointFrequency|1|EventHub 커서 검사점을 만들기 전에 처리할 이벤트 일괄 처리 수입니다.|

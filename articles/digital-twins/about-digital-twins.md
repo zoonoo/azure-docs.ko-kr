@@ -3,31 +3,30 @@ title: Azure Digital Twins 개요 | Microsoft Docs
 description: 공간 인텔리전스를 위한 Azure IoT 솔루션인 Azure Digital Twins에 대해 자세히 알아봅니다.
 author: julieseto
 ms.author: jseto
-ms.date: 12/14/2018
+ms.date: 08/01/2019
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
 manager: bertvanhoof
 ms.custom: mvc
-ms.openlocfilehash: 2848f9ce97c2bdad59d86031c5894219875b6059
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 6bd4e3bb688e92d30a21c39599e2e5bdb7b17dba
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437115"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736974"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Azure Digital Twins 개요
 
-Azure Digital Twins는 실제 환경의 종합적 모델을 만드는 Azure IoT 서비스입니다. 사람, 공간 및 디바이스 간의 관계와 상호 작용을 모델링하는 공간 인텔리전스 그래프를 만들 수 있습니다.
+Azure Digital Twins 미리 보기는 실제 환경의 종합적 모델을 만드는 Azure IoT 서비스입니다. 사람, 공간 및 디바이스 간의 관계와 상호 작용을 모델링하는 공간 인텔리전스 그래프를 만들 수 있습니다.
 
-Azure Digital Twins를 사용하면 많은 다른 센서가 아닌 실제 공간에서 데이터를 쿼리할 수 있습니다. 이 서비스는 디지털 및 실제 세계에서 스트리밍 데이터를 연결하는 재사용 가능하고, 확장성이 뛰어나며, 공간적으로 인식하는 환경을 구축하는 데 도움이 됩니다. 앱은 이와 같이 고유한 관련 상황에 맞는 기능을 통해 향상됩니다. Azure Digital Twins를 사용할 수 있는 예제 작업은 다음과 같습니다.
+Azure Digital Twins를 사용하면 많은 다른 센서가 아닌 실제 공간에서 데이터를 쿼리할 수 있습니다. 이 서비스는 디지털 및 실제 세계에서 스트리밍 데이터를 연결하는 재사용 가능하고, 확장성이 뛰어나며, 공간적으로 인식하는 환경을 구축하는 데 도움이 됩니다. 앱은 이와 같이 고유한 관련 상황에 맞는 기능을 통해 향상됩니다. 
+
+Azure Digital Twins는 창고, 사무실, 학교, 병원 및 은행 등 모든 종류의 환경에 적용됩니다. 경기장, 공장, 주차장, 공원, 스마트 그리드, 도시에서도 사용할 수 있습니다. Azure Digital Twins가 도움이 될 수 있는 몇몇 시나리오는 다음과 같습니다.
 
 - 공장에 대한 유지 관리 요구 사항을 예측합니다.
 - 전력망에 대한 실시간 에너지 요구 사항을 분석합니다.
 - 사무실에서 사용 가능한 공간의 사용을 최적화합니다.
-
-Azure Digital Twins는 모든 유형의 환경에 적용됩니다. 몇 가지 예로 창고, 사무실, 학교, 병원 및 은행이 있습니다. 경기장, 공장, 주차장, 공원, 스마트 그리드, 도시에서도 사용할 수 있습니다. Azure Digital Twins를 사용할 수 있는 예제 시나리오는 다음과 같습니다.
-
 - 여러 지역에 걸친 일일 온도를 추적합니다.
 - 사용 중인 드론 경로를 모니터링합니다.
 - 자율 차량을 식별합니다.
@@ -46,13 +45,13 @@ Azure Digital Twins에는 다음과 같은 주요 기능이 있습니다.
 
 ### <a name="spatial-intelligence-graph"></a>공간 인텔리전스 그래프
 
-[*공간 인텔리전스 그래프*](./concepts-objectmodel-spatialgraph.md) 또는 *공간 그래프*는 물리적 환경의 가상 표현입니다. 사람, 장소 및 디바이스 간의 관계를 모델링하는 데 사용할 수 있습니다.
+[*공간 인텔리전스 그래프*](./concepts-objectmodel-spatialgraph.md#graph) 또는 *공간 그래프*는 물리적 환경의 가상 표현입니다. 사람, 장소 및 디바이스 간의 관계를 모델링하는 데 사용할 수 있습니다.
 
 이웃 간에 연결된 여러 개의 전력 사용 계량기가 포함된 스마트 유틸리티 앱을 생각해 보세요. 스마트 유틸리티 회사에서는 전력 사용량과 요금 청구를 정확하게 모니터링하고 예측해야 합니다. 각 디바이스와 센서는 청구되는 위치와 고객의 상황에 따라 모델링해야 합니다. 공간 인텔리전스 그래프를 사용하여 이러한 종류의 복잡한 관계를 모델링할 수 있습니다.
 
 ### <a name="digital-twin-object-models"></a>Digital Twins 개체 모델
 
-[Digital Twins 개체 모델](./concepts-objectmodel-spatialgraph.md)은 미리 정의된 디바이스 프로토콜 및 데이터 스키마입니다. 이러한 모델은 개발을 가속화하고 간소화하기 위해 솔루션의 도메인별 요구 사항을 조정합니다.
+[Digital Twins 개체 모델](./concepts-objectmodel-spatialgraph.md#model)은 미리 정의된 디바이스 프로토콜 및 데이터 스키마입니다. 이러한 모델은 개발을 가속화하고 간소화하기 위해 솔루션의 도메인별 요구 사항을 조정합니다.
 
 예를 들어 공간 점유율 애플리케이션은 캠퍼스, 건물, 층 및 방과 같은 미리 정의된 공간 유형을 사용할 수 있습니다.
 
@@ -62,7 +61,7 @@ Azure Digital Twins에는 다음과 같은 주요 기능이 있습니다.
 
 예를 들어 단일 건물 내에서 한 세입자의 데이터를 다른 세입자의 데이터와 격리하도록 구성된 공간 사용률 앱이 있습니다. 또는 이 앱을 사용하여 단일 세입자의 데이터를 여러 건물과 결합합니다.
 
-### <a name="advanced-compute-capabilities"></a>고급 계산 기능
+### <a name="advanced-compute-capabilities"></a>고급 컴퓨팅 기능
 
 [사용자 정의 함수](./concepts-user-defined-functions.md)를 사용하면 들어오는 [디바이스 데이터](./concepts-device-ingress.md)에 대해 사용자 지정 함수를 정의하고 실행하여 미리 정의된 엔드포인트로 신호를 보낼 수 있습니다. 이 고급 기능을 통해 디바이스 작업의 사용자 지정 및 자동화가 향상됩니다.
 

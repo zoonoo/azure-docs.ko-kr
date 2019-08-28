@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 9046af82388f99cfdd82c8cb816d4cda1e5f8237
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 40969362e339770f18374ff22af5b3fe63908e65
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206873"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845741"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하여 Android 앱 만들기
 
@@ -32,20 +32,35 @@ ms.locfileid: "67206873"
 
 이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
 
-- <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.3+</a>가 설치된 Windows 또는 macOS 머신.
+- <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.4+</a>가 설치된 Windows 또는 macOS 머신.
   - Windows에서 실행하는 경우 <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>도 필요합니다.
-  - macOS에서 실행하는 경우 HomeBrew를 통해 Git이 설치됩니다. 터미널의 한 줄에 명령 `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`을 입력합니다. 그런 다음, `brew install git`을 실행합니다.
-  - NDK 샘플을 빌드하려면 Android Studio에 NDK 및 CMake 3.6 SDK Tools를 설치해야 합니다.
+  - macOS에서 실행하는 경우 HomeBrew를 통해 Git이 설치됩니다. 터미널의 한 줄에 명령 `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`을 입력합니다. 그런 다음, `brew install git`를 실행합니다.
+  - NDK 샘플을 빌드하려면 Android Studio에 NDK 및 CMake 3.6 이상의 SDK Tools를 설치해야 합니다.
 - <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">개발자 사용</a> 및 <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore 지원</a> Android 디바이스.
-- 앱은 ARCore 1.7을 대상으로 해야 합니다.
+  - 컴퓨터가 Android 디바이스와 통신하려면 추가 디바이스 드라이버가 필요할 수 있습니다. 추가 정보 및 지침은 [여기](https://developer.android.com/studio/run/device.html)를 참조하세요.
+- 앱은 ARCore **1.8**을 대상으로 해야 합니다.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
 ## <a name="open-the-sample-project"></a>샘플 프로젝트 열기
 
+# <a name="javatabopenproject-java"></a>[Java](#tab/openproject-java)
+
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-Android NDK 샘플을 빌드하는 경우 [여기](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.7.0/libraries/include/arcore_c_api.h)에서 `arcore_c_api.h`를 다운로드하여 `Android\NDK\libraries\include`에 배치해야 합니다.
+# <a name="ndktabopenproject-ndk"></a>[NDK](#tab/openproject-ndk)
+
+[!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
+
+[여기](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.8.0/libraries/include/arcore_c_api.h)에서 `arcore_c_api.h`를 다운로드하여 `Android\NDK\libraries\include`에 배치합니다.
+
+새로 복제된 리포지토리 내에서 다음 명령을 실행하여 하위 모듈를 초기화합니다.
+
+```console
+git submodule update --init --recursive
+```
+
+---
 
 Android Studio를 엽니다.
 

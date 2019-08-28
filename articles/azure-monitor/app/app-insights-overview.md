@@ -13,18 +13,18 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 06/03/2019
 ms.author: mbullwin
-ms.openlocfilehash: cdaae4e539d5216cf4950c15349f01b54ae8acd2
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: d702b2f76531bad53e3fd98645d2b6bbf0582c54
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496383"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774730"
 ---
 # <a name="what-is-application-insights"></a>Application Insights란?
 Application Insights는 여러 플랫폼의 웹 개발자를 위한 확장 가능한 APM(애플리케이션 성능 관리) 서비스입니다. 이를 사용하여 라이브 웹 애플리케이션을 모니터링합니다. 성능 이상을 자동으로 감지합니다. 사용자가 문제를 진단하고 앱을 사용하여 실제로 수행할 작업을 이해할 수 있도록 돕는 강력한 분석 도구를 포함합니다.  성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다. .NET, Node.js 및 Java EE, 호스트된 온-프레미스, 하이브리드 또는 공용 클라우드를 포함하여 다양한 플랫폼에서 앱과 함께 작동합니다. DevOps 프로세스와 통합되며, 다양한 개발 도구와의 연결 지점을 갖고 있습니다. Visual Studio App Center를 통합하여 모바일 앱에서 원격 분석을 모니터링하고 분석할 수 있습니다.
 
 ## <a name="how-does-application-insights-work"></a>Application Insights의 작동 방식
-애플리케이션에 작은 계측 패키지를 설치하고 Microsoft Azure 포털에서 Application Insights 리소스를 설정합니다. 이 계측 기능이 앱을 모니터링하여 포털에 원격 분석 데이터를 보냅니다. 애플리케이션을 어디서나 실행할 수 있습니다. Azure에 호스트할 필요가 없습니다.
+애플리케이션에 작은 계측 패키지를 설치하고 Microsoft Azure 포털에서 Application Insights 리소스를 설정합니다. 이 계측 기능이 앱을 모니터링하고 원격 분석 데이터를 Azure Monitor에 보냅니다. 애플리케이션을 어디서나 실행할 수 있습니다. Azure에 호스트할 필요가 없습니다.
 
 웹 서비스 애플리케이션뿐 아니라 모든 백그라운드 구성 요소와 웹 페이지 자체의 JavaScript까지 계측할 수 있습니다. 
 
@@ -32,8 +32,7 @@ Application Insights는 여러 플랫폼의 웹 개발자를 위한 확장 가�
 
 뿐만 아니라 호스트 환경에서 성능 카운터, Azure 진단, Docker 로그 등의 원격 분석을 가져올 수 있습니다. 웹 서비스에 주기적으로 가상 요청을 보내는 웹 테스트를 설정할 수도 있습니다.
 
-이러한 원격 분석 스트림은 강력한 분석 및 검색 도구를 원시 데이터에 적용할 수 있는 Azure Portal에 통합됩니다.
-
+이러한 모든 원격 분석 스트림은 Azure Monitor에 통합되어 있습니다. Azure Portal에서 강력한 분석 및 검색 도구를 원시 데이터에 적용할 수 있습니다.
 
 ### <a name="whats-the-overhead"></a>오버헤드는 무엇입니까?
 앱 성능에 미치는 영향을 매우 작습니다. 추적 호출은 차단되지 않으며, 별도의 스레드로 일괄 처리 및 전송합니다.
@@ -72,7 +71,7 @@ Application Insights는 애플리케이션 팀에서 앱의 작동 방식과 사
 | [**스냅샷 디버거**](../../azure-monitor/app/snapshot-debugger.md)<br/>실시간 작업에서 샘플링된 스냅샷을 매개 변수 값으로 디버그합니다.|![Visual studio](./media/app-insights-overview/snapshot.png) |
 | [**Power BI**](../../azure-monitor/app/export-power-bi.md )<br/>사용 현황 메트릭을 다른 비즈니스 인텔리전스와 통합합니다.| ![Power BI](./media/app-insights-overview/power-bi.png)|
 | [**REST API**](https://dev.applicationinsights.io/)<br/>메트릭 및 원시 데이터에 대한 쿼리를 실행하는 코드를 작성합니다.| ![REST API](./media/app-insights-overview/rest-tn.png) |
-| [**연속 내보내기**](../../azure-monitor/app/export-telemetry.md)<br/>원시 데이터가 도착하는 즉시 저장소에 대량으로 내보냅니다. |![내보내기](./media/app-insights-overview/export-tn.png) |
+| [**연속 내보내기**](../../azure-monitor/app/export-telemetry.md)<br/>원시 데이터가 도착하는 즉시 스토리지에 대량으로 내보냅니다. |![내보내기](./media/app-insights-overview/export-tn.png) |
 
 ## <a name="how-do-i-use-application-insights"></a>Application Insights를 어떻게 사용하나요?
 
@@ -103,8 +102,9 @@ Application Insights는 Microsoft Azure에서 호스트되는 다양한 서비�
 시작하는 데는 몇 가지 방법이 있습니다. 본인에게 적합한 방법으로 시작합니다. 나중에 계정을 더 추가할 수 있습니다.
 
 * **런타임: 서버에서 웹앱을 계측합니다.** 이미 배포된 애플리케이션에 적합합니다. 코드에 대한 업데이트를 방지합니다.
-  * [**VM 또는 온-프레미스의 IIS에서 호스팅되는 ASP.NET 애플리케이션**](../../azure-monitor/app/monitor-performance-live-website-now.md)
   * [**Azure Web Apps에서 호스팅되는 ASP.NET 또는 ASP.NET Core 애플리케이션**](../../azure-monitor/app/azure-web-apps.md)
+  * [**Azure VM 또는 Azure Virtual Machine Scale Set의 IIS에 호스트된 ASP.NET 애플리케이션**](../../azure-monitor/app/azure-vm-vmss-apps.md)
+  * [**IIS 온-프레미스 VM에 호스트된 ASP.NET 애플리케이션**](../../azure-monitor/app/monitor-performance-live-website-now.md)
 * **개발 타임: 코드에 Application Insights를 추가합니다.** 원격 분석 데이터 컬렉션을 사용자 지정하고 원격 분석 데이터를 추가로 전송할 수 있습니다.
   * [ASP.NET 애플리케이션](../../azure-monitor/app/asp-net.md)
   * [ASP.NET Core 애플리케이션](../../azure-monitor/app/asp-net-core.md)
@@ -119,6 +119,7 @@ Application Insights는 Microsoft Azure에서 호스트되는 다양한 서비�
 ## <a name="next-steps"></a>다음 단계
 다음을 사용하여 런타임에 시작하세요.
 
+* [Azure VM 및 Azure Virtual Machine Scale Set IIS 호스트 앱](../../azure-monitor/app/azure-vm-vmss-apps.md)
 * [IIS 서버](../../azure-monitor/app/monitor-performance-live-website-now.md)
 * [Azure Web Apps](../../azure-monitor/app/azure-web-apps.md)
 

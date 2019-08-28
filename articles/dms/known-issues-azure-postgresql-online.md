@@ -10,34 +10,35 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 04/23/2019
-ms.openlocfilehash: 2c8a3f36e04fbedfdd127939d55fab376e3e6b30
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/06/2019
+ms.openlocfilehash: 0b1632ab943026578eb753014575ab53d151c33f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "64691945"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855009"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Azure DB for PostgreSQL로의 온라인 마이그레이션과 관련된 알려진 문제/마이그레이션 제한 사항
 
-다음 섹션에서는 PostgreSQL에서 Azure Database for PostgreSQL로의 온라인 마이그레이션과 관련된 알려진 문제 및 제한 사항에 대해 설명합니다. 
+다음 섹션에서는 PostgreSQL에서 Azure Database for PostgreSQL로의 온라인 마이그레이션과 관련된 알려진 문제 및 제한 사항에 대해 설명합니다.
 
 ## <a name="online-migration-configuration"></a>온라인 마이그레이션 구성
+
 - 원본 PostgreSQL Server는 버전 9.5.11, 9.6.7 또는 10.3 이상을 실행해야 합니다. 자세한 내용은 [지원되는 PostgreSQL 데이터베이스 버전](../postgresql/concepts-supported-versions.md) 문서를 참조하세요.
 - 같은 버전의 마이그레이션만 지원됩니다. 예를 들어 PostgreSQL 9.5.11을 Azure Database for PostgreSQL 9.6.7로 마이그레이션할 수는 없습니다.
 
     > [!NOTE]
-    > PostgreSQL 버전 10의 경우 현재 DMS는 10.3 버전을 Azure Database for PostgreSQL로 마이그레이션하는 것만 지원합니다. 가능한 한 빨리 최신 버전의 PostgreSQL 지원 하도록 계획 합니다.
+    > PostgreSQL 버전 10의 경우 현재 DMS는 10.3 버전을 Azure Database for PostgreSQL로 마이그레이션하는 것만 지원합니다. 최신 버전의 PostgreSQL를 곧 지원할 계획입니다.
 
 - **원본 PostgreSQL postgresql.conf** 파일에서 논리 복제를 사용하도록 설정하려면 다음 매개 변수를 설정합니다.
-    - **wal_level** = logical
-    - **max_replication_slots** = [마이그레이션할 데이터베이스의 최대 수]. 데이터베이스 4개를 마이그레이션하려면 값을 4로 설정합니다.
-    - **max_wal_senders** = [동시에 실행되는 데이터베이스 수]. 권장 값은 10입니다.
-- 원본 PostgresSQL pg_hba.conf에 DMS 에이전트 IP를 추가합니다.
-    1. DMS 인스턴스 프로비전을 완료한 후 DMS IP 주소를 기록해 둡니다.
-    2. 아래에 나와 있는 것처럼 pg_hba.conf 파일에 IP 주소를 추가합니다.
+  - **wal_level** = logical
+  - **max_replication_slots** = [마이그레이션할 데이터베이스의 최대 수]. 데이터베이스 4개를 마이그레이션하려면 값을 4로 설정합니다.
+  - **max_wal_senders** = [동시에 실행되는 데이터베이스 수]. 권장 값은 10입니다.
+- DMS 에이전트 IP를 원본 PostgreSQL pg_hba에 추가 합니다.
+  1. DMS 인스턴스 프로비전을 완료한 후 DMS IP 주소를 기록해 둡니다.
+  2. 아래에 나와 있는 것처럼 pg_hba.conf 파일에 IP 주소를 추가합니다.
 
-        host    all     172.16.136.18/10    md5  host    replication postgres    172.16.136.18/10    md5
+        host all 172.16.136.18/10 md5 호스트 복제 postgres 172.16.136.18/10 md5
 
 - 사용자에게 원본 데이터베이스를 호스팅하는 서버에 대한 슈퍼 사용자 권한이 있어야 합니다.
 - 원본 데이터베이스 스키마에 ENUM이 포함되어 있어야 할 뿐 아니라 원본 및 대상 데이터베이스 스키마가 일치해야 합니다.
@@ -86,14 +87,15 @@ ms.locfileid: "64691945"
 
 - **제한 사항**: 테이블에 기본 키가 없는 경우 지속적인 동기화가 실패합니다.
 
-    **해결 방법**: 마이그레이션을 진행할 수 있도록 일시적으로 테이블에 대한 기본 키를 설정합니다. 데이터 마이그레이션이 완료된 후 기본 키를 제거할 수 있습니다.
+    **해결 방법**: 마이그레이션을 계속할 수 있도록 일시적으로 테이블에 대한 기본 키를 설정합니다. 데이터 마이그레이션이 완료된 후 기본 키를 제거할 수 있습니다.
 
 ## <a name="lob-limitations"></a>LOB 제한 사항
+
 LOB(Large Object) 열은 커질 수 있는 열입니다. PostgreSQL의 경우 LOB 데이터 형식의 예로는 XML, JSON, IMAGE, TEXT 등이 있습니다.
 
 - **제한 사항**: LOB 데이터 형식이 기본 키로 사용되는 경우 마이그레이션이 실패합니다.
 
-    **해결 방법**: 기본 키를 LOB가 아닌 열이나 기타 데이터 형식으로 바꿉니다.
+    **해결 방법**: 기본 키를 다른 데이터 형식 또는 LOB가 아닌 열로 바꿉니다.
 
 - **제한 사항**: LOB(Large Object) 열의 길이가 32KB보다 큰 경우 데이터는 대상에서 잘릴 수 있습니다. 이 쿼리를 사용하여 LOB 열의 길이를 확인할 수 있습니다.
 
@@ -101,13 +103,14 @@ LOB(Large Object) 열은 커질 수 있는 열입니다. PostgreSQL의 경우 LO
     SELECT max(length(cast(body as text))) as body FROM customer_mail
     ```
 
-    **해결 방법**: 32KB 보다 큰 LOB 개체에 있는 경우 엔지니어링 팀에 문의 [Azure 데이터베이스 마이그레이션을 요청](mailto:AskAzureDatabaseMigrations@service.microsoft.com)합니다.
+    **해결 방법**: LOB 개체가 32 KB 보다 큰 경우 엔지니어링 팀에 문의 하 여 [Azure 데이터베이스 마이그레이션](mailto:AskAzureDatabaseMigrations@service.microsoft.com)에 문의 하세요.
 
 - **제한 사항**: 테이블에 LOB 열이 있는데 테이블의 기본 키가 설정되어 있지 않으면 해당 테이블의 데이터가 마이그레이션되지 않을 수 있습니다.
 
     **해결 방법**: 마이그레이션을 진행할 수 있도록 일시적으로 테이블에 대한 기본 키를 설정합니다. 데이터 마이그레이션이 완료된 후 기본 키를 제거할 수 있습니다.
 
 ## <a name="postgresql10-workaround"></a>PostgreSQL10 해결 방법
+
 PostgreSQL 10.x에서는 pg_xlog 폴더 이름이 여러 가지로 변경되므로 마이그레이션이 정상적으로 실행되지 않을 수도 있습니다. PostgreSQL 10.x에서 Azure Database for PostgreSQL 10.3으로 마이그레이션하는 경우 원본 PostgreSQL 데이터베이스에서 다음 스크립트를 실행하여 pg_xlog 함수용 래퍼 함수를 만듭니다.
 
 ```
@@ -148,7 +151,32 @@ ALTER USER PG_User SET search_path = fnRenames, pg_catalog, "$user", public;
 COMMIT;
 ```
 
+## <a name="limitations-when-migrating-online-from-aws-rds-postgresql"></a>AWS RDS PostgreSQL에서 온라인으로 마이그레이션하는 경우의 제한 사항
+
+AWS RDS PostgreSQL에서 Azure Database for PostgreSQL로 온라인 마이그레이션을 수행 하려고 할 때 다음과 같은 오류가 발생할 수 있습니다.
+
+- **오류**: '{database}' 데이터베이스의 '{table}' 테이블에 있는 '{column}' 열의 기본값이 원본 서버와 대상 서버에서 서로 다릅니다. 원본은 '{value on source}'이고 대상은 '{value on target}'입니다.
+
+  **제한 사항**: 이 오류는 열 스키마의 기본값이 원본 데이터베이스와 대상 데이터베이스 간에 다를 때 발생 합니다.
+  **해결 방법**: 대상의 스키마가 원본의 스키마와 일치 하는지 확인 합니다. 스키마 마이그레이션에 대 한 자세한 내용은 [Azure PostgreSQL 온라인 마이그레이션 설명서](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema)를 참조 하세요.
+
+- **오류**: 대상 데이터베이스 '{database}'에는 '{number of tables}'개의 테이블이 있고, 원본 데이터베이스 '{database}'에는 '{number of tables}'개의 테이블이 있습니다. 원본과 대상 데이터베이스의 테이블 수가 같아야 합니다.
+
+  **제한 사항**: 이 오류는 원본 데이터베이스와 대상 데이터베이스 간에 테이블 수가 다를 때 발생 합니다.
+  **해결 방법**: 대상의 스키마가 원본의 스키마와 일치 하는지 확인 합니다. 스키마 마이그레이션에 대 한 자세한 내용은 [Azure PostgreSQL 온라인 마이그레이션 설명서](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema)를 참조 하세요.
+
+- **오류:** 원본 데이터베이스 {database}이 (가) 비어 있습니다.
+
+  **제한 사항**: 이 오류는 원본 데이터베이스가 비어 있을 때 발생 합니다. 잘못된 데이터베이스를 원본으로 선택했을 가능성이 높습니다.
+  **해결 방법**: 마이그레이션을 위해 선택한 원본 데이터베이스를 다시 한 번 확인 한 후 다시 시도 하십시오.
+
+- **오류:** 대상 데이터베이스 {database}이 (가) 비어 있습니다. 스키마를 마이그레이션하세요.
+
+  **제한 사항**: 이 오류는 대상 데이터베이스에 스키마가 없을 때 발생 합니다. 대상의 스키마가 원본의 스키마와 일치 하는지 확인 합니다.
+  **해결 방법**: 대상의 스키마가 원본의 스키마와 일치 하는지 확인 합니다. 스키마 마이그레이션에 대 한 자세한 내용은 [Azure PostgreSQL 온라인 마이그레이션 설명서](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema)를 참조 하세요.
+
 ## <a name="other-limitations"></a>기타 제한 사항
+
 - 데이터베이스 이름은 세미콜론(;)을 포함할 수 없습니다.
 - 여는 중괄호와 닫는 중괄호 {}를 포함하는 암호 문자열은 지원되지 않습니다. 이 제한 사항은 원본 PostgreSQL 및 대상 Azure Database for PostgreSQL에 연결할 때 모두 적용됩니다.
 - 캡처된 테이블에는 기본 키가 있어야 합니다. 테이블에 기본 키가 없는 경우 DELETE 및 UPDATE 레코드 작업의 결과를 예측할 수 없습니다.
@@ -167,8 +195,10 @@ COMMIT;
     $$;
     ```
 
-- TRUNCATE 작업의 변경 처리(지속적인 동기화)는 지원되지 않습니다. 분할된 테이블의 마이그레이션은 지원되지 않습니다. 분할된 테이블이 검색되면 다음 작업이 수행됩니다.
-    - 데이터베이스가 부모 및 자식 테이블 목록을 보고합니다.
-    - 선택한 테이블과 같은 속성을 사용하여 대상에 일반 테이블이 생성됩니다.
-    - 원본 데이터베이스의 부모 테이블 기본 키가 자식 테이블과 같으면 “중복 키” 오류가 생성됩니다.
+- 자르기 작업의 변경 처리 (연속 동기화)는 지원 되지 않습니다. 분할된 테이블의 마이그레이션은 지원되지 않습니다. 분할된 테이블이 검색되면 다음 작업이 수행됩니다.
+
+  - 데이터베이스가 부모 및 자식 테이블 목록을 보고합니다.
+  - 선택한 테이블과 같은 속성을 사용하여 대상에 일반 테이블이 생성됩니다.
+  - 원본 데이터베이스의 부모 테이블 기본 키가 자식 테이블과 같으면 “중복 키” 오류가 생성됩니다.
+
 - DMS에서 하나의 단일 마이그레이션 작업에서 마이그레이션할 데이터베이스의 한계는 4개입니다.

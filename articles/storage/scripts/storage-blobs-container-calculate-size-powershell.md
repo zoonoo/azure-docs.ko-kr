@@ -51,7 +51,7 @@ Remove-AzResourceGroup -Name bloblisttestrg
 
 | 명령 | 메모 |
 |---|---|
-| [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) | 리소스 그룹 또는 구독의 지정된 저장소 계정 또는 모든 저장소 계정을 가져옵니다. |
+| [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) | 리소스 그룹 또는 구독의 지정된 스토리지 계정 또는 모든 스토리지 계정을 가져옵니다. |
 | [Get-AzStorageBlob](/powershell/module/az.storage/Get-AzStorageBlob) | 컨테이너의 Blob을 나열합니다. |
 
 ## <a name="next-steps"></a>다음 단계

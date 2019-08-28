@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04-08-2019
+ms.date: 04/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91899b35f319dafd01a3f27d31aac53515b46d78
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 7eae1c9a42547c73cc42868bac1f1f484b6354fa
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565012"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717407"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skytap"></a>자습서: Skytap과 Azure Active Directory 통합
 
@@ -32,7 +32,7 @@ Skytap과 Azure AD를 통합하면 다음과 같은 이점이 제공됩니다.
 * 사용자가 해당 Azure AD 계정으로 Skytap에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -58,7 +58,7 @@ Skytap의 Azure AD 통합을 구성하려면 갤러리의 Skytap을 관리되는
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -191,7 +191,7 @@ Skytap에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 ### <a name="create-skytap-test-user"></a>Skytap 테스트 사용자 만들기
 
-이 섹션에서는 Skytap에서 Britta Simon이라는 사용자를 만듭니다. Skytap 플랫폼에서 사용자를 추가하려면  [Skytap 지원 팀](mailto:support@skytap.com)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Skytap에서 Britta Simon이라는 사용자를 만듭니다. Skytap 계정 내의 모든 관리자 또는 사용자 관리자는 사용자를 만들 수 있습니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 Skytap의 도움말 파일에 있는 https://help.skytap.com/users-create.html 을 참조하세요.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 

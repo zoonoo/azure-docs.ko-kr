@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 2dfe1493c6611fb69a417895aaa1028ad5881b9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 83439a913989875c5e26ee51901f10558e5debd5
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237425"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955607"
 ---
 # <a name="infrastructure-as-code"></a>코드 제공 인프라(Infrastructure as code)
 
@@ -57,25 +57,25 @@ Azure Resource Manager를 통해 Service Fabric 클러스터에 애플리케이�
 
 ```json
 {
-    "apiVersion": "2017-07-01-preview",
+    "apiVersion": "2019-03-01",
     "type": "Microsoft.ServiceFabric/clusters/applicationTypes",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2017-07-01-preview",
+    "apiVersion": "2019-03-01",
     "type": "Microsoft.ServiceFabric/clusters/applicationTypes/versions",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'), '/', parameters('applicationTypeVersion'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2017-07-01-preview",
+    "apiVersion": "2019-03-01",
     "type": "Microsoft.ServiceFabric/clusters/applications",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2017-07-01-preview",
+    "apiVersion": "2019-03-01",
     "type": "Microsoft.ServiceFabric/clusters/applications/services",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'), '/', parameters('serviceName'))]",
     "location": "[variables('clusterLocation')]"
@@ -86,19 +86,21 @@ Azure Resource Manager를 사용하여 애플리케이션을 배포하려면 먼
 
 ```python
 # Create SFPKG that needs to be uploaded to Azure Storage Blob Container
-microservices_sfpkg = zipfile.ZipFile(self.microservices_app_package_name, 'w', zipfile.ZIP_DEFLATED)
+microservices_sfpkg = zipfile.ZipFile(
+    self.microservices_app_package_name, 'w', zipfile.ZIP_DEFLATED)
 package_length = len(self.microservices_app_package_path)
 
 for root, dirs, files in os.walk(self.microservices_app_package_path):
     root_folder = root[package_length:]
     for file in files:
-        microservices_sfpkg.write(os.path.join(root, file), os.path.join(root_folder, file))
+        microservices_sfpkg.write(os.path.join(
+            root, file), os.path.join(root_folder, file))
 
 microservices_sfpkg.close()
 ```
 
-## <a name="azure-virtual-machine-operating-system-automatic-upgrade-configuration"></a>Azure 가상 머신 운영 체제 자동 업그레이드 구성 
-가상 컴퓨터를 업그레이드 하는 것은 사용자가 시작한 작업이 및 사용 하는 것이 좋습니다 [가상 머신 크기 조정 설정 된 자동 운영 체제 업그레이드](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) Azure Service Fabric 클러스터 호스트 패치 관리 패치 오케스트레이션 응용 프로그램을 위한 Azure 외부에서 호스팅되는 경우 POA POA 중인 가상 컴퓨터 운영 체제 자동 업그레이드를 선호 하는 일반적인 이유는 Azure에서 호스트 하는 오버 헤드를 사용 하 여 Azure에서 사용 될 수 있지만 대안 솔루션은 POA를 통해. 다음은 자동 OS 업그레이드를 사용 하도록 설정 하려면 Virtual Machine Scale 리소스 설정 관리자 계산 템플릿 속성입니다.
+## <a name="azure-virtual-machine-operating-system-automatic-upgrade-configuration"></a>Azure 가상 컴퓨터 운영 체제 자동 업그레이드 구성 
+가상 컴퓨터를 업그레이드 하는 작업은 사용자가 시작한 작업 이므로 [가상 컴퓨터 확장 집합](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) 을 사용 하 여 Azure Service Fabric 클러스터의 자동 운영 체제 업그레이드 호스트 패치 관리를 사용 하는 것이 좋습니다. 패치 오케스트레이션 응용 프로그램은 azure에서 호스트 되는 경우 azure에서 poa를 호스트 하는 오버 헤드로 가상 컴퓨터 운영 체제 자동 업그레이드를 선호 하는 일반적인 이유로 azure에서 호스트 되는 경우에 사용 되는 대체 솔루션입니다. POA를 통해. 자동 OS 업그레이드를 사용 하도록 설정 하는 계산 가상 머신 확장 집합 리소스 관리자 템플릿 속성은 다음과 같습니다.
 
 ```json
 "upgradePolicy": {
@@ -109,11 +111,11 @@ microservices_sfpkg.close()
     }
 },
 ```
-자동 OS 업그레이드에서 Service Fabric을 사용 하는 경우 Service Fabric에서 실행 되는 서비스의 고가용성을 유지 하기 위해 한 번에 하나의 업데이트 도메인을 새 OS 이미지가 롤백됩니다. Service Fabric에서 자동 OS 업그레이드를 활용하려면 실버 내구성 계층 이상을 사용하도록 클러스터가 구성되어야 합니다.
+Service Fabric와 함께 자동 OS 업그레이드를 사용 하는 경우 새 OS 이미지는 Service Fabric에서 실행 되는 서비스의 고가용성을 유지 하기 위해 한 번에 하나의 업데이트 도메인에 롤오버 됩니다. Service Fabric에서 자동 OS 업그레이드를 활용하려면 실버 내구성 계층 이상을 사용하도록 클러스터가 구성되어야 합니다.
 
-다음 레지스트리 키를 windows 호스트 컴퓨터 조정 되지 않은 업데이트를 시작 하지 않도록 설정 하려면 false로 설정 되었는지 확인 합니다. HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
+Windows 호스트 컴퓨터가 조정 되지 않은 업데이트를 시작 하지 않도록 하려면 다음 레지스트리 키가 false로 설정 되어 있는지 확인 합니다. HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
 
-다음은 WindowsUpdate 레지스트리 키를 false로 설정할 가상 컴퓨터 크기 조정 리소스 설정 관리자 계산 템플릿 속성입니다.
+Windowsupdate.log 레지스트리 키를 false로 설정 하는 계산 가상 머신 확장 집합 리소스 관리자 템플릿 속성은 다음과 같습니다.
 ```json
 "osProfile": {
         "computerNamePrefix": "{vmss-name}",
@@ -127,11 +129,11 @@ microservices_sfpkg.close()
 ```
 
 ## <a name="azure-service-fabric-cluster-upgrade-configuration"></a>Azure Service Fabric 클러스터 업그레이드 구성
-다음은 Service Fabric 클러스터 Resource Manager template 속성이 자동 업그레이드를 사용 하도록 설정 하려면:
+자동 업그레이드를 사용 하도록 설정 하는 Service Fabric 클러스터 리소스 관리자 템플릿 속성은 다음과 같습니다.
 ```json
 "upgradeMode": "Automatic",
 ```
-클러스터를 수동으로 업그레이드 하려면 클러스터 가상 머신에 cab/deb 배포를 다운로드 하 고 다음 PowerShell을 호출 합니다.
+클러스터를 수동으로 업그레이드 하려면 클러스터 가상 컴퓨터에 cab/deb 배포를 다운로드 한 후 다음 PowerShell을 호출 합니다.
 ```powershell
 Copy-ServiceFabricClusterPackage -Code -CodePackagePath <"local_VM_path_to_msi"> -CodePackagePathInImageStore ServiceFabric.msi -ImageStoreConnectionString "fabric:ImageStore"
 Register-ServiceFabricClusterPackage -Code -CodePackagePath "ServiceFabric.msi"

@@ -1,5 +1,5 @@
 ---
-title: 패턴
+title: 패턴 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 패턴을 사용하여 의도 및 엔터티 예측을 높이는 한편 발화 예제를 줄입니다. 패턴은 엔터티 및 무시 가능한 텍스트를 식별하는 구문을 포함하는 템플릿 발언 예제를 통해 제공됩니다.
 services: cognitive-services
@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 02/22/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 33541d2a61c52476f6e314f6981a623390de8fa9
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 96c58e18abce85354db0d3bdf579600506cf2d86
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193741"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563299"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats"></a>자습서: 일반적인 패턴 템플릿 발언 서식 추가
 
@@ -71,7 +71,7 @@ ms.locfileid: "57193741"
 
     [![의도에 새 발언을 추가하는 LUIS 스크린샷](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png "의도에 새 발언을 추가하는 LUIS 스크린샷")](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png#lightbox)
 
-    의도의 발언에서 Employee 엔터티 대신 keyPhrase 엔터티가 레이블로 지정되더라도 걱정하지 마세요. 두 엔터티 모두 테스트 창 및 끝점에서 올바르게 예측됩니다. 
+    의도의 발언에서 Employee 엔터티 대신 keyPhrase 엔터티가 레이블로 지정되더라도 걱정하지 마세요. 두 엔터티 모두 테스트 창 및 엔드포인트에서 올바르게 예측됩니다. 
 
 5. 왼쪽 탐색 영역에서 **의도**를 선택합니다.
 
@@ -197,7 +197,7 @@ ms.locfileid: "57193741"
 두 번째 브라우저 창을 열어 둡니다. 자습서에서 나중에 다시 사용합니다. 
 
 ## <a name="template-utterances"></a>템플릿 발언
-Human Resource 도메인의 특성 때문에 조직에서 직원 관계를 묻는 몇 가지 일반적인 방법이 있습니다. 예를 들면 다음과 같습니다.
+Human Resource 도메인의 특성 때문에 조직에서 직원 관계를 묻는 몇 가지 일반적인 방법이 있습니다. 예:
 
 |발언|
 |--|
@@ -255,7 +255,7 @@ Human Resource 도메인의 특성 때문에 조직에서 직원 관계를 묻�
     |Who does {Employee} supervise[?]|
     |Who does {Employee} boss[?]|
 
-## <a name="query-endpoint-when-patterns-are-used"></a>패턴이 사용될 때의 끝점 쿼리
+## <a name="query-endpoint-when-patterns-are-used"></a>패턴이 사용될 때의 엔드포인트 쿼리
 
 이제 패턴이 앱에 추가되었으므로 예측 런타임 엔드포인트에서 앱을 학습, 게시 및 쿼리합니다.
 
@@ -357,7 +357,7 @@ Human Resource 도메인의 특성 때문에 조직에서 직원 관계를 묻�
 
 예제 발언은 다음과 같습니다.
 
-|의도|선택적 텍스트와 미리 작성된 엔터티가 있는 예제 발언|
+|Intent|선택적 텍스트와 미리 작성된 엔터티가 있는 예제 발언|
 |:--|:--|
 |OrgChart-Manager|`Who was Jill Jones manager on March 3?`|
 |OrgChart-Manager|`Who is Jill Jones manager now?`|
@@ -368,7 +368,7 @@ Human Resource 도메인의 특성 때문에 조직에서 직원 관계를 묻�
 
 이 선택적 정보를 허용하는 예제 템플릿 발화: 
 
-|의도|선택적 텍스트와 미리 작성된 엔터티가 있는 예제 발언|
+|Intent|선택적 텍스트와 미리 작성된 엔터티가 있는 예제 발언|
 |:--|:--|
 |OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?`]|
 |OrgChart-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
@@ -397,7 +397,7 @@ Human Resource 도메인의 특성 때문에 조직에서 직원 관계를 묻�
 
 1. **빌드**의 **패턴** 섹션에서 몇 가지 패턴 템플릿 발언을 새로 추가합니다. 의도 드롭 다운 메뉴에서 **OrgChart-Manager**를 선택하고 다음 템플릿 발언을 각각 입력합니다.
 
-    |의도|선택적 텍스트와 미리 작성된 엔터티가 있는 예제 발언|
+    |Intent|선택적 텍스트와 미리 작성된 엔터티가 있는 예제 발언|
     |--|--|
     |OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
     |OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
@@ -428,7 +428,7 @@ Human Resource 도메인의 특성 때문에 조직에서 직원 관계를 묻�
 
 다음 2가지 패턴은 group `()` 및 OR `|` 구문을 사용하여 단일 패턴으로 결합할 수 있습니다.
 
-|의도|선택적 텍스트와 미리 작성된 엔터티가 있는 예제 발언|
+|Intent|선택적 텍스트와 미리 작성된 엔터티가 있는 예제 발언|
 |--|--|
 |OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
 |OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|

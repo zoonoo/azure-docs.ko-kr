@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: 03d39ed01907a2ad61e089946673b96b8a2cc83e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e672e7bd43dcd05d048d22205939749c1d96579
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65916916"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348069"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>사용자 지정 할당 정책을 사용하는 방법
 
@@ -43,7 +43,7 @@ ms.locfileid: "65916916"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md) 빠른 시작을 완료해야 합니다.
 * ['C++를 사용한 데스크톱 개발'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) 워크로드를 사용하도록 설정한 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 이상
@@ -127,7 +127,7 @@ ms.locfileid: "65916916"
 
 6. **등록 그룹 추가**에서 **Azure 함수 선택** 섹션으로 아래로 스크롤하고 **새 함수 앱 만들기**를 클릭합니다.
 
-7. **Function App**에서 열리는 페이지를 만들고 새 함수에 대한 다음 설정을 입력한 후 **만들기**를 클릭합니다.
+7. **함수 앱**에서 열리는 페이지를 만들고 새 함수에 대한 다음 설정을 입력한 후 **만들기**를 클릭합니다.
 
     **앱 이름**: 고유한 함수 앱 이름을 입력합니다. **contoso-function-app-1098**이 예제로 표시됩니다.
 
@@ -156,7 +156,7 @@ ms.locfileid: "65916916"
 
 10. 새 C# 함수의 코드를 다음 코드로 바꾸고 **저장**을 클릭합니다.    
 
-    ```C#
+    ```csharp
     #r "Newtonsoft.Json"
     using System.Net;
     using System.Text;
@@ -282,7 +282,7 @@ ms.locfileid: "65916916"
 
 디바이스 키를 생성하려면 이전에 적어 둔 **기본 키**를 사용하여 각 디바이스에 대한 디바이스 등록 ID의 [HMAC-SHA256](https://wikipedia.org/wiki/HMAC)을 계산하고 결과를 Base64 형식으로 변환합니다. 등록 그룹을 사용하여 파생된 디바이스 키를 만드는 방법에 대한 자세한 내용은 [대칭 키 증명](concepts-symmetric-key-attestation.md)의 그룹 등록 섹션을 참조하세요.
 
-이 문서의 예제에서는 다음 두 디바이스 등록 ID를 사용하여 두 디바이스의 디바이스 키를 계산합니다. 두 등록 ID에는 모두 사용자 지정 할당 정책에 대한 예제 코드에서 작동하는 유효한 접미사가 있습니다.
+이 문서의 예제에서는 다음 두 디바이스 등록 ID를 사용하여 두 디바이스의 디바이스 키를 컴퓨팅합니다. 두 등록 ID에는 모두 사용자 지정 할당 정책에 대한 예제 코드에서 작동하는 유효한 접미사가 있습니다.
 
 - **breakroom499-contoso-tstrsd-007**
 - **mainbuilding167-contoso-hpsd-088**
@@ -538,8 +538,8 @@ Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하
 
 ## <a name="next-steps"></a>다음 단계
 
-- 자세한 Reprovisioning에 알아보려면 [개념을 다시 프로 비전 된 IoT 허브 장치](concepts-device-reprovision.md) 
-- 자세한 프로 비전 해제에 알아보려면 [이전에 자동으로 프로 비전 된 장치를 프로 비전 해제 하는 방법](how-to-unprovision-devices.md) 
+- 다시 프로 비전에 대 한 자세한 내용은 [IoT Hub Device 다시 프로 비전 개념](concepts-device-reprovision.md) 을 참조 하세요. 
+- 프로 비전 해제에 대 한 자세한 내용은 [이전에 자동 프로 비전 된 장치의 프로 비전](how-to-unprovision-devices.md) 을 해제 하는 방법 
 
 
 

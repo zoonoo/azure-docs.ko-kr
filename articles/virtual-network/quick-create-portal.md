@@ -1,29 +1,30 @@
 ---
 title: 가상 네트워크 만들기 - 빠른 시작 - Azure Portal
 titlesuffix: Azure Virtual Network
-description: 이 빠른 시작에서 Azure Portal을 사용하여 가상 네트워크를 만드는 방법에 대해 알아봅니다. 가상 네트워크를 사용하면 가상 머신과 같은 Azure 리소스가 서로 인터넷을 통해 비공개로 통신할 수 있습니다.
+description: 이 빠른 시작에서 Azure Portal을 사용하여 가상 네트워크를 만드는 방법에 대해 알아봅니다. 가상 네트워크를 사용하면 가상 머신과 같은 Azure 리소스가 서로 인터넷을 통해 안전하게 통신할 수 있습니다.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
 tags: azure-resource-manager
-Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
+Customer intent: I want to create a virtual network so that virtual machines can securely communicate with each other and with the internet.
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 11/30/2018
+ms.date: 07/08/2019
 ms.author: kumud
-ms.openlocfilehash: 995bc8e7b2eb4e9160b2b625067f20324df2cbfd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: bbc40ae358a6ac7f58e01de997728db21c7eb3bc
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717035"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839707"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>빠른 시작: Azure 포털을 사용하여 가상 네트워크 만들기
 
-가상 네트워크를 사용하면 VM(가상 머신)과 같은 Azure 리소스가 서로 인터넷을 통해 비공개로 통신할 수 있습니다. 이 빠른 시작에서는 가상 네트워크를 만드는 방법을 알아봅니다. 가상 네트워크를 만든 후에 두 개의 VM을 가상 네트워크에 배포합니다. 그런 다음, 인터넷에서 VM에 연결하고 두 VM 간에 비공개로 통신합니다.
+가상 네트워크는 Azure에서 프라이빗 네트워크의 기본 구성 요소입니다. 이 네트워크를 사용하면 VM(가상 머신)과 같은 Azure 리소스가 서로 인터넷을 통해 안전하게 통신할 수 있습니다. 이 빠른 시작에서 Azure Portal을 사용하여 가상 네트워크를 만드는 방법에 대해 알아봅니다. 그런 다음, 가상 네트워크에 두 개의 VM을 배포하고, 두 VM 간에 안전하게 통신하고, 인터넷에서 VM에 연결할 수 있습니다.
+
 
 Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 지금 만드세요.
 
@@ -41,13 +42,13 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
     | ------- | ----- |
     | Name | *myVirtualNetwork*를 입력합니다. |
     | 주소 공간 | *10.1.0.0/16*을 입력합니다. |
-    | 구독 | 구독을 선택합니다.|
-    | 리소스 그룹 | **새로 만들기**를 선택하고 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. |
+    | Subscription | 구독을 선택합니다.|
+    | Resource group | **새로 만들기**를 선택하고 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. |
     | 위치 | **미국 동부**를 선택합니다.|
     | 서브넷 - 이름 | *myVirtualSubnet*을 입력합니다. |
     | 서브넷 - 주소 범위 | *10.1.0.0/24*를 입력합니다. |
 
-1. 나머지는 기본값으로 두고 **만들기**를 선택합니다.
+1. 나머지 항목은 기본값으로 유지하고 **만들기**를 선택합니다.
 
 ## <a name="create-virtual-machines"></a>가상 머신 만들기
 
@@ -55,20 +56,20 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
 
 ### <a name="create-the-first-vm"></a>첫 번째 VM 만들기
 
-1. 화면의 왼쪽 위에서 **리소스 만들기** > **계산** > **Windows Server 2016 Datacenter**를 선택합니다.
+1. 화면의 왼쪽 위에서 **리소스 만들기** > **컴퓨팅** > **Windows Server 2019 Datacenter**를 차례로 선택합니다.
 
 1. **가상 머신 만들기 - 기본 사항**에서 다음 정보를 입력하거나 선택합니다.
 
     | 설정 | 값 |
     | ------- | ----- |
     | **프로젝트 정보** | |
-    | 구독 | 구독을 선택합니다. |
-    | 리소스 그룹 | **MyResourceGroup**을 선택합니다. 지난 섹션에서 만들었습니다. |
+    | Subscription | 구독을 선택합니다. |
+    | Resource group | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다. |
     | **인스턴스 정보** |  |
     | 가상 머신 이름 | *myVm1*을 입력합니다. |
     | 지역 | **미국 동부**를 선택합니다. |
     | 가용성 옵션 | 기본값인 **인프라 중복이 필요하지 않습니다**를 그대로 둡니다. |
-    | 이미지 | 기본값인 **Windows Server 2016 Datacenter**를 그대로 둡니다. |
+    | 이미지 | 기본값인 **Windows Server 2019 Datacenter**를 그대로 둡니다. |
     | 크기 | 기본값인 **표준 DS1 v2**를 그대로 둡니다. |
     | **관리자 계정** |  |
     | 사용자 이름 | 선택한 사용자 이름을 입력합니다. |
@@ -90,7 +91,7 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
     | 가상 네트워크 | 기본값인 **myVirtualNetwork**를 그대로 둡니다. |
     | 서브넷 | 기본값 **myVirtualSubnet(10.1.0.0/24)** 을 그대로 둡니다. |
     | 공용 IP | 기본값 **(신규) myVm-ip**를 그대로 둡니다. |
-    | 네트워크 보안 포트 | **선택한 포트 허용**을 선택합니다. |
+    | 공용 인바운드 포트 | **선택한 포트 허용**을 선택합니다. |
     | 인바운드 포트 선택 | **HTTP** 및 **RDP**를 선택합니다.
 
 1. **다음: 관리**를 선택합니다.
@@ -101,16 +102,16 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
 
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | *myvmstorageaccount*를 입력합니다. |
+    | Name | *myvmstorageaccount*를 입력합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다.|
     | 계정 종류 | 기본값인 **스토리지(범용 v1)** 를 그대로 둡니다. |
     | 성능 | 기본값인 **표준**을 그대로 둡니다. |
     | 복제 | 기본값인 **LRS(로컬 중복 스토리지)** 를 그대로 둡니다. |
 
 1. **확인**을 선택합니다.
 
-1. **검토 + 만들기**를 선택합니다. **검토 + 만들기** 페이지로 이동되고, Azure에서 구성의 유효성을 검사합니다.
+1. **검토 + 만들기**를 선택합니다. **검토 + 만들기** 페이지로 이동됩니다. 여기서 구성이 유효한지 검사됩니다.
 
-1. **유효성 검사 통과**가 표시되면 **만들기**를 선택합니다.
+1. **유효성 검사 통과** 메시지가 표시되면 **만들기**를 선택합니다.
 
 ### <a name="create-the-second-vm"></a>두 번째 VM 만들기
 
@@ -123,11 +124,11 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
 
 1. **검토 + 만들기**를 선택합니다. **검토 + 만들기** 페이지로 이동되고, Azure에서 구성의 유효성을 검사합니다.
 
-1. **유효성 검사 통과**가 표시되면 **만들기**를 선택합니다.
+1. **유효성 검사 통과** 메시지가 표시되면 **만들기**를 선택합니다.
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>인터넷에서 VM에 연결
 
-*myVm1*을 만든 후 인터넷을 통해 연결합니다.
+*myVm1*을 만든 후 인터넷에 연결합니다.
 
 1. 포털의 검색 창에서 *myVm1*을 입력합니다.
 
@@ -160,7 +161,7 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
 
 1. `ping myVm2`을 입력합니다.
 
-    다음과 같은 메시지가 반환됩니다.
+    다음과 유사한 메시지가 표시됩니다.
 
     ```powershell
     Pinging myVm2.0v0zze1s0uiedpvtxz5z0r0cxg.bx.internal.clouda
@@ -204,17 +205,15 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
         Minimum = 0ms, Maximum = 1ms, Average = 0ms
     ```
 
-    이전 단계에서 *myVm1* VM의 Windows 방화벽을 통해 ICMP를 허용했으므로 *myVm1*에서 회신을 받습니다.
+    3단계에서 *myVm1* VM의 Windows 방화벽을 통해 ICMP를 허용했으므로 *myVm1*에서 회신을 받습니다.
 
 1. *myVm2*에 대한 원격 데스크톱 연결을 닫습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-가상 네트워크 및 VM 작업을 마쳤으면 리소스 그룹과 리소스 그룹에 포함된 모든 리소스를 삭제합니다.
+가상 네트워크 및 VM을 다 사용했으면 리소스 그룹과 리소스 그룹에 포함된 모든 리소스를 삭제합니다.
 
-1. 포털 맨 위에 있는 **검색** 상자에 *myResourceGroup*을 입력합니다.
-
-1. 검색 결과에 **myResourceGroup**이 보이면 선택합니다.
+1. 포털 맨 위에 있는 **검색** 상자에 *myResourceGroup*을 입력하고 검색 결과에서 **myResourceGroup**을 선택합니다.
 
 1. **리소스 그룹 삭제**를 선택합니다.
 
@@ -222,6 +221,6 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 기본 가상 네트워크와 두 개의 VM을 만들었습니다. 인터넷에서 하나의 VM에 연결하고 두 VM 간에 비공개로 통신했습니다. 가상 네트워크 설정에 대한 자세한 내용은 [가상 네트워크 관리](manage-virtual-network.md)를 참조하세요.
+이 빠른 시작에서는 기본 가상 네트워크와 두 개의 VM을 만들었습니다. 인터넷에서 하나의 VM에 연결하고 두 VM 간에 안전하게 통신했습니다. 가상 네트워크 설정에 대한 자세한 내용은 [가상 네트워크 관리](manage-virtual-network.md)를 참조하세요.
 
-기본적으로 Azure는 VM 간에 무제한 프라이빗 통신을 허용합니다. 반면, 인터넷에서 Windows VM으로의 인바운드 원격 데스크톱 연결만 허용합니다. 여러 유형의 VM 네트워크 통신을 구성하는 방법에 대한 자세한 내용은 [네트워크 트래픽 필터링](tutorial-filter-network-traffic.md) 자습서를 참조하세요.
+기본적으로 Azure는 VM 간에 무제한 보안 통신을 허용합니다. 반면, 인터넷에서 Windows VM으로의 인바운드 원격 데스크톱 연결만 허용합니다. 여러 유형의 VM 네트워크 통신을 구성하는 방법에 대한 자세한 내용은 [네트워크 트래픽 필터링](tutorial-filter-network-traffic.md) 자습서를 참조하세요.

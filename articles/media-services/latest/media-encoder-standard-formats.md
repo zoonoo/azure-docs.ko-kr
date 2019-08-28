@@ -1,6 +1,6 @@
 ---
 title: 표준 인코더 형식 및 코덱-Azure
-description: 이 항목에서는 표준 인코더 형식 및 코덱 개요를 제공 합니다.
+description: 이 항목에서는 표준 인코더 형식 및 코덱에 대 한 개요를 제공 합니다.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
-ms.author: juliako;anilmur
-ms.openlocfilehash: 730ff68e70999307417eea276761d56f4a44046a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.reviewer: anilmur
+ms.openlocfilehash: 195bbb70ac5062c6bbf6034e6a6e9abac018c62f
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65520022"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677965"
 ---
 # <a name="standard-encoder-formats-and-codecs"></a>표준 인코더 형식 및 코덱
 
@@ -40,17 +41,13 @@ ms.locfileid: "65520022"
 | WAVE/WAV(.wav) |예 |
 | QuickTime(.mov) |예 |
 
-> [!NOTE]
-> 
-> 
-
 ### <a name="audio-formats-in-input-containers"></a>입력 컨테이너의 오디오 형식
 
-표준 인코더는 입력된 컨테이너에 다음 오디오 형식을 포함 합니다.
+표준 인코더는 입력 컨테이너에서 다음과 같은 오디오 형식의 운반을 지원 합니다.
 
 * 인터리브 스테레오 오디오 또는 5.1 샘플을 포함하는 오디오 트랙이 있는 MXF, GXF 및 QuickTime 파일
 
-또는
+로 구분하거나 여러
 
 * 별도의 PCM 트랙으로 오디오가 전달되지만 파일 메타데이터에서 스테레오 또는 5.1에 대한 채널 매핑을 추론할 수 MXF, GXF 및 QuickTime 파일
 
@@ -65,7 +62,7 @@ ms.locfileid: "65520022"
 | MPEG-2(최대 422 프로필 및 높은 수준, XDCAM, XDCAM HD, XDCAM IMX, CableLabs® 및 D10과 같은 변형 포함) |최대 422 프로필 |
 | MPEG-1 |예 |
 | VC-1/WMV9 |예 |
-| Canopus HQ/HQX |아닙니다. |
+| Canopus HQ/HQX |아니요 |
 | Mpeg-4 2부 |예 |
 | [Theora](https://en.wikipedia.org/wiki/Theora) |예 |
 | 압축되지 않은 YUV420 또는 mezzanine |예 |
@@ -89,10 +86,10 @@ ms.locfileid: "65520022"
 | [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |예 |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |예 |
 | AMR(Adaptive Multi-Rate) |예 |
-| AES(SMPTE 331M 및 302M, AES3-2003) |아닙니다. |
-| Dolby® E |아닙니다. |
-| Dolby® Digital(AC3) |아닙니다. |
-| Dolby® Digital Plus(E-AC3) |아닙니다. |
+| AES(SMPTE 331M 및 302M, AES3-2003) |아니요 |
+| Dolby® E |아니요 |
+| Dolby® Digital(AC3) |아니요 |
+| Dolby® Digital Plus(E-AC3) |아니요 |
 
 ## <a name="output-formats-and-codecs"></a>출력 형식 및 코덱
 다음 표에는 내보내기에 지원되는 코덱 및 파일 형식이 나열되어 있습니다.

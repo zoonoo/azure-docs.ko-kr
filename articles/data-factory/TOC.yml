@@ -110,6 +110,19 @@
           href: tutorial-deploy-ssis-packages-azure.md
         - name: Azure PowerShell
           href: tutorial-deploy-ssis-packages-azure-powershell.md
+    - name: Data Lake Storage Gen2 로드
+      href: load-azure-data-lake-storage-gen2.md
+      items:
+        - name: Data Lake Storage Gen1에서 복사
+          href: load-azure-data-lake-storage-gen2-from-gen1.md
+    - name: SQL Data Warehouse 로드
+      href: load-azure-sql-data-warehouse.md
+    - name: Data Lake Storage Gen1 로드
+      href: load-azure-data-lake-store.md
+    - name: SAP BW 데이터 로드
+      href: load-sap-bw-data.md
+    - name: Office 365 데이터 로드
+      href: load-office-365-data.md
 - name: 샘플
   items:
     - name: 코드 샘플
@@ -166,6 +179,8 @@
       items:
         - name: 데이터 팩터리 시각화
           href: author-visually.md
+        - name: 소스 제어
+          href: source-control.md
         - name: 지속적인 통합 및 업데이트
           href: continuous-integration-deployment.md
         - name: 반복 개발 및 디버깅
@@ -203,11 +218,13 @@
         - name: Azure SQL Database
           href: connector-azure-sql-database.md
         - name: Azure SQL Database Managed Instance
-          href: connector-azure-sql-database-managed-insance.md
+          href: connector-azure-sql-database-managed-instance.md
         - name: Azure SQL Data Warehouse
           href: connector-azure-sql-data-warehouse.md
         - name: Azure Table Storage
           href: connector-azure-table-storage.md
+        - name: 이진 형식
+          href: format-binary.md
         - name: Cassandra
           href: connector-cassandra.md
         - name: 앱에 대한 Common Data Service
@@ -253,7 +270,7 @@
         - name: Impala
           href: connector-impala.md
         - name: Informix
-          href: 'connector-odbc.md#ibm-informix-source'
+          href: connector-informix.md
         - name: Jira
           href: connector-jira.md
         - name: Magento
@@ -263,7 +280,7 @@
         - name: Marketo
           href: connector-marketo.md
         - name: Microsoft Access
-          href: 'connector-odbc.md#microsoft-access-source'
+          href: connector-microsoft-access.md
         - name: MongoDB
           href: connector-mongodb.md
           items:
@@ -304,7 +321,7 @@
         - name: Salesforce
           href: connector-salesforce.md
         - name: Salesforce 서비스 클라우드
-          href: connector-salesforce.md
+          href: connector-salesforce-service-cloud.md
         - name: Salesforce 마케팅 클라우드
           href: connector-salesforce-marketing-cloud.md
         - name: SAP Business Warehouse 개방형 허브
@@ -354,29 +371,14 @@
           href: delete-activity.md
         - name: 데이터 복사 도구
           href: copy-data-tool.md
-        - name: Data Lake Storage Gen2 로드
-          href: load-azure-data-lake-storage-gen2.md
-          items:
-            - name: Data Lake Storage Gen1에서 복사
-              href: load-azure-data-lake-storage-gen2-from-gen1.md
-        - name: SQL Data Warehouse 로드
-          href: load-azure-sql-data-warehouse.md
-        - name: Data Lake Storage Gen1 로드
-          href: load-azure-data-lake-store.md
-        - name: SAP BW 데이터 로드
-          href: load-sap-bw-data.md
-        - name: Office 365 데이터 로드
-          href: load-office-365-data.md
-        - name: 분할된 데이터 읽기 또는 쓰기
-          href: how-to-read-write-partitioned-data.md
+        - name: 성능 및 튜닝
+          href: copy-activity-performance.md
         - name: 형식 및 압축 지원
           href: supported-file-formats-and-compression-codecs.md
         - name: 스키마 및 형식 매핑
           href: copy-activity-schema-and-type-mapping.md
         - name: 내결함성
           href: copy-activity-fault-tolerance.md
-        - name: 성능 및 튜닝
-          href: copy-activity-performance.md
     - name: 데이터 변환
       href: transform-data.md
       items:
@@ -526,6 +528,8 @@
           href: create-shared-self-hosted-integration-runtime-powershell.md
     - name: Azure에서 SSIS 패키지 실행
       items:
+        - name: Azure에 배포된 SSIS 패키지를 SSDT에서 실행
+          href: how-to-invoke-ssis-package-ssdt.md
         - name: SSIS 패키지 실행 작업으로 SSIS 패키지 실행
           href: how-to-invoke-ssis-package-ssis-activity.md
         - name: 저장 프로시저 작업으로 SSIS 패키지 실행
@@ -534,6 +538,8 @@
           href: how-to-schedule-azure-ssis-integration-runtime.md
         - name: Azure-SSIS IR을 가상 네트워크에 조인
           href: join-azure-ssis-integration-runtime-virtual-network.md
+        - name: Azure-SSIS IR에 대한 프록시로 자체 호스팅 IR 구성
+          href: self-hosted-integration-runtime-proxy-ssis.md
         - name: Azure-SSIS IR에 Azure AD 인증 사용
           href: enable-aad-authentication-azure-ssis-ir.md
         - name: Azure-SSIS IR을 위한 Enterprise Edition 프로비전
@@ -556,6 +562,8 @@
           href: how-to-create-schedule-trigger.md
         - name: 연속 창 트리거 만들기
           href: how-to-create-tumbling-window-trigger.md
+        - name: 연속 창 트리거 종속성 만들기
+          href: tumbling-window-trigger-dependency.md
     - name: 템플릿
       items:
         - name: 템플릿 개요
@@ -564,18 +572,30 @@
           href: solution-template-copy-files-multiple-containers.md
         - name: LastModifiedDate로 새 파일 복사
           href: solution-template-copy-new-files-lastmodifieddate.md
-        - name: 컨트롤 테이블을 사용하여 대량 복사
+        - name: 데이터베이스에서 대량 복사
           href: solution-template-bulk-copy-with-control-table.md
-        - name: 컨트롤 테이블을 사용하여 델타 복사
+        - name: 데이터베이스에서 델타 복사
           href: solution-template-delta-copy-with-control-table.md
+        - name: 파일 이동
+          href: solution-template-move-files.md
         - name: Databricks를 사용하여 데이터 변환
           href: solution-template-databricks-notebook.md
     - name: 문제 해결 가이드
       items:
         - name: 작업 문제 해결
           href: data-factory-troubleshoot-guide.md
+        - name: AZURE-SSIS IR 관리 문제 해결
+          href: ssis-integration-runtime-management-troubleshoot.md
         - name: Azure-SSIS IR의 패키지 실행 문제 해결
           href: ssis-integration-runtime-ssis-activity-faq.md
+- name: 시나리오
+  items:
+    - name: 데이터 레이크 및 EDW용 데이터 마이그레이션
+      items:
+        - name: Azure Data Factory를 사용해야 하는 이유
+          href: data-migration-guidance-overview.md
+        - name: AWS S3에서 Azure로 데이터 마이그레이션
+          href: data-migration-guidance-s3-azure-storage.md
 - name: 참고 자료
   items:
     - name: .NET

@@ -5,18 +5,18 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-keywords: Azure 함수, 함수, 이벤트 처리, webhook, 동적 계산, 서버리스 아키텍처
+keywords: Azure 함수, 함수, 이벤트 처리, webhook, 동적 컴퓨팅, 서버리스 아키텍처
 ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 4de308f57d59720610eb9ee30ab67b569a5656d5
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e4460dd7131e35ee8b3f3112977099276da2d4ce
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442254"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68849416"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C# 스크립트(.csx) 개발자 참조
 
@@ -206,10 +206,10 @@ public class Order
     public override String ToString()
     {
         return "\n{\n\torderId : " + orderId +
-                  "\n\tcustName : " + custName +             
-                  "\n\tcustAddress : " + custAddress +             
-                  "\n\tcustEmail : " + custEmail +             
-                  "\n\tcartId : " + cartId + "\n}";             
+                  "\n\tcustName : " + custName +
+                  "\n\tcustAddress : " + custAddress +
+                  "\n\tcustEmail : " + custEmail +
+                  "\n\tcartId : " + cartId + "\n}";
     }
 }
 ```
@@ -376,26 +376,26 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
 함수 스크립트 파일을 포함하는 디렉터리는 어셈블리 변경 내용이 자동으로 감시됩니다. 다른 디렉터리의 어셈블리 변경 내용을 감시하려면 [host.json](functions-host-json.md)의 `watchDirectories` 목록에 해당 디렉터리를 추가합니다.
 
 ## <a name="using-nuget-packages"></a>NuGet 패키지 사용
-2\.x에서 NuGet 패키지를 사용 하려면 C# 함수를 업로드를 *function.proj* 함수의 함수 앱의 파일 시스템 폴더에에서 파일입니다. 다음은 *Microsoft.ProjectOxford.Face* 버전 *1.1.0*에 참조를 추가하는 예제 *function.proj* 파일입니다.
+2\.x C# 함수에서 NuGet 패키지를 사용 하려면 함수 앱의 파일 시스템에 있는 함수의 폴더에 *함수 proj* 파일을 업로드 합니다. 다음은 *Microsoft.ProjectOxford.Face* 버전 *1.1.0*에 참조를 추가하는 예제 *function.proj* 파일입니다.
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
     </PropertyGroup>
-    
+
     <ItemGroup>
         <PackageReference Include="Microsoft.ProjectOxford.Face" Version="1.1.0" />
     </ItemGroup>
 </Project>
 ```
 
-사용자 지정 NuGet 피드를 사용하려면 Function App 루트의 *Nuget.Config* 파일에서 피드를 지정합니다. 자세한 내용은 참조 [NuGet 동작 구성](/nuget/consume-packages/configuring-nuget-behavior)을 참조하세요. 
+사용자 지정 NuGet 피드를 사용하려면 함수 앱 루트의 *Nuget.Config* 파일에서 피드를 지정합니다. 자세한 내용은 참조 [NuGet 동작 구성](/nuget/consume-packages/configuring-nuget-behavior)을 참조하세요.
 
 > [!NOTE]
-> 1\.x에서 C# 함수에서 NuGet 패키지를 사용 하 여 참조를 *project.json* 대신 파일을 *function.proj* 파일입니다.
+> 1\.x C# 함수에서 NuGet 패키지는 *함수 proj* 파일 대신 *프로젝트. json* 파일을 사용 하 여 참조 됩니다.
 
-1\.x 함수의 사용을 *project.json* 파일을 대신 합니다. 예로 *project.json* 파일: 
+1\.x 함수의 경우 *프로젝트. json* 파일을 대신 사용 합니다. 다음은 *project. json* 파일의 예입니다.
 
 ```json
 {
@@ -409,11 +409,11 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
 }
 ```
 
-### <a name="using-a-functionproj-file"></a>Function.proj 파일을 사용 하 여
+### <a name="using-a-functionproj-file"></a>함수 proj 파일 사용
 
 1. Azure Portal에서 함수를 엽니다. 로그 탭에 패키지 설치 출력이 표시됩니다.
-2. 업로드 하는 *function.proj* 파일에 설명 된 방법 중 하나를 사용 합니다는 [함수 앱 파일을 업데이트 하는 방법](functions-reference.md#fileupdate) Azure Functions 개발자 참조 토픽에서.
-3. 후 합니다 *function.proj* 파일 업로드, 스트리밍 로그에는 함수에서 다음 예제와 같이 출력이 표시:
+2. *함수 proj* 파일을 업로드 하려면 Azure Functions 개발자 참조 항목에서 [함수 앱 파일을 업데이트](functions-reference.md#fileupdate) 하는 방법 항목에 설명 된 방법 중 하나를 사용 합니다.
+3. *함수 proj* 파일을 업로드 한 후 함수의 스트리밍 로그에 다음 예제와 같은 출력이 표시 됩니다.
 
 ```
 2018-12-14T22:00:48.658 [Information] Restoring packages.
@@ -446,7 +446,7 @@ public static string GetEnvironmentVariable(string name)
 }
 ```
 
-<a name="imperative-bindings"></a> 
+<a name="imperative-bindings"></a>
 
 ## <a name="binding-at-runtime"></a>런타임에 바인딩
 
@@ -465,7 +465,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 }
 ```
 
-`BindingTypeAttribute`는 바인딩을 정의하는 .NET 특성이며, `T`는 해당 바인딩 형식에서 지원되는 입력 또는 출력 형식입니다. `T`는 `out` 매개 변수 형식(예: `out JObject`)일 수 없습니다. 예를 들어, Mobile Apps 테이블 출력 바인딩은 [6가지 출력 형식](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22)을 지원하지만 `T`에는 [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 또는 [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs)만 사용할 수 있습니다.
+`BindingTypeAttribute`는 바인딩을 정의하는 .NET 특성이며, `T`는 해당 바인딩 형식에서 지원되는 입력 또는 출력 형식입니다. `T`는 `out` 매개 변수 형식(예: `out JObject`)일 수 없습니다. 예를 들어 Mobile Apps 테이블 출력 바인딩은 [6 개의 출력 형식을](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22)지원 하지만 [\<ICollector T >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 또는 [`IAsyncCollector<T>`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) 에 `T`만 사용할 수 있습니다.
 
 ### <a name="single-attribute-example"></a>단일 특성 예제
 
@@ -488,7 +488,7 @@ public static async Task Run(string input, Binder binder)
 
 ### <a name="multiple-attribute-example"></a>다중 특성 예제
 
-앞의 예제에서는 함수 앱의 주 Storage 계정 연결 문자열(`AzureWebJobsStorage`)에 대한 앱 설정을 가져옵니다. [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)를 추가하고 `BindAsync<T>()`에 특성 배열을 전달하여 스토리지 계정에 사용할 사용자 지정 앱 설정을 지정할 수 있습니다. `IBinder`가 아닌 `Binder` 매개 변수를 사용합니다.  예를 들면 다음과 같습니다.
+앞의 예제에서는 함수 앱의 주 Storage 계정 연결 문자열(`AzureWebJobsStorage`)에 대한 앱 설정을 가져옵니다. [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)를 추가하고 `BindAsync<T>()`에 특성 배열을 전달하여 스토리지 계정에 사용할 사용자 지정 앱 설정을 지정할 수 있습니다. `IBinder`가 아닌 `Binder` 매개 변수를 사용합니다.  예를 들어:
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -497,7 +497,7 @@ using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
 public static async Task Run(string input, Binder binder)
 {
     var attributes = new Attribute[]
-    {    
+    {
         new BlobAttribute("samples-output/path"),
         new StorageAccountAttribute("MyStorageAccount")
     };

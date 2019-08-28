@@ -3,19 +3,19 @@ title: 오프라인 평가 - Personalizer
 titleSuffix: Azure Cognitive Services
 description: 이 C# 빠른 시작에서는 Personalizer 서비스를 사용하여 피드백 루프를 만듭니다.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/07/2019
-ms.author: edjez
-ms.openlocfilehash: 29caea481b1999086440db2021b86d949ce6cbc6
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: HT
+ms.author: diberry
+ms.openlocfilehash: 5e9e745d73623e03e2530e1712a50e6670ee7ed3
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026691"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662859"
 ---
 # <a name="offline-evaluation"></a>오프라인 평가
 
@@ -48,7 +48,7 @@ ms.locfileid: "65026691"
 
 Personalizer는 오프라인 평가 프로세스를 사용하여 최적의 학습 정책을 자동으로 검색할 수 있습니다.
 
-오프라인 평가가 수행되면 현재 온라인 정책과 비교하여 새 정책을 사용한 Personalizer의 비교 효율성을 확인할 수 있습니다. 그런 다음, 해당 학습 정책을 적용하여 Personalizer에서 즉시 효과적으로 만들거나, 향후에 분석하거나 사용하기 위해 다운로드할 수 있습니다.
+오프라인 평가가 수행되면 현재 온라인 정책과 비교하여 새 정책을 사용한 Personalizer의 비교 효율성을 확인할 수 있습니다. 그런 다음이를 다운로드 하 고 모델 및 정책 패널에서 업로드 하 여 Personalizer 즉시 적용 되도록 해당 학습 정책을 적용할 수 있습니다. 나중에 분석 하거나 사용 하기 위해 다운로드할 수도 있습니다.
 
 ## <a name="understanding-the-relevance-of-offline-evaluation-results"></a>오프라인 평가 결과의 관련성 이해
 
@@ -99,3 +99,4 @@ Personalizer는 사용자의 동작(및 이에 따라 보상)을 소급하여 �
 ## <a name="next-steps"></a>다음 단계
 
 [Personalizer 구성](how-to-settings.md)
+[ 오프 라인 평가 실행](how-to-offline-evaluation.md) [작동 방법 이해](how-personalizer-works.md)

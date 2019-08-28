@@ -38,7 +38,7 @@ Azure 가상 네트워크 TAP(터미널 액세스 지점)을 사용하면 네트
 - [Ixia CloudLens](https://www.ixiacom.com/cloudlens/cloudlens-azure)
 - [Nubeva Prisms](https://www.nubeva.com/azurevtap)
 
-### <a name="security-analytics-networkapplication-performance-management"></a>보안 분석, 네트워크/응용 프로그램 성능 관리
+### <a name="security-analytics-networkapplication-performance-management"></a>보안 분석, 네트워크/애플리케이션 성능 관리
 
 - [절전 모드 해제 보안](https://awakesecurity.com/technology-partners/microsoft-azure/)
 - [Cisco Stealthwatch 클라우드](https://blogs.cisco.com/security/cisco-stealthwatch-cloud-and-microsoft-azure-reliable-cloud-infrastructure-meets-comprehensive-cloud-security)

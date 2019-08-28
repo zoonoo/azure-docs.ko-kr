@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: a6b1e4e1571e6ce3cee1658907efd35e9c73ca1a
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 7ac87000a6bbe7515106b42f57f9184396ed4168
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903402"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735683"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Azure에서 타이머에 따라 트리거되는 함수 만들기
 
@@ -31,7 +31,7 @@ Azure Functions를 사용하여 정의한 일정에 따라 실행되는 [서버�
 
 + Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="create-an-azure-function-app"></a>Azure Function 앱 만들기
+## <a name="create-an-azure-function-app"></a>Azure 함수 앱 만들기
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
@@ -43,7 +43,7 @@ Azure Functions를 사용하여 정의한 일정에 따라 실행되는 [서버�
 
 ## <a name="create-a-timer-triggered-function"></a>타이머 트리거 함수 만들기
 
-1. 함수 앱을 확장한 후 **함수** 옆의 **+** 단추를 클릭합니다. 함수 앱의 첫 번째 함수인 경우 **포털 내**를 선택한 다음, **계속**을 선택합니다. 그렇지 않으면 3단계로 이동합니다.
+1. 함수 앱을 확장한 후 **함수** 옆의 **+** 단추를 클릭합니다. 함수 앱의 첫 번째 함수인 경우 **포털 내**를 선택한 다음, **계속**을 선택합니다. 그렇지 않으면 3번 단계로 이동합니다.
 
    ![Azure Portal에서 함수 빨리 시작하기 페이지](./media/functions-create-scheduled-function/function-app-quickstart-choose-portal.png)
 
@@ -58,7 +58,7 @@ Azure Functions를 사용하여 정의한 일정에 따라 실행되는 [서버�
     | 설정 | 제안 값 | 설명 |
     |---|---|---|
     | **Name** | 기본값 | 타이머 트리거 함수의 이름을 정의합니다. |
-    | **일정** | 0 \*/1 \* \* \* \* | 1분마다 함수가 실행되도록 예약하는 6개 필드의 [CRON 식](functions-bindings-timer.md#cron-expressions)입니다. |
+    | **일정** | 0 \*/1 \* \* \* \* | 1분마다 함수가 실행되도록 예약하는 6개 필드의 [CRON 식](functions-bindings-timer.md#ncrontab-expressions)입니다. |
 
 4. **만들기**를 클릭합니다. 함수는 1분마다 실행되는 선택한 언어로 생성됩니다.
 

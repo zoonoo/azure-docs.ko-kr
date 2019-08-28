@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database에 대 한 보안 특성
-description: Azure SQL Database를 평가 하는 것에 대 한 보안 특성에 대 한 검사 목록
+description: Azure SQL Database 평가를 위한 보안 특성의 검사 목록
 services: sql-database
 author: msmbaldwin
 manager: barbkess
@@ -8,71 +8,70 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 6c495456a5a3295abe5460ff6b5586e41fab2d95
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1318b3e433224b009b76458b12e82c9bcf94bb7a
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66001031"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444387"
 ---
 # <a name="security-attributes-for-azure-sql-database"></a>Azure SQL Database에 대 한 보안 특성
 
-이 문서에서는 Azure SQL Database에 내장 된 일반 보안 특성을 설명 합니다.
+이 문서에서는 Azure SQL Database에 기본 제공 되는 보안 특성을 설명 합니다.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
-Azure SQL Database는 둘 다 [단일 데이터베이스](sql-database-single-index.yml) 하 고 [관리 되는 인스턴스](sql-database-managed-instance.md)합니다. 아래 항목을 별도로 명시 된 경우 두 제품 모두에 제외 하 고 적용 됩니다.
+SQL Database에는 [단일 데이터베이스](sql-database-single-index.yml) 와 [관리 되는 인스턴스가](sql-database-managed-instance.md)모두 포함 됩니다. 다음 항목은 별도로 명시 된 경우를 제외 하 고 두 제품 모두에 적용 됩니다.
 
 ## <a name="preventative"></a>예방
 
-| 보안 특성 | 예/아니요 | 메모 |
+| 보안 특성 | 예/아니요 | 참고 |
 |---|---|--|
-| 저장 데이터 암호화:<ul><li>서버 쪽 암호화</li><li>고객 관리 키로 서버 쪽 암호화</li><li>기타 암호화 기능(예: 클라이언트 쪽, 상시 암호화 등)</ul>| 예 | 라고 "암호화 사용", 문서에 설명 된 대로 [Always Encrypted](sql-database-always-encrypted.md)합니다. 서비스 쪽 암호화를 사용 하 여 [투명 한 데이터 암호화](transparent-data-encryption-azure-sql.md) (TDE).|
-| 전송 중 암호화:<ul><li>ExpressRoute 암호화</li><li>VNet 암호화</li><li>VNet 간 암호화</ul>| 예 | HTTPS를 사용합니다. |
-| 암호화 키 처리 (예: CMK, BYOK)| 예 | 서비스 관리 및 고객 관리 키 처리에 제공 됩니다 (통해 후자 [Azure Key Vault](../key-vault/index.yml)합니다. |
-| 열 수준 암호화 (Azure Data Services)| 예 | 통해 [상시 암호화](sql-database-always-encrypted.md)합니다. |
-| API 호출 암호화| 예 | HTTPS/SSL을 사용합니다. |
+| 저장 데이터 암호화:<ul><li>서버 쪽 암호화</li><li>고객 관리 키로 서버 쪽 암호화</li><li>클라이언트 쪽 또는 Always Encrypted와 같은 기타 암호화 기능</ul>| 예 | [Always Encrypted](sql-database-always-encrypted.md)문서에 설명 된 대로 "사용 중인 암호화" 라고 합니다. 서버 쪽 암호화는 [투명 한 데이터 암호화](transparent-data-encryption-azure-sql.md)를 사용 합니다.|
+| 전송 중 암호화:<ul><li>Azure Express 경로 암호화</li><li>가상 네트워크의 암호화</li><li>가상 네트워크 간 암호화</ul>| 예 | HTTPS를 사용합니다. |
+| 암호화-키 처리 (예: CMK 또는 BYOK)| 예 | 서비스 관리 및 고객 관리 키 처리가 모두 제공 됩니다. 후자는 [Azure Key Vault](../key-vault/index.yml)를 통해 제공 됩니다. |
+| Azure 데이터 서비스에서 제공 하는 열 수준 암호화| 예 | [Always Encrypted](sql-database-always-encrypted.md). |
+| 암호화 된 API 호출| 예 | HTTPS/SSL 사용. |
 
 ## <a name="network-segmentation"></a>네트워크 구분
 
-| 보안 특성 | 예/아니요 | 메모 |
+| 보안 특성 | 예/아니요 | 참고 |
 |---|---|--|
-| 서비스 끝점 지원| 예 | 적용 대상 [단일 데이터베이스](sql-database-single-index.yml) 만 합니다. |
-| VNet 삽입 지원| 예 | 적용 대상 [관리 되는 인스턴스](sql-database-managed-instance.md) 만 합니다. |
-| 네트워크 격리 및 방화벽 지원| 예 | 방화벽에서 두 데이터베이스 및 서버 수준의; 네트워크에 대 한 격리 [관리 되는 인스턴스](sql-database-managed-instance.md) 만 |
-| 강제 터널링 지원| 예 | [관리 되는 인스턴스](sql-database-managed-instance.md) 를 통해 [Azure ExpressRoute](../expressroute/index.yml) VPN |
+| 서비스 엔드포인트 지원| 예 | [단일 데이터베이스](sql-database-single-index.yml) 에만 적용 됩니다. |
+| Azure Virtual Network 주입 지원| 예 | [관리 되는 인스턴스에만](sql-database-managed-instance.md) 적용 됩니다. |
+| 네트워크 격리 및 방화벽 지원| 예 | 데이터베이스 수준 및 서버 수준 모두에서의 방화벽. 네트워크 격리는 관리 되는 [인스턴스에만](sql-database-managed-instance.md) 해당 됩니다. |
+| 강제 터널링 지원| 예 | [Express](../expressroute/index.yml) 경로 VPN을 통해 [관리 되는 인스턴스입니다](sql-database-managed-instance.md) . |
 
 ## <a name="detection"></a>감지
 
-| 보안 특성 | 예/아니요 | 메모|
+| 보안 특성 | 예/아니요 | 참고|
 |---|---|--|
-| Azure 지원 (예: Log analytics, App insights)를 모니터링 합니다.| 예 | Imperva (SecureSphere)에서 타사 SIEM 솔루션도 지원 되며 통해 [Azure Event Hubs](../event-hubs/index.yml) 통합을 통해 [SQL audit](sql-database-auditing.md)합니다. |
+| Log Analytics 또는 Application Insights와 같은 Azure 모니터링 지원| 예 | Imperva의 SIEM 솔루션인 SecureSphere는 [SQL 감사](sql-database-auditing.md)를 통해 [Azure Event Hubs](../event-hubs/index.yml) 통합을 통해서도 지원 됩니다. |
 
 ## <a name="identity-and-access-management"></a>ID 및 액세스 관리
 
-| 보안 특성 | 예/아니요 | 메모|
+| 보안 특성 | 예/아니요 | 참고|
 |---|---|--|
-| Authentication| 예 | Azure Active Directory. |
-| 권한 부여| 예 |  |
-
+| 인증| 예 | Azure AD(Azure Active Directory) |
+| Authorization| 예 | 없음 |
 
 ## <a name="audit-trail"></a>감사 내역
 
-| 보안 특성 | 예/아니요 | 메모|
+| 보안 특성 | 예/아니요 | 참고|
 |---|---|--|
-| 제어 및 관리 평면 로깅 및 감사| 예 | 일부 이벤트에만 예입니다. |
-| 데이터 평면 로깅 및 감사 | 예 | 통해 [SQL audit](sql-database-auditing.md)합니다. |
+| 제어 평면 및 관리-평면 로깅 및 감사| 예 | 일부 이벤트에 대해서만 예 |
+| 데이터 평면 로깅 및 감사 | 예 | [SQL 감사](sql-database-auditing.md) 를 통해 |
 
 ## <a name="configuration-management"></a>구성 관리
 
-| 보안 특성 | 예/아니요 | 메모|
+| 보안 특성 | 예/아니요 | 참고|
 |---|---|--|
-| 구성 관리 지원 (구성 등의 버전 관리 합니다.)| 아닙니다.  | | 
+| 구성 관리 지원 (예: 구성의 버전 관리)| 아니요  | 없음 |
 
 ## <a name="additional-security-attributes-for-sql-database"></a>SQL Database에 대 한 추가 보안 특성
 
-| 보안 특성 | 예/아니요 | 메모|
+| 보안 특성 | 예/아니요 | 참고|
 |---|---|--|
-| 취약성 평가 위한 예방 합니다. | 예 | 참조 [서비스를 사용 하면 데이터베이스 취약성을 식별 하는 SQL Vulnerability Assessment](sql-vulnerability-assessment.md)합니다. |
-| 예방: 데이터 검색 및 분류  | 예 | 참조 [Azure SQL Database 및 SQL Data Warehouse 데이터 검색 및 분류](sql-database-data-discovery-and-classification.md)합니다. |
-| 감지: 위협 감지 | 예 | 참조 [Advanced Threat Protection Azure SQL Database에 대 한](sql-database-threat-detection-overview.md)합니다. |
+| 예방: 취약성 평가 | 예 | [SQL 취약성 평가 서비스를 참조 하 여 데이터베이스 취약성을 식별할 수 있습니다](sql-vulnerability-assessment.md). |
+| 예방: 데이터 검색 및 분류  | 예 | [Azure SQL Database 및 SQL Data Warehouse 데이터 검색 & 분류를](sql-database-data-discovery-and-classification.md)참조 하세요. |
+| 검색: 위협 검색 | 예 | [Azure SQL Database에 대 한 Advanced Threat Protection을](sql-database-threat-detection-overview.md)참조 하세요. |

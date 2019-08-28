@@ -3,7 +3,7 @@ title: Microsoft ID 플랫폼 iOS 빠른 시작 | Azure
 description: iOS 애플리케이션에서 사용자를 로그인하고 Microsoft Graph를 쿼리하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: TylerMSFT
 manager: CelesteDG
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/18/2019
-ms.author: brandwe
+ms.author: twhitney
 ms.reviewer: jmprieur, saeeda
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3802d8f92913e416cc6a80f899179fde80cec30
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 6e6a9dab8a2a37d7fa312b525453683fe789269b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962581"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852944"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>빠른 시작: iOS 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -90,8 +90,7 @@ ms.locfileid: "65962581"
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_here"
 >    let kAuthority = "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here"
->
->    ```
+>    ``` 
 > 1. 마우스 오른쪽 단추로 **Info.plist**를 클릭하고, **파일 열기 형식** > **소스 코드**를 차례로 선택합니다.
 > 1. dict 루트 노드 아래에서 ***번들 ID***로 바꿉니다.
 >
@@ -108,6 +107,10 @@ ms.locfileid: "65962581"
 > 
 >    ```
 > 1. 앱을 빌드하고 실행합니다! 
+
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > 이 빠른 시작에서는 Enter_the_Supported_Account_Info_Here를 지원합니다.
 
 > [!div renderon="docs"]
 >
@@ -253,3 +256,8 @@ applicationContext.acquireTokenSilent(with: parameters) { (result, error) in /* 
 > [Graph API 호출 iOS 자습서](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+Microsoft ID 플랫폼을 개선할 수 있도록 도와주세요. 간단한 두 가지 설문 조사를 완료하여 의견을 알려주세요.
+
+> [!div class="nextstepaction"]
+> [Microsoft ID 플랫폼 설문 조사](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

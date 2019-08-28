@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: nacharya1
 ms.author: nilesha
 ms.reviewer: trbye
-ms.date: 04/11/2019
+ms.date: 08/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 907383c057c0c1eebee6550a0d1e9c75dd88513c
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 49f46c09cfcfef2ab1e74ae7c08d9a54289293ac
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417297"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534832"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>자습서: 자동화된 기계 학습을 사용하여 모델 빌드
 
@@ -42,36 +42,11 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-[개발 환경 설정](#start)으로 건너뛰어 Notebook 단계를 읽어보거나, 아래 지침에 따라 Notebook을 가져와서 Azure Notebooks 또는 사용자 고유의 Notebook 서버에서 실행합니다. Notebook을 실행하려면 다음 항목이 필요합니다.
+* [데이터 준비 자습서](tutorial-data-prep.md)의 1부를 완료합니다.
 
-* [데이터 준비 자습서를 실행합니다](tutorial-data-prep.md).
-* 다음 요소가 설치된 Python 3.6 Notebook 서버:
-    * `automl` 및 `notebooks`라는 추가 요소를 지원하는 Python용 Azure Machine Learning SDK
-    * `matplotlib`
-* 자습서 Notebook
-* 기계 학습 작업 영역
-* Notebook과 동일한 디렉터리에 있는 작업 영역에 대한 구성 파일
+* 1부를 완료한 후 동일한 Notebook 서버를 사용하여 **tutorials/regression-part2-automated-ml.ipynb** Notebook을 엽니다.
 
-아래 섹션 중 하나에서 이러한 필수 구성 요소를 모두 가져옵니다.
-
-* [작업 영역에서 클라우드 Notebook 서버](#azure) 사용 
-* [사용자 고유의 Notebook 서버](#server) 사용
-
-### <a name="azure"></a>작업 영역에서 클라우드 Notebook 서버 사용
-
-사용자 고유의 클라우드 기반 Notebook 서버를 쉽게 시작할 수 있습니다. 이 클라우드 리소스를 만들면 [Python용 Azure Machine Learning SDK](https://aka.ms/aml-sdk)가 이미 설치 및 구성되어 있습니다.
-
-[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
-
-* Notebook 웹 페이지를 시작한 후에는 **tutorials/regression-part2-automated-ml.ipynb** Notebook을 실행합니다.
-
-### <a name="server"></a>사용자 고유의 Jupyter Notebook 서버 사용
-
-사용자 컴퓨터에 로컬 Jupyter Notebook 서버를 만들려면 이러한 단계를 사용합니다.  `matplotlib`, `automl` 및 `notebooks` 추가 기능이 설치되었는지 확인합니다.
-
-[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
-
-이러한 단계를 완료한 후에는 **tutorials/regression-part2-automated-ml.ipynb** Notebook을 실행합니다.
+이 자습서는 고유의 [로컬 환경](how-to-configure-environment.md#local)에서 사용하려는 경우 [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials)에서도 사용할 수 있습니다.  Azure Machine Learning SDK에서 `matplotlib`, `automl` 및 `notebooks`를 추가로 설치했는지 확인합니다.
 
 ## <a name="start"></a>개발 환경 설정
 
@@ -618,7 +593,8 @@ dflow_prepared.get_profile()
 모델 생성을 위한 기능이 되도록 `dflow_x`에 열을 추가하여 실험용 데이터를 준비합니다. 예측 값인 **비용**이 되도록 `dflow_y`를 정의합니다.
 
 ```python
-dflow_X = dflow_prepared.keep_columns(['pickup_weekday','pickup_hour', 'distance','passengers', 'vendor'])
+dflow_X = dflow_prepared.keep_columns(
+    ['pickup_weekday', 'pickup_hour', 'distance', 'passengers', 'vendor'])
 dflow_y = dflow_prepared.keep_columns('cost')
 ```
 
@@ -632,7 +608,8 @@ from sklearn.model_selection import train_test_split
 x_df = dflow_X.to_pandas_dataframe()
 y_df = dflow_y.to_pandas_dataframe()
 
-x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=223)
+x_train, x_test, y_train, y_test = train_test_split(
+    x_df, y_df, test_size=0.2, random_state=223)
 # flatten y_train to 1d array
 y_train.values.flatten()
 ```
@@ -663,11 +640,11 @@ y_train.values.flatten()
 
 ```python
 automl_settings = {
-    "iteration_timeout_minutes" : 10,
-    "iterations" : 30,
-    "primary_metric" : 'spearman_correlation',
-    "preprocess" : True,
-    "verbosity" : logging.INFO,
+    "iteration_timeout_minutes": 10,
+    "iterations": 30,
+    "primary_metric": 'spearman_correlation',
+    "preprocess": True,
+    "verbosity": logging.INFO,
     "n_cross_validations": 5
 }
 ```
@@ -678,13 +655,16 @@ automl_settings = {
 from azureml.train.automl import AutoMLConfig
 
 # local compute
-automated_ml_config = AutoMLConfig(task = 'regression',
-                             debug_log = 'automated_ml_errors.log',
-                             path = project_folder,
-                             X = x_train.values,
-                             y = y_train.values.flatten(),
-                             **automl_settings)
+automated_ml_config = AutoMLConfig(task='regression',
+                                   debug_log='automated_ml_errors.log',
+                                   path=project_folder,
+                                   X=x_train.values,
+                                   y=y_train.values.flatten(),
+                                   **automl_settings)
 ```
+
+> [!NOTE]
+> 자동화된 기계 학습 사전 처리 단계(기능 정규화, 누락된 데이터 처리, 텍스트를 숫자로 변환 등)는 기본 모델의 일부가 됩니다. 예측에 모델을 사용하는 경우 학습 중에 적용되는 동일한 전처리 단계가 입력 데이터에 자동으로 적용됩니다.
 
 ### <a name="train-the-automatic-regression-model"></a>자동 회귀 모델 학습
 
@@ -693,7 +673,7 @@ automated_ml_config = AutoMLConfig(task = 'regression',
 
 ```python
 from azureml.core.experiment import Experiment
-experiment=Experiment(ws, experiment_name)
+experiment = Experiment(ws, experiment_name)
 local_run = experiment.submit(automated_ml_config, show_output=True)
 ```
 
@@ -746,7 +726,7 @@ Jupyter 위젯을 사용하거나 실험 기록을 검사하여 자동 학습 �
 
 ### <a name="option-1-add-a-jupyter-widget-to-see-results"></a>옵션 1: 결과를 보여 주는 Jupyter 위젯 추가
 
-Jupyter Notebook을 사용하는 경우 이 Jupyter Notebook 위젯을 사용하여 모든 결과에 대한 그래프 및 테이블을 확인합니다.
+Jupyter Notebook을 사용하는 경우 이 [Jupyter 위젯](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py)을 사용하여 모든 결과에 대한 그래프 및 테이블을 확인합니다.
 
 
 ```python
@@ -757,6 +737,13 @@ RunDetails(local_run).show()
 ![Jupyter 위젯 실행 세부 정보](./media/tutorial-auto-train-models/automl-dash-output.png)
 ![Jupyter 위젯 도표](./media/tutorial-auto-train-models/automl-chart-output.png)
 
+동일한 결과가 작업 영역에 저장됩니다.  다음과 같이 실행에서 결과의 링크를 얻을 수 있습니다.
+
+```
+local_run.get_portal_url()
+```
+
+
 ### <a name="option-2-get-and-examine-all-run-iterations-in-python"></a>옵션 2: Python에서 모든 실행 반복 가져오기 및 검사
 
 또는 각 실험의 기록을 검색하고 각 반복 실행에 대한 개별 메트릭을 살펴볼 수 있습니다. 각 개별 모델 실행에 대해 RMSE(root_mean_squared_error)를 검사하여 대부분의 반복이 적절한 여백($3~4) 내에서 택시 요금을 예측하는 것을 알 수 있습니다.
@@ -766,7 +753,8 @@ children = list(local_run.get_children())
 metricslist = {}
 for run in children:
     properties = run.get_properties()
-    metrics = {k: v for k, v in run.get_metrics().items() if isinstance(v, float)}
+    metrics = {k: v for k, v in run.get_metrics().items()
+               if isinstance(v, float)}
     metricslist[int(properties['iteration'])] = metrics
 
 rundata = pd.DataFrame(metricslist).sort_index(1)
@@ -1127,6 +1115,8 @@ print(y_predict[:10])
 실제 비용 값과 비교하여 예측 비용 값을 시각화하는 산점도를 만듭니다. 다음 코드에서는 `distance` 기능을 x-축으로, 여행 `cost`를 y-축으로 사용합니다. 각 여행 거리 값에서 예측 비용의 차이를 비교하기 위해 처음 100개의 예측 및 실제 비용 값이 별도의 시리즈로 만들어집니다. 도표를 살펴보면 거리/비용 관계가 거의 선형이고, 대부분의 경우 예측 비용 값이 동일한 여행 거리에 대한 실제 비용 값에 매우 가깝다는 것을 알 수 있습니다.
 
 ```python
+%matplotlib inline
+
 import matplotlib.pyplot as plt
 
 fig = plt.figure(figsize=(14, 10))
@@ -1135,8 +1125,10 @@ ax1 = fig.add_subplot(111)
 distance_vals = [x[4] for x in x_test.values]
 y_actual = y_test.values.flatten().tolist()
 
-ax1.scatter(distance_vals[:100], y_predict[:100], s=18, c='b', marker="s", label='Predicted')
-ax1.scatter(distance_vals[:100], y_actual[:100], s=18, c='r', marker="o", label='Actual')
+ax1.scatter(distance_vals[:100], y_predict[:100],
+            s=18, c='b', marker="s", label='Predicted')
+ax1.scatter(distance_vals[:100], y_actual[:100],
+            s=18, c='r', marker="o", label='Actual')
 
 ax1.set_xlabel('distance (mi)')
 ax1.set_title('Predicted and Actual Cost/Distance')

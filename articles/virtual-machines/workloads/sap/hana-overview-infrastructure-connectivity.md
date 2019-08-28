@@ -4,22 +4,22 @@ description: Azure의 SAP HANA(대규모 인스턴스)를 사용하도록 필수
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/10/2018
-ms.author: rclaus
+ms.date: 07/12/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1d8bbe2fc218004116177c4c9d95777d9ec57503
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4a1df7406ab4f4d7137d12dd7131a4c26b617cb2
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60477300"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67869215"
 ---
 # <a name="sap-hana-large-instances-deployment"></a>SAP HANA(대규모 인스턴스) 배포 
 
@@ -37,6 +37,7 @@ Microsoft는 HANA 대규모 인스턴스 단위를 배포하기 위해 다음 �
 - 모든 Azure 배포 지역의 경우:
     - Azure 가상 네트워크를 HANA 대규모 인스턴스에 연결하는 ER-P2P 연결에 대한 /29 IP 주소 범위
     - HANA 대규모 인스턴스 서버 IP 풀에 사용되는 /24 CIDR 블록
+    - [Global Reach express](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) 경로를 사용 하 여 온-프레미스에서 Hana 대량 인스턴스 단위나 다른 AZURE 지역의 Hana large instance 단위 간 라우팅을 사용할 수 있도록 설정 하려면 다른/29 IP 주소 범위를 예약 해야 합니다. 이 특정 범위는 이전에 정의한 다른 IP 주소 범위와 겹칠 수 없습니다.
 - HANA 대규모 인스턴스에 연결하는 모든 Azure 가상 네트워크의 가상 네트워크 주소 공간 특성에 사용된 IP 주소 범위 값
 - 각 HANA 대규모 인스턴스 시스템에 대한 데이터:
   - 원하는 호스트 이름 - 정규화된 도메인 이름이 이상적.

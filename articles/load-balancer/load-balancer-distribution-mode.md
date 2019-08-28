@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: 원본 IP 선호도를 지원하도록 Azure Load Balancer에 대한 배포 모드를 구성하는 방법입니다.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,13 +12,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: afa840bd0b48cc9df1e9711caa035b85e8ec3855
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 98fdf76dc2e1cb8171e7b0b37216d5f5405a1e6a
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66122413"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275432"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Azure Load Balancer의 배포 모드 구성
 
@@ -155,7 +155,7 @@ Azure 클래식 배포 모델을 사용하여 기존 배포 구성을 변경하�
 
 앞에서 설명한 것처럼, `LoadBalancerDistribution` 요소를 2 튜플 선호도의 경우 sourceIP로, 3 튜플 선호도의 경우 sourceIPProtocol로, 선호도 없음(5 튜플 선호도)의 경우 none으로 설정합니다.
 
-#### <a name="response"></a>response
+#### <a name="response"></a>응답
 
     HTTP/1.1 202 Accepted
     Cache-Control: no-cache

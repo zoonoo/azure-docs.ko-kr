@@ -1,6 +1,6 @@
 ---
-title: '예제: 이미지 분석 API 호출 - Computer Vision'
-titlesuffix: Azure Cognitive Services
+title: '예제: 예제: 이미지 분석 API 호출 - Computer Vision'
+titleSuffix: Azure Cognitive Services
 description: Azure Cognitive Services에서 REST를 사용하여 Computer Vision API를 호출하는 방법을 알아봅니다.
 services: cognitive-services
 author: KellyDF
@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 0e2767660edf2a9dbcb8617b07a6b9f71fedb743
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 35e6ad922ab54748165fcf8e273d93ee44bc42cc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011246"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564525"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>예제: Computer Vision API를 호출하는 방법
 
@@ -164,9 +164,9 @@ POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?details=cele
 }
 ```
 
-필드 | 유형 | 콘텐츠
+필드 | Type | Content
 ------|------|------|
-Tags  | `object` | 태그 배열의 최상위 개체
+태그들  | `object` | 태그 배열의 최상위 개체
 tags[].Name | `string`  | 태그 분류자의 키워드
 tags[].Score    | `number`  | 신뢰도 점수, 0~1.
 description  | `object` | 설명의 최상위 개체.
@@ -226,9 +226,9 @@ description.captions[].confidence   | `number`  | 구의 신뢰도.
 
 범주 필드는 원래 분류의 [86개 범주](../Category-Taxonomy.md) 중 하나 이상이 포함된 목록입니다. 밑줄로 끝나는 범주는 해당 범주 및 자식과 일치합니다(예: 유명인 모델의 경우 people_ 및 people_group).
 
-필드   | 형식  | 콘텐츠
+필드   | Type  | Content
 ------|------|------|
-categories | `object`   | 최상위 개체
+범주 | `object`   | 최상위 개체
 categories[].name    | `string` | 86개 범주 분류의 이름
 categories[].score  | `number`  | 신뢰도 점수, 0~1
 categories[].detail  | `object?`      | 선택적 세부 정보 개체

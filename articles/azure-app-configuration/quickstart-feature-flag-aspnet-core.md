@@ -14,26 +14,23 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: bd812ad1194f88b14d88f067583ca6eee4bb0c74
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 41947de18ae27b41d046fd4358f0039a1b56374d
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274215"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347920"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>빠른 시작: ASP.NET Core 앱에 기능 플래그를 추가합니다.
 
-애플리케이션을 Azure App Configuration에 연결하여 ASP.NET Core에서 기능 관리를 사용할 수 있습니다. 이 관리형 서비스를 사용하여 모든 기능 플래그를 저장하고 해당 상태를 중앙에서 제어할 수 있습니다. 이 빠른 시작에서는 App Configuration을 ASP.NET Core 웹앱에 통합하여 기능 관리의 엔드투엔드 구현을 만드는 방법을 보여줍니다.
+이 빠른 시작에서는 Azure App Configuration을 ASP.NET Core 웹앱에 통합하여 엔드투엔드 기능 관리를 구현하는 방법을 보여줍니다. App Configuration 서비스를 사용하여 중앙에서 모든 기능 플래그를 저장하고 상태를 제어할 수 있습니다. 
 
 .NET Core 기능 관리 라이브러리는 포괄적인 기능 플래그 지원을 통해 프레임워크를 확장합니다. 이 라이브러리는 .NET Core 구성 시스템을 기반으로 빌드됩니다. 또한 해당 .NET Core 구성 공급자를 통해 App Configuration과 원활하게 통합됩니다.
 
-이 빠른 시작의 단계는 임의의 코드 편집기를 사용하여 수행할 수 있습니다. [Visual Studio Code](https://code.visualstudio.com/)는 Windows, macOS 및 Linux 플랫폼에서 사용할 수 있는 훌륭한 옵션입니다.
-
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작을 수행하려면 [.NET Core SDK](https://dotnet.microsoft.com/download)를 설치합니다.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
+- [.NET Core SDK](https://dotnet.microsoft.com/download)
 
 ## <a name="create-an-app-configuration-store"></a>App Configuration 저장소 만들기
 
@@ -84,12 +81,10 @@ ms.locfileid: "67274215"
 
 ## <a name="connect-to-an-app-configuration-store"></a>App Configuration 저장소에 연결
 
-1. 다음 명령을 실행하여 `Microsoft.Extensions.Configuration.AzureAppConfiguration` 및 `Microsoft.FeatureManagement` NuGet 패키지에 대한 참조를 추가합니다.
+1. 다음 명령을 실행하여 `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet 패키지에 대한 참조를 추가합니다.
 
     ```
-    dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008920001-990
-
-    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 1.0.0-preview-009000001-1251
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009200001-7
     ```
 
 1. 다음 명령을 실행하여 프로젝트에 대한 패키지를 복원합니다.
@@ -137,7 +132,7 @@ ms.locfileid: "67274215"
 1. *Startup.cs*를 열고 .NET Core 기능 관리자에 대한 참조를 추가합니다.
 
     ```csharp
-    using Microsoft.FeatureManagement.AspNetCore;
+    using Microsoft.FeatureManagement;
     ```
 
 1. `services.AddFeatureManagement()` 메서드를 호출하여 기능 플래그 지원을 추가하도록 `ConfigureServices` 메서드를 업데이트합니다. 필요에 따라 `services.AddFeatureFilter<FilterType>()`을 호출하여 기능 플래그에 사용할 필터를 포함할 수 있습니다 :
@@ -146,6 +141,16 @@ ms.locfileid: "67274215"
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddFeatureManagement();
+    }
+    ```
+
+1. `Configure` 메서드를 업데이트하여 ASP.NET Core 웹앱이 요청을 계속 수신하는 동안 반복된 간격으로 기능 플래그 값을 새로 고칠 수 있는 미들웨어를 추가합니다.
+
+    ```csharp
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    {
+        app.UseAzureAppConfiguration();
+        app.UseMvc();
     }
     ```
 
@@ -259,7 +264,7 @@ ms.locfileid: "67274215"
 
     | 키 | 시스템 상태 |
     |---|---|
-    | 베타 | 다른 |
+    | 베타 | 설정 |
 
 1. 새 구성 설정을 확인하려면 브라우저 페이지를 새로 고칩니다.
 

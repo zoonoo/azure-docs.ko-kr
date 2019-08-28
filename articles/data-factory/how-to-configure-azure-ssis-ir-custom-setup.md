@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: cfa9d6a1a287281bec91facf04c73506db81f84a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4962070d69af98d0c7b10dc6f931612766529dce
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64711562"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515714"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임을 위한 사용자 지정 설치
 
@@ -40,7 +40,9 @@ Azure-SSIS IR(Integration Runtime)에 대한 사용자 지정 설정 인터페�
 
 -   관리 공유는 현재 Azure SSIS IR에서 지원되지 않습니다.
 
-## <a name="prerequisites"></a>필수 조건
+-   IBM iSeries Access ODBC 드라이버는 Azure SSIS IR에서 지원 되지 않습니다. 사용자 지정을 설치 하는 동안 설치 오류가 표시 될 수 있습니다. 지원에 대해서는 IBM 지원에 문의 하세요.
+
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -64,15 +66,15 @@ Azure SSIS IR을 사용자 지정하려면 다음 항목이 필요합니다.
 
    1.  다른 도구에서 생성한 추가 로그(예: `msiexec.exe`)를 컨테이너에 업로드하려는 경우 미리 정의된 환경 변수 `CUSTOM_SETUP_SCRIPT_LOG_DIR`을 스크립트에 로그 폴더로 지정합니다(예:  `msiexec /i xxx.msi /quiet /lv %CUSTOM_SETUP_SCRIPT_LOG_DIR%\install.log`).
 
-1. [Azure Storage 탐색기](https://storageexplorer.com/)를 다운로드 및 설치하고 시작합니다.
+1. [Azure Storage Explorer](https://storageexplorer.com/)를 다운로드 및 설치하고 시작합니다.
 
    1. **(로컬 및 연결)** 에서 **스토리지 계정**을 마우스 오른쪽 단추로 선택하고 **Azure Storage에 연결**을 선택합니다.
 
       ![Azure Storage에 연결](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png)
 
-   1. **저장소 계정 이름과 키 사용**, **다음**을 차례로 선택합니다.
+   1. **스토리지 계정 이름과 키 사용**, **다음**을 차례로 선택합니다.
 
-      ![저장소 계정 이름 및 키 사용](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image2.png)
+      ![스토리지 계정 이름 및 키 사용](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image2.png)
 
    1. Azure Storage 계정 이름과 키를 입력하고 **다음**을 선택하고 **연결**을 선택합니다.
 
@@ -82,7 +84,7 @@ Azure SSIS IR을 사용자 지정하려면 다음 항목이 필요합니다.
 
       ![Blob 컨테이너 만들기](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png)
 
-   1. 새 컨테이너를 선택하고 사용자 지정 설정 스크립트와 관련 파일을 업로드합니다. 폴더가 아니라 컨테이너의 최상위 수준에 `main.cmd`를 업로드해야 합니다. 또한 컨테이너에 필요한 사용자 지정 설치 파일만 포함되어 있는지 확인합니다. 그러면 나중에 Azure-SSIS IR에 다운로드하는 데 시간이 오래 걸리지 않습니다. 사용자 지정 설치에 대 한 최대 기간 제한 시간이 초과 되기 전에 컨테이너에서 모든 파일을 다운로드 하 고 AZURE-SSIS ir 설치 시간이 여기에 45 분에 현재 설정 오랜 기간 동안 필요한 경우 지원 티켓을 제기해 주세요.
+   1. 새 컨테이너를 선택하고 사용자 지정 설정 스크립트와 관련 파일을 업로드합니다. 폴더가 아니라 컨테이너의 최상위 수준에 `main.cmd`를 업로드해야 합니다. 또한 컨테이너에 필요한 사용자 지정 설치 파일만 포함되어 있는지 확인합니다. 그러면 나중에 Azure-SSIS IR에 다운로드하는 데 시간이 오래 걸리지 않습니다. 사용자 지정 설치의 최대 기간은 현재 45 분으로 설정 되어 있으며,이는 컨테이너에서 모든 파일을 다운로드 하 여 Azure SSIS IR에 설치 하는 시간을 포함 합니다. 더 긴 기간이 필요한 경우 지원 티켓을 제기 하세요.
 
       ![Blob 컨테이너에 파일 업로드](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
 
@@ -105,7 +107,7 @@ Azure SSIS IR을 사용자 지정하려면 다음 항목이 필요합니다.
 
       ![공유 액세스 서명 입력](media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)
 
-      PowerShell로 Azure-SSIS IR을 프로비전 또는 다시 구성할 때 Azure-SSIS IR을 시작하기 전에 새 `SetupScriptContainerSasUri` 매개 변수에 대한 값으로 컨테이너의 SAS URI를 사용하여 `Set-AzDataFactoryV2IntegrationRuntime` cmdlet을 실행합니다. 예를 들면 다음과 같습니다.
+      PowerShell로 Azure-SSIS IR을 프로비전 또는 다시 구성할 때 Azure-SSIS IR을 시작하기 전에 새 `SetupScriptContainerSasUri` 매개 변수에 대한 값으로 컨테이너의 SAS URI를 사용하여 `Set-AzDataFactoryV2IntegrationRuntime` cmdlet을 실행합니다. 예를 들어:
 
       ```powershell
       Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
@@ -132,7 +134,7 @@ Azure SSIS IR을 사용자 지정하려면 다음 항목이 필요합니다.
 
       ![컨테이너에 공유 액세스 서명 제공](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image10.png)
 
-   다. 연결된 공개 미리 보기 컨테이너를 선택하고 `CustomSetupScript` 폴더를 두 번 클릭합니다. 이 폴더에는 다음 항목이 있습니다.
+   c. 연결된 공개 미리 보기 컨테이너를 선택하고 `CustomSetupScript` 폴더를 두 번 클릭합니다. 이 폴더에는 다음 항목이 있습니다.
 
       1. `Sample` 폴더: Azure-SSIS IR의 각 노드에 기본 작업을 설치하는 사용자 지정 설정을 포함합니다. 이 작업은 몇 초 동안 대기하면서 아무 것도 수행하지 않습니다. 또한 폴더에는 `gacutil` 폴더와 컨테이너에 있는 그대로 복사할 수 있는 전체 콘텐츠(`gacutil.exe`, `gacutil.exe.config` 및 `1033\gacutlrc.dll`)가 포함됩니다. 또한 `main.cmd`에는 파일 공유에 대한 액세스 자격 증명을 유지하기 위한 설명이 포함됩니다.
 

@@ -1,7 +1,6 @@
 ---
 title: Azure Data Lake Storage Gen2 계층 구조 네임스페이스
 description: Azure Data Lake Storage Gen2에 대한 계층 구조 네임스페이스의 개념 설명
-services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
@@ -9,12 +8,12 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: e0d888db5f8de137783a3f9282ca7f85d8a30fc3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b98892bd31b097e3dc217d54f52f12550599d32
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939452"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847137"
 ---
 # <a name="azure-data-lake-storage-gen2-hierarchical-namespace"></a>Azure Data Lake Storage Gen2 계층 구조 네임스페이스
 
@@ -36,7 +35,7 @@ Azure Data Lake Storage Gen2를 사용하여 개체 스토리지 규모 및 가�
 
 디렉터리를 조작하는 파일 시스템을 위해 설계된 스토리지 워크로드의 경우, 계층 구조 네임스페이스를 켜는 것이 좋습니다. 여기에는 분석 처리에 주로 사용되는 모든 워크로드가 포함됩니다. 계층 구조 네임스페이스를 사용하면 높은 수준의 구성이 필요한 데이터 세트에도 유용합니다.
 
-계층 구조 네임스페이스를 사용하는 이유는 TCO 분석을 통해 결정됩니다. 일반적으로 스토리지 가속화로 인한 워크로드 대기 시간을 개선하려면 계산 리소스에 사용되는 시간을 단축해야 합니다. 계층 구조 네임스페이스를 통해 구현되는 원자성 디렉터리 조작으로 인해 많은 워크로드의 대기 시간이 향상될 수 있습니다. 많은 워크로드에서 계산 리소스는 총 비용의 85%를 초과하므로 워크로드 대기 시간이 적게 감소하더라도 TCO 절감 금액은 상당합니다. 계층 구조 네임스페이스를 사용하여 스토리지 비용이 증가하는 경우에도 감소된 계산 비용으로 인해 TCO는 낮아집니다.
+계층 구조 네임스페이스를 사용하는 이유는 TCO 분석을 통해 결정됩니다. 일반적으로 스토리지 가속화로 인한 워크로드 대기 시간을 개선하려면 컴퓨팅 리소스에 사용되는 시간을 단축해야 합니다. 계층 구조 네임스페이스를 통해 구현되는 원자성 디렉터리 조작으로 인해 많은 워크로드의 대기 시간이 향상될 수 있습니다. 많은 워크로드에서 컴퓨팅 리소스는 총 비용의 85%를 초과하므로 워크로드 대기 시간이 적게 감소하더라도 TCO 절감 금액은 상당합니다. 계층 구조 네임스페이스를 사용하여 스토리지 비용이 증가하는 경우에도 감소된 컴퓨팅 비용으로 인해 TCO는 낮아집니다.
 
 ## <a name="when-to-disable-the-hierarchical-namespace"></a>계층 구조 네임스페이스를 사용하지 않는 경우
 
@@ -44,4 +43,4 @@ Azure Data Lake Storage Gen2를 사용하여 개체 스토리지 규모 및 가�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [저장소 계정 만들기](./data-lake-storage-quickstart-create-account.md)
+- [스토리지 계정 만들기](./data-lake-storage-quickstart-create-account.md)

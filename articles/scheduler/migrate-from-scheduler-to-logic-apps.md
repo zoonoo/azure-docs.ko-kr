@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/20/2018
-ms.openlocfilehash: 25ed66fd75301475542dbac8e8a01670ee37563c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0225a9f34e016a4b1de51c06ba982d384e41007c
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60531685"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302082"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Azure Scheduler 작업을 Azure Logic Apps로 마이그레이션
 
@@ -29,9 +29,9 @@ ms.locfileid: "60531685"
 
 * Azure Logic Apps 서비스는 표준 시간대 및 DST(일광 절약 시간)를 지원합니다.
 
-자세한 내용을 알아보려면 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 참조하거나 또는이 빠른 시작에서 첫 번째 논리 앱을 만들어 보세요. [첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)합니다.
+자세한 내용을 알아보려면 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 참조하거나 또는이 빠른 시작에서 첫 번째 논리 앱을 만들어 보세요. [첫 번째 논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독. Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다.
 
@@ -45,9 +45,9 @@ ms.locfileid: "60531685"
 
 1. [Azure Portal](https://portal.azure.com)의 논리 앱 디자이너에서 빈 논리 앱을 만듭니다. 
 
-   기본 단계에 따라 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요.
+   기본 단계에 대해서는 빠른 [시작을 참조 하세요. 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요.
 
-1. 검색 상자에 “http 요청”을 필터로 입력합니다. 트리거 목록에서 다음 트리거를 선택합니다. **HTTP 요청을 수신 되는 경우** 
+1. 검색 상자에 “http 요청”을 필터로 입력합니다. 트리거 목록에서 다음 트리거를 선택합니다. **HTTP 요청을 수신 하는 경우** 
 
    !["요청" 트리거 추가](./media/migrate-from-scheduler-to-logic-apps/request-trigger.png)
 
@@ -67,7 +67,7 @@ ms.locfileid: "60531685"
 
 1. 트리거 아래에서 **다음 단계**를 선택합니다. 
 
-1. 검색 상자에 필터로 "다음 기간까지 지연"을 입력합니다. 작업 목록에서 다음 작업을 선택합니다. **다음 기간까지 지연**
+1. 검색 상자에 필터로 "다음 기간까지 지연"을 입력합니다. 작업 목록에서 다음 작업을 선택합니다. **다음까지 지연**
 
    이 작업은 지정된 날짜 및 시간까지 논리 앱 워크플로를 일시 중지합니다.
 
@@ -79,7 +79,7 @@ ms.locfileid: "60531685"
 
    !["다음 기간까지 지연" 세부 정보 입력](./media/migrate-from-scheduler-to-logic-apps/delay-until-details.png)
 
-1. [~200+ 커넥터](../connectors/apis-list.md)에서 실행하려는 다른 작업을 선택하여 추가합니다. 
+1. [사용할 수 있는 수백 개의 커넥터 중](../connectors/apis-list.md)에서 선택 하 여 실행 하려는 다른 작업을 추가 합니다. 
 
    예를 들어 URL로 요청을 전송하는 HTTP 작업 또는 Storage 큐, Service Bus 큐, Service Bus 토픽을 사용하는 작업을 포함할 수 있습니다. 
 
@@ -104,7 +104,7 @@ ms.locfileid: "60531685"
 
 | 요청 메서드 | URL | 본문 | 헤더 |
 |----------------|-----|------|---------| 
-| **POST** | <*endpoint-URL*> | **원시** <p>**JSON(응용 프로그램/json)** <p>**원시** 상자에 요청에서 보낼 페이로드를 입력합니다. <p>**참고**: 이 설정을 자동으로 구성 합니다 **헤더** 값입니다. | **키**: 콘텐츠 형식 <br>**값**: 응용 프로그램/json
+| **POST** | <*endpoint-URL*> | **원시** <p>**JSON(애플리케이션/json)** <p>**원시** 상자에 요청에서 보낼 페이로드를 입력합니다. <p>**참고**: 이 설정은 **헤더** 값을 자동으로 구성 합니다. | **키**: Content-Type <br>**값**: 애플리케이션/json
  |||| 
 
 ![수동으로 논리 앱을 트리거하는 요청 보내기](./media/migrate-from-scheduler-to-logic-apps/postman-send-post-request.png)
@@ -117,7 +117,7 @@ ms.locfileid: "60531685"
 >
 > 나중에 작업을 취소하려면 **헤더** 탭을 선택합니다. 응답에서 **x-ms-workflow-run-id** 헤더 값을 찾아 복사합니다. 
 >
-> ![response](./media/migrate-from-scheduler-to-logic-apps/postman-response.png)
+> ![응답](./media/migrate-from-scheduler-to-logic-apps/postman-response.png)
 
 ## <a name="cancel-a-one-time-job"></a>일회성 작업 취소
 
@@ -129,7 +129,7 @@ Logic Apps에서 각 일회성 작업은 단일 논리 앱 실행 인스턴스�
 
 1. [Azure Portal](https://portal.azure.com)의 논리 앱 디자이너에서 빈 논리 앱을 만듭니다. 
 
-   기본 단계에 따라 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요.
+   기본 단계에 대해서는 빠른 [시작을 참조 하세요. 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요.
 
 1. 검색 상자에서 필터로 “되풀이”를 입력합니다. 트리거 목록에서 다음 트리거를 선택합니다. **되풀이** 
 
@@ -141,7 +141,7 @@ Logic Apps에서 각 일회성 작업은 단일 논리 앱 실행 인스턴스�
 
    고급 일정 옵션에 대한 자세한 내용은 [Azure Logic Apps를 사용하여 되풀이 작업 및 워크플로를 만들고 실행](../connectors/connectors-native-recurrence.md)을 참조하세요.
 
-1. [~200+ 커넥터](../connectors/apis-list.md)에서 원하는 다른 작업을 선택하여 추가합니다. 트리거 아래에서 **다음 단계**를 선택합니다. 원하는 작업을 찾아 선택합니다.
+1. [사용할 수 있는 수백 개의 준비 중](../connectors/apis-list.md)에서 선택 하 여 원하는 다른 작업을 추가 합니다. 트리거 아래에서 **다음 단계**를 선택합니다. 원하는 작업을 찾아 선택합니다.
 
    예를 들어 URL로 요청을 전송하는 HTTP 작업 또는 Storage 큐, Service Bus 큐, Service Bus 토픽을 사용하는 작업을 포함할 수 있습니다. 
 
@@ -195,20 +195,20 @@ Azure Scheduler에서 기본 작업이 실행에 실패하는 경우 오류 조�
 
 <a name="retire-date"></a> 
 
-**Q**: Azure Scheduler의 사용을 중지 하는 경우는? <br>
-**A**: Azure Scheduler는 2019 년 9 월 30 일에 사용 중지 되도록 예약 됩니다.
+**Q**: Azure Scheduler를 사용 중지 하는 경우 <br>
+**A**: Azure Scheduler는 2019 년 9 월 30 일에 사용 중지 될 예정입니다.
 
-**Q**: 서비스 사용 중지 한 후 내 Scheduler 작업 컬렉션 및 작업에 미치는 영향 <br>
-**A**: 모든 Scheduler 작업 컬렉션 및 작업 시스템에서 삭제 됩니다.
+**Q**: 서비스 받아볼 이후 스케줄러 작업 컬렉션 및 작업은 어떻게 되나요? <br>
+**A**: 모든 Scheduler 작업 컬렉션 및 작업이 시스템에서 삭제 됩니다.
 
-**Q**: 백업 또는 Logic Apps로 내 스케줄러 작업을 마이그레이션하기 전에 다른 작업을 수행 합니까? <br>
-**A**: 모범 사례로 항상 작업 백업 합니다. 이전에 만든 논리 앱이 예상대로 실행되는지 확인한 후 Scheduler 작업을 삭제하거나 사용하지 않도록 설정하세요. 
+**Q**: 스케줄러 작업을 Logic Apps로 마이그레이션하기 전에 다른 작업을 백업 하거나 수행 해야 하나요? <br>
+**A**: 작업을 항상 백업 하는 것이 가장 좋습니다. 이전에 만든 논리 앱이 예상대로 실행되는지 확인한 후 Scheduler 작업을 삭제하거나 사용하지 않도록 설정하세요. 
 
-**Q**: Logic Apps 내 작업 Scheduler에서 마이그레이션할 수 있는 도구는 있나요? <br>
-**A**: 각 스케줄러 작업 고유 이므로 모든 상황에 맞는 도구 존재 하지 않습니다. 그러나 요구 사항에 맞게 수정할 수 있는 다양한 스크립트가 제공됩니다. 스크립트 가용성은 나중에 다시 확인하세요.
+**Q**: 스케줄러에서 Logic Apps로 작업을 마이그레이션하는 데 도움이 되는 도구가 있나요? <br>
+**A**: 각 Scheduler 작업은 고유 하므로 단일 크기의 모든 도구가 없습니다. 그러나 요구 사항에 맞게 수정할 수 있는 다양한 스크립트가 제공됩니다. 스크립트 가용성은 나중에 다시 확인하세요.
 
-**Q**: Scheduler 작업 내 마이그레이션에 대 한 지원은 어디서 구할 수 있습니까? <br>
-**A**: 지원을 받으려면 가지는 다음과 같습니다. 
+**Q**: 내 스케줄러 작업 마이그레이션에 대 한 지원은 어디에서 받을 수 있나요? <br>
+**A**: 지원 받을 수 있는 몇 가지 방법은 다음과 같습니다. 
 
 **Azure Portal**
 
@@ -222,7 +222,7 @@ Azure 구독에 유료 지원 플랜이 있는 경우 Azure Portal에서 기술 
    |---------|-------|
    | **문제 유형** | **기술** | 
    | **구독** | <*your-Azure-subscription*> | 
-   | **서비스** | **모니터링 및 관리** 아래에서 **Scheduler**를 선택합니다. | 
+   | **Service** | **모니터링 및 관리** 아래에서 **Scheduler**를 선택합니다. | 
    ||| 
 
 1. 원하는 지원 옵션을 선택합니다. 유료 지원 플랜이 있는 경우 **다음**을 선택합니다.

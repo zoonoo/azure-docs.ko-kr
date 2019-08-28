@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: eb1fe69a7fb99949ac95291c33e76c1a32bf5439
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1e75acc03209fdd7e613801c9152f24aaecfa6de
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60506627"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965452"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>StorSimple 8000 시리즈 디바이스에 StorSimple 디바이스 관리자 서비스 배포
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 ## <a name="overview"></a>개요
 
@@ -38,10 +40,10 @@ StorSimple Device Manager 서비스는 Microsoft Azure에서 실행되며 여러
 StorSimple 디바이스 관리자 서비스를 만들려면 다음 항목이 필요합니다.
 
 * 엔터프라이즈 계약을 사용하여 구독
-* 활성 Microsoft Azure 저장소 계정
+* 활성 Microsoft Azure Storage 계정
 * 액세스 관리에 사용되는 청구 정보
 
-기업 규약을 포함하는 구독만이 허용됩니다. 또한 서비스를 만들 때 기본 저장소 계정을 생성하도록 선택할 수 있습니다.
+기업 규약을 포함하는 구독만이 허용됩니다. 또한 서비스를 만들 때 기본 스토리지 계정을 생성하도록 선택할 수 있습니다.
 
 하나의 서비스로 여러 디바이스를 관리할 수 있습니다. 하지만 하나의 디바이스는 여러 서비스로 확장할 수 없습니다. 대규모 엔터프라이즈는 서로 다른 구독, 조직 또는 배포 위치와 동작하는 여러 서비스 인스턴스를 가질 수 있습니다. 
 
@@ -119,7 +121,7 @@ StorSimple 디바이스 관리자 서비스를 만들려면 다음 항목이 필
 
 
 ## <a name="change-the-service-data-encryption-key"></a>서비스 데이터 암호화 키 변경
-서비스 데이터 암호화 키는 StorSimple 관리자 서비스에서 StorSimple 디바이스로 전송된 저장소 계정 자격 증명 등의 기밀 고객 데이터를 암호화하는 데 사용됩니다. IT 조직에 저장 디바이스에 대한 키 회전 정책이 있는 경우 이러한 키를 주기적으로 변경해야 합니다. 키 변경 프로세스는 StorSimple Manager 서비스에서 관리하는 디바이스가 단일 디바이스인지, 여러 디바이스인지에 따라 약간 달라질 수 있습니다. 자세한 내용은 [StorSimple 보안 및 데이터 보호](storsimple-8000-security.md)로 이동합니다.
+서비스 데이터 암호화 키는 StorSimple 관리자 서비스에서 StorSimple 디바이스로 전송된 스토리지 계정 자격 증명 등의 기밀 고객 데이터를 암호화하는 데 사용됩니다. IT 조직에 스토리지 디바이스에 대한 키 회전 정책이 있는 경우 이러한 키를 주기적으로 변경해야 합니다. 키 변경 프로세스는 StorSimple Manager 서비스에서 관리하는 디바이스가 단일 디바이스인지, 여러 디바이스인지에 따라 약간 달라질 수 있습니다. 자세한 내용은 [StorSimple 보안 및 데이터 보호](storsimple-8000-security.md)로 이동합니다.
 
 서비스 데이터 암호화 키는 3단계 프로세스에 따라 변경됩니다.
 
@@ -187,23 +189,23 @@ Azure Resource Manager 기반 스크립트를 사용하여 이 단계를 수행�
 ## <a name="supported-operations-on-devices-running-versions-prior-to-update-50"></a>업데이트 5.0 이전 버전을 실행하는 디바이스에서 지원되는 작업
 Azure Portal에서는 업데이트 5.0 이상을 실행하는 StorSimple 디바이스만이 지원됩니다. 이전 버전을 실행하는 디바이스에는 제한된 지원을 제공합니다. Azure Portal로 마이그레이션한 후 다음 테이블을 사용하여 업데이트 5.0 이전 버전을 실행하는 디바이스에서 지원되는 작업을 알아볼 수 있습니다.
 
-| 작업(Operation)                                                                                                                       | 지원됨      |
+| 연산                                                                                                                       | 지원됨      |
 |---------------------------------------------------------------------------------------------------------------------------------|----------------|
 | 디바이스 등록                                                                                                               | 예            |
 | 일반, 네트워크 및 보안과 같은 디바이스 설정 구성                                                                | 예            |
 | 업데이트 검사, 다운로드 및 설치                                                                                             | 예            |
 | 디바이스 비활성화                                                                                                               | 예            |
 | 디바이스 삭제                                                                                                                   | 예            |
-| 볼륨 컨테이너 만들기, 수정 및 삭제                                                                                   | 아닙니다.             |
-| 볼륨 만들기, 수정 및 삭제                                                                                             | 아닙니다.             |
-| 백업 정책 만들기, 수정 및 삭제                                                                                      | 아닙니다.             |
-| 수동 백업 수행                                                                                                            | 아닙니다.             |
-| 예약된 백업 수행                                                                                                         | 해당 없음 |
-| backupset에서 복원                                                                                                        | 아닙니다.             |
+| 볼륨 컨테이너 만들기, 수정 및 삭제                                                                                   | 아니요             |
+| 볼륨 만들기, 수정 및 삭제                                                                                             | 아니요             |
+| 백업 정책 만들기, 수정 및 삭제                                                                                      | 아니요             |
+| 수동 백업 수행                                                                                                            | 아니요             |
+| 예약된 백업 수행                                                                                                         | 해당 사항 없음 |
+| backupset에서 복원                                                                                                        | 아니요             |
 | 업데이트 3.0 이상을 실행하는 디바이스에 복제 <br> 원본 디바이스는 업데이트 3.0 이전 버전을 실행하고 있습니다.                                | 예            |
-| 업데이트 3.0 이전 버전을 실행하는 디바이스에 복제합니다.                                                                          | 아닙니다.             |
+| 업데이트 3.0 이전 버전을 실행하는 디바이스에 복제합니다.                                                                          | 아니요             |
 | 원본 디바이스로 장애 조치 <br> (업데이트 3.0 이전 버전을 실행하는 디바이스에서 업데이트 3.0 이후 버전을 실행하는 디바이스로)                                                               | 예            |
-| 대상 디바이스로 장애 조치(failover) <br> (업데이트 3.0 이전 소프트웨어 버전을 실행하는 디바이스로)                                                                                   | 아닙니다.             |
+| 대상 디바이스로 장애 조치(failover) <br> (업데이트 3.0 이전 소프트웨어 버전을 실행하는 디바이스로)                                                                                   | 아니요             |
 | 경고 지우기                                                                                                                  | 예            |
 | 클래식 포털에서 생성된 백업 정책, 백업 카탈로그, 볼륨, 볼륨 컨테이너, 모니터링 차트, 작업 및 경고 보기 | 예            |
 | 디바이스 컨트롤러 설정 및 해제                                                                                              | 예            |
@@ -211,5 +213,5 @@ Azure Portal에서는 업데이트 5.0 이상을 실행하는 StorSimple 디바�
 
 ## <a name="next-steps"></a>다음 단계
 * [StorSimple 배포 프로세스](storsimple-8000-deployment-walkthrough-u2.md)에 대해 자세히 알아봅니다.
-* [StorSimple 저장소 계정 관리](storsimple-8000-manage-storage-accounts.md)에 대해 자세히 알아봅니다.
+* [StorSimple 스토리지 계정 관리](storsimple-8000-manage-storage-accounts.md)에 대해 자세히 알아봅니다.
 * [StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 디바이스를 관리](storsimple-8000-manager-service-administration.md)하는 방법을 자세히 알아봅니다.

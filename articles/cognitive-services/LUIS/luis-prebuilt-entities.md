@@ -1,5 +1,5 @@
 ---
-title: 미리 빌드된 엔터티
+title: Language Understanding에 대 한 미리 작성 한 엔터티
 titleSuffix: Azure Cognitive Services
 description: LUIS에는 날짜, 시간, 숫자, 측정값 및 통화 등, 일반적인 정보 유형을 인식하기 위한 미리 빌드된 엔터티 집합이 포함되어 있습니다. 미리 빌드된 엔터티 지원은 LUIS 앱의 문화권에 따라 다릅니다.
 services: cognitive-services
@@ -8,15 +8,15 @@ ms.custom: seodec18
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: diberry
-ms.openlocfilehash: 0cfc4ff58cfeb65f80f9ac5ce2dd532defde5ef8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3f36680477b29158ae4a4214dfef6ea36342342c
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60596104"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932642"
 ---
 # <a name="prebuilt-entities-to-recognize-common-data-types"></a>일반 데이터 형식을 인식하는 미리 빌드된 엔터티
 
@@ -32,7 +32,7 @@ LUIS에는 날짜, 시간, 숫자, 측정값 및 통화 등, 일반적인 정보
 
     ![미리 빌드된 엔터티 추가 대화 상자](./media/luis-use-prebuilt-entity/add-prebuilt-entity-dialog.png)
 
-1. **완료**를 선택합니다.
+1. **완료** 를 선택합니다.
 
 ## <a name="publish-the-app"></a>앱 게시
 
@@ -42,7 +42,7 @@ LUIS에는 날짜, 시간, 숫자, 측정값 및 통화 등, 일반적인 정보
 
 1. 녹색 성공 알림이 표시되면 **엔드포인트 목록 참조** 링크를 선택하여 엔드포인트를 봅니다.
 
-1. 엔드포인트를 선택합니다. 해당 엔드포인트에 대한 새 브라우저 탭이 열립니다. 브라우저 탭을 연 상태로 **테스트** 섹션을 계속 진행합니다.
+1. 엔드포인트를 선택하십시오. 해당 엔드포인트에 대한 새 브라우저 탭이 열립니다. 브라우저 탭을 연 상태로 **테스트** 섹션을 계속 진행합니다.
 
 ## <a name="test"></a>테스트
 엔터티를 추가한 후에는 앱을 학습할 필요가 없습니다. 

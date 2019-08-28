@@ -11,12 +11,12 @@ ms.assetid: b5ae0827-fbb3-45ec-8f45-ad1cc2e7eccc
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: ca2d28f3438fd166fa282488206662c95777bf3b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9228a94dcf27d8987b16e2caa2681cf973db0657
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62104734"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050650"
 ---
 # <a name="monitor-and-manage-your-yammer-account-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Yammer 계정 모니터링 및 관리
 
@@ -28,9 +28,9 @@ Azure Logic Apps 및 Yammer 커넥터를 사용하면 다음과 같이 다른 �
 
 트리거를 사용하여 Yammer 계정에서 응답을 가져오고 다른 작업에서 출력을 사용하도록 할 수 있습니다. Yammer 계정을 사용하여 작업을 수행하는 작업을 사용할 수 있습니다. 또한 다른 작업에서 Yammer 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어, 피드 또는 그룹에 새 메시지가 표시되면 Slack 커넥터를 사용하여 해당 메시지를 공유할 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독. Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다. 
+* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 
 
 * Yammer 계정 및 사용자 자격 증명
 
@@ -65,7 +65,7 @@ Azure Logic Apps 및 Yammer 커넥터를 사용하면 다음과 같이 다른 �
        검색 상자에서 필터로 “yammer”를 입력합니다. 
        작업 목록에서 원하는 작업을 선택합니다.
 
-1. Yammer에 로그인하라는 메시지가 표시되면 로그인합니다. 그러면 액세스를 허용할 수 있습니다.
+1. Yammer에 로그인 하 라는 메시지가 표시 되 면 액세스를 허용할 수 있도록 지금 로그인 합니다.
 
 1. 선택한 트리거 또는 작업에 대해 필요한 세부 정보를 제공하고 논리 앱의 워크플로를 계속 빌드합니다.
 

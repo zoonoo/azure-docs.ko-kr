@@ -14,12 +14,12 @@ ms.tgt_pltfrm: windows
 ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
-ms.openlocfilehash: 9f81e2b7537a5ecc6778baa93a1bab23dd30ff8a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89d652f440e97650b7e7ac63cccc7fde75d7204a
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61475510"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798277"
 ---
 # <a name="powershell-dsc-extension"></a>Powershell DSC 확장
 
@@ -27,7 +27,7 @@ ms.locfileid: "61475510"
 
 Microsoft는 Windows용 Powershell DSC 확장을 게시하고 지원합니다. 확장은 PowerShell DSC 구성을 Azure VM에 업로드하고 적용합니다. DSC 확장은 PowerShell DSC를 호출하여 VM에서 받은 DSC 구성을 적용합니다. 이 문서에서는 Windows용 DSC 가상 머신 확장에 지원되는 플랫폼, 구성 및 배포 옵션에 대해 자세히 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -72,7 +72,7 @@ Windows 용 DSC 확장은 대상 가상 머신의 Azure 외부의 위치에 저�
             "dataCollection": "enable"
         },
         "advancedOptions": {
-            "forcePullAndApply": false
+            "forcePullAndApply": false,
             "downloadMappings": {
                 "specificDependencyKey": "https://myCustomDependencyLocation"
             }
@@ -100,14 +100,14 @@ Windows 용 DSC 확장은 대상 가상 머신의 Azure 외부의 위치에 저�
 
 | 이름 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
-| apiVersion | 2018-10-01 | date |
+| apiVersion | 2018-10-01 | 날짜 |
 | publisher | Microsoft.Powershell.DSC | string |
-| 형식 | DSC | string |
-| typeHandlerVersion | 2.77 | int |
+| type | DSC | string |
+| typeHandlerVersion | 2.77 | ssNoversion |
 
 ### <a name="settings-property-values"></a>settings(설정) 속성 값
 
-| 이름 | 데이터 형식 | 설명
+| 이름 | 데이터 형식 | Description
 | ---- | ---- | ---- |
 | settings.wmfVersion | string | VM에 설치해야 하는 Windows Management Framework의 버전을 지정합니다. 이 속성을 'latest'로 설정하면 최신 업데이트 버전의 WMF가 설치됩니다. 현재 이 속성에는 '4.0', '5.0' 및 'latest' 값만 사용할 수 있습니다. 가능한 값은 업데이트에 따라 달라집니다. 기본값은 'latest'입니다. |
 | settings.configuration.url | string | DSC 구성 zip 파일을 다운로드할 URL 위치를 지정합니다. 제공된 URL에 액세스하기 위해 SAS 토큰이 필요한 경우 protectedSettings.configurationUrlSasToken 속성을 SAS 토큰 값으로 설정해야 합니다. settings.configuration.script 및/또는 settings.configuration.function이 정의된 경우 이 속성이 필요합니다.
@@ -121,7 +121,7 @@ Windows 용 DSC 확장은 대상 가상 머신의 Azure 외부의 위치에 저�
 
 ### <a name="protected-settings-property-values"></a>protectedSettings(보호된 설정) 속성 값
 
-| 이름 | 데이터 형식 | 설명
+| 이름 | 데이터 형식 | Description
 | ---- | ---- | ---- |
 | protectedSettings.configurationArguments | string | DSC 구성을 전달하려는 매개 변수를 정의합니다. 이 속성은 암호화됩니다. |
 | protectedSettings.configurationUrlSasToken | string | configuration.url에서 정의한 URL에 액세스하기 위해 SAS 토큰을 지정합니다. 이 속성은 암호화됩니다. |
@@ -171,6 +171,6 @@ C:\WindowsAzure\Logs\Plugins\{Extension_Name}\{Extension_Version}
 | 1100 | 인수 오류 | 사용자가 제공한 입력에 문제가 있음을 나타냅니다. 이 오류 메시지는 특정 예외에서 제공됩니다.|
 
 
-### <a name="support"></a>지원
+### <a name="support"></a>Support(지원)
 
 이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 가서 지원 받기를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.

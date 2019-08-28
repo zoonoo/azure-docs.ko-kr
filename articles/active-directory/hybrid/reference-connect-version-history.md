@@ -16,12 +16,12 @@ ms.date: 05/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fafd853250ed76b49b66b86ffda9c91240c8ce48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 196ee5546a5065aebfae36d0af1fccff6b271a70
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67109168"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032466"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -34,24 +34,24 @@ Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure A
 항목 |  세부 정보
 --------- | --------- |
 Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스를 [이전 버전에서 최신 버전으로 업그레이드](how-to-upgrade-previous-version.md) 하는 다른 방법입니다.
-필요한 사용 권한 | 업데이트를 적용하는 데 필요한 사용 권한은 [계정 및 사용 권한](reference-connect-accounts-permissions.md#upgrade)을 참조하세요.
+필요한 권한 | 업데이트를 적용하는 데 필요한 사용 권한은 [계정 및 사용 권한](reference-connect-accounts-permissions.md#upgrade)을 참조하세요.
 
 다운로드 | [Azure AD Connect 다운로드](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 >[!NOTE]
->서비스의 작업이 제대로 작동 하도록 하려면 몇 가지 품질 컨트롤 단계를 필요로 하는 프로세스 및 릴리스 상태 뿐만 아니라 새 릴리스 버전 번호를 업데이트할 수는이 프로세스를 통해 이동 하는 동안 Azure AD Connect의 새 버전을 릴리스 에 최신 상태를 반영 합니다.
-이 프로세스를 진행 하면서 하는 동안 릴리스의 버전 번호로 표시 됩니다 "1.3.X.0"-같이 부 릴리스 번호 위치에 "X"를 사용 하 여이 문서에서 릴리스 "1.3."로 시작 하는 모든 버전에 대 한 유효한 지 나타냅니다. 릴리스 프로세스를 완성 한 것으로 가장 최근에 릴리스된 버전을 릴리스 버전 번호를은 업데이트 되 고 릴리스 상태 "를 다운로드 하 고 자동 업그레이드에 대 한 릴리스"으로 업데이트 됩니다.
+>새 버전의 Azure AD Connect 릴리스는 서비스의 작업 기능을 보장 하기 위해 몇 가지 품질 제어 단계가 필요 하며,이 프로세스를 진행 하는 동안 새 릴리스의 버전 번호와 릴리스 상태를 업데이트 하는 프로세스입니다. 최신 상태를 반영 합니다.
+이 프로세스를 진행 하는 동안 릴리스 버전 번호는 "1.3. X. 0"과 같이 부 릴리스 번호 위치에 "X"가 표시 됩니다 .이는이 문서의 릴리스 정보가 "1.3"로 시작 하는 모든 버전에 대해 유효 함을 나타냅니다. 릴리스 프로세스를 완료 하는 즉시 릴리스 버전 번호는 가장 최근에 릴리스된 버전으로 업데이트 되 고 릴리스 상태는 "다운로드 및 자동 업그레이드를 위해 릴리스"로 업데이트 됩니다.
 일부 버전의 Azure AD Connect는 자동 업그레이드에 사용할 수 있습니다. 릴리스 상태는 릴리스가 자동 업그레이드 또는 다운로드에만 사용할 수 있는지 여부를 나타냅니다. 자동 업그레이드가 Azure AD Connect 서버에서 활성화된 경우 해당 서버는 자동으로 자동 업그레이드용으로 릴리스되는 최신 버전의 Azure AD Connect로 업그레이드됩니다. 일부 Azure AD Connect 구성을 자동 업그레이드에 사용할 수 있습니다. [자동 업그레이드](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)에 대한 자세한 내용은 이 링크 참조
 
 ## <a name="13210"></a>1.3.21.0
 >[!IMPORTANT]
->방법이 1.3.21.0를 Azure AD Connect 이전 버전에서 업그레이드의 알려진된 문제는 O365 포털 반영 하지 않습니다 업데이트 된 버전 하지만 Azure AD Connect를 업그레이드 했습니다.
+>Azure AD Connect 성공적으로 업그레이드 된 경우에도 O365 포털에 업데이트 된 버전이 반영 되지 않는 Azure AD Connect 이전 버전에서 1.3.21.0로 업그레이드 하는 것과 관련 된 알려진 문제가 있습니다.
 >
-> 가져와야 할이 문제를 해결 하는 **AdSync** 모듈과 다음 실행은`Set-ADSyncDirSyncConfiguration` Azure AD Connect 서버에서 powershell cmdlet.  다음 단계를 사용할 수 있습니다.
+> 이 문제를 해결 하려면 **adsync** 모듈을 가져온 다음 Azure AD Connect 서버에서`Set-ADSyncDirSyncConfiguration` powershell cmdlet을 실행 해야 합니다.  다음 단계를 사용할 수 있습니다.
 >
->1. 관리자 모드에서 Powershell 열기
->2. `Import-Module "ADSync"` 실행
->3. `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""` 실행
+>1. 관리자로 모드에서 Powershell 열기
+>2. `Import-Module "ADSync"`를 실행합니다.
+>3. `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`를 실행합니다.
  
 
 
@@ -62,7 +62,7 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 
 ### <a name="fixed-issues"></a>해결된 문제 
 
-- 권한 상승을 취약점 Microsoft Azure Active Directory Connect 빌드 1.3.20.0에에서 존재 하는 수정 되었습니다.  특정 조건에서이 취약성 공격자는 권한 있는 계정의 컨텍스트에서 두 powershell cmdlet을 실행 하 고 권한 있는 작업을 수행할 수 있습니다.  이러한 cmdlet을 사용 하지 않도록 설정 하 여 문제를 해결 하는이 보안 업데이트 합니다. 자세한 내용은 참조 [보안 업데이트](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1000)합니다.
+- Microsoft Azure Active Directory Connect 빌드 1.3.20.0에 존재 하는 권한 상승 취약점을 수정 했습니다.  특정 상황에서 공격자가 권한 있는 계정의 컨텍스트에서 두 powershell cmdlet을 실행 하 고 권한 있는 작업을 수행할 수 있습니다.  이 보안 업데이트는 이러한 cmdlet을 사용 하지 않도록 설정 하 여 문제를 해결 합니다. 자세한 내용은 [보안 업데이트](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1000)를 참조 하세요.
 
 ## <a name="13200"></a>1.3.20.0 
 
@@ -72,42 +72,42 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 
 ### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능 
 
-- 도메인 새로 고침을 위한 지원 추가 
-- Exchange 메일 공용 폴더 기능 이동 GA 
-- 마법사 오류 서비스 오류에 대 한 처리를 개선 합니다. 
+- 도메인 새로 고침에 대 한 지원 추가 
+- Exchange 메일 공용 폴더 기능이 GA로 이동 
+- 서비스 오류에 대 한 마법사 오류 처리 향상 
 - 커넥터 속성 페이지에서 이전 UI에 대 한 경고 링크를 추가 했습니다. 
-- 통합 그룹 쓰기 저장 기능은 GA 
-- DC는 LDAP 컨트롤 손실 된 경우 향상 된 SSPR 오류 메시지 
-- 하는 동안 DCOM 레지스트리 오류에 대 한 추가 진단 설치  
-- PHS RPC 오류 추적 향상 
-- 자식 도메인의 EA 자격 증명 허용 
-- 데이터베이스 이름 (기본 이름 ADSync) 설치 하는 동안 입력 허용
-- Ping에 대 한 Ws-trust 수정 프로그램을 선택 하 고 새 Azure 인스턴스에 대 한 지원을 추가 하려면 3.19.8 ADAL로 업그레이드 
-- 클레임에 대 한 그룹 수정 동기화 규칙을 samAccountName, DomainNetbios 및 DomainFQDN에서 클라우드로-필요 
-- – 자세한 기본 동기화 규칙 처리를 수정할 [여기](how-to-connect-fix-default-rules.md)합니다.
-- Windows 서비스를 실행 하는 새 에이전트를 추가 합니다. 이 에이전트를 "관리 에이전트" 라는 Microsoft 엔지니어가 지원 사례를 열 때 문제를 해결 하는 데 Azure AD Connect 서버의 원격 진단을 수 있습니다. 이 에이전트를 설치 및 기본적으로 사용 되지 않는.  설치 및 에이전트를 사용 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure AD Connect 관리자 Agent 란?](whatis-aadc-admin-agent.md)합니다. 
-- 최종 사용자 사용권 계약 (EULA) 업데이트 
-- 로그인 형식으로 AD FS를 사용 하는 배포에 대 한 자동 업그레이드 지원을 추가 했습니다.  이 또한 업그레이드 프로세스의 일부로 AD FS를 Azure AD 신뢰 당사자 트러스트를 업데이트 하는 요구 사항을 제거 합니다. 
-- 두 가지 옵션을 제공 하는 Azure AD 트러스트 관리 작업을 추가 합니다: 신뢰 분석/업데이트 및 트러스트를 다시 설정 합니다. 
-- SupportMultipleDomain 스위치를 항상 사용할 수 있도록 AD FS를 Azure AD 신뢰 당사자 트러스트 동작을 변경 (신뢰와 Azure AD 도메인에 포함 되어 업데이트) 합니다. 
-- 사전 설치 된 인증서를 사용 하 여 제거 하 여.pfx 인증서 필요 있도록 설치 새 AD FS 팜 동작을 변경 합니다.
-- 1 개의 AD FS 및 WAP 서버가 배포만 허용 되도록 설치 새 AD FS 팜 워크플로 업데이트 합니다.  모든 추가 서버 초기 설치 후 수행 됩니다. 
+- 통합 그룹 쓰기 저장 기능은 이제 GA입니다. 
+- DC에 LDAP 컨트롤이 없는 경우 SSPR 오류 메시지가 개선 됨 
+- 설치 하는 동안 DCOM 레지스트리 오류에 대 한 진단 추가  
+- PHS RPC 오류의 추적 향상 
+- 하위 도메인에서 EA 자격 허용 
+- 설치 하는 동안 데이터베이스 이름을 입력할 수 있도록 허용 (기본 이름 ADSync)
+- ADAL 3.19.8로 업그레이드 하 고 Ping을 위한 WS-TRUST 픽스를 선택 하 고 새 Azure 인스턴스에 대 한 지원을 추가 합니다. 
+- 클레임에 필요한 그룹 동기화 규칙을 흐름 samAccountName, DomainNetbios 및 DomainFQDN에서 클라우드로 수정 합니다. 
+- 수정 된 기본 동기화 규칙 처리 – [여기](how-to-connect-fix-default-rules.md)에서 자세히 알아보세요.
+- Windows 서비스로 실행 되는 새 에이전트를 추가 했습니다. "Admin Agent" 라는이 에이전트를 사용 하면 지원 사례를 열 때 Microsoft 엔지니어가 문제를 해결할 수 있도록 Azure AD Connect 서버에 대 한 원격 진단을 보다 심층적으로 수행할 수 있습니다. 이 에이전트는 기본적으로 설치 및 사용 하도록 설정 되어 있지 않습니다.  에이전트를 설치 하 고 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [Azure AD Connect Admin agent 란?](whatis-aadc-admin-agent.md)을 참조 하세요. 
+- EULA (최종 사용자 사용권 계약) 업데이트 
+- AD FS를 로그인 유형으로 사용 하는 배포에 대 한 자동 업그레이드 지원이 추가 되었습니다.  이렇게 하면 업그레이드 프로세스의 일부로 Azure AD 신뢰 당사자 트러스트 AD FS를 업데이트 해야 하는 요구 사항이 제거 됩니다. 
+- 두 가지 옵션을 제공 하는 Azure AD 트러스트 관리 작업을 추가 합니다. 트러스트 분석/업데이트 및 트러스트 다시 설정 
+- 항상-SupportMultipleDomain 스위치 (신뢰 및 Azure AD 도메인 업데이트 포함)를 사용 하도록 Azure AD 신뢰 당사자 트러스트 동작 AD FS 변경 되었습니다. 
+- 사전 설치 된 인증서를 사용 하는 옵션을 제거 하 여 .pfx 인증서가 필요 하도록 새 AD FS 팜 설치 동작을 변경 했습니다.
+- 1 AD FS 및 1 WAP 서버 배포만 허용 하도록 새 AD FS 팜 설치 워크플로를 업데이트 했습니다.  모든 추가 서버는 초기 설치 후에 수행 됩니다. 
 
 ### <a name="fixed-issues"></a>해결된 문제 
 
 
-- 수정 SQL ADSync 서비스에 대 한 논리를 다시 연결 
+- ADSync 서비스에 대 한 SQL 다시 연결 논리 수정 
 - 빈 SQL AOA DB를 사용 하 여 새로 설치를 허용 하도록 수정 
-- PS 권한을 GWB 권한을 구체화 하는 스크립트를 수정 합니다. 
-- LocalDB 사용 하 여 VSS 오류를 해결 합니다.  
-- 개체 유형 범위에 없는 경우 잘못 된 오류 메시지 해결 
-- 여기서는 서버에 Azure AD PowerShell 설치 발생할 수 있습니다 어셈블리 충돌이 발생 하는 Azure AD Connect를 사용 하 여 문제를 수정 했습니다. 
-- 커넥터 자격 증명 이전 UI에서 업데이트 되 면 스테이징 서버의 PHS 버그가 수정 되었습니다. 
-- 일부 메모리 누수를 해결합니다. 
+- GWB 권한을 구체화 하기 위해 PS 권한 스크립트 수정 
+- LocalDB를 사용 하 여 VSS 오류 수정  
+- 개체 형식이 범위 내에 있지 않을 때 잘못 된 오류 메시지 수정 
+- 서버에 Azure AD PowerShell을 설치 했을 때 잠재적으로 어셈블리가 Azure AD Connect와 충돌 하는 문제를 해결 했습니다. 
+- 이전 UI에서 커넥터 자격 증명이 업데이트 되 면 준비 서버에서 PHS 버그를 수정 했습니다. 
+- 약간의 메모리 누수 문제를 수정 했습니다. 
 - 기타 Autoupgrade 수정 
-- 내보내기 및 가져오기 처리 확인 되지 않은 기타 수정 
-- 도메인 및 OU에 백슬래시를 처리 하 여 버그를 수정 했습니다. 필터링 
-- ADSync 서비스를 중지 하려면 2 분 이상 걸리지 않았고 업그레이드 시 문제가 발생 하는 문제가 수정 되었습니다. 
+- 내보내기 및 확인 되지 않은 가져오기 처리를 위한 기타 수정 사항 
+- 도메인 및 OU 필터링에서 백슬래시를 처리 하 여 버그 수정 
+- ADSync 서비스를 중지 하는 데 2 분 넘게 걸리며 업그레이드 시에 문제가 발생 하는 문제를 해결 했습니다. 
 
 
 
@@ -206,7 +206,7 @@ SQL Always On 가용성이 ADSync DB에 대해 구성된 경우 Azure AD Connect
 ### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
 
 - Azure AD Connect의 Ping Federate 통합은 현재 일반 공급됩니다. [Ping Federate를 사용하여 Azure AD를 페더레이션하는 방법에 대해 자세히 알아보기](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#federation-with-pingfederate)
-- Azure AD Connect는 이제 업데이트가 수행될 때마다 AD FS에서 Azure AD 트러스트의 백업을 만들고, 필요한 경우 쉽게 복원할 수 있도록 별도 파일에 저장합니다. [Azure AD Connect에서 관리를 신뢰 하는 새로운 기능과 Azure AD에 대 한 자세한 알아봅니다](https://aka.ms/fedtrustinaadconnect)합니다.
+- Azure AD Connect는 이제 업데이트가 수행될 때마다 AD FS에서 Azure AD 트러스트의 백업을 만들고, 필요한 경우 쉽게 복원할 수 있도록 별도 파일에 저장합니다. [Azure AD Connect의 새로운 기능 및 AZURE AD 트러스트 관리에 대해 자세히 알아보세요](https://aka.ms/fedtrustinaadconnect).
 - 새 문제 해결 도구는 기본 전자 메일 주소 변경 및 전체 주소 목록에서 계정 숨기기와 관련된 문제를 해결하는 데 도움이 됩니다.
 - Azure AD Connect는 최신 SQL Server 2012 Native Client를 포함하도록 업데이트되었습니다.
 - "사용자 로그인 변경" 작업에서 사용자 로그인을 암호 해시 동기화 또는 통과 인증 태스크로 전환하면 기본적으로 Seamless Single Sign-On 확인란이 사용되도록 설정됩니다.
@@ -220,12 +220,12 @@ SQL Always On 가용성이 ADSync DB에 대해 구성된 경우 Azure AD Connect
 
 ### <a name="fixed-issues"></a>해결된 문제 
 
-- AAD Connect 서버가.NET 4.7.2로 업그레이드 한 후 높은 CPU 사용량을 표시는 버그가 수정 되었습니다.
+- .NET 4.7.2로 업그레이드 한 후 AAD Connect 서버에서 높은 CPU 사용량을 표시 하는 버그를 수정 했습니다.
 - 자동으로 해결된 SQL 교착 상태 문제에 대한 오류 메시지를 간헐적으로 생성하는 버그가 수정되었습니다.
 - 동기화 규칙 편집기 및 Sync Service Manager에 대한 몇 가지 접근성 문제가 수정되었습니다.  
 - Azure AD Connect가 레지스트리 설정 정보를 가져올 수 없는 버그가 수정되었습니다.
 - 사용자가 마법사에서 앞/뒤로 이동할 때 문제를 생성하는 버그가 수정되었습니다.
-- 마법사에서 처리 하는 잘못 된 다중 스레드로 인해 발생 하는 오류를 방지 하도록 버그 수정
+- 마법사에서 잘못 된 다중 스레드 처리로 인해 오류가 발생 하지 않도록 하는 버그를 수정 했습니다.
 - 보안 그룹을 확인할 때 그룹 동기화 필터링 페이지에 LDAP 오류가 발생하는 경우 Azure AD Connect는 이제 예외를 고화질로 그대로 반환합니다.  조회 예외에 대한 근본 원인을 여전히 알 수 없으며 다른 버그에 의해 해결됩니다.
 -  STK 및 NGC 키(WHfB의 User/Device 개체에 대한 ms-DS-KeyCredentialLink 특성)에 대한 권한이 올바르게 설정되지 않는 버그가 수정되었습니다.     
 - 'Set-ADSyncRestrictedPermissions’가 제대로 호출되지 않는 버그가 수정되었습니다.
@@ -252,7 +252,7 @@ SQL Always On 가용성이 ADSync DB에 대해 구성된 경우 Azure AD Connect
 - SQL 연결 문제 및 다양한 다른 문제 해결 유틸리티 문제를 해결하는 데 사용할 수 있는 ADSyncTools.psm1이라는 새 PowerShell 모듈이 추가되었습니다. ADSyncTools 모듈에 대한 자세한 내용은 [여기](tshoot-connect-tshoot-sql-connectivity.md)를 참조하세요. 
 - 새 "디바이스 옵션 구성" 추가 작업이 추가되었습니다. 이 작업을 사용하여 구성할 수 있는 두 가지 작업은 다음과 같습니다. 
   - **하이브리드 Azure AD 조인**: 사용자 환경에 온-프레미스 AD 공간이 있고 Azure Active Directory에서 제공하는 기능의 혜택을 활용하려는 경우 하이브리드 Azure AD 가입 디바이스를 구현할 수 있습니다. 이는 온-프레미스 Azure Active Directory 및 Azure Active Directory에 모두 가입되어 있는 디바이스입니다.
-  - **디바이스 쓰기 저장**: 장치 쓰기 저장은 AD FS에 대 한 장치 기반 조건부 액세스를 사용 하는 데 사용 됩니다 (2012 R2 이상) 장치를 보호 합니다.
+  - **디바이스 쓰기 저장**: 장치 쓰기 저장은 장치에 따라 AD FS (2012 R2 이상) 보호 된 장치에 대 한 조건부 액세스를 사용 하도록 설정 하는 데 사용 됩니다.
 
     >[!NOTE] 
     > - 동기화 사용자 지정 옵션에서 디바이스 쓰기 저장을 사용하도록 설정하는 옵션이 회색으로 표시됩니다. 
@@ -408,18 +408,18 @@ Azure AD Connect 버전 1.1.654.0 이상에서는 Azure AD Connect가 AD DS 계�
 *   특정 개체에서 SELF와 관련된 ACE를 제외하고 ACE를 모두 제거합니다. SELF의 경우 기본 사용 권한을 그대로 유지할 수 있습니다.
 *   다음과 같은 특정 권한을 할당합니다.
 
-Type     | 이름                          | Access               | 적용 대상
+형식     | 이름                          | 액세스               | 적용 대상
 ---------|-------------------------------|----------------------|--------------|
-허용    | SYSTEM                        | 모든 권한         | 이 개체  |
-허용    | Enterprise Admins             | 모든 권한         | 이 개체  |
-허용    | Domain Admins                 | 모든 권한         | 이 개체  |
-허용    | 관리자                | 모든 권한         | 이 개체  |
-허용    | 엔터프라이즈 도메인 컨트롤러 | 내용 보기        | 이 개체  |
-허용    | 엔터프라이즈 도메인 컨트롤러 | 모든 속성 읽기  | 이 개체  |
-허용    | 엔터프라이즈 도메인 컨트롤러 | 읽기 권한     | 이 개체  |
-허용    | 인증된 사용자           | 내용 보기        | 이 개체  |
-허용    | 인증된 사용자           | 모든 속성 읽기  | 이 개체  |
-허용    | 인증된 사용자           | 읽기 권한     | 이 개체  |
+Allow    | 시스템                        | 모든 권한         | 이 개체  |
+Allow    | Enterprise Admins             | 모든 권한         | 이 개체  |
+Allow    | Domain Admins                 | 모든 권한         | 이 개체  |
+Allow    | Administrators                | 모든 권한         | 이 개체  |
+Allow    | 엔터프라이즈 도메인 컨트롤러 | 내용 보기        | 이 개체  |
+Allow    | 엔터프라이즈 도메인 컨트롤러 | 모든 속성 읽기  | 이 개체  |
+Allow    | 엔터프라이즈 도메인 컨트롤러 | 읽기 권한     | 이 개체  |
+Allow    | 인증된 사용자           | 내용 보기        | 이 개체  |
+Allow    | 인증된 사용자           | 모든 속성 읽기  | 이 개체  |
+Allow    | 인증된 사용자           | 읽기 권한     | 이 개체  |
 
 AD DS 계정에 대한 설정을 강화하려면 [이 PowerShell 스크립트](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978)를 실행할 수 있습니다. 이 PowerShell 스크립트는 위에서 언급한 사용 권한을 AD DS 계정에 할당합니다.
 
@@ -427,13 +427,13 @@ AD DS 계정에 대한 설정을 강화하려면 [이 PowerShell 스크립트](h
 
 PowerShell 스크립트를 사용하여 조직에서 제공하거나 이전 Azure AD Connect 설치에서 만든 기존 AD DS 계정에 이러한 설정을 적용하려면 위에 제공된 링크에서 스크립트를 다운로드합니다.
 
-##### <a name="usage"></a>Usage:
+##### <a name="usage"></a>사용 현황:
 
 ```powershell
 Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 ```
 
-Where 
+위치 
 
 **$ObjectDN** = 사용 권한을 강화해야 하는 Active Directory 계정입니다.
 
@@ -508,7 +508,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 
 ### <a name="azure-ad-connect-sync"></a>Azure AD Connect 동기화
 > [!NOTE]
-> 참고: 동기화 서비스에는 사용자 지정 스케줄러를 개발할 수 있는 WMI 인터페이스가 있습니다. 이 인터페이스는 현재 사용되지 않으며 향후 2018년 6월 30일 이후에 출시되는 Azure AD Connect 이후 버전에서 제거될 예정입니다. 동기화 일정을 사용자 지정하려는 고객은 [기본 제공 스케줄러(https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler) )를 사용해야 합니다.
+> 참고: 동기화 서비스에는 사용자 지정 스케줄러를 개발할 수 있는 WMI 인터페이스가 있습니다. 이 인터페이스는 현재 사용되지 않으며 향후 2018년 6월 30일 이후에 출시되는 Azure AD Connect 이후 버전에서 제거될 예정입니다. 동기화 일정을 사용자 지정 하려는 고객은 [기본 제공 스케줄러](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler)를 사용 해야 합니다.
 
 #### <a name="fixed-issues"></a>해결된 문제
 * Azure AD Connect 마법사가 온-프레미스 Active Directory의 변경 내용을 동기화하는 데 필요한 AD Connector 계정을 만들면 해당 계정에 PublicFolder 개체를 읽는 데 필요한 권한이 올바르게 할당되지 않습니다. 이 문제는 기본 설치와 사용자 지정 설치 모두에 영향을 줍니다. 이 변경으로 문제가 해결됩니다.
@@ -571,7 +571,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 * AAD Connect를 사용하여 새 ADFS 팜을 설정할 때, ADFS 자격 증명을 묻는 페이지가 이동되어 이제 ADFS 및 WAP 서버를 제공하라는 메시지가 사용자에게 표시되기 전에 발생합니다.  따라서 AAD Connect에서 지정된 계정에 올바른 권한이 있는지 확인할 수 있습니다.
 * AAD Connect를 업그레이드하는 동안 ADFS AAD 트러스트가 업데이트에 실패하는 경우 더 이상 업그레이드할 수 없습니다.  이렇게 되면 사용자에게 적절한 경고 메시지가 표시되며, AAD Connect 추가 작업을 통해 트러스트를 다시 설정하도록 진행해야 합니다.
 
-### <a name="seamless-single-sign-on"></a>Seamless Single Sign-On
+### <a name="seamless-single-sign-on"></a>원활한 Single Sign-On
 #### <a name="fixed-issues"></a>해결된 문제
 * [원활한 Single Sign-On](how-to-connect-sso.md) 활성화를 시도하는 경우 Azure AD Connect 마법사가 오류를 반환하도록 하는 문제가 해결되었습니다. 오류 메시지는 *“Microsoft Azure AD Connect 인증 에이전트 구성에 실패했습니다”* 입니다. 이 문제는 이 [아티클](how-to-connect-pta-upgrade-preview-authentication-agents.md)에서 설명된 단계에 따라 [통과 인증](how-to-connect-sso.md)을 위해 인증 에이전트의 미리 보기 버전을 수동으로 업그레이드한 기존 고객에게 영향을 미칩니다.
 
@@ -752,13 +752,13 @@ CBool(
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|선택|
-    |CertKeyAlgorithmParams|CertHashString|Where|
+    |CertKeyAlgorithmParams|CertHashString|위치|
     |||With|
 
 * 고객이 그룹 개체에 대한 sAMAccountName, domainNetBios 및 domainFQDN과 사용자 개체에 대한 distinguishedName을 전달하는 사용자 지정 동기화 규칙을 만들 수 있도록 스키마가 다음과 같이 변경되었습니다.
 
   * 다음 특성이 MV 스키마에 추가되었습니다.
-    * 그룹: AccountName
+    * 그룹: 계정 이름
     * 그룹: domainNetBios
     * 그룹: domainFQDN
     * 사용자: distinguishedName
@@ -833,7 +833,7 @@ Azure AD Connect 동기화
 * 온-프레미스 AD에서 동기화하려면 Azure AD Connect에 AD DS 계정이 필요합니다. 이전에 Express 모드를 사용하여 Azure AD Connect를 설치한 경우 엔터프라이즈 관리자 계정의 자격 증명을 제공할 수 있고 Azure AD Connect에서는 필요한 AD DS 계정을 만듭니다. 그러나 사용자 지정 설치하거나 기존 배포에 포리스트를 추가하는 경우에는 AD DS 계정을 대신 제공해야 합니다. 이제는 사용자 지정 설치 중에 엔터프라이즈 관리자 계정의 자격 증명을 제공하고 Azure AD Connect에서 필요한 AD DS 계정을 만들 수 있습니다.
 * Azure AD Connect는 이제 SQL AOA를 지원합니다. Azure AD Connect를 설치하기 전에 SQL AOA를 사용하도록 설정해야 합니다. Azure AD Connect는 설치 중에 제공된 SQL 인스턴스에서 SQL AOA를 사용하도록 설정되었는지 여부를 검색합니다. SQL AOA를 사용하도록 설정된 경우 Azure AD Connect는 SQL AOA에서 동기 복제 또는 비동기 복제를 사용하도록 구성되어 있는지 확인합니다. 가용성 그룹 수신기를 설정할 때 RegisterAllProvidersIP 속성을 0으로 설정하는 것이 좋습니다. 이를 권장하는 것은 Azure AD Connect에서 현재 SQL Native Client를 사용하여 SQL에 연결하고, SQL Native Client에서는 MultiSubNetFailover 속성 사용을 지원하지 않기 때문입니다.
 * Azure AD Connect 서버의 데이터베이스로 LocalDB를 사용하고 10GB 크기 제한에 도달하면 동기화 서비스가 더 이상 시작되지 않습니다. 이전에는 LocalDB에서 ShrinkDatabase 작업을 수행하여 동기화 서비스를 시작할 수 있을 만큼 충분한 DB 공간을 확보해야 했습니다. 그런 후에 더 많은 DB 공간을 확보할 수 있도록 동기화 서비스 관리자를 사용하여 실행 기록을 삭제했습니다. 이제는 Start-ADSyncPurgeRunHistory cmdlet을 사용하여 LocalDB의 실행 기록 데이터를 제거하여 DB 공간을 확보할 수 있습니다. 또한 이 cmdlet은 동기화 서비스가 실행되고 있지 않을 때 -offline 매개 변수를 지정하여 사용할 수 있는 오프라인 모드를 지원합니다. 참고: 오프라인 모드는 동기화 서비스가 실행되고 있지 않고 사용되는 데이터베이스가 LocalDB인 경우에만 사용할 수 있습니다.
-* Azure AD Connect는 이제 필요한 저장 공간을 줄이기 위해 먼저 동기화 오류 세부 정보를 압축한 후에 LocalDB/SQL 데이터베이스에 저장합니다. 이전 버전의 Azure AD Connect에서 이 버전으로 업그레이드할 때 Azure AD Connect는 기존 동기화 오류 세부 정보를 한 번 압축합니다.
+* Azure AD Connect는 이제 필요한 스토리지 공간을 줄이기 위해 먼저 동기화 오류 세부 정보를 압축한 후에 LocalDB/SQL 데이터베이스에 스토리지합니다. 이전 버전의 Azure AD Connect에서 이 버전으로 업그레이드할 때 Azure AD Connect는 기존 동기화 오류 세부 정보를 한 번 압축합니다.
 * 이전에는 OU 필터링 구성을 업데이트한 후에 디렉터리 동기화에서 기존 개체가 올바르게 포함되거나 제외되도록 전체 가져오기를 수동으로 실행해야 했습니다. 이제는 Azure AD Connect에서 다음 동기화 주기 중에 전체 가져오기를 자동으로 트리거합니다. 또한 전체 가져오기는 업데이트로 영향을 받는 AD 커넥터에만 적용됩니다. 참고: 향상된 이 기능은 Azure AD Connect 마법사를 사용하여 만든 OU 필터링 업데이트에만 적용되며, 동기화 서비스 관리자를 사용하여 만든 OU 필터링 업데이트에는 적용되지 않습니다.
 * 이전에는 그룹 기반 필터링에서 Users, Groups 및 Contact 개체만 지원합니다. 이제는 그룹 기반 필터링에서 Computer 개체도 지원합니다.
 * 이전에는 Azure AD Connect 동기화 스케줄러를 사용하여 커넥터 공간 데이터를 삭제할 수 있었습니다. 이제는 동기화 서비스 관리자에서 스케줄러를 사용할 수 있음을 감지하면 커넥터 공간 데이터의 삭제를 차단합니다. 또한 커넥터 공간 데이터가 삭제되면 고객에게 잠재적인 데이터 손실에 대해 알리는 경고가 반환됩니다.
@@ -889,7 +889,7 @@ Azure AD Connect 동기화
 * Azure AD 테넌트에는 테넌트에 대해 암호 동기화 기능을 사용할지 여부를 나타내는 서비스 구성이 있습니다. 이전에는 활성화된 스테이징 서비스가 있을 경우 Azure AD Connect에서 서비스 구성을 잘못 구성하기 쉽습니다. 이제 Azure AD Connect는 서비스 구성을 오직 활성 Azure AD Connect 서버와 일치하게 유지하려고 합니다.
 * Azure AD Connect 마법사는 이제 온-프레미스 AD에서 AD 휴지통이 사용되지 않는 경우 경고를 감지하고 반환합니다.
 * 이전에는 일괄 처리의 전체 개체 크기가 특정 임계값을 초과할 경우 Azure AD로 내보내기의 시간이 초과되고 내보내기에 실패합니다. 이제 동기화 서비스는 문제가 발생한 경우 별도의 더 작은 일괄 처리로 개체를 다시 보내려고 재시도합니다.
-* 동기화 서비스 키 관리 애플리케이션이 Windows [시작] 메뉴에서 제거되었습니다. 암호화 키 관리는 miiskmu.exe를 사용하는 명령줄 인터페이스를 통해 계속 지원됩니다. 암호화 키 관리에 대한 자세한 내용은 [Abandoning the Azure AD Connect Sync encryption key](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-change-serviceacct-pass#abandoning-the-azure-ad-connect-sync-encryption-key)(Azure AD Connect 동기화 암호화 키 중단) 문서를 참조하세요.
+* 동기화 서비스 키 관리 애플리케이션이 Windows [시작] 메뉴에서 제거되었습니다. 암호화 키 관리는 miiskmu.exe를 사용하는 명령줄 인터페이스를 통해 계속 지원됩니다. 암호화 키 관리에 대한 자세한 내용은 [Abandoning the Azure AD Connect Sync encryption key](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-change-serviceacct-pass#abandoning-the-adsync-service-account-encryption-key)(Azure AD Connect 동기화 암호화 키 중단) 문서를 참조하세요.
 * 이전에는 Azure AD Connect 동기화 서비스 계정 암호를 변경하면 암호화 키를 제거하고 Azure AD Connect 동기화 서비스 계정 암호를 다시 초기화할 때까지 동기화 서비스를 제대로 시작할 수 없습니다. 이제 이 프로세스는 더 이상 필요하지 않습니다.
 
 데스크톱 SSO
@@ -904,7 +904,7 @@ Azure AD Connect 동기화
 Azure AD Connect 동기화
 * Azure AD Connect의 표시 이름에 Azure AD 테넌트에 할당된 초기 onmicrosoft.com 도메인이 포함되어 있지 않을 경우 Azure AD Connect 마법사가 작동되지 않는 문제가 해결되었습니다.
 * 동기화 서비스 계정의 암호에 아포스트로피, 콜론 및 공백 등의 특수 문자가 포함될 경우 SQL Database에 연결하는 동안 Azure AD Connect 마법사가 실패하는 문제가 해결되었습니다.
-* "이미지는 이미지 보다 다른 앵커에 있는" 오류를 발생 하는 문제를 해결 온-프레미스를 일시적으로 제외한 후 준비 모드에는 Azure AD Connect 서버에서 발생 하도록 AD 동기화에서 개체 및 동기화를 위해 다시 포함 합니다.
+* 온-프레미스 AD 개체를 동기화에서 일시적으로 제외 시킨 다음 동기화를 위해 다시 포함 시킨 후 준비 모드의 Azure AD Connect 서버에서 "이미지와 다른 앵커를 포함 하 고 있습니다." 오류가 발생 하는 문제를 해결 했습니다.
 * 온-프레미스 AD 개체를 동기화에서 일시적으로 제외시킨 다음 동기화를 위해 다시 포함시킨 경우 스테이징 모드의 Azure AD Connect 서버에서 "DN에서 찾은 개체가 가상입니다." 오류를 발생하는 문제가 해결되었습니다.
 
 AD FS 관리
@@ -986,7 +986,7 @@ AD FS 관리
 * 커넥터 공간에 있는 개체가 동시에 하나의 조인 규칙의 범위를 벗어나게 되고 다른 규칙의 범위에 포함되는 경우 조인 규칙이 다시 평가되지 않는 문제가 해결되었습니다. 이런 상황은 조인 조건이 서로 배타적인 조인 규칙이 둘 이상인 경우 발생할 수 있습니다.
 * 조인 규칙을 포함하지 않는 인바운드 동기화 규칙(Azure AD의)이 조인 규칙을 포함하는 규칙보다 낮은 우선 순위 값을 갖는 경우 처리되지 않는 문제가 해결되었습니다.
 
-**향상된 기능:**
+**향상된 기능**
 
 * Windows Server 2016 Standard 이상에 Azure AD Connect를 설치할 수 있도록 지원이 추가되었습니다.
 * Azure AD Connect에 대한 원격 데이터베이스로 SQL Server 2016을 사용하는 데 대한 지원이 추가되었습니다.
@@ -1005,7 +1005,7 @@ AD FS 관리
 * Azure AD Connect 마법사는 서버가 준비 모드에 있을 때 실제 암호 동기화 및 비밀번호 쓰기 저장 구성을 표시하지 않습니다. 항상 비활성화로 표시합니다.
 * 서버가 준비 모드에 있을 때 암호 동기화 및 비밀번호 쓰기 저장에 대한 구성 변경 내용은 Azure AD Connect 마법사에서 유지되지 않습니다.
 
-**향상된 기능:**
+**향상된 기능**
 
 * 새 동기화 주기를 성공적으로 시작할 수 있는지 여부를 표시하도록 Start-ADSyncSyncCycle cmdlet이 업데이트되었습니다.
 * 현재 진행 중인 동기화 주기 및 작업을 종료하는 Stop-ADSyncSyncCycle cmdlet이 추가되었습니다.
@@ -1213,7 +1213,7 @@ Azure AD Sync에서 Azure AD Connect로 이름을 변경했습니다.
 ## <a name="104850222"></a>1.0.485.0222
 릴리스 날짜: 2015년 2월
 
-**향상된 기능:**
+**향상된 기능**
 
 * 가져오기 성능이 향상되었습니다.
 

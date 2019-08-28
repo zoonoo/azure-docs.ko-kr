@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Central의 응용 프로그램 템플릿 사용 | Microsoft Docs
-description: 운영자로서 Azure IoT Central 애플리케이션에서 장치 집합을 사용하는 방법을 알아봅니다.
+description: 운영자로서 Azure IoT Central 애플리케이션에서 디바이스 집합을 사용하는 방법을 알아봅니다.
 author: dominicbetts
 ms.author: dobett
 ms.date: 05/30/2019

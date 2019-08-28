@@ -2,22 +2,22 @@
 title: 사용자의 프로필 정보 추가 또는 업데이트 - Azure Active Directory | Microsoft Docs
 description: 사진 및 작업 세부 정보를 포함하여 Azure Active Directory에서 사용자의 프로필에 정보를 추가하는 방법에 대한 지침입니다.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 04/11/2019
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d710a86bb63765ea8a1a777818ca5f99e38d3a7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4002c14ed6340a0e1a89ee295d47c98436515775
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60248126"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561776"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Azure Active Directory를 사용하여 사용자 프로필 정보 추가 또는 업데이트
 프로필 사진, 작업 관련 정보 및 Azure AD(Azure Active Directory)를 사용하는 일부 설정을 비롯하여 사용자 프로필 정보를 추가합니다. 새 사용자를 추가하는 방법에 대한 자세한 내용은 [Azure Active Directory에서 사용자를 추가 또는 삭제하는 방법](add-users-azure-active-directory.md)을 참조하세요.
@@ -26,7 +26,7 @@ ms.locfileid: "60248126"
 앞으로 살펴보겠지만 사용자를 만드는 동안 추가할 수 있는 것보다 많은 정보를 사용자 프로필에서 사용할 수 있습니다. 이 추가 정보는 모두 선택 사항이며 조직에서 필요에 따라 추가할 수 있습니다.
 
 ## <a name="to-add-or-change-profile-information"></a>프로필 정보를 추가 또는 변경하려면
-1. 에 로그인 합니다 [Azure portal](https://portal.azure.com/) 조직에 대 한 사용자 관리자입니다.
+1. 조직의 사용자 관리자로 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
 
 2. **Azure Active Directory**를 선택하고, **사용자**를 선택한 다음, 사용자를 선택합니다. 예를 들면 _Alain Charon_이 있습니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "60248126"
 
     - **프로필 사진.** 사용자 계정의 썸네일 이미지를 선택합니다. 이 사진은 Azure Active Directory 및 사용자의 개인 페이지(예: myapps.microsoft.com 페이지)에 나타납니다.
 
-    - **ID.** 추가 하거나 마지막으로 이름과 같은 사용자에 대 한 추가 id 값을 업데이트 합니다. 첫 번째 이름과 마지막 이름 값에서이 이름은 독립적으로 설정할 수 있습니다. 예를 들어, 회사 이름, 이니셜을 포함 하거나 표시 하는 이름의 시퀀스를 변경 하려면를 사용할 수 있습니다. 또 다른 예로, ' Chris Green' 이름은 두 사용자가 사용 하 여 Id 문자열 ' Chris B. Green' 'Chris R. 녹색 (Contoso)입니다.'를 해당 이름을 설정 하려면
+    - **ID.** 사용자에 대 한 추가 id 값 (예: 결혼 성)을 추가 하거나 업데이트 합니다. 이 이름은 이름 및 성의 값과 별개로 설정할 수 있습니다. 예를 들어 이니셜, 회사 이름을 포함 하거나 표시 된 이름의 시퀀스를 변경 하는 데 사용할 수 있습니다. 또 다른 예로, 이름이 ' Chris Green ' 인 두 사용자의 경우 Id 문자열을 사용 하 여 해당 이름을 ' Chris B. 녹색 ' ' Chris R. 녹색 (Contoso) '으로 설정할 수 있습니다.
 
     - **작업 정보.** 사용자의 직책, 부서 또는 관리자와 같은 작업 관련 정보를 추가합니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "60248126"
 
     - **인증 연락처 정보.** 이 정보를 확인하여 사용자의 활성 전화 번호와 메일 주소가 있는지 확인합니다. 이 정보는 Azure Active Directory에서 로그인 중인 사용자가 실제로 사용자인지 확인하는 데 사용됩니다. 인증 연락처 정보는 전역 관리자만 업데이트할 수 있습니다.
 
-4. **저장**을 선택합니다.
+4.           **저장**을 선택합니다.
 
     사용자에 대한 모든 변경 내용이 저장됩니다.
 

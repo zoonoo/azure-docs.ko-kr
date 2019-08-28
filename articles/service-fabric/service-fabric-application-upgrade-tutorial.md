@@ -41,7 +41,7 @@ Azure 서비스 패브릭을 사용하면 변경된 서비스만 업그레이드
 
 ![서비스 패브릭 애플리케이션 게시][image2]
 
-이제 대화 상자에서 **게시** 를 클릭할 수 있습니다. [클러스터 및 애플리케이션을 보는 Service Fabric 탐색기](service-fabric-visualizing-your-cluster.md)를 사용할 수 있습니다. Visual Objects 응용 프로그램에는 브라우저의 주소 표시줄에 [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/)를 입력해서 이동할 수 있는 웹 서비스가 있습니다.  화면에서 10개의 부동 시각적 개체가 움직이는 것을 볼 수 있을 것입니다.
+이제 대화 상자에서 **게시** 를 클릭할 수 있습니다. [클러스터 및 애플리케이션을 보는 Service Fabric 탐색기](service-fabric-visualizing-your-cluster.md)를 사용할 수 있습니다. Visual Objects 애플리케이션에는 브라우저의 주소 표시줄에 [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/)를 입력해서 이동할 수 있는 웹 서비스가 있습니다.  화면에서 10개의 부동 시각적 개체가 움직이는 것을 볼 수 있을 것입니다.
 
 **참고:** 에 배포 하는 경우 `Cloud.xml` 프로필 (Azure 서비스 패브릭)에 응용 프로그램에서 사용할 수 해야 **http://{ServiceFabricName}. { Region}.cloudapp.azure.com:8081/visualobjects/** 합니다. 부하 분산 장치에 `8081/TCP`가 구성되었는지 확인합니다(Serivce Fabric 인스턴스와 동일한 리소스 그룹에 부하 분산 장치 찾기).
 

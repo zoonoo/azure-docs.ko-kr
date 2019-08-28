@@ -4,7 +4,7 @@ description: 이 빠른 시작에서는 Azure PowerShell을 사용하여 Linux �
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 10/17/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 46ab5cae7514adfc4ec31ad88f5445a09e3c0e6a
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 2bbf76e161ec4106b625d1ceb7677c728a989d66
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55975299"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67667057"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure에서 Linux 가상 머신 만들기
 
@@ -47,7 +47,7 @@ ssh-keygen -t rsa -b 2048
 
 PuTTy 사용을 포함하여 SSH 키 쌍을 만드는 방법에 대한 자세한 내용은 [Windows에 SSH 키를 사용하는 방법](ssh-from-windows.md)을 참조하세요.
 
-Cloud Shell을 사용하여 SSH 키 쌍을 만드는 경우 [Cloud Shell에서 자동으로 만들어지는 저장소 계정](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage)의 컨테이너 이미지에 저장됩니다. 키를 검색할 때까지 저장소 계정이나 파일 공유를 삭제하지 마세요. VM에 대한 액세스를 잃게 됩니다. 
+Cloud Shell을 사용하여 SSH 키 쌍을 만드는 경우 [Cloud Shell에서 자동으로 만들어지는 스토리지 계정](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage)의 컨테이너 이미지에 저장됩니다. 키를 검색할 때까지 스토리지 계정이나 파일 공유를 삭제하지 마세요. VM에 대한 액세스를 잃게 됩니다. 
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 

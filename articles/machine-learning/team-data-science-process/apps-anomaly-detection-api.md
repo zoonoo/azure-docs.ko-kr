@@ -12,16 +12,16 @@ ms.date: 06/05/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
 ms.openlocfilehash: 16f13cd4ad580ea2f163fe87b5924c1462890972
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "64926178"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning 이상 감지 API
 
 > [!NOTE]
-> 이 항목은 유지 관리 합니다. 사용 하 여 것이 좋습니다 합니다 [비정상 탐지기 API 서비스](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/) Azure Cognitive Services에서 비즈니스, 운영, 비정상 및 IoT 메트릭을 검색 하는 갤러리의 Machine Learning 알고리즘에서 제공 합니다.
+> 이 항목은 유지 관리 중입니다. Azure Cognitive Services에서 Machine Learning 알고리즘의 갤러리에서 제공 하는 [변칙 탐지기 API 서비스](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/) 를 사용 하 여 비즈니스, 운영 및 IoT 메트릭에 대 한 변칙을 검색 하는 것이 좋습니다.
 
 ## <a name="overview"></a>개요
 [이상 감지 API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)는 Azure Machine Learning을 사용하여 빌드한 예로서, 시간 간격이 불균일한 숫자 값이 있는 시계열 데이터에서 이상을 감지합니다.
@@ -111,7 +111,7 @@ Score API는 비계절성 시계열 데이터에 이상 감지를 실행하는 �
 ### <a name="detectors"></a>감지기
 이상 감지 API는 3가지 폭넓은 범주의 감지기를 지원합니다. 각 감지기의 구체적인 입력 매개 변수 및 출력에 대한 자세한 내용은 다음 테이블에서 찾을 수 있습니다.
 
-| 감지기 범주 | 감지기 | 설명 | 입력 매개 변수 | outputs |
+| 감지기 범주 | 감지기 | Description | 입력 매개 변수 | 출력 |
 | --- | --- | --- | --- | --- |
 | 급증 감지기 |TSpike 감지기 |값이 첫 번째와 세 번째 사분위 수에서 얼마나 떨어져 있는지를 기반으로 급증과 급락을 감지합니다. |*tspikedetector.sensitivity:* 는 1-10 범위의 정수 값을 취하고, 기본값은 3이며, 값은 더 극단값을 캐치하므로 민감도가 낮습니다. |TSpike: 이진 값 – 급증/급락이 감지되면 ‘1’, 그 외 경우는 ‘0’ |
 | 급증 감지기 | ZSpike 감지기 |데이터 요소가 평균값에서 얼마나 떨어져 있는지를 기반으로 급증 및 급락을 감지합니다. |*zspikedetector.sensitivity:* 는 1-10 범위의 정수 값을 취하고, 기본값은 3이며, 값은 더 극단값을 캐치하므로 민감도가 낮습니다. |ZSpike: 이진 값 – 급증/급락이 감지되면 ‘1’, 그 외 경우는 ‘0’ |
@@ -121,23 +121,23 @@ Score API는 비계절성 시계열 데이터에 이상 감지를 실행하는 �
 ### <a name="parameters"></a>매개 변수
 이러한 입력 매개 변수에 대한 자세한 정보는 아래 테이블에 나와 있습니다.
 
-| 입력 매개 변수 | 설명 | 기본 설정 | Type | 유효 범위 | 제안 범위 |
+| 입력 매개 변수 | Description | 기본 설정 | 형식 | 유효 범위 | 제안 범위 |
 | --- | --- | --- | --- | --- | --- |
-| detectors.historywindow |이상 점수 계산에 사용된 내역(데이터 요소 수) |500 |정수 |10-2000 |시계열에 종속 |
-| detectors.spikesdips | 급증만, 급락만 또는 둘 다 감지할지 여부 |둘 다 |열거형 |Both, Spikes, Dips |둘 다 |
+| detectors.historywindow |이상 점수 계산에 사용된 내역(데이터 요소 수) |500 |integer |10-2000 |시계열에 종속 |
+| detectors.spikesdips | 급증만, 급락만 또는 둘 다 감지할지 여부 |Both |열거형 |Both, Spikes, Dips |Both |
 | bileveldetector.sensitivity |양방향 수준 변화 감지기에 대한 민감도. |3.25 |double |없음 |3.25-5(값이 낮을수록 높은 민감도) |
 | trenddetector.sensitivity |긍정적인 추세 감지에 대한 민감도. |3.25 |double |없음 |3.25-5(값이 낮을수록 높은 민감도) |
-| tspikedetector.sensitivity |TSpike 감지기의 민감도 |3 |정수 |1-10 |3-5(값이 낮을수록 높은 민감도) |
-| zspikedetector.sensitivity |ZSpike 감지기의 민감도 |3 |정수 |1-10 |3-5(값이 낮을수록 높은 민감도) |
-| postprocess.tailRows |출력 결과에 유지할 최신 데이터 요소의 수 |0 |정수 |0(모든 데이터 요소 유지), 또는 결과에 유지할 데이터 요소의 수 지정 |N/A |
+| tspikedetector.sensitivity |TSpike 감지기의 민감도 |3 |integer |1-10 |3-5(값이 낮을수록 높은 민감도) |
+| zspikedetector.sensitivity |ZSpike 감지기의 민감도 |3 |integer |1-10 |3-5(값이 낮을수록 높은 민감도) |
+| postprocess.tailRows |출력 결과에 유지할 최신 데이터 요소의 수 |0 |integer |0(모든 데이터 요소 유지), 또는 결과에 유지할 데이터 요소의 수 지정 |N/A |
 
 ### <a name="output"></a>출력
 API는 시계열 데이터에서 모든 감지기를 실행하고 각 시점에 대한 이진 급증 표시기와 이상 점수를 반환합니다. 아래 테이블은 API의 결과 목록입니다.
 
-| outputs | 설명 |
+| 출력 | Description |
 | --- | --- |
-| Time |원시 데이터의 타임스탬프 또는 집계 (및/또는) 누락 데이터 대체가 적용되는 경우 집계 (및/또는) 대체된 데이터 |
-| Data |원시 데이터의 값 또는 집계 (및/또는) 누락 데이터 대체가 적용되는 경우 집계 (및/또는) 대체된 데이터 |
+| 시간 |원시 데이터의 타임스탬프 또는 집계 (및/또는) 누락 데이터 대체가 적용되는 경우 집계 (및/또는) 대체된 데이터 |
+| 보기 |원시 데이터의 값 또는 집계 (및/또는) 누락 데이터 대체가 적용되는 경우 집계 (및/또는) 대체된 데이터 |
 | Tspike |TSpike 감지기의 급증 감지 여부를 나타내는 이진 표시기 |
 | ZSpike |ZSpike 감지기의 급증 감지 여부를 나타내는 이진 표시기 |
 | rpscore |양방향 수준 변화에 대한 이상 점수를 나타내는 부동 소수점 숫자 |
@@ -157,29 +157,29 @@ ScoreWithSeasonality API는 계절성 패턴이 있는 시계열에 대한 이�
 
 이러한 입력 매개 변수에 대한 자세한 정보는 아래 테이블에 나와 있습니다.
 
-| 입력 매개 변수 | 설명 | 기본 설정 | Type | 유효 범위 | 제안 범위 |
+| 입력 매개 변수 | Description | 기본 설정 | 형식 | 유효 범위 | 제안 범위 |
 | --- | --- | --- | --- | --- | --- |
-| preprocess.aggregationInterval |입력 시계열 집계에 대한 초 단위 집계 간격 |0(집계가 수행되지 않음) |정수 |0: 집계 건너뜀, > 0 기타 |5분에서 1일, 시계열 종속 |
-| preprocess.aggregationFunc |지정된 AggregationInterval로 데이터를 집계하는 데 사용되는 함수 |평균 |열거형 |평균, 합계, 길이 |N/A |
-| preprocess.replaceMissing |누락된 데이터를 입력하는 데 사용되는 값 |lkv(마지막으로 알려진 값) |열거형 |0, lkv, 평균 |N/A |
-| detectors.historywindow |이상 점수 계산에 사용된 내역(데이터 요소 수) |500 |정수 |10-2000 |시계열에 종속 |
-| detectors.spikesdips | 급증만, 급락만 또는 둘 다 감지할지 여부 |둘 다 |열거형 |Both, Spikes, Dips |둘 다 |
+| preprocess.aggregationInterval |입력 시계열 집계에 대한 초 단위 집계 간격 |0(집계가 수행되지 않음) |integer |0: 집계 건너뜀, > 0 기타 |5분에서 1일, 시계열 종속 |
+| preprocess.aggregationFunc |지정된 AggregationInterval로 데이터를 집계하는 데 사용되는 함수 |평균 |열거형 |평균, 합계, 길이 |해당 사항 없음 |
+| preprocess.replaceMissing |누락된 데이터를 입력하는 데 사용되는 값 |lkv(마지막으로 알려진 값) |열거형 |0, lkv, 평균 |해당 사항 없음 |
+| detectors.historywindow |이상 점수 계산에 사용된 내역(데이터 요소 수) |500 |integer |10-2000 |시계열에 종속 |
+| detectors.spikesdips | 급증만, 급락만 또는 둘 다 감지할지 여부 |Both |열거형 |Both, Spikes, Dips |Both |
 | bileveldetector.sensitivity |양방향 수준 변화 감지기에 대한 민감도. |3.25 |double |없음 |3.25-5(값이 낮을수록 높은 민감도) |
 | postrenddetector.sensitivity |긍정적인 추세 감지에 대한 민감도. |3.25 |double |없음 |3.25-5(값이 낮을수록 높은 민감도) |
 | negtrenddetector.sensitivity |부정적인 추세 감지기에 대한 민감도 |3.25 |double |없음 |3.25-5(값이 낮을수록 높은 민감도) |
-| tspikedetector.sensitivity |TSpike 감지기의 민감도 |3 |정수 |1-10 |3-5(값이 낮을수록 높은 민감도) |
-| zspikedetector.sensitivity |ZSpike 감지기의 민감도 |3 |정수 |1-10 |3-5(값이 낮을수록 높은 민감도) |
-| seasonality.enable |계절성 분석이 수행될지 여부 |true |부울 |true, false |시계열에 종속 |
-| seasonality.numSeasonality |감지할 정기적 주기의 최대 수 |1 |정수 |1, 2 |1-2 |
-| seasonality.transform |이상 감지를 적용하기 전에 계절성 (및) 추세 구성 요소가 제거될지 여부 |deseason |열거형 |none, deseason, deseasontrend |N/A |
-| postprocess.tailRows |출력 결과에 유지할 최신 데이터 요소의 수 |0 |정수 |0(모든 데이터 요소 유지), 또는 결과에 유지할 데이터 요소의 수 지정 |N/A |
+| tspikedetector.sensitivity |TSpike 감지기의 민감도 |3 |integer |1-10 |3-5(값이 낮을수록 높은 민감도) |
+| zspikedetector.sensitivity |ZSpike 감지기의 민감도 |3 |integer |1-10 |3-5(값이 낮을수록 높은 민감도) |
+| seasonality.enable |계절성 분석이 수행될지 여부 |true |boolean |true, false |시계열에 종속 |
+| seasonality.numSeasonality |감지할 정기적 주기의 최대 수 |1 |integer |1, 2 |1-2 |
+| seasonality.transform |이상 감지를 적용하기 전에 계절성 (및) 추세 구성 요소가 제거될지 여부 |deseason |열거형 |none, deseason, deseasontrend |해당 사항 없음 |
+| postprocess.tailRows |출력 결과에 유지할 최신 데이터 요소의 수 |0 |integer |0(모든 데이터 요소 유지), 또는 결과에 유지할 데이터 요소의 수 지정 |해당 사항 없음 |
 
 ### <a name="output"></a>출력
 API는 시계열 데이터에서 모든 감지기를 실행하고 각 시점에 대한 이진 급증 표시기와 이상 점수를 반환합니다. 아래 테이블은 API의 결과 목록입니다.
 
-| outputs | 설명 |
+| 출력 | Description |
 | --- | --- |
-| Time |원시 데이터의 타임스탬프 또는 집계 (및/또는) 누락 데이터 대체가 적용되는 경우 집계 (및/또는) 대체된 데이터 |
+| 시간 |원시 데이터의 타임스탬프 또는 집계 (및/또는) 누락 데이터 대체가 적용되는 경우 집계 (및/또는) 대체된 데이터 |
 | OriginalData |원시 데이터의 값 또는 집계 (및/또는) 누락 데이터 대체가 적용되는 경우 집계 (및/또는) 대체된 데이터 |
 | ProcessedData |다음 중 하나: <ul><li>명확한 계절성이 감지되고 deseason 옵션이 선택된 경우 계절에 따라 조정된 시계열</li><li>명확한 계절성이 감지되고 deseasontrend 옵션이 선택된 경우 계절에 따라 조정되고 추세가 제거된 시계열</li><li>기타의 경우, OriginalData와 동일</li> |
 | Tspike |TSpike 감지기의 급증 감지 여부를 나타내는 이진 표시기 |

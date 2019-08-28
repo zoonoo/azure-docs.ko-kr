@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: f7e93dc12b9932fed90c7f9fa3145e56a3488b32
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 55a340f2ee2dceb31a8457f6f2201160e573e8a2
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448032"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012356"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Management FAQ
 Azure API Management에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 가져옵니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="contact-us"></a>문의처
+## <a name="contact-us"></a>문의
 * [Microsoft Azure API Management 팀에게 어떻게 질문할 수 있습니까?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
@@ -38,7 +38,6 @@ Azure API Management에 대한 일반적인 질문과 대답, 패턴 및 모범 
 * [추가하려는 정책을 정책 편집기에서 사용할 수 없는 이유는 무엇입니까?](#why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor)
 * [단일 API에서 여러 환경을 설정하려면 어떻게 해야 합니까?](#how-do-i-set-up-multiple-environments-in-a-single-api)
 * [API Management와 함께 SOAP를 사용할 수 있습니까?](#can-i-use-soap-with-api-management)
-* [API Management 게이트웨이 IP 주소가 상수입니까? 그것을 방화벽 규칙에 사용할 수 있습니까?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
 * [AD FS 보안을 통해 OAuth 2.0 권한 부여 서버를 구성할 수 있습니까?](#can-i-configure-an-oauth-20-authorization-server-with-ad-fs-security)
 * [여러 지리적 위치에 배포할 때 API Management에서 사용하는 라우팅 방법은 무엇입니까?](#what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations)
 * [Azure Resource Manager 템플릿을 사용하여 API Management 서비스 인스턴스를 만들 수 있습니까?](#can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance)
@@ -61,15 +60,15 @@ Azure API Management에 대한 일반적인 질문과 대답, 패턴 및 모범 
 기능이 미리 보기 상태인 경우 기능 작동 방법에 대한 피드백을 찾고 있음을 의미합니다. 기능이 미리 보기 상태인 경우 기능적으로 완전하지만 고객 피드백에 대한 응답으로 변경 내용을 만들 가능성이 있습니다. 프로덕션 환경에서 미리 보기에 있는 기능에 의존하지 않는 것이 좋습니다. 미리 보기 상태의 기능에 대한 의견이 있는 경우 [Microsoft Azure API Management 팀에게 어떻게 질문할 수 있습니까?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)의 옵션 중 하나를 통해 알려 주세요.
 
 ### <a name="how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services"></a>API Management 게이트웨이와 백 엔드 서비스 간의 연결을 어떻게 보호할 수 있습니까?
-API Management 게이트웨이와 백 엔드 서비스 간의 연결을 보호하는 몇 가지 옵션이 있습니다. 다음을 수행할 수 있습니다.
+API Management 게이트웨이와 백 엔드 서비스 간의 연결을 보호하는 몇 가지 옵션이 있습니다. 다음을 할 수 있습니다.
 
 * HTTP 기본 인증을 사용할 수 있습니다. 자세한 내용은 [첫 번째 API 가져오기 및 게시](import-and-publish.md)를 참조하세요.
 * [Azure API Management에서 클라이언트 인증서 인증을 사용하여 백 엔드 서비스를 보호하는 방법](api-management-howto-mutual-certificates.md)에 설명된 대로 SSL 상호 인증을 사용할 수 있습니다.
-* 백 엔드 서비스에서 IP 허용 목록을 사용할 수 있습니다. 소비 계층을 제외 하 고 API Management의 모든 계층에 게이트웨이의 IP 주소가 일정 하 게 유지, 몇 가지 [주의](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)합니다. 이 IP 주소를 허용하도록 허용 목록을 구성할 수 있습니다. Azure Portal의 대시보드에서 API Management 인스턴스의 IP 주소를 가져올 수 있습니다.
+* 백 엔드 서비스에서 IP 허용 목록을 사용할 수 있습니다. 소비 계층을 제외 하 고 API Management의 모든 계층에서 게이트웨이의 IP 주소는 일정 하 게 유지 되며, [ip 설명서 문서](api-management-howto-ip-addresses.md)에 설명 된 몇 가지 주의 사항이 있습니다.
 * API Management 인스턴스를 Azure Virtual Network에 연결합니다.
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>API Management 서비스 인스턴스를 새 인스턴스에 복사하려면 어떻게 해야 합니까?
-API Management 인스턴스를 새 인스턴스로 복사하려는 경우 몇 가지 옵션이 있습니다. 다음을 수행할 수 있습니다.
+API Management 인스턴스를 새 인스턴스로 복사하려는 경우 몇 가지 옵션이 있습니다. 다음을 할 수 있습니다.
 
 * API Management의 백업 및 복원 기능을 사용할 수 있습니다. 자세한 내용은 [Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법](api-management-howto-disaster-recovery-backup-restore.md)을 참조하세요.
 * 사용자 고유의 백업을 만들고 [API Management REST API](/rest/api/apimanagement/)를 사용하여 기능을 복원합니다. REST API를 사용하여 원하는 서비스 인스턴스에서 엔터티를 저장 및 복원합니다.
@@ -87,7 +86,7 @@ API Management 인스턴스를 새 인스턴스로 복사하려는 경우 몇 �
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 업데이트하려는 API Management 인스턴스가 있는 리소스 그룹으로 이동합니다.
-3. API Management에서 **API Management 참여자** 역할을 사용자에게 할당합니다.
+3. API Management에서 **API Management 서비스 참가자** 역할을 사용자에 게 할당 합니다.
 
 이제 새롭게 추가된 참여자는 Azure PowerShell [cmdlet](https://docs.microsoft.com/powershell/azure/overview)을 사용할 수 있습니다. 관리자 권한으로 로그인하는 방법은 다음과 같습니다.
 
@@ -100,26 +99,13 @@ API Management 인스턴스를 새 인스턴스로 복사하려는 경우 몇 �
 추가하려는 정책이 정책 편집기에서 흐리게 표시되거나 음영으로 표시되는 경우 정책에 대해 올바른 범위에 있는지 확인합니다. 각 정책 문은 특정 범위 및 정책 섹션에서 사용하도록 되어 있습니다. 정책의 정책 섹션 및 범위를 검토하려면 [API Management 정책](/azure/api-management/api-management-policies)에서 정책의 사용 섹션을 확인하세요.
 
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>단일 API에서 여러 환경을 설정하려면 어떻게 해야 합니까?
-단일 API에서 여러 환경(예: 테스트 환경 및 프로덕션 환경)을 설정하는 두 가지 옵션이 있습니다. 다음을 수행할 수 있습니다.
+단일 API에서 여러 환경(예: 테스트 환경 및 프로덕션 환경)을 설정하는 두 가지 옵션이 있습니다. 다음을 할 수 있습니다.
 
 * 동일한 테넌트에 다른 API를 호스팅할 수 있습니다.
 * 다른 테넌트에 동일한 API를 호스팅할 수 있습니다.
 
 ### <a name="can-i-use-soap-with-api-management"></a>API Management와 함께 SOAP를 사용할 수 있습니까?
 이제 [SOAP 통과](https://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/) 지원을 사용할 수 있습니다. 관리자는 해당 SOAP 서비스의 WSDL을 가져올 수 있고 Azure API Management는 SOAP 프런트 엔드를 만듭니다. 개발자 포털 설명서, 테스트 콘솔, 정책 및 분석을 SOAP 서비스에 모두 사용할 수 있습니다.
-
-### <a name="is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules"></a>API Management 게이트웨이 IP 주소가 상수입니까? 그것을 방화벽 규칙에 사용할 수 있습니까?
-API Management의 모든 계층에서 API Management 테넌트의 공용 IP 주소(VIP)는 일부 예외를 제외하고 테넌트의 수명 동안 정적입니다. IP 주소는 다음 상황에서 변경됩니다.
-
-* 서비스가 삭제된 다음 다시 생성되었습니다.
-* 서비스 구독이 [일시 중단](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states)되거나 [경고](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states)된 다음(예: 미지불) 복원되었습니다.
-* Azure Virtual Network를 추가하거나 제거합니다(개발자 계층 및 프리미엄 계층에서만 Virtual Network를 사용할 수 있음).
-
-다중 지역 배포의 경우 지역이 비워진 다음 복원되는 경우 지역 주소가 변경됩니다(프리미엄 계층에서만 다중 지역 배포를 사용할 수 있음).
-
-다중 지역 배포를 위해 구성된 프리미엄 계층 테넌트는 지역 당 하나의 공용 IP 주소에 할당됩니다.
-
-Azure Portal의 테넌트 페이지에서 IP 주소(또는 다중 지역 배포에서 여러 IP 주소)를 가져올 수 있습니다.
 
 ### <a name="can-i-configure-an-oauth-20-authorization-server-with-ad-fs-security"></a>AD FS 보안을 통해 OAuth 2.0 권한 부여 서버를 구성할 수 있습니까?
 AD FS(Active Directory Federation Services) 보안으로 OAuth 2.0 권한 부여 서버를 구성하는 방법을 알아보려면 [API Management에서 ADFS 사용](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/)을 참조하세요.
@@ -128,7 +114,7 @@ AD FS(Active Directory Federation Services) 보안으로 OAuth 2.0 권한 부여
 API Management는 여러 지리적 위치에 배포할 때 [성능 트래픽 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md#performance)을 사용합니다. 들어오는 트래픽은 가장 가까운 API 게이트웨이로 라우팅됩니다. 한 지역이 오프라인 상태가 되면, 들어오는 트래픽은 다음으로 가까운 게이트웨이로 자동으로 라우팅됩니다. [Traffic Manager 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md)에서 라우팅 방법에 대해 자세히 알아봅니다.
 
 ### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance"></a>Azure Resource Manager 템플릿을 사용하여 API Management 서비스 인스턴스를 만들 수 있습니까?
-예. [Azure API Management 서비스](https://aka.ms/apimtemplate) 빠른 시작 템플릿을 참조하세요.
+예. [Azure API Management Service](https://aka.ms/apimtemplate) 빠른 시작 템플릿을 참조 하세요.
 
 ### <a name="can-i-use-a-self-signed-ssl-certificate-for-a-back-end"></a>백 엔드에 대해 자체 서명된 SSL 인증서를 사용할 수 있습니까?
 예. PowerShell을 통해 또는 API에 직접 전송하여 수행할 수 있습니다. 이렇게 하면 인증서 체인 유효성 검사가 사용하지 않도록 설정되며 API Management에서 백 엔드 서비스로 통신할 때 자체 서명 또는 비공개로 서명된 인증서를 사용할 수 있습니다.

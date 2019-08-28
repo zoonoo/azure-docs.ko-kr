@@ -10,21 +10,20 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 1318cd3d1c0c51889cc70b6836d06d6d6ee70c24
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 848cfc96a7da4e69ff77d16a42226a983153ac63
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60387403"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69896995"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>SQL에서 인증을 위해 Azure Active Directory 인증 사용
 
 Azure Active Directory 인증은 Azure AD(Azure Active Directory)의 ID를 사용하여 Azure [SQL Database](sql-database-technical-overview.md), [Managed Instance](sql-database-managed-instance.md) 및 [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)에 연결하는 메커니즘입니다. 
 
 > [!NOTE]
-> 이 항목은 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다.
+> 이 항목은 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하자면, SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다.
 
 Azure AD 인증을 사용하면 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 하나의 중앙 위치에서 관리할 수 있습니다. 중앙 ID 관리는 데이터베이스 사용자 관리를 위한 단일 위치를 제공하며 권한 관리를 간소화합니다. 이점은 다음과 같습니다.
 
@@ -70,7 +69,7 @@ Azure AD 인증을 사용할 때는 SQL Database 서버 및 Managed Instance에 
 
 ![관리자 구조][3]
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 새 사용자를 만들려면 데이터베이스에서 `ALTER ANY USER` 권한이 있어야 합니다. `ALTER ANY USER` 권한은 아무 데이터베이스 사용자에게나 부여할 수 있습니다. 서버 관리자 계정과, 해당 데이터베이스에 대한 `CONTROL ON DATABASE` 또는 `ALTER ON DATABASE` 권한이 있는 데이터베이스 사용자와, `db_owner` 데이터베이스 역할 그룹의 구성원도 `ALTER ANY USER` 권한을 보유할 수 있습니다.
 
@@ -99,7 +98,7 @@ Azure SQL Database, Managed Instance 또는 SQL Data Warehouse에 포함된 데�
   - `SUSER_ID(<admin name>)`
   - `SUSER_SID(<admin name>)`
 
-### <a name="manage-instances"></a>인스턴스 관리
+### <a name="managed-instances"></a>Managed Instance
 
 - Azure AD 서버 보안 주체(로그인) 및 사용자는 [Managed Instance](sql-database-managed-instance.md)의 미리 보기 기능으로 지원됩니다.
 - Azure AD 그룹에 매핑된 Azure AD 서버 보안 주체(로그인)를 데이터베이스 소유자로 설정하는 기능은 [Managed Instance](sql-database-managed-instance.md)에서 지원되지 않습니다.
@@ -117,8 +116,9 @@ Azure SQL Database, Managed Instance 또는 SQL Data Warehouse에 포함된 데�
 
 Azure Active Directory 인증에서는 Azure AD ID를 사용하여 데이터베이스에 연결하는 다음 방법을 지원합니다.
 
-- 통합 Windows 인증 사용
-- Azure AD 사용자 이름 및 암호 사용
+- Azure Active Directory 암호
+- Azure Active Directory 통합
+- Azure Active Directory MFA 지원을 통한 유니버설 인증
 - 애플리케이션 토큰 인증 사용
 
 Azure AD 서버 보안 주체(로그인)(**공개 미리 보기**)에 대해 지원되는 인증 방법은 다음과 같습니다.
@@ -126,7 +126,6 @@ Azure AD 서버 보안 주체(로그인)(**공개 미리 보기**)에 대해 지
 - Azure Active Directory 암호
 - Azure Active Directory 통합
 - Azure Active Directory MFA 지원을 통한 유니버설 인증
-- Azure Active Directory 대화형
 
 
 ### <a name="additional-considerations"></a>추가 고려 사항

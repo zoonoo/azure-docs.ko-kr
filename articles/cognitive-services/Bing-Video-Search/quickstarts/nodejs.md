@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Bing Video Search REST API 및 Node.js를 사용하여 비디오 검색'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: JavaScript를 통해 Bing Video Search REST API로 비디오 검색 요청을 보내려면 이 빠른 시작을 사용합니다.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: a7cfdeb69fd0df9d79424ade3823ab7f8adb4913
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 786302b882fbd59932af17ccc6a390fa41b30ac9
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449284"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932967"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>빠른 시작: Bing Video Search REST API 및 Node.js를 사용하여 비디오 검색
 
@@ -75,7 +75,7 @@ Bing Video Search API를 처음 호출하고 JSON 응답에서 검색 결과를 
        });
        ```
 
-# <a name="create-and-send-the-search-request"></a>검색 요청 만들기 및 보내기
+## <a name="create-and-send-the-search-request"></a>검색 요청 만들기 및 보내기
 
 1. `bing_video_search()`라는 함수를 만듭니다. 호스트 이름 및 헤더를 포함한 요청에 대한 매개 변수를 추가합니다. 검색어를 인코딩하고 `?q=` 매개 변수를 통해 경로 매개 변수에 추가합니다. 그런 다음, `req.end()`를 통해 요청을 보냅니다.
 

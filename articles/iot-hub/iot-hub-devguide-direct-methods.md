@@ -26,11 +26,11 @@ IoT Hub에 **서비스 연결** 권한만 있다면 누구든 디바이스에서
 
 직접 메서드는 요청-응답 패턴을 따르며, 결과를 즉각적으로 확인해야 하는 통신에 유의미합니다. 팬 켜기 등, 대화형 디바이스 제어를 예로 들 수 있습니다.
 
-desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 대해 궁금한 점이 있으면 [클라우드-장치 통신 지침](iot-hub-devguide-c2d-guidance.md)을 참조하세요.
+desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지 사용에 대해 궁금한 점이 있으면 [클라우드-디바이스 통신 지침](iot-hub-devguide-c2d-guidance.md)을 참조하세요.
 
 ## <a name="method-lifecycle"></a>메서드 수명 주기
 
-직접 메서드는 디바이스에서 구현되며, 제대로 인스턴스화하기 위해 메서드 페이로드에 0개 이상의 입력이 필요할 수 있습니다. 직접 메서드는 서비스 지향 URI를 통해 호출합니다(`{iot hub}/twins/{device id}/methods/`). 장치는 장치별 MQTT 항목(`$iothub/methods/POST/{method name}/`) 또는 AMQP 링크(`IoThub-methodname` 및 `IoThub-status` 애플리케이션 속성)를 통해 직접 메서드를 수신합니다. 
+직접 메서드는 디바이스에서 구현되며, 제대로 인스턴스화하기 위해 메서드 페이로드에 0개 이상의 입력이 필요할 수 있습니다. 직접 메서드는 서비스 지향 URI를 통해 호출합니다(`{iot hub}/twins/{device id}/methods/`). 디바이스는 디바이스별 MQTT 항목(`$iothub/methods/POST/{method name}/`) 또는 AMQP 링크(`IoThub-methodname` 및 `IoThub-status` 애플리케이션 속성)를 통해 직접 메서드를 수신합니다. 
 
 > [!NOTE]
 > 디바이스에서 직접 메서드를 호출할 때 속성 이름과 값은 US-ASCII로 출력 가능한 영숫자만 포함할 수 있으며 다음 집합은 제외됩니다. ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``

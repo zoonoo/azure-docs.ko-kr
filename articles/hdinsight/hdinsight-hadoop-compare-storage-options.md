@@ -125,7 +125,7 @@ Azure Storage는 HDInsight와 매끄럽게 통합되는 강력한 범용 스토�
 
 사용 하 여 저장소 계정을 보호 하려는 경우는 **방화벽 및 virtual network** 에 대 한 제한 **네트워크를 선택한**, 예외를 사용 하도록 설정 해야 **허용 Microsoft 신뢰할 수 있는 서비스 하는 중...**  HDInsight 저장소 계정에 액세스할 수 있도록 합니다.
 
-### <a name="hdinsight-storage-architecture"></a>HDInsight 저장소 아키텍처
+### <a name="hdinsight-storage-architecture"></a>HDInsight 스토리지 아키텍처
 
 다음 다이어그램은 Azure Storage의 HDInsight 아키텍처 추상 보기를 제공합니다.
 
@@ -150,7 +150,7 @@ HDInsight 클러스터와 Azure Storage 계정을 사용하는 경우 다음 원
 
 * **클러스터에 연결되지 *않은* 스토리지 계정의 개인 컨테이너:** WebHCat 작업을 제출할 때 스토리지 계정을 정의하지 않는 경우 컨테이너의 Blob에 액세스할 수 없습니다. 
 
-만들기 프로세스에서 정의된 저장소 계정과 해당 키는 클러스터 노드의 %HADOOP_HOME%/conf/core-site.xml에 저장됩니다. 기본적으로 HDInsight는 core-site.xml 파일에 정의된 스토리지 계정을 사용합니다. [Apache Ambari](./hdinsight-hadoop-manage-ambari.md)를 사용하여 이 설정을 수정할 수 있습니다.
+만들기 프로세스에서 정의된 스토리지 계정과 해당 키는 클러스터 노드의 %HADOOP_HOME%/conf/core-site.xml에 저장됩니다. 기본적으로 HDInsight는 core-site.xml 파일에 정의된 스토리지 계정을 사용합니다. [Apache Ambari](./hdinsight-hadoop-manage-ambari.md)를 사용하여 이 설정을 수정할 수 있습니다.
 
 Apache Hive, MapReduce, Apache Hadoop 스트리밍 및 Apache Pig를 비롯한 여러 WebHCat 작업은 스토리지 계정 및 메타데이터 설명을 포함할 수 있습니다. (이 방식은 현재 메타데이터가 아닌 스토리지 계정이 있는 Pig에 적합합니다.) 자세한 내용은 [대체 스토리지 계정 및 Metastore와 HDInsight 클러스터 사용](https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx)을 참조하세요.
 
@@ -192,7 +192,7 @@ Data Lake Storage Gen1은 HDFS와 호환되는 Apache Hadoop 파일 시스템이
 
 Data Lake Storage Gen1에 저장된 데이터는 MapReduce 또는 Hive와 같은 Hadoop 분석 프레임워크를 사용하여 쉽게 분석될 수 있습니다. Azure HDInsight 클러스터는 Data Lake Storage Gen1에 저장된 데이터에 직접 액세스하도록 프로비전되고 구성될 수 있습니다.
 
-### <a name="unlimited-storage-petabyte-files"></a>무제한 저장소, 페타바이트 파일
+### <a name="unlimited-storage-petabyte-files"></a>무제한 스토리지, 페타바이트 파일
 
 Data Lake Storage Gen1은 무제한 스토리지를 제공하며 분석에 대한 다양한 데이터를 저장하는 데 적합합니다. 데이터 레이크에 저장될 수 있는 계정 크기, 파일 크기 또는 데이터 양을 제한하지 않습니다. 개별 파일의 범위는 킬로바이트에서 페타바이트까지 다양하므로 Data Lake Storage Gen1은 모든 형식의 데이터를 저장할 수 있는 유용한 옵션입니다. 데이터는 여러 복사본을 만들어 영구적으로 저장되며 데이터가 Data Lake에 저장될 수 있는 기간에 제한이 없습니다.
 
@@ -212,7 +212,7 @@ Data Lake Storage Gen1은 사전 변환 없이 모든 데이터를 원시 형식
 
 데이터에 대한 Data Lake Storage Gen1 컨테이너는 기본적으로 폴더 및 파일입니다. SDK, Azure Portal 및 Azure Powershell을 사용하여 저장된 데이터에서 작동합니다. 이러한 인터페이스 및 적절한 컨테이너를 사용하여 저장소에 데이터를 저장하는 한 모든 종류의 데이터를 저장할 수 있습니다. Data Lake Storage Gen1은 저장하는 데이터의 형식에 따라 데이터의 특수한 처리를 수행하지 않습니다.
 
-## <a name="DataLakeStoreSecurity">Data Lake Storage Gen1의 데이터 보안</a>
+## <a name="DataLakeStoreSecurity"></a>Data Lake Storage Gen1의 데이터 보안
 Data Lake Storage Gen1은 인증을 위해 Azure Active Directory를 사용하고 데이터에 대한 액세스를 관리하기 위해 ACL(액세스 제어 목록)을 사용합니다.
 
 | **기능** | **설명** |

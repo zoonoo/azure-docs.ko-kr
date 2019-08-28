@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: sharadag
-ms.openlocfilehash: 7a261d65a7bd3eea150dd764c65b94ddd47466b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 420d7afe0d825da9149f2cb2ae1540a2805b357c
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736125"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335886"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>일반적인 라우팅 문제 해결
 이 문서에서는 Azure Front Door Service 구성에서 발생할 수 있는 몇 가지 일반적인 라우팅 문제를 해결하는 방법을 설명합니다. 
@@ -62,11 +62,11 @@ ms.locfileid: "60736125"
 
 
 3. 회람 규칙 설정 확인
-     - 해당 프런트 엔드 호스트 이름에서 백 엔드 풀로 라우팅되어야 하는 회람 규칙으로 이동합니다. 허용되는 프로토콜이 올바르게 구성되었는지, 그렇지 않다면 요청 전달 시 Front Door에서 사용할 프로토콜이 올바르게 구성되었는지 확인하세요. _허용되는 프로토콜_에 따라 Front Door에서 허용해야 하는 요청이 결정되고, _고급_ 탭의 _전달 프로토콜_에 따라 Front Door에서 백 엔드로 요청을 전달하는 데 사용해야 하는 프로토콜이 결정됩니다.
+     - 해당 프런트 엔드 호스트 이름에서 백 엔드 풀로 라우팅되어야 하는 회람 규칙으로 이동합니다. 허용되는 프로토콜이 올바르게 구성되었는지, 그렇지 않다면 요청 전달 시 Front Door에서 사용할 프로토콜이 올바르게 구성되었는지 확인하세요. 허용 되는 _프로토콜_ 에 따라 앞 도어를 수락 해야 하는 요청과 _전달 프로토콜_ 에 따라 프런트 도어에서 백 엔드에 요청을 전달 하는 데 사용할 프로토콜을 결정 합니다.
           - 예를 들어 백 엔드가 HTTP 요청만 허용하는 경우 다음과 같은 구성이 유효합니다.
                - _허용되는 프로토콜_은 HTTP 및 HTTPS입니다. _전달 프로토콜_은 HTTP입니다. HTTPS가 허용되는 프로토콜이므로 일치 요청이 작동하지 않으며, 요청이 HTTPS 형식으로 수행될 경우 Front Door가 HTTPS를 사용하여 전달을 시도합니다.
 
                - _허용되는 프로토콜_은 HTTP입니다. _전달 프로토콜_은 일치 요청 또는 HTTPS입니다.
 
-   - 회람 규칙 구성 창 상단에 있는 _고급_ 탭을 클릭합니다. _Url 다시 쓰기_는 기본적으로 비활성화되며, 사용 가능하게 만들려는 백 엔드 호스트 리소스의 범위를 좁히려는 경우에만 이 필드를 사용해야 합니다. 비활성화될 경우 Front Door가 수신한 요청 경로를 전달합니다. 이 필드가 잘못 구성되었고 Front Door가 사용할 수 없는 백 엔드에서 리소스를 요청하는 경우 HTTP 404 상태 코드가 반환됩니다.
+   - _Url 다시 쓰기_는 기본적으로 비활성화되며, 사용 가능하게 만들려는 백 엔드 호스트 리소스의 범위를 좁히려는 경우에만 이 필드를 사용해야 합니다. 비활성화될 경우 Front Door가 수신한 요청 경로를 전달합니다. 이 필드가 잘못 구성되었고 Front Door가 사용할 수 없는 백 엔드에서 리소스를 요청하는 경우 HTTP 404 상태 코드가 반환됩니다.
 

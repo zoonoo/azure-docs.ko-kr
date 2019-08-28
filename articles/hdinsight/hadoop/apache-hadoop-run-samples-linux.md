@@ -93,7 +93,7 @@ HDInsight의 Apache Hadoop에 포함된 MapReduce 예제를 실행하는 방법�
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
     ```
 
-    이 작업에 대한 입력은 `/example/data/gutenberg/davinci.txt`에서 읽습니다. 이 예제의 출력은 `/example/data/davinciwordcount`에 저장됩니다. 두 경로는 모두 로컬 파일 시스템이 아니라 클러스터의 기본 저장소에 있습니다.
+    이 작업에 대한 입력은 `/example/data/gutenberg/davinci.txt`에서 읽습니다. 이 예제의 출력은 `/example/data/davinciwordcount`에 저장됩니다. 두 경로는 모두 로컬 파일 시스템이 아니라 클러스터의 기본 스토리지에 있습니다.
 
    > [!NOTE]  
    > Wordcount 샘플에 대한 도움말에서 설명했듯이 여러 입력 파일을 지정할 수도 있습니다. 예를 들어 `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` 는 davinci.txt와 ulysses.txt 모두에서 단어 수를 계산합니다.
@@ -183,7 +183,7 @@ GraySort는 벤치마크 정렬입니다. 이 메트릭은 엄청난 양, 일반
 
 데이터를 생성하고 정렬한 다음 출력의 유효성을 검사하려면 다음 단계를 사용합니다.
 
-1. `/example/data/10GB-sort-input`에 있는 HDInsight 클러스터의 기본 저장소에 저장되는 10GB의 데이터를 생성합니다.
+1. `/example/data/10GB-sort-input`에 있는 HDInsight 클러스터의 기본 스토리지에 저장되는 10GB의 데이터를 생성합니다.
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input

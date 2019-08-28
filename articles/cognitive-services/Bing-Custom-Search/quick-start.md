@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: 처음으로 Bing Custom Search 인스턴스 만들기 | Microsoft Docs'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 이 문서를 사용하여 사용자가 정의하는 도메인 및 웹 페이지를 검색할 수 있는 사용자 지정 Bing 인스턴스를 만듭니다.
 services: cognitive-services
 author: aahill
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 06/18/2019
 ms.author: aahi
-ms.openlocfilehash: d7a0c29ad3386fcdf85292b6e2852842a971c076
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 2806ca6f7079ffac3d2222363cd5b3839ef8f97d
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56231912"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405026"
 ---
 # <a name="quickstart-create-your-first-bing-custom-search-instance"></a>빠른 시작: 처음으로 Bing Custom Search 인스턴스 만들기
 

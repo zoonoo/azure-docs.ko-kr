@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 14ab1988f28de214036fa80fa36a4006a3359f30
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6ab500fe6a7f288bcfbdc9168ada8bdad5bdb6ea
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435890"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772941"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Translator Text API에 대한 언어 및 지역 지원
 
@@ -23,12 +23,12 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 
 [기계 번역 작동 방식에 대해 자세히 알아보기](https://www.microsoft.com/translator/mt.aspx)
 
-## <a name="translation"></a>변환
+## <a name="translation"></a>이동
 
 **V2 Translator API**
 
 > [!NOTE]
-> V2는 2018 년 4 월 30 일에 사용 되지 않았습니다. V3 V3에서 단독으로 사용할 수 있는 새 기능을 활용 하기 위해 응용 프로그램을 마이그레이션하세요.
+> V2는 2018 년 4 월 30 일부 터 더 이상 사용 되지 않습니다. V3에 독점적으로 제공 되는 새로운 기능을 활용 하려면 응용 프로그램을 V3로 마이그레이션 하세요.
 
 * 통계 전용: 이 언어에 사용할 수 있는 인공신경망 시스템이 없습니다.
 * 사용할 수 있는 인공신경망: 인공신경망 시스템을 사용할 수 있습니다. `category=generalnn` 매개 변수를 사용하여 인공신경망 시스템에 액세스합니다.
@@ -38,7 +38,7 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 **V3 Translator API** V3 Translator API는 기본적으로 인공신경망 기반이며, 통계 시스템은 인공신경망 시스템이 없는 경우에만 사용할 수 있습니다.
 
 > [!NOTE]
-> 현재 신경망 언어 하위 집합 사용자 지정 변환기에 제공 되며 추가 점진적으로 추가 됩니다. [사용자 지정 변환기에서 현재 사용할 수 있는 언어를 보려면](#customization)합니다.
+> 현재 사용자 지정 변환기에서 신경망의 하위 집합을 사용할 수 있으며,이를 점차적으로 추가 하는 중입니다. [사용자 지정 번역기에서 현재 사용할 수 있는 보기 언어](#customization)입니다.
 
 |언어|  언어 코드|  V2 API| V3 API|
 |:-----|:-----:|:-----|:-----|
@@ -49,7 +49,7 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 |불가리아어| `bg`    |사용 가능한 인공신경망|  신경|
 |광둥어(번체)|   `yue`   |통계 전용|  통계|
 |카탈로니아어|   `ca`    |통계 전용|  통계|
-|중국어 간체|    `zh-Hans`   |기본 인공신경망 |신경|
+|중국어(간체)|    `zh-Hans`   |기본 인공신경망 |신경|
 |중국어 번체|   `zh-Hant`   |기본 인공신경망 |신경|
 |크로아티아어|  `hr`    |사용 가능한 인공신경망|  신경|
 |체코어| `cs`    |사용 가능한 인공신경망|  신경|
@@ -78,18 +78,18 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 |한국어 |`ko`   |사용 가능한 인공신경망|  신경|
 |라트비아어|   `lv`    |사용 가능한 인공신경망|  신경|
 |리투아니아어|    `lt`    |사용 가능한 인공신경망|  신경|
-|마다가스카르어|  `mg`    |통계 전용|  통계|
+|말라가시어|  `mg`    |통계 전용|  통계|
 |말레이어| `ms`    |통계 전용   |통계|
 |몰타어|   `mt`    |통계 전용|  통계|
 |노르웨이어| `nb`    |사용 가능한 인공신경망|  신경|
-|페르시아어|   `fa`    |통계 전용|  통계|
+|페르시아어|   `fa`    |사용 가능한 인공신경망|  신경|
 |폴란드어|    `pl`    |사용 가능한 인공신경망|  신경|
 |포르투갈어|    `pt`    |사용 가능한 인공신경망|  신경|
 |케레타로 오토미어|   `otq`   |통계 전용|  통계|
 |루마니아어|  `ro`    |사용 가능한 인공신경망|  신경|
 |러시아어|   `ru`    |사용 가능한 인공신경망|  신경|
 |사모아어|    `sm`    |통계 전용|  통계|
-|세르비아어(키릴자모)|    `sr-Cyrl`   |통계 전용|  통계|
+|세르비아어(키릴 자모)|    `sr-Cyrl`   |통계 전용|  통계|
 |세르비아어(라틴 문자)|   `sr-Latn`   |통계 전용   |통계|
 |슬로바키아어|    `sk`    |사용 가능한 인공신경망|  신경|
 |슬로베니아어| `sl`    |사용 가능한 인공신경망|  신경|
@@ -115,10 +115,10 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | 아랍어 | `ar` | 아랍어 `Arab` | <--> | 라틴어 `Latn` |
 |벵골어  | `bn` | 벵골어 `Beng` | <--> | 라틴어 `Latn` |
-| 중국어 (간체) | `zh-Hans` | 중국어 간체 `Hans`| <--> | 라틴어 `Latn` |
-| 중국어 (간체) | `zh-Hans` | 중국어 간체 `Hans`| <--> | 중국어 번체 `Hant`|
-| 중국어 (번체) | `zh-Hant` | 중국어 번체 `Hant`| <--> | 라틴어 `Latn` |
-| 중국어 (번체) | `zh-Hant` | 중국어 번체 `Hant`| <--> | 중국어 간체 `Hans` |
+| 중국어(간체) | `zh-Hans` | 중국어 간체 `Hans`| <--> | 라틴어 `Latn` |
+| 중국어(간체) | `zh-Hans` | 중국어 간체 `Hans`| <--> | 중국어 번체 `Hant`|
+| 중국어(번체) | `zh-Hant` | 중국어 번체 `Hant`| <--> | 라틴어 `Latn` |
+| 중국어(번체) | `zh-Hant` | 중국어 번체 `Hant`| <--> | 중국어 간체 `Hans` |
 | 구자라트어 | `gu`  | 구자라트어 `Gujr` | --> | 라틴어 `Latn` |
 | 히브리어 | `he` | 히브리어 `Hebr` | <--> | 라틴어 `Latn` |
 | 힌디어 | `hi` | 데바나가리어 `Deva` | <--> | 라틴어 `Latn` |
@@ -128,7 +128,7 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 | 마라티어 | `mr` | 데바나가리어 `Deva` | --> | 라틴어 `Latn` |
 | 오리야어 | `or` | 오리야어 `Orya` | <--> | 라틴어 `Latn` |
 | 펀잡어 | `pa` | 굴묵키어 `Guru`  | <--> | 라틴어 `Latn`  |
-| 세르비아어(키릴자모) | `sr-Cyrl` | 키릴 자모 `Cyrl`  | --> | 라틴어 `Latn` |
+| 세르비아어(키릴 자모) | `sr-Cyrl` | 키릴 자모 `Cyrl`  | --> | 라틴어 `Latn` |
 | 세르비아어(라틴 문자) | `sr-Latn` | 라틴어 `Latn` | --> | 키릴 자모 `Cyrl`|
 | 타밀어 | `ta` | 타밀어 `Taml` | --> | 라틴어 `Latn` |
 | 텔루구어 | `te` | 텔루구어 `Telu` | --> | 라틴어 `Latn` |
@@ -146,7 +146,7 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 | 보스니아어(라틴 문자)      | `bs`          |
 | 불가리아어      | `bg`          |
 | 카탈로니아어      | `ca`          |
-| 중국어 간체      | `zh-Hans`          |
+| 중국어(간체)      | `zh-Hans`          |
 | 크로아티아어      | `hr`          |
 | 체코어      | `cs`          |
 | 덴마크어      | `da`          |
@@ -191,9 +191,9 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 | 베트남어      | `vi`          |
 | 웨일스어      | `cy`          |
 
-## <a name="detect"></a>Detect
+## <a name="detect"></a>검색
 
-Translator Text API 변환 및 문자 전사에 대해 사용할 수 있는 모든 언어를 검색합니다.
+Translator Text API는 번역 및 음에 사용할 수 있는 모든 언어를 검색 합니다.
 
 
 ## <a name="access-the-translator-text-api-language-list-programmatically"></a>Translator Text API 언어 목록에 프로그래밍 방식으로 액세스
@@ -204,7 +204,7 @@ Translator Text API 변환 및 문자 전사에 대해 사용할 수 있는 모�
 
 ## <a name="customization"></a>사용자 지정
 
-다음 언어에서 영어를 사용 하 여 사용자 지정에 사용할 수 있는 [사용자 지정 변환기](https://aka.ms/CustomTranslator)합니다.
+[사용자 지정 변환기](https://aka.ms/CustomTranslator)를 사용 하 여 영어로 사용자 지정 하는 데 사용할 수 있는 언어는 다음과 같습니다.
 
 | 언어    | 언어 코드 |
 |:----------- |:-------------:|
@@ -212,7 +212,7 @@ Translator Text API 변환 및 문자 전사에 대해 사용할 수 있는 모�
 | 벵골어      | `bn`          |
 | 보스니아어(라틴 문자)      | `bs`          |
 | 불가리아어      | `bg`          |
-| 중국어 간체      | `zh-Hans`          |
+| 중국어(간체)      | `zh-Hans`          |
 |중국어 번체|   `zh-Hant`   |
 | 크로아티아어      | `hr`          |
 | 체코어      | `cs`          |
@@ -235,7 +235,7 @@ Translator Text API 변환 및 문자 전사에 대해 사용할 수 있는 모�
 | 한국어      | `ko`          |
 | 라트비아어      | `lv`          |
 | 리투아니아어      | `lt`          |
-|마다가스카르어|  `mg`    |
+|말라가시어|  `mg`    |
 | 노르웨이어      | `nb`          |
 | 폴란드어      | `pl`          |
 | 포르투갈어      | `pt`          |

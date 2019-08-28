@@ -29,9 +29,9 @@ Azure Cloud Shell에는 다음과 같이 알려진 제한 사항이 있습니다
 
 ### <a name="system-state-and-persistence"></a>시스템 상태 및 지속성
 
-Cloud Shell 세션을 제공하는 컴퓨터는 일시적이며 세션이 20분 동안 비활성화된 후 재순환됩니다. Cloud Shell은 Azure 파일 공유를 탑재해야 합니다. 따라서 Cloud Shell에 액세스하도록 구독에서 저장소 리소스를 설정할 수 있어야 합니다. 기타 고려 사항은 다음과 같습니다.
+Cloud Shell 세션을 제공하는 컴퓨터는 일시적이며 세션이 20분 동안 비활성화된 후 재순환됩니다. Cloud Shell은 Azure 파일 공유를 탑재해야 합니다. 따라서 Cloud Shell에 액세스하도록 구독에서 스토리지 리소스를 설정할 수 있어야 합니다. 기타 고려 사항은 다음과 같습니다.
 
-* 탑재된 저장소에서 `$Home` 디렉터리 내 수정 사항만 유지됩니다.
+* 탑재된 스토리지에서 `$Home` 디렉터리 내 수정 사항만 유지됩니다.
 * Azure 파일 공유는 [할당된 지역](persisting-shell-storage.md#mount-a-new-clouddrive) 내에서만 탑재될 수 있습니다.
   * Bash에서 `ACC_LOCATION`로 설정된 해당 지역을 찾으려면 `env`을 실행합니다.
 

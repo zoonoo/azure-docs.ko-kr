@@ -8,26 +8,26 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: d18f8f4808d5ca9dd7eca1561b1ee08c2073f5fa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cdcbe62fdba4f111233451680f95abc757e80ee3
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237551"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883330"
 ---
 # <a name="diagnose-and-troubleshoot"></a>진단 및 문제 해결
 
 이 문서에서는 Azure Time Series Insights 미리 보기 환경을 사용할 때 발생할 수 있는 몇 가지 일반적인 문제를 요약해서 보여 줍니다. 또한 이 문서에서는 각 문제의 잠재적 원인 및 해결 방법에 대해 설명합니다.
 
-## <a name="problem-i-cant-find-my-environment-in-the-preview-explorer"></a>문제: 내 환경 미리 보기 탐색기에서 찾을 수 없습니다.
+## <a name="problem-i-cant-find-my-environment-in-the-preview-explorer"></a>문제: 미리 보기 탐색기에서 내 환경을 찾을 수 없습니다.
 
 이 문제는 Time Series Insights 환경에 액세스할 수 있는 권한이 없는 경우에 발생할 수 있습니다. 사용자가 Time Series Insights 환경을 보려면 읽기 권한자 수준의 액세스 역할이 필요합니다. 현재 액세스 수준을 확인하고 추가 액세스 권한을 부여하려면 [Azure 포털](https://portal.azure.com/)의 Time Series Insights 리소스에 대한 데이터 액세스 정책 섹션을 방문하세요.
 
-  [![환경](media/v2-update-diagnose-and-troubleshoot/environment.png)](media/v2-update-diagnose-and-troubleshoot/environment.png#lightbox)
+  [![개발](media/v2-update-diagnose-and-troubleshoot/environment.png)](media/v2-update-diagnose-and-troubleshoot/environment.png#lightbox)
 
-## <a name="problem-no-data-is-seen-in-the-preview-explorer"></a>문제: 데이터가 없는 미리 보기 탐색기에 표시 됩니다.
+## <a name="problem-no-data-is-seen-in-the-preview-explorer"></a>문제: 미리 보기 탐색기에 데이터가 표시 되지 않습니다.
 
 [Azure Time Series Insights 미리 보기 탐색기](https://insights.timeseries.azure.com/preview)에 데이터가 표시되지 않을 경우 다음과 같은 몇 가지 일반적인 원인이 있습니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "66237551"
 
     이벤트 허브 또는 IoT 허브인 이벤트 원본이 태그 또는 인스턴스에서 데이터를 받고 있는지 확인합니다. 확인하려면 Azure Portal에서 리소스 개요 페이지로 이동하세요.
 
-    [![Dashboard-insights](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png)](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png#lightbox)
+    [![대시보드-정보](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png)](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png#lightbox)
 
 - 이벤트 원본 데이터가 JSON 형식이 아닙니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "66237551"
   * 위의 이미지에 표시된 것처럼 **iothubowner** 및 **서비스** 정책에는 **서비스 연결** 권한이 있으므로 둘 다 작동합니다.
   * 이벤트 허브의 경우 **수신** 사용 권한이 있는 키를 제공해야 합니다.
   
-    [![사용 권한](media/v2-update-diagnose-and-troubleshoot/permissions.png)](media/v2-update-diagnose-and-troubleshoot/permissions.png#lightbox)
+    [![권한에](media/v2-update-diagnose-and-troubleshoot/permissions.png)](media/v2-update-diagnose-and-troubleshoot/permissions.png#lightbox)
 
   * 위의 이미지에 표시된 것처럼 **읽기** 및 **관리** 정책에는 **수신 대기** 권한이 있으므로 둘 다 작동합니다.
 
@@ -62,7 +62,7 @@ ms.locfileid: "66237551"
 
     이 문제는 환경 프로비전 시 시계열 ID 속성이 잘못 구성된 경우에 발생할 수 있습니다. 자세한 내용은 [시계열 ID 선택 모범 사례](./time-series-insights-update-how-to-id.md)를 참조하세요. 지금은 다른 시계열 ID를 사용하도록 기존 Time Series Insights 환경을 업데이트할 수 없습니다.
 
-## <a name="problem-some-data-shows-but-some-is-missing"></a>문제: 일부 데이터가 표시 되지만 일부 누락 되었습니다.
+## <a name="problem-some-data-shows-but-some-is-missing"></a>문제: 일부 데이터가 표시 되지만 일부 데이터가 없습니다.
 
 시계열 ID 없이 데이터를 전송했을 수 있습니다.
 
@@ -73,7 +73,7 @@ ms.locfileid: "66237551"
     > [!NOTE]
     > 지금은 Time Series Insights에서 최대 6Mbps의 수집 속도를 지원합니다.
 
-## <a name="problem-my-event-sources-timestamp-property-name-doesnt-work"></a>문제: 내 이벤트 원본의 타임 스탬프 속성 이름 작동 하지 않습니다.
+## <a name="problem-my-event-sources-timestamp-property-name-doesnt-work"></a>문제: 이벤트 원본의 타임 스탬프 속성 이름이 작동 하지 않습니다.
 
 이름 및 값이 다음 규칙을 준수하는지 확인합니다.
 
@@ -88,7 +88,7 @@ ms.locfileid: "66237551"
 
 타임스탬프 속성이 명시적으로 지정되지 않은 경우 이벤트의 IoT 허브 또는 이벤트 허브 큐에 넣은 시간이 기본 타임스탬프로 사용됩니다.
 
-## <a name="problem-i-cant-view-or-edit-my-time-series-model"></a>문제: 내 시계열 모델을 편집 하거나 볼 수 없습니다.
+## <a name="problem-i-cant-view-or-edit-my-time-series-model"></a>문제: 시계열 모델을 보거나 편집할 수 없습니다.
 
 - Time Series Insights S1 또는 S2 환경에 액세스 중일 수 있습니다.
 
@@ -100,7 +100,7 @@ ms.locfileid: "66237551"
 
    사용자가 시계열 모델을 편집하고 보려면 기여자 수준 액세스 권한이 필요합니다. 현재 액세스 수준을 확인하고 추가 액세스 권한을 부여하려면 Azure Portal에서 Time Series Insights 리소스에 대한 데이터 액세스 정책 섹션을 방문하세요.
 
-## <a name="problem-all-my-instances-in-the-preview-explorer-lack-a-parent"></a>문제: 미리 보기 탐색기에서 내 모든 인스턴스는 부모 부족
+## <a name="problem-all-my-instances-in-the-preview-explorer-lack-a-parent"></a>문제: 미리 보기 탐색기의 모든 내 인스턴스에서 부모가 부족 합니다.
 
 이 문제는 사용자 환경에 시계열 모델 계층 구조가 정의되지 않은 경우에 발생할 수 있습니다. 자세한 내용은 [시계열 모델 작업](./time-series-insights-update-how-to-tsm.md)을 참조하세요.
 
@@ -110,4 +110,4 @@ ms.locfileid: "66237551"
 
 - [시계열 모델 작업](./time-series-insights-update-how-to-tsm.md)을 읽습니다.
 
-- 에 대 한 자세한 [JSON 셰이프 지원](./how-to-shape-query-json.md)합니다.
+- [지원 되는 JSON 셰이프](./how-to-shape-query-json.md)에 대해 알아봅니다.

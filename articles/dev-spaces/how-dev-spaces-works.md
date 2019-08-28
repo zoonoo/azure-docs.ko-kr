@@ -3,19 +3,18 @@ title: Azure 개발 공간 구성과 작동
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 03/04/2019
 ms.topic: conceptual
 description: 해당 전원 Azure 개발 공간 및 azds.yaml 구성 파일에서 구성 방법 프로세스를 설명 합니다.
 keywords: azds.yaml, Azure 개발 공간, 개발 공간, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 083ed45a8fa95ac5fc26af6547b5765acf80e43b
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 83034dd3c99cc030ed770995bf00a6ad9fb57bdc
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154561"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670812"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Azure 개발 공간 구성과 작동
 
@@ -80,7 +79,7 @@ Azure 개발 공간에 상호 작용 하는 두 가지 구성 요소가: 컨트�
 ## <a name="prepare-your-aks-cluster"></a>AKS 클러스터를 준비 합니다.
 
 AKS 클러스터를 준비 하는 작업에 포함 됩니다.
-* 확인에 AKS 클러스터가 지역의 [Azure 개발 공간에서 지 원하는][supported-regions]합니다.
+* 확인에 AKS 클러스터가 지역의 [Azure 개발 공백으로 지원][supported-regions]합니다.
 * 1\.10.3 Kubernetes를 실행 하는 확인 이상.
 * 사용 하 여 클러스터에서 Azure 개발 공간을 사용 하도록 설정 `az aks use-dev-spaces`
 
@@ -420,7 +419,7 @@ Java,.NET 및 Node.js 응용 프로그램의 경우 Visual Studio Code 또는 Vi
 
 파생된 개발 공간 자체 응용 프로그램 및 부모 노드에서 해당 공유 응용 프로그램 간에 요청을 지능적으로 라우팅합니다. 파생된 개발 공간에 응용 프로그램에 대 한 경로 요청을 시도 하 고 부모 개발 영역에서 공유 응용 프로그램을 대체 하 여 라우팅 작동 합니다. 라우팅을 다시 대체 됩니다 최상위 공간에 공유 응용 프로그램에 응용 프로그램이 부모 공간에 없는 경우.
 
-예를 들면 다음과 같습니다.
+예:
 * 개발 공간이 *기본* 응용 프로그램이 *serviceA* 하 고 *serviceB* 합니다.
 * 개발 공간이 *azureuser* 에서 파생 됩니다 *기본*입니다.
 * 업데이트 된 버전의 *serviceA* 에 배포 됩니다 *azureuser*합니다.

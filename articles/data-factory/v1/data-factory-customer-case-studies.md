@@ -13,21 +13,21 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 952a8aa2dbfdabfb7f0df198a7453b847c33f7e2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c636032766b90af78e7794b3d515b924fa31d6cd
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60486977"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596016"
 ---
 # <a name="azure-data-factory---customer-case-studies"></a>Azure Data Factory - 고객 사례 연구
 데이터 팩터리는 데이터의 이동과 변환을 자동화하는 클라우드 기반 정보 관리 서비스입니다. 많은 산업 분야의 고객들이 분석 파이프라인을 제작하고 비즈니스 문제를 해결하기 위해 데이터 팩터리와 기타 Azure 서비스를 사용합니다.  고객으로부터 직접 데이터 팩터리를 사용하는 이유와 방법에 대해 알아봅니다.
 
 ## <a name="milliman"></a>Milliman
-[보험 업계를 혁신하고 있는 최고의 보험 통계 회사](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20096)
+[보험 업계를 혁신하고 있는 최고의 보험 통계 회사](https://customers.microsoft.com/en-us/story/732463-top-actuarial-firm-transforms-the-insurance-industry-w)
 
 ## <a name="rockwell-automation"></a>Rockwell Automation
-[빅데이터 솔루션으로 최대 90%의 비용을 절감하고 있는 산업 Automation 회사](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18356)
+[빅데이터 솔루션으로 최대 90%의 비용을 절감하고 있는 산업 Automation 회사](https://customers.microsoft.com/en-us/story/726192-industrial-automation-firm-cuts-costs-up-to-90-percent)
 
 ## <a name="ziosk"></a>Ziosk
 [햄버거를 먹으며 즐길 게임은 어떤 것이 좋을까요? Ziosk는 이미 알고 있습니다.](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18294)

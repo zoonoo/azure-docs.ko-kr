@@ -4,7 +4,7 @@ description: Azure Virtual Machines에서 단일 인스턴스 SAP HANA를 수동
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 5091932989849943f00cb71f72378dd17af23a4a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 914da98359d11ff25709164d6301737404b3b011
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60205049"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707661"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-virtual-machines"></a>빠른 시작: Azure Virtual Machines에서 단일 인스턴스 SAP HANA 수동 설치
 ## <a name="introduction"></a>소개
@@ -30,7 +30,7 @@ ms.locfileid: "60205049"
 > [!NOTE]
 > 이 가이드에서는 Azure VM에 SAP HANA를 배포하는 방법에 대해 설명합니다. HANA 대량 인스턴스로 SAP HANA를 배포 하는 방법에 대 한 자세한 내용은 [사용할 수 있는 Azure Virtual Machines에서 SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started)합니다.
  
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 가이드에서는 이러한 인프라는 서비스 (IaaS) 기본 사항으로 잘 알고 있다고 가정 합니다.
  * 가상 머신 (Vm) 또는 Azure portal 또는 PowerShell을 통해 가상 네트워크를 배포 하는 방법입니다.
  * Azure 플랫폼 간 명령줄 인터페이스 (CLI), 개체 JSON (JavaScript Notation) 템플릿을 사용 하는 옵션을 포함 합니다.
@@ -51,7 +51,7 @@ SAP HANA 고가용성에 대 한 참조 [SAP HANA 고가용성에 대 한 Azure 
 
 SAP HANA 인스턴스 또는 S/4HANA 또는 BW/4HANA 시스템을 신속 하 게 배포 하려는 경우 사용을 고려 [SAP Cloud Appliance Library](https://cal.sap.com)합니다. 예를 들어 Azure에서 SAP Cloud Appliance Library를 통해 S/4HANA 시스템을 배포 하는 방법에 대 한 설명서를 찾을 수 있습니다 [이 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h)합니다. Azure 구독 및 SAP 클라우드 어플라이언스 라이브러리를 사용 하 여 등록할 수 있는 사용자를 SAP 사용자 하기만 하면 됩니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 ### <a name="sap-hana-backup"></a>SAP HANA 백업
 Azure Vm에서 SAP HANA 데이터베이스를 백업 하는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
 * [Azure Virtual Machines의 SAP hana 백업 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)합니다.
@@ -153,7 +153,7 @@ SAP NetWeaver 또는 S/4HANA 응용 프로그램 계층에 대해 SAP에서 인�
 20. SAP MC를 시작합니다. SAP GUI 또는 HANA Studio를 통해 연결합니다.
 
 ## <a name="prepare-azure-vms-for-a-manual-installation-of-sap-hana"></a>SAP HANA의 수동 설치를 위한 Azure VM 준비
-이 섹션에서는 다음 항목을 다룹니다.
+이 단원에서는 다음 항목에 대해 설명합니다.
 
 * OS 업데이트
 * 디스크 설정
@@ -178,14 +178,14 @@ SAP NetWeaver 또는 S/4HANA 응용 프로그램 계층에 대해 SAP에서 인�
 문제의 종류에 따라 패치는 범주 및 심각도별로 분류됩니다. 범주에 대 한 자주 사용 되는 값은 
 - 보안
 - 권장
-- 옵션
+- Optional
 - 기능
 - 문서
 - yast
 
 심각도 대해 자주 사용 되는 값은
 
-- 중요
+- 심각
 - 중요
 - 보통
 - 낮음
@@ -223,7 +223,7 @@ Azure에서 Linux VM의 루트 파일 시스템의 크기는 제한됩니다. �
 Azure premium Ssd를 사용 하 여 디스크 캐싱 모드를 정의할 수 있습니다. /Hana/data 및 /hana/log을 보유 하는 스트라이프 집합, 디스크 캐싱을 사용 하지 않도록 설정 합니다. 다른 볼륨에 대해, 디스크 캐싱 모드를 설정 합니다 **ReadOnly**합니다.
 
 Vm을 만드는 데 사용할 샘플 JSON 템플릿, 참조를 [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates)합니다.
-vm-simple-sles 템플릿은 기본 템플릿입니다. 여기에는 100GB 추가 데이터 디스크가 포함된 저장소 섹션이 있습니다. 이 템플릿을 기반으로 사용 합니다. 특정 구성에 맞게 템플릿을 조정할 수 있습니다.
+vm-simple-sles 템플릿은 기본 템플릿입니다. 여기에는 100GB 추가 데이터 디스크가 포함된 스토리지 섹션이 있습니다. 이 템플릿을 기반으로 사용 합니다. 특정 구성에 맞게 템플릿을 조정할 수 있습니다.
 
 > [!NOTE]
 > 에 설명 된 대로 UUID를 사용 하 여 Azure 저장소 디스크를 연결 하는 것이 반드시 [Microsoft Azure SUSE Linux Vm에서 SAP NetWeaver 실행](suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)합니다.
@@ -257,7 +257,7 @@ SAP HANA 커널을 영구적으로 설정하려면 SLES 12에서 **grub2**를 �
 ![YaST 부팅 로더의 커널 매개 변수 설정 탭](./media/hana-get-started/image007.jpg)
 
 ### <a name="file-systems"></a>파일 시스템
-다음 스크린샷에서는 2개 Azure 표준 저장소 디스크에 연결된 SAP 앱 서버 VM에 만들어진 2개 파일 시스템을 보여 줍니다. 두 파일 시스템의 형식은 XFS 및 며 /sapdata 및 /sapsoftware에 탑재 됩니다.
+다음 스크린샷에서는 2개 Azure Standard Storage 디스크에 연결된 SAP 앱 서버 VM에 만들어진 2개 파일 시스템을 보여 줍니다. 두 파일 시스템의 형식은 XFS 및 며 /sapdata 및 /sapsoftware에 탑재 됩니다.
 
 이 방법으로 파일 시스템을 구성 하는 것이 반드시 합니다. 디스크 공간을 구성 하는 방법에 대 한 다른 옵션이 있습니다. 가장 중요한 고려 사항은 루트 파일 시스템의 여유 공간이 부족하지 않도록 하는 것입니다.
 

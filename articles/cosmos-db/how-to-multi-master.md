@@ -1,21 +1,24 @@
 ---
 title: Azure Cosmos DB에서 다중 마스터를 구성하는 방법
 description: Azure Cosmos DB의 애플리케이션에서 다중 마스터를 구성하는 방법을 알아봅니다.
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
-ms.author: rimman
-ms.openlocfilehash: 1d9fa7380f62165d360888fd8cb03919f1736297
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.date: 07/03/2019
+ms.author: mjbrown
+ms.openlocfilehash: a5232101d4e5d13fb4c95268311e06b56fa81e65
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244757"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356226"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Azure Cosmos DB를 사용하는 애플리케이션에서 다중 마스터 구성
 
-애플리케이션에서 다중 마스터 기능을 사용하려면 Azure Cosmos DB에서 다중 지역 쓰기를 사용하도록 설정하고 멀티호밍 기능을 구성해야 합니다. 멀티호밍을 구성하려면 애플리케이션을 배포할 지역을 설정합니다.
+사용할 수 있는 여러 쓰기 지역으로 계정이 만들어지면 DocumentClient의 ConnectionPolicy에 대한 애플리케이션에서 두 가지를 변경하여 Azure Cosmos DB에서 다중 마스터 및 다중 호밍 기능을 사용하도록 설정해야 합니다. ConnectionPolicy 내에서 UseMultipleWriteLocations를 true로 설정하고 애플리케이션이 배포되는 지역 이름을 SetCurrentLocation으로 전달합니다. 이를 통해 전달된 위치에서 지역 근접도에 따라 PreferredLocations 속성이 채워집니다. 나중에 계정에 새 지역이 추가되는 경우 애플리케이션은 업데이트되거나 다시 배포될 필요 없이 가까운 지역을 자동으로 탐지하고 자동 호밍되어 지역 이벤트가 발생합니다.
+
+> [!Note]
+> 처음에 단일 쓰기 지역으로 구성된 Cosmos 계정을 중단 시간이 0인 다중 쓰기 지역(즉, 다중 마스터)에 구성할 수 있습니다. 자세한 내용은 [다중 쓰기 지역 구성](how-to-manage-database-account.md#configure-multiple-write-regions)을 참조하세요.
 
 ## <a id="netv2"></a>.NET SDK v2
 
@@ -31,14 +34,25 @@ ConnectionPolicy policy = new ConnectionPolicy
 policy.SetCurrentLocation("West US 2");
 ```
 
-## <a id="netv3"></a>.NET SDK v3(미리 보기)
+## <a id="netv3"></a>.NET SDK v3
 
-애플리케이션에서 다중 마스터를 사용하도록 설정하려면 `UseCurrentRegion`을 애플리케이션이 배포되고 Cosmos DB가 복제되는 지역으로 설정합니다.
+애플리케이션에서 다중 마스터를 사용하도록 설정하려면 `ApplicationRegion`을 애플리케이션이 배포되고 Cosmos DB가 복제되는 지역으로 설정합니다.
 
 ```csharp
-CosmosConfiguration config = new CosmosConfiguration("endpoint", "key");
-config.UseCurrentRegion("West US");
-CosmosClient client = new CosmosClient(config);
+CosmosClient cosmosClient = new CosmosClient(
+    "<connection-string-from-portal>", 
+    new CosmosClientOptions()
+    {
+        ApplicationRegion = Regions.WestUS2,
+    });
+```
+
+필요에 따라 `CosmosClientBuilder` 및 `WithApplicationRegion`을 사용하여 동일한 결과를 얻을 수 있습니다.
+
+```csharp
+CosmosClientBuilder cosmosClientBuilder = new CosmosClientBuilder("<connection-string-from-portal>")
+            .WithApplicationRegion(Regions.WestUS2);
+CosmosClient client = cosmosClientBuilder.Build();
 ```
 
 ## <a id="java"></a>Java 비동기 SDK
@@ -84,7 +98,8 @@ connection_policy = documents.ConnectionPolicy()
 connection_policy.UseMultipleWriteLocations = True
 connection_policy.PreferredLocations = [region]
 
-client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.account_key}, connection_policy, documents.ConsistencyLevel.Session)
+client = cosmos_client.CosmosClient(self.account_endpoint, {
+                                    'masterKey': self.account_key}, connection_policy, documents.ConsistencyLevel.Session)
 ```
 
 ## <a name="next-steps"></a>다음 단계

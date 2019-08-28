@@ -3,16 +3,17 @@ title: Azure Container Instances 할당량 및 지역 가용성
 description: Azure Container Instances 서비스의 할당량, 제한 및 지역 가용성입니다.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: overview
 ms.date: 03/01/2019
 ms.author: danlep
-ms.openlocfilehash: c01243a33094a93da1b05ea3b58324b0f3cb2bf9
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d78cb72e6aa10334e82032280b1253e6d4c92960
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539720"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325725"
 ---
 # <a name="quotas-and-limits-for-azure-container-instances"></a>Azure Container Instances 할당량 및 제한
 
@@ -26,7 +27,7 @@ Azure 지역의 Azure Container Instances 기능 및 리소스 가용성을 확�
 
 ## <a name="next-steps"></a>다음 단계
 
-특정 기본 제한 및 할당량은 증대가 가능합니다. 이러한 증대를 지원하는 하나 이상의 리소스에 대해 증대를 요청하려면 [Azure 지원 요청][azure-support] (**발급 요청**에 대해 "할당량" 선택)을 제출합니다.
+특정 기본 제한 및 할당량은 증대가 가능합니다. 이러한 증대를 지원하는 하나 이상의 리소스에 대해 증대를 요청하려면 [Azure 지원 요청][azure-support](**발급 요청**에 대해 "할당량" 선택)을 제출합니다.
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

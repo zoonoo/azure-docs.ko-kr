@@ -1,6 +1,6 @@
 ---
 title: Azure Custom Vision이란?
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Custom Vision Service를 사용하여 Azure 클라우드에서 사용자 지정 이미지 분류자를 빌드하는 방법을 알아봅니다.
 services: cognitive-services
 author: PatrickFarley
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 03/21/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 50935aca20af931eec63717921ef7a73267d2373
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 033b0317b1738e24e4ac9c9ae2150b015cc5a8e5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350473"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560954"
 ---
 # <a name="what-is-azure-custom-vision"></a>Azure Custom Vision이란?
 
@@ -31,7 +31,7 @@ Custom Vision 기능을 두 가지로 나눌 수 있습니다. **이미지 분�
 
 ### <a name="optimization"></a>최적화
 
-Custom Vision 서비스는 이미지 간의 주요 차이를 빠르게 인식할 수 있도록 최적화되어 있습니다. 이렇게 하면 소량의 데이터를 사용하여 모델 프로토타입을 시작할 수 있습니다. 일반적으로 레이블당 50개의 이미지로 시작하는 것이 좋습니다. 그러나 이렇게 하면 서비스가 이미지의 미세한 차이를 검색하는 데 최적화되지 않습니다(예: 품질 보증 시나리오에서 작은 금 또는 패인 자국 검색).
+Custom Vision 서비스는 이미지 간의 주요 차이점을 신속하게 인식하도록 최적화되었으므로 적은 양의 데이터로 모델을 프로토타입을 시작할 수 있습니다. 일반적으로 레이블당 50개의 이미지로 시작하는 것이 좋습니다. 그러나 이렇게 하면 서비스가 이미지의 미세한 차이를 검색하는 데 최적화되지 않습니다(예: 품질 보증 시나리오에서 작은 금 또는 패인 자국 검색).
 
 또한 특정 주체 자료(예: 랜드마크 또는 소매 항목)가 있는 이미지에 최적화된 여러 종류의 Custom Vision 알고리즘 중에서 선택할 수 있습니다 자세한 내용은 [분류자 빌드](getting-started-build-a-classifier.md) 가이드를 참조하세요.
 

@@ -36,19 +36,19 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName MyDataFactory -ResourceGr
 이 cmdlet은 여러 유형의 통합 런타임에 대해 서로 다른 정보를 반환합니다. 이 문서는 각 통합 런타임 유형의 속성 및 상태에 대해 설명합니다.  
 
 ## <a name="azure-integration-runtime"></a>Azure 통합 런타임
-Azure 통합 런타임의 계산 리소스는 Azure에서 완전히 탄력적으로 관리됩니다. 다음 표에에서 반환 된 속성에 대해 설명 합니다 **Get AzDataFactoryV2IntegrationRuntime** 명령:
+Azure 통합 런타임의 컴퓨팅 리소스는 Azure에서 완전히 탄력적으로 관리됩니다. 다음 표에에서 반환 된 속성에 대해 설명 합니다 **Get AzDataFactoryV2IntegrationRuntime** 명령:
 
 ### <a name="properties"></a>properties
 다음 테이블은 Azure 통합 런타임에 대해 cmdlet에서 반환하는 속성에 대한 설명을 제공합니다.
 
 | 자산 | Description |
 -------- | ------------- | 
-| 이름 | Azure 통합 런타임의 이름. |  
-| 시스템 상태 | Azure 통합 런타임의 상태. | 
+| Name | Azure 통합 런타임의 이름. |  
+| State | Azure 통합 런타임의 상태. | 
 | Location | Azure 통합 런타임의 위치. Azure 통합 런타임의 위치에 대한 자세한 내용은 [통합 런타임 소개](concepts-integration-runtime.md)를 참조하세요. |
 | DataFactoryName | Azure 통합 런타임이 속한 데이터 팩터리의 이름. | 
 | ResourceGroupName | 데이터 팩터리가 속한 리소스 그룹의 이름.  |
-| 설명 | 통합 런타임에 대한 설명.  |
+| Description | 통합 런타임에 대한 설명.  |
 
 ### <a name="status"></a>상태
 다음 테이블은 Azure 통합 런타임의 가능한 상태를 제공합니다.
@@ -70,7 +70,7 @@ Azure 통합 런타임의 계산 리소스는 Azure에서 완전히 탄력적으
 
 | 자산 | Description | 
 | -------- | ----------- | 
-| 이름 | 자체 호스팅 통합 런타임의 이름 및 이와 연결된 노드. 노드는 자체 호스팅 통합 런타임이 설치된 온-프레미스 Windows 컴퓨터입니다. |  
+| Name | 자체 호스팅 통합 런타임의 이름 및 이와 연결된 노드. 노드는 자체 호스팅 통합 런타임이 설치된 온-프레미스 Windows 컴퓨터입니다. |  
 | 상태 | 전반적인 자체 호스팅 통합 런타임 및 각 노드의 상태. 예제: 온라인/오프라인/제한 등 이러한 상태에 대한 자세한 내용은 다음 섹션을 참조하세요. | 
 | Version | 자체 호스팅 통합 런타임 및 각 노드의 버전. 자체 호스팅 통합 런타임 버전은 그룹에 있는 노드의 대다수 버전을 기반으로 결정됩니다. 자체 호스팅 통합 런타임 설정에 다른 버전의 노드가 있는 경우 논리 자체 호스팅 통합 런타임과 버전 번호가 동일한 노드만 제대로 작동합니다. 다른 버전의 노드는 제한된 모드에 있으므로 수동으로 업데이트해야 합니다(자동 업데이트가 실패할 경우에만). | 
 | 사용 가능한 메모리 | 자체 호스팅 통합 런타임 노드에서 사용 가능한 메모리. 이 값은 거의 실시간 스냅샷입니다. | 
@@ -92,7 +92,7 @@ Azure Portal에서 계산된 기본값을 재정의할 수 있습니다. 작성�
 ### <a name="status-per-node"></a>상태(노드당)
 다음 테이블은 자체 호스팅 통합 런타임 노드의 가능한 상태를 제공합니다.
 
-| 상태 | 설명 |
+| 상태 | Description |
 | ------ | ------------------ | 
 | 온라인 | 노드가 Data Factory 서비스에 연결되어 있습니다. |
 | 오프라인 | 노드가 오프라인 상태입니다. |
@@ -105,7 +105,7 @@ Azure Portal에서 계산된 기본값을 재정의할 수 있습니다. 작성�
 ### <a name="status-overall-self-hosted-integration-runtime"></a>상태(전반적인 자체 호스팅 통합 런타임)
 다음 테이블은 자체 호스팅 통합 런타임의 가능한 상태를 제공합니다. 이 상태는 런타임에 속한 모든 노드의 상태에 따라 달라집니다. 
 
-| 상태 | 설명 |
+| 상태 | Description |
 | ------ | ----------- | 
 | 등록 필요 | 자체 호스팅 통합 런타임에 등록된 노드가 아직 없습니다. |
 | 온라인 | 모든 노드가 온라인 상태입니다. |
@@ -157,13 +157,13 @@ Azure-SSIS 통합 런타임은 SSIS 패키지 실행 전용 Azure 가상 머신(
 
 ### <a name="properties"></a>properties
 
-| 속성/상태 | 설명 |
+| 속성/상태 | Description |
 | --------------- | ----------- |
 | CreateTime | Azure-SSIS 통합 런타임이 만들어진 UTC 시간. |
 | 노드 | 노드별 상태(시작 중/사용 가능/재생 중/사용할 수 없음)와 조치 가능한 오류가 있는 Azure-SSIS 통합 런타임의 할당 된/사용 가능한 노드. |
 | OtherErrors | Azure-SSIS 통합 런타임의 비 노드별 조치 가능한 오류. |
 | LastOperation | 실패한 경우 조치 가능한 오류가 있는 Azure-SSIS 통합 런타임의 마지막 시작/중지 작업의 결과. |
-| 시스템 상태 | Azure-SSIS 통합 런타임의 전반적인 상태(초기/시작 중/시작됨/중지 중/중지됨). |
+| State | Azure-SSIS 통합 런타임의 전반적인 상태(초기/시작 중/시작됨/중지 중/중지됨). |
 | Location | Azure-SSIS 통합 런타임의 위치. |
 | NodeSize | Azure-SSIS 통합 런타임의 각 노드의 크기. |
 | NodeCount | Azure-SSIS 통합 런타임의 노드 수. |
@@ -178,13 +178,13 @@ Azure-SSIS 통합 런타임은 SSIS 패키지 실행 전용 Azure 가상 머신(
 | Type | Azure-SSIS 통합 런타임의 유형(관리되는/자체 호스팅). |
 | ResourceGroupName | 데이터 팩터리 및 Azure-SSIS 통합 런타임이 만들어진 Azure 리소스 그룹의 이름입니다. |
 | DataFactoryName | Azure Data Factory의 이름. |
-| 이름 | Azure-SSIS 통합 런타임의 이름. |
-| 설명 | Azure-SSIS 통합 런타임에 대한 설명. |
+| Name | Azure-SSIS 통합 런타임의 이름. |
+| Description | Azure-SSIS 통합 런타임에 대한 설명. |
 
   
 ### <a name="status-per-node"></a>상태(노드당)
 
-| 상태 | 설명 |
+| 상태 | Description |
 | ------ | ----------- | 
 | 시작하는 중 | 이 노드가 준비 중입니다. |
 | 사용 가능 | 이 노드는 SSIS 패키지를 배포/실행할 준비가 되었습니다. |
@@ -193,7 +193,7 @@ Azure-SSIS 통합 런타임은 SSIS 패키지 실행 전용 Azure 가상 머신(
 
 ### <a name="status-overall-azure-ssis-integration-runtime"></a>상태(전반적인 Azure-SSIS 통합 런타임)
 
-| 전체적인 상태 | 설명 | 
+| 전체적인 상태 | Description | 
 | -------------- | ----------- | 
 | 초기 | Azure-SSIS 통합 런타임의 노드가 할당/준비되지 않았습니다. | 
 | 시작하는 중 | Azure-SSIS 통합 런타임의 노드가 할당/준비 중이고 청구가 시작되었습니다. |

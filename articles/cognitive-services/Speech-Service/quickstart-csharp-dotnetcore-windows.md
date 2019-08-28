@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 음성 인식, C#(.NET Core) - Speech Services'
+title: '빠른 시작: 음성 인식, C#(.NET Core) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Speech SDK를 사용하여 Windows 또는 macOS의 .NET Core 아래에 있는 C#에서 음성 인식 방법 알아보기
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/13/2018
+ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 873145cf9d418433ba241ce06d7d594fb3e6322b
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 341f173e399196e32ab59f44db4302b1b1a195e6
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67465731"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607733"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>빠른 시작: .NET Core용 Speech SDK를 사용하여 음성 인식
 
@@ -24,7 +24,7 @@ ms.locfileid: "67465731"
 원하는 경우 다른 프로그래밍 언어 및/또는 환경을 선택합니다.<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-이 문서에서는 Cognitive Services [Speech SDK](speech-sdk.md)를 사용하여 Windows 또는 macOS에서 .NET Core용 C# 콘솔 애플리케이션을 만듭니다. PC에서 마이크를 사용하여 실시간으로 음성을 텍스트로 변환합니다. 이 애플리케이션은 [Speech SDK NuGet 패키지](https://aka.ms/csspeech/nuget) 및 Microsoft Visual Studio 2017(모든 버전)로 빌드되었습니다.
+이 문서에서는 Cognitive Services [Speech SDK](speech-sdk.md)를 사용하여 Windows 또는 macOS에서 .NET Core용 C# 콘솔 애플리케이션을 만듭니다. PC에서 마이크를 사용하여 실시간으로 음성을 텍스트로 변환합니다. 이 애플리케이션은 [Speech SDK NuGet 패키지](https://aka.ms/csspeech/nuget) 및 Microsoft Visual Studio 2017 이상(모든 버전)으로 빌드되었습니다.
 
 > [!NOTE]
 > .NET Core는 [.NET 표준](https://docs.microsoft.com/dotnet/standard/net-standard) 사양을 구현하는 플랫폼 간 오픈 소스 .NET 플랫폼입니다.
@@ -36,8 +36,8 @@ ms.locfileid: "67465731"
 이 빠른 시작에는 다음이 필요합니다.
 
 * [.NET Core SDK](https://dotnet.microsoft.com/download)
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* Speech Service에 대한 Azure 구독 키 [무료로 가져올 수 있습니다](get-started.md).
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 이상
+* Speech Service에 대한 Azure 구독 키. [무료로 가져올 수 있습니다](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 

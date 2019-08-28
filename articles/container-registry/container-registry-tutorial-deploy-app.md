@@ -3,21 +3,22 @@ title: 자습서 - Azure에서 지리적 복제 Docker 레지스트리에서 앱
 description: 지리적 복제 Azure Container Registry의 컨테이너 이미지를 사용하여 두 개의 다른 Azure 지역에 Linux 기반 웹앱을 배포합니다. 3부로 구성된 시리즈 중 제2부입니다.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 08/20/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: e5a38e2b6550d763f30c2462944b154f76bbe92c
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 5a3ffcc75ac37dac1284d0ffb5af234fd2f376cd
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253836"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310456"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>자습서: 지리적 복제 Azure Container Registry에서 웹앱 배포
 
-세 부분으로 이루어진 자습서 시리즈의 두 번째 부분입니다. [1부](container-registry-tutorial-prepare-registry.md)에서 지리적 복제 개인 컨테이너 레지스트리가 작성되었으며 컨테이너 이미지가 원본에서 빌드되어 레지스트리로 푸시되었습니다. 이 문서에서는 서로 다른 두 Azure 지역에 있는 두 웹앱 인스턴스에 컨테이너를 배포하여 지리적 복제 레지스트리의 네트워크-인접 측면을 활용합니다. 그러면 각 인스턴스는 가장 가까운 레지스트리에서 컨테이너 이미지를 가져옵니다.
+세 부분으로 이루어진 자습서 시리즈의 두 번째 부분입니다. [1부](container-registry-tutorial-prepare-registry.md)에서 지리적 복제 프라이빗 컨테이너 레지스트리가 작성되었으며 컨테이너 이미지가 원본에서 빌드되어 레지스트리로 푸시되었습니다. 이 문서에서는 서로 다른 두 Azure 지역에 있는 두 웹앱 인스턴스에 컨테이너를 배포하여 지리적 복제 레지스트리의 네트워크-인접 측면을 활용합니다. 그러면 각 인스턴스는 가장 가까운 레지스트리에서 컨테이너 이미지를 가져옵니다.
 
 이 자습서는 시리즈의 2부입니다.
 

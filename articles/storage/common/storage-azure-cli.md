@@ -10,12 +10,12 @@ ms.date: 06/02/2017
 ms.author: tamram
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: ea7e4757aac0fccf60a44c70e9de6a63c1ec9498
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d259ea02824937f0c496bb253fa4b6c1f5cea412
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65147000"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69015629"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>Azure Storage에서 Azure CLI 사용
 
@@ -27,7 +27,9 @@ ms.locfileid: "65147000"
 
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
-## <a name="prerequisites"></a>필수 조건
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+
+## <a name="prerequisites"></a>사전 요구 사항
 이 가이드에서는 Azure Storage의 기본 개념을 이해하고 있다고 가정합니다. 또한 Azure와 Storage 서비스에 대해 아래에 지정된 계정 만들기 요구 사항을 충족할 수 있다고 가정합니다.
 
 ### <a name="accounts"></a>계정
@@ -66,7 +68,7 @@ Here are the base commands:
     ...
 ```
 
-명령줄 인터페이스에서 `az storage --help` 명령을 실행하여 `storage` 명령 하위 그룹을 나열합니다. 하위 그룹에 대한 설명은 Azure CLI에서 저장소 리소스 작업을 위해 제공하는 기능에 대한 개요입니다.
+명령줄 인터페이스에서 `az storage --help` 명령을 실행하여 `storage` 명령 하위 그룹을 나열합니다. 하위 그룹에 대한 설명은 Azure CLI에서 스토리지 리소스 작업을 위해 제공하는 기능에 대한 개요입니다.
 
 ```
 Group
@@ -99,7 +101,7 @@ Azure 구독에 있는 리소스를 사용하려면 먼저 `az login`으로 Azur
 
 ## <a name="azure-cli-sample-script"></a>Azure CLI 샘플 스크립트
 
-다음으로 Azure Storage 리소스와 상호 작용하는 몇 가지 기본 Azure CLI 명령을 발급하는 작은 셸 스크립트를 사용합니다. 이 스크립트는 먼저 저장소 계정에 새 컨테이너를 만든 다음 해당 컨테이너에 기존 파일(Blob)을 업로드합니다. 그런 다음 컨테이너에 있는 모든 Blob을 나열하고, 마지막으로 사용자가 지정한 로컬 컴퓨터의 대상에 파일을 다운로드합니다.
+다음으로 Azure Storage 리소스와 상호 작용하는 몇 가지 기본 Azure CLI 명령을 발급하는 작은 셸 스크립트를 사용합니다. 이 스크립트는 먼저 스토리지 계정에 새 컨테이너를 만든 다음 해당 컨테이너에 기존 파일(Blob)을 업로드합니다. 그런 다음 컨테이너에 있는 모든 Blob을 나열하고, 마지막으로 사용자가 지정한 로컬 컴퓨터의 대상에 파일을 다운로드합니다.
 
 ```bash
 #!/bin/bash
@@ -171,9 +173,9 @@ Done
 > 앞서의 출력은 **테이블** 형식입니다. CLI 명령에서 `--output` 인수를 지정하여 사용할 출력 형식을 지정하거나 `az configure`를 사용하여 전역으로 설정할 수 있습니다.
 >
 
-## <a name="manage-storage-accounts"></a>저장소 계정 관리
+## <a name="manage-storage-accounts"></a>스토리지 계정 관리
 
-### <a name="create-a-new-storage-account"></a>새 저장소 계정 만들기
+### <a name="create-a-new-storage-account"></a>새 스토리지 계정 만들기
 Azure Storage를 사용하려면 스토리지 계정이 필요합니다. 구독에 연결하도록 컴퓨터를 구성한 후에 새 Azure Storage 계정을 만들 수 있습니다.
 
 ```azurecli
@@ -185,7 +187,7 @@ az storage account create \
 ```
 
 * `--location`[필수]: 위치입니다. 예를 들어 "미국 서부"를 선택합니다.
-* `--name`[필수]: 저장소 계정 이름입니다. 이름의 길이는 3-24자여야 하며, 소문자 영숫자만 사용합니다.
+* `--name`[필수]: 스토리지 계정 이름입니다. 이름의 길이는 3-24자여야 하며, 소문자 영숫자만 사용합니다.
 * `--resource-group`[필수]: 리소스 그룹의 이름입니다.
 * `--sku`[필수]: 스토리지 계정 SKU입니다. 허용되는 값은 다음과 같습니다.
   * `Premium_LRS`
@@ -193,10 +195,12 @@ az storage account create \
   * `Standard_LRS`
   * `Standard_RAGRS`
   * `Standard_ZRS`
+  * `Standard_GZRS`모드
+  * `Standard_RAGZRS`모드
 
 ### <a name="set-default-azure-storage-account-environment-variables"></a>기본 Azure Storage 계정 환경 변수 설정
 
-Azure 구독에서 여러 저장소 계정을 사용할 수 있습니다. 모든 후속 저장소 명령에 사용하기 위해 이러한 계정 중 하나를 선택하려면 환경 변수를 다음과 같이 설정할 수 있습니다.
+Azure 구독에서 여러 스토리지 계정을 사용할 수 있습니다. 모든 후속 스토리지 명령에 사용하기 위해 이러한 계정 중 하나를 선택하려면 환경 변수를 다음과 같이 설정할 수 있습니다.
 
 먼저, [az storage account keys list](/cli/azure/storage/account/keys) 명령을 사용하여 스토리지 계정 키를 표시합니다.
 
@@ -214,7 +218,7 @@ export AZURE_STORAGE_ACCOUNT=<account_name>
 export AZURE_STORAGE_KEY=<key>
 ```
 
-기본 저장소 계정을 설정하는 또 다른 방법은 연결 문자열을 사용하는 것입니다. 먼저 `show-connection-string` 명령으로 연결 문자열을 가져옵니다.
+기본 스토리지 계정을 설정하는 또 다른 방법은 연결 문자열을 사용하는 것입니다. 먼저 `show-connection-string` 명령으로 연결 문자열을 가져옵니다.
 
 ```azurecli
 az storage account show-connection-string \
@@ -235,7 +239,7 @@ export AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
 Azure Blob Storage는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있는 다량의 구조화되지 않은 데이터(예: 텍스트 또는 이진 데이터)를 저장할 수 있는 서비스입니다. 이 섹션에서는 Azure Blob Storage 개념에 이미 익숙하다고 가정합니다. 자세한 내용은 [.NET을 사용하여 Azure Blob Storage 시작](../blobs/storage-dotnet-how-to-use-blobs.md) 및 [Blob Service 개념](/rest/api/storageservices/blob-service-concepts)을 참조하세요.
 
 ### <a name="create-a-container"></a>컨테이너 만들기
-Azure 저장소의 모든 Blob은 컨테이너에 있어야 합니다. `az storage container create` 명령을 사용하면 컨테이너를 만들 수 있습니다.
+Azure Storage의 모든 Blob은 컨테이너에 있어야 합니다. `az storage container create` 명령을 사용하면 컨테이너를 만들 수 있습니다.
 
 ```azurecli
 az storage container create --name <container_name>
@@ -259,7 +263,7 @@ az storage blob upload \
     --name <blob_name>
 ```
 
-저장소 계정의 컨테이너 내에 있는 폴더에 직접 업로드하려면 `--name <blob_name>`을 `--name <folder/blob_name>`으로 바꿉니다.
+스토리지 계정의 컨테이너 내에 있는 폴더에 직접 업로드하려면 `--name <blob_name>`을 `--name <folder/blob_name>`으로 바꿉니다.
 
  기본적으로 `blob upload` 명령은 페이지 Blob에 *.vhd 파일을 업로드하며, 그렇지 않으면 블록 Blob에 업로드합니다. Blob을 업로드할 때 다른 유형을 지정하려면 `--type` 인수를 사용할 수 있으며, 허용되는 값은 `append`, `block` 및 `page`입니다.
 
@@ -287,9 +291,9 @@ az storage blob list \
 ```
 
 ### <a name="copy-blobs"></a>Blob 복사
-저장소 계정 및 지역 내 또는 전체에 걸쳐 비동기적으로 Blob을 복사할 수 있습니다.
+스토리지 계정 및 지역 내 또는 전체에 걸쳐 비동기적으로 Blob을 복사할 수 있습니다.
 
-다음 예제에서는 한 저장소 계정에서 다른 계정으로 Blob을 복사하는 방법을 보여줍니다. 먼저 해당 Blob에 대해 공용 읽기 액세스를 지정하여 원본 저장소 계정에 컨테이너를 만듭니다. 그런 다음 컨테이너에 파일을 업로드하고, 마지막으로 해당 컨테이너의 Blob을 대상 저장소 계정의 컨테이너에 복사합니다.
+다음 예제에서는 한 스토리지 계정에서 다른 계정으로 Blob을 복사하는 방법을 보여줍니다. 먼저 해당 Blob에 대해 공용 읽기 액세스를 지정하여 원본 스토리지 계정에 컨테이너를 만듭니다. 그런 다음 컨테이너에 파일을 업로드하고, 마지막으로 해당 컨테이너의 Blob을 대상 스토리지 계정의 컨테이너에 복사합니다.
 
 ```azurecli
 # Create container in source account
@@ -316,7 +320,7 @@ az storage blob copy start \
     --source-uri https://sourceaccountname.blob.core.windows.net/sourcecontainer/sourcefile.png
 ```
 
-위의 예제에서는 복사 작업이 성공하기 위해 대상 컨테이너가 대상 저장소 계정에 이미 있어야 합니다. 또한 `--source-uri` 인수에 지정된 원본 Blob는 SAS(공유 액세스 서명) 토큰을 포함하거나 이 예제에서처럼 공개적으로 액세스할 수 있어야 합니다.
+위의 예제에서는 복사 작업이 성공하기 위해 대상 컨테이너가 대상 스토리지 계정에 이미 있어야 합니다. 또한 `--source-uri` 인수에 지정된 원본 Blob는 SAS(공유 액세스 서명) 토큰을 포함하거나 이 예제에서처럼 공개적으로 액세스할 수 있어야 합니다.
 
 ### <a name="delete-a-blob"></a>Blob 삭제
 Blob을 삭제하려면 `blob delete` 명령을 사용합니다.
@@ -325,11 +329,22 @@ Blob을 삭제하려면 `blob delete` 명령을 사용합니다.
 az storage blob delete --container-name <container_name> --name <blob_name>
 ```
 
+### <a name="set-the-content-type"></a>콘텐츠 형식 설정
+
+콘텐츠 형식((MIME 형식이라고도 함))은 Blob의 데이터 형식을 식별합니다. 브라우저 및 기타 소프트웨어는 콘텐츠 형식을 사용하여 데이터를 처리할 방법을 결정합니다. 예를 들어 PNG 이미지 `image/png`의 콘텐츠 형식은입니다. 콘텐츠 형식을 설정 하려면 명령을 사용 합니다 `blob update` .
+
+```azurecli
+az storage blob update
+    --container-name <container_name> 
+    --name <blob_name>
+    --content-type <content_type>
+```
+
 ## <a name="create-and-manage-file-shares"></a>파일 공유 만들기 및 관리
 Azure Files는 SMB(서버 메시지 블록) 프로토콜을 사용하는 애플리케이션을 위한 공유 스토리지를 제공합니다. Microsoft Azure 가상 머신 및 클라우드 서비스 그리고 온-프레미스 애플리케이션은 탑재된 공유를 통해 파일 데이터를 공유할 수 있습니다. Azure CLI를 통해 파일 공유 및 파일 데이터를 관리할 수 있습니다. Azure Files에 대한 자세한 내용은 [Azure Files 소개](../files/storage-files-introduction.md)를 참조하세요.
 
 ### <a name="create-a-file-share"></a>파일 공유 만들기
-Azure에서 Azure 파일 공유는 SMB 파일 공유입니다. 모든 디렉터리 및 파일을 파일 공유에서 만들어야 합니다. 계정에 포함할 수 있는 공유 수에는 제한이 없으며, 공유에 저장할 수 있는 파일 수에는 저장소 계정의 최대 용량 한도까지 제한이 없습니다. 다음 예제에서는 **myshare**라는 파일 공유를 만듭니다.
+Azure에서 Azure 파일 공유는 SMB 파일 공유입니다. 모든 디렉터리 및 파일을 파일 공유에서 만들어야 합니다. 계정에 포함할 수 있는 공유 수에는 제한이 없으며, 공유에 저장할 수 있는 파일 수에는 스토리지 계정의 최대 용량 한도까지 제한이 없습니다. 다음 예제에서는 **myshare**라는 파일 공유를 만듭니다.
 
 ```azurecli
 az storage share create --name myshare
@@ -383,7 +398,7 @@ az storage file copy start \
 ```
 
 ## <a name="create-share-snapshot"></a>공유 스냅샷 만들기
-`az storage share snapshot` 명령을 사용하면 공유 스냅숏을 만들 수 있습니다.
+`az storage share snapshot` 명령을 사용하여 공유 스냅샷을 만들 수 있습니다.
 
 ```cli
 az storage share snapshot -n <share name>
@@ -405,7 +420,7 @@ az storage share snapshot -n <share name>
 
 ### <a name="list-share-snapshots"></a>공유 스냅샷 나열
 
-`az storage share list --include-snapshots`를 사용하여 특정 공유의 공유 스냅숏을 나열할 수 있습니다.
+`az storage share list --include-snapshots`를 사용하여 특정 공유의 공유 스냅샷을 나열할 수 있습니다.
 
 ```cli
 az storage share list --include-snapshots
@@ -448,7 +463,7 @@ az storage share list --include-snapshots
 ```
 
 ### <a name="browse-share-snapshots"></a>공유 스냅샷 찾아보기
-`az storage file list`를 사용하여 특정 공유 스냅숏을 찾아서 해당 내용을 볼 수도 있습니다. 공유 이름 `--share-name <snare name>` 및 타임스탬프 `--snapshot '2017-10-04T19:45:18.0000000Z'`를 지정해야 합니다.
+`az storage file list`를 사용하여 특정 공유 스냅샷을 찾아서 해당 내용을 볼 수도 있습니다. 공유 이름 `--share-name <snare name>` 및 타임스탬프 `--snapshot '2017-10-04T19:45:18.0000000Z'`를 지정해야 합니다.
 
 ```azurecli-interactive
 az storage file list --share-name sharesnapshotdefs --snapshot '2017-10-04T19:45:18.0000000Z' -otable
@@ -470,7 +485,7 @@ IMG_1635.JPG    974058            file
 ```
 ### <a name="restore-from-share-snapshots"></a>공유 스냅샷에서 복원
 
-`az storage file download` 명령을 사용하여 공유 스냅숏에서 파일을 복사 또는 다운로드하여 파일을 복원할 수 있습니다.
+`az storage file download` 명령을 사용하여 공유 스냅샷에서 파일을 복사 또는 다운로드하여 파일을 복원할 수 있습니다.
 
 ```azurecli-interactive
 az storage file download --path IMG_0966.JPG --share-name sharesnapshotdefs --snapshot '2017-10-04T19:45:18.0000000Z'
@@ -506,7 +521,7 @@ az storage file download --path IMG_0966.JPG --share-name sharesnapshotdefs --sn
 }
 ```
 ## <a name="delete-share-snapshot"></a>공유 스냅샷 삭제
-`--snapshot` 매개 변수에 공유 스냅숏 타임스탬프를 제공하면 `az storage share delete` 명령을 사용하여 공유 스냅숏을 삭제할 수 있습니다.
+`--snapshot` 매개 변수에 공유 스냅샷 타임스탬프를 제공하면 `az storage share delete` 명령을 사용하여 공유 스냅샷을 삭제할 수 있습니다.
 
 ```cli
 az storage share delete -n <share name> --snapshot '2017-10-04T23:28:35.0000000Z' 

@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
-manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: b1b281c7beac6b6cb48834e636edff818f89bf12
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2e6b18e53358cad1bfe89e8c0ae7fbacec24d179
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304147"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570205"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Azure SQL Database를 사용하는 독립형 단일 테넌트 애플리케이션을 배포 및 탐색합니다.
 
@@ -25,9 +24,9 @@ ms.locfileid: "66304147"
 
 독립형 애플리케이션 패턴 또는 테넌트별 앱 패턴은 각 테넌트에 대해 애플리케이션 인스턴스를 배포합니다.  각 애플리케이션은 특정 테넌트에 대해 구성되고 별도 Azure 리소스 그룹에 배포됩니다. 다중 테넌트 솔루션을 제공하기 위해 애플리케이션의 여러 인스턴스를 프로비전합니다. 이 패턴은 테넌트 격리가 최우선인 테넌트 수가 더 작은 경우에 가장 적합합니다. Azure에는 테넌트를 대신하여 서비스 공급자가 리소스를 테넌트 구독에 배포하고 관리하도록 허용하는 파트너 프로그램이 있습니다. 
 
-이 자습서에서는 Azure 구독에 세 명의 테 넌 트에 대 한 세 개의 독립 실행형 응용 프로그램을 배포할 수 있습니다.  개별 애플리케이션 구성 요소를 탐색하고 작업할 수 있는 전체 액세스 권한이 있습니다.
+이 자습서에서는 세 개의 테 넌 트에 대해 3 개의 독립 실행형 응용 프로그램을 Azure 구독에 배포 합니다.  개별 애플리케이션 구성 요소를 탐색하고 작업할 수 있는 전체 액세스 권한이 있습니다.
 
-애플리케이션 소스 코드 및 관리 스크립트는 [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) GitHub 리포지토리에서 사용할 수 있습니다. 응용 프로그램 Visual Studio 2015를 사용 하 여 만든 하지 성공적으로 열고 업데이트 하지 않고 Visual Studio 2019에서 컴파일합니다.
+애플리케이션 소스 코드 및 관리 스크립트는 [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) GitHub 리포지토리에서 사용할 수 있습니다. 응용 프로그램은 Visual Studio 2015을 사용 하 여 만들어졌으며 업데이트 하지 않고 Visual Studio 2019에서 성공적으로 열리고 컴파일하지 않습니다.
 
 
 이 자습서에서는 다음에 대해 알아봅니다.
@@ -37,7 +36,7 @@ ms.locfileid: "66304147"
 > * 애플리케이션 소스 코드 및 관리 스크립트를 가져올 위치.
 > * 앱을 구성하는 서버 및 데이터베이스 정보.
 
-추가 자습서가 제공될 예정입니다. 이 응용 프로그램 패턴에 따라 관리 시나리오 범위를 탐색할 수 있게 될 것 있습니다.   
+추가 자습서가 제공될 예정입니다. 이 응용 프로그램 패턴을 기반으로 다양 한 관리 시나리오를 탐색할 수 있습니다.   
 
 ## <a name="deploy-the-wingtip-tickets-saas-standalone-application"></a>Wingtip 티켓 SaaS 독립형 애플리케이션 배포
 
@@ -55,8 +54,8 @@ ms.locfileid: "66304147"
     > [!IMPORTANT]
     > 일부 인증 및 서버 방화벽은 데모 목적으로 의도적으로 보호되지 않습니다. 각각의 애플리케이션 배포에 대한 **새 리소스 그룹을 만듭니다**.  기존 리소스 그룹을 사용하지 마세요. 이 애플리케이션이나 여기에서 만든 리소스를 프로덕션에 사용하지 마세요. 관련된 결제를 중지하려면 애플리케이션을 완료할 때 모든 리소스 그룹을 삭제합니다.
 
-    리소스 이름에 소문자, 숫자 및 하이픈을 사용 하는 것이 좋습니다.
-    * **리소스 그룹** - 새로 만들기를 선택한 후 리소스 그룹의 이름을 소문자로 입력합니다. 권장 패턴은 **wingtip-sa-\<venueName\>-\<user\>** 입니다.  에 대 한 \<venueName\>, 장소 이름을 공백 없이 대체 합니다. 에 대 한 \<사용자\>, 아래에서 사용자 값으로 바꿉니다.  이 패턴을 사용하면 리소스 그룹 이름은 *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*이 될 수 있습니다.
+    리소스 이름에는 소문자, 숫자 및 하이픈만 사용 하는 것이 가장 좋습니다.
+    * **리소스 그룹** - 새로 만들기를 선택한 후 리소스 그룹의 이름을 소문자로 입력합니다. 권장 패턴은 **wingtip-sa-\<venueName\>-\<user\>** 입니다.  Venuename \<\>의 경우 장소 이름을 공백 없이 바꿉니다. \<사용자\>의 경우 아래에서 사용자 값을 바꿉니다.  이 패턴을 사용하면 리소스 그룹 이름은 *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*이 될 수 있습니다.
     * 드롭다운 목록에서 **위치**를 선택합니다.
 
     * **사용자** - 이니셜에 숫자를 더한 짧은 사용자 값이 좋습니다(예: *af1*).
@@ -82,7 +81,7 @@ ms.locfileid: "66304147"
 
      각 URL에서 &lt;user&gt;를 배포의 사용자 값으로 바꿉니다.
 
-   ![Events](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
+   ![이벤트](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
 들어오는 요청의 배포를 제어하기 위해 앱에서는 [*Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md)를 사용합니다. 각 테넌트 관련 앱 인스턴스는 URL에 도메인 이름의 일부로 테넌트 이름을 포함합니다. 모든 테넌트 URL에는 특정 **사용자** 값이 포함됩니다. URL은 다음 형식을 따릅니다.
 - http://events.&lt ;venuename&gt;.&lt; user&gt;.trafficmanager.net
@@ -102,7 +101,7 @@ ms.locfileid: "66304147"
 
 각 테넌트 데이터베이스는 50개의 DTU *독립형* 데이터베이스입니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 <!--
 * Additional [tutorials that build on the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
@@ -126,6 +125,6 @@ ms.locfileid: "66304147"
 > * 앱을 구성하는 서버 및 데이터베이스 정보.
 > * 샘플 리소스를 삭제하여 관련 결제를 중지하는 방법
 
-다음 단계로 합니다 [프로 비전 및 카탈로그](saas-standaloneapp-provision-and-catalog.md) 자습서는 다양 한 스키마 관리 및 테 넌 트 분석과 같은 교차 테 넌 트 시나리오를 사용 하도록 설정 하는 테 넌 트 카탈로그 사용 살펴봅니다.
+다음으로, [프로 비전 및 카탈로그](saas-standaloneapp-provision-and-catalog.md) 자습서에서 스키마 관리 및 테 넌 트 분석과 같은 다양 한 교차 테 넌 트 시나리오를 지 원하는 테 넌 트 카탈로그의 사용을 살펴볼 수 있습니다.
  
 

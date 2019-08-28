@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: 50264dfba401f623c4ad14a6310303f2787fc85f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 8d0973b8d4de280842930a8a70618600daab849b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182008"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68849915"
 ---
 ### <a name="retrieve-host-name-ports-and-access-keys-by-using-the-azure-portal"></a>Azure Portal을 사용하여 호스트 이름, 포트 및 액세스 키를 검색합니다.
 
@@ -21,7 +21,7 @@ Azure Cache for Redis 인스턴스에 연결할 때 캐시 클라이언트에 �
 
 #### <a name="to-retrieve-the-access-keys-and-host-name"></a>액세스 키 및 호스트 이름을 검색하려면
 
-1. [Azure Portal](https://portal.azure.com)을 사용하여 액세스 키를 검색하려면 캐시를 찾아서 **액세스 키**를 선택합니다. 
+1. [Azure Portal](https://portal.azure.com)을 사용하여 액세스 키를 검색하려면 캐시로 이동하여 **액세스 키**를 선택합니다. 
 
     ![Azure Cache for Redis 키](media/redis-cache-access-keys/redis-cache-keys.png)
 

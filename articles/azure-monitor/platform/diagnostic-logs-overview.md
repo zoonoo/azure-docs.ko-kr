@@ -20,7 +20,7 @@ ms.locfileid: "66244872"
 **진단 로그** Azure 리소스의 작업에 대 한 풍부 하 고 빈번한 데이터를 제공 합니다. Azure Monitor에서는 두 가지 진단 로그 유형을 제공합니다.
 
 * **테넌트 로그** - Azure Active Directory 로그 등, Azure 구독 밖에 존재하는 테넌트 수준 서비스로부터 오는 로그입니다.
-* **리소스 로그** - 네트워크 보안 그룹, 저장소 계정 등, Azure 구독 내에 리소스를 배포하는 Azure 서비스로부터 오는 로그입니다.
+* **리소스 로그** - 네트워크 보안 그룹, 스토리지 계정 등, Azure 구독 내에 리소스를 배포하는 Azure 서비스로부터 오는 로그입니다.
 
     ![리소스 진단 로그와 다른 로그 유형 비교](media/diagnostic-logs-overview/Diagnostics_Logs_vs_other_logs_v5.png)
 

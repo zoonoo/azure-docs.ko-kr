@@ -1,5 +1,5 @@
 ---
-title: 도메인 특정 콘텐츠 감지 - Computer Vision
+title: 도메인별 콘텐츠-Computer Vision
 titleSuffix: Azure Cognitive Services
 description: 이미지에 대한 보다 자세한 정보를 반환하기 위해 이미지 범주화 도메인을 지정하는 방법에 대해 알아봅니다.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: e4b64e00f71768a8821c83a73b019f77089e1b3a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8d6dc91ae7bb0f6d7a24064749d9295558a7d39c
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60368081"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946334"
 ---
 # <a name="detect-domain-specific-content"></a>도메인 특정 콘텐츠 감지
 
@@ -30,7 +30,7 @@ Computer Vision은 태깅 및 고급 분류뿐 아니라 특수 데이터에 대
 
 다음은 지정된 이미지에 대해 **models/celebrities/analyze** API에서 반환된 샘플 JSON 응답입니다.
 
-![Satya Nadella 준비, 웃는](./images/satya.jpeg)
+![Satya Nadella 서, 웃는 얼굴](./images/satya.jpeg)
 
 ```json
 {
@@ -100,7 +100,7 @@ Computer Vision은 태깅 및 고급 분류뿐 아니라 특수 데이터에 대
 
 현재 Computer Vision은 다음과 같은 도메인 특정 모델을 지원합니다.
 
-| Name | 설명 |
+| 이름 | Description |
 |------|-------------|
 | celebrities | `people_` 범주에서 분류된 이미지에 대해 지원되는 유명인 인식 |
 | landmarks | `outdoor_` 또는 `building_` 범주에서 분류된 이미지에 대해 지원되는 랜드마크 인식 |

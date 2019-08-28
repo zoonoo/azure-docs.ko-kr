@@ -1,6 +1,6 @@
 ---
 title: 단어 맞춤 정보 - Translator Text API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Translator Text API에서 단어 맞춤 정보를 받습니다.
 services: cognitive-services
 author: swmachan
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
 ms.custom: seodec18
-ms.openlocfilehash: 3db5e9651e307211e9dccee20bb8d69586bb9ef1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5818d3f4d2ebed7cbcd46aadf538640914d3b7d4
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448156"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594789"
 ---
 # <a name="how-to-receive-word-alignment-information"></a>단어 맞춤 정보를 받는 방법
 
@@ -32,13 +32,13 @@ ms.locfileid: "67448156"
 
 즉, 콜론은 시작 및 끝 인덱스를 구분하고, 대시는 언어를 구분하고, 공백은 단어를 구분합니다. 한 단어는 다른 언어의 0개, 1개 또는 여러 단어와 정렬될 수 있고, 정렬된 단어가 비연속적일 수도 있습니다. 맞춤 정보를 사용할 수 없는 경우 Alignment 요소가 비어 있습니다. 이 경우에는 메서드가 오류를 반환하지 않습니다.
 
-## <a name="restrictions"></a>제한
+## <a name="restrictions"></a>Restrictions
 이 시점에는 다음 언어 쌍의 하위 집합에 대해서만 맞춤이 반환됩니다.
 * 영어에서 다른 모든 언어로
 * 다른 모든 언어에서 영어로(중국어 간체, 중국어 번체 및 라트비아어에서 영어로 번역하는 경우 제외)
 * 일본어에서 한국어로 또는 한국어에서 일본어로. 문장이 미리 준비된 번역인 경우에는 맞춤 정보가 표시되지 않습니다. 미리 준비된 번역의 예로 “테스트입니다.”, “당신을 사랑합니다.”, 기타 빈도가 높은 문장 등이 있습니다.
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
 예제 JSON
 

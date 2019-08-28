@@ -33,7 +33,7 @@ REST API를 사용하여 Microsoft Azure Import/Export 서비스에 대해 내�
   Import/Export 서비스에 대한 개요 및 [Azure Portal](https://portal.azure.com/)을 사용하여 가져오기 및 내보내기 작업을 만들고 관리하는 방법을 보여 주는 자습서는 [Microsoft Azure Import/Export 서비스를 사용하여 데이터를 Blob Storage로 전송](storage-import-export-service.md)을 참조하세요.
 
 ## <a name="selecting-blobs-to-export"></a>내보낼 blob 선택
- 내보내기 작업을 만들려면 저장소 계정에서 내보낼 blob 목록을 제공해야 합니다. 다음과 같은 방법으로 내보낼 blob을 선택할 수 있습니다.
+ 내보내기 작업을 만들려면 스토리지 계정에서 내보낼 blob 목록을 제공해야 합니다. 다음과 같은 방법으로 내보낼 blob을 선택할 수 있습니다.
 
 - 상대 blob 경로를 사용하여 단일 blob 및 해당 스냅샷을 모두 선택할 수 있습니다.
 
@@ -43,7 +43,7 @@ REST API를 사용하여 Microsoft Azure Import/Export 서비스에 대해 내�
 
 - blob 접두사를 사용하여 지정된 접두사를 갖는 모든 blob 및 스냅샷을 선택할 수 있습니다.
 
-- 저장소 계정의 모든 blob 및 스냅샷을 내보낼 수 있습니다.
+- 스토리지 계정의 모든 blob 및 스냅샷을 내보낼 수 있습니다.
 
   내보낼 blob을 지정하는 방법에 대한 자세한 내용은 [작업 배치](/rest/api/storageimportexport/jobs) 연산을 참조하세요.
 
@@ -52,9 +52,9 @@ REST API를 사용하여 Microsoft Azure Import/Export 서비스에 대해 내�
 
 배송 위치를 가져오려면 다음 단계를 수행합니다.
 
--   저장소 계정의 위치 이름을 식별합니다. 이 값은 Azure Portal에서 Storage 계정의 **대시보드**에 있는 **위치** 필드에서 찾거나 Service Management API 연산 [Storage 계정 속성 가져오기](/rest/api/storagerp/storageaccounts)를 사용하여 쿼리할 수 있습니다.
+-   스토리지 계정의 위치 이름을 식별합니다. 이 값은 Azure Portal에서 Storage 계정의 **대시보드**에 있는 **위치** 필드에서 찾거나 Service Management API 연산 [Storage 계정 속성 가져오기](/rest/api/storagerp/storageaccounts)를 사용하여 쿼리할 수 있습니다.
 
--   `Get Location` 연산을 호출하여 이 저장소 계정을 처리하는 데 사용할 수 있는 위치를 검색합니다.
+-   `Get Location` 연산을 호출하여 이 스토리지 계정을 처리하는 데 사용할 수 있는 위치를 검색합니다.
 
 -   위치의 `AlternateLocations` 속성에 해당 위치 자체가 포함될 경우 이 위치를 사용해도 됩니다. 그렇지 않으면 대체 위치 중 하나를 사용하여 `Get Location` 연산을 다시 호출합니다. 유지 관리를 위해 원래 위치가 일시적으로 닫혀 있을 수 있습니다.
 
@@ -63,7 +63,7 @@ REST API를 사용하여 Microsoft Azure Import/Export 서비스에 대해 내�
 
 -   작업의 이름입니다.
 
--   저장소 계정 이름입니다.
+-   스토리지 계정 이름입니다.
 
 -   이전 단계에서 얻은 배송 위치 이름입니다.
 

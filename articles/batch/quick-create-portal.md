@@ -3,33 +3,33 @@ title: Azure 빠른 시작 - Batch 작업 실행 - 포털
 description: Azure Portal을 사용하여 Batch 작업을 실행하는 방법을 빠르게 알아봅니다.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: d478307ff4393d84a854fcd3b2ea0efd77de7135
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 33455a95dff946676e3dfffbd2737ed36be59c64
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087842"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322359"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 첫 번째 Batch 작업 실행
 
-이 빠른 시작에서는 Azure Portal을 사용하여 배치 계정, 계산 노드(가상 머신)의 *풀* 및 풀에서 기본 *태스크*를 실행하는 *작업*을 만드는 방법을 보여 줍니다. 이 빠른 시작을 완료하면, Batch 서비스의 주요 개념을 이해하고 더 큰 규모의 더 실제적인 작업으로 Batch를 시도할 준비가 됩니다.
+이 빠른 시작에서는 Azure Portal을 사용하여 배치 계정, 컴퓨팅 노드(가상 머신)의 *풀* 및 풀에서 기본 *태스크*를 실행하는 *작업*을 만드는 방법을 보여 줍니다. 이 빠른 시작을 완료하면, Batch 서비스의 주요 개념을 이해하고 더 큰 규모의 더 실제적인 작업으로 Batch를 시도할 준비가 됩니다.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인 
 
-[https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-batch-account"></a>Batch 계정 만들기
 
-다음 단계에 따라 테스트용 배치 계정 샘플을 만듭니다. 풀 및 작업을 만들려면 배치 계정이 필요합니다. 여기서 보여 주듯이 Azure 저장소 계정과 배치 계정을 연결할 수 있습니다. 스토리지 계정은 이 빠른 시작에서 필요하지 않지만, 애플리케이션을 배포하고 대부분의 실제 작업에 대한 입력 및 출력 데이터를 저장하는 데 유용합니다.
+다음 단계에 따라 테스트용 배치 계정 샘플을 만듭니다. 풀 및 작업을 만들려면 배치 계정이 필요합니다. 여기서 보여 주듯이 Azure Storage 계정과 배치 계정을 연결할 수 있습니다. 스토리지 계정은 이 빠른 시작에서 필요하지 않지만, 애플리케이션을 배포하고 대부분의 실제 작업에 대한 입력 및 출력 데이터를 저장하는 데 유용합니다.
 
 
 1. **리소스 만들기** > **계산** > **Batch Service**를 선택합니다. 
@@ -38,7 +38,7 @@ ms.locfileid: "58087842"
 
 2. **계정 이름** 및 **리소스 그룹**에 대한 값을 입력합니다. 계정 이름은 선택한 Azure **위치** 내에서 고유해야 하며, 소문자 또는 숫자만 사용하고, 3-24자를 포함해야 합니다. 
 
-3. **저장소 계정**에서 기존 저장소 계정을 선택하거나 새 저장소 계정을 만듭니다.
+3. **스토리지 계정**에서 기존 스토리지 계정을 선택하거나 새 스토리지 계정을 만듭니다.
 
 4. 나머지 설정에 대한 기본값은 그대로 유지하고 **만들기**를 선택하여 계정을 만듭니다.
 
@@ -46,9 +46,9 @@ ms.locfileid: "58087842"
 
 **배포 성공** 메시지가 표시되면 포털의 배치 계정으로 이동합니다.
 
-## <a name="create-a-pool-of-compute-nodes"></a>계산 노드 풀 만들기
+## <a name="create-a-pool-of-compute-nodes"></a>컴퓨팅 노드 풀 만들기
 
-이제 배치 계정이 있으므로 테스트를 위해 Windows 계산 노드의 샘플 풀을 만듭니다. 이 빠른 예제의 풀은 Azure Marketplace에서 Windows Server 2012 R2 이미지를 실행하는 2개의 노드로 구성되어 있습니다.
+이제 배치 계정이 있으므로 테스트를 위해 Windows 컴퓨팅 노드의 샘플 풀을 만듭니다. 이 빠른 예제의 풀은 Azure Marketplace에서 Windows Server 2012 R2 이미지를 실행하는 2개의 노드로 구성되어 있습니다.
 
 
 1. 배치 계정에서 **풀** > **추가**를 차례로 선택합니다.
@@ -77,7 +77,7 @@ ms.locfileid: "58087842"
 
 5. 나머지 설정은 기본값으로 유지하고 **확인**을 선택하여 풀을 만듭니다.
 
-Batch는 풀을 즉시 만들지만, 계산 노드를 할당하고 시작하는 데 몇 분이 걸립니다. 이 시간 동안 풀의 **할당 상태**는 **Resizing**(크기 조정 중)입니다. 풀 크기를 조정하는 동안 작업과 태스크를 계속 만들 수 있습니다. 
+Batch는 풀을 즉시 만들지만, 컴퓨팅 노드를 할당하고 시작하는 데 몇 분이 걸립니다. 이 시간 동안 풀의 **할당 상태**는 **Resizing**(크기 조정 중)입니다. 풀 크기를 조정하는 동안 작업과 태스크를 계속 만들 수 있습니다. 
 
 ![Resizing 상태의 풀][pool_resizing]
 
@@ -97,9 +97,9 @@ Batch는 풀을 즉시 만들지만, 계산 노드를 할당하고 시작하는 
 
 ## <a name="create-tasks"></a>태스크 만들기
 
-이제 작업에서 실행할 샘플 태스크를 만듭니다. 일반적으로 계산 노드에서 실행하기 위해 Batch에서 큐에 넣고 배포하는 여러 태스크를 만듭니다. 이 예제에서는 두 개의 동일한 태스크를 만듭니다. 각 태스크는 명령줄을 실행하여 계산 노드에 Batch 환경 변수를 표시한 다음, 90초 동안 기다립니다. 
+이제 작업에서 실행할 샘플 태스크를 만듭니다. 일반적으로 컴퓨팅 노드에서 실행하기 위해 Batch에서 큐에 넣고 배포하는 여러 태스크를 만듭니다. 이 예제에서는 두 개의 동일한 태스크를 만듭니다. 각 태스크는 명령줄을 실행하여 계산 노드에 Batch 환경 변수를 표시한 다음, 90초 동안 기다립니다. 
 
-Batch를 사용하면 명령줄에서 앱 또는 스크립트를 지정합니다. Batch는 계산 노드에 앱과 스크립트를 배포하는 여러 가지 방법을 제공합니다. 
+Batch를 사용하면 명령줄에서 앱 또는 스크립트를 지정합니다. Batch는 컴퓨팅 노드에 앱과 스크립트를 배포하는 여러 가지 방법을 제공합니다. 
 
 첫 번째 태스크를 만들려면 다음을 수행합니다.
 
@@ -125,7 +125,7 @@ Batch를 사용하면 명령줄에서 앱 또는 스크립트를 지정합니다
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-Batch 자습서 및 샘플을 계속 사용하려면 이 빠른 시작에서 만든 배치 계정 및 연결된 저장소 계정을 사용합니다. 배치 계정 자체에는 요금이 부과되지 않습니다.
+Batch 자습서 및 샘플을 계속 사용하려면 이 빠른 시작에서 만든 배치 계정 및 연결된 스토리지 계정을 사용합니다. 배치 계정 자체에는 요금이 부과되지 않습니다.
 
 작업이 예약되지 않은 경우에도 노드가 실행되는 동안은 풀에 대한 요금이 부과됩니다. 풀이 더 이상 필요하지 않으면 삭제합니다. 계정 보기에서 **풀**과 해당 풀의 이름을 선택합니다. 그런 다음, **삭제**를 선택합니다.  풀을 삭제하면 노드의 모든 태스크 출력이 삭제됩니다. 
 

@@ -3,22 +3,21 @@ title: Azure IoT Hub 소개 | Microsoft Docs
 description: Azure IoT Hub에 대해 알아봅니다. 이 IoT 서비스는 확장성 있는 데이터 수집, 디바이스 관리 및 보안을 위해 구축되었습니다.
 author: nberdy
 ms.author: nberdy
-ms.date: 07/04/2018
+ms.date: 08/08/2019
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-hub
 services: iot-hub
-manager: briz
-ms.openlocfilehash: 6dadd746bccd028a2b81a980d99ab47ec9e6e2a3
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 0dde7bd9bd3372f0f5eddbbd56727eca3ae4a9dd
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726740"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950457"
 ---
 # <a name="what-is-azure-iot-hub"></a>Azure IoT Hub란?
 
-IoT Hub는 클라우드에서 호스팅되는 관리 서비스이며, IoT 애플리케이션과 이를 통해 관리하는 장치 간의 양방향 통신을 위한 중앙 메시지 허브 역할을 합니다. Azure IoT Hub를 사용하여 수백만 개의 IoT 디바이스와 클라우드 호스팅 솔루션 백 엔드 간에 안정적이고 안전한 통신을 통해 IoT 솔루션을 구축할 수 있습니다. 거의 모든 디바이스를 IoT Hub에 연결할 수 있습니다.
+IoT Hub는 클라우드에서 호스팅되는 관리 서비스이며, IoT 애플리케이션과 이를 통해 관리하는 디바이스 간의 양방향 통신을 위한 중앙 메시지 허브 역할을 합니다. Azure IoT Hub를 사용하여 수백만 개의 IoT 디바이스와 클라우드 호스팅 솔루션 백 엔드 간에 안정적이고 안전한 통신을 통해 IoT 솔루션을 구축할 수 있습니다. 거의 모든 디바이스를 IoT Hub에 연결할 수 있습니다.
 
 IoT Hub는 디바이스에서 클라우드로, 클라우드에서 디바이스로의 통신을 모두 지원합니다. IoT Hub는 디바이스-클라우드 원격 분석, 디바이스에서 파일 업로드 및 클라우드에서 디바이스를 제어하는 요청-회신 방법과 같은 여러 메시징 패턴을 지원합니다. IoT Hub 모니터링을 사용하면 디바이스 만들기, 디바이스 오류 및 디바이스 연결과 같은 이벤트를 추적하여 솔루션의 상태를 유지 관리할 수 있습니다.
 
@@ -26,7 +25,7 @@ IoT Hub의 기능을 사용하면 제조에 사용된 산업 장비 관리, 의�
 
 ## <a name="scale-your-solution"></a>솔루션 확장
 
-IoT Hub는 수백만 개의 동시 연결 디바이스와 초당 수백만 개의 이벤트까지 확장하여 IoT 작업을 지원합니다. IoT Hub는 확장성 요구 사항에 가장 적합한 여러 계층의 서비스를 제공합니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/iot-hub/)에서 알아보세요.
+IoT Hub는 수백만 개의 동시 연결 디바이스와 초당 수백만 개의 이벤트까지 확장하여 IoT 작업을 지원합니다. IoT Hub의 크기를 조정하는 방법에 대한 자세한 내용은 [IoT Hub 크기 조정](iot-hub-scaling.md?branch=release-iotbasic)을 참조하세요. IoT Hub에서 제공하는 여러 서비스 계층 및 확장성 요구 사항을 가장 잘 충족하는 방법에 대한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/iot-hub/)를 참조하세요.
 
 ## <a name="secure-your-communications"></a>통신 보안
 
@@ -50,7 +49,7 @@ IoT Hub는 디바이스에서 데이터를 보낼 수 있도록 안전한 통신
 
 기본 제공 메시지 라우팅 기능을 사용하면 자동 규칙 기반 메시지 팬아웃을 유연하게 설정할 수 있습니다.
 
-* 메시지 라우팅을 사용하여 허브에서 디바이스 원격 분석을 보내는 위치를 제어합니다.
+* [메시지 라우팅](iot-hub-devguide-messages-d2c.md)을 사용하여 허브에서 디바이스 원격 분석을 보내는 위치를 제어합니다.
 
 * 메시지를 여러 엔드포인트에 라우팅하는 데 추가 비용이 들지 않습니다.
 
@@ -84,7 +83,7 @@ IoT Hub를 다른 Azure 서비스와 통합하여 완전한 엔드투엔드 솔�
 
 ## <a name="connect-your-devices"></a>사용자 디바이스 연결
 
-[Azure IoT 장치 SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) 라이브러리를 사용하여 장치에서 실행되고 IoT Hub와 상호 작용하는 애플리케이션을 빌드합니다. 지원되는 플랫폼에는 여러 Linux 배포판, Windows 및 실시간 운영 체제가 포함됩니다. 지원되는 언어는 다음과 같습니다.
+[Azure IoT 디바이스 SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) 라이브러리를 사용하여 디바이스에서 실행되고 IoT Hub와 상호 작용하는 애플리케이션을 빌드합니다. 지원되는 플랫폼에는 여러 Linux 배포판, Windows 및 실시간 운영 체제가 포함됩니다. 지원되는 언어는 다음과 같습니다.
 
 * C
 * C#
@@ -110,7 +109,7 @@ IoT Hub를 다른 Azure 서비스와 통합하여 완전한 엔드투엔드 솔�
 
 ## <a name="quotas-and-limits"></a>할당량 및 제한
 
-Azure 구독마다 서비스 남용을 방지하기 위해 기본 할당량 한도가 적절히 설정되어 있으며, 이러한 제한은 IoT 솔루션의 범위에 영향을 줄 수 있습니다. 구독별 기준의 현재 제한은 구독당 50개 IoT 허브입니다. 지원 센터에 문의하여 할당량 증가를 요청할 수 있습니다. 할당량 제한에 대한 자세한 내용은 다음을 참조하세요.
+Azure 구독마다 서비스 남용을 방지하기 위해 기본 할당량 한도가 적절히 설정되어 있으며, 이러한 제한은 IoT 솔루션의 범위에 영향을 줄 수 있습니다. 구독별 기준의 현재 제한은 구독당 50개 IoT 허브입니다. 지원 센터에 문의하여 할당량 증가를 요청할 수 있습니다. 자세한 내용은 [IoT Hub 할당량 및 제한](iot-hub-devguide-quotas-throttling.md)을 참조하세요. 할당량 한도에 대한 자세한 내용은 다음 문서 중 하나를 참조하세요.
 
 * [Azure 구독 및 서비스 제한](../azure-subscription-service-limits.md)
 

@@ -4,7 +4,7 @@ description: Terraform을 설치하고 구성하여 Azure 리소스를 만드는
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: echuvyrov
-manager: jeconnoc
+manager: gwallace
 editor: na
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/19/2018
-ms.author: echuvyrov
-ms.openlocfilehash: 71cf07b227a75e53119f2f35e79ccd7926b551e7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: gwallace
+ms.openlocfilehash: c7251b24ccd15971a704b6b47288f49168b27039
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60418866"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69980891"
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Azure에 VM 및 기타 인프라를 프로비전하기 위해 Terraform 설치 및 구성
  
@@ -47,10 +47,10 @@ Usage: terraform [--version] [--help] <command> [args]
 
 Terraform에서 Azure로 리소스를 프로비전할 수 있도록 [Azure AD 서비스 사용자](/cli/azure/create-an-azure-service-principal-azure-cli)를 만듭니다. 서비스 사용자는 Azure 구독에서 리소스를 프로비전하는 권한을 Terraform 스크립트에 부여합니다.
 
-Azure 구독이 여러 개 있는 경우 먼저 [az account show](/cli/azure/account#az-account-show) 명령으로 계정을 쿼리하여 구독 ID 및 테넌트 ID 값을 가져옵니다.
+여러 Azure 구독이 있는 경우 먼저 [az account list](/cli/azure/account#az-account-list) 를 사용 하 여 계정을 쿼리하여 구독 id 및 테 넌 트 id 값의 목록을 가져옵니다.
 
 ```azurecli-interactive
-az account show --query "{subscriptionId:id, tenantId:tenantId}"
+az account list --query "[].{name:name, subscriptionId:id, tenantId:tenantId}"
 ```
 
 선택한 구독을 사용하려면 [az account set](/cli/azure/account#az-account-set) 명령을 사용하여 이 세션에 대한 구독을 설정합니다. 사용하려는 구독에서 반환된 `id` 필드 값을 보유하도록 `SUBSCRIPTION_ID` 환경 변수를 설정합니다.

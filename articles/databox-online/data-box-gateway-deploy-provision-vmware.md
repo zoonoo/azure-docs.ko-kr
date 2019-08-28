@@ -91,7 +91,7 @@ VMware ESXi 6.0, 6.5 또는 6.7을 실행하는 호스트 시스템에 가상 �
 
    ![로그인 페이지](./media/data-box-gateway-deploy-provision-vmware/image1.png)
   
-3. ESXi 서버에 VMDK를 업로드합니다. 탐색기 창에서 **저장소**를 선택합니다.
+3. ESXi 서버에 VMDK를 업로드합니다. 탐색기 창에서 **스토리지**를 선택합니다.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image2.png)
 
@@ -136,7 +136,7 @@ VMware ESXi 6.0, 6.5 또는 6.7을 실행하는 호스트 시스템에 가상 �
 
     ![이름과 OS 이름 및 위치 선택 페이지](./media/data-box-gateway-deploy-provision-vmware/image11.png)
 
-15. **저장소 선택** 페이지에서 VM을 프로비전하는 데 사용할 데이터 저장소를 선택합니다. **다음**을 클릭합니다.
+15. **스토리지 선택** 페이지에서 VM을 프로비전하는 데 사용할 데이터 스토리지를 선택합니다. **다음**을 클릭합니다.
 
     ![스토리지 선택 페이지](./media/data-box-gateway-deploy-provision-vmware/image12.png)
 16. **사용자 지정 설정** 페이지에서 설정는 **CPU**를 4로 설정하고, **메모리**를 8192MB(이상)으로 설정하고, **하드 디스크 1**을 2TB(이상)으로 설정합니다. 추가할 **SCSI 하드 디스크**를 선택합니다. 이 경우에는 LSI 논리 SAS이었습니다. **정적 IDE 디스크는 지원되지 않습니다.** **하드 디스크 1**은 가상 데이터 디스크입니다. 프로비전한 후에는 디스크를 축소할 수 없습니다. 디스크를 축소하려고 하면 디바이스의 모든 로컬 데이터가 손실됩니다. 

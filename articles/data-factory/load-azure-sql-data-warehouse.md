@@ -41,7 +41,7 @@ Azure Data Factory를 사용하여 Azure SQL Data Warehouse로 데이터를 로�
 * Azure 구독: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * Azure SQL Data Warehouse: 데이터 웨어하우스 SQL 데이터베이스에서 복사 된 데이터를 보유 합니다. Azure SQL Data Warehouse가 아직 없는 경우 [SQL Data Warehouse 만들기](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md)의 지침을 참조하세요.
 * Azure SQL Database: 이 자습서는 Adventure Works LT 샘플 데이터를 사용하여 Azure SQL database에서 데이터를 복사합니다. [Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)의 지침을 따라 SQL 데이터베이스를 만들 수 있습니다. 
-* Azure 저장소 계정: Azure 저장소는 대량 복사 작업에서 _준비_ blob으로 사용됩니다. Azure 저장소 계정이 없는 경우 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md)의 지침을 참조하세요.
+* Azure Storage 계정: Azure 저장소는 대량 복사 작업에서 _준비_ blob으로 사용됩니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md)의 지침을 참조하세요.
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 
@@ -128,11 +128,11 @@ Azure Data Factory를 사용하여 Azure SQL Data Warehouse로 데이터를 로�
 
 1. **설정** 페이지에서 다음 단계를 완료합니다.
 
-    a. **스테이징 설정** 섹션에서 **+ 새로 만들기**를 클릭하여 스테이징 저장소를 새로 만듭니다. 저장소는 PolyBase를 사용하여 SQL Data Warehouse에 로드하기 전에, 데이터를 스테이징하는데 사용됩니다. 복사가 완료되면 Azure Storage의 중간 데이터는 자동으로 정리됩니다. 
+    a. **준비 설정** 섹션에서 **+ 새로 만들기**를 클릭하여 준비 스토리지를 새로 만듭니다. 스토리지는 PolyBase를 사용하여 SQL Data Warehouse에 로드하기 전에, 데이터를 준비하는 데 사용됩니다. 복사가 완료되면 Azure Storage의 중간 데이터는 자동으로 정리됩니다. 
 
     ![준비 구성](./media/load-azure-sql-data-warehouse/configure-staging.png)
 
-    b. **새로 연결된 서비스** 페이지에서 저장소 계정을 선택하고 **마침**을 선택합니다.
+    b. **새로 연결된 서비스** 페이지에서 스토리지 계정을 선택하고 **마침**을 선택합니다.
    
     ![Azure Storage 구성](./media/load-azure-sql-data-warehouse/configure-blob-storage.png)
 

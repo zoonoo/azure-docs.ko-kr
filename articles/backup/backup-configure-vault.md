@@ -10,7 +10,7 @@ ms.date: 03/13/2019
 ms.author: raynew
 ms.openlocfilehash: 7a1bd6da68b49481429709c7e4fd37dd5c07ae2c
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60810153"
@@ -95,7 +95,7 @@ MARS 에이전트는 백업 Recovery Services 자격 증명 모음에 Azure에�
 
      ![새로 고침 단추 클릭](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)
 
-### <a name="set-storage-redundancy"></a>저장소 중복 설정
+### <a name="set-storage-redundancy"></a>스토리지 중복 설정
 
 Azure Backup 자격 증명 모음에 대 한 저장소를 자동으로 처리합니다. 저장소 복제 되는 방식을 지정 해야 합니다.
 
@@ -104,7 +104,7 @@ Azure Backup 자격 증명 모음에 대 한 저장소를 자동으로 처리합
 
 3. 저장소 복제 유형을 선택 하 고 클릭 **저장할**합니다.
 
-      ![새 자격 증명 모음의 저장소 구성 설정](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+      ![새 자격 증명 모음의 스토리지 구성 설정](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
 - 기본 백업 저장소 끝점으로 Azure를 사용 하는 경우에 계속 기본값을 사용 하는 것이 좋습니다 **지역 중복** 설정 합니다.
 - Azure를 기본 백업 스토리지 엔드포인트로 사용하지 않는 경우 Azure Storage 비용이 감소되는 **로컬 중복**을 선택합니다.

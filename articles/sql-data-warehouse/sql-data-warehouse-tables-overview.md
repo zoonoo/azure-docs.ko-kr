@@ -2,7 +2,7 @@
 title: 테이블 디자인 - Azure SQL Data Warehouse | Microsoft Docs
 description: Azure SQL Data Warehouse의 테이블 디자인을 소개합니다.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 06bdd21363aee8202ce7178f157f01a5c26e3a52
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d97326430eebcaea64770e99c26ab593b51d5847
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65851582"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68476757"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 테이블 디자인
 
@@ -32,7 +32,7 @@ Azure SQL Data Warehouse의 테이블 디자인에 대한 주요 개념을 알�
 - **통합 테이블**에서는 데이터를 통합하거나 스테이징 할 수 있습니다. 통합 테이블을 일반 테이블, 외부 테이블 또는 임시 테이블로 만들 수 있습니다. 예를 들어 스테이징 테이블에 데이터를 로드하고 스테이징 중인 데이터에 대한 변환을 수행한 다음 프로덕션 테이블에 데이터를 삽입할 수 있습니다.
 
 ## <a name="schema-and-table-names"></a>스키마 및 테이블 이름
-스키마는 테이블 그룹을 비슷한 방식으로 함께 사용 하는 좋은 방법입니다.  마이그레이션하려는 경우 여러 데이터베이스 온-프레미스 솔루션에서 SQL Data warehouse, SQL Data Warehouse의 한 스키마로 모든 팩트, 차원 및 통합 테이블을 마이그레이션하도록 적합 합니다. 예를 들어 [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap) 샘플 데이터 웨어하우스의 모든 테이블을 wwi라는 하나의 스키마 내에 저장할 수 있습니다. 다음 코드에서는 wwi라는 [사용자 정의 스키마](/sql/t-sql/statements/create-schema-transact-sql)를 만듭니다.
+스키마는 비슷한 방식으로 함께 사용 되는 테이블을 그룹화 하는 좋은 방법입니다.  프레미스 솔루션에서 SQL Data Warehouse로 여러 데이터베이스를 마이그레이션하는 경우 모든 팩트, 차원 및 통합 테이블을 SQL Data Warehouse 하나의 스키마로 마이그레이션하는 것이 가장 효율적입니다. 예를 들어 [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap) 샘플 데이터 웨어하우스의 모든 테이블을 wwi라는 하나의 스키마 내에 저장할 수 있습니다. 다음 코드에서는 wwi라는 [사용자 정의 스키마](/sql/t-sql/statements/create-schema-transact-sql)를 만듭니다.
 
 ```sql
 CREATE SCHEMA wwi;
@@ -43,7 +43,7 @@ SQL Data Warehouse의 테이블 구성을 표시하려면 fact, dim 및 int를 �
 | WideWorldImportersDW 테이블  | 테이블 형식 | SQL Data Warehouse |
 |:-----|:-----|:------|:-----|
 | City | 차원 | wwi.DimCity |
-| 순서 | 팩트 | wwi.FactOrder |
+| 주문 | 팩트 | wwi.FactOrder |
 
 
 ## <a name="table-persistence"></a>테이블 지속성 
@@ -76,7 +76,7 @@ SQL Data Warehouse의 기본 기능으로서 [분산](massively-parallel-process
 자세한 내용은 [분산 테이블에 대한 디자인 지침](sql-data-warehouse-tables-distribute.md)을 참조하세요.
 
 ### <a name="replicated-tables"></a>복제된 테이블
-복제된 테이블에는 모든 계산 노드에서 사용할 수 있는 테이블의 전체 복사본이 있습니다. 복제된 테이블을 조인할 때는 데이터를 이동할 필요가 없으므로 복제된 테이블에 대한 쿼리는 빠르게 실행됩니다. 하지만 복제 시 추가 저장소가 필요하며 대형 테이블에는 비효율적입니다. 
+복제된 테이블에는 모든 컴퓨팅 노드에서 사용할 수 있는 테이블의 전체 복사본이 있습니다. 복제된 테이블을 조인할 때는 데이터를 이동할 필요가 없으므로 복제된 테이블에 대한 쿼리는 빠르게 실행됩니다. 하지만 복제 시 추가 스토리지가 필요하며 대형 테이블에는 비효율적입니다. 
 
 자세한 내용은 [복제된 테이블에 대한 디자인 지침](design-guidance-for-replicated-tables.md)을 참조하세요.
 
@@ -91,7 +91,7 @@ SQL Data Warehouse의 기본 기능으로서 [분산](massively-parallel-process
 | 테이블 범주 | 권장 분산 옵션 |
 |:---------------|:--------------------|
 | 팩트           | 클러스터형 columnstore 인덱스와 함께 해시 분산을 사용합니다. 동일한 분산 열에서 두 해시 테이블을 조인하면 성능이 향상됩니다. |
-| 차원      | 작은 테이블에는 복제를 사용합니다. 테이블이 너무 커서 각 계산 노드에 저장할 수 없는 경우 해시 분산을 사용합니다. |
+| 차원      | 작은 테이블에는 복제를 사용합니다. 테이블이 너무 커서 각 컴퓨팅 노드에 저장할 수 없는 경우 해시 분산을 사용합니다. |
 | 스테이징        | 스테이징 테이블에는 라운드 로빈을 사용합니다. CTAS를 사용하면 빠르게 로드됩니다. 스테이징 테이블에 데이터가 있는 경우, 프로덕션 테이블로 데이터를 이동하려면 INSERT...SELECT를 사용합니다. |
 
 ## <a name="table-partitions"></a>테이블 파티션
@@ -102,17 +102,17 @@ ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION
 ```
 
 ## <a name="columnstore-indexes"></a>Columnstore 인덱스
-기본적으로 SQL Data Warehouse는 테이블을 클러스터형 columnstore 인덱스로 저장합니다. 이러한 형태의 데이터 저장소는 대형 테이블에서 데이터 압축률과 쿼리 성능이 높습니다.  일반적으로 클러스터형 columnstore 인덱스가 가장 좋은 옵션이지만 클러스터형 인덱스 또는 힙이 적절한 저장소 구조인 경우도 있습니다.  힙 테이블은 최종 테이블로 변환되는 스테이징 테이블 같은 임시 데이터를 로드하는 경우 특히 유용할 수 있습니다.
+기본적으로 SQL Data Warehouse는 테이블을 클러스터형 columnstore 인덱스로 저장합니다. 이러한 형태의 데이터 스토리지는 대형 테이블에서 데이터 압축률과 쿼리 성능이 높습니다.  일반적으로 클러스터형 columnstore 인덱스가 가장 좋은 옵션이지만 클러스터형 인덱스 또는 힙이 적절한 스토리지 구조인 경우도 있습니다.  힙 테이블은 최종 테이블로 변환되는 스테이징 테이블 같은 임시 데이터를 로드하는 경우 특히 유용할 수 있습니다.
 
 columnstore 기능 목록은 [columnstore 인덱스의 새로운 기능](/sql/relational-databases/indexes/columnstore-indexes-what-s-new)을 참조하세요. columnstore 인덱스 성능을 향상하려면 [columnstore 인덱스의 행 그룹 품질 최대화](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)를 참조하세요.
 
 ## <a name="statistics"></a>통계
-쿼리 최적화 프로그램은 쿼리 실행 계획을 만들 때 열 수준 통계를 사용합니다. 쿼리 성능 향상을 위해, 특히 쿼리 조인에 사용된 개별 열에 대한 통계가 있는 것이 중요합니다. [통계 작성](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistics)은 자동으로 수행됩니다.  그러나 통계를 업데이트하는 것은 자동으로 이루어지지 않습니다. 많은 행을 추가하거나 변경한 후에는 통계를 업데이트합니다. 예를 들어 로드 후 통계를 업데이트합니다. 자세한 내용은 [통계 가이드](sql-data-warehouse-tables-statistics.md)를 참조하세요.
+쿼리 최적화 프로그램은 쿼리 실행 계획을 만들 때 열 수준 통계를 사용합니다. 쿼리 성능 향상을 위해, 특히 쿼리 조인에 사용된 개별 열에 대한 통계가 있는 것이 중요합니다. [통계 작성](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic)은 자동으로 수행됩니다.  그러나 통계를 업데이트하는 것은 자동으로 이루어지지 않습니다. 많은 행을 추가하거나 변경한 후에는 통계를 업데이트합니다. 예를 들어 로드 후 통계를 업데이트합니다. 자세한 내용은 [통계 가이드](sql-data-warehouse-tables-statistics.md)를 참조하세요.
 
 ## <a name="commands-for-creating-tables"></a>테이블을 만드는 명령
 테이블을 새로운 빈 테이블로 만들 수 있습니다. 테이블을 만들고 select 문의 결과로 채울 수도 있습니다. 다음은 테이블을 만드는 T-SQL 명령입니다.
 
-| T-SQL 문 | 설명 |
+| T-SQL 문 | Description |
 |:----------------|:------------|
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) | 모든 테이블 열과 옵션을 정의하여 빈 테이블을 만듭니다. |
 | [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql) | 외부 테이블을 만듭니다. 테이블 정의는 SQL Data Warehouse에 저장됩니다. 테이블 데이터는 Azure Blob Storage 또는 Azure Data Lake Store에 저장됩니다. |

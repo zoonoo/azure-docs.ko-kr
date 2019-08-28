@@ -1,6 +1,6 @@
 ---
-title: 사용자 지정 음성-음성 서비스에 대한 모델을 배포합니다.
-titlesuffix: Azure Cognitive Services
+title: Custom Speech 용 모델 배포-음성 서비스
+titleSuffix: Azure Cognitive Services
 description: 이 문서를 만들고 사용자 지정 음성 포털을 사용하는 끝점을 배포하는 방법을 배웁니다.
 services: cognitive-services
 author: erhopf
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: fc51c1d9d47340da85d42f7c398c8ee21c601beb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 15e2ce437a746d15622dc4e093a63c87448f100d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026721"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559670"
 ---
 # <a name="deploy-a-custom-model"></a>사용자 지정 모델 배포
 
@@ -30,9 +30,9 @@ ms.locfileid: "65026721"
 ![모델을 배포 하는 방법](./media/custom-speech/custom-speech-deploy-model.png)
 
 > [!NOTE]
-> 가격 책정 세부 정보 및 사용 약관에 동의 해야 합니다.
+> 사용 약관 및 가격 정보에 동의 해야 합니다.
 
-다음 **만들기**를 선택합니다. 이 작업은 **배포** 페이지로 돌아가게 합니다. 이제 테이블에는 사용자 지정 끝점에 해당하는 항목이 포함됩니다. 끝점의 상태는 현재 상태를 표시합니다. 사용자 지정 모델을 사용하여 새 끝점을 인스턴스화하는 데는 최대 30분이 걸릴 수 있습니다. 배포의 상태가 **완료**로 변경되면, 끝점을 사용할 준비가 된 것입니다.
+다음 **만들기**를 선택합니다. 이 작업은 **배포** 페이지로 돌아가게 합니다. 이제 테이블에는 사용자 지정 끝점에 해당하는 항목이 포함됩니다. 끝점의 상태는 현재 상태를 표시 합니다. 사용자 지정 모델을 사용하여 새 끝점을 인스턴스화하는 데는 최대 30분이 걸릴 수 있습니다. 배포의 상태가 **완료**로 변경되면, 끝점을 사용할 준비가 된 것입니다.
 
 끝점이 배포된 후, 끝점 이름이 링크로 표시됩니다. 끝점 키, 끝점 URL 및 샘플 코드와 같은 끝점에 관련된 정보를 표시하려면 링크를 클릭합니다.
 
@@ -44,10 +44,10 @@ ms.locfileid: "65026721"
 
 * [Speech SDK](speech-sdk.md)를 사용하여 사용자 지정 끝점을 사용합니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
-* [준비 및 테스트 데이터](how-to-custom-speech-test-data.md)
-* [데이터를 검사 합니다.](how-to-custom-speech-inspect-data.md)
-* [데이터를 평가 합니다.](how-to-custom-speech-evaluate-data.md)
+* [데이터 준비 및 테스트](how-to-custom-speech-test-data.md)
+* [데이터 검사](how-to-custom-speech-inspect-data.md)
+* [데이터 평가](how-to-custom-speech-evaluate-data.md)
 * [모델 학습](how-to-custom-speech-train-model.md)
 * [모델 배포](how-to-custom-speech-deploy-model.md)

@@ -12,12 +12,12 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: b25cc8c04aed8cd333ff4de5b12db6674323787d
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: c7a7e7994ef5e16640f59efdc672f6793bc4f18d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393597"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706464"
 ---
 # <a name="keys-and-values"></a>키 및 값
 
@@ -94,7 +94,7 @@ App Configuration의 키 값에는 필요에 따라 레이블 특성이 있을 �
 | `label=1.0.*` | **1.0**으로 시작하는 레이블과 일치합니다. |
 | `label=*.0.0` | **.0.0**으로 끝나하는 레이블과 일치 |
 | `label=*.0.*` | **.0**을 포함하는 레이블과 일치합니다. |
-| `label=%00,1.0.0` | `null` 또는 **1.0.1** 레이블과 일치, 5개의 CSV로 제한 |
+| `label=%00,1.0.0` | `null` 또는 **1.0.0** 레이블과 일치, 5개의 CSV로 제한 |
 
 ## <a name="values"></a>값
 

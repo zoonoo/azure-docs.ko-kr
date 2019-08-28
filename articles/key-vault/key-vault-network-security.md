@@ -3,17 +3,17 @@ title: Azure Key Vault 방화벽 및 가상 네트워크 구성 - Azure Key Vaul
 description: Key Vault 방화벽 및 가상 네트워크 구성을 위한 단계별 지침
 services: key-vault
 author: amitbapat
-manager: barbkess
+manager: rkarlin
 ms.service: key-vault
-ms.topic: conceptual
-ms.date: 01/02/2019
+ms.topic: tutorial
+ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: a6f2e899e8be39abdefaf9d4f524eae457673c1a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 60378632a55fe4578bb376a3a00de5efffc5d275
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64694417"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976948"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Azure Key Vault 방화벽 및 가상 네트워크 구성
 

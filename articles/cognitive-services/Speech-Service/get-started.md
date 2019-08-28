@@ -1,22 +1,22 @@
 ---
-title: Speech Service 평가판 사용해 보기
+title: 음성 서비스를 무료로 사용해 보세요.
 titleSuffix: Azure Cognitive Services
-description: Speech Service는 쉽고 저렴하게 시작할 수 있습니다. 30일 평가판을 통해 서비스 기능을 확인하고 서비스가 애플리케이션 요구 사항에 적합한지 판단할 수 있습니다.
+description: 음성 서비스를 시작 하는 것은 쉽고 저렴 합니다. 30일 평가판을 통해 서비스 기능을 확인하고 서비스가 애플리케이션 요구 사항에 적합한지 판단할 수 있습니다.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 09cc38cd5343e8b01b3e704191ea40c133d724f8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 41d12013ec7eaa4e2aae59e1b366cc511a41f749
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60541512"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535101"
 ---
 # <a name="try-speech-services-for-free"></a>Speech Service 평가판 사용해 보기
 
@@ -26,7 +26,7 @@ Speech Service는 쉽고 저렴하게 시작할 수 있습니다. 30일 평가�
 
 마지막으로 Speech Service는 애플리케이션 개발에 적합한 작은 용량의 체험 계층을 제공합니다. 서비스 크레딧이 만료된 후에도 이 무료 구독을 유지할 수 있습니다.
 
-## <a name="free-trial"></a>평가판
+## <a name="free-trial"></a>무료 평가판
 
 30일 평가판을 사용하면 제한된 기간 동안 표준 가격 책정 계층에 액세스할 수 있습니다.
 
@@ -38,7 +38,7 @@ Speech Service는 쉽고 저렴하게 시작할 수 있습니다. 30일 평가�
 
    ![Speech Services 탭](media/index/try-speech-api-free-trial1.png)
 
-1. **Speech Services** 아래에서 **API 키 가져오기** 단추를 선택합니다.
+1. **Speech service**에서 **API 키 가져오기**를 선택 합니다.
 
    ![API 키](media/index/try-speech-api-free-trial2.png)
 
@@ -48,7 +48,7 @@ Speech Service는 쉽고 저렴하게 시작할 수 있습니다. 30일 평가�
 
 1. Microsoft, Facebook, LinkedIn 또는 GitHub 계정을 사용하여 로그인합니다.
 
-    [Microsoft 계정 포털](https://account.microsoft.com/account)에서 체험 Microsoft 계정을 등록할 수 있습니다. 시작하려면 **Microsoft에 로그인**을 클릭한 다음, 로그인하라는 메시지가 표시되면 **계정 만들기**를 클릭합니다. 단계에 따라 새 Microsoft 계정을 만들고 확인합니다.
+    [Microsoft 계정 포털](https://account.microsoft.com/account)에서 체험 Microsoft 계정을 등록할 수 있습니다. 시작 하려면 **Microsoft에 로그인** 을 선택 하 고 로그인 하 라는 메시지가 표시 되 면 **새로 만들기를 선택 합니다.** 단계에 따라 새 Microsoft 계정을 만들고 확인합니다.
 
 [Cognitive Services 체험하기]에 로그인하면 체험 평가판이 시작됩니다. 표시되는 웹 페이지에는 현재 평가판 구독이 있는 모든 Azure Cognitive Services가 나열됩니다. 두 개의 구독 키가 **Speech Services** 옆에 나열됩니다. 애플리케이션에서 두 키 중 하나를 사용할 수 있습니다.
 
@@ -59,9 +59,9 @@ Speech Service는 쉽고 저렴하게 시작할 수 있습니다. 30일 평가�
 
 새 Azure 계정에는 최대 30일 동안 사용할 수 있는 200달러 상당의 서비스 크레딧이 제공됩니다. 이 크레딧을 사용하여 Speech 서비스를 더 자세히 살펴보거나 애플리케이션 개발을 시작할 수 있습니다.
 
-새 Azure 계정을 등록하려면 [Azure 등록 페이지](https://azure.microsoft.com/free/ai/)로 이동하여 **체험 시작하기**를 클릭하고, Microsoft 계정을 사용하여 새 Azure 계정을 만듭니다.
+새 Azure 계정에 등록 하려면 [azure 등록 페이지로](https://azure.microsoft.com/free/ai/)이동 하 여 **무료 시작을** 선택 하 고 Microsoft 계정를 사용 하 여 새 azure 계정을 만듭니다.
 
-[Microsoft 계정 포털](https://account.microsoft.com/account)에서 체험 Microsoft 계정을 등록할 수 있습니다. 시작하려면 **Microsoft에 로그인**을 클릭한 다음, 로그인하라는 메시지가 표시되면 **계정 만들기**를 클릭합니다. 단계에 따라 새 Microsoft 계정을 만들고 확인합니다.
+[Microsoft 계정 포털](https://account.microsoft.com/account)에서 체험 Microsoft 계정을 등록할 수 있습니다. 시작 하려면 **Microsoft에 로그인** 을 선택 하 고 로그인 하 라는 메시지가 표시 되 면 **새로 만들기를 선택 합니다.** 단계에 따라 새 Microsoft 계정을 만들고 확인합니다.
 
 Azure 계정이 만들어지면 다음 섹션의 단계에 따라 Speech 서비스 구독을 시작합니다.
 
@@ -89,8 +89,8 @@ Speech 서비스 리소스(체험 또는 유료 계층)를 Azure 계정에 추�
 
    * 새 리소스 그룹의 이름. 이름은 동일한 서비스에 대한 여러 구독을 구분하는 데 도움이 됩니다.
    * 새 리소스가 연결되는 Azure 구독을 선택하여 요금이 얼마나 청구되는지 확인합니다.
-   * 리소스가 사용될 지역을 선택합니다. 현재 Speech Service는 동아시아, 북유럽 및 미국 서부 지역에서 사용할 수 있습니다.
-   * 체험 또는 유료 가격 책정 계층을 선택합니다. 각 계층의 가격 및 사용 할당량에 대한 전체 정보를 보려면 **전체 가격 책정 세부 정보 보기**를 클릭합니다.
+   * 리소스가 사용 될 [지역을](regions.md) 선택 합니다.
+   * 체험 또는 유료 가격 책정 계층을 선택합니다. 각 계층에 대 한 가격 책정 및 사용 할당량에 대 한 전체 정보를 **보려면 전체 가격 책정 세부 정보 보기** 를 선택 합니다.
    * 이 Speech 구독에 대한 새 리소스 그룹을 만들거나 기존 리소스 그룹에 해당 구독을 할당합니다. 리소스 그룹은 다양한 Azure 구독의 구성을 유지하는 데 도움이 됩니다.
    * 나중에 구독에 편리하게 액세스하려면 **대시보드에 고정** 확인란을 선택합니다.
    * **만들기**를 선택합니다.
@@ -101,7 +101,7 @@ Speech 서비스 리소스(체험 또는 유료 계층)를 Azure 계정에 추�
 
      ![빠른 시작 패널](media/index/try-speech-api-create-speech5.png)
 
-1. **빠른 시작** 아래의 1단계에서 **키** 링크를 클릭하여 구독 키를 표시합니다. 각 구독에는 두 개의 키가 있으며, 애플리케이션에서 두 키 중 하나를 사용할 수 있습니다. 코드에 붙여넣기 위해 클립보드에 복사하려면 각 키 옆에 있는 단추를 선택합니다.
+1. **빠른**시작에서 1 단계 아래의 **키** 링크를 선택 하 여 구독 키를 표시 합니다. 각 구독에는 두 개의 키가 있으며, 애플리케이션에서 두 키 중 하나를 사용할 수 있습니다. 코드에 붙여넣기 위해 클립보드에 복사하려면 각 키 옆에 있는 단추를 선택합니다.
 
 > [!NOTE]
 > 표준 계층 구독은 하나 이상의 지역에서 무제한으로 만들 수 있지만, 체험 계층 구독은 하나만 만들 수 있습니다. 7일 동안 사용하지 않은 상태로 유지되는 체험 계층에 대한 모델 배포는 자동으로 해제됩니다.

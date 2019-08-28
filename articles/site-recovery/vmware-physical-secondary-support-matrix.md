@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 08/22/2019
 ms.author: raynew
-ms.openlocfilehash: 742f1359d928aa05a8b8d36bde2ccf022db93b79
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c330afb2c5d315b3d386d1477669f1aab2f6e6f9
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66418245"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972072"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>VMware VM 또는 물리적 서버에서 보조 사이트로 재해 복구하기 위한 지원 매트릭스
 
@@ -43,14 +43,14 @@ Windows Server | 64비트 Windows Server 2016, Windows Server 2012 R2, Windows S
 Linux | Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2 <br/><br/> Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3)을 실행하는 Oracle Enterprise Linux 6.4, 6.5, 6.8 <br/><br/> SUSE Linux Enterprise Server 11 SP3, 11 SP4 
 
 
-## <a name="linux-machine-storage"></a>Linux 컴퓨터 저장소
+## <a name="linux-machine-storage"></a>Linux 컴퓨터 스토리지
 
-다음 저장소를 포함한 Linux 컴퓨터만을 복제할 수 있습니다.
+다음 스토리지를 포함한 Linux 컴퓨터만을 복제할 수 있습니다.
 
 - 파일 시스템(EXT3, ETX4, ReiserFS, XFS)
-- 다중 경로 소프트웨어 장치 매퍼
+- 다중 경로 소프트웨어 디바이스 매퍼
 - 볼륨 관리자(LVM2)
-- HP CCISS 컨트롤러 저장소가 있는 물리적 서버는 지원되지 않습니다.
+- HP CCISS 컨트롤러 스토리지가 있는 물리적 서버는 지원되지 않습니다.
 - ReiserFS 파일 시스템은 SUSE Linux Enterprise Server 11 SP3에서만 지원됩니다.
 
 ## <a name="network-configuration---hostguest-vm"></a>네트워크 구성 - 호스트/게스트 VM
@@ -60,57 +60,57 @@ Linux | Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> Centos 6.5, 
 호스트 - NIC 팀 | 예 
 호스트 - VLAN | 예 
 호스트 - IPv4 | 예 
-호스트 - IPv6 | 아닙니다. 
-게스트 VM - NIC 팀 | 아닙니다.
+호스트 - IPv6 | 아니요 
+게스트 VM - NIC 팀 | 아니요
 게스트 VM - IPv4 | 예
-게스트 VM - IPv6 | 아닙니다.
+게스트 VM - IPv6 | 아니요
 게스트 VM - Windows/Linux - 고정 IP 주소 | 예
 게스트 VM - 다중 NIC | 예
 
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>저장 공간
 
-### <a name="host-storage"></a>호스트 저장소
+### <a name="host-storage"></a>호스트 스토리지
 
 **Storage(호스트)** | **지원됨** 
 --- | --- 
 NFS | 예 
-SMB 3.0 | N/A 
+SMB 3.0 | 해당 사항 없음 
 SAN(ISCSI) | 예 
 다중 경로(MPIO) | 예 
 
-### <a name="guest-or-physical-server-storage"></a>게스트 또는 물리적 서버 저장소
+### <a name="guest-or-physical-server-storage"></a>게스트 또는 물리적 서버 스토리지
 
 **구성** | **지원됨** 
 --- | --- 
 VMDK | 예 
-VHD/VHDX | N/A 
+VHD/VHDX | 해당 사항 없음 
 2세대 VM | N/A 
 공유 클러스터 디스크 | 예 
-암호화된 디스크 | 아닙니다. 
+암호화된 디스크 | 아니요 
 UEFI| 예 
-NFS | 아닙니다. 
-SMB 3.0 | 아닙니다. 
+NFS | 아니요 
+SMB 3.0 | 아니요 
 RDM | 예 
 디스크 > 1TB | 예 
 스트라이프 디스크 포함 볼륨 > 1TB<br/><br/> LVM | 예 
-저장소 공간 | 아닙니다. 
+스토리지 공간 | 아니요 
 디스크 핫 추가/제거 | 예 
 디스크 제외 | 예 
-다중 경로(MPIO) | N/A 
+다중 경로(MPIO) | 해당 사항 없음 
 
 ## <a name="vaults"></a>자격 증명 모음
 
-**작업** | **지원됨** 
+**동작** | **지원됨** 
 --- | --- 
-리소스 그룹 간에 자격 증명 모음 이동(동일 구독 내 또는 구독 간에) | 아닙니다. 
-리소스 그룹 간에 저장소, 네트워크, Azure VM 이동(동일 구독 내 또는 구독 간에) | 아닙니다. 
+리소스 그룹 간에 자격 증명 모음 이동(동일 구독 내 또는 구독 간에) | 아니요 
+리소스 그룹 간에 스토리지, 네트워크, Azure VM 이동(동일 구독 내 또는 구독 간에) | 아니요 
 
 ## <a name="mobility-service-and-updates"></a>Mobility 서비스 및 업데이트
 
 Mobility 서비스는 온-프레미스 VMware 서버 또는 물리적 서버와 보조 사이트 간 복제를 조정합니다. 복제를 설정할 때 Mobility 서비스 및 기타 구성 요소의 최신 버전이 필요합니다.
 
-| **업데이트** | **세부 정보** |
+| **Update 함수** | **세부 정보** |
 | --- | --- |
 |Scout 업데이트 | Scout 업데이트는 누적입니다. <br/><br/> 최신 Scout 업데이트에 대해 [알아보고 다운로드](vmware-physical-secondary-disaster-recovery.md#updates) |
 |구성 요소 업데이트 | Scout 업데이트에는 RX 서버, 구성 서버, 프로세스 및 마스터 대상 서버, vContinuum 서버 및 보호하려면 원본 서버를 포함하여 모든 구성 요소에 대한 업데이트가 포함되어 있습니다.<br/><br/> [자세히 알아보기](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).|

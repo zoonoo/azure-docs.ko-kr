@@ -1,25 +1,25 @@
 ---
 title: 'Azure Backup: REST API를 사용 하 여 Azure Vm 백업'
 description: REST API를 사용하여 Azure VM 백업의 백업 작업 관리
-services: backup
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: REST API, Azure VM 백업, Azure VM 복원,
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 295c4fed9ab674f0c9e812c02f6b82ee53ef1b91
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 701972c32f3e80682e2a20d04b02bcd555532e08
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274858"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954991"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>REST API를 통해 Azure Backup을 사용하여 Azure VM 백업
 
-이 문서에서는 REST API를 통해 Azure Backup을 사용하여 Azure VM의 백업을 관리하는 방법을 설명합니다. 이전에 보호되지 않는 Azure VM에 대한 보호를 처음으로 구성하고, 보호된 Azure VM에 대한 주문형 백업을 트리거하고, 여기에 설명된 대로 REST API를 통해 백업된 VM의 백업 속성을 수정합니다.
+이 문서에서는 REST API를 통해 Azure Backup을 사용하여 Azure VM의 백업을 관리하는 방법을 설명합니다. 이전에 보호 되지 않은 Azure VM에 대해 처음으로 보호를 구성 하 고, 보호 된 Azure VM에 대 한 주문형 백업을 트리거하고 여기에 설명 된 대로 REST API를 통해 백업 된 VM의 백업 속성을 수정 합니다.
 
 새 자격 증명 모음 및 정책 만들기는 [자격 증명 모음 만들기](backup-azure-arm-userestapi-createorupdatevault.md) 및 [정책 만들기](backup-azure-arm-userestapi-createorupdatepolicy.md) REST API 자습서를 참조하세요.
 
@@ -47,7 +47,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 두 응답을 반환합니다. 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)
 
-|이름  |형식  |설명  |
+|이름  |형식  |Description  |
 |---------|---------|---------|
 |204 콘텐츠 없음     |         |  반환된 콘텐츠가 없는 경우 정상      |
 |202 수락됨     |         |     동의함    |
@@ -98,7 +98,7 @@ X-Powered-By: ASP.NET
 
 ### <a name="selecting-the-relevant-azure-vm"></a>관련 Azure VM 선택
 
- 구독에서 [모든 보호 가능한 항목 나열하기](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list)에서 "캐싱"을 수행했는지 확인하고 응답에서 원하는 VM을 찾을 수 있습니다. [이 작업의 응답](#example-responses-1)은 또한 Recovery Services가 VM을 식별하는 방법에 대한 정보를 제공합니다.  패턴에 친숙해지면 이 단계를 건너뛰고 직접 [보호 활성화](#enabling-protection-for-the-azure-vm)를 진행할 수 있습니다.
+ 구독에서 [모든 보호 가능한 항목 나열하기](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list)에서 "캐싱"을 수행했는지 확인하고 응답에서 원하는 VM을 찾을 수 있습니다. [이 작업의 응답으로](#example-responses-1) VM Recovery Services 식별 하는 방법에 대 한 정보도 제공 됩니다.  패턴에 친숙해지면 이 단계를 건너뛰고 직접 [보호 활성화](#enabling-protection-for-the-azure-vm)를 진행할 수 있습니다.
 
 이 작업은 *GET* 작업입니다.
 
@@ -108,7 +108,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 *GET* URI에는 필요한 모든 매개 변수가 있습니다. 추가 요청 본문이 필요없습니다.
 
-##### <a name="responses-1"></a>응답
+##### <a name="responses-1"></a>보낸
 
 |이름  |형식  |설명  |
 |---------|---------|---------|
@@ -186,9 +186,9 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 보호된 항목을 만들려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|Name  |형식  |설명  |
+|이름  |형식  |Description  |
 |---------|---------|---------|
-|properties     | AzureIaaSVMProtectedItem        |ProtectedItem 리소스 속성         |
+|속성     | AzureIaaSVMProtectedItem        |ProtectedItem 리소스 속성         |
 
 요청 본문 및 기타 세부 정보에 대한 전체 정의 목록은 [보호된 항목 REST API 문서 만들기](https://docs.microsoft.com/rest/api/backup/protecteditems/createorupdate#request-body)를 참조하세요.
 
@@ -214,7 +214,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 두 응답을 반환합니다. 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)
 
-|이름  |형식  |설명  |
+|이름  |형식  |Description  |
 |---------|---------|---------|
 |200 정상     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  확인       |
 |202 수락됨     |         |     동의함    |
@@ -300,9 +300,9 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 주문형 백업을 트리거하려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|Name  |형식  |설명  |
+|이름  |형식  |Description  |
 |---------|---------|---------|
-|properties     | [IaaSVMBackupRequest](https://docs.microsoft.com/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |BackupRequestResource 속성         |
+|속성     | [IaaSVMBackupRequest](https://docs.microsoft.com/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |BackupRequestResource 속성         |
 
 요청 본문 및 기타 세부 정보에 대한 전체 정의 목록은 [보호된 항목 REST API 문서의 백업 트리거](https://docs.microsoft.com/rest/api/backup/backups/trigger#request-body)를 참조하세요.
 
@@ -325,7 +325,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 두 응답을 반환합니다. 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)
 
-|이름  |형식  |설명  |
+|이름  |형식  |Description  |
 |---------|---------|---------|
 |202 수락됨     |         |     동의함    |
 
@@ -393,7 +393,7 @@ X-Powered-By: ASP.NET
 
 ### <a name="changing-the-policy-of-protection"></a>보호 정책 변경
 
-VM을 보호하는 정책을 변경하려면 [보호 사용](#enabling-protection-for-the-azure-vm)과 동일한 형식을 사용할 수 있습니다. [요청 본문](#example-request-body)의 새 정책 ID를 제공하고 요청을 제출합니다. 에 대 한 예를 들어: 'ProdPolicy'를 'DefaultPolicy'에서 testVM 정책을 변경 하려면 요청 본문에 'ProdPolicy' id를 제공 합니다.
+VM을 보호하는 정책을 변경하려면 [보호 사용](#enabling-protection-for-the-azure-vm)과 동일한 형식을 사용할 수 있습니다. [요청 본문](#example-request-body)의 새 정책 ID를 제공하고 요청을 제출합니다. 예를 들어: TestVM의 정책을 ' DefaultPolicy '에서 ' ProdPolicy '로 변경 하려면 요청 본문에 ' ProdPolicy ' ID를 제공 합니다.
 
 ```http
 {
@@ -439,13 +439,13 @@ DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroup
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2016-12-01
 ```
 
-### <a name="responses-2"></a>응답
+### <a name="responses-2"></a>보낸
 
 보호 *DELETE* 작업은 [비동기 작업](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)입니다. 즉, 이 작업은 별도로 추적해야 하는 다른 작업을 만듭니다.
 
-두 응답을 반환합니다. 202 (수락 됨) 다른 작업이 만들어질 때 한 다음 204(nocontent) 해당 작업이 완료 되 면 합니다.
+두 응답을 반환합니다. 다른 작업이 생성 되 면 202 (수락 됨)이 고, 해당 작업이 완료 되 면 204 (NoContent)입니다.
 
-|이름  |형식  |설명  |
+|이름  |형식  |Description  |
 |---------|---------|---------|
 |204 NoContent     |         |  NoContent       |
 |202 수락됨     |         |     동의함    |

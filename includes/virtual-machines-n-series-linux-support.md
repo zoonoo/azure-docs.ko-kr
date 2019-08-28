@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 9f0d694badaa6f4484a13364c6a56aee2ad1dcfb
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 0ed7fbf5e2b4f7f9b554f718d88c62e7a266f4ad
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182216"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69903855"
 ---
 ## <a name="supported-distributions-and-drivers"></a>지원되는 배포판 및 버전
 
@@ -26,15 +26,15 @@ NC, NCv2, NCv3, ND 및 NDv2 시리즈 VM(NV 시리즈의 경우 선택적임)용
 
 | 배포 | 드라이버 |
 | --- | -- | 
-| Ubuntu 16.04 LTS, 18.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3, 7.4, 7.5, 7.6<br/><br/> CentOS 기반 7.3, 7.4, 7.5, 7.6, CentOS 기반 7.4 HPC | NVIDIA CUDA 10.1, 드라이버 분기 R418 |
+| Ubuntu 16.04 LTS, 18.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3, 7.4, 7.5, 7.6<br/><br/> CentOS 기반 7.3, 7.4, 7.5, 7.6, CentOS 기반 7.4 HPC | NVIDIA, DA 10.1, 드라이버 분기 R418 |
 
 ### <a name="nvidia-grid-drivers"></a>NVIDIA GRID 드라이버
 
-Microsoft는 가상 워크스테이션으로 사용되는 NV 및 NVv2 시리즈 VM 또는 가상 애플리케이션에 대해 NVIDIA GRID 드라이버 설치 관리자를 재배포합니다. Azure NV VM에서 다음 표에 나열된 운영 체제에만 이러한 GRID 드라이버를 설치합니다. 이 드라이버에는 Azure의 GRID 가상 GPU 소프트웨어에 대한 라이선스가 포함됩니다. NVIDIA vGPU 소프트웨어 라이선스 서버를 설정할 필요는 없습니다.
+Microsoft는 가상 워크스테이션 또는 가상 응용 프로그램에 사용 되는 NV 및 NVv3 시리즈 Vm에 대 한 NVIDIA GRID 드라이버 설치 관리자를 재배포 합니다. Azure NV VM에서 다음 표에 나열된 운영 체제에만 이러한 GRID 드라이버를 설치합니다. 이 드라이버에는 Azure의 GRID 가상 GPU 소프트웨어에 대한 라이선스가 포함됩니다. NVIDIA vGPU 소프트웨어 라이선스 서버를 설정할 필요는 없습니다.
 
 | 배포 | 드라이버 |
 | --- | -- |
-| Ubuntu 16.04 LTS, 18.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3, 7.4, 7.5, 7.6<br/><br/>CentOS 기반 7.3, 7.4, 7.5, 7.6 | NVIDIA GRID 8.0, 드라이버 분기 R418|
+|Ubuntu 18.04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>7\.0 Red Hat Enterprise Linux 7.6<br/><br/>CentOS 기반 7.0 ~ 7.6<br/><br/>SUSE Linux Enterprise Server 12 SP2 | NVIDIA GRID 9.0, 드라이버 분기 R430|
 
 > [!WARNING] 
 > Red Hat 제품에 대한 타사 소프트웨어 설치는 Red Hat 지원 조건에 영향을 줄 수 있습니다. [Red Hat 기술 자료 문서](https://access.redhat.com/articles/1067)를 참조하세요.

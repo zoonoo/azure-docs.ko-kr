@@ -3,7 +3,7 @@ title: Azure Service Fabric 신뢰할 수 있는 컬렉션의 트랜잭션 및 �
 description: Azure Service Fabric 신뢰할 수 있는 상태 관리자 및 신뢰할 수 있는 컬렉션 트랜잭션 및 잠금.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: masnider,rajak
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
-ms.author: aljo
-ms.openlocfilehash: 9785a09a3ac3e119507b4ac28075d887c7edc619
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 8e77e488a3c0a40a714a0e8efffba0a2947454bf
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60774066"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599321"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Azure Service Fabric 신뢰할 수 있는 컬렉션의 트랜잭션 및 잠금 모드
 
@@ -29,14 +29,14 @@ ms.locfileid: "60774066"
 * **원자성**: 트랜잭션은 작업의 원자 단위여야 합니다. 즉, 모든 데이터 수정 작업이 수행되거나, 또는 하나도 수행되지 않아야 합니다.
 * **일관성**: 완료되면 트랜잭션은 모든 데이터를 일관된 상태로 유지해야 합니다. 모든 내부 데이터 구조는 트랜잭션이 끝날 때 정확해야 합니다.
 * **격리**: 동시 트랜잭션에 의한 수정은 다른 동시 트랜잭션에 의한 수정과 격리되어야 합니다. ITransaction 내에서 작업에 사용되는 격리 수준은 작업을 수행하는 IReliableState에 의해 결정됩니다.
-* **내구성**: 트랜잭션이 완료되면 그 영향이 시스템에 영구적으로 유지됩니다. 수정은 시스템 오류가 발생하는 경우에도 지속됩니다.
+* **내구성**: 트랜잭션이 완료되면 그 영향이 시스템에 영구적으로 유지됩니다. 수정은 시스템에 오류가 발생한 경우에도 지속됩니다.
 
 ### <a name="isolation-levels"></a>격리 수준
 격리 수준은 트랜잭션은 다른 트랜잭션에 의해 수정되지 않도록 격리해야 하는 정도를 정의합니다.
 신뢰할 수 있는 컬렉션에서 지원되는 두 격리 수준이 있습니다.
 
 * **반복 가능한 읽기**: 명령문은 수정되었지만 다른 트랜잭션에서 아직 커밋되지 않은 데이터를 읽을 수 없으며 현재 트랜잭션이 완료될 때까지 다른 트랜잭션은 현재 트랜잭션에서 읽은 데이터를 수정할 수 없음을 지정합니다. 자세한 내용은 [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx)를 참조하세요.
-* **스냅숏**: 트랜잭션의 명령문에서 읽은 데이터가 트랜잭션 시작 부분에 존재하는 데이터의 트랜잭션이 일치되는 버전이 되도록 지정합니다.
+* **스냅샷**: 트랜잭션의 명령문에서 읽은 데이터가 트랜잭션 시작 부분에 존재하는 데이터의 트랜잭션이 일치되는 버전이 되도록 지정합니다.
   트랜잭션은 트랜잭션 시작 전에 커밋된 데이터 수정 내용만 인식할 수 있습니다.
   현재 트랜잭션이 시작된 후 다른 트랜잭션에서 수행한 데이터 수정 내용은 현재 트랜잭션에서 실행 중인 문에 표시되지 않습니다.
   그 결과 트랜잭션의 문이 트랜잭션 시작 당시 커밋된 데이터의 스냅샷을 가져오는 것처럼 됩니다.
@@ -46,7 +46,7 @@ ms.locfileid: "60774066"
 신뢰할 수 있는 컬렉션은 트랜잭션을 만들 당시의 작업 및 복제본의 역할에 따라 자동으로 특정 읽기 작업에 사용할 격리 수준을 선택합니다.
 다음 테이블에는 신뢰할 수 있는 사전 및 큐 작업에 대한 기본 격리 수준이 나와 있습니다.
 
-| 작업 \ 역할 | 보조 | 주 |
+| 작업 \ 역할 | 기본 연산자 | 보조 |
 | --- |:--- |:--- |
 | 단일 엔터티 읽기 |반복 가능한 읽기 |스냅샷 |
 | 열거형, 개수 |스냅샷 |스냅샷 |
@@ -75,10 +75,10 @@ FIFO를 유지하기 위해 `TryPeekAsync` 또는 `TryDequeueAsync`는 신뢰할
 
 잠금 호환성 매트릭스는 다음 테이블에서 확인할 수 있습니다.
 
-| 요청 \ 부여 | 없음 | 공유됨 | 주 지역에서 | 단독 |
+| 요청 \ 부여 | 없음 | Shared | 업데이트 | 전용 |
 | --- |:--- |:--- |:--- |:--- |
-| 공유됨 |충돌 없음 |충돌 없음 |충돌 |충돌 |
-| 주 지역에서 |충돌 없음 |충돌 없음 |충돌 |충돌 |
+| Shared |충돌 없음 |충돌 없음 |충돌 |충돌 |
+| 업데이트 |충돌 없음 |충돌 없음 |충돌 |충돌 |
 | 단독 |충돌 없음 |충돌 |충돌 |충돌 |
 
 신뢰할 수 있는 컬렉션 API의 시간 제한 인수는 교착 상태 감지를 위해 사용됩니다.

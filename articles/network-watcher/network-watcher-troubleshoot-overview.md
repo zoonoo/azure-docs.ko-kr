@@ -100,12 +100,12 @@ Virtual Network 게이트웨이는 온-프레미스 리소스 및 Azure 내 다�
 
 ## <a name="log-files"></a>로그 파일
 
-리소스 문제 해결 로그 파일은 리소스 문제 해결이 완료된 후 저장소 계정에 저 됩니다. 다음 그림에서는 오류를 발생시킨 호출의 내용을 예를 들어 보여 줍니다.
+리소스 문제 해결 로그 파일은 리소스 문제 해결이 완료된 후 스토리지 계정에 저 됩니다. 다음 그림에서는 오류를 발생시킨 호출의 내용을 예를 들어 보여 줍니다.
 
 ![Zip 파일][1]
 
 > [!NOTE]
-> 일부 경우에는 로그 파일의 하위 집합만 저장소에 기록됩니다.
+> 일부 경우에는 로그 파일의 하위 집합만 스토리지에 기록됩니다.
 
 Azure Storage 계정에서 파일을 다운로드하는 방법에 대한 지침은 [.NET을 사용하여 Azure Blob Storage 시작](../storage/blobs/storage-dotnet-how-to-use-blobs.md)을 참조하세요. 사용할 수 있는 다른 도구는 Storage Explorer입니다. Storage Explorer에 대한 자세한 내용은 다음 링크에서 찾을 수 있습니다. [Storage 탐색기](https://storageexplorer.com/)
 

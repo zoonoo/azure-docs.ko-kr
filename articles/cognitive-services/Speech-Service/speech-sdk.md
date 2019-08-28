@@ -1,5 +1,5 @@
 ---
-title: Speech SDK 정보 - Speech Services
+title: 음성 SDK-음성 서비스 정보
 titleSuffix: Azure Cognitive Services
 description: Speech SDK(소프트웨어 개발 키트)를 사용하면 애플리케이션 네이티브에서 Speech 서비스의 기능에 액세스할 수 있으므로 소프트웨어를 더 쉽게 개발할 수 있습니다. 이 문서에서는 Windows, Linux 및 Android용 SDK에 대한 추가 세부 정보를 제공합니다.
 services: cognitive-services
@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 3a9a50d1809461791c968113a8237cf8670c521f
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: c5e12812a4305493be2cdc234946796b21dd26d8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484937"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558945"
 ---
 # <a name="about-the-speech-sdk"></a>Speech SDK 정보
 
-Speech 소프트웨어 개발 키트 (SDK)에 응용 프로그램에 액세스할 음성 서비스의 기능 쉽게 음성 지원 소프트웨어를 개발할 수 있습니다. Sdk에 대 한 액세스를 제공 하는 현재 **음성-텍스트**, **text to speech**합니다 **음성 번역**를 **의도 인식**, 및 **Bot Framework 직접 줄 음성 채널**합니다. 설명서에서 기능 및 지원 되는 플랫폼에 대 한 일반적인 개요를 확인할 수 있습니다 [항목이 페이지](https://aka.ms/csspeech)합니다.
+음성 SDK (소프트웨어 개발 키트)는 응용 프로그램에 음성 서비스 기능에 대 한 액세스를 제공 하 여 음성 지원 소프트웨어를 보다 쉽게 개발할 수 있도록 합니다. 현재, Sdk는 **음성 텍스트**, **텍스트 음성**변환, **음성 번역**, **의도 인식**및 **봇 프레임 워크의 직접 줄 음성 채널**에 대 한 액세스를 제공 합니다. 기능 및 지원 되는 플랫폼에 대 한 일반적인 개요는 설명서 [입력 페이지](https://aka.ms/csspeech)에서 찾을 수 있습니다.
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
@@ -38,9 +38,9 @@ Windows의 경우 다음 언어를 지원합니다.
 ### <a name="linux"></a>Linux
 
 > [!NOTE]
-> 현재 PC에서 Ubuntu 16.04, Ubuntu 18.04 및 Debian 9 지원 (x86 또는 x64에 대 한 C++ 개발 및.NET Core, Java 및 Python에 대 한 x64).
+> 현재는 PC에서 Ubuntu 16.04, Ubuntu 18.04 및 Debian 9만 지원 합니다 (.NET Core, Java 및 Python C++ 의 경우 x86 또는 x64 및 x64의 경우 x64).
 
-다음 셸 명령을 실행 하 여 설치 하 여 필요한 라이브러리 했는지 확인 합니다.
+다음 셸 명령을 실행 하 여 필요한 라이브러리를 설치 했는지 확인 합니다.
 
 Ubuntu에서:
 
@@ -56,7 +56,7 @@ sudo apt-get update
 sudo apt-get install libssl1.0.2 libasound2
 ```
 
-* C#: 최신 버전의 Speech SDK NuGet 패키지를 참조 및 사용할 수 있습니다. SDK를 참조하려면 다음 패키지 참조를 프로젝트에 추가합니다.
+* C#:  최신 버전의 Speech SDK NuGet 패키지를 참조 및 사용할 수 있습니다. SDK를 참조하려면 다음 패키지 참조를 프로젝트에 추가합니다.
 
   ```xml
   <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.6.0" />
@@ -66,9 +66,9 @@ sudo apt-get install libssl1.0.2 libasound2
 
 * C++: SDK를 [.tar package](https://aka.ms/csspeech/linuxbinary)로 다운로드하고 원하는 디렉터리에 파일의 압축을 풉니다. 다음 표는 SDK 폴더 구조를 보여줍니다.
 
-  |Path|설명|
+  |경로|Description|
   |-|-|
-  |`license.md`|License|
+  |`license.md`|라이선스|
   |`ThirdPartyNotices.md`|타사 알림|
   |`include`|C 및 C++용 헤더 파일|
   |`lib/x64`|애플리케이션과 연결할 기본 x64 라이브러리|

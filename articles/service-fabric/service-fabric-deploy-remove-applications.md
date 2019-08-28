@@ -3,7 +3,7 @@ title: Azure Service Fabric 애플리케이션 배포 | Microsoft Docs
 description: PowerShell을 사용하여 Service Fabric에서 애플리케이션을 배포 및 제거하는 방법
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: b120ffbf-f1e3-4b26-a492-347c29f8f66b
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
-ms.author: aljo
-ms.openlocfilehash: f0f66cd32721e277cbd6e4578b0e58bb201ee966
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: 3cfebadf6dadeb81b1b57e671b19594b75645e31
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393273"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599619"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>PowerShell을 사용하여 애플리케이션 배포 및 제거
 
@@ -31,7 +31,7 @@ ms.locfileid: "60393273"
 
 <br/>
 
-일단 [애플리케이션 형식이 패키지화되면][10] Azure Service Fabric 클러스터에 배포될 준비가 된 것입니다. 배포에는 다음 세 단계가 포함됩니다.
+[응용 프로그램 유형이 패키지 된][10]후에는 Azure Service Fabric 클러스터에 배포할 준비가 된 것입니다. 배포에는 다음 세 단계가 포함됩니다.
 
 1. 이미지 저장소에 애플리케이션 패키지를 업로드합니다.
 2. 이미지 저장소 상대 경로에 애플리케이션 유형을 등록합니다.
@@ -302,7 +302,7 @@ Get-ServiceFabricApplication
 
 ## <a name="unregister-an-application-type"></a>애플리케이션 유형 등록 취소
 
-특정 버전의 애플리케이션 유형이 더 이상 필요하지 않으면 [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) cmdlet을 사용하여 해당 애플리케이션 유형을 등록 취소해야 합니다. 사용하지 않는 애플리케이션 유형을 등록 취소하면 애플리케이션 유형 파일을 제거하여 이미지 저장소에서 사용하는 저장 공간을 해제합니다. 이미지 저장소에 복사를 사용한 경우, 애플리케이션 유형을 등록 취소해도 이미지 저장소 임시 위치에 복사된 애플리케이션 패키지는 제거되지 않습니다. 애플리케이션 형식은 이에 대해 인스턴스화된 애플리케이션이나 이를 참조하는 보류 중인 애플리케이션이 없는 한 등록 취소할 수 있습니다.
+특정 버전의 애플리케이션 유형이 더 이상 필요하지 않으면 [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) cmdlet을 사용하여 해당 애플리케이션 유형을 등록 취소해야 합니다. 사용하지 않는 애플리케이션 유형을 등록 취소하면 애플리케이션 유형 파일을 제거하여 이미지 스토리지에서 사용하는 저장 공간을 해제합니다. 이미지 저장소에 복사를 사용한 경우, 애플리케이션 유형을 등록 취소해도 이미지 저장소 임시 위치에 복사된 애플리케이션 패키지는 제거되지 않습니다. 애플리케이션 형식은 이에 대해 인스턴스화된 애플리케이션이나 이를 참조하는 보류 중인 애플리케이션이 없는 한 등록 취소할 수 있습니다.
 
 [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps)을 실행하여 현재 클러스터에 등록된 애플리케이션 유형을 확인합니다.
 
@@ -357,14 +357,14 @@ ImageStoreConnectionString은 클러스터 매니페스트에 있습니다.
 
 ### <a name="deploy-large-application-package"></a>대형 애플리케이션 패키지 배포
 
-문제: [Copy-servicefabricapplicationpackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) 는 대형 응용 프로그램 패키지 (gb)의 시간이 초과 됩니다.
+문제: [Copy-servicefabricapplicationpackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) 는 대량 응용 프로그램 패키지 (GB)의 시간을 초과 합니다.
 다음을 시도해 보세요.
 - [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) 명령에 `TimeoutSec` 매개 변수를 사용하여 더 긴 시간 제한을 지정합니다. 기본적으로 시간 제한은 30분입니다.
 - 원본 컴퓨터와 클러스터 간의 네트워크 연결을 확인합니다. 연결 속도가 느린 경우 네트워크 연결 상태가 좋은 컴퓨터를 사용하는 것이 좋습니다.
 클라이언트 컴퓨터가 클러스터가 아닌 다른 지역에 있는 경우 해당 클러스터와 가깝거나 동일한 지역에 있는 클라이언트 컴퓨터를 사용하는 것이 좋습니다.
-- 외부 제한에 도달하고 있는지 확인합니다. 예를 들어 Azure 저장소를 사용하도록 이미지 저장소를 구성한 경우 업로드가 제한될 수 있습니다.
+- 외부 제한에 도달하고 있는지 확인합니다. 예를 들어 Azure Storage를 사용하도록 이미지 스토리지를 구성한 경우 업로드가 제한될 수 있습니다.
 
-문제: 성공적으로 완료 하는 패키지를 업로드 합니다. 하지만 [Register-servicefabricapplicationtype](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) 시간이 초과 됩니다. 다음을 시도해 보세요.
+문제: 패키지 업로드가 성공적으로 완료 되었지만 [등록-register-servicefabricapplicationtype](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) 시간이 초과 되었습니다. 다음을 시도해 보세요.
 - 이미지 저장소에 복사하기 전에 [패키지를 압축합니다](service-fabric-package-apps.md#compress-a-package).
 압축하면 파일의 크기와 수가 줄어들므로 Service Fabric에서 수행해야 하는 트래픽과 작업량도 줄어듭니다. 업로드 작업이 느려질 수 있지만(특히 압축 시간이 포함되는 경우), 애플리케이션 유형을 더 빠르게 등록 및 등록 취소할 수 있습니다.
 - [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps)에 `TimeoutSec` 매개 변수를 사용하여 더 긴 시간 제한을 지정합니다.
@@ -383,7 +383,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 
 ### <a name="deploy-application-package-with-many-files"></a>많은 파일이 있는 애플리케이션 패키지 배포
 
-문제: [Register-servicefabricapplicationtype](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) 많은 파일 (수천 대)를 사용 하 여 응용 프로그램 패키지의 시간이 초과 됩니다.
+문제: 많은 파일이 포함 된 응용 프로그램 패키지에 대 한 [register-servicefabricapplicationtype](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) 시간 제한 (천 단위)입니다.
 다음을 시도해 보세요.
 - 이미지 저장소에 복사하기 전에 [패키지를 압축합니다](service-fabric-package-apps.md#compress-a-package). 압축하면 파일의 수가 줄어듭니다.
 - [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps)에 `TimeoutSec` 매개 변수를 사용하여 더 긴 시간 제한을 지정합니다.
@@ -405,7 +405,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 
 [애플리케이션 패키지 작성](service-fabric-package-apps.md)
 
-[Service Fabric 애플리케이션 업그레이드](service-fabric-application-upgrade.md)
+[서비스 패브릭 애플리케이션 업그레이드](service-fabric-application-upgrade.md)
 
 [서비스 패브릭 상태 소개](service-fabric-health-introduction.md)
 

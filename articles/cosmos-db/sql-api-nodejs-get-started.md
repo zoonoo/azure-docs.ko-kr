@@ -6,23 +6,20 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/05/2019
+ms.date: 08/06/2019
 ms.author: dech
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 61569159d83493bb5338f8eda5b9201ef9164143
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 213794828b838010b526026ae15f24122748e141
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734576"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989435"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>자습서: JavaScript SDK를 사용하여 Azure Cosmos DB SQL API 데이터를 관리하는 Node.js 콘솔 앱 빌드
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
-> * [.NET(미리 보기)](sql-api-dotnet-get-started-preview.md)
-> * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [.NET Core(미리 보기)](sql-api-dotnet-core-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
 > * [비동기 Java](sql-api-async-java-get-started.md)
 > * [Node.JS](sql-api-nodejs-get-started.md)
@@ -52,7 +49,7 @@ ms.locfileid: "66734576"
 
 ## <a name="create-azure-cosmos-db-account"></a>Azure Cosmos DB 계정 만들기
 
-Azure Cosmos DB 계정을 만들어 보겠습니다. 사용하려는 계정이 이미 있는 경우 [Node.js 응용 프로그램 설치](#SetupNode)로 건너뛸 수 있습니다. Azure Cosmos DB 에뮬레이터를 사용하는 경우 [Azure Cosmos DB 에뮬레이터](local-emulator.md)의 단계에 따라 에뮬레이터를 설정하고 [Node.js 애플리케이션 설정](#SetupNode)으로 건너뜁니다. 
+Azure Cosmos DB 계정을 만들어 보겠습니다. 사용하려는 계정이 이미 있는 경우 [Node.js 애플리케이션 설치](#SetupNode)로 건너뛸 수 있습니다. Azure Cosmos DB 에뮬레이터를 사용하는 경우 [Azure Cosmos DB 에뮬레이터](local-emulator.md)의 단계에 따라 에뮬레이터를 설정하고 [Node.js 애플리케이션 설정](#SetupNode)으로 건너뜁니다. 
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -84,7 +81,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 사용하려는 계정이 �
 
 1. 원하는 텍스트 편집기에서 ```config.js```을 엽니다.
 
-1. 아래 코드 조각을 복사하여 붙여넣고 ```config.endpoint``` 및 ```config.primaryKey``` 속성을 Azure Cosmos DB 엔드포인트 URI 및 기본 키로 설정합니다. 이러한 구성은 모두 [Azure Portal](https://portal.azure.com)에서 찾을 수 있습니다.
+1. 아래 코드 조각을 복사하여 붙여넣고 ```config.endpoint``` 및 ```config.key``` 속성을 Azure Cosmos DB 엔드포인트 URI 및 기본 키로 설정합니다. 이러한 구성은 모두 [Azure Portal](https://portal.azure.com)에서 찾을 수 있습니다.
 
    ![Azure Portal에서 키 가져오기 스크린샷][keys]
 
@@ -93,16 +90,16 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 사용하려는 계정이 �
    var config = {}
 
    config.endpoint = "~your Azure Cosmos DB endpoint uri here~";
-   config.primaryKey = "~your primary key here~";
+   config.key = "~your primary key here~";
    ``` 
 
-1. ```database```, ```container``` 및 ```items``` 데이터를 복사하여 ```config.endpoint``` 및 ```config.primaryKey``` 속성을 설정한 아래의 ```config``` 개체에 붙여넣습니다. 데이터베이스에 저장하려는 데이터가 이미 있는 경우 여기서 데이터를 정의하는 대신 Azure Cosmos DB의 데이터 마이그레이션 도구를 사용할 수 있습니다. config.js 파일에 다음 코드가 있어야 합니다.
+1. ```database```, ```container``` 및 ```items``` 데이터를 복사하여 ```config.endpoint``` 및 ```config.key``` 속성을 설정한 아래의 ```config``` 개체에 붙여넣습니다. 데이터베이스에 저장하려는 데이터가 이미 있는 경우 여기서 데이터를 정의하는 대신 Azure Cosmos DB의 데이터 마이그레이션 도구를 사용할 수 있습니다. config.js 파일에 다음 코드가 있어야 합니다.
 
    [!code-javascript[nodejs-get-started](~/cosmosdb-nodejs-get-started/config.js)]
 
    JavaScript SDK에서는 일반 용어인 *컨테이너* 및 *항목*을 사용합니다. 컨테이너는 컬렉션, 그래프 또는 테이블입니다. 항목은 문서, 에지/꼭짓점 또는 행이며, 컨테이너 내부의 콘텐츠입니다. 
    
-   ```app.js``` 파일 내에서 참조할 수 있도록 ```config``` 개체를 내보내기 위해 실행된 `module.exports = config;` 코드.
+   `module.exports = config;` 코드는 ```app.js``` 파일 내에서 참조할 수 있도록 ```config``` 개체를 내보내는 데 사용됩니다.
 
 ## <a id="Connect"></a>Azure Cosmos DB 계정에 연결
 
@@ -115,25 +112,23 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 사용하려는 계정이 �
    const config = require('./config');
    ```
 
-1. 이전에 저장한 ```config.endpoint``` 및 ```config.primaryKey```를 사용하는 코드를 복사하고 붙여넣어서 새 CosmosClient를 만듭니다.
+1. 이전에 저장한 ```config.endpoint``` 및 ```config.key```를 사용하는 코드를 복사하고 붙여넣어서 새 CosmosClient를 만듭니다.
 
    ```javascript
    const config = require('./config');
 
    // ADD THIS PART TO YOUR CODE
    const endpoint = config.endpoint;
-   const masterKey = config.primaryKey;
+   const key = config.key;
 
-   const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
+   const client = new CosmosClient({ endpoint, key });
    ```
    
 > [!Note]
-> **Cosmos DB 에뮬레이터**에 연결하는 경우 사용자 지정 연결 정책을 만들어서 SSL 확인을 사용하지 않도록 설정합니다.
+> **Cosmos DB 에뮬레이터**에 연결하는 경우 노드 프로세스에 대한 SSL 확인을 사용하지 않도록 설정합니다.
 >   ```
->   const connectionPolicy = new cosmos.ConnectionPolicy ()
->   connectionPolicy.DisableSSLVerification = true
->
->   const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey }, connectionPolicy });
+>   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+>   const client = new CosmosClient({ endpoint, key });
 >   ```
 
 Azure Cosmos DB 클라이언트를 시작하는 코드가 생겼으니, Azure Cosmos DB 리소스를 작업하는 방법을 알아보겠습니다.
@@ -143,7 +138,7 @@ Azure Cosmos DB 클라이언트를 시작하는 코드가 생겼으니, Azure Co
 1. 아래 코드를 복사하여 붙여넣고, 데이터베이스 ID와 컨테이너 ID를 설정합니다. 이러한 ID를 통해 Azure Cosmos DB 클라이언트에서 올바른 데이터베이스와 컨테이너를 찾을 수 있습니다.
 
    ```javascript
-   const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
+   const client = new CosmosClient({ endpoint, key } });
 
    // ADD THIS PART TO YOUR CODE
    const HttpStatusCodes = { NOTFOUND: 404 };
@@ -155,7 +150,7 @@ Azure Cosmos DB 클라이언트를 시작하는 코드가 생겼으니, Azure Co
 
    데이터베이스는 `createIfNotExists` 또는 **Databases** 클래스의 create 함수를 사용하여 만들 수 있습니다. 데이터베이스는 여러 컨테이너에 분할된 항목의 논리적 컨테이너입니다. 
 
-2. **createDatabase** 및 **readDatabase** 메서드를 복사하여 ```databaseId``` 및 ```containerId``` 정의 아래의 app.js 파일에 붙여넣습니다. **createDatabase** 함수는 id ```FamilyDatabase```를 사용하여 새 데이터베이스를 만들며, 아직 없는 경우 ```config```에서 지정됩니다. **readDatabase** 함수는 데이터베이스의 정의를 읽어서 데이터베이스가 있는지 확인합니다.
+2. **createDatabase** 및 **readDatabase** 메서드를 복사하여 ```databaseId``` 및 ```containerId``` 정의 아래의 app.js 파일에 붙여넣습니다. **createDatabase** 함수는 ID ```FamilyDatabase```를 사용하여 새 데이터베이스를 만들며, 아직 없는 경우 ```config``` 개체에서 지정됩니다. **readDatabase** 함수는 데이터베이스의 정의를 읽어서 데이터베이스가 있는지 확인합니다.
 
    ```javascript
    /**
@@ -170,7 +165,7 @@ Azure Cosmos DB 클라이언트를 시작하는 코드가 생겼으니, Azure Co
    * Read the database definition
    */
    async function readDatabase() {
-      const { body: databaseDefinition } = await client.database(databaseId).read();
+      const { resource: databaseDefinition } = await client.database(databaseId).read();
       console.log(`Reading database:\n${databaseDefinition.id}\n`);
    }
    ```
@@ -205,9 +200,9 @@ Azure Cosmos DB 클라이언트를 시작하는 코드가 생겼으니, Azure Co
    const config = require('./config');
 
    const endpoint = config.endpoint;
-   const masterKey = config.primaryKey;
+   const key = config.key;
 
-   const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
+   const client = new CosmosClient({ endpoint, key });
 
    const HttpStatusCodes = { NOTFOUND: 404 };
 
@@ -227,7 +222,7 @@ Azure Cosmos DB 클라이언트를 시작하는 코드가 생겼으니, Azure Co
    * Read the database definition
    */
    async function readDatabase() {
-     const { body: databaseDefinition } = await client.database(databaseId).read();
+     const { resource: databaseDefinition } = await client.database(databaseId).read();
     console.log(`Reading database:\n${databaseDefinition.id}\n`);
    }
 
@@ -281,7 +276,7 @@ Azure Cosmos DB 클라이언트를 시작하는 코드가 생겼으니, Azure Co
     * Read the container definition
    */
    async function readContainer() {
-      const { body: containerDefinition } = await client.database(databaseId).container(containerId).read();
+      const { resource: containerDefinition } = await client.database(databaseId).container(containerId).read();
     console.log(`Reading container:\n${containerDefinition.id}\n`);
    }
    ```
@@ -309,9 +304,9 @@ Azure Cosmos DB 클라이언트를 시작하는 코드가 생겼으니, Azure Co
    const config = require('./config');
 
    const endpoint = config.endpoint;
-   const masterKey = config.primaryKey;
+   const key = config.key;
 
-   const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
+   const client = new CosmosClient({ endpoint, key });
 
    const HttpStatusCodes = { NOTFOUND: 404 };
 
@@ -349,7 +344,7 @@ Azure Cosmos DB 클라이언트를 시작하는 코드가 생겼으니, Azure Co
     * Read the container definition
    */
    async function readContainer() {
-      const { body: containerDefinition } = await client.database(databaseId).container(containerId).read();
+      const { resource: containerDefinition } = await client.database(databaseId).container(containerId).read();
     console.log(`Reading container:\n${containerDefinition.id}\n`);
    }
 
@@ -383,7 +378,7 @@ Azure Cosmos DB 클라이언트를 시작하는 코드가 생겼으니, Azure Co
 
 항목은 **Items** 클래스의 create 함수를 사용하여 만들 수 있습니다. SQL API를 사용하는 경우 항목은 사용자 정의(임의) JSON 콘텐츠인 문서로 프로젝션됩니다. 이제 Azure Cosmos DB에 항목을 삽입할 수 있습니다.
 
-1. **createFamilyItem** 함수를 복사하여 **readContainer** 함수 아래에 붙여넣습니다. **createFamilyItem** 함수는 ```config``` 개체에 저장된 JSON 데이터를 포함하는 항목을 만듭니다. ID를 만들기 전에 같은 ID를 가진 항목이 있는지 확인하겠습니다.
+1. **createFamilyItem** 함수를 복사하여 **readContainer** 함수 아래에 붙여넣습니다. **createFamilyItem** 함수는 ```config``` 개체에 저장된 JSON 데이터를 포함하는 항목을 만듭니다. ID를 만들기 전에 같은 ID를 가진 항목이 있는지 확인합니다.
 
    ```javascript
    /**
@@ -443,8 +438,8 @@ Azure Cosmos DB는 각 컨테이너에 저장된 JSON 문서에 대해 다양한
         ]
     };
 
-    const { result: results } = await client.database(databaseId).container(containerId).items.query(querySpec, {enableCrossPartitionQuery:true}).toArray();
-    for (var queryResult of results) {
+    const { resources } = await client.database(databaseId).container(containerId).items.query(querySpec, {enableCrossPartitionQuery:true}).fetchAll();
+    for (var queryResult of resources) {
         let resultString = JSON.stringify(queryResult);
         console.log(`\tQuery returned ${resultString}\n`);
     }

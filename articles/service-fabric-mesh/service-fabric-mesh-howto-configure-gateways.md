@@ -8,19 +8,18 @@ manager: chakdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
-ms.devlang: azure-cli
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/28/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2e2502e35b3720ddbfe5950b89e2388de378f2ba
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b4fc6f91ee2429205974b9cb7ceb05b7cff53f15
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60583644"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034207"
 ---
 # <a name="configure-a-gateway-resource-to-route-requests"></a>요청을 라우팅하도록 게이트웨이 리소스 구성 | Microsoft Docs
 
@@ -228,8 +227,8 @@ HTTP 라우팅 규칙은 다음 속성으로 구성됩니다.
 ```
 
 이 게이트웨이는 포트 80에서 수신 대기하는 Linux 애플리케이션, 두 개 이상의 서비스로 구성된 "meshAppLinux" , "helloWorldService" 및 "counterService"에 대해 구성됩니다. 들어오는 요청의 URL 구조에 따라 요청을 이러한 서비스 중 하나로 라우팅합니다. 
-* "\<Ip 주소 >: 80/helloWorld/\<요청\>"는 helloWorldService에서 "helloWorldListener"에 보내는 요청을 초래 합니다. 
-* "\<Ip 주소 >: 80/카운터/\<요청\>"는 counterService에서 "counterListener"에 보내는 요청을 초래 합니다. 
+* "\<IPAddress >: 80/helloWorld/\<request\>"로 인해 요청이 helloWorldService의 "helloWorldListener"으로 전달 됩니다. 
+* "\<IPAddress >: 80/counter/\<request\>"로 인해 counterlistener의 "counterlistener"로 요청이 전달 됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 * [수신 예제](https://github.com/Azure-Samples/service-fabric-mesh/tree/2018-09-01-preview/templates/ingress)를 배포하여 실행 중인 게이트웨이를 참조합니다.

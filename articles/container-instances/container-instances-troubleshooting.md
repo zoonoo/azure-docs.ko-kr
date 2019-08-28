@@ -3,32 +3,32 @@ title: Azure Container Instances 문제 해결
 description: Azure Container Instances 관련 문제 해결 방법 알아보기
 services: container-instances
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 9dc3e19f9429a6055a799f3f013c732538fa370d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4b41a3862341ef39c1288985d86d86667fbc5866
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65070860"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325596"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Azure Container Instances에서 일반적인 문제 해결
 
-이 아티클에서는 컨테이너를 관리하거나 Azure Container Instances에 배포하는 경우 일반적인 문제를 해결하는 방법을 보여줍니다. 참고 항목 [질문과 대답](container-instances-faq.md)합니다.
+이 아티클에서는 컨테이너를 관리하거나 Azure Container Instances에 배포하는 경우 일반적인 문제를 해결하는 방법을 보여줍니다. Faq (질문과 [대답](container-instances-faq.md))를 참조 하세요.
 
 ## <a name="naming-conventions"></a>명명 규칙
 
 컨테이너 사양을 정의할 때 특정 매개 변수에는 명명 제한 사항을 준수해야 합니다. 컨테이너 그룹 속성에 대한 특정 요구 사항이 포함된 테이블은 다음과 같습니다. Azure 명명 규칙에 대한 자세한 내용은 Azure 아키텍처 센터에서 [명명 규칙][azure-name-restrictions]을 참조하세요.
 
-| Scope | 길이 | 대/소문자 구분 | 유효한 문자 | 제안된 패턴 | 예 |
+| 범위 | 길이 | 대/소문자 구분 | 유효한 문자 | 제안된 패턴 | 예제 |
 | --- | --- | --- | --- | --- | --- |
 | 컨테이너 그룹 이름 | 1-64 |대/소문자 구분하지 않음 |첫 번째 또는 마지막 문자를 제외한 모든 위치의 영숫자 및 하이픈 |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | 컨테이너 이름 | 1-64 |대/소문자 구분하지 않음 |첫 번째 또는 마지막 문자를 제외한 모든 위치의 영숫자 및 하이픈 |`<name>-<role>-CG<number>` |`web-batch-CG1` |
-| 컨테이너 포트 | 1에서 65535 사이 |Integer |1에서 65535 사이의 정수 |`<port-number>` |`443` |
+| 컨테이너 포트 | 1에서 65535 사이 |정수 |1에서 65535 사이의 정수 |`<port-number>` |`443` |
 | DNS 이름 레이블 | 5-63 |대/소문자 구분하지 않음 |첫 번째 또는 마지막 문자를 제외한 모든 위치의 영숫자 및 하이픈 |`<name>` |`frontend-site1` |
 | 환경 변수 | 1-63 |대/소문자 구분하지 않음 |첫 번째 또는 마지막 문자를 제외한 모든 위치의 영숫자 및 밑줄(_) |`<name>` |`MY_VARIABLE` |
 | 볼륨 이름 | 5-63 |대/소문자 구분하지 않음 |첫 번째 또는 마지막 문자를 제외한 모든 위치의 소문자, 숫자 및 하이픈 두 개 연속 하이픈을 포함할 수 없습니다. |`<name>` |`batch-output-volume` |
@@ -46,7 +46,7 @@ Azure Container Instances에서 지원되지 않는 이미지를 지정하면 `O
 }
 ```
 
-1709 또는 지원 되지 않는 1803 반기 채널을 기반으로 하는 Windows 이미지 배포를 해제 하는 경우이 오류가 가장 자주 발생 합니다. Azure Container Instances에서 지원 되는 Windows 이미지를 참조 하세요 [질문과 대답](container-instances-faq.md#what-windows-base-os-images-are-supported)합니다.
+이 오류는 지원 되지 않는 반기 채널 릴리스 1709 또는 1803을 기반으로 하는 Windows 이미지를 배포할 때 가장 자주 발생 합니다. Azure Container Instances에서 지원 되는 Windows 이미지는 질문과 [대답](container-instances-faq.md#what-windows-base-os-images-are-supported)을 참조 하세요.
 
 ## <a name="unable-to-pull-image"></a>이미지를 풀링할 수 없음
 
@@ -54,7 +54,7 @@ Azure Container Instances는 초기에 이미지를 풀링할 수 없는 경우 
 
 이 문제를 해결하려면 컨테이너 인스턴스를 삭제하고 배포를 다시 시도하세요. 이미지가 레지스트리에 있는지, 이미지 이름을 올바르게 입력했는지 확인합니다.
 
-이미지를 풀링할 수 없는 경우 다음과 같은 이벤트가 [az container show][az-container-show] 명령의 출력에 표시됩니다.
+이미지를 끌어올 수 없는 경우 다음과 같은 이벤트가 [az container show][az-container-show]의 출력에 표시 됩니다.
 
 ```bash
 "events": [
@@ -89,7 +89,7 @@ Azure Container Instances는 초기에 이미지를 풀링할 수 없는 경우 
 
 컨테이너 그룹의 기본 [재시작 정책](container-instances-restart-policy.md)이 **항상**이므로, 실행 완료 후 컨테이너 그룹의 컨테이너는 항상 다시 시작합니다. 작업 기반 컨테이너를 실행하려면 이를 **실패 시**(OnFailure) 또는 **Never**(안 함)로 변경해야 합니다. **OnFailure**를 지정해도 컨테이너가 계속 다시 시작되면 컨테이너에서 실행된 애플리케이션이나 스크립트에 문제가 있을 수 있습니다.
 
-장기 실행 프로세스가 없는 컨테이너 그룹을 실행하면 Ubuntu 또는 Alpine과 같은 이미지와 함께 종료와 재시작이 반복될 수 있습니다. [EXEC](container-instances-exec.md)을 통해 연결하는 작업은 컨테이너에서 활성 상태로 유지되지 않으므로 작동하지 않습니다. 이 문제를 해결 하려면 실행 중인 컨테이너를 유지 하려면 컨테이너 그룹 배포를 사용 하 여 다음과 같은 시작 명령이 포함 됩니다.
+장기 실행 프로세스가 없는 컨테이너 그룹을 실행하면 Ubuntu 또는 Alpine과 같은 이미지와 함께 종료와 재시작이 반복될 수 있습니다. [EXEC](container-instances-exec.md)을 통해 연결하는 작업은 컨테이너에서 활성 상태로 유지되지 않으므로 작동하지 않습니다. 이 문제를 해결 하려면 컨테이너 그룹 배포에 다음과 같은 시작 명령을 포함 하 여 컨테이너를 계속 실행 합니다.
 
 ```azurecli-interactive
 ## Deploying a Linux container
@@ -102,7 +102,7 @@ az container create -g myResourceGroup --name mywindowsapp --os-type Windows --i
  --command-line "ping -t localhost"
 ```
 
-컨테이너 인스턴스 API 및 Azure Portal에는 `restartCount` 속성이 포함됩니다. 컨테이너에 대한 다시 시작 횟수를 확인하기 위해 Azure CLI에서 [az container show][az-container-show] 명령을 사용할 수 있습니다. 다음 예제 출력(간단히 하기 위해 일부 자름)에서는 출력 마지막에 `restartCount` 속성이 있습니다.
+컨테이너 인스턴스 API 및 Azure Portal에는 `restartCount` 속성이 포함됩니다. 컨테이너의 다시 시작 횟수를 확인 하려면 Azure CLI에서 [az container show][az-container-show] 명령을 사용할 수 있습니다. 다음 예제 출력(간단히 하기 위해 일부 자름)에서는 출력 마지막에 `restartCount` 속성이 있습니다.
 
 ```json
 ...
@@ -166,7 +166,7 @@ REPOSITORY                                    TAG       IMAGE ID        CREATED 
 mcr.microsoft.com/azuredocs/aci-helloworld    latest    7367f3256b41    15 months ago    67.6MB
 ```
 
-이미지 크기를 작게 유지하는 핵심 요소는 최종 이미지에 런타임 시 필요하지 않은 것은 아무 것도 포함하지 않는 것입니다. 이 작업을 수행하는 한 가지 방법은 [다단계 빌드][docker-multi-stage-builds]를 사용하는 것입니다. 다단계 빌드를 통해 간편하게 최종 이미지에 빌드 시간에 필요한 추가 콘텐츠가 아닌 애플리케이션에 필요한 아티팩트만 포함하도록 할 수 있습니다.
+이미지 크기를 작게 유지하는 핵심 요소는 최종 이미지에 런타임 시 필요하지 않은 것은 아무 것도 포함하지 않는 것입니다. 이 작업을 수행하는 한 가지 방법은 [다단계 빌드][docker-multi-stage-builds]를 활용하는 것입니다. 다단계 빌드를 통해 간편하게 최종 이미지에 빌드 시간에 필요한 추가 콘텐츠가 아닌 애플리케이션에 필요한 아티팩트만 포함하도록 할 수 있습니다.
 
 ### <a name="image-location"></a>이미지 위치
 
@@ -174,7 +174,7 @@ mcr.microsoft.com/azuredocs/aci-helloworld    latest    7367f3256b41    15 month
 
 ### <a name="cached-images"></a>캐시 된 이미지
 
-Azure Container Instances는 캐싱 메커니즘을 기반으로 일반적인 이미지에 대 한 컨테이너 시작 시간 속도를 사용 하 여 [Windows 기본 이미지](container-instances-faq.md#what-windows-base-os-images-are-supported)등 `nanoserver:1809`합니다 `servercore:ltsc2019`, 및 `servercore:1809`합니다. 일반적으로 사용 되는 Linux 이미지와 같은 `ubuntu:1604` 고 `alpine:3.6` 캐시 됩니다. 최신 목록을 캐시 된 이미지 및 태그를 사용 합니다 [캐시 된 이미지 나열] [ list-cached-images] API.
+Azure Container Instances는 캐싱 메커니즘을 사용 하 여, `servercore:ltsc2019`및 `servercore:1809`를 비롯 하 여 `nanoserver:1809`일반적인 [Windows 기반 이미지](container-instances-faq.md#what-windows-base-os-images-are-supported)를 기반으로 하는 이미지에 대 한 컨테이너 시작 시간을 단축할 수 있습니다. `ubuntu:1604` 및`alpine:3.6` 와 같은 일반적으로 사용 되는 Linux 이미지도 캐시 됩니다. 캐시 된 이미지 및 태그의 최신 목록을 보려면 [캐시 된 이미지 나열][list-cached-images] API를 사용 합니다.
 
 > [!NOTE]
 > Azure Container Instances에서 Windows Server 2019 기반 이미지 사용은 미리 보기에 있습니다.
@@ -206,7 +206,7 @@ Azure Container Instances는 현재 일반 docker 구성과 같은 포트 매핑
 
 ## <a name="next-steps"></a>다음 단계
 
-에 대해 알아봅니다 하는 방법 [컨테이너 로그 및 이벤트를 검색할](container-instances-get-logs.md) 컨테이너를 디버깅 하는 데 있습니다.
+컨테이너를 디버그 하는 데 도움이 되도록 [컨테이너 로그 및 이벤트를 검색](container-instances-get-logs.md) 하는 방법을 알아봅니다.
 
 <!-- LINKS - External -->
 [azure-name-restrictions]: https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions

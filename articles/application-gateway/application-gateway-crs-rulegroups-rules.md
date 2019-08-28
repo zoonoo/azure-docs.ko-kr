@@ -6,12 +6,13 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 4/11/2019
 ms.author: victorh
-ms.openlocfilehash: 0ad5cc76c0f4631fd60eea7d0a57e4740b6a9db3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+ms.openlocfilehash: e56301e98ca773369631e2f7ae137c63d0b9ddef
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60832917"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613307"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>웹 응용 프로그램 방화벽 CRS 규칙 그룹 및 규칙
 
@@ -25,7 +26,7 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 
 ### <a name="General"></a> <p x-ms-format-detection="none">일반</p>
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |200004|가능한 다중 파트 일치하지 않는 경계.|
 
@@ -38,7 +39,7 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 
 ### <a name="crs913"></a> <p x-ms-format-detection="none">REQUEST-913-SCANNER-DETECTION</p>
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |913100|보안 스캐너와 연결된 사용자-에이전트 발견|
 |913110|보안 스캐너와 연결된 요청 헤더 발견|
@@ -48,7 +49,7 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 
 ### <a name="crs920"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |920100|잘못된 HTTP 요청 줄|
 |920130|요청 본문을 구문 분석하지 못했습니다.|
@@ -94,7 +95,7 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 
 ### <a name="crs921"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |921100|HTTP 요청 스머글링 공격.|
 |921110|HTTP 요청 밀반입 공격|
@@ -109,7 +110,7 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 
 ### <a name="crs930"></a> <p x-ms-format-detection="none">REQUEST-930-APPLICATION-ATTACK-LFI</p>
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |930100|경로 탐색 공격(/../)|
 |930110|경로 탐색 공격(/../)|
@@ -118,7 +119,7 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 
 ### <a name="crs931"></a> <p x-ms-format-detection="none">REQUEST-931-APPLICATION-ATTACK-RFI</p>
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |931100|가능한 원격 파일 포함(RFI) 공격 = IP 주소를 사용하는 URL 매개 변수|
 |931110|가능한 원격 파일 포함(RFI) 공격 = 일반 RFI 취약한 매개 변수 이름이 URL 페이로드에 사용됨|
@@ -138,7 +139,7 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 
 ### <a name="crs933"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |933100|PHP 삽입 공격 = 여는/닫는 태그 발견|
 |933110|PHP 삽입 공격 = PHP 스크립트 파일 업로드 발견|
@@ -181,7 +182,7 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 
 ### <a name="crs942"></a> <p x-ms-format-detection="none">REQUEST-942-APPLICATION-ATTACK-SQLI</p>
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |942100|libinjection을 통한 SQL 삽입 공격 감지됨|
 |942110|SQL 삽입 공격: 일반적인 삽입 테스트 감지됨|
@@ -224,7 +225,7 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 
 ### <a name="crs20"></a> crs_20_protocol_violations
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |960911|잘못된 HTTP 요청 줄|
 |981227|Apache 오류 = 요청에 잘못된 URI가 있습니다.|
@@ -263,7 +264,7 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 
 ### <a name="crs23"></a> crs_23_request_limits
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |960209|인수 이름이 너무 김|
 |960208|인수 값이 너무 김|
@@ -274,7 +275,7 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 
 ### <a name="crs30"></a> crs_30_http_policy
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |960032|정책에서 허용하지 않는 메서드|
 |960010|요청 콘텐츠 유형이 정책에서 허용되지 않음|
@@ -293,7 +294,7 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 
 ### <a name="crs40"></a> crs_40_generic_attacks
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |960024|메타 문자 이상 감지 경고 - 반복적인 단어가 아닌 문자|
 |950008|문서화되지 않은 ColdFusion 태그의 삽입|
@@ -359,7 +360,7 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 
 ### <a name="crs41xss"></a> crs_41_xss_attacks
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |973336|XSS 필터 - 범주 1 = 스크립트 태그 벡터|
 |973338|XSS 필터 - 범주 3 = Javascript URI 벡터|
@@ -464,7 +465,7 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 
 ### <a name="crs42"></a> crs_42_tight_security
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |950103|경로 조작 공격|
 

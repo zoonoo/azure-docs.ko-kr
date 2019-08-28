@@ -11,12 +11,12 @@ ms.date: 01/04/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 9cea3e7494ee81638923cbcaff9f1b82d08a1ad1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b6e57500da0ca863f0c5810f625d6a4b0c56d1bf
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66165249"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277464"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hive 작업을 사용하여 Azure Virtual Network에서 데이터 변환
 이 자습서에서는 Azure Portal을 사용하여 Azure VNet(Virtual Network)에 있는 HDInsight 클러스터에서 Hive 활동을 통해 데이터를 변환하는 Data Factory 파이프라인을 만듭니다. 이 자습서에서 수행하는 단계는 다음과 같습니다.
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- **Azure Storage 계정**. Hive 스크립트를 만들어 Azure 저장소에 업로드합니다. Hive 스크립트의 출력은 이 저장소 계정에 저장됩니다. 이 샘플에서 HDInsight 클러스터는 이 Azure Storage 계정을 기본 스토리지로 사용합니다. 
+- **Azure Storage 계정**. Hive 스크립트를 만들어 Azure Storage에 업로드합니다. Hive 스크립트의 출력은 이 스토리지 계정에 저장됩니다. 이 샘플에서 HDInsight 클러스터는 이 Azure Storage 계정을 기본 스토리지로 사용합니다. 
 - **Azure Virtual Network** - 아직 없는 경우 [이 지침](../virtual-network/quick-create-portal.md)에 따라 Azure Virtual Network를 만듭니다. 이 샘플에서 HDInsight는 Azure Virtual Network에 있습니다. 다음은 Azure Virtual Network의 샘플 구성입니다. 
 
     ![가상 네트워크 만들기](media/tutorial-transform-data-using-hive-in-vnet-portal/create-virtual-network.png)
@@ -149,7 +149,7 @@ Hadoop 클러스터는 가상 네트워크 내에 있으므로 동일한 가상 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
 
 이 섹션에서는 두 개의 연결된 서비스를 작성하고 배포합니다.
-- Azure Storage 계정을 데이터 팩터리에 연결하는 **Azure Storage 연결된 서비스**. 이 저장소는 HDInsight 클러스터에서 사용하는 기본 저장소입니다. 이 경우 이 Azure Storage 계정을 사용하여 Hive 스크립트와 스크립트 출력을 저장합니다.
+- Azure Storage 계정을 데이터 팩터리에 연결하는 **Azure Storage 연결된 서비스**. 이 스토리지는 HDInsight 클러스터에서 사용하는 기본 스토리지입니다. 이 경우 이 Azure Storage 계정을 사용하여 Hive 스크립트와 스크립트 출력을 저장합니다.
 - **HDInsight 연결된 서비스**. Azure Data Factory에서 Hive 스크립트를 이 HDInsight 클러스터에 제출하여 실행합니다.
 
 ### <a name="create-azure-storage-linked-service"></a>Azure Storage 연결된 서비스 만들기
@@ -165,7 +165,7 @@ Hadoop 클러스터는 가상 네트워크 내에 있으므로 동일한 가상 
     1. **이름**에 대해 **AzureStorageLinkedService**를 입력합니다.
     2. **통합 런타임을 통해 연결**에 대해 **MySelfHostedIR**을 선택합니다.
     3. **스토리지 계정 이름**에 대해 Azure Storage 계정을 선택합니다. 
-    4. 저장소 계정에 대한 연결을 테스트하려면 **연결 테스트**를 클릭합니다.
+    4. 스토리지 계정에 대한 연결을 테스트하려면 **연결 테스트**를 클릭합니다.
     5. **저장**을 클릭합니다.
    
         ![Azure Blob Storage 계정 지정](./media/tutorial-transform-data-using-hive-in-vnet-portal/specify-azure-storage-account.png)
@@ -201,7 +201,7 @@ Hadoop 클러스터는 가상 네트워크 내에 있으므로 동일한 가상 
 다음 사항에 유의하세요.
 
 - **scriptPath**는 MyStorageLinkedService에 사용한 Azure Storage 계정의 Hive 스크립트 경로를 가리킵니다. 경로는 대/소문자를 구분합니다.
-- **output**은 Hive 스크립트에서 사용되는 인수입니다. `wasb://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` 형식을 사용하여 Azure Storage의 기존 폴더를 가리킵니다. 경로는 대/소문자를 구분합니다. 
+- **output**은 Hive 스크립트에서 사용되는 인수입니다. `wasbs://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` 형식을 사용하여 Azure Storage의 기존 폴더를 가리킵니다. 경로는 대/소문자를 구분합니다. 
 
 1. Data Factory UI의 왼쪽 창에서 **+(더하기)** 를 클릭하고, **파이프라인**을 클릭합니다. 
 
@@ -215,9 +215,9 @@ Hadoop 클러스터는 가상 네트워크 내에 있으므로 동일한 가상 
 4. **스크립트** 탭으로 전환하고 다음 단계를 수행합니다. 
 
     1. **스크립트 연결된 서비스**에 대해 **AzureStorageLinkedService**를 선택합니다. 
-    2. **파일 경로**에서 **저장소 찾아보기**를 클릭합니다. 
+    2. **파일 경로**에서 **스토리지 찾아보기**를 클릭합니다. 
  
-        ![저장소 찾아보기](./media/tutorial-transform-data-using-hive-in-vnet-portal/browse-storage-hive-script.png)
+        ![스토리지 찾아보기](./media/tutorial-transform-data-using-hive-in-vnet-portal/browse-storage-hive-script.png)
     3. **파일 또는 폴더 선택** 창에서 **adftutorial** 컨테이너의 **hivescripts** 폴더로 이동하고, **hivescript.hql**을 선택하고, **마침**을 클릭합니다.  
         
         ![파일 또는 폴더 선택](./media/tutorial-transform-data-using-hive-in-vnet-portal/choose-file-folder.png) 
@@ -226,7 +226,7 @@ Hadoop 클러스터는 가상 네트워크 내에 있으므로 동일한 가상 
         ![스크립트 설정](./media/tutorial-transform-data-using-hive-in-vnet-portal/confirm-hive-script-settings.png)
     5. **스크립트 탭**에서 **고급** 섹션을 펼칩니다. 
     6. **매개 변수**에 대해 **스크립트에서 자동 채우기**를 클릭합니다. 
-    7. **출력** 매개 변수에 대한 값을 `wasb://<Blob Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` 형식으로 입력합니다. 예: `wasb://adftutorial@mystorageaccount.blob.core.windows.net/outputfolder/`
+    7. **출력** 매개 변수에 대한 값을 `wasbs://<Blob Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` 형식으로 입력합니다. 예: `wasbs://adftutorial@mystorageaccount.blob.core.windows.net/outputfolder/`
  
         ![스크립트 인수](./media/tutorial-transform-data-using-hive-in-vnet-portal/script-arguments.png)
 1. Data Factory에 아티팩트를 게시하려면 **게시**를 클릭합니다.

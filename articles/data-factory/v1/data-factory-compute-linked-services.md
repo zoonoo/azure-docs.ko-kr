@@ -81,7 +81,7 @@ Microsoft는 지원되는 HDInsight 버전 목록을 최신 Hadoop 에코시스�
 > 
 
 ## <a name="azure-hdinsight-on-demand-linked-service"></a>Azure HDInsight 주문형 연결된 서비스
-Data Factory는 데이터 처리를 위해 Windows 기반 또는 Linux 기반 주문형 HDInsight 클러스터를 자동으로 만들 수 있습니다. 클러스터는 클러스터와 연결된 저장소 계정과 동일한 지역에 만들어집니다. JSON **linkedServiceName** 속성을 사용하여 클러스터를 만듭니다.
+Data Factory는 데이터 처리를 위해 Windows 기반 또는 Linux 기반 주문형 HDInsight 클러스터를 자동으로 만들 수 있습니다. 클러스터는 클러스터와 연결된 스토리지 계정과 동일한 지역에 만들어집니다. JSON **linkedServiceName** 속성을 사용하여 클러스터를 만듭니다.
 
 주문형 HDInsight 연결된 서비스에 대한 다음 *키* 포인트에 유의합니다.
 
@@ -116,7 +116,7 @@ Data Factory는 데이터 처리를 위해 Windows 기반 또는 Linux 기반 �
 > [!IMPORTANT]
 > HDInsight 클러스터는 JSON **linkedServiceName** 속성에 지정한 Azure Blob Storage에 *기본 컨테이너*를 만듭니다. 기본적으로 HDInsight는 클러스터가 삭제될 때 이 컨테이너를 삭제하지 않습니다. 주문형 HDInsight 연결된 서비스에서는 기존 라이브 클러스터(**timeToLive**)가 없는 경우 조각을 처리해야 할 때마다 HDInsight 클러스터가 만들어집니다. 클러스터는 처리가 완료되면 삭제됩니다. 
 >
-> 처리되는 조각이 많을수록 Blob Storage에 컨테이너가 많아집니다. 작업의 문제 해결에 컨테이너가 필요하지 않으면 저장소 비용을 줄이기 위해 컨테이너를 삭제할 수 있습니다. 이러한 컨테이너의 이름은 `adf<your Data Factory name>-<linked service name>-<date and time>` 패턴을 따릅니다. [Microsoft Storage 탐색기](https://storageexplorer.com/) 같은 도구를 사용하여 Blob 스토리지에서 컨테이너를 삭제할 수 있습니다.
+> 처리되는 조각이 많을수록 Blob Storage에 컨테이너가 많아집니다. 작업의 문제 해결에 컨테이너가 필요하지 않으면 스토리지 비용을 줄이기 위해 컨테이너를 삭제할 수 있습니다. 이러한 컨테이너의 이름은 `adf<your Data Factory name>-<linked service name>-<date and time>` 패턴을 따릅니다. [Microsoft Storage 탐색기](https://storageexplorer.com/) 같은 도구를 사용하여 Blob 스토리지에서 컨테이너를 삭제할 수 있습니다.
 >
 > 
 
@@ -127,8 +127,8 @@ Data Factory는 데이터 처리를 위해 Windows 기반 또는 Linux 기반 �
 | clusterSize                  | 클러스터의 작업자 및 데이터 노드 수입니다. HDInsight 클러스터는 속성에 대해 지정하는 작업자 노드 수 외에 2개의 헤드 노드로 생성됩니다. 노드의 크기는 Standard_D3이며 4개의 코어가 있습니다. 4개 작업자 노드 클러스터는 24개 코어(작업자 노드용 4\*4 = 16코어 및 헤드 노드용 2\*4 = 8코어)를 사용합니다. Standard_D3 계층에 대한 자세한 내용은 [HDInsight에서 Linux 기반 Hadoop 클러스터 만들기](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. | 예      |
 | timeToLive                   | 주문형 HDInsight 클러스터에 대한 허용된 유휴 시간입니다. 클러스터에 다른 활성 작업이 없는 경우 활동 실행이 완료될 때 주문형 HDInsight 클러스터가 유지될 기간을 지정합니다.<br /><br />예를 들어 활동 실행에 6분이 걸리고 **timeToLive**가 5분으로 설정된 경우 클러스터는 활동 실행을 처리하는 6분 후에 5분 동안 유지됩니다. 또 다른 활동 실행이 6분간 실행되는 경우 동일한 클러스터에 의해 처리됩니다.<br /><br />주문형 HDInsight 클러스터 만들기는 비용이 많이 드는 작업이며 시간이 걸릴 수 있습니다. 필요에 따라 이 설정을 사용하면 주문형 HDInsight 클러스터를 다시 사용하여 데이터 팩터리의 성능을 향상시킵니다.<br /><br />**timeToLive** 값을 **0**으로 설정한 경우 클러스터는 활동 실행을 마치는 즉시 삭제됩니다. 하지만 높은 값을 설정하면 클러스터가 유휴 상태로 유지되어 불필요하게 많이 비용이 발생할 수 있습니다. 필요에 따라 적절한 값을 설정하는 것이 중요합니다.<br /><br />**timeToLive** 값이 적절하게 설정되는 경우 여러 파이프라인은 주문형 HDInsight 클러스터의 인스턴스를 공유할 수 있습니다. | 예      |
 | 버전                      | HDInsight 클러스터의 버전입니다. HDInsight 버전은 [지원되는 HDInsight 버전](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions)을 참조하세요. 이 값을 지정하지 않으면 [마지막 HDI 기본값](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning)이 사용됩니다. | 아닙니다.       |
-| linkedServiceName            | 데이터를 저장 및 처리하기 위해 주문형 클러스터에서 사용하는 Azure Storage 연결된 서비스입니다. HDInsight 클러스터는 저장소 계정과 동일한 지역에 생성됩니다.<p>현재 Azure Data Lake Store를 저장소로 사용하는 주문형 HDInsight 클러스터를 만들 수 없습니다. HDInsight 처리의 결과 데이터를 Data Lake Store에 저장하려면 활동 복사를 사용하여 Blob Storage의 데이터를 Data Lake Store로 복사합니다. </p> | 예      |
-| additionalLinkedServiceNames | HDInsight 연결된 서비스에 대한 추가 저장소 계정을 지정합니다. Data Factory는 사용자 대신 저장소 계정을 등록합니다. 이러한 저장소 계정은 HDInsight 클러스터와 동일한 지역에 있어야 합니다. HDInsight 클러스터는 **linkedServiceName** 속성에 지정된 저장소 계정과 동일한 지역에 만들어집니다. | 아닙니다.       |
+| linkedServiceName            | 데이터를 저장 및 처리하기 위해 주문형 클러스터에서 사용하는 Azure Storage 연결된 서비스입니다. HDInsight 클러스터는 스토리지 계정과 동일한 지역에 생성됩니다.<p>현재 Azure Data Lake Store를 스토리지로 사용하는 주문형 HDInsight 클러스터를 만들 수 없습니다. HDInsight 처리의 결과 데이터를 Data Lake Store에 저장하려면 활동 복사를 사용하여 Blob Storage의 데이터를 Data Lake Store로 복사합니다. </p> | 예      |
+| additionalLinkedServiceNames | HDInsight 연결된 서비스에 대한 추가 스토리지 계정을 지정합니다. Data Factory는 사용자 대신 스토리지 계정을 등록합니다. 이러한 스토리지 계정은 HDInsight 클러스터와 동일한 지역에 있어야 합니다. HDInsight 클러스터는 **linkedServiceName** 속성에 지정된 스토리지 계정과 동일한 지역에 만들어집니다. | 아닙니다.       |
 | osType                       | 운영 체제 유형입니다. 허용되는 값은 **Linux** 및 **Windows**입니다. 값을 지정하지 않으면 **Linux**가 사용됩니다.  <br /><br />Linux 기반 HDInsight 클러스터를 사용하는 것이 좋습니다. Windows HDInsight의 사용 중지 날짜는 2018년 7월 31일입니다. | 아닙니다.       |
 | hcatalogLinkedServiceName    | HCatalog 데이터베이스를 가리키는 Azure SQL 연결된 서비스 이름입니다. 주문형 HDInsight 클러스터는 SQL Database를 metastore로 사용하여 만들어집니다. | 아닙니다.       |
 
@@ -311,7 +311,7 @@ Batch 서비스를 처음 사용하는 경우:
 | accountName       | Batch 계정의 이름입니다.         | 예      |
 | accessKey         | Batch 계정에 대한 액세스 키입니다.  | 예      |
 | poolName          | VM의 풀 이름입니다.    | 예      |
-| linkedServiceName | Batch 연결된 서비스와 관련된 저장소 연결된 서비스의 이름입니다. 이 연결된 서비스는 활동을 실행하는 데 필요한 파일을 스테이징하고 활동 실행 로그를 저장하는 데 사용됩니다. | 예      |
+| linkedServiceName | Batch 연결된 서비스와 관련된 스토리지 연결된 서비스의 이름입니다. 이 연결된 서비스는 활동을 실행하는 데 필요한 파일을 스테이징하고 활동 실행 로그를 저장하는 데 사용됩니다. | 예      |
 
 ## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning 연결된 서비스
 Machine Learning 연결된 서비스를 만들어서 Machine Learning 일괄 처리 점수 매기기 엔드포인트를 데이터 팩터리에 등록합니다.

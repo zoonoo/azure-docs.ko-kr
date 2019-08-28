@@ -3,19 +3,20 @@ title: Project Acoustics Unreal 베이킹 자습서
 titlesuffix: Azure Cognitive Services
 description: 이 문서에서는 Unreal 편집기 확장을 사용하여 음향 효과 베이킹을 제출하는 프로세스를 설명합니다.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
-ms.author: michem
-ms.openlocfilehash: 48a1c4350b438761aa2e2d8c7e57a872c86ca292
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: noelc
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7a868a5f9b06499e23710399733b0659d97f900d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797178"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854898"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Project Acoustics Unreal 베이킹 자습서
 이 문서에서는 Unreal 편집기 확장을 사용하여 음향 효과 베이킹을 제출하는 프로세스를 설명합니다.
@@ -178,9 +179,9 @@ Azure Batch 서비스를 사용하여 클라우드에서 컴퓨팅 클러스터�
 2. 이 페이지에서 수행할 작업에 대한 간략한 설명입니다.
 3. Azure 계정이 만들어지면 Azure 자격 증명을 입력할 필드입니다. 자세한 내용은 [Azure Batch 계정 만들기](create-azure-account.md)를 참조하세요.
 4. Azure Portal을 시작하여 구독을 관리하고, 사용량을 모니터링하고, 청구 정보를 확인합니다. 
-5. 계산에 사용될 Azure Batch 계산 노드 유형입니다. 해당 노드 유형은 Azure 데이터 센터 위치에서 지원되어야 합니다. 지원 여부가 확실하지 않은 경우 상태로 둡니다 **.**
+5. 컴퓨팅에 사용될 Azure Batch 컴퓨팅 노드 유형입니다. 해당 노드 유형은 Azure 데이터 센터 위치에서 지원되어야 합니다. 지원 여부가 확실하지 않은 경우 상태로 둡니다 **.**
 6. 이 계산에 사용할 노드 수입니다. 여기에 입력한 숫자는 준비를 완료하는 시간에 영향을 미치며 Azure Batch 코어 할당에 의해 제한됩니다. 기본 할당은 8 코어 노드 2개, 16 코어 노드 1개만 허용하지만 확장 가능합니다. 코어 할당 제약 조건에 대한 자세한 내용은 [Azure Batch 계정 만들기](create-azure-account.md)를 참조하세요.
-7. 이 확인란을 선택하여 [우선 순위가 낮은 노드](https://docs.microsoft.com/azure/batch/batch-low-pri-vms)를 사용하도록 계산 풀을 구성합니다. 우선 순위가 낮은 계산 노드는 훨씬 저렴하지만 항상 사용 가능하지 않을 수도 있고 언제든지 선점될 수도 있습니다.
+7. 이 확인란을 선택하여 [우선 순위가 낮은 노드](https://docs.microsoft.com/azure/batch/batch-low-pri-vms)를 사용하도록 컴퓨팅 풀을 구성합니다. 우선 순위가 낮은 컴퓨팅 노드는 훨씬 저렴하지만 항상 사용 가능하지 않을 수도 있고 언제든지 선점될 수도 있습니다.
 8. 클라우드에서 작업이 실행 소요 시간으로 예상되는 경과 시간 크기입니다. 노드 시작 시간은 여기에 포함되지 않습니다. 이 시간은 작업 실행이 시작되면 결과를 다시 얻기까지 소요되는 기간과 비슷합니다. 이 시간은 추정치에 불과합니다.
 9. 시뮬레이션을 실행하는 데 필요한 컴퓨팅 시간의 총 크기입니다. 이것은 Azure에서 사용되는 노드 컴퓨팅 시간의 총 크기입니다. 이 값 사용에 대한 자세한 내용은 아래의 [준비 비용 예측](#Estimating-bake-cost)을 참조하세요.
 10. Bake(준비) 단추를 클릭하여 준비 결과를 클라우드로 제출합니다. 작업이 실행되는 동안 **Cancel Job**(작업 취소)이 대신 표시됩니다. 이 탭에 오류가 있는 경우 또는 **프로브** 탭의 워크플로가 완료되지 않은 경우에는 이 단추를 사용할 수 없습니다.
@@ -197,7 +198,7 @@ Azure 자격 증명은 로컬 머신에 안전하게 저장되고 Unreal 편집�
 
 ### <a name="Estimating-bake-cost"></a> Azure 준비 비용 예측
 
-지정된 준비에 부과될 요금을 예측하려면 기간에 해당하는 **Estimated Compute Cost**(예상 계산 비용) 값에 선택한 **VM 노드 유형**의 로컬 통화로 나타낸 시간당 비용을 곱합니다. 결과에는 노드를 계속 작동하는 데 필요한 노드 시간은 포함되지 않습니다. 예를 들어, 노드 유형으로 **Standard_F8s_v2**을 선택했으며(시간당 요금 $0.40), 예상 계산 비용이 3시간 57분이면 예상되는 작업 실행 비용은 $0.40 * ~4시간 = ~$1.60가 됩니다. 실제 비용은 노드를 시작하기 위한 추가 시간 때문에 약간 더 높을 것입니다. [Azure Batch 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/linux) 페이지에서 시간별 노드 비용을 찾을 수 있습니다(범주로 "컴퓨팅 최적화" 또는 "고성능 계산" 선택).
+지정된 준비에 부과될 요금을 예측하려면 기간에 해당하는 **Estimated Compute Cost**(예상 컴퓨팅 비용) 값에 선택한 **VM 노드 유형**의 로컬 통화로 나타낸 시간당 비용을 곱합니다. 결과에는 노드를 계속 작동하는 데 필요한 노드 시간은 포함되지 않습니다. 예를 들어, 노드 유형으로 **Standard_F8s_v2**을 선택했으며(시간당 요금 $0.40), 예상 컴퓨팅 비용이 3시간 57분이면 예상되는 작업 실행 비용은 $0.40 * ~4시간 = ~$1.60가 됩니다. 실제 비용은 노드를 시작하기 위한 추가 시간 때문에 약간 더 높을 것입니다. [Azure Batch 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/linux) 페이지에서 시간별 노드 비용을 찾을 수 있습니다(범주로 "컴퓨팅 최적화" 또는 "고성능 컴퓨팅" 선택).
 
 ### <a name="reviewing-the-bake-results"></a>준비 결과 검토
 
@@ -208,7 +209,7 @@ Azure 자격 증명은 로컬 머신에 안전하게 저장되고 Unreal 편집�
 이 플러그 인에서 생성된 4개의 데이터 파일은 다양한 지점에 있습니다. 그 중 하나만 런타임 시 필요하고, 프로젝트의 Content/Acoustics 폴더에 위치하여 프로젝트의 패키징 경로에 자동으로 추가됩니다. 다른 3개는 Acoustics Data 폴더 내에 있으며 패키지되지 않습니다.
 
 * **[Project]/Config/ProjectAcoustics.cfg**: 이 파일은 Acoustics 모드 UI의 필드에 입력하는 데이터를 저장합니다. 이 파일의 이름과 위치는 변경할 수 없습니다. 이 파일에는 준비에 영향을 미치는 다른 값도 있지만 고급 사용자를 위한 것이며 변경하지 않는 것이 좋습니다.
-* **[Project]/Content/Acoustics/[LevelName]\_AcousticsData.ace**: 이 파일은 준비 시뮬레이션 동안 만들어지며, 장면의 음향 효과를 렌더링하기 위해 런타임에서 사용하는 조회 데이터를 포함합니다. 이 파일의 위치와 이름은 **Probes**(프로브) 탭의 필드를 사용하여 변경할 수 있습니다.
+* **[Project]/Content/Acoustics/[LevelName]\_AcousticsData.ace**: 이 파일은 준비 시뮬레이션 동안 만들어지며, 장면의 음향 효과를 렌더링하기 위해 런타임에서 사용하는 조회 데이터를 포함합니다. 이 파일의 위치와 이름은 **Probes**(프로브) 탭의 필드를 사용하여 변경할 수 있습니다. 이 파일을 만든 후에 이 파일의 이름을 변경하려면 Unreal 프로젝트에서 UAsset을 삭제하고 File Explorer에서 파일의 이름을 Unreal 외부로 변경한 다음, 이 파일을 Unreal로 다시 가져와 새 UAsset을 생성합니다. 자체적으로 UAsset의 이름을 바꾸는 것은 작동하지 않습니다.
 * **[Project]/Plugins/ProjectAcoustics/AcousticsData/[LevelName]\_AcousticsData.vox**: 이 파일은 복셀 음향 효과 기하 도형 및 재질 속성을 저장합니다. **프로브** 탭의 **계산** 단추를 사용하여 계산됩니다. 이 파일의 위치와 이름은 **Probes**(프로브) 탭의 필드를 사용하여 변경할 수 있습니다.
 * **[Project]/Plugins/ProjectAcoustics/AcousticsData/[LevelName]\_AcousticsData\_config.xml**: 이 파일은 **프로브** 탭의 **계산** 단추를 사용하여 계산되는 매개 변수를 저장합니다. 이 파일의 위치와 이름은 **Probes**(프로브) 탭의 필드를 사용하여 변경할 수 있습니다.
 

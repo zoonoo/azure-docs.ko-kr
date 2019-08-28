@@ -35,7 +35,7 @@ ms.locfileid: "60325887"
 
 * [파티션 간 보조 인덱스 패턴](table-storage-design-patterns.md#intra-partition-secondary-index-pattern) - 서로 다른 **RowKey** 값을 사용하여 각 엔터티의 여러 복사본을 동일한 파티션에 저장하여 빠르고 효율적인 조회를 지원하며, 서로 다른 **RowKey** 값을 사용하여 대체 정렬 순서를 허용합니다.  
 * [파티션 간 보조 인덱스 패턴](table-storage-design-patterns.md#inter-partition-secondary-index-pattern) - 서로 다른 RowKey 값을 사용하여 각 엔터티의 여러 복사본을 별도의 파티션과 별도의 테이블에 저장하여 빠르고 효율적인 조회를 지원하며, 서로 다른 **RowKey** 값을 사용하여 대체 정렬 순서를 허용합니다.  
-* [결과적으로 일관성 있는 트랜잭션 패턴](table-storage-design-patterns.md#eventually-consistent-transactions-pattern) - Azure 큐를 사용하여 파티션 경계 또는 저장소 시스템 경계 간에 결과적으로 일관성 있는 동작을 지원합니다.
+* [결과적으로 일관성 있는 트랜잭션 패턴](table-storage-design-patterns.md#eventually-consistent-transactions-pattern) - Azure 큐를 사용하여 파티션 경계 또는 스토리지 시스템 경계 간에 결과적으로 일관성 있는 동작을 지원합니다.
 * [인덱스 엔터티 패턴](table-storage-design-patterns.md#index-entities-pattern) - 인덱스 엔터티를 유지 관리하여 엔터티 목록을 반환하는 효율적인 검색을 지원합니다.  
 * [비정규화 패턴](table-storage-design-patterns.md#denormalization-pattern) - 관련 데이터를 단일 엔터티에 함께 통합하여 단일 지점 쿼리로 필요한 모든 데이터를 검색할 수 있습니다.  
 * [데이터 계열 패턴](table-storage-design-patterns.md#data-series-pattern) - 전체 데이터 계열을 단일 엔터티에 저장하여 요청 수를 최소화합니다.  

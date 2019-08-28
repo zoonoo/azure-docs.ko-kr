@@ -1,6 +1,6 @@
 ---
-title: 일괄 테스트
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 일괄 처리 테스트-LUIS
+titleSuffix: Azure Cognitive Services
 description: 일괄 처리 테스트를 사용하여 애플리케이션을 지속적으로 개선하고 해당 언어에 대한 이해를 향상합니다.
 services: cognitive-services
 author: diberry
@@ -9,26 +9,26 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: acb561970b6a8576d1219fc15758e21a3032c9e5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b962fc32cdcde0509cfa60d105022bb208633ae3
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813310"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639293"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>LUIS 포털에서 1000개 발언을 사용한 일괄 처리 테스트
 
-일괄 처리 테스트는 [활성](luis-concept-version.md#active-version) 학습 모델의 유효성을 검사하여 예측 정확도를 측정합니다. 일괄 처리 테스트는 차트의 현재 학습 모델에 있는 각 의도와 엔터티의 정확도를 확인하는 데 도움이 됩니다. 일괄 처리 테스트 결과를 검토하여 앱이 올바른 의도를 자주 식별하지 못하는 경우 의도에 예제 발언 추가 등의 적절한 조치를 취해 정확도를 향상합니다.
+일괄 처리 테스트는 [활성](luis-concept-version.md#active-version) 학습 모델의 유효성을 검사하여 예측 정확도를 측정합니다. 일괄 처리 테스트를 사용 하면 현재 학습 된 모델에서 각 의도 및 엔터티의 정확성을 확인 하 고 차트를 사용 하 여 결과를 표시할 수 있습니다. 일괄 처리 테스트 결과를 검토하여 앱이 올바른 의도를 자주 식별하지 못하는 경우 의도에 예제 발언 추가 등의 적절한 조치를 취해 정확도를 향상합니다.
 
 ## <a name="group-data-for-batch-test"></a>일괄 처리 테스트를 위해 데이터 그룹화
 
-일괄 처리 테스트에 사용되는 발언은 LUIS에 새로 추가된 발언이어야 합니다. 발언 데이터 세트가 있는 경우 발언을 의도에 추가되는 발언, 게시된 엔드포인트에서 받은 발언, 학습된 후 LUIS 일괄 처리 테스트에 사용되는 발언의 세 가지 집합으로 나눕니다. 
+일괄 처리 테스트에 사용되는 발언은 LUIS에 새로 추가된 발언이어야 합니다. 길이 발언 데이터 집합을 사용 하는 경우 길이 발언를 세 개의 집합으로 나눕니다. 예를 들어 길이 발언는 의도에 추가 되 고, 게시 된 끝점에서 수신 되는 길이 발언, 학습 된 후 테스트 길이 발언를 일괄 처리 하는 데 사용 된 LUIS입니다. 
 
-## <a name="a-dataset-of-utterances"></a>발언 데이터 세트
+## <a name="a-data-set-of-utterances"></a>길이 발언의 데이터 집합
 
-일괄 처리 테스트를 위해 *데이터 세트*라는 발언 배치 파일을 제출합니다. 데이터 세트는 레이블이 지정된 최대 1,000개의 **중복되지 않는** 발언을 포함하는 JSON 형식 파일입니다. 한 앱에서 최대 10개의 데이터 세트를 테스트할 수 있습니다. 더 많은 데이터 세트를 테스트해야 하는 경우 데이터 세트를 삭제하고 새 데이터 세트를 추가합니다.
+일괄 테스트를 위해 *데이터 집합*으로 알려진 길이 발언의 배치 파일을 제출 합니다. 데이터 집합은 **중복 되지 않은** 길이 발언 레이블이 지정 된 최대 1000를 포함 하는 JSON 형식의 파일입니다. 앱에서 최대 10 개의 데이터 집합을 테스트할 수 있습니다. 더 많은 테스트를 수행 해야 하는 경우 데이터 집합을 삭제 한 다음 새 데이터 집합을 추가 합니다.
 
 |**규칙**|
 |--|
@@ -106,7 +106,7 @@ ms.locfileid: "60813310"
 
 ## <a name="batch-test-state"></a>일괄 처리 테스트 상태
 
-LUIS는 각 데이터 세트의 마지막 테스트 상태를 추적합니다. 여기에는 크기(일괄 처리의 발언 수), 마지막 실행 날짜, 마지막 결과(성공적으로 예측된 발언 수)가 포함됩니다.
+LUIS는 각 데이터 집합의 마지막 테스트 상태를 추적 합니다. 여기에는 크기(일괄 처리의 발언 수), 마지막 실행 날짜, 마지막 결과(성공적으로 예측된 발언 수)가 포함됩니다.
 
 <a name="sections-of-the-results-chart"></a>
 
@@ -114,7 +114,7 @@ LUIS는 각 데이터 세트의 마지막 테스트 상태를 추적합니다. �
 
 일괄 처리 테스트 결과는 오류 행렬이라고 하는 분산형 그래프입니다. 이 그래프는 일괄 처리 파일의 발언과 현재 모델의 예측 의도 및 엔터티를 4방향에서 비교한 것입니다. 
 
-**거짓 긍정** 및 **거짓 부정** 섹션의 데이터 요소는 오류를 나타내며, 조사해야 합니다. 모든 데이터 요소가 **참 긍정** 및 **참 부정** 섹션에 있는 경우 이 데이터 세트에서 앱의 정확도가 완벽합니다.
+**거짓 긍정** 및 **거짓 부정** 섹션의 데이터 요소는 오류를 나타내며, 조사해야 합니다. 모든 데이터 요소가 **참 긍정** 및 **참 부정** 섹션에 있는 경우이 데이터 집합에 대 한 앱의 정확성이 완벽 합니다.
 
 ![차트의 4개 섹션](./media/luis-concept-batch-test/chart-sections.png)
 

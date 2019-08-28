@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/22/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 55bcce3c5a4b0dd00d9217d6cb3cc2cfbe6d5828
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: da7e41ae77226c2a18b92329507855ac30891058
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66753815"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816096"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Azure Service Fabric의 개요
 Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 관리하도록 배포된 시스템 플랫폼입니다. 또한 Service Fabric은 클라우드 네이티브 애플리케이션 개발 및 관리에서 발생하는 중요한 과제를 해결합니다. 개발자와 관리자가 복잡한 인프라 문제를 피하고 업무 수행에 필수적인 까다로운 워크로드를 확장 가능하고 신뢰할 수 있으며 관리가 가능하도록 구현하는 데 집중할 수 있습니다. Service Fabric은 컨테이너에서 실행되는 엔터프라이즈급 계층 1 클라우드 규모의 애플리케이션을 빌드 및 관리하기 위한 차세대 플랫폼을 나타냅니다.
@@ -67,7 +67,7 @@ Service Fabric은 컨테이너를 비롯하여 클라우드 애플리케이션�
 
 Service Fabric 애플리케이션 수명 주기 관리 기능을 사용하면 애플리케이션 관리자와 IT 운영자가 간단하고 개입할 필요성이 적은 워크플로를 사용하여 애플리케이션을 프로비전, 배포, 패치 및 모니터링할 수 있습니다. 이러한 기본 제공 워크플로는 애플리케이션을 지속적으로 사용 가능하게 유지해야 하는 IT 운영자의 부담을 크게 줄여줍니다.
 
-대부분의 애플리케이션은 함께 배포되는 상태 비저장 및 상태 저장 마이크로 서비스, 컨테이너 및 다른 실행 파일의 조합으로 구성됩니다. 애플리케이션에 대한 강력한 형식을 가지고 있으므로, Service Fabric을 사용하면 여러 애플리케이션 인스턴스를 배포할 수 있습니다. 각 인스턴스는 독립적으로 관리 및 업그레이드됩니다. 무엇보다도 Service Fabric은 컨테이너 또는 모든 실행 파일을 배포하고 안정적으로 만들 수 있습니다. 예를 들어 Service Fabric은 .NET, ASP.NET Core, node.js, Windows 컨테이너, Linux 컨테이너, Java 가상 머신, 스크립트, Angular 또는 애플리케이션을 구성하는 다른 모든 항목을 배포할 수 있습니다.
+대부분의 애플리케이션은 함께 배포되는 상태 비저장 및 상태 저장 마이크로 서비스, 컨테이너 및 다른 실행 파일의 조합으로 구성됩니다. 애플리케이션에 대한 강력한 형식을 가지고 있으므로, Service Fabric을 사용하면 여러 애플리케이션 인스턴스를 배포할 수 있습니다. 각 인스턴스는 독립적으로 관리 및 업그레이드됩니다. 무엇보다도 Service Fabric은 컨테이너 또는 모든 실행 파일을 배포하고 안정적으로 만들 수 있습니다. 예를 들어 Service Fabric은 .NET, ASP.NET Core, Python, Node.js, Windows 컨테이너, Linux 컨테이너, Java 가상 머신, 스크립트, Angular 또는 애플리케이션을 구성하는 다른 모든 항목을 배포할 수 있습니다.
 
 Service Fabric은 [Azure Pipelines](https://www.visualstudio.com/team-services/), [Jenkins](https://jenkins.io/index.html) 및 [Octopus Deploy](https://octopus.com/)와 같은 CI/CD 도구와 통합되고 다른 인기 있는 CI/CD 도구와 함께 사용할 수 있습니다.
 

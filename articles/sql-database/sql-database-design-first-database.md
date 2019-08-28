@@ -8,14 +8,13 @@ ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
-manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: fc3b1cdfee76bbee7676170fa69a1c53a495dc53
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/29/2019
+ms.openlocfilehash: c6ad1cd7af02f281c53ece23a018f8b5ec0c7da9
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051132"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640946"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>자습서: SSMS를 사용하여 Azure SQL Database 내에서 단일 데이터베이스의 관계형 데이터베이스 디자인
 
@@ -31,6 +30,8 @@ Azure SQL 데이터베이스는 Microsoft Cloud(Azure)의 관계형 DBaaS(Databa
 
 *Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
+> [!TIP]
+> 다음 Microsoft Learn 모듈을 사용하면 간단한 데이터베이스 생성을 포함하여 [Azure SQL Database를 쿼리하는 ASP.NET 애플리케이션을 개발하고 구성](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)하는 방법을 무료로 배울 수 있습니다.
 > [!NOTE]
 > 이 자습서에서는 단일 데이터베이스를 사용하고 있습니다. 탄력적 풀의 풀링된 데이터베이스를 사용하거나 관리되는 인스턴스의 인스턴스 데이터베이스를 사용할 수도 있습니다. 관리되는 인스턴스에 대한 연결은 관리되는 인스턴스 빠른 시작을 참조하세요. [빠른 시작: Azure SQL Database Managed Instance에 연결하도록 Azure VM 구성](sql-database-managed-instance-configure-vm.md) 및 [빠른 시작: 온-프레미스에서 Azure SQL Database Managed Instance로의 지점 및 사이트 간 연결 구성](sql-database-managed-instance-configure-p2s.md)을 참조하세요.
 
@@ -77,7 +78,7 @@ Azure SQL Database의 단일 데이터베이스는 정의된 컴퓨팅 및 스�
     ![create database-server](./media/sql-database-design-first-database/create-database-server.png)
 
 5. **선택**을 클릭합니다.
-6. **가격 책정 계층**을 클릭하여 서비스 계층, DTU나 vCore 개수 및 저장소 크기를 지정합니다. 각 서비스 계층에 대해 사용할 수 있는 DTU/vCore 및 스토리지 수에 대한 옵션을 살펴볼 수 있습니다.
+6. **가격 책정 계층**을 클릭하여 서비스 계층, DTU나 vCore 개수 및 스토리지 크기를 지정합니다. 각 서비스 계층에 대해 사용할 수 있는 DTU/vCore 및 스토리지 수에 대한 옵션을 살펴볼 수 있습니다.
 
     서버 계층, DTU 또는 vCore 수, 스토리지 양을 선택한 후 **적용**을 클릭합니다.
 

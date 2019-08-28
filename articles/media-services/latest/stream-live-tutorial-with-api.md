@@ -1,6 +1,6 @@
 ---
-title: .NET을 사용하여 Azure Media Services v3에서 라이브 스트림 | Microsoft Docs
-description: 이 자습서에서는 .NET Core를 사용하여 Media Services v3에서 라이브 스트림의 단계를 설명합니다.
+title: Azure Media Services v3에서 라이브 스트림 | Microsoft Docs
+description: 이 자습서는 Media Services v3으로 라이브 스트림의 단계를 안내합니다.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -12,28 +12,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/21/2019
+ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: e4f32e14e8c1035055bd8a37bb453764984fbe4d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 5028fd4179f19634b41bb46a5f6df40f36cc8e29
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149129"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275577"
 ---
-# <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>자습서: .NET을 사용하여 Media Services v3로 라이브 스트리밍
-
-[라이브 이벤트](https://docs.microsoft.com/rest/api/media/liveevents)는 Azure Media Services에서 라이브 스트리밍 콘텐츠를 처리하는 작업을 담당합니다. 라이브 이벤트는 라이브 인코더에 제공할 입력 엔드포인트(수집 URL)를 제공합니다. 라이브 이벤트는 라이브 인코더에서 라이브 입력 스트림을 수신하여 하나 이상의 [스트리밍 엔드포인트](https://docs.microsoft.com/rest/api/media/streamingendpoints)를 통해 스트리밍하는 데 사용할 수 있도록 합니다. 또한 라이브 이벤트는 스트림을 추가로 처리하고 배달하기 전에 미리 보고 유효성을 검색하는 데 사용되는 미리 보기 엔드포인트(미리 보기 URL)를 제공합니다. 이 자습서에는 .NET Core를 사용하여 **통과** 형식의 라이브 이벤트를 만드는 방법을 보여줍니다. 
+# <a name="tutorial-stream-live-with-media-services"></a>자습서: Media Services로 라이브 스트리밍
 
 > [!NOTE]
-> 계속 진행하기 전에 [Media Services v3에서 라이브 스트리밍](live-streaming-overview.md)을 검토해야 합니다. 
+> 이 자습서에서 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) 예제를 사용하더라도 일반적인 단계는 [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) 또는 지원되는 기타 [SDK](media-services-apis-overview.md#sdks)에 대해 동일합니다.
+
+[라이브 이벤트](https://docs.microsoft.com/rest/api/media/liveevents)는 Azure Media Services에서 라이브 스트리밍 콘텐츠를 처리하는 작업을 담당합니다. 라이브 이벤트는 라이브 인코더에 제공할 입력 엔드포인트(수집 URL)를 제공합니다. 라이브 이벤트는 라이브 인코더에서 라이브 입력 스트림을 수신하여 하나 이상의 [스트리밍 엔드포인트](https://docs.microsoft.com/rest/api/media/streamingendpoints)를 통해 스트리밍하는 데 사용할 수 있도록 합니다. 또한 라이브 이벤트는 스트림을 추가로 처리하고 배달하기 전에 미리 보고 유효성을 검색하는 데 사용되는 미리 보기 엔드포인트(미리 보기 URL)를 제공합니다. 이 자습서에는 .NET Core를 사용하여 **통과** 형식의 라이브 이벤트를 만드는 방법을 보여줍니다. 
 
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.    
 
 > [!div class="checklist"]
 > * 토픽에 설명된 샘플 앱 다운로드
 > * 라이브 스트리밍을 수행하는 코드 검사
-> * https://ampdemo.azureedge.net에서 [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html)를 사용하여 이벤트 감시
+> * https://ampdemo.azureedge.net 에서 [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html)를 사용하여 이벤트 감시
 > * 리소스 정리
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -47,6 +47,9 @@ ms.locfileid: "65149129"
 - [Azure CLI를 사용하여 Azure Media Services API 액세스](access-api-cli-how-to.md)의 단계를 수행하고 자격 증명을 저장합니다. API에 액세스할 때 필요합니다.
 - 브로드캐스트 또는 이벤트에 사용되는 카메라 또는 디바이스(예: 랩톱)입니다.
 - 카메라에서 Media Services 라이브 스트리밍 서비스로 보내는 스트림으로 신호를 변환하는 온-프레미스 라이브 인코더입니다. 스트림은 **RTMP** 또는 **부드러운 스트리밍** 형식이어야 합니다.
+
+> [!TIP]
+> 계속 진행하기 전에 [Media Services v3에서 라이브 스트리밍](live-streaming-overview.md)을 검토해야 합니다. 
 
 ## <a name="download-and-configure-the-sample"></a>샘플 다운로드 및 구성
 
@@ -89,6 +92,7 @@ ms.locfileid: "65149129"
 * 라이브 이벤트의 스트리밍 프로토콜(현재 RTMP 및 부드러운 스트리밍 프로토콜이 지원됨).<br/>라이브 이벤트 또는 연결된 라이브 출력이 실행 중인 동안에는 프로토콜 옵션을 변경할 수 없습니다. 다른 프로토콜을 요청하는 경우 각각의 스트리밍 프로토콜에 대한 별도의 라이브 이벤트를 만들어야 합니다.  
 * 수집 및 미리 보기에서 IP 제한입니다. 이 라이브 이벤트에 비디오를 수집하도록 허용된 IP 주소를 정의할 수 있습니다. 허용된 IP 주소는 단일 IP 주소(예: '10.0.0.1'), IP 주소 및 CIDR 서브넷 마스크를 사용하는 IP 범위(예: '10.0.0.1/22') 또는 IP 주소와 점으로 구분된 십진수 서브넷 마스크를 사용하는 IP 범위(예: '10.0.0.1(255.255.252.0)')로 지정할 수 있습니다.<br/>지정된 IP 주소가 없고 정의된 규칙이 없는 경우, IP 주소가 허용되지 않습니다. 모든 IP 주소를 허용하려면 규칙을 만들고 0.0.0.0/0으로 설정합니다.<br/>IP 주소가 다음 형식 중 하나에 있어야 합니다. 4개의 숫자를 사용하는 IpV4 주소, CIDR 주소 범위.
 * 이벤트를 만들 때 자동 시작을 지정할 수 있습니다. <br/>Autostart가 true로 설정되어 있는 경우 Live Event가 생성 후 시작됩니다. 즉, 라이브 이벤트를 실행하는 즉시 청구가 시작됩니다. 추가 청구를 중지하려면 라이브 이벤트 리소스에 대해 명시적으로 Stop을 호출해야 합니다. 자세한 내용은 [라이브 이벤트 상태 및 청구](live-event-states-billing.md)를 참조하세요.
+* 수집 URL을 예측하려면 "베니티" 모드를 설정합니다. 자세한 내용은 [라이브 이벤트 수집 URL](live-events-outputs-concept.md#live-event-ingest-urls)을 참조하세요.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveEvent)]
 
@@ -166,13 +170,13 @@ foreach (StreamingPath path in paths.StreamingPaths)
 
 ## <a name="watch-the-event"></a>이벤트 보기
 
-이벤트를 시청하려면 스트리밍 로케이터 만들기에서 설명된 코드를 실행할 때 가져온 스트리밍 URL을 복사하고 원하는 플레이어를 사용합니다. [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html)를 사용하여 https://ampdemo.azureedge.net에서 스트림을 테스트할 수 있습니다. 
+이벤트를 시청하려면 스트리밍 로케이터 만들기에서 설명된 코드를 실행할 때 가져온 스트리밍 URL을 복사하고 원하는 플레이어를 사용합니다. [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html)를 사용하여 https://ampdemo.azureedge.net 에서 스트림을 테스트할 수 있습니다. 
 
 라이브 이벤트가 중지되면 이벤트를 주문형 콘텐츠로 자동으로 변환합니다. 이벤트를 중단 및 삭제한 다음에도 자산을 삭제하지 않는 한 사용자는 주문형 비디오로 보관된 콘텐츠를 스트림할 수 있습니다. 자산을 이벤트에서 사용하는 경우 삭제할 수 없습니다. 이벤트를 먼저 삭제해야 합니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서에서 만든 Media Services 및 저장소 계정을 포함하여 리소스 그룹의 리소스가 더 이상 필요하지 않으면, 앞서 만든 리소스 그룹을 삭제합니다.
+이 자습서에서 만든 Media Services 및 스토리지 계정을 포함하여 리소스 그룹의 리소스가 더 이상 필요하지 않으면, 앞서 만든 리소스 그룹을 삭제합니다.
 
 다음 CLI 명령을 실행합니다.
 

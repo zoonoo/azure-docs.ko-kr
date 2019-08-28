@@ -1,7 +1,7 @@
 ---
-title: 모니터 ML 모델에 Azure Application Insights 설정
+title: ML 모델을 모니터링 하도록 Azure 애플리케이션 Insights 설정
 titleSuffix: Azure Machine Learning service
-description: Azure Application Insights를 사용 하 여 Azure Machine Learning 서비스를 사용 하 여 배포 된 웹 서비스를 모니터링 합니다.
+description: Azure 애플리케이션 Insights를 사용 하 여 Azure Machine Learning 서비스로 배포 된 웹 서비스 모니터링
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 04/02/2019
+ms.date: 07/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 2e481a388d8cbd6baf66b95c74449396b2e70f7d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1c12f55228d77656ef57598da0fb002fdea29bd4
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60820179"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871776"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Application Insights를 사용하여 Azure Machine Learning 모델 모니터링
 
@@ -28,7 +28,7 @@ ms.locfileid: "60820179"
 [Application Insights에 대해 자세히 알아봅니다](../../azure-monitor/app/app-insights-overview.md). 
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
 
@@ -131,11 +131,11 @@ Application Insights 사용 방법에 대한 자세한 내용은 [Application In
 
 ## <a name="example-notebook"></a>예제 Notebook
 
-[how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) 노트는 이 문서의 개념을 보여 줍니다. 
+[앱 기반-bbb노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) 은이 문서의 개념을 보여 줍니다. 
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>다음 단계
 또한 프로덕션에서 모델에 대한 데이터를 수집할 수 있습니다. [프로덕션에서 모델용 데이터 수집](how-to-enable-data-collection.md) 문서를 읽어보세요. 
 
-참조할 [컨테이너에 대 한 Azure Monitor](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json)합니다.
+[컨테이너에 대 한 Azure Monitor](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json)도 읽습니다.

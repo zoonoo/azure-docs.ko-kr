@@ -10,20 +10,19 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: bbb67845922dd9a3b2a78f76bf25d73bace98a82
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d5326a3a154ed6f193b5527a0150ad84c843c273
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240129"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570451"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>SQL Database로 테넌트별 데이터베이스 패턴을 사용하는 다중 테넌트 SaaS 앱 배포 및 탐색
 
 이 자습서에서는 테넌트의 Wingtip Tickets SaaS 테넌트당 데이터베이스 애플리케이션(Wingtip)을 배포하고 탐색합니다. 이 앱은 테넌트당 데이터베이스 패턴을 사용하여 여러 테넌트의 데이터를 저장합니다. 이 앱은 SaaS 시나리오를 활성화하는 방법을 간소화하는 Azure SQL Database의 기능을 보여주도록 설계되었습니다.
 
-**Azure에 배포**를 선택하고 5분 후에 다중 테넌트 SaaS 애플리케이션이 설치됩니다. 앱은 클라우드에서 실행되는 SQL 데이터베이스를 포함합니다. 앱은 각각 고유한 데이터베이스를 사용하여 3개의 샘플 테넌트에서 배포됩니다. 모든 데이터베이스는 SQL 탄력적 풀에 배포됩니다. 앱은 Azure 구독에 배포됩니다. 앱의 개별 구성 요소를 탐색하고 작업할 수 있는 전체 액세스 권한이 있습니다. 애플리케이션 C# 소스 코드 및 관리 스크립트는 [WingtipTicketsSaaS-DbPerTenant GitHub 리포지토리][github-wingtip-dpt]에서 사용할 수 있습니다.
+**Azure에 배포**를 선택하고 5분 후에 다중 테넌트 SaaS 애플리케이션이 설치됩니다. 앱은 클라우드에서 실행되는 SQL 데이터베이스를 포함합니다. 앱은 각각 고유한 데이터베이스를 사용하여 3개의 샘플 테넌트에서 배포됩니다. 모든 데이터베이스는 SQL 탄력적 풀에 배포됩니다. 앱은 Azure 구독에 배포됩니다. 앱의 개별 구성 요소를 탐색하고 작업할 수 있는 전체 액세스 권한이 있습니다. 응용 프로그램 C# 소스 코드 및 관리 스크립트는 [Wingtipticketssaas-dbpertenant-master-Dbpertenant GitHub][github-wingtip-dpt]리포지토리에서 사용할 수 있습니다.
 
 이 자습서에서는 다음에 대해 알아봅니다.
 
@@ -37,7 +36,7 @@ ms.locfileid: "66240129"
 
 [관련된 일련의 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)에서는 다양한 SaaS 디자인 및 관리 패턴을 탐색합니다. 이 자습서는 이 초기 배포 이후에도 빌드됩니다. 자습서를 사용하는 경우 제공된 스크립트를 검토하여 다양한 SaaS 패턴을 구현하는 방법을 확인할 수 있습니다. 스크립트는 SaaS 애플리케이션 개발을 간소화하는 SQL Database의 기능을 보여줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 자습서를 완료하려면 Azure PowerShell이 설치되어 있는지 확인합니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 
@@ -64,7 +63,7 @@ ms.locfileid: "66240129"
     > 일부 인증 및 서버 방화벽은 데모 목적으로 의도적으로 보호되지 않습니다. 새 리소스 그룹을 만드는 것이 좋습니다. 기존 리소스 그룹, 서버 또는 풀을 사용하지 마세요. 이 애플리케이션, 스크립트 또는 배포된 리소스를 프로덕션에 사용하지 마세요. 관련된 결제를 중지하려면 애플리케이션을 완료할 때 이 리소스 그룹을 삭제합니다.
 
     - **리소스 그룹**: **새로 만들기**를 선택하고 이전에 선택한 고유 이름을 리소스 그룹 이름으로 입력합니다.
-    - **Location**: 드롭다운 목록에서 위치를 선택합니다.
+    - **위치**: 드롭다운 목록에서 위치를 선택합니다.
     - **사용자**: 앞에서 선택한 사용자 이름 값을 사용합니다.
 
 1. 애플리케이션을 배포합니다.
@@ -117,17 +116,17 @@ ms.locfileid: "66240129"
 
 2. 이벤트 허브에서  **Fabrikam Jazz Club** 을 선택합니다.
 
-    ![Events](./media/saas-dbpertenant-get-started-deploy/fabrikam.png)
+    ![이벤트](./media/saas-dbpertenant-get-started-deploy/fabrikam.png)
 
 ### <a name="azure-traffic-manager"></a>Azure Traffic Manager
 
-Wingtip 응용 프로그램에서는  [*Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md)를 사용하여 들어오는 요청의 분산을 제어합니다. 특정 테넌트의 이벤트 페이지에 액세스하는 URL은 다음 형식을 사용합니다.
+Wingtip 애플리케이션에서는  [*Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md)를 사용하여 들어오는 요청의 분산을 제어합니다. 특정 테넌트의 이벤트 페이지에 액세스하는 URL은 다음 형식을 사용합니다.
 
 - http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/fabrikamjazzclub
 
     이전 형식의 부분을 다음 표에서 설명합니다.
 
-    | URL 부분        | 설명       |
+    | URL 부분        | Description       |
     | :-------------- | :---------------- |
     | http://events.wingtip-dpt | Wingtip 앱의 이벤트 부분입니다.<br /><br /> *-dpt*는 Wingtip Tickets의 *테넌트당 데이터베이스* 구현을 다른 구현과 구분합니다. 다른 구현의 예로는 테넌트당 *단일* 앱( *-sa*) 또는 *다중 테넌트 데이터베이스*( *-mt*) 구현 등이 있습니다. |
     | . *&lt;user&gt;* | 예제에서 *af1*입니다. |
@@ -250,12 +249,12 @@ Events Hub를 새로 고치면 목록에 새 테넌트가 나타납니다.
 
 두 차트는 탄력적 풀 및 SQL Database가 예기치 않은 SaaS 애플리케이션 워크로드에 얼마나 적합한지 설명합니다. 차트에서는 4개의 데이터베이스가 40개의 eDTU로 버스트되는 것을 보여줍니다. 하지만 모든 데이터베이스는 안전하게 50-eDTU 풀에서 지원됩니다. 50-eDTU 풀은 더 많은 워크로드를 지원할 수 있습니다. 데이터베이스가 단일 데이터베이스로 프로비전되는 경우 각 데이터베이스는 버스트를 지원하는 S2(50 DTU)여야 합니다. 단일 S2 데이터베이스 4개의 비용은 풀 가격의 거의 3배입니다. 실제 상황에서 SQL Database 고객은 200 eDTU 풀에서 데이터베이스를 최대 500개까지 실행합니다. 자세한 내용은 [성능 모니터링 자습서](saas-dbpertenant-performance-monitoring.md)를 참조하세요.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 - 자세한 내용은 [Wingtip Tickets SaaS 테넌트당 데이터베이스 애플리케이션을 기반으로 빌드되는 추가 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)를 참조하세요.
 - 탄력적 풀에 대한 자세한 내용은  [Azure SQL 탄력적 풀이란?](sql-database-elastic-pool.md)을 참조하세요.
 - 탄력적 작업에 대한 자세한 내용은  [스케일 아웃된 클라우드 데이터베이스 관리](elastic-jobs-overview.md)를 참조하세요.
-- 다중 테넌트 SaaS 응용 프로그램에 대한 자세한 내용은  [다중 테넌트 SaaS 응용 프로그램에 대한 디자인 패턴](saas-tenancy-app-design-patterns.md)을 참조하세요.
+- 다중 테넌트 SaaS 애플리케이션에 대한 자세한 내용은  [다중 테넌트 SaaS 애플리케이션에 대한 디자인 패턴](saas-tenancy-app-design-patterns.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -72,15 +72,15 @@ RStudio가 클러스터의 에지 노드에서 실행되므로 여기서는 다�
 
 ### <a name="step-3-use-rstudio-community-version-with-the-user-created"></a>3단계: 만든 사용자를 통해 RStudio Community 버전 사용
 
-https://CLUSTERNAME.azurehdinsight.net/rstudio/ 에서 RStudio에 액세스합니다. 클러스터를 만든 후 처음 로그인하는 경우, 클러스터 관리자 자격 증명을 입력한 후 만든 SSH 사용자 자격 증명을 입력합니다. 첫 번째 로그인이 아닌 경우 사용자가 만든 SSH 사용자의 자격 증명만 입력하면 됩니다.
+[https://CLUSTERNAME.azurehdinsight.net/rstudio/](https://CLUSTERNAME.azurehdinsight.net/rstudio/ ) 에서 RStudio에 액세스합니다. 클러스터를 만든 후 처음 로그인하는 경우, 클러스터 관리자 자격 증명을 입력한 후 만든 SSH 사용자 자격 증명을 입력합니다. 첫 번째 로그인이 아닌 경우 사용자가 만든 SSH 사용자의 자격 증명만 입력하면 됩니다.
 
 또한 다른 브라우저 창에서 원래 자격 증명(기본적으로 *sshuser*)을 사용하여 동시에 로그인할 수도 있습니다.
 
-새로 추가된 사용자는 Linux 시스템에서 루트 권한을 가지고 있지 않지만 원격 HDFS 및 WASB 저장소의 모든 파일에 동일한 액세스 권한을 가지고 있음에 유의하세요.
+새로 추가된 사용자는 Linux 시스템에서 루트 권한을 가지고 있지 않지만 원격 HDFS 및 WASB 스토리지의 모든 파일에 동일한 액세스 권한을 가지고 있음에 유의하세요.
 
 ## <a name="connect-remotely-to-microsoft-ml-services"></a>Microsoft ML 서비스에 원격으로 연결
 
-데스크톱에서 실행되는 ML 클라이언트의 원격 인스턴스에서 HDInsight Spark 계산 컨텍스트에 대한 액세스를 설정할 수 있습니다. 이렇게 하려면 데스크톱 컴퓨터에서 RxSpark 컴퓨팅 컨텍스트를 정의할 때 옵션(hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches 및 sshProfileScript)을 지정해야 합니다. 예를 들면 다음과 같습니다.
+데스크톱에서 실행되는 ML 클라이언트의 원격 인스턴스에서 HDInsight Spark 컴퓨팅 컨텍스트에 대한 액세스를 설정할 수 있습니다. 이렇게 하려면 데스크톱 컴퓨터에서 RxSpark 컴퓨팅 컨텍스트를 정의할 때 옵션(hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches 및 sshProfileScript)을 지정해야 합니다. 예를 들면 다음과 같습니다.
 
     myNameNode <- "default"
     myPort <- 0
@@ -106,9 +106,9 @@ https://CLUSTERNAME.azurehdinsight.net/rstudio/ 에서 RStudio에 액세스합�
 
 자세한 내용은 [Apache Spark 컴퓨팅 컨텍스트에서 RevoScaleR을 사용하는 방법](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios)의 "Apache Hadoop 클라이언트로 Microsoft Machine Learning Server 사용" 섹션을 참조하세요.
 
-## <a name="use-a-compute-context"></a>계산 컨텍스트 사용
+## <a name="use-a-compute-context"></a>컴퓨팅 컨텍스트 사용
 
-계산 컨텍스트를 사용하여 계산을 이제 노드에서 로컬로 수행할지 여부 또는 HDInsight 클러스터의 노드 간에 분산할지 여부를 제어할 수 있습니다.  RStudio Server를 사용 하 여 계산 컨텍스트를 설정 하는 예제를 보려면 [ML Services 클러스터에 RStudio Server를 사용 하 여 Azure HDInsight에서 R 스크립트 실행](machine-learning-services-quickstart-job-rstudio.md)합니다.
+컴퓨팅 컨텍스트를 사용하여 컴퓨팅을 이제 노드에서 로컬로 수행할지 여부 또는 HDInsight 클러스터의 노드 간에 분산할지 여부를 제어할 수 있습니다.  RStudio Server를 사용 하 여 계산 컨텍스트를 설정 하는 예제를 보려면 [ML Services 클러스터에 RStudio Server를 사용 하 여 Azure HDInsight에서 R 스크립트 실행](machine-learning-services-quickstart-job-rstudio.md)합니다.
 
 ## <a name="distribute-r-code-to-multiple-nodes"></a>여러 노드에 R 코드 분산
 
@@ -136,7 +136,7 @@ Spark 컨텍스트를 계속 사용하는 경우 이 명령에서는 `(Sys.info(
 
 ## <a name="access-data-in-apache-hive-and-parquet"></a>Apache Hive 및 Parquet에서 데이터에 액세스
 
-HDInsight ML 서비스를 사용하면 Spark 계산 컨텍스트의 ScaleR 함수에서 Hive 및 Parquet의 데이터에 직접 액세스하여 사용할 수 있습니다. 이러한 기능은 RxHiveData 및 RxParquetData라는 새로운 ScaleR 데이터 소스 함수를 통해 사용할 수 있습니다. 이 함수는 Spark SQL을 사용하여 Spark DataFrame에 데이터를 직접 로드하여 ScaleR을 통해 분석합니다.
+HDInsight ML 서비스를 사용하면 Spark 컴퓨팅 컨텍스트의 ScaleR 함수에서 Hive 및 Parquet의 데이터에 직접 액세스하여 사용할 수 있습니다. 이러한 기능은 RxHiveData 및 RxParquetData라는 새로운 ScaleR 데이터 소스 함수를 통해 사용할 수 있습니다. 이 함수는 Spark SQL을 사용하여 Spark DataFrame에 데이터를 직접 로드하여 ScaleR을 통해 분석합니다.
 
 다음 코드는 새 함수를 사용하는 샘플 코드 일부를 제공합니다.
 
@@ -204,7 +204,7 @@ HDInsight ML 서비스를 사용하면 Spark 계산 컨텍스트의 ScaleR 함�
 
    > [!NOTE]
    > 1. 기본적으로 모든 R 패키지는 설치된 ML Server의 버전과 일치하는 Microsoft MRAN 리포지토리의 스냅샷에서 설치됩니다. 최신 버전의 패키지를 설치하려는 경우 호환성 문제가 발생할 수 있습니다. 그러나 이 설치 유형은 패키지 목록의 첫 번째 요소로 `useCRAN`을 지정함으로써 가능합니다(예: `useCRAN bitops, stringr, arules`).  
-   > 2. 일부 R 패키지에는 추가 Linux 시스템 라이브러리가 필요합니다. 편의상 HDInsight ML 서비스는 가장 인기 있는 상위 100개의 R 패키지에서 필요한 종속성을 사용하여 미리 설치되었습니다. 그러나 설치한 R 패키지에 더 많은 라이브러리가 필요한 경우 여기에 사용되는 기본 스크립트를 다운로드하고 시스템 라이브러리를 설치하는 단계를 추가해야 합니다. 그런 다음 수정된 스크립트를 Azure 저장소의 공용 blob 컨테이너에 업로드하고 수정된 스크립트를 사용하여 패키지를 설치해야 합니다.
+   > 2. 일부 R 패키지에는 추가 Linux 시스템 라이브러리가 필요합니다. 편의상 HDInsight ML 서비스는 가장 인기 있는 상위 100개의 R 패키지에서 필요한 종속성을 사용하여 미리 설치되었습니다. 그러나 설치한 R 패키지에 더 많은 라이브러리가 필요한 경우 여기에 사용되는 기본 스크립트를 다운로드하고 시스템 라이브러리를 설치하는 단계를 추가해야 합니다. 그런 다음 수정된 스크립트를 Azure Storage의 공용 blob 컨테이너에 업로드하고 수정된 스크립트를 사용하여 패키지를 설치해야 합니다.
    >    스크립트 작업 개발에 대한 자세한 내용은 [스크립트 작업 개발](../hdinsight-hadoop-script-actions-linux.md)을 참조하세요.  
    >
    >

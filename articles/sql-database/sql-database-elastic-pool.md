@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
-manager: craigg
-ms.date: 02/28/2019
-ms.openlocfilehash: c1db16475224cc3c91a5353ead0aabd091098e14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/06/2019
+ms.openlocfilehash: 0b0a6bec7916c056c187ed9e588dd3ac8fea8d84
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240370"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876426"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>탄력적 풀이 여러 Azure SQL 데이터베이스를 관리하고 크기를 조정하는 데 도움을 주는 방식
 
@@ -40,7 +39,7 @@ SaaS 개발자는 여러 데이터베이스로 구성된 대규모 데이터 계
 
 탄력적 풀을 사용하면 개발자가 예측할 수 없는 개별 데이터베이스의 사용 기간을 수용하기 위해 여러 데이터베이스에서 공유되는 풀에 대한 리소스를 구매할 수 있습니다. [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 또는 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)에 따라 풀에 대한 리소스를 구성할 수 있습니다. 풀에 대한 리소스 요구 사항은 해당 데이터베이스의 집계 사용률에 의해 결정됩니다. 풀에 사용 가능한 리소스 양은 개발자 예산에 의해 제어됩니다. 개발자는 단순히 풀에 데이터베이스를 추가하고, 데이터베이스에 대한 최소 및 최대 리소스를 설정한 다음(선택한 리소스 모델에 따라 최소 및 최대 DTU 또는 최소 또는 최대 vCore), 해당 예산에 따라 풀의 리소스를 설정합니다. 개발자는 풀을 사용하여 처음 시작부터 계속 성장하는 성숙한 비즈니스까지 해당 서비스를 원활하게 증가시킬 수 있습니다.
 
-풀 내에서 개별 데이터베이스는 집합 매개 변수 내에서 자동 크기 조정에 유연성이 제공됩니다. 부하가 높은 상태에서 데이터베이스는 더 많은 리소스를 사용하여 수요를 충족할 수 있습니다. 낮은 부하량에서 데이터베이스는 적게 사용하고 부하가 없는 데이터베이스는 리소스를 사용하지 않습니다. 단일 데이터베이스가 아닌 전체 풀에 대한 리소스 프로비저닝은 관리 작업을 간소화합니다. 또한 풀에 대한 예측 가능한 예산이 있습니다. 새 eDTU 예약에 대한 추가 계산 리소스를 제공하기 위해 데이터베이스를 이동해야 한다는 점을 제외하면 데이터베이스 가동 중지 시간을 발생시키지 않고 추가 리소스를 기존 풀에 추가할 수 있습니다. 마찬가지로, 추가 리소스가 더 이상 필요하지 않은 경우에는 언제든지 기존 풀에서 제거할 수 있습니다. 풀에 데이터베이스를 추가하거나 뺄 수 있습니다. 데이터베이스가 예측 가능한 방식으로 리소스를 사용하는 경우 리소스를 이동합니다.
+풀 내에서 개별 데이터베이스는 집합 매개 변수 내에서 자동 크기 조정에 유연성이 제공됩니다. 부하가 높은 상태에서 데이터베이스는 더 많은 리소스를 사용하여 수요를 충족할 수 있습니다. 낮은 부하량에서 데이터베이스는 적게 사용하고 부하가 없는 데이터베이스는 리소스를 사용하지 않습니다. 단일 데이터베이스가 아닌 전체 풀에 대한 리소스 프로비저닝은 관리 작업을 간소화합니다. 또한 풀에 대한 예측 가능한 예산이 있습니다. 새 eDTU 예약에 대한 추가 컴퓨팅 리소스를 제공하기 위해 데이터베이스를 이동해야 한다는 점을 제외하면 데이터베이스 가동 중지 시간을 발생시키지 않고 추가 리소스를 기존 풀에 추가할 수 있습니다. 마찬가지로, 추가 리소스가 더 이상 필요하지 않은 경우에는 언제든지 기존 풀에서 제거할 수 있습니다. 풀에 데이터베이스를 추가하거나 뺄 수 있습니다. 데이터베이스가 예측 가능한 방식으로 리소스를 사용하는 경우 리소스를 이동합니다.
 
 > [!NOTE]
 > 데이터베이스를 탄력적 풀 안팎으로 이동하는 경우, 데이터베이스 연결이 끊길 때 작업이 종료되는 잠깐의 시간(초 단위)을 제외하고 가동 중지 시간이 발생하지 않습니다.
@@ -79,7 +78,7 @@ SaaS 개발자는 여러 데이터베이스로 구성된 대규모 데이터 계
 
 풀의 가격은 풀 eDTU의 함수입니다. 풀의 eDTU 단가는 단일 데이터베이스에 대한 DTU 단가보다 1.5배지만, **많은 데이터베이스가 풀 eDTU를 공유할 수 있고 필요한 전체 eDTU가 적습니다**. 가격 책정 및 eDTU 공유에서의 이러한 차이가 풀이 제공할 수 있는 가격 절감 가능성의 기초가 됩니다.
 
-데이터베이스 수 및 데이터베이스 사용과 관련된 다음 thumb 규칙은 풀이 단일 데이터베이스에 대한 컴퓨팅 크기를 사용하는 것에 비해 비용을 절감하는 데 도움이 됩니다.
+데이터베이스 수 및 데이터베이스 사용에 관련된 다음 규칙은 풀이 단일 데이터베이스에 대한 컴퓨팅 크기를 사용하는 데 비해 비용 절감을 제공하는 데 도움이 됩니다.
 
 ### <a name="minimum-number-of-databases"></a>데이터베이스의 최소 수
 
@@ -109,7 +108,7 @@ SaaS 개발자는 여러 데이터베이스로 구성된 대규모 데이터 계
 풀의 적절한 크기는 풀의 모든 데이터베이스에 필요한 집계 리소스에 따라 달라집니다. 이는 다음 결정을 포함합니다.
 
 - 풀의 모든 데이터베이스에서 사용되는 최대 리소스(선택한 리소스 모델에 따라 최대 DTU 또는 최대 vCore)입니다.
-- 풀에 있는 모든 데이터베이스의 최대 저장된 바이트 수입니다.
+- 풀에 있는 모든 데이터베이스의 최대 스토리지된 바이트 수입니다.
 
 각 리소스 모델에 대해 사용할 수 있는 서비스 계층은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 또는 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 참조하세요.
 
@@ -123,7 +122,7 @@ SaaS 개발자는 여러 데이터베이스로 구성된 대규모 데이터 계
    vCore 기반 구매 모델의 경우: MAX(<*총 DB 수* X *DB당 평균 vCore 사용률*>,<br>  
    < *동시 최고 DB의 수* X *DB당 최고 vCore 사용률* )
 
-2. 풀에서 모든 데이터베이스에 필요한 바이트 수를 추가하여 풀에 필요한 저장소 공간을 예측합니다. 그런 다음 이 저장소의 양을 제공하는 eDTU 풀 크기를 결정합니다.
+2. 풀에서 모든 데이터베이스에 필요한 바이트 수를 추가하여 풀에 필요한 스토리지 공간을 예측합니다. 그런 다음 이 스토리지의 양을 제공하는 eDTU 풀 크기를 결정합니다.
 3. DTU 기반 구매 모델의 경우 1단계 및 2단계에서 eDTU 예상 중 큰 수를 사용합니다. VCore 기반 구매 모델의 경우 1단계의 vCore 예상을 사용합니다.
 4. [SQL Database 가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/)를 확인하고 3단계의 예상보다 큰 경우 가장 작은 풀 크기를 찾습니다.
 5. 5단계의 풀 가격을 적절한 단일 데이터베이스용 컴퓨팅 크기를 사용할 때의 가격과 비교해 보세요.
@@ -156,8 +155,14 @@ SaaS 개발자는 여러 데이터베이스로 구성된 대규모 데이터 계
 
 Azure Portal에서 두 가지 방법으로 탄력적 풀을 만들 수 있습니다.
 
-1. **Marketplace**에서 **SQL 탄력적 풀**을 검색하거나 SQL 탄력적 풀 찾아보기 블레이드에서 **+추가**를 클릭하여 탄력적 풀을 만들 수 있습니다. 이 풀 프로비저닝 워크플로를 통해 새 서버 또는 기존 서버를 지정할 수 있습니다.
-2. 또는 기존 SQL 서버로 이동하고 해당 서버로 풀을 직접 만드는 **풀 만들기**를 클릭하여 탄력적 풀을 만들 수 있습니다. 여기에서 유일한 차이점은 풀 프로비저닝 워크플로 동안 서버를 지정하는 단계를 건너뛰는 것입니다.
+1. Azure Portal의 왼쪽 메뉴에서 **AZURE SQL** 을 선택 합니다. Azure SQL이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 *azure sql* 을 입력 합니다.
+2. **+ 추가** 를 선택 하 여 **SQL 배포 옵션 선택** 페이지를 엽니다. **데이터베이스** 타일에 대 한 **자세한 정보 표시** 를 선택 하 여 탄력적 풀에 대 한 추가 정보를 볼 수 있습니다.
+3. **데이터베이스** 타일의 **리소스 종류** 드롭다운에서 **탄력적 풀** 을 선택 하 고 **만들기**를 선택 합니다.
+
+   ![탄력적 풀 만들기](./media/sql-database-elastic-pool/create-elastic-pool.png)
+
+
+1. 또는 기존 Azure SQL server로 이동 하 고 **+ 새 풀** 을 클릭 하 여 해당 서버에 직접 풀을 만드는 방식으로 탄력적 풀을 만들 수 있습니다.
 
 > [!NOTE]
 > 서버에 풀을 여러 개 만들 수 있지만 다른 서버에 속하는 데이터베이스를 동일한 풀에 추가할 수 없습니다.
@@ -172,7 +177,7 @@ Azure Portal에서 두 가지 방법으로 탄력적 풀을 만들 수 있습니
 
 Azure Portal에서 탄력적 풀 및 해당 풀 내의 데이터베이스의 사용률을 모니터링할 수 있습니다. 탄력적 풀에 일련의 내용을 변경하는 동시에 모든 변경 내용을 전송할 수도 있습니다. 이러한 변경 내용에는 데이터베이스 추가 또는 제거, 탄력적 풀 설정 변경, 데이터베이스 설정 변경이 포함됩니다.
 
-탄력적 풀 모니터링을 시작하려면 포털에서 탄력적 풀을 찾아서 엽니다. 먼저 탄력적 풀의 상태에 대한 개요를 제공하는 화면이 나타납니다. 다음 내용이 포함됩니다.
+탄력적 풀 모니터링을 시작하려면 포털에서 탄력적 풀을 찾아서 엽니다. 먼저 탄력적 풀의 상태에 대한 개요를 제공하는 화면이 나타납니다. 다음을 포함합니다.
 
 - 탄력적 풀의 리소스 사용을 보여주는 모니터링 차트
 - 사용 가능한 경우 탄력적 풀에 대한 최근 경고 및 권장 사항
@@ -205,19 +210,19 @@ Azure Portal에서 탄력적 풀 및 해당 풀 내의 데이터베이스의 사
 
 - [SnelStart](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-snelstart/)
 
-  SnelStart를 사용 하면 Azure SQL Database를 사용 하 여 탄력적 풀을 사용 하는 매월 1,000 개의 새 Azure SQL 데이터베이스의 속도로 비즈니스 서비스를 신속 하 게 확장 합니다.
+  SnelStart는 Azure SQL Database에서 탄력적 풀을 사용 하 여 매월 1000 개의 새 Azure SQL Database의 속도로 비즈니스 서비스를 빠르게 확장 했습니다.
 
 - [Umbraco](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-umbraco/)
 
-  Umbraco를 사용 하면 Azure SQL Database를 사용 하 여 탄력적 풀을 사용 하는 수천 개의 클라우드에서 테 넌 트에 대 한 프로 비전 및 확장 서비스 신속 하 게 합니다.
+  Umbraco는 Azure SQL Database에서 탄력적 풀을 사용 하 여 클라우드에서 수천 개의 테 넌 트에 대해 서비스를 신속 하 게 프로 비전 하 고 확장 합니다.
 
-- [Daxko/CSI](https://customers.microsoft.com/story/csi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services)
+- [Daxko/CSI](https://customers.microsoft.com/story/726277-csi-daxko-partner-professional-service-azure)    
 
-  Daxko/CSI 개발 주기를 가속화 하 고 고객 서비스 및 성능을 향상 시키기 위해 Azure SQL Database를 사용 하 여 탄력적 풀을 사용 합니다.
+   Daxko/CSI는 Azure SQL Database에서 탄력적 풀을 사용 하 여 개발 주기를 가속화 하 고 고객 서비스 및 성능을 향상 시킵니다.   
 
 ## <a name="next-steps"></a>다음 단계
 
-- 탄력적 풀의 크기를 조정하려면 [탄력적 풀 크기 조정](sql-database-elastic-pool.md) 및 [탄력적 풀 크기 조정 - 샘플 코드](scripts/sql-database-monitor-and-scale-pool-powershell.md)를 참조하세요.
+- 탄력적 풀의 크기를 조정하려면 [탄력적 풀 크기 조정](sql-database-elastic-pool-scale.md) 및 [탄력적 풀 크기 조정 - 샘플 코드](scripts/sql-database-monitor-and-scale-pool-powershell.md)를 참조하세요.
 - 비디오는 [Azure SQL Database 탄력적 기능에 대한 Microsoft Virtual Academy 비디오 과정](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)을 참조하세요.
 - 탄력적 풀을 사용한 SaaS 애플리케이션의 디자인 패턴에 대해 자세히 알아보려면 [Azure SQL Database를 사용한 다중 테넌트 SaaS 애플리케이션 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 참조하세요.
 - 탄력적 풀을 사용하는 SaaS 자습서의 경우 [Wingtip SaaS 애플리케이션 소개](sql-database-wtp-overview.md)를 참조하세요.

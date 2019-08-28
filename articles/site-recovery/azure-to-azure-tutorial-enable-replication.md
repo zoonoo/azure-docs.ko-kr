@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 08/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5602298ffe60ad15d3daf52587c50357c310200c
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 6987c6f1191b0dfc7b78b14e77a5d6a0ab369f57
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480086"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782616"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Azure VM에 대한 재해 복구 설정
 
@@ -71,7 +71,7 @@ URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어�
 
 | **URL** | **세부 정보** |
 | ------- | ----------- |
-| \*.blob.core.windows.net | VM에서 원본 지역의 캐시 저장소 계정에 데이터를 쓸 수 있도록 합니다. |
+| \*.blob.core.windows.net | VM에서 원본 지역의 캐시 스토리지 계정에 데이터를 쓸 수 있도록 합니다. |
 | login.microsoftonline.com | Site Recovery 서비스 URL에 대한 권한 부여 및 인증을 제공합니다. |
 | \*.hypervrecoverymanager.windowsazure.com | VM이 Site Recovery 서비스와 통신할 수 있도록 합니다. |
 | \*.servicebus.windows.net | VM이 Site Recovery 모니터링 및 진단 데이터를 쓸 수 있도록 합니다. |
@@ -144,8 +144,8 @@ Site Recovery는 대상 지역에 대한 기본 설정 및 복제 정책을 만�
     **대상 위치** | 재해 복구에 사용되는 대상 지역입니다.<br/><br/> 대상 위치가 Site Recovery 자격 증명 모음의 위치와 일치하는 것이 좋습니다.
     **대상 리소스 그룹** | 장애 조치 후 Azure VM을 보유하는 대상 지역의 리소스 그룹입니다.<br/><br/> 기본적으로 Site Recovery는 "asr" 접미사를 사용하여 대상 지역에 새 리소스 그룹을 만듭니다. 원본 가상 머신이 호스트되는 지역을 제외한 모든 지역이 대상 리소스 그룹의 위치가 될 수 있습니다.
     **대상 가상 네트워크** | 장애 조치 후 VM이 있는 대상 지역의 네트워크입니다.<br/><br/> 기본적으로 Site Recovery는 "asr" 접미사를 사용하여 대상 지역에 새 가상 네트워크(및 서브넷)를 만듭니다.
-    **캐시 저장소 계정** | Site Recovery에서 원본 지역의 스토리지 계정을 사용합니다. 원본 VM의 변경 내용이 이 계정으로 전송된 후 대상 위치에 복제됩니다.<br/><br/> 방화벽 지원 캐시 스토리지 계정을 사용하는 경우 **신뢰할 수 있는 Microsoft 서비스 허용**을 사용하도록 설정해야 합니다. [자세한 정보](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
-    **대상 스토리지 계정(원본 VM에서 비관리형 디스크를 사용하는 경우)** : | 기본적으로 Site Recovery는 대상 지역에 새 스토리지 계정을 만들어서 원본 VM 스토리지 계정을 미러링합니다.<br/><br/> 방화벽 지원 캐시 저장소 계정을 사용하는 경우 **신뢰할 수 있는 Microsoft 서비스 허용**을 사용하도록 설정합니다.
+    **캐시 스토리지 계정** | Site Recovery에서 원본 지역의 스토리지 계정을 사용합니다. 원본 VM의 변경 내용이 이 계정으로 전송된 후 대상 위치에 복제됩니다.<br/><br/> 방화벽 지원 캐시 스토리지 계정을 사용하는 경우 **신뢰할 수 있는 Microsoft 서비스 허용**을 사용하도록 설정해야 합니다. [자세한 정보](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
+    **대상 스토리지 계정(원본 VM에서 비관리형 디스크를 사용하는 경우)** : | 기본적으로 Site Recovery는 대상 지역에 새 스토리지 계정을 만들어서 원본 VM 스토리지 계정을 미러링합니다.<br/><br/> 방화벽 지원 캐시 스토리지 계정을 사용하는 경우 **신뢰할 수 있는 Microsoft 서비스 허용**을 사용하도록 설정합니다.
     **복제본 Managed Disks(원본 VM에서 Managed Disks를 사용하는 경우)** : | 기본적으로 Site Recovery는 대상 지역에 복제본 관리 디스크를 만들어 원본 VM의 관리 디스크를 이 관리 디스크와 동일한 스토리지 유형(표준 또는 프리미엄)으로 미러링합니다. 디스크 유형만 사용자 지정할 수 있습니다. 
     **대상 가용성 집합** | 기본적으로 Azure Site Recovery는 원본 지역에서 가용성 세트에 있는 VM 부분의 이름에 “asr” 접미사가 있는 대상 지역에 새 가용성 세트를 만듭니다. Azure Site Recovery에서 만든 가용성 집합이 이미 있는 경우 해당 가용성 집합이 재사용 됩니다.
     **대상 가용성 영역** | 기본적으로 Site Recovery는 대상 지역이 가용성 영역을 지원하는 경우 대상 지역의 원본 지역과 동일한 영역 번호를 할당합니다.<br/><br/> 대상 지역이 가용성 영역을 지원하지 않는 경우 대상 VM은 기본적으로 단일 인스턴스로 구성됩니다.<br/><br/> **사용자 지정**을 클릭하여 대상 지역에서 가용성 집합의 일부로 VM을 구성합니다.<br/><br/> 복제를 사용하도록 설정한 후에는 가용성 유형(단일 인스턴스, 가용성 집합 또는 가용성 영역)을 변경할 수 없습니다. 가용성 유형을 변경하려면 복제를 사용하지 않도록 설정했다가 다시 사용하도록 설정해야 합니다.
@@ -196,4 +196,4 @@ Site Recovery는 대상 지역에 대한 기본 설정 및 복제 정책을 만�
 이 자습서에서는 Azure VM의 재해 복구를 구성해 보았습니다. 이제 재해 복구 훈련을 시작하여 장애 조치(Failover)가 예상대로 작동하는지 확인할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [재해 복구 드릴 실행](azure-to-azure-tutorial-dr-drill.md)
+> [재해 복구 훈련 실행](azure-to-azure-tutorial-dr-drill.md)

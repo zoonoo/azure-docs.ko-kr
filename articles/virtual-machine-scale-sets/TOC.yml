@@ -45,7 +45,7 @@
           href: tutorial-install-apps-cli.md
         - name: Azure PowerShell
           href: tutorial-install-apps-powershell.md
-        - name: Template
+        - name: 템플릿
           href: tutorial-install-apps-template.md
     - name: 5 - 확장 집합 자동 크기 조정
       items:
@@ -53,7 +53,7 @@
           href: tutorial-autoscale-cli.md
         - name: Azure PowerShell
           href: tutorial-autoscale-powershell.md
-        - name: Template
+        - name: 템플릿
           href: tutorial-autoscale-template.md
 - name: 샘플
   items:
@@ -66,10 +66,17 @@
     - name: Azure 리소스 관리자
       href: ../azure-resource-manager/resource-group-overview.md
       maintainContext: true
-    - name: 지역 및 가용성
-      href: ../virtual-machines/windows/regions-and-availability.md
+    - name: 영역
+      href: ../virtual-machines/windows/regions.md
+    - name: 가용성 및 성능
       maintainContext: true
       items:
+        - name: 가용성
+          href: availability.md
+        - name: 공동 배치
+          href: co-location.md
+        - name: 네트워크 성능
+          href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machine-scale-sets%2fwindows%2ftoc.json
         - name: 확장 집합의 오류 도메인 관리
           href: virtual-machine-scale-sets-manage-fault-domains.md
     - name: VM 유형 및 크기
@@ -103,7 +110,7 @@
             - name: GPU 드라이버 설정
               href: ../virtual-machines/windows/n-series-driver-setup.md
               maintainContext: true
-        - name: 고성능 계산
+        - name: 고성능 컴퓨팅
           href: ../virtual-machines/windows/sizes-hpc.md
           maintainContext: true
         - name: ACU(Azure 컴퓨팅 단위)
@@ -118,7 +125,7 @@
     - name: 유지 관리 및 업데이트
       href: ../virtual-machines/windows/maintenance-and-updates.md
       maintainContext: true
-    - name: 디스크 저장소
+    - name: 디스크 스토리지
       items:
         - name: Managed Disks
           href: ../virtual-machines/windows/managed-disks-overview.md
@@ -156,6 +163,8 @@
           maintainContext: true
     - name: 확장 집합 FAQ
       href: virtual-machine-scale-sets-faq.md
+    - name: 보안 특성
+      href: virtual-machine-scale-sets-security-attributes.md
 - name: 방법
   items:
     - name: 계획 및 디자인
@@ -243,6 +252,8 @@
               href: share-images-across-tenants.md
             - name: 공유 이미지 문제 해결
               href: troubleshooting-shared-images.md
+        - name: 근접 배치 그룹 만들기
+          href: proximity-placement-groups.md
         - name: 크기 집합에서 수직적 크기 조정
           href: virtual-machine-scale-sets-vertical-scale-reprovision.md
         - name: DSC 및 확장 집합 사용

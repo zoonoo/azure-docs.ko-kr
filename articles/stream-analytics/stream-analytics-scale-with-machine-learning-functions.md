@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 5da09d705246ffd5002a1a21daab2266525f579e
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 3d478c2421066c8347622f9064c479bb8255b112
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357506"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621743"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-functions"></a>Azure Machine Learning Studio 기능을 사용 하 여 Stream Analytics 작업 크기 조정
 
@@ -90,7 +90,7 @@ Stream Analytics 작업의 **전체적인** 또는 엔드투엔드 대기 시간
 
 각 일괄 처리 크기에 대 한 크기 조정 사용 대기 시간 측정값에 살펴보겠습니다.
 
-| 대기 시간 | Batch 크기 |
+| 대기 시간 | 일괄 처리 크기 |
 | --- | --- |
 | 200 밀리초 | 1000 이벤트 일괄 처리 또는 아래 |
 | 250ms | 5,000 이벤트 배치 |
@@ -145,5 +145,5 @@ Stream Analytics에 대한 자세한 내용은 다음 항목을 참조하세요.
 
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)

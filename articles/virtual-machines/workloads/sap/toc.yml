@@ -128,6 +128,8 @@
           href: dbms_guide_ibm.md
         - name: SUSE Linux Enterprise Server의 Azure VM에서 IBM DB2 LUW의 고가용성
           href: dbms-guide-ha-ibm.md
+        - name: Red Hat Enterprise Linux Server의 Azure VM에서 IBM DB2 LUW의 고가용성
+          href: high-availability-guide-rhel-ibm-db2-luw.md
         - name: SAP 워크로드에 대한 SAP ASE Azure Virtual Machines DBMS 배포
           href: dbms_guide_sapase.md
         - name: 'Azure에서 SAP MaxDB, liveCache 및 Content Server 배포'
@@ -206,6 +208,8 @@
               href: sap-ascs-ha-multi-sid-wsfc-file-share.md
     - name: SAP 재해 복구를 위한 Azure Site Recovery
       href: '../../../site-recovery/site-recovery-workload.md#protect-sap'
+    - name: SAP 애플리케이션 네트워크 대기 시간을 최소화하는 Azure Proximity Placement Group
+      href: sap-proximity-placement-scenarios.md
 - name: AAD SAP ID 통합 및 Single-Sign-On
   items:
     - name: SAP 클라우드와 통합

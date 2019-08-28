@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 원격 이미지 분석 - REST, Java'
+title: '빠른 시작: REST API 및 Java를 사용하여 원격 이미지 분석'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Java와 함께 Computer Vision API를 사용하여 이미지를 분석합니다.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.custom: seodec18
-ms.openlocfilehash: ba6c0c8627ce1e46f36f7a85a9e92d85236b7ee6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.custom: seodec18, seo-java-august2019
+ms.openlocfilehash: 69d14b3ce84ddd1fbd54ab8a0f6f0c9e24ebac1e
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009296"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946320"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>빠른 시작: Computer Vision REST API 및 Java를 사용하여 원격 이미지 분석
 
@@ -72,7 +72,7 @@ public class Main {
     // from the West US region, replace "westcentralus" in the URL
     // below with "westus".
     //
-    // Free trial subscription keys are generated in the "westus" region.
+    // Free trial subscription keys are generated in the "westcentralus" region.
     // If you use a free trial subscription key, you shouldn't need to change
     // this region.
     private static final String uriBase =
@@ -203,10 +203,6 @@ REST Response:
   }]
 }
 ```
-
-## <a name="clean-up-resources"></a>리소스 정리
-
-더 이상 필요하지 않은 경우 컴파일된 클래스 및 가져온 라이브러리를 포함하여 Java 프로젝트를 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

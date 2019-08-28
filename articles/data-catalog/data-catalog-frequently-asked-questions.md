@@ -5,13 +5,13 @@ author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 07/01/2019
-ms.openlocfilehash: 6ab5c67129b16cde5ca74e72effdf56ec0a22711
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.date: 08/01/2019
+ms.openlocfilehash: 754e967a1be0b00f7ce7448744ec90690fd9f0c3
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508896"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736419"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Azure 데이터 카탈로그에 대한 질문과 대답
 이 문서는 Azure Data Catalog 서비스와 관련된 질문에 대한 대답을 제공합니다.
@@ -25,17 +25,17 @@ ms.locfileid: "67508896"
 ## <a name="what-are-its-target-audiences"></a>해당 대상 고객층은 무엇입니까?
 데이터 카탈로그는 다음을 비롯하여 기술자 및 일반 사용자를 위해 설계되었습니다.
 
-* 데이터 개발자, BI 및 분석 전문가: 사용자를 이용할 다른 사람에 대 한 데이터 및 분석 콘텐츠를 생성 하는 일을 담당 합니다.
-* 데이터 관리자: 데이터, 의미 및 사용할 의도 하는 방법에 대 한 지식이 있는 사람입니다.
-* 데이터 소비자: 쉽게 검색할 수는 사용자를 이해 하 고 선택한 도구를 사용 하 여 해당 작업 수행에 필요한 데이터에 연결 합니다.
-* 중앙 IT: 비즈니스 사용자가 수백 개의 데이터 소스를 가능 하 게 해야 하는 한 사람 및 데이터가 사용 되는 방법을 통해 감독을 유지 해야 하는 사람입니다.
+* 데이터 개발자, BI 및 분석 전문가: 다른 사람이 사용할 수 있도록 데이터 및 분석 콘텐츠를 생성 하는 사용자입니다.
+* 데이터 관리자: 데이터, 데이터의 의미 및 사용 방법에 대 한 지식이 있는 사람
+* 데이터 소비자: 원하는 도구를 사용 하 여 작업을 수행 하는 데 필요한 데이터를 쉽게 검색 하 고, 이해 하 고, 연결할 수 있어야 하는 사람입니다.
+* 중앙 IT: 비즈니스 사용자가 수백 개의 데이터 원본을 검색할 수 있도록 해야 하는 사용자 및 데이터를 사용 하는 방법에 대 한 감독을 유지 해야 하는 사용자입니다.
 
 ## <a name="what-is-its-availability-by-region"></a>지역별 가용성은 무엇입니까?
 데이터 카탈로그 서비스는 현재 다음과 같은 데이터 센터에서 사용할 수 있습니다.
 
 * 미국 서부
-* 미국 동부
-* 서유럽
+* East US
+* 유럽 서부
 * 유럽 북부
 * 오스트레일리아 동부
 * 동남아시아
@@ -66,7 +66,7 @@ ms.locfileid: "67508896"
 데이터 원본과 데이터 원본 사이의 특정 속성은 다르지만 일반적으로 데이터 카탈로그 게시 서비스는 다음 정보를 추출합니다.
 
 * 자산 이름
-* 자산 형식
+* 자산 유형
 * 자산 설명
 * 특성/열 이름
 * 특성/열 데이터 형식

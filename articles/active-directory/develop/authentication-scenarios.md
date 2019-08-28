@@ -10,20 +10,20 @@ ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/05/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b35d2e21de3da184496da53fdf46d865fdfdf5c7
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: HT
+ms.openlocfilehash: 79f462b8903033784f186032c715cc966dfae7b4
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734476"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622698"
 ---
 # <a name="what-is-authentication"></a>인증이란?
 
@@ -49,11 +49,11 @@ ID가 필요한 가장 기본적인 시나리오를 가정하겠습니다. 예�
 * Microsoft ID 플랫폼은 ID 공급자입니다. ID 공급자는 조직의 디렉터리에 존재하는 사용자 및 애플리케이션의 ID를 확인하고 해당 사용자 및 애플리케이션을 성공적으로 인증하면 보안 토큰을 발급하는 책임이 있습니다.
 * Microsoft ID 플랫폼으로 인증을 아웃소싱하려는 애플리케이션을 Azure AD(Azure Active Directory)에 등록해야 합니다. Azure AD는 앱을 디렉터리에 등록하고 고유하게 식별합니다.
 * 개발자는 오픈 소스 Microsoft ID 플랫폼 인증 라이브러리를 사용하여 프로토콜 세부 정보를 처리함으로써 인증을 쉽게 수행할 수 있습니다. 자세한 내용은 Microsoft ID 플랫폼 [v2.0 인증 라이브러리](reference-v2-libraries.md) 및 [v1.0 인증 라이브러리](active-directory-authentication-libraries.md)를 참조하세요.
-* 사용자가 인증되면 애플리케이션에서 이 해당 사용자의 보안 토큰에 대한 유효성을 검사하여 인증에 성공했는지 확인해야 합니다. 응용 프로그램이 수행해야 하는 것을 보여주는 빠른 시작, 자습서 및 코드 샘플을 다양한 언어 및 프레임워크에서 찾을 수 있습니다.
+* 사용자가 인증되면 애플리케이션에서 이 해당 사용자의 보안 토큰에 대한 유효성을 검사하여 인증에 성공했는지 확인해야 합니다. 애플리케이션이 수행해야 하는 것을 보여주는 빠른 시작, 자습서 및 코드 샘플을 다양한 언어 및 프레임워크에서 찾을 수 있습니다.
   * 신속하게 앱을 빌드하고 토큰 가져오기, 토큰 새로 고치기, 사용자 로그인, 사용자 정보 표시 등의 기능을 추가하려면 문서의 **빠른 시작** 섹션을 참조하세요.
   * 액세스 토큰 가져오기와 이를 Microsoft Graph API 및 다른 API에 대한 호출에서 사용하기처럼 상위 인증 개발자 작업을 위한 시나리오 기반 프로시저, OpenID Connect를 사용하여 기존의 웹 브라우저 기반 앱으로 Microsoft에 로그인 구현 등을 자세히 알아보려면 문서의 **자습서** 섹션을 참조하세요.
   * 코드 샘플을 다운로드하려면 [GitHub](https://github.com/Azure-Samples?q=active-directory)로 이동하세요.
-* 인증 프로세스에 대한 요청의 흐름 및 응답은 OAuth 2.0, OpenID Connect, WS-Federation 또는 SAML 2.0과 같이 사용하는 인증 프로토콜에 의해 결정됩니다. 프로토콜에 대한 자세한 내용은 문서의 **개념 > 프로토콜** 섹션을 참조하세요.
+* 인증 프로세스에 대한 요청의 흐름 및 응답은 OAuth 2.0, OpenID Connect, WS-Federation 또는 SAML 2.0과 같이 사용하는 인증 프로토콜에 의해 결정됩니다. 프로토콜에 대 한 자세한 내용은 설명서의 **> 인증 프로토콜 개념** 섹션을 참조 하십시오.
 
 위에 나온 예제 시나리오에서는 이러한 두 역할에 따라 앱을 분류할 수 있습니다.
 
@@ -62,7 +62,7 @@ ID가 필요한 가장 기본적인 시나리오를 가정하겠습니다. 예�
 
 이제 기본 사항을 간략히 살펴보았으므로 ID 앱 모델 및 API 이해, Microsoft ID 플랫폼에서 프로비전이 작동하는 방법 및 Microsoft ID 플랫폼에서 지원하는 일반적인 시나리오에 대한 자세한 정보 링크를 살펴보세요.
 
-## <a name="application-model"></a>애플리케이션 모델
+## <a name="application-model"></a>응용 프로그램 모델
 
 Microsoft ID 플랫폼은 두 가지 주요 기능을 충족하도록 설계된 특정 모델을 따르는 애플리케이션을 나타냅니다.
 
@@ -108,17 +108,17 @@ Microsoft ID 플랫폼에서 발급하는 보안 토큰(액세스 및 ID 토큰)
 
 | 클레임 | 설명 |
 | --- | --- |
-| 애플리케이션 UI | 토큰을 사용 중인 애플리케이션을 식별합니다. |
-| 대상 | 토큰의 의도된 받는 사람 리소스를 식별합니다. |
+| 애플리케이션 ID | 토큰을 사용 중인 애플리케이션을 식별합니다. |
+| 대상 사용자 | 토큰의 의도된 받는 사람 리소스를 식별합니다. |
 | 애플리케이션 인증 컨텍스트 클래스 참조 | 클라이언트가 인증된 방법을 나타냅니다(공용 클라이언트 또는 기밀 클라이언트). |
 | 인증 인스턴트 | 인증이 발생한 날짜 및 시간을 기록합니다. |
 | 인증 방법 | 토큰의 주체가 인증된 방법을 나타냅니다(예: 암호, 인증서 등). |
-| 이름 | Azure AD에서 설정된 사용자 이름을 제공합니다. |
+| First Name | Azure AD에서 설정된 사용자 이름을 제공합니다. |
 | 그룹 | 사용자가 속한 Azure AD 그룹의 개체 ID를 포함합니다. |
 | ID 공급자 | 토큰의 주체를 인증한 ID 공급자를 기록합니다. |
 | 발급 시간 | 토큰이 발급된 시간을 기록합니다. 종종 토큰 새로 고침에 사용됩니다. |
 | 발급자 | 토큰을 내보낸 STS 및 Azure AD 테넌트를 식별합니다. |
-| 성 | Azure AD에서 설정된 사용자 성을 제공합니다. |
+| Last Name | Azure AD에서 설정된 사용자 성을 제공합니다. |
 | 이름 | 토큰의 주체를 식별하는, 사람이 인식할 수 있는 값을 제공합니다. |
 | 개체 ID | Azure AD의 주체에 대한 변경 불가능한 고유 식별자를 포함합니다. |
 | 역할 | 사용자에게 부여된 Azure AD 애플리케이션 역할의 이름을 포함합니다. |

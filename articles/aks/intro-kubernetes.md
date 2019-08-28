@@ -2,20 +2,20 @@
 title: Azure Kubernetes Service 소개
 description: Azure에서 컨테이너 기반 애플리케이션을 배포 및 관리하는 Azure Kubernetes Service의 기능 및 이점을 알아봅니다.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: overview
 ms.date: 05/06/2019
-ms.author: iainfou
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: b14e4b452c1dcd92cc3e5447428c28f1d2c5b18e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 5515951a9bde596935f4c603ffd9e088f74dee45
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65073826"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "67615170"
 ---
-# <a name="azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)
+# <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
 AKS(Azure Kubernetes Service)를 사용하면 Azure에서 관리되는 Kubernetes 클러스터를 간단하게 배포할 수 있습니다. AKS는 대부분의 부담을 Azure에 오프로딩하여 Kubernetes를 관리하는 복잡성 및 운영 과부하를 감소시킵니다. 호스팅되는 Kubernetes 서비스인 Azure는 상태 모니터링 및 유지 관리 같은 중요 작업을 처리합니다. Kubernetes 마스터는 Azure에서 관리됩니다. 에이전트 노드만 관리하고 유지 관리합니다. 관리되는 Kubernetes 서비스, AKS가 무료이므로 마스터가 아니라 클러스터 내의 에이전트 노드에 대해서만 지불합니다.
 
@@ -45,7 +45,7 @@ AKS 클러스터 및 배포된 애플리케이션이 수행되는 방법을 이�
 
 ## <a name="clusters-and-nodes"></a>클러스터 및 노드
 
-AKS 노드는 Azure 가상 머신에서 실행됩니다. 저장소를 노드 및 Pod에 연결하고, 클러스터 구성 요소를 업그레이드하고, GPU를 사용할 수 있습니다. AKS는 혼합된 운영 체제 및 Windows Server 컨테이너(현재 미리 보기)를 지원하기 위해 여러 노드 풀을 실행하는 Kubernetes 클러스터를 지원합니다. Linux 노드는 사용자 지정된 Ubuntu OS 이미지를 실행하고 Windows 서버 노드는 사용자 지정된 Windows Server 2019 OS 이미지를 실행합니다.
+AKS 노드는 Azure 가상 머신에서 실행됩니다. 스토리지를 노드 및 Pod에 연결하고, 클러스터 구성 요소를 업그레이드하고, GPU를 사용할 수 있습니다. AKS는 혼합된 운영 체제 및 Windows Server 컨테이너(현재 미리 보기)를 지원하기 위해 여러 노드 풀을 실행하는 Kubernetes 클러스터를 지원합니다. Linux 노드는 사용자 지정된 Ubuntu OS 이미지를 실행하고 Windows 서버 노드는 사용자 지정된 Windows Server 2019 OS 이미지를 실행합니다.
 
 ### <a name="cluster-node-and-pod-scaling"></a>클러스터 노드 및 Pod 크기 조정
 
@@ -65,9 +65,9 @@ AKS는 GPU 사용 노드 풀 만들기를 지원합니다. Azure는 현재, 단�
 
 자세한 내용은 [AKS에서 GPU 사용][aks-gpu]을 참조하세요.
 
-### <a name="storage-volume-support"></a>저장소 볼륨 지원
+### <a name="storage-volume-support"></a>스토리지 볼륨 지원
 
-애플리케이션 워크로드를 지원하기 위해 영구 데이터에 대한 저장소 볼륨을 탑재할 수 있습니다. 정적 및 동적 볼륨을 모두 사용할 수 있습니다. 저장소를 공유하기 위해 연결된 Pod 수에 따라 단일 Pod 액세스에 대한 Azure 디스크 또는 여러 동시 Pod 액세스에 대한 Azure Files 중 하나에서 지원되는 저장소를 사용할 수 있습니다.
+애플리케이션 워크로드를 지원하기 위해 영구 데이터에 대한 스토리지 볼륨을 탑재할 수 있습니다. 정적 및 동적 볼륨을 모두 사용할 수 있습니다. 스토리지를 공유하기 위해 연결된 Pod 수에 따라 단일 Pod 액세스에 대한 Azure 디스크 또는 여러 동시 Pod 액세스에 대한 Azure Files 중 하나에서 지원되는 스토리지를 사용할 수 있습니다.
 
 자세한 내용은 [AKS의 애플리케이션에 대한 스토리지 옵션][concepts-storage]을 참조하세요.
 

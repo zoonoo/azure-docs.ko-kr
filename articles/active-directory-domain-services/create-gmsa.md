@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory Domain Services: 그룹 관리 서비스 계정 만들기 | Microsoft Docs'
-description: Azure Active Directory Domain Services 관리되는 도메인 관리
+description: Azure Active Directory Domain Services 관리 되는 도메인에서 사용할 그룹 관리 서비스 계정 (gMSA)을 만드는 방법에 대해 알아봅니다.
 services: active-directory-ds
 documentationcenter: ''
 author: iainfoulds
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: iainfou
-ms.openlocfilehash: 77924fdcef18bf7304f3d9f872559be4d3405971
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 3742aed7ff39e0a2f6bdf353fb9f261176027422
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473588"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69612953"
 ---
 # <a name="create-a-group-managed-service-account-gmsa-on-an-azure-ad-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리되는 도메인에서 그룹 관리 서비스 계정(gMSA) 만들기
 이 문서는 Azure AD Domain Services 관리되는 도메인에서 관리 서비스 계정을 만드는 방법을 보여 줍니다.
@@ -49,16 +49,16 @@ KDS(Key Distribution Services) 루트 키는 Azure AD Domain Services 관리되�
 
 ```powershell
 # Create a new custom OU on the managed domain
-New-ADOrganizationalUnit -Name "MyNewOU" -Path "DC=CONTOSO100,DC=COM"
+New-ADOrganizationalUnit -Name "MyNewOU" -Path "DC=contoso,DC=COM"
 
 # Create a service account 'WebFarmSvc' within the custom OU.
 New-ADServiceAccount -Name WebFarmSvc  `
--DNSHostName ` WebFarmSvc.contoso100.com  `
--Path "OU=MYNEWOU,DC=CONTOSO100,DC=com"  `
+-DNSHostName ` WebFarmSvc.contoso.com  `
+-Path "OU=MYNEWOU,DC=contoso,DC=com"  `
 -KerberosEncryptionType AES128, AES256  ` -ManagedPasswordIntervalInDays 30  `
--ServicePrincipalNames http/WebFarmSvc.contoso100.com/contoso100.com, `
-http/WebFarmSvc.contoso100.com/contoso100,  `
-http/WebFarmSvc/contoso100.com, http/WebFarmSvc/contoso100  `
+-ServicePrincipalNames http/WebFarmSvc.contoso.com/contoso.com, `
+http/WebFarmSvc.contoso.com/contoso,  `
+http/WebFarmSvc/contoso.com, http/WebFarmSvc/contoso  `
 -PrincipalsAllowedToRetrieveManagedPassword CONTOSO-SERVER$
 ```
 

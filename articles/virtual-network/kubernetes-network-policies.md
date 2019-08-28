@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/25/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: a5c367402bd1e61485095fd1d565a8582acc3a9e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff6fd45e0a68a3e93e4c62eb31a566a6dffa2344
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60824908"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494956"
 ---
 # <a name="azure-kubernetes-network-policies-overview"></a>Azure Kubernetes 네트워크 정책 개요
 
@@ -32,7 +32,7 @@ ms.locfileid: "60824908"
 Azure 네트워크 정책은 컨테이너를 위한 VNet 통합을 제공하는 Azure CNI와 함께 작동합니다. 이는 현재 Linux 노드에 대해서만 지원합니다. 구현은 트래픽 필터링을 적용하기 위해 정의된 정책에 따라 Linux IP 테이블 규칙을 구성합니다.
 
 ## <a name="planning-security-for-your-kubernetes-cluster"></a>Kubernetes 클러스터에 대한 보안 계획
-클러스터에 대한 보안을 구현하는 경우 클러스터 서브넷에 들어오고 나가는 트래픽인 북-남 트래픽을 필터링하는 데 NSG(네트워크 보안 그룹)를 사용하고, 클러스터의 pod 간 트래픽인 동-서 트래픽에 대해서는 Kubernetes 네트워크 정책을 사용합니다.
+클러스터에 대 한 보안을 구현 하는 경우 NSGs (네트워크 보안 그룹)를 사용 하 여 북쪽 남부 트래픽을 필터링 합니다. 즉, 클러스터 서브넷을 들어오고 나가는 트래픽을 필터링 하 고 Kubernetes 네트워크 정책을 사용 하 여 동-서 트래픽, 즉 pod 간 트래픽 클러스터.
 
 ## <a name="using-azure-kubernetes-network-policies"></a>Azure Kubernetes 네트워크 정책 사용
 Azure 네트워크 정책은 pod에 대한 마이크로 구분을 제공하기 위해 다음과 같은 방법에서 사용할 수 있습니다.

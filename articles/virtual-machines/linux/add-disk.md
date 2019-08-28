@@ -211,7 +211,7 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 > Azure VM의 직렬 콘솔에서 부팅 오류가 발생 했습니다 fstab을 수정 하는 경우 VM에 대 한 콘솔 액세스에 사용할 수 있습니다. 자세한 내용은 합니다 [직렬 콘솔 설명서](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)합니다.
 
 ### <a name="trimunmap-support-for-linux-in-azure"></a>Azure에서 Linux에 대한 TRIM/UNMAP 지원
-일부 Linux 커널은 디스크에서 사용되지 않은 블록을 버릴 수 있도록 TRIM/UNMAP 작업을 지원합니다. 이 기능은 삭제된 페이지가 더 이상 유효하지 않으며 폐기될 수 있음을 Azure에 알리기 위해 표준 저장소에서 주로 유용하며, 큰 파일을 만들고 삭제하는 경우 비용을 절약할 수 있습니다.
+일부 Linux 커널은 디스크에서 사용되지 않은 블록을 버릴 수 있도록 TRIM/UNMAP 작업을 지원합니다. 이 기능은 삭제된 페이지가 더 이상 유효하지 않으며 폐기될 수 있음을 Azure에 알리기 위해 표준 스토리지에서 주로 유용하며, 큰 파일을 만들고 삭제하는 경우 비용을 절약할 수 있습니다.
 
 Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. 평소와 같이 권장되는 방법에 대해 배포에 확인하세요.
 
@@ -243,4 +243,4 @@ Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. �
 ## <a name="next-steps"></a>다음 단계
 
 * Linux VM을 올바르게 구성했는지 확인하려면 [Linux 컴퓨터 성능 최적화](optimization.md) 권장 사항을 검토합니다.
-* 디스크를 추가하여 저장소 용량을 확장하고 추가 성능이 필요할 경우 [RAID를 구성](configure-raid.md)합니다.
+* 디스크를 추가하여 스토리지 용량을 확장하고 추가 성능이 필요할 경우 [RAID를 구성](configure-raid.md) 합니다.

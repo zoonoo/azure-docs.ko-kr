@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 작업 영역이란 사용자 지정 번역 시스템을 구성하고 빌드하기 위한 작업 구축에 대 한 작업 공간입니다. 적업 영역은 여러 프로젝트, 모델 및 문서를 포함할 수 있습니다. 프로젝트란 모델, 문서 및 테스트에 대한 래퍼입니다. 각 프로젝트는 올바른 언어 쌍이 있는 해당 작업 영역에 업로드되는 모든 문서를 자동으로 포함합니다.
 services: cognitive-services
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: c35f3911b591a0d9adccdc48dbdc17f8afb5ea00
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 23db27ba7b51b0f5a312498dbcb1d0f2741245bb
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447353"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595350"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>Custom Translator 작업 영역이란?
 

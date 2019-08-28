@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 9bdeb91b145f8c7f31be8c1dcd5c5158d50ff2f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eed6113442b4080341ff08b3983880f3afe66c00
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712319"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385126"
 ---
 # <a name="expressroute-qos-requirements"></a>ExpressRoute QoS 요구 사항
 비즈니스용 Skype에는 차별화된 QoS 처리를 필요로 하는 다양한 워크로드가 있습니다. ExpressRoute를 통해 음성 서비스를 사용하려면 아래에 설명한 요구 사항을 준수해야 합니다.
@@ -25,14 +25,14 @@ ms.locfileid: "64712319"
 > 
 > 
 
-다음 표에서 Microsoft Teams 및 Skype for Business에 사용한 DSCP 표시의 목록을 제공 합니다. 자세한 내용은 [비즈니스용 Skype에 대한 QoS 관리](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/managing-quality-of-service-QoS) 를 참조합니다.
+다음 표에서는 Microsoft 팀과 비즈니스용 Skype에서 사용 하는 DSCP 표시 목록을 제공 합니다. 자세한 내용은 [비즈니스용 Skype에 대한 QoS 관리](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/managing-quality-of-service-QoS) 를 참조합니다.
 
-| **트래픽 클래스** | **처리(DSCP 표시)** | **Microsoft Teams 및 비즈니스 워크 로드에 대 한 Skype** |
+| **트래픽 클래스** | **처리(DSCP 표시)** | **Microsoft 팀 및 비즈니스용 Skype 워크 로드** |
 | --- | --- | --- |
-| **음성** |EF (46) |Skype/Lync 음성 |
+| **음성** |EF (46) |Skype/Microsoft 팀/Lync 음성 |
 | **대화형** |AF41 (34) |비디오, VBSS |
 | |AF21 (18) |앱 공유 | 
-| **기본값** |AF11 (10) |파일 전송 |
+| **Default** |AF11 (10) |파일 전송 |
 | |CS0 (0) |다른 항목 |
 
 * 워크로드를 분류하고 올바른 DSCP 값을 표시해야 합니다. 네트워크에서 DSCP 표시를 설정하는 방법은 [여기](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/configuring-port-ranges-for-your-skype-clients#configure-quality-of-service-policies-for-clients-running-on-windows-10) 에 제공된 가이드를 따릅니다.

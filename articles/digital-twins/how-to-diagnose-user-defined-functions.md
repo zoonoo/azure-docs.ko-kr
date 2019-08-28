@@ -1,51 +1,51 @@
 ---
 title: Azure Digital Twins에서 UDF를 디버그하는 방법 | Microsoft Docs
 description: Azure Digital Twins에서 UDF를 디버그하는 방법에 대한 지침입니다.
-author: stefanmsft
-manager: deshner
+author: kingdomofends
+manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/05/2019
-ms.author: stefanmsft
+ms.date: 08/12/2019
+ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 4d772b8cad64f138d93d91e87f6e6364c5a5d602
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 24dc01d47bece4191d1b142a58c4ad7b6d9fb6cf
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808898"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876576"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Azure Digital Twins에서 사용자 정의 함수를 디버그하는 방법
 
-이 문서에서는 진단 및 Azure 디지털 쌍의 사용자 정의 함수를 디버그 하는 방법을 요약 합니다. 그런 다음 디버그하는 경우에 볼 수 있는 가장 일반적인 몇 가지 시나리오를 식별합니다.
+이 문서에서는 Azure Digital Twins에서 사용자 정의 함수를 진단 하 고 디버깅 하는 방법을 요약 합니다. 그런 다음 디버그하는 경우에 볼 수 있는 가장 일반적인 몇 가지 시나리오를 식별합니다.
 
 >[!TIP]
 > Activity Logs, Diagnostic Logs 및 Azure Monitor를 사용하여 Azure Digital Twins에서 디버깅 도구를 설정하는 방법에 대해 자세히 알아보려면 [모니터링 및 로깅을 구성하는 방법](./how-to-configure-monitoring.md)을 참조하세요.
 
 ## <a name="debug-issues"></a>문제 디버그
 
-Azure 디지털 쌍 내에서 문제를 진단 하는 방법을 알고 효과적으로 문제를 분석, 문제의 원인을 식별 및에 적절 한 솔루션을 제공할 수 있습니다.
+Azure Digital Twins 내에서 문제를 진단 하는 방법을 알면 문제를 효과적으로 분석 하 고 문제의 원인을 파악 하 고 적절 한 솔루션을 제공할 수 있습니다.
 
-다양 한 로깅, 분석 및 진단 도구는이 위해 제공 됩니다.
+이러한 끝에 다양 한 로깅, 분석 및 진단 도구가 제공 됩니다.
 
-### <a name="enable-logging-for-your-instance"></a>인스턴스에 대 한 로깅을 사용 하도록 설정
+### <a name="enable-logging-for-your-instance"></a>인스턴스에 대 한 로깅 사용
 
-Azure Digital Twins는 강력한 로깅, 모니터링 및 분석을 지원합니다. 솔루션 개발자는 Azure Monitor 로그, 진단 로그, 활동 로그 및 기타 서비스를 사용 하 여 IoT 앱의 복잡 한 모니터링 요구에 따라 수 있습니다. 로깅 옵션을 결합하여 여러 서비스의 레코드를 쿼리 또는 표시하고 여러 서비스에 대한 세밀한 로깅 범위를 제공할 수 있습니다.
+Azure Digital Twins는 강력한 로깅, 모니터링 및 분석을 지원합니다. 솔루션 개발자는 Azure Monitor 로그, 진단 로그, 활동 로그 및 기타 서비스를 사용 하 여 IoT 앱의 복잡 한 모니터링 요구를 지원할 수 있습니다. 로깅 옵션을 결합하여 여러 서비스의 레코드를 쿼리 또는 표시하고 여러 서비스에 대한 세밀한 로깅 범위를 제공할 수 있습니다.
 
-* Azure 디지털 쌍 관련 로깅 구성에 대 한 읽을 [모니터링 및 로깅을 구성 하는 방법](./how-to-configure-monitoring.md)합니다.
-* 참조 된 [Azure Monitor](../azure-monitor/overview.md) Azure Monitor를 통해 사용 하도록 설정 하는 강력한 로그 설정에 대 한 자세한 개요입니다.
-* 문서를 검토 [Azure 리소스에서 로그 데이터 수집 및 소비](../azure-monitor/platform/diagnostic-logs-overview.md) Azure Portal, Azure CLI 또는 PowerShell을 통해 디지털 쌍 Azure에서에서 진단 로그 설정을 구성 합니다.
+* Azure Digital Twins에 특정 한 로깅 구성을 보려면 [모니터링 및 로깅을 구성 하는 방법](./how-to-configure-monitoring.md)을 참조 하세요.
+* Azure Monitor를 통해 사용 하도록 설정 된 강력한 로그 설정에 대 한 자세한 내용은 [Azure Monitor](../azure-monitor/overview.md) 개요를 참조 하세요.
+* Azure Portal, Azure CLI 또는 PowerShell을 통해 azure Digital Twins에서 진단 로그 설정 구성에 대 한 [azure 리소스에서 로그 데이터 수집 및 사용](../azure-monitor/platform/diagnostic-logs-overview.md) 문서를 검토 합니다.
 
-구성 되 면에 메트릭, 모든 로그 범주를 선택 하 고 강력한 Azure Monitor log analytics 작업 영역을 사용 하 여 디버깅 작업을 지원할 수 있습니다.
+구성 된 후에는 모든 로그 범주 및 메트릭을 선택 하 고 강력한 Azure Monitor log analytics 작업 영역을 사용 하 여 디버깅 활동을 지원할 수 있습니다.
 
 ### <a name="trace-sensor-telemetry"></a>센서 원격 분석 추적
 
-센서 원격 분석을 추적하려면 Azure Digital Twins 인스턴스에 대해 진단 설정이 활성화되어 있는지 확인합니다. 그런 다음 원하는 모든 로그 범주가 선택되어 있는지 확합니다. 마지막으로 원하는 로그는 Azure Monitor 로그로 전송 되 고 있는지 확인 합니다.
+센서 원격 분석을 추적하려면 Azure Digital Twins 인스턴스에 대해 진단 설정이 활성화되어 있는지 확인합니다. 그런 다음 원하는 모든 로그 범주가 선택되어 있는지 확합니다. 마지막으로 원하는 로그가 Azure Monitor 로그로 전송 되 고 있는지 확인 합니다.
 
 센서 원격 분석 메시지를 해당 로그에 일치시키려면 보내는 이벤트 데이터에 대한 상관 관계 ID를 지정할 수 있습니다. 이렇게 하려면 `x-ms-client-request-id` 속성을 GUID로 설정합니다.
 
-원격 분석을 보낸 후 쿼리 집합을 사용 하 여 로그를 log analytics를 연 상관 관계 ID:
+원격 분석을 보낸 후 set 상관 관계 ID를 사용 하 여 로그를 쿼리하려면 Azure Monitor log analytics를 엽니다.
 
 ```Kusto
 AzureDiagnostics
@@ -56,7 +56,7 @@ AzureDiagnostics
 | --- | --- |
 | YOUR_CORRELATION_IDENTIFIER | 이벤트 데이터에 대해 지정된 상관 관계 ID |
 
-해당 로그 범주를 사용 하 여 로그 분석 인스턴스 사용자 정의 함수에 대 한 로깅을 사용 하도록 설정 하면 나타나는 `UserDefinedFunction`합니다. 를 검색 하려면 log analytics에서 다음 쿼리 조건을 입력 합니다.
+사용자 정의 함수에 대 한 로깅을 사용 하도록 설정 하면 해당 로그는 범주 `UserDefinedFunction`를 사용 하 여 log analytics 인스턴스에 표시 됩니다. 이를 검색 하려면 log analytics에서 다음 쿼리 조건을 입력 합니다.
 
 ```Kusto
 AzureDiagnostics
@@ -209,4 +209,4 @@ function process(telemetry, executionContext) {
 
 - Azure Digital Twins에서 [모니터링 및 로그](./how-to-configure-monitoring.md)를 사용하도록 설정하는 방법을 알아봅니다.
 
-- 읽기를 [개요의 Azure 활동 로그](../azure-monitor/platform/activity-logs-overview.md) 더 많은 Azure 로깅 옵션에 대 한 문서.
+- 자세한 Azure 로깅 옵션은 [Azure 활동 로그 개요](../azure-monitor/platform/activity-logs-overview.md) 문서를 참조 하세요.

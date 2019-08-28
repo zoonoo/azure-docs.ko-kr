@@ -54,7 +54,7 @@ Microsoft Azure에서 가상 네트워크를 삭제하려고 할 때 오류가 �
 
 ### <a name="check-whether-an-application-gateway-is-running-in-the-virtual-network"></a>가상 네트워크에서 애플리케이션 게이트웨이가 실행 중인지 확인
 
-가상 네트워크에 대한 **개요** 페이지로 이동합니다. 애플리케이션 게이트웨이에 대한 **연결된 장치**를 확인합니다.
+가상 네트워크에 대한 **개요** 페이지로 이동합니다. 애플리케이션 게이트웨이에 대한 **연결된 디바이스**를 확인합니다.
 
 ![연결된 디바이스 확인](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
 

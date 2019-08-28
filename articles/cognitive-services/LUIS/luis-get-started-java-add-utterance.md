@@ -1,6 +1,6 @@
 ---
-title: 변경, 학습 앱, Java
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 변경, 학습 앱, Java - LUIS
+titleSuffix: Azure Cognitive Services
 description: Java 빠른 시작에서는 Home Automation 앱에 예제 발언을 추가하여 앱을 학습시킵니다.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: diberry
-ms.openlocfilehash: ce2cf0603e584684edda1b1f14a12b52fbbb928c
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: bfe195ecd4dd777d5073c03c2e4fbd4bfcaaaa06
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357131"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560594"
 ---
 # <a name="quickstart-change-model-using-java"></a>빠른 시작: Java를 사용하여 모델 변경 
 

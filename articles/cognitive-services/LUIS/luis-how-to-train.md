@@ -1,6 +1,6 @@
 ---
-title: 앱 교육
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 앱 교육-LUIS
+titleSuffix: Azure Cognitive Services
 description: 학습은 해당 자연어 이해를 향상시키기 위해 LUIS(Language Understanding) 앱 버전을 학습하는 과정입니다. 엔터티, 의도 또는 발언을 추가하거나, 편집하거나, 레이블 지정하거나 삭제하는 등 모델에 대한 업데이트 후에 LUIS 앱을 학습합니다.
 services: cognitive-services
 author: diberry
@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/07/2019
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: ba0db22437961a33b0b415ec7cb60ad3df12821c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b3841c9d60cf275e423024fc66c15582f95c0a10
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60195857"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932749"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>LUIS 앱의 활성 버전 학습 
 
@@ -44,9 +44,9 @@ When you train a LUIS app by example, LUIS generalizes from the examples you hav
 >[!NOTE]
 >앱에 예제 발언이 포함되지 않는 하나 이상의 의도가 있는 경우 앱을 학습할 수 없습니다. 모든 의도에 발언을 추가합니다. 자세한 내용은 [예제 발언 추가](luis-how-to-add-example-utterances.md)를 참조하세요.
 
-## <a name="training-date-and-time"></a>교육 날짜 및 시간
+## <a name="training-date-and-time"></a>학습 날짜 및 시간
 
-교육 날짜 및 시간에는 GMT + 2입니다. 
+학습 날짜 및 시간은 GMT + 2입니다. 
 
 ## <a name="train-with-all-data"></a>모든 데이터를 사용하여 학습
 

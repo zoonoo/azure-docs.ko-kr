@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: LUIS 포털에서 앱 배포'
-titleSuffix: Language Understanding - Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 앱이 챗봇 같은 클라이언트 애플리케이션으로 발화 예측을 반환할 준비가 된 후에 예측 엔드포인트에 LUIS 앱을 배포하는 방법을 알아봅니다. 이 빠른 시작에서는 예측 엔드포인트 리소스를 만들고, 앱에 리소스를 할당하고, 앱을 학습시키고, 앱을 게시하여 애플리케이션을 배포하는 방법을 배웁니다.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: db2b543fa8e5429cc8d50d7789b03239173f563d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 5c310c1943eaf23423be873c6172e27c621fe109
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154507"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564074"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>빠른 시작: LUIS 포털에서 앱 배포
 
@@ -41,10 +41,10 @@ LUIS 앱이 챗봇 같은 클라이언트 애플리케이션으로 발화 예측
    |설정|값|목적|
    |--|--|--|
    |Name|`my-cognitive-service-resource`|Azure 리소스의 이름입니다. LUIS 포털에서 앱에 리소스를 할당할 때 이 이름이 필요합니다.|
-   |구독|사용자의 구독|계정과 연결된 구독 중 하나를 선택합니다.|
+   |Subscription|사용자의 구독|계정과 연결된 구독 중 하나를 선택합니다.|
    |위치|**미국 서부**|이 리소스의 Azure 지역입니다.|
-   |가격 책정 계층 |**S0**|이 리소스의 기본 가격 책정 계층입니다.|
-   |리소스 그룹|`my-cognitive-service-resource-group`|모든 인식 서비스 리소스에 대한 새 리소스 그룹을 만듭니다. 리소스 사용을 마친 후에는 리소스 그룹을 삭제하여 구독을 정리할 수 있습니다. |
+   |가격 책정 계층|**S0**|이 리소스의 기본 가격 책정 계층입니다.|
+   |Resource group|`my-cognitive-service-resource-group`|모든 인식 서비스 리소스에 대한 새 리소스 그룹을 만듭니다. 리소스 사용을 마친 후에는 리소스 그룹을 삭제하여 구독을 정리할 수 있습니다. |
    | | | |
 
    ![Azure API 선택](./media/get-started-portal-deploy-app/create-cognitive-services-resource.png)

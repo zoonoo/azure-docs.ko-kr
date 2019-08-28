@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 12/19/2018
+ms.date: 08/02/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 03a4005da7794a989166f914e4ba4d03f93ae8b9
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: dbfa7ff6e30b64fe1025114590c1b1a8824e6cdf
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182059"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780229"
 ---
 1. 포털에서 **+리소스 만들기**를 클릭합니다.
 2. 검색 상자에 **로컬 네트워크 게이트웨이**를 입력한 후 **Enter**를 눌러서 검색합니다. 그러면 결과 목록이 반환됩니다. **로컬 네트워크 게이트웨이**를 클릭한 다음, **만들기** 단추를 클릭하여 **로컬 네트워크 게이트웨이 만들기** 페이지를 엽니다.

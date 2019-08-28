@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/19/2019
-ms.openlocfilehash: 5681b5aa46acc1192675da0b1cceee596dfa0105
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 325dda3695e796bc0814954d3bd69b9b340133b8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799897"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567958"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>SQL Database에서 메모리 내 기술을 사용하여 성능 최적화
 
@@ -37,7 +36,7 @@ Azure SQL Database에서 메모리 내 기술을 사용하여 다양한 워크�
 
 Azure SQL Database에는 다음과 같은 메모리 내 기술이 있습니다.
 - *[메모리 내 OLTP](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)* 는 초당 트랜잭션의 수를 증가시키고 트랜잭션 처리에 대한 대기 시간을 감소시킵니다. 메모리 내 OLTP를 활용하는 시나리오는 거래와 게임, 이벤트 또는 IoT 디바이스의 데이터 수집, 캐싱, 데이터 부하 및 임시 테이블과 테이블 변수 시나리오와 같은 처리량 많은 트랜잭션을 처리하는 경우입니다.
-- *클러스터형 Columnstore 인덱스*는 저장소 공간을 최대 10배로 감소시키고 보고 및 분석 쿼리에 대한 성능을 향상시킵니다. 데이터베이스에 있는 더 많은 데이터에 적합한 데이터 마트에서 팩트 테이블과 함께 이 기능을 사용하여 성능을 향상시킬 수 있습니다. 운영 데이터베이스에 있는 기록 데이터와 함께 이 기능을 사용하여 최대 10배 더 많은 데이터를 보관하고 쿼리할 수도 있습니다.
+- *클러스터형 Columnstore 인덱스*는 스토리지 공간을 최대 10배로 감소시키고 보고 및 분석 쿼리에 대한 성능을 향상시킵니다. 데이터베이스에 있는 더 많은 데이터에 적합한 데이터 마트에서 팩트 테이블과 함께 이 기능을 사용하여 성능을 향상시킬 수 있습니다. 운영 데이터베이스에 있는 기록 데이터와 함께 이 기능을 사용하여 최대 10배 더 많은 데이터를 보관하고 쿼리할 수도 있습니다.
 - HTAP에 대한 *비클러스터형 Columnstore 인덱스*를 통해 비용이 많이 드는 ETL(추출, 변형 및 로드) 프로세스를 실행하거나 데이터 웨어하우스를 채울 때까지 기다릴 필요 없이 운영 데이터베이스를 직접 쿼리하여 비즈니스에 대한 실시간 정보를 얻을 수 있습니다. 비클러스터형 Columnstore 인덱스를 사용하면 운영 워크로드에 미치는 영향을 줄이는 동시에 OLTP 데이터베이스에 대한 분석 쿼리를 빠르게 실행할 수 있습니다.
 - HTAP에 대한 *메모리 최적화 클러스터형 columnstore 인덱스*를 사용하면 트랜잭션 처리를 빠르게 수행하고 동일한 데이터에서 분석 쿼리를 매우 신속하게 *동시* 실행할 수 있습니다.
 
@@ -66,11 +65,11 @@ columnstore 인덱스 및 메모리 내 OLTP는 각각 SQL Server 제품 2012 �
 
 이 문서에서는 Azure SQL Database와 관련된 메모리 내 OLTP 및 columnstore 인덱스의 측면을 설명하며 다음과 같은 샘플도 제공합니다.
 
-- 여기서는 데이터 크기 제한과 저장소에 대한 이와 같은 기술의 영향에 대해 알아봅니다.
+- 여기서는 데이터 크기 제한과 스토리지에 대한 이와 같은 기술의 영향에 대해 알아봅니다.
 - 그리고 이러한 기술을 사용하는 데이터베이스를 여러 가격 책정 계층 간에 이동하는 작업을 관리하는 방법도 살펴봅니다.
 - 또한 Azure SQL Database의 columnstore 인덱스뿐만 아니라 메모리 내 OLTP의 사용을 보여 주는 두 개의 샘플입니다.
 
-자세한 내용은 다음을 참조하세요.
+참조 항목:
 
 - [메모리 내 OLTP 개요 및 사용 시나리오](https://msdn.microsoft.com/library/mt774593.aspx)(고객 사례 연구 및 시작 정보에 대한 참조 포함)
 - [메모리 내 OLTP에 대한 설명서](https://msdn.microsoft.com/library/dn133186.aspx)
@@ -83,7 +82,7 @@ columnstore 인덱스 및 메모리 내 OLTP는 각각 SQL Server 제품 2012 �
 
 - **메모리 최적화 rowstore** 형식 여기서 모든 행은 별도 메모리 개체입니다. 이는 고성능 OLTP 워크로드에 대해 최적화된 클래식 메모리 내 OLTP 형식입니다. 메모리 최적화 rowstore 형식에 사용할 수 있는 메모리 최적화 테이블에는 다음과 같은 두 가지 유형이 있습니다.
   - *영구 테이블*(SCHEMA_AND_DATA) 여기서 메모리에 위치한 행은 서버가 다시 시작된 후 유지됩니다. 이 유형의 테이블은 메모리 내 최적화의 추가 혜택을 사용하여 기존의 rowstore 테이블처럼 동작합니다.
-  - *비영구 테이블* (SCHEMA_ONLY) 행 있는 not 유지 다시 시작한 후입니다. 이 유형의 테이블은 임시 데이터(예: 대체 임시 테이블) 또는 일부 지속형 테이블로 이동하기 전에 신속하게 데이터를 로드해야 하는 테이블(따라서 준비 테이블이라고 함)을 위해 설계되었습니다.
+  - *내구성이 없는 테이블* (SCHEMA_ONLY) 다시 시작한 후 행이 유지 되지 않습니다. 이 유형의 테이블은 임시 데이터(예: 대체 임시 테이블) 또는 일부 지속형 테이블로 이동하기 전에 신속하게 데이터를 로드해야 하는 테이블(따라서 준비 테이블이라고 함)을 위해 설계되었습니다.
 - **메모리 최적화 columnstore** 형식 여기서 데이터는 열 형식으로 구성됩니다. 이 구조는 OLTP 워크로드가 실행되고 있는 동일한 데이터 구조에서 분석 쿼리를 실행해야 하는 HTAP 시나리오를 위해 설계되었습니다.
 
 > [!Note]
@@ -107,13 +106,13 @@ SELECT * FROM sys.table_types WHERE is_memory_optimized=1
 SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 ```
 
-### <a name="data-size-and-storage-cap-for-in-memory-oltp"></a>메모리 내 OLTP의 데이터 크기 및 저장 제한
+### <a name="data-size-and-storage-cap-for-in-memory-oltp"></a>메모리 내 OLTP의 데이터 크기 및 스토리지 제한
 
-메모리 내 OLTP는 사용자 데이터를 저장하는 데 사용되는 메모리 최적화 테이블을 포함합니다. 이러한 테이블은 메모리에 적합해야 합니다. SQL Database 서비스에 직접 메모리를 관리하기 때문에 사용자 데이터에 대한 할당량의 개념이 있습니다. 이 개념은 *메모리 내 OLTP 저장소*라고 합니다.
+메모리 내 OLTP는 사용자 데이터를 저장하는 데 사용되는 메모리 최적화 테이블을 포함합니다. 이러한 테이블은 메모리에 적합해야 합니다. SQL Database 서비스에 직접 메모리를 관리하기 때문에 사용자 데이터에 대한 할당량의 개념이 있습니다. 이 개념은 *메모리 내 OLTP 스토리지*라고 합니다.
 
-지원되는 단일 데이터베이스 가격 책정 계층 및 탄력적 풀 가격 책정 계층에는 각각 일정량의 메모리 내 OLTP 저장소가 포함됩니다. [DTU 기반 리소스 제한 - 단일 데이터베이스](sql-database-dtu-resource-limits-single-databases.md), [DTU 기반 리소스 제한 - 탄력적 풀](sql-database-dtu-resource-limits-elastic-pools.md), [vCore 기반 리소스 제한 - 단일 데이터베이스](sql-database-vcore-resource-limits-single-databases.md) 및 [vCore 기반 리소스 제한 - 탄력적 풀](sql-database-vcore-resource-limits-elastic-pools.md)을 참조하세요.
+지원되는 단일 데이터베이스 가격 책정 계층 및 탄력적 풀 가격 책정 계층에는 각각 일정량의 메모리 내 OLTP 스토리지가 포함됩니다. [DTU 기반 리소스 제한 - 단일 데이터베이스](sql-database-dtu-resource-limits-single-databases.md), [DTU 기반 리소스 제한 - 탄력적 풀](sql-database-dtu-resource-limits-elastic-pools.md), [vCore 기반 리소스 제한 - 단일 데이터베이스](sql-database-vcore-resource-limits-single-databases.md) 및 [vCore 기반 리소스 제한 - 탄력적 풀](sql-database-vcore-resource-limits-elastic-pools.md)을 참조하세요.
 
-메모리 내 OLTP 저장소 제한 계산 시 포함되는 항목은 다음과 같습니다.
+메모리 내 OLTP 스토리지 제한 계산 시 포함되는 항목은 다음과 같습니다.
 
 - 메모리 최적화 테이블 및 테이블 변수의 활성 사용자 데이터 행입니다. 예전 행 버전은 제한에 고려되지 않습니다.
 - 메모리 최적화 테이블에 대한 인덱스입니다.
@@ -121,14 +120,14 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 제한에 도달한 경우 할당량 초과 오류가 표시되고 더 이상 데이터를 삽입하거나 업데이트할 수 없습니다. 이 오류를 완화하려면 데이터를 삭제하거나 데이터베이스 또는 풀의 가격 책정 계층을 증가시킵니다.
 
-제한에 도달한 경우 메모리 내 OLTP 저장소 사용률을 모니터링하고 경고를 구성하는 방법에 대한 자세한 내용은 [메모리 내 저장소 모니터링](sql-database-in-memory-oltp-monitoring.md)을 참조하세요.
+제한에 도달한 경우 메모리 내 OLTP 스토리지 사용률을 모니터링하고 경고를 구성하는 방법에 대한 자세한 내용은 [메모리 내 스토리지 모니터링](sql-database-in-memory-oltp-monitoring.md)을 참조하세요.
 
 #### <a name="about-elastic-pools"></a>탄력적 풀에 대한 정보
 
-탄력적 풀을 사용하여 메모리 내 OLTP 저장소는 풀에 있는 모든 데이터베이스에서 공유됩니다. 따라서 한 데이터베이스의 사용량은 다른 데이터베이스에 영향을 줄 수 있습니다. 두 가지 해결 방법이 있습니다.
+탄력적 풀을 사용하여 메모리 내 OLTP 스토리지는 풀에 있는 모든 데이터베이스에서 공유됩니다. 따라서 한 데이터베이스의 사용량은 다른 데이터베이스에 영향을 줄 수 있습니다. 두 가지 해결 방법이 있습니다.
 
-- 데이터베이스의 `Max-eDTU` 또는 `MaxvCore`를 전체 풀의 eDTU 또는 vCore 수보다 낮게 구성합니다. 이 최대값은 풀에 있는 모든 데이터베이스에서 메모리 내 OLTP 저장소 사용률을 eDTU 수에 해당하는 크기로 제한합니다.
-- `Min-eDTU` 또는 `MinvCore`를 0보다 크게 구성합니다. 이 최소값은 풀에 있는 각 데이터베이스가 구성된 `Min-eDTU` 또는 `vCore`에 해당하는 사용 가능한 메모리 내 OLTP 저장소의 양을 사용할 수 있도록 보장합니다.
+- 데이터베이스의 `Max-eDTU` 또는 `MaxvCore`를 전체 풀의 eDTU 또는 vCore 수보다 낮게 구성합니다. 이 최대값은 풀에 있는 모든 데이터베이스에서 메모리 내 OLTP 스토리지 사용률을 eDTU 수에 해당하는 크기로 제한합니다.
+- `Min-eDTU` 또는 `MinvCore`를 0보다 크게 구성합니다. 이 최소값은 풀에 있는 각 데이터베이스가 구성된 `Min-eDTU` 또는 `vCore`에 해당하는 사용 가능한 메모리 내 OLTP 스토리지의 양을 사용할 수 있도록 보장합니다.
 
 ### <a name="changing-service-tiers-of-databases-that-use-in-memory-oltp-technologies"></a>메모리 내 OLTP 기술을 사용하는 데이터베이스의 서비스 계층 변경
 
@@ -158,19 +157,19 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 - [Columnstore 인덱스: Ignite 2016의 메모리 내 분석 비디오](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
 
-### <a name="data-size-and-storage-for-columnstore-indexes"></a>columnstore 인덱스의 데이터 크기 및 저장소
+### <a name="data-size-and-storage-for-columnstore-indexes"></a>columnstore 인덱스의 데이터 크기 및 스토리지
 
 columnstore 인덱스는 메모리에 적합할 필요가 없습니다. 따라서 인덱스의 크기에 대한 유일한 제한은 전체 최대 데이터베이스 크기이며 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md) 문서에서 설명합니다.
 
-클러스터형 columnstore 인덱스를 사용하는 경우 기본 Table Storage에 칼럼 형식 압축을 사용합니다. 이러한 압축을 사용하면 사용자 데이터의 저장소 공간을 크게 줄일 수 있습니다. 즉, 데이터베이스에 더 많은 데이터를 담을 수 있습니다. 또한 [칼럼 형식 보관 압축](https://msdn.microsoft.com/library/cc280449.aspx#using-columnstore-and-columnstore-archive-compression)을 사용하여 압축량을 더욱 늘릴 수 있습니다. 수행할 수 있는 압축량은 데이터의 특성에 따라 달라지지만 10배 압축은 일반적이지 않습니다.
+클러스터형 columnstore 인덱스를 사용하는 경우 기본 Table Storage에 칼럼 형식 압축을 사용합니다. 이러한 압축을 사용하면 사용자 데이터의 스토리지 공간을 크게 줄일 수 있습니다. 즉, 데이터베이스에 더 많은 데이터를 담을 수 있습니다. 또한 [칼럼 형식 보관 압축](https://msdn.microsoft.com/library/cc280449.aspx#using-columnstore-and-columnstore-archive-compression)을 사용하여 압축량을 더욱 늘릴 수 있습니다. 수행할 수 있는 압축량은 데이터의 특성에 따라 달라지지만 10배 압축은 일반적이지 않습니다.
 
 예를 들어, 최대 크기 1TB(테라바이트)인 데이터베이스가 있고 columnstore 인덱스를 사용하여 10배 압축을 달성한 경우 데이터베이스에 총 10TB의 사용자 데이터를 담을 수 있습니다.
 
-비클러스터형 columnstore 인덱스를 사용하는 경우 기본 테이블은 여전히 기존의 rowstore 형식으로 저장됩니다. 따라서 절약된 저장소는 클러스터형 columnstore 인덱스만큼 크지 않습니다. 그러나 많은 기존의 비클러스터형 인덱스를 단일 columnstore 인덱스로 바꾸는 경우 테이블에 대한 저장소 공간에서 절약된 전체 공간을 볼 수 있습니다.
+비클러스터형 columnstore 인덱스를 사용하는 경우 기본 테이블은 여전히 기존의 rowstore 형식으로 저장됩니다. 따라서 절약된 스토리지는 클러스터형 columnstore 인덱스만큼 크지 않습니다. 그러나 많은 기존의 비클러스터형 인덱스를 단일 columnstore 인덱스로 바꾸는 경우 테이블에 대한 스토리지 공간에서 절약된 전체 공간을 볼 수 있습니다.
 
 ### <a name="changing-service-tiers-of-databases-containing-columnstore-indexes"></a>Columnstore 인덱스를 포함하는 데이터베이스의 서비스 계층 변경
 
-‘단일 데이터베이스를 기본 또는 표준으로 다운그레이드’하는 것은 대상 계층이 S3 미만인 경우 불가능할 수 있습니다.  columnstore 인덱스는 중요 비즈니스용/프리미엄 가격 책정 계층 및 표준 계층, S3 이상에서만 지원되며 기본 계층에서는 지원되지 않습니다. 데이터베이스를 지원되지 않는 계층 또는 수준으로 다운그레이드하면 columnstore 인덱스를 사용할 수 없게 됩니다. 시스템에서 columnstore 인덱스가 유지는 되지만 사용되지는 않습니다. 나중에 다시 지원되는 계층 또는 수준으로 업그레이드하는 경우 columnstore 인덱스는 즉시 다시 사용 가능한 상태가 됩니다.
+‘단일 데이터베이스를 기본 또는 표준으로 다운그레이드’하는 것은 대상 계층이 S3 미만인 경우 불가능할 수 있습니다. columnstore 인덱스는 중요 비즈니스용/프리미엄 가격 책정 계층 및 표준 계층, S3 이상에서만 지원되며 기본 계층에서는 지원되지 않습니다. 데이터베이스를 지원되지 않는 계층 또는 수준으로 다운그레이드하면 columnstore 인덱스를 사용할 수 없게 됩니다. 시스템에서 columnstore 인덱스가 유지는 되지만 사용되지는 않습니다. 나중에 다시 지원되는 계층 또는 수준으로 업그레이드하는 경우 columnstore 인덱스는 즉시 다시 사용 가능한 상태가 됩니다.
 
 **클러스터형** columnstore 인덱스가 있는 경우에는 다운그레이드 후에 전체 테이블을 사용할 수 없게 됩니다. 그러므로 지원되지 않는 계층 또는 수준으로 데이터베이스를 다운그레이드하기 전에 *클러스터형* columnstore 인덱스를 모두 삭제하는 것이 좋습니다.
 
@@ -183,10 +182,10 @@ columnstore 인덱스는 메모리에 적합할 필요가 없습니다. 따라�
 
 - [빠른 시작 1: 더 빠른 T-SQL 성능을 위한 메모리 내 OLTP 기술](https://msdn.microsoft.com/library/mt694156.aspx)
 - [기존 Azure SQL 애플리케이션에서 메모리 내 OLTP 사용](sql-database-in-memory-oltp-migration.md)
-- 메모리 내 OLTP에 대한 [메모리 내 OLTP 저장소 모니터링](sql-database-in-memory-oltp-monitoring.md).
+- 메모리 내 OLTP에 대한 [메모리 내 OLTP 스토리지 모니터링](sql-database-in-memory-oltp-monitoring.md).
 - [Azure SQL Database에서 메모리 내 기능 사용해보기](sql-database-in-memory-sample.md)
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 ### <a name="deeper-information"></a>자세한 정보
 
@@ -202,7 +201,7 @@ columnstore 인덱스는 메모리에 적합할 필요가 없습니다. 따라�
 - [메모리 내 OLTP(메모리 내 최적화)](https://msdn.microsoft.com/library/dn133186.aspx)
 - [기존 Azure SQL 애플리케이션에서 메모리 내 OLTP 사용](sql-database-in-memory-oltp-migration.md)
 
-### <a name="tools"></a>도구
+### <a name="tools"></a>Tools
 
 - [Azure Portal](https://portal.azure.com/)
 - [SSMS(SQL Server Management Studio)](https://msdn.microsoft.com/library/mt238290.aspx)

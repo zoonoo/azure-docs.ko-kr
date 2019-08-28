@@ -2,7 +2,7 @@
 title: T-SQL 언어 요소 - Azure SQL Data Warehouse | Microsoft Docs
 description: Azure SQL Data Warehouse에서 지원되는 T-SQL 문에 대한 설명서 링크입니다.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: query
 ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 95c5b592d5ca46aed5f7123ff2b3eb688c5c0caf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5d623ebbb5434338e2d7263ca63dd545230a612d
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873492"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479428"
 ---
 # <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 지원되는 T-SQL 언어 요소
 Azure SQL Data Warehouse에서 지원되는 T-SQL 언어 요소에 대한 설명서 링크입니다.
@@ -81,7 +81,7 @@ Azure SQL Data Warehouse에서 지원되는 T-SQL 언어 요소에 대한 설명
 * [|= (비트 OR 같음)](https://msdn.microsoft.com/library/cc627409.aspx)
 * [&= (비트 AND 같음)](https://msdn.microsoft.com/library/cc627427.aspx)
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>함수
 * [@@DATEFIRST](https://msdn.microsoft.com/library/ms187766.aspx)
 * [@@ERROR](https://msdn.microsoft.com/library/ms188790.aspx)
 * [@@LANGUAGE](https://msdn.microsoft.com/library/ms177557.aspx)
@@ -225,7 +225,7 @@ Azure SQL Data Warehouse에서 지원되는 T-SQL 언어 요소에 대한 설명
 * [연도](https://msdn.microsoft.com/library/ms186313.aspx)
 * [XACT_STATE](https://msdn.microsoft.com/library/ms189797.aspx)
 
-## <a name="transactions"></a>트랜잭션
+## <a name="transactions"></a>의
 * [트랜잭션](https://msdn.microsoft.com/library/mt204031.aspx)
 
 ## <a name="diagnostic-sessions"></a>진단 세션

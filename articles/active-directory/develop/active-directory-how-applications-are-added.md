@@ -10,7 +10,7 @@ ms.assetid: 3321d130-f2a8-4e38-b35e-0959693f3576
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/04/2019
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1b92b174d48c710a763857951d66d00956fa0f9
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 6bb3ef2a86c523d7cda5bc7da5d83ec4ac741abf
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483081"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835378"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>애플리케이션을 Azure AD에 추가하는 방법 및 이유
 
@@ -59,7 +59,7 @@ Azure Portal에서 [엔터프라이즈 애플리케이션](https://portal.azure.
 * 로컬 사용자 및 그룹 애플리케이션 역할 할당 기록
 * 애플리케이션에 부여된 로컬 사용자 및 관리자 권한 기록
   * 예: 특정 사용자 이메일에 액세스하기 위한 애플리케이션 권한
-* 조건부 액세스 정책을 포함 하 여 로컬 정책 기록
+* 조건부 액세스 정책을 포함 한 로컬 정책 레코드
 * 애플리케이션의 대체 로컬 설정 기록
   * 클레임 변환 규칙
   * 특성 매핑(사용자 프로비전)
@@ -82,7 +82,7 @@ Azure Portal에서 [엔터프라이즈 애플리케이션](https://portal.azure.
 
 애플리케이션에는 각 애플리케이션 개체가 동작하는 각각의 디렉터리(애플리케이션의 홈 디렉터리를 포함) 내에 하나 이상의 서비스 주체에 의해 참조되는 홈 디렉터리에 하나의 애플리케이션 개체를 갖습니다.
 
-![응용 프로그램 개체 및 서비스 주체 간의 관계를 보여 줍니다.][apps_service_principals_directory]
+![앱 개체와 서비스 사용자 간의 관계를 표시 합니다.][apps_service_principals_directory]
 
 위 다이어그램에서 Microsoft는 두 개의 디렉터리를 내부적으로 유지하며(왼쪽에 표시됨) 애플리케이션을 게시하는 데 사용합니다.
 
@@ -104,7 +104,7 @@ Azure AD와 통합하는 애플리케이션 게시자/공급업체에는 게시 
   * 클레임 변환 규칙
   * 특성 매핑(사용자 프로비전)
 * 서비스 주체 및 애플리케이션 개체에 대한 자세한 내용은 다음과 같은 Azure AD Graph REST API 참조 문서를 참조하세요.
-  * [애플리케이션](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
+  * [응용 프로그램](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
   * [서비스 주체](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>애플리케이션이 Azure AD와 통합되는 이유는 무엇일까요?

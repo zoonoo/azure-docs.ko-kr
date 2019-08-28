@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: d7d4aa89c4dcf2ac9cc0c393e0481cae1f3aeaf2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4e86a3a7b6a0781ea6c020bd0afc9364b7132f7
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60776081"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839346"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Azure Monitor의 에이전트 데이터 원본
 Azure Monitor가 에이전트에서 수집하는 데이터는 구성한 데이터 원본에 의해 정의됩니다.  에이전트의 데이터는 레코드 세트를 사용하여 [로그 데이터](data-platform-logs.md)로 저장됩니다.  각 데이터 원본은 각각 고유한 속성 집합이 있는 특정 유형의 레코드를 만듭니다.
@@ -29,7 +29,7 @@ Azure Monitor가 에이전트에서 수집하는 데이터는 구성한 데이�
 다음 표에는 현재 Azure Monitor에서 사용할 수 있는 에이전트 데이터 원본이 나와 있습니다.  각각 해당 데이터 원본에 대한 세부 정보를 제공하는 별도의 문서에 대한 링크가 있습니다.   수집 방법 및 빈도에 대한 정보도 제공합니다. 
 
 
-| 데이터 원본 | 플랫폼 | Microsoft Monitoring Agent | Operations Manager 에이전트 | Azure 저장소 | Operations Manager 필요 여부 | 관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터 | 수집 빈도 |
+| 데이터 원본 | 플랫폼 | Log analytics 에이전트 | Operations Manager 에이전트 | Azure Storage | Operations Manager 필요 여부 | 관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | [사용자 지정 로그](data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | 도착 시 |
 | [사용자 지정 로그](data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | 도착 시 |

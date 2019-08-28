@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2019
-ms.author: apipm
-ms.openlocfilehash: 7f7c37843ccaf78c7b7e6ec7a959106df45053d6
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.author: apimpm
+ms.openlocfilehash: bf39e508b8e4c883934b51fdc99eaef96caf1235
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461620"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018221"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API 가져오기 제한 사항 및 알려진 문제
 
@@ -34,11 +34,12 @@ OpenAPI 문서를 가져올 때 오류가 표시되면 해당 문서의 유효�
 ### <a name="open-api-general"> </a>일반
 
 -   경로와 쿼리 간에 필수 매개 변수 이름은 고유해야 합니다. OpenAPI에서는 매개 변수 이름이 경로, 쿼리, 헤더 등의 특정 위치 내에서만 고유하면 됩니다. 하지만 API Management에서는 경로 및 쿼리 매개 변수를 기준으로 작업을 구분할 수 있습니다. OpenAPI에서는 이러한 구분이 지원되지 않습니다. 따라서 전체 URL 템플릿 내에서 매개 변수 이름이 고유해야 합니다.
--   **\$ref** 포인터는 외부 파일을 참조할 수 없습니다.
+-   참조 포인터는 외부 파일을 참조할 수 없습니다.  **\$**
 -   **x-ms-paths** 및 **x-servers**는 지원되는 유일한 확장명입니다.
 -   사용자 지정 확장명은 가져오기 시 무시되며 내보내기용으로 저장되거나 보존되지 않습니다.
 -   **재귀** - 자기 자신을 참조하는 스키마 등 재귀적으로 정의된 정의는 API Management에서 지원되지 않습니다.
 -   이 경우에는 원본 파일 URL(사용 가능한 경우)이 상대 서버 URL에 적용됩니다.
+-   보안 정의는 무시 됩니다.
 
 ### <a name="open-api-v2"> </a>OpenAPI 버전 2
 
@@ -55,7 +56,7 @@ OpenAPI 문서를 가져올 때 오류가 표시되면 해당 문서의 유효�
 
 ## <a name="wsdl"> </a>WSDL
 
-WSDL 파일을 사용 하 여 SOAP 통과 및 SOAP-REST Api를 만듭니다.
+WSDL 파일은 SOAP 통과 및 SOAP-REST Api를 만드는 데 사용 됩니다.
 
 -   **SOAP 바인딩** - 스타일 "document" 및 "literal" 인코딩의 SOAP 바인딩만 사용할 수 있습니다. "rpc" 스타일 또는 SOAP 인코딩은 지원되지 않습니다.
 -   **WSDL:Import** - 이 특성은 지원되지 않습니다. 고객은 가져오기를 문서 하나로 병합해야 합니다.
@@ -64,7 +65,7 @@ WSDL 파일을 사용 하 여 SOAP 통과 및 SOAP-REST Api를 만듭니다.
 -   **MTOM** - MTOM을 사용한 서비스는 <em>작동할 수 있습니다</em>. 현재는 공식적으로 지원되지 않습니다.
 -   **재귀** - 재귀적으로 정의된(예: 자체의 배열을 참조) 형식은 APIM에서 지원되지 않습니다.
 -   **여러 네임스페이스** - 하나의 스키마에서 여러 네임스페이스를 사용할 수 있지만 메시지 파트를 정의하는 데는 대상 네임스페이스만 사용할 수 있습니다. 다른 입력 또는 출력 요소를 정의하는 데 사용되는 대상 이외의 네임스페이스는 유지되지 않습니다. 이러한 WSDL 문서를 가져올 수 있지만 내보내기 시 모든 메시지 파트의 대상 네임스페이스는 WSDL입니다.
--   **배열** -아래 예와에서 같이 SOAP-REST 변환 지원만 래핑된 배열:
+-   **배열** -SOAP-REST 변환은 아래 예제에 표시 된 래핑된 배열만 지원 합니다.
 
 ```xml
     <complexType name="arrayTypeName">

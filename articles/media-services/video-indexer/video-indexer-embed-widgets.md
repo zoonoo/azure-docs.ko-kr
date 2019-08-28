@@ -8,20 +8,20 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 06/30/2019
+ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: 937dc6eefbbfc37aaeee0801f410f9f99cb0c787
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: ec3c7379c8c7f28765fbc4396d3e9804a6c127f6
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67488676"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663755"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>애플리케이션에 Video Indexer 위젯 포함
 
-이 문서에서는 애플리케이션에 Video Indexer 위젯을 포함하는 방법에 대해 설명합니다. Video Indexer는 **인지 인사이트** 및 **플레이어**라는 두 가지 유형의 위젯을 애플리케이션에 포함할 수 있도록 지원합니다. 
+이 문서에서는 애플리케이션에 Video Indexer 위젯을 포함하는 방법에 대해 설명합니다. Video Indexer에서는 세 가지 유형의 위젯을 응용 프로그램에 포함 하는 것을 지원 합니다. **인식 통찰력**, **플레이어**및 **편집자**. 
 
-버전 2부터 위젯 기본 URL에 계정의 지역이 포함됩니다. 예를 들어 미국 서부 지역의 계정은 `https://wus2.videoindexer.ai/embed/insights/...`를 생성합니다.
+버전 2부터 위젯 기준 URL에는 지정 된 계정의 지역이 포함 됩니다. 예를 들어 미국 서부 지역의 계정은 `https://wus2.videoindexer.ai/embed/insights/...`를 생성합니다.
 
 ## <a name="widget-types"></a>위젯 유형
 
@@ -31,22 +31,34 @@ ms.locfileid: "67488676"
 
 |이름|정의|설명|
 |---|---|---|
-|widgets|쉼표로 구분된 문자열|렌더링하려는 인사이트를 제어할 수 있습니다. <br/>예: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search`는 사용자 및 브랜드 UI 인사이트만 제공합니다.<br/>사용 가능한 옵션: people, keywords, annotations, brands, sentiments, transcript, search<br/>version=2에서 URL을 통해 지원되지 않습니다.<br/><br/>**참고:** 위젯 URL 매개 변수는 버전 2에서에서 지원 되지 않습니다. |
-|locale|간단한 언어 코드|Insights 언어를 제어합니다. 기본값은 `en`입니다. 예: `language=de`|
-|탭|기본 선택한 탭|기본적으로 렌더링 되는 insights 탭을 제어 합니다. `tab=timeline` 타임 라인 탭이 선택 된 정보를 렌더링 합니다.|
+|`widgets`|쉼표로 구분된 문자열|렌더링하려는 인사이트를 제어할 수 있습니다. <br/>예: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search`는 사용자 및 브랜드 UI 인사이트만 제공합니다.<br/>사용 가능한 옵션: people, keywords, annotations, brands, sentiments, transcript, search<br/>version=2에서 URL을 통해 지원되지 않습니다.<br/><br/>**참고:** 위젯 URL 매개 변수는 버전 2에서 지원 되지 않습니다. |
+|`locale`|짧은 언어 코드|Insights 언어를 제어 합니다. 기본값은 `en`입니다. 예를 들어 `language=de`을 참조하십시오.|
+|`tab`|기본 선택 된 탭|기본적으로 렌더링 되는 insights 탭을 제어 합니다. `tab=timeline`타임 라인 탭이 선택 된 상태에서 정보를 렌더링 합니다.|
 
 ### <a name="player-widget"></a>플레이어 위젯
 
 **플레이어** 위젯을 사용하면 적응 비트 전송률을 사용하여 비디오를 스트림할 수 있습니다. 플레이어 위젯에서 지원하는 선택적 URL 매개 변수는 다음과 같습니다.
 
-|이름|정의|설명|
+|이름|정의|Description|
 |---|---|---|
-|t|시작에서 시간 (초)|플레이어가 지정된 시점에서 재생을 시작하도록 합니다.<br/>예: `t=60`.|
-|captions|언어 코드|자막 메뉴에서 사용할 수 있도록 위젯을 로드하는 동안 지정된 언어의 자막을 가져옵니다.<br/>예: `captions=en-US`.|
-|showCaptions|부울 값|플레이어가 자막을 사용하도록 설정된 상태로 로드되도록 합니다.<br/>예: `showCaptions=true`.|
-|형식||오디오 플레이어 스킨을 활성화합니다(비디오 부분은 제거됨).<br/>예: `type=audio`.|
-|autoplay|부울 값|플레이어가 로드되면 비디오 재생을 시작해야 하는지 여부를 나타냅니다(기본값: true).<br/>예: `autoplay=false`.|
-|언어|언어 코드|플레이어 언어를 제어합니다(기본값: en-US).<br/>예: `language=de-DE`.|
+|`t`|시작부터 초|플레이어가 지정된 시점에서 재생을 시작하도록 합니다.<br/>예를 들어, `t=60` 같은 형식입니다.|
+|`captions`|언어 코드|자막 메뉴에서 사용할 수 있도록 위젯을 로드하는 동안 지정된 언어의 자막을 가져옵니다.<br/>예를 들어, `captions=en-US` 같은 형식입니다.|
+|`showCaptions`|부울 값|플레이어가 자막을 사용하도록 설정된 상태로 로드되도록 합니다.<br/>예를 들어, `showCaptions=true` 같은 형식입니다.|
+|`type`||오디오 플레이어 스킨을 활성화합니다(비디오 부분은 제거됨).<br/>예를 들어, `type=audio` 같은 형식입니다.|
+|`autoplay`|부울 값|플레이어가 로드되면 비디오 재생을 시작해야 하는지 여부를 나타냅니다(기본값: true).<br/>예를 들어, `autoplay=false` 같은 형식입니다.|
+|`language`|언어 코드|플레이어 언어를 제어합니다(기본값: en-US).<br/>예를 들어, `language=de-DE` 같은 형식입니다.|
+
+### <a name="editor-widget"></a>편집기 위젯 
+
+**편집기** 위젯을 사용 하 여 새 프로젝트를 만들고 비디오의 정보를 관리할 수 있습니다.
+
+|이름|정의|Description|
+|---|---|---|
+|`accessToken`<sup>*</sup>|String|편집기 위젯을 사용할 때 매개변수가필요합니다.`accessToken`<br/>액세스 토큰은 위젯을 포함 하는 데 사용 되는 계정 내에 있는 비디오에 대 한 액세스를 제공 합니다. |
+|`language`|언어 코드|플레이어 언어를 제어합니다(기본값: en-US).<br/>예를 들어, `language=de-DE` 같은 형식입니다.|
+|`locale`|짧은 언어 코드|Insights 언어를 제어 합니다. 기본값은 `en`입니다. 예를 들어 `language=de`을 참조하십시오.|
+
+<sup>*</sup>소유자는 주의 해 서 `accessToken` 제공 해야 합니다. 
 
 ## <a name="embedding-public-content"></a>공용 콘텐츠 포함
 
@@ -57,21 +69,21 @@ ms.locfileid: "67488676"
     ![위젯](./media/video-indexer-embed-widgets/video-indexer-widget01.png)
 
     단추를 클릭하면 프로그램에 포함하려는 위젯을 선택할 수 있는 포함 모달이 화면에 나타납니다.
-    위젯(**플레이어** 또는 **인지 인사이트**)을 선택하면 애플리케이션에 붙여넣을 수 있는 포함된 코드가 생성됩니다.
+    위젯 (**인지 정보**, **플레이어**또는 **편집기**)을 선택 하면 응용 프로그램에 붙여 넣을 수 있도록 포함 된 코드가 생성 됩니다.
  
-4. 원하는 위젯 유형(**인지 인사이트** 또는 **플레이어**)을 선택합니다.
+4. 원하는 위젯 유형 (**인지 정보**, **플레이어**또는 **편집기**)을 선택 합니다.
 5. 포함 코드를 복사하고 애플리케이션에 추가합니다. 
 
     ![위젯](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
 
 > [!NOTE]
-> 비디오 Url을 공유 하는 문제가 있으면 링크에 'location' 매개 변수를 추가 하십시오. 매개 변수 설정 해야 합니다 [Video Indexer 존재 하는 Azure 지역](regions.md)합니다. 예: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+> 비디오 Url을 공유 하는 데 문제가 있는 경우 링크에 ' location ' 매개 변수를 추가 해 보세요. 매개 변수는 [Video Indexer 있는 Azure 지역](regions.md)으로 설정 해야 합니다. `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial` )을 입력합니다.
 
 ## <a name="embedding-private-content"></a>프라이빗 콘텐츠 포함
 
 **공용** 비디오에 대해서만 포함 팝업에서 포함 코드(이전 섹션 참조)를 가져올 수 있습니다. 
 
-**개인** 비디오를 포함하려면 **iframe**의 **src** 특성에 액세스 토큰을 전달해야 합니다.
+**프라이빗** 비디오를 포함하려면 **iframe**의 **src** 특성에 액세스 토큰을 전달해야 합니다.
 
 `https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>`
     
@@ -94,7 +106,7 @@ Video Indexer 위젯에서 다른 구성 요소와 통신하도록 하려면 Vid
 
 사용자 고유의 플레이어 코드를 구현하고 **인지 인사이트** 위젯과 통합하도록 선택하는 경우 사용자가 VideoIndexer.ai.에서 제공하는 메시지의 원본에 대한 유효성을 검사해야 합니다.
 
-### <a name="embed-both-types-of-widgets-in-your-application--blog-recommended"></a>애플리케이션/블로그에 두 가지 유형의 위젯 포함(추천) 
+### <a name="embed-widgets-in-your-application--blog-recommended"></a>응용 프로그램/블로그에서 위젯 포함 (권장) 
 
 이 섹션에서는 두 개의 Video Indexer 위젯 간의 상호 작용을 수행하는 방법을 보여 주며, 사용자가 애플리케이션에서 인사이트 컨트롤을 클릭하면 플레이어에서 관련 시점으로 이동합니다.
 
@@ -178,7 +190,7 @@ Video Indexer 위젯에서 다른 구성 요소와 통신하도록 하려면 Vid
         </video>    
 
 2. 인지 인사이트 위젯을 포함합니다.
-3. "메시지" 이벤트를 수신 대기하여 플레이어에 대한 통신을 구현합니다. 예를 들면 다음과 같습니다.
+3. "메시지" 이벤트를 수신 대기하여 플레이어에 대한 통신을 구현합니다. 예를 들어:
 
         <script>
     
@@ -213,7 +225,7 @@ Video Indexer 위젯에서 다른 구성 요소와 통신하도록 하려면 Vid
 
 ## <a name="adding-subtitles"></a>자막 추가
 
-사용자 고유의 AMP 플레이어에 Video Indexer 인사이트를 포함하는 경우 **GetVttUrl** 메서드를 사용하여 선택 자막(자막)을 가져올 수 있습니다. 또한 Video Indexer AMP 플러그 인인 **getSubtitlesUrl**에서 javascript 메서드를 호출할 수도 있습니다(이전과 같이). 
+사용자 고유의 [Azure Media Player](https://aka.ms/azuremediaplayer)를 사용 하 여 Video Indexer 정보를 포함 하는 경우 **GetVttUrl** 메서드를 사용 하 여 자막 (자막)을 가져올 수 있습니다. 또한 Video Indexer AMP 플러그 인인 **getSubtitlesUrl**에서 javascript 메서드를 호출할 수도 있습니다(이전과 같이). 
 
 ## <a name="customizing-embeddable-widgets"></a>포함 가능한 위젯 사용자 지정
 
@@ -239,7 +251,7 @@ iframe 창의 제목도 iframe URL에 `&title=<YourTitle>`을 제공하여 사�
 
 Video Indexer 플레이어를 포함하는 경우 iframe의 크기를 지정하여 플레이어 크기를 선택할 수 있습니다.
 
-예를 들면 다음과 같습니다.
+예:
 
 `<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />`
 
@@ -260,4 +272,4 @@ Video Indexer 플레이어를 포함하는 경우 iframe의 크기를 지정하�
 
 Video Indexer 인사이트를 보고 편집하는 방법에 대한 자세한 내용은 [이 문서](video-indexer-view-edit.md)를 참조하세요.
 
-또한 체크 아웃 [Video indexer CodePen](https://codepen.io/videoindexer/pen/eGxebZ)합니다.
+또한 [Video 인덱서 CodePen](https://codepen.io/videoindexer/pen/eGxebZ)를 확인 하세요.

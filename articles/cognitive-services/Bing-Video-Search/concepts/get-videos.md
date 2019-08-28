@@ -1,21 +1,21 @@
 ---
 title: Bing Video Search API에 검색 요청 전송
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Bing Video Search API에 검색 쿼리를 전송하는 데 관해 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
-ms.topic: overview
-ms.date: 06/19/2019
+ms.topic: conceptual
+ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: 71d7ebb8cb797e2166fc91fdfdefdba5f22d82ec
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
-ms.translationtype: HT
+ms.openlocfilehash: b565ad8be1d8529d3650ec36fe7c4d61f6c5dc8f
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272693"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879085"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Bing Video Search API를 사용한 비디오 검색
 
@@ -98,7 +98,7 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghi
 
 ## <a name="video-thumbnails"></a>비디오 썸네일
 
-Bing Video Search API에서 반환되는 비디오 썸네일의 전체 또는 하위 집합을 표시할 수 있습니다. 하위 집합을 표시하는 경우 사용자에게 나머지 비디오를 볼 수 있는 옵션도 제공합니다. Bing API에 대한 [요구 사항 사용 및 표시](../UseAndDisplayRequirements.md)의 일부로 응답에 제공된 순서대로 비디오를 표시해야 합니다. 썸네일 크기 조정에 대한 내용은 [썸네일 크기 조정 및 자르기](../resize-and-crop-thumbnails.md)를 참조합니다. 
+Bing Video Search API에서 반환되는 비디오 썸네일의 전체 또는 하위 집합을 표시할 수 있습니다. 하위 집합을 표시하는 경우 사용자에게 나머지 비디오를 볼 수 있는 옵션도 제공합니다. Bing API에 대한 [요구 사항 사용 및 표시](../UseAndDisplayRequirements.md)의 일부로 응답에 제공된 순서대로 비디오를 표시해야 합니다. 썸네일 크기 조정에 대한 내용은 [썸네일 크기 조정 및 자르기](../../bing-web-search/resize-and-crop-thumbnails.md)를 참조합니다. 
 
 사용자가 썸네일을 마우스로 가리키면 비디오의 썸네일 버전을 재생하도록 [motionThumbnailUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-motionthumbnailurl)을 사용할 수 있습니다. 표시하는 경우 동작 썸네일의 특성을 확인합니다.
 

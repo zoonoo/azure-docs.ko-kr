@@ -19,7 +19,7 @@ ms.locfileid: "66248816"
 
 Write Accelerator는 Azure Managed Disks를 단독으로 갖춘 Premium Storage의 M 시리즈 VM(가상 머신)용 디스크 기능입니다. 이름에서 알 수 있듯이, 이 기능은 Azure Premium Storage에 대한 쓰기의 I/O 대기 시간을 향상시키기 위한 것입니다. Write Accelerator는 최신 데이터베이스를 위해 성능이 매우 뛰어난 방식으로 디스크에서 로그 파일 업데이트를 유지해야 하는 경우에 이상적입니다.
 
-Write Accelerator는 일반적으로 공용 클라우드의 M 시리즈 VM에서 사용할 수 있습니다.
+Write Accelerator는 일반적으로 퍼블릭 클라우드의 M 시리즈 VM에서 사용할 수 있습니다.
 
 ## <a name="planning-for-using-write-accelerator"></a>Write Accelerator 사용 계획
 
@@ -42,7 +42,7 @@ Azure 디스크/VHD에 Write Accelerator를 사용하는 경우 적용되는 제
 
 - 프리미엄 디스크 캐싱을 '없음' 또는 '읽기 전용'으로 설정해야 합니다. 다른 모든 캐싱 모드는 지원되지 않습니다.
 - 쓰기 가속기 지원 디스크용으로 스냅샷이 현재 지원되지 않습니다. 백업 중에 Azure Backup 서비스는 VM에 연결된 쓰기 가속기 지원 디스크를 자동으로 제외합니다.
-- 더 작은 I/O 크기(512KiB 이하)에서만 가속화된 경로를 사용합니다. 데이터가 대량으로 로드되거나 여러 DBMS의 트랜잭션 로그 버퍼가 저장소에 유지되기 전에 더 많이 채워지는 워크로드 상황에서 디스크에 기록된 I/O는 가속화된 경로를 사용하지 않을 수 있습니다.
+- 더 작은 I/O 크기(512KiB 이하)에서만 가속화된 경로를 사용합니다. 데이터가 대량으로 로드되거나 여러 DBMS의 트랜잭션 로그 버퍼가 스토리지에 유지되기 전에 더 많이 채워지는 워크로드 상황에서 디스크에 기록된 I/O는 가속화된 경로를 사용하지 않을 수 있습니다.
 
 Write Accelerator에서 지원할 수 있는 VM당 Azure Premium Storage VHD 수는 제한됩니다. 이 제한은 현재 다음과 같습니다.
 

@@ -28,7 +28,7 @@ ms.locfileid: "65873331"
 SQL Data Warehouse는 더 많은 [통합 파트너](sql-data-warehouse-partner-data-integration.md) 및 Azure에서 더 많은 서비스와 통합을 계속합니다.
 
 ## <a name="power-bi"></a>Power BI
-Power BI 통합을 통해 Power BI의 동적 보고 및 시각화와 SQL Data Warehouse의 계산 능력을 결합할 수 있습니다. Power BI 통합에는 현재 다음이 포함됩니다.
+Power BI 통합을 통해 Power BI의 동적 보고 및 시각화와 SQL Data Warehouse의 컴퓨팅 능력을 결합할 수 있습니다. Power BI 통합에는 현재 다음이 포함됩니다.
 
 * **직접 연결**: SQL Data Warehouse에 대해 논리적 푸시다운을 사용하는 보다 고급 연결입니다. 푸시다운은 더 큰 규모를 더욱 빠르게 분석합니다.
 * **Power BI에서 열기**: ‘Power BI에서 열기’ 단추를 사용하면 인스턴스 정보가 Power BI에 전달되어 좀 더 간단하게 연결할 수 있습니다.

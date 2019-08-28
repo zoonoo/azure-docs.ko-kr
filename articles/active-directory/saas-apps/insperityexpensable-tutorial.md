@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: b049b6526b0053c79b313d3d51a94a7706d5f93c
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 43b24bec557d1cc879be9568bea451f1a8b0b310
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565736"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625314"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insperity-expensable"></a>자습서: Insperity ExpensAble과 Azure Active Directory 통합
 
@@ -31,7 +31,7 @@ Insperity ExpensAble을 Azure AD와 통합하면 다음과 같은 이점이 제�
 * 사용자가 자신의 Azure AD 계정으로 Insperity ExpensAble에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -57,7 +57,7 @@ Insperity ExpensAble의 Azure AD 통합을 구성하려면 갤러리의 Insperit
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -108,7 +108,7 @@ Insperity ExpensAble에서 Azure AD Single Sign-On을 구성하려면 다음 단
     **로그인 URL** 텍스트 상자에서 `https://server.expensable.com/esapp/Authenticate?companyId=<company ID>` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [Insperity ExpensAble 클라이언트 지원 팀](http://expensable.com/support/support-overview)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [Insperity ExpensAble 클라이언트 지원 팀](https://www.insperity.com/products/expense-management/support/express/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 
@@ -126,7 +126,7 @@ Insperity ExpensAble에서 Azure AD Single Sign-On을 구성하려면 다음 단
 
 ### <a name="configure-insperity-expensable-single-sign-on"></a>Insperity ExpensAble Single Sign-On 구성
 
-**Insperity ExpensAble** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)** 와 적절히 복사한 URL을 [Insperity ExpensAble 지원 팀](http://expensable.com/support/support-overview)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Insperity ExpensAble** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)** 와 적절히 복사한 URL을 [Insperity ExpensAble 지원 팀](https://www.insperity.com/products/expense-management/support/express/)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -181,7 +181,7 @@ Insperity ExpensAble에서 Azure AD Single Sign-On을 구성하려면 다음 단
 
 ### <a name="create-insperity-expensable-test-user"></a>Insperity ExpensAble 테스트 사용자 만들기
 
-이 섹션에서는 Insperity ExpensAble에서 Britta Simon이라는 사용자를 만듭니다. Insperity ExpensAble 플랫폼에서 사용자를 추가하려면  [Insperity ExpensAble 지원 팀](http://expensable.com/support/support-overview)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Insperity ExpensAble에서 Britta Simon이라는 사용자를 만듭니다. Insperity ExpensAble 플랫폼에서 사용자를 추가하려면  [Insperity ExpensAble 지원 팀](https://www.insperity.com/products/expense-management/support/express/)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

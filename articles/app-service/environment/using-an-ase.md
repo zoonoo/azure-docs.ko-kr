@@ -28,7 +28,7 @@ Azure App Service Environment는 Azure App Service를 고객의 Azure Virtual Ne
 - **프런트 엔드**: 프런트 엔드는 ASE(App Service Environment)에서 HTTP/HTTPS가 종료되는 위치입니다.
 - **작업자**: 작업자는 앱을 호스트하는 리소스입니다.
 - **데이터베이스**: 데이터베이스에는 환경을 정의하는 정보가 들어 있습니다.
-- **저장소**: 스토리지는 고객이 게시한 앱을 호스트하는 데 사용됩니다.
+- **스토리지**: 스토리지는 고객이 게시한 앱을 호스트하는 데 사용됩니다.
 
 > [!NOTE]
 > App Service Environment에는 ASEv1 및 ASEv2라는 두 가지 버전이 있습니다. ASEv1에서는 사용하려는 리소스를 관리해야 합니다. ASEv1을 구성하고 관리하는 방법을 알아보려면 [App Service Environment v1 구성][ConfigureASEv1]을 참조하세요. 이 문서의 나머지 부분에서는 ASEv2에 대해 중점적으로 설명합니다.

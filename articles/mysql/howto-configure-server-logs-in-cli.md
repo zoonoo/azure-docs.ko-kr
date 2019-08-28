@@ -1,23 +1,23 @@
 ---
 title: 액세스 느린 쿼리 로그에서 Azure Database for MySQL Azure CLI를 사용 하 여
 description: 이 문서에서는 Azure CLI를 사용 하 여 MySQL 용 Azure Database에서 느린 쿼리 로그에 액세스 하는 방법을 설명 합니다.
-author: andrela
-ms.author: ajlam
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 06/12/219
-ms.openlocfilehash: 740dbce579fba6347b1a7f2cfc6bcae40d3503ab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/12/2019
+ms.openlocfilehash: e6d25a4d8b470580626cab4a84f9d912a3f79f75
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052698"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612655"
 ---
 # <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Azure CLI를 사용 하 여 느린 쿼리 로그를 액세스 및 구성
 Azure 명령줄 유틸리티인 Azure CLI를 사용 하 여 Azure Database for MySQL 느린 쿼리 로그를 다운로드할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
 - [Azure Database for MySQL 서버](quickstart-create-mysql-server-database-using-azure-cli.md)
 - [Azure CLI](/cli/azure/install-azure-cli) 또는 브라우저의 Azure Cloud Shell

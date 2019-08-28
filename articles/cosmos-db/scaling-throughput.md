@@ -4,41 +4,41 @@ description: 이 문서에서는 Azure Cosmos DB에서 처리량을 탄력적으
 author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 07/23/2019
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: f930b5c478cc880952b4559be4c6647b260efcf2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 29a92f04a1d36004fa082bfafe2310f9e0e3e5c6
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66243500"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467596"
 ---
 # <a name="globally-scale-provisioned-throughput"></a>전역적으로 프로비전된 처리량 크기 조정 
 
-Azure Cosmos db에서 프로 비전 된 처리량으로 표시 됩니다 요청 단위/초 (RU/s 또는 복수 형태의 Ru)입니다. RU는 다음 이미지에서 표시된 대로 Cosmos 컨테이너에 대한 읽기 및 쓰기 작업의 비용을 모두 측정합니다.
+Azure Cosmos DB에서 프로 비전 된 처리량은 요청 단위/초 (r u/초 또는 복수 형식 RUs)로 표시 됩니다. RU는 다음 이미지에서 표시된 대로 Cosmos 컨테이너에 대한 읽기 및 쓰기 작업의 비용을 모두 측정합니다.
 
 ![요청 단위](./media/scaling-throughput/request-unit-charge-of-read-and-write-operations.png)
 
-Cosmos 컨테이너 또는 Cosmos 데이터베이스에서 RU를 프로비전할 수 있습니다. 컨테이너에서 프로 비전 된 Ru는 해당 컨테이너에서 수행 된 작업에만 사용할 수 있습니다. 데이터베이스에서 프로비전된 RU는 데이터베이스 내의 모든 컨테이너에서 공유됩니다(독점적으로 할당된 RU가 있는 모든 컨테이너 제외).
+Cosmos 컨테이너 또는 Cosmos 데이터베이스에서 RU를 프로비전할 수 있습니다. 컨테이너에 프로 비전 된 RUs는 해당 컨테이너에서 수행 되는 작업에만 사용할 수 있습니다. 데이터베이스에서 프로비전된 RU는 데이터베이스 내의 모든 컨테이너에서 공유됩니다(독점적으로 할당된 RU가 있는 모든 컨테이너 제외).
 
-프로 비전 된 처리량을 탄력적으로 확장에 대 한 수 늘리거나 프로 비전 된 RU/s 언제 든 지 합니다. 자세한 내용은 [처리량 프로 비전 방법](set-throughput.md) Cosmos 컨테이너 및 데이터베이스를 탄력적으로 확장 하 고 있습니다. 전역적으로 크기 조정 처리량에 대 한 추가 하거나 언제 든 지 Cosmos 계정에서 영역을 제거 합니다. 자세한 내용은 [데이터베이스 계정에서 Azure 지역 추가/제거](how-to-manage-database-account.md#addremove-regions-from-your-database-account)를 참조하세요. Cosmos 계정을 사용 하 여 여러 지역에 연결 하는 것은 짧은 대기 시간을 달성 하기 위해 여러 시나리오에서 중요 하 고 [고가용성](high-availability.md) 세계입니다.
+탄력적으로 크기 조정 프로 비전 된 처리량의 경우 언제 든 지 프로 비전 된 r u/초를 늘리거나 줄일 수 있습니다. 자세한 내용은 [How to 프로 비전 하는 방법](set-throughput.md) 및 탄력적으로 scale Cosmos 컨테이너 및 데이터베이스를 참조 하세요. 전체적으로 크기를 조정 하기 위해 언제 든 지 Cosmos 계정에서 지역을 추가 하거나 제거할 수 있습니다. 자세한 내용은 [데이터베이스 계정에서 Azure 지역 추가/제거](how-to-manage-database-account.md#addremove-regions-from-your-database-account)를 참조하세요. 여러 영역을 Cosmos 계정에 연결 하는 것은 전 세계에서 낮은 대기 시간과 [고가용성](high-availability.md) 을 얻기 위해 중요 합니다.
 
 ## <a name="how-provisioned-throughput-is-distributed-across-regions"></a>프로비전된 처리량을 영역에 분산하는 방법
 
-프로 비전 하는 경우 *'R'* Ru Cosmos 컨테이너 (또는 데이터베이스)에서 Cosmos DB는 보장 *'R'* Ru에서 사용할 수 있는 *각* Cosmos 계정과 연결 된 지역입니다. 계정에 새 지역을 추가할 때마다 Cosmos DB 자동으로 프로 비전 *'R'* 새로 추가 된 지역의 Ru 합니다. 가져올 Cosmos 컨테이너에 대해 수행 된 작업 보장이 *'R'* 각 지역의 Ru 합니다. 특정 영역에 RU를 선택적으로 할당할 수 없습니다. Cosmos 컨테이너 (또는 데이터베이스)에서 프로 비전 된 Ru Cosmos 계정과 연결 된 모든 지역에서 프로 비전 됩니다.
+Cosmos 컨테이너 (또는 데이터베이스 Cosmos DB)에 *' r '* rus를 프로 비전 하는 경우 Cosmos 계정에 연결 된 *각* 지역에서 *' r '* rus를 사용할 수 있도록 합니다. 계정에 새 지역을 추가할 때마다 새로 추가 된 지역에서 *' R '* RUs를 자동으로 프로 비전 Cosmos DB. Cosmos 컨테이너에 대해 수행 되는 작업은 각 지역에서 *' R '* RUs를 가져오도록 보장 됩니다. 특정 영역에 RU를 선택적으로 할당할 수 없습니다. Cosmos 컨테이너 (또는 데이터베이스)에 프로 비전 된 RUs는 Cosmos 계정과 연결 된 모든 지역에 프로 비전 됩니다.
 
-Cosmos 컨테이너를 사용 하 여 구성 된 가정 *'R'* Ru 되며 *' n '* 다음 Cosmos 계정과 연결 된 지역:
+Cosmos 컨테이너가 *' R '* RUs로 구성 되어 있고 Cosmos 계정과 연결 된 *' N '* 지역이 있다고 가정 하면 다음을 수행 합니다.
 
-- Cosmos 계정 컨테이너에서 전역적으로 사용할 수 있는 총 Ru 단일 쓰기 지역으로 구성 된 경우 = *R* x *N*합니다.
+- Cosmos 계정이 단일 쓰기 지역으로 구성 된 경우 전체 RUs는 컨테이너에서 전역적으로 사용할 수 있습니다 = *R* x *N*.
 
-- Cosmos 계정의 쓰기 지역 여러 컨테이너에서 전역적으로 사용할 수 있는 총 Ru 사용 하 여 구성 된 경우 = *R* x (*N*+ 1). 추가적인 *R* Ru는 자동으로 프로 비전 프로세스 업데이트 충돌을 방지 엔트로피 트래픽을 지역에서.
+- Cosmos 계정이 여러 쓰기 지역으로 구성 된 경우 컨테이너에서 전역적으로 사용할 수 있는 총 RUs = *R* x (*N*+ 1). 추가 *R* RUs는 지역 전체에서 업데이트 충돌 및 앤티 엔트로피 트래픽을 처리 하도록 자동으로 프로 비전 됩니다.
 
-여러분이 [일관성 모델](consistency-levels.md) 처리량에도 영향을 줍니다. 더 관대 한 일관성 수준에 대 한 약 2 배 읽기 처리량을 얻을 수 있습니다 (예를 들어 *세션*를 *일관 된 접두사* 하 고 *최종* 일관성)에 비해 강력한 일관성 수준 (예를 들어 *제한 된 부실* 하거나 *강력한* 일관성).
+[일관성 모델](consistency-levels.md) 을 선택 하는 것도 처리량에 영향을 줍니다. 더 강력한 일관성 수준 (예: *제한 된 부실* *일관성 수준)과 비교 하 여 더 완화 된 일관성 수준 (예: 세션, 일관 된 접두사 및 최종 일관성)에 대해 약 2x 읽기 처리량을 얻을 수 있습니다. 강력한* 일관성).
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 컨테이너 또는 데이터베이스에서 처리량을 구성 하는 방법에 알아볼 수 있습니다.
+다음으로 컨테이너 또는 데이터베이스에 대 한 처리량을 구성 하는 방법을 배울 수 있습니다.
 
 * [컨테이너 및 데이터베이스에 대한 처리량 가져오기 및 설정](set-throughput.md) 
 

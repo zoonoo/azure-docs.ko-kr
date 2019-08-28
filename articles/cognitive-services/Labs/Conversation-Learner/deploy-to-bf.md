@@ -10,12 +10,13 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 5522f762f3893f1d67cd3755b1e022f0118cc004
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 05fd83506aac26df33f18bec83dcadac8dee2d90
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66385312"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705279"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Conversation Learner 봇을 배포하는 방법
 
@@ -90,11 +91,11 @@ Conversation Learner UI 외부에서 봇을 실행하려면 봇에서 사용할 
 
 2. 이제 봇과 대화하고 있습니다.
 
-## <a name="option-2-deploy-to-azure"></a>옵션 2: Deploy to Azure
+## <a name="option-2-deploy-to-azure"></a>옵션 2: Azure에 배포
 
 다른 봇을 게시하는 것과 동일한 방식으로 Conversation Learner 봇을 게시합니다. 상위 수준에서 코드를 호스트된 웹 사이트에 업로드하고, 적절한 구성 값을 설정한 다음, 다양한 채널에 봇을 등록합니다. 이 비디오에는 Azure Bot Service를 사용하여 봇을 게시하는 방법을 보여 주는 자세한 지침이 있습니다.
 
-봇이 배포 되 고 실행에 연결할 수 있습니다 다른 채널 Facebook, Teams, Skype 등과 같은 합니다. Azure 봇 채널 등록을 사용합니다. 해당 프로세스에 대한 문서는 다음을 참조하세요. https://docs.microsoft.com/bot-framework/bot-service-quickstart-registration
+Bot가 배포 되 고 실행 되 면 Facebook, 팀, Skype 등의 다른 채널에 연결할 수 있습니다. Azure Bot Channel 등록 사용. 해당 프로세스에 대한 문서는 다음을 참조하세요. https://docs.microsoft.com/bot-framework/bot-service-quickstart-registration
 
 다음은 Azure에 Conversation Learner 봇을 배포하기 위한 단계별 지침입니다.  이러한 지침에서는 Azure DevOps Services, GitHub, BitBucket 또는 OneDrive와 같은 클라우드 기반 원본에서 봇 원본을 사용할 수 있다고 가정하고 지속적인 배포에 맞게 봇을 구성합니다.
 
@@ -113,7 +114,7 @@ Conversation Learner UI 외부에서 봇을 실행하려면 봇에서 사용할 
    1. “앱 설정” 섹션까지 아래로 스크롤합니다.
    2. 다음 설정을 추가합니다.
 
-       환경 변수 | 값
+       환경 변수 | value
        --- | --- 
        CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/ "
        CONVERSATION_LEARNER_MODEL_ID      | Conversation Learner UI에서 모델 “설정” 아래에 있는 애플리케이션 ID GUID

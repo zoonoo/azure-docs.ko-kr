@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Azure Load Balancer 기능, 아키텍처 및 구현에 대한 개요입니다. Load Balancer의 작동 방식과 클라우드에서의 활용에 대해 알아봅니다.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for.
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/11/2019
-ms.author: kumud
-ms.openlocfilehash: c2f6a614524f0dfb242db11618fda94ce57e6e6a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: allensu
+ms.openlocfilehash: fb7c0c31ad91bfdb6ea360c1909a216f0779ebde
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58111534"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274612"
 ---
 # <a name="what-is-azure-load-balancer"></a>Azure Load Balancer란?
 
@@ -42,7 +42,7 @@ Azure Load Balancer를 다음에 사용할 수 있습니다.
 
 
 >[!NOTE]
-> Azure는 사용자 시나리오를 위한 완전히 관리되는 부하 분산 솔루션 모음을 제공합니다. TLS(Transport Layer Security) 프로토콜 종료("SSL 오프로드") 또는 HTTP/HTTPS 요청별 애플리케이션 계층 처리를 확인하려는 경우 [Application Gateway](../application-gateway/application-gateway-introduction.md)를 검토하세요. 전역 DNS 부하 분산을 확인하려는 경우 [Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 검토하세요. 필요에 따라 종단 간 시나리오에서 이러한 솔루션을 조합하여 이점을 얻을 수 있습니다.
+> Azure는 사용자 시나리오를 위한 완전히 관리되는 부하 분산 솔루션 모음을 제공합니다. TLS(Transport Layer Security) 프로토콜 종료("SSL 오프로드") 또는 HTTP/HTTPS 요청별 애플리케이션 계층 처리를 확인하려는 경우 [Application Gateway](../application-gateway/application-gateway-introduction.md)를 검토하세요. 전역 DNS 부하 분산을 확인하려는 경우 [Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 검토하세요. 필요에 따라 엔드투엔드 시나리오에서 이러한 솔루션을 조합하여 이점을 얻을 수 있습니다.
 
 ## <a name="what-are-load-balancer-resources"></a>Load Balancer 리소스란?
 
@@ -64,7 +64,7 @@ Load Balancer는 TCP 및 UDP 애플리케이션에 대해 다음과 같은 기�
 
     ![해시 기반 배포](./media/load-balancer-overview/load-balancer-distribution.png)
 
-    그림: 해시 기반 배포*
+    그림: 해시 기반 배포 
 
 * **포트 전달**
 
@@ -115,7 +115,7 @@ Load Balancer는 시나리오 규모, 기능 및 가격 책정에서 각각 다�
 _아직 필수적인 것은 아니지만 SKU를 명시적으로 지정하는 것이 가장 좋습니다._  이때 필요한 변경은 최소로만 유지됩니다. SKU를 지정하지 않으면 2017-08-01 API 버전의 기본 SKU를 사용하려는 의도로 해석됩니다.
 
 >[!IMPORTANT]
->표준 Load Balancer는 새로운 Load Balancer 제품으로, 기본 Load Balancer의 상위 기능입니다. 두 제품 간에는 중요하고 의도적인 차이가 있습니다. 또한 기본 Load Balancer로 가능한 종단 간 시나리오를 표준 Load Balancer로도 만들 수 있습니다. 기본 Load Balancer를 이미 사용하고 있는 경우, 표준 Load Balancer를 숙지하여 표준 및 기본 Load Balancer간 동작의 최신 변경 및 미치는 영향을 이해하는 것이 중요합니다. 이 섹션을 주의 깊게 검토하세요.
+>표준 Load Balancer는 새로운 Load Balancer 제품으로, 기본 Load Balancer의 상위 기능입니다. 두 제품 간에는 중요하고 의도적인 차이가 있습니다. 또한 기본 Load Balancer로 가능한 엔드투엔드 시나리오를 표준 Load Balancer로도 만들 수 있습니다. 기본 Load Balancer를 이미 사용하고 있는 경우, 표준 Load Balancer를 숙지하여 표준 및 기본 Load Balancer간 동작의 최신 변경 및 미치는 영향을 이해하는 것이 중요합니다. 이 섹션을 주의 깊게 검토하세요.
 
 [!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
 
@@ -131,7 +131,7 @@ _아직 필수적인 것은 아니지만 SKU를 명시적으로 지정하는 것
 
 ![공용 Load Balancer 예](./media/load-balancer-overview/IC727496.png)
 
-그림: 공용 Load Balancer를 사용하여 웹 트래픽 부하 분산*
+그림:  공용 Load Balancer를 사용하여 웹 트래픽 부하 분산
 
 인터넷 클라이언트가 TCP 포트 80에서 웹앱의 공용 IP 주소에 웹 페이지 요청을 보내면 Azure Load Balancer가 부하 분산 집합에 있는 3개의 VM에 요청을 분산합니다. Load Balancer 알고리즘에 대한 자세한 내용은 이 문서의 [Load Balancer 기능](load-balancer-overview.md##fundamental-load-balancer-features) 섹션을 참조하세요.
 
@@ -150,7 +150,7 @@ _아직 필수적인 것은 아니지만 SKU를 명시적으로 지정하는 것
 
 ![내부 Load Balancer 예제](./media/load-balancer-overview/IC744147.png)
 
-그림: 공용 및 내부 Load Balancer를 둘 다 사용하여 다중 계층 애플리케이션 부하 분산*
+그림:  공용 및 내부 Load Balancer를 둘 다 사용하여 다중 계층 애플리케이션 부하 분산
 
 ## <a name="pricing"></a>가격
 

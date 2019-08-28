@@ -119,7 +119,7 @@ __테이블__ 탭을 사용하여 Hive 데이터베이스 내의 테이블을 �
 ![저장된 쿼리 탭의 이미지](./media/apache-hadoop-use-hive-ambari-view/saved-queries.png)
 
 > [!TIP]  
-> 저장된 쿼리는 기본 클러스터 저장소에 저장됩니다. `/user/<username>/hive/scripts` 경로에서 저장된 쿼리를 찾을 수 있습니다. 이러한 쿼리는 일반 텍스트 `.hql` 파일로 저장됩니다.
+> 저장된 쿼리는 기본 클러스터 스토리지에 저장됩니다. `/user/<username>/hive/scripts` 경로에서 저장된 쿼리를 찾을 수 있습니다. 이러한 쿼리는 일반 텍스트 `.hql` 파일로 저장됩니다.
 >
 > 클러스터를 삭제하지만 스토리지는 유지하는 경우 [Azure Portal](https://portal.azure.com)에서 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) 또는 Data Lake Storage Explorer와 같은 유틸리티를 사용하여 쿼리를 검색할 수 있습니다.
 

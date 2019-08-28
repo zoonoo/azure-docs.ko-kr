@@ -5,18 +5,49 @@ services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 07/11/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 65c23b05cfcb623f8e2870df813f5516b3039d5c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0bd8c0417b32e93a4f52b545c4d7fc532992a0b1
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60883570"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854308"
 ---
 # <a name="optimize-expressroute-routing"></a>ExpressRoute 라우팅 최적화
 여러 개의 ExpressRoute 회로가 있는 경우 Microsoft에 연결되는 하나 이상의 경로가 있습니다. 결과적으로 최적이 아닌 라우팅이 발생할 수 있습니다. 즉, 트래픽이 Microsoft에, Microsoft에서 다시 네트워크로 도달하는 경로가 더 길어질 수 있습니다. 네트워크 경로가 길어질수록 대기 시간도 늘어납니다. 대기 시간은 애플리케이션 성능 및 사용자 환경에 직접적인 영향을 줍니다. 이 문서에서는 이 문제를 보여 주고 표준 라우팅 기술을 사용하여 라우팅을 최적화하는 방법을 설명합니다.
+
+## <a name="path-selection-on-microsoft-and-public-peerings"></a>Microsoft 및 공용 피어 링의 경로 선택
+Microsoft 또는 공용 피어 링을 활용 하는 경우 하나 이상의 Express 경로 회로와 인터넷 Exchange (IX) 또는 ISP (인터넷 서비스 공급자)를 통한 인터넷 경로를 포함 하는 경우 원하는 경로를 통해 트래픽이 흐르는 지를 확인 하는 것이 중요 합니다. BGP는 LPM (가장 긴 접두사 일치)을 비롯 한 다양 한 요인에 따라 가장 적합 한 경로 선택 알고리즘을 활용 합니다. Microsoft 또는 공용 피어 링을 통해 Azure로 향하는 트래픽이 Express 경로 경로를 통과 하도록 하기 위해 고객은 *로컬 기본 설정* 특성을 구현 하 여 express 경로에서 항상 경로를 우선적으로 사용할 수 있도록 해야 합니다. 
+
+> [!NOTE]
+> 기본 로컬 기본 설정은 일반적으로 100입니다. 로컬 기본 설정이 더 좋습니다. 
+>
+>
+
+다음 예제 시나리오를 살펴보십시오.
+
+![ExpressRoute 사례 1 문제 - 고객으로부터 Microsoft에 이르는 최적이 아닌 라우팅](./media/expressroute-optimize-routing/expressroute-localPreference.png)
+
+위의 예제에서 Express 경로 경로를 선호 하려면 로컬 기본 설정을 다음과 같이 구성 합니다. 
+
+**R1 관점에서 Cisco IOS-XE 구성:**
+
+    R1(config)#route-map prefer-ExR permit 10
+    R1(config-route-map)#set local-preference 150
+
+    R1(config)#router BGP 345
+    R1(config-router)#neighbor 1.1.1.2 remote-as 12076
+    R1(config-router)#neighbor 1.1.1.2 activate
+    R1(config-router)#neighbor 1.1.1.2 route-map prefer-ExR in
+
+**R1 관점에서 Junos 구성:**
+
+    user@R1# set protocols bgp group ibgp type internal
+    user@R1# set protocols bgp group ibgp local-preference 150
+
+
 
 ## <a name="suboptimal-routing-from-customer-to-microsoft"></a>고객으로부터 Microsoft에 이르는 최적이 아닌 라우팅
 예제를 통해 라우팅 문제를 자세히 살펴보겠습니다. 미국에 사무실이 두 곳 있는데, 한 곳은 로스앤젤레스에, 한 곳은 뉴욕에 있다고 가정해 보겠습니다. 사무실은 고유한 백본 네트워크 또는 서비스 공급자의 IP VPN에 연결할 수 있는 WAN(광역 네트워크)에 연결됩니다. 두 개의 ExpressRoute가 하나는 미국 서부에, 하나는 미국 동부에 있으며 WAN에도 연결됩니다. 물론 Microsoft 네트워크에 연결되는 두 경로가 있습니다. 이제 미국 서부와 동부 모두에서 Azure 배포(예: Azure App Service)가 있다고 가정해 보겠습니다. 서비스 관리자는 최적의 환경을 위해 각 사무실의 사용자가 가까운 Azure 서비스에 액세스하도록 하므로 로스앤젤레스에 있는 사용자를 Azure 미국 서부에, 뉴욕에 있는 사용자를 Azure 미국 동부에 연결하고 싶습니다. 아쉽게도 이 계획은 동부 연안 사용자에게는 잘 작동하지만 서부 연안 사용자에게는 그렇지 않습니다. 이 문제의 원인은 다음과 같습니다. 각 ExpressRoute 회로에서 Azure 미국 동부 접두사(23.100.0.0/16) 및 Azure 미국 서부 접두사(13.100.0.0/16)를 모두 보급합니다. 어느 지역의 접두사인지 모르면 다르게 처리할 수 없습니다. WAN 네트워크는 접두사가 미국 서부보다 미국 동부에 더 가깝다고 생각할 수 있으므로 두 사무실 사용자를 미국 동부의 ExpressRoute 회로에 라우팅할 수 있습니다. 결과적으로는 로스앤젤레스 사무실의 많은 사용자들이 불편해집니다.

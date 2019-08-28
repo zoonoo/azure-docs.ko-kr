@@ -13,17 +13,16 @@ ms.topic: tutorial
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 5dcf31adc5e8bdf810d484f07ebeb6f23acbf452
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ab36d475052aa71427427e1362c74abd031fa414
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66146835"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839450"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>자습서: 데이터 팩터리 REST API를 사용하여 첫 번째 Azure Data Factory 빌드
 > [!div class="op_single_selector"]
 > * [개요 및 필수 구성 요소](data-factory-build-your-first-pipeline.md)
-> * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager 템플릿](data-factory-build-your-first-pipeline-using-arm.md)
@@ -87,7 +86,7 @@ curl.exe가 있는 폴더에서 다음 JSON 파일을 만듭니다.
 
 ### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
-> **accountname** 및 **accountkey**를 Azure Storage 계정의 이름 및 키로 바꿉니다. 저장소 액세스 키를 가져오는 방법은 [저장소 계정 관리](../../storage/common/storage-account-manage.md#access-keys)의 저장소 액세스 키 보기, 복사 및 생성 방법 정보를 참조하세요.
+> **accountname** 및 **accountkey**를 Azure Storage 계정의 이름 및 키로 바꿉니다. 스토리지 액세스 키를 가져오는 방법은 [스토리지 계정 관리](../../storage/common/storage-account-manage.md#access-keys)의 스토리지 액세스 키 보기, 복사 및 생성 방법 정보를 참조하세요.
 >
 >
 
@@ -135,7 +134,7 @@ curl.exe가 있는 폴더에서 다음 JSON 파일을 만듭니다.
 * 주문형 HDInsight 클러스터를 사용하는 대신 **고유의 HDInsight 클러스터** 를 사용할 수 있습니다. 자세한 내용은 [HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) 를 참조하세요.
 * HDInsight 클러스터는 JSON(**linkedServiceName**)에서 지정한 Blob Storage에 **기본 컨테이너**를 만듭니다. HDInsight는 클러스터가 삭제될 때 이 컨테이너를 삭제하지 않습니다. 이 동작은 의도된 것입니다. 주문형 HDInsight 연결된 서비스에서는 기존 라이브 클러스터(**timeToLive**)가 없는 한 슬라이스를 처리할 때마다 HDInsight 클러스터가 만들어지며 처리가 완료되면 삭제됩니다.
 
-    온-프레미스 응용 프로그램은 File Storage REST API를 호출하여 파일 공유의 데이터에 액세스할 수 있습니다. 작업의 문제 해결을 위해 이 항목들이 필요하지 않다면 저장소 비용을 줄이기 위해 삭제할 수 있습니다. 이 컨테이너의 이름은 "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp" 패턴을 따릅니다. [Microsoft 스토리지 탐색기](https://storageexplorer.com/) 같은 도구를 사용하여 Azure Blob Storage에서 컨테이너를 삭제합니다.
+    온-프레미스 응용 프로그램은 File Storage REST API를 호출하여 파일 공유의 데이터에 액세스할 수 있습니다. 작업의 문제 해결을 위해 이 항목들이 필요하지 않다면 스토리지 비용을 줄이기 위해 삭제할 수 있습니다. 이 컨테이너의 이름은 "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp" 패턴을 따릅니다. [Microsoft Storage Explorer](https://storageexplorer.com/) 같은 도구를 사용하여 Azure Blob Storage에서 컨테이너를 삭제합니다.
 
 자세한 내용은 [주문형 HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) 를 참조하세요.
 
@@ -257,7 +256,7 @@ Hive 스크립트 파일 **partitionweblogs.hql**은 Azure 스토리지 계정(*
 
 파이프라인의 **start** 및 **end** 속성은 파이프라인의 활성 기간을 지정합니다.
 
-작업 JSON에서 **linkedServiceName** – **HDInsightOnDemandLinkedService**에서 지정한 계산에 대해 Hive 스크립트가 실행되도록 지정합니다.
+작업 JSON에서 **linkedServiceName** – **HDInsightOnDemandLinkedService**에서 지정한 컴퓨팅에 대해 Hive 스크립트가 실행되도록 지정합니다.
 
 > [!NOTE]
 > 앞의 예제에서 사용되는 JSON 속성에 대한 자세한 내용은 [Azure Data Factory의 파이프라인 및 활동](data-factory-create-pipelines.md)에서 “파이프라인 JSON”을 참조하세요.
@@ -381,7 +380,7 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
     ```
 
 ## <a name="create-datasets"></a>데이터 세트 만들기
-이 단계에서는 Hive 처리에 대한 입력 및 출력 데이터를 나타내는 데이터 세트를 만듭니다. 이러한 데이터 세트는 이 자습서의 앞부분에서 만든 **StorageLinkedService** 를 참조합니다. 연결된 서비스는 Azure Storage 계정을 가리키고 데이터 집합은 입력 및 출력 데이터를 가진 스토리지의 컨테이너, 폴더, 파일 이름을 지정합니다.
+이 단계에서는 Hive 처리에 대한 입력 및 출력 데이터를 나타내는 데이터 세트를 만듭니다. 이러한 데이터 세트는 이 자습서의 앞부분에서 만든 **StorageLinkedService** 를 참조합니다. 연결된 서비스는 Azure Storage 계정을 가리키고 데이터 세트은 입력 및 출력 데이터를 가진 스토리지의 컨테이너, 폴더, 파일 이름을 지정합니다.
 
 ### <a name="create-input-dataset"></a>입력 데이터 세트 만들기
 만들 Azure File Storage의 이름을 입력합니다. 소문자, 숫자 및 -만 허용됩니다.
@@ -474,7 +473,7 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 >
 >
 
-또한 Azure 포털을 사용하여 조각을 모니터링하고 문제를 해결할 수 있습니다. [Azure 포털을 사용하여 파이프라인 모니터링](data-factory-build-your-first-pipeline-using-editor.md#monitor-a-pipeline) 세부 정보를 참조하세요.
+또한 Azure 포털을 사용하여 조각을 모니터링하고 문제를 해결할 수 있습니다. [Azure 포털을 사용하여 파이프라인 모니터링](data-factory-monitor-manage-pipelines.md) 세부 정보를 참조하세요.
 
 ## <a name="summary"></a>요약
 이 자습서에서는 HDInsight hadoop 클러스터에서 Hive 스크립트를 실행하여 데이터를 처리하는 데 Azure 데이터 팩터리를 만들었습니다. Azure 포털에서 다음 단계를 수행하기 위해 데이터 팩터리 편집기를 사용했습니다.

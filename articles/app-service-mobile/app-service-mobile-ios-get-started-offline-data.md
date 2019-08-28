@@ -165,11 +165,11 @@ Swift 앱은 사용자가 새로 고침 제스처를 수행할 때 및 시작 �
 
 | 특성 | Type |
 | --- | --- |
-| id | 정수 64 |
-| itemId | 문자열 |
-| properties | 이진 데이터 |
-| 테이블 | String |
-| tableKind | 정수 16 |
+| id | Integer 64 |
+| itemId | String |
+| properties | Binary Data |
+| table | String |
+| tableKind | Integer 16 |
 
 
 **MS_TableOperationErrors**
@@ -179,9 +179,9 @@ Swift 앱은 사용자가 새로 고침 제스처를 수행할 때 및 시작 �
 | 특성 | Type |
 | --- | --- |
 | id |String |
-| operationId |정수 64 |
-| properties |이진 데이터 |
-| tableKind |정수 16 |
+| operationId |Integer 64 |
+| properties |Binary Data |
+| tableKind |Integer 16 |
 
  **MS_TableConfig**
 
@@ -189,11 +189,11 @@ Swift 앱은 사용자가 새로 고침 제스처를 수행할 때 및 시작 �
 
 | 특성 | Type |
 | --- | --- |
-| id |문자열 |
-| key |문자열 |
-| keyType |정수 64 |
-| 테이블 |String |
-| 값 |문자열 |
+| id |String |
+| key |String |
+| keyType |Integer 64 |
+| table |String |
+| 값 |String |
 
 ### <a name="data-table"></a>데이터 테이블
 
@@ -203,7 +203,7 @@ Swift 앱은 사용자가 새로 고침 제스처를 수행할 때 및 시작 �
 | --- | --- | --- |
 | id | 문자열, 필수로 표시 |원격 저장소의 기본 키 |
 | complete | Boolean | 할 일 항목 필드 |
-| text |문자열 |할 일 항목 필드 |
+| text |String |할 일 항목 필드 |
 | createdAt | Date | (옵션) **createdAt** 시스템 속성에 매핑됩니다. |
 | updatedAt | Date | (옵션) **updatedAt** 시스템 속성에 매핑됩니다. |
 | 버전 | String | (옵션) 충돌을 검색하는 데 사용되며 version에 매핑됩니다. |

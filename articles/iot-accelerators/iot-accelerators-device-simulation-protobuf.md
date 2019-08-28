@@ -48,8 +48,8 @@ Protobuf는 데이터를 직렬화하기 위해 컴파일된 코드가 필요하
 개발 환경을 준비하려면 다음 작업을 완료합니다.
 
 * 디바이스 시뮬레이션 마이크로 서비스에 대한 소스를 다운로드합니다.
-* 저장소 어댑터 마이크로 서비스에 대한 소스 다운로드
-* 저장소 어댑터 마이크로 서비스를 로컬로 실행
+* 스토리지 어댑터 마이크로 서비스에 대한 소스 다운로드
+* 스토리지 어댑터 마이크로 서비스를 로컬로 실행
 
 이 문서의 지침에서는 Windows를 사용한다고 가정합니다. 다른 운영 체제를 사용하는 경우 일부 파일 경로 및 명령을 사용자 환경에 맞게 조정해야 합니다.
 
@@ -59,7 +59,7 @@ Protobuf는 데이터를 직렬화하기 위해 컴파일된 코드가 필요하
 
 GitHub에서 [디바이스 시뮬레이션 마이크로 서비스](https://github.com/Azure/device-simulation-dotnet/archive/master.zip)를 로컬 머신의 적합한 위치에 다운로드하고 압축을 풉니다.
 
-### <a name="run-the-storage-adapter-microservice"></a>저장소 어댑터 마이크로 서비스 실행
+### <a name="run-the-storage-adapter-microservice"></a>스토리지 어댑터 마이크로 서비스 실행
 
 Visual Studio Code에서 **remote-monitoring-services-dotnet-master\storage-adapter** 폴더를 엽니다. **복원** 단추를 클릭하여 확인할 수 없는 종속성을 수정합니다.
 

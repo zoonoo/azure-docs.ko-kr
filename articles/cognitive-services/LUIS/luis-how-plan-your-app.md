@@ -1,6 +1,6 @@
 ---
-title: 앱 계획
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 앱 계획-LUIS
+titleSuffix: Azure Cognitive Services
 description: 관련 앱 의도 및 엔터티를 간략하게 설명한 다음, LUIS(Language Understanding Intelligent Services)에서 애플리케이션 계획을 만듭니다.
 services: cognitive-services
 author: diberry
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 9d54cff81f39f41b60800e9b33f3b4da1a735d85
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dc648b30dc1236080be06044f510557ae0ce9476
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60196238"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638302"
 ---
 # <a name="plan-your-luis-app-with-subject-domain-intents-and-entities"></a>주체 도메인, 의도 및 엔터티를 사용하여 LUIS 앱 계획
 
-앱을 계획하는 것이 중요합니다. 애플리케이션에 관련된 가능한 의도 및 엔터티를 포함한 도메인을 식별합니다.  
+앱을 계획 하려면 주체 영역 도메인을 식별 합니다. 여기에는 응용 프로그램과 관련 된 가능한 의도 및 엔터티가 포함 됩니다.  
 
 ## <a name="identify-your-domain"></a>도메인 식별
 
@@ -39,11 +39,13 @@ LUIS 앱은 도메인 특정 항목을 중심으로 합니다.  예를 들어, �
 
 ## <a name="create-example-utterances-for-each-intent"></a>각 의도의 예제 발화 만들기
 
-의도를 확인한 후 각 의도에 대한 예제 발화를 10개 또는 15개를 만듭니다. 시작하려면 이 숫자보다 적으면 안 됩니다. 각 의도에 대해 많은 발화를 만듭니다. 각 발화는 이전 발화와 달라야 합니다. 발화는 전체 단어 개수, 단어 선택, 동사 시제 및 문장 부호가 다양한 것이 좋습니다. 
+의도를 결정 한 후에는 각 의도에 대해 15 ~ 30 개의 예제 길이 발언를 만듭니다. 시작 하려면이 숫자 보다 적거나 각 의도에 대해 너무 많은 길이 발언를 만들어야 합니다. 각 발화는 이전 발화와 달라야 합니다. 발화는 전체 단어 개수, 단어 선택, 동사 시제 및 문장 부호가 다양한 것이 좋습니다. 
+
+자세한 내용은 [길이 발언](luis-concept-utterance.md) 를 검토 하십시오.
 
 ## <a name="identify-your-entities"></a>엔터티 식별
 
-예제 발화에서 추출하려는 엔터티를 식별합니다. 항공편을 예약하려면 목적지, 날짜, 항공사, 티켓 범주 및 여행 클래스와 같은 몇 가지 정보가 필요합니다. 이러한 데이터 형식에 대한 엔터티를 만든 다음, 의도를 수행하는 데 중요하므로 예제 발화에서 [엔터티](luis-concept-entity-types.md)를 표시합니다. 
+예제 발화에서 추출하려는 엔터티를 식별합니다. 비행을 예약 하려면 대상, 날짜, 항공, 티켓 범주 및 여행 클래스와 같은 정보가 필요 합니다. 이러한 데이터 형식에 대 한 엔터티를 만든 다음 의도를 수행 하는 데 중요 하기 때문에 길이 발언 예제에서 [엔터티](luis-concept-entity-types.md) 를 표시 합니다. 
 
 앱에서 사용할 엔터티를 결정할 때 개체 형식 간의 관계를 캡처하기 위한 다양한 형식의 엔터티가 있다는 점에 주의하세요. [LUIS의 엔터티](luis-concept-entity-types.md)에서는 다양한 형식에 대해 자세히 설명합니다.
 

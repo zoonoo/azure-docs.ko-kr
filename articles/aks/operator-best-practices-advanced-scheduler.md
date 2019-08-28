@@ -2,17 +2,17 @@
 title: 운영자 모범 사례 - AKS(Azure Kubernetes Service)의 고급 스케줄러 기능
 description: AKS(Azure Kubernetes Service)의 taint/toleration, 노드 선택기 및 선호도나 노드 간 선호도 및 선호도 방지와 같은 고급 스케줄러 기능 사용에 대한 클러스터 운영자 모범 사례 알아보기
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: iainfou
-ms.openlocfilehash: 5affcd5ee1e51ac754d8a9bb81560a6cc3626860
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: 4caa4219d2bf7558dbdf71e92e4993722c6e8f6a
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055627"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614869"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 고급 스케줄러 기능 모범 사례
 
@@ -73,9 +73,9 @@ spec:
 
 Taint를 적용할 경우 애플리케이션 개발자 및 소유자와 협력하여 해당 배포에서 필요한 toleration을 정의하도록 할 수 있습니다.
 
-taint 및 toleration에 대한 자세한 내용은 [taint 및 toleration 적용][k8s-taints-tolerations]을 참조하세요.
+Taints 및 tolerations에 대 한 자세한 내용은 참조 하세요. [taints 및 tolerations 적용][k8s-taints-tolerations]합니다.
 
-AKS에서 여러 노드 풀을 사용 하는 방법에 대 한 자세한 내용은 참조 하세요. [만들기 및 AKS 클러스터에 대 한 여러 노드 풀 관리][use-multiple-node-pools]합니다.
+AKS에서 여러 노드 풀을 사용 하는 방법에 대 한 자세한 내용은 참조 하세요. [만들기 및 AKS 클러스터에 대 한 여러 노드 풀을 관리][use-multiple-node-pools]합니다.
 
 ### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Taints 및 AKS에서 tolerations의 동작
 
@@ -130,7 +130,7 @@ spec:
 
 이러한 스케줄러 옵션을 사용할 경우 애플리케이션 개발자 및 소유자와 협력하여 Pod 사양을 올바르게 정의하도록 할 수 있습니다.
 
-노드 선택기 사용에 대한 자세한 내용은 [노드에 Pod 할당][k8s-node-selector]을 참조하세요.
+노드 선택기를 사용 하는 방법에 대 한 자세한 내용은 참조 하세요. [노드에 할당 Pod][k8s-node-selector]합니다.
 
 ### <a name="node-affinity"></a>노드 선호도
 
@@ -166,7 +166,7 @@ spec:
 
 설정의 *IgnoredDuringExecution* 파트는 노드 레이블이 변경될 경우 Pod가 노드에서 제거되지 않도록 지정합니다. Kubernetes 스케줄러는 노드에 이미 예약된 Pod가 아니라, 예약 중인 새 Pod에만 업데이트된 노드 레이블을 사용합니다.
 
-자세한 내용은 [선호도 및 선호도 방지][k8s-affinity]를 참조하세요.
+자세한 내용은 [선호도 및 선호도 방지][k8s-affinity]합니다.
 
 ### <a name="inter-pod-affinity-and-anti-affinity"></a>Pod 간 선호도 및 선호도 방지
 
@@ -179,13 +179,13 @@ Kubernetes 스케줄러가 워크로드를 논리적으로 격리하는 한 가�
 | webapp-1   | webapp-2   | webapp-3   |
 | cache-1    | cache-2    | cache-3    |
 
-이 예제는 노드 선택기 또는 노드 선호도를 사용하는 것보다 더 복잡한 배포입니다. 배포를 통해 Kubernetes가 노드에서 Pod를 예약하는 방법을 제어하고 리소스를 논리적으로 격리할 수 있습니다. Azure Cache for Redis 예제와 함께 이 웹 애플리케이션의 전체 예제를 보려면 [동일한 노드에서 Pod 공동 배치][k8s-pod-affinity]를 참조하세요.
+이 예제는 노드 선택기 또는 노드 선호도를 사용하는 것보다 더 복잡한 배포입니다. 배포를 통해 Kubernetes가 노드에서 Pod를 예약하는 방법을 제어하고 리소스를 논리적으로 격리할 수 있습니다. 예를 들어 Redis Azure Cache를 사용 하 여이 웹 응용 프로그램의 전체 예제를 참조 하세요 [pod 동일한 노드에 배치][k8s-pod-affinity]합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 고급 Kubernetes 스케줄러 기능을 중점적으로 설명했습니다. AKS의 클러스터 작업에 대한 자세한 내용은 다음 모범 사례를 참조하세요.
 
-* [다중 테넌트 지원 및 클러스터 격리][aks-best-practices-scheduler]
+* [클러스터 및 다중 테 넌 트 격리][aks-best-practices-scheduler]
 * [기본 Kubernetes 스케줄러 기능][aks-best-practices-scheduler]
 * [인증 및 권한 부여][aks-best-practices-identity]
 

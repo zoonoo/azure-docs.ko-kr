@@ -2,31 +2,25 @@
 title: Azure Active Directory ID 보호 | Microsoft Docs
 description: Azure AD ID 보호를 사용하여 손상된 ID 및 디바이스를 악용하는 공격자의 능력을 제한하고 이전에 손상이 우려되거나 손상된 ID 또는 디바이스를 보호할 수 있는 방법을 알아봅니다.
 services: active-directory
-keywords: Azure Active Directory ID 보호, 클라우드 앱 검색, 애플리케이션 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 01/29/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 660793cdba61b5438283ea54a9f7349bdfbc98e1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
-ms.translationtype: MT
+ms.openlocfilehash: 99a542d3208d5871d88c966fffc65cf16e0fbeee
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67440505"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335398"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection이란?
 
-Azure Active Directory [Identity](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology) Protection을 사용 하면 조직에서 사용자 id와 관련 된 검색 된 의심 스러운 작업에 대 한 자동화 된 응답을 구성할 수 있습니다.
+Azure Active Directory [ID](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology) 보호를 사용하면 조직에서는 사용자 ID와 관련하여 검색된 의심스러운 작업에 대한 자동 응답을 구성할 수 있습니다.
 
 ## <a name="get-started"></a>시작하기
 
@@ -37,12 +31,11 @@ Microsoft는 10년 넘게 클라우드 기반 ID를 보호하고 있습니다. A
 이에 따라 다음을 수행해야 합니다.
 
 - 해당 권한 수준에 관계 없이 모든 ID 보호
-
 - 손상된 ID가 남용되지 않도록 사전에 방지
 
 손상된 ID를 검색하는 것은 쉬운 작업이 아닙니다. Azure Active Directory는 적응 Machine Learning 알고리즘 및 추론을 사용하여 잠재적으로 손상된 ID를 나타낼 수 있는 비정상 상태 및 의심스러운 인시던트를 검색합니다. ID 보호는 이 데이터를 사용하여 검색된 문제를 평가하고 적절한 완화 또는 수정 작업을 수행할 수 있도록 하는 보고서 및 경고를 생성합니다.
 
-Azure Active Directory ID 보호는 모니터링 및 보고 도구 이상입니다. 조직의 ID를 보호하려면 지정된 위험 수준에 도달했을 때 검색된 문제에 자동으로 대응하는 위험 기반 정책을 구성할 수 있습니다. Azure Active Directory에서 제공 되는 다른 조건부 액세스 제어 외에도 이러한 정책 및 [Enterprise Mobility + Security](https://docs.microsoft.com/enterprise-mobility-security/) (EMS)에 자동으로 차단 하거나 포함 하는 적응형 수정 작업을 시작 합니다. 암호 재설정 및 multi-factor authentication 적용 합니다.
+Azure Active Directory ID 보호는 모니터링 및 보고 도구 이상입니다. 조직의 ID를 보호하려면 지정된 위험 수준에 도달했을 때 검색된 문제에 자동으로 대응하는 위험 기반 정책을 구성할 수 있습니다. 이러한 정책은 Azure Active Directory 및 EMS([Enterprise Mobility + Security](https://docs.microsoft.com/enterprise-mobility-security/))에서 제공되는 다른 조건부 액세스 제어 정책과 더불어 암호 재설정 및 Multi-Factor Authentication 적용을 포함하는 적응형 수정 작업을 자동으로 차단하거나 시작할 수 있습니다.
 
 ### <a name="identity-protection-capabilities"></a>ID 보호 기능
 
@@ -69,7 +62,7 @@ Azure Active Directory ID 보호는 모니터링 및 보고 도구 이상입니�
 
 ID 보호 구현에 관련된 관리 작업의 부하를 분산하기 위해 몇 가지 역할을 할당할 수 있습니다. Azure AD ID 보호는 3가지 디렉터리 역할을 지원합니다.
 
-| Role | 가능한 작업 | 불가능한 작업 |
+| 역할 | 가능한 작업 | 불가능한 작업 |
 | :-- | --- | --- |
 | 전역 관리자 | ID 보호에 대한 완전한 액세스, ID 보호 등록| |
 | 보안 관리자 | ID 보호에 대한 완전한 액세스 | ID 보호 등록, 사용자의 암호 재설정 |

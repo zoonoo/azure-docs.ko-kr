@@ -2,25 +2,22 @@
 title: WebJobs로 백그라운드 작업 실행 - Azure App Service
 description: WebJobs를 사용하여 Azure App Service 웹앱, API 앱 또는 모바일 앱에서 백그라운드 작업을 실행하는 방법을 알아봅니다.
 services: app-service
-documentationcenter: ''
 author: ggailey777
 manager: jeconnoc
 editor: jimbe
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
-ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
+ms.author: glenga
+ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 0f2053e978b7c890f4e175515ed54f69694950c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 66c1b62dc94fc071d3b04fc0d4e89220df74d1f8
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60833585"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945799"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Azure App Service에서 WebJobs로 백그라운드 작업 실행
 
@@ -41,7 +38,7 @@ Azure Functions는 프로그램 및 스크립트를 실행하는 다른 방법�
 다음 표에서는 *연속* 및 *트리거* WebJobs 간의 차이점을 설명합니다.
 
 
-|연속  |트리거  |
+|연속  |트리거됨  |
 |---------|---------|
 | WebJob이 만들어질 때 즉시 시작합니다. 작업을 종료하지 않으려면 프로그램 또는 스크립트는 일반적으로 무한 루프 내에서 작업을 수행합니다. 작업을 종료하는 경우 다시 시작할 수 있습니다. | 수동으로 또는 일정에서 트리거된 경우에만 시작합니다. |
 | 웹앱이 실행되는 모든 인스턴스에서 실행됩니다. 필요에 따라 WebJob을 단일 인스턴스로 제한할 수 있습니다. |Azure에서 부하 분산을 위해 선택한 단일 인스턴스에서 실행합니다.|
@@ -84,10 +81,10 @@ when making changes in one don't forget the other two.
 
    | 설정      | 샘플 값   | 설명  |
    | ------------ | ----------------- | ------------ |
-   | **이름** | myContinuousWebJob | App Service 앱 내에서 고유한 이름입니다. 문자 또는 숫자로 시작해야 하며 "-" 및 "_"을 제외한 다른 특수 문자를 포함할 수 없습니다. |
+   | **Name** | myContinuousWebJob | App Service 앱 내에서 고유한 이름입니다. 문자 또는 숫자로 시작해야 하며 "-" 및 "_"을 제외한 다른 특수 문자를 포함할 수 없습니다. |
    | **파일 업로드** | ConsoleApp.zip | 실행 파일 또는 스크립트 파일뿐만 아니라 프로그램 또는 스크립트를 실행하는 데 필요한 지원 파일이 포함되는 *.zip* 파일입니다. 지원되는 실행 파일 또는 스크립트 파일 형식은 [지원되는 파일 형식](#acceptablefiles) 섹션에 나열됩니다. |
    | **형식** | 연속 | [WebJob 형식](#webjob-types)은 이 문서의 앞부분에서 설명됩니다. |
-   | **규모** | 다중 인스턴스 | 연속 WebJobs에 대해서만 사용할 수 있습니다. 프로그램 또는 스크립트가 모든 인스턴스 또는 하나의 인스턴스에서 실행되는지를 결정합니다. 여러 인스턴스에서 실행하는 옵션은 무료 또는 공유 [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)에 적용되지 않습니다. | 
+   | **소수 자릿수** | 다중 인스턴스 | 연속 WebJobs에 대해서만 사용할 수 있습니다. 프로그램 또는 스크립트가 모든 인스턴스 또는 하나의 인스턴스에서 실행되는지를 결정합니다. 여러 인스턴스에서 실행하는 옵션은 무료 또는 공유 [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)에 적용되지 않습니다. | 
 
 4. **확인**을 클릭합니다.
 
@@ -120,11 +117,11 @@ when making changes in one don't forget the other two.
 
    ![WebJob 페이지 추가](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
-   | 설정      | 샘플 값   | 설명  |
+   | 설정      | 샘플 값   | Description  |
    | ------------ | ----------------- | ------------ |
-   | **이름** | myTriggeredWebJob | App Service 앱 내에서 고유한 이름입니다. 문자 또는 숫자로 시작해야 하며 "-" 및 "_"을 제외한 다른 특수 문자를 포함할 수 없습니다.|
+   | **Name** | myTriggeredWebJob | App Service 앱 내에서 고유한 이름입니다. 문자 또는 숫자로 시작해야 하며 "-" 및 "_"을 제외한 다른 특수 문자를 포함할 수 없습니다.|
    | **파일 업로드** | ConsoleApp.zip | 실행 파일 또는 스크립트 파일뿐만 아니라 프로그램 또는 스크립트를 실행하는 데 필요한 지원 파일이 포함되는 *.zip* 파일입니다. 지원되는 실행 파일 또는 스크립트 파일 형식은 [지원되는 파일 형식](#acceptablefiles) 섹션에 나열됩니다. |
-   | **형식** | 트리거 | [WebJob 형식](#webjob-types)은 이 문서의 앞부분에서 설명됩니다. |
+   | **형식** | 트리거됨 | [WebJob 형식](#webjob-types)은 이 문서의 앞부분에서 설명됩니다. |
    | **트리거** | 수동 | |
 
 4. **확인**을 클릭합니다.
@@ -135,7 +132,7 @@ when making changes in one don't forget the other two.
 
 7. 웹 작업을 실행하려면 목록에서 해당 이름을 마우스 오른쪽 단추로 클릭하고 **실행**을 클릭합니다.
    
-    ![WebJob 실행](./media/web-sites-create-web-jobs/runondemand.png)
+    ![웹 작업 실행](./media/web-sites-create-web-jobs/runondemand.png)
 
 ## <a name="CreateScheduledCRON"></a>예약된 WebJob 만들기
 
@@ -160,11 +157,11 @@ when making changes in one don't forget the other two.
 
    | 설정      | 샘플 값   | 설명  |
    | ------------ | ----------------- | ------------ |
-   | **이름** | myScheduledWebJob | App Service 앱 내에서 고유한 이름입니다. 문자 또는 숫자로 시작해야 하며 "-" 및 "_"을 제외한 다른 특수 문자를 포함할 수 없습니다. |
+   | **Name** | myScheduledWebJob | App Service 앱 내에서 고유한 이름입니다. 문자 또는 숫자로 시작해야 하며 "-" 및 "_"을 제외한 다른 특수 문자를 포함할 수 없습니다. |
    | **파일 업로드** | ConsoleApp.zip | 실행 파일 또는 스크립트 파일뿐만 아니라 프로그램 또는 스크립트를 실행하는 데 필요한 지원 파일이 포함되는 *.zip* 파일입니다. 지원되는 실행 파일 또는 스크립트 파일 형식은 [지원되는 파일 형식](#acceptablefiles) 섹션에 나열됩니다. |
-   | **형식** | 트리거 | [WebJob 형식](#webjob-types)은 이 문서의 앞부분에서 설명됩니다. |
+   | **형식** | 트리거됨 | [WebJob 형식](#webjob-types)은 이 문서의 앞부분에서 설명됩니다. |
    | **트리거** | 예약됨 | 안정적으로 실행되도록 예약하기 위해 Always On 기능을 사용하도록 설정합니다. Always On은 기본, 표준 및 프리미엄 가격 책정 계층에서만 사용할 수 있습니다.|
-   | **CRON 식** | 0 0/20 * * * * | [CRON 식](#cron-expressions)이 다음 섹션에 설명되어 있습니다. |
+   | **CRON 식** | 0 0/20 * * * * | [CRON 식](#ncrontab-expressions)이 다음 섹션에 설명되어 있습니다. |
 
 4. **확인**을 클릭합니다.
 
@@ -172,9 +169,9 @@ when making changes in one don't forget the other two.
 
    ![WebJobs 목록](./media/web-sites-create-web-jobs/listallwebjobs.png)
 
-## <a name="cron-expressions"></a>CRON 식
+## <a name="ncrontab-expressions"></a>NCRONTAB 식
 
-다음 예제와 같이 포털에 [CRON 식](../azure-functions/functions-bindings-timer.md#cron-expressions)을 입력하거나 WebJob *.zip* 파일의 루트에 `settings.job` 파일을 포함할 수 있습니다.
+다음 예제와 같이 포털에 [NCRONRAB 식을](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) 입력 하거나 WebJob `settings.job` *.zip* 파일의 루트에 파일을 포함할 수 있습니다.
 
 ```json
 {
@@ -182,7 +179,7 @@ when making changes in one don't forget the other two.
 }
 ```
 
-자세한 내용은 참조 하세요 [트리거된 WebJob 예약](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob)합니다.
+자세히 알아보려면 [트리거된 WebJob 예약](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob)을 참조 하세요.
 
 ## <a name="ViewJobHistory"></a>작업 기록 보기
 

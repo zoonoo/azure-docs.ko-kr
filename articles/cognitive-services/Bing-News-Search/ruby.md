@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Ruby를 사용하여 뉴스 검색 수행 - Bing News Search REST API'
-titlesuffix: Azure Cognitive Services
+title: '빠른 시작: Ruby 및 Bing News Search REST API를 사용하여 뉴스 검색 수행'
+titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작을 사용하여 Ruby를 통해 Bing News Search REST API로 요청을 보내고 JSON 응답을 받습니다.
 services: cognitive-services
 author: aahill
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 1/10/2019
+ms.date: 6/19/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 9ed658c6613d270ab3de67a8800263d677d70bac
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: ab16a54269c2afe820d9d17d1400152d078186ed
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867021"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423684"
 ---
 # <a name="quickstart-perform-a-news-search-using-ruby-and-the-bing-news-search-rest-api"></a>빠른 시작: Ruby 및 Bing News Search REST API를 사용하여 뉴스 검색 수행
 

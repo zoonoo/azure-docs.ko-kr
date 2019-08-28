@@ -25,7 +25,7 @@ ms.locfileid: "67488640"
 
 ## <a name="overview"></a>개요
 
-이 항목에서는 푸시 알림을 받기 위해 알림 허브에 디바이스를 등록하는 방법에 대해 설명합니다. 먼저 높은 수준에서 등록을 설명한 다음 장치를 등록하는 두 가지 주 패턴, 즉 장치에서 알림 허브에 직접 등록 및 애플리케이션 백 엔드를 통해 등록을 소개합니다.
+이 항목에서는 푸시 알림을 받기 위해 알림 허브에 디바이스를 등록하는 방법에 대해 설명합니다. 먼저 높은 수준에서 등록을 설명한 다음 디바이스를 등록하는 두 가지 주 패턴, 즉 디바이스에서 알림 허브에 직접 등록 및 애플리케이션 백 엔드를 통해 등록을 소개합니다.
 
 ## <a name="what-is-device-registration"></a>디바이스 등록이란?
 
@@ -96,7 +96,7 @@ Notification Hub에 디바이스 등록은 **등록** 또는 **설치**를 사�
 
 ### <a name="templates"></a>템플릿
 
-[템플릿](notification-hubs-templates-cross-platform-push-messages.md)을 사용하려면 장치 설치에서 해당 장치와 연결된 모든 템플릿을 JSON 형식으로 유지합니다(위 샘플 참조). 템플릿 이름은는 동일한 디바이스에 대한 서로 다른 템플릿을 대상 도움이 됩니다.
+[템플릿](notification-hubs-templates-cross-platform-push-messages.md)을 사용하려면 디바이스 설치에서 해당 디바이스와 연결된 모든 템플릿을 JSON 형식으로 유지합니다(위 샘플 참조). 템플릿 이름은는 동일한 디바이스에 대한 서로 다른 템플릿을 대상 도움이 됩니다.
 
 각 템플릿 이름은 템플릿 본문 및 선택적 태그 집합에 매핑됩니다. 또한 각 플랫폼이 추가 템플릿 속성을 가질 수 있습니다. Windows 스토어(WNS 사용) 및 Windows Phone 8(MPNS 사용)의 경우 추가 헤더 집합이 템플릿의 일부일 수 있습니다. APN의 경우 만료 속성을 상수 또는 템플릿 식으로 설정할 수 있습니다. 설치 속성의 전체 목록은 [REST를 사용하여 설치 만들기 또는 덮어쓰기](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation) 항목을 참조하세요.
 
@@ -114,7 +114,7 @@ SecondaryTiles 사전은 Windows 스토어 앱에서 SecondaryTiles 개체를 �
 
 디바이스는 먼저 PNS에서 PNS 핸들을 검색한 다음 알림 허브에 직접 등록합니다. 등록이 성공한 후 앱 백 엔드는 해당 등록을 대상으로 지정하는 알림을 보낼 수 있습니다. 알림을 보내는 방법에 대한 자세한 내용은 [라우팅 및 태그 식](notification-hubs-tags-segment-push-message.md)을 참조하세요.
 
-이 경우 수신 권한만 사용하여 장치에서 사용자의 알림 허브에 액세스합니다. 자세한 내용은 [보안](notification-hubs-push-notification-security.md)을 참조하세요.
+이 경우 수신 권한만 사용하여 디바이스에서 사용자의 알림 허브에 액세스합니다. 자세한 내용은 [보안](notification-hubs-push-notification-security.md)을 참조하세요.
 
 디바이스에서 등록은 가장 간단한 방법이지만 몇 가지 단점이 있습니다.
 
@@ -315,7 +315,7 @@ public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
 }
 ```
 
-### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>등록 ID를 사용하여 장치에서 알림 허브에 등록하는 예제 코드
+### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>등록 ID를 사용하여 디바이스에서 알림 허브에 등록하는 예제 코드
 
 앱 백 엔드에서 등록에 대해 기본 CRUDS 작업을 수행할 수 있습니다. 예를 들면 다음과 같습니다.
 

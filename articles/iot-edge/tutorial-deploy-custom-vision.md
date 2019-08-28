@@ -5,26 +5,27 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/01/2018
+ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a0530739428e18d01209f94345ae53dfb743d80b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 63485a41016033b00f787fc8c938b8da7135d657
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239679"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840145"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>자습서: Custom Vision Service를 사용하여 에지에서 이미지 분류 수행
 
-Azure IoT Edge를 통해 워크로드를 클라우드에서 에지로 이동하여 IoT 솔루션의 효율성을 높일 수 있습니다. 이 기능은 컴퓨터 비전 모델과 같은 많은 데이터를 처리하는 서비스에 적합합니다. [Custom Vision Service](../cognitive-services/custom-vision-service/home.md)를 통해 사용자 지정 이미지 분류자를 빌드하고 컨테이너로 디바이스에 배포할 수 있습니다. 이러한 두 서비스를 함께 사용하여 먼저 모든 데이터를 사이트에서 전송하지 않고도 이미지 또는 비디오 스트림에서 정보를 찾을 수 있습니다. Custom Vision은 이미지를 정보를 생성하는 학습된 모델과 비교하는 분류자를 제공합니다. 
+Azure IoT Edge를 통해 워크로드를 클라우드에서 에지로 이동하여 IoT 솔루션의 효율성을 높일 수 있습니다. 이 기능은 컴퓨터 비전 모델과 같은 많은 데이터를 처리하는 서비스에 적합합니다. [Custom Vision Service](../cognitive-services/custom-vision-service/home.md)를 통해 사용자 지정 이미지 분류자를 빌드하고 컨테이너로 디바이스에 배포할 수 있습니다. 이러한 두 서비스를 함께 사용하여 먼저 모든 데이터를 사이트에서 전송하지 않고도 이미지 또는 비디오 스트림에서 정보를 찾을 수 있습니다. Custom Vision은 이미지를 정보를 생성하는 학습된 모델과 비교하는 분류자를 제공합니다.
 
-예를 들어 IoT Edge 디바이스의 Custom Vision은 고속도로에서 정상보다 높거나 낮은 트래픽이 발생하는지 여부 또는 주차장에 사용 가능한 주차 공간이 연달아 있는지 여부를 확인할 수 있습니다. 작업을 수행하기 위해 다른 서비스와 이러한 정보를 공유할 수 있습니다. 
+예를 들어 IoT Edge 디바이스의 Custom Vision은 고속도로에서 정상보다 높거나 낮은 트래픽이 발생하는지 여부 또는 주차장에 사용 가능한 주차 공간이 연달아 있는지 여부를 확인할 수 있습니다. 작업을 수행하기 위해 다른 서비스와 이러한 정보를 공유할 수 있습니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다. 
+이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
+>
 > * Custom Vision을 사용하여 이미지 분류자 빌드
 > * 디바이스에서 Custom Vision 웹 서버를 쿼리하는 IoT Edge 모듈 개발
 > * IoT Hub에 이미지 분류자의 결과 전송
@@ -72,10 +73,11 @@ Custom Vision 서비스를 사용하여 IoT Edge 모듈을 개발하려면 다�
    | ----- | ----- |
    | Name | **EdgeTreeClassifier**와 같은 프로젝트의 이름을 제공합니다. |
    | 설명 | 선택적인 프로젝트 설명입니다. |
-   | 리소스 그룹 | 기본값 **제한된 평가판**을 적용합니다. |
+   | 리소스 그룹 | Custom Vision Service 리소스를 포함하는 Azure 리소스 그룹 중 하나를 선택하거나 아직 추가하지 않은 경우 **새로 만듭니다**. |
    | 프로젝트 형식 | **분류** |
-   | 분류 형식 | **다중 클래스(이미지당 단일 태그)** | 
+   | 분류 형식 | **다중 클래스(이미지당 단일 태그)** |
    | 도메인 | **일반(압축)** |
+   | 기능 내보내기 | **기본 플랫폼(Tensorflow, CoreML ONNX, ...)** |
 
 5. **프로젝트 만들기**를 선택합니다.
 
@@ -139,17 +141,9 @@ Custom Vision 서비스를 사용하여 IoT Edge 모듈을 개발하려면 다�
 
 1. Visual Studio Code에서 **보기** > **터미널**을 선택하여 VS Code 통합 터미널을 엽니다.
 
-2. 통합 터미널에서 다음 명령을 입력하여 VS Code에서 IoT Edge python 모듈 템플릿을 만드는 데 사용하는 **cookiecutter**를 설치하거나 업데이트합니다.
+1. **보기** > **명령 팔레트**를 차례로 선택하여 VS Code 명령 팔레트를 엽니다. 
 
-    ```cmd/sh
-    pip install --upgrade --user cookiecutter
-    ```
-   >[!Note]
-   >명령 프롬프트에서 호출할 수 있도록 cookiecutter를 설치할 위치가 환경의 `Path`에 있는지 확인합니다.
-
-3. **보기** > **명령 팔레트**를 차례로 선택하여 VS Code 명령 팔레트를 엽니다. 
-
-4. 명령 팔레트에서 **Azure IoT Edge: 새 IoT Edge 솔루션** 명령을 입력하고 실행합니다. 명령 팔레트에서 다음 정보를 제공하여 솔루션을 만듭니다. 
+1. 명령 팔레트에서 **Azure IoT Edge: 새 IoT Edge 솔루션** 명령을 입력하고 실행합니다. 명령 팔레트에서 다음 정보를 제공하여 솔루션을 만듭니다. 
 
    | 필드 | 값 |
    | ----- | ----- |
@@ -375,9 +369,9 @@ Visual Studio Code용 IoT Edge 확장은 배포 매니페스트를 만들 수 �
 
 1. 솔루션 폴더에서 **deployment.template.json** 파일을 엽니다. 
 
-2. 만든 classifier 및 cameraCapture의 두 개와 기본적으로 포함된 tempSensor로 세 개의 모듈을 포함해야 하는 **모듈** 섹션을 찾습니다. 
+2. 만든 classifier 및 cameraCapture의 두 개의 모듈과 기본적으로 포함된 세 번째 모듈인 SimulatedTemperatureSensor, 이렇게 세 개의 모듈을 포함해야 하는 **모듈** 섹션을 찾습니다. 
 
-3. 모든 해당 매개 변수를 사용하여 **tempSensor** 모듈을 삭제합니다. 이 모듈은 테스트 시나리오에 대한 샘플 데이터를 제공하기 위해 포함되지만 이 배포에 필요하지 않습니다. 
+3. 모든 해당 매개 변수를 사용하여 **SimulatedTemperatureSensor** 모듈을 삭제합니다. 이 모듈은 테스트 시나리오에 대한 샘플 데이터를 제공하기 위해 포함되지만 이 배포에 필요하지 않습니다. 
 
 4. 이미지 분류 모듈을 **classifier** 이외의 이름으로 지정한 경우 이름을 확인하고 모두 소문자인지 확인합니다. cameraCapture 모듈은 소문자로 모든 요청을 서식 지정하는 요청 라이브러리를 사용하여 분류자 모듈을 호출하며, IoT Edge는 대/소문자를 구분합니다. 
 

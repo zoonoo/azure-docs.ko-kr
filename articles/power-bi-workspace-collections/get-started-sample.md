@@ -2,18 +2,18 @@
 title: 샘플 시작
 description: 이 문서에서 Power BI 작업 영역 컬렉션 시작 샘플을 소개합니다.
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 author: rkarlin
 ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.openlocfilehash: 6cf78bf9c83df0a1255c14499bbd2036a2be5ed6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b45dd6bcc9aa3abf2d5078b54e51531cae4ec5f
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64714497"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67669113"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Power BI 작업 영역 컬렉션 시작 샘플
 
@@ -38,7 +38,7 @@ ms.locfileid: "64714497"
 
 1. [Power BI 작업 영역 컬렉션 - 보고서를 웹앱으로 통합](https://go.microsoft.com/fwlink/?LinkId=761493) 샘플을 GitHub에서 다운로드하여 압축을 해제합니다.
 2. Visual Studio에서 **PowerBI-embedded.sln** 을 엽니다. 이 솔루션에서 사용되는 패키지를 업데이트하려면 NuGet 패키지 관리자 콘솔에서 **Update-Package** 명령을 실행해야 할 수 있습니다.
-3. 솔루션을 빌드하십시오.
+3. 솔루션을 빌드합니다.
 4. **ProvisionSample** 콘솔 앱을 실행합니다. 샘플 콘솔 앱에서 작업 영역을 프로비전하고 PBIX 파일을 가져옵니다.
 5. 새 **작업 영역**을 프로비전하려면 옵션 1 **컬렉션 관리**를 선택한 다음 옵션 6 **새 작업 영역 프로비전**을 선택합니다.
 6. 새 **보고서**를 가져오려면 옵션 2 **관리 보고**를 선택한 다음, 옵션 3 **PBIX 데스크톱 파일을 작업 영역에 가져오기**를 선택합니다.
@@ -98,7 +98,7 @@ Checking import state... Succeeded
 > [!NOTE]
 > 이 섹션에서는 코드가 작성된 방법을 보여 주는 샘플 코드에 대해 요약합니다. 전체 샘플을 보려면 Visual Studio에서 PowerBI-embedded.sln을 로드하세요.
 
-### <a name="model"></a>모델
+### <a name="model"></a>Model
 
 이 샘플에는 **ReportsViewModel** 및 **ReportViewModel**이 있습니다.
 
@@ -130,7 +130,7 @@ public class ReportViewModel
 Data Source=tcp:MyServer.database.windows.net,1433;Initial Catalog=MyDatabase
 ```
 
-일반적인 서버 및 데이터베이스 특성을 사용할 수 없습니다. 예를 들면 다음과 같습니다. Server=tcp:MyServer.database.windows.net,1433;Database=MyDatabase,
+일반적인 서버 및 데이터베이스 특성을 사용할 수 없습니다. 예: Server=tcp:MyServer.database.windows.net,1433;Database=MyDatabase,
 
 ### <a name="view"></a>보기
 
@@ -138,7 +138,7 @@ Data Source=tcp:MyServer.database.windows.net,1433;Initial Catalog=MyDatabase
 
 **Reports.cshtml**: **Model.Reports**를 반복하여 **ActionLink**를 만듭니다. **ActionLink**는 다음과 같이 구성됩니다.
 
-| 부 | 설명 |
+| 부 | Description |
 | --- | --- |
 | 제목 |보고서의 이름입니다. |
 | QueryString |보고서 ID에 대한 링크입니다. |
@@ -259,7 +259,7 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 > [!NOTE]
 > {tableName/fieldName}은(는) 공백이나 특수 문자를 포함할 수 없습니다. {fieldValue}은(는) 단일 범주 값을 허용합니다.  
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 [일반적인 Microsoft Power BI 작업 영역 컬렉션 시나리오](scenarios.md)  
 [Power BI 작업 영역 컬렉션에서 인증 및 권한 부여](app-token-flow.md)  

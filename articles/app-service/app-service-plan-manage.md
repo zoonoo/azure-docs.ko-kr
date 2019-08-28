@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 10/31/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 936abe80a66c1dbe99e7d8a255fe8995a2df0803
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 77d5e4ace14fb0071b6e01a01edbad0128382303
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60852285"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639731"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Azure에서 App Service 계획 관리
 
@@ -97,7 +97,7 @@ ms.locfileid: "60852285"
 
 ## <a name="scale-an-app-service-plan"></a>App Service 계획 크기 조정
 
-App Service 계획의 가격 책정 계층을 강화하려면 [Azure에서 앱 강화](web-sites-scale.md)를 참조하세요.
+App Service 계획의 가격 책정 계층을 강화하려면 [Azure에서 앱 강화](manage-scale-up.md)를 참조하세요.
 
 앱 인스턴스 수를 규모 확장하려면 [수동 또는 자동으로 인스턴스 개수 조정](../monitoring-and-diagnostics/insights-how-to-scale.md)을 참조하세요.
 
@@ -113,7 +113,7 @@ App Service 계획의 가격 책정 계층을 강화하려면 [Azure에서 앱 �
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Azure에서 앱 강화](web-sites-scale.md)
+> [Azure에서 앱 강화](manage-scale-up.md)
 
 [change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png

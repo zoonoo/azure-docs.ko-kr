@@ -1,6 +1,6 @@
 ---
-title: 사용되지 않는 미리 빌드된 엔터티
-titleSuffix: Azure
+title: 사용 되지 않는 미리 작성 한 엔터티-LUIS
+titleSuffix: Azure Cognitive Services
 description: 이 문서에는 LUIS(Language Understanding)의 더 이상 사용되지 않는 미리 빌드된 엔터티가 포함됩니다.
 services: cognitive-services
 author: diberry
@@ -8,15 +8,15 @@ ms.custom: seodec18
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 02/28/2019
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 653fbd65e5ccfbc65781f2332b35d10237f718d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c15ebacd0fd959fe789d7f3a9b33b16ee29a1b2
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60712783"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933616"
 ---
 # <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>LUIS 앱의 사용되지 않는 미리 빌드된 엔터티
 다음과 같은 미리 빌드된 엔터티는 더 이상 사용되지 않으므로 새 LUIS 앱에 추가될 수 없습니다.

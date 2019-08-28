@@ -1,19 +1,19 @@
 ---
-title: Azure PowerShell 스크립트-Azure Cosmos DB 목록 및 MongoDB API에 대 한 작업을 가져옵니다.
-description: Azure PowerShell 스크립트-Azure Cosmos DB 목록 및 MongoDB API에 대 한 작업을 가져옵니다.
+title: Azure PowerShell 스크립트 - Cosmos DB 목록 및 MongoDB API용 작업 가져오기
+description: Azure PowerShell 스크립트 - Cosmos DB 목록 및 MongoDB API용 작업 가져오기
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: af0ec094e7f77cf9c55456ce026c67a4ebae493d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: cd00166e93477dc229a25cc7a183febe4034d7bb
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247441"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603895"
 ---
-# <a name="list-and-get-databases-and-graphs-for-azure-cosmos-db---mongodb-api"></a>데이터베이스를 가져오고 Azure Cosmos DB MongoDB API에 대 한 그래프 및 목록
+# <a name="list-and-get-databases-and-graphs-for-azure-cosmos-db---mongodb-api"></a>Azure Cosmos DB의 MongoDB API에 대한 데이터베이스, 그래프 나열 및 가져오기
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

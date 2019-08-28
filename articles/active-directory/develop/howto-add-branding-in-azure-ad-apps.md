@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac14572210b80ac1415d129c5810f0e5443012c9
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 92770acb19bf95d6a19507184bd8bea10806d5b7
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540101"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483023"
 ---
 # <a name="branding-guidelines-for-applications"></a>애플리케이션에 대한 브랜딩 지침
 
@@ -41,7 +41,7 @@ Azure AD(Azure Active Directory)를 사용하여 애플리케이션을 개발하
 Microsoft는 두 종류의 사용자 계정을 관리합니다.
 
 - **개인 계정** (이전의 Windows Live ID). 이 계정은 *개인* 사용자와 Microsoft 사이의 관계를 나타내며 Microsoft의 소비자 디바이스 및 서비스에 액세스하는 데 사용됩니다. 이 계정은 개인적인 용도를 위한 것입니다.
-- **회사 또는 학교 계정.**  이 계정은 Azure Active Directory를 사용하는 조직을 대신하여 Microsoft에서 관리합니다. 이 계정은 Office 365 및 Microsoft의 다른 비즈니스 서비스에 로그인하는 데 사용됩니다.
+- **회사 또는 학교 계정.** 이 계정은 Azure Active Directory를 사용하는 조직을 대신하여 Microsoft에서 관리합니다. 이 계정은 Office 365 및 Microsoft의 다른 비즈니스 서비스에 로그인하는 데 사용됩니다.
 
 Microsoft 회사 또는 학교 계정은 일반적으로 회사, 학교, 정부 기관 등의 조직이 직원, 학생, 연방 직원 등의 최종 사용자에게 할당합니다. 이 계정은 Azure AD 플랫폼의 클라우드에서 직접 마스터되거나 Windows Server Active Directory와 같은 온-프레미스 디렉터리에서 Azure AD로 동기화됩니다. Microsoft는 회사 또는 학교 계정의 *보유자* 이지만, 이 계정을 소유하고 제어하는 것은 조직입니다.
 
@@ -60,7 +60,7 @@ Microsoft는 Azure 또는 Active Directory 브랜드 이름에 최종 사용자�
 
 앱의 등록 경로와 로그인 경로가 별도로 제공될 수 있으며, 다음 섹션에서는 두 시나리오에 대한 시각적인 지침을 제공합니다.
 
-**앱에서 최종 사용자 가입을 지원하는 경우(예: 평가판 또는 프리미엄 모델)**: 사용자가 회사 또는 개인 계정을 사용하여 앱에 액세스하는 데 사용할 수 있는 **로그인** 단추를 표시할 수 있습니다. 사용자가 처음으로 앱에 액세스할 때 Azure AD에서 동의하도록 요구하는 메시지가 표시됩니다.
+**앱에서 최종 사용자 가입을 지원하는 경우(예: 평가판 또는 프리미엄 모델)** : 사용자가 회사 또는 개인 계정을 사용하여 앱에 액세스하는 데 사용할 수 있는 **로그인** 단추를 표시할 수 있습니다. 사용자가 처음으로 앱에 액세스할 때 Azure AD에서 동의하도록 요구하는 메시지가 표시됩니다.
 
 **관리자만 동의할 수 있는 권한을 요구하는 앱 또는 조직 라이선스가 필요한 앱의 경우**: 관리 취득과 사용자 로그인을 분리합니다. **"이 앱 가져오기" 단추**는 관리자에게 로그인하도록 리디렉션한 다음, 해당 조직의 사용자를 대신하여 동의하도록 요청합니다. 그러면 앱에 최종 사용자 동의 확인 프롬프트를 사용하지 않는 혜택이 추가됩니다.
 
@@ -70,9 +70,9 @@ Microsoft는 Azure 또는 Active Directory 브랜드 이름에 최종 사용자�
 
 관리자가 앱에 동의한 후에는 사용자의 Office 365 앱 시작 관리자 환경(와플 및 [https://portal.office.com/myapps](https://portal.office.com/myapps)에서 액세스 가능)에 앱을 추가할 수 있습니다. 이 기능을 보급하려는 경우 "조직에 이 앱 추가"와 같은 용어를 사용하고 다음 예제와 같은 단추를 표시할 수 있습니다.
 
-![애플리케이션 종류 및 시나리오](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
+![Microsoft 로고 및 텍스트 "내 조직에 추가"를 표시하는 단추](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 
-그러나 단추에 의존하는 대신 설명 텍스트를 작성하는 것이 좋습니다. 예: 
+그러나 단추에 의존하는 대신 설명 텍스트를 작성하는 것이 좋습니다. 예:
 
 > *이미 Office 365 또는Microsoft의 다른 비즈니스 서비스를 사용하는 경우 조직의 데이터에 대한 <your_app_name> 액세스 권한을 부여하면 됩니다. 이렇게 하면 사용자들이 기존 회사 계정으로 <your_app_name>에 액세스할 수 있습니다.*
 
@@ -80,7 +80,7 @@ Microsoft는 Azure 또는 Active Directory 브랜드 이름에 최종 사용자�
 
 | 자산                                | PNG 형식 | SVG 형식 |
 | ------------------------------------ | ---------- | ---------- |
-| Microsoft 로고  | ![Microsoft 로고 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.png) | ![Microsoft 로고 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.svg) |
+| Microsoft 로고  | ![PNG 형식으로 다운로드할 수 있는 Microsoft 로고](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.png) | ![SVG 형식으로 다운로드할 수 있는 Microsoft 로고](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.svg) |
 
 ## <a name="visual-guidance-for-sign-in"></a>로그인에 대한 시각적 지침
 
@@ -92,16 +92,16 @@ Microsoft 로고와 앱이 지원하는 다른 ID 공급자 중에서 Azure AD�
 
 다음 다이어그램은 앱에서 자산을 사용하는 경우 Microsoft 권장 검토를 보여줍니다. 검토는 "Microsoft에 로그인" 또는 짧은 "로그인" 버전에 적용합니다.
 
-![Microsoft로 로그인 검토](./media/howto-add-branding-in-azure-ad-apps/sign-in-with-microsoft-redlines.png)
+!["Microsoft에 로그인" 검토 표시](./media/howto-add-branding-in-azure-ad-apps/sign-in-with-microsoft-redlines.png)
 
 공식 이미지를 앱에서 사용하기 위해 다운로드하려면 사용할 이미지를 마우스 오른쪽 단추로 클릭한 다음, 컴퓨터에 저장합니다.
 
 | 자산                                | PNG 형식 | SVG 형식 |
 | ------------------------------------ | ---------- | ---------- |
-| Microsoft로 로그인(어두운 테마)  | ![로그인 단추 어두운 테마 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.png) | ![Microsoft로 로그인 단추 어두운 테마 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.svg) |
-| Microsoft로 로그인(밝은 테마) | ![로그인 단추 밝은 테마 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![Microsoft로 로그인 단추 밝은 테마 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
-| 로그인(어두운 테마)                 | ![로그인 단문 단추 어두운 테마 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![로그인 단문 단추 어두운 테마 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
-| 로그인(밝은 테마)                | ![로그인 단문 단추 밝은 테마 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![로그인 단문 단추 밝은 테마 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
+| Microsoft로 로그인(어두운 테마)  | ![다운로드할 수 있는 "Microsoft에 로그인" 단추 어두운 테마 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.png) | ![다운로드 가능한 "Microsoft에 로그인" 단추 어두운 테마 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.svg) |
+| Microsoft로 로그인(밝은 테마) | ![다운로드할 수 있는 "Microsoft에 로그인" 단추 밝은 테마 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![다운로드 가능한 "Microsoft에 로그인" 단추 밝은 테마 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
+| 로그인(어두운 테마)                 | ![다운로드할 수 있는 "로그인" 단문 단추 어두운 테마 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![다운로드할 수 있는 "로그인" 단문 단추 어두운 테마 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
+| 로그인(밝은 테마)                | ![다운로드할 수 있는 "로그인" 단문 단추 밝은 테마 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![다운로드할 수 있는 "로그인" 단문 단추 밝은 테마 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
 
 ## <a name="branding-dos-and-donts"></a>브랜딩 관련 할 일과 하지 말아야 할 일
 

@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: brandwe, jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a05d8b9182451fc52dd1860dac1dcce57ba2c55
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: f1ebfce2b96da51b9c33646c1626495d280d7b8a
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66122006"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592254"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>빠른 시작: Android 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -30,7 +30,7 @@ ms.locfileid: "66122006"
 
 Android 애플리케이션을 개발하는 분들은 Azure AD(Azure Active Directory) 사용자를 간단하게 로그인할 수 있습니다. Azure AD를 사용하면 애플리케이션이 Microsoft Graph를 통해 또는 개발자 고유의 보호되는 web API를 통해 사용자 데이터에 액세스할 수 있습니다.
 
-Azure ADAL(AD 인증 라이브러리) Android 라이브러리는 산업 표준 OAuth 2.0 및 OpenID Connect를 통해 [Microsoft Azure Active Directory 계정](https://azure.microsoft.com/services/active-directory/)을 지원하여 앱이 [Microsoft Azure Cloud](https://cloud.microsoft.com) 및 [Microsoft Graph API](https://developer.microsoft.com/graph) 사용을 시작할 수 있도록 합니다.
+Azure ADAL(AD 인증 라이브러리) Android 라이브러리는 산업 표준 OAuth 2.0 및 OpenID Connect를 통해 [Microsoft Azure Active Directory 계정](https://azure.microsoft.com/services/active-directory/)을 지원하여 앱이 [Microsoft Azure Cloud](https://azure.microsoft.com/free/cloud-services/) 및 [Microsoft Graph API](https://developer.microsoft.com/graph) 사용을 시작할 수 있도록 합니다.
 
 이 빠른 시작에서 다음을 수행하는 방법을 알아봅니다.
 
@@ -45,7 +45,7 @@ Azure ADAL(AD 인증 라이브러리) Android 라이브러리는 산업 표준 O
 
 ## <a name="scenario-sign-in-users-and-call-the-microsoft-graph"></a>시나리오: 사용자 로그인 및 Microsoft Graph 호출
 
-![토폴로지](./media/quickstart-v1-android/active-directory-android-topology.png)
+![Azure AD 및 Android 토폴로지 표시](./media/quickstart-v1-android/active-directory-android-topology.png)
 
 모든 Azure AD 계정에 이 앱을 사용할 수 있습니다. 단일 테넌트 및 다중 테넌트 시나리오를 둘 다 지원합니다(단계별로 설명). 앱을 빌드하여 엔터프라이즈 사용자와 연결하고 Microsoft Graph를 통해 해당 Azure + O365 데이터에 액세스하는 방법을 보여 줍니다. 인증 흐름에서 최종 사용자는 애플리케이션에 로그인하고 사용 권한에 동의해야 하며, 경우에 따라 관리자가 앱에 동의해야 할 수도 있습니다. 이 샘플에 포함된 대부분의 논리는 최종 사용자를 인증하고 기본적인 Microsoft Graph 호출 방법을 보여줍니다.
 

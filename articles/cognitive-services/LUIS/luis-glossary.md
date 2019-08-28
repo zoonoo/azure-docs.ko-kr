@@ -1,32 +1,32 @@
 ---
-title: 용어
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 용어집-LUIS
+titleSuffix: Azure Cognitive Services
 description: 용어집에서는 LUIS API 서비스를 사용할 때 나타날 수 있는 용어에 대해 설명합니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 01/23/2019
+ms.topic: reference
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 3fc14b821064719f39eb877aa2253f8084496a66
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0bf7fe649a5a604c610307b9be0717dce01cb238
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523505"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638300"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>일반적인 용어 및 개념의 언어 이해 용어집
 Language Understanding(LUIS) 용어집에서는 LUIS API 서비스를 사용할 때 나타날 수 있는 용어에 대해 설명합니다.
 
 ## <a name="active-version"></a>활성 버전
 
-활성 LUIS 버전은 모델의 변경 내용을 수신하는 버전입니다. [LUIS](luis-reference-regions.md) 웹 사이트에서 활성 버전이 아닌 버전을 변경하려면 먼저 해당 버전을 활성으로 설정해야 합니다.
+활성 LUIS 버전은 모델의 변경 내용을 수신하는 버전입니다. [LUIS](luis-reference-regions.md) 포털에서 활성 버전이 아닌 버전을 변경 하려면 먼저 해당 버전을 활성으로 설정 해야 합니다.
 
 ## <a name="authoring"></a>작성
 
-작성은 [LUIS](luis-reference-regions.md) 웹 사이트 또는 [작성 API](https://go.microsoft.com/fwlink/?linkid=2092087)를 사용하여 [LUIS 앱](#luis-app)을 생성, 관리 및 배포하는 기능입니다.
+제작은 [LUIS](luis-reference-regions.md) 포털 또는 [제작 api](https://go.microsoft.com/fwlink/?linkid=2092087)를 사용 하 여 [LUIS 앱](#luis-app)을 만들고, 관리 하 고, 배포할 수 있는 기능입니다.
 
 ## <a name="authoring-key"></a>작성 키
 
@@ -34,30 +34,12 @@ Language Understanding(LUIS) 용어집에서는 LUIS API 서비스를 사용할 
 
 ## <a name="batch-test-json-file"></a>텍스트 JSON 파일 일괄 처리
 
-일괄 처리 파일은 JSON 배열입니다. 배열의 각 요소에는 `text`, `intent` 및 `entities`의 세 가지 속성이 있습니다. `entities` 속성은 배열입니다. 배열은 비어 있을 수 있습니다. 비어 있지 않은 `entities` 배열은 엔터티를 정확히 식별해야 합니다.
+일괄 처리 테스트는 사용자 길이 발언의 일관 되 고 알려진 테스트 집합을 사용 하 여 현재 LUIS 앱 모델의 유효성을 검사 하는 기능입니다. 일괄 처리 테스트는 [JSON 형식의 파일](luis-concept-batch-test.md#batch-file-format)에서 정의 됩니다.
 
-```JSON
-[
-    {
-        "text": "drive me home",
-        "intent": "None",
-        "entities": []
-    },
-    {
-        "text": "book a flight to orlando on the 25th",
-        "intent": "BookFlight",
-        "entities": [
-            {
-                "entity": "orlando",
-                "type": "Location",
-                "startIndex": 18,
-                "endIndex": 25
-            }
-        ]
-    }
-]
-
-```
+참고 항목: 
+* [개념](luis-concept-batch-test.md)
+* [방법](luis-how-to-batch-test.md)
+* [자습서] luis-testing.md)
 
 
 ## <a name="collaborator"></a>협력자
@@ -84,9 +66,9 @@ LUIS 컨텍스트에서 **도메인**은 정보 영역입니다. 도메인은 �
 |--|--|
 |영역(region)| [게시된 지역](luis-reference-regions.md#publishing-regions) |
 |appID | LUIS 앱 ID |
-|subscriptionID | Azure Portal에서 생성된 LUIS 끝점(구독) 키 |
+|subscriptionID | Azure Portal에서 생성된 LUIS 엔드포인트(구독) 키 |
 |q | 발화 |
-|timezoneOffset| minutes|
+|timezoneOffset| 분|
 
 ## <a name="entity"></a>엔터티
 
@@ -96,11 +78,11 @@ LUIS 컨텍스트에서 **도메인**은 정보 영역입니다. 도메인은 �
 
 [일괄 테스트](luis-interactive-test.md#batch-testing)에서 테스트 정확도의 측정값입니다.
 
-## <a name="false-negative"></a>가음성(TN)
+## <a name="false-negative"></a>False 음수 (FN)
 
 [일괄 테스트](luis-interactive-test.md#batch-testing)에서 데이터 요소가 앱이 대상 의도/엔터티가 없음을 잘못 예측한 발언을 나타냅니다.
 
-## <a name="false-positive"></a>가양성(TP)
+## <a name="false-positive"></a>가양성 (FP)
 
 [일괄 테스트](luis-interactive-test.md#batch-testing)에서 데이터 요소가 앱이 대상 의도/엔터티가 있음을 잘못 예측한 발언을 나타냅니다.
 
@@ -114,7 +96,7 @@ LUIS 컨텍스트에서 **도메인**은 정보 영역입니다. 도메인은 �
 
 ## <a name="labeling"></a>레이블 지정
 
-레이블 지정은 의도의 [발화](#utterance)에 있는 단어 또는 구문을 [엔터티](#entity)(데이터 형식)와 연결하는 프로세스입니다.
+레이블 지정 또는 표시는 의도 된 [utterance](#utterance) 의 단어나 구를 [엔터티](#entity) (datatype)와 연결 하는 프로세스입니다.
 
 ## <a name="luis-app"></a>LUIS 앱
 
@@ -177,7 +159,7 @@ Bing Spell Checker를 사용하여 예측 전에 발화에서 맞춤법이 잘�
 
 ## <a name="subscription-key"></a>구독 키
 
-구독 키는 [Azure에서 만든](luis-how-to-azure-subscription.md) LUIS 서비스와 연결된 **끝점** 키입니다. 이 키는 [작성 키](#programmatic-key)가 아닙니다. 끝점 키가 있는 경우 작성 키 대신 모든 끝점 요청에 사용해야 합니다. [LUIS](luis-reference-regions.md) 웹 사이트의 [**키 및 엔드포인트** 페이지](luis-how-to-azure-subscription.md) 아래쪽에 있는 엔드포인트 URL 내부에서 현재 엔드포인트 키를 확인할 수 있습니다. 이는 **subscription-key** 이름/값 쌍의 값입니다.
+구독 키는 [Azure에서 만든](luis-how-to-azure-subscription.md) LUIS 서비스와 연결된 **엔드포인트** 키입니다. 이 키는 [작성 키](#programmatic-key)가 아닙니다. 엔드포인트 키가 있는 경우 작성 키 대신 모든 엔드포인트 요청에 사용해야 합니다. [LUIS](luis-reference-regions.md) 웹 사이트의 [**키 및 엔드포인트** 페이지](luis-how-to-azure-subscription.md) 아래쪽에 있는 엔드포인트 URL 내부에서 현재 엔드포인트 키를 확인할 수 있습니다. 이는 **subscription-key** 이름/값 쌍의 값입니다.
 
 ## <a name="test"></a>테스트
 

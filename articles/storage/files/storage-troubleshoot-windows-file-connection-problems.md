@@ -1,29 +1,27 @@
 ---
 title: Windows에서 Azure Files 문제 해결 | Microsoft Docs
 description: Windows에서 Azure Files 문제 해결
-services: storage
 author: jeffpatt24
-tags: storage
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 7bc7f3631748f4ac74a76e9e67aa2aef2c8f9a71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f36d3bcb16876f080f780658bc59afd794e3431e
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480313"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699194"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows에서 Azure Files 문제 해결
 
 이 문서에서는 Windows 클라이언트에서 연결할 때 Microsoft Azure Files와 관련하여 발생하는 일반적인 문제를 보여 줍니다. 또한 이러한 문제의 가능한 원인과 해결 방법을 제공합니다. 이 문서에 나온 문제 해결 단계 외에도 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) 를 사용하여 Windows 클라이언트 환경의 필수 구성 요소가 올바른지 확인할 수 있습니다. AzFileDiagnostics는 이 문서에서 설명하는 대부분의 현상을 자동으로 감지하고 최적의 성능을 얻도록 환경을 설정하는 데 도움이 됩니다. 이 정보는 Azure Files 공유 연결/매핑/탑재 관련 문제에 도움이 되는 단계를 제공하는 [Azure Files 공유 문제 해결사](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares)에서도 찾을 수 있습니다.
 
-<a id="error5"></a>
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
+<a id="error5"></a>
 ## <a name="error-5-when-you-mount-an-azure-file-share"></a>Azure 파일 공유를 탑재할 때 오류 5 발생
 
 파일 공유를 탑재하려고 하면 다음 오류가 표시될 수 있습니다.
@@ -32,7 +30,7 @@ ms.locfileid: "66480313"
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>원인 1: 암호화되지 않은 통신 채널
 
-보안상 이유로, 통신 채널이 암호화되지 않고 Azure 파일 공유가 있는 같은 데이터 센터에서 연결 시도가 이루어지지 않을 경우 Azure 파일 공유에 대한 연결이 차단됩니다. 저장소 계정에서 [보안 전송 필요](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) 설정을 사용하도록 설정한 경우에도 동일한 데이터 센터 내의 암호화되지 않은 연결을 차단할 수 있습니다. 사용자의 클라이언트 OS가 SMB 암호화를 지원하는 경우에만 암호화된 통신 채널이 제공됩니다.
+보안상 이유로, 통신 채널이 암호화되지 않고 Azure 파일 공유가 있는 같은 데이터 센터에서 연결 시도가 이루어지지 않을 경우 Azure 파일 공유에 대한 연결이 차단됩니다. 스토리지 계정에서 [보안 전송 필요](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) 설정을 사용하도록 설정한 경우에도 동일한 데이터 센터 내의 암호화되지 않은 연결을 차단할 수 있습니다. 사용자의 클라이언트 OS가 SMB 암호화를 지원하는 경우에만 암호화된 통신 채널이 제공됩니다.
 
 각 시스템의 Windows 8, Windows Server 2012 이후 버전은 암호화를 지원하는 SMB 3.0이 포함된 요청을 협상합니다.
 
@@ -64,7 +62,7 @@ ms.locfileid: "66480313"
 
 방화벽 또는 ISP가 포트 445를 차단하는지 확인하려면 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) 도구 또는 `Test-NetConnection` cmdlet을 사용합니다. 
 
-사용 하는 `Test-NetConnection` 모듈을 설치 해야, Azure PowerShell cmdlet 참조 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps) 자세한 내용은 합니다. 잊지 말고 `<your-storage-account-name>` 및 `<your-resource-group-name>`을 저장소 계정과 관련된 이름으로 바꿔야 합니다.
+`Test-NetConnection` Cmdlet을 사용 하려면 Azure PowerShell 모듈이 설치 되어 있어야 합니다. 자세한 내용은 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps) 를 참조 하세요. 잊지 말고 `<your-storage-account-name>` 및 `<your-resource-group-name>`을 스토리지 계정과 관련된 이름으로 바꿔야 합니다.
 
    
     $resourceGroupName = "<your-resource-group-name>"
@@ -91,23 +89,22 @@ ms.locfileid: "66480313"
  
 
 > [!Note]  
-> 위의 명령은 저장소 계정의 현재 IP 주소를 반환합니다. 이 IP 주소가 동일하게 유지된다는 보장이 없으며, 언제든지 변경될 수 있습니다. 이 IP 주소를 스크립트로 또는 방화벽 구성으로 하드 코딩하지 마세요.
+> 위의 명령은 스토리지 계정의 현재 IP 주소를 반환합니다. 이 IP 주소가 동일하게 유지된다는 보장이 없으며, 언제든지 변경될 수 있습니다. 이 IP 주소를 스크립트로 또는 방화벽 구성으로 하드 코딩하지 마세요.
 
 ### <a name="solution-for-cause-1"></a>원인 1의 해결 방법
 
-#### <a name="solution-1---use-azure-file-sync"></a>해결 방법 1-사용 하 여 Azure 파일 동기화
-Azure File Sync는 온-프레미스 Windows Server Azure 파일 공유의 빠른 캐시로 변환 수 있습니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. Azure File Sync 포트 443 통해 작동 하며 따라서 데 사용할 수 있습니다 문제를 해결 하려면 포트 445를 차단 하는 클라이언트에서 Azure Files에 액세스할. [Azure File Sync를 설치 하는 방법을 알아봅니다](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers)합니다.
+#### <a name="solution-1---use-azure-file-sync"></a>해결 방법 1-Azure File Sync 사용
+Azure File Sync 온-프레미스 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환할 수 있습니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. Azure File Sync 포트 443을 통해 작동 하므로 포트 445이 차단 된 클라이언트에서 Azure Files에 액세스 하는 해결 방법으로 사용할 수 있습니다. [Azure File Sync를 설정 하는 방법을 알아봅니다](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers).
 
 #### <a name="solution-2---use-vpn"></a>해결 방법 2-VPN 사용
-특정 저장소 계정에 VPN을 설정 하 여 트래픽을 인터넷을 통해 달리 보안 터널을 통해 이동 됩니다. 에 따라 합니다 [VPN을 설정 하는 지침은](https://github.com/Azure-Samples/azure-files-samples/tree/master/point-to-site-vpn-azure-files
-) Windows에서 Azure 파일에 액세스할 수 있습니다.
+특정 저장소 계정에 대 한 VPN을 설정 하 여 트래픽은 인터넷을 통하지 않고 보안 터널을 통해 이동 합니다. 지침에 따라 Windows에서 Azure Files](https://github.com/Azure-Samples/azure-files-samples/tree/master/point-to-site-vpn-azure-files
+) 액세스 하도록 VPN을 설정 합니다. [
 
-#### <a name="solution-3---unblock-port-445-with-help-of-your-ispit-admin"></a>해결 방법 3-ISP의 도움말을 사용 하 여 포트 445의 차단을 해제 / IT 관리자
-IT 부서 또는 포트 445 아웃 바운드를 열려는 ISP와 작동 [Azure IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)합니다.
+#### <a name="solution-3---unblock-port-445-with-help-of-your-ispit-admin"></a>해결 방법 3-ISP/IT 관리자의 도움으로 포트 445 차단 해제
+IT 부서 또는 ISP와 협력 하 여 [AZURE IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 대 한 포트 445 아웃 바운드를 엽니다.
 
-#### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>해결 방법 4-REST API를 사용 하 여 Storage 탐색기/Powershell 같은 도구 기반
-Azure Files는 SMB 외에도 REST도 지원 합니다. REST 액세스 포트 443 (표준 tcp)을 통해 작동합니다. 풍부한 UI 경험을 사용 하도록 설정 하는 REST API를 사용 하 여 작성 된 다양 한 도구가 있습니다. [Storage 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) 그 중 하나입니다. [다운로드 및 설치 하는 Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/) Azure Files에서 지원 하 여 파일 공유에 연결 합니다. 사용할 수도 있습니다 [PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell) 는 REST API를 사용자도 합니다.
-
+#### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>해결 방법 4-Storage 탐색기/Powershell과 같은 REST API 기반 도구 사용
+SMB 외에도 REST를 지 원하는 Azure Files입니다. REST 액세스는 포트 443 (표준 tcp)을 통해 작동 합니다. 다양 한 UI 환경을 가능 하 게 하는 REST API를 사용 하 여 작성 되는 다양 한 도구가 있습니다. [Storage 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) 중 하나입니다. [Storage 탐색기를 다운로드 하 여 설치](https://azure.microsoft.com/features/storage-explorer/) 하 고 Azure Files에서 지원 되는 파일 공유에 연결 합니다. [PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell) 을 사용 하 여 사용자 REST API 수도 있습니다.
 
 ### <a name="cause-2-ntlmv1-is-enabled"></a>원인 2: NTLMv1이 사용하도록 설정됨
 
@@ -132,17 +129,24 @@ Azure Files는 SMB 외에도 REST도 지원 합니다. REST 액세스 포트 443
 
 파일 공유가 탑재되어 있는 컴퓨터의 파일에 허용되는 동시 오픈 핸들의 상한값에 도달하는 경우 오류 1816이 발생합니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 일부 핸들을 닫아 동시 열린 핸들 수를 줄이고 다시 시도하세요. 자세한 내용은 [Microsoft Azure Storage 성능 및 확장성 검사 목록](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조하세요.
 
+파일 공유, 디렉터리 또는 파일에 대 한 열린 핸들을 보려면 [AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet을 사용 합니다.  
+
+파일 공유, 디렉터리 또는 파일에 대 한 열린 핸들을 닫으려면 [AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet을 사용 합니다.
+
+> [!Note]  
+> AzStorageFileHandle 및 AzStorageFileHandle cmdlet은 Az PowerShell module version 2.4 이상에 포함 되어 있습니다. 최신 Az PowerShell module을 설치 하려면 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조 하세요.
+
 <a id="authorizationfailureportal"></a>
-## <a name="error-authorization-failure-when-browsing-to-an-azure-file-share-in-the-portal"></a>오류 "권한 부여 실패"는 포털에서 Azure 파일 공유로 이동 하는 경우
+## <a name="error-authorization-failure-when-browsing-to-an-azure-file-share-in-the-portal"></a>포털에서 Azure 파일 공유를 찾을 때 "권한 부여 실패" 오류 발생
 
 포털에서 Azure 파일 공유를 찾을 때 다음 오류가 표시될 수 있습니다.
 
 권한 부여 실패  
-액세스 권한이 없음 
+액세스 권한이 없습니다. 
 
 ### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>원인 1: 사용자 계정에 스토리지 계정에 대한 액세스 권한이 없음
 
@@ -155,6 +159,23 @@ Azure 파일 공유가 있는 스토리지 계정을 찾아 **액세스 제어(I
 ### <a name="solution-for-cause-2"></a>원인 2의 해결 방법
 
 가상 네트워크 및 방화벽 규칙이 스토리지 계정에 제대로 구성되어 있는지 확인합니다. 가상 네트워크 또는 방화벽 규칙에서 문제가 발생하는지 테스트하려면 일시적으로 스토리지 계정의 설정을 **모든 네트워크에서 액세스 허용**으로 변경합니다. 자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/storage/common/storage-network-security)을 참조하세요.
+
+<a id="open-handles"></a>
+## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Azure 파일 공유에서 파일 또는 디렉터리를 삭제할 수 없습니다.
+
+### <a name="cause"></a>원인
+이 문제는 일반적으로 파일 또는 디렉터리에 열린 핸들이 있는 경우에 발생 합니다. 
+
+### <a name="solution"></a>솔루션
+
+SMB 클라이언트에서 열려 있는 모든 핸들을 닫고 문제가 계속 발생 하면 다음을 수행 합니다.
+
+- [AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet을 사용 하 여 열린 핸들을 볼 수 있습니다.
+
+- [AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet을 사용 하 여 열린 핸들을 닫습니다. 
+
+> [!Note]  
+> AzStorageFileHandle 및 AzStorageFileHandle cmdlet은 Az PowerShell module version 2.4 이상에 포함 되어 있습니다. 최신 Az PowerShell module을 설치 하려면 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조 하세요.
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>Windows에서 Azure Files와 서로 파일을 복사하는 속도 느림
@@ -183,7 +204,7 @@ Windows 8.1 또는 Windows Server 2012 R2를 실행 중인 클라이언트에서
 > 2015년 12월부터 Azure Marketplace의 Windows Server 2012 R2 이미지에는 핫픽스 KB3114025가 기본적으로 설치되어 있습니다.
 
 <a id="shareismissing"></a>
-## <a name="no-folder-with-a-drive-letter-in-my-computer"></a>**내 컴퓨터**에 드라이브 문자를 포함한 폴더가 없습니다.
+## <a name="no-folder-with-a-drive-letter-in-my-computer-or-this-pc"></a>"내 컴퓨터" 또는 "이 PC"의 드라이브 문자를 포함 하는 폴더가 없습니다.
 
 net use를 사용하여 관리자 권한으로 Azure 파일 공유를 매핑하는 경우 공유가 누락될 수 있습니다.
 
@@ -191,17 +212,17 @@ net use를 사용하여 관리자 권한으로 Azure 파일 공유를 매핑하�
 
 기본적으로 Windows File Explorer는 관리자 권한으로 실행되지 않습니다. 관리자 명령 프롬프트에서 net use를 실행할 경우 네트워크 드라이브를 관리자 권한으로 매핑합니다. 매핑된 드라이브는 사용자 중심이므로 다른 사용자 계정으로 탑재될 경우 로그인된 사용자 계정에 드라이브가 표시되지 않습니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 비관리자 명령줄에서 공유를 탑재하세요. 또는 [이 TechNet 항목](https://technet.microsoft.com/library/ee844140.aspx)에 따라 **EnableLinkedConnections** 레지스트리 값을 구성할 수 있습니다.
 
 <a id="netuse"></a>
-## <a name="net-use-command-fails-if-the-storage-account-contains-a-forward-slash"></a>내 저장소 계정에 슬래시(/)가 포함되는 경우 net use 명령이 실패합니다.
+## <a name="net-use-command-fails-if-the-storage-account-contains-a-forward-slash"></a>내 스토리지 계정에 슬래시(/)가 포함되는 경우 net use 명령이 실패합니다.
 
 ### <a name="cause"></a>원인
 
 net use 명령은 슬래시(/)를 명령줄 옵션으로 해석합니다. 사용자 계정 이름이 슬래시로 시작되면 드라이브 매핑에 실패합니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 다음 단계 중 하나를 사용하여 문제를 해결할 수 있습니다.
 
@@ -222,12 +243,12 @@ net use 명령은 슬래시(/)를 명령줄 옵션으로 해석합니다. 사용
 
 드라이브는 사용자별로 탑재됩니다. 애플리케이션 또는 서비스가 드라이브를 탑재한 계정이 아닌 다른 사용자 계정으로 실행되는 경우 애플리케이션에는 드라이브가 표시되지 않습니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 다음 해결 방법 중 하나를 사용합니다.
 
 -   애플리케이션을 포함하는 동일한 사용자 계정에서 드라이브를 탑재합니다. PsExec와 같은 도구를 사용할 수 있습니다.
-- net use 명령의 사용자 이름 및 암호 매개 변수에 저장소 계정 이름 및 키를 전달합니다.
+- net use 명령의 사용자 이름 및 암호 매개 변수에 스토리지 계정 이름 및 키를 전달합니다.
 - cmdkey 명령을 사용하여 자격 증명 관리자에 자격 증명을 추가합니다. 대화형 로그인을 통하거나 runas를 사용하여 서비스 계정 컨텍스트에 있는 명령줄에서 이를 수행합니다.
   
   `cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>`
@@ -263,7 +284,7 @@ EFS(파일 시스템 암호화)를 사용하는 경우 이 문제가 발생할 �
 
 이 문제는 클라이언트 머신에서 대규모 디렉터리에 대한 캐시가 충분하지 않을 때 발생할 수 있습니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 이 문제를 해결하려면 **DirectoryCacheEntrySizeMax** 레지스트리 값을 조정하여 클라이언트 머신에 더 큰 디렉터리 목록의 캐시를 허용합니다.
 
@@ -280,11 +301,11 @@ EFS(파일 시스템 암호화)를 사용하는 경우 이 문제가 발생할 �
 
 AadDsTenantNotFound 오류는 연결된 구독의 AAD 테넌트에 [AAD DS(AAD Domain Service)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview)가 생성되지 않은 스토리지 계정에 [Azure Files에 대한 AAD(Azure Active Directory) 인증을 사용하도록 설정](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable)하려고 할 때 발생합니다.  
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 스토리지 계정이 배포된 구독의 AAD 테넌트에 AAD DS를 사용하도록 설정합니다. 관리형 도메인을 만들려면 AAD 테넌트의 관리자 권한이 필요합니다. Azure AD 테넌트의 관리자가 아니라면 관리자에게 문의하고 [Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started)를 위한 단계별 지침을 따르세요.
 
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
+## <a name="need-help-contact-support"></a>도움이 필요하십니까? 지원에 문의
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

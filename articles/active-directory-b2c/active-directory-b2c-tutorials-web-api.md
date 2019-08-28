@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 6b93a7848e5c8516507c825d3064fb61a404e3cf
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 339b118e48a01469312a40e6b0652a4ffb90291a
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66507760"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347136"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 ASP.NET Web API로의 액세스 권한 부여
 
@@ -42,7 +42,7 @@ ms.locfileid: "66507760"
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
 3. Azure Portal의 왼쪽 위에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-4. **응용 프로그램**을 선택하고 **추가**를 선택합니다.
+4. **애플리케이션**을 선택하고 **추가**를 선택합니다.
 5. 애플리케이션의 이름을 입력합니다. 예를 들어 *webapi1*과 같습니다.
 6. **웹앱/웹 API 포함** 및 **암시적 흐름 허용**에 **예**를 선택합니다.
 7. **회신 URL**에는 Azure AD B2C에서 애플리케이션이 요청한 토큰을 반환하는 엔드포인트를 입력합니다. 이 자습서의 샘플은 로컬에서 실행되고 `https://localhost:44332`에서 수신 대기합니다.
@@ -91,13 +91,13 @@ ms.locfileid: "66507760"
 2. **TaskWebApp** 프로젝트에서 **Web.config**를 엽니다.
 3. API를 로컬로 실행하려면 **api:TaskServiceUrl**에 대한 localhost 설정을 사용합니다. Web.config를 다음과 같이 변경합니다. 
 
-    ```C#
+    ```csharp
     <add key="api:TaskServiceUrl" value="https://localhost:44332/"/>
     ```
 
 3. API의 URI를 구성합니다. 이는 웹 애플리케이션에서 API를 요청하는 데 사용하는 URI입니다. 또한 요청된 권한도 구성합니다.
 
-    ```C#
+    ```csharp
     <add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/api/" />
     <add key="api:ReadScope" value="Hello.Read" />
     <add key="api:WriteScope" value="Hello.Write" />
@@ -108,25 +108,25 @@ ms.locfileid: "66507760"
 1. **TaskService** 프로젝트에서 **Web.config**를 엽니다.
 2. 테넌트를 사용하도록 API를 구성합니다.
 
-    ```C#
+    ```csharp
     <add key="ida:Tenant" value="<Your tenant name>.onmicrosoft.com" />
     ```
 
 3. 클라이언트 ID를 API에 대해 등록된 애플리케이션 ID로 설정합니다.
 
-    ```C#
+    ```csharp
     <add key="ida:ClientId" value="<application-ID>"/>
     ```
 
 4. 등록 및 로그인 사용자 흐름의 이름으로 사용자 흐름 설정을 업데이트합니다.
 
-    ```C#
+    ```csharp
     <add key="ida:SignUpSignInUserFlowId" value="B2C_1_signupsignin1" />
     ```
 
 5. 포털에서 만든 범위와 일치하도록 범위 설정을 구성합니다.
 
-    ```C#
+    ```csharp
     <add key="api:ReadScope" value="Hello.Read" />
     <add key="api:WriteScope" value="Hello.Write" />
     ```
@@ -139,7 +139,7 @@ ms.locfileid: "66507760"
 2. **여러 시작 프로젝트**를 선택합니다.
 3. **시작**할 두 프로젝트에 대한 **작업**을 변경합니다.
 4. **확인**을 클릭하여 구성을 저장합니다.
-5. **F5** 키를 눌러 두 응용 프로그램을 모두 실행합니다. 각 애플리케이션은 자체 브라우저 탭에서 열립니다. `https://localhost:44316/`은 웹 애플리케이션이고,
+5. **F5** 키를 눌러 두 애플리케이션을 모두 실행합니다. 각 애플리케이션은 자체 브라우저 탭에서 열립니다. `https://localhost:44316/`은 웹 애플리케이션이고,
     `https://localhost:44332/`는 웹 API입니다.
 
 6. 웹 애플리케이션에서 **등록/로그인**을 클릭하여 웹 애플리케이션에 로그인합니다. 이전에 만든 계정을 사용합니다. 

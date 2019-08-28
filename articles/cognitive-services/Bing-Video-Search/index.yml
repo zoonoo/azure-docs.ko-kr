@@ -2,17 +2,16 @@
 documentType: LandingData
 title: Bing Video Search API 설명서
 metadata:
-  title: 'Bing Video Search API 설명서 - 자습서, 빠른 시작, API 참조 | Microsoft Docs'
+  title: 'Bing Video Search API 설명서 - 자습서, 빠른 시작, API 참조'
+  titleSuffix: Azure Cognitive Services
   description: Bing Video Search API 검색을 사용하고 웹에서 비디오를 찾는 방법을 알아봅니다.
   services: cognitive-services
   author: aahill
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-video-search
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 01/31/2019
+  ms.date: 07/25/2019
   ms.author: aahi
 abstract:
   description: Bing Video Search API를 사용하면 애플리케이션에서 Bing의 비디오 검색 기능을 통합할 수 있습니다. API에 검색 쿼리를 보내면 bing.com/videos와 비슷한 관련 고품질 비디오를 가져오고 표시할 수 있습니다.
@@ -92,7 +91,7 @@ sections:
           - title: API
             html: '<p><a href="https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference">Bing Video Search API v7</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v5-reference/">Bing Video Search API v5</a></p>'
           - title: SDK
-            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvideo?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-videosearch?view=azure-node-latest">Node.JS</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/videosearch?view=azure-python">Python</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/videosearch">Go</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/videosearch?view=azure-java-stable">Java</a></p>'
+            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvideosearch?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-videosearch?view=azure-node-latest">Node.JS</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/videosearch?view=azure-python">Python</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/videosearch">Go</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingvideosearch?view=azure-java-stable">Java</a></p>'
           - title: PowerShell
             html: '<p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
           - title: CLI

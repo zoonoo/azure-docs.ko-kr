@@ -1,33 +1,33 @@
 ---
 title: ExpressRoute Direct 정보 - Azure | Microsoft Docs
-description: 이 페이지 ExpressRoute 직접의 개요를 제공합니다.
+description: 이 페이지는 Express 경로 직접의 개요를 제공 합니다.
 services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 08/12/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: fb9dc5116ba23d57c7f2fe543e734759e8bbcc7b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a294c444f10719f69716b25b97cd137874a3e0be
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60367639"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954145"
 ---
 # <a name="about-expressroute-direct"></a>ExpressRoute Direct 정보
 
-ExpressRoute Direct는 전 세계에 전략적으로 분산된 피어링 위치에서 Microsoft의 글로벌 네트워크에 직접 연결하는 기능을 제공합니다. ExpressRoute Direct는 대규모로 활성/활성 연결을 지원하는 이중 100Gbps 연결을 제공합니다.
+ExpressRoute Direct는 전 세계에 전략적으로 분산된 피어링 위치에서 Microsoft의 글로벌 네트워크에 직접 연결하는 기능을 제공합니다. Express 경로 다이렉트는 규모에 맞게 활성/활성 연결을 지 원하는 이중 100 Gbps 또는 10gbps 연결을 제공 합니다.
 
 ExpressRoute Direct가 제공하는 주요 기능은 다음을 포함하지만 제한되지 않습니다.
 
-* Storage 및 Cosmos DB와 같은 서비스로의 대규모 데이터 수집
+* 스토리지 및 Cosmos DB와 같은 서비스로 대규모 데이터 수집
 * 은행, 정부 및 소매업체와 같이 규제가 적용되며 전용 격리 연결을 사용해야 하는 업계의 물리적 격리입니다.
 * 비즈니스 단위에 따라 세부적으로 회로 배포 제어
 
-## <a name="onboard-to-expressroute-direct"></a>ExpressRoute 직접 등록
+## <a name="onboard-to-expressroute-direct"></a>Express 경로 직접에 등록
 
-ExpressRoute Direct를 사용 하기 전에 먼저 구독을 등록 해야 합니다. 등록하려면 다음 세부 사항을 포함하여 구독 ID로 <ExpressRouteDirect@microsoft.com>에 이메일을 전송합니다.
+Express 경로 다이렉트를 사용 하기 전에 먼저 구독을 등록 해야 합니다. 등록하려면 다음 세부 사항을 포함하여 구독 ID로 <ExpressRouteDirect@microsoft.com>에 이메일을 전송합니다.
 
 * **ExpressRoute Direct**를 사용하여 수행하려는 시나리오
 * 위치 기본 설정 - 모든 위치의 전체 목록은 [파트너 및 피어링 위치](expressroute-locations-providers.md) 참조
@@ -38,10 +38,10 @@ ExpressRoute Direct를 사용 하기 전에 먼저 구독을 등록 해야 합�
 
 | **서비스 공급자를 사용하는 ExpressRoute** | **ExpressRoute Direct** | 
 | --- | --- |
-| 서비스 공급자를 활용하여 기존 인프라로 빠른 온보딩 및 연결 활성화 | 100Gbps 인프라 및 모든 계층의 전체 관리 필요
+| 서비스 공급자를 활용하여 기존 인프라로 빠른 온보딩 및 연결 활성화 | 모든 계층의 100 Gbps/10 Gbps 인프라 및 전체 관리 필요
 | 이더넷 및 MPLS를 포함하는 수백 개의 공급자와 통합 | 규제 산업 및 대규모 데이터 수집에 대한 직접/전용 용량 |
-| 50Mbps - 10Gbps의 회로 SKU | 고객은 5Gbps, 10Gbps, 40Gbps, 100Gbps(총 200Gbps로 제한)와 같은 회로 SKU의 조합을 선택할 수 있습니다.
-| 단일 테넌트에 최적화됨 | 단일 테넌트/클라우드 서비스 공급자/여러 사업부에 최적화됨
+| 50Mbps - 10Gbps의 회로 SKU | 고객은 100 Gbps Express 경로에서 다음과 같은 회로 Sku의 조합을 선택할 수 있습니다. <ul><li>5Gbps</li><li>10Gbps</li><li>40Gbps</li><li>100 Gbps</li></ul> 고객은 10gbps Express 경로 다이렉트에서 다음 회로 Sku의 조합을 선택할 수 있습니다.<ul><li>1Gbps</li><li>2Gbps</li><li>5Gbps</li><li>10Gbps</li></ul>
+| 단일 테넌트에 최적화됨 | 여러 사업부 및 여러 작업 환경에서 단일 테 넌 트에 대해 최적화 됨
 
 ## <a name="expressroute-direct-circuits"></a>ExpressRoute Direct 회로
 
@@ -53,7 +53,28 @@ Microsoft Azure ExpressRoute를 사용하면 연결 공급자에서 쉽게 처�
 
 ## <a name="circuit-skus"></a>회로 SKU
 
-ExpressRoute Direct는 Azure 저장소 및 기타 빅 데이터 서비스에 대규모 데이터 수집 시나리오를 지원합니다. ExpressRoute Direct의 ExpressRoute 회로는 이제 **40Gbps** 및 **100Gbps** 회로 SKU도 지원합니다. 실제 포트 쌍은 불과 **100Gbps**이며 5Gbps, 10Gbps, 40Gbps, 100Gbps의 대역폭(조합할 경우 최대 200Gbps)으로 여러 가상 회로를 포함할 수 있습니다. 
+ExpressRoute Direct는 Azure Storage 및 기타 빅 데이터 서비스에 대규모 데이터 수집 시나리오를 지원합니다. 100 Gbps Express 경로에 대 한 Express 경로 회로는 이제 **40 gbps** 및 **100 Gbps** 회로 sku도 지원 합니다. 실제 포트 쌍은 **100 또는 10Gbps** 전용 이며 여러 가상 회로를 가질 수 있습니다. 회로 크기:
+
+| **100 Gbps Express 경로 직접** | **10gbps Express 경로 직접** | 
+| --- | --- |
+| **구독 된 대역폭**: 200 Gbps | **구독 된 대역폭**: 20gbps |
+| <ul><li>5Gbps</li><li>10Gbps</li><li>40Gbps</li><li>100 Gbps</li></ul> | <ul><li>1Gbps</li><li>2Gbps</li><li>5Gbps</li><li>10Gbps</li></ul>
+
+## <a name="technical-requirements"></a>기술적인 요구 사항
+
+* Microsoft Enterprise Edge Router (MSEE) 인터페이스:
+    * 라우터 쌍 간에 이중 10 또는 100 기가 비트 이더넷 포트
+    * 단일 모드 LR 파이버 연결
+    * IPv4 및 IPv6
+    * IP MTU 1500 바이트
+
+* 스위치/라우터 계층 2/계층 3 연결:
+    * 1 802.1 Q (Dot1Q) 태그 또는 2 개의 Tag 802.1 Q (QinQ) 태그 캡슐화를 지원 해야 합니다.
+    * Ethertype = 0x8100
+    * Microsoft에서 지정한 VLAN ID에 따라 외부 VLAN 태그 (STAG)를 추가 해야 합니다 ( *QinQ에만 해당* ).
+    * 포트 및 장치당 여러 BGP 세션 (Vlan)을 지원 해야 합니다.
+    * IPv4 및 IPv6 연결 *I p v 6의 경우 하위 인터페이스가 추가로 생성 되지 않습니다. IPv6 주소가 기존 하위 인터페이스*에 추가 됩니다. 
+    * 선택 사항: [BFD (양방향 전달 검색)](https://docs.microsoft.com/azure/expressroute/expressroute-bfd) 지원-express 경로 회로의 모든 개인 피어 링에 대해 기본적으로 구성 됩니다.
 
 ## <a name="vlan-tagging"></a>VLAN 태그 지정
 

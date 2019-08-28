@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: b609a708a987194398c53bdf83f0d6e1f281808d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 08/15/2019
 ms.locfileid: "67182696"
 ---
 기본적으로 Mobile Apps 백 엔드의 API는 익명으로 호출할 수 있습니다. 다음으로, 인증된 클라이언트로만 액세스를 제한해야 합니다.  
@@ -29,4 +29,4 @@ ms.locfileid: "67182696"
 
         table.access = 'authenticated';
 
-    자세한 내용은 참조 하세요. [방법: 테이블에 대 한 액세스 인증 요구](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth)합니다. 사이트에서 빠른 시작 코드 프로젝트를 다운로드 하는 방법에 알아보려면 참조 [방법: Git를 사용 하 여 Node.js 백 엔드 빠른 시작 코드 프로젝트 다운로드](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart)합니다.
+    자세한 [내용은 방법: 테이블](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth)에 대 한 액세스 인증을 요구 합니다. 사이트에서 빠른 시작 코드 프로젝트를 다운로드 하는 방법에 대 한 [자세한 내용은 방법: Git](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart)를 사용 하 여 node.js 백 엔드 빠른 시작 코드 프로젝트를 다운로드 합니다.

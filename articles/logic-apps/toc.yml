@@ -21,6 +21,12 @@
       href: tutorial-process-mailing-list-subscriptions-workflow.md
     - name: 전자 메일 첨부 파일 처리
       href: tutorial-process-email-attachments-workflow.md
+- name: 샘플
+  items:
+    - name: Azure 코드 샘플
+      href: 'https://docs.microsoft.com/samples/browse/?products=azure-logic-apps'
+    - name: Resource Manager 빠른 시작 템플릿
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Logic'
 - name: 개념
   items:
     - name: Logic Apps용 커넥터
@@ -41,6 +47,8 @@
           href: logic-apps-create-logic-apps-from-templates.md
         - name: BizTalk Services에서 마이그레이션
           href: logic-apps-move-from-mabs.md
+        - name: Microsoft Flow에서 흐름을 내보내고 Azure Logic Apps에 배포
+          href: export-from-microsoft-flow-logic-app-template.md
         - name: 워크플로 실행 제어
           items:
             - name: 조건문
@@ -153,6 +161,8 @@
           href: logic-apps-enterprise-integration-b2b-business-continuity.md
     - name: 격리된 환경에서 가상 네트워크에 연결
       href: connect-virtual-network-vnet-isolated-environment.md
+    - name: 통합 서비스 환경에 아티팩트 추가
+      href: add-artifacts-integration-service-environment-ise.md
     - name: 온-프레미스 데이터 액세스
       items:
         - name: 데이터 게이트웨이 설치
@@ -293,6 +303,10 @@
           href: manage-logic-apps-with-visual-studio.md
         - name: 통합 계정 관리
           href: logic-apps-enterprise-integration-accounts.md
+        - name: 통합 서비스 환경 관리
+          href: ise-manage-integration-service-environment.md
+        - name: 논리 앱 리소스 이동
+          href: move-logic-app-resources.md
         - name: 최신 스키마로 마이그레이션
           href: ../connectors/connectors-schema-migration.md
     - name: 테스트
@@ -301,10 +315,12 @@
           href: test-logic-apps-mock-data-static-results.md
     - name: 배포
       items:
+        - name: 개요 - 논리 앱 배포 자동화
+          href: logic-apps-azure-resource-manager-templates-overview.md
         - name: 논리 앱 템플릿 만들기
-          href: logic-apps-create-deploy-template.md
+          href: logic-apps-create-azure-resource-manager-templates.md
         - name: 논리 앱 템플릿 배포
-          href: logic-apps-create-deploy-azure-resource-manager-templates.md
+          href: logic-apps-deploy-azure-resource-manager-templates.md
     - name: 모니터
       items:
         - name: 논리 앱 모니터링
@@ -341,15 +357,15 @@
           href: /azure/architecture/reference-architectures/enterprise-integration/queues-events
     - name: 커넥터 - 자세한 내용
       href: 'https://docs.microsoft.com/connectors/'
-    - name: 한도 및 구성
+    - name: 서비스 제한 사항 및 구성
       href: logic-apps-limits-and-config.md
-    - name: 사용량 계량
+    - name: 가격 책정 모델 및 사용량 계량
       href: logic-apps-pricing.md
     - name: Azure PowerShell
       href: /powershell/module/az.logicapp
     - name: REST API
       href: /rest/api/logic/
-    - name: Resource Manager 템플릿
+    - name: Resource Manager 템플릿 참조
       href: /azure/templates/microsoft.logic/allversions
     - name: 워크플로 정의 언어 스키마
       href: logic-apps-workflow-definition-language.md
@@ -370,23 +386,27 @@
           href: logic-apps-track-integration-account-custom-tracking-schema.md
 - name: 리소스
   items:
+    - name: Microsoft Learn을 통해 기술 쌓기
+      href: 'https://docs.microsoft.com/learn/browse/?products=azure-logic-apps'
     - name: Azure Logic Apps 로드맵
       href: 'https://aka.ms/logicappsroadmap/'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: MSDN 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps'
-    - name: 스택 오버플로
-      href: 'https://stackoverflow.com/questions/tagged/azure-logic-apps'
-    - name: Twitter
-      href: 'https://twitter.com/logicappsio'
     - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/logic-apps/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: 서비스 업데이트
-      href: 'https://azure.microsoft.com/updates/?product=logic-apps'
     - name: 고객 사례
       href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20Logic%20Apps%20%22&ff=story_product_categories%26%3EAzure&p=0&so=story_publish_date%20desc'
     - name: 동영상
       href: 'https://azure.microsoft.com/resources/videos/index/?services=logic-apps&sort=newest'
+    - name: MSDN 포럼
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelogicapps'
+    - name: 스택 오버플로
+      href: 'https://stackoverflow.com/questions/tagged/azure-logic-apps'
+    - name: Twitter
+      href: 'https://twitter.com/logicappsio'
+    - name: 제품 사용자 의견 제공
+      href: 'https://feedback.azure.com/forums/287593-logic-apps'
+    - name: 서비스 업데이트
+      href: 'https://azure.microsoft.com/updates/?product=logic-apps'

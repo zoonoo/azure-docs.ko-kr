@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 89c4723e83979f89721677146810abdf99fb5d11
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 4688cf6fb82eb8f726205d54d0c852fd3daf8dfb
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67310477"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564784"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Azure Functions 2.x에 대한 host.json 참조  
 
-> [!div class="op_single_selector" title1="사용 하는 Azure Functions 런타임의 버전을 선택 합니다. "]
+> [!div class="op_single_selector" title1="사용 중인 Azure Functions 런타임 버전을 선택 합니다. "]
 > * [버전 1](functions-host-json-v1.md)
 > * [버전 2](functions-host-json.md)
 
@@ -114,7 +114,7 @@ ms.locfileid: "67310477"
 > [!NOTE]
 > 로그 샘플링으로 인해 Application Insights 모니터 블레이드에 일부 실행이 표시되지 않을 수 있습니다.
 
-|자산  |Default | 설명 |
+|속성  |Default | Description |
 |---------|---------|---------| 
 |isEnabled|true|샘플링을 사용 여부를 설정합니다.| 
 |maxTelemetryItemsPerSecond|5|샘플링이 시작되는 임계값입니다.| 
@@ -135,7 +135,7 @@ ms.locfileid: "67310477"
 
 [http](#http), [eventHub](#eventhub) 등의 모든 바인딩 관련 설정이 포함된 개체를 반환하는 속성입니다.
 
-## <a name="functions"></a>functions
+## <a name="functions"></a>함수
 
 작업 호스트가 실행하는 함수 목록입니다. 빈 배열은 모든 함수를 실행한다는 의미입니다. [로컬로 실행](functions-run-local.md)할 때만 사용할 수 있습니다. Azure의 함수 앱에서는 이 설정을 사용하는 대신 [Azure Functions에서 함수를 사용하지 않도록 설정하는 방법](disable-function.md)의 단계를 수행하여 특정 함수를 사용하지 않도록 설정해야 합니다.
 
@@ -147,7 +147,10 @@ ms.locfileid: "67310477"
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-모든 함수에 대한 시간 제한 기간을 나타냅니다. 서버리스 사용 계획에서 유효한 범위는 1초에서 10분 사이이고 기본값은 5분입니다. 전용된 App Service 계획에서 전체 제한이 이며 기본값은 30 분입니다. 값 `-1` 무제한 실행을 나타냅니다.
+모든 함수에 대한 시간 제한 기간을 나타냅니다. Timespan 문자열 형식을 따릅니다. 서버리스 사용 계획에서 유효한 범위는 1초에서 10분 사이이고 기본값은 5분입니다.  
+전용 (App Service) 계획에서는 전체 제한이 없으며 기본값은 런타임 버전에 따라 달라 집니다. 
++ 버전 1.x: 기본값은 시간 제한이 없음을 나타내는 *null*입니다.   
++ 버전 2.x: 기본값은 30 분입니다. 값은 바인딩되지 `-1` 않은 실행을 나타냅니다.
 
 ```json
 {
@@ -171,7 +174,7 @@ ms.locfileid: "67310477"
 }
 ```
 
-|자산  |Default | 설명 |
+|속성  |Default | 설명 |
 |---------|---------|---------| 
 |enabled|true|기능의 사용 여부를 지정합니다. | 
 |healthCheckInterval|10초|정기적인 백그라운드 상태 검사 사이의 간격 | 
@@ -205,14 +208,14 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
 }
 ```
 
-|자산  |Default | 설명 |
+|속성  |Default | 설명 |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|활성화할 파일 로깅의 수준을 정의합니다.  옵션은 `never`, `always`, `debugOnly`입니다. |
-|logLevel|해당 없음|앱의 함수에 대한 로그 범주 필터링을 정의하는 개체입니다. 버전 2.x는 로그 범주 필터링용 ASP.NET Core 레이아웃을 따릅니다. 따라서 특정 함수의 로깅을 필터링할 수 있습니다. 자세한 내용은 ASP.NET Core 설명서의 [로그 필터링](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)을 참조하세요. |
-|console|해당 없음| [콘솔](#console) 로깅 설정입니다. |
-|applicationInsights|해당 없음| [applicationInsights](#applicationinsights) 설정입니다. |
+|logLevel|n/a|앱의 함수에 대한 로그 범주 필터링을 정의하는 개체입니다. 버전 2.x는 로그 범주 필터링용 ASP.NET Core 레이아웃을 따릅니다. 따라서 특정 함수의 로깅을 필터링할 수 있습니다. 자세한 내용은 ASP.NET Core 설명서의 [로그 필터링](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)을 참조하세요. |
+|콘솔|n/a| [console](#console) 로깅 설정입니다. |
+|applicationInsights|n/a| [applicationInsights](#applicationinsights) 설정입니다. |
 
-## <a name="console"></a>console
+## <a name="console"></a>콘솔
 
 이 설정은 [logging](#logging)의 자식입니다. 디버깅 모드가 아닌 경우 콘솔 로깅을 제어합니다.
 
@@ -228,13 +231,13 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
 }
 ```
 
-|자산  |Default | 설명 |
+|속성  |Default | 설명 |
 |---------|---------|---------| 
 |isEnabled|false|콘솔 로깅을 사용하거나 사용하지 않도록 설정합니다.| 
 
 ## <a name="queues"></a>queues
 
-구성 설정은 [저장소 큐 트리거 및 바인딩](functions-bindings-storage-queue.md#host-json)에서 찾을 수 있습니다.  
+구성 설정은 [스토리지 큐 트리거 및 바인딩](functions-bindings-storage-queue.md#host-json)에서 찾을 수 있습니다.  
 
 ## <a name="sendgrid"></a>sendGrid
 
@@ -260,15 +263,15 @@ Singleton 잠금 동작에 대한 구성 설정입니다. 자세한 내용은 [s
 }
 ```
 
-|자산  |Default | 설명 |
+|속성  |Default | Description |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|함수 수준 잠금이 적용되는 기간입니다. 잠금은 자동 갱신됩니다.| 
 |listenerLockPeriod|00:01:00|수신기 잠금이 적용되는 기간입니다.| 
 |listenerLockRecoveryPollingInterval|00:01:00|시작할 때 수신기 잠금을 가져올 수 없는 경우 수신기 잠금 복구에 사용되는 시간 간격입니다.| 
 |lockAcquisitionTimeout|00:01:00|런타임이 잠금을 확보하려고 시도하는 최대 시간입니다.| 
-|lockAcquisitionPollingInterval|해당 없음|잠금 확보 시도 사이의 간격입니다.| 
+|lockAcquisitionPollingInterval|n/a|잠금 확보 시도 사이의 간격입니다.| 
 
-## <a name="version"></a>버전
+## <a name="version"></a>version
 
 v2 런타임을 대상으로 하는 함수 앱에서는 버전 문자열 `"version": "2.0"`이 필수 항목입니다.
 
@@ -284,7 +287,7 @@ v2 런타임을 대상으로 하는 함수 앱에서는 버전 문자열 `"versi
 
 ## <a name="manageddependency"></a>managedDependency
 
-관리 되는 종속성은 현재 미리 보기 기능 PowerShell 기반 함수 에서만 지원 됩니다. 종속성을 서비스에 의해 자동으로 관리할 수 있습니다. 활성화 속성이 설정 된 경우 true로 합니다 [requirements.psd1](functions-reference-powershell.md#dependency-management) 파일 처리 됩니다. 종속성 모든 부 버전이 새로 릴리스될 때 업데이트 됩니다.
+관리 되는 종속성은 현재 PowerShell 기반 함수 에서만 지원 되는 미리 보기 기능입니다. 이를 통해 서비스에서 종속성을 자동으로 관리할 수 있습니다. Enabled 속성을 true로 설정 하면 [psd1](functions-reference-powershell.md#dependency-management) 파일이 처리 됩니다. 부 버전이 릴리스되면 종속성이 업데이트 됩니다.
 
 ```json
 {

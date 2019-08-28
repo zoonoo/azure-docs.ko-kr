@@ -10,18 +10,17 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: fff4aa947f878974d2d0f18f373b8c0917ed7d70
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9f6b20806f75cc28b5f4f740ffb67faae491ae84
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60703514"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567907"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Intelligent Insights를 사용하여 Azure SQL Database 성능 문제 해결
 
-이 페이지에서는 [Intelligent Insights](sql-database-intelligent-insights.md) 데이터베이스 성능 진단 로그를 통해 감지되는 Azure SQL Database 및 Managed Instance 성능 문제에 대한 정보를 제공합니다. 진단 로그 원격 분석을 스트리밍할 수 있습니다 [Azure Monitor 로그](../azure-monitor/insights/azure-sql.md)를 [Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)합니다 [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage), 또는 타사 솔루션에 사용자 지정 DevOps 경고 및 보고 기능을 제공 합니다.
+이 페이지에서는 [Intelligent Insights](sql-database-intelligent-insights.md) 데이터베이스 성능 진단 로그를 통해 감지되는 Azure SQL Database 및 Managed Instance 성능 문제에 대한 정보를 제공합니다. 진단 로그 원격 분석은 사용자 지정 DevOps 경고 및 보고 기능을 위해 [Azure Monitor 로그](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage)또는 타사 솔루션으로 스트리밍할 수 있습니다.
 
 > [!NOTE]
 > Intelligent Insights를 사용한 빠른 SQL Database 성능 문제 해결 가이드는 이 문서의 [권장되는 문제 해결 흐름](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) 순서도를 참조하세요.
@@ -155,9 +154,9 @@ MAXDOP 서버 구성 옵션을 기본값인 0으로 설정하면 SQL Database에
 
 래치는 SQL Database에서 다중 스레딩을 활성화하기 위해 사용하는 가벼운 동기화 메커니즘입니다. 이 메커니즘은 인덱스, 데이터 페이지, 기타 내부 구조가 포함된 메모리 내 구조의 일관성을 보장합니다.
 
-SQL 데이터베이스에는 사용할 수 있는 다양한 유형의 래치가 있습니다. 간소화를 위해 버퍼 풀의 메모리 내 페이지를 보호하는 데 버퍼 래치가 사용됩니다. IO 래치는 아직 버퍼 풀로 로드되지 않은 페이지를 보호하는 데 사용됩니다. 버퍼 풀의 페이지에서 데이터를 쓰거나 읽을 때마다 작업자 스레드는 먼저 페이지에 대한 버퍼 래치를 얻어야 합니다. 작업자 스레드가 메모리 내 버퍼 풀에서 이미 사용할 수 없는 페이지에 액세스하려고 할 때마다 저장소에서 필요한 정보를 로드하려는 IO 요청이 진행됩니다. 이 이벤트 순서는 더욱 심각한 형태의 성능 저하를 나타냅니다.
+SQL 데이터베이스에는 사용할 수 있는 다양한 유형의 래치가 있습니다. 간소화를 위해 버퍼 풀의 메모리 내 페이지를 보호하는 데 버퍼 래치가 사용됩니다. IO 래치는 아직 버퍼 풀로 로드되지 않은 페이지를 보호하는 데 사용됩니다. 버퍼 풀의 페이지에서 데이터를 쓰거나 읽을 때마다 작업자 스레드는 먼저 페이지에 대한 버퍼 래치를 얻어야 합니다. 작업자 스레드가 메모리 내 버퍼 풀에서 이미 사용할 수 없는 페이지에 액세스하려고 할 때마다 스토리지에서 필요한 정보를 로드하려는 IO 요청이 진행됩니다. 이 이벤트 순서는 더욱 심각한 형태의 성능 저하를 나타냅니다.
 
-여러 스레드가 동일한 메모리 내 구조에서 래치를 동시에 얻으려고 하여 쿼리 실행에 대한 대기 시간이 증가할 때 페이지 래치 경합이 발생합니다. 저장소에서 데이터에 액세스해야 하는 페이지 래치 IO 경합이 발생하는 경우 이 대기 시간이 훨씬 길어집니다. 이 경우 워크로드 성능에 심각한 영향을 미칠 수 있습니다. 페이지 래치 경합은 서로를 대기하며 여러 CPU 시스템에서 리소스를 대상으로 경쟁하는 가장 일반적인 시나리오입니다.
+여러 스레드가 동일한 메모리 내 구조에서 래치를 동시에 얻으려고 하여 쿼리 실행에 대한 대기 시간이 증가할 때 페이지 래치 경합이 발생합니다. 스토리지에서 데이터에 액세스해야 하는 페이지 래치 IO 경합이 발생하는 경우 이 대기 시간이 훨씬 길어집니다. 이 경우 워크로드 성능에 심각한 영향을 미칠 수 있습니다. 페이지 래치 경합은 서로를 대기하며 여러 CPU 시스템에서 리소스를 대상으로 경쟁하는 가장 일반적인 시나리오입니다.
 
 ### <a name="troubleshooting"></a>문제 해결
 

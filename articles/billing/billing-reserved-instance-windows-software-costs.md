@@ -3,8 +3,8 @@ title: Azure에 대한 예약 소프트웨어 비용 | Microsoft Docs
 description: Azure Reserve VM Instances 비용에 포함되지 않는 소프트웨어 미터에 대해 알아봅니다.
 services: billing
 documentationcenter: ''
-author: manish-shukla01
-manager: manshuk
+author: yashar
+manager: yashar
 editor: ''
 tags: billing
 ms.service: billing
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: 340cba65a1faac247678cd187f106157ba566f3e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 52e2e2503303c2a7525a3a6c156f648c097b27dd
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371175"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478621"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Azure Reserved VM Instances에 포함되지 않는 Windows 소프트웨어 비용
 
-Azure 하이브리드 혜택에는 예약 된 가상 머신 인스턴스에서 없는 경우에 다음 섹션에 나열 된 소프트웨어 미터에 대 한 청구 됩니다.
+가상 컴퓨터 예약 인스턴스 및 SQL 예약 용량 할인은 인프라 비용에만 적용 되 고 소프트웨어 비용은 적용 되지 않습니다. Windows VM을 사용 하는 경우 예약 된 가상 머신 인스턴스에 대 한 Azure 하이브리드 혜택 없는 경우 다음 섹션에 나열 된 소프트웨어 미터에 대 한 요금이 청구 됩니다. SQL PaaS 배포의 경우에는 Azure 하이브리드 혜택를 선택 하지 않은 경우 별도의 미터를 사용 하 여 IP 비용이 계속 청구 됩니다.
 
 ## <a name="windows-software-meters-not-included-in-reservation-cost"></a>Windows 소프트웨어 요금제는 예약 요금에 포함되지 않습니다.
 
-| MeterId | 사용량 파일의 MeterName | VM별 사용 |
+| 요금제 ID | 사용량 파일의 MeterName | VM별 사용 |
 | ------- | ------------------------| --- |
 | e7e152ac-f29c-4cce-ad6e-026192c01ef2 | Reservation-Windows Svr Burst(1 코어) | B 시리즈 |
 | cac255a2-9f0f-4c62-8bd6-f0fa449c5f76 | Reservation-Windows Svr Burst(2 코어) | B 시리즈 |
@@ -52,7 +52,7 @@ Azure 하이브리드 혜택에는 예약 된 가상 머신 인스턴스에서 �
 
 ## <a name="cloud-services-software-meters-not-included-in-reservation-cost"></a>클라우드 서비스 소프트웨어 미터는 예약 비용에 포함되지 않음
 
-| MeterId | 사용량 파일의 MeterName |
+| 요금제 ID | 사용량 파일의 MeterName |
 | ------- | ------------------------|
 |ac9d47ff-ff68-4afc-a145-0c321cf8d0d5|Cloud Services 1 vCPU 라이선스|
 |e0434559-19ee-4132-9c46-05ad4044f3f7|Cloud Services 2 vCPU 라이선스|
@@ -69,15 +69,15 @@ Azure 하이브리드 혜택에는 예약 된 가상 머신 인스턴스에서 �
 Azure RateCard API를 통해 이러한 미터 각각의 비용을 알아볼 수 있습니다. Azure 미터에 대한 요금을 알아보는 방법에 대한 정보는 [Azure 구독에서 사용되는 리소스에 대한 가격 및 메타데이터 정보 가져오기](/previous-versions/azure/reference/mt219004(v=azure.100))를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-Azure에 대 한 예약에 대 한 자세한 내용은 다음 문서를 참조 합니다.
+Azure 예약에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 
-- [Azure에 대 한 예약 이란?](billing-save-compute-costs-reservations.md)
+- [Azure에 대 한 예약은 무엇 인가요?](billing-save-compute-costs-reservations.md)
 - [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Azure에 대 한 예약 관리](billing-manage-reserved-vm-instance.md)
 - [예약 할인이 적용되는 방식 이해](billing-understand-vm-reservation-charges.md)
 - [종량제 구독의 예약 사용량 이해](billing-understand-reserved-instance-usage.md)
 - [엔터프라이즈 등록에서 예약 사용량 이해](billing-understand-reserved-instance-usage-ea.md)
 
-## <a name="need-help-contact-us"></a>도움 필요 시 문의처
+## <a name="need-help-contact-us"></a>도움이 필요하십니까? 문의
 
-문의 사항이 있거나 도움이 필요한 경우 [지원 요청을 만드는](https://go.microsoft.com/fwlink/?linkid=2083458)합니다.
+궁금한 사항이 있거나 도움이 필요 하면 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).

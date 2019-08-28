@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 1ec7fd4116aa848a9c431df386997cb23f405f1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a77cc22c7a56c29b5b42a032af3d0ea0b2c17d88
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925424"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563526"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>네트워크 보안 그룹에 대한 흐름 로깅 소개
 
@@ -57,7 +57,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
             * **흐름** - 흐름의 컬렉션
                 * **mac** - 흐름이 수집된 VM에 대한 NIC의 MAC 주소
                 * **flowTuples** - 쉼표로 구분된 형식에서 흐름 튜플에 대한 여러 속성을 포함하는 문자열
-                    * **타임스탬프** - 이 값은 흐름이 UNIX EPOCH 형식에서 발생하는 경우의 타임스탬프입니다.
+                    * **타임 스탬프** -이 값은 흐름이 UNIX epoch 형식으로 발생 했을 때의 타임 스탬프입니다.
                     * **원본 IP** - 원본 IP
                     * **대상 IP** - 대상 IP
                     * **원본 포트** - 원본 포트
@@ -77,8 +77,6 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 흐름이 시작되면 흐름 상태 *B*가 기록됩니다. 흐름 상태 *C* 및 흐름 상태 *E*는 각각 흐름의 연속 및 흐름 종료를 나타내는 상태입니다. *C* 및 *E* 상태 둘 다 트래픽 대역폭 정보를 포함합니다.
 
-연속 *C* 및 종료 *E* 흐름 상태의 경우, 바이트 및 패킷 수는 이전 흐름 튜플 레코드 시간으로부터의 집계 개수입니다. 이전 예제 대화를 참조할 때 전송된 패킷의 총 수는 1021+52+8005+47 = 9125가 됩니다. 전송된 바이트의 총 수는 588096+29952+4610880+27072 = 5256000입니다.
-
 **예제**: 185.170.185.105:35370과 10.2.0.4:23 간 TCP 대화의 흐름 튜플:
 
 "1493763938,185.170.185.105,10.2.0.4,35370,23,T,I,A,B,,,," "1493695838,185.170.185.105,10.2.0.4,35370,23,T,I,A,C,1021,588096,8005,4610880" "1493696138,185.170.185.105,10.2.0.4,35370,23,T,I,A,E,52,29952,47,27072"
@@ -93,7 +91,10 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **흐름 로깅 비용**: NSG 흐름 로그는 생성된 로그 양에 따라 요금이 청구됩니다. 트래픽 볼륨이 많으면 흐름 로그 볼륨과 관련 비용도 증가할 수 있습니다. NSG 흐름 로그의 가격에는 스토리지의 기본 비용이 포함되지 않습니다. NSG 흐름 로깅과 함께 보존 정책 기능을 사용하면 대량의 스토리지 작업이 파생되고 관련 비용이 발생할 수 있습니다. 보존 정책 기능이 필요하지 않은 경우 이 값을 0으로 설정하는 것이 좋습니다. 자세한 내용은 [Network Watcher 가격 책정](https://azure.microsoft.com/pricing/details/network-watcher/) 및 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
 
-**공용 Ip 없이 Vm을 인터넷 Ip에서에서 로그온 흐름 인바운드**: Vm 인스턴스 수준 공용 IP로 NIC와 연결 된 공용 IP 주소를 통해 할당 된 공용 IP가 없는 또는 기본 부하 분산 장치 백 엔드 풀을 사용 하 여의 일부인 [기본 SNAT](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) 에서 할당 된 IP 주소가 및 아웃 바운드 연결을 위해 azure를 제공 합니다. 흐름의 흐름 로그 항목이 표시 될 수는 결과적으로, 인터넷에서 IP 주소, 포트 할당 snat 포트의 범위에 흐름을 대상으로 하는 경우. Azure VM에 이러한 흐름을 허용 하지 않습니다 하는 동안 시도가 기록 되 고 디자인 하 여 Network Watcher NSG 흐름 로그에 표시 됩니다. NSG를 사용 하 여 원치 않는 인바운드 인터넷 트래픽을 명시적으로 차단 하는 것이 좋습니다.
+> [!IMPORTANT]
+> 현재는 Network Watcher에 대 한 [NSG (네트워크 보안 그룹) 흐름 로그가](network-watcher-nsg-flow-logging-overview.md) 보존 정책 설정에 따라 Blob 저장소에서 자동으로 삭제 되지 않는 문제가 있습니다. 0이 아닌 기존 보존 정책이 있는 경우 보존 기간을 지난 저장소 blob을 주기적으로 삭제 하 여 발생 하는 요금을 방지 하는 것이 좋습니다. NSG 흐름 로그 저장소 블로그를 삭제 하는 방법에 대 한 자세한 내용은 [NSG 흐름 로그 저장소 Blob 삭제](network-watcher-delete-nsg-flow-log-blobs.md)를 참조 하세요.
+
+**인터넷 ip에서 공용 ip가 없는 vm으로 기록 되는 인바운드 흐름**: NIC와 연결 된 공용 IP 주소를 통해 할당 된 공용 ip 주소를 사용 하는 공용 ip 주소가 인스턴스 수준 공용 IP 또는 기본 부하 분산 장치 백 엔드 풀의 일부인 Vm은 [기본 SNAT](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) 를 사용 하 고 Azure에서 할당 된 IP 주소를 사용 하 여 쉽게 수행할 수 있습니다. 아웃 바운드 연결. 따라서 흐름이 SNAT에 할당 된 포트 범위의 포트를 대상으로 하는 경우 인터넷 IP 주소에서 흐름에 대 한 흐름 로그 항목이 표시 될 수 있습니다. Azure는 VM에 대 한 이러한 흐름을 허용 하지 않지만, 시도는 기록 되 고 Network Watcher의 NSG 흐름 로그에 설계상 표시 됩니다. 원치 않는 인바운드 인터넷 트래픽이 NSG를 사용 하 여 명시적으로 차단 되도록 하는 것이 좋습니다.
 
 ## <a name="sample-log-records"></a>샘플 로그 레코드
 
@@ -288,5 +289,5 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 - 흐름 로그를 사용하도록 설정하는 방법을 알아보려면 [NSG 흐름 로깅을 사용하도록 설정](network-watcher-nsg-flow-logging-portal.md)을 참조하세요.
 - 흐름 로그를 읽는 방법을 알아보려면 [NSG 흐름 로그 읽기](network-watcher-read-nsg-flow-logs.md)를 참조하세요.
-- NSG 로깅에 대 한 자세한 내용은 참조 하세요 [네트워크 보안 그룹 (Nsg)에 대 한 Azure Monitor 로그](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)합니다.
+- NSG 로깅에 대해 자세히 알아보려면 Nsg [(네트워크 보안 그룹)에 대 한 Azure Monitor 로그](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조 하세요.
 - 트래픽이 허용되거나 VM에서 거부할지 여부를 결정하려면 [VM 네트워크 트래픽 필터 문제 진단](diagnose-vm-network-traffic-filtering-problem.md)을 참조하세요.

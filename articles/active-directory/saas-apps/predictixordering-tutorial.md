@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 79e9952aefc44b7c490bb9fe375487c1a3335fc8
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 457ab3a0d5e816becbd2b32d858d5172951f27ad
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901496"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094130"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-ordering"></a>자습서: Predictix Ordering과 Azure Active Directory 통합
 
@@ -145,7 +145,7 @@ Predictix Ordering 쪽에서 Single Sign-On을 구성하려면 Azure Portal에�
 
     ![모든 사용자 선택](common/users.png)
 
-2. 화면 위쪽에서 **새 사용자**를 선택합니다.
+2. 다음과 같이 화면의 위쪽에서 **새 사용자**를 선택합니다.
 
     ![새 사용자 선택](common/new-user.png)
 
@@ -173,7 +173,7 @@ Predictix Ordering 쪽에서 Single Sign-On을 구성하려면 Azure Portal에�
 
     ![애플리케이션 목록](common/all-applications.png)
 
-3. 왼쪽 창에서 **사용자 및 그룹**을 선택합니다.
+3. 다음과 같이 왼쪽 창에서 **사용자 및 그룹**을 선택합니다.
 
     ![사용자 및 그룹 선택](common/users-groups-blade.png)
 

@@ -81,7 +81,7 @@ ms.locfileid: "65143003"
 
 ## <a name="overview"></a>개요
 
-SAP NetWeaver의 가용성을 높이려면 공유 저장소가 필요합니다. GlusterFS는 별도의 클러스터에서 구성되며, 여러 SAP 시스템에서 사용할 수 있습니다.
+SAP NetWeaver의 가용성을 높이려면 공유 스토리지가 필요합니다. GlusterFS는 별도의 클러스터에서 구성되며, 여러 SAP 시스템에서 사용할 수 있습니다.
 
 ![SAP NetWeaver 고가용성 개요](./media/high-availability-guide-rhel/ha-rhel.png)
 
@@ -124,7 +124,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터�
 
 ## <a name="setting-up-glusterfs"></a>GlusterFS 설정
 
-SAP NetWeaver에는 전송 및 프로필 디렉터리에 대한 공유 저장소가 필요합니다. SAP NetWeaver용으로 GlusterFS를 설정하는 방법은 [Red Hat Enterprise Linux의 Azure VM에서 SAP NetWeaver용 GlusterFS 설정][glusterfs-ha]을 참조하세요.
+SAP NetWeaver에는 전송 및 프로필 디렉터리에 대한 공유 스토리지가 필요합니다. SAP NetWeaver용으로 GlusterFS를 설정하는 방법은 [Red Hat Enterprise Linux의 Azure VM에서 SAP NetWeaver용 GlusterFS 설정][glusterfs-ha]을 참조하세요.
 
 ## <a name="setting-up-ascs"></a>(A)SCS 설정
 

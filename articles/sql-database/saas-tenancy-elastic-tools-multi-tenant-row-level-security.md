@@ -10,20 +10,19 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 4834688496330210b273f40f1d6f11230a6ae1c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 996d4e2ba62c06992b0433fd255800ba8cea0af3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66234120"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570164"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>탄력적 데이터베이스 도구 및 행 수준 보안을 제공하는 다중 테넌트 애플리케이션
 
-[탄력적 데이터베이스 도구](sql-database-elastic-scale-get-started.md) 및 [RLS(행 수준 보안)][rls]는 Azure SQL Database를 사용하여 다중 테넌트 애플리케이션의 데이터 계층을 확장할 수 있도록 지원합니다. 이러한 기술을 함께 사용하면 확장성이 뛰어난 데이터 계층이 있는 애플리케이션을 작성할 수 있습니다. 데이터 계층은 다중 테넌트 분할된 데이터베이스를 지원하며 **ADO.NET SqlClient** 또는 **Entity Framework**를 사용합니다. 자세한 내용은 [Azure SQL Database를 사용한 다중 테넌트 SaaS 애플리케이션의 설계 패턴](saas-tenancy-app-design-patterns.md)을 참조하세요.
+[탄력적 데이터베이스 도구](sql-database-elastic-scale-get-started.md) 및 [RLS (행 수준 보안)][rls] 는 Azure SQL Database를 사용 하 여 다중 테 넌 트 응용 프로그램의 데이터 계층을 확장할 수 있도록 합니다. 이러한 기술을 함께 사용하면 확장성이 뛰어난 데이터 계층이 있는 애플리케이션을 작성할 수 있습니다. 데이터 계층은 다중 테넌트 분할된 데이터베이스를 지원하며 **ADO.NET SqlClient** 또는 **Entity Framework**를 사용합니다. 자세한 내용은 [Azure SQL Database를 사용한 다중 테넌트 SaaS 애플리케이션의 설계 패턴](saas-tenancy-app-design-patterns.md)을 참조하세요.
 
-- **탄력적 데이터베이스 도구**를 사용하면 개발자는 .NET 라이브러리 및 Azure 서비스 템플릿을 사용하여 표준 분할 방법을 통해 데이터 계층을 확장할 수 있습니다. [Elastic Database 클라이언트 라이브러리][s-d-elastic-database-client-library]를 사용하여 분할된 데이터베이스를 관리하면 일반적으로 분할과 관련된 여러 인프라 작업을 자동화 및 간소화하는 데 도움이 됩니다.
+- **탄력적 데이터베이스 도구**를 사용하면 개발자는 .NET 라이브러리 및 Azure 서비스 템플릿을 사용하여 표준 분할 방법을 통해 데이터 계층을 확장할 수 있습니다. [Elastic Database 클라이언트 라이브러리][s-d-elastic-database-client-library] 를 사용 하 여 분할를 관리 하면 일반적으로 분할와 관련 된 여러 인프라 작업을 자동화 하 고 간소화할 수 있습니다.
 - **행 수준 보안**을 사용하면 개발자가 동일한 데이터베이스에 여러 테넌트에 대한 데이터를 안전하게 저장할 수 있습니다. RLS 보안 정책은 쿼리를 실행하는 테넌트에 속하지 않는 행을 필터링합니다. 데이터베이스 내부에 필터 논리를 중앙화하면 유지 관리가 단순해지고 보안 오류 위험이 줄어듭니다. 모든 클라이언트 코드에 의존하여 보안을 강제 적용하는 다른 대안은 위험합니다.
 
 이러한 기능을 함께 사용하면 애플리케이션이 같은 분할된 데이터베이스에 여러 테넌트에 대한 데이터를 저장할 수 있습니다. 그러면 테넌트가 데이터베이스를 공유하는 경우 테넌트당 비용이 적게 듭니다. 또한 동일한 애플리케이션이 계속 해당 프리미엄 테넌트에 고유한 전용 단일 테넌트 분할된 데이터베이스에 대한 지불 옵션을 제공할 수 있습니다. 단일 테넌트 격리의 이점 중 하나는 더욱 견고한 성능을 보장한다는 것입니다. 단일 테넌트 데이터베이스에는 리소스에 대해 경쟁할 다른 테넌트가 없습니다.
@@ -37,7 +36,7 @@ ms.locfileid: "66234120"
 
 ## <a name="download-the-sample-project"></a>샘플 프로젝트 다운로드
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 - Visual Studio 2012 이상 사용
 - Azure SQL 데이터베이스 3개 만들기
@@ -46,7 +45,7 @@ ms.locfileid: "66234120"
 
 이 프로젝트는 [Azure SQL을 위한 탄력적 DB 도구 - Entity Framework 통합](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) 에서 설명한 프로젝트에 다중 테넌트 분할된 데이터베이스에 대한 지원을 추가하는 확장 프로젝트입니다. 이 프로젝트는 블로그 및 게시물을 만들기 위한 간단한 콘솔 애플리케이션을 작성합니다. 프로젝트에는 4명의 테넌트와 두 개의 다중 테넌트 분할 데이터베이스가 포함됩니다. 이 구성은 이전 다이어그램에 설명되어 있습니다.
 
-애플리케이션을 빌드 및 실행합니다. 그러면 탄력적 데이터베이스 도구의 분할된 데이터베이스 맵 관리자가 부트스트랩을 실행하고 다음 테스트를 수행합니다.
+응용 프로그램을 빌드 및 실행합니다. 그러면 탄력적 데이터베이스 도구의 분할된 데이터베이스 맵 관리자가 부트스트랩을 실행하고 다음 테스트를 수행합니다.
 
 1. Entity Framework 및 LINQ를 사용하여 새 블로그를 만든 후 각 테넌트에 대한 모든 블로그 표시
 2. ADO.NET SqlClient를 사용하여 특정 테넌트에 대한 모든 블로그 표시
@@ -348,7 +347,7 @@ GO
 
 탄력적 데이터베이스 도구와 행 수준 보안을 함께 사용하면 다중 테넌트 및 단일 테넌트 분할된 데이터베이스를 모두 지원하여 애플리케이션의 데이터 계층을 확장할 수 있습니다. 다중 테넌트 분할된 데이터베이스는 데이터를 보다 효율적으로 저장하는 데 사용할 수 있습니다. 이러한 효율성은 많은 수의 테넌트가 몇 개의 데이터 행만 가진 경우 분명합니다. 단일 테넌트의 분할된 데이터베이스는 보다 엄격한 성능 및 격리 요구 사항을 갖는 프리미엄 테넌트를 지원할 수 있습니다. 자세한 내용은 [행 수준 보안 참조][rls]를 참조하세요.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 - [Azure 탄력적 풀이란?](sql-database-elastic-pool.md)
 - [Azure SQL Database를 사용하여 확장](sql-database-elastic-scale-introduction.md)

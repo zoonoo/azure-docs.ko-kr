@@ -1,20 +1,20 @@
 ---
-title: 지식 저장소 소개 및 개요(미리 보기) - Azure Search
+title: 지식 저장소 소개(미리 보기) - Azure Search
 description: 보강된 문서를 Azure Storage에 보낸 후 Azure Search 및 다른 애플리케이션에서 해당 문서를 보고 변형하고 사용할 수 있습니다.
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
-ms.devlang: NA
+ms.subservice: cognitive-search
 ms.topic: overview
-ms.date: 05/02/2019
+ms.date: 08/02/2019
 ms.author: heidist
-ms.openlocfilehash: 4a27e4d8f2fbaafe6d27a3e3cabd31aa715b9d80
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: f4308cf0309725fc0ba3b5feb047d04af2ebbe66
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540742"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69638194"
 ---
 # <a name="what-is-knowledge-store-in-azure-search"></a>Azure Search의 지식 저장소란 무엇인가요?
 
@@ -22,11 +22,13 @@ ms.locfileid: "65540742"
 > 지식 저장소는 미리 보기로 제공되며 프로덕션 용도로는 제공되지 않습니다. 이 기능은 [REST API 버전 2019-05-06-미리 보기](search-api-preview.md)에서 제공됩니다. 지금은 .NET SDK 지원이 없습니다.
 >
 
-지식 저장소는 보강된 문서 및 AI 기반 인덱싱 파이프라인[(인식 검색)](cognitive-search-concept-intro.md)에서 생성된 메타데이터를 저장하는 Azure Search의 선택적 기능입니다. 지식 저장소는 파이프라인의 일부로 구성하는 Azure 스토리지 계정에 의해 지원됩니다. 사용하도록 설정된 경우, 검색 서비스는 이 스토리지 계정을 사용하여 각 보강된 문서의 표시를 캐시에 저장합니다. 
+지식 저장소는 AI 기반 인덱싱 파이프라인[(인지 검색)](cognitive-search-concept-intro.md)에서 만든 보강된 문서와 메타데이터를 저장하는 Azure Search의 기능입니다. 보강된 문서는 Cognitive Services의 리소스를 사용하여 추출, 구조화 및 분석된 콘텐츠에서 만든 파이프라인의 출력입니다. 표준 AI 기반 파이프라인에서 보강된 문서는 일시적이며 인덱싱 중에만 사용한 후 삭제됩니다. 지식 저장소를 사용하면 문서가 이후의 평가, 검색을 위해 저장되며, 잠재적으로 다운스트림 데이터 과학 워크로드에 대한 입력이 될 수 있습니다. 
 
-과거에 인식 검색을 사용해본 적이 있는 경우 기술 세트를 사용하여 보강 시퀀스를 통해 문서를 이동할 수 있음을 이미 알고 있을 것입니다. 그 결과는 Azure Search 인덱스 또는 지식 저장소의 프로젝션(이 미리 보기의 새로운 기능)일 수 있습니다.
+과거에 인지 검색을 사용한 경험이 있으면 기술 세트를 사용하여 보강 시퀀스를 통해 문서를 이동시킨다는 것을 이미 알고 있습니다. 그 결과는 Azure Search 인덱스 또는 지식 저장소의 프로젝션(이 미리 보기의 새로운 기능)일 수 있습니다. 검색 인덱스와 지식 저장소의 두 출력은 물리적으로 서로 다릅니다. 즉 동일한 콘텐츠를 공유하지만 매우 다른 방식으로 저장되고 사용됩니다.
 
-프로젝션은 다운스트림 앱에서 사용하기 위해 데이터 구조를 지정하는 방법입니다. Azure Storage용으로 만들어진 [Azure Storage 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) 또는 Azure Storage에 연결된 앱을 사용할 수 있으며, 이를 통해 보강된 문서를 사용하는 새로운 가능성이 열렸습니다. 예를 들어 데이터 과학 파이프라인과 사용자 지정 분석이 가능해졌습니다.
+물리적으로 지식 저장소는 파이프라인을 구성하는 방법에 따라 Azure Storage 계정에서 Azure Table 스토리지 또는 Blob 스토리지로 만들어집니다. Azure Storage에 연결할 수 있는 모든 도구 또는 프로세스는 지식 저장소의 콘텐츠를 사용할 수 있습니다.
+
+프로젝션은 지식 저장소의 데이터를 구조화하는 메커니즘입니다. 예를 들어 프로젝션을 통해 출력을 단일 Blob으로 저장할지, 아니면 관련 테이블의 컬렉션으로 저장할지 여부를 선택할 수 있습니다. 지식 저장소 콘텐츠를 쉽게 확인할 수 있는 방법은 Azure 스토리지용 기본 제공 [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows)를 사용하는 것입니다.
 
 ![파이프라인 다이어그램의 지식 저장소](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "파이프라인 다이어그램의 지식 저장소")
 
@@ -42,7 +44,7 @@ AI 기반 인덱싱 파이프라인이 무엇을 만들어낼 수 있는지 확�
 
 + 보강된 문서를 검색 이외의 [분석 및 보고 도구](#tools-and-apps)에 사용합니다. 파워 쿼리 포함 Power BI는 매력적인 선택이지만 Azure Storage에 연결할 수 있는 모든 도구 또는 앱은 사용자가 만드는 지식 저장소에서 끌어올 수 있습니다.
 
-+ 단계 및 기술 세트 정의를 디버깅하는 동안 AI 인덱싱 파이프라인을 정교화합니다. 지식 저장소는 AI 인덱싱 파이프라인에 있는 기술 세트 정의의 생성물을 보여줍니다. 보강이 어떻게 보이는지 정확히 확인할 수 있으므로 해당 결과를 사용하여 더 나은 기술 세트를 디자인할 수 있습니다. Azure Storage의 [Azure Storage 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows)를 사용하여 지식 저장소의 콘텐츠를 볼 수 있습니다.
++ 단계 및 기술 세트 정의를 디버깅하는 동안 AI 인덱싱 파이프라인을 정교화합니다. 지식 저장소는 AI 인덱싱 파이프라인에 있는 기술 세트 정의의 생성물을 보여줍니다. 보강이 어떻게 보이는지 정확히 확인할 수 있으므로 해당 결과를 사용하여 더 나은 기술 세트를 디자인할 수 있습니다. Azure Storage의 [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows)를 사용하여 지식 저장소의 콘텐츠를 볼 수 있습니다.
 
 + 데이터를 새 양식으로 변형합니다. 변형은 기술 세트에 포함되지만 중요한 점은 이제 기술 세트가 이 기능을 제공할 수 있다는 것입니다. Azure Search의 [셰이퍼 기술](cognitive-search-skill-shaper.md)은 이 작업에 맞게 확장되었습니다. 변형을 사용하면 관계를 유지하면서 데이터의 사용 목적에 맞는 프로젝션을 정의할 수 있습니다.
 
@@ -161,7 +163,7 @@ Azure Search는 Azure Storage 계정 아래에 기술 세트를 구성하는 방
 
 보강이 스토리지에 존재하면 Azure BLOB 또는 테이블 스토리지에 연결하는 도구 또는 기술을 사용하여 콘텐츠를 검색, 분석 또는 사용할 수 있습니다. 다음 목록으로 시작합니다.
 
-+ [Azure Storage 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) - 보강된 문서 구조 및 콘텐츠를 봅니다. 이 도구를 지식 저장소 콘텐츠를 보기 위한 기준선 도구로 고려합니다.
++ [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) - 보강된 문서 구조 및 콘텐츠를 봅니다. 이 도구를 지식 저장소 콘텐츠를 보기 위한 기준선 도구로 고려합니다.
 
 + [파워 쿼리 포함 Power BI](https://support.office.com/article/connect-to-microsoft-azure-blob-storage-power-query-f8165faa-4589-47b1-86b6-7015b330d13e) - 자연어 쿼리를 위한 도구입니다. 또는 숫자 데이터가 있는 경우 보고 및 분석 도구를 사용합니다.
 
@@ -177,7 +179,7 @@ Azure Search는 Azure Storage 계정 아래에 기술 세트를 구성하는 방
 
 + BLOB 스토리지는 각 문서에 대한 하나의 통합형 JSON 표시입니다. 기술 세트 한 개에 두 스토리지 옵션을 모두 사용하여 전체 범위의 식을 가져올 수 있습니다.
 
-+ Azure Search는 인덱스의 콘텐츠를 유지합니다. 검색과 관련이 없는 시나리오의 경우, 예를 들어 또 다른 도구에서 검색하는 것이 목표인 경우 파이프라인이 생성하는 인덱스를 삭제할 수 있습니다. 그러나 인덱스를 유지하고 [Azure Search 탐색기](search-explorer.md)와 같은 기본 제공 도구를 콘텐츠와 상호 작용하기 위한 제3의 매체로 사용할 수 있습니다(Azure Search 탐색기 및 분석 앱의 이면에서).
++ Azure Search는 인덱스의 콘텐츠를 유지합니다. 검색과 관련이 없는 시나리오의 경우, 예를 들어 또 다른 도구에서 검색하는 것이 목표인 경우 파이프라인이 생성하는 인덱스를 삭제할 수 있습니다. 그러나 인덱스를 유지하고 [Search 탐색기](search-explorer.md)와 같은 기본 제공 도구를 콘텐츠와 상호 작용하기 위한 제3의 매체로 사용할 수 있습니다(Storage Explorer 탐색기 및 분석 앱의 이면에서).
 
 문서 콘텐츠와 함께 보강된 문서는 보강을 생성한 기술 세트 버전에 대한 메타데이터를 포함합니다.  
 

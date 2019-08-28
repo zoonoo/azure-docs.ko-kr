@@ -7,12 +7,12 @@ ms.topic: sample
 author: cjgronlund
 ms.author: cgronlun
 ms.date: 05/02/2019
-ms.openlocfilehash: b62a2690e5879e45a14d0b06a38e8c5171dda14e
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 6991b641bc85a8944bfd12a43f9b049e44ea88d8
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442336"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598965"
 ---
 # <a name="example-jupyter-notebooks-show-how-to-enrich-data-with-open-datasets"></a>Jupyter Notebook 예제에서는 Open Datasets로 데이터를 보강하는 방법을 보여줍니다. 
 Azure Open Datasets에 대한 Jupyter Notebook 예제에서는 공개 데이터 세트를 로드하여 데모 데이터를 보강하는 방법을 보여줍니다. 데이터를 처리하기 위해 Spark 및 Pandas 기술이 사용됩니다.
@@ -41,5 +41,5 @@ Azure Open Datasets에 대한 Jupyter Notebook 예제에서는 공개 데이터 
 ## <a name="next-steps"></a>다음 단계
 
 * [자습서: 자동화된 기계 학습 및 공개 데이터 세트를 사용하여 회귀 모델 만들기](tutorial-opendatasets-automl.md)
-* [공개 데이터 세트용 Python SDK](https://aka.ms/open-datasets-api)
+* [공개 데이터 세트용 Python SDK](/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py)
 * [Azure Open Datasets 카탈로그](https://azure.microsoft.com/services/open-datasets/catalog/)

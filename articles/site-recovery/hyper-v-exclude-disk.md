@@ -29,10 +29,10 @@ ms.locfileid: "60773938"
 
 - 제외되는 디스크에서 변동된 데이터는 중요하지 않거나 복제할 필요가 없습니다.
 
-- 저장소 및 네트워크 리소스를 이 변동을 복제하지 않고 저장하고 싶습니다.
+- 스토리지 및 네트워크 리소스를 이 변동을 복제하지 않고 저장하고 싶습니다.
 
 ## <a name="what-are-the-typical-scenarios"></a>일반적인 시나리오는?
-제외에 적합한 후보가 되는 데이터 변동의 구체적인 예를 확인할 수 있습니다. 페이징 파일(pagefile.sys)에 대한 쓰기 및 Microsoft SQL Server의 tempdb 파일에 대한 쓰기가 예에 포함될 수 있습니다. 워크로드 및 저장소 하위 시스템에 따라 페이징 파일이 상당한 양의 변동을 등록할 수 있습니다. 그러나 이 데이터를 기본 사이트에서 Azure로 복제하면 리소스가 많이 소모됩니다. 따라서 다음 단계를 사용하여 운영 체제와 페이징 파일이 모두 있는 단일 가상 디스크를 포함한 가상 머신의 복제를 최적화할 수 있습니다.
+제외에 적합한 후보가 되는 데이터 변동의 구체적인 예를 확인할 수 있습니다. 페이징 파일(pagefile.sys)에 대한 쓰기 및 Microsoft SQL Server의 tempdb 파일에 대한 쓰기가 예에 포함될 수 있습니다. 워크로드 및 스토리지 하위 시스템에 따라 페이징 파일이 상당한 양의 변동을 등록할 수 있습니다. 그러나 이 데이터를 기본 사이트에서 Azure로 복제하면 리소스가 많이 소모됩니다. 따라서 다음 단계를 사용하여 운영 체제와 페이징 파일이 모두 있는 단일 가상 디스크를 포함한 가상 머신의 복제를 최적화할 수 있습니다.
 
 1. 단일 가상 디스크를 두 개의 가상 디스크로 분할합니다. 한 가상 디스크에는 운영 체제가 있고 다른 하나에는 페이징 파일이 있습니다.
 2. 복제에서 페이징 파일 디스크를 제외합니다.
@@ -87,14 +87,14 @@ Disk1 | E:\ | 임시 저장소<br /> <br />Azure는이 디스크를 추가 하 �
 Disk2 | D:\ | SQL 시스템 데이터베이스 및 사용자 데이터베이스 1
 Disk3 | G:\ | 사용자 데이터베이스 2
 
-Disk2와 Disk3은 SalesDB 가상 머신에서 제외되었으므로 E:가 사용 가능한 목록의 첫 번째 드라이브 문자입니다. Azure에서 E:를 임시 저장소 볼륨에 할당합니다. 복제된 모든 디스크의 경우 드라이브 문자는 동일하게 유지됩니다.
+Disk2와 Disk3은 SalesDB 가상 머신에서 제외되었으므로 E:가 사용 가능한 목록의 첫 번째 드라이브 문자입니다. Azure에서 E:를 임시 스토리지 볼륨에 할당합니다. 복제된 모든 디스크의 경우 드라이브 문자는 동일하게 유지됩니다.
 
 SQL tempdb 디스크였던(tempdb 폴더 경로 F:\MSSQL\Data\) Disk3은 복제에서 제외되었습니다. 디스크를 장애 조치(failover) 가상 머신에 사용할 수 없습니다. 결과적으로 SQL 서비스는 중지된 상태이며 F:\MSSQL\Data 경로가 필요합니다.
 
 이 경로를 만드는 방법은 두 가지입니다.
 
 - 새 디스크를 추가하고 tempdb 폴더 경로를 할당합니다.
-- tempdb 폴더 경로에 기존 임시 저장소 디스크를 사용합니다.
+- tempdb 폴더 경로에 기존 임시 스토리지 디스크를 사용합니다.
 
 ### <a name="add-a-new-disk"></a>새 디스크 추가:
 
@@ -105,7 +105,7 @@ SQL tempdb 디스크였던(tempdb 폴더 경로 F:\MSSQL\Data\) Disk3은 복제�
 5. F: 볼륨(F:\MSSQL\Data)에 tempdb 폴더를 만듭니다.
 6. 서비스 콘솔에서 SQL 서비스를 시작합니다.
 
-### <a name="use-an-existing-temporary-storage-disk-for-the-sql-tempdb-folder-path"></a>SQL tempdb 폴더 경로에 기존 임시 저장소 디스크를 사용합니다.
+### <a name="use-an-existing-temporary-storage-disk-for-the-sql-tempdb-folder-path"></a>SQL tempdb 폴더 경로에 기존 임시 스토리지 디스크를 사용합니다.
 
 1. 명령 프롬프트를 엽니다.
 2. 명령 프롬프트에서 SQL Server를 복구 모드에서 실행합니다.
@@ -132,13 +132,13 @@ SQL tempdb 디스크였던(tempdb 폴더 경로 F:\MSSQL\Data\) Disk3은 복제�
 
         Net start MSSQLSERVER
 
-임시 저장소 디스크는 다음 Azure 지침을 참조하세요.
+임시 스토리지 디스크는 다음 Azure 지침을 참조하세요.
 
 * [Azure VM에서 SSD를 사용하여 SQL Server TempDB 및 버퍼 풀 확장 저장](https://blogs.technet.microsoft.com/dataplatforminsider/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/)
 * [Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance)
 
 ## <a name="failback-from-azure-to-an-on-premises-host"></a>장애 복구(Azure에서 온-프레미스 호스트로)
-이제 Azure에서 온-프레미스 Hyper-V 호스트로 장애 조치를 수행할 때 복제되는 디스크에 대해 살펴보겠습니다. Azure에서 수동으로 만드는 디스크는 복제되지 않습니다. 예를 들어 디스크 세 개를 장애 조치하고 Azure Virtual Machines에서 두 개를 직접 만들면 장애 조치된 디스크 세 개만 장애 복구됩니다. 온-프레미스에서 Azure로 장애 복구 또는 다시 보호에서 수동으로 만든 디스크는 포함할 수 없습니다. 또한 임시 저장소 디스크도 온-프레미스 호스트로 복제하지 않습니다.
+이제 Azure에서 온-프레미스 Hyper-V 호스트로 장애 조치를 수행할 때 복제되는 디스크에 대해 살펴보겠습니다. Azure에서 수동으로 만드는 디스크는 복제되지 않습니다. 예를 들어 디스크 세 개를 장애 조치하고 Azure Virtual Machines에서 두 개를 직접 만들면 장애 조치된 디스크 세 개만 장애 복구됩니다. 온-프레미스에서 Azure로 장애 복구 또는 다시 보호에서 수동으로 만든 디스크는 포함할 수 없습니다. 또한 임시 스토리지 디스크도 온-프레미스 호스트로 복제하지 않습니다.
 
 ### <a name="failback-to-original-location-recovery"></a>원래 위치 복구로 장애 복구
 
@@ -191,7 +191,7 @@ DB-Disk1 | Disk1 | D:\ | 임시 저장소<br /> <br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | 사용자 데이터 1
 DB-Disk3 | Disk3 | F:\ | 사용자 데이터 2
 
-Disk1(D:)은 제외되었으므로 D:가 사용 가능한 목록에서 첫 번째 드라이브 문자입니다. Azure에서 D:를 임시 저장소 볼륨에 할당합니다. D:는 Azure Virtual Machine에서 사용할 수 있으므로 가상 머신의 페이징 파일 설정이 동일하게 유지됩니다.
+Disk1(D:)은 제외되었으므로 D:가 사용 가능한 목록에서 첫 번째 드라이브 문자입니다. Azure에서 D:를 임시 스토리지 볼륨에 할당합니다. D:는 Azure Virtual Machine에서 사용할 수 있으므로 가상 머신의 페이징 파일 설정이 동일하게 유지됩니다.
 
 Azure Virtual Machine의 페이징 파일 설정은 다음과 같습니다.
 
@@ -221,7 +221,7 @@ DB-Disk1 | Disk1 | D:\ | 임시 저장소<br /> <br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | 사용자 데이터 1
 DB-Disk3 | Disk3 | F:\ | 사용자 데이터 2
 
-D:가 목록에서 사용 가능한 첫 번째 드라이브 문자이므로 Azure에서 D:를 임시 저장소 볼륨에 할당합니다. 복제된 모든 디스크의 경우 드라이브 문자는 동일하게 유지됩니다. G: 디스크를 사용할 수 없으므로 시스템에서 C: 드라이브를 페이징 파일에 사용합니다.
+D:가 목록에서 사용 가능한 첫 번째 드라이브 문자이므로 Azure에서 D:를 임시 스토리지 볼륨에 할당합니다. 복제된 모든 디스크의 경우 드라이브 문자는 동일하게 유지됩니다. G: 디스크를 사용할 수 없으므로 시스템에서 C: 드라이브를 페이징 파일에 사용합니다.
 
 Azure Virtual Machine의 페이징 파일 설정은 다음과 같습니다.
 

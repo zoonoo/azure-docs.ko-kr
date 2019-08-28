@@ -3,7 +3,7 @@ title: Azure Active Directory Reporting API에서 오류 해결 | Microsoft Docs
 description: Azure Active Directory Reporting API를 호출하는 동안 오류에 대한 해결 방법을 제공합니다.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 0030c5a4-16f0-46f4-ad30-782e7fea7e40
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b517204fb650020bdebf8172186f30fff58f722
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e6f1f34dcece9acb20d0db091152b24b26cb9fa2
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60284991"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989527"
 ---
 # <a name="troubleshoot-errors-in-azure-active-directory-reporting-api"></a>Azure Active Directory Reporting API에서 오류 해결
 

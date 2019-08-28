@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: 2a4d636ccb03e36f7c495f3c10c90033d7c3c93c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ea6de5f42910457efa5ca6c458d7af63faa38e18
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417903"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637741"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 변경 피드 프로세서 SDK: 다운로드 및 릴리스 정보
 
@@ -22,15 +22,15 @@ ms.locfileid: "66417903"
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 변경 피드](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Node.JS](sql-api-sdk-node.md)
+> * [Node.js](sql-api-sdk-node.md)
 > * [비동기 Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST (영문)](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [대량 실행자-.NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [대량 실행자-Java](sql-api-sdk-bulk-executor-java.md)
 
 |   |   |
 |---|---|
@@ -44,9 +44,9 @@ ms.locfileid: "66417903"
 ### <a name="v2-builds"></a>v2 빌드
 
 ### <a name="a-name227227"></a><a name="2.2.7"/>2.2.7
-* 향상 된 분산 전략 시나리오에 대 한 모든 임대를 가져올 때 네트워크 문제로 인해 예: 임대가 만료 간격 보다 오래 걸리면:
-  * 이 시나리오에서는 부하 분산 알고리즘을 거짓 만료, 임대를 고려 하는 데 현재 소유자 로부터 훔친 임대를 유발 합니다. 이 불필요 한 많은 임대를 다시 분산을 트리거할 수 있습니다.
-  * 이 문제는이 릴리스에서 소유자가 변경 되지 않은 만료 된 임대를 획득 및 posponing 획득을 위해서는 다음 분산 반복 임대가 만료 하는 동안 충돌 시 다시 시도 방지 하 여 해결 합니다.
+* 모든 임대를 가져오는 경우의 시나리오에 대 한 향상 된 부하 분산 전략은 임대 만료 간격 (예: 네트워크 문제 때문) 보다 오래 걸립니다.
+  * 이 시나리오에서는 임대가 만료 된 것으로 간주 하 여 활성 소유자의 임대를 도용 하는 데 사용 되는 부하 분산 알고리즘이 사용 됩니다. 이로 인해 많은 임대를 불필요 하 게 다시 분산 시킬 수 있습니다.
+  * 이 문제는 소유자가 변경 하지 않고 만료 된 임대를 다음 부하 분산 반복으로 posponing 하는 만료 된 임대를 획득 하는 동안 충돌 시 재시도를 방지 하 여 해결 됩니다.
 
 ### <a name="a-name226226"></a><a name="2.2.6"/>2.2.6
 * 관찰자 예외 처리가 향상되었습니다.
@@ -137,7 +137,7 @@ ms.locfileid: "66417903"
 
 ### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 * 안정성 향상
-  * 일부 파티션에서 관찰자를 중지 하는 처리 될 수 있는 취소 된 작업 문제 해결.
+  * 일부 파티션에서 중지 된 관찰자를 발생 시킬 수 있는 취소 된 작업 처리 문제를 해결 합니다.
 * 수동 검사점 설정 지원
 * [SQL .NET SDK](sql-api-sdk-dotnet.md) 버전 1.21 이상과 호환
 
@@ -170,7 +170,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
-| [2.2.7](#2.2.7) |2019 년 5 월 14 일 |--- |
+| [2.2.7](#2.2.7) |5 월 14 일, 2019 |--- |
 | [2.2.6](#2.2.6) |2019년 1월 29일 |--- |
 | [2.2.5](#2.2.5) |2018년 12월 13일 |--- |
 | [2.2.4](#2.2.4) |2018년 11월 29일 |--- |
@@ -189,6 +189,6 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 Cosmos DB에 대한 자세한 내용은 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 서비스 페이지를 참조하세요.

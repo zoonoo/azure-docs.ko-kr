@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: willzhan;juliako
-ms.openlocfilehash: 5c86a49cd9dc26f724de12ed2e5e77e645e4ab53
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: willzhan
+ms.reviewer: juliako
+ms.openlocfilehash: d15bfcfbae3b24e1a9b29dc74f9b41a979e63ae9
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61466598"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69014666"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>DRM 하위 시스템의 하이브리드 디자인 
 
@@ -98,9 +99,9 @@ DRM/CENC 하위 시스템 설계 및 구현에 대한 자세한 내용은 [다�
 |---|---|---|---|---|---|
 |AMS|AMS|AMS|예|예|샘플 1|
 |AMS|AMS|타사|예|예|샘플 2|
-|AMS|타사|AMS|예|아닙니다.|샘플 3|
-|AMS|타사|외부|아닙니다.|아닙니다.|샘플 4|
-|타사|타사|AMS|예|아닙니다.|    
+|AMS|타사|AMS|예|아니요|샘플 3|
+|AMS|타사|외부|아니요|아니요|샘플 4|
+|타사|타사|AMS|예|아니요|    
 
 샘플에서 PlayReady 보호는 DASH 및 부드러운 스트리밍 모두에서 작동합니다. 아래의 비디오 URL은 부드러운 스트리밍 URL입니다. 해당 DASH URL을 얻으려면 "(format=mpd-time-csf)"를 추가합니다. [azure media test player](https://aka.ms/amtest)를 사용하여 브라우저에서 테스트할 수 있습니다. 그러면 어떤 기술에서 사용할 스트리밍 프로토콜을 구성할 수 있습니다. Windows 10의 IE11 및 Microsoft Edge는 EME를 통해 PlayReady를 지원합니다. 자세한 내용은 [테스트 도구에 대한 세부 정보(영문)](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/)를 참조하세요.
 

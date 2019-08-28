@@ -2,44 +2,44 @@
 title: AKS(Azure Kubernetes Service)에서 여러 Pod용 Files 볼륨을 동적으로 만들기
 description: Azure Files를 사용하여 AKS(Azure Kubernetes Service)에서 여러 Pod에 동시에 사용할 영구 볼륨을 동적으로 만드는 방법에 대해 알아봅니다.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 03/01/2019
-ms.author: iainfou
-ms.openlocfilehash: ed9be9f3ecc7a14a0aa0210ee34f9323126be085
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/08/2019
+ms.author: mlearned
+ms.openlocfilehash: 580363973afd918351931edfb187a1a8d38d6985
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061087"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "67665981"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure Files를 사용하여 영구 볼륨을 동적으로 만들어 사용
 
-영구적 볼륨은 Kubernetes Pod와 함께 사용하기 위해 프로비전된 저장소 부분을 나타냅니다. 하나 이상의 Pod에서 영구적 볼륨을 사용할 수 있으며 동적 또는 정적으로 프로비전할 수 있습니다. 여러 Pod에서 동일한 저장소 볼륨에 동시에 액세스해야 하는 경우 Azure Files에서 [SMB(서버 메시지 블록) 프로토콜][ smb-overview]을 사용하여 연결할 수 있습니다. 이 문서에서는 AKS(Azure Kubernetes Service) 클러스터에서 여러 Pod에 사용할 Azure Files공유를 동적으로 만드는 방법을 설명합니다.
+영구적 볼륨은 Kubernetes Pod와 함께 사용하기 위해 프로비전된 스토리지 부분을 나타냅니다. 하나 이상의 Pod에서 영구적 볼륨을 사용할 수 있으며 동적 또는 정적으로 프로비전할 수 있습니다. 여러 pod가 동일한 저장소 볼륨에 동시에 액세스 해야 하는 경우 Azure Files를 사용 하 여 [SMB (서버 메시지 블록) 프로토콜][smb-overview]을 사용 하 여 연결할 수 있습니다. 이 문서에서는 AKS(Azure Kubernetes Service) 클러스터에서 여러 Pod에 사용할 Azure Files공유를 동적으로 만드는 방법을 설명합니다.
 
-Kubernetes 볼륨에 대 한 자세한 내용은 참조 하세요. [AKS에서 응용 프로그램에 대 한 저장소 옵션][concepts-storage]합니다.
+Kubernetes 볼륨에 대 한 자세한 내용은 [AKS의 응용 프로그램에 대 한 저장소 옵션][concepts-storage]을 참조 하세요.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
-이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작[Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
+이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 [Azure CLI를 사용][aks-quickstart-cli] 하거나 [Azure Portal를 사용][aks-quickstart-portal]하 여 AKS 빠른 시작을 참조 하세요.
 
-또한 Azure cli 버전 2.0.59 또는 나중에 설치 하 고 구성한 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
+또한 Azure CLI 버전 2.0.59 이상이 설치 및 구성 되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드 해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조 하세요.
 
-## <a name="create-a-storage-class"></a>저장소 클래스 만들기
+## <a name="create-a-storage-class"></a>스토리지 클래스 만들기
 
-저장소 클래스는 Azure 파일 공유를 만드는 방법을 정의하는 데 사용됩니다. 스토리지 계정은 Azure 파일 공유를 보관할 스토리지 클래스에서 사용할 수 있도록 자동으로 *_MC* 리소스 그룹에 생성됩니다. *skuName*에서 다음 [Azure Storage 중복성][storage-skus] 중 하나를 선택합니다.
+스토리지 클래스는 Azure 파일 공유를 만드는 방법을 정의하는 데 사용됩니다. 저장소 계정은 Azure 파일 공유를 저장 하기 위해 저장소 클래스와 함께 사용 하기 위해 [노드 리소스 그룹][node-resource-group] 에 자동으로 만들어집니다. 다음 [Azure storage 중복성][storage-skus] 기능을 선택 합니다 *.*
 
 * *Standard_LRS* - 표준 LRS(로컬 중복 스토리지)
 * *Standard_GRS* - 표준 GRS(지역 중복 스토리지)
 * *Standard_RAGRS* - 표준 RA-GRS(읽기 액세스 지역 중복 스토리지)
 
 > [!NOTE]
-> Azure Files 1.13 이상 Kubernetes를 실행 하는 AKS 클러스터에서 premium storage를 지원 합니다.
+> Azure Files Kubernetes 1.13 이상을 실행 하는 AKS 클러스터의 premium storage를 지원 합니다.
 
-Azure 파일의 Kubernetes 저장소 클래스에 대한 자세한 내용은 [Kubernetes 저장소 클래스][kubernetes-storage-classes]를 참조하세요.
+Azure Files에 대 한 Kubernetes 저장소 클래스에 대 한 자세한 내용은 [Kubernetes 저장소 클래스][kubernetes-storage-classes]를 참조 하세요.
 
-`azure-file-sc.yaml` 파일을 만들고 다음 예제 매니페스트를 복사합니다. *mountOptions*에 대한 자세한 내용은 [탑재 옵션][mount-options] 섹션을 참조하세요.
+`azure-file-sc.yaml` 파일을 만들고 다음 예제 매니페스트를 복사합니다. *MountOptions*에 대 한 자세한 내용은 [탑재 옵션][mount-options] 섹션을 참조 하세요.
 
 ```yaml
 kind: StorageClass
@@ -56,7 +56,7 @@ parameters:
   skuName: Standard_LRS
 ```
 
-[kubectl apply][kubectl-apply] 명령을 사용하여 저장소 클래스를 만듭니다.
+[Kubectl apply][kubectl-apply] 명령을 사용 하 여 저장소 클래스를 만듭니다.
 
 ```console
 kubectl apply -f azure-file-sc.yaml
@@ -64,9 +64,9 @@ kubectl apply -f azure-file-sc.yaml
 
 ## <a name="create-a-cluster-role-and-binding"></a>클러스터 역할 및 바인딩 만들기
 
-AKS 클러스터는 Kubernetes RBAC(역할 기반 액세스 제어)를 사용하여 수행할 수 있는 작업을 제한합니다. *역할*은 부여할 사용 권한을 정의하고 *바인딩*은 원하는 사용자에게 역할을 적용합니다. 이러한 할당은 주어진 네임스페이스 또는 전체 클러스터에 적용될 수 있습니다. 자세한 내용은 [RBAC 권한 부여 사용][kubernetes-rbac]을 참조하세요.
+AKS 클러스터는 Kubernetes RBAC(역할 기반 액세스 제어)를 사용하여 수행할 수 있는 작업을 제한합니다. *역할*은 부여할 사용 권한을 정의하고 *바인딩*은 원하는 사용자에게 역할을 적용합니다. 이러한 할당은 주어진 네임스페이스 또는 전체 클러스터에 적용될 수 있습니다. 자세한 내용은 [RBAC 권한 부여 사용][kubernetes-rbac]을 참조 하세요.
 
-필요한 저장소 리소스를 만들도록 Azure 플랫폼을 허용하려면 *ClusterRole* 및 *ClusterRoleBinding*을 만듭니다. `azure-pvc-roles.yaml`이라는 파일을 만들고 다음 YAML에 복사합니다.
+필요한 스토리지 리소스를 만들도록 Azure 플랫폼을 허용하려면 *ClusterRole* 및 *ClusterRoleBinding*을 만듭니다. `azure-pvc-roles.yaml`이라는 파일을 만들고 다음 YAML에 복사합니다.
 
 ```yaml
 ---
@@ -93,7 +93,7 @@ subjects:
   namespace: kube-system
 ```
 
-[kubectl apply][kubectl-apply] 명령을 사용하여 권한을 할당합니다.
+[Kubectl apply][kubectl-apply] 명령을 사용 하 여 사용 권한을 할당 합니다.
 
 ```console
 kubectl apply -f azure-pvc-roles.yaml
@@ -101,7 +101,7 @@ kubectl apply -f azure-pvc-roles.yaml
 
 ## <a name="create-a-persistent-volume-claim"></a>영구적 볼륨 클레임 만들기
 
-PVC(영구적 볼륨 클레임)는 저장소 클래스 개체를 사용하여 Azure 파일 공유를 동적으로 프로비전합니다. 다음 YAML을 사용하여 크기가 *5GB*이고 *ReadWriteMany* 액세스 권한을 가진 영구적 볼륨 클레임을 만들 수 있습니다. 액세스 모드에 대한 자세한 내용은 [Kubernetes 영구 볼륨][access-modes] 설명서를 참조하세요.
+PVC(영구적 볼륨 클레임)는 스토리지 클래스 개체를 사용하여 Azure 파일 공유를 동적으로 프로비전합니다. 다음 YAML을 사용하여 크기가 *5GB*이고 *ReadWriteMany* 액세스 권한을 가진 영구적 볼륨 클레임을 만들 수 있습니다. 액세스 모드에 대 한 자세한 내용은 [Kubernetes 영구 볼륨][access-modes] 설명서를 참조 하세요.
 
 이제 `azure-file-pvc.yaml`이라는 파일을 만들고 다음 YAML에 복사합니다. *storageClassName*이 마지막 단계에서 만든 스토리지 클래스와 일치하는지 확인합니다.
 
@@ -119,13 +119,13 @@ spec:
       storage: 5Gi
 ```
 
-[kubectl apply][kubectl-apply] 명령을 사용하여 영구 볼륨 클레임을 만듭니다.
+[Kubectl apply][kubectl-apply] 명령을 사용 하 여 영구 볼륨 클레임을 만듭니다.
 
 ```console
 kubectl apply -f azure-file-pvc.yaml
 ```
 
-완료되면 파일 공유가 생성됩니다. 연결 정보 및 자격 증명을 포함하고 있는 Kubernetes 비밀도 생성됩니다. [kubectl get][kubectl-get] 명령을 사용하여 PVC의 상태를 볼 수 있습니다.
+완료되면 파일 공유가 생성됩니다. 연결 정보 및 자격 증명을 포함하고 있는 Kubernetes 비밀도 생성됩니다. [Kubectl get][kubectl-get] 명령을 사용 하 여 PVC의 상태를 볼 수 있습니다.
 
 ```console
 $ kubectl get pvc azurefile
@@ -136,7 +136,7 @@ azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   5Gi        RWX 
 
 ## <a name="use-the-persistent-volume"></a>영구적 볼륨 사용
 
-다음 YAML은 영구적 볼륨 클레임 *azurefile*을 사용하여 */mnt/azure* 경로에 Azure 파일 공유를 탑재하는 Pod를 만듭니다. Windows Server 컨테이너 (현재 미리 보기 AKS에서)를 지정는 *mountPath* 와 같은 Windows 경로 규칙을 사용 하 여 *'d ':* 합니다.
+다음 YAML은 영구적 볼륨 클레임 *azurefile*을 사용하여 */mnt/azure* 경로에 Azure 파일 공유를 탑재하는 Pod를 만듭니다. Windows Server 컨테이너 (현재 AKS의 미리 보기 상태)의 경우 *' d: '* 와 같은 windows 경로 규칙을 사용 하 여 *mountPath* 를 지정 합니다.
 
 `azure-pvc-files.yaml` 파일을 만들고 다음 YAML에 복사합니다. *claimName*이 마지막 단계에서 만든 PVC와 일치하는지 확인합니다.
 
@@ -165,7 +165,7 @@ spec:
         claimName: azurefile
 ```
 
-[kubectl apply][kubectl-apply] 명령을 사용하여 Pod를 만듭니다.
+[Kubectl apply][kubectl-apply] 명령을 사용 하 여 pod를 만듭니다.
 
 ```console
 kubectl apply -f azure-pvc-files.yaml
@@ -198,7 +198,7 @@ Volumes:
 
 다음 표에 설명된 대로 Kubernetes 버전마다 기본 *fileMode* 및 *dirMode* 값이 다릅니다.
 
-| version | 값 |
+| version | value |
 | ---- | ---- |
 | v1.6.x, v1.7.x | 0777 |
 | v1.8.0-v1.8.5 | 0700 |
@@ -206,7 +206,7 @@ Volumes:
 | v1.9.0 | 0700 |
 | v1.9.1 이상 | 0755 |
 
-클러스터 버전 1.8.5 이상을 사용하고 저장소 클래스를 사용하여 동적으로 영구적 볼륨을 만드는 경우 저장소 클래스 개체에서 마운트 옵션을 지정할 수 있습니다. 다음 예제에서는 *0777*을 설정합니다.
+클러스터 버전 1.8.5 이상을 사용하고 스토리지 클래스를 사용하여 동적으로 영구적 볼륨을 만드는 경우 스토리지 클래스 개체에서 마운트 옵션을 지정할 수 있습니다. 다음 예제에서는 *0777*을 설정합니다.
 
 ```yaml
 kind: StorageClass
@@ -223,11 +223,11 @@ parameters:
   skuName: Standard_LRS
 ```
 
-버전 1.8.0 - 1.8.4의 클러스터를 사용하는 경우 *runAsUser* 값을 *0*으로 설정하여 보안 컨텍스트를 지정할 수 있습니다. Pod 보안 컨텍스트에 대한 자세한 내용은 [보안 컨텍스트 구성][kubernetes-security-context]을 참조하세요.
+버전 1.8.0 - 1.8.4의 클러스터를 사용하는 경우 *runAsUser* 값을 *0*으로 설정하여 보안 컨텍스트를 지정할 수 있습니다. Pod 보안 컨텍스트에 대 한 자세한 내용은 [보안 컨텍스트 구성][kubernetes-security-context]을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-관련된 모범 사례를 참조 하세요 [저장소 및 백업 AKS에 대 한 유용한][operator-best-practices-storage]합니다.
+관련 모범 사례는 [AKS의 저장소 및 백업에 대 한 모범 사례][operator-best-practices-storage]를 참조 하세요.
 
 Azure Files를 사용하는 Kubernetes 영구적 볼륨에 대해 자세히 알아봅니다.
 
@@ -264,3 +264,4 @@ Azure Files를 사용하는 Kubernetes 영구적 볼륨에 대해 자세히 알�
 [kubernetes-rbac]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
+[node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks

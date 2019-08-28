@@ -2,35 +2,28 @@
 title: Azure Active Directory ID 보호 플레이 북 | Microsoft Docs
 description: Azure AD ID 보호를 사용하여 손상된 ID 및 디바이스를 악용하는 공격자의 능력을 제한하고 이전에 손상이 우려되거나 손상된 ID 또는 디바이스를 보호할 수 있는 방법을 알아봅니다.
 services: active-directory
-keywords: Azure Active Directory ID 보호, 클라우드 검색, 응용 프로그램 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24c3af12d35d07796db9255f0ac76dd1389bd013
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 273a6aca2050676650b955ec078b47b2ffcfe319
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108838"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333934"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory ID 보호 플레이 북
 
 이 플레이 북은 다음 작업을 수행하는 데 도움이 됩니다.
 
 * 위험 이벤트 및 취약성을 시뮬레이트하여 ID 보호 환경에 데이터 채우기
-* 위험 기반 조건부 액세스 정책을 설정 하 고 이러한 정책의 영향 테스트
-
+* 위험 기반 조건부 액세스 정책을 설정 하 고 이러한 정책의 영향을 테스트 합니다.
 
 ## <a name="simulating-risk-events"></a>위험 이벤트 시뮬레이션
 
@@ -42,7 +35,7 @@ ms.locfileid: "67108838"
 
 안전한 방법으로 다른 위험 이벤트를 시뮬레이션할 수 없습니다.
 
-### <a name="sign-ins-from-anonymous-ip-addresses"></a>익명 IP 주소에서 로그인
+### <a name="sign-ins-from-anonymous-ip-addresses"></a>익명 IP 주소에서의 로그인
 
 이 위험 이벤트에 대한 자세한 내용은 [익명 IP 주소에서 로그인](../reports-monitoring/concept-risk-events.md#sign-ins-from-anonymous-ip-addresses)을 참조하세요. 
 
@@ -58,7 +51,7 @@ ms.locfileid: "67108838"
 
 로그인이 10 ~ 15분 이내에 ID 보호 대시보드에 나타납니다. 
 
-### <a name="sign-ins-from-unfamiliar-locations"></a>알 수 없는 위치에서 로그인
+### <a name="sign-ins-from-unfamiliar-locations"></a>일반적이지 않은 위치에서의 로그인
 
 이 위험 이벤트에 대한 자세한 내용은 [알 수 없는 위치에서 로그인](../reports-monitoring/concept-risk-events.md#sign-in-from-unfamiliar-locations)을 참조하세요. 
 
@@ -67,7 +60,6 @@ ms.locfileid: "67108838"
 다음 프로시저는 새로 만든 항목을 사용합니다.
 
 - VPN 연결: 새 위치를 시뮬레이트합니다.
-
 - 가상 머신: 새 디바이스를 시뮬레이트합니다.
 
 다음 절차를 완료하려면 다음 항목을 포함하는 사용자 계정을 사용해야 합니다.
@@ -75,12 +67,10 @@ ms.locfileid: "67108838"
 - 최소 30일 로그인 기록.
 - Multi-Factor Authentication 사용.
 
-
 **익숙하지 않은 위치에서 로그인을 시뮬레이트하려면 다음 단계를 수행합니다.**
 
 1. 테스트 계정을 사용하여 로그인하는 경우 MFA 챌린지가 전달되지 않아 MFA 챌린지에 실패합니다.
 2. 새 VPN을 사용하여 [https://myapps.microsoft.com](https://myapps.microsoft.com)으로 이동하고 테스트 계정의 자격 증명을 입력합니다.
-   
 
 로그인이 10 ~ 15분 이내에 ID 보호 대시보드에 나타납니다.
 
@@ -89,7 +79,6 @@ ms.locfileid: "67108838"
 이 위험 이벤트에 대 한 자세한 내용은 [비정상적 위치로 이동 불가능](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations)을 참조하세요. 
 
 알고리즘이 기계 학습을 사용하여 익숙한 디바이스에서 불가능한 이동 또는 디렉터리의 다른 사용자가 사용하는 VPN에서 시도한 로그인 등 가양성을 걸러내기 때문에 불가능한 이동 조건을 시뮬레이션하는 작업은 어렵습니다. 또한 알고리즘은 위험 이벤트의 생성을 시작하기 전에 사용자에 대한 14일 간 및 10회의 로그인 기록이 필요합니다. 복잡한 Machine Learning 모델 및 위의 규칙으로 인해 다음 단계가 위험 이벤트를 유발하지 않을 가능성이 높습니다. 여러 Azure AD 계정이 이 위험 이벤트를 게시하도록 하기 위해 이러한 단계를 복제할 수도 있습니다.
-
 
 **비정상적 위치로 불가능한 이동을 시뮬레이트하려면 다음 단계를 수행합니다.**
 
@@ -108,18 +97,15 @@ ms.locfileid: "67108838"
 * Azure AD [Cloud Discovery](https://docs.microsoft.com/cloud-app-security/).
 * Azure AD [Privileged Identity Management](../privileged-identity-management/pim-configure.md). 
 
-
 ## <a name="testing-security-policies"></a>보안 정책 테스트
 
 이 섹션에서는 사용자 위험과 로그인 위험 보안 정책을 테스트 하기 위한 단계를 제공합니다.
-
 
 ### <a name="user-risk-security-policy"></a>사용자 위험 보안 정책
 
 자세한 내용은 [사용자 위험 정책을 구성하는 방법](howto-user-risk-policy.md)을 참조하세요.
 
 ![사용자 위험](./media/playbook/02.png "플레이북")
-
 
 **사용자 위험 보안 정책을 테스트하려면 다음 단계를 수행합니다.**
 
@@ -135,9 +121,7 @@ ms.locfileid: "67108838"
 6. 예를 들어 위험 이벤트 중 하나를 몇 번 시뮬레이트하여 테스트 계정의 사용자 위험을 상승시킵니다.
 7. 몇 분 정도 기다린 다음, 사용자에 대한 해당 사용자 수준이 보통인지 확인합니다. 보통이 아닌 경우 사용자에 대해 더 많은 위험 이벤트를 시뮬레이트합니다.
 8. **정책 적용**에 **켜기**를 선택합니다.
-9. 이제 테스트 사용자 위험 기반 조건부 액세스 위험 수준이 상승된 된 사용자를 사용 하 여 로그인 합니다.
-    
-    
+9. 이제 높은 위험 수준으로 사용자를 사용 하 여 로그인 하 여 사용자 위험 기반 조건부 액세스를 테스트할 수 있습니다.
 
 ### <a name="sign-in-risk-security-policy"></a>로그인 위험 보안 정책
 
@@ -145,34 +129,20 @@ ms.locfileid: "67108838"
 
 ![로그인 위험](./media/playbook/01.png "플레이북")
 
-
 **로그인 위험 정책을 테스트하려면 다음 단계를 수행합니다.**
 
 1. 테넌트에 대한 전역 관리자 자격 증명을 사용하여 [https://portal.azure.com](https://portal.azure.com)에 로그인합니다.
-
 2. **Azure AD ID 보호**로 이동합니다.
-
 3. **Azure AD ID 보호** 주 페이지에서 **로그인 위험 정책**을 클릭합니다. 
-
 4. **할당** 섹션에서 원하는 사용자(및 그룹)를 선택하고 로그인 위험 수준을 선택합니다.
 
     ![로그인 위험](./media/playbook/04.png "플레이북")
 
-
 5. **컨트롤** 섹션에서 원하는 액세스 제어(예를 들어 **Multi-Factor Authentication 기능 필요**)를 선택합니다. 
-
 6. **정책 적용**에 **켜기**를 선택합니다.
+7. **Save**을 클릭합니다.
+8. 이제 위험한 세션을 사용 하 여 로그인 (예: 사용자 브라우저 사용) 하 여 로그인 위험 기반 조건부 액세스를 테스트할 수 있습니다. 
 
-7. **저장**을 클릭합니다.
-
-8. 이제 로그인 위험 기반 조건부 액세스 사용 하 여 위험한 세션 (예를 들어 Tor 브라우저)에 로그인 하 여 테스트할 수 있습니다. 
-
- 
-
-
-
-
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 - [Azure Active Directory ID 보호](../active-directory-identityprotection.md)
-

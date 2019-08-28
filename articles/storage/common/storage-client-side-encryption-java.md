@@ -21,7 +21,7 @@ ms.locfileid: "65147019"
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>개요
-[Java용 Azure Storage 클라이언트 라이브러리](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)는 Azure Storage에 업로드하기 전에 클라이언트 애플리케이션 내부에서 데이터를 암호화하고 클라이언트로 다운로드하는 동안 데이터 암호를 해독하는 기능을 지원합니다. 라이브러리 또한 저장소 계정 키 관리를 위해 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)와의 통합을 지원합니다.
+[Java용 Azure Storage 클라이언트 라이브러리](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)는 Azure Storage에 업로드하기 전에 클라이언트 애플리케이션 내부에서 데이터를 암호화하고 클라이언트로 다운로드하는 동안 데이터 암호를 해독하는 기능을 지원합니다. 라이브러리 또한 스토리지 계정 키 관리를 위해 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)와의 통합을 지원합니다.
 
 ## <a name="encryption-and-decryption-via-the-envelope-technique"></a>봉투(Envelope) 기술을 통해 암호화 및 암호 해독
 암호화 및 암호 해독 프로세스는봉투(Envelope) 기법을 따릅니다.  
@@ -29,10 +29,10 @@ ms.locfileid: "65147019"
 ### <a name="encryption-via-the-envelope-technique"></a>봉투(Envelope) 기술을 통해 암호화
 암호화는 봉투(Envelope) 기술을 통해 다음과 같은 방식으로 작동합니다.  
 
-1. Azure 저장소 클라이언트 라이브러리는 1회용 대칭 키인 콘텐츠 암호화 키(CEK)를 생성합니다.  
+1. Azure Storage 클라이언트 라이브러리는 1회용 대칭 키인 콘텐츠 암호화 키(CEK)를 생성합니다.  
 2. 사용자 데이터는 이 CEK를 사용하여 암호화됩니다.   
 3. 그런 다음 키 암호화 KEK를 사용하여 CEK를 래핑(암호화)합니다. KEK는 키 식별자로 식별되고 비대칭 키 쌍 또는 대칭 키일 수 있으며 로컬로 관리되거나 Azure Key Vault에 저장됩니다.  
-   저장소 클라이언트 라이브러리 자체는 KEK에 액세스할 수 없습니다. 라이브러리는 자격 증명 모음에서 제공되는 키 래핑 알고리즘을 호출합니다. 사용자는 원하는 경우 키 래핑/래핑 해제를 위해 사용자 지정 공급자를 사용하도록 선택할 수 있습니다.  
+   스토리지 클라이언트 라이브러리 자체는 KEK에 액세스할 수 없습니다. 라이브러리는 자격 증명 모음에서 제공되는 키 래핑 알고리즘을 호출합니다. 사용자는 원하는 경우 키 래핑/래핑 해제를 위해 사용자 지정 공급자를 사용하도록 선택할 수 있습니다.  
 4. 그런 다음 암호화된 데이터를 Azure Storage 서비스에 업로드합니다. 일부 추가 암호화 메타데이터와 함께 래핑된 키에 메타 데이터로(Blob) 저장 되거나 암호화 된 데이터 (메시지 큐 및 테이블 엔터티)와 보관 합니다.
 
 ### <a name="decryption-via-the-envelope-technique"></a>봉투(Envelope) 기술을 통해 암호해독
@@ -44,7 +44,7 @@ ms.locfileid: "65147019"
 4. 그리고 콘텐츠 암호화 키 (CEK)는  암호화 된 사용자 데이터의 암호를 해독 하는데 사용 됩니다.
 
 ## <a name="encryption-mechanism"></a>암호화 메커니즘
-저장소 클라이언트 라이브러리는 사용자 데이터를 암호화하기 위해 [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 를 사용합니다. 특히, AES를 이용한 [CBC(암호화 블록 체인)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) 모드입니다. 각 서비스는 하는 일이 각각 다르므로 여기서 이것들을 살펴볼 것입니다.
+스토리지 클라이언트 라이브러리는 사용자 데이터를 암호화하기 위해 [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 를 사용합니다. 특히, AES를 이용한 [CBC(암호화 블록 체인)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) 모드입니다. 각 서비스는 하는 일이 각각 다르므로 여기서 이것들을 살펴볼 것입니다.
 
 ### <a name="blobs"></a>Blob
 클라이언트 라이브러리는 현재 전체 blob 암호화만 지원합니다. 특히 사용자가 **upload*** 메서드 또는 **openOutputStream** 메서드를 사용할 때 암호화가 지원됩니다. 다운로드는 전체 및 범위 다운로드가 모두 지원됩니다.  
@@ -103,16 +103,16 @@ ms.locfileid: "65147019"
 > 쿼리 작업을 수행 하려면 결과 집합에 있는 모든 키를 확인할 수 있는 키 확인자를 지정 해야 합니다. 공급자에는 쿼리 결과에 포함 된 엔터티를 확인할 수 없으면, 클라이언트 라이브러리는 오류를 throw 합니다. 서버 쪽 프로젝션을 수행하는 모든 쿼리에 대해 클라이언트 라이브러리는 선택한 열에 기본적으로 특별한 암호 메타데이터 속성(_ClientEncryptionMetadata1 및 _ClientEncryptionMetadata2)을 추가합니다.
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
-Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 됩니다. Azure Key Vault를 사용하여, 사용자는 키와 비밀(예: 인증 키, 저장소 계정 키, 데이터 암호화 키, PFX 파일 및 암호)을 암호화하여 하드웨어 보안 모듈(HSM)로 보호된 키를 사용합니다. 자세한 내용은 [Azure Key Vault란?](../../key-vault/key-vault-whatis.md)을 참조하세요.
+Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 됩니다. Azure Key Vault를 사용하여, 사용자는 키와 비밀(예: 인증 키, 스토리지 계정 키, 데이터 암호화 키, PFX 파일 및 암호)을 암호화하여 하드웨어 보안 모듈(HSM)로 보호된 키를 사용합니다. 자세한 내용은 [Azure Key Vault란?](../../key-vault/key-vault-whatis.md)을 참조하세요.
 
-저장소 클라이언트 라이브러리는 Azure 내에서 키를 관리 하기 위한 공통 프레임 워크를 제공 하기 위해 키 자격 증명 모음 핵심 라이브러리를 사용 합니다. 사용자는 또한 키 자격 증명 모음 확장 라이브러리를 사용하여 추가적인 이점을 제공을 받습니다. 이 확장 라이브러리는 간단하고 원활한 대칭/RSA 로컬 및 집계와 캐싱같은 클라우드 키 공급자 관련 유용한 기능을 제공합니다. .
+스토리지 클라이언트 라이브러리는 Azure 내에서 키를 관리 하기 위한 공통 프레임 워크를 제공 하기 위해 키 자격 증명 모음 핵심 라이브러리를 사용 합니다. 사용자는 또한 키 자격 증명 모음 확장 라이브러리를 사용하여 추가적인 이점을 제공을 받습니다. 이 확장 라이브러리는 간단하고 원활한 대칭/RSA 로컬 및 집계와 캐싱같은 클라우드 키 공급자 관련 유용한 기능을 제공합니다. .
 
 ### <a name="interface-and-dependencies"></a>인터페이스 및 종속성
 세 가지 키 자격증명 모음 패키지가 있습니다.  
 
-* azure-keyvault-core는 IKey 및 IKeyResolver 포함합니다. 어떤 부속품도 없는 작은 패키지입니다. Java용 저장소 클라이언트 라이브러리는 이를 종속성으로 정의합니다.
+* azure-keyvault-core는 IKey 및 IKeyResolver 포함합니다. 어떤 부속품도 없는 작은 패키지입니다. Java용 스토리지 클라이언트 라이브러리는 이를 종속성으로 정의합니다.
 * azure-keyvault는 키 자격 증명 모음 REST 클라이언트를 포함하고 있습니다.  
-* azure-keyvault-extensions는 암호화 알고리즘 및 RSAKey와  SymmetricKey의 구현이 포함된 확장 코드를 포함하고 있습니다. 코어 및 KeyVault 네임 스페이스에 의존하고 (여러 키 공급자를 사용하여 사용자가 원하는) 경우 집계 해결 프로그램 및 캐싱 키 해결 프로그램을 정의 하는 기능을 제공 합니다. 비록 저장소 클라이언트 라이브러리가 이 패키지에 직접적으로 의존하지 않지만, 사용자가 그들의 키를 저장하거나 로컬과 클라우드 암호화 공급자를 소비하는 키 자격증명 모음 확장을 사용에 Azure Key Vault를 사용하고 싶을 때는 이 패키지가 필요합니다.  
+* azure-keyvault-extensions는 암호화 알고리즘 및 RSAKey와  SymmetricKey의 구현이 포함된 확장 코드를 포함하고 있습니다. 코어 및 KeyVault 네임 스페이스에 의존하고 (여러 키 공급자를 사용하여 사용자가 원하는) 경우 집계 해결 프로그램 및 캐싱 키 해결 프로그램을 정의 하는 기능을 제공 합니다. 비록 스토리지 클라이언트 라이브러리가 이 패키지에 직접적으로 의존하지 않지만, 사용자가 그들의 키를 저장하거나 로컬과 클라우드 암호화 공급자를 소비하는 키 자격증명 모음 확장을 사용에 Azure Key Vault를 사용하고 싶을 때는 이 패키지가 필요합니다.  
   
   키 자격증명모음은 고급 가치 마스터키로 고안되었으며 키 자격증명 모음당 스로틀 한계는 이것을 염두에 두고 만들어졌습니다. 키 자격 증명 모음을 사용하여 클라이언트측 암호화를 수행할 때 모델을 선호 로컬로 대칭 마스터 키 암호 키 자격 증명 모음에로 저장  하 고 캐시를 사용 하는 것입니다. 다음 작업을 수행합니다.  
 
@@ -122,7 +122,7 @@ Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되
    주요 자격 증명 모음 사용법에 대한 자세한 내용은 암호화 코드 샘플에서 찾을 있습니다.
 
 ## <a name="best-practices"></a>모범 사례
-암호화 지원은 Java용 저장소 클라이언트 라이브러리에만 사용할 수 있습니다.
+암호화 지원은 Java용 스토리지 클라이언트 라이브러리에만 사용할 수 있습니다.
 
 > [!IMPORTANT]
 > 클라이언트 쪽 암호화를 사용할 때는 이러한 중요점을 유의하세요.
@@ -246,7 +246,7 @@ public void setEncryptedProperty1(final String encryptedProperty1) {
 ```
 
 ## <a name="encryption-and-performance"></a>암호화 및 성능
-저장소 데이터를 암호화하면 추가 성능 오버헤드가 발생합니다. 콘텐츠 키 및 IV를 생성해야 하고, 콘텐츠 자체를 암호화해야 하고, 추가 메타데이터의 형식을 지정한 후 업로드해야 합니다. 이 오버헤드는 암호화되는 데이터의 양에 따라 달라집니다. 고객은 항상 개발 중에 애플리케이션 성능을 테스트하는 것이 좋습니다.
+스토리지 데이터를 암호화하면 추가 성능 오버헤드가 발생합니다. 콘텐츠 키 및 IV를 생성해야 하고, 콘텐츠 자체를 암호화해야 하고, 추가 메타데이터의 형식을 지정한 후 업로드해야 합니다. 이 오버헤드는 암호화되는 데이터의 양에 따라 달라집니다. 고객은 항상 개발 중에 애플리케이션 성능을 테스트하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Java Maven 패키지에 대한 Azure Storage 클라이언트 라이브러리](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  

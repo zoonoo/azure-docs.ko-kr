@@ -5,26 +5,25 @@ services: search
 manager: pablocas
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: a076eee9818f294a8e5c4b10cebbcb9e5a55d80c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.subservice: cognitive-search
+ms.openlocfilehash: 14163b959a6e91406133ca2f5a125c7e2df967ad
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65021857"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69635804"
 ---
 #   <a name="language-detection-cognitive-skill"></a>언어 감지 인식 기술
 
-합니다 **언어 감지** 기술 입력된 텍스트의 언어를 검색 하 고 요청에 제출 된 모든 문서에 대 한 단일 언어 코드를 보고 합니다. 언어 코드는 분석의 강도를 나타내는 점수와 쌍을 이룹니다. 이 기술은 Cognitive Services의 [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)에서 제공하는 기계 학습 모델을 사용합니다.
+**언어 감지** 기술은 입력 텍스트의 언어를 검색 하 고 요청에 제출 된 모든 문서에 대해 단일 언어 코드를 보고 합니다. 언어 코드는 분석의 강도를 나타내는 점수와 쌍을 이룹니다. 이 기술은 Cognitive Services의 [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)에서 제공하는 기계 학습 모델을 사용합니다.
 
 이 기능은 텍스트 언어를 다른 기술에 대한 입력으로 제공해야 할 경우 특히 유용합니다(예를 들어 [감정 분석 기술](cognitive-search-skill-sentiment.md) 또는 [텍스트 분할 기술](cognitive-search-skill-textsplit.md)).
 
-언어 감지는 수를 초과 하는 Bing의 자연어 처리 라이브러리를 활용의 [지원 되는 언어 및 지역](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support) Text Analytics에 대해 나열 합니다. 언어의 정확한 목록을, 게시 되지 않지만 모든 널리 음성 언어, plus 변형, 언어 및 일부 지역 및 문화적 언어를 포함 합니다. 덜 사용 되는 언어로 표현 된 콘텐츠를 만든 경우 [언어 검색 API 사용해 보기](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) 확인 코드를 반환 합니다. 감지할 수 없는 언어에 대한 응답은 `unknown`입니다.
+언어 검색은 Text Analytics에 대해 나열 된 [지원 되는 언어 및 지역](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support) 수를 초과 하는 Bing의 자연어 처리 라이브러리를 활용 합니다. 언어에 대 한 정확한 목록은 게시 되지 않지만 널리 쓰이는 모든 언어, 변형, 언어 및 일부 지역 및 문화 언어를 포함 합니다. 자주 사용 하지 않는 언어로 표현 된 콘텐츠가 있는 경우 [언어 감지 API를 사용해](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) 서 코드를 반환 하는지 확인할 수 있습니다. 감지할 수 없는 언어에 대한 응답은 `unknown`입니다.
 
 > [!NOTE]
 > 처리 빈도를 늘리거나 문서를 추가하거나 AI 알고리즘을 추가하여 범위를 확장할 때 [청구 가능한 Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다. Cognitive Services에서 API를 호출할 때와 Azure Search에서 문서 해독 단계의 일부로 이미지를 추출할 때는 요금이 누적됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
@@ -36,7 +35,7 @@ ms.locfileid: "65021857"
 Microsoft.Skills.Text.LanguageDetectionSkill
 
 ## <a name="data-limits"></a>데이터 제한
-레코드의 최대 크기는 `String.Length`에 의해 측정된 대로 50,000자여야 합니다. 감성 분석기로 보내기 전에 데이터를 분할해야 할 경우 [텍스트 분할 기술](cognitive-search-skill-textsplit.md)을 사용할 수 있습니다.
+레코드의 최대 크기는에 따라 [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)측정 되는 5만 자 여야 합니다. 감성 분석기로 보내기 전에 데이터를 분할해야 할 경우 [텍스트 분할 기술](cognitive-search-skill-textsplit.md)을 사용할 수 있습니다.
 
 ## <a name="skill-inputs"></a>기술 입력
 
@@ -48,7 +47,7 @@ Microsoft.Skills.Text.LanguageDetectionSkill
 
 ## <a name="skill-outputs"></a>기술 출력
 
-| 출력 이름    | 설명 |
+| 출력 이름    | Description |
 |--------------------|-------------|
 | languageCode | 식별된 언어에 대한 ISO 6391 언어 코드입니다. 예: "en". |
 | LanguageName | 언어의 이름입니다. 예: "영어". |
@@ -137,7 +136,7 @@ Microsoft.Skills.Text.LanguageDetectionSkill
 ## <a name="error-cases"></a>오류 사례
 텍스트가 지원되지 않는 언어에서 표현되는 경우 오류가 발생하고 언어 식별자가 반환되지 않습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 + [미리 정의된 기술](cognitive-search-predefined-skills.md)
 + [기능을 정의하는 방법](cognitive-search-defining-skillset.md)

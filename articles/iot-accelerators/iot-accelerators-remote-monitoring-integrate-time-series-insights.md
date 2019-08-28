@@ -17,12 +17,12 @@ ms.locfileid: "61443031"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>원격 모니터링과 Azure Time Series Insights 통합
 
-Azure Time Series Insights는 클라우드에서 IoT 규모 시계열 데이터를 관리하기 위한 완전 관리형 분석, 저장 및 가상화 서비스입니다. Time Series Insights를 사용하면 시계열 데이터를 저장 및 관리하고, 이벤트를 동시에 탐색 및 시각화하고, 근본 원인 분석을 수행하며, 여러 사이트 및 자산을 비교할 수 있습니다.
+Azure Time Series Insights는 클라우드에서 IoT 규모 시계열 데이터를 관리하기 위한 완전 관리형 분석, 스토리지 및 가상화 서비스입니다. Time Series Insights를 사용하면 시계열 데이터를 저장 및 관리하고, 이벤트를 동시에 탐색 및 시각화하고, 근본 원인 분석을 수행하며, 여러 사이트 및 자산을 비교할 수 있습니다.
 
 원격 모니터링 솔루션 가속기는 이제 자동 배포 및 Time Series Insights와의 통합을 제공합니다. 이 방법에서 아직 Time Series Insights를 포함하지 않은 기존 원격 모니터링 솔루션에 대해 Time Series Insights를 구성하는 방법에 대해 알아봅니다.
 
 > [!NOTE]
-> Azure 중국 클라우드에서는 현재 Time Series Insights를 사용할 수 없습니다. Azure China 클라우드에서 새 원격 모니터링 솔루션 가속기를 배포하는 경우 모든 저장소에 Cosmos DB를 사용합니다.
+> Azure 중국 클라우드에서는 현재 Time Series Insights를 사용할 수 없습니다. Azure 중국 클라우드에서 새 원격 모니터링 솔루션 가속기 배포는 모든 스토리지에 대해 Cosmos DB를 사용합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

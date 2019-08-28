@@ -1,19 +1,19 @@
 ---
 title: C용 Azure IoT 디바이스 SDK | Microsoft Docs
 description: C용 Azure IoT 디바이스 SDK를 시작하고 IoT Hub로 통신하는 디바이스 앱을 만드는 방법에 대해 알아봅니다.
-author: yzhong94
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: conceptual
 ms.date: 05/17/2019
-ms.author: yizhon
-ms.openlocfilehash: d758d761e560642de76e149c83fc6898aa78bafb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: robinsh
+ms.openlocfilehash: 1c1921391048fc59f03070d4753f422d9cfc5237
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65910335"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883477"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>C용 Azure IoT 디바이스 SDK
 
@@ -111,7 +111,7 @@ IoT Hub를 관리하는 데 도움이 되는 몇 가지 오픈 소스 도구가 
 
 1. **선택한 디바이스에 대한 연결 문자열 복사**를 선택하면 디바이스 연결 문자열이 클립보드에 복사됩니다. 디바이스 연결 문자열의 복사본을 보관하세요. 다음 섹션에서 설명하는 샘플 애플리케이션을 실행할 때 필요합니다.
 
-위 단계를 완료하면 일부 코드를 실행할 준비가 된 것입니다. 대부분의 샘플에는 주요 원본 파일의 맨 위에 연결 문자열을 입력할 수 있는 상수가 포함되어 있습니다. 예를 들어에서 해당 줄을 **iothub_client\_샘플\_iothub_convenience_sample** 응용 프로그램이 다음과 같이 표시 됩니다.
+위 단계를 완료하면 일부 코드를 실행할 준비가 된 것입니다. 대부분의 샘플에는 주요 원본 파일의 맨 위에 연결 문자열을 입력할 수 있는 상수가 포함되어 있습니다. 예를 들어 **\_iothub_client samples\_iothub_convenience_sample** 응용 프로그램의 해당 줄은 다음과 같이 표시 됩니다.
 
 ```c
 static const char* connectionString = "[device connection string]";
@@ -121,12 +121,12 @@ static const char* connectionString = "[device connection string]";
 
 [azure-iot-sdk-c](https://github.com/azure/azure-iot-sdk-c) 리포지토리의 **iothub\_client** 폴더 내에는 **iothub\_client\_sample\_mqtt**라는 애플리케이션이 포함된 **samples** 폴더가 있습니다.
 
-Windows 버전에는 **iothub_client\_샘플\_iothub_convenience_sample** 응용 프로그램은 다음 Visual Studio 솔루션을 포함 합니다.
+**Iothub_client\_samples\_iothub_convenience_sample** 응용 프로그램의 Windows 버전에는 다음과 같은 Visual Studio 솔루션이 포함 되어 있습니다.
 
   ![Visual Studio 솔루션 탐색기](./media/iot-hub-device-sdk-c-intro/iothub-client-sample-mqtt.png)
 
 > [!NOTE]
-> Visual Studio 최신 버전으로 프로젝트 대상을 다시 지정를 묻는 메시지를 수락 합니다.
+> Visual Studio에서 프로젝트 대상을 최신 버전으로 변경 하도록 요청 하는 경우 메시지를 수락 합니다.
 
 이 솔루션에는 다음의 단일 프로젝트가 포함됩니다. 이 솔루션에 설치되어 있는 4개의 NuGet 패키지는 다음과 같습니다.
 
@@ -137,7 +137,7 @@ Windows 버전에는 **iothub_client\_샘플\_iothub_convenience_sample** 응용
 
 SDK를 사용하여 작업하는 경우 항상 **Microsoft.Azure.C.SharedUtility** 패키지가 필요합니다. 이 샘플은 MQTT 프로토콜을 사용하므로 **Microsoft.Azure.umqtt** 및 **Microsoft.Azure.IoTHub.MqttTransport** 패키지(AMQP 및 HTTPS에 해당하는 패키지가 있음)도 포함해야 합니다. 이 샘플에서는 **IoTHubClient** 라이브러리를 사용하므로 솔루션에 **Microsoft.Azure.IoTHub.IoTHubClient** 패키지도 포함해야 합니다.
 
-샘플 응용 프로그램의 구현을 찾을 수 있습니다 합니다 **iothub_client\_샘플\_iothub_convenience_sample** 소스 파일입니다.
+**Iothub_client\_samples\_iothub_convenience_sample** 원본 파일에서 샘플 응용 프로그램에 대 한 구현을 찾을 수 있습니다.
 
 다음 단계에서는 이 샘플 애플리케이션을 사용하여 **IoTHubClient** 라이브러리를 사용하는 데 필요한 내용을 안내합니다.
 
@@ -339,7 +339,7 @@ IoTHubClient_LL_Destroy(iotHubClientHandle);
   ![mqtt 샘플용 Visual Studio 솔루션](./media/iot-hub-device-sdk-c-intro/simplesample_mqtt.png)
 
 > [!NOTE]
-> Visual Studio 최신 버전으로 프로젝트 대상을 다시 지정를 묻는 메시지를 수락 합니다.
+> Visual Studio에서 프로젝트 대상을 최신 버전으로 변경 하도록 요청 하는 경우 메시지를 수락 합니다.
 
 이전 샘플과 마찬가지로 이 하나에는 여러 NuGet 패키지가 포함됩니다.
 
@@ -351,7 +351,7 @@ IoTHubClient_LL_Destroy(iotHubClientHandle);
 
 이전 샘플에서 대부분의 패키지를 살펴보았지만 **Microsoft.Azure.IoTHub.Serializer**는 새로운 패키지입니다. 이 패키지는 **serializer** 라이브러리를 사용할 때 필요합니다.
 
-샘플 응용 프로그램의 구현을 찾을 수 있습니다 합니다 **iothub_client\_샘플\_iothub_convenience_sample** 파일입니다.
+**Iothub_client\_samples\_iothub_convenience_sample** 파일에서 샘플 응용 프로그램의 구현을 찾을 수 있습니다.
 
 다음 섹션에서는 이 샘플의 주요 부분을 안내합니다.
 
@@ -392,7 +392,7 @@ else
 
 ### <a name="define-the-model"></a>모델 정의
 
-**serializer** 라이브러리의 모델은 디바이스에서 IoT Hub로 보낼 수 있는 이벤트와 모델링 언어로 *작업*(action)이라고 하는 받을 수 있는 메시지를 정의합니다. 에서처럼 C 매크로 집합을 사용 하 여 모델을 정의 합니다 **iothub_client\_샘플\_iothub_convenience_sample** 샘플 응용 프로그램:
+**serializer** 라이브러리의 모델은 디바이스에서 IoT Hub로 보낼 수 있는 이벤트와 모델링 언어로 *작업*(action)이라고 하는 받을 수 있는 메시지를 정의합니다. **Iothub_client\_samples\_iothub_convenience_sample** 예제 응용 프로그램에서와 같이 C 매크로 집합을 사용 하 여 모델을 정의 합니다.
 
 ```c
 BEGIN_NAMESPACE(WeatherStation);

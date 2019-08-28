@@ -2,7 +2,7 @@
   href: index.yml
 - name: 개요
   items:
-    - name: '사용자, 그룹, 라이선스 및 역할'
+    - name: 'Azure AD 사용자, 그룹, 라이선스 및 역할'
       href: directory-overview-user-model.md
 - name: 빠른 시작
   items:
@@ -10,6 +10,8 @@
       href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: 사용자에게 라이선스 할당
       href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: 무제한 앱 등록에 대한 사용 권한 부여
+      href: roles-quickstart-app-registration-limits.md
     - name: 그룹 만료 설정
       href: groups-quickstart-expiration.md
     - name: 그룹 명명 정책 설정
@@ -100,7 +102,9 @@
           items:
             - name: 동적 그룹 만들기
               href: groups-create-rule.md
-            - name: 동적 그룹 규칙
+            - name: 구성원 규칙 업데이트
+              href: groups-update-rule.md
+            - name: 동적 그룹 규칙 및 구문
               href: groups-dynamic-membership.md
             - name: 그룹 멤버 자격 형식 변경
               href: groups-change-type.md
@@ -126,10 +130,22 @@
           href: directory-assign-admin-roles.md
         - name: 역할 보기 및 할당
           href: directory-manage-roles-portal.md
-        - name: PowerShell을 사용하여 역할 할당
-          href: roles-assign-powershell.md
-        - name: 앱 관리자 역할 위임
-          href: roles-delegate-app-roles.md
+        - name: 사용자 지정 역할 미리 보기
+          items:
+            - name: 사용자 지정 역할 미리 보기
+              href: roles-custom-overview.md
+            - name: 사용자 지정 역할 만들기
+              href: roles-create-custom.md
+            - name: 사용자 지정 역할 할당 보기
+              href: roles-view-assignments.md
+            - name: Azure AD 관리 센터에서 역할 할당
+              href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+            - name: PowerShell에서 사용자 지정 역할 할당
+              href: roles-assign-powershell.md
+            - name: 사용자 지정 역할 미리 보기 권한
+              href: roles-custom-available-permissions.md
+            - name: 앱 관리자 권한 위임
+              href: roles-delegate-app-roles.md
         - name: 태스크별 최소 권한 있는 역할
           href: roles-delegate-by-task.md
         - name: Microsoft 365 역할

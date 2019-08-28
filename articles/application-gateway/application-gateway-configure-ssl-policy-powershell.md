@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/3/2018
 ms.author: victorh
-ms.openlocfilehash: e6ba429d3e94f43cf21e6b76b7ef3644ca28fb19
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e154b830df6b49855414563be8c740bfe513c85a
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66136053"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967882"
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Application Gateway에서 SSL 정책 버전 및 암호 그룹 구성
 
@@ -117,7 +117,6 @@ CipherSuites:
 
 > [!IMPORTANT]
 > 사용자 지정 SSL 정책을 구성할 때 다음 목록에서 하나 이상의 암호 그룹을 선택해야 합니다. Application Gateway는 백 엔드 관리를 위해 RSA SHA256 암호 그룹을 사용합니다.
-> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 > * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 > * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 > * TLS_DHE_RSA_WITH_AES_128_GCM_SHA256

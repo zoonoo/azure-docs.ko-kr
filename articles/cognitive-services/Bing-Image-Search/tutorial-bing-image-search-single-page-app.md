@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: tutorial
-ms.date: 03/04/2019
+ms.date: 07/12/2019
 ms.author: aahi
-ms.openlocfilehash: 10bcbb4c1957735b0ddad6c97325c32be19ddcdb
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 7b530b3d415761956cbdb45fdc92bfed55a1bae5
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66383392"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868252"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>자습서: Bing Image Search API를 사용하여 단일 페이지 앱 만들기
 
@@ -40,7 +40,7 @@ Bing Image Search API를 사용하면 웹에서 고품질 관련 이미지를 �
 
 ## <a name="manage-and-store-user-subscription-keys"></a>사용자 구독 키 관리 및 저장
 
-이 애플리케이션은 웹 브라우저의 영구적 저장소를 사용하여 API 구독 키를 저장합니다. 키가 저장되지 않은 경우 웹 페이지에서 해당 키를 요청하는 메시지를 사용자에게 표시하고 나중에 사용할 수 있도록 키를 저장합니다. 나중에 키가 API에서 거부되면 앱이 저장소에서 키를 제거합니다.
+이 애플리케이션은 웹 브라우저의 영구적 스토리지를 사용하여 API 구독 키를 저장합니다. 키가 저장되지 않은 경우 웹 페이지에서 해당 키를 요청하는 메시지를 사용자에게 표시하고 나중에 사용할 수 있도록 키를 저장합니다. 나중에 키가 API에서 거부되면 앱이 스토리지에서 키를 제거합니다.
 
 
 `storeValue` 및 `retrieveValue` 함수를 정의하여 `localStorage` 개체(브라우저가 지원하는 경우) 또는 쿠키를 사용합니다.
@@ -369,7 +369,7 @@ searchItemRenderers = {
     }, // relatedSearches renderer omitted
 ```
 
-썸네일 이미지의 `height` 및 `width`는 `<img>` 태그와 썸네일의 URL에 있는 `h` 및 `w` 필드 둘 다에 사용됩니다. 따라서 Bing은 정확히 해당 크기의 [썸네일](resize-and-crop-thumbnails.md)을 반환할 수 있습니다.
+썸네일 이미지의 `height` 및 `width`는 `<img>` 태그와 썸네일의 URL에 있는 `h` 및 `w` 필드 둘 다에 사용됩니다. 따라서 Bing은 정확히 해당 크기의 [썸네일](../bing-web-search/resize-and-crop-thumbnails.md)을 반환할 수 있습니다.
 
 ## <a name="persisting-client-id"></a>클라이언트 ID 유지
 
@@ -386,7 +386,7 @@ Bing Search API의 응답에는 후속 요청과 함께 API로 다시 전송되�
 > [!NOTE]
 > 그래도 프로덕션 웹 애플리케이션의 경우 서버 쪽에서 요청을 수행해야 합니다. 서버 쪽에서 수행하지 않을 경우 소스를 보는 누구나 사용할 수 있는 웹 페이지에 Bing Search API 키를 포함해야 합니다. 권한 없는 사람이 수행한 요청을 포함하여 API 구독 키를 통한 모든 사용량에 요금이 청구되므로, 키를 노출하지 않는 것이 중요합니다.
 
-개발 목적으로 CORS 프록시를 통해 Bing Web Search API 요청을 수행할 수 있습니다. 이러한 프록시의 응답에는 응답 헤더를 허용 목록에 추가하고 JavaScript에서 응답 헤더를 사용할 수 있게 해주는 `Access-Control-Expose-Headers` 헤더가 포함됩니다.
+개발 목적으로 CORS 프록시를 통해 Bing Web Search API 요청을 수행할 수 있습니다. 이러한 프록시의 응답에는 응답 헤더를 허용하고 JavaScript에서 응답 헤더를 사용할 수 있게 해주는 `Access-Control-Expose-Headers` 헤더가 포함됩니다.
 
 자습서 앱이 클라이언트 ID 헤더에 액세스할 수 있도록 CORS 프록시를 쉽게 설치할 수 있습니다. 먼저 [Node.js가 없는 경우 설치](https://nodejs.org/en/download/)합니다. 그런 다음, 명령 창에서 다음 명령을 실행합니다.
 

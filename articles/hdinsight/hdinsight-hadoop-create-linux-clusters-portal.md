@@ -8,19 +8,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: cf1a6ffa61b41af5abd20dac13b85024001d2ed2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4593cd3602c5324e9cffd5eff8564c09aceaf46
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393987"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68406287"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure Portal을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 Azure 포털은 Microsoft Azure 클라우드에 호스트된 서비스와 리소스에 대한 웹 기반 관리 도구입니다. 이 문서에서는 포털을 사용하여 Linux 기반 Azure HDInsight 클러스터를 만드는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **Azure 구독**. [HDInsight에서 Hadoop을 테스트하기 위한 Azure 평가판을 가져오는 방법](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
@@ -69,7 +69,7 @@ Azure 포털은 대부분의 클러스터 속성을 노출합니다. Azure Resou
 
     * **다음**을 선택하여 다음 페이지로 이동합니다.
 
-4. **2 보안 + 네트워킹**에서 제공된 드롭다운 메뉴를 사용하여 클러스터를 가상 네트워크에 연결할 수 있습니다. 클러스터를 가상 네트워크에 배치하려는 경우 Azure Virtual Network 및 서브넷을 선택합니다. 가상 네트워크에서 HDInsight를 사용하는 방법에 대한 자세한 내용은 [Azure Virtual Network를 사용하여 HDInsight 기능 확장](hdinsight-extend-hadoop-virtual-network.md)을 참조하세요. 이 문서에는 가상 네트워크에 대한 특정 구성 요구 사항이 포함되어 있습니다. 
+4. **2 보안 + 네트워킹**에서 제공된 드롭다운 메뉴를 사용하여 클러스터를 가상 네트워크에 연결할 수 있습니다. 클러스터를 가상 네트워크에 배치하려는 경우 Azure Virtual Network 및 서브넷을 선택합니다. 가상 네트워크에서 HDInsight를 사용 하는 방법에 대 한 자세한 내용은 [Azure HDInsight 클러스터에 대 한 가상 네트워크 배포 계획](hdinsight-plan-virtual-network-deployment.md)을 참조 하세요. 이 문서에는 가상 네트워크에 대한 특정 구성 요구 사항이 포함되어 있습니다. 
 
     **Enterprise Security Package**를 사용하려면 [Azure Active Directory Domain Services를 사용하여 Enterprise Security Package로 HDInsight 클러스터 구성](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds)
 
@@ -80,11 +80,11 @@ Azure 포털은 대부분의 클러스터 속성을 노출합니다. Azure Resou
 
      ![스토리지 설정 지정](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-storage.png "Azure Portal에서 새 클러스터 만들기")
 
-     | Storage                                      | 설명 |
+     | 스토리지                                      | Description |
      |----------------------------------------------|-------------|
      | **Azure Storage Blob(기본 스토리지)**   | <ul><li>**기본 스토리지 형식**으로 **Azure Storage**를 선택합니다. Azure 구독에 속한 스토리지 계정을 지정하려면 **선택 방법**에 대해 **내 구독**을 선택합니다. 그런 다음, 스토리지 계정을 선택합니다. 그렇지 않으면 **액세스 키**를 선택합니다. 그런 다음, Azure 구독 외부에서 선택하려는 스토리지 계정에 대한 정보를 제공합니다.</li><li>**기본 컨테이너**에 대해 포털에서 제안하는 기본 컨테이너 이름을 선택하거나 사용자 고유의 이름을 지정합니다.</li><li>Azure Blob 스토리지가 기본 스토리지인 경우 **추가 스토리지 계정**을 선택하여 클러스터와 연결할 추가 스토리지 계정을 지정할 수도 있습니다. **Azure Storage 키**에 대해 **스토리지 키 추가**를 선택합니다. 그런 다음, Azure 구독 또는 다른 구독의 스토리지 계정을 제공할 수 있습니다. 스토리지 계정 액세스 키를 제공합니다.</li><li>Blob 스토리지가 기본 스토리지인 경우 **Data Lake Storage 액세스**를 선택하여 Azure Data Lake Storage를 추가 스토리지로 지정할 수도 있습니다. 자세한 내용은 [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.</li></ul> |
      | **Azure Data Lake Storage(기본 스토리지)** | **기본 스토리지 유형**에 대해 **Azure Data Lake Storage Gen1** 또는 **Azure Data Lake Storage Gen2**를 선택합니다. 그런 다음, [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)에서 지침을 참조하세요. |
-     | **외부 Metastore**                      | 필요에 따라 SQL 데이터베이스를 지정하여 클러스터와 연결된 Apache Hive 및 Apache Oozie 메타데이터를 저장합니다. **Hive용 SQL 데이터베이스 선택**에 대해 SQL 데이터베이스를 선택합니다. 그런 다음, 데이터베이스에 대한 사용자 이름과 암호를 제공합니다. Oozie 메타데이터에 대해 이러한 단계를 반복합니다.<br><br>metastore에 Azure SQL 데이터베이스를 사용할 때 고려해야 할 몇 가지 사항은 다음과 같습니다. <ul><li>metastore에 사용되는 Azure SQL 데이터베이스는 Azure HDInsight를 포함하여 다른 Azure 서비스에 대한 연결을 허용해야 합니다. Azure SQL 데이터베이스 대시보드의 오른쪽에서 서버 이름을 선택합니다. 이 서버는 SQL 데이터베이스 인스턴스가 실행되는 서버입니다. 서버 보기에서 **구성**을 선택합니다. 그런 다음, **Azure Services**에 대해 **예**를 선택합니다. 그런 다음 **저장**을 선택합니다.</li><li>metastore를 만드는 경우 데이터베이스 이름은 대시 또는 하이픈을 사용하여 지정하지 않습니다. 이러한 문자로 인해 클러스터 만들기 프로세스가 실패할 수 있습니다.</li></ul> |
+     | **외부 Metastore**                      | 필요에 따라 SQL 데이터베이스를 지정하여 클러스터와 연결된 Apache Hive 및 Apache Oozie 메타데이터를 저장합니다. **Hive용 SQL 데이터베이스 선택**에 대해 SQL 데이터베이스를 선택합니다. 그런 다음, 데이터베이스에 대한 사용자 이름과 암호를 제공합니다. Oozie 메타데이터에 대해 이러한 단계를 반복합니다.<br><br>metastore에 Azure SQL 데이터베이스를 사용할 때 고려해야 할 몇 가지 사항은 다음과 같습니다. <ul><li>metastore에 사용되는 Azure SQL 데이터베이스는 Azure HDInsight를 포함하여 다른 Azure 서비스에 대한 연결을 허용해야 합니다. Azure SQL 데이터베이스 대시보드의 오른쪽에서 서버 이름을 선택합니다. 이 서버는 SQL 데이터베이스 인스턴스가 실행되는 서버입니다. 서버 보기에서 **구성**을 선택합니다. 그런 다음, **Azure Services**에 대해 **예**를 선택합니다. **저장**을 선택합니다.</li><li>metastore를 만드는 경우 데이터베이스 이름은 대시 또는 하이픈을 사용하여 지정하지 않습니다. 이러한 문자로 인해 클러스터 만들기 프로세스가 실패할 수 있습니다.</li></ul> |
 
      > [!WARNING]  
      > HDInsight 클러스터와 다른 위치에서는 추가 스토리지 계정을 사용할 수 없습니다.

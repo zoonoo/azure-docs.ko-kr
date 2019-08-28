@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 9b9a691cb2bce2357d184420912ab340aee534e8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 8840c85e35a371b8c7a0a76dbee6353a20b212be
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205315"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881120"
 ---
 # <a name="mock-api-responses"></a>모의 API 응답
 
@@ -79,7 +79,7 @@ ms.locfileid: "67205315"
 5. 목록에서 **200 정상**을 선택합니다.
 6. 오른쪽의 **표시** 제목 아래에서 **+표시 추가**를 선택합니다.
 7. "*애플리케이션/json*"을 검색 상자에 입력하고 **애플리케이션/json** 콘텐츠 형식을 선택합니다.
-8. **샘플** 텍스트 상자에 `{ 'sampleField' : 'test' }`를 입력합니다.
+8. **샘플** 텍스트 상자에 `{ "sampleField" : "test" }`를 입력합니다.
 9. **만들기**를 선택합니다.
 
 ## <a name="enable-response-mocking"></a>모의 응답 사용
@@ -94,7 +94,7 @@ ms.locfileid: "67205315"
 
     ![모의 응답 정책 타일](./media/mock-api-responses/mock-responses-policy-tile.png)
 
-6. **API Management 응답** 텍스트 상자에 **200 정상, 응용 프로그램/json**을 입력합니다. 이 섹션은 API가 이전 섹션에서 정의한 응답을 반환해야 함을 나타냅니다.
+6. **API Management 응답** 텍스트 상자에 **200 정상, 애플리케이션/json**을 입력합니다. 이 섹션은 API가 이전 섹션에서 정의한 응답을 반환해야 함을 나타냅니다.
 
     ![모의 응답 사용](./media/mock-api-responses/mock-api-responses-set-mocking.png)
 

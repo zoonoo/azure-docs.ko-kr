@@ -1,45 +1,45 @@
 ---
 title: 시스템 함수
-description: Azure Cosmos DB의 SQL 시스템 함수에 알아봅니다.
+description: Azure Cosmos DB의 SQL 시스템 함수에 대해 알아봅니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: 11a6fdad187670bcb5af4c56198fd7343680690d
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: b0e9c751d46f805af75196da464a39783c95ae6a
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342846"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619985"
 ---
 # <a name="system-functions"></a>시스템 함수
 
  Cosmos DB는 많은 기본 제공 SQL 함수를 제공합니다. 기본 제공 함수의 범주는 다음과 같습니다.  
   
-|함수|설명|  
+|함수|Description|  
 |--------------|-----------------|  
 |[수치 연산 함수](#mathematical-functions)|수치 연산 함수는 각각 인수로 제공된 입력 값에 따라 계산을 수행하고 숫자 값을 반환합니다.|  
 |[형식 검사 함수](#type-checking-functions)|형식 검사 함수를 통해 SQL 쿼리 내에서 식의 형식을 검사할 수 있습니다.|  
 |[문자열 함수](#string-functions)|문자열 함수는 문자열 입력 값에 대한 연산을 수행하고, 문자열, 숫자 또는 부울 값을 반환합니다.|  
 |[배열 함수](#array-functions)|배열 함수는 배열 입력 값에 대한 연산을 수행하고, 숫자, 부울 또는 배열 값을 반환합니다.|
-|[날짜 및 시간 함수](#date-time-functions)|날짜 및 시간 함수를 사용 하면 두 가지 형태로; 현재 UTC 날짜 및 시간을 가져오려면 Unix epoch 시간 (밀리초) 또는 ISO 8601 형식을 준수 하는 문자열 값인 숫자 타임 스탬프입니다.|
+|[날짜 및 시간 함수](#date-time-functions)|날짜 및 시간 함수를 사용 하 여 현재 UTC 날짜와 시간을 두 가지 형식으로 가져올 수 있습니다. 값이 Unix epoch 인 숫자 타임 스탬프 (밀리초) 이거나 ISO 8601 형식을 준수 하는 문자열입니다.|
 |[공간 함수](#spatial-functions)|공간 함수는 공간 개체 입력 값에 대한 연산을 수행하고, 숫자 또는 부울 값을 반환합니다.|  
 
-각 범주 내에서 함수의 목록은 다음과 같습니다.
+다음은 각 범주 내의 함수 목록입니다.
 
 | 함수 그룹 | 작업 |
 |---------|----------|
-| 수치 연산 함수 | ABS, CEILING, EXP, FLOOR, LOG, LOG10, POWER, ROUND, SIGN, SQRT, SQUARE, TRUNC, ACOS, ASIN, ATAN, ATN2, COS, COT, DEGREES, PI, RADIANS, SIN, TAN |
+| 수치 연산 함수 | ABS, 천장, EXP, FLOOR, LOG, LOG10, POWER, ROUND, SIGN, SQRT, SQUARE, TRUNC, ACOS, ASIN, ATAN, ATN2, COS, COT, DEGREES, PI, RADIANS, RAND, SIN, TAN |
 | 형식 검사 함수 | IS_ARRAY, IS_BOOL, IS_NULL, IS_NUMBER, IS_OBJECT, IS_STRING, IS_DEFINED, IS_PRIMITIVE |
 | 문자열 함수 | CONCAT, CONTAINS, ENDSWITH, INDEX_OF, LEFT, LENGTH, LOWER, LTRIM, REPLACE, REPLICATE, REVERSE, RIGHT, RTRIM, STARTSWITH, SUBSTRING, UPPER |
 | 배열 함수 | ARRAY_CONCAT, ARRAY_CONTAINS, ARRAY_LENGTH 및 ARRAY_SLICE |
-| 날짜 및 시간 함수 | GETCURRENTDATETIME, GETCURRENTTIMESTAMP,  |
+| 날짜 및 시간 함수 | GETCURRENTDATETIME, GETCURRENTDATETIME,  |
 | 공간 함수 | ST_DISTANCE, ST_WITHIN, ST_INTERSECTS, ST_ISVALID, ST_ISVALIDDETAILED |
 
-사용자 정의 함수 (UDF) 기본 제공 함수를 이제 사용할 수 있는, 현재 사용 중인 경우에 해당 기본 제공 함수를 더 빨리 실행 되 고 보다 효율적인 됩니다.
+현재 기본 제공 함수가 제공 되는 UDF (사용자 정의 함수)를 사용 중인 경우 해당 하는 기본 제공 함수를 실행 하는 것이 더 빠르고 효율적입니다.
 
-Cosmos DB 함수와 ANSI SQL 간의 주요 차이점은 Cosmos DB 함수는 스키마 없는 및 혼합 된 스키마 데이터에서 잘 작동 하도록 설계 되었다는 합니다. 예를 들어 속성이 누락 되었거나 숫자가 아닌 값과 같은 경우 `unknown`, 오류를 반환 하는 대신 항목을 건너뜁니다.
+Cosmos DB 함수와 ANSI SQL 함수 간의 주요 차이점은 Cosmos DB 함수는 스키마 없는 데이터 및 혼합 스키마 데이터에서 잘 작동 하도록 설계 되었다는 것입니다. 예를 들어 속성이 누락 되었거나와 같은 `unknown`숫자가 아닌 값을 가지는 경우 오류를 반환 하는 대신 항목을 건너뜁니다.
 
 ##  <a name="mathematical-functions"></a> 수치 연산 함수  
 
@@ -66,9 +66,9 @@ Cosmos DB 함수와 ANSI SQL 간의 주요 차이점은 Cosmos DB 함수는 스�
 |[COS](#bk_cos)|[COT](#bk_cot)|[각도](#bk_degrees)|  
 |[EXP](#bk_exp)|[FLOOR](#bk_floor)|[로그](#bk_log)|  
 |[LOG10](#bk_log10)|[PI](#bk_pi)|[전원](#bk_power)|  
-|[라디안](#bk_radians)|[반올림](#bk_round)|[SIN](#bk_sin)|  
-|[SQRT](#bk_sqrt)|[정사각형](#bk_square)|[로그인](#bk_sign)|  
-|[TAN](#bk_tan)|[TRUNC](#bk_trunc)||  
+|[라디안](#bk_radians)|[반올림](#bk_round)|[RAND](#bk_rand)|
+|[SIN](#bk_sin)|[SQRT](#bk_sqrt)|[정사각형](#bk_square)|
+|[로그인](#bk_sign)|[TAN](#bk_tan)|[TRUNC](#bk_trunc)||  
   
 ####  <a name="bk_abs"></a> ABS  
  지정한 숫자 식의 절대(양수) 값을 반환합니다.  
@@ -89,7 +89,7 @@ ABS (<numeric_expression>)
   
   숫자 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 세 개의 다른 숫자에 ABS 함수를 사용한 결과를 보여 줍니다.  
   
@@ -122,7 +122,7 @@ ACOS(<numeric_expression>)
   
   숫자 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 -1의 ACOS를 반환합니다.  
   
@@ -155,7 +155,7 @@ ASIN(<numeric_expression>)
   
   숫자 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 -1의 ASIN을 반환합니다.  
   
@@ -188,7 +188,7 @@ ATAN(<numeric_expression>)
   
   숫자 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 지정된 값의 ATAN을 반환합니다.  
   
@@ -221,7 +221,7 @@ ATN2(<numeric_expression>, <numeric_expression>)
   
   숫자 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 지정된 x 및 y 구성 요소에 대한 ATN2를 계산합니다.  
   
@@ -254,7 +254,7 @@ CEILING (<numeric_expression>)
   
   숫자 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 CEILING 함수를 사용하여 양수, 음수 및 0 값을 보여 줍니다.  
   
@@ -287,7 +287,7 @@ COS(<numeric_expression>)
   
   숫자 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 지정된 각도의 COS를 계산합니다.  
   
@@ -320,7 +320,7 @@ COT(<numeric_expression>)
   
   숫자 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 지정된 각도의 COT를 계산합니다.  
   
@@ -353,7 +353,7 @@ DEGREES (<numeric_expression>)
   
   숫자 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 PI/2 라디안 각도의 각도 수를 반환합니다.  
   
@@ -386,7 +386,7 @@ FLOOR (<numeric_expression>)
   
   숫자 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 FLOOR 함수를 사용하여 양수, 음수 및 0 값을 보여 줍니다.  
   
@@ -419,7 +419,7 @@ EXP (<numeric_expression>)
   
   숫자 식을 반환합니다.  
   
-  **주의**  
+  **설명**  
   
   **e**(2.718281…) 상수는 자연 로그의 밑입니다.  
   
@@ -427,7 +427,7 @@ EXP (<numeric_expression>)
   
   숫자의 자연 로그의 지수는 숫자 자체, 즉 EXP (LOG (n)) = n입니다. 그리고 숫자의 지수의 자연 로그도 숫자 자체, 즉 LOG (EXP (n)) = n입니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 변수를 선언하고 지정된 변수 (10)의 지수 값을 반환합니다.  
   
@@ -484,7 +484,7 @@ LOG (<numeric_expression> [, <base>])
   
   그리고 숫자의 지수의 자연 로그도 숫자 자체, 즉 LOG( EXP( n ) ) = n입니다. 그리고 숫자의 자연 로그의 지수도 숫자 자체, 즉 EXP( LOG( n ) ) = n입니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 변수를 선언하고 지정된 변수 (10)의 로그 값을 반환합니다.  
   
@@ -529,11 +529,11 @@ LOG10 (<numeric_expression>)
   
   숫자 식을 반환합니다.  
   
-  **주의**  
+  **설명**  
   
   LOG10과 POWER 함수는 서로 역의 관계가 있습니다. 예를 들어 10 ^ LOG10(n) = n입니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 변수를 선언하고 지정된 변수 (100)의 LOG10 값을 반환합니다.  
   
@@ -555,18 +555,12 @@ SELECT LOG10(100) AS log10
 ```  
 PI ()  
 ```  
-  
- **인수**  
-  
-- `numeric_expression`  
-  
-   숫자 식입니다.  
-  
+   
   **반환 형식**  
   
   숫자 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 PI의 값을 반환합니다.  
   
@@ -603,7 +597,7 @@ POWER (<numeric_expression>, <y>)
   
   숫자 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 숫자를 3의 지수로 거듭제곱합니다(숫자의 3제곱).  
   
@@ -636,7 +630,7 @@ RADIANS (<numeric_expression>)
   
   숫자 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 몇 개의 각도를 입력으로 사용하여 해당 라디안 값을 반환합니다.  
   
@@ -675,9 +669,9 @@ ROUND(<numeric_expression>)
   
   숫자 식을 반환합니다.  
   
-  **주의**
+  **설명**
   
-  반올림 작업을 수행할 0에서 멀어지는 쪽으로 반올림 중간점을 따릅니다. 입력이 두 정수 사이 정확 하 게 하는 숫자 식 결과 0에서 멀어지는 쪽은 가장 가까운 정수 값 수 됩니다.  
+  수행 된 반올림 연산은 0에서 벗어난 중간점을 따릅니다. 입력이 두 개의 정수 사이에서 정확 하 게 일치 하는 숫자 식인 경우 결과는 0에서 먼 가장 가까운 정수 값이 됩니다.  
   
   |<numeric_expression>|반올림|
   |-|-|
@@ -686,7 +680,7 @@ ROUND(<numeric_expression>)
   |0.5|1|
   |6.5000|7||
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 첨부된 양수와 음수를 가장 가까운 정수로 반올림합니다.  
   
@@ -699,7 +693,34 @@ SELECT ROUND(2.4) AS r1, ROUND(2.6) AS r2, ROUND(2.5) AS r3, ROUND(-2.4) AS r4, 
 ```  
 [{r1: 2, r2: 3, r3: 3, r4: -2, r5: -3}]  
 ```  
+
+#### <a name="bk_rand"></a>RAND
+ [0, 1)에서 임의로 생성 된 숫자 값을 반환 합니다.
+ 
+ **구문**  
   
+```  
+RAND ()  
+```  
+
+  **반환 형식**  
+  
+  숫자 식을 반환합니다.  
+  
+  **예제**  
+  
+  다음 예에서는 임의로 생성 된 숫자 값을 반환 합니다.  
+  
+```  
+SELECT RAND() AS rand 
+```  
+  
+ 결과 집합은 다음과 같습니다.  
+  
+```  
+[{"rand": 0.87860053195618093}]  
+``` 
+
 ####  <a name="bk_sign"></a> SIGN  
  지정한 숫자 식의 양수(+1), 0(0) 또는 음수(-1) 부호를 반환합니다.  
   
@@ -719,7 +740,7 @@ SIGN(<numeric_expression>)
   
   숫자 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 -2에서 2까지의 숫자의 SIGN 값을 반환합니다.  
   
@@ -752,7 +773,7 @@ SIN(<numeric_expression>)
   
   숫자 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 지정된 각도의 SIN을 계산합니다.  
   
@@ -785,7 +806,7 @@ SQRT(<numeric_expression>)
   
   숫자 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 숫자 1-3의 제곱근을 반환합니다.  
   
@@ -818,7 +839,7 @@ SQUARE(<numeric_expression>)
   
   숫자 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 1에서 3까지의 숫자의 제곱을 반환합니다.  
   
@@ -851,7 +872,7 @@ TAN (<numeric_expression>)
   
   숫자 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 PI()/2의 탄젠트를 계산합니다.  
   
@@ -884,7 +905,7 @@ TRUNC(<numeric_expression>)
   
   숫자 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 첨부된 양수와 음수를 가장 가까운 정수 값으로 자릅니다.  
   
@@ -900,7 +921,7 @@ SELECT TRUNC(2.4) AS t1, TRUNC(2.6) AS t2, TRUNC(2.5) AS t3, TRUNC(-2.4) AS t4, 
 
 ## <a id="type-checking-functions"></a>형식 검사 함수
 
-형식 검사 함수를 통해 SQL 쿼리 내에서 식의 형식을 확인할 수 있습니다. 변수 이거나 알 수 있을 때 즉시 항목 내의 속성 형식을 결정할 형식 검사 함수를 사용할 수 있습니다. 지원 되는 기본 제공 형식 검사 함수 표는 다음과 같습니다.
+형식 검사 함수를 사용 하 여 SQL 쿼리 내에서 식의 형식을 확인할 수 있습니다. 형식 검사 함수를 사용 하 여 변수 이거나 알 수 없는 경우 즉석에서 항목 내의 속성 형식을 확인할 수 있습니다. 다음 표에서는 지원 되는 기본 제공 형식 검사 함수를 제공 합니다.
 
 다음 함수는 입력 값에 대한 형식 검사를 지원하며, 각 함수마다 부울 값을 반환합니다.  
   
@@ -929,7 +950,7 @@ IS_ARRAY(<expression>)
   
   부울 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 IS_ARRAY 함수를 사용하여 JSON 부울, number, string, null, object, array 및 undefined 형식의 개체를 확인합니다.  
   
@@ -969,7 +990,7 @@ IS_BOOL(<expression>)
   
   부울 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 IS_BOOL 함수를 사용하여 JSON 부울, number, string, null, object, array 및 undefined 형식의 개체를 확인합니다.  
   
@@ -1009,7 +1030,7 @@ IS_DEFINED(<expression>)
   
   부울 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 지정된 JSON 문서 내에 속성이 있는지 여부를 확인합니다. "a"가 있으므로 첫 번째 함수는 true를 반환하지만, "b"가 없으므로 두 번째 함수는 false를 반환합니다.  
   
@@ -1042,7 +1063,7 @@ IS_NULL(<expression>)
   
   부울 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 IS_NULL 함수를 사용하여 JSON 부울, number, string, null, object, array 및 undefined 형식의 개체를 확인합니다.  
   
@@ -1082,7 +1103,7 @@ IS_NUMBER(<expression>)
   
   부울 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 IS_NULL 함수를 사용하여 JSON 부울, number, string, null, object, array 및 undefined 형식의 개체를 확인합니다.  
   
@@ -1122,7 +1143,7 @@ IS_OBJECT(<expression>)
   
   부울 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 IS_OBJECT 함수를 사용하여 JSON 부울, number, string, null, object, array 및 undefined 형식의 개체를 확인합니다.  
   
@@ -1162,7 +1183,7 @@ IS_PRIMITIVE(<expression>)
   
   부울 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 IS_PRIMITIVE 함수를 사용하여 JSON 부울, number, string, null, object, array 및 undefined 형식의 개체를 확인합니다.  
   
@@ -1202,7 +1223,7 @@ IS_STRING(<expression>)
   
   부울 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 IS_STRING 함수를 사용하여 JSON 부울, number, string, null, object, array 및 undefined 형식의 개체를 확인합니다.  
   
@@ -1225,7 +1246,7 @@ SELECT
 
 ## <a id="string-functions"></a>문자열 함수
 
-다음 스칼라 함수는 문자열 입력된 값에 대 한 작업을 수행 하 고, 문자열, 숫자 또는 부울 값을 반환 합니다.
+다음 스칼라 함수는 문자열 입력 값에 대 한 작업을 수행 하 고 문자열, 숫자 또는 부울 값을 반환 합니다.
   
 ||||  
 |-|-|-|  
@@ -1257,7 +1278,7 @@ CONCAT(<str_expr>, <str_expr> [, <str_expr>])
   
   문자열 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 지정된 값의 연결된 문자열을 반환합니다.  
   
@@ -1290,7 +1311,7 @@ CONTAINS(<str_expr>, <str_expr>)
   
   부울 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 "abc"에 "ab"와 "d"가 포함되어 있는지 확인합니다.  
   
@@ -1323,7 +1344,7 @@ ENDSWITH(<str_expr>, <str_expr>)
   
   부울 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 "abc"가 "b"와 "bc"로 끝나는지 여부를 나타내는 부울 값을 반환합니다.  
   
@@ -1356,7 +1377,7 @@ INDEX_OF(<str_expr>, <str_expr>)
   
   숫자 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 "abc" 안에 다양한 부분 문자열의 인덱스를 반환합니다.  
   
@@ -1393,7 +1414,7 @@ LEFT(<str_expr>, <num_expr>)
   
   문자열 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 다양한 길이 값에 대해 "abc"의 왼쪽 부분을 반환합니다.  
   
@@ -1426,7 +1447,7 @@ LENGTH(<str_expr>)
   
   문자열 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 문자열의 길이를 반환합니다.  
   
@@ -1459,7 +1480,7 @@ LOWER(<str_expr>)
   
   문자열 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 쿼리에서 LOWER를 사용하는 방법을 보여 줍니다.  
   
@@ -1493,7 +1514,7 @@ LTRIM(<str_expr>)
   
   문자열 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 LTRIM을 쿼리 내에서 사용하는 방법을 보여 줍니다.  
   
@@ -1526,7 +1547,7 @@ REPLACE(<str_expr>, <str_expr>, <str_expr>)
   
   문자열 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 쿼리에서 REPLACE를 사용하는 방법을 보여 줍니다.  
   
@@ -1566,7 +1587,7 @@ REPLICATE(<str_expr>, <num_expr>)
   
   문자열 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 쿼리에서 REPLICATE를 사용하는 방법을 보여 줍니다.  
   
@@ -1599,7 +1620,7 @@ REVERSE(<str_expr>)
   
   문자열 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 쿼리에서 REVERSE를 사용하는 방법을 보여 줍니다.  
   
@@ -1636,7 +1657,7 @@ RIGHT(<str_expr>, <num_expr>)
   
   문자열 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 다양한 길이 값에 대해 "abc"의 오른쪽 부분을 반환합니다.  
   
@@ -1669,7 +1690,7 @@ RTRIM(<str_expr>)
   
   문자열 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 쿼리 내에서 RTRIM을 사용하는 방법을 보여 줍니다.  
   
@@ -1702,7 +1723,7 @@ STARTSWITH(<str_expr>, <str_expr>)
   
   부울 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 "abc" 문자열이 "b"와 "a"로 시작하는지 확인합니다.  
   
@@ -1716,8 +1737,8 @@ SELECT STARTSWITH("abc", "b") AS s1, STARTSWITH("abc", "a") AS s2
 [{"s1": false, "s2": true}]  
 ```  
 
-  ####  <a name="bk_stringtoarray"></a> StringToArray  
- 배열로 변환 하는 식을 반환 합니다. 식을 변환할 수 없는 경우 undefined를 반환 합니다.  
+  ####  <a name="bk_stringtoarray"></a>StringToArray  
+ 배열로 변환 된 식을 반환 합니다. 식을 변환할 수 없는 경우는 undefined를 반환 합니다.  
   
  **구문**  
   
@@ -1729,15 +1750,15 @@ StringToArray(<expr>)
   
 - `expr`  
   
-   JSON 배열 식으로 계산할 유효한 스칼라 식이입니다. Note는 중첩 된 문자열 값 유효 하려면 큰따옴표를 사용 하 여 작성 해야 합니다. JSON 형식에 대 한 자세한 내용은 참조 하세요. [json.org](https://json.org/)
+   JSON 배열 식으로 평가할 유효한 스칼라 식입니다. 중첩 된 문자열 값은 큰따옴표를 사용 하 여 유효 하 게 작성 해야 합니다. JSON 형식에 대 한 자세한 내용은 [json.org](https://json.org/) 를 참조 하세요.
   
   **반환 형식**  
   
-  배열 식을 반환 하거나 정의 되지 않았습니다.  
+  배열 식을 반환 하거나 정의 되지 않은를 반환 합니다.  
   
-  **예**  
+  **예제**  
   
-  다음 예제에서는 StringToArray 서로 다른 형식에서 작동 하는 방법을 보여 줍니다. 
+  다음 예에서는 StringToArray가 여러 형식에서 동작 하는 방식을 보여 줍니다. 
   
  유효한 입력을 사용 하는 예제는 다음과 같습니다.
 
@@ -1758,8 +1779,8 @@ SELECT
 
 다음은 잘못 된 입력의 예입니다. 
    
- 배열 내에서 작은따옴표는 유효한 JSON이 없습니다.
-쿼리 내에서 유효한 지, 경우에 이러한 구문 분석 하지 않습니다 유효한 배열입니다. 문자열 배열의 문자열 내의 이스케이프 되어야 하거나 "[\\"\\"]" 주변 따옴표는 하나 여야 합니다 또는 ' [""]'.
+ 배열 내의 작은따옴표는 유효한 JSON이 아닙니다.
+쿼리 내에서 유효 하더라도 올바른 배열로 구문 분석 되지 않습니다. 배열 문자열 내의 문자열은 "[\\"\\"]"로 이스케이프 되어야 합니다. 그렇지 않으면 주변 따옴표가 단일 ' [""] ' 여야 합니다.
 
 ```
 SELECT
@@ -1772,9 +1793,9 @@ SELECT
 [{}]
 ```
 
-잘못 된 입력의 예는 다음과 같습니다.
+다음은 잘못 된 입력의 예입니다.
    
- JSON 배열로 전달 되는 식 구문 분석 됩니다. 배열 형식과 따라서 undefined를 반환 하려면 다음 평가 하지 않습니다.
+ 전달 된 식은 JSON 배열로 구문 분석 됩니다. 다음은 형식 배열로 계산 되지 않으므로 undefined로 반환 됩니다.
    
 ```
 SELECT
@@ -1792,7 +1813,7 @@ SELECT
 ```
 
 ####  <a name="bk_stringtoboolean"></a> StringToBoolean  
- 부울으로 변환 하는 식을 반환 합니다. 식을 변환할 수 없는 경우 undefined를 반환 합니다.  
+ 부울로 변환 된 식을 반환 합니다. 식을 변환할 수 없는 경우는 undefined를 반환 합니다.  
   
  **구문**  
   
@@ -1804,19 +1825,19 @@ StringToBoolean(<expr>)
   
 - `expr`  
   
-   부울 식으로 계산할 유효한 스칼라 식이입니다.  
+   부울 식으로 계산 되는 유효한 스칼라 식입니다.  
   
   **반환 형식**  
   
-  부울 식을 반환 하거나 정의 되지 않았습니다.  
+  부울 식을 반환 하거나 undefined를 반환 합니다.  
   
-  **예**  
+  **예제**  
   
-  다음 예제에서는 StringToBoolean 서로 다른 형식에서 작동 하는 방법을 보여 줍니다. 
+  다음 예에서는 여러 형식에서 StringToBoolean가 동작 하는 방식을 보여 줍니다. 
  
  유효한 입력을 사용 하는 예제는 다음과 같습니다.
 
-이전 또는 이후에 "true"/ "false"만 공백이 허용 됩니다.
+공백은 "true"/"false" 전후에만 사용할 수 있습니다.
 
 ```  
 SELECT 
@@ -1831,9 +1852,9 @@ SELECT
 [{"b1": true, "b2": false, "b3": false}]
 ```  
 
-잘못 된 입력의 예는 다음과 같습니다.
+입력이 잘못 된 예는 다음과 같습니다.
 
- 부울 대/소문자 구분 되며 모든 소문자 예: "true" 및 "false"를 사용 하 여 작성 해야 합니다.
+ 부울은 대/소문자를 구분 하며 모든 소문자 (예: "true" 및 "false")로 작성 되어야 합니다.
 
 ```  
 SELECT 
@@ -1847,7 +1868,7 @@ SELECT
 [{}]
 ``` 
 
-전달 되는 식, 부울 식으로 구문 분석 됩니다. 부울 값을 입력 하 고 따라서 undefined를 반환 하는 이러한 입력 평가 하지 않습니다.
+전달 된 식은 부울 식으로 구문 분석 됩니다. 이러한 입력은 부울 형식으로 계산 되지 않으므로 undefined로 반환 됩니다.
 
 ```  
 SELECT 
@@ -1864,8 +1885,8 @@ SELECT
 [{}]
 ```  
 
-####  <a name="bk_stringtonull"></a> StringToNull  
- Null로 변환 하는 식을 반환 합니다. 식을 변환할 수 없는 경우 undefined를 반환 합니다.  
+####  <a name="bk_stringtonull"></a>StringToNull  
+ Null로 변환 된 식을 반환 합니다. 식을 변환할 수 없는 경우는 undefined를 반환 합니다.  
   
  **구문**  
   
@@ -1877,19 +1898,19 @@ StringToNull(<expr>)
   
 - `expr`  
   
-   Null 식으로 계산할 유효한 스칼라 식이입니다.
+   Null 식으로 평가할 유효한 스칼라 식입니다.
   
   **반환 형식**  
   
-  정의 되지 않은 또는 null 식을 반환 합니다.  
+  Null 식 또는 undefined를 반환 합니다.  
   
-  **예**  
+  **예제**  
   
-  다음 예제에서는 StringToNull 서로 다른 형식에서 작동 하는 방법을 보여 줍니다. 
+  다음 예에서는 여러 형식에서 StringToNull가 동작 하는 방식을 보여 줍니다. 
 
 유효한 입력을 사용 하는 예제는 다음과 같습니다.
 
- 이전 또는 "null" 이후에는 공백이 허용 됩니다.
+ 공백은 "null" 전후에만 사용할 수 있습니다.
 
 ```  
 SELECT 
@@ -1904,9 +1925,9 @@ SELECT
 [{"n1": null, "n2": null, "n3": true}]
 ```  
 
-잘못 된 입력의 예는 다음과 같습니다.
+입력이 잘못 된 예는 다음과 같습니다.
 
-Null은 대/소문자 구분 및 "null" 즉, 모든 소문자 문자를 사용 하 여 작성 해야 합니다.
+Null은 대/소문자를 구분 하며 모든 소문자 (예: "null")로 작성 되어야 합니다.
 
 ```  
 SELECT    
@@ -1920,7 +1941,7 @@ SELECT
 [{}]
 ```  
 
-전달 되는 식, null 식으로 구문 분석 됩니다. null을 입력 하 고 따라서 undefined를 반환 하는 이러한 입력 평가 하지 않습니다.
+전달 된 식이 null 식으로 구문 분석 됩니다. 이러한 입력은 null 형식으로 계산 되지 않으므로 undefined로 반환 됩니다.
 
 ```  
 SELECT    
@@ -1936,8 +1957,8 @@ SELECT
 [{}]
 ```  
 
-####  <a name="bk_stringtonumber"></a> StringToNumber  
- 숫자로 변환 하는 식을 반환 합니다. 식을 변환할 수 없는 경우 undefined를 반환 합니다.  
+####  <a name="bk_stringtonumber"></a>StringToNumber  
+ 숫자로 변환 된 식을 반환 합니다. 식을 변환할 수 없는 경우는 undefined를 반환 합니다.  
   
  **구문**  
   
@@ -1949,17 +1970,17 @@ StringToNumber(<expr>)
   
 - `expr`  
   
-   JSON 숫자 식으로 계산할 유효한 스칼라 식이입니다. Json에서 숫자는 정수 또는 부동 소수점 있어야 합니다. JSON 형식에 대 한 자세한 내용은 참조 하세요. [json.org](https://json.org/)  
+   JSON 숫자 식으로 평가할 유효한 스칼라 식입니다. JSON의 숫자는 정수 이거나 부동 소수점 이어야 합니다. JSON 형식에 대 한 자세한 내용은 [json.org](https://json.org/) 를 참조 하세요.  
   
   **반환 형식**  
   
-  정의 되지 않은 또는 숫자 식을 반환 합니다.  
+  숫자 식을 반환 하거나 정의 되지 않은를 반환 합니다.  
   
-  **예**  
+  **예제**  
   
-  다음 예제에서는 StringToNumber 서로 다른 형식에서 작동 하는 방법을 보여 줍니다. 
+  다음 예에서는 여러 형식에서 StringToNumber가 동작 하는 방식을 보여 줍니다. 
 
-만 전이나 후에 공백이 허용 됩니다.
+공백은 숫자 앞 이나 뒤에만 사용할 수 있습니다.
 
 ```  
 SELECT 
@@ -1975,7 +1996,7 @@ SELECT
 {{"num1": 1, "num2": 3.14, "num3": 60, "num4": -1.79769e+308}}
 ```  
 
-올바른 숫자를 이어야 합니다 하는 JSON 될 정수 또는 부동 소수점 숫자입니다.
+JSON에서 유효한 숫자는 정수 이거나 부동 소수점 숫자 여야 합니다.
 
 ```  
 SELECT   
@@ -1988,7 +2009,7 @@ SELECT
 {{}}
 ```  
 
-전달 되는 식은 후행 숫자 식입니다. 이러한 입력 번호를 입력 하 고 따라서 undefined를 반환 하는 평가 하지 않습니다. 
+전달 된 식은 숫자 식으로 구문 분석 됩니다. 이러한 입력은 Number 형식으로 계산 되지 않으므로 undefined로 반환 됩니다. 
 
 ```  
 SELECT 
@@ -2007,7 +2028,7 @@ SELECT
 ```  
 
 ####  <a name="bk_stringtoobject"></a> StringToObject  
- 개체로 변환 하는 식을 반환 합니다. 식을 변환할 수 없는 경우 undefined를 반환 합니다.  
+ 개체로 변환 된 식을 반환 합니다. 식을 변환할 수 없는 경우는 undefined를 반환 합니다.  
   
  **구문**  
   
@@ -2019,15 +2040,15 @@ StringToObject(<expr>)
   
 - `expr`  
   
-   JSON 개체 식으로 계산할 유효한 스칼라 식이입니다. Note는 중첩 된 문자열 값 유효 하려면 큰따옴표를 사용 하 여 작성 해야 합니다. JSON 형식에 대 한 자세한 내용은 참조 하세요. [json.org](https://json.org/)  
+   JSON 개체 식으로 평가할 유효한 스칼라 식입니다. 중첩 된 문자열 값은 큰따옴표를 사용 하 여 유효 하 게 작성 해야 합니다. JSON 형식에 대 한 자세한 내용은 [json.org](https://json.org/) 를 참조 하세요.  
   
   **반환 형식**  
   
-  개체 식을 반환 하거나 정의 되지 않았습니다.  
+  개체 식을 반환 하거나 정의 되지 않은를 반환 합니다.  
   
-  **예**  
+  **예제**  
   
-  다음 예제에서는 StringToObject 서로 다른 형식에서 작동 하는 방법을 보여 줍니다. 
+  다음 예에서는 StringToObject가 여러 형식에서 동작 하는 방식을 보여 줍니다. 
   
  유효한 입력을 사용 하는 예제는 다음과 같습니다.
 
@@ -2048,10 +2069,10 @@ SELECT
   "obj4": {"C":[{"c1":[5,6,7]},{"c2":8},{"c3":9}]}}]
 ```
 
- 잘못 된 입력의 예는 다음과 같습니다.
-쿼리 내에서 유효한 지, 경우에 이러한 구문 분석 하지 않습니다 유효한 개체입니다. 문자열 개체의 문자열 내의 이스케이프 되어야 하거나 "{\\"는\\":\\" str\\"}" 주변 따옴표는 하나 여야 합니다 또는 ' {"a": "str"}'.
+ 입력이 잘못 된 예는 다음과 같습니다.
+쿼리 내에서 유효 하더라도 유효한 개체로 구문 분석 되지 않습니다. 개체의 문자열에 있는 문자열은\\"{" a ":\\"\\str\\"}"로 이스케이프 되거나, 닫는 따옴표는 단일 ' {"a": "str"} ' 여야 합니다.
 
-속성 이름을 둘러싸는 작은따옴표는 유효한 JSON이 없습니다.
+속성 이름을 둘러싼 작은따옴표는 유효한 JSON이 아닙니다.
 
 ``` 
 SELECT 
@@ -2064,7 +2085,7 @@ SELECT
 [{}]
 ```  
 
-주변 따옴표 없이 속성 이름은 유효한 JSON 하지 않습니다.
+따옴표를 포함 하지 않는 속성 이름은 유효한 JSON이 아닙니다.
 
 ``` 
 SELECT 
@@ -2077,9 +2098,9 @@ SELECT
 [{}]
 ``` 
 
-잘못 된 입력의 예는 다음과 같습니다.
+입력이 잘못 된 예는 다음과 같습니다.
 
- JSON 개체로 전달 되는 식 구문 분석 됩니다. 개체를 입력 하 고 따라서 undefined를 반환 하는 이러한 입력 평가 하지 않습니다.
+ 전달 된 식은 JSON 개체로 구문 분석 됩니다. 이러한 입력은 object 형식으로 계산 되지 않으므로 undefined로 반환 됩니다.
 
 ``` 
 SELECT 
@@ -2120,7 +2141,7 @@ SUBSTRING(<str_expr>, <num_expr>, <num_expr>)
   
   문자열 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 1에서 시작하여 길이가 1인 "abc"의 부분 문자열을 반환합니다.  
   
@@ -2152,7 +2173,7 @@ ToString(<expr>)
   
   문자열 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 다른 형식에서 ToString이 동작하는 방법을 보여줍니다.   
   
@@ -2234,7 +2255,7 @@ TRIM(<str_expr>)
   
   문자열 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 쿼리 내에서 TRIM을 사용하는 방법을 보여 줍니다.  
   
@@ -2266,7 +2287,7 @@ UPPER(<str_expr>)
   
   문자열 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 쿼리에서 UPPER를 사용하는 방법을 보여 줍니다.  
   
@@ -2282,7 +2303,7 @@ SELECT UPPER("Abc") AS upper
 
 ## <a id="array-functions"></a>배열 함수
 
-다음 스칼라 함수는 배열 입력된 값 및 반환 숫자, 부울 또는 배열 값에 대 한 작업을 수행합니다.
+다음 스칼라 함수는 배열 입력 값에 대 한 작업을 수행 하 고 숫자, 부울 또는 배열 값을 반환 합니다.
   
 ||||  
 |-|-|-|  
@@ -2308,7 +2329,7 @@ ARRAY_CONCAT (<arr_expr>, <arr_expr> [, <arr_expr>])
   
   배열 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 두 배열을 연결하는 방법을 보여 줍니다.  
   
@@ -2349,7 +2370,7 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
   
   부울 값을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 ARRAY_CONTAINS를 사용하여 배열의 멤버 자격을 확인하는 방법을 보여 줍니다.  
   
@@ -2403,7 +2424,7 @@ ARRAY_LENGTH(<arr_expr>)
   
   숫자 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 ARRAY_LENGTH를 사용하여 배열의 길이를 가져오는 방법을 보여 줍니다.  
   
@@ -2444,7 +2465,7 @@ ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])
   
   배열 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 ARRAY_SLICE를 사용하여 배열의 다른 조각을 가져오는 방법을 보여줍니다.  
   
@@ -2475,14 +2496,14 @@ SELECT
 ```  
 ## <a id="date-time-functions"></a>날짜 및 시간 함수
 
-다음 스칼라 함수를 사용 하면 두 가지 형태로; 현재 UTC 날짜 및 시간을 가져오려면 Unix epoch 시간 (밀리초) 또는 ISO 8601 형식을 준수 하는 문자열 값인 숫자 타임 스탬프입니다. 
+다음 스칼라 함수를 사용 하면 현재 UTC 날짜와 시간을 두 가지 형식으로 가져올 수 있습니다. 값이 Unix epoch 인 숫자 타임 스탬프 (밀리초) 이거나 ISO 8601 형식을 준수 하는 문자열입니다. 
 
 |||
 |-|-|
 |[GETCURRENTDATETIME](#bk_get_current_date_time)|[GETCURRENTTIMESTAMP](#bk_get_current_timestamp)||
 
-####  <a name="bk_get_current_date_time"></a> GETCURRENTDATETIME
- 현재 UTC 날짜 및 시간을 ISO 8601 문자열을 반환합니다.
+####  <a name="bk_get_current_date_time"></a>GETCURRENTDATETIME
+ 현재 UTC 날짜와 시간을 ISO 8601 문자열로 반환 합니다.
   
  **구문**
   
@@ -2494,37 +2515,37 @@ GETCURRENTDATETIME ()
   
   현재 UTC 날짜 및 시간 ISO 8601 문자열 값을 반환 합니다. 
 
-  YYYY-MM-DDThh:mm:ss.sssZ 형태로 표현 됩니다 여기서:
+  이는 YYYY-MM-Yyyy-mm-ddthh: MM: ss. sssZ 형식으로 표현 됩니다.
   
   |||
   |-|-|
-  |YYYY|4 자리 연도|
-  |MM|두 자리 월 (01 년 1 월, = 등.)|
+  |YYYY|네 자리 연도|
+  |MM|두 자리 월 (01 = 1 월 등)|
   |DD|월 (01-31)의 2 자리 숫자 일|
-  |T|시간 요소의 시작 부분에 대 한 signifier|
-  |hh|두 자리 시간 (00-23)|
-  |MM|이 분 (00-59)|
+  |T|시간 요소 시작에 대 한 signifier|
+  |hh|2 자리 시간 (00-23)|
+  |MM|2 자리 분 (00-59)|
   |ss|두 자리 초 (00-59)|
-  |.sss|3 초의 소수 자릿수|
+  |. sss|초의 소수 부분 3 자리|
   |Z|UTC (협정 세계시) 지정자||
   
-  ISO 8601 형식에 대 한 자세한 내용은 참조 하세요. [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
+  ISO 8601 형식에 대 한 자세한 내용은 [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601) 를 참조 하세요.
 
-  **주의**
+  **설명**
 
-  GETCURRENTDATETIME 비결 정적 함수입니다. 
+  GETCURRENTDATETIME은 비결 정적 함수입니다. 
   
-  반환 된 결과 UTC (협정 세계시)입니다.
+  반환 된 결과는 UTC (협정 세계시)입니다.
 
-  **예**  
+  **예제**  
   
-  다음 예제에는 GetCurrentDateTime 기본 제공 함수를 사용 하 여 현재 UTC 날짜 시간을 가져오는 방법을 보여 줍니다.
+  다음 예제에서는 GetCurrentDateTime 기본 제공 함수를 사용 하 여 현재 UTC 날짜 시간을 가져오는 방법을 보여 줍니다.
   
 ```  
 SELECT GETCURRENTDATETIME() AS currentUtcDateTime
 ```  
   
- 결과 집합 예제는 다음과 같습니다.
+ 예제 결과 집합은 다음과 같습니다.
   
 ```  
 [{
@@ -2532,8 +2553,8 @@ SELECT GETCURRENTDATETIME() AS currentUtcDateTime
 }]  
 ```  
 
-####  <a name="bk_get_current_timestamp"></a> GETCURRENTTIMESTAMP
- 00시: 00 1970 년 1 월 1 일 목요일 이후 경과 된 시간을 밀리초 단위로 반환 합니다. 
+####  <a name="bk_get_current_timestamp"></a>GETCURRENTTIMESTAMP
+ 00:00:00 목요일 1 월 1 1970 일 이후 경과 된 시간 (밀리초)을 반환 합니다. 
   
  **구문**  
   
@@ -2543,23 +2564,23 @@ GETCURRENTTIMESTAMP ()
   
   **반환 형식**  
   
-  숫자 값, 경과 된 Unix epoch 이후의 예: 00시: 00 1970 년 1 월 1 일 목요일 이후 경과 된 시간을 밀리초 단위로 시간 (밀리초)의 현재 수를 반환 합니다.
+  숫자 값, Unix epoch 이후 경과한 현재 시간 (밀리초)을 반환 합니다. 즉, 00:00:00 목요일부터 1 월 1 1970 일에 경과 된 시간 (밀리초)입니다.
 
-  **주의**
+  **설명**
 
-  GETCURRENTTIMESTAMP 비결 정적 함수입니다.
+  GETCURRENTTIMESTAMP는 비결 정적 함수입니다.
   
-  반환 된 결과 UTC (협정 세계시)입니다.
+  반환 된 결과는 UTC (협정 세계시)입니다.
 
-  **예**  
+  **예제**  
   
-  다음 예제에는 GetCurrentTimestamp 기본 제공 함수를 사용 하 여 현재 타임 스탬프를 가져오는 방법을 보여 줍니다.
+  다음 예제에서는 GetCurrentTimestamp 기본 제공 함수를 사용 하 여 현재 타임 스탬프를 가져오는 방법을 보여 줍니다.
   
 ```  
 SELECT GETCURRENTTIMESTAMP() AS currentUtcTimestamp
 ```  
   
- 결과 집합 예제는 다음과 같습니다.
+ 예제 결과 집합은 다음과 같습니다.
   
 ```  
 [{
@@ -2595,9 +2616,9 @@ ST_DISTANCE (<spatial_expr>, <spatial_expr>)
   
   거리가 포함된 숫자 식을 반환합니다. 기본 참조 시스템의 경우 미터 단위로 표현됩니다.  
   
-  **예**  
+  **예제**  
   
-  다음 예제에서는 ST_DISTANCE 기본 제공 함수를 사용하여 지정된 위치에서 30Km 이내에 있는 모든 패밀리 문서를 반환하는 방법을 보여 줍니다. .  
+  다음 예제에서는 ST_DISTANCE 기본 제공 함수를 사용하여 지정된 위치에서 30Km 이내에 있는 모든 패밀리 문서를 반환하는 방법을 보여 줍니다. 을 선택합니다.  
   
 ```  
 SELECT f.id   
@@ -2636,7 +2657,7 @@ ST_WITHIN (<spatial_expr>, <spatial_expr>)
   
   부울 값을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 ST_WITHIN을 사용하여 다각형 내의 모든 패밀리 문서를 찾는 방법을 보여 줍니다.  
   
@@ -2678,7 +2699,7 @@ ST_INTERSECTS (<spatial_expr>, <spatial_expr>)
   
   부울 값을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 지정된 다각형과 교차하는 모든 영역을 찾는 방법을 보여줍니다.  
   
@@ -2716,7 +2737,7 @@ ST_ISVALID(<spatial_expr>)
   
   부울 식을 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 ST_VALID를 사용하여 꼭짓점이 유효한지 확인하는 방법을 보여 줍니다.  
   
@@ -2753,7 +2774,7 @@ ST_ISVALIDDETAILED(<spatial_expr>)
   
   지정된 GeoJSON 점 또는 다각형 식이 유효한 경우 부울 값을 포함하는 JSON 값을 반환하고, 잘못된 경우 추가로 그 이유를 문자열 값으로 반환합니다.  
   
-  **예**  
+  **예제**  
   
   다음 예제에서는 ST_ISVALIDDETAILED를 사용하여 세부 정보로 유효성을 검사하는 방법을 보여 줍니다.  
   

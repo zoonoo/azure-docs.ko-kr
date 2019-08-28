@@ -7,21 +7,21 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/16/2019
-ms.openlocfilehash: f607c1e79262efdbec79677fa7f16863b7a9d160
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.date: 06/21/2019
+ms.openlocfilehash: c50ad2b045f32daf53033318123b68e4b2d58db5
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393976"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329330"
 ---
 # <a name="what-is-azure-stream-analytics"></a>Azure Stream Analytics란?
 
-Azure Stream Analytics는 대량의 스트리밍 데이터를 검사하도록 설계된 이벤트 처리 엔진입니다. 패턴과 관계는 디바이스, 센서, 웹 사이트, 소셜 미디어 피드 및 애플리케이션을 포함한 여러 입력 원본에서 추출한 정보에서 식별할 수 있습니다. 이러한 패턴을 사용하여 경고를 만들거나, 보고 도구에 정보를 공급하거나, 나중에 사용할 수 있도록 변환된 데이터를 저장하는 등의 다른 작업 다운스트림을 트리거할 수 있습니다.
+Azure Stream Analytics는 여러 원본에서 대량의 빠른 스트리밍 데이터를 동시에 분석 및 처리하도록 설계된 실시간 분석 및 복잡한 이벤트 처리 엔진입니다. 패턴과 관계는 디바이스, 센서, 클릭스트림, 소셜 미디어 피드 및 애플리케이션을 포함한 여러 입력 원본에서 추출한 정보에서 식별할 수 있습니다. 이러한 패턴을 사용하여 경고를 만들거나, 보고 도구에 정보를 공급하거나, 나중에 사용할 수 있도록 변환된 데이터를 저장하는 등의 작업을 트리거하고 워크플로를 시작할 수 있습니다. 또한 Stream Analytics는 Azure IoT Edge 런타임에서 사용할 수 있으며, 정확히 동일한 언어 또는 구문을 클라우드로 지원합니다. 
 
 다음 시나리오는 Azure Stream Analytics를 사용할 수 있는 경우의 예입니다.
 
-* IoT(사물 인터넷) 센서 융합 및 디바이스 원격 분석에 대한 실시간 분석
+* IoT 디바이스에서 실시간 원격 분석 스트림 분석
 * 웹 로그/클릭 스트림 분석
 * fleet 관리 및 드라이버가 없는 자동차에 대한 지리 공간적 분석
 * 원격 모니터링 및 높은 가치 자산의 예측 유지 관리
@@ -29,12 +29,12 @@ Azure Stream Analytics는 대량의 스트리밍 데이터를 검사하도록 �
 
 ## <a name="how-does-stream-analytics-work"></a>Stream Analytics는 어떻게 작동합니까?
 
-Azure Stream Analytics 작업은 입력, 변환 쿼리 및 출력으로 구성됩니다. Azure Event Hubs, Azure IoT Hub 또는 Azure Blob Storage에서 소프트웨어 또는 디바이스의 이벤트를 수집하는 경우 이러한 서비스 중 하나 이상을 작업에 대한 입력 원본으로 지정할 수 있습니다. SQL 쿼리 언어를 기반으로 하는 변환 쿼리는 일정 기간 동안 스트리밍 데이터를 쉽게 필터링, 정렬, 집계 및 조인하는 데 사용됩니다. 집계 작업을 수행할 때 이벤트 순서 지정 옵션 및 시간 범위 기간을 조정할 수 있습니다.
+Azure Stream Analytics 작업은 입력, 쿼리 및 출력으로 구성됩니다. Stream Analytics는 Azure Event Hubs, Azure IoT Hub 또는 Azure Blob Storage에서 데이터를 수집합니다. SQL 쿼리 언어를 기반으로 하는 쿼리는 일정 기간 동안 스트리밍 데이터를 쉽게 필터링, 정렬, 집계 및 조인하는 데 사용될 수 있습니다. 또한 JavaScript 및 C# UDF(사용자 정의 기능)를 사용하여 이 SQL 언어를 확장할 수 있습니다. 간단한 언어 구성 및/또는 구성을 통해 집계 작업을 수행할 때 이벤트 순서 지정 옵션 및 시간 범위 기간을 손쉽게 조정할 수 있습니다.
 
 각 작업에는 변환된 데이터에 대한 출력이 있으며, 분석한 정보에 대한 응답으로 수행되는 작업을 제어 할 수 있습니다. 예를 들어 다음을 수행할 수 있습니다.
 
-* 모니터링되는 큐에 데이터를 보내 경고 또는 사용자 지정 워크플로 다운스트림을 트리거합니다.
-* 실시간 시각화를 위해 데이터를 Power BI 대시보드에 보냅니다.
+* Azure Functions, Service Bus 항목 또는 큐와 같은 서비스에 데이터를 보내 통신을 트리거하거나 워크플로 다운스트림을 사용자 지정합니다.
+* 실시간 대시보드를 위해 Power BI 대시보드로 데이터를 전송합니다.
 * 기록 데이터를 기반으로 하여 기계 학습 모델을 학습시키거나 일괄 처리 분석을 수행할 수 있도록 데이터를 다른 Azure 스토리지 서비스에 저장합니다.
 
 다음 이미지에서는 데이터를 Stream Analytics에 보내고, 스토리지 또는 프레젠테이션과 같은 다른 작업을 위해 분석하고 보내는 방법을 보여 줍니다.
@@ -51,7 +51,7 @@ Azure Stream Analytics는 사용하기 쉽고 유연하며 안정적이고 작�
 
 Azure Stream Analytics는 쉽게 시작할 수 있습니다. 몇 번의 클릭만으로 여러 원본 및 싱크에 연결하여 엔드투엔드 파이프라인을 만듭니다. Stream Analytics는 [Azure Event Hubs](/azure/event-hubs/) 및 [Azure IoT Hub](/azure/iot-hub/)에 연결하여 데이터 수집을 스트리밍할 수 있으며, [Azure Blob 스토리지](/azure/storage/storage-introduction)에 연결하여 기록 데이터를 수집할 수 있습니다. 또한 작업 입력에는 스트리밍 데이터에 조인하여 조회 작업을 수행할 수 있는 Azure Blob 스토리지 또는 [SQL Database](stream-analytics-use-reference-data.md#azure-sql-database)의 정적 또는 느리게 변경되는 참조 데이터가 포함될 수 있습니다.
 
-Stream Analytics는 작업 출력을 [Azure Blob 스토리지](/azure/storage/storage-introduction), [Azure SQL Database](/azure/sql-database/), [Azure Data Lake Store](/azure/data-lake-store/) 또는 [Azure Cosmos DB](/azure/cosmos-db/introduction)와 같은 많은 스토리지 시스템으로 라우팅할 수 있습니다. Azure HDInsight를 사용하여 저장된 출력에 대해 일괄 처리 분석을 실행하거나, 사용을 위해 Event Hubs 또는 실시간 시각화를 위해 [Power BI](https://docs.microsoft.com/power-bi/)와 같은 다른 서비스로 출력을 보낼 수 있습니다.
+Stream Analytics는 작업 출력을 [Azure Blob Storage](/azure/storage/storage-introduction), [Azure SQL Database](/azure/sql-database/), [Azure Data Lake Store](/azure/data-lake-store/) 및 [Azure CosmosDB](/azure/cosmos-db/introduction)와 같은 많은 스토리지 시스템으로 라우팅할 수 있습니다. Azure HDInsight를 사용하여 저장된 출력에 대해 일괄 처리 분석을 실행하거나, 사용을 위해 Event Hubs 또는 실시간 시각화를 위해 [Power BI](https://docs.microsoft.com/power-bi/)와 같은 다른 서비스로 출력을 보낼 수 있습니다.
 
 Stream Analytics 출력의 전체 목록은 [Azure Stream Analytics의 출력 이해](stream-analytics-define-outputs.md)를 참조하세요.
 
@@ -67,9 +67,9 @@ Stream Analytics 쿼리 언어는 스트리밍 데이터를 분석하고 처리�
 
 Azure Stream Analytics는 Azure에서 완벽하게 관리되는 서버가 없는(PaaS) 제품입니다. 모든 하드웨어를 프로비저닝하거나 작업을 실행하는 클러스터를 관리할 필요가 없습니다. Azure Stream Analytics는 클라우드에서 복잡한 컴퓨팅 클러스터를 설정하고 작업을 실행하는 데 필요한 성능 튜닝을 처리하여 작업을 완벽하게 관리합니다. Azure Event Hubs 및 Azure IoT Hub와 통합하면 작업에서 연결된 디바이스, 클릭 스트림 및 로그 파일을 포함하여 여러 원본에서 나오는 초당 수백만 개의 이벤트를 수집할 수 있습니다. Event Hubs의 분할 기능을 사용하면 계산을 논리 단계로 분할할 수 있고, 각각의 단계를 더 자세히 분할하여 확장성을 높일 수 있습니다.
 
-## <a name="run-in-the-cloud-on-in-the-intelligent-edge"></a>클라우드 또는 인텔리전트 에지에서 실행
+## <a name="run-in-the-cloud-or-on-the-intelligent-edge"></a>클라우드 또는 인텔리전트 에지에서 실행
 
-Azure Stream Analytics는 대규모 분석을 위해 클라우드에서 실행하거나, 대기 시간이 매우 짧은 분석을 위해 IoT Edge에서 실행할 수 있습니다. Azure Stream Analytics는 클라우드와 에지 모두에서 동일한 쿼리 언어를 사용하므로 개발자가 스트림 처리를 위한 진정한 하이브리드 아키텍처를 구축할 수 있습니다.
+Azure Stream Analytics는 대규모 분석을 위해 클라우드에서 실행하거나, 대기 시간이 매우 짧은 분석을 위해 IoT Edge에서 실행할 수 있습니다. Azure Stream Analytics는 클라우드와 에지 모두에서 동일한 쿼리 언어를 사용하므로 개발자가 스트림 처리를 위한 진정한 하이브리드 아키텍처를 구축할 수 있습니다. 
 
 ## <a name="low-total-cost-of-ownership"></a>낮은 총 소유 비용
 
@@ -97,7 +97,7 @@ Azure Stream Analytics는 [Azure 규정 준수 개요](https://gallery.technet.m
 
 ## <a name="performance"></a>성능
 
-Stream Analytics는 매초 수백만 개의 이벤트를 처리할 수 있으며 짧은 대기 시간으로 결과를 제공할 수 있습니다. 복잡한 대규모 실시간 이벤트 처리 애플리케이션을 처리할 수 있도록 스케일 업 및 스케일 아웃할 수 있습니다. Stream Analytics는 분할을 통해 성능을 지원하므로 복잡한 쿼리를 여러 스트리밍 노드에서 병렬로 처리하고 실행할 수 있습니다. Azure Stream Analytics는 Microsoft Research와의 협업을 통해 개발된 고성능 메모리 내 스트리밍 분석 엔진인 [Trill](https://github.com/Microsoft/Trill)을 기반으로 합니다.
+Stream Analytics는 매초 수백만 개의 이벤트를 처리할 수 있으며 매우 짧은 대기 시간으로 결과를 제공할 수 있습니다. 복잡한 대규모 실시간 이벤트 처리 애플리케이션을 처리할 수 있도록 스케일 업 및 스케일 아웃할 수 있습니다. Stream Analytics는 분할을 통해 더 높은 성능을 지원하므로 복잡한 쿼리를 여러 스트리밍 노드에서 병렬로 처리하고 실행할 수 있습니다. Azure Stream Analytics는 Microsoft Research와의 협업을 통해 개발된 고성능 메모리 내 스트리밍 분석 엔진인 [Trill](https://github.com/Microsoft/Trill)을 기반으로 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

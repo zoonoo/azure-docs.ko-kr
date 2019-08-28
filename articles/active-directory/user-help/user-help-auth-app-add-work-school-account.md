@@ -12,14 +12,15 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 231f3c44344f4119bab6e1efb5546e6fded0c784
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3be2ee662a061cdcb6acc58e47eda5feda3b9eee
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60473874"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880789"
 ---
 # <a name="add-your-work-or-school-account"></a>회사 또는 학교 계정 추가
+
 조직에서 2단계 인증을 사용하는 경우 인증 방법 중 하나로 Microsoft Authenticator 앱을 사용하도록 회사 또는 학교 계정을 설정할 수 있습니다.
 
 >[!Important]
@@ -30,15 +31,18 @@ ms.locfileid: "60473874"
 1. 컴퓨터에서 [추가 보안 확인](https://aka.ms/mfasetup) 페이지로 이동합니다.
 
     >[!Note]
-    >**추가 보안 인증** 페이지가 표시되지 않는 경우에는 관리자가 보안 정보(미리 보기) 환경을 켰을 수 있습니다. 이 경우 [인증자 앱을 사용하도록 보안 정보 설정](security-info-setup-auth-app.md) 섹션의 지침을 따라야 합니다. 이외의 경우에는 조직의 지원 센터에 도움을 요청해야 합니다. 보안 정보에 대 한 자세한 내용은 참조 하세요. [보안 정보 (미리 보기) 개요](user-help-security-info-overview.md)합니다.
+    >**추가 보안 인증** 페이지가 표시되지 않는 경우에는 관리자가 보안 정보(미리 보기) 환경을 켰을 수 있습니다. 이 경우 [인증자 앱을 사용하도록 보안 정보 설정](security-info-setup-auth-app.md) 섹션의 지침을 따라야 합니다. 이외의 경우에는 조직의 지원 센터에 도움을 요청해야 합니다. 보안 정보에 대 한 자세한 내용은 [보안 정보 (미리 보기) 개요](user-help-security-info-overview.md)를 참조 하세요.
 
 2. **인증자 앱** 옆에 있는 확인란을 선택한 다음, **구성**을 선택합니다.
 
     **모바일 앱 구성** 페이지가 나타납니다.
-    
+
     ![QR 코드를 제공하는 화면](./media/user-help-auth-app-download-install/auth-app-barcode.png)
 
 3. Microsoft Authenticator 앱을 열고 오른쪽 위에 있는 **사용자 지정 및 제어** 아이콘에서 **계정 추가**를 선택한 다음, **회사 또는 학교 계정**을 선택합니다.
+
+    >[!Note]
+    >Microsoft Authenticator 앱을 처음으로 설정 하는 경우 앱에서 카메라에 액세스할 수 있도록 허용할지 (iOS) 아니면 앱이 사진을 촬영 하 고 비디오를 녹화 (Android) 할 수 있도록 허용할지 묻는 메시지가 표시 될 수 있습니다. **허용** 을 선택 하 여 인증자 앱이 카메라에 액세스 하 여 다음 단계에서 QR 코드를 그림으로 이동할 수 있도록 해야 합니다. 카메라를 허용 하지 않는 경우에도 인증자 앱을 설정할 수 있지만 코드 정보를 수동으로 추가 해야 합니다. 수동으로 코드를 추가 하는 방법에 대 한 자세한 내용은 [앱에 수동으로 계정 추가](user-help-auth-app-add-account-manual.md)를 참조 하세요.
 
 4. 디바이스 카메라를 사용해 컴퓨터의 **모바일 앱 구성** 화면에서 QR 코드를 스캔하고 **완료**를 선택합니다.
 

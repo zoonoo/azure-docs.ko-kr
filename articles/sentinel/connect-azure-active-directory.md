@@ -7,19 +7,20 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: 0a8f4a58-e96a-4883-adf3-6b8b49208e6a
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: ce4a57b8c266fe474fc2e6dd8f811fc7440e7ac6
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 5784101c9f2e0dc238ac48c5d0f6fbe4c0dc596f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190450"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620672"
 ---
 # <a name="connect-data-from-azure-active-directory"></a>Azure Active Directory에서 데이터 연결
 
@@ -29,7 +30,7 @@ ms.locfileid: "67190450"
 
 Azure Sentinel를 사용 하면 데이터를 수집할 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) 하 고 Azure Sentinel에 스트림 합니다. 선택할 수 있습니다 스트림에 [로그인 로그가](../active-directory/reports-monitoring/concept-sign-ins.md) 하 고 [감사 로그](../active-directory/reports-monitoring/concept-audit-logs.md) 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Active Directory에서 로그인 데이터를 내보낼 하려는 경우에 Azure AD P1 또는 P2 라이선스가 있어야 합니다.
 
@@ -38,7 +39,7 @@ Azure Sentinel를 사용 하면 데이터를 수집할 [Azure Active Directory](
 - 연결 상태를 볼 수, Azure AD에 대 한 진단 정보를 액세스할 수 있는 권한이 있어야 합니다. 
 
 
-## <a name="connect-to-azure-ad"></a>Azure AD에 연결
+## <a name="connect-to-azure-ad"></a>Azure에 연결
 
 1. Azure Sentinel 선택 **데이터 커넥터** 클릭 하 고는 **Azure Active Directory** 바둑판식으로 배열 합니다.
 

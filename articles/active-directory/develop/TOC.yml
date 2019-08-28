@@ -35,6 +35,8 @@
               href: quickstart-v2-aspnet-core-webapp.md
             - name: NodeJS
               href: 'https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs'
+            - name: Java
+              href: quickstart-v2-java-webapp.md
         - name: Web API
           items:
             - name: ASP .NET
@@ -81,8 +83,10 @@
       href: sample-v2-code.md
     - name: 개념
       items:
-        - name: 애플리케이션 형식
-          href: v2-app-types.md
+        - name: 인증 기본 사항
+          href: authentication-scenarios.md
+        - name: 인증 흐름 및 앱 시나리오
+          href: authentication-flows-app-scenarios.md
         - name: 애플리케이션 시나리오
           items:
             - name: 로그인 대상 그룹
@@ -191,6 +195,18 @@
                   href: scenario-mobile-overview.md
                 - name: 앱 등록
                   href: scenario-mobile-app-registration.md
+                - name: 코드 구성
+                  href: scenario-mobile-app-configuration.md
+                - name: 모바일 플랫폼별 구성
+                  items:
+                    - name: Xamarin Android
+                      href: msal-net-xamarin-android-considerations.md
+                    - name: Android의 시스템 브라우저
+                      href: msal-net-system-browser-android-considerations.md
+                    - name: Xamarin iOS
+                      href: msal-net-xamarin-ios-considerations.md
+                    - name: 범용 Windows 플랫폼
+                      href: msal-net-uwp-considerations.md
                 - name: 앱용 토큰 획득
                   href: scenario-mobile-acquire-token.md
                 - name: 웹 API 호출
@@ -227,6 +243,8 @@
                   href: msal-client-application-configuration.md
                 - name: 애플리케이션 초기화(.NET)
                   href: msal-net-initializing-client-applications.md
+                - name: 클라이언트 어설션(.NET)
+                  href: msal-net-client-assertions.md
                 - name: 애플리케이션 초기화(JS)
                   href: msal-js-initializing-client-applications.md
             - name: 오류 및 예외 처리
@@ -251,14 +269,6 @@
                   items:
                     - name: 웹 브라우저
                       href: msal-net-web-browsers.md
-                    - name: Xamarin Android
-                      href: msal-net-xamarin-android-considerations.md
-                    - name: Android의 시스템 브라우저
-                      href: msal-net-system-browser-android-considerations.md
-                    - name: Xamarin iOS
-                      href: msal-net-xamarin-ios-considerations.md
-                    - name: 범용 Windows 플랫폼
-                      href: msal-net-uwp-considerations.md
                 - name: MSAL.js
                   items:
                     - name: IE를 사용한 고려 사항
@@ -267,10 +277,10 @@
                       href: msal-js-known-issues-ie-edge-browsers.md
                     - name: 알려진 문제 - Safari
                       href: msal-js-known-issues-safari-browser.md
-        - name: 인증
+        - name: 인증 프로토콜
           items:
-            - name: 인증 기본 사항
-              href: authentication-scenarios.md
+            - name: 애플리케이션 형식 및 OAuth2.0
+              href: v2-app-types.md
             - name: OAuth 2.0 및 OpenID Connect 프로토콜
               href: active-directory-v2-protocols.md
             - name: OpenID Connect
@@ -287,6 +297,8 @@
               href: v2-oauth2-device-code.md
             - name: OAuth 2.0 리소스 소유자 암호 자격 증명 부여
               href: v2-oauth-ropc.md
+            - name: OAuth 2.0 SAML 전달자 어설션 흐름
+              href: v2-saml-bearer-assertion.md
             - name: 서명 키 롤오버
               href: active-directory-signing-key-rollover.md
             - name: ID 토큰
@@ -397,14 +409,14 @@
           href: reference-v2-libraries.md
         - name: Microsoft Graph의 ID 및 액세스 API
           href: 'https://docs.microsoft.com/graph/api/resources/azure-ad-overview?view=graph-rest-beta'
-        - name: 애플리케이션 매니페스트
+        - name: 애플리케이션 매니페스트.
           href: reference-app-manifest.md
         - name: 인증 및 권한 부여 오류 코드
           href: reference-aadsts-error-codes.md
         - name: 주요 변경 내용
           href: reference-breaking-changes.md
 - name: v1.0
-  expanded: true
+  expanded: false
   items:
     - name: 개요
       href: v1-overview.md
@@ -457,7 +469,11 @@
             - name: Xamarin
               href: quickstart-v1-xamarin.md
         - name: 서비스 간
-          href: 'sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity'
+          href: quickstart-v1-dotnet.md
+        - name: 디먼 앱
+          items:
+            - name: .NET Core 콘솔(디먼)
+              href: quickstart-v1-netcore-daemon.md
     - name: 샘플
       href: sample-v1-code.md
     - name: 개념
@@ -624,7 +640,7 @@
           href: active-directory-authentication-libraries.md
         - name: Azure AD Graph API
           href: active-directory-graph-api.md
-        - name: 애플리케이션 매니페스트
+        - name: 애플리케이션 매니페스트.
           href: reference-app-manifest.md
         - name: 인증 및 권한 부여 오류 코드
           href: reference-aadsts-error-codes.md

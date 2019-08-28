@@ -28,7 +28,7 @@ Azure Portal에서 다음 단계를 사용하세요.
 
    ![리소스 만들기](./media/deploy-service-catalog-quickstart/create-new.png)
 
-1. **서비스 카탈로그 관리되는 응용 프로그램**을 검색하고 사용 가능한 옵션 중에서 선택합니다.
+1. **서비스 카탈로그 관리되는 애플리케이션**을 검색하고 사용 가능한 옵션 중에서 선택합니다.
 
    ![서비스 카탈로그 애플리케이션 검색](./media/deploy-service-catalog-quickstart/select-service-catalog.png)
 
@@ -36,7 +36,7 @@ Azure Portal에서 다음 단계를 사용하세요.
 
    ![만들기 선택](./media/deploy-service-catalog-quickstart/create-service-catalog.png)
 
-1. 포털에 사용자가 액세스할 수 있는 관리되는 애플리케이션 정의가 표시됩니다. 사용 가능한 정의에서 배포하려는 정의를 선택합니다. 이 빠른 시작에서는 이전 빠른 시작에서 만든 **관리되는 저장소 계정**을 사용합니다. **만들기**를 선택합니다.
+1. 포털에 사용자가 액세스할 수 있는 관리되는 애플리케이션 정의가 표시됩니다. 사용 가능한 정의에서 배포하려는 정의를 선택합니다. 이 빠른 시작에서는 이전 빠른 시작에서 만든 **관리되는 스토리지 계정**을 사용합니다. **만들기**를 선택합니다.
 
    ![배포할 정의 선택](./media/deploy-service-catalog-quickstart/select-definition.png)
 
@@ -44,9 +44,9 @@ Azure Portal에서 다음 단계를 사용하세요.
 
    ![기본 사항에 대한 값 제공](./media/deploy-service-catalog-quickstart/provide-basics.png)
 
-1. 저장소 계정 이름의 접두사를 제공합니다. 만들려는 저장소 계정의 유형을 선택합니다. 작업을 마쳤으면 **확인**을 선택합니다.
+1. 스토리지 계정 이름의 접두사를 제공합니다. 만들려는 스토리지 계정의 유형을 선택합니다. 작업을 마쳤으면 **확인**을 선택합니다.
 
-   ![저장소 값 제공](./media/deploy-service-catalog-quickstart/provide-storage.png)
+   ![스토리지 값 제공](./media/deploy-service-catalog-quickstart/provide-storage.png)
 
 1. 요약을 검토합니다. 유효성 검사가 성공하면 **확인**을 선택하여 배포를 시작합니다.
 

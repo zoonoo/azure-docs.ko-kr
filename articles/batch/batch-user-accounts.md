@@ -3,7 +3,7 @@ title: 사용자 계정으로 작업 실행 - Azure Batch | Microsoft Docs
 description: Azure Batch에서 태스크를 실행하기 위해 사용자 계정 구성
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -15,15 +15,15 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: bd5c16d755ef9b71f36b3d499838b12e6099ba6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 93b3004303dd1587340b467c2fd52cb7233c95fd
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595387"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322712"
 ---
 > [!NOTE] 
-> 이 문서에 설명 된 사용자 계정을 사용자에 다릅니다. 보안상의 이유로 원격 데스크톱 프로토콜 (RDP) 또는 SSH (보안 셸)를 사용 하는 계정입니다. 
+> 이 문서에서 설명 하는 사용자 계정은 보안상의 이유로 RDP (원격 데스크톱 프로토콜) 또는 Secure Shell (SSH)에 사용 되는 사용자 계정과 다릅니다. 
 >
 > SSH를 통해 Linux 가상 머신 구성을 실행하는 노드에 연결하려면 [Azure에서 Linux VM에 대해 원격 데스크톱 사용](../virtual-machines/virtual-machines-linux-use-remote-desktop.md)을 참조하세요. RDP를 통해 Windows를 실행하는 노드에 연결하려면 [Windows Server VM에 연결](../virtual-machines/windows/connect-logon.md)을 참조하세요.<br /><br />
 > RDP를 통해 클라우드 서비스 구성을 실행하는 노드에 연결하려면 [Azure Cloud Services의 역할에 대해 원격 데스크톱 연결 사용](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md)을 참조하세요.
@@ -336,4 +336,4 @@ task.UserIdentity = new UserIdentity(AdminUserAccountName);
 
 ## <a name="next-steps"></a>다음 단계
 
-* Batch에 대한 심층적인 개요는 [Batch를 사용하여 대규모 병렬 계산 솔루션 개발](batch-api-basics.md)을 참조하세요.
+* Batch에 대한 심층적인 개요는 [Batch를 사용하여 대규모 병렬 컴퓨팅 솔루션 개발](batch-api-basics.md)을 참조하세요.

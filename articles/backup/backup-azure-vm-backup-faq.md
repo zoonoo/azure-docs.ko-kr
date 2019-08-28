@@ -1,37 +1,37 @@
 ---
-title: Azure Backup을 사용 하 여 Azure Vm을 백업 하는 방법에 대 한 질문과 대답
-description: Azure Backup을 사용 하 여 Azure Vm을 백업 하는 방법에 대 한 일반적인 질문에 답 합니다.
-services: backup
-author: sogup
-manager: vijayts
+title: Azure Backup를 사용 하 여 Azure Vm을 백업 하는 방법에 대 한 질문과 대답
+description: Azure Backup로 Azure Vm을 백업 하는 방법에 대 한 일반적인 질문에 대 한 답변입니다.
+ms.reviewer: sogup
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/28/2019
-ms.author: sogup
-ms.openlocfilehash: 0248e169f5d502cce8723f594f438b87ab088f3a
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.author: dacurwin
+ms.openlocfilehash: 078c8763a08df339b9291807102e2d187d2a882f
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551605"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827577"
 ---
-# <a name="frequently-asked-questions-back-up-azure-vms"></a>자주 묻는 질문-Azure Vm 백업
+# <a name="frequently-asked-questions-back-up-azure-vms"></a>질문과 대답-Azure Vm 백업
 
-이 문서에서는 Azure Vm을 백업 하는 방법에 대 한 일반적인 질문에 답변 합니다 [Azure Backup](backup-introduction-to-azure-backup.md) 서비스입니다.
+이 문서에서는 [Azure Backup](backup-introduction-to-azure-backup.md) 서비스를 사용 하 여 Azure vm을 백업 하는 일반적인 질문에 답변 합니다.
 
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>백업
 
-### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>만들 때 어떤 VM 이미지가 백업을 사용할 수 있습니다?
-실행 중인 Vm에 대 한 백업을 설정할 수 있습니다. VM을 만들면 [지원 되는 운영 체제](backup-support-matrix-iaas.md#supported-backup-actions)
+### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>백업할 VM 이미지를 만들 때 어떤 VM 이미지를 사용 하도록 설정할 수 있나요?
+VM을 만들 때 [지원 되는 운영 체제](backup-support-matrix-iaas.md#supported-backup-actions) 를 실행 하는 vm에 대 한 백업을 사용 하도록 설정할 수 있습니다.
 
-### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>VM 비용에 포함 된 백업 비용은 인가요?
+### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>백업 비용이 VM 비용에 포함 되나요?
 
-아니요. 백업 비용은 VM의 비용과 별개입니다. 에 대해 자세히 알아보세요 [Azure Backup 가격](https://azure.microsoft.com/pricing/details/backup/)합니다.
+아니요. 백업 비용은 VM의 비용과 별개입니다. [Azure Backup 가격 책정](https://azure.microsoft.com/pricing/details/backup/)에 대해 자세히 알아보세요.
 
-### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>VM에 대 한 백업을 사용 하도록 설정 하는 데 필요한 권한은?
+### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>VM에 대 한 백업을 사용 하도록 설정 하는 데 필요한 권한은 무엇입니까?
 
-VM 참가자 인 경우 VM에서 백업을 사용할 수 있습니다. 사용자 지정 역할을 사용 하는 경우 VM에서 백업을 사용 하도록 설정 하려면 다음 권한이 필요 합니다.
+VM 참가자 인 경우 VM에서 백업을 사용 하도록 설정할 수 있습니다. 사용자 지정 역할을 사용 하는 경우 VM에서 백업을 사용 하도록 설정 하려면 다음 권한이 필요 합니다.
 
 - Microsoft.RecoveryServices/Vaults/write
 - Microsoft.RecoveryServices/Vaults/read
@@ -43,14 +43,14 @@ VM 참가자 인 경우 VM에서 백업을 사용할 수 있습니다. 사용자
 - Microsoft.RecoveryServices/Vaults/backupPolicies/read
 - Microsoft.RecoveryServices/Vaults/backupPolicies/write
 
-Recovery Services 자격 증명 모음 및 VM에 다른 리소스 그룹이 있는 경우에 Recovery Services 자격 증명 모음에 대 한 리소스 그룹에 대 한 쓰기 권한이 있는지 확인 합니다.  
+Recovery Services 자격 증명 모음 및 VM에 다른 리소스 그룹이 있는 경우 Recovery Services 자격 증명 모음에 대 한 리소스 그룹에서 쓰기 권한이 있는지 확인 합니다.  
 
 
 ### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>주문형 백업 작업은 예약된 백업과 동일한 보존 일정을 사용하나요?
-아니요. 주문형 백업 작업을 위한 보존 범위를 지정 합니다. 기본적으로 포털에서 트리거된 이후 30일 동안 유지됩니다.
+아니요. 주문형 백업 작업의 보존 범위를 지정 합니다. 기본적으로 포털에서 트리거된 이후 30일 동안 유지됩니다.
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>최근에 일부 VM에서 Azure Disk Encryption을 사용할 수 있습니다. 내 백업이 계속 작동하나요?
-Azure backup에 Key Vault에 액세스 권한을 제공 합니다. [Azure Backup PowerShell](backup-azure-vms-automation.md) 설명서의 **백업 사용** 섹션에 설명된 대로 PowerShell에서 권한을 지정합니다.
+Key Vault에 액세스할 수 있는 Azure Backup에 대 한 권한을 제공 합니다. [Azure Backup PowerShell](backup-azure-vms-automation.md) 설명서의 **백업 사용** 섹션에 설명된 대로 PowerShell에서 권한을 지정합니다.
 
 ### <a name="i-migrated-vm-disks-to-managed-disks-will-my-backups-continue-to-work"></a>VM 디스크를 관리 디스크로 마이그레이션했습니다. 내 백업이 계속 작동하나요?
 예. 백업은 원활하게 작동합니다. 아무 것도 다시 구성할 필요가 없습니다.
@@ -62,16 +62,16 @@ Azure backup에 Key Vault에 액세스 권한을 제공 합니다. [Azure Backup
 예. 머신이 종료되면 백업이 실행됩니다. 복구 지점은 충돌 일치로 표시됩니다.
 
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>진행 중인 백업 작업을 취소할 수 있나요?
-예. **스냅숏 만들기** 단계에 있는 백업 작업을 취소할 수 있습니다. 스냅샷에서 데이터 전송이 진행 중인 경우 작업을 취소할 수 없습니다.
+예. **스냅샷 만들기** 단계에 있는 백업 작업을 취소할 수 있습니다. 스냅샷에서 데이터 전송이 진행 중인 경우 작업을 취소할 수 없습니다.
 
-### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprggeonumber-will-my-backups-continue-to-work"></a>(즉, Azure Backup 서비스에서 만든 리소스 그룹에 대 한 잠금을 사용 하도록 `AzureBackupRG_<geo>_<number>`), 내 백업이 계속 작동 하려면?
-Azure Backup 서비스에서 만든 리소스 그룹을 잠그는 경우 백업을 최대 18 개의 복원 지점 제한 없기 때문에 실패 하기 시작 합니다.
+### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprg_geo_number-will-my-backups-continue-to-work"></a>Azure Backup 서비스에서 만든 리소스 그룹에 대해 잠금을 사용 하도록 설정 했습니다 (즉, `AzureBackupRG_<geo>_<number>`)에서 백업이 계속 작동 하나요?
+Azure Backup 서비스에 의해 생성 된 리소스 그룹을 잠그면 최대 18 개의 복원 지점이 있으므로 백업이 실패 합니다.
 
-사용자가 잠금을 제거 하 고 이후 백업이 성공 하려면 해당 리소스 그룹에서 복원 지점 컬렉션의 선택을 취소 해야 [이 단계를 따라](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) 복원 지점 컬렉션을 제거 합니다.
+이후 백업을 성공적으로 수행 하려면 사용자가 잠금을 제거 하 고 해당 리소스 그룹에서 복원 지점 수집을 지워야 합니다. 복원 지점 컬렉션을 제거 하려면 [다음 단계를 수행](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) 합니다.
 
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Azure Backup은 표준 SSD 관리 디스크를 지원하나요?
-Azure Backup은 [표준 SSD 관리 디스크](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)를 지원합니다. SSD로 관리 되는 디스크는 Azure Vm에 대 한 새로운 유형의 영구 저장소를 제공합니다. SSD Managed Disks에 대한 지원이 [즉시 복원](backup-instant-restore-capability.md)에서 제공됩니다.
+예, Azure Backup [는 표준 SSD 관리 디스크](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)를 지원 합니다.
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>WA(쓰기 가속기) 지원 디스크를 사용하여 VM을 백업할 수 있나요?
 WA 지원 디스크에는 스냅샷을 만들 수 없습니다. 그러나 Azure Backup 서비스는 백업에서 WA 지원 디스크를 제외할 수 있습니다.
@@ -79,22 +79,22 @@ WA 지원 디스크에는 스냅샷을 만들 수 없습니다. 그러나 Azure 
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>WA(쓰기 가속기) 디스크를 사용하고 SAP HANA가 설치된 VM을 갖고 있습니다. 어떻게 백업해야 하나요?
 Azure Backup은 WA 지원 디스크를 백업할 수 없지만 백업에서 제외할 수는 있습니다. 그러나 WA 지원 디스크의 정보가 백업되지 않으므로 백업하더라도 데이터베이스 일관성이 제공되지 않습니다. 운영 체제 디스크 백업 및 WA 미사용 디스크 백업을 원하는 경우 이 구성으로 디스크를 백업하면 됩니다.
 
-비공개 미리 보기는 SAP HANA 백업에 대 일 분의 RPO를 사용 하 여 실행 합니다. SQL DB 백업과 비슷한 방식으로 빌드되었으며, SAP HANA에서 인증한 backInt 인터페이스를 타사 솔루션에 사용합니다. 원하는 경우 메일을 보내세요 `AskAzureBackupTeam@microsoft.com` 주체를 사용 하 여 **Azure Vm에서 SAP hana 백업에 대 한 비공개 미리 보기 등록**합니다.
+RPO가 15 분인 SAP HANA 백업에 대 한 비공개 미리 보기를 실행 하 고 있습니다. SQL DB 백업과 비슷한 방식으로 빌드되었으며, SAP HANA에서 인증한 backInt 인터페이스를 타사 솔루션에 사용합니다. 관심이 있는 경우 `AskAzureBackupTeam@microsoft.com` **Azure vm에서 SAP HANA의 백업에 대 한 비공개 미리 보기에 등록**을 통해 전자 메일을 보내 주세요.
 
-### <a name="what-is-the-maximum-delay-i-can-expect-in-backup-start-time-from-the-scheduled-backup-time-i-have-set-in-my-vm-backup-policy"></a>이란는 최대 지연 시간을 내 VM 백업 정책에 설정 된 예약 된 백업 시간에서 백업 시작 시간에서 예상할 수 있나요?
-예약된 된 백업은 예약된 된 백업 시간 2 시간 이내 트리거됩니다. 에 대 한 예입니다. 100 대의 Vm 백업 시작 시간 오전 2 시에 예약 된 경우 다음 최대 오전 4:00 하 여 모든 100VMs 해야 백업 작업이 진행에서 합니다. 예약 된 백업 일시 중지 되었습니다. 중단 및 다시 시작 하 고 재시도 인해 backup이 예약 된 2 시간 창 외부에서 시작할 수 있습니다.
+### <a name="what-is-the-maximum-delay-i-can-expect-in-backup-start-time-from-the-scheduled-backup-time-i-have-set-in-my-vm-backup-policy"></a>내 VM 백업 정책에 설정 된 예약 된 백업 시간부터 백업 시작 시간에 예상 되는 최대 지연 수는 얼마 인가요?
+예약 된 백업은 예약 된 백업 시간의 2 시간 이내에 트리거됩니다. 예: 100 Vm의 백업 시작 시간이 2:00 오전 10 시에 예약 된 경우 최대 4:00 am은 모든 100VMs은 백업 작업을 진행 합니다. 가동 중단 및 다시 시작/다시 시도로 인해 예약 된 백업이 일시 중지 된 경우이 예약 된 2 시간 창 외부에서 백업을 시작할 수 있습니다.
 
-### <a name="what-is-the-minimum-allowed-retention-range-for-daily-backup-point"></a>일일 백업 지점에 대 한 허용 되는 최소 보존 범위는 무엇입니까?
-Azure 가상 머신 백업 정책에서는 9999 일 최대, 최소 보존 범위는 7 일을 지원 합니다. 7 일 이내를 사용 하 여 기존 VM 백업 정책 수정에는 7 일의 최소 보존 범위에 맞게 업데이트를 해야 합니다.
+### <a name="what-is-the-minimum-allowed-retention-range-for-daily-backup-point"></a>매일 백업 지점에 대해 허용 되는 최소 보존 범위는 얼마 인가요?
+Azure 가상 머신 백업 정책은 최대 9999 일의 최소 보존 범위를 7 일로 지원 합니다. 7 일 이내에 기존 VM 백업 정책을 수정 하려면 7 일의 최소 보존 범위를 만족 하는 업데이트가 필요 합니다.
 
 ## <a name="restore"></a>복원
 
 ### <a name="how-do-i-decide-whether-to-restore-disks-only-or-a-full-vm"></a>디스크만 복원할지 아니면 전체 VM을 복원할지 결정하는 방법은 무엇인가요?
-VM 복원은 Azure VM의 빠른 만들기 옵션이라고 생각하시면 됩니다. 디스크 이름, 디스크, 공용 IP 주소 및 네트워크 인터페이스 이름을 사용 하는 컨테이너를 변경 하는이 옵션입니다. VM이 만들어지면 변경 내용이 고유한 리소스를 유지합니다. VM은 가용성 집합에 추가되지 않습니다.
+VM 복원은 Azure VM의 빠른 만들기 옵션이라고 생각하시면 됩니다. 이 옵션은 디스크 이름, 디스크에 사용 되는 컨테이너, 공용 IP 주소 및 네트워크 인터페이스 이름을 변경 합니다. VM이 만들어지면 변경 내용이 고유한 리소스를 유지합니다. VM은 가용성 집합에 추가되지 않습니다.
 
 원할 경우 다음과 같이 디스크 복원 옵션을 사용할 수 있습니다.
-  * 생성되는 VM을 사용자 지정합니다. 예를 들어, 크기를 변경 합니다.
-  * 백업 시 있습니다 관련이 없는 구성 설정을 추가 합니다.
+  * 생성되는 VM을 사용자 지정합니다. 예를 들어 크기를 변경 합니다.
+  * 백업 당시에 없는 구성 설정을 추가 합니다.
   * 생성되는 리소스의 명명 규칙을 제어합니다.
   * 가용성 집합에 VM을 추가합니다.
   * PowerShell 또는 템플릿을 사용하여 구성해야 하는 다른 설정을 추가합니다.
@@ -119,7 +119,7 @@ PowerShell에서 이 작업을 수행하는 방법을 [자세히 알아보세요
 관리 디스크 Azure VM의 경우 관리 디스크로 복원하는 동안 템플릿에서 옵션을 제공하여 가용성 집합에 복원하는 기능을 설정합니다. 이 템플릿에 **가용성 집합**이라는 입력 매개 변수가 있습니다.
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>복원 성능을 높이려면 어떻게 해야 하나요?
-복원 성능 향상을 위해 [즉시 복원](backup-instant-restore-capability.md) 기능으로 전환합니다.
+[즉시 복원](backup-instant-restore-capability.md) 기능을 사용 하면 스냅숏에서 빠르게 백업 하 고 즉시 복원할 수 있습니다.
 
 ## <a name="manage-vm-backups"></a>VM 백업 관리
 
@@ -133,9 +133,9 @@ VM은 수정된 정책 또는 새 정책의 일정 및 보존 설정을 사용�
 
 1. 일시적으로 백업을 중지하고 백업 데이터를 보존합니다.
 2. VM을 대상 리소스 그룹으로 이동합니다.
-3. 동일 하거나 새로운 자격 증명 모음의 백업 다시 사용 하도록 설정된 합니다.
+3. 동일한 자격 증명 모음 또는 새 자격 증명 모음에서 백업을 다시 사용 하도록 설정 합니다.
 
 이동 작업 전에 만든 사용 가능한 복원 지점에서 VM을 복원할 수 있습니다.
 
-### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-a-same-backup-policy"></a>동일한 백업 정책과 사용 하 여 연결할 수 있는 Vm 수에 제한이 있나요?
-예, 포털에서 동일한 백업 정책에 연결할 수 있는 100 개의 Vm의 제한이 있습니다. 에서는 100 개 이상의 Vm에 대 한 것이 좋습니다, 그리고 동일한 일정 또는 다른 일정을 사용 하 여 여러 백업 정책을 만듭니다.
+### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-a-same-backup-policy"></a>동일한 백업 정책에 연결할 수 있는 Vm 수에 제한이 있나요?
+예, 포털에서 동일한 백업 정책에 연결할 수 있는 Vm은 100 개로 제한 됩니다. Vm이 100 개 이상인 경우 동일한 일정 또는 다른 일정으로 여러 백업 정책을 만듭니다.

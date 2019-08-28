@@ -9,19 +9,19 @@ ms.reviewer: jasonwhowell
 ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: f2a4b98404139abead411c20648b82d9081481f9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4d7388a103411b5776cd0bf385af25c0b12f44e7
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60614985"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625364"
 ---
 # <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Java 앱을 사용하여 Azure Data Lake Analytics 관리
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 이 문서에서는 Azure Java SDK를 사용하여 작성한 앱을 사용하여 Azure Data Lake Analytics 계정, 데이터 원본, 사용자 및 작업을 관리하는 방법을 설명합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 * **JDK(Java Development Kit) 8**(Java 버전 1.8 사용)
 * **IntelliJ** 또는 다른 적절한 Java 개발 환경. 이 문서의 지침에서는 IntelliJ를 사용합니다.
 * AAD(Azure Active Directory) 애플리케이션을 만들고 **클라이언트 ID**, **테넌트 ID** 및 **키**를 검색합니다. AAD 애플리케이션에 대한 자세한 내용 및 클라이언트 ID를 가져오는 방법에 대한 지침은 [포털을 사용하여 Active Directory 애플리케이션 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요. 애플리케이션을 만들고 키를 생성했다면 회신 URI 및 키를 포털에서 사용할 수 있습니다.
@@ -376,6 +376,6 @@ public static String GetJobStatus(UUID jobId) throws IOException, CloudException
 
 ## <a name="next-steps"></a>다음 단계
 
-* U-SQL에 대해 알아보려면 [Azure Data Lake Analytics U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md) 및 [U-SQL 언어 참조](https://go.microsoft.com/fwlink/?LinkId=691348)를 참조하세요.
+* U-SQL에 대해 알아보려면 [Azure Data Lake Analytics U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md) 및 [U-SQL 언어 참조](https://docs.microsoft.com/u-sql/)를 참조하세요.
 * 관리 작업을 보려면 [Azure Portal을 사용하여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.
 * 데이터 레이크 분석에 대한 개요를 보려면 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.

@@ -1,27 +1,27 @@
 ---
-title: Azure Monitor Log Analytics 시작 | Microsoft Docs
+title: Azure Monitor Log Analytics 시작 하기 | Microsoft Docs
 description: 이 문서에서는 Azure Portal에서 Log Analytics를 사용하여 쿼리를 작성하는 방법에 대한 자습서를 제공합니다.
 services: log-analytics
 author: bwren
 manager: carmonm
 ms.service: log-analytics
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 07/19/2019
 ms.author: bwren
-ms.openlocfilehash: 2e2d13e6923535a8993a6477cbbfb921f6092d66
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: cf2aee475f5d3933421de45fa5b2ade687bed62f
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565599"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348076"
 ---
 # <a name="get-started-with-log-analytics-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 시작
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-이 자습서에서는 Azure portal에서 Log Analytics를 사용 하 여 Azure Monitor 로그 쿼리를 작성 하는 방법을 배웁니다. 다음을 수행하는 방법에 대해 알아봅니다.
+이 자습서에서는 Azure Portal에서 Log Analytics를 사용 하 여 Azure Monitor 로그 쿼리를 작성 하는 방법을 알아봅니다. 다음을 수행하는 방법에 대해 알아봅니다.
 
-- Log Analytics를 사용 하 여 간단한 쿼리를 작성 하려면
+- Log Analytics를 사용 하 여 간단한 쿼리 작성
 - 데이터의 스키마 이해
 - 결과의 필터, 정렬 및 그룹화
 - 시간 범위 적용
@@ -29,22 +29,22 @@ ms.locfileid: "67565599"
 - 쿼리 저장 및 로드
 - 쿼리 내보내기 및 공유
 
-로그 쿼리 작성에 대 한 자습서를 참조 하세요 [Azure Monitor에서 로그 쿼리를 사용 하 여 시작](get-started-queries.md)합니다.<br>
-로그 쿼리 대 한 자세한 내용은 참조 하세요 [Azure Monitor에서 쿼리 로그 개요](log-query-overview.md)합니다.
+로그 쿼리 작성에 대 한 자습서는 [Azure Monitor에서 로그 쿼리 시작](get-started-queries.md)을 참조 하세요.<br>
+로그 쿼리에 대 한 자세한 내용은 Azure Monitor의 [로그 쿼리 개요](log-query-overview.md)를 참조 하세요.
 
-## <a name="meet-log-analytics"></a>Log Analytics를 충족 합니다.
-Log Analytics는 웹 도구 작성 및 Azure Monitor 로그 쿼리를 실행 하는 데 사용 합니다. Azure Monitor 메뉴에서 **로그**를 클릭하여 Log Analytics를 엽니다. 비어 있는 새 쿼리로 시작합니다.
+## <a name="meet-log-analytics"></a>Log Analytics 충족
+Log Analytics은 Azure Monitor 로그 쿼리를 작성 하 고 실행 하는 데 사용 되는 웹 도구입니다. Azure Monitor 메뉴에서 **로그**를 클릭하여 Log Analytics를 엽니다. 비어 있는 새 쿼리로 시작합니다.
 
 ![홈 페이지](media/get-started-portal/homepage.png)
 
 ## <a name="firewall-requirements"></a>방화벽 요구 사항
-Log Analytics를 사용 하려면 브라우저에 다음 주소에 대 한 액세스가 필요 합니다. 브라우저가 방화벽을 통해 Azure Portal에 액세스하는 경우 이 주소에 대한 액세스를 활성화해야 합니다.
+Log Analytics를 사용 하려면 브라우저에서 다음 주소에 액세스할 수 있어야 합니다. 브라우저가 방화벽을 통해 Azure Portal에 액세스하는 경우 이 주소에 대한 액세스를 활성화해야 합니다.
 
-| Uri | IP | 포트 |
+| URI | IP | 포트 |
 |:---|:---|:---|
-| portal.loganalytics.io | 동적 | 80,443 |
-| api.loganalytics.io | 동적 | 80,443 |
-| docs.loganalytics.io | 동적 | 80,443 |
+| portal.loganalytics.io | Dynamic | 80,443 |
+| api.loganalytics.io | Dynamic | 80,443 |
+| docs.loganalytics.io | Dynamic | 80,443 |
 
 ## <a name="basic-queries"></a>기본 쿼리
 쿼리는 용어를 검색하고, 추세를 파악하고, 패턴을 분석하며 데이터에 따라 다른 많은 정보를 제공하는 데 사용할 수 있습니다. 기본 쿼리를 시작합니다.
@@ -53,9 +53,9 @@ Log Analytics를 사용 하려면 브라우저에 다음 주소에 대 한 액�
 Event | search "error"
 ```
 
-이 쿼리를 검색 합니다 _이벤트_ 용어가 포함 된 레코드에 대 한 테이블 _오류_ 속성에서.
+이 쿼리는 속성에 _오류_ 용어를 포함 하는 레코드에 대 한 _이벤트_ 테이블을 검색 합니다.
 
-쿼리는 테이블 이름 또는 [search](/azure/kusto/query/searchoperator) 명령을 사용하여 시작할 수 있습니다. 위의 예에서는 테이블 이름으로 시작 _이벤트_, 이벤트 테이블에서 모든 레코드를 검색 하는 합니다. 파이프 (|) 문자 다음 명령의 입력으로 사용 되는 첫 번째 출력 하므로 명령을 구분 합니다. 단일 쿼리에 원하는 수의 명령을 추가할 수 있습니다.
+쿼리는 테이블 이름 또는 [search](/azure/kusto/query/searchoperator) 명령을 사용하여 시작할 수 있습니다. 위의 예는 이벤트 테이블에서 모든 레코드를 검색 하는 table name _이벤트_로 시작 합니다. 파이프 (|) 문자는 명령을 구분 하기 때문에 첫 번째 항목의 출력이 다음 명령의 입력으로 사용 됩니다. 단일 쿼리에 원하는 수의 명령을 추가할 수 있습니다.
 
 동일한 쿼리를 작성하는 또 다른 방법은 다음과 같습니다.
 
@@ -63,18 +63,18 @@ Event | search "error"
 search in (Event) "error"
 ```
 
-이 예에서 **검색** 범위를 지정 합니다 _이벤트_ 테이블 및 해당 테이블의 모든 레코드 용어를 검색 _오류_합니다.
+이 예에서는 **검색** 범위가 _이벤트_ 테이블로 지정 되 고 해당 테이블의 모든 레코드는 용어 _오류_를 검색 합니다.
 
 ## <a name="running-a-query"></a>쿼리 실행
 **실행** 단추를 클릭하거나 **Shift + Enter** 키를 눌러 쿼리를 실행합니다. 실행되는 코드와 반환되는 데이터를 결정하는 다음 세부 정보를 고려합니다.
 
-- 줄 바꿈: 단일 나누기를 읽기 쉽게 쿼리를 수 있습니다. 여러 줄 바꿈은 쿼리를 별도의 쿼리로 분할합니다.
+- 줄 바꿈: 단일 중단을 사용 하면 쿼리를 보다 쉽게 읽을 수 있습니다. 여러 줄 바꿈은 쿼리를 별도의 쿼리로 분할합니다.
 - 커서: 실행하도록 쿼리 내 어딘가에 커서를 놓습니다. 현재 쿼리는 빈 줄을 찾을 때까지 코드 업으로 간주됩니다.
 - 시간 범위 - _지난 24시간_의 시간 범위가 기본적으로 설정됩니다. 다른 범위를 사용하려면 시간 선택기를 사용하거나 명시적 시간 범위 필터를 쿼리에 추가합니다.
 
 
 ## <a name="understand-the-schema"></a>스키마 이해
-스키마는 논리 범주에서 시각적으로 그룹화된 테이블의 컬렉션입니다. 다양한 범주는 모니터링 솔루션에서 가져온 것입니다. 합니다 _LogManagement_ 범주는 Windows 및 Syslog 이벤트, 성능 데이터 및 에이전트 하트 비트와 같은 일반적인 데이터를 포함 합니다.
+스키마는 논리 범주에서 시각적으로 그룹화된 테이블의 컬렉션입니다. 다양한 범주는 모니터링 솔루션에서 가져온 것입니다. _Logmanagement_ 범주는 Windows 및 Syslog 이벤트, 성능 데이터 및 에이전트 하트 비트와 같은 공통 데이터를 포함 합니다.
 
 ![스키마](media/get-started-portal/schema.png)
 
@@ -87,7 +87,7 @@ search in (Event) "error"
 Event
 ```
 
-Log Analytics를 기준으로 결과 자동으로 범위:
+자동으로 결과 범위를 Log Analytics 다음을 수행 합니다.
 
 - 시간 범위:  기본적으로 쿼리는 지난 24시간으로 제한됩니다.
 - 결과 수: 결과는 최대 10,000개 레코드로 제한됩니다.
@@ -125,7 +125,7 @@ Log Analytics를 기준으로 결과 자동으로 범위:
 
 
 ## <a name="select-a-time-range"></a>시간 범위 선택
-기본적으로 Log Analytics를 적용 합니다 _지난 24 시간 동안_ 시간 범위입니다. 다른 범위를 사용하려면 시간 선택기를 통해 다른 값을 선택하고 **실행**을 클릭합니다. 미리 설정된 값 외에도 쿼리에 대한 절대 범위를 선택하는 _사용자 지정 시간 범위_ 옵션을 사용할 수 있습니다.
+기본적으로 Log Analytics는 _최근 24 시간_ 범위를 적용 합니다. 다른 범위를 사용하려면 시간 선택기를 통해 다른 값을 선택하고 **실행**을 클릭합니다. 미리 설정된 값 외에도 쿼리에 대한 절대 범위를 선택하는 _사용자 지정 시간 범위_ 옵션을 사용할 수 있습니다.
 
 ![시간 선택기](media/get-started-portal/time-picker.png)
 
@@ -179,6 +179,9 @@ x 및 y축과 같은 보기의 다른 속성이나 기본 설정의 그룹화 �
 
 ![함수 저장](media/get-started-portal/save-function.png)
 
+>[!NOTE]
+>저장 된 쿼리를 저장 하거나 `a–z, A–Z, 0-9, -, _, ., <space>, (, ), |` 편집할 때 **이름** 필드에 지원 되는 문자는 다음과 같습니다.
+
 Log Analytics 쿼리는 항상 선택한 작업 영역에 저장되고 해당 작업 영역의 다른 사용자와 공유됩니다.
 
 ## <a name="load-queries"></a>쿼리 로드
@@ -187,10 +190,10 @@ Log Analytics 쿼리는 항상 선택한 작업 영역에 저장되고 해당 �
 ![쿼리 탐색기](media/get-started-portal/query-explorer.png)
 
 ## <a name="export-and-share-as-link"></a>링크로 내보내기 및 공유
-Log Analytics에는 여러 내보내기 방법을 지원합니다.
+Log Analytics는 여러 가지 내보내기 방법을 지원 합니다.
 
 - Excel: 결과를 CSV 파일로 저장합니다.
-- Power BI: Power BI에 결과 내보냅니다. 자세한 내용은 [Azure Monitor 로그 데이터를 Power BI로 가져오기](../../azure-monitor/platform/powerbi.md)를 참조하세요.
+- Power BI: Power BI로 결과를 내보냅니다. 자세한 내용은 [Azure Monitor 로그 데이터를 Power BI로 가져오기](../../azure-monitor/platform/powerbi.md)를 참조하세요.
 - 링크 공유: 쿼리 자체는 링크로 공유할 수 있습니다. 따라서 동일한 작업 영역에 액세스할 수 있는 다른 사용자에 의해 전송 및 실행될 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

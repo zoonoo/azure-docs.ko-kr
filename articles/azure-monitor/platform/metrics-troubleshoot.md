@@ -109,7 +109,7 @@ Azure 메트릭 차트를는 누락 된 값 (라고도: "null 값") 알려진된
 
 1. 저장소 계정의 방화벽에 의해 보호 되지 있는지 확인 합니다.
 
-1. 사용 된 [Azure storage 탐색기](https://azure.microsoft.com/features/storage-explorer/) 메트릭은 저장소 계정으로 흐르는 지 유효성을 검사 하 합니다. 메트릭이 수집 되지 않습니다, 경우에 따라 합니다 [Azure 진단 확장 문제 해결 가이드](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal)합니다.
+1. [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 메트릭이 스토리지 계정으로 흘러 들어가고 있는지 확인합니다. 메트릭이 수집 되지 않습니다, 경우에 따라 합니다 [Azure 진단 확장 문제 해결 가이드](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

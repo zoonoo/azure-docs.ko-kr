@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 672706c97a423819dd26941e0b6e22affa9c2bb8
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: e38f8a923daa210d8aa5b56631e5f8157d4b3f70
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329849"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620877"
 ---
 # <a name="guarantee-stream-analytics-job-reliability-during-service-updates"></a>서비스 업데이트 도중 Stream Analytics 작업 안정성 보장
 
@@ -35,5 +35,5 @@ Stream Analytics 업데이트 배포는 지역 쌍 집합에서 동시에 발생
 * [Stream Analytics 소개](stream-analytics-introduction.md)
 * [Stream Analytics 시작](stream-analytics-real-time-fraud-detection.md)
 * [Stream Analytics 작업 크기 조정](stream-analytics-scale-jobs.md)
-* [Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)

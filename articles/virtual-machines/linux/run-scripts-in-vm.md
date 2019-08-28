@@ -25,7 +25,7 @@ ms.locfileid: "67477028"
 
 * Azure 가상 머신에서 스크립트를 다운로드하고 실행합니다.
 * Azure Resource Manager 템플릿, Azure CLI, REST API, PowerShell 또는 Azure Portal을 사용하여 실행할 수 있습니다.
-* 스크립트 파일은 Azure 저장소 또는 GitHub에서 다운로드하거나 Azure Portal에서 실행될 때 사용자 PC에서 제공할 수 있습니다.
+* 스크립트 파일은 Azure Storage 또는 GitHub에서 다운로드하거나 Azure Portal에서 실행될 때 사용자 PC에서 제공할 수 있습니다.
 * Windows 컴퓨터에서 PowerShell 스크립트 및 Linux 컴퓨터에서 Bash 스크립트를 실행합니다.
 * 배포 후 구성, 소프트웨어 설치 및 기타 구성 또는 관리 작업에 유용합니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "67477028"
 
 ## <a name="hybrid-runbook-worker"></a>Hybrid Runbook Worker
 
-[Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)는 일반 컴퓨터, 응용 프로그램 및 환경 관리에 Automation 계정에 저장된 사용자의 사용자 지정 스크립트를 제공합니다.
+[Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)는 일반 컴퓨터, 애플리케이션 및 환경 관리에 Automation 계정에 저장된 사용자의 사용자 지정 스크립트를 제공합니다.
 
 * Azure 및 비 Azure 컴퓨터에서 스크립트를 실행합니다.
 * Azure Portal, Azure CLI, REST API, PowerShell, webhook을 사용하여 실행할 수 있습니다.

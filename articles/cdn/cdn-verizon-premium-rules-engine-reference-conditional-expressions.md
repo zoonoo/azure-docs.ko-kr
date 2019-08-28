@@ -3,16 +3,16 @@ title: Verizon 프리미엄의 azure CDN 규칙 엔진 조건식 | Microsoft Doc
 description: Verizon 프리미엄의 Azure CDN에 대 한 참조 설명서 규칙 엔진 일치 조건 및 기능입니다.
 services: cdn
 author: mdgattuso
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: c6e49e6fbc0c541ce9a8cd903eb313d61413257c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f790e37ae876c0640d55ebfb51abb43c6a705f04
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66481536"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593215"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-conditional-expressions"></a>Verizon 프리미엄의 규칙 엔진 조건식에서 azure CDN
 

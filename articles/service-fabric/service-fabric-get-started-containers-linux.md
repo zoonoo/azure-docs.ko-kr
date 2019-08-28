@@ -14,24 +14,24 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/4/2019
 ms.author: aljo
-ms.openlocfilehash: 58af752d8b7fcec5c681e2b8975d109a0f731878
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16f117e7c5291216b5716aee40995e6f224705fa
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66302268"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359373"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Linux에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-Service Fabric 클러스터의 Linux 컨테이너에서 기존 애플리케이션을 실행하더라도 애플리케이션을 변경할 필요가 없습니다. 이 문서에서는 Python [Flask](http://flask.pocoo.org/) 웹 애플리케이션을 포함하는 Docker 이미지를 만들어 Service Fabric 클러스터에 배포하는 과정을 안내합니다. 또한 [Azure Container Registry](/azure/container-registry/)를 통해 컨테이너화된 애플리케이션을 공유할 수도 있습니다. 이 문서에서는 Docker에 대한 기본적으로 이해하고 있다고 가정합니다. [Docker 개요](https://docs.docker.com/engine/understanding-docker/)를 참고하여 Docker에 대해 알아볼 수 있습니다.
+Service Fabric 클러스터의 Linux 컨테이너에서 기존 애플리케이션을 실행하더라도 애플리케이션을 변경할 필요가 없습니다. 이 문서에서는 Python [Flask](http://flask.pocoo.org/) 웹 애플리케이션을 포함하는 Docker 이미지를 만들어 Service Fabric 클러스터에 배포하는 과정을 안내합니다. 또한 [Azure Container Registry](/azure/container-registry/)를 통해 컨테이너화된 애플리케이션을 공유할 수도 있습니다. 이 문서에서는 Docker에 대한 기본적으로 이해하고 있다고 가정합니다. Docker에 대해 알아보려면 [Docker Overview](https://docs.docker.com/engine/understanding-docker/)(Docker 개요)를 읽어보세요.
 
 > [!NOTE]
 > 이 문서는 Linux 개발 환경에 적용됩니다.  Service Fabric 클러스터 런타임 및 Docker 런타임이 동일한 OS에서 실행되어야 합니다.  Linux 컨테이너는 Windows 클러스터에서 실행할 수 없습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 * 다음을 실행하는 개발 컴퓨터
   * [Service Fabric SDK 및 도구](service-fabric-get-started-linux.md)
   * [Linux용 Docker CE](https://docs.docker.com/engine/installation/#prior-releases) 
@@ -84,17 +84,19 @@ from flask import Flask
 
 app = Flask(__name__)
 
+
 @app.route("/")
 def hello():
-    
+
     return 'Hello World!'
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
 ```
 
 ## <a name="build-the-image"></a>이미지 빌드
-`docker build` 명령을 실행하여 웹 애플리케이션을 실행하는 이미지를 만듭니다. PowerShell 창을 열고 *c:\temp\helloworldapp*으로 이동합니다. 다음 명령 실행:
+`docker build` 명령을 실행하여 웹 애플리케이션을 실행하는 이미지를 만듭니다. PowerShell 창을 열고 *c:\temp\helloworldapp*으로 이동합니다. 다음 명령을 실행합니다.
 
 ```bash
 docker build -t helloworldapp .
@@ -122,7 +124,7 @@ docker run -d -p 4000:80 --name my-web-site helloworldapp
 
 *name*은 (컨테이너 ID가 아닌) 실행 중인 컨테이너에 이름을 지정합니다.
 
-실행 중인 컨테이너에 연결합니다. 열기 IP 주소를 가리키는 웹 브라우저를 반환 포트 4000에서 예를 들어 "http:\//localhost:4000"입니다. 제목인 "Hello World!"가 브라우저에 표시됩니다.
+실행 중인 컨테이너에 연결합니다. 4000 포트에서 반환 된 IP 주소를 가리키는 웹 브라우저를 엽니다 (예: "http:\//hosts: 4000"). 제목인 "Hello World!"가 브라우저에 표시됩니다.
 
 ![Hello World!][hello-world]
 
@@ -141,7 +143,7 @@ docker rm my-web-site
 ## <a name="push-the-image-to-the-container-registry"></a>컨테이너 레지스트리에 이미지를 푸시합니다.
 Docker에서 애플리케이션이 실행되는지 확인한 후에 Azure Container Registry에서 이미지를 레지스트리에 푸시합니다.
 
-실행 `docker login` 를 사용 하 여 컨테이너 레지스트리에 로그인 하 여 [레지스트리 자격 증명](../container-registry/container-registry-authentication.md)합니다.
+을 `docker login` 실행 하 여 [레지스트리 자격 증명](../container-registry/container-registry-authentication.md)을 사용 하 여 컨테이너 레지스트리에 로그인 합니다.
 
 다음 예제는 Azure Active Directory [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md)의 ID와 암호를 전달합니다. 예를 들어 자동화 시나리오를 위해 레지스트리에 서비스 주체를 할당할 수 있습니다. 또는 레지스트리 사용자 이름과 암호를 사용 하 여 로그인 할 수 있습니다.
 
@@ -234,7 +236,7 @@ service-fabric-get-started-containers.md#configure-cluster-wide-credentials)를 
 
 v6.1을 시작하면 Service Fabric에서 자동으로 [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) 이벤트를 시스템 상태 보고서에 통합합니다. 즉 컨테이너에 **HEALTHCHECK**를 사용하도록 설정된 경우, Docker에서 보고한 대로 컨테이너의 상태가 변경될 때마다 Service Fabric에서 상태를 보고합니다. *health_status*가 *healthy*이면 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)에서 **OK** 상태 보고서가 표시되고, *health_status*가 *unhealthy*이면 **경고**가 표시됩니다. 
 
-Docker HEALTHCHECK 평가 오류로 보고 해야를 지정 하는 옵션 v6.4의 최신 새로 고침 릴리스를 시작 해야 합니다. 이 옵션을 사용 하는 경우는 **확인** 상태 보고서가 표시 되는 경우 *이면* 됩니다 *정상* 고 **오류** 때 나타납니다 *이면* 됩니다 *비정상*합니다.
+V 6.4의 최신 새로 고침 릴리스부터 docker HEALTHCHECK 평가를 오류로 보고 하도록 지정할 수 있습니다. 이 옵션을 사용 하는 경우 *health_status* 가 *정상* 상태 이면 **정상 상태 보고서** 가 표시 되 고 *health_status* 가 *비정상*상태가 되 면 **오류가** 표시 됩니다.
 
 컨테이너 상태를 모니터링하기 위해 수행되는 실제 검사를 가리키는 **HEALTHCHECK** 명령은 컨테이너 이미지를 생성하는 동안 사용되는 Dockerfile에 있어야 합니다.
 
@@ -258,11 +260,11 @@ ApplicationManifest에서 **ContainerHostPolicies**의 일부로 **HealthConfig*
     </Policies>
 </ServiceManifestImport>
 ```
-기본적으로 *IncludeDockerHealthStatusInSystemHealthReport* 로 설정 됩니다 **true**하십시오 *RestartContainerOnUnhealthyDockerHealthStatus* 로 설정 된  **false**, 및 *TreatContainerUnhealthyStatusAsError* 로 설정 되어 **false**합니다. 
+기본적으로 *IncludeDockerHealthStatusInSystemHealthReport* 는 **true**로 설정 되 고, *RestartContainerOnUnhealthyDockerHealthStatus* 는 **false**로 설정 되며, *TreatContainerUnhealthyStatusAsError* 는 false로 설정 됩니다. . 
 
 *RestartContainerOnUnhealthyDockerHealthStatus*가 **true**로 설정된 경우, 반복적으로 비정상으로 보고하는 컨테이너가 다시 시작됩니다(다른 노드에서도 가능).
 
-경우 *TreatContainerUnhealthyStatusAsError* 로 설정 되어 **true**하십시오 **오류** 상태 보고서 때 나타납니다 컨테이너의 *이면*됩니다 *비정상*합니다.
+*TreatContainerUnhealthyStatusAsError* 를 **true**로 설정 하면 컨테이너의 *health_status* *비정상*상태인 경우 **오류** 상태 보고서가 표시 됩니다.
 
 전체 Service Fabric 클러스터에 대해 **HEALTHCHECK** 통합을 사용하지 않도록 설정하려면 [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md)을 **false**로 설정해야 합니다.
 
@@ -282,9 +284,9 @@ sfctl cluster select --endpoint http://localhost:19080
 ./install.sh
 ```
 
-브라우저를 열고 http에서 Service Fabric Explorer로 이동:\//localhost:19080 / 탐색기 (Mac OS X에서 Vagrant를 사용 하는 경우 VM의 개인 IP 사용 하 여 대체 로컬 호스트). 애플리케이션 노드를 확장하면 애플리케이션 유형에 대한 항목 및 해당 유형의 첫 번째 인스턴스에 대한 다른 항목이 만들어집니다.
+브라우저를 열고 http:\//prohosts: 19080/Explorer (Mac OS X에서 Vagrant를 사용 하는 경우 localhost를 VM의 개인 IP로 바꿉니다.) Service Fabric Explorer로 이동 합니다. 애플리케이션 노드를 확장하면 애플리케이션 유형에 대한 항목 및 해당 유형의 첫 번째 인스턴스에 대한 다른 항목이 만들어집니다.
 
-실행 중인 컨테이너에 연결합니다. 열기 IP 주소를 가리키는 웹 브라우저를 반환 포트 4000에서 예를 들어 "http:\//localhost:4000"입니다. 제목인 "Hello World!"가 브라우저에 표시됩니다.
+실행 중인 컨테이너에 연결합니다. 4000 포트에서 반환 된 IP 주소를 가리키는 웹 브라우저를 엽니다 (예: "http:\//hosts: 4000"). 제목인 "Hello World!"가 브라우저에 표시됩니다.
 
 ![Hello World!][hello-world]
 
@@ -396,7 +398,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 yeoman을 사용하여 다른 컨테이너 서비스를 이미 만든 애플리케이션에 추가하려면 다음 단계를 수행합니다.
 
 1. 기존 애플리케이션의 루트로 디렉터리를 변경합니다. 예를 들어 `MyApplication`이 Yeoman에서 만든 애플리케이션인 경우 `cd ~/YeomanSamples/MyApplication`입니다.
-2. `yo azuresfcontainer:AddService` 실행
+2. `yo azuresfcontainer:AddService`를 실행합니다.
 
 <a id="manually"></a>
 

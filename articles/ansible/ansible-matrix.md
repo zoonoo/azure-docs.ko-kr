@@ -86,7 +86,7 @@ Ansible에는 Azure 리소스 프로비저닝 및 구성에 사용할 모듈 모
 | azure_rm_virtualnetwork                     | 예          | 예                         | 예          | 예          | 예          | 예          |
 | azure_rm_virtualnetwork_facts               | 예          | 예                         | 예          | 예          | 예          | 예          |
 | azure_rm_virtualnetworkpeering              | -            | -                         | -          | -            | 예          | 예          |
-| **Storage**                    |           |                          |                          |                            |           |           |
+| **스토리지**                    |           |                          |                          |                            |           |           |
 | azure_rm_manageddisk                        | 예          | 예                         | 예          | 예          | 예          | 예          |
 | azure_rm_manageddisk_facts                  | 예          | 예                         | 예          | 예          | 예          | 예          |
 | azure_rm_storageaccount                     | 예          | 예                         | 예          | 예          | 예          | 예          |

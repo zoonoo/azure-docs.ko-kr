@@ -62,7 +62,7 @@ Linux에서 SQL Server를 구성하는 경우 요구 사항에 따라 데이터�
 
 * [Virtual Machines 개요](../overview.md)
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
 * [Microsoft Azure Storage 소개](../../../storage/common/storage-introduction.md)
 

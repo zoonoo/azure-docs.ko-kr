@@ -2,7 +2,7 @@
 title: 통계 만들기 및 업데이트 - Azure SQL Data Warehouse | Microsoft Docs
 description: Azure SQL Data Warehouse의 테이블에서 쿼리 최적화 통계 생성 및 업데이트에 대한 예제와 권장 사항입니다.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: c5043d99dd130bc7dc7b35eaa5ecadf11d7644db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00643e303b3352ce9ce39e5a27fd8b42246aac51
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65851535"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479161"
 ---
 # <a name="table-statistics-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 테이블 통계
 
@@ -71,7 +71,7 @@ Table_name은 표시할 통계가 들어 있는 테이블의 이름입니다. �
 
 ## <a name="updating-statistics"></a>통계 업데이트
 
-모범 사례 중 하나는 새로운 날짜가 추가되는 날마다 날짜 열에 통계를 업데이트하는 것입니다. 새 행이 데이터 웨어하우스에 로드될 때마다 새 부하 날짜나 트랜잭션 날짜가 추가됩니다. 이렇게 하면 데이터 분포가 변경되며 통계는 최신 상태가 아닙니다. 반대로, 고객 테이블의 국가/지역 열에 대 한 통계 수 필요가 없습니다 업데이트할 수 값의 분포 일반적으로 변경 하지 않습니다. 고객 간의 배포가 상수라고 가정하는 경우, 테이블 변형에 새 행을 추가하면 데이터 배포를 변경하지 않습니다. 그러나 데이터 웨어하우스에 하나의 국가/지역 포함 하는 경우 새 국가/지역에서 데이터를가지고 국가/지역 열에서 통계를 업데이트 해야 합니다 저장 하는 경우 여러 국가/지역에서 데이터를 생성 합니다.
+모범 사례 중 하나는 새로운 날짜가 추가되는 날마다 날짜 열에 통계를 업데이트하는 것입니다. 새 행이 데이터 웨어하우스에 로드될 때마다 새 부하 날짜나 트랜잭션 날짜가 추가됩니다. 이렇게 하면 데이터 분포가 변경되며 통계는 최신 상태가 아닙니다. 반대로 값 분포가 일반적으로 변경 되지 않기 때문에 고객 테이블의 국가/지역 열에 대 한 통계는 업데이트 하지 않아도 됩니다. 고객 간의 배포가 상수라고 가정하는 경우, 테이블 변형에 새 행을 추가하면 데이터 배포를 변경하지 않습니다. 그러나 데이터 웨어하우스에 하나의 국가/지역만 포함 되어 있고 새 국가/지역에서 데이터를 가져오는 경우 여러 국가/지역에서 데이터가 저장 되는 경우 국가/지역 열에서 통계를 업데이트 해야 합니다.
 
 통계를 업데이트하는 권장 사항은 다음과 같습니다.
 
@@ -134,7 +134,7 @@ WHERE
 
 자세한 내용은 [카디널리티 예측](/sql/relational-databases/performance/cardinality-estimation-sql-server)을 참조합니다.
 
-## <a name="examples-create-statistics"></a>예제: 통계 만들기
+## <a name="examples-create-statistics"></a>예를 들면 다음과 같습니다. 통계 만들기
 
 이 예제는 통계를 만들기 위한 다양한 옵션을 사용하는 방법을 보여줍니다. 각 열에 대해 사용하는 옵션은 데이터의 특징 및 열이 쿼리에서 사용되는 방법에 따라 다릅니다.
 
@@ -148,7 +148,7 @@ WHERE
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
 ```
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1);
@@ -164,7 +164,7 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1);
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]) WITH FULLSCAN;
 ```
 
-예를 들면 다음과 같습니다.
+예:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
@@ -352,7 +352,7 @@ EXEC [dbo].[prc_sqldw_create_stats] 3, 20;
 
 모든 열에 대한 샘플링된 통계를 만들려면
 
-## <a name="examples-update-statistics"></a>예제: 통계 업데이트
+## <a name="examples-update-statistics"></a>예를 들면 다음과 같습니다. 통계 업데이트
 
 통계를 업데이트하려면 다음을 수행할 수 있습니다.
 
@@ -367,7 +367,7 @@ EXEC [dbo].[prc_sqldw_create_stats] 3, 20;
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 ```sql
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
@@ -383,13 +383,13 @@ UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 UPDATE STATISTICS [schema_name].[table_name];
 ```
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 ```sql
 UPDATE STATISTICS dbo.table1;
 ```
 
-UPDATE STATISTICS 문을 사용 하기 쉬운 경우 테이블에 대한 *모든* 통계를 업데이트하므로 필요한 것보다 더 많은 작업을 수행할 수 있습니다 성능 문제가 없는 경우, 이 방법은 가장 쉽고 완벽하게 통계가 최신이 되도록 할 수 있습니다.
+UPDATE STATISTICS 문은 사용 하기 쉽습니다. 테이블에 대한 *모든* 통계를 업데이트하므로 필요한 것보다 더 많은 작업을 수행할 수 있습니다 성능 문제가 없는 경우, 이 방법은 가장 쉽고 완벽하게 통계가 최신이 되도록 할 수 있습니다.
 
 > [!NOTE]
 > 테이블에 대한 모든 통계를 업데이트하는 경우 SQL Data Warehouse는 각 통계 개체에 대한 테이블을 검색하여 샘플링합니다. 테이블이 크고 많은 열과 통계가 있는 경우 필요에 따라 개별 통계를 업데이트하는 것이 더 효율적일 수 있습니다.
@@ -406,7 +406,7 @@ UPDATE STATISTICS 문을 사용 하기 쉬운 경우 테이블에 대한 *모든
 
 이 시스템 뷰는 통계에 대한 정보를 제공합니다.
 
-| 카탈로그 뷰 | 설명 |
+| 카탈로그 뷰 | Description |
 |:--- |:--- |
 | [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |각 열에 대한 하나의 행입니다. |
 | [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |데이터베이스의 각 개체에 대한 하나의 행입니다. |
@@ -420,7 +420,7 @@ UPDATE STATISTICS 문을 사용 하기 쉬운 경우 테이블에 대한 *모든
 
 이 시스템 함수는 통계를 작업할 때 유용합니다.
 
-| 시스템 함수 | 설명 |
+| 시스템 함수 | Description |
 |:--- |:--- |
 | [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql) |통계 개체가 마지막으로 업데이트된 날짜입니다. |
 | [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql) |통계 개체에서 인식되는 값의 분포에 대한 요약 수준 및 세부 정보 |
@@ -483,7 +483,7 @@ DBCC SHOW_STATISTICS()는 통계 개체 내에 있는 데이터를 보여줍니�
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 ```
 
-예를 들면 다음과 같습니다.
+예:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
@@ -497,7 +497,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header, histogram, density_vector
 ```
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
@@ -509,7 +509,7 @@ DBCC SHOW_STATISTICS()는 SQL Server와 비교하여 SQL Data Warehouse에서 �
 
 - 문서화되지 않은 기능은 지원되지 않습니다.
 - Stats_stream은 사용할 수 없습니다.
-- 통계 데이터의 특정 하위 집합에 대한 결과를 조인할 수 없습니다. 예를 들어, STAT_HEADER JOIN DENSITY_VECTOR 합니다.
+- 통계 데이터의 특정 하위 집합에 대한 결과를 조인할 수 없습니다. 예를 들어 STAT_HEADER JOIN DENSITY_VECTOR을 추가 합니다.
 - NO_INFOMSGS는 메시지 비표시에 대해 설정할 수 없습니다.
 - 대괄호는 통계 이름 주위에 사용할 수 없습니다.
 - 열 이름을 사용하여 통계 개체를 식별할 수 없습니다.

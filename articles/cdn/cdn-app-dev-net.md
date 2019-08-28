@@ -7,19 +7,19 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: 63cf4101-92e7-49dd-a155-a90e54a792ca
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 838c76e6a383b61ff465f3ed7506af34c8cd01d4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7e3ad3a5928b36c221bb83b1c4012c3c9e14f35d
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60579973"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594170"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Azure CDN 개발 시작
 > [!div class="op_single_selector"]
@@ -155,7 +155,7 @@ Visual Studio 2015를 열고 **파일**, **새로 만들기**, **프로젝트...
 
 이제 프로그램의 기본 구조가 작성되었으므로 `Main` 메서드가 호출할 메서드를 만들어야 합니다.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>인증
 Azure CDN 관리 라이브러리를 사용하기 전에 서비스 주체를 인증하고 인증 토큰을 가져와야 합니다.  이 메서드는 ADAL을 사용하여 토큰을 검색합니다.
 
 ```csharp
@@ -329,7 +329,7 @@ private static void PromptDeleteCdnProfile(CdnManagementClient cdn)
 
 프로그램이 위 프롬프트까지 도달하면 Azure 포털의 리소스 그룹에 돌아가서 프로필이 만들어진 것을 확인할 수 있어야 합니다.
 
-![성공!](./media/cdn-app-dev-net/cdn-success.png)
+![성공](./media/cdn-app-dev-net/cdn-success.png)
 
 나머지 프로그램을 실행시키는 프롬프트를 확인합니다.
 

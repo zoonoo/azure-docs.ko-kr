@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 01247dfc0046ef722d70fe48f7ab8ee63f685962
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0236491f9ebc8e3ecf7df8b74db4fd5ff441c7f8
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153564"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677447"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>Windows에서 시뮬레이션된 TPM 에지 디바이스 만들기 및 프로비전
 
@@ -27,7 +27,7 @@ Edge를 사용하지 않는 디바이스와 마찬가지로 [Device Provisioning
 * 디바이스에 대한 개별 등록을 만듭니다.
 * IoT Edge 런타임을 설치하고 IoT Hub에 디바이스를 연결합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Windows 개발 컴퓨터. 이 문서에서는 Windows 10을 사용합니다.
 * 활성 IoT Hub
@@ -46,14 +46,14 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 
 시뮬레이션된 디바이스를 만드는 데 사용할 SDK 언어를 선택하고 개별 등록을 만들 때까지 단계를 진행합니다.
 
-개별 등록을 만들 때 **사용**을 선택하여 Windows 개발 머신에서 시뮬레이션된 TPM 다바이스를 **IoT Edge 디바이스**로 선언합니다.
+개별 등록을 만들 때 **True** 를 선택 하 여 Windows 개발 컴퓨터의 시뮬레이트된 TPM 장치가 **IoT Edge 장치**임을 선언 합니다.
 
 시뮬레이션된 디바이스 및 개별 등록 가이드:
 
 * [C](../iot-dps/quick-create-simulated-device.md)
 * [Java](../iot-dps/quick-create-simulated-device-tpm-java.md)
 * [C#](../iot-dps/quick-create-simulated-device-tpm-csharp.md)
-* [Node.JS](../iot-dps/quick-create-simulated-device-tpm-node.md)
+* [Node.js](../iot-dps/quick-create-simulated-device-tpm-node.md)
 * [Python](../iot-dps/quick-create-simulated-device-tpm-python.md)
 
 개별 등록을 만든 후 **등록 ID** 값을 저장합니다. IoT Edge 런타임을 구성하는 경우 이 값을 사용합니다.

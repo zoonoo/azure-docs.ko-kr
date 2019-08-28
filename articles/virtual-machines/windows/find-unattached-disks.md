@@ -1,27 +1,18 @@
 ---
 title: 연결되지 않은 Azure 관리/비관리 디스크를 찾아서 삭제 | Microsoft Docs
 description: Azure PowerShell을 사용하여 연결되지 않은 Azure 관리/비관리(VHD/페이지 Blob) 디스크를 찾아서 삭제하는 방법입니다.
-services: virtual-machines-windows
-documentationcenter: ''
 author: roygara
-manager: twooley
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: f4cd419e06ba44b16d24f36e937002dce5196622
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0de0e68bb8419894386641c827bdbc40ed142d3f
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64726049"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698699"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>연결되지 않은 Azure 관리/비관리 디스크 찾기 및 삭제
 
@@ -96,4 +87,4 @@ foreach($storageAccount in $storageAccounts){
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 [저장소 계정 삭제](../../storage/common/storage-create-storage-account.md) 및 [PowerShell을 사용하여 분리된 디스크 확인](https://blogs.technet.microsoft.com/ukplatforms/2018/02/21/azure-cost-optimisation-series-identify-orphaned-disks-using-powershell/)을 참조하세요.
+자세한 내용은 [스토리지 계정 삭제](../../storage/common/storage-create-storage-account.md) 및 [PowerShell을 사용하여 분리된 디스크 확인](https://blogs.technet.microsoft.com/ukplatforms/2018/02/21/azure-cost-optimisation-series-identify-orphaned-disks-using-powershell/)을 참조하세요.

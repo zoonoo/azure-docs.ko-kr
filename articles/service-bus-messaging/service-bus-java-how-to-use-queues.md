@@ -1,5 +1,5 @@
 ---
-title: Java와 함께 Azure Service Bus 큐를 사용하는 방법 | Microsoft Docs
+title: Java를 사용 하 여 Azure Service Bus 큐 사용
 description: Azure에서 Service Bus 큐를 사용하는 방법에 대해 알아봅니다. 코드 샘플은 Java로 작성되었습니다.
 services: service-bus-messaging
 documentationcenter: java
@@ -14,34 +14,35 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: cd1db615b11259bcf1d8aff988d2817e08065ca2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-java-july2019
+ms.openlocfilehash: 4075ceae6c40a6be8ee2b9f6580a57fafb96e17e
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991744"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663432"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>Java에서 Service Bus 큐를 사용하는 방법
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-이 자습서에서는 메시지를 보내고 Service Bus 큐에서 메시지를 수신 하는 Java 응용 프로그램을 만드는 방법을 알아봅니다. 
+이 자습서에서는 Service Bus 큐에 메시지를 보내고 메시지를 수신 하는 Java 응용 프로그램을 만드는 방법에 대해 알아봅니다. 
 
 > [!NOTE]
 > Java 샘플은 GitHub의 [azure-service-bus 리포지토리](https://github.com/Azure/azure-service-bus/tree/master/samples/Java)에 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
-1. Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. 활성화할 수 있습니다 하 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) 에 등록 또는 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)합니다.
-2. 다음 단계를 사용 하려면 큐가 없는 경우는 [Service Bus 큐를 사용 하 여 Azure portal](service-bus-quickstart-portal.md) 큐를 만드는 문서입니다.
-    1. 빠른 읽을 **개요** Service bus **큐**합니다. 
-    2. Service Bus를 만듭니다 **네임 스페이스**합니다. 
-    3. 가져오기의 **연결 문자열**합니다.
-    4. Service Bus를 만듭니다 **큐**합니다.
-3. 설치할 [Java 용 Azure SDK][Azure SDK for Java]합니다. 
+## <a name="prerequisites"></a>전제 조건
+1. Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) 을 활성화 하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 등록할 수 있습니다.
+2. 사용할 큐가 없는 경우 [Azure Portal를 사용 하 여 Service Bus 큐 만들기](service-bus-quickstart-portal.md) 문서의 단계에 따라 큐를 만듭니다.
+    1. Service Bus **큐**에 대 한 간략 한 **개요** 를 참조 하세요. 
+    2. Service Bus **네임 스페이스**를 만듭니다. 
+    3. **연결 문자열**을 가져옵니다.
+    4. Service Bus **큐**를 만듭니다.
+3. [Java 용 AZURE SDK를][Azure SDK for Java]설치 합니다. 
 
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Service Bus를 사용하도록 애플리케이션 구성
-이 샘플을 빌드하기 전에 [Java용 Azure SDK][Azure SDK for Java]를 설치했는지 확인하세요. Eclipse를 사용하는 경우 Azure SDK for Java를 포함하고 있는 [Eclipse용 Azure Toolkit][Azure Toolkit for Eclipse]를 설치할 수 있습니다. 그런 다음 **Java용 Microsoft Azure 라이브러리**를 프로젝트에 추가할 수 있습니다.
+이 샘플을 빌드하기 전에 [Java용 Azure SDK][Azure SDK for Java]를 설치했는지 확인하세요. Eclipse를 사용하는 경우 Azure SDK for Java를 포함하고 있는 [Eclipse용 Azure 도구 키트][Azure Toolkit for Eclipse]를 설치할 수 있습니다. 그런 다음 **Java용 Microsoft Azure 라이브러리**를 프로젝트에 추가할 수 있습니다.
 
-![](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
+![라이브러리를 추가할 수 있는 라이브러리 탭의 스크린샷](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
 Java 파일 맨 위에 다음 `import` 문을 추가합니다.
 
@@ -63,7 +64,7 @@ import org.apache.commons.cli.*;
 ```
 
 ## <a name="send-messages-to-a-queue"></a>큐에 메시지 보내기
-Service Bus 큐에 메시지를 보내기 위해 응용 프로그램은 **QueueClient** 개체를 인스턴스화하고 메시지를 비동기식으로 전송합니다. 다음 코드는 포털을 통해 만든 큐에 메시지를 보내는 방법을 보여 줍니다.
+Service Bus 큐에 메시지를 보내기 위해 애플리케이션은 **QueueClient** 개체를 인스턴스화하고 메시지를 비동기식으로 전송합니다. 다음 코드는 포털을 통해 만든 큐에 메시지를 보내는 방법을 보여 줍니다.
 
 ```java
 public void run() throws Exception {
@@ -111,7 +112,7 @@ public void run() throws Exception {
 
 ```
 
-Service Bus 큐로 보내고 받은 메시지는 [Message](/java/api/com.microsoft.azure.servicebus.message?view=azure-java-stable) 클래스 인스턴스입니다. Message 개체에는 표준 속성 집합(예: Label 및 TimeToLive), 애플리케이션별 사용자 지정 속성을 저장하는 데 사용되는 사전 및 임의 애플리케이션 데이터 본문이 있습니다. 응용 프로그램은 Message의 생성자에 직렬화 가능 개체를 전달하여 메시지 본문을 설정할 수 있으며, 그러면 적절한 직렬 변환기가 개체를 직렬화하는 데 사용됩니다. 또는 **java.IO.InputStream** 개체를 제공할 수 있습니다.
+Service Bus 큐로 보내고 받은 메시지는 [Message](/java/api/com.microsoft.azure.servicebus.message?view=azure-java-stable) 클래스 인스턴스입니다. Message 개체에는 표준 속성 집합(예: Label 및 TimeToLive), 애플리케이션별 사용자 지정 속성을 저장하는 데 사용되는 사전 및 임의 애플리케이션 데이터 본문이 있습니다. 애플리케이션은 Message의 생성자에 직렬화 가능 개체를 전달하여 메시지 본문을 설정할 수 있으며, 그러면 적절한 직렬 변환기가 개체를 직렬화하는 데 사용됩니다. 또는 **java.IO.InputStream** 개체를 제공할 수 있습니다.
 
 
 Service Bus 큐는 [표준 계층](service-bus-premium-messaging.md)에서 256KB의 최대 메시지 크기를 [프리미엄 계층](service-bus-premium-messaging.md)에서 1MB를 지원합니다. 표준 및 사용자 지정 애플리케이션 속성이 포함된 헤더의 최대 크기는 64KB입니다. 한 큐에 저장되는 메시지 수에는 제한이 없지만 한 큐에 저장되는 총 메시지 크기는 제한됩니다. 이 큐 크기는 생성 시 정의되며 상한이 5GB입니다.

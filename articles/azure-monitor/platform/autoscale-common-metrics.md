@@ -9,10 +9,10 @@ ms.date: 12/6/2016
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 9da8e5fb88ff34e561b579b760973ecd23c884a3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "66129742"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor 자동 크기 조정 공용 메트릭
@@ -23,7 +23,7 @@ Azure Monitor 자동 크기 조정을 사용하여 원격 분석 데이터(메�
 
 Azure Monitor 자동 크기 조정은 [가상 컴퓨터 확장 집합](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) 및 [API Management 서비스](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)에만 적용됩니다. 다른 Azure 서비스에는 다른 크기 조정 방법이 사용됩니다.
 
-## <a name="compute-metrics-for-resource-manager-based-vms"></a>Resource Manager 기반 VM용 메트릭 계산
+## <a name="compute-metrics-for-resource-manager-based-vms"></a>Resource Manager 기반 VM용 메트릭 컴퓨팅
 기본적으로 Resource Manager 기반 Virtual Machines 및 Virtual Machine Scale Sets는 기본(호스트 수준) 메트릭을 내보냅니다. 또한 Azure VM 및 VMSS용 진단 데이터 수집을 구성하면 Azure 진단 확장은 게스트 OS 성능 카운터(일반적으로 "게스트 OS 메트릭"이라고 함)도 내보냅니다.  자동 크기 조정 규칙에서 이러한 모든 메트릭을 사용합니다.
 
 `Get MetricDefinitions` API/PoSH/CLI를 사용하여 VMSS 리소스에 사용할 수 있는 메트릭을 볼 수 있습니다.
@@ -53,33 +53,33 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 
 | 메트릭 이름 | 단위 |
 | --- | --- |
-| \Processor(_Total)\% 프로세서 시간 |백분율 |
-| \Processor(_Total)\% 시스템 시간 |백분율 |
-| \Processor(_Total)\% 사용자 시간 |백분율 |
-| \Processor Information(_Total)\Processor Frequency |카운트 |
-| \System\Processes |카운트 |
-| \Process(_Total)\Thread Count |카운트 |
-| \Process(_Total)\Handle Count |카운트 |
-| \Memory\% 사용 중인 커밋된 바이트 |백분율 |
+| \Processor(_Total)\% 프로세서 시간 |Percent |
+| \Processor(_Total)\% 시스템 시간 |Percent |
+| \Processor(_Total)\% 사용자 시간 |Percent |
+| \Processor Information(_Total)\Processor Frequency |개수 |
+| \System\Processes |개수 |
+| \Process(_Total)\Thread Count |개수 |
+| \Process(_Total)\Handle Count |개수 |
+| \Memory\% 사용 중인 커밋된 바이트 |Percent |
 | \Memory\Available Bytes |바이트 |
 | \Memory\Committed Bytes |바이트 |
 | \Memory\Commit Limit |바이트 |
 | \Memory\Pool Paged Bytes |바이트 |
 | \Memory\Pool Nonpaged Bytes |바이트 |
-| \PhysicalDisk(_Total)\% 디스크 시간 |백분율 |
-| \PhysicalDisk(_Total)\% 디스크 읽기 시간 |백분율 |
-| \PhysicalDisk(_Total)\% 디스크 쓰기 시간 |백분율 |
-| \PhysicalDisk(_Total)\디스크 전송/초 |초당 개수 |
-| \PhysicalDisk(_Total)\Disk Reads/sec |초당 개수 |
+| \PhysicalDisk(_Total)\% 디스크 시간 |Percent |
+| \PhysicalDisk(_Total)\% 디스크 읽기 시간 |Percent |
+| \PhysicalDisk(_Total)\% 디스크 쓰기 시간 |Percent |
+| \PhysicalDisk(_Total)\디스크 전송/초 |CountPerSecond |
+| \PhysicalDisk(_Total)\Disk Reads/sec |CountPerSecond |
 | \PhysicalDisk(_Total)\Disk Writes/sec |초당 개수 |
-| \PhysicalDisk(_Total)\Disk Bytes/sec |초당 바이트 수 |
-| \PhysicalDisk(_Total)\Disk Read Bytes/sec |초당 바이트 수 |
-| \PhysicalDisk(_Total)\Disk Write Bytes/sec |초당 바이트 수 |
-| \PhysicalDisk(_Total)\Avg. 디스크 큐 길이 |카운트 |
-| \PhysicalDisk(_Total)\Avg. 디스크 읽기 큐 길이 |카운트 |
-| \PhysicalDisk(_Total)\Avg. 디스크 쓰기 큐 길이 |카운트 |
-| \LogicalDisk(_Total)\% 사용 가능한 공간 |백분율 |
-| \LogicalDisk(_Total)\Free Megabytes |카운트 |
+| \PhysicalDisk(_Total)\Disk Bytes/sec |BytesPerSecond |
+| \PhysicalDisk(_Total)\Disk Read Bytes/sec |BytesPerSecond |
+| \PhysicalDisk(_Total)\Disk Write Bytes/sec |BytesPerSecond |
+| \PhysicalDisk(_Total)\Avg. 디스크 큐 길이 |개수 |
+| \PhysicalDisk(_Total)\Avg. 디스크 읽기 큐 길이 |개수 |
+| \PhysicalDisk(_Total)\Avg. 디스크 쓰기 큐 길이 |개수 |
+| \LogicalDisk(_Total)\% 사용 가능한 공간 |Percent |
+| \LogicalDisk(_Total)\Free Megabytes |개수 |
 
 ### <a name="guest-os-metrics-linux-vms"></a>게스트 OS 메트릭 Linux VM
 Azure에서 VM을 만들 때 진단 확장을 사용하여 기본적으로 진단을 사용하도록 설정합니다.
@@ -95,43 +95,43 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | 메트릭 이름 | 단위 |
 | --- | --- |
 | \Memory\AvailableMemory |바이트 |
-| \Memory\PercentAvailableMemory |백분율 |
+| \Memory\PercentAvailableMemory |Percent |
 | \Memory\UsedMemory |바이트 |
-| \Memory\PercentUsedMemory |백분율 |
-| \Memory\PercentUsedByCache |백분율 |
-| \Memory\PagesPerSec |초당 개수 |
-| \Memory\PagesReadPerSec |초당 개수 |
-| \Memory\PagesWrittenPerSec |초당 개수 |
+| \Memory\PercentUsedMemory |Percent |
+| \Memory\PercentUsedByCache |Percent |
+| \Memory\PagesPerSec |CountPerSecond |
+| \Memory\PagesReadPerSec |CountPerSecond |
+| \Memory\PagesWrittenPerSec |CountPerSecond |
 | \Memory\AvailableSwap |바이트 |
-| \Memory\PercentAvailableSwap |백분율 |
+| \Memory\PercentAvailableSwap |Percent |
 | \Memory\UsedSwap |바이트 |
-| \Memory\PercentUsedSwap |백분율 |
-| \Processor\PercentIdleTime |백분율 |
-| \Processor\PercentUserTime |백분율 |
-| \Processor\PercentNiceTime |백분율 |
-| \Processor\PercentPrivilegedTime |백분율 |
-| \Processor\PercentInterruptTime |백분율 |
-| \Processor\PercentDPCTime |백분율 |
-| \Processor\PercentProcessorTime |백분율 |
-| \Processor\PercentIOWaitTime |백분율 |
-| \PhysicalDisk\BytesPerSecond |초당 바이트 수 |
-| \PhysicalDisk\ReadBytesPerSecond |초당 바이트 수 |
-| \PhysicalDisk\WriteBytesPerSecond |초당 바이트 수 |
-| \PhysicalDisk\TransfersPerSecond |초당 개수 |
-| \PhysicalDisk\ReadsPerSecond |초당 개수 |
-| \PhysicalDisk\WritesPerSecond |초당 개수 |
+| \Memory\PercentUsedSwap |Percent |
+| \Processor\PercentIdleTime |Percent |
+| \Processor\PercentUserTime |Percent |
+| \Processor\PercentNiceTime |Percent |
+| \Processor\PercentPrivilegedTime |Percent |
+| \Processor\PercentInterruptTime |Percent |
+| \Processor\PercentDPCTime |Percent |
+| \Processor\PercentProcessorTime |Percent |
+| \Processor\PercentIOWaitTime |Percent |
+| \PhysicalDisk\BytesPerSecond |BytesPerSecond |
+| \PhysicalDisk\ReadBytesPerSecond |BytesPerSecond |
+| \PhysicalDisk\WriteBytesPerSecond |BytesPerSecond |
+| \PhysicalDisk\TransfersPerSecond |CountPerSecond |
+| \PhysicalDisk\ReadsPerSecond |CountPerSecond |
+| \PhysicalDisk\WritesPerSecond |CountPerSecond |
 | \PhysicalDisk\AverageReadTime |초 |
 | \PhysicalDisk\AverageWriteTime |초 |
 | \PhysicalDisk\AverageTransferTime |초 |
-| \PhysicalDisk\AverageDiskQueueLength |카운트 |
+| \PhysicalDisk\AverageDiskQueueLength |개수 |
 | \NetworkInterface\BytesTransmitted |바이트 |
 | \NetworkInterface\BytesReceived |바이트 |
-| \NetworkInterface\PacketsTransmitted |카운트 |
-| \NetworkInterface\PacketsReceived |카운트 |
+| \NetworkInterface\PacketsTransmitted |개수 |
+| \NetworkInterface\PacketsReceived |개수 |
 | \NetworkInterface\BytesTotal |바이트 |
-| \NetworkInterface\TotalRxErrors |카운트 |
-| \NetworkInterface\TotalTxErrors |카운트 |
-| \NetworkInterface\TotalCollisions |카운트 |
+| \NetworkInterface\TotalRxErrors |개수 |
+| \NetworkInterface\TotalTxErrors |개수 |
+| \NetworkInterface\TotalCollisions |개수 |
 
 ## <a name="commonly-used-web-server-farm-metrics"></a>일반적으로 사용되는 웹(서버 팜) 메트릭
 Http 큐 길이와 같이 공용 웹 서버 메트릭을 기반으로 자동 크기 조정을 수행할 수도 있습니다. 메트릭 이름은 **HttpQueueLength**입니다.  다음 섹션에는 사용 가능한 서버 팜(Web Apps) 메트릭이 나열되어 있습니다.
@@ -147,17 +147,17 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 
 | 메트릭 이름 | 단위 |
 | --- | --- |
-| CpuPercentage |백분율 |
-| MemoryPercentage |백분율 |
-| DiskQueueLength |카운트 |
-| HttpQueueLength |카운트 |
+| CpuPercentage |Percent |
+| MemoryPercentage |Percent |
+| DiskQueueLength |개수 |
+| HttpQueueLength |개수 |
 | BytesReceived |바이트 |
 | BytesSent |바이트 |
 
 ## <a name="commonly-used-storage-metrics"></a>일반적으로 사용되는 Storage 메트릭
-저장소 큐의 메시지 수인 저장소 큐 길이의 크기를 조정할 수 있습니다. 저장소 큐 길이는 특수한 메트릭이고 임계값은 인스턴스당 메시지 수입니다. 예를 들어 인스턴스가 두 개이고 임계값이 100으로 설정된 경우 큐에서 총 메시지 수가 200일 때 크기가 조정됨을 의미합니다. 인스턴스당 메시지는 100개, 120개 및 80개, 또는 최대 200개 이상을 추가하는 임의의 기타 조합이 될 수 있습니다.
+스토리지 큐의 메시지 수인 스토리지 큐 길이의 크기를 조정할 수 있습니다. 스토리지 큐 길이는 특수한 메트릭이고 임계값은 인스턴스당 메시지 수입니다. 예를 들어 인스턴스가 두 개이고 임계값이 100으로 설정된 경우 큐에서 총 메시지 수가 200일 때 크기가 조정됨을 의미합니다. 인스턴스당 메시지는 100개, 120개 및 80개, 또는 최대 200개 이상을 추가하는 임의의 기타 조합이 될 수 있습니다.
 
-Azure Portal의 **설정** 블레이드에서 이 설정을 구성합니다. VM Scale Sets의 경우 *metricName*을 *ApproximateMessageCount*로 사용하고 저장소 큐 ID를 *metricResourceUri*로 전달하도록 Resource Manager 템플릿에서 자동 크기 조정 설정을 업데이트할 수 있습니다.
+Azure Portal의 **설정** 블레이드에서 이 설정을 구성합니다. VM Scale Sets의 경우 *metricName*을 *ApproximateMessageCount*로 사용하고 스토리지 큐 ID를 *metricResourceUri*로 전달하도록 Resource Manager 템플릿에서 자동 크기 조정 설정을 업데이트할 수 있습니다.
 
 예를 들어 클래식 Storage 계정을 사용하면 자동 크기 조정 설정 metricTrigger는 다음을 포함합니다.
 
@@ -167,7 +167,7 @@ Azure Portal의 **설정** 블레이드에서 이 설정을 구성합니다. VM 
  "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ClassicStorage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
  ```
 
-(클래식이 아닌) 저장소 계정의 경우 metricTrigger는 다음을 포함합니다.
+(클래식이 아닌) 스토리지 계정의 경우 metricTrigger는 다음을 포함합니다.
 
 ```
 "metricName": "ApproximateMessageCount",
@@ -178,7 +178,7 @@ Azure Portal의 **설정** 블레이드에서 이 설정을 구성합니다. VM 
 ## <a name="commonly-used-service-bus-metrics"></a>자주 사용되는 Service Bus 메트릭
 Service Bus 큐의 메시지 수인 Service Bus 큐 길이의 크기를 조정할 수 있습니다. Service Bus 큐 길이는 특수한 메트릭이고 임계값은 인스턴스당 메시지 수입니다. 예를 들어 인스턴스가 두 개이고 임계값이 100으로 설정된 경우 큐에서 총 메시지 수가 200일 때 크기가 조정됨을 의미합니다. 인스턴스당 메시지는 100개, 120개 및 80개, 또는 최대 200개 이상을 추가하는 임의의 기타 조합이 될 수 있습니다.
 
-VM Scale Sets의 경우 *metricName*을 *ApproximateMessageCount*로 사용하고 저장소 큐 ID를 *metricResourceUri*로 전달하도록 Resource Manager 템플릿에서 자동 크기 조정 설정을 업데이트할 수 있습니다.
+VM Scale Sets의 경우 *metricName*을 *ApproximateMessageCount*로 사용하고 스토리지 큐 ID를 *metricResourceUri*로 전달하도록 Resource Manager 템플릿에서 자동 크기 조정 설정을 업데이트할 수 있습니다.
 
 ```
 "metricName": "MessageCount",

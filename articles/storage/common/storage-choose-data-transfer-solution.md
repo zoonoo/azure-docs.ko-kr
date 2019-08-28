@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 56470c08f0ac940dae42821ae61846f1c86d52eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 838d65da90ec0daef69375e5a75bcb497a0c3512
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479521"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900396"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>데이터 전송을 위한 Azure 솔루션 선택
 
@@ -65,9 +65,9 @@ ms.locfileid: "66479521"
     예인 경우 [시나리오 4: 정기적 데이터 전송](storage-solution-periodic-data-transfer.md)에 요약된 스크립팅/프로그래밍 방식 옵션을 사용합니다.
  
 
-## <a name="data-transfer-feature-in-azure-portal"></a>Azure portal의 데이터 전송 기능
+## <a name="data-transfer-feature-in-azure-portal"></a>Azure Portal의 데이터 전송 기능
 
-Azure portal 선택에서 Azure Storage 계정으로 이동할 수도 있습니다는 **데이터 전송** 기능입니다. 사용자 환경에서 네트워크 대역폭, 크기, 전송할 데이터 및 데이터 전송의 빈도 제공 합니다. 사용자가 제공한 정보에 해당 하는 솔루션을 전송 하는 최적의 데이터 표시 됩니다. 
+Azure Portal에서 Azure Storage 계정으로 이동 하 여 **데이터 전송** 기능을 선택할 수도 있습니다. 환경에서 네트워크 대역폭, 전송할 데이터의 크기 및 데이터 전송 빈도를 제공 합니다. 제공 된 정보에 해당 하는 최적의 데이터 전송 솔루션이 표시 됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -83,4 +83,4 @@ Azure portal 선택에서 Azure Storage 계정으로 이동할 수도 있습니�
 - REST API를 사용하여 데이터 전송
 
     - [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-    - [Java](https://docs.microsoft.com/java/api/overview/azure/storage/client)
+    - [Java](https://docs.microsoft.com/java/api/overview/azure/storage)

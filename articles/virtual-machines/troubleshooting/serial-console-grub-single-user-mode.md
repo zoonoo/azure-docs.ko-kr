@@ -4,7 +4,7 @@ description: Azure 가상 머신에서 Grub에 직렬 콘솔 사용
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/08/2019
+ms.date: 08/06/2019
 ms.author: alsin
-ms.openlocfilehash: 440d917c2ee4a51f2c8ba4b134b50508bdaf4bcb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 656bc8329d6273695e4da24a7e7d13c9df6a1080
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735258"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846598"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>직렬 콘솔을 사용하여 GRUB 및 단일 사용자 모드 액세스
 GRUB는 VM을 부팅할 때 가장 먼저 나타날 수 있는 GRand Unified Bootloader입니다. 운영 체제가 시작되기 전에 표시되므로 SSH를 통해 액세스할 수 없습니다. GRUB에서는 단일 사용자 모드로 부팅되도록 부팅 구성을 수정하는 등의 작업을 수행할 수 있습니다.
@@ -132,7 +132,8 @@ GRUB에 액세스하려면 VM이 부팅되는 동안 'Esc' 키를 길게 누릅�
 1. `GRUB_TIMEOUT` 값을 0이 아닌 값으로 변경합니다.
 1. 원하는 텍스트 편집기에서 `/etc/default/grub`를 엽니다.
 1. `GRUB_HIDDEN_TIMEOUT=1` 줄을 주석으로 처리합니다.
-1. `sudo update-grub` 실행
+1. 메시지가 표시 되는 줄이 있는지 확인 합니다.`GRUB_TIMEOUT_STYLE=menu`
+1. `sudo update-grub`를 실행합니다.
 
 ### <a name="single-user-mode-in-ubuntu"></a>Ubuntu의 단일 사용자 모드
 Ubuntu는 정상적으로 부팅할 수 없는 경우 단일 사용자 모드로 자동으로 전환됩니다. 단일 사용자 모드로 수동으로 전환하려면 다음 지침을 따르세요.
@@ -184,7 +185,7 @@ SLES에서 GRUB 액세스에는 YaST를 통한 부팅 로더 구성이 필요합
 SLES가 정상적으로 부팅할 수 없는 경우 비상 셸로 자동으로 전환됩니다. 비상 셸로 수동으로 전환하려면 다음 지침을 따르세요.
 
 1. GRUB에서 'e'를 눌러서 부팅 항목(SLES 항목)을 편집합니다.
-1. 커널 줄을 찾은-시작 `linux`
+1. 커널 줄을 찾습니다. 다음으로 시작 합니다.`linux`
 1. 줄의 끝에 `systemd.unit=emergency.target`을 추가합니다.
 1. Ctrl + X를 눌러서 이 설정으로 다시 부팅하고 비상 셸로 전환합니다.
    > _읽기 전용_ 파일 시스템으로 비상 셸로 전환됩니다. 편집하려는 파일이 있는 경우에는 읽기-쓰기 권한으로 파일 시스템을 다시 탑재해야 합니다. 이렇게 하려면 셸에 `mount -o remount,rw /`를 입력합니다.
@@ -193,7 +194,7 @@ SLES가 정상적으로 부팅할 수 없는 경우 비상 셸로 자동으로 �
 Red Hat Enterprise Linux와 마찬가지로 Oracle Linux에서 단일 사용자 모드를 사용하려면 GRUB과 루트 사용자가 활성화되어 있어야 합니다.
 
 ### <a name="grub-access-in-oracle-linux"></a>Oracle Linux에서 GRUB 액세스
-Oracle Linux에는 기본적으로 GRUB이 활성화되어 있습니다. GRUB으로 전환하려면 `sudo reboot`을 사용하여 VM을 다시 부팅하고 'Esc' 키를 누릅니다. GRUB 화면이 나타납니다.
+Oracle Linux에는 기본적으로 GRUB이 활성화되어 있습니다. GRUB으로 전환하려면 `sudo reboot`을 사용하여 VM을 다시 부팅하고 'Esc' 키를 누릅니다. GRUB 화면이 나타납니다. GRUB가 표시 되지 않으면 `GRUB_TERMINAL` 줄의 값에 "직렬 콘솔" (예: `GRUB_TERMINAL="serial console"`)이 포함 되어 있는지 확인 합니다.
 
 ### <a name="single-user-mode-in-oracle-linux"></a>Oracle Linux의 단일 사용자 모드
 위의 RHEL에 대한 지침에 따라 Oracle Linux에서 단일 사용자 모드를 사용하도록 설정합니다.

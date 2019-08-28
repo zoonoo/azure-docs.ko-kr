@@ -5,22 +5,22 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 04/29/2019
-ms.openlocfilehash: b422718a1eaec483acdc2c8ab37442b9aea78aaa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/21/2019
+ms.openlocfilehash: 74f27f70c4a0752975a53b3889681d3910b1dd05
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510814"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906432"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL에서 읽기 복제본을 만들고 관리하는 방법
 
-이 문서를 만들고 Azure portal을 사용 하 여 MySQL 용 Azure 데이터베이스에 읽기 복제본을 관리 하는 방법을 배웁니다.
+이 문서에서는 Azure Portal를 사용 하 여 Azure Database for MySQL 서비스에서 읽기 복제본을 만들고 관리 하는 방법에 대해 설명 합니다.
 
 > [!IMPORTANT]
-> 마스터 서버와 동일한 지역 또는 선택한 다른 Azure 지역에 읽기 복제본을 만들 수 있습니다. 지역 간 복제는 현재 공개 미리 보기로 제공 됩니다.
+> 마스터 서버와 동일한 지역 또는 선택한 다른 Azure 지역에서 읽기 복제본을 만들 수 있습니다. 지역 간 복제는 현재 공개 미리 보기로 제공 됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 마스터 서버로 사용할 [Azure Database for MySQL 서버](quickstart-create-mysql-server-database-using-azure-portal.md)
 
@@ -31,7 +31,7 @@ ms.locfileid: "65510814"
 
 다음 단계에 따라 읽기 복제본 서버를 만들 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com/)할 수 있습니다.
 
 2. 마스터로 사용할 기존 Azure Database for MySQL 서버를 선택합니다. 이 작업은 **개요** 페이지를 엽니다.
 
@@ -45,11 +45,14 @@ ms.locfileid: "65510814"
 
     ![Azure Database for MySQL-복제본 이름](./media/howto-read-replica-portal/replica-name.png)
 
-6. 복제본 서버의 위치를 선택 합니다. 모든 Azure 지역에서 복제본을 만들 수 있습니다. 기본 위치는 마스터 서버와 동일
+6. 복제 서버의 위치를 선택 합니다. 기본 위치는 마스터 서버와 동일합니다.
 
     ![Azure Database for MySQL-복제본 위치](./media/howto-read-replica-portal/replica-location.png)
 
-7. 선택 **확인** 복제본 만들기를 확인 합니다.
+   > [!NOTE]
+   > 에서 복제본을 만들 수 있는 지역에 대 한 자세한 내용은 [복제본 개념 읽기 문서](concepts-read-replicas.md)를 참조 하세요. 
+
+7. **확인** 을 선택 하 여 복제본 만들기를 확인 합니다.
 
 > [!NOTE]
 > 읽기 복제본은 마스터와 같은 서버 구성을 사용하여 생성됩니다. 복제본이 생성된 후에 복제본 서버 구성을 변경할 수 있습니다. 복제본이 마스터와 동일한 성능을 유지할 수 있도록 복제본 서버의 구성은 마스터의 구성 값 이상으로 유지하는 것이 좋습니다.

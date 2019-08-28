@@ -2,38 +2,31 @@
 title: Azure Active Directory Identity Protection에서 사용자 위험 정책을 구성하는 방법 | Microsoft Docs
 description: Azure AD ID 보호 사용자 위험 정책을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
-keywords: Azure Active Directory ID 보호, 클라우드 앱 검색, 애플리케이션 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 942f7e43a549b5aa1a21284949ffc12ef3c8d75f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fc7ea05497d69a7ca833cc783e7a2bc6bf1a8b07
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108924"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335444"
 ---
 # <a name="how-to-configure-the-user-risk-policy"></a>방법: 사용자 위험 정책 구성
 
-사용자 위험을 통해 Azure AD는 사용자 계정이 손상되었을 확률을 감지합니다. 관리자로 서 사용자 위험 특정 사용자 위험 수준에 자동으로 응답할 조건부 액세스 정책을 구성할 수 있습니다.
+사용자 위험을 통해 Azure AD는 사용자 계정이 손상되었을 확률을 감지합니다. 관리자는 특정 사용자 위험 수준에 자동으로 응답 하도록 사용자 위험 조건부 액세스 정책을 구성할 수 있습니다.
  
 이 문서에서는 사용자 위험 정책을 구성하는 데 필요한 정보를 제공합니다.
 
-
 ## <a name="what-is-a-user-risk-policy"></a>사용자 위험 정책이란?
 
-Azure AD는 사용자의 각 로그인을 분석합니다. 분석 목표는 로그인과 함께 발생하는 의심스러운 작업을 감지하는 것입니다. Azure AD에서 시스템이 감지할 수 있는 의심스러운 작업을 위험 이벤트라고도 합니다. 일부 위험 이벤트를 실시간으로 감지할 수 있지만 더 많은 시간이 필요한 위험 이벤트도 있습니다. 예를 들어, 비정상적인 위치로 불가능한 이동을 감지하기 위해 시스템은 사용자의 일반 동작을 학습하기 위해 14일의 초기 학습 기간을 필요로 합니다. 감지된 위험 이벤트를 해결하기 위한 몇 가지 옵션이 있습니다. 예를 들어, 개별 위험 이벤트를 수동으로 해결할 수 있습니다 하거나 로그인 위험 또는 조건부 액세스 정책 사용자 위험 요소를 사용 하 여 얻을 수 있습니다.
+Azure AD는 사용자의 각 로그인을 분석합니다. 분석 목표는 로그인과 함께 발생하는 의심스러운 작업을 감지하는 것입니다. Azure AD에서 시스템이 감지할 수 있는 의심스러운 작업을 위험 이벤트라고도 합니다. 일부 위험 이벤트를 실시간으로 감지할 수 있지만 더 많은 시간이 필요한 위험 이벤트도 있습니다. 예를 들어, 비정상적인 위치로 불가능한 이동을 감지하기 위해 시스템은 사용자의 일반 동작을 학습하기 위해 14일의 초기 학습 기간을 필요로 합니다. 감지된 위험 이벤트를 해결하기 위한 몇 가지 옵션이 있습니다. 예를 들어 개별 위험 이벤트를 수동으로 해결 하거나 로그인 위험 또는 사용자 위험 조건부 액세스 정책을 사용 하 여 해결할 수 있습니다.
 
 사용자에 대해 감지되었지만 해결되지 않은 모든 위험 이벤트를 활성 위험 이벤트라고 합니다. 사용자와 관련된 활성 위험 이벤트를 사용자 위험이라고 합니다. 사용자 위험에 따라 Azure AD는 사용자가 손상되었을 확률(낮음, 보통, 높음)을 계산합니다. 이 확률을 사용자 위험 수준이라고 합니다.
 
@@ -41,14 +34,11 @@ Azure AD는 사용자의 각 로그인을 분석합니다. 분석 목표는 로�
 
 사용자 위험 정책은 특정 사용자 위험 수준에 대해 구성할 수 있는 자동화된 응답입니다. 사용자 위험 정책을 사용하여 리소스에 대한 액세스를 차단하거나 암호 변경을 요구하여 사용자 계정을 정상 상태로 되돌릴 수 있습니다.
 
-
 ## <a name="how-do-i-access-the-user-risk-policy"></a>사용자 위험 정책에 어떻게 액세스할 수 있나요?
    
 로그인 위험 정책은 [Azure AD ID 보호 페이지](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy)의 **구성** 섹션에 있습니다.
    
 ![사용자 위험 정책](./media/howto-user-risk-policy/1014.png)
-
-
 
 ## <a name="policy-settings"></a>정책 설정
 
@@ -56,7 +46,7 @@ Azure AD는 사용자의 각 로그인을 분석합니다. 분석 목표는 로�
 
 - 정책이 적용되는 사용자 및 그룹:
 
-    ![개요](./media/howto-user-risk-policy/11.png)
+    ![사용자 및 그룹](./media/howto-user-risk-policy/11.png)
 
 - 정책을 트리거하는 로그인 위험 수준:
 
@@ -64,7 +54,7 @@ Azure AD는 사용자의 각 로그인을 분석합니다. 분석 목표는 로�
 
 - 로그인 위험 수준에 도달할 때 적용할 액세스 유형:  
 
-    ![Access](./media/howto-user-risk-policy/13.png)
+    ![액세스](./media/howto-user-risk-policy/13.png)
 
 - 정책 상태:
 
@@ -78,8 +68,7 @@ Azure AD는 사용자의 각 로그인을 분석합니다. 분석 목표는 로�
 
 사용자는 사용자 위험 보안 정책을 설정하여 위험 수준에 따라 로그인 시 사용자를 차단할 수 있습니다.
 
-![차단 중](./media/howto-user-risk-policy/16.png)
-
+![차단](./media/howto-user-risk-policy/16.png)
 
 로그인 차단:
 
@@ -110,9 +99,6 @@ Azure AD는 사용자의 각 로그인을 분석합니다. 분석 목표는 로�
 - **Azure AD ID 보호** 블레이드의 **구성** 섹션에서 **사용자 위험 정책**을 클릭합니다.
 
     ![사용자 위험 정책](./media/howto-user-risk-policy/1009.png "사용자 위험 정책")
-
-
-
 
 ## <a name="next-steps"></a>다음 단계
 

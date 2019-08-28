@@ -1,20 +1,18 @@
 ---
 title: Java v7용 클라이언트 라이브러리를 사용하여 Azure Storage에 Blob을 만드는 방법 | Microsoft Docs
-description: 개체(Blob) 저장소에서 저장소 계정 및 컨테이너를 만듭니다. 그런 다음, Java v7용 Azure Storage 클라이언트 라이브러리를 사용하여 Azure Storage에 Blob을 업로드하고, Blob을 다운로드하고, 컨테이너의 Blob을 나열합니다.
-services: storage
+description: 개체(Blob) 스토리지에서 스토리지 계정 및 컨테이너를 만듭니다. 그런 다음, Java v7용 Azure Storage 클라이언트 라이브러리를 사용하여 Azure Storage에 Blob을 업로드하고, Blob을 다운로드하고, 컨테이너의 Blob을 나열합니다.
 author: mhopkins-msft
-ms.custom: mvc
-ms.service: storage
-ms.topic: conceptual
-ms.date: 02/04/2019
 ms.author: mhopkins
-ms.reviewer: seguler
-ms.openlocfilehash: f7cae5b3c7b0a7da6420674635ff9c3420a6436a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 02/04/2019
+ms.service: storage
+ms.subservice: blobs
+ms.topic: conceptual
+ms.openlocfilehash: 8cb9a9c6dd2e84318cd4d05bf6e67e127fc39ce3
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65154409"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726375"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>Java v7용 클라이언트 라이브러리를 사용하여 Blob을 업로드, 다운로드 및 나열하는 방법
 
@@ -23,11 +21,11 @@ ms.locfileid: "65154409"
 > [!TIP]
 > Java용 Azure Storage 클라이언트 라이브러리의 최신 버전은 v10입니다. 되도록이면 클라이언트 라이브러리의 최신 버전을 사용 하는 것이 좋습니다. v10을 사용하여 시작하려면 [빠른 시작: Java Storage SDK V10을 사용하여 Blob 업로드, 다운로드 및 나열](storage-quickstart-blobs-java-v10.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-또한 [Azure Portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM)에서 Azure 스토리지 계정을 만듭니다. 저장소 계정을 만드는 데 도움이 필요한 경우 [저장소 계정 만들기](../common/storage-quickstart-create-account.md)를 참조하세요.
+또한 [Azure Portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM)에서 Azure 스토리지 계정을 만듭니다. 스토리지 계정을 만드는 데 도움이 필요한 경우 [스토리지 계정 만들기](../common/storage-quickstart-create-account.md)를 참조하세요.
 
 다음 필수 조건을 갖추고 있는지 확인합니다.
 
@@ -53,7 +51,7 @@ git clone https://github.com/Azure-Samples/storage-blobs-java-quickstart.git
 
 [!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]    
 
-## <a name="configure-your-storage-connection-string"></a>저장소 연결 문자열 구성
+## <a name="configure-your-storage-connection-string"></a>스토리지 연결 문자열 구성
     
 애플리케이션에서 스토리지 계정에 대한 연결 문자열을 제공해야 합니다. **AzureApp.Java** 파일을 엽니다. `storageConnectionString` 변수를 찾고 이전 섹션에서 복사한 연결 문자열 값을 붙여 넣습니다. `storageConnectionString` 변수는 다음 코드 예제와 유사해야 합니다.
 
@@ -88,7 +86,7 @@ Deleting the source, and downloaded files
 계속하기 전에 샘플 파일에 대한 기본 디렉터리(Windows 사용자의 경우 *C:\Users\<user>\AppData\Local\Temp*)를 확인합니다. 콘솔 창에서 blob에 대한 URL을 복사하고 브라우저에 붙여 넣어 Blob Storage의 파일 콘텐츠를 봅니다. 디렉터리의 샘플 파일을 Blob Storage에 저장된 콘텐츠와 비교하는 경우 동일하게 표시됩니다. 
 
   >[!NOTE]
-  >[Azure Storage 탐색기](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)와 같은 도구를 사용하여 Blob Storage의 파일을 볼 수도 있습니다. Azure Storage Explorer는 스토리지 계정 정보에 액세스할 수 있는 무료 플랫폼 간 도구입니다.
+  >[Azure Storage Explorer](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)와 같은 도구를 사용하여 Blob Storage의 파일을 볼 수도 있습니다. Azure Storage Explorer는 스토리지 계정 정보에 액세스할 수 있는 무료 플랫폼 간 도구입니다.
 
 파일을 확인한 후에 **Enter** 키를 눌러 데모를 완료하고 테스트 파일을 삭제합니다. 이 샘플의 용도 파악했으므로 **AzureApp.java** 파일을 열고 코드를 확인합니다. 
 
@@ -96,7 +94,7 @@ Deleting the source, and downloaded files
 
 다음으로, 작동 방식을 이해하도록 샘플 코드를 따라 진행합니다.
 
-### <a name="get-references-to-the-storage-objects"></a>저장소 개체에 대한 참조 가져오기
+### <a name="get-references-to-the-storage-objects"></a>스토리지 개체에 대한 참조 가져오기
 
 가장 먼저 할 일은 Blob Storage의 액세스 및 관리에 사용되는 개체에 대한 참조를 만드는 것입니다. 이러한 개체는 서로를 기준으로 작성됩니다. 즉, 각 개체가 목록의 다음 개체에 사용됩니다.
 
@@ -104,7 +102,7 @@ Deleting the source, and downloaded files
 
     **CloudStorageAccount** 개체는 스토리지 계정을 나타내며 이를 통해 스토리지 계정 속성을 프로그래밍 방식으로 설정하고 액세스할 수 있습니다. **CloudStorageAccount** 개체를 사용하여 Blob 서비스에 액세스하는 데 필요한 **CloudBlobClient** 인스턴스를 만들 수 있습니다.
 
-* 저장소 계정의 [Blob service](/java/api/com.microsoft.azure.storage.blob._cloud_blob_client)를 가리키는 **CloudBlobClient** 개체의 인스턴스를 만듭니다.
+* 스토리지 계정의 [Blob service](/java/api/com.microsoft.azure.storage.blob._cloud_blob_client)를 가리키는 **CloudBlobClient** 개체의 인스턴스를 만듭니다.
 
     **CloudBlobClient**는 Blob 서비스에 대한 액세스 지점을 제공하여 이를 통해 Blob Storage 속성을 프로그래밍 방식으로 설정하고 액세스할 수 있습니다. **CloudBlobClient** 개체를 사용하여 컨테이너를 만드는 데 필요한 **CloudBlobContainer** 인스턴스를 만들 수 있습니다.
 

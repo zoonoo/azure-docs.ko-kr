@@ -1,5 +1,5 @@
 ---
-title: 사용자가 Azure AD 갤러리 애플리케이션에 프로비전을 구성하는 동안 관리자 자격 증명을 저장하는 문제 | Microsoft Docs
+title: 관리자 자격 증명을 저장 하는 데 문제가 있습니다. Azure AD 갤러리 앱 구성 | Microsoft Docs
 description: Azure AD 애플리케이션 갤러리에 이미 나열된 애플리케이션에 대한 사용자 프로비전을 구성할 때 발생하는 일반적인 문제를 해결하는 방법
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 02/21/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e4af70ae8628f612b8858b99c0d5ae57e78ace4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 152b704ca597fb473a820124ee6147d6d9bc7845
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963608"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381469"
 ---
 # <a name="problem-saving-administrator-credentials-while-configuring-user-provisioning-to-an-azure-active-directory-gallery-application"></a>사용자가 Azure Active Directory 갤러리 애플리케이션에 프로비전을 구성하는 동안 관리자 자격 증명을 저장하는 문제 
 
@@ -31,11 +31,11 @@ Azure Portal을 사용하여 엔터프라이즈 애플리케이션에 [자동 �
 
 또한 동일한 애플리케이션에 SAML 기반 Single Sign-On을 구성하는 경우 인증서 및 자격 증명에 대한 Azure AD의 내부 애플리케이션 당 스토리지 용량 한도를 초과했기 때문에 오류가 발생할 가능성이 높습니다.
 
-현재 Azure AD는 애플리케이션의 단일 인스턴스와 연결된 모든 인증서, 비밀 토큰, 자격 증명 및 관련 구성 데이터(Azure AD의 서비스 주체 레코드라도고 함)에 대해 1024바이트의 최대 저장 용량을 제공합니다.
+현재 Azure AD는 애플리케이션의 단일 인스턴스와 연결된 모든 인증서, 비밀 토큰, 자격 증명 및 관련 구성 데이터(Azure AD의 서비스 주체 레코드라도고 함)에 대해 1024바이트의 최대 스토리지 용량을 제공합니다.
 
 SAML 기반 Single Sign-On을 구성할 때 SAML 토큰에 서명하는 데 사용되는 인증서는 여기에 저장되고 종종 50%를 초과하는 공간을 사용합니다.
 
-사용자 프로비전을 설정하는 동안 입력한 암호 토큰, URI, 알림 이메일 주소, 사용자 이름 및 암호로 인해 저장소 용량 한도를 초과할 수 있습니다.
+사용자 프로비전을 설정하는 동안 입력한 암호 토큰, URI, 알림 이메일 주소, 사용자 이름 및 암호로 인해 스토리지 용량 한도를 초과할 수 있습니다.
 
 ## <a name="how-to-work-around-this-issue"></a>이 문제를 해결하는 방법 
 

@@ -4,12 +4,12 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: 39bb75a6f834789f91cb590ffebb72f45624eb25
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: c7b9e3a9eb5c906fa598da9c8c547cb542ecb719
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182756"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036743"
 ---
 # <a name="deprecated-securing-docker-containers-in-azure-container-service"></a>(사용되지 않음) Azure Container Service에서 Docker 컨테이너 보호
 
@@ -19,7 +19,7 @@ ms.locfileid: "67182756"
 
 ## <a name="image-security"></a>이미지 보안
 
-컨테이너는 하나 이상의 리포지토리에 저장된 이미지에서 작성됩니다. 이러한 리포지토리는 공용 또는 프라이빗 컨테이너 레지스트리에 속할 수 있습니다. 공용 레지스트리의 예는 [Docker 허브](https://hub.docker.com/)입니다. 프라이빗 레지스트리의 예는 [Docker Trusted Registry](https://docs.docker.com/datacenter/dtr/2.0/)이며 온-프레미스 또는 가상 프라이빗 클라우드에 설치할 수 있습니다. [Azure Container Registry](../articles/container-registry/container-registry-intro.md)를 포함한 클라우드 기반 개인 컨테이너 레지스트리 서비스도 있습니다.
+컨테이너는 하나 이상의 리포지토리에 저장된 이미지에서 작성됩니다. 이러한 리포지토리는 공용 또는 프라이빗 컨테이너 레지스트리에 속할 수 있습니다. 공용 레지스트리의 예는 [Docker 허브](https://hub.docker.com/)입니다. 프라이빗 레지스트리의 예는 [Docker Trusted Registry](https://docs.docker.com/datacenter/dtr/2.0/)이며 온-프레미스 또는 가상 프라이빗 클라우드에 설치할 수 있습니다. [Azure Container Registry](../articles/container-registry/container-registry-intro.md)를 포함한 클라우드 기반 프라이빗 컨테이너 레지스트리 서비스도 있습니다.
 
 ### <a name="public-and-private-images"></a>공용 및 프라이빗 이미지
 일반적으로, 공개적으로 게시된 소프트웨어 패키지와 마찬가지로 공개적으로 사용 가능한 컨테이너 이미지는 보안을 보장하지 않습니다. 컨테이너 이미지는 여러 소프트웨어 계층으로 구성되며 각 소프트웨어 계층은 취약점이 있을 수 있습니다. 이미지의 소유자(신뢰할 수 있는 출처인지 여부를 결정하기 위해), 구성되는 소프트웨어 계층 및 소프트웨어 버전을 포함하여 컨테이너 이미지의 출처를 이해하는 것이 중요합니다. 
@@ -34,7 +34,7 @@ ms.locfileid: "67182756"
 
 프라이빗 레지스트리를 사용하는 경우에도 추가 보안 유효성 검사를 위해 이미지 검색 솔루션을 사용하는 것이 좋습니다. 컨테이너 이미지의 각 소프트웨어 계층은 컨테이너 이미지의 다른 계층과 관계없이 잠재적으로 취약성이 있습니다. 점점 더 많은 기업들이 컨테이너 기술을 기반으로 프로덕션 워크로드 배포를 시작함에 따라 조직에 대한 보안 위협을 방지하기 위해 이미지 검색이 더욱 중요해지고 있습니다. 
 
-[Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry) 및 [Aqua Security](http://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry) 등과 같은 보안 모니터링 및 검색 솔루션을 사용하여 개인 레지스트리에서 컨테이너 이미지를 검색하여 잠재적인 취약성을 식별할 수 있습니다. 다양한 솔루션이 제공하는 검색 깊이를 파악하는 것이 중요합니다. 예를 들어, 일부 솔루션은 알려진 취약성에 대해서만 이미지 계층을 교차 검증할 수 있습니다. 이러한 솔루션은 특정 패키지 관리자 소프트웨어를 통해 빌드된 이미지 계층 소프트웨어는 검증하지 못할 수 있습니다. 다른 솔루션은 보다 심도 있는 검색 통합 기능을 포함하며 모든 패키지된 소프트웨어에서 취약성을 발견할 수 있습니다.
+[Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry) 및 [Aqua Security](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry) 등과 같은 보안 모니터링 및 검색 솔루션을 사용하여 프라이빗 레지스트리에서 컨테이너 이미지를 검색하여 잠재적인 취약성을 식별할 수 있습니다. 다양한 솔루션이 제공하는 검색 깊이를 파악하는 것이 중요합니다. 예를 들어, 일부 솔루션은 알려진 취약성에 대해서만 이미지 계층을 교차 검증할 수 있습니다. 이러한 솔루션은 특정 패키지 관리자 소프트웨어를 통해 빌드된 이미지 계층 소프트웨어는 검증하지 못할 수 있습니다. 다른 솔루션은 보다 심도 있는 검색 통합 기능을 포함하며 모든 패키지된 소프트웨어에서 취약성을 발견할 수 있습니다.
 
 ### <a name="production-deployment-rules-and-audit"></a>프로덕션 배포 규칙 및 감사
 애플리케이션을 프로덕션에 배포한 후에는 프로덕션 환경에 사용된 이미지가 안전하고 취약성이 없는지 확인하기 위해 몇 가지 규칙을 설정해야 합니다.

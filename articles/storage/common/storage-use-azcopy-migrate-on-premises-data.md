@@ -1,7 +1,6 @@
 ---
 title: '자습서: AzCopy를 사용하여 Azure Storage로 온-프레미스 데이터 마이그레이션 | Microsoft Docs'
 description: 이 자습서에서는 AzCopy를 사용하여 Blob, 테이블 및 파일 콘텐츠 간 데이터를 마이그레이션하거나 복사합니다. 로컬 스토리지에서 Azure Storage로 데이터를 쉽게 마이그레이션합니다.
-services: storage
 author: normesta
 ms.service: storage
 ms.topic: tutorial
@@ -9,26 +8,26 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 193c00354b6222152e26476d0b06cfb1555c207e
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 5f09ae7dc625ad579e31fd49d70331f30e6a708a
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754884"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68844896"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>자습서: AzCopy를 사용하여 클라우드로 온-프레미스 데이터 마이그레이션
 
-AzCopy는 간단한 명령을 사용하여 Azure Blob Storage, Azure Files 및 Azure Table Storage 간 데이터를 복사하기 위한 명령줄 도구입니다. 명령은 최적의 성능을 위해 설계되었습니다. AzCopy를 사용하여 파일 시스템과 저장소 계정 간 또는 저장소 계정 간에 데이터를 복사할 수 있습니다. AzCopy를 사용하여 로컬(온-프레미스) 데이터를 저장소 계정으로 복사할 수 있습니다.
+AzCopy는 간단한 명령을 사용하여 Azure Blob Storage, Azure Files 및 Azure Table Storage 간 데이터를 복사하기 위한 명령줄 도구입니다. 명령은 최적의 성능을 위해 설계되었습니다. AzCopy를 사용하여 파일 시스템과 스토리지 계정 간 또는 스토리지 계정 간에 데이터를 복사할 수 있습니다. AzCopy를 사용하여 로컬(온-프레미스) 데이터를 스토리지 계정으로 복사할 수 있습니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 저장소 계정을 만듭니다. 
+> * 스토리지 계정을 만듭니다. 
 > * AzCopy를 사용하여 모든 데이터를 업로드합니다.
 > * 테스트를 위해 데이터를 수정합니다.
 > * 예약된 작업이나 cron 작업을 만들어 업로드할 새 파일을 식별합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -44,7 +43,7 @@ Blob은 항상 컨테이너에 업로드해야 하므로 첫 번째 단계는 �
 
 다음 단계에 따라 컨테이너를 만듭니다.
 
-1. 기본 페이지에서 **저장소 계정** 단추를 선택하고 만든 저장소 계정을 선택합니다.
+1. 기본 페이지에서 **스토리지 계정** 단추를 선택하고 만든 스토리지 계정을 선택합니다.
 2. **서비스** 아래에서 **Blob**을 선택한 다음 **컨테이너**를 선택합니다.
 
    ![컨테이너 만들기](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
@@ -113,7 +112,7 @@ azcopy sync "<local-folder-path>" "https://<storage-account-name>.blob.core.wind
 
 ## <a name="create-a-scheduled-task"></a>예약된 작업 만들기
 
-AzCopy 명령 스크립트를 실행하는 예약된 작업 또는 cron 작업을 만들 수 있습니다. 스크립트는 새 온-프레미스 데이터를 식별하고 특정 시간 간격에 새 온-프레미스 데이터를 클라우드 저장소에 업로드합니다.
+AzCopy 명령 스크립트를 실행하는 예약된 작업 또는 cron 작업을 만들 수 있습니다. 스크립트는 새 온-프레미스 데이터를 식별하고 특정 시간 간격에 새 온-프레미스 데이터를 클라우드 스토리지에 업로드합니다.
 
 AzCopy 명령을 텍스트 편집기에 복사합니다. AzCopy 명령의 매개 변수 값을 적절한 값으로 업데이트합니다. 파일을 AzCopy에 대해 `script.sh`(Linux) 또는 `script.bat`(Windows)로 저장합니다. 
 
@@ -167,7 +166,7 @@ Windows에서 예약된 작업 만들기에 대해 자세히 알아보려면 [Sc
 
 ---
 
-예약된 작업/cron 작업이 제대로 실행되는지 확인하려면 `myFolder` 디렉터리에 새 파일을 만듭니다. 새 파일이 저장소 계정에 업로드되었는지 확인하도록 5분을 기다립니다. 예약된 작업 또는 cron 작업의 출력 로그를 보려면 로그 디렉터리로 이동합니다.
+예약된 작업/cron 작업이 제대로 실행되는지 확인하려면 `myFolder` 디렉터리에 새 파일을 만듭니다. 새 파일이 스토리지 계정에 업로드되었는지 확인하도록 5분을 기다립니다. 예약된 작업 또는 cron 작업의 출력 로그를 보려면 로그 디렉터리로 이동합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -25,7 +25,7 @@ ms.locfileid: "61126898"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>AWS(Amazon Web Services) 및 기타 플랫폼에서 Azure의 Managed Disks로 마이그레이션
 
-AWS 또는 온-프레미스 가상화 솔루션에서 Azure로 VHD 파일을 업로드하여 Managed Disks를 활용하는 VM을 만들 수 있습니다. Azure Managed Disks를 사용하면 Azure IaaS VM의 저장소 계정을 관리할 필요가 없습니다. 필요한 디스크의 유형(프리미엄 또는 표준)과 크기를 지정해야 합니다. 그러면 Azure가 알아서 디스크를 만들고 관리해줍니다. 
+AWS 또는 온-프레미스 가상화 솔루션에서 Azure로 VHD 파일을 업로드하여 Managed Disks를 활용하는 VM을 만들 수 있습니다. Azure Managed Disks를 사용하면 Azure IaaS VM의 스토리지 계정을 관리할 필요가 없습니다. 필요한 디스크의 유형(프리미엄 또는 표준)과 크기를 지정해야 합니다. 그러면 Azure가 알아서 디스크를 만들고 관리해줍니다. 
 
 일반화된 VHD 및 특수한 VHD를 모두 업로드할 수 있습니다. 
 - **일반화된 VHD** - Sysprep을 사용하여 제거된 모든 개인 계정 정보가 포함되어 있습니다. 
@@ -46,7 +46,7 @@ AWS 또는 온-프레미스 가상화 솔루션에서 Azure로 VHD 파일을 업
 
 ## <a name="overview-of-managed-disks"></a>Managed Disks 개요
 
-Azure Managed Disks는 저장소 계정을 관리하지 않아도 되기 때문에 VM 관리를 간소화합니다. Managed Disks는 가용성 집합에서 VM의 안정성을 향상시킨다는 장점도 있습니다. 가용성 집합에서 여러 VM의 디스크는 단일 실패 지점을 방지하기 위해 충분히 서로 격리되어야 합니다. 서로 다른 저장소 배율 단위(스탬프)인 자동 가용성 집합에서 다른 VM의 디스크를 자동으로 배치합니다. 그러면 하드웨어 및 소프트웨어 오류로 인해 발생한 단일 저장소 배율 단위 오류의 영향을 제한합니다.
+Azure Managed Disks는 스토리지 계정을 관리하지 않아도 되기 때문에 VM 관리를 간소화합니다. Managed Disks는 가용성 집합에서 VM의 안정성을 향상시킨다는 장점도 있습니다. 가용성 집합에서 여러 VM의 디스크는 단일 실패 지점을 방지하기 위해 충분히 서로 격리되어야 합니다. 서로 다른 스토리지 배율 단위(스탬프)인 자동 가용성 집합에서 다른 VM의 디스크를 자동으로 배치합니다. 그러면 하드웨어 및 소프트웨어 오류로 인해 발생한 단일 스토리지 배율 단위 오류의 영향을 제한합니다.
 필요에 따라 4가지 유형의 스토리지 옵션 중에 하나를 선택할 수 있습니다. 사용 가능한 디스크 유형에 대한 자세한 내용은 [디스크 유형 선택](disks-types.md) 문서를 참조하세요.
 
 ## <a name="plan-for-the-migration-to-managed-disks"></a>Managed Disks로 마이그레이션 계획 수립

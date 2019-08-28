@@ -4,7 +4,7 @@ description: Windows 장애 조치(Failover) 클러스터 및 공유 디스크�
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1229b7f9e2a430a663a3e78bb457c03cf4a4a590
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c1a7d3d3a8f66cfbb3ed649ac645520f39cbb1e4
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60714423"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709008"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Azure에서 Windows 장애 조치(Failover) 클러스터 및 공유 디스크에 SAP ASCS/SCS 인스턴스용 SAP NetWeaver HA 설치
 
@@ -149,13 +149,13 @@ ms.locfileid: "60714423"
 
 이 문서에서는 Azure에서 Windows Server 장애 조치(Failover)클러스터와 클러스터 공유 디스크를 사용하여 SAP ASCS/SCS 인스턴스 클러스터링을 위한 고가용성 SAP 시스템을 설치하고 구성하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 설치를 시작하기 전에 먼저 다음 문서를 검토하세요.
 
-* [아키텍처 가이드: 클러스터 공유 디스크를 사용하여 SAP ASCS/SCS 인스턴스를 Windows 장애 조치(Failover) 클러스터에 클러스터링][sap-high-availability-guide-wsfc-shared-disk]
+* [아키텍처 가이드: 클러스터 공유 디스크를 사용 하 여 Windows 장애 조치 클러스터에 SAP ASCS/SCS 인스턴스 클러스터][sap-high-availability-guide-wsfc-shared-disk]
 
-* [Windows 장애 조치(Failover) 클러스터 및 공유 디스크를 사용하여 SAP ASCS/SCS 인스턴스를 위한 SAP HA용 Azure 인프라 준비][sap-high-availability-infrastructure-wsfc-shared-disk]
+* [SAP ASCS/SCS 인스턴스에 대 한 Windows 장애 조치 클러스터 및 공유 디스크를 사용 하 여 SAP HA를 위한 Azure 인프라 준비][sap-high-availability-infrastructure-wsfc-shared-disk]
 
 DBMS 설정 방법은 사용 중인 DBMS 시스템에 따라 다르기 때문에 이 문서에서는 설명하지 않습니다. DBMS의 고가용성 문제는 다양한 DBMS 공급업체가 Azure에 대해 지원하는 기능으로 해결되었다고 가정합니다. 그 예로 SQL Server용 데이터베이스 미러링 또는 AlwaysOn, Oracle 데이터베이스용 Oracle Data Guard를 들 수 있습니다. 이 문서에서 제시되는 시나리오에서는 DBMS에 추가적인 보호를 적용하지 않습니다.
 
@@ -211,7 +211,7 @@ Azure에서 다양한 DBMS 서비스가 클러스터형 SAP ASCS/SCS 구성과 �
    * **Java 시스템**: **SCS** 인스턴스 번호 **01**
    * **ABAP+Java 시스템**: **ASCS** 인스턴스 번호 **00** 및 **SCS** 인스턴스 번호 **01**
 
-   ABAP ASCS 인스턴스에 00이 아닌 인스턴스 번호를 Java SCS 인스턴스에 01이 아닌 인스턴스 번호를 사용하려면 먼저 Azure 내부 부하 분산 장치의 기본 부하 분산 규칙을 변경합니다. 자세한 내용은 [Azure 내부 부하 분산 장치에 대한 ASCS/SCS 기본 부하 분산 규칙 변경][sap-ha-guide-8.9]을 참조하세요.
+   ABAP ASCS 인스턴스에 00이 아닌 인스턴스 번호를 Java SCS 인스턴스에 01이 아닌 인스턴스 번호를 사용하려면 먼저 Azure 내부 부하 분산 장치의 기본 부하 분산 규칙을 변경합니다. 자세한 내용은 [ASCS/SCS 기본 부하 분산 Azure 내부 부하 분산 규칙 변경][sap-ha-guide-8.9]합니다.
 
 다음 몇 가지 작업은 표준 SAP 설치 설명서에서 설명되지 않습니다.
 
@@ -222,7 +222,7 @@ Azure에서 다양한 DBMS 서비스가 클러스터형 SAP ASCS/SCS 구성과 �
 
 ### <a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a> ASCS/SCS 인스턴스의 SAP 프로필 수정
 
-먼저 새 프로필 매개 변수를 추가합니다. 이 프로필 매개 변수는 연결이 너무 오랫동안 유휴 상태일 때 SAP 작업 프로세스와 큐에 넣기 서버 사이의 연결이 닫히지 않도록 합니다. [SAP ASCS/SCS 인스턴스의 두 클러스터 노드에 대한 레지스트리 항목 추가][sap-ha-guide-8.11]에서 문제 시나리오를 언급했습니다. 이 섹션에서는 몇 가지 기본 TCP/IP 연결 매개 변수의 두 가지 변경 사항을 소개합니다. 두 번째 단계에서는 연결이 Azure 부하 부산 장치의 유휴 임계값에 도달하지 않게 `keep_alive` 신호를 보내도록 큐에 추가 서버를 설정해야 합니다.
+먼저 새 프로필 매개 변수를 추가합니다. 이 프로필 매개 변수는 연결이 너무 오랫동안 유휴 상태일 때 SAP 작업 프로세스와 큐에 넣기 서버 사이의 연결이 닫히지 않도록 합니다. 문제 시나리오를 언급 하는 것 [SAP ASCS/SCS 인스턴스의 두 클러스터 노드에 대 한 레지스트리 항목 추가][sap-ha-guide-8.11]합니다. 이 섹션에서는 몇 가지 기본 TCP/IP 연결 매개 변수의 두 가지 변경 사항을 소개합니다. 두 번째 단계에서는 연결이 Azure 부하 부산 장치의 유휴 임계값에 도달하지 않게 `keep_alive` 신호를 보내도록 큐에 추가 서버를 설정해야 합니다.
 
 ASCS/SCS 인스턴스의 SAP 프로필을 수정하려면:
 

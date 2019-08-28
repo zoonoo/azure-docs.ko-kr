@@ -2,18 +2,18 @@
 title: Power BI 작업 영역 컬렉션에서 데이터 원본에 연결 | Microsoft Docs
 description: Power BI 작업 영역 컬렉션 내에서 데이터 원본에 연결하는 방법을 알아봅니다.
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 author: rkarlin
 ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: 721458c5725e912d801b307ac05f3fde0776580e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ce666a017c1e5ac25b11fe1c22cdb37746f75df
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64708766"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67669149"
 ---
 # <a name="connect-to-a-data-source"></a>데이터 원본에 연결
 
@@ -63,9 +63,9 @@ Power BI Desktop 내에서 모든 사용 가능한 데이터 원본을 사용하
 <a name="measures"/>
 
 ## <a name="directquery-and-measures"></a>DirectQuery 및 측정값
-기본 데이터 원본으로 전송되는 쿼리가 허용되는 성능을 유지하도록 하기 위해 측정값에 대한 제한 사항이 적용됩니다. **Power BI Desktop**을 사용할 때 고급 사용자는 **파일 > 옵션 및 설정 > 옵션**을 선택하여 이 제한 사항을 무시하도록 선택할 수 있습니다. **옵션** 대화 상자에서 **DirectQuery**를 선택한 다음 **DirectQuery 모드에서 무제한 측정값 허용** 옵션을 선택합니다. 이 옵션을 선택하면 측정값에 유효한 모든 DAX 식을 사용할 수 있습니다. 그러나 데이터를 가져올 때 성능이 좋은 일부 식이 **DirectQuery** 모드에서는 백 엔드 원본에 대한 쿼리 속도가 느려질 수 있음을 사용자가 알고 있어야 합니다. 
+기본 데이터 원본으로 전송되는 쿼리가 허용되는 성능을 유지하도록 하기 위해 측정값에 대한 제한 사항이 적용됩니다. **Power BI Desktop**을 사용할 때 고급 사용자는 **파일 > 옵션 및 설정 > 옵션**을 선택하여 이 제한 사항을 무시하도록 선택할 수 있습니다. **옵션** 대화 상자에서 **DirectQuery**를 선택한 다음 **DirectQuery 모드에서 무제한 측정값 허용** 옵션을 선택합니다. 해당 옵션이 선택되어 있으면 측정값에 대해 올바른 모든 DAX 식을 사용할 수 있습니다. 그러나 데이터를 가져올 때 성능이 좋은 일부 식이 **DirectQuery** 모드에서는 백 엔드 원본에 대한 쿼리 속도가 느려질 수 있음을 사용자가 알고 있어야 합니다. 
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 
 * [Microsoft Power BI 작업 영역 컬렉션 시작](get-started.md)
 * [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)

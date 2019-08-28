@@ -5,16 +5,16 @@ services: cosmos-db
 author: luisbosquez
 manager: kfile
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
+ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: lbosq
-ms.openlocfilehash: 2f3967c64e79b2bc7b01b35eff26f5ac0d4e3db4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4964f485f5e781b7fe0a0f09486512fe6a5b9035
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60888413"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592492"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>실행 프로필 단계를 사용 하 여 Gremlin 쿼리를 평가 하는 방법
 
@@ -22,7 +22,7 @@ ms.locfileid: "60888413"
 
 이 단계를 사용 하려면 단순히 추가 `executionProfile()` 함수 Gremlin 쿼리 끝에 호출 합니다. **Gremlin 쿼리를 실행할 수는** 연산의 결과 쿼리 실행 프로필을 사용 하 여 JSON 응답 개체를 반환 합니다.
 
-예를 들면 다음과 같습니다.
+예:
 
 ```java
     // Basic traversal
@@ -148,7 +148,7 @@ ExecutionProfile() 함수의 응답 다음과 같은 구조를 사용 하 여 JS
     - `storeOps.count`: 이 저장소 작업이 반환 하는 결과의 수를 나타냅니다.
     - `storeOps.size`: 지정 된 저장소 작업의 결과 바이트 단위로 크기를 나타냅니다.
 
-Cosmos DB Gremlin 런타임 연산자|설명
+Cosmos DB Gremlin 런타임 연산자|Description
 ---|---
 `GetVertices`| 이 단계는 지 속성 계층에서 맵에 개체 집합을 가져옵니다. 
 `GetEdges`| 이 단계는 꼭 짓 점 집합에 인접 한 가장자리를 가져옵니다. 이 단계는 하나 이상의 저장소 작업에서 발생할 수 있습니다.

@@ -1,6 +1,6 @@
 ---
 title: 컨테이너 설치 및 실행 방법 - Computer Vision
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 이 단계별 자습서에서 Computer Vision용 컨테이너를 다운로드, 설치 및 실행하는 방법입니다.
 services: cognitive-services
 author: IEvangelist
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 8a5a66c720c0a591fe9d6c9864286d80f68ba599
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: afccce5ca9101ed1e30f69264abae7ad85b4902b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449345"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564589"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>텍스트 인식 컨테이너 설치 및 구성
 
@@ -26,16 +26,15 @@ ms.locfileid: "67449345"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 텍스트 인식 컨테이너를 사용하려면 먼저 다음 필수 조건을 충족해야 합니다.
 
-|필수|목적|
+|필수|용도|
 |--|--|
 |Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에서 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows**에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.| 
-|Azure `Cognitive Services` 리소스 |컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>A _Cognitive Services_ Azure 리소스 및 관련된 청구 키 청구 끝점 URI. 두 값은 리소스에 대한 개요 및 키 페이지에서 사용할 수 있으며 컨테이너를 시작하는 데 필요합니다. BILLING_ENDPOINT_URI 예제에 나와있는 것처럼 `vision/v2.0` 라우팅을 끝점 URI에 추가해야 합니다. <br><br>**{BILLING_KEY}** : 리소스 키<br><br>**{BILLING_ENDPOINT_URI}** : 끝점 URI 예제: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
-
+|Computer Vision 리소스 |컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>Azure **Computer Vision** 리소스 및 연결 된 API 키 끝점 URI입니다. 두 값은 모두 리소스의 개요 및 키 페이지에서 사용할 수 있으며 컨테이너를 시작 하는 데 필요 합니다.<br><br>**{API_KEY}** : **키** 페이지에서 사용 가능한 두 리소스 키 중 하나<br><br>**{ENDPOINT_URI}** : **개요** 페이지에 제공 된 끝점입니다.|
 
 ## <a name="request-access-to-the-private-container-registry"></a>프라이빗 컨테이너 레지스트리에 대한 액세스 요청
 
@@ -45,14 +44,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-
 ### <a name="container-requirements-and-recommendations"></a>컨테이너 요구 사항 및 추천
 
 다음 표에서는 각 텍스트 인식 컨테이너에 할당해야 하는 최소/권장 CPU 코어 수와 메모리에 대해 설명합니다.
 
 | 컨테이너 | 최소 | 권장 |TPS<br>(최소, 최대)|
 |-----------|---------|-------------|--|
-|텍스트 인식|1개 코어, 8GB 메모리, 0.5TPS|2개 코어, 8GB 메모리, 1TPS|0.5, 1|
+|텍스트 인식|1 코어, 8gb 메모리, 0.5 TPS|2 코어, 8gb 메모리, 1 개 TPS|0.5, 1|
 
 * 각 코어는 속도가 2.6GHz 이상이어야 합니다.
 * TPS - 초당 트랜잭션 수
@@ -78,39 +76,39 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-t
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-## <a name="how-to-use-the-container"></a>컨테이너 사용 방법
+## <a name="how-to-use-the-container"></a>컨테이너사용 방법
 
 컨테이너가 [호스트 컴퓨터](#the-host-computer)에 있으면 다음 프로세스를 사용하여 컨테이너 작업을 수행합니다.
 
 1. 필수 청구 설정을 사용하여 [컨테이너를 실행](#run-the-container-with-docker-run)합니다. `docker run` 명령의 자세한 [예제](computer-vision-resource-container-config.md)를 사용할 수 있습니다. 
-1. [컨테이너의 예측 끝점을 쿼리합니다](#query-the-containers-prediction-endpoint). 
+1. [컨테이너의 예측 끝점 쿼리](#query-the-containers-prediction-endpoint). 
 
 ## <a name="run-the-container-with-docker-run"></a>`docker run`을 사용하여 컨테이너 실행
 
 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 컨테이너를 실행합니다. 명령은 다음 매개 변수를 사용합니다.
 
-| Placeholder | 값 |
+| 구분 | 값 |
 |-------------|-------|
-|{BILLING_KEY} | 이 키는 컨테이너를 시작하는 데 사용되고 Azure `Cognitive Services` [키] 페이지에서 확인할 수 있습니다.  |
-|{BILLING_ENDPOINT_URI} | 청구 엔드포인트 URI 값입니다. 예제가입니다. `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
+|{API_KEY} | 이 키는 컨테이너를 시작 하는 데 사용 되며 Azure `Cognitive Services` 키 페이지에서 사용할 수 있습니다.  |
+|{ENDPOINT_URI} | 청구 엔드포인트 URI 값입니다. 예는 다음과 같습니다.`https://westus.api.cognitive.microsoft.com/vision/v2.0`|
 
-BILLING_ENDPOINT_URI 예제에 나와있는 것처럼 `vision/v2.0` 라우팅을 끝점 URI에 추가해야 합니다.
+다음 BILLING_ENDPOINT_URI 예제에 나와 있는 것처럼 끝점 URI로 라우팅할 `vision/v2.0`을 추가해야 합니다.
 
-다음 예제 `docker run` 명령에서 해당 매개 변수를 사용자 고유의 값으로 바꿉니다.
+다음 예`docker run`에서 매개 변수를 사용자 고유값으로 바꿉니다.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
 containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
 이 명령은 다음을 수행합니다.
 
 * 컨테이너 이미지에서 인식 컨테이너를 실행합니다.
 * 1개 CPU 코어 및 4GB 메모리 할당
-* TCP 5000 포트를 공개하고 컨테이너에 의사-TTY를 할당합니다.
+* 5000 TCP 포트 표시 및 컨테이너에 의사-TTY 할당
 * 종료 후 자동으로 컨테이너를 제거합니다. 컨테이너 이미지는 호스트 컴퓨터에서 계속 사용할 수 있습니다. 
 
 `docker run` 명령의 자세한 [예제](./computer-vision-resource-container-config.md#example-docker-run-commands)를 사용할 수 있습니다. 
@@ -133,7 +131,7 @@ Computer Vision 서비스에서 해당하는 REST 작업을 사용하는 방법�
 
 ### <a name="synchronous-text-recognition"></a>동기 텍스트 인식
 
-`POST /vision/v2.0/recognizeTextDirect` 작업을 사용하여 이미지에서 인쇄된 텍스트를 동기적으로 인식할 수 있습니다. 이 작업은 동기적이므로 이 작업의 요청 본문은 `POST /vision/v2.0/recognizeText` 작업의 요청 본문과 동일하지만, 이 작업의 응답 본문은 `GET /vision/v2.0/textOperations/*{id}*` 작업에서 반환된 것과 동일합니다.
+`POST /vision/v2.0/recognizeTextDirect` 작업을 사용하여 이미지에서 인쇄된 텍스트를 동기적으로 인식할 수 있습니다. 이 작업은 동기식 이므로이 작업에 대 한 요청 본문은 `POST /vision/v2.0/recognizeText` 작업과 동일 하지만이 작업의 응답 본문은 `GET /vision/v2.0/textOperations/*{id}*` 작업에서 반환 된 것과 동일 합니다.
 
 <!--  ## Validate container is running -->
 
@@ -149,7 +147,7 @@ Computer Vision 서비스에서 해당하는 REST 작업을 사용하는 방법�
 출력 [탑재](./computer-vision-resource-container-config.md#mount-settings) 및 활성화된 로깅을 사용하여 컨테이너를 실행하는 경우 컨테이너는 컨테이너를 시작 또는 실행하는 동안 발생하는 문제를 해결하는 데 도움이 되는 로그 파일을 생성합니다. 
 
 
-## <a name="billing"></a>결제
+## <a name="billing"></a>대금 청구
 
 텍스트 인식 컨테이너는 Azure 계정의 _텍스트 인식_ 리소스를 사용하여 청구 정보를 Azure로 보냅니다. 
 
@@ -157,13 +155,13 @@ Computer Vision 서비스에서 해당하는 REST 작업을 사용하는 방법�
 
 이러한 옵션에 대한 자세한 내용은 [컨테이너 구성](./computer-vision-resource-container-config.md)을 참조하세요.
 
-<!--blogs/samples/video coures -->
+<!--blogs/samples/video course -->
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>요약
 
-이 문서에서는 텍스트 인식 컨테이너를 다운로드, 설치 및 실행하기 위한 개념과 워크플로를 알아보았습니다. 요약하면 다음과 같습니다.
+이 문서에서는 텍스트 인식 컨테이너를 다운로드, 설치 및 실행하기 위한 개념과 워크플로를 알아보았습니다. 요약하자면 다음과 같습니다.
 
 * 텍스트 인식에서는 Docker용 Linux 컨테이너를 제공하여 텍스트 인식을 캡슐화합니다.
 * 컨테이너 이미지는 Azure의 MCR(Microsoft Container Registry)에서 다운로드됩니다.
@@ -172,7 +170,7 @@ Computer Vision 서비스에서 해당하는 REST 작업을 사용하는 방법�
 * 컨테이너를 인스턴스화할 때 청구 정보를 지정해야 합니다.
 
 > [!IMPORTANT]
-> Cognitive Services 컨테이너는 계량을 위한 청구 끝점에 연결되지 않은 상태에서 실행할 수 있는 권한이 없습니다. 고객은 컨테이너를 항상 청구 끝점과 청구 정보를 통신할 수 있도록 설정해야 합니다. Cognitive Services 컨테이너는 고객 데이터(예: 분석 중인 이미지 또는 텍스트)를 Microsoft에 보내지 않습니다.
+> Cognitive Services 컨테이너는 측광을 위해 Azure에 연결되지 않은 상태에서 실행할 수 있는 권한이 없습니다. 고객은 컨테이너에서 항상 계량 서비스와 청구 정보를 통신할 수 있도록 설정해야 합니다. Cognitive Services 컨테이너는 고객 데이터(예: 분석 중인 이미지 또는 텍스트)를 Microsoft에 보내지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

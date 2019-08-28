@@ -4,22 +4,16 @@ description: 원격 데스크톱 연결을 허용하기 위해 Azure 클라우�
 services: cloud-services
 documentationcenter: ''
 author: mmccrory
-manager: timlt
-editor: ''
-ms.assetid: 73ea1d64-1529-4d72-b58e-f6c10499e6bb
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: memccror
-ms.openlocfilehash: 0c36dc5fb6b2754fc93a02e29d8d8ae74df36da7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bea4e0c43d6ae6e0ea05c43343535195a25cf3e2
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963274"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359524"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Azure Cloud Services의 역할에 대해 원격 데스크톱 연결 사용
 
@@ -66,8 +60,8 @@ Azure Portal에서는 애플리케이션이 배포된 후에도 원격 데스크
 4. **열기**를 클릭한 후 **연결**을 클릭하여 원격 데스크톱 연결을 시작합니다.
 
 >[!NOTE]
-> 클라우드 서비스가 NSG 뒤에 있는 경우 포트 **3389** 및 **20000**의 트래픽을 허용하는 규칙을 만들어야 할 수 있습니다.  원격 데스크톱은 포트 **3389**를 사용합니다.  클라우드 서비스 인스턴스에서 부하가 분산되므로 연결할 인스턴스를 직접 제어할 수 없습니다.  *RemoteForwarder* 및 *RemoteAccess* 에이전트가 RDP 트래픽을 관리하고 클라이언트에서 RDP 쿠키를 전송하고 연결할 개별 인스턴스를 지정할 수 있도록 합니다.  *RemoteForwarder* 및 *RemoteAccess* 에이전트를 사용하려면 포트 **20000***이 열려 있어야 합니다. 이 포트는 NSG가 있으면 차단될 수 있습니다.
+> 클라우드 서비스가 NSG 뒤에 있는 경우 포트 **3389** 및 **20000**의 트래픽을 허용하는 규칙을 만들어야 할 수 있습니다.  원격 데스크톱은 포트 **3389**를 사용합니다.  클라우드 서비스 인스턴스에서 부하가 분산되므로 연결할 인스턴스를 직접 제어할 수 없습니다.  *RemoteForwarder* 및 *RemoteAccess* 에이전트가 RDP 트래픽을 관리하고 클라이언트에서 RDP 쿠키를 전송하고 연결할 개별 인스턴스를 지정할 수 있도록 합니다.  *RemoteForwarder* 및 *RemoteAccess* 에이전트를 사용하려면 포트 **20000**\*이 열려 있어야 합니다. 이 포트는 NSG가 있으면 차단될 수 있습니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 [Cloud Services를 구성하는 방법](cloud-services-how-to-configure-portal.md)

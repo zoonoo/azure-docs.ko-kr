@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 9694c682f171ab715812b05fed2064c9bbcd36b3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 59088d8351bf89c859312774e3e9e396be8dd532
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60600364"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69904246"
 ---
 # <a name="manage-vmware-vcenter-server"></a>VMware vCenter 서버 관리
 
@@ -33,7 +33,7 @@ Site Recovery는 가상 머신 자동 검색 및 가상 머신의 장애 조치�
 
 ### <a name="account-permissions"></a>계정 권한
 
-|**Task** | **계정** | **권한** | **세부 정보**|
+|**태스크** | **계정** | **사용 권한** | **세부 정보**|
 |--- | --- | --- | ---|
 |**자동 검색/마이그레이션(장애 복구(failback) 없이)** | 최소한 읽기 전용 사용자 필요 | 데이터 센터 개체 –> 자식 개체에 전파, role=Read 전용 | 사용자는 데이터 센터 수준에서 할당되며 데이터 센터의 모든 개체에 대한 액세스 권한이 있습니다.<br/><br/> 액세스를 제한하려는 경우 **자식에 전파** 개체를 사용하여 **액세스 권한 없음** 역할을 자식 개체(vSphere 호스트, 데이터 저장소, 가상 머신 및 네트워크)에 할당합니다.|
 |**복제/장애 조치(failover)** | 최소한 읽기 전용 사용자 필요| 데이터 센터 개체 –> 자식 개체에 전파, role=Read 전용 | 사용자는 데이터 센터 수준에서 할당되며 데이터 센터의 모든 개체에 대한 액세스 권한이 있습니다.<br/><br/> 액세스를 제한하려는 경우 **자식에 전파** 개체를 사용하여 **액세스 권한 없음** 역할을 자식 개체(vSphere 호스트, 데이터 저장소, 가상 머신 및 네트워크)에 할당합니다.<br/><br/> 전체 복제, 장애 조치, 장애 복구가 아닌 마이그레이션에 유용합니다.|
@@ -71,51 +71,51 @@ Site Recovery는 가상 머신 자동 검색 및 가상 머신의 장애 조치�
 
    ![delete-account](./media/vmware-azure-manage-vcenter/delete-vcenter.png)
 
-## <a name="modify-the-vcenter-ip-address-and-port"></a>VCenter IP 주소 및 포트를 수정 합니다.
+## <a name="modify-the-vcenter-ip-address-and-port"></a>VCenter IP 주소 및 포트 수정
 
 1. Azure 포털에 로그인합니다.
-2. 이동할 **Recovery Services 자격 증명 모음** > **Site Recovery 인프라** > **구성 서버**합니다.
-3. 구성 서버는 vCenter에서 클릭에 할당 됩니다.
-4. 에 **vCenter 서버** 섹션 수정 하려는 vCenter에서을 클릭 합니다.
-5. VCenter 요약 페이지에서 IP 주소 및 포트의 각 필드에 vCenter 업데이트 하 고 변경 내용을 저장 합니다.
+2. **Recovery Services 자격 증명 모음** > **Site Recovery 인프라** > **구성 서버**로 이동 합니다.
+3. VCenter가 할당 된 구성 서버를 클릭 합니다.
+4. **Vcenter servers** 섹션에서 수정 하려는 vcenter를 클릭 합니다.
+5. VCenter 요약 페이지에서 각 필드에 있는 vCenter의 IP 주소와 포트를 업데이트 한 후 변경 내용을 저장 합니다.
 
    ![add_ip_new_vcenter](media/vmware-azure-manage-vcenter/add-ip.png)
 
-6. 15 분 동안 기다린 후에 변경 사항이 유효 하거나 [구성 서버를 새로 고칠](vmware-azure-manage-configuration-server.md#refresh-configuration-server)합니다.
+6. 변경 내용이 적용 되려면 15 분 동안 기다리거나 [구성 서버를 새로 고 치세요](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
 
-## <a name="migrate-all-protected-virtual-machines-to-a-new-vcenter"></a>모든 보호 된 가상 머신을 새 vCenter로 마이그레이션
+## <a name="migrate-all-protected-virtual-machines-to-a-new-vcenter"></a>모든 보호 된 가상 컴퓨터를 새 vCenter로 마이그레이션
 
-새 vCenter에 모든 가상 컴퓨터를 마이그레이션하려면 다른 vCenter 계정을 추가 하지 마세요. 항목이 중복이 발생할 수 있습니다. 새 vCenter의 IP 주소로 업데이트 합니다.
+모든 가상 컴퓨터를 새 vCenter로 마이그레이션하려면 다른 vCenter 계정을 추가 하지 마십시오. 이로 인해 중복 된 항목이 발생할 수 있습니다. 새 vCenter의 IP 주소를 업데이트 하면 됩니다.
 
 1. Azure 포털에 로그인합니다.
-2. 이동할 **Recovery Services 자격 증명 모음** > **Site Recovery 인프라** > **구성 서버**합니다.
-3. 구성 서버 이전 vCenter에서 클릭에 할당 됩니다.
-4. 에 **vCenter 서버** 섹션에서 마이그레이션할 하려는 vCenter에서을 클릭 합니다.
-5. VCenter 요약 페이지에서 필드에 새 vCenter의 IP 주소를 업데이트할 **vCenter server/vSphere 호스트 이름 또는 IP 주소**합니다. 변경 내용을 저장합니다.
+2. **Recovery Services 자격 증명 모음** > **Site Recovery 인프라** > **구성 서버**로 이동 합니다.
+3. 이전 vCenter가 할당 된 구성 서버를 클릭 합니다.
+4. **Vcenter servers** 섹션에서 마이그레이션할 계획인 vcenter를 클릭 합니다.
+5. VCenter 요약 페이지에서 **vcenter server/vSphere 호스트 이름 또는 ip 주소**필드에서 새 VCENTER의 IP 주소를 업데이트 합니다. 변경 내용을 저장합니다.
 
-IP 주소 업데이트 되는 즉시 새 vCenter에서 가상 컴퓨터의 검색 정보를 받는 Site Recovery 구성 요소 시작 됩니다. 진행 중인 복제 작업을 영향을 주지 않습니다.
+IP 주소가 업데이트 되는 즉시 Site Recovery 구성 요소는 새 vCenter에서 가상 컴퓨터의 검색 정보를 수신 하기 시작 합니다. 이는 진행 중인 복제 작업에 영향을 주지 않습니다.
 
-## <a name="migrate-few-protected-virtual-machines-to-a-new-vcenter"></a>새 vCenter로 몇 개의 보호 된 가상 컴퓨터 마이그레이션
+## <a name="migrate-few-protected-virtual-machines-to-a-new-vcenter"></a>보호 된 가상 컴퓨터를 새 vCenter로 마이그레이션
 
 > [!NOTE]
-> 이 섹션에서는 마이그레이션하는 경우 보호 된 가상 컴퓨터의 몇 가지 새 vCenter에 적용 됩니다. 새 vCenter에서 새 가상 컴퓨터를 보호 하려는 경우 [구성 서버에 새 vCenter 세부 정보를 추가](#add-vmware-server-to-the-vault) 로 시작 하 고  **[보호 사용](vmware-azure-tutorial.md#enable-replication)** 합니다.
+> 이 섹션은 보호 된 가상 머신 중 일부를 새 vCenter로 마이그레이션하는 경우에만 적용할 수 있습니다. 새 vCenter에서 새 가상 컴퓨터 집합을 보호 하려면 새 [vcenter 세부 정보를 구성 서버에 추가](#add-vmware-server-to-the-vault) 하 고 **[보호 사용](vmware-azure-tutorial.md#enable-replication)** 으로 시작 합니다.
 
-에 새 vCenter를 몇 개의 가상 컴퓨터를 이동 합니다.
+몇 개의 가상 컴퓨터를 새 vCenter로 이동 하려면 다음을 수행 합니다.
 
-1. [구성 서버에서 새 vCenter 정보를 추가할](#add-vmware-server-to-the-vault)합니다.
-2. [가상 머신의 복제를 사용 하지 않도록 설정](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) 마이그레이션할 계획입니다.
-3. 새 vCenter에 선택한 가상 머신의 마이그레이션을 완료 합니다.
-4. 이제에서 마이그레이션된 가상 컴퓨터를 보호 [보호를 사용 하도록 설정 하면 새 vCenter를 선택 하면](vmware-azure-tutorial.md#enable-replication)합니다.
+1. [새 vCenter 세부 정보를 구성 서버에 추가](#add-vmware-server-to-the-vault)합니다.
+2. 마이그레이션하려는 [가상 컴퓨터의 복제를 사용 하지 않도록 설정](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) 합니다.
+3. 새 vCenter로 선택한 가상 컴퓨터의 마이그레이션을 완료 합니다.
+4. 이제 [보호를 사용 하도록 설정할 때 새 vCenter를 선택](vmware-azure-tutorial.md#enable-replication)하 여 마이그레이션된 가상 컴퓨터를 보호 합니다.
 
 > [!TIP]
-> 마이그레이션되는 가상 머신의 숫자가 **더 높은** 이전 vcenter에서 유지 하는 가상 컴퓨터 수가 수가 여기에 제공 된 지침을 사용 하 여 새 vCenter의 IP 주소를 업데이트 합니다. 이전 vcenter에서 유지 되는 몇 가지 가상 컴퓨터용 [복제 사용 안 함](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure); [구성 서버에 새 vCenter 세부 정보를 추가](#add-vmware-server-to-the-vault)를 시작 하 고  **[보호 사용](vmware-azure-tutorial.md#enable-replication)** 합니다.
+> 마이그레이션하는 가상 컴퓨터 수가 이전 vCenter에 보관 된 가상 컴퓨터의 수를 **더 많이** 사용 하는 경우 여기에 제공 된 지침을 사용 하 여 새 VCENTER의 IP 주소를 업데이트 합니다. 이전 vCenter에 유지 되는 일부 가상 컴퓨터의 경우 복제를 [사용 하지 않도록 설정](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure)합니다. [새 vCenter 세부 정보를 구성 서버에 추가](#add-vmware-server-to-the-vault)하 고 **[보호 사용](vmware-azure-tutorial.md#enable-replication)** 을 시작 합니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
-1. 보호 된 가상 컴퓨터는 하나의 ESXi 호스트에서 다른 호스트로 이동 되 면 하는 경우 영향을 받나요 복제?
+1. 보호 된 가상 컴퓨터가 한 ESXi 호스트에서 다른 호스트로 이동 되 면 복제에 영향을 미칩니까?
 
-    아니요, 진행 중인 복제에 영향 하지 않습니다. 그러나 [충분 한 권한이 있는 마스터 대상 서버를 배포 해야 합니다.](vmware-azure-reprotect.md#deploy-a-separate-master-target-server)
+    아니요, 진행 중인 복제에는 영향을 주지 않습니다. 그러나 [충분 한 권한이 있는 마스터 대상 서버를 배포 해야 합니다](vmware-azure-reprotect.md#deploy-a-separate-master-target-server) .
 
-2. 포트 번호는 무엇을 간의 통신에 사용 하는 vCenter 및 기타 Site Recovery 구성 요소?
+2. VCenter와 기타 Site Recovery 구성 요소 간 통신에 사용 되는 포트 번호는 무엇입니까?
 
-    기본 포트는 443입니다. 구성 서버는이 포트를 통해 vCenter/vSphere 호스트 정보에 액세스 합니다. 이 정보를 업데이트 하려면 클릭 [여기](#modify-the-vcenter-ip-address-and-port)합니다.
+    기본 포트는 443입니다. 구성 서버는이 포트를 통해 vCenter/vSphere 호스트 정보에 액세스 합니다. 이 정보를 업데이트 하려면 [여기](#modify-the-vcenter-ip-address-and-port)를 클릭 하세요.

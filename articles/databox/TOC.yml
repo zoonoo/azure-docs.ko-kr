@@ -95,8 +95,10 @@
               href: data-box-disk-deploy-set-up.md
             - name: 3 - 복사 및 유효성 검사
               href: data-box-disk-deploy-copy-data.md
-            - name: '4 - 반환, 업로드, 확인'
+            - name: 4 - 반환
               href: data-box-disk-deploy-picked-up.md
+            - name: 5 - 업로드 확인
+              href: data-box-disk-deploy-upload-verify.md
         - name: 개념
           items:
             - name: 요구 사항 검토
@@ -155,6 +157,8 @@
               href: data-box-heavy-deploy-picked-up.md
         - name: 개념
           items:
+            - name: 보안 지침 읽기
+              href: data-box-heavy-safety.md
             - name: 추적 및 로깅 검토
               href: data-box-logs.md
             - name: 요구 사항 검토

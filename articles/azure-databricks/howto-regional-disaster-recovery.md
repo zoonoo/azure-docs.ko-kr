@@ -27,19 +27,19 @@ Databricks 제어 평면은 Databricks 작업 영역 환경을 관리하고 모�
 
 ![Databricks 아키텍처](media/howto-regional-disaster-recovery/databricks-architecture.png)
 
-이 아키텍처의 장점 중 하나는 사용자가 Azure Databricks를 본인 계정의 저장소 리소스에 연결할 수 있다는 것입니다. 주요 장점은 계산(Azure Databricks) 및 스토리지를 서로 독립적으로 크기 조정할 수 있다는 것입니다.
+이 아키텍처의 장점 중 하나는 사용자가 Azure Databricks를 본인 계정의 스토리지 리소스에 연결할 수 있다는 것입니다. 주요 장점은 계산(Azure Databricks) 및 스토리지를 서로 독립적으로 크기 조정할 수 있다는 것입니다.
 
 ## <a name="how-to-create-a-regional-disaster-recovery-topology"></a>지역 재해 복구 토폴로지를 만드는 방법
 
-이전 아키텍처 설명에 표시 된 대로 Azure Databricks를 사용 하 여 빅 데이터 파이프라인에 사용 되는 구성 요소는 여러 가지가 있습니다.  Azure Storage, Azure 데이터베이스 및 기타 데이터 원본입니다. Azure Databricks는 빅 데이터 파이프라인을 위한 *계산*입니다. 본질적으로 *임시적*입니다. 다시 말해서, Azure Storage에서 데이터를 계속 사용할 수 있더라도 계산이 필요 없을 때 불필요한 비용이 발생하지 않도록 *계산*(Azure Databricks 클러스터)이 종료될 수 있습니다. 작업의 대기 시간이 길어지지 않도록 *계산*(Azure Databricks) 및 스토리지 소스가 같은 지역에 있어야 합니다.  
+이전 아키텍처 설명에 표시 된 대로 Azure Databricks를 사용 하 여 빅 데이터 파이프라인에 사용 되는 구성 요소는 여러 가지가 있습니다.  Azure Storage, Azure 데이터베이스 및 기타 데이터 원본입니다. Azure Databricks는 빅 데이터 파이프라인을 위한 *컴퓨팅*입니다. 본질적으로 *임시적*입니다. 다시 말해서, Azure Storage에서 데이터를 계속 사용할 수 있더라도 컴퓨팅이 필요 없을 때 불필요한 비용이 발생하지 않도록 *컴퓨팅*(Azure Databricks 클러스터)이 종료될 수 있습니다. 작업의 대기 시간이 길어지지 않도록 *계산*(Azure Databricks) 및 스토리지 소스가 같은 지역에 있어야 합니다.  
 
 고유한 지역 재해 복구 토폴로지를 만들려면 다음 요구 사항을 따릅니다.
 
    1. 별도의 Azure 지역에 여러 Azure Databricks 작업 영역을 프로비전합니다. 예를 들어 미국 동부 2에 기본 Azure Databricks 작업 영역을 만듭니다. 미국 서부 같은 별도의 지역에 보조 재해 복구 Azure Databricks 작업 영역을 만듭니다.
 
-   2. [지역 중복 저장소](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)를 사용합니다. Azure Databricks와 연결된 데이터는 기본적으로 Azure Storage에 저장됩니다. 또한 Databricks 작업의 결과가 기본적으로 Azure Blob Storage에 저장되므로, 처리된 데이터는 클러스터가 종료된 후에도 내구성과 고가용성을 유지합니다. Storage 및 Databricks 클러스터가 같이 배치되므로 기본 지역에 더 이상 액세스할 수 없을 때 보조 지역에서 데이터에 액세스할 수 있도록 지역 중복 스토리지를 사용해야 합니다.
+   2. [지역 중복 스토리지](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)를 사용합니다. Azure Databricks와 연결된 데이터는 기본적으로 Azure Storage에 저장됩니다. 또한 Databricks 작업의 결과가 기본적으로 Azure Blob Storage에 저장되므로, 처리된 데이터는 클러스터가 종료된 후에도 내구성과 고가용성을 유지합니다. Storage 및 Databricks 클러스터가 같이 배치되므로 기본 지역에 더 이상 액세스할 수 없을 때 보조 지역에서 데이터에 액세스할 수 있도록 지역 중복 스토리지를 사용해야 합니다.
 
-   3. 보조 지역을 만든 후에는 사용자, 사용자 폴더, 노트북, 클러스터 구성, 작업 구성, 라이브러리, 저장소, init 스크립트를 마이그레이션하고 액세스 제어를 다시 구성해야 합니다. 자세한 내용은 다음 섹션에 나와 있습니다.
+   3. 보조 지역을 만든 후에는 사용자, 사용자 폴더, 노트북, 클러스터 구성, 작업 구성, 라이브러리, 스토리지, init 스크립트를 마이그레이션하고 액세스 제어를 다시 구성해야 합니다. 자세한 내용은 다음 섹션에 나와 있습니다.
 
 ## <a name="detailed-migration-steps"></a>자세한 마이그레이션 단계
 
@@ -286,7 +286,7 @@ Databricks 제어 평면은 Databricks 작업 영역 환경을 관리하고 모�
 
 8. **Azure Blob Storage 및 Azure Data Lake Store 탑재 마이그레이션**
 
-   노트북 기반 솔루션을 사용하여 모든 [Azure Blob storage](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html) 및 [Azure Data Lake Store(Gen 2)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) 탑재 지점을 수동으로 다시 탑재합니다. 저장소 리소스는 기본 작업 영역에 탑재되었을 것이며, 보조 작업 영역에서도 반복해야 합니다. 탑재를 위한 외부 API는 없습니다.
+   노트북 기반 솔루션을 사용하여 모든 [Azure Blob storage](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html) 및 [Azure Data Lake Store(Gen 2)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) 탑재 지점을 수동으로 다시 탑재합니다. 스토리지 리소스는 기본 작업 영역에 탑재되었을 것이며, 보조 작업 영역에서도 반복해야 합니다. 탑재를 위한 외부 API는 없습니다.
 
 9. **클러스터 init 스크립트 마이그레이션**
 

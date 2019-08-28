@@ -1,0 +1,65 @@
+---
+title: BindException-Azure HDInsight에서 이미 사용 중입니다.
+description: BindException-Azure HDInsight에서 이미 사용 중입니다.
+ms.service: hdinsight
+ms.topic: troubleshooting
+author: hrasheed-msft
+ms.author: hrasheed
+ms.date: 08/08/2019
+ms.openlocfilehash: 8851a4dfb7deafab7ad77ef80619dd49ca46ed71
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947852"
+---
+# <a name="scenario-bindexception---address-already-in-use-in-azure-hdinsight"></a>시나리오: BindException-Azure HDInsight에서 이미 사용 중입니다.
+
+이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 문제에 대 한 문제 해결 단계 및 가능한 해결 방법을 설명 합니다.
+
+## <a name="issue"></a>문제점
+
+Apache HBase 지역 서버에서 다시 시작 작업을 완료 하지 못했습니다. 영역 서버가 시작 `/var/log/hbase` 되지 않는 작업자 노드의 in디렉터리에서다음과유사한오류메시지가표시될수있습니다.`region-server.log`
+
+```
+Caused by: java.net.BindException: Problem binding to /10.2.0.4:16020 : Address already in use
+...
+
+Caused by: java.net.BindException: Address already in use
+...
+```
+
+## <a name="cause"></a>원인
+
+작업량이 많은 작업을 수행 하는 동안 HBase 지역 서버를 다시 시작 합니다. 다음은 사용자가 Ambari UI의 HBase 지역 서버에서 다시 시작 작업을 시작할 때 백그라운드에서 수행 되는 작업입니다.
+
+1. Ambari 에이전트에서 지역 서버에 중지 요청을 보냅니다.
+
+1. 그런 다음 Ambari 에이전트는 지역 서버가 정상적으로 종료 될 때까지 30 초 동안 대기 합니다.
+
+1. 응용 프로그램이 지역 서버와 계속 연결 되 면 즉시 종료 되지 않으므로 30 초 제한 시간이 더 빨리 만료 됩니다.
+
+1. 30초가 만료되면 Ambari 에이전트에서 강제 종료(kill -9)를 지역 서버로 보냅니다.
+
+1. 이러한 갑작스러운 종료로 인해 지역 서버 프로세스가 종료 되더라도 프로세스와 연결 된 포트가 해제 되지 않아 결국로 `AddressBindException`이어질 수 있습니다.
+
+## <a name="resolution"></a>해결 방법
+
+다시 시작을 시작 하기 전에 HBase 지역 서버의 부하를 줄입니다.
+
+또는 다음 명령을 사용 하 여 작업자 노드에서 지역 서버를 수동으로 다시 시작 합니다.
+
+```bash
+sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh stop regionserver"
+sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh start regionserver"
+```
+
+## <a name="next-steps"></a>다음 단계
+
+문제가 표시되지 않거나 문제를 해결할 수 없는 경우 다음 채널 중 하나를 방문하여 추가 지원을 받으세요.
+
+* Azure [커뮤니티 지원을](https://azure.microsoft.com/support/community/)통해 azure 전문가 로부터 답변을 받으세요.
+
+* 을 사용 [@AzureSupport](https://twitter.com/azuresupport) 하 여 연결-고객 환경을 개선 하기 위한 공식 Microsoft Azure 계정입니다. Azure 커뮤니티를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 합니다.
+
+* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택 하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)을 참조 하세요. 구독 관리 및 청구 지원에 대 한 액세스는 Microsoft Azure 구독에 포함 되며, [Azure 지원 계획](https://azure.microsoft.com/support/plans/)중 하나를 통해 기술 지원이 제공 됩니다.

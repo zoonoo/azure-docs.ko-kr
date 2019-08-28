@@ -3,7 +3,7 @@ title: Azure Service Fabric 클러스터에서 인증서 관리 | Microsoft Docs
 description: Service Fabric 클러스터에서 새 인증서를 추가, 교체 및 제거하는 방법을 설명합니다.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chakdan
 editor: ''
 ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
-ms.author: aljo
-ms.openlocfilehash: f1998ec2fe82b9fd52547fbccb208542b22bc949
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: d84525e869d47fc609ee8aac7feb7feda36a5f23
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306908"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68599944"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Azure에서 서비스 패브릭 클러스터에 대한 인증서 추가 또는 제거
 Service Fabric이 X.509 인증서를 사용하는 방법을 숙지하고 [클러스터 보안 시나리오](service-fabric-cluster-security.md)를 읽어보는 것이 좋습니다. 다음 과정으로 진행하기 전에 클러스터 인증서가 무엇이며 어떤 용도로 사용되는지를 이해해야 합니다.
 
-Azure Service Fabrics SDK의 기본 인증서 로드 동작은 기본 구성 정의 또는 보조 구성 정의에 상관없이 정의된 인증서 중 향후 만료 날짜가 가장 먼 인증서를 배포하고 사용하는 것입니다. 클래식 동작으로 대체 아닌 권장 되는 고급 작업 및 Fabric.Code 구성 내에서 false로 설정 "UseSecondaryIfNewer" 매개 변수 값을 설정 해야 합니다.
+Azure Service Fabrics SDK의 기본 인증서 로드 동작은 기본 구성 정의 또는 보조 구성 정의에 상관없이 정의된 인증서 중 향후 만료 날짜가 가장 먼 인증서를 배포하고 사용하는 것입니다. 클래식 동작으로 대체 하는 것은 권장 되지 않는 고급 작업 이므로 UseSecondaryIfNewer 구성 내에서 "" 설정 매개 변수 값을 false로 설정 해야 합니다.
 
 클러스터를 만드는 동안 클라이언트 인증서 외에도 인증서 보안을 구성할 때 Service Fabric을 사용하여 기본 인증서와 보조 인증서의 두 클러스터 인증서를 지정할 수 있습니다. 만드는 시점에서의 설정에 관한 자세한 내용은 [포털을 통해 Azure 클러스터 만들기](service-fabric-cluster-creation-via-portal.md) 또는 [Azure Resource Manager를 통해 Azure 클러스터 만들기](service-fabric-cluster-creation-via-arm.md)를 참조하세요. 만드는 시점에 클러스터 인증서를 하나만 지정하는 경우 해당 인증서가 기본 인증서로 사용됩니다. 클러스터를 만든 후 새 인증서를 보조 인증서로 추가할 수 있습니다.
 
@@ -48,7 +48,7 @@ Azure Portal로는 보조 클러스터 인증서를 추가할 수 없습니다. 
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Resource Manager Powershell을 사용하여 보조 인증서 추가
 > [!TIP]
-> 매우 이제 더 쉽고 편리한 방법이 사용 하 여 보조 인증서를 추가 합니다 [추가 AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet. 이 섹션의 나머지 단계를 따를 필요가 없습니다.  또한 않아도 원래 만들기 및 사용 하는 경우 클러스터를 배포 하는 데 사용할 템플릿을 합니다 [추가 AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet.
+> 이제 [AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet을 사용 하 여 보조 인증서를 추가 하는 더 쉽고 쉬운 방법이 있습니다. 이 섹션의 나머지 단계를 따를 필요가 없습니다.  또한 [AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet을 사용할 때 원래 클러스터를 만들고 배포 하는 데 사용 된 템플릿이 필요 하지 않습니다.
 
 이러한 단계에서는 Resource Manager의 작동 원리에 익숙하며, Resource Manager 템플릿을 사용하여 하나 이상의 Service Fabric 클러스터를 배포했고, 클러스터를 설정하는 데 사용한 템플릿이 있다고 가정합니다. 또한 JSON을 잘 사용하여 작업할 수 있다고 간주합니다.
 
@@ -117,7 +117,7 @@ Azure Portal로는 보조 클러스터 인증서를 추가할 수 없습니다. 
          }
     ``` 
 
-4. **모든** **Microsoft.Compute/virtualMachineScaleSets** 리소스 정의를 변경합니다. Microsoft.Compute/virtualMachineScaleSets 리소스 정의를 찾습니다. "게시자"로 스크롤하십시오. "Microsoft.Azure.ServiceFabric", under "virtualMachineProfile".
+4. **모든** **Microsoft.Compute/virtualMachineScaleSets** 리소스 정의를 변경합니다. Microsoft.Compute/virtualMachineScaleSets 리소스 정의를 찾습니다. "게시자"로 스크롤합니다. "Microsoft.Azure.ServiceFabric", under "virtualMachineProfile".
 
     Service Fabric 게시자 설정에서 다음과 같이 나타납니다.
     
@@ -210,7 +210,7 @@ Test-AzResourceGroupDeployment -ResourceGroupName <Resource Group that your clus
 
 ```
 
-리소스 그룹에 템플릿을 배포합니다. 현재 클러스터가 배포된 동일한 리소스 그룹을 사용합니다. 새로 만들기-AzResourceGroupDeployment 명령을 실행 합니다. 기본값은 **incremental**이므로 모드는 지정할 필요가 없습니다.
+리소스 그룹에 템플릿을 배포합니다. 현재 클러스터가 배포된 동일한 리소스 그룹을 사용합니다. AzResourceGroupDeployment 명령을 실행 합니다. 기본값은 **incremental**이므로 모드는 지정할 필요가 없습니다.
 
 > [!NOTE]
 > Mode를 Complete로 설정하면 템플릿에 없는 리소스를 실수로 삭제할 수 있습니다. 따라서 이러한 경우에는 사용하지 않도록 합니다.

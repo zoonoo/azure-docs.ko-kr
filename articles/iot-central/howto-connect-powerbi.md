@@ -7,14 +7,16 @@ author: viv-liu
 ms.author: viviali
 ms.date: 06/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 16d7691d59e0805c7f8cf565a599ca5e6a78a7cf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 897b72dd7b292492e45cdc7401fe1acc5c86ca20
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67053034"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877466"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Power BI 대시보드에서 Azure IoT Central 데이터 시각화 및 분석
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 *이 항목의 내용은 관리자에게 적용됩니다.*
 
@@ -29,9 +31,9 @@ Azure IoT Central용 Power BI 솔루션을 사용하여 IoT 디바이스의 성�
 
 이 솔루션은 [연속 데이터 내보내기](howto-export-data.md)에서 Azure Blob Storage 계정의 데이터를 가져오는 파이프라인을 설정합니다. 이 데이터는 Azure Functions, Azure Data Factory 및 Azure SQL Database를 거치며 처리 및 변환됩니다. PBIX 파일로 다운로드할 수 있는 Power BI 보고서에서 출력을 시각화하고 분석할 수 있습니다. 이러한 모든 리소스는 필요에 따라 각 구성 요소를 사용자 지정할 수 있도록 Azure 구독에서 생성됩니다.
 
-## <a name="get-the-power-bi-solution-for-azure-iot-centralhttpsakamsiotcentralpowerbisolutiontemplate-from-microsoft-appsource"></a>Microsoft AppSource에서 [Azure IoT Central용 Power BI 솔루션](https://aka.ms/iotcentralpowerbisolutiontemplate) 다운로드
+## <a name="get-the-power-bi-solution-for-azure-iot-centralhttpsakamsiotcentralpowerbisolutiontemplate-from-microsoft-appsource"></a>Microsoft AppSource에서 [Azure IoT Central용 Power BI 솔루션](https://aka.ms/iotcentralpowerbisolutiontemplate)을 가져옵니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 솔루션을 설정하려면 다음이 필요합니다.
 - Azure 구독에 액세스
 - IoT Central 앱에서 [연속 데이터 내보내기](howto-export-data.md)를 사용하여 내보낸 데이터. Power BI 대시보드를 최대한 활용하려면 측정, 디바이스 및 디바이스 템플릿 스트림을 켜는 것이 좋습니다.
@@ -57,8 +59,8 @@ Azure IoT Central용 Power BI 솔루션을 사용하여 IoT 디바이스의 성�
 
 각 리소스의 세부 정보 및 리소스가 사용되는 방식이 아래에 설명되어 있습니다.
 
-### <a name="azure-functions"></a>Azure 기능
-Azure Function App은 Blob Storage에 새 파일을 쓸 때마다 트리거됩니다. 함수는 각 측정값, 디바이스 및 디바이스 템플릿 파일 내의 필드를 추출하고 Azure Data Factory에서 사용할 여러 개의 중간 SQL 테이블을 채웁니다.
+### <a name="azure-functions"></a>Azure Functions
+Azure 함수 앱은 Blob Storage에 새 파일을 쓸 때마다 트리거됩니다. 함수는 각 측정값, 디바이스 및 디바이스 템플릿 파일 내의 필드를 추출하고 Azure Data Factory에서 사용할 여러 개의 중간 SQL 테이블을 채웁니다.
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
 Azure Data Factory는 연결된 서비스로 SQL 데이터베이스에 연결됩니다. 데이터를 처리하고 분석 테이블에 저장하는 저장 프로시저 활동을 실행합니다.
@@ -91,7 +93,7 @@ Azure Data Factory는 연결된 서비스로 SQL 데이터베이스에 연결됩
 
 ## <a name="resources"></a>리소스
 
-AppSource를 방문하여 [Azure IoT Central용 Power BI 솔루션](https://aka.ms/iotcentralpowerbisolutiontemplate)을 다운로드하세요.
+AppSource를 방문하여 [Azure IoT Central용 Power BI 솔루션](https://aka.ms/iotcentralpowerbisolutiontemplate)을 가져옵니다.
 
 ## <a name="next-steps"></a>다음 단계
 

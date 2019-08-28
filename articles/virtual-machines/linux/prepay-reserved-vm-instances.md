@@ -1,6 +1,6 @@
 ---
 title: 비용을 절감하기 위해 Azure Virtual Machines 선불 | Microsoft Docs
-description: 계산 비용을 절약하기 위해 Azure Reserved Virtual Machine Instances를 구입하는 방법에 대해 알아봅니다.
+description: 컴퓨팅 비용을 절약하기 위해 Azure Reserved Virtual Machine Instances를 구입하는 방법에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
 author: vikramdesai01

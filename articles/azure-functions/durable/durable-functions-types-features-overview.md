@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 07/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 76b6f013333113d5a24b744bc962d36b1c0e21b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: de5019e0f91c92829082aed962bb9633da52b4a9
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60731121"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812837"
 ---
 # <a name="durable-functions-types-and-features-azure-functions"></a>지 속성 함수 유형 및 기능 (Azure Functions)
 
@@ -27,7 +27,7 @@ ms.locfileid: "60731121"
 
 ## <a name="types-of-durable-functions"></a>지속형 함수 유형
 
-Azure Functions의 지 속성 함수는 사용할 수 있습니다: 작업, 오 케 스트레이 터를 및 클라이언트입니다.
+Azure Functions의 지 속성 함수 유형은 사용할 수 있습니다: 작업, 오 케 스트레이 터, 엔터티 및 클라이언트입니다.
 
 ### <a name="activity-functions"></a>활동 함수
 
@@ -43,7 +43,7 @@ Azure Functions의 지 속성 함수는 사용할 수 있습니다: 작업, 오 
 
 ### <a name="orchestrator-functions"></a>오케스트레이터 함수
 
-오 케 스트레이 터 함수는 작업 실행 방법 및 작업 실행 되는 순서를 설명 합니다. 오 케 스트레이 터 함수 코드에서 오케스트레이션을 설명 (C# 또는 JavaScript)에 표시 된 대로 [Durable Functions 패턴 및 기술 개념](durable-functions-concepts.md)합니다. 오케스트레이션에 서 다양 한 유형의 작업을 포함 하 여 있을 수 있습니다 [작업 함수](#activity-functions), [하위 오케스트레이션](#sub-orchestrations)합니다 [외부 이벤트를 대기](#external-events), 및 [타이머](#durable-timers)합니다. 
+오 케 스트레이 터 함수는 작업 실행 방법 및 작업 실행 되는 순서를 설명 합니다. 오 케 스트레이 터 함수 코드에서 오케스트레이션을 설명 (C# 또는 JavaScript)에 표시 된 대로 [Durable Functions 패턴 및 기술 개념](durable-functions-concepts.md)합니다. 오케스트레이션에 서 다양 한 유형의 작업을 포함 하 여 있을 수 있습니다 [작업 함수](#activity-functions), [하위 오케스트레이션](#sub-orchestrations)합니다 [외부 이벤트를 대기](#external-events), 및 [타이머](#durable-timers)합니다. 오 케 스트레이 터 함수 상호 작용할 수도 [엔터티 함수](#entity-functions)합니다.
 
 오케스트레이터 함수는 [오케스트레이션 트리거](durable-functions-bindings.md#orchestration-triggers)로 트리거되어야 합니다.
 
@@ -51,11 +51,18 @@ Azure Functions의 지 속성 함수는 사용할 수 있습니다: 작업, 오 
 
 자세한 정보 및 예제를 참조 하세요 [오케스트레이션 트리거](durable-functions-bindings.md#orchestration-triggers)합니다.
 
+###  <a name="entity-functions"></a>엔터티 함수 (미리 보기)
+
+엔터티 함수 읽고 소량의 이라는 상태를 업데이트 하기 위한 작업을 정의할 *영구 엔터티*합니다. 오 케 스트레이 터 함수와 마찬가지로 엔터티 함수는 특별 한 트리거 형식과 함수 *엔터티 트리거*합니다. 오 케 스트레이 터 함수와 달리 엔터티 함수는 특정 코드 제약 조건을 갖지 않습니다. 엔터티 함수 상태를 관리할 수도 암시적으로 제어 흐름을 통해 상태를 나타내는 대신 명시적으로 합니다.
+
+> [!NOTE]
+> 엔터티 함수 및 관련된 기능은 지 속성 함수 2.0 버전에서 사용할 수만 있습니다.
+
+엔터티 함수에 대 한 자세한 내용은 참조는 [엔터티 함수](durable-functions-preview.md#entity-functions) 미리 보기 기능 설명서.
+
 ### <a name="client-functions"></a>클라이언트 함수
 
-클라이언트 함수는 오케스트레이션의 새 인스턴스를 만드는 트리거된 함수입니다. 클라이언트 함수는 지 속성 함수 오케스트레이션 인스턴스를 만들기 위한 진입점입니다. (HTTP, 큐, 이벤트 스트림) 모든 원본의 클라이언트 함수를 트리거할 수 있습니다. 앱에서 지원 되는 언어로 클라이언트 함수를 작성할 수 있습니다. 
-
-클라이언트 기능 수도 있는 [오케스트레이션 클라이언트](durable-functions-bindings.md#orchestration-client) 바인딩. 클라이언트 함수 오케스트레이션 클라이언트 바인딩을 만들고 지 속성 오케스트레이션 관리를 사용할 수 있습니다. 
+클라이언트 함수는 만들고 오케스트레이션 및 엔터티의 인스턴스를 관리 하는 트리거된 함수입니다. 이들은 효율적으로 지 속성 함수를 사용 하 여 상호 작용 하기 위한 진입점입니다. 모든 원본 (HTTP, 큐, 이벤트 스트림, 등)에서 클라이언트 함수를 트리거할 수 있습니다. 클라이언트 함수에 사용 합니다 [오케스트레이션 클라이언트 바인딩을](durable-functions-bindings.md#orchestration-client) 를 만들고 지 속성 오케스트레이션 및 엔터티를 관리 합니다.
 
 클라이언트 함수의 가장 기본적인 예제는 HTTP 트리거 함수는 오 케 스트레이 터 함수를 시작한 다음 상태 검사 응답을 반환 하는 경우 예를 들어 참조 [HTTP API URL 검색](durable-functions-http-api.md#http-api-url-discovery)합니다.
 

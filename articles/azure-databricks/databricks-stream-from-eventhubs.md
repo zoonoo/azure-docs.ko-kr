@@ -8,21 +8,21 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
-ms.date: 06/21/2018
+ms.date: 07/23/2019
 ms.author: alehall
-ms.openlocfilehash: 1265a97b8902d69dd260d8e9e0191180f2eb4379
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 942553e2ececf2bdc7bb2b240d4fa6c5f338beb2
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004842"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976497"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>자습서: Event Hubs를 사용하여 Azure Databricks로 데이터 스트리밍
 
 > [!IMPORTANT]
-> Twitter 애플리케이션 만들기는 [apps.twitter.com](https://apps.twitter.com/)을 통해 더 이상 제공되지 않습니다. 이 자습서는 새 Twitter API를 포함하도록 업데이트 중입니다.
+> 이 자습서는 Azure Databricks 런타임 5.2 버전에서 작동합니다.
 
-이 자습서에서는 데이터 수집 시스템을 Azure Databricks와 연결하여 데이터를 거의 실시간으로 Apache Spark 클러스터로 스트리밍합니다. Azure Event Hubs를 사용하여 데이터 수집 시스템을 설정한 다음, Azure Databricks에 연결하여 들어오는 메시지를 처리합니다. 데이터 스트림에 액세스하려면 Twitter API를 사용하여 트윗을 Event Hubs로 수집합니다. Azure Databricks에 데이터가 있으면 분석 작업을 실행하여 데이터를 자세히 분석할 수 있습니다. 
+이 자습서에서는 데이터 수집 시스템을 Azure Databricks와 연결하여 데이터를 거의 실시간으로 Apache Spark 클러스터로 스트리밍합니다. Azure Event Hubs를 사용하여 데이터 수집 시스템을 설정한 다음, Azure Databricks에 연결하여 들어오는 메시지를 처리합니다. 데이터 스트림에 액세스하려면 Twitter API를 사용하여 트윗을 Event Hubs로 수집합니다. Azure Databricks에 데이터가 있으면 분석 작업을 실행하여 데이터를 자세히 분석할 수 있습니다.
 
 이 자습서를 마치면 Twitter에서 "Azure"라는 용어가 포함된 트윗을 스트리밍하고 Azure Databricks에서 트윗을 읽었을 것입니다.
 
@@ -45,7 +45,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 > [!Note]
 > 이 자습서는 **Azure 평가판 구독**을 사용하여 수행할 수 없습니다.
-> 무료 계정을 사용하여 Azure Databricks 클러스터를 만들려면 클러스터를 만들기 전에 프로필로 이동하고 구독을 **종량제**로 변경합니다. 자세한 내용은 [Azure 체험 계정](https://azure.microsoft.com/free/)을 참조하세요.
+> 무료 계정이 있는 경우 프로필로 이동하고 구독을 **종량제**로 변경합니다. 자세한 내용은 [Azure 체험 계정](https://azure.microsoft.com/free/)을 참조하세요. 그런 다음 [지출 한도를 제거](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center)하고 해당 지역의 vCPU에 대한 [할당량 증가를 요청](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)합니다. Azure Databricks 작업 영역을 만드는 경우 **평가판(프리미엄-14일 무료 DBU)** 가격 책정 계층을 선택하여 14일간 무료 프리미엄 Azure Databricks DBU를 위한 작업 영역 액세스 권한을 부여할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -57,7 +57,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 [Azure Event Hubs 네임스페이스 및 이벤트 허브 만들기](../event-hubs/event-hubs-create.md) 문서의 단계를 수행하여 이러한 요구 사항을 충족시킬 수 있습니다.
 
-## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
@@ -104,8 +104,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     다음 항목 이외의 다른 모든 기본값을 허용합니다.
 
    * 클러스터의 이름을 입력합니다.
-   * 이 문서에서는 **4.0** 런타임을 사용하여 클러스터를 만듭니다.
+   * 이 문서에서는 **5.2** 런타임을 사용하여 클러스터를 만듭니다.
    * **비활성 \_\_분 후 종료** 확인란을 선택했는지 확인합니다. 클러스터를 사용하지 않는 경우 클러스터를 종료하는 기간(분)을 제공합니다.
+
+   기술 조건 및 [예산](https://azure.microsoft.com/en-us/pricing/details/databricks/)에 적합한 클러스터 작업자 및 드라이버 노드 크기를 선택합니다.
 
      **클러스터 만들기**를 선택합니다. 클러스터가 실행되면 노트북을 클러스터에 첨부하고 Spark 작업을 실행할 수 있습니다.
 
@@ -113,15 +115,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 트윗 스트림을 받으려면 Twitter에 애플리케이션을 만듭니다. 다음 지침에 따라 Twitter 애플리케이션을 만들고 이 자습서를 완료하는 데 필요한 값을 기록합니다.
 
-1. 웹 브라우저에서 [Twitter 애플리케이션 관리](https://apps.twitter.com/)로 이동하고 **새 앱 만들기**를 선택합니다.
+1. 웹 브라우저에서 [개발자용 Twitter](https://developer.twitter.com/en/apps)로 이동하여 **앱 만들기**를 선택합니다. Twitter 개발자 계정을 신청해야 한다는 메시지가 표시될 수 있습니다. 자유롭게 신청할 수 있으며, 신청이 승인되면 확인 이메일이 수신됩니다. 개발자 계정이 승인될 때까지 며칠이 걸릴 수 있습니다.
 
-    ![Twitter 애플리케이션 만들기](./media/databricks-stream-from-eventhubs/databricks-create-twitter-app.png "Twitter 애플리케이션 만들기")
+    ![Twitter 개발자 계정 확인](./media/databricks-stream-from-eventhubs/databricks-twitter-dev-confirmation.png "twitter 개발자 계정 확인")
 
 2. **애플리케이션 만들기** 페이지에서 새 앱에 대한 세부 정보를 제공한 다음, **Twitter 애플리케이션 만들기**를 선택합니다.
 
     ![Twitter 애플리케이션 세부 정보](./media/databricks-stream-from-eventhubs/databricks-provide-twitter-app-details.png "Twitter 애플리케이션 세부 정보")
 
-3. 애플리케이션 페이지에서 **키 및 액세스 토큰** 탭을 선택하고, **소비자 키** 및 **소비자 비밀**에 대한 값을 복사합니다. 또한 **내 액세스 토큰 만들기**를 선택하여 액세스 토큰을 생성합니다. **액세스 토큰** 및 **액세스 토큰 비밀**에 대한 값을 복사합니다.
+    ![Twitter 애플리케이션 세부 정보](./media/databricks-stream-from-eventhubs/databricks-provide-twitter-app-details-create.png "Twitter 애플리케이션 세부 정보")
+
+3. 애플리케이션 페이지에서 **키 및 토큰** 탭을 선택하고, **소비자 API 키** 및 **소비자 API 비밀 키** 값을 복사합니다. 또한 **액세스 토큰 및 액세스 토큰 비밀** 아래에서 **만들기**를 선택하여 액세스 토큰을 생성합니다. **액세스 토큰** 및 **액세스 토큰 비밀**에 대한 값을 복사합니다.
 
     ![Twitter 애플리케이션 세부 정보](./media/databricks-stream-from-eventhubs/twitter-app-key-secret.png "Twitter 애플리케이션 세부 정보")
 
@@ -129,30 +133,30 @@ Twitter 애플리케이션에 대해 검색한 값을 저장합니다. 이러한
 
 ## <a name="attach-libraries-to-spark-cluster"></a>Spark 클러스터에 라이브러리 연결
 
-이 자습서에서는 Twitter API를 사용하여 트윗을 Event Hubs에 보냅니다. 또한 [Apache Spark Event Hubs 커넥터](https://github.com/Azure/azure-event-hubs-spark)를 사용하여 Azure Event Hubs에 데이터를 읽고 씁니다. 이러한 API를 클러스터의 일부로 사용하려면 Azure Databricks에 라이브러리로 추가한 다음, 이를 Spark 클러스터와 연결합니다. 다음 지침에서는 작업 영역의 **공유** 폴더에 라이브러리를 추가하는 방법을 보여줍니다.
+이 자습서에서는 Twitter API를 사용하여 트윗을 Event Hubs에 보냅니다. 또한 [Apache Spark Event Hubs 커넥터](https://github.com/Azure/azure-event-hubs-spark)를 사용하여 Azure Event Hubs에 데이터를 읽고 씁니다. 이러한 API를 클러스터의 일부로 사용하려면 Azure Databricks에 라이브러리로 추가한 다음, Spark 클러스터와 연결합니다. 다음 지침에서는 라이브러리를 추가하는 방법을 보여줍니다.
 
-1. Azure Databricks 작업 영역에서 **작업 영역**을 선택한 다음, **공유**를 마우스 오른쪽 단추로 클릭합니다. 바로 가기 메뉴에서 **만들기** > **라이브러리**를 차례로 선택합니다.
+1. Azure Databricks 작업 영역에서 **클러스터**를 선택하고 기존 Spark 클러스터를 선택합니다. 클러스터 메뉴 내에서 **라이브러리**를 선택하고 **새로 설치**를 클릭합니다.
 
-   ![라이브러리 추가 대화 상자](./media/databricks-stream-from-eventhubs/databricks-add-library-option.png "라이브러리 추가 대화 상자")
+   ![라이브러리 추가 대화 상자](./media/databricks-stream-from-eventhubs/databricks-add-library-locate-cluster.png "라이브러리 추가 클러스터 찾기")
 
-2. [새 라이브러리] 페이지에서 **원본**에 대해 **Maven 코디네이트**를 선택합니다. **코디네이트**에서 추가하려는 패키지에 대한 코디네이트를 입력합니다. 이 자습서에서 사용된 라이브러리에 대한 Maven 코디네이트는 다음과 같습니다.
+   ![라이브러리 추가 대화 상자](./media/databricks-stream-from-eventhubs/databricks-add-library-install-new.png "라이브러리 추가 새로 설치")
 
-   * Spark Event Hubs 커넥터 - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.1`
-   * Twitter API - `org.twitter4j:twitter4j-core:4.0.6`
+2. [새 라이브러리] 페이지에서 **원본**에 대해 **Maven**을 선택합니다. **좌표**에서 추가하려는 패키지의 **좌표 검색**을 클릭합니다. 이 자습서에서 사용된 라이브러리에 대한 Maven 코디네이트는 다음과 같습니다.
 
-     ![Maven 코디네이트 제공](./media/databricks-stream-from-eventhubs/databricks-eventhub-specify-maven-coordinate.png "Maven 코디네이트 제공")
+   * Spark Event Hubs 커넥터 - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
+   * Twitter API - `org.twitter4j:twitter4j-core:4.0.7`
 
-3. **라이브러리 만들기**를 선택합니다.
+     ![Maven 코디네이트 제공](./media/databricks-stream-from-eventhubs/databricks-add-library-search.png "Maven 코디네이트 제공")
 
-4. 라이브러리를 추가한 폴더를 선택한 다음, 라이브러리 이름을 선택합니다.
+     ![Maven 좌표 제공](./media/databricks-stream-from-eventhubs/databricks-add-library-search-dialogue.png "Maven 좌표 검색")
 
-    ![추가할 라이브러리 선택](./media/databricks-stream-from-eventhubs/select-library.png "추가할 라이브러리 선택")
+3. **설치**를 선택합니다.
 
-5. 라이브러리 페이지에서 해당 라이브러리를 사용하려는 클러스터를 선택합니다. 라이브러리가 클러스터와 성공적으로 연결되는 즉시 상태가 **연결됨**으로 변경됩니다.
+4. 클러스터 메뉴에서 두 라이브러리가 제대로 설치되고 연결되었는지 확인합니다.
 
-    ![클러스터에 라이브러리 연결](./media/databricks-stream-from-eventhubs/databricks-library-attached.png "클러스터에 라이브러리 연결")
+    ![라이브러리 확인](./media/databricks-stream-from-eventhubs/databricks-add-library-check.png "라이브러리 확인")
 
-6. `twitter4j-core:4.0.6` Twitter 패키지에 대해 이러한 단계를 반복합니다.
+6. `twitter4j-core:4.0.7` Twitter 패키지에 대해 이러한 단계를 반복합니다.
 
 ## <a name="create-notebooks-in-databricks"></a>Databricks에 노트북 만들기
 
@@ -177,11 +181,16 @@ Twitter 애플리케이션에 대해 검색한 값을 저장합니다. 이러한
 
 **SendTweetsToEventHub** 노트북에서 다음 코드를 붙여넣고, 자리 표시자를 이전에 만든 Event Hubs 네임스페이스 및 Twitter 애플리케이션에 대한 값으로 바꿉니다. 이 노트북은 "Azure" 키워드가 있는 트윗을 Event Hubs에 실시간으로 스트리밍합니다.
 
+> [!NOTE]
+> Twitter API에는 요청 제한 [및](https://developer.twitter.com/en/docs/basics/rate-limiting.html) 할당량이 있습니다. Twitter API의 표준 속도 제한이 충분하지 않은 경우 이 예제의 Twitter API를 사용하지 않고 텍스트 콘텐츠를 직접 생성할 수 있습니다. 이렇게 하려면 **dataSource** 변수를 `twitter` 대신 `test`로 설정하고 **testSource** 목록을 원하는 테스트 입력으로 채웁니다.
+
 ```scala
-    import java.util._
     import scala.collection.JavaConverters._
     import com.microsoft.azure.eventhubs._
     import java.util.concurrent._
+    import scala.collection.immutable._
+    import scala.concurrent.Future
+    import scala.concurrent.ExecutionContext.Implicits.global
 
     val namespaceName = "<EVENT HUBS NAMESPACE>"
     val eventHubName = "<EVENT HUB NAME>"
@@ -193,56 +202,78 @@ Twitter 애플리케이션에 대해 검색한 값을 저장합니다. 이러한
                 .setSasKeyName(sasKeyName)
                 .setSasKey(sasKey)
 
-    val pool = Executors.newFixedThreadPool(1)
+    val pool = Executors.newScheduledThreadPool(1)
     val eventHubClient = EventHubClient.create(connStr.toString(), pool)
 
-    def sendEvent(message: String) = {
+    def sleep(time: Long): Unit = Thread.sleep(time)
+
+    def sendEvent(message: String, delay: Long) = {
+      sleep(delay)
       val messageData = EventData.create(message.getBytes("UTF-8"))
       eventHubClient.get().send(messageData)
       System.out.println("Sent event: " + message + "\n")
     }
 
-    import twitter4j._
-    import twitter4j.TwitterFactory
-    import twitter4j.Twitter
-    import twitter4j.conf.ConfigurationBuilder
+    // Add your own values to the list
+    val testSource = List("Azure is the greatest!", "Azure isn't working :(", "Azure is okay.")
 
-    // Twitter configuration!
-    // Replace values below with yours
+    // Specify 'test' if you prefer to not use Twitter API and loop through a list of values you define in `testSource`
+    // Otherwise specify 'twitter'
+    val dataSource = "test"
 
-    val twitterConsumerKey = "<CONSUMER KEY>"
-    val twitterConsumerSecret = "<CONSUMER SECRET>"
-    val twitterOauthAccessToken = "<ACCESS TOKEN>"
-    val twitterOauthTokenSecret = "<TOKEN SECRET>"
+    if (dataSource == "twitter") {
 
-    val cb = new ConfigurationBuilder()
-      cb.setDebugEnabled(true)
-      .setOAuthConsumerKey(twitterConsumerKey)
-      .setOAuthConsumerSecret(twitterConsumerSecret)
-      .setOAuthAccessToken(twitterOauthAccessToken)
-      .setOAuthAccessTokenSecret(twitterOauthTokenSecret)
+      import twitter4j._
+      import twitter4j.TwitterFactory
+      import twitter4j.Twitter
+      import twitter4j.conf.ConfigurationBuilder
 
-    val twitterFactory = new TwitterFactory(cb.build())
-    val twitter = twitterFactory.getInstance()
+      // Twitter configuration!
+      // Replace values below with you
 
-    // Getting tweets with keyword "Azure" and sending them to the Event Hub in realtime!
+      val twitterConsumerKey = "<CONSUMER API KEY>"
+      val twitterConsumerSecret = "<CONSUMER API SECRET>"
+      val twitterOauthAccessToken = "<ACCESS TOKEN>"
+      val twitterOauthTokenSecret = "<TOKEN SECRET>"
 
-    val query = new Query(" #Azure ")
-    query.setCount(100)
-    query.lang("en")
-    var finished = false
-    while (!finished) {
-      val result = twitter.search(query)
-      val statuses = result.getTweets()
-      var lowestStatusId = Long.MaxValue
-      for (status <- statuses.asScala) {
-        if(!status.isRetweet()){
-          sendEvent(status.getText())
+      val cb = new ConfigurationBuilder()
+        cb.setDebugEnabled(true)
+        .setOAuthConsumerKey(twitterConsumerKey)
+        .setOAuthConsumerSecret(twitterConsumerSecret)
+        .setOAuthAccessToken(twitterOauthAccessToken)
+        .setOAuthAccessTokenSecret(twitterOauthTokenSecret)
+
+      val twitterFactory = new TwitterFactory(cb.build())
+      val twitter = twitterFactory.getInstance()
+
+      // Getting tweets with keyword "Azure" and sending them to the Event Hub in realtime!
+      val query = new Query(" #Azure ")
+      query.setCount(100)
+      query.lang("en")
+      var finished = false
+      while (!finished) {
+        val result = twitter.search(query)
+        val statuses = result.getTweets()
+        var lowestStatusId = Long.MaxValue
+        for (status <- statuses.asScala) {
+          if(!status.isRetweet()){
+            sendEvent(status.getText(), 5000)
+          }
+          lowestStatusId = Math.min(status.getId(), lowestStatusId)
         }
-        lowestStatusId = Math.min(status.getId(), lowestStatusId)
-        Thread.sleep(2000)
+        query.setMaxId(lowestStatusId - 1)
       }
-      query.setMaxId(lowestStatusId - 1)
+
+    } else if (dataSource == "test") {
+      // Loop through the list of test input data
+      while (true) {
+        testSource.foreach {
+          sendEvent(_,5000)
+        }
+      }
+
+    } else {
+      System.out.println("Unsupported Data Source. Set 'dataSource' to \"twitter\" or \"test\"")
     }
 
     // Closing connection to the Event Hub
@@ -271,15 +302,23 @@ Twitter 애플리케이션에 대해 검색한 값을 저장합니다. 이러한
 **ReadTweetsFromEventHub** 노트북에서 다음 코드를 붙여넣고, 자리 표시자를 이전에 만든 Azure Event Hubs의 값으로 바꿉니다. 이 노트북은 **SendTweetsToEventHub** 노트북을 사용하여 이전에 Event Hubs로 스트리밍한 트윗을 읽습니다.
 
 ```scala
+
     import org.apache.spark.eventhubs._
+    import com.microsoft.azure.eventhubs._
 
     // Build connection string with the above information
-    val connectionString = ConnectionStringBuilder("<EVENT HUBS CONNECTION STRING>")
-      .setEventHubName("<EVENT HUB NAME>")
-      .build
+    val namespaceName = "<EVENT HUBS NAMESPACE>"
+    val eventHubName = "<EVENT HUB NAME>"
+    val sasKeyName = "<POLICY NAME>"
+    val sasKey = "<POLICY KEY>"
+    val connStr = new com.microsoft.azure.eventhubs.ConnectionStringBuilder()
+                .setNamespaceName(namespaceName)
+                .setEventHubName(eventHubName)
+                .setSasKeyName(sasKeyName)
+                .setSasKey(sasKey)
 
     val customEventhubParameters =
-      EventHubsConf(connectionString)
+      EventHubsConf(connStr.toString())
       .setMaxEventsPerTrigger(5)
 
     val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
@@ -388,7 +427,7 @@ Twitter 애플리케이션에 대해 검색한 값을 저장합니다. 이러한
 > * Event Hubs에 트윗 보내기
 > * Event Hubs에서 트윗 읽기
 
-Azure Databricks 및 [Microsoft Cognitive Services API](../cognitive-services/text-analytics/overview.md)를 사용하여 스트리밍된 데이터에 대한 감정 분석을 수행하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
+Azure Databricks 및 [Cognitive Services API](../cognitive-services/text-analytics/overview.md)를 사용하여 스트리밍된 데이터에 대한 감정 분석을 수행하는 방법을 알아보려면 다음 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 >[Azure Databricks를 사용하여 스트리밍 데이터에 대한 감정 분석](databricks-sentiment-analysis-cognitive-services.md)

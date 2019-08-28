@@ -1,21 +1,21 @@
 ---
 title: Azure Stack에 SQL Server 워크로드 백업
 description: Azure Backup Server를 사용하여 Azure Stack에서 SQL Server 워크로드를 보호할 수 있습니다.
-services: backup
-author: adigan
-manager: shivamg
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
-ms.author: adigan
-ms.openlocfilehash: fb064c39fa014515fb2a3f4ccc96ce216f2f7b2e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: dacurwin
+ms.openlocfilehash: 3dcf2188fd4fed211c96d4cc5241044d32ab6577
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60254223"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68737165"
 ---
-# <a name="back-up-sql-server-on-stack"></a>Stack에 SQL Server 백업
+# <a name="back-up-sql-server-on-azure-stack"></a>Azure Stack에 SQL Server 백업
 이 문서를 사용하여 Azure Stack에서 SQL Server 데이터베이스를 보호하도록 MABS(Microsoft Azure Backup Server)를 구성할 수 있습니다.
 
 Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베이스를 복구하는 것을 관리하는 작업에는 세 가지 단계가 포함됩니다.
@@ -62,7 +62,7 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
    >
    >
 
-7. **디스크 할당 검토** 화면에서 사용 가능한 전체 저장소 공간 및 잠재적인 디스크 공간을 확인합니다. **다음**을 클릭합니다.
+7. **디스크 할당 검토** 화면에서 사용 가능한 전체 스토리지 공간 및 잠재적인 디스크 공간을 확인합니다. **다음**을 클릭합니다.
 
 8. **복제본 만들기 방법 선택**에서, 첫 번째 복구 지점을 만들 방법을 선택합니다. 대역폭 정체를 방지하기 위해 초기 백업을 수동으로(오프 네트워크) 전송해도 되고 아니면 네트워크를 통해 전송해도 됩니다. 첫 번째 백업이 전송되기를 기다리기로 선택하는 경우 초기 전송의 시간을 지정할 수 있습니다. **다음**을 클릭합니다.
 

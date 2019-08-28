@@ -12,32 +12,34 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/17/2019
-ms.openlocfilehash: 83ef25f04012933c2665e63e4617d480eb336f7b
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.date: 07/29/2019
+ms.openlocfilehash: 800dbfc05c47a949bf024e9a5c671979b49ad201
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66419801"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639979"
 ---
 # <a name="tutorial-prepare-data-to-perform-clustering-in-r-with-azure-sql-database-machine-learning-services-preview"></a>자습서: Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 클러스터링을 수행하기 위한 데이터 준비
 
-3부작 자습서 시리즈의 1부인 이 자습서에서는 Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 클러스터링을 수행할 수 있도록 Azure SQL 데이터베이스의 데이터를 준비하겠습니다.
+세 부분으로 이루어진 이 자습서 시리즈의 1부에서는 R을 사용하여 Azure SQL 데이터베이스의 데이터를 가져와서 준비합니다. 이 시리즈의 뒷부분에서 이 데이터를 사용하여 Azure SQL Database Machine Learning Services(미리 보기)를 통해 R의 클러스터링 모델을 학습하고 배포합니다.
 
 *클러스터링*이란 데이터를 서로 비슷한 멤버로 이루어진 그룹으로 구성하는 것이라고 설명할 수 있습니다.
 여기서는 **K-평균** 알고리즘을 사용하여 제품 구매 및 환불 데이터 세트의 고객을 클러스터링하겠습니다. 고객을 클러스터링하면 특정 그룹을 대상으로 정해서 마케팅 활동을 보다 효과적으로 집중할 수 있습니다.
 K-평균 클러스터링은 유사성을 기반으로 데이터의 패턴을 찾는 *자율 학습* 알고리즘입니다.
 
+이 시리즈의 1부 및 2부에서는 RStudio에서 R 스크립트를 개발하여 데이터를 준비하고 기계 학습 모델을 학습시킵니다. 그런 다음, 3부에서는 SQL 데이터베이스 내에서 저장 프로시저를 사용하여 이러한 R 스크립트를 실행합니다.
+
 이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
 > * 샘플 데이터베이스를 Azure SQL Database로 가져오기
-> * 다양한 기준에 따라 고객 분류
-> * R을 사용하여 Azure SQL Database의 데이터를 데이터 프레임으로 로드
+> * R을 사용하여 다양한 기준에 따라 고객 분류
+> * Azure SQL 데이터베이스의 데이터를 R 데이터 프레임으로 로드
 
-[2부](sql-database-tutorial-clustering-model-build.md)에서는 K-평균 클러스터링 모델을 만들고 학습시키는 방법을 알아봅니다.
+[2부](sql-database-tutorial-clustering-model-build.md)에서는 R에서 K-평균 클러스터링 모델을 만들고 학습하는 방법을 알아봅니다.
 
-[3부](sql-database-tutorial-clustering-model-deploy.md)에서는 Azure SQL 데이터베이스에 새 데이터를 기반으로 클러스터링을 수행할 수 있는 저장 프로시저를 만드는 방법을 알아봅니다.
+[3부](sql-database-tutorial-clustering-model-deploy.md)에서는 새 데이터를 기반으로 R에서 클러스터링을 수행할 수 있는 Azure SQL 데이터베이스에 저장 프로시저를 만드는 방법을 알아봅니다.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
@@ -207,8 +209,8 @@ Azure Portal에서 다음 단계를 따릅니다.
 이 자습서 시리즈의 제1부에서는 다음 단계를 완료했습니다.
 
 * 샘플 데이터베이스를 Azure SQL Database로 가져오기
-* 다양한 기준에 따라 고객 분류
-* R을 사용하여 Azure SQL Database의 데이터를 데이터 프레임으로 로드
+* R을 사용하여 다양한 기준에 따라 고객 분류
+* Azure SQL 데이터베이스의 데이터를 R 데이터 프레임으로 로드
 
 이 고객 데이터를 사용하는 기계 학습 모델을 만들려면 이 자습서 시리즈의 2부를 진행하세요.
 

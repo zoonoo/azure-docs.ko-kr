@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
 ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 97083142066e59acbefe60181743e5aa32541bac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00c536120ed9507d5ecc6fe930429d12514945b3
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67115834"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483830"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Azure HDInsight의 Apache Storm이란?
 
@@ -44,7 +44,7 @@ HDInsight의 Storm은 다음과 같은 기능을 제공합니다.
 
 실시간 분석 솔루션에 Apache Storm을 사용하는 회사 목록은 [Apache Storm을 사용하는 회사](https://storm.apache.org/documentation/Powered-By.html)(영문)를 참조하세요.
 
-Storm 사용 시작을 참조 하세요 [HDInsight의 Apache Storm 시작](apache-storm-tutorial-get-started-linux.md)합니다.
+Storm 사용을 시작하려면 [Azure HDInsight에서 Apache Storm 토폴로지 만들기 및 모니터링](apache-storm-quickstart.md)을 참조하세요.
 
 ## <a name="how-does-apache-storm-work"></a>Apache Storm의 작동 방식
 
@@ -54,7 +54,7 @@ Storm에서는 친숙한 [Apache Hadoop MapReduce](https://hadoop.apache.org/doc
 
 * Spout 구성 요소는 데이터를 토폴로지로 가져옵니다. 하나 이상의 스트림을 토폴로지에 내보냅니다.
 
-* Bolt 구성 요소는 Spout 또는 다른 Bolt에서 내보낸 스트림을 사용합니다. Bolt는 필요에 따라 스트림을 토폴로지로 내보낼 수 있습니다. 또한 Bolt는 HDFS, Kafka 또는 HBase와 같은 외부 서비스 또는 저장소에 데이터를 쓰는 역할을 수행합니다.
+* Bolt 구성 요소는 Spout 또는 다른 Bolt에서 내보낸 스트림을 사용합니다. Bolt는 필요에 따라 스트림을 토폴로지로 내보낼 수 있습니다. 또한 Bolt는 HDFS, Kafka 또는 HBase와 같은 외부 서비스 또는 스토리지에 데이터를 쓰는 역할을 수행합니다.
 
 ## <a name="reliability"></a>안정성
 
@@ -68,7 +68,7 @@ Apache Storm 클러스터의 기본 구성에는 Nimbus 노드 하나만 있습�
 
 ## <a name="ease-of-creation"></a>만들기 편의성
 
-HDInsight에서 새 Storm 클러스터를 몇 분 내에 만들 수 있습니다. Storm 클러스터를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Storm 시작](apache-storm-tutorial-get-started-linux.md)을 참조하세요.
+HDInsight에서 새 Storm 클러스터를 몇 분 내에 만들 수 있습니다. Storm 클러스터를 만드는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하세요.
 
 ## <a name="ease-of-use"></a>사용 편의성
 
@@ -82,7 +82,7 @@ HDInsight에서 새 Storm 클러스터를 몇 분 내에 만들 수 있습니다
 
 * __Azure PowerShell 및 Azure 클래식 CLI__: PowerShell 및 클래식 CLI는 모두 HDInsight 및 다른 Azure 서비스를 사용하는 클라이언트 시스템에서 사용할 수 있는 명령줄 유틸리티를 제공합니다.
 
-* __Visual Studio 통합__: Azure Data Lake Tools for Visual Studio에는 만드는 프로젝트 템플릿이 포함 되어 C# 는 SCP.NET framework를 사용 하 여 토폴로지를 Storm. 또한 Data Lake 도구는 HDInsight의 Storm을 사용하여 솔루션을 배포, 모니터링 및 관리하는 도구를 제공합니다.
+* __Visual Studio 통합__: Azure Data Lake Tools for Visual Studio에는 SCP.NET Framework를 사용하여 C# Storm 토폴로지를 만드는 프로젝트 템플릿이 포함되어 있습니다. 또한 Data Lake 도구는 HDInsight의 Storm을 사용하여 솔루션을 배포, 모니터링 및 관리하는 도구를 제공합니다.
 
   자세한 내용은 [HDInsight Tools for Visual Studio를 사용하여 C# Storm 토폴로지 개발](apache-storm-develop-csharp-visual-studio-topology.md)을 참조하세요.
 
@@ -138,7 +138,7 @@ Apache Storm은 다양한 수준의 보장된 메시지 처리를 제공할 수 
 
 ### <a name="ibasicbolt"></a>IBasicBolt
 
-입력된 튜플을 읽고 0 개 이상의 튜플을 내보내는 다음 실행 메서드 끝에 즉시 입력된 튜플을 승인 패턴이 일반적입니다. Storm은 이 패턴을 자동화하는 [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) 인터페이스를 제공합니다.
+입력 튜플을 읽고 튜플을 내보내지 않거나 하나 이상 내보낸 다음 실행 메서드 끝에서 입력 튜플을 즉시 승인하는 패턴은 매우 흔히 사용됩니다. Storm은 이 패턴을 자동화하는 [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) 인터페이스를 제공합니다.
 
 ### <a name="joins"></a>조인
 
@@ -176,5 +176,5 @@ Storm은 [Apache Log4j 2](https://logging.apache.org/log4j/2.x/)를 사용하여
 
 HDInsight의 Apache Storm을 사용한 실시간 분석 솔루션에 대해 자세히 알아봅니다.
 
-* [HDInsight의 Apache Storm 시작](apache-storm-tutorial-get-started-linux.md)
+* [Azure HDInsight에서 Apache Storm 토폴로지 만들기 및 모니터링](apache-storm-quickstart.md)
 * [HDInsight의 Apache Storm에 대한 예제 토폴로지](apache-storm-example-topology.md)

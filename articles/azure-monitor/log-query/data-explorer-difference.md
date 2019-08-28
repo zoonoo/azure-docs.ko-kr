@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 08/13/2019
 ms.author: bwren
-ms.openlocfilehash: 1185f3f96fd39f168d138d7dbf66e7780884b1fa
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9892b8884d901033a80fae4168f25da97edb5a68
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589268"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990176"
 ---
 # <a name="azure-monitor-log-query-language-differences"></a>Azure Monitor 로그 쿼리 언어 차이점
 
@@ -31,7 +31,7 @@ ms.locfileid: "60589268"
 
 ### <a name="statements-not-supported-in-azure-monitor"></a>Azure Monitor에서 지원되지 않는 명령문
 
-* [별칭](/azure/kusto/query/aliasstatement)
+* [Alias](/azure/kusto/query/aliasstatement)
 * [쿼리 매개 변수](/azure/kusto/query/queryparametersstatement)
 
 ### <a name="functions-not-supported-in-azure-monitor"></a>Azure Monitor에서 지원되지 않는 함수
@@ -52,6 +52,7 @@ ms.locfileid: "60589268"
 
 ### <a name="plugins-not-supported-in-azure-monitor"></a>Azure Monitor에서 지원되지 않는 플러그 인
 
+* [Python 플러그 인](/azure/kusto/query/pythonplugin)
 * [sql_request 플러그 인](/azure/kusto/query/sqlrequestplugin)
 
 

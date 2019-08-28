@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 23139755af812f99bce8c2c255805eaf9e30b2da
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 884ded67c25aca78225baef2d7e4c5de1cc94fd0
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477070"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782282"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>업데이트 관리 문제 해결
 
@@ -25,7 +25,7 @@ ms.locfileid: "67477070"
 
 ### <a name="components-enabled-not-working"></a>시나리오: ‘업데이트 관리’ 솔루션의 구성 요소를 사용하도록 설정되었으며, 이제 이 가상 머신을 구성 중입니다.
 
-#### <a name="issue"></a>문제
+#### <a name="issue"></a>문제점
 
 온보딩 후 15분이 지났는데도 가상 머신에 다음 메시지가 계속 표시됩니다.
 
@@ -44,14 +44,14 @@ The components for the 'Update Management' solution have been enabled, and now t
 
 1. [네트워크 계획](../automation-hybrid-runbook-worker.md#network-planning)을 방문하여 업데이트 관리가 작동하려면 어떤 주소 및 포트를 허용해야 하는지 알아보세요.
 2. 복제된 이미지를 사용하는 경우:
-   1. Log Analytics 작업 영역의 범위 구성에 대 한 저장된 된 검색에서 VM을 제거할 `MicrosoftDefaultScopeConfig-Updates` 표시 됩니다. 저장된 검색은 작업 영역의 **일반**에서 찾을 수 있습니다.
-   2. `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force` 실행
+   1. Log Analytics 작업 영역에서 표시 된 경우 범위 구성 `MicrosoftDefaultScopeConfig-Updates` 에 대해 저장 된 검색에서 VM을 제거 합니다. 저장된 검색은 작업 영역의 **일반**에서 찾을 수 있습니다.
+   2. `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force`를 실행합니다.
    3. `Restart-Service HealthService`를 실행하여 `HealthService`를 다시 시작합니다. 그러면 키가 다시 생성되고 새 UUID가 생성됩니다.
-   4. 이 작동 하지 않으면 sysprep 이미지 첫 번째 사후 MMA 에이전트를 설치 합니다.
+   4. 작동 하지 않으면 먼저 이미지를 sysprep 하 고 MMA 에이전트를 설치 합니다.
 
 ### <a name="multi-tenant"></a>시나리오: 다른 Azure 테넌트에 있는 컴퓨터의 업데이트 배포를 만들 때 연결된 구독 오류가 발생합니다.
 
-#### <a name="issue"></a>문제
+#### <a name="issue"></a>문제점
 
 다른 Azure 테넌트에 있는 컴퓨터의 업데이트 배포를 만들려고 하면 다음 오류가 발생합니다.
 
@@ -78,42 +78,42 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
-### <a name="nologs"></a>시나리오: 컴퓨터는 업데이트 관리 포털에서 표시 되지 않습니다.
+### <a name="nologs"></a>시나리오: 업데이트 관리 아래에 컴퓨터가 포털에 표시 되지 않습니다.
 
-#### <a name="issue"></a>문제
+#### <a name="issue"></a>문제점
 
 다음 시나리오에서 실행할 수 있습니다.
 
-* 사용자 컴퓨터 표시 **구성 되지 않은** VM의 업데이트 관리 보기에서
+* 컴퓨터가 VM의 업데이트 관리 보기에서 **구성 되지 않은 것** 으로 표시 됨
 
-* Automation 계정 업데이트 관리 보기에서 누락 된 컴퓨터
+* Automation 계정의 업데이트 관리 보기에 컴퓨터가 없습니다.
 
-* 로 표시 되는 컴퓨터가 **평가 되지 않음** 아래에서 **준수**, Hybrid Runbook Worker 하지만 하지 업데이트 관리에 대 한 Azure Monitor 로그에서 하트 비트 데이터를 표시 하지만 합니다.
+* **규정 준수**상태에서 **평가 되지 않음** 으로 표시 되는 컴퓨터가 있지만 Hybrid Runbook Worker에 대 한 Azure Monitor 로그에 하트 비트 데이터가 표시 되지만 업데이트 관리 되지 않습니다.
 
 #### <a name="cause"></a>원인
 
-이 잠재적인 로컬 구성 문제 또는 잘못 구성 된 범위 구성에 의해 발생할 수 있습니다.
+이는 잠재적인 로컬 구성 문제 또는 범위 구성이 부적절 하 게 구성 된 경우에 발생할 수 있습니다.
 
 Hybrid Runbook Worker를 다시 등록하고 다시 설치해야 할 수 있습니다.
 
-할당량에 도달 하 고 중지 데이터로 저장 된 작업 영역에서 정의한 수 있습니다.
+작업 영역에서에 도달 하 여 데이터 저장을 중지 하는 할당량을 정의 했을 수 있습니다.
 
 #### <a name="resolution"></a>해결 방법
 
-* 컴퓨터에 올바른 작업 영역에 보고를 확인 합니다. 컴퓨터에 보고 하는 어떤 작업 영역을 확인 합니다. 이 확인 하는 방법에 지침은 [Log Analytics에 대 한 에이전트 연결 확인](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-log-analytics)합니다. 그런 다음 Azure Automation 계정에 연결 된 작업 영역 인지 확인 합니다. 이 확인 하려면 Automation 계정으로 이동 하 고 클릭 **연결 된 작업 영역** 아래에서 **관련 된 리소스**합니다.
+* 컴퓨터가 올바른 작업 영역에 보고 하는지 확인 합니다. 컴퓨터가 보고 하는 작업 영역을 확인 합니다. 이를 확인 하는 방법에 대 한 자세한 내용은 [Log Analytics에 대 한 에이전트 연결 확인](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-log-analytics)을 참조 하세요. 그런 다음 Azure Automation 계정에 연결 된 작업 영역 인지 확인 합니다. 이를 확인 하려면 Automation 계정으로 이동 하 고 **관련 리소스**에서 **연결 된 작업 영역** 을 클릭 합니다.
 
-* Log Analytics 작업 영역에서 컴퓨터를 표시 하는지 확인 합니다. Automation 계정에 연결 된 Log Analytics 작업 영역에서 다음 쿼리를 실행 합니다. 쿼리 결과에서 컴퓨터에 표시 되지 않으면 컴퓨터 하트 가능성이 있는 로컬 구성 문제가 있다는 의미는 아닙니다. 에 대 한 문제 해결사를 실행할 수 있습니다 [Windows](update-agent-issues.md#troubleshoot-offline) 하거나 [Linux](update-agent-issues-linux.md#troubleshoot-offline) 수는 OS에 따라 [에이전트를 다시 설치](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows)합니다. 컴퓨터에 쿼리 결과에 표시를 매우 해야 할 경우 다음 글머리 기호에서 지정 된 범위 구성 합니다.
+* 컴퓨터가 Log Analytics 작업 영역에 표시 되는지 확인 합니다. Automation 계정에 연결 된 Log Analytics 작업 영역에서 다음 쿼리를 실행 합니다. 쿼리 결과에 컴퓨터가 표시 되지 않는 경우 컴퓨터는 하트 비트 되지 않습니다. 즉, 로컬 구성 문제가 발생할 가능성이 높습니다. OS에 따라 [Windows](update-agent-issues.md#troubleshoot-offline) 또는 [Linux](update-agent-issues-linux.md#troubleshoot-offline) 에 대 한 문제 해결사를 실행 하거나 [에이전트를 다시 설치할](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows)수 있습니다. 컴퓨터가 쿼리 결과에 표시 되는 경우 다음 글머리 기호에 지정 된 범위 구성만 있으면 됩니다.
 
   ```loganalytics
   Heartbeat
   | summarize by Computer, Solutions
   ```
 
-* 범위 구성 문제를 확인 합니다. [범위 구성을](../automation-onboard-solutions-from-automation-account.md#scope-configuration) 어떤 컴퓨터 솔루션에 대 한 구성를 결정 합니다. 컴퓨터 작업 영역에 표시 되는지 아닌 경우 컴퓨터를 대상으로 범위 구성을 구성 해야 합니다 있습니다 표시 합니다. 이 작업을 수행 하는 방법에 알아보려면 참조 [작업 영역에서 컴퓨터 등록](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace)합니다.
+* 범위 구성 문제를 확인 합니다. [범위 구성](../automation-onboard-solutions-from-automation-account.md#scope-configuration) 에 따라 솔루션에 대해 구성 되는 컴퓨터가 결정 됩니다. 컴퓨터가 작업 영역에 표시 되지만 표시 되지 않는 경우 컴퓨터를 대상으로 하도록 범위 구성을 구성 해야 합니다. 이 작업을 수행 하는 방법에 대 한 자세한 내용은 [작업 영역에서 컴퓨터](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace)등록을 참조 하세요.
 
-* 위의 단계에는 문제가 해결 되지 않으면의 단계에 따라 [Windows Hybrid Runbook Worker 배포](../automation-windows-hrw-install.md) 하이브리드 작업자에 대 한 Windows를 다시 설치 또는 [Linux Hybrid Runbook Worker 배포](../automation-linux-hrw-install.md) Linux에 대 한 합니다.
+* 위의 단계를 수행 해도 문제가 해결 되지 않으면 Windows 용 Hybrid Worker를 다시 설치 하거나 Linux 용 [linux Hybrid Runbook Worker를 배포](../automation-linux-hrw-install.md) 하는 [windows Hybrid Runbook Worker 배포](../automation-windows-hrw-install.md) 의 단계를 따르세요.
 
-* 작업 영역에서 다음 쿼리를 실행 합니다. 결과 표시 하는 경우 `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` 할당량에 도달 했으며 데이터 저장을 중지 하는 작업 영역에서 정의 해야 합니다. 작업 영역으로 이동 **사용량 및 예상된 비용** > **데이터 볼륨 관리** 및 할당량을 확인 또는 있는 할당량을 제거 합니다.
+* 작업 영역에서 다음 쿼리를 실행 합니다. 결과가 `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` 표시 되 면 작업 영역에 도달 하 여 중지 된 데이터를 저장 하지 않은 것입니다. 작업 영역에서 **사용량 및 예상 비용** > **데이터 볼륨 관리** 로 이동 하 여 할당량을 확인 하거나 할당량을 제거 합니다.
 
   ```loganalytics
   Operation
@@ -129,7 +129,7 @@ Hybrid Runbook Worker를 다시 등록하고 다시 설치해야 할 수 있습�
 
 ### <a name="machine-already-registered"></a>시나리오: 컴퓨터가 이미 다른 계정에 등록되어 있습니다.
 
-#### <a name="issue"></a>문제
+#### <a name="issue"></a>문제점
 
 다음과 같은 오류 메시지가 표시됩니다.
 
@@ -147,7 +147,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 ### <a name="machine-unable-to-communicate"></a>시나리오: 컴퓨터가 서비스와 통신할 수 없습니다.
 
-#### <a name="issue"></a>문제
+#### <a name="issue"></a>문제점
 
 다음과 같은 오류 메시지 중 하나가 표시됩니다.
 
@@ -173,7 +173,7 @@ The certificate presented by the service <wsid>.oms.opinsights.azure.com was not
 
 ### <a name="unable-to-create-selfsigned-cert"></a>시나리오: 자체 서명된 인증서를 만들 수 없습니다.
 
-#### <a name="issue"></a>문제
+#### <a name="issue"></a>문제점
 
 다음과 같은 오류 메시지 중 하나가 표시됩니다.
 
@@ -189,11 +189,11 @@ Hybrid Runbook Worker가 자체 서명 인증서를 만들지 못함
 
 시스템 계정에 **C:\ProgramData\Microsoft\Crypto\RSA** 폴더에 대한 읽기 액세스 권한이 있는지 확인하고 다시 시도합니다.
 
-### <a name="failed-to-start"></a>시나리오: 컴퓨터에서 업데이트 배포를 시작 하려면 실패를 보여 줍니다.
+### <a name="failed-to-start"></a>시나리오: 업데이트 배포에서 컴퓨터를 시작 하지 못했음을 표시 합니다.
 
-#### <a name="issue"></a>문제
+#### <a name="issue"></a>문제점
 
-컴퓨터 상태가 **시작 하지 못했습니다** 컴퓨터용입니다. 컴퓨터에 대 한 특정 세부 정보를 볼 때 다음 오류가 표시:
+컴퓨터의 상태를 **시작 하지 못했습니다** . 컴퓨터에 대 한 특정 세부 정보를 볼 때 다음과 같은 오류가 표시 됩니다.
 
 ```error
 Failed to start the runbook. Check the parameters passed. RunbookName Patch-MicrosoftOMSComputer. Exception You have requested to create a runbook job on a hybrid worker group that does not exist.
@@ -201,21 +201,21 @@ Failed to start the runbook. Check the parameters passed. RunbookName Patch-Micr
 
 #### <a name="cause"></a>원인
 
-이 오류는 다음 이유 중 하나로 인해 발생할 수 있습니다.
+다음 이유 중 하나로 인해이 오류가 발생할 수 있습니다.
 
-* 컴퓨터는 더 이상 존재 하지 않습니다.
-* 해제 하 고 연결할 수 없는 컴퓨터 설정 되어 있습니다.
-* 컴퓨터에 네트워크 연결 문제 이며 hybrid worker 컴퓨터에 연결할 수 없습니다.
-* SourceComputerId 변경 된 Microsoft Monitoring Agent로 업데이트가 했습니다.
-* Automation 계정에서 2,000 동시 작업 제한에 도달한 경우 업데이트 실행에 제한 된 수 있습니다. 각 배포는 작업 및 각 컴퓨터에 업데이트 배포 수 작업으로 간주 됩니다. 다른 자동화 작업 또는 업데이트 배포 하면 Automation 계정 수가 동시 작업 제한에 대해 현재 실행 중인 합니다.
+* 컴퓨터가 더 이상 존재 하지 않습니다.
+* 컴퓨터가 꺼져 있고 연결할 수 없습니다.
+* 컴퓨터에 네트워크 연결 문제가 있으며 컴퓨터의 hybrid worker에 연결할 수 없습니다.
+* SourceComputerId를 변경 하는 Microsoft Monitoring Agent에 대 한 업데이트가 있습니다.
+* Automation 계정에서 2000의 동시 작업 제한에 도달 하는 경우 업데이트 실행이 제한 될 수 있습니다. 각 배포는 작업으로 간주 되며, 업데이트 배포의 각 컴퓨터는 작업으로 간주 됩니다. Automation 계정에서 현재 실행 중인 다른 모든 automation 작업 또는 업데이트 배포는 동시 작업 제한에 도달 합니다.
 
 #### <a name="resolution"></a>해결 방법
 
-때 사용 하 여 해당 [동적 그룹](../automation-update-management.md#using-dynamic-groups) 업데이트 배포에 대 한 합니다.
+해당 하는 경우 업데이트 배포에 [동적 그룹](../automation-update-management.md#using-dynamic-groups) 을 사용 합니다.
 
-* 컴퓨터를 계속 유지 되 고 연결할 수를 확인 합니다. 존재 하지 않는 경우에 배포를 편집 하 고 컴퓨터를 제거 합니다.
-* 섹션을 참조 하세요 [네트워크 계획](../automation-update-management.md#ports) 목록은 한 포트 및 주소는 업데이트 관리를 위해 필요 하 고 컴퓨터에 이러한 요구 사항을 충족 하는지 확인 합니다.
-* Log Analytics에서 다음 쿼리를 실행 합니다. 찾으려는 컴퓨터 환경의 갖는 `SourceComputerId` 변경 합니다. 동일한 컴퓨터를 검색할 `Computer` 값을 다른 `SourceComputerId` 값입니다. 이러한 컴퓨터를 대상으로 하거나 제거 하 고 컴퓨터를 다시 추가 하는 업데이트 배포를 편집 해야 영향을 받는 컴퓨터를 찾으면 되므로 `SourceComputerId` 올바른 값을 반영 합니다.
+* 컴퓨터가 존재 하 고 연결할 수 있는지 확인 합니다. 존재 하지 않는 경우 배포를 편집 하 고 컴퓨터를 제거 합니다.
+* 업데이트 관리에 필요한 포트 및 주소 목록은 [네트워크 계획](../automation-update-management.md#ports) 에 대 한 섹션을 참조 하 고 컴퓨터가 이러한 요구 사항을 충족 하는지 확인 합니다.
+* Log Analytics에서 다음 쿼리를 실행 하 여 환경 `SourceComputerId` 에서 변경 된 컴퓨터를 찾습니다. 값이 같고 `Computer` 값이 다른 `SourceComputerId` 컴퓨터를 찾습니다. 영향을 받는 컴퓨터를 찾은 후에는 해당 컴퓨터를 대상으로 하는 업데이트 배포를 편집 하 고가 `SourceComputerId` 올바른 값을 반영 하도록 컴퓨터를 제거한 후 다시 추가 해야 합니다.
 
    ```loganalytics
    Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
@@ -223,7 +223,7 @@ Failed to start the runbook. Check the parameters passed. RunbookName Patch-Micr
 
 ### <a name="hresult"></a>시나리오: 컴퓨터가 평가되지 않음으로 표시되고 HResult 예외를 나타냅니다.
 
-#### <a name="issue"></a>문제
+#### <a name="issue"></a>문제점
 
 컴퓨터가 **규정 준수**에서 **평가되지 않음**으로 표시되며 그 아래에 예외 메시지가 표시됩니다.
 
@@ -239,13 +239,13 @@ Windows 업데이트 또는 WSUS가 컴퓨터에서 올바르게 구성되지 �
 |---------|---------|
 |`Exception from HRESULT: 0x……C`     | [Windows 업데이트 오류 코드 목록](https://support.microsoft.com/help/938205/windows-update-error-code-list)에서 관련 오류 코드를 검색하여 예외의 원인에 대한 추가 세부 정보를 찾을 수 있습니다.        |
 |`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | 이러한 오류는 네트워크 연결 문제입니다. 컴퓨터가 네트워크를 통해 업데이트 관리에 적절히 연결되어 있는지 확인합니다. 필요한 주소 및 포트 목록을 보려면 [네트워크 계획](../automation-update-management.md#ports) 관련 섹션을 참조하세요.        |
-|`0x8024001E`| 서비스 또는 시스템이 종료 때문에 업데이트 작업이 완료 되지 않았습니다.|
-|`0x8024002E`| Windows Update 서비스가 비활성화 됩니다.|
+|`0x8024001E`| 서비스 또는 시스템이 종료 되었으므로 업데이트 작업이 완료 되지 않았습니다.|
+|`0x8024002E`| Windows 업데이트 서비스를 사용할 수 없습니다.|
 |`0x8024402C`     | WSUS 서버를 사용하는 경우 레지스트리 키 `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` 아래에 있는 `WUServer` 및 `WUStatusServer`의 레지스트리 값에 올바른 WSUS 서버가 포함되어 있는지 확인합니다.        |
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Windows 업데이트 서비스(wuauserv)가 실행되고 있으며 사용 안 함으로 설정되어 있지 않은지 확인합니다.        |
 |다른 제네릭 예외     | 인터넷에서 가능한 해결 방법을 검색하고 현지 IT 지원 팀과 함께 해결합니다.         |
 
-검토를 `windowsupdate.log` 여 가능한 원인을 확인 하려고 하는 데 도움이 됩니다. 로그를 읽는 방법에 대 한 자세한 내용은 참조 하세요. [Windowsupdate.log 파일을 읽는 방법](https://support.microsoft.com/en-ca/help/902093/how-to-read-the-windowsupdate-log-file)합니다.
+을 `windowsupdate.log` 검토 하면 가능한 원인을 확인 하는 데 도움이 될 수 있습니다. 로그를 읽는 방법에 대 한 자세한 내용은 [windowsupdate.log 파일을 읽는 방법](https://support.microsoft.com/en-ca/help/902093/how-to-read-the-windowsupdate-log-file)을 참조 하세요.
 
 또한 [Windows 업데이트 문제 해결사](https://support.microsoft.com/help/4027322/windows-update-troubleshooter)를 다운로드한 후 실행하여 컴퓨터의 Windows 업데이트에 문제가 있는지 확인할 수 있습니다.
 
@@ -256,7 +256,7 @@ Windows 업데이트 또는 WSUS가 컴퓨터에서 올바르게 구성되지 �
 
 ### <a name="scenario-update-run-fails-to-start"></a>시나리오: 업데이트 실행을 시작하지 못했습니다.
 
-#### <a name="issue"></a>문제
+#### <a name="issue"></a>문제점
 
 Linux 컴퓨터에서 업데이트 실행을 시작하지 못합니다.
 
@@ -274,7 +274,7 @@ Linux Hybrid Worker가 비정상 상태입니다.
 
 ### <a name="scenario-update-run-starts-but-encounters-errors"></a>시나리오: 업데이트 실행이 시작되지만 오류가 발생합니다.
 
-#### <a name="issue"></a>문제
+#### <a name="issue"></a>문제점
 
 업데이트 실행은 시작되지만 실행 중 오류가 발생합니다.
 
@@ -284,7 +284,7 @@ Linux Hybrid Worker가 비정상 상태입니다.
 
 * 패키지 관리자가 비정상 상태임
 * 특정 패키지가 클라우드 기반 패치를 방해할 수 있음
-* 기타 원인
+* 기타 이유
 
 #### <a name="resolution"></a>해결 방법
 
@@ -296,6 +296,27 @@ Linux에서 업데이트 실행이 제대로 시작된 뒤 업데이트 실행 �
 
 ```bash
 /var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log
+```
+
+### <a name="other"></a>시나리오: 위 목록에 없는 문제가 발생함
+
+### <a name="issue"></a>문제점
+
+나열 된 다른 시나리오에서 해결 되지 않은 문제가 있습니다.
+
+### <a name="cause"></a>원인
+
+레지스트리 키가 잘못 구성 되거나 누락 되 면 업데이트 관리 문제가 발생할 수 있습니다.
+
+### <a name="resolution"></a>해결 방법
+
+레지스트리 키 `HKLM:\SOFTWARE\Microsoft\HybridRunbookWorker` 를 삭제 하 고 **health service**를 다시 시작 합니다.
+
+다음 PowerShell 명령을 사용할 수도 있습니다.
+
+```powershell
+Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force
+Restart-Service healthservice
 ```
 
 ## <a name="next-steps"></a>다음 단계

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bae13de156d502cdd731005d460641ca452448d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 82b8dcfa02d21183a06fa510adb774338e72cb4e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108666"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851718"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시에서 사용자 지정 도메인 작업
 
@@ -36,7 +36,7 @@ Azure Active Directory 애플리케이션 프록시를 통해 애플리케이션
 
 ## <a name="configure-a-custom-domain"></a>사용자 지정 도메인 구성
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 사용자 지정 도메인을 구성하기 전에 다음 요구 사항이 준비되어 있는지 확인합니다. 
 - [Azure Active Directory에 추가된 확인된 도메인](../fundamentals/add-custom-domain.md).
@@ -61,7 +61,7 @@ Azure Active Directory 애플리케이션 프록시를 통해 애플리케이션
 6. PFX 인증서를 업로드하고 인증서의 암호를 입력합니다. 
 7. **저장**을 선택하여 변경 내용을 저장합니다. 
 8. msappproxy.net 도메인에 새 외부 URL을 리디렉션하는 [DNS 레코드](../../dns/dns-operations-recordsets-portal.md)를 추가합니다.
-9. DNS 레코드를 올바르게 구성 되어 있는지 확인 합니다 [nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx) 외부 URL에 연결할 수 및 msapproxy.net 도메인 별칭으로 표시 하는 경우를 확인 합니다.
+9. [Nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx) 명령을 사용 하 여 DNS 레코드가 올바르게 구성 되었는지 확인 하 여 외부 URL에 연결할 수 있고 msapproxy.net 도메인이 별칭으로 표시 되는지 확인 합니다.
 
 >[!TIP] 
 >사용자 지정 도메인당 하나의 인증서를 업로드하기만 하면 됩니다. 인증서를 업로드한 후 새 앱을 게시하고 DNS 레코드를 제외하고 추가 구성을 수행할 필요가 없는 경우 사용자 지정 도메인을 선택할 수 있습니다. 
@@ -73,7 +73,7 @@ Azure Active Directory 애플리케이션 프록시를 통해 애플리케이션
 
 와일드카드가 원하는 외부 URL과 일치하는 한 와일드카드 인증서를 사용할 수 있습니다.
 
-보안 고려 사항으로 인해 사용자 고유의 공개 키 인프라 (PKI)에서 발급 한 인증서를 사용할 수 없습니다.
+인증서 체인이 클라이언트 장치에 설치 된 경우 사용자 고유의 PKI (공개 키 인프라)에서 발급 한 인증서를 사용할 수 있습니다. Intune을 사용 하 여 이러한 인증서를 관리 되는 장치에 배포할 수 있습니다. 관리 되지 않는 장치의 경우 이러한 인증서를 수동으로 설치 해야 합니다.
 
 ### <a name="changing-the-domain"></a>도메인 변경
 모든 확인된 도메인은 애플리케이션에 대한 외부 URL 드롭다운 목록에 나타납니다. 도메인을 변경하려면 애플리케이션에 대한 해당 필드를 업데이트합니다. 원하는 도메인이 목록에 없는 경우 [확인된 도메인으로 추가](../fundamentals/add-custom-domain.md)합니다. 연결된 인증서가 없는 도메인을 선택하는 경우 5-7단계를 수행하여 인증서를 추가합니다. 그런 다음 새 외부 URL에서 리디렉션할 DNS 레코드를 업데이트해야 합니다. 
@@ -87,7 +87,7 @@ Azure Active Directory 애플리케이션 프록시를 통해 애플리케이션
 
 ## <a name="next-steps"></a>다음 단계
 * Azure AD 인증을 사용하여 게시된 앱에 대해 [Single Sign-On 사용](application-proxy-configure-single-sign-on-with-kcd.md)
-* [조건부 액세스를 사용 하도록 설정](application-proxy-integrate-with-sharepoint-server.md) 게시 된 앱입니다.
+* 게시 된 앱에 대 한 [조건부 액세스를 사용 하도록 설정](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/technical-reference#cloud-apps-assignments) 합니다.
 * [Azure AD에 사용자 지정 도메인 이름 추가](../fundamentals/add-custom-domain.md)
 
 

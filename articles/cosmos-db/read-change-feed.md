@@ -4,14 +4,14 @@ description: 이 문서에서는 Azure Cosmos DB Azure Cosmos DB에서 변경 �
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 07/23/2019
 ms.author: rimman
-ms.openlocfilehash: e008b44ee2859f319d0250658d7c2beb190af1c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d52ba1abc22aae6121ea6a36f943851dfcca7a0
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967166"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467676"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Cosmos DB 변경 피드 읽기
 
@@ -23,7 +23,7 @@ ms.locfileid: "65967166"
 
 ## <a name="using-azure-functions"></a>Azure Functions 사용
 
-Azure Functions는 가장 간단하고 권장되는 옵션입니다. Azure Functions 애플리케이션에서 Azure Cosmos DB 트리거를 만들 때 연결할 컨테이너를 선택하면 컨테이너가 변경될 때마다 Azure Function가 트리거됩니다. 트리거는 Azure Functions 포털, Azure Cosmos DB 포털을 사용하거나 SDK를 사용하여 프로그래밍 방식으로 만들 수 있습니다. Visual Studio 및 VS Code는 Azure Functions를 작성하는 지원을 제공하며 플랫폼 간 개발을 위해 Azure Functions CLI를 사용할 수도 있습니다. 데스크톱에서 코드를 작성하고 디버그한 다음, 클릭 한 번으로 함수를 배포할 수 있습니다. 자세한 내용은 [Azure Functions를 사용한 서버리스 데이터베이스 컴퓨팅](serverless-computing-database.md) 및 [Azure Functions와 함께 변경 피드 사용](change-feed-functions.md)) 문서를 참조하세요.
+Azure Functions는 가장 간단하고 권장되는 옵션입니다. Cosmos DB에 대 한 Azure Functions 트리거를 만들 때 연결할 컨테이너를 선택할 수 있으며, 컨테이너가 변경 될 때마다 Azure Function이 트리거됩니다. 트리거는 Azure Functions 포털, Azure Cosmos DB 포털을 사용하거나 SDK를 사용하여 프로그래밍 방식으로 만들 수 있습니다. Visual Studio 및 VS Code는 Azure Functions를 작성하는 지원을 제공하며 플랫폼 간 개발을 위해 Azure Functions CLI를 사용할 수도 있습니다. 데스크톱에서 코드를 작성하고 디버그한 다음, 클릭 한 번으로 함수를 배포할 수 있습니다. 자세한 내용은 [Azure Functions를 사용한 서버리스 데이터베이스 컴퓨팅](serverless-computing-database.md) 및 [Azure Functions와 함께 변경 피드 사용](change-feed-functions.md)) 문서를 참조하세요.
 
 ## <a name="using-the-change-feed-processor-library"></a>변경 피드 프로세서 라이브러리 사용
 

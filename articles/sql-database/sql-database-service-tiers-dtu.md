@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database 서비스 계층 - DTU 기반 구매 모델 | Microsoft Docs
-description: 컴퓨팅 및 스토리지 크기를 제공하기 위한 단일 및 풀 데이터베이스에 대한 DTU 기반 구매 모델의 서비스 계층에 대해 알아보세요.
+description: 컴퓨팅 및 스토리지 크기를 제공하기 위한 단일 및 풀링된 데이터베이스에 대한 DTU 기반 구매 모델의 서비스 계층에 대해 알아보세요.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -10,18 +10,17 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 06/25/2019
-ms.openlocfilehash: 964a2931267ad2f1e2842693eadf43f8f629a084
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: c46913f24deffc7c4db95d8a77db1c49ae54b6ae
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357235"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566683"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>DTU 기반 구매 모델에서 서비스 계층
 
-DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고정된 양, 고정된 백업 보존 기간 및 고정 가격을 갖춘 다양한 컴퓨팅 크기로 구분됩니다. DTU 기반 구매 모델의 모든 서비스 계층에서는 최소한의 계산 크기를 변경할 수 있는 유연성 [가동 중지 시간](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/)하지만 있습니다는 스위치 기간 동안 여기서 연결이 끊어지면 데이터베이스에는 짧은 기간에는 수 다시 시도 논리를 사용 하 여 완화할 수 있습니다. 단일 데이터베이스 및 탄력적 풀은 서비스 계층 및 계산 크기에 따라 시간 단위로 청구됩니다.
+DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고정된 양, 고정된 백업 보존 기간 및 고정 가격을 갖춘 다양한 컴퓨팅 크기로 구분됩니다. DTU 기반 구매 모델의 모든 서비스 계층은 [가동 중지 시간](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/)을 최소화 하면서 계산 크기를 유연 하 게 변경할 수 있습니다. 그러나 짧은 시간 동안 데이터베이스에 대 한 연결이 끊어진 스위치를 사용 하 여 다시 시도 논리를 사용 하 여 완화할 수 있습니다. 단일 데이터베이스 및 탄력적 풀은 서비스 계층 및 컴퓨팅 크기에 따라 시간 단위로 청구됩니다.
 
 > [!IMPORTANT]
 > SQL Database 관리되는 인스턴스는 DTU 기반 구매 모델을 지원하지 않습니다. 자세한 내용은 [Azure SQL Database Managed Instance](sql-database-managed-instance.md)를 참조하세요.
@@ -30,49 +29,49 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 
 ## <a name="compare-the-dtu-based-service-tiers"></a>DTU 기반 서비스 계층 비교
 
-서비스 계층을 선택하는 작업은 주로 비즈니스 연속성, 저장소 및 성능 요구 사항에 따라 다릅니다.
+서비스 계층을 선택하는 작업은 주로 비즈니스 연속성, 스토리지 및 성능 요구 사항에 따라 다릅니다.
 
 ||Basic|표준|Premium|
 | :-- | --: |--:| --:|
 |대상 워크로드|개발 및 프로덕션|개발 및 프로덕션|개발 및 프로덕션|
 |작동 시간 SLA|99.99%|99.99%|99.99%|
-|Backup 보존|7 일|35일|35일|
+|백업 보존|7일|35일|35일|
 |CPU|낮음|낮음, 보통, 높음|보통, 높음|
 |IO 처리량(근사치) |DTU당 2.5 IOPS| DTU당 2.5 IOPS | DTU당 48 IOPS|
 |IO 대기 시간(근사치)|5ms(읽기), 10ms(쓰기)|5ms(읽기), 10ms(쓰기)|2ms(읽기/쓰기)|
 |Columnstore 인덱싱 |N/A|S3 이상|지원됨|
-|메모리 내 OLTP|N/A|N/A|지원됨|
+|메모리 내 OLTP|해당 사항 없음|해당 사항 없음|지원됨|
 |||||
 
 > [!NOTE]
-> Azure를 살펴보기 위한 Azure 체험 계정와 함께에서 기본 서비스 계층에서 무료 Azure SQL 데이터베이스를 가져올 수 있습니다. 자세한 내용은 [Azure 체험 계정으로 관리되는 클라우드 데이터베이스 만들기](https://azure.microsoft.com/free/services/sql-database/)를 참조하세요.
+> Azure 무료 계정과 함께 기본 서비스 계층에서 azure SQL database를 사용 하 여 Azure를 탐색할 수 있습니다. 자세한 내용은 [Azure 체험 계정으로 관리되는 클라우드 데이터베이스 만들기](https://azure.microsoft.com/free/services/sql-database/)를 참조하세요.
 
-## <a name="single-database-dtu-and-storage-limits"></a>단일 데이터베이스 DTU 및 저장소 제한
+## <a name="single-database-dtu-and-storage-limits"></a>단일 데이터베이스 DTU 및 스토리지 제한
 
-계산 크기는 단일 데이터베이스에 대해서는 DTU(데이터베이스 트랜잭션 단위), 탄력적 풀에 대해서는 eDTU(탄력적 데이터베이스 트랜잭션 단위)로 표현됩니다. DTU 및 eDTU에 대한 자세한 내용은 [DTU 기반 구매 모델](sql-database-purchase-models.md#dtu-based-purchasing-model)을 참조하세요.
+컴퓨팅 크기는 단일 데이터베이스에 대해서는 DTU(데이터베이스 트랜잭션 단위), 탄력적 풀에 대해서는 eDTU(탄력적 데이터베이스 트랜잭션 단위)로 표현됩니다. DTU 및 eDTU에 대한 자세한 내용은 [DTU 기반 구매 모델](sql-database-purchase-models.md#dtu-based-purchasing-model)을 참조하세요.
 
 ||Basic|표준|Premium|
 | :-- | --: | --: | --: |
-| 최대 저장소 크기 | 2GB | 1TB | 4 TB  |
+| 최대 스토리지 크기 | 2GB | 1TB | 4 TB  |
 | 최대 DTU | 5 | 3000 | 4000 | 
 |||||
 
 > [!IMPORTANT]
 > 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database의 파일 공간 관리](sql-database-file-space-management.md)를 참조하세요.
 
-## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>탄력적 풀 eDTU, 저장소 및 풀링된 데이터베이스 제한
+## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>탄력적 풀 eDTU, 스토리지 및 풀링된 데이터베이스 제한
 
-| | **Basic** | **Standard** | **Premium** |
+| | **기본** | **Standard** | **Premium** |
 | :-- | --: | --: | --: |
-| 데이터베이스당 최대 저장소 크기  | 2GB | 1TB | 1TB |
-| 풀당 최대 저장소 크기 | 156GB | 4 TB | 4 TB |
+| 데이터베이스당 최대 스토리지 크기  | 2GB | 1TB | 1TB |
+| 풀당 최대 스토리지 크기 | 156GB | 4 TB | 4 TB |
 | 데이터베이스당 최대 eDTU | 5 | 3000 | 4000 |
 | 풀당 최대 eDTU | 1600 | 3000 | 4000 |
 | 풀당 최대 데이터베이스 수 | 500  | 500 | 100 |
 |||||
 
 > [!IMPORTANT]
-> 현재 다음 지역을 제외한 모든 지역에서 프리미엄 계층의 스토리지 1TB 이상을 사용할 수 있습니다. 중국 동부, 중국 북부, 독일 중부, 독일 북동부, 미국 중서부, 미국 DoD 지역 및 미국 중앙 정부 이러한 지역에서 프리미엄 계층 저장소 최대 크기는 1TB로 제한됩니다.  자세한 내용은 [P11-P15 현재 제한 사항](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb)을 참조하세요.  
+> 현재 다음 지역을 제외한 모든 지역에서 프리미엄 계층의 스토리지 1TB 이상을 사용할 수 있습니다. 중국 동부, 중국 북부, 독일 중부, 독일 북동부, 미국 중서부, 미국 DoD 지역 및 미국 중앙 정부 이러한 지역에서 프리미엄 계층 스토리지 최대 크기는 1TB로 제한됩니다.  자세한 내용은 [P11-P15 현재 제한 사항](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb)을 참조하세요.  
 > [!IMPORTANT]
 > 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database의 파일 공간 관리](sql-database-file-space-management.md)를 참조하세요.
 
@@ -82,7 +81,7 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 
 ### <a name="correlating-benchmark-results-to-real-world-database-performance"></a>벤치마크 결과와 실제 데이터베이스 성능 간 상관 관계 분석
 
-모든 벤치마크는 대표적, 암시적 수치임을 이해하는 것이 중요합니다. 벤치마크 애플리케이션에서 달성한 트랜잭션 속도는 다른 애플리케이션에서 달성할 수 있는 속도와 동일하지 않습니다. 벤치마크는 다양한 테이블 및 데이터 유형이 포함된 스키마에 대해 실행되는 다양한 트랜잭션 유형의 컬렉션으로 구성되어 있습니다. 벤치마크는 모든 OLTP 워크로드에 공통적이고 동일한 기본 작업을 실행하며 특정 클래스의 데이터베이스 또는 애플리케이션을 나타내지 않습니다. 벤치마크의 목표는 계산 크기를 확장 또는 축소할 경우 예상할 수 있는 데이터베이스의 상대적 성능에 대한 합리적 지침을 제공하는 것입니다. 실제로, 각 데이터베이스는 크기와 복잡성이 다르고 다양하게 혼합된 워크로드를 처리할 수 있으며 각각 다른 방식으로 대응합니다. 예를 들어, IO를 많이 사용하는 애플리케이션은 IO 임계값에 빠르게 도달할 수 있고 CPU를 많이 사용하는 애플리케이션은 CPU 한도에 빠르게 도달할 수 있습니다. 부하가 증가할 때 특정 데이터베이스가 벤치마크와 동일하게 확장된다는 보장이 없습니다.
+모든 벤치마크는 대표적, 암시적 수치임을 이해하는 것이 중요합니다. 벤치마크 애플리케이션에서 달성한 트랜잭션 속도는 다른 애플리케이션에서 달성할 수 있는 속도와 동일하지 않습니다. 벤치마크는 다양한 테이블 및 데이터 유형이 포함된 스키마에 대해 실행되는 다양한 트랜잭션 유형의 컬렉션으로 구성되어 있습니다. 벤치마크는 모든 OLTP 워크로드에 공통적이고 동일한 기본 작업을 실행하며 특정 클래스의 데이터베이스 또는 애플리케이션을 나타내지 않습니다. 벤치마크의 목표는 컴퓨팅 크기를 확장 또는 축소할 경우 예상할 수 있는 데이터베이스의 상대적 성능에 대한 합리적 지침을 제공하는 것입니다. 실제로, 각 데이터베이스는 크기와 복잡성이 다르고 다양하게 혼합된 워크로드를 처리할 수 있으며 각각 다른 방식으로 대응합니다. 예를 들어, IO를 많이 사용하는 애플리케이션은 IO 임계값에 빠르게 도달할 수 있고 CPU를 많이 사용하는 애플리케이션은 CPU 한도에 빠르게 도달할 수 있습니다. 부하가 증가할 때 특정 데이터베이스가 벤치마크와 동일하게 확장된다는 보장이 없습니다.
 
 벤치마크와 그 방법론은 아래에서 더 자세히 설명합니다.
 
@@ -100,11 +99,11 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 
 데이터베이스는 "배율"을 기준으로 크기를 조정합니다. 배율(약어: SF)은 확장 및 증가 테이블의 카디널리티를 결정합니다. 아래의 사용자 및 속도 섹션에 설명된 대로 데이터베이스 크기, 사용자 수, 최대 성능은 모두 서로에 비례하여 확장됩니다.
 
-### <a name="transactions"></a>트랜잭션
+### <a name="transactions"></a>의
 
 워크로드는 아래 표와 같이 9가지 트랜잭션 유형으로 구성되어 있습니다. 각 트랜잭션은 다른 트랜잭션과 크게 대비되도록 데이터베이스 엔진 및 시스템 하드웨어에서 특정 시스템 집합의 특성을 강조하도록 설계되었습니다. 이 방식에서는 다양한 구성 요소가 전반적 성능에 미치는 영향을 쉽게 평가할 수 있습니다. 예를 들어 "읽기 작업이 많은" 트랜잭션은 디스크에서 많은 읽기 작업을 만듭니다.
 
-| 트랜잭션 유형 | 설명 |
+| 트랜잭션 유형 | Description |
 | --- | --- |
 | 적은 읽기 작업 |SELECT, 메모리 내, 읽기 전용 |
 | 중간 읽기 작업 |SELECT, 대부분 메모리 내, 읽기 전용 |
@@ -156,7 +155,7 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 
 유효한 벤치마크를 실행하려면 한 시간 이상의 안정적 측정 기간이 필요합니다.
 
-### <a name="metrics"></a>메트릭
+### <a name="metrics"></a>metrics
 
 벤치마크의 핵심 메트릭은 처리량과 응답 시간입니다.
 
@@ -166,10 +165,10 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 | 서비스 클래스 | 처리량 측정 | 응답 시간 요구 사항 |
 | --- | --- | --- |
 | Premium |초당 트랜잭션 수 |0\.5초에서 95 백분위수 |
-| Standard |분당 트랜잭션 수 |1\.0초에서 90 백분위수 |
+| 표준 |분당 트랜잭션 수 |1\.0초에서 90 백분위수 |
 | Basic |시간당 트랜잭션 수 |2\.0초에서 80 백분위수 |
 
 ## <a name="next-steps"></a>다음 단계
 
-- 단일 데이터베이스에 사용할 수 있는 특정 계산 크기 및 스토리지 크기 선택 방법에 대한 자세한 내용은 [단일 데이터베이스에 대한 SQL Database DTU 기반 리소스 제한](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)을 참조하세요.
-- 탄력적 풀에 사용할 수 있는 특정 계산 크기 및 스토리지 크기를 선택하는 방법에 대한 자세한 내용은 [SQL Database DTU 기반 리소스 제한](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes)을 참조하세요.
+- 단일 데이터베이스에 사용할 수 있는 특정 컴퓨팅 크기 및 스토리지 크기 선택 방법에 대한 자세한 내용은 [단일 데이터베이스에 대한 SQL Database DTU 기반 리소스 제한](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)을 참조하세요.
+- 탄력적 풀에 사용할 수 있는 특정 컴퓨팅 크기 및 스토리지 크기를 선택하는 방법에 대한 자세한 내용은 [SQL Database DTU 기반 리소스 제한](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes)을 참조하세요.

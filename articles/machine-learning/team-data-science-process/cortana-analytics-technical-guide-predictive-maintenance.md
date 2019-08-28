@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: feccaea0451ae36d841aae95ed0baf54f90c2700
-ms.sourcegitcommit: 3107874d7559ea975e4d55ae33cdf45f4b5485e4
+ms.openlocfilehash: 37acd88dbfe8ed1790f1bfa68d5e9762a861ddc7
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67568253"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626412"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>항공 우주에서 예측 유지 관리를 위한 Cortana Intelligence 솔루션 템플릿에 대한 기술 가이드
 
@@ -103,7 +103,7 @@ Azure Stream Analytics 쿼리는 다음으로 찾을 수 있습니다.
   * 쿼리 자체를 보려면 ***쿼리***
   * 다른 출력을 보려면 ***출력***
 
-Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analytics 쿼리 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx) 에서 찾을 수 있습니다.
+Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analytics 쿼리 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) 에서 찾을 수 있습니다.
 
 이 솔루션에서 쿼리는 이 솔루션 템플릿의 일부로 제공되는 Power BI 대시보드에 들어오는 데이터 스트림에 대한 거의 실시간 분석 정보로 세 개의 데이터 세트를 출력합니다. 들어오는 데이터 형식에 대한 암시적 지식이 있기 때문에 이러한 쿼리는 데이터 형식에 기반하여 변경되어야 합니다.
 
@@ -116,7 +116,7 @@ Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analyti
 
 이 섹션에서는 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)에 포함된 필요한 [파이프라인 및 작업](../../data-factory/concepts-pipelines-activities.md)을 설명합니다. 솔루션의 다이어그램 보기는 다음과 같습니다.
 
-![Azure Data Factory](./media/cortana-analytics-technical-guide-predictive-maintenance/azure-data-factory.png)
+![Azure 데이터 팩터리](./media/cortana-analytics-technical-guide-predictive-maintenance/azure-data-factory.png)
 
 이 팩터리의 두 파이프라인은 데이터를 분할하고 집계하는 데 사용되는 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트를 포함합니다. 언급했듯이 스크립트는 설치하는 동안 만든 [Azure Storage](https://azure.microsoft.com/services/storage/) 계정에 있습니다. 해당 위치는 maintenancesascript\\\\script\\\\hive\\\\(또는 https://[Your solution name].blob.core.windows.net/maintenancesascript)입니다.
 

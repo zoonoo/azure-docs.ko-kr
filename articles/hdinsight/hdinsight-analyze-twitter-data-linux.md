@@ -168,7 +168,7 @@ Twitter를 사용하여 각 트윗에 대한 데이터를 REST API를 통해 JSO
 
 ### <a name="upload-the-data"></a>데이터 업로드
 
-HDInsight 저장소로 데이터를 복사하려면 다음 명령을 사용합니다.
+HDInsight 스토리지로 데이터를 복사하려면 다음 명령을 사용합니다.
 
 ```bash
 hdfs dfs -mkdir -p /tutorials/twitter/data

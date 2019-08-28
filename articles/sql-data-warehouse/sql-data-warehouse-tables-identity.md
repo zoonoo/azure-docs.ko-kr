@@ -2,7 +2,7 @@
 title: IDENTITY를 사용하여 대리 키 만들기 - Azure SQL Data Warehouse| Microsoft Docs
 description: Azure SQL Data Warehouse의 테이블에 IDENTITY 속성을 사용하여 대리 키를 만들기 위한 권장 사항 및 예제입니다.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/30/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 19a06d0fdff324dc3bee246ef7a5a7011c089872
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4c65bf7cc8edfa246508bb22001aed40c34414f3
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65851608"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68515584"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 IDENTITY를 사용하여 대리 키 만들기
 
@@ -76,7 +76,7 @@ FROM dbo.T1;
 DBCC PDW_SHOWSPACEUSED('dbo.T1');
 ```
 
-앞의 예제에서 두 개의 행이 배포 1에서 연결되었습니다. 첫 번째 행에는 열 `C1`의 대리 값 1이 있고 두 번째 행에는 대리 값 61이 있습니다. 이 값은 모두 IDENTITY 속성에 의해 생성되었습니다. 그러나 값은 연속적인 값으로 할당되지 않습니다. 이 동작은 의도된 것입니다.
+앞의 예제에서 두 개의 행이 배포 1에서 연결되었습니다. 첫 번째 행에는 열 `C1`의 대리 값 1이 있고 두 번째 행에는 대리 값 61이 있습니다. 이 값은 모두 IDENTITY 속성에 의해 생성되었습니다. 그러나 값은 연속적인 값으로 할당되지 않습니다. 이 동작은 설계 시 의도된 것입니다.
 
 ### <a name="skewed-data"></a>불균형 데이터
 
@@ -122,7 +122,7 @@ FROM    dbo.T1
 ;
 ```
 
-## <a name="loading-data"></a>데이터 로드
+## <a name="loading-data"></a>데이터 로드 중
 
 IDENTITY 속성이 존재한다는 것은 데이터 로딩 코드와 몇 가지 관련이 있습니다. 이 섹션에서는 IDENTITY를 사용하여 테이블로 데이터를 로드하는 몇 가지 기본 패턴을 강조 표시합니다.
 
@@ -241,5 +241,5 @@ AND     tb.name = 'T1'
 ## <a name="next-steps"></a>다음 단계
 
 - [테이블 개요](/azure/sql-data-warehouse/sql-data-warehouse-tables-overview)
-- [TABLE (TRANSACT-SQL) IDENTITY (속성) 만들기](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest)
+- [CREATE TABLE (Transact-sql) IDENTITY (속성)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest)
 - [DBCC CHECKINDENT](/sql/t-sql/database-console-commands/dbcc-checkident-transact-sql)

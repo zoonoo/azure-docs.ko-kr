@@ -13,7 +13,7 @@
   items:
     - name: 의심스러운 위협 검색
       href: tutorial-detect-threats.md
-    - name: 사례 조사
+    - name: 인시던트 조사
       href: tutorial-investigate-cases.md
     - name: 위협에 대응
       href: tutorial-respond-threats-playbook.md
@@ -52,6 +52,8 @@
           items:
             - name: 제네릭 CEF 연결
               href: connect-common-event-format.md
+            - name: AWS 연결
+              href: connect-aws.md
             - name: Barracuda 연결
               href: connect-barracuda.md
             - name: Check Point 연결
@@ -70,6 +72,8 @@
               href: connect-cisco.md
         - name: 위협 인텔리전스 연결
           href: connect-threat-intelligence.md
+        - name: Azure Stack VM 연결
+          href: connect-azure-stack.md
     - name: 사냥
       href: hunting.md
       items:

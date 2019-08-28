@@ -1,19 +1,18 @@
 ---
 title: Azure Storage Explorer를 사용하여 Azure 파일 공유를 관리하기 위한 빠른 시작
 description: 이 빠른 시작을 통해 Azure Storage Explorer를 사용하여 Azure Files를 관리하는 방법을 알아봅니다.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bf87704a8055b5725178c846df71ed4d873417e3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b034b3e7aa5fcb61cf83565f3e4c3b1c83f3610c
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713881"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699456"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>빠른 시작: Azure Storage Explorer를 사용하여 Azure 파일 공유 만들기 및 관리
 이 가이드에서는 Azure Storage Explorer를 사용하여 [Azure 파일 공유](storage-files-introduction.md)로 작업하는 기본 사항을 설명합니다. Azure 파일 공유는 다른 파일 공유와 유사하지만, 클라우드에 저장되고 Azure Platform에서 지원합니다. Azure 파일 공유는 산업 표준 SMB 프로토콜을 지원하며 여러 머신, 애플리케이션 및 인스턴스 전반에서 파일 공유를 활성화합니다. 
@@ -25,8 +24,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="prerequisites"></a>필수 조건
 이 빠른 시작을 사용하려면 Storage Explorer를 설치해야 합니다. 다운로드하고 설치하려면 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)로 이동합니다.
 
-## <a name="create-a-storage-account"></a>저장소 계정 만들기
-Storage Explorer를 사용하여 새 리소스를 만들 수 없습니다. 이 데모의 목적을 위해 [Azure Portal](https://portal.azure.com/)에 저장소 계정을 만듭니다. 
+## <a name="create-a-storage-account"></a>스토리지 계정 만들기
+Storage Explorer를 사용하여 새 리소스를 만들 수 없습니다. 이 데모의 목적을 위해 [Azure Portal](https://portal.azure.com/)에 스토리지 계정을 만듭니다. 
 
 [!INCLUDE [storage-files-create-storage-account-portal](../../../includes/storage-files-create-storage-account-portal.md)]
 
@@ -42,9 +41,9 @@ Storage Explorer를 처음 시작할 때 **Microsoft Azure Storage Explorer - �
 ![Microsoft Azure Storage Explorer의 스크린샷 - 연결 창](./media/storage-how-to-use-files-storage-explorer/connect-to-azure-storage-1.png)
 
 ### <a name="create-a-file-share"></a>파일 공유 만들기
-`storageacct<random number>` 저장소 계정에 첫 번째 Azure 파일 공유를 만들려면:
+`storageacct<random number>` 스토리지 계정에 첫 번째 Azure 파일 공유를 만들려면:
 
-1. 만든 저장소 계정을 확장합니다.
+1. 만든 스토리지 계정을 확장합니다.
 2. **파일 공유**를 마우스 오른쪽 단추로 클릭한 다음, **파일 공유 만들기**를 선택합니다.  
     ![컨텍스트에서 파일 공유 폴더 및 상황에 맞는 메뉴의 스크린샷](media/storage-how-to-use-files-storage-explorer/create-file-share-1.png)
 

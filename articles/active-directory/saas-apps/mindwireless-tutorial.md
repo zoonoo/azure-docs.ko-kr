@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 2fce8b628798ef38889f64d9409bf586a85463b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2c320944e952dbea74c41ffd3471143f6713585b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65871859"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097366"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindwireless"></a>자습서: mindWireless와 Azure Active Directory 통합
 
@@ -30,7 +30,7 @@ mindWireless를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니
 * 사용자가 자신의 Azure AD 계정으로 mindWireless에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -56,7 +56,7 @@ mindWireless의 Azure AD 통합을 구성하려면 갤러리의 mindWireless를 
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -117,7 +117,7 @@ mindWireless에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 �
 
 6. 위에서 언급한 특성 외에도, mindWireless 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
 
-    | Name | 네임스페이스  |  원본 특성|
+    | 이름 | 네임스페이스  |  원본 특성|
     | -------------- | --------------- | ----------------|
     | 직원 ID | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`| user.employeeid |
 

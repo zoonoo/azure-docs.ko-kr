@@ -25,7 +25,7 @@ ms.locfileid: "60525537"
 이 가이드에서는 Python에서 프로그래밍 방식으로 일반 서비스 관리 작업을 수행하는 방법을 보여 줍니다. [Python용 Azure SDK](https://github.com/Azure/azure-sdk-for-python)의 **ServiceManagementService** 클래스는 [Azure Portal][management-portal]에서 사용할 수 있는 대부분의 서비스 관리 관련 기능에 대해 프로그래밍 방식의 액세스를 지원합니다. 클라우드 서비스, 배포, 데이터 관리 서비스, 가상 머신 만들기, 업데이트 및 삭제에 이 기능을 사용할 수 있습니다. 이 기능은 서비스 관리에 프로그래밍 방식으로 액세스해야 하는 애플리케이션을 빌드하는 데 유용할 수 있습니다.
 
 ## <a name="WhatIs"> </a>서비스 관리 정의
-Azure Service Management API는 [Azure Portal][management-portal]을 통해 사용할 수 있는 대부분의 서비스 관리 기능에 대해 프로그래밍 방식의 액세스를 제공합니다. Python용 Azure SDK를 사용하여 클라우드 서비스 및 저장소 계정을 관리할 수 있습니다.
+Azure Service Management API는 [Azure Portal][management-portal]을 통해 사용할 수 있는 대부분의 서비스 관리 기능에 대해 프로그래밍 방식의 액세스를 제공합니다. Python용 Azure SDK를 사용하여 클라우드 서비스 및 스토리지 계정을 관리할 수 있습니다.
 
 서비스 관리 API를 사용하려면 [Azure 계정을 만들어야](https://azure.microsoft.com/pricing/free-trial/)합니다.
 
@@ -101,7 +101,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure Cloud Services 인증서 �
     for location in result:
         print(location.name)
 
-클라우드 서비스 또는 저장소 서비스를 만드는 경우 유효한 위치를 제공해야 합니다. **list\_locations** 메서드는 항상 현재 사용 가능한 위치의 최신 목록을 반환합니다. 현재 사용 가능한 위치는 다음과 같습니다.
+클라우드 서비스 또는 스토리지 서비스를 만드는 경우 유효한 위치를 제공해야 합니다. **list\_locations** 메서드는 항상 현재 사용 가능한 위치의 최신 목록을 반환합니다. 현재 사용 가능한 위치는 다음과 같습니다.
 
 * 서유럽
 * 유럽 북부
@@ -171,7 +171,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure Cloud Services 인증서 �
     sms.delete_deployment('myhostedservice', 'v1')
 
 ## <a name="CreateStorageService"> </a>저장소 서비스 만들기
-[저장소 서비스](../storage/common/storage-create-storage-account.md)로 Azure [Blob](../storage/blobs/storage-python-how-to-use-blob-storage.md), [테이블](../cosmos-db/table-storage-how-to-use-python.md), [큐](../storage/queues/storage-python-how-to-use-queue-storage.md)에 액세스할 수 있습니다. 저장소 서비스를 만들려면 서비스에 대한 이름이 필요합니다(소문자 3~24자 사이이며 Azure 내에서 고유한). 설명, 레이블(최대 100자, base64로 자동으로 인코딩됨) 및 위치도 필요합니다. 다음 예제에서는 위치를 지정하여 저장소 서비스를 만드는 방법을 보여 줍니다.
+[스토리지 서비스](../storage/common/storage-create-storage-account.md)로 Azure [Blob](../storage/blobs/storage-python-how-to-use-blob-storage.md), [테이블](../cosmos-db/table-storage-how-to-use-python.md), [큐](../storage/queues/storage-python-how-to-use-queue-storage.md)에 액세스할 수 있습니다. 스토리지 서비스를 만들려면 서비스에 대한 이름이 필요합니다(소문자 3~24자 사이이며 Azure 내에서 고유한). 설명, 레이블(최대 100자, base64로 자동으로 인코딩됨) 및 위치도 필요합니다. 다음 예제에서는 위치를 지정하여 스토리지 서비스를 만드는 방법을 보여 줍니다.
 
     from azure import *
     from azure.servicemanagement import *
@@ -204,7 +204,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure Cloud Services 인증서 �
         print('')
 
 ## <a name="DeleteStorageService"> </a>저장소 서비스 삭제
-스토리지 서비스를 삭제하려면 스토리지 서비스 이름을 **delete\_storage\_account** 메서드에 전달합니다. 저장소 서비스를 삭제하면 그 서비스에 저장되어 있는 모든 데이터(Blob, 테이블, 큐)가 삭제됩니다.
+스토리지 서비스를 삭제하려면 스토리지 서비스 이름을 **delete\_storage\_account** 메서드에 전달합니다. 스토리지 서비스를 삭제하면 그 서비스에 저장되어 있는 모든 데이터(Blob, 테이블, 큐)가 삭제됩니다.
 
     from azure import *
     from azure.servicemanagement import *

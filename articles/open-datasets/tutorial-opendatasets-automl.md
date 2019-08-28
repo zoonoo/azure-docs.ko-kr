@@ -4,18 +4,17 @@ titleSuffix: Azure Open Datasets
 description: Azure Machine Learning Service의 기능과 함께 Azure Open Datasets의 편리한 기능을 이용하여 뉴욕 시(NYC)의 택시 요금을 예측하는 회귀 모델을 만드는 방법을 알아봅니다.
 services: open-datasets
 ms.service: open-datasets
-ms.subservice: core
 ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 05/02/2019
-ms.openlocfilehash: e753793b5da59d09a21991831046a43899c62ef2
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 6f72daa4a601df0e3592910645c2f9b35ab64431
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027519"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845823"
 ---
 # <a name="tutorial-build-a-regression-model-with-automated-machine-learning-and-open-datasets"></a>자습서: 자동화된 기계 학습 및 Azure Open Datasets를 사용하여 회귀 모델 만들기
 
@@ -38,7 +37,7 @@ ms.locfileid: "65027519"
 
 ### <a name="create-a-workspace"></a>작업 영역 만들기
 
-아직 없는 경우 [지침](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace#portal)에 따라 Azure Portal을 통해 작업 영역을 만듭니다. 작업 영역을 만든 후 작업 영역 이름, 리소스 그룹 이름 및 구독 ID를 메모합니다.
+아직 없는 경우 [지침](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-workspace)에 따라 Azure Portal을 통해 작업 영역을 만듭니다. 작업 영역을 만든 후 작업 영역 이름, 리소스 그룹 이름 및 구독 ID를 메모합니다.
 
 ### <a name="create-a-python-environment"></a>Python 환경 만들기
 
@@ -63,7 +62,7 @@ ms.locfileid: "65027519"
     ```
 1. 이 자습서에 필요한 패키지를 설치합니다. 이는 큰 패키지이며 설치하는 데 5 ~ 10분이 걸립니다.
     ```
-    pip install azureml-sdk[automl] azureml-contrib-opendatasets
+    pip install azureml-sdk[automl] azureml-opendatasets
     ```
 1. 환경에서 Notebook 커널을 시작합니다.
     ```
@@ -78,7 +77,7 @@ ms.locfileid: "65027519"
 
 
 ```python
-from azureml.contrib.opendatasets import NycTlcGreen
+from azureml.opendatasets import NycTlcGreen
 import pandas as pd
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
@@ -91,8 +90,8 @@ from dateutil.relativedelta import relativedelta
 
 ```python
 green_taxi_df = pd.DataFrame([])
-start = datetime.strptime("1/1/2016","%m/%d/%Y")
-end = datetime.strptime("1/31/2016","%m/%d/%Y")
+start = datetime.strptime("1/1/2016", "%m/%d/%Y")
+end = datetime.strptime("1/31/2016", "%m/%d/%Y")
 
 for sample_month in range(12):
     temp_df_green = NycTlcGreen(start + relativedelta(months=sample_month), end + relativedelta(months=sample_month)) \
@@ -402,7 +401,9 @@ def build_time_features(vector):
 
     return pd.Series((month_num, day_of_month, day_of_week, hour_of_day, country_code))
 
-green_taxi_df[["month_num", "day_of_month","day_of_week", "hour_of_day", "country_code"]] = green_taxi_df[["lpepPickupDatetime"]].apply(build_time_features, axis=1)
+
+green_taxi_df[["month_num", "day_of_month", "day_of_week", "hour_of_day", "country_code"]
+              ] = green_taxi_df[["lpepPickupDatetime"]].apply(build_time_features, axis=1)
 green_taxi_df.head(10)
 ```
 
@@ -696,11 +697,12 @@ green_taxi_df.head(10)
 columns_to_remove = ["lpepDropoffDatetime", "puLocationId", "doLocationId", "extra", "mtaTax",
                      "improvementSurcharge", "tollsAmount", "ehailFee", "tripType", "rateCodeID",
                      "storeAndFwdFlag", "paymentType", "fareAmount", "tipAmount"
-                    ]
+                     ]
 for col in columns_to_remove:
     green_taxi_df.pop(col)
 
-green_taxi_df = green_taxi_df.rename(columns={"lpepPickupDatetime": "datetime"})
+green_taxi_df = green_taxi_df.rename(
+    columns={"lpepPickupDatetime": "datetime"})
 green_taxi_df["datetime"] = green_taxi_df["datetime"].dt.normalize()
 green_taxi_df.head(5)
 ```
@@ -831,7 +833,7 @@ green_taxi_df.head(5)
 이제 택시 데이터를 다운로드하고 준비가 거의 완료되었으므로 추가 기능으로 휴일 데이터를 추가합니다. 주요 휴일은 택시 수요가 획기적으로 증가하고 공급이 제한되는 시기이므로 휴일별 기능은 모델 정확도를 높이는 데 도움이 됩니다. 휴일 데이터 세트는 상대적으로 작으므로 `PublicHolidays` 클래스 생성자를 필터링용 매개 변수 없이 사용하여 전체 세트를 페치합니다. 데이터를 미리 보고 형식을 확인합니다.
 
 ```python
-from azureml.contrib.opendatasets import PublicHolidays
+from azureml.opendatasets import PublicHolidays
 # call default constructor to download full dataset
 holidays_df = PublicHolidays().to_pandas_dataframe()
 holidays_df.head(5)
@@ -922,12 +924,14 @@ holidays_df.head(5)
 `countryRegionCode` 및 `date` 열의 이름을 택시 데이터의 해당 필드 이름과 일치하도록 바꾸고 시간을 키로 사용할 수 있도록 정규화합니다. 그런 다음, Pandas `merge()` 함수를 사용하여 왼쪽 조인을 수행하여 휴일 데이터를 택시 데이터와 조인합니다. 그러면 `green_taxi_df`의 모든 레코드는 유지되지만 해당 `datetime` 및 `country_code`에 대해 존재하는 휴일 데이터(이 경우 언제나 `"US"`)가 추가됩니다. 데이터를 미리 보고 올바르게 병합되었는지 확인합니다.
 
 ```python
-holidays_df = holidays_df.rename(columns={"countryRegionCode": "country_code", "date": "datetime"})
+holidays_df = holidays_df.rename(
+    columns={"countryRegionCode": "country_code", "date": "datetime"})
 holidays_df["datetime"] = holidays_df["datetime"].dt.normalize()
 holidays_df.pop("countryOrRegion")
 holidays_df.pop("holidayName")
 
-taxi_holidays_df = pd.merge(green_taxi_df, holidays_df, how="left", on=["datetime", "country_code"])
+taxi_holidays_df = pd.merge(green_taxi_df, holidays_df, how="left", on=[
+                            "datetime", "country_code"])
 taxi_holidays_df.head(5)
 ```
 
@@ -1069,11 +1073,11 @@ taxi_holidays_df.head(5)
 이제 NOAA(미국 해양대기청) 지상 기상 데이터를 택시 데이터 및 휴일 데이터에 추가합니다. 유사한 방법을 사용하여 기상 데이터를 한 번에 1개월 분량씩 반복해서 다운로드하여 페치합니다. 또한 문자열 배열과 함께 `cols` 매개 변수를 지정하여 다운로드할 열을 필터링합니다. 이는 세계 전역의 지상 기상 데이터를 포함하는 아주 큰 데이터 세트이므로 각 월을 추가하기 전에 데이터 프레임에 대해 `query()` 함수를 사용하여 위도/경도 필드를 뉴욕 시(NYC) 부근으로 필터링합니다. 그러면 `weather_df`가 너무 커지지 않습니다.
 
 ```python
-from azureml.contrib.opendatasets import NoaaIsdWeather
+from azureml.opendatasets import NoaaIsdWeather
 
 weather_df = pd.DataFrame([])
-start = datetime.strptime("1/1/2016","%m/%d/%Y")
-end = datetime.strptime("1/31/2016","%m/%d/%Y")
+start = datetime.strptime("1/1/2016", "%m/%d/%Y")
+end = datetime.strptime("1/31/2016", "%m/%d/%Y")
 
 for sample_month in range(12):
     tmp_df = NoaaIsdWeather(cols=["temperature", "precipTime", "precipDepth", "snowDepth"], start_date=start + relativedelta(months=sample_month), end_date=end + relativedelta(months=sample_month))\
@@ -1255,7 +1259,8 @@ weather_df.pop("latitude")
 weather_df = weather_df.query("temperature==temperature")
 
 # group by datetime
-aggregations = {"snowDepth": "mean", "precipTime": "max", "temperature": "mean", "precipDepth": "max"}
+aggregations = {"snowDepth": "mean", "precipTime": "max",
+                "temperature": "mean", "precipDepth": "max"}
 weather_df_grouped = weather_df.groupby("datetime").agg(aggregations)
 weather_df_grouped.head(10)
 ```
@@ -1371,7 +1376,8 @@ weather_df_grouped.head(10)
 준비한 택시 및 휴일 데이터를 새 기상 데이터와 병합합니다. 이번에는 `datetime` 키만 필요하며 데이터의 왼쪽 조인을 다시 수행합니다. 새 데이터 프레임에 대해 `describe()` 함수를 실행하고 각 필드에 대한 요약 통계를 확인합니다.
 
 ```python
-taxi_holidays_weather_df = pd.merge(taxi_holidays_df, weather_df_grouped, how="left", on=["datetime"])
+taxi_holidays_weather_df = pd.merge(
+    taxi_holidays_df, weather_df_grouped, how="left", on=["datetime"])
 taxi_holidays_weather_df.describe()
 ```
 
@@ -1570,13 +1576,16 @@ taxi_holidays_weather_df.describe()
 쿼리 함수를 사용하여 이러한 이상값을 필터링한 다음, 학습에 불필요한 마지막 몇 개의 열을 제거합니다.
 
 ```python
-final_df = taxi_holidays_weather_df.query("pickupLatitude>=40.53 and pickupLatitude<=40.88")
-final_df = final_df.query("pickupLongitude>=-74.09 and pickupLongitude<=-73.72")
+final_df = taxi_holidays_weather_df.query(
+    "pickupLatitude>=40.53 and pickupLatitude<=40.88")
+final_df = final_df.query(
+    "pickupLongitude>=-74.09 and pickupLongitude<=-73.72")
 final_df = final_df.query("tripDistance>0 and tripDistance<75")
 final_df = final_df.query("passengerCount>0 and passengerCount<100")
 final_df = final_df.query("totalAmount>0")
 
-columns_to_remove_for_training = ["datetime", "pickupLongitude", "pickupLatitude", "dropoffLongitude", "dropoffLatitude", "country_code"]
+columns_to_remove_for_training = ["datetime", "pickupLongitude",
+                                  "pickupLatitude", "dropoffLongitude", "dropoffLatitude", "country_code"]
 for col in columns_to_remove_for_training:
     final_df.pop(col)
 ```
@@ -1756,7 +1765,8 @@ x_df = final_df
 ```python
 from sklearn.model_selection import train_test_split
 
-X_train, X_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=222)
+X_train, X_test, y_train, y_test = train_test_split(
+    x_df, y_df, test_size=0.2, random_state=222)
 ```
 
 ### <a name="load-workspace-and-configure-experiment"></a>작업 영역 로드 및 실험 구성
@@ -1768,7 +1778,8 @@ X_train, X_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, r
 from azureml.core.workspace import Workspace
 from azureml.core.experiment import Experiment
 
-workspace = Workspace.get(subscription_id="<your-subscription-id>", name="<your-workspace-name>", resource_group="<your-resource-group>")
+workspace = Workspace.get(subscription_id="<your-subscription-id>",
+                          name="<your-workspace-name>", resource_group="<your-resource-group>")
 experiment = Experiment(workspace, "opendatasets-ml")
 ```
 
@@ -1793,7 +1804,7 @@ automl_config = AutoMLConfig(task="regression",
                              primary_metric="spearman_correlation",
                              preprocess=True,
                              n_cross_validations=5
-                            )
+                             )
 ```
 
 ### <a name="submit-experiment"></a>실험 제출

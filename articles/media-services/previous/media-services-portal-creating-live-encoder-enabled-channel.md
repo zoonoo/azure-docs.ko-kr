@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services를 사용 하 여 Azure portal을 사용 하 여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍을 수행 | Microsoft Docs
+title: Azure Portal를 사용 하 여 다중 비트 전송률 스트림을 만드는 Azure Media Services를 사용 하 여 라이브 스트리밍 수행 Microsoft Docs
 description: 이 자습서에서는 Azure 포털을 사용하여 단일 비트 전송률 라이브 스트림을 받아서 다중 비트 전송률 스트림으로 인코딩하는 채널을 만드는 단계를 안내합니다.
 services: media-services
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: daab3c3b2a5b756686a4867350478faaa1142279
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3217a2d5ba3d45a069eacdb67a8d69e9abc674b8
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64726865"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "69015214"
 ---
-# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Media Services를 사용 하 여 Azure portal을 사용 하 여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍을 수행합니다  
+# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Media Services를 사용 하 여 라이브 스트리밍을 수행 하 여 다중 비트 전송률 스트림을 만들 Azure Portal  
 > [!div class="op_single_selector"]
 > * [포털](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -29,7 +29,7 @@ ms.locfileid: "64726865"
 > 
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 참고: [v2에서 v3 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
 
 이 자습서에서는 단일 비트 전송률 라이브 스트림을 받아서 다중 비트 전송률 스트림으로 인코딩하는 **채널** 을 만드는 단계를 안내합니다.
 
@@ -39,11 +39,11 @@ ms.locfileid: "64726865"
 다음은 일반적인 라이브 스트리밍 애플리케이션을 만드는 일반적인 단계입니다.
 
 > [!NOTE]
-> 현재 라이브 이벤트의 최대 권장 기간은 8시간입니다. 더 시간 동안 채널을 실행해야 하는 경우 amslived@microsoft.com에 문의하세요.
+> 현재 라이브 이벤트의 최대 권장 기간은 8시간입니다. 더 시간 동안 채널을 실행해야 하는 경우 amshelp@microsoft.com에 문의하세요.
 
 1. 비디오 카메라를 컴퓨터에 연결합니다. <br/>설치 아이디어는 [간단하고 이동 가능한 이벤트 비디오 기어 설정]( https://link.medium.com/KNTtiN6IeT)을 확인하세요.
 
-    카메라 액세스 없으면와 같은 도구 [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) 수 비디오 파일에서 라이브 피드를 생성 합니다.
+    카메라에 대 한 액세스 권한이 없는 경우 [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) 와 같은 도구를 사용 하 여 비디오 파일에서 라이브 피드를 생성할 수 있습니다.
 1. RTMP 또는 부드러운 스트리밍 프로토콜 중 하나로 단일 비트 전송률 스트림을 출력할 수 있는 온-프레미스 라이브 인코더를 시작하고 구성합니다. 자세한 내용은 [Azure Media Services RTMP 지원 및 라이브 인코더](https://go.microsoft.com/fwlink/?LinkId=532824)를 참조하세요. <br/>또한 이 블로그를 확인하세요. [OBS를 사용한 라이브 스트리밍 프로덕션](https://link.medium.com/ttuwHpaJeT)
 
     이 단계는 채널을 만든 후에도 수행할 수 있습니다.
@@ -61,12 +61,12 @@ ms.locfileid: "64726865"
 1. 이벤트 스트리밍 및 보관을 중지할 때마다 이벤트를 중지합니다.
 1. 이벤트를 삭제하고 필요에 따라 자산을 삭제합니다.   
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
 
 * 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 
-  자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하십시오.
+  자세한 내용은 참조 하세요 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)합니다.
 * Media Services 계정. Media Services 계정을 만들려면 [계정 만들기](media-services-portal-create-account.md)를 참조하세요.
 * 단일 비트 전송률 라이브 스트림을 보낼 수 있는 웹캠 및 인코더.
 
@@ -119,7 +119,7 @@ ms.locfileid: "64726865"
 ## <a name="create-and-manage-events"></a>이벤트 만들기 및 관리
 
 ### <a name="overview"></a>개요
-채널은 라이브 스트림에서 세그먼트의 게시 및 저장소를 제어할 수 있는 이벤트/프로그램과 연결되어 있습니다. 채널은 이벤트/프로그램을 관리합니다. 채널 및 프로그램 관계는 기존 미디어와 매우 유사하여 채널에는 일정한 콘텐츠 스트림이 있고 프로그램 범위는 해당 채널에 있는 일부 시간 제한 이벤트로 지정됩니다.
+채널은 라이브 스트림에서 세그먼트의 게시 및 스토리지를 제어할 수 있는 이벤트/프로그램과 연결되어 있습니다. 채널은 이벤트/프로그램을 관리합니다. 채널 및 프로그램 관계는 기존 미디어와 매우 유사하여 채널에는 일정한 콘텐츠 스트림이 있고 프로그램 범위는 해당 채널에 있는 일부 시간 제한 이벤트로 지정됩니다.
 
 **보관 창** 길이를 설정하여 이벤트에 대해 기록된 콘텐츠를 유지할 시간을 지정할 수 있습니다. 이 값은 최소 5분에서 최대 25시간 사이로 설정할 수 있습니다. 또한 보관 창 길이는 클라이언트가 현재 라이브 위치에서 이전 시간을 검색할 수 있는 최대 시간을 나타냅니다. 이벤트는 지정된 시간 동안 실행되지만 기간 길이보다 늦는 콘텐츠는 계속 삭제됩니다. 또한 이 속성의 값은 클라이언트 매니페스트가 증가할 수 있는 길이를 결정합니다.
 
@@ -186,7 +186,7 @@ ms.locfileid: "64726865"
 ![자산](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 
 ## <a name="considerations"></a>고려 사항
-* 현재 라이브 이벤트의 최대 권장 기간은 8시간입니다. 더 시간 동안 채널을 실행해야 하는 경우 amslived@microsoft.com에 문의하세요.
+* 현재 라이브 이벤트의 최대 권장 기간은 8시간입니다. 더 시간 동안 채널을 실행해야 하는 경우 amshelp@microsoft.com에 문의하세요.
 * 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트가 **실행** 상태에 있는지 확인합니다.
 
 ## <a name="next-step"></a>다음 단계

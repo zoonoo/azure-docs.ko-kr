@@ -9,20 +9,20 @@ ms.assetid: 5471ad74-20b3-44df-a2b5-43cde2c0a045
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/01/2019
 ms.author: ryanwi
 ms.reviewer: dkershaw, sureshja
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77730ea7302b4abd6c17ebfe5620c0dc55fa407c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0b677e9a8faf55f121d80f5a6112fbdaf78e6c0
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544578"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853338"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API
 

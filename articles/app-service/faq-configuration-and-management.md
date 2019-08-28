@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 88051c45f21bdf11807ffcc63d8248cba81ae70b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7fbfbe5ae5d2ba4148d94768a1109f566151170
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66137066"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69513800"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 구성 및 관리 FAQ
 
@@ -30,7 +30,7 @@ ms.locfileid: "66137066"
 
 ## <a name="are-there-limitations-i-should-be-aware-of-if-i-want-to-move-app-service-resources"></a>App Service 리소스를 이동하려는 경우 알아야 할 제한 사항이 있나요?
 
-App Service 리소스를 새 리소스 그룹이나 구독으로 이동할 계획인 경우 알아야 할 몇 가지 제한 사항이 있습니다. 자세한 내용은 [App Service 제한 사항](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations)을 참조하세요.
+App Service 리소스를 새 리소스 그룹이나 구독으로 이동할 계획인 경우 알아야 할 몇 가지 제한 사항이 있습니다. 자세한 내용은 [App Service 제한 사항](../azure-resource-manager/move-limitations/app-service-move-limitations.md)을 참조하세요.
 
 ## <a name="how-do-i-use-a-custom-domain-name-for-my-web-app"></a>내 웹앱에 대한 사용자 지정 도메인 이름을 어떻게 사용할 수 있나요?
 
@@ -56,11 +56,11 @@ App Service 웹앱에 대한 SSL 인증서를 구매 및 설정하는 방법을 
 
 현재 Azure Application Insights에서는 이동 작업을 지원하지 않습니다. 원래 리소스 그룹에 Application Insights 리소스가 포함된 경우 해당 리소스를 이동할 수 없습니다. App Service 앱을 이동할 때 Application Insights 리소스를 포함하는 경우 전체 이동 작업이 실패합니다. 하지만 Application Insights와 App Service 계획의 경우 앱이 제대로 작동하려면 해당 앱과 같은 리소스 그룹에 있지 않아도 됩니다.
 
-자세한 내용은 [App Service 제한 사항](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations)을 참조하세요.
+자세한 내용은 [App Service 제한 사항](../azure-resource-manager/move-limitations/app-service-move-limitations.md)을 참조하세요.
 
 ## <a name="where-can-i-find-a-guidance-checklist-and-learn-more-about-resource-move-operations"></a>어디에서 지침 검사 목록을 찾고 리소스 이동 작업을 알아볼 수 있나요?
 
-[App Service 제한 사항](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations)에서는 새 구독 또는 동일한 구독의 새 리소스 그룹으로 리소스를 이동하는 방법을 보여 줍니다. 리소스 이동 검사 목록에 대한 정보를 확인하고, 어떤 서비스가 이동 작업을 지원하는지 알아보고, App Service 제한 사항 및 기타 항목을 자세히 알아볼 수 있습니다.
+[App Service 제한 사항](../azure-resource-manager/move-limitations/app-service-move-limitations.md)에서는 새 구독 또는 동일한 구독의 새 리소스 그룹으로 리소스를 이동하는 방법을 보여 줍니다. 리소스 이동 검사 목록에 대한 정보를 확인하고, 어떤 서비스가 이동 작업을 지원하는지 알아보고, App Service 제한 사항 및 기타 항목을 자세히 알아볼 수 있습니다.
 
 ## <a name="how-do-i-set-the-server-time-zone-for-my-web-app"></a>내 웹앱에 대한 서버 표준 시간대를 어떻게 설정할 수 있나요?
 
@@ -70,7 +70,7 @@ App Service 웹앱에 대한 SSL 인증서를 구매 및 설정하는 방법을 
 2. **앱 설정**에서 이 설정을 추가합니다.
     * 키 = WEBSITE_TIME_ZONE
     * 값 = *원하는 표준 시간대*
-3. **저장**을 선택합니다.
+3.           **저장**을 선택합니다.
 
 허용되는 값은 [기본 표준 시간대](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) 문서에서 **표준 시간대** 열을 참조하세요.
 
@@ -152,12 +152,9 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 이 예외는 수정된 하이브리드 연결 관리자의 문제로 인해 야기되었습니다. 이 문제를 해결하려면 [하이브리드 연결 관리자를 업데이트](https://go.microsoft.com/fwlink/?LinkID=841308)해야 합니다.
 
-## <a name="how-do-i-add-or-edit-a-url-rewrite-rule"></a>URL 다시 쓰기 규칙을 어떻게 추가하거나 편집할 수 있나요?
+## <a name="how-do-i-add-a-url-rewrite-rule"></a>URL 다시 쓰기 규칙을 추가 어떻게 할까요??
 
-URL 다시 쓰기 규칙을 추가하거나 편집하려면:
-
-1. App Service 웹앱에 연결하도록 IIS(인터넷 정보 서비스) 관리자를 설정합니다. IIS 관리자를 App Service에 연결하는 방법을 알아보려면 [Remote administration of Azure websites by using IIS Manager](https://azure.microsoft.com/blog/remote-administration-of-windows-azure-websites-using-iis-manager/)(IIS 관리자를 사용하여 Azure Websites 원격 관리)를 참조하세요.
-2. IIS 관리자에서 URL 다시 쓰기 규칙을 추가하거나 편집합니다. URL 다시 쓰기 규칙을 추가하거나 편집하는 방법을 알아보려면 [Create rewrite rules for the URL rewrite module](https://www.iis.net/learn/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)(URL 다시 쓰기 모듈에 대한 다시 쓰기 규칙 만들기)을 참조하세요.
+URL 다시 쓰기 규칙을 추가 하려면 **wwwroot** 폴더에 관련 된 구성 항목을 사용 하 여 web.config 파일을 만듭니다. 자세한 내용은 Azure 앱 Services를 [참조 하십시오. URL 재작성](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/)이해.
 
 ## <a name="how-do-i-control-inbound-traffic-to-app-service"></a>App Service에 대한 인바운드 트래픽을 제어하려면 어떻게 하나요?
 
@@ -170,7 +167,7 @@ App Service Environment를 사용할 경우 [Barracuda 방화벽](https://azure.
 
 ## <a name="how-do-i-block-ports-in-an-app-service-web-app"></a>App Service 웹앱에서 포트를 어떻게 차단하나요?
 
-App Service 공유 테넌트 환경에서는 인프라의 특성 때문에 특정 포트를 차단할 수 없습니다. Visual Studio 원격 디버깅을 위해 TCP 포트 4016, 4018 및 4020이 열릴 수도 있습니다.
+App Service 공유 테넌트 환경에서는 인프라의 특성 때문에 특정 포트를 차단할 수 없습니다. Visual Studio 원격 디버깅을 위해 TCP 포트 4020, 4022 및 4024도 열릴 수 있습니다.
 
 App Service Environment에서는 인바운드 및 아웃바운드 트래픽을 완벽하게 제어할 수 있습니다. 네트워크 보안 그룹을 사용하여 특정 포트를 제한하거나 차단할 수 있습니다. App Service Environment에 대한 자세한 내용은 [Introducing App Service Environment](https://azure.microsoft.com/blog/introducing-app-service-environment/)(App Service Environment 소개)를 참조하세요.
 
@@ -213,7 +210,7 @@ Azure 웹앱을 Azure ExpressRoute에 연결된 가상 네트워크에 연결하
 
 ## <a name="in-my-app-service-environment-why-can-i-create-only-one-app-service-plan-even-though-i-have-two-workers-available"></a>내 App Service Environment에서 두 명의 작업자를 사용할 수 있는데 하나의 App Service 계획만 만들 수 있는 이유는 무엇인가요?
 
-내결함성을 제공하려면 App Service Environment에서 각 작업자 풀에 하나 이상의 추가 계산 리소스가 필요합니다. 추가 계산 리소스에는 워크로드를 할당할 수 없습니다.
+내결함성을 제공하려면 App Service Environment에서 각 작업자 풀에 하나 이상의 추가 컴퓨팅 리소스가 필요합니다. 추가 컴퓨팅 리소스에는 워크로드를 할당할 수 없습니다.
 
 자세한 내용은 [App Service Environment를 만드는 방법](environment/app-service-web-how-to-create-an-app-service-environment.md)을 참조하세요.
 
@@ -254,7 +251,7 @@ Cron 식을 사용하여 예약된 WebJob을 만들 수 있습니다.
 
 ## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>내 App Service 앱에 대한 침투 테스트를 수행하려면 어떻게 하나요?
 
-침투 테스트를 수행하려면 [요청을 제출](https://portal.msrc.microsoft.com/en-us/engage/pentest)합니다.
+침투 테스트를 수행하려면 [요청을 제출](https://portal.msrc.microsoft.com/engage/pentest)합니다.
 
 ## <a name="how-do-i-configure-a-custom-domain-name-for-an-app-service-web-app-that-uses-traffic-manager"></a>Traffic Manager를 사용하는 App Service 웹앱에 대한 사용자 지정 도메인 이름을 구성하려면 어떻게 하나요?
 

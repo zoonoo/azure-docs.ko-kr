@@ -16,12 +16,12 @@ ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd41bdfb90e5e8428a747832c10fe23a2cac4560
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6c7199cd8e5dbde1f6ff2f5cea56a4191211c853
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67109396"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779079"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 통과 인증: 질문과 대답
 
@@ -29,7 +29,7 @@ ms.locfileid: "67109396"
 
 ## <a name="which-of-the-methods-to-sign-in-to-azure-ad-pass-through-authentication-password-hash-synchronization-and-active-directory-federation-services-ad-fs-should-i-choose"></a>Azure AD에 로그인하려면 통과 인증, 암호 해시 동기화 및 AD FS(Active Directory Federation Services) 중에서 어떤 방법을 선택해야 하나요?
 
-다양한 Azure AD 로그인 방법을 비교한 결과와 조직에 적합한 로그인 방법을 선택하는 방법을 보려면 [이 가이드](https://docs.microsoft.com/azure/security/azure-ad-choose-authn)를 검토하세요.
+다양한 Azure AD 로그인 방법을 비교한 결과와 조직에 적합한 로그인 방법을 선택하는 방법을 보려면 [이 가이드](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn)를 검토하세요.
 
 ## <a name="is-pass-through-authentication-a-free-feature"></a>통과 인증은 무료 기능인가요?
 
@@ -41,7 +41,7 @@ ms.locfileid: "67109396"
 
 ## <a name="does-conditional-accessactive-directory-conditional-access-azure-portalmd-work-with-pass-through-authentication"></a>[조건부 액세스](../active-directory-conditional-access-azure-portal.md)는 통과 인증에서 작동하나요?
 
-예. Azure Multi-factor Authentication을 포함 하는 모든 조건부 액세스 기능이 통과 인증을 사용 하 여 작동 합니다.
+예. Azure Multi-factor Authentication을 비롯 한 모든 조건부 액세스 기능이 통과 인증을 사용 합니다.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>통과 인증은 "userPrincipalName" 대신 "Alternate ID"를 사용자 이름으로 지원하나요?
 
@@ -51,9 +51,9 @@ ms.locfileid: "67109396"
 
 아니요. 통과 인증은 자동으로 암호 해시 동기화로 장애 조치하지 _않습니다_. 사용자 로그인 오류를 방지하려면 [고가용성](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)에 대해 통과 인증을 구성해야 합니다.
 
-## <a name="what-happens-when-i-switch-from-password-hash-synchronization-to-pass-through-authentication"></a>암호 해시 동기화에서 통과 인증으로 전환 하는 경우 어떻게 되나요?
+## <a name="what-happens-when-i-switch-from-password-hash-synchronization-to-pass-through-authentication"></a>암호 해시 동기화에서 통과 인증으로 전환 하면 어떻게 되나요?
 
-Azure AD Connect를 사용 하 여 로그인 메서드 암호 해시 동기화에서 통과 인증으로 전환 하려면 통과 인증 사용자 관리 되는 도메인의 기본 로그인 메서드 됩니다. Azure AD에 저장 되어 암호 해시 동기화를 통해 이전에 동기화 된는 모든 사용자의 암호 해시 note 하십시오.
+Azure AD Connect를 사용 하 여 암호 해시 동기화에서 통과 인증으로 로그인 방법을 전환 하는 경우 통과 인증은 관리 되는 도메인의 사용자에 대 한 기본 로그인 방법이 됩니다. 이전에 암호 해시 동기화를 통해 동기화 된 모든 사용자의 암호 해시는 Azure AD에 저장 된 상태로 유지 됩니다.
 
 ## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>통과 인증 에이전트와 동일한 서버에 [Azure AD 애플리케이션 프록시](../manage-apps/application-proxy.md)를 설치할 수 있나요?
 

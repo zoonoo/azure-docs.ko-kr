@@ -42,7 +42,7 @@ ms.locfileid: "60607830"
 
 ## <a name="determine-your-target-azure-region"></a>대상 Azure 지역 확인
 
-SQL Server Virtual Machine을 특정 Azure 지역에 있는 클라우드 서비스에서 호스트합니다. 다음 단계에서 지역, 저장소 계정 및 클라우드 서비스를 확인할 수 있으며, 이는 자습서의 나머지 부분에 사용됩니다.
+SQL Server Virtual Machine을 특정 Azure 지역에 있는 클라우드 서비스에서 호스트합니다. 다음 단계에서 지역, 스토리지 계정 및 클라우드 서비스를 확인할 수 있으며, 이는 자습서의 나머지 부분에 사용됩니다.
 
 1. SQL Server VM을 호스트하기 위해 사용하려는 데이터 센터를 확인합니다. 다음 PowerShell 명령은 사용 가능한 지역 이름 목록을 표시합니다.
 
@@ -56,7 +56,7 @@ SQL Server Virtual Machine을 특정 Azure 지역에 있는 클라우드 서비�
    $dcLocation = "East US"
    ```
 
-## <a name="set-your-subscription-and-storage-account"></a>구독 및 저장소 계정 설정
+## <a name="set-your-subscription-and-storage-account"></a>구독 및 스토리지 계정 설정
 
 1. 새 가상 머신에 대해 사용할 Azure 구독을 확인합니다.
 
@@ -71,7 +71,7 @@ SQL Server Virtual Machine을 특정 Azure 지역에 있는 클라우드 서비�
    Select-AzureSubscription -SubscriptionName $subscr –Current
    ```
 
-3. 기존 저장소 계정을 확인합니다. 다음 스크립트는 선택한 지역에 있는 모든 저장소 계정을 표시합니다.
+3. 기존 스토리지 계정을 확인합니다. 다음 스크립트는 선택한 지역에 있는 모든 스토리지 계정을 표시합니다.
 
    ```powershell
    (Get-AzureStorageAccount | where { $_.GeoPrimaryLocation -eq $dcLocation }).StorageAccountName
@@ -80,7 +80,7 @@ SQL Server Virtual Machine을 특정 Azure 지역에 있는 클라우드 서비�
    > [!NOTE]
    > 새 스토리지 계정이 필요한 경우 먼저 New-AzureStorageAccount 명령을 사용하여 스토리지 계정 이름(모두 소문자)을 만듭니다. `New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation`
 
-4. 대상 저장소 계정 이름을 **$staccount**에 할당합니다. **Set-AzureSubscription** 을 사용하여 구독 및 현재 저장소 계정을 설정합니다.
+4. 대상 스토리지 계정 이름을 **$staccount**에 할당합니다. **Set-AzureSubscription** 을 사용하여 구독 및 현재 스토리지 계정을 설정합니다.
 
    ```powershell
    $staccount="<storage account name>"

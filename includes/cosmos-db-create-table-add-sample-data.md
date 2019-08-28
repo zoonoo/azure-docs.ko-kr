@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 4341d06f09c60933bfc0512f54e024b35a19d8dd
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 1ebd645b740ab0f454d006d003518fbb8cb5e9e7
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182745"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854664"
 ---
 이제 데이터 탐색기를 사용하여 새 테이블에 데이터를 추가할 수 있습니다.
 
-1. 데이터 탐색기에서 **sample-table**, **엔터티**를 클릭한 다음 **엔터티 추가**를 클릭합니다.
+1. 데이터 탐색기에서 **sample-table**을 확장하고 **엔터티**를 선택한 다음, **엔터티 추가**를 선택합니다.
 
    ![Azure Portal의 데이터 탐색기에서 새 엔터티 만들기](./media/cosmos-db-create-table-add-sample-data/azure-cosmosdb-data-explorer-new-document.png)
 
-2. 이제 PartitionKey 값 상자 및 RowKey 값 상자에 데이터를 추가하고 **엔터티 추가**를 클릭합니다.
+2. 이제 PartitionKey 값 상자 및 RowKey 값 상자에 데이터를 추가하고 **엔터티 추가**를 선택합니다.
 
    ![새 엔터티에 대한 분할 키와 행 키 설정](./media/cosmos-db-create-table-add-sample-data/azure-cosmosdb-data-explorer-new-entity.png)
   

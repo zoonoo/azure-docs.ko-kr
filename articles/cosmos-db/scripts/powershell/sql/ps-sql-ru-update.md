@@ -1,19 +1,19 @@
 ---
-title: Azure PowerShell 스크립트-SQL (코어) API에 대 한 Azure Cosmos DB 업데이트 RU/s
-description: Azure PowerShell 스크립트-SQL (코어) API에 대 한 Azure Cosmos DB 업데이트 RU/s
+title: Azure PowerShell 스크립트 - SQL(Core) API용 Azure Cosmos DB 업데이트 RU/s
+description: Azure PowerShell 스크립트 - SQL(Core) API용 Azure Cosmos DB 업데이트 RU/s
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 9558579fbdbd2185f6de650547863361ff2b80a4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: fae1e7946905a96fbbf00909c96dd3aa99d766d5
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247336"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603828"
 ---
-# <a name="update-rus-for-a-database-or-container-for-azure-cosmos-db---sql-core-api"></a>Azure Cosmos DB SQL API (코어)에 대 한 RU/s 데이터베이스 또는 컨테이너에 대 한 업데이트
+# <a name="update-rus-for-a-database-or-container-for-azure-cosmos-db---sql-core-api"></a>Azure Cosmos DB - SQL(Core) API용 데이터베이스 또는 컨테이너에 대한 업데이트 RU/s
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

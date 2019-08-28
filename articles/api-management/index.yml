@@ -5,14 +5,12 @@ metadata:
   title: 'Azure API Management 설명서 - 자습서, API 참조 | Microsoft Docs'
   description: 'API Management를 사용하여 API를 대규모로 안전하게 외부, 파트너 및 직원 개발자에게 게시하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 어디서든지 호스팅되는 기존 백 엔드 서비스에 대한 최신 API 게이트웨이를 만들고 관리하는 방법을 보여 줍니다.'
   services: api-management
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: api-management
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 11/15/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'API Management를 사용하여 API를 대규모로 안전하게 외부, 파트너 및 직원 개발자에게 게시하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 어디서든지 호스팅되는 기존 백 엔드 서비스에 대한 최신 API 게이트웨이를 만들고 관리하는 방법을 보여 줍니다.'
 sections:

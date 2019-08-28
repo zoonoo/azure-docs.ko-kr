@@ -12,14 +12,15 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcb49048fa9200b8970f37a4f187ca995d208cc2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7cf4629ca97abc5d4ce508f7078f4691467ba249
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60474095"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616073"
 ---
 # <a name="add-your-personal-microsoft-accounts"></a>개인 Microsoft 계정 추가
+
 표준 2단계 인증 프로세스 및 암호 없는 휴대폰 로그인 방법에 모두 사용하도록 Microsoft Authenticator 앱에 Outlook.com 또는 Xbox LIVE와 같은 개인 Microsoft 계정을 추가합니다.
 
 - **표준 2단계 인증 방법.** 로그인하는 데 사용하는 디바이스에 사용자 이름 및 암호를 입력한 다음, Microsoft Authenticator 앱에서 알림을 보낼지, 아니면 Microsoft Authenticator 앱의 **계정** 화면에서 연결된 확인 코드를 복사할지 여부를 선택합니다.
@@ -30,6 +31,7 @@ ms.locfileid: "60474095"
 >계정을 추가하려면 Microsoft Authenticator 앱을 다운로드하여 설치해야 합니다. [앱 다운로드 및 설치](user-help-auth-app-download-install.md) 문서의 단계를 아직 진행하지 않은 경우 지금 진행하세요.
 
 ## <a name="add-your-personal-microsoft-account"></a>개인 Microsoft 계정을 추가합니다.
+
 먼저 2단계 인증을 설정한 다음, 앱에 계정을 추가하여 개인 Microsoft 계정을 추가할 수 있습니다.
 
 >[!Note]
@@ -37,7 +39,7 @@ ms.locfileid: "60474095"
 
 ### <a name="turn-on-two-factor-verification"></a>2단계 인증 설정
 
-1. 컴퓨터에서 [보안 기본 사항](https://account.microsoft.com/security) 페이지로 이동한 다음, 개인 Microsoft 계정을 사용하여 로그인합니다. 예: alain@outlook.com.
+1. 컴퓨터에서 [보안 기본 사항](https://account.microsoft.com/security) 페이지로 이동한 다음, 개인 Microsoft 계정을 사용하여 로그인합니다. alain@outlook.com )을 입력합니다.
 
 2. **보안 기본 사항** 페이지 아래쪽에서 **추가 보안 옵션** 링크를 선택합니다.
 
@@ -68,6 +70,6 @@ ms.locfileid: "60474095"
 
 - 앱에 계정을 추가한 후에는 디바이스에서 Authenticator 앱을 사용하여 로그인할 수 있습니다. 자세한 내용은 [앱을 사용하여 로그인](user-help-auth-app-sign-in.md)을 참조하세요.
 
-- 개인 Microsoft 계정에 대 한 확인 코드를 시작 하는 데 문제가 있는 경우 참조를 **확인 코드 문제 해결** 섹션을 [Microsoft 계정 보안 정보 및 확인 코드](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) 문서.
+- 개인 Microsoft 계정에 대 한 확인 코드를 가져오는 데 문제가 있는 경우 [Microsoft 계정 보안 정보 & 확인 코드](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes) 문서에서 **확인 코드 문제 해결** 섹션을 참조 하세요.
 
 - iOS를 실행하는 디바이스의 경우에는 계정 자격 증명 및 관련 앱 설정(예: 계정 순서)을 클라우드에 백업할 수도 있습니다. 자세한 내용은 [Microsoft Authenticator 앱을 통한 백업 및 복구](user-help-auth-app-backup-recovery.md)를 참조하세요.

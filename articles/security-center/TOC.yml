@@ -6,8 +6,6 @@
       href: security-center-intro.md
     - name: Security Center 지원 플랫폼 및 기능
       href: security-center-os-coverage.md
-    - name: 엔드포인트 보호 평가 및 권장 사항
-      href: security-center-endpoint-protection.md
 - name: 빠른 시작
   expanded: true
   items:
@@ -35,14 +33,30 @@
       href: security-center-data-security.md
     - name: 권장 사항을 사용하여 보안 강화
       href: security-center-using-recommendations.md
-    - name: 위협 감지
-      href: security-center-detection-capabilities.md
-    - name: 보안 경고 관리
-      href: security-center-managing-and-responding-alerts.md
-    - name: 보안 인시던트
-      href: security-center-incident.md
-    - name: 사고 대응
-      href: security-center-incident-response.md
+    - name: 테넌트 간 관리
+      href: security-center-cross-tenant-management.md
+    - name: 위협 탐지 경고 및 인시던트
+      items:
+        - name: 보안 경고 개요
+          href: security-center-alerts-overview.md
+        - name: 보안 경고 관리
+          href: security-center-managing-and-responding-alerts.md
+        - name: 보안 인시던트 관리
+          href: security-center-incident.md
+        - name: VM 및 서버에 대한 위협 탐지
+          href: security-center-alerts-iaas.md
+        - name: 클라우드 네이티브 컴퓨팅에 대한 위협 탐지
+          href: security-center-alerts-compute.md
+        - name: 데이터 서비스에 대한 위협 탐지
+          href: security-center-alerts-data-services.md
+        - name: Azure 서비스 계층에 대한 위협 탐지
+          href: security-center-alerts-service-layer.md
+        - name: Azure 보안 제품과 통합
+          href: security-center-alerts-integration.md
+        - name: 클라우드 스마트 경고 상관 관계(인시던트)
+          href: security-center-alerts-cloud-smart.md
+        - name: 경고 유효성 검사(EICAR 테스트 파일)
+          href: security-center-alert-validation.md
 - name: 방법 가이드
   items:
     - name: 보안 점수 향상
@@ -75,14 +89,14 @@
       href: security-center-provide-security-contact-details.md
     - name: 가격 책정 계층
       href: security-center-pricing.md
-    - name: 보안 구성
-      href: security-center-customize-os-security-config.md
     - name: 테넌트 수준 표시 유형
       href: security-center-management-groups.md
     - name: 보안 권장 사항 구현
       items:
         - name: 보안 권장 사항이란?
           href: security-center-recommendations.md
+        - name: 추천 수정
+          href: security-center-remediate-recommendations.md
         - name: 보안 상태 강화
           href: security-center-monitoring.md
         - name: 머신 및 응용 프로그램 보호
@@ -97,68 +111,24 @@
       items:
         - name: Just-In-Time 액세스 관리
           href: security-center-just-in-time.md
-        - name: 적응형 애플리케이션 제어
+        - name: 적응 애플리케이션 컨트롤
           href: security-center-adaptive-application.md
         - name: 파일 무결성 모니터링
           href: security-center-file-integrity-monitoring.md
         - name: 적응형 네트워크 강화
           href: security-center-adaptive-network-hardening.md
-    - name: 위협 검색 경고
-      items:
-        - name: 보안 경고 개요
-          href: security-center-alerts-overview.md
-        - name: VM 및 서버에 대한 위협 탐지
-          href: security-center-alerts-iaas.md
-        - name: 클라우드 네이티브 컴퓨팅에 대한 위협 탐지
-          href: security-center-alerts-compute.md
-        - name: 데이터 서비스에 대한 위협 탐지
-          href: security-center-alerts-data-services.md
-        - name: Azure 서비스 계층에 대한 위협 탐지
-          href: security-center-alerts-service-layer.md
-        - name: Azure 보안 제품과 통합
-          href: security-center-alerts-integration.md
-        - name: 클라우드 스마트 경고 상관 관계(인시던트)
-          href: security-center-alerts-cloud-smart.md
-        - name: 경고 유효성 검사(EICAR 테스트 파일)
-          href: security-center-alert-validation.md
     - name: 보관
       items:
         - name: 디스크 암호화 적용
           href: security-center-apply-disk-encryption.md
         - name: 시스템 업데이트 적용
           href: security-center-apply-system-updates.md
-        - name: 저장소 계정에 암호화 사용
-          href: security-center-enable-encryption-for-storage-account.md
-        - name: VM 에이전트 사용
-          href: security-center-enable-vm-agent.md
         - name: Endpoint Protection 설치
           href: security-center-install-endpoint-protection.md
-        - name: 시스템 업데이트 후 다시 부팅
-          href: 'security-center-apply-system-updates.md#reboot-after-system-updates'
-        - name: 보안 구성 수정
-          href: security-center-remediate-os-vulnerabilities.md
-        - name: OS 버전 업데이트
-          href: security-center-update-os-version.md
         - name: 취약성 평가 설치되지 않음
           href: security-center-vulnerability-assessment-recommendations.md
-        - name: 웹 애플리케이션 방화벽 추가
-          href: security-center-add-web-application-firewall.md
-        - name: 애플리케이션 보호 완료
-          href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
-        - name: 차세대 방화벽 추가
-          href: security-center-add-next-generation-firewall.md
         - name: 네트워크 보안 그룹 활성화
           href: security-center-enable-network-security-groups.md
-        - name: 인터넷 엔드포인트를 통한 액세스 제한
-          href: security-center-restrict-access-through-internet-facing-endpoints.md
-        - name: NGFW를 통해서만 트래픽 라우팅
-          href: 'security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only'
-        - name: SQL 데이터베이스에서 감사 및 위협 감지 사용
-          href: security-center-enable-auditing-on-sql-databases.md
-        - name: SQL Server에서 감사 및 위협 감지 사용
-          href: security-center-enable-auditing-on-sql-servers.md
-        - name: 투명한 데이터 암호화 활성화
-          href: security-center-enable-transparent-data-encryption.md
         - name: 위협 보고서
           href: security-center-threat-report.md
         - name: 사용자 지정 경고
@@ -179,10 +149,8 @@
           href: security-center-search.md
         - name: 계획 및 작업
           href: security-center-planning-and-operations-guide.md
-        - name: 보안 경고 이해
-          href: security-center-alerts-type.md
-        - name: Azure 리소스와 사용자에 대한 UEBA
-          href: security-center-ueba-mcas.md
+        - name: 보안 구성 사용자 지정
+          href: security-center-customize-os-security-config.md
 - name: 참고 자료
   items:
     - name: REST API
@@ -191,6 +159,8 @@
       href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: 기능 및 API 사용 중지(2019년 7월)
       href: security-center-features-retirement-july2019.md
+    - name: 엔드포인트 보호 평가 및 권장 사항
+      href: security-center-endpoint-protection.md
 - name: 리소스
   items:
     - name: Microsoft Learn을 통해 기술 쌓기

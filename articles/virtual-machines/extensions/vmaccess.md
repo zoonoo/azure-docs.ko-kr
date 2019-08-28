@@ -4,7 +4,7 @@ description: VMAccess 확장 및 Azure CLI를 사용하여 관리 사용자를 �
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 261a9646-1f93-407e-951e-0be7226b3064
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: roiyz
-ms.openlocfilehash: 71aecc1748e70e2119b1f54c21a0f705afc5d5d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2841aedc1a4fe69e2604d3c6b95cc12dab4c7716
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60800066"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706611"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Azure CLI에서 VMAccess 확장을 사용하여 관리 사용자, SSH를 관리하고 Linux VM의 디스크를 검사 또는 복구
 ## <a name="overview"></a>개요
@@ -31,12 +31,12 @@ Linux VM의 디스크에 오류가 표시되어 있습니다. 사용자가 Linux
 > [!NOTE]
 > AAD 로그인 확장을 설치한 후에 VMAccess 확장을 사용하여 VM의 암호를 재설정하는 경우 AAD 로그인 확장을 다시 실행하여 머신에 대해 AAD 로그인을 다시 사용하도록 설정해야 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 ### <a name="operating-system"></a>운영 체제
 
 VM 액세스 확장은 다음 Linux 배포판에 대해 실행할 수 있습니다.
 
-| 배포 | Version |
+| 배포 | 버전 |
 |---|---|
 | Ubuntu | 16.04 LTS, 14.04 LTS 및 12.04 LTS |
 | Debian | Debian 7.9 이상, 8.2 이상 |
@@ -68,7 +68,7 @@ az vm user update \
 
 > **참고:** `az vm user update` 명령은 VM의 관리 사용자에 대한 `~/.ssh/authorized_keys` 파일에 새 공개 키 텍스트를 추가합니다. 기존 SSH 키를 대체하거나 제거하지 않습니다. 배포 시 설정된 이전 키 또는 VMAccess 확장을 통한 후속 업데이트를 제거하지 않습니다.
 
-## <a name="reset-password"></a>암호 재설정
+## <a name="reset-password"></a>암호 다시 설정
 다음 예제에서는 VM `myVM`에서 사용자 `azureuser`에 대한 암호를 다시 설정합니다.
 
 ```azurecli-interactive
@@ -255,6 +255,6 @@ az vm extension set \
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-### <a name="support"></a>지원
+### <a name="support"></a>Support(지원)
 
 이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 가서 지원 받기를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: acee2aabe94f5d015562bd697d08f657895d3b02
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 97d0615fcc4f86c295441ec6a0eb8b86ba6b11b5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789466"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059703"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>빠른 시작: 포털에서 청사진 정의 및 할당
 
@@ -70,11 +70,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    1. **형식**을 **기본 제공**으로 변경합니다. **검색**에 **태그**를 입력합니다.
 
-   1. **검색** 바깥쪽을 클릭하면 필터링이 수행됩니다. **리소스 그룹에 태그 및 해당 기본값 적용**을 선택합니다.
+   1. **검색** 바깥쪽을 클릭하면 필터링이 수행됩니다. **리소스 그룹에 태그 및 해당 기본값 추가**를 선택합니다.
 
    1. **추가**를 선택하여 이 아티팩트를 청사진에 추가합니다.
 
-1. 정책 할당 **리소스 그룹에 태그 및 기본값 적용**의 행을 선택합니다.
+1. 정책 할당 **리소스 그룹에 태그 및 기본값 추가**의 행을 선택합니다.
 
 1. 청사진 정의의 일부분으로 아티팩트에 매개 변수를 제공하는 창이 열리며, 이 창에서 할당 중에 매개 변수를 설정하는 대신(동적 매개 변수) 해당 청사진을 기준으로 하여 모든 할당의 매개 변수를 설정할 수 있습니다(정적 매개 변수). 이 예제에서는 청사진 할당 중에 동적 매개 변수를 사용하므로 기본값을 유지하고 **취소**를 선택합니다.
 

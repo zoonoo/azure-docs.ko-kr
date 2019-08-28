@@ -1,20 +1,18 @@
 ---
 title: JavaScript용 Azure Storage v10 SDK를 사용하여 blob 업로드, 다운로드, 나열 및 삭제
 description: Azure Storage를 통해 Node.js에서 blob 및 컨테이너 만들기, 업로드 및 삭제
-services: storage
 author: mhopkins-msft
+ms.author: mhopkins
+ms.date: 11/14/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 11/14/2018
-ms.author: mhopkins
-ms.reviewer: seguler
-ms.openlocfilehash: e2deda6bc9a5d13a631e9917f3020cfa68ee1e10
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: cada5c3dd74832140fd76cbdd637554b5f829c33
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67536156"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721997"
 ---
 # <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript"></a>빠른 시작: JavaScript용 Azure Storage v10 SDK를 사용하여 blob 업로드, 다운로드, 나열 및 삭제
 
@@ -40,9 +38,9 @@ cd azure-storage-js-v10-quickstart
 
 이제 즐겨찾는 코드 편집 환경에서 폴더를 엽니다.
 
-## <a name="configure-your-storage-credentials"></a>저장소 자격 증명 구성
+## <a name="configure-your-storage-credentials"></a>스토리지 자격 증명 구성
 
-애플리케이션을 실행하기 전에 저장소 계정에 대한 보안 자격 증명을 제공해야 합니다. 샘플 리포지토리에는 *.env.example*이라는 파일이 포함되어 있습니다. *.example* 확장명을 제거하여 *.env*라는 파일이 되도록 이 파일의 이름을 바꿉니다. *.env* 파일에서 *AZURE_STORAGE_ACCOUNT_NAME* 및 *AZURE_STORAGE_ACCOUNT_ACCESS_KEY* 키 뒤에 사용자 계정 이름과 액세스 키 값을 추가합니다.
+애플리케이션을 실행하기 전에 스토리지 계정에 대한 보안 자격 증명을 제공해야 합니다. 샘플 리포지토리에는 *.env.example*이라는 파일이 포함되어 있습니다. *.example* 확장명을 제거하여 *.env*라는 파일이 되도록 이 파일의 이름을 바꿉니다. *.env* 파일에서 *AZURE_STORAGE_ACCOUNT_NAME* 및 *AZURE_STORAGE_ACCOUNT_ACCESS_KEY* 키 뒤에 사용자 계정 이름과 액세스 키 값을 추가합니다.
 
 ## <a name="install-required-packages"></a>필요한 패키지를 설치합니다.
 
@@ -164,21 +162,21 @@ const serviceURL = new ServiceURL(`https://${STORAGE_ACCOUNT_NAME}.blob.core.win
 ```
 다음 클래스가 이 코드 블록에 사용됩니다.
 
-- [SharedKeyCredential](/javascript/api/%40azure/storage-blob/sharedkeycredential?view=azure-node-preview) 클래스는 요청 파이프라인에 제공하기 위해 저장소 계정 자격 증명을 래핑하는 일을 담당합니다.
+- [SharedKeyCredential](/javascript/api/%40azure/storage-blob/sharedkeycredential?view=azure-node-preview) 클래스는 요청 파이프라인에 제공하기 위해 스토리지 계정 자격 증명을 래핑하는 일을 담당합니다.
 
 - [StorageURL](/javascript/api/%40azure/storage-blob/storageurl?view=azure-node-preview) 클래스는 새 파이프라인을 만듭니다.
 
 - [ServiceURL](/javascript/api/%40azure/storage-blob/serviceurl?view=azure-node-preview)은 REST API에 사용되는 URL을 모델링합니다. 이 클래스의 인스턴스를 사용하면 컨테이너를 나열하는 등의 작업을 수행하고, 컨텍스트 정보를 제공하여 컨테이너 URL을 생성할 수 있습니다.
 
-저장소 계정에서 컨테이너 및 blob을 관리하는 데 *ServiceURL*의 인스턴스가 [ContainerURL](/javascript/api/%40azure/storage-blob/containerurl?view=azure-node-preview) 및 [BlockBlobURL](/javascript/api/%40azure/storage-blob/blockbloburl?view=azure-node-preview) 인스턴스와 함께 사용됩니다.
+스토리지 계정에서 컨테이너 및 blob을 관리하는 데 *ServiceURL*의 인스턴스가 [ContainerURL](/javascript/api/%40azure/storage-blob/containerurl?view=azure-node-preview) 및 [BlockBlobURL](/javascript/api/%40azure/storage-blob/blockbloburl?view=azure-node-preview) 인스턴스와 함께 사용됩니다.
 
 ```javascript
 const containerURL = ContainerURL.fromServiceURL(serviceURL, containerName);
 const blockBlobURL = BlockBlobURL.fromContainerURL(containerURL, blobName);
 ```
-*containerURL* 및 *blockBlobURL* 변수는 저장소 계정에서 작동하도록 샘플 전체에서 다시 사용됩니다. 
+*containerURL* 및 *blockBlobURL* 변수는 스토리지 계정에서 작동하도록 샘플 전체에서 다시 사용됩니다. 
 
-이 시점에서 컨테이너는 저장소 계정에 존재하지 않습니다. *ContainerURL*의 인스턴스는 취할 수 있는 URL을 나타냅니다. 이 인스턴스를 사용하면 컨테이너를 만들고 삭제할 수 있습니다. 이 컨테이너의 위치는 다음과 같은 위치와 동일합니다.
+이 시점에서 컨테이너는 스토리지 계정에 존재하지 않습니다. *ContainerURL*의 인스턴스는 취할 수 있는 URL을 나타냅니다. 이 인스턴스를 사용하면 컨테이너를 만들고 삭제할 수 있습니다. 이 컨테이너의 위치는 다음과 같은 위치와 동일합니다.
 
 ```bash
 https://<ACCOUNT_NAME>.blob.core.windows.net/demo
@@ -212,7 +210,7 @@ Aborters는 사용자에게 다음을 허용하여 요청에 대한 제어를 �
 console.log("Containers:");
 await showContainerNames(serviceURL, aborter);
 ```
-*showContainerNames* 함수는 *listContainersSegment* 메서드를 사용하여 저장소 계정에서 컨테이너 이름의 일괄 처리를 요청합니다.
+*showContainerNames* 함수는 *listContainersSegment* 메서드를 사용하여 스토리지 계정에서 컨테이너 이름의 일괄 처리를 요청합니다.
 ```javascript
 async function showContainerNames(aborter, serviceURL) {
 
@@ -271,7 +269,7 @@ async function uploadLocalFile(aborter, containerURL, filePath) {
 await uploadStream(containerURL, localFilePath, aborter);
 console.log(`Local file "${localFilePath}" is uploaded as a stream`);
 ```
-*uploadStream* 함수는 *uploadStreamToBlockBlob*을 호출하여 저장소 컨테이너에 스트림을 업로드합니다.
+*uploadStream* 함수는 *uploadStreamToBlockBlob*을 호출하여 스토리지 컨테이너에 스트림을 업로드합니다.
 ```javascript
 async function uploadStream(aborter, containerURL, filePath) {
 
@@ -336,13 +334,13 @@ await blockBlobURL.delete(aborter)
 console.log(`Block blob "${blobName}" is deleted`);
 ```
 ### <a name="delete-a-container"></a>컨테이너 삭제
-*ContainerURL* 인스턴스의 *delete* 메서드는 저장소 계정에서 컨테이너를 삭제합니다.
+*ContainerURL* 인스턴스의 *delete* 메서드는 스토리지 계정에서 컨테이너를 삭제합니다.
 ```javascript
 await containerURL.delete(aborter);
 console.log(`Container "${containerName}" is deleted`);
 ```
 ## <a name="clean-up-resources"></a>리소스 정리
-저장소 계정에 기록된 모든 데이터는 코드 샘플 끝 부분에서 자동으로 삭제됩니다. 
+스토리지 계정에 기록된 모든 데이터는 코드 샘플 끝 부분에서 자동으로 삭제됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

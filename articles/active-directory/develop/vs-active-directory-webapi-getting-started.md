@@ -1,11 +1,10 @@
 ---
 title: Visual Studio WebApi 프로젝트에서 Azure AD 시작
 description: Visual Studio 연결 서비스를 사용하여 Azure AD를 만들거나 연결한 후에 WebApi 프로젝트에 Azure Active Directory를 사용하여 시작하는 방법입니다.
-services: active-directory
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: bf1eb32d-25cd-4abf-8679-2ead299fedaa
-ms.prod: visual-studio-dev15
+ms.prod: visual-studio-windows
 ms.technology: vs-azure
 ms.workload: azure-vs
 ms.topic: conceptual
@@ -13,12 +12,12 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 662d958fc7ef6fe5c9d0e61a1d8e48983d10196f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 225940052e1f40f8050059532e4657df2b5410a3
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60353808"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851910"
 ---
 # <a name="get-started-with-azure-active-directory-webapi-projects"></a>Azure Active Directory 시작(WebApi 프로젝트)
 

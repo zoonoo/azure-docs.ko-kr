@@ -65,16 +65,16 @@ IoT는 특유의 디바이스 관리 과제를 수반하며 모든 기업 수준
   
     *추가 참고 자료*: 
     * [디바이스 ID 관리](iot-hub-devguide-identity-registry.md)
-    * [장치 ID의 대량 관리](iot-hub-bulk-identity-mgmt.md)
+    * [디바이스 ID의 대량 관리](iot-hub-bulk-identity-mgmt.md)
     * [디바이스 쌍 속성을 사용하는 방법](tutorial-device-twins.md)
-    * [IoT 솔루션 내에서 장치 구성에 대한 모범 사례](iot-hub-configuration-best-practices.md)
+    * [IoT 솔루션 내에서 디바이스 구성에 대한 모범 사례](iot-hub-configuration-best-practices.md)
     * [Azure IoT Hub Device Provisioning Service](https://azure.microsoft.com/documentation/services/iot-dps)
 
 * **구성**: 대량 구성 변경 및 장치에 펌웨어 업데이트를 용이 하 게 상태와 보안을 유지 하면서 합니다. 원하는 속성 또는 직접 메서드와 브로드캐스트 작업을 사용하여 대량으로 이러한 디바이스 관리 작업을 수행합니다.
   
     *추가 참고 자료*:
     * [디바이스 쌍 속성을 사용하는 방법](tutorial-device-twins.md)
-    * [대규모로 IoT 장치 구성 및 모니터링](iot-hub-auto-device-config.md)
+    * [대규모로 IoT 디바이스 구성 및 모니터링](iot-hub-auto-device-config.md)
     * [IoT 솔루션 내에서 디바이스 구성에 대한 모범 사례](iot-hub-configuration-best-practices.md)
 
 * **모니터**: 장치 컬렉션의 전체 상태, 진행 중인 작업 및 경고는 주의가 필요한 문제 운영자의 상태를 모니터링 합니다.  디바이스 쌍을 적용하여 디바이스 업데이트 작업의 상태를 실시간 운영 상태를 보고할 수 있도록 허용합니다. 디바이스 쌍 쿼리를 사용하여 즉각적인 문제를 노출하는 강력한 대시보드 보고서를 작성합니다.
@@ -82,7 +82,7 @@ IoT는 특유의 디바이스 관리 과제를 수반하며 모든 기업 수준
     *추가 참고 자료*: 
     * [디바이스 쌍 속성을 사용하는 방법](tutorial-device-twins.md)
     * [디바이스 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)
-    * [대규모로 IoT 장치 구성 및 모니터링](iot-hub-auto-device-config.md)
+    * [대규모로 IoT 디바이스 구성 및 모니터링](iot-hub-auto-device-config.md)
     * [IoT 솔루션 내에서 디바이스 구성에 대한 모범 사례](iot-hub-configuration-best-practices.md)
 
 * **사용 중지**: 오류가 발생 한 후 장치를 서비스 해제를 주기, 업그레이드 또는 교체 하거나 서비스 수명 끝에 있습니다.  디바이스 쌍을 사용하여 물리적 디바이스를 바꾸는 경우 디바이스 정보를 유지하거나 사용이 중지될 경우 보관합니다. IoT Hub ID 레지스트리를 사용하여 디바이스 ID 및 자격 증명을 안전하게 해지합니다.

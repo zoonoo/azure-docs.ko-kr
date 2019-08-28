@@ -130,7 +130,7 @@ dataFactoryName은 “variables”에 다음과 같이 정의됩니다.
     ...
 }
 ```
-배포할 특정 데이터 세트 형식의 JSON 속성에 관한 자세한 내용은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)를 참조하세요. "DependsOn" 매개 변수는 해당 데이터 팩터리와 저장소 연결 서비스의 이름을 지정합니다. Azure 스토리지 서비스는 Blob Storage, Table Storage, Queue Storage 및 File Storage 등의 4가지 서비스를 제공합니다.
+배포할 특정 데이터 세트 형식의 JSON 속성에 관한 자세한 내용은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)를 참조하세요. &quot;DependsOn&quot; 매개 변수는 해당 데이터 팩터리와 스토리지 연결 서비스의 이름을 지정합니다. Azure 스토리지 서비스는 Blob Storage, Table Storage, Queue Storage 및 File Storage 등의 4가지 서비스를 제공합니다.
 
 ```JSON
 "type": "datasets",
@@ -176,7 +176,7 @@ dataFactoryName은 “variables”에 다음과 같이 정의됩니다.
 }
 ```
 
-배포할 특정 파이프라인과 활동의 JSON 속성에 대한 자세한 내용은 [파이프라인 정의](data-factory-create-pipelines.md#pipeline-json)를 참조하세요. "dependsOn" 매개 변수는 데이터 팩터리와 해당 연결 서비스 또는 저장소 집합의 이름을 지정합니다. Azure Blob Storage의 데이터를 Azure SQL Database에 복사하는 파이프라인 예제는 다음 JSON 코드 조각에 있습니다.
+배포할 특정 파이프라인과 활동의 JSON 속성에 대한 자세한 내용은 [파이프라인 정의](data-factory-create-pipelines.md#pipeline-json)를 참조하세요. &quot;dependsOn&quot; 매개 변수는 데이터 팩터리와 해당 연결 서비스 또는 스토리지 집합의 이름을 지정합니다. Azure Blob Storage의 데이터를 Azure SQL Database에 복사하는 파이프라인 예제는 다음 JSON 코드 조각에 있습니다.
 
 ```JSON
 "type": "datapipelines",

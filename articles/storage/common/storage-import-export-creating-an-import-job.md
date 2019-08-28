@@ -61,9 +61,9 @@ REST API를 사용하여 Microsoft Azure Import/Export 서비스에 대해 가�
 
  배송 위치를 가져오려면 다음 단계를 수행합니다.
 
--   저장소 계정의 위치 이름을 식별합니다. 이 값은 Azure Portal에서 Storage 계정의 **대시보드**에 있는 **위치** 필드에서 찾거나 Service Management API 연산 [Storage 계정 속성 가져오기](/rest/api/storagerp/storageaccounts)를 사용하여 쿼리할 수 있습니다.
+-   스토리지 계정의 위치 이름을 식별합니다. 이 값은 Azure Portal에서 Storage 계정의 **대시보드**에 있는 **위치** 필드에서 찾거나 Service Management API 연산 [Storage 계정 속성 가져오기](/rest/api/storagerp/storageaccounts)를 사용하여 쿼리할 수 있습니다.
 
--   `Get Location` 연산을 호출하여 이 저장소 계정을 처리하는 데 사용할 수 있는 위치를 검색합니다.
+-   `Get Location` 연산을 호출하여 이 스토리지 계정을 처리하는 데 사용할 수 있는 위치를 검색합니다.
 
 -   위치의 `AlternateLocations` 속성에 해당 위치 자체가 포함될 경우 이 위치를 사용해도 됩니다. 그렇지 않으면 대체 위치 중 하나를 사용하여 `Get Location` 연산을 다시 호출합니다. 유지 관리를 위해 원래 위치가 일시적으로 닫혀 있을 수 있습니다.
 
@@ -72,7 +72,7 @@ REST API를 사용하여 Microsoft Azure Import/Export 서비스에 대해 가�
 
 -   작업의 이름입니다.
 
--   저장소 계정 이름입니다.
+-   스토리지 계정 이름입니다.
 
 -   이전 단계에서 얻은 배송 위치 이름입니다.
 

@@ -22,20 +22,6 @@
       href: release-notes-10-0-10106-0.md
     - name: Gen2 영역 업그레이드 예약
       href: gen2-migration-schedule.md
-    - name: 보관된 릴리스 정보
-      items:
-        - name: 2018년 9월
-          href: release-notes-september-2018.md
-        - name: 2018년 8월
-          href: release-notes-august-2018.md
-        - name: 2018년 7월
-          href: release-notes-july-2018.md
-        - name: 2018년 6월
-          href: release-notes-june-2018.md
-        - name: 2018년 5월
-          href: release-notes-may-2018.md
-        - name: 2018년 4월
-          href: release-notes-april-2018.md
 - name: 빠른 시작
   expanded: true
   items:
@@ -127,6 +113,28 @@
           href: sql-data-warehouse-overview-develop.md
         - name: 모범 사례
           href: sql-data-warehouse-best-practices-development.md
+        - name: JSON
+          items:
+            - name: JSON
+              href: /sql/t-sql/functions/json-functions-transact-sql?view=azure-sqldw-latest
+            - name: ISJSON
+              href: /sql/t-sql/functions/isjson-transact-sql?view=azure-sqldw-latest
+            - name: JSON_VALUE
+              href: /sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest
+            - name: JSON_QUERY
+              href: /sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest
+            - name: JSON_MODIFY
+              href: /sql/t-sql/functions/json-modify-transact-sql?view=azure-sqldw-latest
+            - name: OPENJSON
+              href: /sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest
+        - name: 구체화된 뷰
+          items:
+            - name: 생성
+              href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql
+            - name: 변경
+              href: /sql/t-sql/statements/alter-materialized-view-transact-sql
+        - name: 결과 세트 캐싱
+          href: /sql/t-sql/statements/set-result-set-caching-transact-sql
         - name: 테이블
           items:
             - name: 개요
@@ -245,14 +253,20 @@
           href: sql-data-warehouse-connect-overview.md
         - name: 연결 문자열
           href: sql-data-warehouse-connection-strings.md
-        - name: sqlcmd
-          href: sql-data-warehouse-get-started-connect-sqlcmd.md
-        - name: SSMS를 사용하여 쿼리
-          href: sql-data-warehouse-query-ssms.md
-        - name: Visual Studio를 사용하여 쿼리
-          href: sql-data-warehouse-query-visual-studio.md
-        - name: Visual Studio 설치
-          href: sql-data-warehouse-install-visual-studio.md
+        - name: 변경 관리 및 배포
+          items:
+            - name: Visual Studio SSDT 설치
+              href: sql-data-warehouse-install-visual-studio.md
+            - name: 소스 제어 통합
+              href: sql-data-warehouse-source-control-integration.md
+        - name: 연결 및 쿼리
+          items:
+            - name: Visual Studio SSDT
+              href: sql-data-warehouse-query-visual-studio.md
+            - name: SSMS
+              href: sql-data-warehouse-query-ssms.md
+            - name: sqlcmd
+              href: sql-data-warehouse-get-started-connect-sqlcmd.md
     - name: 워크로드 관리
       items:
         - name: 워크로드 분석
@@ -265,14 +279,24 @@
       items:
         - name: Gen2로 업그레이드
           href: upgrade-to-latest-generation.md
-        - name: 데이터 웨어하우스 복원
-          href: sql-data-warehouse-restore.md
+        - name: 컴퓨팅 관리
+          href: manage-compute-with-azure-functions.md
         - name: 워크로드 모니터링 - 포털
           href: sql-data-warehouse-monitor-workload-portal.md
         - name: 워크로드 모니터링 - DMV
           href: sql-data-warehouse-manage-monitor.md
         - name: Gen2 캐시 모니터링
           href: sql-data-warehouse-how-to-monitor-cache.md
+    - name: Backup 및 복원
+      items:
+        - name: 복원 지점 만들기
+          href: sql-data-warehouse-restore-points.md
+        - name: 기존 데이터 웨어하우스 복원
+          href: sql-data-warehouse-restore-active-paused-dw.md
+        - name: 삭제된 데이터 웨어하우스 복원
+          href: sql-data-warehouse-restore-deleted-dw.md
+        - name: 지역 백업에서 복원
+          href: sql-data-warehouse-restore-from-geo-backup.md
     - name: 통합
       items:
         - name: 기계 학습 사용
@@ -295,6 +319,8 @@
           href: sql-data-warehouse-troubleshoot-connectivity.md
 - name: 참고 자료
   items:
+    - name: 데이터베이스 데이터 정렬 형식
+      href: sql-data-warehouse-reference-collation-types.md
     - name: T-SQL
       items:
         - name: 전체 참조

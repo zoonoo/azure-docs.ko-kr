@@ -4,7 +4,7 @@ description: 풀, 작업 등과 같은 Azure Batch 계정 리소스에 대해 �
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: e1fc405951789305b0df86fd0f7b91890fb45c06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 23c5b7aab73ec6335238abede57f01ec7a30ef5f
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242628"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012518"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>진단 평가 및 모니터링을 위한 일괄 처리 메트릭, 경고 및 로그
 
@@ -48,6 +48,7 @@ Azure Portal에서 배치 계정에 대한 메트릭을 봅니다. 기본적으�
 1. 포털에서 **모든 서비스** > **배치 계정**을 차례로 클릭한 다음, 배치 계정의 이름을 클릭합니다.
 2. **모니터링**에서 **메트릭**을 클릭합니다.
 3. 하나 이상의 메트릭을 선택합니다. 원하는 경우 **구독**, **리소스 그룹**, **리소스 종류** 및 **리소스** 드롭다운 목록을 사용하여 추가 리소스 메트릭을 선택합니다.
+    * 개수 기반 메트릭 (예: "전용 코어 수" 또는 "낮은 우선 순위 노드 수")의 경우 "Average" 집계를 사용 합니다. 이벤트 기반 메트릭 (예: "풀 크기 조정 완료 이벤트")의 경우 "Count" 집계를 사용 합니다.
 
     ![일괄 처리 메트릭](media/batch-diagnostics/metrics-portal.png)
 
@@ -85,13 +86,13 @@ Azure Portal에서 배치 계정에 대한 메트릭을 봅니다. 기본적으�
 
 ### <a name="log-destinations"></a>로그 대상
 
-일반적인 시나리오는 로그 대상으로 Azure Storage 계정을 선택하는 것입니다. Azure Storage에 로그를 저장하려면 로그 컬렉션을 사용하도록 설정하기 전에 계정을 만듭니다. 저장소 계정을 배치 계정과 연결한 경우 해당 계정을 로그 대상으로 선택할 수 있습니다. 
+일반적인 시나리오는 로그 대상으로 Azure Storage 계정을 선택하는 것입니다. Azure Storage에 로그를 저장하려면 로그 컬렉션을 사용하도록 설정하기 전에 계정을 만듭니다. 스토리지 계정을 배치 계정과 연결한 경우 해당 계정을 로그 대상으로 선택할 수 있습니다. 
 
 진단 로그에 대한 다른 선택적 대상:
 
 * 일괄 처리 진단 로그 이벤트를 [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md)로 스트리밍합니다. Event Hubs는 초당 수백 건의 이벤트를 수집하여 모든 실시간 분석 공급자를 통해 변환 및 저장할 수 있습니다. 
 
-* 진단 로그를 보낼 [Azure Monitor 로그](../log-analytics/log-analytics-overview.md), 하거나 수 있는 분석 하 여 Power BI 또는 Excel에서 분석을 위해 내보냅니다.
+* [Azure Monitor 로그](../log-analytics/log-analytics-overview.md)에 진단 로그를 전송 하 여 분석 하거나 Power BI 또는 Excel에서 분석용으로 내보낼 수 있습니다.
 
 > [!NOTE]
 > Azure 서비스를 사용하여 진단 로그 데이터를 저장하거나 처리하려면 추가 비용이 발생할 수 있습니다. 
@@ -101,11 +102,11 @@ Azure Portal에서 배치 계정에 대한 메트릭을 봅니다. 기본적으�
 
 1. 포털에서 **모든 서비스** > **배치 계정**을 차례로 클릭한 다음, 배치 계정의 이름을 클릭합니다.
 2. **모니터링**에서 **진단 로그** > **진단 켜기**를 클릭합니다.
-3. **진단 설정**설정에 대 한 이름을 입력 하 고 로그 대상 (기존 저장소 계정, Event Hub 또는 Azure Monitor 로그)를 선택 합니다. **ServiceLog**와 **AllMetrics** 중 하나를 선택하거나 두 개를 모두 선택합니다.
+3. **진단 설정**에서 설정의 이름을 입력 하 고 로그 대상 (기존 저장소 계정, 이벤트 허브 또는 Azure Monitor 로그)을 선택 합니다. **ServiceLog**와 **AllMetrics** 중 하나를 선택하거나 두 개를 모두 선택합니다.
 
-    저장소 계정을 선택하는 경우 필요에 따라 보존 정책을 설정합니다. 보존 일 수를 지정하지 않으면 데이터는 저장소 계정의 수명 동안 보존됩니다.
+    스토리지 계정을 선택하는 경우 필요에 따라 보존 정책을 설정합니다. 보존 일 수를 지정하지 않으면 데이터는 스토리지 계정의 수명 동안 보존됩니다.
 
-4. **저장**을 클릭합니다.
+4. **Save**을 클릭합니다.
 
     ![일괄 처리 진단](media/batch-diagnostics/diagnostics-portal.png)
 
@@ -119,7 +120,7 @@ Azure Portal에서 배치 계정에 대한 메트릭을 봅니다. 기본적으�
 ```
 insights-{log category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/
 RESOURCEGROUPS/{resource group name}/PROVIDERS/MICROSOFT.BATCH/
-BATCHACCOUNTS/{batch account name}/y={four-digit numeric year}/
+BATCHACCOUNTS/{Batch account name}/y={four-digit numeric year}/
 m={two-digit numeric month}/d={two-digit numeric day}/
 h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
@@ -130,12 +131,15 @@ insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX
 RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/
 BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 ```
-각 PT1H.json Blob 파일에는 Blob URL에 지정된 시간 내에서 발생한 JSON 형식의 이벤트가 포함됩니다(예: h=12). 현재 시간 동안 이벤트는 발생하는 순서대로 PT1H.json 파일에 추가됩니다. 진단 로그 이벤트는 시간당 개별 Blob으로 나뉘므로 분 값(m=00)은 항상 00입니다. (모든 시간은 UTC입니다.)
+각 `PT1H.json` blob 파일에는 blob URL에 지정 된 시간 내에 발생 한 JSON 형식 이벤트가 포함 됩니다 ( `h=12`예:). 현재 시간 동안 이벤트가 발생 하면 `PT1H.json` 파일에 추가 됩니다. 진단 로그 이벤트는`m=00`시간당 개별 blob `00`으로 나뉘어 있으므로 분 값 ()은 항상입니다. (모든 시간은 UTC입니다.)
 
+로그`PT1H.json` 파일에 있는 `PoolResizeCompleteEvent` 항목의 예는 다음과 같습니다. 여기에는 작업의 시작 시간과 종료 시간 뿐만 아니라 전용 및 우선 순위가 낮은 노드의 현재 및 목표 수에 대 한 정보가 포함 됩니다.
 
-저장소 계정에서 진단 로그의 스키마에 대한 자세한 내용은 [Azure 진단 로그 보관](../azure-monitor/platform/archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account)을 참조하세요.
+```
+{ "Tenant": "65298bc2729a4c93b11c00ad7e660501", "time": "2019-08-22T20:59:13.5698778Z", "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/", "category": "ServiceLog", "operationName": "PoolResizeCompleteEvent", "operationVersion": "2017-06-01", "properties": {"id":"MYPOOLID","nodeDeallocationOption":"Requeue","currentDedicatedNodes":10,"targetDedicatedNodes":100,"currentLowPriorityNodes":0,"targetLowPriorityNodes":0,"enableAutoScale":false,"isAutoPool":false,"startTime":"2019-08-22 20:50:59.522","endTime":"2019-08-22 20:59:12.489","resultCode":"Success","resultMessage":"The operation succeeded"}}
+```
 
-스토리지 계정에서 로그를 프로그래밍 방식으로 액세스하려면 Storage API를 사용합니다. 
+스토리지 계정에서 진단 로그의 스키마에 대한 자세한 내용은 [Azure 진단 로그 보관](../azure-monitor/platform/archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account)을 참조하세요. 스토리지 계정에서 로그를 프로그래밍 방식으로 액세스하려면 Storage API를 사용합니다. 
 
 ### <a name="service-log-events"></a>서비스 로그 이벤트
 Azure Batch 서비스 로그는 수집되는 경우 풀이나 작업 같은 개별 일괄 처리 리소스의 수명 주기 동안 Azure Batch 서비스가 내보낸 이벤트를 포함합니다. 일괄 처리에서 내보내는 각 이벤트는 JSON 형식으로 기록됩니다. 예를 들어 샘플 **풀 만들기 이벤트**의 본문은 다음과 같습니다.

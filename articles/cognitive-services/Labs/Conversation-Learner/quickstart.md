@@ -10,12 +10,13 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: cc071d59a387c8ae4982eacbce6812526f447788
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7ab32fb421a2c0db72652d1bbf12d312bffd5d1e
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388777"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706546"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>Node.js를 사용하여 Conversation Learner 모델 만들기
 
@@ -27,7 +28,7 @@ Conversation Learner는 봇 빌드의 복잡성을 줄여줍니다. 직접 작�
 
 Project Conversation Learner는 봇에 추가하는 SDK와 SDK가 기계 학습을 위해 액세스하는 클라우드 서비스로 구성됩니다.  현재, Project Conversation Learner 클라우드 서비스에 액세스하려면 초대가 필요합니다.  아직 초대하지 않은 경우 [초대를 요청](https://aka.ms/conversation-learner-request-invite)합니다.  초대를 받지 못한 경우 클라우드 API에 액세스할 수 없습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Node 8.5.0 이상 및 npm 5.3.0 이상. [https://nodejs.org](https://nodejs.org)에서 설치합니다.
   
@@ -149,7 +150,7 @@ cp .env.example .env
 
 이렇게 하면 봇을 로컬로 실행하고 Conversation Learner 사용을 시작할 수 있도록 하는 표준 구성이 사용됩니다.  (나중에 Bot Framework로 봇을 배포하려면 이 파일을 일부 편집해야 합니다.)
 
-## <a name="support"></a>지원
+## <a name="support"></a>Support(지원)
 
 - [Stack Overflow](https://stackoverflow.com)에 대한 질문에 "microsoft cognitive" 태그 지정
 - [사용자 의견 페이지](https://aka.ms/conversation-learner-uservoice)에서 기능 요청
@@ -157,7 +158,7 @@ cp .env.example .env
 
 ## <a name="contributing"></a>참여
 
-이 프로젝트에는 [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/)(Microsoft 오픈 소스 준수 사항)이 적용됩니다. 자세한 내용은 [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/)(준수 사항 FAQ)를 참조하거나 [opencode@microsoft.com](mailto:opencode@microsoft.com)에 추가 질문 또는 의견을 알려주세요.
+이 프로젝트는 [Microsoft 오픈 소스 준수 사항](https://opensource.microsoft.com/codeofconduct/)을 채택했습니다. 자세한 내용은 [준수 사항 FAQ](https://opensource.microsoft.com/codeofconduct/faq/) 를 참조하고, 추가 질문이나 의견이 있는 경우 [opencode@microsoft.com](mailto:opencode@microsoft.com) 에 문의하세요.
 
 ## <a name="source-repositories"></a>소스 리포지토리
 

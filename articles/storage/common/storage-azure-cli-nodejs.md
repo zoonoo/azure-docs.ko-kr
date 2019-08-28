@@ -27,7 +27,7 @@ Azure 클래식 CLI는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소
 이 가이드에서는 Azure Storage의 기본 개념을 이해하고 있다고 가정합니다. 이 가이드는 Azure Storage에서 클래식 CLI를 사용하는 방법을 보여 주는 몇 가지 스크립트를 제공합니다. 각 스크립트를 실행하기 전에 구성에 따라 스크립트 변수를 업데이트 해야 합니다.
 
 > [!NOTE]
-> 이 가이드에서는 클래식 저장소 계정용 Azure 클래식 CLI 명령 및 스크립트 예제를 제공합니다. Resource Manager 저장소 계정용 Azure 클래식 CLI 명령은 [Azure Resource 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)을 참조하세요.
+> 이 가이드에서는 클래식 스토리지 계정용 Azure 클래식 CLI 명령 및 스크립트 예제를 제공합니다. Resource Manager 스토리지 계정용 Azure 클래식 CLI 명령은 [Azure Resource 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)을 참조하세요.
 >
 >
 
@@ -47,7 +47,7 @@ Azure 구독에 대한 자세한 내용은 [Azure AD(Azure Active Directory)에�
 
     ![Azure 명령 출력](./media/storage-azure-cli/azure_command.png)   
 3. 명령줄 인터페이스에 `azure storage`를 입력하여 모든 azure storage 명령을 나열한 다음 클래식 CLI에서 제공되는 기능을 파악합니다. 명령 이름에 **-h** 매개 변수를 입력하여(예: `azure storage share create -h`) 명령 구문에 대한 세부 정보를 볼 수 있습니다.
-4. 이제 Azure Storage에 액세스할 수 있는 기본적인 클래식 CLI 명령을 보여 주는 간단한 스크립트를 살펴보겠습니다. 먼저 스크립트가 저장소 계정 및 키에 대한 두 변수를 설정할 것인지 묻습니다. 그런 다음 이 스크립트는 새 저장소 계정에 새 컨테이너를 만들고 해당 컨테이너에 기존 이미지 파일(Blob)을 업로드합니다. 스크립트가 해당 컨테이너의 모든 Blob을 나열한 후 로컬 컴퓨터에 있는 대상 디렉터리에 이미지 파일을 다운로드합니다.
+4. 이제 Azure Storage에 액세스할 수 있는 기본적인 클래식 CLI 명령을 보여 주는 간단한 스크립트를 살펴보겠습니다. 먼저 스크립트가 스토리지 계정 및 키에 대한 두 변수를 설정할 것인지 묻습니다. 그런 다음 이 스크립트는 새 스토리지 계정에 새 컨테이너를 만들고 해당 컨테이너에 기존 이미지 파일(Blob)을 업로드합니다. 스크립트가 해당 컨테이너의 모든 Blob을 나열한 후 로컬 컴퓨터에 있는 대상 디렉터리에 이미지 파일을 다운로드합니다.
 
     ```azurecli
     #!/bin/bash
@@ -89,28 +89,28 @@ Azure 구독에 대한 자세한 내용은 [Azure AD(Azure Active Directory)에�
 
 스크립트가 실행된 후 다운로드한 이미지 파일을 포함하는 로컬 대상 폴더가 있어야 합니다.
 
-## <a name="manage-storage-accounts-with-the-azure-classic-cli"></a>Azure 클래식 CLI를 사용하여 저장소 계정 관리
+## <a name="manage-storage-accounts-with-the-azure-classic-cli"></a>Azure 클래식 CLI를 사용하여 스토리지 계정 관리
 ### <a name="connect-to-your-azure-subscription"></a>Azure 구독에 연결
-대부분의 저장소 명령은 Azure 구독이 없어도 작동하지만 클래식 CLI에서 구독에 연결하는 것이 좋습니다.
+대부분의 스토리지 명령은 Azure 구독이 없어도 작동하지만 클래식 CLI에서 구독에 연결하는 것이 좋습니다.
 
-### <a name="create-a-new-storage-account"></a>새 저장소 계정 만들기
-Azure 저장소를 사용하려면 저장소 계정이 있어야 합니다. 구독에 연결하도록 컴퓨터를 구성한 후 새 Azure 저장소 계정을 만들 수 있습니다.
+### <a name="create-a-new-storage-account"></a>새 스토리지 계정 만들기
+Azure Storage를 사용하려면 스토리지 계정이 있어야 합니다. 구독에 연결하도록 컴퓨터를 구성한 후 새 Azure Storage 계정을 만들 수 있습니다.
 
 ```azurecli
 azure storage account create <account_name>
 ```
 
-사용자의 저장소 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 사용해야 합니다.
+사용자의 스토리지 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 사용해야 합니다.
 
-### <a name="set-a-default-azure-storage-account-in-environment-variables"></a>환경 변수에서 기본 Azure 저장소 계정 설정
-구독에서 여러 저장소 계정을 사용할 수 있습니다. 그중 하나를 선택하여 동일한 세션의 모든 저장소 명령에 대한 환경 변수에서 설정할 수 있습니다. 이렇게 하면 저장소 계정 및 키를 명시적으로 지정하지 않고도 클래식 CLI 저장소 명령을 실행할 수 있습니다.
+### <a name="set-a-default-azure-storage-account-in-environment-variables"></a>환경 변수에서 기본 Azure Storage 계정 설정
+구독에서 여러 스토리지 계정을 사용할 수 있습니다. 그중 하나를 선택하여 동일한 세션의 모든 스토리지 명령에 대한 환경 변수에서 설정할 수 있습니다. 이렇게 하면 스토리지 계정 및 키를 명시적으로 지정하지 않고도 클래식 CLI 스토리지 명령을 실행할 수 있습니다.
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>
 export AZURE_STORAGE_ACCESS_KEY=<key>
 ```
 
-기본 저장소 계정을 설정하는 다른 방법은 연결 문자열을 사용하는 것입니다. 첫째, 명령으로 연결 문자열을 가져옵니다.
+기본 스토리지 계정을 설정하는 다른 방법은 연결 문자열을 사용하는 것입니다. 첫째, 명령으로 연결 문자열을 가져옵니다.
 
 ```azurecli
 azure storage account connectionstring show <account_name>
@@ -126,7 +126,7 @@ export AZURE_STORAGE_CONNECTION_STRING=<connection_string>
 Azure Blob Storage는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있는 다량의 구조화되지 않은 데이터(예: 텍스트 또는 이진 데이터)를 저장할 수 있는 서비스입니다. 이 섹션에서는 Azure Blob Storage 개념에 이미 익숙하다고 가정합니다. 자세한 내용은 [.NET을 사용하여 Azure Blob Storage 시작](../blobs/storage-dotnet-how-to-use-blobs.md) 및 [Blob Service 개념](https://msdn.microsoft.com/library/azure/dd179376.aspx)을 참조하세요.
 
 ### <a name="create-a-container"></a>컨테이너 만들기
-Azure 저장소의 모든 Blob은 컨테이너에 있어야 합니다. `azure storage container create` 명령을 사용하여 개인 컨테이너를 만들 수 있습니다.
+Azure Storage의 모든 Blob은 컨테이너에 있어야 합니다. `azure storage container create` 명령을 사용하여 개인 컨테이너를 만들 수 있습니다.
 
 ```azurecli
 azure storage container create mycontainer
@@ -154,9 +154,9 @@ azure storage blob download mycontainer myBlockBlob '~/downloadImages/downloaded
 ```
 
 ### <a name="copy-blobs"></a>Blob 복사
-저장소 계정 및 지역 내 또는 전체에 걸쳐 비동기적으로 Blob을 복사할 수 있습니다.
+스토리지 계정 및 지역 내 또는 전체에 걸쳐 비동기적으로 Blob을 복사할 수 있습니다.
 
-다음 예제에서는 한 저장소 계정에서 다른 계정으로 Blob을 복사하는 방법을 보여줍니다. 이 샘플에서는 blob을 공개적으로 하는 컨테이너 만들어 익명으로 액세스할 수 있습니다.
+다음 예제에서는 한 스토리지 계정에서 다른 계정으로 Blob을 복사하는 방법을 보여줍니다. 이 샘플에서는 blob을 공개적으로 하는 컨테이너 만들어 익명으로 액세스할 수 있습니다.
 
 ```azurecli
 azure storage container create mycontainer2 -a <accountName2> -k <accountKey2> -p Blob
@@ -181,7 +181,7 @@ azure storage blob delete mycontainer myBlockBlob2
 Azure Files는 표준 SMB 프로토콜을 사용하여 애플리케이션을 위한 공유 스토리지를 제공합니다. Microsoft Azure 가상 머신 및 클라우드 서비스 그리고 온-프레미스 애플리케이션은 탑재된 공유를 통해 파일 데이터를 공유할 수 있습니다. 클래식 CLI를 통해 파일 공유 및 파일 데이터를 관리할 수 있습니다. Azure Files에 대한 자세한 내용은 [Azure Files 소개](../files/storage-files-introduction.md)를 참조하세요.
 
 ### <a name="create-a-file-share"></a>파일 공유 만들기
-Azure에서 Azure 파일 공유는 SMB 파일 공유입니다. 모든 디렉터리 및 파일을 파일 공유에서 만들어야 합니다. 계정에 포함할 수 있는 공유 수에는 제한이 없으며, 공유에 저장할 수 있는 파일 수에는 저장소 계정의 최대 용량 한도까지 제한이 없습니다. 다음 예제에서는 **myshare**라는 파일 공유를 만듭니다.
+Azure에서 Azure 파일 공유는 SMB 파일 공유입니다. 모든 디렉터리 및 파일을 파일 공유에서 만들어야 합니다. 계정에 포함할 수 있는 공유 수에는 제한이 없으며, 공유에 저장할 수 있는 파일 수에는 스토리지 계정의 최대 용량 한도까지 제한이 없습니다. 다음 예제에서는 **myshare**라는 파일 공유를 만듭니다.
 
 ```azurecli
 azure storage share create myshare

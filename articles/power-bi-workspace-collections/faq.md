@@ -2,18 +2,18 @@
 title: Power BI 작업 영역 컬렉션 FAQ
 description: Power BI 작업 영역 컬렉션에 관련된 질문과 대답입니다.
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 author: rkarlin
 ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.openlocfilehash: e3c28cc28261e65e945887d7ad9bfa5fd3984605
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b737c7753ce374d0360738e37d83609d1db995b1
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64701578"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672413"
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Power BI 작업 영역 컬렉션 FAQ
 
@@ -26,7 +26,7 @@ Power BI 작업 영역 컬렉션은 사용자 컨트롤을 처음부터 빌드�
 
 ## <a name="who-would-want-to-use-microsoft-power-bi-workspace-collections-and-why"></a>Microsoft Power BI 작업 영역 컬렉션을 누가 사용하고 사용하는 이유는 무엇인가요?
 
-Microsoft Power BI 작업 영역 컬렉션은 사용자가 직접 빌드하지 않아도 모든 장치에 걸쳐 사용자에게 뛰어난 대화형 데이터 시각화 환경을 제공하려는 애플리케이션 개발자를 위한 것입니다. Power BI 작업 영역 컬렉션으로 개발자는 직접 쿼리를 사용하여 항상 최신 보기를 제공할 수 있습니다. 개발자는 또한 프로그래밍 방식으로 Azure Resource Manager API 및 Power BI API를 사용하여 Power BI를 배포, 관리 및 자동화할 수도 있습니다. 모든 Power BI와 마찬가지로 포함된 서비스는 애플리케이션의 사용량 및 수요에 맞게 자동으로 조정됩니다. Power BI 작업 영역 컬렉션 서비스는 종량제 사용량 기반 가격 책정 모델 기능을 갖추고 있습니다.
+Microsoft Power BI 작업 영역 컬렉션은 사용자가 직접 빌드하지 않아도 모든 디바이스에 걸쳐 사용자에게 뛰어난 대화형 데이터 시각화 환경을 제공하려는 애플리케이션 개발자를 위한 것입니다. Power BI 작업 영역 컬렉션으로 개발자는 직접 쿼리를 사용하여 항상 최신 보기를 제공할 수 있습니다. 개발자는 또한 프로그래밍 방식으로 Azure Resource Manager API 및 Power BI API를 사용하여 Power BI를 배포, 관리 및 자동화할 수도 있습니다. 모든 Power BI와 마찬가지로 포함된 서비스는 애플리케이션의 사용량 및 수요에 맞게 자동으로 조정됩니다. Power BI 작업 영역 컬렉션 서비스는 종량제 사용량 기반 가격 책정 모델 기능을 갖추고 있습니다.
 
 ## <a name="how-does-power-bi-workspace-collections-relate-to-the-power-bi-service"></a>Power BI 작업 영역 컬렉션은 Power BI 서비스와 어떤 관련이 있나요?
 
@@ -98,7 +98,7 @@ Power BI 작업 영역 컬렉션 모델에는 Azure AD 테넌트의 고객이 �
 
 지금 무료로 시작할 수 있습니다. Azure 구독이 있는 경우 이제 Azure Portal에서 직접 Power BI 작업 영역 컬렉션을 프로비전할 수 있습니다. [무료 Azure 계정](https://azure.microsoft.com/free/)을 만들 수도 있습니다. Power BI 작업 영역 컬렉션 서비스를 프로비전하면 직접 Power BI REST API를 쉽게 사용하거나 [GitHub](https://go.microsoft.com/fwlink/?LinkID=746472)에서 사용할 수 있는 개발자 SDK를 사용할 수 있습니다. 개발자 SDK를 활용하는 방법에 대한 샘플을 제공합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 [Microsoft Power BI 작업 영역 컬렉션이란?](what-are-power-bi-workspace-collections.md)
 [Microsoft Power BI 작업 영역 컬렉션 시작](get-started.md)

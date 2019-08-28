@@ -10,17 +10,18 @@ ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bca802bb0099b0d854d752db8341dfe74031ef3b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 0117a0881422584e3cb949661b1d58cd0257cf67
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508042"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853858"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: 소셜 ID가 있는 사용자 마이그레이션
-ID 공급자를 Azure AD B2C로 마이그레이션하려는 경우 소셜 ID가 있는 사용자 계정도 마이그레이션해야 합니다. 이 문서에서는 Facebook, LinkedIn, Microsoft, Google 계정 등의 기존 소셜 ID 계정을 Azure AD B2C로 마이그레이션하는 방법을 설명합니다. 이 문서는 페더레이션 ID에도 해당되지만 이러한 마이그레이션은 일반성이 떨어집니다.
+ID 공급자를 Azure AD B2C로 마이그레이션하려는 경우 소셜 ID가 있는 사용자 계정도 마이그레이션해야 합니다. 이 문서에서는 Facebook, LinkedIn, Microsoft, Google 계정 등의 기존 소셜 ID 계정을 Azure AD B2C로 마이그레이션하는 방법을 설명합니다. 이 문서는 페더레이션 ID에도 해당되지만 이러한 마이그레이션은 일반성이 떨어집니다. 이 문서의 나머지 부분에서는 다른 유형의 페더레이션된 계정에도 소셜 계정에 적용 되는 모든 사항을 고려 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 문서는 사용자 마이그레이션 문서의 연속물이며 소셜 ID 마이그레이션에 중점을 두고 있습니다. 시작에 앞서 [사용자 마이그레이션](active-directory-b2c-user-migration.md)을 참조하세요.
 
 ## <a name="social-identities-migration-introduction"></a>소셜 ID 마이그레이션 소개
@@ -29,11 +30,11 @@ ID 공급자를 Azure AD B2C로 마이그레이션하려는 경우 소셜 ID가 
 
 * **소셜 계정의** ID는 `userIdentities` 컬렉션에 저장됩니다. 이 항목은 facebook.com과 같은 `issuer`(ID 공급자 이름)와 발급자의 고유 사용자 ID인 `issuerUserId`를 지정합니다. `userIdentities` 특성에는 소셜 ID 공급자의 고유 사용자 ID와 소셜 계정 유형을 지정하는 하나 이상의 UserIdentity 레코드가 포함됩니다.
 
-* **소셜 ID와 로컬 계정 결합**. 언급했듯이 로컬 계정 로그인 이름과 소셜 계정 ID는 다른 특성에 저장됩니다. `signInNames`는 로컬 계정에 사용되며 `userIdentities`는 소셜 계정에 사용됩니다. 단일 Azure AD B2C 계정은 로컬 계정이거나 소셜 계정이거나 하나의 사용자 레코드에서 로컬 계정을 소셜 ID와 결합할 수 있습니다. 이러한 동작을 통해 단일 계정을 관리할 수 있고 사용자는 로컬 계정 자격 증명이나 소셜 ID로 로그인이 가능합니다.
+* **소셜 ID와 로컬 계정 결합**. 언급했듯이 로컬 계정 로그인 이름과 소셜 계정 ID는 다른 특성에 저장됩니다. `signInNames`는 로컬 계정에 사용 되 고 `userIdentities` 는 소셜 계정에 사용 됩니다. 단일 Azure AD B2C 계정은 로컬 계정 이거나 소셜 계정만 가능 하거나 한 사용자 레코드에서 하나 이상의 소셜 id와 로컬 계정을 결합할 수 있습니다. 이러한 동작을 통해 단일 계정을 관리할 수 있고 사용자는 로컬 계정 자격 증명이나 소셜 ID로 로그인이 가능합니다.
 
 * `UserIdentity` 형식 - Azure AD B2C 테넌트의 소셜 계정 사용자 ID에 대한 정보가 포함됩니다.
   * `issuer` 사용자 ID를 발급한 ID 공급자의 문자열 표현(예: facebook.com)입니다.
-  * `issuerUserId` 소셜 ID 공급자가 사용하는 base64 형식의 고유한 사용자 ID입니다.
+  * `issuerUserId`소셜 id 공급자가 Base64 인코딩 형식으로 사용 하는 고유한 사용자 id입니다.
 
     ```JSON
     "userIdentities": [{
@@ -43,10 +44,10 @@ ID 공급자를 Azure AD B2C로 마이그레이션하려는 경우 소셜 ID가 
     ]
     ```
 
-* ID 공급자에 따라 **소셜 사용자 ID**는 애플리케이션 또는 개발 계정마다 주어진 사용자에 대한 고유한 값입니다. 소셜 공급자가 이전에 할당한 ID와 동일한 애플리케이션 ID로 Azure AD B2C 정책을 구성합니다. 또는 동일한 개발 계정 내의 다른 애플리케이션입니다.
+* Id 공급자에 따라 **발급자 사용자 ID** 는 응용 프로그램 또는 개발 계정 별로 지정 된 사용자에 대 한 고유한 값입니다. 이전에 소셜 공급자나 동일한 개발 계정 내의 다른 응용 프로그램에서 할당 한 것과 동일한 응용 프로그램 ID를 사용 하 여 Azure AD B2C 정책을 구성 합니다.
 
 ## <a name="use-graph-api-to-migrate-users"></a>Graph API를 사용하여 사용자 마이그레이션
-[Graph API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet)를 통해 Azure AD B2C 사용자 계정을 만듭니다. Graph API와 통신하려면 먼저 관리자 권한이 있는 서비스 계정이 있어야 합니다. Azure AD에서 Azure AD에 애플리케이션 및 인증을 등록합니다. 애플리케이션 자격 증명은 애플리케이션 ID 및 애플리케이션 비밀입니다. 애플리케이션은 사용자로서가 아닌 자체로서 Graph API를 호출합니다. [사용자 마이그레이션](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-user-migration) 문서의 1단계를 수행합니다.
+[Graph API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet)를 통해 Azure AD B2C 사용자 계정을 만듭니다. Graph API와 통신하려면 먼저 관리자 권한이 있는 서비스 계정이 있어야 합니다. Azure AD에서 Azure AD에 애플리케이션 및 인증을 등록합니다. 애플리케이션 자격 증명은 애플리케이션 ID 및 애플리케이션 비밀입니다. 애플리케이션은 사용자로서가 아닌 자체로서 Graph API를 호출합니다. [사용자 마이그레이션](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-user-migration) 문서에서 1 단계의 지침을 따릅니다.
 
 ## <a name="required-properties"></a>필수 속성
 다음 목록은 사용자를 만들 때 필요한 속성을 보여줍니다.
@@ -55,7 +56,7 @@ ID 공급자를 Azure AD B2C로 마이그레이션하려는 경우 소셜 ID가 
 * **passwordProfile** - 사용자의 암호 프로필입니다. 
 
 > [!NOTE]
-> 소셜 계정(로컬 계정 자격 증명이 없음)에 한해 암호를 반드시 지정해야 합니다. Azure AD B2C에서는 소셜 계정에 대해 지정한 암호가 무시됩니다.
+> 로컬 계정 자격 증명이 없는 소셜 계정에 대해서는 여전히 암호를 지정 해야 합니다. Azure AD B2C에서는 소셜 계정에 대해 지정한 암호가 무시됩니다.
 
 * **userPrincipalName** - 사용자 계정 이름(someuser@contoso.com)입니다. 사용자 계정 이름에는 테넌트의 확인된 도메인 중 하나가 반드시 포함되어야 합니다. UPN을 지정하려면 새 GUID 값을 생성하고 `@` 및 테넌트 이름으로 연결합니다.
 * **mailNickname** - 사용자의 메일 별칭입니다. 이 값은 userPrincipalName에 사용하는 ID와 동일할 수 있습니다. 
@@ -63,10 +64,10 @@ ID 공급자를 Azure AD B2C로 마이그레이션하려는 경우 소셜 ID가 
 * **userIdentities** - 소셜 ID 공급자의 고유 사용자 ID와 소셜 계정 유형을 지정하는 하나 이상의 UserIdentity 레코드입니다.
 * [선택 사항] **otherMails** – 소셜 계정 전용 사용자의 이메일 주소입니다. 
 
-자세한 내용은 다음을 참조하세요. [Graph API 참조](/previous-versions/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
+참조 항목: [Graph API 참조](/previous-versions/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
 
 ## <a name="migrate-social-account-only"></a>소셜 계정(전용) 마이그레이션
-로컬 계정 자격 증명이 없는 전용 소셜 계정을 만들려면 HTTPS POST 요청을 Graph API에 보냅니다. 요청 본문에는 만들려는 소셜 계정 사용자의 속성이 포함됩니다. 최소한 필수 속성을 지정해야 합니다. 
+로컬 계정 자격 증명이 없는 소셜 계정만 만들려면 Graph API에 HTTPS POST 요청을 보냅니다. 요청 본문에는 만들려는 소셜 계정 사용자의 속성이 포함됩니다. 최소한 필수 속성을 지정해야 합니다. 
 
 
 **POST**  https://graph.windows.net/tenant-name.onmicrosoft.com/users
@@ -98,7 +99,7 @@ ID 공급자를 Azure AD B2C로 마이그레이션하려는 경우 소셜 ID가 
 }
 ```
 ## <a name="migrate-social-account-with-local-account"></a>로컬 계정과 소셜 계정 마이그레이션
-소셜 ID와 결합된 로컬 계정을 만들려면 HTTPS POST 요청을 Graph API에 보냅니다. 요청 본문에는 만들려는 소셜 계정 사용자의 속성이 포함됩니다. 최소한 필수 속성을 지정해야 합니다. 
+소셜 id를 사용 하 여 결합 된 로컬 계정을 만들려면 HTTPS POST 요청을 Graph API 보냅니다. 요청 본문에는 로컬 계정의 로그인 이름을 포함 하 여 만들 소셜 계정 사용자의 속성이 포함 됩니다. 최소한 필수 속성을 지정해야 합니다. 
 
 **POST**  https://graph.windows.net/tenant-name.onmicrosoft.com/users
 
@@ -147,8 +148,8 @@ ID 공급자를 Azure AD B2C로 마이그레이션하려는 경우 소셜 ID가 
 > [!NOTE]
 > B2C 테넌트에 대해 로컬인 B2C 테넌트 관리자 계정을 사용합니다. 계정 이름 구문은 admin@tenant-name.onmicrosoft.com입니다.
 
-### <a name="is-it-possible-to-add-social-identity-to-an-existing-local-account"></a>기존 로컬 계정에 소셜 ID를 추가할 수 있나요?
-예. 로컬 계정을 만든 후에 소셜 ID를 추가할 수 있습니다. HTTPS PATCH 요청을 실행합니다. userObjectId를 업데이트할 사용자 ID로 바꿉니다. 
+### <a name="is-it-possible-to-add-a-social-identity-to-an-existing-user"></a>기존 사용자에 게 소셜 id를 추가할 수 있나요?
+예. Azure AD B2C 계정이 만들어진 후 소셜 id를 추가할 수 있습니다 (로컬 계정이 나 소셜 계정 인지 또는 이들의 조합). HTTPS 패치 요청을 실행 합니다. userObjectId를 업데이트할 사용자 ID로 바꿉니다. 
 
 **PATCH** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
 

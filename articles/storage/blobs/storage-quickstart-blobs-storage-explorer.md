@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/15/2018
 ms.author: tamram
-ms.openlocfilehash: 3424b46dff8f2904f41d0e8c1acf96788c51773f
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: cd31d1c40f30ebc8341c2126da22f8a74cb05438
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59994472"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640509"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>빠른 시작: Azure Storage Explorer를 사용하여 개체 스토리지에 Blob 만들기
 
@@ -23,7 +23,7 @@ ms.locfileid: "59994472"
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-이 빠른 시작을 사용하려면 Azure Storage Explore를 설치해야 합니다. Windows, Macintosh 또는 Linux용 Azure Storage Explorer를 설치하려면 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 참조하세요.
+이 빠른 시작을 사용하려면 Azure Storage Explorer를 설치해야 합니다. Windows, Macintosh 또는 Linux용 Azure Storage Explorer를 설치하려면 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 참조하세요.
 
 ## <a name="log-in-to-storage-explorer"></a>Storage Explorer에 로그인
 
@@ -32,8 +32,8 @@ ms.locfileid: "59994472"
 |Task|목적|
 |---|---|
 |Azure 계정 추가 | Azure에 인증하기 위해 조직 로그인 페이지로 리디렉션합니다. |
-|연결 문자열 또는 공유 액세스 서명 URI 사용 | SAS 토큰 또는 공유 연결 문자열이 있는 컨테이너 또는 저장소 계정에 직접 액세스하는 데 사용할 수 있습니다. |
-|저장소 계정 이름 및 키 사용| 스토리지 계정 이름과 스토리지 계정 키를 사용하여 Azure Storage에 연결합니다.|
+|연결 문자열 또는 공유 액세스 서명 URI 사용 | SAS 토큰 또는 공유 연결 문자열이 있는 컨테이너 또는 스토리지 계정에 직접 액세스하는 데 사용할 수 있습니다. |
+|스토리지 계정 이름 및 키 사용| 스토리지 계정 이름과 스토리지 계정 키를 사용하여 Azure Storage에 연결합니다.|
 
 **Azure 계정 추가**를 선택하고 **로그인..** 을 클릭합니다. 화면 상의 메시지에 따라 Azure 계정에 로그인합니다.
 
@@ -47,7 +47,7 @@ ms.locfileid: "59994472"
 
 Blob은 항상 컨테이너에 업로드됩니다. 컴퓨터의 폴더에서 파일을 구성하는 것처럼 컨테이너를 사용하여 Blob 그룹을 구성할 수 있습니다.
 
-컨테이너를 만들려면 진행 단계에서 만든 저장소 계정을 확장합니다. **Blob 컨테이너**를 선택하고, 마우스 오른쪽 단추로 클릭하여 **Blob 컨테이너 만들기**를 선택합니다. Blob 컨테이너에 대한 이름을 입력합니다. Blob 컨테이너 이름 명명 규칙 및 제한 사항 목록은 [컨테이너 만들기 및 사용 권한 설정](storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions) 섹션을 참조하세요. 완료되면 **Enter**를 눌러 Blob 컨테이너를 만듭니다. Blob 컨테이너가 성공적으로 만들어졌다면 선택한 저장소 계정에 대해 **Blob 컨테이너** 폴더 아래에 표시됩니다.
+컨테이너를 만들려면 진행 단계에서 만든 스토리지 계정을 확장합니다. **Blob 컨테이너**를 선택하고, 마우스 오른쪽 단추로 클릭하여 **Blob 컨테이너 만들기**를 선택합니다. Blob 컨테이너에 대한 이름을 입력합니다. Blob 컨테이너 이름 명명 규칙 및 제한 사항 목록은 [컨테이너 만들기](storage-quickstart-blobs-dotnet.md#create-a-container) 섹션을 참조하세요. 완료되면 **Enter**를 눌러 Blob 컨테이너를 만듭니다. Blob 컨테이너가 성공적으로 만들어졌다면 선택한 스토리지 계정에 대해 **Blob 컨테이너** 폴더 아래에 표시됩니다.
 
 ## <a name="upload-blobs-to-the-container"></a>컨테이너에 Blob 업로드
 
@@ -67,29 +67,29 @@ Blob Storage는 블록 Blob, 추가 Blob 및 페이지 Blob을 지원합니다. 
 
 ## <a name="view-blobs-in-a-container"></a>컨테이너에서 Blob 보기
 
-**Azure Storage 탐색기** 응용 프로그램에서 스토리지 계정 아래에 있는 컨테이너를 선택합니다. 기본 창에는 선택한 컨테이너의 Blob 목록이 표시됩니다.
+**Azure Storage Explorer** 애플리케이션에서 스토리지 계정 아래에 있는 컨테이너를 선택합니다. 기본 창에는 선택한 컨테이너의 Blob 목록이 표시됩니다.
 
 ![Microsoft Azure Storage Explorer - 컨테이너의 Blob 나열](media/storage-quickstart-blobs-storage-explorer/listblobs.png)
 
 ## <a name="download-blobs"></a>Blob 다운로드
 
-**Azure Storage 탐색기**에서 Blob을 선택하여 Blob을 다운로드하려면 리본에서 **다운로드**를 선택합니다. 파일 대화 상자가 열리면 파일 이름을 입력할 수 있습니다. **저장**을 선택하면 로컬 위치에 Blob 다운로드가 시작됩니다.
+**Azure Storage Explorer**에서 Blob을 선택하여 Blob을 다운로드하려면 리본에서 **다운로드**를 선택합니다. 파일 대화 상자가 열리면 파일 이름을 입력할 수 있습니다. **저장**을 선택하면 로컬 위치에 Blob 다운로드가 시작됩니다.
 
 ## <a name="manage-snapshots"></a>스냅샷 관리
 
-Azure Storage Explorer는 Blob의 [스냅숏](storage-blob-snapshots.md)을 가져와서 관리할 수 있는 기능을 제공합니다. Blob 스냅샷을 생성하려면 Blob을 마우스 오른쪽 단추로 클릭하고 **스냅샷 만들기**를 선택합니다. Blob의 스냅샷을 보려면 Blob을 마우스 오른쪽 단추로 클릭하고 **스냅샷 관리**를 선택합니다. Blob의 스냅샷 목록이 현재 탭에 표시됩니다.
+Azure Storage Explorer는 Blob의 [스냅샷](storage-blob-snapshots.md)을 가져와서 관리할 수 있는 기능을 제공합니다. Blob 스냅샷을 생성하려면 Blob을 마우스 오른쪽 단추로 클릭하고 **스냅샷 만들기**를 선택합니다. Blob의 스냅샷을 보려면 Blob을 마우스 오른쪽 단추로 클릭하고 **스냅샷 관리**를 선택합니다. Blob의 스냅샷 목록이 현재 탭에 표시됩니다.
 
 ![Microsoft Azure Storage Explorer - 컨테이너의 Blob 나열](media/storage-quickstart-blobs-storage-explorer/snapshots.png)
 
 ## <a name="manage-access-policies"></a>액세스 정책 관리
 
-Storage Explorer는 사용자 인터페이스 내의 컨테이너에 대한 액세스 정책을 관리하는 기능을 제공합니다. 보안 액세스 정책(SAS)에는 서비스 수준 및 계정 수준의 두 가지 유형이 있습니다. 계정 수준 SAS는 저장소 계정을 대상으로 하며 여러 서비스 및 리소스에 적용할 수 있습니다. 서비스 수준 SAS는 특정 서비스의 리소스에 정의됩니다. 서비스 레벨 SAS를 생성하려면 컨테이너를 마우스 오른쪽 단추로 클릭하고 **액세스 정책 관리...** 를 선택합니다. 계정 수준 SAS를 생성하려면 저장소 계정을 마우스 오른쪽 단추로 클릭합니다.
+Storage Explorer는 사용자 인터페이스 내의 컨테이너에 대한 액세스 정책을 관리하는 기능을 제공합니다. 보안 액세스 정책(SAS)에는 서비스 수준 및 계정 수준의 두 가지 유형이 있습니다. 계정 수준 SAS는 스토리지 계정을 대상으로 하며 여러 서비스 및 리소스에 적용할 수 있습니다. 서비스 수준 SAS는 특정 서비스의 리소스에 정의됩니다. 서비스 레벨 SAS를 생성하려면 컨테이너를 마우스 오른쪽 단추로 클릭하고 **액세스 정책 관리...** 를 선택합니다. 계정 수준 SAS를 생성하려면 스토리지 계정을 마우스 오른쪽 단추로 클릭합니다.
 
 **추가**를 선택하여 새 액세스 정책을 추가하고 정책에 대한 권한을 정의합니다. 완료되면 **저장**을 선택하여 액세스 정책을 저장합니다. 이 정책은 이제 공유 액세스 서명을 구성할 때 사용할 수 있습니다.
 
 ## <a name="work-with-shared-access-signatures"></a>공유 액세스 서명으로 작업
 
-SAS(공유 액세스 서명)는 Storage Explorer를 통해 검색할 수 있습니다. 저장소 계정, 컨테이너 또는 Blob를 마우스 오른쪽 버튼으로 클릭하고 **공유 액세스 서명 가져오기...** 를 선택합니다. 시작 및 만료 시간과 SAS URL에 대한 권한을 선택하고 **만들기**를 선택합니다. 쿼리 문자열뿐만 아니라 쿼리 문자열 자체의 전체 URL이 제공되며 다음 화면에서 복사할 수 있습니다.
+SAS(공유 액세스 서명)는 Storage Explorer를 통해 검색할 수 있습니다. 스토리지 계정, 컨테이너 또는 Blob를 마우스 오른쪽 버튼으로 클릭하고 **공유 액세스 서명 가져오기...** 를 선택합니다. 시작 및 만료 시간과 SAS URL에 대한 권한을 선택하고 **만들기**를 선택합니다. 쿼리 문자열뿐만 아니라 쿼리 문자열 자체의 전체 URL이 제공되며 다음 화면에서 복사할 수 있습니다.
 
 ![Microsoft Azure Storage Explorer - 컨테이너의 Blob 나열](media/storage-quickstart-blobs-storage-explorer/sharedaccesssignature.png)
 

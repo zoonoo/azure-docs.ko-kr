@@ -1,6 +1,6 @@
 ---
 title: PowerShell을 사용하여 Log Analytics 작업 영역 만들기 및 구성 | Microsoft Docs
-description: Azure Monitor에서 log Analytics 작업 영역에서 온-프레미스 서버에서 데이터를 저장 또는 클라우드 인프라입니다. Azure 진단에 의해 생성된 경우에 Azure 스토리지에서 머신 데이터를 수집할 수 있습니다.
+description: 에서 작업 영역을 Log Analytics 하 여 온-프레미스 또는 클라우드 인프라의 서버에서 데이터를 저장할 Azure Monitor. Azure 진단에 의해 생성된 경우에 Azure 스토리지에서 머신 데이터를 수집할 수 있습니다.
 services: log-analytics
 author: bwren
 ms.service: log-analytics
@@ -8,16 +8,16 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 05/19/2019
 ms.author: bwren
-ms.openlocfilehash: 36cb2462a47f9d175ca25bbbde46a14009637db0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec72b0b9f2cdc932c7fb0c8a6fd8daecbc470c09
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65907872"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779967"
 ---
 # <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>PowerShell을 사용 하 여 Azure Monitor에서 Log Analytics 작업 영역 관리
 
-사용할 수는 [Log Analytics PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.operationalinsights/) Log Analytics 작업 영역에서 Azure Monitor의 명령줄 또는 스크립트의 일부로 다양 한 기능을 수행할 수 있습니다.  PowerShell을 사용하여 수행할 수 있는 작업의 예:
+[Log Analytics PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.operationalinsights/) 을 사용 하 여 명령줄에서 또는 스크립트의 일부로 Azure Monitor의 Log Analytics 작업 영역에서 다양 한 기능을 수행할 수 있습니다.  PowerShell을 사용하여 수행할 수 있는 작업의 예:
 
 * 작업 영역 만들기
 * 솔루션 추가 또는 제거
@@ -38,8 +38,8 @@ ms.locfileid: "65907872"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
-이러한 예제 Az.OperationalInsights 모듈 또는 나중에 버전 1.0.0 사용 하 여 작동합니다.
+## <a name="prerequisites"></a>전제 조건
+이러한 예제는 OperationalInsights 모듈의 버전 1.0.0 이상에서 작동 합니다.
 
 
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>Log Analytics 작업 영역 만들기 및 구성
@@ -79,7 +79,7 @@ $ExportedSearches = @"
     {
         "Category":  "My Saved Searches",
         "DisplayName":  "Current Disk Queue Length",
-        "Query":  "Perf | where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and InstanceName == "C:",
+        "Query":  "Perf | where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and InstanceName == "C:"",
         "Version":  1
     }
 ]
@@ -134,7 +134,7 @@ try {
 New-AzOperationalInsightsWorkspace -Location $Location -Name $WorkspaceName -Sku Standard -ResourceGroupName $ResourceGroup
 
 # List all solutions and their installation status
-Get-AzOperationalInsightsIntelligencePacks -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName
+Get-AzOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName
 
 # Add solutions
 foreach ($solution in $Solutions) {
@@ -142,7 +142,7 @@ foreach ($solution in $Solutions) {
 }
 
 # List enabled solutions
-(Get-AzOperationalInsightsIntelligencePacks -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName).Where({($_.enabled -eq $true)})
+(Get-AzOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName).Where({($_.enabled -eq $true)})
 
 # Import Saved Searches
 foreach ($search in $ExportedSearches) {
@@ -161,7 +161,7 @@ Enable-AzOperationalInsightsIISLogCollection -ResourceGroupName $ResourceGroup -
 
 # Linux Perf
 New-AzOperationalInsightsLinuxPerformanceObjectDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -ObjectName "Logical Disk" -InstanceName "*"  -CounterNames @("% Used Inodes", "Free Megabytes", "% Used Space", "Disk Transfers/sec", "Disk Reads/sec", "Disk Reads/sec", "Disk Writes/sec") -IntervalSeconds 20  -Name "Example Linux Disk Performance Counters"
-Enable-AzOperationalInsightsLinuxCustomLogCollection -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName
+Enable-AzOperationalInsightsLinuxPerformanceCollection -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName
 
 # Linux Syslog
 New-AzOperationalInsightsLinuxSyslogDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -Facility "kern" -CollectEmergency -CollectAlert -CollectCritical -CollectError -CollectWarning -Name "Example kernel syslog collection"
@@ -182,26 +182,26 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 
 | 형식 | Json RegEx 형식에서는 표준 RegEx에서 모든 \에 대해 두 개의 \\를 사용하므로 RegEx 앱에서 테스트하는 경우 \\를 \로 줄입니다. | | |
 | --- | --- | --- | --- |
-| `YYYY-MM-DD HH:MM:SS` | `((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))\\\\s((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]` | | |
-| `M/D/YYYY HH:MM:SS AM/PM` | `(([0-1]\\\\d)\|[0-9])/(([0-3]\\\\d)\|(\\\\d))/((\\\\d{2})\|(\\\\d{4}))\\\\s((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]\\\\s(AM\|PM\|am\|pm)` | | |
-| `dd/MMM/yyyy HH:MM:SS` | `((([0-3]\\\\d)\` | `(\\\\d))/(Jan\|Feb\|Mar\|May\|Apr\|Jul\|Jun\|Aug\|Oct\|Sep\|Nov\|Dec\|jan\|feb\|mar\|may\|apr\|jul\|jun\|aug\|oct\|sep\|nov\|dec)/((\\\\d{2})\|(\\\\d{4}))\\\\s((\\\\d)\` | `([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9])` |
-| `MMM dd yyyy HH:MM:SS` | `(((?:Jan(?:uary)?\|Feb(?:ruary)?\|Mar(?:ch)?\|Apr(?:il)?\|May\|Jun(?:e)?\|Jul(?:y)?\|Aug(?:ust)?\|Sep(?:tember)?\|Sept\|Oct(?:ober)?\|Nov(?:ember)?\|Dec(?:ember)?)).*?((?:(?:[0-2]?\\\\d{1})\|(?:[3][01]{1})))(?![\\\\d]).*?((?:(?:[1]{1}\\\\d{1}\\\\d{1}\\\\d{1})\|(?:[2]{1}\\\\d{3})))(?![\\\\d]).*?((?:(?:[0-1][0-9])\|(?:[2][0-3])\|(?:[0-9])):(?:[0-5][0-9])(?::[0-5][0-9])?(?:\\\\s?(?:am\|AM\|pm\|PM))?))` | | |
-| `yyMMdd HH:mm:ss` | `([0-9]{2}([0][1-9]\|[1][0-2])([0-2][0-9]\|[3][0-1])\\\\s\\\\s?([0-1]?[0-9]\|[2][0-3]):[0-5][0-9]:[0-5][0-9])` | | |
-| `ddMMyy HH:mm:ss` | `(([0-2][0-9]\|[3][0-1])([0][1-9]\|[1][0-2])[0-9]{2}\\\\s\\\\s?([0-1]?[0-9]\|[2][0-3]):[0-5][0-9]:[0-5][0-9])` | | |
-| `MMM d HH:mm:ss` | `(Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec)\\\\s\\\\s?([0]?[1-9]\|[1-2][0-9]\|[3][0-1])\\\\s([0-1]?[0-9]\|[2][0-3]):([0-5][0-9]):([0-5][0-9])` | | |
-| `MMM  d HH:mm:ss` <br> MMM 뒤에 두 개의 공백 | `(Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec)\\\\s\\\\s([0]?[1-9]\|[1-2][0-9]\|[3][0-1])\\\\s([0][0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9])` | | |
-| `MMM d HH:mm:ss` | `(Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec)\\\\s([0]?[1-9]\|[1-2][0-9]\|[3][0-1])\\\\s([0][0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9])` | | |
-| `dd/MMM/yyyy:HH:mm:ss +zzzz` <br> 여기서 +는 + 또는 - <br> 여기서 zzzz 시간 오프셋 | `(([0-2][1-9]\|[3][0-1])\\\\/(Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec)\\\\/((19\|20)[0-9][0-9]):([0][0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9])\\\\s[\\\\+\|\\\\-][0-9]{4})` | | |
-| `yyyy-MM-ddTHH:mm:ss` <br> T는 리터럴 문자 T | `((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))T((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]` | | |
+| `YYYY-MM-DD HH:MM:SS` | `((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))\\s((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]` | | |
+| `M/D/YYYY HH:MM:SS AM/PM` | `(([0-1]\\d)|[0-9])/(([0-3]\\d)|(\\d))/((\\d{2})|(\\d{4}))\\s((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]\\s(AM|PM|am|pm)` | | |
+| `dd/MMM/yyyy HH:MM:SS` | `(([0-2][1-9]|[3][0-1])\\/(Jan|Feb|Mar|May|Apr|Jul|Jun|Aug|Oct|Sep|Nov|Dec|jan|feb|mar|may|apr|jul|jun|aug|oct|sep|nov|dec)\\/((19|20)[0-9][0-9]))\\s((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9])` |
+| `MMM dd yyyy HH:MM:SS` | `(((?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Sept|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)).*?((?:(?:[0-2]?\\d{1})|(?:[3][01]{1})))(?![\\d]).*?((?:(?:[1]{1}\\d{1}\\d{1}\\d{1})|(?:[2]{1}\\d{3})))(?![\\d]).*?((?:(?:[0-1][0-9])|(?:[2][0-3])|(?:[0-9])):(?:[0-5][0-9])(?::[0-5][0-9])?(?:\\s?(?:am|AM|pm|PM))?))` | | |
+| `yyMMdd HH:mm:ss` | `([0-9]{2}([0][1-9]|[1][0-2])([0-2][0-9]|[3][0-1])\\s\\s?([0-1]?[0-9]|[2][0-3]):[0-5][0-9]:[0-5][0-9])` | | |
+| `ddMMyy HH:mm:ss` | `(([0-2][0-9]|[3][0-1])([0][1-9]|[1][0-2])[0-9]{2}\\s\\s?([0-1]?[0-9]|[2][0-3]):[0-5][0-9]:[0-5][0-9])` | | |
+| `MMM d HH:mm:ss` | `(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\\s\\s?([0]?[1-9]|[1-2][0-9]|[3][0-1])\\s([0-1]?[0-9]|[2][0-3]):([0-5][0-9]):([0-5][0-9])` | | |
+| `MMM  d HH:mm:ss` <br> MMM 뒤에 두 개의 공백 | `(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\\s\\s([0]?[1-9]|[1-2][0-9]|[3][0-1])\\s([0][0-9]|[1][0-2]):([0-5][0-9]):([0-5][0-9])` | | |
+| `MMM d HH:mm:ss` | `(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\\s([0]?[1-9]|[1-2][0-9]|[3][0-1])\\s([0][0-9]|[1][0-2]):([0-5][0-9]):([0-5][0-9])` | | |
+| `dd/MMM/yyyy:HH:mm:ss +zzzz` <br> 여기서 +는 + 또는 - <br> 여기서 zzzz 시간 오프셋 | `(([0-2][1-9]|[3][0-1])\\/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\\/((19|20)[0-9][0-9]):([0][0-9]|[1][0-2]):([0-5][0-9]):([0-5][0-9])\\s[\\+|\\-][0-9]{4})` | | |
+| `yyyy-MM-ddTHH:mm:ss` <br> T는 리터럴 문자 T | `((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))T((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]` | | |
 
-## <a name="configuring-log-analytics-to-send-azure-diagnostics"></a>Azure 진단을 보내도록 Log Analytics를 구성 합니다.
-에이전트 없이 Azure 리소스를 모니터링할 경우 리소스가 Azure 진단을 사용할 수 있어야 하며 Log Analytics 작업 영역에 쓰도록 구성되어야 합니다. 이 방법은 작업 영역에 직접 데이터를 보내고 저장소 계정에 쓸 데이터를 필요 하지 않습니다. 지원되는 리소스는 다음과 같습니다.
+## <a name="configuring-log-analytics-to-send-azure-diagnostics"></a>Azure 진단을 보내도록 Log Analytics 구성
+에이전트 없이 Azure 리소스를 모니터링할 경우 리소스가 Azure 진단을 사용할 수 있어야 하며 Log Analytics 작업 영역에 쓰도록 구성되어야 합니다. 이 방법은 데이터를 작업 영역에 직접 보내고 저장소 계정에 데이터를 쓸 필요가 없습니다. 지원되는 리소스는 다음과 같습니다.
 
-| 리소스 종류 | 로그 | 메트릭 |
+| 리소스 종류 | 로그 | metrics |
 | --- | --- | --- |
 | Application Gateway    | 예 | 예 |
 | Automation 계정     | 예 | |
-| Batch 계정          | 예 | 예 |
+| 배치 계정          | 예 | 예 |
 | Data Lake Analytics     | 예 | |
 | Data Lake Store         | 예 | |
 | 탄력적인 SQL 풀        |     | 예 |
@@ -209,11 +209,11 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 | IoT Hub                |     | 예 |
 | Key Vault               | 예 | |
 | Load Balancer          | 예 | |
-| Logic Apps              | 예 | 예 |
+| 논리 앱              | 예 | 예 |
 | 네트워크 보안 그룹 | 예 | |
 | Azure Cache for Redis             |     | 예 |
 | Search 서비스         | 예 | 예 |
-| Service Bus 네임스페이스   |     | 예 |
+| 서비스 버스 네임스페이스   |     | 예 |
 | SQL(v12)               |     | 예 |
 | 웹 사이트               |     | 예 |
 | 웹 서버 팜        |     | 예 |
@@ -233,16 +233,16 @@ Set-AzDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Ena
 위의 cmdlet을 사용하여 다른 구독에 있는 리소스에서 로그를 수집할 수도 있습니다. 로그를 만드는 리소스의 ID와 로그가 전송되는 작업 영역의 ID를 둘 다 제공하기 때문에 cmdlet이 구독 간에 작동할 수 있습니다.
 
 
-## <a name="configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage"></a>Azure 진단 저장소에서 수집 하도록 Log Analytics 작업 영역 구성
-클래식 클라우드 서비스 또는 Service Fabric 클러스터의 실행 중인 인스턴스 내에서 로그 데이터를 수집하려면 먼저 Azure Storage에 데이터를 써야 합니다. Log Analytics 작업 영역을 저장소 계정에서 로그를 수집 하도록 구성 됩니다. 지원되는 리소스는 다음과 같습니다.
+## <a name="configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage"></a>저장소에서 Azure 진단을 수집 하도록 Log Analytics 작업 영역 구성
+클래식 클라우드 서비스 또는 Service Fabric 클러스터의 실행 중인 인스턴스 내에서 로그 데이터를 수집하려면 먼저 Azure Storage에 데이터를 써야 합니다. 그러면 Log Analytics 작업 영역이 저장소 계정에서 로그를 수집 하도록 구성 됩니다. 지원되는 리소스는 다음과 같습니다.
 
 * 기존 Cloud Services(웹 및 작업자 역할)
 * Service Fabric 클러스터
 
 아래 예제는 다음과 같은 작업의 방법을 보여 줍니다.
 
-1. 기존 저장소 계정 및 작업 영역 데이터를 인덱싱할 수 있는 위치를 나열 합니다.
-2. 저장소 계정에서 읽을 구성 만들기
+1. 작업 영역에서 데이터를 인덱싱하는 기존 저장소 계정 및 위치 나열
+2. 스토리지 계정에서 읽을 구성 만들기
 3. 새로 만든 구성을 추가 위치에서 오는 데이터를 인덱싱하도록 업데이트
 4. 새로 만든 구성 삭제
 
@@ -268,7 +268,7 @@ Remove-AzOperationalInsightsStorageInsight -ResourceGroupName $workspace.Resourc
 
 ```
 
-위의 스크립트를 사용하여 다른 구독에 있는 스토리지 계정에서 로그를 수집할 수도 있습니다. 스토리지 계정 리소스 ID와 해당 액세스 키를 제공하기 때문에 스크립트가 구독 간에 작동할 수 있습니다. 액세스 키를 변경할 때 저장소 정보가 새 키를 갖도록 업데이트해야 합니다.
+위의 스크립트를 사용하여 다른 구독에 있는 스토리지 계정에서 로그를 수집할 수도 있습니다. 스토리지 계정 리소스 ID와 해당 액세스 키를 제공하기 때문에 스크립트가 구독 간에 작동할 수 있습니다. 액세스 키를 변경할 때 스토리지 정보가 새 키를 갖도록 업데이트해야 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

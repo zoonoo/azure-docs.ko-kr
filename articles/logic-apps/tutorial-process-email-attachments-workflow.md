@@ -10,12 +10,12 @@ manager: carmonm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/07/2019
-ms.openlocfilehash: 4287efedfc35da762825c5562cf88e64987192f1
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: ee232b54bc4d65d6380a6f2a1d1c88ee7dcf53c3
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65414562"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312656"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>자습서: Azure Logic Apps를 사용하여 이메일 및 첨부 파일 처리 자동화
 
@@ -30,7 +30,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 > * 이메일의 첨부 파일을 모니터링하는 트리거를 추가합니다.
 > * 이메일에 첨부 파일이 있는지 확인하는 조건을 추가합니다.
 > * 이메일에 첨부 파일이 있으면 Azure 함수를 호출하는 작업을 추가합니다.
-> * 이메일 및 첨부 파일에 대한 저장소 BLOB을 만드는 작업을 추가합니다.
+> * 이메일 및 첨부 파일에 대한 스토리지 BLOB을 만드는 작업을 추가합니다.
 > * 이메일 알림을 보내는 작업을 추가합니다.
 
 여기까지 모두 마치면 논리 앱이 이 워크플로와 비슷하게 보입니다.
@@ -46,15 +46,15 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
   이 논리 앱은 Office 365 Outlook 계정을 사용합니다. 
   다른 이메일 계정을 사용하는 경우 일반적인 단계는 동일하지만 UI가 약간 다르게 표시될 수 있습니다.
 
-* [체험판 Microsoft Azure Storage 탐색기](https://storageexplorer.com/)를 다운로드하여 설치합니다. 이 도구를 사용하여 저장소 컨테이너가 올바르게 설정되었는지 확인할 수 있습니다.
+* [체험판 Microsoft Azure Storage Explorer](https://storageexplorer.com/)를 다운로드하여 설치합니다. 이 도구를 사용하여 스토리지 컨테이너가 올바르게 설정되었는지 확인할 수 있습니다.
 
 ## <a name="sign-in-to-azure-portal"></a>Azure Portal에 로그인
 
 Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-## <a name="set-up-storage-to-save-attachments"></a>첨부 파일을 저장하도록 저장소 설정
+## <a name="set-up-storage-to-save-attachments"></a>첨부 파일을 저장하도록 스토리지 설정
 
-수신 이메일 및 첨부 파일을 [Azure 저장소 컨테이너](../storage/common/storage-introduction.md)에 BLOB으로 저장할 수 있습니다. 
+수신 이메일 및 첨부 파일을 [Azure Storage 컨테이너](../storage/common/storage-introduction.md)에 BLOB으로 저장할 수 있습니다. 
 
 1. 스토리지 컨테이너를 만들려면 먼저 Azure Portal의 **기본** 탭에서 다음 설정을 사용하여 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 수행해야 합니다.
 
@@ -62,11 +62,11 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
    |---------|-------|-------------|
    | **구독** | <*Azure-subscription-name*> | Azure 구독의 이름 |  
    | **리소스 그룹** | LA-Tutorial-RG | 관련 리소스를 구성하고 관리하는 데 사용되는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)의 이름. <p>**참고:** 리소스 그룹은 특정 지역 내에 있습니다. 일부 지역에서 이 자습서의 항목을 사용할 수 없을 수도 있지만, 가능하면 동일한 지역을 사용해 보세요. |
-   | **스토리지 계정 이름** | attachmentstorageacct | 저장소 계정의 이름 |
-   | **위치**: | 미국 서부 | 저장소 계정에 대한 정보를 저장할 지역 |
-   | **성능** | Standard | 이 설정은 지원되는 데이터 형식 및 데이터를 저장하기 위한 미디어를 지정합니다. [저장소 계정 유형](../storage/common/storage-introduction.md#types-of-storage-accounts)을 참조하세요. |
-   | **계정 종류** | 범용 가상 컴퓨터 | [저장소 계정 유형](../storage/common/storage-introduction.md#types-of-storage-accounts) |
-   | **복제** | LRS(로컬 중복 저장소) | 이 설정은 데이터가 복사, 저장, 관리 및 동기화되는 방식을 지정합니다. [LRS(로컬 중복 스토리지): Azure Storage에 대한 저렴한 데이터 중복성](../storage/common/storage-redundancy-lrs.md)을 참조하세요. |
+   | **스토리지 계정 이름** | attachmentstorageacct | 스토리지 계정의 이름 |
+   | **위치**: | 미국 서부 | 스토리지 계정에 대한 정보를 저장할 지역 |
+   | **성능** | Standard | 이 설정은 지원되는 데이터 형식 및 데이터를 저장하기 위한 미디어를 지정합니다. [스토리지 계정 유형](../storage/common/storage-introduction.md#types-of-storage-accounts)을 참조하세요. |
+   | **계정 종류** | 범용 가상 컴퓨터 | [스토리지 계정 유형](../storage/common/storage-introduction.md#types-of-storage-accounts) |
+   | **복제** | LRS(로컬 중복 스토리지) | 이 설정은 데이터가 복사, 저장, 관리 및 동기화되는 방식을 지정합니다. [LRS(로컬 중복 스토리지): Azure Storage에 대한 저렴한 데이터 중복성](../storage/common/storage-redundancy-lrs.md)을 참조하세요. |
    ||||
 
    **고급** 탭에서 다음 설정을 선택합니다.
@@ -76,23 +76,23 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
    | **보안 전송 필요** | 사용 안 함 | 이 설정은 연결의 요청에 필요한 보안을 지정합니다. [보안 전송 필요](../storage/common/storage-require-secure-transfer.md)를 참조하세요. |
    ||||
 
-   저장소 계정을 만들려면 [Azure PowerShell](../storage/common/storage-quickstart-create-storage-account-powershell.md) 또는 [Azure CLI](../storage/common/storage-quickstart-create-storage-account-cli.md)를 사용할 수도 있습니다.
+   스토리지 계정을 만들려면 [Azure PowerShell](../storage/common/storage-quickstart-create-storage-account-powershell.md) 또는 [Azure CLI](../storage/common/storage-quickstart-create-storage-account-cli.md)를 사용할 수도 있습니다.
 
 1. 완료되면 **검토 + 만들기**를 선택합니다.
 
-1. Azure가 저장소 계정을 배포한 후에는 저장소 계정의 액세스 키를 가져옵니다.
+1. Azure가 스토리지 계정을 배포한 후에는 스토리지 계정의 액세스 키를 가져옵니다.
 
-   1. 저장소 계정 메뉴의 **설정** 아래에서 **액세스 키**를 선택합니다.
+   1. 스토리지 계정 메뉴의 **설정** 아래에서 **액세스 키**를 선택합니다.
 
-   2. 저장소 계정 이름과 **key1**을 복사한 다음, 이러한 값을 안전한 곳에 저장합니다.
+   2. 스토리지 계정 이름과 **key1**을 복사한 다음, 이러한 값을 안전한 곳에 저장합니다.
 
-      ![저장소 계정 이름과 키를 복사 및 저장](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
+      ![스토리지 계정 이름과 키를 복사 및 저장](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
 
-   저장소 계정의 액세스 키를 가져오려면 [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list)를 사용할 수도 있습니다.
+   스토리지 계정의 액세스 키를 가져오려면 [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list)를 사용할 수도 있습니다.
 
 1. 이메일 첨부 파일에 대한 Blob Storage 컨테이너를 만듭니다.
 
-   1. 저장소 계정 메뉴에서 **개요**를 선택합니다. 
+   1. 스토리지 계정 메뉴에서 **개요**를 선택합니다. 
    **Services**에서 **Blob**을 선택합니다.
 
       ![Blob Storage 컨테이너 추가](./media/tutorial-process-email-attachments-workflow/create-storage-container.png)
@@ -102,11 +102,11 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
    3. **새 컨테이너** 아래에서 컨테이너 이름으로 "attachments"를 입력합니다. 
    **공용 액세스 수준** 아래에서 **컨테이너(컨테이너와 Blob에 대한 익명 읽기 액세스)** 를 선택한 다음, **확인**을 선택합니다.
 
-      여기까지 마쳤으면 Azure Portal에서 저장소 계정의 저장소 컨테이너를 찾을 수 있습니다.
+      여기까지 마쳤으면 Azure Portal에서 스토리지 계정의 스토리지 컨테이너를 찾을 수 있습니다.
 
-      ![완료된 저장소 컨테이너](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
+      ![완료된 스토리지 컨테이너](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
-   저장소 컨테이너를 만들려면 [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontainer) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create)를 사용할 수도 있습니다.
+   스토리지 컨테이너를 만들려면 [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontainer) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create)를 사용할 수도 있습니다.
 
 다음으로, Storage Explorer를 스토리지 계정에 연결합니다.
 
@@ -125,11 +125,11 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
    > [!TIP]
    > 메시지가 표시되지 않으면 Storage Explorer 도구 모음에서 **계정 추가**를 선택합니다.
 
-3. **계정 이름** 아래에서 저장소 계정 이름을 제공합니다. **계정 키** 아래에서 이전에 저장한 액세스 키를 제공합니다. **다음**을 선택합니다.
+3. **계정 이름** 아래에서 스토리지 계정 이름을 제공합니다. **계정 키** 아래에서 이전에 저장한 액세스 키를 제공합니다. **다음**을 선택합니다.
 
 4. 연결 정보를 확인한 다음, **연결**을 선택합니다.
 
-   Storage 탐색기에서 연결을 만들고, 탐색기 창의 **(Local and Attached)(로컬 및 첨부)**>**스토리지 계정** 아래에 스토리지 계정이 표시됩니다.
+   Storage Explorer에서 연결을 만들고, 탐색기 창의 **(Local and Attached)(로컬 및 첨부)** >**스토리지 계정** 아래에 스토리지 계정이 표시됩니다.
 
 5. **스토리지 계정** 아래에서 Blob 스토리지 컨테이너를 찾으려면 스토리지 계정(여기서는 **attachmentstorageacct**), **Blob 컨테이너**(**attachments** 컨테이너가 있음)를 차례로 확장합니다. 예를 들면 다음과 같습니다.
 
@@ -145,13 +145,13 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    | 설정 | 값 | 설명 |
    | ------- | ----- | ----------- |
-   | **앱 이름** | CleanTextFunctionApp | 전역적으로 고유하고 설명이 포함된 함수 앱 이름 |
+   | **앱 이름** | <*function-app-name*> | 함수 앱은 설명적이며 전역적으로 고유한 이름(이 예에서는 "CleanTextFunctionApp")이므로 다른 이름(예: "MyCleanTextFunctionApp")을 제공합니다. |
    | **구독** | <*your-Azure-subscription-name*> | 이전에 사용한 동일한 Azure 구독 | 
    | **리소스 그룹** | LA-Tutorial-RG | 이전에 사용한 동일한 Azure 리소스 그룹 |
    | **호스팅 계획** | 소비 계획 | 이 설정은 계산 성능처럼 함수 앱을 실행하기 위한 리소스를 할당하고 크기를 조정하는 방법을 결정합니다. [호스팅 계획 비교](../azure-functions/functions-scale.md)를 참조하세요. | 
    | **위치**: | 미국 서부 | 이전에 사용한 동일한 지역 |
    | **런타임 스택** | 기본 설정 언어 | 자주 사용하는 함수 프로그래밍 언어를 지원하는 런타임을 선택합니다. C# 및 F# 함수의 경우 **.NET**을 선택합니다. |
-   | **Storage** | cleantextfunctionstorageacct | 함수 앱에 대한 저장소 계정을 만듭니다. 소문자와 숫자만 사용할 수 있습니다. <p>**참고:** 이 스토리지 계정은 함수 앱을 포함하며, 이메일 첨부 파일에 대해 이전에 만든 스토리지 계정과 다릅니다. |
+   | **스토리지** | cleantextfunctionstorageacct | 함수 앱에 대한 스토리지 계정을 만듭니다. 소문자와 숫자만 사용할 수 있습니다. <p>**참고:** 이 스토리지 계정은 함수 앱을 포함하며, 이메일 첨부 파일에 대해 이전에 만든 스토리지 계정과 다릅니다. |
    | **Application Insights** | 꺼짐 | [Application Insights](../azure-monitor/app/app-insights-overview.md)를 통해 애플리케이션 모니터링을 사용하도록 설정하지만, 이 자습서에서는 **해제** 설정을 선택합니다. |
    ||||
 
@@ -168,7 +168,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    함수 앱을 만들려면 [Azure CLI](../azure-functions/functions-create-first-azure-function-azure-cli.md) 또는 [PowerShell 및 Resource Manager 템플릿](../azure-resource-manager/resource-group-template-deploy.md)을 사용할 수도 있습니다.
 
-2. **Function App** 아래에서 **CleanTextFunctionApp**을 확장하고 **함수**를 선택합니다. 함수 도구 모음에서 **새 함수**를 선택합니다.
+2. **Function App** 아래에서 함수 앱(이 예에서는 "CleanTextFunctionApp")을 확장하고 **함수**를 선택합니다. 함수 도구 모음에서 **새 함수**를 선택합니다.
 
    ![새 함수 만들기](./media/tutorial-process-email-attachments-workflow/function-app-new-function.png)
 
@@ -210,7 +210,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
    }
    ```
 
-6. 완료하면 **저장**을 선택합니다. 함수를 테스트하려면 편집기의 오른쪽 가장자리에 있는 화살표(**<**) 아이콘 아래에서 **테스트**를 선택합니다.
+6. 완료하면 **저장**을 선택합니다. 함수를 테스트하려면 편집기의 오른쪽 가장자리에 있는 화살표( **<** ) 아이콘 아래에서 **테스트**를 선택합니다.
 
    !["테스트" 창을 엽니다.](./media/tutorial-process-email-attachments-workflow/function-choose-test.png)
 
@@ -260,7 +260,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
 1. 디자이너의 검색 상자에서 필터로 "새 이메일이 도착하는 경우"를 입력합니다. 이메일 공급자에 대해 **새 이메일이 도착하는 경우 - <*your-email-provider*>** 트리거를 선택합니다.
 
-   예: 
+   예:
 
    ![이메일 공급자에 대해 "새 이메일이 도착하는 경우" 트리거 선택](./media/tutorial-process-email-attachments-workflow/add-trigger-when-email-arrives.png)
 
@@ -316,7 +316,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
    !["조건" 선택](./media/tutorial-process-email-attachments-workflow/select-condition.png)
 
    1. 보다 구체적인 설명이 포함되도록 조건 이름을 바꿉니다. 
-   조건의 제목 표시줄에서 **줄임표**(**...** ) 단추 > **이름 바꾸기**를 선택합니다.
+   조건의 제목 표시줄에서 **줄임표**( **...** ) 단추 > **이름 바꾸기**를 선택합니다.
 
       ![조건 이름 바꾸기](./media/tutorial-process-email-attachments-workflow/condition-rename.png)
 
@@ -382,7 +382,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    트리거가 성공적으로 실행되었지만 논리 앱이 트리거되지 않았거나 실행되지 않은 경우 [논리 앱 문제 해결](../logic-apps/logic-apps-diagnosing-failures.md)을 참조하세요.
 
-다음으로, **true인 경우** 분기에 대해 수행할 작업을 정의합니다. 첨부 파일과 함께 이메일을 저장하려면 이메일 본문에서 HTML을 제거한 후 이메일 및 첨부 파일용 저장소 컨테이너에 BLOB을 만듭니다.
+다음으로, **true인 경우** 분기에 대해 수행할 작업을 정의합니다. 첨부 파일과 함께 이메일을 저장하려면 이메일 본문에서 HTML을 제거한 후 이메일 및 첨부 파일용 스토리지 컨테이너에 BLOB을 만듭니다.
 
 > [!NOTE]
 > 이메일에 첨부 파일이 없는 경우에는 논리 앱이 **false인 경우** 분기에 대해 아무 것도 할 필요가 없습니다. 이 자습서를 마친 후 추가 연습으로 **false인 경우** 분기에 대해 수행할 적절한 작업을 추가할 수 있습니다.
@@ -399,7 +399,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    !["Azure 함수 선택" 작업 선택](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 
-3. 이전에 만든 **CleanTextFunctionApp** 함수 앱을 선택합니다.
+3. 이전에 만든 함수 앱(이 예에서는 "CleanTextFunctionApp")을 선택합니다.
 
    ![Azure 함수 앱 선택](./media/tutorial-process-email-attachments-workflow/add-action-select-azure-function-app.png)
 
@@ -431,7 +431,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
 7. 논리 앱을 저장합니다.
 
-다음으로, 이메일 본문을 저장할 수 있도록 저장소 컨테이너에 Blob을 만드는 작업을 추가합니다.
+다음으로, 이메일 본문을 저장할 수 있도록 스토리지 컨테이너에 Blob을 만드는 작업을 추가합니다.
 
 ## <a name="create-blob-for-email-body"></a>이메일 본문용 BLOB 만들기
 
@@ -441,14 +441,14 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    ![이메일 본문용 BLOB을 만드는 작업 추가](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-email-body.png)
 
-3. 아래에 나와 있는 대로 이러한 설정을 사용하여 저장소 계정에 대한 연결을 만듭니다. 작업을 완료하면 **만들기**를 선택합니다.
+3. 아래에 나와 있는 대로 이러한 설정을 사용하여 스토리지 계정에 대한 연결을 만듭니다. 작업을 완료하면 **만들기**를 선택합니다.
 
-   ![저장소 계정에 연결](./media/tutorial-process-email-attachments-workflow/create-storage-account-connection-first.png)
+   ![스토리지 계정에 연결](./media/tutorial-process-email-attachments-workflow/create-storage-account-connection-first.png)
 
    | 설정 | 값 | 설명 |
    | ------- | ----- | ----------- |
    | **연결 이름** | AttachmentStorageConnection | 연결에 대해 설명하는 이름 |
-   | **Storage 계정** | attachmentstorageacct | 앞에서 첨부 파일 저장용으로 만든 저장소 계정의 이름 |
+   | **Storage 계정** | attachmentstorageacct | 앞에서 첨부 파일 저장용으로 만든 스토리지 계정의 이름 |
    ||||
 
 4. **설명이 포함되도록**BLOB 만들기```Create blob for email body``` 작업 이름을 바꿉니다.
@@ -491,17 +491,17 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    트리거가 성공적으로 실행되었지만 논리 앱이 트리거되지 않았거나 실행되지 않은 경우 [논리 앱 문제 해결](../logic-apps/logic-apps-diagnosing-failures.md)을 참조하세요.
 
-3. 논리 앱이 이메일을 올바른 저장소 컨테이너에 저장했는지 확인합니다.
+3. 논리 앱이 이메일을 올바른 스토리지 컨테이너에 저장했는지 확인합니다.
 
-   1. Storage 탐색기에서 **(로컬 또는 연결된)**> 
-   **스토리지 계정**>**attachmentstorageacct (외부)**> 
-   **BLOB 컨테이너**>**첨부 파일**을 확장합니다.
+   1. Storage Explorer에서 **(로컬 또는 연결된)** > 
+   **스토리지 계정**>**attachmentstorageacct (외부)** > 
+   **Blob 컨테이너**>**첨부 파일**을 확장합니다.
 
    2. 이메일의 **첨부 파일** 컨테이너를 선택합니다.
 
       아직 논리 앱에서 처리한 첨부 파일이 없기 때문에 지금은 컨테이너에 이메일만 표시됩니다.
 
-      ![저장된 이메일의 Storage Explore 확인](./media/tutorial-process-email-attachments-workflow/storage-explorer-saved-email.png)
+      ![저장된 이메일의 Storage Explorer 확인](./media/tutorial-process-email-attachments-workflow/storage-explorer-saved-email.png)
 
    3. 작업을 마쳤으면 Storage Explorer에서 이메일을 삭제합니다.
 
@@ -532,7 +532,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
 1. 논리 앱을 저장합니다.
 
-다음으로, 각 첨부 파일을 **첨부 파일** 저장소 컨테이너에 BLOB으로 저장하는 작업을 추가합니다.
+다음으로, 각 첨부 파일을 **첨부 파일** 스토리지 컨테이너에 BLOB으로 저장하는 작업을 추가합니다.
 
 ## <a name="create-blob-for-each-attachment"></a>For each 첨부 파일용 Blob 만들기
 
@@ -578,11 +578,11 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    트리거가 성공적으로 실행되었지만 논리 앱이 트리거되지 않았거나 실행되지 않은 경우 [논리 앱 문제 해결](../logic-apps/logic-apps-diagnosing-failures.md)을 참조하세요.
 
-3. 논리 앱이 이메일과 첨부 파일을 올바른 저장소 컨테이너에 저장했는지 확인합니다. 
+3. 논리 앱이 이메일과 첨부 파일을 올바른 스토리지 컨테이너에 저장했는지 확인합니다. 
 
-   1. Storage 탐색기에서 **(로컬 또는 연결된)**> 
-   **스토리지 계정**>**attachmentstorageacct (외부)**> 
-   **BLOB 컨테이너**>**첨부 파일**을 확장합니다.
+   1. Storage Explorer에서 **(로컬 또는 연결된)** > 
+   **스토리지 계정**>**attachmentstorageacct (외부)** > 
+   **Blob 컨테이너**>**첨부 파일**을 확장합니다.
 
    2. 이메일 및 첨부 파일용 **첨부 파일** 컨테이너를 확인합니다.
 
@@ -626,7 +626,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
    ||||
 
    > [!NOTE]
-   > 첨부 파일이 포함된 배열인 **콘텐츠** 필드와 같은 배열이 있는 필드를 선택하면, 디자이너에서 해당 필드를 참조하는 작업 주위에 "For each" 루프를 자동으로 추가합니다. 그렇게 하면 논리 앱이 각 배열 항목에서 해당 작업을 수행할 수 있습니다. 루프를 제거하려면 배열에 대한 필드를 제거하고, 참조하는 작업을 루프 외부로 이동하고, 루프의 제목 표시줄에서 줄임표(**...**)를 선택하고, **삭제**를 선택합니다.
+   > 첨부 파일이 포함된 배열인 **콘텐츠** 필드와 같은 배열이 있는 필드를 선택하면, 디자이너에서 해당 필드를 참조하는 작업 주위에 "For each" 루프를 자동으로 추가합니다. 그렇게 하면 논리 앱이 각 배열 항목에서 해당 작업을 수행할 수 있습니다. 루프를 제거하려면 배열에 대한 필드를 제거하고, 참조하는 작업을 루프 외부로 이동하고, 루프의 제목 표시줄에서 줄임표( **...** )를 선택하고, **삭제**를 선택합니다.
 
 6. 논리 앱을 저장합니다.
 

@@ -1,21 +1,21 @@
 ---
 title: .NET을 사용하여 비디오 검토 만들기 - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 이 문서에서 제공하는 정보 및 코드 샘플을 통해 C#과 함께 Content Moderator SDK 사용을 빠르게 시작하여 비디오 검토를 만들 수 있습니다.
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: c8572e6bc7fdedb68527cad4e7ea4109838089b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6ec258bc52513772716fa8fe1078653575c923f3
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64726838"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882014"
 ---
 # <a name="create-video-reviews-using-net"></a>.NET을 사용하여 비디오 검토 만들기
 
@@ -27,9 +27,9 @@ ms.locfileid: "64726838"
 - 검토의 상태 및 세부 정보 가져오기
 - 검토 게시
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
-- 로그인 또는 Content Moderator에서 계정을 만듭니다 [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 사이트입니다.
+- Content Moderator [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 사이트에서 로그인 하거나 계정을 만드세요.
 - 이 문서에서는 [비디오를 조정(빠른 시작 참조)](video-moderation-api.md)했고 응답 데이터를 보유하고 있다고 가정합니다. 사용자 중재자를 위한 프레임 기반 검토를 만드는 데 필요합니다.
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>API 키에서 검토 만들기에 대한 검토 API를 호출할 수 있는지 확인
@@ -174,7 +174,7 @@ public static ContentModeratorClient NewClient()
 - **Status**. 값을 "게시 취소됨"으로 설정합니다. 값을 설정하지 않을 경우 기본값인 "보류 중"으로 설정되며, 이는 비디오 검토가 게시되었으며 사용자 검토 보류 중임을 의미합니다. 비디오 검토가 게시되고 나면 비디오 프레임, 대본 또는 대본 조정 결과를 더 이상 추가할 수 없습니다.
 
 > [!NOTE]
-> **CreateVideoReviews** IList 반환\<문자열 >. 이러한 각 문자열에는 비디오 검토의 ID가 포함되어 있습니다. 이러한 ID는 GUID이며, **ContentId** 속성 값과 동일하지 않습니다. 
+> **CreateVideoReviews** 는 IList\<문자열 >을 반환 합니다. 이러한 각 문자열에는 비디오 검토의 ID가 포함되어 있습니다. 이러한 ID는 GUID이며, **ContentId** 속성 값과 동일하지 않습니다. 
 
 VideoReviews 네임스페이스, Program 클래스에 다음 메서드 정의를 추가합니다.
 
@@ -229,13 +229,13 @@ private static string CreateReview(ContentModeratorClient client, string id, str
 **VideoFrameBodyItem**에는 다음 속성이 있습니다.
 - **Timestamp**. 비디오 프레임이 사용된 비디오의 시간(초)을 포함하는 문자열입니다.
 - **FrameImage**. 비디오 프레임의 URL입니다.
-- **Metadata**. IList\<VideoFrameBodyItemMetadataItem >. **VideoFrameBodyItemMetadataItem**은 단순히 키/값 쌍입니다. 올바른 키는 다음과 같습니다.
+- **Metadata**. IList\<VideoFrameBodyItemMetadataItem >입니다. **VideoFrameBodyItemMetadataItem**은 단순히 키/값 쌍입니다. 올바른 키는 다음과 같습니다.
 - **reviewRecommended**. 비디오 프레임의 사용자 검토가 권장되는 경우 True입니다.
 - **adultScore**. 비디오 프레임에서 성인 콘텐츠의 심각도 등급을 지정하는 0~1의 값입니다.
 - **a**. 비디오가 성인 콘텐츠를 포함하는 경우 True입니다.
 - **racyScore**. 비디오 프레임에서 외설 콘텐츠의 심각도 등급을 지정하는 0~1의 값입니다.
 - **r**. 비디오 프레임이 외설 콘텐츠를 포함하는 경우 True입니다.
-- **ReviewerResultTags**. IList\<VideoFrameBodyItemReviewerResultTagsItem >. **VideoFrameBodyItemReviewerResultTagsItem**은 단순히 키/값 쌍입니다. 애플리케이션은 이러한 태그를 사용하여 비디오 프레임을 구성할 수 있습니다.
+- **ReviewerResultTags**. IList\<VideoFrameBodyItemReviewerResultTagsItem >입니다. **VideoFrameBodyItemReviewerResultTagsItem**은 단순히 키/값 쌍입니다. 애플리케이션은 이러한 태그를 사용하여 비디오 프레임을 구성할 수 있습니다.
 
 > [!NOTE]
 > 이 빠른 시작은 **adultScore** 및 **racyScore** 속성에 대한 임의 값을 생성합니다. 프로덕션 애플리케이션에서 Azure 미디어 서비스로 배포된 [비디오 조정 서비스](video-moderation-api.md)에서 이러한 값을 가져옵니다.

@@ -140,6 +140,8 @@
               href: vpn-gateway-howto-openvpn-clients.md
         - name: P2S용 공용 CA 게이트웨이 인증서로 전환
           href: vpn-gateway-point-to-site-gateway-public-ca.md
+        - name: Always On VPN 디바이스 터널 구성
+          href: vpn-gateway-howto-always-on-device-tunnel.md
     - name: Azure 가용성 영역에서 영역 중복 VNet 게이트웨이 만들기
       href: create-zone-redundant-vnet-gateway.md
     - name: 연결에서 IPsec/IKE 정책 구성

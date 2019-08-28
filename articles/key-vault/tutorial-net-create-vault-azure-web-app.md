@@ -7,14 +7,14 @@ manager: rajvijan
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 12/21/2018
-ms.author: pryerram
+ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 5129af1f34f8a2604e7b70c9638b370c7cad029a
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: c27c787eeac9bbf68b512b55b9ceab11074a81d8
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66015538"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934347"
 ---
 # <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>자습서: .NET에서 Azure 웹앱과 함께 Azure Key Vault 사용
 
@@ -249,4 +249,4 @@ Key Vault에서 비밀을 저장하고 인출하는 웹앱을 .NET에서 성공�
 ## <a name="next-steps"></a>다음 단계
 
 >[!div class="nextstepaction"]
->[Azure Key Vault 개발자 가이드](https://docs.microsoft.com/azure/key-vault/key-vault-developers-guide)
+>[Azure Key Vault 개발자 가이드](key-vault-developers-guide.md)

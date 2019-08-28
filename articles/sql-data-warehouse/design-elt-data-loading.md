@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: load data
-ms.date: 05/10/2019
+ms.subservice: load-data
+ms.date: 07/28/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: de5649498dddcec8c65f2cfca6dcb39fa20a9267
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c90deefba75cd8bbeda126c9da8a05e1069831d4
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242254"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597473"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse용 PolyBase 데이터 로드 전략 설계
 
@@ -49,32 +49,32 @@ SQL Data Warehouse용 PolyBase ELT을 구현하는 기본적인 단계는 다음
 
 ### <a name="polybase-external-file-formats"></a>PolyBase 외부 파일 형식
 
-PolyBase는 UTF-8 및 UTF-16으로 인코딩된 구분된 텍스트 파일에서 데이터를 로드합니다. 그리고 분리된 텍스트 파일 외에 Hadoop 파일 형식 RC 파일, ORC 및 Parquet에서도 데이터를 로드합니다. 또한 Gzip 및 Snappy 압축 파일에서도 데이터를 로드할 수 있습니다. PolyBase는 현재 확장 ASCII, 고정 너비 형식 및 중첩된 형식(예: WinZip, JSON 및 XML)을 지원하지 않습니다. SQL Server에서 내보내는 경우에는 [bcp 명령줄 도구](/sql/tools/bcp-utility)를 사용하여 분리된 텍스트 파일로 데이터를 내보낼 수 있습니다. SQL DW 데이터 형식 매핑 Parquet 다음과 같습니다.
+PolyBase는 UTF-8 및 UTF-16으로 인코딩된 구분된 텍스트 파일에서 데이터를 로드합니다. 그리고 분리된 텍스트 파일 외에 Hadoop 파일 형식 RC 파일, ORC 및 Parquet에서도 데이터를 로드합니다. 또한 Gzip 및 Snappy 압축 파일에서도 데이터를 로드할 수 있습니다. PolyBase는 현재 확장 ASCII, 고정 너비 형식 및 중첩된 형식(예: WinZip, JSON 및 XML)을 지원하지 않습니다. SQL Server에서 내보내는 경우에는 [bcp 명령줄 도구](/sql/tools/bcp-utility)를 사용하여 분리된 텍스트 파일로 데이터를 내보낼 수 있습니다. Parquet to SQL DW 데이터 형식 매핑은 다음과 같습니다.
 
 | **Parquet 데이터 형식** |                      **SQL 데이터 형식**                       |
 | :-------------------: | :----------------------------------------------------------: |
-|        tinyint        |                           tinyint                            |
-|       smallint        |                           smallint                           |
-|          int          |                             int                              |
-|        bigint         |                            bigint                            |
-|        부울        |                             bit                              |
-|        double         |                            float                             |
-|         float         |                             real                             |
+|        TINYINT        |                           TINYINT                            |
+|       SMALLINT        |                           SMALLINT                           |
+|          ssNoversion          |                             ssNoversion                              |
+|        BIGINT         |                            BIGINT                            |
+|        boolean        |                             bit                              |
+|        double         |                            FLOAT                             |
+|         FLOAT         |                             REAL                             |
 |        double         |                            money                             |
 |        double         |                          smallmoney                          |
-|        문자열         |                            nchar                             |
-|        문자열         |                           nvarchar                           |
+|        string         |                            nchar                             |
+|        string         |                           NVARCHAR                           |
 |        string         |                             char                             |
-|        문자열         |                           varchar                            |
-|        binary         |                            binary                            |
-|        binary         |                          varbinary                           |
-|       timestamp       |                             date                             |
+|        string         |                           varchar                            |
+|        이진         |                            이진                            |
+|        이진         |                          varbinary                           |
+|       timestamp       |                             날짜                             |
 |       timestamp       |                        smalldatetime                         |
-|       timestamp       |                          datetime2                           |
+|       timestamp       |                          Datetime2                           |
 |       timestamp       |                           Datetime                           |
-|       timestamp       |                             실시간                             |
-|       date        | 1) int로 로드 하 고 날짜를 캐스팅 합니다. </br> 2) [Azure Databricks SQL DW 커넥터를 사용 하 여](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse) 사용 하 여 </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**곧 업데이트**) |
-|        Decimal        | [Azure Databricks SQL DW 커넥터를 사용 하 여](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse) 사용 하 여 </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**곧 업데이트**) |
+|       timestamp       |                             Time                             |
+|       날짜            |                             날짜                             |
+|        Decimal        |                            Decimal                           |
 
 ## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. Azure Blob Storage 또는 Azure Data Lake Store에 데이터 저장
 
@@ -89,7 +89,7 @@ Azure 스토리지에 데이터를 두려면 [Azure Blob Storage](../storage/blo
 
 ## <a name="3-prepare-the-data-for-loading"></a>3. 로드할 데이터 준비
 
-데이터를 SQL Data Warehouse에 로드하기 전에 저장소 계정에서 데이터를 준비하고 정리해야 할 수 있습니다. 데이터가 원본에 있는 동안, 데이터를 텍스트 파일로 내보낼 때 또는 Azure Storage로 이동한 후 데이터 준비를 수행할 수 있습니다.  가능한 경우 프로세스의 초기에 데이터로 작업하는 것이 가장 쉽습니다.  
+데이터를 SQL Data Warehouse에 로드하기 전에 스토리지 계정에서 데이터를 준비하고 정리해야 할 수 있습니다. 데이터가 원본에 있는 동안, 데이터를 텍스트 파일로 내보낼 때 또는 Azure Storage로 이동한 후 데이터 준비를 수행할 수 있습니다.  가능한 경우 프로세스의 초기에 데이터로 작업하는 것이 가장 쉽습니다.  
 
 ### <a name="define-external-tables"></a>외부 테이블 정의
 

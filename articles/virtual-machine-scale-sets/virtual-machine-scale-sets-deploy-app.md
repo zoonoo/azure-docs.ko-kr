@@ -37,7 +37,7 @@ Azure 플랫폼 이미지 중 하나를 사용하여 확장 집합에서 인스�
 
 
 ## <a name="already-provisioned"></a>사용자 지정 스크립트 확장을 사용하여 앱 설치
-사용자 지정 스크립트 확장은 Azure VM에서 스크립트를 다운로드하고 실행합니다. 이 확장은 배포 후 구성, 소프트웨어 설치 또는 기타 구성/관리 작업에 유용합니다. 스크립트는 Azure 저장소 또는 GitHub에서 다운로드하거나 확장 런타임에서 Azure Portal에 제공할 수 있습니다. 확장 집합에서 사용자 지정 VM 이미지를 만들고 사용하는 방법에 대한 자세한 내용은 다음 자습서를 참조하세요.
+사용자 지정 스크립트 확장은 Azure VM에서 스크립트를 다운로드하고 실행합니다. 이 확장은 배포 후 구성, 소프트웨어 설치 또는 기타 구성/관리 작업에 유용합니다. 스크립트는 Azure Storage 또는 GitHub에서 다운로드하거나 확장 런타임에서 Azure Portal에 제공할 수 있습니다. 확장 집합에서 사용자 지정 VM 이미지를 만들고 사용하는 방법에 대한 자세한 내용은 다음 자습서를 참조하세요.
 
 - [Azure CLI](tutorial-install-apps-cli.md)
 - [Azure PowerShell](tutorial-install-apps-powershell.md)

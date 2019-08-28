@@ -69,7 +69,7 @@ Backup/복원 기능을 사용하면 Reliable Services API에 구축된 서비�
 백업을 시작하려면 서비스에서 상속된 `BackupAsync` 멤버 함수를 호출해야 합니다.  
 Backup은 주 복제본에서만 수행되며 상태 쓰기 권한을 부여해야 합니다.
 
-아래와 같이 `BackupAsync`는 `BackupDescription` 개체를 가져오며, 여기서는 `Func<< BackupInfo, CancellationToken, Task<bool>>>` 콜백 함수뿐만 아니라 전체 또는 증분 백업도 지정할 수 있습니다. 이 함수는 백업 폴더를 로컬로 만들 때 호출되고 일부 외부 저장소로 이동할 준비가 되어 있습니다.
+아래와 같이 `BackupAsync`는 `BackupDescription` 개체를 가져오며, 여기서는 `Func<< BackupInfo, CancellationToken, Task<bool>>>` 콜백 함수뿐만 아니라 전체 또는 증분 백업도 지정할 수 있습니다. 이 함수는 백업 폴더를 로컬로 만들 때 호출되고 일부 외부 스토리지로 이동할 준비가 되어 있습니다.
 
 ```csharp
 

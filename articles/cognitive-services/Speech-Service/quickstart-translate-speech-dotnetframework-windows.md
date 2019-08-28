@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 03/13/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 0bb5fa25301fa86564c7f7aadb3285bdd5898a08
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: e62756ab428135ca3d5d9107f37e61813097d21f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65511172"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553467"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-framework"></a>빠른 시작: .NET Framework용 Speech SDK를 사용하여 음성 번역
 
@@ -30,7 +30,7 @@ ms.locfileid: "65511172"
 이 빠른 시작에는 다음이 필요합니다.
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* Speech Service에 대한 Azure 구독 키 [무료로 가져올 수 있습니다](get-started.md).
+* Speech Service에 대한 Azure 구독 키. [무료로 가져올 수 있습니다](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 
@@ -42,7 +42,7 @@ ms.locfileid: "65511172"
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/csharp-dotnet-windows/helloworld/Program.cs#code)]
 
-1. 동일한 파일에서 문자열 `YourSubscriptionKey`를 구독 키로 바꿉니다.
+1. 동일한 파일에서 `YourSubscriptionKey` 문자열을 구독 키로 바꿉니다.
 
 1. 또한 `YourServiceRegion` 문자열을 구독과 연결된 [지역](regions.md)으로 바꿉니다(예: 평가판 구독의 `westus`).
 

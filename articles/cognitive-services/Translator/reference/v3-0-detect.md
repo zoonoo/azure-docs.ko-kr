@@ -1,6 +1,6 @@
 ---
 title: Translator Text API 검색 메서드
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Translator Text API 검색 메서드를 사용합니다.
 services: cognitive-services
 author: swmachan
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 6e90626759b3c78d98c8c0f6e32d37c1440385cd
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: ba73b75e30639dd3f5cf5523124c926ea3442fa1
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357733"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932030"
 ---
-# <a name="translator-text-api-30-detect"></a>Translator Text API 3.0: Detect
+# <a name="translator-text-api-30-detect"></a>Translator Text API 3.0: 검색
 
 텍스트의 언어를 식별합니다.
 
@@ -46,13 +46,13 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 
 <table width="100%">
   <th width="20%">헤더</th>
-  <th>설명</th>
+  <th>Description</th>
   <tr>
     <td>인증 헤더</td>
     <td><em>필수 요청 헤더</em><br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요.</td>
   </tr>
   <tr>
-    <td>콘텐츠 형식</td>
+    <td>Content-Type</td>
     <td>*필수 요청 헤더*<br/>페이로드의 콘텐츠 형식을 지정합니다. 가능한 값은 `application/json`입니다.</td>
   </tr>
   <tr>
@@ -75,7 +75,7 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 ]
 ```
 
-다음 제한 사항이 적용됩니다.
+다음과 같은 제한 사항이 적용됩니다.
 
 * 배열에는 최대 100개 요소가 있을 수 있습니다.
 * 배열 요소의 텍스트 값은 공백을 포함하여 10,000자를 초과할 수 없습니다.
@@ -142,7 +142,7 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
   <th>설명</th>
   <tr>
     <td>200</td>
-    <td>성공.</td>
+    <td>명령 실행 성공</td>
   </tr>
   <tr>
     <td>400</td>
@@ -158,7 +158,7 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
   </tr>
   <tr>
     <td>429</td>
-    <td>서버는 클라이언트 요청 한도 초과 했기 때문에 요청을 거부 합니다.</td>
+    <td>클라이언트에서 요청 제한을 초과 하 여 서버가 요청을 거부 했습니다.</td>
   </tr>
   <tr>
     <td>500</td>
@@ -176,10 +176,6 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 
 다음 예제에서는 텍스트 번역에 지원되는 언어를 검색하는 방법을 보여줍니다.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/detect?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'What language is this text written in?'}]"
 ```
-
----

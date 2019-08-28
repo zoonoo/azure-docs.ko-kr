@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 음성 인식, Python - Speech Services'
+title: '빠른 시작: 음성 인식, Python - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: 이 가이드에 따라 Python용 Speech SDK를 사용하여 음성을 텍스트로 변환하는 콘솔 애플리케이션을 만듭니다. 작업을 마치면 컴퓨터의 마이크를 사용하여 실시간으로 음성을 텍스트로 변환할 수 있습니다.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 30e25fa8ea9e49b3005badc3db8f6ada3c0aed50
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 6cbe583ca59cb98ba233e58dc665c7e18c2a1f7f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65885169"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559296"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>빠른 시작: Python용 Speech SDK를 사용하여 음성 인식
 

@@ -54,16 +54,18 @@
           href: cloudsimple-faq.md
     - name: 자습서
       items:
-        - name: 리소스 공급자 사용
-          href: enable-cloudsimple-service.md
         - name: CloudSimple 서비스 만들기
           href: create-cloudsimple-service.md
         - name: CloudSimple 포털 액세스
           href: access-cloudsimple-portal.md
+        - name: 온-프레미스 방화벽 구성
+          href: on-premises-firewall-configuration.md
         - name: 노드 관리
           items:
             - name: 노드 프로비전
               href: create-nodes.md
+            - name: 노드 삭제
+              href: delete-nodes.md
         - name: 프라이빗 클라우드 리소스 관리
           items:
             - name: 프라이빗 클라우드 만들기
@@ -78,85 +80,93 @@
               href: azure-subscription-mapping.md
             - name: 권한 높이기
               href: escalate-private-cloud-privileges.md
+            - name: 프라이빗 클라우드 삭제
+              href: delete-private-cloud.md
         - name: CloudSimple 작업 모니터링
-          href: 'https://docs.azure.cloudsimple.com/activity/'
+          href: monitor-activity.md
         - name: 프라이빗 클라우드 네트워킹 설정
           items:
             - name: VLAN 및 서브넷 만들기 및 관리
-              href: 'https://docs.azure.cloudsimple.com/create-vlan-subnet/'
+              href: create-vlan-subnet.md
             - name: 방화벽 테이블 및 규칙 설정
-              href: 'https://docs.azure.cloudsimple.com/firewall/'
+              href: firewall.md
             - name: 공용 IP 주소 할당
-              href: 'https://docs.azure.cloudsimple.com/public-ips/'
+              href: public-ips.md
             - name: VPN 연결 설정
-              href: 'https://docs.azure.cloudsimple.com/vpn-gateway/'
+              href: vpn-gateway.md
             - name: CloudSimple에 가상 네트워크 연결을 설정하기 위한 피어 정보 가져오기
-              href: 'https://docs.azure.cloudsimple.com/virtual-network-connection/'
+              href: virtual-network-connection.md
             - name: 관리 작업을 위해 vSphere 클라이언트 에스컬레이션 권한에 액세스
               href: 'https://docs.azure.cloudsimple.com/vsphere-access/'
         - name: CloudSimple 포털 계정 관리
           items:
             - name: 계정 요약 정보 보기
-              href: 'https://docs.azure.cloudsimple.com/account/'
+              href: account.md
             - name: 사용자 목록 보기
-              href: 'https://docs.azure.cloudsimple.com/users/'
-            - name: 사용량 로그 보기
-              href: 'https://docs.azure.cloudsimple.com/usage/'
+              href: users.md
             - name: 프라이빗 클라우드에 가상 네트워크 연결 설정
-              href: 'https://docs.azure.cloudsimple.com/virtual-network-connection/'
-            - name: 사용자 프로필 편집
-              href: 'https://docs.azure.cloudsimple.com/editprofile/'
+              href: virtual-network-connection.md
         - name: 프라이빗 클라우드에 대한 VMware 가상 머신 설정
           items:
             - name: Azure에서 VM 만들기
-              href: 'https://docs.azure.cloudsimple.com/azure-create-vm/'
+              href: azure-create-vm.md
+            - name: Azure에서 VM 관리
+              href: azure-manage-vm.md
     - name: 방법 가이드
       items:
         - name: 환경 보호
-          href: 'https://docs.azure.cloudsimple.com/private-cloud-secure/'
+          href: private-cloud-secure.md
         - name: 프라이빗 클라우드 관리
           items:
+            - name: 프라이빗 클라우드 권한 에스컬레이션
+              href: escalate-privileges.md
             - name: 워크로드 DNS 및 DHCP 설정
-              href: 'https://docs.azure.cloudsimple.com/dns-dhcp-setup/'
-            - name: 마이그레이션을 위한 NSX 레이어 2 VPN
-              href: 'https://docs.azure.cloudsimple.com/migrate-workloads/#migrating-vms-using-nsx-layer-2-vpn'
+              href: dns-dhcp-setup.md
+            - name: Layer 2 확장 네트워크로 워크로드 마이그레이션
+              href: migration-layer-2-vpn.md
         - name: 프라이빗 클라우드 네트워킹
           items:
             - name: 온-프레미스와 프라이빗 클라우드 간의 VPN 연결
-              href: 'https://docs.azure.cloudsimple.com/set-up-vpn/'
+              href: set-up-vpn.md
             - name: ExpressRoute를 통해 온-프레미스 네트워크 연결
-              href: 'https://docs.azure.cloudsimple.com/on-premises-connection/'
+              href: on-premises-connection.md
             - name: ExpressRoute를 통해 Azure 가상 네트워크 연결
-              href: 'https://docs.azure.cloudsimple.com/azure-expressroute-connection/'
+              href: azure-expressroute-connection.md
         - name: VMware 플랫폼
           items:
             - name: 프라이빗 클라우드 권한 모델 알아보기
-              href: 'https://docs.azure.cloudsimple.com/learn-private-cloud-permissions/'
+              href: learn-private-cloud-permissions.md
             - name: vCenter ID 소스
-              href: 'https://docs.azure.cloudsimple.com/set-vcenter-identity/'
+              href: set-vcenter-identity.md
             - name: VMware VM을 사용하는 Azure Application Gateway
-              href: 'https://docs.azure.cloudsimple.com/azure-application-gateway/'
+              href: azure-application-gateway.md
             - name: 프라이빗 클라우드 vCenter 서버를 vRealize 자동화 엔드포인트로 구성
-              href: 'https://docs.azure.cloudsimple.com/configure-server-vra-endpoint/'
+              href: configure-server-vrealize-automation-endpoint.md
             - name: 워크로드 VM을 프라이빗 클라우드로 마이그레이션
-              href: 'https://docs.azure.cloudsimple.com/migrate-workloads/'
+              href: migrate-workloads.md
             - name: Azure의 VMware에서 애플리케이션 고가용성 확보
-              href: 'https://docs.azure.cloudsimple.com/ensuring-high-availability/'
+              href: ensuring-high-availability.md
+            - name: 부하 분산 해결책 선택
+              href: load-balancers.md
         - name: VMware 에코시스템
           items:
             - name: 워크로드 가상 머신 백업
-              href: 'https://docs.azure.cloudsimple.com/backup-workloads-veeam/'
+              href: backup-workloads-veeam.md
+            - name: Zerto를 사용하여 프라이빗 클라우드를 재해 복구 사이트로 구성
+              href: disaster-recovery-zerto.md
+            - name: VMware SRM을 사용하여 프라이빗 클라우드를 재해 복구 사이트로 구성
+              href: disaster-recovery-site-recovery-manager.md
             - name: VMware Horizon 솔루션 가이드
-              href: 'https://docs.azure.cloudsimple.com/horizon-guide/'
+              href: horizon-guide.md
             - name: 프라이빗 클라우드에 대한 vSAN 암호화 구성
-              href: 'https://docs.azure.cloudsimple.com/vsan-encryption/'
-            - name: CloudSimple 프라이빗 클라우드에 Oracle RAC 배포
-              href: 'https://docs.azure.cloudsimple.com/oracle-rac/'
+              href: vsan-encryption.md
+            - name: Oracle RAC를 위한 프라이빗 클라우드 최적화
+              href: oracle-real-application-clusters.md
         - name: Azure 코어 통합
           items:
             - name: 프라이빗 클라우드 vCenter의 Azure AD ID 소스
-              href: 'https://docs.azure.cloudsimple.com/azure-ad/'
+              href: azure-ad.md
             - name: ExpressRoute를 통해 온-프레미스 네트워크 연결
-              href: 'https://docs.azure.cloudsimple.com/on-premises-connection/'
+              href: on-premises-connection.md
             - name: ExpressRoute를 통해 Azure 가상 네트워크 연결
-              href: 'https://docs.azure.cloudsimple.com/azure-expressroute-connection/'
+              href: azure-expressroute-connection.md

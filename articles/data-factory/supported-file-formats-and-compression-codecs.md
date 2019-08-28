@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 9f6edc45316eaeceb75da643ed64b39382712852
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2ffd88b21d8cf331435a030199b562e6b5b979f
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66165951"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840257"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Azure Data Factory에서 지원되는 파일 형식 및 압축 코덱
 
@@ -27,28 +27,29 @@ ms.locfileid: "66165951"
 * [Parquet 형식](#parquet-format)
 * [ORC 형식](#orc-format)
 * [Avro 형식](#avro-format)
+* [이진 형식](#binary-format)
 
 > [!TIP]
-> 복사 작업의 원본 데이터에서 싱크를 매핑하는 방법에 대해 알아봅니다 [복사 작업의 스키마 매핑](copy-activity-schema-and-type-mapping.md)합니다.
+> 복사 작업을 통해 복사 작업 [에서](copy-activity-schema-and-type-mapping.md)원본 데이터를 싱크에 매핑하는 방법에 대해 알아봅니다.
 
 ## <a name="text-format"></a>텍스트 형식
 
 >[!NOTE]
->새로 도입 된 data Factory 구분 텍스트 형식으로 데이터 집합을 참조 하십시오 [구분 기호로 분리 된 텍스트 형식으로](format-delimited-text.md) 세부 정보가 포함 된 문서입니다. 파일 기반 데이터 저장소 데이터 집합의 다음 구성으로 계속 지원-이전 버전과 compabitility입니다. 앞으로 새 모델을 사용 하도록 제안 됩니다.
+>새 구분 된 텍스트 형식 datset를 소개 하는 Data Factory 자세한 내용은 [구분 기호로 분리 된 텍스트 형식](format-delimited-text.md) 문서를 참조 하세요. 파일 기반 데이터 저장소 데이터 집합에 대 한 다음 구성은 이전 compabitility의 경우 그대로 계속 지원 됩니다. 앞으로 새 모델을 사용 하는 것이 좋습니다.
 
 텍스트 파일을 읽거나 텍스트 파일에 쓰려면 데이터 세트의 `format` 섹션에서 `type` 속성을 **TextFormat**으로 지정합니다. `format` 섹션에서 다음 **선택적** 속성을 지정할 수도 있습니다. 구성 방법은 [TextFormat 예제](#textformat-example) 섹션을 참조하세요.
 
-| 자산 | 설명 | 허용되는 값 | 필수 |
+| 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| columnDelimiter |파일의 열을 구분하는 데 사용되는 문자입니다. 데이터에 없을 가능성이 높은 인쇄할 수 없는 희귀 문자를 사용하도록 고려할 수도 있습니다. 예를 들어 헤딩의 시작(SOH)을 나타내는 "\u0001"을 지정합니다. |문자는 하나만 사용할 수 있습니다. **기본값**은 **쉼표(,)** 입니다. <br/><br/>유니코드 문자를 사용하려면 [유니코드 문자](https://en.wikipedia.org/wiki/List_of_Unicode_characters)를 참조하여 해당하는 코드를 가져옵니다. |아닙니다. |
-| rowDelimiter |파일의 행을 구분하는 데 사용되는 문자입니다. |문자는 하나만 사용할 수 있습니다. **기본값**은 읽기의 경우 **["\r\n", "\r", "\n"]** 중 하나이고, 쓰기의 경우 **"\r\n"** 입니다. |아닙니다. |
-| escapeChar |입력 파일 내용에서 열 구분 기호를 이스케이프 처리하는 데 사용되는 특수 문자입니다. <br/><br/>한 테이블에 대해 escapeChar 및 quoteChar을 둘 다 지정할 수는 없습니다. |문자는 하나만 사용할 수 있습니다. 기본값은 없습니다. <br/><br/>예: 열 구분 문자로 쉼표(',')가 있지만 텍스트에 쉼표 문자를 사용하려는 경우(예: "Hello, world") 이스케이프 문자로 ‘$’를 정의하고 원본에 문자열 "Hello$, world"를 사용합니다. |아닙니다. |
-| quoteChar |문자열 값을 인용하는 데 사용하는 문자입니다. 인용 문자 안의 열 및 행 구분 기호는 문자열 값의 일부분으로 처리됩니다. 이 속성은 입력 데이터 세트와 출력 데이터 세트에 모두 적용됩니다.<br/><br/>한 테이블에 대해 escapeChar 및 quoteChar을 둘 다 지정할 수는 없습니다. |문자는 하나만 사용할 수 있습니다. 기본값은 없습니다. <br/><br/>예: 열 구분 기호로 쉼표(',')를 지정했는데 텍스트에서도 <Hello, world>와 같이 쉼표 문자를 포함하려는 경우에는 인용 문자로 "(큰따옴표)를 정의하고 원본에서 "Hello, world" 문자열을 사용하면 됩니다. |아닙니다. |
-| nullValue |null 값을 나타내는 데 사용되는 하나 이상의 문자입니다. |하나 이상의 문자입니다. **기본값**은 읽기의 경우 **"\N" 및 "NULL"** 이고, 쓰기의 경우 **"\N"** 입니다. |아닙니다. |
-| encodingName |인코딩 이름을 지정합니다. |유효한 인코딩 이름입니다. [Encoding.EncodingName 속성](https://msdn.microsoft.com/library/system.text.encoding.aspx)을 참조하세요. windows-1250 또는 shift_jis 등을 예로 들 수 있습니다. **기본값**은 **UTF-8**입니다. |아닙니다. |
-| firstRowAsHeader |첫 번째 행을 머리글로 간주할지를 지정합니다. 입력 데이터 세트의 경우 Data Factory는 첫 번째 행을 머리글로 읽습니다. 출력 데이터 세트의 경우에는 첫 번째 행을 머리글로 씁니다. <br/><br/>샘플 시나리오의 경우 [`firstRowAsHeader` 및 `skipLineCount` 사용 시나리오](#scenarios-for-using-firstrowasheader-and-skiplinecount)를 참조하세요. |True<br/><b>False(기본값)</b> |아닙니다. |
-| skipLineCount |입력 파일에서 데이터를 읽을 때 건너뛸 **비어 있지 않은** 행의 수를 나타냅니다. SkipLineCount와 firstRowAsHeader를 둘 다 지정하면 해당하는 줄을 먼저 건너뛴 다음 입력 파일에서 머리글 정보를 읽습니다. <br/><br/>샘플 시나리오의 경우 [`firstRowAsHeader` 및 `skipLineCount` 사용 시나리오](#scenarios-for-using-firstrowasheader-and-skiplinecount)를 참조하세요. |정수 |아닙니다. |
-| treatEmptyAsNull |입력 파일에서 데이터를 읽을 때 null 또는 빈 문자열을 null 값으로 처리할지를 지정합니다. |**True(기본값)**<br/>거짓 |아닙니다. |
+| columnDelimiter |파일의 열을 구분하는 데 사용되는 문자입니다. 데이터에 없을 가능성이 높은 인쇄할 수 없는 희귀 문자를 사용하도록 고려할 수도 있습니다. 예를 들어 헤딩의 시작(SOH)을 나타내는 "\u0001"을 지정합니다. |문자는 하나만 사용할 수 있습니다. **기본값**은 **쉼표(,)** 입니다. <br/><br/>유니코드 문자를 사용하려면 [유니코드 문자](https://en.wikipedia.org/wiki/List_of_Unicode_characters)를 참조하여 해당하는 코드를 가져옵니다. |아니요 |
+| rowDelimiter |파일의 행을 구분하는 데 사용되는 문자입니다. |문자는 하나만 사용할 수 있습니다. **기본값**은 읽기의 경우 **["\r\n", "\r", "\n"]** 중 하나이고, 쓰기의 경우 **"\r\n"** 입니다. |아니요 |
+| escapeChar |입력 파일 내용에서 열 구분 기호를 이스케이프 처리하는 데 사용되는 특수 문자입니다. <br/><br/>한 테이블에 대해 escapeChar 및 quoteChar을 둘 다 지정할 수는 없습니다. |문자는 하나만 사용할 수 있습니다. 기본값은 없습니다. <br/><br/>예: 열 구분 문자로 쉼표(',')가 있지만 텍스트에 쉼표 문자를 사용하려는 경우(예: "Hello, world") 이스케이프 문자로 ‘$’를 정의하고 원본에 문자열 "Hello$, world"를 사용합니다. |아니요 |
+| quoteChar |문자열 값을 인용하는 데 사용하는 문자입니다. 인용 문자 안의 열 및 행 구분 기호는 문자열 값의 일부분으로 처리됩니다. 이 속성은 입력 데이터 세트와 출력 데이터 세트에 모두 적용됩니다.<br/><br/>한 테이블에 대해 escapeChar 및 quoteChar을 둘 다 지정할 수는 없습니다. |문자는 하나만 사용할 수 있습니다. 기본값은 없습니다. <br/><br/>예: 열 구분 기호로 쉼표(',')를 지정했는데 텍스트에서도 <Hello, world>와 같이 쉼표 문자를 포함하려는 경우에는 인용 문자로 "(큰따옴표)를 정의하고 원본에서 "Hello, world" 문자열을 사용하면 됩니다. |아니요 |
+| nullValue |null 값을 나타내는 데 사용되는 하나 이상의 문자입니다. |하나 이상의 문자입니다. **기본값**은 읽기의 경우 **"\N" 및 "NULL"** 이고, 쓰기의 경우 **"\N"** 입니다. |아니요 |
+| encodingName |인코딩 이름을 지정합니다. |유효한 인코딩 이름입니다. [Encoding.EncodingName 속성](https://msdn.microsoft.com/library/system.text.encoding.aspx)을 참조하세요. windows-1250 또는 shift_jis 등을 예로 들 수 있습니다. **기본값**은 **UTF-8**입니다. |아니요 |
+| firstRowAsHeader |첫 번째 행을 머리글로 간주할지를 지정합니다. 입력 데이터 세트의 경우 Data Factory는 첫 번째 행을 머리글로 읽습니다. 출력 데이터 세트의 경우에는 첫 번째 행을 머리글로 씁니다. <br/><br/>샘플 시나리오의 경우 [`firstRowAsHeader` 및 `skipLineCount` 사용 시나리오](#scenarios-for-using-firstrowasheader-and-skiplinecount)를 참조하세요. |True<br/><b>False(기본값)</b> |아니요 |
+| skipLineCount |입력 파일에서 데이터를 읽을 때 건너뛸 **비어 있지 않은** 행의 수를 나타냅니다. SkipLineCount와 firstRowAsHeader를 둘 다 지정하면 해당하는 줄을 먼저 건너뛴 다음 입력 파일에서 머리글 정보를 읽습니다. <br/><br/>샘플 시나리오의 경우 [`firstRowAsHeader` 및 `skipLineCount` 사용 시나리오](#scenarios-for-using-firstrowasheader-and-skiplinecount)를 참조하세요. |정수 |아니요 |
+| treatEmptyAsNull |입력 파일에서 데이터를 읽을 때 null 또는 빈 문자열을 null 값으로 처리할지를 지정합니다. |**True(기본값)**<br/>거짓 |아니요 |
 
 ### <a name="textformat-example"></a>TextFormat 예제
 
@@ -91,16 +92,16 @@ ms.locfileid: "66165951"
 
 JSON 파일을 구문 분석하거나 데이터를 JSON 형식으로 쓰려면 `format` 섹션의 `type` 속성을 **JsonFormat**으로 설정합니다. `format` 섹션에서 다음 **선택적** 속성을 지정할 수도 있습니다. 구성 방법은 [JsonFormat 예제](#jsonformat-example) 섹션을 참조하세요.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| filePattern |각 JSON 파일에 저장된 데이터의 패턴을 나타냅니다. 사용 가능한 값은 **setOfObjects** 및 **arrayOfObjects**이고 **기본값**은 **setOfObjects**입니다. 이러한 패턴에 대한 자세한 내용은 [JSON 파일 패턴](#json-file-patterns) 섹션을 참조하세요. |아닙니다. |
-| jsonNodeReference | 동일한 패턴으로 배열 필드 내부의 개체에서 데이터를 반복하고 추출하려면 해당 배열의 JSON 경로를 지정합니다. 이 속성은 JSON 파일**에서** 데이터를 복사할 때만 지원됩니다. | 아닙니다. |
-| jsonPathDefinition | 사용자 지정된 열 이름(소문자로 시작)으로 각 열 매핑에 대한 JSON 경로 식을 지정합니다. 이 속성은 JSON 파일**에서** 데이터를 복사할 때만 지원되며 개체 또는 배열에서 데이터를 추출할 수 있습니다. <br/><br/> 루트 개체 아래의 필드는 root $로 시작하며, `jsonNodeReference` 속성으로 선택된 배열 내부의 필드는 배열 요소에서 시작합니다. 구성 방법은 [JsonFormat 예제](#jsonformat-example) 섹션을 참조하세요. | 아닙니다. |
-| encodingName |인코딩 이름을 지정합니다. 유효한 인코딩 이름 목록은 [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) 속성을 참조하세요. 예: windows-1250 또는 shift_jis **기본값**은 **UTF-8**입니다. |아닙니다. |
-| nestingSeparator |중첩 수준을 구분하는데 사용되는 문자입니다. 기본값은 '.'(점)입니다. |아닙니다. |
+| filePattern |각 JSON 파일에 저장된 데이터의 패턴을 나타냅니다. 사용 가능한 값은 **setOfObjects** 및 **arrayOfObjects**이고 **기본값**은 **setOfObjects**입니다. 이러한 패턴에 대한 자세한 내용은 [JSON 파일 패턴](#json-file-patterns) 섹션을 참조하세요. |아니요 |
+| jsonNodeReference | 동일한 패턴으로 배열 필드 내부의 개체에서 데이터를 반복하고 추출하려면 해당 배열의 JSON 경로를 지정합니다. 이 속성은 JSON 파일**에서** 데이터를 복사할 때만 지원됩니다. | 아니요 |
+| jsonPathDefinition | 사용자 지정된 열 이름(소문자로 시작)으로 각 열 매핑에 대한 JSON 경로 식을 지정합니다. 이 속성은 JSON 파일**에서** 데이터를 복사할 때만 지원되며 개체 또는 배열에서 데이터를 추출할 수 있습니다. <br/><br/> 루트 개체 아래의 필드는 root $로 시작하며, `jsonNodeReference` 속성으로 선택된 배열 내부의 필드는 배열 요소에서 시작합니다. 구성 방법은 [JsonFormat 예제](#jsonformat-example) 섹션을 참조하세요. | 아니요 |
+| encodingName |인코딩 이름을 지정합니다. 유효한 인코딩 이름 목록은 [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) 속성을 참조하세요. 예: windows-1250 또는 shift_jis **기본값**은 **UTF-8**입니다. |아니요 |
+| nestingSeparator |중첩 수준을 구분하는데 사용되는 문자입니다. 기본값은 '.'(점)입니다. |아니요 |
 
 >[!NOTE]
->경우 여러 개의 행으로 배열에 있는 데이터 간-적용 (사례 1-샘플 2의 > [JsonFormat 예제](#jsonformat-example)), 확장 속성을 사용 하 여 단일 배열에만 선택할 수 있습니다 `jsonNodeReference`합니다.
+>배열의 데이터를 여러 행에 교차 적용 하는 경우 ( [JsonFormat 예제](#jsonformat-example)에서는 사례 1 > sample 2), 속성 `jsonNodeReference`을 사용 하 여 단일 배열을 확장 하도록 선택할 수 있습니다.
 
 ### <a name="json-file-patterns"></a>JSON 파일 패턴
 
@@ -412,7 +413,7 @@ SQL Database에 다음 테이블이 있는 경우:
 ## <a name="parquet-format"></a>Parquet 형식
 
 >[!NOTE]
->Data Factory 소개 새 Parquet 형식으로 데이터 집합을 참조 하십시오 [Parquet 형식](format-parquet.md) 세부 정보가 포함 된 문서입니다. 파일 기반 데이터 저장소 데이터 집합의 다음 구성으로 계속 지원-이전 버전과 compabitility입니다. 앞으로 새 모델을 사용 하도록 제안 됩니다.
+>새 Parquet format datset에 도입 된 Data Factory [Parquet format](format-parquet.md) 문서 (세부 정보 포함)를 참조 하세요. 파일 기반 데이터 저장소 데이터 집합에 대 한 다음 구성은 이전 compabitility의 경우 그대로 계속 지원 됩니다. 앞으로 새 모델을 사용 하는 것이 좋습니다.
 
 Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰려면 `format` `type` 속성을 **ParquetFormat**으로 설정합니다. typeProperties 섹션 내의 Format 섹션에서는 속성을 지정할 필요가 없습니다. 예제:
 
@@ -448,7 +449,7 @@ Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰�
 
 | Data Factory 중간 데이터 형식 | Parquet 기본 형식 | Parquet 원본 형식(Deserialize) | Parquet 원본 형식(Serialize) |
 |:--- |:--- |:--- |:--- |
-| Boolean | Boolean | N/A | N/A |
+| Boolean | Boolean | N/A | 해당 사항 없음 |
 | SByte | Int32 | Int8 | Int8 |
 | Byte | Int32 | UInt8 | Int16 |
 | Int16 | Int32 | Int16 | Int16 |
@@ -457,16 +458,16 @@ Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰�
 | UInt32 | Int64 | UInt32 | Int64 |
 | Int64 | Int64 | Int64 | Int64 |
 | UInt64 | Int64/이진 | UInt64 | Decimal |
-| Single | Float | N/A | N/A |
-| Double | Double | N/A | N/A |
-| Decimal | 이진 | Decimal | Decimal |
-| String | 이진 | Utf8 | Utf8 |
+| Single | Float | 해당 사항 없음 | 해당 사항 없음 |
+| Double | Double | 해당 사항 없음 | N/A |
+| Decimal | 이항 | Decimal | Decimal |
+| String | 이항 | Utf8 | Utf8 |
 | DateTime | Int96 | N/A | N/A |
-| TimeSpan | Int96 | N/A | N/A |
-| DateTimeOffset | Int96 | N/A | N/A |
-| ByteArray | 이진 | N/A | N/A |
-| Guid | 이진 | Utf8 | Utf8 |
-| Char | 이진 | Utf8 | Utf8 |
+| TimeSpan | Int96 | 해당 사항 없음 | 해당 사항 없음 |
+| DateTimeOffset | Int96 | 해당 사항 없음 | 해당 사항 없음 |
+| ByteArray | 이항 | 해당 사항 없음 | 해당 사항 없음 |
+| Guid | 이항 | Utf8 | Utf8 |
+| Char | 이항 | Utf8 | Utf8 |
 | CharArray | 지원되지 않음 | N/A | N/A |
 
 ## <a name="orc-format"></a>ORC 형식
@@ -504,17 +505,17 @@ ORC 파일을 구문 분석하거나 데이터를 ORC 형식으로 쓰려면 `fo
 | Int16 | 짧음 |
 | UInt16 | Int |
 | Int32 | Int |
-| UInt32 | long |
-| Int64 | long |
-| UInt64 | String |
+| UInt32 | 길게 |
+| Int64 | 길게 |
+| UInt64 | 문자열 |
 | Single | Float |
 | Double | Double |
 | Decimal | Decimal |
-| String | String |
-| DateTime | 타임 스탬프 |
-| DateTimeOffset | 타임 스탬프 |
-| TimeSpan | 타임 스탬프 |
-| ByteArray | 이진 |
+| String | 문자열 |
+| DateTime | timestamp |
+| DateTimeOffset | timestamp |
+| TimeSpan | timestamp |
+| ByteArray | 이항 |
 | Guid | String |
 | Char | Char(1) |
 
@@ -534,6 +535,10 @@ Hive 테이블에서 Avro 형식을 사용하려는 경우 [Apache Hive의 자�
 다음 사항에 유의하세요.
 
 * [복합 데이터 형식](https://avro.apache.org/docs/current/spec.html#schema_complex)은 지원되지 않습니다(레코드, 열거형, 배열, 매핑, 공용 구조체 및 고정).
+
+## <a name="binary-format"></a>이진 형식
+
+자세한 내용은 [이진 형식](format-binary.md) 문서를 참조 하세요.
 
 ## <a name="compression-support"></a>압축 지원
 
@@ -585,12 +590,12 @@ Azure Data Factory에서는 복사하는 동안 압축/압축 풀기 데이터�
 
 ## <a name="unsupported-file-types-and-compression-formats"></a>지원 되지 않는 파일 형식 및 압축 형식
 
-지원 되지 않는 파일을 변환 하 여 Azure Data Factory의 확장 기능을 사용할 수 있습니다.
-Azure Batch를 사용 하 여 Azure Functions 및 사용자 지정 태스크를 포함 하는 두 가지 옵션입니다.
+Azure Data Factory의 확장성 기능을 사용 하 여 지원 되지 않는 파일을 변환할 수 있습니다.
+Azure Batch를 사용 하 여 Azure Functions 및 사용자 지정 작업을 포함 하는 두 가지 옵션이 있습니다.
 
-Azure 함수를 사용 하는 샘플을 볼 수 있습니다 [tar 파일의 압축을 풉니다](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction)합니다. 자세한 내용은 [Azure Functions 활동](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity)합니다.
+Azure 함수를 사용 하 여 [tar 파일의 콘텐츠를 추출](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction)하는 샘플을 볼 수 있습니다. 자세한 내용은 [Azure Functions 작업](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity)을 참조 하세요.
 
-또한 사용자 지정 dotnet 작업을 사용 하 여이 기능을 빌드할 수 있습니다. 추가 정보가 [여기](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity)
+사용자 지정 dotnet 작업을 사용 하 여이 기능을 빌드할 수도 있습니다. 자세한 내용은 [여기](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity) 에 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

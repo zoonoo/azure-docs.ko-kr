@@ -3,7 +3,7 @@ title: Microsoft ID 플랫폼 Android 빠른 시작 | Azure
 description: Android 애플리케이션이 Microsoft ID 플랫폼 엔드포인트로 보호되는 액세스 토큰이 필요한 API를 어떻게 호출할 수 있는지 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: rwike77
 manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/26/2019
-ms.author: dadobali
-ms.custom: aaddev
+ms.date: 07/17/2019
+ms.author: ryanwi
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45252cc4d45e96c2bde4a4600630ea578a8d3009
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: 88a0f16a01a7e421558b5cea99daee6944adae11
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64946734"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853038"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>빠른 시작: Android 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -69,7 +69,7 @@ ms.locfileid: "64946734"
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### <a name="step-1-configure-your-application"></a>1단계: 애플리케이션 구성
-> 이 빠른 시작의 코드 샘플이 작동하려면 Auth 브로커와 호환되는 리디렉션 URI를 추가해야 합니다. 
+> 이 빠른 시작의 코드 샘플이 작동하려면 인증 broker와 호환되는 리디렉션 URI를 추가해야 합니다. 
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [자동 변경]()
 >
@@ -104,8 +104,10 @@ ms.locfileid: "64946734"
 >          }
 >       ]
 >    }
-> 1. Inside **app** > **manifests**, open  **AndroidManifest.xml**.
-> 1. Paste the following activity to the **manifest\application** node: 
+>    ```
+> 
+> 1. **app** > **manifests** 내에서 **AndroidManifest.xml**을 엽니다.
+> 1. 다음 작업을 **manifest\application** 노드에 붙여넣습니다. 
 >    ```xml
 >    <!--Intent filter to catch Microsoft's callback after Sign In-->
 >    <activity
@@ -120,7 +122,11 @@ ms.locfileid: "64946734"
 >        </intent-filter>
 >    </activity>
 >    ```
-> > 1. 앱을 실행하세요! 
+> 1. 앱을 실행하세요! 
+
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > 이 빠른 시작에서는 Enter_the_Supported_Account_Info_Here를 지원합니다.
 
 > [!div renderon="docs"]
 > 1. Android Studio에서 프로젝트를 추출하여 엽니다.
@@ -208,7 +214,7 @@ sampleApp.acquireToken(this, SCOPES, getAuthInteractiveCallback());
 
 #### <a name="acquiretokensilent-getting-a-user-token-silently"></a>acquireTokenSilent: 자동으로 사용자 토큰 가져오기
 
-앱은 사용자가 토큰을 요청할 때마다 로그인하도록 요구해서는 안됩니다. 사용자가 이미 로그인한 경우 이 메서드를 사용하면 앱이 토큰을 자동으로 요청할 수 있습니다.
+앱은 사용자가 토큰을 요청할 때마다 로그인하도록 요구해서는 안됩니다. 사용자가 이미 로그인한 경우 다음 메서드를 사용하면 앱에서 토큰을 자동으로 요청할 수 있습니다.
 
 ```java
     sampleApp.getAccounts(new PublicClientApplication.AccountsLoadedCallback() {
@@ -247,3 +253,8 @@ Android용 MSAL 라이브러리에 대한 자세한 정보를 읽어보세요.
 > [Android용 MSAL 라이브러리 wiki](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+Microsoft ID 플랫폼을 개선할 수 있도록 도와주세요. 간단한 두 가지 설문 조사를 완료하여 의견을 알려주세요.
+
+> [!div class="nextstepaction"]
+> [Microsoft ID 플랫폼 설문 조사](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

@@ -1,19 +1,18 @@
 ---
 title: Azure 빠른 시작 - Windows VM에서 Azure Files 공유 만들기 및 사용 | Microsoft Docs
 description: 이 빠른 시작에서는 Azure Portal에서 Azure Files 공유를 설정하고 Windows 가상 머신에 연결합니다. 파일 공유에 연결하고 파일 공유에 파일을 업로드합니다. 그런 다음, 파일 공유의 스냅샷을 만들고, 파일 공유에서 파일을 수정하고, 파일 공유의 이전 스냅샷을 복원합니다.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5109f4e801c1e34b2026cff8f8dd83558618e153
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 626a6a5e0449d267b67653c2f63303226dd0c99d
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58165797"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699748"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>빠른 시작: Windows 가상 머신에서 Azure Files 공유 만들기 및 관리
 
@@ -32,9 +31,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 - Azure 스토리지 계정 및 파일 공유
 - Windows Server 2016 Datacenter VM
 
-### <a name="create-a-storage-account"></a>저장소 계정 만들기
+### <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-Azure 파일 공유를 사용하려면 먼저 Azure 스토리지 계정을 만들어야 합니다. 범용 v2 스토리지 계정은 모든 Azure Storage 서비스(BLOB, 파일, 큐, 테이블)에 대한 액세스를 제공합니다. 빠른 시작에서는 범용 v2 스토리지 계정을 만들지만 모든 유형의 스토리지 계정을 만드는 단계는 비슷합니다. 저장소 계정에 포함될 수 있는 공유 수에는 제한이 없습니다. 공유에 저장할 수 있는 파일 수에는 제한이 없으며, 저장소 계정의 최대 용량까지 저장할 수 있습니다.
+Azure 파일 공유를 사용하려면 먼저 Azure 스토리지 계정을 만들어야 합니다. 범용 v2 스토리지 계정은 모든 Azure Storage 서비스(BLOB, 파일, 큐, 테이블)에 대한 액세스를 제공합니다. 빠른 시작에서는 범용 v2 스토리지 계정을 만들지만 모든 유형의 스토리지 계정을 만드는 단계는 비슷합니다. 스토리지 계정에 포함될 수 있는 공유 수에는 제한이 없습니다. 공유에 저장할 수 있는 파일 수에는 제한이 없으며, 스토리지 계정의 최대 용량까지 저장할 수 있습니다.
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
@@ -130,7 +129,7 @@ Azure 파일 공유를 사용하려면 먼저 Azure 스토리지 계정을 만�
 ## <a name="browse-a-share-snapshot"></a>공유 스냅샷 찾아보기
 
 1. 파일 공유에서 **스냅샷 보기**를 선택합니다.
-1. **파일 공유 스냅숏** 창에서 목록 중 첫 번째 스냅숏을 선택합니다.
+1. **파일 공유 스냅샷** 창에서 목록 중 첫 번째 스냅샷을 선택합니다.
 
    ![타임스탬프의 목록에서 선택한 스냅샷](./media/storage-files-quick-create-use-windows/snapshot-list.png)
 
@@ -148,7 +147,7 @@ Azure 파일 공유를 사용하려면 먼저 Azure 스토리지 계정을 만�
 ## <a name="delete-a-share-snapshot"></a>공유 스냅샷 삭제
 
 1. 파일 공유에서 **스냅샷 보기**를 선택합니다.
-1. **파일 공유 스냅숏** 창에서 목록 중 마지막 스냅숏을 선택하고 **삭제**를 클릭합니다.
+1. **파일 공유 스냅샷** 창에서 목록 중 마지막 스냅샷을 선택하고 **삭제**를 클릭합니다.
 
    ![삭제 단추](./media/storage-files-quick-create-use-windows/portal-snapshots-delete.png)
 
@@ -164,9 +163,9 @@ Azure 파일 공유를 사용하려면 먼저 Azure 스토리지 계정을 만�
 
    ![선택한 디렉터리를 마우스 오른쪽 단추로 클릭하여 표시된 메뉴](./media/storage-files-quick-create-use-windows/snapshot-windows-previous-versions.png)
 
-1. **이전 버전**을 선택하여 이 디렉터리에 대한 공유 스냅숏의 목록을 봅니다.
+1. **이전 버전**을 선택하여 이 디렉터리에 대한 공유 스냅샷의 목록을 봅니다.
 
-1. **열기**를 선택하여 스냅숏을 엽니다.
+1. **열기**를 선택하여 스냅샷을 엽니다.
 
    ![이전 버전 탭](./media/storage-files-quick-create-use-windows/snapshot-windows-list.png)
 

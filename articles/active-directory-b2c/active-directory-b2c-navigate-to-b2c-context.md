@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 4/13/2017
+ms.date: 04/13/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d1580931a94b58e772f9f11cb7b9948216e9063a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cbf0e928ae05e723902d41a340aebf4f5781fde5
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509882"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654120"
 ---
 # <a name="switching-to-your-azure-ad-b2c-tenant"></a>Azure AD B2C 테넌트로 전환
 
@@ -25,7 +25,7 @@ Azure AD B2C을 구성하려면 Azure AD B2C 테넌트의 컨텍스트에 있어
 
 Azure AD B2C 테넌트를 탐색하려면 Azure AD B2C 테넌트의 전역 관리자로 Azure Portal에 로그인해야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)할 수 있습니다.
 1. 전자 메일 주소 또는 오른쪽 위 모서리의 그림을 클릭하여 테넌트를 전환합니다.
 1. 표시되는 `Directory` 목록에서, 관리하려는 Azure AD B2C 테넌트를 선택합니다.
 
@@ -36,7 +36,7 @@ Azure Portal이 새로 고침됩니다.  이제 Azure AD B2C 테넌트의 컨텍
 1. 왼쪽 탐색 창에서 **찾아보기**를 클릭합니다.
 1. 왼쪽 탐색 창에서 **모든 서비스**를 클릭하고 `Azure AD B2C`를 검색합니다.  (왼쪽 시작 보드에 고정하려면 Azure AD B2C 왼쪽에 있는 별을 클릭)
 1. B2C 기능 창에 액세스하려면 **Azure AD B2C**를 클릭합니다.
-   
+
     ![스크린 샷의 이동할 B2C 기능 창](./media/active-directory-b2c-get-started/b2c-browse.png)
 
 > [!IMPORTANT]

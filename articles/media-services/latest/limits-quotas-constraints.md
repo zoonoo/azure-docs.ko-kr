@@ -62,7 +62,7 @@ ms.locfileid: "67293437"
 
 <sup>3</sup> live 출력 생성에서 시작 하 고 삭제 하는 경우 중지 합니다.
 
-<sup>4</sup> 저장소 계정은 동일한 Azure 구독에 속해 있어야 합니다.
+<sup>4</sup> 스토리지 계정은 동일한 Azure 구독에 속해 있어야 합니다.
 
 <sup>5</sup> 사용자 지정을 사용 하는 경우 [스트리밍 정책](https://docs.microsoft.com/rest/api/media/streamingpolicies), 미디어 서비스 계정에 이러한 정책의 제한 된 집합을 설계 하 고 다시 동일한 암호화 옵션 및 프로토콜 때마다 Streaminglocator에 사용 필요 합니다. 각 스트리밍 로케이터에 대해 새 스트리밍 정책을 만들지 않아야 합니다.
 

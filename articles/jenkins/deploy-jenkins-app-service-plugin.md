@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 29a842f7dfcf720f29fcff80d2e736893c824f5a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 9f7e0e23a04c6b141c6e0c5ff88b3d5ff2d76e1d
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949562"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840438"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Jenkins 플러그 인을 사용하여 Azure App Service에 배포 
 
@@ -35,7 +35,7 @@ Jenkins 마스터가 없는 경우 JDK(Java Development Kit) 버전 8 및 다음
 * [Azure 자격 증명](https://plugins.jenkins.io/azure-credentials) 버전 1.2
 * [Azure App Service](https://plugins.jenkins.io/azure-app-service) 버전 0.1
 
-Jenkins 플러그 인을 사용하여 Web Apps에 지원되는 언어(예: C#, PHP, Java, Node.js)로 웹앱을 배포할 수 있습니다. 이 자습서에서는 [Azure용 간단한 Java 웹앱](https://github.com/azure-devops/javawebappsample)을 사용합니다. 자신의 GitHub 계정에 리포지토리를 분기하려면 GitHub 인터페이스의 오른쪽 위 모서리에 있는 **분기** 단추를 선택합니다.  
+Jenkins 플러그 인을 사용하여 Web Apps에 지원되는 언어(예: C#, PHP, Python, Java, Node.js)로 웹앱을 배포할 수 있습니다. 이 자습서에서는 [Azure용 간단한 Java 웹앱](https://github.com/azure-devops/javawebappsample)을 사용합니다. 자신의 GitHub 계정에 리포지토리를 분기하려면 GitHub 인터페이스의 오른쪽 위 모서리에 있는 **분기** 단추를 선택합니다.  
 
 > [!NOTE]
 > Java 프로젝트를 빌드하려면 Java JDK 및 Maven이 필요합니다. 지속적인 통합을 위해 에이전트를 사용하는 경우 Jenkins 마스터 또는 VM 에이전트에 구성 요소를 설치하십시오. Java SE 애플리케이션을 배포하는 경우 빌드 서버에서 ZIP도 필요합니다.

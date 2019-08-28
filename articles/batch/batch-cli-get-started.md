@@ -4,7 +4,7 @@ description: Azure CLI에서 Azure Batch 서비스 리소스를 관리하기 위
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
 ms.service: batch
@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 07/24/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e2bd67ebb977a37c75631f16fbbf4c7dbd6bf250
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e541ef82b7fe63042adf84733dd86fdd3eabdf1
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60782572"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323727"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Azure CLI를 사용하여 Batch 리소스 관리
 
@@ -39,7 +39,7 @@ Azure CLI는 Azure 리소스를 관리하는 Azure의 명령줄 환경입니다.
 
 ## <a name="command-help"></a>명령 도움말
 
-명령에 `-h`를 추가하여 Azure CLI의 모든 명령에 대한 도움말 텍스트를 표시할 수 있습니다. 다른 모든 옵션은 생략합니다. 예를 들면 다음과 같습니다.
+명령에 `-h`를 추가하여 Azure CLI의 모든 명령에 대한 도움말 텍스트를 표시할 수 있습니다. 다른 모든 옵션은 생략합니다. 예:
 
 * `az` 명령에 대한 도움말을 보려면 `az -h`을 입력합니다.
 * CLI에서 모든 Batch 명령의 목록을 가져오려면 `az batch -h`을 사용합니다.
@@ -122,7 +122,7 @@ Azure Batch CLI 확장을 설치하면 Azure CLI를 사용하여 코드를 작�
 
 ## <a name="json-files-for-resource-creation"></a>리소스를 만들기 위한 JSON 파일
 
-풀 및 작업같은 Batch 리소스를 만들 때 매개 변수를 명령줄 옵션으로 전달하는 대신 새 리소스의 구성이 포함된 JSON 파일을 지정할 수 있습니다. 예를 들면 다음과 같습니다.
+풀 및 작업같은 Batch 리소스를 만들 때 매개 변수를 명령줄 옵션으로 전달하는 대신 새 리소스의 구성이 포함된 JSON 파일을 지정할 수 있습니다. 예를 들어:
 
 ```azurecli
 az batch pool create my_batch_pool.json
@@ -130,7 +130,7 @@ az batch pool create my_batch_pool.json
 
 명령줄 옵션만 사용하여 대부분의 Batch 리소스를 만들 수 있지만, 일부 기능에서는 리소스 세부 정보를 포함하는 JSON 형식의 파일을 지정해야 합니다. 예를 들어 시작 태스크에 대한 리소스 파일을 지정하려면 JSON 파일을 사용해야 합니다.
 
-리소스를 만드는 데 필요한 JSON 구문을 보려면 [Batch REST API 참조][rest_api] 설명서를 참조하세요. REST API 참조의 "*리소스 종류* 추가" 항목마다 해당 리소스를 만들기 위한 샘플 JSON 스크립트가 포함되어 있습니다. 이러한 샘플 JSON 스크립트를 JSON 파일의 템플릿으로 사용하여 Azure CLI와 함께 사용할 수 있습니다. 예를 들어 풀을 만들기 위한 JSON 구문을 보려면 [계정에 풀 추가][rest_add_pool]를 참조하세요.
+리소스를 만드는 데 필요한 JSON 구문을 보려면 [Batch REST API 참조][rest_api] 설명서를 참조 하세요. REST API 참조의 "*리소스 종류* 추가" 항목마다 해당 리소스를 만들기 위한 샘플 JSON 스크립트가 포함되어 있습니다. 이러한 샘플 JSON 스크립트를 JSON 파일의 템플릿으로 사용하여 Azure CLI와 함께 사용할 수 있습니다. 예를 들어 풀 만들기에 대 한 JSON 구문을 보려면 [계정에 풀 추가][rest_add_pool]를 참조 하세요.
 
 JSON 파일을 지정하는 샘플 스크립트는 [Batch로 작업 및 태스크 실행](./scripts/batch-cli-sample-run-job.md)을 참조하세요.
 

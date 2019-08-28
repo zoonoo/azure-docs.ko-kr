@@ -5,15 +5,15 @@ services: iot-central
 ms.service: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 03/26/2019
+ms.date: 07/09/2019
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 246c9ad8ab3083c1b847c1c25230a7193a8192e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c98574bc3447482429d7a028c6b47197e08e2e38
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60886875"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850226"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>다른 IoT 클라우드를 IoT Central에 연결하는 IoT Central 디바이스 브리지 빌드
 
@@ -23,12 +23,12 @@ IoT Central 디바이스 브리지는 Sigfox, Particle, The Things Network 및 �
 
 ## <a name="what-is-it-and-how-does-it-work"></a>정의 및 작동 방식
 IoT Central 디바이스 브리지는 GitHub의 오픈 소스 솔루션입니다. Azure 구독에 여러 Azure 리소스를 사용하여 사용자 지정 Azure Resource Manager 템플릿을 배포하는 “Azure에 배포” 단추를 사용하도록 준비가 완료된 것입니다. 리소스에는 다음이 포함됩니다.
--   Azure Function 앱
+-   Azure 함수 앱
 -   Azure Storage 계정
 -   소비 계획
 -   Azure Key Vault
 
-함수 앱이 장치 연결의 중요 한 부분입니다. 간단한 웹후크 통합을 통해 다른 IoT 플랫폼 또는 사용자 지정 플랫폼에서 HTTP POST 요청을 받습니다. Sigfox, Particle 및 TTN 클라우드에 연결하는 방법을 보여주는 예제가 나와 있습니다. 플랫폼에서 함수 앱에 HTTP POST 요청을 보낼 수 있는 경우 사용자 지정 IoT 클라우드에 연결하도록 이 솔루션을 손쉽게 확장할 수 있습니다.
+함수 앱은 장치 브리지의 중요 한 부분입니다. 간단한 웹후크 통합을 통해 다른 IoT 플랫폼 또는 사용자 지정 플랫폼에서 HTTP POST 요청을 받습니다. Sigfox, Particle 및 TTN 클라우드에 연결하는 방법을 보여주는 예제가 나와 있습니다. 플랫폼에서 함수 앱에 HTTP POST 요청을 보낼 수 있는 경우 사용자 지정 IoT 클라우드에 연결하도록 이 솔루션을 손쉽게 확장할 수 있습니다.
 함수 앱은 IoT Central에서 허용되는 형식으로 데이터를 변환하고 DPS API를 통해 전달합니다.
 
 ![Azure Functions 스크린샷](media/howto-build-iotc-device-bridge/azfunctions.png)

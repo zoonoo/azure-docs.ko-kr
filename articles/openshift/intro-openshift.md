@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.topic: overview
 ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: 7cabedaec1190437aa9f225397afa8871cb06e88
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: f76f5d4dc84d1f8827248ab8399c1ae450a643a0
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306366"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68620149"
 ---
 # <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
 
@@ -34,11 +34,11 @@ Azure Red Hat OpenShift는 Red Hat과 Microsoft가 공동으로 설계, 운영 �
 
 ## <a name="cluster-and-node"></a>클러스터 및 노드
 
-Azure Red Hat OpenShift 노드는 Azure 가상 머신에서 실행됩니다. 저장소를 노드 및 Pod에 연결하고, 클러스터 구성 요소를 업그레이드하고, GPU를 사용할 수 있습니다.
+Azure Red Hat OpenShift 노드는 Azure 가상 머신에서 실행됩니다. 스토리지를 노드 및 Pod에 연결하고, 클러스터 구성 요소를 업그레이드하고, GPU를 사용할 수 있습니다.
 
 ## <a name="virtual-networks-and-ingress"></a>가상 네트워크 및 수신
 
-피어링을 통해 Azure Red Hat OpenShift 클러스터를 기존 가상 네트워크에 연결할 수 있습니다. 이 구성에서 Pod는 피어링된 가상 네트워크의 다른 서비스에 연결하고, [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) 또는 S2S(사이트 간) VPN 연결을 통해 온-프레미스 네트워크에 연결할 수 있습니다.
+피어링을 통해 [Azure Red Hat OpenShift 클러스터를 기존 가상 네트워크에 연결](https://docs.microsoft.com/azure/openshift/tutorial-create-cluster#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network)할 수 있습니다. 이 구성에서 Pod는 피어링된 가상 네트워크의 다른 서비스에 연결할 수 있습니다.
 
 자세한 내용은 [클러스터의 가상 네트워크를 기존 가상 네트워크에 연결](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network)을 참조하세요.
 

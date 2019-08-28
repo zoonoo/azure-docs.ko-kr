@@ -1,0 +1,203 @@
+---
+title: Azure IoT 플러그 앤 플레이 미리 보기 디바이스를 IoT Central에 연결 | Microsoft Docs
+description: 디바이스 기능 모델을 사용하여 디바이스 코드를 만듭니다. 그런 다음, 디바이스 코드를 실행하고, 디바이스가 IoT Central 애플리케이션에 연결되는 것을 확인하고, 자동으로 생성되는 보기를 사용합니다.
+author: dominicbetts
+ms.author: dobett
+ms.date: 08/08/2019
+ms.topic: quickstart
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
+ms.openlocfilehash: 152e373f3a340a8abe3d8bc54d6515296d95efba
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69881692"
+---
+# <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-device-and-connect-it-to-your-iot-central-application"></a>빠른 시작: 디바이스 기능 모델을 사용하여 IoT 플러그 앤 플레이 디바이스를 만들고 IoT Central 애플리케이션에 연결
+
+[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
+
+_DCM(디바이스 기능 모델)_ 은 [IoT 플러그 앤 플레이](https://aka.ms/iot-pnp-docs) 디바이스의 기능을 설명합니다. 디바이스를 처음으로 연결할 때 IoT Central은 DCM을 사용하여 디바이스 템플릿을 만들고 디바이스를 시각화할 수 있습니다. 이 빠른 시작에서는 다음을 수행하는 방법을 보여 줍니다.
+
+* Visual Studio Code에서 DCM을 사용하여 IoT 플러그 앤 플레이 디바이스를 만듭니다.
+* Windows에서 디바이스 코드를 실행하고 IoT Central 애플리케이션에 연결되는 것을 확인합니다.
+* 디바이스가 전송하는 시뮬레이션된 원격 분석 데이터 보기
+
+## <a name="prerequisites"></a>필수 조건
+
+[Azure IoT Central 애플리케이션 만들기(미리 보기 기능)](./quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) 빠른 시작을 완료하고 **미리 보기 애플리케이션** 템플릿을 사용하여 IoT Central 애플리케이션을 만듭니다.
+
+이 빠른 시작을 완료하려면 로컬 머신에 다음 소프트웨어를 설치해야 합니다.
+
+* [Visual Studio(Community, Professional 또는 Enterprise)](https://visualstudio.microsoft.com/downloads/) - Visual Studio를 설치할 때 **NuGet 패키지 관리자** 구성 요소와 **C++를 사용한 데스크톱 개발** 워크로드를 포함해야 합니다.
+* [Git](https://git-scm.com/download/)
+* [CMake](https://cmake.org/download/) - **CMake**를 설치할 때 **시스템 경로에 CMake 추가** 옵션을 선택합니다.
+* [Visual Studio Code](https://code.visualstudio.com/)
+* [Node.JS](https://nodejs.org/)
+* `dps-keygen` 유틸리티:
+
+    ```cmd/sh
+    npm i -g dps-keygen
+    ```
+
+### <a name="install-azure-iot-device-workbench"></a>Azure IoT Device Workbench 설치
+
+다음 단계에 따라 Azure IoT Device Workbench 확장을 VS Code에 설치합니다.
+
+1. VS Code에서 **확장** 탭을 선택합니다.
+1. **Azure IoT Device Workbench**를 검색합니다.
+1. **설치**를 선택합니다.
+
+## <a name="prepare-the-development-environment"></a>개발 환경 준비
+
+### <a name="get-azure-iot-device-sdk-for-c"></a>C용 Azure IoT 디바이스 SDK 받기
+
+Azure IoT C 디바이스 SDK를 빌드하는 데 사용할 수 있는 개발 환경을 준비합니다.
+
+1. 명령 프롬프트를 엽니다. 다음 명령을 실행하여 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 리포지토리를 복제합니다.
+
+    ```cmd/sh
+    git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
+    ```
+
+    이 작업을 완료하는 데 몇 분 정도가 걸립니다.
+
+1. 리포지토리의 로컬 클론 루트에 `central_app` 폴더를 만듭니다. 이 폴더는 디바이스 모델 파일 및 디바이스 코드 스텁에 사용됩니다.
+
+    ```cmd/sh
+    cd azure-iot-sdk-c
+    mkdir central_app
+    ```
+
+## <a name="generate-device-key"></a>디바이스 키 생성
+
+디바이스를 IoT Central 애플리케이션에 연결하려면 디바이스 키가 필요합니다. 디바이스 키를 생성하는 방법은 다음과 같습니다.
+
+1. 이전 빠른 시작에서 만든 IoT Central 애플리케이션에 로그인합니다.
+
+1. **관리** 페이지로 이동하여 **디바이스 연결**을 선택합니다.
+
+1. **범위 ID**와 **기본 키** 값을 기록해 둡니다. 이러한 값은 이 빠른 시작의 뒷부분에서 사용합니다.
+
+    ![디바이스 연결](./media/quick-create-pnp-device-pnp/device-connection.png)
+
+1. 명령 프롬프트를 열고 다음 명령을 실행하여 디바이스 키를 생성합니다.
+
+    ```cmd/sh
+    dps-keygen  -di:mxchip-01 -mk:{Primary Key from previous step}
+    ```
+
+    생성된 _디바이스 키_를 기록해 둡니다. 이 빠른 시작의 이후 단계에서 이 값을 사용할 것입니다.
+
+## <a name="download-your-model"></a>모델 다운로드
+
+이 빠른 시작에서는 MxChip IoT DevKit 디바이스에 공용 DCM을 사용합니다. 코드를 실행하기 위한 실제 DevKit 디바이스가 필요 없습니다. 이 빠른 시작에서는 Windows에서 실행되도록 코드를 컴파일합니다.
+
+1. VS Code에서 `azure-iot-sdk-c\central_app` 폴더를 엽니다.
+
+1. **Ctrl+Shift+P** 를 사용하여 명령 팔레트를 열고, **IoT 플러그 앤 플레이**를 입력하고, **모델 리포지토리 열기**를 선택합니다. **공용 리포지토리**를 선택합니다. VS Code가 공용 모델 리포지토리의 DCM 목록을 표시합니다.
+
+1. ID가 `urn:mxchip:mxchip_iot_devkit:1`인 **MXChip IoT DevKit** DCM을 선택합니다. **다운로드**를 선택합니다. 이제 `central_app` 폴더에 DCM 복사본이 있습니다.
+
+![모델 리포지토리 및 DCM](./media/quick-create-pnp-device-pnp/public-repository.png)
+
+> [!NOTE]
+> IoT Central을 사용하려면 디바이스 기능 모델의 모든 인터페이스가 동일한 파일에 인라인으로 정의되어 있어야 합니다.
+
+## <a name="generate-the-c-code-stub"></a>C 코드 스텁 생성
+
+이제 **MXChip IoT DevKit** DCM 및 관련 인터페이스가 있으므로, 모델을 구현하는 디바이스 코드를 생성할 수 있습니다. VS Code에서 C 코드 스텁을 생성하는 방법은 다음과 같습니다.
+
+1. DCM 파일이 들어 있는 폴더를 열어 놓은 상태에서, **Ctrl+Shift+P**를 사용하여 명령 팔레트를 열고, **IoT 플러그 앤 플레이**를 입력하고, **디바이스 코드 스텁 생성**을 선택합니다.
+
+    > [!NOTE]
+    > IoT 플러그 앤 플레이 코드 생성기 유틸리티를 처음 사용하는 경우 다운로드하는 데 몇 초 정도 걸립니다.
+
+1. 방금 다운로드한 **MXChip IoT DevKit** DCM 파일을 선택합니다.
+
+1. 프로젝트 이름으로 **devkit_device**를 입력합니다.
+
+1. 언어로 **ANSI C**를 선택합니다.
+
+1. 프로젝트 형식으로 **CMake 프로젝트**를 선택합니다. **MXChip IoT DevKit 프로젝트**를 선택하지 마세요. 이 옵션은 실제 DevKit 디바이스가 있는 경우에 사용합니다.
+
+1. 연결 방법으로 **DPS(Device Provisioning Service) 대칭 키를 통해**를 선택합니다.
+
+1. VS Code 새 창이 열리고 생성된 디바이스 코드 스텁 파일이 `devkit_device` 폴더에 포함되어 있습니다
+
+![생성된 디바이스 코드](./media/quick-create-pnp-device-pnp/generated-code.png)
+
+생성된 디바이스 코드에 연결 정보를 추가하는 방법은 다음과 같습니다.
+
+1. 생성된 C 코드가 들어 있는 VS Code 창에서 다음을 수행합니다. `main.c` 파일을 엽니다.
+
+1. `[DPS Id Scope]`를 이전에 적어 둔 **범위 ID**로 바꿉니다.
+
+1. `[DPS symmetric key]`를 이전 단계에서 생성한 디바이스 키로 바꿉니다.
+
+1. `[device registration Id]`을 `mxchip-01`로 바꿉니다.
+
+1. 변경 내용을 저장합니다.
+
+## <a name="build-the-code"></a>코드 빌드
+
+디바이스 SDK를 사용하여 생성된 디바이스 코드 스텁을 빌드합니다. 여기서 빌드하는 애플리케이션은 **MXChip IoT DevKit** 디바이스를 시뮬레이션하고 IoT Central 애플리케이션에 연결합니다. 이 애플리케이션은 원격 분석 데이터 및 속성을 보내고 명령을 수신합니다.
+
+1. VS Code에서 `azure-iot-sdk-c` 폴더의 `CMakeLists.txt` 파일을 엽니다. `devkit_device` 폴더가 아닌 `azure-iot-sdk-c` 폴더의 `CMakeLists.txt` 파일을 엽니다.
+
+1. 컴파일할 때 디바이스 코드 스텁 폴더를 포함하도록 아래 줄을 `CMakeLists.txt` 파일의 맨 아래에 추가합니다.
+
+    ```txt
+    add_subdirectory(central_app/devkit_device)
+    ```
+
+1. 다음과 같이 `azure-iot-sdk-c` 폴더에 `cmake` 폴더를 만들고 명령 프롬프트에서 해당 폴더로 이동합니다.
+
+    ```cmd\sh
+    mkdir cmake
+    cd cmake
+    ```
+
+1. 다음 명령을 실행하여 디바이스 SDK 및 생성된 코드 스텁을 빌드합니다.
+
+    ```cmd\sh
+    cmake .. -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON
+    cmake --build . -- /m /p:Configuration=Release
+    ```
+
+1. 빌드가 성공적으로 완료되면 다음과 같이 동일한 명령 프롬프트에서 애플리케이션을 실행합니다.
+
+    ```cmd\sh
+    .\central_app\devkit_device\Release\devkit_device.exe
+    ```
+
+1. 디바이스 애플리케이션이 IoT Central 애플리케이션으로 데이터를 보내기 시작합니다.
+
+## <a name="view-the-device"></a>디바이스 보기
+
+디바이스 코드가 IoT Central에 연결되면 애플리케이션에서 보내는 속성과 원격 분석 데이터를 볼 수 있습니다.
+
+1. IoT Central 애플리케이션에서 **디바이스** 페이지로 이동하여 **mxchip-01** 디바이스를 선택합니다. 이 디바이스는 디바이스 코드가 연결될 때 자동으로 추가되었습니다.
+
+    ![개요 페이지](./media/quick-create-pnp-device-pnp/overview-page.png)
+
+    몇 분 후, 이 페이지에는 디바이스에서 보내는 원격 분석의 차트가 표시됩니다.
+
+1. 디바이스에서 보낸 속성 값을 보려면 **정보** 페이지를 선택합니다.
+
+1. 디바이스에 대한 명령을 호출하려면 **명령** 페이지를 선택합니다. 디바이스 코드를 실행하는 명령 프롬프트에서 디바이스가 응답하는 것을 볼 수 있습니다.
+
+1. IoT Central이 공용 리포지토리의 DCM에서 만든 템플릿을 보려면 **디바이스 템플릿** 페이지로 이동합니다.
+
+    ![디바이스 템플릿 페이지](./media/quick-create-pnp-device-pnp/device-template.png)
+
+## <a name="next-steps"></a>다음 단계
+
+이 빠른 시작에서는 공용 모델 리포지토리의 DCM에서 생성된 IoT 플러그 앤 플레이 디바이스를 연결하는 방법을 알아보았습니다.
+
+DCM에 대한 자세한 내용과 나만의 모델을 만드는 방법에 대한 자세한 내용을 보려면 방법 가이드를 계속 진행하세요.
+
+> [!div class="nextstepaction"]
+> [디바이스 템플릿 설정 및 관리](./howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)

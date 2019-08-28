@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2B 공동 작업 사용자에 대 한 조건부 액세스 | Microsoft Docs
+title: B2B 공동 작업 사용자에 대 한 조건부 액세스-Azure Active Directory | Microsoft Docs
 description: Azure Active Directory B2B 협업 기능은 회사 애플리케이션에 대한 선택적 액세스를 위해 MFA(Multi-Factor Authentication)를 지원합니다.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c012ebfb00b57079e43b74b4f6570744db980860
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a54e5006a268347148945fbe7fc5f18cfa41036
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113151"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68357126"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>B2B 공동 작업 사용자에 대 한 조건부 액세스
 
@@ -57,7 +57,7 @@ B2B 협업 사용자에 대한 MFA를 설정하는 작업이 얼마나 간단한
    ```
    Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
    ```
-   다음은 예제입니다.
+   다음 예를 참조하세요.
 
    ```
    Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
@@ -89,13 +89,17 @@ Contoso에 App2가 아닌 App1에 대해서만 설정된 MFA 정책이 있는 �
 
 ### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>B2B 사용자에 대 한 장치 기반, 위치 기반 및 위험 기반 조건부 액세스
 
-Contoso 회사 데이터에 대 한 조건부 액세스 정책을 장치 기반을 사용 하도록 설정할 때 Contoso 장치 정책을 준수 하지 않는 및 Contoso에서 관리 되지 않는 장치에서 액세스할 수 없게 됩니다.
+Contoso가 회사 데이터에 대 한 장치 기반 조건부 액세스 정책을 사용 하도록 설정 하면 contoso에서 관리 되지 않고 Contoso 장치 정책을 준수 하지 않는 장치에서 액세스가 차단 됩니다.
 
-B2B 사용자의 디바이스가 Contoso에서 관리되지 않는 경우 이러한 정책이 적용된 컨텍스트가 무엇이든 파트너 조직 B2B 사용자의 액세스는 차단됩니다. 그러나 Contoso 장치 기반 조건부 액세스 정책에서 제외할 특정 파트너 사용자가 포함 된 제외 목록을 만들 수 있습니다.
+B2B 사용자의 디바이스가 Contoso에서 관리되지 않는 경우 이러한 정책이 적용된 컨텍스트가 무엇이든 파트너 조직 B2B 사용자의 액세스는 차단됩니다. 그러나 Contoso는 장치 기반 조건부 액세스 정책에서 제외할 특정 파트너 사용자가 포함 된 제외 목록을 만들 수 있습니다.
+
+#### <a name="mobile-application-management-policies-for-b2b"></a>B2B에 대 한 모바일 응용 프로그램 관리 정책
+
+초대 하는 조직이 B2B 사용자의 홈 조직을 볼 수 없기 때문에 조건부 액세스 앱 보호 정책을 B2B 사용자에 게 적용할 수 없습니다.
 
 #### <a name="location-based-conditional-access-for-b2b"></a>B2B에 대 한 위치 기반 조건부 액세스
 
-초대 하는 조직이 파트너 조직을 정의 하는 신뢰할 수 있는 IP 주소 범위를 만들 수 있으면 위치 기반 조건부 액세스 정책은 B2B 사용자에 게 적용할 수 있습니다.
+초대 하는 조직에서 파트너 조직을 정의 하는 신뢰할 수 있는 IP 주소 범위를 만들 수 있는 경우 위치 기반 조건부 액세스 정책을 B2B 사용자에 게 적용할 수 있습니다.
 
 #### <a name="risk-based-conditional-access-for-b2b"></a>B2B에 대 한 위험 기반 조건부 액세스
 
@@ -105,6 +109,6 @@ B2B 사용자의 디바이스가 Contoso에서 관리되지 않는 경우 이러
 
 Azure AD B2B 협업에 대한 다음 문서를 살펴보세요.
 
-* [Azure AD B2B 공동 작업이란?](what-is-b2b.md)
-* [Azure AD B2B 공동 작업 라이선스](licensing-guidance.md)
-* [Azure Active Directory B2B 공동 작업 자주 묻는 질문(FAQ)](faq.md)
+* [Azure AD B2B 협업이란?](what-is-b2b.md)
+* [Azure AD B2B 협업 라이선스](licensing-guidance.md)
+* [Azure Active Directory B2B 협업 자주 묻는 질문(FAQ)](faq.md)

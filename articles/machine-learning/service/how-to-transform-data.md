@@ -10,23 +10,24 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 05/02/2019
+ms.date: 07/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: db23c8af7eaa4a86691ccb0bb831ce2cc28d635c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 339a4f93d45b3d3b3e242aa735ce4b737a9292f0
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65471827"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035954"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Azure Machine Learning Data Prep SDK를 사용하여 데이터 변환
 
-이 문서에서는 사용 하 여 데이터를 변환 하는 다양 한 방법을 알아봅니다는 `azureml-dataprep` 패키지 있습니다. 패키지는 열을 추가, 불필요 한 행 또는 열을 필터링 및 누락 값 대체를 간단 하 게 하는 함수를 제공 합니다. 에 대 한 전체 참조 설명서를 참조 합니다 [azureml dataprep 패키지로](https://aka.ms/data-prep-sdk)합니다.
+이 문서에서는 패키지를 `azureml-dataprep` 사용 하 여 데이터를 변환 하는 다양 한 방법에 대해 알아봅니다. 패키지는 열을 간단 하 게 추가 하 고, 원치 않는 행 또는 열을 필터링 하 고, 누락 된 값을 돌립니다 하는 함수를 제공 합니다. [Azureml-dataprep 패키지](https://aka.ms/data-prep-sdk)에 대 한 전체 참조 설명서를 참조 하세요.
 
 > [!Important]
-> 새 솔루션을 작성 하는 경우는 [Azure Machine Learning 데이터 집합](how-to-explore-prepare-data.md) (미리 보기)를 사용자 데이터를 스냅숏 데이터를 변환 하 여 버전이 지정 된 데이터 집합 정의 저장 합니다. 데이터 집합은 다음 버전의 데이터 준비 SDK, AI 솔루션에서 데이터 집합을 관리 하기 위한 확장된 기능을 제공 합니다. 사용 하는 경우는 `azureml-dataprep` 변환을 사용 하는 대신를 사용 하 여 데이터 흐름을 만들려면 패키지를 `azureml-datasets` 데이터 집합을 만들려면 패키지를 스냅숏 또는 버전이 있는 데이터 집합을 나중에 사용할 수 없습니다.
+> 새 솔루션을 구축 하는 경우 데이터, 스냅숏 데이터 및 저장소 버전 데이터 집합 정의를 변환 하는 [Azure Machine Learning 데이터 집합](how-to-explore-prepare-data.md) (미리 보기)을 시도 합니다. 데이터 집합은 AI 솔루션의 데이터 집합 관리를 위해 확장 된 기능을 제공 하는 다음 버전의 데이터 준비 SDK입니다.
+> 패키지를 사용 하 `azureml-dataprep` 여 데이터 집합을 만드는 대신 `azureml-datasets` 패키지를 사용 하 여 변환을 통해 데이터 흐름을 만드는 경우 나중에 스냅숏 또는 버전이 지정 된 데이터 집합을 사용할 수 없습니다.
 
-이 방법에서는 다음 작업에 대 한 예제를 보여 줍니다.
+이 방법에 대 한 예제는 다음 작업을 보여 줍니다.
 
 - 식을 사용하여 열 추가
 - [누락 값 입력](#impute-missing-values)
@@ -46,7 +47,7 @@ dflow = dprep.read_csv(path=r'data\crime0-10.csv')
 dflow.head(3)
 ```
 
-||ID|Case Number|Date|Block|IUCR|Primary Type|설명|Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|위도|경도|Location|
+||ID|Case Number|날짜|블록|IUCR|Primary Type|Description|Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|위도|경도|위치|
 |-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
 |0|10140490|HY329907|07/05/2015 11:50:00 PM|050XX N NEWLAND AVE|0820|THEFT|$500 AND UNDER|STREET|false|false|...|41|10|06|1129230|1933315|2015|07/12/2015 12:42:46 PM|41.973309466|-87.800174996|(41.973309466, -87.800174996)|
 |1|10139776|HY329265|07/05/2015 11:30:00 PM|011XX W MORSE AVE|0460|BATTERY|SIMPLE|STREET|false|true|...|49|1|08B|1167370|1946271|2015|07/12/2015 12:42:46 PM|42.008124017|-87.65955018|(42.008124017, -87.65955018)|
@@ -63,7 +64,7 @@ case_category = dflow.add_column(new_column_name='Case Category',
 case_category.head(3)
 ```
 
-||ID|Case Number|Case Category|Date|Block|IUCR|Primary Type|설명|Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|위도|경도|Location|
+||ID|Case Number|Case Category|날짜|블록|IUCR|Primary Type|설명|Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|위도|경도|위치|
 |-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|------|
 |0|10140490|HY329907|HY|07/05/2015 11:50:00 PM|050XX N NEWLAND AVE|0820|THEFT|$500 AND UNDER|STREET|false|false|...|41|10|06|1129230|1933315|2015|07/12/2015 12:42:46 PM|41.973309466|-87.800174996|(41.973309466, -87.800174996)|
 |1|10139776|HY329265|HY|07/05/2015 11:30:00 PM|011XX W MORSE AVE|0460|BATTERY|SIMPLE|STREET|false|true|...|49|1|08B|1167370|1946271|2015|07/12/2015 12:42:46 PM|42.008124017|-87.65955018|(42.008124017, -87.65955018)|
@@ -100,15 +101,15 @@ dflow.head(3)
 |1|10139776|false|42.008124|-87.659550|
 |2|10140270|false|NaN|NaN|
 
-세 번째 레코드에서는 위도 및 경도 값이 누락되어 있습니다. 이러한 누락 값을 대체를 사용 하면 [ `ImputeMissingValuesBuilder` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.imputemissingvaluesbuilder?view=azure-dataprep-py) 에 고정 된 식에 알아봅니다. 이 프로그램은 계산된 `MIN`, `MAX` 또는 `MEAN` 값이나 `CUSTOM` 값을 열에 입력할 수 있습니다. `group_by_columns`를 지정하면 그룹별로 계산된 `MIN`, `MAX` 및 `MEAN`을 사용하여 누락 값이 그룹을 기준으로 입력됩니다.
+세 번째 레코드에서는 위도 및 경도 값이 누락되어 있습니다. 이러한 누락 값을 돌립니다 위해를 사용 [`ImputeMissingValuesBuilder`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.imputemissingvaluesbuilder?view=azure-dataprep-py) 하 여 고정 된 식을 학습 합니다. 이 프로그램은 계산된 `MIN`, `MAX` 또는 `MEAN` 값이나 `CUSTOM` 값을 열에 입력할 수 있습니다. `group_by_columns`를 지정하면 그룹별로 계산된 `MIN`, `MAX` 및 `MEAN`을 사용하여 누락 값이 그룹을 기준으로 입력됩니다.
 
-확인 합니다 `MEAN` 사용 하 여 위도 열 값을 [ `summarize()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#summarize-summary-columns--typing-union-typing-list-azureml-dataprep-api-dataflow-summarycolumnsvalue---nonetype----none--group-by-columns--typing-union-typing-list-str---nonetype----none--join-back--bool---false--join-back-columns-prefix--typing-union-str--nonetype----none-----azureml-dataprep-api-dataflow-dataflow) 함수입니다. 이 함수는 `group_by_columns` 매개 변수의 열 배열을 수락하여 집계 수준을 지정합니다. `summary_columns` 매개 변수는 `SummaryColumnsValue` 호출을 수락합니다. 이 함수 호출은 현재 열 이름, 새 계산 필드 이름 및 수행할 `SummaryFunction`을 지정합니다.
+함수를 `MEAN` [`summarize()`](/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-ml-py#summarize-summary-columns--typing-union-typing-list-azureml-dataprep-api-dataflow--summarycolumnsvalue---nonetype----none--group-by-columns--typing-union-typing-list-str---nonetype----none--join-back--bool---false--join-back-columns-prefix--typing-union-str--nonetype----none-----azureml-dataprep-api-dataflow-dataflow) 사용 하 여 위도 열의 값을 확인 합니다. 이 함수는 `group_by_columns` 매개 변수의 열 배열을 수락하여 집계 수준을 지정합니다. `summary_columns` 매개 변수는 `SummaryColumnsValue` 호출을 수락합니다. 이 함수 호출은 현재 열 이름, 새 계산 필드 이름 및 수행할 `SummaryFunction`을 지정합니다.
 
 ```python
 dflow_mean = dflow.summarize(group_by_columns=['Arrest'],
-                       summary_columns=[dprep.SummaryColumnsValue(column_id='Latitude',
-                                                                 summary_column_name='Latitude_MEAN',
-                                                                 summary_function=dprep.SummaryFunction.MEAN)])
+                             summary_columns=[dprep.SummaryColumnsValue(column_id='Latitude',
+                                                                        summary_column_name='Latitude_MEAN',
+                                                                        summary_function=dprep.SummaryFunction.MEAN)])
 dflow_mean = dflow_mean.filter(dprep.col('Arrest') == 'false')
 dflow_mean.head(1)
 ```
@@ -130,7 +131,7 @@ impute_custom = dprep.ImputeColumnArguments(column_id='Longitude',
                                             custom_impute_value=42)
 # get instance of ImputeMissingValuesBuilder
 impute_builder = dflow.builders.impute_missing_values(impute_columns=[impute_mean, impute_custom],
-                                                   group_by_columns=['Arrest'])
+                                                      group_by_columns=['Arrest'])
 
 impute_builder.learn()
 dflow_imputed = impute_builder.to_dataflow()
@@ -156,7 +157,8 @@ Azure Machine Learning Data Prep SDK의 고급 도구 중 하나는 원하는 �
 
 ```python
 import azureml.dataprep as dprep
-dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/BostonWeather.csv')
+dflow = dprep.read_csv(
+    path='https://dpreptestfiles.blob.core.windows.net/testfiles/BostonWeather.csv')
 dflow.head(4)
 ```
 
@@ -170,9 +172,11 @@ dflow.head(4)
 날짜와 시간이 'Mar 10, 2018 | 2AM-4AM' 형식인 데이터 세트와 이 파일을 조인해야 하는 경우를 가정해 보겠습니다.
 
 ```python
-builder = dflow.builders.derive_column_by_example(source_columns=['DATE'], new_column_name='date_timerange')
-builder.add_example(source_data=dflow.iloc[1], example_value='Jan 1, 2015 12AM-2AM')
-builder.preview(count=5) 
+builder = dflow.builders.derive_column_by_example(
+    source_columns=['DATE'], new_column_name='date_timerange')
+builder.add_example(
+    source_data=dflow.iloc[1], example_value='Jan 1, 2015 12AM-2AM')
+builder.preview(count=5)
 ```
 
 ||DATE|date_timerange|
@@ -190,7 +194,7 @@ builder.preview(count=5)
 이제 맨 위에서부터 `skip`하려는 행 수를 전달하면 해당 수 이후의 행을 확인할 수 있습니다.
 
 > [!NOTE]
-> Preview() 함수가 행을 건너뛰고 되었지만 출력 인덱스를 다시 번호 하지는 않습니다. 아래 예제에서는 테이블의 인덱스 0 인덱스 30 데이터 흐름에 해당합니다.
+> Preview () 함수는 행을 건너뛰고 출력 인덱스의 번호를 다시 표시 하지 않습니다. 아래 예에서는 테이블의 인덱스 0이 데이터 흐름의 인덱스 30에 해당 합니다.
 
 ```python
 builder.preview(skip=30, count=5)
@@ -204,10 +208,11 @@ builder.preview(skip=30, count=5)
 |3|1/2/2015 0:54|Feb 1, 2015 12AM-2AM|
 |4|1/2/2015 1:00|Feb 1, 2015 12AM-2AM|
 
-여기서 생성된 프로그램에는 문제가 있습니다. 파생 프로그램은 위에서 제공한 예제 하나만을 기준으로 하므로 날짜를 “일/월/년”으로 구문 분석했는데, 여기서는 날짜를 다른 형식으로 표시해야 하기 때문입니다. 이 문제를 해결 하려면 특정 레코드 인덱스를 대상으로 하 고 사용 하 여 다른 예제를 제공 합니다 `add_example()` 함수를 실행 하는 `builder` 변수입니다.
+여기서 생성된 프로그램에는 문제가 있습니다. 파생 프로그램은 위에서 제공한 예제 하나만을 기준으로 하므로 날짜를 “일/월/년”으로 구문 분석했는데, 여기서는 날짜를 다른 형식으로 표시해야 하기 때문입니다. 이 문제를 해결 하려면 특정 레코드 인덱스를 대상으로 지정 하 고 `add_example()` `builder` 변수에 함수를 사용 하는 다른 예를 제공 합니다.
 
 ```python
-builder.add_example(source_data=dflow.iloc[3], example_value='Jan 2, 2015 12AM-2AM')
+builder.add_example(
+    source_data=dflow.iloc[3], example_value='Jan 2, 2015 12AM-2AM')
 builder.preview(skip=30, count=5)
 ```
 
@@ -219,7 +224,7 @@ builder.preview(skip=30, count=5)
 |3|1/2/2015 0:54|Jan 2, 2015 12AM-2AM|
 |4|1/2/2015 1:00|Jan 2, 2015 12AM-2AM|
 
-행을 제대로 처리 하는 이제 ' 2015 년 2 월 1 일 '로 ' 2015 년 1 월 2,' 하지만 초과 보면 인덱스 파생 열의 76, 끝 값 파생된 열에 아무 것을 알 수 있습니다.
+이제 행이 ' 1/2/2015 '를 ' Jan 2, 2015 '로 올바르게 처리 하지만 파생 열의 인덱스 76를 초과 하는 경우 끝에 있는 값이 파생 열에 아무것도 표시 되지 않습니다.
 
 ```python
 builder.preview(skip=75, count=5)
@@ -228,26 +233,27 @@ builder.preview(skip=75, count=5)
 
 ||DATE|date_timerange|
 |-----|-----|-----|
-|0|1/3/2015 7:00|2015 년 1 월 3 일 오전 6 시-오전 8 시|
-|1|1/3/2015 7:54|2015 년 1 월 3 일 오전 6 시-오전 8 시|
+|0|1/3/2015 7:00|Jan 3, 2015 6AM-오전 8 시|
+|1|1/3/2015 7:54|Jan 3, 2015 6AM-오전 8 시|
 |2|1/29/2015 6:54|없음|
 |3|1/29/2015 7:00|없음|
 |4|1/29/2015 7:54|없음|
 
 ```python
-builder.add_example(source_data=dflow.iloc[77], example_value='Jan 29, 2015 6AM-8AM')
+builder.add_example(
+    source_data=dflow.iloc[77], example_value='Jan 29, 2015 6AM-8AM')
 builder.preview(skip=75, count=5)
 ```
 
 ||DATE|date_timerange|
 |-----|-----|-----|
-|0|1/3/2015 7:00|2015 년 1 월 3 일 오전 6 시-오전 8 시|
-|1|1/3/2015 7:54|2015 년 1 월 3 일 오전 6 시-오전 8 시|
-|2|1/29/2015 6:54|2015 년 1 월 29 일, 오전 6 시-오전 8 시|
-|3|1/29/2015 7:00|2015 년 1 월 29 일, 오전 6 시-오전 8 시|
-|4|1/29/2015 7:54|2015 년 1 월 29 일, 오전 6 시-오전 8 시|
+|0|1/3/2015 7:00|Jan 3, 2015 6AM-오전 8 시|
+|1|1/3/2015 7:54|Jan 3, 2015 6AM-오전 8 시|
+|2|1/29/2015 6:54|1 월 29 일 오전 2015 오전 8 시|
+|3|1/29/2015 7:00|1 월 29 일 오전 2015 오전 8 시|
+|4|1/29/2015 7:54|1 월 29 일 오전 2015 오전 8 시|
 
- 현재 예제에서는 파생의 호출 목록을 보려면 `list_examples()` 작성기 개체입니다.
+ 현재 예제 목록에서 builder 개체에 대 한 `list_examples()` 호출을 확인 합니다.
 
 ```python
 examples = builder.list_examples()
@@ -260,10 +266,10 @@ examples = builder.list_examples()
 |2|1/29/2015 20:54|Jan 29, 2015 8PM-10PM|-3|
 
 
-특정 경우에 잘못 된 예제를 삭제 하려는 경우 전달할 수 있습니다 하나 `example_row` pandas 데이터 프레임 또는 `example_id` 값입니다. 예를 들어, 실행 하는 경우 `builder.delete_example(example_id=-1)`, 첫 번째 변환 예제를 삭제 합니다.
+잘못 된 예를 삭제 하려는 경우에는 pandas 데이터 프레임 또는 `example_row` `example_id` 값 중 하나를 전달할 수 있습니다. 예를 들어를 실행 `builder.delete_example(example_id=-1)`하는 경우 첫 번째 변환 예제를 삭제 합니다.
 
 
-호출 `to_dataflow()` 작성기를 추가 하 여 원하는 파생된 열을 사용 하 여 데이터 흐름을 반환 합니다.
+원하는 `to_dataflow()` 파생 열이 추가 된 데이터 흐름을 반환 하는 작성기에서를 호출 합니다.
 
 ```python
 dflow = builder.to_dataflow()
@@ -272,14 +278,20 @@ df = dflow.to_pandas_dataframe()
 
 ## <a name="filtering"></a>필터링
 
-메서드를 포함 하는 SDK [ `drop_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#drop-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow) 하 고 [ `filter()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py) 수 있도록 열 또는 행을 필터링 합니다.
+SDK에는 열 또는 [`drop_columns()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#drop-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow) 행 [`filter()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py) 을 필터링 할 수 있는 및 메서드가 포함 되어 있습니다.
 
 ### <a name="initial-setup"></a>초기 설치
+
+> [!Note]
+> 이 동일한 예제의 URL은 전체 URL이 아닙니다. 대신 BLOB의 demo 폴더를 말합니다. 데이터의 전체 URL은입니다. https://dprepdata.blob.core.windows.net/demo/green-small/green_tripdata_2013-08.csv
+
+자습서에서 수행 하는 작업은 폴더 내의 모든 파일을 로드 하 고 결과를 green_df_raw 및 yellow_df_raw로 집계 하는 것입니다.
 
 ```python
 import azureml.dataprep as dprep
 from datetime import datetime
-dflow = dprep.read_csv(path='https://dprepdata.blob.core.windows.net/demo/green-small/*')
+dflow = dprep.read_csv(
+    path='https://dprepdata.blob.core.windows.net/demo/green-small/*')
 dflow.head(5)
 ```
 
@@ -293,7 +305,7 @@ dflow.head(5)
 
 ### <a name="filtering-columns"></a>열 필터링
 
-열을 필터링하려면 `drop_columns()`를 사용합니다. 이 메서드는 삭제 하는 열 목록 또는 더 복잡 한 인수를 호출 [ `ColumnSelector` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.columnselector?view=azure-dataprep-py)합니다.
+열을 필터링하려면 `drop_columns()`를 사용합니다. 이 메서드는 삭제할 열 목록이 나 더 복잡 한 인수를 호출 [`ColumnSelector`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.columnselector?view=azure-dataprep-py)합니다.
 
 #### <a name="filtering-columns-with-list-of-strings"></a>문자열 목록을 사용하여 열 필터링
 
@@ -314,7 +326,8 @@ dflow.head(2)
 `ColumnSelector` 식을 사용하여 regex 식과 일치하는 열을 삭제합니다. 이 예제에서는 `Column*|.*longitude|.*latitude` 식과 일치하는 열을 모두 삭제합니다.
 
 ```python
-dflow = dflow.drop_columns(dprep.ColumnSelector('Column*|.*longitud|.*latitude', True, True))
+dflow = dflow.drop_columns(dprep.ColumnSelector(
+    'Column*|.*longitud|.*latitude', True, True))
 dflow.head(2)
 ```
 
@@ -333,7 +346,7 @@ dflow.head(2)
 
 이 예제에서 `dflow.filter(col('Tip_amount') > 0)`는 `Tip_amount`의 값이 0보다 큰 행이 포함된 새 데이터 흐름을 반환합니다.
 
-> [!NOTE] 
+> [!NOTE]
 > `Tip_amount`는 먼저 numeric으로 변환되므로 식을 작성하여 다른 numeric 값과 비교할 수 있습니다.
 
 ```python
@@ -355,7 +368,8 @@ dflow.head(2)
 
 ```python
 dflow = dflow.to_number(['Passenger_count', 'Tolls_amount'])
-dflow = dflow.filter(dprep.f_and(dprep.col('Passenger_count') < 5, dprep.col('Tolls_amount') > 0))
+dflow = dflow.filter(dprep.f_and(
+    dprep.col('Passenger_count') < 5, dprep.col('Tolls_amount') > 0))
 dflow.head(2)
 ```
 
@@ -370,9 +384,10 @@ dflow.head(2)
 > `lpep_pickup_datetime` 및 `Lpep_dropoff_datetime`은 먼저 datetime으로 변환되므로 식을 작성하여 다른 datetime 값과 비교할 수 있습니다.
 
 ```python
-dflow = dflow.to_datetime(['lpep_pickup_datetime', 'Lpep_dropoff_datetime'], ['%Y-%m-%d %H:%M:%S'])
+dflow = dflow.to_datetime(
+    ['lpep_pickup_datetime', 'Lpep_dropoff_datetime'], ['%Y-%m-%d %H:%M:%S'])
 dflow = dflow.to_number(['Total_amount', 'Trip_distance'])
-mid_2013 = datetime(2013,7,1)
+mid_2013 = datetime(2013, 7, 1)
 dflow = dflow.filter(
     dprep.f_and(
         dprep.f_or(
@@ -407,7 +422,8 @@ dflow.head(2)
 import azureml.dataprep as dprep
 col = dprep.col
 
-dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv', skip_rows=1)
+dflow = dprep.read_csv(
+    path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv', skip_rows=1)
 dflow.head(2)
 ```
 
@@ -416,11 +432,13 @@ dflow.head(2)
 |0|앨라배마|1|101710|Hale County|10171002158| |
 |1|앨라배마|1|101710|Hale County|10171002162| |
 
-데이터 집합 다운 트리밍하고 열을 제거, 값 바꾸기, 형식 변환 등 몇 가지 기본 변환을 수행 합니다.
+데이터 집합을 축소 하 고 열 제거, 값 대체 및 형식 변환을 포함 하 여 몇 가지 기본 변환 작업을 수행 합니다.
 
 ```python
-dflow = dflow.keep_columns(['stnam', 'leanm10', 'ncessch', 'MAM_MTH00numvalid_1011'])
-dflow = dflow.replace_na(columns=['leanm10', 'MAM_MTH00numvalid_1011'], custom_na_list='.')
+dflow = dflow.keep_columns(
+    ['stnam', 'leanm10', 'ncessch', 'MAM_MTH00numvalid_1011'])
+dflow = dflow.replace_na(
+    columns=['leanm10', 'MAM_MTH00numvalid_1011'], custom_na_list='.')
 dflow = dflow.to_number(['ncessch', 'MAM_MTH00numvalid_1011'])
 dflow.head(2)
 ```
@@ -443,7 +461,7 @@ dflow.filter(col('MAM_MTH00numvalid_1011').is_null()).head(2)
 
 ### <a name="transform-partition"></a>파티션 변환
 
-사용 하 여 [ `transform_partition()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#transform-partition-script--str-----azureml-dataprep-api-dataflow-dataflow) 모든 null 값을 0으로 바꿉니다. 이 코드는 전체 데이터 세트에서 한 번에 실행되는 것이 아니라 파티션별로 실행됩니다. 즉, 큰 데이터 세트에서는 런타임이 데이터를 처리할 때 이 코드가 파티션별로 병렬 실행될 수 있습니다.
+를 [`transform_partition()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#transform-partition-script--str-----azureml-dataprep-api-dataflow-dataflow) 사용 하 여 모든 null 값을 0으로 바꿉니다. 이 코드는 전체 데이터 세트에서 한 번에 실행되는 것이 아니라 파티션별로 실행됩니다. 즉, 큰 데이터 세트에서는 런타임이 데이터를 처리할 때 이 코드가 파티션별로 병렬 실행될 수 있습니다.
 
 Python 스크립트는 `df` 및 `index`의 두 인수를 취하는 `transform()`라는 함수를 정의해야 합니다. `df` 인수는 파티션에 대한 데이터가 포함된 pandas 데이터 프레임이 되며, `index` 인수는 파티션의 고유 식별자입니다. 변환 함수는 전달된 데이터 프레임을 완전히 편집할 수 있지만 데이터 프레임을 반환해야 합니다. Python 스크립트를 가져오는 모든 라이브러리는 데이터 흐름이 실행되는 환경에 존재해야 합니다.
 
@@ -463,7 +481,7 @@ df.head(2)
 
 ### <a name="new-script-column"></a>새 스크립트 열
 
-지방 이름과 상태 이름을 가진 새 열을 만들 수 및 상태 이름을 대문자로 Python 스크립트를 사용할 수 있습니다. 이 작업을 수행 하려면 사용 합니다 [ `new_script_column()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#new-script-column-new-column-name--str--insert-after--str--script--str-----azureml-dataprep-api-dataflow-dataflow) 데이터 흐름에는 메서드.
+Python 스크립트를 사용 하 여 군 이름 및 상태 이름을 포함 하는 새 열을 만들고 상태 이름을 대문자로 지정할 수 있습니다. 이렇게 하려면 데이터 흐름에서 메서드 [`new_script_column()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#new-script-column-new-column-name--str--insert-after--str--script--str-----azureml-dataprep-api-dataflow-dataflow) 를 사용 합니다.
 
 Python 스크립트는 단일 인수 `row`를 취하는 `newvalue()`라는 함수를 정의해야 합니다. `row` 인수는 dict(`key`: 열 이름 `val`: 현재 값)이며, 데이터 세트의 각 행에 대해 이 함수에 전달됩니다. 이 함수는 새 열에 사용할 값을 반환해야 합니다. Python 스크립트를 가져오는 모든 라이브러리는 데이터 흐름이 실행되는 환경에 존재해야 합니다.
 
@@ -482,7 +500,7 @@ dflow.head(2)
 
 ### <a name="new-script-filter"></a>새 스크립트 필터
 
-사용 하 여 Python 식 작성 [ `new_script_filter()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#new-script-filter-script--str-----azureml-dataprep-api-dataflow-dataflow) 'Hale' 있지 않은 새 행만 데이터 집합을 필터링 할 `county_state` 열입니다. 행을 유지하려는 경우 식은 `True`를 반환하고, 행을 삭제하려는 경우에는 `False`를 반환합니다.
+를 사용 하 여 데이터 [`new_script_filter()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#new-script-filter-script--str-----azureml-dataprep-api-dataflow-dataflow) 집합을 ' Hale '가 새 `county_state` 열에 없는 행 으로만 필터링 하려면를 사용 하 여 Python 식을 작성 합니다. 행을 유지하려는 경우 식은 `True`를 반환하고, 행을 삭제하려는 경우에는 `False`를 반환합니다.
 
 ```python
 dflow = dflow.new_script_filter("""
@@ -500,4 +518,4 @@ dflow.head(2)
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Machine Learning 데이터 준비 SDK 참조 [자습서](tutorial-data-prep.md) 특정 시나리오를 해결 하는 예
+* 자세한 내용은 Azure Machine Learning 데이터 준비 SDK [참조 설명서](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#dataprep) 를 참조 하세요.

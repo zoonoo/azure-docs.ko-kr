@@ -1,6 +1,6 @@
 ---
-title: Azure Site Recovery를 사용하여 Azure로 온-프레미스 컴퓨터 재해 복구 드릴 실행 | Microsoft Docs
-description: Azure Site Recovery를 사용하여 온-프레미스에서 Azure로 재해 복구 드릴을 실행하는 방법에 대해 알아봅니다.
+title: Azure Site Recovery를 사용하여 Azure로 온-프레미스 컴퓨터 재해 복구 훈련 실행 | Microsoft Docs
+description: Azure Site Recovery를 사용하여 온-프레미스에서 Azure로 재해 복구 훈련을 실행하는 방법에 대해 알아봅니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4ed66e3a0237eced852c806e78a8af6bdf8d8579
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: b8c8d1a867f6872c5e3ec9e1b48dac8f80c84950
+ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417833"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68602131"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Azure로 재해 복구 훈련 실행
 
-이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 Azure에 온-프레미스 머신에 대한 재해 복구 드릴을 실행하는 방법을 설명합니다. 훈련은 데이터 손실 없이 복제 전략의 유효성을 검사합니다.
+이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 Azure에 온-프레미스 머신에 대한 재해 복구 훈련을 실행하는 방법을 설명합니다. 훈련은 데이터 손실 없이 복제 전략의 유효성을 검사합니다.
 
 
 이 문서는 온-프레미스 머신에 대한 재해 복구를 Azure에 설정하는 방법을 보여 주는 자습서 시리즈 중 네 번째 자습서입니다.
@@ -31,7 +31,7 @@ ms.locfileid: "66417833"
 > * 단일 머신에 대해 테스트 장애 조치(failover) 실행
 
 > [!NOTE]
-> 자습서는 시나리오의 가장 간단한 배포 경로를 보여줍니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 재해 복구 드릴 단계에 대해 자세히 알아보려면 [이 문서를 검토하세요](site-recovery-test-failover-to-azure.md).
+> 자습서는 시나리오의 가장 간단한 배포 경로를 보여줍니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 재해 복구 훈련 단계에 대해 자세히 알아보려면 [이 문서를 검토하세요](site-recovery-test-failover-to-azure.md).
 
 ## <a name="before-you-start"></a>시작하기 전에
 
@@ -88,6 +88,6 @@ ms.locfileid: "66417833"
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [VMware VM에 대한 장애 조치(failover) 및 장애 복구(failback) 실행](vmware-azure-tutorial-failover-failback.md)
-> [Hyper-V VM에 대한 장애 조치(failover) 및 장애 복구(failback) 실행](hyper-v-azure-failover-failback-tutorial.md).
-> [물리적 머신에 대한 장애 조치(failover) 및 장애 복구(failback) 실행](physical-to-azure-failover-failback.md)
+> [VMware VM의 장애 조치(failover) 및 장애 복구(failback) 실행](vmware-azure-tutorial-failover-failback.md)
+> [Hyper-V VM의 장애 조치(failover) 및 장애 복구(failback) 실행](hyper-v-azure-failover-failback-tutorial.md)
+> [물리적 머신의 장애 조치(failover) 및 장애 복구(failback) 실행](physical-to-azure-failover-failback.md)

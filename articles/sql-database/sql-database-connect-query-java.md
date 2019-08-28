@@ -1,5 +1,5 @@
 ---
-title: Java를 사용하여 Azure SQL Database 쿼리 | Microsoft Docs
+title: Java를 사용하여 Azure SQL Database 쿼리
 description: Java를 사용하여 Azure SQL 데이터베이스에 연결하고 T-SQL 문을 사용하여 쿼리하는 프로그램을 만드는 방법을 보여 줍니다.
 services: sql-database
 ms.service: sql-database
@@ -9,16 +9,16 @@ ms.topic: quickstart
 author: ajlam
 ms.author: andrela
 ms.reviewer: v-masebo
-manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 2d9ce34d52d08b4dd38caaadfab48b7a69870e9a
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.custom: seo-java-july2019. seo-java-august2019
+ms.openlocfilehash: 8940e13dcc6d6287984ba1cc7c7510768b4e232f
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447898"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624073"
 ---
-# <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>빠른 시작: Java를 사용하여 Azure SQL 데이터베이스 쿼리
+# <a name="quickstart-use-java-to-connect-to-and-query-an-azure-sql-database"></a>빠른 시작: Java를 사용하여 Azure SQL 데이터베이스에 연결 및 쿼리
 
 이 문서에서는 [Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server)를 사용하여 Azure SQL 데이터베이스에 연결하는 방법을 보여 줍니다. 그런 다음, 데이터를 쿼리하는 T-SQL 문을 사용할 수 있습니다.
 
@@ -37,8 +37,7 @@ ms.locfileid: "58447898"
   |||[사이트에서 연결](sql-database-managed-instance-configure-p2s.md)
   |데이터 로드|Adventure Works(빠른 시작마다 로드됨)|[Wide World Importers 복원](sql-database-managed-instance-get-started-restore.md)
   |||[GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)의 [BACPAC](sql-database-import.md) 파일에서 Adventure Works 복원 또는 가져오기|
-  |||
-
+  
   > [!IMPORTANT]
   > 이 문서의 스크립트는 Adventure Works 데이터베이스를 사용하도록 작성되었습니다. 관리되는 인스턴스의 경우 Adventure Works 데이터베이스를 인스턴스 데이터베이스로 가져오거나 이 문서의 스크립트를 수정하여 Wide World Importors 데이터베이스를 사용해야 합니다.
 
@@ -56,7 +55,7 @@ Azure SQL 데이터베이스에 연결하는 데 필요한 연결 정보를 가�
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-2. **SQL 데이터베이스** 또는 **SQL 관리되는 인스턴스** 페이지로 이동합니다.
+2. **SQL 데이터베이스**를 선택하거나 **SQL 관리형 인스턴스** 페이지를 엽니다.
 
 3. **개요** 페이지에서 단일 데이터베이스에 대한 **서버 이름** 옆에 있는 정규화된 서버 이름 또는 관리되는 인스턴스에 대한 **호스트** 옆에 있는 정규화된 서버 이름을 검토합니다. 서버 이름이나 호스트 이름을 복사하려면 마우스로 해당 이름 위를 가리키고 **복사** 아이콘을 선택합니다. 
 
@@ -168,7 +167,7 @@ Azure SQL 데이터베이스에 연결하는 데 필요한 연결 정보를 가�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [첫 번째 Azure SQL Database 디자인](sql-database-design-first-database.md)  
+- [첫 번째 Azure SQL 데이터베이스 디자인](sql-database-design-first-database.md)  
 
 - [SQL Server용 Microsoft JDBC Driver](https://github.com/microsoft/mssql-jdbc)  
 

@@ -3,19 +3,19 @@ title: 보충 학습 - Personalizer
 titleSuffix: Azure Cognitive Services
 description: Personalizer는 작업 및 현재 컨텍스트에 대한 정보를 사용하여 보다 나은 순위를 추천합니다. 이러한 작업 및 컨텍스트에 대한 정보는 기능으로 참조되는 특성 또는 속성입니다.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/07/2019
-ms.author: edjez
-ms.openlocfilehash: b65073c0646db0cd0c27a71005bb4f74b091ae09
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: HT
+ms.author: diberry
+ms.openlocfilehash: 36071cdee25cfa99fc54b0e5c0c0aa822cb5fe2f
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506881"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662829"
 ---
 # <a name="what-is-reinforcement-learning"></a>보충 학습이란?
 
@@ -59,7 +59,7 @@ John은 이전에도 Joint Prediction(ICML 2015), Contextual Bandit Theory(NIPS 
 
 현재 Personalizer는 기계 학습의 기초로 [Vowpal Wabbit](https://github.com/VowpalWabbit/vowpal_wabbit/wiki)를 사용합니다. 이 프레임워크는 모든 이벤트를 사용하여 개인 설정 순위를 지정하고 모델을 학습할 때 최대 처리량과 가장 낮은 대기 시간을 허용합니다.
 
-## <a name="references"></a>참조
+## <a name="references"></a>참조 항목
 
 * [기술적인 문제가 적도록 상황에 맞는 결정 내리기](https://arxiv.org/abs/1606.03966)
 * [공정 분류에 대한 축소 접근 방식](https://arxiv.org/abs/1803.02453)

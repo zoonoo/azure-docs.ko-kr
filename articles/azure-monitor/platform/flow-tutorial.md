@@ -11,19 +11,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
-ms.openlocfilehash: c3732dd2fa87b00eec38f88ab828605b33567235
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 46a4544b86648ee99a751d4793013f6104d1d9df
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60396599"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807042"
 ---
 # <a name="automate-azure-monitor-log-processes-with-the-connector-for-microsoft-flow"></a>Microsoft Flow용 커넥터를 사용하여 Azure Monitor 로그 프로세스 자동화
 [Microsoft Flow](https://ms.flow.microsoft.com)를 사용하면 다양한 서비스에 수백 가지 작업을 통해 자동화된 워크플로를 만들 수 있습니다. 한 작업의 출력을 서로 다른 서비스 간의 통합을 만들 수 있는 다른 작업에 대한 입력으로 사용할 수 있습니다.  Microsoft Flow에 대한 Azure Log Analytics 커넥터를 사용하면 Azure Monitor에서 Log Analytics 작업 영역에서 로그 쿼리로 검색한 데이터를 포함하는 워크플로를 빌드할 수 있습니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-예를 들어, Microsoft Flow를 통해 Office 365의 이메일 알림에서 Azure Monitor 로그 데이터를 사용하거나, Azure DevOps에서 버그를 만들거나, Slack 메시지를 게시할 수 있습니다.  메일이나 트윗이 수신될 때와 같이 연결된 서비스의 일부 작업 또는 단순 일정에서 워크플로를 트리거할 수 있습니다.  
+예를 들어 Azure Monitor 로그 데이터를 사용 하 여 Office 365에서 전자 메일 알림에서 Azure DevOps에서 버그를 만들, Slack 메시지 게시를 Microsoft Flow 사용할 수 있습니다.  메일이나 트윗이 수신될 때와 같이 연결된 서비스의 일부 작업 또는 단순 일정에서 워크플로를 트리거할 수 있습니다.  
 
 이 문서의 자습서에서는 Microsoft Flow의 Log Analytics 커넥터 사용 방법에 관한 한 가지 예제를 통해 Azure Monitor 로그 쿼리의 결과를 이메일로 자동으로 보내는 흐름을 만드는 방법을 보여 줍니다. 
 

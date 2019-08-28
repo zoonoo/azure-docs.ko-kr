@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: c22230545ccbe1ef1b4bfa35a33f0302197463b1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 5806c17b0532f4d18b7ac57fbf70c92ed9d47daa
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124537"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827510"
 ---
 # <a name="example-identify-faces-in-images"></a>예제: 이미지에서 얼굴 식별
 
@@ -42,10 +42,12 @@ https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&retu
 ```
 
 대안으로 구독 키를 **ocp-apim-subscription-key: &lt;구독 키&gt;** HTTP 요청 헤더에 지정합니다.
-클라이언트 라이브러리를 사용하는 경우 구독 키는 FaceServiceClient 클래스의 생성자를 통해 전달됩니다. 예: 
+클라이언트 라이브러리를 사용하는 경우 구독 키는 FaceClient 클래스의 생성자를 통해 전달됩니다. 예:
  
-```CSharp 
-faceServiceClient = new FaceServiceClient("<Subscription Key>");
+```csharp 
+private readonly IFaceClient faceClient = new FaceClient(
+            new ApiKeyServiceClientCredentials("<subscription key>"),
+            new System.Net.Http.DelegatingHandler[] { });
 ```
  
 구독 키를 가져오려면 Azure Portal에서 Azure Marketplace로 이동합니다. 자세한 내용은 [구독](https://azure.microsoft.com/try/cognitive-services/)을 참조하세요.
@@ -56,20 +58,20 @@ faceServiceClient = new FaceServiceClient("<Subscription Key>");
 
 ![MyFriends](../Images/group.image.1.jpg)
 
-### <a name="step-21-define-people-for-the-persongroup"></a>2.1단계: PersonGroup에 대한 사람 정의
+### <a name="step-21-define-people-for-the-persongroup"></a>2\.1단계: PersonGroup에 대한 사람 정의
 사람은 식별의 기본 단위입니다. 사람은 하나 이상의 알려진 얼굴을 등록할 수 있습니다. PersonGroup은 사람의 컬렉션입니다. 각 사람은 특정 PersonGroup 내에서 정의됩니다. 식별은 PersonGroup에 대해 수행됩니다. 작업은 PersonGroup을 만든 다음, 여기에 Anna, Bill 및 Clare와 같은 사람을 만드는 것입니다.
 
-먼저 [PersonGroup - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) API를 사용하여 새 PersonGroup을 만듭니다. 해당 클라이언트 라이브러리 API는 FaceServiceClient 클래스에 대한 CreatePersonGroupAsync 메서드입니다. 그룹을 만들기 위해 지정된 그룹 ID는 각 구독에 대해 고유합니다. 다른 PersonGroup API를 사용하여 PersonGroup을 가져오거나, 업데이트하거나, 삭제할 수도 있습니다. 
+먼저 [PersonGroup - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) API를 사용하여 새 PersonGroup을 만듭니다. 해당 클라이언트 라이브러리 API는 FaceClient 클래스에 대한 CreatePersonGroupAsync 메서드입니다. 그룹을 만들기 위해 지정된 그룹 ID는 각 구독에 대해 고유합니다. 다른 PersonGroup API를 사용하여 PersonGroup을 가져오거나, 업데이트하거나, 삭제할 수도 있습니다. 
 
 그룹이 정의되면 [PersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) API를 사용하여 그룹 내의 사람을 정의할 수 있습니다. 클라이언트 라이브러리 메서드는 CreatePersonAsync입니다. 사람이 만들어지면 각 사람에게 얼굴을 추가할 수 있습니다.
 
-```CSharp 
+```csharp 
 // Create an empty PersonGroup
 string personGroupId = "myfriends";
-await faceServiceClient.CreatePersonGroupAsync(personGroupId, "My Friends");
+await faceClient.PersonGroup.CreateAsync(personGroupId, "My Friends");
  
 // Define Anna
-CreatePersonResult friend1 = await faceServiceClient.CreatePersonAsync(
+CreatePersonResult friend1 = await faceClient.PersonGroupPerson.CreateAsync(
     // Id of the PersonGroup that the person belonged to
     personGroupId,    
     // Name of the person
@@ -79,12 +81,13 @@ CreatePersonResult friend1 = await faceServiceClient.CreatePersonAsync(
 // Define Bill and Clare in the same way
 ```
 ### <a name="step2-2"></a> 2.2단계: 얼굴 감지 및 올바른 사람에게 등록
-감지는 HTTP 요청 본문에 이미지 파일을 사용하여 [얼굴 - 감지](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API로 "POST" 웹 요청을 전송하여 진행됩니다. 클라이언트 라이브러리를 사용하는 경우 얼굴 감지는 FaceServiceClient 클래스에 대한 DetectAsync 메서드를 통해 수행됩니다.
+감지는 HTTP 요청 본문에 이미지 파일을 사용하여 [얼굴 - 감지](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API로 "POST" 웹 요청을 전송하여 진행됩니다. 클라이언트 라이브러리를 사용하는 경우 얼굴 감지는 FaceClient 클래스에 대한 DetectAsync 메서드를 통해 수행됩니다.
 
 감지된 각 얼굴에 대해 [PersonGroup Person – Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)를 호출하여 해당 얼굴을 올바른 사람에게 추가합니다.
 
 다음 코드에서는 이미지에서 얼굴을 감지한 후 사람에게 추가하는 방법 프로세스를 보여 줍니다.
-```CSharp 
+
+```csharp 
 // Directory contains image files of Anna
 const string friend1ImageDir = @"D:\Pictures\MyFriends\Anna\";
  
@@ -93,7 +96,7 @@ foreach (string imagePath in Directory.GetFiles(friend1ImageDir, "*.jpg"))
     using (Stream s = File.OpenRead(imagePath))
     {
         // Detect faces in the image and add to Anna
-        await faceServiceClient.AddPersonFaceAsync(
+        await faceClient.PersonGroupPerson.AddFaceFromStreamAsync(
             personGroupId, friend1.PersonId, s);
     }
 }
@@ -105,19 +108,19 @@ foreach (string imagePath in Directory.GetFiles(friend1ImageDir, "*.jpg"))
 
 PersonGroup을 사용하여 식별을 수행하려면 먼저 해당 PersonGroup이 학습되어야 합니다. 사람을 추가하거나 제거한 후에 또는 등록된 사람 얼굴을 편집한 경우 PersonGroup이 다시 학습되어야 합니다. 학습은 [PersonGroup – 학습](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) API를 통해 수행됩니다. 클라이언트 라이브러리를 사용하는 경우 TrainPersonGroupAsync 메서드에 대한 호출은 다음과 같습니다.
  
-```CSharp 
-await faceServiceClient.TrainPersonGroupAsync(personGroupId);
+```csharp 
+await faceClient.PersonGroup.TrainAsync(personGroupId);
 ```
  
 학습은 비동기 프로세스입니다. TrainPersonGroupAsync 메서드가 반환된 후에도 완료되지 않을 수 있습니다. 학습 상태를 쿼리해야 할 수도 있습니다. [PersonGroup - Get Training Status](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395247) API 또는 클라이언트 라이브러리의 GetPersonGroupTrainingStatusAsync 메서드를 사용합니다. 다음 코드에서는 PersonGroup 학습이 완료될 때까지 기다리는 간단한 논리를 보여 줍니다.
  
-```CSharp 
+```csharp 
 TrainingStatus trainingStatus = null;
 while(true)
 {
-    trainingStatus = await faceServiceClient.GetPersonGroupTrainingStatusAsync(personGroupId);
+    trainingStatus = await faceClient.PersonGroup.GetTrainingStatusAsync(personGroupId);
  
-    if (trainingStatus.Status != Status.Running)
+    if (trainingStatus.Status != TrainingStatusType.Running)
     {
         break;
     }
@@ -134,15 +137,15 @@ Face API에서 식별을 수행하는 경우 그룹 내의 모든 얼굴에 걸�
 
 다음 코드에서는 식별 프로세스를 보여 줍니다.
 
-```CSharp 
+```csharp 
 string testImageFile = @"D:\Pictures\test_img1.jpg";
 
 using (Stream s = File.OpenRead(testImageFile))
 {
-    var faces = await faceServiceClient.DetectAsync(s);
+    var faces = await faceClient.Face.DetectAsync(s);
     var faceIds = faces.Select(face => face.FaceId).ToArray();
  
-    var results = await faceServiceClient.IdentifyAsync(personGroupId, faceIds);
+    var results = await faceClient.Face.IdentifyAsync(faceIds, personGroupId);
     foreach (var identifyResult in results)
     {
         Console.WriteLine("Result of face: {0}", identifyResult.FaceId);
@@ -154,7 +157,7 @@ using (Stream s = File.OpenRead(testImageFile))
         {
             // Get top 1 among all candidates returned
             var candidateId = identifyResult.Candidates[0].PersonId;
-            var person = await faceServiceClient.GetPersonAsync(personGroupId, candidateId);
+            var person = await faceClient.PersonGroupPerson.GetAsync(personGroupId, candidateId);
             Console.WriteLine("Identified as {0}", person.Name);
         }
     }

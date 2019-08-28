@@ -20,7 +20,7 @@ ms.locfileid: "67182728"
 Azure Active Directory | ``login.microsoftonline.com`` | ``login.microsoftonline.us`` | Azure Active Directory를 사용한 액세스 제어 및 ID 관리에 사용됩니다. 
 Backup | ``*.backup.windowsazure.com`` | ``*.backup.windowsazure.us`` | 복제 데이터 전송 및 조정에 사용됩니다.
 복제 | ``*.hypervrecoverymanager.windowsazure.com`` | ``*.hypervrecoverymanager.windowsazure.us``  | 복제 관리 작업 및 조정에 사용됩니다.
-Storage | ``*.blob.core.windows.net`` | ``*.blob.core.usgovcloudapi.net``  | 복제된 데이터를 저장하는 저장소 계정에 액세스하는 데 사용됩니다.
+스토리지 | ``*.blob.core.windows.net`` | ``*.blob.core.usgovcloudapi.net``  | 복제된 데이터를 저장하는 스토리지 계정에 액세스하는 데 사용됩니다.
 원격 분석(선택 사항) | ``dc.services.visualstudio.com`` | ``dc.services.visualstudio.com`` | 원격 분석에 사용됩니다.
 시간 동기화 | ``time.windows.com`` | ``time.nist.gov`` | 모든 배포에서 시스템 시간과 글로벌 시간 사이의 시간 동기화를 확인하는 데 사용됩니다.
 

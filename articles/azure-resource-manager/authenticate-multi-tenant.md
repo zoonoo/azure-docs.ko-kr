@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5370b9b6d6a8bee82f8feca6dbcbcd78a4c12193
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 625a17156eaf199af0d51151c6fd37769b8f7b4a
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205620"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848763"
 ---
 # <a name="authenticate-requests-across-tenants"></a>테넌트에서 요청 인증
 
@@ -21,10 +21,10 @@ ms.locfileid: "67205620"
 
 요청에는 다음 인증 헤더 값이 있습니다.
 
-| 헤더 이름 | 설명 | 예제 값 |
+| 헤더 이름 | Description | 예제 값 |
 | ----------- | ----------- | ------------ |
-| 권한 부여 | 기본 토큰 | Bearer &lt;primary-token&gt; |
-| x-ms-authorization-auxiliary | 보조 토큰 | Bearer &lt;auxiliary-token1&gt;; EncryptedBearer &lt;auxiliary-token2&gt;; Bearer &lt;auxiliary-token3&gt; |
+| Authorization | 기본 토큰 | Bearer &lt;primary-token&gt; |
+| x-ms-authorization-auxiliary | 보조 토큰 | 전달자 &lt;보조-token1&gt;, encryptedbearer &lt;보조-token2&gt;, 전달자 &lt;보조-token3&gt; |
 
 보조 헤더는 최대 세 개의 보조 토큰을 유지할 수 있습니다. 
 

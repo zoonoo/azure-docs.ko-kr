@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: PowerShell을 사용하여 리소스 관리자에 대한 IPv6를 포함한 인터넷 연결 부하 분산 장치를 만드는 방법을 알아봅니다.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 keywords: ipv6, Azure Load Balancer, 이중 스택, 공용 IP, 기본 ipv6, 모바일, iot
 ms.service: load-balancer
 ms.custom: seodec18
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: e4bc889df008283f05be5f820b66415cd38c1595
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 12f9b8d3031d3b64e2f39f07763f7a75164aad25
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66149261"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274976"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>PowerShell을 사용하여 리소스 관리자에 대한 IPv6를 포함한 인터넷 연결 부하 분산 장치 만들기 시작
 
@@ -100,7 +100,7 @@ PowerShell에 대한 Azure Resource Manager 모듈의 최신 프로덕션 버전
     $vnet = New-AzvirtualNetwork -Name VNet -ResourceGroupName NRP-RG -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
     ```
 
-2. 프런트 엔드 IP 주소 풀에 대한 Azure Public IP address (PIP) 리소스를 만듭니다. 값을 변경 해야 `-DomainNameLabel` 다음 명령을 실행 하기 전에 합니다. 값은 Azure 지역 내에서 고유 해야 합니다.
+2. 프런트 엔드 IP 주소 풀에 대한 Azure Public IP address (PIP) 리소스를 만듭니다. 다음 명령을 실행 `-DomainNameLabel` 하기 전에 값을 변경 해야 합니다. 값은 Azure 지역 내에서 고유 해야 합니다.
 
     ```azurepowershell-interactive
     $publicIPv4 = New-AzPublicIpAddress -Name 'pub-ipv4' -ResourceGroupName NRP-RG -Location 'West US' -AllocationMethod Static -IpAddressVersion IPv4 -DomainNameLabel lbnrpipv4

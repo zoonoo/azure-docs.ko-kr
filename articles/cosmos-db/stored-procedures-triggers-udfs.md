@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Cosmos DB의 저장 프로시저, 트리�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 08/01/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 529c536d9ea3b898745f03c80b63702b2af485da
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 700cd6c0c75b25d56e812a394d6bdd193e4fb57c
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165570"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614064"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>저장 프로시저, 트리거 및 사용자 정의 함수
 
@@ -37,9 +37,9 @@ JavaScript에서 저장 프로시저, 트리거 및 UDF(사용자 정의 함수)
 * **캡슐화:** 저장 프로시저를 사용하여 논리를 단일 장소에 그룹화할 수 있습니다. 캡슐화는 데이터 위에 추상 계층을 추가하므로 데이터와 독립적으로 애플리케이션을 개발할 수 있습니다. 이 추상화 계층은 데이터에 스키마가 없으며 애플리케이션에 직접 논리를 추가할 필요가 없는 경우에 유용합니다. 추상화를 사용하면 스크립트에서 액세스를 간소화하여 데이터를 안전하게 유지할 수 있습니다.
 
 > [!TIP]
-> 저장 프로시저는 쓰기가 많은 작업에 가장 적합합니다. 저장 프로시저를 사용할 위치를 결정할 때 가능한 최대 양의 쓰기를 캡슐화하하여 최적화합니다. 일반적으로 저장 프로시저가 대량의 읽기 작업을 수행하는 가장 효율적인 방법은 아니므로 저장 프로시저를 사용하여 대량의 읽기를 클라이언트에 일괄로 반환할 경우 원하는 이점을 얻지 못합니다.
+> 저장 프로시저는 쓰기 작업이 많은 작업에 가장 적합 하며 파티션 키 값에 대해 트랜잭션이 필요 합니다. 저장 프로시저를 사용할지 여부를 결정할 때는 최대한의 쓰기를 캡슐화 하는 것과 관련 하 여 최적화 합니다. 일반적으로 저장 프로시저는 많은 수의 읽기 또는 쿼리 작업을 수행 하는 가장 효율적인 방법이 아니므로 저장 프로시저를 사용 하 여 많은 수의 읽기를 일괄 처리 하는 방법으로 클라이언트에 반환 하는 것은 원하는 이점을 얻지 못합니다. 최상의 성능을 위해 Cosmos SDK를 사용 하 여 클라이언트 쪽에서 이러한 읽기 작업을 수행 해야 합니다. 
 
-## <a name="transactions"></a>트랜잭션
+## <a name="transactions"></a>의
 
 일반적인 데이터베이스의 트랜잭션은 하나의 논리적 작업 단위로 수행되는 작업 시퀀스로 정의할 수 있습니다. 각 트랜잭션에서는 **ACID 속성 보장**을 제공합니다. ACID는 **A**tomicity(원자성), **C**onsistency(일관성), **I**solation(격리) 및 **D**urability(내구성)를 의미하는 잘 알려진 약어입니다. 
 
@@ -75,22 +75,22 @@ JavaScript 함수는 [프로비저된 처리 용량](request-units.md)에도 적
 
 ## <a name="triggers"></a>트리거
 
-Azure Cosmos DB는 두 가지 유형의 트리거를 지원합니다.
+Azure Cosmos DB는 두 가지 유형의 트리거를 지원 합니다.
 
 ### <a name="pre-triggers"></a>사전 트리거
 
-Azure Cosmos DB는 Azure Cosmos DB 항목에 대해 작업을 수행하여 호출할 수 있는 트리거를 제공합니다. 예를 들어, 항목을 작성할 때 사전 트리거를 지정할 수 있습니다. 이 경우 항목을 만들기 전에 사전 트리거가 실행됩니다. 사전 트리거는 입력 매개 변수를 사용할 수 없습니다. 필요한 경우 요청 개체를 사용하여 원래 요청에서 문서 본문을 업데이트할 수 있습니다. 사용자는 트리거를 등록할 때 트리거 실행에 사용되는 작업을 지정할 수 있습니다. 트리거를 `TriggerOperation.Create`로 만든 경우에는 바꾸기 작업에서 해당 트리거를 사용하는 것이 허용되지 않습니다. 예제를 보려면 [트리거 작성 방법](how-to-write-stored-procedures-triggers-udfs.md#triggers) 문서를 참조하세요.
+Azure Cosmos DB는 Azure Cosmos 항목에 대해 작업을 수행 하 여 호출할 수 있는 트리거를 제공 합니다. 예를 들어, 항목을 작성할 때 사전 트리거를 지정할 수 있습니다. 이 경우 항목을 만들기 전에 사전 트리거가 실행됩니다. 사전 트리거는 입력 매개 변수를 사용할 수 없습니다. 필요한 경우 요청 개체를 사용하여 원래 요청에서 문서 본문을 업데이트할 수 있습니다. 사용자는 트리거를 등록할 때 트리거 실행에 사용되는 작업을 지정할 수 있습니다. 트리거를 `TriggerOperation.Create`로 만든 경우에는 바꾸기 작업에서 해당 트리거를 사용하는 것이 허용되지 않습니다. 예제를 보려면 [트리거 작성 방법](how-to-write-stored-procedures-triggers-udfs.md#triggers) 문서를 참조하세요.
 
 ### <a name="post-triggers"></a>사후 트리거
 
-사전 트리거와 마찬가지로 사후 트리거도 Azure Cosmos DB 항목에 대한 작업과 관련되며 입력 매개 변수가 필요하지 않습니다. 이 트리거는 작업이 완료된 *후에* 실행되며 클라이언트에 전송된 응답 메시지에 액세스할 수 있습니다. 예제를 보려면 [트리거 작성 방법](how-to-write-stored-procedures-triggers-udfs.md#triggers) 문서를 참조하세요.
+사후 트리거와 마찬가지로 사후 트리거와 마찬가지로 Azure Cosmos 항목에 대 한 작업에도 연결 되며 입력 매개 변수는 필요 하지 않습니다. 이 트리거는 작업이 완료된 *후에* 실행되며 클라이언트에 전송된 응답 메시지에 액세스할 수 있습니다. 예제를 보려면 [트리거 작성 방법](how-to-write-stored-procedures-triggers-udfs.md#triggers) 문서를 참조하세요.
 
 > [!NOTE]
-> 트리거가 없는 경우 실행 하는 자동으로 등록 된 해당 작업 (만들기 / 삭제 / 교체 / 업데이트) 발생 합니다. 이러한 작업을 실행할 때 명시적으로 호출할 필요가 있습니다. 자세한 내용은 참조 하세요 [트리거를 실행 하는 방법을](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) 문서.
+> 등록 된 트리거는 해당 하는 작업 (만들기/삭제/바꾸기/업데이트)이 발생 하면 자동으로 실행 되지 않습니다. 이러한 작업을 실행할 때 이러한 작업을 명시적으로 호출 해야 합니다. 자세히 알아보려면 [트리거를 실행 하는 방법](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) 문서를 참조 하세요.
 
 ## <a id="udfs"></a>사용자 정의 함수
 
-UDF(사용자 정의 함수)는 SQL API 쿼리 언어 구문을 확장하고 사용자 지정 비즈니스 논리를 쉽게 구현하는 데 사용됩니다. 이 함수는 쿼리 내에서만 호출할 수 있습니다. UDF는 컨텍스트 개체에 액세스할 수 없으며 계산 전용 JavaScript로 사용되어야 합니다. 따라서 UDF는 보조 복제본에서 실행할 수 있습니다. 예제를 보려면 [사용자 정의 함수 작성 방법](how-to-write-stored-procedures-triggers-udfs.md#udfs) 문서를 참조하세요.
+UDF(사용자 정의 함수)는 SQL API 쿼리 언어 구문을 확장하고 사용자 지정 비즈니스 논리를 쉽게 구현하는 데 사용됩니다. 이 함수는 쿼리 내에서만 호출할 수 있습니다. UDF는 컨텍스트 개체에 액세스할 수 없으며 컴퓨팅 전용 JavaScript로 사용되어야 합니다. 따라서 UDF는 보조 복제본에서 실행할 수 있습니다. 예제를 보려면 [사용자 정의 함수 작성 방법](how-to-write-stored-procedures-triggers-udfs.md#udfs) 문서를 참조하세요.
 
 ## <a id="jsqueryapi"></a>JavaScript LINQ(Language-Integrated Query) API
 

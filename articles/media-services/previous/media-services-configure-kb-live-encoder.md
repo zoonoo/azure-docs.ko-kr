@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: juliako;dbgeorge
-ms.openlocfilehash: 058a1f964eb14d89628c92cbadd80511b7a27bae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.openlocfilehash: 7bb3db4861842e145689682035adc3c691538adf
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61230574"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297791"
 ---
 # <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Haivision KB 라이브 인코더를 사용하여 단일 비트 전송률 라이브 스트림 보내기  
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "61230574"
 
 이 자습서에서는 AMSE(Azure Media Services 탐색기) 도구를 사용하여 AMS(Azure Media Services)를 관리하는 방법을 보여 줍니다. 이 도구는 Windows PC에서만 실행됩니다. Mac 또는 Linux에서는 Azure Portal을 사용하여 [채널](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) 및 [프로그램](media-services-portal-creating-live-encoder-enabled-channel.md)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 *   SSW v5.01 이상을 실행하여 Haivision KB 인코더에 액세스합니다.
 * [Azure Media Services 계정 만들기](media-services-portal-create-account.md)
 * 실행 중인 스트리밍 엔드포인트가 있는지 확인합니다. 자세한 내용은 [Media Services 계정에서 스트리밍 엔드포인트 관리](media-services-portal-manage-streaming-endpoints.md)
@@ -97,7 +97,7 @@ AMSE 도구로 이동하고 테스트할 채널을 마우스 오른쪽 단추로
 ## <a name="create-a-program"></a>프로그램 만들기
 1.  채널 재생이 확인되면 프로그램을 만듭니다. AMSE 도구의 라이브 탭에서 프로그램 영역 안을 마우스 오른쪽 단추로 클릭하고 새 프로그램 만들기를 선택합니다.
 [Haivision](./media/media-services-configure-kb-live-encoder/program.png)
-1.  AMSE 도구의 라이브 탭에서 프로그램 영역 안을 마우스 오른쪽 단추로 클릭하고 새 프로그램 만들기를 선택합니다. 또한 저장소 위치를 지정하거나 기본값을 그대로 둘 수 있습니다.
+1.  AMSE 도구의 라이브 탭에서 프로그램 영역 안을 마우스 오른쪽 단추로 클릭하고 새 프로그램 만들기를 선택합니다. 또한 스토리지 위치를 지정하거나 기본값을 그대로 둘 수 있습니다.
 2.  지금 프로그램 시작 상자를 선택합니다.
 3.  프로그램 만들기를 클릭합니다.
 4.  프로그램이 실행되고 있으면 프로그램을 마우스 오른쪽 단추로 클릭하고 프로그램 재생으로 이동한 다음 Azure Media Player 사용을 선택하여 재생을 확인합니다.

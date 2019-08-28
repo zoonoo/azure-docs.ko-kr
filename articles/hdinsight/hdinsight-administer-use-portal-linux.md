@@ -67,7 +67,7 @@ HDInsight의 기존 Apache Hadoop 클러스터  [Azure 포털을 사용하여 HD
     |할당량 한도|구독에 사용된 코어 및 사용 가능한 코어를 표시합니다.|
     |SSH + 클러스터 로그인|SSH(보안 셸) 연결을 사용하여 클러스터에 연결하는 지침을 보여줍니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.|
     |Data Lake Storage Gen1|Data Lake Storage Gen1에 대한 액세스를 구성합니다.  [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.|
-    |Storage 계정|스토리지 계정 및 키를 봅니다. 저장소 계정은 클러스터를 만드는 과정에서 구성됩니다.|
+    |Storage 계정|스토리지 계정 및 키를 봅니다. 스토리지 계정은 클러스터를 만드는 과정에서 구성됩니다.|
     |애플리케이션|HDInsight 애플리케이션을 추가/제거합니다.  [사용자 지정 HDInsight 애플리케이션 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.|
     |스크립트 작업|클러스터에서 Bash 스크립트를 실행합니다. [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.|
     |외부 metastore|[Apache Hive](https://hive.apache.org/) 및 [Apache Oozie](https://oozie.apache.org/) Metastore를 표시합니다. Metastore는 클러스터 생성 과정 중에만 구성될 수 있습니다.|
@@ -125,7 +125,7 @@ HDInsight의 기존 Apache Hadoop 클러스터  [Azure 포털을 사용하여 HD
 3. 새 페이지의 지침을 따릅니다.
 
 ## <a name="delete-clusters"></a>클러스터 삭제
-클러스터를 삭제하더라도 기본 저장소 계정이나 연결된 저장소 계정은 삭제하지 않습니다. 동일한 저장소 계정과 동일한 Metastore를 사용하여 클러스터를 다시 만들 수 있습니다. 클러스터를 다시 만들 때 새 기본 Blob 컨테이너를 사용하는 것이 좋습니다.
+클러스터를 삭제하더라도 기본 스토리지 계정이나 연결된 스토리지 계정은 삭제하지 않습니다. 동일한 스토리지 계정과 동일한 Metastore를 사용하여 클러스터를 다시 만들 수 있습니다. 클러스터를 다시 만들 때 새 기본 Blob 컨테이너를 사용하는 것이 좋습니다.
 
 [클러스터 홈 페이지](#homePage)에서 다음을 수행합니다.
 
@@ -134,9 +134,9 @@ HDInsight의 기존 Apache Hadoop 클러스터  [Azure 포털을 사용하여 HD
 
 참고 항목: [클러스터 일시 중지/종료](#pauseshut-down-clusters)
 
-## <a name="add-additional-storage-accounts"></a>추가 저장소 계정 추가
+## <a name="add-additional-storage-accounts"></a>추가 스토리지 계정 추가
 
-클러스터가 생성된 후 Azure Storage 계정 및 Azure Data Lake Storage 계정을 더 추가할 수 있습니다. 자세한 내용은 [HDInsight에 추가 저장소 계정 추가](./hdinsight-hadoop-add-storage.md)를 참조하세요.
+클러스터가 생성된 후 Azure Storage 계정 및 Azure Data Lake Storage 계정을 더 추가할 수 있습니다. 자세한 내용은 [HDInsight에 추가 스토리지 계정 추가](./hdinsight-hadoop-add-storage.md)를 참조하세요.
 
 ## <a name="scale-clusters"></a>클러스터 크기 조정
 
@@ -147,7 +147,7 @@ HDInsight의 기존 Apache Hadoop 클러스터  [Azure 포털을 사용하여 HD
 ## <a name="pauseshut-down-clusters"></a>클러스터 일시 중지/종료
 
 대부분의 Hadoop 작업은 이따금 실행되는 일괄 처리 작업입니다. 대부분의 Hadoop 클러스터는 프로세스에 사용되지 않는 기간이 깁니다. HDInsight를 사용하면 데이터가 Azure Storage에 저장되기 때문에 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다.
-HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 저장소에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다.
+HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 스토리지에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다.
 
 프로세스를 프로그래밍할 수 있는 방법은 다양합니다.
 
@@ -206,7 +206,7 @@ HDInsight 클러스터마다 두 개의 사용자 계정이 포함될 수 있습
     usermod --password $(echo $PASS | openssl passwd -1 -stdin) $USER
     ```
 
-2. HTTP 또는 HTTPS 주소를 사용하여 HDInsight에서 액세스할 수 있는 저장소 위치에 파일을 업로드합니다. 예를 들어 OneDrive 또는 Azure Blob Storage와 같은 공용 파일 스토리지입니다. 다음 단계에서 이 URI가 필요하므로 URI(HTTP 또는 HTTPS 주소)를 파일에 저장합니다.
+2. HTTP 또는 HTTPS 주소를 사용하여 HDInsight에서 액세스할 수 있는 스토리지 위치에 파일을 업로드합니다. 예를 들어 OneDrive 또는 Azure Blob Storage와 같은 공용 파일 스토리지입니다. 다음 단계에서 이 URI가 필요하므로 URI(HTTP 또는 HTTPS 주소)를 파일에 저장합니다.
 3. [클러스터 홈 페이지](#homePage)를 선택 **스크립트 동작** 아래 **설정**.
 4. **스크립트 동작** 페이지에서 **새로운 항목 제출**합니다.
 5. **스크립트 동작 제출** 페이지에서 다음 정보를 입력 합니다.
@@ -239,8 +239,8 @@ HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다
 ## <a name="find-the-resource-group"></a>리소스 그룹 찾기
 Azure Resource Manager 모드에서는 각각의 HDInsight 클러스터가 Azure Resource Manager 그룹과 함께 만들어집니다. Resource Manager 그룹이 [클러스터 홈 페이지](#homePage)에 표시됩니다.
 
-## <a name="find-the-storage-accounts"></a>저장소 계정 찾기
-HDInsight 클러스터는 Azure Storage 계정 또는 Azure Data Lake Storage를 사용하여 데이터를 저장합니다. 각 HDInsight 클러스터에는 하나의 기본 저장소 계정 및 여러 연결된 저장소 계정이 있을 수 있습니다. 스토리지 계정을 나열하려면 [클러스터 홈 페이지](#homePage)에 있는 **설정**에서 **스토리지 계정**을 선택합니다.
+## <a name="find-the-storage-accounts"></a>스토리지 계정 찾기
+HDInsight 클러스터는 Azure Storage 계정 또는 Azure Data Lake Storage를 사용하여 데이터를 저장합니다. 각 HDInsight 클러스터에는 하나의 기본 스토리지 계정 및 여러 연결된 스토리지 계정이 있을 수 있습니다. 스토리지 계정을 나열하려면 [클러스터 홈 페이지](#homePage)에 있는 **설정**에서 **스토리지 계정**을 선택합니다.
 
 ## <a name="monitor-jobs"></a>작업 모니터링
 [Apache Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md#monitoring)를 참조하세요.

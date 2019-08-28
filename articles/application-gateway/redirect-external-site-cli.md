@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: victorh
-ms.openlocfilehash: 1ddbc84004622c2a5fa9dc08d4396e1f300474f2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e1fb25a9d5bfe6538d081169d163d7b280733cc1
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66133874"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382021"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Azure CLI를 사용하여 외부 리디렉션을 포함하는 애플리케이션 게이트웨이 만들기
 
@@ -93,7 +93,7 @@ az network application-gateway create \
 
 ### <a name="add-the-redirection-configuration"></a>리디렉션 구성 추가
 
-[az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config)를 사용하여 *www.consoto.org*에서 애플리케이션 게이트웨이의 *www.contoso.com* 수신기로 트래픽을 전송하는 리디렉션 구성을 추가합니다.
+[Az network application-게이트웨이 리디렉션-구성 만들기](/cli/azure/network/application-gateway/redirect-config)를 사용하여 *www\. consoto.org*에서 *www\. contoso.com* 수신기로 응용 프로그램 게이트웨이로의 트래픽을 보내는 리디렉션 구성을 추가 합니다.
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -137,7 +137,7 @@ az network application-gateway rule create \
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업을 수행하는 방법을 알아보았습니다.
 
 > * 네트워크 설정
 > * 수신기 및 리디렉션 규칙 만들기

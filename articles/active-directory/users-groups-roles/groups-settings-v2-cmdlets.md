@@ -1,5 +1,5 @@
 ---
-title: 그룹 및 미리 보기를 관리 하기 위한 PowerShell 예제에는 온-프레미스-Azure Active Directory에 쓰기 저장 그룹화 | Microsoft Docs
+title: 그룹 관리 및 온-프레미스에서 그룹 쓰기 저장을 위한 PowerShell 예제-Azure Active Directory | Microsoft Docs
 description: 이 페이지에는 Azure Active Directory에서 그룹을 관리하는 데 도움이 되는 PowerShell 예제가 나와 있습니다.
 keywords: Azure AD, Azure Active Directory, PowerShell, 그룹, 그룹 관리
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9817d63990b390cfbb0002423c1ff8f19fcd27f7
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 2e22baabda901a34f624cf27c25037ff3ba94e90
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147274"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381852"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>그룹 관리를 위한 Azure Active Directory 버전 2 cmdlet
 
@@ -170,9 +170,10 @@ Azure AD PowerShell cmdlet을 사용하여 그룹 관리를 시작하기 전에 
     PS C:\Windows\system32> Set-AzureADGroup -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -Description "Intune Device Administrators"
 ```
 
-이제 그룹을 다시 찾지 표시 설명 속성은 새 값을 반영 하도록 업데이트 됩니다.
+이제 그룹을 다시 찾으면 설명 속성이 새 값을 반영 하도록 업데이트 됩니다 .가 표시 됩니다.
 
-```powershell    PS C:\Windows\system32> Get-AzureADGroup -Filter "DisplayName eq 'Intune Administrators'"
+```powershell
+    PS C:\Windows\system32> Get-AzureADGroup -Filter "DisplayName eq 'Intune Administrators'"
 
     DeletionTimeStamp            :
     ObjectId                     : 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df
@@ -190,15 +191,15 @@ Azure AD PowerShell cmdlet을 사용하여 그룹 관리를 시작하기 전에 
     SecurityEnabled              : True
 ```
 
-## Delete groups
+## <a name="delete-groups"></a>그룹 삭제
 
-To delete groups from your directory, use the Remove-AzureADGroup cmdlet as follows:
+디렉터리에서 그룹을 삭제하려면 다음과 같이 Remove-AzureADGroup cmdlet을 사용합니다.
 
 ```powershell
     PS C:\Windows\system32> Remove-AzureADGroup -ObjectId b11ca53e-07cc-455d-9a89-1fe3ab24566b
 ```
 
-## <a name="manage-group-membership"></a>그룹 구성원 자격 관리
+## <a name="manage-group-membership"></a>그룹 멤버 자격 관리
 
 ### <a name="add-members"></a>구성원 추가
 
@@ -223,7 +224,7 @@ To delete groups from your directory, use the Remove-AzureADGroup cmdlet as foll
                           8120cc36-64b4-4080-a9e8-23aa98e8b34f User
 ```
 
-### <a name="remove-members"></a>구성원 제거
+### <a name="remove-members"></a>멤버 제거
 
 이전에 추가한 그룹에 구성원을 제거하려면 다음과 같이 Remove-AzureADGroupMember cmdlet을 사용합니다.
 
@@ -283,7 +284,7 @@ To delete groups from your directory, use the Remove-AzureADGroup cmdlet as foll
     PS C:\Windows\system32> Add-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
 ```
 
--ObjectId 매개 변수는 소유자를 추가 하려는 그룹의 ObjectID 이며-RefObjectId는 사용자 또는 서비스 그룹의 소유자로 추가 하려는 사용자의 ObjectID입니다.
+-ObjectId 매개 변수는 소유자를 추가 하려는 그룹의 ObjectID 이며,-RefObjectId는 그룹 소유자로 추가 하려는 사용자 또는 서비스 주체의 ObjectID입니다.
 
 그룹의 소유자를 검색하려면 Get-AzureADGroupOwner cmdlet을 사용합니다.
 
@@ -291,7 +292,7 @@ To delete groups from your directory, use the Remove-AzureADGroup cmdlet as foll
     PS C:\Windows\system32> Get-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df
 ```
 
-Cmdlet은 지정된 된 그룹에 대 한 소유자 (사용자 및 서비스 주체) 목록을 반환합니다.
+Cmdlet은 지정 된 그룹에 대 한 소유자 (사용자 및 서비스 사용자) 목록을 반환 합니다.
 
 ```powershell
     DeletionTimeStamp ObjectId                             ObjectType
@@ -321,15 +322,15 @@ Cmdlet은 지정된 된 그룹에 대 한 소유자 (사용자 및 서비스 주
 * ssl-admin
 * webmaster
 
-## <a name="group-writeback-to-on-premises-preview"></a>그룹 쓰기 저장 온-프레미스 (미리 보기)
+## <a name="group-writeback-to-on-premises-preview"></a>쓰기 저장을 온-프레미스로 그룹화 (미리 보기)
 
-오늘날 많은 그룹은 여전히 온-프레미스 Active Directory에서 관리 됩니다. Office 365 그룹 쓰기 저장 온-프레미스, 클라우드 그룹을 다시 동기화 하는 요청에 응답 하려면 Azure AD에 대 한 기능 미리 보기에 대 한 출시 되었습니다.
+오늘날 대부분의 그룹은 온-프레미스 Active Directory에서 계속 관리 됩니다. 클라우드 그룹을 온-프레미스로 다시 동기화 하도록 요청에 응답 하기 위해 Azure AD에 대 한 Office 365 그룹 쓰기 저장 기능을 이제 미리 볼 수 있습니다.
 
-Office 365 그룹 생성 및 클라우드에서 관리 됩니다. 쓰기 저장 기능을 작성할 수 있습니다 다시 Office 365 그룹 메일 그룹으로 Active Directory 포리스트에 Exchange가 설치 된. 사용자가 온-프레미스 Exchange 다음 사서함 보내고 다음이 그룹의 전자 메일을 받을 수 있습니다. 그룹 쓰기 저장 기능은 Azure AD 보안 그룹 또는 배포 그룹을 지원 하지 않습니다.
+Office 365 그룹은 클라우드에서 만들어지고 관리 됩니다. 쓰기 저장 기능을 사용 하면 Exchange가 설치 된 Active Directory 포리스트에 Office 365 그룹을 메일 그룹으로 다시 작성할 수 있습니다. 그러면 온-프레미스 Exchange 사서함이 있는 사용자가 이러한 그룹에서 전자 메일을 보내고 받을 수 있습니다. 그룹 쓰기 저장 기능은 Azure AD 보안 그룹 또는 배포 그룹을 지원 하지 않습니다.
 
-자세한 내용은 설명서를 참조 하십시오 합니다 [Azure AD Connect 동기화 서비스](../hybrid/how-to-connect-syncservice-features.md)합니다.
+자세한 내용은 [Azure AD Connect sync 서비스](../hybrid/how-to-connect-syncservice-features.md)에 대 한 설명서를 참조 하세요.
 
-Office 365 그룹 쓰기 저장은 Azure Active Directory (Azure AD)의 공개 미리 보기 기능 및 사용 하 여 사용 가능한 지불 된 Azure AD 라이선스 계획 합니다. 미리 보기에 대 한 법적 정보를 참조 하세요 [추가 사용 약관에 대 한 Microsoft Azure 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)합니다.
+Office 365 그룹 쓰기 저장은 Azure Active Directory (Azure AD)의 공개 미리 보기 기능으로, 유료 Azure AD 라이선스 계획과 함께 사용할 수 있습니다. 미리 보기에 대 한 몇 가지 법적 정보는 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

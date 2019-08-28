@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: 8693c48905155ed757bb727e42f4180f36c015f1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f88f6aa6daec342b24d165c4c4cc0a89a0805f7a
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182306"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558494"
 ---
 ## <a name="associate-an-azure-storage-account-to-iot-hub"></a>Azure Storage 계정을 IoT Hub에 연결
 
@@ -21,4 +21,4 @@ ms.locfileid: "67182306"
 
 [Azure Portal을 사용하여 파일 업로드 구성](../articles/iot-hub/iot-hub-configure-file-upload.md)의 지침을 따릅니다. Blob 컨테이너가 IoT Hub와 연결되고 파일 알림을 사용하는지 확인합니다.
 
-![포털에서 파일 알림 사용](./media/iot-hub-associate-storage/enable-file-notifications.png)
+![포털에서 파일 알림 사용](./media/iot-hub-associate-storage/file-notifications-vs2019.png)

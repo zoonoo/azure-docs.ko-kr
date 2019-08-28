@@ -25,7 +25,7 @@ ms.locfileid: "61297017"
 
 관리되는 애플리케이션을 게시하려면 리소스를 관리할 ID를 지정합니다. Azure Active Directory 사용자 그룹을 지정하는 것이 좋습니다. 새 Azure Active Directory 사용자 그룹을 만들려면 [그룹을 만들고 Azure Active Directory에 구성원 추가](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요. 
 
-관리되는 애플리케이션 정의가 포함된 .zip 파일은 URI를 통해 제공되어야 합니다. 저장소 Blob에 .zip 파일을 업로드하는 것이 좋습니다. 
+관리되는 애플리케이션 정의가 포함된 .zip 파일은 URI를 통해 제공되어야 합니다. 스토리지 Blob에 .zip 파일을 업로드하는 것이 좋습니다. 
 
 ## <a name="create-managed-application-with-portal"></a>포털을 사용하여 관리되는 애플리케이션 만들기
 

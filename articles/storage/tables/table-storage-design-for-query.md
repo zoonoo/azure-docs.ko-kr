@@ -56,7 +56,7 @@ Table service 솔루션은 읽기 집중적이거나, 쓰기 집중적이거나,
 
 Storage 클라이언트 라이브러리를 사용하여 효율적인 쿼리를 실행하는 클라이언트 쪽 코드의 예는 다음을 참조하세요.  
 
-* [저장소 클라이언트 라이브러리를 사용하여 지점 쿼리 실행](table-storage-design-patterns.md#executing-a-point-query-using-the-storage-client-library)
+* [스토리지 클라이언트 라이브러리를 사용하여 지점 쿼리 실행](table-storage-design-patterns.md#executing-a-point-query-using-the-storage-client-library)
 * [LINQ를 사용하여 여러 엔터티 검색](table-storage-design-patterns.md#retrieving-multiple-entities-using-linq)
 * [서버 쪽 프로젝션](table-storage-design-patterns.md#server-side-projection)  
 

@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Central 애플리케이션에서 장치 데이터 분석 | Microsoft Docs
-description: Azure IoT Central 애플리케이션에서 장치 데이터를 분석하는 방법을 설명합니다.
+title: Azure IoT Central 애플리케이션에서 디바이스 데이터 분석 | Microsoft Docs
+description: Azure IoT Central 애플리케이션에서 디바이스 데이터를 분석하는 방법을 설명합니다.
 author: lmasieri
 ms.author: lmasieri
 ms.date: 06/09/2019

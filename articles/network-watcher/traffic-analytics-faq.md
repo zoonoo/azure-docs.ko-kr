@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: kumud
-ms.openlocfilehash: e4e9ef4f3a50aeac4db4d2cc2f2b6cbafcc47268
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 45200e7620326dedcee92c579843e61bb07ff68e
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051629"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610259"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>트래픽 분석 질문과 대답
 
@@ -54,11 +54,11 @@ ms.locfileid: "67051629"
         
 구독에 대해 사용자에게 할당된 역할을 확인하려면:
 
-1. 사용 하 여 Azure에 로그인 **로그인 AzAccount**합니다. 
+1. **AzAccount**를 사용 하 여 Azure에 로그인 합니다. 
 
-2. 사용 하 여 필요한 구독 선택 **선택 AzSubscription**합니다. 
+2. **AzSubscription**를 사용 하 여 필요한 구독을 선택 합니다. 
 
-3. 지정된 된 사용자에 게 할당 된 모든 역할을 나열 하려면 사용 하 여 **AzRoleAssignment Get-SignInName [사용자 전자 메일]-IncludeClassicAdministrators**합니다. 
+3. 지정 된 사용자에 게 할당 된 모든 역할을 나열 하려면 **AzRoleAssignment-SignInName [사용자 전자 메일]-IncludeClassicAdministrators**를 사용 합니다. 
 
 출력이 표시되지 않으면 각 구독 관리자에게 문의하여 명령을 실행할 권한을 얻으세요. 자세한 내용은 [Azure PowerShell을 사용하여 역할 기반 액세스 제어 관리](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell)를 참조하세요.
 
@@ -68,7 +68,7 @@ ms.locfileid: "67051629"
 지원되는 다음 지역 중 하나에서 NSG용 트래픽 분석을 사용할 수 있습니다.
 - 캐나다 중부
 - 미국 중서부
-- 미국 동부
+- East US
 - 미국 동부 2
 - 미국 중북부
 - 미국 중남부
@@ -76,17 +76,17 @@ ms.locfileid: "67051629"
 - 미국 서부
 - 미국 서부 2
 - 프랑스 중부
-- 서유럽
+- 유럽 서부
 - 유럽 북부
 - 브라질 남부
 - 영국 서부
 - 영국 남부
 - 오스트레일리아 동부
 - 오스트레일리아 남동부 
-- 동아시아
+- 아시아 동부
 - 동남아시아
 - 한국 중부
-- 중앙 인도
+- 인도 중부
 - 인도 남부
 - 일본 동부
 - 일본 서부
@@ -99,18 +99,18 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 - 미국 서부 2
 - 미국 중남부
 - 미국 중부
-- 미국 동부
+- East US
 - 미국 동부 2
 - 프랑스 중부
-- 서유럽
+- 유럽 서부
 - 유럽 북부
 - 영국 남부
 - 오스트레일리아 동부
 - 오스트레일리아 남동부
-- 동아시아
+- 아시아 동부
 - 동남아시아 
 - 한국 중부
-- 중앙 인도
+- 인도 중부
 - 일본 동부
 - US Gov 버지니아
 
@@ -124,7 +124,7 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 
 ## <a name="can-i-use-an-existing-workspace"></a>기존 작업 영역을 사용해도 되나요?
 
-예. 기존 작업 영역을 선택하는 경우, 새 쿼리 언어로 마이그레이션되었는지 확인해야 합니다. 작업 영역을 업그레이드하지 않으려면 새 작업 영역을 만들어야 합니다. 새 쿼리 언어에 대 한 자세한 내용은 참조 하세요. [새 로그 검색으로 업그레이드를 기록 하는 Azure Monitor](../log-analytics/log-analytics-log-search-upgrade.md)합니다.
+예. 기존 작업 영역을 선택하는 경우, 새 쿼리 언어로 마이그레이션되었는지 확인해야 합니다. 작업 영역을 업그레이드하지 않으려면 새 작업 영역을 만들어야 합니다. 새 쿼리 언어에 대 한 자세한 내용은 [새 로그 검색으로 로그 업그레이드 Azure Monitor](../log-analytics/log-analytics-log-search-upgrade.md)를 참조 하세요.
 
 ## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>Azure Storage 계정과 Log Analytics 작업 영역이 서로 다른 구독에 있어도 되나요?
 
@@ -174,7 +174,7 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 
 ## <a name="can-i-configure-traffic-analytics-using-powershell-or-an-azure-resource-manager-template-or-client"></a>PowerShell 또는 Azure Resource Manager 템플릿 또는 클라이언트를 사용하여 트래픽 분석을 구성할 수 있나요?
 
-버전 6.2.1부터 Windows PowerShell을 사용하여 트래픽 분석을 구성할 수 있습니다. Set cmdlet을 사용 하 여 특정 NSG에 대 한 흐름 로깅 및 트래픽 분석을 구성, 참조 [집합 AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog)합니다. 특정 NSG에 대 한 흐름 로깅 및 트래픽 분석 상태를 가져오려면를 참조 하세요 [Get AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus)합니다.
+버전 6.2.1부터 Windows PowerShell을 사용하여 트래픽 분석을 구성할 수 있습니다. Set cmdlet을 사용 하 여 특정 NSG에 대 한 흐름 로깅 및 트래픽 분석을 구성 하려면 [AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog)를 참조 하세요. 특정 NSG에 대 한 흐름 로깅 및 트래픽 분석 상태를 가져오려면 [AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus)를 참조 하세요.
 
 현재 트래픽 분석을 구성하는 데는 Azure Resource Manager 템플릿을 사용할 수 없습니다.
 
@@ -246,28 +246,28 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 예를 들어 [가격 책정 계획](https://azure.microsoft.com/pricing/details/network-watcher/)과 관련해서 미국 중서부 지역을 고려해보겠습니다. 트래픽 분석에 의해 처리되는 스토리지 계정에 저장된 흐름 로그 데이터가 10GB이고 Log Analytics 작업 영역에서 수집된 보강된 로그가 1GB인 경우 해당 요금은 다음과 같습니다. 10 x 2.3$ + 1 x 2.76$ = 25.76$가 됩니다.
 
-## <a name="how-frequently-does-traffic-analytics-process-data"></a>트래픽 분석 데이터를 처리 하는 빈도
+## <a name="how-frequently-does-traffic-analytics-process-data"></a>트래픽 분석에서 데이터를 처리 하는 빈도
 
-참조 된 [데이터 집계 섹션](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) 트래픽 분석 스키마 및 데이터 집계 문서
+트래픽 분석 스키마 및 데이터 집계 문서의 [데이터 집계 섹션](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) 을 참조 하세요.
 
-## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>어떻게 않습니다 트래픽 분석 결정 악성 IP는? 
+## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>IP가 악성 임을 어떻게 트래픽 분석 결정 하나요? 
 
-트래픽 분석은 Microsoft 내부 위협 인텔리전스 시스템으로 악성 IP 하다 고 판단할 의존 합니다. 이러한 시스템 Microsoft 제품 및 서비스을 Microsoft 단위 DCU (Digital Crimes), Microsoft 보안 대응 센터 (MSRC), 및 외부 피드에서 같은 다양 한 원격 분석 원본을 활용 하 고 그 위에 intelligence 많은 빌드합니다. 이 데이터 중 일부는 내부 Mircosoft입니다. 알려진된 IP malicios로 플래그가 지정 시작 되 면 세부 정보를 알아야 지원 티켓을 제기해 주세요.
+트래픽 분석는 Microsoft 내부 위협 인텔리전스 시스템을 사용 하 여 IP를 악성으로 간주 합니다. 이러한 시스템은 Microsoft 제품 및 서비스, microsoft DCU (Digital Crimes Unit), MSRC (Microsoft 보안 대응 센터) 및 외부 피드와 같은 다양 한 원격 분석 원본을 활용 하 고 그 위에 많은 인텔리전스를 구축 합니다. 이러한 데이터 중 일부는 Microsoft 내부입니다. 알려진 IP가 악성으로 플래그가 지정 되 면 세부 정보를 파악 하기 위해 지원 티켓을 제기 하세요.
 
-## <a name="how-can-i-set-alerts-on-traffic-analytics-data"></a>트래픽 분석 데이터에 대해 경고를 설정할 수는 방법
+## <a name="how-can-i-set-alerts-on-traffic-analytics-data"></a>트래픽 분석 데이터에 대 한 경고를 설정 하려면 어떻게 해야 하나요?
 
-트래픽 분석에 경고를 위한 기본 제공된 지원이 없습니다. 그러나 트래픽 분석 데이터는 Log Analytics에 저장 되므로 사용자 지정 쿼리를 작성 하에 경고를 설정 합니다. 단계:
-- 트래픽 분석에 Log Analytics에 대 한 짧은 링크를 사용할 수 있습니다. 
-- 사용 하 여는 [스키마에는 설명한](traffic-analytics-schema.md) 쿼리를 작성 하려면 
-- "새 경고 규칙"를 클릭 합니다. 경고를 만들려면
-- 가리킵니다 [로그 경고 설명서](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) 경고 만들기
+트래픽 분석는 경고에 대 한 기본 제공 지원을 제공 하지 않습니다. 그러나 트래픽 분석 데이터가 Log Analytics에 저장 되므로 사용자 지정 쿼리를 작성 하 고 경고를 설정할 수 있습니다. 위한
+- 트래픽 분석에서 Log Analytics에 받습니다를 사용할 수 있습니다. 
+- 여기에 [설명 된 스키마](traffic-analytics-schema.md) 를 사용 하 여 쿼리 작성 
+- "새 경고 규칙"을 클릭 하 여 경고를 만듭니다.
+- 경고를 만들려면 [로그 경고 설명서](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) 를 참조 하세요.
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>지역 지도 보기에서 키보드를 사용하여 탐색할 수 있나요?
 
 지역 지도 페이지에는 두 개의 기본 섹션이 있습니다.
     
-- **배너**: 지역 지도의 맨 위에 있는 배너는 트래픽 분포 필터 (예를 들어, 배포, 국가/지역의 트래픽 및 악성)를 선택 하는 단추를 제공 합니다. 단추를 선택하면 각 필터가 지도에 적용됩니다. 예를 들어, [활성] 단추를 선택하면 지도에서 배포의 활성 데이터 센터가 강조 표시됩니다.
-- **지도**: 배너 아래의 지도 섹션 Azure 데이터 센터 및 국가/지역 간 트래픽 분포를 보여 줍니다.
+- **배너**: 지리적 지도의 맨 위에 있는 배너는 트래픽 분산 필터를 선택 하는 단추를 제공 합니다 (예: 배포, 국가/지역의 트래픽 및 악성). 단추를 선택하면 각 필터가 지도에 적용됩니다. 예를 들어, [활성] 단추를 선택하면 지도에서 배포의 활성 데이터 센터가 강조 표시됩니다.
+- **지도**: 배너 아래에서 맵 섹션에는 Azure 데이터 센터와 국가/지역 간의 트래픽 분포가 표시 됩니다.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>배너에서 키보드 탐색
     

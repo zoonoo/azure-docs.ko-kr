@@ -7,19 +7,20 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: bfa2eca4-abdc-49ce-b11a-0ee229770cdd
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 99c553145f0a600826e48bec437449f278b74fbf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a308394c3cfa77f80db1361b5a49a485ee5ca0e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65205655"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67611342"
 ---
 # <a name="connect-data-from-microsoft-web-application-firewall"></a>Microsoft 웹 응용 프로그램 방화벽에서 데이터 연결
 
@@ -30,7 +31,7 @@ ms.locfileid: "65205655"
 Azure Application Gateway의 Microsoft 웹 응용 프로그램 방화벽 (WAF)의 로그를 스트리밍할 수 있습니다. 이 WAF 교차 사이트 스크립팅, SQL 주입 등 일반적인 웹 취약점 으로부터 응용 프로그램을 보호 하 고 가양성을 줄이는 규칙을 사용자 지정할 수 있습니다. Azure Sentinel에 Microsoft 웹 응용 프로그램 방화벽 로그를 스트리밍하려면 다음이 지침을 따릅니다.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 기존 응용 프로그램 게이트웨이 리소스
 

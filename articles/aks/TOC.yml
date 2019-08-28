@@ -35,7 +35,7 @@
           maintainContext: true
 - name: 자습서
   items:
-    - name: 1 - AKS를 위한 응용 프로그램 준비
+    - name: 1 - AKS를 위한 애플리케이션 준비
       href: tutorial-kubernetes-prepare-app.md
     - name: 2 - 컨테이너 레지스트리 만들기
       href: tutorial-kubernetes-prepare-acr.md
@@ -45,7 +45,7 @@
       href: tutorial-kubernetes-deploy-application.md
     - name: 5 - 애플리케이션 크기 조정
       href: tutorial-kubernetes-scale.md
-    - name: 6 - 응용 프로그램 업데이트
+    - name: 6 - 애플리케이션 업데이트
       href: tutorial-kubernetes-app-update.md
     - name: 7- 클러스터 업그레이드
       href: tutorial-kubernetes-upgrade-cluster.md
@@ -60,7 +60,7 @@
       items: null
     - name: 네트워킹
       href: concepts-network.md
-    - name: Storage
+    - name: 스토리지
       href: concepts-storage.md
     - name: 확장
       href: concepts-scale.md
@@ -84,7 +84,7 @@
               href: operator-best-practices-container-image-management.md
             - name: 네트워킹
               href: operator-best-practices-network.md
-            - name: Storage
+            - name: 스토리지
               href: operator-best-practices-storage.md
             - name: BC(비즈니스 연속성) 및 DR(재해 복구)
               href: operator-best-practices-multi-region.md
@@ -116,6 +116,8 @@
         - name: AKS 클러스터 삭제
           href: '/cli/azure/aks#az-aks-delete'
           maintainContext: true
+        - name: AKS 클러스터를 사용하여 ACR 만들기(미리 보기)
+          href: cluster-container-registry-integration.md
         - name: 가상 노드 만들기
           items:
             - name: Azure CLI 사용
@@ -126,6 +128,8 @@
           href: virtual-kubelet.md
         - name: 클러스터 Autoscaler 사용(미리 보기)
           href: cluster-autoscaler.md
+        - name: 가용성 영역 사용(미리 보기)
+          href: availability-zones.md
         - name: 여러 노드 풀 사용(미리 보기)
           href: use-multiple-node-pools.md
         - name: Terraform을 사용하여 AKS 배포
@@ -315,6 +319,8 @@
         - name: Azure DevOps 프로젝트
           href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true
+        - name: 배포 센터 시작 관리자
+          href: deployment-center-launcher.md
     - name: 문제 해결
       items:
         - name: 일반적인 문제

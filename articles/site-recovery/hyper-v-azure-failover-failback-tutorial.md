@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 08/07/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: a4889d82ac1c837581771860f2aba86faf7650ee
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 4b9680b00905126d261562d7bec64bb931c1cda3
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399449"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845719"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>복제된 Hyper-V VM을 Azure로 장애 조치(failover) 및 장애 복구(failback)
 
@@ -31,7 +31,7 @@ ms.locfileid: "66399449"
 1. [Azure 준비](tutorial-prepare-azure.md)
 2. [온-프레미스 Hyper-V 준비](tutorial-prepare-on-premises-hyper-v.md)
 3. [Hyper-V VM](tutorial-hyper-v-to-azure.md) 또는 [System Center VMM 클라우드에서 관리되는 Hyper-V VM](tutorial-hyper-v-vmm-to-azure.md)용 재해 복구 설정
-4. [재해 복구 드릴 실행](tutorial-dr-drill-azure.md)
+4. [재해 복구 훈련 실행](tutorial-dr-drill-azure.md)
 
 ## <a name="prepare-for-failover-and-failback"></a>장애 조치(failover) 및 장애 복구(failback) 준비
 
@@ -51,7 +51,7 @@ VM에서 스냅샷이 없으며 장애 복구(failback) 시 온-프레미스 VM�
 
 1. **복제된 항목** 창에 VM 정보, 상태 및 최신 사용 가능한 복구 지점의 요약이 제공됩니다. 자세한 내용을 보려면 **속성**을 클릭합니다.
 
-1. **계산 및 네트워크**에서 Azure 이름, 리소스 그룹, 대상 크기, [가용성 집합](../virtual-machines/windows/tutorial-availability-sets.md) 및 관리 디스크 설정을 수정할 수 있습니다.
+1. **컴퓨팅 및 네트워크**에서 Azure 이름, 리소스 그룹, 대상 크기, [가용성 집합](../virtual-machines/windows/tutorial-availability-sets.md) 및 관리 디스크 설정을 수정할 수 있습니다.
 
 1. 장애 조치(failover) 후 Azure VM이 배치될 네트워크/서브넷 및 할당되는 IP 주소를 포함한 네트워크 설정을 보고 수정할 수 있습니다.
 

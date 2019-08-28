@@ -74,8 +74,8 @@ DSCForLinux 확장을 사용하려면 대상 가상 머신이 인터넷에 연�
 
 지원되는 모든 보호된 구성 매개 변수는 다음과 같습니다.
 
-* `StorageAccountName`: (선택 사항, 문자열) 파일이 포함된 저장소 계정의 이름
-* `StorageAccountKey`: (선택 사항, 문자열) 파일이 포함된 저장소 계정의 키
+* `StorageAccountName`: (선택 사항, 문자열) 파일이 포함된 스토리지 계정의 이름
+* `StorageAccountKey`: (선택 사항, 문자열) 파일이 포함된 스토리지 계정의 키
 * `RegistrationUrl`: (선택 사항, 문자열) Azure Automation 계정의 URL
 * `RegistrationKey`: (선택 사항, 문자열) Azure Automation 계정의 액세스 키
 
@@ -149,7 +149,7 @@ $publicConfig = '{
 ```
 
 
-### <a name="apply-a-mof-configuration-file-in-public-storage-to-the-vm"></a>VM에 MOF 구성 파일(공용 저장소에 있음) 적용
+### <a name="apply-a-mof-configuration-file-in-public-storage-to-the-vm"></a>VM에 MOF 구성 파일(공용 스토리지에 있음) 적용
 
 public.json
 ```json
@@ -196,7 +196,7 @@ $publicConfig = '{
 }'
 ```
 
-### <a name="apply-a-meta-mof-configuration-file-in-public-storage-to-the-vm"></a>VM에 메타 MOF 구성 파일(공용 저장소에 있음) 적용
+### <a name="apply-a-meta-mof-configuration-file-in-public-storage-to-the-vm"></a>VM에 메타 MOF 구성 파일(공용 스토리지에 있음) 적용
 public.json
 ```json
 {
@@ -241,7 +241,7 @@ $publicConfig = '{
 }'
 ```
 
-### <a name="install-a-custom-resource-module-zip-file-in-public-storage-to-the-vm"></a>VM에 사용자 지정 리소스 모듈(공용 저장소에 있는 ZIP 파일) 설치
+### <a name="install-a-custom-resource-module-zip-file-in-public-storage-to-the-vm"></a>VM에 사용자 지정 리소스 모듈(공용 스토리지에 있는 ZIP 파일) 설치
 public.json
 ```json
 {

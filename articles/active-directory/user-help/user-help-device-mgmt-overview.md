@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a99488025dc79a16006af4088555a67b23704cb1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fd89d70bfe7a7f5e72e7fcabe167bafac5777672
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162818"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382262"
 ---
 # <a name="manage-my-devices-overview"></a>디바이스 개요 관리
 
@@ -28,5 +28,5 @@ ms.locfileid: "56162818"
 
 |문서 |설명 |
 |------|------------|
-|[작업 장치 조인](user-help-join-device-on-network.md)|회사 소유 디바이스를 조직의 네트워크에 조인하는 방법을 알아봅니다.|
-|[개인 디바이스 등록](user-help-register-device-on-network.md)|조직의 네트워크에 개인 디바이스를 등록하는 방법을 알아봅니다.|
+| [회사 디바이스 조인](user-help-join-device-on-network.md) ]회사 소유 디바이스를 조직의 네트워크에 조인하는 방법을 알아봅니다.|
+| [개인 디바이스 조인](user-help-register-device-on-network.md) ]개인 디바이스를 조직의 네트워크에 조인하는 방법을 알아봅니다.|

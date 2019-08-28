@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1d13b52d253562a24946e6df2fc069f41b485fef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0e7db970bee44d40831c05e8911b72841d027211
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707900"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442101"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 보안 및 DevOps 모범 사례
 
@@ -52,7 +52,7 @@ ESP는 ESP는 Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka 및 Intera
 
 자세한 내용은 다음 문서를 참조하세요.
 
-- [도메인에 가입된 HDInsight 클러스터를 사용하는 Apache Hadoop 보안 소개](../domain-joined/apache-domain-joined-introduction.md)
+- [도메인에 가입된 HDInsight 클러스터를 사용하는 Apache Hadoop 보안 소개](../domain-joined/hdinsight-security-overview.md)
 
 - [HDInsight에서 Azure 도메인에 가입된 Apache Hadoop 클러스터 계획](../domain-joined/apache-domain-joined-architecture.md)
 - [Azure Active Directory Domain Services를 사용하여 도메인에 가입된 HDInsight 클러스터 구성](../domain-joined/apache-domain-joined-configure-using-azure-adds.md)

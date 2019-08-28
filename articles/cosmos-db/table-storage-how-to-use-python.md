@@ -9,12 +9,12 @@ ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
 ms.reviewer: sngun
-ms.openlocfilehash: 11b47483eaf39e7445ece8b9e38d81a6a2404cc6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 0f0acc721fd8888953d80976234b431943985ebf
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756606"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68356273"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Python을 사용하여 Azure Table Storage 및 Azure Cosmos DB Table API 시작
 
@@ -23,10 +23,10 @@ ms.locfileid: "55756606"
 
 Azure Table Storage 및 Azure Cosmos DB는 클라우드에 구조화된 NoSQL 데이터를 저장하는 서비스로, 스키마 없이 디자인된 키/특성 저장소를 제공합니다. Table Storage 및 Azure Cosmos DB는 모두 스키마가 없기 때문에 애플리케이션의 요구 사항이 변화함에 따라 데이터를 쉽게 적응시킬 수 있습니다. Table Storage 및 Table API 데이터에 대한 액세스는 많은 애플리케이션 유형에 대해 빠르고 비용 효율적이며 비슷한 양의 데이터일 때 일반적으로 전통적인 SQL에 비해 비용이 매우 낮습니다.
 
-Table Storage 또는 Azure Cosmos DB를 사용하여 웹 애플리케이션의 사용자 데이터, 주소록, 장치 정보 및 서비스에 필요한 다른 유형의 메타데이터와 같은 유연한 데이터 집합을 저장할 수 있습니다. 테이블에 저장할 수 있는 엔터티 수에는 제한이 없으며, 저장소 계정에 포함할 수 있는 테이블의 수에는 저장소 계정의 최대 용량 한도까지 제한이 없습니다.
+Table Storage 또는 Azure Cosmos DB를 사용하여 웹 애플리케이션의 사용자 데이터, 주소록, 디바이스 정보 및 서비스에 필요한 다른 유형의 메타데이터와 같은 유연한 데이터 세트을 저장할 수 있습니다. 테이블에 저장할 수 있는 엔터티 수에는 제한이 없으며, 스토리지 계정에 포함할 수 있는 테이블의 수에는 스토리지 계정의 최대 용량 한도까지 제한이 없습니다.
 
 ### <a name="about-this-sample"></a>이 샘플 정보
-이 샘플에서는 몇 가지 일반적인 Azure Table Storage 시나리오에서 [Python용 Azure Cosmos DB Table SDK](https://pypi.python.org/pypi/azure-cosmosdb-table/)을 사용하는 방법을 보여 줍니다. SDK의 이름은 Azure Cosmos DB에 사용할 것임을 의미하지만 이 SDK는 Azure Cosmos DB와 Azure Tables 저장소 모두에서 작동하며 각 서비스에 고유한 엔드포인트가 있습니다. 다음 방법을 설명하는 Python 예제를 통해 이러한 시나리오를 살펴보겠습니다.
+이 샘플에서는 몇 가지 일반적인 Azure Table Storage 시나리오에서 [Python용 Azure Cosmos DB Table SDK](https://pypi.python.org/pypi/azure-cosmosdb-table/)을 사용하는 방법을 보여 줍니다. SDK의 이름은 Azure Cosmos DB에 사용할 것임을 의미하지만 이 SDK는 Azure Cosmos DB와 Azure Tables 스토리지 모두에서 작동하며 각 서비스에 고유한 엔드포인트가 있습니다. 다음 방법을 설명하는 Python 예제를 통해 이러한 시나리오를 살펴보겠습니다.
 * 테이블 만들기 및 삭제
 * 엔터티 삽입 및 쿼리
 * 엔터티 수정
@@ -44,7 +44,7 @@ Table Storage 또는 Azure Cosmos DB를 사용하여 웹 애플리케이션의 �
 ## <a name="create-an-azure-service-account"></a>Azure 서비스 계정 만들기
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-### <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
+### <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
 ### <a name="create-an-azure-cosmos-db-table-api-account"></a>Azure Cosmos DB Table API 계정 만들기
@@ -89,16 +89,17 @@ table_service.create_table('tasktable')
 
 ## <a name="add-an-entity-to-a-table"></a>테이블에 엔터티 추가
 
-엔터티를 추가하려면 먼저 엔터티를 나타내는 개체를 만든 후 [TableService.insert_entity 메서드][py_TableService]에 전달합니다. 엔터티 개체는 [Entity][py_Entity] 형식의 사전 또는 개체일 수 있으며 엔터티의 속성 이름 및 값을 정의합니다. 모든 엔터티에는 사용자가 엔터티에 정의하는 다른 속성 외에 필수 [PartitionKey 및 RowKey](#partitionkey-and-rowkey) 속성이 있어야 합니다.
+엔터티를 추가하려면 먼저 엔터티를 나타내는 개체를 만든 다음, [TableService.insert_entity 메서드][py_TableService]에 전달합니다. 엔터티 개체는 [Entity][py_Entity] 형식의 사전 또는 개체일 수 있으며 엔터티의 속성 이름 및 값을 정의합니다. 모든 엔터티에는 사용자가 엔터티에 정의하는 다른 속성 외에 필수 [PartitionKey 및 RowKey](#partitionkey-and-rowkey) 속성이 있어야 합니다.
 
-이 예제에서는 엔터티를 나타내는 사전 개체를 만든 후 [insert_entity][py_insert_entity] 메서드에 전달하여 테이블에 추가합니다.
+이 예제에서는 엔터티를 나타내는 사전 개체를 만든 다음, [insert_entity][py_insert_entity] 메서드에 전달하여 테이블에 추가합니다.
 
 ```python
-task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001', 'description' : 'Take out the trash', 'priority' : 200}
+task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001',
+        'description': 'Take out the trash', 'priority': 200}
 table_service.insert_entity('tasktable', task)
 ```
 
-이 예제에서는 [Entity][py_Entity] 개체를 만든 후 [insert_entity][py_insert_entity] 메서드에 전달하여 테이블에 추가합니다.
+이 예제에서는 [Entity][py_Entity] 개체를 만든 다음, [insert_entity][py_insert_entity] 메서드에 전달하여 다음 테이블에 추가합니다.
 
 ```python
 task = Entity()
@@ -113,14 +114,15 @@ table_service.insert_entity('tasktable', task)
 
 모든 엔터티에 대해 **PartitionKey** 및 **RowKey** 속성을 둘 다 지정해야 합니다. 이러한 속성이 함께 모여 엔터티의 기본 키를 형성하므로 엔터티의 고유 식별자에 해당합니다. 이러한 속성만 인덱싱되므로 다른 엔터티 속성보다 이러한 값을 사용하면 훨씬 더 빠르게 쿼리할 수 있습니다.
 
-Table service에서는 **PartitionKey**를 사용하여 저장소 노드에서 테이블 엔터티를 지능적으로 분산합니다. 동일한 **PartitionKey**를 가진 엔터티는 동일한 노드에 저장됩니다. **RowKey** 는 엔터티가 속하는 파티션 내에서 엔터티의 고유한 ID입니다.
+Table service에서는 **PartitionKey**를 사용하여 스토리지 노드에서 테이블 엔터티를 지능적으로 분산합니다. 동일한 **PartitionKey**를 가진 엔터티는 동일한 노드에 저장됩니다. **RowKey** 는 엔터티가 속하는 파티션 내에서 엔터티의 고유한 ID입니다.
 
 ## <a name="update-an-entity"></a>엔터티 업데이트
 
 모든 엔터티의 속성 값을 업데이트하려면 [update_entity][py_update_entity] 메서드를 호출합니다. 이 예제에서는 기존 엔터티를 업데이트된 버전으로 바꾸는 방법을 보여 줍니다.
 
 ```python
-task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001', 'description' : 'Take out the garbage', 'priority' : 250}
+task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001',
+        'description': 'Take out the garbage', 'priority': 250}
 table_service.update_entity('tasktable', task)
 ```
 
@@ -128,11 +130,13 @@ table_service.update_entity('tasktable', task)
 
 ```python
 # Replace the entity created earlier
-task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001', 'description' : 'Take out the garbage again', 'priority' : 250}
+task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001',
+        'description': 'Take out the garbage again', 'priority': 250}
 table_service.insert_or_replace_entity('tasktable', task)
 
 # Insert a new entity
-task = {'PartitionKey': 'tasksSeattle', 'RowKey': '003', 'description' : 'Buy detergent', 'priority' : 300}
+task = {'PartitionKey': 'tasksSeattle', 'RowKey': '003',
+        'description': 'Buy detergent', 'priority': 300}
 table_service.insert_or_replace_entity('tasktable', task)
 ```
 
@@ -141,15 +145,17 @@ table_service.insert_or_replace_entity('tasktable', task)
 
 ## <a name="modify-multiple-entities"></a>여러 엔터티 수정
 
-Table service의 요청의 원자성 처리를 보장하기 위해 여러 작업을 일괄로 제출할 수 있습니다. 먼저 [TableBatch][py_TableBatch] 클래스를 사용하여 여러 작업을 단일 배치에 추가합니다. 그런 다음 [TableService][py_TableService].[commit_batch][py_commit_batch]를 호출하여 작업을 원자성 작업으로 제출합니다. 일괄로 수정할 모든 엔터티는 동일한 파티션에 있어야 합니다.
+Table service의 요청의 원자성 처리를 보장하기 위해 여러 작업을 일괄로 제출할 수 있습니다. 먼저 [TableBatch][py_TableBatch] 클래스를 사용하여 여러 작업을 단일 일괄 처리에 추가합니다. 그런 다음, [TableService][py_TableService].[commit_batch][py_commit_batch]를 호출하여 작업을 원자성 작업으로 제출합니다. 일괄로 수정할 모든 엔터티는 동일한 파티션에 있어야 합니다.
 
 다음 예제에서는 두 엔터티를 일괄적으로 함께 추가합니다.
 
 ```python
 from azure.cosmosdb.table.tablebatch import TableBatch
 batch = TableBatch()
-task004 = {'PartitionKey': 'tasksSeattle', 'RowKey': '004', 'description' : 'Go grocery shopping', 'priority' : 400}
-task005 = {'PartitionKey': 'tasksSeattle', 'RowKey': '005', 'description' : 'Clean the bathroom', 'priority' : 100}
+task004 = {'PartitionKey': 'tasksSeattle', 'RowKey': '004',
+           'description': 'Go grocery shopping', 'priority': 400}
+task005 = {'PartitionKey': 'tasksSeattle', 'RowKey': '005',
+           'description': 'Clean the bathroom', 'priority': 100}
 batch.insert_entity(task004)
 batch.insert_entity(task005)
 table_service.commit_batch('tasktable', batch)
@@ -158,8 +164,10 @@ table_service.commit_batch('tasktable', batch)
 컨텍스트 관리자 구문에서 Batch를 사용할 수도 있습니다.
 
 ```python
-task006 = {'PartitionKey': 'tasksSeattle', 'RowKey': '006', 'description' : 'Go grocery shopping', 'priority' : 400}
-task007 = {'PartitionKey': 'tasksSeattle', 'RowKey': '007', 'description' : 'Clean the bathroom', 'priority' : 100}
+task006 = {'PartitionKey': 'tasksSeattle', 'RowKey': '006',
+           'description': 'Go grocery shopping', 'priority': 400}
+task007 = {'PartitionKey': 'tasksSeattle', 'RowKey': '007',
+           'description': 'Clean the bathroom', 'priority': 100}
 
 with table_service.batch('tasktable') as batch:
     batch.insert_entity(task006)
@@ -168,7 +176,7 @@ with table_service.batch('tasktable') as batch:
 
 ## <a name="query-for-an-entity"></a>엔터티 쿼리
 
-테이블의 엔터티를 쿼리하려면 PartitionKey 및 RowKey를 [TableService][py_TableService].[ get_entity][ py_get_entity] 메서드에 전달합니다.
+테이블의 엔터티를 쿼리하려면 PartitionKey 및 RowKey를 [TableService][py_TableService].[get_entity][py_get_entity] 메서드에 전달합니다.
 
 ```python
 task = table_service.get_entity('tasktable', 'tasksSeattle', '001')
@@ -181,7 +189,8 @@ print(task.priority)
 필터 문자열에 **filter** 매개 변수를 제공하여 엔터티 집합을 쿼리할 수 있습니다. 이 예제에서는 PartitionKey에 필터를 적용하여 Seattle에서의 모든 작업을 찾습니다.
 
 ```python
-tasks = table_service.query_entities('tasktable', filter="PartitionKey eq 'tasksSeattle'")
+tasks = table_service.query_entities(
+    'tasktable', filter="PartitionKey eq 'tasksSeattle'")
 for task in tasks:
     print(task.description)
     print(task.priority)
@@ -194,17 +203,18 @@ for task in tasks:
 다음 코드의 쿼리는 테이블에 있는 엔터티의 설명만 반환합니다.
 
 > [!NOTE]
-> 다음 코드 조각은 Azure Storage에 대해서만 작동하며 저장소 에뮬레이터에서 지원되지 않습니다.
+> 다음 코드 조각은 Azure Storage에 대해서만 작동하며 스토리지 에뮬레이터에서 지원되지 않습니다.
 
 ```python
-tasks = table_service.query_entities('tasktable', filter="PartitionKey eq 'tasksSeattle'", select='description')
+tasks = table_service.query_entities(
+    'tasktable', filter="PartitionKey eq 'tasksSeattle'", select='description')
 for task in tasks:
     print(task.description)
 ```
 
 ## <a name="delete-an-entity"></a>엔터티 삭제
 
-**PartitionKey** 및 **RowKey**를 [delete_entity][py_delete_entity] 메서드에 제공하여 엔터티를 삭제합니다.
+**PartitionKey** 및 **RowKey**를 [delete_entity][py_delete_entity] 메서드에 전달하여 엔터티를 삭제합니다.
 
 ```python
 table_service.delete_entity('tasktable', 'tasksSeattle', '001')
@@ -223,7 +233,7 @@ table_service.delete_table('tasktable')
 * [FAQ - Table API를 사용하여 개발](https://docs.microsoft.com/azure/cosmos-db/faq)
 * [Azure Cosmos DB SDK for Python API 참조](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)
 * [Python 개발자 센터](https://azure.microsoft.com/develop/python/)
-* [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md): Windows, macOS, Linux 등에서 Azure Storage 데이터를 시각적으로 사용하기 위한 플랫폼 간 무료 애플리케이션입니다.
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md): Windows, macOS, Linux 등에서 Azure Storage 데이터를 시각적으로 사용하기 위한 플랫폼 간 무료 애플리케이션입니다.
 * [Visual Studio(Windows)에서 Python 사용](https://docs.microsoft.com/visualstudio/python/overview-of-python-tools-for-visual-studio)
 
 

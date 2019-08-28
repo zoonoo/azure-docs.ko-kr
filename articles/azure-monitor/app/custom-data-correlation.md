@@ -12,17 +12,17 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
-ms.author: Evgeny.Ternovsky
-ms.openlocfilehash: cbb144cc8aac6dc8e90d196147b0c154471b7239
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: evternov
+ms.openlocfilehash: 9bc94f653f5e70883b483fa44f6a17f6e9e9eaf1
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60901495"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594430"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>사용자 지정 데이터 원본을 사용하여 Application Insights 데이터 상호 연결
 
-Application Insights는 여러 다른 데이터 형식을 수집합니다(예외, 추적, 페이지 보기 및 기타). 애플리케이션의 성능, 안정성 및 사용량을 조사하기에 충분하지만 Application Insights에서 저장된 데이터를 완전히 사용자 지정 데이터 집합에 상호 연결하는 것이 유용한 경우도 있습니다.
+Application Insights는 여러 다른 데이터 형식을 수집합니다(예외, 추적, 페이지 보기 및 기타). 애플리케이션의 성능, 안정성 및 사용량을 조사하기에 충분하지만 Application Insights에서 저장된 데이터를 완전히 사용자 지정 데이터 세트에 상호 연결하는 것이 유용한 경우도 있습니다.
 
 사용자 지정 데이터를 사용하려는 상황은 다음과 같습니다.
 

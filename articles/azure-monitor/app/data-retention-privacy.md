@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights 데이터 보존 및 저장소 | Microsoft Docs
+title: Azure Application Insights 데이터 보존 및 스토리지 | Microsoft Docs
 description: 보존 및 개인 정보 취급 방침
 services: application-insights
 documentationcenter: ''
@@ -10,18 +10,18 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 08/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: 38723a5dd306c2a4b594d95e5cc660d117966bc4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 18129c625630e7e21e2139ea3967ba5152bc0b30
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65518836"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991171"
 ---
-# <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 데이터 수집, 보존 및 저장소
+# <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 데이터 수집, 보존 및 스토리지
 
-앱에 [Azure Application Insights][start] SDK를 설치하는 경우 앱에 대한 원격 분석을 클라우드로 보냅니다. 담당하는 개발자는 전송되는 데이터가 정확한 내용, 데이터에 발생한 내용, 데이터를 제어할 수 있는 방법을 알고자 합니다. 특히 중요한 데이터를 보낼 수 있는지, 저장되었는지 및 얼마나 안전한지를 파악합니다. 
+앱에 [Azure 애플리케이션 Insights][start] SDK를 설치 하면 앱에 대 한 원격 분석을 클라우드로 보냅니다. 담당하는 개발자는 전송되는 데이터가 정확한 내용, 데이터에 발생한 내용, 데이터를 제어할 수 있는 방법을 알고자 합니다. 특히 중요한 데이터를 보낼 수 있는지, 저장되었는지 및 얼마나 안전한지를 파악합니다. 
 
 우선 짧은 응답은 다음과 같습니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "65518836"
 이 문서의 나머지 부분에서는 이러한 대답에 대해 더 자세하게 설명합니다. 자체 포함되도록 설계되어 소속 팀에 속하지 않은 동료에게 표시할 수 있습니다.
 
 ## <a name="what-is-application-insights"></a>Application Insights란?
-[Azure Application Insights][start]는 라이브 애플리케이션의 성능 및 가용성을 향상시키는 Microsoft에서 제공하는 서비스입니다. 테스트 중인 경우 및 게시하거나 배포한 후에 실행 중인 모든 시간 동안 애플리케이션을 모니터링합니다. 예를 들어 Application Insights는 많은 사용자를 가져오는 시간, 앱이 얼마나 반응하는지, 종속된 외부 서비스에서 얼마나 잘 제공되는지를 보여주는 차트 및 테이블을 만듭니다. 충돌, 오류 또는 성능 문제가 있는 경우 세부 정보에서 원격 분석 데이터를 통해 검색하여 원인을 진단할 수 있습니다. 그리고 앱의 성능과 가용성에 변경 사항이 있는 경우 서비스는 사용자에게 전자 메일을 보냅니다.
+[Azure 애플리케이션 Insights][start] 는 라이브 응용 프로그램의 성능과 유용성을 개선 하는 데 도움이 되는 Microsoft에서 제공 하는 서비스입니다. 테스트 중인 경우 및 게시하거나 배포한 후에 실행 중인 모든 시간 동안 애플리케이션을 모니터링합니다. 예를 들어 Application Insights는 많은 사용자를 가져오는 시간, 앱이 얼마나 반응하는지, 종속된 외부 서비스에서 얼마나 잘 제공되는지를 보여주는 차트 및 테이블을 만듭니다. 충돌, 오류 또는 성능 문제가 있는 경우 세부 정보에서 원격 분석 데이터를 통해 검색하여 원인을 진단할 수 있습니다. 그리고 앱의 성능과 가용성에 변경 사항이 있는 경우 서비스는 사용자에게 전자 메일을 보냅니다.
 
 이 기능을 가져오기 위해 애플리케이션에서 해당 코드의 일부가 되는 Application Insights SDK를 설치합니다. 앱이 실행 중일 때 SDK는 작업을 모니터링하고 Application Insights 서비스에 원격 분석을 보냅니다. [Microsoft Azure](https://azure.com)에서 호스팅하는 클라우드 서비스입니다. (하지만 Application Insights는 Azure에서 호스팅되는 서비스가 아닌 모든 애플리케이션에 대해 작동합니다.)
 
@@ -83,14 +83,13 @@ Visual Studio를 사용하여 앱을 개발하는 경우 디버그(F5) 모드에
 [원격 분석 프로세서 플러그 인](../../azure-monitor/app/api-filtering-sampling.md)을 작성하여 수행할 수 있습니다.
 
 ## <a name="how-long-is-the-data-kept"></a>데이터가 얼마 동안 보존되나요?
-원시 데이터 요소(즉, Analytics에서 쿼리하고 Search에서 검사할 수 있는 항목)는 최대 90일 동안 보관됩니다. 이보다 더 오래 데이터를 보존해야 하는 경우 [연속 내보내기](../../azure-monitor/app/export-telemetry.md) 를 사용하여 해당 데이터를 저장소 계정에 복사할 수 있습니다.
+원시 데이터 요소 (즉, 분석에서 쿼리하고 검색에서 검사할 수 있는 항목)는 최대 730 일 동안 유지 됩니다. 30, 60, 90, 120, 180, 270, 365, 550 또는 730 일의 [보존 기간을 선택할](https://docs.microsoft.com/azure/azure-monitor/app/pricing#change-the-data-retention-period) 수 있습니다. 데이터를 730 일 보다 오래 유지 해야 하는 경우 [연속 내보내기를](../../azure-monitor/app/export-telemetry.md) 사용 하 여 데이터를 수집 하는 동안 저장소 계정에 복사할 수 있습니다. 
+
+90 일 보다 오래 유지 되는 데이터는 추가 요금이 발생 합니다. [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)의 Application Insights 가격 책정에 대해 자세히 알아보세요.
 
 집계 데이터(즉, 메트릭 탐색기에 표시되는 개수, 평균 및 기타 통계 데이터)는 90일 동안 1분 단위로 보존됩니다.
 
-> [!NOTE]
-> Application Insights에 대 한 변수 보존 이제 미리 보기입니다. [여기](https://feedback.azure.com/forums/357324-application-insights/suggestions/17454031)를 참조하세요. 
-
-[디버그 스냅숏](../../azure-monitor/app/snapshot-debugger.md) 15 일 동안 저장 됩니다. 이 보존 정책은 응용 프로그램 단위로 설정됩니다. 이 값을 늘려야 하는 경우 Azure Portal에서 지원 사례를 열어 증가를 요청할 수 있습니다.
+[디버그 스냅숏은](../../azure-monitor/app/snapshot-debugger.md) 15 일 동안 저장 됩니다. 이 보존 정책은 애플리케이션 단위로 설정됩니다. 이 값을 늘려야 하는 경우 Azure Portal에서 지원 사례를 열어 증가를 요청할 수 있습니다.
 
 ## <a name="who-can-access-the-data"></a>데이터에 액세스할 수 있는 사용자는 누구인가요?
 데이터는 사용자 및 조직 계정이 있는 경우 팀 멤버에게 표시됩니다. 
@@ -121,18 +120,18 @@ Microsoft 직원의 사용자 데이터에 대한 액세스는 제한되어 있�
 다른 프로젝트와 코드를 공유하는 경우 계측 키를 제거해야 합니다.
 
 ## <a name="is-the-data-encrypted"></a>데이터는 암호화되나요?
-모든 데이터 미사용 암호화 되 고 있으므로 간에 이동 데이터 센터.
+모든 데이터는 미사용 시 암호화 되 고 데이터 센터 간에 이동 합니다.
 
 #### <a name="is-the-data-encrypted-in-transit-from-my-application-to-application-insights-servers"></a>내 애플리케이션에서 Application Insights 서버로 전송 중에 데이터가 암호화되나요?
 예. 웹 서버, 디바이스 및 HTTPS 웹 페이지를 포함하여 거의 모든 SDK에서 https를 사용하여 포털로 데이터를 보냅니다. 유일한 예외는 일반 HTTP 웹 페이지에서 전송된 데이터입니다.
 
-## <a name="does-the-sdk-create-temporary-local-storage"></a>SDK에서 임시 로컬 저장소를 작성하나요?
+## <a name="does-the-sdk-create-temporary-local-storage"></a>SDK에서 임시 로컬 스토리지를 작성하나요?
 
 예, 엔드포인트에 도달할 수 없는 경우 특정 원격 분석 채널은 로컬에 데이터를 지속합니다. 영향을 받는 프레임워크 및 원격 분석 채널을 확인하려면 아래를 검토하세요.
 
-로컬 저장소를 이용하는 원격 분석 채널은 사용자 애플리케이션을 실행하는 특정 계정으로 제한된 TEMP 또는 APPDATA 디렉터리에 임시 파일을 작성합니다. 이는 엔드포인트를 일시적으로 사용할 수 없거나 조정 제한에 도달했을 때 발생할 수 있습니다. 이 문제가 해결되면 원격 분석 채널이 모든 새 지속 데이터 및 지속된 데이터 전송을 재개합니다.
+로컬 스토리지를 이용하는 원격 분석 채널은 사용자 애플리케이션을 실행하는 특정 계정으로 제한된 TEMP 또는 APPDATA 디렉터리에 임시 파일을 작성합니다. 이는 엔드포인트를 일시적으로 사용할 수 없거나 조정 제한에 도달했을 때 발생할 수 있습니다. 이 문제가 해결되면 원격 분석 채널이 모든 새 지속 데이터 및 지속된 데이터 전송을 재개합니다.
 
-이 지속 된 데이터를 로컬로 암호화 되지 않습니다. 중요 한 경우 데이터를 검토 하 고 개인 데이터의 컬렉션을 제한 합니다. (자세한 정보는 [프라이빗 데이터를 내보내고 삭제하는 방법](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data)을 참조하세요.)
+이 지속형 데이터는 로컬로 암호화 되지 않습니다. 이 문제가 있는 경우 데이터를 검토 하 고 개인 데이터의 컬렉션을 제한 합니다. (자세한 정보는 [프라이빗 데이터를 내보내고 삭제하는 방법](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data)을 참조하세요.)
 
 고객이 특정 보안 요구 사항으로 이 디렉터리를 구성해야 하는 경우 프레임워크별로 구성할 수 있습니다. 애플리케이션을 실행하는 프로세스에 이 디렉터리에 대한 쓰기 액세스 권한이 있는지 확인하세요. 그러나 의도하지 않은 사용자가 원격 분석을 읽을 수 없도록 보호되었는지도 확인하세요.
 
@@ -165,9 +164,9 @@ Microsoft 직원의 사용자 데이터에 대한 액세스는 제한되어 있�
 
 ### <a name="netcore"></a>NetCore
 
-기본적으로 `ServerTelemetryChannel`은 현재 사용자의 로컬 앱 데이터 폴더 `%localAppData%\Microsoft\ApplicationInsights` 또는 임시 폴더`%TMP%`를 사용합니다. (여기서 [구현](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) 참조) Linux 환경에서는 저장소 폴더를 지정하지 않으면 로컬 저장소가 비활성화됩니다.
+기본적으로 `ServerTelemetryChannel`은 현재 사용자의 로컬 앱 데이터 폴더 `%localAppData%\Microsoft\ApplicationInsights` 또는 임시 폴더`%TMP%`를 사용합니다. (여기서 [구현](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) 참조) Linux 환경에서는 스토리지 폴더를 지정하지 않으면 로컬 스토리지가 비활성화됩니다.
 
-다음 코드 조각은  `Startup.cs`  클래스의 `ConfigureServices()`  메서드에서 `ServerTelemetryChannel.StorageFolder`를 설정하는 방법을 보여줍니다.
+다음 코드 조각은 `Startup.cs` 클래스의 `ConfigureServices()` 메서드에서 `ServerTelemetryChannel.StorageFolder`를 설정하는 방법을 보여줍니다.
 
 ```csharp
 services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
@@ -196,7 +195,7 @@ TLS 1.3 등을 사용할 수 있게 되면 더 안전한 최신 프로토콜을 
 |플랫폼/언어 | 지원 | 추가 정보 |
 | --- | --- | --- |
 | Azure App Services  | 지원됨, 구성이 필요할 수 있습니다. | 지원은 2018년 4월에 발표되었습니다. [구성 세부 정보](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/)에 대한 공지를 참고하세요.  |
-| Azure Function App | 지원됨, 구성이 필요할 수 있습니다. | 지원은 2018년 4월에 발표되었습니다. [구성 세부 정보](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/)에 대한 공지를 참고하세요. |
+| Azure 함수 앱 | 지원됨, 구성이 필요할 수 있습니다. | 지원은 2018년 4월에 발표되었습니다. [구성 세부 정보](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/)에 대한 공지를 참고하세요. |
 |.NET | 지원됨, 구성이 버전에 따라 다릅니다. | .NET 4.7 이전 버전에 대한 자세한 구성 정보는 [이러한 지침](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12)을 참조하세요.  |
 |상태 모니터 | 지원됨, 구성이 필요합니다. | 상태 모니터는 [OS 구성](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [.NET 구성](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12)을 사용하여 TLS 1.2를 지원합니다.
 |Node.js |  지원됨, v10.5.0에서 구성이 필요할 수 있습니다. | 애플리케이션 특정 구성에 대해 [공식 Node.js TLS/SSL 설명서](https://nodejs.org/api/tls.html)를 사용합니다. |
@@ -206,7 +205,7 @@ TLS 1.3 등을 사용할 수 있게 되면 더 안전한 최신 프로토콜을 
 | Windows Server 2012 - 2016 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)을 여전히 사용하는지 확인하려면 |
 | Windows 7 SP1 및 Windows Server 2008 R2 SP1 | 지원됨, 하지만 기본적으로 활성화되지 않습니다. | 활성화하는 방법에 대한 자세한 내용은 [TLS(전송 계층 보안) 레지스트리 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) 페이지를 참조하세요.  |
 | Windows Server 2008 SP2 | TLS 1.2에 대한 지원에는 업데이트가 필요합니다. | Windows Server 2008 SP2에서 [TLS 1.2에 대한 지원을 추가하는 업데이트](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s)를 참조하세요. |
-|Windows Vista | 지원되지 않습니다. | N/A
+|Windows Vista | 지원되지 않습니다. | 해당 사항 없음
 
 ### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Linux 배포에서 실행 중인 OpenSSL 버전을 확인합니다.
 
@@ -234,35 +233,35 @@ openssl s_client -connect bing.com:443 -tls1_2
 그러나 애플리케이션에서 이러한 기능을 구현할 수 있습니다. 모든 SDK에는 원격 분석 수집을 끄는 API 설정이 포함되어 있습니다. 
 
 ## <a name="data-sent-by-application-insights"></a>Application Insights에서 보내는 데이터
-SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 있습니다. [Application Insights - 개요][start]를 참조하세요. 각 구성 요소마다 다른 데이터를 보냅니다.
+SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 있습니다. [Application Insights-개요][start]를 참조 하세요. 각 구성 요소마다 다른 데이터를 보냅니다.
 
 #### <a name="classes-of-data-sent-in-different-scenarios"></a>다양한 시나리오에서 전송되는 데이터 클래스
 
 | 사용자 작업 | 수집되는 데이터 클래스(다음 표 참조) |
 | --- | --- |
-| [.NET 웹 프로젝트에 Application Insights SDK 추가][greenbrown] |ServerContext<br/>유추<br/>성능 카운터<br/>요청<br/>**예외**<br/>세션<br/>users |
-| [IIS에서 상태 모니터 설치][redfield] |종속성<br/>ServerContext<br/>유추<br/>성능 카운터 |
-| [Java 웹앱에 Application Insights SDK 추가][java] |ServerContext<br/>유추<br/>요청<br/>세션<br/>users |
+| [.NET 웹 프로젝트에 Application Insights SDK 추가][greenbrown] |ServerContext<br/>유추<br/>성능 카운터<br/>요청<br/>**예외**<br/>세션<br/>사용자 |
+| [IIS에 상태 모니터 설치][redfield] |종속성<br/>ServerContext<br/>유추<br/>성능 카운터 |
+| [Java 웹 앱에 Application Insights SDK 추가][java] |ServerContext<br/>유추<br/>요청<br/>세션<br/>사용자 |
 | [웹 페이지에 JavaScript SDK 추가][client] |ClientContext <br/>유추<br/>Page<br/>ClientPerf<br/>Ajax |
 | [기본 속성 정의][apiproperties] |**속성** |
-| [호출 TrackMetric][api] |숫자 값<br/>**속성** |
-| [호출 추적*][api] |이벤트 이름<br/>**속성** |
-| [호출 TrackException][api] |**예외**<br/>스택 덤프<br/>**속성** |
-| SDK는 데이터를 수집할 수 없습니다. 예를 들면 다음과 같습니다. <br/> - 성능 카운터에 액세스할 수 없음<br/> - 원격 분석 이니셜라이저 예외 |SDK 진단 |
+| [통화 통신 메트릭][api] |숫자 값<br/>**Properties** |
+| [호출 추적 *][api] |이벤트 이름<br/>**Properties** |
+| [호출 통신 예외][api] |**예외**<br/>스택 덤프<br/>**Properties** |
+| SDK는 데이터를 수집할 수 없습니다. 예: <br/> - 성능 카운터에 액세스할 수 없음<br/> - 원격 분석 이니셜라이저 예외 |SDK 진단 |
 
-[다른 플랫폼에 대한 SDK][platforms]의 경우 해당 문서를 참조하세요.
+[다른 플랫폼용 sdk][platforms]는 해당 문서를 참조 하세요.
 
 #### <a name="the-classes-of-collected-data"></a>수집되는 데이터 클래스
 
 | 수집되는 데이터 클래스 | 포함(전체 목록 아님) |
 | --- | --- |
-| **속성** |**임의 데이터 - 코드에 의해 결정됨** |
+| **Properties** |**임의 데이터 - 코드에 의해 결정됨** |
 | DeviceContext |ID, IP, 로캘, 디바이스 모델, 네트워크, 네트워크 종류, OEM 이름, 화면 해상도, 역할 인스턴스, 역할 이름, 디바이스 유형 |
 | ClientContext |OS, 로캘, 언어, 네트워크, 창 해상도 |
 | 세션 |세션 ID |
 | ServerContext |컴퓨터 이름, 로캘, OS, 디바이스, 사용자 세션, 사용자 컨텍스트, 작업 |
 | 유추 |IP 주소, 타임스탬프, OS, 브라우저에서 지리적 위치 유추 |
-| 메트릭 |메트릭 이름 및 값 |
+| metrics |메트릭 이름 및 값 |
 | 이벤트 |이벤트 이름 및 값 |
 | PageViews |URL 및 페이지 이름이나 화면 이름 |
 | 클라이언트 성능 |URL/페이지 이름, 브라우저 로드 시간 |
@@ -276,12 +275,12 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 | 가용성 |웹 테스트 응답 코드, 각 테스트 단계, 테스트 이름, 타임 스탬프, 성공, 응답 시간, 테스트 위치의 기간 |
 | SDK 진단 |추적 메시지 또는 예외 |
 
-[ApplicationInsights.config를 편집하여 일부 데이터를 해제][config]할 수 있습니다.
+[ApplicationInsights .config를 편집 하 여 일부 데이터를 해제할][config] 수 있습니다.
 
 > [!NOTE]
-> 클라이언트 IP는 지리적 위치를 유추하는 데 사용되지만 기본적으로 IP 데이터는 더 이상 저장되지 않으며 모든 0은 연결된 필드에 기록됩니다. 개인 데이터 처리에 대한 자세한 내용은 이 [문서](../../azure-monitor/platform/personal-data-mgmt.md#application-data)를 권장합니다. IP 주소를 저장해야 하는 경우 [원격 분석 이니셜라이저](./../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer)를 사용하여 수행할 수 있습니다.
+> 클라이언트 IP는 지리적 위치를 유추하는 데 사용되지만 기본적으로 IP 데이터는 더 이상 저장되지 않으며 모든 0은 연결된 필드에 기록됩니다. 개인 데이터 처리에 대한 자세한 내용은 이 [문서](../../azure-monitor/platform/personal-data-mgmt.md#application-data)를 권장합니다. IP 주소 데이터를 저장 해야 하는 경우 [ip 주소 컬렉션 문서](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection) 에서 사용자의 옵션을 안내 합니다.
 
-## <a name="credits"></a>크레딧
+## <a name="credits"></a>인증
 이 제품은 [https://www.maxmind.com](https://www.maxmind.com)에 있는 MaxMind에서 작성된 GeoLite2 데이터를 포함합니다.
 
 
@@ -298,4 +297,3 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
 [start]: ../../azure-monitor/app/app-insights-overview.md
-

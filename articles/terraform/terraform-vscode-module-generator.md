@@ -236,9 +236,9 @@ Docker 파일을 사용하는 대신 Cloud Shell을 사용하면 프로세스가
     >[!NOTE]
     >이 예제에서는 Bash(Linux)를 선택했습니다.
 
-1. 아직 Azure Storage 계정을 설정하지 않은 경우 다음 화면이 나타납니다. **저장소 만들기**를 선택합니다.
+1. 아직 Azure Storage 계정을 설정하지 않은 경우 다음 화면이 나타납니다. **스토리지 만들기**를 선택합니다.
 
-    ![탑재된 저장소가 없음](media/terraform-vscode-module-generator/ymg-you-have-no-storage-mounted.png)
+    ![탑재된 스토리지가 없음](media/terraform-vscode-module-generator/ymg-you-have-no-storage-mounted.png)
 
 1. Azure Cloud Shell은 사용자가 이전에 선택한 셸에서 시작되며, 방금 만든 클라우드 드라이브에 대한 정보를 표시합니다.
 

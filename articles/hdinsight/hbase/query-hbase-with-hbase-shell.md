@@ -1,20 +1,20 @@
 ---
 title: '빠른 시작: Azure HDInsight에서 Apache HBase 쿼리 - HBase 셸'
-description: Apache HBase 셸을 사용하여 Apache HBase 쿼리를 실행하는 방법을 알아봅니다.
+description: 이 빠른 시작에서는 Apache HBase 셸을 사용하여 Apache HBase 쿼리를 실행하는 방법을 알아봅니다.
 keywords: hdinsight,hadoop,HBase
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: quickstart
-ms.date: 05/08/2019
+ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 41b16e63522a02cc16eb4dac2cbcc8e6540aceaf
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: d937e090895a5b02026c755b1efb7dd1e0b35000
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65552012"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67054306"
 ---
 # <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-hbase-shell"></a>빠른 시작: Azure HDInsight에서 HBase 셸을 사용하여 Apache HBase 쿼리
 
@@ -115,7 +115,7 @@ HBase 테이블 스키마에 대한 자세한 내용은 [Apache HBase 스키마 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-빠른 시작을 완료한 후 클러스터를 삭제하는 것이 좋습니다. HDInsight를 사용하면 데이터가 Azure Storage에 저장되기 때문에 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 저장소에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다.
+빠른 시작을 완료한 후 클러스터를 삭제하는 것이 좋습니다. HDInsight를 사용하면 데이터가 Azure Storage에 저장되기 때문에 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 스토리지에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다.
 
 클러스터를 삭제하려면 [브라우저, PowerShell 또는 Azure CLI를 사용하여 HDInsight 클러스터 삭제](../hdinsight-delete-cluster.md)를 참조하세요.
 

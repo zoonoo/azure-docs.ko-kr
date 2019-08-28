@@ -603,7 +603,7 @@ SAP 애플리케이션 서버 인스턴스를 호스트하는 모든 가상 머�
 
 [가상 머신의 가용성 관리][virtual-machines-manage-availability] 방법에 대해 자세히 알아보세요.
 
-Azure Storage 계정은 잠재적인 단일 실패 지점일 수 있으므로 두 개 이상의 가상 머신이 배포될 2개 이상의 Azure Storage 계정이 있어야 합니다. 이상적인 설치에서는 SAP 대화 상자 인스턴스를 실행하는 각 가상 머신의 디스크를 다른 저장소 계정에 배포합니다.
+Azure Storage 계정은 잠재적인 단일 실패 지점일 수 있으므로 두 개 이상의 가상 머신이 배포될 2개 이상의 Azure Storage 계정이 있어야 합니다. 이상적인 설치에서는 SAP 대화 상자 인스턴스를 실행하는 각 가상 머신의 디스크를 다른 스토리지 계정에 배포합니다.
 
 ### <a name="f559c285-ee68-4eec-add1-f60fe7b978db"></a> 고가용성 SAP ASCS/SCS 인스턴스
 그림 5는 고가용성 SAP ASCS/SCS 인스턴스의 예입니다.
@@ -1136,7 +1136,7 @@ SAP ASCS/SCS 인스턴스의 Windows Server 장애 조치(failover) 클러스터
    _**그림 27:** 두 번째 클러스터 노드 호스트 이름 입력_
 
    > [!IMPORTANT]
-   > **클러스터에 사용할 수 있는 모든 저장소를 추가하세요.** 확인란을 선택하지 **않았는지** 확인합니다.  
+   > **클러스터에 사용할 수 있는 모든 스토리지를 추가하세요.** 확인란을 선택하지 **않았는지** 확인합니다.  
    >
    >
 
@@ -1269,7 +1269,7 @@ Microsoft.NET Framework 3.5는 Windows Server 2012 R2에서 자동으로 활성�
 
 #### <a name="dd41d5a2-8083-415b-9878-839652812102"></a> SIOS DataKeeper 설치
 
-클러스터의 각 노드에 SIOS DataKeeper Cluster Edition을 설치합니다. SIOS DataKeeper를 사용하여 가상 공유 저장소를 만들려면 동기화된 미러를 만든 후 클러스터 공유 저장소를 시뮬레이션합니다.
+클러스터의 각 노드에 SIOS DataKeeper Cluster Edition을 설치합니다. SIOS DataKeeper를 사용하여 가상 공유 스토리지를 만들려면 동기화된 미러를 만든 후 클러스터 공유 스토리지를 시뮬레이션합니다.
 
 SIOS 소프트웨어를 설치하기 전에 도메인 사용자 **DataKeeperSvc**를 만듭니다.
 

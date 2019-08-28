@@ -1,0 +1,47 @@
+### YamlMime:Landing
+title: Azure 지원 가능성 설명서
+summary: Azure 고객이 Azure Portal에서 지원 요청을 만들고 관리할 수 있는 방법을 설명합니다.
+metadata:
+  title: Azure 지원 가능성 설명서
+  description: Azure 고객이 Azure Portal에서 지원 요청을 만들고 관리할 수 있는 방법을 설명합니다.
+  services: azure supportability
+  ms.service: azure-supportability
+  ms.subservice: 
+  ms.topic: landing-page
+  ms.collection: 
+  author: arob98
+  ms.author: angrobe
+  ms.date: 08/24/2019
+  ms.openlocfilehash: 4ee8de0f591618be7eb3a08c04f5820faeebaf4a
+  ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 08/27/2019
+  ms.locfileid: "70052140"
+landingContent:
+- title: 지원 요청 만들기
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Azure 지원 요청을 만드는 방법
+      url: how-to-create-azure-support-request.md
+  - linkListType: get-started
+    links:
+    - text: Azure Portal에서 지원 요청 만들기
+      url: https://portal.azure.com/#create/Microsoft.Support
+- title: 할당량 요청 증가
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: VM 시리즈 vCPU 제한 증가
+      url: per-vm-quota-requests.md
+    - text: 지역별 총 vCPU 제한 증가
+      url: regional-quota-requests.md
+    - text: 네트워킹 제한 증가
+      url: networking-quota-requests.md
+- title: 문제 해결
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 지역 또는 SKU 사용할 수 없음
+      url: sku-series-unavailable.md

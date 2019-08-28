@@ -1,6 +1,6 @@
 ---
-title: Azure 프런트 도어에서 웹 응용 프로그램 방화벽에 대 한 사용자 지정 응답 구성
-description: 웹 응용 프로그램 방화벽 (WAF) 요청을 차단할 때 사용자 지정 응답 코드 및 메시지를 구성 하는 방법에 알아봅니다.
+title: Azure Front 도어에서 웹 응용 프로그램 방화벽에 대 한 사용자 지정 응답 구성
+description: WAF (웹 응용 프로그램 방화벽)에서 요청을 차단할 때 사용자 지정 응답 코드와 메시지를 구성 하는 방법에 대해 알아봅니다.
 services: frontdoor
 author: KumudD
 ms.service: frontdoor
@@ -9,17 +9,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/21/2019
-ms.author: tyao;kumud
-ms.openlocfilehash: 146d17fe457751fb950f723c34826e43516e4e86
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.author: kumud
+ms.reviewer: tyao
+ms.openlocfilehash: 657dc3a43302d16bc403d790bf2c34c2d147dd6c
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165366"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846361"
 ---
-# <a name="configure-a-custom-response-for-azure-web-application-firewall"></a>Azure 웹 응용 프로그램 방화벽에 대 한 사용자 지정 응답을 구성 합니다.
+# <a name="configure-a-custom-response-for-azure-web-application-firewall"></a>Azure 웹 응용 프로그램 방화벽에 대 한 사용자 지정 응답 구성
 
-기본적으로 Azure 웹 응용 프로그램 방화벽 (WAF) Azure 프런트 도어를 사용 하 여 일치 하는 규칙으로 인해 요청을 차단 하는 경우 반환 403 상태 코드로 **요청이 차단** 메시지입니다. 이 문서에서는 요청 WAF에서 차단 되는 경우 사용자 지정 응답 상태 코드 및 응답 메시지를 구성 하는 방법을 설명 합니다.
+기본적으로 azure Front 도어를 사용 하는 Azure WAF (웹 응용 프로그램 방화벽)는 일치 하는 규칙으로 인해 요청을 차단할 때 **요청이 차단** 된 메시지와 함께 403 상태 코드를 반환 합니다. 이 문서에서는 WAF에 의해 요청이 차단 될 때 사용자 지정 응답 상태 코드 및 응답 메시지를 구성 하는 방법을 설명 합니다.
 
 ## <a name="set-up-your-powershell-environment"></a>PowerShell 환경 설정
 Azure PowerShell은 Azure 리소스를 관리하기 위해 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 모델을 사용하는 cmdlet 집합을 제공합니다. 
@@ -44,7 +45,7 @@ Install-Module -Name Az.FrontDoor
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-Azure에서 관련 리소스를 리소스 그룹에 할당합니다. 이 예제에서는 리소스 그룹을 사용 하 여 만든 [새로 만들기-AzResourceGroup](/powershell/module/Az.resources/new-Azresourcegroup)합니다.
+Azure에서 관련 리소스를 리소스 그룹에 할당합니다. 이 예제에서는 [AzResourceGroup](/powershell/module/Az.resources/new-Azresourcegroup)를 사용 하 여 리소스 그룹을 만듭니다.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroupWAF
@@ -52,7 +53,7 @@ New-AzResourceGroup -Name myResourceGroupWAF
 
 ## <a name="create-a-new-waf-policy-with-custom-response"></a>사용자 지정 응답을 사용 하 여 새 WAF 정책 만들기 
 
-405로 메시지를 설정 하는 사용자 지정 응답 상태 코드를 사용 하 여 WAF 정책을 새로 만드는 예제는 다음과 같습니다 **차단 됩니다.** 사용 하 여 [새로 만들기-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy)합니다.
+다음은 사용자 지정 응답 상태 코드를 405으로 설정 하 여 새 WAF 정책을 만들고 사용자에 게 메시지를 표시 하는 예입니다 **.** [AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy)사용.
 
 ```azurepowershell
 # WAF policy setting
@@ -65,7 +66,7 @@ New-AzFrontDoorWafPolicy `
 -CustomBlockResponseBody "<html><head><title>You are blocked.</title></head><body></body></html>"
 ```
 
-사용자 지정 응답 코드 또는 응답 본문 설정을 기존 WAF 정책의 수정를 사용 하 여 [업데이트 AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/Update-AzFrontDoorWafPolicy)합니다.
+[AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/Update-AzFrontDoorWafPolicy)를 사용 하 여 기존 waf 정책의 사용자 지정 응답 코드 또는 응답 본문 설정을 수정 합니다.
 
 ```azurepowershell
 # modify WAF response code
@@ -86,4 +87,4 @@ Update-AzFrontDoorFireWallPolicy `
 ```
 
 ## <a name="next-steps"></a>다음 단계
-- 자세한 내용은 [프런트 도어](front-door-overview.md)
+- [전면 도어](front-door-overview.md) 에 대해 자세히 알아보기

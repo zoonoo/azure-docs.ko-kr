@@ -3,7 +3,7 @@ title: 도움말 찾기 및 지원 티켓 열기 - Azure Active Directory | Micr
 description: Azure Active Directory에 대한 도움말을 얻고 지원 티켓을 여는 방법에 대한 지침입니다.
 services: active-directory
 documentationcenter: na
-author: eross-msft
+author: msaburnley
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.subservice: fundamentals
 ms.workload: identity
 ms.date: 08/28/2017
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22bf80c13ef3b18ab3119b6b35e529c8ad32f504
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9dce9b93dfe4ddfca370d1d3131d1d12cb6f121d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60248084"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561763"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Azure Active Directory에 대한 도움말 찾기 및 지원 티켓 열기
 Microsoft는 Azure AD(Azure Active Directory)에 대한 전 세계적인 기술, 사전 판매, 대금 청구 및 구독 지원을 제공합니다. 온라인 및 전화로 Microsoft Azure 유료 및 평가판 구독에 대한 지원이 제공됩니다. 전화 지원 및 온라인 청구 지원은 여러 언어로 제공됩니다. 
@@ -31,7 +31,7 @@ Microsoft는 Azure AD(Azure Active Directory)에 대한 전 세계적인 기술,
 
 * IT 전문가 및 개발자를 위한 방법 정보 또는 코드 샘플 같은 콘텐츠는 [docs.microsoft.com의 기술 문서](https://docs.microsoft.com/azure/active-directory/)를 참조하세요.
 
-* 합니다 [Microsoft 기술 커뮤니티](https://techcommunity.microsoft.com/) 공동 작업, 공유 하며 배웁니다 하 여 IT pro 파트너 및 고객에 대 한 합니다. 합니다 [Microsoft 기술 커뮤니티 정보 센터](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center) 공지, 블로그 게시물, 전문가와 요청-me-아무 것도 (ama 무엇이 든) 상호 작용 등에 대 한 사용 됩니다. 또한 [커뮤니티에 참여하여 아이디어를 제출](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities)할 수도 있습니다.
+* [Microsoft 기술 커뮤니티](https://techcommunity.microsoft.com/) 는 IT 전문가 파트너와 고객이 공동 작업 하 고, 공유 하 고, 학습할 수 있는 장소입니다. [Microsoft 기술 커뮤니티 정보 센터](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center) 는 공지, 블로그 게시물, 내게 필요한 항목 (AMA)과 전문가와의 상호 작용 등에 사용 됩니다. 또한 [커뮤니티에 참여하여 아이디어를 제출](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities)할 수도 있습니다.
 
 
 ## <a name="open-a-support-ticket"></a>지원 티켓 열기
@@ -41,7 +41,7 @@ Microsoft는 Azure AD(Azure Active Directory)에 대한 전 세계적인 기술,
 ### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-azure-portal"></a>Azure Portal에서 Azure AD에 대한 지원 티켓을 여는 방법
 
 > [!NOTE]
-> 대금 청구 또는 구독 문제에 대 한 사용 해야 합니다 [Microsoft 365 관리 센터](https://admin.microsoft.com)합니다.
+> 청구 또는 구독 문제에 대 한 [Microsoft 365 관리 센터](https://admin.microsoft.com)를 사용 해야 합니다.
 > 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하여 **Azure Active Directory**를 엽니다.
@@ -64,9 +64,9 @@ Microsoft는 Azure AD(Azure Active Directory)에 대한 전 세계적인 기술,
 ### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-microsoft-365-admin-center"></a>Microsoft 365 관리 센터에서 Azure AD에 대 한 지원 티켓을 여는 방법
 
 > [!NOTE]
-> Azure AD에 대해 지원 합니다 [Microsoft 365 관리 센터](https://admin.microsoft.com) 관리자 에게만 제공 됩니다. 
+> [Microsoft 365 관리 센터](https://admin.microsoft.com) 의 Azure AD에 대 한 지원은 관리자 에게만 제공 됩니다. 
 
-1. 에 로그인 합니다 [Microsoft 365 관리 센터](https://admin.microsoft.com) Enterprise Mobility + Security (EMS) 라이선스 증명이 있는 계정을 사용 하 여 합니다.
+1. EMS (Enterprise Mobility + Security) 라이선스가 있는 계정으로 [Microsoft 365 관리 센터](https://admin.microsoft.com) 에 로그인 합니다.
 
 2. **지원** 타일에서 **새 서비스 요청**:
 

@@ -5,26 +5,26 @@ services: functions
 keywords: ''
 author: ggailey777
 ms.author: glenga
-ms.date: 02/25/2019
+ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 03e1ec58b0ef3ad50a04f82ced7d20119ab3ef5b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 525cb444ad7b1b78de867f83539ac338ddd144e9
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59491460"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562922"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>사용자 지정 이미지를 사용하여 Linux에서 함수 만들기
 
 Azure Functions를 사용하면 사용자 지정 컨테이너에서 Linux의 함수를 호스팅할 수 있습니다. [기본 Azure App Service 컨테이너에 호스팅](functions-create-first-azure-function-azure-cli-linux.md)할 수도 있습니다. 이 기능을 사용하려면 [Functions 2.x 런타임](functions-versions.md)이 필요합니다.
 
-이 자습서에서는 함수를 사용자 지정 Docker 이미지로 Azure에 배포하는 방법에 대해 알아봅니다. 이 패턴은 기본 제공 App Service 컨테이너 이미지를 사용자 지정해야 하는 경우에 유용합니다. 함수에 특정 언어 버전이 필요하거나 기본 제공 이미지에서 제공되지 않는 특정 종속성 또는 구성이 필요한 경우 사용자 지정 이미지를 사용할 수 있습니다. Azure Functions에 대해 지원되는 기본 이미지는 [Azure Functions 기본 이미지 리포지토리](https://hub.docker.com/_/microsoft-azure-functions-base)에 나와 있습니다. [Python 지원](functions-reference-python.md)은 현재 미리 보기로 제공됩니다.
+이 자습서에서는 함수를 사용자 지정 Docker 이미지로 Azure에 배포하는 방법에 대해 알아봅니다. 이 패턴은 기본 제공 컨테이너 이미지를 사용자 지정해야 하는 경우에 유용합니다. 함수에 특정 언어 버전이 필요하거나 기본 제공 이미지에서 제공되지 않는 특정 종속성 또는 구성이 필요한 경우 사용자 지정 이미지를 사용할 수 있습니다. Azure Functions에 대해 지원되는 기본 이미지는 [Azure Functions 기본 이미지 리포지토리](https://hub.docker.com/_/microsoft-azure-functions-base)에 나와 있습니다. 
 
-이 자습서에서는 Azure Functions 핵심 도구를 사용하여 사용자 지정 Linux 이미지에서 함수를 만드는 방법을 안내합니다. Azure CLI를 사용하여, 만든 이미지를 Azure에서 함수 앱에 게시합니다.
+이 자습서에서는 Azure Functions 핵심 도구를 사용하여 사용자 지정 Linux 이미지에서 함수를 만드는 방법을 안내합니다. Azure CLI를 사용하여, 만든 이미지를 Azure에서 함수 앱에 게시합니다. 나중에 Azure Queue storage에 연결하도록 함수를 업데이트합니다. 또한 다음을 설정합니다.  
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -33,12 +33,13 @@ Azure Functions를 사용하면 사용자 지정 컨테이너에서 Linux의 함
 > * Docker를 사용하여 사용자 지정 이미지 빌드
 > * 컨테이너 레지스트리에 사용자 지정 이미지 게시
 > * Azure Storage 계정 만들기
-> * Linux App Service 계획 만들기
+> * 프리미엄 호스팅 계획 만들기
 > * Docker 허브에서 함수 앱 배포
 > * 함수 앱에 애플리케이션 설정 추가
-> * 연속 배포 사용
+> * 지속적인 배포 사용
+> * Application Insights 모니터링 추가
 
-다음 단계는 Mac, Windows 또는 Linux 컴퓨터에서 지원됩니다.  
+다음 단계는 Mac, Windows 또는 Linux 컴퓨터에서 지원됩니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -49,7 +50,7 @@ Azure Functions를 사용하면 사용자 지정 컨테이너에서 Linux의 함
 * [Azure CLI]( /cli/azure/install-azure-cli)를 설치합니다. 이 문서에서 설명하는 단계를 수행하려면 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다.  
 [Azure Cloud Shell](https://shell.azure.com/bash)을 사용할 수도 있습니다.
 
-* 활성 Azure 구독.
+* 활성화된 Azure 구독.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -65,11 +66,9 @@ func init MyFunctionProj --docker
 
 메시지가 표시되면 다음 언어 중에서 작업자 런타임을 선택합니다.
 
-* `dotnet`: .NET 클래스 라이브러리 프로젝트(.csproj)를 만듭니다.
+* `dotnet`: .NET Core 클래스 라이브러리 프로젝트(.csproj)를 만듭니다.
 * `node`: JavaScript 프로젝트를 만듭니다.
 * `python`: Python 프로젝트를 만듭니다.
-
-[!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
 명령을 실행하는 경우 다음 출력과 같이 표시됩니다.
 
@@ -87,8 +86,6 @@ cd MyFunctionProj
 ```
 
 [!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
-
-[!INCLUDE [functions-update-function-code](../../includes/functions-update-function-code.md)]
 
 [!INCLUDE [functions-run-function-test-local](../../includes/functions-run-function-test-local.md)]
 
@@ -157,7 +154,7 @@ docker run -p 8080:80 -it <docker-ID>/mydockerimage:v1.0.0
 
 ## <a name="push-the-custom-image-to-docker-hub"></a>사용자 지정 이미지를 Docker 허브에 푸시
 
-레지스트리는 이미지를 호스트하고 서비스 이미지 및 컨테이너 서비스를 제공하는 응용 프로그램입니다. 이미지를 공유하려면 레지스트리에 푸시해야 합니다. Docker 허브는 Docker 이미지의 레지스트리이며 고유한 공개 또는 프라이빗 리포지토리를 호스팅할 수 있습니다.
+레지스트리는 이미지를 호스트하고 서비스 이미지 및 컨테이너 서비스를 제공하는 애플리케이션입니다. 이미지를 공유하려면 레지스트리에 푸시해야 합니다. Docker 허브는 Docker 이미지의 레지스트리이며 고유한 공개 또는 프라이빗 리포지토리를 호스팅할 수 있습니다.
 
 이미지를 푸시하려면 먼저 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 명령을 사용하여 Docker 허브에 로그인해야 합니다. `<docker-id>`를 사용자의 계정 이름으로 바꾸고, 콘솔의 프롬프트에서 암호를 입력합니다. 다른 Docker 허브 암호 옵션은 [docker login 명령 설명서](https://docs.docker.com/engine/reference/commandline/login/)를 참조하세요.
 
@@ -189,50 +186,35 @@ v1.0.0: digest: sha256:be080d80770df71234eb893fbe4d... size: 1796
 
 [!INCLUDE [functions-create-storage-account](../../includes/functions-create-storage-account.md)]
 
-## <a name="create-a-linux-app-service-plan"></a>Linux App Service 계획 만들기
+## <a name="create-a-premium-plan"></a>프리미엄 플랜 만들기
 
-Functions에 대한 Linux 호스팅은 현재 소비 계획에서 지원되지 않습니다. Linux App Service 계획에서 Linux 컨테이너 앱을 호스팅해야 합니다. 호스팅에 대한 자세한 내용은 [Azure Functions 호스팅 계획 비교](functions-scale.md)를 참조하세요.
+[Dedicated(App Service) 플랜](functions-scale.md#app-service-plan) 및 [프리미엄 플랜](functions-premium-plan.md#features)에서 지원되는 사용자 지정 Functions 컨테이너에 대한 Linux 호스팅. 이 자습서에서는 필요에 따라 크기를 조정할 수 있는 프리미엄 플랜을 사용합니다. 호스팅에 대한 자세한 내용은 [Azure Functions 호스팅 계획 비교](functions-scale.md)를 참조하세요.
 
-[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
+다음 예에서는 **탄력적 프리미엄 1** 가격 책정 계층(`--sku EP1`), 미국 서부 지역(`-location WestUS`) 및 Linux 컨테이너(`--is-linux`)에 `myPremiumPlan`이라는 프리미엄 플랜을 만듭니다.
+
+```azurecli-interactive
+az functionapp plan create --resource-group myResourceGroup --name myPremiumPlan \
+--location WestUS --number-of-workers 1 --sku EP1 --is-linux
+```
 
 ## <a name="create-and-deploy-the-custom-image"></a>사용자 지정 이미지 만들기 및 배포
 
-함수 앱은 함수 실행을 호스팅합니다. [az functionapp create](/cli/azure/functionapp#az-functionapp-create) 명령을 사용하여 Docker 허브 이미지에서 함수 앱을 만듭니다.
+함수 앱은 호스팅 계획에서 함수 실행을 관리합니다. [az functionapp create](/cli/azure/functionapp#az-functionapp-create) 명령을 사용하여 Docker 허브 이미지에서 함수 앱을 만듭니다.
 
-다음 명령에서 `<app_name>` 자리 표시자 및 `<storage_name>`의 저장소 계정 이름을 고유한 함수 앱 이름으로 바꿉니다. `<app_name>`은 함수 앱의 기본 DNS 도메인으로 사용되므로 이름이 Azure의 모든 앱에서 고유해야 합니다. 이전과 마찬가지로 `<docker-id>`는 사용자의 Docker 계정 이름입니다.
+다음 명령에서 `<app_name>` 자리 표시자 및 `<storage_name>`의 스토리지 계정 이름을 고유한 함수 앱 이름으로 바꿉니다. `<app_name>`은 함수 앱의 기본 DNS 도메인으로 사용되므로 이름이 Azure의 모든 앱에서 고유해야 합니다. 이전과 마찬가지로 `<docker-id>`는 사용자의 Docker 계정 이름입니다.
 
 ```azurecli-interactive
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
---plan myAppServicePlan --deployment-container-image-name <docker-id>/mydockerimage:v1.0.0
-```
-
-함수 앱을 만들었으면 Azure CLI는 다음 예와 비슷한 정보를 표시합니다.
-
-```json
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "containerSize": 1536,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "quickstart.azurewebsites.net",
-  "enabled": true,
-  "enabledHostNames": [
-    "quickstart.azurewebsites.net",
-    "quickstart.scm.azurewebsites.net"
-  ],
-   ....
-    // Remaining output has been truncated for readability.
-}
+--plan myPremiumPlan --deployment-container-image-name <docker-id>/mydockerimage:v1.0.0
 ```
 
 _deployment-container-image-name_ 매개 변수는 Docker 허브에서 호스팅되는 이미지가 함수 앱을 만드는 데 사용됨을 나타냅니다. 배포에 사용되는 이미지에 대한 정보를 보려면 [az functionapp config container show](/cli/azure/functionapp/config/container#az-functionapp-config-container-show) 명령을 사용합니다. 다른 이미지에서 배포하려면 [az functionapp config container set](/cli/azure/functionapp/config/container#az-functionapp-config-container-set) 명령을 사용합니다.
 
 ## <a name="configure-the-function-app"></a>함수 앱 구성
 
-함수에는 기본 저장소 계정에 연결하기 위한 연결 문자열이 필요합니다. 사용자 지정 이미지를 프라이빗 컨테이너 계정에 게시하는 경우 [ENV 명령](https://docs.docker.com/engine/reference/builder/#env) 또는 비슷한 것을 사용하여 Dockerfile에서 이러한 애플리케이션 설정을 환경 변수로 대신 설정해야 합니다.
+함수에는 기본 스토리지 계정에 연결하기 위한 연결 문자열이 필요합니다. 사용자 지정 이미지를 프라이빗 컨테이너 계정에 게시하는 경우 [ENV 명령](https://docs.docker.com/engine/reference/builder/#env) 또는 비슷한 것을 사용하여 Dockerfile에서 이러한 애플리케이션 설정을 환경 변수로 대신 설정해야 합니다.
 
-이 경우 `<storage_name>`는 만든 기본 저장소 계정의 이름입니다. [az storage account show-connection-string](/cli/azure/storage/account) 명령으로 연결 문자열을 가져옵니다. 함수 앱에서 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) 명령으로 이 응용 프로그램 설정을 추가합니다.
+이 경우 `<storage_name>`는 만든 기본 스토리지 계정의 이름입니다. [az storage account show-connection-string](/cli/azure/storage/account) 명령으로 연결 문자열을 가져옵니다. 함수 앱에서 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) 명령으로 이 애플리케이션 설정을 추가합니다.
 
 ```azurecli-interactive
 storageConnectionString=$(az storage account show-connection-string \
@@ -256,16 +238,6 @@ AzureWebJobsStorage=$storageConnectionString
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 
-## <a name="enable-application-insights"></a>Application Insights 사용
-
-함수 실행을 모니터링할 때는 Azure Application Insights와 함수 앱을 통합하는 방식을 사용하는 것이 좋습니다. Azure Portal에서 함수 앱을 만들 때는 이 통합이 기본적으로 자동 수행됩니다. 그러나 Azure CLI를 사용하여 함수 앱을 만드는 경우 Azure에서 함수 앱 통합이 수행되지 않습니다.
-
-함수 앱에 대해 Application Insights를 사용하도록 설정하려면 다음 단계를 수행합니다.
-
-[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
-
-자세히 알아보려면 [Azure Functions 모니터링](functions-monitoring.md)을 참조하세요.
-
 ## <a name="enable-continuous-deployment"></a>연속 배포 사용
 
 컨테이너를 사용할 때의 한 가지 이점은 컨테이너를 레지스트리에서 업데이트할 때 업데이트를 자동으로 배포할 수 있다는 것입니다. [az functionapp deployment container config](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-config) 명령을 사용하여 연속 배포를 사용하도록 설정합니다.
@@ -282,7 +254,17 @@ az functionapp deployment container config --enable-cd \
 
 ![DockerHub 리포지토리에서 웹후크 추가](media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png)  
 
-웹후크가 설정된 경우 DockerHub에서 연결된 이미지를 업데이트하면 Function App이 다운로드되고 최신 이미지가 설치됩니다.
+웹후크가 설정된 경우 DockerHub에서 연결된 이미지를 업데이트하면 함수 앱이 다운로드되고 최신 이미지가 설치됩니다.
+
+## <a name="enable-application-insights"></a>Application Insights 사용
+
+함수 실행을 모니터링할 때는 Azure Application Insights와 함수 앱을 통합하는 방식을 사용하는 것이 좋습니다. Azure Portal에서 함수 앱을 만들 때는 이 통합이 기본적으로 자동 수행됩니다. 그러나 Azure CLI를 사용하여 함수 앱을 만드는 경우 Azure에서 함수 앱 통합이 수행되지 않습니다.
+
+함수 앱에 대해 Application Insights를 사용하도록 설정하려면 다음 단계를 수행합니다.
+
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
+
+자세히 알아보려면 [Azure Functions 모니터링](functions-monitoring.md)을 참조하세요.
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
@@ -295,11 +277,11 @@ az functionapp deployment container config --enable-cd \
 > * Docker를 사용하여 사용자 지정 이미지 빌드
 > * 컨테이너 레지스트리에 사용자 지정 이미지 게시
 > * Azure Storage 계정 만들기
-> * Linux App Service 계획 만들기
+> * Linux 프리미엄 플랜 만들기
 > * Docker 허브에서 함수 앱 배포
-> * 함수 앱에 응용 프로그램 설정 추가
-
-핵심 App Service 플랫폼에 기본 제공된 연속 통합 기능을 사용하는 방법을 알아봅니다. Docker 허브에서 이미지를 업데이트할 때 컨테이너가 다시 배포되도록 함수 앱을 구성할 수 있습니다.
+> * 함수 앱에 애플리케이션 설정 추가
+> * 지속적인 배포 사용
+> * Application Insights 모니터링 추가
 
 > [!div class="nextstepaction"] 
-> [Web App for Containers를 사용한 연속 배포](../app-service/containers/app-service-linux-ci-cd.md)
+> [Azure에 함수를 배포하는 옵션에 대한 자세한 정보](functions-deployment-technologies.md)

@@ -73,13 +73,13 @@ pcs login
 | 1     | [Linux 가상 머신](https://azure.microsoft.com/services/virtual-machines/) | 표준 D1 V2  | 마이크로 서비스 호스트 |
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1 - 표준 계층 | 디바이스 관리 및 통신 |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | 구성 데이터, 규칙, 경고 및 기타 콜드 스토리지 저장 |  
-| 1     | [Azure Storage 계정](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | VM 및 스트리밍 검사점에 대한 저장소 |
+| 1     | [Azure Storage 계정](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | VM 및 스트리밍 검사점에 대한 스토리지 |
 | 1     | [웹 애플리케이션](https://azure.microsoft.com/services/app-service/web/)        |                 | 프런트 엔드 웹 애플리케이션 호스트 |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | 사용자 ID 및 보안 관리 |
 | 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Standard                | 자산 위치 보기 |
 | 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3개 단위              | 실시간 분석 사용 |
 | 1     | [Azure Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | 대규모 디바이스 프로비저닝 |
-| 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1개 단위              | 메시지 데이터용 저장 영역이며 심도 있는 원격 분석 사용 |
+| 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1개 단위              | 메시지 데이터용 스토리지 영역이며 심도 있는 원격 분석 사용 |
 
 ### <a name="standard"></a>Standard
 
@@ -94,13 +94,13 @@ CLI를 통해서만 표준 배포를 수행할 수 있습니다.
 | 1     | [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)| 완전 관리형 Kubernetes 컨테이너 오케스트레이션 서비스를 사용하세요. 기본값은 에이전트 3개입니다.|
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                     | S2 - 표준 계층 | 디바이스 관리, 명령 및 제어 |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | 구성 데이터 및 디바이스 원격 분석(예: 규칙, 경고 및 메시지) 저장 |
-| 5     | [Azure Storage 계정](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | VM 저장소용 4개, 스트리밍 검사점용 1개 |
+| 5     | [Azure Storage 계정](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | VM 스토리지용 4개, 스트리밍 검사점용 1개 |
 | 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 표준     | SSL을 통한 Application Gateway |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | 사용자 ID 및 보안 관리 |
 | 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Standard                | 자산 위치 보기 |
 | 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3개 단위              | 실시간 분석 사용 |
 | 1     | [Azure Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | 대규모 디바이스 프로비저닝 |
-| 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1개 단위              | 메시지 데이터용 저장 영역이며 심도 있는 원격 분석 사용 |
+| 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1개 단위              | 메시지 데이터용 스토리지 영역이며 심도 있는 원격 분석 사용 |
 
 > [!NOTE]
 > 이러한 서비스의 가격 책정 정보는 [https://azure.microsoft.com/pricing](https://azure.microsoft.com/pricing)에서 확인할 수 있습니다. 구독의 사용량 및 요금 청구 정보는 [Azure Portal](https://portal.azure.com/)에서 찾을 수 있습니다.

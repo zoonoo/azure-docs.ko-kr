@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5e22a3f3b362811fd87460ec41b61a990f4d83fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f80edf18a531d6c2850658ddef9c7007edb350f
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60902109"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795521"
 ---
 # <a name="how-do-i--in-application-insights"></a>Application Insights에서 어떻게 할까요?
 ## <a name="get-an-email-when-"></a>전자 메일을 받는 경우
@@ -130,23 +130,32 @@ ms.locfileid: "60902109"
 * [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)에서 성능 카운터 수집기 등 필요하지 않은 모듈을 모두 사용하지 않도록 설정합니다.
 * SDK에서 [샘플링 및 필터링](../../azure-monitor/app/api-filtering-sampling.md)을 사용합니다.
 * 웹 페이지에서 모든 페이지 뷰에 대해 보고되는 Ajax 호출 수를 제한합니다. 스크립트 조각에서 `instrumentationKey:...` 뒤에 `,maxAjaxCallsPerView:3`(또는 적절한 숫자)을 삽입합니다.
-* [TrackMetric](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric)을 사용하는 경우 결과를 보내기 전에 메트릭 값의 배치 집계를 계산합니다. 이를 제공하는 TrackMetric() 오버로드가 있습니다.
+* [TrackMetric](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric)을 사용하는 경우 결과를 보내기 전에 메트릭 값의 배치 집계를 컴퓨팅합니다. 이를 제공하는 TrackMetric() 오버로드가 있습니다.
 
 [가격 책정 및 할당량](../../azure-monitor/app/pricing.md)에 대해 자세히 확인합니다.
 
 ## <a name="disable-telemetry"></a>원격 분석 사용 안 함
 서버로부터 원격 분석의 컬렉션 및 전송을 **동적으로 중지 및 시작** 하려면:
 
-```
+### <a name="aspnet-classic-applications"></a>ASP.NET 클래식 응용 프로그램
 
+```csharp
     using  Microsoft.ApplicationInsights.Extensibility;
 
     TelemetryConfiguration.Active.DisableTelemetry = true;
 ```
 
+### <a name="other-applications"></a>다른 애플리케이션
+사용 하는 것은 권장 되지 `TelemetryConfiguration.Active` 콘솔 또는 ASP.NET Core 응용 프로그램에 단일 항목입니다.
+만든 경우 `TelemetryConfiguration` 인스턴스를 직접-설정 `DisableTelemetry` 에 `true`입니다.
 
+ASP.NET Core 응용 프로그램에 액세스할 수 있습니다 `TelemetryConfiguration` 인스턴스에서 사용 하 여 [ASP.NET Core 종속성 주입](/aspnet/core/fundamentals/dependency-injection/)합니다. 자세한 내용은 참조 하세요 [ASP.NET Core 응용 프로그램에 대 한 application Insights](../../azure-monitor/app/asp-net-core.md) 문서.
 
-**선택한 표준 수집기(예: 성능 카운터, HTTP 요청 또는 종속성)를 사용하지 않도록 설정**하려면 [ApplicationInsights.config](../../azure-monitor/app/api-custom-events-metrics.md)에서 관련 줄을 삭제하거나 주석으로 처리합니다. 사용자 고유의 TrackRequest 데이터를 전송하려는 경우를 예로 들 수 있습니다.
+## <a name="disable-selected-standard-collectors"></a>선택한 표준 수집기를 사용 하지 않도록 설정
+표준 수집기 (예: 성능 카운터, HTTP 요청 또는 종속성)를 사용 하지 않도록 설정할 수 있습니다.
+
+* **ASP.NET 응용 프로그램** -삭제 하거나에서 관련 줄을 주석 [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
+* **ASP.NET Core 응용 프로그램** -원격 분석 모듈 구성 옵션에 따라 [ApplicationInsights ASP.NET Core](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules)
 
 ## <a name="view-system-performance-counters"></a>시스템 성능 카운터 보기
 메트릭 탐색기에서 표시할 수 있는 메트릭 중에는 시스템 성능 카운터 집합이 있습니다. 이름이 **서버** 인 미리 정의된 블레이드에서 그중 몇 가지를 표시합니다.

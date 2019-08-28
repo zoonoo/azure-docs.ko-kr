@@ -32,7 +32,7 @@ Azure Blockchain 서비스에 서비스 및 노드 수 있습니다, 컨소시�
 
 멤버 만들기 지원 되지 않습니다 후 기본 및 표준 간의 가격 책정 계층을 변경 합니다.
 
-## <a name="storage-capacity"></a>저장소 용량
+## <a name="storage-capacity"></a>스토리지 용량
 
 원장 데이터 및 로그에 대 한 노드당 사용할 수 있는 저장소의 최대 크기는 1tb입니다.
 

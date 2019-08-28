@@ -9,10 +9,10 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: ''
 ms.openlocfilehash: 57212da1a8da7ee6c57faf2413b88a413df04817
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "66129579"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>Windows 가상 머신(클래식)용 Azure Monitor 데이터 저장소에 게스트 OS 메트릭 보내기
@@ -27,7 +27,7 @@ Azure Monitor [진단 확장](https://docs.microsoft.com/azure/monitoring-and-di
 
 이 문서에 설명된 프로세스는 Windows 운영 체제를 실행하는 클래식 가상 머신에서만 작동합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 - Azure 구독의 [서비스 관리자 또는 공동 관리자](../../billing/billing-add-change-azure-subscription-administrator.md)여야 합니다. 
 
@@ -35,15 +35,15 @@ Azure Monitor [진단 확장](https://docs.microsoft.com/azure/monitoring-and-di
 
 - [Azure PowerShell](/powershell/azure) 또는 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)이 설치되어 있어야 합니다.
 
-## <a name="create-a-classic-virtual-machine-and-storage-account"></a>클래식 가상 머신 및 저장소 계정 만들기
+## <a name="create-a-classic-virtual-machine-and-storage-account"></a>클래식 가상 머신 및 스토리지 계정 만들기
 
 1. Azure Portal을 사용하여 클래식 VM을 만듭니다.
    ![클래식 VM 만들기](./media/collect-custom-metrics-guestos-vm-classic/create-classic-vm.png)
 
-1. 이 VM을 만들 때 새 클래식 저장소 계정을 만드는 옵션을 선택합니다. 나중 단계에서 이 저장소 계정을 사용합니다.
+1. 이 VM을 만들 때 새 클래식 스토리지 계정을 만드는 옵션을 선택합니다. 나중 단계에서 이 스토리지 계정을 사용합니다.
 
-1. Azure Portal에서 **저장소 계정** 리소스 블레이드로 이동합니다. **키**를 선택하고 저장소 계정 이름과 저장소 계정 키를 적어 둡니다. 이 정보는 이후 단계에서 필요합니다.
-   ![저장소 액세스 키](./media/collect-custom-metrics-guestos-vm-classic/storage-access-keys.png)
+1. Azure Portal에서 **스토리지 계정** 리소스 블레이드로 이동합니다. **키**를 선택하고 스토리지 계정 이름과 스토리지 계정 키를 적어 둡니다. 이 정보는 이후 단계에서 필요합니다.
+   ![스토리지 액세스 키](./media/collect-custom-metrics-guestos-vm-classic/storage-access-keys.png)
 
 ## <a name="create-a-service-principal"></a>서비스 주체 만들기
 
@@ -156,7 +156,7 @@ Azure Monitor [진단 확장](https://docs.microsoft.com/azure/monitoring-and-di
     $VM = Get-AzureVM -ServiceName <VM’s Service_Name> -Name <VM Name>
     ```
 
-1. VM과 함께 생성된 클래식 저장소 계정의 컨텍스트를 설정합니다.
+1. VM과 함께 생성된 클래식 스토리지 계정의 컨텍스트를 설정합니다.
 
     ```powershell
     $StorageContext = New-AzStorageContext -StorageAccountName <name of your storage account from earlier steps> -storageaccountkey "<storage account key from earlier steps>"
@@ -181,7 +181,7 @@ Azure Monitor [진단 확장](https://docs.microsoft.com/azure/monitoring-and-di
     ```
 
 > [!NOTE]
-> 여전히 진단 확장 설치의 일부로 저장소 계정을 제공해야 합니다. 진단 구성 파일에 지정된 모든 로그 또는 성능 카운터는 지정한 저장소 계정에 기록됩니다.
+> 여전히 진단 확장 설치의 일부로 스토리지 계정을 제공해야 합니다. 진단 구성 파일에 지정된 모든 로그 또는 성능 카운터는 지정한 스토리지 계정에 기록됩니다.
 
 ## <a name="plot-the-metrics-in-the-azure-portal"></a>Azure Portal에서 메트릭을 도표로 구성
 

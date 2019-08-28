@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Azure CLI를 사용하여 가상 머신에 여러 IP 주소를 할당하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
-ms.author: kumud
-ms.openlocfilehash: 1e8911847a555e3b6326f15d15a09344a4472f2c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: c1606f14650843ea42cfe55381b5f23bf2742a58
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60860558"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274715"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-azure-cli"></a>Azure CLI를 사용하여 여러 IP 구성의 부하 분산
 

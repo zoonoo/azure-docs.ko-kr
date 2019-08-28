@@ -9,20 +9,20 @@ editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 908ba764dfee7c164c3e6f0ff24d2bbf6a0df287
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: HT
+ms.openlocfilehash: ad3cd612200dc33fe37036146b00f52073403ecc
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544836"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852035"
 ---
 # <a name="supported-account-types"></a>지원되는 계정 유형
 
@@ -32,7 +32,7 @@ ms.locfileid: "65544836"
 
 ## <a name="supported-accounts-types-in-microsoft-identity-platform-applications"></a>Microsoft ID 플랫폼 애플리케이션에서 지원하는 계정 유형
 
-Microsoft Azure 공용 클라우드에서는 대부분의 앱 유형이 모든 대상 그룹을 사용하여 사용자를 로그인할 수 있습니다.
+Microsoft Azure 퍼블릭 클라우드에서는 대부분의 앱 유형이 모든 대상 그룹을 사용하여 사용자를 로그인할 수 있습니다.
 
 - LOB(기간 업무) 애플리케이션을 작성하는 경우 사용자를 조직 내에 로그인할 수 있습니다. 이러한 애플리케이션을 **단일 테넌트**라고도 합니다.
 - ISV는 사용자를 다음 항목에 로그인하는 애플리케이션을 작성할 수 있습니다.

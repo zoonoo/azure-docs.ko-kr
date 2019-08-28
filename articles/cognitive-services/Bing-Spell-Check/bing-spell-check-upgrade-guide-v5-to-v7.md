@@ -1,6 +1,6 @@
 ---
 title: Bing Spell Check API v5를 v7으로 업그레이드
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 버전 7을 사용하도록 업데이트해야 하는 애플리케이션의 부분을 식별합니다.
 services: cognitive-services
 author: swhite-msft
@@ -10,22 +10,22 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: b19681fd1ad70985bccd375931f5d5801f153aa8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 545772a28a67310b12eb55cd1fb14e8d12a95a58
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60895807"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500808"
 ---
 # <a name="spell-check-api-upgrade-guide"></a>Spell Check API 업그레이드 가이드
 
 이 업그레이드 가이드는 Bing Spell Check API의 버전 5와 버전 7 사이의 변경 내용을 식별합니다. 이 가이드를 사용하면 버전 7을 사용하도록 업데이트해야 하는 애플리케이션의 부분을 식별하는 데 유용합니다.
 
-## <a name="breaking-changes"></a>주요 변경 내용
+## <a name="breaking-changes"></a>호환성이 손상되는 변경
 
 ### <a name="endpoints"></a>엔드포인트
 
-- 엔드포인트의 버전 번호가 v5에서 v7로 변경되었습니다. 예: `https://api.cognitive.microsoft.com/bing/v7.0/spellcheck`.
+- 엔드포인트의 버전 번호가 v5에서 v7로 변경되었습니다. `https://api.cognitive.microsoft.com/bing/v7.0/spellcheck` )을 입력합니다.
 
 ### <a name="error-response-objects-and-error-codes"></a>오류 응답 개체 및 오류 코드
 
@@ -38,10 +38,10 @@ ms.locfileid: "60895807"
 
 - v5 오류 코드가 다음과 같이 가능한 `code` 및 `subCode` 값으로 바뀌었습니다.  
   
-|코드|SubCode|설명
+|코드|SubCode|Description
 |-|-|-
-|ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing은 하위 코드 조건 중 하나가 발생할 때마다 ServerError를 반환합니다. 응답은 HTTP 상태 코드가 500인 경우 이러한 오류를 포함합니다.
-|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Blocked|Bing은 요청의 일부가 잘못된 경우 항상 InvalidRequest를 반환합니다. 예를 들어 필수 매개 변수가 없거나 매개 변수 값이 잘못된 경우입니다.<br/><br/>오류가 ParameterMissing 또는 ParameterInvalidValue이면 HTTP 상태 코드는 400입니다.<br/><br/>오류가 HttpNotAllowed이면 HTTP 상태 코드는 410입니다.
+|ServerError|UnexpectedError<br/>ResourceError<br/>구현 안 됨|Bing은 하위 코드 조건 중 하나가 발생할 때마다 ServerError를 반환합니다. 응답은 HTTP 상태 코드가 500인 경우 이러한 오류를 포함합니다.
+|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>차단됨|Bing은 요청의 일부가 잘못된 경우 항상 InvalidRequest를 반환합니다. 예를 들어 필수 매개 변수가 없거나 매개 변수 값이 잘못된 경우입니다.<br/><br/>오류가 ParameterMissing 또는 ParameterInvalidValue이면 HTTP 상태 코드는 400입니다.<br/><br/>오류가 HttpNotAllowed이면 HTTP 상태 코드는 410입니다.
 |RateLimitExceeded||Bing은 QPS(초당 쿼리 수) 또는 QPM(월별 쿼리 수) 할당량을 초과할 경우 항상 RateLimitExceeded를 반환합니다.<br/><br/>Bing은 QPS를 초과한 경우 HTTP 상태 코드 429, QPM을 초과한 경우 403을 반환합니다.
 |InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing이 호출자를 인증할 수 없는 경우 Bing은 InvalidAuthorization을 반환합니다. 예를 들어 `Ocp-Apim-Subscription-Key` 헤더가 없거나 구독 키가 잘못된 경우입니다.<br/><br/>둘 이상의 인증 방법을 지정한 경우 중복이 발생합니다.<br/><br/>오류가 InvalidAuthorization이면 HTTP 상태 코드는 401입니다.
 |InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|리소스에 액세스할 수 있는 사용 권한이 호출자에게 없는 경우 Bing은 InsufficientAuthorization을 반환합니다. 이 오류는 구독 키가 비활성화되었거나 만료된 경우에 발생할 수 있습니다. <br/><br/>오류가 InsufficientAuthorization이면 HTTP 상태 코드는 403입니다.
@@ -67,7 +67,7 @@ InvalidAuthorizationMethod|InvalidAuthorization
 MultipleAuthorizationMethod|InvalidAuthorization.AuthorizationRedundancy
 ExpiredAuthorizationToken|InsufficientAuthorization.AuthorizationExpired
 InsufficientScope|InsufficientAuthorization
-Blocked|InvalidRequest.Blocked
+차단됨|InvalidRequest.Blocked
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,14 +6,14 @@ author: yushwang
 manager: rossort
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 07/25/2019
 ms.author: yushwang
-ms.openlocfilehash: 91e9fe1eb6b3df0b64d05f2b1e300403a9e01db9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e85eb756e416f1170a0cb2b19ab68888b5a9422f
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60762284"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516434"
 ---
 # <a name="about-bgp-with-azure-vpn-gateway"></a>Azure VPN Gateway의 BGP 정보
 이 문서에서는 Azure VPN Gateway에서의 BGP(경계 게이트웨이 프로토콜) 지원에 대한 개요를 제공합니다.

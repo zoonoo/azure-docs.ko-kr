@@ -264,7 +264,7 @@ ms.locfileid: "60812071"
 
 전체 팀과 데이터 및 분석 리소스를 공유하면 성능 및 비용상의 이점을 얻을 수 있습니다. 팀 구성원은 공유 리소스에서 프로젝트를 실행하고 예산을 절약하며 보다 효율적으로 공동 작업을 수행할 수 있습니다. 이 섹션에서는 Azure File Storage를 만드는 방법에 대한 지침을 제공합니다. 다음 섹션에서는 Azure File Storage를 로컬 시스템에 탑재하는 방법에 대한 지침을 제공합니다. Azure 데이터 과학 Virtual Machine, Azure HDInsight Spark 클러스터 등 다른 리소스 공유에 대한 추가 정보는 [플랫폼 및 도구](platforms-and-tools.md)를 참조하세요. 이 항목에서는 데이터 과학 관점에서 요구 사항에 적합한 리소스를 선택하는 방법에 대한 지침과 제품 페이지 및 게시된 기타 유용한 관련 자습서에 대한 링크를 제공합니다.
 
->[AZURE.NOTE] 느리고 비용이 많이 드는 데이터 센터 간 데이터 전송을 방지하려면 리소스 그룹, 저장소 계정 및 Azure VM(예: DSVM)이 동일한 Azure 데이터 센터에 있는지 확인합니다. 
+>[AZURE.NOTE] 느리고 비용이 많이 드는 데이터 센터 간 데이터 전송을 방지하려면 리소스 그룹, 스토리지 계정 및 Azure VM(예: DSVM)이 동일한 Azure 데이터 센터에 있는지 확인합니다. 
 
 다음 스크립트를 실행하여 팀에 대한 Azure File Storage를 만듭니다. 팀의 Azure File Storage를 사용하여 전체 팀에 유용한 데이터 자산을 저장할 수 있습니다. 스크립트에서 Azure 계정 및 구독 정보를 묻는 메시지를 표시하면 이 자격 증명을 입력합니다. 
 
@@ -285,7 +285,7 @@ PowerShell 명령줄에서 이 스크립트를 실행합니다.
 
 ![23](./media/team-lead-tasks/team-leads-23-file-create-s2.png)
 
-선택한 구독에서 사용할 저장소 계정을 선택하거나 새 계정을 만듭니다.
+선택한 구독에서 사용할 스토리지 계정을 선택하거나 새 계정을 만듭니다.
 
 ![24](./media/team-lead-tasks/team-leads-24-file-create-s3.png)
 
@@ -315,7 +315,7 @@ Linux 셸에서 이 스크립트를 실행합니다.
 
 ![28](./media/team-lead-tasks/team-leads-28-file-create-linux-s2.png)
 
-선택한 구독에서 사용할 저장소 계정을 선택하거나 새 계정을 만듭니다.
+선택한 구독에서 사용할 스토리지 계정을 선택하거나 새 계정을 만듭니다.
 
 ![29](./media/team-lead-tasks/team-leads-29-file-create-linux-s3.png)
 

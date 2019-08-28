@@ -12,17 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2016
+ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 9f6e5b606caa661429a3c4d4a53e2021d57730aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ff987448e3900c2a533789b2f38fd3ced71ce72
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62116958"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516674"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>StorSimple 가상 배열에 StorSimple 디바이스 관리자 서비스 배포
+
 ## <a name="overview"></a>개요
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
 StorSimple Device Manager 서비스는 Microsoft Azure에서 실행되며 여러 StorSimple 디바이스에 연결됩니다. 서비스를 만든 후에 브라우저에서 실행되는 Microsoft Azure Portal에서 이러한 디바이스를 관리하는 데 사용할 수 있습니다. 하나의 중앙 위치에서 StorSimple 디바이스 관리자 서비스에 연결된 모든 디바이스를 모니터링하여 관리 부담을 최소화할 수 있습니다.
 
@@ -40,10 +43,10 @@ StorSimple 디바이스 관리자 서비스와 관련된 일반적인 태스크�
 서비스를 만들려면:
 
 * 엔터프라이즈 계약을 사용하여 구독
-* 활성 Microsoft Azure 저장소 계정
+* 활성 Microsoft Azure Storage 계정
 * 액세스 관리에 사용되는 청구 정보
 
-또한 서비스를 만들 때 저장소 계정을 생성하도록 선택할 수 있습니다.
+또한 서비스를 만들 때 스토리지 계정을 생성하도록 선택할 수 있습니다.
 
 하나의 서비스로 여러 디바이스를 관리할 수 있습니다. 하지만 하나의 디바이스는 여러 서비스로 확장할 수 없습니다. 대규모 엔터프라이즈는 서로 다른 구독, 조직 또는 배포 위치와 동작하는 여러 서비스 인스턴스를 가질 수 있습니다.
 

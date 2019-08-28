@@ -3,7 +3,7 @@ title: Azure Service Fabric에서 신뢰할 수 있는 컬렉션에 대한 지�
 description: Service Fabric의 신뢰할 수 있는 컬렉션을 사용하기 위한 지침 및 권장 사항
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: masnider,rajak,zhol
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
-ms.author: aljo
-ms.openlocfilehash: 810427c394c3912142e0a21cf1b5c29b81620afb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: dc7d60cb846aa16f2facd41f5b6b7ce52bcc8f41
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60774100"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599345"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Azure Service Fabric에서 신뢰할 수 있는 컬렉션에 대한 지침 및 권장 사항
 이 섹션에서는 신뢰할 수 있는 상태 관리자 및 신뢰할 수 있는 컬렉션을 사용하기 위한 지침을 제공합니다. 목표는 사용자에게 일반적인 문제가 발생하지 않도록 방지하는 것입니다.
@@ -32,7 +32,7 @@ ms.locfileid: "60774100"
 * 트랜잭션을 커밋, 중단 또는 삭제한 후에는 사용하지 마십시오.
 * 열거형이 만들어진 트랜잭션 범위 외부에서는 해당 열거형을 사용하지 마세요.
 * 다른 트랜잭션의 `using` 문 내에 트랜잭션을 만들지 마세요. 교착 상태가 발생할 수 있습니다.
-* 사용 하 여 신뢰할 수 있는 상태를 만들지 마십시오 `IReliableStateManager.GetOrAddAsync` 동일한 트랜잭션에서 신뢰할 수 있는 상태를 사용 합니다. 이 인해 InvalidOperationException 발생 합니다.
+* 를 사용 하 여 `IReliableStateManager.GetOrAddAsync` 신뢰할 수 있는 상태를 만들지 말고 동일한 트랜잭션에서 신뢰할 수 있는 상태를 사용 합니다. 이로 인해 InvalidOperationException이 발생 합니다.
 * `IComparable<TKey>` 구현이 올바른지 확인하세요. 시스템은 검사점 및 행 병합을 위해 `IComparable<TKey>`에 대한 종속성을 보유합니다.
 * 특정 유형의 교착 상태를 방지하기 위해 항목을 업데이트하려는 경우에는 항목을 읽을 때 업데이트 잠금을 사용하지 마세요.
 * 파티션당 신뢰할 수 있는 컬렉션 수를 1,000개 미만으로 유지하세요. 항목 수가 더 적은 신뢰할 수 있는 컬렉션보다 항목 수가 더 많은 신뢰할 수 있는 컬렉션이 우선됩니다.
@@ -50,13 +50,13 @@ ms.locfileid: "60774100"
 * 보조에서 읽기 작업은 쿼럼 커밋되지 않는 버전을 읽을 수 있습니다.
   즉, 단일 보조에서 읽은 데이터 버전은 거짓 처리될 수 있습니다.
   주에서 읽은 내용은 항상 안정적이며 거짓 처리될 수 없습니다.
-* 애플리케이션에서 유지되는 데이터의 보안/개인 정보 보호는 사용자가 결정하게 되며, 저장소 관리에서 제공하는 보호 기능이 적용됩니다. 운영 체제 디스크 암호화는 미사용 데이터를 보호하는 데 사용될 수 있습니다.  
+* 애플리케이션에서 유지되는 데이터의 보안/개인 정보 보호는 사용자가 결정하게 되며, 스토리지 관리에서 제공하는 보호 기능이 적용됩니다. 운영 체제 디스크 암호화는 미사용 데이터를 보호하는 데 사용될 수 있습니다.  
 
 ### <a name="next-steps"></a>다음 단계
 * [신뢰할 수 있는 컬렉션 작업](service-fabric-work-with-reliable-collections.md)
 * [트랜잭션 및 잠금](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * 데이터 관리
-  * [Backup 및 복원](service-fabric-reliable-services-backup-restore.md)
+  * [Backup 및 Restore 메서드](service-fabric-reliable-services-backup-restore.md)
   * [알림](service-fabric-reliable-services-notifications.md)
   * [Serialization 및 업그레이드](service-fabric-application-upgrade-data-serialization.md)
   * [신뢰할 수 있는 상태 관리자 구성](service-fabric-reliable-services-configuration.md)

@@ -6,17 +6,17 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/20/2019
-ms.openlocfilehash: a5d00c24531099e66afcb6ccf07cfdf99abd28d1
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.date: 08/13/2019
+ms.openlocfilehash: 20f6ff518daae71856446415099ae4cb095ff728
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60846245"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013619"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>Azure Database for MariaDB란?
 
-Azure Database for MariaDB는 Microsoft 클라우드의 관계형 데이터베이스 서비스입니다. Azure Database for MariaDB는 [MariaDB 커뮤니티 버전](https://mariadb.org/download/)(GPLv2 라이선스에 따라 사용 가능) 데이터베이스 엔진 10.2를 기반으로 합니다.
+Azure Database for MariaDB는 Microsoft 클라우드의 관계형 데이터베이스 서비스입니다. Azure Database for MariaDB는 [MariaDB 커뮤니티 버전](https://mariadb.org/download/)(GPLv2 라이선스에 따라 사용 가능) 데이터베이스 엔진 버전 10.2 및 10.3을 기반으로 합니다.
 
 Azure Database for MariaDB에서는 다음과 같은 기능을 제공합니다.
 
@@ -55,9 +55,9 @@ Azure에서는 Microsoft에서 관리하는 데이터 센터로 구성된 글로
 
 Azure 데이터베이스는 Azure Database for MariaDB가 가지고 있는 데이터 보안의 전통을 이어갑니다. Azure Database for MariaDB는 액세스를 제한하고, 미사용 및 이동 중인 데이터를 보호하며, 모니터 작업을 지원하는 기능을 제공합니다. Azure의 플랫폼 보안에 대한 자세한 내용을 보려면 [Azure 보안 센터](https://www.microsoft.com/en-us/trustcenter/security)를 방문하세요.
 
-Azure Database for MariaDB 서비스는 미사용 데이터에 대해 스토리지 암호화를 사용하고 FIPS 140-2를 준수합니다. 백업 데이터를 포함하여 데이터가 디스크에서 암호화됩니다. 쿼리를 실행할 때 엔진에서 만든 임시 파일은 디스크에서 암호화되지 않습니다. 이 서비스는 Azure Storage 암호화에 포함된 AES 256비트 암호화를 사용합니다. 키는 시스템에서 관리됩니다. 저장소 암호화는 항상 켜져 있고 해제할 수 없습니다.
+Azure Database for MariaDB 서비스는 미사용 데이터에 대해 스토리지 암호화를 사용하고 FIPS 140-2를 준수합니다. 백업 데이터를 포함하여 데이터가 디스크에서 암호화됩니다. 쿼리를 실행할 때 엔진에서 만든 임시 파일은 디스크에서 암호화되지 않습니다. 이 서비스는 Azure Storage 암호화에 포함된 AES 256비트 암호화를 사용합니다. 키는 시스템에서 관리됩니다. 스토리지 암호화는 항상 켜져 있고 해제할 수 없습니다.
 
-기본적으로 Azure Database for MariaDB 서비스는 네트워크를 통해 이동하는 데이터에 대해 [SSL 연결 보안 ](./concepts-ssl-connection-security.md)을 요구하도록 구성됩니다. 데이터베이스 서버와 클라이언트 응용 프로그램 간 SSL 연결을 적용하면 서버와 응용 프로그램 간 데이터 스트림을 암호화함으로써 “메시지 가로채기(man in the middle)” 공격으로부터 보호할 수 있습니다. 필요에 따라 클라이언트 응용 프로그램이 SSL 연결을 지원하지 않을 경우 데이터베이스 서비스에 연결하기 위해 SSL 요구 사항을 사용하지 않도록 설정할 수 있습니다.
+기본적으로 Azure Database for MariaDB 서비스는 네트워크를 통해 이동하는 데이터에 대해 [SSL 연결 보안 ](./concepts-ssl-connection-security.md)을 요구하도록 구성됩니다. 데이터베이스 서버와 클라이언트 애플리케이션 간 SSL 연결을 적용하면 서버와 애플리케이션 간 데이터 스트림을 암호화함으로써 “메시지 가로채기(man in the middle)” 공격으로부터 보호할 수 있습니다. 필요에 따라 클라이언트 애플리케이션이 SSL 연결을 지원하지 않을 경우 데이터베이스 서비스에 연결하기 위해 SSL 요구 사항을 사용하지 않도록 설정할 수 있습니다.
 
 ## <a name="contacts"></a>연락처
 

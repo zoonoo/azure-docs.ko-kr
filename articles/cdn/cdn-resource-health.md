@@ -7,19 +7,19 @@ author: zhangmanling
 manager: zhangmanling
 editor: ''
 ms.assetid: bf23bd89-35b2-4aca-ac7f-68ee02953f31
-ms.service: cdn
+ms.service: azure-cdn
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: ad4bf7ae97a08f89b9d82e1d4e025a5bd5d47fc1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6710f5e5b873f751ad21068acdc15d38574f8378
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696169"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593449"
 ---
 # <a name="monitor-the-health-of-azure-cdn-resources"></a>Azure CDN 리소스의 상태 모니터링
   
@@ -51,7 +51,7 @@ Azure CDN 리소스 상태는 [Azure 리소스 상태](../resource-health/resour
 
 아래에서 Azure CDN 리소스 상태와 관련된 상태를 확인할 수 있습니다.
 
-|Message | 권장 작업 |
+|메시지 | 권장 작업 |
 |---|---|
 |하나 이상의 CDN 엔드포인트를 중지, 제거 또는 잘못 구성했을 수 있습니다. | 하나 이상의 CDN 엔드포인트를 중지, 제거 또는 잘못 구성했을 수 있습니다.|
 |죄송합니다. CDN 관리 서비스를 현재 사용할 수 없습니다. | 여기에서 상태 업데이트를 다시 확인하세요. 예상 해결 시간 이후에도 문제가 지속되는 경우 지원에 문의하세요.|

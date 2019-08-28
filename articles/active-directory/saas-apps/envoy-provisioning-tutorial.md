@@ -8,19 +8,19 @@ writer: zchia
 manager: beatrizd
 ms.assetid: na
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
-ms.author: zchia
-ms.openlocfilehash: a68a8ec7c5df678918add4fcc519cc1dd918cb86
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.author: jeedes
+ms.openlocfilehash: df4c5895e15e7e9e63ad1f3d273af1c3fdab2e90
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67168078"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672718"
 ---
 # <a name="tutorial-configure-envoy-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Envoy 구성
 
@@ -31,7 +31,7 @@ ms.locfileid: "67168078"
 >
 > 이 커넥터는 현재 공개 미리 보기로 있습니다. 일반적인 Microsoft Azure 사용 약관 미리 보기 기능에 대 한 자세한 내용은 참조 하세요. [사용 특약 조건의 Microsoft Azure 미리 보기에 대 한](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -126,7 +126,7 @@ Envoy와 Azure AD 자동 사용자 프로 비전을 구성 하기 전에 Azure A
 
     ![알림 전자 메일](common/provisioning-notification-email.png)
 
-9. **저장**을 클릭합니다.
+9. **Save**을 클릭합니다.
 
 10. 아래는 **매핑을** 섹션에서 **동기화 할 Azure Active Directory 사용자를 Envoy**합니다.
     

@@ -8,20 +8,21 @@ manager: CelesteDG
 ms.assetid: d2caf121-9fbe-4f00-bf9d-8f3d1f00a6ff
 ms.service: active-directory
 ms.subservice: develop
+ms.custom: aaddev
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/24/2018
+ms.date: 08/19/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6d6de5186b1906d56b5a43317d9c36ad1cc6aad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fe0a3c8cbee92be85fe415a4d44d5493940bb45a
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540406"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69638632"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>방법: Azure PowerShell을 사용하여 인증서로 서비스 주체 만들기
 
@@ -39,7 +40,7 @@ ms.locfileid: "65540406"
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
-## <a name="required-permissions"></a>필요한 사용 권한
+## <a name="required-permissions"></a>필요한 권한
 
 이 문서를 완료하려면 Azure AD와 Azure 구독에 대한 충분한 권한이 있어야 합니다. 특히, Azure AD에서 앱을 만들고 역할에 서비스 주체를 할당할 수 있어야 합니다.
 
@@ -48,6 +49,9 @@ ms.locfileid: "65540406"
 ## <a name="create-service-principal-with-self-signed-certificate"></a>자체 서명된 인증서를 사용하여 서비스 주체 만들기
 
 다음 예제는 간단한 시나리오를 다룹니다. 이 시나리오에서는 [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal)을 사용하여 자체 서명된 인증서로 서비스 주체를 만들고, [New-AzureRmRoleAssignment](/powershell/module/az.resources/new-azroleassignment)를 사용하여 [참가자](../../role-based-access-control/built-in-roles.md#contributor) 역할을 서비스 주체에 할당합니다. 역할 할당의 범위가 현재 선택된 Azure 구독에 지정됩니다. 다른 구독을 선택하려면 [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext)를 사용합니다.
+
+> [!NOTE]
+> New-selfsignedcertificate cmdlet 및 PKI 모듈은 현재 PowerShell Core에서 지원 되지 않습니다. 
 
 ```powershell
 $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" `

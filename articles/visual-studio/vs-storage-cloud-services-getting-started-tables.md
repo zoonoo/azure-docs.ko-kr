@@ -3,7 +3,7 @@ title: Table Storage 및 Visual Studio 연결 서비스 시작(클라우드 서�
 description: Visual Studio 연결 서비스를 사용하여 스토리지 계정에 연결한 후 Visual Studio 클라우드 서비스 프로젝트에서 Azure Table Storage 사용을 시작하는 방법입니다.
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: a3a11ed8-ba7f-4193-912b-e555f5b72184
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,24 +12,24 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: cec8ab9d678ff559176580fa8eccc261f449f4c5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5e8c1a92e79eea61e2807c7007ccaea5819e8529
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60362002"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510730"
 ---
 # <a name="getting-started-with-azure-table-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Azure Table Storage 및 Visual Studio 연결 서비스 시작(클라우드 서비스 프로젝트)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## <a name="overview"></a>개요
-이 문서에서는 Visual Studio **연결된 서비스 추가** 대화 상자를 사용하여 클라우드 서비스 프로젝트에서 Azure 스토리지 계정을 만들거나 참조한 후 Visual Studio에서 Azure Table Storage를 사용하는 방법을 설명합니다. **연결된 서비스 추가** 작업은 프로젝트의 Azure 저장소에 액세스하는 데 적합한 NuGet 패키지를 설치하고 프로젝트 구성 파일에 저장소 계정에 대한 연결 문자열을 추가합니다.
+이 문서에서는 Visual Studio **연결된 서비스 추가** 대화 상자를 사용하여 클라우드 서비스 프로젝트에서 Azure 스토리지 계정을 만들거나 참조한 후 Visual Studio에서 Azure Table Storage를 사용하는 방법을 설명합니다. **연결된 서비스 추가** 작업은 프로젝트의 Azure Storage에 액세스하는 데 적합한 NuGet 패키지를 설치하고 프로젝트 구성 파일에 스토리지 계정에 대한 연결 문자열을 추가합니다.
 
 Azure Table Storage 서비스를 사용하면 많은 양의 구조화된 데이터를 저장할 수 있습니다. 이 서비스는 Azure 클라우드 내부 및 외부에서 인증된 호출을 수락하는 NoSQL 데이터 저장소입니다. Azure 테이블은 구조화된 비관계형 데이터를 저장하는 데 적합합니다.
 
-시작하려면 먼저 저장소 계정에서 테이블을 만들어야 합니다. 코드에서 Azure 테이블을 만드는 방법과 기본 테이블 및 테이블 엔터티 추가, 수정, 읽기와 같은 엔터티 작업을 수행하는 방법을 살펴보겠습니다. 샘플은 C\# 코드로 작성되었으며, [.NET용 Microsoft Azure Storage 클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/dn261237.aspx)를 사용합니다.
+시작하려면 먼저 스토리지 계정에서 테이블을 만들어야 합니다. 코드에서 Azure 테이블을 만드는 방법과 기본 테이블 및 테이블 엔터티 추가, 수정, 읽기와 같은 엔터티 작업을 수행하는 방법을 살펴보겠습니다. 샘플은 C\# 코드로 작성되었으며, [.NET용 Microsoft Azure Storage 클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/dn261237.aspx)를 사용합니다.
 
-**참고:** 일부 Azure storage에 대 한 호출을 수행 하는 Api는 비동기적입니다. 자세한 내용은 [Async 및 Await를 사용한 비동기 프로그래밍](https://msdn.microsoft.com/library/hh191443.aspx) 을 참조하세요. 아래 코드에서는 비동기 프로그래밍 메서드를 사용한다고 가정합니다.
+**참고:** Azure storage에 대 한 호출을 수행 하는 일부 Api는 비동기적입니다. 자세한 내용은 [Async 및 Await를 사용한 비동기 프로그래밍](https://msdn.microsoft.com/library/hh191443.aspx) 을 참조하세요. 아래 코드에서는 비동기 프로그래밍 메서드를 사용한다고 가정합니다.
 
 * 테이블을 프로그래밍 방식으로 조작하는 방법에 대한 자세한 내용은 [.NET을 사용하여 Azure Table Storage 시작](../storage/storage-dotnet-how-to-use-tables.md) 을 참조하세요.
 * Azure Storage에 대한 일반적인 내용은 [스토리지 설명서](https://azure.microsoft.com/documentation/services/storage/)를 참조하세요.
@@ -46,7 +46,7 @@ Azure Table Storage 서비스를 사용하면 많은 양의 구조화된 데이�
         using Microsoft.WindowsAzure.Storage.Table;
         using System.Threading.Tasks;
         using LogLevel = Microsoft.Framework.Logging.LogLevel;
-2. 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다.
+2. 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 스토리지 연결 문자열 및 스토리지 계정 정보를 가져오려면 다음 코드를 사용합니다.
    
          CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
            CloudConfigurationManager.GetSetting("<storage account name>
@@ -55,7 +55,7 @@ Azure Table Storage 서비스를 사용하면 많은 양의 구조화된 데이�
    > 다음 샘플의 코드 앞에 위의 코드를 모두 사용합니다.
    > 
    > 
-3. 저장소 계정의 테이블 개체를 참조하려면 **CloudTableClient** 개체를 가져옵니다.
+3. 스토리지 계정의 테이블 개체를 참조하려면 **CloudTableClient** 개체를 가져옵니다.
    
          // Create the table client.
          CloudTableClient tableClient = storageAccount.CreateCloudTableClient();

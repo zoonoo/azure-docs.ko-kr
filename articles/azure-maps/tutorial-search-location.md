@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 21c7e996cfe2f07d9a5b056d8cbc22f238bb48fd
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: a75f3f606129d370457816507537f2cb4491adf8
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357611"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478821"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Azure Maps를 사용하여 주변 관심 지점 검색
 
@@ -85,7 +85,7 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
         <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
 
         <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
-        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
+        <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
 
         <script>
         function GetMap(){
@@ -239,9 +239,9 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
     map.events.add('mouseover', resultLayer, showPopup);
     ```
 
-    API `sup`은 맵의 필수 지점에 고정된 정보 창을 제공합니다. 
+    API `*atlas.Popup`은 맵의 필수 지점에 고정된 정보 창을 제공합니다. 
 
-2. *스크립트* 태그에서, `GetMap` 함수 뒤에 팝업의 mouseover 결과 정보를 표시하는 다음 코드를 추가합니다.
+2. `GetMap` 함수 내에 mouseover 결과 정보를 팝업에 표시하는 다음 코드를 추가합니다.
 
     ```JavaScript
     function showPopup(e) {

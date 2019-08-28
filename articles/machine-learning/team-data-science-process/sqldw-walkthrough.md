@@ -68,7 +68,7 @@ Azure 데이터 과학 환경을 설정하려면 다음 단계를 수행합니�
 **A: 모든 지역에서 Blob 및 File Storage에 고객 관리 키 및 SSE를 사용할 수 있습니다.**
 
 * 이 문서에서는 Azure CLI에서 SMB 탑재를 사용하여 Linux VM에서 Azure File 스토리지 서비스를 사용하는 방법을 보여 줍니다 **.** Azure File Storage를 사용하여 파일 공유에 의존하는 레거시 응용 프로그램을 비경제적인 다시 쓰기 작업 없이 빠르게 Azure로 마이그레이션할 수 있습니다. File Storage를 사용하여 세상에 공개적으로 표시하거나 응용 프로그램 데이터를 비공개적으로 저장할 수 있습니다.
-* 고유의 Azure 저장소 계정을 만들려면 [Azure 저장소 계정 정보](../../storage/common/storage-create-storage-account.md)에 요약된 단계를 수행합니다. 이 연습의 뒷부분에서 필요하므로 다음 저장소 계정 자격 증명에 대한 값을 적어두어야 합니다.
+* 고유의 Azure Storage 계정을 만들려면 [Azure Storage 계정 정보](../../storage/common/storage-create-storage-account.md)에 요약된 단계를 수행합니다. 이 연습의 뒷부분에서 필요하므로 다음 스토리지 계정 자격 증명에 대한 값을 적어두어야 합니다.
 
   * **Storage 계정 이름**
   * **Storage 계정 키**
@@ -123,7 +123,7 @@ Windows PowerShell 명령 콘솔을 엽니다. 다음 PowerShell 명령을 실�
 
     ./SQLDW_Data_Import.ps1
 
-Blob 및 파일 저장을 위한 SSE는 Azure Key Vault와 통합되므로 Key Vault를 사용하여 암호화 키를 관리할 수 있습니다. 이 PowerShell 스크립트가 처음 실행을 완료하는 경우 입력한 자격 증명은 현재 작업 디렉터리의 SQLDW.conf 구성 파일에 작성됩니다. 이 PowerShell 스크립트 파일을 나중에 실행하는 경우 이 구성 파일에서 필요한 매개 변수를 모두 읽는 옵션이 있습니다. 일부 매개 변수를 변경해야 할 경우 표시되는 메시지에 따라 이 구성 파일을 삭제하고 매개 변수 값을 입력하여 화면에 매개 변수를 입력하거나 *-DestDir* 디렉터리의 SQLDW.conf 파일을 편집하여 매개 변수 값을 변경하도록 선택할 수 있습니다.
+Blob 및 파일 스토리지을 위한 SSE는 Azure Key Vault와 통합되므로 Key Vault를 사용하여 암호화 키를 관리할 수 있습니다. 이 PowerShell 스크립트가 처음 실행을 완료하는 경우 입력한 자격 증명은 현재 작업 디렉터리의 SQLDW.conf 구성 파일에 작성됩니다. 이 PowerShell 스크립트 파일을 나중에 실행하는 경우 이 구성 파일에서 필요한 매개 변수를 모두 읽는 옵션이 있습니다. 일부 매개 변수를 변경해야 할 경우 표시되는 메시지에 따라 이 구성 파일을 삭제하고 매개 변수 값을 입력하여 화면에 매개 변수를 입력하거나 *-DestDir* 디렉터리의 SQLDW.conf 파일을 편집하여 매개 변수 값을 변경하도록 선택할 수 있습니다.
 
 > [!NOTE]
 > Azure SQL DW에 이미 있는 이름과 스키마 이름 충돌을 방지하기 위해 SQLDW.conf 파일에서 직접 매개 변수를 읽을 때 SQLDW.conf 파일의 스키마 이름에 각 실행에 대한 기본 스키마 이름으로 임의의 3자리 수가 추가됩니다. PowerShell 스크립트에서 스키마 이름을 지정하라는 메시지가 표시될 수 있습니다. 이 이름은 사용자가 임의로 지정할 수 있습니다.
@@ -173,7 +173,7 @@ Blob 및 파일 저장을 위한 SSE는 Azure Key Vault와 통합되므로 Key V
           CREATE DATABASE SCOPED CREDENTIAL {KeyAlias}
           WITH IDENTITY = ''asbkey'' ,
           Secret = ''{StorageAccountKey}''
-  * Azure 저장소 Blob에 대한 외부 데이터 원본 만들기
+  * Azure Storage Blob에 대한 외부 데이터 원본 만들기
 
           CREATE EXTERNAL DATA SOURCE {nyctaxi_trip_storage}
           WITH
@@ -307,7 +307,7 @@ Blob 및 파일 저장을 위한 SSE는 Azure Key Vault와 통합되므로 Key V
             )
             ;
 
-저장소 계정의 지리적 위치는 로드 시간을 영향을 줍니다.
+스토리지 계정의 지리적 위치는 로드 시간을 영향을 줍니다.
 
 > [!NOTE]
 > 프라이빗 Blob 스토리지 계정의 지리적 위치에 따라 공용 Blob에서 프라이빗 스토리지 계정으로 데이터를 복사하는 프로세스는 약 15분 또는 더 오래 걸릴 수 있으며, 스토리지 계정에서 Azure SQL DW로 데이터를 로드하는 프로세스는 20분 이상 걸릴 수 있습니다.
@@ -376,7 +376,7 @@ Visual Studio에서 SQL DW 로그인 이름 및 암호를 사용하여 Azure SQL
 
 **출력:** 쿼리는 13,369개 medallion(택시)과 2013년에 이를 통해 완료된 운행 수를 지정하는 행이 있는 테이블을 반환합니다. 마지막 열에는 완료된 여정 수가 포함됩니다.
 
-### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>탐색: medallion 및 hack_license별 운행 분포
+### <a name="exploration-trip-distribution-by-medallion-and-hack_license"></a>탐색: medallion 및 hack_license별 운행 분포
 이 예제에서는 지정된 기간 내의 100개가 넘는 여정을 완료한 medallion(택시 번호) 및 hack_license 번호(드라이버)를 식별합니다.
 
     SELECT medallion, hack_license, COUNT(*)
@@ -615,7 +615,7 @@ AzureML 작업 영역을 이미 설정한 경우 샘플 IPython Notebook을 Azur
     CONNECTION_STRING = 'DRIVER={'+DRIVER+'};SERVER='+SERVER_NAME+';DATABASE='+DATABASE_NAME+';UID='+USERID+';PWD='+PASSWORD
     conn = pyodbc.connect(CONNECTION_STRING)
 
-### <a name="report-number-of-rows-and-columns-in-table-nyctaxitrip"></a><nyctaxi_trip> 테이블의 행 및 열 수 보고
+### <a name="report-number-of-rows-and-columns-in-table-nyctaxi_trip"></a><nyctaxi_trip> 테이블의 행 및 열 수 보고
     nrows = pd.read_sql('''
         SELECT SUM(rows) FROM sys.partitions
         WHERE object_id = OBJECT_ID('<schemaname>.<nyctaxi_trip>')
@@ -633,7 +633,7 @@ AzureML 작업 영역을 이미 설정한 경우 샘플 IPython Notebook을 Azur
 * 총 행 수 = 173179759
 * 총 열 수 = 14
 
-### <a name="report-number-of-rows-and-columns-in-table-nyctaxifare"></a><nyctaxi_fare> 테이블의 행 및 열 수 보고
+### <a name="report-number-of-rows-and-columns-in-table-nyctaxi_fare"></a><nyctaxi_fare> 테이블의 행 및 열 수 보고
     nrows = pd.read_sql('''
         SELECT SUM(rows) FROM sys.partitions
         WHERE object_id = OBJECT_ID('<schemaname>.<nyctaxi_fare>')
@@ -825,7 +825,7 @@ and
 6. 해결할 학습 문제에 따라 하나 이상의 기계 학습 알고리즘을 선택하세요. 이진 분류, 다중 클래스 분류, 회귀)을 선택합니다.
 7. 학습 데이터 세트를 사용하여 하나 이상의 모델을 학습합니다.
 8. 학습된 모델을 사용하여 유효성 검사 데이터 세트의 점수를 매깁니다.
-9. 모델을 평가하여 학습 문제에 대한 관련 메트릭을 계산합니다.
+9. 모델을 평가하여 학습 문제에 대한 관련 메트릭을 컴퓨팅합니다.
 10. 모델을 미세 조정하고 배포할 가장 적합한 모델을 선택합니다.
 
 이 연습에서는 이미 SQL Data Warehouse에서 데이터를 탐색 및 엔지니어링하고 Azure Machine Learning Studio에서 수집할 샘플 크기를 결정했습니다. 예측 모델 중 하나 이상을 빌드하는 절차는 다음과 같습니다.

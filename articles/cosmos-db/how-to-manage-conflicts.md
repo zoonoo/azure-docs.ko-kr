@@ -4,14 +4,14 @@ description: Azure Cosmos DB의 충돌을 관리하는 방법 알아보기
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
+ms.date: 08/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 63d8b0dc8c446f70b981aacd1a18e6a60a217983
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 77fb0e195cee03405c4a601fe8c57d4a2690a4b2
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240945"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815080"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 충돌 해결 정책 관리
 
@@ -19,9 +19,9 @@ ms.locfileid: "66240945"
 
 ## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>최종 작성자 인정(last-writer-wins) 충돌 해결 정책 만들기
 
-다음 샘플에서는 최종 작성자 인정 충돌 해결 정책을 사용하여 컨테이너를 설정하는 방법을 보여 줍니다. 최종 작성자 인정(last-writer-wins)의 기본 경로는 타임스탬프 필드 또는 `_ts` 속성입니다. 숫자 형식의 사용자 정의 경로로 설정할 수도 있습니다. 충돌이 발생할 경우 가장 높은 값이 적용됩니다. 경로가 설정되지 않았거나 잘못된 경우 기본값인 `_ts`로 설정됩니다. 이 정책을 통해 해결된 충돌은 충돌 피드에 표시되지 않습니다. 이 정책은 모든 API에서 사용할 수 있습니다.
+다음 샘플에서는 최종 작성자 인정 충돌 해결 정책을 사용하여 컨테이너를 설정하는 방법을 보여 줍니다. 최종 작성자 인정(last-writer-wins)의 기본 경로는 타임스탬프 필드 또는 `_ts` 속성입니다. SQL API의 경우, 숫자 형식의 사용자 정의 경로로 설정할 수도 있습니다. 충돌이 발생할 경우 가장 높은 값이 적용됩니다. 경로가 설정되지 않았거나 잘못된 경우 기본값인 `_ts`로 설정됩니다. 이 정책을 통해 해결된 충돌은 충돌 피드에 표시되지 않습니다. 이 정책은 모든 API에서 사용할 수 있습니다.
 
-### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK
+### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK V2
 
 ```csharp
 DocumentCollection lwwCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
@@ -34,6 +34,20 @@ DocumentCollection lwwCollection = await createClient.CreateDocumentCollectionIf
           ConflictResolutionPath = "/myCustomId",
       },
   });
+```
+
+### <a id="create-custom-conflict-resolution-policy-lww-dotnet-v3"></a>.NET SDK V3
+
+```csharp
+Container container = await createClient.GetDatabase(this.databaseName)
+    .CreateContainerIfNotExistsAsync(new ContainerProperties(this.lwwCollectionName, "/partitionKey")
+    {
+        ConflictResolutionPolicy = new ConflictResolutionPolicy()
+        {
+            Mode = ConflictResolutionMode.LastWriterWins,
+            ResolutionPath = "/myCustomId",
+        }
+    });
 ```
 
 ### <a id="create-custom-conflict-resolution-policy-lww-java-async"></a>Java 비동기 SDK
@@ -75,13 +89,14 @@ const { container: lwwContainer } = await database.containers.createIfNotExists(
 
 ```python
 udp_collection = {
-                'id': self.udp_collection_name,
-                'conflictResolutionPolicy': {
-                    'mode': 'LastWriterWins',
-                    'conflictResolutionPath': '/myCustomId'
-                    }
-                }
-udp_collection = self.try_create_document_collection(create_client, database, udp_collection)
+    'id': self.udp_collection_name,
+    'conflictResolutionPolicy': {
+        'mode': 'LastWriterWins',
+        'conflictResolutionPath': '/myCustomId'
+    }
+}
+udp_collection = self.try_create_document_collection(
+    create_client, database, udp_collection)
 ```
 
 ## <a name="create-a-custom-conflict-resolution-policy-using-a-stored-procedure"></a>저장 프로시저를 사용하여 사용자 지정 충돌 해결 정책 만들기
@@ -99,7 +114,6 @@ udp_collection = self.try_create_document_collection(create_client, database, ud
 
 > [!IMPORTANT]
 > 저장 프로시저와 마찬가지로, 사용자 지정 충돌 해결 프로시저는 파티션 키가 동일한 모든 데이터에 액세스하여 충돌 해결을 위한 삽입, 업데이트 또는 삭제 작업을 수행할 수 있습니다.
-
 
 이 샘플 저장 프로시저는 `/myCustomId` 경로에서 가장 낮은 값을 선택하여 충돌을 해결합니다.
 
@@ -157,7 +171,7 @@ function resolver(incomingItem, existingItem, isTombstone, conflictingItems) {
 }
 ```
 
-### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>.NET SDK
+### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>.NET SDK V2
 
 ```csharp
 DocumentCollection udpCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
@@ -178,6 +192,24 @@ UriFactory.CreateStoredProcedureUri(this.databaseName, this.udpCollectionName, "
     Id = "resolver",
     Body = File.ReadAllText(@"resolver.js")
 });
+```
+
+### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet-v3"></a>.NET SDK V3
+
+```csharp
+Container container = await createClient.GetDatabase(this.databaseName)
+    .CreateContainerIfNotExistsAsync(new ContainerProperties(this.udpCollectionName, "/partitionKey")
+    {
+        ConflictResolutionPolicy = new ConflictResolutionPolicy()
+        {
+            Mode = ConflictResolutionMode.Custom,
+            ResolutionProcedure = string.Format("dbs/{0}/colls/{1}/sprocs/{2}", this.databaseName, this.udpCollectionName, "resolver")
+        }
+    });
+
+await container.Scripts.CreateStoredProcedureAsync(
+    new StoredProcedureProperties("resolver", File.ReadAllText(@"resolver.js"))
+);
 ```
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-java-async"></a>Java 비동기 SDK
@@ -228,23 +260,23 @@ const { container: udpContainer } = await database.containers.createIfNotExists(
 
 ```python
 udp_collection = {
-  'id': self.udp_collection_name,
-  'conflictResolutionPolicy': {
-      'mode': 'Custom',
-      'conflictResolutionProcedure': 'dbs/' + self.database_name + "/colls/" + self.udp_collection_name + '/sprocs/resolver'
-      }
-  }
-udp_collection = self.try_create_document_collection(create_client, database, udp_collection)
+    'id': self.udp_collection_name,
+    'conflictResolutionPolicy': {
+        'mode': 'Custom',
+        'conflictResolutionProcedure': 'dbs/' + self.database_name + "/colls/" + self.udp_collection_name + '/sprocs/resolver'
+    }
+}
+udp_collection = self.try_create_document_collection(
+    create_client, database, udp_collection)
 ```
 
 컨테이너가 만들어지면 `resolver` 저장 프로시저를 만들어야 합니다.
-
 
 ## <a name="create-a-custom-conflict-resolution-policy"></a>사용자 지정 충돌 해결 정책 만들기
 
 다음 샘플은 사용자 지정 충돌 해결 정책을 사용하여 컨테이너를 설정하는 방법을 보여줍니다. 이러한 충돌은 충돌 피드에 표시됩니다.
 
-### <a id="create-custom-conflict-resolution-policy-dotnet"></a>.NET SDK
+### <a id="create-custom-conflict-resolution-policy-dotnet"></a>.NET SDK V2
 
 ```csharp
 DocumentCollection manualCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
@@ -256,6 +288,19 @@ DocumentCollection manualCollection = await createClient.CreateDocumentCollectio
           Mode = ConflictResolutionMode.Custom,
       },
   });
+```
+
+### <a id="create-custom-conflict-resolution-policy-dotnet-v3"></a>.NET SDK V3
+
+```csharp
+Container container = await createClient.GetDatabase(this.databaseName)
+    .CreateContainerIfNotExistsAsync(new ContainerProperties(this.manualCollectionName, "/partitionKey")
+    {
+        ConflictResolutionPolicy = new ConflictResolutionPolicy()
+        {
+            Mode = ConflictResolutionMode.Custom
+        }
+    });
 ```
 
 ### <a id="create-custom-conflict-resolution-policy-java-async"></a>Java 비동기 SDK
@@ -297,11 +342,11 @@ const {
 ```python
 database = client.ReadDatabase("dbs/" + self.database_name)
 manual_collection = {
-                    'id': self.manual_collection_name,
-                    'conflictResolutionPolicy': {
-                          'mode': 'Custom'
-                        }
-                    }
+    'id': self.manual_collection_name,
+    'conflictResolutionPolicy': {
+        'mode': 'Custom'
+    }
+}
 manual_collection = client.CreateContainer(database['_self'], collection)
 ```
 
@@ -309,10 +354,32 @@ manual_collection = client.CreateContainer(database['_self'], collection)
 
 다음 샘플은 컨테이너의 충돌 피드에서 읽는 방법을 보여줍니다. 충돌이 자동으로 해결되지 않았거나 사용자 지정 충돌 정책을 사용하는 경우에만 충돌 피드에 충돌이 표시됩니다.
 
-### <a id="read-from-conflict-feed-dotnet"></a>.NET SDK
+### <a id="read-from-conflict-feed-dotnet"></a>.NET SDK V2
 
 ```csharp
 FeedResponse<Conflict> conflicts = await delClient.ReadConflictFeedAsync(this.collectionUri);
+```
+
+### <a id="read-from-conflict-feed-dotnet-v3"></a>.NET SDK V3
+
+```csharp
+FeedIterator<ConflictProperties> conflictFeed = container.Conflicts.GetConflictIterator();
+while (conflictFeed.HasMoreResults)
+{
+    FeedResponse<ConflictProperties> conflicts = await conflictFeed.ReadNextAsync();
+    foreach (ConflictProperties conflict in conflicts)
+    {
+        // Read the conflicted content
+        MyClass intendedChanges = container.Conflicts.ReadConflictContent<MyClass>(conflict);
+        MyClass currentState = await container.Conflicts.ReadCurrentAsync<MyClass>(conflict, new PartitionKey(intendedChanges.MyPartitionKey));
+
+        // Do manual merge among documents
+        await container.ReplaceItemAsync<MyClass>(intendedChanges, intendedChanges.Id, new PartitionKey(intendedChanges.MyPartitionKey));
+
+        // Delete the conflict
+        await container.Conflicts.DeleteAsync(conflict, new PartitionKey(intendedChanges.MyPartitionKey));
+    }
+}
 ```
 
 ### <a id="read-from-conflict-feed-java-async"></a>Java 비동기 SDK
@@ -359,10 +426,10 @@ while conflict:
 
 다음 Azure Cosmos DB 개념에 대해 자세히 알아봅니다.
 
-* [글로벌 배포 - 내부 살펴보기](global-dist-under-the-hood.md)
-* [애플리케이션에서 다중 마스터를 구성하는 방법](how-to-multi-master.md)
-* [클라이언트 멀티 호밍 구성](how-to-manage-database-account.md#configure-multiple-write-regions)
-* [Azure Cosmos DB 계정에서 지역 추가 또는 제거](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-* [애플리케이션에서 다중 마스터를 구성하는 방법](how-to-multi-master.md)
-* [분할 및 데이터 배포](partition-data.md)
-* [Azure Cosmos DB의 인덱싱](indexing-policies.md)
+- [글로벌 배포 - 내부 살펴보기](global-dist-under-the-hood.md)
+- [애플리케이션에서 다중 마스터를 구성하는 방법](how-to-multi-master.md)
+- [클라이언트 멀티 호밍 구성](how-to-manage-database-account.md#configure-multiple-write-regions)
+- [Azure Cosmos DB 계정에서 지역 추가 또는 제거](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+- [애플리케이션에서 다중 마스터를 구성하는 방법](how-to-multi-master.md)
+- [분할 및 데이터 배포](partition-data.md)
+- [Azure Cosmos DB의 인덱싱](indexing-policies.md)

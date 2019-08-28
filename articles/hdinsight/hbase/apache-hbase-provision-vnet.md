@@ -39,7 +39,7 @@ Azure HDInsight의 Apache HBase 클러스터를 만드는 방법 알아보기는
 > * **위치**: 미국 동부 2
 > * **클러스터 버전**: 3.6
 > * **클러스터 작업자 노드 수**: 2
-> * **기본 저장소 계정**: 고유한 문자열
+> * **기본 스토리지 계정**: 고유한 문자열
 > * **가상 네트워크 이름**: &lt;클러스터 이름>-vnet
 > * **가상 네트워크 주소 공간**: 10.0.0.0/16
 > * **서브넷 이름**: subnet1
@@ -63,7 +63,7 @@ Azure HDInsight의 Apache HBase 클러스터를 만드는 방법 알아보기는
    * **위에 명시된 사용 약관에 동의함**: (선택)
 3. **구매**를 클릭합니다. 클러스터를 만들려면 20분 정도가 걸립니다. 클러스터가 만들어졌으면 포털에서 클러스터 블레이드를 클릭하면 열립니다.
 
-문서를 완료 한 후에 클러스터를 삭제 하는 것이 좋습니다. HDInsight를 사용하면 데이터가 Azure Storage에 저장되기 때문에 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 저장소에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다. 클러스터 삭제에 대한 내용은 [Azure Portal을 사용하여 HDInsight에서 Apache Hadoop 클러스터 관리](../hdinsight-administer-use-portal-linux.md#delete-clusters)를 참조하세요.
+문서를 완료 한 후에 클러스터를 삭제 하는 것이 좋습니다. HDInsight를 사용하면 데이터가 Azure Storage에 저장되기 때문에 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 스토리지에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다. 클러스터 삭제에 대한 내용은 [Azure Portal을 사용하여 HDInsight에서 Apache Hadoop 클러스터 관리](../hdinsight-administer-use-portal-linux.md#delete-clusters)를 참조하세요.
 
 새 HBase 클러스터 사용을 시작하려는 경우 [HDInsight에서 Apache Hadoop을 통해 Apache HBase 사용 시작](./apache-hbase-tutorial-get-started-linux.md)의 절차를 따르면 됩니다.
 

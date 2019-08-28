@@ -4,7 +4,7 @@ description: C# 및 Resource Manager 템플릿을 사용하여 Azure VM을 배�
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: bfba66e8-c923-4df2-900a-0c2643b81240
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 80c2a1f4b9b724058b8b573f265a3cb2a99302a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a798f4b90057cd4220467cec4756ddda10fe456e
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66305955"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718712"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>C# 및 Resource Manager 템플릿을 사용하여 Azure Virtual Machine 배포
 
@@ -253,9 +253,9 @@ var resourceGroup = azure.ResourceGroups.Define(groupName)
     .Create();
 ```
 
-## <a name="create-a-storage-account"></a>저장소 계정 만들기
+## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-템플릿 및 매개 변수는 Azure의 저장소 계정에서 배포됩니다. 이 단계에서는 계정을 만들고 파일을 업로드합니다. 
+템플릿 및 매개 변수는 Azure의 스토리지 계정에서 배포됩니다. 이 단계에서는 계정을 만들고 파일을 업로드합니다. 
 
 계정을 만들려면 Main 메서드에 다음 코드를 추가합니다.
 
@@ -295,7 +295,7 @@ paramblob.UploadFromFileAsync("..\\..\\Parameters.json").Result();
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-만든 저장소 계정에서 템플릿 및 매개 변수를 배포합니다. 
+만든 스토리지 계정에서 템플릿 및 매개 변수를 배포합니다. 
 
 템플릿을 배포하려면 Main 메서드에 다음 코드를 추가합니다.
 

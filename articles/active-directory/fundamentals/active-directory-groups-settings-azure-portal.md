@@ -2,23 +2,23 @@
 title: 그룹 정보 편집 - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory를 사용하여 그룹 정보를 편집하는 방법에 대한 지침입니다.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 08/27/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 691f705574050b15869a0ac8b7d128507e5aae10
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dc06abca08b2522ac57552e85f7c1bac3ef854af
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60248799"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561878"
 ---
 # <a name="edit-your-group-information-using-azure-active-directory"></a>Azure Active Directory를 사용하여 그룹 정보 편집
 
@@ -39,7 +39,7 @@ Azure AD(Azure Active Directory)를 사용하여 이름, 설명 또는 멤버 �
 
 4. **MDM policy - West** 그룹을 선택한 후 **관리** 영역에서 **속성**을 선택합니다.
 
-    ![멤버 옵션 및 강조 표시 정보를 사용 하 여 그룹 개요 페이지](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
+    ![멤버 옵션과 정보가 강조 표시 된 그룹 개요 페이지](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
 
 5. 다음을 포함하여 필요에 따라 **일반 설정** 정보를 업데이트합니다.
 

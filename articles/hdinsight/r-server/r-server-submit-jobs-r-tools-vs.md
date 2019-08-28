@@ -63,7 +63,7 @@ RTVS는 ggplot2 및 ggviz 등의 R 라이브러리, [R 코드 디버깅](https:/
 
 ## <a name="submit-jobs-to-an-hdinsight-ml-services-cluster"></a>HDInsight ML 서비스 클러스터에 작업 제출
 
-PuTTY가 장착된 Windows 컴퓨터에서 Microsoft ML Server/Microsoft R Client를 사용하여, 로컬 클라이언트에서 HDInsight 클러스터로 분산 `RevoScaleR` 함수를 실행하는 계산 컨텍스트를 만들 수 있습니다. `RxSpark`를 통해 사용자 이름, Apache Hadoop 클러스터의 Edge 노드, SSH 스위치 등을 지정하여 컴퓨팅 컨텍스트를 만듭니다.
+PuTTY가 장착된 Windows 컴퓨터에서 Microsoft ML Server/Microsoft R Client를 사용하여, 로컬 클라이언트에서 HDInsight 클러스터로 분산 `RevoScaleR` 함수를 실행하는 컴퓨팅 컨텍스트를 만들 수 있습니다. `RxSpark`를 통해 사용자 이름, Apache Hadoop 클러스터의 Edge 노드, SSH 스위치 등을 지정하여 컴퓨팅 컨텍스트를 만듭니다.
 
 1. HDInsight에서 기계 학습 서비스에 지 노드 주소는 `CLUSTERNAME-ed-ssh.azurehdinsight.net` 여기서 `CLUSTERNAME` ML 서비스 클러스터의 이름입니다.
 
@@ -111,13 +111,13 @@ PuTTY가 장착된 Windows 컴퓨터에서 Microsoft ML Server/Microsoft R Clien
 
 1. `rxHadoopCopy`가 예제 데이터 폴더의 `people.json` 파일을 새로 만든 `/user/RevoShare/newUser` 폴더로 복사했는지 확인합니다.
 
-    1. Azure의 HDInsight ML 서비스 클러스터 창의 왼쪽 메뉴에서 **저장소 계정**을 선택합니다.
+    1. Azure의 HDInsight ML 서비스 클러스터 창의 왼쪽 메뉴에서 **스토리지 계정**을 선택합니다.
 
         ![Storage 계정](./media/r-server-submit-jobs-r-tools-vs/storage-accounts.png)
 
-    2. 클러스터의 기본 저장소 계정을 선택하고 컨테이너/디렉터리 이름을 적어둡니다.
+    2. 클러스터의 기본 스토리지 계정을 선택하고 컨테이너/디렉터리 이름을 적어둡니다.
 
-    3. 저장소 계정 창의 왼쪽 메뉴에서 **컨테이너**를 선택합니다.
+    3. 스토리지 계정 창의 왼쪽 메뉴에서 **컨테이너**를 선택합니다.
 
         ![컨테이너](./media/r-server-submit-jobs-r-tools-vs/containers.png)
 

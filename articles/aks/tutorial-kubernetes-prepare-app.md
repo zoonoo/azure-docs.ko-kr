@@ -2,22 +2,22 @@
 title: Azure의 Kubernetes 자습서 - 애플리케이션 준비
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 Docker Compose를 사용하여 AKS에 배포할 수 있는 다중 컨테이너 앱을 준비하고 빌드하는 방법을 알아봅니다.
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: twhitney
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 8fdc36215841348cf62cd61245950be6573a1938
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 3ff93d006b7599eaa3f97c33efb047ce480c301c
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304443"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68740944"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에 대한 애플리케이션 준비
 
-7개 중 1단계인 이 자습서에서는 Kubernetes에서 사용할 수 있도록 다중 컨테이너 애플리케이션을 준비하는 과정입니다. Docker Compose 같은 기존 개발 도구는 로컬로 애플리케이션을 빌드하고 테스트하는 데 사용됩니다. 다음 방법에 대해 알아봅니다.
+7개 중 1단계인 이 자습서에서는 Kubernetes에서 사용할 수 있도록 다중 컨테이너 애플리케이션을 준비하는 과정입니다. Docker Compose 같은 기존 개발 도구는 로컬로 애플리케이션을 빌드하고 테스트하는 데 사용됩니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * GitHub에서 애플리케이션 예제 소스 복제
@@ -34,7 +34,7 @@ ms.locfileid: "66304443"
 
 이 자습서에서는 컨테이너, 컨테이너 이미지 및 `docker` 명령과 같은 핵심 Docker 개념에 대한 기본적인 지식이 있다고 가정합니다. 컨테이너 기본 사항에 대한 입문서는 [Docker 시작][docker-get-started]을 참조하세요.
 
-이 자습서를 완료하려면 Linux 컨테이너를 실행하는 로컬 Docker 개발 환경이 필요합니다. Docker는 모든 [Mac][docker-for-mac], [Windows][docker-for-windows] 또는 [Linux][docker-for-linux] 시스템에서 Docker를 구성하는 패키지를 제공합니다.
+이 자습서를 완료하려면 Linux 컨테이너를 실행하는 로컬 Docker 개발 환경이 필요합니다. Docker는 [Mac][docker-for-mac], [Windows][docker-for-windows] 또는 [Linux][docker-for-linux] 시스템에서 Docker를 구성하는 패키지를 제공합니다.
 
 Azure Cloud Shell에는 이 자습서의 모든 단계를 완료하는 데 필요한 Docker 구성 요소가 포함되어 있지 않습니다. 따라서 전체 Docker 개발 환경을 사용하는 것이 좋습니다.
 
@@ -103,7 +103,7 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 docker-compose down
 ```
 
-로컬 애플리케이션이 제거되면 그 다음 자습서에서 사용할 Azure Vote 애플리케이션 *azure-front-front*가 포함된 Docker 이미지가 생깁니다.
+로컬 애플리케이션이 제거되면 그 다음 자습서에서 사용할 Azure Vote 애플리케이션 *azure-vote-front*가 포함된 Docker 이미지가 생깁니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -117,7 +117,7 @@ docker-compose down
 그 다음 자습서로 이동하여 Azure Container Registry에 컨테이너 이미지를 저장하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Azure Container Registry에 이미지 푸시][aks-tutorial-prepare-acr]
+> [Azure Container Registry에 이미지 밀어넣기][aks-tutorial-prepare-acr]
 
 <!-- LINKS - external -->
 [docker-compose]: https://docs.docker.com/compose/

@@ -39,7 +39,7 @@ ms.locfileid: "65545982"
 
 ### <a name="create-the-sample-project"></a>샘플 프로젝트 만들기
 
-이 서버 응용 프로그램에는 Azure AD에 전달되는 계정 정보뿐만 아니라 Restify 및 Passport를 지원하기 위한 몇 가지 패키지 종속성이 필요합니다.
+이 서버 애플리케이션에는 Azure AD에 전달되는 계정 정보뿐만 아니라 Restify 및 Passport를 지원하기 위한 몇 가지 패키지 종속성이 필요합니다.
 
 먼저 `package.json` 파일에 다음 코드를 추가합니다.
 

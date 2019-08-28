@@ -5,14 +5,14 @@ services: batch
 ms.service: batch
 author: laurenhughes
 ms.author: lahugh
-ms.date: 03/26/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 84b2ca30f1ccd49e18e2f9d42133f8672d3f8ad6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 133742bf45bddf866d2dfcae97a331ee2a0f84fc
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60776172"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639387"
 ---
 # <a name="pre-installed-applications-on-rendering-vm-images"></a>렌더링 VM 이미지에 미리 설치된 애플리케이션
 
@@ -22,7 +22,9 @@ Azure Batch를 모든 렌더링 애플리케이션에 사용할 수 있습니다
 
 일부 애플리케이션은 Windows만 지원하나 대부분 Windows와 Linux를 모두 지원합니다.
 
-## <a name="applications-on-centos-7-rendering-images"></a>이미지를 렌더링 하는 CentOS 7에서 응용 프로그램
+## <a name="applications-on-centos-7-rendering-images"></a>CentOS 7 렌더링 이미지의 응용 프로그램
+
+다음 목록은 CentOS 7.6, 버전 1.1.5 렌더링 이미지에 적용 됩니다.
 
 * Autodesk Maya I/O 2017 업데이트 5(201708032230 잘라내기)
 * Autodesk Maya I/O 2018 업데이트 2(201711281015 컷)
@@ -32,9 +34,9 @@ Azure Batch를 모든 렌더링 애플리케이션에 사용할 수 있습니다
 * Maya 2018용 Chaos Group V-Ray(버전 3.60.04)
 * Blender(2.68)
 
-## <a name="applications-on-latest-windows-server-2016-rendering-images"></a>최신 Windows Server 2016 이미지 렌더링에 응용 프로그램
+## <a name="applications-on-latest-windows-server-2016-rendering-images"></a>최신 Windows Server 2016 이미지 렌더링 이미지의 응용 프로그램
 
-다음은 Windows Server 2016 버전 1.3.4 렌더링 이미지에 적용 됩니다.
+다음 목록은 Windows Server 2016, 버전 1.3.4 렌더링 이미지에 적용 됩니다.
 
 * Autodesk Maya I/O 2017 업데이트 5(버전 17.4.5459)
 * Autodesk Maya I/O 2018 업데이트 4(버전 18.4.0.7622)
@@ -43,18 +45,18 @@ Azure Batch를 모든 렌더링 애플리케이션에 사용할 수 있습니다
 * Autodesk Arnold for Maya 2017(Arnold 버전 5.2.0.1) MtoA-3.1.0.1-2017
 * Autodesk Arnold for Maya 2018(Arnold 버전 5.2.0.1) MtoA-3.1.0.1-2018
 * 3ds Max용 Autodesk Arnold(Arnold 버전 5.0.2.4) (버전 1.2.926)
-* Chaos Group V-ray Maya 2018 (버전 3.52.03)
-* Chaos Group V-ray 3ds Max 2018 (버전 3.60.02)
-* Chaos Group V-ray Maya 2019 (버전 3.52.03)에 대 한
-* Chaos Group V-ray 3ds Max 2019 (4.10.01 버전)에 대 한
+* Maya 2018 (버전 3.52.03)의 비정상 그룹 V-광선
+* 3ds Max 2018 (version 3.60.02)의 비정상 그룹 V-광선
+* Maya 2019 (버전 3.52.03)의 비정상 그룹 V-광선
+* 3ds Max 2019 (version 4.10.01)의 비정상 그룹 V-광선
 * Blender(2.79)
 
 > [!NOTE]
-> Chaos Group V-ray 3ds Max 2019 (4.10.01 버전)에 대 한 주요 변경 내용을 v-ray에서는 도입 되었습니다. 이전 버전 (버전 3.60.02)을 사용 하려면 Windows Server 2016 버전 1.3.2 렌더링 노드를 사용 합니다.
+> 3ds Max 2019 (version 4.10.01)에 대 한 비정상 그룹 V-광선은 V 광선의 주요 변경 사항을 소개 합니다. 이전 버전 (버전 3.60.02)을 사용 하려면 Windows Server 2016, 버전 1.3.2 렌더링 노드를 사용 합니다.
 
-## <a name="applications-on-previous-windows-server-2016-rendering-images"></a>이전 Windows Server 2016 이미지 렌더링에 응용 프로그램
+## <a name="applications-on-previous-windows-server-2016-rendering-images"></a>이전 Windows Server 2016의 응용 프로그램 렌더링 이미지
 
-다음은 Windows Server 2016 버전 1.3.2 렌더링 이미지에 적용 됩니다.
+다음 목록은 Windows Server 2016, 버전 1.3.2 렌더링 이미지에 적용 됩니다.
 
 * Autodesk Maya I/O 2017 업데이트 5(버전 17.4.5459)
 * Autodesk Maya I/O 2018 업데이트 4(버전 18.4.0.7622)  
@@ -63,8 +65,8 @@ Azure Batch를 모든 렌더링 애플리케이션에 사용할 수 있습니다
 * Autodesk Arnold for Maya 2017(Arnold 버전 5.2.0.1) MtoA-3.1.0.1-2017
 * Autodesk Arnold for Maya 2018(Arnold 버전 5.2.0.1) MtoA-3.1.0.1-2018
 * 3ds Max용 Autodesk Arnold(Arnold 버전 5.0.2.4) (버전 1.2.926)
-* Chaos Group V-ray Maya 2019 (버전 3.52.03)에 대 한
-* Chaos Group V-ray 3ds Max 2018 (버전 3.60.02)
+* Maya 2019 (버전 3.52.03)의 비정상 그룹 V-광선
+* 3ds Max 2018 (version 3.60.02)의 비정상 그룹 V-광선
 * Blender(2.79)
 
 ## <a name="next-steps"></a>다음 단계

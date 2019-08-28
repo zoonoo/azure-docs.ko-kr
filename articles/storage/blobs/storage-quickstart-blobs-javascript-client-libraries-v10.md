@@ -2,7 +2,7 @@
 title: 빠른 시작 - 브라우저에서 JavaScript 및 HTML을 사용하여 Azure Storage에 Blob 만들기
 description: Blob Service의 인스턴스를 사용하여 HTML 페이지에서 JavaScript를 사용하여 Blob을 업로드, 나열 및 삭제하는 방법을 알아봅니다.
 services: storage
-keywords: 저장소, Javascript, html
+keywords: 스토리지, Javascript, html
 author: KarlErickson
 ms.custom: mvc
 ms.service: storage
@@ -11,12 +11,12 @@ ms.reviewer: seguler
 ms.date: 05/20/2019
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: a971f2b4b63b3fd35777d1d890da8451b84bb086
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: ea5dfe2261be4512d4ba8edda1e7fbd5219a50c0
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67544036"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986872"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -32,11 +32,11 @@ Azure Storage JavaScript 클라이언트 라이브러리는 파일 시스템에�
 
 디버깅 단계를 수행하려면 [Visual Studio Code](https://code.visualstudio.com)와 [Chrome용 디버거](vscode:extension/msjsdiag.debugger-for-chrome) 또는 [Microsoft Edge용 디버거](vscode:extension/msjsdiag.debugger-for-edge) 확장이 필요합니다.
 
-## <a name="setting-up-storage-account-cors-rules"></a>저장소 계정 CORS 규칙 설정
+## <a name="setting-up-storage-account-cors-rules"></a>스토리지 계정 CORS 규칙 설정
 
 웹 애플리케이션에서 클라이언트의 Blob 스토리지에 액세스하려면 [원본 간 리소스 공유](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) 또는 CORS를 사용하도록 계정을 구성해야 합니다.
 
-Azure Portal로 돌아가서 저장소 계정을 선택합니다. 새 CORS 규칙을 정의하려면 **설정** 섹션으로 이동하여 **CORS** 링크를 클릭합니다. 그런 다음, **추가** 단추를 클릭하여 **CORS 규칙 추가** 창을 엽니다. 이 빠른 시작의 경우 공개 CORS 규칙을 만듭니다.
+Azure Portal로 돌아가서 스토리지 계정을 선택합니다. 새 CORS 규칙을 정의하려면 **설정** 섹션으로 이동하여 **CORS** 링크를 클릭합니다. 그런 다음, **추가** 단추를 클릭하여 **CORS 규칙 추가** 창을 엽니다. 이 빠른 시작의 경우 공개 CORS 규칙을 만듭니다.
 
 ![Azure Blob Storage 계정 CORS 설정](media/storage-quickstart-blobs-javascript-client-libraries/azure-blob-storage-cors-settings.png)
 
@@ -44,9 +44,9 @@ Azure Portal로 돌아가서 저장소 계정을 선택합니다. 새 CORS 규�
 
 |설정  |값  | 설명 |
 |---------|---------|---------|
-| 허용된 원본 | * | 허용 가능한 원본으로 설정된 도메인의 쉼표로 구분된 목록을 허용합니다. 값을 `*`로 설정하면 저장소 계정에 대한 모든 도메인 액세스가 허용됩니다. |
-| 허용되는 동사     | delete, get, head, merge, post, options, put | 저장소 계정에 대해 실행하도록 허용된 HTTP 동사를 나열합니다. 이 빠른 시작에서는 사용 가능한 옵션을 모두 선택합니다. |
-| 허용된 헤더 | * | 저장소 계정에서 허용하는 요청 헤더(접두 헤더 포함)의 목록을 정의합니다. 값을 `*`로 설정하면 모든 헤더에 액세스할 수 있습니다. |
+| 허용된 원본 | * | 허용 가능한 원본으로 설정된 도메인의 쉼표로 구분된 목록을 허용합니다. 값을 `*`로 설정하면 스토리지 계정에 대한 모든 도메인 액세스가 허용됩니다. |
+| 허용되는 동사     | delete, get, head, merge, post, options, put | 스토리지 계정에 대해 실행하도록 허용된 HTTP 동사를 나열합니다. 이 빠른 시작에서는 사용 가능한 옵션을 모두 선택합니다. |
+| 허용된 헤더 | * | 스토리지 계정에서 허용하는 요청 헤더(접두 헤더 포함)의 목록을 정의합니다. 값을 `*`로 설정하면 모든 헤더에 액세스할 수 있습니다. |
 | 노출된 헤더 | * | 계정에서 허용되는 응답 헤더를 나열합니다. 값을 `*`로 설정하면 계정에서 모든 헤더를 보낼 수 있습니다.  |
 | 최대 기간(초) | 86400 | 브라우저에서 실행 전 OPTIONS 요청을 캐시하는 최대 시간입니다. 값이 *86400*이면 하루 동안 캐시를 유지할 수 있습니다. |
 
@@ -59,15 +59,15 @@ Azure Portal로 돌아가서 저장소 계정을 선택합니다. 새 CORS 규�
 
 ## <a name="create-a-shared-access-signature"></a>공유 액세스 서명 만들기
 
-SAS(공유 액세스 서명)는 Blob Storage에 대한 요청을 인증하기 위해 브라우저에서 실행되는 코드에 사용됩니다. SAS를 사용하면 클라이언트는 계정 액세스 키 또는 연결 문자열 없이 저장소 리소스에 대한 액세스 권한을 부여할 수 있습니다. SAS에 대한 자세한 내용은 [SAS(공유 액세스 서명) 사용](../common/storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
+SAS(공유 액세스 서명)는 Blob Storage에 대한 요청을 인증하기 위해 브라우저에서 실행되는 코드에 사용됩니다. SAS를 사용하면 클라이언트는 계정 액세스 키 또는 연결 문자열 없이 스토리지 리소스에 대한 액세스 권한을 부여할 수 있습니다. SAS에 대한 자세한 내용은 [SAS(공유 액세스 서명) 사용](../common/storage-sas-overview.md)을 참조하세요.
 
 SAS는 Azure Cloud Shell, Azure Portal 또는 Azure Storage Explorer를 통해 Azure CLI를 사용하여 만들 수 있습니다. 다음 표에는 CLI를 사용하여 SAS를 생성하는 데 필요한 값을 제공하는 매개 변수가 나와 있습니다.
 
 | 매개 변수      |설명  | Placeholder |
 |----------------|-------------|-------------|
 | *expiry*       | YYYY-MM-DD 형식의 액세스 토큰 만료 날짜입니다. 빠른 시작에서 사용할 내일 날짜를 입력합니다. | *FUTURE_DATE* |
-| *account-name* | 저장소 계정 이름입니다. 이전 단계에서 따로 설정한 이름을 사용합니다. | *YOUR_STORAGE_ACCOUNT_NAME* |
-| *account-key*  | 저장소 계정 키입니다. 이전 단계에 따로 설정한 키를 사용합니다. | *YOUR_STORAGE_ACCOUNT_KEY* |
+| *account-name* | 스토리지 계정 이름입니다. 이전 단계에서 따로 설정한 이름을 사용합니다. | *YOUR_STORAGE_ACCOUNT_NAME* |
+| *account-key*  | 스토리지 계정 키입니다. 이전 단계에 따로 설정한 키를 사용합니다. | *YOUR_STORAGE_ACCOUNT_KEY* |
 
 각 자리 표시자에 대한 실제 값이 포함된 다음 CLI 명령을 사용하여 JavaScript 코드에서 사용할 수 있는 SAS를 생성합니다.
 
@@ -292,7 +292,7 @@ const listFiles = async () => {
 listButton.addEventListener("click", listFiles);
 ```
 
-이 코드는 루프의 [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#listblobflatsegment-aborter--string--icontainerlistblobssegmentoptions-) 함수를 호출하여 모든 세그먼트가 검색되도록 합니다. 각 세그먼트에 대해 포함된 Blob 항목의 목록을 반복하여 **Files**(파일) 목록을 업데이트합니다.
+이 코드는 루프의 [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL?view=azure-node-preview#listblobflatsegment-aborter--undefined---string--icontainerlistblobssegmentoptions-) 함수를 호출하여 모든 세그먼트가 검색되도록 합니다. 각 세그먼트에 대해 포함된 Blob 항목의 목록을 반복하여 **Files**(파일) 목록을 업데이트합니다.
 
 ### <a name="upload-blobs"></a>Blob 업로드
 

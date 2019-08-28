@@ -5,24 +5,24 @@ services: functions
 documentationcenter: na
 author: jeffhollan
 manager: jeconnoc
-keywords: Azure 함수, 함수, 이벤트 처리, 계산, 서버리스 아키텍처
+keywords: Azure 함수, 함수, 이벤트 처리, 컴퓨팅, 서버리스 아키텍처
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.date: 11/07/2018
+ms.date: 07/19/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 0288d9c0932d012bc83f23053b661c5a7ea2ef82
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 966be2d16615ba120287974201de5dd264fbbbcf
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872964"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594113"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>C\#으로 첫 번째 지속성 함수 만들기
 
 *Durable Functions*는 서버리스 환경에서 상태 저장 함수를 작성할 수 있게 하는 [Azure Functions](../functions-overview.md)의 확장입니다. 확장은 상태, 검사점 및 다시 시작을 관리합니다.
 
-이 문서에서는 Azure Functions용 Visual Studio 2019 도구를 사용하여 로컬로 "hello world" 지속성 함수를 만들고 테스트하는 방법에 대해 알아봅니다.  이 함수는 다른 함수에 대한 호출을 오케스트레이션하고 함께 연결합니다. 그런 후 함수 코드를 Azure에 게시합니다. 이러한 도구는 Visual Studio 2019에서 Azure 개발 워크로드의 일부로 제공됩니다.
+이 문서에서는 Visual Studio 2019를 사용하여 "hello world" 지속성 함수를 로컬로 만들고 테스트하는 방법에 대해 알아봅니다.  이 함수는 다른 함수에 대한 호출을 오케스트레이션하고 함께 연결합니다. 그런 후 함수 코드를 Azure에 게시합니다. 이러한 도구는 Visual Studio 2019에서 Azure 개발 워크로드의 일부로 제공됩니다.
 
 ![Azure에서 지속성 함수 실행](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 
@@ -30,9 +30,7 @@ ms.locfileid: "65872964"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* [Visual Studio 2019](https://azure.microsoft.com/downloads/)를 설치합니다. **Azure 개발** 워크로드도 설치되어 있어야 합니다.
-
-* [최신 Azure Functions 도구](../functions-develop-vs.md#check-your-tools-version)가 있어야 합니다.
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)를 설치합니다. **Azure 개발** 워크로드도 설치되어 있어야 합니다. Visual Studio 2017도 Durable Functions 개발을 지원하지만 UI와 단계가 다릅니다.
 
 * [Azure Storage 에뮬레이터](../../storage/common/storage-use-emulator.md)가 설치 및 실행되고 있는지 확인합니다.
 
@@ -44,21 +42,23 @@ Azure Functions 템플릿은 Azure에서 함수 앱에 게시할 수 있는 프�
 
 1. Visual Studio의 **파일** 메뉴에서 **새로 만들기** > **프로젝트**를 선택합니다.
 
-2. **새 프로젝트** 대화 상자에서 **설치됨**을 선택하고 **Visual C#**  > **클라우드**를 확장하고, **Azure Functions**를 선택하고, 프로젝트에 대한 **이름**을 입력하고, **확인**을 클릭합니다. 함수 앱 이름은 C# 네임스페이스로 유효해야 하므로 밑줄, 하이픈 또는 기타 영숫자가 아닌 문자는 사용하지 마세요.
+1. **새 프로젝트 추가** 대화 상자에서 `functions`를 검색하고 **Azure Functions** 템플릿을 선택하고, **다음**을 선택합니다. 
 
     ![Visual Studio에서 함수를 만드는 새 프로젝트 대화 상자](./media/durable-functions-create-first-csharp/functions-vs-new-project.png)
 
-3. 이미지 아래의 표에 지정된 설정을 사용합니다.
+1. 프로젝트의 **프로젝트 이름**을 입력하고, **확인**을 선택합니다. 프로젝트 이름은 C# 네임스페이스로 유효해야 하므로 밑줄, 하이픈 또는 기타 영숫자가 아닌 문자는 사용하지 마세요.
 
-    ![Visual Studio의 새 함수 대화 상자](./media/durable-functions-create-first-csharp/functions-vs-new-function.png)
+1. **새 Azure Functions 애플리케이션 만들기**에서 이미지 아래의 표에 지정된 설정을 사용합니다.
+
+    ![Visual Studio의 새 Azure Functions 애플리케이션 만들기 대화 상자](./media/durable-functions-create-first-csharp/functions-vs-new-function.png)
 
     | 설정      | 제안 값  | 설명                      |
     | ------------ |  ------- |----------------------------------------- |
     | **버전** | Azure Functions 2.x <br />(.NET Core) | .NET Core를 지원하는 Azure Functions의 버전 2.x 런타임을 사용하는 함수 프로젝트를 만듭니다. Azure Functions 1.x는 .NET Framework를 지원합니다. 자세한 내용은 [Azure Functions 런타임 버전을 대상으로 지정하는 방법](../functions-versions.md)을 참조하세요.   |
     | **템플릿** | Empty | 빈 함수 앱을 만듭니다. |
-    | **Storage 계정**  | 저장소 에뮬레이터 | 스토리지 계정은 지속성 함수 상태 관리에 필요합니다. |
+    | **Storage 계정**  | 스토리지 에뮬레이터 | 스토리지 계정은 지속성 함수 상태 관리에 필요합니다. |
 
-4. **확인**을 클릭하여 빈 함수 프로젝트를 만듭니다. 이 프로젝트에는 함수를 실행하는 데 필요한 기본 구성 파일이 있습니다.
+4. **만들기**를 선택하여 빈 함수 프로젝트를 만듭니다. 이 프로젝트에는 함수를 실행하는 데 필요한 기본 구성 파일이 있습니다.
 
 ## <a name="add-functions-to-the-app"></a>함수를 앱에 추가
 
@@ -68,9 +68,9 @@ Azure Functions 템플릿은 Azure에서 함수 앱에 게시할 수 있는 프�
 
     ![새 함수 추가](./media/durable-functions-create-first-csharp/functions-vs-add-new-function.png)
 
-2. **Azure Function**이 추가 메뉴에서 선택되어 있는지 확인하고 C# 파일의 이름을 지정합니다.  **추가**를 누릅니다.
+1. 추가 메뉴에서 **Azure Function**이 선택되어 있는지 확인하고, C# 파일의 이름을 입력한 다음, **추가**를 선택합니다.
 
-3. **Durable Functions 오케스트레이터** 템플릿을 선택하고 **확인**을 클릭합니다.
+1. **Durable Functions 오케스트레이션** 템플릿을 선택한 다음, **확인**을 선택합니다.
 
     ![지속성 템플릿 선택](./media/durable-functions-create-first-csharp/functions-vs-select-template.png)  
 

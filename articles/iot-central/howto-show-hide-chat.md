@@ -1,30 +1,30 @@
 ---
-title: Azure IoT Central 표시/숨기기 채팅 | Microsoft Docs
-description: 사용자로 표시 하 고 채팅을 숨기는 방법에 알아봅니다.
+title: Azure IoT Central 채팅 표시/숨기기 | Microsoft Docs
+description: 사용자로 서 채팅을 표시 하 고 숨기는 방법에 대해 알아봅니다.
 author: v-krghan
 ms.author: v-krghan
-ms.date: 04/18/2019
+ms.date: 08/23/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: a8d2b71899cdd6b7f9c8cb803732b760f3009811
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ab0f830ab3b06f272e371a6908ac6dde3e3893a
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64513306"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019709"
 ---
 # <a name="toggle-live-chat"></a>라이브 채팅 토글
 
-이 방법 문서에서는 IoT Central 응용 프로그램에서 라이브 채팅을 전환 하는 방법을 보여 줍니다. 기술 지원에 액세스 하려면 라이브 채팅을 사용할 수 있습니다.
+이 방법 문서에서는 IoT Central 응용 프로그램에서 라이브 채팅을 전환 하는 방법을 보여 줍니다. 라이브 채팅을 사용 하 여 기술 지원에 액세스할 수 있습니다.
 
 > [!NOTE]
 > 채팅 옵션은 평가판 구독에 대해서만 사용할 수 있습니다.
 
 ## <a name="chat-with-us"></a>채팅
 
-에 기술 지원을 받으려면 응용 프로그램을 선택 하 여 IoT Central을 엽니다 **채팅을 이용**합니다.
+기술 지원을 받으려면 IoT Central 응용 프로그램을 열고 **microsoft와 채팅**을 선택 합니다.
 
 ![채팅](media/howto-show-hide-chat/chat-with-us.png)
 
@@ -34,19 +34,19 @@ ms.locfileid: "64513306"
 
 ## <a name="hide-chat"></a>채팅 숨기기
 
-채팅을 숨기려면 선택 **숨기기 채팅** 에 **도움말** 패널:
+채팅을 숨기려면 **도움말** 패널에서 **채팅 숨기기** 를 선택 합니다.
 
  ![채팅 숨기기](media/howto-show-hide-chat/hide-chat.png)
 
-## <a name="enable-chat"></a>채팅을 사용 하도록 설정
+## <a name="enable-chat"></a>채팅 사용
 
-채팅을 보여 주기 위해 선택 **표시 채팅** 에 **도움말** 패널:
+채팅을 표시 하려면 **도움말** 패널에서 **채팅 표시** 를 선택 합니다.
 
  ![채팅 표시](media/howto-show-hide-chat/show-chat.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 Azure IoT Central의 라이브 채팅을 전환 하는 방법을 배웠으므로 제안 된 다음 단계는 다음과 같습니다.
+이제 Azure IoT Central에서 라이브 채팅을 전환 하는 방법을 배웠으므로 제안 된 다음 단계는 다음과 같습니다.
 
 > [!div class="nextstepaction"]
-> [응용 프로그램 대시보드를 구성 합니다.](howto-configure-homepage.md)
+> [응용 프로그램 대시보드 구성](howto-configure-homepage.md)

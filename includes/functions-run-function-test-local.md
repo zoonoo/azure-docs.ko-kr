@@ -9,24 +9,37 @@ ms.topic: include
 ms.date: 10/20/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 74e14e36b1ac0979da31203a2d16e2396ed821d0
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: dcfa65c655d1508510282fe66e90e4076278b29b
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67181977"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949985"
 ---
 ## <a name="run-the-function-locally"></a>로컬에서 함수 실행
 
-다음 명령은 함수 앱을 시작합니다. 앱은 Azure에 있는 동일한 Azure Functions 런타임을 사용하여 실행됩니다.
+다음 명령은 함수 앱을 시작합니다. 앱은 Azure에 있는 동일한 Azure Functions 런타임을 사용하여 실행됩니다. 시작 명령은 프로젝트 언어에 따라 달라집니다.
 
-```bash
-func host start --build
+### <a name="c"></a>C\#
+
+```command
+func start --build
 ```
 
-`--build` 옵션은 C# 프로젝트를 컴파일하는 데 필요합니다. JavaScript 프로젝트에는 이 옵션이 필요하지 않습니다.
+### <a name="javascript"></a>JavaScript
 
-함수 호스트가 시작되면 다음 출력과 같이 보기 편하도록 나눠서 작성합니다.
+```command
+func start
+```
+
+### <a name="typescript"></a>TypeScript
+
+```command
+npm install
+npm start     
+```
+
+Functions 호스트가 시작되면 다음과 같이 보기 편하도록 분할된 출력이 표시됩니다.
 
 ```output
 

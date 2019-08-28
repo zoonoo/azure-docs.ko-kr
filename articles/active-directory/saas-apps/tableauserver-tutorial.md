@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 480e799e0fe307b39ce8a2f0b026a04f507a6beb
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: f9ef179c1a93d8b2f97c47eb4c68d0312d55d3d1
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408009"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68825989"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>자습서: Tableau Server와 Azure Active Directory 통합
 
@@ -31,7 +31,7 @@ Tableau Server를 Azure AD와 통합하면 다음과 같은 이점이 제공됩�
 * 사용자가 자신의 Azure AD 계정으로 Tableau Server에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -57,7 +57,7 @@ Tableau Server의 Azure AD 통합을 구성하려면 갤러리의 Tableau Server
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -122,7 +122,7 @@ Tableau Server에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
     | Name | 원본 특성 | 네임스페이스 |
     | ---------------| --------------- | ----------- |
-    | 사용자 이름 | user.userprincipalname | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+    | 사용자 이름 | user.userprincipalname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | | |
 
     a. **새 클레임 추가**를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
@@ -186,7 +186,7 @@ Tableau Server에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
     h. 페이지 맨 아래에 있는 **저장**
 
     > [!NOTE]
-    > 고객은 Tableau Server SAML SSO 구성의 모든 인증서를 업로드해야 하며, 인증서는 SSO 흐름에서 무시됩니다. Tableau Server에서 SAML을 구성하는 데 도움이 필요한 경우 [SAML 구성](https://onlinehelp.tableau.com/v2018.2/server/en-us/saml_config_steps_tsm_ui.htm) 문서를 참조하세요.
+    > 고객은 Tableau Server SAML SSO 구성의 모든 인증서를 업로드해야 하며, 인증서는 SSO 흐름에서 무시됩니다. Tableau Server에서 SAML을 구성하는 데 도움이 필요한 경우 [SAML 구성](https://help.tableau.com/current/server/en-gb/saml_config_steps_tsm_ui.htm) 문서를 참조하세요.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 

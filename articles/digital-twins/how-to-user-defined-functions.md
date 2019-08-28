@@ -6,15 +6,15 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 08/12/2019
 ms.author: alinast
 ms.custom: seodec18
-ms.openlocfilehash: b5e230f45fd5889e216f2993f58adf6940ef7679
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6853ebf16c1a9d6b0d363277b22c7dd2583d37e5
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072904"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013963"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Azure Digital Twins에서 사용자 정의 함수를 만드는 방법
 
@@ -117,7 +117,7 @@ function process(telemetry, executionContext) {
 1. 본문이 다중 파트인지 확인합니다.
 
    - 첫 번째 파트에는 필요한 사용자 정의 함수 메타데이터를 포함합니다.
-   - 두 번째 파트에는 JavaScript 계산 논리를 포함합니다.
+   - 두 번째 파트에는 JavaScript 컴퓨팅 논리를 포함합니다.
 
 1. **USER_DEFINED_BOUNDARY** 섹션에서 **spaceId**(`YOUR_SPACE_IDENTIFIER`) 및 **검사기**(`YOUR_MATCHER_IDENTIFIER`) 값을 바꿉니다.
 1. JavaScript 사용자 정의 함수가 `Content-Type: text/javascript`로 제공되었는지 확인합니다.

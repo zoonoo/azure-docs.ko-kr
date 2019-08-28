@@ -11,12 +11,12 @@ ms.topic: article
 ms.assetid: a10a6277-ed29-4e68-a881-ccdad6fd0ad8
 tags: connectors
 ms.date: 08/24/2018
-ms.openlocfilehash: 01573871700bbeeb653ce3efdbf6c6aca88fd454
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 70b250074395977f70ac1b3eb0ce3ffdc96fced1
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204853"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050839"
 ---
 # <a name="manage-rss-feeds-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 RSS 피드 관리
 
@@ -29,9 +29,9 @@ Really Simple Syndication이라고도 하는 RSS(Rich Site Summary)는 웹 배�
 
 RSS 트리거를 사용하여 RSS 피드에서 응답을 가져오고 출력을 다른 작업에 사용할 수 있게 할 수 있습니다. 논리 앱에서 RSS 동작을 사용하여 RSS 피드에서 작업을 수행할 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독. Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다. 
+* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 
 
 * RSS 피드의 URL
 

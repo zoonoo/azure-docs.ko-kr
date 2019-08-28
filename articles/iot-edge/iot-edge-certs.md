@@ -8,12 +8,12 @@ ms.date: 09/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 91cde6965f3635d6d2acfaf581f570779020f8ff
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0aa70e591c7aac977fe13ed638f8ee56b88e4bd1
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60445306"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982905"
 ---
 # <a name="azure-iot-edge-certificate-usage-detail"></a>Azure IoT Edge 인증서 사용 현황 세부 정보
 
@@ -67,7 +67,7 @@ IoT Edge Hub 서버 인증서는 IoT Edge에 필요한 TLS 연결을 설정하�
 
 제조와 운영 프로세스는 분리되어 있으므로 프로덕션 디바이스를 준비할 때는 다음 사항을 고려합니다.
 
-* 모든 인증서 기반 프로세스에서는 IoT Edge 디바이스를 롤아웃하는 전체 프로세스 동안 루트 CA 인증서 및 중간 CA 인증서를 보호하고 모니터링해야 합니다. IoT Edge 디바이스 제조업체는 중간 인증서를 적절하게 저장하고 사용할 수 있도록 강력한 프로세스를 갖추어야 합니다. 또한 디바이스 CA 인증서는 디바이스 자체, 특히 하드웨어 보안 모듈에 최대한 안전하게 저장해야 합니다.
+* 모든 인증서 기반 프로세스에서는 IoT Edge 디바이스를 롤아웃하는 전체 프로세스 동안 루트 CA 인증서 및 중간 CA 인증서를 보호하고 모니터링해야 합니다. IoT Edge 디바이스 제조업체는 중간 인증서를 적절하게 스토리지하고 사용할 수 있도록 강력한 프로세스를 갖추어야 합니다. 또한 디바이스 CA 인증서는 디바이스 자체, 특히 하드웨어 보안 모듈에 최대한 안전하게 스토리지해야 합니다.
 
 * IoT Edge Hub에서 IoT Edge Hub 서버 인증서를 연결 대상 클라이언트 디바이스와 모듈에 제시합니다. 디바이스 CA 인증서의 CN(일반 이름)은 IoT Edge 디바이스의 config.yaml에서 사용할 "hostname"과 같을 수 **없습니다**. 예를 들어 연결 문자열의 GatewayHostName 매개 변수 또는 MQTT의 CONNECT 명령을 통해 IoT Edge에 연결할 클라이언트에서 사용하는 이름은 디바이스 CA 인증서에 사용되는 일반 이름과 같을 수 **없습니다**. 이 제한이 적용되는 이유는 클라이언트에서 확인할 수 있도록 IoT Edge Hub가 전체 인증서 체인을 표시하기 때문입니다. IoT Edge Hub 서버 인증서와 디바이스 CA 인증서의 CN이 같은 경우에는 확인이 계속 반복되어 인증서가 무효화됩니다.
 
@@ -93,17 +93,17 @@ New-CACertsCertChain rsa
 또한 이러한 명령은 “디바이스 CA 인증서”를 생성합니다.
 
 ```bash
-./certGen.sh create_edge_device_certificate "<gateway device name>"
+./certGen.sh create_edge_device_ca_certificate "<gateway device name>"
 ```
 
 ```Powershell
-New-CACertsEdgeDevice "<gateway device name>"
+New-CACertsEdgeDeviceCA "<gateway device name>"
 ```
 
-* 해당 스크립트로 전달되는 **\<gateway device name\>** 은 config.yaml에서 “hostname” 매개 변수와 **달라야 합니다**. 이러한 스크립트를 사용하면 사용자가 두 위치에 같은 이름을 사용하여 IoT Edge를 설정하는 경우 이름이 충돌하지 않도록 **\<게이트웨이 디바이스 이름\>** 에 ".ca" 문자열이 추가됨으로써 발생하는 문제를 방지할 수 있습니다. 하지만 같은 이름은 사용하지 않는 것이 좋습니다.
+* 해당 스크립트로 전달 되는 **\<게이트웨이 장치 이름은\>** 구성의 "hostname" 매개 변수와 달라 야 합니다. 이러한 스크립트를 사용하면 사용자가 두 위치에 같은 이름을 사용하여 IoT Edge를 설정하는 경우 이름이 충돌하지 않도록 **\<게이트웨이 디바이스 이름\>** 에 ".ca" 문자열이 추가됨으로써 발생하는 문제를 방지할 수 있습니다. 하지만 같은 이름은 사용하지 않는 것이 좋습니다.
 
 >[!Tip]
-> 장치 IoT “리프” 장치 및 IoT Edge를 통해 IoT 장치 SDK를 사용하는 애플리케이션에 연결하려면 장치의 연결 문자열의 끝에 선택적 GatewayHostName 매개 변수를 추가해야 합니다. Edge Hub 서버 인증서는 생성될 때 config.yaml의 소문자 버전 호스트 이름을 기반으로 하므로, 이름을 일치시키고 TLS 인증서 확인에 성공하려면 GatewayHostName 매개 변수를 소문자로 입력해야 합니다.
+> 디바이스 IoT “리프” 디바이스 및 IoT Edge를 통해 IoT 디바이스 SDK를 사용하는 애플리케이션에 연결하려면 디바이스의 연결 문자열의 끝에 선택적 GatewayHostName 매개 변수를 추가해야 합니다. Edge Hub 서버 인증서는 생성될 때 config.yaml의 소문자 버전 호스트 이름을 기반으로 하므로, 이름을 일치시키고 TLS 인증서 확인에 성공하려면 GatewayHostName 매개 변수를 소문자로 입력해야 합니다.
 
 ## <a name="example-of-iot-edge-certificate-hierarchy"></a>IoT Edge 인증서 계층 구조의 예
 

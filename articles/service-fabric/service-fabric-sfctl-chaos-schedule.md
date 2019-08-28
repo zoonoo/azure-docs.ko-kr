@@ -8,28 +8,27 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: dc3dd06b5feac1f66598cd65fa79f447a1bbd9be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1664978110b7c700906cbf4e6c80806ac70f1f05
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837507"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036518"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 chaos schedule을 가져오고 설정합니다.
 
 ## <a name="commands"></a>명령
 
-|명령|설명|
+|명령|Description|
 | --- | --- |
 | get | Chaos를 실행하는 시기 및 방법을 정의하는 Chaos Schedule을 가져옵니다. |
-| set | Chaos에서 사용되는 일정을 설정합니다. |
+| 집합 | Chaos에서 사용되는 일정을 설정합니다. |
 
 ## <a name="sfctl-chaos-schedule-get"></a>sfctl chaos schedule get
 Chaos를 실행하는 시기 및 방법을 정의하는 Chaos Schedule을 가져옵니다.
@@ -38,7 +37,7 @@ Chaos를 실행하는 시기 및 방법을 정의하는 Chaos Schedule을 가져
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
@@ -59,7 +58,7 @@ Chaos는 Chaos Schedule에 따라 실행을 자동으로 예약합니다. 제공
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --chaos-parameters-dictionary | 작업에서 사용할 ChaosParameters로 문자열 이름의 매핑을 나타내는 JSON 인코딩된 목록입니다. |
 | --expiry-date-utc | Chaos를 예약하는 데 Schedule을 사용하여 중지할 시기에 대한 날짜 및 시간입니다.  기본값\: 9999-12-31T23\:59\:59.999Z. |
@@ -70,7 +69,7 @@ Chaos는 Chaos Schedule에 따라 실행을 자동으로 예약합니다. 제공
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |

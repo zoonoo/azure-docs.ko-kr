@@ -1,7 +1,7 @@
 ---
 title: Text Analytics API에 대한 외부 및 커뮤니티 콘텐츠
 titleSuffix: Azure Cognitive Services
-description: Azure의 Microsoft Cognitive Services Text Analytics API에 대한 파트너 블로그, youtube 비디오, 교육입니다.
+description: 파트너 블로그, YouTube 비디오, Azure Cognitive Services 텍스트 분석 API 학습.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: b46acb2f0fe04c37e73a69a09ee6ede9110864ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51263af978ed599d7a7b8a2159c0c9c3c25b33a0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60827938"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558813"
 ---
 # <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>Text Analytics Cognitive Service에 대한 외부 및 커뮤니티 콘텐츠
 
@@ -35,7 +35,7 @@ ms.locfileid: "60827938"
 
 + PowerBI 블로그: Facebook 메시지에서 핵심 구 추출: [1부](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88483) 및 [2부](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88487)
 
-## <a name="videos"></a>동영상
+## <a name="videos"></a>비디오
 
 + [텍스트에서 감정을 감지하고 핵심 구를 추출하는 논리 앱](https://www.youtube.com/watch?v=jVN9NObAzgk)
 
@@ -47,7 +47,7 @@ ms.locfileid: "60827938"
 
 여기서 다루지 않은 기능 또는 사용 사례에 대한 정보를 원하나요? [UserVoice](https://cognitive.uservoice.com/forums/555922-text-analytics)에서 요청하거나 투표하세요. 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
  [StackOverflow: Azure Text Analytics API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
  [StackOverflow: Azure Cognitive Services](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

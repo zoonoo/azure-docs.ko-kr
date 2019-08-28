@@ -61,6 +61,8 @@
       href: load-balancer-standard-availability-zones.md
     - name: 표준 부하 분산 장치 메트릭 및 진단
       href: load-balancer-standard-diagnostics.md
+    - name: 보안 특성
+      href: load-balancer-security-attributes.md
 - name: 방법
   items:
     - name: 영역 중복 공용 표준 부하 분산 장치 만들기

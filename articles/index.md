@@ -6,12 +6,12 @@ description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 �
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: f7a0afd8058d2de277da8f7ab3d1eb37abae4add
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: b451763a4d359d18ccb4d53cd3ee96fdafd53818
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67544168"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501238"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -45,7 +45,7 @@ ms.locfileid: "67544168"
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <span class="likeAnH3">Azure 응용 프로그램 아키텍처 가이드</span>
+                                    <span class="likeAnH3">Azure 애플리케이션 아키텍처 가이드</span>
                                 </div>
                             </div>
                         </div>
@@ -108,14 +108,14 @@ ms.locfileid: "67544168"
                                             <div class="cardText">
                                                 <h3>리소스 보안 및 관리</h3>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/security-center/">Azure Security Center</a></li>
-                                                    <li><a class="barLink" href="/azure/monitoring-and-diagnostics/">Azure Monitor</a></li>
-                                                    <li><a class="barLink" href="/azure/application-insights/">Azure Application Insights</a></li>
-                                                    <li><a class="barLink" href="/azure/cost-management/">Azure Cost Management</a></li>
                                                     <li><a class="barLink" href="/azure/backup/">Azure Backup</a></li>
-                                                    <li><a class="barLink" href="/azure/site-recovery/">Azure Site Recovery</a></li>
+                                                    <li><a class="barLink" href="/azure/cost-management/">Azure Cost Management</a></li>
                                                     <li><a class="barLink" href="/azure/migrate/">Azure Migrate</a></li>
+                                                    <li><a class="barLink" href="/azure/monitoring-and-diagnostics/">Azure Monitor</a></li>
                                                     <li><a class="barLink" href="/azure/governance/policy/">Azure Policy</a></li>
+                                                    <li><a class="barLink" href="/azure/security-center/">Azure Security Center</a></li>
+                                                    <li><a class="barLink" href="/azure/lighthouse/">Azure Lighthouse</a></li>
+                                                    <li><a class="barLink" href="/azure/site-recovery/">Azure Site Recovery</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -144,33 +144,27 @@ ms.locfileid: "67544168"
                                                 <ul class="noBullet">
                                                     <li>
                                                         <a class="barLink" href="/dotnet/azure/?view=azure-dotnet">
-                                                            <img src="media/index/logo_NET.svg" alt="">
-.NET</a>
+                                                            <img src="media/index/logo_NET.svg" alt=""> .NET</a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/python/azure/">
-                                                            <img src="media/index/logo_python.svg" alt="">
-Python</a>
+                                                            <img src="media/index/logo_python.svg" alt=""> Python</a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/java/azure/">
-                                                            <img src="media/index/logo_java.svg" alt="">
-Java</a>
+                                                            <img src="media/index/logo_java.svg" alt=""> Java</a>
                                                     </li></ul></td><td style="border-top-color:transparent!important;padding-left:0;"><ul class="noBullet">
                                                     <li>
                                                         <a class="barLink" href="/azure/app-service-web/app-service-web-get-started-php">
-                                                            <img src="media/index/logo_PHP.svg" alt="">
-PHP</a>
+                                                            <img src="media/index/logo_PHP.svg" alt=""> PHP</a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/javascript/azure/">
-                                                            <img src="media/index/logo_nodejs.svg" alt="">
-Node.js</a>
+                                                            <img src="media/index/logo_nodejs.svg" alt=""> Node.js</a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/go/azure/">
-                                                            <img src="https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg" alt="">
-Go</a>
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg" alt=""> Go</a>
                                                     </li>
                                                 </ul></td></tr></table>
                                                <h4>앱 모델</h4>
@@ -204,7 +198,7 @@ Go</a>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/cosmos-db/">Azure Cosmos DB</a></li>
                                                 </ul>
-                                                <h4>Storage</h4>
+                                                <h4>스토리지</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/storage/">Blob Storage</a></li>
                                                 </ul>
@@ -228,23 +222,19 @@ Go</a>
                                                 <ul class="noBullet">
                                                     <li>
                                                         <a class="barLink" href="/cli/azure">
-                                                            <img src="media/index/azure_dev-7.svg" alt="">
-Azure CLI </a>
+                                                            <img src="media/index/azure_dev-7.svg" alt=""> Azure CLI </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/powershell/azure/overview">
-                                                            <img src="media/index/azure_dev-8.svg" alt="">
-Azure PowerShell </a>
+                                                            <img src="media/index/azure_dev-8.svg" alt=""> Azure PowerShell </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/azure/azure-portal/">
-                                                            <img src="https://docs.microsoft.com/media/logos/logo_azure.svg" alt="">
-Azure Portal </a>
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_azure.svg" alt=""> Azure Portal </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="https://azure.microsoft.com/features/azure-portal/mobile-app/">
-                                                            <img src="https://docs.microsoft.com/media/common/i_mobile-app-developement.svg" alt="">
-Azure 모바일 앱 </a>
+                                                            <img src="https://docs.microsoft.com/media/common/i_mobile-app-developement.svg" alt=""> Azure 모바일 앱 </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -261,38 +251,31 @@ Azure 모바일 앱 </a>
                                                 <ul class="noBullet">
                                                     <li>
                                                         <a class="barLink" href="https://docs.microsoft.com/azure/devops">
-                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
-Azure DevOps </a>
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt=""> Azure DevOps </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="https://docs.microsoft.com/azure/devops/pipelines/index">
-                                                            <img src="https://docs.microsoft.com/azure/devops/_img/index/devopsiconpipelines96.svg" alt="">
-Azure Pipelines </a>
+                                                            <img src="https://docs.microsoft.com/azure/devops/_img/index/devopsiconpipelines96.svg" alt=""> Azure Pipelines </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/azure/ansible/">
-                                                            <img src="media/index/ansible.svg" alt="">
-Ansible </a>
+                                                            <img src="media/index/ansible.svg" alt=""> Ansible </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/azure/chef">
-                                                            <img src="chef/media/Chef_Regular.svg" alt="">
-Chef </a>
+                                                            <img src="chef/media/Chef_Regular.svg" alt=""> Chef </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/azure/jenkins">
-                                                            <img src="https://docs.microsoft.com/media/logos/logo_jenkins.svg" alt="">
-Jenkins </a>
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_jenkins.svg" alt=""> Jenkins </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/azure/terraform">
-                                                            <img src="https://docs.microsoft.com/media/logos/logo_terraform.svg" alt="">
-Terraform </a>
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_terraform.svg" alt=""> Terraform </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/azure/devops-project/">
-                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
-Azure DevOps Projects </a>
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt=""> Azure DevOps Projects </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -309,23 +292,19 @@ Azure DevOps Projects </a>
                                                 <ul class="noBullet">
                                                     <li>
                                                         <a class="barLink" href="/learn/modules/tour-azure-portal/">
-                                                            <img src="https://docs.microsoft.com/learn/achievements/tour-azure-services-and-features.svg" alt="">
-Azure 서비스 및 기능 둘러보기 </a>
+                                                            <img src="https://docs.microsoft.com/learn/achievements/tour-azure-services-and-features.svg" alt=""> Azure 서비스 및 기능 둘러보기 </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/learn/modules/principles-cloud-computing/">
-                                                            <img src="https://docs.microsoft.com/learn/achievements/principles-cloud-computing.svg" alt="">
-클라우드 컴퓨팅의 원칙 </a>
+                                                            <img src="https://docs.microsoft.com/learn/achievements/principles-cloud-computing.svg" alt=""> 클라우드 컴퓨팅의 원칙 </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/learn/modules/control-azure-services-with-cli/">
-                                                            <img src="https://docs.microsoft.com/learn/achievements/control-azure-services-with-cli.svg" alt="">
-CLI를 사용하여 Azure 서비스 제어 </a>
+                                                            <img src="https://docs.microsoft.com/learn/achievements/control-azure-services-with-cli.svg" alt=""> CLI를 사용하여 Azure 서비스 제어 </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/learn/modules/automate-azure-tasks-with-powershell/">
-                                                            <img src="https://docs.microsoft.com/learn/achievements/automate-azure-tasks-with-powershell.svg" alt="">
-PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
+                                                            <img src="https://docs.microsoft.com/learn/achievements/automate-azure-tasks-with-powershell.svg" alt=""> PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/learn/browse/?products=azure">더 많은 대화형 학습 보기...</a>
@@ -706,6 +685,12 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                             <a href="/azure/data-lake-store/">
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
                                                 <p>Data Lake Storage Gen1</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/data-share/">
+                                                <img src="media/index/data-share.svg" alt="" />
+                                                <p>Azure Data Share</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1358,7 +1343,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                         <li>
                                             <a href="/azure/managed-applications">
                                                 <img src="media/index/i_managed-application.svg" alt="" />
-                                                <p>Azure 관리되는 응용 프로그램</p>
+                                                <p>Azure 관리되는 애플리케이션</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1498,9 +1483,9 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                     <h3>모바일</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/app-service-mobile/">
-                                                <img src="media/index/app-service-mobile.svg" alt="" />
-                                                <p>App Service - Mobile Apps</p>
+                                            <a href="/appcenter/">
+                                                <img src="https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg" alt="" />
+                                                <p>Visual Studio App Center</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1516,12 +1501,6 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/appcenter/">
-                                                <img src="https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg" alt="" />
-                                                <p>Visual Studio App Center</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/azure-maps/">
                                                 <img src="media/index/azure-maps-icon-portal.svg" alt="" />
                                                 <p>Azure Maps</p>
@@ -1531,6 +1510,12 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                             <a href="https://azure.microsoft.com/features/xamarin">
                                                 <img src="media/index/logo_xamarin.svg" alt="" />
                                                 <p>Xamarin</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/app-service-mobile/">
+                                                <img src="media/index/app-service-mobile.svg" alt="" />
+                                                <p>App Service - Mobile Apps</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1729,12 +1714,12 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Storage</h3>
+                                    <h3>스토리지</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/storage/">
                                                 <img src="media/index/Storage.svg" alt="" />
-                                                <p>Storage</p>
+                                                <p>스토리지</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1764,7 +1749,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                         <li>
                                             <a href="/azure/virtual-machines/windows/managed-disks-overview">
                                                 <img src="media/index/Disks-color.svg" alt="" />
-                                                <p>Disk Storage</p>
+                                                <p>디스크 스토리지</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1864,6 +1849,12 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                             <a href="/azure/azure-signalr/">
                                                 <img src="media/index/azure-signalr.svg" alt="" />
                                                 <p>Azure SignalR Service</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/lighthouse/">
+                                                <img src="media/index/azure-resource-manager.svg" alt="" />
+                                                <p>Azure Lighthouse</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -2188,7 +2179,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#analytics">분석</a>
+                        <a href="#analytics">Analytics</a>
                         <ul id="analytics" class="cardsA">
                             <li>
                                 <a href="/azure/sql-data-warehouse/">
@@ -2335,7 +2326,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Event Hubs</h3>
-                                                    <p>수백만 개의 장치에서 원격 분석 수신</p>
+                                                    <p>수백만 개의 디바이스에서 원격 분석 수신</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2354,7 +2345,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Power BI Embedded</h3>
-                                                    <p>응용 프로그램에 완벽하고 뛰어난 대화형 데이터 시각화를 포함</p>
+                                                    <p>애플리케이션에 완벽하고 뛰어난 대화형 데이터 시각화를 포함</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2545,6 +2536,25 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 <div class="cardText">
                                                     <h3>Azure NetApp Files</h3>
                                                     <p>NetApp에서 제공하는 엔터프라이즈급 NFS 파일 서비스</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/data-share/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/data-share.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Data Share</h3>
+                                                    <p>대규모 데이터를 외부 조직과 공유하는 데 사용되는 간단하고 안전한 서비스</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2782,7 +2792,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Cloud Services</h3>
-                                                    <p>가용성과 확장성이 뛰어난 클라우드 응용 프로그램 및 API 만들기</p>
+                                                    <p>가용성과 확장성이 뛰어난 클라우드 애플리케이션 및 API 만들기</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3172,7 +3182,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Cache for Redis</h3>
-                                                    <p>높은 처리량과 짧은 대기 시간으로 응용 프로그램에 강력한 성능 부여</p>
+                                                    <p>높은 처리량과 짧은 대기 시간으로 애플리케이션에 강력한 성능 부여</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3562,7 +3572,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Visual Studio App Center</h3>
-                                                    <p>응용 프로그램 수명 주기를 자동화하여 더 빠르게 앱 제공</p>
+                                                    <p>애플리케이션 수명 주기를 자동화하여 더 빠르게 앱 제공</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3629,7 +3639,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#identity">Identity</a>
+                        <a href="#identity">ID</a>
                         <ul id="identity" class="cardsA">
                             <li>
                                 <a href="/azure/active-directory/">
@@ -3748,7 +3758,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#integration">Integration</a>
+                        <a href="#integration">통합</a>
                         <ul id="integration" class="cardsA">
                             <li>
                                 <a href="/azure/api-management/">
@@ -3781,7 +3791,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Service Bus</h3>
-                                                    <p>사설 및 공용 클라우드 환경 간 연결</p>
+                                                    <p>프라이빗 및 퍼블릭 클라우드 환경 간 연결</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3900,7 +3910,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>IoT Edge</h3>
-                                                    <p>클라우드로부터 에지 장치까지 인텔리전스 확장</p>
+                                                    <p>클라우드로부터 에지 디바이스까지 인텔리전스 확장</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4052,7 +4062,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning</h3>
-                                                    <p>실험 및 모델 관리를 갖춘 종단 간 확장 가능하고 신뢰할 수 있는 플랫폼 사용자에게 AI 적용</p>
+                                                    <p>실험 및 모델 관리를 갖춘 엔드투엔드 확장 가능하고 신뢰할 수 있는 플랫폼 사용자에게 AI 적용</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4247,7 +4257,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Site Recovery</h3>
-                                                    <p>사설 클라우드의 보호 및 복구 오케스트레이션</p>
+                                                    <p>프라이빗 클라우드의 보호 및 복구 오케스트레이션</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4607,7 +4617,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure 관리되는 응용 프로그램</h3>
+                                                    <h3>Azure 관리되는 애플리케이션</h3>
                                                     <p>클라우드 제품 관리 간소화</p>
                                                 </div>
                                             </div>
@@ -4708,7 +4718,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Live and on-demand streaming</h3>
-                                                    <p>사실상 모든 장치에 비즈니스 요구에 맞는 규모로 콘텐츠 전송</p>
+                                                    <p>사실상 모든 디바이스에 비즈니스 요구에 맞는 규모로 콘텐츠 전송</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4885,7 +4895,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Site Recovery</h3>
-                                                    <p>사설 클라우드의 보호 및 복구 오케스트레이션</p>
+                                                    <p>프라이빗 클라우드의 보호 및 복구 오케스트레이션</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5014,21 +5024,21 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#mobile">Mobile</a>
+                        <a href="#mobile">모바일</a>
                         <ul id="mobile" class="cardsA">
                             <li>
-                                <a href="/azure/app-service-mobile">
+                                <a href="/appcenter">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/app-service-mobile.svg" alt="" />
+                                                        <img alt="" src="https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg">
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>App Service - Mobile Apps</h3>
-                                                    <p>모든 모바일 앱용 백 엔드 빌드 및 호스팅</p>
+                                                    <h3>Visual Studio App Center</h3>
+                                                    <p>애플리케이션 수명 주기를 자동화하여 더 빠르게 앱 제공</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5074,25 +5084,6 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/appcenter">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img alt="" src="https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg">
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Visual Studio App Center</h3>
-                                                    <p>응용 프로그램 수명 주기를 자동화하여 더 빠르게 앱 제공</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/azure/azure-maps">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -5130,6 +5121,25 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/app-service-mobile">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/app-service-mobile.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>App Service - Mobile Apps</h3>
+                                                    <p>모든 모바일 앱용 백 엔드 빌드 및 호스팅</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>                            
                         </ul>
                     </li>
                     <li>
@@ -5261,7 +5271,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Load Balancer</h3>
-                                                    <p>응용 프로그램에 고가용성 및 네트워크 성능 제공</p>
+                                                    <p>애플리케이션에 고가용성 및 네트워크 성능 제공</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5318,7 +5328,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure DDoS Protection</h3>
-                                                    <p>DDoS(배포된 서비스 거부) 공격으로부터 응용 프로그램 보호</p>
+                                                    <p>DDoS(배포된 서비스 거부) 공격으로부터 애플리케이션 보호</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5513,7 +5523,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure DDoS Protection</h3>
-                                                    <p>DDoS(배포된 서비스 거부) 공격으로부터 응용 프로그램 보호</p>
+                                                    <p>DDoS(배포된 서비스 거부) 공격으로부터 애플리케이션 보호</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5694,7 +5704,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#other">독립적 클라우드</a>
+                        <a href="#other">소버린 클라우드</a>
                         <ul id="other" class="cardsA">
                             <li>
                                 <a href="/azure/azure-government/">
@@ -5769,8 +5779,8 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Storage</h3>
-                                                    <p>내구성과 가용성이 높고 대량으로 확장 가능한 클라우드 저장소</p>
+                                                    <h3>스토리지</h3>
+                                                    <p>내구성과 가용성이 높고 대량으로 확장 가능한 클라우드 스토리지</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5789,7 +5799,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>StorSimple</h3>
-                                                    <p>엔터프라이즈 하이브리드 클라우드 저장소 솔루션으로 비용 절감</p>
+                                                    <p>엔터프라이즈 하이브리드 클라우드 스토리지 솔루션으로 비용 절감</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5809,6 +5819,25 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 <div class="cardText">
                                                     <h3>Data Lake Storage Gen2</h3>
                                                     <p>Blob Storage에서 빌드된 확장성이 매우 뛰어나고 안전한 Data Lake Storage</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/lighthouse/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-resource-manager.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Lighthouse</h3>
+                                                    <p>대규모 고객 리소스 관리</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5846,7 +5875,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Blob Storage</h3>
-                                                    <p>구조화되지 않은 데이터용 REST 기반 개체 저장소</p>
+                                                    <p>구조화되지 않은 데이터용 REST 기반 개체 스토리지</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5864,7 +5893,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Disk Storage</h3>
+                                                    <h3>디스크 스토리지</h3>
                                                     <p>가상 머신을 지원하고 영속성과 안전성을 갖춘 디스크 옵션</p>
                                                 </div>
                                             </div>
@@ -5884,7 +5913,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Managed Disks</h3>
-                                                    <p>Azure 가상 머신을 위한 영구 보안 디스크 저장소</p>
+                                                    <p>Azure 가상 머신을 위한 영구 보안 디스크 스토리지</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5941,7 +5970,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Box 제품군</h3>
-                                                    <p>오프라인 또는 네트워크 기반 데이터 전송으로 사용하는 저장소 장치 제품군</p>
+                                                    <p>오프라인 또는 네트워크 기반 데이터 전송으로 사용하는 스토리지 디바이스 제품군</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5998,7 +6027,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Storage Explorer</h3>
-                                                    <p>Windows, macOS 및 Linux로 어디에서나 쉽게 저장소 관리</p>
+                                                    <p>Windows, macOS 및 Linux로 어디에서나 쉽게 스토리지 관리</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -6017,7 +6046,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Archive Storage</h3>
-                                                    <p>드물게 액세스하는 데이터를 위한 저비용의 보안 클라우드 저장소</p>
+                                                    <p>드물게 액세스하는 데이터를 위한 저비용의 보안 클라우드 스토리지</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -6468,7 +6497,7 @@ Azure CLI </h3>
                                                     <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions">Azure Functions</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage">Storage</a>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage">스토리지</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb">Cosmos DB</a>
@@ -6714,7 +6743,7 @@ Azure Dev 공간 </h3>
                             <li>
                                 <div class="container intro">
                                     <p>
-Azure 아키텍처 센터에는 Microsoft Azure에서 종단 간 솔루션을 구축하는 방법에 대한 지침이 있습니다. 여기에서 참조 아키텍처, 모범 사례, 디자인 패턴, 시나리오 가이드 및 참조 구현을 확인할 수 있습니다.
+Azure 아키텍처 센터에는 Microsoft Azure에서 엔드투엔드 솔루션을 구축하는 방법에 대한 지침이 있습니다. 여기에서 참조 아키텍처, 모범 사례, 디자인 패턴, 시나리오 가이드 및 참조 구현을 확인할 수 있습니다.
                                     </p>
                                 </div>
                             </li>
@@ -6730,7 +6759,7 @@ Azure 아키텍처 센터에는 Microsoft Azure에서 종단 간 솔루션을 �
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure 아키텍처 센터</h3>
-                                                    <p>Microsoft Azure에서 종단 간 솔루션을 구축하는 방법에 대한 지침입니다.</p>
+                                                    <p>Microsoft Azure에서 엔드투엔드 솔루션을 구축하는 방법에 대한 지침입니다.</p>
                                                 </div>
                                             </div>
                                         </div>

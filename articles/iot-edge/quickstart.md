@@ -4,32 +4,32 @@ description: 이 빠른 시작에서는 IoT Edge 디바이스를 만든 다음, 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/19/2019
+ms.date: 08/16/2019
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: ce6703c507e955ffe98e71f26feca08f9f37dfe5
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 0c397ca630dffb7671f84919c1e86cbcef645572
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146749"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873625"
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device"></a>빠른 시작: Azure Portal에서 Windows 디바이스로 첫 번째 IoT Edge 모듈 배포
+# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>빠른 시작: 가상 Windows 디바이스에 첫 번째 IoT Edge 모듈 배포
 
-이 빠른 시작에서는 Azure IoT Edge 클라우드 인터페이스를 사용하여 사전 빌드된 코드를 IoT Edge 디바이스에 원격으로 배포합니다. 이 작업을 수행하려면 먼저 IoT Edge 디바이스로 작동할 Windows 가상 머신을 만들고 구성한 다음, 이 머신에 모듈을 배포할 수 있습니다.
+이 빠른 시작에서는 컨테이너화된 코드를 가상 IoT Edge 디바이스에 배포하여 Azure IoT Edge를 테스트합니다. IoT Edge를 사용하면 디바이스에서 코드를 원격으로 관리하여 더 많은 워크로드를 에지로 전송할 수 있습니다. 이 빠른 시작에서는 IoT Edge 디바이스에 Azure 가상 머신을 사용하는 것이 좋습니다. 이를 통해 테스트 머신을 빠르게 만들고, 필수 구성 요소를 설치한 다음, 완료되면 삭제할 수 있습니다. 
 
 이 빠른 시작에서 다음을 수행하는 방법을 알아봅니다.
 
 1. IoT Hub를 만듭니다.
-2. IoT Edge 장치를 IoT Hub에 등록합니다.
-3. 디바이스에 IoT Edge 런타임을 설치하고 시작합니다.
+2. IoT Edge 디바이스를 IoT Hub에 등록합니다.
+3. 가상 디바이스에 IoT Edge 런타임을 설치하고 시작합니다.
 4. 원격으로 모듈을 IoT Edge 디바이스에 배포하고 IoT Hub에 원격 분석을 전송합니다.
 
 ![다이어그램 - 빠른 시작: 디바이스 및 클라우드의 아키텍처](./media/quickstart/install-edge-full.png)
 
-이 빠른 시작에서 배포하는 모듈은 온도, 습도 및 압력 데이터를 생성하는 시뮬레이션된 센서입니다. 다른 Azure IoT Edge 자습서에서는 비즈니스 정보를 위해 시뮬레이션된 데이터를 분석하는 모듈을 배포하는 과정을 설명하므로 여기에서 수행하는 작업을 토대로 진행됩니다.
+이 빠른 시작에서는 IoT Edge 디바이스로 구성되는 Windows 가상 머신을 만드는 과정을 안내합니다. 그런 다음, Azure Portal에서 모듈을 디바이스에 배포할 수 있습니다. 이 빠른 시작에서 배포하는 모듈은 온도, 습도 및 압력 데이터를 생성하는 시뮬레이션된 센서입니다. 다른 Azure IoT Edge 자습서에서는 비즈니스 정보를 위해 시뮬레이션된 데이터를 분석하는 모듈을 배포하는 과정을 설명하므로 여기에서 수행하는 작업을 토대로 진행됩니다.
 
 활성 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만드세요.
 
@@ -72,6 +72,8 @@ IoT Edge 디바이스:
 
 > [!NOTE]
 > 이 빠른 시작에서는 간단하게 하기 위해 Windows 데스크톱 가상 머신을 사용합니다. 일반적으로 프로덕션 시나리오에 사용할 수 있는 Windows 운영 체제에 대한 정보는 [Azure IoT Edge 지원 시스템](support.md)을 참조하세요.
+>
+> IoT Core를 실행하는 디바이스를 포함하여 IoT Edge에 대한 windows 디바이스를 구성할 준비가 되면 [Windows에서 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-windows.md)의 단계를 따르세요.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
@@ -94,7 +96,7 @@ Azure CLI를 사용하여 IoT Hub를 만들어서 빠른 시작을 시작합니�
 새로 만든 IoT Hub에 IoT Edge 디바이스를 등록합니다.
 ![다이어그램 - IoT Hub ID로 디바이스 등록](./media/quickstart/register-device.png)
 
-IoT Hub와 통신할 수 있도록, 시뮬레이션된 디바이스의 디바이스 ID를 만듭니다. 장치 ID는 클라우드에 있으며, 사용자는 고유한 장치 연결 문자열을 사용하여 물리적 장치를 장치 ID에 연결합니다.
+IoT Hub와 통신할 수 있도록, 시뮬레이트된 디바이스의 디바이스 ID를 만듭니다. 디바이스 ID는 클라우드에 있으며, 사용자는 고유한 디바이스 연결 문자열을 사용하여 물리적 디바이스를 디바이스 ID에 연결합니다.
 
 IoT Edge 디바이스는 일반적인 IoT 디바이스와 다르게 작동하며 다른 방식으로 관리될 수 있으므로, `--edge-enabled` 플래그를 사용하여 이 ID를 IoT Edge 디바이스로 선언합니다.
 

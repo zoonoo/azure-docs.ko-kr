@@ -79,9 +79,9 @@ Azure Container Registry에 대한 자세한 내용은 [프라이빗 Docker 컨�
 
 프라이빗 레지스트리에서 이미지를 밀어넣고 끌어오는 일반적인 방법은 먼저 레지스트리를 인증하는 것입니다. 이렇게 하려면 프라이빗 레지스트리에 액세스해야 하는 모든 클라이언트에서 `docker login` 명령을 사용합니다. DC/OS 클러스터는 모두 ACR에 인증되어야 하는 많은 노드를 포함할 수 있으므로 각 노드에서 이 프로세스를 자동화하면 유용합니다. 
 
-### <a name="create-shared-storage"></a>공유 저장소 만들기
+### <a name="create-shared-storage"></a>공유 스토리지 만들기
 
-이 프로세스에서는 클러스터의 각 노드에 탑재된 Azure 파일 공유를 사용합니다. 아직 공유 저장소를 설정하지 않은 경우 [DC/OS 클러스터 내부에서 파일 공유 설정](container-service-dcos-fileshare.md)을 참조하세요.
+이 프로세스에서는 클러스터의 각 노드에 탑재된 Azure 파일 공유를 사용합니다. 아직 공유 스토리지를 설정하지 않은 경우 [DC/OS 클러스터 내부에서 파일 공유 설정](container-service-dcos-fileshare.md)을 참조하세요.
 
 ### <a name="configure-acr-authentication"></a>ACR 인증 구성
 
@@ -111,7 +111,7 @@ docker -H tcp://localhost:2375 login --username=myContainerRegistry23489 --passw
 tar czf docker.tar.gz .docker
 ```
 
-클러스터 공유 저장소에 이 파일을 복사합니다. 이 단계를 수행하면 DC/OS 클러스터의 모든 노드에서 파일을 사용할 수 있습니다.
+클러스터 공유 스토리지에 이 파일을 복사합니다. 이 단계를 수행하면 DC/OS 클러스터의 모든 노드에서 파일을 사용할 수 있습니다.
 
 ```azurecli-interactive
 cp docker.tar.gz /mnt/share/dcosshare

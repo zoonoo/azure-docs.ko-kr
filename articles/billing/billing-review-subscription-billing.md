@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
-ms.author: erikre
-ms.openlocfilehash: 0a73462b7fdbaf6386a3051a72da755f31ff8dd2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: banders
+ms.openlocfilehash: 8cfa429b18fb282f5c1f85d2fd1637704653b855
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65192123"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443042"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>Azure REST API를 사용하여 구독 청구 검토
 
@@ -45,12 +45,12 @@ Authorization: Bearer
 
 다음과 같은 헤더가 필요합니다.
 
-|요청 헤더|설명|
+|요청 헤더|Description|
 |--------------------|-----------------|
-|*Content-Type:*|필수 사항입니다. `application/json`로 설정합니다.|
-|*권한 부여*|필수 사항입니다. 유효한 `Bearer` [액세스 토큰](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients)으로 설정합니다. |
+|*Content-Type:*|필수 요소. `application/json`로 설정합니다.|
+|*Authorization:*|필수 요소. 유효한 `Bearer` [액세스 토큰](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients)으로 설정합니다. |
 
-## <a name="response"></a>response
+## <a name="response"></a>응답
 
 상태 코드 200(OK)은 계정의 상세 비용 목록이 포함된 성공적인 응답에 대해 반환됩니다.
 
@@ -81,7 +81,7 @@ Authorization: Bearer
 
 **값**의 각 항목은 서비스 사용과 관련한 세부 정보를 나타냅니다.
 
-|응답 속성|설명|
+|응답 속성|Description|
 |----------------|----------|
 |**subscriptionGuid** | 구독의 전역 고유 ID |
 |**startDate** | 사용 시작 날짜 |

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: iainfou
-ms.openlocfilehash: f4252fcd70ff5aa9c2056b72add7c79283ce7fcf
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: f234eaea0d4df3859ef9458ea334f1b7616add34
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473442"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69612936"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-on-a-managed-domain"></a>관리되는 도메인에서 KCD(Kerberos 제한 위임) 구성
 대부분의 애플리케이션은 사용자의 컨텍스트에서 리소스에 액세스해야 합니다. Active Directory는 이 사용 사례가 가능한 Kerberos 위임이라고 하는 메커니즘을 지원합니다. 또한 사용자의 컨텍스트에서 특정 리소스에만 액세스할 수 있도록 위임을 제한할 수 있습니다. Azure AD Domain Services 관리되는 도메인은 더 안전하게 잠겨 있으므로 기존의 Active Directory 도메인과는 다릅니다.
@@ -47,15 +47,15 @@ Windows Server 2012 이후부터 서비스 관리자는 제한된 위임을 자�
 리소스 기반 KCD는 PowerShell을 사용하여 구성됩니다. 가장하는 계정이 컴퓨터 계정인지 아니면 사용자 계정/서비스 계정인지에 따라 `Set-ADComputer` 또는 `Set-ADUser` cmdlet을 사용합니다.
 
 ### <a name="configure-resource-based-kcd-for-a-computer-account-on-a-managed-domain"></a>관리되는 도메인에서 컴퓨터 계정에 대한 리소스 기반 KCD 구성
-컴퓨터 'contoso100-webapp.contoso100.com'에서 실행되는 웹앱이 있다고 가정합니다. 도메인 사용자의 컨텍스트에서 리소스('contoso100-api.contoso100.com'에서 실행되는 웹 API)에 대한 액세스가 필요합니다. 이 시나리오에서 리소스 기반 KCD를 설정하는 방법은 다음과 같습니다.
+' Contoso-webapp.contoso.com ' 컴퓨터에서 실행 되는 웹 앱이 있다고 가정 합니다. 도메인 사용자의 컨텍스트에서 리소스 (' contoso-api.contoso.com '에서 실행 되는 웹 API)에 액세스 해야 합니다. 이 시나리오에서 리소스 기반 KCD를 설정하는 방법은 다음과 같습니다.
 
 1. [사용자 지정 OU를 만듭니다](create-ou.md). 이 사용자 지정 OU를 관리할 수 있는 권한을 관리되는 도메인 내의 사용자에게 위임할 수 있습니다.
 2. 두 가상 머신(하나는 웹앱 실행, 다른 하나는 웹 API 실행)을 관리되는 도메인에 가입합니다. 사용자 지정 OU에 이러한 컴퓨터 계정을 만듭니다.
 3. 이제, 다음 PowerShell 명령을 사용하여 리소스 기반 KCD를 구성합니다.
 
 ```powershell
-$ImpersonatingAccount = Get-ADComputer -Identity contoso100-webapp.contoso100.com
-Set-ADComputer contoso100-api.contoso100.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
+$ImpersonatingAccount = Get-ADComputer -Identity contoso-webapp.contoso.com
+Set-ADComputer contoso-api.contoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
 ```
 
 > [!NOTE]
@@ -80,5 +80,5 @@ Set-ADUser backendsvc -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccoun
 >
 
 ## <a name="related-content"></a>관련 내용
-* [Azure AD Domain Services - 시작 가이드](create-instance.md)
+* [Azure AD Domain Services - 시작 가이드](tutorial-create-instance.md)
 * [Kerberos 제한 위임 개요](https://technet.microsoft.com/library/jj553400.aspx)

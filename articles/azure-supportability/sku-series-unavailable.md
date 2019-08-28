@@ -54,7 +54,7 @@ different location. Supported locations are: <list of locations>
 Message: This size is currently unavailable in this location for this subscription
 ```
 
-### <a name="when-creating-a-support-request-to-increase-compute-core-quota-a-region-or-a-sku-family-is-not-available-for-selection"></a>계산 코어 할당량을 늘리도록 지원을 요청할 때 지역 또는 SKU 제품군을 선택할 수 없습니다.
+### <a name="when-creating-a-support-request-to-increase-compute-core-quota-a-region-or-a-sku-family-is-not-available-for-selection"></a>컴퓨팅 코어 할당량을 늘리도록 지원을 요청할 때 지역 또는 SKU 제품군을 선택할 수 없습니다.
 
 ## <a name="solution"></a>해결 방법
 먼저 비즈니스 요구를 충족하는 대체 지역 또는 SKU를 사용하는 것이 좋습니다. 적합한 지역 또는 SKU를 찾을 수 없다면 다음 단계를 수행하여 "구독 관리" [지원을 요청](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)합니다.

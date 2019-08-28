@@ -10,12 +10,12 @@ ms.date: 03/24/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6ec429bc7c1598e947b798c30e7992e3d357d00c
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 55cdb70a02aae62a69f4fc930f4c6ee385a24702
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303824"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839554"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>자습서: Linux 디바이스를 위한 Python IoT Edge 모듈 개발 및 배포
 
@@ -69,25 +69,15 @@ Python에서 IoT Edge 모듈을 개발하려면 다음 추가 필수 구성 요�
 
 ### <a name="create-a-new-project"></a>새 프로젝트 만들기
 
-**cookiecutter** Python 패키지를 사용하여 빌드할 수 있는 Python 솔루션 템플릿을 만듭니다. 
+VS 코드를 사용하여 빌드할 수 있는 Python 솔루션 템플릿을 만듭니다. 
 
 1. Visual Studio Code에서 **보기** > **터미널**을 선택하여 VS Code 통합 터미널을 엽니다.
 
-2. 터미널에서 다음 명령을 입력하여 IoT Edge 솔루션 템플릿을 만드는 데 사용하는 **cookiecutter**를 설치하거나 업데이트합니다.
+1. **보기** > **명령 팔레트**를 차례로 선택하여 VS Code 명령 팔레트를 엽니다. 
 
-    ```cmd/sh
-    pip install --upgrade --user cookiecutter
-    ```
-   >[!Note]
-   >명령 프롬프트에서 호출할 수 있도록 cookiecutter를 설치할 위치가 환경의 PATH에 있는지 확인합니다. 디렉터리는 설치 스크립트 출력(예: `C:\Users\{user}\AppData\Roaming\Python\Python{version}\Scripts`)의 일부입니다.
-   >
-   >Visual Studio Code를 다시 시작하여 PATH에 변경 사항을 적용하세요. 
+1. 명령 팔레트에서 **Azure: 로그인** 명령을 입력하고 실행한 다음, 지침에 따라 Azure 계정에 로그인합니다. 이미 로그인한 경우 이 단계를 건너뛸 수 있습니다.
 
-3. **보기** > **명령 팔레트**를 차례로 선택하여 VS Code 명령 팔레트를 엽니다. 
-
-4. 명령 팔레트에서 **Azure: 로그인** 명령을 입력하고 실행한 다음, 지침에 따라 Azure 계정에 로그인합니다. 이미 로그인한 경우 이 단계를 건너뛸 수 있습니다.
-
-5. 명령 팔레트에서 **Azure IoT Edge: 새 IoT Edge 솔루션** 명령을 입력하고 실행합니다. 프롬프트에 따라 다음 정보를 제공하여 솔루션을 만듭니다.
+1. 명령 팔레트에서 **Azure IoT Edge: 새 IoT Edge 솔루션** 명령을 입력하고 실행합니다. 프롬프트에 따라 다음 정보를 제공하여 솔루션을 만듭니다.
 
    | 필드 | 값 |
    | ----- | ----- |
@@ -118,7 +108,7 @@ Python에서 IoT Edge 모듈을 개발하려면 다음 추가 필수 구성 요�
 
 ### <a name="update-the-module-with-custom-code"></a>사용자 지정 코드를 사용하여 모듈 업데이트
 
-각 템플릿에는 **tempSensor** 모듈에서 시뮬레이션된 센서 데이터를 가져오고 이를 IoT 허보에 라우팅하는 샘플 코드가 포함되어 있습니다. 이 섹션에서는 메시지를 보내기 전에 **PythonModule**을 확장하여 메시지를 분석하는 코드를 추가합니다. 
+각 템플릿에는 **SimulatedTemperatureSensor** 모듈에서 시뮬레이션된 센서 데이터를 가져오고 이를 IoT 허브에 라우팅하는 샘플 코드가 포함되어 있습니다. 이 섹션에서는 메시지를 보내기 전에 **PythonModule**을 확장하여 메시지를 분석하는 코드를 추가합니다. 
 
 1. VS Code 탐색기에서 **modules** > **PythonModule** > **main.py**를 차례로 엽니다.
 
@@ -215,7 +205,7 @@ Python에서 IoT Edge 모듈을 개발하려면 다음 추가 필수 구성 요�
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-   `--password-stdin` 사용을 권장하는 보안 경고가 표시될 수 있습니다. 이 모범 사례는 프로덕션 시나리오에 권장되지만 이 자습서에는 포함되지 않습니다. 자세한 내용은 [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) 참조를 참조하세요.
+   `--password-stdin` 사용을 권장하는 보안 경고가 표시될 수 있습니다. 이 모범 사례는 프로덕션 시나리오에 권장되지만 이 자습서의 범위를 벗어납니다. 자세한 내용은 [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) 참조를 참조하세요.
 
 2. VS Code 탐색기에서 **deployment.template.json** 파일을 마우스 오른쪽 단추로 클릭하고 **IoT Edge 솔루션 빌드 및 푸시**를 선택합니다.
 
@@ -234,7 +224,7 @@ IoT Edge 디바이스가 작동되고 실행 중인지 확인합니다.
 
 3. **config** 폴더에서 **deployment.json** 파일을 선택한 다음, **에지 배포 매니페스트 선택**을 클릭합니다. deployment.template.json 파일을 사용하지 마세요.
 
-4. 새로고침 단추를 클릭합니다. **TempSensor** 모듈과 **$edgeAgent** 및 **$edgeHub**와 함께 실행되는 새 **PythonModule**이 표시됩니다. 
+4. 새로고침 단추를 클릭합니다. **SimulatedTemperatureSensor** 모듈과 **$edgeAgent** 및 **$edgeHub**와 함께 실행되는 새 **PythonModule**이 표시됩니다. 
 
 ## <a name="view-generated-data"></a>생성된 데이터 보기
 

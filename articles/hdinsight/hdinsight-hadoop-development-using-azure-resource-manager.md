@@ -235,7 +235,7 @@ Azure 서비스 관리 기반 [(ASM) HDInsight.NET SDK](https://msdn.microsoft.c
 | .NET SDK를 사용하여 HDInsight 클러스터 크기 조정 |[HDInsight 클러스터 크기 조정](hdinsight-administer-use-dotnet-sdk.md#scale-clusters) |
 | .NET SDK를 사용하여 HDInsight 클러스터에 대한 액세스 권한 부여/해지 |[HDInsight 클러스터에 대한 액세스 권한 부여/해지](hdinsight-administer-use-dotnet-sdk.md#grantrevoke-access) |
 | .NET SDK를 사용하여 HDInsight 클러스터에 대한 HTTP 사용자 자격 증명 업데이트 |[HDInsight 클러스터에 대한 HTTP 사용자 자격 증명 업데이트](hdinsight-administer-use-dotnet-sdk.md#update-http-user-credentials) |
-| .NET SDK를 사용하여 HDInsight 클러스터에 대한 기본 저장소 계정 찾기 |[HDInsight 클러스터에 대한 기본 저장소 계정 찾기](hdinsight-administer-use-dotnet-sdk.md#find-the-default-storage-account) |
+| .NET SDK를 사용하여 HDInsight 클러스터에 대한 기본 스토리지 계정 찾기 |[HDInsight 클러스터에 대한 기본 스토리지 계정 찾기](hdinsight-administer-use-dotnet-sdk.md#find-the-default-storage-account) |
 | .NET SDK를 사용하여 HDInsight 클러스터 삭제 |[HDInsight 클러스터 삭제](hdinsight-administer-use-dotnet-sdk.md#delete-clusters) |
 
 ### <a name="examples"></a>예

@@ -79,10 +79,6 @@
       href: service-bus-samples.md
 - name: 개념
   items:
-    - name: Azure 리소스에 대한 관리 ID
-      href: service-bus-managed-service-identity.md
-    - name: 역할 기반 액세스 제어(미리 보기)
-      href: service-bus-role-based-access-control.md
     - name: 프리미엄 메시징
       href: service-bus-premium-messaging.md
     - name: Azure 큐와 Service Bus 큐 비교
@@ -95,8 +91,25 @@
       href: service-bus-async-messaging.md
     - name: 중단 및 재해 처리
       href: service-bus-outages-disasters.md
-    - name: Azure 공통 보안 특성
-      href: service-bus-messaging-security-attributes.md
+    - name: 보안
+      items:
+        - name: 인증 및 권한 부여
+          href: service-bus-authentication-and-authorization.md
+          items:
+            - name: 공유 액세스 서명 사용
+              items:
+                - name: ACS에서 SAS로 마이그레이션
+                  href: service-bus-migrate-acs-sas.md
+                - name: 공유 액세스 서명을 사용한 인증
+                  href: service-bus-sas.md
+            - name: Azure Active Directory 사용
+              items:
+                - name: Azure 리소스에 대한 관리 ID를 사용하여 인증
+                  href: service-bus-managed-service-identity.md
+                - name: 애플리케이션에서 인증
+                  href: authenticate-application.md
+        - name: Azure 공통 보안 특성
+          href: service-bus-messaging-security-attributes.md
 - name: 방법 가이드
   items:
     - name: 네임스페이스 만들기
@@ -119,13 +132,6 @@
               href: service-bus-to-event-grid-integration-concept.md
             - name: Azure Event Grid 예제
               href: service-bus-to-event-grid-integration-example.md
-        - name: 인증 및 권한 부여
-          href: service-bus-authentication-and-authorization.md
-          items:
-            - name: ACS에서 SAS로 마이그레이션
-              href: service-bus-migrate-acs-sas.md
-            - name: 공유 액세스 서명을 사용한 인증
-              href: service-bus-sas.md
         - name: 토픽 필터 및 작업
           href: topic-filters.md
         - name: 표준에서 프리미엄 네임스페이스로 마이그레이션
@@ -140,7 +146,7 @@
               href: service-bus-amqp-overview.md
             - name: .NET
               href: service-bus-amqp-dotnet.md
-            - name: Java 메시지 서비스 및 AMQP
+            - name: JMS(Java 메시지 서비스) 및 AMQP
               href: service-bus-java-how-to-use-jms-api-amqp.md
             - name: AMQP 프로토콜 가이드
               href: service-bus-amqp-protocol-guide.md

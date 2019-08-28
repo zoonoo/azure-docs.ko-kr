@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 04/16/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 817a19d5cabd7d20dc17154f29b4430e6b96c5fa
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: bb33e829853e1f9a975d29c7a80298b9033f0748
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072049"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249642"
 ---
 # <a name="quickstart-get-answer-from-knowledge-base-using-curl"></a>빠른 시작: cURL을 사용하여 기술 자료에서 답변 가져오기
 
@@ -69,7 +69,7 @@ CURL을 사용하여 대답을 생성하려면 다음 단계를 수행합니다.
 
 ## <a name="use-staging-endpoint-with-curl"></a>cURL을 통해 준비 엔드포인트 사용
 
-사용 하 여 스테이징 끝점에서 답변을 가져오려는 경우는 `isTest` 속성 본문입니다.
+준비 엔드포인트에서 대답을 가져오려면 `isTest` 본문 속성을 사용합니다.
 
 ```json
 isTest:true

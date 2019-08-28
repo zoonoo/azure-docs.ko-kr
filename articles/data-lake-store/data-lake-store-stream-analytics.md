@@ -41,7 +41,7 @@ ms.locfileid: "60194946"
     ![Stream Analytics 작업 만들기](./media/data-lake-store-stream-analytics/create.job.png "Stream Analytics 작업 만들기")
 
     > [!NOTE]
-    > 저장소 계정과 동일한 지역에 작업을 만들지 않으면 지역 간에 데이터를 이동하는 데 추가 비용이 발생합니다.
+    > 스토리지 계정과 동일한 지역에 작업을 만들지 않으면 지역 간에 데이터를 이동하는 데 추가 비용이 발생합니다.
     >
 
 ## <a name="create-a-blob-input-for-the-job"></a>작업에 대한 Blob 입력 만들기
@@ -59,7 +59,7 @@ ms.locfileid: "60194946"
    * **원본**으로 **Blob Storage**를 선택합니다.
    * **구독**에 대해 **현재 구독의 Blob Storage 사용**을 선택합니다.
    * **Storage 계정**에서 필수 조건의 일부로 만든 Storage 계정을 선택합니다. 
-   * **컨테이너**에 대해 선택한 저장소 계정에서 만든 컨테이너를 선택합니다.
+   * **컨테이너**에 대해 선택한 스토리지 계정에서 만든 컨테이너를 선택합니다.
    * **이벤트 직렬화 형식**으로 **CSV**를 선택합니다.
    * **구분 기호**로 **탭**을 선택합니다.
    * **Encoding**으로 **UTF-8**을 선택합니다.

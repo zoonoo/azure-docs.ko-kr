@@ -44,11 +44,11 @@ ms.locfileid: "56815793"
 
 이 자습서를 시작하기 전에:
 
-* 할 일 앱을 배포하지 않은 경우 [Service Fabric Mesh 웹 응용 프로그램 게시](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)의 지침을 따르세요.
+* 할 일 앱을 배포하지 않은 경우 [Service Fabric Mesh 웹 애플리케이션 게시](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)의 지침을 따르세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서의 마지막 부분입니다. 만든 리소스를 더 이상 사용하지 않는 경우 리소스 요금이 부과되지 않도록 리소스를 삭제하세요. Mesh는 초당 요금이 부과되는 서버리스 서비스이기 때문에 리소스를 삭제하는 것이 특히 중요합니다. Mesh 가격 책정에 대한 자세한 내용은 https://aka.ms/sfmeshpricing에서 확인할 수 있습니다.
+이 자습서의 마지막 부분입니다. 만든 리소스를 더 이상 사용하지 않는 경우 리소스 요금이 부과되지 않도록 리소스를 삭제하세요. Mesh는 초당 요금이 부과되는 서버리스 서비스이기 때문에 리소스를 삭제하는 것이 특히 중요합니다. Mesh 가격 책정에 대한 자세한 내용은 https://aka.ms/sfmeshpricing 에서 확인할 수 있습니다.
 
 Azure의 편리한 점 중 하나는 특정 리소스 그룹에 연결된 리소스를 만들 때 리소스 그룹을 삭제하면 해당 리소스 그룹에 연결된 모든 리소스가 삭제된다는 것입니다. 따라서 리소스를 하나씩 삭제할 필요가 없습니다.
 

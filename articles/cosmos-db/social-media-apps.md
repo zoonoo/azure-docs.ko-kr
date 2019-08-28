@@ -1,6 +1,6 @@
 ---
 title: 'Azure Cosmos DB 디자인 패턴: 소셜 미디어 앱'
-description: Azure Cosmos DB 및 기타 Azure 서비스의 저장소 유연성을 활용하여 소셜 네트워크에 대한 디자인 패턴을 알아봅니다.
+description: Azure Cosmos DB 및 기타 Azure 서비스의 스토리지 유연성을 활용하여 소셜 네트워크에 대한 디자인 패턴을 알아봅니다.
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual

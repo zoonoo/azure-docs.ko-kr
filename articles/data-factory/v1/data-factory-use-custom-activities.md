@@ -48,7 +48,7 @@ Data Factory에서 지원되지 않는 데이터 저장소에서 다른 위치�
 * [Azure .NET SDK](https://azure.microsoft.com/downloads/)
 
 ### <a name="azure-batch-prerequisites"></a>Azure Batch 필수 조건
-이 연습에서는 Azure Batch를 계산 리소스로 사용하여 사용자 지정 .NET 작업을 실행할 것입니다. **Azure Batch**는 클라우드에서 대규모 병렬 및 HPC(고성능 컴퓨팅) 애플리케이션을 효율적으로 실행하기 위한 플랫폼 서비스입니다. Azure Batch는 **가상 머신의 관리되는 컬렉션**에서 실행되는 계산 집약적 작업을 예약하고, 작업 요구에 맞게 계산 리소스의 규모를 자동으로 조정할 수 있습니다. Azure Batch 서비스의 개요에 대한 자세한 내용은 [Azure Batch 기본 사항][batch-technical-overview] 문서를 참조하세요.
+이 연습에서는 Azure Batch를 컴퓨팅 리소스로 사용하여 사용자 지정 .NET 작업을 실행할 것입니다. **Azure Batch**는 클라우드에서 대규모 병렬 및 HPC(고성능 컴퓨팅) 애플리케이션을 효율적으로 실행하기 위한 플랫폼 서비스입니다. Azure Batch는 **가상 머신의 관리되는 컬렉션**에서 실행되는 컴퓨팅 집약적 작업을 예약하고, 작업 요구에 맞게 컴퓨팅 리소스의 규모를 자동으로 조정할 수 있습니다. Azure Batch 서비스의 개요에 대한 자세한 내용은 [Azure Batch 기본 사항][batch-technical-overview] 문서를 참조하세요.
 
 자습서를 위해 VM 풀과 함께 Azure Batch 계정을 만듭니다. 단계는 다음과 같습니다.
 
@@ -90,7 +90,7 @@ public IDictionary<string, string> Execute(
 
 이 메서드는 다음과 같은 네 개의 매개 변수를 사용합니다.
 
-- **linkedServices**. 이 속성은 작업에 대한 입력/출력으로 참조되는 데이터 저장소 연결된 서비스의 열거형 목록입니다.
+- **linkedServices**. 이 속성은 작업에 대한 입력/출력으로 참조되는 데이터 스토리지 연결된 서비스의 열거형 목록입니다.
 - **데이터 세트**. 이 속성은 작업에 대한 입력/출력 데이터 세트의 열거형 목록입니다. 이 매개 변수를 사용하여 입력 및 출력 데이터 세트에 정의된 위치 및 스키마를 가져올 수 있습니다.
 - **activity**. 이 속성은 현재 작업을 나타냅니다. 사용자 지정 작업과 연결된 확장된 속성에 액세스하려면 사용할 수 있습니다. 자세한 내용은 [확장 속성 액세스](#access-extended-properties)를 참조하세요.
 - **logger**. 이 개체를 사용하면 파이프라인에 대한 사용자 로그로 노출할 디버그 주석을 기록할 수 있습니다.
@@ -438,10 +438,10 @@ adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에�
 
 #### <a name="create-azure-storage-linked-service"></a>Azure Storage 연결된 서비스 만들기
 1. **CustomActivityFactory**에 대한 **Data Factory** 블레이드에서 **작성 및 배포 타일**을 클릭합니다. 데이터 팩터리 편집기가 표시됩니다.
-2. 명령 모음에서 **새 데이터 저장소**를 클릭하고 **Azure 저장소**를 선택합니다. 편집기에 Azure Storage 연결된 서비스를 만들기 위한 JSON 스크립트가 표시됩니다.
+2. 명령 모음에서 **새 데이터 스토리지**를 클릭하고 **Azure Storage**를 선택합니다. 편집기에 Azure Storage 연결된 서비스를 만들기 위한 JSON 스크립트가 표시됩니다.
 
     ![새 데이터 저장소 - Azure Storage](media/data-factory-use-custom-activities/new-data-store-menu.png)
-3. `<accountname>`을 Azure Storage 계정 이름으로 바꾸고 `<accountkey>`를 Azure Storage 계정의 액세스 키로 바꿉니다. 저장소 액세스 키를 확보하는 방법을 알아보려면 [저장소 액세스 키 보기, 복사 및 다시 생성](../../storage/common/storage-account-manage.md#access-keys)을 참조하세요.
+3. `<accountname>`을 Azure Storage 계정 이름으로 바꾸고 `<accountkey>`를 Azure Storage 계정의 액세스 키로 바꿉니다. 스토리지 액세스 키를 확보하는 방법을 알아보려면 [스토리지 액세스 키 보기, 복사 및 다시 생성](../../storage/common/storage-account-manage.md#access-keys)을 참조하세요.
 
     ![Azure Storage 연결 서비스](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
 4. 명령 모음에서 **배포**를 클릭하여 연결된 서비스를 배포합니다.
@@ -449,7 +449,7 @@ adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에�
 #### <a name="create-azure-batch-linked-service"></a>Azure Batch 연결된 서비스 만들기
 1. Data Factory Editor의 도구 모음에서 **... 추가**를 클릭하고 **새 계산**을 클릭한 다음, 메뉴에서 **Azure Batch**를 선택합니다.
 
-    ![새 계산 - Azure Batch](media/data-factory-use-custom-activities/new-azure-compute-batch.png)
+    ![새 컴퓨팅 - Azure Batch](media/data-factory-use-custom-activities/new-azure-compute-batch.png)
 2. JSON 스크립트를 다음과 같이 변경합니다.
 
    1. **accountName** 속성의 Azure Batch 계정 이름을 지정합니다. **Azure Batch 계정 블레이드**의 **URL**은 `http://accountname.region.batch.azure.com` 형식을 사용합니다. JSON의 **batchUri** 속성에 대해 URL에서 `accountname.`을 제거하고 `accountName` JSON 속성에 대해 `accountname`을 사용합니다.
@@ -664,7 +664,7 @@ Data Factory 서비스가 Azure Batch에 **adf-poolname:job-xxx**라는 이름�
 
 ![Azure Data Factory - Batch 작업](media/data-factory-use-custom-activities/data-factory-batch-jobs.png)
 
-조각의 각 작업 실행에 대한 작업(task)이 만들어집니다. 처리를 위해 준비된 5개 조각이 있는 경우 이 작업(job)에 5개 작업(task)이 만들어집니다. Batch 풀에 여러 계산 노드가 있는 경우 두 개 이상의 조각을 병렬로 실행할 수 있습니다. 계산 노드당 최대 작업이 1보다 크게 설정된 경우에도 동일한 계산에 실행 중인 두 개 이상의 조각을 포함할 수 있습니다.
+조각의 각 작업 실행에 대한 작업(task)이 만들어집니다. 처리를 위해 준비된 5개 조각이 있는 경우 이 작업(job)에 5개 작업(task)이 만들어집니다. Batch 풀에 여러 컴퓨팅 노드가 있는 경우 두 개 이상의 조각을 병렬로 실행할 수 있습니다. 계산 노드당 최대 작업이 1보다 크게 설정된 경우에도 동일한 계산에 실행 중인 두 개 이상의 조각을 포함할 수 있습니다.
 
 ![Azure Data Factory - Batch 작업 태스크](media/data-factory-use-custom-activities/data-factory-batch-job-tasks.png)
 
@@ -773,7 +773,7 @@ pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($
 $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
 ```
 
-자세한 내용은 [Azure Batch 풀에서 자동으로 계산 노드 크기 조정](../../batch/batch-automatic-scaling.md)을 참조하세요.
+자세한 내용은 [Azure Batch 풀에서 자동으로 컴퓨팅 노드 크기 조정](../../batch/batch-automatic-scaling.md)을 참조하세요.
 
 풀에 기본 [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx)이 사용되는 경우, Batch 서비스가 사용자 지정 작업을 실행하기 전에 VM을 준비하는 데 15~30분이 소요될 수 있습니다.  풀에 다른 autoScaleEvaluationInterval이 사용되는 경우, Batch 서비스는 autoScaleEvaluationInterval +10분이 소요될 수 있습니다.
 

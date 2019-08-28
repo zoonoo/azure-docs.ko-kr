@@ -119,7 +119,7 @@ rule = azure_service_bus_service.create_rule(rule)
 이제 `test-topic`으로 메시지를 보내는 경우 `all-messages` 토픽 구독을 구독하는 수신자에게는 항상 배달되고, `high-messages` 및 `low-messages` 토픽 구독을 구독하는 수신자에게는 메시지 내용에 따라 선택적으로 배달됩니다.
 
 ## <a name="send-messages-to-a-topic"></a>토픽에 메시지 보내기
-Service Bus 토픽에 메시지를 보내려면 애플리케이션에서 **Azure::ServiceBusService** 개체의 `send_topic_message()` 메서드를 사용해야 합니다. Service Bus 토픽으로 전송되는 메시지는 **Azure::ServiceBus::BrokeredMessage** 개체의 인스턴스입니다. **Azure::ServiceBus::BrokeredMessage** 개체에는 표준 속성 세트(예: `label` 및 `time_to_live`), 애플리케이션별 사용자 지정 속성을 저장하는 데 사용되는 사전 및 문자열 데이터의 본문이 있습니다. 응용 프로그램은 문자열 값을 `send_topic_message()` 메서드에 전달하여 메시지의 본문을 설정할 수 있습니다. 그러면 필수 표준 속성이 기본값으로 채워집니다.
+Service Bus 토픽에 메시지를 보내려면 애플리케이션에서 **Azure::ServiceBusService** 개체의 `send_topic_message()` 메서드를 사용해야 합니다. Service Bus 토픽으로 전송되는 메시지는 **Azure::ServiceBus::BrokeredMessage** 개체의 인스턴스입니다. **Azure::ServiceBus::BrokeredMessage** 개체에는 표준 속성 세트(예: `label` 및 `time_to_live`), 애플리케이션별 사용자 지정 속성을 저장하는 데 사용되는 사전 및 문자열 데이터의 본문이 있습니다. 애플리케이션은 문자열 값을 `send_topic_message()` 메서드에 전달하여 메시지의 본문을 설정할 수 있습니다. 그러면 필수 표준 속성이 기본값으로 채워집니다.
 
 다음 예제에서는 5개의 테스트 메시지를 `test-topic`에 보내는 방법을 보여 줍니다. 루프가 반복될 때마다 각 메시지의 `message_number` 사용자 지정 속성 값이 달라집니다. 이 값에 따라 메시지를 수신하는 구독이 결정됩니다.
 
@@ -151,9 +151,9 @@ azure_service_bus_service.delete_subscription_message(message)
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>애플리케이션 작동 중단 및 읽을 수 없는 메시지를 처리하는 방법
-Service Bus는 애플리케이션 오류나 메시지 처리 문제를 정상적으로 복구하는 데 유용한 기능을 제공합니다. 어떤 이유로든 수신 애플리케이션이 메시지를 처리할 수 없는 경우 **Azure::ServiceBusService** 개체의 `unlock_subscription_message()` 메서드를 호출할 수 있습니다. 그러면 Service Bus에서 구독 내 메시지의 잠금을 해제하고 동일한 소비 응용 프로그램이나 다른 소비 응용 프로그램에서 메시지를 다시 받을 수 있습니다.
+Service Bus는 애플리케이션 오류나 메시지 처리 문제를 정상적으로 복구하는 데 유용한 기능을 제공합니다. 어떤 이유로든 수신 애플리케이션이 메시지를 처리할 수 없는 경우 **Azure::ServiceBusService** 개체의 `unlock_subscription_message()` 메서드를 호출할 수 있습니다. 그러면 Service Bus에서 구독 내 메시지의 잠금을 해제하고 동일한 소비 애플리케이션이나 다른 소비 애플리케이션에서 메시지를 다시 받을 수 있습니다.
 
-구독 내에서 잠긴 메시지와 연결된 제한 시간도 있으며, 응용 프로그램에서 잠금 시간 제한이 만료되기 전에 메시지를 처리하지 못하는 경우(예: 응용 프로그램 작동이 중단되는 경우) Service Bus가 메시지를 자동으로 잠금 해제하여 다시 받을 수 있게 합니다.
+구독 내에서 잠긴 메시지와 연결된 제한 시간도 있으며, 애플리케이션에서 잠금 시간 제한이 만료되기 전에 메시지를 처리하지 못하는 경우(예: 애플리케이션 작동이 중단되는 경우) Service Bus가 메시지를 자동으로 잠금 해제하여 다시 받을 수 있게 합니다.
 
 애플리케이션이 메시지를 처리한 후 `delete_subscription_message()` 메서드가 호출되기 전에 충돌하는 경우, 다시 시작될 때 메시지가 애플리케이션에 다시 배달됩니다. 이를 *최소 한 번 이상 처리*라고 합니다. 즉, 각 메시지가 최소 한 번 이상 처리되지만 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 중복 처리가 허용되지 않는 시나리오에서는 애플리케이션 개발자가 중복 메시지 배달을 처리하는 논리를 애플리케이션에 추가해야 합니다. 이 논리는 배달 시도 간에 일정하게 유지되는 메시지의 `message_id` 속성을 사용하여 추가하는 경우가 많습니다.
 

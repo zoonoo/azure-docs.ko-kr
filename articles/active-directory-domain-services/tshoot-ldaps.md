@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: a194919a488f6cb59c76315c9d8a3db1e9c1feb1
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 285af0e5e5d5ab03027fc29064a5f3623ed10e2f
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472197"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617056"
 ---
 # <a name="troubleshoot-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인에 대해 보안 LDAP(LDAPS) 문제 해결
 
@@ -42,8 +42,8 @@ ms.locfileid: "67472197"
 
 
 ## <a name="related-content"></a>관련 콘텐츠
-* [Azure AD Domain Services - 시작 가이드](create-instance.md)
-* [Azure AD Domain Services 도메인을 관리 합니다.](manage-domain.md)
+* [Azure AD Domain Services - 시작 가이드](tutorial-create-instance.md)
+* [Azure AD Domain Services 도메인 관리](tutorial-create-management-vm.md)
 * [LDAP query basics](https://technet.microsoft.com/library/aa996205.aspx)(LDAP 쿼리 기본 사항)
 * [Azure AD Domain Services에 대 한 그룹 정책 관리](manage-group-policy.md)
 * [네트워크 보안 그룹](../virtual-network/security-overview.md)

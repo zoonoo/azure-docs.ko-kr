@@ -9,31 +9,29 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: e9a20aba84e79e87f84d63e4bdae3ba1aac062f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b9a9d0a16a31d06d0d4edc1b6f0617a5771b179e
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66387186"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872836"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Grafana에서 Azure 서비스 모니터링
 이제 [Azure Monitor 데이터 원본 플러그 인](https://grafana.com/plugins/grafana-azure-monitor-datasource)을 사용하여 [Grafana](https://grafana.com/)에서 Azure 서비스 및 애플리케이션을 모니터링할 수 있습니다. 플러그 인은 다양한 로그 및 메트릭을 포함하여 Azure Monitor에서 수집된 애플리케이션 성능 데이터를 수집합니다. 그런 다음 Grafana 대시보드에 이 데이터를 표시할 수 있습니다.
-
-플러그 인은 현재 미리 보기에 있습니다.
 
 Grafana 서버를 설정하고 Azure Monitor에서 메트릭 및 로그에 대한 대시보드를 빌드하려면 다음 단계를 사용합니다.
 
 ## <a name="set-up-a-grafana-server"></a>Grafana 서버 설정
 
 ### <a name="set-up-grafana-locally"></a>Grafana를 로컬로 설정
-Grafana 서버를 로컬로 설정하려면 [로컬 환경에서 Grafana를 다운로드하여 설치](https://grafana.com/grafana/download)합니다. 플러그 인의 Azure Monitor 통합을 사용 하려면 버전 5.3 이상이 Grafana를 설치 합니다.
+Grafana 서버를 로컬로 설정하려면 [로컬 환경에서 Grafana를 다운로드하여 설치](https://grafana.com/grafana/download)합니다. 플러그 인의 Azure Monitor 통합을 사용 하려면 Grafana 버전 5.3 이상을 설치 합니다.
 
 ### <a name="set-up-grafana-on-azure-through-the-azure-marketplace"></a>Azure Marketplace를 통해 Azure에서 Grafana 설정
 1. Azure Marketplace로 이동하여 Grafana Labs에서 Grafana를 선택합니다.
 
 2. 이름 및 세부 정보를 입력합니다. 새 리소스 그룹을 만듭니다. VM 사용자 이름, VM 암호 및 Grafana 서버 관리자 암호에 대해 선택한 값을 추적합니다.  
 
-3. VM 크기 및 저장소 계정을 선택합니다.
+3. VM 크기 및 스토리지 계정을 선택합니다.
 
 4. 네트워크 구성 설정을 구성합니다.
 
@@ -53,7 +51,7 @@ Grafana 서버를 로컬로 설정하려면 [로컬 환경에서 Grafana를 다�
 
     ![Grafana 로그인 화면](./media/grafana-plugin/grafana-login-screen.png)
 
-2. 사용자 이름을 사용 하 여 로그인 *관리자* 및 이전에 만든 Grafana 서버 관리자 암호입니다. 로컬 설정을 사용하는 경우 기본 암호는 *admin*이며 첫 번째 로그인에서 변경하라는 메시지가 표시됩니다.
+2. 이전에 만든 사용자 이름 *관리자* 및 Grafana 서버 관리자 암호를 사용 하 여 로그인 합니다. 로컬 설정을 사용하는 경우 기본 암호는 *admin*이며 첫 번째 로그인에서 변경하라는 메시지가 표시됩니다.
 
 ## <a name="configure-data-source-plugin"></a>데이터 원본 플러그 인 구성
 
@@ -71,7 +69,7 @@ Grafana 서버를 로컬로 설정하려면 [로컬 환경에서 Grafana를 다�
     Log Analytics API에는 읽기 권한자 역할의 사용 권한을 포함하며 여기에 추가하는 [Log Analytics Reader 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader)이 필요합니다.
 
 4. 사용하려는 API에 연결 세부 정보를 제공합니다. 전부 또는 일부에만 연결할 수 있습니다. 
-    * 연결 하는 경우 메트릭 및 Azure Monitor의 로그를 동일한 자격 증명을 선택 하 여 재사용할 수 있습니다 **Azure Monitor API에 따라 동일한 세부 정보**합니다.
+    * Azure Monitor의 메트릭과 로그 모두에 연결 하는 경우 **AZURE MONITOR API와 동일한 세부 정보**를 선택 하 여 동일한 자격 증명을 다시 사용할 수 있습니다.
     * 플러그 인을 구성하는 동안 플러그 인을 모니터링할 Azure 클라우드(공용, Azure 미국 정부, Azure 독일 또는 Azure 중국)를 지정할 수 있습니다.
     * Application Insights를 사용하는 경우 Application Insights API 및 애플리케이션 ID를 포함하여 Application Insights 기반 메트릭을 수집할 수도 있습니다. 자세한 내용은 [API 키 및 애플리케이션 ID 가져오기](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID)를 참조하세요.
 
@@ -98,7 +96,7 @@ Grafana 서버를 로컬로 설정하려면 [로컬 환경에서 Grafana를 다�
 4. 구성한 경우 Azure Monitor 데이터 원본을 선택합니다.
    * Azure Monitor 메트릭 수집 - 서비스 드롭다운에서 **Azure Monitor**를 선택합니다. 선택 목록이 표시되면 이 차트에서 모니터링할 리소스 및 메트릭을 선택할 수 있습니다. VM에서 메트릭을 수집하려면 네임스페이스 **Microsoft.Compute/VirtualMachines**를 사용합니다. VM 및 메트릭을 선택하고 나면 대시보드에서 해당 데이터 보기를 시작할 수 있습니다.
      ![Azure Monitor를 위한 Grafana 그래프 구성](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
-   * Azure Monitor 수집 데이터를 기록-선택 **Azure Log Analytics** 서비스 드롭다운에서 합니다. 쿼리할 작업 영역을 선택하고 쿼리 텍스트를 설정합니다. 이미 했거나 새로 만들 로그 쿼리 여기 복사할 수 있습니다. 쿼리에 입력할 때 IntelliSense가 표시되어 자동 완성 옵션을 제안합니다. 시각화 유형인 **시계열** **테이블**을 선택하고 쿼리를 실행합니다.
+   * Azure Monitor 로그 데이터 수집-서비스 드롭다운에서 **Azure Log Analytics** 를 선택 합니다. 쿼리할 작업 영역을 선택하고 쿼리 텍스트를 설정합니다. 여기에 이미 있는 모든 로그 쿼리를 복사 하거나 새로 만들 수 있습니다. 쿼리에 입력할 때 IntelliSense가 표시되어 자동 완성 옵션을 제안합니다. 시각화 유형인 **시계열** **테이블**을 선택하고 쿼리를 실행합니다.
     
      > [!NOTE]
      >
@@ -127,7 +125,7 @@ Telegraf 및 InfluxDB를 설치하여 동일한 Grafana 인스턴스에서 사�
 
 ## <a name="advanced-grafana-features"></a>고급 Grafana 기능
 
-### <a name="variables"></a>variables
+### <a name="variables"></a>변수
 일부 쿼리 값은 UI 드롭다운을 통해 선택하고 쿼리에서 업데이트할 수 있습니다. 한 예로 다음 쿼리를 고려해 보세요.
 ```
 Usage 

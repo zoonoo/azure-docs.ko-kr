@@ -63,7 +63,7 @@ Azure Storage Explorer [릴리스 정보](https://go.microsoft.com/fwlink/?LinkI
 
 ---
 
-## <a name="connect-to-a-storage-account-or-service"></a>저장소 계정 또는 서비스에 연결
+## <a name="connect-to-a-storage-account-or-service"></a>스토리지 계정 또는 서비스에 연결
 
 Storage Explorer는 Storage 계정에 연결하는 여러 방법을 제공합니다. 일반적으로 다음과 같은 작업을 하거나 수행할 수 있습니다.
 
@@ -91,7 +91,7 @@ Storage Explorer는 Storage 계정에 연결하는 여러 방법을 제공합니
 
     ![Azure 구독 선택][3]
 
-    왼쪽 창은 선택한 Azure 구독과 연결된 저장소 계정을 표시합니다.
+    왼쪽 창은 선택한 Azure 구독과 연결된 스토리지 계정을 표시합니다.
 
     ![선택한 Azure 구독][4]
 
@@ -243,9 +243,9 @@ Azure 구독을 통해 Azure Cosmos DB 계정을 관리하는 것 외에, Azure 
 
 [Storage 탐색기에서 blob 컨테이너에 대 한 SAS를 가져오는 방법](vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
 
-## <a name="search-for-storage-accounts"></a>저장소 계정 검색
+## <a name="search-for-storage-accounts"></a>스토리지 계정 검색
 
-저장소 리소스를 찾아야 하며 위치를 잘 모를 경우, 왼쪽 창 위쪽에 있는 검색 상자를 사용하여 리소스를 검색할 수 있습니다.
+스토리지 리소스를 찾아야 하며 위치를 잘 모를 경우, 왼쪽 창 위쪽에 있는 검색 상자를 사용하여 리소스를 검색할 수 있습니다.
 
 검색 상자에 내용을 입력하면 왼쪽 창에 해당 시점까지 사용자가 입력한 검색 값과 일치하는 모든 리소스가 표시됩니다. 예를 들어 **엔드포인트** 검색 결과는 다음 스크린샷에 표시됩니다.
 

@@ -11,20 +11,20 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 11/13/2018
+ms.date: 06/14/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 15b7c052d0e4d51cb033607c156a55c581f722b1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 535b96a2bb86f1996e6ff0aba19339b55a18ee50
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893965"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515862"
 ---
 # <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>하이브리드 환경에서 Linux 컴퓨터용 Log Analytics 에이전트 구성
-[Azure Log Analytics](../../azure-monitor/platform/agent-windows.md)는 상세한 분석 및 상관 관계 파악을 위해 데이터 센터나 다른 클라우드 환경의 물리적 또는 가상 Linux 컴퓨터를 단일 리포지토리로 직접 수집할 수 있습니다. 이 빠른 시작 가이드에서는 몇 가지 간단한 단계로 Linux 컴퓨터에서 데이터를 구성 및 수집하는 방법을 보여 줍니다.  Azure Linux VM의 경우 다음 항목 [Azure Virtual Machines에 대한 데이터 수집](quick-collect-azurevm.md)을 참조하세요.  
+[Azure Log Analytics](../platform/agent-windows.md)는 상세한 분석 및 상관 관계 파악을 위해 데이터 센터나 다른 클라우드 환경의 물리적 또는 가상 Linux 컴퓨터를 단일 리포지토리로 직접 수집할 수 있습니다. 이 빠른 시작 가이드에서는 몇 가지 간단한 단계로 Linux 컴퓨터에서 데이터를 구성 및 수집하는 방법을 보여 줍니다.  Azure Linux VM의 경우 다음 항목 [Azure Virtual Machines에 대한 데이터 수집](quick-collect-azurevm.md)을 참조하세요.  
 
-지원되는 구성을 이해하려면 [지원되는 Linux 운영 체제](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) 및 [네트워크 방화벽 구성](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements)을 검토합니다.
+계속하기 전에 먼저 Log Analytics 에이전트 [개요](../platform/log-analytics-agent.md) 문서를 검토하여 지원되는 구성, [지원되는 Linux 운영 체제](../platform/log-analytics-agent.md#supported-linux-operating-systems) 및 [네트워크 방화벽 구성](../platform/log-analytics-agent.md#network-firewall-requirements)을 이해해야 합니다. 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -32,11 +32,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다. 
 
 ## <a name="create-a-workspace"></a>작업 영역 만들기
-1. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.
+1. Azure Portal에서 **모든 서비스**를 선택합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.
 
     ![Azure portal](media/quick-collect-linux-computer/azure-portal-01.png) 
 
-2. **만들기**를 클릭하고 다음 항목에 대한 옵션을 선택합니다.
+2. **만들기**를 선택한 후, 다음 항목에 대한 선택 사항을 지정합니다.
 
    * 새 **Log Analytics 작업 영역**의 이름(예: *DefaultLAWorkspace*)을 지정합니다. OMS 작업 영역을 이제 Log Analytics 작업 영역이라고 합니다.   
    * 기본으로 선택된 값이 적절하지 않으면 드롭다운 목록에서 선택하여 연결할 **구독**을 선택합니다.
@@ -46,7 +46,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
         ![Log Analytics 리소스 블레이드 만들기](media/quick-collect-linux-computer/create-loganalytics-workspace-02.png)<br>  
 
-3. **Log Analytics 작업 영역** 창에서 필요한 정보를 제공한 후에 **확인**을 클릭합니다.  
+3. **Log Analytics 작업 영역** 창에서 필요한 정보를 제공한 후 **확인**을 선택합니다.  
 
 정보가 확인되고 작업 영역이 만들어지는 동안 메뉴의 **알림**에서 진행 상황을 추적할 수 있습니다. 
 
@@ -55,7 +55,7 @@ Linux용 Log Analytics 에이전트를 설치하기 전에 Log Analytics 작업 
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
-1. Azure Portal의 왼쪽 위 모서리에 있는 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.
+1. Azure Portal의 왼쪽 위 모서리에 있는 **모든 서비스**를 선택합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.
 2. Log Analytics 작업 영역 목록에서 이전에 만든 *DefaultLAWorkspace*를 선택합니다.
 3. **고급 설정**을 선택합니다.
 
@@ -107,23 +107,23 @@ Linux 컴퓨터에서 프록시 서버를 통해 Log Analytics에 통신해야 �
 Log Analytics는 Linux Syslog에서 이벤트를 수집하고, 좀 더 긴 기간의 분석 및 보고를 위해 지정한 성능 카운터를 수집할 수 있으며 특정 조건이 검색되면 작업을 수행할 수 있습니다.  다음 단계에 따라 Linux Syslog의 수집과 시작할 몇 가지 일반 성능 카운터를 구성하세요.  
 
 1. **Syslog**를 선택합니다.  
-2. 로그 이름을 입력하여 이벤트 로그를 추가합니다. **Syslog**를 입력하고 더하기 기호 **+** 를 클릭합니다.  
+2. 로그 이름을 입력하여 이벤트 로그를 추가합니다. **Syslog**를 입력한 다음, 더하기 기호( **+** )를 선택합니다.  
 3. 표에서 심각도 **정보**, **알림** 및 **디버그**를 선택 취소합니다. 
-4. 페이지 맨 위에서 **저장**을 클릭하여 구성을 저장합니다.
+4. 페이지 맨 위에서 **저장**을 선택하여 구성을 저장합니다.
 5. **Linux 성능 데이터**를 선택하여 Linux 컴퓨터의 성능 카운터 수집을 사용하도록 설정합니다. 
 6. 새 Log Analytics 작업 영역에 대한 Linux 성능 카운터를 처음으로 구성하는 경우, 몇 가지 공용 카운터를 신속하게 만드는 옵션이 제공됩니다. 각 항목은 옆에 확인란과 함께 나열됩니다. 
 
     ![선택된 기본 Windows 성능 카운터](media/quick-collect-linux-computer/linux-perfcounters-default.png)
     
-    **선택한 성능 카운터 추가**를 클릭합니다. 해당 성능 카운터가 추가되고, 10초의 수집 샘플 간격으로 미리 설정됩니다.
+    **선택한 성능 카운터 추가**를 선택합니다. 해당 성능 카운터가 추가되고, 10초의 수집 샘플 간격으로 미리 설정됩니다.
 
-7. 페이지 맨 위에서 **저장**을 클릭하여 구성을 저장합니다.
+7. 페이지 맨 위에서 **저장**을 선택하여 구성을 저장합니다.
 
 ## <a name="view-data-collected"></a>수집되는 데이터 보기
 데이터 수집을 사용하도록 설정했으므로 대상 컴퓨터의 일부 데이터를 확인하는 간단한 로그 검색 예제를 실행해보겠습니다.  
 
 1. Azure Portal에서 Log Analytics로 이동한 후 앞서 만든 작업 영역을 선택합니다.
-2. **로그 검색** 타일을 클릭하고 로그 검색 창의 쿼리 필드에 `Perf`를 입력한 후 Enter 키를 누르거나 쿼리 필드의 오른쪽의 검색 단추를 클릭합니다.
+2. **로그 검색** 타일을 선택하고 로그 검색 창의 쿼리 필드에 `Perf`를 입력한 다음, Enter 키를 누르거나 쿼리 필드의 오른쪽의 검색 단추를 선택합니다.
 
     ![Log Analytics 로그 검색 쿼리 예제](media/quick-collect-linux-computer/log-analytics-portal-queryexample.png)
 
@@ -138,7 +138,7 @@ Log Analytics는 Linux Syslog에서 이벤트를 수집하고, 좀 더 긴 기�
 
    `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh --purge`
 
-작업 영역을 삭제하려면 앞서 만든 Log Analytics 작업 영역을 선택하고 리소스 페이지에서 **삭제**를 클릭합니다.
+작업 영역을 삭제하려면 앞서 만든 Log Analytics 작업 영역을 선택하고 리소스 페이지에서 **삭제**를 선택합니다.
 
 ![Log Analytics 리소스 삭제](media/quick-collect-linux-computer/log-analytics-portal-delete-resource.png)
 

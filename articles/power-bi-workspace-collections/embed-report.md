@@ -2,18 +2,18 @@
 title: Azure Power BI 작업 영역 컬렉션에 보고서 포함 | Microsoft Docs
 description: Power BI 작업 영역 컬렉션에 있는 보고서를 애플리케이션에 포함하는 방법을 알아봅니다.
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 author: rkarlin
 ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: a7d6ccc2360d63b888dc46badc742f2618a08dac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e125e57c290688d5a65f6d70143100cbd3462cb
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64724608"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67669059"
 ---
 # <a name="embed-a-report-in-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션에 보고서 포함
 
@@ -143,7 +143,7 @@ var report = powerbi.embed($reportContainer.get(0), embedConfiguration);
 
 보고서는 컨테이너의 크기에 따라 자동으로 포함됩니다. 포함된 항목의 기본 크기를 재정의하려면 CSS 클래스 특성 또는 너비 및 높이에 대한 인라인 스타일을 추가하기만 하면 됩니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 [샘플 시작](get-started-sample.md)  
 [Power BI 작업 영역 컬렉션에서 인증 및 권한 부여](app-token-flow.md)  

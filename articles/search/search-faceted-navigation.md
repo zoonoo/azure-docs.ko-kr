@@ -2,26 +2,26 @@
 title: 범주 계층에서 패싯 탐색을 구현하는 방법 - Azure Search
 description: Microsoft Azure에서 클라우드 호스티드 Search 서비스인 Azure Search와 통합되는 애플리케이션에 패싯 탐색을 추가합니다.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 6fc1e1aaaa3b2489dd4083f56d45ab0abc2b6892
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 8e325abf1f58458d2fa035c8c8f081173efb0e65
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165963"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69649904"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Azure Search에서 패싯 탐색을 구현하는 방법
 패싯 탐색은 검색 애플리케이션에서 자기 주도형 드릴다운 탐색을 제공하는 필터링 메커니즘입니다. '패싯 탐색'이라는 용어가 낯설 수도 있지만 아마도 이전에 사용해 보셨을 것입니다. 다음 예제와 같이 패싯 탐색은 결과를 필터링하는 데 사용되는 범주일 뿐입니다.
 
- ![Azure Search 구직 포털 데모](media/search-faceted-navigation/azure-search-faceting-example.png "Azure Search 구직 포털 데모")
+ ![Azure Search 작업 포털 데모](media/search-faceted-navigation/azure-search-faceting-example.png "Azure Search 작업 포털 데모")
 
-패싯 탐색은 검색의 대체 진입점입니다. 복잡한 검색 식을 직접 입력할 수 있는 편리한 대안을 제공합니다. 패싯을 사용하면 원하는 항목을 쉽게 찾을 수 있으며 항상 결과를 얻을 수 있습니다. 개발자는 패싯을 검색 인덱스를 탐색 하기 위한 가장 유용한 검색 조건을 노출할 수 있습니다. 온라인 소매 애플리케이션에서는 종종 브랜드, 부서(어린이 신발), 크기, 가격, 인기도 및 등급에 대한 패싯 탐색이 작성됩니다. 
+패싯 탐색은 검색의 대체 진입점입니다. 복잡한 검색 식을 직접 입력할 수 있는 편리한 대안을 제공합니다. 패싯을 사용하면 원하는 항목을 쉽게 찾을 수 있으며 항상 결과를 얻을 수 있습니다. 개발자는 패싯으로 검색 인덱스를 탐색 하는 데 가장 유용한 검색 조건을 노출할 수 있습니다. 온라인 소매 애플리케이션에서는 종종 브랜드, 부서(어린이 신발), 크기, 가격, 인기도 및 등급에 대한 패싯 탐색이 작성됩니다. 
 
 패싯 탐색의 구현은 검색 기술에 따라 다릅니다. Azure Search에서는 이전에 스키마에서 특성을 지정한 필드를 사용하여 쿼리 시 패싯 탐색이 작성됩니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "67165963"
 
 -   [GitHub의 Azure 샘플 리포지토리](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)에서 코드를 다운로드하세요.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 검색 개발을 처음 접하는 경우 패싯 탐색을 자기 주도형 검색에 대한 가능성을 보여 주는 것이라고 생각하는 것이 가장 좋습니다. 패싯 탐색은 포인트 클릭 동작을 통해 검색 결과의 범위를 신속하게 좁히는 데 사용되는 미리 정의된 필터를 기반으로 하는 드릴다운 검색 환경에 일종입니다. 
 
 ### <a name="interaction-model"></a>상호 작용 모델
@@ -321,7 +321,7 @@ Numeric 및 DateTime 값에 한해, 패싯 필드에서 값을 명시적으로 �
 
 패싯 수는 분할 아키텍처로 인해 부정확할 수 있습니다. 모든 검색 인덱스에는 여러 개의 분할된 데이터베이스가 있으며, 각 분할된 데이터베이스는 문서 수에 따라 상위 N개의 패싯을 보고합니다. 이 값이 단일 결과로 통합됩니다. 분할된 데이터베이스 중에 일치하는 값이 많은 것과 적은 것이 있는 경우 결과에서 일부 패싯 값이 누락되거나 적은 개수로 나타날 수 있습니다.
 
-이 문제는이 동작이 발생 하는 경우 언제 든 지 변경 될 수, 있지만 해결할 수 있습니다이 값으로 인위적으로 수:\<수 > 많은 각 분할 된 데이터베이스에서 전체 보고 하도록 적용할 수 있습니다. count: 값이 필드의 고유 값 수보다 크거나 같으면 정확한 결과가 반환됩니다. 그러나 문서 수가 많은 경우에는 성능이 저하되므로 이 옵션을 신중하게 사용해야 합니다.
+이 동작은 언제 든 지 변경 될 수 있지만, 현재이 동작이 발생 한 경우 count:\<number >를 인위적으로 않아서 하 여 각 분할 된 데이터베이스가 전체 보고를 적용 하도록 하 여 해결할 수 있습니다. count: 값이 필드의 고유 값 수보다 크거나 같으면 정확한 결과가 반환됩니다. 그러나 문서 수가 많은 경우에는 성능이 저하되므로 이 옵션을 신중하게 사용해야 합니다.
 
 ### <a name="user-interface-tips"></a>사용자 인터페이스 팁
 **패싯 탐색의 각 필드에 대한 레이블 추가**
@@ -352,7 +352,7 @@ Azure Search에서는 범위를 계산하는 두 가지 방법을 제공하여 �
 ### <a name="build-a-filter-for-a-range"></a>범위에 대한 필터 작성
 사용자가 선택한 범위에 따라 문서를 필터링하려면 범위의 엔드포인트를 정의하는 두 부분으로 구성된 식에서 `"ge"` 및 `"lt"` 필터 연산자를 사용하면 됩니다. 예를 들어 `listPrice` 필드의 범위를 10-25로 선택하면 필터는 `$filter=listPrice ge 10 and listPrice lt 25`가 됩니다. 샘플 코드의 필터 식에서는 **priceFrom** 및 **priceTo** 매개 변수를 사용하여 엔드포인트를 설정합니다. 
 
-  ![값의 범위에 대 한 쿼리](media/search-faceted-navigation/Facet-6-buildfilter.PNG "값의 범위에 대 한 쿼리")
+  ![값 범위 쿼리](media/search-faceted-navigation/Facet-6-buildfilter.PNG "값 범위 쿼리")
 
 <a name="geofacets"></a> 
 
@@ -385,11 +385,11 @@ Azure Search 구직 포털 데모에는 이 문서에 나와 있는 예제가 �
    
    검색 결과와 함께 패싯 탐색 구조도 반환됩니다. 검색 결과 페이지의 패싯 탐색 구조에 각 패싯 결과의 개수가 포함됩니다. 패싯을 선택하지 않았으므로 일치하는 모든 결과가 반환됩니다.
    
-   ![패싯을 선택 하기 전의 검색 결과](media/search-faceted-navigation/faceted-search-before-facets.png "패싯을 선택 하기 전의 검색 결과")
+   ![패싯을 선택 하기 전에 검색 결과](media/search-faceted-navigation/faceted-search-before-facets.png "패싯을 선택 하기 전에 검색 결과")
 
 4. 직함, 위치 또는 최소 급여를 클릭합니다. 패싯은 초기 검색 시 null이었지만 값을 취하는 순간 더 이상 일치하지 않는 항목이 검색 결과에서 잘립니다.
    
-   ![패싯을 선택한 후 검색 결과](media/search-faceted-navigation/faceted-search-after-facets.png "패싯을 선택한 후 검색 결과")
+   ![패싯을 선택한 후의 검색 결과](media/search-faceted-navigation/faceted-search-after-facets.png "패싯을 선택한 후의 검색 결과")
 
 5. 다른 쿼리 동작을 시도할 수 있도록 패싯 쿼리를 지우려면 선택한 패싯 뒤에 있는 `[X]`를 클릭하여 패싯을 지웁니다.
    
@@ -401,5 +401,5 @@ Azure Search 구직 포털 데모에는 이 문서에 나와 있는 예제가 �
 패싯 탐색의 디자인 원칙에 대한 자세한 내용은 다음 링크를 참조하는 것이 좋습니다.
 
 * [디자인 패턴: 패싯 탐색](https://alistapart.com/article/design-patterns-faceted-navigation)
-* [패싯 검색 – 1 부를 구현 하는 경우 프런트 엔드 문제](https://articles.uie.com/faceted_search2/)
+* [패싯 검색을 구현할 때의 프런트 엔드 문제 – 1 부](https://articles.uie.com/faceted_search2/)
 

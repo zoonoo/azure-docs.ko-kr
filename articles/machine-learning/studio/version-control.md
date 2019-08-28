@@ -77,7 +77,7 @@ Azure Machine Learning Studio에서 학습 된 모델은 iLearner 파일 이라�
 ### <a name="new-web-service"></a>새 웹 서비스
 새 Azure Resource Manager 기반 웹 서비스를 만들면 엔드포인트 구문은 더 이상 사용할 수 없습니다. 대신에서 생성할 수 있습니다 웹 서비스 정의 (WSD) 파일을 JSON 형식으로 사용 하 여 예측 실험을 [Export-amlwebservicedefinitionfromexperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) PowerShell commandlet 또는 사용 하 여는 [ *내보내기 AzMlWebservice* ](https://docs.microsoft.com/powershell/module/az.machinelearning/export-azmlwebservice) PowerShell commandlet 배포 된 Resource Manager 기반 웹 서비스입니다.
 
-내보낸 WSD 파일이 있고 버전을 제어한 다음 다른 Azure 하위 지역의 다른 웹 서비스 계획에서 WSD를 새 웹 서비스로 배포할 수 있습니다. 적절한 저장소 계정 구성뿐만 아니라 새 웹 서비스 계획 ID를 제공해야 합니다. 다른 iLearner 파일에서 패치하려면 WSD 파일을 수정하고 학습된 모델의 위치 참조를 업데이트하고 새 웹 서비스로 배포할 수 있습니다.
+내보낸 WSD 파일이 있고 버전을 제어한 다음 다른 Azure 하위 지역의 다른 웹 서비스 계획에서 WSD를 새 웹 서비스로 배포할 수 있습니다. 적절한 스토리지 계정 구성뿐만 아니라 새 웹 서비스 계획 ID를 제공해야 합니다. 다른 iLearner 파일에서 패치하려면 WSD 파일을 수정하고 학습된 모델의 위치 참조를 업데이트하고 새 웹 서비스로 배포할 수 있습니다.
 
 ## <a name="automate-experiment-execution-and-deployment"></a>실험 실행 및 배포 자동화
 ALM의 중요한 부분은 애플리케이션의 실행 및 배포 프로세스를 자동화할 수 있다는 것입니다. Azure Machine Learning Studio에서 수행할 수 있습니다 사용 하 여 합니다 [PowerShell 모듈](https://aka.ms/amlps)합니다. [Azure Machine Learning Studio PowerShell 모듈](https://aka.ms/amlps)을 사용하여 표준 ALM 자동 실행/배포 프로세스에 관련된 종단 간 단계의 예는 다음과 같습니다. 각 단계는 해당 단계를 수행하는 데 사용할 수 있는 하나 이상의 PowerShell commandlet에 연결됩니다.

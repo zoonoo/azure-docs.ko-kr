@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: 722d77bf27e3cd7eb921b09e0a1d4732a5b5f874
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 6bad74d33f5d50bb7a35de69927bf97daad07798
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514423"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326859"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Azure Monitor를 사용하여 데이터 팩터리 경고 및 모니터링
 클라우드 애플리케이션은 이동하는 부분이 많아 복잡합니다. 모니터링은 애플리케이션을 유지하고 정상 상태에서 실행할 수 있는 데이터를 제공합니다. 또한 잠재적 문제를 방지하거나 지난 문제를 해결할 수 있습니다. 또한 애플리케이션에 대해 깊이 이해하는 데 모니터링 데이터를 사용할 수 있습니다. 이러한 정보를 사용하면 애플리케이션 성능 또는 유지 관리 편의성을 향상시키거나 그렇지 않으면 수동 개입이 필요한 작업을 자동화할 수 있습니다.
@@ -40,11 +40,11 @@ Data Factory는 45일 동안 파이프라인 실행 데이터를 저장하기만
 ### <a name="diagnostic-settings"></a>진단 설정
 진단 설정을 사용하여 비계산 리소스에 대한 진단 로그를 구성합니다. 리소스 제어에 대한 진단 설정은 다음과 같습니다.
 
-* (저장소 계정, Event Hubs 또는 Azure Monitor 로그) 진단 로그를 보낼 위치입니다.
+* 진단 로그가 전송 되는 위치 (Storage 계정, Event Hubs 또는 Azure Monitor 로그)
 * 보낼 로그 범주.
 * 각 로그 범주를 스토리지 계정에 보존해야 하는 기간.
 * 보존 기간이 0일이라는 것은 로그가 영원히 보관된다는 의미입니다. 그렇지 않은 경우 값은 1에서 2147483647 사이의 숫자일 수 있습니다.
-* 보존 정책이 설정 되었지만 저장소 계정에 로그를 저장 되지 않음 (예:만 Event Hubs 또는 Azure Monitor 로그 옵션을 선택)을 하는 경우 보존 정책은 효과가 없습니다.
+* 보존 정책이 설정 되었지만 저장소 계정에 로그를 저장할 수 없는 경우 (예: Event Hubs 또는 Azure Monitor 로그 옵션만 선택 된 경우) 보존 정책은 적용 되지 않습니다.
 * 보존 정책은 매일 적용되므로 하루의 마지막에(UTC) 보존 정책이 지난 날의 로그가 삭제됩니다. 예를 들어, 하루의 보존 정책이 있는 경우 오늘 날짜가 시작될 때 하루 전의 로그가 삭제됩니다.
 
 ### <a name="enable-diagnostic-logs-via-rest-apis"></a>REST API를 통해 진단 로그를 사용하도록 설정
@@ -103,18 +103,18 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| 자산 | Type | 설명 |
+| 속성 | 형식 | Description |
 | --- | --- | --- |
-| storageAccountId |문자열 | 진단 로그를 보내려는 스토리지 계정의 리소스 ID입니다. |
-| serviceBusRuleId |문자열 | 진단 로그 스트리밍에 대해 Event Hubs를 만들려는 서비스 버스 네임스페이스의 서비스 버스 규칙 ID입니다. 규칙 ID의 형식은 "{서비스 버스 리소스 ID}/authorizationrules/{키 이름}"입니다.|
+| storageAccountId |String | 진단 로그를 보내려는 스토리지 계정의 리소스 ID입니다. |
+| serviceBusRuleId |String | 진단 로그 스트리밍에 대해 Event Hubs를 만들려는 서비스 버스 네임스페이스의 서비스 버스 규칙 ID입니다. 규칙 ID의 형식은 "{서비스 버스 리소스 ID}/authorizationrules/{키 이름}"입니다.|
 | workspaceId | 복합 형식 | 메트릭 시간 조직 및 해당 보존 정책의 배열입니다. 현재 이 속성은 비어 있습니다. |
 |metrics| 호출된 파이프라인에 전달될 파이프라인 실행의 매개 변수 값| 매개 변수 이름을 인수 값에 매핑하는 JSON 개체입니다. |
 | logs| 복합 형식| 리소스 종류에 대한 진단 로그 범주의 이름입니다. 리소스에 대한 진단 로그 범주 목록을 가져오기 위해 먼저 GET 진단 설정 작업을 수행합니다. |
-| category| 문자열| 로그 범주 및 해당 보존 정책의 배열입니다. |
-| timeGrain | 문자열 | ISO 8601 기간 형식으로 캡처된 메트릭의 세분성입니다. PT1M(1분)이어야 합니다.|
-| enabled| BOOLEAN | 이 리소스에 대한 해당 메트릭 또는 로그 범주의 수집을 사용할지 여부를 지정합니다.|
-| retentionPolicy| 복합 형식| 메트릭 또는 로그 범주에 대한 보존 정책을 설명합니다. 저장소 계정 옵션에만 사용됩니다.|
-| days| Int| 메트릭 또는 로그를 보존할 기간(일)입니다. 0 값은 로그를 무기한 보존합니다. 저장소 계정 옵션에만 사용됩니다. |
+| category| String| 로그 범주 및 해당 보존 정책의 배열입니다. |
+| timeGrain | String | ISO 8601 기간 형식으로 캡처된 메트릭의 세분성입니다. PT1M(1분)이어야 합니다.|
+| enabled| Boolean | 이 리소스에 대한 해당 메트릭 또는 로그 범주의 수집을 사용할지 여부를 지정합니다.|
+| retentionPolicy| 복합 형식| 메트릭 또는 로그 범주에 대한 보존 정책을 설명합니다. 스토리지 계정 옵션에만 사용됩니다.|
+| days| Int| 메트릭 또는 로그를 보존할 기간(일)입니다. 0 값은 로그를 무기한 보존합니다. 스토리지 계정 옵션에만 사용됩니다. |
 
 **응답**
 
@@ -234,7 +234,9 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 ## <a name="schema-of-logs--events"></a>로그 및 이벤트의 스키마
 
-### <a name="activity-run-logs-attributes"></a>활동 실행 로그 특성
+### <a name="azure-monitor-schema"></a>Azure Monitor 스키마
+
+#### <a name="activity-run-logs-attributes"></a>활동 실행 로그 특성
 
 ```json
 {
@@ -273,23 +275,23 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| 자산 | Type | 설명 | 예 |
+| 속성 | 형식 | Description | 예제 |
 | --- | --- | --- | --- |
-| Level |문자열 | 진단 로그 수준입니다. 수준 4는 항상 활동 실행 로그에 대한 경우입니다. | `4`  |
-| CorrelationId |문자열 | 엔드투엔드 특정 요청을 추적하는 고유 ID | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| 실시간 | 문자열 | 시간을 UTC 형식으로 이벤트의 시간 `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
-|activityRunId| 문자열| 활동 실행 ID입니다. | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
-|pipelineRunId| 문자열| 파이프라인 실행 ID입니다. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|ResourceId| 문자열 | 데이터 팩터리 리소스에 대한 연결된 리소스 ID입니다. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|category| 문자열 | 진단 로그의 범주입니다. 이 속성을 "ActivityRuns"로 설정합니다. | `ActivityRuns` |
-|level| 문자열 | 진단 로그 수준입니다. 이 속성을 "Informational"로 설정합니다. | `Informational` |
-|operationName| 문자열 |상태가 있는 활동 이름입니다. 상태가 시작 하트비트이면 `MyActivity -`입니다. 상태가 종료 하트비트이면 최종 상태가 있는 `MyActivity - Succeeded`입니다 | `MyActivity - Succeeded` |
-|pipelineName| 문자열 | 파이프라인 이름입니다. | `MyPipeline` |
-|activityName| 문자열 | 작업의 이름 | `MyActivity` |
-|start| 문자열 | 시간 간격에 속한 활동 실행의 시작 시간(UTC 형식)입니다. | `2017-06-26T20:55:29.5007959Z`|
-|end| 문자열 | 시간 간격에 속한 활동 실행의 종료 시간(UTC 형식)입니다. 활동이 아직 종료되지 않은 경우(활동 시작에 대한 진단 로그) 기본값(`1601-01-01T00:00:00Z`)이 설정됩니다.  | `2017-06-26T20:55:29.5007959Z` |
+| Level |String | 진단 로그 수준입니다. 수준 4는 항상 활동 실행 로그에 대한 경우입니다. | `4`  |
+| correlationId |String | 엔드투엔드 특정 요청을 추적하는 고유 ID | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| Time | String | Timespan, UTC 형식의 이벤트 시간`YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+|activityRunId| String| 활동 실행 ID입니다. | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
+|pipelineRunId| String| 파이프라인 실행 ID입니다. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
+|resourceId| String | 데이터 팩터리 리소스에 대한 연결된 리소스 ID입니다. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|category| String | 진단 로그의 범주입니다. 이 속성을 "ActivityRuns"로 설정합니다. | `ActivityRuns` |
+|수준(level)| String | 진단 로그 수준입니다. 이 속성을 "Informational"로 설정합니다. | `Informational` |
+|operationName| String |상태가 있는 활동 이름입니다. 상태가 시작 하트비트이면 `MyActivity -`입니다. 상태가 종료 하트비트이면 최종 상태가 있는 `MyActivity - Succeeded`입니다 | `MyActivity - Succeeded` |
+|pipelineName| String | 파이프라인 이름입니다. | `MyPipeline` |
+|activityName| String | 작업의 이름 | `MyActivity` |
+|start| String | 시간 간격에 속한 활동 실행의 시작 시간(UTC 형식)입니다. | `2017-06-26T20:55:29.5007959Z`|
+|end| String | 시간 간격에 속한 활동 실행의 종료 시간(UTC 형식)입니다. 활동이 아직 종료되지 않은 경우(활동 시작에 대한 진단 로그) 기본값(`1601-01-01T00:00:00Z`)이 설정됩니다.  | `2017-06-26T20:55:29.5007959Z` |
 
-### <a name="pipeline-run-logs-attributes"></a>파이프라인 실행 로그 특성
+#### <a name="pipeline-run-logs-attributes"></a>파이프라인 실행 로그 특성
 
 ```json
 {
@@ -319,22 +321,22 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| 자산 | Type | 설명 | 예 |
+| 속성 | 형식 | Description | 예제 |
 | --- | --- | --- | --- |
-| Level |문자열 | 진단 로그 수준입니다. 수준 4는 활동 실행 로그에 대한 경우입니다. | `4`  |
-| CorrelationId |문자열 | 엔드투엔드 특정 요청을 추적하는 고유 ID | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| 실시간 | 문자열 | 시간을 UTC 형식으로 이벤트의 시간 `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
-|runId| 문자열| 파이프라인 실행 ID입니다. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|ResourceId| 문자열 | 데이터 팩터리 리소스에 대한 연결된 리소스 ID입니다. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|category| 문자열 | 진단 로그의 범주입니다. 이 속성을 "PipelineRuns"로 설정합니다. | `PipelineRuns` |
-|level| 문자열 | 진단 로그 수준입니다. 이 속성을 "Informational"로 설정합니다. | `Informational` |
-|operationName| 문자열 |상태가 있는 파이프라인 이름입니다. 파이프라인 실행이 완료되면 최종 상태가 있는 "Pipeline - Succeeded"입니다.| `MyPipeline - Succeeded` |
-|pipelineName| 문자열 | 파이프라인 이름입니다. | `MyPipeline` |
-|start| 문자열 | 시간 간격에 속한 활동 실행의 시작 시간(UTC 형식)입니다. | `2017-06-26T20:55:29.5007959Z`|
-|end| 문자열 | 시간 간격에 속한 활동 실행의 종료 시간(UTC 형식)입니다. 활동이 아직 종료되지 않은 경우(활동 시작에 대한 진단 로그) 기본값(`1601-01-01T00:00:00Z`)이 설정됩니다.  | `2017-06-26T20:55:29.5007959Z` |
-|status| 문자열 | 파이프라인 실행의 최종 상태(Succeeded 또는 Failed )입니다. | `Succeeded`|
+| Level |String | 진단 로그 수준입니다. 수준 4는 활동 실행 로그에 대한 경우입니다. | `4`  |
+| correlationId |String | 엔드투엔드 특정 요청을 추적하는 고유 ID | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| Time | String | Timespan, UTC 형식의 이벤트 시간`YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+|runId| String| 파이프라인 실행 ID입니다. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
+|resourceId| String | 데이터 팩터리 리소스에 대한 연결된 리소스 ID입니다. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|category| String | 진단 로그의 범주입니다. 이 속성을 "PipelineRuns"로 설정합니다. | `PipelineRuns` |
+|수준(level)| String | 진단 로그 수준입니다. 이 속성을 "Informational"로 설정합니다. | `Informational` |
+|operationName| String |상태가 있는 파이프라인 이름입니다. 파이프라인 실행이 완료되면 최종 상태가 있는 "Pipeline - Succeeded"입니다.| `MyPipeline - Succeeded` |
+|pipelineName| String | 파이프라인 이름입니다. | `MyPipeline` |
+|start| String | 시간 간격에 속한 활동 실행의 시작 시간(UTC 형식)입니다. | `2017-06-26T20:55:29.5007959Z`|
+|end| String | 시간 간격에 속한 활동 실행의 종료 시간(UTC 형식)입니다. 활동이 아직 종료되지 않은 경우(활동 시작에 대한 진단 로그) 기본값(`1601-01-01T00:00:00Z`)이 설정됩니다.  | `2017-06-26T20:55:29.5007959Z` |
+|상태| String | 파이프라인 실행의 최종 상태(Succeeded 또는 Failed )입니다. | `Succeeded`|
 
-### <a name="trigger-run-logs-attributes"></a>트리거 실행 로그 특성
+#### <a name="trigger-run-logs-attributes"></a>트리거 실행 로그 특성
 
 ```json
 {
@@ -363,38 +365,60 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 ```
 
-| 자산 | Type | 설명 | 예 |
+| 속성 | 형식 | Description | 예제 |
 | --- | --- | --- | --- |
-| Level |문자열 | 진단 로그 수준입니다. 활동 실행 로그에 대해 수준 4로 설정합니다. | `4`  |
-| CorrelationId |문자열 | 엔드투엔드 특정 요청을 추적하는 고유 ID | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| 실시간 | 문자열 | 시간을 UTC 형식으로 이벤트의 시간 `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
-|triggerId| 문자열| 트리거 실행 ID입니다. | `08587023010602533858661257311` |
-|ResourceId| 문자열 | 데이터 팩터리 리소스에 대한 연결된 리소스 ID입니다. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|category| 문자열 | 진단 로그의 범주입니다. 이 속성을 "PipelineRuns"로 설정합니다. | `PipelineRuns` |
-|level| 문자열 | 진단 로그 수준입니다. 이 속성을 "Informational"로 설정합니다. | `Informational` |
-|operationName| 문자열 |트리거가 성공적으로 시작되었는지 여부를 나타내는 최종 상태가 있는 트리거 이름입니다. 하트비트에 성공하면 "MyTrigger - Succeeded"입니다.| `MyTrigger - Succeeded` |
-|triggerName| 문자열 | 트리거 이름입니다. | `MyTrigger` |
-|triggerType| 문자열 | 트리거 유형(Manual Trigger 또는 Schedule Trigger)입니다. | `ScheduleTrigger` |
-|triggerEvent| 문자열 | 트리거 이벤트입니다. | `ScheduleTime - 2017-07-06T01:50:25Z` |
-|start| 문자열 | 시간 간격에서 발생한 트리거의 시작 시간(UTC 형식)입니다. | `2017-06-26T20:55:29.5007959Z`|
-|status| 문자열 | 트리거가 성공적으로 시작되었는지 여부에 대한 최종 상태(Succeeded 또는 Failed)입니다. | `Succeeded`|
+| Level |String | 진단 로그 수준입니다. 활동 실행 로그에 대해 수준 4로 설정합니다. | `4`  |
+| correlationId |String | 엔드투엔드 특정 요청을 추적하는 고유 ID | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| Time | String | Timespan, UTC 형식의 이벤트 시간`YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+|triggerId| String| 트리거 실행 ID입니다. | `08587023010602533858661257311` |
+|resourceId| String | 데이터 팩터리 리소스에 대한 연결된 리소스 ID입니다. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|category| String | 진단 로그의 범주입니다. 이 속성을 "PipelineRuns"로 설정합니다. | `PipelineRuns` |
+|수준(level)| String | 진단 로그 수준입니다. 이 속성을 "Informational"로 설정합니다. | `Informational` |
+|operationName| String |트리거가 성공적으로 시작되었는지 여부를 나타내는 최종 상태가 있는 트리거 이름입니다. 하트비트에 성공하면 "MyTrigger - Succeeded"입니다.| `MyTrigger - Succeeded` |
+|triggerName| String | 트리거 이름입니다. | `MyTrigger` |
+|triggerType| String | 트리거 유형(Manual Trigger 또는 Schedule Trigger)입니다. | `ScheduleTrigger` |
+|triggerEvent| String | 트리거 이벤트입니다. | `ScheduleTime - 2017-07-06T01:50:25Z` |
+|start| String | 시간 간격에서 발생한 트리거의 시작 시간(UTC 형식)입니다. | `2017-06-26T20:55:29.5007959Z`|
+|상태| String | 트리거가 성공적으로 시작되었는지 여부에 대한 최종 상태(Succeeded 또는 Failed)입니다. | `Succeeded`|
 
+### <a name="log-analytics-schema"></a>Log Analytics 스키마
+
+Log Analytics는 다음과 같은 예외를 제외 하 고 Azure Monitor에서 스키마를 상속 합니다.
+
+* 각 열 이름의 첫 문자는 대문자로 표기 됩니다. 예를 들어 Azure Monitor의 *correlationid* 는 Log Analytics의 *상관* 관계입니다.
+* 열 *수준이* 삭제 됩니다.
+* 동적 열 *속성* 은 다음과 같은 동적 JSON blob 유형으로 유지 됩니다.
+
+    | Azure Monitor 열 | Log Analytics 열 | 형식 |
+    | --- | --- | --- |
+    | $. 속성. UserProperties | UserProperties | Dynamic |
+    | $. 속성. 달 | 주석 | Dynamic |
+    | $. 속성. 입력 | 입력 | Dynamic |
+    | $. 속성. 출력 | 출력 | Dynamic |
+    | $. 속성. 오류입니다. errorCode | ErrorCode | ssNoversion |
+    | $. 속성. 오류 메시지 | ErrorMessage | string |
+    | $. 속성. 메시지가 | Error | Dynamic |
+    | $. 속성. 이전 | 이전 | Dynamic |
+    | $. 속성. 변수의 | 매개 변수 | Dynamic |
+    | $. 속성. SystemParameters | SystemParameters | Dynamic |
+    | $. 속성. 사이 | Tags | Dynamic |
+    
 ## <a name="metrics"></a>metrics
 
 Azure 모니터에서는 원격 분석을 사용하여 Azure에서 워크로드의 상태와 성능에 대한 정보를 구할 수 있습니다. Azure 원격 분석 데이터의 가장 중요한 유형은 대부분의 Azure 리소스에서 내보내는 메트릭(성능 카운터라고도 함)입니다. Azure Monitor는 모니터링 및 문제 해결을 위해 이러한 메트릭을 구성 및 사용하는 몇 가지 방법을 제공합니다.
 
-ADFV2에서 내보내는 메트릭은 다음과 같습니다.
+ADFV2는 다음과 같은 메트릭을 내보냅니다.
 
-| **메트릭**           | **메트릭 표시 이름**         | **단위** | **집계 유형** | **설명**                                       |
+| **메트릭**           | **메트릭 표시 이름**         | **Unit** | **집계 유형** | **설명**                                       |
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
-| PipelineSucceededRuns | 성공한 파이프라인 실행 메트릭 | 카운트    | 합계                | 1분 기간 내에 성공한 총 파이프라인 실행 수입니다. |
-| PipelineFailedRuns   | 실패한 파이프라인 실행 메트릭    | 카운트    | 합계                | 1분 기간 내에 실패한 총 파이프라인 실행 수입니다.    |
-| ActivitySucceededRuns | 성공한 활동 실행 메트릭 | 카운트    | 합계                | 1분 기간 내에 성공한 총 활동 실행 수입니다.  |
-| ActivityFailedRuns   | 실패한 활동 실행 메트릭    | 카운트    | 합계                | 1분 기간 내에 실패한 총 활동 실행 수입니다.     |
-| TriggerSucceededRuns | 성공한 트리거 실행 메트릭  | 카운트    | 합계                | 1분 기간 내에 성공한 총 트리거 실행 수입니다.   |
-| TriggerFailedRuns    | 실패한 트리거 실행 메트릭     | 카운트    | 합계                | 1분 기간 내에 실패한 총 트리거 실행 수입니다.      |
+| PipelineSucceededRuns | 성공한 파이프라인 실행 메트릭 | 개수    | Total                | 1분 기간 내에 성공한 총 파이프라인 실행 수입니다. |
+| PipelineFailedRuns   | 실패한 파이프라인 실행 메트릭    | 개수    | Total                | 1분 기간 내에 실패한 총 파이프라인 실행 수입니다.    |
+| ActivitySucceededRuns | 성공한 활동 실행 메트릭 | 개수    | Total                | 1분 기간 내에 성공한 총 활동 실행 수입니다.  |
+| ActivityFailedRuns   | 실패한 활동 실행 메트릭    | 개수    | Total                | 1분 기간 내에 실패한 총 활동 실행 수입니다.     |
+| TriggerSucceededRuns | 성공한 트리거 실행 메트릭  | 개수    | Total                | 1분 기간 내에 성공한 총 트리거 실행 수입니다.   |
+| TriggerFailedRuns    | 실패한 트리거 실행 메트릭     | 개수    | Total                | 1분 기간 내에 실패한 총 트리거 실행 수입니다.      |
 
-메트릭에 액세스하려면 다음 문서의 지침을 참조하세요. https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics
+메트릭에 액세스 하려면 [Azure Monitor data platform](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics)의 지침을 완료 합니다.
 
 ## <a name="monitor-data-factory-metrics-with-azure-monitor"></a>Azure Monitor를 사용하여 Data Factory 메트릭 모니터링
 
@@ -412,13 +436,28 @@ Azure Monitor와 Azure Data Factory 통합을 사용하여 Azure Monitor로 데�
 
 데이터 팩터리에 대한 진단 설정 사용
 
-1.  **Azure Monitor** -> **진단 설정**을 선택하고 -> 데이터 팩터리를 선택하고 -> 진단을 설정합니다.
+1. 포털에서 Azure Monitor로 이동 하 고 **설정** 메뉴에서 **진단 설정** 을 클릭 합니다.
 
-    ![monitor-oms-image1.png](media/data-factory-monitor-oms/monitor-oms-image1.png)
+2. 진단 설정을 설정 하려는 데이터 팩터리를 선택 합니다.
+    
+3. 선택한 데이터 팩터리에 설정이 없는 경우 설정을 만들라는 메시지가 표시 됩니다. “진단 켜기”를 클릭합니다.
 
-2.  작업 영역의 구성을 포함한 진단 설정을 제공합니다.
+   ![진단 설정 추가 - 기존 설정 없음](media/data-factory-monitor-oms/monitor-oms-image1.png)
+
+   데이터 팩터리에 기존 설정이 있는 경우이 데이터 팩터리에 이미 구성 된 설정 목록이 표시 됩니다. “진단 설정 추가”를 클릭합니다.
+
+   ![진단 설정 추가 - 기존 설정](media/data-factory-monitor-oms/add-diagnostic-setting.png)
+
+4. 설정에 이름을 지정하고 **Log Analytics에 보내기** 확인란을 선택한 후 Log Analytics 작업 영역을 선택합니다.
 
     ![monitor-oms-image2.png](media/data-factory-monitor-oms/monitor-oms-image2.png)
+
+5. **Save**을 클릭합니다.
+
+잠시 후 새 설정이이 data factory에 대 한 설정 목록에 표시 되 고, 새 이벤트 데이터가 생성 되는 즉시 진단 로그가 해당 작업 영역으로 스트리밍됩니다. 이벤트가 내보내지는 시간과 Log Analytics에 표시 되는 시간 사이에는 최대 15 분이 있을 수 있습니다.
+
+> [!NOTE]
+> 500 개 보다 많은 열을 포함 하지 않는 지정 된 Azure 로그 테이블의 명시적 제한으로 인해 **리소스 특정 모드를 사용 하**는 것이 좋습니다. 자세한 내용은 [Log Analytics 알려진 제한 사항](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#known-limitation-column-limit-in-azurediagnostics)을 참조 하세요.
 
 ### <a name="install-azure-data-factory-analytics-from-azure-marketplace"></a>Azure Marketplace에서 Azure Data Factory Analytics 설치
 
@@ -460,9 +499,9 @@ Azure Monitor와 Azure Data Factory 통합을 사용하여 Azure Monitor로 데�
 
 ![monitor-oms-image8.png](media/data-factory-monitor-oms/monitor-oms-image8.png)
 
-## <a name="alerts"></a>경고
+## <a name="alerts"></a>,
 
-Azure Portal에 로그인하고 **모니터 -&gt; 경고**를 클릭하여 경고를 만듭니다.
+Azure Portal에 로그인 하 고**경고** **모니터링** > 을 클릭 하 여 경고를 만듭니다.
 
 ![포털 메뉴의 경고](media/monitor-using-azure-monitor/alerts_image3.png)
 

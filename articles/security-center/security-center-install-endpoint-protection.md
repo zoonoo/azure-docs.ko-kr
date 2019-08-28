@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 882d4e0592b74e8af30ff5bf110a41e403c3bf7d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4274b3684a2e9e79385a561b1cad426b4ffd954e
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60906579"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609953"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Azure Security Center를 사용하여 Endpoint Protection 문제 관리
 Azure Security Center는 맬웨어 방지 보호의 상태를 모니터링하여 Endpoint Protection 문제 블레이드 아래에서 해당 내용을 보고합니다. Security Center에서는 VM(가상 머신) 및 컴퓨터를 맬웨어 방지 위협에 취약하게 만들 수 있는 검색된 위협, 불충분한 보호 수준 등의 문제가 강조 표시됩니다. **Endpoint Protection 문제** 아래의 정보를 사용하면 확인된 문제를 해결하기 위한 계획을 파악할 수 있습니다.
@@ -41,17 +41,17 @@ Security Center에서 보고하는 Endpoint Protection 문제는 다음과 같�
     >
 
 ## <a name="implement-the-recommendation"></a>권장 사항 구현
-Endpoint Protection은 Security Center에서 권장 사항으로 표시됩니다.  환경이 맬웨어 방지 위협에 취약한 경우 **권장 사항**과 **계산** 아래에 이 권장 사항이 표시됩니다. **Endpoint Protection 문제 대시보드**를 보려면 계산 워크플로를 따라야 합니다.
+Endpoint Protection은 Security Center에서 권장 사항으로 표시됩니다.  환경이 맬웨어 방지 위협에 취약한 경우 **권장 사항**과 **컴퓨팅** 아래에 이 권장 사항이 표시됩니다. **Endpoint Protection 문제 대시보드**를 보려면 컴퓨팅 워크플로를 따라야 합니다.
 
-이 예제에서는 **계산**을 사용합니다.  Azure VM 및 비 Azure 컴퓨터에 맬웨어 방지 솔루션을 설치하는 방법을 살펴보겠습니다.
+이 예제에서는 **컴퓨팅**을 사용합니다.  Azure VM 및 비 Azure 컴퓨터에 맬웨어 방지 솔루션을 설치하는 방법을 살펴보겠습니다.
 
 ## <a name="install-antimalware-on-azure-vms"></a>Azure VM에 맬웨어 방지 솔루션 설치
 
-1. 선택 **Compute 및 앱** Security Center 주 메뉴에서 또는 **개요**합니다.
+1. Security Center 주 메뉴 또는 **개요**에서 **계산 & 앱** 을 선택 합니다.
 
-   ![계산 선택][1]
+   ![컴퓨팅 선택][1]
 
-2. **계산** 아래에서 **Endpoint Protection 문제**를 선택합니다. **Endpoint Protection 문제** 대시보드가 열립니다.
+2. **컴퓨팅** 아래에서 **Endpoint Protection 문제**를 선택합니다. **Endpoint Protection 문제** 대시보드가 열립니다.
 
    ![Endpoint Protection 문제 선택][2]
 
@@ -60,7 +60,7 @@ Endpoint Protection은 Security Center에서 권장 사항으로 표시됩니다
    - 설치된 Endpoint Protection 공급자 - Security Center에서 식별한 여러 공급자가 나열됩니다.
    - 설치된 Endpoint Protection 상태 - Endpoint Protection 솔루션이 설치된 VM과 컴퓨터의 상태가 표시됩니다. 차트에는 정상 상태인 VM/컴퓨터의 수와 보호 수준이 불충분한 VM/컴퓨터의 수가 표시됩니다.
    - 맬웨어 검색됨 - Security Center에서 검색된 맬웨어를 보고하는 VM 및 컴퓨터의 수가 표시됩니다.
-   - 공격 받은 컴퓨터-Vm 및 Security Center가 보고 하는 공격 맬웨어에서 컴퓨터의 수를 보여 줍니다.
+   - 공격 받는 컴퓨터 – Security Center에서 맬웨어에 대 한 공격을 보고 하는 Vm 및 컴퓨터의 수를 표시 합니다.
 
    대시보드 아래쪽에는 다음 정보가 포함된 Endpoint Protection 문제 목록이 있습니다.  
 
@@ -84,13 +84,13 @@ Endpoint Protection은 Security Center에서 권장 사항으로 표시됩니다
 
    ![비 Azure 컴퓨터에 Endpoint Protection이 설치되지 않음 선택][4]
 
-2. **비 Azure 컴퓨터에 Endpoint Protection이 설치되지 않음**에서 작업 영역을 선택합니다. 작업 영역으로 필터링 하는 Azure Monitor 로그 검색 쿼리가 열리고 맬웨어 방지 누락 된 컴퓨터를 나열 합니다. 목록에서 컴퓨터를 선택하면 자세한 내용을 확인할 수 있습니다.
+2. **비 Azure 컴퓨터에 Endpoint Protection이 설치되지 않음**에서 작업 영역을 선택합니다. 작업 영역으로 필터링 된 Azure Monitor 로그 검색 쿼리가 열리고 맬웨어 방지 프로그램이 없는 컴퓨터를 나열 합니다. 목록에서 컴퓨터를 선택하면 자세한 내용을 확인할 수 있습니다.
 
-   ![Azure Monitor의 로그 검색][5]
+   ![Azure Monitor 로그 검색][5]
 
 해당 컴퓨터와 관련된 정보만 표시되도록 필터링된 다른 검색 결과가 열립니다.
 
-  ![Azure Monitor의 로그 검색][6]
+  ![Azure Monitor 로그 검색][6]
 
 > [!NOTE]
 > 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 파악하여 제거할 수 있도록 모든 VM과 컴퓨터에 대해 Endpoint Protection을 프로비전하는 것이 좋습니다.
@@ -100,7 +100,7 @@ Endpoint Protection은 Security Center에서 권장 사항으로 표시됩니다
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 보안 센터 권장 사항 "Endpoint Protection 설치"를 구현하는 방법을 보여 주었습니다. Azure에서 Microsoft 맬웨어 방지 프로그램을 사용하도록 설정하는 방법에 대해 알아보려면 다음 문서를 참조하세요.
 
-* [Cloud Services 및 Virtual Machines용 Microsoft 맬웨어 방지 프로그램](../security/azure-security-antimalware.md) -- Microsoft 맬웨어 방지 프로그램을 배포하는 방법을 알아봅니다.
+* [Cloud Services 및 Virtual Machines용 Microsoft 맬웨어 방지 프로그램](../security/fundamentals/antimalware.md) -- Microsoft 맬웨어 방지 프로그램을 배포하는 방법을 알아봅니다.
 
 Security Center에 대해 알아보려면 다음을 참조하세요.
 

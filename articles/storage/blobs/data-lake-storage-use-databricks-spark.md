@@ -1,7 +1,6 @@
 ---
 title: '자습서: Spare를 사용하여 Azure Databricks로 Azure Data Lake Storage Gen2 데이터에 액세스 | Microsoft Docs'
 description: 이 자습서에서는 Azure Databricks 클러스터에서 Spark 쿼리를 실행하여 Azure Data Lake Storage Gen2 스토리지 계정의 데이터에 액세스하는 방법을 보여 줍니다.
-services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -9,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: b332c11e76ad335772cc607edcf569f896acb873
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 3a283f6cbcf4dc345a8c55192507c461f33244d6
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65951385"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855437"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>자습서: Spark를 사용하여 Azure Databricks로 Data Lake Storage Gen2 데이터에 액세스
 
@@ -24,10 +23,10 @@ ms.locfileid: "65951385"
 
 > [!div class="checklist"]
 > * Databricks 클러스터 만들기
-> * 저장소 계정으로 비구조적 데이터 수집
+> * 스토리지 계정으로 비구조적 데이터 수집
 > * Blob 스토리지의 데이터에 대한 분석 실행
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -39,7 +38,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 * AzCopy v10을 설치합니다. [AzCopy v10을 사용하여 데이터 전송](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요.
 
-* 서비스 주체 만들기 [방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
+* 서비스 주체를 생성합니다. [방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)를 참조하세요.
 
   해당 문서의 단계를 수행할 때 해야 하는 두어 가지 항목이 있습니다.
 
@@ -110,7 +109,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="ingest-data"></a>데이터 수집
 
-### <a name="copy-source-data-into-the-storage-account"></a>저장소 계정에 원본 데이터 복사
+### <a name="copy-source-data-into-the-storage-account"></a>스토리지 계정에 원본 데이터 복사
 
 AzCopy를 사용하여 *.csv* 파일의 데이터를 Data Lake Storage Gen2 계정으로 복사합니다.
 
@@ -191,7 +190,8 @@ AzCopy를 사용하여 *.csv* 파일의 데이터를 Data Lake Storage Gen2 계�
 # Use the previously established DBFS mount point to read the data.
 # create a data frame to read data.
 
-flightDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/*.csv")
+flightDF = spark.read.format('csv').options(
+    header='true', inferschema='true').load("/mnt/flightdata/*.csv")
 
 # read the airline csv file and write the output to parquet format for easy query.
 flightDF.write.mode("append").parquet("/mnt/flightdata/parquet/flights")
@@ -220,64 +220,68 @@ dbutils.fs.ls("/mnt/flightdata/parquet/flights")
 
 ## <a name="query-the-data"></a>데이터 쿼리
 
-다음으로, 저장소 계정에 업로드한 데이터를 쿼리할 수 있습니다. 다음 코드 블록을 각각 **Cmd 1**에 입력하고, **Cmd+Enter**를 눌러 Python 스크립트를 실행합니다.
+다음으로, 스토리지 계정에 업로드한 데이터를 쿼리할 수 있습니다. 다음 코드 블록을 각각 **Cmd 1**에 입력하고, **Cmd+Enter**를 눌러 Python 스크립트를 실행합니다.
 
 데이터 원본에 대한 데이터 프레임을 만들려면 다음 스크립트를 실행합니다.
 
 * `<csv-folder-path>` 자리 표시자 값을 *.csv* 파일의 경로로 바꿉니다.
 
 ```python
-#Copy this into a Cmd cell in your notebook.
-acDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time.csv")
+# Copy this into a Cmd cell in your notebook.
+acDF = spark.read.format('csv').options(
+    header='true', inferschema='true').load("/mnt/flightdata/On_Time.csv")
 acDF.write.parquet('/mnt/flightdata/parquet/airlinecodes')
 
-#read the existing parquet file for the flights database that was created earlier
-flightDF = spark.read.format('parquet').options(header='true', inferschema='true').load("/mnt/flightdata/parquet/flights")
+# read the existing parquet file for the flights database that was created earlier
+flightDF = spark.read.format('parquet').options(
+    header='true', inferschema='true').load("/mnt/flightdata/parquet/flights")
 
-#print the schema of the dataframes
+# print the schema of the dataframes
 acDF.printSchema()
 flightDF.printSchema()
 
-#print the flight database size
+# print the flight database size
 print("Number of flights in the database: ", flightDF.count())
 
-#show the first 20 rows (20 is the default)
-#to show the first n rows, run: df.show(n)
+# show the first 20 rows (20 is the default)
+# to show the first n rows, run: df.show(n)
 acDF.show(100, False)
 flightDF.show(20, False)
 
-#Display to run visualizations
-#preferably run this in a separate cmd cell
+# Display to run visualizations
+# preferably run this in a separate cmd cell
 display(flightDF)
 ```
 
 데이터에 대한 몇 가지 기본 분석 쿼리를 실행하는 이 스크립트를 입력합니다.
 
 ```python
-#Run each of these queries, preferably in a separate cmd cell for separate analysis
-#create a temporary sql view for querying flight information
+# Run each of these queries, preferably in a separate cmd cell for separate analysis
+# create a temporary sql view for querying flight information
 FlightTable = spark.read.parquet('/mnt/flightdata/parquet/flights')
 FlightTable.createOrReplaceTempView('FlightTable')
 
-#create a temporary sql view for querying airline code information
+# create a temporary sql view for querying airline code information
 AirlineCodes = spark.read.parquet('/mnt/flightdata/parquet/airlinecodes')
 AirlineCodes.createOrReplaceTempView('AirlineCodes')
 
-#using spark sql, query the parquet file to return total flights in January and February 2016
+# using spark sql, query the parquet file to return total flights in January and February 2016
 out1 = spark.sql("SELECT * FROM FlightTable WHERE Month=1 and Year= 2016")
 NumJan2016Flights = out1.count()
 out2 = spark.sql("SELECT * FROM FlightTable WHERE Month=2 and Year= 2016")
-NumFeb2016Flights=out2.count()
-print("Jan 2016: ", NumJan2016Flights," Feb 2016: ",NumFeb2016Flights)
-Total= NumJan2016Flights+NumFeb2016Flights
+NumFeb2016Flights = out2.count()
+print("Jan 2016: ", NumJan2016Flights, " Feb 2016: ", NumFeb2016Flights)
+Total = NumJan2016Flights+NumFeb2016Flights
 print("Total flights combined: ", Total)
 
 # List out all the airports in Texas
-out = spark.sql("SELECT distinct(OriginCityName) FROM FlightTable where OriginStateName = 'Texas'") 
+out = spark.sql(
+    "SELECT distinct(OriginCityName) FROM FlightTable where OriginStateName = 'Texas'")
 print('Airports in Texas: ', out.show(100))
 
-#find all airlines that fly from Texas
-out1 = spark.sql("SELECT distinct(Reporting_Airline) FROM FlightTable WHERE OriginStateName='Texas'")
+# find all airlines that fly from Texas
+out1 = spark.sql(
+    "SELECT distinct(Reporting_Airline) FROM FlightTable WHERE OriginStateName='Texas'")
 print('Airlines that fly to/from Texas: ', out1.show(100, False))
 ```
 

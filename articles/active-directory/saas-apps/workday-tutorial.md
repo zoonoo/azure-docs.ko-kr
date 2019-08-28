@@ -1,5 +1,5 @@
 ---
-title: '자습서: Workday와 Azure Active Directory 통합 | Microsoft Docs'
+title: '자습서: Workday와 Azure Active Directory SSO(Single Sign-On) 연결 | Microsoft Docs'
 description: Azure Active Directory와 Workday 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/20/2019
+ms.date: 08/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b9e4f5208eb1f6abb0d6fd786630c183a04ce50
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 9fe63ba810724216b1b356896b621f1e5b021bbf
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388878"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891974"
 ---
-# <a name="tutorial-integrate-workday-with-azure-active-directory"></a>자습서: Workday와 Azure Active Directory와 통합
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday"></a>자습서: Workday와 Azure Active Directory SSO(Single Sign-On) 연결
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Workday를 통합하는 방법에 대해 알아봅니다. Azure AD와 Workday를 통합하는 경우 다음을 수행할 수 있습니다.
 
@@ -53,22 +53,22 @@ Workday가 Azure AD에 통합되도록 구성하려면 갤러리에서 Workday�
 1. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션**을 선택합니다.
 1. **갤러리에서 추가** 섹션의 검색 상자에서 **Workday**를 입력합니다.
-1. 결과 패널에서 **Workday**를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 기다려 주세요.
+1. 결과 패널에서 **Workday**를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
+## <a name="configure-and-test-azure-ad-single-sign-on-for-workday"></a>Workday용 Azure AD Single Sign-On 구성 및 테스트
 
-**Britta Simon**이라는 테스트 사용자를 사용하여 Workday에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Workday의 관련 사용자 간에 연결 관계를 설정해야 합니다.
+**B. Simon**이라는 테스트 사용자를 사용하여 Workday에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Workday의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
 Workday에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
 
-1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
+1. 사용자가 이 기능을 사용할 수 있도록 **[Azure AD SSO를 구성](#configure-azure-ad-sso)** 합니다.
+    1. **[Azure AD 테스트 사용자를 생성](#create-an-azure-ad-test-user)** 하여 B.Simon으로 Azure AD Single Sign-On을 테스트합니다.
+    1. **[Azure AD 테스트 사용자를 할당](#assign-the-azure-ad-test-user)** 하여 B.Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 2. **[Workday 구성](#configure-workday)** - 애플리케이션 쪽에서 SSO 설정을 구성합니다.
-3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Workday 테스트 사용자 만들기](#create-workday-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Workday에 만듭니다.
-6. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
+    1. **[Workday 테스트 사용자 만들기](#create-workday-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 Workday에 만듭니다.
+3. **[SSO를 테스트](#test-sso)** 하여 구성이 작동하는지 여부를 확인합니다.
 
-### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
+## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
@@ -82,7 +82,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     a. **로그인 URL** 텍스트 상자에서 `https://impl.workday.com/<tenant>/login-saml2.flex` 패턴을 사용하여 URL을 입력합니다.
 
-    b. **식별자** 텍스트 상자에서 `https://www.workday.com` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `http://www.workday.com` 패턴을 사용하여 URL을 입력합니다.
 
     다. **회신 URL** 텍스트 상자에서 `https://impl.workday.com/<tenant>/login-saml.htmld` 패턴을 사용하여 URL을 입력합니다.
 
@@ -115,7 +115,37 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![구성 URL 복사](common/copy-configuration-urls.png)
 
-### <a name="configure-workday"></a>Workday 구성
+### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
+
+이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
+
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자**를 차례로 선택합니다.
+1. 화면 위쪽에서 **새 사용자**를 선택합니다.
+1. **사용자** 속성에서 다음 단계를 수행합니다.
+   1. **이름** 필드에 `B.Simon`을 입력합니다.  
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `B.Simon@contoso.com`
+   1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
+   1. **만들기**를 클릭합니다.
+
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
+
+이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 Workday에 대한 액세스 권한을 부여합니다.
+
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
+1. 애플리케이션 목록에서 **Workday**를 선택합니다.
+1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹**을 선택합니다.
+
+   !["사용자 및 그룹" 링크](common/users-groups-blade.png)
+
+1. **사용자 추가**를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+
+    ![사용자 추가 링크](common/add-assign-user.png)
+
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon**을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
+1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+
+## <a name="configure-workday"></a>Workday 구성
 
 1. 다른 웹 브라우저 창에서 Workday 회사 사이트에 관리자 권한으로 로그인합니다.
 
@@ -197,7 +227,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![SSO 구성](./media/workday-tutorial/WorkdaySSOConfiguratio.png "SSO 구성")
 
-    a.  **서비스 공급자 ID** 텍스트 상자에 **https://www.workday.com** 을 입력합니다.
+    a.  **서비스 공급자 ID** 텍스트 상자에 **http://www.workday.com** 을 입력합니다.
 
     b. **SP에서 시작한 인증 요청을 Deflate하지 않음**을 선택합니다.
 
@@ -212,41 +242,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     > [!NOTE]
     > Single Sign-On을 올바르게 설정했는지 확인하세요. 잘못된 설정으로 Single Sign-On을 활성화한 경우 자격 증명을 사용하여 애플리케이션을 입력하고 잠글 수 없을 수도 있습니다. 이 경우 Workday는 사용자가 [Your Workday URL]/login.flex?redirect=n 형식으로 해당 일반 사용자 이름 및 암호를 사용하여 로그인할 수 있는 백업 로그인 url을 제공합니다.
 
-### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
-
-이 섹션에서는 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만듭니다.
-
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자**를 차례로 선택합니다.
-1. 화면 위쪽에서 **새 사용자**를 선택합니다.
-1. **사용자** 속성에서 다음 단계를 수행합니다.
-   1. **이름** 필드에 `Britta Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `BrittaSimon@contoso.com`
-   1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
-   1. **만들기**를 클릭합니다.
-
-### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
-
-이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Workday에 대한 액세스 권한을 부여합니다.
-
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
-1. 애플리케이션 목록에서 **Workday**를 선택합니다.
-1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹**을 선택합니다.
-
-   !["사용자 및 그룹" 링크](common/users-groups-blade.png)
-
-1. **사용자 추가**를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
-
-    ![사용자 추가 링크](common/add-assign-user.png)
-
-1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
-1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
-1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
-
 ### <a name="create-workday-test-user"></a>Workday 테스트 사용자 만들기
 
-이 섹션에서는 Workday에서 Britta Simon이라는 사용자를 만듭니다. Workday 플랫폼에서 사용자를 추가하려면 [Workday 클라이언트 지원 팀](https://www.workday.com/en-us/partners-services/services/support.html)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Workday에 B.Simon이라는 사용자를 만듭니다. Workday 플랫폼에서 사용자를 추가하려면 [Workday 클라이언트 지원 팀](https://www.workday.com/en-us/partners-services/services/support.html)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
-### <a name="test-sso"></a>SSO 테스트
+## <a name="test-sso"></a>SSO 테스트
 
 액세스 패널에서 Workday 타일을 선택하면 SSO를 설정한 Workday에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
 
@@ -257,3 +257,5 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 - [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Azure AD로 Workday 체험](https://aad.portal.azure.com)

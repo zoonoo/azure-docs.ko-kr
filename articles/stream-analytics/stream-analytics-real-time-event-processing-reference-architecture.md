@@ -8,18 +8,18 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/24/2017
-ms.openlocfilehash: 7f9748a4e4f1c86362781aa80d8958237c97106a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab1ca89427f332151120420c3c087902584706f4
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60816960"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621776"
 ---
 # <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>참조 아키텍처: Microsoft Azure Stream Analytics로 실시간 이벤트 처리
 Microsoft Azure Stream Analytics과 실시간 이벤트 처리의 참조 아키텍처는 Microsoft Azure를 지원하는 실시간 PaaS(Platform as a Service) 스트림 처리 솔루션 배포에 대한 전체적인 청사진을 제공하기 위한 것입니다.
 
 ## <a name="summary"></a>요약
-일반적으로 분석 솔루션은 ETL(추출, 변환, 부하) 및 분석 전에 데이터를 저장하는 데이터 웨어하우징과 같은 기능에 기반을 두었습니다. 더 빠르게 수신되는 데이터를 비롯한 변화하는 요구 사항에 따라 이 기존 모델은 한계에 다다르고 있습니다. 이동하는 스트림 내의 데이터를 저장 전에 분석하는 기능은 하나의 솔루션이며, 새로운 기능은 아니지만 접근 방식이 모든 업종에 널리 채택되지는 않았습니다. 
+일반적으로 분석 솔루션은 ETL(추출, 변환, 부하) 및 분석 전에 데이터를 저장하는 데이터 웨어하우징과 같은 기능에 기반을 두었습니다. 더 빠르게 수신되는 데이터를 비롯한 변화하는 요구 사항에 따라 이 기존 모델은 한계에 다다르고 있습니다. 이동하는 스트림 내의 데이터를 스토리지 전에 분석하는 기능은 하나의 솔루션이며, 새로운 기능은 아니지만 접근 방식이 모든 업종에 널리 채택되지는 않았습니다. 
 
 Microsoft Azure는 여러 솔루션 시나리오 및 요구 사항을 지원할 수 있는 광범위한 분석 기술 카탈로그를 제공합니다. 솔루션의 범위로 볼 때 엔드투엔드 솔루션에 배포할 Azure 서비스를 선택하는 것은 어려울 수 있습니다. 이 문서는 이벤트 스트리밍 솔루션을 지원하는 다양한 Azure 서비스의 기능 및 상호 운용에 대해 설명하기 위한 것입니다. 또한 고객이 이러한 접근 방식으로 혜택을 볼 수 있는 시나리오를 몇 가지 설명 합니다.
 
@@ -32,7 +32,7 @@ Microsoft Azure는 여러 솔루션 시나리오 및 요구 사항을 지원할 
   * 데이터 원본
   * 데이터 통합 계층
   * 실시간 분석 계층
-  * 데이터 저장소 계층
+  * 데이터 스토리지 계층
   * 프레젠테이션/소비 계층
 * 결론
 
@@ -51,6 +51,6 @@ Microsoft Azure는 여러 솔루션 시나리오 및 요구 사항을 지원할 
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

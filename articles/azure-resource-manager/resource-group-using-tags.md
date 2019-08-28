@@ -4,14 +4,14 @@ description: 태그를 적용하여 대금 청구 및 관리를 위해 Azure 리
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 861e108efa6da3668f529e0324fd0de19fe84328
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: e18fc040249954ce7ea6a8a686e121a4b56fb54a
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206497"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68312130"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>태그를 사용하여 Azure 리소스 구성
 
@@ -107,7 +107,7 @@ $r.Tags.Add("Status", "Approved")
 Set-AzResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
-리소스에 리소스 그룹의 모든 태그를 적용 하려면 및 *리소스를 기존 태그를 유지 하지 않도록*, 다음 스크립트를 사용 합니다.
+리소스에 *대 한 기존 태그를 유지 하지 않고*리소스 그룹의 모든 태그를 리소스에 적용 하려면 다음 스크립트를 사용 합니다.
 
 ```azurepowershell-interactive
 $groups = Get-AzResourceGroup
@@ -117,7 +117,7 @@ foreach ($g in $groups)
 }
 ```
 
-리소스에 리소스 그룹의 모든 태그를 적용 하려면 및 *중복 되지 않는 리소스를 기존 태그를 유지*, 다음 스크립트를 사용 합니다.
+리소스 그룹의 모든 태그를 리소스에 적용 하 고 *중복 되지 않는 리소스에 대 한 기존 태그를 유지*하려면 다음 스크립트를 사용 합니다.
 
 ```azurepowershell-interactive
 $group = Get-AzResourceGroup "examplegroup"
@@ -214,7 +214,7 @@ rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
 az resource tag --tags $rt Project=Redesign -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-리소스에 리소스 그룹의 모든 태그를 적용 하려면 및 *리소스를 기존 태그를 유지 하지 않도록*, 다음 스크립트를 사용 합니다.
+리소스에 *대 한 기존 태그를 유지 하지 않고*리소스 그룹의 모든 태그를 리소스에 적용 하려면 다음 스크립트를 사용 합니다.
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -230,7 +230,7 @@ do
 done
 ```
 
-리소스에 리소스 그룹의 모든 태그를 적용 하려면 및 *리소스의 기존 태그를 유지*, 다음 스크립트를 사용 합니다.
+리소스 그룹의 모든 태그를 리소스에 적용 하 고 *리소스에 대 한 기존 태그를 유지*하려면 다음 스크립트를 사용 합니다.
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -250,7 +250,148 @@ done
 
 ## <a name="templates"></a>템플릿
 
-[!INCLUDE [resource-manager-tags-in-templates](../../includes/resource-manager-tags-in-templates.md)]
+배포 하는 동안 리소스에 태그를 표시 `tags` 하려면 배포 하는 리소스에 요소를 추가 합니다. 태그 이름 및 값을 제공합니다.
+
+### <a name="apply-a-literal-value-to-the-tag-name"></a>태그 이름에 리터럴 값 적용
+
+다음 예제에서는 리터럴 값으로 설정된 두 개의 태그(`Dept` 및 `Environment`)가 있는 스토리지 계정을 보여 줍니다.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2019-04-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+            "location": "[parameters('location')]",
+            "tags": {
+                "Dept": "Finance",
+                "Environment": "Production"
+            },
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {}
+        }
+    ]
+}
+```
+
+태그를 datetime 값으로 설정 하려면 [utcNow 함수](resource-group-template-functions-string.md#utcnow)를 사용 합니다.
+
+### <a name="apply-an-object-to-the-tag-element"></a>개체를 태그 요소에 적용
+
+여러 태그를 저장하는 개체 매개 변수를 정의하고 해당 개체를 태그 요소에 적용할 수 있습니다. 개체의 각 속성은 리소스에 대한 별도의 태그가 됩니다. 다음 예제에는 태그 요소에 적용되는 `tagValues`라는 매개 변수가 있습니다.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        },
+        "tagValues": {
+            "type": "object",
+            "defaultValue": {
+                "Dept": "Finance",
+                "Environment": "Production"
+            }
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2019-04-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+            "location": "[parameters('location')]",
+            "tags": "[parameters('tagValues')]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {}
+        }
+    ]
+}
+```
+
+### <a name="apply-a-json-string-to-the-tag-name"></a>태그 이름에 JSON 문자열 적용
+
+단일 태그에 여러 값을 저장하려면 값을 나타내는 JSON 문자열을 적용합니다. 전체 JSON 문자열은 256 자를 초과할 수 없는 하나의 태그로 저장 됩니다. 다음 예제에는 JSON 문자열의 여러 값을 포함하는 `CostCenter`라는 단일 태그를 포함합니다.  
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2019-04-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+            "location": "[parameters('location')]",
+            "tags": {
+                "CostCenter": "{\"Dept\":\"Finance\",\"Environment\":\"Production\"}"
+            },
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {}
+        }
+    ]
+}
+```
+
+### <a name="apply-tags-from-resource-group"></a>리소스 그룹에서 태그 적용
+
+리소스 그룹의 태그를 리소스에 적용 하려면 [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) 함수를 사용 합니다. 태그 값을 가져올 때 일부 문자는 `tags.[tag-name]` 점 표기법에서 올바르게 `tags.tag-name` 구문 분석 되지 않으므로 구문 대신 구문을 사용 합니다.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2019-04-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+            "location": "[parameters('location')]",
+            "tags": {
+                "Dept": "[resourceGroup().tags['Dept']]",
+                "Environment": "[resourceGroup().tags['Environment']]"
+            },
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {}
+        }
+    ]
+}
+```
 
 ## <a name="portal"></a>포털
 

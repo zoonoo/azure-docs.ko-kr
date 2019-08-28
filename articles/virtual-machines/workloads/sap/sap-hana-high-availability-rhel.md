@@ -4,7 +4,7 @@ description: Azure VM(Virtual Machines)에서 SAP HANA의 고가용성을 설정
 services: virtual-machines-linux
 documentationcenter: ''
 author: MSSedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 1eca9dd82bec120e5554627ade71688c82be7763
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 66e1e4603602835d6ed5be9af58eb09a24b00b63
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64922126"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709111"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux의 Azure VM에 있는 SAP HANA의 고가용성
 
@@ -66,9 +66,9 @@ SAP HANA 복제는 하나의 기본 노드와 하나 이상의 보조 노드로 
 * SAP Note [2243692]는 Azure에서 Linux의 SAP 라이선스에 대한 정보를 포함하고 있습니다.
 * SAP Note [1999351]은 SAP용 Azure 고급 모니터링 확장을 위한 추가 문제 해결 정보를 포함하고 있습니다.
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes)는 Linux에 필요한 모든 SAP Note를 포함하고 있습니다.
-* [Linux에서 SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]
-* [Linux에서 SAP용 Azure Virtual Machines 배포(이 문서)][deployment-guide]
-* [Linux에서 SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
+* [Azure Virtual Machines 계획 및 Linux에서 SAP 용 구현][planning-guide]
+* [Linux (이 문서)에서 SAP 용 azure Virtual Machines 배포][deployment-guide]
+* [Linux에서 SAP 용 azure Virtual Machines DBMS 배포][dbms-guide]
 * [SAP HANA system replication in pacemaker cluster](https://access.redhat.com/articles/3004101)(Pacemaker 클러스터의 SAP HANA 시스템 복제)
 * 일반 RHEL 설명서
   * [High Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)(고가용성 추가 기능 개요)
@@ -101,7 +101,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
 GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든 리소스를 배포할 수 있습니다. 템플릿에서 가상 머신, 부하 분산 장치, 가용성 집합 등을 배포합니다.
 템플릿을 배포하려면 다음 단계를 따릅니다.
 
-1. Azure Portal에서 [데이터베이스 템플릿][template-multisid-db]을 엽니다.
+1. 엽니다는 [database 템플릿을][template-multisid-db] Azure portal에서 합니다.
 1. 다음 매개 변수를 입력합니다.
     * **SAP 시스템 ID**: 설치하려는 SAP 시스템의 SAP 시스템 ID를 입력합니다. 이 ID는 배포되는 리소스의 접두사로 사용됩니다.
     * **OS 유형**: Linux 배포판 중 하나를 선택합니다. 이 예에서는 **RHEL 7**을 선택합니다.
@@ -181,7 +181,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    1. **확인**을 선택합니다.
    1. 포트 3**03**41 및 3**03**42에 대해 이러한 단계를 반복합니다.
 
-SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 데이터베이스](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) 가이드의 [테넌트 데이터베이스에 연결](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) 챕터 또는 [SAP Note 2388694][2388694]를 참조하세요.
+SAP HANA에 대 한 필요한 포트에 대 한 자세한 내용은 장을 읽어 [테 넌 트 데이터베이스에 연결](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) 에 [SAP HANA 테 넌 트 데이터베이스](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) 가이드 또는 [SAP Note 2388694][2388694].
 
 > [!IMPORTANT]
 > Azure Load Balancer 뒤에 배치 하는 Azure Vm에서 TCP 타임 스탬프를 사용 하지 마십시오. TCP 타임 스탬프를 사용 하도록 설정 하면 상태 프로브 실패 합니다. 매개 변수를 설정 **net.ipv4.tcp_timestamps** 하 **0**합니다. 자세한 내용은 참조 하십시오 [부하 분산 장치 상태 프로브](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)합니다.
@@ -335,7 +335,7 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
 
 1. **[A]** SAP 호스트 에이전트를 업그레이드합니다.
 
-   [SAP Software Center][sap-swcenter]에서 최신 SAP 호스트 에이전트 아카이브를 다운로드하고 다음 명령을 실행하여 에이전트를 업그레이드합니다. 다운로드한 파일을 가리키도록 아카이브의 경로를 바꿉니다.
+   최신 SAP 호스트 에이전트 아카이브를 다운로드 합니다 [SAP 소프트웨어 센터][sap-swcenter] 에이전트를 업그레이드 하려면 다음 명령을 실행 합니다. 다운로드한 파일을 가리키도록 아카이브의 경로를 바꿉니다.
 
    <pre><code>sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive &lt;path to SAP Host Agent SAR&gt;
    </code></pre>
@@ -730,7 +730,7 @@ Resource Group: g_ip_HN1_03
 
 ## <a name="next-steps"></a>다음 단계
 
-* [SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]
-* [SAP용 Azure Virtual Machines 배포][deployment-guide]
-* [SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
+* [Azure Virtual Machines 계획 및 SAP에 대 한 구현][planning-guide]
+* [SAP 용 azure Virtual Machines 배포][deployment-guide]
+* [SAP 용 azure Virtual Machines DBMS 배포][dbms-guide]
 * Azure의 SAP HANA(큰 인스턴스)에 대한 고가용성 및 재해 복구 계획을 설정하는 방법을 알아보려면 [Azure의 SAP HANA(큰 인스턴스) 고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md)를 참조하세요.

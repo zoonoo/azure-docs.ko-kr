@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 25cae58663f6fa7ef27995c10509eb33e49dd4c7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8e60f5251f911ffe2b917dcc30e433e0a960823e
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522823"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012581"
 ---
 # <a name="create-a-netapp-account"></a>NetApp 계정 만들기
 NetApp 계정 만들기를 사용하면 용량 풀을 설정하고 이후에 볼륨을 만들 수 있습니다. Azure NetApp Files 블레이드를 사용하여 새 NetApp 계정을 만듭니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
-부여 된 서비스에 대 한 액세스를 확인 하는 Azure NetApp 파일 팀에서 전자 메일이 수신 되어야 합니다. 참조 [서비스에 액세스 하기 위한 대기 요청을 제출](azure-netapp-files-register.md#waitlist)합니다.
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
+Azure NetApp Files 팀에서 서비스에 대 한 액세스 권한이 부여 되었는지 확인 하는 전자 메일을 수신 해야 합니다. [서비스 액세스에 대 한 waitlist 요청 제출](azure-netapp-files-register.md#waitlist)을 참조 하세요.
 
-NetApp 리소스 공급자를 사용 하 여 구독을 등록도 있어야 합니다. 참조 [NetApp 리소스 공급자 등록](azure-netapp-files-register.md#resource-provider)합니다.
+또한 NetApp 리소스 공급자를 사용 하기 위해 구독을 등록 해야 합니다. [NetApp 리소스 공급자 등록을](azure-netapp-files-register.md#resource-provider)참조 하세요.
 
 ## <a name="steps"></a>단계 
 
@@ -48,7 +48,7 @@ NetApp 리소스 공급자를 사용 하 여 구독을 등록도 있어야 합�
      기존 구독에서 구독을 선택합니다.
    * **리소스 그룹**   
      기존 리소스 그룹을 사용하거나 새 리소스 그룹을 만듭니다.
-   * **Location**:  
+   * **위치**  
      계정 및 해당 자식 리소스를 배치하려는 지역을 선택합니다.  
 
      ![새 NetApp 계정](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)
@@ -58,11 +58,12 @@ NetApp 리소스 공급자를 사용 하 여 구독을 등록도 있어야 합�
    이제 사용자가 만든 NetApp 계정이 Azure NetApp Files 블레이드에 나타납니다. 
 
 > [!NOTE] 
-> Azure NetApp 파일 서비스에 대 한 액세스 부여 없습니다, 경우 첫 번째 NetApp 계정을 만들 하려고 할 때 다음 오류가 됩니다.  
+> Azure NetApp Files 서비스에 대 한 액세스 권한이 부여 되지 않은 경우 첫 번째 NetApp 계정을 만들려고 하면 다음과 같은 오류가 표시 됩니다.  
 >
 > `{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"NotFound","message":"{\r\n \"error\": {\r\n \"code\": \"InvalidResourceType\",\r\n \"message\": \"The resource type could not be found in the namespace 'Microsoft.NetApp' for api version '2017-08-15'.\"\r\n }\r\n}"}]}`
 
 ## <a name="next-steps"></a>다음 단계  
 
-[용량 풀 설정](azure-netapp-files-set-up-capacity-pool.md)
+* [용량 풀 설정](azure-netapp-files-set-up-capacity-pool.md)
+* [Azure CLI를 사용 하 여 Azure NetApp Files 리소스 관리](https://docs.microsoft.com/cli/azure/netappfiles?view=azure-cli-latest)
 

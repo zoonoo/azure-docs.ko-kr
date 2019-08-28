@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 02/13/2019
+ms.date: 08/20/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: a19a257e2b4a39d9df8777215364f9cc026f72ac
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: ec68a54b5e90416e97bb4e4b0c3074092502a920
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072060"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647205"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-c"></a>C#에서 QnA Maker REST API를 사용하는 방법 
 <a name="HOLTop"></a>

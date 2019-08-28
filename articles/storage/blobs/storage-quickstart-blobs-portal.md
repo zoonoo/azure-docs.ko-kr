@@ -1,6 +1,6 @@
 ---
-title: Azure 빠른 시작 - Azure Portal을 사용하여 개체 저장소에 Blob 만들기 | Microsoft Docs
-description: 이 빠른 시작에서는 개체(Blob) 저장소에서 Azure Portal을 사용합니다. 그런 다음, Azure Portal을 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다.
+title: Azure 빠른 시작 - Azure Portal을 사용하여 개체 스토리지에 Blob 만들기 | Microsoft Docs
+description: 이 빠른 시작에서는 개체(Blob) 스토리지에서 Azure Portal을 사용합니다. 그런 다음, Azure Portal을 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다.
 services: storage
 author: tamram
 ms.custom: mvc
@@ -27,8 +27,8 @@ ms.locfileid: "51711891"
 
 Azure Portal에 컨테이너를 만들려면 다음 단계를 수행합니다.
 
-1. Azure Portal의 새 저장소 계정으로 이동합니다.
-2. 저장소 계정의 왼쪽 메뉴에서 **Blob 서비스** 섹션이 나올 때까지 스크롤한 다음, **Blob**을 선택합니다.
+1. Azure Portal의 새 스토리지 계정으로 이동합니다.
+2. 스토리지 계정의 왼쪽 메뉴에서 **Blob 서비스** 섹션이 나올 때까지 스크롤한 다음, **Blob**을 선택합니다.
 3. **+ 컨테이너** 단추를 선택합니다.
 4. 새 컨테이너의 이름을 입력합니다. 컨테이너 이름은 소문자여야 하고, 문자 또는 숫자로 시작해야 하며, 문자, 숫자 및 대시(-) 문자만 포함할 수 있습니다. 컨테이너 및 BLOB 이름에 대한 자세한 내용은 [컨테이너, BLOB, 메타데이터 이름 지정 및 참조](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)를 참조하세요.
 5. 컨테이너에 대한 공용 액세스 수준을 설정합니다. 기본 수준은 **프라이빗(익명 액세스 없음)** 입니다.
@@ -65,7 +65,7 @@ Azure Portal에 컨테이너를 만들려면 다음 단계를 수행합니다.
 
 컨테이너를 삭제하려면
 
-1. Azure Portal에서 저장소 계정의 컨테이너 목록으로 이동합니다.
+1. Azure Portal에서 스토리지 계정의 컨테이너 목록으로 이동합니다.
 2. 삭제할 컨테이너를 선택합니다.
 3. **자세히** 단추( **...** )를 선택하고 **삭제**를 선택합니다.
 4. 컨테이너 삭제를 확인합니다.

@@ -1,24 +1,24 @@
 ---
 title: IoT Hub C SDK를 사용하여 제한된 디바이스에 대한 Azure IoT Hub 개발 | Microsoft Docs
 description: 개발자 가이드 - 제한된 디바이스에 Azure IoT SDK를 사용하여 개발하는 방법에 대한 지침입니다.
-author: yzhong94
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 05/24/2018
-ms.author: yizhon
-ms.openlocfilehash: 7788bca621a59ec8cdfe36edf73a99efca8c460c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: robinsh
+ms.openlocfilehash: d69fe6b845d3af04e42ee91daa9359dcb9a88fc5
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61320942"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880963"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Azure IoT C SDK를 사용하여 제한된 디바이스 개발
 
 Azure IoT Hub C SDK는 ANSI C(C99)로 작성되었으며, 작은 디스크 및 메모리 공간으로 다양한 플랫폼을 작동하는 데 적합합니다. 권장되는 RAM은 64KB 이상이지만, 정확한 메모리 공간은 사용되는 프로토콜, 열린 연결 수 및 대상 플랫폼에 따라 다릅니다.
 > [!NOTE]
-> * Azure IoT C SDK 개발에 도움이 되도록 리소스 사용량 정보를 정기적으로 게시 합니다.  방문 하십시오 우리의 [GitHub 리포지토리](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md) 최신 벤치 마크를 검토 합니다.
+> * Azure IoT C SDK는 개발에 도움이 되는 리소스 소비 정보를 정기적으로 게시 합니다.  [GitHub 리포지토리](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md) 를 방문 하 여 최신 벤치 마크를 검토 하세요.
 >
 
 C SDK는 apt-get, NuGet 및 MBED의 패키지 형태로 사용할 수 있습니다. 제한된 디바이스를 대상으로 지정하려면 대상 플랫폼에 맞게 SDK를 로컬로 빌드하는 것이 좋습니다. 이 설명서에서는 C SDK의 공간을 줄이기 위해 [cmake](https://cmake.org/)를 사용하여 특정 기능을 제거하는 방법을 보여줍니다. 또한 제한된 디바이스를 사용하기 위한 최적의 프로그래밍 모델에 대해 설명합니다.
@@ -27,13 +27,13 @@ C SDK는 apt-get, NuGet 및 MBED의 패키지 형태로 사용할 수 있습니�
 
 제한된 디바이스에 대한 C SDK를 빌드합니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 이 [C SDK 설정 가이드](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md)에 따라 C SDK를 빌드하기 위한 개발 환경을 준비합니다. cmake를 사용하여 빌드하는 단계를 시작하기 전에 cmake 플래그를 호출하여 사용하지 않는 기능을 제거할 수 있습니다.
 
 ### <a name="remove-additional-protocol-libraries"></a>추가 프로토콜 라이브러리 제거
 
-C SDK는 현재 5 프로토콜을 지원합니다. MQTT, WebSocket AMQPs, HTTPS 및 WebSocket을 통한 AMQP을 통한 MQTT 대부분의 시나리오에서는 1-2개의 프로토콜이 클라이언트에서 실행되어야 하므로 SDK에서 사용하지 않는 프로토콜 라이브러리를 제거할 수 있습니다. 시나리오에 적절한 통신 프로토콜을 선택하는 방법에 대한 자세한 내용은 [IoT Hub 통신 프로토콜 선택](iot-hub-devguide-protocols.md)에서 찾을 수 있습니다. 예를 들어 MQTT는 제한된 디바이스에 더 적합한 경량 프로토콜입니다.
+C SDK는 오늘 5 개의 프로토콜을 지원 합니다. MQTT, WebSocket을 통한 MQTT, AMQPs, WebSocket을 통한 AMQP 및 HTTPS 대부분의 시나리오에서는 1-2개의 프로토콜이 클라이언트에서 실행되어야 하므로 SDK에서 사용하지 않는 프로토콜 라이브러리를 제거할 수 있습니다. 시나리오에 적절한 통신 프로토콜을 선택하는 방법에 대한 자세한 내용은 [IoT Hub 통신 프로토콜 선택](iot-hub-devguide-protocols.md)에서 찾을 수 있습니다. 예를 들어 MQTT는 제한된 디바이스에 더 적합한 경량 프로토콜입니다.
 
 다음 cmake 명령을 사용하여 AMQP 및 HTTP 라이브러리를 제거할 수 있습니다.
 
@@ -59,7 +59,7 @@ cmake -Ddont_use_uploadtoblob=ON <Path_to_cmake>
 
 ### <a name="running-strip-on-linux-environment"></a>Linux 환경에서 strip 실행
 
-이진 파일이 Linux 시스템에서 실행되는 경우 컴파일 후에 [strip 명령](https://en.wikipedia.org/wiki/Strip_(Unix))을 활용하여 최종 응용 프로그램의 크기를 줄일 수 있습니다.
+이진 파일이 Linux 시스템에서 실행되는 경우 컴파일 후에 [strip 명령](https://en.wikipedia.org/wiki/Strip_(Unix))을 활용하여 최종 애플리케이션의 크기를 줄일 수 있습니다.
 
 ```
 strip -s <Path_to_executable>
@@ -73,7 +73,7 @@ strip -s <Path_to_executable>
 
 C SDK에는 선언적 매핑 테이블을 사용하여 메서드 및 디바이스 쌍 속성을 정의할 수 있는 선택적 [C SDK 직렬 변환기](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer)가 있습니다. 직렬 변환기는 개발을 간소화하기 위해 설계되었지만 오버헤드가 추가되므로 제한된 디바이스에 적합하지 않습니다. 이 경우에 원시 클라이언트 API를 사용하고 [parson](https://github.com/kgabis/parson)과 같은 경량 파서를 사용하여 JSON을 구문 분석하는 것이 좋습니다.
 
-### <a name="use-the-lower-layer-ll"></a>_LL_(하위 계층) 사용
+### <a name="use-the-lower-layer-_ll_"></a>_LL_(하위 계층) 사용
 
 C SDK는 두 가지 프로그래밍 모델을 지원합니다. 한 집합에는 하위 계층을 나타내는 _LL_ 중위가 있는 API가 있습니다. 이 API 집합은 더 간단하며 작업자 스레드를 회전하지 않으므로 사용자가 일정 예약을 수동으로 제어해야 합니다. 예를 들어 디바이스 클라이언트의 경우 _LL_ API는 이 [헤더 파일](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_device_client_ll.h)에 있습니다. 
 

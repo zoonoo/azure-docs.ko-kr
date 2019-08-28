@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/06/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 212b935e8986731940effe79ec80f52c0d7b64c4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 68cdd147977294954051735d70307305aa5dc0cb
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308931"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603322"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>빠른 시작: Face REST API 및 cURL을 사용하여 이미지에서 얼굴 감지
 
@@ -40,7 +40,7 @@ curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://westcentralus.a
 
 ### <a name="face-endpoint-url"></a>Face 엔드포인트 URL
 
-URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect`는 쿼리할 Azure Face 엔드포인트를 나타냅니다. 이 URL의 첫 번째 부분을 사용자 구독 키에 해당하는 지역에 맞게 변경해야 합니다(모든 지역 엔드포인트 목록을 보려면 [Face API 설명서](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 참조).
+URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect`는 쿼리할 Azure Face 엔드포인트를 나타냅니다. 이 URL의 첫 번째 부분을 사용자 구독 키에 해당하는 지역에 맞게 변경해야 합니다. 모든 지역 엔드포인트의 목록은 [Face API 문서](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)를 참조하세요.
 
 ### <a name="url-query-string"></a>URL 쿼리 문자열
 
@@ -59,7 +59,7 @@ https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg
 
 ## <a name="run-the-command"></a>명령 실행
 
-변경한 후에는 명령 프롬프트를 열고 새 명령을 입력합니다. 콘솔 창에 얼굴 정보가 JSON 데이터로 표시됩니다. 예를 들면 다음과 같습니다.
+변경한 후에는 명령 프롬프트를 열고 새 명령을 입력합니다. 콘솔 창에 얼굴 정보가 JSON 데이터로 표시됩니다. 예:
 
 ```json
 [

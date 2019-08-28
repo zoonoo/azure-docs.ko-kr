@@ -1,5 +1,5 @@
 ---
-title: 로그인을 위해 Azure AD와 통합되고 OAuth 2.0을 사용하여 보호되는 API를 호출하는 iOS 앱 빌드 | Microsoft Docs
+title: OAuth 2.0을 사용하여 로그인할 수 있도록 Azure AD와 통합된 iOS 앱 빌드 | Microsoft Docs
 description: iOS 앱에서 사용자 로그인 및 Microsoft Graph API 호출 방법을 알아보세요.
 services: active-directory
 documentationcenter: ios
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: brandwe
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6274557ede35d7640eba37e5777cb0cb67d459a
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 8a82a7cad9b9176589824b6febb5cfdde89fce8a
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497090"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380882"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>빠른 시작: iOS 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -36,7 +36,7 @@ Azure AD(Azure Active Directory)는 보호된 리소스에 액세스해야 하�
 * OAuth 2.0 인증 프로토콜을 사용하여 Azure AD Graph API를 호출하기 위한 액세스 토큰을 가져옵니다.
 * 지정된 별칭을 가진 사용자를 디렉터리에서 검색합니다.
 
-완전하게 작동하는 응용 프로그램을 빌드하려면 다음 작업이 필요합니다.
+완전하게 작동하는 애플리케이션을 빌드하려면 다음 작업이 필요합니다.
 
 1. Azure AD에 애플리케이션을 등록합니다.
 1. ADAL을 설치 및 구성합니다.
@@ -47,14 +47,14 @@ Azure AD(Azure Active Directory)는 보호된 리소스에 액세스해야 하�
 시작하려면 다음과 같은 필수 조건을 완료하세요.
 
 * [앱 기본 사항을 다운로드](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip)하거나 [완성된 샘플을 다운로드](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip)합니다.
-* 사용자를 만들고 응용 프로그램을 등록할 수 있는 Azure AD 테넌트가 필요합니다. 테넌트가 아직 없는 경우 [얻는 방법을 알아보세요](quickstart-create-new-tenant.md).
+* 사용자를 만들고 애플리케이션을 등록할 수 있는 Azure AD 테넌트가 필요합니다. 테넌트가 아직 없는 경우 [얻는 방법을 알아보세요](quickstart-create-new-tenant.md).
 
 > [!TIP]
 > 몇 분 안에 Azure AD를 실행할 수 있는 새로운 [개발자 포털](https://identity.microsoft.com/Docs/iOS)을 사용해 보세요. 개발자 포털은 앱을 등록하고 코드에 Azure AD를 통합하는 과정을 안내합니다. 이 과정을 완료하면 테넌트에서 사용자를 인증할 수 있는 간단한 애플리케이션 및 토큰을 수락하고 유효성 검사를 수행할 수 있는 백 엔드가 생성됩니다.
 
 ## <a name="step-1-determine-what-your-redirect-uri-is-for-ios"></a>1단계: iOS에 대한 리디렉션 URI 결정
 
-특정 SSO 시나리오에서 애플리케이션을 안전하게 시작하려면, 특정 형식으로 *리디렉션 URI*를 만들어야 합니다. 리디렉션 URI는 토큰을 요청하는 올바른 응용 프로그램에 반환하는데 사용됩니다.
+특정 SSO 시나리오에서 애플리케이션을 안전하게 시작하려면, 특정 형식으로 *리디렉션 URI*를 만들어야 합니다. 리디렉션 URI는 토큰을 요청하는 올바른 애플리케이션에 반환하는데 사용됩니다.
 
 리디렉션 URI에 대한 iOS 형식은 다음과 같습니다.
 
@@ -62,7 +62,7 @@ Azure AD(Azure Active Directory)는 보호된 리소스에 액세스해야 하�
 <app-scheme>://<bundle-id>
 ```
 
-* **app-scheme** - XCode 프로젝트에 등록되고 다른 응용 프로그램에서 사용자를 호출하는 방법입니다. app-scheme은 **Info.plist > URL 형식 > URL ID**에 있습니다. 하나 이상이 구성되어 있지 않으면 app-scheme을 하나 만들어야 합니다.
+* **app-scheme** - XCode 프로젝트에 등록되고 다른 애플리케이션에서 사용자를 호출하는 방법입니다. app-scheme은 **Info.plist > URL 형식 > URL ID**에 있습니다. 하나 이상이 구성되어 있지 않으면 app-scheme을 하나 만들어야 합니다.
 * **bundle-id** - XCode의 프로젝트 설정의 **identity** 아래에서 찾을 수 있는 번들 식별자입니다.
 
 이 빠른 시작 코드의 예제:

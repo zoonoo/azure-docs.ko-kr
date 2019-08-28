@@ -3,19 +3,19 @@ title: 탐색 - Personalizer
 titleSuffix: Azure Cognitive Services
 description: 탐색을 통해 Personalizer는 사용자 동작이 변하더라도 계속 좋은 결과를 제공할 수 있습니다. 탐색 설정의 선택은 모델을 개선하기 위한 사용자 상호 작용 중 탐색하는 비율에 관한 비즈니스 결정입니다.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/13/2019
-ms.author: edjez
-ms.openlocfilehash: 0e11dd962f4cc1ff9b1938b309a1b405dbf20232
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: HT
+ms.author: diberry
+ms.openlocfilehash: cfecea6a64301d86aa657420dc300c26d4ed6f1e
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65607022"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663392"
 ---
 # <a name="exploration-and-exploitation"></a>탐색 및 이용
 

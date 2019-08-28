@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: 분석 및 기계 학습을 수행하기 위해 Azure에서 데이터 과학 Virtual Machine 구성 및 만들기
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
@@ -12,15 +12,15 @@ ms.service: machine-learning
 ms.subservice: data-science-vm
 ms.workload: data-services
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/22/2019
-ms.author: gokuma
-ms.openlocfilehash: 64642da88850e9a0a17173bc50ae9e750cab55a2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.author: vijetaj
+ms.openlocfilehash: 488dc7db01bd865268e143b68cdaccd989010912
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235094"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534942"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Azure에서 Windows 데이터 과학 Virtual Machine 프로비전
 
@@ -48,6 +48,7 @@ DSVM에는 다음과 같은 도구가 포함되어 있습니다.
   * [Apache Drill](https://drill.apache.org/) - Apache Hadoop, NoSQL 및 클라우드 스토리지용의 스키마 없는 SQL 쿼리 엔진입니다. Power BI, Microsoft Excel 및 Tableau와 같은 표준 BI 도구에서 NoSQL 및 파일을 쿼리하기 위한 ODBC 및 JDBC 인터페이스를 지원합니다.
 * Azure Machine Learning 및 기타 Azure 서비스에서 사용하기 위한 R 및 Python의 라이브러리
 * Git(Git Bash 포함)에서 GitHub 및 Azure DevOps가 포함된 소스 코드 리포지토리를 사용하여 작업할 수 있습니다. Git은 Git Bash와 명령 프롬프트에서 모두 액세스할 수 있는 몇 가지 인기 있는 Linux 명령줄 유틸리티를 제공합니다. 예를 들어 awk, sed, perl, grep, find, wget 및 curl이 있습니다.
+* 개발 도구 및 편집자(RStudio, PyCharm)
 
 ### <a name="about-data-science"></a>데이터 과학에 대한 정보
 
@@ -61,13 +62,13 @@ DSVM에는 다음과 같은 도구가 포함되어 있습니다.
 
 DSVM을 사용하면 분석 프로젝트가 바로 시작됩니다. R, Python, SQL 및 C#을 포함하여 다양한 언어로 작업을 수행할 수 있습니다. Visual Studio는 사용하기 쉬운 IDE(통합 개발 환경)를 제공하여 코드를 개발하고 테스트합니다. VM에 포함된 Azure SDK를 통해 Microsoft의 클라우드 플랫폼에서 다양한 서비스를 사용하여 애플리케이션을 빌드할 수 있습니다.
 
-이 데이터 과학 VM 이미지에 대한 소프트웨어 요금은 부과되지 않습니다. Azure 사용 요금만 지불하면 됩니다. 이 요금은 프로비전하는 가상 머신의 크기에 따라 다릅니다. 계산 요금에 대한 자세한 내용은 [Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm?tab=PlansAndPrice) 페이지의 **가격 책정 세부 정보** 섹션에 나와 있습니다.
+이 데이터 과학 VM 이미지에 대한 소프트웨어 요금은 부과되지 않습니다. Azure 사용 요금만 지불하면 됩니다. 이 요금은 프로비전하는 가상 머신의 크기에 따라 다릅니다. 컴퓨팅 요금에 대한 자세한 내용은 [Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) 페이지의 **가격 책정 세부 정보** 섹션에 나와 있습니다.
 
 ### <a name="other-dsvm-versions"></a>다른 DSVM 버전
 
 * [Ubuntu](dsvm-ubuntu-intro.md) 이미지. DSVM과 비슷한 많은 도구와 몇 가지 추가 딥 러닝 프레임워크가 있습니다.
 * [Linux CentOS](linux-dsvm-intro.md) 이미지.
-* Data Science Virtual Machine의 [Windows Server 2012 버전](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.standard-data-science-vm)입니다. 몇 가지 도구는 Windows Server 2016 버전에서만 사용할 수 있습니다. 그렇지 않은 경우 이 문서는 Windows Server 2012 버전에도 적용됩니다.
+* Data Science Virtual Machine의 [Windows Server 2012 버전](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows)입니다. 몇 가지 도구는 Windows Server 2016 버전에서만 사용할 수 있습니다. 그렇지 않은 경우 이 문서는 Windows Server 2012 버전에도 적용됩니다.
 
 ## <a name="prerequisite"></a>필수 요소
 
@@ -94,19 +95,19 @@ DSVM 인스턴스를 만들려면
       * **위치** - 가장 적합한 데이터 센터를 선택합니다. 가장 빠른 네트워크 액세스를 위해 대부분의 데이터가 있거나 물리적 위치에 가장 가까운 데이터 센터입니다.
    1. **크기**: 기능 요구 사항과 비용 제약 조건이 충족되는 서버 유형 중 하나를 선택합니다. VM 크기를 더 많이 선택하려면 **모두 보기**를 선택합니다.
    1. **설정**:  
-      * **Managed Disks 사용**. Azure에서 VM용 디스크를 관리하도록 하려면 **관리**를 선택합니다. 그렇지 않으면 새 또는 기존 저장소 계정을 지정해야 합니다.  
+      * **Managed Disks 사용**. Azure에서 VM용 디스크를 관리하도록 하려면 **관리**를 선택합니다. 그렇지 않으면 새 또는 기존 스토리지 계정을 지정해야 합니다.  
       * **기타 매개 변수**. 기본값을 사용할 수 있습니다. 기본값 이외의 값을 사용하려면 정보 제공 링크를 마우스로 가리켜 특정 필드에 대한 도움말을 확인합니다.
    1. **요약**: 입력한 모든 정보가 올바른지 확인합니다. **만들기**를 선택합니다.
 
 > [!NOTE]
-> * VM에는 **크기** 단계에서 선택한 서버 크기에 대한 계산 비용 이외의 추가 요금이 없습니다.
+> * VM에는 **크기** 단계에서 선택한 서버 크기에 대한 컴퓨팅 비용 이외의 추가 요금이 없습니다.
 > * 프로비전에는 약 10-20분이 걸립니다. Azure Portal에서 VM의 상태를 볼 수 있습니다.
 
 ## <a name="how-to-access-the-dsvm"></a>DSVM에 액세스하는 방법
 
 VM이 만들어지고 프로비전되면 앞의 **기본 사항** 섹션에서 구성한 관리자 계정 자격 증명을 사용하여 원격 데스크톱에 연결할 수 있습니다. VM에 설치되고 구성된 도구를 사용할 준비가 되었습니다. 대부분의 도구에는 시작 메뉴 타일과 바탕 화면 아이콘을 통해 액세스할 수 있습니다.
 
-또한 Azure VM에서 Jupyter notebook을 실행 하 여 무료 서비스 계층의 제한 사항을 무시 하는 Notebook에는 데이터 과학 VM을 연결할 수 있습니다. 자세한 내용은 [관리 Notebook 프로젝트-계산 계층을 구성 하 고](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier)입니다.
+또한 Azure Notebooks에 Data Science VM을 연결하여 VM에서 Jupyter Notebooks를 실행하고 무료 서비스 계층의 제한을 무시할 수 있습니다. 자세한 내용은 [Notebooks 프로젝트 관리 및 구성 - 컴퓨팅 계층](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier)을 참조하세요.
 
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Microsoft 데이터 과학 Virtual Machine에 설치된 도구
 
@@ -182,7 +183,7 @@ CREATE LOGIN [%COMPUTERNAME%\SQLRUserGroup] FROM WINDOWS
 
 * 바탕 화면 바로 가기를 사용하면 Azure SDK 설명서로 이동합니다.
 * **AzCopy**를 사용하여 Azure Storage 계정 간에 데이터를 복사합니다. 사용법을 보려면 명령 프롬프트에서 **Azcopy**를 입력합니다.
-* **Azure Storage 탐색기**를 사용하여 Azure Storage 계정에 저장한 개체를 찾아봅니다. Azure Storage 간에도 데이터를 복사합니다. 이 도구에 액세스하려면 **검색** 필드에서 **Storage Explorer**를 입력합니다. 또는 Windows **시작** 메뉴에서 찾습니다.
+* **Azure Storage Explorer**를 사용하여 Azure Storage 계정에 저장한 개체를 찾아봅니다. Azure Storage 간에도 데이터를 복사합니다. 이 도구에 액세스하려면 **검색** 필드에서 **Storage Explorer**를 입력합니다. 또는 Windows **시작** 메뉴에서 찾습니다.
 * **Adlcopy**는 데이터를 Azure Data Lake로 복사합니다. 사용법을 보려면 명령 프롬프트에서 **adlcopy**를 입력합니다.
 * **dtui**는 클라우드의 NoSQL 데이터베이스인 Azure Cosmos DB 간에 데이터를 복사합니다. 명령 프롬프트에서 **dtui**를 입력합니다.
 * **Azure Data Factory Integration Runtime**은 온-프레미스 데이터 원본과 클라우드 간에 데이터를 복사합니다. Azure Data Factory와 같은 도구 내에서 사용합니다.
@@ -230,5 +231,5 @@ Python SDK는 Microsoft Data Science Virtual Machine에 미리 설치되어 있�
 * [Azure Machine Learning Service란?](../service/overview-what-is-azure-ml.md)을 참조하여 Azure Machine Learning Service에 대해 알아보고 제공되는 [빠른 시작 및 자습서](../service/index.yml)를 사용해 보세요.
 * 엔터프라이즈 규모의 데이터 분석을 지원하는 R에서 RevoScaleR 라이브러리를 사용하는 샘플을 보려면 파일 탐색기에서 **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts**로 이동합니다.  
 * [Data Science Virtual Machine으로 할 수 있는 10가지 작업](https://aka.ms/dsvmtenthings) 문서를 참조합니다.
-* [팀 데이터 과학 프로세스](../team-data-science-process/index.yml)를 사용하여 종단 간 분석 솔루션을 체계적으로 구축하는 방법을 알아봅니다.
+* [팀 데이터 과학 프로세스](../team-data-science-process/index.yml)를 사용하여 엔드투엔드 분석 솔루션을 체계적으로 빌드하는 방법을 알아봅니다.
 * Azure에서 Azure Machine Learning 및 관련 데이터 서비스를 사용하는 기계 학습 및 데이터 분석 샘플을 보려면 [Azure AI Gallery](https://gallery.cortanaintelligence.com)를 방문합니다. 또한 가상 머신의 **시작** 메뉴 및 바탕 화면에는 이 갤러리에 대한 아이콘도 제공됩니다.

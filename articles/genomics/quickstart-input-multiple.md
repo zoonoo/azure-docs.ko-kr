@@ -27,8 +27,8 @@ ms.locfileid: "60780881"
 
 ## <a name="multiple-bam-files"></a>여러 개의 BAM 파일
 
-### <a name="upload-your-input-files-to-azure-storage"></a>입력 파일을 Azure 저장소에 업로드
-입력 파일로서 *reads.bam*, *additional_reads.bam*, *yet_more_reads.bam* 등 BAM 파일이 여러 개 있고 Azure의 개인 저장소 계정인 *myaccount*에 업로드했다고 가정해보겠습니다. API URL과 액세스 키를 보유하고 있습니다. **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>** 에 출력하려 합니다.
+### <a name="upload-your-input-files-to-azure-storage"></a>입력 파일을 Azure Storage에 업로드
+입력 파일로서 *reads.bam*, *additional_reads.bam*, *yet_more_reads.bam* 등 BAM 파일이 여러 개 있고 Azure의 개인 스토리지 계정인 *myaccount*에 업로드했다고 가정해보겠습니다. API URL과 액세스 키를 보유하고 있습니다. **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>** 에 출력하려 합니다.
 
 
 ### <a name="submit-your-job-to-the-msgen-client"></a>`msgen` 클라이언트에게 작업을 제출합니다. 
@@ -90,8 +90,8 @@ output_storage_account_container: outputs
 
 ## <a name="multiple-paired-fastq-files"></a>쌍으로 연결된 여러 개의 FASTQ 파일
 
-### <a name="upload-your-input-files-to-azure-storage"></a>입력 파일을 Azure 저장소에 업로드
-입력 파일로서 *reads_1.fq.gz* 및 *reads_2.fq.gz*, *additional_reads_1.fq.gz* 및 *additional_reads_2.fq.gz*, *yet_more_reads_1.fq.gz* 및 *yet_more_reads_2.fq.gz* 등 쌍으로 연결된 FASTQ 파일이 여러 개 있다고 가정해보겠습니다. Azure의 개인 저장소 계정인 *myaccount*에 업로드했으며 API URL과 액세스 키를 가지고 있습니다. **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>** 에 출력하려 합니다.
+### <a name="upload-your-input-files-to-azure-storage"></a>입력 파일을 Azure Storage에 업로드
+입력 파일로서 *reads_1.fq.gz* 및 *reads_2.fq.gz*, *additional_reads_1.fq.gz* 및 *additional_reads_2.fq.gz*, *yet_more_reads_1.fq.gz* 및 *yet_more_reads_2.fq.gz* 등 쌍으로 연결된 FASTQ 파일이 여러 개 있다고 가정해보겠습니다. Azure의 개인 스토리지 계정인 *myaccount*에 업로드했으며 API URL과 액세스 키를 가지고 있습니다. **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>** 에 출력하려 합니다.
 
 
 ### <a name="submit-your-job-to-the-msgen-client"></a>`msgen` 클라이언트에게 작업을 제출합니다. 

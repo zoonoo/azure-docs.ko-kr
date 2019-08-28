@@ -11,14 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 46232afcaf9504d4cfbd80160e2d7e7ea958d600
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a79fa40568502a73194e467de2227d54931d0100
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61488189"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568948"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Azure SQL Database를 사용하여 전역적으로 사용 가능 서비스 디자인
 
@@ -153,7 +152,7 @@ Azure SQL Database에서 클라우드 서비스를 빌드하고 배포하는 경
 
 특정 클라우드 재해 복구 전략은 애플리케이션의 요구 사항을 최상으로 충족하도록 이러한 디자인 패턴을 결합하거나 확장할 수 있습니다.  앞에서 설명한 대로 선택한 전략은 고객 및 애플리케이션 배포 토폴로지에 제공하려는 SLA에 따라 달라집니다. 결정에 도움을 주기 위해 다음 테이블에서는 복구 지점 목표(RPO) 및 예상 복구 시간(ERT)에 따라 선택 항목을 비교합니다.
 
-| 패턴 | RPO | ERT |
+| 무늬 | RPO | ERT |
 |:--- |:--- |:--- |
 | 배치된 데이터베이스 액세스로 재해 복구에 대한 활성-수동 배포 |읽기-쓰기 액세스 < 5초 |장애 감지 시간 + DNS TTL |
 | 애플리케이션 부하 분산에 대한 활성-활성 배포 |읽기-쓰기 액세스 < 5초 |장애 감지 시간 + DNS TTL |

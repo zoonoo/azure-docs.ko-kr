@@ -4,7 +4,7 @@ description: 이 자습서에서는 Azure CLI를 사용하여 가상 머신을 �
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -17,12 +17,12 @@ ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: 5eaae4a919a1675f6f936403c5cde6f81ec61c6b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02dd1b293d250b1adf09325fa36e01f176722599
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67130700"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708462"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>자습서 - Azure CLI를 사용하여 Azure 디스크 관리
 
@@ -48,7 +48,7 @@ Azure Virtual Machine을 만들면 두 개의 디스크가 자동으로 가상 �
 
 ## <a name="azure-data-disks"></a>Azure 데이터 디스크
 
-애플리케이션을 설치하고 데이터를 저장하기 위해 추가 데이터 디스크를 추가할 수 있습니다. 데이터 디스크는 지속형 및 반응형 데이터 저장소가 필요한 상황에 사용해야 합니다. 가상 컴퓨터의 크기에 따라 VM에 연결할 수 있는 데이터 디스크 수가 결정됩니다. 각 VM vCPU에 대해 네 개의 데이터 디스크를 연결할 수 있습니다.
+애플리케이션을 설치하고 데이터를 저장하기 위해 추가 데이터 디스크를 추가할 수 있습니다. 데이터 디스크는 지속형 및 반응형 데이터 스토리지가 필요한 상황에 사용해야 합니다. 가상 컴퓨터의 크기에 따라 VM에 연결할 수 있는 데이터 디스크 수가 결정됩니다. 각 VM vCPU에 대해 네 개의 데이터 디스크를 연결할 수 있습니다.
 
 ## <a name="vm-disk-types"></a>VM 디스크 유형
 

@@ -22,11 +22,11 @@ Terraform 상태는 Terraform 구성을 사용하여 배포된 리소스를 조�
 - Terraform 상태는 중요한 정보를 포함할 수 있습니다.
 - 상태를 로컬로 저장하면 실수로 삭제할 가능성이 높아집니다.
 
-Terraform에는 Terraform 상태에 대한 원격 저장소인 상태 백 엔드의 개념이 포함됩니다. 상태 백 엔드를 사용하는 경우 상태 파일은 Azure Storage와 같은 데이터 저장소에 저장됩니다. 이 문서에서는 Azure Storage를 Terraform 상태 백 엔드로 구성 및 사용하는 방법을 자세히 설명합니다.
+Terraform에는 Terraform 상태에 대한 원격 스토리지인 상태 백 엔드의 개념이 포함됩니다. 상태 백 엔드를 사용하는 경우 상태 파일은 Azure Storage와 같은 데이터 저장소에 저장됩니다. 이 문서에서는 Azure Storage를 Terraform 상태 백 엔드로 구성 및 사용하는 방법을 자세히 설명합니다.
 
-## <a name="configure-storage-account"></a>저장소 계정 구성
+## <a name="configure-storage-account"></a>스토리지 계정 구성
 
-Azure Storage를 백 엔드로 사용하기 전에 스토리지 계정을 만들어야 합니다. 저장소 계정은 Azure Portal, PowerShell, Azure CLI 또는 자체 Terraform을 사용하여 만들 수 있습니다. Azure CLI를 사용하여 저장소 계정을 구성하려면 다음 샘플을 사용합니다.
+Azure Storage를 백 엔드로 사용하기 전에 스토리지 계정을 만들어야 합니다. 스토리지 계정은 Azure Portal, PowerShell, Azure CLI 또는 자체 Terraform을 사용하여 만들 수 있습니다. Azure CLI를 사용하여 스토리지 계정을 구성하려면 다음 샘플을 사용합니다.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -52,7 +52,7 @@ echo "container_name: $CONTAINER_NAME"
 echo "access_key: $ACCOUNT_KEY"
 ```
 
-저장소 계정 이름, 컨테이너 이름 및 저장소 액세스 키를 적어둡니다. 이러한 값은 원격 상태를 구성할 때 필요합니다.
+스토리지 계정 이름, 컨테이너 이름 및 스토리지 액세스 키를 적어둡니다. 이러한 값은 원격 상태를 구성할 때 필요합니다.
 
 ## <a name="configure-state-backend"></a>상태 백 엔드 구성
 
@@ -61,7 +61,7 @@ Terraform 상태 백 엔드는 *Terraform init*를 실행할 때 구성됩니다
 - storage_account_name - Azure Storage 계정의 이름입니다.
 - container_name - blob 컨테이너의 이름입니다.
 - key - 만들 상태 저장소 파일의 이름입니다.
-- access_key - 저장소 액세스 키입니다.
+- access_key - 스토리지 액세스 키입니다.
 
 이러한 값은 Terraform 구성 파일 또는 명령 줄에서 각각 지정할 수 있지만, `access_key`에 대한 환경 변수를 사용하는 것이 좋습니다. 환경 변수를 사용하면 키가 디스크에 쓰이는 것을 방지할 수 있습니다.
 
@@ -108,7 +108,7 @@ Azure 포털 또는 기타 Azure 관리 도구를 통해 blob를 검사 하는 �
 
 ## <a name="encryption-at-rest"></a>휴지 상태의 암호화
 
-기본적으로 Azure Blob에 저장된 데이터는 저장소 인프라에 영구 저장되기 전에 암호화됩니다. Terraform에 상태가 필요한 경우 백 엔드에서 검색하고 개발 시스템에서 메모리에 저장합니다. 이 구성에서 상태는 Azure Storage에서 보호되며, 로컬 디스크에 작성되지 않습니다.
+기본적으로 Azure Blob에 저장된 데이터는 스토리지 인프라에 영구 저장되기 전에 암호화됩니다. Terraform에 상태가 필요한 경우 백 엔드에서 검색하고 개발 시스템에서 메모리에 저장합니다. 이 구성에서 상태는 Azure Storage에서 보호되며, 로컬 디스크에 작성되지 않습니다.
 
 Azure Storage 암호화에 대한 자세한 내용은 [미사용 데이터에 대한 Azure Storage 서비스 암호화][azure-storage-encryption]를 참조하세요.
 

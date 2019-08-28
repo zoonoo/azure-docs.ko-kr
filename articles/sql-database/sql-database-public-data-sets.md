@@ -10,18 +10,17 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 10/01/2018
-ms.openlocfilehash: 6eabb65203ed8a37975e09271ce4aa11c9478498
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a16f6d6b0bf8600270fdf4e00cfa379ee4422fd0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65779172"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566991"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>테스트 및 프로토타입 생성을 위한 공용 데이터 집합
 
-저장소 및 분석 서비스/솔루션의 프로토타입을 생성하는 데 사용할 수 있는 데이터를 이 공용 데이터 집합에서 찾아봅니다.
+스토리지 및 분석 서비스/솔루션의 프로토타입을 생성하는 데 사용할 수 있는 데이터를 이 공용 데이터 세트에서 찾아봅니다.
 
 ## <a name="us-government-and-agency-data"></a>미국 정부 및 에이전시 데이터
 

@@ -42,7 +42,7 @@ ms.locfileid: "66234028"
 
 
 
-| **모니터링 솔루션** | **플랫폼** | **Microsoft 모니터링 에이전트** | **Operations Manager 에이전트** | **Azure 저장소** | **Operations Manager 필요 여부** | **관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터** | **수집 빈도** |
+| **모니터링 솔루션** | **플랫폼** | **Microsoft 모니터링 에이전트** | **Operations Manager 에이전트** | **Azure Storage** | **Operations Manager 필요 여부** | **관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터** | **수집 빈도** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | [활동 로그 분석](../platform/activity-log-collect.md) | Azure | | | | | | 알림 시 |
 | [AD 평가](ad-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 일 |
@@ -55,7 +55,7 @@ ms.locfileid: "66234028"
 | [Application Insights 커넥터(사용되지 않음)](../platform/app-insights-connector.md) | Azure | | | |  |  | 알림 시 |
 | [Automation Hybrid Worker](../../automation/automation-hybrid-runbook-worker.md) | Windows | &#8226; | &#8226; |  |  |  | 해당 없음 |
 | [Azure Application Gateway 분석](azure-networking-analytics.md) | Azure |  |  |  |  |  | 알림 시 |
-| **모니터링 솔루션** | **플랫폼** | **Microsoft 모니터링 에이전트** | **Operations Manager 에이전트** | **Azure 저장소** | **Operations Manager 필요 여부** | **관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터** | **수집 빈도** |
+| **모니터링 솔루션** | **플랫폼** | **Microsoft 모니터링 에이전트** | **Operations Manager 에이전트** | **Azure Storage** | **Operations Manager 필요 여부** | **관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터** | **수집 빈도** |
 | [Azure 네트워크 보안 그룹 분석(사용되지 않음)](azure-networking-analytics.md) | Azure |  |  |  |  |  | 알림 시 |
 | [Azure SQL Analytics(미리 보기)](azure-sql.md) | Windows | | | | | | 1분 |
 | [Backup](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | 알림 시 |
@@ -67,7 +67,7 @@ ms.locfileid: "66234028"
 | [맬웨어 평가](../../security-center/security-center-install-endpoint-protection.md) |Windows |&#8226; |&#8226; | | |&#8226; |매시간 |
 | [네트워크 성능 모니터](network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | TCP는 5초마다 핸드셰이크를 수행하며 3분마다 데이터가 전송됩니다. |
 | [Office 365 분석(미리 보기)](solution-office-365.md) |Windows | | | | | |알림 시 |
-| **모니터링 솔루션** | **플랫폼** | **Microsoft 모니터링 에이전트** | **Operations Manager 에이전트** | **Azure 저장소** | **Operations Manager 필요 여부** | **관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터** | **수집 빈도** |
+| **모니터링 솔루션** | **플랫폼** | **Microsoft 모니터링 에이전트** | **Operations Manager 에이전트** | **Azure Storage** | **Operations Manager 필요 여부** | **관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터** | **수집 빈도** |
 | [Service Fabric Analytics](../../service-fabric/service-fabric-diagnostics-oms-setup.md) |Windows | | |&#8226; | | |5분 |
 | [서비스 맵](service-map.md) | Windows 및 Linux | &#8226; | &#8226; |  |  |  | 15초 |
 | [SQL 평가](sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 일 |

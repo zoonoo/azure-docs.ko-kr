@@ -4,7 +4,7 @@ description: Azure에서 Windows Server 장애 조치(Failover) 클러스터링 
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a840deb2349d952b1ef4faeab4ee860e6b0b99df
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 32905f6d505f83ead805550205df0daf6be501e5
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60651716"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710123"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -199,7 +199,7 @@ ms.locfileid: "60651716"
 > ![Windows][Logo_Windows] Windows
 >
 
-[Azure 내부 부하 분산 장치][load-balancer-multivip-overview]를 사용하여 여러 가상 IP 주소를 관리할 수 있습니다. 
+사용 하 여 여러 가상 IP 주소를 관리할 수는 [Azure 내부 부하 분산 장치][load-balancer-multivip-overview]합니다. 
 
 SAP를 배포한 경우 내부 부하 분산 장치를 사용하여 SAP 중앙 서비스(ASCS/SCS) 인스턴스에 대한 Windows 클러스터 구성을 만들 수 있습니다.
 
@@ -216,9 +216,9 @@ SAP를 배포한 경우 내부 부하 분산 장치를 사용하여 SAP 중앙 �
 > 이 설명서에 도입한 구성은 아직 [Azure 가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview)에 사용하도록 지원되지 않습니다.
 > 
 
-부하 분산 장치 제한에 대한 자세한 내용은 [네트워킹 제한: Azure Resource Manager][networking-limits-azure-resource-manager]의 "부하 분산 장치당 개인 프런트 엔드 IP"를 참조하세요. 또한 Azure 부하 분산 장치의 기본 SKU 대신 [Azure 표준 Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) 사용도 고려하세요.
+부하 분산 장치 제한에 대한 자세한 내용은 [네트워킹 제한: Azure Resource Manager][networking-limits-azure-resource-manager]합니다. 또한 Azure 부하 분산 장치의 기본 SKU 대신 [Azure 표준 Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) 사용도 고려하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 다이어그램처럼 **파일 공유**를 사용하는 한 SAP ASCS/SCS 인스턴스에 사용되는 WSFC 클러스터가 이미 구성되어 있어야 합니다.
 
@@ -256,7 +256,7 @@ _**그림 2:** 두 클러스터에 SAP 다중 SID 구성_
 * DNS 서버에서 클러스터형 SAP ASCS/SCS 인스턴스의 가상 호스트 이름을 만듭니다.
 * PowerShell을 사용하여 기존 Azure 내부 부하 분산 장치에 IP 주소를 추가합니다.
 
-이러한 단계는 [SAP 다중 SID 시나리오를 위한 인프라 준비][sap-ascs-ha-multi-sid-wsfc-shared-disk-infrast-prepare]에 설명되어 있습니다.
+이러한 단계를 설명 [SAP 다중 SID 시나리오를 위한 인프라 준비][sap-ascs-ha-multi-sid-wsfc-shared-disk-infrast-prepare]합니다.
 
 
 ### <a name="prepare-the-infrastructure-on-an-sofs-cluster-by-using-the-existing-sap-global-host"></a>기존 SAP 글로벌 호스트를 사용하여 SOFS 클러스터에서 인프라 준비
@@ -461,10 +461,10 @@ _**그림 13:** 두 번째 sapmnt가 sapglobal2 호스트에 바인딩되고 Vol
 
 ## <a name="next-steps"></a>다음 단계
 
-* [공유 디스크 없이 장애 조치(Failover) 클러스터에 ASCS/SCS 인스턴스 설치][sap-official-ha-file-share-document]: HA 파일 공유에 대한 공식 SAP 지침
+* [공유 디스크 없이 장애 조치 클러스터에 ASCS/SCS 인스턴스 설치][sap-official-ha-file-share-document]: HA 파일 공유에 대한 공식 SAP 지침
 
 * [Windows Server 2016의 저장소 공간 다이렉트][s2d-in-win-2016]
 
-* [애플리케이션 데이터에 대한 스케일 아웃 파일 서버 개요][sofs-overview]
+* [스케일 아웃 파일 서버에 대 한 응용 프로그램 데이터 개요][sofs-overview]
 
-* [Windows Server 2016 저장소의 새로운 기능][new-in-win-2016-storage]
+* [Windows Server 2016에서 저장소의 새로운 기능][new-in-win-2016-storage]

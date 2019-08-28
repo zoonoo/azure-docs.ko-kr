@@ -4,16 +4,16 @@ description: Azure CLI를 사용하여 여러 웹 사이트를 호스트하는 �
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: tutorial
-ms.date: 5/20/2019
+ms.topic: article
+ms.date: 07/31/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 9c99b534a40b5c87cf511c75ccdb19df4d9aaf63
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: HT
+ms.openlocfilehash: eceb380112002ef951d6d5e74998d944da01bd7a
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955612"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688228"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Azure CLI를 사용하여 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이 만들기
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 문서에서는 Azure CLI 버전 2.0.4 이상을 이상을 실행 해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -70,7 +70,9 @@ az network vnet subnet create \
 
 az network public-ip create \
   --resource-group myResourceGroupAG \
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress \
+  --allocation-method Static \
+  --sku Standard
 ```
 
 ## <a name="create-the-application-gateway"></a>Application Gateway 만들기
@@ -85,7 +87,7 @@ az network application-gateway create \
   --vnet-name myVNet \
   --subnet myAGsubnet \
   --capacity 2 \
-  --sku Standard_Medium \
+  --sku Standard_v2 \
   --http-settings-cookie-based-affinity Disabled \
   --frontend-port 80 \
   --http-settings-port 80 \
@@ -140,9 +142,9 @@ az network application-gateway http-listener create \
 
 ### <a name="add-routing-rules"></a>라우팅 규칙 추가
 
-규칙은 나열된 순서대로 처리되고 트래픽은 특이성에 관계없이 일치하는 첫 번째 규칙을 사용하여 전달됩니다. 예를 들어 기본 수신기를 사용하는 규칙과 다중 사이트 수신기를 사용하는 규칙이 둘 다 같은 포트에 있는 경우 다중 사이트 규칙이 예상대로 작동하려면 다중 사이트 수신기를 사용하는 규칙은 기본 수신기를 사용하는 규칙 앞에 나열되어야 합니다. 
+규칙은 나열 된 순서 대로 처리 됩니다. 특이성에 관계 없이 일치 하는 첫 번째 규칙을 사용 하 여 트래픽을 전송 합니다. 예를 들어 기본 수신기를 사용하는 규칙과 다중 사이트 수신기를 사용하는 규칙이 둘 다 같은 포트에 있는 경우 다중 사이트 규칙이 예상대로 작동하려면 다중 사이트 수신기를 사용하는 규칙은 기본 수신기를 사용하는 규칙 앞에 나열되어야 합니다. 
 
-이 예제에서는 애플리케이션 게이트웨이가 생성되었을 때 두 개의 새 규칙을 만들고 생성된 기본 규칙을 삭제합니다. [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create)를 사용하여 규칙을 추가할 수 있습니다.
+이 예제에서는 두 개의 새 규칙을 만들고 응용 프로그램 게이트웨이를 배포할 때 생성 된 기본 규칙을 삭제 합니다. [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create)를 사용하여 규칙을 추가할 수 있습니다.
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -229,11 +231,11 @@ az network public-ip show \
   --output tsv
 ```
 
-A 레코드를 사용할 경우 애플리케이션 게이트웨이를 다시 시작할 때 VIP가 변경될 수 있으므로 권장되지 않습니다.
+A 레코드를 사용 하는 것은 application gateway를 다시 시작할 때 VIP가 변경 될 수 있기 때문에 권장 되지 않습니다.
 
 ## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
-브라우저의 주소 표시줄에 도메인 이름을 입력합니다. 예: http://www.contoso.com
+브라우저의 주소 표시줄에 도메인 이름을 입력합니다. 예: http:\//www.contoso.com.
 
 ![애플리케이션 게이트웨이에서 contoso 사이트 테스트](./media/tutorial-multiple-sites-cli/application-gateway-nginxtest1.png)
 
@@ -246,9 +248,9 @@ A 레코드를 사용할 경우 애플리케이션 게이트웨이를 다시 시
 더 이상 필요 없는 리소스 그룹, 애플리케이션 게이트웨이 및 모든 관련 리소스를 제거합니다.
 
 ```azurecli-interactive
-az group delete --name myResourceGroupAG --location eastus
+az group delete --name myResourceGroupAG
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
-* [URL 경로 기반 회람 규칙을 사용하여 애플리케이션 게이트웨이 만들기](./tutorial-url-route-cli.md)
+[URL 경로 기반 회람 규칙을 사용하여 애플리케이션 게이트웨이 만들기](./tutorial-url-route-cli.md)

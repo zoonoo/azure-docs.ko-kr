@@ -29,9 +29,9 @@ Microsoft Azure Import/Export 도구는 Microsoft Azure Import/Export 서비스�
   
 -   활성 Azure 구독이 있어야 합니다.  
   
--   구독에는 가져올 파일을 저장할 수 있는 충분한 공간이 있는 저장소 계정이 있어야 합니다.  
+-   구독에는 가져올 파일을 저장할 수 있는 충분한 공간이 있는 스토리지 계정이 있어야 합니다.  
   
--   저장소 계정에 대한 계정 키 중 하나 이상이 필요합니다.  
+-   스토리지 계정에 대한 계정 키 중 하나 이상이 필요합니다.  
   
 -   Windows 7, Windows Server 2008 R2 또는 최신 Windows 운영 체제가 설치된 컴퓨터("복사 컴퓨터")가 필요합니다.  
   
@@ -47,7 +47,7 @@ Microsoft Azure Import/Export 도구는 Microsoft Azure Import/Export 서비스�
   
 - 복사 로그 파일  
   
-- 저장소 계정 키입니다.  
+- 스토리지 계정 키입니다.  
   
   부분적으로 실패한 내보내기를 복구하려는 경우 다음이 필요합니다.  
   
@@ -55,7 +55,7 @@ Microsoft Azure Import/Export 도구는 Microsoft Azure Import/Export 서비스�
   
 - 매니페스트 파일(선택 사항)  
   
-- 저장소 계정 키입니다.  
+- 스토리지 계정 키입니다.  
   
 ## <a name="installing-the-azure-importexport-tool"></a>Azure Import/Export 도구 설치  
  Azure Import/Export 도구는 다음 파일로 구성됩니다.  

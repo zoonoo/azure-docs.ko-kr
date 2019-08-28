@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/05/2019
+ms.date: 08/21/2019
 ms.author: v-adgera
-ms.openlocfilehash: cd67f1065f47b758f2a7e0e5be3c60169c30273e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a39663adedfdb9c00c4429f65ec1bd27286cb136
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67116559"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69904288"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Azure Digital Twins용 Postman을 구성하는 방법
 
@@ -35,13 +35,13 @@ Postman 클라이언트를 통해 솔루션 개발자는 HTTP 요청의 종류(*
 
 OAuth 2.0 암시적 허용 흐름을 사용하도록 Azure Active Directory 앱을 구성합니다.
 
-1. [이 빠른 시작](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad)의 단계에 따라 Native 형식의 Azure AD 애플리케이션을 만듭니다. 또는 기존 Native 앱 등록을 다시 사용할 수 있습니다.
+1. [빠른](./quickstart-view-occupancy-dotnet.md) 시작의 단계에 따라 Azure AD 응용 프로그램을 만듭니다. 또는 [레거시 AAD 블레이드를 사용 하 여 네이티브 앱](./how-to-use-legacy-aad.md)을 만듭니다.
 
-1. **필수 권한** 아래에서 **추가**를 선택하고 **API 액세스 추가** 아래에 **Azure Digital Twins**를 입력합니다. 검색에서 API를 찾을 수 없는 경우 **Azure Smart Spaces**을 대신 검색합니다. 그런 다음, **사용 권한 부여 > 위임된 권한**과 **완료**를 차례로 선택합니다.
+1. **API 권한**에서 **사용 권한 추가**를 선택 합니다. 그런 다음 **내 조직에서 사용 하는 api**에서 **Azure Digital twins** 가 사용 됩니다. 검색에서 API를 찾을 수 없는 경우 **Azure Smart Spaces**을 대신 검색합니다. 그런 다음 **위임 된 권한**을 선택 하 고**읽기/쓰기**를 **읽은** > 다음 **권한 추가**를 선택 합니다.
 
     [![Azure Active Directory 앱 등록 api 추가](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 
-1. 선택 **매니페스트** 앱에 대 한 응용 프로그램 매니페스트를 엽니다. *oauth2AllowImplicitFlow*를 `true`로 설정합니다.
+1. **매니페스트** 를 선택 하 여 앱에 대 한 응용 프로그램 매니페스트를 엽니다. *oauth2AllowImplicitFlow*를 `true`로 설정합니다.
 
     [![Azure Active Directory 암시적 흐름](media/how-to-configure-postman/implicit-flow.png)](media/how-to-configure-postman/implicit-flow.png#lightbox)
 
@@ -53,7 +53,9 @@ OAuth 2.0 암시적 허용 흐름을 사용하도록 Azure Active Directory 앱�
 
 ## <a name="obtain-an-oauth-20-token"></a>OAuth 2.0 토큰 가져오기
 
-다음으로 Postman을 설정하고 구성하여 Azure Active Directory 토큰을 가져옵니다. 그런 다음, 획득한 토큰을 사용하여 Azure Digital Twins로 인증된 HTTP 요청을 만듭니다.
+[!INCLUDE [digital-twins-management-api](../../includes/digital-twins-management-api.md)]
+
+Azure Active Directory 토큰을 가져오기 위해 Postman을 설정 하 고 구성 합니다. 그런 다음, 획득한 토큰을 사용하여 Azure Digital Twins로 인증된 HTTP 요청을 만듭니다.
 
 1. [www.getpostman.com](https://www.getpostman.com/)으로 이동하여 앱을 다운로드합니다.
 1. **권한 부여 URL**이 올바른지 확인합니다. 다음과 같은 형식이어야 합니다.
@@ -62,7 +64,7 @@ OAuth 2.0 암시적 허용 흐름을 사용하도록 Azure Active Directory 앱�
     https://login.microsoftonline.com/YOUR_AZURE_TENANT.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0
     ```
 
-    | 이름  | 다음 항목으로 교체 | 예 |
+    | 이름  | 다음 항목으로 교체 | 예제 |
     |---------|---------|---------|
     | YOUR_AZURE_TENANT | 테넌트 또는 조직의 이름 | `microsoft` |
 
@@ -73,9 +75,9 @@ OAuth 2.0 암시적 허용 흐름을 사용하도록 Azure Active Directory 앱�
     | 권한 부여 유형 | `Implicit` |
     | 콜백 URL | `https://www.getpostman.com/oauth2/callback` |
     | 인증 URL | 2단계의 **권한 부여 URL**을 사용합니다. |
-    | 클라이언트 ID | 이전 섹션에서 생성되거나 용도가 변경된 Azure Active Directory 앱에 대해 **애플리케이션 ID**를 사용합니다. |
-    | Scope | 비워 둠 |
-    | 시스템 상태 | 비워 둠 |
+    | 클라이언트 ID | 이전 섹션에서 만들었거나 다시 사용한 Azure Active Directory 앱의 **응용 프로그램 ID** 를 사용 합니다. |
+    | 범위 | 비워 둠 |
+    | State | 비워 둠 |
     | 클라이언트 인증 | `Send as Basic Auth header` |
 
 1. 클라이언트는 이제 다음과 같아야 합니다.
@@ -111,7 +113,7 @@ OAuth 2.0 암시적 허용 흐름을 사용하도록 Azure Active Directory 앱�
    > * 각 파트에 대해 해당 헤더를 지정할 필요가 없습니다.
    > * 전체 요청에 대해서는 `multipart/mixed` 또는 다른 적절한 **Content-Type**을 선택해야 합니다.
 
-1. 마지막으로, 선택 **보낼** 다중 파트 HTTP POST 요청을 제출 합니다.
+1. 마지막으로, **보내기** 를 선택 하 여 MULTIPART HTTP POST 요청을 제출 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,7 +4,7 @@ description: 사용자 지정 스크립트 확장 v1을 사용하여 Linux VM �
 services: virtual-machines-linux
 documentationcenter: ''
 author: danielsollondon
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: fe3803b7dc75ab13831a5e42d4b1a96f5aa894e5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4920cde64ae951fa5f234f6ad6d7423429bb907
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60800295"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706041"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Linux 가상 머신에서 Azure 사용자 지정 스크립트 확장 버전 1 사용
 
@@ -121,11 +121,11 @@ ms.locfileid: "60800295"
 
 | 이름 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2015-06-15 | 날짜 |
 | publisher | Microsoft.OSTCExtensions | string |
-| 형식 | CustomScriptForLinux | string |
-| typeHandlerVersion | 1.5 | int |
-| fileUris(예) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
+| type | CustomScriptForLinux | string |
+| typeHandlerVersion | 1.5 | ssNoversion |
+| fileUris(예) | https://github.com/MyProject/Archive/MyPythonScript.py | 배열 |
 | commandToExecute(예) | python MyPythonScript.py \<my-param1\> | string |
 | enableInternalDNSCheck | true | boolean |
 | storageAccountName(예) | examplestorageacct | string |
@@ -136,8 +136,8 @@ ms.locfileid: "60800295"
 * `fileUris`: (선택 사항 문자열 배열) 스크립트의 URI 목록
 * `enableInternalDNSCheck`: (선택 사항, bool) 기본값은 True이며 DNS 확인을 해제하려면 False로 설정합니다.
 * `commandToExecute`: (선택 사항, 문자열) 실행할 진입점 스크립트.
-* `storageAccountName`: (선택 사항, 문자열) 저장소 계정의 이름
-* `storageAccountKey`: (선택 사항, 문자열) 저장소 계정의 액세스 키
+* `storageAccountName`: (선택 사항, 문자열) 스토리지 계정의 이름
+* `storageAccountKey`: (옵션, 문자열) 스토리지 계정의 액세스 키입니다.
 
 공용 또는 보호된 설정에서 다음 값을 설정할 수 있습니다. 공용 및 보호된 설정 모두에서 이러한 값을 설정하지 않아야 합니다.
 

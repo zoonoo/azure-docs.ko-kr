@@ -39,7 +39,7 @@ Windows용 Network Watcher 에이전트 확장은 Windows Server 2008 R2, 2012, 
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 
-일부 Network Watcher 에이전트 기능에서는 대상 가상 머신을 인터넷에 연결해야 합니다. 나가는 연결을 설정하는 기능이 없으면 Network Watcher 에이전트는 패킷 캡처를 저장소 계정에 업로드할 수 없게 됩니다. 자세한 내용은 [Network Watcher 설명서](../../network-watcher/network-watcher-monitoring-overview.md)를 참조하세요.
+일부 Network Watcher 에이전트 기능에서는 대상 가상 머신을 인터넷에 연결해야 합니다. 나가는 연결을 설정하는 기능이 없으면 Network Watcher 에이전트는 패킷 캡처를 스토리지 계정에 업로드할 수 없게 됩니다. 자세한 내용은 [Network Watcher 설명서](../../network-watcher/network-watcher-monitoring-overview.md)를 참조하세요.
 
 ## <a name="extension-schema"></a>확장 스키마
 

@@ -4,14 +4,14 @@ description: Azure Cosmos DB에 대해 알아봅니다. 전 세계에 배포된 
 author: rimman
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 05/20/2019
+ms.date: 07/23/2019
 ms.author: rimman
-ms.openlocfilehash: a338cec213b82d54b08f2a11a969ddecf72ea7e5
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: ee863b6003444ec099753a6488f3fe4078338e60
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953912"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68384128"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB 시작
 
@@ -60,7 +60,7 @@ Cosmos DB는 Azure의 기본 서비스입니다. 거의 10년 동안 Cosmos DB�
 
 ### <a name="ubiquitous-regional-presence"></a>유비쿼터스 지역 현재 상태
 
-Cosmos DB는 공용 클라우드, [Azure 중국 21Vianet](https://www.azure.cn/en-us/), Azure 독일, Azure Government, Azure Government DoD(국방부) 등 54개 이상의 지역을 포함하여 전 세계의 모든 Azure 지역에서 사용할 수 있습니다. [Azure Cosmos DB의 지역 현재 상태](regional-presence.md)를 참조하세요.
+Cosmos DB는 퍼블릭 클라우드, [Azure 중국 21Vianet](https://www.azure.cn/en-us/), Azure 독일, Azure Government, Azure Government DoD(국방부) 등 54개 이상의 지역을 포함하여 전 세계의 모든 Azure 지역에서 사용할 수 있습니다. [Azure Cosmos DB의 지역 현재 상태](regional-presence.md)를 참조하세요.
 
 ### <a name="secure-by-default-and-enterprise-ready"></a>기본적인 엔터프라이즈 수준 보안
 
@@ -74,11 +74,11 @@ Cosmos DB는 완전 관리형 서비스이므로 더 이상 복잡한 다중 데
 
 Cosmos DB는 99.999%의 고가용성, 99번째 백분위수의 대기 시간, 보증된 처리량 및 일관성을 포함하여 [업계 최고의 포괄적인 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/)를 제공하는 최초의 유일한 서비스입니다.
 
-### <a name="globally-distributed-operational-analytics-with-spark"></a>Spark를 사용하여 글로벌로 분산된 운영 분석
+### <a name="globally-distributed-operational-analytics-and-ai-with-natively-built-in-apache-spark"></a>기본적으로 기본 제공 Apache Spark를 통해 전역적으로 분산된 운영 분석 및 AI
 
 Cosmos DB에 저장된 데이터에 대해 [Spark](spark-connector.md)를 실행할 수 있습니다. 이 기능을 사용하면 Cosmos DB에 대해 직접 작동하는 트랜잭션 워크로드에 영향을 주지 않으면서 짧은 대기 시간의 운영 분석을 세계적 규모로 수행할 수 있습니다. 자세한 내용은 [글로벌로 분산된 운영 분석](lambda-architecture.md)을 참조하세요.
 
-### <a name="develop-applications-on-cosmos-db-using-popular-nosql-apis"></a>인기 있는 NoSQL API를 사용하여 Cosmos DB에서 애플리케이션 개발
+### <a name="develop-applications-on-cosmos-db-using-popular-open-source-software-oss-apis"></a>인기 있는 OSS(Open Source Software) API를 사용하여 Cosmos DB에서 애플리케이션 개발
 
 Cosmos DB는 Cosmos 데이터베이스에 저장된 데이터를 사용하는 API에 대한 선택 항목을 제공합니다. 기본적으로 [SQL(코어 API)을 사용](how-to-sql-query.md)하여 Cosmos 데이터베이스를 쿼리할 수 있습니다. 또한 Cosmos DB는 [Cassandra](cassandra-introduction.md), [MongoDB](mongodb-introduction.md), [Gremlin](graph-introduction.md) 및 [Azure Table Storage](table-introduction.md)용 API도 구현합니다. 일반적으로 사용되는 NoSQL(예: MongoDB, Cassandra, Gremlin)용 클라이언트 드라이버 및 도구를 Cosmos 데이터베이스에 직접 연결할 수 있습니다. 일반적으로 사용되는 NoSQL API의 유선 프로토콜을 지원함에 따라 Cosmos DB에서 수행할 수 있는 작업은 다음과 같습니다.
 

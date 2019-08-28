@@ -7,15 +7,15 @@ author: DrEsteban
 ms.author: stevenry
 ms.date: 12/17/2018
 ms.topic: conceptual
-manager: yuvalm
+manager: gwallace
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, 컨테이너
-ms.openlocfilehash: 983af0dd75e6ae62630c85d04ac3819c7e260439
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 01e1401c5054eb56d4e2313b5e03ce5a36d1b301
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60687370"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704077"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Azure Dev Spaces로 CI/CD 사용
 
@@ -25,7 +25,7 @@ ms.locfileid: "60687370"
 
 이 문서에서는 Azure DevOps를 기준으로 설명하지만 Jenkins, TeamCity 등의 CI/CD 시스템에도 동일한 개념이 적용됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 * [Azure Dev Spaces가 설정된 AKS(Azure Kubernetes Service) 클러스터](../get-started-netcore.md)
 * [Azure Dev Spaces CLI 설치](upgrade-tools.md)
 * [프로젝트가 있는 Azure DevOps 조직](https://docs.microsoft.com/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
@@ -79,7 +79,7 @@ _azds_updates_ 분기에 *mywebapi* 및 *webfrontend*에 필요한 빌드 단계
 1. 만드는 옵션을 선택는 **새로 만들기** 파이프라인을 작성 합니다.
 1. 선택 **GitHub** 원본으로 권한 부여 GitHub 계정을 사용 하 여 선택 하 고 필요한 경우 합니다 _azds_updates_ 개발 공간 sampleapp 리포지토리의 포크 된 버전에서 분기 합니다.
 1. 선택 **구성을 코드로**, 또는 **YAML**, 템플릿으로 합니다.
-1. 이제 빌드 파이프라인의 구성 페이지가 표시됩니다. 에 대 한 언어별 경로로 이동 하는 위에서 설명한 대로 합니다 **YAML 파일 경로** 사용 하 여는 **...**  단추입니다. 예: `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
+1. 이제 빌드 파이프라인의 구성 페이지가 표시됩니다. 에 대 한 언어별 경로로 이동 하는 위에서 설명한 대로 합니다 **YAML 파일 경로** 사용 하 여는 **...**  단추입니다. `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml` )을 입력합니다.
 1. 로 이동 합니다 **변수** 탭 합니다.
 1. 수동으로 _dockerId_를 변수로 입력합니다. 이 값은 [Azure Container Registry 관리자 계정](../../container-registry/container-registry-authentication.md#admin-account)의 사용자 이름입니다. (필수 구성 요소 문서에 설명됨)
 1. 수동으로 _dockerPassword_를 변수로 입력합니다. 이 값은 [Azure Container Registry 관리자 계정](../../container-registry/container-registry-authentication.md#admin-account)의 암호입니다. 보안상의 이유로 _dockerPassword_는 비밀로 지정해야 합니다(잠금 아이콘 선택).

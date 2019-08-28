@@ -1,20 +1,19 @@
 ---
 title: 자습서 - Azure 스토리지 큐 작업 - Azure Storage
 description: Azure 큐 서비스를 사용하여 큐를 만들고 메시지를 삽입하고, 가져오고, 삭제하는 방법에 대한 자습서입니다.
-services: storage
 author: mhopkins-msft
 ms.author: mhopkins
-ms.reviewer: cbrooks
+ms.date: 04/24/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
-ms.date: 04/24/2019
-ms.openlocfilehash: 8d108e1683be03a79e87990b983f2eda3eadba90
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.reviewer: cbrooks
+ms.openlocfilehash: c8e1d5c1c11c4fdf902c7be7bc03be298e93a8b9
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797533"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721135"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>자습서: Azure 스토리지 큐 작업
 
@@ -24,7 +23,7 @@ Azure Queue storage는 분산된 애플리케이션의 구성 요소 간에 통�
 
 > [!div class="checklist"]
 >
-> - Azure 저장소 계정 만들기
+> - Azure Storage 계정 만들기
 > - 앱 만들기
 > - 비동기 코드에 대한 지원 추가
 > - 큐 만들기
@@ -40,7 +39,7 @@ Azure Queue storage는 분산된 애플리케이션의 구성 요소 간에 통�
 - [.NET Core SDK](https://dotnet.microsoft.com/download)를 다운로드하여 설치합니다.
 - 현재 Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
-## <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
+## <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 
 먼저, Azure 스토리지 계정을 만듭니다. 스토리지 계정을 만드는 방법에 대한 단계별 지침은 [스토리지 계정 만들기](../common/storage-quickstart-create-account.md?toc=%2Fazure%2Fstorage%2Fqueues%2Ftoc.json) 빠른 시작을 참조하세요.
 
@@ -152,7 +151,7 @@ Azure Queue storage는 분산된 애플리케이션의 구성 요소 간에 통�
 
 1. 웹 브라우저에서 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-2. Azure Portal의 저장소 계정으로 이동합니다.
+2. Azure Portal의 스토리지 계정으로 이동합니다.
 
 3. **액세스 키**를 선택합니다.
 
@@ -227,6 +226,14 @@ Azure Queue storage는 분산된 애플리케이션의 구성 요소 간에 통�
    ```
 
 2. 파일을 저장합니다.
+
+메시지는 UTF-8 인코딩을 사용하는 XML 요청에 포함될 수 있는 형식이어야 하며, 크기는 최대 64KB까지 가능합니다. 메시지에 이진 데이터가 포함되어 있으면 메시지를 Base64로 인코딩하는 것이 좋습니다.
+
+기본적으로 메시지의 TTL(Time-To-Live)은 7일로 설정됩니다. 메시지 TTL(Time-To-Live)에 임의 양수를 지정할 수 있습니다. 만기되지 않는 메시지를 추가하려면 **AddMessageAsync** 호출에 `Timespan.FromSeconds(-1)`를 사용합니다.
+
+```csharp
+await theQueue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
+```
 
 ## <a name="dequeue-messages"></a>큐에서 메시지 제거
 

@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: b48ecce1c87c0a29996e437d621c3ce396a84856
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 2b28c38d2444f227d26df1f9ca2d70876ff41064
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232667"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68260605"
 ---
 # <a name="manage-mailing-list-requests-with-azure-logic-apps"></a>Azure Logic Apps로 메일 그룹 요청 관리
 
@@ -147,7 +147,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
 2. 보다 구체적인 설명이 포함되도록 조건 이름을 바꿉니다.
 
-   1. 조건의 제목 표시줄에서 **줄임표**(**...** ) 단추 > **이름 바꾸기**를 선택합니다.
+   1. 조건의 제목 표시줄에서 **줄임표**( **...** ) 단추 > **이름 바꾸기**를 선택합니다.
 
       예를 들어 브라우저가 좁은 보기인 경우:
 
@@ -183,7 +183,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 이제 메일 그룹에 승인된 구성원을 추가하는 작업을 추가합니다.
 
 1. 조건의 **true인 경우** 분기 내부에서 **작업 추가**를 선택합니다.
-"mailchimp"를 검색하고 **MailChimp - 목록에 구성원 추가** 작업을 선택합니다.
+"mailchimp"를 검색하고 다음 작업을 선택합니다. **MailChimp - 목록에 구성원 추가**
 
    !["MailChimp - 목록에 구성원 추가" 선택](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-mailchimp-add-member.png)
 
@@ -206,7 +206,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
 ## <a name="check-for-success-or-failure"></a>성공 또는 실패 여부 확인
 
-1. **true인 경우** 분기의 **목록에 구성원 추가** 작업 아래에서 **자세히...** > **조건 추가**를 선택합니다.
+1. **true인 경우** 분기의 **목록에 구성원 추가** 작업 아래에서 **자세히...**  > **조건 추가**를 선택합니다.
 
 2. ```If add member succeeded``` 설명이 포함되도록 조건 이름을 바꿉니다.
 
@@ -249,7 +249,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
    | ------- | ----- | ----------- | 
    | **To** | <*your-email-address*> | 성공 이메일을 보낼 위치에 대한 이메일 주소입니다. 자신의 이메일 주소를 사용하여 테스트할 수 있습니다. | 
    | **제목** | <*subject-for-success-email*> | 성공 이메일의 제목입니다. 이 자습서에서는 매개 변수 목록 또는 동적 콘텐츠 목록의 **목록에 구성원 추가** 아래에서 이 텍스트를 입력하고 지정된 필드를 선택합니다. <p>"성공! 구성원이 'test-members-ML'에 추가됨: **이메일 주소**" | 
-   | **본문** | <*body-for-success-email*> | 성공 이메일의 본문 콘텐츠입니다. 이 자습서에서는 매개 변수 목록 또는 동적 콘텐츠 목록의 **목록에 구성원 추가** 아래에서 이 텍스트를 입력하고 지정된 필드를 선택합니다.  <p>"새 구성원이 'test-members-ML'에 추가됨: **이메일 주소**"</br>"멤버 옵트인 상태: **상태**" | 
+   | **본문** | <*body-for-success-email*> | 성공 이메일의 본문 콘텐츠입니다. 이 자습서에서는 매개 변수 목록 또는 동적 콘텐츠 목록의 **목록에 구성원 추가** 아래에서 이 텍스트를 입력하고 지정된 필드를 선택합니다.  <p>"새 구성원이 'test-members-ML'에 추가됨: **이메일 주소**"</br>"구성원 옵트인 상태: **상태**" | 
    | | | | 
 
 5. 논리 앱을 저장합니다.

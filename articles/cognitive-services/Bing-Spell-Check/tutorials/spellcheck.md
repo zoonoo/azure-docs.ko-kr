@@ -1,6 +1,6 @@
 ---
 title: '자습서: Bing Spell Check API를 사용하여 맞춤법 검사 결과 가져오기'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Bing Spell Check을 사용하는 방법을 보여 줍니다.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 0a7b8637ae3ca7342a04f6bf3f8a808539d980eb
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: dc3a30418615d1c6b30ca4059292425076327f00
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886165"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500799"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>자습서: 웹 페이지 Spell Check 클라이언트 빌드
 
@@ -66,7 +66,7 @@ HTML 헤더 정보를 추가하고 다음과 같이 스크립트 섹션을 시�
 
 ## <a name="getsubscriptionkey-function"></a>getSubscriptionKey 함수
 
-getSubscriptionKey 함수는 Bing Spell Check API 키를 반환합니다. 로컬 저장소(즉, 쿠키)에서 데이터를 검색하거나 필요한 경우 사용자에게 묻는 메시지를 표시합니다.
+getSubscriptionKey 함수는 Bing Spell Check API 키를 반환합니다. 로컬 스토리지(즉, 쿠키)에서 데이터를 검색하거나 필요한 경우 사용자에게 묻는 메시지를 표시합니다.
 
 getSubscriptionKey 함수를 시작하고 쿠키 이름을 다음과 같이 선언합니다.
 

@@ -1,10 +1,10 @@
 ---
-title: Linux 용 azure 모니터링 가상 머신 확장 | Microsoft Docs
+title: Linux 용 가상 머신 확장 Azure Monitor | Microsoft Docs
 description: 가상 머신 확장을 사용하여 Linux 가상 머신에 Log Analytics 에이전트를 배포합니다.
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: c7bbf210-7d71-4a37-ba47-9c74567a9ea6
@@ -13,67 +13,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/01/2019
+ms.date: 08/06/2019
 ms.author: roiyz
-ms.openlocfilehash: 2c16e4c105a69d0d48d0b161db2caa390837bf26
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: a0c4b6333cc8348959a679a81343f2479078694b
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514545"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828151"
 ---
-# <a name="azure-monitor-virtual-machine-extension-for-linux"></a>Linux 용 azure 모니터링 가상 머신 확장
+# <a name="azure-monitor-virtual-machine-extension-for-linux"></a>Linux 용 가상 머신 확장 Azure Monitor
 
 ## <a name="overview"></a>개요
 
-Azure Monitor 로그는 클라우드 및 온-프레미스 자산에서 모니터링, 경고 및 경고 수정 기능을 제공 합니다. Linux용 Log Analytics 에이전트 가상 머신 확장은 Microsoft에서 게시 및 지원합니다. 확장 버전은 Azure 가상 머신에 Log Analytics 에이전트를 설치하고 기존 Log Analytics 작업 영역에 가상 머신을 등록합니다. 이 문서는 지원 되는 플랫폼, 구성 및 Linux 용 Azure Monitor 가상 머신 확장에 대 한 배포 옵션을 설명합니다.
+Azure Monitor 로그는 클라우드 및 온-프레미스 자산에서 모니터링, 경고 및 경고 수정 기능을 제공 합니다. Linux용 Log Analytics 에이전트 가상 머신 확장은 Microsoft에서 게시 및 지원합니다. 확장 버전은 Azure 가상 머신에 Log Analytics 에이전트를 설치하고 기존 Log Analytics 작업 영역에 가상 머신을 등록합니다. 이 문서에서는 Linux 용 Azure Monitor 가상 머신 확장에 대해 지원 되는 플랫폼, 구성 및 배포 옵션에 대해 자세히 설명 합니다.
 
 >[!NOTE]
 >Microsoft OMS(Operations Management Suite)에서 Azure Monitor로 진행 중인 전환의 일부로 Windows 또는 Linux용 OMS 에이전트는 Windows용 Log Analytics 에이전트 및 Linux용 Log Analytics 에이전트로 참조됩니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 ### <a name="operating-system"></a>운영 체제
 
-Log Analytics 에이전트 확장은 다음 Linux 배포판에 대해 실행할 수 있습니다.
-
-| 배포 | 버전 |
-|---|---|
-| CentOS Linux | 6(x86/x64) 및 7(x64) |
-| Amazon Linux | 2017.09(x64) | 
-| Oracle Linux | 6 및 7(x86/x64) |
-| Red Hat Enterprise Linux Server | 6(x86/x64) 및 7(x64) |
-| Debian GNU/Linux | 8 및 9(x86/x64) |
-| Ubuntu | 14.04 LTS(x86/x64), 16.04 LTS(x86/x64) 및 18.04 LTS(x64) |
-| SUSE Linux Enterprise Server | (x64) 12 및 15 (x64) |
-
->[!NOTE]
->버전 1.x보다 낮은 OpenSSL은 어떤 플랫폼에서도 지원되지 않으며 버전 1.10은 x86_64 플랫폼(64비트)에서만 지원됩니다.  
->
-
-### <a name="agent-prerequisites"></a>에이전트 필수 구성 요소
-
-다음 표에서 지원 되는 Linux 배포판에 에이전트가 설치 되는 데 필요한 패키지를 강조 표시 합니다.
-
-|필수 패키지 |설명 |최소 버전 |
-|-----------------|------------|----------------|
-|Glibc |    GNU C 라이브러리 | 2.5-12 
-|Openssl    | OpenSSL 라이브러리 | 1.0.x 또는 1.1.x |
-|Curl | cURL 웹 클라이언트 | 7.15.5 |
-|Python-ctypes | | 
-|PAM | 플러그형 인증 모듈 | | 
-
->[!NOTE]
->Syslog 메시지를 수집하려면 rsyslog 또는 syslog-ng가 필요합니다. Red Hat Enterprise Linux 버전 5, CentOS 및 Oracle Linux 버전(sysklog)에서는 syslog 이벤트 수집을 위한 기본 syslog 디먼이 지원되지 않습니다. 이 배포의 해당 버전에서 syslog 데이터를 수집하려면 rsyslog 디먼을 설치하고 sysklog를 대체하도록 구성해야 합니다.
+지원 되는 Linux 배포에 대 한 자세한 내용은 [Log Analytics 에이전트 개요](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) 문서를 참조 하세요.
 
 ### <a name="agent-and-vm-extension-version"></a>에이전트 및 VM 확장 버전
-다음 표에서 Azure Monitor VM 확장 및 각 릴리스에 대 한 Log Analytics 에이전트 번들 버전의 매핑을 제공합니다. Log Analytics 에이전트 번들 버전에 대한 릴리스 노트 링크가 포함되어 있습니다. 릴리스 정보는 버그 수정에 대한 세부 정보 및 지정된 에이전트 릴리스에 사용 가능한 새로운 기능을 포함합니다.  
+다음 표에서는 Azure Monitor VM 확장 버전과 각 릴리스에 대 한 Log Analytics 에이전트 번들의 매핑을 제공 합니다. Log Analytics 에이전트 번들 버전에 대한 릴리스 노트 링크가 포함되어 있습니다. 릴리스 정보는 버그 수정에 대한 세부 정보 및 지정된 에이전트 릴리스에 사용 가능한 새로운 기능을 포함합니다.  
 
-| Azure Linux VM 확장 버전 | Log Analytics 에이전트 번들 버전 | 
+| Azure Monitor Linux VM 확장 버전 | Log Analytics 에이전트 번들 버전 | 
 |--------------------------------|--------------------------|
-| 1.11.9 | [1.11.0-7](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.11.0-7) |
+| 1.11.15 | [1.11.0-9](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.11.0-9) |
 | 1.10.0 | [1.10.0-1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.10.0-1) |
 | 1.9.1 | [1.9.0-0](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.9.0-0) |
 | 1.8.11 | [1.8.1-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.8.1.256)| 
@@ -95,7 +66,7 @@ Log Analytics 에이전트 확장은 다음 Linux 배포판에 대해 실행할 
 
 Azure Security Center는 자동으로 Log Analytics 에이전트를 프로비전하고 Azure 구독에서 ASC가 만든 기본 Log Analytics 작업 영역에 연결합니다. Azure Security Center를 사용하는 경우 이 문서의 단계를 실행하지 마세요. 이렇게 하면 구성된 작업 영역을 덮어쓰고 Azure Security Center와의 연결을 끊습니다.
 
-### <a name="internet-connectivity"></a>인터넷 연결
+### <a name="internet-connectivity"></a>인터넷에 연결
 
 Linux용 Log Analytics 에이전트 확장은 대상 가상 머신이 인터넷에 연결되어 있어야 합니다. 
 
@@ -145,9 +116,9 @@ Linux용 Log Analytics 에이전트 확장은 대상 가상 머신이 인터넷�
 
 ## <a name="template-deployment"></a>템플릿 배포
 
-Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다. 템플릿에 Azure Monitor 로그를 온 보 딩 같은 배포 후 구성이 필요한 하나 이상의 virtual machines 배포 시에 적합 합니다. Log Analytics 에이전트 VM 확장을 포함하는 샘플 Resource Manager 템플릿은 [Azure 빠른 시작 갤러리](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm)에서 찾을 수 있습니다. 
+Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다. 템플릿은 Azure Monitor 로그에 온 보 딩과 같이 배포 후 구성이 필요한 하나 이상의 가상 컴퓨터를 배포 하는 경우에 적합 합니다. Log Analytics 에이전트 VM 확장을 포함 하는 샘플 리소스 관리자 템플릿은 [Azure 빠른 시작 갤러리](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm)에서 찾을 수 있습니다. 
 
-가상 머신 확장에 대한 JSON 구성은 가상 머신 리소스 내에 중첩되거나 루트 또는 최상위 수준의 Resource Manager JSON 템플릿에 배치될 수 있습니다. JSON 구성의 배치는 리소스 이름 및 형식 값에 영향을 줍니다. 자세한 내용은 [자식 리소스의 이름 및 형식 설정](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources)을 참조하세요. 
+가상 머신 확장에 대한 JSON 구성은 가상 머신 리소스 내에 중첩되거나 루트 또는 최상위 수준의 Resource Manager JSON 템플릿에 배치될 수 있습니다. JSON 구성의 배치는 리소스 이름 및 형식 값에 영향을 줍니다. 자세한 내용은 [자식 리소스의 이름 및 형식 설정](../../azure-resource-manager/child-resource-name-type.md)을 참조하세요. 
 
 다음 예제에서는 VM 확장이 가상 머신 리소스 내에 중첩되어 있다고 가정합니다. 확장 리소스를 중첩하는 경우 JSON은 가상 머신의 `"resources": []` 개체에 배치됩니다.
 
@@ -201,7 +172,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
 
 ## <a name="azure-cli-deployment"></a>Azure CLI 배포
 
-Azure CLI를 사용하여 Log Analytics 에이전트 VM 확장을 기존 가상 머신에 배포할 수 있습니다. *workspaceId* 및 *workspaceKey*를 Log Analytics의 항목으로 바꿉니다. 
+Azure CLI를 사용하여 Log Analytics 에이전트 VM 확장을 기존 가상 머신에 배포할 수 있습니다. *workspaceId* 및 *workspaceKey*를 Log Analytics 작업 영역의 항목으로 바꿉니다. 
 
 ```azurecli
 az vm extension set \
@@ -209,8 +180,8 @@ az vm extension set \
   --vm-name myVM \
   --name OmsAgentForLinux \
   --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.7 --protected-settings '{"workspaceKey": "omskey"}' \
-  --settings '{"workspaceId": "omsid"}'
+  --version 1.10.1 --protected-settings '{"workspaceKey":"omskey"}' \
+  --settings '{"workspaceId":"omsid"}'
 ```
 
 ## <a name="troubleshoot-and-support"></a>문제 해결 및 지원
@@ -240,10 +211,10 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 | 19 | OMI 패키지 설치 오류 | 
 | 20 | SCX 패키지 설치 실패 |
 | 51 | 이 확장이 VM의 운영 체제에서 지원되지 않음 | |
-| 55 | 연결할 수 없습니다. 누락 되었거나 dpkg 패키지 관리자는 Azure Monitor 서비스 또는 필수 패키지에 잠겨| 시스템에서 인터넷에 액세스할 수 있는지 또는 유효한 HTTP 프록시가 제공되었는지 확인합니다. 또한 작업 영역 ID가 정확한지 확인하고 curl 및 tar 유틸리티가 설치되어 있는지도 확인합니다. |
+| 55 | Azure Monitor 서비스에 연결할 수 없거나 누락 된 필수 패키지 또는 dpkg 패키지 관리자가 잠겨 있습니다.| 시스템에서 인터넷에 액세스할 수 있는지 또는 유효한 HTTP 프록시가 제공되었는지 확인합니다. 또한 작업 영역 ID가 정확한지 확인하고 curl 및 tar 유틸리티가 설치되어 있는지도 확인합니다. |
 
 추가 문제 해결 정보는 [Linux용 Log Analytics 에이전트 문제 해결 가이드](../../azure-monitor/platform/vmext-troubleshoot.md)에서 확인할 수 있습니다.
 
-### <a name="support"></a>지원
+### <a name="support"></a>Support(지원)
 
 이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 가서 지원 받기를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.

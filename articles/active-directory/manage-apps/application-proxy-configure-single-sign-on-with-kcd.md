@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/17/2019
+ms.date: 08/13/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 545906af882be6e53297bf7a9ff2cd12e86d55f0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab378fe1e06de49df0fe6481a1aa475d426648dc
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65859617"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032563"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>애플리케이션 프록시를 사용하여 앱에 Single Sign-On에 대한 Kerberos 제한된 위임
 
@@ -30,20 +30,20 @@ Windows 통합 인증으로 보안되는 애플리케이션 프록시를 통해 
 Active Directory에 애플리케이션 프록시 커넥터 사용 권한을 부여하여 사용자를 가장함으로써 IWA(Windows 통합 인증)를 사용하여 애플리케이션에 SSO(Single Sign On)를 사용하게 할 수 있습니다. 커넥터는 이 사용 권한을 사용하여 사용자 대신 토큰을 주고받습니다.
 
 ## <a name="how-single-sign-on-with-kcd-works"></a>KCD를 사용하는 Single Sign-On 작동 방식
-사용자가 IWA를 사용 하는 온-프레미스 응용 프로그램에 액세스 하려고 할 때이 다이어그램이 흐름을 설명 합니다.
+이 다이어그램은 사용자가 IWA를 사용 하는 온-프레미스 응용 프로그램에 액세스 하려고 할 때의 흐름을 설명 합니다.
 
 ![Microsoft AAD 인증 흐름 다이어그램](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
-1. 사용자가 응용 프로그램 프록시를 통해 온-프레미스 응용 프로그램에 액세스할 URL을 입력 합니다.
+1. 사용자는 응용 프로그램 프록시를 통해 온-프레미스 응용 프로그램에 액세스할 수 있는 URL을 입력 합니다.
 2. 애플리케이션 프록시는 사전 인증을 위해 Azure AD 인증 서비스에 요청을 리디렉션합니다. 이 시점에서 Azure AD는 다단계 인증 등, 모든 적용 가능한 인증 및 권한 부여 정책을 적용합니다. 사용자가 확인되면 Azure AD에서 토큰을 만들어서 사용자에게 보냅니다.
 3. 사용자는 토큰을 애플리케이션 프록시로 전달합니다.
-4. 토큰의 유효성을 검사 하 고에서 사용자 주체 이름 (UPN)을 검색 하는 응용 프로그램 프록시 및 UPN 및 서비스 주체 이름 (SPN) 이중 인증 된 보안 채널을 통해 커넥터를 끌어옵니다.
-5. 커넥터는 온-프레미스 AD에서 응용 프로그램에 Kerberos 토큰을 가져올 사용자를 가장을 사용 하 여 Kerberos 제한 위임 (KCD) 협상을 수행 합니다.
+4. 응용 프로그램 프록시는 토큰의 유효성을 검사 하 고 해당 토큰에서 upn (사용자 계정 이름)을 가져온 다음, 커넥터는 upn 및 SPN (서비스 사용자 이름)을 이중 인증 된 보안 채널을 통해 가져옵니다.
+5. 커넥터는 온-프레미스 AD와 함께 KCD (Kerberos 제한 위임) 협상을 수행 하 고, 사용자를 가장 하 여 응용 프로그램에 대 한 Kerberos 토큰을 가져옵니다.
 6. Active Directory는 애플리케이션에 대한 Kerberos 토큰을 커넥터로 보냅니다.
 7. 그러면 커넥터에서 AD에서 받은 Kerberos 토큰을 사용하여 원래 요청을 애플리케이션 서버에 보냅니다.
 8. 애플리케이션은 응답을 커넥터로 보냅니다. 그러면 해당 응답이 애플리케이션 프록시 서비스를 거쳐 마지막으로 사용자에게 반환됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 IWA 애플리케이션에 대한 Single Sign-On을 시작하기 전에 사용자 환경이 다음 설정 및 구성을 갖추고 준비되었는지 확인합니다.
 
 * SharePoint 웹앱과 같은 앱이 Windows 통합 인증을 사용하도록 설정됩니다. 자세한 내용은 [Kerberos 인증 지원 사용](https://technet.microsoft.com/library/dd759186.aspx) 또는 SharePoint의 경우 [SharePoint 2013에서 Kerberos 인증 계획](https://technet.microsoft.com/library/ee806870.aspx)(영문)을 참조하세요.
@@ -59,7 +59,7 @@ Active Directory 구성은 애플리케이션 프록시 커넥터와 애플리�
 2. 커넥터를 실행하는 서버를 선택합니다.
 3. 마우스 오른쪽 단추를 클릭하고 **속성** > **위임**을 선택합니다.
 4. **지정한 서비스에 대한 위임용으로만 이 컴퓨터 트러스트**를 선택합니다. 
-5. 선택 **모든 인증 프로토콜을 사용 하 여**입니다.
+5. **모든 인증 프로토콜 사용**을 선택 합니다.
 6. **이 계정으로 위임된 자격 증명을 사용할 수 있는 서비스** 아래에서 해당 애플리케이션 서버의 SPN ID 값을 추가합니다. 그러면 애플리케이션 프록시 커넥터가 목록에 정의된 애플리케이션에 대해 AD에서 사용자를 가장할 수 있습니다.
 
    ![커넥터 SVR 속성 창 스크린샷](./media/application-proxy-configure-single-sign-on-with-kcd/Properties.jpg)
@@ -112,7 +112,7 @@ Kerberos에 대한 자세한 내용은 [KCD(Kerberos Constrained Delegation)에 
 비 Windows 앱은 일반적으로 도메인 이메일 주소 대신 사용자 이름 또는 SAM 계정 이름을 사용합니다. 해당 경우가 애플리케이션에 적용되는 경우 클라우드 ID를 애플리케이션 ID에 연결하도록 위임된 로그인 ID 필드를 구성해야 합니다. 
 
 ## <a name="working-with-different-on-premises-and-cloud-identities"></a>다른 온-프레미스 및 클라우드 ID로 작업
-애플리케이션 프록시는 사용자가 클라우드 및 온-프레미스에서 정확히 동일한 ID를 사용한다고 가정합니다. 해당 경우가 아닌 경우 Single Sign-On에 여전히 KCD를 사용합니다. 각 애플리케이션에 **위임된 로그인 ID**를 구성하여 Single Sign-On을 수행할 때 어떤 ID를 사용해야 하는지 지정합니다.  
+애플리케이션 프록시는 사용자가 클라우드 및 온-프레미스에서 정확히 동일한 ID를 사용한다고 가정합니다. 그러나 일부 환경에서는 회사 정책 또는 응용 프로그램 종속성으로 인해 조직에서 로그인에 대체 Id를 사용 해야 할 수 있습니다. 이 경우에도 single sign-on에 KCD를 사용할 수 있습니다. 각 애플리케이션에 **위임된 로그인 ID**를 구성하여 Single Sign-On을 수행할 때 어떤 ID를 사용해야 하는지 지정합니다.  
 
 이 기능을 사용하면 다른 온-프레미스 및 클라우드 ID가 있는 여러 조직이 사용자에게 다른 사용자 이름 및 암호를 입력하도록 하지 않고 클라우드에서 온-프레미스 앱으로 SSO를 갖게 할 수 있습니다. 이 작업은 다음의 조직을 포함합니다.
 
@@ -128,7 +128,7 @@ Kerberos에 대한 자세한 내용은 [KCD(Kerberos Constrained Delegation)에 
 위임된 로그인 ID가 사용되는 경우 값은 조직 내의 모든 도메인 또는 포리스트에 대해 고유하지 않을 수도 있습니다. 다른 두 가지 커넥터 그룹을 사용하여 이러한 애플리케이션을 두 번 게시함으로써 이 문제를 방지할 수 있습니다. 각 애플리케이션에는 다른 사용자 대상 그룹이 있으므로 다른 도메인에 해당 커넥터를 조인할 수 있습니다.
 
 ### <a name="configure-sso-for-different-identities"></a>다른 ID에 대한 SSO 구성
-1. 주 ID가 전자 메일 주소가 되도록 Azure AD Connect 설정을 구성합니다(mail). 이 작업은 동기화 설정에서 **사용자 계정 이름** 필드를 변경하여 사용자 지정 프로세스의 일부로 수행됩니다. 또한 이러한 설정은 사용자가 ID 저장소로 Azure AD를 사용하는 Office 365, Windows 10 장치 및 다른 애플리케이션에 로그인하는 방법을 결정합니다.  
+1. 주 ID가 전자 메일 주소가 되도록 Azure AD Connect 설정을 구성합니다(mail). 이 작업은 동기화 설정에서 **사용자 계정 이름** 필드를 변경하여 사용자 지정 프로세스의 일부로 수행됩니다. 또한 이러한 설정은 사용자가 ID 스토리지로 Azure AD를 사용하는 Office 365, Windows 10 디바이스 및 다른 애플리케이션에 로그인하는 방법을 결정합니다.  
    ![사용자 식별 스크린샷 - 사용자 계정 이름 드롭다운](./media/application-proxy-configure-single-sign-on-with-kcd/app_proxy_sso_diff_id_connect_settings.png)  
 2. 수정하려는 애플리케이션에 대한 애플리케이션 구성 설정에서 사용할 **위임된 로그인 ID**를 선택합니다.
 

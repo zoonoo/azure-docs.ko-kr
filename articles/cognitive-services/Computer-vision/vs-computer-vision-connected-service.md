@@ -7,22 +7,22 @@ author: ghogen
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: tutorial
-ms.date: 05/01/2019
+ms.topic: conceptual
+ms.date: 07/03/2019
 ms.author: ghogen
 ms.custom: seodec18
-ms.openlocfilehash: 24d9a5fa1e9c2f44ef32ac1fc05ad09f8a550f12
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: HT
+ms.openlocfilehash: ff3ae9ec4a775e2450a552e414ec52597593dd39
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827743"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604275"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>Visual Studio의 연결된 서비스를 사용하여 Computer Vision API에 연결
 
 이 문서 및 해당 도우미 문서 Cognitive Services Computer Vision API에 대 한 Visual Studio 연결 된 서비스 기능을 사용 하는 것에 대 한 세부 정보를 제공 합니다. 이 기능은 Cognitive Services 확장이 설치된 Visual Studio 2017 15.7 이상에서 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독. 아직 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
 - **Web Development** 워크로드가 설치된 Visual Studio 2017 버전 15.7 이상. [여기에서 다운로드하세요](https://visualstudio.microsoft.com/downloads/).
@@ -256,7 +256,7 @@ ms.locfileid: "65827743"
 
 1. 포털 맨 위에 있는 검색 상자에 리소스 그룹의 이름을 입력합니다. 검색 결과에 이 빠른 시작에서 사용된 리소스 그룹이 표시되면 선택합니다.
 2. **리소스 그룹 삭제**를 선택합니다.
-3. **리소스 그룹 이름 입력:** 상자에 리소스 그룹 이름을 입력하고 **삭제**를 선택합니다.
+3. **리소스 그룹 이름 입력** 상자에 리소스 그룹 이름을 입력하고 **삭제**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

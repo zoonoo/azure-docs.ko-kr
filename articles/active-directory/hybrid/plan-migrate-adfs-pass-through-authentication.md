@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: 페더레이션에서 Azure AD에 대 한 PTA로 마이그레이션'
+title: 'Azure AD Connect: Azure AD 용 페더레이션에서 PTA로 마이그레이션'
 description: 이 문서에는 하이브리드 ID 환경을 페더레이션에서 통과 인증으로 전환하는 방법에 대한 정보가 나와 있습니다.
 services: active-directory
 author: billmath
@@ -12,12 +12,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27f5a7d8bb6dc347414d84d8cf536f1c2d7a9910
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6646217149cec48ca5fcee59b3dd9d850965c602
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67109348"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779914"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Azure Active Directory를 페더레이션에서 통과 인증으로 마이그레이션
 
@@ -77,8 +77,8 @@ Azure AD Connect를 업데이트하려면 [Azure AD Connect: 최신 버전으로
    ![추가 작업 페이지에 있는 현재 구성 보기 옵션의 스크린샷](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image2.png)<br />
 3. **솔루션 검토** 페이지에서 **AD FS(Active Directory Federation Services)** 까지 아래로 스크롤합니다.<br />
 
-   * 이 섹션에 AD FS 구성이 표시되면 AD FS가 원래 Azure AD Connect를 사용하여 구성되었다고 가정할 수 있습니다. Azure AD Connect **사용자 로그인 변경** 옵션을 사용하여 도메인을 페더레이션 ID에서 관리 ID로 변환할 수 있습니다. 이 프로세스에 대한 자세한 내용은 **옵션 1: Azure AD Connect를 사용하여 통과 인증 구성** 섹션을 참조하세요.
-   * AD FS가 현재 설정에 나열되지 않으면 PowerShell을 사용하여 도메인을 페더레이션 ID에서 관리 ID로 수동으로 변환해야 합니다. 이 프로세스에 대한 자세한 내용은 **옵션 2: Azure AD Connect 및 PowerShell을 사용하여 페더레이션에서 통과 인증으로 전환** 섹션을 참조하세요.
+   * 이 섹션에 AD FS 구성이 표시되면 AD FS가 원래 Azure AD Connect를 사용하여 구성되었다고 가정할 수 있습니다. Azure AD Connect **사용자 로그인 변경** 옵션을 사용하여 도메인을 페더레이션 ID에서 관리 ID로 변환할 수 있습니다. 프로세스에 대 한 자세한 내용은 **옵션 A: Azure AD Connect를 사용하여 통과 인증 구성** 섹션을 참조하세요.
+   * AD FS가 현재 설정에 나열되지 않으면 PowerShell을 사용하여 도메인을 페더레이션 ID에서 관리 ID로 수동으로 변환해야 합니다. 이 프로세스에 대한 자세한 내용은 **옵션 B: Azure AD Connect 및 PowerShell을 사용하여 페더레이션에서 통과 인증으로 전환** 섹션을 건너뜁니다.
 
 ### <a name="document-current-federation-settings"></a>현재 페더레이션 설정 문서화
 
@@ -124,13 +124,13 @@ AD FS 신속 복원 도구를 사용하지 않도록 선택한 경우 적어도 
 
 페더레이션 ID에서 관리 ID로 변환하기 전에 현재 AD FS를 Azure AD, Office 365 및 다른 애플리케이션(신뢰 당사자 트러스트)에 사용하는 방법을 자세히 살펴봅니다. 특히 다음 표에서 설명하는 시나리오를 고려해야 합니다.
 
-| If | 작업 |
+| 조건 | 작업 |
 |-|-|
 | AD FS를 Azure AD 및 Office 365 이외의 다른 애플리케이션에서 계속 사용하려고 합니다. | 도메인이 변환되면 AD FS와 Azure AD를 모두 사용할 수 있습니다. 사용자 환경을 고려합니다. 일부 시나리오에서는 사용자가 두 번 인증해야 할 수도 있습니다. 즉 한번은 Azure AD(사용자가 Office 365와 같은 다른 애플리케이션에 SSO 액세스 권한을 얻은 경우), 또 한번은 아직도 AD FS에 바인딩된 애플리케이션에 대해 인증해야 합니다. |
 | AD FS 인스턴스는 상당히 많이 사용자 지정되고 onload.js 파일의 특정 사용자 지정 설정에 종속됩니다(예: 사용자가 UPN(사용자 계정 이름) 대신 **SamAccountName** 형식만 사용자 이름에 사용하도록 로그인 환경을 변경한 경우 또는 조직에서 로그인 환경의 브랜드를 많이 지정한 경우). onload.js 파일은 Azure AD에서 중복될 수 없습니다. | 계속하기 전에 Azure AD에서 현재 사용자 지정 요구 사항을 충족할 수 있는지 확인해야 합니다. 자세한 내용과 지침은 AD FS 브랜딩 및 AD FS 사용자 지정 섹션을 참조하세요.|
-| AD FS를 사용하여 이전 버전의 인증 클라이언트를 차단합니다.| 조합을 사용 하 여 이전 버전의 인증 클라이언트를 차단 하는 AD FS 컨트롤을 대체 하는 것이 좋습니다 [조건부 액세스 제어](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) 하 고 [Exchange Online 클라이언트 액세스 규칙](https://aka.ms/EXOCAR)합니다. |
+| AD FS를 사용하여 이전 버전의 인증 클라이언트를 차단합니다.| [조건부 액세스 제어](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) 와 [Exchange Online 클라이언트 액세스 규칙](https://aka.ms/EXOCAR)의 조합을 사용 하 여 이전 버전의 인증 클라이언트를 차단 하는 AD FS 컨트롤을 대체 하는 것이 좋습니다. |
 | 사용자가 AD FS에 대해 인증할 때 온-프레미스 다단계 인증 서버 솔루션에 대해 다단계 인증을 수행해야 합니다.| 관리 ID 도메인에서는 온-프레미스 다단계 인증 솔루션을 통해 인증 흐름에 다단계 인증 챌린지를 삽입할 수 없습니다. 그러나 도메인이 변환되면 다단계 인증에 Azure Multi-Factor Authentication 서비스를 사용할 수 있습니다.<br /><br /> 사용자가 현재 Azure Multi-Factor Authentication을 사용하지 않는 경우 일회성 사용자 등록 단계를 수행해야 합니다. 계획된 등록을 준비하고 사용자에게 전달해야 합니다. |
-| 현재 AD FS에서 액세스 제어 정책(AuthZ 규칙)을 사용하여 Office 365에 대한 액세스를 제어합니다.| 해당 Azure AD를 사용 하 여 정책을 대체 하는 것이 좋습니다 [조건부 액세스 정책을](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) 하 고 [Exchange Online 클라이언트 액세스 규칙](https://aka.ms/EXOCAR)합니다.|
+| 현재 AD FS에서 액세스 제어 정책(AuthZ 규칙)을 사용하여 Office 365에 대한 액세스를 제어합니다.| 정책을 해당 하는 Azure AD [조건부 액세스 정책](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) 및 [Exchange Online 클라이언트 액세스 규칙](https://aka.ms/EXOCAR)으로 바꾸는 것이 좋습니다.|
 
 ### <a name="common-ad-fs-customizations"></a>일반적인 AD FS 사용자 지정
 
@@ -142,13 +142,13 @@ AD FS 신속 복원 도구를 사용하지 않도록 선택한 경우 적어도 
 
 도메인이 통과 인증으로 변환되면 **InsideCorporateNetwork** 클레임을 사용할 수 없습니다. 이 기능은 [Azure AD에서 명명된 위치](https://docs.microsoft.com/azure/active-directory/active-directory-named-locations)를 사용하여 대체할 수 있습니다.
 
-명명 된 위치를 구성한 후 포함 하거나 제외할 네트워크에 구성 된 모든 조건부 액세스 정책을 업데이트 해야 합니다 **신뢰할 수 있는 모든 위치** 하거나 **MFA에서 신뢰할 수 있는 Ip** 값 새 명명 된 위치를 반영 합니다.
+명명 된 위치를 구성한 후에는 네트워크를 포함 하거나 제외 하도록 구성 된 모든 조건부 액세스 정책을 업데이트 해야 합니다. 여기에는 새 명명 된 위치를 반영 하는 **모든 신뢰할 수 있는 위치** 또는 **MFA 신뢰할 수 있는 ip** 값이 포함 됩니다.
 
-에 대 한 자세한 내용은 합니다 **위치** 조건부 액세스의 조건, 참조 [Active Directory 조건부 액세스 위치](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations)합니다.
+조건부 액세스의 **위치** 조건에 대 한 자세한 내용은 [Active Directory 조건부 액세스 위치](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations)를 참조 하세요.
 
 #### <a name="hybrid-azure-ad-joined-devices"></a>하이브리드 Azure AD 조인 디바이스
 
-Azure AD에 장치를 가입 시킬 때 장치 보안 및 규정 준수에 대 한 액세스 표준을 충족을 적용 하는 조건부 액세스 규칙을 만들 수 있습니다. 또한 사용자가 개인 계정 대신 회사 조직 또는 학교 계정을 사용하여 디바이스에 로그인할 수 있습니다. 하이브리드 Azure AD 조인 디바이스를 사용하는 경우 Active Directory 도메인 조인 디바이스를 Azure AD에 조인할 수 있습니다. 페더레이션 환경에서 이 기능을 사용하도록 설정되었을 수 있습니다.
+장치를 Azure AD에 가입 하는 경우 보안 및 규정 준수에 대 한 액세스 표준을 충족 하는 장치를 적용 하는 조건부 액세스 규칙을 만들 수 있습니다. 또한 사용자가 개인 계정 대신 회사 조직 또는 학교 계정을 사용하여 디바이스에 로그인할 수 있습니다. 하이브리드 Azure AD 조인 디바이스를 사용하는 경우 Active Directory 도메인 조인 디바이스를 Azure AD에 조인할 수 있습니다. 페더레이션 환경에서 이 기능을 사용하도록 설정되었을 수 있습니다.
 
 도메인이 통과 인증으로 변환된 후 도메인에 조인된 모든 디바이스에서 하이브리드 조인이 계속 작동하도록 하려면 Windows 10 클라이언트의 경우 Azure AD Connect를 사용하여 Active Directory 컴퓨터 계정을 Azure AD와 동기화해야 합니다.
 
@@ -454,5 +454,5 @@ Azure AD Connect를 실행하는 온-프레미스 서버에서 Seamless SSO Kerb
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure AD Connect 설계 개념](plan-connect-design-concepts.md)에 대해 알아봅니다.
-* [적합한 인증을 선택](https://docs.microsoft.com/azure/security/azure-ad-choose-authn)합니다.
+* [적합한 인증을 선택](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn)합니다.
 * [지원되는 토폴로지](plan-connect-design-concepts.md)에 대해 알아봅니다.

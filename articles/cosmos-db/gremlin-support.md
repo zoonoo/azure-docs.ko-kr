@@ -5,68 +5,34 @@ author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 05/21/2019
+ms.date: 06/24/2019
 ms.author: lbosq
-ms.openlocfilehash: b36c041c24a07f89701e78aea4d08270342b8d22
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: db263c1c7f0a8b87b315c5aa6da31336229c9643
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978943"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502738"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Azure Cosmos DB Gremlin 그래프 지원
 Azure Cosmos DB는 [Apache Tinkerpop의](https://tinkerpop.apache.org) 그래프 순회 언어인 [Gremlin](https://tinkerpop.apache.org/docs/3.3.2/reference/#graph-traversal-steps)을 지원합니다. Gremlin 언어를 사용하여 그래프 엔터티(예: 꼭짓점 및 에지)를 만들고, 해당 엔터티 내에서 속성을 수정하고, 쿼리 및 순회를 수행하고, 엔터티를 삭제할 수 있습니다. 
 
-Azure Cosmos DB는 그래프 데이터베이스에 엔터프라이즈급 기능을 제공합니다. 이러한 기능에는 글로벌 배포, 독립적인 스토리지 및 처리량 크기 조정, 예측 가능한 1자리 밀리초 대기 시간, 자동 인덱싱, SLA, 둘 이상의 Azure 지역에 걸친 데이터베이스 계정에 대한가용성 읽기가 포함됩니다. Azure Cosmos DB는 TinkerPop/Gremlin을 지원하므로 호환되는 다른 그래프 데이터베이스를 사용하여 작성된 애플리케이션을 쉽게 마이그레이션할 수 있습니다. 또한 Gremlin 지원을 통해, Azure Cosmos DB는 [Apache Spark GraphX](https://spark.apache.org/graphx/)와 같은 TinkerPop 지원 분석 프레임워크와 원활하게 통합됩니다. 
-
 이 문서에서는 Gremlin을 간략히 연습해 볼 수 있는 과정을 제공하고 Gremlin API가 지원하는 Gremlin 기능을 나열합니다.
 
-## <a name="gremlin-by-example"></a>Gremlin 예제
-샘플 그래프를 사용하여 Gremlin에서 쿼리를 표현할 수 있는 방법을 살펴봅니다. 다음 그림에서는 사용자, 관심 영역 및 디바이스에 대한 데이터를 그래프 형태로 관리하는 비즈니스 응용 프로그램을 보여줍니다.  
+## <a name="compatible-client-libraries"></a>호환 가능한 클라이언트 라이브러리
 
-![사람, 디바이스 및 관심 분야를 보여주는 샘플 데이터베이스](./media/gremlin-support/sample-graph.png) 
+다음 표에서는 Azure Cosmos DB에 대해 사용할 수 있는 인기 있는 Gremlin 드라이버를 보여 줍니다.
 
-이 그래프에는 다음과 같은 꼭짓점 유형(Gremlin의 "레이블")이 있습니다.
+| 다운로드 | 원본 | 시작하기 | 지원되는 커넥터 버전 |
+| --- | --- | --- | --- |
+| [.NET](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [GitHub의 Gremlin.NET](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [.NET을 사용하여 그래프 만들기](create-graph-dotnet.md) | 3.4.0-RC2 |
+| [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](https://tinkerpop.apache.org/javadocs/current/full/) | [Java를 사용하여 그래프 만들기](create-graph-java.md) | 3.2.0+ |
+| [Node.JS](https://www.npmjs.com/package/gremlin) | [Github의 Gremlin-JavaScript](https://github.com/jbmusso/gremlin-javascript) | [Node.js를 사용하여 그래프 만들기](create-graph-nodejs.md) | 3.3.4+ |
+| [Python](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Github의 Gremlin Python](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Python을 사용하여 그래프 만들기](create-graph-python.md) | 3.2.7 |
+| [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [GitHub의 Gremlin-PHP](https://github.com/PommeVerte/gremlin-php) | [PHP를 사용하여 그래프 만들기](create-graph-php.md) | 3.1.0 |
+| [Gremlin 콘솔](https://tinkerpop.apache.org/downloads.html) | [TinkerPop 문서](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Gremlin 콘솔을 사용하여 그래프 만들기](create-graph-gremlin-console.md) | 3.2.0 + |
 
-- 사람: 그래프에는 Robin, Thomas 및 Ben 세 사람이 있음
-- 관심 분야: 관심 있는 분야로 이 예제에서는 축구 게임
-- 디바이스 사람들이 사용하는 디바이스
-- 운영 체제: 디바이스가 실행되는 운영 체제
-
-위 엔터티 간 관계는 다음 에지 유형/레이블을 통해 나타냅니다.
-
-- Knows: 예: “Thomas knows Robin”
-- Interested: 그래프에서 사람의 관심 분야를 나타내는 데 사용합니다(예: “Ben is interested in Football”).
-- RunsOS: 노트북에서 Windows OS가 실행됩니다.
-- Uses: 사람이 사용하는 디바이스를 나타냅니다. 예를 들어 Robin은 일련 번호가 77인 Motorola 휴대폰을 사용합니다.
-
-[Gremlin 콘솔](https://tinkerpop.apache.org/docs/3.3.2/reference/#gremlin-console)을 사용하여 이 그래프에 대해 일부 작업을 실행해 보겠습니다. 또한 원하는 플랫폼(Java, Node.js, Python 또는 .NET)에서 Gremlin 드라이버를 사용하여 이러한 작업을 수행할 수도 있습니다.  Azure Cosmos DB에서 지원되는 기능을 살펴보기 전에 구문에 익숙해질 수 있는 몇 가지 예제를 확인해 보겠습니다.
-
-먼저 CRUD를 살펴보겠습니다. 다음 Gremlin 문은 "Thomas" 꼭짓점을 그래프에 삽입합니다.
-
-```java
-:> g.addV('person').property('id', 'thomas.1').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44)
-```
-
-그런 후 다음 Gremlin 문은 Thomas와 Robin 사이에 "knows" 에지를 삽입합니다.
-
-```java
-:> g.V('thomas.1').addE('knows').to(g.V('robin.1'))
-```
-
-다음 쿼리는 이름의 내림차순으로 "person" 꼭짓점을 반환합니다.
-```java
-:> g.V().hasLabel('person').order().by('firstName', decr)
-```
-
-그래프의 강점은 "Thomas의 친구들은 어떤 운영 체제를 사용하는가?"와 같은 질문에 답변해야 할 경우에 잘 나타납니다. 다음과 같은 Gremlin 순회를 실행하여 그래프에서 해당 정보를 가져올 수 있습니다.
-
-```java
-:> g.V('thomas.1').out('knows').out('uses').out('runsos').group().by('name').by(count())
-```
-이제 Azure Cosmos DB에서 Gremlin 개발자에게 제공하는 기능을 살펴보겠습니다.
-
-## <a name="gremlin-features"></a>Gremlin 기능
+## <a name="supported-graph-objects"></a>지원되는 그래프 개체
 TinkerPop은 광범위한 그래프 기술을 지원하는 표준입니다. 따라서 그래프 공급자가 제공하는 기능을 설명하기 위한 표준 용어를 포함합니다. Azure Cosmos DB는 여러 서버 또는 클러스터에서 분할될 수 있는 지속적이고 높은 동시성을 갖는 쓰기 가능한 그래프 데이터베이스를 제공합니다. 
 
 다음 표에는 Azure Cosmos DB를 통해 구현되는 TinkerPop 기능이 나와 있습니다. 
@@ -128,7 +94,7 @@ Azure Cosmos DB는 Gremlin 작업의 결과를 반환할 때 [GraphSON 형식](h
 | 자산 | 설명 | 
 | --- | --- | --- |
 | `id` | 꼭짓점의 ID입니다. 고유해야 합니다(해당되는 경우 `_partition` 값과 조합). 값이 제공되지 않으면 GUID가 자동으로 제공됩니다. | 
-| `label` | 꼭짓점의 레이블입니다. 엔터티 형식을 설명하는 데 사용됩니다. |
+| `label` | 꼭짓점의 레이블입니다. 이 속성은 엔터티 형식을 설명하는 데 사용됩니다. |
 | `type` | 비그래프 문서의 꼭짓점을 구별하는 데 사용됩니다. |
 | `properties` | 꼭짓점과 연결된 사용자 정의 속성의 모음입니다. 각 속성에는 값이 여러 개 있을 수 있습니다. |
 | `_partition` | 꼭짓점의 파티션 키입니다. [그래프 분할](graph-partitioning.md)에 사용됩니다. |
@@ -184,12 +150,12 @@ Azure Cosmos DB는 Gremlin 작업의 결과를 반환할 때 [GraphSON 형식](h
 | `sample` | 순회의 결과를 샘플링하는 데 사용됩니다. | [sample 단계](https://tinkerpop.apache.org/docs/3.3.2/reference/#sample-step) |
 | `select` | 순회의 결과를 투영하는 데 사용됩니다. |  [select 단계](https://tinkerpop.apache.org/docs/3.3.2/reference/#select-step) |
 | `store` | 순회의 비차단 집계에 사용됩니다. | [store 단계](https://tinkerpop.apache.org/docs/3.3.2/reference/#store-step) |
-| `TextP.startingWith(string)` | 문자열 필터링 함수. 이 함수는 `has()` 단계에서 특정 문자열의 시작 부분이 포함된 속성을 검색하는 조건자로 사용됩니다. | [TextP 조건자](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.endingWith(string)` |  문자열 필터링 함수. 이 함수는 `has()` 단계에서 특정 문자열의 끝 부분이 포함된 속성을 검색하는 조건자로 사용됩니다. | [TextP 조건자](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.containing(string)` | 문자열 필터링 함수. 이 함수는 `has()` 단계에서 특정 문자열의 내용이 포함된 속성을 검색하는 조건자로 사용됩니다. | [TextP 조건자](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.notStartingWith(string)` | 문자열 필터링 함수. 이 함수는 `has()` 단계에서 특정 문자열로 시작하지 않는 속성을 검색하는 조건자로 사용됩니다. | [TextP 조건자](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.notEndingWith(string)` | 문자열 필터링 함수. 이 함수는 `has()` 단계에서 특정 문자열로 끝나지 않는 속성을 검색하는 조건자로 사용됩니다. | [TextP 조건자](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.notContaining(string)` | 문자열 필터링 함수. 이 함수는 `has()` 단계에서 특정 문자열이 포함되지 않은 속성을 검색하는 조건자로 사용됩니다. | [TextP 조건자](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.startingWith(string)` | 문자열 필터링 함수. 이 함수는 `has()` 단계에서 특정 문자열의 시작 부분이 포함된 속성을 검색하는 조건자로 사용됩니다. | [TextP 조건자](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.endingWith(string)` |  문자열 필터링 함수. 이 함수는 `has()` 단계에서 특정 문자열의 끝 부분이 포함된 속성을 검색하는 조건자로 사용됩니다. | [TextP 조건자](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.containing(string)` | 문자열 필터링 함수. 이 함수는 `has()` 단계에서 특정 문자열의 내용이 포함된 속성을 검색하는 조건자로 사용됩니다. | [TextP 조건자](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.notStartingWith(string)` | 문자열 필터링 함수. 이 함수는 `has()` 단계에서 특정 문자열로 시작하지 않는 속성을 검색하는 조건자로 사용됩니다. | [TextP 조건자](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.notEndingWith(string)` | 문자열 필터링 함수. 이 함수는 `has()` 단계에서 특정 문자열로 끝나지 않는 속성을 검색하는 조건자로 사용됩니다. | [TextP 조건자](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.notContaining(string)` | 문자열 필터링 함수. 이 함수는 `has()` 단계에서 특정 문자열이 포함되지 않은 속성을 검색하는 조건자로 사용됩니다. | [TextP 조건자](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
 | `tree` | 꼭짓점에서의 경로를 트리로 집계합니다. | [tree 단계](https://tinkerpop.apache.org/docs/3.3.2/reference/#tree-step) |
 | `unfold` | 반복기를 단계로 언롤합니다.| [unfold 단계](https://tinkerpop.apache.org/docs/3.3.2/reference/#unfold-step) |
 | `union` | 여러 순회의 결과를 병합합니다.| [union 단계](https://tinkerpop.apache.org/docs/3.3.2/reference/#union-step) |
@@ -199,5 +165,5 @@ Azure Cosmos DB는 Gremlin 작업의 결과를 반환할 때 [GraphSON 형식](h
 Azure Cosmos DB에서 제공하는 쓰기 최적화 엔진은 기본적으로 꼭짓점 및 에지 내의 모든 속성에 대한 자동 인덱싱을 지원합니다. 따라서 필터가 있는 쿼리, 범위 쿼리, 속성에 대한 정렬 또는 집계가 인덱스에서 처리되고 효율적으로 제공됩니다. Azure Cosmos DB에서 인덱싱이 작동하는 방식에 대한 자세한 내용은 [스키마 독립적 인덱싱](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [SDK를 사용하여](create-graph-dotnet.md) 그래프 응용 프로그램 빌드 시작 
+* [SDK를 사용하여](create-graph-dotnet.md) 그래프 애플리케이션 빌드 시작 
 * Azure Cosmos DB에서 [그래프 지원](graph-introduction.md)에 대해 알아보기

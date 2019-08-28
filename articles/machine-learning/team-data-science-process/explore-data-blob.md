@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3c399491f0a2048fe924e9ed9600dd5ce3899ca2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 23fef994d01917f5f120c7fcb80871f6f2c82ab2
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60344651"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358593"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>pandas를 사용하여 Azure Blob Storage의 데이터 탐색
 
@@ -24,10 +24,10 @@ ms.locfileid: "60344651"
 
 이 작업은 [팀 데이터 과학 프로세스](overview.md)의 단계입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 이 문서에서는 사용자가 다음 작업을 수행한 것으로 가정합니다.
 
-* Azure 저장소 계정을 만들었습니다. 지침이 필요한 경우 [Azure Storage 계정 만들기](../../storage/common/storage-quickstart-create-account.md)를 참조하세요.
+* Azure Storage 계정을 만들었습니다. 지침이 필요한 경우 [Azure Storage 계정 만들기](../../storage/common/storage-quickstart-create-account.md)를 참조하세요.
 * Azure Blob Storage 계정에 데이터를 저장합니다. 지침이 필요한 경우 [Azure Storage에서 데이터 이동](../../storage/common/storage-moving-data.md)
 
 ## <a name="load-the-data-into-a-pandas-dataframe"></a>pandas DataFrame에 데이터 로드
@@ -56,7 +56,7 @@ print(("It takes %s seconds to download "+blobname) % (t2 - t1))
 1. 다운로드한 파일에서 pandas DataFrame으로 데이터를 읽습니다.
 
 ```python
-#LOCALFILE is the file path
+# LOCALFILE is the file path
 dataframe_blobdata = pd.read_csv(LOCALFILE)
 ```
 
@@ -115,7 +115,8 @@ dataframe_blobdata_noNA.shape
 누락된 값을 대체하는 또 다른 방법으로 mode 함수가 있습니다.
 
 ```python
-dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})
+dataframe_blobdata_mode = dataframe_blobdata.fillna(
+    {'<column_name>': dataframe_blobdata['<column_name>'].mode()[0]})
 ```
 
 1. 가변 bin을 사용하여 **히스토그램** 플롯을 만들고 변수 분포 그리기
@@ -129,9 +130,9 @@ np.log(dataframe_blobdata['<column_name>']+1).hist(bins=50)
 1. 산점도 또는 기본 제공 상관관계 함수를 사용하여 변수 간의 **상관관계** 를 살펴봅니다.
 
 ```python
-#relationship between column_a and column_b using scatter plot
+# relationship between column_a and column_b using scatter plot
 plt.scatter(dataframe_blobdata['<column_a>'], dataframe_blobdata['<column_b>'])
 
-#correlation between column_a and column_b
+# correlation between column_a and column_b
 dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 ```

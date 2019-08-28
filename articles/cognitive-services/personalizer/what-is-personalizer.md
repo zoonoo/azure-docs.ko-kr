@@ -1,21 +1,21 @@
 ---
 title: Personalizer란?
 titleSuffix: Azure Cognitive Services
-description: Azure Personalizer는 사용자에게 표시할 최상의 환경을 선택할 수 있는 클라우드 기반 API 서비스로, 사용자의 실시간 동작을 통해 학습합니다.
+description: Personalizer는 사용자에게 표시할 최상의 환경을 선택할 수 있는 클라우드 기반 API 서비스로, 사용자의 실시간 동작을 통해 학습합니다.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
-ms.author: edjez
-ms.openlocfilehash: 7eb85aa38815b8fcdfbe68518122563e1b579e17
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.author: diberry
+ms.openlocfilehash: 99750971e11171c0b315cac38089c216d42c7ba6
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150408"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663657"
 ---
 # <a name="what-is-personalizer"></a>Personalizer란?
 
@@ -29,14 +29,14 @@ Azure Personalizer는 사용자에게 표시할 최상의 환경을 선택할 �
 
 ## <a name="how-does-personalizer-work"></a>Personalizer의 작동 원리
 
-Personalizer는 기계 학습 모델을 사용하여 컨텍스트에서 가장 높은 순위를 지정할 작업을 검색합니다. 클라이언트 애플리케이션은 가능한 작업 목록 및 해당 정보와 컨텍스트 정보를 제공하며, 여기에는 사용자, 디바이스 등에 대한 정보가 포함될 수 있습니다. Personalizer는 수행할 작업을 결정합니다. 클라이언트 애플리케이션은 선택된 작업을 사용할 때 Personalizer에 보상 점수의 형태로 피드백을 제공합니다. 피드백 루프가 완료되면 Personalizer는 향후 순위에 사용되는 자체 모델을 자동으로 업데이트합니다.
+Personalizer는 기계 학습 모델을 사용하여 컨텍스트에서 가장 높은 순위를 지정할 작업을 검색합니다. 클라이언트 애플리케이션은 가능한 작업 목록 및 해당 정보와 컨텍스트 정보를 제공하며, 여기에는 사용자, 디바이스 등에 대한 정보가 포함될 수 있습니다. Personalizer는 수행할 작업을 결정합니다. 클라이언트 애플리케이션은 선택된 작업을 사용할 때 Personalizer에 보상 점수의 형태로 피드백을 제공합니다. 피드백을 받은 후 Personalizer는 향후 순위에 사용되는 자체 모델을 자동으로 업데이트합니다.
 
 ## <a name="how-do-i-use-the-personalizer"></a>Personalizer를 사용하려면 어떻게 할까요?
 
 ![Personalizer를 사용하여 사용자에게 표시할 비디오 선택](media/what-is-personalizer/personalizer-example-highlevel.png)
 
 1. 앱에서 개인 설정할 환경을 선택합니다.
-1. Azure Portal에서 개인 설정 서비스를 만들고 구성합니다.
+1. Azure Portal에서 개인 설정 서비스의 인스턴스를 만들고 구성합니다. 각 인스턴스는 Personalizer 루프입니다.
 1. SDK를 사용하여 사용자에 대한 정보(_기능_)와 콘텐츠(_작업_)를 통해 Personalizer를 호출합니다. Personalizer를 사용하기 전에 깨끗하고 레이블이 지정된 데이터를 제공할 필요가 없습니다. 
 1. 클라이언트 애플리케이션에서, Personalizer가 선택한 작업을 사용자에게 표시합니다.
 1. SDK를 사용하여 사용자가 Personalizer의 작업을 선택했는지 여부를 나타내는 피드백을 Personalizer에 제공합니다. 이것이 _보상 점수_이며, 일반적으로 -1부터 1 사이입니다.

@@ -1,5 +1,5 @@
 ---
-title: 단순 엔터티, 구 목록
+title: 단순 엔터티, 구문 목록 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 이 자습서에서는 단순 엔터티를 사용하여 발화에서 배포 작업 이름의 기계 학습 데이터를 추출합니다. 추출 정확도를 높이려면 간단한 엔터티에 특정된 용어의 구 목록을 추가합니다.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/01/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: ea9a2df1f06ba6836ef88bc57dc3f95fd31e1ee9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1b731d8000e748813649ea32c91b9566a8bc245a
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66124203"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648615"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>자습서: 단순 엔터티 및 구 목록을 사용하여 이름 추출
 
@@ -58,7 +58,7 @@ ms.locfileid: "66124203"
 |엔지니어링 직위에 내 이력서를 제출합니다.|엔지니어링|
 |123456 직무에 대한 지원서를 작성합니다.|123456|
 
-이름은 명사, 동사 또는 여러 단어로 구성된 구일 수 있으므로 직무 이름을 판별하기가 어렵습니다. 예: 
+이름은 명사, 동사 또는 여러 단어로 구성된 구일 수 있으므로 직무 이름을 판별하기가 어렵습니다. 예:
 
 |교육|
 |--|
@@ -139,7 +139,7 @@ ms.locfileid: "66124203"
 
     한 의도에 다른 의도보다 더 많은 예제 발언이 있는 경우 해당 의도의 예측된 의도 점수가 가장 높을 가능성이 많습니다. 
 
-## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>의도에 대한 변경 내용을 테스트할 수 있도록 앱 학습시키기 
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>의도의 변경사항을 테스트할 수 있도록 앱 학습 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
@@ -229,7 +229,7 @@ Azure-Samples GitHub 리포지토리에서 [jobs-phrase-list.csv](https://github
 
 1. **새 구 목록 만들기**를 선택합니다. 
 
-1. 새 구 목록의 이름을 `JobNames`로 지정하고, **값** 텍스트 상자에 jobs-phrase-list.csv의 목록을 복사합니다. Enter 키를 선택합니다. 
+1. 새 구 목록의 이름을 `JobNames`로 지정하고, **값** 텍스트 상자에 jobs-phrase-list.csv의 목록을 복사합니다.
 
     [![새 구 목록 만들기 대화 상자 팝업의 스크린샷](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "새 구 목록 만들기 대화 상자 팝업의 스크린샷")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
@@ -237,7 +237,7 @@ Azure-Samples GitHub 리포지토리에서 [jobs-phrase-list.csv](https://github
 
     이러한 값은 작업에 대해 동의어로 처리되므로 **서로 교환 가능한 값**을 선택해야 합니다. 교환 가능하고 교환 불가능한 [구 목록 개념](luis-concept-feature.md#how-to-use-phrase-lists)에 대해 자세히 알아보세요.
 
-1. **저장**을 선택하여 구 목록을 활성화합니다.
+1. **완료**를 선택하여 구 목록을 활성화합니다.
 
     [![구 목록 값 상자에 단어가 포함된 새 구 목록 만들기 대화 상자 팝업의 스크린샷](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "구 목록 값 상자에 단어가 포함된 새 구 목록 만들기 대화 상자 팝업의 스크린샷")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 

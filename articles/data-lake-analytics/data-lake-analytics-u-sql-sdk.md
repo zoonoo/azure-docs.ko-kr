@@ -108,7 +108,7 @@ SDK directory\build\runtime에서 LocalRunHelper.exe는 일반적으로 사용�
 
 ### <a name="environment-variable-configuring"></a>환경 변수 구성
 
-U-SQL 로컬 실행을 위해서는 지정된 데이터 루트가 로컬 저장소 계정으로 필요하고, 종속성에 대해 지정된 CppSDK 경로가 필요합니다. 명령줄에서 인수를 설정하고 그에 대한 환경 변수를 설정할 수 있습니다.
+U-SQL 로컬 실행을 위해서는 지정된 데이터 루트가 로컬 스토리지 계정으로 필요하고, 종속성에 대해 지정된 CppSDK 경로가 필요합니다. 명령줄에서 인수를 설정하고 그에 대한 환경 변수를 설정할 수 있습니다.
 
 - **SCOPE_CPP_SDK** 환경 변수를 설정합니다.
 

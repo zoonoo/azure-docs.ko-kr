@@ -1,34 +1,33 @@
 ---
 title: Azure Storage 메트릭 마이그레이션 | Microsoft Docs
 description: Azure Monitor에 의해 관리되는 새 메트릭으로 이전 메트릭을 마이그레이션하는 방법에 알아봅니다.
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 58ac15c1aba715c9a5b67e723401b531e76608b2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 537369c9466b1083723642ec9e93fcdf25056c5e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153589"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855334"
 ---
 # <a name="azure-storage-metrics-migration"></a>Azure Storage 메트릭 마이그레이션
 
-Azure에서 모니터 환경을 통합하는 전략에 맞춰 Azure Storage는 메트릭을 Azure Monitor 플랫폼에 통합합니다. 나중에 Azure 정책에 따라 조기 통지를 통해 이전 메트릭의 서비스가 종료될 예정입니다. 이전 저장소 메트릭을 사용하는 경우 메트릭 정보를 유지하기 위해 서비스 종료 날짜 이전에 마이그레이션해야 합니다.
+Azure에서 모니터 환경을 통합하는 전략에 맞춰 Azure Storage는 메트릭을 Azure Monitor 플랫폼에 통합합니다. 나중에 Azure 정책에 따라 조기 통지를 통해 이전 메트릭의 서비스가 종료될 예정입니다. 이전 스토리지 메트릭을 사용하는 경우 메트릭 정보를 유지하기 위해 서비스 종료 날짜 이전에 마이그레이션해야 합니다.
 
 이 문서에서는 이전 메트릭에서 새 메트릭으로 마이그레이션하는 방법을 보여 줍니다.
 
 ## <a name="understand-old-metrics-that-are-managed-by-azure-storage"></a>Azure Storage에서 관리하는 이전 메트릭 이해
 
-Azure Storage는 이전 메트릭 값을 수집하고, 집계하며, 동일한 스토리지 계정 내의 $Metric 테이블에 저장합니다. Azure Portal을 사용하여 모니터링 차트를 설정할 수 있습니다. 또한 Azure Storage SDK를 사용하여 스키마를 기반으로 하는 $Metric 테이블에서 데이터를 읽을 수 있습니다. 자세한 정보는 [저장소 분석](./storage-analytics.md)을 참조하세요.
+Azure Storage는 이전 메트릭 값을 수집하고, 집계하며, 동일한 스토리지 계정 내의 $Metric 테이블에 저장합니다. Azure Portal을 사용하여 모니터링 차트를 설정할 수 있습니다. 또한 Azure Storage SDK를 사용하여 스키마를 기반으로 하는 $Metric 테이블에서 데이터를 읽을 수 있습니다. 자세한 정보는 [스토리지 분석](./storage-analytics.md)을 참조하세요.
 
 이전 메트릭은 Azure Blob Storage에 대한 용량 메트릭만 제공합니다. 이전 메트릭은 Blob Storage, Table Storage, Azure 파일 및 Queue Storage에 대한 트랜잭션 메트릭을 제공합니다.
 
-이전 메트릭은 플랫 스키마로 설계되었습니다. 이 설계에서는 메트릭을 트리거하는 트래픽 패턴이 없는 경우 영(0) 메트릭 값이 생성됩니다. 예를 들어 라이브 트래픽에서 저장소 계정으로 서버 시간 제한 오류를 받지 않는 경우에도 **ServerTimeoutError** 값은 $Metric 테이블에서 0으로 설정됩니다.
+이전 메트릭은 플랫 스키마로 설계되었습니다. 이 설계에서는 메트릭을 트리거하는 트래픽 패턴이 없는 경우 영(0) 메트릭 값이 생성됩니다. 예를 들어 라이브 트래픽에서 스토리지 계정으로 서버 시간 제한 오류를 받지 않는 경우에도 **ServerTimeoutError** 값은 $Metric 테이블에서 0으로 설정됩니다.
 
 ## <a name="understand-new-metrics-managed-by-azure-monitor"></a>Azure Monitor에서 관리하는 새 메트릭 이해
 
@@ -109,13 +108,13 @@ Azure Storage는 이전 메트릭 값을 수집하고, 집계하며, 동일한 �
 
 ### <a name="how-should-i-migrate-existing-alert-rules"></a>기존 경고 규칙을 마이그레이션하려면 어떻게 해야 할까요?
 
-이전 저장소 메트릭을 기반으로 하는 클래식 경고 규칙을 만든 경우 새 메트릭 스키마를 기반으로 하는 새 경고 규칙을 만들어야 합니다.
+이전 스토리지 메트릭을 기반으로 하는 클래식 경고 규칙을 만든 경우 새 메트릭 스키마를 기반으로 하는 새 경고 규칙을 만들어야 합니다.
 
-### <a name="is-new-metric-data-stored-in-the-same-storage-account-by-default"></a>새 메트릭 데이터는 기본적으로 동일한 저장소 계정에 저장되나요?
+### <a name="is-new-metric-data-stored-in-the-same-storage-account-by-default"></a>새 메트릭 데이터는 기본적으로 동일한 스토리지 계정에 저장되나요?
 
-번호 메트릭 데이터를 저장소 계정에 보관하려면 [Azure Monitor 진단 설정 API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate)를 사용합니다.
+번호 메트릭 데이터를 스토리지 계정에 보관하려면 [Azure Monitor 진단 설정 API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate)를 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)
-* [Azure Monitor의 저장소 메트릭](./storage-metrics-in-azure-monitor.md)
+* [Azure Monitor의 스토리지 메트릭](./storage-metrics-in-azure-monitor.md)

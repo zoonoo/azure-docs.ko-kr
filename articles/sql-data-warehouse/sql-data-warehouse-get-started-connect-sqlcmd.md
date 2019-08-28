@@ -2,7 +2,7 @@
 title: Azure SQL Data Warehouse sqlcmd에 연결 | Microsoft Azure
 description: sqlcmd 명령줄 유틸리티를 사용하여 Azure SQL Data Warehouse에 연결하고 쿼리합니다.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 72760c5123703a664695c1be4d286a38e96ecc3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f3b93660fb9f8f3b0bfdddc37105b9e998ed9eee
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873315"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479497"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>sqlcmd를 사용하여 SQL Data Warehouse에 연결
 > [!div class="op_single_selector"]
@@ -27,10 +27,10 @@ ms.locfileid: "65873315"
 > 
 > 
 
-[sqlcmd][sqlcmd] 명령줄 유틸리티를 사용하여 Azure SQL Data Warehouse에 연결하고 쿼리합니다.  
+[Sqlcmd][sqlcmd] 명령줄 유틸리티를 사용 하 여 Azure SQL Data Warehouse에 연결 하 고 쿼리 합니다.  
 
 ## <a name="1-connect"></a>1. 연결
-[sqlcmd][sqlcmd]를 시작하려면 명령 프롬프트를 열고 SQL Data Warehouse 데이터베이스에 대한 연결 문자열 뒤에 **sqlcmd**를 입력합니다. 연결 문자열에는 다음 매개 변수가 필요합니다.
+[sqlcmd][sqlcmd]를 시작하려면 명령 프롬프트를 열고 SQL Data Warehouse 데이터베이스에 대한 연결 문자열 뒤에 **sqlcmd** 를 입력합니다. 연결 문자열에는 다음 매개 변수가 필요합니다.
 
 * **서버(-S):** `<`서버 이름`>`.database.windows.net 형식의 서버
 * **데이터베이스(-D):** 데이터베이스 이름
@@ -62,7 +62,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 > 
 > 
 
-## <a name="2-query"></a>2. 쿼리
+## <a name="2-query"></a>2. Query
 연결 후, 인스턴스에 대해 지원되는 모든 TRANSACT-SQL 문을 실행할 수 있습니다.  이 예에서 쿼리는 대화형 모드로 전송됩니다.
 
 ```sql
@@ -83,7 +83,7 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 ```
 
 ## <a name="next-steps"></a>다음 단계
-sqlcmd에서 사용할 수 있는 옵션에 대한 세부 정보는 [sqlcmd 설명서][sqlcmd]를 참조하세요.
+Sqlcmd에서 사용할 수 있는 옵션에 대 한 자세한 내용은 [sqlcmd 설명서][sqlcmd] 를 참조 하세요.
 
 <!--Image references-->
 

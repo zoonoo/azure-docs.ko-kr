@@ -1,6 +1,6 @@
 ---
 title: '자습서: Bing Autosuggest API를 사용하여 자동 제안 결과 가져오기'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Bing Autosuggest를 사용하는 방법을 보여 줍니다.
 services: cognitive-services
 author: v-jaswel
@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: tutorial
 ms.date: 02/20/2019
-ms.author: v-jaswel
-ms.openlocfilehash: 8a338eb6ea3dfeea2027d44487138f290f6c8803
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.author: nitinme
+ms.openlocfilehash: 9c5d86c6af5e8dc26dbe6877e8b34baa3cd577c2
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010381"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405241"
 ---
 # <a name="tutorial-get-search-suggestions-on-a-web-page"></a>자습서: 웹 페이지에서 검색 제안 가져오기
 
@@ -66,7 +66,7 @@ HTML 헤더 정보를 추가하고 다음과 같이 스크립트 섹션을 시�
 
 ## <a name="getsubscriptionkey-function"></a>getSubscriptionKey 함수
 
-getSubscriptionKey 함수는 Bing Autosuggest API 키를 반환합니다. 로컬 저장소(쿠키)에서 키를 검색하거나, 필요한 경우 사용자에게 확인합니다.
+getSubscriptionKey 함수는 Bing Autosuggest API 키를 반환합니다. 로컬 스토리지(즉, 쿠키)에서 데이터를 검색하거나 필요한 경우 사용자에게 묻는 메시지를 표시합니다.
 
 getSubscriptionKey 함수를 시작하고 쿠키 이름을 다음과 같이 선언합니다.
 

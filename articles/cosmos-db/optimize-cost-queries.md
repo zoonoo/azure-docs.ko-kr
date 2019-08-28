@@ -4,14 +4,14 @@ description: 쿼리의 요청 단위 요금을 평가하고 성능 및 비용 �
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 08/01/2019
 ms.author: rimman
-ms.openlocfilehash: 2d1ac054abf4bb8228bdb5cc20d79cb751af7a33
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bdf223e60015c4e5d96416f95c410854a057c02c
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967445"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717015"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 쿼리 비용 최적화
 
@@ -33,7 +33,7 @@ Azure Cosmos DB의 쿼리는 일반적으로 처리량 측면에서 가장 빠�
 
 일부 데이터를 Azure Cosmos 컨테이너에 저장한 경우 Azure Portal의 Data Explorer를 사용하여 쿼리를 생성하고 실행할 수 있습니다. 또한 Data Explorer를 사용하여 쿼리 비용을 확인할 수도 있습니다. 이 방법을 사용하면 시스템에서 지원하는 일반 쿼리 및 작업과 관련된 실제 요금을 파악할 수 있습니다.
 
-또한 SDK를 사용하여 쿼리 비용을 프로그래밍 방식으로 확인할 수도 있습니다. 만들기, 업데이트 또는 삭제와 같은 작업의 오버헤드를 측정하려면 REST API를 사용하여 `x-ms-request-charge` 헤더를 조사합니다. .NET 또는 Java SDK를 사용 하는 경우는 `RequestCharge` 속성이 요청 요금을 가져올 해당 속성 및이 속성은 ResourceResponse 또는 FeedResponse 내에 존재 합니다.
+또한 SDK를 사용하여 쿼리 비용을 프로그래밍 방식으로 확인할 수도 있습니다. 만들기, 업데이트 또는 삭제와 같은 작업의 오버헤드를 측정하려면 REST API를 사용하여 `x-ms-request-charge` 헤더를 조사합니다. .Net 또는 Java SDK `RequestCharge` 를 사용 하는 경우 속성은 요청 요금을 얻기 위한 동일한 속성 이며,이 속성은 ResourceResponse 또는 FeedResponse 내에 있습니다.
 
 ```csharp
 // Measure the performance (request units) of writes 
@@ -53,13 +53,13 @@ while (queryable.HasMoreResults)
 
 ## <a name="factors-influencing-request-unit-charge-for-a-query"></a>쿼리의 요청 단위 요금에 영향을 주는 요인
 
-쿼리의 요청 단위는 여러 가지 요인에 따라 달라집니다. 쿼리 컴파일 인덱스에 대 한 조회 수 등 세부 정보를 예를 들어 시간 Azure Cosmos 항목 수가 로드/반환 합니다. Azure Cosmos DB는 동일한 데이터에 대해 실행될 경우 동일한 쿼리가 항상 반복 실행에서 동일한 요청 단위 수를 사용하도록 보장합니다. 쿼리 실행 메트릭을 사용하는 쿼리 프로필은 요청 단위가 소비되는 적절한 방식을 제시합니다.  
+쿼리의 요청 단위는 여러 가지 요인에 따라 달라집니다. 예를 들어, 로드/반환 되는 Azure Cosmos 항목의 수, 인덱스에 대 한 조회 수, 쿼리 컴파일 시간 등에 대 한 정보를 표시 합니다. Azure Cosmos DB는 동일한 데이터에 대해 실행될 경우 동일한 쿼리가 항상 반복 실행에서 동일한 요청 단위 수를 사용하도록 보장합니다. 쿼리 실행 메트릭을 사용하는 쿼리 프로필은 요청 단위가 소비되는 적절한 방식을 제시합니다.  
 
 일부 경우에 페이징된 쿼리 실행에서 200개 및 429개의 응답 시퀀스와 가변 요청 단위를 볼 수 있습니다. 쿼리가 사용 가능한 RU에 따라 가능한 한 빠르게 실행되기 때문입니다. 쿼리 실행이 서버와 클라이언트 간에 여러 페이지/왕복으로 구분되는 것을 볼 수도 있습니다. 예를 들어, 10,000개 항목이 여러 페이지로 반환될 수 있으며, 해당 페이지에 대해 계산 기준으로 요금이 부과됩니다. 이러한 페이지에서 합계를 계산하는 경우 전체 쿼리의 경우와 동일한 수의 RU를 가져와야 합니다.  
 
 ## <a name="metrics-for-troubleshooting"></a>문제 해결을 위한 메트릭
 
-성능과 쿼리 및 UDF(사용자 정의 함수)에서 소비하는 처리량은 주로 함수 본문에 따라 달라집니다. UDF에서 쿼리 실행에 사용되는 시간 및 소비되는 RU 수를 확인하는 가장 쉬운 방법은 쿼리 메트릭을 사용하도록 설정하는 것입니다. .NET SDK를 사용 하는 경우 SDK에서 반환 되는 샘플 쿼리 메트릭은 다음과 같습니다.
+성능과 쿼리 및 UDF(사용자 정의 함수)에서 소비하는 처리량은 주로 함수 본문에 따라 달라집니다. UDF에서 쿼리 실행에 사용되는 시간 및 소비되는 RU 수를 확인하는 가장 쉬운 방법은 쿼리 메트릭을 사용하도록 설정하는 것입니다. .NET SDK를 사용 하는 경우 SDK에서 반환 된 샘플 쿼리 메트릭은 다음과 같습니다.
 
 ```bash
 Retrieved Document Count                 :               1              

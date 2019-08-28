@@ -44,7 +44,7 @@ ms.locfileid: "52970684"
 | 명령 | 메모 |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | 위치와 함께 리소스 그룹 만들기 |
-| [az storage accounts create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | 저장소 계정 만들기 |
+| [az storage accounts create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | 스토리지 계정 만들기 |
 | [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | 서버를 사용하지 않는 [소비 계획](../functions-scale.md#consumption-plan)에서 함수 앱을 만듭니다. |
 | [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#az-cosmosdb-create) | Azure Cosmos DB 데이터베이스를 만듭니다. |
 

@@ -9,18 +9,20 @@ ms.author: robreed
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 88e3c0514861da0bd11acffd26cced54717e4418
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: c10262e50fff2903d7caf242304145a2ab93dbcd
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478499"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69970610"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 실행
 
 Azure Automation에서 실행되는 Runbook과 Hybrid Runbook Worker에서 실행되는 Runbook은 구조상 차이점이 없습니다. 각 항목에서 사용하는 Runbook은 크게 다를 수 있습니다. Hybrid Runbook Worker를 대상으로 하는 Runbook은 일반적으로 로컬 컴퓨터 자체에서 리소스를 관리하거나 배포된 로컬 환경의 리소스에 맞게 리소스를 관리하기 때문에 이 차이점이 나타납니다. Azure Automation의 Runbook은 일반적으로 Azure 클라우드에서 리소스를 관리합니다.
 
-Hybrid Runbook Worker에서 실행할 Runbook을 작성하는 경우, 하이브리드 작업자를 호스팅하는 컴퓨터 내에서 Runbook을 편집하고 테스트해야 합니다. 호스트 컴퓨터에는 로컬 리소스를 관리하고 액세스하는 데 필요한 모든 PowerShell 모듈과 네트워크 액세스가 있습니다. Hybrid Worker 머신에서 Runbook이 테스트되면 Hybrid Worker에서 실행하는 데 사용할 수 있는 Azure Automation 환경에 업로드할 수 있습니다. Windows용 로컬 시스템 계정 또는 Linux용 특수 사용자 계정 `nxautomation`으로 실행되는 작업을 아는 것이 중요합니다. 이 동작은 Hybrid Runbook Worker의 Runbook을 작성할 때 미묘한 차이점을 추가할 수 있습니다. 자신의 Runbook을 작성하는 경우 이러한 변경 내용을 검토해야 합니다.
+Hybrid Runbook Worker에서 실행할 Runbook을 작성하는 경우, 하이브리드 작업자를 호스팅하는 컴퓨터 내에서 Runbook을 편집하고 테스트해야 합니다. 호스트 컴퓨터에는 로컬 리소스를 관리하고 액세스하는 데 필요한 모든 PowerShell 모듈과 네트워크 액세스가 있습니다. Hybrid Worker 머신에서 Runbook이 테스트되면 Hybrid Worker에서 실행하는 데 사용할 수 있는 Azure Automation 환경에 업로드할 수 있습니다. Windows용 로컬 시스템 계정 또는 Linux용 특수 사용자 계정 `nxautomation`으로 실행되는 작업을 아는 것이 중요합니다. Linux에서이는 `nxautomation` 계정에 모듈을 저장 하는 위치에 대 한 액세스 권한이 있는지 확인 하는 것을 의미 합니다. [Install-Module]() cmdlet을 사용 하는 `-Scope` 경우 매개 변수에 **AllUsers** 를 지정 하 여 `naxautomation` 계정에 액세스 권한이 있는지 확인 합니다.
+
+Linux의 PowerShell에 대 한 자세한 내용은 [Windows 이외의 플랫폼에서 powershell에 대 한 알려진 문제](https://docs.microsoft.com/powershell/scripting/whats-new/known-issues-ps6?view=powershell-6#known-issues-for-powershell-on-non-windows-platforms)를 참조 하세요.
 
 ## <a name="starting-a-runbook-on-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 시작
 
@@ -271,7 +273,7 @@ sudo gpg --generate-key
 
 GPG는 키 쌍을 만드는 단계를 안내합니다. 이름, 이메일 주소, 만료 시간, 암호를 제공하고 키가 생성될 때까지 머신에서 충분한 엔트로피를 기다려야 합니다.
 
-GPG 디렉터리가 sudo를 사용하여 생성되었으므로 소유자를 `nxautomation`으로 변경해야 합니다. 
+GPG 디렉터리가 sudo를 사용하여 생성되었으므로 소유자를 `nxautomation`으로 변경해야 합니다.
 
 다음 명령을 실행하여 소유자를 변경합니다.
 
@@ -312,3 +314,4 @@ gpg –-clear-sign <runbook name>
 * Runbook을 시작하는 데 사용할 수 있는 여러 가지 방법에 대해 자세히 알아보려면 [Azure Automation에서 Runbook 시작](automation-starting-a-runbook.md)을 참조하세요.
 * 텍스트 편집기를 사용하여 Azure Automation에서 PowerShell Runbook을 작업하기 위한 여러 가지 방법을 알아보려면 [Azure Automation에서 Runbook 편집](automation-edit-textual-runbook.md)을 참조하세요.
 * Runbook이 성공적으로 완료되지 않으면 [Runbook 실행 실패](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails)에 대한 문제 해결 가이드를 검토하세요.
+* 언어 참조 및 학습 모듈을 비롯 한 PowerShell에 대 한 자세한 내용은 [Powershell 문서](https://docs.microsoft.com/en-us/powershell/scripting/overview)를 참조 하세요.

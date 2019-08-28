@@ -1,5 +1,5 @@
 ---
-title: .NET을 사용하여 Media Services로 비디오 분석 - Azure | Microsoft Docs
+title: Azure Media Services로 비디오 분석 | Microsoft Docs
 description: Azure Media Services를 사용하여 비디오를 분석하려면 이 자습서의 단계를 따르십시오.
 services: media-services
 documentationcenter: ''
@@ -9,22 +9,25 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 04/21/2019
+ms.date: 06/19/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ead6fdc0ade4a24d162603b9dc3749726c0d8002
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: d31d102300cf23e068aee6bec9ea6d253e874dca
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415637"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653966"
 ---
-# <a name="tutorial-analyze-videos-with-media-services-v3-using-net"></a>자습서: .NET을 사용하여 Media Services v3에서 비디오 분석
+# <a name="tutorial-analyze-videos-with-media-services-v3"></a>자습서: Media Services v3으로 비디오 분석
+
+> [!NOTE]
+> 이 자습서에서 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) 예제를 사용하더라도 일반적인 단계는 [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) 또는 지원되는 기타 [SDK](media-services-apis-overview.md#sdks)에 대해 동일합니다.
 
 이 자습서는 Azure Media Services로 비디오를 분석하는 방법을 보여줍니다. 녹음/녹화한 비디오나 오디오 콘텐츠를 심층적으로 파악해야 하는 다양한 경우가 있을 수 있습니다. 예를 들어, 고객 만족도를 높이 달성하기 위해 음성을 텍스트로 변환하는 프로세스를 실행하여 고객 지원 기록을 인덱스 및 대시보드와 함께 검색 가능한 카탈로그로 변환할 수 있습니다. 그런 다음, 일반적인 불만 사항 목록 및 불만의 출처 및 기타 유용한 정보와 같은 비즈니스에 대한 인사이트를 파악할 수 있습니다.
 
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.    
-
+ 
 > [!div class="checklist"]
 > * 토픽에 설명된 샘플 앱 다운로드
 > * 지정된 비디오를 분석하는 코드 검사
@@ -83,8 +86,8 @@ Media Services v3에서는 Azure Storage API를 사용하여 파일을 업로드
 다음 함수는 아래와 같은 작업을 수행합니다.
 
 * Asset 만들기 
-* [저장소에 있는 자산 컨테이너](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container)에 대해 쓰기가 가능한 [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) 가져오기
-* SAS URL을 사용하여 저장소의 컨테이너에 파일 업로드
+* [스토리지에 있는 자산 컨테이너](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container)에 대해 쓰기가 가능한 [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) 가져오기
+* SAS URL을 사용하여 스토리지의 컨테이너에 파일 업로드
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateInputAsset)]
 
@@ -155,7 +158,7 @@ Ctrl+F5 키를 눌러 *AnalyzeVideos* 애플리케이션을 실행합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서에서 만든 Media Services 및 저장소 계정을 포함하여 리소스 그룹의 리소스가 더 이상 필요하지 않으면, 앞서 만든 리소스 그룹을 삭제합니다. 
+이 자습서에서 만든 Media Services 및 스토리지 계정을 포함하여 리소스 그룹의 리소스가 더 이상 필요하지 않으면, 앞서 만든 리소스 그룹을 삭제합니다. 
 
 다음 CLI 명령을 실행합니다.
 

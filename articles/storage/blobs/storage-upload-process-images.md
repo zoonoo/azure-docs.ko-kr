@@ -1,41 +1,39 @@
 ---
 title: Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드 | Microsoft Docs
 description: 웹앱에서 Azure Blob Storage를 사용하여 앱 데이터를 저장합니다.
-services: storage
 author: normesta
 ms.service: storage
-ms.devlang: dotnet
+ms.subservice: blobs
 ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: normesta
-ms.reviewer: seguler
-ms.custom: mvc
-ms.openlocfilehash: e5be86f9f7fbaedeb8fbb10b89926644dcf8aac2
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.reviewer: dineshm
+ms.openlocfilehash: 7185d118c9f4419713ebe1291dd55c44635f0c56
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835145"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68844943"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>자습서: Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드
 
 이 자습서는 시리즈의 1부입니다. 이 자습서에서는 Azure Storage 클라이언트 라이브러리를 사용하여 이미지를 스토리지 계정에 업로드하는 웹앱을 배포하는 방법에 대해 알아봅니다. 완료되면 Azure Storage에서 이미지를 저장 및 표시하는 웹앱이 갖추어집니다.
 
 # <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
-![Images 컨테이너 보기](media/storage-upload-process-images/figure2.png)
+![.NET 이미지 크기 조정 앱](media/storage-upload-process-images/figure2.png)
 
 # <a name="nodejs-v2-sdktabnodejs"></a>[Node.js V2 SDK](#tab/nodejs)
-![Images 컨테이너 보기](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![Node.js V2 이미지 크기 조정 앱](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 # <a name="nodejs-v10-sdktabnodejsv10"></a>[Node.js V10 SDK](#tab/nodejsv10)
-![Images 컨테이너 보기](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![Node.js V10 이미지 크기 조정 앱](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
 
 시리즈 1부에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 저장소 계정 만들기
+> * 스토리지 계정 만들기
 > * 컨테이너 만들기 및 사용 권한 설정
 > * 액세스 키 가져오기
 > * Azure에 웹앱 배포
@@ -60,7 +58,7 @@ CLI를 로컬로 설치하여 사용하려면 이 자습서에서 Azure CLI 버�
 az group create --name myResourceGroup --location southeastasia 
 ```
 
-## <a name="create-a-storage-account"></a>저장소 계정 만들기
+## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
 이 샘플은 Azure Storage 계정의 blob 컨테이너에 이미지를 업로드합니다. 저장소 계정은 Azure Storage 데이터 개체의 저장 및 액세스를 위한 고유한 네임스페이스를 제공합니다. [az storage account create](/cli/azure/storage/account) 명령을 사용하여 만든 리소스 그룹에 저장소 계정을 만듭니다.
 
@@ -211,7 +209,7 @@ AZURE_STORAGE_ACCOUNT_ACCESS_KEY=$blobStorageAccountKey
 
 **사진 업로드** 지역을 선택하여 파일을 선택 및 업로드하거나 파일을 해당 지역으로 끌어갑니다. 성공적으로 업로드되면 이미지가 사라집니다. **생성된 썸네일** 섹션은 이 항목의 뒷부분에서 테스트할 때까지 비어 있습니다.
 
-![ImageResizer 앱](media/storage-upload-process-images/figure1.png)
+![.NET 사진 업로드](media/storage-upload-process-images/figure1.png)
 
 샘플 코드에서 *Storagehelper.cs* 파일의 `UploadFiletoStorage` 작업은 [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync) 메서드를 통해 이미지를 스토리지 계정 내의 *images* 컨테이너에 업로드하는 데 사용됩니다. 다음 코드 샘플에는 `UploadFiletoStorage` 작업이 포함되어 있습니다.
 
@@ -254,12 +252,12 @@ public static async Task<bool> UploadFileToStorage(Stream fileStream, string fil
 
 **파일 선택**을 선택하여 파일을 선택한 다음, **이미지 업로드**를 클릭합니다. **생성된 썸네일** 섹션은 이 항목의 뒷부분에서 테스트할 때까지 비어 있습니다. 
 
-![이미지 업로드 앱](media/storage-upload-process-images/upload-app-nodejs.png)
+![Node.js V2 사진 업로드](media/storage-upload-process-images/upload-app-nodejs.png)
 
 샘플 코드에서 `post` 경로는 이미지를 BLOB 컨테이너에 업로드하는 일을 담당합니다. 이 경로는 모듈을 사용하여 업로드를 처리하는 데 유용합니다.
 
 - [multer](https://github.com/expressjs/multer)는 경로 처리기에 대한 업로드 전략을 구현합니다.
-- [into-stream](https://github.com/sindresorhus/into-stream)은 [createBlockBlobFromStream](https://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html)에서 요구하는 대로 버퍼를 스트림으로 변환합니다.
+- [into-stream](https://github.com/sindresorhus/into-stream)은 [createBlockBlobFromStream](https://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html) 에서 요구하는 대로 버퍼를 스트림으로 변환합니다.
 
 파일이 경로로 전송되면 파일이 Blob 컨테이너에 업로드될 때까지 파일의 내용이 메모리에 유지됩니다.
 
@@ -318,7 +316,7 @@ router.post('/', uploadStrategy, (req, res) => {
 
 **파일 선택**을 선택하여 파일을 선택한 다음, **이미지 업로드**를 클릭합니다. **생성된 썸네일** 섹션은 이 항목의 뒷부분에서 테스트할 때까지 비어 있습니다. 
 
-![이미지 업로드 앱](media/storage-upload-process-images/upload-app-nodejs.png)
+![Node.js V10 사진 업로드](media/storage-upload-process-images/upload-app-nodejs.png)
 
 샘플 코드에서 `post` 경로는 이미지를 BLOB 컨테이너에 업로드하는 일을 담당합니다. 이 경로는 모듈을 사용하여 업로드를 처리하는 데 유용합니다.
 
@@ -394,32 +392,32 @@ router.post('/', uploadStrategy, async (req, res) => {
 ```
 ---
 
-## <a name="verify-the-image-is-shown-in-the-storage-account"></a>저장소 계정에서 이미지가 표시되는지 확인합니다.
+## <a name="verify-the-image-is-shown-in-the-storage-account"></a>스토리지 계정에서 이미지가 표시되는지 확인합니다.
 
-[Azure Portal](https://portal.azure.com)에 로그인합니다. 왼쪽 메뉴에서 **저장소 계정**을 선택하고 저장소 계정의 이름을 선택합니다. **Blob Service** 아래에서 **Blob**을 선택한 다음, **images** 컨테이너를 선택합니다.
+[Azure Portal](https://portal.azure.com)에 로그인합니다. 왼쪽 메뉴에서 **스토리지 계정**을 선택하고 스토리지 계정의 이름을 선택합니다. **Blob Service** 아래에서 **Blob**을 선택한 다음, **images** 컨테이너를 선택합니다.
 
 컨테이너에 이미지가 표시되는지 확인합니다.
 
-![Images 컨테이너 보기](media/storage-upload-process-images/figure13.png)
+![Azure Portal 이미지 컨테이너 목록](media/storage-upload-process-images/figure13.png)
 
 ## <a name="test-thumbnail-viewing"></a>썸네일 보기 테스트
 
 썸네일 보기를 테스트하려면 이미지를 **thumbnails** 컨테이너에 업로드하여 앱에서 **thumbnails** 컨테이너를 읽을 수 있는지 확인합니다.
 
-[Azure Portal](https://portal.azure.com)에 로그인합니다. 왼쪽 메뉴에서 **저장소 계정**을 선택하고 저장소 계정의 이름을 선택합니다. **Blob Service**에서 **Blob**을 선택한 다음, **thumbnails** 컨테이너를 선택합니다. **업로드**를 선택하여 **blob 업로드** 창을 엽니다.
+[Azure Portal](https://portal.azure.com)에 로그인합니다. 왼쪽 메뉴에서 **스토리지 계정**을 선택하고 스토리지 계정의 이름을 선택합니다. **Blob Service**에서 **Blob**을 선택한 다음, **thumbnails** 컨테이너를 선택합니다. **업로드**를 선택하여 **blob 업로드** 창을 엽니다.
 
 파일 선택기를 사용하여 파일을 선택하고, **업로드**를 선택합니다.
 
 앱으로 다시 이동하여 **썸네일** 컨테이너에 업로드된 이미지가 보이는지 확인합니다.
 
 # <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
-![Images 컨테이너 보기](media/storage-upload-process-images/figure2.png)
+![새 이미지가 표시된 .NET 이미지 크기 조정 앱](media/storage-upload-process-images/figure2.png)
 
 # <a name="nodejs-v2-sdktabnodejs"></a>[Node.js V2 SDK](#tab/nodejs)
-![Images 컨테이너 보기](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![새 이미지가 표시된 Node.js V2 이미지 크기 조정 앱](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 # <a name="nodejs-v10-sdktabnodejsv10"></a>[Node.js V10 SDK](#tab/nodejsv10)
-![Images 컨테이너 보기](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![새 이미지가 표시된 Node.js V10 이미지 크기 조정 앱](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
 

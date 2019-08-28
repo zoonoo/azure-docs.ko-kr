@@ -28,7 +28,7 @@ ms.locfileid: "60946575"
 또한 이 문서에서는 확장이 제공하는 다양한 명령의 사용법과 확장의 요구 사항 및 설치에 대해서도 간단히 설명합니다. 
 
 > [!IMPORTANT]
-> Service Fabric Java 애플리케이션은 Windows 컴퓨터에서 개발할 수 있지만 Azure Linux 클러스터에만 배포할 수 있습니다. Windows에서는 Java 응용 프로그램을 디버그할 수 없습니다.
+> Service Fabric Java 애플리케이션은 Windows 컴퓨터에서 개발할 수 있지만 Azure Linux 클러스터에만 배포할 수 있습니다. Windows에서는 Java 애플리케이션을 디버그할 수 없습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -67,14 +67,14 @@ Java 개발을 위해서는 다음 필수 구성 요소를 설치해야 합니�
 ## <a name="commands"></a>명령
 VS Code용 Service Fabric Reliable Services 확장은 개발자가 Service Fabric 프로젝트를 만들고 배포하는 데 도움이 되는 많은 명령을 제공합니다. `(Ctrl + Shift + p)`을 누르거나, 입력 표시줄에 명령 이름을 입력하거나, 프롬프트 목록에서 원하는 명령을 선택하여 **명령 팔레트**에서 명령을 호출할 수 있습니다. 
 
-* Service Fabric의 경우: 응용 프로그램 만들기 
+* Service Fabric의 경우: 애플리케이션 만들기 
 * Service Fabric의 경우: 응용 프로그램 게시 
 * Service Fabric의 경우: 응용 프로그램 배포 
 * Service Fabric의 경우: 응용 프로그램 제거  
 * Service Fabric의 경우: 응용 프로그램 빌드 
 * Service Fabric의 경우: 응용 프로그램 정리 
 
-### <a name="service-fabric-create-application"></a>Service Fabric의 경우: 응용 프로그램 만들기
+### <a name="service-fabric-create-application"></a>Service Fabric의 경우: 애플리케이션 만들기
 
 **Service Fabric: 응용 프로그램 만들기** 명령은 현재 작업 영역에서 새 Service Fabric 응용 프로그램을 만듭니다. 개발 컴퓨터에 설치되는 yeoman 생성기에 따라, Java, C#, Container 및 Guest 프로젝트를 비롯한 여러 유형의 Service Fabric 애플리케이션을 만들 수 있습니다. 
 

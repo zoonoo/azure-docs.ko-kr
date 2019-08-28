@@ -1,27 +1,27 @@
 ---
-title: '빠른 시작: 음성 변환, C#(UWP) - Speech Services'
+title: '빠른 시작: 음성 변환, C#(UWP) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 사용자 음성을 캡처하고, 다른 언어로 변환하고, 명령줄에 텍스트를 출력하는 간단한 UWP(유니버설 Windows 플랫폼) 애플리케이션을 만듭니다. 이 가이드는 Windows 사용자를 위해 설계되었습니다.
 services: cognitive-services
-author: wolfma61
+author: lisaweixu
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 03/13/2019
+ms.date: 07/23/2019
 ms.author: erhopf
-ms.openlocfilehash: 123a05012db1494799bf523bda2972a18c8f2ff4
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.topic: quickstart
+ms.openlocfilehash: 813edbea0548a5cac9532750a450de08bd238028
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465619"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640023"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c-uwp"></a>빠른 시작: C#용 Speech SDK를 사용하여 음성 번역(UWP)
 
-빠른 시작은 [음성 텍스트 변환](quickstart-csharp-uwp.md) 및 [음성 우선 가상 도우미](quickstart-virtual-assistant-csharp-uwp.md)에도 사용할 수 있습니다.
+빠른 시작은 [음성 텍스트 변환](quickstart-csharp-uwp.md), [텍스트 음성 변환](quickstart-text-to-speech-csharp-uwp.md) 및 [음성 우선 가상 도우미](quickstart-virtual-assistant-csharp-uwp.md)에도 사용할 수 있습니다.
 
-이 빠른 시작에서는 컴퓨터의 마이크에서 사용자 음성을 캡처하고, 음성을 변환하고, 변환된 텍스트를 실시간으로 명령줄에 변환하는 간단한 UWP(유니버설 Windows 플랫폼) 애플리케이션을 만듭니다. 이 애플리케이션은 64비트 Windows에서 실행되도록 설계되었으며 [Speech SDK NuGet 패키지](https://aka.ms/csspeech/nuget) 및 Microsoft Visual Studio 2017로 빌드되었습니다.
+이 빠른 시작에서는 컴퓨터의 마이크에서 사용자 음성을 캡처하고, 음성을 변환하고, 변환된 텍스트를 실시간으로 명령줄에 변환하는 간단한 UWP(유니버설 Windows 플랫폼) 애플리케이션을 만듭니다. 이 애플리케이션은 64비트 Windows에서 실행되도록 설계되었으며 [Speech SDK NuGet 패키지](https://aka.ms/csspeech/nuget) 및 Microsoft Visual Studio 2017 이상으로 빌드되었습니다.
 
 음성 변환에 사용할 수 있는 언어의 전체 목록은 [언어 지원](language-support.md)을 참조하세요.
 
@@ -32,8 +32,8 @@ ms.locfileid: "65465619"
 
 이 빠른 시작에는 다음이 필요합니다.
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* Speech Service에 대한 Azure 구독 키 [무료로 가져올 수 있습니다](get-started.md).
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 이상
+* Speech Service에 대한 Azure 구독 키. [무료로 가져올 수 있습니다](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 

@@ -13,15 +13,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/06/201
+ms.date: 06/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1b43463537f620eb59f78184de41ec37c26b97ed
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: bbb064c358eba2dd64ba9ae86540a30cb56adb66
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66742901"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595023"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>자습서: Azure App Service에 기존 사용자 지정 DNS 이름 매핑
 
@@ -68,7 +68,7 @@ ms.locfileid: "66742901"
 
 App Service 앱의 관리 페이지가 표시됩니다.  
 
-<a name="checkpricing"></a>
+<a name="checkpricing" aria-hidden="true"></a>
 
 ### <a name="check-the-pricing-tier"></a>가격 책정 계층 확인
 
@@ -82,7 +82,7 @@ App Service 앱의 관리 페이지가 표시됩니다.
 
 App Service 계획이 **F1** 계층이 아닌 경우 **스케일업** 페이지를 닫고 [CNAME 레코드 매핑](#cname)으로 건너뜁니다.
 
-<a name="scaleup"></a>
+<a name="scaleup" aria-hidden="true"></a>
 
 ### <a name="scale-up-the-app-service-plan"></a>강화 - App Service 계획
 
@@ -96,7 +96,7 @@ App Service 계획이 **F1** 계층이 아닌 경우 **스케일업** 페이지�
 
 ![크기 조정 작업 확인](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
 
-<a name="cname"></a>
+<a name="cname" aria-hidden="true"></a>
 
 ## <a name="map-your-domain"></a>도메인 매핑
 
@@ -156,13 +156,13 @@ Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도�
 ![추가된 CNAME 레코드](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 > [!NOTE]
-> 사용자 지정 도메인에 대한 **Note Secure** 레이블은 SSL 인증서에 아직 바인딩되지 않았음을 의미하며 브라우저에서 사용자 지정 도메인에 대한 HTTPS 요청은 브라우저에 따라 오류 또는 경고를 받습니다. SSL 바인딩을 추가하려면 [Azure App Service에 기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md)을 참조하세요.
+> 사용자 지정 도메인에 대한 **안전하지 않음** 레이블은 SSL 인증서에 아직 바인딩되지 않았음을 의미하며 브라우저에서 사용자 지정 도메인에 대한 HTTPS 요청은 브라우저에 따라 오류 또는 경고를 받습니다. SSL 바인딩을 추가하려면 [Azure App Service에 기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md)을 참조하세요.
 
 이전에 단계를 잊었거나 철자를 잘못 입력한 경우에는 페이지 아래쪽에 확인 오류가 표시됩니다.
 
 ![확인 오류](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
 
-<a name="a"></a>
+<a name="a" aria-hidden="true"></a>
 
 ### <a name="map-an-a-record"></a>A 레코드 매핑
 
@@ -213,7 +213,7 @@ Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도�
 
 ![DNS 레코드 페이지](./media/app-service-web-tutorial-custom-domain/a-record.png)
 
-<a name="enable-a"></a>
+<a name="enable-a" aria-hidden="true"></a>
 
 #### <a name="enable-the-a-record-mapping-in-the-app"></a>앱에서 A 레코드 매핑 사용
 
@@ -240,13 +240,13 @@ Azure Portal에서 해당 앱의 **사용자 지정 도메인** 페이지로 돌
 ![추가된 A 레코드](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
 > [!NOTE]
-> 사용자 지정 도메인에 대한 **Note Secure** 레이블은 SSL 인증서에 아직 바인딩되지 않았음을 의미하며 브라우저에서 사용자 지정 도메인에 대한 HTTPS 요청은 브라우저에 따라 오류 또는 경고를 받습니다. SSL 바인딩을 추가하려면 [Azure App Service에 기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md)을 참조하세요.
+> 사용자 지정 도메인에 대한 **안전하지 않음** 레이블은 SSL 인증서에 아직 바인딩되지 않았음을 의미하며 브라우저에서 사용자 지정 도메인에 대한 HTTPS 요청은 브라우저에 따라 오류 또는 경고를 받습니다. SSL 바인딩을 추가하려면 [Azure App Service에 기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md)을 참조하세요.
 
 이전에 단계를 잊었거나 철자를 잘못 입력한 경우에는 페이지 아래쪽에 확인 오류가 표시됩니다.
 
 ![확인 오류](./media/app-service-web-tutorial-custom-domain/verification-error.png)
 
-<a name="wildcard"></a>
+<a name="wildcard" aria-hidden="true"></a>
 
 ### <a name="map-a-wildcard-domain"></a>와일드카드 도메인 매핑
 
@@ -310,7 +310,7 @@ Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도�
 - 구성된 사용자 지정 도메인에 A 레코드 및/또는 CNAME 레코드가 없습니다.
 - 브라우저 클라이언트가 도메인의 이전 IP 주소를 캐시했습니다. 캐시 및 테스트 DNS 확인을 다시 지웁니다. Windows 컴퓨터에서 캐시를 `ipconfig /flushdns`로 지웁니다.
 
-<a name="virtualdir"></a>
+<a name="virtualdir" aria-hidden="true"></a>
 
 ## <a name="migrate-an-active-domain"></a>활성 도메인 마이그레이션
 

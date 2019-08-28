@@ -1,5 +1,5 @@
 ---
-title: Azure Maps에서 Android에 대 한 기호 계층을 지도 추가 | Microsoft Docs
+title: Azure Maps에서 Android maps에 기호 계층 추가 Microsoft Docs
 description: Azure Maps Android SDK를 사용 하 여 지도에 기호를 추가 하는 방법
 author: walsehgal
 ms.author: v-musehg
@@ -8,26 +8,26 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: add6e23d023753e217c102dc946837a71a64c781
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0292c8a441589a01241fbef6923246b4bcafb5c8
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64871079"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976253"
 ---
-# <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Azure Maps Android SDK를 사용 하 여 지도에 기호가 계층을 추가 합니다.
+# <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Azure Maps Android SDK를 사용 하 여 지도에 기호 계층 추가
 
-이 문서에서는 Azure Maps Android SDK를 사용 하 여 지도에 기호가 계층으로 데이터 원본에서 지점 데이터를 렌더링 하는 방법을 보여 줍니다.
+이 문서에서는 Azure Maps Android SDK를 사용 하 여 데이터 소스의 요소 데이터를 맵의 기호 계층으로 렌더링 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
-이 문서의 단계를 완전히 수행 하려면 설치 해야 [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) 지도 로드 합니다.
+이 문서의 단계를 완전히 따르려면 지도를 로드 하는 [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) 를 설치 해야 합니다.
 
 ## <a name="add-a-symbol-layer"></a>기호 계층 추가
 
-표식 기호 계층을 사용 하 여 지도 추가 하려면 아래 단계를 따르세요.
+기호 계층을 사용 하 여 지도에 표식을 추가 하려면 다음 단계를 수행 합니다.
 
-1. 편집할 **res** > **레이아웃** > **activity_main.xml** 다음 XML 같이 표시 됩니다.
+1. **Res** > layoutactivity_main > 을 편집 하 여 다음 xml과 같이 표시**됩니다** .
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -50,7 +50,7 @@ ms.locfileid: "64871079"
     </FrameLayout>
     ```
 
-2. 다음 코드 조각을 복사 합니다 **onCreate()** 메서드의 프로그램 `MainActivity.java` 클래스입니다.
+2. `MainActivity.java` 클래스의 **onCreate ()** 메서드에 다음 코드 조각을 복사 합니다.
 
     ```Java
     mapControl.onReady(map -> {
@@ -72,9 +72,9 @@ ms.locfileid: "64871079"
     
     ```
     
-    위의 코드는 Azure Maps 맵 컨트롤 인스턴스를 사용 하 여 먼저 가져옵니다 합니다 **onReady()** 콜백 메서드입니다. 그런 다음 사용 하 여 데이터 원본 개체를 만듭니다는 **DataSource** 지도에 추가 하는 클래스입니다. 그런 다음 추가 **기능** 지점 geometry를 포함 합니다. 빨간색 표식 이미지의 기호에 대 한 아이콘으로 설정 됩니다. A **기호 계층** 텍스트 또는 아이콘을 사용 하 여 데이터 원본 맵에서 기호로 래핑됩니다 점 기반 데이터를 렌더링 합니다. 기호 계층 만들어집니다 및 데이터 소스를 렌더링 하려면에 전달 되는 지도 계층에 추가 되 고 있습니다.
+    위의 코드 조각은 먼저 **Onready ()** 콜백 메서드를 사용 하 여 Azure Maps map 컨트롤 인스턴스를 가져옵니다. 그런 다음 **DataSource** 클래스를 사용 하 여 데이터 소스 개체를 만들어 맵에 추가 합니다. 그런 다음 점 기 하 도형을 포함 하는 **기능** 을 추가 합니다. 그러면 빨간색 표식 이미지가 기호에 대 한 아이콘으로 설정 됩니다. **기호 계층** 은 텍스트 또는 아이콘을 사용 하 여 데이터 원본에 래핑된 지점 기반 데이터를 맵의 기호로 렌더링 합니다. 그런 다음 기호 계층이 만들어지고 데이터 원본이 렌더링에 전달 된 다음 지도 계층에 추가 됩니다.
     
-    위의 코드 조각을 추가한 후에 `MainActivity.java` 아래와 같습니다.
+    위의 코드 조각을 추가한 후에 `MainActivity.java` 는 아래와 같이 표시 됩니다.
     
     ```Java
     package com.example.myapplication;
@@ -166,7 +166,7 @@ ms.locfileid: "64871079"
     }
     ```
     
-이 시점에서 응용 프로그램을 실행 하는 경우 다음과 같이 지도에 표식을 표시 됩니다.
+이제 응용 프로그램을 실행 하는 경우 다음과 같이 맵에 마커가 표시 됩니다.
 
 <center>
 
@@ -175,7 +175,10 @@ ms.locfileid: "64871079"
 
 ## <a name="next-steps"></a>다음 단계
 
-지도 더 많은 대상을 추가 하려면 다음을 참조 하세요.
+맵에 추가 정보를 추가 하려면 다음을 참조 하세요.
 
 > [!div class="nextstepaction"]
-> [Android 맵에 도형 추가](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+> [Android 맵에 셰이프 추가](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+
+> [!div class="nextstepaction"]
+> [기능 정보 표시](display-feature-information-android.md)

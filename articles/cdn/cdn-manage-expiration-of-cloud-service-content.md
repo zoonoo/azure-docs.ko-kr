@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: bef53fcc-bb13-4002-9324-9edee9da8288
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: magattus
-ms.openlocfilehash: c21ae227d74442be5701dd906180392b1e0fdf8b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a701c332659181081184906a73826b7137d8c49c
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60636708"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593709"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Azure CDN에서 웹 콘텐츠의 만료 관리
 > [!div class="op_single_selector"]
@@ -66,7 +66,7 @@ TTL(time-to-live)이 경과할 때까지 원본 웹 서버에서 공개적으로
 
    해당 전역 캐싱 규칙은 1시간의 캐시 기간을 설정하고 엔드포인트에 대한 모든 요청에 영향을 줍니다. 엔드포인트에서 지정한 원본 서버가 보낸 `Cache-Control` 또는 `Expires` HTTP 헤더를 재정의합니다.   
 
-1. **저장**을 선택합니다.
+1.           **저장**을 선택합니다.
 
 **사용자 지정 캐싱 규칙을 사용하여 웹 서버 파일의 Cache-Control 헤더를 설정하려면:**
 
@@ -80,7 +80,7 @@ TTL(time-to-live)이 경과할 때까지 원본 웹 서버에서 공개적으로
 
     첫 번째 사용자 지정 캐싱 규칙은 엔드포인트에서 지정한 원본 서버의 `/webfolder1`폴더 내 모든 파일에 대해 4시간의 캐시 기간을 설정합니다. 두 번째 규칙은 `file1.txt` 파일을 위한 첫 번째 규칙을 재정의하고 이에 대해 2시간의 캐시 기간을 설정합니다.
 
-1. **저장**을 선택합니다.
+1.           **저장**을 선택합니다.
 
 
 ## <a name="setting-cache-control-headers-by-using-configuration-files"></a>구성 파일을 사용하여 Cache-Control 헤더 설정

@@ -3,44 +3,33 @@ title: 웹 애플리케이션 방화벽으로 웹 트래픽 제한 - Azure Power
 description: Azure PowerShell을 사용하여 애플리케이션 게이트웨이에서 웹 애플리케이션 방화벽의 웹 트래픽을 제한하는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-tags: azure-resource-manager
 ms.service: application-gateway
-ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 03/25/2019
+ms.topic: article
+ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 71f621821e608ff660044208657696f47125330f
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
-ms.translationtype: HT
+ms.openlocfilehash: 002cc85391f4722cea7f6f448beae1cbe97877ac
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729535"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542657"
 ---
 # <a name="enable-web-application-firewall-using-azure-powershell"></a>Azure PowerShell을 사용하여 웹 애플리케이션 방화벽 활성화
 
-> [!div class="op_single_selector"]
->
-> - [Azure Portal](application-gateway-web-application-firewall-portal.md)
-> - [PowerShell](tutorial-restrict-web-traffic-powershell.md)
-> - [Azure CLI](tutorial-restrict-web-traffic-cli.md)
->
-> 
-
 [애플리케이션 게이트웨이](overview.md)에서 [WAF(웹 애플리케이션 방화벽)](waf-overview.md)으로 트래픽을 제한할 수 있습니다. WAF는 [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 규칙을 사용하여 애플리케이션을 보호합니다. 이러한 규칙에는 SQL 삽입, 사이트 간 스크립팅 공격 및 세션 하이재킹과 같은 공격으로부터의 보호가 포함됩니다. 
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
 > * 네트워크 설정
 > * WAF를 사용하는 애플리케이션 게이트웨이 만들기
 > * 가상 머신 확장 집합 만들기
-> * 저장소 계정 만들기 및 진단 구성
+> * 스토리지 계정 만들기 및 진단 구성
 
 ![웹 애플리케이션 방화벽 예제](./media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
 
-원하는 경우 [Azure CLI](tutorial-restrict-web-traffic-cli.md)를 사용하여 이 자습서를 완료할 수 있습니다.
+원하는 경우 [Azure Portal](application-gateway-web-application-firewall-portal.md) 또는 [Azure CLI](tutorial-restrict-web-traffic-cli.md)를 사용 하 여이 문서를 완료할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -48,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-PowerShell을 로컬에 설치하고 사용하도록 선택하는 경우 이 자습서에는 Azure PowerShell 모듈 버전 1.0.0 이상이 필요합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzAccount`를 실행하여 Azure와 연결해야 합니다.
+PowerShell을 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 문서에는 Azure PowerShell 모듈 버전 1.0.0 이상이 필요 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -82,12 +71,13 @@ $pip = New-AzPublicIpAddress `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
   -Name myAGPublicIPAddress `
-  -AllocationMethod Dynamic
+  -AllocationMethod Static `
+  -Sku Standard
 ```
 
 ## <a name="create-an-application-gateway"></a>애플리케이션 게이트웨이 만들기
 
-이 섹션에서는 애플리케이션 게이트웨이를 지원하는 리소스를 만든 다음, 최종적으로 애플리케이션 게이트웨이 및 WAF를 만듭니다. 다음과 같은 리소스를 만듭니다.
+이 섹션에서는 application gateway를 지 원하는 리소스를 만든 다음 마지막으로 만들고 WAF를 만듭니다. 다음과 같은 리소스를 만듭니다.
 
 - *IP 구성 및 프런트 엔드 포트* - 앞에서 만든 서브넷을 애플리케이션 게이트웨이에 연결하고 액세스 시 사용할 포트를 할당합니다.
 - *기본 풀* - 모든 애플리케이션 게이트웨이에 서버 백 엔드 풀이 하나 이상 있어야 합니다.
@@ -102,7 +92,7 @@ $vnet = Get-AzVirtualNetwork `
   -ResourceGroupName myResourceGroupAG `
   -Name myVNet
 
-$subnet=$vnet.Subnets[0]
+$subnet=$vnet.Subnets[1]
 
 $gipconfig = New-AzApplicationGatewayIPConfiguration `
   -Name myAGIPConfig `
@@ -160,8 +150,8 @@ $frontendRule = New-AzApplicationGatewayRequestRoutingRule `
 
 ```azurepowershell-interactive
 $sku = New-AzApplicationGatewaySku `
-  -Name WAF_Medium `
-  -Tier WAF `
+  -Name WAF_v2 `
+  -Tier WAF_v2 `
   -Capacity 2
 
 $wafConfig = New-AzApplicationGatewayWebApplicationFirewallConfiguration `
@@ -202,7 +192,7 @@ $backendPool = Get-AzApplicationGatewayBackendAddressPool `
 
 $ipConfig = New-AzVmssIpConfig `
   -Name myVmssIPConfig `
-  -SubnetId $vnet.Subnets[1].Id `
+  -SubnetId $vnet.Subnets[0].Id `
   -ApplicationGatewayBackendAddressPoolsId $backendPool.Id
 
 $vmssConfig = New-AzVmssConfig `
@@ -256,11 +246,11 @@ Update-AzVmss `
   -VirtualMachineScaleSet $vmss
 ```
 
-## <a name="create-a-storage-account-and-configure-diagnostics"></a>저장소 계정 만들기 및 진단 구성
+## <a name="create-a-storage-account-and-configure-diagnostics"></a>스토리지 계정 만들기 및 진단 구성
 
-이 자습서에서 애플리케이션 게이트웨이는 저장소 계정을 사용하여 검색 및 방지 목적으로 데이터를 저장합니다. Azure Monitor 로그 또는 Event Hub를 사용하여 데이터를 기록할 수도 있습니다.
+이 문서에서 애플리케이션 게이트웨이는 스토리지 계정을 사용하여 검색 및 방지 목적으로 데이터를 저장합니다. Azure Monitor 로그 또는 Event Hub를 사용하여 데이터를 기록할 수도 있습니다.
 
-### <a name="create-the-storage-account"></a>저장소 계정 만들기
+### <a name="create-the-storage-account"></a>스토리지 계정 만들기
 
 [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount)를 사용하여 *myagstore1*이라는 스토리지 계정을 만듭니다.
 
@@ -288,7 +278,7 @@ $store = Get-AzStorageAccount `
 Set-AzDiagnosticSetting `
   -ResourceId $appgw.Id `
   -StorageAccountId $store.Id `
-  -Categories ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog, ApplicationGatewayFirewallLog `
+  -Category ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog, ApplicationGatewayFirewallLog `
   -Enabled $true `
   -RetentionEnabled $true `
   -RetentionInDays 30
@@ -314,13 +304,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
-
-> [!div class="checklist"]
-> * 네트워크 설정
-> * WAF를 사용하는 애플리케이션 게이트웨이 만들기
-> * 가상 머신 확장 집합 만들기
-> * 저장소 계정 만들기 및 진단 구성
-
-> [!div class="nextstepaction"]
-> [SSL 종료를 사용하여 애플리케이션 게이트웨이 만들기](./tutorial-ssl-powershell.md)
+[SSL 종료를 사용하여 애플리케이션 게이트웨이 만들기](./tutorial-ssl-powershell.md)

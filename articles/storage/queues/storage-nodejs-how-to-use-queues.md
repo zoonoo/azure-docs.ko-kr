@@ -1,21 +1,19 @@
 ---
-title: Node.js-Azure Storage에서에서 큐 저장소를 사용 하는 방법
+title: Node.js에서 큐 저장소를 사용 하는 방법-Azure Storage
 description: Azure 큐 서비스를 사용하여 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법을 알아봅니다. 샘플은 Node.js로 작성되었습니다.
-services: storage
 author: mhopkins-msft
 ms.service: storage
-ms.devlang: nodejs
-ms.topic: article
-ms.date: 12/08/2016
 ms.author: mhopkins
-ms.reviewer: cbrooks
+ms.date: 12/08/2016
 ms.subservice: queues
-ms.openlocfilehash: 01afe1ab7b9028f3f77d52f7d6f8ced27f6a79c7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+ms.reviewer: cbrooks
+ms.openlocfilehash: 13da3adc1a3f95f9fdb29eb181eb9759e175cffe
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65142707"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721278"
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Node.js에서 Queue Storage를 사용하는 방법
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -244,7 +242,7 @@ queueSvc.deleteQueue(queueName, function(error, response){
 큐를 삭제하지 않고 모든 메시지를 지우려면 **clearMessages**를 사용합니다.
 
 ## <a name="how-to-work-with-shared-access-signatures"></a>방법: 공유 액세스 서명으로 작업
-SAS(공유 액세스 서명)는 저장소 계정 이름이나 키를 제공하지 않으면서 큐에 세분화된 액세스 권한을 안전하게 제공하는 방법입니다. SAS는 모바일 앱에서 메시지를 제출하도록 허용하는 경우와 같이 큐에 대해 제한된 액세스를 제공하는 경우에 자주 사용합니다.
+SAS(공유 액세스 서명)는 스토리지 계정 이름이나 키를 제공하지 않으면서 큐에 세분화된 액세스 권한을 안전하게 제공하는 방법입니다. SAS는 모바일 앱에서 메시지를 제출하도록 허용하는 경우와 같이 큐에 대해 제한된 액세스를 제공하는 경우에 자주 사용합니다.
 
 클라우드 기반 서비스와 같이 신뢰할 수 있는 애플리케이션에서는 **QueueService**의 **generateSharedAccessSignature**를 사용하여 SAS를 생성하고 신뢰할 수 없거나 신뢰가 약한 애플리케이션에 제공합니다. 예를 들면 모바일 앱이 여기에 해당됩니다. SAS는 SAS가 유효한 시작 및 종료 날짜와 SAS 소유자에게 부여되는 액세스 수준을 설명하는 정책을 사용하여 생성됩니다.
 

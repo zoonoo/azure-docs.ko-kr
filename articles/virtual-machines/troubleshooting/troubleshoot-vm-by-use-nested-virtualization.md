@@ -4,7 +4,7 @@ description: Azure에서 중첩된 가상화를 사용하여 문제 Azure VM을 
 services: virtual-machines-windows
 documentationcenter: ''
 author: glimoli
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: c84d015da907c8792f09d1d60e6bc8eddb7e2957
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 135368fd9b838573ae8aa65e16d5df2cd3df3e6d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60444372"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709239"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Azure에서 중첩된 가상화를 사용하여 문제 Azure VM 해결
 
 이 문서에서는 문제 해결을 위해 Hyper-V 호스트(복구 VM)에서 문제 VM의 디스크를 탑재할 수 있도록 Microsoft Azure에서 중첩된 가상화 환경을 만드는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 문제 VM을 탑재하려면 복구 VM에서 다음 필수 구성 요소를 충족해야 합니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "60444372"
 
 -   복구 VM은 문제 VM과 동일한 리소스 그룹에 있어야 합니다.
 
--   복구 VM은 문제 VM과 동일한 유형의 저장소 계정(표준 또는 프리미엄)을 사용해야 합니다.
+-   복구 VM은 문제 VM과 동일한 유형의 스토리지 계정(표준 또는 프리미엄)을 사용해야 합니다.
 
 ## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>1단계: 복구 VM 만들기 및 Hyper-v 역할 설치
 
@@ -43,9 +43,9 @@ ms.locfileid: "60444372"
 
     -  크기: 중첩 된 가상화를 지 원하는 두 개 이상의 코어를 사용 하 여 모든 V3 시리즈입니다. 자세한 내용은 [새 Dv3 및 Ev3 VM 크기 소개](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/)를 참조하세요.
 
-    -  문제 VM과 동일한 위치, 저장소 계정 리소스 그룹입니다.
+    -  문제 VM과 동일한 위치, 스토리지 계정 리소스 그룹입니다.
 
-    -  문제 VM과 동일한 저장소 유형(표준 또는 프리미엄)을 선택합니다.
+    -  문제 VM과 동일한 스토리지 유형(표준 또는 프리미엄)을 선택합니다.
 
 2.  복구 VM을 만든 후 복구 VM에 데스크톱을 원격 연결합니다.
 

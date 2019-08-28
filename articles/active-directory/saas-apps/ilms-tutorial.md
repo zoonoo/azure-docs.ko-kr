@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee12bfc8a79b6abcfdf2978d4e640c34f801e346
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 50097aec1c4a003d3494029e8f25bb13b564f207
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65989731"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944015"
 ---
 # <a name="tutorial-integrate-ilms-with-azure-active-directory"></a>자습서: Azure Active Directory와 iLMS 통합
 
@@ -88,7 +88,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     **로그온 URL** 텍스트 상자에 iLMS 관리 포털에 있는 SAML 설정의 **서비스 공급자** 섹션에서 복사한 **엔드포인트(URL)** 값을 다음과 같은 패턴으로 붙여 넣습니다. `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`
 
-1. JIT 프로비전을 사용하도록 설정하려면 iLMS 애플리케이션에서 특정 서식의 SAML 어설션이 필요합니다. 이에 따라 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.  **편집**  단추를 클릭하여 사용자 특성 대화 상자를 엽니다.
+1. JIT 프로비전을 사용하도록 설정하려면 iLMS 애플리케이션에서 특정 서식의 SAML 어설션이 필요합니다. 이에 따라 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **편집** 아이콘을 클릭하여 사용자 특성 대화 상자를 엽니다.
 
     > [!NOTE]
     > 이러한 특성을 매핑하려면 iLMS에서 **Create Un-recognized User Account(인식할 수 없는 사용자 계정 만들기)** 를 사용하도록 설정해야 합니다. 특성 구성을 이해하려면 [여기](https://support.inspiredelearning.com/help/adding-updating-and-managing-users#just-in-time-provisioning-with-saml-single-signon)의 지침을 참조하세요.

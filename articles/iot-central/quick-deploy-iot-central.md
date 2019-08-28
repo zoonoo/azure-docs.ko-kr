@@ -3,22 +3,24 @@ title: Azure IoT Central 애플리케이션 만들기 | Microsoft Docs
 description: 새로운 Azure IoT Central 애플리케이션을 만듭니다. 애플리케이션 템플릿을 사용하여 평가판 또는 종량제 애플리케이션을 만듭니다.
 author: viv-liu
 ms.author: viviali
-ms.date: 06/07/2019
+ms.date: 08/02/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: peterpr
-ms.openlocfilehash: 07b062bd39177f283bd38ed6b687b590c5c4fb46
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+manager: corywink
+ms.openlocfilehash: 78fb48d2584e94e5c38a4648f1ae41e566637601
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066029"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875590"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Azure IoT Central 애플리케이션 만들기
 
-_작성기_로 Azure IoT Central UI를 사용하여 Microsoft Azure IoT Central 애플리케이션을 정의합니다. 이 빠른 시작에서는 샘플 _장치 템플릿_ 및 시뮬레이션된 _장치_를 포함하는 Azure IoT Central 애플리케이션을 만드는 방법을 보여 줍니다.
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
+_작성기_로 Azure IoT Central UI를 사용하여 Microsoft Azure IoT Central 애플리케이션을 정의합니다. 이 빠른 시작에서는 샘플 _디바이스 템플릿_ 및 시뮬레이션된 _디바이스_를 포함하는 Azure IoT Central 애플리케이션을 만드는 방법을 보여 줍니다.
 
 ## <a name="create-an-application"></a>애플리케이션 만들기
 
@@ -39,17 +41,17 @@ Azure IoT Central [애플리케이션 관리자](https://aka.ms/iotcentral) 페�
 
       [Azure IoT Central 가격 책정 페이지](https://azure.microsoft.com/pricing/details/iot-central/)에서 가격 책정에 대해 자세히 알아보세요.
 
-1. **Contoso IoT** 같은 친숙한 애플리케이션 이름을 선택합니다. Azure IoT Central은 사용자를 위해 고유한 URL 접두사를 생성합니다. 이 URL 접두사를 더욱 기억하기 쉬운 것으로 변경할 수 있습니다.
-
-1. 애플리케이션 템플릿을 선택합니다. 애플리케이션 템플릿에는 시작하는 데 도움이 되는 장치 템플릿이나 대시보드 같은 미리 정의된 항목이 포함될 수 있습니다.
+1. 애플리케이션 템플릿을 선택합니다. 애플리케이션 템플릿에는 시작하는 데 도움이 되는 디바이스 템플릿이나 대시보드 같은 미리 정의된 항목이 포함될 수 있습니다.
 
     | 애플리케이션 템플릿 | 설명 |
     | -------------------- | ----------- |
-    | 샘플 Contoso       | Refrigerated Vending Machine에 대해 이미 만든 장치 템플릿을 포함하는 애플리케이션을 만듭니다. 이 템플릿을 사용하여 Azure IoT Central 탐색을 시작하세요. |
-    | 샘플 Devkits       | MXChip 또는 Raspberry Pi 장치를 연결할 수 있는 장치 템플릿을 사용하여 애플리케이션을 만듭니다. 다음 디바이스 중 하나를 실험하는 디바이스 개발자인 경우 이 템플릿을 사용합니다. |
-    | 사용자 지정 애플리케이션   | 사용자 고유의 장치 템플릿 및 장치로 채울 빈 애플리케이션을 만듭니다. |
+    | 샘플 Contoso       | Refrigerated Vending Machine에 대해 이미 만든 디바이스 템플릿을 포함하는 애플리케이션을 만듭니다. 이 템플릿을 사용하여 Azure IoT Central 탐색을 시작하세요. |
+    | 샘플 Devkits       | MXChip 또는 Raspberry Pi 디바이스를 연결할 수 있는 디바이스 템플릿을 사용하여 애플리케이션을 만듭니다. 다음 디바이스 중 하나를 실험하는 디바이스 개발자인 경우 이 템플릿을 사용합니다. |
+    | 사용자 지정 애플리케이션   | 사용자 고유의 디바이스 템플릿 및 디바이스로 채울 빈 애플리케이션을 만듭니다. |
 
-1. **만들기**를 선택합니다.
+1. **Contoso IoT** 같은 친숙한 애플리케이션 이름을 입력합니다. Azure IoT Central은 사용자를 위해 고유한 URL 접두사를 생성합니다. 이 URL 접두사를 더욱 기억하기 쉬운 것으로 변경할 수 있습니다.
+
+1. **만들기**를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

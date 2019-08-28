@@ -11,16 +11,16 @@ ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/26/2019
+ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: 3e4172cd149726e28e0c7dff435ec1f7a59ee169
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: fa9fbf3bac55ca0b26c3644b7f6818fa96088612
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550161"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639399"
 ---
-# <a name="tutorial-stream-video-files---nodejs"></a>자습서: 비디오 파일 스트리밍 - Node.js
+# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---nodejs"></a>자습서: URL에 따라 원격 파일 인코딩 및 비디오 스트림 - Node.js
 
 이 자습서는 Azure Media Services를 사용하여 다양한 브라우저 및 디바이스에서 비디오 스트리밍을 인코딩하고 시작하는 것이 얼마나 쉬운지 보여줍니다. 입력 내용은 HTTPS URL, SAS URL 또는 Azure Blob Storage에 있는 파일 경로를 사용하여 지정할 수 있습니다.
 
@@ -72,7 +72,7 @@ ms.locfileid: "65550161"
 
 실행이 완료되면 유사한 출력이 표시됩니다.
 
-![실행](./media/stream-files-nodejs-quickstart/run.png)
+![다음을 실행합니다.](./media/stream-files-nodejs-quickstart/run.png)
 
 ## <a name="test-with-azure-media-player"></a>Azure Media Player로 테스트
 

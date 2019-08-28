@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: cf23ef5df3bdcaad23841da111fa06cc36b4cd57
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2f18b4793d205cfa019f501549dedfcd62f501e7
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61459245"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348600"
 ---
 # <a name="securely-push-notifications-from-azure-notification-hubs"></a>Azure Notification Hubs에서 안전하게 알림 푸시
 
 > [!div class="op_single_selector"]
-> * [Windows 범용](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
+> * [Windows 유니버설](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 > * [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
 > * [Android](notification-hubs-aspnet-backend-android-secure-google-gcm-push-notification.md)
 
@@ -43,7 +43,7 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
    * 디바이스가 보안 페이로드를 요청하는 백 엔드에 접속합니다.
    * 앱이 디바이스에서 페이로드를 알림으로 표시할 수 있습니다.
 
-앞의 흐름과 이 자습서에서는 사용자가 로그인한 후 디바이스가 인증 토큰을 로컬 스토리지에 저장한다고 가정합니다. 이렇게 하면 디바이스가 이 토큰을 사용하여 알림의 보안 페이로드를 검색할 수 있으므로 매우 원활한 환경이 보장됩니다. 애플리케이션이 인증 토큰을 장치에 저장하지 않거나 이 토큰이 만료될 수 없으면 알림 수신 시 장치 앱은 사용자에게 앱을 시작할지 묻는 메시지가 포함된 일반 알림을 표시해야 합니다. 그리고 나서 앱은 사용자를 인증하고 알림 페이로드를 표시합니다.
+앞의 흐름과 이 자습서에서는 사용자가 로그인한 후 디바이스가 인증 토큰을 로컬 스토리지에 저장한다고 가정합니다. 이렇게 하면 디바이스가 이 토큰을 사용하여 알림의 보안 페이로드를 검색할 수 있으므로 매우 원활한 환경이 보장됩니다. 애플리케이션이 인증 토큰을 디바이스에 저장하지 않거나 이 토큰이 만료될 수 없으면 알림 수신 시 디바이스 앱은 사용자에게 앱을 시작할지 묻는 메시지가 포함된 일반 알림을 표시해야 합니다. 그리고 나서 앱은 사용자를 인증하고 알림 페이로드를 표시합니다.
 
 이 보안 푸시 자습서에서는 푸시 알림을 안전하게 보내는 방법을 보여 줍니다. 이 자습서는 [사용자에게 알림](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) 자습서를 기반으로 빌드되므로 해당 자습서의 단계를 먼저 완료해야 합니다.
 
@@ -57,12 +57,12 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 
 1. **NotifyUserWindowsPhone** 프로젝트에서 App.xaml.cs에 다음 코드를 추가하여 푸시 백그라운드 작업을 등록합니다. 다음 코드 줄을 `OnLaunched()` 메서드의 끝에 추가합니다.
 
-    ```c#
+    ```csharp
     RegisterBackgroundTask();
     ```
 2. App.xaml.cs에서 `OnLaunched()` 메서드의 바로 뒤에 다음 코드를 추가합니다.
 
-    ```c#
+    ```csharp
     private async void RegisterBackgroundTask()
     {
         if (!Windows.ApplicationModel.Background.BackgroundTaskRegistration.AllTasks.Any(i => i.Value.Name == "PushBackgroundTask"))
@@ -79,7 +79,7 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
     ```
 3. App.xaml.cs 파일의 맨 위에 다음 `using` 문을 추가합니다.
 
-    ```c#
+    ```csharp
     using Windows.Networking.PushNotifications;
     using Windows.ApplicationModel.Background;
     ```
@@ -147,7 +147,7 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 9. 다시 NuGet **검색** 상자에 **Json.net**을 입력합니다. **Json.NET** 패키지를 설치하고 NuGet 패키지 관리자 창을 닫습니다.
 10. `PushBackgroundTask.cs` 파일 맨 위에 다음 `using` 문을 추가합니다.
 
-    ```c#
+    ```csharp
     using Windows.ApplicationModel.Background;
     using Windows.Networking.PushNotifications;
     using System.Net.Http;
@@ -168,7 +168,7 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
     ![][13]
 16. **파일** 메뉴에서 **모두 저장**을 클릭합니다.
 
-## <a name="run-the-application"></a>애플리케이션 실행
+## <a name="run-the-application"></a>응용 프로그램 실행
 
 애플리케이션을 실행하려면 다음을 수행합니다.
 

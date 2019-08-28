@@ -323,9 +323,9 @@ $recurrence = Get-AdlJobRecurrence -Account $adla -RecurrenceId "<recurrence ID>
 ```
 
 
-## <a name="manage-compute-policies"></a>계산 정책 관리
+## <a name="manage-compute-policies"></a>컴퓨팅 정책 관리
 
-### <a name="list-existing-compute-policies"></a>기존 계산 정책 나열
+### <a name="list-existing-compute-policies"></a>기존 컴퓨팅 정책 나열
 
 `Get-AdlAnalyticsComputePolicy` cmdlet은 Data Lake Analytics 계정에 대한 계산 정책에 대한 정보를 검색합니다.
 
@@ -333,7 +333,7 @@ $recurrence = Get-AdlJobRecurrence -Account $adla -RecurrenceId "<recurrence ID>
 $policies = Get-AdlAnalyticsComputePolicy -Account $adla
 ```
 
-### <a name="create-a-compute-policy"></a>계산 정책 만들기
+### <a name="create-a-compute-policy"></a>컴퓨팅 정책 만들기
 
 `New-AdlAnalyticsComputePolicy` cmdlet은 Data Lake Analytics 계정에 대한 새 계산 정책을 만듭니다. 이 예제에서는 지정된 사용자에게 제공되는 최대 AU를 50으로 설정하고, 최소 작업 우선 순위를 250으로 설정합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 방법 및 모델을 배포할 수 있는 위치
+title: 모델을 배포 하는 방법 및 위치
 titleSuffix: Azure Machine Learning service
 description: 다음을 포함하는 Azure Machine Learning 서비스 모델을 배포하는 방법 및 위치를 알아봅니다. Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge 및 Field-Programmable Gate Array
 services: machine-learning
@@ -9,150 +9,226 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 05/31/2019
+ms.date: 08/06/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: dcb90eb8ee25b8b0c780006f3555a5a9b815ffdd
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 7f856c0b69788c3d0b711d567777aba6cb4c6918
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514251"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036103"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning Services를 사용하여 모델 배포
 
-기계 학습 모델을 웹 서비스로 Azure 클라우드에서 또는 IoT Edge 장치에 배포 하는 방법에 알아봅니다. 
+Azure 클라우드에서 machine learning 모델을 웹 서비스로 배포 하거나 장치를 IoT Edge 하는 방법에 대해 알아봅니다.
 
-워크플로 관계 없이 비슷합니다 [배포할](#target) 모델:
+모델을 [배포 하는 위치](#target) 와 관계 없이 워크플로는 다음과 유사 합니다.
 
 1. 모델을 등록합니다.
-1. 배포 준비 (자산, 사용량 계산 대상 지정)
+1. 배포 준비 (자산, 사용량, 계산 대상 지정)
 1. 계산 대상에 모델을 배포 합니다.
-1. 또한 웹 서비스 호출, 배포 된 모델을 테스트 합니다.
+1. 웹 서비스 라고도 하는 배포 된 모델을 테스트 합니다.
 
 배포 워크플로에 관련된 개념에 대한 자세한 내용은 [Azure Machine Learning Service를 사용하여 모델 관리, 배포 및 모니터링](concept-model-management-and-deployment.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-- 모델. 학습된 된 모델이 없는, 모델을 사용할 수 있습니다 & 종속성 파일에서 제공 [이 자습서](https://aka.ms/azml-deploy-cloud)합니다.
+- Azure Machine Learning 서비스 작업 영역. 자세한 내용은 [Azure Machine Learning 서비스 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 
-- 합니다 [Machine Learning 서비스에 대 한 Azure CLI extension](reference-azure-machine-learning-cli.md)를 [Azure Machine Learning Python SDK](https://aka.ms/aml-sdk), 또는 [Azure Machine Learning Visual Studio Code 확장](how-to-vscode-tools.md)합니다.
+- 모델. 학습 된 모델이 없는 경우 [이 자습서](https://aka.ms/azml-deploy-cloud)에서 제공 하는 모델 & 종속성 파일을 사용할 수 있습니다.
 
-## <a id="registermodel"></a> 모델 등록
+- Machine Learning 서비스, [Azure Machine Learning PYTHON SDK](https://aka.ms/aml-sdk)또는 [Azure Machine Learning Visual Studio Code 확장](how-to-vscode-tools.md) [에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md)입니다.
 
-모델을 구성 하는 하나 이상의 파일에 대 한 등록 된 모델 논리적 컨테이너입니다. 예를 들어, 여러 파일에 저장 된 모델에 있으면 등록할 수 있습니다 작업 영역에서 단일 모델로 합니다. 등록이 완료 되 면 다음 또는 등록 된 모델을 배포할 수 있으며 등록 된 모든 파일을 수신 합니다.
+## <a name="connect-to-your-workspace"></a>작업 영역에 연결
 
-기계 학습 모델은 Azure Machine Learning 작업 영역에 등록 됩니다. 모델을 Azure Machine Learning에서 가져올 수 있습니다 또는 다른 곳에서 가져올 수 있습니다. 다음 예제에서는 파일에서 모델을 등록 하는 방법을 보여 줍니다.
+다음 코드에서는 로컬 개발 환경에 캐시 된 정보를 사용 하 여 Azure Machine Learning 서비스 작업 영역에 연결 하는 방법을 보여 줍니다.
 
-### <a name="register-a-model-from-an-experiment-run"></a>실험을 실행 하는 모델을 등록
+**SDK 사용**
 
-+ **SDK를 사용 하 여 Scikit-learn 예제**
-  ```python
-  model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
-  print(model.name, model.id, model.version, sep='\t')
-  ```
+```python
+from azureml.core import Workspace
+ws = Workspace.from_config(path=".file-path/ws_config.json")
+```
 
-  > [!TIP]
-  > 모델 등록에 여러 파일을 포함 하려면 설정 `model_path` 파일이 포함 된 디렉터리에 있습니다.
+SDK를 사용 하 여 작업 영역에 연결 하는 방법에 대 한 자세한 내용은 [Python 용 AZURE MACHINE LEARNING sdk](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace)를 참조 하세요.
 
-+ **CLI를 사용 하 여**
+**CLI 사용**
+
+CLI를 사용 하는 경우 `-w` 또는 `--workspace-name` 매개 변수를 사용 하 여 명령에 대 한 작업 영역을 지정 합니다.
+
+**VS Code 사용**
+
+VS Code 사용 하는 경우 그래픽 인터페이스를 사용 하 여 작업 영역을 선택 합니다. 자세한 내용은 VS Code 확장 설명서에서 [모델 배포 및 관리](how-to-vscode-tools.md#deploy-and-manage-models) 를 참조 하세요.
+
+## <a id="registermodel"></a>모델 등록
+
+등록 된 모델은 모델을 구성 하는 하나 이상의 파일에 대 한 논리적 컨테이너입니다. 예를 들어 여러 파일에 저장 된 모델의 경우 작업 영역에서 단일 모델로 등록할 수 있습니다. 등록 후 등록 된 모델을 다운로드 하거나 배포 하 고 등록 된 모든 파일을 받을 수 있습니다.
+
+> [!TIP]
+> 모델을 등록할 때 학습 실행의 클라우드 위치에 대 한 경로 또는 로컬 디렉터리를 제공 합니다. 이 경로는 등록 프로세스의 일부로 업로드할 파일을 찾는 것입니다. 항목 스크립트에 사용 된 경로와 일치 하지 않아도 됩니다. 자세한 내용은 [Get_model_path 란?](#what-is-get_model_path)을 참조 하세요.
+
+기계 학습 모델은 Azure Machine Learning 작업 영역에 등록 됩니다. 모델은 Azure Machine Learning에서 제공 되거나 다른 위치에서 가져올 수 있습니다. 다음 예에서는 모델을 등록 하는 방법을 보여 줍니다.
+
+### <a name="register-a-model-from-an-experiment-run"></a>실험 실행에서 모델 등록
+
+이 단원의 코드 조각은 학습 실행에서 모델을 등록 하는 방법을 보여 줍니다.
+
+> [!IMPORTANT]
+> 이러한 코드 조각은 이전에 학습 실행을 수행 하 고 `run` 개체 (SDK 예) 또는 실행 ID 값 (CLI 예)에 대 한 액세스 권한이 있다고 가정 합니다. 학습 모델에 대 한 자세한 내용은 [모델 학습을 위한 계산 대상 만들기 및 사용](how-to-set-up-training-targets.md)을 참조 하세요.
+
++ **SDK 사용**
+
+  SDK를 사용 하 여 모델을 학습 하는 경우 모델을 학습 하는 방법에 따라 [Run](https://review.docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&branch=master) 또는 [AutoMLRun](https://review.docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.run.automlrun?view=azure-ml-py&branch=master) 개체를 받을 수 있습니다. 각 개체를 사용 하 여 실험 실행에서 만든 모델을 등록할 수 있습니다.
+
+  + `azureml.core.Run` 개체에서 모델을 등록 합니다.
+ 
+    ```python
+    model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
+    print(model.name, model.id, model.version, sep='\t')
+    ```
+
+    는 `model_path` 모델의 클라우드 위치를 참조 합니다. 이 예제에서는 단일 파일에 대 한 경로가 사용 됩니다. 모델 등록에 여러 파일을 포함 하려면를 파일이 `model_path` 포함 된 디렉터리로 설정 합니다. 자세한 내용은 [register_model](https://review.docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&branch=master#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none----kwargs-) 참조를 참조 하세요.
+
+  + `azureml.train.automl.run.AutoMLRun` 개체에서 모델을 등록 합니다.
+
+    ```python
+        description = 'My AutoML Model'
+        model = run.register_model(description = description)
+
+        print(run.model_id)
+    ```
+
+    이 예제 `metric` 에서는 및 `iteration` 매개 변수를 지정 하지 않았습니다 .이로 인해 반복이 가장 적합 한 기본 메트릭이 등록 됩니다. Run `model_id` 에서 반환 된 값은 모델 이름 대신 사용 됩니다.
+
+    자세한 내용은 [AutoMLRun. register_model](https://review.docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.run.automlrun?view=azure-ml-py&branch=master#register-model-description-none--tags-none--iteration-none--metric-none-) 참조를 참조 하세요.
+
++ **CLI 사용**
 
   ```azurecli-interactive
-  az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment
+  az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment --run-id myrunid
   ```
 
-  > [!TIP]
-  > 모델 등록에 여러 파일을 포함 하려면 설정 `--asset-path` 파일이 포함 된 디렉터리에 있습니다.
+  [!INCLUDE [install extension](../../../includes/machine-learning-service-install-extension.md)]
 
-+ **VS Code를 사용 하 여**
+  는 `--asset-path` 모델의 클라우드 위치를 참조 합니다. 이 예제에서는 단일 파일에 대 한 경로가 사용 됩니다. 모델 등록에 여러 파일을 포함 하려면를 파일이 `--asset-path` 포함 된 디렉터리로 설정 합니다.
 
-  모델 파일 또는 폴더를 사용 하 여 모델을 등록 합니다 [VS Code](how-to-vscode-tools.md#deploy-and-manage-models) 확장 합니다.
++ **VS Code 사용**
 
-### <a name="register-an-externally-created-model"></a>외부에서 만든된 모델을 등록 합니다.
+  [VS Code](how-to-vscode-tools.md#deploy-and-manage-models) 확장 프로그램을 사용 하 여 모델 파일이 나 폴더를 사용 하 여 모델을 등록 합니다.
+
+### <a name="register-a-model-from-a-local-file"></a>로컬 파일에서 모델 등록
+
+모델에 **로컬 경로** 를 제공 하 여 모델을 등록할 수 있습니다. 폴더 또는 단일 파일을 제공할 수 있습니다. 이 메서드를 사용 하 여 Azure Machine Learning 서비스로 학습 하 고 다운로드 한 모델 또는 Azure Machine Learning 외부에서 학습 한 모델을 등록할 수 있습니다.
 
 [!INCLUDE [trusted models](../../../includes/machine-learning-service-trusted-model.md)]
 
-외부에서 만든된 모델을 제공 하 여 등록할 수 있습니다는 **로컬 경로** 모델입니다. 폴더 또는 단일 파일을 제공할 수 있습니다.
++ **Python SDK를 사용 하는 ONNX 예제:**
 
-+ **Python SDK를 사용 하 여 ONNX 예제:**
-  ```python
-  onnx_model_url = "https://www.cntk.ai/OnnxModels/mnist/opset_7/mnist.tar.gz"
-  urllib.request.urlretrieve(onnx_model_url, filename="mnist.tar.gz")
-  !tar xvzf mnist.tar.gz
-  
-  model = Model.register(workspace = ws,
-                         model_path ="mnist/model.onnx",
-                         model_name = "onnx_mnist",
-                         tags = {"onnx": "demo"},
-                         description = "MNIST image classification CNN from ONNX Model Zoo",)
-  ```
+    ```python
+    import os
+    import urllib.request
+    from azureml.core import Model
+    # Download model
+    onnx_model_url = "https://www.cntk.ai/OnnxModels/mnist/opset_7/mnist.tar.gz"
+    urllib.request.urlretrieve(onnx_model_url, filename="mnist.tar.gz")
+    os.system('tar xvzf mnist.tar.gz')
+    # Register model
+    model = Model.register(workspace = ws,
+                            model_path ="mnist/model.onnx",
+                            model_name = "onnx_mnist",
+                            tags = {"onnx": "demo"},
+                            description = "MNIST image classification CNN from ONNX Model Zoo",)
+    ```
 
-  > [!TIP]
-  > 모델 등록에 여러 파일을 포함 하려면 설정 `model_path` 파일이 포함 된 디렉터리에 있습니다.
+  모델 등록에 여러 파일을 포함 하려면를 파일이 `model_path` 포함 된 디렉터리로 설정 합니다.
 
-+ **CLI를 사용 하 여**
++ **CLI 사용**
+
   ```azurecli-interactive
   az ml model register -n onnx_mnist -p mnist/model.onnx
   ```
 
-  > [!TIP]
-  > 모델 등록에 여러 파일을 포함 하려면 설정 `-p` 파일이 포함 된 디렉터리에 있습니다.
+  모델 등록에 여러 파일을 포함 하려면를 파일이 `-p` 포함 된 디렉터리로 설정 합니다.
 
 **예상 시간**: 약 10초
 
 자세한 내용은 [Model 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py)에 대한 참조 설명서를 참조하세요.
 
-모델을 사용 하는 방법은 외부 Azure Machine Learning 서비스를 학습, 참조 [기존 모델을 배포 하는 방법을](how-to-deploy-existing-model.md)합니다.
+Azure Machine Learning 서비스 외부에서 학습 한 모델을 사용 하는 방법에 대 한 자세한 내용은 [기존 모델을 배포 하는 방법](how-to-deploy-existing-model.md)을 참조 하세요.
 
 <a name="target"></a>
 
-## <a name="choose-a-compute-target"></a>계산 대상을 선택 하십시오.
+## <a name="choose-a-compute-target"></a>계산 대상 선택
 
-다음 대상 계산 또는 계산 리소스, 웹 서비스 배포를 호스팅에 사용할 수 있습니다. 
+다음 계산 대상 또는 계산 리소스를 사용 하 여 웹 서비스 배포를 호스트할 수 있습니다. 
 
 [!INCLUDE [aml-compute-target-deploy](../../../includes/aml-compute-target-deploy.md)]
 
 ## <a name="prepare-to-deploy"></a>배포 준비
 
-웹 서비스로 배포 하는 유추 구성을 만들어야 합니다 (`InferenceConfig`) 및 배포 구성. 모델 점수 매기기 또는 유추 하는 단계 프로덕션 데이터에 가장 일반적으로 예측에 대 한 배포 된 모델이 사용 되는 위치입니다. 유추 구성에서 스크립트 및 모델을 제공 하는 데 필요한 종속성을 지정 합니다. 배포 구성에서 계산 대상에 모델을 제공 하는 방법의 세부 정보를 지정 합니다.
+모델을 배포 하려면 다음 몇 가지 작업을 수행 해야 합니다.
 
+* __항목 스크립트__입니다. 이 스크립트는 요청을 수락 하 고, 모델을 사용 하 여 요청 점수를 생성 하 고, 결과를 반환 합니다.
 
-### <a id="script"></a> 1. 사용자 엔트리 스크립트가 종속성 정의
+    > [!IMPORTANT]
+    > 항목 스크립트는 모델에 따라 다릅니다. 들어오는 요청 데이터의 형식, 모델에 필요한 데이터의 형식 및 클라이언트에 반환 되는 데이터 형식을 이해 해야 합니다.
+    >
+    > 요청 데이터가 모델에서 사용할 수 없는 형식인 경우 스크립트는이를 허용 되는 형식으로 변환할 수 있습니다. 클라이언트에 반환 하기 전에 응답을 변환할 수도 있습니다.
 
-엔트리 스크립트가 배포 된 웹 서비스에 전송 된 데이터를 받고 모델에 전달 합니다. 그런 후 모델이 반환한 응답을 수락한 후 클라이언트에 반환합니다. **이 스크립트는 해당 모델**; 모델을 사용 하 고 반환 하는 데이터를 이해 해야 합니다.
+    > [!IMPORTANT]
+    > Azure Machine Learning SDK는 웹 서비스 또는 IoT Edge 배포에서 데이터 저장소 또는 데이터 집합에 액세스 하는 방법을 제공 하지 않습니다. 배포 외부에 저장 된 데이터에 액세스 하기 위해 배포 된 모델이 필요한 경우 (예: Azure Storage 계정에서) 관련 SDK를 사용 하 여 사용자 지정 코드 솔루션을 개발 해야 합니다. 예를 들어 [Python 용 AZURE STORAGE SDK](https://github.com/Azure/azure-storage-python)가 있습니다.
+    >
+    > 시나리오에 사용할 수 있는 또 다른 대안은 점수를 매길 때 데이터 저장소에 대 한 액세스를 제공 하는 [일괄 처리 예측](how-to-run-batch-predictions.md)입니다.
 
-스크립트를 로드 하 고 모델을 실행 하는 두 함수를 포함 되어 있습니다.
+* 항목 스크립트나 모델을 실행 하는 데 필요한 도우미 스크립트 또는 Python/Conda 패키지와 같은 **종속성**
 
-* `init()`: 일반적으로 이 함수는 모델을 전역 개체에 로드합니다. 이 함수는 웹 서비스에 대 한 Docker 컨테이너를 시작할 때 한 번만 실행 됩니다.
+* 배포 된 모델을 호스팅하는 계산 대상의 __배포 구성__ 입니다. 이 구성에서는 모델을 실행 하는 데 필요한 메모리 및 CPU 요구 사항 등을 설명 합니다.
+
+이러한 엔터티는 __유추 구성__및 __배포 구성__에 캡슐화 됩니다. 유추 구성은 입력 스크립트 및 기타 종속성을 참조 합니다. 이러한 구성은 SDK를 사용 하는 경우 프로그래밍 방식으로 정의 되 고 CLI를 사용 하 여 배포를 수행 하는 경우 JSON 파일로 정의 됩니다.
+
+### <a id="script"></a> 1. 항목 스크립트 & 종속성 정의
+
+항목 스크립트는 배포 된 웹 서비스에 전송 된 데이터를 받아서 모델에 전달 합니다. 그런 후 모델이 반환한 응답을 수락한 후 클라이언트에 반환합니다. **스크립트는 모델에 따라 다릅니다**. 모델에 필요한 데이터를 이해 하 고 반환 해야 합니다.
+
+스크립트에는 모델을 로드 하 고 실행 하는 두 가지 함수가 포함 되어 있습니다.
+
+* `init()`: 일반적으로 이 함수는 모델을 전역 개체에 로드합니다. 이 함수는 웹 서비스의 Docker 컨테이너가 시작 될 때 한 번만 실행 됩니다.
 
 * `run(input_data)`: 이 함수는 모델을 사용하여 입력 데이터를 기반으로 값을 예측합니다. 실행에 대한 입력 및 출력은 일반적으로 serialization 및 deserialization용으로 JSON을 사용합니다. 원시 이진 데이터를 사용할 수도 있습니다. 모델에 보내기 전에 또는 클라이언트에 반환하기 전에 데이터를 변환할 수 있습니다.
 
-#### <a name="what-is-getmodelpath"></a>Get_model_path 란?
+#### <a name="what-is-get_model_path"></a>Get_model_path 란?
 
-모델을 등록 하면 레지스트리에서 모델 관리에 사용 되는 모델 이름을 제공 합니다. 사용 하 여이 이름을 사용 하는 [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) 로컬 파일 시스템에 모델 파일의 경로를 검색 합니다. 폴더 또는 파일의 컬렉션을 등록 하는 경우이 API 해당 파일이 포함 된 디렉터리 경로 반환 합니다.
+모델을 등록할 때 레지스트리에서 모델을 관리 하는 데 사용 되는 모델 이름을 제공 합니다. 이 이름을 Model과 함께 사용 [합니다. get _model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) 를 사용 하 여 로컬 파일 시스템에서 모델 파일의 경로를 검색 합니다. 폴더 또는 파일 컬렉션을 등록 하는 경우이 API는 해당 파일이 포함 된 디렉터리에 대 한 경로를 반환 합니다.
 
-모델을 등록 하면 모델 위치를 로컬 또는 서비스 배포 중에 해당 하는 이름을 제공 합니다.
+모델을 등록할 때 모델을 로컬 또는 서비스 배포 중에 배치 하는 위치에 해당 하는 이름을 지정 합니다.
 
-아래 예제에서는 돌아갑니다 경로 라는 단일 파일 `sklearn_mnist_model.pkl` (이름으로 등록 된는 `sklearn_mnist`):
+> [!IMPORTANT]
+> 자동화 된 machine learning을 `model_id` 사용 하 여 모델을 학습 한 경우 값이 모델 이름으로 사용 됩니다. 자동화 된 ml을 사용 하 여 학습 된 모델을 등록 하 고 배포 [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-with-deployment](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-with-deployment)하는 예는을 참조 하십시오.
+
+아래 예제에서는 라는 `sklearn_mnist_model.pkl` 단일 파일에 대 한 경로를 반환 합니다 .이 파일은 이름 `sklearn_mnist`으로 등록 됩니다.
 
 ```python
 model_path = Model.get_model_path('sklearn_mnist')
-``` 
+```
 
-#### <a name="optional-automatic-swagger-schema-generation"></a>(선택 사항) 자동으로 Swagger 스키마 생성
+<a id="schema"></a>
 
-자동으로 웹 서비스에 대 한 스키마를 생성, 입력의 샘플을 제공 및/또는 출력에 정의 된 형식이 개체 형식 및 샘플 중 하나에 대 한 생성자를 자동으로 스키마를 만드는 사용 됩니다. Azure Machine Learning 서비스를 만듭니다는 [OpenAPI](https://swagger.io/docs/specification/about/) 배포 하는 동안 웹 서비스에 대 한 (Swagger) 사양입니다.
+#### <a name="optional-automatic-schema-generation"></a>필드 자동 스키마 생성
 
-형식은 현재 지원 됩니다.
+웹 서비스에 대 한 스키마를 자동으로 생성 하려면 정의 된 형식 개체 중 하나에 대 한 생성자에서 입력 및/또는 출력의 샘플을 제공 하 고, 형식 및 샘플은 스키마를 자동으로 만드는 데 사용 됩니다. 그런 다음 Azure Machine Learning 서비스는 배포 중에 웹 서비스에 대 한 [Openapi](https://swagger.io/docs/specification/about/) (Swagger) 사양을 만듭니다.
+
+현재 지원 되는 형식은 다음과 같습니다.
 
 * `pandas`
 * `numpy`
 * `pyspark`
 * 표준 Python 개체
 
-스키마 생성을 사용 하려면 포함는 `inference-schema` conda 환경 파일에 패키지 합니다. 다음 예제에서는 `[numpy-support]` 엔트리 스크립트가 numpy 매개 변수 형식을 사용 하므로: 
+스키마 생성을 사용 하려면 conda 환경 `inference-schema` 파일에 패키지를 포함 합니다.
 
-#### <a name="example-dependencies-file"></a>예제 종속성 파일
-다음 YAML은 유추 Conda 종속성 파일의 예입니다.
+##### <a name="example-dependencies-file"></a>예제 종속성 파일
+
+다음 YAML은 유추를 위한 Conda 종속성 파일의 예입니다.
 
 ```YAML
 name: project_environment
@@ -164,16 +240,13 @@ dependencies:
     - inference-schema[numpy-support]
 ```
 
-자동 스키마 생성, 입력 스크립트를 사용 하려는 경우 **해야 합니다** 가져오기는 `inference-schema` 패키지 있습니다. 
+자동 스키마 생성을 사용 하려면 항목 스크립트가 패키지를 `inference-schema` 가져와야 합니다.
 
-입력을 정의 하 고 출력의 샘플 형식 합니다 `input_sample` 및 `output_sample` 변수를 나타내는 웹 서비스에 대 한 요청 및 응답 형식입니다. 이러한 샘플을 사용 하 여 입력에서 및 데코레이터 함수에서 출력 된 `run()` 함수입니다. scikit-스키마 생성을 사용 하 여 아래 예제에 알아봅니다.
+`input_sample` 및`output_sample` 변수에서 웹 서비스의 요청 및 응답 형식을 나타내는 입력 및 출력 샘플 형식을 정의 합니다. `run()` 함수에 대 한 입력 및 출력 함수 데코레이터에서 이러한 샘플을 사용 합니다. 아래 scikit 예제에서는 스키마 생성을 사용 합니다.
 
-> [!TIP]
-> 서비스를 배포한 후 사용 된 `swagger_uri` 스키마 JSON 문서를 검색할 속성입니다.
+##### <a name="example-entry-script"></a>예제 항목 스크립트
 
-#### <a name="example-entry-script"></a>예제 항목 스크립트
-
-다음 예에서는 허용 하 고 JSON 데이터를 반환 하는 방법을 보여 줍니다.
+다음 예제에서는 JSON 데이터를 수락 하 고 반환 하는 방법을 보여 줍니다.
 
 ```python
 #example: scikit-learn and Swagger
@@ -186,6 +259,7 @@ from azureml.core.model import Model
 from inference_schema.schema_decorators import input_schema, output_schema
 from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
 
+
 def init():
     global model
     # note here "sklearn_regression_model.pkl" is the name of the model registered under
@@ -194,8 +268,10 @@ def init():
     # deserialize the model file back into a sklearn model
     model = joblib.load(model_path)
 
-input_sample = np.array([[10,9,8,7,6,5,4,3,2,1]])
+
+input_sample = np.array([[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]])
 output_sample = np.array([3726.995])
+
 
 @input_schema('data', NumpyParameterType(input_sample))
 @output_schema(NumpyParameterType(output_sample))
@@ -209,9 +285,7 @@ def run(data):
         return error
 ```
 
-#### <a name="example-script-with-dictionary-input-support-consumption-from-power-bi"></a>사전 입력 (Power BI에서 지원 소비)를 사용 하 여 예제 스크립트
-
-다음 예제에서는 입력된 데이터를 정의 하는 방법 < 키: 값 > 데이터 프레임을 사용 하 여 사전입니다. 이 메서드는 Power BI에서 배포 된 웹 서비스 사용에 대 한 지원 ([Power BI에서 웹 서비스를 사용 하는 방법에 자세히 알아보려면](https://docs.microsoft.com/power-bi/service-machine-learning-integration)):
+다음 예제에서는 데이터 프레임를 사용 하 여 입력 데이터를 `<key: value>` 사전으로 정의 하는 방법을 보여 줍니다. 이 메서드는 Power BI에서 배포 된 웹 서비스를 사용 하는 데 지원 됩니다 ([Power BI에서 웹 서비스를 사용 하는 방법에 대 한 자세한](https://docs.microsoft.com/power-bi/service-machine-learning-integration)정보).
 
 ```python
 import json
@@ -226,19 +300,27 @@ from inference_schema.schema_decorators import input_schema, output_schema
 from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
 from inference_schema.parameter_types.pandas_parameter_type import PandasParameterType
 
+
 def init():
     global model
-    model_path = Model.get_model_path('model_name')   # replace model_name with your actual model name, if needed
+    # replace model_name with your actual model name, if needed
+    model_path = Model.get_model_path('model_name')
     # deserialize the model file back into a sklearn model
     model = joblib.load(model_path)
 
-input_sample = pd.DataFrame(data=[{
-              "input_name_1": 5.1,         # This is a decimal type sample. Use the data type that reflects this column in your data
-              "input_name_2": "value2",    # This is a string type sample. Use the data type that reflects this column in your data
-              "input_name_3": 3            # This is a integer type sample. Use the data type that reflects this column in your data
-            }])
 
-output_sample = np.array([0])              # This is a integer type sample. Use the data type that reflects the expected result
+input_sample = pd.DataFrame(data=[{
+    # This is a decimal type sample. Use the data type that reflects this column in your data
+    "input_name_1": 5.1,
+    # This is a string type sample. Use the data type that reflects this column in your data
+    "input_name_2": "value2",
+    # This is a integer type sample. Use the data type that reflects this column in your data
+    "input_name_3": 3
+}])
+
+# This is a integer type sample. Use the data type that reflects the expected result
+output_sample = np.array([0])
+
 
 @input_schema('data', PandasParameterType(input_sample))
 @output_schema(NumpyParameterType(output_sample))
@@ -251,279 +333,285 @@ def run(data):
         error = str(e)
         return error
 ```
-자세한 예제 스크립트의 경우 다음 예제를 참조 하세요.
+
+예제 스크립트에 대 한 자세한 내용은 다음 예를 참조 하십시오.
 
 * Pytorch: [https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch)
-* TensorFlow: [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
-* Keras: [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)
-* ONNX: [https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/)
-* 이진 데이터에 대 한 점수 매기기: [웹 서비스를 사용 하는 방법](how-to-consume-web-service.md)
+* TensorFlow[https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
+* Keras[https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)
+* ONNX[https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/)
 
-### <a name="2-define-your-inferenceconfig"></a>2. 프로그램 InferenceConfig 정의
+<a id="binary"></a>
 
-유추 구성 예측 하는 모델을 구성 하는 방법에 설명 합니다. 다음 예제는 유추 구성을 만드는 방법을 보여 줍니다. 이 구성을 런타임, 엔트리 스크립트가 및 (선택 사항) conda 환경 파일을 지정합니다.
+#### <a name="binary-data"></a>이진 데이터
+
+모델이 이미지와 같이 이진 데이터를 허용하는 경우 원시 HTTP 요청을 수락하도록 배포에 사용되는 `score.py` 파일을 수정해야 합니다. 원시 데이터를 수락 하려면 항목 스크립트 `AMLRequest` 에서 클래스를 사용 하 고 `run()` 함수에 `@rawhttp` 데코레이터를 추가 합니다.
+
+이진 데이터를 허용 `score.py` 하는의 예는 다음과 같습니다.
 
 ```python
-inference_config = InferenceConfig(runtime= "python",
+from azureml.contrib.services.aml_request import AMLRequest, rawhttp
+from azureml.contrib.services.aml_response import AMLResponse
+
+
+def init():
+    print("This is init()")
+
+
+@rawhttp
+def run(request):
+    print("This is run()")
+    print("Request: [{0}]".format(request))
+    if request.method == 'GET':
+        # For this example, just return the URL for GETs
+        respBody = str.encode(request.full_path)
+        return AMLResponse(respBody, 200)
+    elif request.method == 'POST':
+        reqBody = request.get_data(False)
+        # For a real world solution, you would load the data from reqBody
+        # and send to the model. Then return the response.
+
+        # For demonstration purposes, this example just returns the posted data as the response.
+        return AMLResponse(reqBody, 200)
+    else:
+        return AMLResponse("bad request", 500)
+```
+
+> [!IMPORTANT]
+> 클래스 `AMLRequest` 는 `azureml.contrib` 네임 스페이스에 있습니다. 이 네임 스페이스의 항목은 서비스를 개선 하기 위해 작업할 때 자주 변경 됩니다. 따라서 이 네임 스페이스의 모든 것을 미리 보기로 간주하므로 Microsoft에서 완벽히 지원하지 않아도 됩니다.
+>
+> 로컬 개발 환경에서 테스트를 수행 해야 하는 경우 다음 명령을 사용 하 여 구성 요소를 설치할 수 있습니다.
+>
+> ```shell
+> pip install azureml-contrib-services
+> ```
+
+<a id="cors"></a>
+
+#### <a name="cross-origin-resource-sharing-cors"></a>CORS (원본 간 리소스 공유)
+
+크로스-원본 자원 공유는 다른 도메인에서 웹 페이지의 리소스를 요청할 수 있도록 하는 방법입니다. CORS는 클라이언트 요청과 함께 전송 되 고 서비스 응답과 함께 반환 된 HTTP 헤더를 기반으로 작동 합니다. CORS 및 유효한 헤더에 대 한 자세한 내용은 위키백과에서 [원본 간 리소스 공유](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) 를 참조 하세요.
+
+CORS를 지원 하도록 모델 배포를 구성 하려면 항목 스크립트 `AMLResponse` 에서 클래스를 사용 합니다. 이 클래스를 사용 하 여 응답 개체의 헤더를 설정할 수 있습니다.
+
+다음 예에서는 입력 스크립트 `Access-Control-Allow-Origin` 의 응답에 대 한 헤더를 설정 합니다.
+
+```python
+from azureml.contrib.services.aml_response import AMLResponse
+
+def init():
+    print("This is init()")
+
+def run(request):
+    print("This is run()")
+    print("Request: [{0}]".format(request))
+    if request.method == 'GET':
+        # For this example, just return the URL for GETs
+        respBody = str.encode(request.full_path)
+        return AMLResponse(respBody, 200)
+    elif request.method == 'POST':
+        reqBody = request.get_data(False)
+        # For a real world solution, you would load the data from reqBody
+        # and send to the model. Then return the response.
+
+        # For demonstration purposes, this example
+        # adds a header and returns the request body
+        resp = AMLResponse(reqBody, 200)
+        resp.headers['Access-Control-Allow-Origin'] = "http://www.example.com"
+        return resp
+    else:
+        return AMLResponse("bad request", 500)
+```
+
+> [!IMPORTANT]
+> 클래스 `AMLResponse` 는 `azureml.contrib` 네임 스페이스에 있습니다. 이 네임 스페이스의 항목은 서비스를 개선 하기 위해 작업할 때 자주 변경 됩니다. 따라서 이 네임 스페이스의 모든 것을 미리 보기로 간주하므로 Microsoft에서 완벽히 지원하지 않아도 됩니다.
+>
+> 로컬 개발 환경에서 테스트를 수행 해야 하는 경우 다음 명령을 사용 하 여 구성 요소를 설치할 수 있습니다.
+>
+> ```shell
+> pip install azureml-contrib-services
+> ```
+
+### <a name="2-define-your-inferenceconfig"></a>2. InferenceConfig 정의
+
+유추 구성에서는 예측을 만들도록 모델을 구성 하는 방법을 설명 합니다. 이 구성은 입력 스크립트에 포함 되지 않습니다. 항목 스크립트를 참조 하 고 배포에 필요한 모든 리소스를 찾는 데 사용 됩니다. 나중에 모델을 배포할 때 사용 됩니다.
+
+유추 구성은 Azure Machine Learning 환경을 사용 하 여 배포에 필요한 소프트웨어 종속성을 정의할 수 있습니다. 환경을 사용 하 여 교육 및 배포에 필요한 소프트웨어 종속성을 만들고, 관리 하 고, 재사용할 수 있습니다. 다음 예제에서는 작업 영역에서 환경을 로드 한 다음이를 유추 구성과 함께 사용 하는 방법을 보여 줍니다.
+
+```python
+from azureml.core import Environment
+from azureml.core.model import InferenceConfig
+
+deploy_env = Environment.get(workspace=ws,name="myenv",version="1")
+inference_config = InferenceConfig(entry_script="x/y/score.py",
+                                   environment=deploy_env)
+```
+
+환경에 대 한 자세한 내용은 [교육 및 배포를 위한 환경 만들기 및 관리](how-to-use-environments.md)를 참조 하세요.
+
+환경을 사용 하지 않고 종속성을 직접 지정할 수도 있습니다. 다음 예제에서는 conda 파일에서 소프트웨어 종속성을 로드 하는 유추 구성을 만드는 방법을 보여 줍니다.
+
+```python
+from azureml.core.model import InferenceConfig
+
+inference_config = InferenceConfig(runtime="python",
                                    entry_script="x/y/score.py",
                                    conda_file="env/myenv.yml")
 ```
 
-자세한 내용은 참조는 [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) 클래스 참조 합니다.
+자세한 내용은 [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) 클래스 참조를 참조 하세요.
 
-유추 구성을 사용 하 여 사용자 지정 Docker 이미지 사용에 대 한 내용은 참조 하세요 [사용자 지정 Docker 이미지를 사용 하 여 모델을 배포 하는 방법을](how-to-deploy-custom-docker-image.md)합니다.
+유추 구성에서 사용자 지정 Docker 이미지를 사용 하는 방법에 대 한 자세한 내용은 [사용자 지정 docker 이미지를 사용 하 여 모델을 배포 하는 방법](how-to-deploy-custom-docker-image.md)을 참조 하세요.
 
 ### <a name="cli-example-of-inferenceconfig"></a>InferenceConfig의 CLI 예제
 
-다음 JSON 문서는 기계 학습 CLI 사용에 대 한 유추 구성 예제:
+[!INCLUDE [inference config](../../../includes/machine-learning-service-inference-config.md)]
 
-```JSON
-{
-   "entryScript": "x/y/score.py",
-   "runtime": "python",
-   "condaFile": "env/myenv.yml",
-   "sourceDirectory":"C:/abc",
-}
-```
-
-엔터티는이 파일에 유효 합니다.
-
-* __entryScript__: 이미지에 대해 실행 하는 코드를 포함 하는 로컬 파일 경로입니다.
-* __런타임__: 이미지를 사용 하는 런타임입니다. 현재 지원 되는 런타임을 ' spark py' 및 'python'입니다.
-* __condaFile__ (선택 사항): 이미지를 사용 하는 conda 환경 정의 포함 하는 로컬 파일 경로입니다.
-* __extraDockerFileSteps__ (선택 사항): 이미지를 설정 하는 경우를 실행 하는 추가 Docker 단계를 포함 하는 로컬 파일 경로입니다.
-* __sourceDirectory__ (선택 사항): 이미지를 만드는 모든 파일이 포함 된 폴더 경로입니다.
-* __enableGpu__ (선택 사항): GPU를 사용 하도록 설정 하려면 여부 이미지에서 지원 합니다. GPU 이미지는 Azure Container Instances, Azure Machine Learning Compute, Azure Virtual Machines 및 Azure Kubernetes Service와 같은 Microsoft Azure 서비스에서 사용 되어야 합니다. 기본값은 False입니다.
-* __baseImage__ (선택 사항): 기본 이미지로 사용할 이미지를 사용자 지정 합니다. 기본 이미지 없음이 지정 되 면 기본 이미지를 기반으로 런타임 매개 변수 지정 된 사용 됩니다.
-* __baseImageRegistry__ (선택 사항): 기본 이미지가 포함 된 이미지 레지스트리입니다.
-* __cudaVersion__ (선택 사항): CUDA GPU 지원 해야 하는 이미지에 대 한 설치의 버전입니다. GPU 이미지는 Azure Container Instances, Azure Machine Learning Compute, Azure Virtual Machines 및 Azure Kubernetes Service와 같은 Microsoft Azure 서비스에서 사용 되어야 합니다. 지원 되는 버전은 9.0, 9.1, 및 10.0입니다. 'Enable_gpu'으로 설정 된 경우 '9.1' 기본값은입니다.
-
-이러한 엔터티 매개 변수를 매핑하는 [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) 클래스입니다.
-
-명령 다음에 CLI를 사용 하 여 모델을 배포 하는 방법을 보여 줍니다.
+다음 명령은 CLI를 사용 하 여 모델을 배포 하는 방법을 보여 줍니다.
 
 ```azurecli-interactive
 az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 ```
 
-이 예제에서는 구성에는 다음 항목이 포함 됩니다.
+이 예제에서 구성에는 다음 항목이 포함 됩니다.
 
-* 유추 하는 데 필요한 자산을 포함 하는 디렉터리
-* 이 모델에서는 Python는
-* 합니다 [엔트리 스크립트가](#script), 배포 된 서비스에 전송 하는 웹 요청을 처리 하는 데 사용 되는
-* 유추 하는 데 필요한 Python 패키지를 설명 하는 conda 파일
+* 이 모델에는 Python이 필요 합니다.
+* 배포 된 서비스로 전송 되는 웹 요청을 처리 하는 데 사용 되는 [항목 스크립트](#script)
+* 유추에 필요한 Python 패키지를 설명 하는 conda 파일입니다.
 
-유추 구성을 사용 하 여 사용자 지정 Docker 이미지 사용에 대 한 내용은 참조 하세요 [사용자 지정 Docker 이미지를 사용 하 여 모델을 배포 하는 방법을](how-to-deploy-custom-docker-image.md)합니다.
+유추 구성에서 사용자 지정 Docker 이미지를 사용 하는 방법에 대 한 자세한 내용은 [사용자 지정 docker 이미지를 사용 하 여 모델을 배포 하는 방법](how-to-deploy-custom-docker-image.md)을 참조 하세요.
 
 ### <a name="3-define-your-deployment-configuration"></a>3. 배포 구성 정의
 
-를 배포 하기 전에 배포 구성을 정의 해야 합니다. 배포 구성 웹 서비스를 호스트 하는 계산 대상에 따라 다릅니다. 예를 들어, 로컬로 배포 하는 경우 서비스는 요청을 수락 하는 위치는 포트를 지정 해야 합니다.
+를 배포 하기 전에 배포 구성을 정의 해야 합니다. __배포 구성은 웹 서비스를 호스팅하는 계산 대상에만 적용 됩니다__. 예를 들어 로컬로 배포할 때 서비스에서 요청을 수락 하는 포트를 지정 해야 합니다. 배포 구성은 입력 스크립트의 일부가 아닙니다. 모델 및 항목 스크립트를 호스팅할 계산 대상의 특성을 정의 하는 데 사용 됩니다.
 
-계산 리소스를 만들 또한 해야 합니다. 예를 들어 있지 않으면 Azure Kubernetes Service 연결 작업 영역입니다.
+계산 리소스를 만들어야 할 수도 있습니다. 예를 들어, 작업 영역과 연결 된 Azure Kubernetes 서비스가 아직 없는 경우입니다.
 
-다음 표에서 각 계산 대상에 대 한 배포 구성을 만드는 예제입니다.
+다음 표에서는 각 계산 대상에 대 한 배포 구성을 만드는 예를 제공 합니다.
 
-| 계산 대상 | 배포 구성 예제 |
+| 컴퓨팅 대상 | 배포 구성 예 |
 | ----- | ----- |
 | 로컬 | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
-| Azure Container Instance | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
+| Azure Container Instances | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
-다음 섹션에서는 배포 구성 만들기를 사용 하 여 웹 서비스를 배포 하는 방법을 보여 줍니다.
+로컬, ACI 및 AKS 웹 서비스에 대 한 이러한 각 클래스는 다음에서 `azureml.core.webservice`가져올 수 있습니다.
 
-### <a name="optional-profile-your-model"></a>선택 사항: 모델을 프로 파일링
-서비스 모델을 배포 하기 전에 최적의 CPU 및 메모리 요구 사항을 확인 하는 프로 파일링 하는 것이 좋습니다. 사용자 프로필 모델 SDK 또는 CLI를 사용 하 여 수행할 수 있습니다.
+```python
+from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
+```
 
-자세한 내용은 여기 SDK 설명서를 확인할 수 있습니다. https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
+#### <a name="profiling"></a>프로파일링
 
-실행 개체 모델 프로 파일링 결과 내보냅니다.
-모델 프로필 스키마에 대 한 세부 사항은 확인할 수 있습니다. https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py
+모델을 서비스로 배포 하기 전에이를 프로 파일링 하 여 최적의 CPU 및 메모리 요구 사항을 확인 하는 것이 좋습니다. SDK 또는 CLI를 사용 하 여 모델을 프로 파일링 할 수 있습니다. 다음 예제에서는 SDK에서 프로 파일링을 사용 하는 방법을 보여 줍니다.
+
+> [!IMPORTANT]
+> 프로 파일링을 사용 하는 경우 사용자가 제공 하는 유추 구성은 Azure Machine Learning 환경을 참조할 수 없습니다. 대신 `conda_file` 개체`InferenceConfig` 의 매개 변수를 사용 하 여 소프트웨어 종속성을 정의 합니다.
+
+```python
+import json
+test_sample = json.dumps({'data': [
+    [1,2,3,4,5,6,7,8,9,10]
+]})
+
+profile = Model.profile(ws, "profilemymodel", [model], inference_config, test_data)
+profile.wait_for_profiling(true)
+profiling_results = profile.get_results()
+print(profiling_results)
+```
+
+이 코드는 다음 텍스트와 유사한 결과를 표시 합니다.
+
+```python
+{'cpu': 1.0, 'memoryInGB': 0.5}
+```
+
+모델 프로 파일링 결과를 `Run` 개체로 내보냅니다.
+
+CLI에서 프로 파일링을 사용 하는 방법에 대 한 자세한 내용은 [az ml model profile](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile)을 참조 하세요.
+
+자세한 내용은 다음 참조 문서를 참조 하세요.
+
+* [ModelProfile](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py)
+* [profile ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--model~s--inference-config--input-data-)
+* [유추 구성 파일 스키마](reference-azure-machine-learning-cli.md#inference-configuration-schema)
 
 ## <a name="deploy-to-target"></a>대상에 배포
 
-### <a id="local"></a> 로컬 배포
+배포에서는 유추 구성 배포 구성을 사용 하 여 모델을 배포 합니다. 배포 프로세스는 계산 대상에 관계 없이 유사 합니다. AKS 클러스터에 대 한 참조를 제공 해야 하므로 AKS에 배포 하는 것은 약간 다릅니다.
 
-로컬에 배포 하려면 해야 **Docker가 설치 되어** 로컬 컴퓨터에 있습니다.
+### <a id="local"></a>로컬 배포
 
-+ **SDK를 사용 하 여**
+로컬로 배포 하려면 로컬 컴퓨터에 Docker가 설치 되어 있어야 합니다.
 
-  ```python
-  deployment_config = LocalWebservice.deploy_configuration(port=8890)
-  service = Model.deploy(ws, "myservice", [model], inference_config, deployment_config)
-  service.wait_for_deployment(show_output = True)
-  print(service.state)
-  ```
-
-+ **CLI를 사용 하 여**
-
-  ```azurecli-interactive
-  az ml model deploy -m sklearn_mnist:1 -ic inferenceconfig.json -dc deploymentconfig.json
-  ```
-
-### <a id="aci"></a> Azure Container Instances (DEVTEST)
-
-다음 조건 중 하나 이상에 해당하는 경우 Azure Container Instances를 사용하여 모델을 웹 서비스로 배포합니다.
-- 모델을 빠르게 배포하고 유효성을 검사해야 합니다.
-- 개발 중인 모델을 테스트합니다. 
-
-ACI에 대 한 할당량 및 지역 가용성을 확인, 참조를 [할당량 및 Azure Container Instances에 대 한 지역 가용성](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) 문서.
-
-+ **SDK를 사용 하 여**
-
-  ```python
-  deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)
-  service = Model.deploy(ws, "aciservice", [model], inference_config, deployment_config)
-  service.wait_for_deployment(show_output = True)
-  print(service.state)
-  ```
-
-+ **CLI를 사용 하 여**
-
-  ```azurecli-interactive
-  az ml model deploy -m sklearn_mnist:1 -n aciservice -ic inferenceconfig.json -dc deploymentconfig.json
-  ```
-
-
-+ **VS Code를 사용 하 여**
-
-  하 [VS Code를 사용 하 여 모델을 배포할](how-to-vscode-tools.md#deploy-and-manage-models) ACI 컨테이너 즉석에서 생성 되므로 미리 테스트 하는 ACI 컨테이너를 만들 필요가 없습니다.
-
-자세한 내용은 [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) 및 [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) 클래스에 대한 참조 설명서를 참조하세요.
-
-### <a id="aks"></a>Azure Kubernetes Service (DEVTEST 및 프로덕션)
-
-기존 AKS 클러스터를 사용하거나 Azure Machine Learning SDK, CLI 또는 Azure Portal을 사용하여 새로운 클러스터를 만들 수 있습니다.
-
-<a id="deploy-aks"></a>
-
-연결 된 AKS 클러스터에 이미 있는 경우에 배포할 수 있습니다. 생성 또는 AKS 클러스터를 연결 하지 않은 경우 프로세스에 따라 <a href="#create-attach-aks">새 AKS 클러스터를 만들</a>합니다.
-
-+ **SDK를 사용 하 여**
-
-  ```python
-  aks_target = AksCompute(ws,"myaks")
-  # If deploying to a cluster configured for dev/test, ensure that it was created with enough
-  # cores and memory to handle this deployment configuration. Note that memory is also used by
-  # things such as dependencies and AML components.
-  deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)
-  service = Model.deploy(ws, "aksservice", [model], inference_config, deployment_config, aks_target)
-  service.wait_for_deployment(show_output = True)
-  print(service.state)
-  print(service.get_logs())
-  ```
-
-+ **CLI를 사용 하 여**
-
-  ```azurecli-interactive
-  az ml model deploy -ct myaks -m mymodel:1 -n aksservice -ic inferenceconfig.json -dc deploymentconfig.json
-  ```
-
-+ **VS Code를 사용 하 여**
-
-  할 수도 있습니다 [VS Code 확장을 통해 AKS에 배포](how-to-vscode-tools.md#deploy-and-manage-models), AKS 클러스터를 미리 구성 해야 하지만 합니다.
-
-AKS 배포 및에서 자동 크기 조정에 대 한 자세한 정보는 [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice) 참조 합니다.
-
-#### 새 AKS 클러스터 만들기<a id="create-attach-aks"></a>
-**예상 시간**: 약 20분입니다.
-
-AKS 클러스터는 한 번 연결 또는 만들기 작업 영역에 대 한 처리 합니다. 이 클러스터를 여러 배포에 재사용할 수 있습니다. 클러스터 또는 포함 하는 리소스 그룹을 삭제 하면 다음에 배포 해야 새 클러스터를 만들어야 합니다. 작업 영역에 연결 된 여러 AKS 클러스터를 사용할 수 있습니다.
-
-개발, 유효성 검사 및 테스트에 대 한 AKS 클러스터를 만들려는 경우 설정한 `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST` 사용 하는 경우 [ `provisioning_configuration()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py)합니다. 이 설정을 사용 하 여 만든 클러스터는 하나의 노드만 권한만 갖습니다.
-
-> [!IMPORTANT]
-> 설정 `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST` 프로덕션 트래픽 처리에 적합 하지 않은 AKS 클러스터를 만듭니다. 유추 시간이 프로덕션에 만든 클러스터에 보다 길어질 수 있습니다. 내결함성 개발/테스트 클러스터에 대 한 보장 되지 않습니다.
->
-> 개발/테스트에 만든 클러스터 두 개 이상의 가상 Cpu를 사용 하는 것이 좋습니다.
-
-다음 예제에서는 새 Azure Kubernetes Service 클러스터를 만드는 방법을 보여 줍니다.
+#### <a name="using-the-sdk"></a>SDK 사용
 
 ```python
-from azureml.core.compute import AksCompute, ComputeTarget
+from azureml.core.webservice import LocalWebservice, Webservice
 
-# Use the default configuration (you can also provide parameters to customize this).
-# For example, to create a dev/test cluster, use:
-# prov_config = AksCompute.provisioning_configuration(cluster_purpose = AksComputee.ClusterPurpose.DEV_TEST)
-prov_config = AksCompute.provisioning_configuration()
-
-aks_name = 'myaks'
-# Create the cluster
-aks_target = ComputeTarget.create(workspace = ws,
-                                    name = aks_name,
-                                    provisioning_configuration = prov_config)
-
-# Wait for the create process to complete
-aks_target.wait_for_completion(show_output = True)
+deployment_config = LocalWebservice.deploy_configuration(port=8890)
+service = Model.deploy(ws, "myservice", [model], inference_config, deployment_config)
+service.wait_for_deployment(show_output = True)
+print(service.state)
 ```
 
-Azure Machine Learning SDK 외부에서 AKS 클러스터를 만드는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
-* [AKS 클러스터 만들기](https://docs.microsoft.com/cli/azure/aks?toc=%2Fazure%2Faks%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
-* [AKS 클러스터 (포털) 만들기](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
+자세한 내용은 [Localwebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py), [Model. deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-)및 [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py)에 대 한 참조 설명서를 참조 하세요.
 
-에 대 한 자세한 합니다 `cluster_purpose` 매개 변수를 참조 합니다 [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py) 참조 합니다.
+#### <a name="using-the-cli"></a>CLI 사용
 
-> [!IMPORTANT]
-> [`provisioning_configuration()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py)의 경우, agent_count 및 vm_size에 대한 사용자 지정 값을 선택하는 경우 agent_count와 vm_size를 곱한 값이 12개 가상 CPU보다 크거나 같아야 합니다. 예를 들어, 4개의 가상 CPU가 있는 "Standard_D3_v2"의 vm_size를 사용하는 경우는 3 이상의 agent_count를 선택해야 합니다.
->
-> Azure Machine Learning SDK에는 AKS 클러스터 크기 조정 지원을 제공 하지 않습니다. 클러스터의 노드 크기를 조정 하려면 Azure portal에서 AKS 클러스터에 대 한 UI를 사용 합니다. 클러스터의 VM 크기가 아니라 노드 수를 변경할 수 있습니다.
+CLI를 사용 하 여 배포 하려면 다음 명령을 사용 합니다. 를 `mymodel:1` 등록 된 모델의 이름 및 버전으로 바꿉니다.
 
-#### <a name="attach-an-existing-aks-cluster"></a>기존 AKS 클러스터를 연결 합니다.
-**예상 시간:** 약 5 분입니다.
-
-Azure 구독에서 AKS 클러스터를 이미 있는 경우 버전 1.12. # #, 이미지를 배포 하려면 사용할 수 있습니다.
-
-> [!WARNING]
-> AKS 클러스터에 작업 영역에 연결 하는 경우 클러스터를 사용 하는 설정 하 여는 방법을 정의할 수 있습니다는 `cluster_purpose` 매개 변수입니다.
->
-> 설정 하지 않으면 경우는 `cluster_purpose` 매개 변수 또는 집합 `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`, 클러스터 12 개 이상의 가상 Cpu를 사용할 수 있어야 합니다. 그런 다음입니다.
->
-> 설정한 경우 `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`, 클러스터에 12 가상 Cpu가 필요 하지 않습니다. 그러나 개발/테스트에 대해 구성 된 클러스터를 프로덕션 수준 트래픽에 대 한 적합 한 되지 않으며 유추 시간이 길어질 수 있습니다.
-
-다음 코드는 기존 AKS 1.12를 연결 하는 방법에 설명 합니다. # # 작업 영역에 클러스터:
-
-```python
-from azureml.core.compute import AksCompute, ComputeTarget
-# Set the resource group that contains the AKS cluster and the cluster name
-resource_group = 'myresourcegroup'
-cluster_name = 'mycluster'
-
-# Attach the cluster to your workgroup. If the cluster has less than 12 virtual CPUs, use the following instead:
-# attach_config = AksCompute.attach_configuration(resource_group = resource_group,
-#                                         cluster_name = cluster_name,
-#                                         cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST)
-attach_config = AksCompute.attach_configuration(resource_group = resource_group,
-                                         cluster_name = cluster_name)
-aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
+```azurecli-interactive
+az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.json
 ```
 
-에 대 한 자세한 `attack_configuration()`를 참조 합니다 [AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-) 참조 합니다.
+[!INCLUDE [aml-local-deploy-config](../../../includes/machine-learning-service-local-deploy-config.md)]
 
-에 대 한 자세한 합니다 `cluster_purpose` 매개 변수를 참조 합니다 [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py) 참조 합니다.
+자세한 내용은 [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) reference를 참조 하세요.
+
+### <a id="notebookvm"></a>NotebookVM 웹 서비스 (DEVTEST)
+
+[모델을 노트북 vm에 배포](how-to-deploy-local-container-notebook-vm.md)를 참조 하세요.
+
+### <a id="aci"></a>Azure Container Instances (DEVTEST)
+
+[Azure Container Instances에 배포를](how-to-deploy-azure-container-instance.md)참조 하세요.
+
+### <a id="aks"></a>Azure Kubernetes 서비스 (DEVTEST & 프로덕션)
+
+[Azure Kubernetes Service에 배포를](how-to-deploy-azure-kubernetes-service.md)참조 하세요.
 
 ## <a name="consume-web-services"></a>웹 서비스 사용
 
-모든 배포 된 웹 서비스는 프로그래밍 언어의 다양 한 클라이언트 응용 프로그램을 만들 수 있도록 REST API를 제공 합니다. 서비스에 대 한 인증을 설정한 경우에 요청 헤더에서 토큰으로 서비스 키를 제공 해야 합니다.
+배포 된 모든 웹 서비스는 REST API을 제공 하므로 다양 한 프로그래밍 언어로 클라이언트 응용 프로그램을 만들 수 있습니다. 서비스에 대 한 키 인증을 사용 하는 경우 요청 헤더에 토큰으로 서비스 키를 제공 해야 합니다.
+서비스에 대 한 토큰 인증을 사용 하도록 설정한 경우 요청 헤더에서 전달자 토큰으로 Azure Machine Learning JWT 토큰을 제공 해야 합니다.
 
-### <a name="request-response-consumption"></a>요청-응답 사용
+> [!TIP]
+> 서비스를 배포한 후 스키마 JSON 문서를 검색할 수 있습니다. 와`service.swagger_uri`같은 배포 된 웹 서비스의 [swagger_uri 속성](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri) 을 사용 하 여 로컬 웹 서비스의 swagger 파일에 대 한 uri를 가져옵니다.
+
+### <a name="request-response-consumption"></a>요청-응답 소비
 
 Python에서 서비스를 호출 하는 방법의 예는 다음과 같습니다.
 ```python
 import requests
 import json
 
-headers = {'Content-Type':'application/json'}
+headers = {'Content-Type': 'application/json'}
 
 if service.auth_enabled:
     headers['Authorization'] = 'Bearer '+service.get_keys()[0]
+elif service.token_auth_enabled:
+    headers['Authorization'] = 'Bearer '+service.get_token()[0]
 
 print(headers)
-    
+
 test_sample = json.dumps({'data': [
-    [1,2,3,4,5,6,7,8,9,10], 
-    [10,9,8,7,6,5,4,3,2,1]
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 ]})
 
-response = requests.post(service.scoring_uri, data=test_sample, headers=headers)
+response = requests.post(
+    service.scoring_uri, data=test_sample, headers=headers)
 print(response.status_code)
 print(response.elapsed)
 print(response.json())
@@ -531,74 +619,326 @@ print(response.json())
 
 자세한 내용은 [웹 서비스를 사용할 클라이언트 애플리케이션 만들기](how-to-consume-web-service.md)를 참조하세요.
 
+### <a name="web-service-schema-openapi-specification"></a>웹 서비스 스키마 (OpenAPI 사양)
 
-### <a id="azuremlcompute"></a> 일괄 처리 유추
-Azure Machine Learning Compute 목표 생성 및 Azure Machine Learning 서비스에 의해 관리 됩니다. Azure Machine Learning 파이프라인에서 일괄 처리 예측을 위해 사용할 수 있습니다.
+배포와 함께 자동 스키마 생성을 사용 하는 경우 [swagger_uri 속성](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri)을 사용 하 여 서비스에 대 한 openapi 사양의 주소를 가져올 수 있습니다. `print(service.swagger_uri)` )을 입력합니다. GET 요청을 사용 하거나 브라우저에서 URI를 열어 사양을 검색 합니다.
 
-연습은 사용 하 여 Azure Machine Learning Compute batch 유추 읽기를 [일괄 처리 예측을 실행 하는 방법을](how-to-run-batch-predictions.md) 문서.
+다음 JSON 문서는 배포에 대해 생성 된 스키마 (OpenAPI 사양)의 예입니다.
 
-### <a id="iotedge"></a> IoT Edge 유추
-에 지에 배포 하는 것에 대 한 지원은 미리 보기로 제공 됩니다. 자세한 내용은 참조는 [IoT Edge 모듈로 Azure Machine Learning 배포](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning) 문서.
-
-
-## <a id="update"></a> 웹 서비스를 업데이트 합니다.
-
-새 모델을 만들 때 새 모델을 사용 하려는 각 서비스를 수동으로 업데이트 해야 합니다. 웹 서비스를 업데이트하려면 `update` 메서드를 사용합니다. 다음 코드에는 새 모델을 사용 하도록 웹 서비스를 업데이트 하는 방법을 보여 줍니다.
-
-```python
-from azureml.core.webservice import Webservice
-from azureml.core.model import Model
-
-# register new model
-new_model = Model.register(model_path = "outputs/sklearn_mnist_model.pkl",
-                       model_name = "sklearn_mnist",
-                       tags = {"key": "0.1"},
-                       description = "test",
-                       workspace = ws)
-
-service_name = 'myservice'
-# Retrieve existing service
-service = Webservice(name = service_name, workspace = ws)
-
-# Update to new model(s)
-service.update(models = [new_model])
-print(service.state)
-print(service.get_logs())
+```json
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "myservice",
+        "description": "API specification for the Azure Machine Learning service myservice",
+        "version": "1.0"
+    },
+    "schemes": [
+        "https"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "securityDefinitions": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header",
+            "description": "For example: Bearer abc123"
+        }
+    },
+    "paths": {
+        "/": {
+            "get": {
+                "operationId": "ServiceHealthCheck",
+                "description": "Simple health check endpoint to ensure the service is up at any given point.",
+                "responses": {
+                    "200": {
+                        "description": "If service is up and running, this response will be returned with the content 'Healthy'",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "application/json": "Healthy"
+                        }
+                    },
+                    "default": {
+                        "description": "The service failed to execute due to an error.",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/score": {
+            "post": {
+                "operationId": "RunMLService",
+                "description": "Run web service's model and get the prediction output",
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "serviceInputPayload",
+                        "in": "body",
+                        "description": "The input payload for executing the real-time machine learning service.",
+                        "schema": {
+                            "$ref": "#/definitions/ServiceInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The service processed the input correctly and provided a result prediction, if applicable.",
+                        "schema": {
+                            "$ref": "#/definitions/ServiceOutput"
+                        }
+                    },
+                    "default": {
+                        "description": "The service failed to execute due to an error.",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "ServiceInput": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                }
+            },
+            "example": {
+                "data": [
+                    [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ]
+                ]
+            }
+        },
+        "ServiceOutput": {
+            "type": "array",
+            "items": {
+                "type": "number",
+                "format": "double"
+            },
+            "example": [
+                3726.995
+            ]
+        },
+        "ErrorResponse": {
+            "type": "object",
+            "properties": {
+                "status_code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
 ```
 
-## <a name="continuous-model-deployment"></a>연속적 모델 배포 
+사양에 대 한 자세한 내용은 [OPEN API 사양](https://swagger.io/specification/)을 참조 하십시오.
 
-Machine Learning에 대 한 확장을 사용 하 여 모델을 지속적으로 배포할 수 있습니다 [Azure DevOps](https://azure.microsoft.com/services/devops/)합니다. Azure DevOps에 대 한 Machine Learning 확장을 사용 하 여 새로운 기계 학습 모델을 Azure Machine Learning 서비스 작업 영역에서 등록 될 때 배포 파이프라인을 트리거할 수 있습니다. 
+사양에서 클라이언트 라이브러리를 만들 수 있는 유틸리티는 [swagger-codegen](https://github.com/swagger-api/swagger-codegen)를 참조 하세요.
 
-1. 신청 [Azure 파이프라인](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops), 그러면 지속적인 통합 및 클라우드 플랫폼 간 모든 응용 프로그램의 업데이트 가능 합니다. Azure 파이프라인 [ML 파이프라인에서 다른](concept-ml-pipelines.md#compare)합니다. 
+### <a id="azuremlcompute"></a>일괄 처리 유추
+Azure Machine Learning 계산 대상은 Azure Machine Learning 서비스에서 만들어지고 관리 됩니다. Azure Machine Learning 파이프라인에서 일괄 처리 예측에 사용할 수 있습니다.
+
+Azure Machine Learning 계산을 사용한 일괄 처리 유추 연습은 [일괄 처리 예측을 실행 하는 방법](how-to-run-batch-predictions.md) 문서를 참조 하세요.
+
+### <a id="iotedge"></a>IoT Edge 유추
+에 지에 배포 하는 기능은 미리 보기 상태입니다. 자세한 내용은 [IoT Edge 모듈로 Azure Machine Learning 배포](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning) 문서를 참조 하세요.
+
+
+## <a id="update"></a>웹 서비스 업데이트
+
+[!INCLUDE [aml-update-web-service](../../../includes/machine-learning-update-web-service.md)]
+
+## <a name="continuous-model-deployment"></a>연속 모델 배포 
+
+[Azure DevOps](https://azure.microsoft.com/services/devops/)에 대 한 Machine Learning 확장을 사용 하 여 모델을 지속적으로 배포할 수 있습니다. Azure DevOps 용 Machine Learning 확장을 사용 하 여 새 Machine Learning 모델이 Azure Machine Learning 서비스 작업 영역에 등록 되 면 배포 파이프라인을 트리거할 수 있습니다. 
+
+1. [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops)에 등록 하면 응용 프로그램을 모든 플랫폼/클라우드로 지속적으로 통합 하 고 제공할 수 있습니다. Azure Pipelines [ML 파이프라인과 다릅니다](concept-ml-pipelines.md#compare). 
 
 1. [Azure DevOps 프로젝트를 만듭니다.](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops)
 
-1. 설치는 [Azure 파이프라인에 대 한 기계 학습 확장](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml&targetId=6756afbe-7032-4a36-9cb6-2771710cadc2&utm_source=vstsproduct&utm_medium=ExtHubManageList) 
+1. [Azure Pipelines에 대 한 Machine Learning 확장](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml&targetId=6756afbe-7032-4a36-9cb6-2771710cadc2&utm_source=vstsproduct&utm_medium=ExtHubManageList) 을 설치 합니다. 
 
-1. 사용 하 여 __서비스 연결__ 에 모든 아티팩트에 액세스 하려면 Azure Machine Learning 서비스 작업 영역에 서비스 주체 연결을 설정 합니다. 프로젝트 설정으로 이동한 서비스 연결을 클릭 합니다. Azure Resource Manager를 선택 합니다.
+1. __서비스 연결__ 을 사용 하 여 Azure Machine Learning 서비스 작업 영역에 대 한 서비스 사용자 연결을 설정 하 고 모든 아티팩트에 액세스할 수 있습니다. 프로젝트 설정으로 이동 하 고 서비스 연결을 클릭 한 다음 Azure Resource Manager를 선택 합니다.
 
-    ![view-service-connection](media/how-to-deploy-and-where/view-service-connection.png) 
+    [![뷰 서비스-연결](media/how-to-deploy-and-where/view-service-connection.png)](media/how-to-deploy-and-where/view-service-connection-expanded.png) 
 
-1. AzureMLWorkspace로 정의 합니다 __수준 범위__ 후속 매개 변수를 입력 합니다.
+1. AzureMLWorkspace를 __범위 수준__ 으로 정의 하 고 후속 매개 변수를 채웁니다.
 
     ![view-azure-resource-manager](media/how-to-deploy-and-where/resource-manager-connection.png)
 
-1. 그런 다음 Azure 파이프라인을 사용 하 여 기계 학습 모델을 지속적으로 배포 하려면 파이프라인 선택 __릴리스__합니다. 새 아티팩트를 추가 하 고 AzureML 모델 아티팩트 및 이전 단계에서 만든 서비스 연결을 선택 합니다. 모델 및 배포를 트리거하려면 버전을 선택 합니다. 
+1. 그런 다음 Azure Pipelines를 사용 하 여 기계 학습 모델을 지속적으로 배포 하려면 파이프라인에서 __릴리스__를 선택 합니다. 새 아티팩트를 추가 하 고, 이전 단계에서 만든 AzureML 모델 아티팩트 및 서비스 연결을 선택 합니다. 배포를 트리거할 모델 및 버전을 선택 합니다. 
 
-    ![select-AzureMLmodel-artifact](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)
+    [![AzureMLmodel-아티팩트](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)](media/how-to-deploy-and-where/enable-modeltrigger-artifact-expanded.png)
 
-1. 모델 아티팩트에 모델 트리거를 사용 하도록 설정 합니다. 설정 하 여 트리거를 때마다 지정된 된 버전 (즉 최신 버전)이 모델은 작업 영역에서 등록, Azure DevOps 릴리스 파이프라인을 트리거됩니다. 
+1. 모델 아티팩트에 대해 모델 트리거를 사용 하도록 설정 합니다. 지정 된 버전이 될 때마다 트리거를 설정 하 여 해당 모델의 최신 버전)이 작업 영역에 등록 되 면 Azure DevOps 릴리스 파이프라인이 트리거됩니다. 
 
-    ![enable-model-trigger](media/how-to-deploy-and-where/set-modeltrigger.png)
+    [![모델 사용-트리거](media/how-to-deploy-and-where/set-modeltrigger.png)](media/how-to-deploy-and-where/set-modeltrigger-expanded.png)
 
-샘플 프로젝트 및 예제를 체크 아웃 [MLOps 리포지토리](https://github.com/Microsoft/MLOps)
+더 많은 샘플 프로젝트 및 예제는 다음 샘플 리포지토리를 참조 하세요.
+
+* [https://github.com/Microsoft/MLOps](https://github.com/Microsoft/MLOps)
+* [https://github.com/Microsoft/MLOpsPython](https://github.com/microsoft/MLOpsPython)
+
+## <a name="package-models"></a>패키지 모델
+
+경우에 따라 모델을 배포 하지 않고 Docker 이미지를 만들 수 있습니다. 예를 들어 [Azure App Service 배포](how-to-deploy-app-service.md)를 계획 하는 경우입니다. 또는 이미지를 다운로드 하 고 로컬 Docker 설치에서 실행할 수 있습니다. 이미지를 빌드하고 검사 하 고 수정 하 고 수동으로 빌드하는 데 사용 되는 파일을 다운로드할 수도 있습니다.
+
+모델 패키징을 사용 하면 두 작업을 모두 수행할 수 있습니다. 모델을 웹 서비스로 호스트 하는 데 필요한 모든 자산을 패키지 하 고 완전히 빌드된 Docker 이미지 또는 하나를 빌드하는 데 필요한 파일을 다운로드할 수 있습니다. 모델 패키징을 사용 하는 방법에는 다음 두 가지가 있습니다.
+
+* __패키지 된 모델 다운로드__: 웹 서비스로 호스트 하는 데 필요한 모델 및 기타 파일을 포함 하는 Docker 이미지를 다운로드 합니다.
+* __Dockerfile 생성__: Docker 이미지를 작성 하는 데 필요한 dockerfile, model, entry script 및 기타 자산을 다운로드 합니다. 그런 다음 이미지를 로컬로 빌드하기 전에 파일을 검사 하거나 변경할 수 있습니다.
+
+두 패키지 모두 로컬 Docker 이미지를 가져오는 데 사용할 수 있습니다. 
+
+> [!TIP]
+> 패키지를 만드는 것은 등록 된 모델 및 유추 구성을 사용 하므로 모델을 배포 하는 것과 비슷합니다.
+
+> [!IMPORTANT]
+> 완전히 빌드된 이미지를 다운로드 하거나 로컬로 이미지를 작성 하는 등의 기능을 사용 하려면 개발 환경에 [Docker](https://www.docker.com) 를 설치 해야 합니다.
+
+### <a name="download-a-packaged-model"></a>패키지 된 모델 다운로드
+
+다음 예제에서는 작업 영역에 대 한 Azure Container Registry에 등록 된 이미지를 빌드하는 방법을 보여 줍니다.
+
+```python
+package = Model.package(ws, [model], inference_config)
+package.wait_for_creation(show_output=True)
+```
+
+패키지를 만든 후를 사용 `package.pull()` 하 여 이미지를 로컬 Docker 환경으로 끌어올 수 있습니다. 이 명령의 출력에 이미지 이름이 표시 됩니다. `Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338` )을 입력합니다. 다운로드 한 후 `docker images` 명령을 사용 하 여 로컬 이미지를 나열 합니다.
+
+```text
+REPOSITORY                               TAG                 IMAGE ID            CREATED             SIZE
+myworkspacef78fd10.azurecr.io/package    20190822181338      7ff48015d5bd        4 minutes ago       1.43GB
+```
+
+이 이미지를 사용 하 여 로컬 컨테이너를 시작 하려면 다음 명령을 사용 하 여 셸 또는 명령줄에서 명명 된 컨테이너를 시작 합니다. 다음 `<imageid>` 명령`docker images` 에서 반환 된 이미지 ID로 값을 바꿉니다.
+
+```bash
+docker run -p 6789:5001 --name mycontainer <imageid>
+```
+
+이 명령은 라는 `myimage`최신 버전의 이미지를 시작 합니다. 6789의 로컬 포트를 웹 서비스가 수신 대기 하는 컨테이너 (5001)의 포트에 매핑합니다. 또한 컨테이너에 이름을 `mycontainer` 할당 하 여 더 쉽게 중지할 수 있습니다. 시작 되 면에 `http://localhost:6789/score`요청을 제출할 수 있습니다.
+
+### <a name="generate-dockerfile-and-dependencies"></a>Dockerfile 및 종속성 생성
+
+다음 예제에서는 이미지를 로컬에 빌드하는 데 필요한 dockerfile, model 및 기타 자산을 다운로드 하는 방법을 보여 줍니다. 매개 `generate_dockerfile=True` 변수는 완전히 빌드된 이미지가 아니라 파일을 원하는 것으로 표시 합니다.
+
+```python
+package = Model.package(ws, [model], inference_config, generate_dockerfile=True)
+package.wait_for_creation(show_output=True)
+# Download the package
+package.save("./imagefiles")
+# Get the Azure Container Registry that the model/dockerfile uses
+acr=package.get_container_registry()
+print("Address:", acr.address)
+print("Username:", acr.username)
+print("Password:", acr.password)
+```
+
+이 코드는 `imagefiles` 디렉터리에 이미지를 빌드하는 데 필요한 파일을 다운로드 합니다. 저장 파일에 포함 된 dockerfile은 Azure Container Registry에 저장 된 기본 이미지를 참조 합니다. 로컬 Docker 설치에서 이미지를 작성 하는 경우 주소, 사용자 이름 및 암호를 사용 하 여이 레지스트리를 인증 해야 합니다. 로컬 Docker 설치를 사용 하 여 이미지를 빌드하려면 다음 단계를 사용 합니다.
+
+1. 셸 또는 명령줄 세션에서 다음 명령을 사용 하 여 Azure Container Registry에서 Docker를 인증 합니다. , `<address>`및 `<username>` `package.get_container_registry()`을를 사용 하 여 검색 된 값으로 바꿉니다. `<password>`
+
+    ```bash
+    docker login <address> -u <username> -p <password>
+    ```
+
+2. 이미지를 빌드하려면 다음 명령을 사용 합니다. 를 `<imagefiles>` 파일을 `package.save()` 저장 한 디렉터리의 경로로 바꿉니다.
+
+    ```bash
+    docker build --tag myimage <imagefiles>
+    ```
+
+    이 명령은 이미지 이름을로 `myimage`설정 합니다.
+
+이미지가 빌드 되었는지 확인 하려면 `docker images` 명령을 사용 합니다. 목록에 `myimage` 이미지가 표시 됩니다.
+
+```text
+REPOSITORY      TAG                 IMAGE ID            CREATED             SIZE
+<none>          <none>              2d5ee0bf3b3b        49 seconds ago      1.43GB
+myimage         latest              739f22498d64        3 minutes ago       1.43GB
+```
+
+이 이미지를 기반으로 새 컨테이너를 시작 하려면 다음 명령을 사용 합니다.
+
+```bash
+docker run -p 6789:5001 --name mycontainer myimage:latest
+```
+
+이 명령은 라는 `myimage`최신 버전의 이미지를 시작 합니다. 6789의 로컬 포트를 웹 서비스가 수신 대기 하는 컨테이너 (5001)의 포트에 매핑합니다. 또한 컨테이너에 이름을 `mycontainer` 할당 하 여 더 쉽게 중지할 수 있습니다. 시작 되 면에 `http://localhost:6789/score`요청을 제출할 수 있습니다.
+
+### <a name="example-client-to-test-the-local-container"></a>로컬 컨테이너를 테스트 하는 예제 클라이언트
+
+다음 코드는 컨테이너에서 사용할 수 있는 Python 클라이언트의 예입니다.
+
+```python
+import requests
+import json
+
+# URL for the web service
+scoring_uri = 'http://localhost:6789/score'
+
+# Two sets of data to score, so we get two results back
+data = {"data":
+        [
+            [ 1,2,3,4,5,6,7,8,9,10 ],
+            [ 10,9,8,7,6,5,4,3,2,1 ]
+        ]
+        }
+# Convert to JSON string
+input_data = json.dumps(data)
+
+# Set the content type
+headers = {'Content-Type': 'application/json'}
+
+# Make the request and display the response
+resp = requests.post(scoring_uri, input_data, headers=headers)
+print(resp.text)
+```
+
+다른 프로그래밍 언어의 다른 클라이언트 예제는 [웹 서비스로 배포 된 모델 사용](how-to-consume-web-service.md)을 참조 하세요.
+
+### <a name="stop-the-docker-container"></a>Docker 컨테이너를 중지 합니다.
+
+컨테이너를 중지 하려면 다른 셸 또는 명령줄에서 다음 명령을 사용 합니다.
+
+```bash
+docker kill mycontainer
+```
 
 ## <a name="clean-up-resources"></a>리소스 정리
+
 배포된 웹 서비스를 삭제하려면 `service.delete()`를 사용합니다.
 등록된 모델을 삭제하려면 `model.delete()`를 사용합니다.
 
-자세한 내용은 참조 설명서를 참조 하세요 [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), 및 [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--)합니다.
+자세한 내용은 [WebService ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--)및 [모델인 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--)에 대 한 참조 설명서를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [사용자 지정 Docker 이미지를 사용 하 여 모델을 배포 하는 방법](how-to-deploy-custom-docker-image.md)

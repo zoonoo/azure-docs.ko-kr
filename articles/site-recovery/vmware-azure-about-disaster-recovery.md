@@ -20,7 +20,7 @@ ms.locfileid: "66417786"
 
 ## <a name="what-is-bcdr"></a>BCDR이란?
 
-BCDR(비즈니스 연속성 및 재해 복구) 전략은 비즈니스가 계속 작동되고 실행되도록 도와줍니다. 계획된 가동 중단 및 예기치 않은 작동 중단 동안 BCDR은 데이터를 안전하고 사용 가능하게 유지하고, 앱이 계속 실행되도록 합니다. 지역 페어링 및 고가용성 저장소와 같은 플랫폼 BCDR 기능 외에도, Azure는 BCDR 솔루션의 통합된 일부로 Recovery Services를 제공합니다. Recovery Services에는 다음이 포함됩니다. 
+BCDR(비즈니스 연속성 및 재해 복구) 전략은 비즈니스가 계속 작동되고 실행되도록 도와줍니다. 계획된 가동 중단 및 예기치 않은 작동 중단 동안 BCDR은 데이터를 안전하고 사용 가능하게 유지하고, 앱이 계속 실행되도록 합니다. 지역 페어링 및 고가용성 스토리지와 같은 플랫폼 BCDR 기능 외에도, Azure는 BCDR 솔루션의 통합된 일부로 Recovery Services를 제공합니다. Recovery Services에는 다음이 포함됩니다. 
 
 - [Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup)은 온-프레미스 및 Azure VM 데이터를 백업합니다. 파일 및 폴더, 특정 워크로드 또는 전체 VM을 백업할 수 있습니다. 
 - [Azure Site Recovery](site-recovery-overview.md)는 온-프레미스 컴퓨터 또는 Azure IaaS VM에서 실행되는 앱 및 워크로드대에 해 복원력 및 재해 복구를 제공합니다. Site Recovery는 복제를 오케스트레이션하고 중단이 발생하면 Azure로 장애 조치(Failover)합니다. 또한 Azure에서 기본 사이트로의 복구를 처리합니다. 
@@ -45,10 +45,10 @@ Site Recovery는 지원되는 VMware VM 또는 실제 서버에서 실행 중인
 
 - VMware VM을 복제하는 경우 VMware 가상화 서버의 올바른 버전을 실행하고 있나요? [여기에서 확인하세요](vmware-physical-azure-support-matrix.md#on-premises-virtualization-servers).
 - 복제하려는 컴퓨터가 지원되는 운영 체제를 실행하고 있나요? [여기에서 확인하세요](vmware-physical-azure-support-matrix.md#replicated-machines).
-- Linux 재해 복구의 경우 컴퓨터에서 지원되는 파일 시스템/게스트 저장소가 실행되고 있나요? [여기에서 확인하세요](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage).
+- Linux 재해 복구의 경우 컴퓨터에서 지원되는 파일 시스템/게스트 스토리지가 실행되고 있나요? [여기에서 확인하세요](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage).
 - 복제하려는 컴퓨터가 Azure 요구 사항을 충족하나요? [여기에서 확인하세요](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
 - 사용하는 네트워크 구성이 지원되나요? [여기에서 확인하세요](vmware-physical-azure-support-matrix.md#network).
-- 사용하는 저장소 구성이 지원되나요? [여기에서 확인하세요](vmware-physical-azure-support-matrix.md#storage).
+- 사용하는 스토리지 구성이 지원되나요? [여기에서 확인하세요](vmware-physical-azure-support-matrix.md#storage).
 
 
 ## <a name="what-do-i-need-to-set-up-in-azure-before-i-start"></a>시작하기 전에 Azure에서 어떤 항목을 설정해야 하나요?

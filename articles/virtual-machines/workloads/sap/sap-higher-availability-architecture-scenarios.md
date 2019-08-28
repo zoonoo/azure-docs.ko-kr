@@ -4,7 +4,7 @@ description: Azure 인프라 VM 다시 시작을 활용하여 SAP 애플리케�
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cda0b1c0774ed33bf550e0edf329cc22a2807be3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4668d5e7872c677f20c2395b5927d83c69775926
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60825666"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68855204"
 ---
 # <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Azure 인프라 VM 다시 시작을 활용하여 SAP 시스템의 고가용성 확보
 
@@ -221,13 +221,13 @@ Linux에서 WSFC(Windows Server 장애 조치(failover) 클러스터링) 또는 
 >
 >
 
-고가용성을 위한 또 다른 중요한 인프라 요소는 저장소입니다. 예를 들어 Azure Storage SLA는 99.9% 사용 가능합니다. 모든 VM 및 해당 디스크를 단일 Azure Storage 계정에 배포하는 경우 잠재적으로 Azure Storage를 사용할 수 없게 되어 해당 스토리지 계정에 배치된 모든 VM 및 해당 VM 내에서 실행되는 모든 SAP 구성 요소를 사용할 수 없게 됩니다.  
+고가용성을 위한 또 다른 중요한 인프라 요소는 스토리지입니다. 예를 들어 Azure Storage SLA는 99.9% 사용 가능합니다. 모든 VM 및 해당 디스크를 단일 Azure Storage 계정에 배포하는 경우 잠재적으로 Azure Storage를 사용할 수 없게 되어 해당 스토리지 계정에 배치된 모든 VM 및 해당 VM 내에서 실행되는 모든 SAP 구성 요소를 사용할 수 없게 됩니다.  
 
 단일 Azure Storage 계정에 모든 VM을 배치하는 대신 각 VM에 대한 전용 스토리지 계정을 사용할 수 있습니다. 여러 독립 Azure Storage 계정을 사용하여 전반적인 VM 및 SAP 애플리케이션 가용성을 증가시킵니다.
 
 Azure Managed Disks는 연결된 가상 머신의 장애 도메인에 자동으로 배치됩니다. 가용성 집합에 가상 머신 두 대를 배치하고 관리 디스크를 사용하는 경우 플랫폼에서 각기 다른 장애 도메인으로 관리 디스크를 분산시키는 작업도 수행합니다. Premium Storage 계정을 사용하려는 경우에는 관리 디스크를 사용하는 것이 좋습니다.
 
-Azure 인프라 고가용성 및 저장소 계정을 사용하는 SAP NetWeaver 시스템의 샘플 아키텍처는 다음과 같을 수 있습니다.
+Azure 인프라 고가용성 및 스토리지 계정을 사용하는 SAP NetWeaver 시스템의 샘플 아키텍처는 다음과 같을 수 있습니다.
 
 ![Azure 인프라 고가용성을 활용하여 SAP 애플리케이션 "고가용성" 확보][planning-guide-figure-2900]
 
@@ -239,15 +239,15 @@ Azure 인프라 고가용성 및 관리 디스크를 사용하는 SAP NetWeaver 
 
 * SAP 애플리케이션 서버의 고가용성
 
-    SAP 애플리케이션 서버 인스턴스는 중복 구성 요소입니다. 각 SAP 애플리케이션 서버 인스턴스는 다른 Azure 장애 및 업그레이드 도메인에서 실행되는 고유한 VM에 배포됩니다. 자세한 내용은 [장애 도메인][planning-guide-3.2.1] 및 [업그레이드 도메인][planning-guide-3.2.2] 섹션을 참조하세요. 
+    SAP 애플리케이션 서버 인스턴스는 중복 구성 요소입니다. 각 SAP 애플리케이션 서버 인스턴스는 다른 Azure 장애 및 업그레이드 도메인에서 실행되는 고유한 VM에 배포됩니다. 자세한 내용은 [장애 도메인][planning-guide-3.2.1] 및 [업그레이드 도메인][planning-guide-3.2.2] 섹션을 참조 하십시오. 
 
-    Azure 가용성 집합을 사용하여 이 구성을 확인할 수 있습니다. 자세한 내용은 [Azure 가용성 집합][planning-guide-3.2.3] 섹션을 참조하세요. 
+    Azure 가용성 집합을 사용하여 이 구성을 확인할 수 있습니다. 자세한 내용은 [Azure 가용성 집합][planning-guide-3.2.3] 섹션을 참조 하세요. 
 
     Azure 장애 및 업그레이드 도메인이 계획되거나 계획되지 않게 잠재적으로 사용할 수 없게 되면 각 SAP 애플리케이션 서버 인스턴스를 포함한 제한된 수의 VM도 사용할 수 없게 됩니다.
 
-    각 SAP 애플리케이션 서버 인스턴스는 고유한 Azure Storage 계정에 배치됩니다. 하나의 Azure Storage 계정을 잠재적으로 사용할 수 없게 되면 해당 SAP 애플리케이션 서버 인스턴스를 포함한 하나의 VM도 사용할 수 없게 됩니다. 그러나 단일 Azure 구독 내에서 Azure Storage 계정 수는 제한됩니다. VM을 다시 부팅한 후 ASCS/SCS 인스턴스가 자동으로 시작되도록 하려면 [SAP 인스턴스에 대해 Autostart 사용][planning-guide-11.5] 섹션에서 설명한 대로 ASCS/SCS 인스턴스 시작 프로필에 Autostart 매개 변수를 설정합니다.
+    각 SAP 애플리케이션 서버 인스턴스는 고유한 Azure Storage 계정에 배치됩니다. 하나의 Azure Storage 계정을 잠재적으로 사용할 수 없게 되면 해당 SAP 애플리케이션 서버 인스턴스를 포함한 하나의 VM도 사용할 수 없게 됩니다. 그러나 단일 Azure 구독 내에서 Azure Storage 계정 수는 제한됩니다. VM을 다시 부팅 한 후 ASCS/SCS 인스턴스가 자동으로 시작 되도록 하려면 [SAP 인스턴스에 대해 자동 시작 사용][planning-guide-11.5] 섹션에 설명 된 ascs/scs 인스턴스 시작 프로필에 자동 시작 매개 변수를 설정 합니다.
   
-    자세한 내용은 [SAP 애플리케이션 서버의 고가용성][planning-guide-11.4.1]을 참조하세요.
+    자세한 내용은 [SAP 응용 프로그램 서버에 대 한 고가용성][planning-guide-11.4.1]을 참조 하세요.
 
     관리 디스크를 사용하더라도 해당 디스크는 Azure Storage 계정에도 저장되므로 스토리지가 중단되면 사용이 불가능해질 수 있습니다.
 
@@ -255,7 +255,7 @@ Azure 인프라 고가용성 및 관리 디스크를 사용하는 SAP NetWeaver 
 
     이 시나리오에서는 Azure VM 다시 시작 기능을 활용하여 SAP ASCS/SCS 인스턴스가 설치된 VM을 보호합니다. Azure 서버가 계획되거나 계획되지 않게 가동 중지되는 경우 VM은 사용 가능한 다른 서버에서 다시 시작됩니다. 앞서 언급한 것처럼 Azure VM 다시 시작 기능은 애플리케이션(이 경우 ASCS/SCS 인스턴스)이 *아닌* VM을 기본적으로 보호합니다. VM 다시 시작 기능을 통해 SAP ASCS/SCS 인스턴스의 "고가용성"을 간접적으로 달성하게 됩니다. 
 
-    VM을 다시 부팅한 후 ASCS/SCS 인스턴스가 자동으로 시작되도록 하려면 [SAP 인스턴스에 대해 Autostart 사용][planning-guide-11.5] 섹션에서 설명한 대로 ASCS/SCS 인스턴스 시작 프로필에 Autostart 매개 변수를 설정합니다. 이 설정으로 인해 단일 VM에서 SPOF(단일 실패 지점)로 실행되는 ASCS/SCS 인스턴스는 전체 SAP 지형의 가용성을 결정합니다.
+    VM을 다시 부팅 한 후 ASCS/SCS 인스턴스가 자동으로 시작 되도록 하려면 [SAP 인스턴스에 대해][planning-guide-11.5] 자동 시작 사용 섹션에서 설명한 대로 ascs/scs 인스턴스 시작 프로필에서 자동 시작 매개 변수를 설정 합니다. 이 설정으로 인해 단일 VM에서 SPOF(단일 실패 지점)로 실행되는 ASCS/SCS 인스턴스는 전체 SAP 지형의 가용성을 결정합니다.
 
 * DBMS 서버의 *고가용성*
 
@@ -280,8 +280,7 @@ VM 하나에 단일 SAP 애플리케이션 서버 인스턴스가 있는 일반�
 
   * [Unix 서버 시작/중지에 따른 SAP 시작 또는 중지](https://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
   * [SAP NetWeaver 관리 에이전트 시작 및 중지](https://help.sap.com/saphelp_nwpi711/helpdata/en/49/9a15525b20423ee10000000a421938/content.htm)
-  * [HANA 데이터베이스의 자동 시작을 사용하도록 설정하는 방법](http://www.freehanatutorials.com/2012/10/how-to-enable-auto-start-of-hana.html)
 
 ## <a name="next-steps"></a>다음 단계
 
-전체 SAP NetWeaver 애플리케이션 인식 고가용성에 대한 정보는 [Azure IaaS의 SAP 애플리케이션 고가용성][sap-high-availability-architecture-scenarios-sap-app-ha]을 참조하세요.
+전체 SAP NetWeaver 응용 프로그램 인식 고가용성에 대 한 자세한 내용은 [Azure IaaS의 sap 응용 프로그램 고가용성][sap-high-availability-architecture-scenarios-sap-app-ha]을 참조 하세요.

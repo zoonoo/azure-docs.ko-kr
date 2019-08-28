@@ -3,23 +3,19 @@ title: Azure Service Management 인증서 업로드 | Microsoft Docs
 description: Azure Portal에 대한 Service Management 인증서를 업로드하는 방법을 알아봅니다.
 services: cloud-services
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
+author: georgewallace
+manager: carmonm
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
 ms.service: api-management
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 014a26c2500959502eeb1c50d3f311584c1ad84e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 5ce96796cbfdcefbaf5568ff199cba6a87f65e05
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60742971"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359883"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Azure Service Management 인증서 업로드
 관리 인증서를 사용하면 Azure에서 제공하는 클래식 배포 모델로 인증할 수 있습니다. Visual Studio 또는 Azure SDK와 같은 많은 프로그램 및 도구에서 이러한 인증서를 사용하여 다양한 Azure 서비스의 구성 및 배포를 자동화합니다. 
@@ -33,7 +29,7 @@ Azure 인증서(자체 서명 인증서 포함)에 대한 자세한 내용은 [A
 
 [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)를 사용하여 자동화를 위한 클라이언트 코드를 인증할 수도 있습니다.
 
-**참고:** 관리 인증서에서 모든 작업을 수행 하는 구독에서 공동 관리자 여야 합니다. 새 Azure Portal에서 공동 관리자를 추가하거나 제거하는 방법에 대해 [자세히 알아보세요](https://go.microsoft.com/fwlink/?linkid=849300). 
+**참고:** 관리 인증서에서 작업을 수행 하려면 구독에 대 한 공동 관리자 여야 합니다. 새 Azure Portal에서 공동 관리자를 추가하거나 제거하는 방법에 대해 [자세히 알아보세요](https://go.microsoft.com/fwlink/?linkid=849300). 
 
 ## <a name="upload-a-management-certificate"></a>관리 인증서 업로드
 관리 인증서(공개 키만 포함하는 .cer 파일)를 만든 후에는 포털에 업로드할 수 있습니다. 포털에서 인증서를 사용할 수 있는 경우 일치하는 인증서(프라이빗 키)가 있는 모든 사람이 관리 API를 통해 연결할 수 있고 연결된 구독에 대한 리소스에 액세스할 수 있습니다.

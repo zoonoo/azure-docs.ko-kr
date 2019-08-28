@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2018
-ms.author: njray
-ms.openlocfilehash: 1622de0cccdbc8fee0681e209e756b30da292d3c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: edprice
+ms.openlocfilehash: f893e417420b26dcb56e0d84551fbad3577b8fdb
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60543026"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67874868"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>Azure의 IBM DB2 pureScale
 
@@ -87,13 +87,13 @@ Azure에서 고가용성 및 확장성을 지원하기 위해 DB2 pureScale에 �
 > [!NOTE]
 > DB2 pureScale 클러스터에는 두 개 이상의 DB2 인스턴스가 필요합니다. 캐시 인스턴스 및 잠금 관리자 인스턴스도 필요합니다.
 
-### <a name="storage-considerations"></a>저장소 고려 사항
+### <a name="storage-considerations"></a>스토리지 고려 사항
 
 Oracle RAC와 같이, DB2 pureScale는 고성능 블록 I/O를 스케일 아웃 데이터베이스입니다. 요구에 적합한 가장 큰 [Azure 프리미엄 SSD](disks-types.md) 옵션을 사용하는 것이 좋습니다. 프로덕션 환경에서는 종종 더 많은 스토리지 용량이 필요하지만, 개발 및 테스트 환경에서는 더 작은 스토리지 옵션이 적합할 수 있습니다. 이 예제 아키텍처는 크기 및 가격 대비 IOPS 비율 때문에 [P30](https://azure.microsoft.com/pricing/details/managed-disks/)을 사용합니다. 크기에 관계없이, 최상의 성능을 얻으려면 Premium Storage를 사용합니다.
 
 DB2 pureScale는 모든 클러스터 노드에서 모든 데이터에 액세스할 수 있는 모두 공유 아키텍처를 사용합니다. Premium Storage는 주문형이든 또는 전용 인스턴스이든 관계없이 인스턴스 간에 공유되어야 합니다.
 
-대형 DB2 pureScale 클러스터에는 IOPS가 100,000인 200TB(테라바이트) 이상의 Premium 공유 Storage가 더 많이 필요할 수 있습니다. DB2 pureScale는 Azure에서 사용할 수 있는 iSCSI 블록 인터페이스를 지원합니다. iSCSI 인터페이스에는 GlusterFS, S2D 또는 다른 도구를 사용하여 구현할 수 있는 공유 스토리지 클러스터가 필요합니다. 이 유형의 솔루션은 Azure에서 vSAN(가상 저장 영역 네트워크) 디바이스를 만듭니다. DB2 pureScale는 vSAN을 사용하여 가상 머신 간에 데이터를 공유하는 데 사용되는 클러스터형 파일 시스템을 설치합니다.
+대형 DB2 pureScale 클러스터에는 IOPS가 100,000인 200TB(테라바이트) 이상의 Premium 공유 Storage가 더 많이 필요할 수 있습니다. DB2 pureScale는 Azure에서 사용할 수 있는 iSCSI 블록 인터페이스를 지원합니다. iSCSI 인터페이스에는 GlusterFS, S2D 또는 다른 도구를 사용하여 구현할 수 있는 공유 스토리지 클러스터가 필요합니다. 이 유형의 솔루션은 Azure에서 vSAN(가상 스토리지 영역 네트워크) 디바이스를 만듭니다. DB2 pureScale는 vSAN을 사용하여 가상 머신 간에 데이터를 공유하는 데 사용되는 클러스터형 파일 시스템을 설치합니다.
 
 예제 아키텍처는 클러스터 스토리지에 최적화된 무료, 확장 가능, 오픈 소스 분산 파일 시스템인 GlusterFS를 사용합니다.
 

@@ -28,14 +28,14 @@ ms.locfileid: "60393951"
 이 문서에서는 Visual Studio Code를 사용하여 Java Service Fabric 애플리케이션을 빌드, 배포 및 디버그하는 방법을 보여 줍니다.
 
 > [!IMPORTANT]
-> Service Fabric Java 애플리케이션은 Windows 컴퓨터에서 개발할 수 있지만 Azure Linux 클러스터에만 배포할 수 있습니다. Windows에서는 Java 응용 프로그램을 디버그할 수 없습니다.
+> Service Fabric Java 애플리케이션은 Windows 컴퓨터에서 개발할 수 있지만 Azure Linux 클러스터에만 배포할 수 있습니다. Windows에서는 Java 애플리케이션을 디버그할 수 없습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 이 문서에서는 VS Code, VS Code용 Service Fabric Reliable Services 확장 및 개발 환경에 필요한 모든 종속성을 설치했다고 가정합니다. 자세한 내용은 [시작](./service-fabric-get-started-vs-code.md#prerequisites)을 참조하세요.
 
 ## <a name="download-the-sample"></a>샘플 다운로드
-이 문서에서는 [Service Fabric Java 응용 프로그램 빠른 시작 샘플 GitHub 리포지토리](https://github.com/Azure-Samples/service-fabric-java-quickstart)의 Voting 응용 프로그램을 사용합니다. 
+이 문서에서는 [Service Fabric Java 애플리케이션 빠른 시작 샘플 GitHub 리포지토리](https://github.com/Azure-Samples/service-fabric-java-quickstart)의 Voting 애플리케이션을 사용합니다. 
 
 개발 컴퓨터에 리포지토리를 복제하려면 터미널 창(Windows의 명령 창)에서 다음 명령을 실행합니다.
 
@@ -43,11 +43,11 @@ ms.locfileid: "60393951"
 git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 ```
 
-## <a name="open-the-application-in-vs-code"></a>VS Code에서 응용 프로그램 열기
+## <a name="open-the-application-in-vs-code"></a>VS Code에서 애플리케이션 열기
 
 VS Code를 엽니다.  **작업 막대**에서 탐색기 아이콘을 클릭하고 **폴더 열기**를 클릭하거나 **파일 -> 폴더 열기**를 클릭합니다. 리포지토리를 복제한 폴더의 *./service-fabric-java-quickstart/Voting* 디렉터리로 이동한 후 **확인**을 클릭합니다. 작업 영역에는 아래 스크린샷에 표시된 것과 동일한 파일이 포함되어야 합니다.
 
-![작업 영역의 Java Voting 응용 프로그램](./media/service-fabric-develop-java-applications-with-vs-code/java-voting-application.png)
+![작업 영역의 Java Voting 애플리케이션](./media/service-fabric-develop-java-applications-with-vs-code/java-voting-application.png)
 
 ## <a name="build-the-application"></a>애플리케이션 빌드
 
@@ -74,10 +74,10 @@ VS Code를 엽니다.  **작업 막대**에서 탐색기 아이콘을 클릭하�
 
    ![브라우저의 Voting 애플리케이션](./media/service-fabric-develop-java-applications-with-vs-code/voting-sample-in-browser.png)
 
-5. 클러스터에서 응용 프로그램을 제거 하려면 선택 하 여 **Service Fabric: 응용 프로그램 제거** 에서 명령을 합니다 **명령 팔레트**합니다. 제거 프로세스의 출력이 통합된 터미널로 전송됩니다. Service Fabric Explorer를 사용하여 응용 프로그램이 로컬 클러스터에서 제거되었는지 확인할 수 있습니다.
+5. 클러스터에서 응용 프로그램을 제거 하려면 선택 하 여 **Service Fabric: 응용 프로그램 제거** 에서 명령을 합니다 **명령 팔레트**합니다. 제거 프로세스의 출력이 통합된 터미널로 전송됩니다. Service Fabric Explorer를 사용하여 애플리케이션이 로컬 클러스터에서 제거되었는지 확인할 수 있습니다.
 
 ## <a name="debug-the-application"></a>애플리케이션 디버그
-VS Code에서 응용 프로그램을 디버그할 때 응용 프로그램은 로컬 클러스터에서 실행되고 있어야 합니다. 그래야 코드에 중단점을 추가할 수 있습니다.
+VS Code에서 애플리케이션을 디버그할 때 애플리케이션은 로컬 클러스터에서 실행되고 있어야 합니다. 그래야 코드에 중단점을 추가할 수 있습니다.
 
 > [!IMPORTANT]
 > Windows 컴퓨터에서는 Java 애플리케이션을 디버그할 수 없습니다.
@@ -131,4 +131,4 @@ VotingDataService 및 Voting 애플리케이션을 디버그할 수 있게 준�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [VS Code를 통해 C# Service Fabric 응용 프로그램 개발 및 디버그](./service-fabric-develop-csharp-applications-with-vs-code.md) 방법을 알아봅니다.
+* [VS Code를 통해 C# Service Fabric 애플리케이션 개발 및 디버그](./service-fabric-develop-csharp-applications-with-vs-code.md) 방법을 알아봅니다.

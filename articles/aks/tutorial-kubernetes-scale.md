@@ -2,22 +2,22 @@
 title: Azure의 Kubernetes 자습서 - 애플리케이션 크기 조정
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 Kubernetes에서 노드 및 Pod 크기를 조정하고 수평 방향 Pod 자동 크기 조정을 구현하는 방법을 알아봅니다.
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: twhitney
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 062e16c0d196cf91d6e0adde46ed973f1c0d1191
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 9bccd826a37b66f7f89e70c57260a0db08342421
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304433"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019180"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 크기 조정
 
-자습서를 수행한 경우 AKS에서 작동하는 Kubernetes 클러스터가 있으며 샘플 Azure Voting 앱을 배포한 상태입니다. 7개 중 5단계인 이 자습서에서는 앱의 Pod를 스케일 아웃하고 Pod 자동 크기 조정을 시도합니다. Azure VM 노드 수를 조정하여 워크로드 호스팅을 위한 클러스터 용량을 변경하는 방법도 알아봅니다. 다음 방법에 대해 알아봅니다.
+자습서를 수행한 경우 AKS에서 작동하는 Kubernetes 클러스터가 있으며 샘플 Azure Voting 앱을 배포한 상태입니다. 7개 중 5단계인 이 자습서에서는 앱의 Pod를 스케일 아웃하고 Pod 자동 크기 조정을 시도합니다. Azure VM 노드 수를 조정하여 워크로드 호스팅을 위한 클러스터 용량을 변경하는 방법도 알아봅니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Kubernetes 노드 크기 조정
@@ -76,12 +76,13 @@ Kubernetes는 [수평 Pod 자동 크기 조정][kubernetes-hpa]을 지원하여 
 az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion
 ```
 
-AKS 클러스터 버전이 *1.10*보다 낮으면 메트릭 서버를 설치하고, 그렇지 않으면 이 단계를 건너뜁니다. 설치하려면 `metrics-server` GitHub 리포지토리를 복제하고 예제 리소스 정의를 설치합니다. 이러한 YAML 정의의 콘텐츠를 참조하려면 [Kuberenetes 1.8+에 대한 메트릭 서버][metrics-server-github]를 참조하세요.
-
-```console
-git clone https://github.com/kubernetes-incubator/metrics-server.git
-kubectl create -f metrics-server/deploy/1.8+/
-```
+> [!NOTE]
+> AKS 클러스터가 *1.10*보다 작으면 메트릭 서버가 자동으로 설치되지 않습니다. 설치하려면 `metrics-server` GitHub 리포지토리를 복제하고 예제 리소스 정의를 설치합니다. 이러한 YAML 정의의 콘텐츠를 참조하려면 [Kuberenetes 1.8+에 대한 메트릭 서버][metrics-server-github]를 참조하세요.
+> 
+> ```console
+> git clone https://github.com/kubernetes-incubator/metrics-server.git
+> kubectl create -f metrics-server/deploy/1.8+/
+> ```
 
 자동 크기 조정기를 사용하려면 Pod와 Pod의 모든 컨테이너에 CPU 요청 및 제한이 정의되어 있어야 합니다. `azure-vote-front` 배포에서 프런트 엔드 컨테이너는 0.25 CPU를 요청하며 제한은 0.5 CPU입니다. 다음 예제 코드 조각에 나와 있는 것처럼 이러한 리소스 요청 및 제한이 정의됩니다.
 

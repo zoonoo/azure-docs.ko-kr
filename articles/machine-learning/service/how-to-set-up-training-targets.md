@@ -11,18 +11,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0b35ef5ca3aaa7ad4169f99e2830ebea76d2759e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b1ee18abfab2cf286ee010bd6d25dfbc5a38cebb
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074936"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011575"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>모델 학습의 컴퓨팅 대상 설정 
 
 Azure Machine Learning Service를 사용하여 다양한 리소스 또는 환경(총체적으로 [__컴퓨팅 대상__](concept-azure-machine-learning-architecture.md#compute-targets)이라고 함)에서 모델을 학습할 수 있습니다. 컴퓨팅 대상은 로컬 컴퓨터 또는 클라우드 리소스(예: Azure Machine Learning Compute, Azure HDInsight 또는 원격 가상 머신)일 수 있습니다.  ["모델 배포 위치 및 방법"](how-to-deploy-and-where.md)의 설명에 따라 모델 배포용 컴퓨팅 대상을 만들 수도 있습니다.
 
-수 만들고 Azure portal, Azure CLI 또는 Azure Machine Learning VS Code 확장에는 Azure Machine Learning SDK를 사용 하 여 계산 대상을 관리 합니다. 다른 서비스(예: HDInsight 클러스터)를 통해 만든 컴퓨팅 대상이 있는 경우 해당 컴퓨팅 대상을 Azure Machine Learning Service 작업 영역에 연결하여 사용할 수 있습니다.
+Azure Machine Learning SDK, Azure Portal, Azure CLI 또는 Azure Machine Learning VS Code 확장을 사용 하 여 계산 대상을 만들고 관리할 수 있습니다. 다른 서비스(예: HDInsight 클러스터)를 통해 만든 컴퓨팅 대상이 있는 경우 해당 컴퓨팅 대상을 Azure Machine Learning Service 작업 영역에 연결하여 사용할 수 있습니다.
  
 이 문서에서는 모델 학습에 다양한 컴퓨팅 대상을 사용하는 방법을 알아봅니다.  모든 컴퓨팅 대상에 대한 단계는 동일한 워크플로를 따릅니다.
 1. 컴퓨팅 대상이 이미 없는 경우 __만듭니다__.
@@ -47,7 +47,7 @@ Azure Machine Learning Service에는 다양한 컴퓨팅 대상에 대한 다양
 
 학습 시에는 보통 로컬 컴퓨터에서 시작한 후 나중에 다른 컴퓨팅 대상에서 해당 학습 스크립트를 실행합니다. Azure Machine Learning Service를 사용하면 스크립트를 변경할 필요 없이 다양한 컴퓨팅 대상에서 스크립트를 실행할 수 있습니다. 
 
-**실행 구성**으로 각 컴퓨팅 대상에 대한 환경을 정의하기만 하면 됩니다.  그런 다음 다른 컴퓨팅 대상에서 학습 실험을 실행하려는 경우에 해당 컴퓨팅에 대한 실행 구성을 지정합니다. 
+**실행 구성**으로 각 컴퓨팅 대상에 대한 환경을 정의하기만 하면 됩니다.  그런 다음 다른 컴퓨팅 대상에서 학습 실험을 실행하려는 경우에 해당 컴퓨팅에 대한 실행 구성을 지정합니다.
 
 이 문서의 끝부분에서 [실험 제출](#submit)에 대해 자세히 알아보세요.
 
@@ -74,7 +74,26 @@ Azure Machine Learning Service에는 다양한 컴퓨팅 대상에 대한 다양
 다음 코드는 사용자 관리 환경에 대한 학습 실행을 구성하는 예를 보여줍니다.
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_user_managed)]
-  
+
+## <a name="whats-an-estimator"></a>평가기?
+
+인기 있는 프레임 워크를 사용 하 여 모델 학습을 용이 하 게 하기 위해 Azure Machine Learning Python SDK는 더 높은 수준의 추상화 인 평가기 클래스를 제공 합니다. 이 클래스를 사용 하 여 간편 하 게 실행 구성을 생성할 수 있습니다. 제네릭 [평가기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) 을 만들고 사용 하 여 선택한 학습 프레임 워크 (예: scikit)를 사용 하는 학습 스크립트를 제출할 수 있습니다.
+
+PyTorch, TensorFlow 및 체 이너 Azure Machine Learning 작업의 경우 이러한 프레임 워크 사용을 간소화 하기 위해 각 [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)및 [체 이너](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) 추정 제공 됩니다.
+
+자세한 내용은 [추정를 사용 하 여 ML 모델 학습](how-to-train-ml-models.md)을 참조 하세요.
+
+## <a name="whats-an-ml-pipeline"></a>ML 파이프라인 이란?
+
+ML 파이프라인을 사용 하 여 간단한, 속도, 이식성 및 재사용으로 워크플로를 최적화할 수 있습니다. Azure Machine Learning를 사용 하 여 파이프라인을 빌드하는 경우 인프라 및 자동화 대신 전문 지식, 기계 학습에 집중할 수 있습니다.
+
+ML 파이프라인은 파이프라인에서 고유한 계산 단위인 여러 **단계**에서 생성 됩니다. 각 단계는 독립적으로 실행 되 고 격리 된 계산 리소스를 사용할 수 있습니다. 이를 통해 여러 데이터 과학자가 과도 한 처리 시간이 소모 계산 리소스 없이 동시에 동일한 파이프라인에서 작업할 수 있으며 각 단계에 대해 다른 계산 형식/크기를 쉽게 사용할 수 있습니다.
+
+> [!TIP]
+> ML 파이프라인은 모델을 학습 하는 경우 실행 구성 또는 추정를 사용할 수 있습니다.
+
+ML 파이프라인은 모델을 트레인 할 수 있지만 학습 후 모델을 학습 하 고 배포 하기 전에 데이터를 준비할 수도 있습니다. 파이프라인의 주요 사용 사례 중 하나는 일괄 처리 점수 매기기입니다. 자세한 내용은 [파이프라인: Machine learning 워크플로](concept-ml-pipelines.md)를 최적화 합니다.
+
 ## <a name="set-up-in-python"></a>Python에서 설정
 
 아래의 섹션을 통해 다음과 같은 컴퓨팅 대상을 구성합니다.
@@ -111,7 +130,7 @@ Azure Machine Learning 컴퓨팅에는 할당할 수 있는 코어 수와 같은
 Azure Machine Learning 컴퓨팅을 런타임에 컴퓨팅 대상으로 만들 수 있습니다. 실행에 대해 컴퓨팅이 자동으로 만들어집니다. 실행이 완료되면 컴퓨팅이 자동으로 삭제됩니다. 
 
 > [!NOTE]
-> 사용할 노드의 최대 수를 지정 하려면 일반적으로 설정한 `node_count` 노드의 수입니다. 현재 (04/04/2019) 작업에서이 방지 하는 버그입니다. 사용 하 여이 문제를 해결 합니다 `amlcompute._cluster_max_node_count` 실행된 구성의 속성입니다. 예: `run_config.amlcompute._cluster_max_node_count = 5`.
+> 사용할 최대 노드 수를 지정 하려면 일반적으로 노드 수로 설정 `node_count` 합니다. 현재이 작업을 수행 하지 못하게 하는 버그가 있습니다 (04/04/2019). 이 문제를 해결 하려면 실행 `amlcompute._cluster_max_node_count` 구성의 속성을 사용 합니다. `run_config.amlcompute._cluster_max_node_count = 5` )을 입력합니다.
 
 > [!IMPORTANT]
 > Azure Machine Learning 컴퓨팅의 실행 기반 만들기는 현재 미리 보기로 제공됩니다. 하이퍼 매개 변수 튜닝 또는 자동화된 Machine Learning을 사용 중인 경우에는 실행 기반 만들기를 사용하지 마세요. 하이퍼 매개 변수 튜닝 또는 자동화된 기계 학습을 사용하려면 [영구적 컴퓨팅](#persistent) 대상을 대신 만듭니다.
@@ -237,33 +256,37 @@ Azure HDInsight는 빅 데이터 분석을 위한 인기 있는 플랫폼입니�
 
 ### <a id="azbatch"></a>Azure Batch 
 
-Azure Batch는 클라우드에서 대규모 병렬 및 고성능 컴퓨팅 (HPC) 응용 프로그램을 효율적으로 실행 하는 데 사용 됩니다. AzureBatchStep 머신의 Azure Batch 풀에 작업을 제출 하는 Azure Machine Learning 파이프라인에서 사용할 수 있습니다.
+Azure Batch은 클라우드에서 대규모 병렬 및 HPC (고성능 컴퓨팅) 응용 프로그램을 효율적으로 실행 하는 데 사용 됩니다. AzureBatchStep은 Azure Machine Learning 파이프라인에서 사용 하 여 Azure Batch 컴퓨터 풀에 작업을 제출할 수 있습니다.
 
-계산 대상으로 Azure Batch에 연결 하려면 Azure Machine Learning SDK를 사용 하 고 다음 정보를 제공 해야 합니다.
+Azure Batch를 계산 대상으로 연결 하려면 Azure Machine Learning SDK를 사용 하 고 다음 정보를 제공 해야 합니다.
 
--   **Azure Batch 계산 이름을**: 작업 영역 내에서 계산에 사용할 친숙 한 이름
--   **Azure Batch 계정 이름**: Azure Batch 계정의 이름
--   **리소스 그룹**: Azure Batch 계정을 포함 하는 리소스 그룹.
+-   **Azure Batch 계산 이름**: 작업 영역 내에서 계산에 사용할 이름입니다.
+-   **Azure Batch 계정 이름**: Azure Batch 계정의 이름입니다.
+-   **리소스 그룹**: Azure Batch 계정을 포함 하는 리소스 그룹입니다.
 
-다음 코드에는 Azure Batch 계산 대상으로 연결 하는 방법을 보여 줍니다.
+다음 코드는 Azure Batch를 계산 대상으로 연결 하는 방법을 보여 줍니다.
 
 ```python
 from azureml.core.compute import ComputeTarget, BatchCompute
 from azureml.exceptions import ComputeTargetException
 
-batch_compute_name = 'mybatchcompute' # Name to associate with new compute in workspace
+# Name to associate with new compute in workspace
+batch_compute_name = 'mybatchcompute'
 
 # Batch account details needed to attach as compute to workspace
-batch_account_name = "<batch_account_name>" # Name of the Batch account
-batch_resource_group = "<batch_resource_group>" # Name of the resource group which contains this account
+batch_account_name = "<batch_account_name>"  # Name of the Batch account
+# Name of the resource group which contains this account
+batch_resource_group = "<batch_resource_group>"
 
 try:
     # check if the compute is already attached
     batch_compute = BatchCompute(ws, batch_compute_name)
 except ComputeTargetException:
     print('Attaching Batch compute...')
-    provisioning_config = BatchCompute.attach_configuration(resource_group=batch_resource_group, account_name=batch_account_name)
-    batch_compute = ComputeTarget.attach(ws, batch_compute_name, provisioning_config)
+    provisioning_config = BatchCompute.attach_configuration(
+        resource_group=batch_resource_group, account_name=batch_account_name)
+    batch_compute = ComputeTarget.attach(
+        ws, batch_compute_name, provisioning_config)
     batch_compute.wait_for_completion()
     print("Provisioning state:{}".format(batch_compute.provisioning_state))
     print("Provisioning errors:{}".format(batch_compute.provisioning_errors))
@@ -271,7 +294,7 @@ except ComputeTargetException:
 print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 ```
 
-## <a name="set-up-in-azure-portal"></a>Azure 포털에서 설정
+## <a name="set-up-in-azure-portal"></a>Azure Portal에서 설정
 
 Azure Portal에서 작업 영역과 연결된 컴퓨팅 대상에 액세스할 수 있습니다.  Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 
@@ -294,7 +317,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 1. [Azure Portal](https://portal.azure.com)로 이동하여 자신의 작업 영역을 엽니다. 
 1. __애플리케이션__에서 __컴퓨팅__을 선택합니다.
 
-    ![[계산 보기] 탭](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)
+    [![계산 탭 보기](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace-expanded.png)
 
 ### <a id="portal-create"></a>컴퓨팅 대상 만들기
 
@@ -304,7 +327,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
     ![컴퓨팅 대상 추가](./media/how-to-set-up-training-targets/add-compute-target.png) 
 
-1. 계산 대상의 이름을 입력합니다. 
+1. 컴퓨팅 대상의 이름을 입력합니다. 
 
 1. __학습__에 사용할 컴퓨팅 유형으로 **Machine Learning 컴퓨팅**을 선택합니다. 
 
@@ -312,8 +335,6 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
     >Azure Portal에서 만들 수 있는 관리되는 컴퓨팅 리소스는 Azure Machine Learning 컴퓨팅뿐입니다.  다른 모든 컴퓨팅 리소스는 만든 후에 연결할 수 있습니다.
 
 1. 양식을 작성합니다. 필요한 속성, 특히 컴퓨팅을 스핀업하는 데 사용하는 **VM 제품군** 및 **최대 노드**에 대한 값을 입력합니다.  
-
-    ![양식 작성](./media/how-to-set-up-training-targets/add-compute-form.png) 
 
 1. __만들기__를 선택합니다.
 
@@ -326,8 +347,6 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
     ![컴퓨팅 대상 세부 정보 보기](./media/how-to-set-up-training-targets/compute-target-details.png) 
 
-
-
 ### <a id="portal-reuse"></a>컴퓨팅 대상 연결
 
 Azure Machine Learning Service 작업 영역 외부에서 만든 컴퓨팅 대상을 사용하려면 연결해야 합니다. 컴퓨팅 대상을 연결하면 작업 영역에서 사용할 수 있습니다.
@@ -335,7 +354,7 @@ Azure Machine Learning Service 작업 영역 외부에서 만든 컴퓨팅 대�
 컴퓨팅 대상의 목록을 보려면 이전에 설명한 단계를 수행합니다. 그런 다음, 아래 단계에 따라 컴퓨팅 대상을 연결합니다. 
 
 1. 더하기 기호(+)를 선택하여 컴퓨팅 대상을 추가합니다. 
-1. 계산 대상의 이름을 입력합니다. 
+1. 컴퓨팅 대상의 이름을 입력합니다. 
 1. __학습__용으로 연결할 컴퓨팅 유형을 선택합니다.
 
     > [!IMPORTANT]
@@ -357,7 +376,7 @@ Azure Machine Learning Service 작업 영역 외부에서 만든 컴퓨팅 대�
 1. __연결__을 선택합니다. 
 1. 목록에서 컴퓨팅 대상을 선택하여 연결 작업의 상태를 봅니다.
 
-## <a name="set-up-with-cli"></a>CLI를 사용 하 여 설정 합니다.
+## <a name="set-up-with-cli"></a>CLI를 사용 하 여 설정
 
 Azure Machine Learning Service용 [CLI 확장](reference-azure-machine-learning-cli.md)을 사용하여 작업 영역과 연결되어 있는 컴퓨팅 대상에 액세스할 수 있습니다.  CLI를 사용하여 다음을 수행할 수 있습니다.
 
@@ -367,9 +386,9 @@ Azure Machine Learning Service용 [CLI 확장](reference-azure-machine-learning-
 
 자세한 내용은 [리소스 관리](reference-azure-machine-learning-cli.md#resource-management)를 참조하세요.
 
-## <a name="set-up-with-vs-code"></a>VS Code를 사용 하 여 설정 합니다.
+## <a name="set-up-with-vs-code"></a>VS Code로 설정
 
-액세스, 작성, 사용 하 여 작업 영역에 연관 된 계산 대상을 관리 합니다 [VS Code 확장](how-to-vscode-tools.md#create-and-manage-compute-targets) Azure Machine Learning 서비스에 대 한 합니다.
+Azure Machine Learning 서비스에 대 한 [VS Code 확장](how-to-vscode-tools.md#create-and-manage-compute-targets) 을 사용 하 여 작업 영역과 연결 된 계산 대상을 액세스, 생성 및 관리할 수 있습니다.
 
 ## <a id="submit"></a>학습 실행 제출
 
@@ -380,9 +399,9 @@ Azure Machine Learning Service용 [CLI 확장](reference-azure-machine-learning-
 1. 실행이 완료될 때까지 기다립니다.
 
 > [!IMPORTANT]
-> 교육 실행을 제출할 때 학습 스크립트를 포함 하는 디렉터리의 스냅숏이 생성 되어 계산 대상으로 전송 됩니다. 또한 작업 영역에서 실험의 일부로 저장 됩니다. 파일을 변경 하 고 실행을 제출 하는 경우 변경된 된 파일만 다시 업로드 됩니다.
+> 학습 실행을 제출 하면 학습 스크립트가 포함 된 디렉터리의 스냅숏이 만들어지고 계산 대상으로 전송 됩니다. 또한 작업 영역에 실험의 일부로 저장 됩니다. 파일을 변경 하 고 실행을 다시 제출 하면 변경 된 파일만 업로드 됩니다.
 >
-> 만들기를 방지 하기 파일 스냅숏이 포함 되는 [.gitignore](https://git-scm.com/docs/gitignore) 또는 `.amlignore` 디렉터리에 파일 및 파일에 추가 합니다. 합니다 `.amlignore` 동일한 구문을 사용 하 여 파일과 패턴으로 [.gitignore](https://git-scm.com/docs/gitignore) 파일입니다. 두 파일이 존재 하는 경우는 `.amlignore` 파일이 우선 합니다.
+> 파일이 스냅숏에 포함 되지 않도록 하려면 디렉터리에 [.gitignore](https://git-scm.com/docs/gitignore) 또는 `.amlignore` 파일을 만들고 파일을 추가 합니다. 이 `.amlignore` 파일은 [.gitignore](https://git-scm.com/docs/gitignore) 파일과 동일한 구문과 패턴을 사용 합니다. 두 파일이 모두 있는 경우 `.amlignore` 파일이 우선적으로 적용 됩니다.
 > 
 > 자세한 내용은 [스냅샷](concept-azure-machine-learning-architecture.md#snapshots)을 참조하세요.
 
@@ -412,11 +431,13 @@ Azure Machine Learning Service용 [CLI 확장](reference-azure-machine-learning-
 
 * [추정기를 사용하여 ML 모델 학습](how-to-train-ml-models.md)에 표시된 대로 `Estimator` 개체와 함께 실험을 제출합니다.
 * [CLI 확장을 사용하여](reference-azure-machine-learning-cli.md#experiments) 실험을 제출합니다.
-* 통해 실험을 제출 합니다 [VS Code 확장](how-to-vscode-tools.md#train-and-tune-models)합니다.
+* [VS Code 확장](how-to-vscode-tools.md#train-and-tune-models)을 통해 실험을 제출 합니다.
 
-## <a name="github-tracking-and-integration"></a>GitHub 추적과 통합
+<a id="gitintegration"></a>
 
-원본 디렉터리가 로컬 Git 리포지토리를 실행 하는 교육을 시작 하면 저장소에 대 한 정보는 실행된 기록에 저장 됩니다. 예를 들어, 현재 커밋 ID 저장소에 대 한 기록의 일부로 기록 됩니다.
+## <a name="git-tracking-and-integration"></a>Git 추적 및 통합
+
+원본 디렉터리가 로컬 Git 리포지토리 인 학습 실행을 시작 하면 리포지토리에 대 한 정보가 실행 기록에 저장 됩니다. 예를 들어 리포지토리의 현재 커밋 ID는 기록의 일부로 기록 됩니다.
 
 ## <a name="notebook-examples"></a>Notebook 예제
 
@@ -429,7 +450,7 @@ Azure Machine Learning Service용 [CLI 확장](reference-azure-machine-learning-
 ## <a name="next-steps"></a>다음 단계
 
 * [자습서: 모델 학습](tutorial-train-models-with-aml.md)은 모델 학습에 관리되는 컴퓨팅 대상을 사용합니다.
-* 에 대해 알아봅니다 하는 방법 [하이퍼 매개 변수를 효율적으로 조정](how-to-tune-hyperparameters.md) 더 나은 모델을 작성 합니다.
+* 하이퍼 [매개 변수를 효율적으로 조정](how-to-tune-hyperparameters.md) 하 여 더 나은 모델을 만드는 방법에 대해 알아봅니다.
 * 모델을 학습했으면 [모델을 배포하는 방법 및 위치](how-to-deploy-and-where.md)를 알아봅니다.
 * [RunConfiguration 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) SDK 참조를 확인합니다.
 * [Azure Virtual Networks에서 Azure Machine Learning Service 사용](how-to-enable-virtual-network.md)

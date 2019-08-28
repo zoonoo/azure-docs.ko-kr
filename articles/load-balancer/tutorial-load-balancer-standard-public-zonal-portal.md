@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: 이 자습서는 Azure Portal을 사용하여 가용성 영역 내부의 VM 부하 분산을 위한 영역 프런트 엔드가 있는 표준 Load Balancer를 만드는 방법을 설명합니다.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region.
 ms.service: load-balancer
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 563b54fe9b4ab65cd8d3008e9d3955618194031f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0ec9fae1ce4ef976d5f50e1d8d8412354706c5f8
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57899549"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273396"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>자습서: Azure Portal에서 표준 Load Balancer를 사용하여 가용성 영역 내부의 VM 부하 분산
 
@@ -52,8 +52,8 @@ ms.locfileid: "57899549"
 
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
-    | 구독               | 구독을 선택합니다.    |    
-    | 리소스 그룹         | **새로 만들기**를 선택하고 텍스트 상자에 *MyResourceGroupZLB*를 입력합니다.|
+    | Subscription               | 구독을 선택합니다.    |    
+    | Resource group         | **새로 만들기**를 선택하고 텍스트 상자에 *MyResourceGroupZLB*를 입력합니다.|
     | Name                   | *myLoadBalancer*                                   |
     | 지역         | **유럽 서부**를 선택합니다.                                        |
     | Type          | **공용**을 선택합니다.                                        |

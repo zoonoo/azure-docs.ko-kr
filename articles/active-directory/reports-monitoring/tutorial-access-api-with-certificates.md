@@ -3,7 +3,7 @@ title: '자습서: 인증서와 함께 Azure AD Reporting API를 사용하여 �
 description: 이 자습서에서는 인증서 자격 증명과 함께 Azure AD Reporting API를 사용하여 사용자 작업 없이 디렉터리에서 데이터를 가져오는 방법에 대해 설명합니다.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 ms.assetid: ''
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e006111cce7f53ff87f1c6d60b2a5147da02e1e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fdab5bc4be366f778213127a307fb4fcf7cf38a3
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60284927"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989475"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>자습서: 인증서와 함께 Azure Active Directory Reporting API를 사용하여 데이터 가져오기
 
@@ -29,7 +29,7 @@ ms.locfileid: "60284927"
 
 이 자습서에서는 테스트 인증서를 사용하여 보고용 MS Graph API에 액세스하는 방법을 알아봅니다. 프로덕션 환경에서는 테스트 인증서를 사용하지 않는 것이 좋습니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 1. 로그인 데이터에 액세스하려면 Premium (P1/P2) 라이선스를 사용하는 Azure Active Directory 테넌트가 있는지 확인합니다. [Azure Active Directory Premium 시작하기](../fundamentals/active-directory-get-started-premium.md)를 참조하여 Azure Active Directory 버전을 업그레이드하세요. 업그레이드 전에 활동 데이터가 없었다면 Premium 라이선스로 업그레이드한 후 보고서에 데이터가 나타나기까지 1~2일 정도 걸립니다. 
 
@@ -87,7 +87,7 @@ ms.locfileid: "60284927"
   
 7. 이제 이 인증서를 사용하여 MS Graph API에 대한 액세스 토큰을 가져올 수 있습니다. MSCloudIdUtils PowerShell 모듈에서 **Get-MSCloudIdMSGraphAccessTokenFromCert** cmdlet을 사용하여 이전 단계에서 가져온 애플리케이션 ID와 지문을 전달합니다. 
 
-   ![Azure portal](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
+   ![Azure Portal](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
 8. Powershell 스크립트에서 액세스 토큰을 사용하여 Graph API를 쿼리합니다. MSCloudIDUtils에서 **Invoke-MSCloudIdMSGraphQuery** cmdlet을 사용하여 signins 및 directoryAudits 엔드포인트를 열거합니다. 이 cmdlet은 여러 페이지 단위의 결과를 처리한 다음 PowerShell 파이프라인에 해당 결과를 보냅니다.
 

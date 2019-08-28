@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/01/2019
 ms.author: jowargo
-ms.openlocfilehash: 86a2cd824d1896211efd40bb8aa1d007149ef2db
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 67df6c84c5a88a3ffc82948898e356e0a913ba27
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203569"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227781"
 ---
 # <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 특정 Android 애플리케이션 사용자에게 알림 푸시
 
@@ -32,7 +32,7 @@ ms.locfileid: "65203569"
 
 > [!div class="checklist"]
 > * 사용자를 인증하는 백 엔드 Web API 프로젝트를 만듭니다.  
-> * Android 응용 프로그램을 업데이트합니다.
+> * Android 애플리케이션을 업데이트합니다.
 > * 앱 테스트
 
 ## <a name="prerequisites"></a>필수 조건
@@ -259,7 +259,7 @@ ms.locfileid: "65203569"
     ```
 
     이 구성 요소는 푸시 알림을 등록하기 위해 앱 백 엔드에 접속하는 데 필요한 REST 호출을 구현합니다. 또한 *앱 백 엔드에서 등록* 에 설명된 대로 알림 허브에서 생성된 [registrationId](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend)를 로컬로 저장합니다. 이 구성 요소는 **로그인** 단추를 클릭할 때 로컬 스토리지에 저장된 인증 토큰을 사용합니다.
-4. `MainActivity` 클래스에서 `RegisterClient` 클래스에 대한 필드 및 ASP.NET 백 엔드의 엔드포인트에 대한 문자열을 추가합니다. `<Enter Your Backend Endpoint>`를 이전에 얻은 실제 백 엔드 엔드포인트로 바꿔야 합니다. 예: `http://mybackend.azurewebsites.net`
+4. `MainActivity` 클래스에서 `RegisterClient` 클래스에 대한 필드 및 ASP.NET 백 엔드의 엔드포인트에 대한 문자열을 추가합니다. `<Enter Your Backend Endpoint>`를 이전에 얻은 실제 백 엔드 엔드포인트으로 바꿔야 합니다. 예: `http://mybackend.azurewebsites.net`
 
     ```java
     private RegisterClient registerClient;
@@ -276,7 +276,7 @@ ms.locfileid: "65203569"
         super.onCreate(savedInstanceState);
 
         mainActivity = this;
-        MyHandler.createChannelAndHandleNotifications(getApplicationContext());
+        FirebaseService.createChannelAndHandleNotifications(getApplicationContext());
         fcm = FirebaseInstanceId.getInstance();
         registerClient = new RegisterClient(this, BACKEND_ENDPOINT);
         setContentView(R.layout.activity_main);
@@ -482,7 +482,7 @@ ms.locfileid: "65203569"
 4. 토글 단추를 클릭하여 앱을 실행하고 사용자를 등록한 모든 플랫폼을 활성화합니다.
 5. 알림 메시지를 받을 사용자의 이름을 입력합니다. 대상 디바이스에 이 사용자에 대한 알림이 등록되어 있어야 합니다.
 6. 사용자가 푸시 알림 메시지로 받을 메시지를 입력합니다.
-7. **Send Notification**을 클릭합니다.  일치하는 사용자 이름 태그로 등록된 각 장치에 푸시 알림이 수신됩니다.
+7. **Send Notification**을 클릭합니다.  일치하는 사용자 이름 태그로 등록된 각 디바이스에 푸시 알림이 수신됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

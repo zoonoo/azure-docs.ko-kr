@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 95ec6a863f951a8c26abd865041c68df333a4e38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a244883f470f4906879725daf0d37bd1759e65c4
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65071325"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812902"
 ---
 # <a name="durable-functions-patterns-and-technical-concepts-azure-functions"></a>지 속성 함수 패턴 및 기술 개념 (Azure Functions)
 
@@ -374,7 +374,7 @@ module.exports = async function (context) {
 };
 ```
 
-## <a name="pattern-6-aggregator-preview"></a>패턴 #6: Aggregator (미리 보기)
+### <a name="aggregator"></a>패턴 #6: Aggregator (미리 보기)
 
 여섯 번째 패턴은을 주소 지정이 가능한 단일 시간 동안의 이벤트 데이터를 집계 하는 방법에 대 한 *엔터티*합니다. 이 패턴에서 집계 되는 데이터를 여러 원본에서 가져올 수 있습니다, 일괄 처리로 전달 될 수 있습니다 또는 장기-기간 동안에 분산 될 수 있습니다. 수집기 도착 하 고 집계 된 데이터를 쿼리할 해야 외부 클라이언트 이벤트 데이터에서 작업을 수행 해야 합니다.
 
@@ -385,27 +385,46 @@ module.exports = async function (context) {
 사용 하는 [지속형 엔터티 함수](durable-functions-preview.md#entity-functions),이 패턴을 쉽게 단일 함수로 구현할 수 있습니다.
 
 ```csharp
-public static async Task Counter(
-    [EntityTrigger(EntityClassName = "Counter")] IDurableEntityContext ctx)
+[FunctionName("Counter")]
+public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 {
     int currentValue = ctx.GetState<int>();
-    int operand = ctx.GetInput<int>();
 
-    switch (ctx.OperationName)
+    switch (ctx.OperationName.ToLowerInvariant())
     {
         case "add":
+            int amount = ctx.GetInput<int>();
             currentValue += operand;
             break;
-        case "subtract":
-            currentValue -= operand;
-            break;
         case "reset":
-            await SendResetNotificationAsync();
             currentValue = 0;
+            break;
+        case "get":
+            ctx.Return(currentValue);
             break;
     }
 
     ctx.SetState(currentValue);
+}
+```
+
+또한.NET 클래스로 영구 엔터티를 모델링할 수 있습니다. 이 기능은 작업 목록이 크면 및 정적 대부분 경우에 유용할 수 있습니다. 다음 예제는 해당 구현의 `Counter` .NET 클래스 및 메서드를 사용 하 여 엔터티.
+
+```csharp
+public class Counter
+{
+    [JsonProperty("value")]
+    public int CurrentValue { get; set; }
+
+    public void Add(int amount) => this.CurrentValue += amount;
+    
+    public void Reset() => this.CurrentValue = 0;
+    
+    public int Get() => this.CurrentValue;
+
+    [FunctionName(nameof(Counter))]
+    public static Task Run([EntityTrigger] IDurableEntityContext ctx)
+        => ctx.DispatchAsync<Counter>();
 }
 ```
 
@@ -426,7 +445,7 @@ public static async Task Run(
 }
 ```
 
-마찬가지로, 클라이언트 상태에서 메서드를 사용 하는 엔터티 함수를 쿼리할 수는 `orchestrationClient` 바인딩.
+동적으로 생성 된 프록시 형식이 안전한 방식으로 엔터티를 신호 처리를 위해 사용할 수 있습니다. 신호 하는 것 외에도 클라이언트에서 메서드를 사용 하 여 엔터티 함수의 상태에 대 한 쿼리도 하는 `orchestrationClient` 바인딩.
 
 > [!NOTE]
 > 엔터티 함수 현재에 제공 되는 [영 속 Functions 2.0 미리 보기](durable-functions-preview.md)합니다.
@@ -439,7 +458,7 @@ public static async Task Run(
 
 오 케 스트레이 터 함수를 사용 하 여 해당 실행 상태를 안정적으로 유지 합니다 [이벤트 소싱](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) 디자인 패턴입니다. 오케스트레이션의 현재 상태에 직접 저장 하는 대신 지 속성 함수 확장 전체 일련의 함수 오케스트레이션에 서 사용 하는 작업을 기록 하는 추가 전용 저장소를 사용 합니다. 추가 전용 저장소를 "덤프" 전체 런타임 상태에 비해 많은 장점이 있습니다. 향상 된 성능, 확장성 및 응답성 혜택에 포함 됩니다. 또한 트랜잭션 데이터 및 전체 감사 내역 및 기록에 대 한 최종 일관성을 가져옵니다. 감사 내역 신뢰할 수 있는 보정 작업을 지원 합니다.
 
-Durable Functions는 이벤트 소싱을 투명 하 게 사용 합니다. 내부적으로 `await` (C#) 또는 `yield` 오 케 스트레이 터 함수에 연산자 (JavaScript)를 지 속성 작업 프레임 워크 디스패처에 다시 오 케 스트레이 터 스레드의 제어를 생성 합니다. 그런 다음 디스패처는 오케스트레이터에서 예약한 새 작업(예: 하나 이상의 자식 함수 호출 또는 지속성 타이머 예약)을 저장소에 커밋합니다. 투명 한 커밋 작업은 오케스트레이션 인스턴스의 실행 기록에 추가합니다. 기록은 저장소 테이블에 저장됩니다. 그런 다음 커밋 작업은 실제 작업을 예약하는 큐에 메시지를 추가합니다. 이 시점에서 오케스트레이터 함수는 메모리에서 언로드할 수 있습니다. 
+Durable Functions는 이벤트 소싱을 투명 하 게 사용 합니다. 내부적으로 `await` (C#) 또는 `yield` 오 케 스트레이 터 함수에 연산자 (JavaScript)를 지 속성 작업 프레임 워크 디스패처에 다시 오 케 스트레이 터 스레드의 제어를 생성 합니다. 그런 다음 디스패처는 오케스트레이터에서 예약한 새 작업(예: 하나 이상의 자식 함수 호출 또는 지속성 타이머 예약)을 스토리지에 커밋합니다. 투명 한 커밋 작업은 오케스트레이션 인스턴스의 실행 기록에 추가합니다. 기록은 스토리지 테이블에 저장됩니다. 그런 다음 커밋 작업은 실제 작업을 예약하는 큐에 메시지를 추가합니다. 이 시점에서 오케스트레이터 함수는 메모리에서 언로드할 수 있습니다. 
 
 Azure Functions 소비 계획을 사용 하는 경우 오 케 스트레이 터 함수에 대 한 청구를 중지 합니다. 함수 다시 시작을 위해 많은 작업 및 해당 상태를 재구성 하는 경우.
 
@@ -465,7 +484,7 @@ Azure Functions 소비 계획을 사용 하는 경우 오 케 스트레이 터 �
 
 지속성 작업 프레임워크 디스패처의 재생 동작으로 인해 재생된 작업에 대해 중복된 로그 항목이 표시될 수 있습니다. 중복 된 로그 항목이 핵심 엔진의 재생 동작을 이해 하면 도움이 됩니다. 합니다 [진단](durable-functions-diagnostics.md) 문서 "실시간" 로그만 볼 수 있도록 재생 로그를 필터링 하는 샘플 쿼리를 보여 줍니다.
 
-## <a name="storage-and-scalability"></a>저장소 및 확장성
+## <a name="storage-and-scalability"></a>스토리지 및 확장성
 
 지 속성 함수 확장 실행 기록 상태 및 트리거 함수 실행을 유지 하기 위해 Azure Storage에 큐, 테이블 및 blob를 사용 합니다. 기본 저장소 계정을 사용 하 여 함수 앱에 대 한 또는 별도 저장소 계정을 구성할 수 있습니다. 저장소 처리량 제한에 따라 별도 계정이 필요할 수 있습니다. 작성 하는 오 케 스트레이 터 코드는 이러한 저장소 계정에 엔터티와 상호 작용할 하지 않습니다. 지 속성 작업 프레임 워크 구현 세부 정보로 직접 엔터티를 관리합니다.
 

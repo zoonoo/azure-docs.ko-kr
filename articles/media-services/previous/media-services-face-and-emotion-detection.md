@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: milanga;juliako;
-ms.openlocfilehash: 46e60583da79006c133c8d9fac63e27f28bd699f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.reviewer: milanga
+ms.openlocfilehash: 3ae2e49b812e7a9515cef81b328ceb87e1a7f017
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61217260"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "69015469"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Azure 미디어 분석으로 얼굴 및 감정 검색
 ## <a name="overview"></a>개요
@@ -77,7 +78,7 @@ ms.locfileid: "61217260"
 #### <a name="attribute-descriptions"></a>특성 설명
 | 특성 이름 | 설명 |
 | --- | --- |
-| Mode |빠르게: 처리 속도는 빠르지만 정확도가 떨어집니다(기본값).|
+| 모드 |빠르게: 처리 속도는 빠르지만 정확도가 떨어집니다(기본값).|
 
 ### <a name="json-output"></a>JSON 출력
 다음 JSON 출력 예는 잘린 상태입니다.
@@ -152,7 +153,7 @@ ms.locfileid: "61217260"
 #### <a name="attribute-descriptions"></a>특성 설명
 | 특성 이름 | 설명 |
 | --- | --- |
-| Mode |Faces: 얼굴만 감지합니다.<br/>PerFaceEmotion: 각 얼굴 감지에 대해 독립적으로 감정을 반환합니다.<br/>AggregateEmotion: 프레임의 모든 얼굴에 대한 평균 감정 값을 반환합니다. |
+| 모드 |Faces: 얼굴만 감지합니다.<br/>PerFaceEmotion: 각 얼굴 감지에 대해 독립적으로 감정을 반환합니다.<br/>AggregateEmotion: 프레임의 모든 얼굴에 대한 평균 감정 값을 반환합니다. |
 | AggregateEmotionWindowMs |AggregateEmotion 모드가 선택된 경우에 사용합니다. 각 집계 결과를 생성하는 데 사용되는 동영상의 길이를 밀리초 단위로 지정합니다. |
 | AggregateEmotionIntervalMs |AggregateEmotion 모드가 선택된 경우에 사용합니다. 집계 결과 생성 빈도를 지정합니다. |
 
@@ -344,7 +345,7 @@ ms.locfileid: "61217260"
 
 개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```csharp
 using System;

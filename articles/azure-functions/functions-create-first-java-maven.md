@@ -1,23 +1,24 @@
 ---
-title: Java 및 Maven을 사용하여 Azure에서 첫 번째 함수 만들기 | Microsoft Docs
+title: Java 및 Maven를 사용하여 함수 게시 - Azure Functions
 description: Java 및 Maven을 사용하여 Azure에 간단한 HTTP 트리거 함수를 만들어 게시합니다.
 services: functions
 documentationcenter: na
 author: rloutlaw
 manager: justhe
-keywords: Azure 함수, 함수, 이벤트 처리, 계산, 서버리스 아키텍처
+keywords: Azure 함수, 함수, 이벤트 처리, 컴퓨팅, 서버리스 아키텍처
 ms.service: azure-functions
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 08/10/2018
-ms.author: routlaw, glenga
-ms.custom: mvc, devcenter
-ms.openlocfilehash: ab705b6131bd43a7ab70bab16cef81d33f07c055
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.author: routlaw
+ms.reviewer: glenga
+ms.custom: mvc, devcenter, seo-java-july2019
+ms.openlocfilehash: 116d211e366e17ba667baf1e1deae719b56dc3ee
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827407"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542736"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Java 및 Maven을 사용하여 첫 번째 함수 만들기
 
@@ -62,8 +63,8 @@ mvn archetype:generate `
 
 ```cmd
 mvn archetype:generate ^
-    -DarchetypeGroupId=com.microsoft.azure ^
-    -DarchetypeArtifactId=azure-functions-archetype
+    "-DarchetypeGroupId=com.microsoft.azure" ^
+    "-DarchetypeArtifactId=azure-functions-archetype"
 ```
 
 Maven이 프로젝트 생성을 완료하기 위해 필요한 값을 요청합니다. _groupId_, _artifactId_ 및 _version_ 값은 [Maven 명명 규칙](https://maven.apache.org/guides/mini/guide-naming-conventions.html) 참고를 참조하세요. _appName_ 값은 Azure 전체에서 고유해야 하므로 기본적으로 Maven이 이전에 입력한 _artifactId_ 를 기준으로 앱 이름을 생성합니다. _packageName_ 값은 생성된 함수 코드에 대한 Java 패키지를 결정합니다.
@@ -71,26 +72,34 @@ Maven이 프로젝트 생성을 완료하기 위해 필요한 값을 요청합�
 아래의 `com.fabrikam.functions` 및 `fabrikam-functions` 식별자는 예제로 사용되며 이 빠른 시작의 이후 단계를 좀 더 쉽게 읽는 데 도움이 됩니다. 이 단계에서는 Maven에 각자 고유의 값을 제공하시기 바랍니다.
 
 ```Output
-Define value for property 'groupId': com.fabrikam.functions
-Define value for property 'artifactId' : fabrikam-functions
+Define value for property 'groupId' (should match expression '[A-Za-z0-9_\-\.]+'): com.fabrikam.functions
+Define value for property 'artifactId' (should match expression '[A-Za-z0-9_\-\.]+'): fabrikam-functions
 Define value for property 'version' 1.0-SNAPSHOT : 
 Define value for property 'package': com.fabrikam.functions
 Define value for property 'appName' fabrikam-functions-20170927220323382:
+Define value for property 'appRegion' westus: :
+Define value for property 'resourceGroup' java-functions-group: :
 Confirm properties configuration: Y
 ```
 
-Maven은 이름이 _artifactId_ 인 새 폴더에 프로젝트 파일을 만드는데, 이 예제에서는 `fabrikam-functions`입니다. 이 프로젝트에서 생성된 즉시 실행 가능 코드는 요청의 본문을 에코하는 간단한 [HTTP 트리거](/azure/azure-functions/functions-bindings-http-webhook) 함수입니다.
+Maven은 이름이 _artifactId_ 인 새 폴더에 프로젝트 파일을 만드는데, 이 예제에서는 `fabrikam-functions`입니다. 이 프로젝트에서 생성된 즉시 실행 가능 코드는 요청의 본문을 에코하는 [HTTP 트리거](/azure/azure-functions/functions-bindings-http-webhook) 함수입니다. *src/main/java/com/fabrikam/functions/Function.java*를 다음 코드로 바꿉니다. 
 
 ```java
+package com.fabrikam.functions;
+
+import java.util.*;
+import com.microsoft.azure.functions.annotation.*;
+import com.microsoft.azure.functions.*;
+
 public class Function {
     /**
-     * This function listens at endpoint "/api/hello". Two ways to invoke it using "curl" command in bash:
-     * 1. curl -d "HTTP Body" {your host}/api/hello
-     * 2. curl {your host}/api/hello?name=HTTP%20Query
+     * This function listens at endpoint "/api/HttpTrigger-Java". Two ways to invoke it using "curl" command in bash:
+     * 1. curl -d "HTTP Body" {your host}/api/HttpTrigger-Java
+     * 2. curl {your host}/api/HttpTrigger-Java?name=HTTP%20Query
      */
-    @FunctionName("hello")
+    @FunctionName("HttpTrigger-Java")
     public HttpResponseMessage run(
-            @HttpTrigger(name = "req", methods = { HttpMethod.GET, HttpMethod.POST }, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+            @HttpTrigger(name = "req", methods = { HttpMethod.GET, HttpMethod.POST }, authLevel = AuthorizationLevel.FUNCTION) HttpRequestMessage<Optional<String>> request,
             final ExecutionContext context) {
         context.getLogger().info("Java HTTP trigger processed a request.");
 
@@ -108,15 +117,15 @@ public class Function {
 
 ```
 
-## <a name="reference-bindings"></a>바인딩 참조
+## <a name="enable-extension-bundles"></a>확장 번들 사용
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
 ## <a name="run-the-function-locally"></a>로컬에서 함수 실행
 
-디렉터리를 새로 만든 프로젝트 폴더로 변경하고 Maven으로 함수를 실행합니다.
+디렉터리를 새로 만든 프로젝트 폴더(host.json 및 pom.xml 파일이 포함된 폴더)로 변경하고 Maven으로 함수를 빌드하고 실행합니다.
 
-```
+```CMD
 cd fabrikam-function
 mvn clean package 
 mvn azure-functions:run
@@ -133,13 +142,13 @@ Hit CTRL-C to exit...
 
 Http Functions:
 
-   hello: http://localhost:7071/api/hello
+   hello: http://localhost:7071/api/HttpTrigger-Java
 ```
 
 새 터미널 창에서 curl을 사용하여 명령줄에서 함수를 트리거합니다.
 
-```
-curl -w "\n" http://localhost:7071/api/hello -d LocalFunction
+```CMD
+curl -w "\n" http://localhost:7071/api/HttpTrigger-Java -d LocalFunction
 ```
 
 ```Output
@@ -150,18 +159,18 @@ Hello LocalFunction!
 
 ## <a name="deploy-the-function-to-azure"></a>Azure에 함수 배포
 
-Azure Functions에 대한 배포 프로세스는 Azure CLI의 계정 자격 증명을 사용합니다. 계속하려면 [Azure CLI에 로그인](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)합니다.
+Azure Functions에 대한 배포 프로세스는 Azure CLI의 계정 자격 증명을 사용합니다. 계속하려면 [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)합니다.
 
 ```azurecli
 az login
 ```
 
-`azure-functions:deploy` Maven 대상을 사용하여 새 함수 앱에 코드를 배포합니다.
+`azure-functions:deploy` Maven 대상을 사용하여 새 함수 앱에 코드를 배포합니다. 이를 통해 사용하도록 설정된 [패키지에서 실행으로 Zip 배포](functions-deployment-technologies.md#zip-deploy) 모드를 수행합니다.
 
 > [!NOTE]
 > Visual Studio Code를 사용하여 함수 앱을 배포하는 경우 체험판이 아닌 구독을 선택해야 합니다. 그렇지 않으면 오류가 표시됩니다. IDE의 왼쪽에 구독이 표시됩니다.
 
-```
+```azurecli
 mvn azure-functions:deploy
 ```
 
@@ -180,8 +189,8 @@ mvn azure-functions:deploy
 > [!NOTE]
 > **액세스 권한**을 `Anonymous`로 설정해야 합니다. 기본 수준 `Function`을 선택하면 함수 엔드포인트에 액세스하기 위해 요청에 [함수 키](../azure-functions/functions-bindings-http-webhook.md#authorization-keys)를 제공해야 합니다.
 
-```
-curl -w "\n" https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
+```azurecli
+curl -w "\n" https://fabrikam-function-20170920120101928.azurewebsites.net/api/HttpTrigger-Java -d AzureFunctions
 ```
 
 ```Output
@@ -193,13 +202,13 @@ Hello AzureFunctions!
 생성된 프로젝트에서 `src/main.../Function.java` 원본 파일을 편집하여 함수 앱에서 반환된 텍스트를 변경합니다. 다음과 같이 변경합니다.
 
 ```java
-return request.createResponse(200, "Hello, " + name);
+return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
 ```
 
 다음으로:
 
 ```java
-return request.createResponse(200, "Hi, " + name);
+return request.createResponseBuilder(HttpStatus.OK).body("Hi, " + name).build();
 ```
 
 변경 내용을 저장합니다. 이전처럼 터미널에서 `azure-functions:deploy`를 실행하여 mvn 정리 패키지를 실행하고 다시 배포합니다. 함수 앱이 업데이트되고 이 요청은 다음을 갖습니다.

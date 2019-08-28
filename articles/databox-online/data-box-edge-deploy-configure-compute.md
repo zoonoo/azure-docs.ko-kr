@@ -1,6 +1,6 @@
 ---
 title: Azure Data Box Edge의 컴퓨팅 기능을 사용한 데이터를 필터링하고 분석하기 위한 자습서 | Microsoft Docs
-description: Data Box Edge에 계산 역할을 구성하고 이 역할을 사용하여 데이터를 변환한 후에 Azure로 보내는 방법을 알아봅니다.
+description: Data Box Edge에 컴퓨팅 역할을 구성하고 이 역할을 사용하여 데이터를 변환한 후에 Azure로 보내는 방법을 알아봅니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -27,7 +27,7 @@ ms.locfileid: "64924328"
 > [!div class="checklist"]
 > * 컴퓨팅 구성
 > * 공유 추가
-> * 계산 모듈 추가
+> * 컴퓨팅 모듈 추가
 > * 데이터 변환 및 전송 확인
 
  
@@ -159,7 +159,7 @@ Data Box Edge에 컴퓨팅을 구성하려면 IoT Hub 리소스를 만들어야 
 > [!div class="checklist"]
 > * 컴퓨팅 구성
 > * 공유 추가
-> * 계산 모듈 추가
+> * 컴퓨팅 모듈 추가
 > * 데이터 변환 및 전송 확인
 
 Data Box Edge 디바이스를 관리하는 방법을 알아보려면 다음을 참조하세요.

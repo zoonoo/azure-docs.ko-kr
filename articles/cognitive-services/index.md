@@ -7,18 +7,158 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.author: nitinme
-ms.date: 06/20/2019
+ms.date: 08/21/2019
 ms.topic: hub-page
-ms.openlocfilehash: 1e78c31c19bdbc8ea223c504a53f1df73caa5d44
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 13bd9d8c9b5c8337e616b315187242633fce8308
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295396"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971422"
 ---
 <div id="main" class="v2">
 <h1>Azure Cognitive Services 설명서</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">사용자의 요구 사항을 자연스러운 의사 소통 방식으로 보고 듣고 말하고 이해할 수 있도록 앱, 웹사이트 및 봇에 지능적인 알고리즘을 빌드하는 방법을 알아봅니다. 자습서, 빠른 시작, API 참조 및 예제는 방법을 보여줍니다.</p>
+        <p> 각 서비스에는 완전 학습된 모델부터 완전 사용자 지정 가능한 모델에 이르기까지 자체 <a href="/azure/cognitive-services/language-support">언어 지원</a> 및 <a href="/azure/cognitive-services/cognitive-services-and-machine-learning#service-requirements-for-the-data-model">데이터 모델 요구 사항</a>이 있습니다. 
+
+
+<h2>시작</h2>
+<ul class="cardsY panelContent singlePanelContent" style="display:flex!important;">
+        <li>
+            <a href="/azure/cognitive-services/welcome/">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="media/index/i_overview.svg" alt="Learn about Azure Cognitive Services and how to use the different APIs to build intelligent apps." />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Cognitive Services란?</h3>
+                                <p>Azure Cognitive Services 및 다른 API를 사용하여 지능형 앱을 빌드하는 방법을 알아봅니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="/azure/cognitive-services/cognitive-services-and-machine-learning/">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="media/index/i_guidelines.svg" alt="Learn where Azure Cognitive Services fits in with other Azure offerings for machine learning." />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Cognitive Services 및 기계 학습</h3>
+                                <p>Azure Cognitive Services가 기계 학습을 위한 다른 Azure 제품과 어디에 적합한지 알아봅니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="/azure/cognitive-services/cognitive-services-apis-create-account/">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="media/index/account-management.svg" alt="Learn how to create an Azure Cognitive Services resource." />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Cognitive Services 리소스 만들기</h3>
+                                <p>Azure Cognitive Services 리소스를 만드는 방법을 알아봅니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="/azure/cognitive-services/language-support/">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="media/index/mic-abc.svg" alt="Learn about the human languages supported by Cognitive Services APIs." />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Cognitive Services의 언어 지원</h3>
+                                <p>Cognitive Services API에서 지원되는 인간 언어를 알아봅니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="/azure/cognitive-services/cognitive-services-container-support/">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="media/index/virtual-containers.svg" alt="Learn how to use Azure Cognitive Services in Containers." />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>컨테이너에서 Cognitive Services 사용</h3>
+                                <p>컨테이너에서 Azure Cognitive Services를 사용하는 방법을 알아봅니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="/azure/cognitive-services/authentication/">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="media/index/account-management.svg" alt="Learn how to authenticate API requests to Azure Cognitive Services." />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>요청 인증</h3>
+                                <p>Azure Cognitive Services에 대한 API 요청을 인증하는 방법을 알아봅니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="https://docs.microsoft.com/learn/browse/?products=azure-cognitive-services">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="media/index/grad-hat.svg" alt="Up your game with a module or learning path tailored to today's developer and technology masterminds and designed to prepare you for industry-recognized Microsoft certifications." />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Microsoft Learn</h3>
+                                <p>오늘날의 개발자 및 기술 책임자에 맞게 조정되고, 업계 공인 Microsoft 인증에 대비할 수 있게 설계된 모듈 또는 학습 경로를 사용하여 기량을 향상시키세요.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+</ul>
+
 
 
 <h2>Cognitive Services API</h2>
@@ -28,7 +168,8 @@ ms.locfileid: "67295396"
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Vision API</h3>
+                        <h3>시각</h3>
+                        <h4>사진, 동영상 및 디지털 잉크 콘텐츠를 인식 및 식별하고 캡션을 추가하고 인덱싱 및 조정합니다.</h4><br>
                         <p><a href="/azure/cognitive-services/computer-vision/">Computer Vision</a></p>
                         <p><a href="/azure/cognitive-services/Custom-Vision-Service/">Custom Vision Service</a></p>
                         <p><a href="/azure/cognitive-services/face/">Face API</a></p>
@@ -45,7 +186,8 @@ ms.locfileid: "67295396"
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Speech API</h3>
+                        <h3>Speech</h3>
+                        <h4>음성을 텍스트로 변환하고 텍스트를 자연스러운 음성으로 변환합니다. 한 언어를 다른 언어로 번역하고 화자 검증 및 인식 기능을 사용하도록 설정할 수 있습니다.</h4><br>
                         <p><a href="/azure/cognitive-services/speech-service">음성 서비스</a></p>
                         <p><a href="/azure/cognitive-services/speaker-recognition/home"><span>Speaker Recognition&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/speech/home"><span>Bing Speech API&nbsp;<sup style="font-size:70%">사용 중지</sup></span></a></p>
@@ -60,7 +202,8 @@ ms.locfileid: "67295396"
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>언어 API</h3>
+                        <h3>언어</h3>
+                        <h4>앱에서 사전 구축된 스크립트를 통해 자연어를 처리하고, 감성을 평가하며, 사용자가 원하는 것을 인식하는 방법을 학습하도록 지원하세요.</h4><br>
                         <p><a href="/azure/cognitive-services/immersive-reader"><span>몰입형 판독기&nbsp;<sup style="font-size:70%">미리 보기</sup></span></a></p>                        <p><a href="/azure/cognitive-services/luis/">LUIS(Language Understanding)</a></p>
                         <p><a href="/azure/cognitive-services/qnamaker/index">QnA Maker</a></p>
                         <p><a href="/azure/cognitive-services/text-analytics/">텍스트 분석</a></p>
@@ -75,7 +218,8 @@ ms.locfileid: "67295396"
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>검색 API</h3>
+                        <h3>검색</h3>
+                        <h4>Bing Search API를 앱에 추가하고, 단일 API 호출을 통해 수십억 개의 웹 페이지, 이미지, 비디오 및 뉴스를 검색하세요.</h4><br>
                         <p><a href="/azure/cognitive-services/bing-news-search/">Bing News Search</a></p>
                         <p><a href="/azure/cognitive-services/Bing-Video-Search/">Bing Video Search</a></p>
                         <p><a href="/azure/cognitive-services/bing-web-search/">Bing Web Search</a></p>
@@ -97,6 +241,7 @@ ms.locfileid: "67295396"
                 <div class="card">
                     <div class="cardText">
                         <h3>의사 결정 API</h3>
+                        <h4>합리적이고 효율적인 의사 결정을 위해 권장 사항을 표시하는 앱을 빌드하세요.</h4><br>
                         <p><a href="/azure/cognitive-services/anomaly-detector/"><span>Anomaly Detector&nbsp;<sup style="font-size:70%">미리 보기</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/content-moderator/">Content Moderator</a></p>
                         <p><a href="https://go.microsoft.com/fwlink/?linkid=2088324"><span>Personalizer&nbsp;<sup style="font-size:70%">미리 보기</sup></span></a></p>
@@ -108,104 +253,6 @@ ms.locfileid: "67295396"
 </ul>
 </div>
 
-<h2>시작</h2>
-<ul class="cardsY panelContent singlePanelContent" style="display:flex!important;">
-        <li>
-            <a href="/azure/cognitive-services/welcome/">
-                <div class="cardSize">
-                    <div class="cardPadding">
-                        <div class="card">
-                            <div class="cardImageOuter">
-                                <div class="cardImage">
-                                    <img src="media/index/i_overview.svg" alt="" />
-                                </div>
-                            </div>
-                            <div class="cardText">
-                                <h3>Cognitive Services란?</h3>
-                                <p>Azure Cognitive Services 및 다른 API를 사용하여 지능형 앱을 빌드하는 방법을 알아봅니다.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="/azure/cognitive-services/cognitive-services-apis-create-account/">
-                <div class="cardSize">
-                    <div class="cardPadding">
-                        <div class="card">
-                            <div class="cardImageOuter">
-                                <div class="cardImage">
-                                    <img src="media/index/i_get-started.svg" alt="" />
-                                </div>
-                            </div>
-                            <div class="cardText">
-                                <h3>Cognitive Services 계정 만들기</h3>
-                                <p>Azure Cognitive Services 계정을 만드는 방법을 알아봅니다.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="/azure/cognitive-services/authentication/">
-                <div class="cardSize">
-                    <div class="cardPadding">
-                        <div class="card">
-                            <div class="cardImageOuter">
-                                <div class="cardImage">
-                                    <img src="media/index/i_guidelines.svg" alt="" />
-                                </div>
-                            </div>
-                            <div class="cardText">
-                                <h3>요청 인증</h3>
-                                <p>Azure Cognitive Services에 대한 요청을 인증하는 방법을 알아봅니다.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="/azure/cognitive-services/language-support/">
-                <div class="cardSize">
-                    <div class="cardPadding">
-                        <div class="card">
-                            <div class="cardImageOuter">
-                                <div class="cardImage">
-                                    <img src="media/index/i_guidelines.svg" alt="" />
-                                </div>
-                            </div>
-                            <div class="cardText">
-                                <h3>Cognitive Services의 언어 지원</h3>
-                                <p>Cognitive Services API에서 지원되는 인간 언어를 알아봅니다.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="/azure/cognitive-services/cognitive-services-container-support/">
-                <div class="cardSize">
-                    <div class="cardPadding">
-                        <div class="card">
-                            <div class="cardImageOuter">
-                                <div class="cardImage">
-                                    <img src="media/index/i_guidelines.svg" alt="" />
-                                </div>
-                            </div>
-                            <div class="cardText">
-                                <h3>컨테이너에서 Cognitive Services 사용</h3>
-                                <p>컨테이너에서 Azure Cognitive Services를 사용하는 방법을 알아봅니다.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </li>
-</ul>
 <h2>5분 빠른 시작</h2>
 <ul class="cardsF panelContent singlePanelContent cols cols3" style="display:flex!important;">
     <li>
@@ -376,4 +423,48 @@ ms.locfileid: "67295396"
     </li>
 </ul>
 
-
+<h2>추가 리소스</h2>
+<ul class="cardsF panelContent singlePanelContent" style="display:flex!important;">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3></h3>
+                        <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services">PowerShell</a></p>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3></h3>
+                        <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/">REST API</a></p>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3></h3>
+                        <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet">.Net</a></p>
+                        <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices">Go</a></p>
+                        <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client?view=azure-java-stable">Java</a></p>
+                        <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest">Node.JS</a></p>
+                        <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python">Python</a></p>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+</div>

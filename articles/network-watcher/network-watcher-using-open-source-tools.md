@@ -29,7 +29,7 @@ Azure의 Network Watcher는 네트워크에서 패킷 캡처를 수행하여 데
 
 ## <a name="scenario"></a>시나리오
 
-Azure VM에 간단한 웹 애플리케이션을 배포했으며 오픈 소스 도구를 통해 네트워크 트래픽을 시각화하여 흐름 패턴과 오류를 신속하게 식별하고자 합니다. Network Watcher를 사용하면 네트워크 환경의 패킷 캡처를 획득하여 저장소 계정에 바로 저장할 수 있습니다. 그러면 CapAnalysis가 저장소 BLOB에서 직접 패킷 캡처를 수집하고 해당 콘텐츠를 시각화할 수 있습니다.
+Azure VM에 간단한 웹 애플리케이션을 배포했으며 오픈 소스 도구를 통해 네트워크 트래픽을 시각화하여 흐름 패턴과 오류를 신속하게 식별하고자 합니다. Network Watcher를 사용하면 네트워크 환경의 패킷 캡처를 획득하여 스토리지 계정에 바로 저장할 수 있습니다. 그러면 CapAnalysis가 스토리지 BLOB에서 직접 패킷 캡처를 수집하고 해당 콘텐츠를 시각화할 수 있습니다.
 
 ![시나리오][1]
 
@@ -42,12 +42,12 @@ CapAnalysis에 원격으로 액세스하려면 새 인바운드 보안 규칙을
 
 ### <a name="use-azure-network-watcher-to-start-a-packet-capture-session"></a>Azure Network Watcher를 사용하여 패킷 캡처 세션 시작
 
-Network Watcher를 사용하면 가상 컴퓨터가 주고 받는 트래픽을 추적하는 패킷을 캡처할 수 있습니다. 패킷 캡처 세션을 시작하는 방법은 [Network Watcher를 사용하여 패킷 캡처 관리](network-watcher-packet-capture-manage-portal.md)의 지침을 참조하세요. 패킷 캡처는 CapAnalysis가 액세스할 수 있도록 저장소 BLOB에 저장할 수 있습니다.
+Network Watcher를 사용하면 가상 컴퓨터가 주고 받는 트래픽을 추적하는 패킷을 캡처할 수 있습니다. 패킷 캡처 세션을 시작하는 방법은 [Network Watcher를 사용하여 패킷 캡처 관리](network-watcher-packet-capture-manage-portal.md)의 지침을 참조하세요. 패킷 캡처는 CapAnalysis가 액세스할 수 있도록 스토리지 BLOB에 저장할 수 있습니다.
 
 ### <a name="upload-a-packet-capture-to-capanalysis"></a>CapAnalysis에 패킷 캡처 업로드
-"URL에서 가져오기" 탭을 사용하여 패킷 캡처가 저장된 저장소 BLOB의 링크를 제공하는 방법을 통해 Network Watcher가 만든 패킷 캡처를 직접 업로드할 수 있습니다.
+&quot;URL에서 가져오기&quot; 탭을 사용하여 패킷 캡처가 저장된 스토리지 BLOB의 링크를 제공하는 방법을 통해 Network Watcher가 만든 패킷 캡처를 직접 업로드할 수 있습니다.
 
-CapAnalysis에 대한 링크를 제공할 때 저장소 BLOB URL에 SAS 토큰을 추가해야 합니다.  이렇게 하려면 저장소 계정에서 공유 액세스 서명으로 이동하여 허용되는 권한을 지정하고 SAS 생성 단추를 눌러 토큰을 만들어야 합니다. 그런 다음, SAS 토큰을 패킷 캡처 저장소 BLOB URL에 추가할 수 있습니다.
+CapAnalysis에 대한 링크를 제공할 때 스토리지 BLOB URL에 SAS 토큰을 추가해야 합니다.  이렇게 하려면 스토리지 계정에서 공유 액세스 서명으로 이동하여 허용되는 권한을 지정하고 SAS 생성 단추를 눌러 토큰을 만들어야 합니다. 그런 다음, SAS 토큰을 패킷 캡처 스토리지 BLOB URL에 추가할 수 있습니다.
 
 결과 URL은 다음 URL과 같습니다. http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere
 

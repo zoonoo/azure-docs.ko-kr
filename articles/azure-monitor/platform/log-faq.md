@@ -155,7 +155,7 @@ A: [새 로그 경고 만들기](../../azure-monitor/platform/alerts-metric.md)�
 ## <a name="configuration"></a>구성
 ### <a name="q-can-i-change-the-name-of-the-tableblob-container-used-to-read-from-azure-diagnostics-wad"></a>Q. Azure Diagnostics(WAD)에서 읽어오는 데 사용되는 테이블/Blob 컨테이너의 이름을 변경할 수 있나요?
 
-a. 아니요, 현재 Azure 저장소의 임의 테이블 또는 컨테이너에서 읽을 수 없습니다.
+a. 아니요, 현재 Azure Storage의 임의 테이블 또는 컨테이너에서 읽을 수 없습니다.
 
 ### <a name="q-what-ip-addresses-does-the-log-analytics-service-use-how-do-i-ensure-that-my-firewall-only-allows-traffic-to-the-log-analytics-service"></a>Q. Log Analytics 서비스에서 사용하는 IP 주소는 무엇인가요? 내 방화벽에서 Log Analytics 서비스에 대한 트래픽만 허용하도록 하려면 어떻게 하나요?
 

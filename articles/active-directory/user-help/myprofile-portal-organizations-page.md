@@ -12,14 +12,15 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6053313c6971f1bcf66bc447b4f4f5fe5817666
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6a0ff4190a1712b91bf58fafd80a03fc2737e7a4
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60475524"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383010"
 ---
 # <a name="manage-your-organizations-from-the-my-profile-preview-portal"></a>내 프로필(미리 보기) 포털에서 조직 관리
+
 **내 프로필** 포털의 **조직** 페이지에서 조직을 관리할 수 있습니다.
 
 **조직** 페이지에는 두 가지 유형의 조직이 표시됩니다.
@@ -31,6 +32,7 @@ ms.locfileid: "60475524"
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-myprofile.md)]
 
 ## <a name="view-your-organizations"></a>조직 보기
+
 1. 회사 또는 학교 계정에 로그인한 다음, https://myprofile.microsoft.com/ 페이지로 이동합니다.
 
 2. 왼쪽 탐색 창에서 **조직**을 선택하거나 **조직** 블록에서 **조직 관리** 링크를 선택합니다.
@@ -41,9 +43,10 @@ ms.locfileid: "60475524"
 
     ![조직 페이지](media/myprofile-portal/myprofile-portal-organization-page.png)
 
-3. 다른 관련 조직을 검토하여 계정에 연결된 모든 조직을 인식하는지 확인합니다.
+4. 다른 관련 조직을 검토하여 계정에 연결된 모든 조직을 인식하는지 확인합니다.
 
 ## <a name="leave-an-organization"></a>조직 나가기
+
 홈 조직이 아닌 조직은 나갈 수 있습니다.
 
 >[!Important]
@@ -57,4 +60,4 @@ ms.locfileid: "60475524"
 
 ## <a name="next-steps"></a>다음 단계
 
-- 조직 내를 검토 한 후 보거나 관리 하도록 선택할 수 있습니다 하 [보안 정보](user-help-security-info-overview.md)연결 된 [장치](myprofile-portal-devices-page.md), 또는 뷰 어떻게 조직 [데이터를 사용 하 여](myprofile-portal-privacy-page.md).
+- 조직을 본 후에는 [보안 정보](user-help-security-info-overview.md)또는 연결 된 [장치](myprofile-portal-devices-page.md)를 보거나 관리 하거나 조직에서 [데이터를 사용](myprofile-portal-privacy-page.md)하는 방법을 볼 수 있습니다.

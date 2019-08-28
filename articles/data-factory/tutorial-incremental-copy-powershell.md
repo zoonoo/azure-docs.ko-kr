@@ -62,7 +62,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * **Azure SQL Database**. 데이터베이스를 원본 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 만드는 단계를 [Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)에서 참조하세요.
-* **Azure Storage**. Blob Storage를 싱크 데이터 스토리지로 사용합니다. 저장소 계정이 없는 경우, 계정을 만드는 단계는 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요. adftutorial이라는 컨테이너를 만듭니다. 
+* **Azure Storage**. Blob Storage를 싱크 데이터 스토리지로 사용합니다. 스토리지 계정이 없는 경우, 계정을 만드는 단계는 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요. adftutorial이라는 컨테이너를 만듭니다. 
 * **Azure PowerShell**. [Azure PowerShell을 설치 및 구성](/powershell/azure/install-Az-ps)의 지침을 따르세요.
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>SQL 데이터베이스에 데이터 원본 테이블 만들기
@@ -194,10 +194,10 @@ END
 
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
-데이터 팩터리에서 연결된 서비스를 만들어 데이터 저장소를 연결하고 컴퓨팅 서비스를 데이터 팩터리에 연결합니다. 이 섹션에서는 저장소 계정과 SQL 데이터베이스에 연결된 서비스를 만듭니다. 
+데이터 팩터리에서 연결된 서비스를 만들어 데이터 저장소를 연결하고 컴퓨팅 서비스를 데이터 팩터리에 연결합니다. 이 섹션에서는 스토리지 계정과 SQL 데이터베이스에 연결된 서비스를 만듭니다. 
 
 ### <a name="create-a-storage-linked-service"></a>Storage 연결된 서비스 만들기
-1. C:\ADF 폴더에 다음 내용이 포함된 AzureStorageLinkedService.json이라는 JSON 파일을 만듭니다. (ADF 폴더가 없으면 해당 폴더를 만듭니다.) 파일을 저장하기 전에 저장소 계정의 이름과 키로 `<accountName>`과 `<accountKey>`를 바꿉니다.
+1. C:\ADF 폴더에 다음 내용이 포함된 AzureStorageLinkedService.json이라는 JSON 파일을 만듭니다. (ADF 폴더가 없으면 해당 폴더를 만듭니다.) 파일을 저장하기 전에 스토리지 계정의 이름과 키로 `<accountName>`과 `<accountKey>`를 바꿉니다.
 
     ```json
     {

@@ -4,7 +4,7 @@ description: Azure CLI를 사용하여 가용성 영역에서 Linux VM 만들기
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: cdd9910bfef96f56cfa8c8e81363ff9bdb40f444
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6bdbc566215fb7e68109b523fb2af9bca16c328c
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60328734"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849697"
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Azure CLI를 사용하여 가용성 영역에서 Linux 가상 머신 만들기
 
@@ -102,7 +102,7 @@ VM을 만드는 데 몇 분이 걸릴 수 있습니다. VM이 만들어지면 Az
 
 가용성 영역에 VM을 배포하는 경우 VM에 대한 관리 디스크는 동일한 가용성 영역에서 만들어집니다. 기본적으로 공용 IP 주소도 해당 영역에서 만들어집니다. 다음 예에서는 이러한 리소스에 대한 정보를 가져옵니다.
 
-VM의 관리 디스크가 가용성 영역 인지를 확인 하려면 사용 합니다 [az vm show](/cli/azure/vm) 디스크 ID를 반환 하는 명령 이 예제에서는 디스크 ID는 이후 단계에서 사용 되는 변수에 저장 됩니다. 
+VM의 관리 디스크가 가용성 영역에 있는지 확인 하려면 [az VM show](/cli/azure/vm) 명령을 사용 하 여 디스크 ID를 반환 합니다. 이 예제에서 디스크 ID는 이후 단계에서 사용 되는 변수에 저장 됩니다. 
 
 ```azurecli-interactive
 osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osDisk.name" -o tsv)
@@ -198,7 +198,7 @@ IP 주소를 보여 주는 출력은 VM과 동일한 가용성 영역에 있습�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 가용성 영역에서 VM을 만드는 방법을 배웠습니다. Azure VM에 대한 [영역 및 가용성](regions-and-availability.md)에 대해 자세히 알아봅니다.
+이 문서에서는 가용성 영역에서 VM을 만드는 방법을 배웠습니다. Azure Vm의 [가용성](availability.md) 에 대해 자세히 알아보세요.
 
 
 

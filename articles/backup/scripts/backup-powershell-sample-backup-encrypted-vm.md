@@ -1,25 +1,24 @@
 ---
 title: Azure PowerShell 스크립트 샘플 - Azure 가상 컴퓨터 백업 | Microsoft Docs
 description: Azure PowerShell 스크립트 샘플 - Azure 가상 머신 백업
-services: backup
 documentationcenter: ''
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: sample
 ms.date: 03/05/2019
-ms.author: raynew
+ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 62d0c7a66e37d0796655bd20f780fa7e0847474c
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 59661f849567f3fef9f56a208334ed0baeef07fd
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228691"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639425"
 ---
 # <a name="back-up-an-encrypted-azure-virtual-machine-with-powershell"></a>PowerShell을 사용하여 암호화된 Azure 가상 머신 백업
 
-이 스크립트는 암호화된 Azure 가상 머신에 대한 GRS(지역 중복 저장소)를 사용하여 Recovery Services 자격 증명 모음을 만듭니다. 자격 증명 모음에 기본 보호 정책이 적용됩니다. 이 정책은 가상 머신에 대한 일별 백업을 생성하고 30일 동안 각 백업을 유지합니다. 또한 스크립트는 가상 머신에 대한 초기 복구 지점을 트리거하고 해당 복구 지점을 365일 동안 유지합니다.
+이 스크립트는 암호화된 Azure 가상 머신에 대한 GRS(지역 중복 스토리지)를 사용하여 Recovery Services 자격 증명 모음을 만듭니다. 자격 증명 모음에 기본 보호 정책이 적용됩니다. 이 정책은 가상 머신에 대한 일별 백업을 생성하고 30일 동안 각 백업을 유지합니다. 또한 스크립트는 가상 머신에 대한 초기 복구 지점을 트리거하고 해당 복구 지점을 365일 동안 유지합니다.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -48,7 +47,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 |---|---| 
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. | 
 | [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/new-azrecoveryservicesvault) | 백업을 저장할 복구 서비스 자격 증명 모음을 만듭니다. | 
-| [Set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) | Recovery Services 자격 증명 모음에 백업 저장소 속성을 설정합니다. | 
+| [Set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) | Recovery Services 자격 증명 모음에 백업 스토리지 속성을 설정합니다. | 
 | [New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy)| Recovery Services 자격 증명 모음에서 일정 정책과 보존 정책을 사용하여 보호 정책을 만듭니다. | 
 | [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) | 서비스 주체에 암호화 키에 대한 액세스 권한을 부여하기 위해 Key Vault에 대한 사용 권한을 설정합니다. | 
 | [Enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) | 지정된 백업 보호 정책을 사용하여 항목에 대한 백업을 활성화합니다. | 

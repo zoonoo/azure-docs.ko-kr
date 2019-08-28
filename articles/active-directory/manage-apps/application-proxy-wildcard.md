@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cd29fc00a1c25a7c092393591060ca7e2938155
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 5d3b8176566593c5c9e9ff63a6ccbafcb2a35cd5
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481263"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67828003"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Azure Active Directory 애플리케이션 프록시의 와일드카드 애플리케이션
 
@@ -45,13 +45,15 @@ Azure AD(Azure Active Directory)에서 다수의 온-프레미스 애플리케�
 
 > http(s)://*.\<domain\>
 
-예: `http(s)://*.adventure-works.com` 내부 및 외부 URL이 서로 다른 도메인을 사용할 수도 있지만 동일한 것이 좋습니다. 애플리케이션을 게시할 때 URL 중 하나에 와일드카드가 없으면 오류가 표시됩니다.
+예를 들어 `http(s)://*.adventure-works.com`을 참조하십시오.
+
+내부 및 외부 URL이 서로 다른 도메인을 사용할 수도 있지만 동일한 것이 좋습니다. 애플리케이션을 게시할 때 URL 중 하나에 와일드카드가 없으면 오류가 표시됩니다.
 
 다른 구성 설정을 가진 추가 애플리케이션이 있는 경우, 이러한 예외를 별도의 애플리케이션으로 게시하여 와일드카드에 설정된 기본값을 덮어써야 합니다. 와일드카드가 없는 애플리케이션이 와일드카드 애플리케이션보다 항상 우선합니다. 구성 측면에서는 “단순히” 일반적인 애플리케이션입니다.
 
 와일드카드 애플리케이션 생성은 다른 모든 애플리케이션에 사용할 수 있는 것과 동일한 [애플리케이션 게시 흐름](application-proxy-add-on-premises-application.md)을 기반으로 합니다. 유일한 차이점은 URL에 와일드카드를 포함하고 잠재적으로 SSO 구성이라는 것뿐입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하려면 이러한 요구 사항을 충족 했는지 확인 합니다.
 
@@ -60,7 +62,7 @@ Azure AD(Azure Active Directory)에서 다수의 온-프레미스 애플리케�
 [사용자 지정 도메인](application-proxy-configure-custom-domain.md)은 다른 모든 애플리케이션에서 선택 사항이지만 와일드카드 애플리케이션의 경우 필수 조건입니다. 사용자 지정 도메인을 만들려면 다음을 수행해야 합니다.
 
 1. Azure 내에서 확인 된 도메인을 만듭니다.
-2. PFX 형식의 SSL 인증서를 애플리케이션 프록시에 업로드합니다.
+1. PFX 형식의 SSL 인증서를 애플리케이션 프록시에 업로드합니다.
 
 만들려는 애플리케이션에 대응할 와일드카드 인증서를 사용하는 것이 좋습니다. 또는 특정 애플리케이션만 나열하는 인증서를 사용할 수도 있습니다. 이 경우 인증서에 나열된 애플리케이션만 이 와일드카드 애플리케이션을 통해 액세스할 수 있습니다.
 
@@ -82,11 +84,11 @@ CNAME을 제대로 구성했는지 확인하려면 대상 엔드포인트 중 �
 
 와일드카드 애플리케이션의 경우 **내부 URL**은 `http(s)://*.<domain>` 형식이어야 합니다.
 
-![내부 URL을 사용 하 여 형식으로 http (s):/ / *. < 도메인 >](./media/application-proxy-wildcard/22.png)
+![내부 URL을 사용 하 여 형식으로 http (s):/ / *. \<도메인 >](./media/application-proxy-wildcard/22.png)
 
 **외부 URL**을 구성하는 경우 `https://*.<custom domain>` 형식을 사용해야 합니다.
 
-![외부 URL에 대 한 형식 https://*.<custom 도메인을 사용 하 여 >](./media/application-proxy-wildcard/21.png)
+![외부 URL에 대 한 형식 https://*를 사용 합니다. \<사용자 지정 도메인 >](./media/application-proxy-wildcard/21.png)
 
 다른 와일드카드 위치, 다중 와일드카드 또는 기타 정규식 문자열은 지원되지 않으며 오류가 발생합니다.
 
@@ -95,11 +97,11 @@ CNAME을 제대로 구성했는지 확인하려면 대상 엔드포인트 중 �
 다음을 수행하면 와일드카드 애플리케이션에서 애플리케이션을 제외할 수 있습니다.
 
 - 예외 애플리케이션을 일반 애플리케이션으로 게시
-- DNS 설정을 통해 특정 애플리케이션에 대해서만 와일드카드 사용  
+- DNS 설정을 통해 특정 애플리케이션에 대해서만 와일드카드 사용
 
 애플리케이션을 일반 애플리케이션으로 게시하여 와일드카드에서 애플리케이션을 제외하는 것이 더 좋습니다. 제외된 애플리케이션을 와일드카드 애플리케이션보다 먼저 게시하여 처음부터 예외가 적용되도록 해야 합니다. 가장 구체적인 애플리케이션이 항상 우선합니다. `budgets.finance.adventure-works.com`으로 게시된 애플리케이션이 `*.finance.adventure-works.com` 애플리케이션보다 우선하고, 이 애플리케이션이 `*.adventure-works.com` 애플리케이션보다 우선합니다.
 
-DNS 관리를 통해 와일드카드를 특정 애플리케이션에 대해서만 작동하도록 제한할 수도 있습니다. 와일드카드를 포함하고 구성한 외부 URL의 형식과 일치하는 CNAME 항목을 만드는 것이 좋습니다. 그러나 특정 애플리케이션 URL이 대신 와일드카드를 가리키도록 설정할 수 있습니다. 예를 들어 `*.adventure-works.com` 대신 `hr.adventure-works.com`, `expenses.adventure-works.com` 및 `travel.adventure-works.com individually`가 `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net`을 가리키도록 설정합니다. 
+DNS 관리를 통해 와일드카드를 특정 애플리케이션에 대해서만 작동하도록 제한할 수도 있습니다. 와일드카드를 포함하고 구성한 외부 URL의 형식과 일치하는 CNAME 항목을 만드는 것이 좋습니다. 그러나 특정 애플리케이션 URL이 대신 와일드카드를 가리키도록 설정할 수 있습니다. 예를 들어 `*.adventure-works.com` 대신 `hr.adventure-works.com`, `expenses.adventure-works.com` 및 `travel.adventure-works.com individually`가 `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net`을 가리키도록 설정합니다.
 
 이 옵션을 사용하는 경우 동일한 위치를 가리키는 `AppId.domain` 값의 다른 CNAME 항목(예: `00000000-1a11-22b2-c333-444d4d4dd444.adventure-works.com`)도 필요합니다. 와일드카드 애플리케이션의 애플리케이션 속성 페이지에서 **AppId**를 찾을 수 있습니다.
 
@@ -110,7 +112,7 @@ DNS 관리를 통해 와일드카드를 특정 애플리케이션에 대해서�
 와일드카드 애플리케이션은 [MyApps](https://myapps.microsoft.com) 패널에서 하나의 타일로 표시됩니다. 기본적으로 이 타일은 숨겨집니다. 타일을 표시하고 사용자가 특정 페이지를 방문하게 하려면
 
 1. [홈페이지 URL 설정](application-proxy-configure-custom-home-page.md) 지침을 따릅니다.
-2. 애플리케이션 속성 페이지에서 **애플리케이션 표시**를 **true**로 설정합니다.
+1. 애플리케이션 속성 페이지에서 **애플리케이션 표시**를 **true**로 설정합니다.
 
 ### <a name="kerberos-constrained-delegation"></a>Kerberos 제한 위임
 
@@ -156,7 +158,7 @@ DNS 관리를 통해 와일드카드를 특정 애플리케이션에 대해서�
 
 ![예제 구성에서 구현한 구조를 보여 줍니다.](./media/application-proxy-wildcard/05.png)
 
-| 색 | 설명 |
+| 색 | Description |
 | ---   | ---         |
 | 파랑  | 응용 프로그램을 명시적으로 게시 하 고 Azure portal에 표시 합니다. |
 | 회색  | 부모 애플리케이션을 통해 액세스할 수 있는 애플리케이션입니다. |

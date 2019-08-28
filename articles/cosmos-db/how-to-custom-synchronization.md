@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: rimman
-ms.openlocfilehash: cd89a145f5746696cc8fc163eb46896081d85a90
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 0f630c2139d1d7d391d6c5578e5e7f378e56dcb4
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240955"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013781"
 ---
 # <a name="implement-custom-synchronization-to-optimize-for-higher-availability-and-performance"></a>고가용성 및 성능 최적화를 위한 사용자 지정 동기화 구현
 
@@ -29,6 +29,7 @@ Azure Cosmos DB에서 제공하는 [잘 정의된 5가지 일관성 수준](cons
 
 다음 샘플은 사용자 지정 동기화를 위한 클라이언트 두 개를 인스턴스화하는 데이터 액세스 레이어를 보여줍니다.
 
+### <a name="net-v2-sdk"></a>.Net V2 SDK
 ```csharp
 class MyDataAccessLayer
 {
@@ -64,10 +65,35 @@ class MyDataAccessLayer
 }
 ```
 
+### <a name="net-v3-sdk"></a>.Net V3 SDK
+```csharp
+class MyDataAccessLayer
+{
+    private CosmosClient writeClient;
+    private CosmosClient readClient;
+
+    public void InitializeAsync(string accountEndpoint, string key)
+    {
+        CosmosClientOptions writeConnectionOptions = new CosmosClientOptions();
+        writeConnectionOptions.ConnectionMode = ConnectionMode.Direct;
+        writeConnectionOptions.ApplicationRegion = "West US";
+
+        CosmosClientOptions readConnectionOptions = new CosmosClientOptions();
+        readConnectionOptions.ConnectionMode = ConnectionMode.Direct;
+        readConnectionOptions.ApplicationRegion = "East US";
+
+
+        writeClient = new CosmosClient(accountEndpoint, key, writeConnectionOptions);
+        readClient = new CosmosClient(accountEndpoint, key, readConnectionOptions);
+    }
+}
+```
+
 ## <a name="implement-custom-synchronization"></a>사용자 지정 동기화 구현
 
 클라이언트가 초기화되면 애플리케이션에서는 다음과 같이 로컬 Azure 지역(미국 서부)에 쓰기를 수행하고 미국 동부에 대한 쓰기 동기화를 강제할 수 있습니다.
 
+### <a name="net-v2-sdk"></a>.Net V2 SDK
 ```csharp
 class MyDataAccessLayer
 {
@@ -78,6 +104,25 @@ class MyDataAccessLayer
 
         await readClient.ReadDocumentAsync(response.Resource.SelfLink,
             new RequestOptions { SessionToken = response.SessionToken });
+    }
+}
+```
+
+### <a name="net-v3-sdk"></a>.Net V3 SDK
+```csharp
+class MyDataAccessLayer
+{
+     public async Task CreateItem(string databaseId, string containerId, dynamic item)
+     {
+        ItemResponse<dynamic> response = await writeClient.GetContainer("containerId", "databaseId")
+            .CreateItemAsync<dynamic>(
+                item,
+                new PartitionKey("test"));
+
+        await readClient.GetContainer("containerId", "databaseId").ReadItemAsync<dynamic>(
+            response.Resource.id,
+            new PartitionKey("test"),
+            new ItemRequestOptions { SessionToken = response.Headers.Session, ConsistencyLevel = ConsistencyLevel.Session });
     }
 }
 ```

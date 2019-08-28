@@ -4,7 +4,7 @@ description: 기계 학습 도구 및 Data Science Virtual Machine에 사전 설
 keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: gokuma
-ms.openlocfilehash: e8876306e4ffbd0fa9a8aafc6d5d757fd3c9c614
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: vijetaj
+ms.openlocfilehash: 3b05d076a61593e8c34ce642f2fe2fd137e07109
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60502102"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565247"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>기계 학습 및 데이터 과학 도구
 Azure Data Science Virtual Machines에는 Python, R, Julia와 같이 인기 있는 언어에서 사용할 수 있는 ML(기계 학습)을 위한 다양한 도구 및 라이브러리 집합이 있습니다. 
@@ -31,18 +31,18 @@ Azure Data Science Virtual Machines에는 Python, R, Julia와 같이 인기 있�
 ## <a name="azure-machine-learninghttpsdocsmicrosoftcomazuremachine-learningserviceoverview-what-is-azure-ml-sdk"></a>[Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml) SDK
 |    |           |
 | ------------- | ------------- |
-| 무엇인가요?   |   Azure Machine Learning은 ML 모델을 개발하고 배포하는 데 사용할 수 있는 클라우드 서비스입니다. Python SDK를 사용하여 모델을 빌드, 학습, 확장 및 관리하는 대로 추적할 수 있습니다. 모델을 컨테이너로 배포하고 클라우드, 온-프레미스 또는 Azure IoT Edge에서 실행합니다.   |
+| 정의   |   Azure Machine Learning은 ML 모델을 개발하고 배포하는 데 사용할 수 있는 클라우드 서비스입니다. Python SDK를 사용하여 모델을 빌드, 학습, 확장 및 관리하는 대로 추적할 수 있습니다. 모델을 컨테이너로 배포하고 클라우드, 온-프레미스 또는 Azure IoT Edge에서 실행합니다.   |
 | 지원되는 버전     | Windows(conda 환경: AzureML), Linux(conda 환경: py36)    |
 | 일반적인 사용 용도      | 일반 ML 플랫폼      |
 | 구성/설치 방법      |  GPU 지원과 함께 설치됨   |
-| 사용/실행 방법      | Python SDK 및 Azure CLI의 경우. Windows 버전에서 conda 환경 `AzureML`로 ‘또는’ Linux 버전에서 `py36`으로 활성화합니다.       |
+| 사용/실행 방법      | Python SDK 및 Azure CLI의 경우. Windows 버전에서 conda 환경 `AzureML`로 ‘또는’ Linux 버전에서 `py36`으로 활성화합니다.      |
 | 샘플에 대한 링크      | 샘플 Jupyter 노트북은 노트북 아래의 `AzureML` 디렉터리에 포함되어 있습니다.  |
 | 관련 도구      | Visual Studio Code, Jupyter   |
 
 ## <a name="xgboost"></a>XGBoost 
 |    |           |
 | ------------- | ------------- |
-| 무엇인가요?   |    XGBoost는 Python R, Java, Scala, C++ 등에 대한 빠르고, 이식 가능하며, 분산된 그래디언트 부스팅(GBDT, GBRT, 또는 GBM) 라이브러리입니다. 단일 머신, Hadoop 및 Spark에서 실행됩니다.    |
+| 정의   |    XGBoost는 Python R, Java, Scala, C++ 등에 대한 빠르고, 이식 가능하며, 분산된 그래디언트 부스팅(GBDT, GBRT, 또는 GBM) 라이브러리입니다. 단일 머신, Hadoop 및 Spark에서 실행됩니다.    |
 | 지원되는 버전     | Windows, Linux     |
 | 일반적인 사용 용도      | 범용 ML 라이브러리      |
 | 구성/설치 방법      |  GPU 지원과 함께 설치됨   |
@@ -55,7 +55,7 @@ Azure Data Science Virtual Machines에는 Python, R, Julia와 같이 인기 있�
 ## <a name="vowpal-wabbit"></a>Vowpal Wabbit
 |    |           |
 | ------------- | ------------- |
-| 무엇인가요?   |   Vowpal Wabbit(“VW”로도 알려짐)는 빠른 out-of-core 오픈 소스 학습 시스템 라이브러리입니다.    |
+| 정의   |   Vowpal Wabbit(“VW”로도 알려짐)는 빠른 out-of-core 오픈 소스 학습 시스템 라이브러리입니다.    |
 | 지원되는 버전     | Windows, Linux     |
 | 일반적인 사용 용도      | 범용 ML 라이브러리      |
 | 구성/설치 방법      |  Windows--msi 설치 프로그램, Linux--apt-get |
@@ -67,7 +67,7 @@ Azure Data Science Virtual Machines에는 Python, R, Julia와 같이 인기 있�
 ## <a name="weka"></a>Weka
 |    |           |
 | ------------- | ------------- |
-| 무엇인가요?   |  Weka는 데이터 마이닝 작업의 ML 알고리즘 컬렉션입니다. 알고리즘은 데이터 집합에 직접 적용하거나 사용자 고유의 Java 코드에서 호출할 수 있습니다. Weka는 데이터 전처리 작업, 분류, 회귀, 클러스터링, 연결 규칙 및 시각화를 위한 도구를 포함합니다. |
+| 정의   |  Weka는 데이터 마이닝 작업의 ML 알고리즘 컬렉션입니다. 알고리즘은 데이터 집합에 직접 적용하거나 사용자 고유의 Java 코드에서 호출할 수 있습니다. Weka는 데이터 전처리 작업, 분류, 회귀, 클러스터링, 연결 규칙 및 시각화를 위한 도구를 포함합니다. |
 | 지원되는 버전     | Windows, Linux     |
 | 일반적인 사용 용도      | 범용 ML 도구     |
 | 사용/실행 방법      | Windows인 경우 시작 메뉴에서 Weka를 검색하세요. Linux의 경우 X2Go로 로그인한 다음, **Applications** >   **Development**  >  **Weka**로 이동합니다. |
@@ -77,7 +77,7 @@ Azure Data Science Virtual Machines에는 Python, R, Julia와 같이 인기 있�
 ## <a name="rattle"></a>Rattle
 |    |           |
 | ------------- | ------------- |
-| 무엇인가요?   |   Rattle는 R을 사용하여 데이터 마이닝을 위한 그래픽 사용자 인터페이스입니다.   |
+| 정의   |   Rattle는 R을 사용하여 데이터 마이닝을 위한 그래픽 사용자 인터페이스입니다.   |
 | 지원되는 버전     | Windows, Linux     |
 | 일반적인 사용 용도      | R에 대한 일반 UI 데이터 마이닝 도구    |
 | 사용/실행 방법      | UI 도구. Windows에서 명령 프롬프트를 시작하고, R을 실행한 후, R 내부에서 `rattle()`을 실행합니다. Linux에서 X2Go와 연결하여 터미널을 시작하고, R을 실행한 후, R 내부에서 `rattle()`을 실행합니다. |
@@ -87,7 +87,7 @@ Azure Data Science Virtual Machines에는 Python, R, Julia와 같이 인기 있�
 ## <a name="lightgbm"></a>LightGBM
 |    |           |
 | ------------- | ------------- |
-| 무엇인가요?   | LightGBM은 의사 결정 트리 알고리즘을 기반으로 빠르고 분산된 고성능 그라데이션 승격(GBDT, GBRT, GBM 또는 MART) 프레임워크입니다. 이는 순위, 분류 및 기타 ML 작업에 사용됩니다.    |
+| 정의   | LightGBM은 의사 결정 트리 알고리즘을 기반으로 빠르고 분산된 고성능 그라데이션 승격(GBDT, GBRT, GBM 또는 MART) 프레임워크입니다. 이는 순위, 분류 및 기타 ML 작업에 사용됩니다.    |
 | 지원되는 버전      | Windows, Linux    |
 | 일반적인 사용 용도      | 범용 그라데이션 강화 프레임워크      |
 | 구성/설치 방법      | Windows에서 LightGBM가 Python 패키지로 설치됩니다. Linux에서 명령줄 실행 파일은 `/opt/LightGBM/lightgbm`에 있으며, R 패키지가 설치되고, Python 패키지도 설치됩니다.     |
@@ -97,7 +97,7 @@ Azure Data Science Virtual Machines에는 Python, R, Julia와 같이 인기 있�
 ## <a name="h2o"></a>H2O
 |    |           |
 | ------------- | ------------- |
-| 무엇인가요?   | H2O는 메모리 내 분산되고, 빠르고 확장 가능한 ML을 지원하는 오픈 소스 AI 플랫폼입니다.  |
+| 정의   | H2O는 메모리 내 분산되고, 빠르고 확장 가능한 ML을 지원하는 오픈 소스 AI 플랫폼입니다.  |
 | 지원되는 버전      | Linux   |
 | 일반적인 사용 용도      | 일반 용도로 배포된, 확장 가능한 ML   |
 | 구성/설치 방법      | H2O는 `/dsvm/tools/h2o`에 설치됩니다.      |

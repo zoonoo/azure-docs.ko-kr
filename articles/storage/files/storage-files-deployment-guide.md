@@ -1,29 +1,28 @@
 ---
 title: Azure Files를 배포하는 방법 | Microsoft Docs
 description: Azure Files를 배포하는 방법을 처음부터 끝까지 알아봅니다.
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 416040d91da2f6346027f738de507777f804fd1f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 802b4deb91f1df784ac0aed2952d3f915b54ce73
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237725"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699708"
 ---
 # <a name="how-to-deploy-azure-files"></a>Azure Files를 배포하는 방법
 [Azure Files](storage-files-introduction.md)는 산업 표준 SMB 프로토콜을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. 이 문서에서는 조직 내에서 실제적으로 Azure Files를 배포하는 방법을 보여 줍니다.
 
 이 문서의 단계를 수행하기 전에 [Azure Files 배포 계획](storage-files-planning.md)을 읽는 것이 좋습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 문서에서는 사용자가 이미 다음 단계를 완료했다고 가정합니다.
 
-- 원하는 지역에서 원하는 복원력 및 암호화 옵션을 사용하여 Azure Storage 계정을 만들었습니다. 저장소 계정을 만드는 방법에 대한 단계별 지침은 [저장소 계정 만들기](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 참조하세요.
+- 원하는 지역에서 원하는 복원력 및 암호화 옵션을 사용하여 Azure Storage 계정을 만들었습니다. 스토리지 계정을 만드는 방법에 대한 단계별 지침은 [스토리지 계정 만들기](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 참조하세요.
 - Storage 계정에서 원하는 할당량을 사용하여 Azure 파일 공유를 만들었습니다. 파일 공유를 만드는 방법에 대한 단계별 지침은 [파일 공유 만들기](storage-how-to-create-file-share.md)를 참조하세요.
 
 ## <a name="transfer-data-into-azure-files"></a>데이터를 Azure Files로 전송
@@ -64,7 +63,7 @@ Azure Import/Export 서비스를 사용하면 하드 디스크 드라이브를 A
     "F:\shares\scratch\","MyAzureFileShare/",file,rename,"None",None
     ```
 
-    한 저장소 계정으로 여러 공유를 지정할 수 있습니다. 자세한 내용은 [데이터 세트 CSV 파일 준비](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-the-dataset-csv-file)를 참조하세요.
+    한 스토리지 계정으로 여러 공유를 지정할 수 있습니다. 자세한 내용은 [데이터 세트 CSV 파일 준비](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-the-dataset-csv-file)를 참조하세요.
 
 5. 드라이브 집합 CSV 파일을 만듭니다. 드라이브 집합 CSV 파일에는 온-프레미스 내보내기 에이전트에 사용할 수 있는 디스크가 나열됩니다. 예를 들어 다음 드라이브 집합 CSV 파일에는 온-프레미스 내보내기 작업에 사용되는 `X:`, `Y:` 및 `Z:` 드라이브가 나열됩니다.
 
@@ -127,7 +126,7 @@ AzCopy는 간단한 명령과 최적의 성능으로 데이터를 Azure Files �
 온-프레미스 파일 공유를 바꾸려면 공유가 사용될 컴퓨터에 공유를 미리 탑재하는 것이 좋습니다. 이 작업은 컴퓨터 목록에서 자동으로 수행될 수 있습니다.
 
 > [!Note]  
-> Azure 파일 공유를 탑재하려면 저장소 계정 키를 암호로 사용해야 하므로 신뢰할 수 있는 환경의 탑재만 권장합니다. 
+> Azure 파일 공유를 탑재하려면 스토리지 계정 키를 암호로 사용해야 하므로 신뢰할 수 있는 환경의 탑재만 권장합니다. 
 
 ### <a name="windows"></a>Windows
 PowerShell을 사용하여 여러 PC에서 탑재 명령을 실행할 수 있습니다. 다음 예제에서 `$computers`는 수동으로 채워지지만 자동으로 탑재할 컴퓨터 목록을 생성할 수 있습니다. 예를 들어 이 변수를 Active Directory의 결과로 채울 수 있습니다.

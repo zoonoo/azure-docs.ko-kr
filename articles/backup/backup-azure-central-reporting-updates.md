@@ -1,19 +1,19 @@
 ---
 title: Azure Backup 중앙 보고 콘텐츠 팩 업데이트
 description: Power BI의 Azure Backup 콘텐츠 팩 업데이트에 대한 정보를 제공합니다.
-services: backup
-author: kasinh
-manager: vvithal
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: kasinh
-ms.openlocfilehash: 87bc7ed3bb59266484858f534080fa87a7230981
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: dacurwin
+ms.openlocfilehash: 4e217148db42e10e8fe2046cbd062f0708011e96
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60641918"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689328"
 ---
 # <a name="update-the-azure-backup-central-reporting-content-pack"></a>Azure Backup 중앙 보고 콘텐츠 팩 업데이트 
 
@@ -38,28 +38,28 @@ Azure Backup 콘텐츠 팩과 함께 제공되는 미리 구성된 보고서는 
    
 ![요약](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Summary.png)
 
-### <a name="billing"></a>결제
+### <a name="billing"></a>대금 청구
 
-![결제](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Billing.png)
+![대금 청구](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Billing.png)
 
-### <a name="compliance"></a>준수
+### <a name="compliance"></a>호환
 
-![준수](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Compliance.png)
+![호환](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Compliance.png)
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
-![Storage](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Storage.png)
+![스토리지](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Storage.png)
 
-### <a name="backup-items"></a>Backup 항목
-![Backup 항목](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-BackupItem.png)
+### <a name="backup-items"></a>백업 항목
+![백업 항목](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-BackupItem.png)
 
-### <a name="alerts"></a>경고
+### <a name="alerts"></a>,
 
-![경고](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Alerts.png)
+![,](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Alerts.png)
 
-### <a name="jobs"></a>교육
+### <a name="jobs"></a>에서
 
-![교육](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Jobs.png)
+![에서](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Jobs.png)
     
 
 ## <a name="next-steps"></a>다음 단계

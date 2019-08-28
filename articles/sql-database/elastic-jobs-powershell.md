@@ -10,18 +10,17 @@ ms.topic: tutorial
 author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
-manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: eb5066185f9301450a68276dd4b2ce2123231b34
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 0d64bd150a43666679253f8244d80411e25dfdcd
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666795"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935052"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>PowerShell을 사용하여 탄력적 작업 에이전트 만들기
 
-[탄력적 작업](sql-database-job-automation-overview.md#elastic-database-jobs)을 사용하면 여러 데이터페이스에 병렬적으로 하나 이상의 T-SQL(Transact-SQL) 스크립트를 실행할 수 있습니다.
+[탄력적 작업](sql-database-job-automation-overview.md#elastic-database-jobs-preview)을 사용하면 여러 데이터페이스에 병렬적으로 하나 이상의 T-SQL(Transact-SQL) 스크립트를 실행할 수 있습니다.
 
 이 자습서에서는 여러 데이터베이스에서 쿼리를 실행하는 데 필요한 단계를 알아봅니다.
 
@@ -139,7 +138,7 @@ Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Mic
 
 탄력적 작업 에이전트는 작업을 생성하고 실행하고 관리하기 위한 Azure 리소스입니다. 에이전트는 일정에 따라 또는 일회성 작업으로 작업을 실행합니다.
 
-*ResourceGroupName*, *ServerName* 및  *DatabaseName* 매개 변수가 기존 리소스를 모두 가리켜야 하므로 **New-AzSqlElasticJobAgent** cmdlet에는 Azure SQL Database cmdlet이 있어야 합니다.
+*ResourceGroupName*, *ServerName* 및  *DatabaseName* 매개 변수가 기존 리소스를 모두 가리켜야 하므로 **New-AzSqlElasticJobAgent** cmdlet에는 Azure SQL 데이터베이스 cmdlet이 있어야 합니다.
 
 ```powershell
 Write-Output "Creating job agent..."
@@ -285,6 +284,23 @@ $JobExecution | Get-AzSqlElasticJobStepExecution
 # Get the job target execution details
 $JobExecution | Get-AzSqlElasticJobTargetExecution -Count 2
 ```
+
+### <a name="job-execution-states"></a>작업 실행 상태
+
+다음 표에서 가능한 작업 실행 상태를 나열합니다.
+
+|시스템 상태|설명|
+|:---|:---|
+|**생성일** | 작업 실행이 방금 만들어졌으며 아직 진행 중이 아닙니다.|
+|**InProgress** | 작업 실행이 현재 진행 중입니다.|
+|**WaitingForRetry** | 작업 실행이 해당 작업을 완료할 수 없어 다시 시도를 기다리고 있습니다.|
+|**성공함** | 작업 실행이 성공적으로 완료되었습니다.|
+|**SucceededWithSkipped** | 작업 실행이 성공적으로 완료되었지만 자식 중 일부를 건너뛰었습니다.|
+|**실패** | 작업 실행이 실패했으며 해당 재시도 횟수를 소진했습니다.|
+|**TimedOut** | 작업 실행 시간이 초과되었습니다.|
+|**Canceled** | 작업 실행이 취소되었습니다.|
+|**생략** | 동일한 작업 단계의 또 다른 실행이 동일한 대상에서 이미 실행 중이므로 작업 실행을 건너뛰었습니다.|
+|**WaitingForChildJobExecutions** | 작업 실행에서 해당 자식 실행이 완료되기를 기다리고 있습니다.|
 
 ## <a name="schedule-the-job-to-run-later"></a>작업이 나중에 실행되도록 예약
 

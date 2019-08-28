@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 9e56f37c84890b6e679e9739bc772e67a1b7e53f
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 2feb65384e8586b30840a37a66aaee5375881c22
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565575"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103927"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dossier"></a>자습서: Dossier와 Azure Active Directory 통합
 
@@ -31,7 +31,7 @@ Dossier와 Azure AD를 통합하면 다음과 같은 이점이 제공됩니다.
 * 사용자가 해당 Azure AD 계정으로 Dossier에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -57,7 +57,7 @@ Azure AD에 Dossier를 통합하도록 구성하려면 갤러리의 Dossier를 �
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -65,7 +65,7 @@ Azure AD에 Dossier를 통합하도록 구성하려면 갤러리의 Dossier를 �
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에서 **Dossier**를 입력하고, 결과 패널에서 **Dossier**를 선택한 다음, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+4. 검색 상자에서 **Dossier**를 입력하고, 결과 패널에서 **Dossier**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
      ![결과 목록의 Dossier](common/search-new-app.png)
 

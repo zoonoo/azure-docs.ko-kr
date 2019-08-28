@@ -2,19 +2,19 @@
 title: 검색 인덱싱을 위한 Azure SQL 가상 머신 VM 연결 - Azure Search
 description: 암호화된 연결을 사용하도록 설정하고 Azure Search의 인덱서에서 Azure VM(가상 머신)의 SQL Server로의 연결을 허용하도록 방화벽을 구성합니다.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 02/04/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 90e5a133bac519cbc5ab2d7b112d51a019e8f698
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7629750da8f58c2c62f15102b60b5b562689f087
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60871283"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656709"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Azure VM에서 Azure Search 인덱서로부터 SQL Server로의 연결 구성
 [인덱서를 사용하여 Azure Search에 Azure SQL Database 연결](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq)에 설명된 것처럼 Azure Search에서는 **Azure VM SQL Server**(줄여서 **SQL Azure VM**)에 대해 인덱서를 만드는 것을 지원하지만 먼저 몇 가지 보안 관련 필수 구성 요소에 유의해야 합니다. 

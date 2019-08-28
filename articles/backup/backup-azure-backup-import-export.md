@@ -1,22 +1,22 @@
 ---
-title: Azure Backup - Azure Import/Export 서비스를 사용한 오프라인 백업 또는 초기 시드 작업
+title: Azure Backup Import/Export 서비스를 사용 하 여 오프 라인 백업 시드
 description: Azure Backup이 Azure Import/Export 서비스를 사용하여 네트워크를 통해 데이터를 보내는 방법에 대해 알아봅니다. 이 문서에서는 Azure 가져오기 내보내기 서비스를 사용한 초기 백업 데이터의 오프라인 시드 작업을 설명합니다.
-services: backup
-author: saurabhsensharma
-manager: shivamg
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.author: saurse
-ms.openlocfilehash: e08b1d8f847536101d44db266be5cd34e3e6a74c
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.author: dacurwin
+ms.openlocfilehash: 1d3dc50d141a4e1d2864a56aff5c3adb3d2ca0b1
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155312"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954867"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Azure Backup의 오프라인 백업 워크플로
-Azure Backup은 데이터를 Azure에 처음 전체 백업하는 동안 네트워크 및 저장소 비용을 절약하는 여러 가지 기본 제공 효율성 향상 기능이 있습니다. 초기 "전체" 백업은 일반적으로 많은 양의 데이터를 전송하며 델타/증분만 전송하는 후속 백업에 비해 네트워크 대역폭을 더 많이 요구합니다. 오프라인 시드 프로세스를 통해 Azure Backup은 디스크를 사용하여 오프라인 백업 데이터를 Azure에 업로드할 수 있습니다.
+Azure Backup은 데이터를 Azure에 처음 전체 백업하는 동안 네트워크 및 스토리지 비용을 절약하는 여러 가지 기본 제공 효율성 향상 기능이 있습니다. 초기 "전체" 백업은 일반적으로 많은 양의 데이터를 전송하며 델타/증분만 전송하는 후속 백업에 비해 네트워크 대역폭을 더 많이 요구합니다. 오프라인 시드 프로세스를 통해 Azure Backup은 디스크를 사용하여 오프라인 백업 데이터를 Azure에 업로드할 수 있습니다.
 
 Azure Backup 오프라인 시드 프로세스는 디스크를 사용하여 초기 백업 데이터를 Azure에 전송할 수 있는 [Azure Import/Export 서비스](../storage/common/storage-import-export-service.md) 와 밀접하게 통합되어 있습니다. 긴 대기 시간 및 낮은 대역폭 네트워크를 통해 전송해야 하는 TB(테라바이트)의 초기 백업 데이터가 있다면 오프라인 시드 워크플로를 사용하여 하나 이상의 하드 드라이브에 있는 초기 백업 복사본을 Azure 데이터 센터로 배송할 수 있습니다. 다음 이미지는 워크플로의 단계에 대한 개요를 제공합니다.
 
@@ -27,8 +27,8 @@ Azure Backup 오프라인 시드 프로세스는 디스크를 사용하여 초�
 1. 네트워크를 통해 백업 데이터를 보내는 대신 준비 위치에 백업 데이터를 기록합니다.
 2. AzureOfflineBackupDiskPrep 유틸리티를 사용하여 준비 위치의 데이터를 하나 이상의 SATA 디스크에 기록합니다.
 3. 준비 작업의 일환으로 AzureOfflineBackupDiskPrep 유틸리티는 Azure 가져오기 작업을 만듭니다. SATA 드라이브를 가장 가까운 Azure 데이터 센터로 보내고 가져오기 작업을 참조하여 활동을 연결합니다.
-4. Azure 데이터 센터에서 디스크의 데이터는 Azure 저장소 계정에 복사됩니다.
-5. Azure Backup은 저장소 계정의 백업 데이터를 Recovery Services 자격 증명 모음으로 복사하고 증분 백업이 예약됩니다.
+4. Azure 데이터 센터에서 디스크의 데이터는 Azure Storage 계정에 복사됩니다.
+5. Azure Backup은 스토리지 계정의 백업 데이터를 Recovery Services 자격 증명 모음으로 복사하고 증분 백업이 예약됩니다.
 
 ## <a name="supported-configurations"></a>지원되는 구성 
 다음 Azure Backup 기능 또는 워크로드는 오프라인 백업 사용을 지원합니다.
@@ -43,7 +43,7 @@ Azure Backup 오프라인 시드 프로세스는 디스크를 사용하여 초�
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
   > [!NOTE]
   > 다음 필수 구성 요소 및 워크플로는 [최신 MARS 에이전트](https://aka.ms/azurebackup_agent)를 사용한 오프라인 파일 및 폴더 백업에만 적용됩니다. System Center DPM 또는 Azure Backup Server를 사용하여 워크로드에 대한 오프라인 백업을 수행하려면 [이 문서](backup-azure-backup-server-import-export-.md)를 참조하세요. 
@@ -76,7 +76,7 @@ Azure Backup 오프라인 시드 프로세스는 디스크를 사용하여 초�
    입력에 대한 설명은 다음과 같습니다.
 
     * **스테이징 위치**: 초기 백업 복사본을 쓸 임시 스토리지 위치입니다. 스테이징 위치는 네트워크 공유 또는 로컬 컴퓨터에 있을 수 있습니다. 복사 컴퓨터와 원본 컴퓨터가 서로 다르면 스테이징 위치의 전체 네트워크 경로를 지정하는 것이 좋습니다.
-    * **Azure Resource Manager 스토리지 계정**: Resource Manager 형식 저장소 계정 (범용 v1 또는 범용 v2) 모든 Azure 구독에서의 이름입니다.
+    * **Azure Resource Manager 스토리지 계정**: 모든 Azure 구독의 리소스 관리자 유형 저장소 계정 (범용 v1 또는 범용 v2) 이름입니다.
     * **Azure Storage 컨테이너**: Recovery Services 자격 증명 모음에 복사되기 전에 백업 데이터를 가져올 Azure Storage 계정의 대상 스토리지 Blob 이름입니다.
     * **Azure 구독 ID**: Azure Storage 계정이 만들어지는 Azure 구독의 ID입니다.
     * **Azure 가져오기 작업 이름**: Azure 가져오기 서비스 및 Azure Backup이 디스크에서 Azure로 보낸 데이터의 전송을 추적하는 고유한 이름입니다. 
@@ -93,7 +93,7 @@ Azure Backup 오프라인 시드 프로세스는 디스크를 사용하여 초�
 
 4. 마법사의 확인 페이지에서 **백업**을 클릭합니다. 초기 백업은 설정의 일환으로 준비 영역에 기록됩니다.
 
-   ![이제 백업할 준비가 되었는지 확인합니다.](./media/backup-azure-backup-import-export/backupnow-confirmation.png)
+   ![지금 백업할 준비가 되었는지 확인 합니다.](./media/backup-azure-backup-import-export/backupnow-confirmation.png)
 
     작업이 완료되면 스테이징 위치를 디스크 준비에 사용할 수 있습니다.
 
@@ -119,7 +119,7 @@ Azure Backup 오프라인 시드 프로세스는 디스크를 사용하여 초�
 
     ```.\AzureOfflineBackupDiskPrep.exe s:<Staging Location Path>```
 
-    | 매개 변수 | 설명 |
+    | 매개 변수 | Description |
     | --- | --- |
     | s:&lt;*스테이징 위치 경로*&gt; |**오프라인 백업 시작** 워크플로에 입력한 준비 위치의 경로를 제공하는 데 사용되는 필수 입력입니다. |
     | p:&lt;*PublishSettingsFile에 대한 경로*&gt; |**오프라인 백업 시작** 워크플로에 입력한 **Azure 게시 설정** 파일에 대한 경로를 제공하는 데 사용되는 옵션 입력입니다. |
@@ -182,13 +182,13 @@ Azure Backup 오프라인 시드 프로세스는 디스크를 사용하여 초�
    ![배송 정보 저장](./media/backup-azure-backup-import-export/tracking-info.png)
 
 ### <a name="time-to-process-the-drives"></a>드라이브 처리 시간 
-Azure 가져오기 작업을 처리하는 데 소요되는 총 시간은 배송 시간, 작업 유형, 복사되는 데이터 유형 및 크기, 제공된 디스크 크기와 같은 다양한 요소에 따라 다릅니다. Azure Import/Export 서비스에는 SLA가 없지만 이 서비스는 디스크가 수신되고 7~10일 내에 Azure 저장소 계정으로 백업 데이터 복사를 완료하려고 합니다. 
+Azure 가져오기 작업을 처리하는 데 소요되는 총 시간은 배송 시간, 작업 유형, 복사되는 데이터 유형 및 크기, 제공된 디스크 크기와 같은 다양한 요소에 따라 다릅니다. Azure Import/Export 서비스에는 SLA가 없지만 이 서비스는 디스크가 수신되고 7~10일 내에 Azure Storage 계정으로 백업 데이터 복사를 완료하려고 합니다. 
 
 ### <a name="monitoring-azure-import-job-status"></a>Azure 가져오기 작업 상태 모니터링
-Azure Portal에서 **가져오기/내보내기 작업** 페이지로 이동하여 작업을 선택하면 가져오기 작업의 상태를 모니터링할 수 있습니다. 가져오기 작업의 상태에 대한 자세한 내용은 [저장소 가져오기 내보내기 서비스](../storage/common/storage-import-export-service.md) 문서를 참조하세요.
+Azure Portal에서 **가져오기/내보내기 작업** 페이지로 이동하여 작업을 선택하면 가져오기 작업의 상태를 모니터링할 수 있습니다. 가져오기 작업의 상태에 대한 자세한 내용은 [스토리지 가져오기 내보내기 서비스](../storage/common/storage-import-export-service.md) 문서를 참조하세요.
 
 ### <a name="complete-the-workflow"></a>워크플로 완료
-가져오기 작업이 성공적으로 완료되면 저장소 계정에서 초기 백업 데이터를 사용할 수 있습니다. 다음 예약된 백업 시 Azure Backup은 아래와 같이 데이터의 콘텐츠를 저장소 계정에서 Recovery Services 자격 증명 모음으로 복사합니다. 
+가져오기 작업이 성공적으로 완료되면 스토리지 계정에서 초기 백업 데이터를 사용할 수 있습니다. 다음 예약된 백업 시 Azure Backup은 아래와 같이 데이터의 콘텐츠를 스토리지 계정에서 Recovery Services 자격 증명 모음으로 복사합니다. 
 
    ![Recovery Services 자격 증명 모음에 데이터 복사](./media/backup-azure-backup-import-export/copyingfromstorageaccounttoazurebackup.png)<br/>
 
@@ -198,5 +198,5 @@ Azure Portal에서 **가져오기/내보내기 작업** 페이지로 이동하�
 초기 백업이 완료되면 Azure Storage 컨테이너로 가져온 데이터와 준비 위치의 백업 데이터를 안전하게 삭제할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* Azure 가져오기/내보내기 워크플로에 대한 질문은 [Microsoft Azure Import/Export 서비스를 사용하여 Blob 저장소에 데이터 전송](../storage/common/storage-import-export-service.md)을 참조하세요.
+* Azure 가져오기/내보내기 워크플로에 대한 질문은 [Microsoft Azure Import/Export 서비스를 사용하여 Blob Storage에 데이터 전송](../storage/common/storage-import-export-service.md)을 참조하세요.
 * 워크플로에 대한 질문이 있으면 Azure Backup [FAQ](backup-azure-backup-faq.md) 의 오프라인 백업 섹션을 참조하세요.

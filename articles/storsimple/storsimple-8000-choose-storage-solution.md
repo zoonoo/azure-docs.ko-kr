@@ -7,14 +7,16 @@ ms.service: storsimple
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: d727ed62f5a869f6eb67400281d2660607756abf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9456d975ffb6d7726166f9badbcb8fe0ccbe5256
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60637504"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965350"
 ---
 # <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>StorSimple을 Azure 파일 동기화 및 Data Box Edge 데이터 전송 옵션과 비교 
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
  
 이 문서에서는 온-프레미스 데이터를 Azure로 전송하는 옵션을 대략적으로 설명하고 Data Box Edge, Azure 파일 동기화, StorSimple 8000 시리즈를 비교합니다.
 
@@ -33,7 +35,7 @@ ms.locfileid: "60637504"
 |하드웨어         |서비스의 일부로 Microsoft에서 물리적 디바이스 제공 | 고객이 제공 |서비스의 일부로 Microsoft에서 물리적 디바이스 제공  |
 |데이터 형식      |사용자 지정 형식   |파일         |Blob 또는 파일    |
 |프로토콜 지원 |iSCSI          |SMB, NFS    | SMB 또는 NFS      |
-|가격          |[StorSimple](https://azure.microsoft.com/pricing/details/storsimple/) |[Azure 파일 동기화](https://azure.microsoft.com/pricing/details/storage/files/)  |[Data Box Edge](https://azure.microsoft.com/pricing/details/storage/databox/edge/)  |
+|가격 책정          |[StorSimple](https://azure.microsoft.com/pricing/details/storsimple/) |[Azure 파일 동기화](https://azure.microsoft.com/pricing/details/storage/files/)  |[Data Box Edge](https://azure.microsoft.com/pricing/details/storage/databox/edge/)  |
 
 ## <a name="next-steps"></a>다음 단계
 

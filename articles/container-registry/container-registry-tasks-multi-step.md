@@ -3,16 +3,17 @@ title: Azure Container Registry 다단계 작업을 통해 이미지 작성, 테
 description: 클라우드에서 컨테이너 이미지를 빌드하고, 테스트하고, 패치하기 위한 작업 기반 워크플로를 제공하는 Azure Container Registry의 ACR 작업 기능인 다단계 작업에 대해 소개합니다.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: ac0e4e9019a35d3fdb35c0b7af9cb1289f4bceeb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89962fbce6863b16a0d8b229047eb19a821e37bb
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60829585"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310562"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>ACR 작업에서 다단계 작성, 테스트 및 패치 작업 실행
 
@@ -30,7 +31,7 @@ ms.locfileid: "60829585"
 1. 테스트에 통과하면 Helm 차트 보관 패키지 빌드
 1. 새 Helm 차트 보관 패키지를 사용하여 `helm upgrade` 수행
 
-모든 단계는 Azure 내에서 수행됩니다. 즉, Azure 계산 리소스가 작업을 수행하므로 인프라 관리를 별도로 수행할 필요가 없습니다. Azure Container Registry를 제외하면 사용한 리소스에 대한 요금만 지불하면 됩니다. 가격 정보는 [Azure Container Registry pricing][pricing]의 **Container Build** 섹션을 참조하세요.
+모든 단계는 Azure 내에서 수행됩니다. 즉, Azure 컴퓨팅 리소스가 작업을 수행하므로 인프라 관리를 별도로 수행할 필요가 없습니다. Azure Container Registry를 제외하면 사용한 리소스에 대한 요금만 지불하면 됩니다. 가격 책정에 대 한 자세한 내용은 [Azure Container Registry 가격 책정][pricing]의 **컨테이너 빌드** 섹션을 참조 하세요.
 
 
 ## <a name="common-task-scenarios"></a>일반 작업 시나리오
@@ -47,8 +48,8 @@ ms.locfileid: "60829585"
 
 ACR 작업의 다단계 작업은 YAML 파일 내에서 일련의 단계로 정의됩니다. 각 단계는 이전 단계 하나 이상의 정상 완료에 따른 종속성을 지정할 수 있습니다. 사용 가능한 작업 단계 유형은 다음과 같습니다.
 
-* [`build`](container-registry-tasks-reference-yaml.md#build): 친숙 한를 사용 하 여 하나 이상의 컨테이너 이미지 빌드 `docker build` 시리즈 또는 병렬로 구문입니다.
-* [`push`](container-registry-tasks-reference-yaml.md#push): 빌드된 이미지를 컨테이너 레지스트리로 푸시하십시오. Azure Container Registry 등의 프라이빗 레지스트리와 공용 Docker 허브가 모두 지원됩니다.
+* [`build`](container-registry-tasks-reference-yaml.md#build): 친숙 `docker build` 한 구문이 나 병렬를 사용 하 여 하나 이상의 컨테이너 이미지를 빌드합니다.
+* [`push`](container-registry-tasks-reference-yaml.md#push): 빌드된 이미지를 컨테이너 레지스트리에 푸시합니다. Azure Container Registry 등의 프라이빗 레지스트리와 공용 Docker 허브가 모두 지원됩니다.
 * [`cmd`](container-registry-tasks-reference-yaml.md#cmd): 실행 중인 작업의 컨텍스트 내에서 함수로 작동할 수 있도록 컨테이너를 실행 합니다. 컨테이너의 `[ENTRYPOINT]`에 매개 변수를 전달하고 env, detach 및 흔히 사용되는 기타 `docker run` 매개 변수와 같은 속성을 지정할 수 있습니다. `cmd` 단계 유형에서는 컨테이너를 동시에 실행하면서 단위 및 기능 테스트를 수행할 수 있습니다.
 
 다음 코드 조각은 이러한 작업 단계 형식을 결합하는 방법을 보여줍니다. 다중 단계 작업은 다음과 유사한 YAML 파일을 사용하여 Dockerfile에서 단일 이미지를 빌드하고 레지스트리에 푸시하는 방법처럼 간단할 수 있습니다.
@@ -83,13 +84,13 @@ steps:
   - cmd: {{.Run.Registry}}/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image={{.Run.Registry}}/helloworld:{{.Run.ID}}
 ```
 
-몇 가지 시나리오의 경우 전체 다단계 작업 YAML 파일 및 Dockerfile은 [작업 예제][task-examples]를 참조하세요.
+여러 시나리오에 대 한 전체 다단계 작업 YAML 파일 및 Dockerfiles에 대 한 [작업 예][task-examples] 를 참조 하세요.
 
 ## <a name="run-a-sample-task"></a>샘플 작업 실행
 
 작업에서는 Git 커밋 또는 기본 이미지 업데이트 시의 자동화된 실행과 수동 실행(“빠른 실행”)이 모두 지원됩니다.
 
-작업을 실행하려면 먼저 YAML 파일에서 작업의 단계를 정의한 다음 Azure CLI 명령 [az acr run][az-acr-run]을 실행합니다.
+작업을 실행 하려면 먼저 YAML 파일에서 작업 단계를 정의한 다음 명령 [az acr run][az-acr-run]Azure CLI 실행 합니다.
 
 아래에는 샘플 작업 YAML 파일을 사용하여 작업을 실행하는 예제 Azure CLI 명령이 나와 있습니다. 이 작업의 단계는 이미지를 작성한 다음 푸시합니다. 명령을 실행하기 전에 `\<acrName\>`을 실제 Azure Container Registry 이름으로 바꾸세요.
 
@@ -154,7 +155,7 @@ Git 커밋 또는 기본 이미지 업데이트 시의 자동화된 작성 작�
 다단계 작업 참조 및 예제는 아래 문서에서 확인할 수 있습니다.
 
 * [작업 참조](container-registry-tasks-reference-yaml.md) - 작업 단계 유형, 해당 속성 및 사용법을 확인할 수 있습니다.
-* [작업 예제][task-examples] - 다양한 복잡도의 여러 시나리오에 사용 가능한 예제 `task.yaml` 파일이 제공됩니다.
+* [작업 예][task-examples] -간단 `task.yaml` 하 고 복잡 한 여러 시나리오에 대 한 예제 파일입니다.
 * [Cmd 리포지토리](https://github.com/AzureCR/cmd) - ACR 작업에 대한 명령인 컨테이너의 컬렉션입니다.
 
 <!-- IMAGES -->

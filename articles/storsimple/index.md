@@ -1,27 +1,24 @@
 ---
 title: Azure StorSimple 설명서 - 자습서 | Microsoft Docs
-description: 온-프레미스 디바이스 및 Azure 클라우드 저장소 간의 저장소 태스크를 관리하는 통합된 저장소 솔루션인 Azure StorSimple을 사용하는 방법에 대해 알아봅니다.
+description: 온-프레미스 디바이스 및 Azure 클라우드 스토리지 간의 스토리지 태스크를 관리하는 통합된 스토리지 솔루션인 Azure StorSimple을 사용하는 방법에 대해 알아봅니다.
 services: storsimple
-author: czeumault
-manager: carolz
+author: twooley
+manager: twooley
 layout: LandingPage
-ms.assetid: ''
 ms.service: storsimple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
 ms.date: 11/01/2018
-ms.author: carolz
-ms.openlocfilehash: b98106d1a440a30345a2f63bf5fa60384c41627e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: twooley
+ms.openlocfilehash: 0c81d4a4eb934fe8268097e3e2dc7ebe25f2e1d4
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60930014"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610150"
 ---
 # <a name="storsimple-documentation"></a>StorSimple 설명서
 
-온-프레미스 디바이스 및 Azure 클라우드 저장소 간의 저장소 태스크를 관리하는 통합된 저장소 솔루션인 Azure StorSimple을 사용하는 방법에 대해 알아봅니다. 자습서 및 기타 설명서에서는 저장소 관리, 위치 독립적인 백업 및 재해 복구를 설정하는 방법을 보여줍니다.
+온-프레미스 디바이스 및 Azure 클라우드 스토리지 간의 스토리지 태스크를 관리하는 통합된 스토리지 솔루션인 Azure StorSimple을 사용하는 방법에 대해 알아봅니다. 자습서 및 기타 설명서에서는 스토리지 관리, 위치 독립적인 백업 및 재해 복구를 설정하는 방법을 보여줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>

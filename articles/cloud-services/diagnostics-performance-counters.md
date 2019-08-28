@@ -3,23 +3,17 @@ title: Azure Cloud Services에서 성능 카운터 수집 | Microsoft Docs
 description: Azure Diagnostics 및 Application Insights를 사용하여 Cloud Services에서 성능 카운터를 검색, 사용 및 만드는 방법을 알아봅니다.
 services: cloud-services
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: ''
+author: georgewallace
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/02/2018
-ms.author: jeconnoc
-ms.openlocfilehash: 68101be211335d51eb4bf99361ea36b73fa19218
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: gwallace
+ms.openlocfilehash: d6b16b859b29ef835bca75c5fca0ea1a9d35a306
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60653742"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68358941"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Azure Cloud Service에 대한 성능 카운터 수집
 
@@ -121,13 +115,13 @@ Application Insights는 다음 성능 카운터를 자동으로 수집합니다.
 ### <a name="azure-diagnostics"></a>Azure Diagnostics
 
 > [!IMPORTANT]
-> 이러한 모든 데이터가 저장소 계정에 집계되지만, 포털은 데이터를 차트로 작성하는 기본적인 방법을 제공하지 **않습니다**. Application Insights 등의 다른 진단 서비스를 애플리케이션에 통합하는 것이 좋습니다.
+> 이러한 모든 데이터가 스토리지 계정에 집계되지만, 포털은 데이터를 차트로 작성하는 기본적인 방법을 제공하지 **않습니다**. Application Insights 등의 다른 진단 서비스를 애플리케이션에 통합하는 것이 좋습니다.
 
 Cloud Services용 Azure Diagnostics 확장을 사용하면 수집할 성능 카운터를 지정할 수 있습니다. Azure Diagnostics를 설정하려면 [클라우드 서비스 모니터링 개요](cloud-services-how-to-monitor.md#setup-diagnostics-extension)를 참조하세요.
 
 수집하려는 성능 카운터는 **diagnostics.wadcfgx** 파일에 정의됩니다. **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration** > **PerformanceCounters**를 찾습니다. 새 **PerformanceCounterConfiguration** 요소를 자식으로 추가합니다. 이 요소에는 두 가지 특성(`counterSpecifier` 및 `sampleRate`)이 있습니다. `counterSpecifier` 특성은 수집할 시스템 성능 카운터 세트(이전 섹션에 요약되어 있음)를 정의합니다. `sampleRate` 값은 해당 값이 폴링되는 빈도를 나타냅니다. 전반적으로 모든 성능 카운터는 부모 `PerformanceCounters` 요소의 `scheduledTransferPeriod` 특성 값에 따라 Azure에 전송됩니다.
 
-`PerformanceCounters` 스키마 요소에 대한 자세한 내용은 [Azure 진단 스키마](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)를 참조하세요.
+`PerformanceCounters` 스키마 요소에 대한 자세한 내용은 [Azure Diagnostics 스키마](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)를 참조하세요.
 
 `sampleRate` 특성으로 정의된 기간은 XML 기간 데이터 형식을 사용하여 성능 카운터가 폴링되는 빈도를 나타냅니다. 아래 예제에서는 속도가 `PT3M`(`[P]eriod[T]ime[3][M]inutes`: 3분마다)으로 설정됩니다.
 
@@ -297,4 +291,4 @@ counterServiceUsed.Increment();
 - [Azure Cloud Services용 Application Insights](../azure-monitor/app/cloudservices.md#performance-counters)
 - [Application Insights의 시스템 성능 카운터](../azure-monitor/app/performance-counters.md)
 - [카운터 경로 지정](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
-- [Azure 진단 스키마 - 성능 카운터](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)
+- [Azure Diagnostics 스키마 - 성능 카운터](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)

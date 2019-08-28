@@ -3,7 +3,7 @@ title: Blob Storage 및 Visual Studio 연결된 서비스 시작(클라우드 �
 description: Visual Studio 연결된 서비스를 사용하여 스토리지 계정에 연결한 후 Visual Studio 클라우드 서비스 프로젝트에서 Azure Blob Storage 사용을 시작하는 방법입니다.
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: 1144a958-f75a-4466-bb21-320b7ae8f304
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 9f1ef06e0275954343c548d0f6937b9c6fbcfd18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 56aceb4c782c15f69c7994df787b4b950523e8b5
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122943"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510699"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Azure Blob Storage 및 Visual Studio 연결된 서비스 시작(클라우드 서비스 프로젝트)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "62122943"
 
 Azure Blob Storage는 HTTP 또는 HTTPS를 통해 전 세계 어디에서나 액세스할 수 있는 다량의 구조화되지 않은 데이터를 저장하기 위한 서비스입니다. 단일 Blob은 임의의 크기일 수 있습니다. Blob은 이미지, 오디오 및 비디오 파일, 원시 데이터, 문서 파일 등일 수 있습니다.
 
-파일이 폴더에 저장되듯이 저장소 Blob은 컨테이너에 저장됩니다. 저장소를 만든 후 해당 저장소에 하나 이상의 컨테이너를 만듭니다. 예를 들어 "Scrapbook"이라는 저장소를 만든 다음 저장소에 사진을 저장할 "images"라는 컨테이너를 만들고 오디오 파일을 저장할 "audio"라는 컨테이너를 만들 수 있습니다. 컨테이너를 만든 후 컨테이너에 개별 Blob 파일을 업로드할 수 있습니다.
+파일이 폴더에 저장되듯이 스토리지 Blob은 컨테이너에 저장됩니다. 스토리지를 만든 후 해당 스토리지에 하나 이상의 컨테이너를 만듭니다. 예를 들어 &quot;Scrapbook&quot;이라는 스토리지를 만든 다음 스토리지에 사진을 저장할 &quot;images&quot;라는 컨테이너를 만들고 오디오 파일을 저장할 &quot;audio&quot;라는 컨테이너를 만들 수 있습니다. 컨테이너를 만든 후 컨테이너에 개별 Blob 파일을 업로드할 수 있습니다.
 
 * 프로그래밍 방식으로 조작하는 blob에 대한 자세한 내용은 [.NET을 사용하여 Azure Blob Storage 시작](../storage/blobs/storage-dotnet-how-to-use-blobs.md)을 참조하세요.
 * Azure Storage에 대한 일반 정보는 [스토리지 설명서](https://azure.microsoft.com/documentation/services/storage/)를 참조하세요.
@@ -44,11 +44,11 @@ Azure Blob Storage는 HTTP 또는 HTTPS를 통해 전 세계 어디에서나 액
         using Microsoft.WindowsAzure.Storage.Blob;
         using System.Threading.Tasks;
         using LogLevel = Microsoft.Framework.Logging.LogLevel;
-2. 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다.
+2. 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 스토리지 연결 문자열 및 스토리지 계정 정보를 가져오려면 다음 코드를 사용합니다.
    
         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
-3. 저장소 계정의 기존 컨테이너를 참조할 **CloudBlobClient** 개체를 가져옵니다.
+3. 스토리지 계정의 기존 컨테이너를 참조하는 **CloudBlobClient** 개체를 가져옵니다.
    
         // Create a blob client.
         CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -68,7 +68,7 @@ Azure Blob Storage는 HTTP 또는 HTTPS를 통해 전 세계 어디에서나 액
 > 
 > 
 
-저장소 계정에서 컨테이너를 만들려면 다음 코드와 같이 **CreateIfNotExistsAsync** 호출을 추가하면 됩니다.
+스토리지 계정에서 컨테이너를 만들려면 다음 코드와 같이 **CreateIfNotExistsAsync** 호출을 추가하면 됩니다.
 
     // If "mycontainer" doesn't exist, create it.
     await container.CreateIfNotExistsAsync();

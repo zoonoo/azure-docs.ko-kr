@@ -5,19 +5,19 @@ services: functions, logic-apps
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-keywords: Microsoft Flow, Flow, Logic Apps, Azure Functions, Functions, Azure Webjobs, Webjobs, 이벤트 처리, 동적 계산, 서버리스 아키텍처
+keywords: Microsoft Flow, Flow, Logic Apps, Azure Functions, Functions, Azure Webjobs, Webjobs, 이벤트 처리, 동적 컴퓨팅, 서버리스 아키텍처
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: ea99c7fe9bc7fd8d6e4e26baa0afe45505949098
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7bfe586294aec5938e2245c38fbe88aa5e57a66c
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58895650"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839491"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>Microsoft Flow, Logic Apps, Functions 및 WebJobs란?
 
@@ -89,10 +89,10 @@ Azure Functions는 WebJobs SDK 기반이므로 다른 Azure 서비스와 여러 
 |[사용량 기준 과금 가격 책정](functions-scale.md#consumption-plan)|✔||
 |[Logic Apps와 통합](functions-twitter-email.md)|✔||
 | 트리거 이벤트 |[타이머](functions-bindings-timer.md)<br>[Azure Storage 큐 및 BLOB](functions-bindings-storage-blob.md)<br>[Azure Service Bus 큐 및 토픽](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/웹후크(GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[타이머](functions-bindings-timer.md)<br>[Azure Storage 큐 및 BLOB](functions-bindings-storage-blob.md)<br>[Azure Service Bus 큐 및 토픽](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[파일 시스템](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
-| 지원되는 언어  |C#<br>F#<br>JavaScript<br>Java(미리 보기) |C#<sup>1</sup>|
+| 지원되는 언어  |C#<br>F#<br>JavaScript<br>Java<br>Python(미리 보기) |C#<sup>1</sup>|
 |패키지 관리자|NPM 및 NuGet|NuGet<sup>2</sup>|
 
-<sup>1</sup> WebJobs(WebJobs SDK 제외)는 C#, JavaScript, Bash, .cmd, .bat, PowerShell, PHP, TypeScript, Python 등을 지원합니다. 위의 목록은 전체 목록이 아닙니다. WebJob은 App Service 샌드박스에서 실행 가능한 모든 프로그램 또는 스크립트를 실행할 수 있습니다.
+<sup>1</sup> WebJobs(WebJobs SDK 제외)는 C#, Java, JavaScript, Bash, .cmd, .bat, PowerShell, PHP, TypeScript, Python 등을 지원합니다. 위의 목록은 전체 목록이 아닙니다. WebJob은 App Service 샌드박스에서 실행 가능한 모든 프로그램 또는 스크립트를 실행할 수 있습니다.
 
 <sup>2</sup> WebJobs(WebJobs SDK 제외)는 NPM 및 NuGet을 지원합니다.
 
@@ -119,8 +119,8 @@ Microsoft Flow, Logic Apps 및 Functions 간의 통합은 계속해서 점차 �
 
 다음 링크를 사용하여 통합 서비스에 대해 자세히 알아볼 수 있습니다.
 
-* [Christopher Anderson의 통합 시나리오에 대한 Azure Functions 및 Azure App Service 활용](http://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
-* [Integrations Made Simple by Charles Lamanna](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
+* [Christopher Anderson의 통합 시나리오에 대한 Azure Functions 및 Azure App Service 활용](https://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
+* [Integrations Made Simple by Charles Lamanna](https://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
 * [Logic Apps 라이브 웹캐스트](https://aka.ms/logicappslive)
 * [Microsoft Flow 질문과 대답](https://flow.microsoft.com/documentation/frequently-asked-questions/)
 

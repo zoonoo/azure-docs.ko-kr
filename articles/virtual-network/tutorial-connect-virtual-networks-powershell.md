@@ -74,7 +74,7 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
 $virtualNetwork1 | Set-AzVirtualNetwork
 ```
 
-10\.1.0.0/16 주소 접두사 및 서브넷 1개를 사용하여 가상 네트워크를 만듭니다.
+10.1.0.0/16 주소 접두사 및 서브넷 1개를 사용하여 가상 네트워크를 만듭니다.
 
 ```azurepowershell-interactive
 # Create the virtual network.

@@ -24,7 +24,7 @@ ms.locfileid: "61077747"
 # <a name="deploy-the-storsimple-snapshot-manager-mmc-snap-in"></a>StorSimple 스냅샷 관리자 MMC 스냅인 배포
 
 ## <a name="overview"></a>개요
-StorSimple 스냅샷 관리자는 Microsoft Azure StorSimple 환경에서 데이터 보호 및 백업 관리를 간소화하는 MMC(Microsoft Management Console) 스냅인입니다. StorSimple 스냅샷 관리자를 사용하면 완전히 통합된 저장소 시스템인 것처럼 Microsoft Azure StorSimple 온-프레미스 및 클라우드 저장소를 관리할 수 있으므로 백업 및 복원 프로세스가 간소화되고 비용이 절감됩니다. 
+StorSimple 스냅샷 관리자는 Microsoft Azure StorSimple 환경에서 데이터 보호 및 백업 관리를 간소화하는 MMC(Microsoft Management Console) 스냅인입니다. StorSimple 스냅샷 관리자를 사용하면 완전히 통합된 스토리지 시스템인 것처럼 Microsoft Azure StorSimple 온-프레미스 및 클라우드 스토리지를 관리할 수 있으므로 백업 및 복원 프로세스가 간소화되고 비용이 절감됩니다. 
 
 이 자습서에서는 StorSimple 스냅샷 관리자 설치, 제거 및 업그레이드에 대한 절차와 더불어 구성 요구 사항도 설명합니다.
 

@@ -43,7 +43,7 @@ Code=InvalidTemplate
 Message=Deployment template validation failed
 ```
 
-이 오류는 템플릿 식이 복잡할 수 있기 때문에 쉽게 발생합니다. 예를 들어 저장소 계정에 대한 다음 이름 할당에는 대괄호 집합 1개, 함수 3개, 괄호 집합 3개, 작은 따옴표 집합 1개, 속성 1개가 있습니다.
+이 오류는 템플릿 식이 복잡할 수 있기 때문에 쉽게 발생합니다. 예를 들어 스토리지 계정에 대한 다음 이름 할당에는 대괄호 집합 1개, 함수 3개, 괄호 집합 3개, 작은 따옴표 집합 1개, 속성 1개가 있습니다.
 
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]",

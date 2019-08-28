@@ -3,19 +3,19 @@ title: Azure 빠른 시작 - Batch 작업 실행 - .NET
 description: Batch .NET 클라이언트 라이브러리를 사용하여 Batch 작업 및 태스크를 빠르게 실행합니다.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: b8d7556607cdb73c3e3ae19109bcbf34b72b0915
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 37cd6fdd2f82af581e27f9341292c484b1cc601e
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595352"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322337"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>빠른 시작: .NET API를 사용하여 첫 번째 Azure Batch 작업 실행
 
@@ -47,7 +47,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-quickstart.git
 
 `BatchDotNetQuickstart.sln`(Visual Studio 솔루션 파일)이 있는 디렉터리로 이동합니다.
 
-Visual Studio에서 솔루션 파일을 열고 `Program.cs`의 자격 증명 문자열을 계정에 대해 가져온 값으로 업데이트합니다. 예: 
+Visual Studio에서 솔루션 파일을 열고 `Program.cs`의 자격 증명 문자열을 계정에 대해 가져온 값으로 업데이트합니다. 예:
 
 ```csharp
 // Batch account credentials
@@ -70,7 +70,7 @@ private const string StorageAccountKey  = "xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfw
 
 * 메시지가 표시되면 모든 NuGet 패키지 복원을 확인합니다. 누락된 패키지를 다운로드해야 하는 경우 [NuGet 패키지 관리자](https://docs.nuget.org/consume/installing-nuget)가 설치되어 있는지 확인합니다.
 
-그런 다음 실행합니다. 샘플 애플리케이션을 실행하는 경우 콘솔 출력은 다음과 유사합니다. 실행 중에 풀의 계산 노드가 시작되는 동안 `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...`에서 일시 중지가 발생합니다. 첫 번째 계산 노드가 실행되는 즉시 실행되도록 태스크를 큐에 넣습니다. [Azure Portal](https://portal.azure.com)에서 Batch 계정으로 이동하여 풀, 계산 노드, 작업 및 태스크를 모니터링합니다.
+그런 다음 실행합니다. 샘플 애플리케이션을 실행하는 경우 콘솔 출력은 다음과 비슷합니다. 실행 중에 풀의 컴퓨팅 노드가 시작되는 동안 `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...`에서 일시 중지가 발생합니다. 첫 번째 컴퓨팅 노드가 실행되는 즉시 실행되도록 태스크를 큐에 넣습니다. [Azure Portal](https://portal.azure.com)에서 Batch 계정으로 이동하여 풀, 계산 노드, 작업 및 태스크를 모니터링합니다.
 
 ```
 Sample start: 11/16/2018 4:02:54 PM
@@ -104,8 +104,8 @@ stderr:
 
 이 빠른 시작의 .NET 앱은 다음을 수행합니다.
 
-* 세 개의 작은 텍스트 파일을 Azure 저장소 계정의 Blob 컨테이너에 업로드합니다. 이러한 파일은 Batch에서 처리하기 위한 입력입니다.
-* Windows Server를 실행하는 계산 노드 풀을 만듭니다.
+* 세 개의 작은 텍스트 파일을 Azure Storage 계정의 Blob 컨테이너에 업로드합니다. 이러한 파일은 Batch에서 처리하기 위한 입력입니다.
+* Windows Server를 실행하는 컴퓨팅 노드 풀을 만듭니다.
 * 노드에서 실행할 하나의 작업과 세 개의 태스크를 만듭니다. 각 태스크는 Windows 명령줄을 사용하여 입력 파일 중 하나를 처리합니다. 
 * 태스크에서 반환된 파일을 표시합니다.
 
@@ -119,7 +119,7 @@ stderr:
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 ```
 
-앱은 `blobClient` 참조를 사용하여 저장소 계정에 컨테이너를 만들고, 데이터 파일을 이 컨테이너에 업로드합니다. 스토리지의 파일은 Batch가 나중에 계산 노드에 다운로드할 수 있는 Batch [ResourceFile](/dotnet/api/microsoft.azure.batch.resourcefile) 개체로 정의됩니다.
+앱은 `blobClient` 참조를 사용하여 스토리지 계정에 컨테이너를 만들고, 데이터 파일을 이 컨테이너에 업로드합니다. 스토리지의 파일은 Batch가 나중에 계산 노드에 다운로드할 수 있는 Batch [ResourceFile](/dotnet/api/microsoft.azure.batch.resourcefile) 개체로 정의됩니다.
 
 ```csharp
 List<string> inputFilePaths = new List<string>
@@ -146,7 +146,7 @@ using (BatchClient batchClient = BatchClient.Open(cred))
 ...
 ```
 
-### <a name="create-a-pool-of-compute-nodes"></a>계산 노드 풀 만들기
+### <a name="create-a-pool-of-compute-nodes"></a>컴퓨팅 노드 풀 만들기
 
 Batch 풀을 만들려면 앱에서 [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) 메서드를 사용하여 노드 수, VM 크기 및 풀 구성을 설정합니다. 여기서 [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) 개체는 Azure Marketplace에 게시된 Windows Server 이미지에 대한 [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference)를 지정합니다. Batch는 Azure Marketplace의 다양한 Linux 및 Windows Server 이미지와 사용자 지정 VM 이미지를 지원합니다.
 
@@ -208,7 +208,7 @@ try
 
 ### <a name="create-tasks"></a>태스크 만들기
 
-앱에서 [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) 개체의 목록을 만듭니다. 각 태스크는 [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline) 속성을 사용하여 `ResourceFile` 입력 개체를 처리합니다. 이 샘플에서는 명령줄에서 `type` Windows 명령을 실행하여 입력 파일을 표시합니다. 이 명령은 간단한 데모용 예제입니다. Batch를 사용하면 명령줄에서 앱 또는 스크립트를 지정합니다. Batch는 계산 노드에 앱과 스크립트를 배포하는 여러 가지 방법을 제공합니다.
+앱에서 [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) 개체의 목록을 만듭니다. 각 태스크는 [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline) 속성을 사용하여 `ResourceFile` 입력 개체를 처리합니다. 이 샘플에서는 명령줄에서 `type` Windows 명령을 실행하여 입력 파일을 표시합니다. 이 명령은 간단한 데모용 예제입니다. Batch를 사용하면 명령줄에서 앱 또는 스크립트를 지정합니다. Batch는 컴퓨팅 노드에 앱과 스크립트를 배포하는 여러 가지 방법을 제공합니다.
 
 그런 다음, 앱은 계산 노드에서 실행되도록 큐에 넣는 [AddTask](/dotnet/api/microsoft.azure.batch.joboperations.addtask) 메서드를 사용하여 작업에 태스크를 추가합니다.
 
@@ -244,9 +244,9 @@ foreach (CloudTask task in completedtasks)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-앱은 만든 저장소 컨테이너를 자동으로 삭제하고 Batch 풀과 작업을 삭제할 수 있는 옵션을 제공합니다. 작업이 예약되지 않은 경우에도 노드가 실행되는 동안은 풀에 대한 요금이 부과됩니다. 풀이 더 이상 필요하지 않으면 삭제합니다. 풀을 삭제하면 노드의 모든 태스크 출력이 삭제됩니다.
+앱은 만든 스토리지 컨테이너를 자동으로 삭제하고 Batch 풀과 작업을 삭제할 수 있는 옵션을 제공합니다. 작업이 예약되지 않은 경우에도 노드가 실행되는 동안은 풀에 대한 요금이 부과됩니다. 풀이 더 이상 필요하지 않으면 삭제합니다. 풀을 삭제하면 노드의 모든 태스크 출력이 삭제됩니다.
 
-더 이상 필요하지 않으면 리소스 그룹, 배치 계정 및 저장소 계정을 삭제합니다. Azure Portal에서 이렇게 하려면 배치 계정에 대한 리소스 그룹을 선택하고 **리소스 그룹 삭제**를 클릭합니다.
+더 이상 필요하지 않은 경우 리소스 그룹, Batch 계정 및 스토리지 계정을 삭제합니다. Azure Portal에서 이렇게 하려면 배치 계정에 대한 리소스 그룹을 선택하고 **리소스 그룹 삭제**를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

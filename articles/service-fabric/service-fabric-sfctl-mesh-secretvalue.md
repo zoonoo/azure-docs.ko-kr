@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 3f8e46f063d3e725e2174fd907169f3e0167586a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5200c40afe62ce3a236a3a16b59b64deb8d24ced
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60836951"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035934"
 ---
 # <a name="sfctl-mesh-secretvalue"></a>sfctl mesh secretvalue
 메시 비밀 값 리소스를 가져오고 삭제합니다.
@@ -28,8 +27,8 @@ ms.locfileid: "60836951"
 
 |명령|설명|
 | --- | --- |
-| delete | 명명된 비밀 리소스의 지정된 값을 삭제합니다. |
-| list | 지정된 비밀 리소스의 모든 값 이름을 나열합니다. |
+| 삭제 | 명명된 비밀 리소스의 지정된 값을 삭제합니다. |
+| 목록 | 지정된 비밀 리소스의 모든 값 이름을 나열합니다. |
 | 표시 | 비밀 리소스의 지정된 버전 값을 검색합니다. |
 
 ## <a name="sfctl-mesh-secretvalue-delete"></a>sfctl mesh secretvalue delete
@@ -39,14 +38,14 @@ ms.locfileid: "60836951"
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --secret-name -n [필수] | 비밀 리소스의 이름입니다. |
 | --version -v     [필수] | 비밀 버전의 이름입니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -61,13 +60,13 @@ ms.locfileid: "60836951"
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --secret-name -n [필수] | 비밀 리소스의 이름입니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -80,7 +79,7 @@ ms.locfileid: "60836951"
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --secret-name -n [필수] | 비밀 리소스의 이름입니다. |
 | --version -v     [필수] | 비밀 버전의 이름입니다. |

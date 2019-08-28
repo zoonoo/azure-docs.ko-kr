@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 94d3599fe919cf648be7115be68002d2aa458ee3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7f6439d79e5d46621b92b1c24ba5caf87889f443
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60400646"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877068"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>IoT Hub 메시지 라우팅 쿼리 구문
 
@@ -51,12 +51,13 @@ IoT Hub는 프로토콜 전체에서의 상호 운용성을 위해 모든 디바
 
 시스템 속성을 사용하면 메시지의 콘텐츠 및 소스를 식별할 수 있습니다. 
 
-| 자산 | Type | 설명 |
+| 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
-| contentType | 문자열 | 사용자가 메시지의 콘텐츠 형식을 지정합니다. 메시지 본문에 대한 쿼리를 허용하려면 이 값이 application/JSON으로 설정되어야 합니다. |
-| contentEncoding | 문자열 | 사용자가 메시지의 인코딩 형식을 지정합니다. 허용되는 값은 contentType이 application/JSON으로 설정된 경우 UTF-8, UTF-16, UTF-32입니다. |
-| iothub-connection-device-id | 문자열 | 이 값은 IoT Hub에 의해 설정되며 디바이스의 ID를 식별합니다. 쿼리하려면 `$connectionDeviceId`을 사용합니다. |
-| iothub-enqueuedtime | 문자열 | 이 값은 IoT Hub에 의해 설정되며 UTC에서 메시지를 큐에 넣는 실제 시간을 나타냅니다. 쿼리하려면 `enqueuedTime`을 사용합니다. |
+| contentType | string | 사용자가 메시지의 콘텐츠 형식을 지정합니다. 메시지 본문에 대한 쿼리를 허용하려면 이 값이 application/JSON으로 설정되어야 합니다. |
+| contentEncoding | string | 사용자가 메시지의 인코딩 형식을 지정합니다. 허용되는 값은 contentType이 application/JSON으로 설정된 경우 UTF-8, UTF-16, UTF-32입니다. |
+| iothub-connection-device-id | string | 이 값은 IoT Hub에 의해 설정되며 디바이스의 ID를 식별합니다. 쿼리하려면 `$connectionDeviceId`을 사용합니다. |
+| iothub-enqueuedtime | string | 이 값은 IoT Hub에 의해 설정되며 UTC에서 메시지를 큐에 넣는 실제 시간을 나타냅니다. 쿼리하려면 `enqueuedTime`을 사용합니다. |
+| iothub-name | string | 이 값은 사용자가 설정 하 고 원격 분석 메시지를 구현 하는 디지털 쌍 인터페이스의 이름을 나타냅니다. 쿼리하려면 `$interfaceName`을 사용합니다. 이 기능은 [IoT 플러그 앤 플레이 공개 미리 보기](../iot-pnp/overview-iot-plug-and-play.md)의 일부로 사용할 수 있습니다. |
 
 [IoT Hub 메시지](iot-hub-devguide-messages-construct.md)에 설명된 대로, 메시지에 추가적인 시스템 속성에 있습니다. **contentType**, **contentEncoding** 및 **enqueuedTime** 이외에 **connectionDeviceId** 및 **connectionModuleId**도 쿼리할 수 있습니다.
 
@@ -66,7 +67,7 @@ IoT Hub는 프로토콜 전체에서의 상호 운용성을 위해 모든 디바
 
 ### <a name="query-expressions"></a>쿼리 식
 
-메시지 시스템 속성에 대한 쿼리는 접두사로 `$` 기호를 사용해야 합니다. 애플리케이션 속성에 대한 쿼리는 이름으로 액세스하며 `$` 기호를 접두사로 사용하지 않아야 합니다. 애플리케이션 속성 이름이 `$`로 시작하는 경우, IoT Hub는 시스템 속성에서 해당 항목을 검색하며, 찾을 수 없으면 애플리케이션 속성에서 찾습니다. 예를 들면 다음과 같습니다. 
+메시지 시스템 속성에 대한 쿼리는 접두사로 `$` 기호를 사용해야 합니다. 애플리케이션 속성에 대한 쿼리는 이름으로 액세스하며 `$` 기호를 접두사로 사용하지 않아야 합니다. 애플리케이션 속성 이름이 `$`로 시작하는 경우, IoT Hub는 시스템 속성에서 해당 항목을 검색하며, 찾을 수 없으면 애플리케이션 속성에서 찾습니다. 예: 
 
 시스템 속성 contentEncoding에서 쿼리 
 
@@ -74,7 +75,7 @@ IoT Hub는 프로토콜 전체에서의 상호 운용성을 위해 모든 디바
 $contentEncoding = 'UTF-8'
 ```
 
-응용 프로그램 속성 processingPath에서 쿼리:
+애플리케이션 속성 processingPath에서 쿼리:
 
 ```sql
 processingPath = 'hot'
@@ -86,7 +87,7 @@ processingPath = 'hot'
 $contentEncoding = 'UTF-8' AND processingPath = 'hot'
 ```
 
-지원되는 연산자와 함수의 전체 목록은 [식 및 조건](iot-hub-devguide-query-language.md#expressions-and-conditions)을 참조하세요.
+지원 되는 연산자 및 함수에 대 한 전체 목록은 [식 및 조건](iot-hub-devguide-query-language.md#expressions-and-conditions)에 나와 있습니다.
 
 ## <a name="message-routing-query-based-on-message-body"></a>메시지 본문에 따른 메시지 라우팅 쿼리 
 
@@ -163,7 +164,7 @@ $body.Weather.Temperature = 50 AND processingPath = 'hot'
 
 ## <a name="message-routing-query-based-on-device-twin"></a>디바이스 쌍에 따른 메시지 라우팅 쿼리 
 
-메시지 라우팅을 사용하면 JSON 개체인 [디바이스 쌍](iot-hub-devguide-device-twins.md) 태그 및 속성에서 쿼리를 사용할 수 있습니다. 모듈 쌍에 대한 쿼리는 지원되지 않습니다. 디바이스 쌍 태그 및 속성의 샘플은 다음과 같습니다.
+메시지 라우팅을 사용하면 JSON 개체인 [디바이스 쌍](iot-hub-devguide-device-twins.md) 태그 및 속성에서 쿼리를 사용할 수 있습니다. 모듈 쌍에 대 한 쿼리는 지원 되지 않습니다. 디바이스 쌍 태그 및 속성의 샘플은 다음과 같습니다.
 
 ```JSON
 {
@@ -196,7 +197,7 @@ $body.Weather.Temperature = 50 AND processingPath = 'hot'
 
 ### <a name="query-expressions"></a>쿼리 식
 
-메시지 본문에 대한 쿼리는 접두사로 `$twin`을 사용해야 합니다. 또한 쿼리 식은 쌍 태그 또는 속성 참조를 본문 참조, 메시지 시스템 속성 및 메시지 응용 프로그램 속성 참조와 결합할 수 있습니다. 쿼리가 대/소문자를 구분하지 않으므로 태그 및 속성에 고유한 이름을 사용하는 것이 좋습니다. 또한 속성 이름으로 `twin`, `$twin`, `body` 또는 `$body`를 사용하지 않도록 합니다. 예를 들어 다음은 모든 유효한 쿼리 식입니다. 
+메시지 본문에 대한 쿼리는 접두사로 `$twin`을 사용해야 합니다. 또한 쿼리 식은 쌍 태그 또는 속성 참조를 본문 참조, 메시지 시스템 속성 및 메시지 애플리케이션 속성 참조와 결합할 수 있습니다. 쿼리가 대/소문자를 구분하지 않으므로 태그 및 속성에 고유한 이름을 사용하는 것이 좋습니다. 또한 속성 이름으로 `twin`, `$twin`, `body` 또는 `$body`를 사용하지 않도록 합니다. 예를 들어 다음은 모든 유효한 쿼리 식입니다. 
 
 ```sql
 $twin.properties.desired.telemetryConfig.sendFrequency = '5m'

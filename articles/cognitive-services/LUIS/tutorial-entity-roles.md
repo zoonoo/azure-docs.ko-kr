@@ -1,5 +1,5 @@
 ---
-title: 역할이 포함된 컨텍스트 데이터 - Language Understanding
+title: 역할이 있는 상황별 데이터 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 컨텍스트를 기반으로 관련 데이터를 찾습니다. 예를 들어 한 건물과 사무실에서 다른 건물과 사무실로 이사할 경우 출발지 및 목적지 위치는 서로 관련이 있습니다.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: a0ab928ef3b8551e3e20ff3c4b16533c80ee4b7d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2eac05712dc7b3deceba52681195101f9bf2b40c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149291"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560003"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>자습서: 발언에서 컨텍스트 관련 데이터 추출
 
@@ -91,7 +91,7 @@ ms.locfileid: "65149291"
 1. `Origin` 및 `Destination` 역할을 추가합니다. 
 
     ![미리 작성된 엔터티에 역할 추가](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
-1. 왼쪽 탐색 영역에서 **의도**를 선택한 다음, **MoveEmployeeToCity** 의도를 선택합니다. 도시 이름 레이블이 미리 작성된 엔터티 **geogrpahyV2**로 지정되었습니다.
+1. 왼쪽 탐색 영역에서 **의도**를 선택한 다음, **MoveEmployeeToCity** 의도를 선택합니다. 도시 이름 레이블이 미리 작성된 엔터티 **geographyV2**로 지정되었습니다.
 1. 목록의 첫 번째 벌화에서 원래 위치를 선택합니다. 드롭다운 메뉴가 나타납니다. 목록에서 **geographyV2**를 선택한 다음, 메뉴를 따라 **원래 위치**를 선택합니다.
 1. 이전 단계의 방법을 사용하여 모든 발화에 있는 위치의 모든 역할을 표시합니다. 
 
@@ -169,7 +169,7 @@ ms.locfileid: "65149291"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 새 의도를 만들고, 컨텍스트에 따라 학습된 원본 및 대상 위치 데이터에 대한 발언 예시를 추가했습니다. 앱이 학습되고 게시되면 클라이언트 응용 프로그램이 해당 정보를 사용하여 관련 정보가 포함된 이동 티켓을 만들 수 있습니다.
+이 자습서에서는 새 의도를 만들고, 컨텍스트에 따라 학습된 원본 및 대상 위치 데이터에 대한 발언 예시를 추가했습니다. 앱이 학습되고 게시되면 클라이언트 애플리케이션이 해당 정보를 사용하여 관련 정보가 포함된 이동 티켓을 만들 수 있습니다.
 
 > [!div class="nextstepaction"] 
 > [복합 엔터티를 추가하는 방법 알아보기](luis-tutorial-composite-entity.md) 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: f2574cc64e157ff0f8a6cb875a832db88cf13dd6
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 31d9307d23d308192b362d9570911c86a7dd8372
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479807"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051842"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용하여 ITSM 도구에 Azure 연결
 
@@ -40,6 +40,7 @@ ITSMC를 사용하면 다음 작업을 수행할 수 있습니다.
 -  Azure 경고(메트릭 경고, 활동 로그 경고 및 Log Analytics 경고)에 따라 ITSM 도구에서 작업 항목을 만듭니다.
 -  필요에 따라 인시던트 및 변경 요청 데이터를 ITSM 도구에서 Azure Log Analytics 작업 영역으로 동기화할 수 있습니다.
 
+[약관 및 개인 정보 보호 정책](https://go.microsoft.com/fwLink/?LinkID=522330&clcid=0x9)에 대해 자세히 알아보세요.
 
 다음 단계를 통해 ITSM 커넥터를 사용하여 시작하면 됩니다.
 
@@ -63,7 +64,7 @@ ITSMC를 사용하면 다음 작업을 수행할 수 있습니다.
 3. **OMS 작업 영역** 섹션에서 솔루션을 설치하려는 Azure Log Analytics 작업 영역을 선택합니다.
    >[!NOTE]
    > * Azure Monitor에 Microsoft OMS(Operations Management Suite)에서 진행 중인 전환의 일부로, OMS 작업 영역은 이제 Log Analytics 작업 영역이라고 합니다.
-   > * ITSM 커넥터는 다음 지역에서 Log Analytics 작업 영역에만 설치할 수 있습니다. 미국 동부, 유럽 서 부, 동남 아시아, 오스트레일리아 남동부, 서 부 중앙 미국, 일본 동부, 영국 남부, 인도 중부, 캐나다 중부입니다.
+   > * ITSM 커넥터는 다음 지역의 Log Analytics 작업 영역에만 설치할 수 있습니다. 미국 동부, 유럽 서부, 동남 아시아, 동남 오스트레일리아, 미국 서 부, 미국 동부, 남부 영국, 인도 중부, 캐나다 중부.
 
 4. **OMS 작업 영역 설정** 섹션에서 솔루션 리소스 만들려는 ResourceGroup을 선택합니다.
 
@@ -103,7 +104,7 @@ ITSM 도구를 준비하고 나면 아래 단계에 따라 연결을 만듭니�
 4. [ITSM 제품/서비스 문서를 사용하여 ITSMC 연결 구성](../../azure-monitor/platform/itsmc-connections.md)에 설명된 대로 연결 설정을 지정합니다.
 
    > [!NOTE]
-   > 
+   >
    > 기본적으로 ITSMC는 24시간 마다 한 번씩 연결의 구성 데이터를 새로 고칩니다. 적용한 편집 내용 또는 템플릿 업데이트에 대해 연결 데이터를 즉시 새로 고치려면 연결 블레이드에서 **동기화** 단추를 클릭합니다.
 
    ![연결 새로 고침](media/itsmc-overview/itsmc-connections-refresh.png)
@@ -141,7 +142,7 @@ ITSM 연결이 만들어지면 **작업 그룹**에서 **ITSM 작업**을 사용
 Azure 경고 규칙을 만들거나 편집할 때는 ITSM 작업이 있는 작업 그룹을 사용합니다. 경고가 트리거되면 작업 항목이 ITSM 도구에 만들어지거나 업데이트됩니다.
 
 > [!NOTE]
-> 
+>
 > ITSM 작업의 가격 책정에 대한 자세한 내용은 작업 그룹의 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)를 참조하세요.
 
 
@@ -174,7 +175,7 @@ Azure 경고 규칙을 만들거나 편집할 때는 ITSM 작업이 있는 작�
 다음 정보는 ITSMC에서 수집된 데이터 예제를 보여 줍니다.
 
 > [!NOTE]
-> 
+>
 > Log Analytics로 가져온 작업 항목 형식에 따라 **ServiceDesk_CL**에는 다음 필드가 포함됩니다.
 
 **작업 항목:** **인시던트**  
@@ -184,17 +185,17 @@ ServiceDeskWorkItemType_s="Incident"
 
 - ServiceDeskConnectionName
 - 서비스 데스크 ID
-- 시스템 상태
+- State
 - 긴급도
 - 영향
-- 우선 순위
+- Priority
 - 에스컬레이션
 - 만든 사람
 - 해결한 사람
 - 종결한 사람
-- 원본
+- Source
 - 할당 대상
-- Category
+- 범주
 - 제목
 - 설명
 - 만든 날짜
@@ -210,52 +211,52 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 **필드**
 - ServiceDeskConnectionName
-- 서비스 데스크 ID
+- 서비스 창구 ID
 - 만든 사람
 - 종결한 사람
-- 원본
+- Source
 - 할당 대상
 - 제목
-- Type
-- Category
+- 형식
+- 범주
 - 시스템 상태
 - 에스컬레이션
 - 충돌 상태
 - 긴급도
-- 우선 순위
+- Priority
 - 위험
 - 영향
 - 할당 대상
 - 만든 날짜
 - 종결한 날짜
-- 마지막으로 수정한 날짜
+- 마지막 수정 날짜
 - 요청한 날짜
 - 예상된 시작 날짜
 - 예상된 종료 날짜
 - 작업 시작 날짜
 - 작업 종료 날짜
-- 설명
+- Description
 - Computer
 
 ## <a name="output-data-for-a-servicenow-incident"></a>ServiceNow 인시던트에 대한 출력 데이터
 
 | Log Analytics 필드 | ServiceNow 필드 |
 |:--- |:--- |
-| ServiceDeskId_s| Number |
-| IncidentState_s | 시스템 상태 |
+| ServiceDeskId_s| 숫자 |
+| IncidentState_s | State |
 | Urgency_s |긴급도 |
 | Impact_s |영향|
-| Priority_s | 우선 순위 |
+| Priority_s | Priority |
 | CreatedBy_s | 보고자 |
 | ResolvedBy_s | 해결한 사람|
 | ClosedBy_s  | 종결한 사람 |
 | Source_s| 연락처 유형 |
 | AssignedTo_s | 할당 대상  |
-| Category_s | Category |
+| Category_s | 범주 |
 | Title_s|  간단한 설명 |
-| Description_s|  메모 |
+| Description_s|  참고 |
 | CreatedDate_t|  열림 |
-| ClosedDate_t| closed|
+| ClosedDate_t| 닫힘|
 | ResolvedDate_t|해결됨|
 | Computer  | 구성 항목 |
 
@@ -263,16 +264,16 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 | Log Analytics | ServiceNow 필드 |
 |:--- |:--- |
-| ServiceDeskId_s| Number |
+| ServiceDeskId_s| 숫자 |
 | CreatedBy_s | 요청자 |
 | ClosedBy_s | 종결한 사람 |
 | AssignedTo_s | 할당 대상  |
 | Title_s|  간단한 설명 |
-| Type_s|  Type |
-| Category_s|  Category |
-| CRState_s|  시스템 상태|
+| Type_s|  형식 |
+| Category_s|  범주 |
+| CRState_s|  State|
 | Urgency_s|  긴급도 |
-| Priority_s| 우선 순위|
+| Priority_s| Priority|
 | Risk_s| 위험|
 | Impact_s| 영향|
 | RequestedDate_t  | 요청한 날짜 |
@@ -281,7 +282,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | PlannedEndDate_t  |   예상된 종료 날짜 |
 | WorkStartDate_t  | 실제 시작 날짜 |
 | WorkEndDate_t | 실제 종료 날짜|
-| Description_s | 설명 |
+| Description_s | Description |
 | Computer  | 구성 항목 |
 
 
@@ -291,7 +292,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
    - 각 연결에 대한 사용자 이름, 암호 클라이언트 ID 및 클라이언트 비밀을 올바르게 입력했는지 확인합니다.  
    - 해당 ITSM 제품에 연결하는 데 충분한 권한이 있는지 확인합니다.  
    - Service Manager 연결의 경우  
-   - 웹앱이 성공적으로 배포되고 하이브리드 연결이 만들어졌는지 확인합니다. 온-프레미스 Service Manager 컴퓨터를 사용 하 여 성공적으로 연결 되어를 확인 하려면 설정 설명서에 설명 된 대로 웹 앱 URL을 방문 합니다 [하이브리드 연결](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection)합니다.  
+   - 웹앱이 성공적으로 배포되고 하이브리드 연결이 만들어졌는지 확인합니다. 온-프레미스 Service Manager 컴퓨터에서 연결이 성공적으로 설정 되었는지 확인 하려면 [하이브리드 연결](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection)을 만드는 방법에 대 한 설명서에 설명 된 대로 웹 앱 URL을 방문 하세요.  
 
 2. ServiceNow의 데이터가 Log Analytics와 동기화되지 않으면 ServiceNow 인스턴스가 중지 상태가 아닌지 확인합니다. ServiceNow Dev 인스턴스가 오랫동안 유휴 상태일 때 중지 상태로 전환되는 경우가 있습니다. 다른 문제를 보고합니다.
 3. Log Analytics 경고가 발생하지만 ITSM 제품에 작업 항목이 만들어지지 않거나 구성 항목이 작업 항목에 또는 기타 일반적인 정보에 대해 만들어지거나 연결되지 않는 경우 다음 위치를 확인합니다.
@@ -304,7 +305,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 3.  Service Bus Relay 네임스페이스 만들기에 실패한 경우 구독에 필요한 리소스 공급자가 등록되어 있는지 확인합니다. 등록되지 않은 경우 Azure Portal에서 수동으로 서비스 버스 릴레이 네임스페이스를 만듭니다. Azure Portal에서 [하이브리드 연결을 만드는](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection) 동안 만들 수도 있습니다.
 
 
-## <a name="contact-us"></a>문의처
+## <a name="contact-us"></a>문의
 
 IT Service Management Connector에 대해 질문이나 의견이 있는 경우 [omsitsmfeedback@microsoft.com ](mailto:omsitsmfeedback@microsoft.com)으로 문의하세요.
 

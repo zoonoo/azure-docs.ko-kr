@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 08/07/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: f4c9ddf608033f6b85268fe74b12861eb8c30082
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 44f72df28191d02a6d320671e0173eb1306e0c78
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295150"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845703"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>온-프레미스 Hyper-V VM의 Azure로의 재해 복구 설정
 
@@ -117,7 +117,7 @@ Hyper-V 코어 서버를 실행하는 경우 설치 파일을 다운로드하고
 2. 장애 조치 후 Azure VM을 만들 구독과 **ContosoRG** 리소스 그룹을 선택합니다.
 3. **Resource Manager"** 배포 모델을 선택합니다.
 
-Site Recovery가 호환되는 Azure 저장소 계정 및 네트워크가 하나 이상 있는지 확인합니다.
+Site Recovery가 호환되는 Azure Storage 계정 및 네트워크가 하나 이상 있는지 확인합니다.
 
 ## <a name="set-up-a-replication-policy"></a>복제 정책 설정
 
@@ -144,4 +144,4 @@ Site Recovery가 호환되는 Azure 저장소 계정 및 네트워크가 하나 
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
-> [재해 복구 드릴 실행](tutorial-dr-drill-azure.md)
+> [재해 복구 훈련 실행](tutorial-dr-drill-azure.md)

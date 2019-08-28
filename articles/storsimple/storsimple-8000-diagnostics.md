@@ -334,7 +334,7 @@ hcs_startup                                   Stopped hcs_startup
 * NTP 서버 연결도 가능합니다.
 * 포트 80 및 443이 열려 있습니다. 그러나 포트 9354는 차단되어 있습니다. [시스템 네트워크 요구 사항](storsimple-system-requirements.md)에 따라 Service Bus 통신에 대한 이 포트를 열어야 합니다.
 * SSL 인증이 유효합니다.
-* 장치를 스토리지 계정인 _myss8000storageacct_에 연결할 수 있습니다.
+* 디바이스를 스토리지 계정인 _myss8000storageacct_에 연결할 수 있습니다.
 * 업데이트 서버에 대한 연결이 유효합니다.
 * 이 디바이스에 대한 웹 프록시가 구성되어 있지 않습니다.
 
@@ -388,9 +388,9 @@ Web proxy                               Not enabled         Web proxy is not...
 
     진단 도구에서 보고된 읽기-쓰기 대기 시간이 너무 높은 경우:
 
-    1. Azure Storage 계정에 대한 대기 시간을 이해하기 위해 Blob services에 대한 스토리지 분석을 구성하고 출력을 분석합니다. 자세한 지침은 [저장소 분석 설정 및 구성](../storage/common/storage-enable-and-view-metrics.md)으로 이동합니다. 그러한 대기 시간이 높고 StorSimple 진단 도구에서 수신한 숫자와 비교 가능한 경우 Azure Storage로 서비스 요청을 로그해야 합니다.
+    1. Azure Storage 계정에 대한 대기 시간을 이해하기 위해 Blob services에 대한 스토리지 분석을 구성하고 출력을 분석합니다. 자세한 지침은 [스토리지 분석 설정 및 구성](../storage/common/storage-enable-and-view-metrics.md)으로 이동합니다. 그러한 대기 시간이 높고 StorSimple 진단 도구에서 수신한 숫자와 비교 가능한 경우 Azure Storage로 서비스 요청을 로그해야 합니다.
 
-    2. 저장소 계정 대기 시간이 너무 낮은 경우 사용자 네트워크의 대기 시간 문제 조사를 위해 네트워크 관리자에게 문의합니다.
+    2. 스토리지 계정 대기 시간이 너무 낮은 경우 사용자 네트워크의 대기 시간 문제 조사를 위해 네트워크 관리자에게 문의합니다.
 
 #### <a name="sample-output-of-performance-test-run-on-an-8100-device"></a>8100 디바이스에서 실행되는 성능 테스트의 샘플 출력
 

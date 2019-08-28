@@ -6,13 +6,13 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 3/28/2019
-ms.author: amitsriva
-ms.openlocfilehash: a8b0ee159b1c4a4072ce5a86f9fb925744a415b3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: victorh
+ms.openlocfilehash: 3acae8f7d34bb02905e6e8d479b7de5ccab1bb7a
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048706"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850988"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Application Gateway에 대한 백 엔드 상태, 진단 로그 및 메트릭
 
@@ -104,7 +104,7 @@ Azure에서 다양한 유형의 로그를 사용하여 Application Gateway를 �
 
 로그 저장에는 세 가지 옵션이 있습니다.
 
-* **스토리지 계정**: 로그를 장기간 저장하고 필요할 때 검토하는 경우에 가장 적합합니다.
+* **스토리지 계정**: 로그를 장기간 스토리지하고 필요할 때 검토하는 경우에 가장 적합합니다.
 * **Event Hubs**: 다른 SEIM(보안 정보 및 이벤트 관리) 도구와 통합하여 리소스에 대한 알림을 얻을 수 있는 좋은 옵션입니다.
 * **Azure Monitor 로그**: Azure Monitor 로그는 일반적으로 애플리케이션을 실시간으로 모니터링하거나 추세를 파악하는 데 가장 적합합니다.
 
@@ -112,9 +112,9 @@ Azure에서 다양한 유형의 로그를 사용하여 Application Gateway를 �
 
 활동 로깅은 모든 Resource Manager 리소스에 대해 사용하도록 설정됩니다. 이러한 로그를 통해 사용 가능한 데이터 수집을 시작하려면 액세스 및 성능 로깅을 사용하도록 설정해야 합니다. 로깅을 사용하려면 다음 단계를 사용합니다.
 
-1. 로그 데이터를 저장할 저장소 계정의 리소스 ID를 적어 둡니다. 이 값의 형식은 /subscriptions/\<subscriptionId\>/resourceGroups/\<리소스 그룹 이름\>/providers/Microsoft.Storage/storageAccounts/\<스토리지 계정 이름\>입니다. 구독의 모든 저장소 계정을 사용할 수 있습니다. Azure Portal을 사용하여 이 정보를 찾을 수 있습니다.
+1. 로그 데이터를 저장할 스토리지 계정의 리소스 ID를 적어 둡니다. 이 값의 형식은 /subscriptions/\<subscriptionId\>/resourceGroups/\<리소스 그룹 이름\>/providers/Microsoft.Storage/storageAccounts/\<스토리지 계정 이름\>입니다. 구독의 모든 스토리지 계정을 사용할 수 있습니다. Azure Portal을 사용하여 이 정보를 찾을 수 있습니다.
 
-    ![포털: 저장소 계정의 리소스 ID](./media/application-gateway-diagnostics/diagnostics1.png)
+    ![포털: 스토리지 계정의 리소스 ID](./media/application-gateway-diagnostics/diagnostics1.png)
 
 2. 로깅을 사용할 Application Gateway의 리소스 ID를 적어 둡니다. 이 값은 형식은 /subscriptions/\<subscriptionId\>/resourceGroups/\<리소스 그룹 이름\>/providers/Microsoft.Network/applicationGateways/\<응용 프로그램 게이트웨이 이름\>입니다. 포털을 사용하여 이 정보를 찾을 수 있습니다.
 
@@ -127,11 +127,11 @@ Azure에서 다양한 유형의 로그를 사용하여 Application Gateway를 �
     ```
     
 > [!TIP] 
->활동 로그에는 별도의 스토리지 계정이 필요하지 않습니다. 액세스 및 성능 로깅에 저장소를 사용할 경우 서비스 요금이 부과됩니다.
+>활동 로그에는 별도의 스토리지 계정이 필요하지 않습니다. 액세스 및 성능 로깅에 스토리지를 사용할 경우 서비스 요금이 부과됩니다.
 
 ### <a name="enable-logging-through-the-azure-portal"></a>Azure Portal을 통한 로깅 사용
 
-1. Azure portal에서 리소스를 찾기 및 선택 **진단 설정**합니다.
+1. Azure Portal에서 리소스를 찾고 **진단 설정**을 선택 합니다.
 
    Application Gateway의 경우 다음 세 가지 로그를 사용할 수 있습니다.
 
@@ -139,7 +139,7 @@ Azure에서 다양한 유형의 로그를 사용하여 Application Gateway를 �
    * 성능 로그
    * 방화벽 로그
 
-2. 데이터 수집을 시작 하려면 **진단 켜기**합니다.
+2. 데이터 수집을 시작 하려면 **진단 켜기**를 선택 합니다.
 
    ![진단 켜기][1]
 
@@ -147,7 +147,7 @@ Azure에서 다양한 유형의 로그를 사용하여 Application Gateway를 �
 
    ![구성 프로세스 시작][2]
 
-5. 설정에 대 한 이름을 입력 하 고, 설정을 확인 하 고, 선택 **저장할**합니다.
+5. 설정의 이름을 입력 하 고, 설정을 확인 하 고, **저장**을 선택 합니다.
 
 ### <a name="activity-log"></a>활동 로그
 
@@ -155,11 +155,11 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 
 ### <a name="access-log"></a>액세스 로그
 
-이전 단계에서 설명한 대로 액세스 로그는 각 Application Gateway 인스턴스에서 이러한 로그를 사용하도록 설정한 경우에만 생성됩니다. 데이터는 로깅을 사용하도록 설정할 때 지정한 저장소 계정에 저장됩니다. Application Gateway의 액세스는 각각 v1에 대 한 다음 예제와 같이 JSON 형식으로 기록 됩니다.
+이전 단계에서 설명한 대로 액세스 로그는 각 Application Gateway 인스턴스에서 이러한 로그를 사용하도록 설정한 경우에만 생성됩니다. 데이터는 로깅을 사용하도록 설정할 때 지정한 스토리지 계정에 저장됩니다. Application Gateway에 대 한 각 액세스는 v1에 대 한 다음 예제와 같이 JSON 형식으로 기록 됩니다.
 
 |값  |설명  |
 |---------|---------|
-|instanceId     | 요청을 처리한 Application Gateway 인스턴스        |
+|인스턴스 ID     | 요청을 처리한 Application Gateway 인스턴스        |
 |clientIP     | 요청에 대한 원래 IP        |
 |clientPort     | 요청에 대한 원래 포트       |
 |httpMethod     | 요청에서 사용된 HTTP 메서드       |
@@ -172,6 +172,8 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 |sentBytes| 보낸 패킷의 크기(바이트)|
 |timeTaken| 요청을 처리하고 응답을 보내는 데 걸리는 시간(밀리초)입니다. 이 값은 Application Gateway에서 HTTP 요청의 첫 번째 바이트를 받은 시점부터 응답 보내기 작업을 완료하는 시점까지의 간격으로 계산됩니다. 걸린 시간(Time-Taken) 필드에는 대개 요청 및 응답 패킷이 네트워크를 통해 이동하는 시간이 포함됩니다. |
 |sslEnabled| 백 엔드 풀에 대한 통신에서 SSL이 사용되었는지 여부입니다. 유효한 값은 on과 off입니다.|
+|호스트| 요청이 백 엔드 서버로 전송 된 호스트 이름입니다. 백 엔드 호스트 이름을 재정의 하는 경우이 이름에이 반영 됩니다.|
+|originalHost| 클라이언트에서 Application Gateway 요청을 수신 하는 데 사용 된 호스트 이름입니다.|
 ```json
 {
     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
@@ -191,20 +193,21 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
         "receivedBytes": 65,
         "sentBytes": 553,
         "timeTaken": 205,
-        "sslEnabled": "off"
+        "sslEnabled": "off",
+        "host": "www.contoso.com",
+        "originalHost": "www.contoso.com"
     }
 }
 ```
-Application Gateway를 WAF v2에 대 한 로그에 더 많은 정보가 표시 합니다.
+Application Gateway 및 WAF v 2의 경우 로그에 약간의 추가 정보가 표시 됩니다.
 
 |값  |설명  |
 |---------|---------|
-|instanceId     | 요청을 처리한 Application Gateway 인스턴스        |
+|인스턴스 ID     | 요청을 처리한 Application Gateway 인스턴스        |
 |clientIP     | 요청에 대한 원래 IP        |
 |clientPort     | 요청에 대한 원래 포트       |
 |httpMethod     | 요청에서 사용된 HTTP 메서드       |
 |requestUri     | 받은 요청의 URI        |
-|RequestQuery     | **Server-Routed**: 요청을 보낸 백 엔드 풀 인스턴스입니다.</br>**X-AzureApplicationGateway-LOG-ID**: 요청에 사용되는 상관 관계 ID입니다. 백 엔드 서버에서 트래픽 문제를 해결하는 데 사용할 수 있습니다. </br>**SERVER-STATUS**: Application Gateway에서 백 엔드로부터 받은 HTTP 응답 코드입니다.       |
 |UserAgent     | HTTP 요청 헤더의 사용자 에이전트        |
 |httpStatus     | Application Gateway에서 클라이언트로 반환한 HTTP 상태 코드       |
 |httpVersion     | 요청의 HTTP 버전        |
@@ -212,12 +215,12 @@ Application Gateway를 WAF v2에 대 한 로그에 더 많은 정보가 표시 �
 |sentBytes| 보낸 패킷의 크기(바이트)|
 |timeTaken| 요청을 처리하고 응답을 보내는 데 걸리는 시간(밀리초)입니다. 이 값은 Application Gateway에서 HTTP 요청의 첫 번째 바이트를 받은 시점부터 응답 보내기 작업을 완료하는 시점까지의 간격으로 계산됩니다. 걸린 시간(Time-Taken) 필드에는 대개 요청 및 응답 패킷이 네트워크를 통해 이동하는 시간이 포함됩니다. |
 |sslEnabled| 백 엔드 풀에 대한 통신에서 SSL이 사용되었는지 여부입니다. 유효한 값은 on과 off입니다.|
-|sslCipher| (SSL 사용) 하는 경우 SSL 통신에 사용 되는 암호 그룹입니다.|
-|sslProtocol| SSL 프로토콜 (SSL 사용) 하는 경우 사용 합니다.|
-|serverRouted| 백 엔드 서버 해당 응용 프로그램 게이트웨이에 대 한 요청을 라우팅합니다.|
-|serverStatus| 백 엔드 서버가 HTTP 상태 코드입니다.|
-|serverResponseLatency| 백 엔드 서버에서 응답의 대기 시간입니다.|
-|host| 요청의 호스트 헤더에 나열 된 주소입니다.|
+|sslCipher| Ssl 통신에 사용 되는 암호 그룹입니다 (SSL을 사용 하는 경우).|
+|sslProtocol| Ssl 프로토콜이 사용 되 고 있습니다 (SSL을 사용 하는 경우).|
+|serverRouted| Application gateway에서 요청을 라우팅하는 백 엔드 서버입니다.|
+|serverStatus| 백 엔드 서버의 HTTP 상태 코드입니다.|
+|serverResponseLatency| 백 엔드 서버의 응답 대기 시간입니다.|
+|호스트| 요청의 호스트 헤더에 나열 된 주소입니다.|
 ```json
 {
     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
@@ -225,35 +228,34 @@ Application Gateway를 WAF v2에 대 한 로그에 더 많은 정보가 표시 �
     "time": "2017-04-26T19:27:38Z",
     "category": "ApplicationGatewayAccessLog",
     "properties": {
-        "instanceId": "ApplicationGatewayRole_IN_0",
+        "instanceId": "appgw_1",
         "clientIP": "191.96.249.97",
         "clientPort": 46886,
         "httpMethod": "GET",
         "requestUri": "/phpmyadmin/scripts/setup.php",
-        "requestQuery": "X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.4.0.4&X-AzureApplicationGateway-LOG-ID=874f1f0f-6807-41c9-b7bc-f3cfa74aa0b1&SERVER-STATUS=404",
         "userAgent": "-",
         "httpStatus": 404,
         "httpVersion": "HTTP/1.0",
         "receivedBytes": 65,
         "sentBytes": 553,
         "timeTaken": 205,
-        "sslEnabled": "off"
+        "sslEnabled": "off",
         "sslCipher": "",
         "sslProtocol": "",
         "serverRouted": "104.41.114.59:80",
         "serverStatus": "200",
         "serverResponseLatency": "0.023",
-        "host": "52.231.230.101"
+        "host": "www.contoso.com",
     }
 }
 ```
 
 ### <a name="performance-log"></a>성능 로그
 
-이전 단계에서 설명한 대로 성능 로그는 각 Application Gateway 인스턴스에서 이러한 로그를 사용하도록 설정한 경우에만 생성됩니다. 데이터는 로깅을 사용하도록 설정할 때 지정한 저장소 계정에 저장됩니다. 성능 로그 데이터는 1분 간격으로 생성됩니다. 다음 데이터가 로깅됩니다.
+이전 단계에서 설명한 대로 성능 로그는 각 Application Gateway 인스턴스에서 이러한 로그를 사용하도록 설정한 경우에만 생성됩니다. 데이터는 로깅을 사용하도록 설정할 때 지정한 스토리지 계정에 저장됩니다. 성능 로그 데이터는 1분 간격으로 생성됩니다. 다음 데이터가 로깅됩니다.
 
 
-|값  |설명  |
+|값  |Description  |
 |---------|---------|
 |instanceId     |  성능 데이터가 생성되는 Application Gateway 인스턴스입니다. 다중 인스턴스 애플리케이션 게이트웨이의 경우 인스턴스마다 하나의 행이 있습니다.        |
 |healthyHostCount     | 백 엔드 풀의 정상 호스트 수        |
@@ -287,22 +289,22 @@ Application Gateway를 WAF v2에 대 한 로그에 더 많은 정보가 표시 �
 
 ### <a name="firewall-log"></a>방화벽 로그
 
-이전 단계에서 설명한 대로 방화벽 로그는 각 애플리케이션 게이트웨이에서 이러한 로그를 사용하도록 설정한 경우에만 생성됩니다. 또한 이 로그를 사용하려면 애플리케이션 게이트웨이에서 웹 애플리케이션 방화벽을 구성해야 합니다. 데이터는 로깅을 사용하도록 설정할 때 지정한 저장소 계정에 저장됩니다. 다음 데이터가 로깅됩니다.
+이전 단계에서 설명한 대로 방화벽 로그는 각 애플리케이션 게이트웨이에서 이러한 로그를 사용하도록 설정한 경우에만 생성됩니다. 또한 이 로그를 사용하려면 애플리케이션 게이트웨이에서 웹 애플리케이션 방화벽을 구성해야 합니다. 데이터는 로깅을 사용하도록 설정할 때 지정한 스토리지 계정에 저장됩니다. 다음 데이터가 로깅됩니다.
 
 
-|값  |설명  |
+|값  |Description  |
 |---------|---------|
-|instanceId     | 방화벽 데이터가 생성되는 Application Gateway 인스턴스입니다. 다중 인스턴스 애플리케이션 게이트웨이의 경우 인스턴스마다 하나의 행이 있습니다.         |
+|인스턴스 ID     | 방화벽 데이터가 생성되는 Application Gateway 인스턴스입니다. 다중 인스턴스 애플리케이션 게이트웨이의 경우 인스턴스마다 하나의 행이 있습니다.         |
 |clientIp     |   요청에 대한 원래 IP      |
 |clientPort     |  요청에 대한 원래 포트       |
 |requestUri     | 받은 요청의 URL       |
 |ruleSetType     | 규칙 집합 유형이며, 사용 가능한 값은 OWASP입니다.        |
 |ruleSetVersion     | 사용된 규칙 집합 버전이며, 사용 가능한 값은 2.2.9 및 3.0입니다.     |
 |ruleId     | 트리거 이벤트의 규칙 ID        |
-|Message     | 사용자에게 친숙한 트리거 이벤트에 대한 메시지이며, 자세한 내용은 세부 정보 섹션에서 제공됩니다.        |
+|message     | 사용자에게 친숙한 트리거 이벤트에 대한 메시지이며, 자세한 내용은 세부 정보 섹션에서 제공됩니다.        |
 |action     |  요청에서 수행되는 동작이며, 사용할 수 있는 값은 Blocked 및 Allowed입니다.      |
 |site     | 로그를 생성한 사이트이며, 현재 규칙이 전역이므로 Global만 나열됩니다.|
-|세부 정보     | 트리거 이벤트의 세부 정보        |
+|자세히     | 트리거 이벤트의 세부 정보        |
 |details.message     | 규칙에 대한 설명        |
 |details.data     | 규칙과 일치하는 요청 내 특정 데이터         |
 |details.file     | 규칙이 포함된 구성 파일        |
@@ -347,7 +349,7 @@ Application Gateway를 WAF v2에 대 한 로그에 더 많은 정보가 표시 �
 
 [Azure Monitor 로그](../azure-monitor/insights/azure-networking-analytics.md)는 Blob Storage 계정에서 카운터 및 이벤트 로그 파일을 수집할 수 있습니다. 여기에는 로그를 분석하는 시각화 및 강력한 검색 기능이 포함되어 있습니다.
 
-저장소 계정에 연결하고 액세스 및 성능 로그에 대한 JSON 로그 항목을 검색할 수도 있습니다. JSON 파일을 다운로드한 후 CSV로 변환하여 Excel, Power BI 또는 기타 데이터 시각화 도구에서 볼 수 있습니다.
+스토리지 계정에 연결하고 액세스 및 성능 로그에 대한 JSON 로그 항목을 검색할 수도 있습니다. JSON 파일을 다운로드한 후 CSV로 변환하여 Excel, Power BI 또는 기타 데이터 시각화 도구에서 볼 수 있습니다.
 
 > [!TIP]
 > Visual Studio를 익숙하게 사용할 수 있고 C#에서 상수 및 변수에 대한 값 변경에 대한 기본 개념이 있는 경우 GitHub에서 제공하는 [로그 변환기 도구](https://github.com/Azure-Samples/networking-dotnet-log-converter)를 사용할 수 있습니다.
@@ -358,7 +360,7 @@ Application Gateway를 WAF v2에 대 한 로그에 더 많은 정보가 표시 �
 
 Application Gateway 액세스 로그에 대해 널리 사용되는 [GoAccess](https://goaccess.io/) 로그 분석기를 설치하고 실행하는 Resource Manager 템플릿을 게시했습니다. GoAccess는 고유 방문자, 요청한 파일, 호스트, 운영 체제, 브라우저, HTTP 상태 코드 및 기타 유용한 HTTP 트래픽 통계를 제공 합니다. 자세한 내용은 [GitHub의 Resource Manager 템플릿 폴더에 대한 추가 정보 파일](https://aka.ms/appgwgoaccessreadme)을 참조하세요.
 
-## <a name="metrics"></a>메트릭
+## <a name="metrics"></a>metrics
 
 메트릭은 포털에서 성능 카운터를 볼 수 있는 특정 Azure 리소스에 대한 기능입니다. Application Gateway에는 다음 메트릭이 지원됩니다.
 
@@ -379,7 +381,7 @@ Application Gateway 액세스 로그에 대해 널리 사용되는 [GoAccess](ht
 
    특정 백 엔드 풀의 정상/비정상 호스트를 표시하도록 백 엔드 풀 기준으로 필터링할 수 있습니다.
 
-아래에 있는 application gateway를 이동할 **모니터링** 선택 **메트릭**합니다. 사용 가능한 값을 보려면 **메트릭** 드롭다운 목록을 선택합니다.
+Application gateway로 이동 하 고 **모니터링** 에서 **메트릭**을 선택 합니다. 사용 가능한 값을 보려면 **메트릭** 드롭다운 목록을 선택합니다.
 
 다음 이미지에서는 최근 30분 동안 표시된 세 가지 메트릭을 포함한 예제가 표시됩니다.
 
@@ -393,11 +395,11 @@ Application Gateway 액세스 로그에 대해 널리 사용되는 [GoAccess](ht
 
 다음 예제에서는 처리량이 임계값을 위반하면 관리자에게 전자 메일을 보내는 경고 규칙을 만드는 과정을 설명합니다.
 
-1. 선택 **메트릭 경고 추가** 열려는 합니다 **규칙 추가** 페이지입니다. 메트릭 페이지에서이 페이지를 에서도 볼 수 있습니다.
+1. **메트릭 경고 추가** 를 선택 하 여 **규칙 추가** 페이지를 엽니다. 메트릭 페이지에서이 페이지에 연결할 수도 있습니다.
 
    !["메트릭 경고 추가" 단추][6]
 
-2. 에 **규칙 추가** 페이지에서 입력 이름, 조건 및 알림 섹션을 하 고 선택 **확인**합니다.
+2. **규칙 추가** 페이지에서 이름, 조건 및 알림 섹션을 입력 하 고 **확인**을 선택 합니다.
 
    * **조건** 선택기에서 허용되는 값은 **보다 큼**, **보다 크거나 같음**, **보다 작음**, **보다 작거나 같음**의 4가지입니다.
 
@@ -405,7 +407,7 @@ Application Gateway 액세스 로그에 대해 널리 사용되는 [GoAccess](ht
 
    * **전자 메일 소유자, 참가자 및 읽기 권한자**를 선택하면 해당 리소스에 액세스할 수 있는 사용자에 따라 동적으로 전자 메일을 보낼 수 있습니다. 그렇지 않으면 **추가 관리자 전자 메일** 상자에서 쉼표로 구분된 사용자 목록을 제공할 수도 있습니다.
 
-   ![규칙 페이지를 추가 합니다.][7]
+   ![규칙 추가 페이지][7]
 
 임계값을 위반하면 다음 이미지와 비슷한 전자 메일이 도착합니다.
 

@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: cd2406bb4825ac295a6f9a3a18ba466cdc20c55d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 98c522f3d2718691e32b4e78180027b69f28289f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67120868"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568015"
 ---
 # <a name="how-to-use-azure-sql-database"></a>Azure SQL Database를 사용하는 방법
 
@@ -58,7 +57,7 @@ ms.locfileid: "67120868"
 ## <a name="configure-features"></a>기능 구성
 
 - [Azure AD 인증 구성](sql-database-aad-authentication-configure.md)
-- [조건부 액세스를 구성 합니다.](sql-database-conditional-access.md)
+- [조건부 액세스 구성](sql-database-conditional-access.md)
 - [다단계 AAD 인증](sql-database-ssms-mfa-authentication.md)
 - [Multi-Factor Auth 구성](sql-database-ssms-mfa-authentication-configure.md)
 - [임시 보존 정책 구성](sql-database-temporal-tables-retention-policy.md)

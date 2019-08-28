@@ -1,26 +1,26 @@
 ---
 title: Azure Data Explorer Python 라이브러리를 사용하여 데이터 수집
-description: 이 문서에서는 Python을 사용 하 여 Azure 데이터 탐색기를 (부하) 데이터를 수집 하는 방법을 알아봅니다.
+description: 이 문서에서는 Python을 사용 하 여 Azure 데이터 탐색기에 데이터를 수집 (로드) 하는 방법에 대해 알아봅니다.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: da23ec91891776e9a459b04c5718147427843991
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f109f2dd45fe90884d3947b244b3dafffd547725
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66496914"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68355925"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-python-library"></a>Azure Data Explorer Python 라이브러리를 사용하여 데이터 수집
 
-Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure 데이터 탐색기는 2개의 Python용 클라이언트 라이브러리, [수집 라이브러리](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) 및 [데이터 라이브러리](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data)를 제공합니다. 이러한 라이브러리를 사용하여 데이터를 클러스터로 수집(로드)하고 코드에서 데이터를 쿼리할 수 있습니다. 이 문서에서는 먼저 테이블 및 클러스터에서 데이터 매핑을 만듭니다. 그런 다음, 클러스터 큐에 수집을 넣고 결과의 유효성을 검사합니다.
+Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure 데이터 탐색기는 2개의 Python용 클라이언트 라이브러리, [수집 라이브러리](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) 및 [데이터 라이브러리](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data)를 제공합니다. 이러한 라이브러리를 사용하여 데이터를 클러스터로 수집(로드)하고 코드에서 데이터를 쿼리할 수 있습니다. 이 문서에서는 먼저 클러스터에서 테이블 및 데이터 매핑을 만듭니다. 그런 다음, 클러스터 큐에 수집을 넣고 결과의 유효성을 검사합니다.
 
-이 문서는으로 사용할 수도 있는 [Azure 노트북](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb).
+이 문서는 [Azure 노트북](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb)으로도 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
@@ -73,9 +73,11 @@ KUSTO_DATABASE = "<DatabaseName>"
 이후 단계에서 대상 테이블 및 매핑을 만듭니다.
 
 ```python
-KCSB_INGEST = KustoConnectionStringBuilder.with_aad_device_authentication(KUSTO_INGEST_URI, AAD_TENANT_ID)
+KCSB_INGEST = KustoConnectionStringBuilder.with_aad_device_authentication(
+    KUSTO_INGEST_URI, AAD_TENANT_ID)
 
-KCSB_DATA = KustoConnectionStringBuilder.with_aad_device_authentication(KUSTO_URI, AAD_TENANT_ID)
+KCSB_DATA = KustoConnectionStringBuilder.with_aad_device_authentication(
+    KUSTO_URI, AAD_TENANT_ID)
 
 DESTINATION_TABLE = "StormEvents"
 DESTINATION_TABLE_COLUMN_MAPPING = "StormEvents_CSV_Mapping"
@@ -95,12 +97,13 @@ SAS_TOKEN = "?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=20
 FILE_PATH = "StormEvents.csv"
 FILE_SIZE = 64158321    # in bytes
 
-BLOB_PATH = "https://" + ACCOUNT_NAME + ".blob.core.windows.net/" + CONTAINER + "/" + FILE_PATH + SAS_TOKEN
+BLOB_PATH = "https://" + ACCOUNT_NAME + ".blob.core.windows.net/" + \
+    CONTAINER + "/" + FILE_PATH + SAS_TOKEN
 ```
 
 ## <a name="create-a-table-on-your-cluster"></a>클러스터에 테이블 만들기
 
-StormEvents.csv 파일에 있는 데이터 스키마와 일치하는 테이블을 만듭니다. 이 코드를 실행하면 다음과 같은 메시지가 반환됩니다. 로그인하려면 웹 브라우저를 사용하여 https://microsoft.com/devicelogin 페이지를 열고 F3W4VWZDM 코드를 입력하여 인증하세요.  단계에 따라 로그인한 후 돌아가서 다음 코드 블록을 실행합니다. 연결을 만드는 후속 코드 블록을 위해 다시 로그인해야 합니다.
+StormEvents.csv 파일에 있는 데이터 스키마와 일치하는 테이블을 만듭니다. 이 코드를 실행하면 다음과 같은 메시지가 반환됩니다. 로그인하려면 웹 브라우저를 사용하여 https://microsoft.com/devicelogin 페이지를 열고 F3W4VWZDM 코드를 입력하여 인증하세요. 단계에 따라 로그인한 후 돌아가서 다음 코드 블록을 실행합니다. 연결을 만드는 후속 코드 블록을 위해 다시 로그인해야 합니다.
 
 ```python
 KUSTO_CLIENT = KustoClient(KCSB_DATA)
@@ -131,12 +134,14 @@ Blob Storage에서 데이터를 끌어온 후 Azure 데이터 탐색기에 수�
 INGESTION_CLIENT = KustoIngestClient(KCSB_INGEST)
 
 # All ingestion properties are documented here: https://docs.microsoft.com/azure/kusto/management/data-ingest#ingestion-properties
-INGESTION_PROPERTIES = IngestionProperties(database=KUSTO_DATABASE, table=DESTINATION_TABLE, dataFormat=DataFormat.csv, mappingReference = DESTINATION_TABLE_COLUMN_MAPPING, additionalProperties={'ignoreFirstRecord': 'true'})
-BLOB_DESCRIPTOR = BlobDescriptor(BLOB_PATH, FILE_SIZE)  # FILE_SIZE is the raw size of the data in bytes
-INGESTION_CLIENT.ingest_from_blob(BLOB_DESCRIPTOR, ingestion_properties=INGESTION_PROPERTIES)
+INGESTION_PROPERTIES = IngestionProperties(database=KUSTO_DATABASE, table=DESTINATION_TABLE, dataFormat=DataFormat.csv,
+                                           mappingReference=DESTINATION_TABLE_COLUMN_MAPPING, additionalProperties={'ignoreFirstRecord': 'true'})
+# FILE_SIZE is the raw size of the data in bytes
+BLOB_DESCRIPTOR = BlobDescriptor(BLOB_PATH, FILE_SIZE)
+INGESTION_CLIENT.ingest_from_blob(
+    BLOB_DESCRIPTOR, ingestion_properties=INGESTION_PROPERTIES)
 
 print('Done queuing up ingestion with Azure Data Explorer')
-
 ```
 
 ## <a name="query-data-that-was-ingested-into-the-table"></a>테이블에 수집된 데이터 쿼리
@@ -170,7 +175,7 @@ dataframe_from_result_table(RESPONSE.primary_results[0])
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-다른 문서를 수행 하려는 경우 사용자가 만든 리소스를 유지 합니다. 그렇지 않으면 데이터베이스에서 다음 명령을 실행하여 StormEvents 테이블을 정리합니다.
+다른 문서를 따르려면 만든 리소스를 유지 합니다. 그렇지 않으면 데이터베이스에서 다음 명령을 실행하여 StormEvents 테이블을 정리합니다.
 
 ```Kusto
 .drop table StormEvents

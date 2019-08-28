@@ -115,7 +115,7 @@ Stream Analytics 작업을 정의하기 전에 작업에 대한 입력으로 구
 
 1. [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/New-azStorageAccount) cmdlet을 사용하여 표준 범용 스토리지 계정을 만듭니다.  이 예제에서는 LRS(로컬 중복 스토리지) 및 Blob 암호화(기본적으로 사용)를 사용하여 **myasaquickstartstorage**라는 스토리지 계정을 만듭니다.
 
-2. 사용할 저장소 계정을 정의하는 저장소 계정 컨텍스트 `$storageAccount.Context`를 검색합니다. 저장소 계정으로 작업할 때 자격 증명을 반복적으로 제공하는 대신 컨텍스트를 참조합니다.
+2. 사용할 스토리지 계정을 정의하는 스토리지 계정 컨텍스트 `$storageAccount.Context`를 검색합니다. 스토리지 계정으로 작업할 때 자격 증명을 반복적으로 제공하는 대신 컨텍스트를 참조합니다.
 
 3. [New-AzStorageContainer](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontainer)를 사용하여 스토리지 컨테이너를 만듭니다.
 
@@ -312,7 +312,7 @@ New-AzStreamAnalyticsTransformation `
 
 [Start-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/start-azstreamanalyticsjob) cmdlet을 사용하여 작업을 시작합니다. 이 cmdlet은 작업 이름, 리소스 그룹 이름, 출력 시작 모드 및 시작 시간을 매개 변수로 사용합니다. `OutputStartMode`는 `JobStartTime`, `CustomTime` 또는 `LastOutputEventTime`의 값을 허용합니다. 이러한 각 값에 대한 자세한 내용은 PowerShell 설명서의 [매개 변수](https://docs.microsoft.com/powershell/module/az.streamanalytics/start-azstreamanalyticsjob) 섹션을 참조하세요.
 
-다음 cmdlet을 실행한 후 작업이 시작되면 `True`가 출력으로 반환됩니다. 저장소 컨테이너에서 변환된 데이터를 사용하여 출력 폴더가 생성됩니다.
+다음 cmdlet을 실행한 후 작업이 시작되면 `True`가 출력으로 반환됩니다. 스토리지 컨테이너에서 변환된 데이터를 사용하여 출력 폴더가 생성됩니다.
 
 ```powershell
 Start-AzStreamAnalyticsJob `

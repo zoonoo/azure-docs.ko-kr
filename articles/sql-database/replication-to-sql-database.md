@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b9d6569504b5352c6187afe12d903c986019c517
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eab8f4809742b69e92cb835801493722d28afe49
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60646817"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570474"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>SQL Database 단일 및 풀링된 데이터베이스에 복제
 
@@ -104,15 +103,15 @@ Azure SQL Database에서 [SQL Database 서버](sql-database-servers.md)의 단�
 
 ## <a name="examples"></a>예
 
-게시 및 밀어넣기 구독을 만듭니다. 자세한 내용은 다음을 참조하세요.
+게시 및 밀어넣기 구독을 만듭니다. 참조 항목:
   
-- [게시 만들기](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
+- [Create a Publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - 구독자로는 Azure SQL Database 서버 이름(예: **N'azuresqldbdns.database.windows.net'** )을, 대상 데이터베이스로는 Azure SQL 데이터베이스 이름(예: **AdventureWorks**)을 사용하여 [밀어넣기 구독을 만듭니다](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/).  
 
 ## <a name="see-also"></a>관련 항목  
 
 - [트랜잭션 복제](sql-database-managed-instance-transactional-replication.md)
-- [게시 만들기](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
+- [Create a Publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [밀어넣기 구독 만들기](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
 - [복제 유형](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
 - [모니터링(복제)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)

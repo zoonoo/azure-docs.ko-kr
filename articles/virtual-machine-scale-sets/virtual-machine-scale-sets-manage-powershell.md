@@ -78,7 +78,7 @@ Update-AzVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMa
 Stop-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
 ```
 
-기본적으로 중지된 VM은 할당을 취소하고 계산 요금을 부과하지 않습니다. VM이 중지될 때 프로비전된 상태로 유지하려는 경우 `-StayProvisioned` 매개 변수를 위의 명령에 추가합니다. 프로비전된 상태로 유지하는 중지된 VM은 기본 계산 요금을 부과합니다.
+기본적으로 중지된 VM은 할당을 취소하고 컴퓨팅 요금을 부과하지 않습니다. VM이 중지될 때 프로비전된 상태로 유지하려는 경우 `-StayProvisioned` 매개 변수를 위의 명령에 추가합니다. 프로비전된 상태로 유지하는 중지된 VM은 기본 컴퓨팅 요금을 부과합니다.
 
 
 ### <a name="start-vms-in-a-scale-set"></a>확장 집합의 VM 시작

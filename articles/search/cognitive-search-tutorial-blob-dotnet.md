@@ -5,16 +5,16 @@ manager: eladz
 author: MarkHeff
 services: search
 ms.service: search
-ms.devlang: NA
+ms.subservice: cognitive-search
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: maheff
-ms.openlocfilehash: 7fc33f89797fe0e3cc3a9832c9dc084194cf6603
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 58252bdbad8e7775add3805c28b2da076c07d9aa
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485756"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69636056"
 ---
 # <a name="c-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>C# 자습서: Azure Search 인덱싱 파이프라인에서 Cognitive Services API 호출
 
@@ -697,4 +697,4 @@ catch (Exception e)
 사용자 지정 기술을 사용하여 파이프라인을 사용자 지정 또는 확장합니다. 사용자 지정 기술을 만들어서 기술 집합에 추가하면 사용자가 직접 작성한 텍스트 또는 이미지 분석을 온보딩할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [예제: 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
+> [예제: 인지 검색에 대한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)

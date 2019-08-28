@@ -3,7 +3,7 @@ title: Azure Service Fabric에 컨테이너의 .NET 앱 배포 | Microsoft Docs
 description: Visual Studio를 사용하여 기존.NET 애플리케이션을 컨테이너화하고 Service Fabric에서 로컬로 컨테이너를 디버그하는 방법에 대해 알아봅니다. 컨테이너화된 애플리케이션을 Azure 컨테이너 레지스트리에 푸시하고 Service Fabric 클러스터에 배포합니다. Azure에 배포하는 경우 애플리케이션은 Azure SQL DB를 사용하여 데이터를 유지합니다.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/18/2018
-ms.author: aljo
-ms.openlocfilehash: 33f742c7de340df41f5d946c891e9896d7d2a012
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 07/08/2019
+ms.author: atsenthi
+ms.openlocfilehash: 66d668821c47854d006f2efa425d38f9bf1df7d0
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66119054"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599506"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>자습서: Azure Service Fabric에 Windows 컨테이너로 .NET 애플리케이션 배포
 
@@ -41,12 +41,12 @@ ms.locfileid: "66119054"
 1. Azure 구독이 없는 경우 [무료 계정 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 2. Windows 10에서 컨테이너를 실행할 수 있도록 [Windows용 Docker CE](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description)를 설치합니다.
 3. [Service Fabric 런타임 버전 6.2 이상](service-fabric-get-started.md) 및 [Service Fabric SDK 버전 3.1](service-fabric-get-started.md) 이상을 설치합니다.
-4. **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드가 포함된 [Visual Studio 2017 버전 15.7](https://www.visualstudio.com/) 이상을 설치합니다.
-5. [Azure PowerShell][link-azure-powershell-install]을 설치합니다.
+4. **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드가 포함된 [Visual Studio 2019 버전 16.1](https://www.visualstudio.com/) 이상을 설치합니다.
+5. [Azure Powershell][link-azure-powershell-install] 설치
  
 
 ## <a name="download-and-run-fabrikam-fiber-callcenter"></a>Fabrikam Fiber CallCenter를 다운로드하여 실행
-[Fabrikam Fiber CallCenter][link-fabrikam-github] 애플리케이션 예제를 다운로드합니다.  **다운로드 보관** 링크를 클릭합니다.  *fabrikam.zip* 파일의 *sourceCode* 디렉터리에서 *sourceCode.zip* 파일을 추출한 다음, 컴퓨터에 *VS2015* 디렉터리를 추출합니다.
+[Fabrikam Fiber CallCenter][link-fabrikam-github] 샘플 애플리케이션을 다운로드합니다.  **다운로드 보관** 링크를 클릭합니다.  *fabrikam.zip* 파일의 *sourceCode* 디렉터리에서 *sourceCode.zip* 파일을 추출한 다음, 컴퓨터에 *VS2015* 디렉터리를 추출합니다.
 
 Fabrikam Fiber CallCenter 애플리케이션이 오류 없이 빌드되고 실행되는지 확인합니다.  **관리자** 권한으로 Visual Studio를 시작하고 [FabrikamFiber.CallCenter.sln][link-fabrikam-github] 파일을 엽니다.  F5 키를 눌러 애플리케이션을 디버그하고 실행합니다.
 

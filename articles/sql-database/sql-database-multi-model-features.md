@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
-manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 84efdb0297a2dc69497baee5fb746fb51d02b1b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e319daf322d688828c7d05d78dacd2359273223f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939524"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567132"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Azure SQL Database의 다중 모델 기능
 
@@ -26,11 +25,11 @@ ms.locfileid: "64939524"
 ## <a name="when-to-use-multi-model-capabilities"></a>다중 모델 기능을 사용 하는 경우
 
 Azure SQL Database는 다양한 범용 애플리케이션에서 대부분의 경우 최상의 성능을 제공하는 관계형 모델을 사용하도록 설계되었습니다. 그러나 Azure SQL Database는 관계형 데이터만으로 제한되지 않습니다. Azure SQL Database를 사용하면 관계형 모델에 완전 통합된 다양한 비관계형 형식을 사용할 수 있습니다.
-다음 경우에 Azure SQL Database의 다중 모델 기능을 사용 하는 것이 좋습니다.
-- 몇 가지 정보 또는 NoSQL 모델에 맞게 되는 구조 별도 NoSQL 데이터베이스를 사용 하지 않으려는 합니다.
-- 대부분의 데이터는 관계형 모델에 적합 하 고 NoSQL 스타일의 데이터 일부를 모델링 해야 합니다.
-- 다양 한 TRANSACT-SQL 언어를 쿼리하고 분석 관계형 및 NoSQL 데이터를 활용 하 고 다양 한 도구와 SQL 언어를 사용할 수 있는 응용 프로그램을 사용 하 여 통합 하려고 합니다.
-- 와 같은 데이터베이스 기능을 적용 하려는 [메모리 내 기술을](sql-database-in-memory.md) 분석 프로그램의 성능을 향상 시키거나 사용 하면 NoSQL 데이터 strucutres 처리 [트랜잭션 복제](sql-database-managed-instance-transactional-replication.md) 또는[읽기 가능한 복제본](sql-database-read-scale-out.md) 다른 곳에 데이터의 복사본을 만들고 주 데이터베이스에서 일부 분석 워크 로드를 오프 로드 합니다.
+다음과 같은 경우 Azure SQL Database의 다중 모델 기능을 사용 하는 것이 좋습니다.
+- NoSQL 모델에 적합 하 고 별도의 NoSQL 데이터베이스를 사용 하지 않으려는 일부 정보나 구조가 있습니다.
+- 대부분의 데이터는 관계형 모델에 적합 하며 NoSQL 스타일로 데이터의 일부를 모델링 해야 합니다.
+- 풍부한 Transact-sql 언어를 활용 하 여 관계형 및 NoSQL 데이터를 쿼리하고 분석 하 고 SQL 언어를 사용할 수 있는 다양 한 도구 및 응용 프로그램과 통합 하려고 합니다.
+- [메모리 내 기술과](sql-database-in-memory.md) 같은 데이터베이스 기능을 적용 하 여 nosql 데이터 strucutres의 분석 또는 처리 성능을 향상 시킬 수 있습니다. [트랜잭션 복제](sql-database-managed-instance-transactional-replication.md) 또는 [읽기 가능한 복제본](sql-database-read-scale-out.md) 을 사용 하 여 데이터 복사본을 만듭니다. 다른 작업을 수행 하 고 주 데이터베이스에서 일부 분석 작업을 오프 로드 합니다.
 
 ## <a name="overview"></a>개요
 
@@ -90,7 +89,7 @@ JSON 텍스트가 있는 경우 JSON에서 데이터를 추출하거나 기본 �
 
 ## <a name="spatial-features"></a>공간 기능
 
-공간 데이터는 기하학적 개체의 물리적 위치 및 모양 정보를 나타냅니다. 이러한 개체는 지점 위치 또는 국가/지역도 또는 호수와 같은 더 복잡 한 개체 수 있습니다.
+공간 데이터는 기하학적 개체의 물리적 위치 및 모양 정보를 나타냅니다. 이러한 개체는 지점 위치 또는 국가/지역,도로 또는 레이크와 같은 복잡 한 개체 일 수 있습니다.
 
 Azure SQL Database는 두 개의 공간 데이터 형식(기하 도형 데이터 형식 및 지리 데이터 형식)을 지원합니다.
 - 기하 도형 형식은 유클리드(평면) 좌표계의 데이터를 나타냅니다.

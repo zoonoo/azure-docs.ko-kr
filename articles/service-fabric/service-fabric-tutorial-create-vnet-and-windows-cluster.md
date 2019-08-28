@@ -3,7 +3,7 @@ title: Azure에서 Windows를 실행하는 Service Fabric 클러스터 만들기
 description: 이 자습서에서는 PowerShell을 사용하여 Windows Service Fabric 클러스터를 Azure 가상 네트워크 및 네트워크 보안 그룹에 배포하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/13/2019
-ms.author: aljo
+ms.date: 07/22/2019
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: dabbefa8ca2073e30948f1c70782f730bceae030
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12e886c107249c338dc27aefcd2e1a32eba13d3e
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66158104"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598883"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>자습서: Azure 가상 네트워크에 Windows를 실행하는 Service Fabric 클러스터 배포
 
@@ -687,7 +687,7 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
 
 이제 보안 클러스터에 연결할 준비가 되었습니다.
 
-**Service Fabric** PowerShell 모듈은 Service Fabric 클러스터, 응용 프로그램 및 서비스를 관리하기 위한 많은 cmdlet을 제공합니다. [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) cmdlet을 사용하여 보안 클러스터에 연결합니다. 인증서 SHA1 지문 및 연결 엔드포인트 세부 정보는 이전 단계의 출력에 있습니다.
+**Service Fabric** PowerShell 모듈은 Service Fabric 클러스터, 애플리케이션 및 서비스를 관리하기 위한 많은 cmdlet을 제공합니다. [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) cmdlet을 사용하여 보안 클러스터에 연결합니다. 인증서 SHA1 지문 및 연결 엔드포인트 세부 정보는 이전 단계의 출력에 있습니다.
 
 이전에 Azure AD 클라이언트 인증을 설정한 경우 다음 명령을 실행합니다. 
 ```powershell

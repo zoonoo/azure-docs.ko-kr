@@ -15,27 +15,21 @@ ms.workload: tbd
 ms.date: 05/11/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: f8189b5a90f7e9114ec39a874cc60912ac2bb0ce
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 70a8e4cd694a90e83bf78e00a7c725a8c887b2eb
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872992"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68324064"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-python"></a>빠른 시작: Python에서 Azure Cache for Redis 사용
 
-
-## <a name="introduction"></a>소개
-
-이 빠른 시작에서는 캐시를 읽고 캐시에 쓰기 위해 Python을 사용하여 Azure Cache for Redis에 연결하는 방법을 보여 줍니다. 
-
-![Python 테스트가 완료되었습니다.](./media/cache-python-get-started/cache-python-completed.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+이 빠른 시작에서는 Azure 내 모든 애플리케이션에서 액세스할 수 있는 안전한 전용 캐시에 액세스할 수 있도록 Azure Cache for Redis를 Python 앱에 통합합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Python 2 또는 Python 3 환경](https://www.python.org/downloads/)은 [pip](https://pypi.org/project/pip/)와 함께 설치됩니다. 
+- Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
+- [Python 2 또는 3](https://www.python.org/downloads/)
 
 ## <a name="create-an-azure-cache-for-redis-on-azure"></a>Azure에서 Azure Cache for Redis 만들기
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -48,7 +42,9 @@ ms.locfileid: "65872992"
 
 다음 예제는 Python3용 *pip3*을 통해 상승된 관리자 권한을 가지고 실행한 Visual Studio 2019 개발자 명령 프롬프트를 사용하여 Windows 10에 redis-py 패키지를 설치합니다.
 
+```python
     pip3 install redis
+```
 
 ![redis-py 설치](./media/cache-python-get-started/cache-python-install-redis-py.png)
 
@@ -67,6 +63,9 @@ True
 b'bar'
 ```
 
+> [!IMPORTANT]
+> Redis 버전이 3.0 이상인 경우 SSL 인증서 확인이 적용됩니다. Redis에 연결할 때 ssl_ca_certs를 명시적으로 설정해야 합니다. RH Linux의 경우 ssl_ca_certs는 "/etc/pki/tls/certs/ca-bundle.crt" 인증서 모듈에 있습니다.
+
 ## <a name="create-a-python-script"></a>Python 스크립트 만들기
 
 *PythonApplication1.py*라는 새 스크립트 텍스트 파일을 만듭니다.
@@ -79,7 +78,8 @@ import redis
 myHostname = "<Your Host Name>.redis.cache.windows.net"
 myPassword = "<Your Access Key>"
 
-r = redis.StrictRedis(host=myHostname, port=6380,password=myPassword,ssl=True)
+r = redis.StrictRedis(host=myHostname, port=6380,
+                      password=myPassword, ssl=True)
 
 result = r.ping()
 print("Ping returned : " + str(result))
@@ -91,7 +91,7 @@ result = r.get("Message")
 print("GET Message returned : " + result.decode("utf-8"))
 
 result = r.client_list()
-print("CLIENT LIST returned : ") 
+print("CLIENT LIST returned : ")
 for c in result:
     print("id : " + c['id'] + ", addr : " + c['addr'])
 ```
@@ -121,13 +121,10 @@ Python을 사용하여 스크립트를 실행합니다.
 
 잠시 후 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
 
-
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [Azure Cache for Redis를 사용하는 간단한 ASP.NET 웹앱 만들기](./cache-web-app-howto.md)
-
-
 
 <!--Image references-->
 [1]: ./media/cache-python-get-started/redis-cache-new-cache-menu.png

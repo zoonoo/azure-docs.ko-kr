@@ -4,7 +4,7 @@ description: Azure PowerShell을 사용하여 보안 강화를 위해 Windows VM
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 4ef485bb91fe52e138b805f347e729fc4097fc7c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fadbb4668dbaed46cc30841d2b04a92ea41cd5a1
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66431102"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718673"
 ---
 # <a name="encrypt-virtual-disks-on-a-windows-vm"></a>Windows VM에서 가상 디스크 암호화
 VM(가상 머신)의 보안과 규정 준수 상태를 향상시키기 위해 Azure에서 가상 디스크를 암호화할 수 있습니다. 디스크는 Azure Key Vault에 안전하게 보관되는 암호화 키를 사용하여 암호화됩니다. 이러한 암호화 키를 제어하고 용도를 감사할 수 있습니다. 이 문서에서는 Azure PowerShell을 사용하여 Windows VM에서 가상 디스크를 암호화하는 방법을 설명합니다. [Azure CLI를 사용하여 Linux VM을 암호화](../linux/encrypt-disks.md)할 수도 있습니다.
@@ -75,7 +75,7 @@ Register-AzResourceProvider -ProviderNamespace "Microsoft.KeyVault"
 New-AzResourceGroup -Location $location -Name $rgName
 ```
 
-암호화 키를 보유하는 Azure Key Vault와 스토리지 및 VM과 같은 연결된 계산 리소스는 동일한 지역에 있어야 합니다. [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault)를 사용하여 Azure Key Vault을 만들고 디스크 암호화에 사용할 Key Vault를 사용하도록 설정합니다. *keyVaultName*에 대한 고유한 Key Vault 이름을 다음과 같이 지정합니다.
+암호화 키를 보유하는 Azure Key Vault와 스토리지 및 VM과 같은 연결된 컴퓨팅 리소스는 동일한 지역에 있어야 합니다. [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault)를 사용하여 Azure Key Vault을 만들고 디스크 암호화에 사용할 Key Vault를 사용하도록 설정합니다. *keyVaultName*에 대한 고유한 Key Vault 이름을 다음과 같이 지정합니다.
 
 ```azurepowershell-interactive
 $keyVaultName = "myKeyVault$(Get-Random)"

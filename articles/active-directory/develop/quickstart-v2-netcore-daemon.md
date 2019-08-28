@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/10/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3851e53bb648811b46ec69d9c4fc91b920ce80fb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2a2b6d01802fd819471a9cfb382166e6293261ca
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65784949"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852888"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>빠른 시작: 앱의 ID를 사용하여 콘솔 앱에서 토큰 가져오기 및 Microsoft Graph API 호출
 
@@ -76,7 +76,7 @@ ms.locfileid: "65784949"
 > > [이러한 변경 내용 적용]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![이미 구성됨](media/quickstart-v2-windows-desktop/green-check.png) 이러한 특성을 사용하여 애플리케이션을 구성합니다.
+> > ![이미 구성됨](media/quickstart-v2-netcore-daemon/green-check.png) 이러한 특성을 사용하여 애플리케이션을 구성합니다.
 
 #### <a name="step-2-download-your-visual-studio-project"></a>2단계: Visual Studio 프로젝트 다운로드
 
@@ -96,9 +96,13 @@ ms.locfileid: "65784949"
     > > [!div renderon="portal" id="certandsecretspage" class="sxs-lookup"]
     > > [새 클라이언트 비밀 생성]()
     
+    > [!div class="sxs-lookup" renderon="portal"]
+    > > [!NOTE]
+    > > 이 빠른 시작에서는 Enter_the_Supported_Account_Info_Here를 지원합니다.
+    
     > [!div renderon="docs"]
     >> 위치:
-    >> * `Enter_the_Application_Id_Here` - 등록한 응용 프로그램의 **응용 프로그램(클라이언트) ID**입니다.
+    >> * `Enter_the_Application_Id_Here` - 등록한 애플리케이션의 **애플리케이션(클라이언트) ID**입니다.
     >> * `Enter_the_Tenant_Id_Here` - 이 값을 **테넌트 ID** 또는 **테넌트 이름**(예: contoso.microsoft.com)으로 바꿉니다.
     >> * `Enter_the_Client_Secret_Here` - 1단계에서 만든 클라이언트 비밀로 이 값을 바꿉니다.
 
@@ -193,8 +197,8 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 > | 위치: ||
 > |---------|---------|
 > | `config.ClientSecret` | Azure Portal에서 애플리케이션에 대한 클라이언트 비밀이 생성됩니다. |
-> | `config.ClientId` | Azure Portal에 등록된 응용 프로그램의 **응용 프로그램(클라이언트) ID**입니다. 이 값은 Azure Portal에서 앱의 **개요** 페이지에 있습니다. |
-> | `config.Authority`    | (선택 사항) 사용자가 인증하는 STS 엔드포인트 일반적으로 공용 클라우드에 대한 <https://login.microsoftonline.com/{tenant}>입니다. 여기서 {tenant}는 테넌트의 이름 또는 테넌트 ID입니다.|
+> | `config.ClientId` | Azure Portal에 등록된 애플리케이션의 **애플리케이션(클라이언트) ID**입니다. 이 값은 Azure Portal에서 앱의 **개요** 페이지에 있습니다. |
+> | `config.Authority`    | (선택 사항) 사용자가 인증하는 STS 엔드포인트 일반적으로 퍼블릭 클라우드에 대한 <https://login.microsoftonline.com/{tenant}>입니다. 여기서 {tenant}는 테넌트의 이름 또는 테넌트 ID입니다.|
 
 자세한 내용은 [`ConfidentialClientApplication`에 대한 참조 설명서](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.iconfidentialclientapplication?view=azure-dotnet)를 참조하세요.
 
@@ -211,7 +215,7 @@ result = await app.AcquireTokenForClient(scopes)
 > |---------|---------|
 > | `scopes` | 요청된 범위를 포함합니다. 비밀 클라이언트의 경우 요청되는 범위가 Azure Portal에서 설정된 앱 개체에서 정적으로 정의된 것임을 나타내기 위해 `{Application ID URI}/.default`와 유사한 양식을 사용해야 합니다(Microsoft Graph의 경우 `{Application ID URI}`는 `https://graph.microsoft.com`을 가리킴). 사용자 지정 Web API의 경우 `{Application ID URI}`는 Azure Portal의 애플리케이션 등록(미리 보기)에서 **API 노출** 섹션 아래에서 정의됩니다. |
 
-자세한 내용은 [`AcquireTokenForClient`에 대한 참조 설명서](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclientasync?view=azure-dotnet#Microsoft_Identity_Client_ConfidentialClientApplication_AcquireTokenForClientAsync_System_Collections_Generic_IEnumerable_System_String__)를 참조하세요.
+자세한 내용은 [`AcquireTokenForClient`에 대한 참조 설명서](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclient?view=azure-dotnet)를 참조하세요.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
@@ -232,3 +236,8 @@ result = await app.AcquireTokenForClient(scopes)
 
 > [!div class="nextstepaction"]
 > [MSAL.NET을 사용하여 클라이언트 자격 증명 흐름](https://aka.ms/msal-net-client-credentials)
+
+Microsoft ID 플랫폼을 개선할 수 있도록 도와주세요. 간단한 두 가지 설문 조사를 완료하여 의견을 알려주세요.
+
+> [!div class="nextstepaction"]
+> [Microsoft ID 플랫폼 설문 조사](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

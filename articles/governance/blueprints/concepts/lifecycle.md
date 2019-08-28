@@ -3,17 +3,16 @@ title: 청사진의 수명 주기 이해
 description: 청사진이 거치는 수명 주기 및 각 단계의 세부 정보를 알아봅니다.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 07/30/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: a57085fa37efd56a46b740d8cbc4278dc53cf39f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6112f6f2834f02cec970af886360844c5314150d
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60683192"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678982"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Azure Blueprint의 수명 주기 이해
 
@@ -34,7 +33,7 @@ Blueprints는 표준 수명 주기 작업을 지원합니다. Blueprint는 이�
 
 청사진을 만들 때 아티팩트를 추가하고, 관리 그룹 또는 구독에 저장하고, 고유 이름과 고유 버전을 제공합니다. 청사진은 이제 **초안** 모드에 있으며 아직 할당될 수 없습니다. **초안** 모드에 있는 동안 계속해서 업데이트 및 변경될 수 있습니다.
 
-절대 게시되지 않는 **초안** 모드의 청사진은 **게시된** 것과 다른 아이콘을 **청사진 정의** 페이지에 표시합니다. 합니다 **최신 버전** 으로 표시 됩니다 **초안** 청사진을 게시 되지는이 대 한 합니다.
+절대 게시되지 않는 **초안** 모드의 청사진은 **게시된** 것과 다른 아이콘을 **청사진 정의** 페이지에 표시합니다. **최신 버전** 은 게시 되지 않은 청사진에 대 한 **초안** 으로 표시 됩니다.
 
 [Azure Portal](../create-blueprint-portal.md#create-a-blueprint) 또는 [REST API](../create-blueprint-rest-api.md#create-a-blueprint)를 사용하여 청사진을 만들고 편집합니다.
 
@@ -69,11 +68,11 @@ Blueprints는 표준 수명 주기 작업을 지원합니다. Blueprint는 이�
 
 1. 왼쪽 창에서 **모든 서비스**를 선택합니다. **청사진**을 검색하고 선택합니다.
 
-1. 선택 **Blueprint 정의** 페이지에서 왼쪽 및 버전을 삭제 하려는 청사진을 찾으려고 필터 옵션을 사용 합니다. 편집 페이지를 열려면 클릭합니다.
+1. 왼쪽 페이지에서 **청사진 정의** 를 선택 하 고 필터 옵션을 사용 하 여 버전을 삭제 하려는 청사진을 찾습니다. 편집 페이지를 열려면 클릭합니다.
 
 1. **게시된 버전** 탭을 클릭하고 삭제하려는 버전을 찾습니다.
 
-1. 삭제 및 선택 버전을 마우스 오른쪽 단추로 클릭 **이 버전을 삭제**합니다.
+1. 삭제할 버전을 마우스 오른쪽 단추로 클릭 하 고 **이 버전 삭제**를 선택 합니다.
 
 ## <a name="deleting-the-blueprint"></a>청사진 삭제
 
@@ -99,6 +98,17 @@ Blueprints는 표준 수명 주기 작업을 지원합니다. Blueprint는 이�
 - 할당을 최근에 **게시된** 버전의 청사진으로 업그레이드
 
 방법을 알아보려면 [기존 할당 업데이트](../how-to/update-existing-assignments.md)를 참조하세요.
+
+### <a name="unassigning-assignments"></a>할당 취소
+
+청사진은 더 이상 필요 하지 않은 경우 관리 그룹 또는 구독에서 할당을 제거할 수 있습니다. 청사진 할당을 수행 하는 동안 다음 작업이 수행 됩니다.
+
+- [청사진 리소스 잠금](resource-locking.md) 제거
+- 청사진 할당 개체 삭제
+- Defined **시스템 할당 관리 id** 를 사용한 경우에도 삭제 됩니다.
+
+> [!NOTE]
+> 청사진 할당을 통해 배포 된 모든 리소스는 그대로 유지 되지만 더 이상 Azure 청사진으로 보호 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

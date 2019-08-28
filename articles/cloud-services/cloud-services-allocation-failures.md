@@ -11,20 +11,19 @@ ms.assetid: 529157eb-e4a1-4388-aa2b-09e8b923af74
 ms.service: cloud-services
 ms.workload: na
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: d1f24c3661a23496d1873f12ce46083bf5258269
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7830b2a5d065f54029839d250e35f3e1b3da2200
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61435511"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945485"
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Azure에서 Cloud Services 배포 시 할당 실패 문제 해결
 ## <a name="summary"></a>요약
-클라우드 서비스에 인스턴스를 배포하거나 새 웹 또는 작업자 역할 인스턴스를 추가할 때 Microsoft Azure는 계산 리소스를 할당합니다. 이러한 작업을 수행하면서 Azure 구독 제한에 도달하기 전에 오류를 수신하는 경우도 있습니다. 이 문서는 일부 일반적인 할당 오류의 이유를 설명하고 가능한 수정을 제안합니다. 서비스 배포를 계획하는 사용자에게 이 정보가 유용할 수 있습니다.
+클라우드 서비스에 인스턴스를 배포하거나 새 웹 또는 작업자 역할 인스턴스를 추가할 때 Microsoft Azure는 컴퓨팅 리소스를 할당합니다. 이러한 작업을 수행하면서 Azure 구독 제한에 도달하기 전에 오류를 수신하는 경우도 있습니다. 이 문서는 일부 일반적인 할당 오류의 이유를 설명하고 가능한 수정을 제안합니다. 서비스 배포를 계획하는 사용자에게 이 정보가 유용할 수 있습니다.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 

@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: 4e2808378834a0270586ce674e1043ca443320c5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f1345c7de3ef56473b8ebd16cea20cfe76f0380e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60331199"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566279"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>SQL 데이터 동기화 문제 해결
 
@@ -40,7 +39,7 @@ SQL 데이터 동기화에 대한 개요는 [Azure SQL 데이터 동기화를 �
 
 - [성능이 크게 저하됨](#sync-perf)
 
-- [ "열에 NULL 값을 삽입할 수 없습니다 \<열 >. 열에는 Null을 사용할 수 없습니다."라는 오류 메시지를 받았습니다. 이 오류는 어떤 의미이며 오류를 수정할 수 있는 방법은 무엇인가요?](#sync-nulls)
+- [ "열 \<열 >에 NULL 값을 삽입할 수 없습니다. 열에는 Null을 사용할 수 없습니다."라는 오류 메시지를 받았습니다. 이 오류는 어떤 의미이며 오류를 수정할 수 있는 방법은 무엇인가요?](#sync-nulls)
 
 - [데이터 동기화에서는 어떻게 순환 참조가 처리되나요? 즉, 여러 동기화 그룹에서 동일한 데이터가 동기화되어 결과적으로 계속 변경되는 경우, 어떻게 처리되나요?](#sync-circ)
 
@@ -105,7 +104,7 @@ SQL 데이터 동기화의 동기화 그룹이 오랫동안 처리 중 상태입
 
 - **해결 방법**. 최선의 해결책은 예방입니다. 동기화 그룹에 순환 참조가 포함되지 않은지 확인합니다. 하나의 동기화 그룹에 의해 동기화되는 행은 다른 동기화 그룹에서 동기화할 수 없습니다.
 
-### <a name="sync-nulls"></a> "열에 NULL 값을 삽입할 수 없습니다 \<열 >. 열에는 Null을 사용할 수 없습니다."라는 오류 메시지를 받았습니다. 이 오류는 어떤 의미이며 오류를 수정할 수 있는 방법은 무엇인가요? 
+### <a name="sync-nulls"></a> "열 \<열 >에 NULL 값을 삽입할 수 없습니다. 열에는 Null을 사용할 수 없습니다."라는 오류 메시지를 받았습니다. 이 오류는 어떤 의미이며 오류를 수정할 수 있는 방법은 무엇인가요? 
 이 오류 메시지는 다음 두 가지 문제 중 하나가 발생했음을 나타냅니다.
 -  테이블에 기본 키가 없습니다. 이 문제를 해결하려면 동기화하는 모든 테이블에 기본 키를 추가합니다.
 -  CREATE INDEX 문에 WHERE 절이 있습니다. 데이터 동기화는 이러한 상황을 처리하지 않습니다. 이 문제를 해결하려면 WHERE 절을 제거하거나 수동으로 모든 데이터베이스를 변경합니다. 
@@ -177,7 +176,7 @@ SQL 데이터 동기화의 동기화 그룹이 오랫동안 처리 중 상태입
   1. 클라이언트 에이전트 호스트 서비스를 중지한 다음 다시 시작합니다.  
     a. **시작** 메뉴를 선택합니다.  
     b. 검색 상자에 **services.msc**를 입력합니다.  
-    다. 검색 결과 창의 **프로그램** 섹션에서 **서비스**를 두 번 클릭합니다.  
+    c. 검색 결과 창의 **프로그램** 섹션에서 **서비스**를 두 번 클릭합니다.  
     d. **SQL 데이터 동기화** 서비스를 마우스 오른쪽 단추로 클릭합니다.  
     e. 서비스가 실행 중인 경우 중지합니다.  
     f. 서비스를 마우스 오른쪽 단추로 클릭한 다음 **시작**을 선택합니다.  
@@ -233,7 +232,7 @@ SQL 데이터 동기화의 동기화 그룹이 오랫동안 처리 중 상태입
   1. 에이전트가 제거되어서 오프라인 상태인 경우  
     a.  SQL 데이터 동기화 설치 폴더에서 에이전트 XML 파일(있는 경우)을 제거합니다.  
     b.  온-프레미스 컴퓨터(같거나 다른 컴퓨터일 수 있음)에 에이전트를 설치합니다. 그런 다음 오프라인으로 표시된 에이전트에 대해 포털에서 생성된 에이전트 키를 제출합니다.  
-    다. 동기화 그룹을 삭제합니다.
+    c. 동기화 그룹을 삭제합니다.
 
 ### <a name="setup-restore"></a> 손실되거나 손상된 데이터베이스를 복원할 경우 어떻게 되나요?
 
@@ -246,7 +245,7 @@ SQL 데이터 동기화에 대한 자세한 내용은 다음 항목을 참조하
 -   데이터 동기화 설정
     - 포털에서 - [자습서: Azure SQL Database와 SQL Server 온-프레미스 간에 데이터를 동기화하도록 SQL 데이터 동기화 설정](sql-database-get-started-sql-data-sync.md)
     - PowerShell 사용
-        -  [PowerShell을 사용하여 여러 Azure SQL Database 간 동기화](scripts/sql-database-sync-data-between-sql-databases.md)
+        -  [PowerShell을 사용하여 여러 Azure SQL 데이터베이스 간 동기화](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [PowerShell을 사용하여 Azure SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화](scripts/sql-database-sync-data-between-azure-onprem.md)
 -   데이터 동기화 에이전트 - [Azure SQL 데이타 동기화용 데이터 동기화 에이전트](sql-database-data-sync-agent.md)
 -   모범 사례 - [Azure SQL 데이터 동기화에 대한 모범 사례](sql-database-best-practices-data-sync.md)

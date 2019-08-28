@@ -38,7 +38,7 @@ Media Services를 사용하면 암호화된 자산을 제공할 수 있습니다
 
 다음은 암호화하려는 자산과 연결할 콘텐츠 키를 생성하기 위한 일반적인 단계입니다. 
 
-1. 16바이트 AES 키(일반 및 봉투 암호화의 경우) 또는 32 바이트 AES 키(저장소 암호화의 경우)를 임의로 생성합니다. 
+1. 16바이트 AES 키(일반 및 봉투 암호화의 경우) 또는 32 바이트 AES 키(스토리지 암호화의 경우)를 임의로 생성합니다. 
    
     이는 자산에 대한 콘텐츠 키입니다. 즉, 암호화하는 동안 해당 자산과 연결된 모든 파일이 동일한 콘텐츠 키를 사용해야 합니다. 
 2. [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) 및 [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) 메서드를 호출하여 콘텐츠 키를 암호화하는 데 사용해야 하는 올바른 X.509 인증서를 가져옵니다.

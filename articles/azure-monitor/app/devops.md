@@ -154,7 +154,7 @@ Application Insights가 예외를 기록하면 Visual Studio에서 데이터 포
 경고가 발생한 경우 Application Insights는 자동으로 사용자의 작업 추적 시스템에서 작업 항목을 만듭니다.
 
 ## <a name="but-what-about"></a>기타 사항
-* [개인 정보 보호 및 저장소](../../azure-monitor/app/data-retention-privacy.md) - 원격 분석은 Azure 보안 서버에 보관됩니다.
+* [개인 정보 보호 및 스토리지](../../azure-monitor/app/data-retention-privacy.md) - 원격 분석은 Azure 보안 서버에 보관됩니다.
 * 성능 - 성능에 미치는 영향이 매우 낮습니다. 원격 분석은 일괄 처리됩니다.
 * [가격 책정](../../azure-monitor/app/pricing.md) - 무료로 시작할 수 있고 낮은 볼륨에서는 계속 무료로 이용할 수 있습니다.
 

@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 9f15431015e847d882e51b8d88c5b8a8c121d0ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f73ab7b68e56f5303e84d86a2711b53ffc894276
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67115418"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718177"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>ExpressRoute에 연결된 가상 네트워크를 클래식에서 Resource Manager로 마이그레이션
 
 이 문서에서는 ExpressRoute 회로를 이동한 후에 ExpressRoute에 연결된 가상 네트워크를 클래식 배포 모델에서 Azure Resource Manager 배포 모델로 마이그레이션하는 방법을 설명합니다. 
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -41,7 +41,7 @@ ms.locfileid: "67115418"
 * 동일한 구독에서 ExpressRoute 회로에 연결된 가상 네트워크, 게이트웨이 및 가상 네트워크 내 연결된 배포를 가동 중지 시간 없이 Resource Manager 환경으로 마이그레이션할 수 있습니다. 나중에 설명하는 단계에 따라 가상 네트워크, 게이트웨이 및 가상 네트워크 내 배포된 가상 머신과 같은 리소스를 마이그레이션할 수 있습니다. 마이그레이션하기 전에 가상 네트워크가 올바르게 구성되어 있는지 확인해야 합니다. 
 * ExpressRoute 회로와 다른 구독의 가상 네트워크, 게이트웨이 및 가상 네트워크 내 연결된 배포는 마이그레이션을 완료하는 데 가동 중지 시간이 필요합니다. 문서의 마지막 섹션에서는 리소스 마이그레이션을 위해 따라야 하는 단계를 설명합니다.
 * ExpressRoute 게이트웨이와 VPN Gateway가 모두 있는 가상 네트워크는 마이그레이션할 수 없습니다.
-* ExpressRoute 회로 구독 간 마이그레이션은 지원되지 않습니다. 자세한 내용은 [이동할 수 없는 서비스](../azure-resource-manager/resource-group-move-resources.md#services-that-cannot-be-moved)를 참조하세요.
+* ExpressRoute 회로 구독 간 마이그레이션은 지원되지 않습니다. 자세한 내용은 [Microsoft.Network 이동 지원](../azure-resource-manager/move-support-resources.md#microsoftnetwork)합니다.
 
 ## <a name="move-an-expressroute-circuit-from-classic-to-resource-manager"></a>클래식에서 Resource Manager로 ExpressRoute 회로 이동
 ExpressRoute 회로에 연결된 리소스를 마이그레이션하기 전에 ExpressRoute 회로를 클래식에서 Resource Manager 환경으로 이동해야 합니다. 이 작업을 완료하려면 다음 문서를 참조하세요.

@@ -25,7 +25,7 @@
             - name: Java
               href: Quickstarts/create-new-kb-java.md
             - name: Node.js
-              href: Quickstarts/create-new-kb-nodejs.md
+              href: Quickstarts/create-knowledge-rest-api-nodejs.md
             - name: Python
               href: Quickstarts/create-new-kb-python.md
         - name: 기술 자료 게시
@@ -37,7 +37,7 @@
             - name: Java
               href: Quickstarts/publish-kb-java.md
             - name: Node.js
-              href: Quickstarts/publish-kb-nodejs.md
+              href: 'Quickstarts/create-knowledge-rest-api-nodejs.md##publish-a-knowledge-base'
             - name: Python
               href: Quickstarts/publish-kb-python.md
         - name: 기술 자료에서 응답 가져오기
@@ -52,6 +52,14 @@
               href: Quickstarts/get-answer-from-knowledge-base-nodejs.md
             - name: Python
               href: Quickstarts/get-answer-from-knowledge-base-python.md
+    - name: SDK 사용
+      items:
+        - name: 'C#'
+          href: ./Quickstarts/create-publish-kb-csharp-sdk.md
+        - name: Node.js
+          href: ./Quickstarts/create-publish-kb-nodejs-sdk.md
+        - name: Python
+          href: ./Quickstarts/python-sdk.md
 - name: 자습서
   items:
     - name: KB에서 만들기 및 대답
@@ -66,6 +74,8 @@
     - name: 기술 자료
       href: Concepts/knowledge-base.md
       displayName: 'metadata, pair'
+    - name: LUIS 및 QnA Maker 사용
+      href: ../luis/choose-natural-language-processing-service.md?toc=/azure/cognitive-services/qnamaker/toc.json
     - name: 기술 자료의 개발 수명 주기
       href: Concepts/development-lifecycle-knowledge-base.md
     - name: 모범 사례
@@ -98,7 +108,7 @@
           displayName: 'create bot, bot, publish to bot, test, edit'
         - name: 메타데이터를 사용하여 응답 가져오기
           href: How-To/metadata-generateanswer-usage.md
-          displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context'
+          displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404'
         - name: 기술 자료를 사용하는 봇 만들기
           href: Tutorials/integrate-qnamaker-luis.md
         - name: 다른 언어로 된 기술 자료 만들기
@@ -152,15 +162,10 @@
         - name: 학습 API
           href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train'
       href: 'https://go.microsoft.com/fwlink/?linkid=2092179'
-    - name: FAQ
-      href: faqs.md
+    - name: 문제 해결
+      href: troubleshooting.md
     - name: 제한
       href: limits.md
-    - name: 용어
-      href: glossary.md
-    - name: HTTP 응답 코드
-      displayName: '200, 2xx, 400, 401, 403, 404'
-      href: http-response-codes.md
     - name: 샘플
       items:
         - name: QnA Maker 도움말 봇
@@ -169,20 +174,36 @@
       items:
         - name: 'C#'
           items:
-            - name: NuGet
+            - name: 참조 설명서
+              href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet'
+            - name: NuGet 패키지
               href: 'https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/'
+            - name: 샘플
+              href: 'https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp'
         - name: Go
           items:
+            - name: 참조 설명서
+              href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v4.0/qnamaker'
             - name: SDK)
               href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v4.0/qnamaker'
+            - name: 샘플
+              href: 'https://github.com/Azure-Samples/cognitive-services-qnamaker-go'
         - name: Node.js
           items:
+            - name: 참조 설명서
+              href: 'https://docs.microsoft.com/en-us/javascript/api/%40azure/cognitiveservices-qnamaker/index?view=azure-node-latest'
             - name: NPM
               href: 'https://www.npmjs.com/package/azure-cognitiveservices-qnamaker'
+            - name: 샘플
+              href: 'https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs'
         - name: Python
           items:
+            - name: 참조 설명서
+              href: 'https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python'
             - name: Pip
               href: 'https://pypi.org/project/azure-cognitiveservices-knowledge-qnamaker/'
+            - name: 샘플
+              href: 'https://github.com/Azure-Samples/cognitive-services-qnamaker-python'
         - name: Ruby
           items:
             - name: Gem

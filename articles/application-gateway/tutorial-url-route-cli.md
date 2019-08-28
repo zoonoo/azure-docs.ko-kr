@@ -4,16 +4,16 @@ description: 이 문서에서는 Azure CLI를 사용하여 URL을 기반으로 �
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: tutorial
-ms.date: 5/20/2019
+ms.topic: article
+ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: c0954d1010a6cf5ef6f8edab1470588df9fba559
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: HT
+ms.openlocfilehash: b6bc0b00579bdef0a358f756b8cf2b6034aca017
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955565"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688188"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Azure CLI를 사용하여 URL을 기반으로 웹 트래픽 라우팅
 
@@ -70,12 +70,14 @@ az network vnet subnet create \
 
 az network public-ip create \
   --resource-group myResourceGroupAG \
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress \
+  --allocation-method Static \
+  --sku Standard
 ```
 
 ## <a name="create-the-app-gateway-with-a-url-map"></a>URL 맵을 사용하여 응용 프로그램 게이트웨이 만들기
 
-`az network application-gateway create`를 사용하여 *myAppGateway*라는 응용 프로그램 게이트웨이를 만듭니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 애플리케이션 게이트웨이는 앞에서 만든 *myAGSubnet* 및 *myAGPublicIPAddress*에 할당됩니다.
+`az network application-gateway create`를 사용하여 *myAppGateway*라는 애플리케이션 게이트웨이를 만듭니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. Application gateway는 *Myagsubnet* 및 *myAGPublicIPAddress*에 할당 됩니다.
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -85,7 +87,7 @@ az network application-gateway create \
   --vnet-name myVNet \
   --subnet myAGsubnet \
   --capacity 2 \
-  --sku Standard_Medium \
+  --sku Standard_v2 \
   --http-settings-cookie-based-affinity Disabled \
   --frontend-port 80 \
   --http-settings-port 80 \
@@ -96,7 +98,7 @@ az network application-gateway create \
  애플리케이션 게이트웨이를 만들 때까지 몇 분 정도 걸릴 수 있습니다. 애플리케이션 게이트웨이가 생성되면 다음과 같은 새 기능을 볼 수 있습니다.
 
 
-|기능  |설명  |
+|기능  |Description  |
 |---------|---------|
 |appGatewayBackendPool     |애플리케이션 게이트웨이에 백 엔드 주소 풀이 하나 이상 있어야 합니다.|
 |appGatewayBackendHttpSettings     |포트 80 및 HTTP 프로토콜을 통신에 사용하도록 지정합니다.|
@@ -165,7 +167,7 @@ az network application-gateway url-path-map rule create \
   --address-pool videoBackendPool
 ```
 
-### <a name="add-a-routing-rule"></a>라우팅 규칙 추가
+### <a name="add-a-routing-rule"></a>회람 규칙 추가
 
 라우팅 규칙은 URL 맵을 만든 수신기에 연결합니다. `az network application-gateway rule create`를 사용하여 *rule2*라는 규칙을 추가합니다.
 
@@ -180,7 +182,7 @@ az network application-gateway rule create \
   --address-pool appGatewayBackendPool
 ```
 
-## <a name="create-vm-scale-sets"></a>VM 확장 집합 만들기
+## <a name="create-virtual-machine-scale-sets"></a>가상 머신 확장 집합 만들기
 
 이 문서에서는 사용자가 만든 세 백 엔드 풀을 지원하는 세 개의 가상 머신 확장 집합을 만듭니다. 사용자가 만든 확장 집합의 이름은 *myvmss1*, *myvmss2*, *myvmss3*입니다. 각 확장 집합에는 NGINX를 설치하는 두 개의 가상 머신 인스턴스가 포함됩니다.
 
@@ -234,7 +236,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
-응용 프로그램 게이트웨이의 공용 IP 주소를 가져오려면 az network public-ip show를 사용합니다. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예: `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm` 또는 `http://40.121.222.19:8080/video/test.htm`.
+애플리케이션 게이트웨이의 공용 IP 주소를 가져오려면 az network public-ip show를 사용합니다. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예: `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm` 또는 `http://40.121.222.19:8080/video/test.htm`.
 
 ```azurecli-interactive
 az network public-ip show \
@@ -246,22 +248,22 @@ az network public-ip show \
 
 ![애플리케이션 게이트웨이의 기준 URL 테스트](./media/tutorial-url-route-cli/application-gateway-nginx.png)
 
-URL을 http://&lt;ip-address&gt;:8080/images/test.html로 변경하고 &lt;ip-address&gt;를 사용자의 IP 주소로 대체하면 다음 예제와 같은 내용이 표시됩니다.
+URL&lt;을 http://&gt;: 8080/images/test.html로 변경 합니다. ip 주소는 ip 주소를 &lt;대체&gt;하며 다음 예제와 같이 표시 됩니다.
 
 ![애플리케이션 게이트웨이의 이미지 URL 테스트](./media/tutorial-url-route-cli/application-gateway-nginx-images.png)
 
-URL을 http://&lt;ip-address&gt;:8080/video/test.html로 변경하고 &lt;ip-address&gt;를 사용자의 IP 주소로 대체하면 다음 예제와 같은 내용이 표시됩니다.
+URL&lt;을 http://&gt;: 8080/video/test.html로 변경 합니다. ip 주소는 ip 주소를 &lt;대체&gt;하며 다음 예제와 같이 표시 됩니다.
 
 ![애플리케이션 게이트웨이의 비디오 URL 테스트](./media/tutorial-url-route-cli/application-gateway-nginx-video.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요 없는 리소스 그룹, 응용 프로그램 게이트웨이 및 모든 관련 리소스를 제거합니다.
+더 이상 필요 없는 리소스 그룹, 애플리케이션 게이트웨이 및 모든 관련 리소스를 제거합니다.
 
 ```azurecli-interactive
-az group delete --name myResourceGroupAG --location eastus
+az group delete --name myResourceGroupAG
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
-* [URL 경로 기반 리디렉션으로 애플리케이션 게이트웨이 만들기](./tutorial-url-redirect-cli.md)
+[URL 경로 기반 리디렉션으로 애플리케이션 게이트웨이 만들기](./tutorial-url-redirect-cli.md)

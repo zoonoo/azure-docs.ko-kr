@@ -1,11 +1,10 @@
 ---
 title: Azure AD에 연결할 때의 MVC 프로젝트 변경 내용
 description: Visual Studio 연결된 서비스를 사용하여 Azure AD에 연결할 때 MVC 프로젝트의 변경 내용을 설명합니다.
-services: active-directory
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: 8b24adde-547e-4ffe-824a-2029ba210216
-ms.prod: visual-studio-dev15
+ms.prod: visual-studio-windows
 ms.technology: vs-azure
 ms.workload: azure-vs
 ms.topic: conceptual
@@ -13,12 +12,12 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e40a1fd72adf353d5c4d856544482cb7bd68f43
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4c4328ea6145d32616f1784d94976dab29216fbc
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65413999"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851999"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>내 MVC 프로젝트(Visual Studio Azure Active Directory 연결된 서비스)의 변경 내용
 
@@ -34,7 +33,7 @@ ms.locfileid: "65413999"
 
 프로젝트 파일(*.NET 참조) 및 `packages.config`(NuGet 참조)에 영향을 줍니다.
 
-| Type | 참조 |
+| 형식 | 참조 |
 | --- | --- |
 | .NET; NuGet | Microsoft.IdentityModel.Protocol.Extensions |
 | .NET; NuGet | Microsoft.Owin |
@@ -49,7 +48,7 @@ ms.locfileid: "65413999"
 
 **디렉터리 데이터 읽기** 옵션을 선택한 경우 추가 참조는 다음과 같습니다.
 
-| Type | 참조 |
+| 형식 | 참조 |
 | --- | --- |
 | .NET; NuGet | EntityFramework |
 | .NET        | EntityFramework.SqlServer(Visual Studio 2015만 해당) |
@@ -63,7 +62,7 @@ ms.locfileid: "65413999"
 
 다음 참조가 제거됩니다(Visual Studio 2015와 마찬가지로 ASP.NET 4 프로젝트만 해당).
 
-| Type | 참조 |
+| 형식 | 참조 |
 | --- | --- |
 | .NET; NuGet | Microsoft.AspNet.Identity.Core |
 | .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |
@@ -145,7 +144,7 @@ ms.locfileid: "65413999"
 
 ### <a name="file-backup-visual-studio-2015"></a>파일 백업(Visual Studio 2015)
 
-Visual Studio 2015는 연결된 서비스를 추가할 때 변경 및 제거된 파일을 백업합니다. 영향을 받는 모든 파일은 `Backup/AzureAD` 폴더에 저장됩니다. Visual Studio 2017 이상 백업을 만들지 않습니다.
+Visual Studio 2015는 연결된 서비스를 추가할 때 변경 및 제거된 파일을 백업합니다. 영향을 받는 모든 파일은 `Backup/AzureAD` 폴더에 저장됩니다. Visual Studio 2017 이상에서는 백업을 만들지 않습니다.
 
 - `Startup.cs`
 - `App_Start\IdentityConfig.cs`

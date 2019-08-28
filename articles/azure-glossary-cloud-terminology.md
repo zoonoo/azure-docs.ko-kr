@@ -121,7 +121,7 @@ Azure 솔루션에 속한 항목입니다. 각 Azure 서비스를 사용하면 �
 ## <a name="sas"></a>SAS(공유 액세스 서명)
 계정 키를 노출하지 않고 리소스에 대한 제한된 액세스 권한을 부여할 수 있는 서명입니다. 예를 들어 [Azure Storage는 SAS를 사용하여](storage/common/storage-dotnet-shared-access-signature-part-1.md) BLOB과 같은 개체에 대한 클라이언트 액세스 권한을 부여합니다. [IoT Hub는 SAS를 사용하여](iot-hub/iot-hub-devguide-security.md#security-tokens) 원격 분석을 보낼 수 있는 권한을 디바이스에 부여합니다.
 
-## <a name="storage-account"></a>저장소 계정 만들기
+## <a name="storage-account"></a>스토리지 계정 만들기
 Azure Storage의 Azure Blob, 큐, 테이블 및 파일 서비스에 대한 액세스 권한을 제공하는 계정입니다. 스토리지 계정 이름은 Azure Storage 데이터 개체의 고유한 네임스페이스를 정의합니다.  
 [Azure Storage 계정 정보](storage/common/storage-create-storage-account.md)를 참조하세요.
 

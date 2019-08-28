@@ -9,18 +9,18 @@ ms.author: robreed
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6d24b533d4335e1a6142944ad42484bbe9d2bb96
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 447aa4f5bb3c274900beddcef8c89db88d3f3ee9
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477432"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688041"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>작업 시간 외 VM 시작/중지 문제 해결
 
 ## <a name="deployment-failure"></a>시나리오: VM 시작/중지 솔루션이 제대로 배포되지 않음
 
-### <a name="issue"></a>문제
+### <a name="issue"></a>문제점
 
 [작업 시간 외 VM 시작/중지 솔루션](../automation-solution-vm-management.md)을 배포할 때 다음 오류 중 하나가 표시됩니다.
 
@@ -69,7 +69,7 @@ The scope '/subscriptions/000000000000-0000-0000-0000-00000000/resourcegroups/<R
 
 ## <a name="all-vms-fail-to-startstop"></a>시나리오: 모든 VM을 시작/중지하지는 못 함
 
-### <a name="issue"></a>문제
+### <a name="issue"></a>문제점
 
 VM 시작/중지 솔루션을 구성했지만 구성된 모든 VM이 시작 또는 중지되지는 않습니다.
 
@@ -88,7 +88,7 @@ VM 시작/중지 솔루션을 구성했지만 구성된 모든 VM이 시작 또�
 
 * VM 시작/중지 솔루션의 일정을 올바르게 구성했는지 확인합니다. 일정을 구성하는 방법을 알아보려면 [일정](../automation-schedules.md) 문서를 참조하세요.
 
-* 확인 합니다 [작업 스트림의](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) 에 오류를 찾아보십시오. 포털에서 Automation 계정으로 이동한 후 **프로세스 자동화**에서 **작업**을 선택합니다. **작업** 페이지에서 다음 runbook 중 하나에서 작업을 찾아봅니다.
+* [작업 스트림을](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) 검사 하 여 오류를 찾습니다. 포털에서 Automation 계정으로 이동한 후 **프로세스 자동화**에서 **작업**을 선택합니다. **작업** 페이지에서 다음 runbook 중 하나에서 작업을 찾아봅니다.
 
   * AutoStop_CreateAlert_Child
   * AutoStop_CreateAlert_Parent
@@ -110,7 +110,7 @@ VM 시작/중지 솔루션을 구성했지만 구성된 모든 VM이 시작 또�
 
 ## <a name="some-vms-fail-to-startstop"></a>시나리오: VM 중 일부가 시작 또는 중지되지 않음
 
-### <a name="issue"></a>문제
+### <a name="issue"></a>문제점
 
 VM 시작/중지 솔루션을 구성했지만 구성된 일부 VM이 시작 또는 중지되지 않습니다.
 
@@ -141,13 +141,13 @@ VM 시작/중지 솔루션을 구성했지만 구성된 일부 VM이 시작 또�
 
 * VM을 시작 및 중지하려면 Automation 계정의 실행 계정에 VM에 대한 적절한 사용 권한이 있어야 합니다. 리소스에 대한 권한을 확인하는 방법을 알아보려면 [빠른 시작: Azure Portal을 사용하여 사용자에게 할당된 역할 보기](../../role-based-access-control/check-access.md)를 참조하세요. 실행 계정에서 사용하는 서비스 주체의 애플리케이션 ID를 제공해야 합니다. Azure Portal에서 Automation 계정으로 이동하고, **계정 실행** 아래에서 **실행 계정**을 선택한 후 적절한 실행 계정을 클릭하여 이 값을 검색할 수 있습니다.
 
-* VM을 시작 또는 할당 취소하는 데 문제가 발생하는 경우 VM 자체의 문제로 인해 이 동작이 발생할 수 있습니다. 일부 예제 또는 잠재적 문제는 시스템 종료를 시도하거나 서비스 중단이 발생할 때 업데이트가 적용되는 경우입니다. VM 리소스로 이동한 후 **활동 로그**를 확인하여 로그에 오류가 있는지 검토합니다. 이벤트 로그에 오류가 있는지 확인하기 위해 VM에 로그인을 시도할 수도 있습니다. VM 문제를 해결 하는 방법에 대 한 자세한 내용은를 참조 하세요. [문제 해결 Azure virtual machines](../../virtual-machines/troubleshooting/index.md)
+* VM을 시작 또는 할당 취소하는 데 문제가 발생하는 경우 VM 자체의 문제로 인해 이 동작이 발생할 수 있습니다. 일부 예제 또는 잠재적 문제는 시스템 종료를 시도하거나 서비스 중단이 발생할 때 업데이트가 적용되는 경우입니다. VM 리소스로 이동한 후 **활동 로그**를 확인하여 로그에 오류가 있는지 검토합니다. 이벤트 로그에 오류가 있는지 확인하기 위해 VM에 로그인을 시도할 수도 있습니다. VM 문제 해결에 대해 자세히 알아보려면 [Azure virtual Machines 문제 해결](../../virtual-machines/troubleshooting/index.md) 을 참조 하세요.
 
-* 확인 합니다 [작업 스트림의](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) 에 오류를 찾아보십시오. 포털에서 Automation 계정으로 이동한 후 **프로세스 자동화**에서 **작업**을 선택합니다.
+* [작업 스트림을](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) 검사 하 여 오류를 찾습니다. 포털에서 Automation 계정으로 이동한 후 **프로세스 자동화**에서 **작업**을 선택합니다.
 
 ## <a name="custom-runbook"></a>시나리오: 내 사용자 지정 Runbook이 VM을 시작 또는 중지하지 못함
 
-### <a name="issue"></a>문제
+### <a name="issue"></a>문제점
 
 사용자 지정 Runbook을 작성했거나, PowerShell 갤러리에서 다운로드했으나 제대로 작동하지 않습니다.
 
@@ -157,11 +157,11 @@ VM 시작/중지 솔루션을 구성했지만 구성된 일부 VM이 시작 또�
 
 ### <a name="resolution"></a>해결 방법
 
-Azure Automation에서 [작업 시간 외 VM 시작/중지 솔루션](../automation-solution-vm-management.md)을 사용하여 VM을 시작 및 중지하는 것이 좋습니다. 이 솔루션은 Microsoft에서 작성한 것입니다. 사용자 지정 Runbook은 Microsoft에서 지원하지 않습니다. [Runbook 문제 해결](runbooks.md) 문서를 참조하여 사용자 지정 Runbook에 대한 솔루션을 찾을 수 있습니다. 이 문서에서는 모든 유형의 Runbook에 대한 일반 지침 및 문제 해결 방법을 제공합니다. 확인 합니다 [작업 스트림의](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) 에 오류를 찾아보십시오. 포털에서 Automation 계정으로 이동한 후 **프로세스 자동화**에서 **작업**을 선택합니다.
+Azure Automation에서 [작업 시간 외 VM 시작/중지 솔루션](../automation-solution-vm-management.md)을 사용하여 VM을 시작 및 중지하는 것이 좋습니다. 이 솔루션은 Microsoft에서 작성한 것입니다. 사용자 지정 Runbook은 Microsoft에서 지원하지 않습니다. [Runbook 문제 해결](runbooks.md) 문서를 참조하여 사용자 지정 Runbook에 대한 솔루션을 찾을 수 있습니다. 이 문서에서는 모든 유형의 Runbook에 대한 일반 지침 및 문제 해결 방법을 제공합니다. [작업 스트림을](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) 검사 하 여 오류를 찾습니다. 포털에서 Automation 계정으로 이동한 후 **프로세스 자동화**에서 **작업**을 선택합니다.
 
 ## <a name="dont-start-stop-in-sequence"></a>시나리오: VM이 올바른 순서로 시작 또는 중지되지 않음
 
-### <a name="issue"></a>문제
+### <a name="issue"></a>문제점
 
 솔루션에서 구성한 VM이 올바른 순서로 시작 또는 중지되지 않습니다.
 
@@ -179,9 +179,9 @@ VM의 잘못된 태그 지정 때문입니다.
 
 이 솔루션을 사용하여 VM을 순서대로 시작 및 중지하는 방법에 대한 자세한 내용 및 추가 지침을 보려면 [순서대로 VM 시작 및 중지](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags)를 참조하세요.
 
-## <a name="403"></a>시나리오: 403 사용할 수 없음 상태를 나타내며 VM 시작/중지 작업이 실패함 
+## <a name="403"></a>시나리오: 403 사용할 수 없음 상태를 나타내며 VM 시작/중지 작업이 실패함
 
-### <a name="issue"></a>문제
+### <a name="issue"></a>문제점
 
 작업 시간 외 VM 시작/중지 솔루션 Runbook에 대해 `403 forbidden` 오류를 나타내며 실패한 작업을 찾습니다.
 
@@ -201,7 +201,7 @@ VM의 잘못된 태그 지정 때문입니다.
 
 ## <a name="other"></a>시나리오: 위 목록에 없는 문제가 발생함
 
-### <a name="issue"></a>문제
+### <a name="issue"></a>문제점
 
 작업 시간 외 VM 시작/중지 솔루션을 사용할 때 이 페이지에 나열되지 않은 문제 또는 예기치 않은 결과가 발생합니다.
 
@@ -209,9 +209,12 @@ VM의 잘못된 태그 지정 때문입니다.
 
 이전 및 오래된 버전의 솔루션을 사용하면 많은 시간 오류가 발생할 수 있습니다.
 
+> [!NOTE]
+> 업무 시간 외 Vm 시작/중지 솔루션은 솔루션을 배포할 때 Automation 계정으로 가져온 Azure 모듈을 사용 하 여 테스트 되었습니다. 솔루션은 현재 최신 버전의 Azure 모듈에서 작동 하지 않습니다. 이는 업무 시간 외 Vm 시작/중지 솔루션을 실행 하는 데 사용 하는 Automation 계정에만 영향을 줍니다. [에서 Azure PowerShell 모듈을 업데이트 하는 방법](../automation-update-azure-modules.md) 에 설명 된 대로 다른 Automation 계정에서 최신 버전의 Azure 모듈을 계속 사용할 수 있습니다 Azure Automation
+
 ### <a name="resolution"></a>해결 방법
 
-많은 오류를 해결하려면 솔루션을 제거 및 업데이트하는 것이 좋습니다. 솔루션을 업데이트하는 방법을 알아보려면 [작업 시간 외 VM 시작/중지 솔루션](../automation-solution-vm-management.md#update-the-solution)을 참조하세요. 또한 확인할 수 있습니다는 [작업 스트림의](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) 에 오류를 찾아보십시오. 포털에서 Automation 계정으로 이동한 후 **프로세스 자동화**에서 **작업**을 선택합니다.
+많은 오류를 해결하려면 솔루션을 제거 및 업데이트하는 것이 좋습니다. 솔루션을 업데이트하는 방법을 알아보려면 [작업 시간 외 VM 시작/중지 솔루션](../automation-solution-vm-management.md#update-the-solution)을 참조하세요. 또한 [작업 스트림을](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) 검사 하 여 오류를 찾을 수 있습니다. 포털에서 Automation 계정으로 이동한 후 **프로세스 자동화**에서 **작업**을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,23 +3,17 @@ title: 클라우드 서비스를 구성하는 방법(포털) | Microsoft Docs
 description: Azure에서 Cloud Services를 구성하는 방법에 대해 알아봅니다. 또한 클라우드 서비스 구성을 업데이트하고 역할 인스턴스에 대한 원격 액세스를 구성하는 방법도 알아봅니다. 이 예제는 Azure Portal을 사용합니다.
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 7308f3c0-825e-499d-bfa5-c60f86371921
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2016
-ms.author: jeconnoc
-ms.openlocfilehash: 4d8d3b93ef2a6347076fada53932b5fc56838d20
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 8b60a81e06b95c69a02f88ff3275743b056c191d
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61435812"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359661"
 ---
 # <a name="how-to-configure-cloud-services"></a>Cloud Services를 구성하는 방법
 
@@ -101,7 +95,7 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
     ![다운로드](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
 4. 서비스 구성 파일을 업데이트한 후 구성 업데이트를 업로드하고 적용합니다.
 
-    ![업로드](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)
+    ![Upload](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)
 5. .cscfg 파일을 선택하고 **확인**을 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계

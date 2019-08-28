@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
-ms.openlocfilehash: 5a4085f713d66859a464ab59b00d856921db8ec3
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: dcbec817f771324219a68de96eb5dd262a887fc1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124472"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449052"
 ---
 # <a name="example-use-the-large-scale-feature"></a>예제: 대규모 기능 사용
 
@@ -30,13 +30,16 @@ LargePersonGroup과 LargeFaceList는 총괄하여 대규모 작업이라고 합�
 
 ## <a name="step-1-initialize-the-client-object"></a>1단계: 클라이언트 개체 초기화
 
-Face API 클라이언트 라이브러리를 사용하면 구독 키 및 구독 엔드포인트가 FaceServiceClient 클래스의 생성자를 통해 전달됩니다. 예:
+Face API 클라이언트 라이브러리를 사용하면 구독 키 및 구독 엔드포인트가 FaceClient 클래스의 생성자를 통해 전달됩니다. 예:
 
-```CSharp
+```csharp
 string SubscriptionKey = "<Subscription Key>";
 // Use your own subscription endpoint corresponding to the subscription key.
-string SubscriptionRegion = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/";
-FaceServiceClient FaceServiceClient = new FaceServiceClient(SubscriptionKey, SubscriptionRegion);
+string SubscriptionEndpoint = "https://westus.api.cognitive.microsoft.com";
+private readonly IFaceClient faceClient = new FaceClient(
+            new ApiKeyServiceClientCredentials(subscriptionKey),
+            new System.Net.Http.DelegatingHandler[] { });
+faceClient.Endpoint = SubscriptionEndpoint
 ```
 
 해당 엔드포인트가 있는 구독 키를 가져오려면 Azure Portal에서 Azure Marketplace로 이동합니다.
@@ -70,7 +73,7 @@ PersonGroup의 모든 얼굴과 사람을 새 LargePersonGroup에 추가합니�
 
 앞의 테이블은 FaceList와 LargeFaceList 간 목록 수준 작업의 비교입니다. 표시된 대로 FaceList와 비교할 때 LargeFaceList에는 Train(학습) 및 Get Training Status(학습 상태 가져오기)라는 새 작업이 제공됩니다. LargeFaceList 학습은 [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) 작업의 전제 조건입니다. FaceList에는 학습이 필요하지 않습니다. 다음 코드 조각은 LargeFaceList의 학습을 기다리는 도우미 함수입니다.
 
-```CSharp
+```csharp
 /// <summary>
 /// Helper function to train LargeFaceList and wait for finish.
 /// </summary>
@@ -94,13 +97,13 @@ private static async Task TrainLargeFaceList(
     int timeIntervalInMilliseconds = 1000)
 {
     // Trigger a train call.
-    await FaceServiceClient.TrainLargeFaceListAsync(largeFaceListId);
+    await FaceClient.LargeTrainLargeFaceListAsync(largeFaceListId);
 
     // Wait for training finish.
     while (true)
     {
         Task.Delay(timeIntervalInMilliseconds).Wait();
-        var status = await FaceServiceClient.GetLargeFaceListTrainingStatusAsync(largeFaceListId);
+        var status = await faceClient.LargeFaceList.TrainAsync(largeFaceListId);
 
         if (status.Status == Status.Running)
         {
@@ -120,12 +123,12 @@ private static async Task TrainLargeFaceList(
 
 이전에 얼굴이 추가되고 FindSimilar가 있는 FaceList의 일반적인 사용법은 다음과 같았습니다.
 
-```CSharp
+```csharp
 // Create a FaceList.
 const string FaceListId = "myfacelistid_001";
 const string FaceListName = "MyFaceListDisplayName";
 const string ImageDir = @"/path/to/FaceList/images";
-FaceServiceClient.CreateFaceListAsync(FaceListId, FaceListName).Wait();
+faceClient.FaceList.CreateAsync(FaceListId, FaceListName).Wait();
 
 // Add Faces to the FaceList.
 Parallel.ForEach(
@@ -134,7 +137,7 @@ Parallel.ForEach(
         {
             using (Stream stream = File.OpenRead(imagePath))
             {
-                await FaceServiceClient.AddFaceToFaceListAsync(FaceListId, stream);
+                await faceClient.FaceList.AddFaceFromStreamAsync(FaceListId, stream);
             }
         });
 
@@ -143,22 +146,22 @@ const string QueryImagePath = @"/path/to/query/image";
 var results = new List<SimilarPersistedFace[]>();
 using (Stream stream = File.OpenRead(QueryImagePath))
 {
-    var faces = FaceServiceClient.DetectAsync(stream).Result;
+    var faces = faceClient.Face.DetectWithStreamAsync(stream).Result;
     foreach (var face in faces)
     {
-        results.Add(await FaceServiceClient.FindSimilarAsync(face.FaceId, FaceListId, 20));
+        results.Add(await faceClient.Face.FindSimilarAsync(face.FaceId, FaceListId, 20));
     }
 }
 ```
 
 LargeFaceList로 마이그레이션하는 경우 다음과 같이 됩니다.
 
-```CSharp
+```csharp
 // Create a LargeFaceList.
 const string LargeFaceListId = "mylargefacelistid_001";
 const string LargeFaceListName = "MyLargeFaceListDisplayName";
 const string ImageDir = @"/path/to/FaceList/images";
-FaceServiceClient.CreateLargeFaceListAsync(LargeFaceListId, LargeFaceListName).Wait();
+faceClient.LargeFaceList.CreateAsync(LargeFaceListId, LargeFaceListName).Wait();
 
 // Add Faces to the LargeFaceList.
 Parallel.ForEach(
@@ -167,7 +170,7 @@ Parallel.ForEach(
         {
             using (Stream stream = File.OpenRead(imagePath))
             {
-                await FaceServiceClient.AddFaceToLargeFaceListAsync(LargeFaceListId, stream);
+                await faceClient.LargeFaceList.AddFaceFromStreamAsync(LargeFaceListId, stream);
             }
         });
 
@@ -180,10 +183,10 @@ const string QueryImagePath = @"/path/to/query/image";
 var results = new List<SimilarPersistedFace[]>();
 using (Stream stream = File.OpenRead(QueryImagePath))
 {
-    var faces = FaceServiceClient.DetectAsync(stream).Result;
+    var faces = faceClient.Face.DetectWithStreamAsync(stream).Result;
     foreach (var face in faces)
     {
-        results.Add(await FaceServiceClient.FindSimilarAsync(face.FaceId, largeFaceListId: LargeFaceListId));
+        results.Add(await faceClient.Face.FindSimilarAsync(face.FaceId, largeFaceListId: LargeFaceListId));
     }
 }
 ```
@@ -203,13 +206,13 @@ Train 작업은 [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/se
 
 대규모 기능을 더 잘 활용하려면 다음 전략을 사용하는 것이 좋습니다.
 
-### <a name="step-31-customize-time-interval"></a>3.1단계: 시간 간격 사용자 지정
+### <a name="step-31-customize-time-interval"></a>3\.1단계: 시간 간격 사용자 지정
 
 `TrainLargeFaceList()`에서와 같이 무한 학습 상태 확인 프로세스를 지연시키는 시간 간격(밀리초)이 있습니다. 더 많은 얼굴이 있는 LargeFaceList의 경우 큰 간격을 사용하면 호출 수 및 비용을 감소시킵니다. LargeFaceList의 예상 용량에 따라 시간 간격을 사용자 지정합니다.
 
 동일한 전략이 LargePersonGroup에도 적용됩니다. 예를 들어 100만 명의 사람을 사용하여 LargePersonGroup을 학습시키는 경우 `timeIntervalInMilliseconds`는 60,000(1분 간격)일 수 있습니다.
 
-### <a name="step-32-small-scale-buffer"></a>3.2단계: 소규모 버퍼
+### <a name="step-32-small-scale-buffer"></a>3\.2단계: 소규모 버퍼
 
 LargePersonGroup 또는 LargeFaceList의 사람 또는 얼굴은 학습된 후에만 검색할 수 있습니다. 동적 시나리오에서 새 사람 또는 얼굴은 지속적으로 추가되고 즉시 검색할 수 있어야 하지만, 학습은 원하는 것보다 오래 걸릴 수 있습니다. 
 
@@ -224,19 +227,19 @@ LargePersonGroup 또는 LargeFaceList의 사람 또는 얼굴은 학습된 후�
 1. 버퍼 컬렉션 크기가 임계값까지 증가하거나 시스템 유휴 시간에 증가하는 경우 새 버퍼 컬렉션을 만듭니다. 마스터 컬렉션에 대한 Train 작업을 트리거합니다.
 1. 마스터 컬렉션에 대한 Train 작업이 완료되면 이전 버퍼 컬렉션을 삭제합니다.
 
-### <a name="step-33-standalone-training"></a>3.3단계: 독립 실행형 학습
+### <a name="step-33-standalone-training"></a>3\.3단계: 독립 실행형 학습
 
 상대적으로 긴 대기 시간이 허용되면 새 데이터를 추가한 직후 Train 작업을 트리거할 필요가 없습니다. 대신 학습 작업은 기본 논리에서 분할되고 정기적으로 트리거될 수 있습니다. 이 전략은 대기 시간이 허용되는 동적 시나리오에 적합합니다. Train 빈도를 더 줄이기 위해 이 전략을 정적 시나리오에 적용할 수 있습니다.
 
 `TrainLargeFaceList`와 비슷한 `TrainLargePersonGroup` 함수가 있다고 가정합니다. `System.Timers`에서 [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx) 클래스를 호출하여 LargePersonGroup에 대한 독립 실행형 학습을 구현하는 일반적인 방법은 다음과 같습니다.
 
-```CSharp
+```csharp
 private static void Main()
 {
     // Create a LargePersonGroup.
     const string LargePersonGroupId = "mylargepersongroupid_001";
     const string LargePersonGroupName = "MyLargePersonGroupDisplayName";
-    FaceServiceClient.CreateLargePersonGroupAsync(LargePersonGroupId, LargePersonGroupName).Wait();
+    faceClient.LargePersonGroup.CreateAsync(LargePersonGroupId, LargePersonGroupName).Wait();
 
     // Set up standalone training at regular intervals.
     const int TimeIntervalForStatus = 1000 * 60; // 1-minute interval for getting training status.

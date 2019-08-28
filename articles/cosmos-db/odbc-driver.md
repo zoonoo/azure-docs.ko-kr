@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 352cd23f00e911b895e52aacaced1bfba38f7f84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b859d01a39f906f518a82d468c3c9267545b9a07
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257247"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616893"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>ODBC 드라이버와 함께 BI 분석 도구를 사용하여 Azure Cosmos DB에 연결
 
@@ -23,9 +23,9 @@ Azure Cosmos DB ODBC 드라이버는 ODBC 3.8 규격으로, ANSI SQL-92 구문�
 > Azure Cosmos DB와 ODBC 드라이버 연결은 현재 Azure Cosmos DB SQL API 계정에서만 지원됩니다.
 
 ## <a name="why-do-i-need-to-normalize-my-data"></a>데이터를 정규화해야 하는 이유는 무엇인가요?
-Azure Cosmos DB는 엄격한 스키마로 국한하지 않으면서 신속한 애플리케이션 개발과 데이터 모델 반복 기능을 지원하는 스키마 없는 데이터베이스입니다. 단일 Azure Cosmos DB 데이터베이스에 다양한 구조의 JSON 문서가 포함될 수 있습니다. 이러한 특징은 신속한 애플리케이션 개발에 유용하지만 데이터 분석 및 BI 도구를 사용하여 데이터 보고서를 분석하고 만들려는 경우 데이터를 평면화하고 특정 스키마를 따르도록 할 필요가 있습니다.
+Azure Cosmos DB는 엄격한 스키마로 국한하지 않으면서 신속한 애플리케이션 개발과 데이터 모델 반복 기능을 지원하는 스키마 없는 데이터베이스입니다. 단일 Azure Cosmos 데이터베이스에는 다양 한 구조의 JSON 문서가 포함 될 수 있습니다. 이러한 특징은 신속한 애플리케이션 개발에 유용하지만 데이터 분석 및 BI 도구를 사용하여 데이터 보고서를 분석하고 만들려는 경우 데이터를 평면화하고 특정 스키마를 따르도록 할 필요가 있습니다.
 
-바로 이러한 경우 ODBC 드라이버가 사용됩니다. 이제 ODBC 드라이버를 사용하여 Azure Cosmos DB의 데이터를 데이터 분석 및 보고 요구에 맞는 테이블 및 뷰로 다시 정규화할 수 있습니다. 다시 정규화된 스키마는 기본 데이터에 아무런 영향도 미치지 않고 개발자도 이러한 스키마를 준수할 필요가 없습니다. 대신, 사용자는 ODBC 호환 도구를 사용하여 데이터에 액세스할 수 있습니다. 이제 Azure Cosmos DB 데이터베이스는 개발 팀에서 선호될 뿐 아니라 데이터 분석에서도 많이 사용될 것입니다.
+바로 이러한 경우 ODBC 드라이버가 사용됩니다. 이제 ODBC 드라이버를 사용하여 Azure Cosmos DB의 데이터를 데이터 분석 및 보고 요구에 맞는 테이블 및 뷰로 다시 정규화할 수 있습니다. 다시 정규화된 스키마는 기본 데이터에 아무런 영향도 미치지 않고 개발자도 이러한 스키마를 준수할 필요가 없습니다. 대신, 사용자는 ODBC 호환 도구를 사용하여 데이터에 액세스할 수 있습니다. 따라서 이제 Azure Cosmos 데이터베이스는 개발 팀을 위해 즐겨 사용 하는 것은 아니지만 데이터 분석가는 선호 합니다.
 
 ODBC 드라이버를 살펴보겠습니다.
 
@@ -48,7 +48,7 @@ ODBC 드라이버를 살펴보겠습니다.
 
     ![Azure Cosmos DB ODBC 데이터 원본 관리자](./media/odbc-driver/odbc-driver.png)
 
-## <a id="connect"></a>2단계: Azure Cosmos DB 데이터베이스에 연결
+## <a id="connect"></a>2단계: Azure Cosmos 데이터베이스에 연결
 
 1. [Azure Cosmos DB ODBC 드라이버를 설치](#install)한 후 **ODBC 데이터 원본 관리자** 창에서 **추가**를 클릭합니다. 사용자 또는 시스템 DSN을 만들 수 있습니다. 이 예제에서는 사용자 DSN을 만듭니다.
 
@@ -82,7 +82,7 @@ ODBC 드라이버를 살펴보겠습니다.
 
 **컬렉션 매핑** 또는 **테이블 구분 기호**의 두 가지 유형의 샘플링 방법을 사용할 수 있습니다. 샘플링 세션은 두 가지 샘플링 방법을 모두 사용할 수 있지만 각 컬렉션은 특정 샘플링 방법만 사용할 수 있습니다. 아래 단계는 컬렉션 매핑 방법을 사용하여 하나 이상의 컬렉션에서 데이터에 대한 스키마를 만듭니다. 이 샘플링 방법은 컬렉션 페이지에서 데이터를 검색하여 데이터의 구조를 확인합니다. 그런 후 컬렉션을 ODBC 쪽의 테이블로 바꿉니다. 이 샘플링 방법은 컬렉션의 데이터가 동일한 형식일 때 효율적이고 빠릅니다. 컬렉션에 형식이 다른 데이터가 포함되어 있을 때는 [테이블 구분 기호 매핑 방법](#table-mapping)을 사용하는 것이 좋습니다. 이 방법이 컬렉션의 데이터 구조를 확인하는 보다 강력한 샘플링 방법을 제공하기 때문입니다. 
 
-1. [Azure Cosmos DB 데이터베이스에 연결](#connect)의 1-4단계를 완료한 후 **Azure Cosmos DB ODBC 드라이버 DSN 설정** 창에서 **스키마 편집기**를 클릭합니다.
+1. [Azure Cosmos 데이터베이스에 연결](#connect)에서 1-4 단계를 완료 한 후 **ODBC 드라이버 DSN 설정 Azure Cosmos DB** 창에서 **스키마 편집기** 를 클릭 합니다.
 
     ![Azure Cosmos DB ODBC 드라이버 DSN 설정 창의 스키마 편집기 단추](./media/odbc-driver/odbc-driver-schema-editor.png)
 1. **스키마 편집기** 창에서 **새로 만들기**를 클릭합니다.
@@ -97,7 +97,7 @@ ODBC 드라이버를 살펴보겠습니다.
 
 1. 스키마 정의를 끝낸 후에 **파일** | **저장**을 클릭한 후 스키마를 저장할 디렉터리로 이동하고 **저장**을 클릭합니다.
 
-1. DSN을 사용 하 여이 스키마를 사용 하려면 엽니다는 **Azure Cosmos DB ODBC 드라이버 DSN 설정 창** (통해 ODBC 데이터 원본 관리자 사용)를 클릭 **고급 옵션**를 선택한 다음는 **스키마 파일** 상자에서 저장 된 스키마로 이동 합니다. 스키마 파일을 기존 DSN에 저장하면 해당 스키마로 정의된 데이터 및 구조로 범위가 지정되도록 DSN 연결이 수정됩니다.
+1. 이 스키마를 DSN과 함께 사용 하려면 odbc 데이터 원본 관리자를 사용 하 여 **Odbc 드라이버 DSN 설정 창 Azure Cosmos DB** 열고 **고급 옵션**을 클릭 한 다음 **스키마 파일** 상자에서 저장 된 스키마로 이동 합니다. 스키마 파일을 기존 DSN에 저장하면 해당 스키마로 정의된 데이터 및 구조로 범위가 지정되도록 DSN 연결이 수정됩니다.
 
 ## <a id="table-mapping"></a>4단계: 테이블 구분 기호 매핑 방법을 사용하여 스키마 정의 만들기
 
@@ -105,7 +105,7 @@ ODBC 드라이버를 살펴보겠습니다.
 
 다음 단계는 **테이블 구분 기호** 매핑 방법을 사용하여 하나 이상의 컬렉션에 있는 데이터에 대한 스키마를 만듭니다. 컬렉션에 형식이 다른 데이터가 포함되어 있으면 이 샘플링 방법을 사용하는 것이 좋습니다. 이 방법을 사용하여 샘플링 범위를 특성 집합 및 해당 값으로 지정할 수 있습니다. 예를 들어 문서에 “Type” 속성이 포함된 경우 샘플링 범위를 이 속성의 값으로 지정할 수 있습니다. 샘플링의 최종 결과는 지정한 Type의 각 값에 대한 테이블 집합입니다. 예를 들어, Type = Car를 지정하면 Car 테이블이 생성되지만 Type = Plane을 지정하면 Plane 테이블이 생성됩니다.
 
-1. [Azure Cosmos DB 데이터베이스에 연결](#connect)의 1-4단계를 완료한 후 Azure Cosmos DB ODBC 드라이버 DSN 설정 창에서 **스키마 편집기**를 클릭합니다.
+1. [Azure Cosmos 데이터베이스에 연결](#connect)에서 1-4 단계를 완료 한 후 ODBC 드라이버 DSN 설정 Azure Cosmos DB 창에서 **스키마 편집기** 를 클릭 합니다.
 
 1. **스키마 편집기** 창에서 **새로 만들기**를 클릭합니다.
     **스키마 생성** 창에 Azure Cosmos DB 계정의 모든 컬렉션이 표시됩니다. 

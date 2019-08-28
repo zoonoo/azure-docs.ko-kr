@@ -1,5 +1,5 @@
 ---
-title: 인쇄/필기 텍스트 인식, Computer Vision
+title: 인쇄, 필기 텍스트 인식 Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Computer Vision API를 사용하여 이미지에서 인쇄되고 필기된 텍스트를 인식하는 데 관련된 개념입니다.
 services: cognitive-services
@@ -11,32 +11,32 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: bcaa990cc2186a5f1eecdbbca91804c92370277c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e37b4c02692575f76582e8f62c3aff00b57424ed
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357193"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946296"
 ---
 # <a name="recognize-printed-and-handwritten-text"></a>인쇄, 필기된 텍스트 인식
 
 Computer Vision는 이미지에 표시되는 인쇄 또는 필기 텍스트를 감지하고 추출하는 여러 서비스를 제공합니다. 이는 노트와 의료 기록, 보안, 뱅킹과 같은 다양한 시나리오에서 유용합니다. 다음 세 섹션에서는 각각 다른 사용 사례에 최적화된 세 가지 텍스트 인식 API를 상세히 설명합니다.
 
-## <a name="read-api"></a>읽기 API
+## <a name="read-api"></a>API 읽기
 
 읽기 API는 최신 인식 모델을 사용하여 이미지에서 텍스트 콘텐츠를 감지하고 컴퓨터가 읽을 수 있는 문자 스트림으로 식별된 텍스트를 변환합니다. 시각적 노이즈가 많은 이미지 및 텍스트가 많은 이미지(예: 디지털 스캔된 문서)에 최적화되어 있습니다. 인쇄 및 필기된 텍스트를 사용하여 이미지를 지원하는 각 텍스트 행에 사용할 인식 모델을 결정합니다. 큰 문서는 결과를 반환하는데 몇 분 정도 걸릴 수 있으므로 읽기 API는 비동기적으로 실행됩니다.
 
 읽기 작업은 출력에 인식된 단어의 원래 줄 그룹 유지합니다. 각 줄에는 경계 상자 좌표가 있고 줄 안의 각 단어에도 자체 좌표가 있습니다. 낮은 신뢰도로 단어가 인식된 경우 해당 정보도 전달됩니다. 자세히 알아보려면 [읽기 API 참조 문서](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb)를 확인합니다.
 
 > [!NOTE]
-> 이 기능은 영어 텍스트에 사용할 수만 있습니다.
+> 이 기능은 영어 텍스트에만 사용할 수 있습니다.
 
 ### <a name="image-requirements"></a>이미지 요구 사항
 
 읽기 API는 다음 요구 사항을 충족하는 이미지를 사용하여 작동합니다.
 
-- 이미지를 JPEG, PNG, BMP, PDF 또는 TIFF 형식으로 제공 해야 합니다.
-- 이미지의 크기는 50 x 50와 4200 x 4200 픽셀 사이여야 합니다. PDF 페이지는 17 x 17 인치이거나 더 작아야 합니다.
+- 이미지는 JPEG, PNG, BMP, PDF 또는 TIFF 형식으로 표시 되어야 합니다.
+- 이미지의 크기는 50 x 50에서 1만 x 1만 픽셀 사이 여야 합니다. PDF 페이지는 17 x 17 인치이거나 더 작아야 합니다.
 - 이미지의 파일 크기는 20메가바이트(MB) 미만이어야 합니다.
 
 ### <a name="limitations"></a>제한 사항
@@ -49,7 +49,7 @@ Computer Vision의 OCR(광학 문자 인식) API는 읽기 API와 유사하지�
 
 필요한 경우, OCR은 가로 이미지 축을 중심으로 회전 오프셋(도)을 반환하여 인식된 텍스트의 회전을 정정합니다. OCR는 또한 다음 그림에 표시된 대로 각 단어의 프레임 좌표를 제공합니다.
 
-![회전할 이미지 및 읽고 구분 된 텍스트](./Images/vision-overview-ocr.png)
+![회전 중인 이미지와 해당 텍스트를 읽고 구분 하 고 있습니다.](./Images/vision-overview-ocr.png)
 
 자세히 알아보려면 [OCR 참조 문서](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc)를 확인합니다.
 
@@ -57,7 +57,7 @@ Computer Vision의 OCR(광학 문자 인식) API는 읽기 API와 유사하지�
 
 OCR API는 다음 요구 사항을 충족 하는 이미지에서 작동 합니다.
 
-* 이미지를 JPEG, PNG, GIF 또는 BMP 형식으로 제공 해야 합니다.
+* 이미지는 JPEG, PNG, GIF 또는 BMP 형식으로 표시 되어야 합니다.
 * 이미지의 크기는 50 x 50와 4200 x 4200 픽셀 사이여야 합니다.
 * 90도의 배수에 최대 40도의 작은 각도를 더한 값만큼 이미지의 텍스트를 회전할 수 있습니다.
 
@@ -76,7 +76,7 @@ OCR API는 다음 요구 사항을 충족 하는 이미지에서 작동 합니�
 
 텍스트 인식 API는 다음 요구 사항을 충족하는 이미지를 사용하여 작동합니다.
 
-- 이미지를 JPEG, PNG 또는 BMP 형식으로 제공 해야 합니다.
+- 이미지는 JPEG, PNG 또는 BMP 형식으로 표시 되어야 합니다.
 - 이미지의 크기는 50 x 50와 4200 x 4200 픽셀 사이여야 합니다.
 - 이미지의 파일 크기는 4메가바이트(MB) 미만이어야 합니다.
 

@@ -4,7 +4,7 @@ description: Azure(대규모 인스턴스)에서 SAP HANA에 대한 온보딩 �
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 01/31/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 252c84bce2b70f6931593fe9410abe6cc146b5bb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2f596f44acfd51b1e2449bc77eed6add0d9d90b0
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60679054"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707403"
 ---
 # <a name="onboarding-requirements"></a>온보딩 요구 사항
 
@@ -62,7 +62,7 @@ Linux 버전이 다른 여러 SAP HANA 버전에 대한 지원 매트릭스는 [
 > 유형 II 단위의 경우 SLES 12 SP2 OS 버전만 지원됩니다. 
 
 
-**데이터베이스**
+**데이터베이스 백업**
 
 - SAP HANA에 대한 라이선스 및 소프트웨어 설치 구성 요소(플랫폼 및 Enterprise 버전).
 

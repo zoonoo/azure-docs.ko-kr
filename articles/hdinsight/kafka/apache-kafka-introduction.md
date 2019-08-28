@@ -25,7 +25,7 @@ ms.locfileid: "67137070"
 
 * Microsoft는 Kafka 작동 시간에 대해 99.9%의 SLA(서비스 수준 계약)를 제공합니다. 자세한 내용은 [HDInsight에 대한 SLA 정보](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/) 문서를 참조하세요.
 
-* Azure Managed Disks를 Kafka에 대한 백업 저장소로 사용합니다. Managed Disks는 Kafka 브로커당 최대 16TB의 저장소를 제공할 수 있습니다. HDInsight에서 Kafka로 관리 디스크 구성에 대한 자세한 내용은 [HDInsight에서 Apache Kafka의 확장성 높이기](apache-kafka-scalability.md)를 참조하세요.
+* Azure Managed Disks를 Kafka에 대한 백업 저장소로 사용합니다. Managed Disks는 Kafka 브로커당 최대 16TB의 스토리지를 제공할 수 있습니다. HDInsight에서 Kafka로 관리 디스크 구성에 대한 자세한 내용은 [HDInsight에서 Apache Kafka의 확장성 높이기](apache-kafka-scalability.md)를 참조하세요.
 
     관리 디스크에 대한 자세한 내용은 [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md)를 참조하세요.
 

@@ -10,56 +10,56 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 06879164c6f72891b734da077c667c6f90448fe4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6163f1cbf878f4d4678b2b66829522b0dd16ae22
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512958"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835624"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates 및 PredicateValidations
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-**Predicates** 및 **PredicateValidations** 요소를 사용하면 Azure AD(Active Directory) B2C 테넌트에 적절한 형식의 데이터만 입력하도록 유효성 검사 프로세스를 수행할 수 있습니다.  
+**Predicates** 및 **PredicateValidations** 요소를 사용하면 Azure AD(Active Directory) B2C 테넌트에 적절한 형식의 데이터만 입력하도록 유효성 검사 프로세스를 수행할 수 있습니다.
 
-아래 다이어그램에서는 요소 간의 관계가 나와 있습니다.  
+아래 다이어그램에서는 요소 간의 관계가 나와 있습니다.
 
-![조건자](./media/predicates/predicates.png)
+![조건자 및 조건자 유효성 검사 관계를 보여 주는 다이어그램](./media/predicates/predicates.png)
 
-## <a name="predicates"></a>조건자  
+## <a name="predicates"></a>조건자
 
 **Predicate** 요소는 클레임 유형의 값을 확인하기 위한 기본적인 유효성 검사를 정의하고 `true` 또는 `false`를 반환합니다. 지정된 **Method** 요소 및 해당 메서드와 관련된 **Parameter** 요소 집합을 사용하여 유효성 검사를 수행합니다. 예를 들어 조건자는 문자열 클레임 값의 길이가 지정한 최소/최대 매개 변수 범위 내에 포함되는지 여부나 문자열 클레임 값에 특정 문자 집합이 포함되는지 여부를 확인할 수 있습니다. 확인이 실패하면 **UserHelpText** 요소가 사용자용 오류 메시지를 제공합니다. [언어 사용자 지정](localization.md)을 통해 **UserHelpText** 요소의 값을 지역화할 수 있습니다.
 
 **Predicates** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
-| Predicate | 1:n | 조건자 목록입니다. | 
+| Predicate | 1:n | 조건자 목록입니다. |
 
 **Predicate** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필수 | Description |
 | --------- | -------- | ----------- |
 | Id | 예 | 조건자에 사용되는 식별자입니다. 다른 요소는 정책에서 이 식별자를 사용할 수 있습니다. |
-| 방법 | 예 | 유효성 검사에 사용할 메서드 형식입니다. 가능한 값: **IsLengthRange**, **MatchesRegex**, **IncludesCharacters** 또는 **IsDateRange**. **IsLengthRange** 값은 문자열 클레임 값의 길이가 지정한 최소/최대 매개 변수 범위 내에 포함되는지 여부를 확인합니다. **MatchesRegex** 값은 문자열 클레임 값이 정규식과 일치하는지 여부를 확인합니다. **IncludesCharacters** 값은 문자열 클레임 값에 특정 문자 집합이 포함되는지 여부를 확인합니다. **IsDateRange** 값은 날짜 클레임 값이 지정한 최소/최대 매개 변수 범위 사이에 있는지 여부를 확인합니다. |
+| 메서드 | 예 | 유효성 검사에 사용할 메서드 형식입니다. 가능한 값은 다음과 같습니다. **IsLengthRange**, **MatchesRegex**, **IncludesCharacters** 또는 **IsDateRange**. **IsLengthRange** 값은 문자열 클레임 값의 길이가 지정한 최소/최대 매개 변수 범위 내에 포함되는지 여부를 확인합니다. **MatchesRegex** 값은 문자열 클레임 값이 정규식과 일치하는지 여부를 확인합니다. **IncludesCharacters** 값은 문자열 클레임 값에 특정 문자 집합이 포함되는지 여부를 확인합니다. **IsDateRange** 값은 날짜 클레임 값이 지정한 최소/최대 매개 변수 범위 사이에 있는지 여부를 확인합니다. |
 
 **Predicate** 요소에는 다음과 같은 요소가 포함됩니다.
 
 | 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 | 확인이 실패하면 사용자에게 표시할 오류 메시지입니다. [언어 사용자 지정](localization.md)을 통해 이 문자열을 지역화할 수 있습니다. |
-| 매개 변수 | 1:1 | 문자열 유효성 검사의 메서드 형식에 대한 매개 변수입니다. | 
+| 매개 변수 | 1:1 | 문자열 유효성 검사의 메서드 형식에 대한 매개 변수입니다. |
 
 **Parameters** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
-| 매개 변수 | 1:n | 문자열 유효성 검사의 메서드 형식에 대한 매개 변수입니다. | 
+| 매개 변수 | 1:n | 문자열 유효성 검사의 메서드 형식에 대한 매개 변수입니다. |
 
 **Parameter** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | Id | 1:1 | 매개 변수의 식별자입니다. |
 
@@ -108,7 +108,7 @@ ms.locfileid: "66512958"
 </Predicate>
 ```
 
-## <a name="predicatevalidations"></a>PredicateValidations 
+## <a name="predicatevalidations"></a>PredicateValidations
 
 조건자는 클레임 형식에 대해 확인할 유효성 검사를 정의하는 반면 **PredicateValidations**는 조건자 집합을 그룹화하여 클레임 형식에 적용할 수 있는 사용자 입력 유효성 검사를 작성합니다. 각 **PredicateValidation** 요소는 **PredicateGroup** 요소 집합을 포함하며, 이 요소 집합에는 **Predicate**를 가리키는 **PredicateReference** 요소 집합이 포함됩니다. 유효성 검사에 통과하려면 클레임의 값이 **PredicateReference** 요소 집합을 포함하는 모든 **PredicateGroup**에서 조건자의 테스트를 모두 통과해야 합니다.
 
@@ -132,13 +132,13 @@ ms.locfileid: "66512958"
 
 **PredicateValidations** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
-| PredicateValidation | 1:n | 조건자 유효성 검사 목록입니다. | 
+| PredicateValidation | 1:n | 조건자 유효성 검사 목록입니다. |
 
 **PredicateValidation** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필수 | Description |
 | --------- | -------- | ----------- |
 | Id | 예 | 조건자 유효성 검사에 사용되는 식별자입니다. **ClaimType** 요소는 정책에서 이 식별자를 사용할 수 있습니다. |
 
@@ -146,38 +146,38 @@ ms.locfileid: "66512958"
 
 | 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
-| PredicateGroups | 1:n | 조건자 그룹 목록입니다. | 
+| PredicateGroups | 1:n | 조건자 그룹 목록입니다. |
 
 **PredicateGroups** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
-| PredicateGroup | 1:n | 조건자 목록입니다. | 
+| PredicateGroup | 1:n | 조건자 목록입니다. |
 
 **PredicateGroup** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필수 | Description |
 | --------- | -------- | ----------- |
 | Id | 예 | 조건자 그룹에 사용되는 식별자입니다.  |
 
 **PredicateGroup** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
-| UserHelpText | 1:1 |  사용자가 입력해야 하는 값을 쉽게 확인할 수 있는 조건자 설명입니다. | 
-| PredicateReferences | 1:n | 조건자 참조 목록입니다. | 
+| UserHelpText | 1:1 |  사용자가 입력해야 하는 값을 쉽게 확인할 수 있는 조건자 설명입니다. |
+| PredicateReferences | 1:n | 조건자 참조 목록입니다. |
 
 **PredicateReferences** 요소에는 다음과 같은 특성이 포함됩니다.
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| MatchAtLeast | 아닙니다. | 입력이 허용되려면 값이 일치해야 하는 조건자 정의의 최소 수를 지정합니다. |
+| MatchAtLeast | 아니요 | 입력이 허용되려면 값이 일치해야 하는 조건자 정의의 최소 수를 지정합니다. |
 
 **PredicateReferences** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
-| PredicateReference | 1:n | 조건자에 대한 참조입니다. | 
+| PredicateReference | 1:n | 조건자에 대한 참조입니다. |
 
 **PredicateReference** 요소에는 다음과 같은 특성이 포함됩니다.
 
@@ -188,7 +188,7 @@ ms.locfileid: "66512958"
 
 ## <a name="configure-password-complexity"></a>암호 복잡도 구성
 
-**Predicates** 및 **PredicateValidationsInput**을 사용하면 계정을 만들 때 사용자가 입력하는 암호의 복잡도 요구 사항을 제어할 수 있습니다. 기본적으로 Azure AD B2C는 강력한 암호를 사용합니다. 또한 Azure AD B2C는 고객이 사용할 수는 암호의 복잡성을 제어하는 구성 옵션을 지원합니다. 다음의 조건자 요소를 사용하면 암호 복잡도를 정의할 수 있습니다. 
+**Predicates** 및 **PredicateValidationsInput**을 사용하면 계정을 만들 때 사용자가 입력하는 암호의 복잡도 요구 사항을 제어할 수 있습니다. 기본적으로 Azure AD B2C는 강력한 암호를 사용합니다. 또한 Azure AD B2C는 고객이 사용할 수는 암호의 복잡성을 제어하는 구성 옵션을 지원합니다. 다음의 조건자 요소를 사용하면 암호 복잡도를 정의할 수 있습니다.
 
 - **IsLengthBetween8And64**(`IsLengthRange` 메서드 사용)는 암호가 8~64자 사이여야 한다는 유효성을 검사합니다.
 - **Lowercase**(`IncludesCharacters` 메서드 사용)는 암호가 소문자를 포함하는지 유효성을 검사합니다.
@@ -348,7 +348,7 @@ ms.locfileid: "66512958"
 
 아래에는 Azure AD B2C에서 오류 메시지가 표시될 때 요소가 구성되는 방식이 나와 있습니다.
 
-![조건자 프로세스](./media/predicates/predicates-pass.png)
+![조건자 및 PredicateGroup 암호 복잡성 예제 다이어그램](./media/predicates/predicates-pass.png)
 
 ## <a name="configure-a-date-range"></a>날짜 범위 구성
 
@@ -382,8 +382,8 @@ ms.locfileid: "66512958"
 </PredicateValidations>
 ```
 
-클레임 형식에서 **PredicateValidationReference** 요소를 추가하고 식별자를 `CustomDateRange`로 지정합니다. 
-    
+클레임 형식에서 **PredicateValidationReference** 요소를 추가하고 식별자를 `CustomDateRange`로 지정합니다.
+
 ```XML
 <ClaimType Id="dateOfBirth">
   <DisplayName>Date of Birth</DisplayName>

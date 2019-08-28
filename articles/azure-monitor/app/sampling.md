@@ -22,7 +22,7 @@ ms.locfileid: "67310442"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
-샘플링은 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)의 기능입니다. 애플리케이션 데이터의 올바른 분석을 통계적으로 유지하는 동안 원격 분석 트래픽 및 저장소를 줄일 수 있는 좋은 방법입니다. 필터는 관련된 항목을 선택하여 진단 조사를 수행할 때 항목 간을 탐색할 수 있도록 합니다.
+샘플링은 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)의 기능입니다. 애플리케이션 데이터의 올바른 분석을 통계적으로 유지하는 동안 원격 분석 트래픽 및 스토리지를 줄일 수 있는 좋은 방법입니다. 필터는 관련된 항목을 선택하여 진단 조사를 수행할 때 항목 간을 탐색할 수 있도록 합니다.
 포털에서 메트릭 개수가 표시 됩니다 하는 경우 계정 샘플링 야 정상화 됩니다. 이렇게 하면 통계에 영향을 주지 최소화 됩니다.
 
 샘플링은 트래픽 및 데이터 비용을 줄여주며 제한을 피하는 데 도움이 됩니다.

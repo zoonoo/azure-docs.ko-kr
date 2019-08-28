@@ -2,23 +2,23 @@
 title: 조직의 로그인 페이지에 브랜딩 추가 - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory 로그인 페이지에 조직의 브랜딩을 추가하는 방법에 대한 지침입니다.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bef3960e5c117a131b59a65196214c51e01bd3c8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 3ae329bd031a2a57ea4fc2eec9cde1e532439bb4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204587"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561703"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>조직의 Azure Active Directory 로그인 페이지에 브랜딩 추가
 조직의 로고 및 사용자 지정 색 구성표를 사용하여 Azure AD(Azure Active Directory) 로그인 페이지에 일관된 모양과 느낌을 제공합니다. 사용자가 Office 365와 같은 조직의 웹 기반 앱에 로그인할 때 로그인 페이지가 나타납니다. 여기서는 Azure AD를 ID 공급자로 사용합니다.
@@ -29,7 +29,7 @@ ms.locfileid: "67204587"
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Azure AD 로그인 페이지 사용자 지정
 사용자가 조직의 테넌트별 앱(예: [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com))에 로그인하거나 도메인 변수(예: [ *https://passwordreset.microsoftonline.com/?whr=contoso.com* ](https://passwordreset.microsoftonline.com/?whr=contoso.com))를 전달할 때 표시되는 Azure AD 로그인 페이지를 사용자 지정할 수 있습니다.
 
-사용자에 게 www 같은 사이트로 이동 하는 경우 즉시 표시 되지 않습니다 사용자 지정 브랜딩이\.office.com 합니다. 대신, 사용자 지정된 브랜딩이 표시되기 전에 사용자는 로그인해야 합니다.
+사용자가 www\.office.com 등의 사이트로 이동 하는 경우 사용자 지정 브랜딩은 즉시 나타나지 않습니다. 대신, 사용자 지정된 브랜딩이 표시되기 전에 사용자는 로그인해야 합니다.
 
 > [!NOTE]
 > 모든 브랜딩 요소는 선택 사항입니다. 예를 들어 배경 이미지가 없는 배너 로고를 지정하는 경우 로그인 페이지는 대상 사이트(예: Office 365)의 기본 배경 이미지를 사용하여 로고를 표시합니다.<br><br>또한 로그인 페이지 브랜딩은 개인 Microsoft 계정에 적용되지 않습니다. 사용자 또는 비즈니스 게스트가 개인 Microsoft 계정을 사용하여 로그인하는 경우 로그인 페이지는 조직의 브랜딩을 반영하지 않습니다.
@@ -58,7 +58,7 @@ ms.locfileid: "67204587"
 
         - **배너 로고** 사용자가 **My Apps** 포털 페이지에서 사용자 이름을 입력한 후에 .png 또는 .jpg 버전의 로고를 선택하여 로그인 페이지에 표시합니다.
             
-            이미지는 60 픽셀을 넘지 또는 280 픽셀 보다 넓을 수 없습니다. 배경이 로고 배경과 일치하지 않을 수 있으므로 투명 이미지를 사용하는 것이 좋습니다. 이미지 주위에 패딩을 추가하지 않는 것이 좋습니다. 그렇지 않으면 로고가 작게 보입니다.
+            이미지는 60 픽셀 보다 크거나 280 픽셀 보다 클 수 없습니다. 배경이 로고 배경과 일치하지 않을 수 있으므로 투명 이미지를 사용하는 것이 좋습니다. 이미지 주위에 패딩을 추가하지 않는 것이 좋습니다. 그렇지 않으면 로고가 작게 보입니다.
 
         - **사용자 이름 힌트** 사용자 이름을 잊어버린 경우 사용자에게 표시되는 힌트 텍스트를 입력합니다. 이 텍스트는 링크 또는 코드 없는 유니코드여야 하고 64자를 초과할 수 없습니다. 게스트가 앱에 로그인하는 경우 이 힌트를 추가하는 것이 좋습니다.
 
@@ -70,7 +70,7 @@ ms.locfileid: "67204587"
 
         - **로그인 페이지 배경색** 낮은 대역폭 연결 상황에서 배경 이미지 대신 표시되는 16진수 색(예: 흰색 #FFFFFF)을 지정합니다. 배너 로고 또는 조직 색의 기본 색을 사용하는 것이 좋습니다.
 
-        - **사각형 로고 이미지** 기본 설정된 .png 또는.jpg 이미지의 조직 로고를 선택하여 새 Windows 10 Enterprise 디바이스에 대한 설정 프로세스 중에 사용자에게 표시합니다. 이 이미지는 Windows 인증에만 사용하고, 다른 Windows 10 환경의 배포 또는 암호 항목 페이지에 [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)을 사용하는 테넌트에만 나타납니다. 일부 경우에는 승인 대화 상자에 나타날 수 있습니다 것.
+        - **사각형 로고 이미지** 기본 설정된 .png 또는.jpg 이미지의 조직 로고를 선택하여 새 Windows 10 Enterprise 디바이스에 대한 설정 프로세스 중에 사용자에게 표시합니다. 이 이미지는 Windows 인증에만 사용하고, 다른 Windows 10 환경의 배포 또는 암호 항목 페이지에 [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)을 사용하는 테넌트에만 나타납니다. 경우에 따라 동의 대화 상자에도 표시 될 수 있습니다.
         
             이미지는 크기가 240x240픽셀보다 클 수 없고 파일 크기가 10KB 미만이어야 합니다. 배경이 로고 배경과 일치하지 않을 수 있으므로 투명 이미지를 사용하는 것이 좋습니다. 이미지 주위에 패딩을 추가하지 않는 것이 좋습니다. 그렇지 않으면 로고가 작게 보입니다.
     
@@ -101,7 +101,7 @@ ms.locfileid: "67204587"
 
 3. **회사 브랜딩 구성** 페이지에서 이 문서에 있는 [Azure AD 로그인 페이지 사용자 지정](#customize-your-azure-ad-sign-in-page) 섹션의 설명에 따라 정보를 추가하거나, 제거하거나, 변경합니다.
 
-4. **저장**을 선택합니다.
+4.           **저장**을 선택합니다.
 
    로그인 페이지 브랜딩의 변경 내용을 보려면 최대 1시간이 걸릴 수 있습니다.
 
@@ -118,7 +118,7 @@ ms.locfileid: "67204587"
 
 3. **회사 브랜딩 구성** 페이지에서 언어(예: 프랑스어)를 선택한 다음, 이 문서에 있는 [Azure AD 로그인 페이지 사용자 지정](#customize-your-azure-ad-sign-in-page) 섹션의 설명에 따라 번역된 정보를 추가합니다.
 
-4. **저장**을 선택합니다.
+4.           **저장**을 선택합니다.
 
     **Contoso - 회사 브랜딩** 페이지는 새로운 프랑스어 구성을 표시하도록 업데이트됩니다.
 
@@ -127,7 +127,7 @@ ms.locfileid: "67204587"
 ## <a name="add-your-custom-branding-to-pages"></a>페이지에 사용자 지정 브랜딩 추가
 `?whr=yourdomainname` 텍스트에서 URL의 끝을 수정하여 페이지에 사용자 지정 브랜딩을 추가합니다. 이 수정은 MFA(Multi-Factor Authentication) 설정 페이지, SSPR(셀프 서비스 암호 재설정) 설정 페이지 및 로그인 페이지를 비롯한 여러 페이지에서 작동합니다.
 
-**예제:**
+**예:**
 
 **원본 URL:** https://aka.ms/MFASetup<br>
 **사용자 지정 URL:** https://account.activedirectory.windowsazure.com/proofup.aspx?whr=contoso.com

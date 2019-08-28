@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: LUIS 포털에서 새 앱 만들기'
-titleSuffix: Language Understanding - Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 LUIS 포털에서 새 앱을 만듭니다. 앱, 의도 및 엔터티의 기본적인 부분을 만듭니다. 예측된 의도를 얻기 위해 대화형 테스트 패널에 샘플 사용자 발언을 제공하여 앱을 테스트합니다. 앱 빌드는 무료로, Azure 구독이 필요하지 않습니다.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 2e4ff7dc97e3ee72336bd4c081caf1aa1a62bc56
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f54643883028d93b56c7e122f43db95bb6d0b8c1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146586"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560884"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>빠른 시작: LUIS 포털에서 새 앱 만들기
 
@@ -51,7 +51,7 @@ LUIS 앱이 만들어지면 의도를 만들어야 합니다. 의도는 사용�
 
 앱의 2가지 다른 _의도_는 다음과 같습니다.
 
-|의도|사용자의 예제 텍스트<br>(_발화_)|
+|Intent|사용자의 예제 텍스트<br>(_발화_)|
 |--|--|
 |ApplyForJob|`I want to apply for the new software engineering position in Cairo.`|
 |FindForm|`Where is the job transfer form hrf-123456?`|
@@ -116,7 +116,7 @@ LUIS 앱이 만들어지면 의도를 만들어야 합니다. 의도는 사용�
 
    ![정규식 엔터티에 대한 엔터티 정보를 입력합니다.](./media/get-started-portal-build-app/create-regular-expression-entity.png)
 
-1. **완료**를 선택합니다.
+1. **완료** 를 선택합니다.
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>None 의도에 예제 발언 추가
 

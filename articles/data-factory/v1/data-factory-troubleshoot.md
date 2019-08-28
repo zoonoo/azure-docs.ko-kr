@@ -14,12 +14,12 @@ ms.author: gamal
 ms.reviewer: maghan
 manager: craigg
 robots: noindex
-ms.openlocfilehash: 5f2627932eb2fd427d934eba322230222b5e6958
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cc880885777cbca67d6fb39b90feadc889339f76
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002941"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836170"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>데이터 팩터리 문제 해결
 > [!NOTE]
@@ -104,29 +104,29 @@ Azure PowerShell에서 올바른 Azure 계정 또는 구독을 사용하고 있�
 데이터 관리 게이트웨이를 사용하여 온-프레미스 데이터 저장소 간 복사 작업에서 발생하는 문제를 해결하는 단계는 [게이트웨이 문제 해결](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) 을 참조하세요.
 
 ### <a name="problem-on-demand-hdinsight-provisioning-fails"></a>문제: 주문형 HDInsight 프로비전 실패
-HDInsightOnDemand 형식의 연결된 서비스를 사용하는 경우 Azure Blob Storage를 가리키는 linkedServiceName을 지정해야 합니다. Data Factory 서비스는 이 저장소를 사용하여 주문형 HDInsight 클러스터에 대한 모든 로그 및 지원 파일을 저장합니다.  경우에 따라 다음 오류와 함께 주문형 HDInsight 클러스터 프로비전이 실패할 수 있습니다.
+HDInsightOnDemand 형식의 연결된 서비스를 사용하는 경우 Azure Blob Storage를 가리키는 linkedServiceName을 지정해야 합니다. Data Factory 서비스는 이 스토리지를 사용하여 주문형 HDInsight 클러스터에 대한 로그 및 지원 파일을 저장합니다.  경우에 따라 다음 오류와 함께 주문형 HDInsight 클러스터 프로비전이 실패할 수 있습니다.
 
 ```
 Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'StorageAccountNotColocated'.
 ```
 
-이 오류는 일반적으로 linkedServiceName에 지정된 저장소 계정의 위치가 HDInsight 프로비전이 발생하는 위치와 동일한 데이터 센터 위치에 있지 않음을 나타냅니다. 예: 데이터 팩터리는 미국 서부에 있고 Azure Storage는 미국 동부에 있는 경우 미국 서부에서 주문형 프로비전이 실패합니다.
+이 오류는 일반적으로 linkedServiceName에 지정된 스토리지 계정의 위치가 HDInsight 프로비전이 발생하는 위치와 동일한 데이터 센터 위치에 있지 않음을 나타냅니다. 예: 데이터 팩터리는 미국 서부에 있고 Azure Storage는 미국 동부에 있는 경우 미국 서부에서 주문형 프로비전이 실패합니다.
 
-또한 주문형 HDInsight에서 추가 저장소 계정을 지정할 수 있는 두 번째 JSON 속성 additionalLinkedServiceNames가 있습니다. 이러한 추가 연결된 저장소 계정은 HDInsight 클러스터와 동일한 위치에 있어야 합니다. 그렇지 않으면 동일한 오류가 발생하여 프로비저닝이 실패합니다.
+또한 주문형 HDInsight에서 추가 스토리지 계정을 지정할 수 있는 두 번째 JSON 속성 additionalLinkedServiceNames가 있습니다. 이러한 추가 연결된 스토리지 계정은 HDInsight 클러스터와 동일한 위치에 있어야 합니다. 그렇지 않으면 동일한 오류가 발생하여 프로비저닝이 실패합니다.
 
 ### <a name="problem-custom-net-activity-fails"></a>문제: 사용자 지정 .NET 작업 오류
 자세한 단계는 [사용자 지정 작업을 사용하여 파이프라인 디버그](data-factory-use-custom-activities.md#troubleshoot-failures) 를 참조하세요.
 
 ## <a name="use-azure-portal-to-troubleshoot"></a>Azure 포털을 사용하여 문제 해결
 ### <a name="using-portal-blades"></a>포털 블레이드 사용
-단계는 [파이프라인 모니터링](data-factory-build-your-first-pipeline-using-editor.md#monitor-a-pipeline) 을 참조하세요.
+단계는 [파이프라인 모니터링](data-factory-monitor-manage-pipelines.md) 을 참조하세요.
 
 ### <a name="using-monitor-and-manage-app"></a>모니터링 및 관리 앱 사용
 자세한 내용은 [모니터링 및 관리 앱을 사용하여 데이터 팩터리 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) 를 참조하세요.
 
 ## <a name="use-azure-powershell-to-troubleshoot"></a>Azure PowerShell을 사용하여 문제 해결
 ### <a name="use-azure-powershell-to-troubleshoot-an-error"></a>Azure PowerShell을 사용하여 오류 해결
-자세한 내용은 [Azure PowerShell을 사용하여 Data Factory 파이프라인 모니터링](data-factory-build-your-first-pipeline-using-powershell.md#monitor-pipeline) 을 참조하세요.
+자세한 내용은 [Azure PowerShell을 사용하여 Data Factory 파이프라인 모니터링](data-factory-monitor-manage-pipelines.md) 을 참조하세요.
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [use-custom-activities]: data-factory-use-custom-activities.md

@@ -35,10 +35,10 @@ SSIS를 사용하여 하이브리드 데이터 통합 시나리오에서 일반�
 > 
 
 ## <a name="prerequisites"></a>필수 조건
-이 문서에 설명된 작업을 수행하려면 Azure 구독이 있어야 하며 Azure 저장소 계정을 설정해야 합니다. 데이터를 업로드하거나 다운로드하려면 Azure 저장소 계정 이름 및 계정 키를 알아야 합니다.
+이 문서에 설명된 작업을 수행하려면 Azure 구독이 있어야 하며 Azure Storage 계정을 설정해야 합니다. 데이터를 업로드하거나 다운로드하려면 Azure Storage 계정 이름 및 계정 키를 알아야 합니다.
 
 * **Azure 구독**을 설정하려면 [1개월 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* **저장소 계정** 을 만들고 계정 및 키 정보를 가져오는 방법에 대한 지침은 [Azure 저장소 계정 정보](../../storage/common/storage-create-storage-account.md)를 참조하세요.
+* **스토리지 계정** 을 만들고 계정 및 키 정보를 가져오는 방법에 대한 지침은 [Azure Storage 계정 정보](../../storage/common/storage-create-storage-account.md)를 참조하세요.
 
 **SSIS 커넥터**를 사용하려면 다음을 다운로드해야 합니다.
 
@@ -82,7 +82,7 @@ SISS를 사용하여 간단한 ETL(추출, 변환 및 로드) 패키지를 빌�
 SSIS를 사용하여 Azure Blob Storage에서 온-프레미스 스토리지로 데이터를 다운로드하려면 [Azure Blob 다운로드 작업](https://msdn.microsoft.com/library/mt146779.aspx)의 인스턴스를 사용합니다.
 
 ## <a name="more-advanced-ssis-azure-scenarios"></a>고급 SSIS-Azure 시나리오
-SSIS 기능 팩을 사용하면 패키징 작업을 통해 보다 복잡한 흐름을 처리할 수 있습니다. 예를 들어 blob 데이터를 HDInsight 클러스터에 직접 공급하여 해당 출력을 blob로 다시 다운로드한 다음 온-프레미스 저장소에 다운로드할 수 있습니다. SSIS는 추가 SSIS 커넥터를 사용하여 HDInsight 클러스터에서 Hive 및 Pig 작업을 실행할 수 있습니다.
+SSIS 기능 팩을 사용하면 패키징 작업을 통해 보다 복잡한 흐름을 처리할 수 있습니다. 예를 들어 blob 데이터를 HDInsight 클러스터에 직접 공급하여 해당 출력을 blob로 다시 다운로드한 다음 온-프레미스 스토리지에 다운로드할 수 있습니다. SSIS는 추가 SSIS 커넥터를 사용하여 HDInsight 클러스터에서 Hive 및 Pig 작업을 실행할 수 있습니다.
 
 * SSIS를 사용하여 Azure HDInsight 클러스터에서 Hive 스크립트를 실행하려면 [Azure HDInsight Hive 작업](https://msdn.microsoft.com/library/mt146771.aspx)을 사용합니다.
 * SSIS를 사용하여 Azure HDInsight 클러스터에서 Pig 스크립트를 실행하려면 [Azure HDInsight Pig 작업](https://msdn.microsoft.com/library/mt146781.aspx)을 사용합니다.

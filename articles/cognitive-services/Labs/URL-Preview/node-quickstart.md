@@ -10,20 +10,21 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 5c373505cd381108366206c21ff09f25516d7969
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4a1045be62f3bdbf75f399c894f825fa99f8e671
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884293"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706890"
 ---
 # <a name="quickstart-url-preview-with-nodejs"></a>빠른 시작: Node.js를 통해 URL Preview 사용 
 
-다음 Node 예제에서는 SwiftKey 웹 사이트(https://swiftkey.com/en)에 대한 URL 미리 보기를 만듭니다.
+다음 Node 예제에서는 SwiftKey 웹 사이트(https://swiftkey.com/en )에 대한 URL 미리 보기를 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-[Cognitive Services Labs](https://aka.ms/answersearchsubscription) 평가판에 대한 액세스 키 가져오기
+[Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-answer-search) 평가판에 대한 액세스 키 가져오기
 
 ## <a name="code-scenario"></a>코드 시나리오 
 

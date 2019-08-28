@@ -8,19 +8,19 @@ manager: ''
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
-ms.service: monitoring-and-diagnostics
+ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
-ms.author: ajaycode
-ms.openlocfilehash: b112771e8c0f08e6b9a02c2fc5b7e1887b3f2588
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: agummadi
+ms.openlocfilehash: 2912488286745bf8d2e567d09e445b0a44dc7c39
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65620424"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672172"
 ---
 # <a name="network-monitoring-solutions"></a>네트워크 모니터링 솔루션 
 
@@ -41,7 +41,7 @@ NPM(네트워크 성능 모니터)은 애플리케이션에 대한 네트워크 
 
 성능 모니터는 NPM의 일부이며 클라우드, 하이브리드 및 온-프레미스 환경에 대한 네트워크 모니터링입니다. 원격 분기와 지사, 상점 위치, 데이터 센터 및 클라우드 전반의 네트워크 연결을 모니터링할 수 있습니다. 사용자가 불만을 제기하기 전에 네트워크 문제를 감지할 수 있습니다. 주요 이점은 다음과 같습니다.
 
-* 여러 서브넷에서 손실 및 대기 시간 모니터링 및 경고 설정
+* 다양한 서브넷에서 손실 및 대기 시간 모니터링, 경고 설정
 * 네트워크의 모든 경로(중복 경로 포함) 모니터링
 * 복제하기 어려운 일시적 및 특정 시점의 네트워크 문제 해결
 * 성능 저하를 야기한 네트워크의 특정 세그먼트 확인
@@ -94,7 +94,7 @@ ExpressRoute를 위한 NPM은 Azure 프라이빗 피어링 및 Microsoft 피어�
 ## <a name="traffic-analytics"></a>트래픽 분석
 트래픽 분석은 클라우드 네트워크에서 사용자 및 애플리케이션 작업에 대한 가시성을 제공하는 클라우드 기반 솔루션입니다. NSG 흐름 로그는 다음에 대한 자세한 정보를 제공하도록 분석됩니다.
 
-* Azure와 인터넷, 공용 클라우드 지역, VNET 및 서브넷 사이의 네트워크를 통한 트래픽 흐름
+* Azure와 인터넷, 퍼블릭 클라우드 지역, VNET 및 서브넷 사이의 네트워크를 통한 트래픽 흐름
 * 스니퍼나 전용 흐름 수집기가 필요 없는 네트워크상의 애플리케이션 및 프로토콜
 * 상위 토커, 대화량이 많은 애플리케이션, 클라우드의 VM 대화, 트래픽 핫스폿
 * VNET, 중요한 비즈니스 서비스와 애플리케이션 간의 상호 관계 트래픽의 원본 및 대상

@@ -9,12 +9,12 @@ ms.author: robreed
 manager: carmonm
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 3bcdb667ee649b9bbf32ad33e74e876cdd2b5cbf
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 0d877dafc4ab4f8ec4edb0a94450fa9c5dfcd0bb
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144185"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850239"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>원하는 상태로 서버 구성 및 드리프트 관리
 
@@ -27,7 +27,7 @@ Azure Automation 상태 구성을 사용하면 서버 구성을 지정하고 시
 > - 관리되는 노드에 노드 구성 할당
 > - 관리되는 노드에 대한 준수 상태 확인
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -63,6 +63,9 @@ configuration TestConfig {
    }
 }
 ```
+
+> [!NOTE]
+> DSC 리소스를 제공 하는 여러 모듈을 가져와야 하는 고급 시나리오에서는 각 모듈의 구성에 고유한 `Import-DscResource` 줄이 있는지 확인 합니다.
 
 `Import-AzureRmAutomationDscConfiguration` cmdlet을 호출하여 구성을 Automation 계정에 업로드합니다.
 
@@ -131,6 +134,17 @@ Set-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAcc
 기본적으로 DSC 노드에서는 30분마다 노드 구성이 준수되는지 확인합니다.
 준수 확인 간격을 변경하는 방법에 대한 자세한 내용은 [로컬 구성 관리자 구성](/PowerShell/DSC/metaConfig)을 참조하세요.
 
+## <a name="working-with-partial-configurations"></a>부분 구성 작업
+
+Azure Automation 상태 구성은 [부분 구성](/powershell/dsc/pull-server/partialconfigs)의 사용을 지원 합니다.
+이 시나리오에서 DSC는 여러 구성을 독립적으로 관리 하도록 구성 되 고 각 구성은 Azure Automation에서 검색 됩니다.
+그러나 automation 계정 마다 하나의 구성만 노드에 할당할 수 있습니다.
+즉, 노드에 대 한 두 가지 구성을 사용 하는 경우 두 개의 automation 계정이 필요 합니다.
+
+끌어오기 서비스에서 부분 구성을 등록 하는 방법에 대 한 자세한 내용은 [부분 구성](https://docs.microsoft.com/powershell/dsc/pull-server/partialconfigs#partial-configurations-in-pull-mode)설명서를 참조 하십시오.
+
+팀에서 구성을 사용 하 여 공동으로 서버를 공동 관리 하는 방법에 대 한 자세한 내용은 [CI/CD 파이프라인에서 DSC의 역할 이해](/powershell/dsc/overview/authoringadvanced)를 참조 하세요.
+
 ## <a name="check-the-compliance-status-of-a-managed-node"></a>관리되는 노드에 대한 준수 상태 확인
 
 `Get-AzureRmAutomationDscNodeReport` cmdlet을 호출하여 관리되는 노드의 준수 상태에 대한 보고서를 얻을 수 있습니다.
@@ -148,24 +162,24 @@ $reports[0]
 
 ## <a name="removing-nodes-from-service"></a>서비스에서 노드 제거
 
-Azure Automation 상태 구성 노드를 추가 하면 서비스 및 끌어오기 구성 및 컴퓨터를 구성 하는 필수 모듈을 사용 하 여 등록 설정은 로컬 Configuration Manager에서 설정 됩니다.
-서비스에서 노드를 제거 하려는 경우 Azure portal 또는 Az cmdlet을 사용 하 여 수행할 수 있습니다.
+Azure Automation 상태 구성에 노드를 추가 하는 경우 로컬 Configuration Manager의 설정은 서비스에 등록 하 고, 끌어오기 구성 및 필요한 모듈을 구성 하 여 컴퓨터를 구성 합니다.
+서비스에서 노드를 제거 하도록 선택 하는 경우 Azure Portal 또는 Az cmdlet 중 하나를 사용 하 여이 작업을 수행할 수 있습니다.
 
 > [!NOTE]
-> 노드는 더 이상 서비스에 연결 하도록 로컬 구성 관리자 설정을 설정만 서비스에서 노드를 등록 취소 합니다.
-> 현재 노드에 적용 되는 구성을 미치지 않습니다.
-> 현재 구성을 제거 하려면 사용 합니다 [PowerShell](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1) 하거나 (이 Linux 노드에 대 한 유일한 옵션) 로컬 구성 파일을 삭제 합니다.
+> 서비스에서 노드의 등록을 취소 하면 노드가 서비스에 더 이상 연결 되지 않도록 로컬 Configuration Manager 설정만 설정 합니다.
+> 현재 노드에 적용 되는 구성에는 영향을 주지 않습니다.
+> 현재 구성을 제거 하려면 [PowerShell](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1) 을 사용 하거나 로컬 구성 파일을 삭제 합니다 (Linux 노드의 유일한 옵션).
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
-Azure Automation에서 클릭 **상태 구성 (DSC)** 목차에서.
-다음 클릭 **노드** 서비스를 사용 하 여 등록 된 노드 목록을 볼 수 있습니다.
+Azure Automation에서 목차의 **상태 구성 (DSC)** 을 클릭 합니다.
+그런 다음 **노드** 를 클릭 하 여 서비스에 등록 된 노드 목록을 표시 합니다.
 제거 하려는 노드의 이름을 클릭 합니다.
-열리는 노드 보기를 클릭 **등록 취소**합니다.
+열리는 노드 보기에서 **등록 취소**를 클릭 합니다.
 
 ### <a name="powershell"></a>PowerShell
 
-PowerShell을 사용 하 여 Azure Automation 상태 구성 서비스에서 노드의 등록을 취소 하려면 cmdlet에 대 한 설명서를 따라 [등록 취소 AzAutomationDscNode](https://docs.microsoft.com/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-2.0.0)합니다.
+PowerShell을 사용 하 여 Azure Automation 상태 구성 서비스에서 노드를 등록 취소 하려면 cmdlet [AzAutomationDscNode](https://docs.microsoft.com/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-2.0.0)에 대 한 설명서를 따르세요.
 
 ## <a name="next-steps"></a>다음 단계
 

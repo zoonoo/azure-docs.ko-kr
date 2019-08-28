@@ -310,7 +310,7 @@ GET /admin/extensions/DurableTaskExtension/instances/instance123
 ```
 
 > [!WARNING]
-> 사용자 지정 상태 페이로드는 Azure Table Storage 열에 맞아야 하므로 16KB의 UTF-16 JSON 텍스트로 제한됩니다. 더 큰 페이로드가 필요한 경우 외부 저장소를 사용하면 됩니다.
+> 사용자 지정 상태 페이로드는 Azure Table Storage 열에 맞아야 하므로 16KB의 UTF-16 JSON 텍스트로 제한됩니다. 더 큰 페이로드가 필요한 경우 외부 스토리지를 사용하면 됩니다.
 
 ## <a name="debugging"></a>디버그
 
@@ -323,7 +323,7 @@ Azure Functions는 디버깅 함수 코드를 직접 지원하며, Azure 또는 
 > [!TIP]
 > 중단점을 설정할 때 재생되지 않는 실행에서만 중단하려면 `IsReplaying`이 `false`인 경우에만 중단되는 조건부 중단점을 설정할 수 있습니다.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>스토리지
 
 기본적으로 지속성 함수는 Azure Storage에 상태를 저장합니다. 즉 [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)와 같은 도구를 사용하여 오케스트레이션 상태를 검사할 수 있습니다.
 

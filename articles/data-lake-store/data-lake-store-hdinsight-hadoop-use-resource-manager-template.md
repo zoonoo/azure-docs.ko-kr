@@ -22,8 +22,8 @@ ms.locfileid: "66161380"
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Azure Data Lake Storage Gen1을 사용하는 HDInsight 클러스터 만들기
 > [!div class="op_single_selector"]
 > * [포털 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
-> * [PowerShell 사용(기본 저장소의 경우)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-> * [PowerShell 사용(추가 저장소의 경우)](data-lake-store-hdinsight-hadoop-use-powershell.md)
+> * [PowerShell 사용(기본 스토리지의 경우)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+> * [PowerShell 사용(추가 스토리지의 경우)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 > * [Resource Manager 사용](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 >
 >

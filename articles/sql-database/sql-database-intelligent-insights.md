@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 15154844c954e53ca1add5d3fbaa3e9d02152ad2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d77557f6d5d6a7bb741b9ff6caa4ea8f76db19c0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60703214"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567872"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>AI를 사용하여 데이터베이스 성능을 모니터링하고 문제를 해결하는 Intelligent Insights
 
@@ -49,7 +48,7 @@ Intelligent Insights는 마지막 1시간의 데이터베이스 워크로드와 
 
 확인된 SQL Database 성능 저하는 다음 속성으로 구성된 지능형 항목과 함께 진단 로그에 기록됩니다.
 
-| 자산             | 세부 정보              |
+| 속성             | 세부 정보              |
 | :------------------- | ------------------- |
 | 데이터베이스 정보 | 리소스 URI와 같이 정보가 검색된 데이터베이스에 대한 메타데이터 |
 | 관찰된 시간 범위 | 검색된 정보 기간에 대한 시작 및 종료 시간 |
@@ -69,11 +68,11 @@ Intelligent Insights는 SQL Database 성능 문제를 검색하고 해결할 때
 
 ## <a name="configure-intelligent-insights"></a>Intelligent Insights 구성
 
-Intelligent Insights의 출력은 스마트 성능 진단 로그를 사용합니다. 이 로그를 여러 방법으로(Azure SQL Analytics, Azure Event Hubs 및 Azure 저장소를 통해 또는 타사 제품을 통해) 사용할 수 있습니다.
+Intelligent Insights의 출력은 스마트 성능 진단 로그를 사용합니다. 이 로그를 여러 방법으로(Azure SQL Analytics, Azure Event Hubs 및 Azure Storage를 통해 또는 타사 제품을 통해) 사용할 수 있습니다.
 
 - 이 제품을 [Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql)와 함께 사용하여 Azure Portal의 사용자 인터페이스를 통해 인사이트를 볼 수 있습니다. 이 제품은 통합된 Azure 솔루션이며, 인사이트를 살펴보는 가장 일반적인 방법입니다.
 - Azure Event Hubs와 함께 사용하여 사용자 지정 모니터링 및 경고 시나리오를 개발할 수 있습니다.
-- 이 제품을 Azure 저장소와 함께 사용하여 사용자 지정 보고, 장기 데이터 보관 등의 사용자 지정 애플리케이션 개발할 수 있습니다.
+- 이 제품을 Azure Storage와 함께 사용하여 사용자 지정 보고, 장기 데이터 보관 등의 사용자 지정 애플리케이션 개발할 수 있습니다.
 
 Intelligent Insights를 Azure SQL Analytics, Azure Event Hubs, Azure Storage 또는 소비자용 타사 제품과 통합하려면 먼저 데이터베이스의 [진단] 설정 블레이드에서 Intelligent Insights 로깅("SQLInsights" 로그)을 사용하도록 설정한 다음, 이러한 제품 중 하나로 스트리밍되도록 Intelligent Insights 로그 데이터를 구성합니다.
 

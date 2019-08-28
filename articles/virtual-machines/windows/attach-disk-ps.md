@@ -1,27 +1,18 @@
 ---
 title: Azure에서 PowerShell을 사용하여 Windows VM에 데이터 디스크 연결 | Microsoft Docs
 description: Resource Manager 배포 모델에서 PowerShell을 사용하여 새롭거나 기존의 데이터 디스크를 Windows VM에 연결하는 방법입니다.
-services: virtual-machines-windows
-documentationcenter: ''
 author: roygara
-manager: twooley
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 6a20dac0f89390f1229c7a71793814dc9f9397c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 615eedc66d1c4ac931067ffccdace5d161b18384
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66727861"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699877"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>PowerShell을 사용하여 Windows VM에 데이터 디스크 연결
 

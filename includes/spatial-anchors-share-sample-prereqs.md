@@ -4,12 +4,12 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
-ms.openlocfilehash: bd7db1dd5d5fd6e19584e66a9af1523567d593bf
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 0e81a9b6a91d2a9ed1af922dbbc53720022ff598
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67181903"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69657830"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
@@ -23,10 +23,10 @@ ms.locfileid: "67181903"
 * [.NET Core 2.2 SDK](https://dotnet.microsoft.com/download).
 * 앱을 배포하고 실행할 하나 이상의 디바이스(iOS 또는 Android)
   * Android를 사용하는 경우 다음 조건을 충족해야 합니다.
-    * <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.3</a> 이상, <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3</a> 이상, <a href="https://git-scm.com/download/win" target="_blank">Windows용 Git</a>가 설치된 Windows 컴퓨터
+    * <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.3</a> 이상, <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1</a> 이상, <a href="https://git-scm.com/download/win" target="_blank">Windows용 Git</a>가 설치된 Windows 컴퓨터.
     * <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">개발자가 사용 가능한</a> <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore 지원</a> Android 디바이스
   * iOS를 사용하는 경우 다음 조건을 충족해야 합니다.
-    * <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10</a> 이상, <a href="https://cocoapods.org" target="_blank">CocoaPods</a>, <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3</a> 이상이 설치된 macOS 컴퓨터
+    * <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10</a> 이상, <a href="https://cocoapods.org" target="_blank">CocoaPods</a>, <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1</a> 이상이 설치된 macOS 컴퓨터.
     * 개발자가 사용 가능한 <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">ARKit 호환</a> iOS 디바이스
     * Homebrew를 통해 설치된 Git 터미널의 한 줄에 `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` 명령을 입력한 다음, `brew install git` 명령을 실행합니다.
 

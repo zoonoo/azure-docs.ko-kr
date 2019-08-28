@@ -1,6 +1,6 @@
 ---
 title: 제한된 평가판 프로젝트를 Azure로 이동
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 제한된 평가판 프로젝트를 Azure로 이동하는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: anrothMSFT
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: anroth
-ms.openlocfilehash: 6fac6531ea0a39796de13f95aee33b30dc91f131
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22c3767dfac1e377890f1e01517d18263e694854
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60816526"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560927"
 ---
 # <a name="how-to-move-your-limited-trial-project-to-azure"></a>제한된 평가판 프로젝트를 Azure로 이동하는 방법
 
@@ -27,7 +27,7 @@ Custom Vision Service의 Azure로의 이동이 완료되면, Azure 외부에서 
 
 [마이그레이션 스크립트](https://github.com/Azure-Samples/custom-vision-move-project)는 현재 반복에서 모든 지역, 태그와 이미지를 다운로드한 다음 업로드하여 프로젝트를 다시 생성합니다. 따라서 학습시킬 수 있는, 새 구독 내의 새 프로젝트가 생성됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 - [Custom Vision 웹 사이트](https://customvision.ai)에 로그온하기 원하는 Microsoft 계정 또는 Azure Active Directory(AAD) 계정에 로그인하는데 관련된 유효한 Azure 구독이 필요합니다. 
     - Azure 계정이 없는 경우 무료 [계정을 생성합니다](https://azure.microsoft.com/free/).
@@ -50,7 +50,7 @@ Azure에서 Custom Vision Service를 사용하려면, [Azure portal](https://por
 
 ## <a name="use-the-python-sample-code-to-copy-your-project-to-azure"></a>Python 샘플 코드를 사용하여 Azure에 프로젝트 복사
 
-제한된 평가판 키와 프로젝트 ID를 "원본" 자료로 사용하고 만든 새 Azure 리소스의 키를 "대상"으로 사용하여 [샘플 코드 지침](https://github.com/Azure-Samples/custom-vision-move-project)을 따라합니다.
+"원본" 자료로 제한 된 평가판 키와 프로젝트 ID를 사용 하 고 "대상"으로 만든 새 Azure 리소스의 키를 사용 하 여 [샘플 코드 지침](https://github.com/Azure-Samples/custom-vision-move-project)을 따릅니다.
 
 기본적으로 모든 제한된 평가판 프로젝트는 미국 중남부 Azure 지역에서 호스트됩니다.
 
@@ -58,4 +58,4 @@ Azure에서 Custom Vision Service를 사용하려면, [Azure portal](https://por
 
 이제 프로젝트가 Azure 리소스에 옮겨졌습니다. 작성한 응용 프로그램의 학습 및 예측 키를 업데이트해야 합니다.
 
-[Custom Vision 웹 사이트](https://customvision.ai)에서 프로젝트를 보기 위해서는, Azure portal에 로그인하는 동일한 계정을 사용하여 로그인합니다. 프로젝트가 표시되지 않는 경우, [Custom Vision 웹 사이트](https://customvision.ai)에서 Azure portal에서 리소스가 위치한 디렉터리와 동일한 디렉터리에 있는지 확인하십시오. Azure portal 및 CustomVision.ai 모두에서 화면의 오른쪽 위 모서리에 있는 드롭다운 사용자 메뉴에서 디렉터리를 선택할 수 있습니다.
+[Custom Vision 웹 사이트](https://customvision.ai)에서 프로젝트를 보기 위해서는, Azure portal에 로그인하는 동일한 계정을 사용하여 로그인합니다. 프로젝트가 표시되지 않는 경우, [Custom Vision 웹 사이트](https://customvision.ai)에서 Azure portal에서 리소스가 위치한 디렉터리와 동일한 디렉터리에 있는지 확인하십시오. Azure Portal 및 CustomVision.ai 모두에서 화면의 오른쪽 위 모퉁이에 있는 드롭다운 사용자 메뉴에서 디렉터리를 선택할 수 있습니다.

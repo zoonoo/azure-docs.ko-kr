@@ -1,20 +1,20 @@
 ---
 title: Azure Maps에 이미지 계층 추가 | Microsoft Docs
-description: Javascript 맵에 이미지 계층을 추가하는 방법
+description: Azure Maps 웹 SDK에 이미지 계층을 추가 하는 방법입니다.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/3/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 5396fefca3a60dea7a503f8b4e84cc575753ea30
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6c43ccaee473eca701d15a5a83f84814d65c6b7c
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60769569"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976155"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>맵에 이미지 계층 추가
 
@@ -31,28 +31,38 @@ ms.locfileid: "60769569"
 
 ## <a name="add-an-image-layer"></a>이미지 계층 추가
 
-이 샘플에서는 맵에 [1922년 뉴어크 뉴저지 맵](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg)의 이미지를 오버레이하는 방법을 보여줍니다.
+다음 코드에서는 map의 [1922에서 뉴어크 New Jersey의 map](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) 이미지를 오버레이 합니다. [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) 는 이미지에 URL을 전달 하 고 네 모퉁이의 좌표를 형식 `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`으로 전달 하 여 만듭니다.
+
+```javascript
+//Create an image layer and add it to the map.
+map.layers.add(new atlas.layer.ImageLayer({
+    url: 'newark_nj_1922.jpg',
+    coordinates: [
+        [-74.22655, 40.773941], //Top Left Corner
+        [-74.12544, 40.773941], //Top Right Corner
+        [-74.12544, 40.712216], //Bottom Right Corner
+        [-74.22655, 40.712216]  //Bottom Left Corner
+    ]
+}));
+```
+
+다음은 위의 기능을 실행 하는 전체 코드 샘플입니다.
 
 <br/>
 
 <iframe height='500' scrolling='no' title='단순 이미지 계층' src='//codepen.io/azuremaps/embed/eQodRo/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 <a href='https://codepen.io/azuremaps/pen/eQodRo/'>Pen Simple 이미지 계층</a>을 참조하세요.
 </iframe>
 
-위의 코드에서 첫 번째 코드 블록은 지도 개체를 만듭니다. 지침은 [지도 만들기](./map-create.md)를 참조하세요.
-
-두 번째 코드 블록에서 `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`에서 4개의 모서리의 이미지 및 좌표에 대한 URL을 전달하면 [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest)가 만들어집니다.
-
 ## <a name="import-a-kml-ground-overlay"></a>KML 지면 오버레이 가져오기
 
-이 샘플은 KML 지면 오버레이 정보를 맵에서 이미지 계층으로 오버레이하는 방법을 보여줍니다. KML 지면 오버레이는 북, 남, 동, 서 좌표 및 시계반대방향 회전을 제공하며, 여기서 이미지 계층은 이미지의 각 모서리에 대한 좌표를 예상합니다. 이 샘플에서 KML 지면 오버레이는 출처가 [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml)인 샤르트르 대성당입니다.
+이 샘플은 KML 지면 오버레이 정보를 맵에서 이미지 계층으로 오버레이하는 방법을 보여줍니다. KML 접지 오버레이는 북쪽, 남쪽, 동쪽 및 서 부 좌표와 반시계 방향 회전을 제공 하지만 이미지 계층은 이미지의 각 모퉁이에 대해 좌표가 필요 합니다. 이 샘플에서 KML 지면 오버레이는 출처가 [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml)인 샤르트르 대성당입니다.
+
+다음 코드에서는 [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) 클래스의 `getCoordinatesFromEdges` 정적 함수를 사용 하 여 KML 그라운드 오버레이의 북부, 남부, 동부, 서 부 및 회전 정보에서 이미지의 네 모퉁이를 계산 합니다.
 
 <br/>
 
 <iframe height='500' scrolling='no' title='이미지 계층으로 KML 지면 오버레이' src='//codepen.io/azuremaps/embed/EOJgpj/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 Pen <a href='https://codepen.io/azuremaps/pen/EOJgpj/'>이미지 계층으로 KML 지면 오버레이</a>를 참조하세요.
 </iframe>
-
-위의 코드는 [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) 클래스의 고정 `getCoordinatesFromEdges` 함수를 사용하여 KML 지면 오버레이에서 북, 남, 동, 서 및 회전 정보로부터 이미지의 네 모서리를 계산합니다.
-
 
 ## <a name="customize-an-image-layer"></a>이미지 계층 사용자 지정
 

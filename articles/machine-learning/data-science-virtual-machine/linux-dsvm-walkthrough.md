@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: Linux 데이터 과학 VM을 사용하여 몇 가지 일반적인 데이터 과학 작업을 수행하는 방법입니다.
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 editor: cgronlun
 ms.custom: seodec18
@@ -16,13 +16,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.author: gokuma
-ms.openlocfilehash: 6e8883870cc0f035df5122e91449f04203836218
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: vijetaj
+ms.openlocfilehash: 8100108adc7115921948d3e8f10e415bc2705fbd
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60516907"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051640"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Azure에서 Linux 데이터 과학 Virtual Machine을 사용하여 데이터 과학
 이 연습에서는 Linux 데이터 과학 VM을 사용하여 몇 가지 일반 데이터 과학 작업을 수행하는 방법을 보여 줍니다. Linux DSVM(데이터 과학 Virtual Machine)은 데이터 분석 및 기계 학습에 흔히 사용되는 도구 모음과 함께 미리 설치된, Azure에서 사용 가능한 가상 머신 이미지입니다. 주요 소프트웨어 구성 요소는 [Linux 데이터 과학 Virtual Machine 프로비전](linux-dsvm-intro.md) 항목에 항목별로 나와 있습니다. VM 이미지를 사용하면 각 도구를 개별적으로 설치하고 구성할 필요 없이 몇 분 내에 데이터 과학 작업을 쉽게 시작할 수 있습니다. 필요한 경우 VM을 쉽게 확장하고 사용하지 않을 때 중지할 수 있습니다. 따라서 이 리소스는 탄력적이고 비용 효율적입니다.
@@ -31,13 +31,13 @@ ms.locfileid: "60516907"
 
 이 연습에서는 [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) 데이터 세트를 분석합니다. 이는 스팸 또는 햄(스팸이 아니라는 의미)으로 표시되는 메일 집합이며 메일의 내용에 대한 일부 통계도 포함합니다. 포함되어 있는 통계는 다음 한 섹션에만 설명되어 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 Linux 데이터 과학 Virtual Machine을 사용하려면 먼저 다음이 있어야 합니다.
 
 * **Azure 구독**. 아직 없을 경우 [지금 무료 Azure 계정 만들기](https://azure.microsoft.com/free/)를 참조하세요.
 * [**Linux 데이터 과학 VM**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). 이 VM 프로비전에 대한 자세한 내용은 [Linux 데이터 과학 Virtual Machine 프로비전](linux-dsvm-intro.md)을 참조하세요.
-* [X2Go](https://wiki.x2go.org/doku.php) . **X2Go 클라이언트**설치 및 구성에 대한 자세한 내용은 [X2Go 클라이언트 설치 및 구성](linux-dsvm-intro.md#installing-and-configuring-x2go-client)을 참조하세요.
-* 더 부드러운 스크롤 경험을 원할 경우 VMS FireFox 브라우저의 about:config에서 gfx.xrender.enabled 플래그를 전환합니다. [여기에서 자세한 내용을 알아보세요](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). *mousewheel.enable_pixel_scrolling*을 False로 전환해 보세요. [여기의 지침을 참조하세요.](https://support.mozilla.org/en-US/questions/981140)
+* [X2Go](https://wiki.x2go.org/doku.php) . **X2Go 클라이언트**를 설치 하 고 구성 하는 방법에 대 한 자세한 내용은 [X2Go 클라이언트 설치 및 구성](linux-dsvm-intro.md#install-and-configure-the-x2go-client)을 참조 하세요.
+* 더 부드러운 스크롤 경험을 원할 경우 VMS FireFox 브라우저의 about:config에서 gfx.xrender.enabled 플래그를 전환합니다. [여기에서 자세한 내용을 알아보세요](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). *mousewheel.enable_pixel_scrolling*을 False로 전환해 보세요. [여기의 지침을 참조하세요.](https://support.mozilla.org/questions/981140)
 * **AzureML 계정**. 아직 없을 경우 [AzureML 홈 페이지](https://studio.azureml.net/)에서 새 계정을 등록합니다. 시작할 수 있도록 무료 사용 계층을 제공합니다.
 
 ## <a name="download-the-spambase-dataset"></a>spambase 데이터 세트 다운로드
@@ -48,7 +48,7 @@ Linux 데이터 과학 Virtual Machine을 사용하려면 먼저 다음이 있�
 >
 >
 
-저장소 공간이 더 필요한 경우 추가 디스크를 만들고 VM에 연결할 수 있습니다. 이러한 디스크는 영구 Azure Storage를 사용하므로 서버가 크기 조정으로 인해 다시 프로비전되거나 종료되는 경우에도 해당 데이터는 보존됩니다. 디스크를 추가하고 VM에 연결하려면 [Linux VM에 디스크 추가](../../virtual-machines/linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 지침을 따릅니다. 이러한 단계는 DSVM에 이미 설치되어 있는 Azure CLI(Azure 명령줄 인터페이스)를 사용합니다. 따라서 전적으로 VM 자체에서 이 절차를 수행할 수 있습니다. 저장소를 늘리는 또 다른 옵션은 [Azure Files](../../storage/files/storage-how-to-use-files-linux.md)를 사용하는 것입니다.
+스토리지 공간이 더 필요한 경우 추가 디스크를 만들고 VM에 연결할 수 있습니다. 이러한 디스크는 영구 Azure Storage를 사용하므로 서버가 크기 조정으로 인해 다시 프로비전되거나 종료되는 경우에도 해당 데이터는 보존됩니다. 디스크를 추가하고 VM에 연결하려면 [Linux VM에 디스크 추가](../../virtual-machines/linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 지침을 따릅니다. 이러한 단계는 DSVM에 이미 설치되어 있는 Azure CLI(Azure 명령줄 인터페이스)를 사용합니다. 따라서 전적으로 VM 자체에서 이 절차를 수행할 수 있습니다. 스토리지를 늘리는 또 다른 옵션은 [Azure Files](../../storage/files/storage-how-to-use-files-linux.md)를 사용하는 것입니다.
 
 데이터를 다운로드하려면 터미널 창을 열고 다음 명령을 실행합니다.
 
@@ -229,6 +229,20 @@ R을 사용하여 데이터를 검사하고 몇 가지 기본 Machine Learning�
 
     consume(ep, smallTestSet[1:10, ])
 
+<a name="deep-learning"></a>
+
+## <a name="deep-learning-tutorials-and-walkthroughs"></a>심화 학습 자습서 및 연습
+
+프레임워크 기반 샘플 외에도 DLVM에서 유효성이 확인된 일련의 포괄적인 연습이 제공됩니다. 이러한 연습을 통해 이미지 및 텍스트/언어 이해와 같이 도메인에서 딥 러닝 애플리케이션의 개발을 빠르게 시작할 수 있습니다. 다양한 도메인과 기술에 대한 엔드투엔드 자습서가 계속 추가될 예정입니다.   
+
+
+- [다양한 프레임워크에서 신경망 실행](https://github.com/ilkarman/DeepLearningFrameworks): 한 프레임워크에서 다른 프레임워크로 코드를 마이그레이션하는 방법을 보여주는 포괄적인 연습입니다. 또한 프레임워크에서 시간 성능을 실행하고 모델을 비교하는 방법을 보여 줍니다. 
+
+- [이미지 내 제품을 검색하도록 엔드투엔드 솔루션을 빌드하는 방법 가이드](https://github.com/Azure/cortana-intelligence-product-detection-from-images): 이미지 검색은 이미지 내의 개체를 찾고 분류할 수 있는 기술입니다. 이 기술은 많은 실제 비즈니스 도메인에서 엄청난 성과를 거둘 수 있습니다. 예를 들어 소매업체는 이 기술을 사용하여 고객이 선택한 제품을 확인할 수 있습니다. 또한 이 정보는 매장의 제품 재고를 관리하는 데 도움이 됩니다. 
+
+- [오디오에 대한 딥 러닝](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/) 이 자습서는 [도시 소리 데이터 세트](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html)에서 오디오 이벤트 검색에 대한 딥 러닝 모델을 학습하는 방법을 보여주고 오디오 데이터를 작업하는 방법의 개요를 제공합니다.
+
+- [텍스트 문서의 분류](https://github.com/anargyri/lstm_han): 이 연습에서는 두 개의 다른 신경망 아키텍처를 빌드 및 학습하는 방법을 보여줍니다. 계층 Attention Network 및 LSTM(Long Short Term Memory) 네트워크 이러한 신경망은 Keras API를 딥 러닝에 사용하여 텍스트 문서를 분류합니다. Keras는 다음 세 개의 가장 인기 있는 딥러닝 프레임워크에 대한 프런트 엔드입니다. Microsoft Cognitive Toolkit, TensorFlow 및 Theano
 
 ## <a name="use-other-tools-available"></a>사용 가능한 다른 도구 사용
 나머지 섹션에서는 Linux 데이터 과학 VM에 설치된 일부 도구의 사용 방법을 보여 줍니다. 설명할 도구 목록은 다음과 같습니다.
@@ -423,7 +437,7 @@ Rattle의 뛰어난 기능 중 하나는 여러 기계 학습 방법을 실행�
 모델 빌드가 완료된 후 **로그** 탭을 선택하면 세션 동안 Rattle에서 실행한 R 코드를 볼 수 있습니다. **내보내기** 단추를 선택하여 저장할 수 있습니다.
 
 > [!NOTE]
-> 현재 릴리스의 Rattle에 버그가 있습니다. 를 스크립트를 수정 하거나 나중에 단계를 반복 하는 데 사용할 앞에 # 문자를 삽입 해야 *이 로그를 내보내는 중...*  로그의 텍스트에서입니다.
+> 현재 릴리스의 Rattle에 버그가 있습니다. 스크립트를 수정 하거나 나중에 단계를 반복 하는 데 사용 하려면 로그 텍스트에서 *이 로그 내보내기* ... 앞에 # 문자를 삽입 해야 합니다.
 >
 >
 

@@ -5,18 +5,17 @@ services: search
 manager: pablocas
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: bbf2e524d626ac17596ded61746c26f20a6caf1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.subservice: cognitive-search
+ms.openlocfilehash: 64246f28ac185e8816971e24a67682d6d2dd9be1
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65021833"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69635894"
 ---
 #    <a name="text-merge-cognitive-skill"></a>텍스트 병합 인식 기술
 
@@ -143,7 +142,7 @@ Microsoft.Skills.Text.MergeSkill
 }
 ```
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 + [미리 정의된 기술](cognitive-search-predefined-skills.md)
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)

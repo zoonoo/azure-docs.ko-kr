@@ -8,69 +8,69 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 14350125f88c315a813eb64e3ce2b88dbec2aa24
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 58db76401439befd476bc78c1a1a20eeed5c2342
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340191"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779160"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>SQL API에 대한 Azure Cosmos DB .NET Core SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
+> * [.NET Core](sql-api-sdk-dotnet-core.md)
+> * [.NET Standard](sql-api-sdk-dotnet-standard.md)
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 변경 피드](sql-api-sdk-dotnet-changefeed.md)
-> * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Node.JS](sql-api-sdk-node.md)
+> * [Node.js](sql-api-sdk-node.md)
 > * [비동기 Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST (영문)](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [대량 실행자-.NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [대량 실행자-Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
 |**SDK 다운로드**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)|
 |**API 설명서**|[.NET API 참조 설명서](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
 |**샘플**|[.NET 코드 샘플](sql-api-dotnet-samples.md)|
-|**시작**|[Azure Cosmos DB .NET Core SDK 시작](sql-api-dotnet-core-get-started-preview.md)|
+|**시작**|[Azure Cosmos DB .NET 시작](sql-api-sdk-dotnet.md)|
 |**웹앱 자습서**|[Azure Cosmos DB를 사용한 웹 애플리케이션 개발](sql-api-dotnet-application.md)|
 |**현재 지원되는 프레임워크**|[.NET Standard 1.6 및 .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)|
 
 ## <a name="release-notes"></a>릴리스 정보
 
-Azure Cosmos DB .NET Core SDK에는 [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet.md)의 최신 버전에 대응하는 기능이 있습니다.
+> [!NOTE]
+> .NET Core를 사용 하는 경우 .NET Standard를 대상으로 하는 [.NET SDK](sql-api-sdk-dotnet-standard.md)의 최신 버전을 참조 하세요. 
 
-### <a name="a-name3001-preview3001-preview"></a><a name="3.0.0.1-preview"/>3.0.0.1-preview
-* 공개 미리 보기용 .NET SDK [버전 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)의 미리 보기 1.
-* .NET Framework 4.6.1 이상 및 .NET Core 2.0 이상을 지원하는 대상 .NET Standard
-* 최상위 CosmosClient 및 관련 CosmosDatabases, CosmosContainers 및 CosmosItems 클래스 간에 분할되는 메서드가 포함된 새 개체 모델
-* 스트림 지원
-* 상태 코드를 반환하고 응답이 반환되지 않을 경우에만 예외를 throw하는 서버에서 업데이트된 CosmosResponseMessage
+### <a name="a-name251251"></a><a name="2.5.1"/>2.5.1
+
+* SDK의 시스템 .Net. Http 버전은 이제 NuGet 패키지에 정의 된 것과 일치 합니다.
+* 원본에 실패 하는 경우 다른 지역에 대 한 쓰기 요청을 허용 합니다.
+* 쓰기 요청에 대 한 세션 다시 시도 정책을 추가 합니다.
 
 ### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
 
-* 빈 페이지를 일으키는 쿼리에 대 한 경합 상태를 추적 하는 수정
+* 빈 페이지를 발생 시킨 쿼리의 추적 경합 상태를 수정 합니다.
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 
-* NuGet 패키지에 정의 된 SDK의 System.Net.Http 버전 일치
-* LINQ 쿼리에 대 한 전체 자릿수 크기를 늘렸습니다.
-* CompositePath "," CompositePathSortOrder "," SpatialSpec "," SpatialType "및" PartitionKeyDefinitionVersion 새 클래스 추가
-* DocumentCollection에 추가 된 TimeToLivePropertyPath
-* 추가 CompositeIndexes 및 SpatialIndexes IndexPolicy
-* PartitionKeyDefinition에 버전 추가
-* PartitionKey를 None 추가
+* LINQ 쿼리에 대 한 10 진수 전체 자릿수 크기를 늘립니다.
+* 새 클래스 CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType 및 Keydefinitionversion 추가
+* DocumentCollection에 TimeToLivePropertyPath 추가
+* CompositeIndexes 및 SpatialIndexes를 IndexPolicy에 추가 했습니다.
+* 파티션 추가 된 버전
+* PartitionKey에 None 추가
 
 ### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
 
- * 추가 IdleTcpConnectionTimeout, OpenTcpConnectionTimeout, MaxRequestsPerTcpConnection 및 MaxTcpConnectionsPerEndpoint ConnectionPolicy에 있습니다.
+ * IdleTcpConnectionTimeout, OpenTcpConnectionTimeout, MaxRequestsPerTcpConnection 및 MaxTcpConnectionsPerEndpoint를 ConnectionPolicy에 추가 했습니다.
  
 ### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
 
-* 진단 개선 사항
+* 진단 기능 향상
 
 ### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
 
@@ -253,13 +253,14 @@ Azure Cosmos DB .NET Core Preview SDK에는 [Azure Cosmos DB .NET SDK](sql-api-s
 
 ## <a name="release--retirement-dates"></a>릴리스 및 사용 중지 날짜
 
-| Version | 릴리스 날짜 | 사용 중지 날짜 |
+| 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
-| [2.4.1](#2.4.1) |2019 년 6 월 20 일 |--- |
-| [2.4.0](#2.4.0) |2019 년 5 월 5 일 |--- |
-| [2.3.0](#2.3.0) |2019 년 4 월 4 일 |--- |
-| [2.2.3](#2.2.3) |2019 년 3 월 11 일 |--- |
-| [2.2.2](#2.2.2) |2019 년 2 월 6 일 |--- |
+| [2.5.1](#2.5.1) |2019 년 7 월 02 일 |--- |
+| [2.4.1](#2.4.1) |6 월 20 일, 2019 |--- |
+| [2.4.0](#2.4.0) |5 월 5 일, 2019 |--- |
+| [2.3.0](#2.3.0) |4 월 4 일, 2019 |--- |
+| [2.2.3](#2.2.3) |3 월 11 일, 2019 |--- |
+| [2.2.2](#2.2.2) |2019 년 2 월 06 일 |--- |
 | [2.2.1](#2.2.1) |2018년 12월 24일 |--- |
 | [2.2.0](#2.2.0) |2018년 12월 7일 |--- |
 | [2.1.3](#2.1.3) |2018년 10월 15일 |--- |
@@ -289,6 +290,6 @@ Azure Cosmos DB .NET Core Preview SDK에는 [Azure Cosmos DB .NET SDK](sql-api-s
 | [1.0.0](#1.0.0) |2016년 12월 21일 |--- |
 | [0.1.0-preview](#0.1.0-preview) |2016년 11월 15일 |2015년 12월 31일 |
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 Cosmos DB에 대한 자세한 내용은 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 서비스 페이지를 참조하세요.
 

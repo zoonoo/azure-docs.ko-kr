@@ -45,7 +45,7 @@ Azure 시스템에는 Azure Database for PostgreSQL 서버를 모니터링하기
 ## <a name="functional-limitations"></a>기능 제한 사항
 ### <a name="scale-operations"></a>크기 조정 작업
 - 기본 가격 책정 계층 간의 동적 크기 조정은 현재 지원되지 않습니다.
-- 서버 저장소 크기를 줄이는 것은 현재 지원되지 않습니다.
+- 서버 스토리지 크기를 줄이는 것은 현재 지원되지 않습니다.
 
 ### <a name="server-version-upgrades"></a>서버 버전 업그레이드
 - 주 데이터베이스 엔진 버전 간에 자동화된 마이그레이션은 현재 지원되지 않습니다. 다음의 주 버전으로 업그레이드하려는 경우 새 엔진 버전을 사용하여 만든 서버에 주 버전을 [덤프 및 복원](./howto-migrate-using-dump-and-restore.md)합니다.

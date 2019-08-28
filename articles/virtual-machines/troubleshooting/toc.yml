@@ -65,13 +65,19 @@
       href: detailed-troubleshoot-ssh-connection.md
 - name: 일반적인 오류 메시지
   href: error-messages.md
-- name: Windows VM 관련 성능 문제
+- name: VM 관련 성능 문제
   href: performance-diagnostics.md
   items:
-    - name: PerfInsights를 사용하는 방법
-      href: how-to-use-perfInsights.md
-    - name: 성능 진단 확장
-      href: performance-diagnostics-vm-extension.md
+    - name: Windows
+      items:
+        - name: PerfInsights를 사용하는 방법
+          href: how-to-use-perfinsights.md
+        - name: 성능 진단 확장
+          href: performance-diagnostics-vm-extension.md
+    - name: Linux
+      items:
+        - name: PerfInsights를 사용하는 방법
+          href: how-to-use-perfinsights-linux.md
 - name: Windows VM 에이전트 오프라인 설치
   href: install-vm-agent-offline.md
 - name: VM 재배포
@@ -104,7 +110,7 @@
       items:
         - name: CMD 및 PowerShell 명령
           href: serial-console-cmd-ps-commands.md
-- name: 저장소 리소스 삭제 시 오류
+- name: 스토리지 리소스 삭제 시 오류
   href: storage-resource-deletion-errors.md
 - name: 클래식 스토리지 리소스 삭제 시 오류
   href: storage-classic-cannot-delete-storage-account-container-vhd.md
@@ -128,7 +134,7 @@
       href: troubleshoot-deploy-vm-linux.md
     - name: Windows
       href: troubleshoot-deploy-vm-windows.md
-- name: 장치 이름이 변경됨
+- name: 디바이스 이름이 변경됨
   href: troubleshoot-device-names-problems.md
 - name: VM 복구 액세스
   items:

@@ -4,7 +4,7 @@ description: Azure Portal을 사용하여 가용성 영역에서 Windows VM 만�
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: e813b26a91d25fbaa1298acd455f27d2cac705f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: af2295643869ba8022fe15cf1e1cef3f2f20a428
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61403699"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849839"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>Azure Portal을 사용하여 가용성 영역에서 Windows 가상 머신 만들기
 
@@ -31,7 +31,7 @@ ms.locfileid: "61403699"
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인 
 
-https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-virtual-machine"></a>가상 머신 만들기
 
@@ -75,4 +75,4 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 가용성 영역에서 VM을 만드는 방법을 배웠습니다. Azure VM에 대한 [영역 및 가용성](regions-and-availability.md)에 대해 자세히 알아봅니다.
+이 문서에서는 가용성 영역에서 VM을 만드는 방법을 배웠습니다. Azure Vm의 [가용성](availability.md) 에 대해 자세히 알아보세요.

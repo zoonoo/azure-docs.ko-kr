@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
 ms.author: atsenthi
-ms.openlocfilehash: ad7cf3a1dfcef8795ceb378a59a1cf0b2010293e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 012d75ff6ad4acdc6612a197f274e2dfdb98370a
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595505"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249263"
 ---
 # <a name="unit-testing-stateful-services-in-service-fabric"></a>Service Fabric의 상태 저장 서비스 단위 테스트
 
@@ -48,13 +48,13 @@ Service Fabric 상태 저장 서비스의 단위 테스트를 위해서는 몇 �
 또한 여러 인스턴스가 있으면 이러한 각 인스턴스의 역할을 전환하면서 역할 변경 시에도 응답이 일관되는지 확인할 수 있습니다.
 
 #### <a name="mock-the-state-manager"></a>상태 관리자 모의
-상태 관리자는 원격 리소스로 취급되므로 모의되어야 합니다. 상태 관리자를 모의하는 경우 상태 관리자에 저장되는 내용을 추적하여 읽고 확인할 수 있도록 기본 메모리 내 저장소가 필요합니다. 이 작업을 수행하는 간단한 방법은 각 신뢰할 수 있는 컬렉션 유형의 모의 인스턴스를 만드는 것입니다. 해당 모의 개체 내에서 해당 컬렉션에 대해 수행되는 작업에 가깝게 조정되는 데이터 형식을 사용합니다. 다음은 신뢰할 수 있는 각 컬렉션에 대해 제안되는 몇 가지 데이터 형식입니다.
+상태 관리자는 원격 리소스로 취급되므로 모의되어야 합니다. 상태 관리자를 모의하는 경우 상태 관리자에 저장되는 내용을 추적하여 읽고 확인할 수 있도록 기본 메모리 내 스토리지가 필요합니다. 이 작업을 수행하는 간단한 방법은 각 신뢰할 수 있는 컬렉션 유형의 모의 인스턴스를 만드는 것입니다. 해당 모의 개체 내에서 해당 컬렉션에 대해 수행되는 작업에 가깝게 조정되는 데이터 형식을 사용합니다. 다음은 신뢰할 수 있는 각 컬렉션에 대해 제안되는 몇 가지 데이터 형식입니다.
 
 - IReliableDictionary<TKey, TValue> -> System.Collections.Concurrent.ConcurrentDictionary<TKey, TValue>
-- IReliableQueue<T> -> System.Collections.Generic.Queue<T>
-- IReliableConcurrentQueue<T> -> System.Collections.Concurrent.ConcurrentQueue<T>
+- IReliableQueue\<t >-> system.object\<>
+- IReliableConcurrentQueue\<t > > system.collections.concurrent.concurrentqueue\<t >
 
-#### <a name="many-state-manager-instances-single-storage"></a>여러 상태 관리자 인스턴스, 단일 저장소
+#### <a name="many-state-manager-instances-single-storage"></a>여러 상태 관리자 인스턴스, 단일 스토리지
 앞서 언급한 것처럼 상태 관리자 및 신뢰할 수 있는 컬렉션은 원격 리소스로 처리되어야 합니다. 따라서 이러한 리소스는 단위 테스트 내에서 모의되어야 합니다. 그러나 상태 저장 서비스의 여러 인스턴스를 실행하는 경우 여러 다른 상태 저장 서비스 인스턴스에서 모의된 각 상태 관리자를 동기화 상태로 유지하는 일은 어려울 수 있습니다. 상태 저장 서비스가 클러스터에서 실행되는 경우 Service Fabric은 각 보조 복제본의 상태 관리자를 주 복제본과 일관되게 유지하려고 합니다. 따라서 역할 변경을 시뮬레이트할 수 있도록 테스트도 동일하게 진행되어야 합니다.
 
 이 동기화를 달성하는 간단한 방법은 신뢰할 수 있는 각 컬렉션에 기록된 데이터를 저장하는 기본 개체에 대해 단일 항목 패턴을 사용하는 것입니다. 예를 들어, 상태 저장 서비스가 `IReliableDictionary<string, string>`를 사용할 경우 모의 상태 관리자는 `IReliableDictionary<string, string>`의 모의 항목을 사용해야 합니다. 해당 모의 항목은 `ConcurrentDictionary<string, string>`를 사용하여 기록된 키/값 쌍을 추적할 수 있습니다. `ConcurrentDictionary<string, string>`는 서비스에 전달되는 상태 관리자의 모든 인스턴스에서 사용되는 단일 항목이어야 합니다.
@@ -79,7 +79,7 @@ Service Fabric 상태 저장 서비스의 단위 테스트를 위해서는 몇 �
     Then the request should should return the "John Smith" employee
 ```
 
-이 테스트는 한 복제본에서 캡처한 데이터를 주 복제본으로 승격된 보조 복제본에서 사용할 수 있도록 어설션합니다. 신뢰할 수 있는 컬렉션이 직원 데이터에 대한 백업 저장소라고 가정합니다. 또한 이 테스트로 찾아낼 수 있는 잠재적인 오류는 프로그램 코드가 새 직원을 저장하기 위해 트랜잭션에 대해 `CommitAsync`를 실행하지 않는지 여부입니다. 이러한 경우 직원을 가져오기 위한 두 번째 요청은 첫 번째 요청에 추가해서 직원을 반환하지 않습니다.
+이 테스트는 한 복제본에서 캡처한 데이터를 주 복제본으로 승격된 보조 복제본에서 사용할 수 있도록 어설션합니다. 신뢰할 수 있는 컬렉션이 직원 데이터에 대한 백업 스토리지라고 가정합니다. 또한 이 테스트로 찾아낼 수 있는 잠재적인 오류는 프로그램 코드가 새 직원을 저장하기 위해 트랜잭션에 대해 `CommitAsync`를 실행하지 않는지 여부입니다. 이러한 경우 직원을 가져오기 위한 두 번째 요청은 첫 번째 요청에 추가해서 직원을 반환하지 않습니다.
 
 ### <a name="acting"></a>작업
 #### <a name="mimic-service-fabric-replica-orchestration"></a>Service Fabric 복제본 오케스트레이션 모방

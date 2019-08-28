@@ -1,25 +1,25 @@
 ---
 title: '빠른 시작: Azure SQL Data Warehouse에서 컴퓨팅 확장 - T-SQL | Microsoft Docs'
-description: T-SQL 및 SSMS(SQL Server Management Studio)를 사용하여 Azure SQL Data Warehouse에서 계산 능력을 조정합니다. 더 나은 성능을 위해 계산 능력을 확장하거나 비용 절감을 위해 다시 축소할 수 있습니다.
+description: T-SQL 및 SSMS(SQL Server Management Studio)를 사용하여 Azure SQL Data Warehouse에서 컴퓨팅 능력을 조정합니다. 더 나은 성능을 위해 컴퓨팅 능력을 확장하거나 비용 절감을 위해 다시 축소할 수 있습니다.
 services: sql-data-warehouse
-author: kevinvngo
+author: Antvgski
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.subservice: manage
+ms.subservice: implement
 ms.date: 04/17/2018
-ms.author: kevin
+ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: a734e0173a3432e03c5876d30cf54ea3fd23d4dc
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 9a2a11c2263500970e2f4294dd5d3711a57be349
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460355"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574586"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>빠른 시작: T-SQL을 사용하여 Azure SQL Data Warehouse에서 컴퓨팅 조정
 
-T-SQL 및 SSMS(SQL Server Management Studio)를 사용하여 Azure SQL Data Warehouse에서 계산 능력을 조정합니다. 더 나은 성능을 위해 [계산 능력을 확장](sql-data-warehouse-manage-compute-overview.md)하거나 비용 절약을 위해 다시 축소할 수 있습니다. 
+T-SQL 및 SSMS(SQL Server Management Studio)를 사용하여 Azure SQL Data Warehouse에서 컴퓨팅 능력을 조정합니다. 더 나은 성능을 위해 [컴퓨팅 능력을 확장](sql-data-warehouse-manage-compute-overview.md)하거나 비용 절감을 위해 다시 축소할 수 있습니다. 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -49,7 +49,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     ![서버 연결](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
 
-4. **Connect**를 클릭합니다. SSMS에서 개체 탐색기 창이 열립니다. 
+4. **연결**을 클릭합니다. SSMS에서 개체 탐색기 창이 열립니다. 
 
 5. 개체 탐색기에서 **데이터베이스**를 확장합니다. 그런 다음 **mySampleDatabase**를 확장하여 새 데이터베이스의 개체를 표시합니다.
 
@@ -82,8 +82,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ![현재 DWU 보기](media/quickstart-scale-compute-tsql/view-current-dwu.png)
 
 
-## <a name="scale-compute"></a>계산 조정
-SQL Data Warehouse에서 데이터 웨어하우스 단위를 조정하여 계산 리소스를 늘리거나 줄일 수 있습니다. [만들기 및 연결 - 포털](create-data-warehouse-portal.md)에서 **mySampleDataWarehouse**를 만들고 400 DWU로 초기화했습니다. 다음 단계에서는 **mySampleDataWarehouse**에 대해 DWU를 조정합니다.
+## <a name="scale-compute"></a>컴퓨팅 크기 조정
+SQL Data Warehouse에서 데이터 웨어하우스 단위를 조정하여 컴퓨팅 리소스를 늘리거나 줄일 수 있습니다. [만들기 및 연결 - 포털](create-data-warehouse-portal.md)에서 **mySampleDataWarehouse**를 만들고 400 DWU로 초기화했습니다. 다음 단계에서는 **mySampleDataWarehouse**에 대해 DWU를 조정합니다.
 
 데이터 웨어하우스 단위를 변경하려면
 
@@ -92,7 +92,7 @@ SQL Data Warehouse에서 데이터 웨어하우스 단위를 조정하여 계산
 
     ```Sql
     ALTER DATABASE mySampleDataWarehouse
-    MODIFY (SERVICE_OBJECTIVE = 'DW300')
+    MODIFY (SERVICE_OBJECTIVE = 'DW300c')
     ;
     ```
 
@@ -147,7 +147,7 @@ AND
 
 
 ## <a name="next-steps"></a>다음 단계
-지금까지 데이터 웨어하우스의 계산 규모를 조정하는 방법을 배웠습니다. Azure SQL Data Warehouse에 대해 자세히 알아보려면 데이터 로드에 대한 자습서를 계속 진행하세요.
+지금까지 데이터 웨어하우스의 컴퓨팅 규모를 조정하는 방법을 배웠습니다. Azure SQL Data Warehouse에 대해 자세히 알아보려면 데이터 로드에 대한 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
->[SQL 데이터 웨어하우스로 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md)
+>[SQL Data Warehouse로 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md)

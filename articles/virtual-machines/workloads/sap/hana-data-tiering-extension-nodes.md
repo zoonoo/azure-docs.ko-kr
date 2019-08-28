@@ -4,7 +4,7 @@ description: Azure(대규모 인스턴스)에서 SAP HANA에 대한 데이터 �
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b5868aaf29d6b57ea608763840a08f1991a982e8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a292efc3e660379325ccb6870e540e38c6cdd5e9
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60628594"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709661"
 ---
 # <a name="use-sap-hana-data-tiering-and-extension-nodes"></a>SAP HANA 데이터 계층화 및 확장 노드 사용
 
@@ -33,7 +33,7 @@ HANA 대규모 인스턴스를 사용하면 FAQ 및 SAP 블로그 문서에서 �
 - 옵션 1의 추가 SAP HANA 확장 노드 및 S192 HANA 대규모 인스턴스 SKU를 사용하는 경우 데이터 볼륨에 2TB 용량을 추가로 제공합니다. 옵션 2 구성에서는 웜 데이터 볼륨에 4TB를 추가로 제공합니다. 핫 노드와 비교할 때 "웜" 확장 노드의 전체 메모리 용량은 옵션 1에 대한 데이터 저장에 사용할 수 있습니다. 옵션 2 SAP HANA 확장 노드 구성의 데이터 볼륨에 메모리를 두 배로 사용할 수 있습니다.
 - 최종적으로 데이터 용량은 3TB이며, 옵션 1의 경우 핫 대 웜 비율은 1:2입니다. 옵션 2 확장 노드 구성에서는 데이터 용량이 5TB이고, 비율은 1:4입니다.
 
-메모리에 비해 데이터 볼륨이 높을수록 요청하는 웜 데이터가 디스크 저장소에 저장될 확률이 높아집니다.
+메모리에 비해 데이터 볼륨이 높을수록 요청하는 웜 데이터가 디스크 스토리지에 저장될 확률이 높아집니다.
 
 **다음 단계**
 - [Azure의 SAP HANA(대규모 인스턴스) 아키텍처](hana-architecture.md) 참조

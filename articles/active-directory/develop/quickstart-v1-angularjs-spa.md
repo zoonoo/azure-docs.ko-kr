@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory로 로그인하고 로그아웃하기 위해 AngularJS 단일 페이지 앱 빌드 | Microsoft Docs
+title: Azure AD로 로그인하고 로그아웃하기 위해 AngularJS 단일 페이지 앱 빌드 | Microsoft Docs
 description: 로그인을 위해 Azure AD와 통합되고 OAuth를 사용하여 Azure AD로 보호된 API를 호출하는 AngularJS 단일 페이지 애플리케이션을 빌드하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a1fdbcd04504181a20f5245b6f2378be5b9d405
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 20c62d379006382d4208e4b111202581bc75454f
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001202"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380762"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>빠른 시작: Azure Active Directory로 로그인하고 로그아웃하기 위해 AngularJS 단일 페이지 앱 빌드
 
@@ -33,14 +33,14 @@ Azure AD(Azure Active Directory)를 사용하면 단일 페이지 앱에 단순�
 
 브라우저에서 실행되는 JavaScript 애플리케이션의 경우 Azure AD가 ADAL(Active Directory 인증 라이브러리) 또는 adal.js를 제공합니다. adal.js의 유일한 용도는 앱이 쉽게 액세스 토큰을 가져오도록 하는 것입니다.
 
-이 빠른 시작에서는 다음과 같은 AngularJS To Do List 응용 프로그램을 빌드하는 방법을 알아보겠습니다.
+이 빠른 시작에서는 다음과 같은 AngularJS To Do List 애플리케이션을 빌드하는 방법을 알아보겠습니다.
 
 * Azure AD를 ID 공급자로 사용하여 사용자를 앱에 로그인합니다.
 * 사용자에 대한 일부 정보를 표시합니다.
 * Azure AD의 전달자 토큰을 사용하여 앱의 To Do List API를 안전하게 호출합니다.
 * 앱에서 사용자를 로그아웃합니다.
 
-완전하게 작동하는 응용 프로그램을 빌드하려면 다음 작업이 필요합니다.
+완전하게 작동하는 애플리케이션을 빌드하려면 다음 작업이 필요합니다.
 
 1. Azure AD에 앱을 등록합니다.
 2. ADAL을 설치하고 단일 페이지 앱을 구성합니다.
@@ -54,7 +54,7 @@ Azure AD(Azure Active Directory)를 사용하면 단일 페이지 앱에 단순�
 시작하려면 다음과 같은 필수 조건을 완료하세요.
 
 * [앱 기본 사항을 다운로드](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/skeleton.zip)하거나 [완성된 샘플을 다운로드](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip)합니다.
-* 사용자를 만들고 응용 프로그램을 등록할 수 있는 Azure AD 테넌트가 필요합니다. 테넌트가 아직 없는 경우 [얻는 방법을 알아보세요](quickstart-create-new-tenant.md).
+* 사용자를 만들고 애플리케이션을 등록할 수 있는 Azure AD 테넌트가 필요합니다. 테넌트가 아직 없는 경우 [얻는 방법을 알아보세요](quickstart-create-new-tenant.md).
 
 ## <a name="step-1-register-the-directorysearcher-application"></a>1단계: DirectorySearcher 애플리케이션 등록
 
@@ -66,7 +66,7 @@ Azure AD(Azure Active Directory)를 사용하면 단일 페이지 앱에 단순�
 1. **앱 등록**을 클릭한 다음, **새 등록**을 선택합니다.
 1. **애플리케이션 등록** 페이지가 나타나면 애플리케이션의 이름을 입력합니다.
 1. **지원되는 계정 유형** 아래에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정**을 선택합니다.
-1. **Redirect URI** 섹션에서 **웹** 플랫폼을 선택하고 값을 `https://localhost:44326/`(Azure AD가 토큰을 반환할 위치)으로 설정합니다.
+1. **Redirect URI** 섹션에서 **웹** 플랫폼을 선택하고 값을 `https://localhost:44326/`(Azure AD가 토큰을 반환할 위치)로 설정합니다.
 1. 작업을 마쳤으면 **등록**을 선택합니다. 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 기록해 둡니다.
 1. Adal.js는 OAuth 암시적 흐름을 사용하여 Azure AD와 통신합니다. 애플리케이션에 대한 암시적 흐름을 사용하도록 설정해야 합니다. 등록된 애플리케이션의 왼쪽 탐색 창에서 **인증**을 선택합니다.
 1. **고급 설정**의 **암시적 허용**에서 **ID 토큰** 및 **액세스 토큰** 확인란을 둘 다 사용하도록 설정합니다. 이 앱은 사용자를 로그인하고 API를 호출해야 하므로 ID 토큰 및 액세스 토큰이 필요합니다.
@@ -84,7 +84,7 @@ Azure AD에서 애플리케이션이 있으므로 adal.js를 설치하고 ID 관
 
 1. [adal.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/master/lib/adal.js)를 다운로드하여 `App/Scripts/` 프로젝트 디렉터리에 추가합니다.
 2. [adal-angular.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/master/lib/adal-angular.js)를 다운로드하여 `App/Scripts/` 프로젝트 디렉터리에 추가합니다.
-3.  `</body>` in `index.html`끝 이전에 각 스크립트를 로드합니다.
+3. `</body>` in `index.html`끝 이전에 각 스크립트를 로드합니다.
 
     ```js
     ...

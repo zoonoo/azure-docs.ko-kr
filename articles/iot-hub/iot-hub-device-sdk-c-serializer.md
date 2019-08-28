@@ -1,19 +1,19 @@
 ---
 title: C용 Azure IoT 디바이스 SDK - 직렬 변환기 | Microsoft Docs
 description: C용 Azure IoT 디바이스 SDK에서 Serializer 라이브러리를 사용하여 IoT Hub와 통신하는 디바이스 앱을 만드는 방법입니다.
-author: yzhong94
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: conceptual
 ms.date: 09/06/2016
-ms.author: yizhon
-ms.openlocfilehash: 0a7e30be374ae5095e206ce0e519e51bb58f1f00
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: robinsh
+ms.openlocfilehash: a18f52f0d0979477ff8d6de6745694676f4b4d0e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60399233"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883158"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>C용 Azure IoT 디바이스 SDK - 직렬 변환기에 대한 자세한 정보
 
@@ -31,7 +31,7 @@ GitHub 리포지토리에서 [**C용 Azure IoT 디바이스 SDK**](https://githu
 
 ## <a name="the-modeling-language"></a>모델링 언어
 
-이 시리즈의 [C용 Azure IoT 장치 SDK](iot-hub-device-sdk-c-intro.md)에서는 **simplesample\_amqp** 애플리케이션에 제공된 예제를 통해 **C용 Azure IoT 장치 SDK** 모델링 언어를 소개했습니다.
+이 시리즈의 [C용 Azure IoT 디바이스 SDK](iot-hub-device-sdk-c-intro.md)에서는 **simplesample\_amqp** 애플리케이션에 제공된 예제를 통해 **C용 Azure IoT 디바이스 SDK** 모델링 언어를 소개했습니다.
 
 ```C
 BEGIN_NAMESPACE(WeatherStation);
@@ -64,21 +64,21 @@ END_NAMESPACE(WeatherStation);
 
 **serializer** 라이브러리로 만든 모델에 다음 데이터 형식이 지원됩니다.
 
-| Type | 설명 |
+| 형식 | Description |
 | --- | --- |
 | double |배정밀도 부동 소수점 숫자 |
-| int |32비트 정수 |
+| ssNoversion |32비트 정수 |
 | float |단정밀도 부동 소수점 숫자 |
 | long |정수(Long) |
 | int8\_t |8비트 정수 |
 | int16\_t |16비트 정수 |
 | int32\_t |32비트 정수 |
 | int64\_t |64비트 정수 |
-| bool |부울 |
+| bool |boolean |
 | ascii\_char\_ptr |ASCII 문자열 |
 | EDM\_DATE\_TIME\_OFFSET |날짜 시간 오프셋 |
 | EDM\_GUID |GUID |
-| EDM\_BINARY |binary |
+| EDM\_BINARY |이진 |
 | DECLARE\_STRUCT |복합 데이터 형식 |
 
 마지막 데이터 형식부터 살펴보겠습니다. **DECLARE\_STRUCT**로 기타 기본 형식의 그룹인 복합 데이터 형식을 정의할 수 있습니다. 이러한 그룹을 통해 다음과 같은 모델을 정의할 수 있습니다.
@@ -194,7 +194,7 @@ EDM_DATE_TIME_OFFSET GetDateTimeOffset(time_t time)
 {"aDouble":1.100000000000000, "aInt":2, "aFloat":3.000000, "aLong":4, "aInt8":5, "auInt8":6, "aInt16":7, "aInt32":8, "aInt64":9, "aBool":true, "aAsciiCharPtr":"ascii string 1", "aDateTimeOffset":"2015-09-14T21:18:21Z", "aGuid":"00010203-0405-0607-0809-0A0B0C0D0E0F", "aBinary":"AQID"}
 ```
 
-직렬화는 **serializer** 라이브러리로 생성되는 형식의 JSON입니다. 또한 직렬화된 JSON 개체의 각 멤버가 모델에 정의한 **TestType** 의 멤버와 일치하는 것을 확인할 수 있습니다. 이 값은 코드에 사용된 것과도 정확히 일치합니다. 그러나 이진 데이터는 base64로 인코딩된 note: "되며 AQID"는 base64 인코딩의 {0x01, 0x02, 0x03}.
+직렬화는 **serializer** 라이브러리로 생성되는 형식의 JSON입니다. 또한 직렬화된 JSON 개체의 각 멤버가 모델에 정의한 **TestType** 의 멤버와 일치하는 것을 확인할 수 있습니다. 이 값은 코드에 사용된 것과도 정확히 일치합니다. 그러나 이진 데이터는 b a s e 64로 인코딩됩니다. "AQID"은 {0x01, 0x02, 0x03}의 base64 인코딩입니다.
 
 이 예제에서는 **serializer** 라이브러리 사용 시의 이점을 보여 줍니다. 애플리케이션에서 직렬화를 명시적으로 처리하지 않고도 JSON을 클라우드로 전송할 수 있습니다. 모델에서 데이터 이벤트 값을 설정한 후 간단한 API를 호출하여 해당 이벤트를 클라우드로 전송할 수 있으므로 세세한 사항을 걱정할 필요가 없습니다.
 
@@ -233,7 +233,7 @@ WITH_DATA(HumidityEvent, Humidity)
 END_NAMESPACE(Contoso);
 ```
 
-모델에 두 데이터 이벤트를 포함 하는 참고: **온도** 하 고 **습도**합니다. 이전 예와 달리 각 이벤트의 형식은 **DECLARE\_STRUCT**를 사용하여 정의된 구조체입니다. **TemperatureEvent**는 온도 측정 및 타임스탬프를 포함하고 **HumidityEvent**는 습도 측정 및 타임스탬프를 포함합니다. 이 모델은 위에 설명된 시나리오에 대한 데이터를 모델링하는 자연스러운 방법을 제공합니다. 이벤트를 클라우드로 전송할 때 온도/타임스탬프 또는 습도/타임스탬프 쌍으로 전송합니다.
+모델에는 두 가지 데이터 이벤트가 포함 되어 있습니다. **온도** 및 **습도**. 이전 예와 달리 각 이벤트의 형식은 **DECLARE\_STRUCT**를 사용하여 정의된 구조체입니다. **TemperatureEvent**는 온도 측정 및 타임스탬프를 포함하고 **HumidityEvent**는 습도 측정 및 타임스탬프를 포함합니다. 이 모델은 위에 설명된 시나리오에 대한 데이터를 모델링하는 자연스러운 방법을 제공합니다. 이벤트를 클라우드로 전송할 때 온도/타임스탬프 또는 습도/타임스탬프 쌍으로 전송합니다.
 
 다음과 같은 코드를 사용하여 클라우드에 온도 이벤트를 전송할 수 있습니다.
 
@@ -514,7 +514,7 @@ EXECUTE_COMMAND_RESULT SetAirResistance(ContosoAnemometer* device, int Position)
 {"Name" : "", "Parameters" : "" }
 ```
 
-두 속성을 사용 하 여 serialize 된 JSON 개체를 전송 하는: **이름을** 동작 (메시지)의 이름 및 **매개 변수** 해당 동작의 매개 변수를 포함 합니다.
+Serialize 된 JSON 개체를 두 개의 속성으로 전송 하 고 있습니다. **Name** 은 동작 (메시지)의 이름이 며 **매개 변수** 는 해당 동작의 매개 변수를 포함 합니다.
 
 예를 들어 **SetAirResistance** 를 호출하려면 다음 메시지를 디바이스에 보낼 수 있습니다.
 
@@ -665,7 +665,7 @@ serializer_deinit();
 
 이 문서는 **C용 Azure IoT 디바이스 SDK**에 포함된 **serializer** 라이브러리의 고유한 측면에 대해 자세히 설명합니다. 제공된 정보로 모델을 사용하여 이벤트를 전송하고 IoT Hub에서 메시지를 수신하는 방법을 잘 이해할 수 있습니다.
 
-또한 **C용 Azure IoT 장치 SDK**로 애플리케이션을 개발하는 방법에 대한 3부로 구성된 시리즈를 완료합니다. API를 시작하는 방법뿐만 아니라 API의 작동 방식을 매우 정확하게 이해할 수 있는 충분한 정보를 제공합니다. 자세한 정보를 위해 여기에서 다루지 않은 몇 가지 샘플이 SDK에 제공됩니다. [Azure IoT SDK 설명서](https://github.com/Azure/azure-iot-sdk-c) 리소스에서도 유용한 추가 정보가 제공됩니다.
+또한 **C용 Azure IoT 디바이스 SDK**로 애플리케이션을 개발하는 방법에 대한 3부로 구성된 시리즈를 완료합니다. API를 시작하는 방법뿐만 아니라 API의 작동 방식을 매우 정확하게 이해할 수 있는 충분한 정보를 제공합니다. 자세한 정보를 위해 여기에서 다루지 않은 몇 가지 샘플이 SDK에 제공됩니다. [Azure IoT SDK 설명서](https://github.com/Azure/azure-iot-sdk-c) 리소스에서도 유용한 추가 정보가 제공됩니다.
 
 IoT Hub를 개발하는 방법에 대한 자세한 내용은 [Azure IoT SDK](iot-hub-devguide-sdks.md)를 참조하세요.
 

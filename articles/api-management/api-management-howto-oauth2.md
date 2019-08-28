@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: b195271edeea6cd5ea527454ad1615ac85a32138
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b7b003c588d7b079823bb046676a1226828fcae2
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60658686"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249868"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Azure API Management에서 OAuth 2.0을 사용하여 개발자 계정에 권한을 부여하는 방법
 
@@ -36,7 +36,7 @@ ms.locfileid: "60658686"
 ## <a name="step1"></a>API Management에서 OAuth 2.0 권한 부여 서버 구성
 
 > [!NOTE]
-> 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [API Management 서비스 인스턴스 만들기][Create an API Management service instance]를 참조하세요.
+> API Management 서비스 인스턴스를 아직 만들지 않은 경우 [API Management 서비스 인스턴스 만들기][Create an API Management service instance]를 참조 하세요.
 
 1. 왼쪽 메뉴에서 OAuth 2.0 탭을 클릭하고 **+추가**를 클릭합니다.
 
@@ -55,9 +55,9 @@ ms.locfileid: "60658686"
 
     원하는 유형을 선택하여 **권한 부여 유형** 을 지정합니다. **인증 코드** 가 지정됩니다.
 
-    **권한 부여 엔드포인트 URL**을 입력합니다. Azure Active Directory의 경우 이 URL은 다음 URL과 비슷합니다. 여기서 `<client_id>`는 OAuth 2.0 서버에 대해 애플리케이션을 식별하는 클라이언트 ID로 바뀝니다.
+    **권한 부여 엔드포인트 URL**을 입력합니다. Azure Active Directory의 경우이 url은 다음 url과 유사 합니다. 여기서 `<tenant_id>` 는 Azure AD 테 넌 트의 ID로 바뀝니다.
 
-    `https://login.microsoftonline.com/<client_id>/oauth2/authorize`
+    `https://login.microsoftonline.com/<tenant_id>/oauth2/authorize`
 
     **권한 부여 요청 방법** 은 권한 부여 요청이 OAuth 2.0 서버로 전송되는 방법을 지정합니다. 기본적으로는 **GET** 이 선택됩니다.
 

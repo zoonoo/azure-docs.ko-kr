@@ -1,10 +1,10 @@
 ---
 title: 액세스 검토란? - Azure Active Directory | Microsoft Docs
-description: Azure Active Directory 액세스 검토를 사용 하 여, 거 버 넌 스, 위험 관리 및 조직에서 규정 준수 이니셔티브를 충족 하기 위해 그룹 멤버 자격 및 응용 프로그램 액세스를 제어할 수 있습니다.
+description: Azure Active Directory 액세스 검토를 사용 하 여 조직의 거 버 넌 스, 위험 관리 및 규정 준수 이니셔티브를 충족 하기 위해 그룹 멤버 자격 및 응용 프로그램 액세스를 제어할 수 있습니다.
 services: active-directory
 documentationcenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 06/05/2019
-ms.author: rolyon
+ms.date: 08/05/2019
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fcc804db66430598e72e9ebf31a8837eda1cca6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b6b310e2ca2c19bf4b163704627943a881501bd
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67204600"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68823844"
 ---
-# <a name="what-are-azure-ad-access-reviews"></a>이란 Azure AD 액세스 검토?
+# <a name="what-are-azure-ad-access-reviews"></a>Azure AD 액세스 검토 란 무엇 인가요?
 
-조직에서는 효율적으로 그룹 멤버 자격을 관리, 엔터프라이즈 응용 프로그램 및 역할 할당에 대 한 액세스를 사용 하는 azure Active Directory (Azure AD) 액세스 검토 합니다. 사용자의 액세스는 정기적으로 검토하여 적합한 사용자만 계속 액세스할 수 있도록 합니다.
+Azure AD (Azure Active Directory) 액세스 검토를 사용 하면 조직에서 그룹 멤버 자격, 엔터프라이즈 응용 프로그램에 대 한 액세스 및 역할 할당을 효율적으로 관리할 수 있습니다. 사용자의 액세스는 정기적으로 검토하여 적합한 사용자만 계속 액세스할 수 있도록 합니다.
 
 다음은 액세스 검토의 빠른 개요를 제공하는 비디오입니다.
 
@@ -42,48 +42,45 @@ Azure AD를 사용하면 조직 내에서 내부적으로, 또한 파트너와 �
 
 ## <a name="when-to-use-access-reviews"></a>언제 액세스 검토를 사용하나요?
 
-- **권한 있는 역할에 사용자가 너무 많은 경우:** 관리 액세스는 사용자 수를 확인 하는 것이 좋습니다가 얼마나 많은 하는 전역 관리자에 게 게스트 또는 파트너는 관리 작업을 위해 할당 한 후 제거 되지 않은 모든 경우 및 초대 합니다. 역할 할당 사용자를 다시 인증할 수 있습니다 [Azure AD 역할](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) 전역 관리자에 게 같은 또는 [Azure 리소스 역할](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) 에 사용자 액세스 관리자 등의 [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) 발생 합니다.
+- **권한 있는 역할에 사용자가 너무 많은 경우:** 관리 작업을 수행 하도록 할당 된 후에 제거 되지 않은 초대 된 게스트 또는 파트너가 있는지 확인 하는 것이 좋습니다 .이는 관리자 액세스 권한이 있는 사용자 수를 확인 하는 것입니다. 전역 관리자와 같은 [AZURE AD 역할](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) 또는 [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) 환경에서 사용자 액세스 관리자와 같은 [azure 리소스 역할](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) 의 역할 할당 사용자를 다시 인증할 수 있습니다.
 - **자동화를 사용할 수 없는 경우:** 보안 그룹 또는 Office 365 그룹에서 동적 멤버 자격에 대한 규칙을 만들 수 있습니다. 하지만, HR 데이터가 Azure AD에 없거나 사용자가 그룹을 떠난 뒤에도 대체자를 교육시키기 위해 액세스 권한이 필요한 경우 어찌하나요? 해당 그룹에서 검토를 만들어서 계속 액세스 권한이 필요한 사용자가 계속 액세스할 수 있도록 합니다.
 - **새로운 목적을 위해 그룹이 사용되는 경우:** Azure AD에 동기화될 그룹이 있거나 판매 팀 그룹의 모든 사용자에 대해 애플리케이션 Salesforce를 사용하도록 설정하려는 경우 그룹이 다른 위험 콘텐츠에 사용되기 전에 그룹 소유자에게 다른 그룹 멤버 자격을 검토하도록 요청하는 것이 유용합니다.
-- **비즈니스 중요 데이터 액세스:** 특정 리소스의 경우 IT 외부 사용자에게 정기적으로 로그오프하도록 요청하고 감사 목적을 위해 액세스가 필요한 이유에 대한 근거를 제공해야 할 수 있습니다.
-- **정책의 예외 목록을 유지 관리하려면:** 이상적인 환경에서는 모든 사용자가 조직의 리소스에 대 한 액세스를 보호 하려면 액세스 정책을 수행 합니다. 그러나 경우에 따라 예외가 있는 비즈니스 사례가 있습니다. IT 관리자로서, 이 작업을 관리하고, 정책 예외 감시를 방지하며, 이러한 예외를 정기적으로 검토했음에 대한 증명을 감사자에게 제공할 수 있습니다.
-- **그룹 소유자에게 해당 그룹에 게스트가 여전히 필요한지 확인하도록 요청합니다:** 대 한 직원 액세스 하지 초대 된 게스트 하지만 IAM, 온-프레미스의 일부를 사용 하 여 자동화할 수 있습니다. 그룹이 게스트에게 비즈니스상 중요한 콘텐츠에 대한 액세스 권한을 부여한 경우 게스트에게 액세스에 대한 합법적인 비즈니스 요구가 여전히 있는지를 확인할 책임은 그룹 소유자에게 있습니다.
+- **비즈니스에 중요 한 데이터 액세스:** 특정 리소스의 경우 외부 사용자에 게 정기적으로 로그 아웃 하 고 감사 목적으로 액세스 해야 하는 이유에 대 한 근거를 제공 해야 할 수 있습니다.
+- **정책의 예외 목록을 유지 관리하려면:** 이상적인 세계에서는 모든 사용자가 액세스 정책을 따라 조직의 리소스에 안전 하 게 액세스할 수 있습니다. 그러나 경우에 따라 예외가 있는 비즈니스 사례가 있습니다. IT 관리자로서, 이 작업을 관리하고, 정책 예외 감시를 방지하며, 이러한 예외를 정기적으로 검토했음에 대한 증명을 감사자에게 제공할 수 있습니다.
+- **그룹 소유자에게 해당 그룹에 게스트가 여전히 필요한지 확인하도록 요청합니다:** 직원 액세스는 일부 온-프레미스 IAM으로 자동화 될 수 있지만 초대 된 게스트는 사용할 수 없습니다. 그룹이 게스트에게 비즈니스상 중요한 콘텐츠에 대한 액세스 권한을 부여한 경우 게스트에게 액세스에 대한 합법적인 비즈니스 요구가 여전히 있는지를 확인할 책임은 그룹 소유자에게 있습니다.
 - **검토를 주기적으로 반복되도록 함:** 주간, 월별, 분기별 또는 연간과 같이 설정된 빈도에 따라 사용자의 액세스 검토 반복을 설정할 수 있으며, 검토자는 각 검토 시작 시 알림을 받게 됩니다. 검토자는 친숙한 인터페이스를 사용하거나 스마트 권장 사항을 활용하여 액세스를 승인하거나 거부할 수 있습니다.
 
 ## <a name="where-do-you-create-reviews"></a>검토는 어디에서 만드나요?
 
-액세스 검토 하려는 작업에 따라 검토를 만들려는 Azure AD에서 검토, Azure AD 엔터프라이즈 앱 (미리 보기)에서 또는 Azure AD PIM에 액세스 합니다.
+검토 하려는 내용에 따라 Azure AD 액세스 검토, Azure AD enterprise apps (미리 보기) 또는 Azure AD PIM에서 액세스 검토를 만듭니다.
 
 | 사용자의 액세스 권한 | 검토자는 다음을 수행할 수 있음 | 검토 생성 위치 | 검토자 경험 |
 | --- | --- | --- | --- |
-| 보안 그룹 멤버</br>사무실 그룹 멤버 | 지정된 검토자</br>그룹 소유자</br>자체 검토 | Azure AD 액세스 검토</br>Azure AD 그룹 | 액세스 패널 |
-| 연결된 앱에 할당됨 | 지정된 검토자</br>자체 검토 | Azure AD 액세스 검토</br>Azure AD 엔터프라이즈 앱(미리 보기) | 액세스 패널 |
-| Azure AD 역할 | 지정된 검토자</br>자체 검토 | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure portal |
-| Azure 리소스 역할 | 지정된 검토자</br>자체 검토 | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure portal |
+| 보안 그룹 멤버</br>사무실 그룹 멤버 | 지정된 검토자</br>그룹 소유자</br>자동 검토 | Azure AD 액세스 검토</br>Azure AD 그룹 | 액세스 패널 |
+| 연결된 앱에 할당됨 | 지정된 검토자</br>자동 검토 | Azure AD 액세스 검토</br>Azure AD 엔터프라이즈 앱(미리 보기) | 액세스 패널 |
+| Azure AD 역할 | 지정된 검토자</br>자동 검토 | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure Portal |
+| Azure 리소스 역할 | 지정된 검토자</br>자동 검토 | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure Portal |
 
-## <a name="which-users-must-have-licenses"></a>어떤 사용자에게 라이선스가 있어야 하나요?
+## <a name="onboard-access-reviews"></a>액세스 검토 등록
 
-각 사용자가 액세스 검토를 사용 하 여 상호 작용 하는 유료 Azure AD Premium P2 라이선스가 있어야 합니다. 다음은 이러한 템플릿의 예입니다.
+액세스 검토를 등록 하려면 다음 단계를 수행 합니다.
 
-- 관리자에 게 액세스 검토 만들기
-- 그룹 소유자 액세스를 수행 하는 검토
-- 님이 검토자로 할당 된 사용자
-- 자체 검토를 수행 하는 사용자
+1. 전역 관리자 또는 사용자 관리자는 액세스 검토를 사용 하려는 [Azure Portal](https://portal.azure.com) 에 로그인 합니다.
 
-게스트 사용자에게 자신의 액세스 권한을 검토하도록 요청할 수도 있습니다. 사용자 고유의 조직 내 사용자 중 하나에 할당 하는 각 유료 Azure AD Premium P2 라이선스에 대 한 외부 사용자 개수가에서 최대 5 명의 게스트 사용자를 초대 하려면 Azure AD-비즈니스 (b2b)를 사용할 수 있습니다. 이러한 게스트 사용자는 Azure AD Premium P2 기능도 사용할 수 있습니다. 자세한 내용은 [Azure AD B2B 공동 작업 라이선스 지침](../b2b/licensing-guidance.md)합니다.
+1. 왼쪽 탐색 메뉴에서 **Azure Active Directory**를 클릭합니다.
 
-해야 하는 라이선스 수를 결정할 수 있도록 몇 가지 예제 시나리오는 다음과 같습니다.
+1. 왼쪽 메뉴에서 **Id 거 버 넌 스**를 클릭 합니다.
 
-| 시나리오 | 계산 | 필요한 라이선스 수 |
-| --- | --- | --- |
-| 관리자는 사용자가 500 명인 그룹 A의 액세스 검토를 만듭니다.<br/>님이 검토자로 3 명의 그룹 소유자를 할당합니다. | 관리자 1 + 3 그룹 소유자 | 4 |
-| 관리자는 사용자가 500 명인 그룹 A의 액세스 검토를 만듭니다.<br/>자체 검토할 수 있습니다. | 자체 검토자로 500 명 이상의 관리자 1 | 501 |
-| 관리자 5 명의 사용자와 25 명의 게스트 사용자 그룹 A의 액세스 검토를 만듭니다.<br/>자체 검토할 수 있습니다. | 1 관리자 + 자체 검토자로 사용자 5 명<br/>(게스트 사용자는 필요한 1 5 비율에 포함 됨) | 6 |
-| 관리자는 28 게스트 사용자 5 명의 사용자와 그룹 A의 액세스 검토를 만듭니다.<br/>자체 검토할 수 있습니다. | 1 관리자 + 자체 검토자로 사용자 5 + 1 명의 사용자를 필요한 1 5 비율로 게스트 사용자 | 7 |
+1. **액세스 검토**를 클릭 합니다.
+ 
+    ![액세스 검토 시작 페이지](./media/access-reviews-overview/access-reviews-overview-onboard.png)
 
-사용자에게 라이선스를 할당하는 방법에 대한 내용은 [Azure Active Directory 포털을 사용하여 라이선스 할당 또는 제거](../fundamentals/license-users-groups.md)를 참조하세요.
+1. 페이지에서 **지금** 등록 단추를 클릭 합니다.
+    
+      ![액세스 검토 온보드](./media/access-reviews-overview/access-reviews-overview-select-onboard.png)
 
-## <a name="learn-about-access-reviews"></a>액세스 검토에 알아봅니다
+
+## <a name="learn-about-access-reviews"></a>액세스 검토에 대 한 자세한 정보
 
 액세스 검토를 만들고 수행하는 데 관해 자세히 알아보려면 다음 짧은 데모를 시청하세요.
 
@@ -97,9 +94,31 @@ Azure AD를 사용하면 조직 내에서 내부적으로, 또한 파트너와 �
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
+### <a name="which-users-must-have-licenses"></a>어떤 사용자에게 라이선스가 있어야 하나요?
+
+액세스 검토와 상호 작용 하는 각 사용자에 게는 유료 Azure AD Premium P2 라이선스가 있어야 합니다. 예를 들어 다음과 같습니다.
+
+- 액세스 검토를 만드는 관리자
+- 액세스 검토를 수행 하는 그룹 소유자
+- 검토자로 할당 된 사용자
+- 자체 검토를 수행 하는 사용자
+
+게스트 사용자에게 자신의 액세스 권한을 검토하도록 요청할 수도 있습니다. 자신의 조직 사용자 중 하나에 할당 하는 각 유료 Azure AD Premium P2 라이선스에 대해 Azure AD B2B (기업 간)를 사용 하 여 외부 사용자 수에서 최대 5 명의 게스트 사용자를 초대할 수 있습니다. 이러한 게스트 사용자는 Azure AD Premium P2 기능도 사용할 수 있습니다. 자세한 내용은 [AZURE AD B2B 공동 작업 라이선스 지침](../b2b/licensing-guidance.md)을 참조 하세요.
+
+다음은 보유 해야 하는 라이선스 수를 결정 하는 데 도움이 되는 몇 가지 예제 시나리오입니다.
+
+| 시나리오 | 계산 | 필요한 라이선스 수 |
+| --- | --- | --- |
+| 관리자가 500 사용자로 그룹 A에 대 한 액세스 검토를 만듭니다. 3 개의 그룹 소유자를 검토자로 할당 합니다. | 각 그룹 소유자에 대 한 관리자 + 3 라이선스에 대 한 라이선스 1 개 (검토자) | 4 |
+| 관리자가 500 사용자로 그룹 A에 대 한 액세스 검토를 만듭니다. 자체 검토를 수행 합니다. | 각 사용자의 관리자 + 500 라이선스에 대 한 라이선스 1 개 (자체 검토자) | 501 |
+| 관리자는 5 명의 사용자와 25 명의 게스트 사용자를 사용 하 여 그룹 B에 대 한 액세스 검토를 만듭니다. 자체 검토를 수행 합니다. | 각 사용자의 관리자 + 5 라이선스에 대 한 라이선스 1 개 (자체 검토자)<br/>(게스트 사용자는 필요한 1:5 비율로 적용 됩니다.) | 6 |
+| 관리자가 사용자 5 명 및 108 게스트 사용자를 사용 하 여 그룹 C에 대 한 액세스 검토를 만듭니다. 자체 검토를 수행 합니다. | 1 각 사용자의 관리자 + 5 라이선스에 대 한 라이선스는 모든 108 게스트 사용자에 게 필요한 1:5 비율의 모든 게스트 사용자를 처리할 수 있는 자체 검토자 + 16 추가 라이선스입니다.<br/>1 + 5 = 6 라이선스 (5\*6 = 30 게스트 사용자)를 포함 합니다. 나머지 (108-5\*6) = 78 게스트 사용자의 경우 78/5 = 16 추가 라이선스가 필요 합니다. 따라서 총 6 + 16 = 22 개의 라이선스가 필요 합니다. | 22 |
+
+사용자에게 라이선스를 할당하는 방법에 대한 내용은 [Azure Active Directory 포털을 사용하여 라이선스 할당 또는 제거](../fundamentals/license-users-groups.md)를 참조하세요.
+
 ## <a name="next-steps"></a>다음 단계
 
-- [그룹 또는 응용 프로그램의 액세스 검토 만들기](create-access-review.md)
+- [그룹 또는 응용 프로그램에 대 한 액세스 검토 만들기](create-access-review.md)
 - [Azure AD 관리 역할에서 사용자 액세스 검토 만들기](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)
-- [그룹 또는 응용 프로그램에 대 한 액세스를 검토 합니다.](perform-access-review.md)
-- [그룹 또는 응용 프로그램의 액세스 검토를 완료 합니다.](complete-access-review.md)
+- [그룹 또는 응용 프로그램에 대 한 액세스 검토](perform-access-review.md)
+- [그룹 또는 응용 프로그램에 대 한 액세스 검토 완료](complete-access-review.md)

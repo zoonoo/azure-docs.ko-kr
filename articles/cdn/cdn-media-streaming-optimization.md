@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: magattus
-ms.openlocfilehash: 9802296170f07bb8599058e230798f647e900d4d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c6ed546735058e330368151adb0df7323f943050
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60636246"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593662"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Azure CDN을 통해 미디어 스트리밍 최적화 
  
@@ -77,7 +77,7 @@ Azure Portal을 통해 대용량 파일 배달을 최적화하도록 CDN(Content
  
 엔드포인트를 만든 후에 특정 기준과 일치하는 모든 파일에 대해 최적화를 적용합니다. 다음 섹션에서는 이 프로세스에 대해 자세히 설명합니다. 
 
-### <a name="caching"></a>구성
+### <a name="caching"></a>캐싱
 
 **Akamai의 Azure CDN 표준**에서 자산이 스트리밍 매니페스트 또는 조각임이 감지되면 일반 웹 배달과 다른 캐싱 만료 시간을 사용합니다. 다음 표의 전체 목록을 참조하세요. 언제나 그렇듯이, 원본 서버에서 보낸 cache-control 또는 Expires 헤더가 사용됩니다. 자산이 미디어 자산이 아닌 경우 일반 웹 배달에 대한 만료 시간을 사용하여 캐시합니다.
 

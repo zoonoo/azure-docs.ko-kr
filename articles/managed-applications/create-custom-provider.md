@@ -7,20 +7,20 @@ ms.service: managed-applications
 ms.topic: tutorial
 ms.date: 05/01/2019
 ms.author: evanhi
-ms.openlocfilehash: e4196cf59537be5194ceb510a1b7b066c97de19a
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 41200139ef55fa1ae441192e2d81b5228cf29bad
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410216"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795308"
 ---
-# <a name="tutorial-create-custom-provider-and-deploy-custom-resources"></a>자습서: 사용자 지정 공급 기업 만들기 및 사용자 지정 리소스 배포
+# <a name="quickstart-create-custom-provider-and-deploy-custom-resources"></a>빠른 시작: 사용자 지정 공급 기업 만들기 및 사용자 지정 리소스 배포
 
-이 자습서에서는 사용자의 고유한 리소스 공급 기업을 만들고 해당 리소스 공급 기업을 위한 사용자 지정 리소스 형식을 배포합니다. 사용자 지정 공급 기업에 대한 자세한 내용은 [Azure 사용자 지정 공급 기업 미리 보기 개요](custom-providers-overview.md)를 참조하세요.
+이 빠른 시작에서는 사용자의 고유한 리소스 공급 기업을 만들고 해당 리소스 공급 기업을 위한 사용자 지정 리소스 형식을 배포합니다. 사용자 지정 공급 기업에 대한 자세한 내용은 [Azure 사용자 지정 공급 기업 미리 보기 개요](custom-providers-overview.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서에 나온 단계를 완료하려면 REST 작업을 호출해야 합니다. [REST 요청을 전송하는 여러 가지 방법](/rest/api/azure/)이 있습니다. REST 작업을 위한 도구가 아직 없는 경우 [ARMClient](https://github.com/projectkudu/ARMClient)를 설치합니다. 이는 Azure Resource Manager API를 호출하여 간소화하는 오픈 소스 명령줄 도구입니다.
+이 빠른 시작에 나온 단계를 완료하려면 REST 작업을 호출해야 합니다. [REST 요청을 전송하는 여러 가지 방법](/rest/api/azure/)이 있습니다. REST 작업을 위한 도구가 아직 없는 경우 [ARMClient](https://github.com/projectkudu/ARMClient)를 설치합니다. 이는 Azure Resource Manager API를 호출하여 간소화하는 오픈 소스 명령줄 도구입니다.
 
 ## <a name="deploy-custom-provider"></a>사용자 지정 공급 기업 배포
 
@@ -28,7 +28,7 @@ ms.locfileid: "65410216"
 
 템플릿을 배포한 후 사용자 구독에는 다음 리소스가 표시됩니다.
 
-* 리소스 및 동작에 대한 작업을 사용하는 Function App.
+* 리소스 및 동작에 대한 작업을 사용하는 함수 앱.
 * 사용자 지정 공급 기업을 통해 생성된 사용자를 저장하기 위한 스토리지 계정.
 * 사용자 지정 리소스 형식 및 동작을 정의하는 사용자 지정 공급 기업. 요청을 보내기 위한 함수 앱 엔드포인트를 사용합니다.
 * 사용자 지정 공급 기업의 사용자 지정 리소스.
@@ -122,7 +122,7 @@ armclient POST $pingURI
 
 ## <a name="create-resource-type"></a>리소스 형식 만들기
 
-사용자 지정 리소스 형식을 만들기 위해 템플릿에서 리소스를 배포할 수 있습니다. 이 접근 방식은 이 자습서에서 배포한 템플릿에 표시되어 있습니다. 또한 리소스 형식에 대한 PUT 요청을 보낼 수 있습니다.
+사용자 지정 리소스 형식을 만들기 위해 템플릿에서 리소스를 배포할 수 있습니다. 이 접근 방식은 이 빠른 시작에서 배포한 템플릿에 표시되어 있습니다. 또한 리소스 형식에 대한 PUT 요청을 보낼 수 있습니다.
 
 ```
 PUT https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.CustomProviders/resourceProviders/<provider-name>/users/<resource-name>?api-version=2018-09-01-preview

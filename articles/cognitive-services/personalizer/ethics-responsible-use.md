@@ -3,19 +3,19 @@ title: 윤리 및 사용 책임 - Personalizer
 titleSuffix: Azure Cognitive Services
 description: 이러한 지침은 회사와 서비스에서 신뢰를 구축하는 데 도움이 되는 방식으로 맞춤 설정을 구현하기 위한 것입니다. 잠시 여유를 갖고 맞춤 설정이 사람들의 삶에 미치는 영향에 대해 연구하고, 알아보고, 깊이 생각해 보세요. 의심스러우면 지침을 확인해 보세요.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 06/12/2019
-ms.author: edjez
-ms.openlocfilehash: 783bfcd5ad9e114a5329892449f35f6ed8316948
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
-ms.translationtype: HT
+ms.author: diberry
+ms.openlocfilehash: f565d95f8270612a8d83dd44a1e1bb895d1a4373
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428443"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662779"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>책임 있는 Personalizer 구현 지침
 
@@ -50,7 +50,7 @@ Personalizer 구현은 사용자와 비즈니스에 중요한 가치가 될 수 
 
 콘텐츠와 사용자 인터페이스를 맞춤 설정하기 위해 학습하는 서비스를 사용하는 것이 유용합니다. 또한 사용자가 콘텐츠 맞춤 설정을 알지 못하는 경우를 포함하여 맞춤 설정이 실제 세계에서 부정적인 부작용을 일으키는 경우 잘못 적용될 수도 있습니다. 
 
-부정적 부작용 또는 투명성 부족에 대한 잠재력이 높은 Personalizer 사용의 예로, 지나치게 간소화된 즉각적인 보상으로 인해 개인에게 불리한 결과를 초래할 수 있는 많은 장기적 복합 요인에 따라 "보상"이 달라지는 시나리오가 있습니다. 이러한 시나리오는 "결과적" 선택 또는 손해의 위험을 수반하는 선택으로 간주되는 경향이 있습니다. 예: 
+부정적 부작용 또는 투명성 부족에 대한 잠재력이 높은 Personalizer 사용의 예로, 지나치게 간소화된 즉각적인 보상으로 인해 개인에게 불리한 결과를 초래할 수 있는 많은 장기적 복합 요인에 따라 "보상"이 달라지는 시나리오가 있습니다. 이러한 시나리오는 "결과적" 선택 또는 손해의 위험을 수반하는 선택으로 간주되는 경향이 있습니다. 예를 들어: 
 
 
 * **재무**: 개인이 모르거나, 얻을 수 없거나, 이의를 제기할 수 없는 데이터를 기반으로 하는 위험 요인이 있는 대출, 금융 및 보험 제품에 맞춤 설정이 제공됩니다. 
@@ -102,7 +102,7 @@ Personalizer는 애플리케이션 비즈니스 논리로 제공되는 보상 �
 ### <a name="unintended-consequences-from-reward-scores"></a>보상 점수에서 의도하지 않은 결과
 보상 점수는 최선의 의도로 작성될 수 있지만, Personalizer에서 콘텐츠의 순위를 지정하는 방식에 대해 예기치 않은 결과 또는 의도하지 않은 결과를 초래할 수 있습니다. 
 
-다음 예제를 살펴보세요.
+다음 예를 참조하세요.
 
 * 시청한 비디오 길이의 비율에 대해 비디오 콘텐츠 맞춤 설정을 보상하는 경우 아마도 더 짧은 비디오의 순위를 지정하는 경향이 있습니다.
 * 공유 방식 또는 콘텐츠 자체에 대한 감정 분석 없이 소셜 미디어 공유를 보상하는 경우 공격적이거나, 변조되지 않거나, 선동적인 콘텐츠의 순위로 지정될 수 있으며, 이는 많은 "참여"를 유도하는 경향이 있지만 거의 가치가 없습니다.
@@ -183,7 +183,7 @@ Personalizer는 애플리케이션 비즈니스 논리로 제공되는 보상 �
 
 기술 사용의 부작용에 대해 생각하는 사람은 자신의 관점과 삶의 경험에 의해 제한됩니다. 팀, 사용자 또는 자문 위원회에 더 다양한 의견을 제출하여 사용할 수 있는 의견의 범위를 넓힙니다. 이 경우 목소리를 높여 말할 수 있도록 격려합니다. 이 영역에서 팀 지식을 더욱 확장하고 복잡하고 중요한 주제를 토론할 수 있는 기능을 추가할 수 있는 학습 및 학습 자료를 고려합니다.
 
-사용자 환경, 보안 또는 개발과 관련된 작업과 같이 애플리케이션 수명 주기의 다른 교차 작업과 마찬가지로 사용 책임과 관련된 작업을 처리하는 것을 고려합니다. 이러한 작업과 해당 요구 사항은 나중에 생각할 수 없습니다. 사용 책임은 애플리케이션 수명 주기 전체에 걸쳐 논의하고 확인해야 합니다.
+사용자 환경, 보안 또는 DevOps와 관련 된 작업과 같이 응용 프로그램 수명 주기의 다른 crosscutting 작업과 마찬가지로 담당 하는 작업과 관련 된 작업을 처리 하는 것이 좋습니다. 이러한 작업과 해당 요구 사항은 나중에 생각할 수 없습니다. 사용 책임은 애플리케이션 수명 주기 전체에 걸쳐 논의하고 확인해야 합니다.
  
 ## <a name="questions-and-feedback"></a>질문 및 피드백
 

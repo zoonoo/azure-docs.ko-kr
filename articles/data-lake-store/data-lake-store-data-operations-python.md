@@ -2,21 +2,17 @@
 title: 'Python: Azure Data Lake Storage Gen1에서의 파일 시스템 작업 | Microsoft Docs'
 description: Python SDK로 Data Lake Storage Gen1 파일 시스템을 사용하는 방법을 알아봅니다.
 services: data-lake-store
-documentationcenter: ''
 author: twooley
-manager: mtillman
-editor: cgronlun
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 57efc718a51398b577a0078ba829d2f6209cab54
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f65b6f0bfefd7763b72e8853b0314830a8c5327b
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60878822"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68232552"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-python"></a>Python을 사용한 Azure Data Lake Storage Gen1에서의 파일 시스템 작업
 > [!div class="op_single_selector"]
@@ -29,7 +25,7 @@ ms.locfileid: "60878822"
 
 이 문서에서는 Python SDK를 사용하여 Azure Data Lake Storage Gen1에서 파일 시스템 작업을 수행하는 방법을 알아봅니다. Python을 사용하여 Data Lake Storage Gen1에서 계정 관리 작업을 수행하는 방법에 대한 지침은 [Python을 사용한 Data Lake Storage Gen1에서의 계정 관리 작업](data-lake-store-get-started-python.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Python**. Python을 [여기](https://www.python.org/downloads/)에서 다운로드할 수 있습니다. 이 문서에서는 Python 3.6.2를 사용합니다.
 
@@ -59,39 +55,39 @@ pip install azure-datalake-store
 
 2. 다음 줄을 추가하여 필요한 모듈을 가져옵니다.
 
-    ```
-    ## Use this only for Azure AD service-to-service authentication
-    from azure.common.credentials import ServicePrincipalCredentials
+   ```
+   ## Use this only for Azure AD service-to-service authentication
+   from azure.common.credentials import ServicePrincipalCredentials
 
-    ## Use this only for Azure AD end-user authentication
-    from azure.common.credentials import UserPassCredentials
+   ## Use this only for Azure AD end-user authentication
+   from azure.common.credentials import UserPassCredentials
 
-    ## Use this only for Azure AD multi-factor authentication
-    from msrestazure.azure_active_directory import AADTokenCredentials
+   ## Use this only for Azure AD multi-factor authentication
+   from msrestazure.azure_active_directory import AADTokenCredentials
 
-    ## Required for Azure Data Lake Storage Gen1 account management
-    from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
-    from azure.mgmt.datalake.store.models import DataLakeStoreAccount
+   ## Required for Azure Data Lake Storage Gen1 account management
+   from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
+   from azure.mgmt.datalake.store.models import DataLakeStoreAccount
 
-    ## Required for Azure Data Lake Storage Gen1 filesystem management
-    from azure.datalake.store import core, lib, multithread
+   ## Required for Azure Data Lake Storage Gen1 filesystem management
+   from azure.datalake.store import core, lib, multithread
 
-    # Common Azure imports
-    from azure.mgmt.resource.resources import ResourceManagementClient
-    from azure.mgmt.resource.resources.models import ResourceGroup
+   ## Common Azure imports
+   from azure.mgmt.resource.resources import ResourceManagementClient
+   from azure.mgmt.resource.resources.models import ResourceGroup
 
-    ## Use these as needed for your application
-    import logging, getpass, pprint, uuid, time
-    ```
+   ## Use these as needed for your application
+   import logging, getpass, pprint, uuid, time
+   ```
 
 3. mysample.py의 변경 내용을 저장합니다.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>인증
 
 이 섹션에서는 Azure AD로 인증하는 다양한 방법에 대해 설명합니다. 제공되는 옵션은 다음과 같습니다.
 
-* 응용 프로그램에 대한 최종 사용자 인증의 경우 [Python을 사용한 Data Lake Storage Gen1의 최종 사용자 인증](data-lake-store-end-user-authenticate-python.md)을 참조하세요.
-* 응용 프로그램에 대한 서비스 간 인증의 경우 [Python을 사용한 Data Lake Storage Gen1의 서비스 간 인증](data-lake-store-service-to-service-authenticate-python.md)을 참조하세요.
+* 애플리케이션에 대한 최종 사용자 인증의 경우 [Python을 사용한 Data Lake Storage Gen1의 최종 사용자 인증](data-lake-store-end-user-authenticate-python.md)을 참조하세요.
+* 애플리케이션에 대한 서비스 간 인증의 경우 [Python을 사용한 Data Lake Storage Gen1의 서비스 간 인증](data-lake-store-service-to-service-authenticate-python.md)을 참조하세요.
 
 ## <a name="create-filesystem-client"></a>파일 시스템 클라이언트 만들기
 
@@ -129,7 +125,7 @@ pip install azure-datalake-store
 ## <a name="next-steps"></a>다음 단계
 * [Python을 사용한 Data Lake Storage Gen1에서의 계정 관리 작업](data-lake-store-get-started-python.md)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 * [Azure Data Lake Storage Gen1 Python(파일 시스템) 참조](https://azure-datalake-store.readthedocs.io/en/latest)
 * [Azure Data Lake Storage Gen1과 호환되는 오픈 소스 빅 데이터 애플리케이션](data-lake-store-compatible-oss-other-applications.md)

@@ -10,12 +10,13 @@ ms.subservice: custom-decision-service
 ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: d8ddafe20ff93e7ae4d51e2180bbd40447729234
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ROBOTS: NOINDEX
+ms.openlocfilehash: f7eafed9db25fba904d98ddea652671dc45aa01d
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983035"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707213"
 ---
 # <a name="tutorial-article-personalization-for-contextual-decision-making"></a>자습서: 상황에 맞는 의사 결정을 위한 문서 개인 설정
 
@@ -56,7 +57,7 @@ Custom Decision Service는 고객이 제공한 RSS 또는 Atom 피드를 통해 
 
     ![Custom Decision Service 포털](./media/custom-decision-service-tutorial/portal.png)
 
-3. **앱 ID** 텍스트 상자에서 애플리케이션에 고유한 이름을 입력합니다. 다른 고객이 이 이름을 이미 사용하는 경우 시스템은 다른 앱 ID를 선택하도록 요청합니다. **고급** 확인란을 선택하고, Azure 저장소 계정에 대한 [연결 문자열](../../storage/common/storage-configure-connection-string.md)을 입력합니다. 일반적으로 모든 애플리케이션에 동일한 저장소 계정을 사용합니다.
+3. **앱 ID** 텍스트 상자에서 애플리케이션에 고유한 이름을 입력합니다. 다른 고객이 이 이름을 이미 사용하는 경우 시스템은 다른 앱 ID를 선택하도록 요청합니다. **고급** 확인란을 선택하고, Azure Storage 계정에 대한 [연결 문자열](../../storage/common/storage-configure-connection-string.md)을 입력합니다. 일반적으로 모든 애플리케이션에 동일한 스토리지 계정을 사용합니다.
 
     ![새 앱 대화 상자](./media/custom-decision-service-tutorial/new-app-dialog.png)
 

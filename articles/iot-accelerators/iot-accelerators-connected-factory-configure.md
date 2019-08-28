@@ -188,7 +188,7 @@ ms.locfileid: "67428313"
   * **CallOpcMethod**: “부모 노드 NodeId” 형식으로 호출할 OPC UA 메서드의 노드 정보 및 매개 변수, 호출할 메서드의 NodeId, OPC UA 서버의 URI매개 변수입니다.
   * **OpenWebPage**: 브라우저 창에 표시할 URL입니다.
 
-`<opc_node_description>`에는 스테이션(OPC UA 서버)의 OPC UA 노드에 대한 정보를 포함합니다. 기존 OPC UA 노드를 나타내지 않지만 연결된 팩터리의 계산 논리에서 저장소로 사용되는 노드도 유효합니다. 해당 속성은 다음과 같습니다.
+`<opc_node_description>`에는 스테이션(OPC UA 서버)의 OPC UA 노드에 대한 정보를 포함합니다. 기존 OPC UA 노드를 나타내지 않지만 연결된 팩터리의 계산 논리에서 스토리지로 사용되는 노드도 유효합니다. 해당 속성은 다음과 같습니다.
 
 * **NodeId**(문자열 형식)
 

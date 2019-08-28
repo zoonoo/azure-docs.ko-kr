@@ -11,16 +11,16 @@ ms.author: shipatel
 author: shivp950
 ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7f0806a1d68cd2cede1ae51f0a50a8125c1e7c8b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 81e1104d71706194ba1c54e42722b4508df09091
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66016535"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534867"
 ---
 # <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>Azure Machine Learning Service 작업 영역 만들기 및 관리
 
-이 문서에서는 Azure Portal에서 [Azure Machine Learning Service](overview-what-is-azure-ml.md)용 [**Azure Machine Learning Service 작업 영역**](concept-workspace.md)을 만들고 확인하고 삭제해 봅니다.  만들기 및 작업 영역을 삭제할 수도 있습니다 [CLI를 사용 하 여](reference-azure-machine-learning-cli.md), [Python 코드를 사용 하 여](https://aka.ms/aml-sdk) 하거나 [VS Code 확장을 통해](how-to-vscode-tools.md#get-started-with-azure-machine-learning)합니다.
+이 문서에서는 Azure Portal에서 [Azure Machine Learning Service](overview-what-is-azure-ml.md)용 [**Azure Machine Learning Service 작업 영역**](concept-workspace.md)을 만들고 확인하고 삭제해 봅니다.  포털은 작업 영역을 시작 하는 가장 쉬운 방법 이지만 변경 내용 또는 automation 증가 요구 사항에 따라 [CLI를 사용 하 여](reference-azure-machine-learning-cli.md)작업 영역을 만들고 삭제할 수도 있습니다 (예를 들어, [Python 코드를](https://aka.ms/aml-sdk) 사용 하거나 [VS Code 확장을 통해](how-to-vscode-tools.md#get-started-with-azure-machine-learning)).
 
 ## <a name="create-a-workspace"></a>작업 영역 만들기
 
@@ -28,19 +28,30 @@ ms.locfileid: "66016535"
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
+### <a name="download-a-configuration-file"></a>구성 파일 다운로드
+
+1. [노트북 VM](tutorial-1st-experiment-sdk-setup.md#azure)을 만들 경우에는이 단계를 건너뜁니다.
+
+1. 로컬 환경에서 이 작업 영역을 참조하는 코드를 사용하려면 작업 영역의 **개요** 섹션에서 **config.json 다운로드**를 선택합니다.  
+
+   ![config.json 다운로드](./media/how-to-manage-workspace/configure.png)
+   
+   Python 스크립트 또는 Jupyter Notebook을 사용하여 파일을 디렉터리 구조에 배치합니다. 동일한 디렉터리, *.azureml*이라는 하위 디렉터리 또는 부모 디렉터리에 있을 수 있습니다. 노트북 VM을 만들 때이 파일은 VM의 올바른 디렉터리에 추가 됩니다.
+
+
 ## <a name="view"></a>작업 영역 보기
 
 1. 포털의 왼쪽 위 모서리에서 **모든 서비스**를 선택합니다.
 
-1. 에 **모든 서비스** 필터 필드에 입력 **기계 학습 서비스**합니다.  
+1. **모든 서비스** 필터 필드에 **machine learning 서비스**를 입력 합니다.  
 
-1. 선택 **Machine Learning 서비스 작업 영역**합니다.
+1. **Machine Learning 서비스 작업 영역**을 선택 합니다.
 
-   ![Azure Machine Learning 서비스 작업 영역에 대 한 검색](media/how-to-manage-workspace/all-services.png)
+   ![Azure Machine Learning 서비스 작업 영역 검색](media/how-to-manage-workspace/all-services.png)
 
 1. 검색된 작업 영역 목록을 살펴봅니다. 구독, 리소스 그룹 및 위치를 기준으로 필터링 할 수 있습니다.  
 
-1. 해당 속성을 표시 하기 위해 작업 영역을 선택 합니다.
+1. 해당 속성을 표시할 작업 영역을 선택 합니다.
    ![작업 영역 속성](media/how-to-manage-workspace/allservices_view_workspace_full.PNG)
 
 ## <a name="delete-a-workspace"></a>작업 영역 삭제

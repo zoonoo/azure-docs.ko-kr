@@ -1,6 +1,6 @@
 ---
-title: HDInsight에 추가 Azure 저장소 계정 추가
-description: 기존 HDInsight 클러스터에 추가 Azure 저장소 계정을 추가하는 방법에 대해 알아봅니다.
+title: HDInsight에 추가 Azure Storage 계정 추가
+description: 기존 HDInsight 클러스터에 추가 Azure Storage 계정을 추가하는 방법에 대해 알아봅니다.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -14,12 +14,12 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 06/28/2019
 ms.locfileid: "67433525"
 ---
-# <a name="add-additional-storage-accounts-to-hdinsight"></a>HDInsight에 추가 저장소 계정 추가
+# <a name="add-additional-storage-accounts-to-hdinsight"></a>HDInsight에 추가 스토리지 계정 추가
 
 스크립트 동작을 사용 하 여 추가 Azure storage를 추가 하는 방법을 알아봅니다 *계정* HDInsight를 합니다. 이 문서의 단계에서는 저장소 추가 *계정* 기존 Linux 기반 HDInsight 클러스터에 있습니다. 이 문서 저장소에 적용 됩니다 *계정을* (기본 클러스터 저장소 계정이 아님), 및와 같은 저장소를 추가 하지 [Azure Data Lake 저장소 Gen1](hdinsight-hadoop-use-data-lake-store.md) 및 [Azure Data Lake 저장소 Gen2 ](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 > [!IMPORTANT]  
-> 이 문서의 내용은 클러스터를 만든 후 클러스터에 추가 저장소를 추가하는 방법에 대한 것입니다. 클러스터를 만드는 동안 스토리지 계정을 추가하는 방법에 대한 자세한 내용은 [Apache Hadoop, Apache Spark, Apache Kafka 등으로 HDInsight에서 클러스터 설정](hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요.
+> 이 문서의 내용은 클러스터를 만든 후 클러스터에 추가 스토리지를 추가하는 방법에 대한 것입니다. 클러스터를 만드는 동안 스토리지 계정을 추가하는 방법에 대한 자세한 내용은 [Apache Hadoop, Apache Spark, Apache Kafka 등으로 HDInsight에서 클러스터 설정](hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -34,7 +34,7 @@ ms.locfileid: "67433525"
 
 이 스크립트는 다음 매개 변수를 사용합니다.
 
-* __Azure 스토리지 계정 이름__: HDInsight 클러스터에 추가할 스토리지 계정의 이름입니다. 스크립트를 실행한 후 HDInsight에서 이 저장소 계정에 저장된 데이터를 읽고 쓸 수 있습니다.
+* __Azure 스토리지 계정 이름__: HDInsight 클러스터에 추가할 스토리지 계정의 이름입니다. 스크립트를 실행한 후 HDInsight에서 이 스토리지 계정에 저장된 데이터를 읽고 쓸 수 있습니다.
 
 * __Azure 스토리지 계정 키__: 스토리지 계정에 대한 액세스 권한을 부여하는 키입니다.
 
@@ -42,18 +42,18 @@ ms.locfileid: "67433525"
 
 처리 중에 스크립트는 다음 작업을 수행합니다.
 
-* 클러스터의 core-site.xml 구성에 저장소 계정이 이미 있는 경우 스크립트가 종료되고 더 이상의 추가 동작이 수행되지 않습니다.
+* 클러스터의 core-site.xml 구성에 스토리지 계정이 이미 있는 경우 스크립트가 종료되고 더 이상의 추가 동작이 수행되지 않습니다.
 
-* 저장소 계정이 있고 키를 사용하여 액세스할 수 있는지 확인합니다.
+* 스토리지 계정이 있고 키를 사용하여 액세스할 수 있는지 확인합니다.
 
 * 클러스터 자격 증명을 사용하여 키를 암호화합니다.
 
-* core-site.xml 파일에 저장소 계정을 추가합니다.
+* core-site.xml 파일에 스토리지 계정을 추가합니다.
 
-* [Apache Oozie](https://oozie.apache.org/), [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), [Apache Hadoop MapReduce2](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) 및 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) 서비스를 중지하고 다시 시작합니다. 이러한 서비스를 중지하고 시작하면 서비스에서 새 저장소 계정을 사용할 수 있습니다.
+* [Apache Oozie](https://oozie.apache.org/), [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), [Apache Hadoop MapReduce2](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) 및 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) 서비스를 중지하고 다시 시작합니다. 이러한 서비스를 중지하고 시작하면 서비스에서 새 스토리지 계정을 사용할 수 있습니다.
 
 > [!WARNING]  
-> HDInsight 클러스터와 다른 위치에서는 저장소 계정을 사용할 수 없습니다.
+> HDInsight 클러스터와 다른 위치에서는 스토리지 계정을 사용할 수 없습니다.
 
 ## <a name="the-script"></a>스크립트
 
@@ -112,11 +112,11 @@ az hdinsight script-action execute ^
 
 ### <a name="storage-accounts-not-displayed-in-azure-portal-or-tools"></a>Azure Portal 또는 도구에 Storage 계정이 표시되지 않음
 
-Azure Portal에서 HDInsight 클러스터를 볼 때 __속성__에서 __Storage 계정__ 항목을 선택하면 이 스크립트 동작을 통해 추가된 Storage 계정이 표시되지 않습니다. Azure PowerShell 및 Azure CLI도 추가 저장소 계정을 표시하지 않습니다.
+Azure Portal에서 HDInsight 클러스터를 볼 때 __속성__에서 __Storage 계정__ 항목을 선택하면 이 스크립트 동작을 통해 추가된 Storage 계정이 표시되지 않습니다. Azure PowerShell 및 Azure CLI도 추가 스토리지 계정을 표시하지 않습니다.
 
-이 저장소 정보는 스크립트에서 클러스터의 core-site.xml 구성만 수정하기 때문에 표시되지 않습니다. 이 정보는 Azure 관리 API를 사용하여 클러스터 정보를 검색할 때 사용되지 않습니다.
+이 스토리지 정보는 스크립트에서 클러스터의 core-site.xml 구성만 수정하기 때문에 표시되지 않습니다. 이 정보는 Azure 관리 API를 사용하여 클러스터 정보를 검색할 때 사용되지 않습니다.
 
-이 스크립트를 사용하여 클러스터에 추가된 저장소 계정 정보를 보려면 Ambari REST API를 사용합니다. 다음 명령을 사용하여 클러스터에 대한 이 정보를 검색합니다.
+이 스크립트를 사용하여 클러스터에 추가된 스토리지 계정 정보를 보려면 Ambari REST API를 사용합니다. 다음 명령을 사용하여 클러스터에 대한 이 정보를 검색합니다.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -187,15 +187,15 @@ jq-win64 ".items[].configurations[].properties["""fs.azure.account.key.ACCOUNTNA
 
     "MIIB+gYJKoZIhvcNAQcDoIIB6zCCAecCAQAxggFaMIIBVgIBADA+MCoxKDAmBgNVBAMTH2RiZW5jcnlwdGlvbi5henVyZWhkaW5zaWdodC5uZXQCEA6GDZMW1oiESKFHFOOEgjcwDQYJKoZIhvcNAQEBBQAEggEATIuO8MJ45KEQAYBQld7WaRkJOWqaCLwFub9zNpscrquA2f3o0emy9Vr6vu5cD3GTt7PmaAF0pvssbKVMf/Z8yRpHmeezSco2y7e9Qd7xJKRLYtRHm80fsjiBHSW9CYkQwxHaOqdR7DBhZyhnj+DHhODsIO2FGM8MxWk4fgBRVO6CZ5eTmZ6KVR8wYbFLi8YZXb7GkUEeSn2PsjrKGiQjtpXw1RAyanCagr5vlg8CicZg1HuhCHWf/RYFWM3EBbVz+uFZPR3BqTgbvBhWYXRJaISwssvxotppe0ikevnEgaBYrflB2P+PVrwPTZ7f36HQcn4ifY1WRJQ4qRaUxdYEfzCBgwYJKoZIhvcNAQcBMBQGCCqGSIb3DQMHBAhRdscgRV3wmYBg3j/T1aEnO3wLWCRpgZa16MWqmfQPuansKHjLwbZjTpeirqUAQpZVyXdK/w4gKlK+t1heNsNo1Wwqu+Y47bSAX1k9Ud7+Ed2oETDI7724IJ213YeGxvu4Ngcf2eHW+FRK"
 
-이 텍스트는 저장소 계정에 액세스하는 데 사용되는 암호화된 키의 예입니다.
+이 텍스트는 스토리지 계정에 액세스하는 데 사용되는 암호화된 키의 예입니다.
 
-### <a name="unable-to-access-storage-after-changing-key"></a>키를 변경한 후 저장소에 액세스할 수 없음
+### <a name="unable-to-access-storage-after-changing-key"></a>키를 변경한 후 스토리지에 액세스할 수 없음
 
-저장소 계정의 키를 변경하면 HDInsight에서 더 이상 저장소 계정에 액세스할 수 없습니다. HDInsight에서는 클러스터에 대한 core-site.xml에서 키의 캐시된 복사본을 사용합니다. 이 캐시된 복사본은 새 키와 일치하도록 업데이트해야 합니다.
+스토리지 계정의 키를 변경하면 HDInsight에서 더 이상 스토리지 계정에 액세스할 수 없습니다. HDInsight에서는 클러스터에 대한 core-site.xml에서 키의 캐시된 복사본을 사용합니다. 이 캐시된 복사본은 새 키와 일치하도록 업데이트해야 합니다.
 
-스크립트 동작을 다시 실행하면 스크립트에서 저장소 계정에 대한 항목이 이미 있는지 확인하기 때문에 키를 업데이트하지 __않습니다__. 항목이 존재하는 경우 변경하지 않습니다.
+스크립트 동작을 다시 실행하면 스크립트에서 스토리지 계정에 대한 항목이 이미 있는지 확인하기 때문에 키를 업데이트하지 __않습니다__. 항목이 존재하는 경우 변경하지 않습니다.
 
-이 문제를 해결하려면 저장소 계정에 대한 기존 항목을 제거해야 합니다. 기존 항목을 제거하려면 다음 단계를 수행합니다.
+이 문제를 해결하려면 스토리지 계정에 대한 기존 항목을 제거해야 합니다. 기존 항목을 제거하려면 다음 단계를 수행합니다.
 
 > [!IMPORTANT]  
 > 클러스터에 연결 된 기본 저장소 계정에 대 한 저장소 키를 회전 하는 것은 지원 되지 않습니다.
@@ -206,25 +206,25 @@ jq-win64 ".items[].configurations[].properties["""fs.azure.account.key.ACCOUNTNA
 
 2. 페이지 왼쪽의 서비스 목록에서 __HDFS__를 선택합니다. 그런 다음 페이지 중앙의 __구성__ 탭을 선택합니다.
 
-3. __필터 ...__ 필드에서 __fs.azure.account__의 값을 입력합니다. 이렇게 하면 클러스터에 추가된 추가 저장소 계정에 대한 항목이 반환됩니다. 항목에는 두 가지 유형, __keyprovider__와 __key__가 있습니다. 둘 다 키 이름의 일부로 저장소 계정의 이름을 포함합니다.
+3. __필터 ...__ 필드에서 __fs.azure.account__의 값을 입력합니다. 이렇게 하면 클러스터에 추가된 추가 스토리지 계정에 대한 항목이 반환됩니다. 항목에는 두 가지 유형, __keyprovider__와 __key__가 있습니다. 둘 다 키 이름의 일부로 스토리지 계정의 이름을 포함합니다.
 
     다음은 __mystorage__라는 스토리지 계정의 예제 항목입니다.
 
         fs.azure.account.keyprovider.mystorage.blob.core.windows.net
         fs.azure.account.key.mystorage.blob.core.windows.net
 
-4. 제거해야 하는 저장소 계정의 키를 확인한 후 항목 오른쪽에 있는 '-'(대시) 빨강 아이콘을 사용하여 삭제합니다. 그런 다음 __저장__ 단추를 사용하여 변경 내용을 저장합니다.
+4. 제거해야 하는 스토리지 계정의 키를 확인한 후 항목 오른쪽에 있는 '-'(대시) 빨강 아이콘을 사용하여 삭제합니다. 그런 다음 __저장__ 단추를 사용하여 변경 내용을 저장합니다.
 
-5. 변경 사항을 저장한 후 스크립트 동작을 사용하여 저장소 계정과 새 키 값을 클러스터에 추가합니다.
+5. 변경 사항을 저장한 후 스크립트 동작을 사용하여 스토리지 계정과 새 키 값을 클러스터에 추가합니다.
 
 ### <a name="poor-performance"></a>성능 저하
 
-저장소 계정이 HDInsight 클러스터와 다른 하위 지역에 있는 경우 성능이 저하될 수 있습니다. 다른 하위 지역의 데이터에 액세스하면 하위 지역 Azure 데이터 센터 외부와 공용 인터넷을 통해 네트워크 트래픽이 전송되어 대기 시간이 발생할 수 있습니다.
+스토리지 계정이 HDInsight 클러스터와 다른 하위 지역에 있는 경우 성능이 저하될 수 있습니다. 다른 하위 지역의 데이터에 액세스하면 하위 지역 Azure 데이터 센터 외부와 공용 인터넷을 통해 네트워크 트래픽이 전송되어 대기 시간이 발생할 수 있습니다.
 
 ### <a name="additional-charges"></a>추가 요금
 
-저장소 계정이 HDInsight 클러스터와 다른 하위 지역에 있는 경우 Azure 청구에서 추가 송신 요금이 발생할 수 있습니다. 데이터가 지역 데이터 센터를 떠날 때 송신 요금이 부과됩니다. 트래픽이 다른 하위 지역의 또 다른 Azure 데이터 센터로 전송되는 경우에도 이 요금이 적용됩니다.
+스토리지 계정이 HDInsight 클러스터와 다른 하위 지역에 있는 경우 Azure 청구에서 추가 송신 요금이 발생할 수 있습니다. 데이터가 지역 데이터 센터를 떠날 때 송신 요금이 부과됩니다. 트래픽이 다른 하위 지역의 또 다른 Azure 데이터 센터로 전송되는 경우에도 이 요금이 적용됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-기존 HDInsight 클러스터에 추가 저장소 계정을 추가하는 방법을 살펴보았습니다. 스크립트 동작에 대한 자세한 내용은 [스크립트 동작을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)를 참조하세요.
+기존 HDInsight 클러스터에 추가 스토리지 계정을 추가하는 방법을 살펴보았습니다. 스크립트 동작에 대한 자세한 내용은 [스크립트 동작을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)를 참조하세요.
