@@ -18,7 +18,7 @@ ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b935f8bb15357e0ca79665b5620be5778ad3c554
 ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/15/2019
 ms.locfileid: "69512514"
@@ -172,7 +172,7 @@ Azure AD에서 발급된 토큰은 RSA 256 등의 업계 표준 비대칭 암호
 
 `alg` 클레임은 토큰 서명에 사용된 알고리즘을 나타내고 `kid` 클레임은 토큰 서명에 사용된 특정 공개 키를 나타냅니다.
 
-특정 시점에 Azure AD는 공개-개인 키 쌍의 특정 집합 중 하나를 사용하여 id_token에 서명할 수 있습니다. Azure AD는 주기적으로 가능한 키 집합을 순환하므로 이러한 키 변경을 자동으로 처리하도록 앱을 작성해야 합니다. Azure AD에서 사용된 공개 키에 대한 업데이트를 확인하는 적절한 빈도는 24시간마다입니다.
+특정 시점에 Azure AD는퍼블릭-프라이빗 키 쌍의 특정 집합 중 하나를 사용하여 id_token에 서명할 수 있습니다. Azure AD는 주기적으로 가능한 키 집합을 순환하므로 이러한 키 변경을 자동으로 처리하도록 앱을 작성해야 합니다. Azure AD에서 사용된 공개 키에 대한 업데이트를 확인하는 적절한 빈도는 24시간마다입니다.
 
 다음 위치에 있는 [Openid connect Connect 메타 데이터 문서](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document) 를 사용 하 여 서명의 유효성을 검사 하는 데 필요한 서명 키 데이터를 가져올 수 있습니다.
 

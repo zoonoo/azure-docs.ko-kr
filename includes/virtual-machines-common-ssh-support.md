@@ -17,4 +17,4 @@ ms.locfileid: "67182212"
 ---
 ## <a name="supported-ssh-key-formats"></a>지원되는 SSH 키 형식
 
-Azure에서는 현재 최소 2048비트 길이의 SSH 프로토콜 2(SSH-2) RSA 공개-개인 키 쌍을 지원합니다. ED25519 및 ECDSA와 같은 다른 키 형식은 지원되지 않습니다. 
+Azure에서는 현재 최소 2048비트 길이의 SSH 프로토콜 2(SSH-2) RSA퍼블릭-프라이빗 키 쌍을 지원합니다. ED25519 및 ECDSA와 같은 다른 키 형식은 지원되지 않습니다. 

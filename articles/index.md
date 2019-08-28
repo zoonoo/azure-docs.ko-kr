@@ -4257,7 +4257,7 @@ ms.locfileid: "68501238"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Site Recovery</h3>
-                                                    <p>사설 클라우드의 보호 및 복구 오케스트레이션</p>
+                                                    <p>프라이빗 클라우드의 보호 및 복구 오케스트레이션</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4895,7 +4895,7 @@ ms.locfileid: "68501238"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Site Recovery</h3>
-                                                    <p>사설 클라우드의 보호 및 복구 오케스트레이션</p>
+                                                    <p>프라이빗 클라우드의 보호 및 복구 오케스트레이션</p>
                                                 </div>
                                             </div>
                                         </div>

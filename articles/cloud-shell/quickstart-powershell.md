@@ -260,7 +260,7 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 
 ## <a name="ssh"></a>SSH
 
-SSH를 사용하여 서버 또는 VM을 인증하려면 Cloud Shell에서 공개-개인 키 쌍을 생성하고 공개 키를 원격 컴퓨터의 `authorized_keys`(예: `/home/user/.ssh/authorized_keys`)에 게시합니다.
+SSH를 사용하여 서버 또는 VM을 인증하려면 Cloud Shell에서 공개-프라이빗 키 쌍을 생성하고 퍼블릭 키를 원격 컴퓨터의 `authorized_keys`(예: `/home/user/.ssh/authorized_keys`)에 게시합니다.
 
 > [!NOTE]
 > Cloud Shell에서 `ssh-keygen`을 사용하여 SSH 프라이빗-공개 키를 만들고 이 키를 `$env:USERPROFILE\.ssh`에 게시할 수 있습니다.

@@ -290,7 +290,7 @@ Azure AD에서는 업계 표준을 사용하여 Azure AD 자체와 Azure AD를 �
 
 Azure AD 키 롤오버에 대한 자세한 내용은 [Azure AD의 서명 키 롤오버에 대한 중요한 정보](../../active-directory/active-directory-signing-key-rollover.md)를 참조하세요.
 
-[공개-개인 키 쌍](https://login.microsoftonline.com/common/discovery/keys/)중에서,
+[퍼블릭-프라이빗 키 쌍](https://login.microsoftonline.com/common/discovery/keys/)중에서,
 
 * Azure AD가 JWT를 생성하는 데 프라이빗 키가 사용됩니다.
 * Media Services의 DRM 라이선스 배달 서비스와 같은 애플리케이션에서 JWT를 확인하는 데 공개 키가 사용됩니다.

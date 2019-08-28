@@ -151,7 +151,7 @@ Azure에서 원격 데스크톱을 사용하여 Azure의 Linux VM에 연결할 �
 
 ### <a name="secure-access-to-linux-vms-with-ssh"></a>SSH로 Linux VM에 보안 액세스
 
-[SSH(Secure Shell)](../../virtual-machines/linux/ssh-from-windows.md)를 사용하여 Azure에서 실행 중인 Linux VM에 연결하면 원격 관리가 가능합니다. SSH는 안전하지 않은 연결을 통해 안전하게 로그인할 수 있도록 암호화된 연결 프로토콜입니다. Azure에서 호스팅되는 Linux VM에 대한 기본 연결 프로토콜입니다. 인증에 SSH 키를 사용하면 로그인 시 암호가 필요 없습니다. SSH는 인증에 공개/개인 키 쌍(비대칭 암호화)을 사용합니다.
+[SSH(Secure Shell)](../../virtual-machines/linux/ssh-from-windows.md)를 사용하여 Azure에서 실행 중인 Linux VM에 연결하면 원격 관리가 가능합니다. SSH는 안전하지 않은 연결을 통해 안전하게 로그인할 수 있도록 암호화된 연결 프로토콜입니다. Azure에서 호스팅되는 Linux VM에 대한 기본 연결 프로토콜입니다. 인증에 SSH 키를 사용하면 로그인 시 암호가 필요 없습니다. SSH는 인증에 퍼블릭/프라이빗 키 쌍(비대칭 암호화)을 사용합니다.
 
 ## <a name="azure-vpn-encryption"></a>Azure VPN 암호화
 

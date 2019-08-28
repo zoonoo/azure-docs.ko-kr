@@ -36,7 +36,7 @@ a.  Azure Data Box 서비스는 오프라인 데이터 수집을 위해 설계�
 ### <a name="q-what-are-azure-data-box-disks"></a>Q. Azure Data Box Disk란?
 a. Azure Data Box Disk를 사용하면 Azure에서 테라바이트 단위의 데이터를 빠르고 저렴하게 신뢰할 수 있는 방식으로 전송할 수 있습니다. Microsoft에서 1-5개의 디스크를 제공하며 최대 스토리지 용량은 35TB입니다. Azure Portal에서 Data Box 서비스를 통해 이러한 디스크를 쉽게 구성, 연결 및 잠금 해제할 수 있습니다.  
 
-디스크는 Microsoft BitLocker 드라이브 암호화를 통해 암호화되고, 암호화 키는 SSL을 통해 Azure Portal에서 관리됩니다. 그런 다음, 고객의 서버에서 데이터를 복사합니다. 데이터 센터에서 Microsoft는 빠른 사설망 업로드 링크를 사용하여 데이터를 드라이브에서 클라우드로 마이그레이션하고 Azure에 업로드합니다.
+디스크는 Microsoft BitLocker 드라이브 암호화를 통해 암호화되고, 암호화 키는 SSL을 통해 Azure Portal에서 관리됩니다. 그런 다음, 고객의 서버에서 데이터를 복사합니다. 데이터 센터에서 Microsoft는 빠른 프라이빗망 업로드 링크를 사용하여 데이터를 드라이브에서 클라우드로 마이그레이션하고 Azure에 업로드합니다.
 
 ### <a name="q-when-should-i-use-data-box-disks"></a>Q. Data Box Disk는 언제 사용해야 하나요?
 a. Azure로 전송하려는 데이터가 40TB 이하이면 Data Box Disk를 사용하는 것이 좋습니다.
