@@ -1,7 +1,7 @@
 ---
-title: Custom Voice란? -음성 서비스
+title: 사용자 지정 음성이란? -음성 서비스
 titleSuffix: Azure Cognitive Services
-description: 사용자 지정 음성은 브랜드에 대해 인식할 수 있는 유일한 음성을 만들 수 있는 온라인 도구 집합입니다. 시작하기 위해서는 약간의 오디오 파일 및 관련 기록만 있으면 됩니다. 사용자 지정 음성-텍스트 변환 환경을 만들기 시작하려면 아래 링크를 따르세요.
+description: 사용자 지정 음성은 브랜드에 대한 인식할 수 있는 독특한 음성을 만들 수 있는 온라인 도구 집합입니다. 시작하기 위해 필요한 것은 약간의 오디오 파일 및 관련 기록 뿐입니다. 사용자 지정 텍스트 음성 변환 환경 만들기를 시작하려면 아래 링크를 따르세요.
 services: cognitive-services
 author: erhopf
 manager: nitinme
