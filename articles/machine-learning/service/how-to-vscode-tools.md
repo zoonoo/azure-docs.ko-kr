@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: shwinne
-author: swinner95
+ms.author: ronglu
+author: ronglums
 ms.date: 7/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3b49def1af7f13e38c3a9daea32d56bf3c633261
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: b1d18006e6ec3ff1659f8fb80f8cf6766797d76b
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871760"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114424"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Visual Studio Code용 Azure Machine Learning 시작
 
@@ -27,7 +27,7 @@ ms.locfileid: "67871760"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-+ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [무료 또는 유료 버전의 Azure Machine Learning 서비스](https://aka.ms/AMLFree)를 사용해 보세요.
++ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 + Visual Studio Code를 설치해야 합니다. Visual Studio Code은 데스크톱에서 실행 되는 간단 하지만 강력한 소스 코드 편집기입니다. Python 및 기타 프로그래밍 언어에 대 한 기본 제공 지원이 제공 됩니다. Visual Studio Code를 아직 설치 하지 않은 경우 [방법을 확인](https://code.visualstudio.com/docs/setup/setup-overview)하세요.
 

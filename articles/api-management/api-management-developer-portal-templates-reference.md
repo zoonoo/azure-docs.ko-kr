@@ -10,16 +10,15 @@ ms.assetid: 5189f3d8-2a4c-4dc8-ab19-11c7df0114d4
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 0f339984a9db1a337f97e6db24571004cc34f679
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eb06c1c5db20f3216c5c8e81580e445f9c0ba804
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60657648"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072596"
 ---
 # <a name="developer-portal-templates"></a>개발자 포털 템플릿
 
@@ -45,14 +44,14 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
         -   [Ruby](api-management-api-templates.md#Ruby)  
 -   [제품](api-management-product-templates.md)  
     -   [제품 목록](api-management-product-templates.md#ProductList)  
-    -   [Product](api-management-product-templates.md#Product)  
+    -   [제품](api-management-product-templates.md#Product)  
 -   [애플리케이션](api-management-application-templates.md)  
     -   [애플리케이션 목록](api-management-application-templates.md#ProductList)  
-    -   [애플리케이션](api-management-application-templates.md#Application)  
+    -   [응용 프로그램](api-management-application-templates.md#Application)  
 -   [문제](api-management-issue-templates.md)  
     -   [문제 목록](api-management-issue-templates.md#IssueList)  
 -   [사용자 프로필](api-management-user-profile-templates.md)  
-    -   [프로필](api-management-user-profile-templates.md#Profile)  
+    -   [Profile](api-management-user-profile-templates.md#Profile)  
     -   [구독](api-management-user-profile-templates.md#Subscriptions)  
     -   [애플리케이션](api-management-user-profile-templates.md#Applications)  
     -   [계정 정보 업데이트](api-management-user-profile-templates.md#UpdateAccountInfo)  

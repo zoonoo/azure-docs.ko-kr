@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 2c3adaa6f4e113f09e676583c2c35b5f1fbdb622
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45e29673e264f64c976cce664eaf749636400c7f
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61062193"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70067744"
 ---
 # <a name="generate-shared-access-signature"></a>공유 액세스 서명 생성
 

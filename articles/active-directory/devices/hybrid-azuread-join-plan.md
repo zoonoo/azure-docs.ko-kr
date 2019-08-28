@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1431a46bf0981ee7ca3ecd06be9d7ebc35f05982
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 6c6980d11fa5fe3733e351923d058d1ad0a1677e
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032738"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084915"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>방법: 하이브리드 Azure Active Directory 조인 구현 계획
 
@@ -64,7 +64,7 @@ Windows 데스크톱 운영 체제를 실행 하는 장치의 경우 지원 되�
 ### <a name="windows-down-level-devices"></a>Windows 하위 수준 디바이스
 
 - Windows 8.1
-- Windows 7. Windows 7에 대 한 지원 정보는 [windows 7에 대 한 지원 종료를](https://www.microsoft.com/windowsforbusiness/end-of-windows-7-support) 참조 하세요.
+- Windows 7. Windows 7에 대 한 지원 정보는 [windows 7에 대 한 지원 종료를](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support) 참조 하세요.
 - Windows Server 2012 R2
 - Windows Server 2012
 - Windows Server 2008 R2
@@ -145,7 +145,7 @@ Id 인프라와 일치 하는 시나리오에 따라 다음을 참조 하세요.
 
 아래 표에서는 Windows 10 하이브리드 Azure AD 조인에서 이러한 온-프레미스 AD UPN에 대한 지원을 자세히 설명합니다.
 
-| 온-프레미스 AD UPN 유형 | 도메인 유형 | Windows 10 버전 | Description |
+| 온-프레미스 AD UPN 유형 | 도메인 유형 | Windows 10 버전 | 설명 |
 | ----- | ----- | ----- | ----- |
 | 라우팅 가능 | 페더레이션 | 1703 릴리스 | 일반 공급 |
 | 라우팅 불가능 | 페더레이션 | 1803 릴리스 | 일반 공급 |

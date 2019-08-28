@@ -10,17 +10,16 @@ ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b207d9e3123245e5cb7dddb625f7488886591ae5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e6a59d519ae8bb515ab16632bd39509682959f50
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128534"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70074025"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Traffic Manager를 사용하는 Azure App Service의 웹앱에 대한 사용자 지정 도메인 이름 구성
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
@@ -58,7 +57,7 @@ ms.locfileid: "62128534"
 각각 도메인 공급자에 대한 구체적인 설명은 다르지만 사용자 지정 도메인 이름(예: **contoso.com**)*에서* 웹앱과 통합된 Traffic Manager 도메인 이름(**contoso.trafficmanager.net**)*으로* 매핑합니다.
 
 > [!NOTE]
-> 레코드를 이미 사용 중이고 앱을 우선적으로 바인딩해야 하는 경우 추가 CNAME 레코드를 만들 수 있습니다. 예를 들어 우선적으로 바인딩해야 하 **www\.contoso.com** 웹 앱에 CNAME 레코드를 만듭니다 **awverify.www** 하 **contoso.trafficmanager.net**합니다. 추가할 수 있습니다 "www\.contoso.com"을 "www" CNAME 레코드를 변경 하지 않고 웹 앱입니다. 자세한 내용은 [사용자 지정 도메인에서 웹앱에 대한 DNS 레코드 만들기][CREATEDNS]를 참조하세요.
+> 레코드를 이미 사용 중이고 앱을 우선적으로 바인딩해야 하는 경우 추가 CNAME 레코드를 만들 수 있습니다. 예를 들어 **www\.contoso.com** 를 웹 앱에 미리 바인딩하려면 **awverify** 에서 **contoso.trafficmanager.net**로 CNAME 레코드를 만듭니다. 그런 다음 "www" CNAME\.레코드를 변경 하지 않고 "www contoso.com"를 웹 앱에 추가할 수 있습니다. 자세한 내용은 [사용자 지정 도메인에서 웹 앱에 대 한 DNS 레코드 만들기][CREATEDNS]를 참조 하세요.
 
 도메인 공급자에서 DNS 레코드를 추가하거나 수정했다면 변경 내용을 저장합니다.
 

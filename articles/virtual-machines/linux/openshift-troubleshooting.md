@@ -9,25 +9,24 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/19/2019
 ms.author: haroldw
-ms.openlocfilehash: af6746e7246b8783e5bdbef34cf1b57427aa7ebb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 31512bb264b5e998e5b6adc76d37c82c174933be
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60771280"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091700"
 ---
 # <a name="troubleshoot-openshift-deployment-in-azure"></a>Azure에서 OpenShift 배포 문제 해결
 
 OpenShift 클러스터가 성공적으로 배포되지 않으면 Azure Portal에서 오류가 출력됩니다. 출력이 읽기 어려워 문제를 파악하기가 어려울 수도 있습니다. 이 출력에서 종료 코드 3, 4 또는 5를 빠르게 검사합니다. 다음은 이러한 세 개의 종료 코드에 대한 정보를 제공합니다.
 
-- 종료 코드 3: Red Hat 구독 사용자 이름 / 암호 또는 조직 ID / 활성화 키가 올바르지 않습니다
-- 종료 코드 4: Red Hat 풀 ID에 잘못 되었거나 사용 가능한 자격이
+- 종료 코드 3: Red Hat 구독 사용자 이름/암호 또는 조직 ID/활성화 키가 잘못 되었습니다.
+- 종료 코드 4: Red Hat 풀 ID가 잘못 되었거나 사용 가능한 자격이 없습니다.
 - 종료 코드 5: Docker 씬 풀 볼륨을 프로 비전 할 수 없습니다.
 
 다른 모든 종료 코드의 경우, ssh를 통해 호스트에 연결하여 로그 파일을 봅니다.
@@ -42,9 +41,9 @@ ansible 플레이북 호스트에 대해 SSH를 수행합니다. OKD 템플릿(�
 
 ## <a name="log-files"></a>로그 파일
 
-호스트 준비 스크립트에 대 한 로그 파일 (stderr 및 stdout)에 위치한 `/var/lib/waagent/custom-script/download/0` 모든 호스트에 있습니다. 호스트를 준비하는 동안 오류가 발생한 경우 이 로그 파일을 보고 오류를 확인합니다.
+호스트 준비 스크립트의 로그 파일 (stderr 및 stdout)은 모든 호스트의에 `/var/lib/waagent/custom-script/download/0` 있습니다. 호스트를 준비하는 동안 오류가 발생한 경우 이 로그 파일을 보고 오류를 확인합니다.
 
-준비 스크립트를 성공적으로 실행 하는 경우 다음 로그 파일에 `/var/lib/waagent/custom-script/download/1` ansible 플레이 북 호스트의 디렉터리를 검사 해야 합니다. OpenShift를 실제로 설치하는 동안 오류가 발생한 경우 stdout 파일에 오류가 표시됩니다. 추가 지원을 받으려면 이 정보를 사용하여 고객 지원팀에 문의하세요.
+준비 스크립트가 성공적으로 실행 되 면 ansible 플레이 북 호스트의 `/var/lib/waagent/custom-script/download/1` 디렉터리에 있는 로그 파일을 검사 해야 합니다. OpenShift를 실제로 설치하는 동안 오류가 발생한 경우 stdout 파일에 오류가 표시됩니다. 추가 지원을 받으려면 이 정보를 사용하여 고객 지원팀에 문의하세요.
 
 예제 출력
 
@@ -93,11 +92,11 @@ Failure summary:
 
 ### <a name="private-key-has-a-passphrase"></a>프라이빗 키에 암호가 있음
 
-권한이 거부 된에 대 한 ssh 오류가 표시 됩니다. ssh 개인 키에 대 한 암호를 확인 하 고 ansible 플레이 북 호스트로 합니다.
+Ssh에 대 한 권한이 거부 되었다는 오류가 표시 됩니다. ansible 플레이 북 호스트에 ssh를 설정 하 여 개인 키에 대 한 암호를 확인 합니다.
 
 ### <a name="key-vault-secret-with-private-key-wasnt-created-correctly"></a>프라이빗 키를 사용한 키 자격 증명 모음 비밀이 올바르게 생성되지 않음
 
-개인 키 ansible 플레이 북 호스트-~/.ssh/id_rsa에 복사 됩니다. 이 파일이 올바른지 확인합니다. ansible 플레이북 호스트에서 클러스터 노드 중 하나에 대한 SSH 세션을 열어 테스트합니다.
+개인 키가 ansible 플레이 북 host-~/.ssh/id_rsa.에 복사 됩니다. 이 파일이 올바른지 확인합니다. ansible 플레이북 호스트에서 클러스터 노드 중 하나에 대한 SSH 세션을 열어 테스트합니다.
 
 ### <a name="service-principal-credentials-were-entered-incorrectly"></a>서비스 주체 자격 증명이 잘못 입력됨
 

@@ -17,12 +17,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7df2f9aa56e22bd4060c823b02900fa914a0fd7f
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 5d36def4faa98f4b8e42c93cf3e222c2ec7ca89a
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532807"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073835"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>MSAL를 사용 하 여 클라이언트 응용 프로그램 초기화
 이 문서에서는 사용자 에이전트 응용 프로그램의 인스턴스에서 JavaScript 용 Microsoft 인증 라이브러리 (MSAL)를 초기화 하는 방법을 설명 합니다. 사용자 에이전트 응용 프로그램은 클라이언트 코드가 웹 브라우저와 같은 사용자 에이전트에서 실행 되는 공용 클라이언트 응용 프로그램의 형태입니다. 브라우저 컨텍스트는 공개적으로 액세스할 수 있기 때문에 이러한 클라이언트는 비밀을 저장 하지 않습니다. 클라이언트 응용 프로그램 유형 및 응용 프로그램 구성 옵션에 대 한 자세한 내용은 [개요](msal-client-applications.md)를 참조 하세요.
@@ -123,7 +123,7 @@ export type Configuration = {
 
 - **validateAuthority**: 선택 사항입니다.  토큰 발급자의 유효성을 검사 합니다. 기본값은 `true`입니다. B2C 응용 프로그램의 경우 기관 값이 알려져 있고 정책에 따라 다를 수 있으므로 기관 유효성 검사가 작동 하지 않으므로로 `false`설정 되어야 합니다.
 
-- **redirectUri**: 선택 사항입니다.  앱이 인증 응답을 보내고 받을 수 있는 앱의 리디렉션 URI입니다. URL로 인코딩되어야 한다는 점을 제외하고 포털에서 등록한 리디렉션 URI 중 하나와 정확히 일치해야 합니다. 기본값은 `window.location.href`입니다.
+- **redirectUri**: 선택 사항입니다.  앱이 인증 응답을 보내고 받을 수 있는 앱의 리디렉션 URI입니다. 포털에 등록 한 리디렉션 Uri 중 하 나와 정확히 일치 해야 합니다. 기본값은 `window.location.href`입니다.
 
 - **postLogoutRedirectUri**: 선택 사항입니다.  로그 아웃 한 후 `postLogoutRedirectUri` 사용자를로 리디렉션합니다. 기본값은 `redirectUri`입니다.
 

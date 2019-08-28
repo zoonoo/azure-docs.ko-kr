@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: 0e32c81f37a8b81511cd009dfddbcc546aee1797
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: f797d3ee525806d8002b19edb1378d0376508b08
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876745"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073923"
 ---
 # <a name="tenant-and-host-pool-creation"></a>테넌트 및 호스트 풀 만들기
 
@@ -34,39 +34,45 @@ Vm을 도메인에 가입 하는 데 문제가 있는 경우 다음 지침을 �
 
 **원인:** Azure Resource Manager 템플릿 인터페이스 수정에서 자격 증명을 입력 했을 때 철자가 잘못 되었습니다.
 
-**방법을** 다음 지침에 따라 자격 증명을 수정 합니다.
+**방법을** 다음 작업 중 하나를 수행 하 여 해결 합니다.
 
-1. 수동으로 Vm을 도메인에 추가 합니다.
-2. 자격 증명이 확인 되 면 다시 배포 합니다. [PowerShell을 사용 하 여 호스트 풀 만들기](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell)를 참조 하세요.
-3. [기존 WINDOWS VM을 AD 도메인에 조인](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)하는 템플릿을 사용 하 여 vm을 도메인에 가입 시킵니다.
+- 수동으로 Vm을 도메인에 추가 합니다.
+- 자격 증명이 확인 되 면 템플릿을 다시 배포 합니다. [PowerShell을 사용 하 여 호스트 풀 만들기](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell)를 참조 하세요.
+- [기존 WINDOWS VM을 AD 도메인에 조인](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)하는 템플릿을 사용 하 여 vm을 도메인에 가입 시킵니다.
 
 ### <a name="error-timeout-waiting-for-user-input"></a>오류: 사용자 입력을 기다리는 동안 제한 시간이 초과 되었습니다.
 
 **원인:** 도메인 가입을 완료 하는 데 사용 되는 계정에 MFA (multi-factor authentication)가 있을 수 있습니다.
 
-**방법을** 다음 지침에 따라 도메인 가입을 완료 합니다.
+**방법을** 다음 작업 중 하나를 수행 하 여 해결 합니다.
 
-1. 계정에 대 한 MFA를 일시적으로 제거 합니다.
-2. 서비스 계정을 사용 합니다.
+- 계정에 대 한 MFA를 일시적으로 제거 합니다.
+- 서비스 계정을 사용 합니다.
 
 ### <a name="error-the-account-used-during-provisioning-doesnt-have-permissions-to-complete-the-operation"></a>오류: 프로 비전 하는 동안 사용 된 계정에 작업을 완료할 수 있는 권한이 없습니다.
 
 **원인:** 사용 중인 계정에는 규정 준수 및 규정으로 인해 Vm을 도메인에 가입 시킬 수 있는 권한이 없습니다.
 
-**방법을** 다음 지침을 따르세요.
+**방법을** 다음 작업 중 하나를 수행 하 여 해결 합니다.
 
-1. 관리자 그룹의 구성원 인 계정을 사용 합니다.
-2. 사용 중인 계정에 필요한 사용 권한을 부여 합니다.
+- 관리자 그룹의 구성원 인 계정을 사용 합니다.
+- 사용 중인 계정에 필요한 사용 권한을 부여 합니다.
 
 ### <a name="error-domain-name-doesnt-resolve"></a>오류: 도메인 이름이 확인 되지 않습니다.
 
-**원인 1:** Vm은 도메인이 있는 가상 네트워크 (VNET)와 연결 되지 않은 리소스 그룹에 있습니다.
+**원인 1:** Vm은 도메인이 있는 가상 네트워크 (VNET)와 연결 되지 않은 가상 네트워크에 있습니다.
 
 **수정 1:** Vm이 프로 비전 된 VNET과 도메인 컨트롤러 (DC)가 실행 중인 VNET 간에 VNET 피어 링을 만듭니다. [가상 네트워크 피어 링 만들기-리소스 관리자, 다른 구독을](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions)참조 하세요.
 
-**원인 2:** AadService (AADS)를 사용 하는 경우 DNS 항목이 설정 되지 않았습니다.
+**원인 2:** Azure Active Directory Domain Services (Azure AD DS)를 사용 하는 경우 관리 되는 도메인 컨트롤러를 가리키도록 가상 네트워크에 DNS 서버 설정이 업데이트 되지 않습니다.
 
-**수정 2:** 도메인 서비스를 설정 하려면 [Azure Active Directory Domain Services 사용](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-dns)을 참조 하세요.
+**수정 2:** Azure AD DS를 포함 하는 가상 네트워크에 대 한 DNS 설정을 업데이트 하려면 [azure virtual network에 대 한 dns 설정 업데이트](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#update-dns-settings-for-the-azure-virtual-network)를 참조 하세요.
+
+**원인 3:** 네트워크 인터페이스의 DNS 서버 설정이 가상 네트워크의 적절 한 DNS 서버를 가리키지 않습니다.
+
+**수정 3:** [DNS 서버 변경]의 단계에 따라 다음 작업 중 하나를 수행 하 여 해결 합니다.
+- [Dns 서버 변경](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#change-dns-servers) 의 단계에 따라 네트워크 인터페이스의 dns 서버 설정을 **사용자 지정** 으로 변경 하 고 가상 네트워크에 있는 dns 서버의 개인 IP 주소를 지정 합니다.
+- [Dns 서버 변경](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#change-dns-servers)의 단계를 사용 하 여 **가상 네트워크에서 상속** 하도록 네트워크 인터페이스의 dns 서버 설정을 변경 하 고 dns 서버 [변경](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#change-dns-servers)의 단계를 수행 하 여 가상 네트워크의 dns 서버 설정을 변경 합니다.
 
 ## <a name="windows-virtual-desktop-agent-and-windows-virtual-desktop-boot-loader-are-not-installed"></a>Windows 가상 데스크톱 에이전트 및 Windows 가상 데스크톱 부팅 로더가 설치 되어 있지 않습니다.
 

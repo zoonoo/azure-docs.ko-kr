@@ -10,16 +10,15 @@ ms.assetid: a8c982b2-bca5-4312-9367-4a0bbc1082b1
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: 4ee970f14a6da3d65849a79ff4afae68601f106f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f7617348a98899251dcd3b8f1645c40bd297ffdb
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66141648"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073549"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>내부 VNET에서 Application Gateway와 API Management 통합
 
@@ -35,13 +34,13 @@ Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 이 문서에 설명한 단계를 따르려면 다음 항목이 있어야 합니다.
 
-* 활성 Azure 구독.
+* 활성화된 Azure 구독.
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -49,15 +48,15 @@ Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual
 
 ## <a name="scenario"> </a> 시나리오
 
-이 문서에서는 내부 및 외부 소비자에 대 한 단일 API Management 서비스를 사용 하 여 온-프레미스 둘 다에 대해 단일 프런트 엔드로 작동 하 고 클라우드 Api를 확인 하는 방법을 설명 합니다. Application Gateway에서 사용 가능한 라우팅 기능을 사용하여 외부 소비에 대해 API(예제에서 녹색으로 강조 표시됨)의 하위 집합만을 노출하는 방법을 확인할 수도 있습니다.
+이 문서에서는 내부 및 외부 소비자에 대해 단일 API Management 서비스를 사용 하 고 온-프레미스 및 클라우드 Api에 대 한 단일 프런트 엔드로 작동 하도록 하는 방법을 설명 합니다. Application Gateway에서 사용 가능한 라우팅 기능을 사용하여 외부 소비에 대해 API(예제에서 녹색으로 강조 표시됨)의 하위 집합만을 노출하는 방법을 확인할 수도 있습니다.
 
-첫 번째 설정 예제에서 모든 API는 Virtual Network 내에서만 관리됩니다. 내부 소비자(주황색으로 강조 표시됨)는 모든 내부 및 외부 API에 액세스할 수 있습니다. 트래픽은은 인터넷에 되지 전송 됩니다. 고성능 연결 Expressroute 회로 통해 전달 됩니다.
+첫 번째 설정 예제에서 모든 API는 Virtual Network 내에서만 관리됩니다. 내부 소비자(주황색으로 강조 표시됨)는 모든 내부 및 외부 API에 액세스할 수 있습니다. 트래픽은 인터넷으로 이동 하지 않습니다. 고속 연결은 Express 경로 회로를 통해 제공 됩니다.
 
 ![url 경로](./media/api-management-howto-integrate-internal-vnet-appgateway/api-management-howto-integrate-internal-vnet-appgateway.png)
 
 ## <a name="before-you-begin"> </a> 시작하기 전에
 
-* Azure PowerShell의 최신 버전을 사용하고 있는지 확인합니다. 설치 지침을 참조 하세요 [Azure PowerShell 설치](/powershell/azure/install-az-ps)합니다. 
+* Azure PowerShell의 최신 버전을 사용하고 있는지 확인합니다. 설치 [Azure PowerShell](/powershell/azure/install-az-ps)에서 설치 지침을 참조 하세요. 
 
 ## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>API Management 및 Application Gateway 간에 통합을 만드는 데 무엇이 필요한가요?
 
@@ -147,7 +146,7 @@ $apimsubnet = New-AzVirtualNetworkSubnetConfig -Name "apim02" -AddressPrefix "10
 $vnet = New-AzVirtualNetwork -Name "appgwvnet" -ResourceGroupName $resGroupName -Location $location -AddressPrefix "10.0.0.0/16" -Subnet $appgatewaysubnet,$apimsubnet
 ```
 
-### <a name="step-4"></a>4단계:
+### <a name="step-4"></a>4단계
 
 다음 단계에 대한 서브넷 변수 할당
 
@@ -185,7 +184,7 @@ $apimService = New-AzApiManagement -ResourceGroupName $resGroupName -Location $l
 
 ### <a name="step-1"></a>1단계
 
-도메인에 대 한 개인 키를 사용 하 여 인증서의 세부 정보를 사용 하 여 다음 변수를 초기화 합니다. 이 예제에서는 `api.contoso.net` 및 `portal.contoso.net`을 사용합니다.  
+도메인에 대 한 개인 키가 있는 인증서의 세부 정보를 사용 하 여 다음 변수를 초기화 합니다. 이 예제에서는 `api.contoso.net` 및 `portal.contoso.net`을 사용합니다.  
 
 ```powershell
 $gatewayHostname = "api.contoso.net"                 # API gateway host
@@ -202,7 +201,7 @@ $certPortalPwd = ConvertTo-SecureString -String $portalCertPfxPassword -AsPlainT
 
 ### <a name="step-2"></a>2단계
 
-만들고 프록시 및 포털에 대 한 호스트 이름 구성 개체를 설정 합니다.  
+프록시 및 포털에 대 한 호스트 이름 구성 개체를 만들고 설정 합니다.  
 
 ```powershell
 $proxyHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $gatewayHostname -HostnameType Proxy -PfxPath $gatewayCertPfxPath -PfxPassword $certPwd
@@ -251,7 +250,7 @@ $fp01 = New-AzApplicationGatewayFrontendPort -Name "port01"  -Port 443
 $fipconfig01 = New-AzApplicationGatewayFrontendIPConfig -Name "frontend1" -PublicIPAddress $publicip
 ```
 
-### <a name="step-4"></a>4단계:
+### <a name="step-4"></a>4단계
 
 Application Gateway의 인증서가 전달되는 트래픽을 암호화하고 해독하는 데 사용되도록 구성합니다.
 
@@ -355,7 +354,7 @@ Get-AzPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 ```
 
 ## <a name="summary"> </a> 요약
-Azure API Management를 VNET에 구성 된 온-프레미스 또는 클라우드에서 호스팅되는 여부를 구성 된 모든 Api에 대 한 단일 게이트웨이 인터페이스를 제공 합니다. Application Gateway와 API Management의 통합을 통해 특정 API를 인터넷에 액세스할 수 있도록 선택적으로 유연성을 향상시키고 API Management 인스턴스에 대한 프런트 엔드로 웹 애플리케이션 방화벽을 제공합니다.
+VNET에서 구성 된 Azure API Management은 온-프레미스 또는 클라우드에서 호스트 되는지에 관계 없이 구성 된 모든 Api에 대 한 단일 게이트웨이 인터페이스를 제공 합니다. Application Gateway와 API Management의 통합을 통해 특정 API를 인터넷에 액세스할 수 있도록 선택적으로 유연성을 향상시키고 API Management 인스턴스에 대한 프런트 엔드로 웹 애플리케이션 방화벽을 제공합니다.
 
 ## <a name="next-steps"> </a> 다음 단계
 * Azure Application Gateway에 대한 자세한 정보

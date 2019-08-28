@@ -10,16 +10,15 @@ ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 2e53b0d582a69e10de22e85720833800d44058e3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e33d981429f0e79accbe47ea0edea5f3c7a2157b
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66141479"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072203"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Azure API Management에서 역할 기반 액세스 제어를 사용하는 방법
 
@@ -52,7 +51,7 @@ API Management는 현재 3가지 기본 제공 역할을 제공하며 곧 2가�
 기본 제공 역할이 사용자의 특정 요구 사항을 충족시키지 못하면 API Management 엔터티에 대한 보다 세분화된 액세스 관리를 제공하는 사용자 지정 역할을 작성할 수 있습니다. 예를 들어 API Management 서비스에 대해서는 읽기 전용 액세스 권한을 보유하지만 하나의 특정 API에 대해서는 쓰기 권한만 보유하는 사용자 지정 역할을 만들 수 있습니다. 사용자 지정 역할에 대한 자세한 내용은 [Azure RBAC에서 사용자 지정 역할](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)을 참조하세요. 
 
 > [!NOTE]
-> Azure portal에서 API Management 인스턴스를 볼 수, 사용자 지정 역할을 포함 해야 합니다는 ```Microsoft.ApiManagement/service/read``` 동작 합니다.
+> Azure Portal에서 API Management 인스턴스를 보려면 사용자 지정 역할이 ```Microsoft.ApiManagement/service/read``` 동작을 포함 해야 합니다.
 
 사용자 지정 역할을 만들 때는 기본 제공 역할 중 하나로 시작하는 것이 쉽습니다. 속성을 편집하여 **Actions**, **NotActions** 또는 **AssignableScopes**를 추가한 다음 변경 사항을 새 역할로 저장합니다. 다음 예제는 “Azure API Management 서비스 독자” 역할로 시작하고 “Calculator API Editor”라는 사용자 지정 역할을 만듭니다. 사용자 지정 역할을 특정 API에 할당할 수 있습니다. 따라서 이 역할만 해당 API에 대한 액세스 권한을 보유합니다. 
 

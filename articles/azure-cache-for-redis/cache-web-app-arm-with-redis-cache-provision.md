@@ -10,16 +10,15 @@ ms.assetid: 6e99c71f-ef8e-4570-a307-e4c059e60c35
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: yegu
-ms.openlocfilehash: 23b8e4e7e88f5b993f9b0f9981bbae6b884e2818
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b28ed58159545bca10ec89375b82b9c97ae38630
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65911288"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098234"
 ---
 # <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>템플릿을 사용하여 Azure Cache for Redis가 포함된 웹앱 만들기
 
@@ -86,7 +85,7 @@ ms.locfileid: "65911288"
 ### <a name="web-app"></a>웹앱
 **webSiteName** 변수에 지정된 이름으로 웹앱을 만듭니다.
 
-웹앱은 Azure Cache for Redis에서 작동할 수 있게 하는 앱 설정 속성으로 구성됩니다. 이러한 앱 설정을 동적으로 생성 된 값을 기반으로 배포 중에 제공 합니다.
+웹앱은 Azure Cache for Redis에서 작동할 수 있게 하는 앱 설정 속성으로 구성됩니다. 이러한 앱 설정은 배포 중에 제공 된 값에 따라 동적으로 만들어집니다.
 
     {
       "apiVersion": "2015-08-01",

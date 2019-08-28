@@ -11,16 +11,15 @@ ms.assetid: 0b82ca70-89ed-496d-bb49-c04ae59b4523
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple
-ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2019
 ms.author: diviso
-ms.openlocfilehash: 74b92c277b1d6eaa0984e55a70459bad59c2bf84
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 5cbf53da5a0af0a511350b9f30153e2fefe72dcf
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67719281"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70080058"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Chef를 사용하여 Azure 가상 머신 배포 자동화
 
@@ -54,13 +53,13 @@ Chef Workstation은 정책을 만들고 Chef 도구의 관리 명령 및 소프�
 
 먼저 Chef 구성 파일과 Cookbook을 저장할 디렉터리를 만들어 워크스테이션을 준비합니다.
 
-C:\Chef 라는 디렉터리를 만듭니다.
+C:\Chef. 라는 디렉터리를 만듭니다.
 
-다운로드 및 설치를 최신 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 버전 워크스테이션에 로그온 합니다.
+워크스테이션에 최신 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 버전을 다운로드 하 여 설치 합니다.
 
 ## <a name="configure-azure-service-principal"></a>Azure 서비스 주체 구성
 
-가장 단순한 용어 및 Azure 서비스 주체를 서비스 계정이입니다.   Chef 워크스테이션에서 Azure 리소스를 만드는 데 도움이 서비스 주체를 사용 합니다.  필요한 권한이 있는 관련 서비스 주체를 만들려면 PowerShell에서 다음 명령을 실행 해야 합니다.
+가장 간단한 용어에서 Azure 서비스 주체는 서비스 계정입니다.   Microsoft는 Chef 워크스테이션에서 Azure 리소스를 만드는 데 도움이 되는 서비스 주체를 사용 합니다.  필요한 권한으로 관련 서비스 주체를 만들려면 PowerShell 내에서 다음 명령을 실행 해야 합니다.
  
 ```powershell
 Login-AzureRmAccount
@@ -71,7 +70,7 @@ New-AzureRmADServicePrincipal -ApplicationId $myApplication.ApplicationId
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $myApplication.ApplicationId
 ```
 
-SubscriptionID, TenantID, ClientID 및 클라이언트 암호 (위에서 설정한 암호)에 유의 하세요, 나중에 필요 합니다. 
+SubscriptionID, TenantID, ClientID 및 클라이언트 암호 (위에서 설정한 암호)를 기록해 두세요 .이는 나중에 필요 합니다. 
 
 ## <a name="setup-chef-server"></a>Chef Server 설치
 
@@ -100,7 +99,7 @@ Chef Server를 아직 사용하고 있지 않으면 다음을 수행할 수 있�
 
 이 시작 키트 zip 파일의 `.chef` 디렉터리에는 조직 구성 파일 및 사용자 키가 포함되어 있습니다.
 
-`organization-validator.pem`은 프라이빗 키이며 프라이빗 키는 Chef Server에 저장하지 않아야 하므로 별도로 다운로드해야 합니다. [Chef 관리](https://manage.chef.io/), 관리 섹션으로 이동 및 선택 "재설정 유효성 검사"를 제공 하는 키 파일을 개별적으로 다운로드할 수 있습니다. 파일을 c:\chef에 저장합니다.
+`organization-validator.pem`은 프라이빗 키이며 프라이빗 키는 Chef Server에 저장하지 않아야 하므로 별도로 다운로드해야 합니다. [Chef Manage](https://manage.chef.io/)에서 관리 섹션으로 이동 하 고 "유효성 검사 키 다시 설정"을 선택 하 여 별도로 다운로드할 파일을 제공 합니다. 파일을 c:\chef에 저장합니다.
 
 ### <a name="configuring-your-chef-workstation"></a>Chef Workstation 구성
 
@@ -161,7 +160,7 @@ knife[:azure_client_id] =         "11111111-bbbbb-cccc-1111-2222222222222"
 knife[:azure_client_secret] =     "#1234p$wdchef19"
 
 
-이러한 줄은 Knife c:\chef\cookbooks 아래의 디렉터리를 참조 하 고 또한 Azure 작업 중에 만든 Azure 서비스 주체를 사용 하 여 확인 합니다.
+이러한 줄은가 c:\chef\cookbooks 아래의 cookbook 디렉터리를 참조 하 고 Azure 작업 중에 만든 Azure 서비스 주체를 사용 하도록 합니다.
 
 이제 knife.rb 파일이 다음 예제와 유사하게 표시됩니다.
 
@@ -194,7 +193,7 @@ knife[:azure_client_secret] = "#1234p$wdchef19"
 다음으로, Chef Workstation을 [다운로드 및 설치](https://downloads.chef.io/chef-workstation/)합니다.
 Chef Workstation을 기본 위치에 설치합니다. 설치하는 데 몇 분 정도 걸릴 수 있습니다.
 
-바탕 화면에 "CW PowerShell"이 표시됩니다. 이것은 Chef 제품과 상호 작용하는 데 필요한 도구와 함께 로드되는 환경입니다. CW PowerShell 새 임시 명령의 같은 사용할 수 있게 `chef-run` 등도 기존의 Chef CLI 명령은 `chef`합니다. `chef -v`를 사용하여 설치된 Chef Workstation 및 Chef 도구 버전을 확인합니다. Chef Workstation 앱에서 "Chef Workstation 정보"를 선택하여 Workstation 버전을 확인할 수도 있습니다.
+바탕 화면에 "CW PowerShell"이 표시됩니다. 이것은 Chef 제품과 상호 작용하는 데 필요한 도구와 함께 로드되는 환경입니다. CW PowerShell은와 같은 기존 Chef CLI 명령 `chef-run` `chef`뿐만 아니라와 같은 새 임시 명령을 사용할 수 있도록 합니다. `chef -v`를 사용하여 설치된 Chef Workstation 및 Chef 도구 버전을 확인합니다. Chef Workstation 앱에서 "Chef Workstation 정보"를 선택하여 Workstation 버전을 확인할 수도 있습니다.
 
 `chef --version`은 다음과 같은 결과를 반환합니다.
 
@@ -290,7 +289,7 @@ C:\chef\cookbooks\webserver\recipes\default.rb를 수정하고 다음 줄을 추
 ## <a name="deploy-a-virtual-machine-with-knife-azure"></a>Knife Azure를 사용하여 가상 머신 배포
 Azure Virtual Machine을 배포하고 IIS 웹 서비스 및 기본 웹 페이지를 설치할 “Webserver” 쿡북을 적용합니다.
 
-이 작업을 수행 하기 위해 사용 합니다 **knife azurerm 서버 만들기** 명령입니다.
+이 작업을 수행 하려면 **azurerm server create** 명령을 사용 합니다.
 
 명령 예제가 다음에 나옵니다.
 
@@ -310,10 +309,10 @@ Azure Virtual Machine을 배포하고 IIS 웹 서비스 및 기본 웹 페이지
     -r "recipe[webserver]"
 
 
-위의 예제에서는 미국 서 부 지역 내에 설치 된 Windows Server 2016을 사용 하 여 포함 한 Standard_DS2_v2 가상 머신을 만듭니다. 특정 변수를 대체하고 실행합니다.
+위의 예제에서는 미국 서 부 지역에 Windows Server 2016가 설치 된 Standard_DS2_v2 가상 컴퓨터를 만듭니다. 특정 변수를 대체하고 실행합니다.
 
 > [!NOTE]
-> 명령줄에서 –tcp-endpoints 매개 변수를 사용하여 엔드포인트 네트워크 필터 규칙을 자동화해 보겠습니다. 포트 80 및 3389를 웹 페이지 및 RDP 세션에 대 한 액세스를 제공 열어 합니다.
+> 명령줄에서 –tcp-endpoints 매개 변수를 사용하여 엔드포인트 네트워크 필터 규칙을 자동화해 보겠습니다. 웹 페이지 및 RDP 세션에 대 한 액세스를 제공 하기 위해 80 및 3389 포트를 열었습니다.
 >
 >
 
@@ -325,13 +324,13 @@ Azure Virtual Machine을 배포하고 IIS 웹 서비스 및 기본 웹 페이지
 
 ![][16]
 
-배포가 완료 되 면 배포가 완료 될 때 표시할 새 가상 머신의 공용 IP 주소,이 복사 하 고 웹 브라우저에 붙여 넣습니다 고 배포 된 웹 사이트를 볼 수 있습니다. 가상 컴퓨터 배포에서는 외부에서 사용 가능 해야 하므로 포트 80 열립니다.   
+배포가 완료 되 면 배포가 완료 될 때 새 가상 머신의 공용 IP 주소가 표시 됩니다. 그런 다음이를 복사 하 여 웹 브라우저에 붙여 넣고 배포한 웹 사이트를 볼 수 있습니다. 가상 머신을 배포할 때 포트 80을 열어 외부에서 사용할 수 있어야 합니다.   
 
 ![][11]
 
 이 예제에서는 creative HTML 코드를 사용합니다.
 
-노드의 상태를 볼 수도 있습니다 [Chef 관리](https://manage.chef.io/)합니다. 
+노드의 상태 [Chef 관리](https://manage.chef.io/)를 볼 수도 있습니다. 
 
 ![][17]
 

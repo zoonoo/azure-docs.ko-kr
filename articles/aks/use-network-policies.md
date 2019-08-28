@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: c9bf2c2c459999813c7fc30f95be653168d270ad
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 1339fe66a4925104d459c0491caccdd7db5998a7
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67613963"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114456"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 네트워크 정책을 사용하여 pod 간 트래픽 보호
 
@@ -63,7 +63,7 @@ Azure는 네트워크 정책을 구현 하는 두 가지 방법을 제공 합니
 | 지원 되는 네트워킹 옵션             | Azure CNI                  | Azure CNI                   |
 | Kubernetes 사양 준수 | 지원 되는 모든 정책 유형 |  지원 되는 모든 정책 유형 |
 | 추가 기능                      | 없음                       | 글로벌 네트워크 정책, 글로벌 네트워크 집합 및 호스트 끝점으로 구성 된 확장 정책 모델입니다. CLI를 사용 하 여 이러한 `calicoctl` 확장 기능을 관리 하는 방법에 대 한 자세한 내용은 [calicoctl user reference][calicoctl]를 참조 하세요. |
-| Support(지원)                                  | Azure 지원 및 엔지니어링 팀에서 지원 | Calico 커뮤니티 지원. 추가 유료 지원에 대 한 자세한 내용은 [프로젝트 Calico 지원 옵션][calico-support]을 참조 하세요. |
+| 지원                                  | Azure 지원 및 엔지니어링 팀에서 지원 | Calico 커뮤니티 지원. 추가 유료 지원에 대 한 자세한 내용은 [프로젝트 Calico 지원 옵션][calico-support]을 참조 하세요. |
 | 로깅                                  | IPTables에서 추가/삭제 된 규칙은 */var/log/azure-npm.log* 아래의 모든 호스트에 기록 됩니다. | 자세한 내용은 [Calico 구성 요소 로그][calico-logs] 를 참조 하세요. |
 
 ## <a name="create-an-aks-cluster-and-enable-network-policy"></a>AKS 클러스터 만들기 및 네트워크 정책 사용
@@ -89,7 +89,6 @@ AKS 클러스터에서 네트워크 정책을 사용 하려면 [Azure CNI 플러
 사용자 고유의 보안 *SP_PASSWORD*를 제공합니다. *RESOURCE_GROUP_NAME* 및 *CLUSTER_NAME* 변수를 바꿀 수 있습니다.
 
 ```azurecli-interactive
-SP_PASSWORD=mySecurePassword
 RESOURCE_GROUP_NAME=myResourceGroup-NP
 CLUSTER_NAME=myAKSCluster
 LOCATION=canadaeast
@@ -106,7 +105,9 @@ az network vnet create \
     --subnet-prefix 10.240.0.0/16
 
 # Create a service principal and read in the application ID
-SP_ID=$(az ad sp create-for-rbac --password $SP_PASSWORD --skip-assignment --query [appId] -o tsv)
+SP=$(az ad sp create-for-rbac --output json)
+SP_ID=$(echo $SP | jq -r .appId)
+SP_PASSWORD=$(echo $SP | jq -r .password)
 
 # Wait 15 seconds to make sure that service principal has propagated
 echo "Waiting for service principal to propagate..."

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: hamusa
-ms.openlocfilehash: 8934306efadc4ec732afbb658c081ada30f232cd
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 4b6a140ec428ce3b053c41074f02f65f19b8dc72
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312216"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102899"
 ---
 # <a name="dependency-visualization"></a>종속성 시각화
 
@@ -24,11 +24,11 @@ Azure Migrate: 서버 평가는 Azure로 마이그레이션하기 위한 온-프
 
 서버 평가에서 종속성 시각화를 사용 하면 마이그레이션 평가를 위한 신뢰도 높은 그룹을 만들 수 있습니다. 종속성 시각화를 사용 하 여 컴퓨터의 네트워크 종속성을 확인 하 고 Azure에 함께 마이그레이션해야 하는 관련 컴퓨터를 식별할 수 있습니다. 이 기능은 애플리케이션의 일부분이어서 Azure로 함께 마이그레이션해야 하는 컴퓨터가 확실치 않은 시나리오에서 유용합니다.
 
-## <a name="before-you-start"></a>시작하기 전에
+## <a name="before-you-start"></a>시작하기 전 주의 사항
 
 - Azure Migrate 프로젝트를 [만들었는지](how-to-add-tool-first-time.md) 확인 합니다.
-- 프로젝트를 이미 만든 경우 Azure Migrate을 [추가](how-to-assess.md) 했는지 확인 합니다. 서버 평가 도구입니다.
-- Azure Migrate에서 컴퓨터를 검색 했는지 확인 합니다. [VMware](how-to-set-up-appliance-vmware.md) 또는 [hyper-v](how-to-set-up-appliance-hyper-v.md)에 대 한 Azure Migrate 어플라이언스를 설정 하 여이 작업을 수행할 수 있습니다. 어플라이언스는 온-프레미스 컴퓨터를 검색 하 고 메타 데이터 및 성능 데이터를 Azure Migrate으로 보냅니다. 서버 평가. [자세히 알아보기](migrate-appliance.md).
+- 프로젝트를 이미 만든 경우 Azure Migrate을 [추가](how-to-assess.md) 했는지 확인 합니다. 서버 평가 도구를 사용하여 온-프레미스 VMware VM을 평가하는 방법을 보여 줍니다.
+- Azure Migrate에서 컴퓨터를 검색 했는지 확인 합니다. [VMware](how-to-set-up-appliance-vmware.md) 또는 [hyper-v](how-to-set-up-appliance-hyper-v.md)에 대 한 Azure Migrate 어플라이언스를 설정 하 여이 작업을 수행할 수 있습니다. 어플라이언스는 온-프레미스 컴퓨터를 검색 하 고 메타 데이터 및 성능 데이터를 Azure Migrate으로 보냅니다. 서버 평가를 사용하여 만들 수 있는 평가에는 두 가지 유형이 있습니다. [자세히 알아보기](migrate-appliance.md).
 
 ## <a name="how-does-it-work"></a>작동 원리
 
@@ -36,7 +36,7 @@ Azure Migrate에서는 종속성 시각화를 위해 [Azure Monitor 로그](../o
 - 종속성 시각화를 활용하려면 신규 또는 기존 Log Analytics 작업 영역을 Azure Migrate 프로젝트와 연결해야 합니다.
 - Azure Migrate 프로젝트를 만든 구독과 동일한 구독 에서만 작업 영역을 만들거나 연결할 수 있습니다.
 - 프로젝트에 Log Analytics 작업 영역을 연결 하려면 다음을 수행 합니다.
-    1. **서버** 탭의 Azure Migrate에서 **다음을 수행 합니다. 서버 평가** 타일에서 **개요**를 클릭 합니다.
+    1. **서버** 탭의 **Azure Migrate: 서버 평가** 타일에서 **개요**를 클릭 합니다.
     2. **개요**에서 아래쪽 화살표를 클릭 하 여 **Essentials**를 확장 합니다.
     3. **OMS 작업 영역**에서 **구성 필요**를 클릭 합니다.
     4. **작업 영역 구성**에서 새 작업 영역을 만들지 아니면 기존 작업 영역을 사용할지를 지정 합니다.
@@ -58,7 +58,7 @@ Azure Migrate에서는 종속성 시각화를 위해 [Azure Monitor 로그](../o
 종속성 시각화를 사용하려면 분석할 각 온-프레미스 컴퓨터에 에이전트를 다운로드하여 설치해야 합니다.  
 
 - 각 머신에 [MMA(Microsoft Monitoring Agent)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)를 설치해야 합니다. MMA 에이전트를 설치 하는 방법에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-mma) .
-- 각 머신에 [종속성 에이전트](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure)를 설치해야 합니다. 종속성 에이전트를 설치 하는 방법에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-dependency-agent) .
+- 각 머신에 [종속성 에이전트](../azure-monitor/platform/agents-overview.md#dependency-agent)를 설치해야 합니다. 종속성 에이전트를 설치 하는 방법에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-dependency-agent) .
 - 또한 인터넷에 연결되지 않은 머신이 있으면 해당 머신에 Log Analytics 게이트웨이를 다운로드하여 설치해야 합니다.
 
 종속성 시각화를 사용하지 않는다면 평가하려는 머신에 이러한 에이전트가 필요하지 않습니다.

@@ -8,19 +8,18 @@ manager: craigg
 tags: azure-service-management
 ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ece55cdad04e71d339944b5fcda5a16d35630c16
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 855bd64bc8beb86a1bc62c65f71254f43c7a722a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877754"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101970"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Azure Virtual Machines의 SQL Server란? (Windows)
 
@@ -102,7 +101,7 @@ SQL Server VM을 만든 후에는 SSMS(SQL Server Management Studio)와 같은 �
 
 Azure Portal는 SQL 가상 머신을 비롯 한 [모든 AZURE sql 리소스](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Sql%2Fazuresql) 를 관리할 수 있는 단일 페이지를 제공 합니다.
 
-**AZURE sql 리소스** 페이지에 액세스 하려면 Azure Portal의 왼쪽 메뉴에서 **azure sql** 을 선택 합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 *azure sql* 을 입력 합니다.
+**AZURE sql 리소스** 페이지에 액세스 하려면 Azure Portal의 왼쪽 메뉴에서 **azure sql** 을 선택 합니다. **Azure SQL**이 목록에 없는 경우 **모든 서비스**를 선택한 다음, 검색 상자에 *Azure SQL*을 입력합니다.
 
 > [!NOTE]
 > **AZURE sql** 은 모든 sql 데이터베이스, 탄력적 풀, 데이터베이스 서버, sql 관리 되는 인스턴스 및 sql 가상 컴퓨터에 쉽고 빠르게 액세스할 수 있는 방법을 제공 합니다. Azure SQL은 서비스 또는 리소스가 아닙니다. 

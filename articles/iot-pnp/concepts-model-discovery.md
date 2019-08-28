@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: e4ab1d45e27762ef05ab7ec74c98ab0b0b934cbf
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: c37446fd5a0cdc986044405a9aa3da32462d9c04
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69880554"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114266"
 ---
 # <a name="implement-iot-plug-and-play-preview-model-discovery-in-an-iot-solution"></a>Iot 솔루션에서 IoT 플러그 앤 플레이 미리 보기 모델 검색 구현
 
@@ -69,9 +69,9 @@ IoT 플러그 앤 플레이 장치는 먼저 IoT hub에 연결 하는 경우 모
 1. 검색 원격 분석 메시지를 읽고 장치에 의해 구현 된 기능 모델 및 인터페이스의 Id를 검색 합니다.
 1. 각 ID에 대해 전체 JSON 파일을 읽어 장치의 기능을 찾습니다.
 1. 각 인터페이스가 이전에 솔루션에서 검색 된 JSON 파일을 저장 하기 위해 빌드한 모든 캐시에 있는지 확인 합니다.
-1. 그런 다음 해당 ID를 가진 인터페이스가 전역 모델 리포지토리에 있는지 확인 합니다. 자세한 내용은 [전역 모델 리포지토리](howto-manage-models.md)를 참조 하세요.
-1. 인터페이스가 전역 모델 리포지토리에 없으면 솔루션에 알려진 모든 개인 모델 리포지토리에서 검색 해 보세요. 개인 모델 리포지토리에 액세스 하려면 연결 문자열이 필요 합니다. 자세한 내용은 [개인 모델 리포지토리](howto-manage-models.md)를 참조 하세요.
-1. 전역 모델 리포지토리 또는 개인 모델 리포지토리에서 모든 인터페이스를 찾을 수 없는 경우 장치에서 인터페이스 정의를 제공할 수 있는지 확인할 수 있습니다. 장치는 명령을 사용 하 여 인터페이스 파일을 검색 하는 방법에 대 한 정보를 게시 하는 표준 [Modeldefinition](concepts-common-interfaces.md) 인터페이스를 구현할 수 있습니다.
+1. 그런 다음 해당 ID의 인터페이스가 공용 모델 리포지토리에 있는지 확인 합니다. 자세한 내용은 [공용 모델 리포지토리](howto-manage-models.md)를 참조 하세요.
+1. 인터페이스가 공용 모델 리포지토리에 없으면 솔루션에 알려진 모든 회사 모델 리포지토리에서 검색 해 보세요. 회사 모델 리포지토리에 액세스 하려면 연결 문자열이 필요 합니다. 자세한 내용은 [회사 모델 리포지토리](howto-manage-models.md)를 참조 하세요.
+1. 공용 모델 리포지토리에서 또는 회사 모델 리포지토리에서 모든 인터페이스를 찾을 수 없는 경우 장치에서 인터페이스 정의를 제공할 수 있는지 확인할 수 있습니다. 장치는 명령을 사용 하 여 인터페이스 파일을 검색 하는 방법에 대 한 정보를 게시 하는 표준 [Modeldefinition](concepts-common-interfaces.md) 인터페이스를 구현할 수 있습니다.
 1. 장치에서 구현 하는 각 인터페이스에 대 한 JSON 파일을 찾은 경우 장치의 기능을 열거할 수 있습니다. 이전에 작성 한 논리를 사용 하 여 사용자가 장치와 상호 작용할 수 있도록 합니다.
 1. 언제 든 지 디지털 쌍 API를 호출 하 여 장치에 대 한 기능 모델 id와 인터페이스 id를 검색할 수 있습니다.
 

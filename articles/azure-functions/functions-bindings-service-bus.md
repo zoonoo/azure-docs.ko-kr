@@ -8,16 +8,15 @@ manager: gwallace
 keywords: Azure 함수, 함수, 이벤트 처리, 동적 컴퓨팅, 서버리스 아키텍처
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 3d5b2afd642a7eb042b2e6e07ef93a505f6b9648
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: f2bdfab82e1b9fb05d74f69536ec672a4b18a4bf
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774709"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114373"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions의 Azure Service Bus 바인딩
 
@@ -367,7 +366,7 @@ Functions 런타임은 [PeekLock 모드](../service-bus-messaging/service-bus-pe
 
 Service Bus 트리거는 몇 가지 [메타데이터 속성](./functions-bindings-expressions-patterns.md#trigger-metadata)을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 클래스의 속성은 다음과 같습니다.
 
-|속성|형식|Description|
+|속성|형식|설명|
 |--------|----|-----------|
 |`DeliveryCount`|`Int32`|배달 수입니다.|
 |`DeadLetterSource`|`string`|배달 못한 편지 원본입니다.|
@@ -400,7 +399,7 @@ Service Bus 트리거는 몇 가지 [메타데이터 속성](./functions-binding
 }
 ```
 
-|속성  |Default | 설명 |
+|속성  |Default | Description |
 |---------|---------|---------|
 |maxConcurrentCalls|16|메시지 펌프가 시작되어야 하는 콜백에 대한 최대 동시 호출 수입니다. 기본적으로 함수 런타임은 여러 개의 메시지를 동시에 처리합니다. 런타임이 큐 또는 토픽 메시지를 한 번에 하나만 처리하도록 하려면, `maxConcurrentCalls`를 1로 설정합니다. |
 |prefetchCount|n/a|기본 MessageReceiver에서 사용할 기본 PrefetchCount입니다.|
@@ -694,7 +693,7 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 
 다음 표에서는 *function.json* 파일 및 `ServiceBus` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 |**type** | n/a | "serviceBus"로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다.|
 |**direction** | n/a | "out"으로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
@@ -715,14 +714,19 @@ C# 및 C# 스크립트에서 출력 바인딩에 대해 다음 매개 변수 형
 * `out T paramName` - `T`는 JSON 직렬화 가능 형식일 수 있습니다. 함수가 종료될 때 매개 변수 값이 null이면 함수는 null 개체와 메시지를 만듭니다.
 * `out string` - 함수가 종료될 때 매개 변수 값이 null인 경우 함수는 메시지를 만들지 않습니다.
 * `out byte[]` - 함수가 종료될 때 매개 변수 값이 null인 경우 함수는 메시지를 만들지 않습니다.
-* `out BrokeredMessage` - 함수가 종료될 때 매개 변수 값이 null인 경우 함수는 메시지를 만들지 않습니다.
+* `out BrokeredMessage`-함수가 종료 될 때 매개 변수 값이 null 이면 함수는 (함수 1. x의 경우) 메시지를 만들지 않습니다.
+* `out Message`-함수가 종료 될 때 매개 변수 값이 null 이면 함수는 2.x 함수에 대해 메시지를 만들지 않습니다.
 * `ICollector<T>` 또는 `IAsyncCollector<T>` - 여러 개의 메시지를 만들려는 경우. 메시지는 `Add` 메서드를 호출할 때 생성됩니다.
 
-비동기 함수에서는 `out` 매개 변수 대신, 반환 값 또는 `IAsyncCollector`를 사용합니다.
+함수를 사용 C# 하는 경우:
 
-이러한 매개 변수는 Azure Functions 버전 1.x용이므로 2.x의 경우 `BrokeredMessage` 대신 [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message)를 사용합니다.
+* 비동기 함수에는 `IAsyncCollector` `out` 매개 변수 대신 반환 값이 필요 합니다.
 
-JavaScript에서 `context.bindings.<name from function.json>`를 사용하여 큐 또는 토픽에 액세스합니다. 문자열, 바이트 배열 또는 Javascript 개체(JSON으로 deserialize됨)를 `context.binding.<name>`에 할당할 수 있습니다.
+* 세션 ID에 액세스 하려면 [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) 형식에 바인딩하고 `sessionId` 속성을 사용 합니다.
+
+JavaScript에서 `context.bindings.<name from function.json>`를 사용하여 큐 또는 토픽에 액세스합니다. 문자열, 바이트 배열 또는 JavaScript 개체 (JSON으로 deserialize)를에 `context.binding.<name>`할당할 수 있습니다.
+
+비C# 언어에서 세션 사용 큐로 메시지를 보내려면 기본 제공 출력 바인딩이 아닌 [Azure Service Bus SDK](https://docs.microsoft.com/azure/service-bus-messaging) 를 사용 합니다.
 
 ## <a name="exceptions-and-return-codes"></a>예외 및 반환 코드
 

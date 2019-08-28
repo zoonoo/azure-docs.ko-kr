@@ -10,17 +10,16 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 6bba176a27cc70321915654e3e2e62320f22c16c
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 188db5e89097542b5a47b43e7bc8bbb2ce30b072
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67310136"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073122"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Azure App Service의 사용자 지정 도메인 이름 구입
 
@@ -28,7 +27,7 @@ App Service 도메인은 Azure에서 직접 관리 되는 최상위 도메인입
 
 Azure VM 또는 Azure Storage의 경우 [Azure VM 또는 Azure Storage에 App Service 도메인 할당](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/)을 참조하세요. Cloud Services의 경우 [Azure 클라우드 서비스에 대한 사용자 지정 도메인 이름 구성](../cloud-services/cloud-services-custom-domain-name-portal.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -80,7 +79,7 @@ App Service 계획이 **F1** 계층이 아닌 경우 **스케일업** 페이지�
 ## <a name="buy-the-domain"></a>도메인 구입
 
 ### <a name="pricing-information"></a>가격 정보
-Azure App Service 도메인에 대 한 정보를 가격에 대 한 참조를 [App Service 가격 책정 페이지](https://azure.microsoft.com/pricing/details/app-service/windows/) App Service 도메인까지 아래로 스크롤합니다.
+Azure App Service 도메인에 대 한 가격 책정 정보를 보려면 [App Service 가격 책정 페이지](https://azure.microsoft.com/pricing/details/app-service/windows/) 를 방문 하 App Service 도메인으로 스크롤합니다.
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 [Azure 포털](https://portal.azure.com/)에서 Azure 계정으로 로그인합니다.
@@ -116,7 +115,7 @@ Azure App Service 도메인에 대 한 정보를 가격에 대 한 참조를 [Ap
 
 그런 다음 도메인에 대해 원하는 옵션을 선택합니다. 설명은 다음 표를 참조하세요.
 
-| 설정 | 제안 값 | 설명 |
+| 설정 | 제안 값 | Description |
 |-|-|-|
 |개인 정보 보호 | 사용 | _체험_ 구매 가격에 포함된 "개인 정보 보호"를 선택합니다. 일부 최상위 도메인은 개인 정보 보호를 지원하지 않는 등록 기관에서 관리하며 **개인 정보 보호** 페이지에 나열됩니다. |
 | 기본 호스트 이름 할당 | **www** 및 **\@** | 필요한 경우 원하는 호스트 이름 바인딩을 선택합니다. 도메인 구매 작업이 완료되면 선택한 호스트 이름에서 앱에 액세스할 수 있습니다. 앱이 [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) 뒤에 있는 경우 Traffic Manager는 A 레코드를 지원하지 않으므로 루트 도메인을 할당하는 옵션이 표시되지 않습니다. 도메인 구매가 완료된 후 호스트 이름 할당을 변경할 수 있습니다. |
@@ -126,7 +125,7 @@ Azure App Service 도메인에 대 한 정보를 가격에 대 한 참조를 [Ap
 **약관**을 클릭하여 조건 및 요금을 검토한 후 **구입**을 클릭합니다.
 
 > [!NOTE]
-> App Service 도메인은 도메인을 호스트 하려면 GoDaddy 도메인 등록 및 Azure DNS를 사용 합니다. 도메인 등록 요금 외에도 Azure DNS에 대한 사용 요금이 적용됩니다. 자세한 내용은 [Azure DNS 가격 책정](https://azure.microsoft.com/pricing/details/dns/)을 참조하세요.
+> App Service 도메인은 도메인 등록에 GoDaddy를 사용 하 고 도메인을 호스트 하는 Azure DNS 합니다. 도메인 등록 요금 외에도 Azure DNS에 대한 사용 요금이 적용됩니다. 자세한 내용은 [Azure DNS 가격 책정](https://azure.microsoft.com/pricing/details/dns/)을 참조하세요.
 >
 >
 
@@ -147,14 +146,14 @@ Azure App Service 도메인에 대 한 정보를 가격에 대 한 참조를 [Ap
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
 > [!NOTE]
-> A **의 보안을 유지할** 레이블 사용자 지정 도메인 SSL 인증서에 아직 바인딩되어 고 오류 또는 경고를 브라우저에 따라 사용자 지정 도메인 HTTPS 요청을 브라우저에서 전달 됨을 의미 합니다. SSL 바인딩을 구성 하려면 [구입 및 Azure App Service에 대 한 SSL 인증서 구성](web-sites-purchase-ssl-web-site.md)합니다.
+> 사용자 지정 도메인에 대 한 **보안 되지 않은** 레이블은 아직 SSL 인증서에 바인딩되어 있지 않음을 의미 하 고 브라우저에서 사용자 지정 도메인으로의 HTTPS 요청은 브라우저에 따라 오류 또는 경고를 받게 됩니다. SSL 바인딩을 구성 하려면 [Azure App Service에 대 한 ssl 인증서 구입 및 구성](web-sites-purchase-ssl-web-site.md)을 참조 하세요.
 >
 
-호스트 이름을 테스트하려면 브라우저에서 나열된 호스트 이름으로 이동합니다. 이전 스크린샷의 예에서 탐색 하 려 _kontoso.net_ 하 고 _www\.kontoso.net_합니다.
+호스트 이름을 테스트하려면 브라우저에서 나열된 호스트 이름으로 이동합니다. 위의 스크린 샷에서 예제에서는 _kontoso.net_ 및 _www\.kontoso.net_로 이동 합니다.
 
 ## <a name="assign-hostnames-to-app"></a>앱에 호스트 이름 할당
 
-구매 과정에서 앱에 하나 이상의 기본 호스트 이름을 할당 하지 않으려는 경우 또는 나열 되지 않은 호스트 이름을 할당 해야 하는 경우 언제 든 지 호스트 이름을 할당할 수 있습니다.
+구매 프로세스 중에 앱에 하나 이상의 기본 호스트 이름을 할당 하지 않거나 나열 되지 않은 호스트 이름을 할당 해야 하는 경우 언제 든 지 호스트 이름을 할당할 수 있습니다.
 
 App Service 도메인에서 다른 앱으로 호스트 이름을 할당할 수도 있습니다. 이 단계는 App Service 도메인 및 앱이 동일한 구독에 속하는지 여부에 따라 달라집니다.
 
@@ -178,7 +177,7 @@ App Service 도메인에서 다른 앱으로 호스트 이름을 할당할 수�
 **호스트 이름 추가**를 선택합니다.
 
 ### <a name="configure-hostname"></a>호스트 이름 구성
-**호스트 이름 추가** 대화 상자에서 App Service 도메인 또는 하위 도메인의 정규화된 도메인 이름을 입력합니다. 예를 들면 다음과 같습니다.
+**호스트 이름 추가** 대화 상자에서 App Service 도메인 또는 하위 도메인의 정규화된 도메인 이름을 입력합니다. 예를 들어:
 
 - kontoso.net
 - www\.kontoso.net
@@ -221,21 +220,21 @@ App Service 도메인에서 다른 앱으로 호스트 이름을 할당할 수�
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
 
-도메인을 수동으로 갱신하려면 **도메인 갱신**을 선택합니다. 그러나이 단추는 때까지 활성화 [도메인의 만료 전 90 일 동안](#when-domain-expires)합니다.
+도메인을 수동으로 갱신하려면 **도메인 갱신**을 선택합니다. 그러나이 단추는 [도메인 만료가 90 일 전에](#when-domain-expires)는 활성화 되지 않습니다.
 
-도메인 갱신에 성공 하면 24 시간 동안 전자 메일 알림을 받게 됩니다.
+도메인 갱신이 성공적으로 완료 되 면 24 시간 이내에 전자 메일 알림을 받게 됩니다.
 
-## <a name="when-domain-expires"></a>도메인이 만료 된 경우
+## <a name="when-domain-expires"></a>도메인이 만료 되는 경우
 
-Azure는 만료를 처리 또는 App Service 도메인을 다음과 같이 만료:
+Azure는 다음과 같이 만료 되거나 만료 된 App Service 도메인을 다룹니다.
 
-* 자동 갱신 사용 하지 않도록 설정 합니다. 도메인 만료 전 90 일 동안 갱신 알림 전자 메일을 보낼 수 및 **도메인 갱신** 포털에서 단추가 활성화 됩니다.
-* 자동 갱신 사용 하는 경우: 하루 도메인 만료 날짜 후에 Azure 도메인 이름 갱신에 대 한 요금을 청구할 하려고 합니다.
-* 자동 갱신 중에 오류가 발생 하는 경우 (예를 들어, 카드 파일에서 만료 된 경우), 또는 도메인이 만료 됩니다를 허용 하 고 자동 갱신 비활성화 된 경우 Azure 알림 도메인 만료 및 공원의 도메인 이름입니다. 할 수 있습니다 [수동으로 갱신](#renew-the-domain) 도메인입니다.
-* 만료 후 4 ~ 12 일 하루에 Azure에서는 추가 알림 전자 메일입니다. 할 수 있습니다 [수동으로 갱신](#renew-the-domain) 도메인입니다.
-* 만료 후 19 날 도메인을 대기 중으로 남아 있지만 상환 요금이 적용 됩니다. 도메인 이름에 적용 가능한 모든 갱신 및 상환 요금에 따라 갱신 고객 지원 서비스를 호출할 수 있습니다.
-* 만료 된 후 25 일에 Azure 도메인 이름 업계 경매 서비스를 사용 하 여 경매에 대해 도메인을 배치합니다. 도메인 이름에 적용 가능한 모든 갱신 및 상환 요금에 따라 갱신 고객 지원 서비스를 호출할 수 있습니다.
-* 만료 후 30 일에 여러분이 더 이상 도메인을 사용할 수 없습니다.
+* 자동 갱신을 사용 하지 않도록 설정 된 경우: 도메인 만료 전 90 일이 지나면 갱신 알림 전자 메일이 전송 되 고 포털에서 **도메인 갱신** 단추가 활성화 됩니다.
+* 자동 갱신을 사용 하는 경우: 도메인 만료 날짜가 지난 날 Azure는 도메인 이름 갱신에 대 한 요금을 청구 하려고 시도 합니다.
+* 자동 갱신 중에 오류가 발생 하는 경우 (예: 파일의 카드가 만료 된 경우) 또는 자동 갱신을 사용 하지 않도록 설정 하 고 도메인 만료를 허용 하는 경우 Azure는 도메인 만료를 알리고 도메인 이름을 파킹 합니다. 도메인을 [수동으로 갱신할](#renew-the-domain) 수 있습니다.
+* 만료 후 4 일 및 12 일에 Azure는 추가 알림 전자 메일을 보냅니다. 도메인을 [수동으로 갱신할](#renew-the-domain) 수 있습니다.
+* 만료 후 19 일 일에 도메인은 보류 상태로 유지 되지만 상환 요금이 적용 됩니다. 고객 지원에 문의 하 여 해당 갱신 및 상환 요금에 따라 도메인 이름을 갱신할 수 있습니다.
+* 만료 후 25 일이 지나면 Azure는 도메인 이름 산업 경매 서비스를 사용 하 여 경매에 도메인을 배치 합니다. 고객 지원에 문의 하 여 해당 갱신 및 상환 요금에 따라 도메인 이름을 갱신할 수 있습니다.
+* 만료 후 30 일이 지나면 더 이상 도메인을 사용할 수 없습니다.
 
 <a name="custom"></a>
 

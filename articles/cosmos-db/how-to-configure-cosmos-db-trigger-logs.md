@@ -3,15 +3,15 @@ title: Cosmos DB용 Azure Functions 트리거를 사용할 때 로그 구성 및
 description: Cosmos DB용 Azure Functions 트리거를 사용할 때 Azure Functions 로깅 파이프라인에 로그를 노출하는 방법 알아보기
 author: ealsur
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: ad53762ad490c5e8feedb83007b8721fe4883806
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
-ms.translationtype: HT
+ms.openlocfilehash: 17b2d4854e3222e5bdb607c6c80b0ec5ed6177d3
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334521"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093593"
 ---
 # <a name="how-to-configure-and-read-the-logs-when-using-azure-functions-trigger-for-cosmos-db"></a>Cosmos DB용 Azure Functions 트리거를 사용할 때 로그를 구성하고 읽는 방법
 

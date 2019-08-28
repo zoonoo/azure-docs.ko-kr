@@ -9,19 +9,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d81c1941f114efbfd4ede559152317e907edeaea
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 6a386096d8a94c240e9a00457d87d04254e02920
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882400"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102014"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server의 성능 지침
 
@@ -41,7 +40,7 @@ ms.locfileid: "68882400"
 | 영역 | 최적화 |
 | --- | --- |
 | [VM 크기](#vm-size-guidance) | SQL Enterprise Edition - [DS3_v2](../sizes-general.md) 이상<br/><br/> SQL Standard 및 Web Edition - [DS2_v2](../sizes-general.md) 이상 |
-| [스토리지](#storage-guidance) | - [프리미엄 SSD](../disks-types.md)를 사용합니다. 표준 스토리지는 개발/테스트에만 권장됩니다.<br/><br/> - [스토리지 계정](../../../storage/common/storage-create-storage-account.md)과 SQL Server VM을 동일한 Azure 지역에 유지합니다.<br/><br/> * 스토리지 계정에서 Azure [GRS](../../../storage/common/storage-redundancy.md)(지역 복제)를 사용하지 않도록 설정합니다. |
+| [저장소](#storage-guidance) | - [프리미엄 SSD](../disks-types.md)를 사용합니다. 표준 스토리지는 개발/테스트에만 권장됩니다.<br/><br/> - [스토리지 계정](../../../storage/common/storage-create-storage-account.md)과 SQL Server VM을 동일한 Azure 지역에 유지합니다.<br/><br/> * 스토리지 계정에서 Azure [GRS](../../../storage/common/storage-redundancy.md)(지역 복제)를 사용하지 않도록 설정합니다. |
 | [디스크](#disks-guidance) | - 최소 2개의 [P30 디스크](../disks-types.md#premium-ssd)를 사용합니다(로그 파일용 1개, TempDB를 포함한 데이터 파일용 1개). ~50,000 IOPS가 필요한 워크로드의 경우 울트라 SSD를 고려해 보세요. <br/><br/> - 운영 체제 또는 임시 디스크를 데이터베이스 저장 또는 로깅에 사용하지 마세요.<br/><br/> - 데이터 파일 및 TempDB 데이터 파일을 호스팅하는 디스크에서 읽기 캐싱을 사용하도록 설정합니다.<br/><br/> - 로그 파일을 호스팅하는 디스크에서 캐싱을 사용하지 마세요.  **중요**: Azure VM 디스크에 대한 캐시 설정을 변경하는 경우 SQL Server 서비스를 중지합니다.<br/><br/> - IO 처리량이 증가하도록 여러 Azure 데이터 디스크를 스트라이프합니다.<br/><br/> - 문서화된 할당 크기로 포맷합니다. <br/><br/> -중요 업무용 SQL Server 작업 (올바른 `D:\` VM 크기를 선택한 후)을 위해 로컬 SSD 드라이브에 TempDB를 넣습니다. [Ssd를 사용 하 여 TempDB를 저장](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/)하는 블로그에 추가 정보가 있습니다.  |
 | [I/O](#io-guidance) |- 데이터베이스 페이지 압축을 사용하도록 설정합니다.<br/><br/> - 데이터 파일에 즉시 파일 초기화를 사용하도록 설정합니다.<br/><br/> - 데이터베이스의 자동 확장을 제한합니다.<br/><br/> - 데이터베이스의 자동 축소를 해제합니다.<br/><br/> - 시스템 데이터베이스를 포함하여 모든 데이터베이스를 데이터 디스크로 이동합니다.<br/><br/> - SQL Server 오류 로그 및 추적 파일 디렉터리를 데이터 디스크로 이동합니다.<br/><br/> - 기본 백업 및 데이터베이스 파일 위치를 설정합니다.<br/><br/> - 잠긴 페이지를 사용하도록 설정합니다.<br/><br/> - SQL Server 성능 픽스를 적용합니다. |
 | [기능별](#feature-specific-guidance) | - Blob 스토리지에 직접 백업합니다. |

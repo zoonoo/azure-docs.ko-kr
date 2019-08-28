@@ -1,6 +1,6 @@
 ---
-title: 포털을 사용 하 여 Windows에 대 한 공유 Azure 가상 머신 이미지 만들기 | Microsoft Docs
-description: Azure portal을 사용 하 여 만들고 가상 머신 이미지를 공유 하는 방법을 알아봅니다.
+title: 포털을 사용 하 여 Windows 용 공유 Azure 가상 머신 이미지 만들기 | Microsoft Docs
+description: Azure Portal를 사용 하 여 가상 머신 이미지를 만들고 공유 하는 방법을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -9,21 +9,20 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 475bf3d07ff619618339207b53d5bcc4c8b0ab06
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: e04cbd4750a97857166eb5939045bdb8ace1b426
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709140"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102375"
 ---
-# <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Azure portal을 사용 하 여 공유 이미지 갤러리 만들기
+# <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Azure Portal를 사용 하 여 공유 이미지 갤러리 만들기
 
 [공유 이미지 갤러리](shared-image-galleries.md)는 조직 내 사용자 지정 이미지 공유를 간소화합니다. 사용자 지정 이미지는 Marketplace 이미지와 같지만 직접 만듭니다. 애플리케이션 사전 로드, 애플리케이션 구성 및 기타 OS 구성과 같은 부트스트랩 배포 작업에 사용자 지정 이미지를 사용할 수 있습니다. 
 
@@ -43,7 +42,7 @@ ms.locfileid: "67709140"
 
 ## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
-이 문서의 예제를 완료하려면 기존 관리 이미지가 있어야 합니다. 필요한 경우 [자습서: Azure PowerShell을 사용하여 Azure VM의 사용자 지정 이미지 만들기](tutorial-custom-images.md)에 따라 이미지를 하나 만듭니다. 데이터 디스크를 포함 하는 관리 되는 이미지, 데이터 디스크 크기가 1TB 보다 더 지정할 수 없습니다.
+이 문서의 예제를 완료하려면 기존 관리 이미지가 있어야 합니다. 필요한 경우 [자습서: Azure PowerShell을 사용하여 Azure VM의 사용자 지정 이미지 만들기](tutorial-custom-images.md)에 따라 이미지를 하나 만듭니다. 관리 되는 이미지에 데이터 디스크가 포함 되어 있는 경우 데이터 디스크 크기는 1TB를 넘을 수 없습니다.
 
 이 문서를 진행할 때 필요한 경우 리소스 그룹 및 VM 이름을 바꿉니다.
 
@@ -55,21 +54,21 @@ ms.locfileid: "67709140"
 이미지 버전이 완료되면 하나 이상의 새 VM을 만들 수 있습니다. 
 
 > [!IMPORTANT]
-> 다른 azure 테 넌 트의 이미지에서 VM을 배포 하려면 포털을 사용할 수 없습니다. 테 넌 트 간에 공유 되는 이미지에서 VM을 만들려면 사용 해야 합니다 [Azure CLI](../linux/shared-images.md#create-a-vm) 하거나 [Powershell](shared-images.md#create-vms-from-an-image)합니다.
+> 포털을 사용 하 여 다른 azure 테 넌 트의 이미지에서 VM을 배포할 수 없습니다. 테 넌 트 간에 공유 되는 이미지에서 VM을 만들려면 [Azure CLI](../linux/shared-images.md#create-a-vm) 또는 [Powershell](shared-images.md#create-vms-from-an-image)을 사용 해야 합니다.
 
 이 예제에서는 *미국 동부* 데이터 센터에서 *myResourceGroup*에 *myVMfromImage*라는 VM을 만듭니다.
 
-1. 이미지 버전에 대 한 페이지에서 선택 **VM 만들기** 페이지의 맨 위에 있는 메뉴에서.
-1. 에 대 한 **리소스 그룹**를 선택 **새로 만들기** 유형과 *myResourceGroup* 이름입니다.
-1. **가상 머신 이름을**, 형식 *myVM*합니다.
-1. 에 대 한 **지역**를 선택 *미국 동부*합니다.
-1. 에 대 한 **가용성 옵션**을 기본값인 *필수 인프라 중복 되지 않은*합니다.
-1. 에 대 한 값 **이미지** 이미지 버전에 대 한 페이지에서 시작 하는 경우 자동으로 입력 해야 합니다.
-1. 에 대 한 **크기**, 사용 가능한 크기의 목록에서 VM 크기를 선택 하 고 "선택"을 클릭 합니다.
+1. 이미지 버전 페이지의 페이지 맨 위에 있는 메뉴에서 **VM 만들기** 를 선택 합니다.
+1. **리소스 그룹**에 대해 **새로 만들기** 를 선택 하 고 이름에 *myresourcegroup* 을 입력 합니다.
+1. **가상 컴퓨터 이름**에 *myvm*을 입력 합니다.
+1. **지역**에서 *미국 동부*를 선택 합니다.
+1. **가용성 옵션**의 경우에는 기본 *인프라 중복성 필요 없음*을 그대로 둡니다.
+1. 이미지 버전의 페이지에서 시작 하는 경우 **이미지** 값이 자동으로 입력 됩니다.
+1. **크기**의 경우 사용 가능한 크기 목록에서 VM 크기를 선택 하 고 "선택"을 클릭 합니다.
 1. **관리자 계정**에서 *azureuser*와 같은 사용자 이름 및 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.
-1. 아래에 있는 VM에 원격 액세스를 허용 하려는 경우 **공용 인바운드 포트**, 선택 **선택한 포트를 허용** 선택한 후 **RDP (3389)** 드롭다운 목록에서. VM에 원격 액세스를 허용 하지 않으려는 경우 둡니다 **None** 에 대 한 선택한 **공용 인바운드 포트**합니다.
-1. 작업을 완료 하는 경우 선택 합니다 **검토 + 만들기** 페이지의 맨 위에 있는 단추입니다.
-1. VM이 유효성 검사를 통과 한 후 선택 **만들기** 배포를 시작 하려면 페이지 맨 아래에 있습니다.
+1. VM에 대 한 원격 액세스를 허용 하려면 **공용 인바운드 포트**에서 **선택한 포트 허용** 을 선택한 다음 드롭다운에서 **RDP (3389)** 를 선택 합니다. VM에 대 한 원격 액세스를 허용 하지 않으려면 **공용 인바운드 포트**에 대해 선택 **안 함** 을 선택 하지 않습니다.
+1. 작업이 완료 되 면 페이지 맨 아래에 있는 **검토 + 만들기** 단추를 선택 합니다.
+1. VM에서 유효성 검사를 통과 한 후 페이지 맨 아래에서 **만들기** 를 선택 하 여 배포를 시작 합니다.
 
 
 
@@ -77,7 +76,7 @@ ms.locfileid: "67709140"
 
 리소스 그룹, 가상 머신 및 모든 관련 리소스가 더 이상 필요 없는 경우 삭제해도 됩니다. 삭제하려면 가상 머신의 리소스 그룹을 선택하고 **삭제**를 선택한 다음, 삭제할 리소스 그룹의 이름을 확인합니다.
 
-개별 리소스를 삭제 하려는 경우에 반대 순서로 삭제 해야 합니다. 예를 들어 이미지 정의 삭제 하려면 해야 해당 이미지에서 만든 이미지 버전을 모두 삭제 합니다.
+개별 리소스를 삭제 하려면 해당 리소스를 역순으로 삭제 해야 합니다. 예를 들어 이미지 정의를 삭제 하려면 해당 이미지에서 만든 모든 이미지 버전을 삭제 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

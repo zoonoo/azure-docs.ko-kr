@@ -9,17 +9,16 @@ editor: ''
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: de9ae8e5c0cbf0997811db9624f6c6b92e03a5df
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2508090fa8831c8fefb0e710c28e512ec0c94c6e
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66742949"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70074149"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Azure App Service의 인바운드 및 아웃바운드 IP 주소
 
@@ -37,7 +36,7 @@ ms.locfileid: "66742949"
 
 ## <a name="find-the-inbound-ip"></a>인바운드 IP 찾기
 
-로컬 터미널에서 다음 명령을 실행 합니다.
+로컬 터미널에서 다음 명령을 실행 하기만 하면 됩니다.
 
 ```bash
 nslookup <app-name>.azurewebsites.net
@@ -53,11 +52,11 @@ nslookup <app-name>.azurewebsites.net
 
 더 낮은 계층(**Basic**, **Standard** 및 **Premium**)과 **Premium V2** 계층 사이에서 앱의 규모를 조정하는 경우 앱에 대한 아웃바운드 IP 주소 집합이 변경됩니다.
 
-앱이 사용할 수를 검색 하 여 가격 책정 계층에 관계 없이 모든 가능한 아웃 바운드 IP 주소 집합을 찾을 수 있습니다 합니다 `possibleOutboundIPAddresses` 속성 또는 합니다 **추가 아웃 바운드 IP 주소** 필드에 **속성**  블레이드에서 Azure portal에서 합니다. [아웃바운드 IP 찾기](#find-outbound-ips)를 참조하세요.
+가격 책정 계층에 관계 없이 응용 프로그램에서 사용할 수 있는 모든 아웃 바운드 ip 주소 집합을 찾을 수 있습니다 .이는 `possibleOutboundIPAddresses` Azure Portal의 **속성** 블레이드에서 속성 또는 **추가 아웃 바운드 ip 주소** 필드를 검색 합니다. [아웃바운드 IP 찾기](#find-outbound-ips)를 참조하세요.
 
 ## <a name="find-outbound-ips"></a>아웃바운드 IP 찾기
 
-Azure Portal의 앱에서 현재 사용하는 아웃바운드 IP 주소를 찾으려면 앱의 왼쪽 탐색 창에서 **속성**을 클릭합니다. 에 나열 되는 **아웃 바운드 IP 주소** 필드입니다.
+Azure Portal의 앱에서 현재 사용하는 아웃바운드 IP 주소를 찾으려면 앱의 왼쪽 탐색 창에서 **속성**을 클릭합니다. 이러한 필드는 **아웃 바운드 IP 주소** 필드에 나열 됩니다.
 
 [Cloud Shell](../cloud-shell/quickstart.md)에서 다음 명령을 실행하면 동일한 정보를 찾을 수 있습니다.
 
@@ -69,7 +68,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query outboundI
 (Get-AzWebApp -ResourceGroup <group_name> -name <app_name>).OutboundIpAddresses
 ```
 
-찾으려는 _모든_ 가격 책정 계층에 관계 없이 앱에 대 한 아웃 바운드 IP 주소 수 클릭 **속성** 앱의 왼쪽 탐색 창에서. 에 나열 되는 **아웃 바운드 IP 주소 추가** 필드입니다.
+가격 책정 계층에 관계 없이 앱에 대해 가능한 _모든_ 아웃 바운드 IP 주소를 찾으려면 앱의 왼쪽 탐색에서 **속성** 을 클릭 합니다. **추가 아웃 바운드 IP 주소** 필드에 나열 됩니다.
 
 [Cloud Shell](../cloud-shell/quickstart.md)에서 다음 명령을 실행하면 동일한 정보를 찾을 수 있습니다.
 

@@ -7,18 +7,17 @@ author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/24/2018
 ms.author: genli
-ms.openlocfilehash: 7fecf8c5fdafb64f7922054dd2bb9755b0dec031
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 16322b2cca4875f1ace89e29752608b95fe568ef
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60386179"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103448"
 ---
 # <a name="remote-desktop-disconnects-frequently-in-azure-vm"></a>Azure VM에에서 원격 데스크톱 연결이 자주 끊김
 
@@ -35,7 +34,7 @@ ms.locfileid: "60386179"
 
 RDP 수신기가 잘못 구성되면 이 문제가 발생할 수 있습니다. 일반적으로 이 문제는 사용자 지정 이미지를 사용하는 VM에서 발생합니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 다음 단계를 수행하기 전에 영향을 받는 VM의 [OS 디스크 스냅샷을 백업으로 만듭니다](../windows/snapshot-copy-managed-disk.md). 
 

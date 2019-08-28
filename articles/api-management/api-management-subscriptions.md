@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: afd43bbf6f52f498ad8f56d5a48b960d45d84137
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9144af131e1427d0b3226655c871921ac1d91665
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66243253"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073416"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Azure API Management의 구독
 
@@ -42,7 +41,7 @@ API에 액세스하기 위해 구독 키를 얻으려면 구독이 필요합니�
 
 ### <a name="subscriptions-for-a-product"></a>제품에 대한 범위
 
-일반적으로 API Management의 구독은 항상 단일 [API 제품](api-management-terminology.md) 범위와 연결되어 있습니다. 개발자가 개발자 포털에서 제품 목록을 찾았다고 가정해 보겠습니다. 그런 다음에는 사용할 제품에 대한 구독 요청을 제출할 것입니다. 자동 또는 API 게시자가 구독 요청이 승인 되 면 개발자는 제품의 모든 Api에 액세스 하는 키를에 사용할 수 있습니다. 현재, 개발자 포털 사용자 프로필 섹션 아래에서 제품 범위 구독만 표시 됩니다. 
+일반적으로 API Management의 구독은 항상 단일 [API 제품](api-management-terminology.md) 범위와 연결되어 있습니다. 개발자가 개발자 포털에서 제품 목록을 찾았다고 가정해 보겠습니다. 그런 다음에는 사용할 제품에 대한 구독 요청을 제출할 것입니다. 구독 요청이 자동 또는 API 게시자에 의해 승인 된 후 개발자는 해당 구독에서 키를 사용 하 여 제품의 모든 Api에 액세스할 수 있습니다. 현재 개발자 포털은 사용자 프로필 섹션에서 제품 범위 구독만 표시 합니다. 
 
 ![제품 구독](./media/api-management-subscriptions/product-subscription.png)
 

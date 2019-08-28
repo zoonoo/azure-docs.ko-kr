@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 5f9b255e8aa370184ec244ed418f02e55fc149b3
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: e1649d1ad50a62374cb5a1d9491c594e1b485ec1
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70049176"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100968"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics"></a>사용자 지정 분석을 사용 하 여 Azure IoT Central 확장
 
@@ -27,7 +27,7 @@ ms.locfileid: "70049176"
 * *연속 데이터 내보내기를*사용 하 여 IoT Central 응용 프로그램에서 원격 분석을 스트리밍합니다.
 * 장치 원격 분석을 분석 하 고 플롯 하는 Azure Databricks 환경을 만듭니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 가이드의 수행 단계를 완료하려면 활성 Azure 구독이 필요합니다.
 
@@ -35,7 +35,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="iot-central-application"></a>응용 프로그램 IoT Central
 
-[Azure IoT Central-내 응용 프로그램](https://aka.ms/iotcentral) 페이지에서 다음 설정을 사용 하 여 IoT Central 응용 프로그램을 만듭니다.
+다음 설정을 사용 하 여 [Azure IoT Central 응용 프로그램](https://aka.ms/iotcentral) 웹 사이트에서 IoT Central 응용 프로그램을 만듭니다.
 
 | 설정 | 값 |
 | ------- | ----- |
@@ -99,7 +99,7 @@ Event Hubs 네임 스페이스는 다음 스크린샷 처럼 보입니다.
 
 ## <a name="configure-export-in-iot-central"></a>IoT Central에서 내보내기 구성
 
-Contoso 템플릿에서 만든 [IoT Central 응용 프로그램](https://aka.ms/iotcentral) 으로 이동 합니다. 이 섹션에서는 시뮬레이션 된 장치에서 이벤트 허브로 원격 분석을 스트리밍하기 응용 프로그램을 구성 합니다. 내보내기를 구성 하려면:
+[Azure IoT Central application manager](https://aka.ms/iotcentral) 웹 사이트에서 Contoso 템플릿에서 만든 IoT Central 응용 프로그램으로 이동 합니다. 이 섹션에서는 시뮬레이션 된 장치에서 이벤트 허브로 원격 분석을 스트리밍하기 응용 프로그램을 구성 합니다. 내보내기를 구성 하려면:
 
 1. **연속 데이터 내보내기** 페이지로 이동 하 고, **+ 새로 만들기**를 선택 하 고, **Azure Event Hubs**를 선택 합니다.
 1. 내보내기를 구성 하려면 다음 설정을 사용 하 고 **저장**을 선택 합니다.

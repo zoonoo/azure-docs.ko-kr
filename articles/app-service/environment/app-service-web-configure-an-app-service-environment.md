@@ -10,17 +10,16 @@ ms.assetid: b5a1da49-4cab-460d-b5d2-edd086ec32f4
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 5c0b4117f6e7b48dce1746ad6eb3dbe29c0d16af
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b8a05b7e8466187202e6a4d11efce288238cc19b
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130622"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069943"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>App Service Environment v1 구성
 
@@ -32,7 +31,7 @@ ms.locfileid: "62130622"
 Azure App Service Environment는 크게 몇 가지 주요 구성 요소로 이루어져 있습니다.
 
 * App Service 환경 호스티드 서비스에서 실행되는 컴퓨팅 리소스
-* 스토리지
+* 저장 공간
 * 데이터베이스
 * 클래식(V1) 또는 Resource Manager(V2) Azure Virtual Network(VNet) 
 * App Service Environment 호스티드 서비스가 실행되고 있는 서브넷
@@ -55,7 +54,7 @@ Azure App Service Environment는 크게 몇 가지 주요 구성 요소로 이�
 **작업자**: 작업자는 앱이 실제로 실행되는 위치입니다. App Service 계획을 강화할 때 연결된 작업자 풀의 작업자를 모두 사용합니다.
 
 * 작업자를 즉시 추가할 수 없습니다. 준비하는 데 최대 1시간이 걸릴 수 있습니다.
-* 모든 풀에 대한 계산 리소스의 크기를 조정하는 데 업데이트 도메인당 1시간 미만이 걸립니다. ASE에 20개의 업데이트 도메인이 있습니다. 10개 인스턴스를 사용하여 작업자 풀의 컴퓨팅 크기를 조정하는 경우 완료하는 데 최대 10시간이 걸릴 수 있습니다.
+* 모든 풀에 대한 컴퓨팅 리소스의 크기를 조정하는 데 업데이트 도메인당 1시간 미만이 걸립니다. ASE에 20개의 업데이트 도메인이 있습니다. 10개 인스턴스를 사용하여 작업자 풀의 컴퓨팅 크기를 조정하는 경우 완료하는 데 최대 10시간이 걸릴 수 있습니다.
 * 작업자 풀에서 사용되는 컴퓨팅 리소스의 크기를 변경할 경우 해당 작업자 풀에서 실행 중인 앱이 콜드 부팅됩니다.
 
 앱을 실행하지 않는 작업자 풀의 컴퓨팅 리소스 크기를 변경하는 가장 빠른 방법은 다음과 같습니다.
@@ -71,9 +70,9 @@ Azure App Service Environment는 크게 몇 가지 주요 구성 요소로 이�
 
 **자동 크기 조정**: 컴퓨팅 리소스 사용을 관리하는 데 도움이 되는 도구 중 하나는 자동 크기 조정입니다. 프런트 엔드 또는 작업자 풀에 대해 자동 크기 조정을 사용할 수 있습니다. 오전에는 특정 풀 유형의 인스턴스를 늘렸다가 저녁에는 줄이는 것과 같은 작업이 가능합니다. 또는 작업자 풀에서 사용할 수 있는 작업자 수가 특정 임계값 아래로 떨어질 경우 인스턴스를 추가할 수도 있습니다.
 
-컴퓨팅 리소스 풀 메트릭을 기준으로 자동 크기 조정 규칙을 설정하려는 경우 프로비전에 필요한 시간을 고려해야 합니다. App Service Environment의 자동 크기 조정에 대한 자세한 내용은 [App Service Environment에서 자동 크기 조정을 구성하는 방법][ASEAutoscale]을 참조하세요.
+컴퓨팅 리소스 풀 메트릭을 기준으로 자동 크기 조정 규칙을 설정하려는 경우 프로비전에 필요한 시간을 고려해야 합니다. App Service 환경 자동 크기 조정에 대 한 자세한 내용은 [App Service Environment에서 자동 크기 조정을 구성 하는 방법][ASEAutoscale]을 참조 하세요.
 
-### <a name="storage"></a>스토리지
+### <a name="storage"></a>저장 공간
 ASE 각각은 500GB의 스토리지로 구성됩니다. 이 공간은 ASE의 모든 앱에서 사용됩니다. 이 스토리지 공간은 ASE의 일부이며 현재는 사용자의 스토리지 공간을 사용하도록 전환할 수 없습니다. 가상 네트워크 라우팅 또는 보안에 대해 조정하는 경우 Azure Storage에 대한 액세스를 허용하지 않으면 ASE가 작동되지 않습니다.
 
 ### <a name="database"></a>데이터베이스
@@ -89,7 +88,7 @@ ASE에 사용되는 가상 네트워크에 대한 몇 가지 제한 사항이 �
 * 서브넷을 사용하여 ASE를 호스트하면 서브넷의 주소 범위를 변경할 수 없습니다. 따라서 서브넷에는 향후 ASE 성장을 수용하도록 주소가 64개 이상 포함되는 것이 좋습니다.
 * 서브넷에 ASE 외에는 아무 것도 없을 수 있습니다.
 
-ASE를 포함하는 호스티드 서비스와 달리 [가상 네트워크][virtualnetwork] 및 서브넷은 사용자 제어 하에 있습니다.  가상 네트워크 관리는 Virtual Network UI 또는 PowerShell을 통해 수행할 수 있습니다.  ASE는 클래식 또는 Resource Manager VNet에 배포될 수 있습니다.  포털 및 API 환경은 클래식 및 Resource Manager VNet 간에 약간 차이가 있지만 ASE 환경은 동일합니다.
+ASE를 포함 하는 호스 티 드 서비스와 달리 [가상 네트워크][virtualnetwork] 및 서브넷은 사용자 제어를 받고 있습니다.  가상 네트워크 관리는 Virtual Network UI 또는 PowerShell을 통해 수행할 수 있습니다.  ASE는 클래식 또는 Resource Manager VNet에 배포될 수 있습니다.  포털 및 API 환경은 클래식 및 Resource Manager VNet 간에 약간 차이가 있지만 ASE 환경은 동일합니다.
 
 ASE를 호스트하는 데 사용되는 VNet은 프라이빗 RFC1918 IP 주소를 사용하거나 공용 IP 주소를 사용할 수 있습니다.  RFC1918에 포함되지 않는 IP 범위(10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16)를 사용하려는 경우 ASE 생성 전에 ASE에서 사용할 VNet 및 서브넷을 만들어야 합니다.
 
@@ -97,14 +96,14 @@ ASE를 호스트하는 데 사용되는 VNet은 프라이빗 RFC1918 IP 주소�
 
 예를 들어 가상 네트워크 통합을 사용하여 구독에 있는 VNET과 통합할 수 있지만 ASE에 있는 가상 네트워크에 연결되지 않습니다. 또한 하이브리드 연결을 계속 사용하여 일반적인 상황과 마찬가지로 다른 네트워크의 리소스에 액세스할 수 있습니다.  
 
-ExpressRoute VPN을 사용하여 구성된 가상 네트워크가 없는 경우 라우팅 일부는 ASE에 있는 VNET이 필요합니다. ASE와 호환되지 않는 일부 사용자 정의 경로(UDR) 구성이 있습니다. ExpressRoute를 사용하는 가상 네트워크에서 ASE 실행에 대한 자세한 내용은 [ExpressRoute를 사용하는 가상 네트워크에서 App Service Environment 실행][ExpressRoute]을 참조하세요.
+ExpressRoute VPN을 사용하여 구성된 가상 네트워크가 없는 경우 라우팅 일부는 ASE에 있는 VNET이 필요합니다. ASE와 호환되지 않는 일부 사용자 정의 경로(UDR) 구성이 있습니다. Express 경로를 사용 하 여 가상 네트워크에서 ASE를 실행 하는 방법에 대 한 자세한 내용은 Express 경로를 [사용 하 여 가상 네트워크에서 App Service Environment 실행][ExpressRoute]을 참조 하세요.
 
 #### <a name="securing-inbound-traffic"></a>인바운드 트래픽 보안
 ASE로의 인바운드 트래픽을 제어하는 기본적인 방법에는 두 가지가 있습니다.  [App Service Environment에서 인바운드 트래픽을 제어하는 방법](app-service-app-service-environment-control-inbound-traffic.md) 에 설명된 것처럼 NSG(네트워크 보안 그룹)를 사용하여 ASE에 액세스할 수 있는 IP를 제어하고, ILB(내부 부하 분산 장치)를 사용하여 ASE를 구성할 수도 있습니다.  NSG를 사용하는 액세스를 ILB ASE로 제한하려는 경우에는 이러한 기능을 함께 사용할 수 있습니다.
 
 ASE를 만들면 VNet에 VIP가 만들어집니다.  외부 및 내부의 두 가지 VIP 유형이 있습니다.  외부 VIP를 사용하여 ASE를 만들 경우 ASE의 앱에 인터넷 라우팅 가능 IP 주소를 통해 액세스할 수 있습니다. 내부를 선택하는 경우 ASE는 ILB로 구성되고, 인터넷에 직접 액세스할 수 없습니다.  ILB ASE는 외부 VIP가 여전히 필요하지만 Azure 관리 및 유지 관리 액세스에만 사용됩니다.  
 
-ILB ASE를 만드는 동안 ILB ASE에서 사용되는 하위 도메인을 제공하고, 지정한 하위 도메인에 대한 고유한 DNS를 관리해야 합니다.  하위 도메인 이름을 설정했으므로 HTTPS 액세스에 사용되는 인증서를 관리해야 합니다.  ASE를 만든 후에 인증서를 제공하라는 메시지가 표시됩니다.  ILB ASE 만들기 및 사용에 대한 자세한 내용은 [App Service Environment에서 내부 부하 분산 장치 사용][ILBASE]을 참조하세요. 
+ILB ASE를 만드는 동안 ILB ASE에서 사용되는 하위 도메인을 제공하고, 지정한 하위 도메인에 대한 고유한 DNS를 관리해야 합니다.  하위 도메인 이름을 설정했으므로 HTTPS 액세스에 사용되는 인증서를 관리해야 합니다.  ASE를 만든 후에 인증서를 제공하라는 메시지가 표시됩니다.  ILB ASE를 만들고 사용 하는 방법에 대 한 자세한 내용은 [App Service Environment에서 내부 Load Balancer 사용][ILBASE]을 참조 하세요. 
 
 ## <a name="portal"></a>포털
 Azure Portal의 UI를 사용하여 App Service Environment를 관리하고 모니터링할 수 있습니다. ASE가 있는 경우 사이드바에서 App Service 기호를 확인할 수 있습니다. 이 기호는 Azure Portal에서 App Service Environment를 나타내는 데 사용됩니다.
@@ -137,7 +136,7 @@ ASE 블레이드 내에 몇 가지 중요한 기능을 포함하는 **설정** �
 
 ![설정 블레이드 및 속성][4]
 
-**설정** > **IP 주소**: ASE에서 IP SSL(Secure Sockets Layer) 앱을 만들 때 IP SSL 주소가 필요합니다. 그렇게 하려면 ASE에서 소유하는 IP SSL 주소가 할당될 수 있어야 합니다. 이를 위해, ASE를 만들 때 1개의 IP SSL 주소가 있지만 더 추가할 수 있습니다. SSL 연결 섹션의 [App Service 가격][AppServicePricing]에서 보여 주듯이 추가 IP SSL 주소에 대한 요금이 청구됩니다. 추가 가격은 IP SSL 가격입니다.
+**설정** > **IP 주소**: ASE에서 IP SSL(Secure Sockets Layer) 앱을 만들 때 IP SSL 주소가 필요합니다. 그렇게 하려면 ASE에서 소유하는 IP SSL 주소가 할당될 수 있어야 합니다. 이를 위해, ASE를 만들 때 1개의 IP SSL 주소가 있지만 더 추가할 수 있습니다. [App Service 가격 책정][AppServicePricing] (SSL 연결 섹션)에 나와 있는 것 처럼 추가 IP SSL 주소에 대 한 요금이 청구 됩니다. 추가 가격은 IP SSL 가격입니다.
 
 **설정** > **프런트 엔드 풀** / **작업자 풀**: 이러한 리소스 풀 블레이드는 각각 완벽하게 해당 리소스 풀의 크기를 조정하도록 제어를 제공하는 것 외에도 해당 리소스 풀에 대한 정보를 확인하는 기능을 제공합니다.  
 
@@ -149,8 +148,8 @@ ASE 블레이드 내에 몇 가지 중요한 기능을 포함하는 **설정** �
 세 가지 규모 작업이 있습니다.
 
 * IP SSL 사용에 사용할 수 있는 ASE에서 IP 주소의 수 변경
-* 리소스 풀에서 사용된 계산 리소스의 크기 변경.
-* 수동으로 또는 자동 크기 조정을 통해 리소스 풀에 사용되는 계산 리소스의 수 변경.
+* 리소스 풀에서 사용된 컴퓨팅 리소스의 크기 변경.
+* 수동으로 또는 자동 크기 조정을 통해 리소스 풀에 사용되는 컴퓨팅 리소스의 수 변경.
 
 포털에서 리소스 풀에 있는 서버 수를 제어하는 세 가지 방법이 있습니다.
 
@@ -169,7 +168,7 @@ ASE 블레이드에서 크기 조정 작업을 사용하려면 슬라이더를 �
 ## <a name="fault-tolerance-considerations"></a>내결함성 고려 사항
 총 55개의 최대 컴퓨팅 리소스를 사용하도록 App Service Environment를 구성할 수 있습니다. 55개의 컴퓨팅 리소스 중 50개만 워크로드를 호스트하는 데 사용할 수 있습니다. 원인에는 두 가지가 있습니다. 최소 2개의 프런트 엔드 컴퓨팅 리소스가 있습니다.  따라서 작업자 풀 할당을 지원하기 위한 리소스는 최대 53개가 됩니다. 내결함성을 제공하기 위해 다음 규칙에 따라 추가 컴퓨팅 리소스를 할당해야 합니다.
 
-* 각 작업자 풀에 워크로드를 할당하는 데 사용할 수 없는 1개 이상의 추가 계산 리소스가 필요합니다.
+* 각 작업자 풀에 워크로드를 할당하는 데 사용할 수 없는 1개 이상의 추가 컴퓨팅 리소스가 필요합니다.
 * 작업자 풀에 있는 컴퓨팅 리소스의 양이 특정 값을 초과하는 경우 내결함성에 다른 컴퓨팅 리소스가 필요합니다. 프런트 엔드 풀에는 적용되지 않습니다.
 
 단일 작업자 풀 내에서 내결함성 요구 사항은 작업자 풀에 할당된 X개의 리소스에 대한 지정된 값입니다.

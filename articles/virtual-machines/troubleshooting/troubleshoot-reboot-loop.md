@@ -7,18 +7,17 @@ author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
-ms.openlocfilehash: 1c97b1da094b759ccf85f310ceec4c7abfd91b9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e4715225e56e50502348040fa501cbfd76bd5c9f
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65472285"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103393"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Azure VM의 Windows 다시 부팅 루프
 이 문서에서는 Microsoft Azure의 Windows VM(Virtual Machine)에서 발생할 수 있는 다시 부팅 루프에 대해 설명합니다.
@@ -49,7 +48,7 @@ ms.locfileid: "65472285"
 
 파일 시스템이 손상되면 이 문제가 발생할 수 있습니다. 그러나 운영 체제가 손상되는 변경을 진단하고 식별하는 것이 어렵습니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 이 문제를 해결하려면 [OS 디스크를 백업](../windows/snapshot-copy-managed-disk.md)하고, [OS 디스크를 복구 VM에 연결](../windows/troubleshoot-recovery-disks-portal.md)한 다음, 이에 따라 솔루션 옵션을 따르거나 솔루션을 하나씩 시도합니다.
 

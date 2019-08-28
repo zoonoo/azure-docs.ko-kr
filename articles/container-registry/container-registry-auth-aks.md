@@ -6,14 +6,14 @@ author: dlepow
 manager: gwallace
 ms.service: container-service
 ms.topic: article
-ms.date: 08/08/2018
+ms.date: 08/27/2019
 ms.author: danlep
-ms.openlocfilehash: 9690f900b6fe8d81fbebc3fcf5b7022b12bc3b96
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: f80956ec401737766f7a85540e90be70b9d621e7
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310251"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114698"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Azure Kubernetes Service의 Azure Container Registry를 사용하여 인증
 
@@ -21,7 +21,7 @@ AKS(Azure Kubernetes Service)에서 ACR(Azure Container Registry)을 사용할 �
 
 이러한 인증 방법 중 하나를 구성 하기만 하면 됩니다. 가장 일반적인 방법은 [AKS 서비스 주체를 사용 하 여 액세스 권한을 부여](#grant-aks-access-to-acr)하는 것입니다. 특정 요구 사항이 있는 경우 필요에 따라 [Kubernetes 암호를 사용 하 여 액세스 권한을 부여할](#access-with-kubernetes-secret)수 있습니다.
 
-이 문서에서는 AKS 클러스터를 이미 만든 상태로 `kubectl` 명령줄 클라이언트로 클러스터에 액세스할 수 있다고 가정합니다.
+이 문서에서는 AKS 클러스터를 이미 만든 상태로 `kubectl` 명령줄 클라이언트로 클러스터에 액세스할 수 있다고 가정합니다. 대신 클러스터를 만들고 클러스터 [를 만들 때 컨테이너 레지스트리에 대 한 액세스를 구성 하려는 경우 자습서: AKS 클러스터](../aks/tutorial-kubernetes-deploy-cluster.md) 를 배포 하거나 [Azure Kubernetes Service (미리 보기)에서 Azure Container Registry를 사용 하 여 인증](../aks/cluster-container-registry-integration.md)합니다.
 
 ## <a name="grant-aks-access-to-acr"></a>AKS에 ACR에 대한 액세스 권한 부여
 

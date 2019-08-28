@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 08/02/2019
+ms.date: 08/27/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 776b8303e3454b40979691ea32fdcca11be4fa71
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: fb1007929a26384da60e542865c750fd1d642440
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013382"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114665"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure 리소스에 대한 기본 제공 역할
 
@@ -70,6 +70,8 @@ ms.locfileid: "70013382"
 | [청구 읽기 권한자](#billing-reader) | 결제 데이터에 대해 읽기 권한 허용 |
 | [BizTalk 기여자](#biztalk-contributor) | BizTalk Services를 관리할 수 있지만 액세스할 수는 없습니다. |
 | [Blockchain 구성원 노드 액세스 (미리 보기)](#blockchain-member-node-access-preview) | Blockchain 멤버 노드에 대 한 액세스를 허용 합니다. |
+| [청사진 기여자](#blueprint-contributor) | 청사진 정의를 관리할 수 있지만 할당할 수는 없습니다. |
+| [청사진 연산자](#blueprint-operator) | 는 게시 된 기존 청사진을 할당할 수 있지만 새 청사진을 만들 수는 없습니다. 참고: 사용자 할당 관리 id를 사용 하 여 할당을 수행 하는 경우에만 작동 합니다. |
 | [CDN 엔드포인트 기여자](#cdn-endpoint-contributor) | CDN 엔드포인트를 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. |
 | [CDN 엔드포인트 독자](#cdn-endpoint-reader) | CDN 엔드포인트를 볼 수 있지만 변경할 수는 없습니다. |
 | [CDN 프로필 기여자](#cdn-profile-contributor) | CDN 프로필과 해당 엔드포인트를 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. |
@@ -948,6 +950,44 @@ ms.locfileid: "70013382"
 > | **NotDataActions** |  |
 > | *none* |  |
 
+## <a name="blueprint-contributor"></a>청사진 기여자
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | 청사진 정의를 관리할 수 있지만 할당할 수는 없습니다. |
+> | **ID** | 41077137-e803-4205-871c-5a86e6a753b4 |
+> | **actions** |  |
+> | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
+> | Microsoft. 청사진/청사진/* | 청사진 정의 또는 청사진 아티팩트를 만들고 관리 합니다. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
+> | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
+> | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## <a name="blueprint-operator"></a>청사진 연산자
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | 는 게시 된 기존 청사진을 할당할 수 있지만 새 청사진을 만들 수는 없습니다. 참고: 사용자 할당 관리 id를 사용 하 여 할당을 수행 하는 경우에만 작동 합니다. |
+> | **ID** | 437d2ced-4a38-4302-8479-ed2bcb43d090 |
+> | **actions** |  |
+> | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
+> | Microsoft. 청사진/blueprintAssignments/* | 청사진 할당을 만들고 관리 합니다. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
+> | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
+> | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
 ## <a name="cdn-endpoint-contributor"></a>CDN 엔드포인트 참가자
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1268,7 +1308,7 @@ ms.locfileid: "70013382"
 > | **actions** |  |
 > | Microsoft.Consumption/* |  |
 > | Microsoft.CostManagement/* |  |
-> | Microsoft.Billing/billingPeriods/read | 사용할 수 있는 청구 기간을 나열합니다. |
+> | Microsoft.Billing/billingPeriods/read |  |
 > | Microsoft.Resources/subscriptions/read | 구독 목록을 가져옵니다. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
@@ -1291,7 +1331,7 @@ ms.locfileid: "70013382"
 > | **actions** |  |
 > | Microsoft.Consumption/*/read |  |
 > | Microsoft.CostManagement/*/read |  |
-> | Microsoft.Billing/billingPeriods/read | 사용할 수 있는 청구 기간을 나열합니다. |
+> | Microsoft.Billing/billingPeriods/read |  |
 > | Microsoft.Resources/subscriptions/read | 구독 목록을 가져옵니다. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
@@ -1899,6 +1939,7 @@ ms.locfileid: "70013382"
 > | Microsoft.Insights/Register/Action | Microsoft Insights 공급자 등록 |
 > | Microsoft.Insights/scheduledqueryrules/* |  |
 > | Microsoft.Insights/webtests/* | Application Insights 웹 테스트 읽기/쓰기/삭제 |
+> | Microsoft Insights/통합 문서/* |  |
 > | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Log analytics 솔루션 팩을 읽고 쓰고 삭제 합니다. |
 > | Microsoft.OperationalInsights/workspaces/savedSearches/* | Log analytics 저장 된 검색을 읽고 쓰고 삭제 합니다. |
 > | Microsoft.OperationalInsights/workspaces/search/action | 검색 쿼리를 실행합니다. |
@@ -2474,6 +2515,7 @@ ms.locfileid: "70013382"
 > | Microsoft.Sql/managedInstances/databases/sensitivityLabels/* |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/managedInstances/securityAlertPolicies/* |  |
+> | Microsoft .Sql/managedInstances/databases/transparentDataEncryption/* |  |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | SQL 서버 감사 정책 만들기 및 관리 |
 > | Microsoft.Sql/servers/auditingSettings/* | SQL 서버 감사 설정 만들기 및 관리 |
@@ -2494,6 +2536,7 @@ ms.locfileid: "70013382"
 > | Microsoft.Sql/servers/databases/securityAlertPolicies/* | SQL 서버 데이터베이스 보안 경고 정책 만들기 및 관리 |
 > | Microsoft.Sql/servers/databases/securityMetrics/* | SQL 서버 데이터베이스 보안 메트릭 만들기 및 관리 |
 > | Microsoft.Sql/servers/databases/sensitivityLabels/* |  |
+> | Microsoft .Sql/servers/databases/transparentDataEncryption/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |

@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: 3a8c571d3c6bb55fdd8b2d097b71b83afab5ca00
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 8c63df2d9a7e398fb9b67edd3b57a3ba06cbe7a1
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705915"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084320"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Azure 가상 머신 확장 및 기능
 Azure VM(Azure 가상 머신) 확장은 Azure VM에서 배포 후 구성 및 자동화 작업을 제공하는 작은 애플리케이션이며, 기존 이미지를 사용하여 배포의 일부로 사용자 지정함으로써 사용자 지정 이미지를 작성하는 업무에서 벗어나게 할 수 있습니다.
@@ -54,6 +53,6 @@ VM에 직접 연결하여 확장을 설치하거나 삭제할 필요가 없습�
 ## <a name="next-steps"></a>다음 단계
 * Linux 에이전트 및 확장의 작동 방식에 대한 자세한 내용은 [Linux용 Azure VM 확장 및 기능](features-linux.md)을 참조하세요.
 * Windows 게스트 에이전트 및 확장의 작동 방식에 대한 자세한 내용은 [Windows용 Azure VM 확장 및 기능](features-windows.md)을 참조하세요.  
-* Windows 게스트 에이전트를 설치 하려면 [Azure Windows Virtual Machine 에이전트 개요](agent-windows.md)합니다.  
-* Linux 에이전트를 설치 하려면 [Azure Linux Virtual Machine 에이전트 개요](agent-linux.md)합니다.  
+* Windows 게스트 에이전트를 설치 하려면 [Azure Windows 가상 머신 에이전트 개요](agent-windows.md)를 참조 하세요.  
+* Linux 에이전트를 설치 하려면 [Azure Linux Virtual Machine 에이전트 개요](agent-linux.md)를 참조 하세요.  
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: 1527dbd1df3e4a10a68a5949d9e0bca11628bdd2
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 989d438ad2c5ec80b89540eb7ddfc80d69a9d0e6
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68781132"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100928"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Azure Security Center 준비 로드맵
 이 문서에서는 Azure Security Center를 시작하는 데 도움이 되는 준비 로드맵을 제공합니다.
@@ -67,9 +67,8 @@ Security Center에서는 Security Center 표준 계층이 적용되지 않은 �
 
 아티클    
 * [Azure Security Center에서 보안 상태 모니터링](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
-* [Azure Security Center에서 가상 머신 보호](https://docs.microsoft.com/azure/security-center/security-center-virtual-machine-recommendations)
+* [Azure Security Center에서 머신 및 애플리케이션 보호](security-center-virtual-machine-protection.md)
 * [Azure Security Center에서 네트워크 보호](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
-* [Azure Security Center에서 애플리케이션 보호](https://docs.microsoft.com/azure/security-center/security-center-application-recommendations)
 * [Azure Security Center에서 Azure SQL 서비스 및 데이터 보호](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
 
 

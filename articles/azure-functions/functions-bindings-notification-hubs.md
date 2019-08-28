@@ -5,18 +5,17 @@ services: functions
 documentationcenter: na
 author: craigshoemaker
 manager: gwallace
-keywords: Azure 함수, 함수, 이벤트 처리, 동적 계산, 서버리스 아키텍처
+keywords: Azure 함수, 함수, 이벤트 처리, 동적 컴퓨팅, 서버리스 아키텍처
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 1ed9e8cc9d05aef81175acb3bc0efd953e1bf1c4
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 7538e47a1d0bed0c72ff5ed467c98828cc9c18ba
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480403"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70086634"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Azure Functions에 대한 Notification Hubs 출력 바인딩
 
@@ -27,7 +26,7 @@ Azure Notification Hubs는 사용할 PNS(플랫폼 알림 서비스)에 대해 �
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!IMPORTANT]
-> Google에 [메시징 GCM (Google Cloud)를 위해 FCM Firebase Cloud Messaging () 사용 되지 않는](https://developers.google.com/cloud-messaging/faq)합니다. 이 출력 바인딩은 FCM을 지원 하지 않습니다. FCM을 사용 하 여 알림을 보내려면 다음을 사용 합니다 [Firebase API](https://firebase.google.com/docs/cloud-messaging/server#choosing-a-server-option) 함수 또는 사용 하 여에서 직접 [템플릿 알림을](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)합니다.
+> Google은 [FCM (Firebase Cloud Messaging)를 위해 GCM (Google Cloud Messaging)을 사용 하지 않습니다](https://developers.google.com/cloud-messaging/faq). 이 출력 바인딩은 FCM을 지원 하지 않습니다. FCM를 사용 하 여 알림을 보내려면 함수에서 직접 [FIREBASE API](https://firebase.google.com/docs/cloud-messaging/server#choosing-a-server-option) 를 사용 하거나 [템플릿 알림을](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)사용 합니다.
 
 ## <a name="packages---functions-1x"></a>패키지 - Functions 1.x
 
@@ -249,15 +248,15 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 
 특성의 생성자 매개 변수 및 속성은 [구성](#configuration) 섹션에 설명되어 있습니다.
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 다음 테이블에서는 *function.json* 파일 및 `NotificationHub` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
-|**type** |해당 없음| "notificationHub"로 설정해야 합니다. |
-|**direction** |해당 없음| "out"으로 설정해야 합니다. | 
-|**name** |해당 없음| 알림 허브 메시지에 대한 함수 코드에 사용되는 변수 이름입니다. |
+|**type** |n/a| "notificationHub"로 설정해야 합니다. |
+|**direction** |n/a| "out"으로 설정해야 합니다. | 
+|**name** |n/a| 알림 허브 메시지에 대한 함수 코드에 사용되는 변수 이름입니다. |
 |**tagExpression** |**TagExpression** | 태그 식을 사용하면 태그 식과 일치하는 알림을 수신하도록 등록된 일련의 디바이스에 배달하도록 지정할 수 있습니다.  자세한 내용은 [라우팅 및 태그 식](../notification-hubs/notification-hubs-tags-segment-push-message.md)을 참조하세요. |
 |**hubName** | **HubName** | Azure Portal에서 알림 허브 리소스의 이름입니다. |
 |**연결** | **ConnectionStringSetting** | Notification Hubs 연결 문자열을 포함하는 앱 설정의 이름입니다.  연결 문자열은 알림 허브의 *DefaultFullSharedAccessSignature* 값으로 설정해야 합니다. 이 문서의 뒷부분에 나오는 [연결 문자열 설정](#connection-string-setup)을 참조하세요.|

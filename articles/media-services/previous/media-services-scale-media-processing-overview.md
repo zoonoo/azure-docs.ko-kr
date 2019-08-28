@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 08/26/2019
 ms.author: juliako
-ms.openlocfilehash: 25b2eb05a612b18eab1fbf790b119edbe9c4d8d2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 780d3ab5047bff321d0c554880ba2995bcf25524
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707402"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102905"
 ---
 # <a name="scaling-media-processing-overview"></a>미디어 처리 크기 조정 개요 
 이 페이지에서는 미디어 처리의 크기를 조정하는 방법과 이유에 대해 간략하게 설명합니다. 
@@ -33,9 +33,9 @@ Media Services 계정은 미디어 처리 작업을 처리하는 속도를 결�
 
 |RU 유형|시나리오|[7분 1080p 비디오](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z)에 대한 결과 예|
 |---|---|---|
-| **S1**|단일 비트 전송률 인코딩 <br/>SD 이하 해상도의 파일, 시간이 중요하지 않은 인코딩, 저가형 비디오.|"H264 단일 비트 전송률 SD 16x9"를 사용 하 여 단일 비트 전송률 SD 해상도 MP4 파일로 encoding 약 7 분이 걸립니다.|
-| **S2**|단일 비트 전송률 및 다중 비트 전송률 인코딩.<br/>SD 및 HD 인코딩에서 모두 일반적으로 사용됨|"H264 단일 비트 전송률 720p" 사전 설정을 인코딩할는 약 6 분.<br/><br/>인코딩을 사용 하 여 "H264 다중 비트 전송률 720p" 사전 설정을 12 분 정도가 걸립니다.|
-| **S3**|단일 비트 전송률 및 다중 비트 전송률 인코딩.<br/>Full HD 및 4K 해상도 비디오. 시간이 중요하며 소요 시간이 짧은 인코딩|"H264 단일 비트 전송률 1080p" 사전 설정을 인코딩할 걸립니다 약 3 분입니다.<br/><br/>인코딩을 사용 하 여 "H264 다중 비트 전송률 1080p" 사전 설정을 약 8 분 정도 걸립니다.|
+| **S1**|단일 비트 전송률 인코딩 <br/>SD 이하 해상도의 파일, 시간이 중요하지 않은 인코딩, 저가형 비디오.|"H264 단일 비트 전송률 SD 16x9"를 사용 하 여 단일 비트 전송률 SD 확인 MP4 파일로 인코딩하는 데 약 7 분이 걸립니다.|
+| **S2**|단일 비트 전송률 및 다중 비트 전송률 인코딩.<br/>SD 및 HD 인코딩에서 모두 일반적으로 사용됨|"H264 단일 비트 전송률 720p" 사전 설정을 사용 하는 인코딩은 약 6 분 정도 걸립니다.<br/><br/>"H264 다중 비트 전송률 720p" 사전 설정을 사용 하는 인코딩은 약 12 분이 소요 됩니다.|
+| **S3**|단일 비트 전송률 및 다중 비트 전송률 인코딩.<br/>Full HD 및 4K 해상도 비디오. 시간이 중요하며 소요 시간이 짧은 인코딩|"H264 단일 비트 전송률 1080p" 사전 설정을 사용 하는 인코딩은 3 분 정도 걸립니다.<br/><br/>"H264 다중 비트 전송률 1080p" 미리 설정을 사용하여 인코딩할 때 약 8분이 걸립니다.|
 
 ## <a name="considerations"></a>고려 사항
 > [!IMPORTANT]
@@ -46,9 +46,9 @@ Media Services 계정은 미디어 처리 작업을 처리하는 속도를 결�
 * Media Services v3 또는 Video Indexer에 의해 트리거되는 오디오 분석 및 비디오 분석 작업의 경우 S3 단위 유형이 권장됩니다.
 * 공유 풀을 사용 중이어서 예약 단위가 없는 경우에는 인코딩 작업의 성능이 S1 RU와 동일해집니다. 그러나 작업이 대기된 상태로 유지될 수 있는 시간의 상한은 없으며 언제든지 작업은 최대 하나만 실행됩니다.
 
-## <a name="billing"></a>결제
+## <a name="billing"></a>대금 청구
 
-요금이 청구 됩니다 기반 미디어 예약 단위를 프로 비전 되는 시간 (분)에서 계정에 있습니다. 인지에 관계 없이 이런 계정에서 실행 중인 모든 작업이 있습니다. 자세한 내용은 [Media Services 가격 책정](https://azure.microsoft.com/pricing/details/media-services/) 페이지에서 FAQ 섹션을 참조하세요.   
+계정에 미디어 예약 단위를 프로 비전 한 시간 (분)을 기준으로 요금이 청구 됩니다. 이는 계정에서 실행 중인 작업이 있는지 여부와 관계 없이 발생 합니다. 자세한 내용은 [Media Services 가격 책정](https://azure.microsoft.com/pricing/details/media-services/) 페이지에서 FAQ 섹션을 참조하세요.   
 
 ## <a name="quotas-and-limitations"></a>할당량 및 제한 사항
 할당량 및 제한 사항과 지원 티켓을 여는 방법에 대한 자세한 내용은 [할당량 및 제한 사항](media-services-quotas-and-limitations.md)을 참조하세요.

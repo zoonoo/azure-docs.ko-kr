@@ -11,16 +11,15 @@ ms.assetid: 906a9c89-6866-496b-b4a4-f07fb39f990c
 ms.service: virtual-machines-linux
 ms.workload: na
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/09/2016
 ms.author: cjiang
-ms.openlocfilehash: dd6241f75311ea956b204b5181ae17db0ef3faa1
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: f02e1f73460140c9fe9f2cf6d7ffda26533d570d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710485"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70090015"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Azure에서 새 Linux 가상 머신 생성 관련 Resource Manager 배포 문제 해결
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -43,29 +42,29 @@ VM 배포 문제 및 질문은 [Azure에서 Linux 가상 머신 배포 문제 �
 
 [!INCLUDE [virtual-machines-linux-troubleshoot-deployment-new-vm-table](../../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-table.md)]
 
-**Y:** OS가 일반화 된 Linux 업로드 되거나 일반화 된 설정을 사용 하 여 캡처할 경우 다음 없습니다 오류. 마찬가지로 OS가 특수화된 Linux인 경우, 특수화된 설정을 사용하여 업로드되거나 캡처되고, 오류는 발생하지 않습니다.
+**Y:** OS가 일반화 된 Linux이 고 일반화 된 설정을 사용 하 여 업로드 및/또는 캡처된 경우 오류가 발생 하지 않습니다. 마찬가지로 OS가 특수화된 Linux인 경우, 특수화된 설정을 사용하여 업로드되거나 캡처되고, 오류는 발생하지 않습니다.
 
 **업로드 오류:**
 
-**N<sup>1</sup>:** OS가 일반화 된 Linux 및 것으로 업로드 하는 경우 특수화 된 하면 프로 비전 시간 초과 오류가 있으므로 VM 프로 비전 단계에서 중단 됩니다.
+**N<sup>1</sup>:** OS가 일반화 된 Linux이 고 특수화 된 것으로 업로드 되는 경우 VM이 프로 비전 단계에서 중단 되기 때문에 프로 비전 시간 초과 오류가 발생 합니다.
 
-**N<sup>2</sup>:** OS가 특수화 된 Linux이 고 일반화 된 것으로 업로드 됩니다, 경우 원래 컴퓨터 이름, 사용자 이름 및 암호를 사용 하 여 새 VM이 실행 되기 때문에 프로 비전 실패 오류가 받습니다.
+**N<sup>2</sup>:** OS가 특수화 된 Linux이 고 일반화 된 것으로 업로드 되는 경우 새 VM이 원래 컴퓨터 이름, 사용자 이름 및 암호로 실행 되기 때문에 프로 비전 실패 오류가 발생 합니다.
 
 **해결 방법:**
 
-모두 이러한 오류를 해결 하려면 온-프레미스와 같은 설정 (일반화/특수화) OS로 사용할 수 있는 원본 VHD를 업로드 합니다. 일반화된 것으로 업로드하려면, 먼저 프로비전 해제를 실행해야 합니다.
+이러한 오류를 모두 해결 하려면 온-프레미스에서 사용 가능한 원래 VHD를 OS와 동일한 설정 (일반화/특수화)으로 업로드 합니다. 일반화된 것으로 업로드하려면, 먼저 프로비전 해제를 실행해야 합니다.
 
 **캡처 오류:**
 
-**N<sup>3</sup>:** OS가 일반화 된 Linux이 고 것으로 캡처된다 면 특수화 된 하면 프로 비전 시간 초과 오류가 있으므로 원래 VM을 일반화 된 것으로 표시 되어 있으므로 사용할 수 없습니다.
+**N<sup>3</sup>:** OS가 일반화 된 Linux이 고 특수화 된 것으로 캡처되는 경우 원본 VM이 일반화 된 것으로 표시 되어 사용할 수 없기 때문에 프로 비전 시간 초과 오류가 발생 합니다.
 
-**N<sup>4</sup>:** OS가 특수화 된 Linux이 고 것 일반화 된 것으로 캡처된다 면, 하는 경우 원래 컴퓨터 이름, 사용자 이름 및 암호를 사용 하 여 새 VM이 실행 되기 때문에 프로 비전 실패 오류가 받습니다. 또한, 원본 VM이 일반화된 것으로 표시되기 때문에 사용할 수 없습니다.
+**N<sup>4</sup>:** OS가 특수화 된 Linux이 고 일반화 된 것으로 캡처되는 경우 새 VM이 원래 컴퓨터 이름, 사용자 이름 및 암호로 실행 되기 때문에 프로 비전 실패 오류가 발생 합니다. 또한, 원본 VM이 일반화된 것으로 표시되기 때문에 사용할 수 없습니다.
 
 **해결 방법:**
 
 이 두 가지 오류를 모두 해결하려면, 현재 이미지를 포털에서 제거하고, OS와 같은 설정(일반화/특수화)으로 [현재 VHD에서 다시 캡처](../linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)합니다.
 
-## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>문제: 사용자 지정 / 갤러리 / 마켓플레이스 이미지; 할당 오류입니다.
+## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>문제: 사용자 지정/갤러리/마켓플레이스 이미지; 할당 오류
 이 오류는 요청되는 VM 크기를 지원할 수 없거나 요청을 수용할 여유 공간이 없는 클러스터에 새 VM 요청이 고정된 상황에서 발생합니다.
 
 **원인 1:** 클러스터가 요청된 VM 크기를 지원할 수 없습니다.

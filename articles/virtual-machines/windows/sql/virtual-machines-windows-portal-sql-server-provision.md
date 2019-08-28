@@ -8,19 +8,18 @@ manager: craigg
 tags: azure-resource-manager
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 52f6e7ebb1cbae14878b1897bd8c59c73dd0f493
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 38fdbbf76806325e457f066e6b469a531c27b038
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981019"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102222"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Azure Portal에서 Windows SQL Server 가상 머신 프로비전하는 방법
 
@@ -37,21 +36,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 SQL Server 가상 머신을 만들 때 가상 머신 갤러리에서 미리 구성된 여러 이미지 중 하나를 선택할 수 있습니다. 다음 단계에서는 SQL Server 2017 이미지 중 하나를 선택하는 방법을 보여줍니다.
 
-1. 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. Azure Portal의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. 필드 **AZURE SQL** 옆의 별표를 선택 하 여 즐겨찾기를 선택 하 고 왼쪽 탐색에 항목으로 추가 합니다. 
+1. **+ 추가** 를 선택 하 여 **SQL 배포 옵션 선택** 페이지를 엽니다. **자세한 정보 표시**를 선택 하 여 추가 정보를 볼 수 있습니다. 
+1. **SQL 가상 컴퓨터** 타일에서 이미지 SQL Server 검색 상자에를 입력  **`2017` 한 다음 무료 SQL Server 라이선스를 선택 합니다. 드롭다운에서 2017 Developer on Windows Server 2016** 를 SQL Server 합니다. 
 
-1. Azure Portal에서 **리소스 만들기**를 클릭합니다. 포털에 **새** 창이 열립니다.
 
-1. **새로 만들기** 창에서 **Compute**를 클릭한 다음, **모두 표시**를 클릭합니다.
-
-1. 검색 필드에 **SQL Server 2017**을 입력하고 ENTER 키를 누릅니다.
-
-1. 필터 드롭다운에서 **운영 체제용** _Windows Server 2016_ 를 선택 하 고 **게시자**로 _Microsoft_ 를 선택 합니다. 
-
-     ![새 Compute 창](./media/virtual-machines-windows-portal-sql-server-provision/azure-new-compute-blade.png)
-
-1. 사용 가능한 SQL Server 이미지를 검토합니다. 각 이미지는 SQL Server 버전 및 운영 체제를 식별합니다.
-
-1. **무료 SQL Server 라이선스: Windows Server 2016의 SQL Server 2017 Developer** 이미지를 선택합니다.
+   ![SQL VM 이미지 선택](media/virtual-machines-windows-portal-sql-server-provision/select-sql-vm-image-portal.png)
 
    > [!TIP]
    > 개발자 버전은 개발 테스트 목적으로 무료로 제공되는 SQL Server의 모든 기능을 갖춘 버전이므로 이 연습에서 사용됩니다. VM 실행 비용에 대해서만 비용을 지불합니다. 그러나 이 연습에 사용할 이미지를 자유롭게 선택할 수 있습니다. 사용 가능한 이미지에 대한 설명은 [SQL Server Windows Virtual Machines 개요](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo)를 참조하세요.
@@ -61,7 +51,6 @@ SQL Server 가상 머신을 만들 때 가상 머신 갤러리에서 미리 구�
    >
    > 이러한 옵션에 대한 자세한 내용은 [SQL Server Azure VM에 대한 가격 책정 지침](virtual-machines-windows-sql-server-pricing-guidance.md)을 참조하세요.
 
-1. **배포 모델 선택**에서 **리소스 관리자**가 선택되어 있는지 확인합니다. 리소스 관리자는 새로운 가상 머신에 권장되는 배포 모델입니다. 
 
 1. **만들기**를 선택합니다.
 
@@ -70,7 +59,7 @@ SQL Server 가상 머신을 만들 때 가상 머신 갤러리에서 미리 구�
 
 SQL Server 가상 컴퓨터를 구성 하는 여러 탭이 있습니다. 이 가이드에서는 다음에 대해 집중적으로 설명 합니다. 
 
-| 단계 | 설명 |
+| 단계 | Description |
 | --- | --- |
 | **기본 사항** |[기본 설정 구성](#1-configure-basic-settings) |
 | **선택적 기능** |[선택적 기능 구성](#2-configure-optional-features) |

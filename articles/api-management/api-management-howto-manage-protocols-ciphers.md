@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2019
 ms.author: apimpm
-ms.openlocfilehash: f809aaf872607e7fa61368832a3df74318f2a858
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7c7fdd06480ce3da70c86d38ab0685b9b3aaaf2
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66141497"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072399"
 ---
 # <a name="manage-protocols-and-ciphers-in-azure-api-management"></a>Azure API Management에서 프로토콜 및 암호화 관리
 
@@ -28,7 +27,7 @@ Azure API Management는 클라이언트 및 백 엔드 쪽에서 모두 여러 T
 
 ![APIM에서 프로토콜 및 암호화 관리](./media/api-management-howto-manage-protocols-ciphers/api-management-protocols-ciphers.png)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 단계를 따르려면 다음이 있어야 합니다.
 
@@ -37,9 +36,9 @@ Azure API Management는 클라이언트 및 백 엔드 쪽에서 모두 여러 T
 ## <a name="how-to-manage-tls-protocols-and-3des-cipher"></a>TLS 프로토콜 및 3DES 암호화를 관리하는 방법
 
 1. Azure Portal에서 **API Management 인스턴스**로 이동합니다.
-2. 선택 **프로토콜 설정을** 합니다.  
+2. 메뉴에서 **프로토콜 설정** 을 선택 합니다.  
 3. 원하는 프로토콜 또는 암호화를 사용하거나 사용하지 않도록 설정합니다.
-4. **저장**을 클릭합니다. 변경 내용은 1시간 이내에 적용됩니다.  
+4. **Save**을 클릭합니다. 변경 내용은 1시간 이내에 적용됩니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

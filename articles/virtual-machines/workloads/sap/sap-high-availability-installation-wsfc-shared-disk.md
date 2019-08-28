@@ -10,19 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 6209bcb3-5b20-4845-aa10-1475c576659f
 ms.service: virtual-machines-windows
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1a7d3d3a8f66cfbb3ed649ac645520f39cbb1e4
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: a22d77de80c7440fc120d2c48f9e73e606388848
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709008"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70078166"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Azure에서 Windows 장애 조치(Failover) 클러스터 및 공유 디스크에 SAP ASCS/SCS 인스턴스용 SAP NetWeaver HA 설치
 
@@ -153,9 +152,9 @@ ms.locfileid: "67709008"
 
 설치를 시작하기 전에 먼저 다음 문서를 검토하세요.
 
-* [아키텍처 가이드: 클러스터 공유 디스크를 사용 하 여 Windows 장애 조치 클러스터에 SAP ASCS/SCS 인스턴스 클러스터][sap-high-availability-guide-wsfc-shared-disk]
+* [아키텍처 가이드: 클러스터 공유 디스크를 사용 하 여 Windows 장애 조치 (failover) 클러스터에서 SAP ASCS/SCS 인스턴스 클러스터링][sap-high-availability-guide-wsfc-shared-disk]
 
-* [SAP ASCS/SCS 인스턴스에 대 한 Windows 장애 조치 클러스터 및 공유 디스크를 사용 하 여 SAP HA를 위한 Azure 인프라 준비][sap-high-availability-infrastructure-wsfc-shared-disk]
+* [SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치 (failover) 클러스터 및 공유 디스크를 사용 하 여 SAP HA 용 Azure 인프라 준비][sap-high-availability-infrastructure-wsfc-shared-disk]
 
 DBMS 설정 방법은 사용 중인 DBMS 시스템에 따라 다르기 때문에 이 문서에서는 설명하지 않습니다. DBMS의 고가용성 문제는 다양한 DBMS 공급업체가 Azure에 대해 지원하는 기능으로 해결되었다고 가정합니다. 그 예로 SQL Server용 데이터베이스 미러링 또는 AlwaysOn, Oracle 데이터베이스용 Oracle Data Guard를 들 수 있습니다. 이 문서에서 제시되는 시나리오에서는 DBMS에 추가적인 보호를 적용하지 않습니다.
 
@@ -211,7 +210,7 @@ Azure에서 다양한 DBMS 서비스가 클러스터형 SAP ASCS/SCS 구성과 �
    * **Java 시스템**: **SCS** 인스턴스 번호 **01**
    * **ABAP+Java 시스템**: **ASCS** 인스턴스 번호 **00** 및 **SCS** 인스턴스 번호 **01**
 
-   ABAP ASCS 인스턴스에 00이 아닌 인스턴스 번호를 Java SCS 인스턴스에 01이 아닌 인스턴스 번호를 사용하려면 먼저 Azure 내부 부하 분산 장치의 기본 부하 분산 규칙을 변경합니다. 자세한 내용은 [ASCS/SCS 기본 부하 분산 Azure 내부 부하 분산 규칙 변경][sap-ha-guide-8.9]합니다.
+   ABAP ASCS 인스턴스에 00이 아닌 인스턴스 번호를 Java SCS 인스턴스에 01이 아닌 인스턴스 번호를 사용하려면 먼저 Azure 내부 부하 분산 장치의 기본 부하 분산 규칙을 변경합니다. 자세한 내용은 [Azure 내부 부하 분산 장치에 대 한 ASCS/SCS 기본 부하 분산 규칙 변경][sap-ha-guide-8.9]을 참조 하세요.
 
 다음 몇 가지 작업은 표준 SAP 설치 설명서에서 설명되지 않습니다.
 
@@ -222,7 +221,7 @@ Azure에서 다양한 DBMS 서비스가 클러스터형 SAP ASCS/SCS 구성과 �
 
 ### <a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a> ASCS/SCS 인스턴스의 SAP 프로필 수정
 
-먼저 새 프로필 매개 변수를 추가합니다. 이 프로필 매개 변수는 연결이 너무 오랫동안 유휴 상태일 때 SAP 작업 프로세스와 큐에 넣기 서버 사이의 연결이 닫히지 않도록 합니다. 문제 시나리오를 언급 하는 것 [SAP ASCS/SCS 인스턴스의 두 클러스터 노드에 대 한 레지스트리 항목 추가][sap-ha-guide-8.11]합니다. 이 섹션에서는 몇 가지 기본 TCP/IP 연결 매개 변수의 두 가지 변경 사항을 소개합니다. 두 번째 단계에서는 연결이 Azure 부하 부산 장치의 유휴 임계값에 도달하지 않게 `keep_alive` 신호를 보내도록 큐에 추가 서버를 설정해야 합니다.
+먼저 새 프로필 매개 변수를 추가합니다. 이 프로필 매개 변수는 연결이 너무 오랫동안 유휴 상태일 때 SAP 작업 프로세스와 큐에 넣기 서버 사이의 연결이 닫히지 않도록 합니다. [SAP ASCS/SCS 인스턴스의 두 클러스터 노드에 대 한 레지스트리 항목 추가][sap-ha-guide-8.11]에서 문제 시나리오를 언급 합니다. 이 섹션에서는 몇 가지 기본 TCP/IP 연결 매개 변수의 두 가지 변경 사항을 소개합니다. 두 번째 단계에서는 연결이 Azure 부하 부산 장치의 유휴 임계값에 도달하지 않게 `keep_alive` 신호를 보내도록 큐에 추가 서버를 설정해야 합니다.
 
 ASCS/SCS 인스턴스의 SAP 프로필을 수정하려면:
 
@@ -389,9 +388,9 @@ SAP 애플리케이션 서버 인스턴스를 호스트하도록 지정한 모�
 
 SAP PR1 클러스터 그룹이 클러스터 노드 A(예: pr1-ascs-0)에서 실행되고 있습니다. SAP PR1 클러스터 그룹에 속한 S 공유 디스크 드라이브를 클러스터 노드 A에 할당합니다. ASCS/SCS 인스턴스도 S 공유 디스크 드라이브를 사용합니다. 
 
-![그림 6: 장애 조치(Failover) 클러스터 관리자: SAP \<SID\> 클러스터 그룹이 클러스터 노드 A에서 실행 되 고][sap-ha-guide-figure-5000]
+![그림 6: 장애 조치(Failover) 클러스터 관리자: SAP \<SID\> 클러스터 그룹이 클러스터 노드 A에서 실행 되 고 있습니다.][sap-ha-guide-figure-5000]
 
-_**그림 6:** 장애 조치(Failover) 클러스터 관리자: SAP \<SID\> 클러스터 그룹이 클러스터 노드 A에서 실행 되 고_
+_**그림 6:** 장애 조치(Failover) 클러스터 관리자: SAP \<SID\> 클러스터 그룹이 클러스터 노드 A에서 실행 되 고 있습니다._
 
 SIOS DataKeeper 관리 및 구성 도구에서 공유 디스크 데이터가 클러스터 노드 A의 S 원본 볼륨 드라이브에서 클러스터 노드 B의 S 대상 볼륨 드라이브로 동기식으로 복제되는 것을 확인할 수 있습니다(예: pr1-ascs-0 [10.0.0.40]에서 pr1-ascs-1 [10.0.0.41]로 복제됨).
 
@@ -418,9 +417,9 @@ _**그림 7:** SIOS DataKeeper에서 클러스터 노드 A로부터 클러스터
 
    장애 조치 후 SAP \<SID\> 클러스터 그룹이 클러스터 노드 B(예: pr1-ascs-1에서 실행 중)에서 실행되고 있습니다.
 
-   ![그림 8: 장애 조치 클러스터 관리자에서 SAP \<SID\> 클러스터 그룹이 클러스터 노드 B에서 실행 되 고][sap-ha-guide-figure-5002]
+   ![그림 8: 장애 조치(Failover) 클러스터 관리자에서 SAP \<SID\> 클러스터 그룹이 클러스터 노드 B에서 실행 되 고 있습니다.][sap-ha-guide-figure-5002]
 
-   _**그림 8**: 장애 조치 클러스터 관리자에서 SAP \<SID\> 클러스터 그룹이 클러스터 노드 B에서 실행 되 고_
+   _**그림 8**: 장애 조치(Failover) 클러스터 관리자에서 SAP \<SID\> 클러스터 그룹이 클러스터 노드 B에서 실행 되 고 있습니다._
 
    이제 공유 디스크가 클러스터 노드 B에 탑재됩니다. SIOS DataKeeper에서 데이터를 클러스터 노드 B의 S 소스 볼륨 드라이브에서 클러스터 노드 A의 S 대상 볼륨 드라이브로 복제합니다(예: pr1-ascs-1 [10.0.0.41]에서 pr1-ascs-0 [10.0.0.40]으로 복제).
 

@@ -7,20 +7,20 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: vainolo
-ms.author: arib
+author: barmichal
+ms.author: mibar
 ms.reviewer: vanto
-ms.date: 04/16/2019
-ms.openlocfilehash: 69fe3287083523a3a47975a3db51d7241681f5c4
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.date: 08/22/2019
+ms.openlocfilehash: c8533f79dd2bf02a03ff4a37283359f3b3a5bf39
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68569512"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70065988"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 데이터베이스 감사 시작
 
-Azure [SQL Database](sql-database-technical-overview.md) 및 [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 감사는 데이터베이스 이벤트를 추적하고 Azure Storage 계정, OMS 작업 영역 또는 Event Hubs의 감사 로그에 이벤트를 기록합니다. 또한
+Azure [SQL Database](sql-database-technical-overview.md) 및 [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 에 대 한 감사는 데이터베이스 이벤트를 추적 하 고 azure storage 계정, Log Analytics 작업 영역 또는 Event Hubs의 감사 로그에 기록 합니다. 또한
 
 - 감사는 규정 준수를 유지 관리하고, 데이터베이스 작업을 이해하고, 비즈니스 문제나 의심스러운 보안 위반을 나타낼 수 있는 불일치 및 이상 활동을 파악하는 데 도움이 될 수 있습니다.
 
@@ -95,7 +95,7 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 
 6. 스토리지 계정에 감사 로그 작성을 구성하려면 **스토리지**를 선택하고 **스토리지 세부 정보**를 엽니다. 로그를 저장할 Azure 스토리지 계정을 선택한 다음, 보존 기간을 선택합니다. 이전 로그는 삭제됩니다. 그런 다음 **확인**을 클릭합니다.
 
-    ![스토리지 계정 만들기](./media/sql-database-auditing-get-started/auditing_select_storage.png)
+    ![스토리지 계정](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
 7. Log Analytics 작업 영역에 감사 로그를 쓰도록 구성하려면 **Log Analytics(미리 보기)** 를 선택하고 **Log Analytics 세부 정보**를 엽니다. 로그를 쓸 Log Analytics 작업 영역을 선택하거나 만든 다음, **확인**을 클릭합니다.
 
@@ -121,11 +121,22 @@ Azure Monitor 로그에 감사 로그를 기록 하도록 선택한 경우:
 
 - [Azure Portal을 사용](https://portal.azure.com)합니다.  관련 데이터베이스를 엽니다. 데이터베이스의 **감사** 페이지 맨 위에서 **감사 로그 보기**를 클릭합니다.
 
-    ![감사 로그 보기](./media/sql-database-auditing-get-started/7_auditing_get_started_blob_view_audit_logs.png)
+    ![감사 로그 보기](./media/sql-database-auditing-get-started/auditing-view-audit-logs.png)
 
-- 그런 다음, **감사 레코드** 페이지의 맨 위에서 **OMS에서 열기**를 클릭하면 시간 범위 및 검색 쿼리를 사용자 지정할 수 있는 Log Analytics에서 로그 보기가 열립니다.
+- 그런 다음 두 가지 방법으로 로그를 볼 수 있습니다.
+    
+    **감사 레코드** 페이지의 맨 위에서 **Log Analytics** 를 클릭 하면 Log Analytics 작업 영역에서 로그 보기가 열리며, 여기서 시간 범위 및 검색 쿼리를 사용자 지정할 수 있습니다.
+    
+    ![Log Analytics 작업 영역에서 열기](./media/sql-database-auditing-get-started/auditing-log-analytics.png)
 
-    ![Log Analytics에서 열기](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
+    **감사 레코드** 페이지의 맨 위에서 **대시보드 보기** 를 클릭 하면 감사 로그 정보를 표시 하는 대시보드가 열립니다. 여기에서 보안 정보로 드릴 다운 하 고 중요 한 데이터에 액세스할 수 있습니다. 이 대시보드는 데이터에 대 한 보안 정보를 얻는 데 도움이 되도록 설계 되었습니다.
+    시간 범위 및 검색 쿼리를 사용자 지정할 수도 있습니다. 
+    ![Log Analytics 대시보드 보기](media/sql-database-auditing-get-started/auditing-view-dashboard.png)
+
+    ![Log Analytics 대시보드](media/sql-database-auditing-get-started/auditing-log-analytics-dashboard.png)
+
+    ![Log Analytics 보안 정보](media/sql-database-auditing-get-started/auditing-log-analytics-dashboard-data.png)
+ 
 
 - 또는 Log Analytics 블레이드에서 감사 로그에 액세스할 수도 있습니다. Log Analytics 작업 영역을 열고 **일반** 섹션 아래에서 **로그**를 클릭합니다. *"SQLSecurityAuditEvents" 검색*과 같은 간단한 쿼리를 시작하여 감사 로그를 볼 수 있습니다.
     여기에서 [Azure Monitor 로그](../log-analytics/log-analytics-log-search.md)를 사용하여 감사 로그 데이터에 대한 고급 검색을 실행할 수도 있습니다. Azure Monitor 로그는 통합된 검색 및 사용자 지정 대시보드를 사용하여 모든 워크로드 및 서버에서 수백만 개의 레코드를 쉽게 분석할 실시간 작업 통찰력을 제공합니다. Azure Monitor 로그 검색 언어 및 명령에 대한 유용한 추가 정보를 위해서는, [Azure Monitor 로그 검색 참조](../log-analytics/log-analytics-log-search.md)를 확인합니다.
@@ -208,7 +219,7 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
 
 ## <a name="additional-information"></a>추가 정보
 
-- 로그 형식, 스토리지 폴더의 계층 구조 및 명명 규칙에 대한 자세한 내용은 [Blob 감사 로그 형식 참조](https://go.microsoft.com/fwlink/?linkid=829599)를 참조하세요.
+- 로그 형식, 저장소 폴더의 계층 구조 및 명명 규칙에 대한 자세한 내용은 [Blob 감사 로그 형식 참조](https://go.microsoft.com/fwlink/?linkid=829599)를 확인하세요.
 
     > [!IMPORTANT]
     > Azure SQL 데이터베이스 감사는 감사 레코드의 문자 필드에 대해 4000자의 데이터를 저장합니다. 감사가 가능한 작업에서 반환된 **statement** 또는 **data_sensitivity_information** 값에 4000자가 넘게 포함되면 처음 4000자를 초과하는 문자는 **잘리고 감사되지 않습니다**.
@@ -257,7 +268,7 @@ WHERE 절 지원을 사용하여 추가 필터링에 대해 확장된 정책입�
 - [데이터베이스 *확장* 감사 정책 가져오기](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [서버 *확장* 감사 정책 가져오기](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
-## <a id="subheading-10"></a>ARM 템플릿을 사용하여 SQL 데이터베이스 감사 관리
+## <a id="subheading-10"></a>Azure Resource Manager 템플릿을 사용 하 여 SQL database 감사 관리
 
 다음 예제처럼 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 템플릿을 사용하여 Azure SQL 데이터베이스 감사를 관리할 수 있습니다.
 

@@ -8,19 +8,18 @@ manager: gwallace
 editor: ''
 ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: bb4c71f2c7f42ef599796bc380bb7a9f35b8c64e
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 60662e723a55c969fdd4b70e732303c90bbf9e8b
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322768"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094351"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Visual Studio 프로젝트 템플릿을 사용하여 Batch 솔루션 빠르게 시작
 
@@ -63,7 +62,7 @@ Batch 템플릿을 사용하려면 다음이 필요합니다.
     * Azure Batch 작업 관리자(작업 분할자 포함)
     * Azure Batch 태스크 프로세서
   * Visual Studio의 온라인 갤러리에서 템플릿을 다운로드합니다. [Microsoft Azure Batch 프로젝트 템플릿][vs_gallery_templates]
-* [애플리케이션 패키지](batch-application-packages.md) 기능을 사용하여 작업 관리자 및 태스크 프로세서를 Batch 계산 노드에 배포할 계획인 경우 스토리지 계정을 Batch 계정에 연결해야 합니다.
+* [애플리케이션 패키지](batch-application-packages.md) 기능을 사용하여 작업 관리자 및 태스크 프로세서를 Batch 컴퓨팅 노드에 배포할 계획인 경우 스토리지 계정을 Batch 계정에 연결해야 합니다.
 
 ## <a name="preparation"></a>준비
 작업 관리자 및 태스크 프로세서 프로그램 간에 코드를 쉽게 공유할 수 있으므로 작업 관리자 및 태스크 프로세서를 포함할 수 있는 솔루션을 만드는 것이 좋습니다. 이 솔루션을 만들려면 다음 단계를 따르세요.
@@ -369,7 +368,7 @@ Run() 구현에서는 다음에 액세스할 수 있습니다.
 
 태스크 프로세서 템플릿으로 구현된 태스크 프로세서 태스크는 세 가지 가능한 종료 코드를 반환할 수 있습니다.
 
-| 코드 | 설명 |
+| 코드 | Description |
 | --- | --- |
 | [ExitCode][process_exitcode] |태스크 프로세서가 완료될 때까지 실행됩니다. 사용자가 호출한 프로그램이 성공했음을 의미하는 것은 아니며 태스크 프로세서가 이를 성공적으로 호출했고 예외 없이 후처리를 수행했음만 의미합니다. 종료 코드의 의미는 호출한 프로그램에 따라 다르며 일반적으로 종료 코드 0은 프로그램이 성공했음을 의미하고 그 외의 종료 코드는 프로그램이 실패했음을 의미합니다. |
 | 1 |태스크 프로세서가 프로그램의 '예상된' 부분에서 예외로 인해 실패했습니다. 예외는 진단 정보 및 가능한 경우, 오류를 해결하기 위한 제안과 함께 `TaskProcessorException` 으로 해석됩니다. |

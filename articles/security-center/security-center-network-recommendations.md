@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 6dfd3bd86e55d19bf1c15486a502a4cbab3c96a8
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 3683550045699a24c27a3226fba2e90a671f80e1
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905311"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101022"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Azure Security Center에서 네트워크 리소스 보호
 Azure Security Center는 네트워크 보안 모범 사례에 대한 Azure 리소스의 보안 상태를 지속적으로 분석합니다. Security Center에서 잠재적인 보안 취약점을 식별하는 경우 리소스를 보호하고 강화하는 데 필요한 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다.
@@ -134,7 +134,7 @@ Azure Security Center는 네트워크 보안 모범 사례에 대한 Azure 리�
 
 ## <a name="network-recommendations"></a>네트워크 권장 사항
 
-|권장 사항 이름|Description|Severity|보안 점수|리소스 형식|
+|권장 사항 이름|설명|Severity|보안 점수|리소스 형식|
 |----|----|----|----|----|----|
 |서브넷 수준의 네트워크 보안 그룹을 사용 하도록 설정 해야 합니다.|네트워크 보안 그룹을 사용 하 여 서브넷에 배포 된 리소스에 대 한 네트워크 액세스를 제어 합니다.|높음/보통|30|Subnet|
 |가상 컴퓨터는 네트워크 보안 그룹에 연결 해야 합니다.|가상 머신의 네트워크 액세스를 제어하기 위해 네트워크 보안 그룹을 활성화합니다.|높음/보통|30|가상 머신|
@@ -153,7 +153,6 @@ DDoS Protection 표준을 사용하도록 설정해야 합니다.|DDoS protectio
 다른 Azure 리소스 유형에 적용되는 권장 사항에 대해 자세히 알아보려면 다음을 참조하세요.
 
 * [Azure Security Center에서 머신 및 애플리케이션 보호](security-center-virtual-machine-protection.md)
-* [Azure Security Center에서 애플리케이션 보호](security-center-application-recommendations.md)
 * [Azure Security Center에서 Azure SQL 서비스 보호](security-center-sql-service-recommendations.md)
 
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.

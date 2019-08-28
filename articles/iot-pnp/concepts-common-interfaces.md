@@ -7,16 +7,16 @@ ms.date: 07/16/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 848210509bf9ab0ffec35004cbb07e39d6de1bc0
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 5a5aeac06ccf31e88a8ec670e57b22e753553ff5
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879605"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114260"
 ---
 # <a name="iot-plug-and-play-preview-common-interfaces"></a>IoT 플러그 앤 플레이 미리 보기 공통 인터페이스
 
-모든 IoT 플러그 앤 플레이 장치는 몇 가지 공통 인터페이스를 구현 해야 합니다. 공통 인터페이스는 일관 된 기능을 제공 하기 때문에 IoT 솔루션 혜택을 제공 합니다. [인증](tutorial-build-device-certification.md) 을 사용 하려면 장치에서 몇 가지 공통 인터페이스를 구현 해야 합니다. 전역 모델 리포지토리에서 공통 인터페이스 정의를 검색할 수 있습니다.
+모든 IoT 플러그 앤 플레이 장치는 몇 가지 공통 인터페이스를 구현 해야 합니다. 공통 인터페이스는 일관 된 기능을 제공 하기 때문에 IoT 솔루션 혜택을 제공 합니다. [인증](tutorial-build-device-certification.md) 을 사용 하려면 장치에서 몇 가지 공통 인터페이스를 구현 해야 합니다. 공용 모델 리포지토리에서 일반적인 인터페이스 정의를 검색할 수 있습니다.
 
 ## <a name="summary-of-common-interfaces"></a>공용 인터페이스 요약
 
@@ -35,7 +35,7 @@ ms.locfileid: "69879605"
 
 ### <a name="cli"></a>CLI
 
-Azure CLI에 대 한 Azure IoT 확장을 사용 하 여 전역 모델 리포지토리에서 공통 인터페이스를 검색할 수 있습니다.
+Azure CLI에 대 한 Azure IoT 확장을 사용 하 여 공용 모델 리포지토리에서 공통 인터페이스를 검색할 수 있습니다.
 
 ```cmd/sh
 az iot pnp interface show --interface {InterfaceID} --login {ModelRepoConnectionString}
@@ -47,11 +47,11 @@ az iot pnp model show --interface {InterfaceID} --login {ModelRepoConnectionStri
 
 ### <a name="vs-code"></a>VS Code
 
-1. **Ctrl + Shift + P** 를 사용 하 여 명령 팔레트를 엽니다.
+1. **Ctrl+Shift+P**를 사용하여 명령 팔레트를 엽니다.
 
-1. **플러그 앤 플레이** 를 입력 한 다음 IoT **플러그 앤 플레이를 선택 합니다. 모델 리포지토리** 명령을 엽니다. **전역 모델 리포지토리**를 선택 합니다. 전역 모델 리포지토리는 VS Code에서 열립니다.
+1. **플러그 앤 플레이** 를 입력 한 다음 IoT **플러그 앤 플레이를 선택 합니다. 모델 리포지토리 열기** 명령을 선택합니다. **공용 리포지토리**를 선택 합니다. VS Code에서 공용 모델 리포지토리가 열립니다.
 
-1. 전역 모델 리포지토리에서 검색 필드에 인터페이스 이름을 입력 합니다.
+1. 공용 모델 리포지토리의 검색 필드에 인터페이스 이름을 입력 합니다.
 
 1. 인터페이스의 로컬 복사본을 만들려면 검색 결과에서 해당 복사본을 선택 하 고 **다운로드**를 선택 합니다.
 

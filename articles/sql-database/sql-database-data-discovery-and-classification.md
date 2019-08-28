@@ -7,20 +7,21 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: vainolo
-ms.author: arib
+author: barmichal
+ms.author: mibar
 ms.reviewer: vanto
-ms.date: 03/22/2019
-ms.openlocfilehash: f2b57aa517c1518929b857eff6aed2ef4e0d8ca1
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.date: 08/22/2019
+ms.openlocfilehash: 5aaad8c44328e1cc2aeb7729e3e221665823a467
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018960"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072932"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>데이터 검색 & 분류 Azure SQL Database 및 SQL Data Warehouse
 
 데이터 검색 & 분류는 데이터베이스의 중요 한 데이터를 **검색**, **분류**, **레이블** & 지정 하는 Azure SQL Database에 기본 제공 되는 고급 기능을 제공 합니다.
+
 가장 중요한 데이터(비즈니스, 재무, 의료, PII(개인 식별 데이터) 등)를 검색하고 분류하는 기능은 조직 정보 보호 평판에 중추적인 역할을 할 수 있습니다. 그것은 다음에 대한 인프라 역할을 할 수 있습니다.
 
 - 데이터 프라이버시 표준 및 규정 준수 요구 사항을 충족하도록 지원.

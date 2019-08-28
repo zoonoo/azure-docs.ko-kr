@@ -1,35 +1,35 @@
 ---
-title: '자습서: Azure PowerShell을 사용하여 하이브리드 네트워크에서 Azure Firewall 배포 및 구성'
-description: 이 자습서에서는 Azure PowerShell을 사용하여 Azure Firewall을 배포하고 구성하는 방법을 알아봅니다.
+title: Azure PowerShell을 사용하여 하이브리드 네트워크에서 Azure Firewall 배포 및 구성
+description: 이 문서에서는 Azure PowerShell를 사용 하 여 Azure 방화벽을 배포 하 고 구성 하는 방법을 알아봅니다.
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: tutorial
+ms.topic: article
 ms.date: 5/3/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 608674d6e049c71d22c7bf91f37fcb16ffccc581
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: HT
+ms.openlocfilehash: a9987808feb895276f3f9e62fe66c1b353b52e72
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65144913"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073072"
 ---
-# <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 하이브리드 네트워크에서 Azure Firewall 배포 및 구성
+# <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Azure PowerShell을 사용하여 하이브리드 네트워크에서 Azure Firewall 배포 및 구성
 
 온-프레미스 네트워크를 Azure Virtual Network에 연결하여 하이브리드 네트워크를 만들 경우 Azure 네트워크 리소스에 대한 액세스를 제어하는 기능은 전체 보안 계획의 중요한 부분입니다.
 
 Azure Firewall을 사용하여 허용 및 거부된 네트워크 트래픽을 정의하는 규칙을 사용하여 하이브리드 네트워크에서 네트워크 액세스를 제어할 수 있습니다.
 
-이 자습서에서는 다음과 같은 세 가상 네트워크를 만듭니다.
+이 문서에서는 다음과 같은 3 개의 가상 네트워크를 만듭니다.
 
 - **VNet-Hub** - 방화벽이 이 가상 네트워크에 있습니다.
 - **VNet-Spoke** - 스포크 가상 네트워크는 Azure에 있는 워크로드를 나타냅니다.
-- **VNet-Onprem** - 온-프레미스 가상 네트워크는 온-프레미스 네트워크를 나타냅니다. 실제 배포에서는 VPN 또는 ExpressRoute 연결을 통해 연결할 수 있습니다. 간단히 하기 위해 이 자습서에서는 VPN 게이트웨이 연결을 사용하며 Azure에 있는 가상 네트워크를 사용하여 온-프레미스 네트워크를 나타냅니다.
+- **VNet-Onprem** - 온-프레미스 가상 네트워크는 온-프레미스 네트워크를 나타냅니다. 실제 배포에서는 VPN 또는 ExpressRoute 연결을 통해 연결할 수 있습니다. 간단히 하기 위해이 문서에서는 VPN gateway 연결을 사용 하며, Azure에 배치 된 가상 네트워크는 온-프레미스 네트워크를 나타내는 데 사용 됩니다.
 
 ![하이브리드 네트워크의 방화벽](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
 > * 변수 선언
@@ -43,12 +43,13 @@ Azure Firewall을 사용하여 허용 및 거부된 네트워크 트래픽을 �
 > * 가상 머신 만들기
 > * 방화벽 테스트
 
+이 자습서를 완료 하는 [대신 Azure Portal를 사용 하려는 경우 자습서: Azure Portal](tutorial-hybrid-portal.md)를 사용 하 여 하이브리드 네트워크에서 Azure 방화벽을 배포 하 고 구성 합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
-이 자습서에서는 PowerShell을 로컬로 실행해야 합니다. Azure PowerShell 모듈을 설치해야 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-Az-ps)를 참조하세요. PowerShell 버전을 확인한 후 `Login-AzAccount`를 실행하여 Azure와의 연결을 만듭니다.
+이 문서에서는 PowerShell을 로컬로 실행 해야 합니다. Azure PowerShell 모듈을 설치해야 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-Az-ps)를 참조하세요. PowerShell 버전을 확인한 후 `Login-AzAccount`를 실행하여 Azure와의 연결을 만듭니다.
 
 이 시나리오가 제대로 작동하기 위해서는 세 가지 주요 요구 사항이 있습니다.
 
@@ -58,7 +59,7 @@ Azure Firewall을 사용하여 허용 및 거부된 네트워크 트래픽을 �
    Azure Firewall 서브넷에서는 BGP로부터 경로를 학습하므로 UDR이 필요하지 않습니다.
 - VNet-Hub와 VNet-Spoke를 피어링할 때는 **AllowGatewayTransit**, VNet-Spoke와 VNet-Hub를 피어링할 때는 **UseRemoteGateways**를 설정합니다.
 
-이 경로를 만드는 방법은 이 자습서의 [경로 만들기](#create-the-routes) 섹션을 참조하세요.
+이러한 경로를 만드는 방법을 보려면이 문서의 [경로 만들기](#create-the-routes) 섹션을 참조 하세요.
 
 >[!NOTE]
 >Azure Firewall에는 직접 인터넷 연결이 있어야 합니다. AzureFirewallSubnet이 BGP를 통해 온-프레미스 네트워크에 대한 기본 경로를 학습하는 경우 이 경로를 직접 인터넷 연결을 유지하기 위해 **Internet**으로 설정된 **NextHopType** 값을 통해 0.0.0.0/0 UDR로 재정의해야 합니다. 기본적으로 Azure Firewall은 온-프레미스 네트워크에 대한 강제 터널링을 지원하지 않습니다.
@@ -74,7 +75,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="declare-the-variables"></a>변수 선언
 
-다음 예제에서는 이 자습서에 대한 값을 사용하여 변수를 선언합니다. 경우에 따라 사용자 구독에서 작동하도록 하기 위해 일부 값을 사용자 고유의 값으로 바꾸어야 할 수 있습니다. 필요한 경우 변수를 수정한 다음 복사하여 PowerShell 콘솔에 붙여 넣습니다.
+다음 예제에서는이 문서의 값을 사용 하 여 변수를 선언 합니다. 경우에 따라 사용자 구독에서 작동하도록 하기 위해 일부 값을 사용자 고유의 값으로 바꾸어야 할 수 있습니다. 필요한 경우 변수를 수정한 다음 복사하여 PowerShell 콘솔에 붙여 넣습니다.
 
 ```azurepowershell
 $RG1 = "FW-Hybrid-Test"
@@ -118,7 +119,7 @@ $SNnameGW = "GatewaySubnet"
 
 ## <a name="create-the-firewall-hub-virtual-network"></a>방화벽 허브 가상 네트워크 만들기
 
-먼저 이 자습서에 대한 리소스를 포함하는 리소스 그룹을 만듭니다.
+먼저이 아티클에 대 한 리소스를 포함 하는 리소스 그룹을 만듭니다.
 
 ```azurepowershell
   New-AzResourceGroup -Name $RG1 -Location $Location1
@@ -463,7 +464,7 @@ Azure Portal에서 **VM-Onprem** 가상 머신에 연결합니다.
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
    You should get a reply.--->
-**VM-Onprem**에서 웹 브라우저를 열고 http://\<VM-spoke-01 private IP\>로 이동합니다.
+**VM-Onprem**에서 웹 브라우저를 열고 http://\<VM-spoke-01 프라이빗 IP\>로 이동합니다.
 
 Internet Information Services 기본 페이지가 표시됩니다.
 
@@ -496,5 +497,4 @@ Set-AzFirewall -AzureFirewall $azfw
 
 그런 다음, Azure Firewall 로그를 모니터링할 수 있습니다.
 
-> [!div class="nextstepaction"]
-> [자습서: Azure Firewall 로그 모니터링](./tutorial-diagnostics.md)
+[자습서: Azure Firewall 로그 모니터링](./tutorial-diagnostics.md)

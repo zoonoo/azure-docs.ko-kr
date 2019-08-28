@@ -11,22 +11,21 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: f455985d2a7d05f45100d4a88b43c688fe1a7767
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2b9689eeecb0549fae9f7131dd424e15c040b042
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65955758"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073173"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 애플리케이션 성능 FAQ
 
 > [!NOTE]
-> 일부는 아래 지침 에서만 작동할 수 있습니다 Windows 또는 Linux App Services. 예를 들어, Linux App Services 기본적으로 64 비트 모드에서 실행 합니다.
+> 아래 지침 중 일부는 Windows 또는 Linux App Services 에서만 작동할 수 있습니다. 예를 들어 Linux App Services는 기본적으로 64 비트 모드로 실행 됩니다.
 >
 
 이 문서에는 [Azure App Service의 Web Apps 기능](https://azure.microsoft.com/services/app-service/web/) 관련 애플리케이션 성능 문제에 대한 FAQ(질문과 대답)가 있습니다.

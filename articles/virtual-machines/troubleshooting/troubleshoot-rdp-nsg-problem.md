@@ -7,18 +7,17 @@ author: genlin
 manager: cshepard
 editor: v-jesits
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: c32612c411f275220f549eea79276fa5a7232fd0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cfb0464fd7fbd271272a992cffead44e9ba3b553
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60318938"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103413"
 ---
 #  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>NSG에서 사용하도록 설정하지 않은 RDP 포트로 인해 Azure VM에 연결할 수 없음
 
@@ -32,7 +31,7 @@ ms.locfileid: "60318938"
 
 RDP 포트가 네트워크 보안 그룹에서 열려 있지 않으므로 Azure에서 VM에 대한 RDP 연결을 만들 수 없습니다.
 
-## <a name="solution"></a>해결 방법 
+## <a name="solution"></a>솔루션 
 
 새 VM을 만들면 기본적으로 인터넷의 모든 트래픽이 차단됩니다. 
 
@@ -47,9 +46,9 @@ NSG에서 RDP 포트를 사용하도록 설정하려면 다음 단계를 수행�
     **Name**: Port_3389 </br>
     **포트**: 3389 </br>
     **프로토콜**: TCP </br>
-    **원본**: 모두 </br>
-    **대상**: 모두 </br>
-    **작업**: 허용 </br>
+    **원본**: 임의의 값 </br>
+    **대상**: 임의의 값 </br>
+    **작업**: Allow </br>
 
 원본 IP 주소를 지정할 때 이 설정을 사용하면 특정 IP 주소 또는 IP 주소 범위의 트래픽만 VM에 연결할 수 있습니다. RDP 세션을 시작하는 데 사용하는 컴퓨터가 범위 내에 있는지 확인합니다.
 

@@ -9,18 +9,17 @@ editor: ''
 tags: azure-service-management
 ms.assetid: a2453032-94ab-4775-b976-c74d24716728
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 89623adbddce07cbc3c3ead811f5174d108c9b0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 78881830d4e558daaad6e1929b30287e2731fb1b
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62101628"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100408"
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Azure에서 Always On 가용성 그룹에 대한 외부 수신기 구성
 > [!div class="op_single_selector"]
@@ -123,11 +122,11 @@ Azure 복제본을 호스트하는 각 VM에 대해 부하가 분산된 엔드�
 [!INCLUDE [Test-Listener-Within-VNET](../../../../includes/virtual-machines-ag-listener-test.md)]
 
 ## <a name="test-the-availability-group-listener-over-the-internet"></a>(인터넷을 통해)가용성 그룹 수신기 테스트
-가상 네트워크 외부에서 수신기에 액세스 하려면 사용 해야 외부/공용 부하 분산 (이 항목에서 설명) ILB 보다는 동일한 VNet 내에서 액세스할 수만 있습니다. 연결 문자열에서 클라우드 서비스 이름을 지정합니다. 예를 들어 이름이 *mycloudservice*인 클라우드 서비스가 있는 경우 sqlcmd 문은 다음과 같습니다.
+가상 네트워크 외부에서 수신기에 액세스 하려면 동일한 VNet 내 에서만 액세스할 수 있는 ILB가 아닌 외부/공용 부하 분산 (이 항목에서 설명)을 사용 해야 합니다. 연결 문자열에서 클라우드 서비스 이름을 지정합니다. 예를 들어 이름이 *mycloudservice*인 클라우드 서비스가 있는 경우 sqlcmd 문은 다음과 같습니다.
 
     sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
 
-앞의 예와 달리 호출자가 인터넷을 통해 windows 인증을 사용할 수 없으므로 SQL 인증을 사용해야 합니다. 자세한 내용은 참조 하세요. [Always On 가용성 그룹에 Azure VM: 클라이언트 연결 시나리오](https://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx)합니다. SQL 인증을 사용할 때는 두 복제본에서 동일한 로그인을 만들 수 있는지 확인합니다. 가용성 그룹 로그인 문제 해결에 대한 자세한 내용은 [로그인 매핑 또는 포함된 SQL 데이터베이스 사용자를 통해 다른 복제본에 연결하고 가용성 데이터베이스에 매핑하는 방법](https://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx)을 참조하세요.
+앞의 예와 달리 호출자가 인터넷을 통해 windows 인증을 사용할 수 없으므로 SQL 인증을 사용해야 합니다. 자세한 내용은 Azure VM에서 [가용성 그룹 Always On를 참조 하세요. 클라이언트 연결 시나리오](https://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx). SQL 인증을 사용할 때는 두 복제본에서 동일한 로그인을 만들 수 있는지 확인합니다. 가용성 그룹 로그인 문제 해결에 대한 자세한 내용은 [로그인 매핑 또는 포함된 SQL 데이터베이스 사용자를 통해 다른 복제본에 연결하고 가용성 데이터베이스에 매핑하는 방법](https://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx)을 참조하세요.
 
 Always On 복제본이 다른 서브넷에 있는 경우 클라이언트는 연결 문자열에 **MultisubnetFailover=True** 를 지정해야 합니다. 그러면 다른 서브넷에 있는 복제본에 대한 병렬 연결을 시도합니다. 이 시나리오에는 영역 간 Always On 가용성 그룹 배포가 포함되어 있습니다.
 

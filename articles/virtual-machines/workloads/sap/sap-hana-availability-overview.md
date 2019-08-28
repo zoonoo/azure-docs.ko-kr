@@ -9,25 +9,24 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1db56ad31991b85ffad415818c7c67f0ee30808d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cc0d6b07e1e61baa28ceb8e7198ef15f0f831fb7
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60708450"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70078666"
 ---
 # <a name="sap-hana-high-availability-for-azure-virtual-machines"></a>Azure Virtual Machines의 SAP HANA 고가용성
 
 수많은 Azure 기능을 사용하여 Azure VM에서 SAP HANA와 같은 중요 업무용 데이터베이스를 배포 할 수 있습니다. 이 문서에서는 Azure VM에서 호스팅되는 SAP HANA 인스턴스의 가용성을 달성하는 방법에 대한 지침을 제공합니다. 그리고 Azure에서 SAP HANA 가용성을 높이기 위해 Azure 인프라를 사용하여 구현할 수 있는 몇 가지 시나리오에 대해 설명합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 문서에서는 다음을 포함하여 Azure의 IaaS(Infrastructure as a Service) 기본 사항에 대해 잘 알고 있다고 가정합니다. 
 

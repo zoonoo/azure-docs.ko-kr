@@ -7,18 +7,17 @@ author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: ca3fe83d7072ba774c8124c5108652ab7223041d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 2a6e8985a2cb13da0f2e34f4e9961f84aacdd974
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449811"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103497"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Azure VM을 부팅할 때 Windows에서 블루 스크린에 "CRITICAL SERVICE FAILED"가 표시됨
 이 문서에서는 Microsoft Azure에서 Windows VM(가상 머신)을 부팅할 때 발생할 수 있는 "CRITICAL SERVICE FAILED" 오류에 대해 설명합니다. 그리고 해당 문제를 해결할 수 있는 문제 해결 단계를 제공합니다. 
@@ -40,7 +39,7 @@ Windows VM이 시작되지 않습니다. [부트 진단](./boot-diagnostics.md)�
 - 손상된 시스템 파일 또는 메모리
 - 애플리케이션에서 메모리의 금지된 섹터에 액세스
 
-## <a name="solution"></a>해결 방법 
+## <a name="solution"></a>솔루션 
 
 이 문제를 해결하려면 [지원을 요청하고 덤프 파일을 제출](./troubleshoot-common-blue-screen-error.md#collect-memory-dump-file)하세요. 덤프 파일이 있으면 Microsoft에서 문제를 더 빠르게 진단할 수 있습니다. 또는 다음 자가 진단 솔루션을 사용해 볼 수도 있습니다.
 
@@ -106,7 +105,7 @@ Windows VM이 시작되지 않습니다. [부트 진단](./boot-diagnostics.md)�
 
 ### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>선택 사항: 덤프 크래시 모드로 덤프 로그 분석
 
-덤프 로그를 직접 분석 하려면 다음이 단계를 수행 합니다.
+덤프 로그를 직접 분석 하려면 다음 단계를 수행 합니다.
 
 1. 복구 VM에 OS 디스크를 연결합니다.
 2. 연결한 OS 디스크에서 **\windows\system32\config**로 이동합니다. 롤백이 필요한 경우에 대비해 모든 파일을 백업으로 복사합니다.

@@ -10,18 +10,17 @@ ms.assetid: ae78b410-1bc0-4d72-8fc4-ac69801247ae
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2018
 ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: ae172c5a7ed6f90bfe132f346b356f2be81b349d
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: f239fb4464d2e7f67b91a2d18c21b089ffd52b27
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617043"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070496"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>FTP/S를 사용하여 앱에 Azure App Service에 배포
 
@@ -46,11 +45,11 @@ FTP 대시보드에서 **복사**를 클릭하여 FTPS 엔드포인트 및 앱 �
 각 앱에 고유하기 때문에 사용자 앱에 배포하려면 **앱 자격 증명**을 사용하는 것이 좋습니다. 단, **사용자 자격 증명**을 클릭하는 경우 구독에서 모든 App Service 앱에 대한 FTP/S 로그인에 사용할 수 있는 사용자 수준의 자격 증명을 설정할 수 있습니다.
 
 > [!NOTE]
-> 다음 형식으로 사용자 이름을 requirers 사용자 수준 자격 증명을 사용 하 여 FTP/FTPS 끝점 인증: 
+> 사용자 수준 자격 증명을 사용 하 여 FTP/FTPS 끝점을 인증 하는 경우 사용자 이름은 다음 형식으로 requirers 됩니다. 
 >
 >`<app-name>\<user-name>`
 >
-> 사용자 수준 자격 증명은 사용자와 특정 리소스 하지에 연결 된, 이후 사용자 이름 적합 한 앱 끝점으로의 로그인 작업을이 형식 이어야 합니다.
+> 사용자 수준 자격 증명은 특정 리소스가 아니라 사용자에 게 연결 되기 때문에 로그인 작업을 올바른 앱 끝점으로 보내기 위해 사용자 이름이이 형식 이어야 합니다.
 >
 
 ## <a name="deploy-files-to-azure"></a>Azure에 파일 배포

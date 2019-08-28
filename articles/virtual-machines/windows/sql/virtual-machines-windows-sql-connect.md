@@ -8,19 +8,18 @@ manager: craigg
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 70e478ac70b7ab53f1357394f3a3cb0d92f41f00
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ae5c4cdd76f164d13da349c355a30d8b6dc83058
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075769"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102095"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Azure에서 SQL Server 가상 머신에 연결
 
@@ -42,8 +41,8 @@ Azure Portal에서 SQL Server VM을 프로비전하는 경우 **SQL 연결**의 
 
 | 옵션 | 설명 |
 |---|---|
-| **공용** | 인터넷을 통해 SQL Server에 연결 |
-| **개인** | 동일한 가상 네트워크의 SQL Server에 연결 |
+| **공개** | 인터넷을 통해 SQL Server에 연결 |
+| **전용** | 동일한 가상 네트워크의 SQL Server에 연결 |
 | **로컬** | 동일한 가상 머신의 SQL Server에 로컬로 연결 | 
 
 다음 섹션은 **공용** 및 **프라이빗** 옵션을 자세히 설명합니다.
@@ -98,11 +97,11 @@ Server=mysqlvm;Integrated Security=true
 
 Azure Portal에서 SQL Server 가상 머신에 대한 연결 설정을 변경할 수 있습니다.
 
-1. Azure portal에서 선택 **SQL 가상 머신**합니다.
+1. Azure Portal에서 **SQL 가상 컴퓨터**를 선택 합니다.
 
 2. SQL Server VM을 선택합니다.
 
-3. 아래 **설정을**를 선택 **보안**합니다.
+3. **설정**아래에서 **보안**을 선택 합니다.
 
 4. **SQL 연결 수준**을 필요한 설정으로 변경합니다. 필요에 따라 이 영역을 사용하여 SQL Server 포트 또는 SQL 인증 설정을 변경할 수 있습니다.
 

@@ -5,18 +5,17 @@ services: functions
 documentationcenter: na
 author: craigshoemaker
 manager: gwallace
-keywords: Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버리스 아키텍처, 테스트
+keywords: Azure Functions, 함수, 이벤트 처리, webhook, 동적 컴퓨팅, 서버리스 아키텍처, 테스트
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 800c9db245007047b2dc17b3f270737254ed42d7
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 0bd6222a6f2a2582fb715dbaf364fe23e41630d5
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479728"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70085118"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Azure Functions에서 코드를 테스트하기 위한 전략
 
@@ -44,7 +43,7 @@ ms.locfileid: "67479728"
 2. [템플릿에서 HTTP 함수를 만들고](./functions-create-first-azure-function.md) 이름을 *HttpTrigger*로 지정합니다.
 3. [템플릿에서 타이머 함수를 만들고](./functions-create-scheduled-function.md) 이름을 *TimerTrigger*로 지정합니다.
 4. Visual Studio에서 **파일 > 새로 만들기 > 프로젝트 > Visual C# > .NET Core > xUnit 테스트 프로젝트**를 클릭하여 [xUnit 테스트 앱을 만들고](https://xunit.github.io/docs/getting-started-dotnet-core) 이름을 *Functions.Test*로 지정합니다. 
-5. Nuget을 사용 하 여 테스트 응용 프로그램에서 참조를 추가 하려면 [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
+5. Nuget을 사용 하 여 AspNetCore 테스트 앱에서 참조를 추가 합니다 [.](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
 6. *Functions.Test* 앱에서 [*Functions* 앱을 참조](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017)합니다.
 
 ### <a name="create-test-classes"></a>테스트 클래스 만들기
@@ -55,7 +54,7 @@ ms.locfileid: "67479728"
 
 `ListLogger` 클래스는 `ILogger` 인터페이스를 구현하고 테스트 중에 평가를 위해 내부 메시지 목록에 포함하는 데 사용됩니다.
 
-**마우스 오른쪽 단추로 클릭** 에 *Functions.Test* 응용 프로그램 및 선택 **추가 > 클래스**, 이름을 **NullScope.cs** 다음 코드를 입력 하 고:
+NullScope.cs 응용 프로그램을 **마우스 오른쪽 단추로 클릭** 하 고 **추가 > 클래스**를 선택 하 고 이름을 로 입력 한 후 다음 코드를 입력 합니다.
 
 ```csharp
 using System;
@@ -73,7 +72,7 @@ namespace Functions.Tests
 }
 ```
 
-그런 다음, **마우스 오른쪽 단추로 클릭** 에 *Functions.Test* 응용 프로그램을 선택 **추가 > 클래스**, 이름을 **ListLogger.cs** enter 합니다 코드를 다음과 같습니다.
+그런 다음, ListLogger.cs 응용 프로그램을 **마우스 오른쪽 단추로 클릭** 하 고 **추가 > 클래스**를 선택 하 고 이름을 로 입력 한 후 다음 코드를 입력 합니다.
 
 ```csharp
 using Microsoft.Extensions.Logging;
@@ -111,7 +110,7 @@ namespace Functions.Tests
 
 `ListLogger` 클래스는 `ILogger` 인터페이스에서 계약된 대로 다음 멤버를 구현합니다.
 
-- **BeginScope**: 범위는 로깅에 컨텍스트를 추가합니다. 이 경우 테스트 방금 지점을 정적 인스턴스를는 `NullScope` 테스트 함수를 허용 하는 클래스입니다.
+- **BeginScope**: 범위는 로깅에 컨텍스트를 추가합니다. 이 경우 테스트는 테스트를 작동할 수 있도록 `NullScope` 클래스의 정적 인스턴스를 가리킵니다.
 
 - **IsEnabled**: `false`의 기본값이 제공됩니다.
 
@@ -253,7 +252,7 @@ namespace Functions.Tests
 
 - **Timer_should_log_message**: 이 테스트는 `ListLogger` 인스턴스를 만들고 타이머 함수에 전달합니다. 함수가 실행되면 로그를 확인하여 예상 메시지가 있는지 확인합니다.
 
-테스트에서 응용 프로그램 설정에 액세스 하려는 경우 사용할 수 있습니다 [System.Environment.GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables)합니다.
+테스트에서 응용 프로그램 설정에 액세스 하려는 경우 [GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables)를 사용할 수 있습니다.
 
 ### <a name="run-tests"></a>테스트 실행
 

@@ -10,18 +10,17 @@ ms.assetid: cdb9719a-c8eb-47e5-817f-e15eaea1f5f8
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: cephalin
 ms.reviewer: apurvajo
 ms.custom: seodec18
-ms.openlocfilehash: 8f55e2eb3ac7fe2e869b6b1061f6d45d11894ccf
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: d6d3e91bef6c4f837b068d755994b2f3268600da
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905934"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70074046"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Azure App Service에 대한 SSL 인증서 구입 및 구성
 
@@ -69,7 +68,7 @@ ms.locfileid: "69905934"
 
 **Key Vault 상태** 페이지에서 **Key Vault 리포지토리**를 클릭하여 새 자격 증명 모음을 만들거나 기존 자격 증명 모음을 선택합니다. 새 자격 증명 모음을 만들려면 다음 표를 사용하여 자격 증명 모음을 구성하고 만들기를 클릭합니다. 동일한 구독 및 리소스 그룹 내에서 새로운 Key Vault 생성을 참조하세요.
 
-| 설정 | 설명 |
+| 설정 | Description |
 |-|-|
 | 이름 | 영숫자와 대시로 구성된 고유한 이름입니다. |
 | 리소스 그룹 | 권장 사항으로, App Service Certificate과 동일한 리소스 그룹을 선택합니다. |
@@ -112,7 +111,7 @@ ms.locfileid: "69905934"
 
 다음 표를 사용하여 **SSL 바인딩** 대화 상자에서 바인딩을 구성한 다음, **바인딩 추가**를 클릭합니다.
 
-| 설정 | Description |
+| 설정 | 설명 |
 |-|-|
 | Hostname | SSL 바인딩을 추가할 도메인 이름입니다. |
 | 프라이빗 인증서 지문 | 바인딩할 인증서입니다. |

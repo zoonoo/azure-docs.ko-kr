@@ -10,16 +10,15 @@ ms.assetid: 8147199c-24d8-439f-b2a9-da28a70a890c
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 2b74c0d8dc0daa7bb86c2884f5e574fdc579ba44
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 06c4ede12f939e48973d3e0b502d90b848d199bb
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442391"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072618"
 ---
 # <a name="api-management-caching-policies"></a>API Management 캐싱 정책
 이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](https://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.
@@ -101,7 +100,7 @@ ms.locfileid: "68442391"
 
 ### <a name="elements"></a>요소
 
-|이름|설명|필수|
+|이름|Description|필수|
 |----------|-----------------|--------------|
 |cache-lookup|루트 요소입니다.|예|
 |vary-by-header|지정된 헤더 값당 시작 캐싱 응답입니다(예: Accept, Accept-Charset, Accept-Encoding, Accept-Language, Authorization, Expect, From, Host, If-Match).|아니요|
@@ -180,13 +179,13 @@ ms.locfileid: "68442391"
 
 ### <a name="elements"></a>요소
 
-|이름|설명|필수|
+|이름|Description|필수|
 |----------|-----------------|--------------|
 |cache-store|루트 요소입니다.|예|
 
 ### <a name="attributes"></a>특성
 
-| 이름             | 설명                                                                                                                                                                                                                                                                                                                                                 | 필수 | 기본값           |
+| 이름             | Description                                                                                                                                                                                                                                                                                                                                                 | 필수 | 기본값           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | duration         | 캐시된 항목의 TTL(Time-to-Live)로 초 단위로 지정합니다.                                                                                                                                                                                                                                                                                                   | 예      | 해당 사항 없음               |
 
@@ -223,18 +222,18 @@ ms.locfileid: "68442391"
 
 ### <a name="elements"></a>요소
 
-|이름|Description|필수|
+|이름|설명|필수|
 |----------|-----------------|--------------|
 |cache-lookup-value|루트 요소입니다.|예|
 
 ### <a name="attributes"></a>특성
 
-| 이름             | Description                                                                                                                                                                                                                                                                                                                                                 | 필수 | 기본값           |
+| 이름             | 설명                                                                                                                                                                                                                                                                                                                                                 | 필수 | 기본값           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | caching-type | 다음 특성 값 중에서 선택합니다.<br />- `internal` 기본 제공 API Management 캐시를 사용합니다.<br />- `external` [Azure API Management에서 외부 Azure Cache for Redis 사용](api-management-howto-cache-external.md)에 설명된 대로 외부 캐시를 사용합니다.<br />- `prefer-external` 구성된 경우 외부 캐시를 사용하고 그렇지 않으면 내부 캐시를 사용합니다. | 아니요       | `prefer-external` |
 | default-value    | 캐시 키 조회 시 누락 항목이 있는 경우 변수에 할당할 값입니다. 이 특성을 지정하지 않으면 `null`이 할당됩니다.                                                                                                                                                                                                           | 아니요       | `null`            |
-| Key              | 조회에 사용할 캐시 키 값입니다.                                                                                                                                                                                                                                                                                                                       | 예      | 해당 사항 없음               |
-| variable-name    | 조회에 성공한 경우 조회된 값이 할당될 [컨텍스트 변수](api-management-policy-expressions.md#ContextVariables)의 이름입니다. 조회 시 누락 항목이 있는 경우 변수에 `default-value` 특성 또는 `null`(`default-value` 특성이 생략된 경우)이 할당됩니다.                                       | 예      | N/A               |
+| Key              | 조회에 사용할 캐시 키 값입니다.                                                                                                                                                                                                                                                                                                                       | 예      | N/A               |
+| variable-name    | 조회에 성공한 경우 조회된 값이 할당될 [컨텍스트 변수](api-management-policy-expressions.md#ContextVariables)의 이름입니다. 조회 시 누락 항목이 있는 경우 변수에 `default-value` 특성 또는 `null`(`default-value` 특성이 생략된 경우)이 할당됩니다.                                       | 예      | 해당 사항 없음               |
 
 ### <a name="usage"></a>사용 현황
 이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
@@ -272,10 +271,10 @@ ms.locfileid: "68442391"
 
 ### <a name="attributes"></a>특성
 
-| 이름             | Description                                                                                                                                                                                                                                                                                                                                                 | 필수 | 기본값           |
+| 이름             | 설명                                                                                                                                                                                                                                                                                                                                                 | 필수 | 기본값           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | caching-type | 다음 특성 값 중에서 선택합니다.<br />- `internal` 기본 제공 API Management 캐시를 사용합니다.<br />- `external` [Azure API Management에서 외부 Azure Cache for Redis 사용](api-management-howto-cache-external.md)에 설명된 대로 외부 캐시를 사용합니다.<br />- `prefer-external` 구성된 경우 외부 캐시를 사용하고 그렇지 않으면 내부 캐시를 사용합니다. | 아니요       | `prefer-external` |
-| duration         | 제공된 기간 값 동안 값(초 단위로 지정)이 캐시됩니다.                                                                                                                                                                                                                                                                                 | 예      | 해당 사항 없음               |
+| duration         | 제공된 기간 값 동안 값(초 단위로 지정)이 캐시됩니다.                                                                                                                                                                                                                                                                                 | 예      | N/A               |
 | Key              | 값을 저장할 캐시 키입니다.                                                                                                                                                                                                                                                                                                                   | 예      | N/A               |
 | value            | 캐시될 값입니다.                                                                                                                                                                                                                                                                                                                                     | 예      | 해당 사항 없음               |
 ### <a name="usage"></a>사용 현황
@@ -314,7 +313,7 @@ ms.locfileid: "68442391"
 | 이름             | Description                                                                                                                                                                                                                                                                                                                                                 | 필수 | 기본값           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | caching-type | 다음 특성 값 중에서 선택합니다.<br />- `internal` 기본 제공 API Management 캐시를 사용합니다.<br />- `external` [Azure API Management에서 외부 Azure Cache for Redis 사용](api-management-howto-cache-external.md)에 설명된 대로 외부 캐시를 사용합니다.<br />- `prefer-external` 구성된 경우 외부 캐시를 사용하고 그렇지 않으면 내부 캐시를 사용합니다. | 아니요       | `prefer-external` |
-| Key              | 캐시에서 제거할 이전에 캐시된 값의 키입니다.                                                                                                                                                                                                                                                                                        | 예      | 해당 사항 없음               |
+| Key              | 캐시에서 제거할 이전에 캐시된 값의 키입니다.                                                                                                                                                                                                                                                                                        | 예      | N/A               |
 
 #### <a name="usage"></a>사용법
 이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.

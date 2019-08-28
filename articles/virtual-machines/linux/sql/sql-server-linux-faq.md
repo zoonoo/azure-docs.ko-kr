@@ -7,18 +7,17 @@ author: MashaMSFT
 manager: craigg
 tags: azure-service-management
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: troubleshooting
 ms.workload: iaas-sql-server
 ms.date: 12/13/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fb1cafcf9405576749ea91aeea033c6ee783a026
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e729c608a2cad28c810f8d5236360c909a496b0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60739270"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70082024"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Linux Azure Virtual Machines의 SQL Server에 대한 FAQ(질문과 대답)
 
@@ -61,7 +60,7 @@ ms.locfileid: "60739270"
 
    RHEL 및 SLES 가상 머신에는 지출 한도가 없는 구독과, 구독에 연결된 검증된 결제 수단(보통은 신용카드)가 필요합니다. 지출 한도를 제거하지 않고 RHEL 또는 SLES VM을 프로비전하면 구독이 비활성화되고 모든 VM/서비스가 중지됩니다. 이 상태가 되어 구독을 다시 활성화하려면 [지출 한도를 제거](https://account.windowsazure.com/subscriptions)합니다. 현재 청구 주기에 대해 남은 크레딧이 복원되지만 다시 시작하여 실행을 계속하도록 선택하면 RHEL 또는 SLES VM 이미지 추가 요금이 해당 신용카드로 청구됩니다.
 
-## <a name="licensing"></a>라이선스
+## <a name="licensing"></a>라이선싱
 
 1. **Azure VM에 라이선스가 있는 내 SQL Server 사본을 설치하려면 어떻게 해야 합니까?**
 

@@ -9,19 +9,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 737b2f65-08b9-4f54-b867-e987730265a8
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: aa912e3eb76d72e7a79c83d7e51d493310bd36b3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9fabccd477883750c1aecb5493fdb64ddf5ab2c3
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60362138"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100286"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Azure Virtual Machines에서 SQL Server의 자동화된 패치(클래식)
 > [!div class="op_single_selector"]
@@ -40,7 +39,7 @@ ms.locfileid: "60362138"
 > [!IMPORTANT] 
 > Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. 이 문서의 Resource Manager 버전을 보려면 [Azure Virtual Machines Resource Manager에서 SQL Server의 자동화된 패치](../sql/virtual-machines-windows-sql-automated-patching.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 자동화된 패치를 사용하려면 다음 필수 조건을 고려하세요.
 
 **운영 체제**:
@@ -66,7 +65,7 @@ ms.locfileid: "60362138"
 ## <a name="settings"></a>설정
 다음 표에서는 자동화된 패치에 대해 구성할 수 있는 옵션을 설명합니다. 클래식 VM의 경우 이러한 설정을 구성하려면 PowerShell을 사용해야 합니다.
 
-| 설정 | 가능한 값 | 설명 |
+| 설정 | 가능한 값 | Description |
 | --- | --- | --- |
 | **자동화된 패치** |사용/사용 안 함(사용 안 함) |Azure 가상 머신에 대한 자동화된 패치를 사용 또는 사용 안 함으로 설정합니다. |
 | **유지 관리 일정** |매일, 월요일, 화요일, 수요일, 목요일, 금요일, 토요일, 일요일 |가상 머신에 대한 Windows, SQL Server 및 Microsoft 업데이트 다운로드 및 설치에 대한 일정입니다. |
@@ -83,7 +82,7 @@ ms.locfileid: "60362138"
 
 이 예제를 바탕으로 다음 표에서는 대상 Azure VM에 미치는 실질적인 영향을 설명합니다.
 
-| 매개 변수 | 결과 |
+| 매개 변수 | 영향 |
 | --- | --- |
 | **DayOfWeek** |매주 목요일마다 패치가 설치됩니다. |
 | **MaintenanceWindowStartingHour** |오전 11시에 업데이트를 시작합니다. |

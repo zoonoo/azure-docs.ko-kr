@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: danlep
-ms.openlocfilehash: 65debc8c65752150651d00d84eeff469cefbc268
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1459b6fc45bb3d875b4869d1dcb4302dec21eb96
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68311879"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114794"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>ACR 작업을 사용 하 여 컨테이너 이미지 빌드 및 유지 관리 자동화
 
@@ -56,7 +56,7 @@ ACR 작업은 기본 컨테이너 수명 주기로 설계되었습니다. 예를
 
 ## <a name="automatic-build-on-source-code-commit"></a>소스 코드 커밋 시 자동 빌드
 
-코드가 Git 리포지토리에 커밋될 때 컨테이너 이미지 빌드를 자동으로 트리거하려면 ACR 작업을 사용합니다. Azure CLI 명령 [az acr task][az-acr-task]를 사용 하 여 구성 가능한 빌드 작업을 사용 하 여 Git 리포지토리를 지정 하 고 선택적으로 분기 및 Dockerfile을 지정할 수 있습니다. 팀에서 리포지토리에 코드를 커밋하면 ACR 작업에서 만든 웹후크에서 리포지토리에 정의된 컨테이너 이미지 빌드를 트리거합니다.
+GitHub 또는 Azure DevOps에서 코드가 Git 리포지토리로 커밋될 때 ACR 작업을 사용 하 여 컨테이너 이미지 빌드를 자동으로 트리거합니다. Azure CLI 명령 [az acr task][az-acr-task]를 사용 하 여 구성 가능한 빌드 작업을 사용 하 여 Git 리포지토리를 지정 하 고 선택적으로 분기 및 Dockerfile을 지정할 수 있습니다. 팀에서 리포지토리에 코드를 커밋하면 ACR 작업에서 만든 웹후크에서 리포지토리에 정의된 컨테이너 이미지 빌드를 트리거합니다.
 
 > [!IMPORTANT]
 > 이전에 미리 보기 중에 `az acr build-task` 명령을 사용하여 작업을 만든 경우 [az acr task][az-acr-task] 명령을 사용하여 해당 작업을 다시 만들어야 합니다.
@@ -73,10 +73,14 @@ ACR 작업은 기본 컨테이너 수명 주기로 설계되었습니다. 예를
 
 ACR 작업은 컨테이너 이미지를 빌드할 때 기본 이미지 종속성을 동적으로 검색하므로 애플리케이션 이미지의 기본 이미지가 업데이트되는 시기를 검색할 수 있습니다. 미리 구성된 하나의 [빌드 작업](container-registry-tutorial-base-image-update.md#create-a-task)을 사용하면 ACR 작업에서 **모든 애플리케이션 이미지를 자동으로 다시 빌드합니다**. 이 자동 검색 및 다시 빌드를 통해 ACR 작업에서 업데이트된 기본 이미지를 참조하는 각 애플리케이션 이미지를 빠짐없이 수동으로 추적하고 업데이트하는 데 필요한 시간과 노력을 절약할 수 있습니다.
 
-세 번째 ACR 작업 자습서인 [Azure Container Registry 작업을 사용하여 기본 이미지 업데이트 시 이미지 빌드 자동화](container-registry-tutorial-base-image-update.md)에서 OS 및 프레임워크 패치에 대해 알아보세요.
+ACR 작업은 기본 이미지가 다음 위치 중 하나에 있을 때 기본 이미지 업데이트를 추적 합니다.
 
-> [!NOTE]
-> 현재 기본 이미지 업데이트는 기본 및 응용 프로그램 이미지가 모두 동일한 Azure container registry에 있거나 기본가 공용 Docker 허브 또는 Microsoft Container Registry 리포지토리에 있는 경우에만 빌드를 트리거합니다.
+* 태스크가 실행 되는 동일한 Azure container registry
+* 동일한 지역에 있는 다른 Azure container registry 
+* Docker 허브의 공용 리포지토리
+* Microsoft Container Registry의 공용 리포지토리
+
+세 번째 ACR 작업 자습서의 OS 및 프레임 워크 패치에 대 한 자세한 내용은 [Azure Container Registry 작업을 사용 하 여 기본 이미지 업데이트에서 이미지 빌드 자동화](container-registry-tutorial-base-image-update.md)를 확인 하세요.
 
 ## <a name="multi-step-tasks"></a>다단계 작업
 

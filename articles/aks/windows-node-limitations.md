@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: 501aeb60eba1d94b4c5882a7c6cbfa8d0359e44d
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: c2c9e3d29ced5f75873656e253ecdbab5efe7df8
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033901"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114417"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 Windows Server 노드 풀 및 응용 프로그램 작업에 대 한 현재 제한 사항
 
@@ -28,7 +28,7 @@ AKS (Azure Kubernetes Service)에서 노드에서 게스트 OS로 Windows Server
 
 ## <a name="limitations-for-windows-server-in-kubernetes"></a>Kubernetes의 Windows Server에 대 한 제한 사항
 
-Windows Server 컨테이너는 Windows 기반 컨테이너 호스트에서 실행 해야 합니다. AKS에서 Windows Server 컨테이너를 실행 하려면 게스트 OS로 [Windows server를 실행 하는 노드 풀을 만들][windows-node-cli] 수 있습니다. 창 서버 노드 풀 지원에는 Kubernetes 프로젝트의 업스트림 Windows Server에 포함 되는 몇 가지 제한 사항이 포함 되어 있습니다. 이러한 제한 사항은 AKS에 국한 되지 않습니다. Kubernetes의 Windows Server에 대 한이 업스트림 지원에 대 한 자세한 내용은 [Kubernetes 제한 사항에서 Windows server 컨테이너](https://docs.microsoft.com/azure/aks/windows-node-limitations)를 참조 하세요.
+Windows Server 컨테이너는 Windows 기반 컨테이너 호스트에서 실행 해야 합니다. AKS에서 Windows Server 컨테이너를 실행 하려면 게스트 OS로 [Windows server를 실행 하는 노드 풀을 만들][windows-node-cli] 수 있습니다. 창 서버 노드 풀 지원에는 Kubernetes 프로젝트의 업스트림 Windows Server에 포함 되는 몇 가지 제한 사항이 포함 되어 있습니다. 이러한 제한 사항은 AKS에 국한 되지 않습니다. Kubernetes의 Windows Server에 대 한이 업스트림 지원에 대 한 자세한 내용은 [Kubernetes 제한 사항에서 Windows server 컨테이너](https://kubernetes.io/docs/setup/production-environment/windows/intro-windows-in-kubernetes/#supported-functionality-and-limitations)를 참조 하세요.
 
 Kubernetes의 Windows Server 컨테이너에 대 한 다음 업스트림 제한은 AKS와 관련이 있습니다.
 

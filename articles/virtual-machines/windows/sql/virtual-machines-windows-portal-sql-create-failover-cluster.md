@@ -9,19 +9,18 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 9fc761b1-21ad-4d79-bebc-a2f094ec214d
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 39f38af601888f847cd1a82da9e2e03e6893c28e
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 3ff9a694dca0d2a205c27569a7c744f482b662ec
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67607293"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100650"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Azure Virtual Machines에 SQL Server 장애 조치(Failover) 클러스터 인스턴스 구성
 
@@ -74,7 +73,7 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](https://ww
 - [Windows 클러스터 기술](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
 - [SQL Server 장애 조치(Failover) 클러스터 인스턴스](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 
-하나의 중요 한 차이점은 권장 되는 Azure IaaS VM 게스트 장애 조치 클러스터에서 단일 NIC 서버 (클러스터 노드) 및 단일 서브넷입니다. Azure 네트워킹에는 Azure IaaS VM 게스트 클러스터에서 추가 NIC 및 서브넷을 불필요하게 만드는 물리적 중복성이 있습니다. 클러스터 유효성 검사 보고서는 노드가 단일 네트워크에서만 연결 가능하다는 경고를 표시하지만, Azure IaaS VM 게스트 장애 조치(failover) 클러스터에서는 이 경고를 무시해도 됩니다. 
+한 가지 중요 한 차이점은 Azure IaaS VM 게스트 장애 조치 (failover) 클러스터에서 서버당 단일 NIC (클러스터 노드)와 단일 서브넷을 권장 한다는 것입니다. Azure 네트워킹에는 Azure IaaS VM 게스트 클러스터에서 추가 NIC 및 서브넷을 불필요하게 만드는 물리적 중복성이 있습니다. 클러스터 유효성 검사 보고서는 노드가 단일 네트워크에서만 연결 가능하다는 경고를 표시하지만, Azure IaaS VM 게스트 장애 조치(failover) 클러스터에서는 이 경고를 무시해도 됩니다. 
 
 또한 다음 기술에 대한 기본적인 지식이 있어야 합니다.
 
@@ -399,7 +398,7 @@ Azure 가상 머신에서 클러스터는 한 번에 하나의 클러스터 노�
 
    - **이름**: 상태 프로브의 이름입니다.
    - **프로토콜**: TCP입니다.
-   - **포트**: 상태 프로브에 대 한 방화벽에서 만든 포트에 설정할 [이 단계](#ports)합니다. 이 문서의 예제에서는 TCP 포트 `59999`합니다.
+   - **포트**: [이 단계](#ports)에서 상태 프로브에 대해 방화벽에서 만든 포트로 설정 합니다. 이 문서에서는이 예제에서는 TCP 포트 `59999`를 사용 합니다.
    - **간격**: 5초입니다.
    - **비정상 임계값**: 2번 연속 실패입니다.
 

@@ -10,17 +10,16 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e82a39b049c39cb4facfbc38b5e9020bb46de99b
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: d153238c58d72874ddbf7979e68423e21ea7c020
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69637960"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073156"
 ---
 # <a name="back-up-your-app-in-azure"></a>Azure에서 앱 백업
 [Azure App Service](overview.md)의 백업 및 복원 기능을 사용하여 수동으로 또는 일정에 따라 앱 백업을 쉽게 만들 수 있습니다.  백업은 무기한 보존 되도록 구성할 수 있습니다. 기존 앱을 덮어쓰거나 다른 앱으로 복원하여 앱을 이전 상태의 스냅샷으로 복원할 수 있습니다.
@@ -78,13 +77,13 @@ App Service는 앱에서 사용하도록 구성한 Azure Storage 계정과 컨�
 ![구성 클릭](./media/web-sites-backup/ClickConfigure1.png)을 클릭합니다.
 3. **백업 구성** 페이지에서 **스토리지: 구성되지 않음**을 클릭하여 스토리지 계정을 구성합니다.
    
-    ![스토리지 계정 선택][ChooseStorageAccount]
+    ![저장소 계정 선택][ChooseStorageAccount]
 4. **Storage 계정** 및 **컨테이너**를 선택하여 백업 대상을 선택합니다. 스토리지 계정은 백업할 앱이 있는 동일한 구독에 속해야 합니다. 필요한 경우 각 페이지에서 새 스토리지 계정이 나 새 컨테이너를 만들 수 있습니다. 완료되면 **선택**을 클릭합니다.
    
-    ![스토리지 계정 선택](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
+    ![저장소 계정 선택](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
 5. 왼쪽에 열려 있는 **백업 구성** 페이지에서 **데이터베이스 백업**을 구성한 다음 백업에 포함할 데이터베이스(SQL 데이터베이스 또는 MySQL)를 선택하고 **확인**을 클릭합니다.  
    
-    ![스토리지 계정 선택](./media/web-sites-backup/03ConfigureDatabase1.png)
+    ![저장소 계정 선택](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
    > 이 목록에 표시될 데이터베이스의 경우 연결 문자열은 앱의 **애플리케이션 설정** 페이지에서 **연결 문자열** 섹션에 있어야 합니다. 
@@ -106,7 +105,7 @@ App Service는 앱에서 사용하도록 구성한 Azure Storage 계정과 컨�
 ## <a name="configure-automated-backups"></a>자동화된 백업 구성
 1. **백업 구성** 페이지에서 **예약된 백업**을 **켜기**로 설정합니다. 
    
-    ![스토리지 계정 선택](./media/web-sites-backup/05ScheduleBackup1.png)
+    ![저장소 계정 선택](./media/web-sites-backup/05ScheduleBackup1.png)
 2. Backup 일정 옵션이 표시되면 **예약된 Backup**을 **켜기**로 설정하고 원하는 대로 백업 일정을 구성한 다음 **확인**을 클릭합니다.
    
     ![자동 백업 사용][SetAutomatedBackupOn]

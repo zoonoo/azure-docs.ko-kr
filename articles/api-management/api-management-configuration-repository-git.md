@@ -9,16 +9,15 @@ editor: mattfarm
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: c371333dcc7db0b60ffa5f94d6e2d55ae500a4f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b4ee4ca2ede2e0a2d6d1af906cc34051c76353bd
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241178"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073750"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Git을 사용하여 API Management 서비스 구성을 저장 및 구성하는 방법
 
@@ -53,7 +52,7 @@ Git 구성 설정을 확인하고 구성하려면 **보안** 메뉴를 클릭하
 ![GIT 사용][api-management-enable-git]
 
 > [!IMPORTANT]
-> 명명 된 값으로 정의 되어 있지 않은 모든 암호 저장소에 저장 됩니다 하 고 사용 하지 않도록 설정 하 고 다시 Git 액세스를 사용 하도록 설정 될 때까지 기록에 유지 됩니다. 명명 된 값 정책 설명에 직접 저장할 필요가 모든 API 구성 및 정책에서 암호를 포함 하 여 상수 문자열 값을 관리 하는 안전한 장소를 제공 합니다. 자세한 내용은 [Azure API Management 정책에서 명명 된 값을 사용 하는 방법을](api-management-howto-properties.md)합니다.
+> 명명 된 값으로 정의 되지 않은 암호는 리포지토리에 저장 되며, Git 액세스를 사용 하지 않도록 설정 하 고 다시 사용 하도록 설정할 때까지 기록에 유지 됩니다. 명명 된 값은 모든 API 구성 및 정책에서 암호를 포함 하 여 상수 문자열 값을 관리 하기 위한 안전한 장소를 제공 하므로 정책 문에 직접 저장할 필요가 없습니다. 자세한 내용은 [Azure API Management 정책에서 명명 된 값을 사용 하는 방법을](api-management-howto-properties.md)참조 하세요.
 >
 >
 
@@ -149,7 +148,7 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 
 로컬 Git 리포지토리의 파일 및 폴더에는 서비스 인스턴스에 관한 구성 정보가 포함되어 있습니다.
 
-| 항목 | 설명 |
+| 항목 | Description |
 | --- | --- |
 | 루트 api 관리 폴더 |서비스 인스턴스에 대한 최상의 구성 포함 |
 | apis 폴더 |서비스 인스턴스의 apis에 대한 구성 포함 |
@@ -161,9 +160,9 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 
 각 폴더는 하나 이상의 파일 및 하나 이상의 폴더, 예를 들어 각 API, 제품 또는 그룹에 대한 폴더를 포함할 수 있습니다. 각 폴더 내의 파일은 폴더 이름에 의해 설명된 엔터티 유형에 대해 적용됩니다.
 
-| 파일 형식 | 목적 |
+| 파일 형식 | 용도 |
 | --- | --- |
-| json : |해당 엔터티에 관한 구성 정보 |
+| JSON |해당 엔터티에 관한 구성 정보 |
 | html |대개 개발자 포털에 표시되는 엔터티에 관한 설명 |
 | xml |정책 설명 |
 | css |개발자 포털 사용자 지정에 대한 스타일 시트 |

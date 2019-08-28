@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 04/30/2019
-ms.openlocfilehash: 55d60ec332515fcfa3deb565a4a770027681537a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/27/2019
+ms.openlocfilehash: 00982ea837783a7e7a9dca257f04c77d48aceef2
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566971"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103113"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>자동화된 데이터베이스 백업을 사용하여 Azure SQL 데이터베이스 복구
 
@@ -37,7 +37,7 @@ ms.locfileid: "68566971"
 - 데이터베이스 최대 크기가 500GB보다 큰 경우 P11–P15에서 S4-S12 또는 P1–P6로의 복원
 - 데이터베이스 최대 크기가 250GB보다 큰 경우 P1–P6에서 S4-S12로의 복원
 
-복원 된 데이터베이스의 최대 크기가 대상 데이터베이스의 서비스 계층 및 성능 수준에 포함 된 저장소 용량 보다 큰 경우 추가 비용이 icurred입니다. 포함 된 용량을 초과 하 여 프로 비전 된 추가 저장소는 추가 요금이 부과 됩니다. 추가 스토리지에 대한 가격 책정 정보는 [SQL Database 가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요. 실제 사용 된 공간의 양이 포함 된 저장소 용량 보다 작은 경우 최대 데이터베이스 크기를 포함 된 용량으로 설정 하 여 이러한 추가 비용을 방지할 수 있습니다.
+복원 된 데이터베이스의 최대 크기가 대상 데이터베이스의 서비스 계층 및 성능 수준에 포함 된 저장소 용량 보다 큰 경우 추가 비용이 발생 합니다. 포함 된 용량을 초과 하 여 프로 비전 된 추가 저장소는 추가 요금이 부과 됩니다. 추가 스토리지에 대한 가격 책정 정보는 [SQL Database 가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요. 실제 사용 된 공간의 양이 포함 된 저장소 용량 보다 작은 경우 최대 데이터베이스 크기를 포함 된 용량으로 설정 하 여 이러한 추가 비용을 방지할 수 있습니다.
 
 > [!NOTE]
 > [데이터베이스 사본](sql-database-copy.md)을 만들 때 [자동화된 데이터베이스 백업](sql-database-automated-backups.md)이 사용됩니다.
@@ -113,7 +113,7 @@ Azure Portal를 사용 하 여 삭제 된 데이터베이스를 복구 하려면
 
 가장 최근의 지역 복제 백업에서 Azure 지역에 있는 서버의 SQL 데이터베이스를 복원할 수 있습니다. 지역 복원에서는 지역에서 복제 된 백업을 원본으로 사용 합니다. 가동 중단으로 인해 데이터베이스 또는 데이터 센터에 액세스할 수 없는 경우에도이 요청을 요청할 수 있습니다.
 
-지역 복원은 호스팅 지역의 인시던트에 의해 데이터베이스를 사용할 수 없는 경우의 기본 복구 옵션입니다. 다른 지역에 있는 서버로 데이터베이스를 복원할 수 있습니다. 백업을 만들 때와 다른 지역에 있는 Azure Blob으로 지역 복제하는 사이에 지연이 있습니다. 따라서 복원 된 데이터베이스는 기호가 없으면 원본 데이터베이스 뒤에 최대 1 시간까지 걸릴 수 있습니다. 다음 그림에서는 다른 지역에서 마지막으로 사용할 수 있는 백업에서 데이터베이스의 복원을 보여 줍니다.
+지역 복원은 호스팅 지역의 인시던트에 의해 데이터베이스를 사용할 수 없는 경우의 기본 복구 옵션입니다. 다른 지역에 있는 서버로 데이터베이스를 복원할 수 있습니다. 백업을 만들 때와 다른 지역에 있는 Azure Blob으로 지역 복제하는 사이에 지연이 있습니다. 따라서 복원 된 데이터베이스는 원본 데이터베이스의 최대 한 시간 뒤에 있을 수 있습니다. 다음 그림에서는 다른 지역에서 마지막으로 사용할 수 있는 백업에서 데이터베이스의 복원을 보여 줍니다.
 
 ![geo-restore](./media/sql-database-geo-restore/geo-restore-2.png)
 
@@ -127,7 +127,7 @@ Azure Portal를 사용 하 여 삭제 된 데이터베이스를 복구 하려면
 
 ### <a name="geo-restore-using-the-azure-portal"></a>Azure Portal을 사용한 지역 복원
 
-Azure Portal을 사용하여 [DTU 기반 모델 보존 기간](sql-database-service-tiers-dtu.md) 또는 [vCore 기반 모델 보존 기간](sql-database-service-tiers-vcore.md) 중에 데이터베이스를 지역 복원하려면 SQL Databases 페이지를 연 다음, **추가**를 클릭합니다. **Select source**(소스 선택) 텍스트 상자에서 **Backup**을 선택합니다. 선택한 서버 또는 지역에서 복구를 수행할 백업을 지정합니다.
+Azure Portal를 사용 하 여 데이터베이스를 지역 복원 하려면 SQL 데이터베이스 페이지를 연 다음 **추가**를 클릭 합니다. **Select source**(소스 선택) 텍스트 상자에서 **Backup**을 선택합니다. 선택한 서버 또는 지역에서 복구를 수행할 백업을 지정합니다.
 
 > [!Note]
 > Azure Portal를 사용한 지역 복원은 Managed Instance에서 사용할 수 없습니다. PowerShell을 대신 사용 하세요.
@@ -156,7 +156,7 @@ Azure Portal을 사용하여 [DTU 기반 모델 보존 기간](sql-database-serv
 
 - Managed Instance 데이터베이스를 복원 하려면 [AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase)을 참조 하세요.
 
-  | Cmdlet | 설명 |
+  | Cmdlet | Description |
   | --- | --- |
   | [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance) |하나 이상의 관리 되는 인스턴스를 가져옵니다. |
   | [Get-AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase) | 인스턴스 데이터베이스를 가져옵니다. |
@@ -166,7 +166,7 @@ Azure Portal을 사용하여 [DTU 기반 모델 보존 기간](sql-database-serv
 
 REST API를 사용하여 단일 또는 풀링된 데이터베이스를 복원하려면:
 
-| API | Description |
+| API | 설명 |
 | --- | --- |
 | [REST(createMode=Recovery)](https://docs.microsoft.com/rest/api/sql/databases) |데이터베이스를 복원합니다. |
 | [데이터베이스 만들기 또는 업데이트 상태 가져오기](https://docs.microsoft.com/rest/api/sql/operations) |복원 작업 동안 상태를 반환합니다. |
