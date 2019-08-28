@@ -55,7 +55,7 @@ experiment = Experiment(workspace=ws, name="diabetes-experiment")
 
 ## <a name="load-data-and-prepare-for-training"></a>데이터 로드 및 학습 준비
 
-이 자습서에서는 scikit-learn에 포함되어 미리 정규화된 데이터 세트인 당뇨병 데이터 세트를 사용합니다. 이 데이터 세트는 입니다. 이 데이터 세트는 나이, 성별, BMI와 같은 기능을 사용하여 당뇨병의 진행을 예측합니다. `load_diabetes()` 정적 함수에서 데이터를 로드하고, `train_test_split()`을 사용하여 학습 및 테스트 세트로 분할합니다. 이 함수는 학습 후 테스트에 사용할 보이지 않는 데이터를 제공하기 위해 데이터를 분리합니다.
+이 자습서에서는 scikit-learn에 포함되어 미리 정규화된 데이터 세트인 당뇨병 데이터 세트를 사용합니다. 이 데이터 세트는 나이와 성별, BMI 같은 기능을 사용하여 당뇨병의 진행을 예측합니다. `load_diabetes()` 정적 함수에서 데이터를 로드하고 `train_test_split()`을 사용하여 학습 및 테스트 세트로 분할합니다. 이 함수는 모델이 학습 후 테스트에 사용할 보지 않은 데이터를 제공하기 위해 데이터를 분리합니다.
 
 
 ```python

@@ -120,7 +120,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 #### <a name="text-to-speech-locales"></a>텍스트를 음성으로 변환
 
-`latest`를 제외한 모든 태그는 로캘 컨테이너를 나타내는 `<culture>`와 컨테이너의 음성을 나타내는  `<voice>`가 있는 다음 형식입니다.
+`latest`를 제외한 모든 태그는 `<culture>`가 로캘을 나타내고 `<voice>`가 컨테이너의 음성을 나타내는 다음 형식으로 되어 있습니다.
 
 ```
 <major>.<minor>.<patch>-<platform>-<culture>-<voice>-<prerelease>
@@ -132,7 +132,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 1.1.0-amd64-en-us-jessarus-preview
 ```
 
-다음 표는 컨테이너의 버전 1.1.0에서 **텍스트 음성 변환**에 대해 지원되는 로캘을 나열합니다.
+다음 표는 컨테이너의 버전 1.1.1에서 **음성 텍스트 변환**에 대해 지원되는 로캘을 나열합니다.
 
 |언어 로캘|Tags|지원 되는 음성|
 |--|--|--|
@@ -176,7 +176,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 세 컨테이너 중 하나를 실행합니다. 명령은 다음 매개 변수를 사용합니다.
 
-**미리 보기 중**에는 청구 설정이 컨테이너를 시작 하는 데 유효 해야 하지만 사용량에 대해서는 요금이 청구 되지 않습니다.
+**미리 보기 동안**, 컨테이너를 시작하려면 청구 설정이 유효해야 합니다. 하지만 사용에 대한 요금은 청구되지 않습니다.
 
 | 자리표시자 | 값 |
 |-------------|-------|
@@ -213,7 +213,7 @@ ApiKey={API_KEY}
 * 종료 후 자동으로 컨테이너를 제거합니다. 컨테이너 이미지는 호스트 컴퓨터에서 계속 사용할 수 있습니다.
 
 > [!IMPORTANT]
-> 컨테이너를 인스턴스화하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](#billing)를 참조하세요.
+> 컨테이너를 실행하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](#billing)을 참조하세요.
 
 ## <a name="query-the-containers-prediction-endpoint"></a>컨테이너의 예측 끝점 쿼리
 
