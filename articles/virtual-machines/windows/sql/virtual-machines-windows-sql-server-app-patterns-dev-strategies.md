@@ -9,18 +9,17 @@ editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 41863c8d-f3a3-4584-ad86-b95094365e05
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
-ms.openlocfilehash: 6cba5d8d6bb26cbf25bd20be1570461d5d2ff305
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 89935669d9dd2f7a30fbdc80694cc822df044c78
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640838"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102043"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Azure Virtual Machines의 SQL Server에 대한 애플리케이션 패턴 및 개발 전략
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
@@ -41,7 +40,7 @@ Azure 환경에서 SQL Server에 사용할 하나 이상의 애플리케이션 �
 
 일반적인 *n계층* 애플리케이션에는 프레젠테이션 계층, 비즈니스 계층 및 데이터 계층 등이 포함됩니다.
 
-| 계층 | 설명 |
+| 계층 | Description |
 | --- | --- |
 | **프레젠테이션** |*프레젠테이션 계층* (웹 계층, 프런트엔드 계층)은 사용자가 애플리케이션과 상호 작용하는 계층입니다. |
 | **비즈니스** |*비즈니스 계층* (중간 계층)은 프레젠테이션 계층과 계층 및 데이터 계층이 서로 간의 통신을 위해 사용하는 계층으로, 시스템의 핵심 기능이 여기에 포함됩니다. |

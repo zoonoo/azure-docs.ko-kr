@@ -10,25 +10,24 @@ ms.assetid: f82eb283-a6e7-4923-a00b-4b4ccf7c4b5b
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: aea51234d26e5dbaef836419c2a13a12f8083e6f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: adb7c246a9f8c8d202d45b58f4d22eeb8d51a773
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130707"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069972"
 ---
 # <a name="connect-securely-to-back-end-resources-from-an-app-service-environment"></a>App Service Environment에서 백 엔드 리소스에 안전하게 연결
 ## <a name="overview"></a>개요
-App Service 환경은 **항상** Azure Resource Manager 가상 네트워크 **또는** 클래식 배포 모델 [가상 네트워크][virtualnetwork]의 서브넷에 만들어지므로 App Service 환경에서 다른 백 엔드 리소스로의 아웃바운드 연결은 가상 네트워크를 통해서만 이동할 수 있습니다.  최근인 2016년 6월의 변경 내용에 따르면 이제 공용 주소 범위 또는 RFC1918 주소 공간(즉, 프라이빗 주소) 중 하나를 사용하는 가상 네트워크에 ASE를 배포할 수도 있습니다.  
+App Service Environment 항상 Azure Resource Manager 가상 네트워크 **또는** 클래식 배포 모델 [가상 네트워크][virtualnetwork]에서 만들어지기 때문에 App Service Environment에서 다른 백 엔드 리소스로의 아웃 바운드 연결 는 가상 네트워크를 통해서만 이동할 수 있습니다.  최근인 2016년 6월의 변경 내용에 따르면 이제 공용 주소 범위 또는 RFC1918 주소 공간(즉, 프라이빗 주소) 중 하나를 사용하는 가상 네트워크에 ASE를 배포할 수도 있습니다.  
 
 예를 들어 잠긴 포트 1433을 통해 가상 머신의 클러스터에서 실행되는 SQL Server가 있을 수 있습니다.  엔드포인트는 동일한 가상 네트워크에 있는 다른 리소스의 액세스만 허용하도록 ACL에 포함될 수 있습니다.  
 
-또 다른 예로, 중요한 엔드포인트는 온-프레미스에서 실행되고 [사이트 간][SiteToSite] 또는 [Azure ExpressRoute][ExpressRoute] 연결을 통해 Azure에 연결될 수 있습니다.  따라서 사이트 간 또는 ExpressRoute 터널에 연결된 가상 네트워크의 리소스만 온-프레미스 엔드포인트에 액세스할 수 있습니다.
+또 다른 예로, 중요 한 끝점은 온-프레미스에서 실행 되 고 [사이트 간][SiteToSite] 또는 [azure express][ExpressRoute] 경로 연결을 통해 azure에 연결 될 수 있습니다.  따라서 사이트 간 또는 ExpressRoute 터널에 연결된 가상 네트워크의 리소스만 온-프레미스 엔드포인트에 액세스할 수 있습니다.
 
 이 모든 시나리오에 대해 App Service Environment에서 실행되는 앱은 다양한 서버 및 리소스에 안전하게 연결할 수 있습니다.  App Service Environment에서 실행되는 앱에서 동일한 가상 네트워크에 있는(또는 동일한 가상 네트워크에 연결된) 프라이빗 엔드포인트로의 아웃바운드 트래픽은 가상 네트워크를 통해서만 이동합니다.  프라이빗 엔드포인트로의 아웃바운드 트래픽은 공용 인터넷을 통해 이동하지 않습니다.
 
@@ -50,7 +49,7 @@ Vnet의 모든 사용자 지정 DNS 서버는 App Service Environment 생성보�
 
 이 엔드포인트로 트래픽을 제한하는 두 가지 방법이 있습니다.
 
-* [네트워크 Access Control 목록][NetworkAccessControlLists](네트워크 ACL)
+* [네트워크 Access Control 목록][NetworkAccessControlLists] (네트워크 Acl)
 * [네트워크 보안 그룹][NetworkSecurityGroups]
 
 ## <a name="restricting-access-with-a-network-acl"></a>네트워크 ACL을 사용하여 액세스 제한
@@ -86,9 +85,9 @@ VNet 내부 트래픽으로만 액세스를 제한하는 작업은 네트워크 
 ![기본 네트워크 보안 규칙][DefaultNetworkSecurityRules]
 
 ## <a name="getting-started"></a>시작
-App Service 환경을 시작하려면 [App Service 환경 소개][IntroToAppServiceEnvironment]
+App Service Environment를 시작하려면 [App Service Environment 소개][IntroToAppServiceEnvironment]를 참조하세요.
 
-App Service 환경으로의 인바운드 트래픽을 제어하는 방법에 대한 자세한 내용은 [App Service 환경으로의 인바운드 트래픽 제어][ControlInboundASE]를 참조하세요.
+App Service Environment에 대 한 인바운드 트래픽을 제어 하는 방법에 대 한 자세한 내용은 [App Service Environment 인바운드 트래픽 제어][ControlInboundASE] 를 참조 하세요.
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 

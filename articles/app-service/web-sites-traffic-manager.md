@@ -11,17 +11,16 @@ ms.assetid: dabda633-e72f-4dd4-bf1c-6e945da456fd
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 79fe3bce558a8315f5fbf7dbc82a4979e8e24238
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bb63b25ee9257a402a9887bc8ed8aa83370f3ea0
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60831982"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066419"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Azure Traffic Manager를 사용하여 Azure App Service 트래픽 제어
 > [!NOTE]
@@ -43,7 +42,7 @@ Azure Traffic Manager는 4가지의 다른 라우팅 방법을 사용합니다. 
 자세한 내용은 [Traffic Manager 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md)을 참조하세요.
 
 ## <a name="app-service-and-traffic-manager-profiles"></a>App Service 및 Traffic Manager 프로필
-App Service 앱 트래픽 제어를 구성 하려면 Azure Traffic Manager의 네 가지 중 부하 분산 방법 사용 앞에서 설명한 프로필을 만들고 (이 예제의 경우 App Service)에 대 한 트래픽을 제어 하려는 끝점을 추가 합니다 프로필입니다. 앱 상태(실행 중, 중지됨 또는 삭제됨)가 정기적으로 프로필에 전달되므로 Azure Traffic Manager가 상태에 따라 트래픽을 보낼 수 있습니다.
+앱 트래픽 App Service 제어를 구성 하려면 앞에서 설명한 4 가지 부하 분산 방법 중 하나를 사용 하는 Azure Traffic Manager에서 프로필을 만든 다음, 트래픽을 제어 하려는 끝점 (이 경우 App Service)을 추가 합니다. profile. 앱 상태(실행 중, 중지됨 또는 삭제됨)가 정기적으로 프로필에 전달되므로 Azure Traffic Manager가 상태에 따라 트래픽을 보낼 수 있습니다.
 
 Azure에서 Azure Traffic Manager를 사용할 경우 다음 사항에 유의하십시오.
 

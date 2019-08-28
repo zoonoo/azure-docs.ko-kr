@@ -3,15 +3,15 @@ title: Azure Cosmos DB에서 고가용성 및 성능 최적화를 위한 사용�
 description: Azure Cosmos DB에서 고가용성 및 성능 최적화를 위한 사용자 지정 동기화 구현 방법을 알아봅니다.
 author: rimman
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: rimman
-ms.openlocfilehash: 0f630c2139d1d7d391d6c5578e5e7f378e56dcb4
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
-ms.translationtype: HT
+ms.openlocfilehash: 8fce14496b9f8fa17f2dbfd04b7ea42f1495a8a9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013781"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093347"
 ---
 # <a name="implement-custom-synchronization-to-optimize-for-higher-availability-and-performance"></a>고가용성 및 성능 최적화를 위한 사용자 지정 동기화 구현
 

@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/13/2019
+ms.date: 08/28/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
-ms.custom: fasttrack-edit
+ms.custom: aaddev, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b935f8bb15357e0ca79665b5620be5778ad3c554
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
-ms.translationtype: HT
+ms.openlocfilehash: d89d861b48b0c198b06a45613db668adcf551b39
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512514"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70074319"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Microsoft id 플랫폼 액세스 토큰
 
@@ -77,8 +77,8 @@ JWT는 세 부분으로 분할됩니다.
 |클레임 | 형식 | Description |
 |--------|--------|-------------|
 | `typ` | 문자열 - 항상 "JWT" | 토큰이 JWT임을 나타냅니다.|
-| `nonce` | 문자열 | 토큰 재생 공격으로부터 보호하기 위해 사용되는 고유 식별자입니다. 리소스에서 이 값을 기록하면 재생을 방지할 수 있습니다. |
-| `alg` | String | 토큰에 서명하는 데 사용된 알고리즘을 나타냅니다(예: "RS256"). |
+| `nonce` | String | 토큰 재생 공격으로부터 보호하기 위해 사용되는 고유 식별자입니다. 리소스에서 이 값을 기록하면 재생을 방지할 수 있습니다. |
+| `alg` | 문자열 | 토큰에 서명하는 데 사용된 알고리즘을 나타냅니다(예: "RS256"). |
 | `kid` | 문자열 | 이 토큰에 서명하는 데 사용되는 공개 키의 지문을 지정합니다. v1.0 및 v2.0 액세스 토큰으로 내보냅니다. |
 | `x5t` | 문자열 | 사용 및 값에서 `kid`와 동일하게 작동합니다. `x5t`는 호환성을 위해 v1.0 액세스 토큰으로만 내보내는 레거시 클레임입니다. |
 
@@ -100,7 +100,7 @@ JWT는 세 부분으로 분할됩니다.
 | `azp` | 문자열, GUID | 에 대 한 `appid`대체 인 v2.0 토큰에만 제공 됩니다. 토큰을 사용하는 클라이언트의 애플리케이션 ID입니다. 애플리케이션은 자체적으로 작동할 수도 있고 사용자를 대신하여 작동할 수도 있습니다. 애플리케이션 ID는 일반적으로 애플리케이션 개체를 나타내지만 Azure AD의 서비스 사용자 개체를 나타낼 수도 있습니다. |
 | `azpacr` | "0", "1" 또는 "2" | 에 대 한 `appidacr`대체 인 v2.0 토큰에만 제공 됩니다. 클라이언트가 인증된 방법을 나타냅니다. 공용 클라이언트의 경우 값은 "0"입니다. 클라이언트 ID 및 클라이언트 비밀이 사용되는 경우 값은 "1"입니다. 클라이언트 인증서가 인증에 사용된 경우 값은 "2"입니다. |
 | `preferred_username` | String | 사용자를 나타내는 기본 사용자 이름입니다. 메일 주소, 전화 번호 또는 지정된 형식이 없는 일반 사용자 이름일 수 있습니다. 해당 값은 변경 가능하며 시간이 지남에 따라 변경될 수 있습니다. 해당 값은 변경 가능하므로 권한 부여 결정을 내리는 데 사용되지 않아야 합니다.  사용자 이름 힌트에 사용할 수 있습니다. `profile` 범위는 이 클레임을 받기 위해 필요합니다. |
-| `name` | String | 사람이 인식할 수 있으며 토큰의 주체를 식별하는 값을 제공합니다. 이 값은 반드시 고유한 것은 아니며 변경 가능하고 표시 용도로만 사용하도록 디자인되었습니다. `profile` 범위는 이 클레임을 받기 위해 필요합니다. |
+| `name` | 문자열 | 사람이 인식할 수 있으며 토큰의 주체를 식별하는 값을 제공합니다. 이 값은 반드시 고유한 것은 아니며 변경 가능하고 표시 용도로만 사용하도록 디자인되었습니다. `profile` 범위는 이 클레임을 받기 위해 필요합니다. |
 | `scp` | 문자열, 공백으로 구분된 범위 목록 | 클라이언트 애플리케이션이 동의를 요청(및 수신)한 애플리케이션에 의해 노출된 범위 집합입니다. 앱은 이러한 범위가 앱에 의해 노출된 유효한 범위인지 확인하고 이러한 범위의 값을 기반으로 권한 부여 결정을 해야 합니다. [사용자 토큰](#user-and-application-tokens)에 대해서만 포함됩니다. |
 | `roles` | 문자열 배열, 사용 권한 목록 | 응용 프로그램에서 요청 하는 응용 프로그램 또는 사용자에 게 호출 권한이 부여 된 사용 권한 집합입니다. [응용 프로그램 토큰](#user-and-application-tokens)의 경우 사용자 범위 대신 [클라이언트 자격 증명](v1-oauth2-client-creds-grant-flow.md) 흐름 중에 사용 됩니다.  [사용자 토큰](#user-and-application-tokens) 의 경우 대상 응용 프로그램에서 사용자가 할당 된 역할로 채워집니다. |
 | `wids` | [RoleTemplateID](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids) guid의 배열 | [관리 역할 페이지](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids)의 역할 섹션에서이 사용자에 게 할당 된 테 넌 트 전체 역할을 나타냅니다.  이 클레임은 응용 프로그램 `groupMembershipClaims` [매니페스트의](reference-app-manifest.md)속성을 통해 응용 프로그램 별로 구성 됩니다.  "모두" 또는 "DirectoryRole"로 설정 해야 합니다.  토큰 길이 문제로 인해 암시적 흐름을 통해 가져온 토큰에는 없을 수 있습니다. |
@@ -119,23 +119,23 @@ JWT는 세 부분으로 분할됩니다.
 
 다음 클레임은 (해당 하는 경우) v 1.0 토큰에 포함 되지만, 기본적으로 v2.0 토큰에는 포함 되지 않습니다. V 2.0을 사용 하 고 이러한 클레임 중 하나가 필요한 경우 [선택적 클레임](active-directory-optional-claims.md)을 사용 하 여 요청 합니다.
 
-| 클레임 | 형식 | 설명 |
+| 클레임 | 형식 | Description |
 |-----|--------|-------------|
-| `ipaddr`| 문자열 | 사용자가 인증된 IP 주소입니다. |
+| `ipaddr`| String | 사용자가 인증된 IP 주소입니다. |
 | `onprem_sid`| 문자열, [SID 형식](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | 사용자에게 온-프레미스 인증이 있는 경우 이 클레임이 해당 SID를 제공합니다. 레거시 애플리케이션에서 권한 부여에 `onprem_sid`를 사용할 수 있습니다.|
 | `pwd_exp`| int, UNIX 타임스탬프 | 사용자의 암호가 만료되는 시기를 나타냅니다. |
-| `pwd_url`| String | 암호를 재설정하도록 사용자에게 보낼 수 있는 URL입니다. |
+| `pwd_url`| 문자열 | 암호를 재설정하도록 사용자에게 보낼 수 있는 URL입니다. |
 | `in_corp`| boolean | 클라이언트가 회사 네트워크에서 로그인하는 경우 알립니다. 그렇지 않으면 클레임이 포함 되지 않습니다. |
-| `nickname`| String | 이름 및 성과는 별개인 사용자의 추가 이름입니다.|
+| `nickname`| 문자열 | 이름 및 성과는 별개인 사용자의 추가 이름입니다.|
 | `family_name` | String | 사용자 개체에 정의된 대로 사용자의 성을 제공합니다. |
-| `given_name` | 문자열 | 사용자 개체에 설정된 대로 사용자의 이름을 제공합니다. |
-| `upn` | String | 사용자의 사용자 이름입니다. 전화 번호, 이메일 주소 또는 형식이 지정되지 않은 문자열일 수 있습니다. 표시 목적 및 재인증 시나리오에서 사용자 이름 힌트를 제공하기 위해서만 사용해야 합니다. |
+| `given_name` | String | 사용자 개체에 설정된 대로 사용자의 이름을 제공합니다. |
+| `upn` | 문자열 | 사용자의 사용자 이름입니다. 전화 번호, 이메일 주소 또는 형식이 지정되지 않은 문자열일 수 있습니다. 표시 목적 및 재인증 시나리오에서 사용자 이름 힌트를 제공하기 위해서만 사용해야 합니다. |
 
 #### <a name="the-amr-claim"></a>`amr` 클레임
 
 Microsoft id는 응용 프로그램과 관련이 있을 수 있는 다양 한 방법으로 인증할 수 있습니다. `amr` 클레임은 암호 및 Authenticator 앱을 모두 사용하는 인증을 위해 여러 항목(예: `["mfa", "rsa", "pwd"]`)을 포함할 수 있는 배열입니다.
 
-| 값 | 설명 |
+| 값 | Description |
 |-----|-------------|
 | `pwd` | 암호 인증으로, 사용자의 Microsoft 암호 또는 앱의 클라이언트 비밀 중 하나입니다. |
 | `rsa` | 인증은 [Microsoft Authenticator 앱](https://aka.ms/AA2kvvu) 등을 사용하여 RSA 키 증명을 기반으로 수행되었습니다. 여기에는 서비스 소유의 X509 인증서를 사용 하 여 자체 서명 된 JWT에서 인증이 수행 된 경우이 포함 됩니다. |
@@ -170,7 +170,7 @@ Azure AD에서 발급된 토큰은 RSA 256 등의 업계 표준 비대칭 암호
 }
 ```
 
-`alg` 클레임은 토큰 서명에 사용된 알고리즘을 나타내고 `kid` 클레임은 토큰 서명에 사용된 특정 공개 키를 나타냅니다.
+클레임은 토큰을 서명 하는 데 사용 된 알고리즘을 나타내며, 클레임 `kid` 은 토큰의 유효성을 검사 하는 데 사용 된 특정 공개 키를 나타냅니다. `alg`
 
 특정 시점에 Azure AD는퍼블릭-프라이빗 키 쌍의 특정 집합 중 하나를 사용하여 id_token에 서명할 수 있습니다. Azure AD는 주기적으로 가능한 키 집합을 순환하므로 이러한 키 변경을 자동으로 처리하도록 앱을 작성해야 합니다. Azure AD에서 사용된 공개 키에 대한 업데이트를 확인하는 적절한 빈도는 24시간마다입니다.
 

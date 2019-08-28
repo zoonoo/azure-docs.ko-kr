@@ -4,17 +4,16 @@ description: Azure Functions에서 HTTP 트리거 끝점을 사용자 지정 하
 author: mattchenderson
 manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 00aa55fe9f92358fd3a0e6f3065e5e2e69e405e1
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: f7729f5acb8b7b95004265f6802ba2feb1bc3cd7
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534623"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70096754"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Azure Functions에서 HTTP 끝점 사용자 지정
 
@@ -100,7 +99,7 @@ Azure Portal을 엽니다. 이렇게 하려면 Azure 계정으로 [https://porta
     ![프록시 만들기](./media/functions-create-serverless-api/creating-proxy.png)
 1. 표에 지정된 것처럼 프록시 설정을 사용합니다. 
 
-    | 필드 | 샘플 값 | 설명 |
+    | 필드 | 샘플 값 | Description |
     |---|---|---|
     | 이름 | HelloProxy | 관리에 대해서만 사용되는 이름 |
     | 경로 템플릿 | /api/remotehello | 이 프록시를 호출하는 데 사용할 경로 결정 |

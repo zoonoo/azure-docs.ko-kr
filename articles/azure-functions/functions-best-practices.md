@@ -8,17 +8,16 @@ manager: jeconnoc
 keywords: Azure Functions, 패턴, 모범 사례, 함수, 이벤트 처리, webhook, 동적 컴퓨팅, 서버리스 아키텍처
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30b187676f0c1fb03b7124d93b3991b0e32d61ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 19e088eee878695d24678d1df17b2848a4be1e01
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62104679"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70097533"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Azure Functions의 성능 및 안정성 최적화
 
@@ -84,7 +83,7 @@ Azure Functions 플랫폼에서 사용하는 구성 요소를 위해 이미 제�
 
 프로덕션 함수 앱에서 로드하는 것에 주의하세요. 메모리는 앱에서 각 함수가 사용하는 것의 평균으로 계산됩니다.
 
-여러.NET 함수에서 참조 되는 공유 어셈블리에 있는 경우 일반적인 공유 폴더에 배치 합니다. C# 스크립트(.csx)를 사용하는 경우 다음 예제와 비슷한 문을 사용하여 어셈블리를 참조합니다. 
+여러 .NET 함수에서 공유 어셈블리를 참조 하는 경우에는 공통 공유 폴더에 저장 합니다. C# 스크립트(.csx)를 사용하는 경우 다음 예제와 비슷한 문을 사용하여 어셈블리를 참조합니다. 
 
     #r "..\Shared\MyAssembly.dll". 
 
@@ -118,7 +117,7 @@ C# 함수의 경우 강력한 형식의 배열로 형식을 변경할 수 있습
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 다음 리소스를 참조하세요.
+자세한 내용은 다음 리소스를 참조하십시오.
 
 * [Azure Functions에서 연결을 관리하는 방법](manage-connections.md)
 * [Azure App Service 모범 사례](../app-service/app-service-best-practices.md)

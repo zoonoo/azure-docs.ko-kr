@@ -9,16 +9,15 @@ ms.assetid: ''
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
-ms.openlocfilehash: 687783520b082cdfd1a6ffc91a8641ea35fafd68
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: c3c54b003017f7512cd40c7798fc351e4e4a3f69
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323345"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094930"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Batch 풀에서 RDMA 또는 GPU 인스턴스 사용
 
@@ -43,7 +42,7 @@ Batch에서 컴퓨팅 집약적인 크기의 RDMA 또는 GPU 기능은 특정 �
 
 ### <a name="linux-pools---virtual-machine-configuration"></a>Linux 풀 - 가상 머신 구성
 
-| 크기 | 기능 | 운영 체제 | 필수 소프트웨어 | 풀 설정 |
+| Size | 기능 | 운영 체제 | 필수 소프트웨어 | 풀 설정 |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS 또는<br/>CentOS 기반 HPC<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Linux RDMA 드라이버 | 노드 간 통신 사용, 동시 작업 실행 사용 안 함 |
 | [NC, NCv2, NCv3, NDv2 시리즈](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU(시리즈에 따라 다름) | Ubuntu 16.04 LTS 또는<br/>CentOS 7.3 또는 7.4<br/>(Azure Marketplace) | NVIDIA CUDA 또는 CUDA Toolkit 드라이버 | 해당 사항 없음 | 
@@ -53,10 +52,10 @@ Batch에서 컴퓨팅 집약적인 크기의 RDMA 또는 GPU 기능은 특정 �
 
 ### <a name="windows-pools---virtual-machine-configuration"></a>Windows 풀 - 가상 머신 구성
 
-| 크기 | 기능 | 운영 체제 | 필수 소프트웨어 | 풀 설정 |
+| Size | 기능 | 운영 체제 | 필수 소프트웨어 | 풀 설정 |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Windows Server 2016, 2012 R2 또는<br/>2012(Azure Marketplace) | Microsoft MPI 2012 R2 이상 또는<br/> Intel MPI 5<br/><br/>Windows RDMA 드라이버 | 노드 간 통신 사용, 동시 작업 실행 사용 안 함 |
-| [NC, NCv2, NCv3, ND, NDv2 시리즈](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU(시리즈에 따라 다름) | Windows Server 2016 또는 <br/>2012 R2(Azure Marketplace) | NVIDIA CUDA 또는 CUDA Toolkit 드라이버| N/A | 
+| [NC, NCv2, NCv3, ND, NDv2 시리즈](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU(시리즈에 따라 다름) | Windows Server 2016 또는 <br/>2012 R2(Azure Marketplace) | NVIDIA CUDA 또는 CUDA Toolkit 드라이버| 해당 사항 없음 | 
 | [NV, NVv2 시리즈](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 또는<br/>2012 R2(Azure Marketplace) | NVIDIA GRID 드라이버 | N/A |
 
 <sup>*</sup>RDMA 지원 N 시리즈 크기에는 NVIDIA Tesla GPU도 포함됨
@@ -67,7 +66,7 @@ Batch에서 컴퓨팅 집약적인 크기의 RDMA 또는 GPU 기능은 특정 �
 > N 시리즈 크기는 클라우드 서비스 구성을 사용하는 Batch 풀에서 지원되지 않습니다.
 >
 
-| 크기 | 기능 | 운영 체제 | 필수 소프트웨어 | 풀 설정 |
+| Size | 기능 | 운영 체제 | 필수 소프트웨어 | 풀 설정 |
 | -------- | ------- | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2016, 2012 R2, 2012 또는<br/>2008 R2(게스트 OS 제품군) | Microsoft MPI 2012 R2 이상 또는<br/>Intel MPI 5<br/><br/>Windows RDMA 드라이버 | 노드 간 통신 사용<br/> 동시 작업 실행 사용 안 함 |
 

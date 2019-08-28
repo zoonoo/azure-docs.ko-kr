@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: c718794528989fbc46b404617f16d3a91ade6011
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 155f392410c5722a28ba09acafc1480e72586773
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877300"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100897"
 ---
 # <a name="create-a-new-device-template-version"></a>새 디바이스 템플릿 버전 만들기
 
@@ -50,7 +50,7 @@ Azure IoT Central을 사용하여 IoT 애플리케이션을 신속하게 개발�
 
 버전이 변경되면 규칙 및 디바이스 대시보드는 어떻게 되나요?
 
-**규칙**은 속성에 종속된 조건을 포함할 수 있습니다. 이러한 속성 중 하나 이상을 제거하면 새 디바이스 템플릿 버전에서 규칙이 손상될 수 있습니다. 이러한 특정 규칙으로 이동한 후 조건을 업데이트하여 규칙을 수정할 수 있습니다. 이전 버전에 대한 규칙은 영향을 받지 않고 작동합니다.
+이전 버전의 장치 템플릿의 **규칙** 은 변경 되지 않은 상태로 계속 작동 합니다. 규칙은 새 장치 템플릿 버전으로 자동으로 마이그레이션되지 않습니다. 일반적인 방법으로 새 템플릿 버전에 대 한 규칙을 만들 수 있습니다. 자세한 내용은 [Azure IoT Central 응용 프로그램에서 원격 분석 규칙 만들기 및 알림 설정](howto-create-telemetry-rules.md) 문서를 참조 하세요.
 
 **디바이스 대시보드**는 여러 가지 타일 형식을 포함할 수 있습니다. 타일 중 일부는 설정 및 속성을 포함할 수 있습니다. 타일에 사용되는 속성 또는 설정을 제거하면 타일이 완전히 또는 부분적으로 손상됩니다. 타일로 이동한 후 타일을 제거하거나 타일의 콘텐츠를 업데이트하여 문제를 해결할 수 있습니다.
 

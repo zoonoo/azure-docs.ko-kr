@@ -10,19 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a8737d468b49904eaa16e873dd5d468b4eed6fb6
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 44ee910aa1a5f3c1a703b9ed4202d395359970cb
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992015"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099946"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용 하 여 SAP 워크 로드 시나리오 호스트 및 실행
 
@@ -32,7 +31,7 @@ Azure에서 다른 DBMS를 사용 하 여 SAP NetWeaver 시나리오를 호스�
 
 Azure for SAP HANA의 고유성은 Azure를 따로 설정 하는 제품입니다. SAP HANA와 관련 된 추가 메모리 및 CPU 리소스를 많이 사용 하는 SAP 시나리오 호스팅을 지원 하기 위해 Azure는 고객 전용 운영 체제 미 설치 하드웨어를 제공 합니다. S/4HANA 또는 기타 SAP HANA 워크 로드에 대해 최대 24tb (120-TB)의 메모리를 필요로 하는 SAP HANA 배포를 실행 하려면이 솔루션을 사용 합니다. 
 
-Azure에서 SAP 워크 로드 시나리오를 호스트 하는 것도 id 통합 및 single sign-on의 요구 사항을 만들 수 있습니다. 이 상황은 Azure Active Directory (Azure AD)를 사용 하 여 다양 한 SAP 구성 요소와 SAP SaaS (software as a service) 또는 PaaS (platform as a service) 제품을 연결 하는 경우에 발생할 수 있습니다. Azure AD 및 SAP 엔터티와 이러한 통합 및 Single Sign-On 시나리오의 목록은 "AAD SAP identity integration and Single Sign-On" 섹션에서 설명 하 고 설명 합니다.
+Azure에서 SAP 워크 로드 시나리오를 호스트 하는 것도 id 통합 및 Single Sign-On 요구 사항을 만들 수 있습니다. 이 상황은 Azure Active Directory (Azure AD)를 사용 하 여 다양 한 SAP 구성 요소와 SAP SaaS (software as a service) 또는 PaaS (platform as a service) 제품을 연결 하는 경우에 발생할 수 있습니다. Azure AD 및 SAP 엔터티와 이러한 통합 및 Single Sign-On 시나리오의 목록은 "AAD SAP identity integration and Single Sign-On" 섹션에서 설명 하 고 설명 합니다.
 
 ## <a name="changes-to-the-sap-workload-section"></a>SAP 워크 로드 섹션의 변경 내용
 Azure의 SAP 워크 로드 섹션에서 문서에 대 한 변경 내용은이 문서의 끝에 나열 되어 있습니다.

@@ -7,23 +7,22 @@ author: romitgirdhar
 manager: gwallace
 tags: ''
 ms.service: virtual-machines
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/18/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: ca16dceae9ab1afab17b2893b61f6a1c3309cf93
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: b183a4d4922c89f60ccb19b3e3e978216f33cc9a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68361584"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100082"
 ---
 # <a name="architectures-to-deploy-oracle-applications-on-azure"></a>Azure에서 Oracle 응용 프로그램을 배포 하는 아키텍처
 
-Microsoft와 Oracle은 고객이 Oracle E-비즈니스 제품군, JD Edwards EnterpriseOne, PeopleSoft 등의 Oracle 응용 프로그램을 클라우드에 배포할 수 있도록 함께 작업 했습니다. Microsoft Azure와 Oracle 클라우드 인프라 (OCI) 간의 preview [개인 네트워크 상호 연결과](configure-azure-oci-networking.md) 도입 되면서 이제 Azure에서 AZURE 또는 oci의 백 엔드 데이터베이스를 사용 하 여 Oracle 응용 프로그램을 배포할 수 있습니다. Oracle 응용 프로그램은 Azure Active Directory와 통합 되어 사용자가 Azure Active Directory (Azure AD) 자격 증명을 사용 하 여 Oracle 응용 프로그램에 로그인 할 수 있도록 single sign-on을 설정할 수도 있습니다.
+Microsoft와 Oracle은 고객이 Oracle E-비즈니스 제품군, JD Edwards EnterpriseOne, PeopleSoft 등의 Oracle 응용 프로그램을 클라우드에 배포할 수 있도록 함께 작업 했습니다. Microsoft Azure와 Oracle 클라우드 인프라 (OCI) 간의 preview [개인 네트워크 상호 연결과](configure-azure-oci-networking.md) 도입 되면서 이제 Azure에서 AZURE 또는 oci의 백 엔드 데이터베이스를 사용 하 여 Oracle 응용 프로그램을 배포할 수 있습니다. Oracle 응용 프로그램을 Azure Active Directory와 통합 하 여 사용자가 Azure Active Directory (Azure AD) 자격 증명을 사용 하 여 Oracle 응용 프로그램에 로그인 할 수 있도록 Single Sign-On를 설정할 수도 있습니다.
 
 OCI는 DBaaS, Exadata 클라우드 서비스, Oracle RAC 및 IaaS (Infrastructure as a Service)를 포함 하 여 Oracle 응용 프로그램에 대 한 여러 Oracle 데이터베이스 옵션을 제공 합니다. 현재, 자치 데이터베이스는 Oracle 응용 프로그램에 대해 지원 되는 백 엔드가 아닙니다.
 
@@ -82,9 +81,9 @@ Microsoft 및 Oracle에서는 고가용성 설정을 사용 하는 것이 좋습
 
 ### <a name="identity-tier"></a>Id 계층
 
-Id 계층에는 EBS Asserter VM이 포함 됩니다. EBS Asserter를 사용 하 여 Oracle Identity Cloud Service (IDCS) 및 Azure AD에서 id를 동기화 할 수 있습니다. EBS Asserter는 EBS에서 SAML 2.0 또는 Openid connect Connect와 같은 single sign-on 프로토콜을 지원 하지 않기 때문에 필요 합니다. EBS Asserter는 IDCS에 의해 생성 된 Openid connect connect 토큰을 사용 하 고 유효성을 검사 한 다음 EBS에서 사용자에 대 한 세션을 만듭니다. 
+Id 계층에는 EBS Asserter VM이 포함 됩니다. EBS Asserter를 사용 하 여 Oracle Identity Cloud Service (IDCS) 및 Azure AD에서 id를 동기화 할 수 있습니다. EBS Asserter는 EBS가 SAML 2.0 또는 Openid connect Connect와 같은 Single Sign-On 프로토콜을 지원 하지 않기 때문에 필요 합니다. EBS Asserter는 IDCS에 의해 생성 된 Openid connect connect 토큰을 사용 하 고 유효성을 검사 한 다음 EBS에서 사용자에 대 한 세션을 만듭니다. 
 
-이 아키텍처는 IDCS 통합을 표시 하지만 Azure AD 통합 액세스 및 single sign-on은 oracle Access Manager (oracle 인터넷 디렉터리 또는 Oracle 통합 디렉터리 포함)를 사용 하 여 활성화할 수도 있습니다. 자세한 내용은 [IDCS 통합을 사용 하 여 ORACLE EBS 배포](https://cloud.oracle.com/iaas/whitepapers/deploy_ebusiness_suite_across_oci_azure_sso_idcs.pdf) 또는 [Oam 통합으로 oracle EBS 배포](https://cloud.oracle.com/iaas/whitepapers/deploy_ebusiness_suite_across_oci_azure_sso_oam.pdf)에 대 한 백서를 참조 하세요.
+이 아키텍처는 IDCS 통합을 표시 하지만 Azure AD 통합 액세스 및 Single Sign-On oracle Access Manager (oracle 인터넷 디렉터리 또는 Oracle 통합 디렉터리)를 사용 하 여 사용 하도록 설정할 수도 있습니다. 자세한 내용은 [IDCS 통합을 사용 하 여 ORACLE EBS 배포](https://cloud.oracle.com/iaas/whitepapers/deploy_ebusiness_suite_across_oci_azure_sso_idcs.pdf) 또는 [Oam 통합으로 oracle EBS 배포](https://cloud.oracle.com/iaas/whitepapers/deploy_ebusiness_suite_across_oci_azure_sso_oam.pdf)에 대 한 백서를 참조 하세요.
 
 고가용성을 위해 부하 분산 장치를 사용 하 여 여러 가용성 영역에 걸쳐 EBS Asserter의 중복 서버를 배포 하는 것이 좋습니다.
 

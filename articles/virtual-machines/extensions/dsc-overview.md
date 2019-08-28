@@ -10,34 +10,33 @@ tags: azure-resource-manager
 keywords: dsc
 ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 410990ecdca8a94be9c7c3d0b48a5092fcaa6060
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c759567e4d8c183452eccbbdca8459c8993d1361
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66515900"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092429"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure 필요한 상태 구성 확장 처리기 소개
 
 Azure VM 에이전트 및 연결된 확장은 Microsoft Azure 인프라 서비스의 일부입니다. VM 확장 기능은 VM 기능을 확장하고 다양한 VM 관리 작업을 단순화하는 소프트웨어 구성 요소입니다.
 
-기본 사용 사례는 Azure Desired State Configuration (DSC) 확장은 VM을 부트스트랩 하는 [Azure Automation 상태 구성 (DSC) 서비스](../../automation/automation-dsc-overview.md)합니다.
-서비스 제공 [혜택](/powershell/dsc/metaconfig#pull-service) VM 구성 및 Azure 모니터링 등과 같은 기타 운영 도구와 통합의 지속적인 관리를 포함 하는 합니다.
-VM의 서비스에 등록 하는 확장을 사용 하 여도 Azure 구독에서 작동 하는 유연한 솔루션을 제공 합니다.
+Azure DSC (필요한 상태 구성) 확장의 주요 사용 사례는 VM을 [dsc (Azure Automation 상태 구성) 서비스로](../../automation/automation-dsc-overview.md)부트스트랩 하는 것입니다.
+이 서비스는 VM 구성의 지속적인 관리와 Azure 모니터링과 같은 다른 운영 도구와의 통합을 포함 하는 [이점을](/powershell/dsc/metaconfig#pull-service) 제공 합니다.
+확장을 사용 하 여 VM을 서비스에 등록 하면 Azure 구독에서 작동 하는 유연한 솔루션을 제공 합니다.
 
 DSC 확장은 Automation DSC 서비스와 별도로 사용할 수 있습니다.
-그러나 구성을 VM에만 푸시는이 합니다.
-지속적인 보고 하지 않으려면 VM에서 로컬로 이외의 제공 됩니다.
+그러나 이렇게 하면 VM에 대 한 구성만 푸시 됩니다.
+VM에서 로컬이 아닌 진행 중인 보고를 사용할 수 없습니다.
 
 이 문서에서는 두 가지 시나리오, 즉 Automation 온보딩을 위해 DSC 확장을 사용하는 경우와 Azure SDK를 사용하여 VM에 구성을 할당하기 위한 도구로 DSC 확장을 사용하는 경우에 대한 정보를 제공합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - **로컬 머신**: Azure VM 확장과 상호 작용하려면 Azure Portal 또는 Azure PowerShell SDK를 사용해야 합니다.
 - **게스트 에이전트**: DSC 구성을 통해 구성된 Azure VM은 WMF(Windows Management Framework) 4.0 이상을 지원하는 OS여야 합니다. 지원되는 OS 버전의 전체 목록은 [DSC 확장 버전 기록](/powershell/dsc/azuredscexthistory)을 참조하세요.
@@ -66,24 +65,24 @@ WMF를 설치하려면 컴퓨터를 다시 시작해야 합니다. 다시 시작
 
 Azure DSC 확장에는 Azure Automation DSC 서비스에 VM을 온보딩할 때 사용할 수 있도록 기본 구성 스크립트가 포함되어 있습니다. 스크립트 매개 변수는 [로컬 구성 관리자](/powershell/dsc/metaconfig)의 구성 가능한 속성과 정렬됩니다. 스크립트 매개 변수에 대해서는 [Desired State Configuration 확장과 Azure Resource Manager 템플릿](dsc-template.md)에서 [기본 구성 스크립트](dsc-template.md#default-configuration-script)를 참조하세요. 전체 스크립트에 대해서는 [GitHub의 Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true)을 참조하세요.
 
-## <a name="information-for-registering-with-azure-automation-state-configuration-dsc-service"></a>Azure Automation 상태 구성 (DSC) 서비스를 사용 하 여 등록에 대 한 정보
+## <a name="information-for-registering-with-azure-automation-state-configuration-dsc-service"></a>DSC (Azure Automation 상태 구성) 서비스로 등록 하는 방법에 대 한 정보
 
-상태 구성 서비스를 사용 하 여 노드를 등록 하려면 DSC 확장을 사용 하면 세 개의 값 제공 해야 합니다.
+DSC 확장을 사용 하 여 상태 구성 서비스에 노드를 등록 하는 경우 세 가지 값을 제공 해야 합니다.
 
 - RegistrationUrl-Azure Automation 계정의 https 주소
-- RegistrationKey-서비스를 사용 하 여 노드를 등록 하는 데 사용 하는 공유 암호
-- NodeConfigurationName-의 노드 구성 (MOF)에 서버 역할을 구성 하려면 서비스에서 풀 이름
+- RegistrationKey-서비스에 노드를 등록 하는 데 사용 되는 공유 암호
+- NodeConfigurationName-서버 역할을 구성 하기 위해 서비스에서 끌어올 노드 구성 (MOF)의 이름
 
-이 정보를 볼 수 있습니다 합니다 [Azure portal](../../automation/automation-dsc-onboarding.md#azure-portal) 또는 PowerShell을 사용할 수 있습니다.
+이 정보는 [Azure Portal](../../automation/automation-dsc-onboarding.md#azure-portal) 에서 볼 수도 있고 PowerShell을 사용할 수도 있습니다.
 
 ```powershell
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).Endpoint
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).PrimaryKey
 ```
 
-노드 구성 이름에 대 한 Azure 상태 구성의 노드 구성이 있는지를 확인 합니다.  표시 되지 않는 확장 배포는 오류를 반환 합니다.  또한의 이름을 사용 하 고 있는지를 확인 합니다 *노드 구성* 및 구성은 없습니다.
-구성을 사용 되는 스크립트에 정의 된 [노드 구성 (MOF 파일)를 컴파일하는 데](https://docs.microsoft.com/azure/automation/automation-dsc-compile)합니다.
-이름을 마침표 뒤에 구성을 항상 `.` 고 `localhost` 또는 특정 컴퓨터 이름입니다.
+노드 구성 이름에 대해 노드 구성이 Azure 상태 구성에 있는지 확인 합니다.  그렇지 않은 경우 확장 배포는 실패를 반환 합니다.  또한 구성이 아니라 *노드 구성* 의 이름을 사용 하 고 있는지도 확인 해야 합니다.
+구성은 [노드 구성 (MOF 파일)을 컴파일하](https://docs.microsoft.com/azure/automation/automation-dsc-compile)는 데 사용 되는 스크립트에 정의 됩니다.
+이름은 항상 구성 후에 마침표 `.` `localhost` 와 특정 컴퓨터 이름으로 구성 됩니다.
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>Resource Manager 템플릿의 DSC 확장
 
@@ -146,9 +145,9 @@ Set-AzVMDscExtension -Version '2.76' -ResourceGroupName $resourceGroup -VMName $
 
 ## <a name="azure-cli-deployment"></a>Azure CLI 배포
 
-Azure CLI는 기존 가상 머신에 DSC 확장을 배포 하 사용할 수 있습니다.
+Azure CLI를 사용 하 여 기존 가상 머신에 DSC 확장을 배포할 수 있습니다.
 
-가상 컴퓨터의 Windows를 실행 합니다.
+Windows를 실행 하는 가상 컴퓨터의 경우:
 
 ```azurecli
 az vm extension set \
@@ -160,7 +159,7 @@ az vm extension set \
   --settings '{}'
 ```
 
-Linux를 실행 중인 가상 컴퓨터:
+Linux를 실행 하는 가상 머신의 경우:
 
 ```azurecli
 az vm extension set \

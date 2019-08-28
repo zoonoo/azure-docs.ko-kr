@@ -8,18 +8,17 @@ manager: willchen
 editor: ''
 tags: ''
 ms.service: virtual-machines
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 70a6845349b90cf614a84e13680ebb6fc6b3e2a9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: aea4c20ceeb9b4f1ad70187da2690fd5d202fe7a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60443758"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70089543"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Azure VM에 대한 시스템 다시 부팅 이해
 
@@ -102,7 +101,7 @@ VM은 Azure 데이터 센터 내에서 실행되는 실제 서버에서 호스�
 
 가끔 Azure 운영 팀은 Azure 플랫폼의 전반적인 상태를 확인하기 위한 유지 관리 활동을 수행해야 할 수 있습니다. 이 동작은 VM 사용 가능성에 영향을 줄 수 있고 일반적으로 앞에서 설명한 대로 동일한 자동 복구 작업이 발생합니다.  
 
-계획 되지 않은 유지 관리는 다음과 같습니다.
+계획 되지 않은 유지 관리에는 다음이 포함 됩니다.
 
 - 긴급 노드 조각 모음
 - 긴급 네트워크 스위치 업데이트
@@ -111,7 +110,7 @@ VM은 Azure 데이터 센터 내에서 실행되는 실제 서버에서 호스�
 
 VM 자체 내의 문제로 인해 VM이 다시 시작할 수 있습니다. VM에서 실행되는 작업 부하 또는 역할은 게스트 운영 체제 내에서 버그 검사를 트리거할 수 있습니다. 충돌에 대한 이유를 확인하는 도움말은 시스템 및 Windows VM에 대한 애플리케이션 로그와 Linux VM에 대한 직렬 로그에서 확인합니다.
 
-### <a name="storage-related-forced-shutdowns"></a>스토리지 관련 강제 종료
+### <a name="storage-related-forced-shutdowns"></a>Storage 관련 강제 종료
 
 Azure의 VM은 Azure Storage 인프라에서 호스팅되는 운영 체제 및 데이터 스토리지에 대한 가상 디스크를 사용합니다. VM 및 연결된 가상 디스크 간의 사용 가능성 또는 연결이 120초 이상 영향을 받을 때마다 Azure 플랫폼은 데이터 손상을 방지하기 위해 VM을 강제 종료합니다. 스토리지 연결이 복원된 후에 VM의 전원은 자동으로 다시 켜집니다. 
 

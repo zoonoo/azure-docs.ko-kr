@@ -9,19 +9,18 @@ editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9aea63b8366bf974fd89c32105bea707ad72c8a5
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: c106ee2110a8c023ab3ed4f2ec9903fc5ca146b2
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67719991"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70088966"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Azure Virtual Machine PowerShell 샘플
 
@@ -50,5 +49,5 @@ ms.locfileid: "67719991"
 | [VM 및 해당 데이터 디스크 암호화](./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md?toc=%2fpowershell%2fazure%2ftoc.json) | Azure 키 자격 증명 모음, 암호화 키 및 서비스 주체를 만든 다음, VM을 암호화합니다. |
 |**가상 머신 모니터링**||
 | [Azure Monitor를 사용 하 여 VM 모니터링](./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 가상 머신을 만들고, Azure Log Analytics 에이전트를 설치하고, VM을 Log Analytics 작업 영역에 등록합니다.  |
-| [PowerShell 사용 하 여 구독의 모든 Vm에 대 한 정보를 수집 합니다.](../scripts/virtual-machines-powershell-sample-collect-vm-details.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | VM 이름, 리소스 그룹 이름, 지역, 가상 네트워크, 서브넷, 개인 IP 주소, OS 유형 및 제공 된 구독에서 Vm의 공용 IP 주소를 포함 하는 csv를 만듭니다.
+| [PowerShell을 사용 하 여 구독의 모든 Vm에 대 한 세부 정보 수집](../scripts/virtual-machines-powershell-sample-collect-vm-details.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 제공 된 구독의 VM 이름, 리소스 그룹 이름, 지역, Virtual Network, 서브넷, 개인 IP 주소, OS 유형 및 Vm의 공용 IP 주소를 포함 하는 csv를 만듭니다.
 | | |

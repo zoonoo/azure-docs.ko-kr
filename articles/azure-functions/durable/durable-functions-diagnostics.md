@@ -6,16 +6,15 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 167f697d4928d88114a30739a1d39a576c87ac84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2cc60ee2c73aa6858f68d6b13a895a0188bb5735
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62126666"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098131"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Azure의 지속성 함수에서 진단
 
@@ -312,7 +311,7 @@ GET /admin/extensions/DurableTaskExtension/instances/instance123
 > [!WARNING]
 > 사용자 지정 상태 페이로드는 Azure Table Storage 열에 맞아야 하므로 16KB의 UTF-16 JSON 텍스트로 제한됩니다. 더 큰 페이로드가 필요한 경우 외부 스토리지를 사용하면 됩니다.
 
-## <a name="debugging"></a>디버그
+## <a name="debugging"></a>디버깅
 
 Azure Functions는 디버깅 함수 코드를 직접 지원하며, Azure 또는 로컬에서 실행하는지 여부와 관계 없이 동일한 지원이 지속성 함수에 전달됩니다. 그러나 디버그할 때 고려해야 할 몇 가지 동작이 있습니다.
 
@@ -323,11 +322,11 @@ Azure Functions는 디버깅 함수 코드를 직접 지원하며, Azure 또는 
 > [!TIP]
 > 중단점을 설정할 때 재생되지 않는 실행에서만 중단하려면 `IsReplaying`이 `false`인 경우에만 중단되는 조건부 중단점을 설정할 수 있습니다.
 
-## <a name="storage"></a>스토리지
+## <a name="storage"></a>저장 공간
 
 기본적으로 지속성 함수는 Azure Storage에 상태를 저장합니다. 즉 [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)와 같은 도구를 사용하여 오케스트레이션 상태를 검사할 수 있습니다.
 
-![Azure Storage 탐색기 스크린샷](./media/durable-functions-diagnostics/storage-explorer.png)
+![Azure Storage 탐색기 스크린 샷](./media/durable-functions-diagnostics/storage-explorer.png)
 
 이 도구는 오케스트레이션의 상태를 정확히 표시하기 때문에 디버깅에 유용합니다. 또한 큐의 메시지를 검사하여 보류 중인 작업(경우에 따라 중지)을 파악할 수도 있습니다.
 

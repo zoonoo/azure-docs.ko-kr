@@ -6,16 +6,15 @@ author: cgillum
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 33ca6c36cd11d53a3c50a8374181c511fd2f8c3e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ef64a43cbed7f033a938351506b7f78142ff044c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60648150"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70097628"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>지속성 함수의 버전 관리(Azure Functions)
 
@@ -40,7 +39,7 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 }
 ```
 
-이 간단한 함수는 **Foo**의 결과를 받아 **Bar**로 전달합니다. 더 다양한 결과 값을 지원하기 위해 **Foo**의 반환 값을 `bool`에서 `int`로 변경할 필요가 있다고 가정해 보겠습니다. 결과는 다음과 유사하게 표시됩니다.
+이 간단한 함수는 **Foo**의 결과를 받아 **Bar**로 전달합니다. 더 다양한 결과 값을 지원하기 위해 **Foo**의 반환 값을 `bool`에서 `int`로 변경할 필요가 있다고 가정해 보겠습니다. 결과 다음과 같습니다.
 
 ```csharp
 [FunctionName("FooBar")]
@@ -96,7 +95,7 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 * 진행 중인 모든 인스턴스 중지
 * 병렬 배포
 
-### <a name="do-nothing"></a>아무 작업도 수행하지 않음
+### <a name="do-nothing"></a>아무 작업도 안 함
 
 주요 변경을 처리하는 가장 쉬운 방법은 진행 중인 오케스트레이션 인스턴스를 실패하게 만드는 것입니다. 새 인스턴스가 변경된 코드를 성공적으로 실행합니다.
 
@@ -140,7 +139,7 @@ Azure Storage 엔터티의 이름은 모두 `HubName` 구성 값에 따라 지�
 새 버전의 함수 앱을 새 [배포 슬롯](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/)에 배포하는 것이 좋습니다. 배포 슬롯을 사용하면 슬롯 중 하나만 활성 *프로덕션* 슬롯으로 사용하여 함수 앱의 여러 복사본을 병렬로 실행할 수 있습니다. 새 오케스트레이션 논리를 기존 인프라에 노출할 준비가 되면 새 버전을 프로덕션 슬롯으로 교환하는 것처럼 간단할 수 있습니다.
 
 > [!NOTE]
-> 이 전략은 오케스트레이터 함수에 HTTP와 웹후크 트리거를 사용할 때 가장 적합합니다. 큐 또는 Event Hubs와 같은 HTTP가 아닌 트리거의 경우 트리거 정의 해야 [앱 설정에서 파생](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) 는 교환 작업의 일부로 업데이트 됩니다.
+> 이 전략은 오케스트레이터 함수에 HTTP와 웹후크 트리거를 사용할 때 가장 적합합니다. 큐 또는 Event Hubs와 같은 HTTP가 아닌 트리거의 경우 트리거 정의는 교환 작업의 일부로 업데이트 된 [앱 설정에서 파생](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) 되어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

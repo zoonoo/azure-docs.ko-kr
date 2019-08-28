@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: atsenthi
-ms.openlocfilehash: 0a411e0fe3b89eaaa19f4e18f5e614b03dd1d682
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 90b2a1954d60f1e86ab61afb264483177f4aca3b
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599422"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073946"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric 네트워킹 패턴
 다른 Azure 네트워킹 기능으로 Azure Service Fabric 클러스터를 통합할 수 있습니다. 이 문서에서는 다음과 같은 기능을 사용하여 클러스터를 만드는 방법을 보여 줍니다.
@@ -604,6 +604,10 @@ DnsSettings              : {
     ```
 
 배포 후 리소스 그룹에서 두 개의 부하 분산 장치를 볼 수 있습니다. 부하 분산 장치를 찾아보면 공용 IP 주소와 공용 IP 주소에 할당된 관리 엔드포인트(포트 19000 및 19080)를 볼 수 있습니다. 또한 고정 내부 IP 주소와 내부 부하 분산 장치에 할당된 애플리케이션 엔드포인트(포트 80)도 볼 수 있습니다. 두 부하 분산 장치 모두 동일한 가상 머신 확장 집합 백 엔드 풀을 사용합니다.
+
+## <a name="notes-for-production-workloads"></a>프로덕션 워크 로드에 대 한 참고 사항
+
+위의 GitHub 템플릿은 기본 SKU 인 SLB (Azure 표준 Load Balancer)에 대 한 기본 SKU를 사용 하도록 설계 되었습니다. 이 SLB는 SLA를 갖지 않으므로 프로덕션 워크 로드의 경우 표준 SKU를 사용 해야 합니다. 이에 대 한 자세한 내용은 [Azure 표준 Load Balancer 개요](/azure/load-balancer/load-balancer-standard-overview)를 참조 하세요. SLB에 대 한 표준 SKU를 사용 하는 모든 Service Fabric 클러스터는 각 노드 형식에 443 포트에서 아웃 바운드 트래픽을 허용 하는 규칙이 있는지 확인 해야 합니다. 이는 클러스터 설정을 완료 하는 데 필요 하며, 이러한 규칙이 없는 모든 배포는 실패 합니다. 위의 "내부 전용" 부하 분산 장치 예제에서는 포트 443에 대 한 아웃 바운드 트래픽을 허용 하는 규칙을 사용 하 여 추가 외부 부하 분산 장치를 템플릿에 추가 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 [클러스터 만들기](service-fabric-cluster-creation-via-arm.md)

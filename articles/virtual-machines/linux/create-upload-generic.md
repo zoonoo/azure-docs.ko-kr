@@ -11,16 +11,15 @@ ms.assetid: d351396c-95a0-4092-b7bf-c6aae0bbd112
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: szark
-ms.openlocfilehash: 1f9512e4eabf76edecef594b6b6498782725c019
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: eb6ef87edd2ff16750573c6b8c719fa4b81d3a4c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671595"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083598"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>비보증 배포에 대한 정보
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -74,7 +73,7 @@ initrd 또는 initramfs 이미지를 다시 작성하는 메커니즘은 배포�
 ### <a name="resizing-vhds"></a>VHD 크기 조정
 Azure의 VHD 이미지에는 1MB로 조정된 가상 크기가 있어야 합니다.  일반적으로 Hyper-V를 사용하여 만든 VHD는 올바르게 정렬되어 있습니다.  VHD가 올바르게 정렬되지 않으면 VHD에서 이미지를 만들려고 할 때 다음과 비슷한 오류 메시지가 나타날 수 있습니다.
 
-* VHD http:\//\<mystorageaccount >.blob.core.windows.net/vhds/MyLinuxVM.vhd 크기가 지원 되지 않는 가상 21475270656 바이트입니다. 크기는 정수(MB 단위)여야 합니다.
+* Vhd http:\//mystorageaccount >. MyLinuxVM/vhd/에는 지원 되지 않는 가상 크기 (21475270656 바이트)가 있습니다.\< 크기는 정수(MB 단위)여야 합니다.
 
 이 경우 Hyper-V 관리자 콘솔 또는 [Resize-VHD](https://technet.microsoft.com/library/hh848535.aspx) PowerShell cmdlet을 사용하여 VM 크기를 조정합니다.  Windows 환경에서 실행하지 않는 경우 `qemu-img`를 사용하여 VHD를 변환하고(필요한 경우) 크기를 조정하는 것이 좋습니다.
 
@@ -144,9 +143,9 @@ Red Hat Enterprise Linux 버전 6.0-6.3의 변형을 실행하는 경우 [Hyper-
 커널에 포함되어야 패치는 다음과 같습니다. 이 목록은 모든 배포에 대해 완전할 수 없습니다.
 
 * [ata_piix: 기본적으로 Hyper-V 드라이버로 디스크 연기](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)
-* [storvsc: RESET 경로의 전송 중인 패킷 용 계정](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
+* [storvsc: 다시 설정 경로에서 전송 중인 패킷의 계정](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
 * [storvsc: WRITE_SAME을 사용하지 마세요.](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=3e8f4f4065901c8dfc51407e1984495e1748c090)
-* [storvsc: RAID 및 가상 호스트 어댑터 드라이버에 대 한 WRITE SAME 해제](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
+* [storvsc: RAID 및 가상 호스트 어댑터 드라이버에 대해 쓰기 모두 사용 안 함](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
 * [storvsc: NULL 포인터 역참조 수정](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
 * [storvsc: 링 버퍼 오류로 I/O가 중지됨](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=e86fb5e8ab95f10ec5f2e9430119d5d35020c951)
 * [scsi_sysfs: __scsi_remove_device 이중 실행 방지](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/scsi_sysfs.c?id=be821fd8e62765de43cc4f0e2db363d0e30a7e9b)

@@ -3,15 +3,15 @@ title: Azure Cosmos DB 계정에 대해 IP 방화벽 구성
 description: Azure Cosmos 계정에서 방화벽을 지원하도록 IP 액세스 제어 정책을 구성하는 방법을 알아봅니다.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: ee9a686060fd712e9a1f14058ce7db325aaedffd
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
-ms.translationtype: HT
+ms.openlocfilehash: 534f64b19adb29a0ff7811c50c9698ca33d6966f
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615374"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093551"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Azure Cosmos DB에서 IP 방화벽 구성
 
@@ -36,11 +36,11 @@ IP 액세스 제어가 켜지면 Azure Portal에서는 IP 주소, IP 주소 범�
 
 프로그래밍 방식으로 IP 액세스 제어 정책을 사용하도록 설정할 경우 Azure Portal의 IP 주소를 **ipRangeFilter** 속성에 추가해야 액세스가 유지됩니다. 포털 IP 주소는 다음과 같습니다.
 
-|지역|IP 주소|
+|Region|IP 주소|
 |------|----------|
 |독일|51.4.229.218|
 |중국|139.217.8.252|
-|미국 정부|52.244.48.71|
+|US Gov|52.244.48.71|
 |다른 모든 하위 지역|104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26|
 
 다음 스크린샷에 표시된 대로 **Azure Portal에서 액세스하도록 허용** 옵션을 선택하여 Azure Portal에 대한 액세스를 사용하도록 설정할 수 있습니다. 
@@ -64,7 +64,7 @@ IP 액세스 제어가 켜지면 Azure Portal에서는 IP 주소, IP 주소 범�
 
 포털은 클라이언트 IP 주소를 자동으로 검색합니다. 이 주소는 머신의 클라이언트 IP 주소이거나 네트워크 게이트웨이의 IP 주소일 수 있습니다. 프로덕션에 대한 워크로드를 수행하기 전에 이 IP 주소를 제거해야 합니다. 
 
-현재 IP를 IP 목록에 추가하려면 **내 현재 IP 추가**를 선택합니다. 그런 다음 **저장**을 선택합니다.
+현재 IP를 IP 목록에 추가하려면 **내 현재 IP 추가**를 선택합니다. **저장**을 선택합니다.
 
 ![현재 IP의 방화벽 설정을 구성하는 방법을 보여주는 스크린샷](./media/how-to-configure-firewall/enable-current-ip.png)
 
@@ -176,7 +176,7 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 다음 옵션을 사용하여 IP 액세스 제어 정책 관련 문제를 해결할 수 있습니다. 
 
-### <a name="azure-portal"></a>Azure portal 
+### <a name="azure-portal"></a>Azure Portal 
 Azure Cosmos DB 계정에 대해 IP 액세스 제어 정책을 사용하도록 설정하면 허용되는 IP 주소 범위 목록 이외의 머신에서 시도하는 계정에 대한 모든 요청이 차단됩니다. 컨테이너 탐색 및 문서 쿼리와 같은 포털 데이터 평면 작업을 사용하도록 설정하려면 포털의 **방화벽** 창을 사용하여 Azure Portal 액세스를 명시적으로 허용해야 합니다.
 
 ### <a name="sdks"></a>SDK 

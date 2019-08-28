@@ -10,17 +10,16 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c21a923f06a768c0a9a0f2843a24583df7a7821d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: af6d8b61c5d49ae219e90513abb93185f957222e
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059656"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70074070"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Azure App Service에서 앱에 대한 진단 로깅 사용
 ## <a name="overview"></a>개요
@@ -34,12 +33,12 @@ App Service는 웹 서버와 웹 애플리케이션 모두의 정보에 로깅�
 ### <a name="web-server-diagnostics"></a>웹 서버 진단
 다음과 같은 종류의 로그를 사용하거나 사용하지 않도록 설정할 수 있습니다.
 
-* **자세한 오류 로깅** -HTTP 상태 코드 400 이상에 모든 요청에 대 한 정보를 자세히 설명 합니다. 여기에는 서버에서 오류 코드를 반환한 이유를 확인하는 데 도움이 되는 정보가 포함될 수 있습니다. HTML 파일은 앱의 파일 시스템에 50 오류 (파일)까지 각 오류에 대 한 생성 하나 유지 됩니다. HTML 파일 수가 50을 초과 하는 경우 가장 오래 된 26 파일 자동으로 삭제 됩니다.
-* **실패한 요청 추적** - 요청을 처리하는 데 사용된 IIS 구성 요소 추적 및 각 구성 요소에 소요된 시간을 포함하여 실패한 요청에 대해 자세한 정보입니다. 사이트 성능을 향상시키거나 특정 HTTP 오류를 분리하려는 경우에 유용합니다. 폴더는 앱의 파일 시스템에서 각 오류에 대해 생성 됩니다. 파일 보존 정책 위에 로깅의 자세한 오류와 동일 합니다.
+* **자세한 오류 로깅** -HTTP 상태 코드 400 이상으로 인해 발생 하는 모든 요청에 대 한 자세한 정보입니다. 여기에는 서버에서 오류 코드를 반환한 이유를 확인하는 데 도움이 되는 정보가 포함될 수 있습니다. 앱 파일 시스템의 각 오류에 대해 하나의 HTML 파일이 생성 되 고 최대 50 오류 (파일)가 보존 됩니다. HTML 파일 수가 50을 초과 하면 가장 오래 된 26 개의 파일이 자동으로 삭제 됩니다.
+* **실패한 요청 추적** - 요청을 처리하는 데 사용된 IIS 구성 요소 추적 및 각 구성 요소에 소요된 시간을 포함하여 실패한 요청에 대해 자세한 정보입니다. 사이트 성능을 향상시키거나 특정 HTTP 오류를 분리하려는 경우에 유용합니다. 앱의 파일 시스템에서 각 오류에 대해 하나의 폴더가 생성 됩니다. 파일 보존 정책은 위의 자세한 오류 로깅과 동일 합니다.
 * **웹 서버 로깅** - [W3C 확장 로그 파일 형식](/windows/desktop/Http/w3c-logging)을 사용하는 HTTP 트랜잭션에 대한 정보입니다. 처리된 요청 수 또는 특정 IP 주소의 요청 수와 같은 전체 사이트 메트릭을 확인하는 경우에 유용합니다.
 
-### <a name="application-diagnostics"></a>애플리케이션 진단
-애플리케이션 진단을 통해 웹 애플리케이션에서 생성된 정보를 캡처할 수 있습니다. ASP.NET 애플리케이션은 [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) 클래스를 사용하여 애플리케이션 진단 로그에 정보를 로깅할 수 있습니다. 예를 들면 다음과 같습니다.
+### <a name="application-diagnostics"></a>응용 프로그램 진단
+애플리케이션 진단을 통해 웹 애플리케이션에서 생성된 정보를 캡처할 수 있습니다. ASP.NET 애플리케이션은 [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) 클래스를 사용하여 애플리케이션 진단 로그에 정보를 로깅할 수 있습니다. 예를 들어:
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -51,15 +50,15 @@ App Service는 웹 서버와 웹 애플리케이션 모두의 정보에 로깅�
 [Azure Portal](https://portal.azure.com)에서 진단을 사용하려면, 앱의 페이지로 이동하여 **설정>진단 로그**를 클릭합니다.
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
-![로그 부분](./media/web-sites-enable-diagnostic-log/logspart.png)
+![로그 파트](./media/web-sites-enable-diagnostic-log/logspart.png)
 
 **애플리케이션 진단**을 사용하도록 설정하는 경우 **수준**도 선택합니다. 다음 표에는 각 수준에 포함되는 로그의 범주가 나와 있습니다.
 
 | Level| 포함되는 로그 범주 |
 |-|-|
-|**사용 안 함** | 없음 |
+|**Disabled** | 없음 |
 |**오류** | 오류, 위험 |
-|**Warning** | 경고, 오류, 위험|
+|**경고** | 경고, 오류, 위험|
 |**정보** | 정보, 경고, 오류, 위험|
 |**자세한 정보** | 추적, 디버그, 정보, 경고, 오류, 위험(모든 범주) |
 |-|-|
@@ -71,14 +70,14 @@ App Service는 웹 서버와 웹 애플리케이션 모두의 정보에 로깅�
 >
 >
 
-**웹 서버 로깅**의 경우 **스토리지** 또는 **파일 시스템**을 선택할 수 있습니다. **저장소**를 선택하면 저장소 계정을 선택하고 로그를 기록할 Blob 컨테이너를 선택할 수 있습니다. 
+**웹 서버 로깅**의 경우 **스토리지** 또는 **파일 시스템**을 선택할 수 있습니다. **스토리지**를 선택하면 스토리지 계정을 선택한 다음, 로그를 기록할 Blob 컨테이너를 선택할 수 있습니다. 
 
 파일 시스템에 로그를 저장하는 경우 파일은 FTP로 액세스하거나, Azure CLI를 사용하여 Zip 아카이브로 다운로드할 수 있습니다.
 
 기본적으로 로그는 자동으로 삭제되지 않습니다(**애플리케이션 로깅(파일 시스템)** 제외). 로그를 자동으로 삭제하려면 **보존 기간(일)** 필드를 설정합니다.
 
 > [!NOTE]
-> [스토리지 계정의 선택키를 다시 생성](../storage/common/storage-create-storage-account.md)하는 경우 해당 로깅 구성을 다시 설정하여 업데이트한 키를 사용해야 합니다. 다음을 수행합니다.
+> [스토리지 계정의 선택키를 다시 생성](../storage/common/storage-create-storage-account.md)하는 경우 해당 로깅 구성을 다시 설정하여 업데이트한 키를 사용해야 합니다. 가상 하드 디스크 파일에 대한 중요 정보를 제공하려면
 >
 > 1. **구성** 탭에서 해당 로깅 기능을 **끄기**로 설정합니다. 설정을 저장합니다.
 > 2. 스토리지 계정 Blob에 로깅을 다시 사용합니다. 설정을 저장합니다.
@@ -115,7 +114,7 @@ Azure 명령줄 인터페이스를 사용하여 로그 파일을 다운로드하
 
     az webapp log download --resource-group resourcegroupname --name appname
 
-이 명령은 'appname' 라는 파일에는 앱에 대 한 로그 저장 **webapp_logs.zip** 현재 디렉터리에 있습니다.
+이 명령은 ' appname ' 이라는 앱의 로그를 현재 디렉터리의 **webapp_logs** 이라는 파일에 저장 합니다.
 
 > [!NOTE]
 > Azure CLI를 설치하지 않았거나 Azure 구독을 사용하도록 구성하지 않은 경우 [Azure CLI를 사용하는 방법](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)을 참조하세요.
@@ -152,11 +151,11 @@ Visual Studio Application Insights는 로그 필터링과 검색을 위한 도�
 
 이 명령은 'appname'이라는 웹앱에 연결하고 로그 이벤트가 앱에서 발생하면 창에 정보를 스트리밍하기 시작합니다. /LogFiles 디렉터리(d:/home/logfiles)에 저장된 .txt, .log 또는 .htm으로 끝나는 파일에 기록된 정보는 로컬 콘솔로 스트리밍됩니다.
 
-오류와 같은 특정 이벤트를 필터링하려면 **--Filter** 매개 변수를 사용합니다. 예를 들면 다음과 같습니다.
+오류와 같은 특정 이벤트를 필터링하려면 **--Filter** 매개 변수를 사용합니다. 예를 들어:
 
     az webapp log tail --name appname --resource-group myResourceGroup --filter Error
 
-HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변수를 사용합니다. 예를 들면 다음과 같습니다.
+HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변수를 사용합니다. 예:
 
     az webapp log tail --name appname --resource-group myResourceGroup --path http
 
@@ -189,7 +188,7 @@ Blob Storage에 로깅하는 경우 데이터는 쉼표로 구분된 값(CSV) �
 
 | 속성 이름 | 값/형식 |
 | --- | --- |
-| Date |이벤트가 발생한 날짜 및 시간 |
+| 날짜 |이벤트가 발생한 날짜 및 시간 |
 | Level |이벤트 수준(예: 오류, 경고, 정보) |
 | ApplicationName |앱 이름 |
 | InstanceId |이벤트가 발생한 앱의 인스턴스 |
@@ -197,7 +196,7 @@ Blob Storage에 로깅하는 경우 데이터는 쉼표로 구분된 값(CSV) �
 | EventId |이 이벤트의 이벤트 ID<p><p>지정하지 않을 경우 0으로 기본 설정됨 |
 | Pid |프로세스 ID |
 | Tid |이벤트가 생성된 스레드의 스레드 ID |
-| Message |이벤트 세부 정보 메시지 |
+| 메시지 |이벤트 세부 정보 메시지 |
 
 Blob에 저장된 데이터는 다음 예제와 비슷합니다.
 
@@ -215,7 +214,7 @@ Blob에 저장된 데이터는 다음 예제와 비슷합니다.
 ![브라우저에 표시된 실패한 요청](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 
 > [!NOTE]
-> 서식이 지정 된 실패 한 요청 추적을 보고 하는 간편한 방법은 포털에서 앱의 페이지로 이동 하는 경우 왼쪽된 메뉴에서 선택 **진단 및 문제 해결**를 검색 한 다음 **실패 한 요청 추적 로그**, 찾아보고 원하는 추적을 보려면 아이콘을 클릭 합니다.
+> 서식이 지정 된 실패 한 요청 추적을 보는 쉬운 방법은 포털에서 앱 페이지로 이동 하는 것입니다. 왼쪽 메뉴에서 **문제 진단 및 해결**을 선택 하 고 **실패 한 요청 추적 로그**를 검색 한 다음 아이콘을 클릭 하 여 원하는 추적을 찾아 봅니다.
 >
 
 ### <a name="detailed-error-logs"></a>자세한 오류 로그

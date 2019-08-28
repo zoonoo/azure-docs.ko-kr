@@ -9,19 +9,18 @@ editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 999d63ee-890e-432e-9391-25b3fc6cde28
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e2cd64b54b1a30080d7942a754bc0c0c72c59f88
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 9a7f204245e59cbda11c663a80828a20a79c9923
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705980"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084572"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Windows용 가상 머신 확장 및 기능
 
@@ -36,7 +35,7 @@ Azure VM(가상 머신) 확장은 Azure VM에서 배포 후 구성 및 Automatio
 각각 특정 사용 사례가 있는 몇 가지 다른 Azure VM 확장을 사용할 수 있습니다. 일부 사례:
 
 - Windows용 DSC 확장을 사용하여 VM에 PowerShell의 필요한 상태 구성을 적용합니다. 자세한 내용은 [Azure 필요한 상태 구성 확장](dsc-overview.md)을 참조하세요.
-- Microsoft Monitoring Agent VM 확장을 사용하여 VM의 모니터링을 구성합니다. 자세한 내용은 [Azure Monitor 로그로 Azure Vm 연결](../../log-analytics/log-analytics-azure-vm-extension.md)합니다.
+- Microsoft Monitoring Agent VM 확장을 사용하여 VM의 모니터링을 구성합니다. 자세한 내용은 [Azure vm을 Azure Monitor 로그에 연결](../../log-analytics/log-analytics-azure-vm-extension.md)을 참조 하세요.
 - Chef를 사용하여 Azure VM을 구성합니다. 자세한 내용은 [Chef를 사용하여 Azure VM 배포 자동화](../windows/chef-automation.md)를 참조하세요.
 - Datadog 확장으로 Azure 인프라의 모니터링을 구성합니다. 자세한 내용은 [Datadog 블로그](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/)를 참조하세요.
 
@@ -260,7 +259,7 @@ VM 확장을 실행하는 경우 자격 증명, 스토리지 계정 이름 및 �
 업데이트를 사용할 수 있는 경우 확장에 대한 변경 내용이 있는 경우에만 VM에 설치되고 다른 VM 모델이 변경됩니다.
 
 - 데이터 디스크
-- 확장
+- 확장명
 - 부팅 진단 컨테이너
 - 게스트 OS 암호
 - VM 크기
@@ -368,7 +367,7 @@ AutoUpgradeMinorVersion     : True
 
 ### <a name="view-extension-status"></a>확장 상태 보기
 
-VM 확장을 VM에 대해 실행 된 후 사용 하 여 [Get AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) 확장 상태를 반환 합니다. *하위 상태[0]* 에서는 확장 프로비전이 성공했음을 보여줍니다. 즉, VM에 배포에 성공했지만 VM 내에서 확장의 실행에 실패했습니다. *하위 상태[1]*
+Vm에 대해 VM 확장을 실행 한 후 [new-azvm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) 를 사용 하 여 확장 상태를 반환 합니다. *하위 상태[0]* 에서는 확장 프로비전이 성공했음을 보여줍니다. 즉, VM에 배포에 성공했지만 VM 내에서 확장의 실행에 실패했습니다. *하위 상태[1]*
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status

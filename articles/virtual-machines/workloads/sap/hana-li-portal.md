@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d64fe6c244ffcb6da2926dfea6efaa6da315727
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 3c14ff9c4f6d2bc2b1a62d1874d01950d09491c0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234463"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099809"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Azure Portal을 통한 Azure HANA 대규모 인스턴스 제어
 이 문서에서는 [Azure Portal](https://portal.azure.com) 에 [hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) 를 표시 하는 방법 및 사용자를 위해 배포 되는 hana large Instance 단위를 사용 하 여 Azure Portal를 통해 수행할 수 있는 작업을 설명 합니다. Azure Portal에서 HANA Large Instances의 표시 유형은 현재 공개 미리 보기로 제공 되는 HANA Large Instances 용 Azure 리소스 공급자를 통해 제공 됩니다.
@@ -130,7 +129,7 @@ Linux 운영 체제를 다시 시작 하는 경우 OS에서 성공적으로 다�
 다시 시작 단추를 누르면 단위를 다시 시작할지 여부를 묻는 메시지가 표시 됩니다. "예" 단추를 눌러 확인 하면 단위가 다시 시작 됩니다.
 
 > [!NOTE]
-> 다시 시작 프로세스에서 장치 상태가 **시작 됨**상태로 전환 되 **는 데 걸리는** 시간을 약간의 시간이 발생 합니다. **시작 됨** 상태에 있으면 os가 시작 되거나 os가 완전히 시작 된 것입니다. 따라서 단위를 다시 시작한 후 상태가 **시작 됨**으로 전환 되는 즉시 단위에 즉시 로그인 할 수 없습니다.
+> 다시 시작 프로세스에서 장치 상태가 **시작 됨**상태로 전환 되는 데 걸리는 시간을 약간의 시간이 발생 합니다. **시작 됨** 상태에 있으면 os가 시작 되거나 os가 완전히 시작 된 것입니다. 따라서 단위를 다시 시작한 후 상태가 **시작 됨**으로 전환 되는 즉시 단위에 즉시 로그인 할 수 없습니다.
 
 > [!IMPORTANT]
 > HANA Large Instance 유닛의 메모리 양에 따라 하드웨어를 다시 시작 하 고 다시 부팅 하 고 운영 체제를 최대 1 시간까지 걸릴 수 있습니다.

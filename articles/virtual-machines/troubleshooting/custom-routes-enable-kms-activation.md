@@ -10,16 +10,15 @@ tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/20/2018
 ms.author: genli
-ms.openlocfilehash: 2877fae66584ec24fb6e62b20d66ded36157b824
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 8c0c8f5543af425091c821f28d08fcab01118fd4
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990345"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70090441"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>강제 터널링 시나리오에서 Windows 정품 인증 실패
 
@@ -27,7 +26,7 @@ ms.locfileid: "68990345"
 
 ## <a name="symptom"></a>증상
 
-Azure Virtual Network 서브넷에서 [강제 터널링](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md)을 사용하도록 설정하여 모든 인터넷 바인딩 트래픽을 온-프레미스 네트워크로 다시 전송합니다. 이 시나리오에서 Windows Server 2012 R2 이상의 Windows를 실행하는 Azure VM(Virtual Machines)은 Windows를 성공적으로 정품 인증할 수 있습니다. 그러나 이전 버전의 Windows를 실행하는 VM은 Windows 정품을 인증하지 못합니다.
+Azure Virtual Network 서브넷에서 [강제 터널링](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md)을 사용하도록 설정하여 모든 인터넷 바인딩 트래픽을 온-프레미스 네트워크로 다시 전송합니다. 이 시나리오에서 Windows를 실행 하는 Azure virtual machines (Vm)는 Windows를 정품 인증 하지 못합니다.
 
 ## <a name="cause"></a>원인
 

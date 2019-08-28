@@ -3,15 +3,15 @@ title: Azure Cosmos DB에서 데이터베이스 계정을 관리하는 방법 �
 description: Azure Cosmos DB에서 데이터베이스 계정을 관리하는 방법 알아보기
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: a5ba45fce2870b44a6ebb1be43cc1f36b3cda311
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
-ms.translationtype: HT
+ms.openlocfilehash: db7746bc91935c0385e97d494a45d34819665ced
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815155"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093394"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Azure Cosmos 계정 관리
 

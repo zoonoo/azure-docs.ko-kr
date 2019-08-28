@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 08/29/2019
 ms.author: victorh
-ms.openlocfilehash: ebe02e8bf3fecc03c46bb66c9ab178e4f277e6e4
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 119f28bcc4f88f0b4dc0ce65584dbce326087eba
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971610"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114772"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -153,4 +153,12 @@ Azure Firewall에는 직접 인터넷 연결이 있어야 합니다. AzureFirewa
 
 ## <a name="is-there-a-character-limit-for-a-firewall-name"></a>방화벽 이름에 대 한 문자 제한이 있나요?
 
-예. 방화벽 이름에는 50 자 제한이 있습니다. 
+예. 방화벽 이름에는 50 자 제한이 있습니다.
+
+## <a name="why-does-azure-firewall-need-a-26-subnet-size"></a>Azure 방화벽에/26 서브넷 크기가 필요한 이유는 무엇 인가요?
+
+Azure 방화벽은 규모에 따라 더 많은 가상 머신 인스턴스를 프로 비전 해야 합니다. /26 주소 공간을 통해 방화벽에 크기 조정을 수용할 수 있는 충분 한 IP 주소가 있습니다.
+
+## <a name="does-the-firewall-subnet-size-need-to-change-as-the-service-scales"></a>서비스가 확장 됨에 따라 방화벽 서브넷 크기를 변경 해야 하나요?
+
+아니요. Azure 방화벽에는/26 보다 큰 서브넷이 필요 하지 않습니다.

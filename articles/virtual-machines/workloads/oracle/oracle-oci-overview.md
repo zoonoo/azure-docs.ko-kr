@@ -8,19 +8,18 @@ manager: gwallace
 tags: ''
 ms.assetid: ''
 ms.service: virtual-machines
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: b9f4757b9a4282c7b932b9dc74ce741d9bca2f72
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 4628955998ab8b289a429cdfb85e23f7f97b0b40
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515324"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101427"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Oracle 응용 프로그램 솔루션 Microsoft Azure 및 Oracle 클라우드 인프라 통합 (미리 보기)
 
@@ -71,7 +70,7 @@ Express 경로 및 FastConnect를 사용 하는 고객은 개인 IP 주소 공�
 
 Id는 Microsoft와 Oracle 간의 파트너 관계의 핵심 핵심 요소 중 하나입니다. [Oracle Identity Cloud Service](https://docs.oracle.com/en/cloud/paas/identity-cloud/index.html) (idcs)를 [AZURE ACTIVE DIRECTORY](../../../active-directory/index.yml) (Azure AD)와 통합 하기 위해 많은 작업이 수행 되었습니다. Azure AD는 Microsoft의 클라우드 기반 id 및 액세스 관리 서비스입니다. 사용자가 로그인 하 고 다양 한 리소스에 액세스 하는 데 도움이 됩니다. Azure AD를 사용 하 여 사용자와 해당 사용 권한을 관리할 수도 있습니다.
 
-현재이 통합을 사용 하면 Azure Active Directory 한 중앙 위치에서 관리할 수 있습니다. Azure AD는 디렉터리의 모든 변경 내용을 해당 하는 Oracle 디렉터리와 동기화 하며, 클라우드 간 Oracle 솔루션에 대 한 single sign-on에 사용 됩니다.
+현재이 통합을 사용 하면 Azure Active Directory 한 중앙 위치에서 관리할 수 있습니다. Azure AD는 디렉터리의 모든 변경 내용을 해당 하는 Oracle 디렉터리와 동기화 하며, 클라우드 간 Oracle 솔루션을 Single Sign-On 하는 데 사용 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

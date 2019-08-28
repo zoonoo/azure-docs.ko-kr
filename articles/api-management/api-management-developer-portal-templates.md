@@ -10,24 +10,23 @@ ms.assetid: a195675b-f7d0-4fc9-90bf-860e6f17ccf7
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 00d5e3df78e85d19a519786dad1a1b176ad7fa08
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8b250c45716146c505a803046b18bf5d05cf116
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837234"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073779"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>템플릿을 사용하여 Azure API Management 개발자 포털을 사용자 지정하는 방법
 
 Azure API Management에는 개발자 포털을 사용자 지정하는 기본적인 방법이 세 가지 있습니다.
 
 * [페이지 레이아웃 요소 및 정적 페이지의 콘텐츠 편집][modify-content-layout]
-* [개발자 포털 전반의 페이지 요소에 사용된 스타일 업데이트][customize-styles]
-* [포털에서 생성한 페이지에 사용되는 템플릿 수정][portal-templates](이 가이드에서 설명함)
+* [개발자 포털에서 페이지 요소에 사용 되는 스타일 업데이트][customize-styles]
+* [포털에서 생성 된 페이지에 사용 되는 템플릿 수정][portal-templates] (이 가이드에 설명 되어 있음)
 
 템플릿은 시스템에서 생성된 개발자 포털 페이지(예: API 문서, 제품, 사용자 인증 등)의 콘텐츠를 사용자 지정하는 데 사용됩니다. [DotLiquid](http://dotliquidmarkup.org/) 구문 및 제공된 지역화 문자열 리소스, 아이콘 및 페이지 컨트롤을 사용하여 필요에 따라 페이지 콘텐츠를 유연하게 구성할 수 있습니다.
 

@@ -3,15 +3,15 @@ title: 변경 피드 추정기 사용 - Azure Cosmos DB
 description: 변경 피드 추정기를 사용하여 변경 피드 프로세서의 진행률을 분석하는 방법을 알아봅니다.
 author: ealsur
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: maquaran
-ms.openlocfilehash: f72a3bfcfd6b4f480977510963f49f73a7207e1f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
-ms.translationtype: HT
+ms.openlocfilehash: 0023f68400b36b9abd3b9d4a789895e79f67aa03
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615281"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092942"
 ---
 # <a name="use-the-change-feed-estimator"></a>변경 피드 추정기 사용
 
@@ -52,10 +52,10 @@ ms.locfileid: "69615281"
 > [!NOTE]
 > 변경 피드 추정기를 변경 피드 프로세서의 일부로 배포하거나 동일한 프로젝트에 포함할 필요가 없습니다. 변경 피드 추정기는 독립적이며 완전히 다른 인스턴스에서 실행할 수 있습니다. 동일한 이름과 임대 구성을 사용하기만 하면 됩니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 * [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
-* [GitHub의 사용 샘플](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/usage/changefeed)
+* [GitHub의 사용 샘플](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
 * [GitHub의 추가 샘플](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
 ## <a name="next-steps"></a>다음 단계

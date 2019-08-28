@@ -5,18 +5,17 @@ services: functions
 documentationcenter: na
 author: craigshoemaker
 manager: gwallace
-keywords: Azure 함수, 함수, 이벤트 처리, 동적 계산, 서버리스 아키텍처
+keywords: Azure 함수, 함수, 이벤트 처리, 동적 컴퓨팅, 서버리스 아키텍처
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 965ec88b39336e71d2779da4b7cd31b9c26e28be
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 37192a25bff794ac019fd29b47e0e8ad161790c9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480374"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70097314"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Azure Functions의 Mobile Apps 바인딩 
 
@@ -140,13 +139,13 @@ module.exports = function (context, myQueueItem) {
 
 다음 표에서는 *function.json* 파일 및 `MobileTable` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 | **type**|| "mobileTable"로 설정해야 합니다.|
 | **direction**||"in"으로 설정해야 합니다.|
 | **name**|| 함수 시그니처의 입력 매개 변수 이름입니다.|
 |**tableName** |**TableName**|모바일 앱 데이터 테이블의 이름입니다.|
-| **id**| **Id** | 검색할 레코드의 식별자입니다. 정적이거나 함수를 호출하는 트리거를 기반으로 할 수 있습니다. 예를 들어, 함수에 대해 큐 트리거를 사용하는 경우 `"id": "{queueTrigger}"`는 검색할 레코드 ID로 큐 메시지의 문자열 값을 사용합니다.|
+| **ID**| **ID** | 검색할 레코드의 식별자입니다. 정적이거나 함수를 호출하는 트리거를 기반으로 할 수 있습니다. 예를 들어, 함수에 대해 큐 트리거를 사용하는 경우 `"id": "{queueTrigger}"`는 검색할 레코드 ID로 큐 메시지의 문자열 값을 사용합니다.|
 |**연결**|**연결**|모바일 앱의 URL이 있는 앱 설정의 이름입니다. 함수는 이 URL을 사용하여 모바일 앱에 대해 필요한 나머지 작업을 구성합니다. 모바일 앱의 URL이 포함된 함수 앱에 앱 설정을 만든 다음 입력 바인딩의 `connection` 속성에 앱 설정의 이름을 지정합니다. URL은 다음과 같습니다. `http://<appname>.azurewebsites.net`
 |**apiKey**|**ApiKey**|모바일 앱의 API 키가 있는 앱 설정의 이름입니다. [Node.js 모바일 앱에 API 키를 구현](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key)하거나 [.NET 모바일 앱에 API 키를 구현](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key)하는 경우 API 키를 제공합니다. 키를 제공하려면 API 키가 포함된 함수 앱의 앱 설정을 만단 다음 `apiKey` 속성을 앱 설정의 이름과 함께 입력 바인딩에 추가합니다. |
 
@@ -163,7 +162,7 @@ JavaScript 함수에서는 레코드가 `context.bindings.<name>` 개체로 전�
 
 C# 및 F# 함수에서 함수가 성공적으로 종료되면 입력 레코드에 변경한 내용(입력 매개 변수)을 자동으로 다시 테이블에 전송합니다. JavaScript 함수에서는 레코드를 수정할 수 없습니다.
 
-## <a name="output"></a>Output
+## <a name="output"></a>출력
 
 Mobile Apps 출력 바인딩을 사용하여 Mobile Apps 테이블에 새 레코드를 작성합니다.  
 
@@ -298,7 +297,7 @@ public static object Run(
 
 다음 표에서는 *function.json* 파일 및 `MobileTable` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 | **type**|| "mobileTable"로 설정해야 합니다.|
 | **direction**||"out"으로 설정해야 합니다.|

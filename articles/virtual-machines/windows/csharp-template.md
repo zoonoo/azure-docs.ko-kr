@@ -11,16 +11,15 @@ ms.assetid: bfba66e8-c923-4df2-900a-0c2643b81240
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: cynthn
-ms.openlocfilehash: a798f4b90057cd4220467cec4756ddda10fe456e
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 65ce7711786e15a5455d91ce829a3bc0bdf4317d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718712"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103240"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>C# 및 Resource Manager 템플릿을 사용하여 Azure Virtual Machine 배포
 
@@ -166,7 +165,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 
 ### <a name="create-the-parameters-file"></a>매개 변수 파일 만들기
 
-템플릿에서 리소스 매개 변수의 값을 지정 하려면 값이 포함 된 매개 변수 파일을 만들 수 있습니다.
+템플릿에서 리소스 매개 변수의 값을 지정 하려면 값을 포함 하는 매개 변수 파일을 만듭니다.
 
 1. 솔루션 탐색기에서 *myDotnetProject* > **추가** > **새 항목**을 마우스 오른쪽 단추로 클릭한 다음 *Visual C# 항목*에서 **텍스트 파일**을 선택합니다. 파일 이름을 *Parameters.json*으로 지정하고 **추가**를 클릭합니다.
 2. 만든 파일에 이 JSON 코드를 추가합니다.
@@ -205,7 +204,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
     **&lt;subscription-id&gt;** 를 구독 식별자, **&lt;application-id&gt;** 를 Active Directory 애플리케이션 식별자, **&lt;authentication-key&gt;** 를 애플리케이션 키, **&lt;tenant-id&gt;** 를 테넌트 식별자로 바꿉니다.
 
 3. azureauth.properties 파일을 저장합니다.
-4. 사용자가 만든 권한 부여 파일에 전체 경로 AZURE_AUTH_LOCATION 이라는 Windows 환경 변수 집합 예를 들어 사용할 수는 다음 PowerShell 명령을:
+4. 만든 권한 부여 파일의 전체 경로를 사용 하 여 AZURE_AUTH_LOCATION 라는 Windows의 환경 변수를 설정 합니다. 예를 들어 다음 PowerShell 명령을 사용할 수 있습니다.
 
     ```powershell
     [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2019\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
@@ -215,7 +214,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 
 ## <a name="create-the-management-client"></a>관리 클라이언트 만들기
 
-1. 사용자가 만든 프로젝트의 Program.cs 파일을 엽니다. 그런 다음 기존 문에 다음 using 문을 파일의 맨 위에 있는 추가 합니다.
+1. 만든 프로젝트에 대 한 Program.cs 파일을 엽니다. 그런 다음 using 문을 파일 맨 위에 있는 기존 문에 추가 합니다.
 
     ```csharp
     using Microsoft.Azure.Management.Compute.Fluent;
@@ -253,7 +252,7 @@ var resourceGroup = azure.ResourceGroups.Define(groupName)
     .Create();
 ```
 
-## <a name="create-a-storage-account"></a>스토리지 계정 만들기
+## <a name="create-a-storage-account"></a>저장소 계정 만들기
 
 템플릿 및 매개 변수는 Azure의 스토리지 계정에서 배포됩니다. 이 단계에서는 계정을 만들고 파일을 업로드합니다. 
 

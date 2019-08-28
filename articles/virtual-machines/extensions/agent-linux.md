@@ -11,17 +11,16 @@ ms.assetid: e41de979-6d56-40b0-8916-895bf215ded6
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 59a0cdd29e50501f023faf323948a400f325df0b
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: acb6e14845beb4c947992e63f1984c072ba9f59f
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706149"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084811"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Azure Linux 에이전트 이해 및 사용
 
@@ -108,12 +107,12 @@ Linux 에이전트는 다음과 같은 일부 시스템 패키지가 있어야 �
 
 ## <a name="command-line-options"></a>명령줄 옵션
 ### <a name="flags"></a>플래그
-* 자세한 정보: 지정 된 명령의 자세한 정도 증가
-* 강제 합니다. 일부 명령에 대 한 대화형 확인 건너뛰기
+* 구문 지정 된 명령의 자세한 정도 늘리기
+* 설정 일부 명령에 대 한 대화형 확인 건너뛰기
 
 ### <a name="commands"></a>명령
-* 도움말: 지원 되는 명령 및 플래그를 나열합니다.
-* 프로 비전을 해제 합니다. 시스템을 정리 하 고 다시 프로 비전에 대 한 적절 한 확인 하려고 시도 합니다. 삭제되는 작업은 다음과 같습니다.
+* 도움말: 지원 되는 명령 및 플래그를 나열 합니다.
+* 프로 비전 해제 시스템을 정리 하 고 다시 프로 비전에 적합 하 게 만듭니다. 삭제되는 작업은 다음과 같습니다.
   
   * 모든 SSH 호스트 키(구성 파일에서 Provisioning.RegenerateSshHostKeyPair가 'y'인 경우)
   * /etc/resolv.conf의 Nameserver 구성
@@ -126,11 +125,11 @@ Linux 에이전트는 다음과 같은 일부 시스템 패키지가 있어야 �
 > 
 > 
 
-* deprovision + user: -Deprovision (위)에서 모든 작업을 수행 합니다. 마지막 프로 비전 된 사용자 계정 (/var/lib/waagent에서 얻은)를 삭제 및 데이터를 연결 합니다. Azure에서 이전에 프로비전한 이미지의 프로비전을 해제하여 이미지를 캡처하고 다시 사용할 수 있도록 하는 경우에 이 매개 변수를 사용합니다.
-* 버전: Waagent의 버전을 표시
-* serialconsole: TtyS0을 표시 하려면 GRUB 구성 (첫 번째 직렬 포트)을 부팅 콘솔로 합니다. 이 매개 변수는 커널 부팅 로그를 직렬 포트로 보내고 디버깅에 사용할 수 있도록 설정합니다.
-* daemon: 플랫폼 상호 작용을 관리 하는 디먼으로 waagent를 실행 합니다. 이 인수는 waagent init 스크립트에서 waagent에 지정됩니다.
-* 시작: Waagent를 백그라운드 프로세스로 실행
+* 프로 비전 해제 + 사용자: 모든 항목을-프로 비전 해제 (위)를 수행 하 고 마지막으로 프로 비전 된 사용자 계정 (/var/cerwwerererererererererererervva Azure에서 이전에 프로비전한 이미지의 프로비전을 해제하여 이미지를 캡처하고 다시 사용할 수 있도록 하는 경우에 이 매개 변수를 사용합니다.
+* 버전: Waagent의 버전을 표시 합니다.
+* serialconsole: TtyS0 (첫 번째 직렬 포트)를 부팅 콘솔로 표시 하도록 GRUB를 구성 합니다. 이 매개 변수는 커널 부팅 로그를 직렬 포트로 보내고 디버깅에 사용할 수 있도록 설정합니다.
+* 데몬 Waagent를 디먼으로 실행 하 여 플랫폼과의 상호 작용을 관리 합니다. 이 인수는 waagent init 스크립트에서 waagent에 지정됩니다.
+* 시작 백그라운드 프로세스로 waagent 실행
 
 ## <a name="configuration"></a>Configuration
 구성 파일(/etc/waagent.conf)은 waagent의 동작을 제어합니다. 다음은 구성 파일 샘플을 보여 줍니다.
@@ -344,6 +343,6 @@ Ubuntu 클라우드 이미지는 [cloud-init](https://launchpad.net/ubuntu/+sour
 
 * 프로비전 중에 Ubuntu 클라우드 이미지에서 리소스 디스크 탑재 지점 및 스왑 공간을 구성하는 방법에 대한 자세한 내용은 다음 리소스를 참조하세요.
   
-  * [Ubuntu Wiki: Swap 파티션 구성](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
+  * [Ubuntu Wiki: 스왑 파티션 구성](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
   * [Azure Virtual Machine에 사용자 지정 데이터 삽입](../windows/classic/inject-custom-data.md)
 

@@ -6,17 +6,16 @@ author: laurenhughes
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: lahugh
-ms.openlocfilehash: 77fcfed125104588e27e6a0e80cdb4a92a744083
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 61e210d1b41966c493099e0619e969cf5ce30c50
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322444"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094008"
 ---
 # <a name="monitor-batch-solutions"></a>Batch 솔루션 모니터링
 
@@ -43,7 +42,7 @@ Batch 계정을 포함하는 구독 수준에서, [Azure 활동 로그](../azure
 
 Batch 애플리케이션에서 Batch API를 사용하여 작업, 태스크, 노드, 풀을 포함한 리소스 상태를 모니터링하거나 쿼리할 수 있습니다. 예를 들어:
 
-* [상태별 태스크 및 계산 노드 카운팅](batch-get-resource-counts.md)
+* [상태별 태스크 및 컴퓨팅 노드 카운팅](batch-get-resource-counts.md)
 * [Batch 리소스를 효율적으로 나열하는 쿼리 만들기](batch-efficient-list-queries.md)
 * [태스크 종속성 만들기](batch-task-dependencies.md)
 * [작업 관리자 태스크](/rest/api/batchservice/job/add#jobmanagertask) 사용

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: evansma
-ms.openlocfilehash: 17ae6dc8d1d583e5223a64ee079731fa5d9dc63c
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 03d67249ef1d74844a7e9019e90f6331ecfdf0c3
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69902313"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102969"
 ---
 # <a name="configure-lead-management-for-dynamics-365-for-customer-engagement"></a>고객 Engagement의 Dynamics 365에 대 한 리드 관리 구성
 
@@ -97,7 +97,7 @@ ms.locfileid: "69902313"
 
     ![권한 추가](./media/commercial-marketplace-lead-management-instructions-dynamics/api-permissions.png)
 
-14. Azure Portal에서 1-13 단계를 완료 한 후 URL (예: https://tenant.crm.dynamics.com) )로 이동 하 여 고객 참여 인스턴스의 Dynamics 365로 이동 합니다.
+14. Azure Portal에서 1-13 단계를 완료 한 후 URL (예: `https://tenant.crm.dynamics.com`)로 이동 하 여 고객 참여 인스턴스의 Dynamics 365로 이동 합니다.
 15. 위쪽 탐색 모음에서 기어 아이콘 및 **고급 설정** 을 선택 하 여 설정에 액세스 합니다.
 16. 설정 페이지에서 위쪽 탐색 모음에 있는 설정 메뉴에 액세스 하 고 **보안**을 선택 합니다.
 17. 보안 페이지에서 **사용자**를 선택 합니다.  사용자 페이지에서 "사용 사용자" 드롭다운을 선택 하 여 **응용 프로그램 사용자**로 전환 합니다.

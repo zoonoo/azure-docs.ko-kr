@@ -1,6 +1,6 @@
 ---
 title: Azure에서 Windows 가상 머신 배포 문제 해결 | Microsoft Docs
-description: Azure Resource Manager 배포 모델에서 배포 Windows 가상 머신 문제를 해결 합니다.
+description: Azure Resource Manager 배포 모델에서 Windows 가상 머신 배포 문제를 해결 합니다.
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
@@ -11,16 +11,15 @@ ms.assetid: 4e383427-4aff-4bf3-a0f4-dbff5c6f0c81
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 76841484595b0a8809b8ab10db3199fc8cd28b04
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: d963556a657f4367acca14d5d8340f384ef555a9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710447"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70080212"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Azure에서 Windows 가상 머신 배포 문제 해결
 
@@ -32,7 +31,7 @@ Azure의 VM(가상 머신) 배포 문제를 해결하려면 일반적인 오류 
 [!INCLUDE [virtual-machines-windows-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-windows-troubleshoot-deploy-vm-top.md)]
 
 ## <a name="the-cluster-cannot-support-the-requested-vm-size"></a>클러스터가 요청된 VM 크기를 지원할 수 없습니다.
-\<properties supportTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
+\<properties supportTopicIds = "123456789" resourceTags = "windows" productPesIds = "1234, 5678"/>
 - 더 작은 VM 크기를 사용하여 요청을 다시 시도합니다.
 - 요청한 VM의 크기를 변경할 수 없으면:
     - 가용성 집합의 VM을 모두 중지합니다. **리소스 그룹** > 사용자의 리소스 그룹 > **리소스** > 사용자의 가용성 집합 > **Virtual Machines** > 사용자의 가상 머신 > **중지**를 클릭합니다.
@@ -41,7 +40,7 @@ Azure의 VM(가상 머신) 배포 문제를 해결하려면 일반적인 오류 
 
 
 ## <a name="the-cluster-does-not-have-free-resources"></a>클러스터에 여유 리소스가 없습니다.
-\<properties supportTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
+\<properties supportTopicIds = "123456789" resourceTags = "windows" productPesIds = "1234, 5678"/>
 - 요청을 나중에 다시 시도하세요.
 - 새 VM이 다른 가용성 집합의 일부가 될 수 있다면
     - 동일한 지역의 다른 가용성 집합에 VM을 만듭니다.
@@ -65,7 +64,7 @@ Azure 하이브리드 사용 혜택을 사용하여 Windows 가상 머신을 배
 
 자세한 내용은 다음 리소스를 참조하십시오.
 
- - [Azure Hybrid Use Benefit 개요](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
+ - [Azure 하이브리드 사용 혜택 개요](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 
  - [다운로드 가능한 FAQ](https://download.microsoft.com/download/4/2/1/4211AC94-D607-4A45-B472-4B30EDF437DE/Windows_Server_Azure_Hybrid_Use_FAQ_EN_US.pdf)
 

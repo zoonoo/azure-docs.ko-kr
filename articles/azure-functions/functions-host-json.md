@@ -6,16 +6,15 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 4688cf6fb82eb8f726205d54d0c852fd3daf8dfb
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5a4bc05e0a0b0b6a2c1b859caea2aadc12b8e0e0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564784"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70096394"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Azure Functions 2.x에 대한 host.json 참조  
 
@@ -114,7 +113,7 @@ ms.locfileid: "68564784"
 > [!NOTE]
 > 로그 샘플링으로 인해 Application Insights 모니터 블레이드에 일부 실행이 표시되지 않을 수 있습니다.
 
-|속성  |Default | Description |
+|속성  |Default | 설명 |
 |---------|---------|---------| 
 |isEnabled|true|샘플링을 사용 여부를 설정합니다.| 
 |maxTelemetryItemsPerSecond|5|샘플링이 시작되는 임계값입니다.| 
@@ -174,7 +173,7 @@ ms.locfileid: "68564784"
 }
 ```
 
-|속성  |Default | 설명 |
+|속성  |Default | Description |
 |---------|---------|---------| 
 |enabled|true|기능의 사용 여부를 지정합니다. | 
 |healthCheckInterval|10초|정기적인 백그라운드 상태 검사 사이의 간격 | 
@@ -231,7 +230,7 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
 }
 ```
 
-|속성  |Default | 설명 |
+|속성  |Default | Description |
 |---------|---------|---------| 
 |isEnabled|false|콘솔 로깅을 사용하거나 사용하지 않도록 설정합니다.| 
 

@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
-ms.openlocfilehash: 6cf688750ac73763c7f0da4eea152cf6bf0c8285
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: a80dc8ccaa72a57986ed6c64f7ab7050ab4c7de5
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935011"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099157"
 ---
 # <a name="tutorial-add-an-azure-sql-database-single-database-to-a-failover-group"></a>자습서: 장애 조치 (failover) 그룹에 Azure SQL Database 단일 데이터베이스 추가
 
@@ -27,7 +27,7 @@ Azure SQL Database 단일 데이터베이스에 대 한 장애 조치 그룹을 
 > - 두 논리 SQL server 간에 단일 데이터베이스에 대 한 [장애 조치 (failover) 그룹](sql-database-auto-failover-group.md) 을 만듭니다.
 > - 테스트 장애 조치 (failover)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 # <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 이 자습서를 완료하려면 다음이 설치되어 있어야 합니다. 
@@ -61,16 +61,15 @@ Azure SQL Database 단일 데이터베이스에 대 한 장애 조치 그룹을 
 장애 조치 (failover) 그룹을 만들고 Azure Portal를 사용 하 여 단일 데이터베이스를 추가 합니다. 
 
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 위 모서리에 있는 **모든 서비스** 를 선택 합니다. 
-1. 검색 `sql servers` 상자에을 입력 합니다. 
-1. 필드 Sql server에서 즐겨 찾는 **sql** server 옆의 별표 아이콘을 선택 하 고 왼쪽의 탐색 창에 추가 합니다. 
-    
-    ![SQL Server 찾기](media/sql-database-single-database-create-failover-group-tutorial/all-services-sql-servers.png)
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **Azure SQL** 을 선택 합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. 필드 **AZURE SQL** 옆의 별표를 선택 하 여 즐겨찾기를 선택 하 고 왼쪽 탐색에 항목으로 추가 합니다. 
+1. 섹션 2에서 만든 단일 데이터베이스 (예: `mySampleDatbase`)를 선택 합니다. 
+1. 서버 **이름** 아래에서 서버 이름을 선택 하 여 서버에 대 한 설정을 엽니다.
 
-1. **SQL 서버** 를 선택 하 고 섹션 1에서 만든 서버 (예: `mysqlserver`)를 선택 합니다.
+   ![단일 db에 대해 서버 열기](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
+
 1. **설정** 창에서 **장애 조치 (failover) 그룹** 을 선택 하 고 **그룹 추가** 를 선택 하 여 새 장애 조치 그룹을 만듭니다. 
 
-    ![새 장애 조치 (failover) 그룹 추가](media/sql-database-single-database-create-failover-group-tutorial/sqldb-add-new-failover-group.png)
+    ![새 장애 조치 (failover) 그룹 추가](media/sql-database-single-database-failover-group-tutorial/sqldb-add-new-failover-group.png)
 
 1. **장애 조치 (Failover) 그룹** 페이지에서 다음 값을 입력 하거나 선택한 다음 **만들기**를 선택 합니다.
     - **장애 조치 (Failover) 그룹 이름**: 고유한 장애 조치 (failover) 그룹 이름 (예 `failovergrouptutorial`:)을 입력 합니다. 
@@ -78,16 +77,16 @@ Azure SQL Database 단일 데이터베이스에 대 한 장애 조치 그룹을 
         - **서버 이름**: 보조 서버에 대 한 고유한 이름 (예: `mysqlsecondary`)을 입력 합니다. 
         - **서버 관리자 로그인**: 입력할`azureuser`
         - **암호**: 암호 요구 사항을 충족하는 복잡한 암호를 입력합니다.
-        - **위치**: 드롭다운 (예: 미국 동부 2)에서 위치를 선택 합니다. 이 위치는 주 서버와 동일한 위치가 될 수 없습니다.
+        - **위치**: 드롭다운 목록에서 위치를 선택합니다(예: `East US`). 이 위치는 주 서버와 동일한 위치가 될 수 없습니다.
 
     > [!NOTE]
     > 서버 로그인 및 방화벽 설정은 주 서버의 이름과 일치 해야 합니다. 
     
-      ![장애 조치 (failover) 그룹에 대 한 보조 서버 만들기](media/sql-database-single-database-create-failover-group-tutorial/create-secondary-failover-server.png)
+      ![장애 조치 (failover) 그룹에 대 한 보조 서버 만들기](media/sql-database-single-database-failover-group-tutorial/create-secondary-failover-server.png)
 
    - **그룹 내의 데이터베이스**: 보조 서버를 선택 하면이 옵션의 잠금이 해제 됩니다. 이를 선택 하 여 **추가할 데이터베이스를 선택한** 다음 섹션 1에서 만든 데이터베이스를 선택 합니다. 장애 조치 (failover) 그룹에 데이터베이스를 추가 하면 지역에서 복제 프로세스가 자동으로 시작 됩니다. 
         
-    ![장애 조치 (failover) 그룹에 SQL DB 추가](media/sql-database-single-database-create-failover-group-tutorial/add-sqldb-to-failover-group.png)
+    ![장애 조치 (failover) 그룹에 SQL DB 추가](media/sql-database-single-database-failover-group-tutorial/add-sqldb-to-failover-group.png)
         
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -99,12 +98,12 @@ PowerShell을 사용 하 여 장애 조치 그룹을 만들고 단일 데이터�
    ```powershell-interactive
    # $subscriptionId = '<SubscriptionID>'
    # $resourceGroupName = "myResourceGroup-$(Get-Random)"
-   # $location = "West US 2"
+   # $location = "West US"
    # $adminLogin = "azureuser"
    # $password = "PWD27!"+(New-Guid).Guid
    # $serverName = "mysqlserver-$(Get-Random)"
    # $databaseName = "mySampleDatabase"
-   $drLocation = "East US 2"
+   $drLocation = "East US"
    $drServerName = "mysqlsecondary-$(Get-Random)"
    $failoverGroupName = "failovergrouptutorial-$(Get-Random)"
 
@@ -194,16 +193,21 @@ AZ CLI를 사용 하 여 장애 조치 그룹을 만들고 단일 데이터베�
 # <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 Azure Portal를 사용 하 여 테스트 장애 조치 (failover) 
 
-1. [Azure Portal](https://portal.azure.com)내의 **SQL** server 서버로 이동 합니다. 
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **Azure SQL** 을 선택 합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. 필드 **AZURE SQL** 옆의 별표를 선택 하 여 즐겨찾기를 선택 하 고 왼쪽 탐색에 항목으로 추가 합니다. 
+1. 섹션 2에서 만든 단일 데이터베이스 (예: `mySampleDatbase`)를 선택 합니다. 
+1. 서버 **이름** 아래에서 서버 이름을 선택 하 여 서버에 대 한 설정을 엽니다.
+
+   ![단일 db에 대해 서버 열기](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
+
 1. **설정** 창에서 **장애 조치 (failover) 그룹** 을 선택 하 고 섹션 2에서 만든 장애 조치 (failover) 그룹을 선택 합니다. 
   
-   ![포털에서 장애 조치 (failover) 그룹을 선택 합니다.](media/sql-database-single-database-create-failover-group-tutorial/select-failover-group.png)
+   ![포털에서 장애 조치 (failover) 그룹을 선택 합니다.](media/sql-database-single-database-failover-group-tutorial/select-failover-group.png)
 
 1. 주 서버 및 보조 서버를 검토 합니다. 
 1. 작업 창에서 **장애 조치** (failover)를 선택 하 여 샘플 단일 데이터베이스가 포함 된 장애 조치 그룹을 장애 조치 합니다. 
 1. TDS 세션의 연결을 끊을 것을 알리는 경고에서 **예** 를 선택 합니다. 
 
-   ![SQL database를 포함 하는 장애 조치 (failover) 그룹 장애 조치 (failover)](media/sql-database-single-database-create-failover-group-tutorial/failover-sql-db.png)
+   ![SQL database를 포함 하는 장애 조치 (failover) 그룹 장애 조치 (failover)](media/sql-database-single-database-failover-group-tutorial/failover-sql-db.png)
 
 1. 현재 주 서버와 보조 서버가 있는 서버를 검토 합니다. 장애 조치 (failover)에 성공 하면 두 서버에 교환 된 역할이 있어야 합니다. 
 1. **장애 조치 (Failover)** 를 다시 선택 하 여 서버가 원래 역할로 다시 장애 조치 (Failover) 합니다. 

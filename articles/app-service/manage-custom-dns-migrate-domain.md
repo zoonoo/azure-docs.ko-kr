@@ -11,17 +11,16 @@ ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 6215230a52bcb5c44f54747b447dc5f64e6af650
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 703a151f801f65b968ecf93eaa97640c22a71bd2
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130384"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073100"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Azure App Service로 활성 DNS 이름 마이그레이션
 
@@ -31,7 +30,7 @@ ms.locfileid: "62130384"
 
 DNS 확인의 중단을 염려하지 않는 경우에는 [Azure App Service에 기존 사용자 지정 DNS 이름 매핑](app-service-web-tutorial-custom-domain.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 방법을 완료하려면 다음이 필요합니다.
 
@@ -123,8 +122,8 @@ A 레코드를 다시 매핑하려면 **사용자 지정 도메인** 페이지�
 
 | FQDN 예 | 레코드 유형 | 호스트 | 값 |
 | - | - | - | - |
-| contoso.com(루트) | A | `@` | [앱의 IP 주소 복사](#info)에서 가져온 IP 주소 |
-| www\.contoso.com (하위) | CNAME | `www` | _&lt;appname>.azurewebsites.net_ |
+| contoso.com(루트) | 변수를 잠그기 위한 | `@` | [앱의 IP 주소 복사](#info)에서 가져온 IP 주소 |
+| www\.contoso.com (sub) | CNAME | `www` | _&lt;appname>.azurewebsites.net_ |
 | \*.contoso.com(와일드카드) | CNAME | _\*_ | _&lt;appname>.azurewebsites.net_ |
 
 설정을 저장합니다.

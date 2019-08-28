@@ -1,27 +1,26 @@
 ---
-title: Azure 함수에서 반환 값 사용
-description: Azure Functions에 대 한 반환 값을 관리 하는 방법을 알아봅니다
+title: Azure Function에서 반환 값 사용
+description: Azure Functions에 대 한 반환 값을 관리 하는 방법 알아보기
 services: functions
 documentationcenter: na
 author: craigshoemaker
 manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 01/14/2019
 ms.author: cshoe
-ms.openlocfilehash: 03cf85ab12a8f64d639c09db5ea75002b258aa84
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 1ea7ec0444ba80d3494afba77ad9d7fdabd5f982
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480277"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70086419"
 ---
-# <a name="using-the-azure-function-return-value"></a>Azure 함수 반환 값을 사용 하 여
+# <a name="using-the-azure-function-return-value"></a>Azure Function 반환 값 사용
 
-이 문서에서는 반환 값을 작업 하는 방법을 설명 하는 함수 내에서.
+이 문서에서는 함수 내에서 반환 값이 작동 하는 방식을 설명 합니다.
 
-반환 값이 있는 언어에서 함수를 바인딩할 수 있습니다 [출력 바인딩을](./functions-triggers-bindings.md#binding-direction) 반환 값:
+반환 값이 있는 언어에서 함수 [출력 바인딩을](./functions-triggers-bindings.md#binding-direction) 반환 값에 바인딩할 수 있습니다.
 
 * C# 클래스 라이브러리에서 출력 바인딩 특성을 메서드 반환 값에 적용합니다.
 * 다른 언어에서 *function.json*의 `name` 속성을 `$return`에 설정합니다.

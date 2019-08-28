@@ -10,19 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
 ms.service: virtual-machines-windows
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 27e75ac256cf71441e00a004bb2331277aa07b43
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: fada16b3ca5307a28eebca4dfe97dc96ba389212
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710033"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098691"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -209,7 +208,7 @@ ms.locfileid: "67710033"
 > ![Windows][Logo_Windows] Windows
 >
 
-2016 년 9 월 Microsoft는 여러 가상 IP 주소를 사용 하 여 관리할 수 있는 기능을 출시를 [Azure 내부 부하 분산 장치][load-balancer-multivip-overview]합니다. 이 기능은 Azure 외부 부하 분산 장치에 이미 있습니다. 
+2016 년 9 월 Microsoft는 [Azure 내부 부하 분산 장치][load-balancer-multivip-overview]를 사용 하 여 여러 가상 IP 주소를 관리할 수 있는 기능을 출시 했습니다. 이 기능은 Azure 외부 부하 분산 장치에 이미 있습니다. 
 
 SAP를 배포한 경우 내부 부하 분산 장치를 사용하여 SAP 중앙 서비스(ASCS/SCS) 인스턴스에 대한 Windows 클러스터 구성을 만들어야 합니다.
 
@@ -223,7 +222,7 @@ SAP를 배포한 경우 내부 부하 분산 장치를 사용하여 SAP 중앙 �
 >하나의 WSFC 클러스터에서 SAP ASCS/SCS 인스턴스의 최대수는 각 Azure 내부 부하 분산 장치에 대한 개인 프런트 엔드 IP의 최대수와 같습니다.
 >
 
-부하 분산 장치 제한에 대한 자세한 내용은 [네트워킹 제한: Azure Resource Manager][networking-limits-azure-resource-manager]합니다.
+부하 분산 장치 제한에 대한 자세한 내용은 [네트워킹 제한: Azure Resource Manager][networking-limits-azure-resource-manager].
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
@@ -245,7 +244,7 @@ SAP를 배포한 경우 내부 부하 분산 장치를 사용하여 SAP 중앙 �
 
 ![Azure에서 여러 SAP ASCS/SCS 클러스터링된 인스턴스][sap-ha-guide-figure-6002]
 
-부하 분산 장치 제한에 대한 자세한 내용은 [네트워킹 제한: Azure Resource Manager][networking-limits-azure-resource-manager]합니다.
+부하 분산 장치 제한에 대한 자세한 내용은 [네트워킹 제한: Azure Resource Manager][networking-limits-azure-resource-manager].
 
 두 가지 고가용성 SAP 시스템을 포함한 전체 그림은 다음과 같습니다.
 
@@ -389,7 +388,7 @@ Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$I
 1. 각 클러스터 노드에 추가 디스크 또는 동일한 크기의 디스크(스트라이프해야 하는)를 추가하고 서식을 지정합니다.
 2. SIOS DataKeeper를 사용하여 스토리지 복제를 구성합니다.
 
-이 절차는 WSFC 클러스터 컴퓨터에 SIOS DataKeeper를 이미 설치했다고 가정합니다. 설치한 경우 이제 컴퓨터 간의 복제를 구성해야 합니다. 프로세스에서 자세히 설명 되어 [SAP ASCS/SCS 클러스터 공유 디스크용 SIOS DataKeeper Cluster Edition 설치][sap-high-availability-infrastructure-wsfc-shared-disk-install-sios]합니다.  
+이 절차는 WSFC 클러스터 컴퓨터에 SIOS DataKeeper를 이미 설치했다고 가정합니다. 설치한 경우 이제 컴퓨터 간의 복제를 구성해야 합니다. 이 프로세스는 [SAP ASCS/SCS 클러스터 공유 디스크에 대 한 SIOS DataKeeper 클러스터 버전 설치][sap-high-availability-infrastructure-wsfc-shared-disk-install-sios]에 자세히 설명 되어 있습니다.  
 
 ![새 SAP ASCS/SCS 공유 디스크에 대한 DataKeeper 동기 미러링][sap-ha-guide-figure-6006]
 
@@ -402,16 +401,16 @@ Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$I
 
 ## <a name="install-an-sap-netweaver-multi-sid-system"></a>SAP NetWeaver 다중 SID 시스템 설치
 
-두 번째 SAP SID2 시스템을 설치 하는 전체 과정에 대 한 참조 [대 한 Windows 장애 조치 클러스터 및 공유 디스크에 SAP ASCS/SCS 인스턴스용 SAP NetWeaver HA 설치][sap-high-availability-installation-wsfc-shared-disk]합니다.
+두 번째 SAP SID2 시스템을 설치 하는 전체 프로세스에 대 한 설명은 sap [ASCS/SCS 인스턴스에 대 한 Windows 장애 조치 (Failover) 클러스터 및 공유 디스크에 Sap NETWEAVER HA 설치][sap-high-availability-installation-wsfc-shared-disk]를 참조 하세요.
 
 고급 절차는 다음과 같습니다.
 
-1. [고가용성 ASCS/SCS 인스턴스에 SAP 설치][sap-high-availability-installation-wsfc-shared-disk-install-ascs]합니다.  
+1. 고가용성 [ASCS/SCS 인스턴스를 사용 하 여 SAP를 설치][sap-high-availability-installation-wsfc-shared-disk-install-ascs]합니다.  
  이 단계에서는 기존 WSFC 클러스터 노드 1에 고가용성 ASCS/SCS 인스턴스를 포함한 SAP를 설치하고 있습니다.
 
-2. [ASCS/SCS 인스턴스의 SAP 프로필 수정][sap-high-availability-installation-wsfc-shared-disk-modify-ascs-profile]합니다.
+2. [ASCS/SCS 인스턴스의 SAP 프로필을 수정][sap-high-availability-installation-wsfc-shared-disk-modify-ascs-profile]합니다.
 
-3. [프로브 포트 구성][sap-high-availability-installation-wsfc-shared-disk-add-probe-port]합니다.  
+3. [프로브 포트를 구성][sap-high-availability-installation-wsfc-shared-disk-add-probe-port]합니다.  
  이 단계에서는 PowerShell을 사용하여 SAP 클러스터 리소스 SAP-SID2-IP 프로브 포트를 구성하고 있습니다. SAP ASCS/SCS 클러스터 노드 중 하나에서 이 구성을 실행합니다.
 
 4. 데이터베이스 인스턴스 설치.  
@@ -421,21 +420,21 @@ Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$I
  이 단계에서는 기존 WSFC 클러스터 노드 2에 고가용성 ASCS/SCS 인스턴스를 포함한 SAP를 설치하고 있습니다. 두 번째 클러스터 노드를 설치하려면 SAP 설치 가이드의 단계를 따릅니다.
 
 6. SAP ASCS /SCS 인스턴스 및 ProbePort의 Windows 방화벽 포트를 엽니다.  
-    SAP ASCS/SCS 인스턴스에 사용되는 두 클러스터 노드에서 SAP ASCS/SCS에서 사용하는 모든 Windows 방화벽 포트를 열고 있습니다. 이러한 SAP ASCS/SCS 인스턴스 포트는 챕터에 나열 되어 있습니다 [SAP ASCS / SCS 포트][sap-net-weaver-ports-ascs-scs-ports]합니다.
+    SAP ASCS/SCS 인스턴스에 사용되는 두 클러스터 노드에서 SAP ASCS/SCS에서 사용하는 모든 Windows 방화벽 포트를 열고 있습니다. 이러한 SAP ASCS/SCS 인스턴스 포트는 [SAP ASCS/Scs 포트][sap-net-weaver-ports-ascs-scs-ports]장에 나열 되어 있습니다.
 
-    다른 모든 SAP 포트 목록은 참조 하세요 [모든 SAP 제품의 TCP/IP 포트][sap-net-weaver-ports]합니다.  
+    다른 모든 SAP 포트 목록은 [모든 sap 제품의 tcp/ip 포트][sap-net-weaver-ports]를 참조 하세요.  
 
-    또한 62350 시나리오에서와 같이 Azure 내부 부하 분산 장치 프로브 포트를 엽니다. 설명 됩니다 [이 문서의][sap-high-availability-installation-wsfc-shared-disk-win-firewall-probe-port]합니다.
+    또한 62350 시나리오에서와 같이 Azure 내부 부하 분산 장치 프로브 포트를 엽니다. [이 내용은이 문서에][sap-high-availability-installation-wsfc-shared-disk-win-firewall-probe-port]설명 되어 있습니다.
 
-7. [SAP 수신 정산 (ERS) Windows 서비스 인스턴스의 시작 유형 변경][sap-high-availability-installation-wsfc-shared-disk-change-ers-service-startup-type]합니다.
+7. [SAP에서 평가한 MICROSOFT ERS (수신 정산) Windows 서비스 인스턴스의 시작 유형을 변경][sap-high-availability-installation-wsfc-shared-disk-change-ers-service-startup-type]합니다.
 
 8. SAP 설치 가이드의 설명에 따라 새로운 전용 VM에 SAP 기본 애플리케이션 서버를 설치합니다.  
 
 9. SAP 설치 가이드의 설명에 따라 새로운 전용 VM에 SAP 추가 애플리케이션 서버를 설치합니다.
 
-10. [SAP ASCS/SCS 인스턴스 장애 조치 및 SIOS 복제 테스트][sap-high-availability-installation-wsfc-shared-disk-test-ascs-failover-and-sios-repl]합니다.
+10. [SAP ASCS/SCS 인스턴스 장애 조치 및 SIOS 복제를 테스트][sap-high-availability-installation-wsfc-shared-disk-test-ascs-failover-and-sios-repl]합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [네트워킹 제한: Azure Resource Manager][networking-limits-azure-resource-manager]
-- [부하 분산 장치를 Azure에 대 한 여러 Vip][load-balancer-multivip-overview]
+- [Azure Load Balancer에 대 한 여러 Vip][load-balancer-multivip-overview]

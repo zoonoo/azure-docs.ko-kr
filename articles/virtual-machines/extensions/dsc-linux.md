@@ -8,18 +8,17 @@ manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 4b0cd88cbb3729a3e81aeb5d6f43f417c8cb2f17
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c37b81e08e5d9f150081a9dc12af51175e3f590c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64682761"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084714"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Linux용 DSC 확장(Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -36,7 +35,7 @@ DSCForLinux 확장은 Microsoft에서 게시하고 지원합니다. 확장은 OM
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -47,7 +46,7 @@ DSC Linux 확장은 다음을 제외한 모든 [Azure 보증 Linux 배포판](ht
 | Debian | 모든 버전 |
 | Ubuntu| 18.04 |
  
-### <a name="internet-connectivity"></a>인터넷 연결
+### <a name="internet-connectivity"></a>인터넷에 연결
 
 DSCForLinux 확장을 사용하려면 대상 가상 머신이 인터넷에 연결되어 있어야 합니다. 예를 들어 등록 확장에는 Automation 서비스에 대한 연결이 필요합니다. Push, Pull, Install과 같은 다른 작업의 경우 Azure 스토리지/Github에 연결해야 합니다. 이러한 연결은 고객이 제공하는 설정에 따라 달라집니다.
 
@@ -67,7 +66,7 @@ DSCForLinux 확장을 사용하려면 대상 가상 머신이 인터넷에 연�
 * `ConfigurationModeFrequencyMins`: (선택 사항, 정수) DSC에서 구성이 원하는 상태에 있는지 확인하는 빈도(분)를 지정합니다.
 
 > [!NOTE]
-> 2\.3 버전 미만을 사용하는 경우 mode 매개 변수는 ExtensionAction과 동일합니다. 모드는 오버 로드 된 용어 것 같습니다. 따라서 혼동을 방지하기 위해 ExtensionAction이 2.3 버전 이후부터 사용되고 있습니다. 이전 버전과의 호환성을 위해 확장은 mode와 ExtensionAction을 모두 지원합니다. 
+> 2\.3 버전 미만을 사용하는 경우 mode 매개 변수는 ExtensionAction과 동일합니다. 모드는 오버 로드 된 용어입니다. 따라서 혼동을 방지하기 위해 ExtensionAction이 2.3 버전 이후부터 사용되고 있습니다. 이전 버전과의 호환성을 위해 확장은 mode와 ExtensionAction을 모두 지원합니다. 
 >
 
 ### <a name="12-protected-configuration"></a>1.2 보호된 구성

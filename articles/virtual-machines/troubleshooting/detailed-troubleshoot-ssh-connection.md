@@ -12,16 +12,15 @@ ms.assetid: b8e8be5f-e8a6-489d-9922-9df8de32e839
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 153117488cf94eb304eeb63ba6dca92a6c6ff27d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 41265973df21be289e63cbd6ed2703febc50cff2
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67696218"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70090491"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Azure에서 Linux VM에 연결할 때의 문제에 대한 자세한 SSH 문제 해결 단계
 SSH 클라이언트가 VM의 SSH 서비스에 도달할 수 없는 데에는 여러 원인이 있습니다. 추가적인 [일반 SSH 문제 해결 단계](troubleshoot-ssh-connection.md)를 진행한 경우 연결 문제를 추가적으로 해결해야 합니다. 이 문서에서는 SSH 연결에 문제가 있는지 확인하는 자세한 문제 해결 단계와 해결 방법을 안내합니다.
@@ -36,7 +35,7 @@ SSH 클라이언트가 VM의 SSH 서비스에 도달할 수 없는 데에는 여
 1. 포털에서 VM의 상태를 확인합니다.
    [Azure Portal](https://portal.azure.com)에서 **가상 머신** > *VM 이름*을 선택합니다.
 
-   VM에 대한 상태 창에 **실행 중**이 표시되어야 합니다. 아래로 스크롤하여 계산, 스토리지 및 네트워크 리소스에 대한 최근 활동을 표시합니다.
+   VM에 대한 상태 창에 **실행 중**이 표시되어야 합니다. 아래로 스크롤하여 컴퓨팅, 스토리지 및 네트워크 리소스에 대한 최근 활동을 표시합니다.
 
 2. **설정** 을 선택하여 엔드포인트, IP 주소, 네트워크 보안 그룹 및 기타 설정을 검토합니다.
 
@@ -55,7 +54,7 @@ SSH 클라이언트가 VM의 SSH 서비스에 도달할 수 없는 데에는 여
 * [네트워크 보안 그룹](#source-4-network-security-groups)
 * [Linux 기반 Azure VM](#source-5-linux-based-azure-virtual-machine)
 
-## <a name="source-1-ssh-client-computer"></a>발생 지 1: SSH 클라이언트 컴퓨터
+## <a name="source-1-ssh-client-computer"></a>원본 1: SSH 클라이언트 컴퓨터
 문제의 발생지인 사용자의 컴퓨터를 제거하려면 사용자의 컴퓨터가 다른 온-프레미스, Linux 기반 컴퓨터에 SSH 연결을 설정할 수 있는지 확인합니다.
 
 ![SSH 클라이언트 컴퓨터 구성 요소를 강조하는 다이어그램](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot2.png)
@@ -77,7 +76,7 @@ SSH 클라이언트가 VM의 SSH 서비스에 도달할 수 없는 데에는 여
 * Chmod 644 ~/.ssh/known_hosts(SSH를 통해 연결한 호스트 포함)
 
 ## <a name="source-2-organization-edge-device"></a>원본 2: 조직 에지 디바이스
-문제의 발생지인 조직의 Edge 디바이스를 제거하려면 인터넷에 직접 연결된 컴퓨터가 Azure VM에 SSH 연결을 설정할 수 있는지 확인합니다. 사이트 간 VPN 또는 Azure ExpressRoute 연결을 통해 VM을 액세스 하는 경우 건너뜁니다 [발생 지 4: 네트워크 보안 그룹](#nsg)합니다.
+문제의 발생지인 조직의 Edge 디바이스를 제거하려면 인터넷에 직접 연결된 컴퓨터가 Azure VM에 SSH 연결을 설정할 수 있는지 확인합니다. 사이트 간 VPN 또는 Azure express 경로 연결을 통해 VM에 액세스 하는 경우 원본 4로 [건너뜁니다. 네트워크 보안 그룹](#nsg).
 
 ![조직 에지 디바이스를 강조하는 다이어그램](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot3.png)
 
@@ -91,9 +90,9 @@ SSH 클라이언트가 VM의 SSH 서비스에 도달할 수 없는 데에는 여
 
 네트워크 관리자와 협력하여 인터넷에서 SSH 트래픽을 허용하도록 조직 에지 디바이스 설정을 수정합니다.
 
-## <a name="source-3-cloud-service-endpoint-and-acl"></a>발생 지 3: 클라우드 서비스 끝점 및 ACL
+## <a name="source-3-cloud-service-endpoint-and-acl"></a>원본 3: 클라우드 서비스 끝점 및 ACL
 > [!NOTE]
-> 이 발생지는 클래식 배포 모델을 사용하여 만든 VM에만 적용됩니다. Resource Manager를 사용 하 여 만든 Vm에 대 한 건너뜁니다 [발생 지 4: 네트워크 보안 그룹](#nsg)합니다.
+> 이 발생지는 클래식 배포 모델을 사용하여 만든 VM에만 적용됩니다. 리소스 관리자를 사용 하 여 만든 vm의 경우 원본 4 [로 건너뜁니다. 네트워크 보안 그룹](#nsg).
 
 문제의 발생지인 클라우드 서비스 엔드포인트 및 ACL을 제거하려면 동일한 가상 네트워크의 다른 Azure VM이 SSH를 사용하여 연결할 수 있는지 확인합니다.
 
@@ -110,13 +109,13 @@ SSH 클라이언트가 VM의 SSH 서비스에 도달할 수 없는 데에는 여
 
 <a id="nsg"></a>
 
-## <a name="source-4-network-security-groups"></a>발생 지 4: 네트워크 보안 그룹
+## <a name="source-4-network-security-groups"></a>원본 4: 네트워크 보안 그룹
 네트워크 보안 그룹을 사용하면 허용되는 인바운드 및 아웃바운드 트래픽을 더 세부적으로 제어할 수 있습니다. Azure 가상 네트워크의 서브넷 및 클라우드 서비스에 적용되는 규칙을 만들 수 있습니다. 네트워크 보안 그룹 규칙을 확인하고 인터넷으로 나가고 들어오는 SSH 트래픽이 허용되어 있는지 확인합니다.
 자세한 내용은 [네트워크 보안 그룹 정보](../../virtual-network/security-overview.md)를 참조하세요.
 
 IP 확인을 사용하여 NSG 구성이 유효한지 검사할 수도 있습니다. 자세한 내용은 [Azure 네트워크 모니터링 개요](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)를 참조하세요. 
 
-## <a name="source-5-linux-based-azure-virtual-machine"></a>발생 지 5: Linux 기반 Azure 가상 컴퓨터
+## <a name="source-5-linux-based-azure-virtual-machine"></a>원본 5: Linux 기반 Azure 가상 컴퓨터
 마지막 가능한 문제 발생지는 Azure 가상 머신 자체입니다.
 
 ![Linux 기반 Azure 가상 머신을 강조하는 다이어그램](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot5.png)

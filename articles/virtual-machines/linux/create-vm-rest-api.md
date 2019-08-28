@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: a7f624bc85d35048a8f9afa0f527ae592a24fbf1
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 9851305bdaa2f214e0d00eda3235068cac2ea980
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67667939"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083470"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>REST API를 통해 SSH 인증을 사용하는 Linux 가상 머신 만들기
 
@@ -30,7 +29,7 @@ Azure Portal, Azure CLI 2.0, 여러 Azure SDK, Azure Resource Manager 템플릿 
 
 이 문서에서는 REST API를 사용하여 관리 디스크 및 SSH 인증을 통해 Ubuntu 18.04-LTS를 실행하는 Linux VM을 만드는 방법을 보여 줍니다.
 
-## <a name="before-you-start"></a>시작하기 전에
+## <a name="before-you-start"></a>시작하기 전 주의 사항
 
 요청을 만들고 제출하기 전에 다음이 필요합니다.
 
@@ -52,7 +51,7 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 다음과 같은 헤더가 필요합니다.
 
-| 요청 헤더   | Description |
+| 요청 헤더   | 설명 |
 |------------------|-----------------|
 | *Content-Type:*  | 필수 요소. `application/json`로 설정합니다. |
 | *Authorization:* | 필수 요소. 유효한 `Bearer` [액세스 토큰](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients)으로 설정합니다. |
@@ -65,7 +64,7 @@ REST API 요청 작업에 대한 일반 내용은 [REST API 요청/응답 구성
 
 | 이름                       | 필수 | 형식                                                                                | Description  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
-| location                   | True     | string                                                                              | 리소스 위치. |
+| 위치                   | True     | string                                                                              | 리소스 위치. |
 | name                       |          | string                                                                              | 가상 머신의 이름. |
 | properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | 가상 머신에 대한 하드웨어 설정을 지정합니다. |
 | properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | 가상 머신 디스크에 대한 스토리지 설정을 지정합니다. |
@@ -127,7 +126,7 @@ REST API 요청 작업에 대한 일반 내용은 [REST API 요청/응답 구성
 }
 ```
 
-요청 본문에 사용 가능한 정의의 전체 목록은 참조 하세요 [가상 머신 만들기 또는 업데이트 요청 본문 정의](/rest/api/compute/virtualmachines/createorupdate#definitions)합니다.
+요청 본문에서 사용할 수 있는 정의의 전체 목록은 [Virtual machines 요청 본문 정의 만들기 또는 업데이트](/rest/api/compute/virtualmachines/createorupdate#definitions)를 참조 하세요.
 
 ## <a name="sending-the-request"></a>요청 보내기
 

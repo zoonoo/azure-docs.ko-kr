@@ -11,17 +11,16 @@ ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8833ddf487c36446b5e5b4ce1d6cfc6363d3ceeb
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: cc3c1d9352d9df44a51a917700c656055b8b8361
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710383"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70088618"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>스토리지 계정의 특수한 VHD에서 VM 만들기
 
@@ -271,7 +270,7 @@ $vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
     ```powershell
     $osDiskUri = "https://myStorageAccount.blob.core.windows.net/myContainer/myOsDisk.vhd"
     ```
-2. OS 디스크를 추가합니다. 이 예제에서는 OS 디스크를 만들면 OS 디스크 이름을 만들기 위해 VM 이름에 "osdisk" 추가 됩니다. 또한 이 예에서는 이 Windows 기반 VHD를 VM에 OS 디스크로 연결해야 하는 것으로 지정합니다.
+2. OS 디스크를 추가합니다. 이 예에서 OS 디스크를 만들 때 "osDisk" 라는 용어는 OS 디스크 이름을 만들기 위해 VM 이름에 추가 됩니다. 또한 이 예에서는 이 Windows 기반 VHD를 VM에 OS 디스크로 연결해야 하는 것으로 지정합니다.
     
     ```powershell
     $osDiskName = $vmName + "osDisk"

@@ -7,18 +7,17 @@ author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
-ms.openlocfilehash: 51a97443f6b9ba2a37fa2db708b8520a9c450000
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ad4053c2dda50598853528bb6e8b3441c455fbba
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60594812"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70080236"
 ---
 # <a name="windows-shows-checking-file-system-when-booting-an-azure-vm"></a>Azure VM을 부팅할 때 Windows에서 "파일 시스템 확인 중"을 표시합니다.
 
@@ -38,7 +37,7 @@ Windows VM이 시작되지 않습니다. [부트 진단](boot-diagnostics.md)에
 
 파일 시스템에 NTFS 오류가 있으면 Windows는 다음에 다시 시작할 때 디스크 일관성을 검사하고 복구합니다. 일반적으로 이 문제는 VM이 예기치 않게 다시 시작되거나 VM 종료 프로세스가 갑자기 중단된 경우에 발생합니다.
 
-## <a name="solution"></a>해결 방법 
+## <a name="solution"></a>솔루션 
 
 Windows는 디스크 검사 프로세스가 완료된 후 정상적으로 부팅됩니다. VM의 디스크 검사 프로세스가 중단되면 오프라인에서 VM에 대해 디스크 검사를 실행합니다.
 1.  영향을 받는 VM의 OS 디스크 스냅샷을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)을 참조하세요.

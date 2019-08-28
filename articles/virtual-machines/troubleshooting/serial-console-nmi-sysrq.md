@@ -8,23 +8,22 @@ manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 79729cf222c208a78a2eac430e51b996cddb4e78
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: d5c647bac2bc6abc85a74531e052f0f3a54b2047
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710537"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70090085"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>SysRq 및 NMI 호출에 대한 직렬 콘솔 사용
 
 ## <a name="system-request-sysrq"></a>시스템 요청(SysRq)
-SysRq는 일련의 미리 정의된 작업을 트리거할 수 있는 Linux 작업 시스템 커널에서 인식되는 키의 시퀀스입니다. 이 명령은 가상 머신 문제 해결 또는 복구 (예를 들어 VM 응답 하지 않는 경우) 기존 관리를 통해 수행할 수 없는 경우에 자주 사용 됩니다. Azure 직렬 콘솔의 SysRq 기능을 사용하면 실제 키보드에서 입력한 문자와 SysRq 키 누르기를 가장합니다.
+SysRq는 일련의 미리 정의된 작업을 트리거할 수 있는 Linux 작업 시스템 커널에서 인식되는 키의 시퀀스입니다. 이러한 명령은 기존 관리를 통해 가상 컴퓨터 문제 해결 또는 복구를 수행할 수 없는 경우 (예: VM이 응답 하지 않는 경우)에 자주 사용 됩니다. Azure 직렬 콘솔의 SysRq 기능을 사용하면 실제 키보드에서 입력한 문자와 SysRq 키 누르기를 가장합니다.
 
 SysRq 시퀀스가 전달되면 커널 구성이 시스템의 응답을 제어하게 됩니다. SysRq의 설정 및 해제에 대한 내용은 *SysRq 관리자 가이드* [텍스트](https://aka.ms/kernelorgsysreqdoc) | [markdown](https://aka.ms/linuxsysrq)를 참조하세요.  
 
@@ -99,7 +98,7 @@ SysRq의 배포 관련 설명서 및 SysRq “Crash” 명령을 수신하는 �
 - [크래시 로그 수집](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
 ## <a name="non-maskable-interrupt-nmi"></a>NMI(마스크 불가능 인터럽트) 
-NMI(마스크 불가능 인터럽트)는 가상 머신에 있는 소프트웨어가 무시하는 신호를 만들도록 설계되었습니다. 지금까지 NMI는 특정 응답 시간이 필요한 시스템에서 하드웨어 문제를 모니터링하는 데 사용되었습니다.  현재, 프로그래머 및 시스템 관리자는 종종 디버그 하거나 응답 하지 않는 시스템 문제를 해결 하려면 메커니즘으로 NMI를 사용 합니다.
+NMI(마스크 불가능 인터럽트)는 가상 머신에 있는 소프트웨어가 무시하는 신호를 만들도록 설계되었습니다. 지금까지 NMI는 특정 응답 시간이 필요한 시스템에서 하드웨어 문제를 모니터링하는 데 사용되었습니다.  현재 프로그래머 및 시스템 관리자는 응답 하지 않는 시스템을 디버그 하거나 문제를 해결 하는 메커니즘으로 NMI를 사용 하는 경우가 많습니다.
 
 아래 표시된 명령줄에서 키보드 아이콘을 사용하여 NMI를 Azure 가상 머신에 전송하는 데 직렬 콘솔을 사용할 수 있습니다. NMI가 전달되면 가상 머신 구성이 시스템의 응답을 제어하게 됩니다.  운영 체제가 NMI를 수신하는 메모리 덤프를 크래시하고 만들도록 Linux 운영 체제를 구성할 수 있습니다.
 

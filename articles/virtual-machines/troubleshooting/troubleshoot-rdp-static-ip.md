@@ -7,18 +7,17 @@ author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/08/2018
 ms.author: genli
-ms.openlocfilehash: 81a3064290e0aa720a4fe6b0fa0d8eb13cfe6903
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 839e2b79d27a0d4c392b379d971627c68393fe9f
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60318921"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70089772"
 ---
 #  <a name="cannot-remote-desktop-to-azure-virtual-machines-because-of-static-ip"></a>정적 IP로 인해 Azure Virtual Machines에 대해 원격 데스크톱을 사용할 수 없음
 
@@ -47,7 +46,7 @@ Azure Portal의 [부팅 진단](../troubleshooting/boot-diagnostics.md)에서 �
 
 Windows 내 네트워크 인터페이스에 정의된 고정 IP 주소가 VM에 있습니다. 이 IP 주소는 Azure Portal에 정의된 주소와 다릅니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 다음 단계를 수행하기 전에 영향을 받는 VM의 OS 디스크 스냅샷을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
 

@@ -3,15 +3,15 @@ title: Azure Cosmos DB에서 컨테이너 쿼리
 description: Azure Cosmos DB에서 컨테이너를 쿼리하는 방법 알아보기
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: cf14e005de3710f26bfdbab7cc0dac87e0cf000e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: HT
+ms.openlocfilehash: 799fa43ad6ff12e5fa84326cbb41842e76daff12
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243746"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092962"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Azure Cosmos 컨테이너 쿼리
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: a562630ef19c134c227ef44b944c1dd921ff2e46
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: d20ea4a6e86bb889615d3ab9bfcac5aedf838ceb
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726816"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098636"
 ---
 # <a name="securing-paas-deployments"></a>PaaS 배포 보안
 
@@ -116,7 +116,7 @@ Microsoft [Security Development Lifecycle](https://www.microsoft.com/en-us/sdl)�
 | --- | --- | --- |
 | 스푸핑 | 인증 | HTTPS 연결을 사용해야 하도록 지정합니다. |
 | 변조 | 무결성 | SSL 인증서 유효성을 검사합니다. |
-| 거부 | 부인 방지 | Azure [모니터링 및 진단](/azure/architecture/best-practices/monitoring)을 사용하도록 설정합니다. |
+| 거부 | 거부 없음 | Azure [모니터링 및 진단](/azure/architecture/best-practices/monitoring)을 사용하도록 설정합니다. |
 | 정보 공개 | 기밀성 | [서비스 인증서](/rest/api/appservice/certificates)를 사용하여 미사용 상태의 중요한 데이터를 암호화합니다. |
 | 서비스 거부 | 가용성 | 성능 메트릭에서 서비스 거부 상황 가능성을 모니터링합니다. 연결 필터를 구현합니다. |
 | 권한 상승 | Authorization | [Privileged Identity Management](/azure/active-directory/privileged-identity-management/subscription-requirements)를 사용합니다. |
@@ -139,7 +139,7 @@ App Service 사용 시의 모범 사례는 다음과 같습니다.
 **세부 정보**: [App Service Environment](/azure/app-service/environment/intro)에는 네트워크 보안 그룹을 통해 들어오는 원본 IP 주소를 제한하는 데 도움이 되는 가상 네트워크 통합 기능이 있습니다. 가상 네트워크에서는 액세스를 제어할 수 있는 인터넷이 아닌 라우팅 가능 네트워크에 Azure 리소스를 배치할 수 있습니다. 자세히 알아보려면 [Azure Virtual Network에 앱 통합](/azure/app-service/web-sites-integrate-with-vnet)을 참조하세요.
 
 **모범 사례**: App Service 환경의 보안 상태를 모니터링합니다.   
-**세부 정보**: Azure Security Center를 사용하여 App Service 환경을 모니터링합니다. Security Center는 잠재적 보안 취약성이 확인되면 필요한 컨트롤을 구성하는 과정을 안내하는 [권장 사항](/azure/security-center/security-center-virtual-machine-recommendations)을 만듭니다.
+**세부 정보**: Azure Security Center를 사용하여 App Service 환경을 모니터링합니다. Security Center는 잠재적 보안 취약성이 확인되면 필요한 컨트롤을 구성하는 과정을 안내하는 [권장 사항](../../security-center/security-center-virtual-machine-protection.md)을 만듭니다.
 
 > [!NOTE]
 > Monitoring App Service는 미리 보기로 제공되며 Security Center의 [표준 계층](/azure/security-center/security-center-pricing)에서만 사용할 수 있습니다.

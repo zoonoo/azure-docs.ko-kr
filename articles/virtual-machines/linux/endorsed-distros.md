@@ -11,22 +11,21 @@ ms.assetid: 2777a526-c260-4cb9-a31a-bdfe1a55fffc
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2019
 ms.author: szark
-ms.openlocfilehash: 172267af394885d0c5ac0a0717de87e968182d37
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
-ms.translationtype: HT
+ms.openlocfilehash: 4b254b508e5fac5721e579620e207c2a8612352d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67667861"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083416"
 ---
-# <a name="endorsed-linux-distributions-on-azure"></a>Azure의 Linux 배포판을 보증
+# <a name="endorsed-linux-distributions-on-azure"></a>Azure에서 Linux 배포판 보증
 파트너는 Azure Marketplace에서 Linux 이미지를 제공합니다. 다양한 Linux 커뮤니티와 작업하여 보증 배포 목록에 다양한 옵션을 추가합니다. Marketplace에서 사용할 수 없는 배포판의 경우 [Linux 운영 체제가 포함된 가상 하드 디스크 만들기 및 업로드](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic)의 지침에 따라 항상 고유한 Linux를 가져올 수 있습니다.
 
 ## <a name="supported-distributions-and-versions"></a>지원되는 배포판 및 버전
-다음 표에서 Linux 배포판 및 Azure에서 지원 되는 버전을 나열합니다. 가리킵니다 [Microsoft Azure의 Linux 이미지 지원](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) Linux 및 Azure에서 오픈 소스 기술에 대 한 지원에 대 한 자세한 내용에 대 한 합니다.
+다음 표에서 Linux 배포판 및 Azure에서 지원 되는 버전을 나열합니다. Azure의 Linux 및 오픈 소스 기술 지원에 대 한 자세한 내용은 [Microsoft Azure의 linux 이미지에](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) 대 한 지원을 참조 하세요.
 
 Hyper-V 및 Azure용 LIS(Linux 통합 서비스) 드라이버는 Microsoft가 업스트림 Linux 커널로 직접 제공되는 커널 모듈입니다.  일부 LIS 드라이버는 기본적으로 배포 커널에 빌드됩니다. RHEL(Red Hat Enterprise)/CentOS를 기반으로 둔 이전 배포는 [Hyper-V 및 Azure용 Linux Integration Services 버전 4.2](https://www.microsoft.com/download/details.aspx?id=55106)에서 별도의 다운로드로 제공됩니다. LIS 드라이버에 대한 자세한 내용은 [Linux 커널 요구 사항](create-upload-generic.md#linux-kernel-requirements)을 참조하세요.
 
@@ -44,25 +43,25 @@ Azure Linux 에이전트는 Azure Marketplace 이미지에 이미 사전 설치�
 | openSUSE |openSUSE Leap 42.2+ |커널에 있음 |패키지: "python-azure-agent"의 [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) 리포지토리에 있음 <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Ubuntu |Ubuntu 12.04 이상 **<sup>1</sup>** |커널에 있음 |패키지: "walinuxagent"의 리포지토리에 있음 <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent) |
 
-  - **<sup>1</sup>**  Ubuntu 12.04 및 14.04에 대 한 추가 지원에 대 한 내용은 여기에서 찾을 수 있습니다. [보안 유지 관리를 확장 하는 Ubuntu](https://www.ubuntu.com/esm)합니다.
+  - **<sup>1</sup>** Ubuntu 12.04 및 14.04에 대 한 확장 지원에 대 한 자세한 내용은 다음을 참조 하세요. [Ubuntu 확장 보안 유지 관리](https://www.ubuntu.com/esm).
 
 
-## <a name="image-update-cadence"></a>이미지 업데이트 주기
-Azure 보증된 Linux 배포판의 게시자 최신 패치 및 분기별 또는 더 빠른 주기로 보안 픽스를 사용 하 여 Azure Marketplace에서 해당 이미지를 정기적으로 업데이트는 필요 합니다. Azure Marketplace에서 업데이트 된 이미지는 이미지 SKU의 새 버전으로 고객에 게 자동으로 사용할 수 있습니다. Linux 이미지를 찾는 방법에 대 한 자세한 정보: [Azure Marketplace에서 Linux VM 이미지 찾기](https://docs.microsoft.com/azure/virtual-machines/linux/cli-ps-findimage)합니다.
+## <a name="image-update-cadence"></a>이미지 업데이트 흐름
+Azure를 사용 하려면 보증 Linux 배포판의 게시자가 분기별 또는 더 빠른 흐름에서 최신 패치와 보안 픽스를 사용 하 여 Azure Marketplace의 이미지를 정기적으로 업데이트 해야 합니다. Azure Marketplace의 업데이트 된 이미지는 이미지 SKU의 새 버전으로 고객에 게 자동으로 제공 됩니다. Linux 이미지를 찾는 방법에 대 한 자세한 정보: [Azure Marketplace에서 LINUX VM 이미지를 찾습니다](https://docs.microsoft.com/azure/virtual-machines/linux/cli-ps-findimage).
 
 ### <a name="additional-links"></a>추가 링크
  - [SUSE 공용 클라우드 이미지 수명 주기](https://www.suse.com/c/suse-public-cloud-image-life-cycle/)
 
-## <a name="azure-tuned-kernels"></a>커널 azure 조정
+## <a name="azure-tuned-kernels"></a>Azure 조정 커널
 
-Azure는 다양 한 Linux 보증된 배포판 이러한 Azure Marketplace에 게시 되는 이미지를 최적화 하기 위해 밀접 하 게 합니다. 이 공동 작업의 측면 중 하나는 Azure 플랫폼에 최적화 되며 Linux 배포판의 완전히 지원 되는 구성 요소로 전달 하는 "조정 된" Linux 커널의 개발 합니다. Azure 조정 커널 새로운 기능과 성능 향상 및 기본 또는 배포에서 사용할 수 있는 제네릭 커널에 비해 (일반적으로 분기별)는 더 빠른 주기로 합니다.
+Azure는 다양 한 보증 Linux 배포판과 긴밀 하 게 협력 하 여 Azure Marketplace에 게시 된 이미지를 최적화 합니다. 이 공동 작업의 한 가지 측면은 Azure 플랫폼에 최적화 되 고 Linux 배포판의 완전히 지원 되는 구성 요소로 제공 되는 "조정 된" Linux 커널을 개발 하는 것입니다. Azure에 의해 조정 되는 커널에는 배포에서 사용할 수 있는 기본 또는 일반 커널을 비교 하 여 새로운 기능과 성능이 개선 되 고 더 빠르게 (일반적으로 분기별) 주기가 통합 됩니다.
 
-대부분의 경우 Azure Marketplace에서 기본 이미지에 미리 설치 된 이러한 커널을 찾을 수 있습니다 하 고 있으므로 Azure 고객에 게 즉시 최적화 된 이러한 커널의 혜택 받습니다. 이러한 Azure 조정 커널에 대 한 자세한 내용은 다음 링크에 있습니다.
+대부분의 경우 Azure Marketplace의 기본 이미지에 미리 설치 된 이러한 커널을 확인할 수 있으므로 Azure 고객은 이러한 최적화 된 커널의 이점을 즉시 얻을 수 있습니다. 이러한 Azure 조정 커널에 대 한 자세한 내용은 다음 링크에서 찾을 수 있습니다.
 
- - CentOS Azure 조정 커널-SIG-CentOS 가상화를 통해 사용할 수 있는 [자세한 정보](https://wiki.centos.org/SpecialInterestGroup/Virtualization)
- - Debian 클라우드 커널-Debian 10 및 azure에서 Debian 9 "backports" 이미지를 사용할 수 있는 [추가 정보](https://wiki.debian.org/Cloud/MicrosoftAzure)
- - SLES Azure 조정 커널- [자세한 정보](https://www.suse.com/c/a-different-builtin-kernel-for-azure-on-demand-images/)
- - Ubuntu Azure 조정 커널- [자세한 정보](https://blog.ubuntu.com/2017/09/21/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel)
+ - CentOS Azure 튜닝 된 커널-CentOS 가상화 SIG를 통해 사용 가능- [추가 정보](https://wiki.centos.org/SpecialInterestGroup/Virtualization)
+ - Debian Cloud Kernel-Azure의 Debian 10 및 Debian 9 "backports" 이미지에서 사용할 수 있음- [추가 정보](https://wiki.debian.org/Cloud/MicrosoftAzure)
+ - SLES Azure 튜닝 커널- [추가 정보](https://www.suse.com/c/a-different-builtin-kernel-for-azure-on-demand-images/)
+ - Ubuntu Azure 조정 커널- [추가 정보](https://blog.ubuntu.com/2017/09/21/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel)
 
 
 ## <a name="partners"></a>파트너
@@ -82,7 +81,7 @@ Credativ는 독립적인 컨설팅 및 서비스 회사로, 주요 사업 분야
 ### <a name="oracle"></a>Oracle
 [https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html)
 
-Oracle의 전략은 공용 및 프라이빗 클라우드에 대해 광범위한 솔루션 포트폴리오를 제공하는 것입니다. 이 전략을 통해 고객은 Oracle 클라우드 및 다른 클라우드에 Oracle 소프트웨어를 배포하는 방법을 유연하게 선택할 수 있습니다. Oracle과 Microsoft의 파트너 관계를 통해 고객은 Oracle의 확실한 인증 및 지원으로 Microsoft 퍼블릭 및 프라이빗 클라우드에서 Oracle 소프트웨어를 배포할 수 있습니다.  Oracle 공용 및 프라이빗 클라우드 솔루션에 대한 Oracle의 이행 및 투자는 변하지 않습니다.
+Oracle의 전략은 공용 및 프라이빗 클라우드에 대해 광범위한 솔루션 포트폴리오를 제공하는 것입니다. 이 전략을 통해 고객은 Oracle 클라우드 및 다른 클라우드에 Oracle 소프트웨어를 배포하는 방법을 유연하게 선택할 수 있습니다. Oracle과 Microsoft의 파트너 관계를 통해 고객은 Oracle의 확실한 인증 및 지원으로 Microsoft 공용 및 프라이빗 클라우드에서 Oracle 소프트웨어를 배포할 수 있습니다.  Oracle 공용 및 프라이빗 클라우드 솔루션에 대한 Oracle의 이행 및 투자는 변하지 않습니다.
 
 ### <a name="red-hat"></a>Red Hat
 [https://www.redhat.com/en/partners/strategic-alliance/microsoft](https://www.redhat.com/en/partners/strategic-alliance/microsoft)
@@ -94,7 +93,7 @@ Red Hat은 전 세계의 오픈 소스 솔루션 시장을 선도하는 기업�
 
 SUSE Linux Enterprise Server on Azure는 클라우드 컴퓨팅에 대해 우수한 안정성과 보안을 제공하는 검증된 플랫폼입니다. SUSE의 다양한 Linux 플랫폼은 Azure 클라우드 서비스와 자연스럽게 통합되어 쉽게 관리할 수 있는 클라우드 환경을 제공합니다. 1,800곳이 넘는 SUSE Linux Enterprise Server의 독립 소프트웨어 공급업체에서 9,200개 이상의 인증된 애플리케이션을 통해 SUSE는 데이터 센터에서 지원되는 실행 중인 작업이 확실히 Azure에 배포될 수 있도록 합니다.
 
-### <a name="canonical"></a>Canonical
+### <a name="canonical"></a>정식
 [https://www.ubuntu.com/cloud/azure](https://www.ubuntu.com/cloud/azure)
 
 Canonical 엔지니어링과 개방형 커뮤니티 거버넌스로 인해 소비자용 개인 클라우드 서비스를 비롯한 클라이언트, 서버 및 클라우드 컴퓨팅에서 Ubuntu가 성공할 수 있었습니다. Canonical은 전화에서 클라우드까지 적용되는 Ubuntu의 무료 통합 플랫폼에 대한 비전이 실현되도록 전화, 태블릿, TV 및 데스크톱에 대해 일관된 인터페이스 제품군을 제공합니다. 이러한 비전으로 인해 퍼블릭 클라우드 공급자에서 가전제품 제조업체에 이르는 다양한 기관에서 Ubuntu를 우선적으로 선택하고 있으며 개별 기술자 사이에서도 Ubuntu를 선호하게 되었습니다.

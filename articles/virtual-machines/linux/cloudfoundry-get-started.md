@@ -10,18 +10,17 @@ tags: ''
 keywords: ''
 ms.assetid: 2a15ffbf-9f86-41e4-b75b-eb44c1a2a7ab
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: e042c9cbce985882b468472425d6803862e82941
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: d91ad0bea7f79dd67edd4f0bb9e06a37a0f86bea
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668322"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091933"
 ---
 # <a name="cloud-foundry-on-azure"></a>Azure의 Cloud Foundry
 
@@ -29,7 +28,7 @@ Cloud Foundry는 다양한 언어 및 프레임워크로 개발되는 12개 요�
 
 ## <a name="cloud-foundry-offerings"></a>Cloud Foundry 제품
 
-Azure에서 실행할 수 있는 Cloud Foundry에는 오픈 소스 Cloud Foundry(OSS CF) 및 Pivotal Cloud Foundry(PCF)라는 두 가지 형식이 있습니다. OSS CF는 Cloud Foundry Foundation에서 관리하는 Cloud Foundry의 완전한 [오픈-소스](https://github.com/cloudfoundry) 버전입니다. Pivotal Cloud Foundry는 Pivotal Software i n c.에서 Cloud foundry 엔터프라이즈 배포판 두 제품 간의 차이점 중 일부에 대해 살펴봅니다.
+Azure에서 실행할 수 있는 Cloud Foundry에는 오픈 소스 Cloud Foundry(OSS CF) 및 Pivotal Cloud Foundry(PCF)라는 두 가지 형식이 있습니다. OSS CF는 Cloud Foundry Foundation에서 관리하는 Cloud Foundry의 완전한 [오픈-소스](https://github.com/cloudfoundry) 버전입니다. Pivotal Cloud Foundry는 Pivotal Software Inc.에서 Cloud Foundry의 엔터프라이즈 배포입니다. 두 제품 간의 차이점을 살펴봅니다.
 
 ### <a name="open-source-cloud-foundry"></a>오픈 소스 Cloud Foundry
 

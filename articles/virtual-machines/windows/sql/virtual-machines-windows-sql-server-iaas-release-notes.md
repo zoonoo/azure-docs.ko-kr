@@ -8,17 +8,16 @@ manager: craigg
 tags: azure-service-management
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/01/2019
-ms.openlocfilehash: 61bf9d53b5ceda9420ae594680466a70b1e3d0cd
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e58b01c6a01a22ef2dd45dc49d741f0287d603a0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882331"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100371"
 ---
 # <a name="release-notes-for-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server에 대 한 릴리스 정보
 
@@ -75,7 +74,7 @@ Azure를 사용 하면 기본 제공 SQL Server 이미지를 사용 하 여 VM (
 | &nbsp; | &nbsp; |
 
 
-## <a name="march-2019"></a>3 월 2019
+## <a name="march-2019"></a>2019년 3월
 
 | 서비스 개선 사항 | 세부 정보 |
 | --- | --- |

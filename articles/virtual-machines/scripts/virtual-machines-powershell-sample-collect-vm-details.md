@@ -1,6 +1,6 @@
 ---
-title: PowerShell 사용 하 여 구독의 모든 Vm에 대 한 정보를 수집 합니다. | Microsoft Docs
-description: PowerShell 사용 하 여 구독의 모든 Vm에 대 한 정보를 수집 합니다.
+title: PowerShell을 사용 하 여 구독의 모든 Vm에 대 한 세부 정보 수집 | Microsoft Docs
+description: PowerShell을 사용 하 여 구독의 모든 Vm에 대 한 세부 정보 수집
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: v-miegge
@@ -9,23 +9,22 @@ editor: v-miegge
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/01/2019
 ms.author: v-miegge
 ms.custom: mvc
-ms.openlocfilehash: b4828b34a089a59e630aaaf7652e8623b3e2c7b8
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: b51c0f7a9fbeadfd0ff79e4578bddad052466b13
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67659711"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70090780"
 ---
-# <a name="collect-details-about-all-vms-in-a-subscription-with-powershell"></a>PowerShell 사용 하 여 구독의 모든 Vm에 대 한 정보를 수집 합니다.
+# <a name="collect-details-about-all-vms-in-a-subscription-with-powershell"></a>PowerShell을 사용 하 여 구독의 모든 Vm에 대 한 세부 정보 수집
 
-이 스크립트는 VM 이름, 리소스 그룹 이름, 지역, 가상 네트워크, 서브넷, 개인 IP 주소, OS 유형 및 제공 된 구독에서 Vm의 공용 IP 주소를 포함 하는 csv를 만듭니다.
+이 스크립트는 제공 된 구독의 VM 이름, 리소스 그룹 이름, 지역, Virtual Network, 서브넷, 개인 IP 주소, OS 유형 및 Vm의 공용 IP 주소를 포함 하는 csv를 만듭니다.
 
 [Azure 구독](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
 
@@ -71,12 +70,12 @@ $report | Export-CSV "$home/$reportName"
 ```
 
 ## <a name="script-explanation"></a>스크립트 설명
-이 스크립트는 구독에서 Vm의 세부 정보는 csv 내보내기를 만들려면 다음 명령을 사용 합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
+이 스크립트는 다음 명령을 사용 하 여 구독에서 Vm의 세부 정보에 대 한 csv 내보내기를 만듭니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
 |명령|참고|
 |-|-|
-|[Select-AzSubscription](https://docs.microsoft.com/powershell/module/Az.Accounts/Set-AzContext)|테 넌 트, 구독 및 환경 cmdlet에 대 한 현재 세션에서 사용 하도록 설정 합니다.|
-|[Get-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Get-AzVM)|가상 머신의 속성을 가져옵니다.|
+|[Select-AzSubscription](https://docs.microsoft.com/powershell/module/Az.Accounts/Set-AzContext)|현재 세션에서 사용할 cmdlet에 대 한 테 넌 트, 구독 및 환경을 설정 합니다.|
+|[Get-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Get-AzVM)|가상 컴퓨터의 속성을 가져옵니다.|
 |[Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/Az.Network/Get-AzPublicIpAddress)|공용 IP 주소를 가져옵니다.|
 |[Get-AzNetworkInterface](https://docs.microsoft.com/powershell/module/Az.Network/Get-AzNetworkInterface)|네트워크 인터페이스를 가져옵니다.|
 

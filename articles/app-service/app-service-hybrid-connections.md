@@ -10,17 +10,16 @@ ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 4b125649dee51680625ac5a92b31bdc9f6830529
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: e26cf5ede2c8884719152b6d35f1b41eb092eda6
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67069557"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70071794"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Azure App Service 하이브리드 연결 #
 
@@ -140,11 +139,11 @@ HCM에 하나 이상의 하이브리드 연결을 추가하려면 다음을 수�
 ![새 하이브리드 연결 구성 스크린샷][8]
 
 1. Azure 계정으로 로그인 하 여 구독에 사용할 수 있는 하이브리드 연결을 받으세요. HCM은 계속 해 서 Azure 계정을 사용 하지 않습니다. 
-1. 구독을 선택하세요.
+1. 구독을 선택합니다.
 1. HCM이 릴레이할 하이브리드 연결을 선택합니다.
 ![하이브리드 연결 스크린샷][9]
 
-1.           **저장**을 선택합니다.
+1. **저장**을 선택합니다.
 
 이제 추가한 하이브리드 연결을 볼 수 있습니다. 구성된 하이브리드 연결을 선택하여 세부 정보를 볼 수도 있습니다.
 

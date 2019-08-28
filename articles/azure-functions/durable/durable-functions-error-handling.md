@@ -6,20 +6,19 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 79af90d1c2c5b698ee7394f7fb20486b3069038c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33d1b410119e631e0ccc9941beac1062d4ec30f9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66751951"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70087340"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>지속성 함수의 오류 처리(Azure Functions)
 
-지속성 함수 오케스트레이션은 코드로 구현되며 프로그래밍 언어의 오류 처리 기능을 사용할 수 있습니다. 이 점을 염두에서를 사용 하 여 실제로 없는 오케스트레이션에 오류 처리 및 보정을 통합 하는 방법에 대 한 배울 필요가 새로운 개념입니다. 그러나 알고 있어야 하는 몇 가지 동작이 있습니다.
+지속성 함수 오케스트레이션은 코드로 구현되며 프로그래밍 언어의 오류 처리 기능을 사용할 수 있습니다. 이 점을 염두에 두면 오케스트레이션으로 오류 처리 및 보정을 통합 하는 방법에 대해 알아야 하는 새로운 개념은 없습니다. 그러나 알고 있어야 하는 몇 가지 동작이 있습니다.
 
 ## <a name="errors-in-activity-functions"></a>작업 함수의 오류
 
@@ -139,7 +138,7 @@ module.exports = df.orchestrator(function*(context) {
 
 `CallActivityWithRetryAsync`(.NET) 또는 `callActivityWithRetry`(JavaScript) API는 `RetryOptions` 매개 변수를 사용합니다. `CallSubOrchestratorWithRetryAsync`(.NET) 또는 `callSubOrchestratorWithRetry`(JavaScript) API를 사용하는 하위 오케스트레이션 호출은 이처럼 동일한 다시 시도 정책을 사용할 수 있습니다.
 
-자동 다시 시도 정책을 사용자 지정하기 위한 몇 가지 옵션이 있습니다. 이러한 기능은 다음과 같습니다.
+자동 다시 시도 정책을 사용자 지정하기 위한 몇 가지 옵션이 있습니다. 이러한 형식은 다음과 같습니다.
 
 * **최대 시도 횟수**: 최대 재시도 횟수입니다.
 * **첫 번째 다시 시도 간격**: 첫 번째 다시 시도를 수행할 때까지 기다리는 시간입니다.
