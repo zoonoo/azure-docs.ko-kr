@@ -238,7 +238,7 @@
     - name: 서비스로서의 플랫폼
       items:
         - name: Platform as a Service 설명서
-          href: sql-database-paas.yml
+          href: sql-database-paas-index.yml
         - name: 비즈니스 연속성
           href: sql-database-business-continuity.md
         - name: 고가용성
