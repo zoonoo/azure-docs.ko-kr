@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 374e86409be08f1f9859b3e325dda57080b89dbf
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: df8aa51558bc3aa456758510792c198a8bd9cf78
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033995"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061850"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes Service에서 pod 보안 정책을 사용 하 여 클러스터 보호 (AKS)
 
@@ -71,7 +71,7 @@ Kubernetes 클러스터에서 허용 컨트롤러는 리소스를 만들 때 API
 
 *PodSecurityPolicy* 는 pod 사양이 정의 된 요구 사항을 충족 하는지 확인 하는 허용 컨트롤러입니다. 이러한 요구 사항에 따라 권한 있는 컨테이너의 사용, 특정 유형의 저장소에 대 한 액세스 또는 컨테이너를 실행할 수 있는 사용자 또는 그룹을 제한할 수 있습니다. Pod 사양이 pod 보안 정책에 설명 된 요구 사항을 충족 하지 않는 리소스를 배포 하려고 하면 요청이 거부 됩니다. AKS 클러스터에서 예약할 수 있는 pod을 제어 하는이 기능은 몇 가지 가능한 보안 취약점 또는 권한 에스컬레이션을 방지 합니다.
 
-AKS 클러스터에서 pod 보안 정책을 사용 하도록 설정 하면 일부 기본 정책이 적용 됩니다. 이러한 기본 정책은 예약할 수 있는 pod를 정의 하는 기본 경험을 제공 합니다. 그러나 사용자 고유의 정책을 정의할 때까지 클러스터 사용자가 pod를 배포 하는 데 문제가 발생할 수 있습니다. 권장 방법은 다음과 같습니다.
+AKS 클러스터에서 pod 보안 정책을 사용 하도록 설정 하면 일부 기본 정책이 적용 됩니다. 이러한 기본 정책은 예약할 수 있는 pod를 정의 하는 기본 경험을 제공 합니다. 그러나 사용자 고유의 정책을 정의할 때까지 클러스터 사용자가 pod를 배포 하는 데 문제가 발생할 수 있습니다. 권장 되는 방법은 다음과 같습니다.
 
 * AKS 클러스터 만들기
 * 사용자 고유의 pod 보안 정책 정의
@@ -136,7 +136,7 @@ subjects:
 
 ## <a name="create-a-test-user-in-an-aks-cluster"></a>AKS 클러스터에서 테스트 사용자 만들기
 
-기본적으로 [az aks][az-aks-get-credentials] 명령을 사용 하는 경우 aks 클러스터에 대 한 *관리자* 자격 증명을 사용 하 여 `kubectl` 구성에 추가 합니다. 관리 사용자는 pod 보안 정책의 적용을 무시 합니다. AKS 클러스터에 Azure Active Directory 통합을 사용 하는 경우 관리자가 아닌 사용자의 자격 증명을 사용 하 여 로그인 하 여 정책 적용을 확인할 수 있습니다. 이 문서에서는 AKS 클러스터에서 사용할 수 있는 테스트 사용자 계정을 만들어 보겠습니다.
+기본적으로 [az aks][az-aks-get-credentials] 명령을 사용 하는 경우 aks 클러스터에 대 한 *관리자* 자격 증명이 `kubectl` 구성에 추가 됩니다. 관리 사용자는 pod 보안 정책의 적용을 무시 합니다. AKS 클러스터에 Azure Active Directory 통합을 사용 하는 경우 관리자가 아닌 사용자의 자격 증명을 사용 하 여 로그인 하 여 정책 적용을 확인할 수 있습니다. 이 문서에서는 AKS 클러스터에서 사용할 수 있는 테스트 사용자 계정을 만들어 보겠습니다.
 
 [Kubectl create namespace][kubectl-create] 명령을 사용 하 여 테스트 리소스에 대해 *psp-aks* 라는 샘플 네임 스페이스를 만듭니다. 그런 다음 [kubectl create serviceaccount][kubectl-create] 명령을 사용 하 여 *nonadmin-user* 라는 서비스 계정을 만듭니다.
 
@@ -443,7 +443,7 @@ kubectl apply -f psp-deny-privileged-clusterrolebinding.yaml
 ```
 
 > [!NOTE]
-> 이 문서의 첫 번째 단계에서는 pod 보안 정책 기능이 AKS 클러스터에서 사용 하도록 설정 되었습니다. 사용자 고유의 정책을 정의한 후에만 pod 보안 정책 기능을 사용 하도록 설정 하는 것이 좋습니다. Pod 보안 정책 기능을 사용 하도록 설정 하는 단계입니다. 하나 이상의 사용자 지정 정책이 정의 되었고 사용자 계정이 해당 정책과 연결 되어 있습니다. 이제 pod 보안 정책 기능을 안전 하 게 사용할 수 있으며 기본 정책으로 인해 발생 하는 문제를 최소화할 수 있습니다.
+> 이 문서의 첫 번째 단계에서는 pod 보안 정책 기능이 AKS 클러스터에서 사용 하도록 설정 되었습니다. 사용자 고유의 정책을 정의한 후에만 pod 보안 정책 기능을 사용 하도록 설정 하는 것이 좋습니다. Pod 보안 정책 기능을 사용 하도록 설정 하는 단계입니다. 하나 이상의 사용자 지정 정책이 정의 되었고 사용자 계정이 해당 정책과 연결 되어 있습니다. 이제 pod 보안 정책 기능을 안전 하 게 사용 하도록 설정 하 고 기본 정책으로 인해 발생 하는 문제를 최소화할 수 있습니다.
 
 ## <a name="test-the-creation-of-an-unprivileged-pod-again"></a>권한 없는 pod 생성을 다시 테스트 합니다.
 

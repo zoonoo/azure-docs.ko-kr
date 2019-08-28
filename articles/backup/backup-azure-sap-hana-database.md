@@ -5,21 +5,21 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 08/27/2019
 ms.author: dacurwin
-ms.openlocfilehash: a11d454feb965907f3bd4e994c0916eeb7236fa7
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 6ac15e042f93befe406553d622c790eeabad7c2c
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034557"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060712"
 ---
 # <a name="back-up-an-sap-hana-database-to-azure"></a>Azure에 SAP HANA 데이터베이스 백업
 
 [Azure Backup](backup-overview.md) 는 Azure에 대 한 SAP HANA 데이터베이스의 백업을 지원 합니다.
 
 > [!NOTE]
-> 이 기능은 현재 공개 미리 보기로 제공됩니다. 현재는 프로덕션 준비가 되지 않았으므로 SLA가 보장 되지 않습니다. 
+> 이 기능은 현재 공개 미리 보기로 제공됩니다. 현재는 프로덕션 준비가 되지 않았으므로 SLA가 보장 되지 않습니다.
 
 ## <a name="scenario-support"></a>시나리오 지원
 
@@ -32,35 +32,31 @@ ms.locfileid: "70034557"
 ### <a name="current-limitations"></a>현재 제한 사항
 
 - Azure Vm에서 실행 되는 SAP HANA 데이터베이스만 백업할 수 있습니다.
-- Azure Portal SAP HANA 백업만 구성할 수 있습니다. PowerShell, CLI 또는 REST API를 사용 하 여 기능을 구성할 수 없습니다.
-- 수직 확장 모드 에서만 데이터베이스를 백업할 수 있습니다.
+- 단일 Azure VM에서 실행 되는 SAP HANA 인스턴스만 백업할 수 있습니다. 동일한 Azure VM에서 여러 HANA 인스턴스는 현재 지원 되지 않습니다.
+- 수직 확장 모드 에서만 데이터베이스를 백업할 수 있습니다. 스케일 아웃: 여러 Azure Vm의 HANA 인스턴스는 현재 백업을 지원 하지 않습니다.
+- 확장 된 서버에서 동적 계층화를 사용 하는 SAP HANA 인스턴스를 백업할 수는 없습니다. 즉, 다른 노드에 동적 계층화를 제공 합니다. 기본적으로이 확장은 지원 되지 않습니다.
+- 동일한 서버에서 동적 계층화를 사용 하는 SAP HANA 인스턴스는 백업할 수 없습니다. 동적 계층화는 현재 지원 되지 않습니다.
+- Azure Portal SAP HANA 백업만 구성할 수 있습니다. PowerShell, CLI를 사용 하 여 기능을 구성할 수 없습니다.
 - 데이터베이스 로그는 15 분 마다 백업할 수 있습니다. 로그 백업은 데이터베이스에 대 한 전체 백업이 성공적으로 완료 된 후에만 흐름을 시작 합니다.
 - 전체 백업과 차등 백업을 수행할 수 있습니다. 증분 백업은 현재 지원 되지 않습니다.
 - 백업 정책을 SAP HANA 백업에 적용 한 후에는 수정할 수 없습니다. 다른 설정을 사용 하 여 백업 하려면 새 정책을 만들거나 다른 정책을 할당 합니다.
   - 새 정책을 만들려면 자격 증명 모음에서 **정책** > **백업 정책** >  **+**  > **Azure VM에서 SAP HANA**추가를 클릭 하 고 정책 설정을 지정 합니다.
   - 다른 정책을 할당 하려면 데이터베이스를 실행 하는 VM의 속성에서 현재 정책 이름을 클릭 합니다. 그런 다음 **백업 정책** 페이지에서 백업에 사용할 다른 정책을 선택할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 백업을 구성 하기 전에 다음을 수행 해야 합니다.
 
-1. SAP HANA 데이터베이스를 실행 하는 VM에서 공식 Microsoft [.Net Core 런타임 2.1](https://dotnet.microsoft.com/download/linux-package-manager/sles/runtime-current) 패키지를 설치 합니다. 다음 사항에 유의합니다.
-    - **Dotnet-2.1** 패키지만 필요 합니다. **Aspnetcore-2.1**가 필요 하지 않습니다.
-    - VM이 인터넷에 액세스할 수 없는 경우 미러를 사용 하거나 페이지에 지정 된 Microsoft 패키지 피드의 dotnet-runtime-2.1 (및 모든 종속 Rpm)에 대해 오프 라인 캐시를 제공 합니다.
-    - 패키지를 설치 하는 동안 옵션을 지정 하 라는 메시지가 표시 될 수 있습니다. 그렇다면 **솔루션 2**를 지정 합니다.
-
-        ![패키지 설치 옵션](./media/backup-azure-sap-hana-database/hana-package.png)
-
-2. VM에서 다음과 같이 zypper를 사용 하 여 공식 SLES 패키지/미디어에서 ODBC 드라이버 패키지를 설치 하 고 사용 하도록 설정 합니다.
+1. SAP HANA 데이터베이스를 실행 하는 VM에서 다음과 같이 zypper를 사용 하 여 공식 SLES 패키지/미디어에서 ODBC 드라이버 패키지를 설치 하 고 사용 하도록 설정 합니다.
 
     ```unix
     sudo zypper update
     sudo zypper install unixODBC
     ```
 
-3. [아래](#set-up-network-connectivity)절차에 설명 된 대로 Azure에 연결할 수 있도록 VM에서 인터넷으로의 연결을 허용 합니다.
+2. [아래](#set-up-network-connectivity)절차에 설명 된 대로 Azure에 연결할 수 있도록 VM에서 인터넷으로의 연결을 허용 합니다.
 
-4. HANA가 루트 사용자로 설치 된 가상 머신에서 등록 전 스크립트를 실행 합니다. 이 스크립트는 [포털](#discover-the-databases) 에서 흐름으로 제공 되며 [적절 한 사용 권한을](backup-azure-sap-hana-database-troubleshoot.md#setting-up-permissions)설정 하는 데 필요 합니다.
+3. HANA가 루트 사용자로 설치 된 가상 머신에서 등록 전 스크립트를 실행 합니다. 이 스크립트는 [포털](#discover-the-databases) 에서 흐름으로 제공 되며 [적절 한 사용 권한을](backup-azure-sap-hana-database-troubleshoot.md#setting-up-permissions)설정 하는 데 필요 합니다.
 
 ### <a name="set-up-network-connectivity"></a>네트워크 연결 설정
 
@@ -68,6 +64,7 @@ ms.locfileid: "70034557"
 
 - Azure 데이터 센터의 [ip 주소 범위](https://www.microsoft.com/download/details.aspx?id=41653) 를 다운로드 한 다음 이러한 ip 주소에 대 한 액세스를 허용할 수 있습니다.
 - NSGs (네트워크 보안 그룹)를 사용 하는 경우 AzureCloud [서비스 태그](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) 를 사용 하 여 모든 AZURE 공용 IP 주소를 허용할 수 있습니다. [AzureNetworkSecurityRule cmdlet](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurenetworksecurityrule?view=azuresmps-4.0.0) 을 사용 하 여 nsg 규칙을 수정할 수 있습니다.
+- 443 포트는 HTTPS를 통해 전송 되므로 포트를 허용 목록 해야 합니다.
 
 ## <a name="onboard-to-the-public-preview"></a>공개 미리 보기에 등록
 
@@ -79,8 +76,6 @@ ms.locfileid: "70034557"
     ```powershell
     PS C:>  Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
     ```
-
-
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -182,6 +177,15 @@ Azure Backup를 사용 하 여 백업 되는 데이터베이스의 로컬 백업
     - **Log_backup_using_backint** 를 **True**로 설정 합니다.
 
 
+## <a name="upgrading-protected-10-dbs-to-20"></a>보호 된 1.0 Db를 2.0으로 업그레이드
+
+SAP HANA 1.0 Db를 보호 하 고 2.0로 업그레이드 하려는 경우 아래에 설명 된 단계를 수행 합니다.
+
+- 이전 SDC DB에 대 한 데이터 보존을 사용 하 여 보호를 중지 합니다.
+- (Sid 및 mdc)의 올바른 세부 정보를 사용 하 여 사전 등록 스크립트를 다시 실행 합니다. 
+- 확장을 다시 등록 합니다 (백업 > 보기 세부 정보-관련 Azure VM-> 다시 등록 > 선택). 
+- 동일한 VM에 대해 Db 다시 검색을 클릭 합니다. 그러면 2 단계에서 새 Db가 표시 됩니다 (SYSTEMDB 및 SDC가 아닌 테 넌 트 DB). 
+- 이러한 새 데이터베이스를 보호 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

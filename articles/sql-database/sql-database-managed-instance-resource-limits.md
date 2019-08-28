@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 06/26/2019
-ms.openlocfilehash: 776a27ca0babfd7557bf4d16c449a8dfa5bceaf7
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.date: 08/27/2019
+ms.openlocfilehash: 921a14243bc50651358f0df42b88857ab227916d
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998206"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060641"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>관리 되는 인스턴스 리소스 제한 Azure SQL Database 개요
 
@@ -51,7 +51,7 @@ Azure SQL Database 관리 되는 인스턴스는 두 가지 하드웨어 세대�
 
 | **기능** | **범용** | **중요 비즈니스** |
 | --- | --- | --- |
-| vCore 수\* | Gen4: 8, 16, 24<br/>Gen5: 4, 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 4, 8, 16, 24, 32, 40, 64, 80 |
+| vCore 수\* | Gen4: 8, 16, 24<br/>Gen5: 4, 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24 <br/> Gen5: 4, 8, 16, 24, 32, 40, 64, 80 |
 | 최대 메모리 | Gen4: 56 g b-168 GB (7GB/vCore)<br/>Gen5: 40.8 g b-408 GB (5.1 g b/vCore)<br/>더 많은 메모리를 얻기 위해 vCores를 추가 합니다. | Gen4: 56 g b-168 GB (7GB/vCore)<br/>Gen5: 40.8 g b-408 GB (5.1 g b/vCore)<br/>더 많은 메모리를 얻기 위해 vCores를 추가 합니다. |
 | 최대 인스턴스 예약 된 저장소 크기 | -4 vCores의 경우 2tb (Gen5만 해당)<br/>-다른 크기의 경우 8TB | Gen4: 1TB <br/> Gen5: <br/>-1tb (4, 8, 16 vCores)<br/>- 2TB(24개 vCore용)<br/>- 4TB(32, 40, 64, 80개 vCore용) |
 | 최대 데이터베이스 크기 | 인스턴스당 최대 스토리지 크기에 따라 결정됨 | 인스턴스당 최대 스토리지 크기에 따라 결정됨 |
@@ -60,15 +60,17 @@ Azure SQL Database 관리 되는 인스턴스는 두 가지 하드웨어 세대�
 | 최대 파일 크기 | 8 TB | 4 TB |
 | 데이터/로그 IOPS(근사치) | 파일당 500~7,500<br/>\*[더 많은 IOPS를 얻기 위해 파일 크기 늘리기](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11k-110 K (1375/vCore)<br/>더 나은 IO 성능을 얻으려면 vCores를 더 추가 합니다. |
 | 로그 쓰기 처리량 제한 | vCore당 3MB/초<br/>인스턴스당 최대 22 m b/초 | vCore 당 4mb/s<br/>인스턴스당 최대 48 m b/초|
-| 데이터 처리량(근사치) | 파일당 100~250MB/초<br/>\*[더 나은 IO 성능을 얻으려면 파일 크기를 늘립니다.](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/A |
+| 데이터 처리량(근사치) | 파일당 100~250MB/초<br/>\*[더 나은 IO 성능을 얻으려면 파일 크기를 늘립니다.](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 해당 사항 없음 |
 | 저장소 IO 대기 시간 (근사치) | 5~10ms | 1~2ms |
 | 최대 tempDB 크기 | 192~1,920GB(vCore당 24GB)<br/>더 많은 vCores를 추가 하 여 TempDB 공간을 더 확보 합니다. | 최대 인스턴스 저장소 크기에 의해 제한 됩니다. TempDB 로그 파일 크기는 현재 24GB/vCore로 제한 됩니다. |
 | 메모리 내 OLTP | 지원되지 않음 | 사용 가능 |
 | 최대 세션 | 30000 | 30000 |
+| 읽을 수 있는 복제본 | 0 | 1 |
 
 > [!NOTE]
 > - 사용자 및 시스템 데이터베이스의 데이터 및 로그 파일 크기는 최대 스토리지 크기 제한과 비교되는 인스턴스 스토리지 크기에 포함됩니다. <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> 시스템 뷰를 사용하여 데이터베이스에서 사용되는 총 공간을 확인합니다. 오류 로그는 영구적이지 않으며 크기에 포함되지 않습니다. 백업은 스토리지 크기에 포함되지 않습니다.
 > - 또한 처리량 및 IOPS는 관리 되는 인스턴스에 의해 명시적으로 제한 되지 않는 페이지 크기에 따라 달라 집니다.
+> 자동 장애 조치 그룹을 사용 하 여 다른 Azure 지역에서 읽을 수 있는 다른 복제본을 만들 수 있습니다.
 
 ## <a name="supported-regions"></a>지원되는 지역
 

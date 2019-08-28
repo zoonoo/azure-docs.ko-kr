@@ -4,14 +4,14 @@ description: Azure Resource Manager를 사용하여 리소스를 새 리소스 �
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/19/2019
+ms.date: 08/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: b688218b871a5f652e7f4de172d23f1b1fb0aa5c
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: d56f6a5ffe01540b9ce1e5a20ec628a90da594c6
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035513"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061787"
 ---
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>Azure 리소스를 새 리소스 그룹 또는 구독으로 이동 하는 문제 해결
 
@@ -43,9 +43,11 @@ ms.locfileid: "70035513"
 
 ## <a name="resource-not-in-succeeded-state"></a>리소스가 성공 상태 아님
 
-리소스가 성공 상태에 있지 않아 이동할 수 없음을 나타내는 오류 메시지가 표시 되는 경우 실제로는 이동을 차단 하는 종속 리소스가 될 수 있습니다.
+리소스가 성공 상태에 있지 않아 이동할 수 없음을 나타내는 오류 메시지가 표시 되는 경우 실제로는 이동을 차단 하는 종속 리소스가 될 수 있습니다. 일반적으로 오류 코드는 **MoveCannotProceedWithResourcesNotInSucceededState**입니다.
 
-원본 또는 대상 리소스 그룹에 가상 네트워크가 포함 된 경우 이동 하는 동안 가상 네트워크에 대 한 모든 종속 리소스의 상태를 확인 합니다. 이러한 리소스 중 하나라도 실패 상태 이면 이동이 차단 됩니다. 예를 들어 가상 네트워크를 사용 하는 가상 머신이 실패 한 경우 이동이 차단 됩니다. 이동은 가상 머신이 이동 중인 리소스 중 하나가 아니며 이동에 대 한 리소스 그룹 중 하나가 아닌 경우에도 차단 됩니다. 이 문제를 방지 하려면 가상 네트워크가 없는 리소스 그룹으로 리소스를 이동 합니다.
+원본 또는 대상 리소스 그룹에 가상 네트워크가 포함 된 경우 이동 하는 동안 가상 네트워크에 대 한 모든 종속 리소스의 상태를 확인 합니다. 이 검사에는 가상 네트워크에 직접적이 고 간접적으로 종속 된 리소스가 포함 되어 있습니다. 이러한 리소스 중 하나라도 실패 상태 이면 이동이 차단 됩니다. 예를 들어 가상 네트워크를 사용 하는 가상 머신이 실패 한 경우 이동이 차단 됩니다. 이동은 가상 머신이 이동 중인 리소스 중 하나가 아니며 이동에 대 한 리소스 그룹 중 하나가 아닌 경우에도 차단 됩니다.
+
+이 오류가 표시 되 면 두 가지 옵션이 있습니다. 가상 네트워크가 없는 리소스 그룹으로 리소스를 이동 하거나 [지원 담당자에 게 문의 하세요](../azure-supportability/how-to-create-azure-support-request.md).
 
 ## <a name="next-steps"></a>다음 단계
 

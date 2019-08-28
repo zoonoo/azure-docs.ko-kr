@@ -9,33 +9,33 @@ ms.author: robreed
 ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6e0e0cdfd5bdda125ed38173df56e0fb7a84f71a
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 153e910ea85ae843c6d4db51e709b58e441f6761
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477937"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061444"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>웹후크를 사용하여 Azure Automation Runbook 시작
 
-*Webhook*를 사용하면 단일 HTTP 요청을 통해 Azure Automation에서 특정 runbook을 시작할 수 있습니다. Azure DevOps Services, GitHub, Azure Monitor 로그 또는 Azure Automation API를 사용 하 여 전체 솔루션을 구현 하지 않고 runbook을 시작 하려면 사용자 지정 응용 프로그램 같은 외부 서비스가 있습니다.  
+*Webhook*를 사용하면 단일 HTTP 요청을 통해 Azure Automation에서 특정 runbook을 시작할 수 있습니다. 이를 통해 Azure DevOps Services, GitHub, Azure Monitor 로그 또는 사용자 지정 응용 프로그램과 같은 외부 서비스에서 Azure Automation API를 사용 하 여 전체 솔루션을 구현 하지 않고도 runbook을 시작할 수 있습니다.
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
 [Azure Automation에서 Runbook 시작](automation-starting-a-runbook.md)
 
 > [!NOTE]
-> Python runbook을 시작 하는 웹 후크를 사용 하 여 지원 되지 않습니다.
+> Webhook를 사용 하 여 Python runbook을 시작 하는 것은 지원 되지 않습니다.
 
 ## <a name="details-of-a-webhook"></a>Webhook의 세부 정보
 
 다음 표에서는 Webhook에 대해 구성해야 하는 속성을 설명합니다.
 
-| 자산 | Description |
+| 속성 | Description |
 |:--- |:--- |
-| Name |클라이언트에 노출되지 않으므로 원하는 webhook 이름을 지정할 수 있습니다. Azure Automation에서 Runbook을 식별하는 용도로만 사용됩니다. <br> 가장 좋은 방법은 webhook를 사용할 클라이언트와 관련된 이름을 지정하는 것입니다. |
+| 이름 |클라이언트에 노출되지 않으므로 원하는 webhook 이름을 지정할 수 있습니다. Azure Automation에서 Runbook을 식별하는 용도로만 사용됩니다. <br> 가장 좋은 방법은 webhook를 사용할 클라이언트와 관련된 이름을 지정하는 것입니다. |
 | URL |webhook의 URL은 클라이언트가 webhook에 연결된 runbook을 시작하기 위해 HTTP POST로 호출하는 고유한 주소입니다. webhook를 만들 때 자동으로 생성됩니다. 사용자 지정 URL을 지정할 수 없습니다. <br> <br> URL에는 타사 시스템이 추가 인증 없이 runbook을 호출할 수 있게 해주는 보안 토큰이 포함됩니다. 따라서 암호처럼 취급해야 합니다. 보안상의 이유로 이 URL은 Azure 포털에서 webhook가 생성될 때만 볼 수 있습니다. 이 URL을 나중에 사용할 수 있도록 안전한 위치에 기록해 둡니다. |
-| 만료 날짜 |각 webhook는 인증서처럼 만료 날짜가 있으며, 이 날짜가 되면 인증서를 더 이상 사용할 수 없습니다. webhook가 만료되지 않는 한 webhook를 생성한 후 이 만료 날짜를 수정할 수 있습니다. |
-| 사용 |webhook는 생성될 때 기본적으로 사용하도록 설정됩니다. 사용 안함으로 설정할 경우 어떤 클라이언트도 webhook를 사용할 수 없습니다. webhook를 만들 때 또는 만든 후 언제든지 **사용** 속성으로 설정할 수 있습니다. |
+| 만료일 |각 webhook는 인증서처럼 만료 날짜가 있으며, 이 날짜가 되면 인증서를 더 이상 사용할 수 없습니다. webhook가 만료되지 않는 한 webhook를 생성한 후 이 만료 날짜를 수정할 수 있습니다. |
+| Enabled |webhook는 생성될 때 기본적으로 사용하도록 설정됩니다. 사용 안함으로 설정할 경우 어떤 클라이언트도 webhook를 사용할 수 없습니다. webhook를 만들 때 또는 만든 후 언제든지 **사용** 속성으로 설정할 수 있습니다. |
 
 ### <a name="parameters"></a>매개 변수
 
@@ -47,13 +47,16 @@ webhook는 runbook을 시작할 때 사용되는 runbook 매개 변수 값을 �
 
 **$WebhookData** 개체의 속성은 다음과 같습니다.
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | WebhookName |Webhook의 이름입니다. |
 | RequestHeader |들어오는 POST 요청의 헤더를 포함한 해시 테이블입니다. |
 | RequestBody |들어오는 POST 요청의 본문입니다. 문자열, JSON, XML 또는 인코딩된 데이터와 같은 서식을 유지합니다. Runbook은 예상되는 데이터 형식으로 작동하도록 작성되어야 합니다. |
 
 **$WebhookData** 매개 변수를 지원하는 데 필요한 webhook 구성은 없으며, Runbook은 이를 수락할 필요가 없습니다. Runbook이 매개 변수를 정의하지 않을 경우 클라이언트에서 전송된 요청의 모든 세부 정보가 무시됩니다.
+
+> [!NOTE]
+> 웹 후크를 호출할 때 호출이 실패 하는 경우 항상 모든 매개 변수 값을 저장 해야 합니다. 네트워크 중단 또는 연결 문제가 발생 한 경우에는 실패 한 webhook 호출을 검색할 수 없습니다.
 
 webhook를 만들 때 $WebhookData에 값을 지정하면 클라이언트가 요청 본문에 데이터를 포함하지 않는 경우에도 webhook가 클라이언트 POST 요청의 데이터로 Runbook을 시작할 때 해당 값이 재정의됩니다. webhook 이외의 방법을 사용하는 $WebhookData가 있는 runbook을 시작하는 경우 runbook에서 인식할 $Webhookdata 값을 제공할 수 있습니다. 이 값은 runbook이 webhook에서 전달된 실제 WebhookData로 작동하는 것처럼 제대로 작동할 수 있도록 $Webhookdata와 동일한 [속성](#details-of-a-webhook)을 가진 개체여야 합니다.
 
@@ -171,7 +174,7 @@ if ($WebhookData) {
             {
                 throw "Could not retrieve connection asset: $ConnectionAssetName. Check that this asset exists in the Automation account."
             }
-            Write-Output "Authenticating to Azure with service principal." 
+            Write-Output "Authenticating to Azure with service principal."
             Add-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Write-Output
 
         # Start each virtual machine

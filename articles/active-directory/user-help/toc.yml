@@ -1,5 +1,5 @@
 - name: 사용자 도움말 설명서
-  href: index.md
+  href: index.yml
 - name: 2단계 인증 도움말
   items:
     - name: 개요

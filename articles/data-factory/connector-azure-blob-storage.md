@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 2770a15211e24c9b79c906287295554b2cb94db8
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 56d332ca00cbd47448b7e3fb8d3ab2d141380b70
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986134"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061516"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob Storage 간 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -413,10 +413,10 @@ ORC/Avro/JSON 형식의 Blob storage 간에 데이터를 복사 하려면 데이
 
 ### <a name="blob-storage-as-a-source-type"></a>Blob Storage를 원본 형식으로
 
-- **Parquet, 구분 된 텍스트 및 이진 형식의**경우 [Parquet, 구분 된 텍스트 및 이진 형식 데이터 집합](#format-based-dataset) 섹션을 참조 하세요.
-- **ORC/Avro/JSON 형식과**같은 다른 형식에 대해서는 [다른 형식 데이터 집합](#other-format-dataset) 섹션을 참조 하세요.
+- **Parquet, 구분 된 텍스트 및 이진 형식**에서 복사 하려면 [Parquet, 구분 된 텍스트 및 이진 형식 원본](#format-based-source) 섹션을 참조 하세요.
+- **ORC/Avro/JSON 형식과**같은 다른 형식에서 복사 하려면 [기타 형식 소스](#other-format-source) 섹션을 참조 하세요.
 
-### <a name="format-based-dataset"></a>Parquet, 구분 기호로 분리 된 텍스트 및 이진 형식 데이터 집합
+#### <a name="format-based-source"></a>Parquet, 구분 기호로 분리 된 텍스트 및 이진 형식 원본
 
 **Parquet, 구분 된 텍스트 또는 이진 형식**으로 Blob storage 간에 데이터를 복사 하려면 형식 기반 데이터 집합 및 지원 되는 설정에 대 한 [Parquet 형식](format-parquet.md), [구분 된 텍스트 형식](format-delimited-text.md) 및 [이진 형식](format-binary.md) 문서를 참조 하세요. 다음은 형식 기반 복사 원본에서 설정 아래의 `storeSettings` Azure Blob에 대해 지원 되는 속성입니다.
 

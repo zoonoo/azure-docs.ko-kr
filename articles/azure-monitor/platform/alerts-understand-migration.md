@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 5257724add570be480063ab776248a8fd1d944c7
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: c3d5bb58989fe87ddf9a185dbae926a71edf1590
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034748"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061563"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>마이그레이션 도구의 작동 원리 이해
 
@@ -36,7 +36,7 @@ ms.locfileid: "70034748"
 - 일부 Cosmos DB 메트릭에 대 한 클래식 경고 규칙입니다. 이 문서의 뒷부분에 있는 [세부 정보](#cosmos-db-metrics) 를 참조 하세요.
 - 모든 클래식 가상 머신 및 클라우드 서비스 메트릭에 대 한 클래식 경고 규칙 (Microsoft.classiccompute/virtualMachines 및 Microsoft.classiccompute/domainNames/슬롯/역할). 이 문서의 뒷부분에 있는 [세부 정보](#classic-compute-metrics) 를 참조 하세요.
 
-구독에 이러한 클래식 규칙이 있는 경우 수동으로 마이그레이션해야 합니다. 자동 마이그레이션을 제공할 수 없으므로 이러한 유형의 기존 클래식 메트릭 경고는 6 월 2020 일까 지 계속 작동 합니다. 이 확장은 새 경고로 이동 하는 시간을 제공 합니다. 그러나 8 월 2019 이후에는 새 클래식 경고를 만들 수 없습니다.
+구독에 이러한 클래식 규칙이 있는 경우 수동으로 마이그레이션해야 합니다. 자동 마이그레이션을 제공할 수 없으므로 이러한 유형의 기존 클래식 메트릭 경고는 6 월 2020 일까 지 계속 작동 합니다. 이 확장은 새 경고로 이동 하는 시간을 제공 합니다. 또한 6 월 2020 일까지 위에 나열 된 예외에 대 한 새 클래식 경고를 계속 만들 수 있습니다. 그러나 다른 모든 항목의 경우 8 월 2019 일 이후에는 새로운 클래식 경고를 만들 수 없습니다.
 
 > [!NOTE]
 > 위의 예외를 제외 하 고, 클래식 경고 규칙이 잘못 된 경우 (예: 삭제 된 [사용 되지 않는 메트릭](#classic-alert-rules-on-deprecated-metrics) 또는 리소스에 있는 경우) 자발적 마이그레이션 중에 마이그레이션되지 않습니다. 자동 마이그레이션이 수행 될 때 이러한 잘못 된 클래식 경고 규칙은 삭제 됩니다.

@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dd898397b4aaec2e62558d12a3547f7b61d6d3fd
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: a3a52fbda91d19905bd6add631f536010197c4dd
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533459"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061396"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation 상태 구성 개요
 
@@ -41,7 +41,7 @@ Azure 포털 또는 PowerShell에서 DSC 구성, 리소스 및 대상 노드를 
 
 Azure Automation 상태 구성으로 관리되는 노드는 상세한 보고 상태 데이터를 기본 제공 끌어오기 서버에 보냅니다. 이 데이터를 Log Analytics 작업 영역으로 보내려면 Azure Automation 상태 구성을 구성할 수 있습니다. 상태 구성 상태 데이터를 Log Analytics 작업 영역으로 전송 하는 방법에 대 한 자세한 내용은 [Azure Automation 상태 구성 보고 데이터를 Azure Monitor 로그로 전달](automation-dsc-diagnostics.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 DSC (Azure Automation 상태 구성)를 사용 하는 경우 다음 요구 사항을 고려 하세요.
 
@@ -58,16 +58,11 @@ Windows를 실행 하는 노드의 경우 지원 되는 버전은 다음과 같�
 - Windows 8.1
 - Windows 7
 
-[Microsoft Hyper-v Server](/windows-server/virtualization/hyper-v/hyper-v-server-2016) 독립 실행형 제품 Sku는 필요한 상태 구성 구현을 포함 하지 않으므로 PowerShell DSC 또는 Azure Automation 상태 구성으로 관리할 수 없습니다.
+[Microsoft Hyper-V Server](/windows-server/virtualization/hyper-v/hyper-v-server-2016) 독립 실행형 제품 Sku는 필요한 상태 구성 구현을 포함 하지 않으므로 PowerShell DSC 또는 Azure Automation 상태 구성으로 관리할 수 없습니다.
 
 Linux를 실행 하는 노드의 경우 다음 distros/버전이 지원 됩니다.
 
-DSC Linux 확장은 다음을 제외 하 고 [Azure의](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) 모든 Linux 배포판 보증을 지원 합니다.
-
-배포 | 버전
--|-
-Debian  | 모든 버전
-Ubuntu  | 18.04
+DSC Linux 확장은 [지원 되는 Linux 배포판](https://github.com/Azure/azure-linux-extensions/tree/master/DSC#4-supported-linux-distributions)에 나열 된 모든 linux 배포를 지원 합니다.
 
 ### <a name="dsc-requirements"></a>DSC 요구 사항
 

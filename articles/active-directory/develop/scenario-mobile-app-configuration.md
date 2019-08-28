@@ -15,16 +15,16 @@ ms.date: 07/23/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bdf9210eb88b2057cf861b208f19d3e6f562e9a
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 8ebf524d932322fa08729f229a451afe656900d5
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414851"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061409"
 ---
 # <a name="mobile-app-that-calls-web-apis---code-configuration"></a>웹 Api를 호출 하는 모바일 앱-코드 구성
 
-응용 프로그램을 만들었으면 앱 등록 시 얻은 응용 프로그램의 매개 변수에서 코드를 구성 하는 방법을 배웁니다. 또한 모바일 응용 프로그램에는 이러한 앱을 빌드하는 데 사용 되는 프레임 워크에 맞추기 위해 수행 해야 하는 몇 가지 복잡 한 세부 사항이 있습니다.
+응용 프로그램을 만들었으면 앱 등록 매개 변수를 사용 하 여 코드를 구성 하는 방법을 배웁니다. 또한 모바일 응용 프로그램에는 이러한 앱을 빌드하는 데 사용 되는 프레임 워크에 맞추기 위해 수행 해야 하는 몇 가지 복잡 한 세부 사항이 있습니다.
 
 ## <a name="msal-libraries-supporting-mobile-apps"></a>모바일 앱을 지 원하는 MSAL 라이브러리
 
@@ -38,7 +38,7 @@ ms.locfileid: "68414851"
 
 ## <a name="configuring-the-application"></a>애플리케이션 구성
 
-모바일 응용 프로그램은 msal의 `PublicClientApplication` 클래스를 사용 합니다. 다음은이를 인스턴스화하는 방법입니다.
+모바일 응용 프로그램은 `PublicClientApplication` 클래스를 사용 합니다. 다음은이를 인스턴스화하는 방법입니다.
 
 ### <a name="android"></a>Android
 
@@ -68,7 +68,7 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 
 #### <a name="instantiating-the-application"></a>응용 프로그램 인스턴스화
 
-Xamarin 또는 UWP에서 응용 프로그램을 인스턴스화하는 가장 간단한 방법은 다음과 같습니다. 여기서은 `ClientId` 등록 된 응용 프로그램의 Guid입니다.
+Xamarin 또는 UWP에서 응용 프로그램을 인스턴스화하는 가장 간단한 방법은 다음과 같습니다. 여기서 `ClientId` 은 등록 된 앱의 Guid입니다.
 
 ```CSharp
 var app = PublicClientApplicationBuilder.Create(clientId)
@@ -87,7 +87,7 @@ IPublicClientApplication application = PublicClientApplicationBuilder.Create(cli
   .Build();
 ```
 
-Android에서는 `CurrentActivityPlugin` [여기](https://github.com/jamesmontemagno/CurrentActivityPlugin)를 권장 합니다.  `PublicClientApplication` 그러면 빌더 코드가 다음과 같이 표시 됩니다.
+Android에서는 `CurrentActivityPlugin` [여기](https://github.com/jamesmontemagno/CurrentActivityPlugin)를 사용 하는 것이 좋습니다.  `PublicClientApplication` 그러면 빌더 코드가 다음과 같이 표시 됩니다.
 
 ```CSharp
 // Requires MSAL.NET 4.2 or above
@@ -128,7 +128,7 @@ Xamarin Android 세부 사항은 다음과 같습니다.
 
 #### <a name="uwp-specific-considerations"></a>UWP 관련 고려 사항
 
-UWP에서는 회사 네트워크를 사용할 수 있습니다. UWP에 대 한 자세한 내용은 MSAL.NET의 [유니버설 Windows 플랫폼 관련 고려 사항](msal-net-uwp-considerations.md)을 참조 하세요.
+UWP에서는 회사 네트워크를 사용할 수 있습니다. UWP에서 MSAL 라이브러리를 사용 하는 방법에 대 한 자세한 내용은 [MSAL.NET의 유니버설 Windows 플랫폼 관련 고려 사항](msal-net-uwp-considerations.md)을 참조 하세요.
 
 ## <a name="configuring-the-application-to-use-the-broker"></a>Broker를 사용 하도록 응용 프로그램 구성
 

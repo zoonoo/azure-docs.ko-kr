@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/27/2019
 ms.author: jingwang
-ms.openlocfilehash: 2010799dd590808a2c5be7d9e2330bd60e2c7913
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 79a960b106cc9de4116e8e59b2fa17f48c896221
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842492"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061459"
 ---
 # <a name="copy-data-from-and-to-microsoft-access-data-stores-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Microsoft Access 데이터 저장소에서 데이터 복사
 
@@ -27,12 +27,15 @@ ms.locfileid: "68842492"
 
 Microsoft Access 원본에서 지원 되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 Microsoft Access connector를 사용 하려면 다음을 수행 해야 합니다.
 
 - 자체 호스팅 Integration Runtime을 설정합니다. 자세한 내용은 [자체 호스팅 Integration Runtime](create-self-hosted-integration-runtime.md)을 참조하세요.
 - Integration Runtime 컴퓨터의 데이터 저장소에 대 한 Microsoft Access ODBC 드라이버를 설치 합니다.
+
+>[!NOTE]
+>Microsoft Access 2016 버전의 ODBC 드라이버가이 커넥터에서 작동 하지 않습니다. 드라이버 버전 2013 또는 2010을 대신 사용 합니다.
 
 ## <a name="getting-started"></a>시작
 

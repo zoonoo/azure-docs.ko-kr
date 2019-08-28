@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c84f68a9af855f61523919069e1947e051b130b4
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: e5ceb53cb0fcce40d779bd516fa4cebac6d11209
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622260"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061363"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: 질문과 대답(FAQ)
 
@@ -43,11 +43,9 @@ Azure AD B2C 테넌트에서 대부분의 앱은 사용자가 임의의 메일 �
 
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>지금 어떤 소셜 ID 공급자를 지원하나요? 나중에 어떤 공급자를 지원하려는 계획입니까?
 
-현재 Facebook, Google+, LinkedIn, Amazon, Twitter(미리 보기), WeChat(미리 보기), Weibo(미리 보기) 및 QQ(미리 보기)가 지원됩니다. 고객의 요구에 따라 다른 인기 있는 소셜 ID 공급자에 대한 지원을 추가합니다.
+현재 Amazon, Facebook, GitHub (미리 보기), Google, LinkedIn, Microsoft 계정 (MSA), QQ (미리 보기), Twitter, WeChat (미리 보기) 및 Weibo (미리 보기)를 비롯 한 여러 소셜 id 공급자를 지원 합니다. 고객 수요를 기반으로 하는 다른 인기 있는 소셜 id 공급자에 대 한 지원 추가를 평가 합니다.
 
-Azure AD B2C에서는 [사용자 지정 정책](active-directory-b2c-overview-custom.md)에 대한 지원도 추가했습니다. 개발자는 이러한 사용자 지정 정책을 통해 [Openid connect Connect](https://openid.net/specs/openid-connect-core-1_0.html) 또는 SAML을 지 원하는 id 공급자를 사용 하 여 고유한 정책을 만들 수 있습니다.
-
-[사용자 지정 정책 시작 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)을 확인하여 사용자 지정 정책을 시작하세요.
+Azure AD B2C는 [사용자 지정 정책](active-directory-b2c-overview-custom.md)도 지원 합니다. 사용자 지정 정책을 사용 하면 [Openid connect Connect](https://openid.net/specs/openid-connect-core-1_0.html) 또는 SAML을 지 원하는 모든 id 공급자에 대 한 사용자 고유의 정책을 만들 수 있습니다. [사용자 지정 정책 시작 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)을 확인하여 사용자 지정 정책을 시작하세요.
 
 ### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>범위를 구성하여 다양한 소셜 ID 공급자에서 소비자에 대한 자세한 정보를 수집할 수 있나요?
 

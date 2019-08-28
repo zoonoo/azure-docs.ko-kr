@@ -10,14 +10,14 @@ ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/01/2019
+ms.date: 08/13/2019
 ms.author: bwren
-ms.openlocfilehash: d50b3ab68b406db47a4cc8fec081b2fc076071d1
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 3818547eee05a1d6f8cf84ccb0f5f4ecb44a9ab3
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741669"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061622"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure에서 Office 365 관리 솔루션(미리 보기)
 
@@ -42,7 +42,7 @@ Office 365 관리 솔루션을 사용하면 Azure Monitor에서 Office 365 환�
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 솔루션을 설치하고 구성하려면 다음 항목이 필요합니다.
 
@@ -83,45 +83,46 @@ Office 365 구독에서 수집할 정보:
 
 1. Azure Portal([https://portal.azure.com](https://portal.azure.com/))에 로그인합니다.
 1. **Azure Active Directory**를 선택한 다음, **앱 등록**을 선택합니다.
-1. **새 애플리케이션 등록**을 클릭합니다.
+1. **새 등록**을 클릭 합니다.
 
     ![앱 등록 추가](media/solution-office-365/add-app-registration.png)
-1. 애플리케이션 **이름** 및 **로그온 URL**을 입력합니다.  이름은 구체적이어야 합니다.  URL `http://localhost` 에 대해를 사용 하 고 **응용 프로그램 형식** 에 대해 _웹 앱/_ a p i를 유지 합니다.
+1. 응용 프로그램 **이름을**입력 합니다. **지원 되는 계정 유형에**대 한 **모든 조직 디렉터리 (모든 Azure AD 디렉터리-다중 테 넌 트)의 계정을** 선택 합니다.
     
     ![애플리케이션 만들기](media/solution-office-365/create-application.png)
-1. **만들기**를 클릭하고 애플리케이션 정보의 유효성을 검사합니다.
+1. **등록** 을 클릭 하 고 응용 프로그램 정보를 확인 합니다.
 
-    ![앱 등록](media/solution-office-365/registered-app.png)
+    ![등록된 앱](media/solution-office-365/registered-app.png)
 
 ### <a name="configure-application-for-office-365"></a>Office 365에 대한 애플리케이션 구성
 
-1. **설정**을 클릭하여 **설정** 메뉴를 엽니다.
-1. **속성**을 선택합니다. **다중 테넌트**를 _예_로 변경합니다.
+1. **인증** 을 선택 하 고 지원 되는 **계정 유형**아래에서 **모든 조직 디렉터리 (Azure AD 디렉터리-다중 테 넌 트)의 계정이** 선택 되어 있는지 확인 합니다.
 
     ![다중 테넌트 설정](media/solution-office-365/settings-multitenant.png)
 
-1. **설정** 메뉴에서 **필요한 권한**을 선택하고 **추가**를 클릭합니다.
-1. **API 선택**을 클릭한 다음, **Office 365 관리 API**를 클릭합니다. **Office 365 관리 API**를 클릭합니다. **선택**을 클릭합니다.
+1. **API 권한** 을 선택한 다음 **사용 권한을 추가**합니다.
+1. **Office 365 관리 api**를 클릭 합니다. 
 
     ![API 선택](media/solution-office-365/select-api.png)
 
-1. **권한 선택** 아래에서 **애플리케이션 권한** 및 **위임된 권한**에 대해 다음 옵션을 선택합니다.
+1. **응용 프로그램에 필요한 사용 권한 유형** 아래에서 **응용 프로그램 권한** 및 **위임 된 권한**모두에 대해 다음 옵션을 선택 합니다.
    - 조직의 서비스 상태 정보 읽기
    - 조직의 활동 데이터 읽기
    - 조직의 활동 보고서 읽기
 
-     ![API 선택](media/solution-office-365/select-permissions.png)
+     ![API 선택](media/solution-office-365/select-permissions-01.png)![API 선택](media/solution-office-365/select-permissions-02.png)
 
-1. **선택**, **완료**를 차례로 클릭합니다.
-1. **권한 부여**를 클릭한 다음, 확인하라는 메시지가 나오면 **예**를 클릭합니다.
+1. **권한 추가**를 클릭합니다.
+1. **관리자 동의 부여** 를 클릭 한 다음 확인 메시지가 표시 되 면 **예** 를 클릭 합니다.
 
-    ![권한 부여](media/solution-office-365/grant-permissions.png)
 
-### <a name="add-a-key-for-the-application"></a>애플리케이션 키 추가
+### <a name="add-a-secret-for-the-application"></a>응용 프로그램에 대 한 비밀 추가
 
-1. **설정** 메뉴에서 **키**를 선택합니다.
+1. **인증서 & 암호** , **새 클라이언트 암호**를 차례로 선택 합니다.
+
+    ![키](media/solution-office-365/secret.png)
+ 
 1. 새 키의 **설명** 및 **기간**을 입력합니다.
-1. **저장**을 클릭한 다음, 생성되는 **값**을 복사합니다.
+1. **추가** 를 클릭 한 다음 생성 된 **값** 을 복사 합니다.
 
     ![키](media/solution-office-365/keys.png)
 
@@ -557,7 +558,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 속성은 모든 Azure Active Directory 레코드에 공통적으로 적용됩니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -569,7 +570,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 Active Directory 사용자가 로그온을 시도할 때 생성됩니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | `OfficeWorkload` | AzureActiveDirectory |
 | `RecordType`     | AzureActiveDirectoryAccountLogon |
@@ -689,7 +690,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 속성은 모든 SharePoint 레코드에 공통적으로 적용됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -719,7 +720,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 SharePoint의 파일 작업에 대한 응답으로 생성됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePointFileOperation |

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/10/2019
 ms.author: juergent
-ms.openlocfilehash: c649b93284a48df705d389f4de728d83f793af04
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: bed56f169e2a985b23b3bca96c32f7caba596432
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036643"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061507"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -158,7 +158,7 @@ Azure의 Linux Pacemaker에 대 한 자세한 내용은 [azure에서 Pacemaker o
 
 IBM Db2 LUW의 리소스 에이전트는 Red Hat Enterprise Linux Server HA 추가 기능에 포함 되어 있습니다. 이 문서에서 설명 하는 설치의 경우 SAP 용 Red Hat Enterprise Linux를 사용 해야 합니다. Azure Marketplace에는 새 Azure 가상 컴퓨터를 배포 하는 데 사용할 수 있는 SAP 용 Red Hat Enterprise Linux 7.4의 이미지가 포함 되어 있습니다. Azure VM Marketplace에서 VM 이미지를 선택할 때 Azure Marketplace를 통해 Red Hat에서 제공 하는 다양 한 지원 또는 서비스 모델에 대해 알고 있어야 합니다.
 
-### <a name="hosts-dns-updates"></a>호스트: DNS 업데이트
+### <a name="hosts-dns-updates"></a>호스팅해야 DNS 업데이트
 호스트 이름 확인을 위한 적절 한 IP 주소를 사용 하도록 DNS 서버를 업데이트 하 고 가상 호스트 이름을 비롯 한 모든 호스트 이름 목록을 만듭니다. DNS 서버가 없거나 DNS 항목을 업데이트 하거나 만들 수 없는 경우이 시나리오에 참여 하는 개별 Vm의 로컬 호스트 파일을 사용 해야 합니다. 호스트 파일 항목을 사용 하는 경우에는 SAP 시스템 환경의 모든 Vm에 항목이 적용 되는지 확인 합니다. 그러나 이상적으로는 Azure로 확장 되는 DNS를 사용 하는 것이 좋습니다.
 
 
@@ -460,7 +460,7 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](https:/
 
    e. IBM Db2 클러스터의 가상 머신을 선택 합니다.
 
-   f.           **확인**을 선택합니다.
+   f. **확인**을 선택합니다.
 
 1. 상태 프로브를 만듭니다.
 
@@ -470,7 +470,7 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](https:/
 
    c. 프로토콜 및 포트 **62500**로 **TCP** 를 선택 합니다. **간격** 값을 **5**로 유지 하 고 **비정상 임계값** 을 **2**로 설정 된 상태로 유지 합니다.
 
-   d.           **확인**을 선택합니다.
+   d. **확인**을 선택합니다.
 
 1. 부하 분산 규칙을 만듭니다.
 
@@ -486,7 +486,7 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](https:/
 
    f. **부동 IP를 사용하도록 설정**했는지 확인합니다.
 
-   g.           **확인**을 선택합니다.
+   g. **확인**을 선택합니다.
 
 **[A]** 프로브 포트에 대 한 방화벽 규칙 추가:
 <pre><code>sudo firewall-cmd --add-port=<b><probe-port></b>/tcp --permanent
@@ -517,15 +517,19 @@ Db2 HADR 구성을 만들기 전에 설치를 수행한 경우 이전 섹션에 
 J2EE 구성 도구를 사용 하 여 JDBC URL을 확인 하거나 업데이트할 수 있습니다. J2EE 구성 도구는 그래픽 도구 이므로 X 서버를 설치 해야 합니다.
  
 1. J2EE 인스턴스의 기본 응용 프로그램 서버에 로그인 하 고 다음을 실행 합니다.
-     <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>  
-1.왼쪽 프레임에서 **보안 저장소**를 선택 합니다.
-1.오른쪽 프레임에서 jdbc/pool/\<SAPSID>/urlkey 키를 선택 합니다.
-1.JDBC URL의 호스트 이름을 가상 호스트 이름으로 변경 합니다.
-     <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>  
-1.**추가**를 선택 합니다.
-1.변경 내용을 저장 하려면 왼쪽 위에서 디스크 아이콘을 선택 합니다.
-1.구성 도구를 닫습니다.
-1.Java 인스턴스를 다시 시작 합니다.
+    
+    <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>  
+    
+1. 왼쪽 프레임에서 **보안 저장소**를 선택 합니다.
+1. 오른쪽 프레임에서 키 `jdbc/pool/\<SAPSID>/url`를 선택 합니다.
+1. JDBC URL의 호스트 이름을 가상 호스트 이름으로 변경 합니다.
+    
+    <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>  
+    
+1. **추가**를 선택합니다.
+1. 변경 내용을 저장 하려면 왼쪽 위에서 디스크 아이콘을 선택 합니다.
+1. 구성 도구를 닫습니다.
+1. Java 인스턴스를 다시 시작 합니다.
 
 ## <a name="configure-log-archiving-for-hadr-setup"></a>HADR 설치를 위한 로그 보관 구성
 HADR 설치를 위해 Db2 로그 보관을 구성 하려면 모든 로그 보관 위치에서 자동 로그 검색 기능을 갖도록 주 데이터베이스와 대기 데이터베이스를 모두 구성 하는 것이 좋습니다. 주 데이터베이스와 대기 데이터베이스는 모두 데이터베이스 인스턴스 중 하나가 로그 파일을 보관할 수 있는 모든 로그 보관 위치에서 로그 보관 파일을 검색할 수 있어야 합니다. 
