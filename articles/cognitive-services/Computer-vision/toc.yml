@@ -145,12 +145,16 @@
       items:
         - name: 컨테이너 설치 및 실행
           href: computer-vision-how-to-install-containers.md
+          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises'
         - name: 컨테이너 구성
           href: computer-vision-resource-container-config.md
+          displayName: 'docker, container, billing, apikey, pull, logging, on-premises'
         - name: Kubernetes 및 Helm 활용
           href: deploy-computer-vision-on-premises.md
+          displayName: 'kubectl, docker, helm, kubernetes, K8s, tiller, container, image, on-prem, on-premises'
         - name: 컨테이너 인스턴스 사용
           href: deploy-computer-vision-on-container-instances.md
+          displayName: 'container instances, container, containers, images'
     - name: Computer Vision 연결 서비스 사용
       href: vs-computer-vision-connected-service.md
     - name: 실시간 비디오 분석
