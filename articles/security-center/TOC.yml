@@ -33,18 +33,16 @@
       href: security-center-data-security.md
     - name: 권장 사항을 사용하여 보안 강화
       href: security-center-using-recommendations.md
-    - name: 위협 감지
-      href: security-center-detection-capabilities.md
-    - name: 보안 경고 관리
-      href: security-center-managing-and-responding-alerts.md
-    - name: 보안 인시던트
-      href: security-center-incident.md
     - name: 테넌트 간 관리
       href: security-center-cross-tenant-management.md
-    - name: 위협 검색 경고
+    - name: 위협 탐지 경고 및 인시던트
       items:
         - name: 보안 경고 개요
           href: security-center-alerts-overview.md
+        - name: 보안 경고 관리
+          href: security-center-managing-and-responding-alerts.md
+        - name: 보안 인시던트 관리
+          href: security-center-incident.md
         - name: VM 및 서버에 대한 위협 탐지
           href: security-center-alerts-iaas.md
         - name: 클라우드 네이티브 컴퓨팅에 대한 위협 탐지

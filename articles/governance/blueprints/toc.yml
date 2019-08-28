@@ -11,6 +11,9 @@
     - name: 청사진 만들기 - Portal
       displayName: 'publish, assign, track, unassign, delete'
       href: create-blueprint-portal.md
+    - name: 청사진 만들기 - PowerShell
+      displayName: 'publish, assign, track, unassign, delete'
+      href: create-blueprint-powershell.md
     - name: 청사진 만들기 - REST API
       displayName: 'publish, assign, track, unassign, delete'
       href: create-blueprint-rest-api.md

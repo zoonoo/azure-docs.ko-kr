@@ -1,56 +1,75 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Azure 리소스에 대한 RBAC 설명서
+summary: RBAC(역할 기반 액세스 제어)는 Azure 리소스에 대한 세밀한 액세스 관리를 제공하는 시스템입니다. RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다.
 metadata:
-  document_id: null
-  title: Azure 리소스에 대한 RBAC(역할 기반 액세스 제어) 설명서 | Microsoft Docs
-  description: 'Azure 리소스에 액세스할 수 있는 사용자, 해당 리소스로 수행할 수 있는 작업 및 액세스 권한이 있는 영역을 관리하는 RBAC(역할 기반 액세스 제어)에 대해 알아봅니다.'
-  services: active-directory
-  author: rolyon
-  manager: mtillman
+  title: Azure 리소스에 대한 RBAC(역할 기반 액세스 제어) 설명서
+  description: Azure 리소스에 액세스할 수 있는 사용자, 해당 리소스로 수행할 수 있는 작업 및 액세스 권한이 있는 영역을 관리하는 RBAC(역할 기반 액세스 제어)에 대해 알아봅니다.
+  services: role-based-access-control
   ms.service: role-based-access-control
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: na
   ms.topic: landing-page
-  ms.date: 02/16/2019
+  ms.collection: na
+  author: rolyon
   ms.author: rolyon
-abstract:
-  description: RBAC(역할 기반 액세스 제어)는 Azure 리소스에 대한 세밀한 액세스 관리를 제공하는 시스템입니다. RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다.
-  aside:
-    image:
-      alt: null
-      height: 112
-      src: media/index/video-thumb-get-started.png
-      width: 200
-    title: 'Azure에 대한 액세스 잠금(1:16)'
-    href: 'https://www.youtube.com/embed/FKBoWWKRnvI'
-    width: 200
-sections:
-  - title: 5분 빠른 시작
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/role-based-access-control/check-access">사용자에 대한 액세스 권한 보기</a>
-  - title: 단계별 자습서
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/role-based-access-control/quickstart-assign-role-user-portal">사용자 액세스 권한 부여 - 포털</a>
-          - html: <a href="/azure/role-based-access-control/tutorial-role-assignments-group-powershell">그룹 액세스 권한 부여 - PowerShell</a>
-          - html: <a href="/azure/role-based-access-control/tutorial-custom-role-powershell">사용자 지정 역할 만들기 - PowerShell</a>
-          - html: <a href="/azure/role-based-access-control/tutorial-custom-role-cli">사용자 지정 역할 만들기 - CLI</a>
-  - title: Microsoft Learn을 통해 기술 쌓기
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: RBAC(역할 기반 액세스 제어)로 Azure 리소스 보안
-            href: /learn/modules/secure-azure-resources-with-rbac/
-            image:
-              src: /learn/achievements/secure-azure-resources-with-rbac.svg
-              href: /learn/modules/secure-azure-resources-with-rbac/
-      - type: paragraph
-        text: <a href="/learn/browse/?products=azure-active-directory">더 많은 대화형 학습 보기...</a>
+  ms.date: 08/26/2019
+  ms.openlocfilehash: cd4628ef5e7d56f03590899fe514141d415c8f01
+  ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 08/27/2019
+  ms.locfileid: "70052018"
+landingContent:
+- title: Azure 리소스용 RBAC 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: RBAC란?
+      url: overview.md
+    - text: 다른 역할 이해
+      url: rbac-and-directory-admin-roles.md
+  - linkListType: video
+    links:
+    - text: 'Microsoft Ignite: Azure에 대한 액세스 잠금'
+      url: https://www.youtube.com/embed/FKBoWWKRnvI
+- title: 시작하기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 사용자에 대한 액세스 권한 보기
+      url: check-access.md
+  - linkListType: tutorial
+    links:
+    - text: 사용자 액세스 권한 부여 - 포털
+      url: quickstart-assign-role-user-portal.md
+    - text: 그룹 액세스 권한 부여 - PowerShell
+      url: tutorial-role-assignments-group-powershell.md
+  - linkListType: learn
+    links:
+    - text: RBAC로 Azure 리소스 보호
+      url: https://docs.microsoft.com/learn/modules/secure-azure-resources-with-rbac/
+- title: 액세스 관리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 포털
+      url: role-assignments-portal.md
+    - text: PowerShell
+      url: role-assignments-powershell.md
+    - text: Azure CLI
+      url: role-assignments-cli.md
+    - text: REST API
+      url: role-assignments-rest.md
+    - text: 템플릿
+      url: role-assignments-template.md
+- title: 사용자 지정 역할 만들기
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 사용자 지정 역할
+      url: custom-roles.md
+  - linkListType: tutorial
+    links:
+    - text: 사용자 지정 역할 만들기 - PowerShell
+      url: tutorial-custom-role-powershell.md
+    - text: 사용자 지정 역할 만들기 - CLI
+      url: tutorial-custom-role-cli.md

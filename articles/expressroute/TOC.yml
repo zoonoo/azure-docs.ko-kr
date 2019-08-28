@@ -44,6 +44,8 @@
       href: expressroute-erdirect-about.md
     - name: ExpressRoute Global Reach 정보
       href: expressroute-global-reach.md
+    - name: 퍼블릭 클라우드에 Azure 연결
+      href: expressroute-connect-azure-to-public-cloud.md
     - name: 백 엔드 연결 상호 운용성
       items:
         - name: 접두사 및 테스트 설정

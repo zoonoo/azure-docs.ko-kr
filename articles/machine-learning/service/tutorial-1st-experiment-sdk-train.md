@@ -35,7 +35,7 @@ ms.locfileid: "69516233"
 
 ## <a name="connect-workspace-and-create-experiment"></a>작업 영역 연결 및 실험 만들기
 
-`Workspace` 클래스를 가져오고, `from_config().` 함수를 사용하여 `config.json` 파일에서 구독 정보를 로드합니다. 이 함수는 기본적으로 현재 디렉터리에서 JSON 파일을 찾지만, `from_config(path="your/file/path")`를 사용하여 파일을 가리키는 경로 매개 변수를 지정할 수도 있습니다. 작업 영역의 클라우드 Notebook 서버에서 이 Notebook을 실행하는 경우 파일은 자동으로 루트 디렉터리에 있습니다.
+`Workspace` 클래스를 가져오고 `from_config().` 함수를 사용하여 `config.json` 파일에서 구독 정보를 로드합니다. 이 함수는 기본적으로 현재 디렉터리에서 JSON 파일을 찾지만 `from_config(path="your/file/path")`를 사용하여 파일을 가리키는 경로 매개 변수를 지정할 수도 있습니다. 작업 영역의 클라우드 Notebook 서버에서 이 Notebook을 실행하는 경우 파일은 자동으로 루트 디렉터리에 있습니다.
 
 다음 코드에서 추가 인증을 요청하는 경우 링크를 브라우저에 붙여넣고 인증 토큰을 입력하기만 하면 됩니다.
 

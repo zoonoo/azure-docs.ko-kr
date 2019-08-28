@@ -207,6 +207,8 @@
           href: api-management-configuration-repository-git.md
         - name: 역할 기반 액세스 제어 사용
           href: api-management-role-based-access-control.md
+        - name: API Management 인스턴스 마이그레이션
+          href: api-management-howto-migrate.md
         - name: Azure 리소스에 대한 관리 ID 사용
           href: api-management-howto-use-managed-service-identity.md
         - name: Service Fabric과 통합

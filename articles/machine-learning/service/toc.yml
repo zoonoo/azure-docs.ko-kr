@@ -28,10 +28,7 @@
               href: tutorial-deploy-models-with-aml.md
         - name: 회귀(NYC 택시 데이터)
           items:
-            - name: 1. 모델링을 위한 데이터 준비
-              displayName: data prep
-              href: tutorial-data-prep.md
-            - name: 2. ML 모델 자동 학습
+            - name: ML 모델 자동 학습
               displayName: 'automl, automated, auto ml,'
               href: tutorial-auto-train-models.md
     - name: 시각적 인터페이스
@@ -260,7 +257,7 @@
     - name: 재사용 가능한 워크플로 만들기
       displayName: pipelines
       items:
-        - name: ML 파이프라인
+        - name: Python에서 ML 파이프라인 만들기
           href: how-to-create-your-first-pipeline.md
         - name: CI/CD용 Azure Pipelines
           displayName: 'continuous, integration, delivery'
