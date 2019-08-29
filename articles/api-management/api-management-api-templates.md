@@ -10,16 +10,15 @@ ms.assetid: 3642fd09-ba98-4358-93a6-c48ab0500431
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: e8519bf436e1af19a22a840f48bf1bfccdae99b2
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 9d75dff413e7b6e61d38b95e08bf9c891b583014
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341264"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073831"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Azure API Management의 API 템플릿
 
@@ -88,7 +87,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 ### <a name="data-model"></a>데이터 모델  
   
-|자산|Type|설명|  
+|속성|형식|Description|  
 |--------------|----------|-----------------|  
 |`apis`|[API 요약](api-management-template-data-model-reference.md#APISummary) 엔터티의 컬렉션입니다.|현재 사용자에게 표시되는 API입니다.|  
   
@@ -343,14 +342,14 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 ### <a name="data-model"></a>데이터 모델  
   
-|자산|Type|설명|  
+|속성|형식|Description|  
 |--------------|----------|-----------------|  
-|`apiId`|문자열|현재 API의 ID입니다.|  
-|`apiName`|문자열|API 이름입니다.|  
-|`apiDescription`|문자열|API에 대한 설명입니다.|  
+|`apiId`|string|현재 API의 ID입니다.|  
+|`apiName`|string|API 이름입니다.|  
+|`apiDescription`|string|API에 대한 설명입니다.|  
 |`api`|[API 요약](api-management-template-data-model-reference.md#APISummary) 엔터티입니다.|현재 API입니다.|  
 |`operation`|[연산](api-management-template-data-model-reference.md#Operation)|현재 표시된 작업입니다.|  
-|`sampleUrl`|문자열|현재 작업의 URL입니다.|  
+|`sampleUrl`|string|현재 작업의 URL입니다.|  
 |`operationMenu`|[작업 메뉴](api-management-template-data-model-reference.md#Menu)|이 API에 대한 작업 메뉴입니다.|  
 |`consoleUrl`|URI|**시도** 버튼에 대한 URI입니다.|  
 |`samples`|[코드 샘플](api-management-template-data-model-reference.md#Sample) 엔터티의 컬렉션입니다.|현재 작업에 대한 코드 샘플입니다.|  

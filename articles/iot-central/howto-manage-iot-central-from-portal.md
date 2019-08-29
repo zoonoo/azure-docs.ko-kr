@@ -8,18 +8,18 @@ ms.author: dobett
 ms.date: 07/11/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 7893c8e8b8d67b4b63bd9d6bb5a71552e95c9125
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 25751db785bf5d0b67195d1e1db660c0b9b5bf4e
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850241"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100962"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Azure Portal에서 IoT Central 관리
 
 [!INCLUDE [iot-central-selector-manage](../../includes/iot-central-selector-manage.md)]
 
-IoT Central [Application Manager](https://aka.ms/iotcentral) 페이지에서 IoT Central 애플리케이션을 만들고 관리할 수 있을 뿐 아니라 [Azure Portal](https://portal.azure.com)을 사용하여 애플리케이션을 관리할 수도 있습니다.
+[Azure IoT Central application manager](https://aka.ms/iotcentral) 웹 사이트에서 IoT Central 응용 프로그램을 만들고 관리 하는 대신 [Azure Portal](https://portal.azure.com) 를 사용 하 여 응용 프로그램을 관리할 수 있습니다.
 
 ## <a name="create-iot-central-applications"></a>IoT Central 애플리케이션 만들기
 
@@ -39,7 +39,7 @@ IoT Central [Application Manager](https://aka.ms/iotcentral) 페이지에서 IoT
 
 ![관리 포털: IoT Central 리소스](media/howto-manage-iot-central-from-portal/image0c1.png)
 
-양식에 있는 모든 필드를 작성합니다. 이 양식은 IoT Central [Application Manager](https://aka.ms/iotcentral) 페이지에서 애플리케이션을 만들려면 작성해야 하는 양식과 비슷합니다. 자세한 내용은 [IoT Central 애플리케이션 만들기](quick-deploy-iot-central.md) 빠른 시작을 참조하세요.
+양식에 있는 모든 필드를 작성합니다. 이 양식은 [Azure IoT Central application manager](https://aka.ms/iotcentral) 웹 사이트에서 응용 프로그램을 만들기 위해 작성 하는 양식과 비슷합니다. 자세한 내용은 [IoT Central 애플리케이션 만들기](quick-deploy-iot-central.md) 빠른 시작을 참조하세요.
 
 ![관리 포털: IoT Central 리소스 만들기](media/howto-manage-iot-central-from-portal/image1a.png)  
 

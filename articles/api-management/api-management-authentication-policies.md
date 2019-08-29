@@ -10,16 +10,15 @@ ms.assetid: 061702a7-3a78-472b-a54a-f3b1e332490d
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: bd31d711c58a63b5c15712c1774d48433c62f18d
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 69584b434ac0442df48dcdea2a7d9f2aca9c1ccd
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774969"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073731"
 ---
 # <a name="api-management-authentication-policies"></a>API Management 인증 정책
 이 토픽에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](https://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.
@@ -49,16 +48,16 @@ ms.locfileid: "68774969"
 
 ### <a name="elements"></a>요소
 
-|이름|설명|필수|
+|이름|Description|필수|
 |----------|-----------------|--------------|
 |인증-기본|루트 요소입니다.|예|
 
 ### <a name="attributes"></a>특성
 
-|이름|설명|필수|기본값|
+|이름|Description|필수|기본값|
 |----------|-----------------|--------------|-------------|
-|username 이름|기본 자격 증명의 사용자 이름을 지정합니다.|예|해당 사항 없음|
-|password|기본 자격 증명의 비밀번호를 지정합니다.|예|N/A|
+|username|기본 자격 증명의 사용자 이름을 지정합니다.|예|해당 사항 없음|
+|password|기본 자격 증명의 비밀번호를 지정합니다.|예|해당 사항 없음|
 
 ### <a name="usage"></a>사용 현황
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
@@ -89,13 +88,13 @@ ms.locfileid: "68774969"
 
 ### <a name="elements"></a>요소  
   
-|이름|설명|필수|  
+|이름|Description|필수|  
 |----------|-----------------|--------------|  
 |인증-인증서|루트 요소입니다.|예|  
   
 ### <a name="attributes"></a>특성  
   
-|이름|설명|필수|기본값|  
+|이름|Description|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
 |thumbprint|클라이언트 인증서에 대한 지문입니다.|`thumbprint` 또는`certificate-id` 중 하나를 제공 해야 합니다.|해당 사항 없음|  
 |인증서 id|인증서 리소스 이름입니다.|`thumbprint` 또는`certificate-id` 중 하나를 제공 해야 합니다.|해당 사항 없음|  
@@ -139,9 +138,9 @@ ms.locfileid: "68774969"
   
 ### <a name="attributes"></a>특성  
   
-|이름|설명|필수|기본값|  
+|이름|Description|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
-|resource|문자열. Azure Active Directory에 있는 대상 web API (보안 리소스)의 앱 ID URI입니다.|예|해당 사항 없음|  
+|resource|문자열. Azure Active Directory에 있는 대상 web API (보안 리소스)의 앱 ID URI입니다.|예|N/A|  
 |output-token-variable-name|문자열. 토큰 값을 개체 형식 `string`으로 수신 하는 컨텍스트 변수의 이름입니다. |아니요|해당 사항 없음|  
 |ignore-error|Boolean입니다. 로 설정 하면 `true`액세스 토큰을 가져올 수 없는 경우에도 정책 파이프라인이 계속 실행 됩니다.|아니요|false|  
   

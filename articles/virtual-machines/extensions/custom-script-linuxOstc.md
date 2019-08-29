@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: f4920cde64ae951fa5f234f6ad6d7423429bb907
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: e5ef1bde9420104b596c22837048b054f918b3cc
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706041"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092621"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Linux 가상 머신에서 Azure 사용자 지정 스크립트 확장 버전 1 사용
 
@@ -121,7 +120,7 @@ ms.locfileid: "67706041"
 
 | 이름 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | 날짜 |
+| apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.OSTCExtensions | string |
 | type | CustomScriptForLinux | string |
 | typeHandlerVersion | 1.5 | ssNoversion |
@@ -137,7 +136,7 @@ ms.locfileid: "67706041"
 * `enableInternalDNSCheck`: (선택 사항, bool) 기본값은 True이며 DNS 확인을 해제하려면 False로 설정합니다.
 * `commandToExecute`: (선택 사항, 문자열) 실행할 진입점 스크립트.
 * `storageAccountName`: (선택 사항, 문자열) 스토리지 계정의 이름
-* `storageAccountKey`: (옵션, 문자열) 스토리지 계정의 액세스 키입니다.
+* `storageAccountKey`: (선택 사항, 문자열) 스토리지 계정의 액세스 키
 
 공용 또는 보호된 설정에서 다음 값을 설정할 수 있습니다. 공용 및 보호된 설정 모두에서 이러한 값을 설정하지 않아야 합니다.
 
@@ -296,7 +295,7 @@ az vm extension set
 
 1. 사용은 명령이 실행하기 시작할 때입니다.
 1. 다운로드는 fileUris에 지정된 스크립트 파일이 아니라 Azure의 CustomScript 확장 패키지의 다운로드에 관련됩니다.
-1. 로그 파일에 작성 한 것을 확인할 수 있습니다. `/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
+1. 기록 하는 로그 파일을 확인할 수도 있습니다.`/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
 
 다음 단계는 로그 파일 검사로 이동하는 것입니다. 다음과 같은 형식입니다.
 
@@ -304,7 +303,7 @@ az vm extension set
 /var/log/azure/<extension-name>/<version>/extension.log file.
 ```
 
-개별 실행을 찾아야, 다음과 같은 모양이 됩니다.
+개별 실행을 확인 해야 합니다. 다음과 같이 표시 됩니다.
 
 ```text
 2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Enable,transitioning,0,Launching the script...

@@ -3,15 +3,15 @@ title: 변경 피드 프로세서 시작 시간을 구성하는 방법 - Azure C
 description: 특정 날짜와 시간부터 읽기를 시작하도록 변경 피드 프로세서를 구성하는 방법을 알아봅니다.
 author: ealsur
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: maquaran
-ms.openlocfilehash: 3ad9aff10b3bae36a173f776f55a434fd8b38b98
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
-ms.translationtype: HT
+ms.openlocfilehash: 600556a06d3f58c4d2ec79a49fdee5e8e04d4036
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574279"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093641"
 ---
 # <a name="how-to-configure-the-change-feed-processor-start-time"></a>변경 피드 프로세서 시작 시간을 구성하는 방법
 
@@ -43,10 +43,10 @@ ms.locfileid: "69574279"
 > [!NOTE]
 > 특정 시점을 지정하면 컨테이너에 현재 존재하는 항목에 대한 변경 내용만 읽습니다. 항목이 삭제되면 변경 피드의 해당 기록도 제거됩니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 * [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
-* [GitHub의 사용 샘플](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/usage/changefeed)
+* [GitHub의 사용 샘플](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
 * [GitHub의 추가 샘플](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
 ## <a name="next-steps"></a>다음 단계

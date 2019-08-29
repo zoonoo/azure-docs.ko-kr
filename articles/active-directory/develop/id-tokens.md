@@ -11,18 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/13/2019
+ms.date: 08/27/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85145d4a81eb4d12910758e01dda675ea378a46b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 4968d1acbccca9c2c46b4bbb6f0853b82e8d7f71
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853185"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70074274"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Microsoft id 플랫폼 ID 토큰
 
@@ -30,7 +30,7 @@ ms.locfileid: "68853185"
 
 ## <a name="using-the-id_token"></a>id_token 사용
 
-ID 토큰은 사용자가 누구 인지를 확인 하 고, 사용자에 대 한 추가 유용한 정보를 얻는 데 사용 되어야 합니다. [액세스 토큰](access-tokens.md)대신 권한 부여에 사용 하면 안 됩니다. 이 토큰이 제공하는 클레임은 애플리케이션 내부 UX, 데이터베이스 입력, 클라이언트 애플리케이션에 대한 액세스 제공을 위해 사용됩니다.
+ID 토큰은 사용자가 누구 인지를 확인 하 고, 사용자에 대 한 추가 유용한 정보를 얻는 데 사용 되어야 합니다. [액세스 토큰](access-tokens.md)대신 권한 부여에 사용 하면 안 됩니다. 제공 되는 클레임은 응용 프로그램 내의 UX, 데이터베이스의 키로, 클라이언트 응용 프로그램에 대 한 액세스를 제공 하는 데 사용할 수 있습니다.  데이터베이스에 대 한 키를 만들 `idp` 때는 게스트 시나리오를 설정 하므로 사용 하면 안 됩니다.  키가 필요한 경우 라우팅 `sub` 에 `tid` 사용 되는 단독 (항상 고유)으로 수행 해야 합니다.  서비스 간에 데이터를 공유 해야 하는 경우 `oid` 여러 서비스가 모두 동일 `oid`하기 때문에 + + `sub` `tid` 가 작동 합니다.
 
 ## <a name="claims-in-an-id_token"></a>Id_token의 클레임
 

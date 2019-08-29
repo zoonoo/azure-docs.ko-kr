@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 99f756b5415811b3d4c2ee0167f98b31c905df1a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c10939b50a66cd608d27a71f02d959fbc2380f59
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60657704"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072315"
 ---
 # <a name="policies-in-azure-api-management"></a>Azure API Management의 정책
 

@@ -7,19 +7,18 @@ author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 5bfbf995b67ac49cf169565046daa2887a57e476
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 58174704051709a720950ac51591a1d53b9d01bb
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68846157"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100558"
 ---
 # <a name="use-the-azure-cli-to-configure-an-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Azure CLI를 사용 하 여 Azure VM에서 SQL Server에 대 한 Always On 가용성 그룹 구성
 이 문서에서는 [Azure CLI](/cli/azure/sql/vm?view=azure-cli-latest/) 를 사용 하 여 Windows 장애 조치 (failover) 클러스터를 배포 하 고, 클러스터에 SQL Server vm을 추가 하 고, Always On 가용성 그룹에 대 한 내부 부하 분산 장치 및 수신기를 만드는 방법을 설명 합니다. Always On 가용성 그룹 배포는 SSMS (SQL Server Management Studio)를 통해 여전히 수동으로 수행 됩니다. 
@@ -127,7 +126,7 @@ az network lb create --name sqlILB -g <resource group name> --sku Standard `
    1. [Azure Portal](https://portal.azure.com)의 리소스 그룹으로 이동 합니다. 
    1. 가상 네트워크 리소스를 선택 합니다. 
    1. **설정** 창에서 **속성** 을 선택 합니다. 
-   1. 가상 네트워크의 리소스 id를 확인 하 고 그 `/subnets/<subnetname>` 끝에 추가 하 여 서브넷 리소스 id를 만듭니다. 예를 들어:
+   1. 가상 네트워크의 리소스 id를 확인 하 고 그 `/subnets/<subnetname>` 끝에 추가 하 여 서브넷 리소스 id를 만듭니다. 예:
       - 가상 네트워크 리소스 ID는 다음과 같습니다.`/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet`
       - 서브넷 이름은 다음과 같습니다.`default`
       - 따라서 서브넷 리소스 ID는 다음과 같습니다.`/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet/subnets/default`

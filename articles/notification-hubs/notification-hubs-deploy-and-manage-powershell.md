@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 4dbbaeea736dd46478ad9992201ea28bd7bfc2ba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2cff6ef25d0fe812cc6df26bf946daff29d37f84
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61457841"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102836"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>PowerShell을 사용하여 Notification Hubs 배포 및 관리
 
@@ -34,7 +34,7 @@ ms.locfileid: "61457841"
 
 알림 허브 관리는 Azure PowerShell에 포함된 cmdlet에서 직접 지원하지 않습니다. PowerShell에서 Microsoft.Azure.NotificationHubs.dll 어셈블리를 참조하는 것이 최선의 방법입니다. 어셈블리는 [Microsoft Azure Notification Hubs NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)와 함께 배포됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독. Azure는 구독 기반 플랫폼입니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션], [구성원 제안] 또는 [평가판]을 참조하세요.
 - Azure PowerShell이 설치된 컴퓨터 자세한 내용은 [Azure PowerShell 설치 및 구성]을 참조하세요.
@@ -74,7 +74,7 @@ catch [System.Exception]
 
 ## <a name="create-the-namespacemanager-class"></a>`NamespaceManager` 클래스 만들기
 
-Notification Hubs를 프로비전하려면 SDK에서 [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.namespacemanager.aspx) 클래스의 인스턴스를 만듭니다.
+Notification Hubs를 프로비전하려면 SDK에서 [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager?view=azure-dotnet) 클래스의 인스턴스를 만듭니다.
 
 Azure PowerShell을 포함하는 [Get-AzureSBAuthorizationRule] cmdlet을 사용하면 연결 문자열을 제공하는 데 사용되는 권한 부여 규칙을 검색할 수 있습니다. `NamespaceManager` 인스턴스에 대한 참조는 `$NamespaceManager` 변수에 저장됩니다. `$NamespaceManager`를 사용하여 알림 허브를 프로비전합니다.
 

@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f97cce2d1a8b2de5634215629ddb997dc8f7196a
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 02dcb7174dd9cb2926ef2fafda4b521b939ae68a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68235198"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70077981"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>SAP 애플리케이션 네트워크 대기 시간을 최소화하는 Azure Proximity Placement Group
 Sap NetWeaver 또는 SAP S/4HANA 아키텍처를 기반으로 하는 SAP 응용 프로그램은 SAP 응용 프로그램 계층과 SAP 데이터베이스 계층 간의 네트워크 대기 시간을 구분 합니다. 이러한 아키텍처의 이러한 민감도에 대 한 이유는 대부분의 비즈니스 논리가 응용 프로그램 계층에서 실행 된다는 사실입니다. 비즈니스 논리를 실행 한 결과로 SAP 응용 프로그램 계층에서 데이터베이스 계층에 대 한 쿼리를 실행 하는 데는 초당 수천 ~ 수십의 매우 많은 쿼리가 실행 됩니다. 대부분의 경우 이러한 쿼리의 특성은 간단 합니다. 그리고 데이터베이스 계층에서 500 마이크로초 미만으로 실행 될 수 있는 경우가 많습니다. 응용 프로그램 계층에서 데이터베이스 계층으로 이러한 쿼리를 전송 하 고 데이터베이스 계층에서 결과 집합을 다시 수신 하는 네트워크에 소요 된 시간은 비즈니스 프로세스를 실행 하는 데 걸리는 시간에 큰 영향을 미칩니다. 네트워크 대기 시간에 대 한 이러한 민감도는 최적의 네트워크 대기 시간을 얻기 위해 SAP 배포 프로젝트에 소요 되는 이유입니다. [SAP Note #1100926-FAQ: 네트워크 성능](https://launchpad.support.sap.com/#/notes/1100926/E)-SAP는 네트워크 대기 시간을 분류 하는 방법에 대 한 몇 가지 지침을 게시 했습니다.

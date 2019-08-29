@@ -11,16 +11,15 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: f7fbfbe5ae5d2ba4148d94768a1109f566151170
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 0b78b05e30185487df0b06d861b60b63741dc938
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69513800"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073196"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 구성 및 관리 FAQ
 
@@ -70,7 +69,7 @@ App Service 웹앱에 대한 SSL 인증서를 구매 및 설정하는 방법을 
 2. **앱 설정**에서 이 설정을 추가합니다.
     * 키 = WEBSITE_TIME_ZONE
     * 값 = *원하는 표준 시간대*
-3.           **저장**을 선택합니다.
+3. **저장**을 선택합니다.
 
 허용되는 값은 [기본 표준 시간대](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) 문서에서 **표준 시간대** 열을 참조하세요.
 

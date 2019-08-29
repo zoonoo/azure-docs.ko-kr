@@ -7,19 +7,18 @@ author: RicksterCDN
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01001336e166d5eb2c7dff845b80da2174225a25
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 24404d6b55f83f96d8e2601afd35b2dec00cc7e9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234424"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099727"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>SAP HANA(대규모 인스턴스) 네트워크 아키텍처
 
@@ -76,7 +75,7 @@ Azure에서 SAP 배포의 차이점은 다음과 같습니다.
 
 HANA 큰 인스턴스 스탬프의 수정 버전 3을 사용 하는 경우 vm과 HANA 큰 인스턴스 단위 간에 발생 하는 네트워크 대기 시간은 일반적인 VM 간 네트워크 왕복 대기 시간 보다 높을 수 있습니다. Azure 지역에 따라 측정 되는 값은 SAP Note #1100926-FAQ의 [평균 미만으로 분류 된 0.7 밀리초 왕복 대기 시간을 초과할 수 있습니다. 네트워크 성능](https://launchpad.support.sap.com/#/notes/1100926/E). Azure VM 및 HANA 대규모 인스턴스 단위 간의 네트워크 왕복 대기 시간을 측정하는 Azure 지역 및 도구에 따라 측정된 대기 시간은 최대 약 2밀리초일 수 있습니다. 그럼에도 불구하고 고객은 SAP HANA 기반 프로덕션 SAP 애플리케이션을 SAP HANA 대규모 인스턴스에 성공적으로 배포합니다. Azure HANA 대규모 인스턴스에서 자신의 비즈니스 프로세스를 철저하게 테스트해야 합니다. Express 경로 빠른 경로 라는 새로운 기능을 통해 Azure의 HANA 큰 인스턴스 및 응용 프로그램 계층 Vm 간의 네트워크 대기 시간을 크게 줄일 수 있습니다 (아래 참조). 
 
-Hana large instance 스탬프의 수정 버전 4를 사용 하는 경우 SAP Note #에 [설명 된 것 처럼 hana large instance 스탬프에 근접 하 게 배포 되는 Azure vm 간의 네트워크 대기 시간이 평균 또는 더 나은 평균을 충족 하는 데 사용 됩니다. 1100926-FAQ: Azure express](https://launchpad.support.sap.com/#/notes/1100926/E) 경로 빠른 경로가 구성 된 경우의 네트워크 성능 (아래 참조) 수정 버전 4의 HANA Large Instance 장치에 근접 하 게 Azure Vm을 배포 하려면 [Azure 근접 배치 그룹](https://docs.microsoft.com/azure/virtual-machines/linux/co-location)을 활용 해야 합니다. [Sap 응용 프로그램의 최적의 네트워크 대기 시간을 위해 Azure 근접 배치 그룹에서 Azure 근접 배치 그룹에 설명 된 것 처럼 근접 배치 그룹을 사용 하 여 동일한 azure 데이터 센터에서 sap 응용 프로그램 계층을 찾을 수 있는 방법을 설명 합니다. ](sap-proximity-placement-scenarios.md).
+Hana large instance 스탬프의 수정 버전 4를 사용 하는 경우 SAP Note에 [설명 된 것 처럼 hana large instance 스탬프에 근접 하 게 배포 되는 Azure vm 간의 네트워크 대기 시간이 평균 또는 향상 된 평균 분류를 만족 하는 데 사용 됩니다. #1100926-FAQ: Azure express](https://launchpad.support.sap.com/#/notes/1100926/E) 경로 빠른 경로가 구성 된 경우의 네트워크 성능 (아래 참조) 수정 버전 4의 HANA Large Instance 장치에 근접 하 게 Azure Vm을 배포 하려면 [Azure 근접 배치 그룹](https://docs.microsoft.com/azure/virtual-machines/linux/co-location)을 활용 해야 합니다. [Sap 응용 프로그램의 최적의 네트워크 대기 시간을 위해 Azure 근접 배치 그룹에서 Azure 근접 배치 그룹에 설명 된 것 처럼 근접 배치 그룹을 사용 하 여 동일한 azure 데이터 센터에서 sap 응용 프로그램 계층을 찾을 수 있는 방법을 설명 합니다. ](sap-proximity-placement-scenarios.md).
 
 Vm과 HANA Large Instance 간에 결정적인 네트워크 대기 시간을 제공 하기 위해 Express 경로 게이트웨이 SKU를 선택 하는 것이 필수적입니다. 온-프레미스와 VM 간의 트래픽 패턴과는 달리, VM과 HANA 대규모 인스턴스 간의 트래픽 패턴은 작지만 높은 버스트의 요청 및 데이터 볼륨을 전송하도록 개발할 수 있습니다. 이러한 버스트를 잘 처리하려면 UltraPerformance 게이트웨이 SKU를 사용하는 것이 좋습니다. HANA Large Instance Sku의 Type II 클래스에서 UltraPerformance 게이트웨이 SKU를 ExpressRotue 게이트웨이로 사용 하는 것은 필수입니다.
 

@@ -10,16 +10,15 @@ tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 46f52cb0478b47f8f6b45356815bc4c74e7cc800
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.openlocfilehash: d403292a7f7ab1080f4270a420c23353eda5fd71
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67724113"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70090039"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Windows Azure 가상 컴퓨터 정품 인증 문제 해결
 
@@ -53,7 +52,7 @@ Windows Azure VM을 활성화하려고 할 때 다음 샘플과 유사한 오류
 
 ### <a name="step-1-configure-the-appropriate-kms-client-setup-key"></a>1 단계 적절 한 KMS 클라이언트 설정 키 구성
 
-사용자 지정 이미지에서 만든 VM에 대해 VM에 대 한 적절 한 KMS 클라이언트 설정 키를 구성 해야 합니다.
+사용자 지정 이미지에서 만든 VM의 경우 VM에 대 한 적절 한 KMS 클라이언트 설정 키를 구성 해야 합니다.
 
 1. 관리자 권한의 명령 프롬프트에서 **slmgr.vbs /dlv**를 실행합니다. 출력에서 설명 값을 확인하고 소매(소매 채널) 또는 볼륨(VOLUME_KMSCLIENT) 라이선스 미디어에서 만들어졌는지를 확인합니다.
   
@@ -101,7 +100,7 @@ Windows Azure VM을 활성화하려고 할 때 다음 샘플과 유사한 오류
 
    모든 DNS 서버를 가상 네트워크에서 제거하면 VM은 Azure의 내부 DNS 서비스를 사용할 수 있습니다. 이 서비스는 kms.core.windows.net을 확인할 수 있습니다.
   
-    또한 VM의 방화벽에서 포트 1688 사용 하 여 KMS 끝점에 아웃 바운드 네트워크 트래픽을 차단 되지 않는 해야 합니다.
+    또한 1688 포트가 있는 KMS 끝점에 대 한 아웃 바운드 네트워크 트래픽이 VM의 방화벽에서 차단 되지 않았는지 확인 합니다.
 
 5. kms.core.windows.net에 성공적으로 연결되었는지 확인한 후에 해당 관리자 권한 Windows PowerShell 프롬프트에서 다음 명령을 실행합니다. 이 명령은 여러 번 활성화되도록 시도합니다.
 
@@ -111,7 +110,7 @@ Windows Azure VM을 활성화하려고 할 때 다음 샘플과 유사한 오류
 
     성공적으로 활성화되면 다음과 같은 정보를 반환합니다.
     
-    **Windows (r), ServerDatacenter 버전 (12345678-1234-1234-1234-12345678)를 활성화 하는 중...  제품을 성공적으로 활성화 합니다.**
+    **Windows (R), ServerDatacenter edition (12345678-1234-1234-1234-12345678)을 활성화 하는 동안 ...  제품이 성공적으로 활성화 되었습니다.**
 
 ## <a name="faq"></a>FAQ 
 

@@ -11,16 +11,15 @@ tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 40fd91ed39731b95cf01a627e3178ab6cfaaa7d3
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: add0170c016b1a8226424ccf9b25cfde3a4c196f
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67670997"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091433"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>가상 머신 vCPU 할당량
 
@@ -62,7 +61,7 @@ Standard Storage Managed Disks                 5    10000
 Premium Storage Managed Disks                  5    10000
 ```
 
-## <a name="reserved-vm-instances"></a>예약 VM 인스턴스
+## <a name="reserved-vm-instances"></a>Reserved VM Instances
 VM 크기 유연성 없이 단일 구독으로 범위가 설정되는 예약 VM 인스턴스는 vCPU 할당량에 새 요소를 추가합니다. 이러한 값은 구독에 배포할 수 있어야 하는 언급된 크기의 인스턴스 수를 설명합니다. 해당 할당량이 Azure Reservations를 구독에 배포할 수 있도록 예약되도록 할당량 시스템에서 자리 표시자로 작동합니다. 예를 들어 특정 구독에 10개의 Standard_D1 예약이 있는 경우 Standard_D1 예약에 대한 사용량 한도는 10이 됩니다. 이렇게 하면 Azure에서 Standard_D1 인스턴스에 사용될 지역별 총 vCPU 할당량에서 항상 최소 10개의 vCPU를 사용할 수 있고 Standard_D1 인스턴스에 사용될 표준 D 제품군 vCPU 할당량에서 최소 10개의 vCPU를 사용할 수 있도록 보장합니다.
 
 단일 구독 RI를 구매하는 데 할당량 증가가 필요한 경우 구독에서 [할당량 증가를 요청](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)할 수 있습니다.

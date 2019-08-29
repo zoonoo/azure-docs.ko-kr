@@ -8,18 +8,17 @@ manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 5ff87e761bbe5243a478a00ca90d4be03fdbc6d4
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: cce4e558331cad0045772f53f7fc3c78aeed2bb7
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706574"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70082193"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>직렬 콘솔을 사용하여 GRUB 및 단일 사용자 모드 액세스
 GRUB는 GRand Unified Bootloader의 약어입니다. GRUB에서는 단일 사용자 모드로 부팅되도록 부팅 구성을 수정하는 등의 작업을 수행할 수 있습니다.

@@ -7,19 +7,18 @@ author: RicksterCDN
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/31/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2f596f44acfd51b1e2449bc77eed6add0d9d90b0
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 99ad334a526b269879034dcc0e1cd0b1b22f1f7f
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707403"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101187"
 ---
 # <a name="onboarding-requirements"></a>온보딩 요구 사항
 
@@ -33,7 +32,7 @@ ms.locfileid: "67707403"
 
 **네트워크 연결**
 
-- Azure에 대한 온-프레미스 간 ExpressRoute: 온-프레미스 데이터 센터를 Azure에 연결하려면 ISP에서 최소한 1Gbps 연결을 주문해야 합니다. HANA 대규모 인스턴스 단위와 Azure 간 연결에도 ExpressRoute 기술을 사용합니다. HANA 대규모 인스턴스 장치와 Azure 간의 ExpressRoute 연결은 이 특정 ExpressRoute 회로의 모든 데이터 수신 및 송신 요금을 포함하여 HANA 대규모 인스턴스 장치의 가격에 포함됩니다. 따라서 고객으로 발생 하지 비용이 온-프레미스와 Azure 간에 ExpressRoute 링크 초과 합니다.
+- Azure에 대한 온-프레미스 간 ExpressRoute: 온-프레미스 데이터 센터를 Azure에 연결하려면 ISP에서 최소한 1Gbps 연결을 주문해야 합니다. HANA 대규모 인스턴스 단위와 Azure 간 연결에도 ExpressRoute 기술을 사용합니다. HANA 대규모 인스턴스 장치와 Azure 간의 ExpressRoute 연결은 이 특정 ExpressRoute 회로의 모든 데이터 수신 및 송신 요금을 포함하여 HANA 대규모 인스턴스 장치의 가격에 포함됩니다. 따라서 고객은 온-프레미스와 Azure 간의 Express 경로 링크 외에 추가 비용이 발생 하지 않습니다.
 
 **운영 체제**
 

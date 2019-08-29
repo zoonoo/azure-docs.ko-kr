@@ -6,16 +6,15 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: cf43e29e967ee6f920eb38feb9c73d70f9621ea4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3918c37d985c6766fe6ad4601b70ddbd4597b0ba
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62123317"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70087140"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>지속성 함수의 인간 상호 작용 - 전화 확인 샘플
 

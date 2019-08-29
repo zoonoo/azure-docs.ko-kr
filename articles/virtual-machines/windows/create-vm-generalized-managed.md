@@ -10,22 +10,21 @@ tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 3ae730389b54fc1034bfac3ffdc7e56a2dc5f3fc
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 30e5a7e5953c56ff452b992370e8225ca103abba
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718960"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079710"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>관리되는 이미지에서 VM 만들기
 
 Azure Portal 또는 PowerShell을 사용하여 Azure 관리되는 VM 이미지로 여러 VM(가상 머신)을 만들 수 있습니다. 관리 VM 이미지는 OS 및 데이터 디스크를 비롯하여 VM을 만드는 데 필요한 정보를 포함하고 있습니다. OS 디스크와 데이터 디스크를 포함하여 이미지를 구성하는 VHD(가상 하드 디스크)는 관리 디스크로 저장됩니다. 
 
-새 VM을 만들기 전에 해야 [관리 되는 VM 이미지 만들기](capture-image-resource.md) 원본 이미지로 사용 하 여 이미지에 대 한 액세스 권한이 사용자에 게 이미지에 대 한 읽기 액세스 권한을 부여 합니다. 
+새 VM을 만들기 전에 원본 이미지로 사용 하 고 이미지에 대 한 액세스 권한이 있어야 하는 사용자에 게 이미지에 대 한 읽기 권한을 부여 해야 하는 [관리 되는 vm 이미지를 만들어야](capture-image-resource.md) 합니다. 
 
 
 ## <a name="use-the-portal"></a>포털 사용

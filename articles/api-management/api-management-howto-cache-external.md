@@ -10,16 +10,15 @@ ms.assetid: 740f6a27-8323-474d-ade2-828ae0c75e7a
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: apimpm
-ms.openlocfilehash: e2362d06fa0ef795122a2d47a7a621b66fdd9470
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2e8863eed774884a99de8643c9e497378368d166
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65780349"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072498"
 ---
 # <a name="use-an-external-azure-cache-for-redis-in-azure-api-management"></a>Azure API Management에서 외부 Azure Cache for Redis 사용
 
@@ -41,7 +40,7 @@ Azure API Management는 기본 제공 캐시를 활용하는 것 외에도 외�
 > [!div class="checklist"]
 > * API Management에서 외부 캐시 추가
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -61,7 +60,7 @@ Azure API Management는 기본 제공 캐시를 활용하는 것 외에도 외�
 ![APIM에 사용자 고유의 캐시 가져오기](media/api-management-howto-cache-external/add-external-cache.png)
 
 > [!NOTE]
-> 합니다 **에서 사용 하 여** 설정은 API Management의 다중 지역 구성의 경우 구성 된 캐시를 사용 하 여 지역 배포는 통신 하는 API Management를 지정 합니다. **기본값**으로 지정된 캐시는 지역 값이 있는 캐시로 재정의됩니다.
+> **에서 사용** 설정은 API Management 다중 지역 구성의 경우에 구성 된 캐시와 통신할 API Management 지역 배포를 지정 합니다. **기본값**으로 지정된 캐시는 지역 값이 있는 캐시로 재정의됩니다.
 >
 > 예를 들어 API Management가 미국 동부, 동남 아시아 및 유럽 서부 지역에서 호스팅되고 2개의 캐시(**기본값** 및 **동남 아시아**에 대해 각각 하나씩)가 구성되어 있는 경우, **동남 아시아**에 대한 API Management는 자체 캐시를 사용하지만 다른 두 지역은 **기본값** 캐시 항목을 사용합니다.
 
@@ -71,8 +70,8 @@ Azure API Management는 기본 제공 캐시를 활용하는 것 외에도 외�
 2. 왼쪽 메뉴에서 **외부 캐시** 탭을 선택합니다.
 3. **+추가** 단추를 클릭합니다.
 4. **캐시 인스턴스** 드롭다운 필드에서 캐시를 선택합니다.
-5. 선택 **기본** 에서 원하는 지역을 지정 합니다 **에서 사용 하 여** 드롭다운 필드입니다.
-6. **저장**을 클릭합니다.
+5. **기본값** 을 선택 하거나 **사용** 드롭다운 필드에서 원하는 지역을 지정 합니다.
+6. **Save**을 클릭합니다.
 
 ### <a name="add-an-azure-cache-for-redis-hosted-outside-of-the-current-azure-subscription-or-azure-in-general"></a>현재 Azure 구독 또는 Azure(일반적) 외부에서 호스트되는 Azure Cache for Redis 추가
 
@@ -80,9 +79,9 @@ Azure API Management는 기본 제공 캐시를 활용하는 것 외에도 외�
 2. 왼쪽 메뉴에서 **외부 캐시** 탭을 선택합니다.
 3. **+추가** 단추를 클릭합니다.
 4. **캐시 인스턴스** 드롭다운 필드에서 **사용자 지정**을 선택합니다.
-5. 선택 **기본** 에서 원하는 지역을 지정 합니다 **에서 사용 하 여** 드롭다운 필드입니다.
+5. **기본값** 을 선택 하거나 **사용** 드롭다운 필드에서 원하는 지역을 지정 합니다.
 6. **연결 문자열** 필드에서 Azure Cache for Redis 연결 문자열을 제공합니다.
-7. **저장**을 클릭합니다.
+7. **Save**을 클릭합니다.
 
 ## <a name="use-the-external-cache"></a>외부 캐시 사용
 

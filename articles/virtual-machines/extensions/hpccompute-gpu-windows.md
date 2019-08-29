@@ -8,18 +8,17 @@ manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: roiyz
-ms.openlocfilehash: 004d6125de6762303db91f3a5ef9ffa16e6e501f
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: c44722403967f3563472692f97cb2a114e6294cd
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705949"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084455"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Windows용 NVIDIA GPU 드라이버 확장
 
@@ -27,10 +26,10 @@ ms.locfileid: "67705949"
 
 이 확장은 Windows N 시리즈 VM에 NVIDIA GPU 드라이버를 설치합니다. 확장은 VM 제품군에 따라 CUDA 또는 GRID 드라이버를 설치합니다. 이 확장을 사용하여 NVIDIA 드라이버를 설치하면 [NVIDIA 최종 사용자 사용권 계약](https://go.microsoft.com/fwlink/?linkid=874330)을 수락하고 이에 동의하게 됩니다. 설치 프로세스 중에 드라이버 설치를 완료하기 위해 VM이 다시 부팅될 수 있습니다.
 
-사용할 수는 드라이버 및 지원 되는 현재 버전의 수동 설치에 대 한 지침 [여기](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-driver-setup)합니다.
+드라이버의 수동 설치 및 현재 지원 되는 버전에 대 한 지침은 [여기](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-driver-setup)에서 제공 됩니다.
 또한 [Linux N 시리즈 VM](hpccompute-gpu-linux.md)에 NVIDIA GPU 드라이버를 설치할 수 있는 확장도 제공됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -42,7 +41,7 @@ ms.locfileid: "67705949"
 | Windows Server 2016 | Core |
 | Windows Server 2012R2 | Core |
 
-### <a name="internet-connectivity"></a>인터넷 연결
+### <a name="internet-connectivity"></a>인터넷에 연결
 
 NVIDIA GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 VM이 인터넷에 연결되어 있고 액세스 권한이 있어야 합니다.
 
@@ -162,7 +161,7 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 
 | 오류 코드 | 의미 | 가능한 작업 |
 | :---: | --- | --- |
-| 0 | 작업이 성공했습니다. |
+| 0 | 작업 성공 |
 | 1 | 작업이 성공했습니다. 다시 부팅해야 합니다. |
 | 100 | 작업이 지원되지 않거나 완료할 수 없습니다. | 가능한 원인: PowerShell 버전이 지원되지 않습니다. VM 크기가 N 시리즈 VM이 아니며, 데이터를 다운로드하지 못했습니다. 로그 파일을 확인하여 오류의 원인을 파악합니다. |
 | 240, 840 | 작업 시간이 초과되었습니다. | 작업을 다시 시도합니다. |
@@ -170,7 +169,7 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 | -5x | 보류 중인 재부팅으로 인해 작업이 중단되었습니다. | VM을 다시 부팅합니다. 다시 부팅한 후에 설치가 계속됩니다. 제거는 수동으로 호출해야 합니다. |
 
 
-### <a name="support"></a>Support(지원)
+### <a name="support"></a>지원
 
 이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/community/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 가서 지원 받기를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
 

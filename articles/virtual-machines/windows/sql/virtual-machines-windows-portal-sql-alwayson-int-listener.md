@@ -8,18 +8,17 @@ manager: craigg
 editor: monicar
 ms.assetid: d1f291e9-9af2-41ba-9d29-9541e3adcfcf
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: 3b90ae3e9808b22b6d6c41e3ac11bec0293bd4bf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c9c8379787619608421256120139f07c8dbd8d14
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60326107"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102247"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Azure에서 Always On 가용성 그룹에 대한 부하 분산 장치 구성
 이 문서에서는 Azure Resource Manager로 실행 중인 Azure Virtual Machines에서 SQL Server Always On 가용성 그룹에 대한 부하 분산 장치를 만드는 방법을 설명합니다. SQL Server 인스턴스가 Azure 가상 머신에 있는 경우 가용성 그룹을 사용하려면 부하 분산 장치가 필요합니다. 부하 분산 장치는 가용성 그룹 수신기의 IP 주소를 저장합니다. 가용성 그룹이 여러 지역에 분산된 경우 각 지역에 부하 분산 장치가 있어야 합니다.
@@ -65,7 +64,7 @@ ms.locfileid: "60326107"
 
    | 설정 | 값 |
    | --- | --- |
-   | **Name** |부하 분산 장치를 나타내는 텍스트 이름입니다. 예를 들어 **sqlLB**입니다. |
+   | **이름** |부하 분산 장치를 나타내는 텍스트 이름입니다. 예를 들어 **sqlLB**입니다. |
    | **형식** |**내부**: 대부분의 구현에서는 동일한 가상 네트워크 내에 있는 애플리케이션이 가용성 그룹에 연결할 수 있도록 하는 내부 부하 분산 장치를 사용합니다.  </br> **외부**: 애플리케이션이 공용 인터넷 연결을 통해 가용성 그룹에 연결할 수 있도록 합니다. |
    | **가상 네트워크** |SQL Server 인스턴스가 있는 가상 네트워크를 선택합니다. |
    | **서브넷** |SQL Server 인스턴스가 있는 서브넷을 선택합니다. |
@@ -73,7 +72,7 @@ ms.locfileid: "60326107"
    | **개인 IP 주소** |서브넷에서 사용 가능한 IP 주소를 지정합니다. 클러스터에서 수신기를 만들 때 이 IP 주소를 사용합니다. 이 주소는 이 문서 뒷부분의 PowerShell 스크립트에서 `$ILBIP` 변수에 대해 사용됩니다. |
    | **구독** |구독이 여러 개인 경우 이 필드가 나타날 수 있습니다. 이 리소스와 연결할 구독을 선택합니다. 일반적으로 가용성 그룹에 대한 모든 리소스와 동일한 구독입니다. |
    | **리소스 그룹** |SQL Server 인스턴스가 있는 리소스 그룹을 선택합니다. |
-   | **Location**: |SQL Server 인스턴스가 있는 Azure 위치를 선택합니다. |
+   | **위치** |SQL Server 인스턴스가 있는 Azure 위치를 선택합니다. |
 
 6. **만들기**를 클릭합니다. 
 
@@ -111,7 +110,7 @@ Azure에서 백 엔드 주소 풀에 대한 설정이 업데이트됩니다. 이
 
    | 설정 | 값 |
    | --- | --- |
-   | **Name** |프로브를 나타내는 텍스트 이름입니다. 예를 들어 **SQLAlwaysOnEndPointProbe**입니다. |
+   | **이름** |프로브를 나타내는 텍스트 이름입니다. 예를 들어 **SQLAlwaysOnEndPointProbe**입니다. |
    | **프로토콜** |**TCP** |
    | **포트** |사용 가능한 모든 포트를 사용할 수 있습니다. 예를 들어 *59999*입니다. |
    | **간격** |*5* |
@@ -137,7 +136,7 @@ Azure는 프로브를 만든 후 가용성 그룹에 대한 수신기가 있는 
 
    | 설정 | 값 |
    | --- | --- |
-   | **Name** |부하 분산 규칙을 나타내는 텍스트 이름입니다. 예를 들어 **SQLAlwaysOnEndPointListener**입니다. |
+   | **이름** |부하 분산 규칙을 나타내는 텍스트 이름입니다. 예를 들어 **SQLAlwaysOnEndPointListener**입니다. |
    | **프로토콜** |**TCP** |
    | **포트** |*1433* |
    | **백 엔드 포트** |*1433*. 이 규칙은 **부동 IP(Direct Server Return)** 를 사용하므로 이 값은 무시됩니다. |
@@ -223,7 +222,7 @@ Azure Portal을 사용하여 부하 분산 장치에 IP 주소를 추가하려�
 
    |설정 |값
    |:-----|:----
-   |**Name** |프로브를 식별하는 이름입니다.
+   |**이름** |프로브를 식별하는 이름입니다.
    |**프로토콜** |TCP
    |**포트** |사용하지 않는 TCP 포트를 모든 가상 머신에서 사용할 수 있어야 합니다. 다른 용도로는 사용할 수 없습니다. 두 수신기가 동일한 프로브 포트를 사용할 수 없습니다. 
    |**간격** |프로브 시도 간격입니다. 기본값(5)을 사용하세요.
@@ -237,7 +236,7 @@ Azure Portal을 사용하여 부하 분산 장치에 IP 주소를 추가하려�
 
     |설정 |값
     |:-----|:----
-    |**Name** |부하 분산 규칙을 식별하는 이름입니다. 
+    |**이름** |부하 분산 규칙을 식별하는 이름입니다. 
     |**프런트 엔드 IP 주소** |만든 IP 주소를 선택합니다. 
     |**프로토콜** |TCP
     |**포트** |SQL Server 인스턴스에서 사용하는 포트를 사용합니다. 변경하지 않을 경우 기본 인스턴스는 포트 1433을 사용합니다. 
@@ -246,7 +245,7 @@ Azure Portal을 사용하여 부하 분산 장치에 IP 주소를 추가하려�
     |**상태 프로브** |만든 프로브를 선택합니다.
     |**세션 지속성** |없음
     |**유휴 제한 시간(분)** |기본값(4)
-    |**부동 IP(Direct Server Return)** | 사용
+    |**부동 IP(Direct Server Return)** | Enabled
 
 ### <a name="configure-the-availability-group-to-use-the-new-ip-address"></a>새 IP 주소를 사용하도록 가용성 그룹 구성
 
@@ -286,7 +285,7 @@ Azure Portal을 사용하여 부하 분산 장치에 IP 주소를 추가하려�
 
    |설정 |값
    |:-----|:----
-   |**Name** |분산 가용성 그룹에 대한 부하 분산 규칙을 식별하는 이름입니다. 
+   |**이름** |분산 가용성 그룹에 대한 부하 분산 규칙을 식별하는 이름입니다. 
    |**프런트 엔드 IP 주소** |가용성 그룹과 동일한 프런트 엔드 IP 주소를 사용합니다.
    |**프로토콜** |TCP
    |**포트** |5022 - [분산 가용성 그룹 엔드포인트 수신기](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups)의 포트입니다.</br> 사용 가능한 모든 포트일 수 있습니다.  
@@ -295,7 +294,7 @@ Azure Portal을 사용하여 부하 분산 장치에 IP 주소를 추가하려�
    |**상태 프로브** |만든 프로브를 선택합니다.
    |**세션 지속성** |없음
    |**유휴 제한 시간(분)** |기본값(4)
-   |**부동 IP(Direct Server Return)** | 사용
+   |**부동 IP(Direct Server Return)** | Enabled
 
 분산 가용성 그룹에 참여하는 다른 가용성 그룹의 부하 분산 장치에 대해 이 단계를 반복합니다.
 

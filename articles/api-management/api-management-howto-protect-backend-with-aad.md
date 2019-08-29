@@ -9,22 +9,21 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: bef82302c4b137b53b52669652f8aeb5d788a82a
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 344613c50f46337ffbd7e786f6753e8030c2af22
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774762"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072239"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Azure Active Directory 및 API Management에서 OAuth 2.0을 사용하여 API 보호
 
 이 가이드에서는 Azure AD(Azure Active Directory)에서 OAuth 2.0 프로토콜을 사용하여 API를 보호하도록 Azure API Management 인스턴스를 구성하는 방법을 보여 줍니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 이 문서의 단계를 따르려면 다음이 있어야 합니다.
 * API Management 인스턴스
 * API Management 인스턴스를 사용하는 게시되고 있는 API
@@ -164,7 +163,7 @@ OAuth 2.0 권한 부여 서버를 구성했으므로 개발자 콘솔에서 Azur
 
 4. **보안** 아래에서 **OAuth 2.0**을 선택하고 이전에 구성한 OAuth 2.0 서버를 선택합니다. 
 
-5.           **저장**을 선택합니다.
+5. **저장**을 선택합니다.
 
 ## <a name="successfully-call-the-api-from-the-developer-portal"></a>개발자 포털에서 API 호출 성공
 

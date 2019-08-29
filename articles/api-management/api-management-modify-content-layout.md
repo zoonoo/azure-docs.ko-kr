@@ -10,23 +10,22 @@ ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: vlvinogr
-ms.openlocfilehash: fd9902a83a813daffc52e089e6e8bfc4137c5b8f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0a333b1fac78889b61829b869c23efea5e312adf
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60656650"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072285"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Azure API Management에서 개발자 포털의 페이지 콘텐츠 및 레이아웃 수정
 Azure API Management에는 개발자 포털을 사용자 지정하는 기본적인 방법이 세 가지 있습니다.
 
-* [페이지 레이아웃 요소 및 정적 페이지의 콘텐츠 편집][modify-content-layout](이 가이드에 설명되어 있음)
-* [개발자 포털 전반의 페이지 요소에 사용된 스타일 업데이트][customize-styles]
-* [포털에서 생성된 페이지에 사용된 템플릿 수정][portal-templates](예: API 문서, 제품, 사용자 인증 등)
+* [정적 페이지 및 페이지 레이아웃 요소의 내용 편집][modify-content-layout] (이 가이드에 설명 되어 있음)
+* [개발자 포털에서 페이지 요소에 사용 되는 스타일 업데이트][customize-styles]
+* [포털에서 생성 된 페이지에 사용 되는 템플릿 수정][portal-templates] (예: API 문서, 제품, 사용자 인증 등)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -56,8 +55,8 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 기본적�
 이제 개발자 포털 내의 모든 페이지에서 새 머리글을 볼 수 있습니다.
 
 ## <a name="next-steps"> </a>다음 단계
-* [개발자 포털 전반의 페이지 요소에 사용된 스타일 업데이트][customize-styles]
-* [포털에서 생성된 페이지에 사용된 템플릿 수정][portal-templates](예: API 문서, 제품, 사용자 인증 등)
+* [개발자 포털에서 페이지 요소에 사용 되는 스타일 업데이트][customize-styles]
+* [포털에서 생성 된 페이지에 사용 되는 템플릿 수정][portal-templates] (예: API 문서, 제품, 사용자 인증 등)
 
 [Structure of developer portal pages]: #page-structure
 [Modifying the contents of a layout widget]: #modify-layout-widget

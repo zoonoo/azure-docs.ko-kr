@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 93644b9a3487906a27db70bfe82cceccdc7ab45c
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 7af5663b399556d66f86213310858780369215af
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707222"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101061"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server의 Azure VM에 있는 NFS의 고가용성
 
@@ -52,7 +51,7 @@ ms.locfileid: "67707222"
 [sap-hana-ha]:sap-hana-high-availability.md
 
 이 문서에서는 가상 머신을 배포하고, 가상 머신을 구성하고, 클러스터 프레임워크를 설치하고, 가용성이 높은 SAP 시스템의 공유 데이터를 저장하는 데 사용할 수 있는 고가용성 NFS 서버를 설치하는 방법을 설명합니다.
-이 가이드에서는 NW1 및 NW2라는 두 개의 SAP 시스템에 사용되는 고가용성 NFS 서버를 설정하는 방법에 대해 설명합니다. 예제에서 리소스 (예: 가상 머신, 가상 네트워크) 이름을 사용 하는 것으로 가정 합니다 [SAP 파일 서버 템플릿][template-file-server] 리소스 접두사를 사용 하 여 **prod**합니다.
+이 가이드에서는 NW1 및 NW2라는 두 개의 SAP 시스템에 사용되는 고가용성 NFS 서버를 설정하는 방법에 대해 설명합니다. 예제에서 리소스 이름 (예: 가상 머신, 가상 네트워크)은 [SAP 파일 서버 템플릿을][template-file-server] 리소스 접두사 **prod**와 함께 사용 한다고 가정 합니다.
 
 먼저 다음 SAP 참고와 문서 읽기
 
@@ -71,13 +70,13 @@ ms.locfileid: "67707222"
 * SAP Note [1984787]은 SUSE LINUX Enterprise Server 12에 대한 일반 정보를 포함하고 있습니다.
 * SAP Note [1999351]은 SAP용 Azure 고급 모니터링 확장을 위한 추가 문제 해결 정보를 포함하고 있습니다.
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes)는 Linux에 필요한 모든 SAP Note를 포함하고 있습니다.
-* [Azure Virtual Machines 계획 및 Linux에서 SAP 용 구현][planning-guide]
-* [Linux (이 문서)에서 SAP 용 azure Virtual Machines 배포][deployment-guide]
-* [Linux에서 SAP 용 azure Virtual Machines DBMS 배포][dbms-guide]
-* [SUSE Linux Enterprise 높은 가용성 확장 12 SP3 모범 사례 가이드][sles-hae-guides]
+* [Linux에서 SAP 용 Azure Virtual Machines 계획 및 구현][planning-guide]
+* [Linux에서 SAP 용 Azure Virtual Machines 배포 (이 문서)][deployment-guide]
+* [Linux에서 SAP 용 Azure Virtual Machines DBMS 배포][dbms-guide]
+* [SUSE Linux Enterprise 고가용성 확장 12 SP3 모범 사례 가이드][sles-hae-guides]
   * DRBD 및 Pacemaker를 사용하는 고가용성 NFS 스토리지
-* [SUSE Linux Enterprise Server SAP 응용 프로그램 12 sp3 모범 사례 가이드][sles-for-sap-bp]
-* [고가용성 확장 SUSE 12 SP3 릴리스 정보][suse-ha-12sp3-relnotes]
+* [SAP 응용 프로그램용 SUSE Linux Enterprise Server 12 SP3 모범 사례 가이드][sles-for-sap-bp]
+* [SUSE 고가용성 확장 12 SP3 릴리스 정보][suse-ha-12sp3-relnotes]
 
 ## <a name="overview"></a>개요
 
@@ -110,7 +109,7 @@ GitHub의 Azure 템플릿을 사용하여 필요한 Azure 리소스(가상 머�
 Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있는 SAP Applications 12용 SUSE Linux Enterprise Server의 이미지가 포함되어 있습니다.
 GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든 리소스를 배포할 수 있습니다. 템플릿에서 가상 머신, 부하 분산 장치, 가용성 집합 등을 배포합니다. 다음 단계를 따라 템플릿을 배포합니다.
 
-1. 엽니다는 [SAP 파일 서버 템플릿][template-file-server] Azure portal에서   
+1. Azure Portal에서 [SAP 파일 서버 템플릿][template-file-server] 열기   
 1. 다음 매개 변수를 입력합니다.
    1. 리소스 접두사 -  
       사용할 접두사를 입력합니다. 이 값은 배포되는 리소스의 접두사로 사용됩니다.
@@ -128,7 +127,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 먼저 NFS 클러스터에 대한 가상 머신을 만들어야 합니다. 그런 다음, 부하 분산 장치를 만들고 백 엔드 풀의 가상 머신을 사용합니다.
 
 1. 리소스 그룹 만들기
-1. Virtual Network 만들기
+1. 가상 네트워크 만들기
 1. 가용성 집합 만들기  
    최대 업데이트 도메인 설정
 1. Virtual Machine 1 만들기 SLES4SAP 12 SP3 이상 사용, 이 예제에서는 SAP 애플리케이션 12 SP3용 SLES4SAP 12 SP3 BYOS 이미지 SLES(BYOS)가 사용됨  
@@ -181,7 +180,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
          * NW2의 UDP 및 포트 2049에 대하 위 단계 반복
 
 > [!IMPORTANT]
-> Azure Load Balancer 뒤에 배치 하는 Azure Vm에서 TCP 타임 스탬프를 사용 하지 마십시오. TCP 타임 스탬프를 사용 하도록 설정 하면 상태 프로브 실패 합니다. 매개 변수를 설정 **net.ipv4.tcp_timestamps** 하 **0**합니다. 자세한 내용은 참조 하십시오 [부하 분산 장치 상태 프로브](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)합니다.
+> Azure Load Balancer 뒤에 배치 되는 Azure Vm에서 TCP 타임 스탬프를 사용 하도록 설정 하지 마세요. TCP 타임 스탬프를 사용 하도록 설정 하면 상태 프로브가 실패 합니다. 매개 변수 **net.tcp. tcp 타임 스탬프** 를 **0**으로 설정 합니다. 자세한 내용은 [Load Balancer 상태 프로브](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)를 참조 하세요.
 
 ### <a name="create-pacemaker-cluster"></a>Pacemaker 클러스터 만들기
 
@@ -539,8 +538,8 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 ## <a name="next-steps"></a>다음 단계
 
 * [SAP ASCS 및 데이터베이스 설치](high-availability-guide-suse.md)
-* [Azure Virtual Machines 계획 및 SAP에 대 한 구현][planning-guide]
-* [SAP 용 azure Virtual Machines 배포][deployment-guide]
-* [SAP 용 azure Virtual Machines DBMS 배포][dbms-guide]
+* [SAP 용 Azure Virtual Machines 계획 및 구현][planning-guide]
+* [SAP 용 Azure Virtual Machines 배포][deployment-guide]
+* [SAP 용 Azure Virtual Machines DBMS 배포][dbms-guide]
 * [Azure의 SAP HANA(큰 인스턴스) 고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md) - Azure의 SAP HANA(큰 인스턴스)에 대한 고가용성 및 재해 복구 계획을 설정하는 방법을 알아봅니다.
-* 고가용성 및 Azure Vm에서 SAP HANA의 재해 복구에 대 한 계획을 설정 하는 방법에 알아보려면 참조 [의 SAP HANA 고가용성 Azure Virtual Machines (Vm)에서][sap-hana-ha]
+* Azure Vm에서 SAP HANA의 고가용성을 설정 하 고 재해 복구를 계획 하는 방법에 대 한 자세한 내용은 [azure Virtual Machines (vm)의 SAP HANA 고가용성][sap-hana-ha] 을 참조 하세요.

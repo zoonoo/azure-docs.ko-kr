@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2c43a3c046243c4802fb433f3b755cee158002b6
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 9d52526f87f20a855c045f4e565793ac29abf04a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950571"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101008"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Azure Security Center에서 보안 솔루션 통합
 이 문서를 통해 이미 Azure Security Center에 연결된 보안 솔루션을 관리하고 새로 추가할 수 있습니다.
@@ -34,7 +34,7 @@ Security Center를 사용하면 Azure에서 통합된 보안 솔루션을 쉽게
 - **통합된 감지**: 파트너 솔루션의 보안 이벤트는 자동으로 수집, 집계되며 Security Center 알림 및 사고의 일부로 표시됩니다. 또한 이러한 이벤트는 다른 원본의 감지를 결합하여 고급 위협 감지 기능을 제공합니다.
 - **통합 상태 모니터링 및 관리**: 고객은 한 눈에 모든 파트너 솔루션을 모니터링하기 위해 통합 상태 이벤트를 사용할 수 있습니다. 기본 관리는 파트너 솔루션을 사용하여 고급 설정에 쉽게 액세스하여 사용할 수 있습니다.
 
-현재 통합 보안 솔루션은 [Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) 및 [Rapid7](https://www.rapid7.com/products/insightvm/) 및 Microsoft Application Gateway 웹 응용 프로그램 방화벽에의 한 취약성 평가를 포함 합니다.
+현재 통합 보안 솔루션은 [Qualys](https://www.qualys.com/public-cloud/#azure) 및 [Rapid7](https://www.rapid7.com/products/insightvm/) 및 Microsoft Application Gateway 웹 응용 프로그램 방화벽에의 한 취약성 평가를 포함 합니다.
 
 > [!NOTE]
 > 대부분의 보안 공급업체가 자신들의 어플라이언스에서 외부 에이전트를 실행하는 것을 금지하고 있기 때문에 Security Center는 파트너 가상 어플라이언스에 Microsoft Monitoring Agent를 설치하지 않습니다.

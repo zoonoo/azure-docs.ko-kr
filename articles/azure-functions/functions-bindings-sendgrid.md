@@ -6,16 +6,15 @@ documentationcenter: na
 author: craigshoemaker
 manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: 8b7666b043379f3ff143e2a5eaae6b40ea80ab90
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: dc113417be3df97b9ab9509c30a1f23e1eeaf35b
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480244"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70086275"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid 바인딩
 
@@ -35,7 +34,7 @@ SendGrid 바인딩은 [Microsoft.Azure.WebJobs.Extensions.SendGrid](https://www.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
 언어 관련 예제를 참조하세요.
 
@@ -164,7 +163,7 @@ public class Message
 
 ### <a name="java-example"></a>Java 예제
 
-다음 예제에서는 합니다 `@SendGridOutput` 주석을 합니다 [Java 런타임 라이브러리 함수](/java/api/overview/azure/functions/runtime) SendGrid를 사용 하 여 전자 메일을 보낼 출력 바인딩.
+다음 예제에서는 `@SendGridOutput` [Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime) 의 주석을 사용 하 여 SendGrid 출력 바인딩을 사용 하는 전자 메일을 보냅니다.
 
 ```java
 @FunctionName("SendEmail")
@@ -249,20 +248,20 @@ public static void Run(
 
 전체 예제는 [C# 예제](#c-example)를 참조하세요.
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 다음 표에서는 *function.json* 파일 및 `SendGrid` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 |**type**|| 필수 - `sendGrid`으로 설정해야 합니다.|
 |**direction**|| 필수 - `out`으로 설정해야 합니다.|
 |**name**|| 필수 - 요청 또는 요청 본문의 함수 코드에 사용되는 변수 이름입니다. 반환 값이 하나만 있는 경우 이 값은 ```$return```입니다. |
 |**apiKey**|**ApiKey**| API 키가 포함 된 앱 설정의 이름입니다. 설정되지 않은 경우 기본 앱 설정 이름은 "AzureWebJobsSendGridApiKey"입니다.|
-|**to**|**To**| 수신자의 전자 메일 주소입니다. |
+|**to**|**수행할 작업**| 수신자의 전자 메일 주소입니다. |
 |**from**|**From**| 발신자의 전자 메일 주소입니다. |
 |**subject**|**Subject**| 메일의 제목입니다. |
-|**text**|**Text**| 전자 메일 내용입니다. |
+|**text**|**텍스트**| 전자 메일 내용입니다. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -286,9 +285,9 @@ public static void Run(
 }
 ```  
 
-|자산  |Default | 설명 |
+|속성  |Default | Description |
 |---------|---------|---------| 
-|from|해당 없음|모든 함수에서 보낸 사람의 이메일 주소입니다.| 
+|from|n/a|모든 함수에서 보낸 사람의 이메일 주소입니다.| 
 
 
 ## <a name="next-steps"></a>다음 단계

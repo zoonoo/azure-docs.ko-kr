@@ -9,24 +9,23 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: b78bea88149d05067cf849000fef48f7b4dc5815
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 416b0c89105f97514efdfcc859a630d78f7ba7f5
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774396"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084841"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-linux"></a>Linux 용 Azure Monitor 종속성 가상 머신 확장
 
 VM용 Azure Monitor 맵 기능은 Microsoft Dependency Agent에서 해당 데이터를 가져옵니다. Linux 용 Azure VM 종속성 에이전트 가상 머신 확장은 Microsoft에서 게시 및 지원 합니다. 확장은 Azure virtual machines에 종속성 에이전트를 설치 합니다. 이 문서에서는 Linux 용 Azure VM 종속성 에이전트 가상 머신 확장에 대해 지원 되는 플랫폼, 구성 및 배포 옵션에 대해 자세히 설명 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -158,6 +157,6 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 /opt/microsoft/dependcency-agent/log/install.log 
 ```
 
-### <a name="support"></a>Support(지원)
+### <a name="support"></a>지원
 
 이 문서의 어느 시점에서 든 도움이 필요한 경우 [MSDN azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에 게 문의 하세요. 또는 Azure 지원 인시던트를 파일에 입력할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/) 로 가서 **지원 받기**를 선택합니다. Azure 지원을 사용 하는 방법에 대 한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조 하세요.

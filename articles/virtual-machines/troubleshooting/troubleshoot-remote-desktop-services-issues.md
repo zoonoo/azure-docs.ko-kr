@@ -7,18 +7,17 @@ author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 5458a02c09a3600875c7300b27c5a87a735b2f1b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 845e9c17d6f7facb4e24f3069b3622b6449295ca
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60318903"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103335"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Azure VM에서 원격 데스크톱 서비스가 시작되지 않음
 
@@ -42,9 +41,9 @@ VM에 연결하려고 시도할 때 다음과 같은 상황이 발생합니다.
     **날짜**:          2017/12/16 오전 11:19:36</br>
     **이벤트 ID**:      7022</br>
     **작업 범주**: 없음</br>
-    **수준**:         오류</br>
+    **수준**:         Error</br>
     **키워드**:      클래식</br>
-    **사용자**:          N/A</br>
+    **사용자**:          해당 사항 없음</br>
     **컴퓨터**: vm.contoso.com</br>
     **설명**: 원격 데스크톱 서비스가 시작 시 멈춤. 
 
@@ -57,10 +56,10 @@ VM에 연결하려고 시도할 때 다음과 같은 상황이 발생합니다.
 이 문제는 원격 데스크톱 서비스가 VM에서 실행되지 않기 때문에 발생합니다. 원인은 다음 시나리오에 따라 달라질 수 있습니다. 
 
 - TermService 서비스가 **사용 안 함**으로 설정됩니다. 
-- TermService 서비스 충돌 하거나 응답 하지 않습니다. 
-- 잘못 된 구성에는 TermService이 때문에 시작 되지 않음.
+- TermService 서비스가 충돌 하거나 응답 하지 않습니다. 
+- 잘못 된 구성으로 인해 TermService이 시작 되지 않습니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 이 문제를 해결하려면 직렬 콘솔을 사용합니다. 또는 VM의 OS 디스크를 복구 VM에 연결하여 [오프라인으로 VM을 복구](#repair-the-vm-offline)합니다.
 
@@ -97,7 +96,7 @@ VM에 연결하려고 시도할 때 다음과 같은 상황이 발생합니다.
    ```
 8. 서비스가 시작에 실패하는 경우 수신한 오류에 따라 솔루션을 수행합니다.
 
-    |  오류 |  제안 |
+    |  Error |  제안 |
     |---|---|
     |5- ACCESS DENIED |[액세스 거부 오류로 인해 TermService 서비스가 중지됨](#termservice-service-is-stopped-because-of-an-access-denied-problem)을 참조하세요. |
     |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |[TermService 서비스 사용 안 함](#termservice-service-is-disabled)을 참조하세요.  |  
@@ -146,7 +145,7 @@ VM에 연결하려고 시도할 때 다음과 같은 상황이 발생합니다.
 
     1. [VM에 데이터 디스크를 연결합니다](../windows/attach-managed-disk-portal.md
 ).
-    2. 새 드라이브에 파일을 복사할 수 있는 직렬 콘솔을 사용합니다. 예: `copy C:\temp\ProcMonTrace.PML F:\`. 이 명령에서 F는 연결된 데이터 디스크의 드라이브 문자입니다.
+    2. 새 드라이브에 파일을 복사할 수 있는 직렬 콘솔을 사용합니다. `copy C:\temp\ProcMonTrace.PML F:\` )을 입력합니다. 이 명령에서 F는 연결된 데이터 디스크의 드라이브 문자입니다.
     3. 데이터 드라이브를 분리하고 프로세스 모니터 ubstakke가 설치되어 있는 작동 중인 VM에서 연결합니다.
 
 6. 작동 중인 VM에서 프로세스 모니터를 사용하여 **ProcMonTrace.PML**을 엽니다. 그런 다음, 다음 스크린샷에 나온 것처럼  **결과가 액세스 거부됨**으로 필터링합니다.

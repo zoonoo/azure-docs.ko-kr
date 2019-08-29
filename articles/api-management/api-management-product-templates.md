@@ -10,16 +10,15 @@ ms.assetid: 49f9254c-4c5f-4ed4-9c8d-798f44e805ee
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 14090e21fb7c6ca07fe63220ffd1d44d483ac869
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 637d4e7bc75537d99538048700673192534613dc
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61088191"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073374"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Azure API Management의 제품 템플릿
 
@@ -78,7 +77,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 ### <a name="data-model"></a>데이터 모델  
   
-|자산|Type|설명|  
+|속성|형식|Description|  
 |--------------|----------|-----------------|  
 |Paging|[페이징](api-management-template-data-model-reference.md#Paging) 엔터티.|제품 컬렉션에 대한 페이징 정보입니다.|  
 |Filtering|[필터링](api-management-template-data-model-reference.md#Filtering) 엔터티.|제품 목록 페이지에 대한 필터링 정보입니다.|  
@@ -203,19 +202,19 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 ### <a name="data-model"></a>데이터 모델  
   
-|자산|Type|설명|  
+|속성|형식|설명|  
 |--------------|----------|-----------------|  
 |Product|[Product](api-management-template-data-model-reference.md#Product)|지정된 제품.|  
-|IsDeveloperSubscribed|부울|현재 사용자가 이 제품을 구독하는지 여부입니다.|  
+|IsDeveloperSubscribed|boolean|현재 사용자가 이 제품을 구독하는지 여부입니다.|  
 |SubscriptionState|number|구독의 상태입니다. 가능한 상태는 다음과 같습니다.<br /><br /> -   `0 - suspended` – 구독이 차단되고 구독자는 제품의 API를 호출할 수 없습니다.<br />-   `1 - active` – 구독이 활성화되어 있습니다.<br />-   `2 - expired` - 구독이 만료 날짜에 도달되었고 비활성화되었습니다.<br />-   `3 - submitted` - 구독 요청이 개발자에 의해 발생했지만 아직 승인 또는 거부되지 않았습니다.<br />-   `4 - rejected` – 구독 요청이 관리자에 의해 거부되었습니다.<br />-   `5 - cancelled` - 구독이 개발자 또는 관리자에 의해 취소되었습니다.|  
-|Limits|array|이 속성은 사용되지 않으며 사용할 수 없습니다.|  
-|DelegatedSubscriptionEnabled|부울|[위임](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/)이 이 구독에 대해 활성화되었는지 여부입니다.|  
-|DelegatedSubscriptionUrl|문자열|위임을 사용하는 경우 위임된 구독 URL입니다.|  
-|IsAgreed|부울|제품에 약관이 있는 경우 현재 사용자가 약관에 동의했는지 여부입니다.|  
+|Limits|배열|이 속성은 사용되지 않으며 사용할 수 없습니다.|  
+|DelegatedSubscriptionEnabled|boolean|[위임](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/)이 이 구독에 대해 활성화되었는지 여부입니다.|  
+|DelegatedSubscriptionUrl|string|위임을 사용하는 경우 위임된 구독 URL입니다.|  
+|IsAgreed|boolean|제품에 약관이 있는 경우 현재 사용자가 약관에 동의했는지 여부입니다.|  
 |Subscriptions|[구독 요약](api-management-template-data-model-reference.md#SubscriptionSummary) 엔터티의 컬렉션입니다.|제품에 대한 구독입니다.|  
 |Apis|[API](api-management-template-data-model-reference.md#API) 엔터티의 컬렉션입니다.|이 제품의 API입니다.|  
-|CannotAddBecauseSubscriptionNumberLimitReached|부울|현재 사용자가 구독 제한과 관련하여 이 제품을 구독할 수 있는지 여부입니다.|  
-|CannotAddBecauseMultipleSubscriptionsNotAllowed|부울|현재 사용자가 허용 또는 허용되지 않는 여러 구독과 관련하여 이 제품을 구독할 수 있는지 여부입니다.|  
+|CannotAddBecauseSubscriptionNumberLimitReached|boolean|현재 사용자가 구독 제한과 관련하여 이 제품을 구독할 수 있는지 여부입니다.|  
+|CannotAddBecauseMultipleSubscriptionsNotAllowed|boolean|현재 사용자가 허용 또는 허용되지 않는 여러 구독과 관련하여 이 제품을 구독할 수 있는지 여부입니다.|  
   
 ### <a name="sample-template-data"></a>샘플 템플릿 데이터  
   

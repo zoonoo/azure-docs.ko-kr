@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: cf17ab2b-8d7e-4078-b6df-955c6d5071c2
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: roiyz
-ms.openlocfilehash: 1a01f5f8aed994c16b8302e42996b27ee6a48003
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 23354ce310ad4916c8fa2eb9cb99c5e4521b4a62
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624869"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084729"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Linux 가상 머신에서 Azure 사용자 지정 스크립트 확장 버전 2 사용
 사용자 지정 스크립트 확장 버전 2는 Azure 가상 머신에서 스크립트를 다운로드하고 실행합니다. 이 확장은 배포 후 구성, 소프트웨어 설치 또는 기타 구성/관리 작업에 유용합니다. 스크립트를 Azure Storage 또는 기타 액세스가 가능한 인터넷 위치에서 다운로드하거나 확장 런타임을 제공할 수 있습니다. 
@@ -128,7 +127,7 @@ Linux용 사용자 지정 스크립트 확장은 지원되는 확장 OS의 확�
 * `script`: (commandToExecute를 설정하지 않은 경우 **필수**, 문자열) /bin/sh로 실행된 base64 인코딩(및 필요에 따라 gzip 압축) 스크립트입니다.
 * `fileUris`: (옵션, 문자열 배열) 다운로드할 파일에 대한 URL입니다.
 * `storageAccountName`: (옵션, 문자열) 스토리지 계정에 대한 이름입니다. 스토리지 자격 증명을 지정하는 경우 모든 `fileUris`는 Azure Blob에 대한 URL이어야 합니다.
-* `storageAccountKey`: (선택 사항, 문자열) 스토리지 계정의 액세스 키
+* `storageAccountKey`: (옵션, 문자열) 스토리지 계정의 액세스 키입니다.
 
 
 다음 값은 공용 또는 보호된 설정 중 하나에서 설정할 수 있습니다. 확장은 공용 및 보호된 설정 모두에 아래 값이 설정된 모든 구성을 거부합니다.

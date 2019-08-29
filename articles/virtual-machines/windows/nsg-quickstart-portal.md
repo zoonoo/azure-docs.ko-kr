@@ -8,25 +8,24 @@ manager: gwallace
 editor: ''
 ms.assetid: f7cf0319-5ee7-435e-8f94-c484bf5ee6f1
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: cf85bfd8be146cb599ced61eaa2126ee9e12538b
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: f9edee7a0ff19a536d0ea719ede6d0cd2e9d6ac7
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723062"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102645"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Azure Portal을 사용하여 가상 머신에 대한 포털을 여는 방법
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
-[https://portal.azure.com](https://portal.azure.com )에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
 

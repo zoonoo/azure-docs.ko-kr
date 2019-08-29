@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 644cc2a4175043b523d53b39f17483c6f3acfe96
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4260f4640f488e67d6bb3101ff2cf7d269e2bf3e
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696738"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073649"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Azure API Management에서 Azure Active Directory B2C를 사용하여 개발자 계정에 권한을 부여하는 방법
 
@@ -36,9 +35,9 @@ Azure Active Directory B2C는 소비자 지향 웹 및 모바일 애플리케이
 1. 시작하려면 [Azure Portal](https://portal.azure.com)에 로그인하고 API Management 인스턴스를 찾습니다.
 
    > [!NOTE]
-   > 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [Azure API Management 시작 자습서][Get started with Azure API Management]의 [API Management 서비스 인스턴스 만들기][Create an API Management service instance]를 참조하세요.
+   > API Management 서비스 인스턴스를 아직 만들지 않은 경우 [Azure API Management 시작 자습서][Get started with Azure API Management]에서 [API Management 서비스 인스턴스 만들기][Create an API Management service instance] 를 참조 하세요.
 
-2. 아래 **Identities**합니다. 위쪽에서 **+추가**를 클릭합니다.
+2. **Id**아래에 있습니다. 위쪽에서 **+추가**를 클릭합니다.
 
    **ID 공급자 추가** 창이 오른쪽에 나타납니다. **Azure Active Directory B2C**를 선택합니다.
     
@@ -76,9 +75,9 @@ Azure Active Directory B2C는 소비자 지향 웹 및 모바일 애플리케이
 
 11. API Management **ID 공급자 추가** 창으로 다시 전환하고 키를 **클라이언트 비밀** 텍스트 상자에 붙여 넣습니다.
     
-12. Azure Active Directory B2C 테 넌 트의 도메인 이름을 지정 **Signin 테 넌 트**합니다.
+12. **Signin 테 넌 트**에 Azure Active Directory B2C 테 넌 트의 도메인 이름을 지정 합니다.
 
-13. 합니다 **기관** 필드를 사용 하는 데 Azure AD B2C 로그인 URL을 제어할 수 있습니다. 값을 설정 합니다 **< your_b2c_tenant_name >. b2clogin.com**합니다.
+13. **권한** 필드를 사용 하 여 사용할 AZURE AD B2C 로그인 URL을 제어할 수 있습니다. 값 **< your_b2c_tenant_name >. b2clogin**로 설정 합니다.
 
 14. B2C 테넌트 정책에서 **등록 정책** 및 **로그인 정책**을 지정합니다. 선택적으로 **프로필 편집 정책** 및 **암호 재설정 정책**을 제공할 수도 있습니다.
 

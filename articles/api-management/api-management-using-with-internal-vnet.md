@@ -10,16 +10,15 @@ ms.assetid: dac28ccf-2550-45a5-89cf-192d87369bc3
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: apimpm
-ms.openlocfilehash: a23572642df99f00e278b6ba74367a30b0604640
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 29c86363842299870179b35a0466d2e44d2e56e0
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851460"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072193"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>내부 가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure Virtual Networks에서 Azure API Management에서는 인터넷에서 액세스할 수 없는 API를 관리할 수 있습니다. 다양한 VPN 기술은 연결을 만드는 데 사용할 수 있습니다. API Management는 가상 네트워크 내의 두 가지 주요 모드로 배포됩니다.
@@ -61,7 +60,7 @@ API Management 내부 가상 네트워크 모드로 배포 하는 경우 모든 
 
     ![내부 가상 네트워크에서 Azure API Management를 설정하는 메뉴][api-management-using-internal-vnet-menu]
 
-4.           **저장**을 선택합니다.
+4. **저장**을 선택합니다.
 
 배포가 성공 하면 개요 블레이드에서 API Management 서비스의 **개인** 가상 ip 주소 및 **공용** 가상 ip 주소가 표시 됩니다. **개인** 가상 ip 주소는 `gateway`, `portal` `management` 및 `scm` 끝점에 액세스할 수 있는 API Management 위임 된 서브넷 내에서 부하가 분산 된 ip 주소입니다. **공용** 가상 IP 주소는 포트 3443을 통한 끝점에 `management` 대 한 제어 평면 트래픽용 **으로만** 사용 되며 [microsoft.apimanagement][ServiceTags] servicetag로 잠글 수 있습니다.
 

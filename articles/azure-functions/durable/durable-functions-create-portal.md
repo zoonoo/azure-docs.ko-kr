@@ -6,17 +6,16 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: glenga
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 4670dd37facf341e355d736a72b4d71f27237fda
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 520579334d88bbab8ac28df7e446879aa9736248
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612896"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098199"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Azure Portal을 사용하는 Durable Functions 만들기
 
@@ -24,7 +23,7 @@ Azure Functions에 대한 [지속성 함수](durable-functions-overview.md) 확�
 
 > [!NOTE]
 > 
-> * 에 지 속성 함수를 개발 하는 경우 C#를 대신 고려해 야 [Visual Studio 2019 개발](durable-functions-create-first-csharp.md)합니다.
+> * 에서 지 속성 함수를 개발 하 C#는 경우에는 대신 [Visual Studio 2019 개발](durable-functions-create-first-csharp.md)을 고려해 야 합니다.
 > * JavaScript에서 Durable Functions를 개발하려는 경우에는 대신 [Visual Studio Code 개발](./quickstart-js-vscode.md)을 고려해야 합니다.
 
 ## <a name="create-a-function-app"></a>함수 앱 만들기

@@ -7,18 +7,17 @@ author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: daddb859c6bfc6309ef833c6c6c3ea43c70f1889
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d16c5b6304f598440fe4d70648dd652f0dcf06ec
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60362291"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70089930"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>DHCP 클라이언트 서비스가 해제되어 Azure Virtual Machines에 RDP로 연결할 수 없음
 
@@ -34,7 +33,7 @@ VM에서 DHCP 클라이언트 서비스가 해제되어 Azure의 VM에 RDP로 �
 **날짜**: 2015/12/16 AM 11:19:36 </br>
 **이벤트 ID**: 7022 </br>
 **작업 범주**: 없음 </br>
-**수준**: 오류 </br>
+**수준**: Error </br>
 **키워드**: 클래식</br>
 **사용자**: N/A </br>
 **컴퓨터**: myvm.cosotos.com</br>
@@ -53,7 +52,7 @@ VM에서 DHCP 클라이언트 서비스가 실행되고 있지 않습니다.
 > [!NOTE]
 > 이 문서는 DHCP 클라이언트 서비스에만 적용되고 DHCP 서버에는 적용되지 않습니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 다음 단계를 수행하기 전에 영향을 받는 VM의 OS 디스크 스냅샷을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
 
@@ -62,7 +61,7 @@ VM에서 DHCP 클라이언트 서비스가 실행되고 있지 않습니다.
 ### <a name="use-serial-control"></a>직렬 콘솔 사용
 
 1. [직렬 콘솔에 연결하고 CMD 인스턴스를 엽니다](serial-console-windows.md#use-cmd-or-powershell-in-serial-console).
-)을 참조하세요. VM에서 직렬 콘솔을 사용할 수 없는 경우 [네트워크 인터페이스 다시 설정](reset-network-interface.md)을 참조하세요.
+)를 선택합니다. VM에서 직렬 콘솔을 사용할 수 없는 경우 [네트워크 인터페이스 다시 설정](reset-network-interface.md)을 참조하세요.
 2. 네트워크 인터페이스에서 DHCP를 사용할 수 없는지 확인합니다.
 
         sc query DHCP
@@ -77,7 +76,7 @@ VM에서 DHCP 클라이언트 서비스가 실행되고 있지 않습니다.
     VM에 연결해 보고 문제가 해결되었는지 확인합니다.
 5. 서비스가 시작되지 않으면 받은 오류 메시지에 따라 다음 중 적절한 솔루션을 사용합니다.
 
-    | 오류  |  해결 방법 |
+    | Error  |  솔루션 |
     |---|---|
     | 5- ACCESS DENIED  | [액세스 거부 오류로 인해 DHCP 클라이언트 서비스가 중지됨](#dhcp-client-service-is-stopped-because-of-an-access-denied-error)을 참조하세요.  |
     |1053 - ERROR_SERVICE_REQUEST_TIMEOUT   | [DHCP 클라이언트 서비스가 충돌 또는 중지됨](#dhcp-client-service-crashes-or-hangs)을 참조하세요.  |
@@ -124,7 +123,7 @@ VM에서 DHCP 클라이언트 서비스가 실행되고 있지 않습니다.
 
     1. [VM에 데이터 디스크를 연결합니다](../windows/attach-managed-disk-portal.md
 ).
-    2. 새 드라이브에 파일을 복사할 수 있는 직렬 콘솔을 사용합니다. 예: `copy C:\temp\ProcMonTrace.PML F:\`. 이 명령에서 F는 연결된 데이터 디스크의 드라이브 문자입니다. 문자를 올바른 값으로 적절하게 바꿉니다.
+    2. 새 드라이브에 파일을 복사할 수 있는 직렬 콘솔을 사용합니다. `copy C:\temp\ProcMonTrace.PML F:\` )을 입력합니다. 이 명령에서 F는 연결된 데이터 디스크의 드라이브 문자입니다. 문자를 올바른 값으로 적절하게 바꿉니다.
     3. 데이터 드라이브를 분리하고 프로세스 모니터 ubstakke가 설치되어 있는 작동 중인 VM에 연결합니다.
 
 6. 작동 중인 VM에서 프로세스 모니터를 사용하여 **ProcMonTrace.PML**을 엽니다. 그런 다음, 다음 스크린샷에 나온 것처럼  **결과가 액세스 거부됨**으로 필터링합니다.

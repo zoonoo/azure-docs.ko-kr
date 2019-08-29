@@ -11,16 +11,15 @@ ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: bc738a33ba50935a2118b8bd0bbfafed83e5f461
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 31f6ffc4f114039e0c53c1994f8c4364dea18298
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722786"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70089512"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>AWS(Amazon Web Services)에서 Azure 가상 머신으로 Windows VM 이동
 
@@ -48,7 +47,7 @@ ms.locfileid: "67722786"
 
 EC2 인스턴스를 Amazon S3 버킷의 VHD로 내보냅니다. Amazon 설명서 [VM Import/Export를 사용하여 인스턴스를 VM으로 내보내기](https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) 항목의 단계를 수행하고, [create-instance-export-task](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) 명령을 실행하여 EC2 인스턴스를 VHD 파일로 내보냅니다. 
 
-내보낸 VHD 파일은 지정한 Amazon S3 버킷에 저장됩니다. 기본 구문은 아래에 VHD를 내보내기에 대 한 자리 표시자 텍스트에 대체 하면 \<대괄호 > 정보입니다.
+내보낸 VHD 파일은 지정한 Amazon S3 버킷에 저장됩니다. VHD를 내보내는 기본 구문은 다음과 같습니다. > 괄호 안의 \<자리 표시자 텍스트를 사용자 정보로 바꾸면 됩니다.
 
 ```
 aws ec2 create-instance-export-task --instance-id <instanceID> --target-environment Microsoft \

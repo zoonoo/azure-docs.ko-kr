@@ -7,17 +7,16 @@ author: ggailey777
 manager: jeconnoc
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 481e6c5f2271651627577af3d03f9dd4da725146
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 4bad9db6af6d368c943619bc2105f3fba0b7eb7b
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68949920"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70096151"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
@@ -160,7 +159,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 별도의 설명이 없으면 `func init`는 다음 옵션(버전 2.x 전용)을 지원합니다.
 
-| 옵션     | 설명                            |
+| 옵션     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--csx`** | C# 스크립트(.csx) 프로젝트를 초기화합니다. 후속 명령에서 `--csx`를 지정해야 합니다. |
 | **`--docker`** | 선택한 `--worker-runtime`을 기반으로 하는 기본 이미지를 사용하여 컨테이너용 Docker 파일을 만듭니다. 사용자 지정 Linux 컨테이너에 게시하려는 경우 이 옵션을 사용합니다. |
@@ -398,7 +397,7 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 
 `func run`은 다음 옵션을 지원합니다.
 
-| 옵션     | 설명                            |
+| 옵션     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--content -c`** | 인라인 콘텐츠입니다. |
 | **`--debug -d`** | 함수를 실행하기 전에 호스트 프로세스에 디버거를 연결합니다.|
@@ -439,7 +438,7 @@ func azure functionapp publish <FunctionAppName>
 
 다음 게시 옵션은 버전 2.x에서만 지원됩니다.
 
-| 옵션     | 설명                            |
+| 옵션     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only -o`** |  설정만 게시하고 콘텐츠는 건너뜁니다. 기본값은 프롬프트입니다. |
 |**`--list-ignored-files`** | .funcignore 파일을 기준으로 하여 게시 중에 무시되는 파일 목록을 표시합니다. |

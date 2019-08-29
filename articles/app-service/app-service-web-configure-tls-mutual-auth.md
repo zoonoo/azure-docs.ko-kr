@@ -10,41 +10,40 @@ ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5702362add6a50f2f4525afbd3649f083f34b6fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c4e97a96687e5fa1d934ab8c0317b52cb753f72c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60852451"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70088163"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Azure App Service에 대 한 TLS 상호 인증 구성
 
-다양한 유형의 인증을 사용하여 Azure App Service 앱에 대한 액세스를 제한할 수 있습니다. 작업을 수행 하는 한 가지 방법은 TLS/SSL을 통해 클라이언트 요청의 경우 클라이언트 인증서를 요청 하 고 인증서의 유효성을 검사 하는 경우 이 메커니즘은 TLS 상호 인증 또는 클라이언트 인증서 인증 이라고 합니다. 이 문서에는 클라이언트 인증서 인증을 사용 하도록 앱을 설정 하는 방법을 보여 줍니다.
+다양한 유형의 인증을 사용하여 Azure App Service 앱에 대한 액세스를 제한할 수 있습니다. 이 작업을 수행 하는 한 가지 방법은 클라이언트 요청이 TLS/SSL을 통해 수행 되는 경우 클라이언트 인증서를 요청 하 고 인증서의 유효성을 검사 하는 것입니다. 이 메커니즘을 TLS 상호 인증 또는 클라이언트 인증서 인증 이라고 합니다. 이 문서에서는 클라이언트 인증서 인증을 사용 하도록 앱을 설정 하는 방법을 보여 줍니다.
 
 > [!NOTE]
-> HTTP를 통해 사이트에 액세스하고 HTTPS를 통해서는 액세스하지 않는 경우 클라이언트 인증서가 제공되지 않습니다. 따라서 응용 프로그램에 클라이언트 인증서가 필요한 경우 허용 하지 않아야 요청 응용 프로그램에 HTTP를 통해.
+> HTTP를 통해 사이트에 액세스하고 HTTPS를 통해서는 액세스하지 않는 경우 클라이언트 인증서가 제공되지 않습니다. 따라서 응용 프로그램에 클라이언트 인증서가 필요한 경우 HTTP를 통해 응용 프로그램에 대 한 요청을 허용 하지 않아야 합니다.
 >
 
-## <a name="enable-client-certificates"></a>클라이언트 인증서를 사용 하도록 설정
+## <a name="enable-client-certificates"></a>클라이언트 인증서 사용
 
-을 설정 하려면 앱 클라이언트 인증서를 요구 하도록 설정 해야 합니다 `clientCertEnabled` 앱 설정 `true`합니다. 설정의 설정 하려면에서 다음 명령을 실행 합니다 [Cloud Shell](https://shell.azure.com)합니다.
+클라이언트 인증서를 요구 하도록 앱을 설정 하려면 앱에 대 한 `clientCertEnabled` 설정을로 `true`설정 해야 합니다. 설정을 설정 하려면 [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행 합니다.
 
 ```azurecli-interactive
 az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>
 ```
 
-## <a name="access-client-certificate"></a>액세스 클라이언트 인증서
+## <a name="access-client-certificate"></a>클라이언트 인증서 액세스
 
-App Service에서 SSL 종료 요청의 프런트 엔드 부하 분산 장치에서 발생합니다. 요청을 사용 하 여 앱 코드를 전달할 때 [사용 하도록 설정 하는 클라이언트 인증서](#enable-client-certificates)를 삽입 하는 App Service는 `X-ARR-ClientCert` 클라이언트 인증서를 사용 하 여 요청 헤더입니다. App Service 앱에 전달 이외의이 클라이언트 인증서를 사용 하 여 아무 것도 수행 하지 않습니다. 앱 코드는 클라이언트 인증서의 유효성을 검사 하는 일을 담당 합니다.
+App Service에서 요청의 SSL 종료는 프런트 엔드 부하 분산 장치에서 발생 합니다. [클라이언트 인증서를 사용](#enable-client-certificates)하 여 응용 프로그램 코드에 요청을 전달 하는 경우 `X-ARR-ClientCert` App Service는 클라이언트 인증서를 사용 하 여 요청 헤더를 삽입 합니다. App Service는이 클라이언트 인증서를 사용 하 여 앱에 전달 하는 것 외에 다른 작업을 수행 하지 않습니다. 응용 프로그램 코드는 클라이언트 인증서의 유효성을 검사 해야 합니다.
 
-ASP.NET에 대 한 클라이언트 인증서가를 통해 사용할 수는 **HttpRequest.ClientCertificate** 속성입니다.
+ASP.NET의 경우 **HttpRequest** 속성을 통해 클라이언트 인증서를 사용할 수 있습니다.
 
-다른 응용 프로그램 스택 (Node.js, PHP 등)에 대 한 클라이언트 인증서에서 base64로 인코딩된 값을 통해 앱에서 사용할 수 있는를 `X-ARR-ClientCert` 요청 헤더입니다.
+다른 응용 프로그램 스택 (node.js, PHP 등)의 경우 `X-ARR-ClientCert` 요청 헤더의 base64 인코딩 값을 통해 앱에서 클라이언트 인증서를 사용할 수 있습니다.
 
 ## <a name="aspnet-sample"></a>ASP.NET 샘플
 
@@ -172,7 +171,7 @@ ASP.NET에 대 한 클라이언트 인증서가를 통해 사용할 수는 **Htt
 
 ## <a name="nodejs-sample"></a>Node.js 샘플
 
-다음 Node.js 샘플 코드를 가져옵니다 합니다 `X-ARR-ClientCert` 사용 하 여 헤더 [노드 위조](https://github.com/digitalbazaar/forge) 인증서를 base64로 인코딩된 PEM 문자열로 변환 하 고 유효성을 검사 하려면:
+다음 node.js 샘플 코드는 헤더를 `X-ARR-ClientCert` 가져오고 [노드-대장간](https://github.com/digitalbazaar/forge) 을 사용 하 여 b a s e 64로 인코딩된 PEM 문자열을 인증서 개체로 변환 하 고 유효성을 검사 합니다.
 
 ```javascript
 import { NextFunction, Request, Response } from 'express';
@@ -190,7 +189,7 @@ export class AuthorizationHandler {
             const incomingCert: pki.Certificate = pki.certificateFromPem(pem);
 
             // Validate certificate thumbprint
-            const fingerPrint = md.sha1.create().update(asn1.toDer((pki as any).certificateToAsn1(incomingCert)).getBytes()).digest().toHex();
+            const fingerPrint = md.sha1.create().update(asn1.toDer(pki.certificateToAsn1(incomingCert)).getBytes()).digest().toHex();
             if (fingerPrint.toLowerCase() !== 'abcdef1234567890abcdef1234567890abcdef12') throw new Error('UNAUTHORIZED');
 
             // Validate time validity

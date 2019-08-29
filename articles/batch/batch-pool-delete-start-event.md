@@ -6,18 +6,17 @@ author: laurenhughes
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
-ms.openlocfilehash: 65d20f2194b2bf83ecf32e19c1ab5b0f7bc7a004
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 6f8b1bdd680d43cb14707338d2e37e41114126b0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323209"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094755"
 ---
 # <a name="pool-delete-start-event"></a>풀 삭제 시작 이벤트
 
@@ -33,4 +32,4 @@ ms.locfileid: "68323209"
 
 |요소|형식|참고|
 |-------------|----------|-----------|
-|id|문자열|풀의 ID입니다.|
+|id|String|풀의 ID입니다.|

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: gwallace
-ms.openlocfilehash: 0627361fdd4f94a329b08b184dbd542e1927af39
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 19aa0877c7c37083a6206e094aced40542d0ef72
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871919"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092676"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링
 
@@ -135,9 +135,7 @@ storageAccountSasToken | Blob service 및 Table service(`ss='bt'`)용으로, 컨
 mdsdHttpProxy | (선택 사항) 지정된 스토리지 계정 및 엔드포인트에 연결할 확장을 사용하도록 설정하는 데 필요한 HTTP 프록시 정보입니다.
 sinksConfig | (선택 사항) 메트릭 및 이벤트를 전달할 수 있는 대체 대상의 세부 정보입니다. 확장에서 지원되는 각 데이터 싱크의 특정 세부 정보는 다음에 나오는 섹션에 설명되어 있습니다.
 
-
-> [!NOTE]
-> Azure 배포 템플릿을 사용하여 확장을 배포할 때는 스토리지 계정 및 SAS 토큰을 미리 만든 후 템플릿에 전달해야 합니다. 단일 템플릿에서 VM, 스토리지 계정 배포와 확장 구성을 함께 수행할 수 없습니다. 템플릿 내에서 SAS 토큰을 만드는 방식은 현재 지원되지 않습니다.
+리소스 관리자 템플릿 내에서 SAS 토큰을 가져오려면 **Listaccountsas** 함수를 사용 합니다. 예제 템플릿은 [List 함수 예제](../../azure-resource-manager/resource-group-template-functions-resource.md#list-example)를 참조 하세요.
 
 Azure Portal을 통해 필요한 SAS 토큰을 쉽게 생성할 수 있습니다.
 
@@ -388,8 +386,8 @@ minSeverity | syslog 심각도 수준입니다(예: "LOG\_ERR" 또는 "LOG\_INFO
 ------- | -----
 namespace | (선택 사항) 실행해야 할 쿼리 내의 OMI 네임스페이스입니다. 지정되지 않은 경우 기본값은 [System Center 플랫폼 간 공급자](https://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation)가 구현한 "root/scx"입니다.
 쿼리 | 실행될 OMI 쿼리입니다.
-테이블 | (선택 사항) 지정된 스토리지 계정의 Azure Storage 테이블입니다([보호 설정](#protected-settings) 참조).
-frequency | (선택 사항) 쿼리 실행 간격(초)입니다. 기본값은 300(5분)이고 최소값은 15초입니다.
+table | (선택 사항) 지정된 스토리지 계정의 Azure Storage 테이블입니다([보호 설정](#protected-settings) 참조).
+빈도 | (선택 사항) 쿼리 실행 간격(초)입니다. 기본값은 300(5분)이고 최소값은 15초입니다.
 sinks | (선택 사항) 원시 샘플 메트릭 결과가 게시되어야 하는 쉼표로 구분된 추가 싱크 이름 목록입니다. 이러한 원시 샘플의 집계는 확장 또는 Azure Metrics에서 계산되지 않습니다.
 
 "table"이나 "sinks" 또는 둘 다 지정해야 합니다.
@@ -411,7 +409,7 @@ sinks | (선택 사항) 원시 샘플 메트릭 결과가 게시되어야 하는
 요소 | 값
 ------- | -----
 file | 확인 및 캡처할 로그 파일의 전체 경로 이름입니다. 경로 이름은 단일 파일의 이름을 지정해야 합니다. 디렉터리 이름을 지정하거나 와일드카드를 포함할 수 없습니다.
-테이블 | (선택 사항) 보호되는 구성에서 지정된 대로, 파일의 “끝"에서 새 줄이 작성되고 지정된 스토리지 계정의 Azure Storage 테이블입니다.
+table | (선택 사항) 보호되는 구성에서 지정된 대로, 파일의 “끝"에서 새 줄이 작성되고 지정된 스토리지 계정의 Azure Storage 테이블입니다.
 sinks | (선택 사항) 로그 줄이 전송되는 쉼표로 구분된 추가 싱크 이름 목록입니다.
 
 "table"이나 "sinks" 또는 둘 다 지정해야 합니다.
@@ -495,7 +493,7 @@ PercentFreeInodes | 사용하지 않은 inode의 백분율
 PercentUsedInodes | 모든 파일 시스템에서 합한 할당된(사용 중인) inode의 백분율
 BytesReadPerSecond | 초당 읽은 바이트
 BytesWrittenPerSecond | 초당 쓴 바이트
-초당 바이트 수 | 초당 읽거나 쓴 바이트
+BytesPerSecond | 초당 읽거나 쓴 바이트
 ReadsPerSecond | 초당 읽기 작업
 WritesPerSecond | 초당 쓰기 작업
 TransfersPerSecond | 초당 읽기 또는 쓰기 작업
@@ -519,7 +517,7 @@ AverageTransferTime | 작업당 평균 시간(초)
 AverageDiskQueueLength | 대기 중인 디스크 작업의 평균 수
 ReadBytesPerSecond | 초당 읽은 바이트 수
 WriteBytesPerSecond | 초당 쓴 바이트 수
-초당 바이트 수 | 초당 읽거나 쓴 바이트 수
+BytesPerSecond | 초당 읽거나 쓴 바이트 수
 
 `"condition": "IsAggregate=True"`로 설정하면 모든 디스크에서 집계된 값을 얻을 수 있습니다. 특정 디바이스(예: /dev/sdf1)에 대한 정보를 얻으려면 `"condition": "Name=\\"/dev/sdf1\\""`를 설정합니다.
 

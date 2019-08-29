@@ -6,16 +6,15 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 3aa3176b1d6d9e5665fd3a8988b71159a4fc20c0
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 4426b83ee62f4a894f72e197cbe541b8b669695d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735704"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70086806"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions에 대한 앱 설정 참조
 
@@ -192,7 +191,7 @@ Azure Portal에서 편집할 수 있는지 여부를 지정 합니다. 유효한
 
 이 설정은 백 엔드 URL로 삽입될 때 %2F가 경로 매개 변수에서 슬래시로 디코딩되는지 여부를 제어합니다. 
 
-|Key|값|Description|
+|Key|값|설명|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|인코딩된 슬래시를 사용하는 경로 매개 변수는 해당 항목을 디코딩합니다. `example.com/api%2ftest`는 `example.com/api/test`가 됩니다.|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|이는 기본 동작입니다. 모든 경로 매개 변수는 변경 안됨으로 전달됩니다.|

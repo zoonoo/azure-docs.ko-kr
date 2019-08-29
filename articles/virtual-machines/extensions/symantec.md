@@ -11,16 +11,15 @@ ms.assetid: 19dcebc7-da6b-4510-907b-d64088e81fa2
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple
-ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roiyz
-ms.openlocfilehash: d79e46467c24277200ef72bb64e8c5b7427bf269
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: e6e81732c0e25bc46d28172cdf085f6c3f457ca8
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705888"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084266"
 ---
 # <a name="how-to-install-and-configure-symantec-endpoint-protection-on-a-windows-vm"></a>Windows VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법
 > [!IMPORTANT] 
@@ -28,7 +27,7 @@ ms.locfileid: "67705888"
 
 이 문서에서는 Windows Server가 실행되는 기존 VM(가상 머신)에서 Symantec Endpoint Protection 클라이언트를 설치하고 구성하는 방법을 설명합니다. 이 전체 클라이언트는 바이러스 및 스파이웨어 보호, 방화벽, 침입 방지와 같은 서비스를 포함합니다. 이 클라이언트는 VM 에이전트를 사용하여 보안 확장 프로그램으로 설치됩니다.
 
-온-프레미스 솔루션용 Symantec의 기존 구독이 있는 경우 Azure 가상 머신을 보호하는 데 사용할 수 있습니다. 아직 구독 고객이 아닌 경우에는 평가판 구독에 등록할 수 있습니다. 이 솔루션에 대 한 자세한 내용은 참조 하세요. [Microsoft Azure 플랫폼의 Symantec Endpoint Protection][Symantec]합니다. 이 페이지에는 Symantec 고객을 위한 라이선스 정보 및 이 클라이언트를 설치하는 방법에 대한 링크도 제공되어 있습니다.
+온-프레미스 솔루션용 Symantec의 기존 구독이 있는 경우 Azure 가상 머신을 보호하는 데 사용할 수 있습니다. 아직 구독 고객이 아닌 경우에는 평가판 구독에 등록할 수 있습니다. 이 솔루션에 대 한 자세한 내용은 [Microsoft Azure platform의 Symantec Endpoint Protection][Symantec]를 참조 하세요. 이 페이지에는 Symantec 고객을 위한 라이선스 정보 및 이 클라이언트를 설치하는 방법에 대한 링크도 제공되어 있습니다.
 
 ## <a name="install-symantec-endpoint-protection-on-an-existing-vm"></a>기존 VM에 Symantec Endpoint Protection 설치
 이 작업을 시작하려면 다음 조건을 충족해야 합니다.
@@ -48,7 +47,7 @@ $vm = Get-AzureVM -ServiceName $CSName -Name $VMName
 write-host $vm.VM.ProvisionGuestAgent
 ```
 
-**write-host** 명령에서 **True**가 표시되면 VM 에이전트가 설치되어 있는 것입니다. 표시 되 면 **False**, 지침 및 다운로드 Azure 블로그 게시물에 대 한 링크를 참조 하십시오 [VM 에이전트 및 확장-2 부][Agent]합니다.
+**write-host** 명령에서 **True**가 표시되면 VM 에이전트가 설치되어 있는 것입니다. **False**가 표시 되 면 Azure 블로그 게시물 [VM 에이전트 및 확장-2 부][Agent]에서 지침 및 다운로드 링크를 참조 하세요.
 
 VM 에이전트가 설치된 경우 이러한 명령을 실행하여 Symantec Endpoint Protection 에이전트를 설치합니다.
 

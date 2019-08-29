@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 keywords: SAP
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/10/2019
 ms.author: juergent
-ms.openlocfilehash: bed56f169e2a985b23b3bca96c32f7caba596432
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 5487b90172788c08a4383a32462ea5a85c1763ee
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061507"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099672"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -69,7 +68,7 @@ HADR (고가용성 [및 재해 복구) 구성](https://www.ibm.com/support/knowl
 
 설치를 시작 하기 전에 다음 SAP 참고 사항 및 설명서를 참조 하세요.
 
-| SAP note | Description |
+| SAP note | 설명 |
 | --- | --- |
 | [1928533] | Azure의 SAP 응용 프로그램: 지원 제품 및 Azure VM 유형 |
 | [2015553] | Azure의 SAP: 필수 구성 요소 지원 |

@@ -10,16 +10,15 @@ tags: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
-ms.openlocfilehash: f618066f19a5cbbf25bc1fcc872cc654ce96dae3
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 19b2fcaed2c80d4ca52ada9f9f0898479e73bcf2
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68857223"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70080526"
 ---
 # <a name="how-to-use-perfinsights"></a>PerfInsights를 사용하는 방법
 
@@ -84,7 +83,7 @@ Linux 가상 머신, 운영 체제, 블록 장치, 높은 리소스 소비자, �
   - 네트워크 라우팅 테이블
   - 열린 포트 및 상태
 
-- 스토리지
+- 저장 공간
   - 장치 목록 차단
   - 파티션 목록
   - 탑재 위치 목록

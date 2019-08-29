@@ -11,17 +11,16 @@ ms.assetid: 8cde8fe7-977b-43d2-be74-ad46dc946058
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8d1c5598bd7ea5b3f35d5447935953d4cd55664a
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 9ba8fdba3b7283185920432b5b096b80b2e32021
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "67706766"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092550"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Windows VM 및 Azure Resource Manager 템플릿을 사용하여 모니터링 및 진단 사용
 Azure Diagnostics Extension은 Windows 기반 Azure 가상 머신에 모니터링 및 진단 기능을 제공합니다. 확장을 Azure Resource Manager 템플릿에 속하도록 포함시켜서 가상 머신에서 이러한 기능을 사용하도록 설정할 수 있습니다. 가상 머신 템플릿의 일부로 확장을 포함시키는 것과 관련된 자세한 내용은 [VM 확장을 사용하여 Azure 리소스 관리자 템플릿 작성](../windows/template-description.md#extensions) 을 참조하세요. 이 문서는 Azure Diagnostics 확장을 Windows 가상 머신 템플릿에 추가하는 방법을 설명합니다.  
@@ -63,7 +62,7 @@ Windows 가상 머신에서 진단 확장을 사용하도록 설정하려면 진
 ]
 ```
 
-가상 머신의 리소스 노드 아래에 확장을 구성하는 대신 템플릿의 루트 리소스 노드에 확장 구성을 추가하는 것도 일반적인 방법입니다. 이런 방식의 경우 *name* 및 *type* 값을 통해 확장과 가상 머신 간의 계층적인 관계를 명시적으로 지정해야 합니다. 예를 들어: 
+가상 머신의 리소스 노드 아래에 확장을 구성하는 대신 템플릿의 루트 리소스 노드에 확장 구성을 추가하는 것도 일반적인 방법입니다. 이런 방식의 경우 *name* 및 *type* 값을 통해 확장과 가상 머신 간의 계층적인 관계를 명시적으로 지정해야 합니다. 예: 
 
 ```json
 "name": "[concat(variables('vmName'),'Microsoft.Insights.VMDiagnosticsSettings')]",

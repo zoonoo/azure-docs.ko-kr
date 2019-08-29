@@ -11,16 +11,15 @@ ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: cynthn
-ms.openlocfilehash: 8f4169e7d94a5a838ecc11b22e7988223c25e02c
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 5dde098277b16c7ec5339aa6b963b04dd608c8ac
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718819"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079662"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>PowerShell을 사용하여 특수 디스크에서 Windows VM 만들기
 
@@ -75,7 +74,7 @@ Get-AzStorageAccount
 
 기존 스토리지 계정을 사용하려면 [VHD 업로드](#upload-the-vhd-to-your-storage-account) 섹션을 진행합니다.
 
-스토리지 계정을 만듭니다.
+저장소 계정을 만듭니다.
 
 1. 스토리지 계정을 만들 리소스 그룹의 이름을 알아야 합니다. 구독에 있는 모든 리소스 그룹 목록을 보려면 Get-AzResourceGroup을 사용합니다.
    
@@ -205,7 +204,7 @@ $snapShot = New-AzSnapshot `
 ```
 
 
-이 스냅숏을 사용 하 여 고성능 되어야 하는 VM 만들기, 추가 매개 변수 `-AccountType Premium_LRS` 새 AzSnapshotConfig 명령입니다. 이 매개 변수는 스냅샷을 만들어서 프리미엄 관리 디스크로 저장되도록 합니다. 프리미엄 관리 디스크는 표준보다 비용이 높으므로 이 매개 변수를 사용하기 전에 프리미엄이 필요한지 확인하세요.
+이 스냅숏을 사용 하 여 높은 성능을 필요로 하는 VM을 만들려면 AzSnapshotConfig 명령에 매개 변수 `-AccountType Premium_LRS` 를 추가 합니다. 이 매개 변수는 스냅샷을 만들어서 프리미엄 관리 디스크로 저장되도록 합니다. 프리미엄 관리 디스크는 표준보다 비용이 높으므로 이 매개 변수를 사용하기 전에 프리미엄이 필요한지 확인하세요.
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>스냅샷에서 새 디스크 만들기
 

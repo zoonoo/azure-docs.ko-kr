@@ -9,23 +9,22 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 2a959c9d131c6aa0bdc99450cf2b6f09a5d8bfa7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d49e861a529f3b2265f65c53cc0ee2f6feb151da
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60528457"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072487"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Azure API Management에서 알림 및 전자 메일 템플릿을 구성하는 방법
 API Management는 특정 이벤트에 대한 알림을 구성하는 기능과 API Management 인스턴스의 관리자 및 개발자와 의사를 전달하는 데 사용되는 메일 템플릿을 구성하는 기능을 제공합니다. 이 아티클에서는 사용 가능한 이벤트에 대한 알림을 구성하는 방법을 보여주고 이러한 이벤트에 사용된 이메일 템플릿을 구성하는 개요를 제공합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-API Management 서비스 인스턴스를가 없는 경우 다음 빠른 시작을 완료 합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
+API Management 서비스 인스턴스가 없는 경우 다음 빠른 시작을 완료 합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 

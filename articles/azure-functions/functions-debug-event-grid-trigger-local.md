@@ -7,22 +7,21 @@ author: craigshoemaker
 manager: gwallace
 keywords: azure functions, 함수, 서버리스 아키텍처
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: 82e3744c8129a076bbae34314b1f829c6f48d548
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: e28abbe8d44094d8599545479f4611a84e9d9bd5
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479852"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70085682"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Azure Function Event Grid 트리거 로컬 디버깅
 
 이 문서에서는 스토리지 계정에서 발생하는 Azure Event Grid 이벤트를 처리하는 로컬 함수를 디버그하는 방법을 설명합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 기존 함수 앱 만들기 또는 사용
 - 기존 스토리지 계정 만들기 또는 사용

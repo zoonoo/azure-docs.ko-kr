@@ -11,24 +11,23 @@ ms.assetid: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: bba38bb69e5abaa94b01308924fe0c6bf07ca08e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae28b185aa44ca22d59204826036435a10c64e91
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64919958"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066782"
 ---
 # <a name="custom-image-multi-container-or-built-in-platform-image"></a>사용자 지정 이미지, 다중 컨테이너 또는 기본 제공 플랫폼 이미지
 
 [Linux의 App Service](app-service-linux-intro.md)는 웹에 게시된 애플리케이션을 가져오는 3가지 서로 다른 경로를 제공합니다.
 
 - **사용자 지정 이미지 배포**: 즉시 실행 가능한 패키지에 모든 파일 및 종속성을 포함하는 Docker 이미지로 앱을 “Docker화”합니다.
-- **다중 컨테이너 배포**: "Docker 화" 앱을 Docker Compose 구성 파일을 사용 하 여 여러 컨테이너입니다.
+- **다중 컨테이너 배포**: Docker Compose 구성 파일을 사용 하 여 여러 컨테이너에 걸쳐 앱을 "dockerker".
 - **기본 제공 플랫폼 이미지를 사용한 앱 배포**: 기본 제공 플랫폼 이미지는 노드 및 PHP와 같은 일반적인 웹앱 런타임 및 종속성을 포함합니다. [Azure App Service 배포 방법](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) 중 하나를 사용하여 앱을 웹앱의 스토리지에 배포한 후 기본 제공 플랫폼 이미지를 사용하여 실행합니다.
 
 ## <a name="which-method-is-right-for-your-app"></a>앱에 적합한 방법은 무엇인가요? 
@@ -47,16 +46,16 @@ ms.locfileid: "64919958"
 ## <a name="next-steps"></a>다음 단계
 
 사용자 지정 컨테이너:
-* [사용자 지정 컨테이너를 실행 합니다.](quickstart-docker-go.md)
+* [사용자 지정 컨테이너 실행](quickstart-docker-go.md)
 
 다중 컨테이너:
 * [다중 컨테이너 앱 만들기](quickstart-multi-container.md)
 
-다음 문서를 기본 제공 플랫폼 이미지를 사용 하 여 Linux의 App Service를 사용 하 여 시작할 수를 가져옵니다.
+다음 문서에서는 기본 제공 플랫폼 이미지를 사용 하 여 Linux에서 App Service를 시작 합니다.
 
 * [.NET Core](quickstart-dotnetcore.md)
 * [PHP](quickstart-php.md)
-* [Node.JS](quickstart-nodejs.md)
+* [Node.js](quickstart-nodejs.md)
 * [Java](quickstart-java.md)
 * [Python](quickstart-python.md)
 * [Ruby](quickstart-ruby.md)

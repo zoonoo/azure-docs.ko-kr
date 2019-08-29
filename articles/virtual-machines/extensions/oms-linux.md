@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: c7bbf210-7d71-4a37-ba47-9c74567a9ea6
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: roiyz
-ms.openlocfilehash: a0c4b6333cc8348959a679a81343f2479078694b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 8ce10deaf49b6d7796a6b932beb15a1527322f69
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828151"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084398"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-linux"></a>Linux 용 가상 머신 확장 Azure Monitor
 
@@ -33,7 +32,7 @@ Azure Monitor 로그는 클라우드 및 온-프레미스 자산에서 모니터
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -215,6 +214,6 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 
 추가 문제 해결 정보는 [Linux용 Log Analytics 에이전트 문제 해결 가이드](../../azure-monitor/platform/vmext-troubleshoot.md)에서 확인할 수 있습니다.
 
-### <a name="support"></a>Support(지원)
+### <a name="support"></a>지원
 
 이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 가서 지원 받기를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.

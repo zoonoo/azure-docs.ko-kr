@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: jonbeck
-ms.openlocfilehash: cb99a13b97c0dafa4ace358167d76faaffc30079
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: fdb21f2c96f66da140cdefa9a0b7b54dd2dc66ec
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710131"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102269"
 ---
 # <a name="storage-optimized-virtual-machine-sizes"></a>스토리지 최적화 가상 컴퓨터 크기
 
@@ -32,11 +31,11 @@ ms.locfileid: "67710131"
 - [컴퓨팅 최적화](sizes-compute.md)
 - [메모리에 최적화](sizes-memory.md)
 - [GPU에 최적화](sizes-gpu.md)
-- [고성능 계산](sizes-hpc.md)
+- [고성능 컴퓨팅](sizes-hpc.md)
 - [이전 세대](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>다음 단계
 
 [ACU(Azure 컴퓨팅 단위)](acu.md)가 Azure SKU 간의 Compute 성능을 비교하는 데 어떻게 도움을 줄 수 있는지 알아봅니다.
 
-설명 하는 방법 [Lsv2-시리즈 virtual machines에서 성능을 최적화](storage-performance.md)합니다.
+[Lsv2 시리즈 가상 머신에서 성능을 최적화](storage-performance.md)하는 방법에 대해 알아봅니다.

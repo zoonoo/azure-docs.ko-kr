@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 8ca87f18a91af3937f8b4dd1148ecad8507e0dd5
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 5e1fe6252f396a4585b5d7d7190728b79229d5c7
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68849060"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073982"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Azure Monitor에 Windows 컴퓨터 연결
 
@@ -204,6 +204,6 @@ Azure Portal에서 간단한 로그 쿼리를 수행할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Windows 및 Linux용 Log Analytics 에이전트 관리 및 유지 관리](agent-manage.md)를 검토하여 컴퓨터에서 배포 수명 주기 중에 에이전트를 관리하는 방법을 알아봅니다.  
+- 가상 머신에서 에이전트를 다시 구성, 업그레이드 또는 제거 하는 방법에 대 한 자세한 내용은 [Windows 및 Linux 용 Log Analytics 에이전트 관리 및 유지](agent-manage.md) 관리를 검토 하세요.
 
 - 에이전트를 설치 하거나 관리 하는 동안 문제가 발생 하는 경우 [Windows 에이전트 문제 해결](agent-windows-troubleshoot.md) 을 검토 합니다.

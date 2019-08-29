@@ -7,19 +7,18 @@ author: hermanndms
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5bfd278cc4252167aace3aca52fec65fb3c6367f
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: ebf4a0f892e65bf96e07e333cf5446d3036108a0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67869129"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099806"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Azure의 SAP HANA(대규모 인스턴스)를 설치하고 구성하는 방법
 
@@ -143,7 +142,7 @@ Azure 가상 네트워크를 설계하고 해당 가상 네트워크를 HANA 대
 
 아키텍처의 이더넷 세부 정보에 대한 자세한 내용은 [HLI 지원 시나리오](hana-supported-scenario.md)를 참조하세요.
 
-## <a name="storage"></a>스토리지
+## <a name="storage"></a>저장 공간
 
 Azure (Large Instances)의 SAP HANA에 대 한 저장소 레이아웃은 SAP 권장 지침을 `service management` 통해 azure에서 SAP HANA에 의해 구성 됩니다. 이 지침은 [SAP HANA 스토리지 요구 사항](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) 백서에 나와 있습니다. 
 
@@ -151,7 +150,7 @@ Azure (Large Instances)의 SAP HANA에 대 한 저장소 레이아웃은 SAP 권
 
 스토리지 볼륨에 대한 명명 규칙은 아래 테이블에 나열되어 있습니다.
 
-| 스토리지 사용 | 탑재 이름 | 볼륨 이름 | 
+| 스토리지 사용량 | 탑재 이름 | 볼륨 이름 | 
 | --- | --- | ---|
 | HANA data | /hana/data/SID/mnt0000\<m> | 스토리지 IP:/hana_data_SID_mnt00001_tenant_vol |
 | HANA log | /hana/log/SID/mnt0000\<m> | 스토리지 IP:/hana_log_SID_mnt00001_tenant_vol |

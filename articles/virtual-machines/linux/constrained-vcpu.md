@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: jonbeck
-ms.openlocfilehash: e05346e16315dfdeca926e6db87e6d5f2252e227
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 473db3ad0a31e66c6b8f148d5756978dab44ed27
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668096"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091959"
 ---
 # <a name="constrained-vcpu-capable-vm-sizes"></a>제한된 vCPU 지원 VM 크기
 
@@ -33,7 +32,7 @@ ms.locfileid: "67668096"
 - [메모리에 최적화](sizes-memory.md)
 - [Storage에 최적화](sizes-storage.md)
 - [GPU](sizes-gpu.md)
-- [고성능 계산](sizes-hpc.md)
+- [고성능 컴퓨팅](sizes-hpc.md)
 
 ## <a name="next-steps"></a>다음 단계
 [ACU(Azure 컴퓨팅 단위)](acu.md)가 Azure SKU 간의 Compute 성능을 비교하는 데 어떻게 도움을 줄 수 있는지 알아봅니다.

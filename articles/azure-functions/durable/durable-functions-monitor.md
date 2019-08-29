@@ -6,20 +6,19 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9d5e06c3d72d87a87b41a52ed4df369ebc04dccd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae6c2bd27e9192966ecffb4d4296063201fca970
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66387089"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098011"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>지속성 함수의 모니터 시나리오 - 날씨 관찰 앱 샘플
 
-모니터링 패턴은 워크플로의 유연한 되풀이  (예: 특정 조건이 충족될 때까지 폴링) 프로세스를 말합니다. 이 문서에서는 [지속성 함수](durable-functions-overview.md)를 사용하여 모니터링을 구현하는 샘플에 대해 설명합니다.
+모니터링 패턴은 워크플로의 유연한 되풀이(예: 특정 조건이 충족될 때까지 폴링) 프로세스를 말합니다. 이 문서에서는 [지속성 함수](durable-functions-overview.md)를 사용하여 모니터링을 구현하는 샘플에 대해 설명합니다.
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -78,7 +77,7 @@ API 키가 확보되면 함수 앱에 다음 **앱 설정**을 추가합니다.
 
 이 오케스트레이터 함수는 다음 작업을 수행합니다.
 
-1. 모니터링할 위치  와 SMS 알림을 보낼 전화 번호  로 구성된 **MonitorRequest**를 가져옵니다.
+1. 모니터링할 위치와 SMS 알림을 보낼 전화 번호로 구성된 **MonitorRequest**를 가져옵니다.
 2. 모니터의 만료 시간을 결정합니다. 간결함을 위해 이 샘플에서는 하드 코드된 값을 사용합니다.
 3. **E3_GetIsClear**를 호출하여 요청 받은 위치에 하늘이 맑은지 확인합니다.
 4. 날씨가 맑으면 **E3_SendGoodWeatherAlert**를 호출하여 요청 받은 전화 번호로 SMS 알림을 보냅니다.
@@ -89,7 +88,7 @@ API 키가 확보되면 함수 앱에 다음 **앱 설정**을 추가합니다.
 
 ## <a name="strongly-typed-data-transfer-net-only"></a>강력한 형식의 데이터 전송(.NET만 해당)
 
-오 케 스트레이 터 필요한 여러 가지 데이터, 따라서 [POCO 개체를 공유](../functions-reference-csharp.md#reusing-csx-code) 에서 강력한 형식의 데이터 전송에 사용 됩니다 C# 및 C# 스크립트:  
+Orchestrator에는 여러 데이터 조각이 필요 하므로 [공유 POCO 개체](../functions-reference-csharp.md#reusing-csx-code) 는 및 C# C# 스크립트에서 강력한 형식의 데이터 전송에 사용 됩니다.  
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/Location.csx)]

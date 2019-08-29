@@ -7,18 +7,17 @@ author: hermanndms
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: 91671b39e6ac33e16636cc924f5c0aa5e3fcbf3b
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 05a4b8e8034e1c354a4209244694aeb2fc2c6007
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709952"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70078758"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Azure Virtual Machines의 SAP HANA Backup 가이드
 
@@ -86,11 +85,11 @@ Azure 스토리지는 기본적으로 가용성과 안정성을 제공합니다(
 
 ### <a name="pros-and-cons-of-hana-backup-versus-storage-snapshot"></a>HANA 백업 및 스토리지 스냅샷의 장단점
 
-SAP에서는 HANA 백업과 저장소 스냅샷을 비교하여 어느 한 쪽을 선택하지 않습니다. 장단점을 나열하여 상황과 사용 가능한 스토리지 기술에 따라 사용할 대상을 결정할 수 있습니다([Backup 및 복구 전략 계획](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm)(영문) 참조).
+SAP에서는 HANA 백업과 스토리지 스냅샷을 비교하여 어느 한 쪽을 선택하지 않습니다. 장단점을 나열하여 상황과 사용 가능한 스토리지 기술에 따라 사용할 대상을 결정할 수 있습니다([Backup 및 복구 전략 계획](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm)(영문) 참조).
 
 Azure에서 Azure Blob 스냅샷 기능이 파일 시스템 일관성을 보장하지 않는다는 사실을 알고 있어야 합니다([PowerShell과 함께 Blob 스냅샷 사용](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/)(영문) 참조). 다음에 나오는 _스토리지 스냅샷을 만들 때의 SAP HANA 데이터 일관성_ 섹션에서는 이 기능과 관련된 몇 가지 고려 사항에 대해 설명합니다.
 
-또한이 문서에 설명 된 대로 blob 스냅숏을 사용 하 여 자주 작업 하는 경우 청구의 함축적 의미를 이해 해야 하나: [이해 하는 방법을 스냅숏에서 요금이 발생](/rest/api/storageservices/understanding-how-snapshots-accrue-charges)-이 되었습니다&#39;Azure 가상 디스크를 사용 하는 것 만큼 명확 하지.
+또한이 문서에 설명 된 대로 blob 스냅숏을 사용 하 여 자주 작업 하는 경우 청구 의미를 이해 해야 합니다. [스냅숏이 요금을 계산 하는 방법을 이해](/rest/api/storageservices/understanding-how-snapshots-accrue-charges)하면&#39;Azure 가상 디스크를 사용 하는 것 처럼 분명 하지 않습니다.
 
 ### <a name="sap-hana-data-consistency-when-taking-storage-snapshots"></a>스토리지 스냅샷을 만들 때의 SAP HANA 데이터 일관성
 

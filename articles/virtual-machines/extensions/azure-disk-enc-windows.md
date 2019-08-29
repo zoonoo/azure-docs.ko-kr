@@ -8,18 +8,17 @@ manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
-ms.openlocfilehash: 9a3e135172f0744c053da816b3c77762dbe783c3
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 11394f692765cc1df5db0eb5c0dd06425026505d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706107"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092639"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Windows용 Azure Disk Encryption(Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -36,18 +35,18 @@ Azure Disk Encryption은 BitLocker를 활용하여 Windows를 실행하는 Azure
 
 현재 Windows 버전에 대한 목록은 [Azure Disk Encryption 필수 조건](../../security/azure-security-disk-encryption-prerequisites.md)을 참조하세요.
 
-### <a name="internet-connectivity"></a>인터넷 연결
+### <a name="internet-connectivity"></a>인터넷에 연결
 
 Azure Disk Encryption을 사용하려면 Active Directory, Key Vault, Storage 및 패키지 관리 엔드포인트에 액세스하기 위한 인터넷 연결이 필요합니다.  네트워크 보안 설정에 대한 자세한 내용은 [Azure Disk Encryption 필수 조건](
 ../../security/azure-security-disk-encryption-prerequisites.md)을 참조하세요.
 
-## <a name="extension-schemata"></a>확장 스키마
+## <a name="extension-schemata"></a>확장 schemata
 
-Azure Disk Encryption에 대 한 스키마를 두 가지: v1.1, Azure Active Directory (AAD) 속성과 v0.1 사용 하지 않는 최신, 권장 되는 스키마, AAD 등록 정보를 필요로 하는 이전 스키마입니다. 사용 하는 확장 프로그램에 해당 하는 스키마 버전을 사용 해야 합니다: 확장 버전 1.1에서 AzureDiskEncryption 확장 버전 0.1에 대 한 스키마 v0.1 AzureDiskEncryption에 대 한 스키마 v1.1.
+Azure Disk Encryption에 대 한 두 가지 schemata 있습니다. v 1.1, AAD (Azure Active Directory) 속성을 사용 하지 않는 권장 스키마, AAD 속성을 필요로 하는 오래 된 스키마 인 v 0.1. 사용 중인 확장에 해당 하는 스키마 버전을 사용 해야 합니다. AzureDiskEncryption 확장 버전 1.1에 대 한 schema v1.0 및 AzureDiskEncryption 확장 버전 0.1에 대 한 schema v 0.1을 사용 해야 합니다.
 
-### <a name="schema-v11-no-aad-recommended"></a>Schema v1.1: (권장) AAD 없음
+### <a name="schema-v11-no-aad-recommended"></a>스키마 v 1.1: AAD 안 함 (권장)
 
-V1.1 스키마는 것이 좋습니다와 Azure Active Directory 속성은 필요 하지 않습니다.
+V 1.1 스키마를 권장 하며 Azure Active Directory 속성이 필요 하지 않습니다.
 
 ```json
 {
@@ -74,9 +73,9 @@ V1.1 스키마는 것이 좋습니다와 Azure Active Directory 속성은 필요
 ```
 
 
-### <a name="schema-v01-with-aad"></a>스키마 v0.1: AAD를 사용 하 여 
+### <a name="schema-v01-with-aad"></a>Schema v 0.1: AAD 사용 
 
-0\.1 스키마 필요 `aadClientID` 고 `aadClientSecret` 또는 `AADClientCertificate`합니다.
+0\.1 스키마에는 `aadClientID` 및 `AADClientCertificate`중 `aadClientSecret` 하나가 필요 합니다.
 
 `aadClientSecret`사용:
 
@@ -143,7 +142,7 @@ V1.1 스키마는 것이 좋습니다와 Azure Active Directory 속성은 필요
 
 | 이름 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | 날짜 |
+| apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Azure.Security | string |
 | type | AzureDiskEncryptionForLinux | string |
 | typeHandlerVersion | 0.1, 1.1 | ssNoversion |
@@ -172,7 +171,7 @@ V1.1 스키마는 것이 좋습니다와 Azure Active Directory 속성은 필요
 
 [Azure Disk Encryption 문제 해결 가이드](../../security/azure-security-disk-encryption-tsg.md)를 참조하세요.
 
-### <a name="support"></a>Support(지원)
+### <a name="support"></a>지원
 
 이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/community/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 가서 지원 받기를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
 

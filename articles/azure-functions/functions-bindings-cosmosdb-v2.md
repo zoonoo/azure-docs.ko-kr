@@ -7,16 +7,15 @@ author: craigshoemaker
 manager: gwallace
 keywords: Azure 함수, 함수, 이벤트 처리, 동적 컴퓨팅, 서버리스 아키텍처
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 67b70a67065bfc66639b0f6911f66111829c9a0f
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 419241bf1e8511dd6015cd3f791099d6959c3e34
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774917"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70086764"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Functions 2.x의 Azure Cosmos DB 바인딩
 
@@ -256,7 +255,7 @@ Java 코드는 다음과 같습니다.
 
 다음 표에서는 *function.json* 파일 및 `CosmosDBTrigger` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 |**type** || `cosmosDBTrigger`로 설정해야 합니다. |
 |**direction** || `in`로 설정해야 합니다. 이 매개 변수는 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
@@ -566,6 +565,9 @@ namespace CosmosDBSamplesV2
 #### <a name="http-trigger-get-multiple-docs-using-documentclient-c"></a>HTTP 트리거, 여러 문서 가져오기, DocumentClient 사용(C#)
 
 다음 예제에서는 문서 목록을 검색하는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다. 함수는 HTTP 요청에 의해 트리거됩니다. 코드를 Azure Cosmos DB 바인딩에 의해 제공된 `DocumentClient` 인스턴스를 사용하여 문서 목록을 읽습니다. `DocumentClient` 인스턴스는 쓰기 작업에 사용될 수도 있습니다.
+
+> [!NOTE]
+> 또한 [Idocumentclient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.idocumentclient?view=azure-dotnet) 인터페이스를 사용 하 여 테스트를 더 쉽게 수행할 수 있습니다.
 
 ```cs
 using Microsoft.AspNetCore.Http;
@@ -2397,7 +2399,7 @@ def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpRespon
 }
 ```
 
-|속성  |Default | 설명 |
+|속성  |Default | Description |
 |---------|---------|---------|
 |GatewayMode|게이트웨이|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 모드입니다. 옵션은 `Direct` 및 `Gateway`입니다.|
 |Protocol|Https|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 프로토콜입니다.  [두 모드에 대한 설명은 여기](../cosmos-db/performance-tips.md#networking)를 참조하세요.|

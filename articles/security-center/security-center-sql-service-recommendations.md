@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 0704db7444756fb44c5587ae8e8e743f671c9dcc
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 5f34f5e0c622ff107da880d9a4a77c63568b63b0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907940"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100931"
 ---
 # <a name="protect-azure-data-and-storage-services-in-azure-security-center"></a>Azure Security Center에서 Azure 데이터 및 저장소 서비스 보호
 이 항목에서는 데이터 및 저장소 리소스에 대 한 보안 권장 사항을 확인 하 고 구현 하는 방법을 보여 줍니다. Azure Security Center Azure 리소스의 보안 상태를 분석할 때 이러한 권장 사항을 찾았습니다.
@@ -78,7 +78,6 @@ ms.locfileid: "69907940"
 다른 Azure 리소스 유형에 적용 되는 권장 사항에 대해 자세히 알아보려면 다음 항목을 참조 하세요.
 
 * [Azure Security Center에서 머신 및 애플리케이션 보호](security-center-virtual-machine-protection.md)
-* [Azure Security Center에서 애플리케이션 보호](security-center-application-recommendations.md)
 * [Azure Security Center에서 네트워크 보호](security-center-network-recommendations.md)
 
 Security Center에 대해 자세히 알아보려면 다음 항목을 참조 하세요.

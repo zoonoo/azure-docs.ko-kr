@@ -9,18 +9,17 @@ editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 2d954bc068693a34ef1d69e4296e972979d4f61b
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 3c897d4f8cef5fe45893b96a565ed9eff7ae0b11
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671025"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70082396"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Azure Virtual Machine PowerShell 샘플
 
@@ -45,5 +44,5 @@ ms.locfileid: "67671025"
 |**가상 머신 모니터링**||
 | [Azure Monitor 로그를 사용 하 여 VM 모니터링](./../scripts/virtual-machines-linux-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 가상 머신을 만들고, Log Analytics 에이전트를 설치하고, VM을 Log Analytics 작업 영역에 등록합니다.  |
 | [동일하거나 다른 구독에 관리 디스크 복사](../scripts/virtual-machines-linux-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 부모 관리 디스크와 동일한 지역에 있는 동일하거나 다른 구독에 관리 디스크를 복사합니다.
-| [PowerShell 사용 하 여 구독의 모든 Vm에 대 한 정보를 수집 합니다.](../scripts/virtual-machines-powershell-sample-collect-vm-details.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | VM 이름, 리소스 그룹 이름, 지역, 가상 네트워크, 서브넷, 개인 IP 주소, OS 유형 및 제공 된 구독에서 Vm의 공용 IP 주소를 포함 하는 csv를 만듭니다.
+| [PowerShell을 사용 하 여 구독의 모든 Vm에 대 한 세부 정보 수집](../scripts/virtual-machines-powershell-sample-collect-vm-details.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 제공 된 구독의 VM 이름, 리소스 그룹 이름, 지역, Virtual Network, 서브넷, 개인 IP 주소, OS 유형 및 Vm의 공용 IP 주소를 포함 하는 csv를 만듭니다.
 | | |

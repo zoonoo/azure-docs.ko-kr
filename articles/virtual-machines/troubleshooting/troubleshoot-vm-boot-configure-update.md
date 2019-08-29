@@ -10,16 +10,15 @@ tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: c3592529d20680c6920e569887effee4ffe38344
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2f3c18ea1887ea5b05bb89f85371139ac83dfe49
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64683999"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70080153"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>VM 시작이 다음 상태에서 중지되었습니다. "Windows가 준비 중입니다. Azure에서 컴퓨터를 끄지 마세요."
 
@@ -113,7 +112,7 @@ OS 디스크가 암호화되어 있으면 암호화된 디스크의 잠금을 �
 
 9. 복구 컴퓨터에서 드라이브를 분리합니다.
 
-### <a name="create-a-snapshot"></a>스냅샷 만들기
+### <a name="create-a-snapshot"></a>스냅숏 만들기
 
 스냅샷을 만들려면 [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)의 단계를 따릅니다.
 

@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: mlearned
-ms.openlocfilehash: 6c06453d479ae55ceb1c05a7ee8a29ce19a7a13b
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 1f07581be8fc416f8aae5eec1460ca3d33bda8f9
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034964"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114245"
 ---
 # <a name="preview---authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>미리 보기-Azure Kubernetes Service에서 Azure Container Registry 인증
 
@@ -59,7 +59,7 @@ az aks create -n myAKSCluster -g myResourceGroup --enable-acr [--acr <acr-name-o
 
 ## <a name="create-acr-integration-for-existing-aks-clusters"></a>기존 AKS 클러스터에 대 한 ACR 통합 만들기
 
-아래에 **acr 이름** 및 **acr-리소스 id** 에 대 한 유효한 값을 제공 하 여 acr을 기존 acr 클러스터와 통합 합니다.
+아래와 같이 **acr 이름** 또는 **acr-resource id** 에 대 한 유효한 값을 제공 하 여 기존 acr을 기존 AKS 클러스터와 통합 합니다.
 
 ```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --enable-acr --acr <acrName>

@@ -9,19 +9,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 3333e830-8a60-42f5-9f44-8e02e9868d7b
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: aeb97d661d330ed6afb3ca5e5e1eb924dacc4024
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: da40b635b0fc094275d8d46b8c5ad6d3d90bea24
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60607709"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101820"
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Azure Virtual Machines에서 SQL Server의 자동화된 백업(클래식)
 > [!div class="op_single_selector"]
@@ -35,7 +34,7 @@ ms.locfileid: "60607709"
 > [!IMPORTANT] 
 > Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. 이 문서의 Resource Manager 버전을 보려면 [Azure Virtual Machines Resource Manager에서 SQL Server의 자동화된 백업](../sql/virtual-machines-windows-sql-automated-backup.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 자동화된 Backup을 사용하려면 다음 필수 조건을 고려하세요.
 
 **운영 체제**:
@@ -67,7 +66,7 @@ ms.locfileid: "60607709"
 ## <a name="settings"></a>설정
 다음 표에서는 자동화된 Backup에 대해 구성할 수 있는 옵션을 설명합니다. 클래식 VM의 경우 이러한 설정을 구성하려면 PowerShell을 사용해야 합니다.
 
-| 설정 | 범위(기본값) | 설명 |
+| 설정 | 범위(기본값) | Description |
 | --- | --- | --- |
 | **자동화된 Backup** |사용/사용 안 함(사용 안 함) |SQL Server 2014 Standard 또는 Enterprise를 실행하는 Azure VM에 대해 자동화된 Backup을 사용하거나 사용하지 않도록 설정합니다. |
 | **보존 기간** |1-30일(30일) |백업 보존 기간(일 수)입니다. |

@@ -6,17 +6,16 @@ author: ggailey777
 manager: jeconnoc
 ms.assetid: ''
 ms.service: app-service
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
-ms.openlocfilehash: 4d7538d064e27e34c33fd92bc6dfcdaba7a1efc1
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 2ed154d15176ed6706a69f0a6be4c60159d478c2
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533563"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70087689"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Azure에서 호스트되는 API를 PowerApps 및 Microsoft Flow로 내보내기
 
@@ -69,7 +68,7 @@ API 정의를 내보내려면 다음 단계를 수행합니다.
 
 2. 표에 지정된 대로 설정을 사용합니다.
 
-    |설정|설명|
+    |설정|Description|
     |--------|------------|
     |**환경**|사용자 지정 커넥터를 저장해야 하는 환경을 선택합니다. 자세한 내용은 [환경 개요](https://powerapps.microsoft.com/tutorials/environments-overview/)를 참조하세요.|
     |**사용자 지정 API 이름**|PowerApps 및 Microsoft Flow 빌더의 커넥터 목록에 표시될 이름을 입력합니다.|

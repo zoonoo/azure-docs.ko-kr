@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/26/2018
 ms.author: chackdan
-ms.openlocfilehash: 4a5a67133d52a0cdc0cc082ab85c1cc791c13ad5
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 3816fb56b806029d7a23b67741197e32de6a6ff3
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876573"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103000"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Linux 클러스터의 인증서 및 보안
 
@@ -72,7 +71,7 @@ Linux에서 실행되는 서비스의 경우 **LocalMachine**/**My**는 인증�
 </Section>
 ```
 
-### <a name="using-x5092-securitycredentialstype"></a>X509_2 SecurityCredentialsType 사용
+### <a name="using-x509_2-securitycredentialstype"></a>X509_2 SecurityCredentialsType 사용
 
 Java SDK를 사용하여 **SecurityCredentialsType**에 대해 **X509_2**를 지정할 수 있습니다. 이는 `SecurityCredentials`([Java](https://docs.microsoft.com/java/api/system.fabric.securitycredentials))의 `X509Credentials2`([Java](https://docs.microsoft.com/java/api/system.fabric.x509credentials2)) 형식에 해당합니다. 
 

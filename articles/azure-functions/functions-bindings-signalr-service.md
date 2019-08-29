@@ -9,18 +9,17 @@ editor: ''
 tags: ''
 keywords: Azure 함수, 함수, 이벤트 처리, 동적 컴퓨팅, 서버리스 아키텍처
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: cshoe
-ms.openlocfilehash: b4622321dc25025eb2f7752755490eb5bc105069
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 82bbd728bfd51595f0b6eacf344bc95ea5db1ea8
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741777"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70086171"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Azure Functions의 SignalR Service 바인딩
 

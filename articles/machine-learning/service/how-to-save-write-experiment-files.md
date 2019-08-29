@@ -1,6 +1,7 @@
 ---
-title: 입력 및 출력 디렉터리를 사용 하 여 저장소 제한 및 실험 대기 시간 방지
-description: 이 문서에서는 실험 입력 파일을 저장할 위치와 출력 파일을 작성 하 여 저장소 제한 오류 및 실험 대기 시간을 방지 하는 방법에 대해 알아봅니다.
+title: 저장 & 쓰기 실험 파일
+titleSuffix: Azure Machine Learning service
+description: 실험 입력 파일을 저장할 위치와 출력 파일을 작성 하 여 저장소 제한 오류 및 실험 대기 시간을 방지 하는 방법에 대해 알아봅니다.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -11,12 +12,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: ea820536d93ec095f6f2929a9dc3b38d92779a58
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 7d5e147173e766d0da54aa3422faef4b6035b914
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856060"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114505"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Azure Machine Learning 실험을 위해 파일을 저장 하 고 작성 하는 위치
 

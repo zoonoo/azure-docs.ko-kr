@@ -1,25 +1,24 @@
 ---
 title: Azure Functions 트리거 및 바인딩 예제
-description: Azure 함수 바인딩을 구성 하는 방법을 알아봅니다
+description: Azure 함수 바인딩을 구성 하는 방법 알아보기
 services: functions
 documentationcenter: na
 author: craigshoemaker
 manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: bced6dc71063b6be68d739ef67fb5ec46c3d1be6
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: d1959792823e04cf34d65ab775ae8c51e741e293
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480431"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70097479"
 ---
 # <a name="azure-functions-trigger-and-binding-example"></a>Azure Functions 트리거 및 바인딩 예제
 
-이 문서에 구성 하는 방법을 보여 줍니다.는 [트리거 및 바인딩을](./functions-triggers-bindings.md) Azure Function에서.
+이 문서에서는 Azure 함수에서 [트리거와 바인딩을](./functions-triggers-bindings.md) 구성 하는 방법을 보여 줍니다.
 
 Azure Queue 스토리지에 새 메시지가 나타날 때마다 Azure Table Storage에 새 행을 쓰려는 경우를 가정하겠습니다. 이 시나리오는 Azure Queue 스토리지 트리거 및 Azure Table Storage 출력 바인딩을 사용하여 구현할 수 있습니다. 
 
@@ -87,7 +86,7 @@ public class Person
 
 ## <a name="javascript-example"></a>JavaScript 예제
 
-동일 *function.json* JavaScript 함수를 사용 하 여 파일을 사용할 수 있습니다.
+동일한 *함수인 json* 파일은 JavaScript 함수와 함께 사용할 수 있습니다.
 
 ```javascript
 // From an incoming queue message that is a JSON object, add fields and write to Table Storage
@@ -135,7 +134,7 @@ public class Person
 }
 ```
 
-이제 Azure 큐에 의해 트리거되는 Azure Table storage에 데이터를 출력 하는 작업 함수입니다.
+이제 Azure 큐에서 트리거되고 Azure Table storage에 데이터를 출력 하는 작동 하는 함수가 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

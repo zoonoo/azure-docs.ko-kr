@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: bb9281af16dc8e4b4544cb18a2aae51aa3d9be27
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: e506259b980c0aaf0300c0bb0a1aa0803171643a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69576278"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098947"
 ---
 # <a name="create-and-manage-environments-for-training-and-deployment"></a>학습 및 배포를 위한 환경 만들기 및 관리
 
@@ -95,7 +95,7 @@ myenv = Environment.from_existing_conda_environment(name = "myenv",
 
 ### <a name="automatically-create-environments"></a>자동으로 환경 만들기
 
-[Submit ()]() 메서드를 사용 하 여 학습 실행을 제출 하 여 환경을 자동으로 만듭니다. 학습 실행을 제출할 때 새 환경을 빌드하는 데 필요한 종속성의 크기에 따라 몇 분 정도 걸릴 수 있습니다. 
+Submit () 메서드를 사용 하 여 학습 실행을 제출 하 여 환경을 자동으로 만듭니다. 학습 실행을 제출할 때 새 환경을 빌드하는 데 필요한 종속성의 크기에 따라 몇 분 정도 걸릴 수 있습니다. 
 
 실행을 제출 하기 전에 실행 구성에서 환경을 지정 하지 않으면 기본 환경이 만들어집니다.
 

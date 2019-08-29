@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5182b621779cf31f3c7da99674ab24fe6efe702d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b912743c758f33173b568944341fab4e815300ed
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60835263"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099978"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드용 Azure Virtual Machines DBMS 배포
 
@@ -367,18 +366,18 @@ NTFS로 포맷된 디스크를 사용하는 하나의 Oracle 인스턴스만 지
 
 Azure 페이지 Blob 스토리지 또는 Managed Disks를 기준으로 하는 디스크를 사용하는 경우 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에 제공된 설명은 Oracle Database를 사용한 배포에도 적용됩니다.
 
-Azure 디스크에 대한 IOPS 처리량의 할당량이 존재합니다. 이 개념은 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에서 설명하고 있습니다. 정확한 할당량은 사용하는 VM 유형에 따라 달라집니다. VM 유형과 해당 할당량 목록은 [Azure의 Windows Virtual Machines 크기][virtual-machines-sizes-windows]에서 확인할 수 있습니다.
+Azure 디스크에 대한 IOPS 처리량의 할당량이 존재합니다. 이 개념은 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에서 설명하고 있습니다. 정확한 할당량은 사용하는 VM 유형에 따라 달라집니다. [Azure의 Windows 가상 머신에 대 한 크기][virtual-machines-sizes-windows]에서 할당량을 포함 하는 VM 유형 목록을 찾을 수 있습니다.
 
 지원되는 Azure VM 유형을 식별하려면 SAP Note [1928533]을 참조하세요.
 
 최소 구성은 다음과 같습니다. 
 
-| 구성 요소 | 디스크 | 구성 | 스토리지 풀 |
+| 구성 요소 | 디스크 | 캐싱 | 스토리지 풀 |
 | --- | ---| --- | --- |
 | \oracle\<SID>\origlogaA & mirrlogB | Premium | 없음 | 필요하지 않음 |
 | \oracle\<SID>\origlogaB & mirrlogA | Premium | 없음 | 필요하지 않음 |
 | \oracle\<SID>\sapdata1...n | Premium | 읽기 전용 | 사용할 수 있음 |
-| \oracle\<SID>\oraarch | Standard | 없음 | 필요하지 않음 |
+| \oracle\<SID>\oraarch | 표준 | 없음 | 필요하지 않음 |
 | Oracle 홈, saptrace, ... | OS 디스크 | | 필요하지 않음 |
 
 
@@ -386,7 +385,7 @@ Azure 디스크에 대한 IOPS 처리량의 할당량이 존재합니다. 이 �
 
 성능 구성은 다음과 같습니다.
 
-| 구성 요소 | 디스크 | 구성 | 스토리지 풀 |
+| 구성 요소 | 디스크 | 캐싱 | 스토리지 풀 |
 | --- | ---| --- | --- |
 | \oracle\<SID>\origlogaA | Premium | 없음 | 사용할 수 있음  |
 | \oracle\<SID>\origlogaB | Premium | 없음 | 사용할 수 있음 |
@@ -419,7 +418,7 @@ Azure M 시리즈 VM의 경우 Azure Write Accelerator를 사용하면 Azure Pre
 
 Azure의 Oracle 데이터베이스 재해 복구에 대한 자세한 내용은 [Azure 환경의 Oracle Database 12c 데이터베이스 재해 복구](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery)를 참조하세요.
 
-### <a name="accelerated-networking"></a>가속된 네트워킹
+### <a name="accelerated-networking"></a>가속화된 네트워킹
 Windows의 Oracle 배포에서는 [Azure 가속 네트워킹](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/)에 설명된 대로 가속 네트워킹을 사용하는 것이 좋습니다. 또한 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)도 고려하세요. 
 ### <a name="other"></a>기타
 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에서는 Azure 가용성 집합 및 SAP 모니터링을 비롯하여 Oracle Database를 사용하는 VM 배포와 관련된 기타 중요 개념을 설명합니다.
@@ -449,7 +448,7 @@ Oracle Linux UEK 커널의 경우 [Azure 프리미엄 SSD](https://docs.microsof
 
 [Azure Managed Disks](../../windows/managed-disks-overview.md)를 사용하는 것이 좋습니다. 또한 Oracle Database 배포에는 [Azure 프리미엄 SSD](../../windows/disks-types.md)를 사용하는 것이 좋습니다.
 
-네트워크 드라이브 또는 Azure 파일 서비스와 같은 원격 공유는 Oracle Database 파일에 대해 지원되지 않습니다. 자세한 내용은 
+네트워크 드라이브 또는 Azure 파일 서비스와 같은 원격 공유는 Oracle Database 파일에 대해 지원되지 않습니다. 자세한 내용은 다음 항목을 참조하세요. 
 
 - [Microsoft Azure 파일 서비스 소개](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 
@@ -457,18 +456,18 @@ Oracle Linux UEK 커널의 경우 [Azure 프리미엄 SSD](https://docs.microsof
 
 Azure 페이지 Blob 스토리지 또는 Managed Disks를 기준으로 하는 디스크를 사용하는 경우 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에 제공된 설명은 Oracle Database를 사용한 배포에도 적용됩니다.
 
- Azure 디스크에 대한 IOPS 처리량의 할당량이 존재합니다. 이 개념은 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에서 설명하고 있습니다. 정확한 할당량은 사용되는 VM 유형에 따라 다릅니다. VM 유형과 해당 할당량 목록은 [Azure의 Linux Virtual Machines 크기][virtual-machines-sizes-linux]를 참조하세요.
+ Azure 디스크에 대한 IOPS 처리량의 할당량이 존재합니다. 이 개념은 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에서 설명하고 있습니다. 정확한 할당량은 사용되는 VM 유형에 따라 다릅니다. VM 유형 및 할당량의 목록은 [Azure에서 Linux 가상 머신에 대 한 크기][virtual-machines-sizes-linux]를 참조 하세요.
 
 지원되는 Azure VM 유형을 식별하려면 SAP Note [1928533]을 참조하세요.
 
 최소 구성
 
-| 구성 요소 | 디스크 | 구성 | 제거* |
+| 구성 요소 | 디스크 | 캐싱 | 제거* |
 | --- | ---| --- | --- |
-| /oracle/\<SID > / origlogaA & mirrlogB | Premium | 없음 | 필요하지 않음 |
-| /oracle/\<SID > / origlogaB & mirrlogA | Premium | 없음 | 필요하지 않음 |
-| /oracle/\<SID>/sapdata1...n | Premium | 읽기 전용 | 사용할 수 있음 |
-| /oracle/\<SID > / oraarch | Standard | 없음 | 필요하지 않음 |
+| /oracle/\<SID >/origlogaA & mirrlogB | Premium | 없음 | 필요하지 않음 |
+| /oracle/\<SID >/origlogaB & mirrlogA | Premium | 없음 | 필요하지 않음 |
+| /oracle/\<SID >/sapdata1... 개의 | Premium | 읽기 전용 | 사용할 수 있음 |
+| /oracle/\<SID >/oraarch | 표준 | 없음 | 필요하지 않음 |
 | Oracle 홈, saptrace, ... | OS 디스크 | | 필요하지 않음 |
 
 *제거: RAID0를 사용한 LVM 스트라이프 또는 MDADM
@@ -477,14 +476,14 @@ Oracle의 온라인 다시 실행 로그를 호스팅하기 위한 디스크 선
 
 성능 구성
 
-| 구성 요소 | 디스크 | 구성 | 제거* |
+| 구성 요소 | 디스크 | 캐싱 | 제거* |
 | --- | ---| --- | --- |
-| /oracle/\<SID>/origlogaA | Premium | 없음 | 사용할 수 있음  |
+| /oracle/\<SID >/origlogaA | Premium | 없음 | 사용할 수 있음  |
 | /oracle/\<SID>/origlogaB | Premium | 없음 | 사용할 수 있음 |
 | /oracle/\<SID>/mirrlogAB | Premium | 없음 | 사용할 수 있음 |
 | /oracle/\<SID>/mirrlogBA | Premium | 없음 | 사용할 수 있음 |
-| /oracle/\<SID>/sapdata1...n | Premium | 읽기 전용 | 권장  |
-| /oracle/\<SID > / sapdata(n+1) * | Premium | 없음 | 사용할 수 있음 |
+| /oracle/\<SID >/sapdata1... 개의 | Premium | 읽기 전용 | 권장  |
+| /oracle/\<SID > 형식이 며/sapdata (n + 1) * | Premium | 없음 | 사용할 수 있음 |
 | /oracle/\<SID>/oraarch* | Premium | 없음 | 필요하지 않음 |
 | Oracle 홈, saptrace, ... | OS 디스크 | 필요하지 않음 |
 
@@ -513,7 +512,7 @@ Azure M 시리즈 VM의 경우, Azure Write Accelerator를 사용하면 Azure Pr
 
 Azure의 Oracle 데이터베이스에 대한 재해 복구 측면은 [Azure 환경의 Oracle Database 12c 데이터베이스 재해 복구](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery) 문서에 나와 있습니다.
 
-### <a name="accelerated-networking"></a>가속된 네트워킹
+### <a name="accelerated-networking"></a>가속화된 네트워킹
 Oracle Linux에서 Azure 가속 네트워킹에 대한 지원은 Oracle Linux 7 업데이트 5(Oracle Linux 7.5)와 함께 제공됩니다. 최신 Oracle Linux 7.5 릴리스로 업그레이드할 수 없는 경우 Oracle UEK 커널 대신 RHCK(RedHat Compatible Kernel)를 사용하여 해결할 수 있습니다. 
 
 Oracle Linux 내에서 RHEL 커널을 사용하는 것은 SAP Note [#1565179](https://launchpad.support.sap.com/#/notes/1565179)에 따라 지원됩니다. Azure 가속 네트워킹의 경우 최소 RHCKL 커널 릴리스는 3.10.0-862.13.1.el7이어야 합니다. [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/)과 함께 Oracle Linux의 UEK 커널을 사용하는 경우 Oracle UEK 커널 버전 5를 사용해야 합니다.

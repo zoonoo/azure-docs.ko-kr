@@ -3,15 +3,15 @@ title: 실제 예제를 사용하여 Azure Cosmos DB에서 데이터를 모델�
 description: Azure Cosmos DB Core API를 사용하여 실제 예제를 모델링하고 분할하는 방법을 알아봅니다.
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: 4bb99c8cbec88d23f9297dcbe8b13cc69cd0006c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 55290b88fedabe59417ea49f1cd3c3bc9961678d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070677"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093425"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>실제 예제를 사용하여 Azure Cosmos DB에서 데이터를 모델링하고 분할하는 방법
 
@@ -437,7 +437,7 @@ function updateUsernames(userId, username) {
       "creationDate": "<post-creation-date>"
     }
 
-다음 사항에 유의하세요.
+다음 사항에 유의합니다.
 
 - 사용자와 게시물을 구분하기 위해 `type` 필드를 사용자 항목에 도입했습니다.
 - `userId` 필드도 사용자 항목에 추가되었습니다. 이 필드는 `id` 필드와 중복되지만, 이제 `users` 컨테이너가 `userId`(앞서와 같이 `id`가 아님)로 분할되므로 필요합니다.

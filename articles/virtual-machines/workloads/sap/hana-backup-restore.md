@@ -7,19 +7,18 @@ author: saghorpa
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 27f7a9b576263b97c251306c9817b85c31041739
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 705dfb0b62327d9675fe9bf3e5860b1396e2fab9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312237"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101319"
 ---
 # <a name="backup-and-restore"></a>Backup 및 Restore 메서드
 
@@ -148,7 +147,7 @@ HANA Large Instance 테 넌 트의 저장소 스냅숏 인터페이스에 대 �
 
 ### <a name="step-4-create-an-sap-hana-user-account"></a>4단계: SAP HANA 사용자 계정 만들기
 
-SAP HANA 스냅숏 만들기를 시작 하려면 저장소 스냅숏 스크립트에서 사용할 수 있는 SAP HANA 사용자 계정을 만듭니다. 이를 위해 SAP HANA Studio 내에 SAP HANA 사용자 계정을 만듭니다. 사용자는 MDC DB 아래에 생성 *되 고 MDC* 의 SID 데이터베이스 아래에 생성 되어야 합니다. 단일 컨테이너 환경에서 사용자는 테 넌 트 데이터베이스에 만들어집니다. 이 계정에는 **백업 관리자** 및 **카탈로그 읽기** 권한이 있어야 합니다. 
+SAP HANA 스냅숏 만들기를 시작 하려면 저장소 스냅숏 스크립트에서 사용할 수 있는 SAP HANA 사용자 계정을 만듭니다. 이를 위해 SAP HANA Studio 내에 SAP HANA 사용자 계정을 만듭니다. 사용자는 MDC DB 아래에 생성 되 고 MDC 의 SID 데이터베이스 아래에 생성 되어야 합니다. 단일 컨테이너 환경에서 사용자는 테 넌 트 데이터베이스에 만들어집니다. 이 계정에는 **백업 관리자** 및 **카탈로그 읽기** 권한이 있어야 합니다. 
 
 사용자 계정을 설정 하 고 사용 하려면 [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.1)에서 "SAP HANA 통신 사용"을 참조 하세요.
 

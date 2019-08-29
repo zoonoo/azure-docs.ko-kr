@@ -6,16 +6,15 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: glenga
-ms.openlocfilehash: c07a42349fbd81a46b1b7cd9bcad1978f891a6b2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 837e29731b617fcb8da95b89668403638c4d049a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60733774"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70087396"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Azure Event Grid에 게시하는 Durable Functions(미리 보기)
 
@@ -29,13 +28,13 @@ ms.locfileid: "60733774"
 
 * **장기 실행 백그라운드 작업**: 장기 실행 백그라운드 작업에 Durable Functions를 사용하는 경우 이 기능을 사용하면 현재 상태를 알 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * Durable Functions 프로젝트에서 [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) 1.3.0-rc 이상을 설치합니다.
 * [Azure Storage 에뮬레이터](https://docs.microsoft.com/azure/storage/common/storage-use-emulator)를 설치합니다.
 * [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)를 설치하거나 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)을 사용합니다.
 
-## <a name="create-a-custom-event-grid-topic"></a>사용자 지정 event grid 항목 만들기
+## <a name="create-a-custom-event-grid-topic"></a>사용자 지정 event grid 토픽 만들기
 
 Durable Functions에서 이벤트를 보내기 위한 event grid 토픽을 만듭니다. 다음 지침에서는 Azure CLI를 사용하여 토픽을 만드는 방법을 보여 줍니다. PowerShell 또는 Azure Portal을 사용하여 수행하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
@@ -44,7 +43,7 @@ Durable Functions에서 이벤트를 보내기 위한 event grid 토픽을 만�
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-`az group create` 명령을 사용하여 리소스 그룹을 만듭니다. 현재 Azure Event Grid는 모든 영역을 지원 하지 않습니다. 지원 되는 지역에 대 한 내용은 참조 하세요. 합니다 [Azure Event Grid 개요](https://docs.microsoft.com/azure/event-grid/overview)합니다.
+`az group create` 명령을 사용하여 리소스 그룹을 만듭니다. 현재 Azure Event Grid는 모든 지역을 지원 하지 않습니다. 지원 되는 지역에 대 한 자세한 내용은 [Azure Event Grid 개요](https://docs.microsoft.com/azure/event-grid/overview)를 참조 하세요.
 
 ```bash
 az group create --name eventResourceGroup --location westus2
@@ -52,7 +51,7 @@ az group create --name eventResourceGroup --location westus2
 
 ### <a name="create-a-custom-topic"></a>사용자 지정 토픽 만들기
 
-Event grid 토픽에 이벤트를 게시할 사용자 정의 엔드포인트를 제공 합니다. `<topic_name>`을 토픽의 고유한 이름으로 바꿉니다. 토픽 이름은 DNS 항목이 되므로 고유해야 합니다.
+Event grid 토픽은 이벤트를 게시 하는 사용자 정의 끝점을 제공 합니다. `<topic_name>`을 토픽의 고유한 이름으로 바꿉니다. 토픽 이름은 DNS 항목이 되므로 고유해야 합니다.
 
 ```bash
 az eventgrid topic create --name <topic_name> -l westus2 -g eventResourceGroup
@@ -89,7 +88,7 @@ Durable Functions 프로젝트에서 `host.json` 파일을 찾습니다.
 }
 ```
 
-Azure Event Grid 구성 가능한 속성에서 찾을 수 있습니다 합니다 [host.json 설명서](../functions-host-json.md#durabletask)합니다. 구성한 후의 `host.json` 파일을 함수 앱 수명 주기 이벤트를 event grid 토픽을 보냅니다. 로컬 및 Azure에서 함수 앱을 실행할 때 작동 합니다. ' '
+가능한 Azure Event Grid 구성 속성은 [호스트의 json 설명서](../functions-host-json.md#durabletask)에서 찾을 수 있습니다. `host.json` 파일을 구성한 후 함수 앱은 event grid 토픽에 수명 주기 이벤트를 보냅니다. 로컬 및 Azure에서 모두 함수 앱을 실행 하는 경우에 작동 합니다. ' ' '
 
 함수 앱 및 `local.setting.json`에서 토픽 키에 대한 앱 설정을 지정합니다. 다음 JSON은 로컬 디버깅에 대한 `local.settings.json` 샘플입니다. `<topic_key>`를 토픽 키로 바꿉니다.  
 
@@ -108,7 +107,7 @@ Azure Event Grid 구성 가능한 속성에서 찾을 수 있습니다 합니다
 
 ## <a name="create-functions-that-listen-for-events"></a>이벤트를 수신 대기하는 함수 만들기
 
-함수 앱을 만듭니다. Event grid 토픽와 동일한 지역에서 찾습니다 하는 것이 좋습니다.
+함수 앱을 만듭니다. Event grid 토픽과 동일한 지역에서이를 찾는 것이 가장 좋습니다.
 
 ### <a name="create-an-event-grid-trigger-function"></a>Event grid 트리거 함수 만들기
 
@@ -138,11 +137,11 @@ public static void Run(JObject eventGridEvent, ILogger log)
 }
 ```
 
-`Add Event Grid Subscription`을(를) 선택합니다. 이 작업에는 사용자가 만든 event grid 토픽에 대 한 event grid 구독을 추가 합니다. 자세한 내용은 [Azure Event Grid의 개념](https://docs.microsoft.com/azure/event-grid/concepts)을 참조하세요.
+`Add Event Grid Subscription`을(를) 선택합니다. 이 작업은 사용자가 만든 event grid 토픽에 대 한 event grid 구독을 추가 합니다. 자세한 내용은 [Azure Event Grid의 개념](https://docs.microsoft.com/azure/event-grid/concepts)을 참조하세요.
 
 ![Event Grid 트리거 링크 선택](./media/durable-functions-event-publishing/eventgrid-trigger-link.png)
 
-**토픽 종류**에 대해 `Event Grid Topics`를 선택합니다. Event grid 토픽에 대해 만든 리소스 그룹을 선택 합니다. Event grid 토픽의 인스턴스를 선택 합니다. `Create`를 누릅니다.
+**토픽 종류**에 대해 `Event Grid Topics`를 선택합니다. Event grid 토픽에 대해 만든 리소스 그룹을 선택 합니다. 그런 다음 event grid 토픽의 인스턴스를 선택 합니다. `Create`를 누릅니다.
 
 ![Event Grid 구독을 만듭니다.](./media/durable-functions-event-publishing/eventsubscription.png)
 

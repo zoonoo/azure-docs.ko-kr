@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: snehaa
-ms.openlocfilehash: 96fde6ade45bb92036fbc9ac803eebd50640bf85
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: af95ad892b62cb5d8bece554d6026525d9279777
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013441"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102883"
 ---
 # <a name="azure-migrate-frequently-asked-questions-faq"></a>Azure Migrate: 질문과 대답(FAQ)
 
@@ -157,7 +157,7 @@ Azure에서 평가를 만들 때 (성능 기간 및 성능 기록 백분위 수 
 
 각 컴퓨터에 다음 에이전트를 설치 해야 합니다.
 - [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows).
-- [종속성 에이전트](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure).
+- [종속성 에이전트](../azure-monitor/platform/agents-overview.md#dependency-agent).
 - 인터넷에 연결 되지 않은 컴퓨터가 있는 경우 Log Analytics 게이트웨이를 다운로드 하 여 설치 해야 합니다.
 
 종속성 시각화를 사용 하지 않는 경우 이러한 에이전트가 필요 하지 않습니다.

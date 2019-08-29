@@ -8,18 +8,17 @@ tags: azure-resource-manager
 keywords: dsc
 ms.assetid: b5402e5a-1768-4075-8c19-b7f7402687af
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: 1bcec37e7642ae0cb5bd68de1426c8cc62085d38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 458ba61adba294af99f2265e4907e874ed3a6956
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61475527"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084588"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Desired State Configuration 확장과 Azure Resource Manager 템플릿
 
@@ -254,7 +253,7 @@ DSC 확장 기본 구성 스크립트를 사용하여 다음 표에 나열되어
 
 다음 예제는 [DSC 확장 처리기 개요](dsc-overview.md)에서 가져온 것입니다.
 이 예제에서는 cmdlet 대신 Resource Manager 템플릿을 사용하여 확장을 배포합니다.
-IisInstall.ps1 구성을 저장,.zip 파일에 넣습니다 (예: `iisinstall.zip`), 고 액세스할 수 있는 URL에 파일을 업로드 합니다.
+Iisinstall. p s 1 구성을 저장 하 고 .zip 파일 (예: `iisinstall.zip`)에 배치한 다음 액세스 가능한 URL에 파일을 업로드 합니다.
 이 예제에서는 Azure Blob Storage를 사용하지만 임의의 위치에서 .zip 파일을 다운로드할 수 있습니다.
 
 Resource Manager 템플릿에서 다음 코드는 VM에 올바른 파일을 다운로드하고 적절한 PowerShell 함수를 실행하도록 지시합니다.
@@ -357,25 +356,25 @@ Resource Manager 템플릿에서 다음 코드는 VM에 올바른 파일을 다�
 
 **문제**: 제공 된 값이 허용 되지 않습니다.
 
-**솔루션**: 유효한 값에 잘못 된 값을 변경 합니다.
+**해결 방법**: 잘못 된 값을 유효한 값으로 변경 합니다.
 자세한 내용은 [세부 정보](#details)의 표를 참조하세요.
 
-### <a name="invalid-url"></a>잘못된 URL
+### <a name="invalid-url"></a>URL이 잘못되었습니다.
 
 “ConfigurationData.url이 ‘{0}’입니다. 유효한 URL이 아닙니다.” “DataBlobUri가 ‘{0}’입니다. 유효한 URL이 아닙니다.” “Configuration.url이 ‘{0}’입니다. 유효한 URL이 아닙니다."
 
-**문제**: 제공 된 URL이 올바르지 않습니다.
+**문제**: 제공 된 URL이 잘못 되었습니다.
 
-**솔루션**: 모든 제공 된 Url을 확인 합니다.
+**해결 방법**: 제공 된 모든 Url을 확인 합니다.
 모든 URL이 원격 컴퓨터의 확장 기능에서 액세스할 수 있는 올바른 위치인지 확인합니다.
 
 ### <a name="invalid-registrationkey-type"></a>잘못된 RegistrationKey 유형
 
 “PSCredential 유형의 매개 변수 RegistrationKey에 유효하지 않은 유형입니다.”
 
-**문제**: 합니다 *RegistrationKey* protectedSettings.configurationArguments에서 값은 PSCredential 이외의 모든 형식을 제공할 수 없습니다.
+**문제**: ProtectedSettings 인수의 *Registrationkey* 값을 PSCredential 이외의 형식으로 제공할 수 없습니다.
 
-**솔루션**: RegistrationKey protectedSettings.configurationArguments 출품작 다음 형식을 사용 하 여 PSCredential 형식 변경:
+**해결 방법**: 다음 형식을 사용 하 여 RegistrationKey의 protectedSettings 항목을 PSCredential 형식으로 변경 합니다.
 
 ```json
 "configurationArguments": {
@@ -390,18 +389,18 @@ Resource Manager 템플릿에서 다음 코드는 VM에 올바른 파일을 다�
 
 “잘못된 configurationArguments 형식 {0}입니다.”
 
-**문제**: 합니다 *ConfigurationArguments* 속성을 확인할 수 없습니다는 **해시 테이블** 개체입니다.
+**문제**: *Configurationarguments* 속성을 **해시 테이블** 개체로 확인할 수 없습니다.
 
-**솔루션**: 확인 프로그램 *ConfigurationArguments* 속성을 **해시 테이블**합니다.
+**해결 방법**: *Configurationarguments* 속성을 **해시 테이블로**만듭니다.
 위의 예제에 제공된 형식을 따릅니다. 따옴표, 쉼표 및 중괄호를 확인합니다.
 
 ### <a name="duplicate-configurationarguments"></a>중복 ConfigurationArguments
 
 “공용 및 보호된 configurationArguments에 중복 인수 ‘{0}’이 있습니다.”
 
-**문제**: *ConfigurationArguments* 공용 설정의 하며 *ConfigurationArguments* 보호 설정에 동일한 이름 가진 속성입니다.
+**문제**: 공용 설정의 *configurationarguments* 및 보호 된 설정의 *configurationarguments* 에 동일한 이름의 속성이 있습니다.
 
-**솔루션**: 중복 된 속성 중 하나를 제거 합니다.
+**해결 방법**: 중복 된 속성 중 하나를 제거 합니다.
 
 ### <a name="missing-properties"></a>누락된 속성
 
@@ -417,7 +416,7 @@ Resource Manager 템플릿에서 다음 코드는 VM에 올바른 파일을 다�
 
 “protectedSettings.ConfigurationDataUrlSasToken을 사용하려면 settings.configurationData.url을 지정해야 합니다.”
 
-**문제**: 정의 된 속성에는 누락 된 다른 속성을 해야 합니다.
+**문제**: 정의 된 속성에 누락 된 다른 속성이 필요 합니다.
 
 **해결 방법**:
 

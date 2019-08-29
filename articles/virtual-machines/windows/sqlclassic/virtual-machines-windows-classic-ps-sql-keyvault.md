@@ -9,19 +9,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: ab8d41a7-1971-4032-ab71-eb435c455dc1
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/17/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e20e2a094e1fd88dfc2a25b586dc6c894f92b418
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 96d2dc567a4ccc96d33c2ccac233268a5b9148e4
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62108480"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100348"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Azure Virtual Machines에서 SQL Server에 대한 Azure Key Vault 통합 구성(클래식)
 > [!div class="op_single_selector"]
@@ -51,7 +50,7 @@ PowerShell을 사용하여 Azure Key Vault 통합을 구성합니다. 다음 섹
 ### <a name="understand-the-input-parameters"></a>입력 매개 변수 이해
 다음 표에는 다음 섹션에는 PowerShell 스크립트를 실행하는 데 필요한 매개 변수가 나열되어 있습니다.
 
-| 매개 변수 | 설명 | 예 |
+| 매개 변수 | Description | 예제 |
 | --- | --- | --- |
 | **$akvURL** |**키 자격 증명 모음 URL** |"https:\//contosokeyvault.vault.azure.net/" |
 | **$spName** |**서비스 주체 이름** |"fde2b411-33d5-4e11-af04eb07b669ccf2" |

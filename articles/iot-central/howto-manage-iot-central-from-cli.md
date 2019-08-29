@@ -8,18 +8,18 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: dff15deaefba728bad76965a186dd2f245ea5854
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: 021341406f1a7269aadf18eb3a748e539cbb5bf5
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019847"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70086954"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Azure CLI에서 IoT Central 관리
 
 [!INCLUDE [iot-central-selector-manage](../../includes/iot-central-selector-manage.md)]
 
-IoT Central [응용 프로그램 관리자](https://aka.ms/iotcentral) 페이지에서 IoT Central 응용 프로그램을 만들고 관리 하는 대신 [Azure CLI](/cli/azure/) 를 사용 하 여 응용 프로그램을 관리할 수 있습니다.
+[Azure IoT Central application manager](https://aka.ms/iotcentral) 웹 사이트에서 IoT Central 응용 프로그램을 만들고 관리 하는 대신 [Azure CLI](/cli/azure/) 를 사용 하 여 응용 프로그램을 관리할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -50,7 +50,7 @@ az iotcentral app create \
 
 이러한 명령은 먼저 응용 프로그램에 대 한 미국 동부 지역에 리소스 그룹을 만듭니다. 다음 표에서는 **az iotcentral app create** 명령에 사용 되는 매개 변수에 대해 설명 합니다.
 
-| 매개 변수         | Description |
+| 매개 변수         | 설명 |
 | ----------------- | ----------- |
 | resource-group    | 애플리케이션을 포함하는 리소스 그룹입니다. 리소스 그룹이 구독에 이미 있어야 합니다. |
 | 위치          | 기본적으로이 명령은 리소스 그룹의 위치를 사용 합니다. 현재 **미국 동부**, **미국 서부**, **북유럽** 또는 **유럽 서부** 지역에서 IoT Central 애플리케이션을 만들 수 있습니다. |

@@ -10,17 +10,16 @@ ms.assetid: ''
 ms.service: batch
 ms.workload: ''
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: fd88f8e9b32b3fe5a0d7ab0caf233098ea19fde0
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: f894a7438c56c3830eb62c516447195f10fc3b76
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323098"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094663"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Azure Batch 풀의 컴퓨팅 노드에 대한 VM 크기 선택
 
@@ -74,7 +73,7 @@ Cloud Service 구성의 Batch 풀은 다음을 **제외한** 모든 [Cloud Servi
 
 | VM 시리즈  | 지원되지 않는 크기 |
 |------------|-------------------|
-| A 시리즈   | 아주 작음       |
+| A 시리즈   | 매우 작음       |
 | Av2 시리즈 | Standard_A1_v2, Standard_A2_v2, Standard_A2m_v2 |
 
 ## <a name="size-considerations"></a>크기 고려 사항

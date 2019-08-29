@@ -10,16 +10,15 @@ tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: roiyz
-ms.openlocfilehash: e72536cc6f9ec3b94016d16de8502e70bc7107aa
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 0ed042b3b004fd43bc03304c3042c2ac3e1a6482
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706097"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092563"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Linux 및 Windows에 대한 Chef VM 확장
 
@@ -31,7 +30,7 @@ Chef Software는 실제 및 가상 서버 구성의 관리를 활성화하는 Li
 
 Chef VM 확장은 Azure의 모든 [확장 지원 OS](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems)에 지원됩니다.
 
-### <a name="internet-connectivity"></a>인터넷 연결
+### <a name="internet-connectivity"></a>인터넷에 연결
 
 Chef VM 확장은 CDN(콘텐츠 배달 네트워크)에서 Chef 클라이언트 페이로드를 검색하기 위해 대상 가상 머신을 인터넷에 연결해야 합니다.  
 
@@ -105,7 +104,7 @@ Chef VM 확장에 대한 스키마를 보여주는 JSON은 다음과 같습니�
 
 Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다. 템플릿은 [실행 목록](https://docs.chef.io/run_lists.html)에서 정의된 대로 하나 이상의 가상 머신을 배포하고, Chef 클라이언트를 설치하고, Chef 서버에 연결하고, 서버에서 초기 구성을 수행하는 데 사용할 수 있습니다.
 
-Chef VM 확장을 포함 하는 샘플 Resource Manager 템플릿을 찾을 수 있습니다 합니다 [Azure 빠른 시작 갤러리](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm)합니다.
+Chef VM 확장을 포함 하는 샘플 리소스 관리자 템플릿은 [Azure 빠른 시작 갤러리](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm)에서 찾을 수 있습니다.
 
 가상 머신 확장에 대한 JSON 구성은 가상 머신 리소스 내에 중첩되거나 루트 또는 최상위 수준의 Resource Manager JSON 템플릿에 배치될 수 있습니다. JSON 구성의 배치는 리소스 이름 및 형식 값에 영향을 줍니다. 자세한 내용은 [자식 리소스의 이름 및 형식 설정](../../azure-resource-manager/resource-manager-template-child-resource.md)을 참조하세요.
 

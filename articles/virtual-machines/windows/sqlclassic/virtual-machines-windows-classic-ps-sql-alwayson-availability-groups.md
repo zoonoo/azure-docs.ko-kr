@@ -9,23 +9,22 @@ editor: ''
 tags: azure-service-management
 ms.assetid: a4e2f175-fe56-4218-86c7-a43fb916cc64
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: c089d54544217cf72f81a2535ceede50d25b9b61
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 89f731062ce46969c73f745d62b289b3b3483d8c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60362189"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100365"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>PowerShell을 사용하여 Azure VM에 Always On 가용성 그룹 구성
 > [!div class="op_single_selector"]
-> * [클래식: UI](../classic/portal-sql-alwayson-availability-groups.md)
-> * [클래식: PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
+> * [기존 UI](../classic/portal-sql-alwayson-availability-groups.md)
+> * [기존 PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
 <br/>
 
 시작하기 전에 이제 Azure Resource Manager 모델에서 이 작업을 완료할 수 있는지 확인하는 것이 좋습니다. 새 배포에는 Azure Resource Manager 모델을 사용하는 것이 좋습니다. [Azure Virtual Machines의 SQL Server Always On 가용성 그룹](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md)을 참조하세요.
@@ -239,7 +238,7 @@ Azure Virtual Machines(VM)는 데이터베이스 관리자가 고가용성 SQL S
         $acl.AddAccessRule($ace1)
         Set-Acl -Path "DC=corp,DC=contoso,DC=com" -AclObject $acl
 
-    위에서 지정한 GUID는 컴퓨터 개체 유형의 GUID입니다. 장애 조치(Failover) 클러스터에서 Active Directory 개체를 만들기 위해 **CORP\Install** 계정에는 **모든 속성 읽기** 및 **컴퓨터 개체 만들기** 권한이 필요합니다. **모든 속성 읽기** 권한은 이미 CORP\Install에 기본적으로 부여되어 있으므로 명시적으로 부여하지 않아도 됩니다. 장애 조치 클러스터를 만드는 데 필요한 사용 권한에 대 한 자세한 내용은 참조 하세요. [장애 조치 클러스터 단계별 가이드: Active Directory에서 계정 구성](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx)합니다.
+    위에서 지정한 GUID는 컴퓨터 개체 유형의 GUID입니다. 장애 조치(Failover) 클러스터에서 Active Directory 개체를 만들기 위해 **CORP\Install** 계정에는 **모든 속성 읽기** 및 **컴퓨터 개체 만들기** 권한이 필요합니다. **모든 속성 읽기** 권한은 이미 CORP\Install에 기본적으로 부여되어 있으므로 명시적으로 부여하지 않아도 됩니다. 장애 조치 (failover) 클러스터 [를 만드는 데 필요한 권한에 대 한 자세한 내용은 장애 조치 (failover) 클러스터 단계별 가이드: Active Directory](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx)에서 계정 구성
 
     Active Directory 및 사용자 개체 구성을 완료하면 2개의 SQL Server VM이 생성되고 이 도메인에 연결됩니다.
 
@@ -378,17 +377,17 @@ Azure Virtual Machines(VM)는 데이터베이스 관리자가 고가용성 SQL S
     SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL Server가 설치되어 있습니다.
 
 ## <a name="initialize-the-failover-cluster-vms"></a>장애 조치(Failover) 클러스터 VM 초기화
-이 섹션에서는 장애 조치(Failover) 클러스터 및 SQL Server 설치에 사용할 3개의 서버를 수정해야 합니다. 구체적으로 살펴보면 다음과 같습니다.
+이 섹션에서는 장애 조치(Failover) 클러스터 및 SQL Server 설치에 사용할 3개의 서버를 수정해야 합니다. 구체적으로는 다음과 같습니다.
 
-* 모든 서버: 설치 해야 합니다 **장애 조치 클러스터링** 기능입니다.
-* 모든 서버: 추가할 **CORP\Install** 컴퓨터로 **관리자**합니다.
-* ContosoSQL1 및 contososql2만 해당: 추가 해야 **CORP\Install** 으로 **sysadmin** 기본 데이터베이스의 역할입니다.
-* ContosoSQL1 및 contososql2만 해당: 추가할 **NT AUTHORITY\System** 다음 권한이 있는 로그인으로:
+* 모든 서버: **장애 조치 (Failover) 클러스터링** 기능을 설치 해야 합니다.
+* 모든 서버: 컴퓨터 **관리자 권한**으로 **CORP\Install** 를 추가 해야 합니다.
+* ContosoSQL1 및 ContosoSQL2만 해당: **CORP\Install** 를 기본 데이터베이스의 **sysadmin** 역할로 추가 해야 합니다.
+* ContosoSQL1 및 ContosoSQL2만 해당: **NT** 권한 부여를 다음 권한으로 로그인으로 추가 해야 합니다.
 
   * 가용성 그룹 변경
   * SQL 연결
   * 서버 상태 보기
-* ContosoSQL1 및 contososql2만 해당: 합니다 **TCP** 프로토콜은 이미 SQL Server VM에서 사용 하도록 설정 됩니다. 그래도 SQL Server의 원격 액세스를 위해 방화벽을 열어야 합니다.
+* ContosoSQL1 및 ContosoSQL2만 해당: SQL Server VM에서 **TCP** 프로토콜을 이미 사용 하도록 설정 했습니다. 그래도 SQL Server의 원격 액세스를 위해 방화벽을 열어야 합니다.
 
 이제 시작할 준비가 되었습니다. **ContosoQuorum**부터 다음 단계를 수행합니다.
 
