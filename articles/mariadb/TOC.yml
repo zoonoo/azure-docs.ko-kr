@@ -89,6 +89,10 @@
           href: concepts-read-replicas.md
 - name: 방법 가이드
   items:
+    - name: 서버 관리
+      items:
+        - name: Azure portal
+          href: howto-create-manage-server-portal.md
     - name: 방화벽 규칙
       items:
         - name: Azure portal
@@ -123,6 +127,8 @@
       items:
         - name: Azure portal
           href: howto-auto-grow-storage-portal.md
+        - name: Azure CLI
+          href: howto-auto-grow-storage-cli.md
     - name: 서버 로그 액세스
       items:
         - name: 느린 쿼리 로그

@@ -1,5 +1,5 @@
 - name: Azure Analysis Services 설명서
-  href: index.md
+  href: index.yml
 - name: 개요
   items:
     - name: Azure Analysis Services란?
