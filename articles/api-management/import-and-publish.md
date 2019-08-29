@@ -9,21 +9,20 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: apimpm
-ms.openlocfilehash: 0e104f4cbdef7edc5c109781509e3924400e5ba4
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 6a1ae2966e8d5535a5fd9aeffb5ddc3a788f85ee
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959734"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072114"
 ---
 # <a name="import-and-publish-your-first-api"></a>첫 번째 API 가져오기 및 게시 
 
-이 자습서에서는 https://conferenceapi.azurewebsites.net?format=json에 있는 "OpenAPI 사양" 백 엔드 API를 가져오는 방법을 보여줍니다. 이 백 엔드 API는 Microsoft에서 제공하고 Azure에서 호스트됩니다. 
+이 자습서에서는 https://conferenceapi.azurewebsites.net?format=json 에 있는 "OpenAPI 사양" 백 엔드 API를 가져오는 방법을 보여줍니다. 이 백 엔드 API는 Microsoft에서 제공하고 Azure에서 호스트됩니다. 
 
 백 엔드 API를 APIM(API Management)으로 가져오면 APIM API는 백 엔드 API의 외관이 됩니다. 백 엔드 API를 가져올 때 원본 API와 APIM API는 동일합니다. APIM을 사용하여 백 엔드 API를 건드리지 않고 필요에 따라 외관을 사용자 지정할 수 있습니다. 자세한 내용은 [API 변환 및 보호](transform-api.md)를 참조하세요. 
 

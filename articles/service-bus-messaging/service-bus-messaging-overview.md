@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: 0ab658b26a44e98b073c477c1aaeeb683372ee46
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 0f3995e8904396dbb0bcbeeea1f993913d68587e
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988482"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013128"
 ---
 # <a name="what-is-azure-service-bus"></a>Azure Service Bus란?
 
@@ -97,7 +97,7 @@ Service Bus는 수신자에게 배달할 수 없는 메시지 또는 처리하�
 
 ### <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>SAS, RBAC 및 Azure 리소스에 대한 관리 ID
 
-Service Bus는 [SAS(공유 액세스 서명)](service-bus-sas.md), [RBAC(역할 기반 액세스 제어)](service-bus-role-based-access-control.md) 및 [Azure 리소스에 대한 관리 ID](service-bus-managed-service-identity.md) 같은 보안 프로토콜을 지원합니다.
+Service Bus는 [SAS(공유 액세스 서명)](service-bus-sas.md), [RBAC(역할 기반 액세스 제어)](authenticate-application.md) 및 [Azure 리소스에 대한 관리 ID](service-bus-managed-service-identity.md) 같은 보안 프로토콜을 지원합니다.
 
 ### <a name="geo-disaster-recovery"></a>지리적 재해 복구
 

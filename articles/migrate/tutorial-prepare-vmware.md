@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 16c0354466d5c2a1207873a1e83e209da9339705
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 5bd4926494e13c1dd0cfb6283292ade967471238
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69509985"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013427"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>평가 후 Azure로 마이그레이션할 VMware VM 준비
 
@@ -153,7 +153,7 @@ VMware VM의 에이전트 기반 마이그레이션에 대한 요구 사항을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음을 수행했습니다.
+이 자습서에서는 다음을 수행합니다.
  
 > [!div class="checklist"] 
 > * Azure 사용 권한 설정
@@ -163,5 +163,5 @@ VMware VM의 에이전트 기반 마이그레이션에 대한 요구 사항을 �
 Azure Migrate 프로젝트를 설정하고 Azure로 마이그레이션하기 위해 VMware VM을 평가하려면 두 번째 자습서로 진행합니다.
 
 > [!div class="nextstepaction"] 
-> [VMware VM 평가](./tutorial-migrate-vmware.md) 
+> [VMware VM 평가](./tutorial-assess-vmware.md) 
 

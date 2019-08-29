@@ -6,19 +6,18 @@ manager: jpconnock
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: jenkins
 ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 7cd7b8f7b49915db9fcf17602429e47c1b9da95d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a62a302748cb7e60b6a857c686d1833ad499cc7a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57901426"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70081666"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>자습서: Jenkins 및 Azure DevOps Services를 사용하여 Azure에서 Linux 가상 머신에 앱 배포
 
@@ -26,7 +25,7 @@ CI(연속 통합) 및 CD(연속 배포)는 코드를 빌드, 릴리스 및 배�
 
 이 자습서에서는 Jenkins를 사용하여 Node.js 웹앱을 빌드합니다. 그런 후 Azure DevOps를 사용하여
 
-Linux VM(가상 머신)을 포함하는 [배포 그룹](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups/index?view=vsts)에 배포합니다. 다음 방법에 대해 알아봅니다.
+Linux VM(가상 머신)을 포함하는 [배포 그룹](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups/index?view=vsts)에 배포합니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 샘플 앱 가져오기
@@ -164,7 +163,7 @@ Azure Pipelines에서 릴리스 파이프라인을 만들려면
 
 1. **+ 릴리스**, **릴리스 만들기**를 차례로 선택합니다.
 2. 강조 표시된 드롭다운 목록에서 완성한 빌드를 선택하고 **큐**를 선택합니다.
-3. 팝업 메시지에서 릴리스 링크를 선택합니다. 예를 들면 다음과 같습니다. "**Release-1** 릴리스를 만들었습니다."
+3. 팝업 메시지에서 릴리스 링크를 선택합니다. 예:  "**Release-1** 릴리스를 만들었습니다."
 4. **로그** 탭을 열어 릴리스 콘솔 출력을 확인합니다.
 5. 브라우저에서 배포 그룹에 추가한 서버 중 하나의 URL을 엽니다. 예를 들어 **http://{your-server-ip-address}** 를 입력합니다.
 6. 소스 Git 리포지토리로 이동하여 app/views/index.jade 파일의 **h1** 제목 내용을 변경된 텍스트로 수정합니다.

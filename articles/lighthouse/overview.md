@@ -3,16 +3,16 @@ title: Azure Lighthouse란?
 description: Azure Lighthouse에서 서비스 공급자는 더 높은 자동화 및 효율성으로 고객을 위한 관리형 서비스를 제공할 수 있습니다.
 author: JnHs
 ms.author: jenhayes
-ms.date: 07/11/2019
+ms.date: 08/22/2019
 ms.topic: overview
 ms.service: lighthouse
 manager: carmonm
-ms.openlocfilehash: eb55af5a1121eb193bb76efc9f9e0b833f4b5a1f
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 05fa16504e25a6bf0f6aa1c0a348284abba6e1ed
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810797"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011888"
 ---
 # <a name="what-is-azure-lighthouse"></a>Azure Lighthouse란?
 
@@ -42,3 +42,8 @@ Azure Lighthouse에는 고객 참여 및 관리를 간소화하는 데 도움이
 
 > [!NOTE]
 > 위에서 설명한 기능은 현재 퍼블릭 클라우드에서 사용할 수 있습니다. 개별 서비스의 지역별 가용성에 대해서는 [지역별 사용 가능 제품](https://azure.microsoft.com/global-infrastructure/services/)을 참조하세요.
+
+## <a name="next-steps"></a>다음 단계
+
+- [Azure 위임 리소스 관리](concepts/azure-delegated-resource-management.md)에 대해 알아봅니다.
+- [테넌트 간 관리 환경](concepts/cross-tenant-management-experience.md)에 대해 알아봅니다.

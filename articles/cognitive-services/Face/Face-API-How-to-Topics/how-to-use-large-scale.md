@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
-ms.openlocfilehash: dcbec817f771324219a68de96eb5dd262a887fc1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: d8ecfb53b78277e4b0e4a85d60fb6712d0bc2292
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449052"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114829"
 ---
 # <a name="example-use-the-large-scale-feature"></a>예제: 대규모 기능 사용
 
@@ -67,7 +67,7 @@ PersonGroup의 모든 얼굴과 사람을 새 LargePersonGroup에 추가합니�
 | 삭제 | 삭제 |
 | 가져오기 | 가져오기 |
 | 나열 | 나열 |
-| 주 지역에서 | 주 지역에서 |
+| 업데이트 | 업데이트 |
 | - | 학습 |
 | - | 학습 상태 가져오기 |
 

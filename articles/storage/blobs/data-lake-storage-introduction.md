@@ -8,12 +8,12 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 3dea4dfc58bf087b8f6bc0a3f45646da5cb597ad
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: de2dc5068dc454925744688a43f49a855aac42f3
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847237"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991842"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 소개
 
@@ -64,7 +64,7 @@ Data Lake Storage Gen2는 빅데이터 분석을 위한 추가 기능이며, Azu
 | 개념                                | 최상위 수준 조직 | 낮은 수준의 조직                                            | 데이터 컨테이너 |
 |----------------------------------------|------------------------|---------------------------------------------------------------------|----------------|
 | Blob – 범용 개체 스토리지 | 컨테이너              | 가상 디렉터리(SDK만 해당 - 원자성 조작을 제공하지 않음) | Blob           |
-| ADLS Gen2 – 분석 스토리지          | 파일 시스템             | 디렉터리                                                           | 파일           |
+| ADLS Gen2 – 분석 스토리지          | 컨테이너            | 디렉터리                                                           | 파일           |
 
 ## <a name="supported-open-source-platforms"></a>지원되는 오픈 소스 플랫폼
 
@@ -86,5 +86,5 @@ Data Lake Storage Gen2는 몇 가지 오픈 소스 플랫폼에서 지원합니�
 다음 문서에서는 Data Lake Storage Gen2의 기본 개념을 설명하고 데이터를 저장, 액세스, 관리하고 데이터에서 인사이트를 얻는 방법을 자세히 살펴봅니다.
 
 -   [계층 구조 네임스페이스](data-lake-storage-namespace.md)
--   [스토리지 계정 만들기](data-lake-storage-quickstart-create-account.md)
+-   [스토리지 계정을 만드는](data-lake-storage-quickstart-create-account.md)
 -   [Azure Databricks에서 Data Lake Storage Gen2 계정 사용](data-lake-storage-quickstart-create-databricks-account.md)

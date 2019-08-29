@@ -9,19 +9,19 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 0675be988e7e9560560dd07338563c9fa22fcb4c
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: af5b16448a39e0106dbc04724607ff603483484c
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69881652"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997754"
 ---
 # <a name="what-is-azure-iot-central-preview-features"></a>Azure IoT Central(미리 보기 기능)이란?
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
 > [!WARNING]
-> Azure IoT Central의 [IoT 플러그 앤 플레이](https://aka.ms/iot-pnp-docs) 기능은 현재 공개 미리 보기로 제공됩니다. IoT 플러그 앤 플레이 지원 IoT Central 애플리케이션을 프로덕션 워크로드에 사용하지 마세요. 프로덕션 환경에서는 일반적으로 사용 가능한 최신 애플리케이션 템플릿에서 만든 IoT Central 애플리케이션을 사용합니다.
+> Azure IoT Central의 [IoT 플러그 앤 플레이](../iot-pnp/overview-iot-plug-and-play.md) 기능은 현재 공개 미리 보기로 제공됩니다. IoT 플러그 앤 플레이 지원 IoT Central 애플리케이션을 프로덕션 워크로드에 사용하지 마세요. 프로덕션 환경에서는 일반적으로 사용 가능한 최신 애플리케이션 템플릿에서 만든 IoT Central 애플리케이션을 사용합니다.
 
 Azure IoT Central은 실제 세계와 디지털 세계를 연결하는 제품을 쉽게 만들 수 있게 해주는 완전 관리형 IoT SaaS(Software-as-a-Service) 솔루션입니다. 다음을 통해 연결된 제품 비전을 실현할 수 있습니다.
 
@@ -95,7 +95,7 @@ Azure IoT Central 설명서는 Azure IoT Central 애플리케이션과 상호 �
 
 ### <a name="create-device-templates"></a>디바이스 템플릿 만들기
 
-[IoT 플러그 앤 플레이](https://aka.ms/iot-pnp-docs)를 사용하면 포함된 디바이스 코드를 작성하지 않고도 IoT Central에서 디바이스를 통합할 수 있습니다. IoT 플러그 앤 플레이의 핵심은 디바이스 기능을 설명하는 디바이스 기능 모델 스키마입니다. IoT Central 미리 보기 애플리케이션에서 디바이스 템플릿은 이러한 IoT 플러그 앤 플레이 디바이스 기능 모델을 사용합니다.
+[IoT 플러그 앤 플레이](../iot-pnp/overview-iot-plug-and-play.md)를 사용하면 포함된 디바이스 코드를 작성하지 않고도 IoT Central에서 디바이스를 통합할 수 있습니다. IoT 플러그 앤 플레이의 핵심은 디바이스 기능을 설명하는 디바이스 기능 모델 스키마입니다. IoT Central 미리 보기 애플리케이션에서 디바이스 템플릿은 이러한 IoT 플러그 앤 플레이 디바이스 기능 모델을 사용합니다.
 
 개발자는 다음과 같은 여러 가지 옵션을 통해 디바이스 템플릿을 만들 수 있습니다.
 
@@ -151,4 +151,4 @@ Azure IoT Central 애플리케이션은 Microsoft에서 완벽하게 호스트�
   - [개발자가 솔루션 자동화를 위한 규칙 추가](tutorial-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
   - [운영자가 디바이스 모니터링](tutorial-monitor-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
   - [운영자가 솔루션에 디바이스 추가](tutorial-add-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
-- [IoT 플러그 앤 플레이](https://aka.ms/iot-pnp-docs)에 대한 자세한 정보
+- [IoT 플러그 앤 플레이](../iot-pnp/overview-iot-plug-and-play.md)에 대한 자세한 정보

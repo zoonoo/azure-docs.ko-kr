@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 08/22/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 7a61edc01a87be8996b4d7dd5093f9d3554e6585
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 315d4daf7155bc33235507f39b5cce8869db5aa6
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417761"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972170"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Azure에 재해 복구하기 위해 온-프레미스 VMware 서버 준비
 
@@ -80,7 +80,7 @@ VMware 서버 및 Vm이 요구 사항을 준수하는지 확인 합니다.
 1. VMware 서버 요구 사항을 [확인](vmware-physical-azure-support-matrix.md#on-premises-virtualization-servers)합니다.
 2. Linux VM의 경우 파일 시스템 및 스토리지 요구 사항을 [확인](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage)합니다. 
 3. 온-프레미스 [네트워크](vmware-physical-azure-support-matrix.md#network) 및 [스토리지](vmware-physical-azure-support-matrix.md#storage) 지원을 확인합니다. 
-4. 장애 조치(failover) 후 [Azure 네트워킹](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [스토리지](vmware-physical-azure-support-matrix.md#azure-storage) 및 [계산](vmware-physical-azure-support-matrix.md#azure-compute)에 대해 지원되는 기능을 확인합니다.
+4. 장애 조치(failover) 후 [Azure 네트워킹](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [스토리지](vmware-physical-azure-support-matrix.md#azure-storage) 및 [컴퓨팅](vmware-physical-azure-support-matrix.md#azure-compute)에 대해 지원되는 기능을 확인합니다.
 5. Azure에 복제하려는 온-프레미스 VM은 [Azure VM 요구 사항](vmware-physical-azure-support-matrix.md#azure-vm-requirements)을 준수해야 합니다.
 6. Linux Virtual Machines에서 디바이스 이름과 탑재 지점 이름은 고유해야 합니다. 이름이 같은 두 개의 디바이스/탑재 지점 이름이 없어야 합니다. 이름은 대/소문자를 구분하지 않습니다. 예를 들어 동일한 VM의 두 디바이스에 _device1_과 _Device1_로 이름을 지정하는 것이 허용되지 않습니다.
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 39d39b313cd2e65989989080d4cb0729b0be1e65
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: c1626542aba71f971ad96fe9f187ce9f1c1a99f3
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561461"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012937"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>자습서: Azure Data Box Disk 주문
 
@@ -68,7 +68,7 @@ Data Box Disk를 주문하려면 다음 단계를 수행합니다.
 
     |설정|값|
     |---|---|
-    |구독|Data Box 서비스를 사용하도록 설정된 구독을 선택합니다.<br> 구독은 대금 청구 계정에 연결됩니다. |
+    |Subscription|Data Box 서비스를 사용하도록 설정된 구독을 선택합니다.<br> 구독은 대금 청구 계정에 연결됩니다. |
     |전송 형식| Azure로 가져오기|
     |원천 국가 | 현재 데이터가 있는 국가/지역을 선택합니다.|
     |대상 Azure 지역|데이터를 전송하려는 Azure 지역을 선택합니다.|
@@ -82,8 +82,8 @@ Data Box Disk를 주문하려면 다음 단계를 수행합니다.
 
     |설정|값|
     |---|---|
-    |이름|주문을 추적하는 데 친숙한 이름을 입력합니다.<br> 이 이름은 2~24자 사이의 문자, 숫자 및 하이픈일 수 있습니다. <br> 이름은 문자 또는 숫자로 시작하고 끝나야 합니다. |
-    |리소스 그룹| 기존 그룹을 사용하거나 새 그룹을 만듭니다. <br> 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다. |
+    |Name|주문을 추적하는 데 친숙한 이름을 입력합니다.<br> 이 이름은 2~24자 사이의 문자, 숫자 및 하이픈일 수 있습니다. <br> 이름은 문자 또는 숫자로 시작하고 끝나야 합니다. |
+    |Resource group| 기존 그룹을 사용하거나 새 그룹을 만듭니다. <br> 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다. |
     |대상 Azure 지역| 스토리지 계정에 대한 지역을 선택합니다.<br> 현재 미국, 서유럽, 북유럽, 캐나다 및 오스트레일리아 모든 지역의 스토리지 계정이 지원됩니다. |
     |TB 단위의 데이터 크기 추정됨| 추정값을 TB 단위로 입력합니다. <br>데이터 크기에 따라 Microsoft에서 적절한 개수의 8TB SSD(사용 가능한 용량: 7TB)를 보냅니다. <br>5개 디스크에서 사용 가능한 최대 용량은 최대 35TB입니다. |
     |디스크 암호| **Azure에서 생성한 암호가 아닌 사용자 지정 키 사용**을 선택하는 경우 디스크 암호를 제공합니다. <br> 적어도 하나의 숫자 및 하나의 특수 문자를 포함한 12~32개 영숫자 키를 제공합니다. 허용되는 특수 문자는 `@?_+`입니다. <br> 이 옵션을 건너뛰고 Azure에서 생성된 암호를 사용하여 디스크의 잠금을 해제하도록 선택할 수 있습니다.|
@@ -97,11 +97,11 @@ Data Box Disk를 주문하려면 다음 단계를 수행합니다.
 
     |설정  |값  |
     |---------|---------|
-    |리소스 그룹     | 온-프레미스 VHD에서 관리형 디스크를 만들려는 경우 새 리소스 그룹을 만듭니다. 기존 리소스 그룹은 Data Box 서비스에서 관리형 디스크에 대한 Data Box Disk 주문을 위해 생성된 경우에만 사용합니다. <br> 하나의 리소스 그룹만 지원됩니다.|
+    |Resource group     | 온-프레미스 VHD에서 관리형 디스크를 만들려는 경우 새 리소스 그룹을 만듭니다. 기존 리소스 그룹은 Data Box 서비스에서 관리형 디스크에 대한 Data Box Disk 주문을 위해 생성된 경우에만 사용합니다. <br> 하나의 리소스 그룹만 지원됩니다.|
 
     ![관리형 디스크에 대한 Data Box Disk 주문](media/data-box-disk-deploy-ordered/order-managed-disks.png)
 
-    관리형 디스크에 대해 지정한 스토리지 계정은 스테이징 스토리지 계정으로 사용됩니다. Data Box 서비스는 VHD를 스테이징 스토리지 계정으로 업로드한 후 관리형 디스크로 변환하고 리소스 그룹으로 이동합니다. 자세한 내용은 [Azure에 대한 데이터 업로드 확인](data-box-disk-deploy-picked-up.md#verify-data-upload-to-azure)을 참조하세요.
+    관리형 디스크에 대해 지정한 스토리지 계정은 스테이징 스토리지 계정으로 사용됩니다. Data Box 서비스는 VHD를 스테이징 스토리지 계정으로 업로드한 후 관리형 디스크로 변환하고 리소스 그룹으로 이동합니다. 자세한 내용은 [Azure에 대한 데이터 업로드 확인](data-box-disk-deploy-upload-verify.md#verify-data-upload-to-azure)을 참조하세요.
 
 13. **다음**을 클릭합니다.
 

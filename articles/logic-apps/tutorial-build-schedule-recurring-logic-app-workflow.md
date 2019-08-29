@@ -6,16 +6,17 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
+ms.manager: carmonm
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: ebc6388f1ebc7546ffda07095ead50797bde4e8b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ec29eef7e733155b205d4feda844883bbc4496c9
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58884689"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051754"
 ---
 # <a name="check-traffic-on-a-schedule-with-azure-logic-apps"></a>Azure Logic Apps로 일정에 따른 트래픽 확인
 
@@ -35,17 +36,17 @@ Azure Logic Apps는 일정에 따라 실행되는 워크플로를 자동화하�
 
 ![상위 수준 논리 앱](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-overview.png)
 
-Azure 구독이 아직 없는 경우 시작하기 전에 <a href="https://azure.microsoft.com/free/" target="_blank">Azure 체험 계정에 등록합니다</a>.
+Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정에 등록합니다](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>필수 조건
 
 * Office 365 Outlook, Outlook.com, Gmail 등 Logic Apps에서 지원되는 이메일 공급자의 이메일 계정. 다른 공급자에 대한 내용은 [여기서 커넥터 목록을 검토하세요](https://docs.microsoft.com/connectors/). 이 빠른 시작에서는 Outlook.com 계정을 사용합니다. 다른 이메일 계정을 사용하는 경우 일반적인 단계는 동일하지만 UI가 약간 다르게 표시될 수 있습니다.
 
-* 경로의 이동 시간 정보를 가져오려면 Bing 지도 API에 대한 액세스 키가 필요합니다. 이 키를 가져오려면 <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">Bing 지도 키를 가져오는 방법</a>의 단계를 수행합니다. 
+* 경로의 이동 시간 정보를 가져오려면 Bing 지도 API에 대한 액세스 키가 필요합니다. 이 키를 가져오려면 [Bing 지도 키를 가져오는 방법](https://msdn.microsoft.com/library/ff428642.aspx)의 단계를 수행합니다. 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>에 로그인합니다.
+Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 ## <a name="create-your-logic-app"></a>논리 앱 만들기
 
@@ -78,7 +79,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
    !["예약-되풀이" 트리거를 찾아서 추가](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-schedule-recurrence-trigger.png)
 
-2. **되풀이** 셰이프에서 **줄임표**(**...**) 단추를 선택하고 **이름 바꾸기**를 선택합니다. ```Check travel time every weekday morning``` 설명이 포함되도록 트리거 이름을 바꿉니다.
+2. **되풀이** 셰이프에서 **줄임표**( **...** ) 단추를 선택하고 **이름 바꾸기**를 선택합니다. ```Check travel time every weekday morning``` 설명이 포함되도록 트리거 이름을 바꿉니다.
 
    ![트리거 이름 바꾸기](./media/tutorial-build-scheduled-recurring-logic-app-workflow/rename-recurrence-schedule-trigger.png)
 
@@ -126,7 +127,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
    | 설정 | 값 | 설명 |
    | ------- | ----- | ----------- |
    | **연결 이름** | BingMapsConnection | 연결 이름을 입력합니다. | 
-   | **API 키** | <*your-Bing-Maps-key*> | 이전에 받은 Bing 지도 키를 입력합니다. Bing 지도 키가 없는 경우 <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">키를 가져오는 방법</a>을 알아보세요. | 
+   | **API 키** | <*your-Bing-Maps-key*> | 이전에 받은 Bing 지도 키를 입력합니다. Bing 지도 키가 없는 경우 [키를 가져오는 방법](https://msdn.microsoft.com/library/ff428642.aspx)을 알아보세요. | 
    | | | |  
 
 4. ```Get route and travel time with traffic``` 설명이 포함되도록 작업 이름을 바꿉니다.
@@ -172,7 +173,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
    | 설정 | 값 | 설명 | 
    | ------- | ----- | ----------- | 
    | **Name** | travelTime | 변수의 이름 | 
-   | **형식** | 정수  | 변수의 데이터 형식 | 
+   | **형식** | 정수 | 변수의 데이터 형식 | 
    | **값** | 현재 이동 시간을 초 단위에서 분 단위로 변환하는 식입니다(이 표 아래의 단계 참조). | 변수의 초기 값 | 
    |||| 
 
@@ -194,7 +195,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
       !["div(,60)" 식 입력](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-2.png)
 
-   3. 왼쪽 괄호(**(**)와 쉼표(**,**) 사이의 식 내부에 커서를 놓습니다. 
+   3. 왼쪽 괄호( **(** )와 쉼표( **,** ) 사이의 식 내부에 커서를 놓습니다. 
    **동적 콘텐츠**를 선택합니다.
 
       ![커서 이동, "동적 콘텐츠" 선택](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-3.png)
@@ -283,7 +284,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
       ![추가 이동 시간(분)을 계산하는 식 입력](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-2.png)
 
-   4. 왼쪽 괄호(**(**)와 쉼표(**,**) 사이의 식 내부에 커서를 놓습니다. **동적 콘텐츠**를 선택합니다.
+   4. 왼쪽 괄호( **(** )와 쉼표( **,** ) 사이의 식 내부에 커서를 놓습니다. **동적 콘텐츠**를 선택합니다.
 
       ![추가 이동 시간(분)을 계산하는 식을 계속 작성](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-3.png)
 

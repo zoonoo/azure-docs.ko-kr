@@ -3,18 +3,18 @@ title: Azure IoT Central이란? | Microsoft Docs
 description: Azure IoT Central은 사용자 지정 IoT 솔루션을 구축하고 관리하는 데 사용할 수 있는 엔드투엔드 SaaS 솔루션입니다. 이 문서에서는 Azure IoT Central의 기능에 대한 개요를 제공합니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/24/2019
+ms.date: 08/26/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: ff212e77b6fcaaa057c22c420cce82e7ea6c82e6
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: c5c1f36e77e24b598aa777d384462ee4538bd486
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877287"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70048943"
 ---
 <!---
 Purpose of an Overview article: 

@@ -7,17 +7,16 @@ author: ggailey777
 manager: jeconnoc
 ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 381eecefbba238e712820a09c8ec489706ef3751
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1d24eb81361a337ed00d719a7fb5895e73583030
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106460"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70096310"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Functions를 사용하여 Azure Storage 큐에 메시지 추가
 
@@ -31,7 +30,7 @@ Azure Functions에서 입력 및 출력 바인딩은 코드에서 외부 서비�
 
 * [Azure Portal에서 첫 번째 함수 만들기](functions-create-first-azure-function.md)의 지침을 따르고 **리소스 정리** 단계는 수행하지 않습니다. 해당 빠른 시작에서는 함수 앱과, 여기서 사용할 함수를 만듭니다.
 
-* [Microsoft Azure Storage 탐색기](https://storageexplorer.com/)를 설치합니다. 이 도구는 출력 바인딩이 만드는 큐 메시지를 검토하는 데 사용합니다.
+* [Microsoft Azure Storage Explorer](https://storageexplorer.com/)를 설치합니다. 이 도구는 출력 바인딩이 만드는 큐 메시지를 검토하는 데 사용합니다.
 
 ## <a name="add-binding"></a>출력 바인딩 추가
 
@@ -138,7 +137,7 @@ Azure Functions에서 입력 및 출력 바인딩은 코드에서 외부 서비�
 
 1. 포털에서 **계정 이름** 값을 복사하여 Storage Explorer의 **계정 이름** 상자에 붙여넣습니다.
  
-1. **계정 키** 옆의 표시/숨김 아이콘을 클릭하여 값을 표시한 다음 **계정 키** 값을 복사하여 저장소 탐색기의 **계정 키** 상자에 붙여넣습니다.
+1. **계정 키** 옆의 표시/숨김 아이콘을 클릭하여 값을 표시한 다음, **계정 키** 값을 복사하여 Storage Explorer의 **계정 키** 상자에 붙여넣습니다.
   
 1. **다음 > 연결**을 선택합니다.
 

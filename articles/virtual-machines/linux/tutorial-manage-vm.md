@@ -9,23 +9,22 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1de2d40e107c03db8c0e406a7bb1a12c15d5c736
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 1df278c67c8f84648d2fc7ab3818656cfb9de74a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708509"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100694"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>자습서: Azure CLI로 Linux VM 만들기 및 관리
 
-Azure Virtual Machines는 완전히 구성 가능하고 유연한 컴퓨팅 환경을 제공합니다. 이 자습서에서는 VM 크기 선택, VM 이미지 선택 및 VM 배포 등 기본적인 Azure Virtual Machines 배포 항목에 대해 설명합니다. 다음 방법에 대해 알아봅니다.
+Azure Virtual Machines는 완전하게 구성할 수 있고 유연한 컴퓨팅 환경을 제공합니다. 이 자습서에서는 VM 크기 선택, VM 이미지 선택 및 VM 배포 등 기본적인 Azure Virtual Machines 배포 항목에 대해 설명합니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * VM 만들기 및 연결
@@ -257,7 +256,7 @@ Azure VM의 전원 상태는 여러 상태 중 하나일 수 있습니다. 이 �
 | 시작 중 | 가상 머신이 시작되고 있음을 나타냅니다. |
 | 실행 중 | 가상 머신이 실행되고 있음을 나타냅니다. |
 | 중지 중 | 가상 머신이 중지되고 있음을 나타냅니다. | 
-| 중지됨 | 가상 머신이 중지되었음을 나타냅니다. 중지 상태의 가상 머신에도 여전히 계산 요금이 발생됩니다.  |
+| 중지됨 | 가상 머신이 중지되었음을 나타냅니다. 중지 상태의 가상 머신에도 여전히 컴퓨팅 요금이 발생됩니다.  |
 | 할당 취소 중 | 가상 컴퓨터의 할당이 취소되고 있음을 나타냅니다. |
 | 할당 취소됨 | 가상 컴퓨터가 하이퍼바이저에서 제거되었지만 제어 영역에서 계속 사용할 수 있음을 나타냅니다. 할당 취소됨 상태의 가상 머신에는 컴퓨팅 요금이 발생하지 않습니다. |
 | - | 가상 머신의 전원 상태가 알 수 없음을 나타냅니다. |

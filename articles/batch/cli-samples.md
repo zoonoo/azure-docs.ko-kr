@@ -9,19 +9,18 @@ editor: ''
 tags: ''
 ms.assetid: ''
 ms.service: batch
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: ''
 ms.date: 01/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: bbd0cea4be5322d97c3e45b5a9508a9e8cdc6db7
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 026e6be7dec90da86e602ff23df2f7efdd067238
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322560"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094068"
 ---
 # <a name="azure-cli-examples-for-azure-batch"></a>Azure Batch에 대한 Azure CLI 예제
 
@@ -34,7 +33,7 @@ ms.locfileid: "68322560"
 | [사용자 구독 모드에서 Batch 계정 만들기](./scripts/batch-cli-sample-create-user-subscription-account.md) | 사용자 구독 모드에서 Batch 계정을 만듭니다. |
 |**애플리케이션 추가**||
 | [Batch 계정에 애플리케이션 추가](./scripts/batch-cli-sample-add-application.md) | 애플리케이션을 추가하고 패키지된 이진 파일을 업로드합니다.|
-|**계산 노드 풀 만들기 및 관리**||
+|**컴퓨팅 노드 풀 만들기 및 관리**||
 | [Linux 풀 만들기 및 관리](./scripts/batch-cli-sample-manage-linux-pool.md) | Linux 풀을 만들고, 크기를 조정하고, 관리하는 방법을 보여줍니다. |
 | [Windows 풀 만들기 및 관리](./scripts/batch-cli-sample-manage-windows-pool.md) | Windows 풀을 만들고, 크기를 조정하고, 관리하는 방법을 보여줍니다. |
 |**작업 및 태스크 실행**||

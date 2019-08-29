@@ -6,15 +6,15 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 08/22/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 854e09600440c28f7505a016566ea0f05e994f5f
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 852193e137eab10d1e46c5ba6ae6636d530095be
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66418322"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972203"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms"></a>장애 조치(Failover) 및 장애 복구(Failback) VMware VM
 
@@ -61,7 +61,7 @@ ms.locfileid: "66418322"
 
 3. **컴퓨팅 및 네트워크**에서 필요에 따라 이러한 속성을 수정할 수 있습니다.
     * Azure 이름
-    * 리소스 그룹
+    * Resource group
     * 대상 크기
     * [가용성 집합](../virtual-machines/windows/tutorial-availability-sets.md)
     * Managed Disks 설정

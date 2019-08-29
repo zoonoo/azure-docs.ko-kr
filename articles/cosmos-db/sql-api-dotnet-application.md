@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: sngun
-ms.openlocfilehash: b1d8d2539ae89dfdb8feb2e38f00bf4440411d8a
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 9824e1468604763834e37abe94290d68d81077ab
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815145"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020122"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>자습서: .NET SDK를 사용하여 Azure Cosmos DB를 통해 ASP.NET Core MVC 웹 애플리케이션 개발 
 
@@ -120,22 +120,6 @@ Azure Cosmos 계정을 만들어 보겠습니다. Azure Cosmos DB SQL API 계정
    
    Azure Cosmos DB에 저장된 데이터가 네트워크를 통해 전달되고 JSON으로 저장됩니다. JSON.NET에서 개체를 직렬화/역직렬화하는 방식을 제어하기 위해 방금 만든 **Item** 클래스에서 설명한 대로 **JsonProperty** 특성을 사용할 수 있습니다. JSON으로 이동하는 속성 이름의 형식을 제어할 수 있을 뿐만 아니라 **Completed** 속성에서와 마찬가지로 .NET 속성의 이름도 다시 지정할 수 있습니다. 
 
-### <a name="add-a-controller"></a>컨트롤러 추가
-
-1. **솔루션 탐색기**에서 **컨트롤러** 폴더를 마우스 오른쪽 단추로 클릭하고 **추가**를 선택한 다음, **컨트롤러**를 선택합니다. **스캐폴드 추가** 대화 상자가 나타납니다.
-
-1. **MVC 컨트롤러 - 비어 있음**, **추가**를 차례로 선택합니다.
-
-   ![MVC 컨트롤러 - 비어 있음 옵션이 강조 표시된 스캐폴드 추가 대화 상자의 스크린샷](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
-
-1. 새 컨트롤러 이름을 **ItemController**로 지정하고, 해당 파일의 코드를 다음 코드로 바꿉니다.
-
-   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs)]
-
-   **ValidateAntiForgeryToken** 특성은 여기서 교차 사이트 요청 위조 공격으로부터 이 애플리케이션을 보호하는 데 사용됩니다. 이 특성을 추가하는 것 외에 뷰가 이 위조 방지 토큰과 작동하도록 해야 합니다. 이 주제에 대한 자세한 내용과 올바르게 구현하는 방법의 예제는 [교차 사이트 요청 위조 방지][Preventing Cross-Site Request Forgery]를 참조하세요. [GitHub][GitHub] 에서 제공하는 소스 코드에는 완벽하게 구현되어 있습니다.
-
-   또한 메서드 매개 변수에 **Bind** 특성을 사용하여 과도한 게시 공격으로부터 보호할 수 있습니다. 자세한 내용은 [ASP.NET MVC의 기본 CRUD 작업][Basic CRUD Operations in ASP.NET MVC]을 참조하세요.
-
 ### <a name="add-views"></a>뷰 추가
 
 다음으로, 아래와 같은 세 가지 뷰를 추가하겠습니다. 
@@ -190,6 +174,22 @@ Azure Cosmos 계정을 만들어 보겠습니다. Azure Cosmos DB SQL API 계정
    * **추가**를 선택합니다.
 
 이 작업이 완료되면 나중에 이러한 뷰로 돌아올 것이므로 Visual Studio에서 모든 cshtml 문서를 닫습니다.
+
+### <a name="add-a-controller"></a>컨트롤러 추가
+
+1. **솔루션 탐색기**에서 **컨트롤러** 폴더를 마우스 오른쪽 단추로 클릭하고 **추가**를 선택한 다음, **컨트롤러**를 선택합니다. **스캐폴드 추가** 대화 상자가 나타납니다.
+
+1. **MVC 컨트롤러 - 비어 있음**, **추가**를 차례로 선택합니다.
+
+   ![MVC 컨트롤러 - 비어 있음 옵션이 강조 표시된 스캐폴드 추가 대화 상자의 스크린샷](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
+
+1. 새 컨트롤러 이름을 **ItemController**로 지정하고, 해당 파일의 코드를 다음 코드로 바꿉니다.
+
+   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs)]
+
+   **ValidateAntiForgeryToken** 특성은 여기서 교차 사이트 요청 위조 공격으로부터 이 애플리케이션을 보호하는 데 사용됩니다. 이 특성을 추가하는 것 외에 뷰가 이 위조 방지 토큰과 작동하도록 해야 합니다. 이 주제에 대한 자세한 내용과 올바르게 구현하는 방법의 예제는 [교차 사이트 요청 위조 방지][Preventing Cross-Site Request Forgery]를 참조하세요. [GitHub][GitHub] 에서 제공하는 소스 코드에는 완벽하게 구현되어 있습니다.
+
+   또한 메서드 매개 변수에 **Bind** 특성을 사용하여 과도한 게시 공격으로부터 보호할 수 있습니다. 자세한 내용은 [ASP.NET MVC의 기본 CRUD 작업][Basic CRUD Operations in ASP.NET MVC]을 참조하세요.
 
 ## <a name="connect-to-cosmosdb"></a>5단계: Azure Cosmos DB에 연결 
 

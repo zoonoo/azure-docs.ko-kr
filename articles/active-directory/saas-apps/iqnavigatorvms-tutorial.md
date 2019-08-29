@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 579b35a06b74ffcef47ca0b41ff60bfdc4e0eb2b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dba50c984984363682efce1f09ef462b3c0c5def
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67099791"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70078493"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>자습서: IQNavigator VMS와 Azure Active Directory 통합
 
@@ -114,7 +114,7 @@ IQNavigator VMS에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
     d. **릴레이 상태** 텍스트 상자에서 `https://<subdomain>.iqnavigator.com` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 회신 URL 및 릴레이 상태로 값을 업데이트합니다. 이러한 값을 얻으려면 [IQNavigator VMS 클라이언트 지원 팀](https://www.beeline.com/iqn-product-support/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 회신 URL 및 릴레이 상태로 값을 업데이트합니다. 이러한 값을 얻으려면 [IQNavigator VMS 클라이언트 지원 팀](https://www.beeline.com/support-iqn/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 5. IQNavigator 애플리케이션은 이름 식별자 클레임에 고유한 사용자 ID 값을 필요로 합니다. 고객은 이름 식별자 클레임에 대한 올바른 값을 매핑할 수 있습니다. 이 경우 데모 목적으로 user.UserPrincipalName을 매핑했습니다. 그러나 조직 설정에 따라 올바른 값을 매핑해야 합니다.
 
@@ -126,7 +126,7 @@ IQNavigator VMS에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
 ### <a name="configure-iqnavigator-vms-single-sign-on"></a>IQNavigator VMS Single Sign-On 구성
 
-**IQNavigator VMS** 쪽에서 Single Sign-On을 구성하려면 **앱 페더레이션 메타데이터 URL**을 [IQNavigator VMS 지원 팀](https://www.beeline.com/iqn-product-support/)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**IQNavigator VMS** 쪽에서 Single Sign-On을 구성하려면 **앱 페더레이션 메타데이터 URL**을 [IQNavigator VMS 지원 팀](https://www.beeline.com/support-iqn/)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -181,7 +181,7 @@ IQNavigator VMS에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
 ### <a name="create-iqnavigator-vms-test-user"></a>IQNavigator VMS 테스트 사용자 만들기
 
-이 섹션에서는 IQNavigator VMS에서 Britta Simon이라는 사용자를 만듭니다. IQNavigator VMS 플랫폼에서 사용자를 추가하려면  [IQNavigator VMS 지원 팀](https://www.beeline.com/iqn-product-support/)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 IQNavigator VMS에서 Britta Simon이라는 사용자를 만듭니다. IQNavigator VMS 플랫폼에서 사용자를 추가하려면  [IQNavigator VMS 지원 팀](https://www.beeline.com/support-iqn/)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

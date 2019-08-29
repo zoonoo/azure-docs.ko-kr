@@ -10,17 +10,16 @@ ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 8dc062a1c9490a03aa5369dc103db750d7531140
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 6c32415e750964e94129a4a6f9cf3812fe9117b5
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635275"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70067273"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Azure에서 ASP.NET Framework 웹앱 만들기
 
@@ -61,7 +60,7 @@ Visual Studio에서 **파일 > 새로 만들기 > 프로젝트**를 선택하여
 
 ## <a name="launch-the-publish-wizard"></a>게시 마법사 시작
 
-**솔루션 탐색기**에서 **myFirstAzureWebApp** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
+**솔루션 탐색기**에서 **myFirstAzureWebApp** 프로젝트를 마우스 오른쪽 버튼으로 클릭하고 **게시**를 선택합니다.
 
 ![솔루션 탐색기에서 게시](./media/app-service-web-get-started-dotnet-framework/solution-explorer-publish.png)
 
@@ -110,7 +109,7 @@ Visual Studio에서 **파일 > 새로 만들기 > 프로젝트**를 선택하여
 
 **앱 이름**에서 고유한 앱 이름(유효한 문자는 `a-z`, `0-9` 및 `-`)을 입력하거나 자동으로 생성된 고유한 이름을 적용합니다. 웹앱의 URL은 `http://<app_name>.azurewebsites.net`이며, 여기서 `<app_name>`은 앱 이름입니다.
 
-**만들기**를 선택하여 Azure 리소스 만들기를 시작합니다.
+**만들기**를 선택하여 Azure 리소스를 만듭니다.
 
 ![앱 이름 구성](./media/app-service-web-get-started-dotnet-framework/web-app-name.png)
 
@@ -118,7 +117,7 @@ Visual Studio에서 **파일 > 새로 만들기 > 프로젝트**를 선택하여
 
 ![Azure에서 게시된 ASP.NET 웹앱](./media/app-service-web-get-started-dotnet-framework/published-azure-web-app.png)
 
-[작성 및 게시 단계](#create-and-publish-the-web-app)에서 지정한 앱 이름이 `http://<app_name>.azurewebsites.net` 형식의 URL 접두사로 사용됩니다.
+[작성 및 게시 단계](#create-and-publish-the-web-app)에서 지정한 앱 이름은 `http://<app_name>.azurewebsites.net` 형식의 URL 접두사로 사용됩니다.
 
 축하합니다. ASP.NET 웹앱이 Azure App Service에서 실시간으로 실행 중입니다.
 
@@ -135,7 +134,7 @@ Visual Studio에서 **파일 > 새로 만들기 > 프로젝트**를 선택하여
 </div>
 ```
 
-Azure에 다시 배포하려면 **솔루션 탐색기**에서 **myFirstAzureWebApp** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
+Azure에 다시 배포하려면 **솔루션 탐색기**에서 **myFirstAzureWebApp** 프로젝트를 마우스 오른쪽 버튼으로 클릭하고 **게시**를 선택합니다.
 
 게시 페이지에서 **게시**를 선택합니다.
 ![Visual Studio 게시 요약 페이지](./media/app-service-web-get-started-dotnet-framework/publish-summary-page.png)
@@ -156,7 +155,7 @@ Azure에 다시 배포하려면 **솔루션 탐색기**에서 **myFirstAzureWebA
 
 ![Azure Portal의 App Service 블레이드](./media/app-service-web-get-started-dotnet-framework/web-app-blade.png)
 
-왼쪽 메뉴는 앱 구성을 위한 다양한 페이지를 제공합니다. 
+왼쪽 메뉴로 앱 구성을 위한 여러가지 페이지를 볼 수 있습니다. 
 
 ## <a name="video"></a>비디오
 

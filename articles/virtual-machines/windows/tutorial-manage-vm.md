@@ -9,19 +9,18 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b1093c75e5552fea875f81d2860deb0d61405022
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 0c60cd335e9d280d59fd872d1d0724f2eabd3afb
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707950"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101584"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Windows VM 만들기 및 관리
 
@@ -247,9 +246,9 @@ Azure VM의 전원 상태는 여러 상태 중 하나일 수 있습니다.
 | 시작 중 | 가상 머신이 시작되고 있습니다. |
 | 실행 중 | 가상 머신이 실행되고 있습니다. |
 | 중지 중 | 가상 머신이 중지되고 있습니다. |
-| 중지됨 | VM이 중지됩니다. 중지 상태의 가상 머신에도 여전히 계산 요금이 발생됩니다.  |
+| 중지됨 | VM이 중지됩니다. 중지 상태의 가상 머신에도 여전히 컴퓨팅 요금이 발생됩니다.  |
 | 할당 취소 중 | VM의 할당이 취소되고 있습니다. |
-| 할당 취소됨 | VM이 하이퍼바이저에서 제거되었지만 제어 영역에서 계속 사용할 수 있음을 나타냅니다. `Deallocated` 상태의 가상 머신에는 계산 요금이 발생하지 않습니다. |
+| 할당 취소됨 | VM이 하이퍼바이저에서 제거되었지만 제어 영역에서 계속 사용할 수 있음을 나타냅니다. `Deallocated` 상태의 가상 머신에는 컴퓨팅 요금이 발생하지 않습니다. |
 | - | VM의 전원 상태를 알 수 없습니다. |
 
 

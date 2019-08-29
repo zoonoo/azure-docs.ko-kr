@@ -8,16 +8,15 @@ author: alexkarcher-msft
 manager: ggailey777
 ms.assetid: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
-ms.openlocfilehash: 860fedb13e84054e8ba264116be4e452445b7e9b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b4a143f14dc4e443570e8eca9ce6ce9e81b1d783
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143093"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70096636"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Azure for Students Starter를 사용하여 함수 만들기
 
@@ -84,7 +83,7 @@ Azure 계정을 사용하여 <https://portal.azure.com>에서 Azure Portal에 �
 
     ![Functions 빠른 시작 - 플랫폼 선택](./media/functions-create-student-starter/function-app-quickstart-choose-portal.png)
 
-1. **웹후크 + API**를 선택한 다음, **만들기**를 선택합니다.
+1. **Webhook + API**를 선택한 다음, **만들기**를 선택합니다.
 
     ![Azure Portal에서 함수 빨리 시작하기.](./media/functions-create-student-starter/function-app-quickstart-node-webhook.png)
 

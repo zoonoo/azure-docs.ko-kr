@@ -6,17 +6,16 @@ documentationcenter: na
 author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: glenga
 ms.custom: ''
-ms.openlocfilehash: f7fa1d58c21ea0ed457cc5987d7823fad68d554f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a612505acdc37591377eebf290365b65cc3836cd
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153826"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098280"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Azure App Service 계획에서 Linux로 실행되는 함수 앱 만들기
 
@@ -80,7 +79,7 @@ Linux에서 함수 실행을 호스트하는 함수 앱이 있어야 합니다. 
 
     ![함수 개발 플랫폼을 선택합니다.](./media/create-function-app-linux-app-service-plan/function-app-quickstart-choose-portal.png)
 
-1. **웹후크 + API**를 선택한 다음, **만들기**를 선택합니다.
+1. **Webhook + API**를 선택한 다음, **만들기**를 선택합니다.
 
     ![Azure Portal에서 함수 빨리 시작하기.](./media/create-function-app-linux-app-service-plan/function-app-quickstart-node-webhook.png)
 
