@@ -9,18 +9,17 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2019
 ms.author: tehnoonr
-ms.openlocfilehash: 7aaf29ddf52fb07524aa972f12ca18c235a40928
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 30dfd864c6c237024c72325da813691ac5043bd0
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68351522"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072088"
 ---
-# <a name="failed-to-update-api-management-service-hostnames"></a>API Management 서비스 호스트 이름 업데이트 실패
+# <a name="failed-to-update-api-management-service-hostnames"></a>API Management 서비스 호스트 이름을 업데이트 하지 못했습니다.
 
 이 문서에서는 Azure API Management 서비스에 대 한 사용자 지정 도메인을 추가할 때 발생할 수 있는 "API Management 서비스 호스트 이름을 업데이트 하지 못했습니다." 오류에 대해 설명 합니다. 이 문서에서는 문제를 해결 하는 데 도움이 되는 문제 해결 단계를 제공 합니다.
 

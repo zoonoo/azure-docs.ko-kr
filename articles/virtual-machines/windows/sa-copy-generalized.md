@@ -11,17 +11,16 @@ ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 929dd5bdb01adeaa7b1332bd7a5e6d823edba34a
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 45c59ccdd45a0c00635c3e0a3919248f33e2919a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710406"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102442"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Azure VM에서 관리되지 않는 VM 이미지를 만드는 방법
 
@@ -41,7 +40,7 @@ ms.locfileid: "67710406"
 > 
 > 
 
-`sudo waagent -deprovision+user`을 사용하여 Linux VM을 일반화한 다음 PowerShell을 사용하여 VM을 캡처할 수 있습니다. CLI를 사용 하 여 VM을 캡처하는 방법에 대 한 내용은 [일반화 하 고 Azure CLI를 사용 하 여 Linux 가상 머신을 캡처하는 방법을](../linux/capture-image.md)합니다.
+`sudo waagent -deprovision+user`을 사용하여 Linux VM을 일반화한 다음 PowerShell을 사용하여 VM을 캡처할 수 있습니다. CLI를 사용 하 여 VM을 캡처하는 방법에 대 한 자세한 내용은 [Azure CLI를 사용 하 여 Linux 가상 머신을 일반화 하 고 캡처하는 방법](../linux/capture-image.md)을 참조 하세요.
 
 
 1. Windows 가상 머신에 로그인
@@ -104,7 +103,7 @@ ms.locfileid: "67710406"
 
 ## <a name="create-the-image"></a>이미지 만들기
 
-이 명령을 사용하여 대상 스토리지 컨테이너에서 관리되지 않는 가상 머신 이미지를 만듭니다. 이미지는 원래 가상 머신과 동일한 스토리지 계정에 만들어집니다. `-Path` 매개 변수는 원본 VM에 대한 JSON 템플릿의 복사본을 로컬 컴퓨터에 저장합니다. `-DestinationContainerName` 매개 변수는 이미지를 유지할 컨테이너의 이름입니다. 컨테이너가 없으면 컨테이너가 만들어집니다.
+이 명령을 사용하여 대상 스토리지 컨테이너에서 관리되지 않는 가상 머신 이미지를 만듭니다. 이미지는 원래 가상 컴퓨터와 동일한 스토리지 계정에 만들어집니다. `-Path` 매개 변수는 원본 VM에 대한 JSON 템플릿의 복사본을 로컬 컴퓨터에 저장합니다. `-DestinationContainerName` 매개 변수는 이미지를 유지할 컨테이너의 이름입니다. 컨테이너가 없으면 컨테이너가 만들어집니다.
    
 ```powershell
 Save-AzVMImage -ResourceGroupName <resourceGroupName> -Name <vmName> `

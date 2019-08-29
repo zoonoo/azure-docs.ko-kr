@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3524f34773f4627dff478ee7cc9cbff9f674bf8e
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ec23d3f08fb22f73618c27443bcd8b72c43a9862
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931777"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113554"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory의 특성 매핑에 대한 식 작성
 SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 수 있는 특성 매핑의 유형 중 하나입니다. 이러한 경우, 사용자의 데이터를 SaaS 애플리케이션에 대해 사용하는 형식으로 변환할 수 있는 스크립트 방식의 식을 작성해야 합니다.
@@ -35,7 +35,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
   1. 특성은 대괄호로 묶어야 합니다. 예: [attributeName]
   2. 문자열 상수는 큰따옴표로 묶어야 합니다. 예를 들어: "미국"
   3. 기타 함수 예를 들어: FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
-* 문자열 상수의 경우, 백슬래시 (\) 또는 따옴표(")가 문자열에 필요한 경우 백슬래시(\) 기호로 이스케이프되어야 합니다. 예를 들어: "회사 이름: \\"Contoso\\""
+* 문자열 상수의 경우, 백슬래시 (\) 또는 따옴표(")가 문자열에 필요한 경우 백슬래시(\) 기호로 이스케이프되어야 합니다. 예: "회사 이름: \\"Contoso\\""
 
 ## <a name="list-of-functions"></a>함수 목록
 [Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)
@@ -64,7 +64,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 | 이름 | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **원본** |필수 |String |대개는 원본 개체의 특성 이름입니다. |
-| **inputFormat** |필수 |String |원본 값의 예상된 형식입니다. 지원되는 형식은 [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)를 참조하세요. |
+| **inputFormat** |필수 |문자열 |원본 값의 예상된 형식입니다. 지원되는 형식은 [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)를 참조하세요. |
 | **outputFormat** |필수 |String |출력 날짜의 형식입니다. |
 
 ---
@@ -80,7 +80,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 | 이름 | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **구분 기호** |필수 |String |문자열이 하나의 문자열로 연결되면 원본 값을 구분하는데 문자열을 사용합니다. 구분 기호가 필요하지 않은 경우 ""일 수 있습니다. |
-| **source1  … sourceN** |필수, 시간 변수 |String |값이 함께 조인될 문자열입니다. |
+| **source1  … sourceN** |필수, 시간 변수 |문자열 |값이 함께 조인될 문자열입니다. |
 
 ---
 ### <a name="mid"></a>Mid
@@ -154,7 +154,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 | **regexGroupName** |Optional |String |**regexPattern**내 그룹의 이름입니다. **ReplacementPropertyName** 를 사용 하는 경우에만이 그룹의 값을 **replacementPropertyName**에서 **replacementValue** 로 추출 합니다. |
 | **replacementValue** |Optional |String |이전 값과 대체할 새로운 값입니다. |
 | **replacementAttributeName** |Optional |String |대체 값에 사용할 특성의 이름입니다. |
-| **template** |옵션 |문자열 |**템플릿** 값이 제공 되 면 템플릿 내에서 **oldValue** 를 찾아 **원본** 값으로 바꿉니다. |
+| **template** |옵션 |String |**템플릿** 값이 제공 되 면 템플릿 내에서 **oldValue** 를 찾아 **원본** 값으로 바꿉니다. |
 
 ---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
@@ -164,7 +164,8 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 > [!NOTE]
 >1. 최상위 레벨 함수이므로 중첩할 수 없습니다.
->2. 이 함수는 항목 만들기에만 사용할 수 있습니다. 특성과 함께 사용할 경우 **매핑 적용** 속성을 **개체를 만드는 동안만**으로 설정합니다.
+>2. 이 함수는 일치 하는 우선 순위가 있는 특성에는 적용할 수 없습니다.  
+>3. 이 함수는 항목 만들기에만 사용할 수 있습니다. 특성과 함께 사용할 경우 **매핑 적용** 속성을 **개체를 만드는 동안만**으로 설정합니다.
 
 
 **매개 변수:**<br> 
@@ -184,7 +185,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 | 이름 | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
-| **[appRoleAssignments]** |필수 |String |**[appRoleAssignments]** 개체. |
+| **[appRoleAssignments]** |필수 |문자열 |**[appRoleAssignments]** 개체. |
 
 ---
 ### <a name="split"></a>분할
@@ -209,7 +210,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 | 이름 | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
-| **원본** |필수 |String |**원본** 값입니다. |
+| **원본** |필수 |문자열 |**원본** 값입니다. |
 
 ---
 ### <a name="switch"></a>Switch
@@ -221,7 +222,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 | 이름 | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
-| **원본** |필수 |String |**Source** 값입니다. |
+| **원본** |필수 |문자열 |**Source** 값입니다. |
 | **defaultValue** |Optional |String |원본이 모든 키와 일치하지 않는 경우 사용할 기본값입니다. 빈 문자열("")일 수 있습니다. |
 | **key** |필수 |String |**원본** 값과 비교할 **Key**입니다. |
 | **값** |필수 |문자열 |키와 일치하는 **원본** 의 대체 값입니다. |
@@ -237,7 +238,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 | 이름 | 필수/ 반복 | 형식 | 참고 |
 | --- | --- | --- | --- |
 | **원본** |필수 |String |대개는 원본 개체의 특성 이름 |
-| **문화권** |Optional |String |RFC 4646 기반의 문화권 이름 형식은 *languagecode2-country/regioncode2*이며, 여기서 *languagecode2*는 2자 언어 코드이고 *country/regioncode2*는 2자 하위 문화권 코드입니다. 일본어(일본)의 ja-JP와 영어(미국)의 en-US를 예로 들 수 있습니다. 2자 언어 코드를 사용할 수 없는 경우 ISO 639-2에서 파생된 3자 코드가 사용됩니다.|
+| **문화권** |Optional |문자열 |RFC 4646 기반의 문화권 이름 형식은 *languagecode2-country/regioncode2*이며, 여기서 *languagecode2*는 2자 언어 코드이고 *country/regioncode2*는 2자 하위 문화권 코드입니다. 일본어(일본)의 ja-JP와 영어(미국)의 en-US를 예로 들 수 있습니다. 2자 언어 코드를 사용할 수 없는 경우 ISO 639-2에서 파생된 3자 코드가 사용됩니다.|
 
 ---
 ### <a name="toupper"></a>ToUpper

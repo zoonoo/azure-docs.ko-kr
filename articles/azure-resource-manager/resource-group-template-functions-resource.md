@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 08/20/2019
 ms.author: tomfitz
-ms.openlocfilehash: 2cd37405176eefa8f4445942b9fbf1afc2a7404a
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: eddd99be9d4a30e3e71c806a3f98c6be6800e8fb
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650427"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70095762"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 리소스 함수
 
@@ -188,7 +188,7 @@ list 작업이 있는 리소스 유형을 확인할 수 있게 다음 PowerShell
 
 조건부로 배포 된 리소스에서 **목록** 함수를 사용 하는 경우 리소스가 배포 되지 않은 경우에도 함수가 평가 됩니다. **목록** 함수가 존재 하지 않는 리소스를 참조 하는 경우 오류가 발생 합니다. **If** 함수를 사용 하 여 리소스가 배포 되는 경우에만 함수가 평가 되도록 합니다. If 및 list를 조건부로 배포 된 리소스와 함께 사용 하는 샘플 템플릿은 [if 함수](resource-group-template-functions-logical.md#if) 를 참조 하세요.
 
-### <a name="example"></a>예제
+### <a name="list-example"></a>목록 예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json)에서는 출력 섹션의 저장소 계정에서 기본 및 보조 키를 반환하는 방법을 보여줍니다. 또한 저장소 계정에 대한 SAS 토큰을 반환합니다. 
 
@@ -284,7 +284,7 @@ SAS 토큰을 가져오려면 만료 시간에 대 한 개체를 전달 합니�
 
 반환된 값의 배열 순서는 보장되지 않습니다.
 
-### <a name="example"></a>예제
+### <a name="providers-example"></a>공급자 예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/providers.json)에서는 공급자 함수를 사용하는 방법을 보여줍니다.
 
@@ -433,7 +433,7 @@ SAS 토큰을 가져오려면 만료 시간에 대 한 개체를 전달 합니�
 
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt`는 올바릅니다. `Microsoft.Compute/virtualMachines/extensions/myVM/myExt`는 올바르지 않습니다.
 
-### <a name="example"></a>예제
+### <a name="reference-example"></a>참조 예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/referencewithstorage.json)에서는 리소스를 배포하고 해당 리소스를 참조합니다.
 
@@ -600,7 +600,7 @@ resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 
 
 또한 resourceGroup 함수를 사용 하 여 리소스 그룹에서 리소스에 태그를 적용할 수 있습니다. 자세한 내용은 [리소스 그룹에서 태그 적용](resource-group-using-tags.md#apply-tags-from-resource-group)을 참조 하세요.
 
-### <a name="example"></a>예제
+### <a name="resource-group-example"></a>리소스 그룹 예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourcegroup.json)은 리소스 그룹의 속성을 반환합니다.
 
@@ -737,7 +737,7 @@ resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 
 }
 ```
 
-### <a name="example"></a>예제
+### <a name="resource-id-example"></a>리소스 ID 예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourceid.json)에서는 리소스 그룹의 저장소 계정에 대한 리소스 ID를 반환합니다.
 
@@ -795,7 +795,7 @@ resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 
 }
 ```
 
-### <a name="example"></a>예제
+### <a name="subscription-example"></a>구독 예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json)에서는 출력 섹션에서 호출되는 구독 함수를 보여줍니다. 
 

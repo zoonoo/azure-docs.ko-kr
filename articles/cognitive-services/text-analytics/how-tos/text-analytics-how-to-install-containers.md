@@ -11,12 +11,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: dapine
-ms.openlocfilehash: ddbe586c03d9f722d844d06968aa25e4b4a5aac0
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
-ms.translationtype: HT
+ms.openlocfilehash: 8664d0f727c47da1b70b8060f879a49fbbd8c7c5
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815302"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051355"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Text Analytics 컨테이너 설치 및 실행
 
@@ -48,54 +48,38 @@ Text Analytics 컨테이너를 사용하려면 다음 필수 조건을 충족해
 
 다음 표에서는 각 Text Analytics 컨테이너에 할당할 CPU 코어(2.6GHz 이상) 수 및 메모리(GB) 양에 대한 최소 및 권장 크기에 대해 설명합니다.
 
-| 컨테이너 | 최소 | 권장 | TPS<br>(최소, 최대)|
-|-----------|---------|-------------|--|
-|핵심 구 추출 | 1 코어, 2gb 메모리 | 1 코어, 4gb 메모리 |15, 30|
-|언어 감지 | 1 코어, 2gb 메모리 | 1 코어, 4gb 메모리 |15, 30|
-|감정 분석 | 1 코어, 2gb 메모리 | 1 코어, 4gb 메모리 |15, 30|
+#### <a name="key-phrase-extractiontabkeyphrase"></a>[핵심 구 추출](#tab/keyphrase)
+
+[!INCLUDE [key-phrase-extraction-container-requirements](../includes/key-phrase-extraction-container-requirements.md)]
+
+#### <a name="language-detectiontablanguage"></a>[언어 감지](#tab/language)
+
+[!INCLUDE [language-detection-container-requirements](../includes/language-detection-container-requirements.md)]
+
+#### <a name="sentiment-analysistabsentiment"></a>[감정 분석](#tab/sentiment)
+
+[!INCLUDE [sentiment-analysis-container-requirements](../includes/sentiment-analysis-container-requirements.md)]
+
+***
 
 * 각 코어는 속도가 2.6GHz 이상이어야 합니다.
 * TPS - 초당 트랜잭션 수
 
 코어 및 메모리는 `docker run` 명령의 일부로 사용되는 `--cpus` 및 `--memory` 설정에 해당합니다.
 
-## <a name="get-the-container-image-with-docker-pull"></a>`docker pull`을 사용하여 컨테이너 이미지 가져오기
+#### <a name="key-phrase-extractiontabkeyphrase"></a>[핵심 구 추출](#tab/keyphrase)
 
-Text Analytics에 대한 컨테이너 이미지는 Microsoft Container Registry에서 사용할 수 있습니다.
+[!INCLUDE [docker-pull-key-phrase-extraction-container](../includes/docker-pull-key-phrase-extraction-container.md)]
 
-| 컨테이너 | 리포지토리 |
-|-----------|------------|
-|핵심 구 추출 | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
-|언어 감지 | `mcr.microsoft.com/azure-cognitive-services/language` |
-|감정 분석| `mcr.microsoft.com/azure-cognitive-services/sentiment` |
+#### <a name="language-detectiontablanguage"></a>[언어 감지](#tab/language)
 
-[`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) 명령을 사용하여 Microsoft 컨테이너 레지스트리에서 컨테이너 이미지를 다운로드합니다.
+[!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
 
-Text Analytics 컨테이너에 사용할 수 있는 태그에 대한 전체 설명은 Docker 허브의 다음 컨테이너를 참조하세요.
+#### <a name="sentiment-analysistabsentiment"></a>[감정 분석](#tab/sentiment)
 
-* [핵심 구 추출](https://go.microsoft.com/fwlink/?linkid=2018757)
-* [언어 감지](https://go.microsoft.com/fwlink/?linkid=2018759)
-* [감정 분석](https://go.microsoft.com/fwlink/?linkid=2018654)
+[!INCLUDE [docker-pull-sentiment-analysis-container](../includes/docker-pull-sentiment-analysis-container.md)]
 
-[`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) 명령을 사용하여 컨테이너 이미지를 다운로드합니다.
-
-### <a name="docker-pull-for-the-key-phrase-extraction-container"></a>핵심 구 추출 컨테이너에 대한 docker pull
-
-```
-docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest
-```
-
-### <a name="docker-pull-for-the-language-detection-container"></a>언어 감지 컨테이너에 대한 docker pull
-
-```
-docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
-```
-
-### <a name="docker-pull-for-the-sentiment-container"></a>감정 컨테이너에 대한 docker pull
-
-```
-docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
-```
+***
 
 [!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
@@ -112,26 +96,22 @@ docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
 
 `docker run`명령의 [예](../text-analytics-resource-container-config.md#example-docker-run-commands)를 사용할 수 있습니다.
 
-### <a name="run-container-example-of-docker-run-command"></a>Docker run 명령의 컨테이너 실행 예
+#### <a name="key-phrase-extractiontabkeyphrase"></a>[핵심 구 추출](#tab/keyphrase)
 
-```bash
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-mcr.microsoft.com/azure-cognitive-services/keyphrase \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY}
-```
+[!INCLUDE [docker-run-key-phrase-extraction-container](../includes/docker-run-key-phrase-extraction-container.md)]
 
-이 명령은 다음을 수행합니다.
+#### <a name="language-detectiontablanguage"></a>[언어 감지](#tab/language)
 
-* 컨테이너 이미지에서 핵심 구 컨테이너를 실행합니다.
-* 1개 CPU 코어 및 4GB 메모리 할당
-* 5000 TCP 포트 표시 및 컨테이너에 의사-TTY 할당
-* 종료 후 자동으로 컨테이너를 제거합니다. 컨테이너 이미지는 호스트 컴퓨터에서 계속 사용할 수 있습니다.
+[!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
 
+#### <a name="sentiment-analysistabsentiment"></a>[감정 분석](#tab/sentiment)
+
+[!INCLUDE [docker-run-sentiment-analysis-container](../includes/docker-run-sentiment-analysis-container.md)]
+
+***
 
 > [!IMPORTANT]
-> 컨테이너를 인스턴스화하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](#billing)를 참조하세요.
+> 컨테이너를 실행하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](#billing)을 참조하세요.
 
 [!INCLUDE [Running multiple containers on the same host](../../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
@@ -139,7 +119,7 @@ ApiKey={API_KEY}
 
 컨테이너는 REST 기반 쿼리 예측 끝점 API를 제공합니다.
 
-컨테이너 API에 대한 호스트, `https://localhost:5000`을 사용합니다.
+컨테이너 API에 대한 호스트, `http://localhost:5000`을 사용합니다.
 
 <!--  ## Validate container is running -->
 

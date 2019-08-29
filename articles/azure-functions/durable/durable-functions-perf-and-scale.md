@@ -6,16 +6,15 @@ author: cgillum
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: e6ae4cc527ae0828f530ab7f3904d2b3c64c910b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ed0fe22903412d4164fb3a85dbd9afafdc7023e6
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60733246"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70097993"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>지속성 함수의 성능 및 크기 조정(Azure Functions)
 
@@ -51,16 +50,16 @@ ms.locfileid: "60733246"
 
 ### <a name="queue-polling"></a>큐 폴링
 
-지 속성 작업 확장에는 무작위 지 수 백오프 알고리즘을 유휴 큐 폴링이 저장소 트랜잭션 비용에 미치는 영향을 줄이려면 구현 합니다. 메시지가 발견 되 면 런타임은 즉시 다른 메시지가 있는지 확인 합니다. 메시지가 발견 되 면 다시 시도 하기 전에 시간 동안 대기 합니다. 메시지가 큐에 후속 실패 한 시도 후 계속 대기 시간이 30 초로 기본 설정 된 최대 대기 시간에 도달할 때까지 증가 합니다.
+지 속성 작업 확장은 임의 지 수 백오프 알고리즘을 구현 하 여 유휴 큐 폴링이 저장소 트랜잭션 비용에 미치는 영향을 줄입니다. 메시지가 발견 되 면 런타임은 다른 메시지를 즉시 확인 합니다. 메시지를 찾을 수 없으면 일정 시간 동안 기다린 후 다시 시도 합니다. 큐 메시지를 가져오기 위해 후속 시도가 실패 한 후 대기 시간은 최대 대기 시간에 도달할 때까지 계속 증가 하며 기본값은 30 초입니다.
 
-최대 폴링 지연은 통해 구성할 수 있습니다 합니다 `maxQueuePollingInterval` 에서 속성을 [host.json 파일](../functions-host-json.md#durabletask)합니다. 이 값을 더 높게 설정 높은 메시지 대기 시간을 처리 될 수 있습니다. 대기 시간이 높기 비활성 기간 후에 정상적입니다. 증가 된 저장소 트랜잭션 인해 저장소 비용 더 높음 낮은 값으로 설정 될 수 있습니다.
+최대 폴링 지연은 [호스트 json 파일](../functions-host-json.md#durabletask)의 속성 `maxQueuePollingInterval` 을 통해 구성할 수 있습니다. 이 값을 높게 설정 하면 메시지 처리 대기 시간이 더 길어질 수 있습니다. 대기 시간이 길수록 비활성 기간 후에만 예상 됩니다. 이 값을 낮게 설정 하면 저장소 트랜잭션이 증가 하 여 저장소 비용이 높아질 수 있습니다.
 
 > [!NOTE]
-> Azure Functions 소비 및 Premium 계획에서 실행 하는 경우는 [Azure Functions 크기 조정 컨트롤러](../functions-scale.md#how-the-consumption-and-premium-plans-work) 10 초 마다 한 번씩 각 제어 및 작업 항목 큐를 폴링하고 됩니다. 이 추가 폴링은 함수 앱 인스턴스를 활성화 하 고 크기 조정 결정을 내릴 때를 결정 하는 데 필요한입니다. 작성 시이 10 초 간격 상수 이며 구성할 수 없습니다.
+> Azure Functions 소비 및 프리미엄 계획에서 실행 하는 경우 [Azure Functions 크기 조정 컨트롤러](../functions-scale.md#how-the-consumption-and-premium-plans-work) 는 각 제어 및 작업 항목 큐를 10 초 마다 한 번씩 폴링합니다. 이 추가 폴링은 함수 앱 인스턴스를 활성화 하 고 크기 결정을 내리는 시기를 결정 하는 데 필요 합니다. 작성 시이 10 초 간격은 일정 하므로 구성할 수 없습니다.
 
 ## <a name="storage-account-selection"></a>스토리지 계정 선택
 
-큐, 테이블 및 blob Durable Functions에서 사용 하는 구성 된 Azure Storage 계정에 만들어집니다. 사용할 계정은 **host.json** 파일에서 `durableTask/azureStorageConnectionStringName` 설정을 사용하여 지정할 수 있습니다.
+Durable Functions에서 사용 되는 큐, 테이블 및 blob은 구성 된 Azure Storage 계정에 만들어집니다. 사용할 계정은 **host.json** 파일에서 `durableTask/azureStorageConnectionStringName` 설정을 사용하여 지정할 수 있습니다.
 
 ### <a name="functions-1x"></a>Functions 1.x
 

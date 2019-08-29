@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop
 ms.reviewer: kumud
-ms.openlocfilehash: ca4908e642644ccbf349841d143bfcc18e944025
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 25c732d1311e2bcffe0fda0d5e427d5df5f99da6
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305830"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70065939"
 ---
 # <a name="security-groups"></a>보안 그룹
 <a name="network-security-groups"></a>
@@ -39,7 +39,7 @@ Azure [가상 네트워크](virtual-networks-overview.md)의 Azure 리소스와 
 |프로토콜     | TCP, UDP, ICMP 또는 Any입니다.|
 |Direction| 규칙이 인바운드 또는 아웃바운드 트래픽에 적용되는지 여부입니다.|
 |포트 범위     |개별 포트나 포트의 범위를 지정할 수 있습니다. 예를 들어 80 또는 10000-10005과 같이 지정할 수 있습니다. 범위를 지정하면 더 적은 보안 규칙을 만들어도 됩니다. 보강된 보안 규칙은 Resource Manager 배포 모델을 통해 만들어진 네트워크 보안 그룹에서만 만들 수 있습니다. 클래식 배포 모델을 통해 만든 네트워크 보안 그룹에서는 동일한 보안 규칙에 여러 개의 포트 또는 포트 범위를 지정할 수 없습니다.   |
-|Action     | 허용 또는 거부        |
+|동작     | 허용 또는 거부        |
 
 네트워크 보안 그룹 보안 규칙은 5 튜플 정보(원본, 원본 포트, 대상, 대상 포트 및 프로토콜)를 사용하는 우선 순위를 통해 평가되어 트래픽을 허용하거나 거부합니다. 기존 연결에 대한 흐름 레코드가 만들어집니다. 통신은 흐름 레코드의 연결 상태에 따라 허용 또는 거부됩니다. 흐름 레코드는 네트워크 보안 그룹의 상태 저장을 허용합니다. 예를 들어 포트 80을 통해 모든 주소에 대한 아웃바운드 보안 규칙을 지정하는 경우 아웃바운드 트래픽에 대한 응답에 인바운드 보안 규칙을 지정하지 않아도 됩니다. 통신이 외부에서 시작된 경우 인바운드 보안 규칙을 지정하기만 하면 됩니다. 반대의 경우도 마찬가지입니다. 포트를 통해 인바운드 트래픽이 허용되는 경우 포트를 통해 트래픽에 응답하도록 아웃바운드 보안 규칙을 지정하지 않아도 됩니다.
 흐름을 사용하는 보안 규칙을 제거해도 기존 연결이 중단되지 않을 수 있습니다. 연결이 중단되고 몇 분 이상 어느 방향으로도 트래픽이 흐르지 않으면 트래픽 흐름이 중단됩니다.
@@ -56,38 +56,38 @@ Azure [가상 네트워크](virtual-networks-overview.md)의 Azure 리소스와 
 
 다음 서비스 태그는 [네트워크 보안 그룹 규칙](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules)에서 사용할 수 있습니다. 끝에 별표가 있는 서비스 태그 (예: AzureCloud *)를 [Azure 방화벽 네트워크 규칙](https://docs.microsoft.com/azure/firewall/service-tags)에서 사용할 수도 있습니다. 
 
-* **VirtualNetwork**(Resource Manager)(클래식의 경우 **VIRTUAL_NETWORK**): 이 태그에는 가상 네트워크 주소 공간 (가상 네트워크에 대해 정의 된 모든 CIDR 범위), 연결 된 모든 온-프레미스 주소 공간, [피어 링](virtual-network-peering-overview.md) 가상 네트워크 또는 가상 네트워크 [게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 주소에 연결 된 가상 네트워크가 포함 됩니다. [사용자 정의 경로](virtual-networks-udr-overview.md)에 사용 되는 접두사입니다. 이 태그에는 기본 경로가 포함 될 수 있습니다. 
-* **AzureLoadBalancer**(Resource Manager)(클래식의 경우 **AZURE_LOADBALANCER**): Azure의 인프라 부하 분산 디바이스를 나타내는 기본 태그입니다. 태그는 Azure의 상태 프로브가 시작되는 [호스트의 가상 IP 주소](security-overview.md#azure-platform-considerations)(168.63.129.16)로 변환됩니다. Azure Load Balancer를 사용하지 않는 경우 이 규칙을 재정의할 수 있습니다.
-* **Internet**(Resource Manager)(클래식의 경우 **INTERNET**): 이 태그는 가상 네트워크 외부에 있으며 공용 인터넷으로 연결할 수 있는 IP 주소 공간을 나타냅니다. 주소 범위에는 [Azure에서 소유하는 공용 IP 주소 공간](https://www.microsoft.com/download/details.aspx?id=41653)이 포함됩니다.
-* **Azurecloud*** (리소스 관리자에만 해당): 이 태그는 모든 [데이터 센터 공용 IP 주소](https://www.microsoft.com/download/details.aspx?id=41653)를 포함한 Azure에 대한 IP 주소 공간을 나타냅니다. 값으로 *AzureCloud*를 지정하는 경우 트래픽은 Azure 공용 IP 주소에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 azurecloud에 대 한 액세스를 허용 하려면 azurecloud 형식으로 지역을 지정할 수 있습니다. [지역 이름]. 이 태그는 아웃 바운드 보안 규칙에 권장 됩니다. 
-* **AzureTrafficManager*** (리소스 관리자에만 해당): 이 태그는 Azure Traffic Manager 프로브 IP 주소에 대한 IP 주소 공간을 나타냅니다. Traffic Manager 프로브 IP 주소에 대한 자세한 내용은 [Azure Traffic Manager FAQ](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs)에서 찾을 수 있습니다. 이 태그는 인바운드 보안 규칙에 권장 됩니다.  
-* **저장소*** (리소스 관리자에만 해당): 이 태그는 Azure Storage 서비스의 IP 주소 공간을 나타냅니다. 값의 *스토리지*를 지정하는 경우 트래픽은 스토리지에 대해 허용되거나 거부됩니다. 특정 [지역의](https://azure.microsoft.com/regions)저장소에 대 한 액세스만 허용 하려는 경우 다음 형식 저장소에서 지역을 지정할 수 있습니다. [지역 이름]. 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 Azure Storage 계정이 아닌 Azure Storage 서비스를 나타냅니다. 이 태그는 아웃 바운드 보안 규칙에 권장 됩니다. 
-* **Sql*** (리소스 관리자에만 해당): 이 태그는 Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL 및 Azure SQL Data Warehouse 서비스의 주소 접두사를 나타냅니다. 값의 *Sql*을 지정하는 경우 트래픽은 Sql에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 sql에 대 한 액세스를 허용 하려는 경우에는 다음 형식으로 지역을 지정할 수 있습니다. [region name]. 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 SQL 데이터베이스 또는 서버가 아닌 Azure SQL Database 서비스를 나타냅니다. 이 태그는 아웃 바운드 보안 규칙에 권장 됩니다. 
-* **Microsoft.azurecosmosdb*** (리소스 관리자에만 해당): 이 태그는 Azure Cosmos Database 서비스의 주소 접두사를 나타냅니다. 값으로 *AzureCosmosDB*를 지정하는 경우 트래픽은 AzureCosmosDB에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 AzureCosmosDB 액세스를 허용하려면 AzureCosmosDB.[region name] 형식으로 지역을 지정하면 됩니다. 이 태그는 아웃 바운드 보안 규칙에 권장 됩니다. 
-* **Azurekeyvault*** (리소스 관리자에만 해당): 이 태그는 Azure KeyVault 서비스의 주소 접두사를 나타냅니다. 값으로 *AzureKeyVault*를 지정하는 경우 트래픽은 AzureKeyVault에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 AzureKeyVault 액세스를 허용하려면 AzureKeyVault.[region name] 형식으로 지역을 지정하면 됩니다. 이 태그는 **AzureActiveDirectory** 태그에 종속 됩니다. 이 태그는 아웃 바운드 보안 규칙에 권장 됩니다.  
-* **EventHub*** (리소스 관리자에만 해당): 이 태그는 Azure EventHub 서비스의 주소 접두사를 나타냅니다. 값으로 *EventHub*를 지정하는 경우 트래픽은 EventHub에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 EventHub 액세스를 허용하려면 다음과 같은 EventHub.[지역 이름] 형식으로 지역을 지정할 수 있습니다. 이 태그는 아웃 바운드 보안 규칙에 권장 됩니다. 
-* **ServiceBus*** (리소스 관리자에만 해당): 이 태그는 프리미엄 서비스 계층을 사용 하 여 Azure ServiceBus 서비스의 주소 접두사를 나타냅니다. 값으로 *ServiceBus*를 지정하는 경우 트래픽은 ServiceBus에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 ServiceBus 액세스를 허용하려면 다음과 같은 ServiceBus.[지역 이름] 형식으로 지역을 지정할 수 있습니다. 이 태그는 아웃 바운드 보안 규칙에 권장 됩니다. 
-* **MicrosoftContainerRegistry*** (리소스 관리자에만 해당): 이 태그는 Microsoft Container Registry 서비스의 주소 접두사를 나타냅니다. 값으로 *MicrosoftContainerRegistry*를 지정하는 경우 트래픽은 MicrosoftContainerRegistry에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 MicrosoftContainerRegistry 액세스를 허용하려면 MicrosoftContainerRegistry.[지역 이름] 형식으로 지역을 지정하면 됩니다. 이 태그는 아웃 바운드 보안 규칙에 권장 됩니다. 
-* **AzureContainerRegistry*** (리소스 관리자에만 해당): 이 태그는 Azure Container Registry 서비스의 주소 접두사를 나타냅니다. 값으로 *AzureContainerRegistry*를 지정하는 경우 트래픽은 AzureContainerRegistry에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 AzureContainerRegistry 액세스를 허용하려면 AzureContainerRegistry.[지역 이름] 형식으로 지역을 지정하면 됩니다. 이 태그는 아웃 바운드 보안 규칙에 권장 됩니다. 
+* **Microsoft.apimanagement*** (리소스 관리자에만 해당): 이 태그는 APIM 전용 배포에 대 한 관리 트래픽의 주소 접두사를 나타냅니다. 값으로 *ApiManagement*를 지정하는 경우 트래픽은 ApiManagement에 대해 허용되거나 거부됩니다. 이 태그는 인바운드/아웃 바운드 보안 규칙에 권장 됩니다. 
 * **AppService*** (리소스 관리자에만 해당): 이 태그는 Azure AppService 서비스의 주소 접두사를 나타냅니다. 값으로 *AppService*를 지정하는 경우 트래픽은 AppService에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 AppService 액세스를 허용하려면 다음과 같은 AppService.[지역 이름] 형식으로 지역을 지정할 수 있습니다. 이 태그는 WebApps 프런트 엔드 아웃 바운드 보안 규칙에 권장 됩니다.  
 * **AppServiceManagement*** (리소스 관리자에만 해당): 이 태그는 전용 배포 App Service Environment에 대 한 관리 트래픽의 주소 접두사를 나타냅니다. 값으로 *AppServiceManagement*를 지정하는 경우 트래픽은 AppServiceManagement에 대해 허용되거나 거부됩니다. 이 태그는 인바운드/아웃 바운드 보안 규칙에 권장 됩니다. 
-* **Microsoft.apimanagement*** (리소스 관리자에만 해당): 이 태그는 APIM 전용 배포에 대 한 관리 트래픽의 주소 접두사를 나타냅니다. 값으로 *ApiManagement*를 지정하는 경우 트래픽은 ApiManagement에 대해 허용되거나 거부됩니다. 이 태그는 인바운드/아웃 바운드 보안 규칙에 권장 됩니다. 
-* **Azureconnectors*** (리소스 관리자에만 해당): 이 태그는 프로브/백 엔드 연결에 대 한 Logic Apps 커넥터의 주소 접두사를 나타냅니다. 값으로 *AzureConnectors*를 지정하는 경우 트래픽은 AzureConnectors에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 AzureConnectors 액세스를 허용하려면 AzureConnectors.[지역 이름] 형식으로 지역을 지정하면 됩니다. 이 태그는 인바운드 보안 규칙에 권장 됩니다. 
-* **GatewayManager**(Resource Manager만 해당): 이 태그는 VPN/App gateway 전용 배포에 대 한 관리 트래픽의 주소 접두사를 나타냅니다. 값으로 *GatewayManager*를 지정하는 경우 트래픽은 GatewayManager에 대해 허용되거나 거부됩니다. 이 태그는 인바운드 보안 규칙에 권장 됩니다. 
-* **AzureDataLake*** (리소스 관리자에만 해당): 이 태그는 Azure Data Lake 서비스의 주소 접두사를 나타냅니다. 값으로 *AzureDataLake*를 지정하는 경우 트래픽은 AzureDataLake에 대해 허용되거나 거부됩니다. 이 태그는 아웃 바운드 보안 규칙에 권장 됩니다. 
 * **AzureActiveDirectory*** (리소스 관리자에만 해당): 이 태그는 AzureActiveDirectory 서비스의 주소 접두사를 나타냅니다. 값으로 *AzureActiveDirectory*를 지정하는 경우 트래픽은 AzureActiveDirectory에 대해 허용되거나 거부됩니다. 이 태그는 아웃 바운드 보안 규칙에 권장 됩니다.
-* **Azuremonitor*** (리소스 관리자에만 해당): 이 태그는 Log Analytics, App Insights, AzMon 및 사용자 지정 메트릭 (4Gb 끝점)의 주소 접두사를 나타냅니다. 값으로 *AzureMonitor*를 지정하는 경우 AzureMonitor에 대한 트래픽이 허용 또는 거부됩니다. Log Analytics의 경우이 태그는 **저장소** 태그에 종속 됩니다. 이 태그는 아웃 바운드 보안 규칙에 권장 됩니다.
-* **ServiceFabric*** (리소스 관리자에만 해당): 이 태그는 ServiceFabric 서비스의 주소 접두사를 나타냅니다. 값으로 *ServiceFabric*을 지정하는 경우 ServiceFabric에 대한 트래픽이 허용 또는 거부됩니다. 이 태그는 아웃 바운드 보안 규칙에 권장 됩니다. 
-* **AzureMachineLearning*** (리소스 관리자에만 해당): 이 태그는 AzureMachineLearning 서비스의 주소 접두사를 나타냅니다. 값으로 *AzureMachineLearning*를 지정하는 경우 AzureMachineLearning에 대한 트래픽이 허용 또는 거부됩니다. 이 태그는 아웃 바운드 보안 규칙에 권장 됩니다. 
-* **Batchnodemanagement*** (리소스 관리자에만 해당): 이 태그는 전용 배포 Azure Batch에 대 한 관리 트래픽의 주소 접두사를 나타냅니다. 값에 대해 *Batchnodemanagement* 를 지정 하면 일괄 처리 서비스에서 노드를 계산 하는 트래픽이 허용 되거나 거부 됩니다. 이 태그는 인바운드/아웃 바운드 보안 규칙에 권장 됩니다. 
-* **Azurebackup*** (리소스 관리자에만 해당): 이 태그는 AzureBackup 서비스의 주소 접두사를 나타냅니다. 값에 대해 *Azurebackup* 을 지정 하는 경우 트래픽은 azurebackup에 대해 허용 되거나 거부 됩니다. 이 태그는 **Storage** 및 **AzureActiveDirectory** 태그에 종속 됩니다. 이 태그는 아웃 바운드 보안 규칙에 권장 됩니다. 
 * **AzureActiveDirectoryDomainServices*** (리소스 관리자에만 해당): 이 태그는 전용 배포 Azure Active Directory Domain Services에 대 한 관리 트래픽의 주소 접두사를 나타냅니다. 값에 대해 *AzureActiveDirectoryDomainServices* 를 지정 하는 경우 AzureActiveDirectoryDomainServices에 대 한 트래픽이 허용 되거나 거부 됩니다. 이 태그는 인바운드/아웃 바운드 보안 규칙에 권장 됩니다.  
-* **Sqlmanagement*** (리소스 관리자에만 해당): 이 태그는 SQL 전용 배포에 대 한 관리 트래픽의 주소 접두사를 나타냅니다. 값으로 *Sqlmanagement* 를 지정 하는 경우에는 sqlmanagement에 대해 트래픽이 허용 되거나 거부 됩니다. 이 태그는 인바운드/아웃 바운드 보안 규칙에 권장 됩니다. 
-* **CognitiveServicesManagement** (리소스 관리자에만 해당): 이 태그는 Cognitive Services에 대 한 트래픽의 주소 접두사를 나타냅니다. 값에 대해 *CognitiveServicesManagement* 를 지정 하는 경우 CognitiveServicesManagement에 대 한 트래픽이 허용 되거나 거부 됩니다. 이 태그는 아웃 바운드 보안 규칙에 권장 됩니다.  
-* **Dynamics365ForMarketingEmail** (리소스 관리자에만 해당): 이 태그는 Dynamics 365 마케팅 메일 서비스의 주소 접두사를 나타냅니다. 값에 대해 *Dynamics365ForMarketingEmail* 를 지정 하는 경우 Dynamics365ForMarketingEmail에 대 한 트래픽이 허용 되거나 거부 됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 Dynamics365ForMarketingEmail에 대 한 액세스를 허용 하려는 경우 Dynamics365ForMarketingEmail 형식으로 지역을 지정할 수 있습니다. [지역 이름].
+* **Azurebackup*** (리소스 관리자에만 해당): 이 태그는 AzureBackup 서비스의 주소 접두사를 나타냅니다. 값에 대해 *Azurebackup* 을 지정 하는 경우 트래픽은 azurebackup에 대해 허용 되거나 거부 됩니다. 이 태그는 **Storage** 및 **AzureActiveDirectory** 태그에 종속 됩니다. 이 태그는 아웃 바운드 보안 규칙에 권장 됩니다. 
+* **Azurecloud*** (리소스 관리자에만 해당): 이 태그는 모든 [데이터 센터 공용 IP 주소](https://www.microsoft.com/download/details.aspx?id=41653)를 포함한 Azure에 대한 IP 주소 공간을 나타냅니다. 값으로 *AzureCloud*를 지정하는 경우 트래픽은 Azure 공용 IP 주소에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 azurecloud에 대 한 액세스를 허용 하려면 azurecloud 형식으로 지역을 지정할 수 있습니다. [지역 이름]. 이 태그는 아웃 바운드 보안 규칙에 권장 됩니다. 
+* **Azureconnectors*** (리소스 관리자에만 해당): 이 태그는 프로브/백 엔드 연결에 대 한 Logic Apps 커넥터의 주소 접두사를 나타냅니다. 값으로 *AzureConnectors*를 지정하는 경우 트래픽은 AzureConnectors에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 AzureConnectors 액세스를 허용하려면 AzureConnectors.[지역 이름] 형식으로 지역을 지정하면 됩니다. 이 태그는 인바운드 보안 규칙에 권장 됩니다. 
+* **AzureContainerRegistry*** (리소스 관리자에만 해당): 이 태그는 Azure Container Registry 서비스의 주소 접두사를 나타냅니다. 값으로 *AzureContainerRegistry*를 지정하는 경우 트래픽은 AzureContainerRegistry에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 AzureContainerRegistry 액세스를 허용하려면 AzureContainerRegistry.[지역 이름] 형식으로 지역을 지정하면 됩니다. 이 태그는 아웃 바운드 보안 규칙에 권장 됩니다. 
+* **Microsoft.azurecosmosdb*** (리소스 관리자에만 해당): 이 태그는 Azure Cosmos Database 서비스의 주소 접두사를 나타냅니다. 값으로 *AzureCosmosDB*를 지정하는 경우 트래픽은 AzureCosmosDB에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 AzureCosmosDB 액세스를 허용하려면 AzureCosmosDB.[region name] 형식으로 지역을 지정하면 됩니다. 이 태그는 아웃 바운드 보안 규칙에 권장 됩니다. 
+* **AzureDataLake*** (리소스 관리자에만 해당): 이 태그는 Azure Data Lake 서비스의 주소 접두사를 나타냅니다. 값으로 *AzureDataLake*를 지정하는 경우 트래픽은 AzureDataLake에 대해 허용되거나 거부됩니다. 이 태그는 아웃 바운드 보안 규칙에 권장 됩니다. 
+* **Azurekeyvault*** (리소스 관리자에만 해당): 이 태그는 Azure KeyVault 서비스의 주소 접두사를 나타냅니다. 값으로 *AzureKeyVault*를 지정하는 경우 트래픽은 AzureKeyVault에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 AzureKeyVault 액세스를 허용하려면 AzureKeyVault.[region name] 형식으로 지역을 지정하면 됩니다. 이 태그는 **AzureActiveDirectory** 태그에 종속 됩니다. 이 태그는 아웃 바운드 보안 규칙에 권장 됩니다.  
+* **AzureLoadBalancer**(Resource Manager)(클래식의 경우 **AZURE_LOADBALANCER**): Azure의 인프라 부하 분산 디바이스를 나타내는 기본 태그입니다. 태그는 Azure의 상태 프로브가 시작되는 [호스트의 가상 IP 주소](security-overview.md#azure-platform-considerations)(168.63.129.16)로 변환됩니다. Azure Load Balancer를 사용하지 않는 경우 이 규칙을 재정의할 수 있습니다.
+* **AzureMachineLearning*** (리소스 관리자에만 해당): 이 태그는 AzureMachineLearning 서비스의 주소 접두사를 나타냅니다. 값으로 *AzureMachineLearning*를 지정하는 경우 AzureMachineLearning에 대한 트래픽이 허용 또는 거부됩니다. 이 태그는 아웃 바운드 보안 규칙에 권장 됩니다. 
+* **Azuremonitor*** (리소스 관리자에만 해당): 이 태그는 Log Analytics, App Insights, AzMon 및 사용자 지정 메트릭 (4Gb 끝점)의 주소 접두사를 나타냅니다. 값으로 *AzureMonitor*를 지정하는 경우 AzureMonitor에 대한 트래픽이 허용 또는 거부됩니다. Log Analytics의 경우이 태그는 **저장소** 태그에 종속 됩니다. 이 태그는 아웃 바운드 보안 규칙에 권장 됩니다.
 * **AzurePlatformDNS** (리소스 관리자에만 해당): 이 태그는 기본 인프라 서비스인 DNS를 나타냅니다. 값에 대해 *AzurePlatformDNS* 를 지정 하는 경우 DNS에 대 한 기본 [Azure platform 고려](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) 사항을 사용 하지 않도록 설정할 수 있습니다. 이 태그를 사용 하는 데 주의 하세요. 이 태그를 사용 하기 전에 테스트를 수행 하는 것이 좋습니다. 
 * **AzurePlatformIMDS** (리소스 관리자에만 해당): 이 태그는 기본 인프라 서비스인 IMDS를 나타냅니다. 값에 대해 *AzurePlatformIMDS* 를 지정 하는 경우 imds에 대 한 기본 [Azure platform 고려](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) 사항을 사용 하지 않도록 설정할 수 있습니다. 이 태그를 사용 하는 데 주의 하세요. 이 태그를 사용 하기 전에 테스트를 수행 하는 것이 좋습니다. 
 * **AzurePlatformLKM** (리소스 관리자에만 해당): 이 태그는 Windows 라이선스 또는 키 관리 서비스를 나타냅니다. 값에 대해 *AzurePlatformLKM* 를 지정 하는 경우 라이선스에 대 한 기본 [Azure platform 고려](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) 사항을 사용 하지 않도록 설정할 수 있습니다. 이 태그를 사용 하는 데 주의 하세요. 이 태그를 사용 하기 전에 테스트를 수행 하는 것이 좋습니다. 
+* **AzureTrafficManager*** (리소스 관리자에만 해당): 이 태그는 Azure Traffic Manager 프로브 IP 주소에 대한 IP 주소 공간을 나타냅니다. Traffic Manager 프로브 IP 주소에 대한 자세한 내용은 [Azure Traffic Manager FAQ](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs)에서 찾을 수 있습니다. 이 태그는 인바운드 보안 규칙에 권장 됩니다.  
+* **Batchnodemanagement*** (리소스 관리자에만 해당): 이 태그는 전용 배포 Azure Batch에 대 한 관리 트래픽의 주소 접두사를 나타냅니다. 값에 대해 *Batchnodemanagement* 를 지정 하면 일괄 처리 서비스에서 노드를 계산 하는 트래픽이 허용 되거나 거부 됩니다. 이 태그는 인바운드/아웃 바운드 보안 규칙에 권장 됩니다. 
+* **CognitiveServicesManagement** (리소스 관리자에만 해당): 이 태그는 Cognitive Services에 대 한 트래픽의 주소 접두사를 나타냅니다. 값에 대해 *CognitiveServicesManagement* 를 지정 하는 경우 CognitiveServicesManagement에 대 한 트래픽이 허용 되거나 거부 됩니다. 이 태그는 아웃 바운드 보안 규칙에 권장 됩니다.  
+* **Dynamics365ForMarketingEmail** (리소스 관리자에만 해당): 이 태그는 Dynamics 365 마케팅 메일 서비스의 주소 접두사를 나타냅니다. 값에 대해 *Dynamics365ForMarketingEmail* 를 지정 하는 경우 Dynamics365ForMarketingEmail에 대 한 트래픽이 허용 되거나 거부 됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 Dynamics365ForMarketingEmail에 대 한 액세스를 허용 하려는 경우 Dynamics365ForMarketingEmail 형식으로 지역을 지정할 수 있습니다. [지역 이름].
+* **EventHub*** (리소스 관리자에만 해당): 이 태그는 Azure EventHub 서비스의 주소 접두사를 나타냅니다. 값으로 *EventHub*를 지정하는 경우 트래픽은 EventHub에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 EventHub 액세스를 허용하려면 다음과 같은 EventHub.[지역 이름] 형식으로 지역을 지정할 수 있습니다. 이 태그는 아웃 바운드 보안 규칙에 권장 됩니다. 
+* **GatewayManager**(Resource Manager만 해당): 이 태그는 VPN/App gateway 전용 배포에 대 한 관리 트래픽의 주소 접두사를 나타냅니다. 값으로 *GatewayManager*를 지정하는 경우 트래픽은 GatewayManager에 대해 허용되거나 거부됩니다. 이 태그는 인바운드 보안 규칙에 권장 됩니다. 
+* **Internet**(Resource Manager)(클래식의 경우 **INTERNET**): 이 태그는 가상 네트워크 외부에 있으며 공용 인터넷으로 연결할 수 있는 IP 주소 공간을 나타냅니다. 주소 범위에는 [Azure에서 소유하는 공용 IP 주소 공간](https://www.microsoft.com/download/details.aspx?id=41653)이 포함됩니다.
+* **MicrosoftContainerRegistry*** (리소스 관리자에만 해당): 이 태그는 Microsoft Container Registry 서비스의 주소 접두사를 나타냅니다. 값으로 *MicrosoftContainerRegistry*를 지정하는 경우 트래픽은 MicrosoftContainerRegistry에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 MicrosoftContainerRegistry 액세스를 허용하려면 MicrosoftContainerRegistry.[지역 이름] 형식으로 지역을 지정하면 됩니다. 이 태그는 아웃 바운드 보안 규칙에 권장 됩니다. 
+* **ServiceBus*** (리소스 관리자에만 해당): 이 태그는 프리미엄 서비스 계층을 사용 하 여 Azure ServiceBus 서비스의 주소 접두사를 나타냅니다. 값으로 *ServiceBus*를 지정하는 경우 트래픽은 ServiceBus에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 ServiceBus 액세스를 허용하려면 다음과 같은 ServiceBus.[지역 이름] 형식으로 지역을 지정할 수 있습니다. 이 태그는 아웃 바운드 보안 규칙에 권장 됩니다. 
+* **ServiceFabric*** (리소스 관리자에만 해당): 이 태그는 ServiceFabric 서비스의 주소 접두사를 나타냅니다. 값으로 *ServiceFabric*을 지정하는 경우 ServiceFabric에 대한 트래픽이 허용 또는 거부됩니다. 이 태그는 아웃 바운드 보안 규칙에 권장 됩니다. 
+* **Sql*** (리소스 관리자에만 해당): 이 태그는 Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL 및 Azure SQL Data Warehouse 서비스의 주소 접두사를 나타냅니다. 값의 *Sql*을 지정하는 경우 트래픽은 Sql에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 sql에 대 한 액세스를 허용 하려는 경우에는 다음 형식으로 지역을 지정할 수 있습니다. [region name]. 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 SQL 데이터베이스 또는 서버가 아닌 Azure SQL Database 서비스를 나타냅니다. 이 태그는 아웃 바운드 보안 규칙에 권장 됩니다. 
+* **Sqlmanagement*** (리소스 관리자에만 해당): 이 태그는 SQL 전용 배포에 대 한 관리 트래픽의 주소 접두사를 나타냅니다. 값으로 *Sqlmanagement* 를 지정 하는 경우에는 sqlmanagement에 대해 트래픽이 허용 되거나 거부 됩니다. 이 태그는 인바운드/아웃 바운드 보안 규칙에 권장 됩니다. 
+* **저장소*** (리소스 관리자에만 해당): 이 태그는 Azure Storage 서비스의 IP 주소 공간을 나타냅니다. 값의 *스토리지*를 지정하는 경우 트래픽은 스토리지에 대해 허용되거나 거부됩니다. 특정 [지역의](https://azure.microsoft.com/regions)저장소에 대 한 액세스만 허용 하려는 경우 다음 형식 저장소에서 지역을 지정할 수 있습니다. [지역 이름]. 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 Azure Storage 계정이 아닌 Azure Storage 서비스를 나타냅니다. 이 태그는 아웃 바운드 보안 규칙에 권장 됩니다. 
+* **VirtualNetwork**(Resource Manager)(클래식의 경우 **VIRTUAL_NETWORK**): 이 태그에는 가상 네트워크 주소 공간 (가상 네트워크에 대해 정의 된 모든 CIDR 범위), 연결 된 모든 온-프레미스 주소 공간, [피어 링](virtual-network-peering-overview.md) 가상 네트워크 또는 가상 네트워크 [게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json) 및 주소에 연결 된 가상 네트워크가 포함 됩니다. [사용자 정의 경로](virtual-networks-udr-overview.md)에 사용 되는 접두사입니다. 이 태그에는 기본 경로가 포함 될 수 있습니다. 
 
 > [!NOTE]
 > Azure 서비스의 서비스 태그는 사용되는 특정 클라우드의 주소 접두사를 나타냅니다. 
@@ -147,7 +147,7 @@ Azure는 사용자가 만드는 각 네트워크 보안 그룹에 다음과 같�
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | 임의의 값 | 거부 |
 
-**원본** 및 **대상** 열에서 *VirtualNetwork*, *AzureLoadBalancer* 및 *인터넷*은 IP 주소가 아닌 [서비스 태그](#service-tags)입니다. 프로토콜 열에는 TCP, UDP 및 ICMP **가 포함 됩니다** . 규칙을 만들 때 TCP, UDP, ICMP 또는 Any를 지정할 수 있습니다. **소스** 및 **대상** 열에서 *0.0.0.0/0*은 모든 주소를 나타냅니다. Azure Portal, Azure CLI 또는 Powershell과 같은 클라이언트는이 식에 * 또는 any를 사용할 수 있습니다.
+**원본** 및 **대상** 열에서 *VirtualNetwork*, *AzureLoadBalancer* 및 *인터넷*은 IP 주소가 아닌 [서비스 태그](#service-tags)입니다. 프로토콜 열에는 TCP , UDP 및 ICMP가 포함 됩니다. 규칙을 만들 때 TCP, UDP, ICMP 또는 Any를 지정할 수 있습니다. **소스** 및 **대상** 열에서 *0.0.0.0/0*은 모든 주소를 나타냅니다. Azure Portal, Azure CLI 또는 Powershell과 같은 클라이언트는이 식에 * 또는 any를 사용할 수 있습니다.
  
 기본 규칙을 제거할 수 없지만 더 높은 우선 순위의 규칙을 만들어서 재정의할 수 있습니다.
 

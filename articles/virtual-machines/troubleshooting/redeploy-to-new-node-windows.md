@@ -8,18 +8,17 @@ manager: gwallace
 tags: azure-resource-manager,top-support-issue
 ms.assetid: 0ee456ee-4595-4a14-8916-72c9110fc8bd
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 48b10b6fd854cc6da1f2ea2d48852d162e995946
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 12488033448c7798690b3d6d68782baf2f76adf9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710247"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70090288"
 ---
 # <a name="redeploy-windows-virtual-machine-to-new-azure-node"></a>새 Azure 노드로 Windows 가상 머신 다시 배포
 RDP(원격 데스크톱) 연결 문제 또는 Windows 기반 Azure VM(가상 머신)에 대한 애플리케이션 액세스 문제를 해결하는 데 어려움이 있는 경우 VM을 다시 배포하는 것이 도움이 될 수 있습니다. VM을 다시 배포하는 경우 Azure에서는 VM을 종료하고 VM을 Azure 인프라 내의 새 노드로 이동한 다음, 전원을 다시 켜고 모든 구성 옵션 및 관련 리소스를 그대로 유지합니다. 이 문서에서는 Azure PowerShell 또는 Azure 포털을 사용하여 VM을 다시 배포하는 방법을 보여 줍니다.

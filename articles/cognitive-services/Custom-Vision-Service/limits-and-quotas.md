@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: anroth
-ms.openlocfilehash: 37921c655cc3c5de5c3c5079eda47fb7513fdf9f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 878e2b03e21c18ef4ee845251e91642037c6c5ff
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560942"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114656"
 ---
 # <a name="limits-and-quotas"></a>한도 및 할당량
 
@@ -27,7 +27,7 @@ Custom Vision service에는 두 개의 키 계층이 있으며 Azure Portal을 �
 |-----|-----|-----|
 |프로젝트|2|100|
 |프로젝트당 학습 이미지 |5,000|100,000|
-|예측 수/월|10000 |제한 없음|
+|예측/월|10000 |제한 없음|
 |태그/프로젝트|50|500|
 |반복 횟수 |10|10|
 |태그 당 최소 레이블이 지정된 이미지, 분류(50개 이상 권장) |5|5|
@@ -37,7 +37,13 @@ Custom Vision service에는 두 개의 키 계층이 있으며 Azure Portal을 �
 |스토리지가 없는 [예측](https://go.microsoft.com/fwlink/?linkid=865445) 작업(초당 트랜잭션 수)|2|20|
 |[TrainProject](https://go.microsoft.com/fwlink/?linkid=865446)(초당 API 호출 수)|2|10|
 |[기타 API 호출](https://go.microsoft.com/fwlink/?linkid=865446)(초당 트랜잭션 수)|10|10|
+|허용 되는 이미지 형식|jpg, png, bmp, gif|jpg, png, bmp, gif|
+|최소 이미지 높이/너비 (픽셀)|256 (참고 참조)|256 (참고 참조)|
+|최대 이미지 높이/너비 (픽셀)|무제한|무제한|
 |최대 이미지 크기(학습 이미지 업로드) |6MB|6MB|
 |최대 이미지 크기(예측)|4MB|4MB|
 |개체 검색 학습 이미지 당 최대 지역 수|200|200|
 |분류 이미지 당 최대 태그 수|30|30|
+
+> [!NOTE]
+> 256 픽셀 보다 작은 이미지는 허용 되지만 upscaled 조정 됩니다.

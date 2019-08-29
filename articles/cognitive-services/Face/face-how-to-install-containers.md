@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 93a6d0a42d6d7f07dd8947ce9f8ae99a39d44475
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7dba929101a928f0bbcb8553d6dd3b3043d74853
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564137"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114858"
 ---
 # <a name="install-and-run-face-containers"></a>Face 컨테이너 설치 및 실행
 
@@ -24,7 +24,7 @@ Azure Cognitive Services Face는 이미지에서 인간 얼굴을 검색 하는 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 Face API 컨테이너를 사용 하기 전에 다음 필수 구성 요소를 충족 해야 합니다.
 
@@ -82,7 +82,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-face:latest
 
 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 세 컨테이너 중 하나를 실행합니다. 이 명령은 다음 매개 변수를 사용 합니다.
 
-| Placeholder | 값 |
+| 자리표시자 | 값 |
 |-------------|-------|
 |{API_KEY} | 이 키는 컨테이너를 시작 하는 데 사용 되며 Azure `Cognitive Services` **키** 페이지에서 사용할 수 있습니다. |
 |{ENDPOINT_URI} | 청구 끝점 URI 값은 Azure `Cognitive Services` **개요** 페이지에서 확인할 수 있습니다. 예제입니다. `https://westus.api.cognitive.microsoft.com/face/v1.0`|
@@ -109,7 +109,7 @@ ApiKey={API_KEY}
 `docker run` 명령의 자세한 [예제](./face-resource-container-config.md#example-docker-run-commands)를 사용할 수 있습니다. 
 
 > [!IMPORTANT]
-> 컨테이너를 `Billing`실행 하려면 `ApiKey` , 및 옵션을 지정 해야 합니다. 그렇지 않으면 컨테이너가 시작 되지 않습니다. `Eula` 자세한 내용은 [Billing](#billing)를 참조하세요.
+> 컨테이너를 `Billing`실행 하려면 `ApiKey` , 및 옵션을 지정 해야 합니다. 그렇지 않으면 컨테이너가 시작 되지 않습니다. `Eula` 자세한 내용은 [Billing](#billing)을 참조하세요.
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
@@ -118,7 +118,7 @@ ApiKey={API_KEY}
 
 컨테이너는 REST 기반 쿼리 예측 끝점 API를 제공합니다. 
 
-컨테이너 API에 대한 호스트, `https://localhost:5000`을 사용합니다.
+컨테이너 API에 대한 호스트, `http://localhost:5000`을 사용합니다.
 
 
 <!--  ## Validate container is running -->
@@ -150,7 +150,6 @@ Face API 컨테이너는 Azure 계정에서 Face API 리소스를 사용 하 여
 
 이 문서에서는 Face API 컨테이너를 다운로드, 설치 및 실행 하는 방법에 대 한 개념과 워크플로를 배웠습니다. 요약하자면 다음과 같습니다.
 
-* Face API는 핵심 문구 추출, 언어 검색 및 감정 분석을 제공 하는 Docker 용 Linux 컨테이너 3 개를 제공 합니다.
 * 컨테이너 이미지는 Azure Container Registry에서 다운로드 됩니다.
 * 컨테이너 이미지는 Docker에서 실행됩니다.
 * 컨테이너의 호스트 URI를 지정 하 여 REST API 또는 SDK를 사용 하 여 Face API 컨테이너에서 작업을 호출할 수 있습니다.

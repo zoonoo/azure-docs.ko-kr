@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 461f6127111e745fe4a81958aaa225ed1dc4392a
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: c493f79a066f872be6b38d127622cc757ab3c1cc
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707711"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100232"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Azure Linux Virtual Machine에서 Oracle Database 12c 데이터베이스 백업 및 복구
 
@@ -30,7 +29,7 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
 
 ## <a name="prepare-the-environment"></a>환경 준비
 
-### <a name="step-1-prerequisites"></a>1단계: 전제 조건
+### <a name="step-1-prerequisites"></a>1단계: 필수 구성 요소
 
 *   백업 및 복구 프로세스를 수행하려면 먼저 Oracle Database 12c의 인스턴스가 설치되어 있는 Linux VM을 만들어야 합니다. VM을 만드는 데 사용하는 Marketplace 이미지는 *Oracle:Oracle-Database-Ee:12.1.0.2:latest*라고 합니다.
 
@@ -45,7 +44,7 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
     ssh <publicIpAddress>
     ```
 
-### <a name="step-3-prepare-the-database"></a>3단계: 데이터베이스를 준비 합니다.
+### <a name="step-3-prepare-the-database"></a>3단계: 데이터베이스 준비
 
 1.  이 단계에서는 *myVM*이라는 VM이 실행되는 Oracle 인스턴스(cdb1)가 있다고 가정합니다.
 
@@ -133,7 +132,7 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
     RMAN> backup database plus archivelog;
     ```
 
-### <a name="step-4-application-consistent-backup-for-linux-vms"></a>4단계: Linux Vm의 응용 프로그램 일치 백업
+### <a name="step-4-application-consistent-backup-for-linux-vms"></a>4단계: Linux Vm에 대 한 응용 프로그램 일치 백업
 
 애플리케이션 일치 백업은 Azure Backup의 새 기능입니다. VM 스냅샷(사전 스냅샷 및 사후 스냅샷) 이전 및 이후에 실행하는 스크립트를 만들고 선택할 수 있습니다.
 
@@ -189,7 +188,7 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
 
 5. 사전 스냅샷 및 사후 스냅샷 스크립트 파일을 만듭니다.
 
-    다음은 “콜드 백업”에 대한 사전 스냅숏 및 사후 스냅숏 스크립트의 예(종료 및 다시 시작을 사용하는 오프라인 백업)입니다.
+    다음은 “콜드 백업”에 대한 사전 스냅샷 및 사후 스냅샷 스크립트의 예(종료 및 다시 시작을 사용하는 오프라인 백업)입니다.
 
     /etc/azure/pre_script.sh의 경우:
 
@@ -209,7 +208,7 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
     su - $ORA_OWNER -c "$ORA_HOME/bin/dbstart $ORA_HOME" > /etc/azure/post_script_$v_date.log
     ```
 
-    다음은 “핫 백업”에 대한 사전 스냅숏 및 사후 스냅숏 스크립트의 예(온라인 백업)입니다.
+    다음은 “핫 백업”에 대한 사전 스냅샷 및 사후 스냅샷 스크립트의 예(온라인 백업)입니다.
 
     ```bash
     v_date=`date +%Y%m%d%H%M`
@@ -266,7 +265,7 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
 자세한 내용은 [Linux VM에 대한 애플리케이션 일치 백업](https://azure.microsoft.com/blog/announcing-application-consistent-backup-for-linux-vms-using-azure-backup/)을 참조하세요.
 
 
-### <a name="step-5-use-azure-recovery-services-vaults-to-back-up-the-vm"></a>5단계: VM 백업에 사용 하 여 Azure Recovery Services 자격 증명 모음
+### <a name="step-5-use-azure-recovery-services-vaults-to-back-up-the-vm"></a>5단계: Azure Recovery Services 자격 증명 모음을 사용 하 여 VM 백업
 
 1.  Azure Portal에서 **Recovery Services 자격 증명 모음**을 검색합니다.
 
@@ -307,7 +306,7 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
 
     ![Recovery Services 자격 증명 모음 지금 Backup 명령](./media/oracle-backup-recovery/recovery_service_09.png)
 
-10. **Backup** 단추를 클릭합니다. 백업 프로세스가 완료될 때까지 기다립니다. 그런 다음 [6 단계: 데이터베이스 파일 제거](#step-6-remove-the-database-files)합니다.
+10. **Backup** 단추를 클릭합니다. 백업 프로세스가 완료될 때까지 기다립니다. 그런 다음 6 [단계로 이동 합니다. 데이터베이스 파일](#step-6-remove-the-database-files)을 제거 합니다.
 
     백업 작업의 상태를 보려면 **작업**을 클릭합니다.
 
@@ -496,7 +495,7 @@ Recovery Services 자격 증명 모음에서 삭제된 파일을 복원하는 �
 
     ![복원 프로세스의 상태](./media/oracle-backup-recovery/recover_vm_09.png)
 
-### <a name="step-3-set-the-public-ip-address"></a>3단계: 공용 IP 주소를 설정 합니다.
+### <a name="step-3-set-the-public-ip-address"></a>3단계: 공용 IP 주소 설정
 VM을 복원한 후에 공용 IP 주소를 설정합니다.
 
 1.  검색 상자에서 **공용 IP 주소**를 입력합니다.
@@ -527,7 +526,7 @@ VM을 복원한 후에 공용 IP 주소를 설정합니다.
     ssh <publicIpAddress>
     ```
 
-### <a name="step-5-test-whether-the-database-is-accessible"></a>5단계: 데이터베이스에 액세스할 수 있는지 여부를 테스트 합니다.
+### <a name="step-5-test-whether-the-database-is-accessible"></a>5단계: 데이터베이스에 액세스할 수 있는지 여부 테스트
 *   액세스 가능 여부를 테스트하려면 다음 스크립트를 사용합니다.
 
     ```bash 
@@ -537,9 +536,9 @@ VM을 복원한 후에 공용 IP 주소를 설정합니다.
     ```
 
     > [!IMPORTANT]
-    > 경우 데이터베이스 **시동** 명령은 오류를 생성, 데이터베이스를 복구 하려면 참조 [6 단계: RMAN을 사용 하 여 데이터베이스를 복구 하려면](#step-6-optional-use-rman-to-recover-the-database)합니다.
+    > 데이터베이스 **시작** 명령에 오류가 발생 하 여 데이터베이스 [를 복구 하는 경우 6 단계: RMAN을 사용 하 여 데이터베이스](#step-6-optional-use-rman-to-recover-the-database)를 복구 합니다.
 
-### <a name="step-6-optional-use-rman-to-recover-the-database"></a>6단계: (선택 사항) RMAN을 사용 하 여 데이터베이스를 복구 하려면
+### <a name="step-6-optional-use-rman-to-recover-the-database"></a>6단계: 필드 RMAN을 사용 하 여 데이터베이스 복구
 *   데이터베이스를 복구하려면 다음 스크립트를 사용합니다.
 
     ```bash

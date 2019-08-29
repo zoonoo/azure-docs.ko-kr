@@ -9,12 +9,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: diberry
-ms.openlocfilehash: e55ccb508760c4473f71245c183948219f31985c
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: c258799b1305c4204d08d66aa36a0be7c71a4944
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663906"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034384"
 ---
 # <a name="how-personalizer-works"></a>Personalizer 작동 방식
 
@@ -163,7 +163,7 @@ Personalizer에서 가장 효율적으로 학습할 수 있는 상황은 다음�
 
 ## <a name="adding-content-safeguards-to-your-application"></a>애플리케이션에 콘텐츠 세이프가드 추가
 
-애플리케이션에서 사용자에게 표시하는 콘텐츠를 다양하게 변형할 수 있고 그 콘텐츠 중 일부가 안전하지 않거나 일부 사용자에게 적절하지 않은 경우 사용자가 허용되지 않는 콘텐츠를 볼 수 없게 적절한 세이프가드를 작동할 계획을 미리 세워야 합니다. 세이프가드를 구현하는 가장 좋은 패턴은 다음과 같습니다. 세이프가드를 구현하는 가장 좋은 패턴은 다음과 같습니다.
+애플리케이션에서 사용자에게 표시하는 콘텐츠를 다양하게 변형할 수 있고 그 콘텐츠 중 일부가 안전하지 않거나 일부 사용자에게 적절하지 않은 경우 사용자가 허용되지 않는 콘텐츠를 볼 수 없게 적절한 세이프가드를 작동할 계획을 미리 세워야 합니다. 세이프가드를 구현하는 가장 좋은 패턴은 다음과 같습니다.
     * 순위를 지정할 작업 목록을 획득합니다.
     * 대상 그룹에 대해 실현할 수 없는 작업을 필터링합니다.
     * 실행 가능한 작업만 순위를 지정합니다.

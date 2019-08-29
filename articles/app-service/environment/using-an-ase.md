@@ -9,17 +9,16 @@ ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e9c34d3cfd5ce9bb3a8f9a9072f2843331065100
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cabefcc53106a53459975fc26513dc59ae7d3372
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66496512"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073220"
 ---
 # <a name="use-an-app-service-environment"></a>App Service Environment 사용 #
 
@@ -31,11 +30,11 @@ Azure App Service Environment는 Azure App Service를 고객의 Azure Virtual Ne
 - **스토리지**: 스토리지는 고객이 게시한 앱을 호스트하는 데 사용됩니다.
 
 > [!NOTE]
-> App Service Environment에는 ASEv1 및 ASEv2라는 두 가지 버전이 있습니다. ASEv1에서는 사용하려는 리소스를 관리해야 합니다. ASEv1을 구성하고 관리하는 방법을 알아보려면 [App Service Environment v1 구성][ConfigureASEv1]을 참조하세요. 이 문서의 나머지 부분에서는 ASEv2에 대해 중점적으로 설명합니다.
+> App Service Environment에는 ASEv1 및 ASEv2라는 두 가지 버전이 있습니다. ASEv1에서는 사용하려는 리소스를 관리해야 합니다. ASEv1를 구성 하 고 관리 하는 방법을 알아보려면 [App Service 환경 V1 구성][ConfigureASEv1]을 참조 하세요. 이 문서의 나머지 부분에서는 ASEv2에 대해 중점적으로 설명합니다.
 >
 >
 
-앱 액세스를 위한 외부 또는 내부 VIP로 ASE(ASEv1 및 ASEv2)를 배포할 수 있습니다. 외부 VIP를 사용하는 배포를 대개 외부 ASE라고 합니다. 내부 버전은 내부 ILB(부하 분산 장치)를 사용하므로 ILB ASE라고 합니다. ILB ASE에 대해 자세히 알아보려면 [ILB ASE 만들기 및 사용][MakeILBASE]을 참조하세요.
+앱 액세스를 위한 외부 또는 내부 VIP로 ASE(ASEv1 및 ASEv2)를 배포할 수 있습니다. 외부 VIP를 사용하는 배포를 대개 외부 ASE라고 합니다. 내부 버전은 내부 ILB(부하 분산 장치)를 사용하므로 ILB ASE라고 합니다. ILB ASE에 대 한 자세한 내용은 [ILB Ase 만들기 및 사용][MakeILBASE]을 참조 하세요.
 
 ## <a name="create-an-app-in-an-ase"></a>ASE에서 앱 만들기 ##
 
@@ -44,7 +43,7 @@ ASE에서 앱을 만들려는 경우 일반적으로 앱을 만들 때 사용하
 - 앱을 배포하기 위한 지리적 위치를 선택하는 대신 ASE를 위치로 선택합니다.
 - ASE에서 만들어진 모든 App Service 계획은 격리 가격 책정 계층에 있어야 합니다.
 
-ASE가 없는 경우 [App Service Environment 만들기][MakeExternalASE]의 지침에 따라 만들 수 있습니다.
+ASE가 없는 경우 [App Service 환경 만들기][MakeExternalASE]의 지침에 따라 만들 수 있습니다.
 
 ASE에서 앱을 만들려면
 
@@ -66,7 +65,7 @@ ASE에서 앱을 만들려면
 
     b. App Service 계획의 이름을 입력합니다.
 
-    다. **위치** 드롭다운 목록에서 해당 ASE를 선택합니다. 
+    c. **위치** 드롭다운 목록에서 해당 ASE를 선택합니다. 
     
     d. **격리** 가격 책정 계층을 선택합니다. **선택**을 선택합니다.
 
@@ -92,7 +91,7 @@ ASE는 최대 100개의 인스턴스를 포함하도록 확장할 수 있습니�
 
 ## <a name="ip-addresses"></a>IP 주소 ##
 
-App Service에는 앱에 전용 IP 주소를 할당하는 기능이 있습니다. [Azure App Service에 기존 사용자 지정 SSL 인증서 바인딩][ConfigureSSL]에 설명된 대로 IP 기반 SSL을 구성하고 나면 이 기능을 사용할 수 있습니다. 그러나 ASE에는 중요한 예외 사항이 있습니다. 즉, ILB ASE에서 IP 기반 SSL용으로 사용할 IP 주소를 더 추가할 수는 없습니다.
+App Service에는 앱에 전용 IP 주소를 할당하는 기능이 있습니다. 이 기능은 [Azure App Service에 기존 사용자 지정 ssl 인증서 바인딩][ConfigureSSL]에 설명 된 대로 IP 기반 ssl을 구성한 후에 사용할 수 있습니다. 그러나 ASE에는 중요한 예외 사항이 있습니다. 즉, ILB ASE에서 IP 기반 SSL용으로 사용할 IP 주소를 더 추가할 수는 없습니다.
 
 ASEv1에서는 IP 주소를 사용하기 전에 IP 주소를 리소스로 할당해야 합니다. ASEv2에서는 다중 테넌트 App Service에서와 마찬가지로 앱에서 IP 주소를 사용합니다. ASEv2에는 항상 여분의 주소가 하나 있습니다(최대 IP 주소 30개). IP 주소를 사용할 때마다 다른 주소가 추가되므로 주소 하나를 항상 즉시 사용할 수 있습니다. 다른 IP 주소를 할당할 때는 시간이 지연되므로, IP 주소를 연속해서 빠르게 추가할 수는 없습니다.
 
@@ -100,20 +99,20 @@ ASEv1에서는 IP 주소를 사용하기 전에 IP 주소를 리소스로 할당
 
 ASEv2에서 App Service 계획을 규모 확장할 때는 이러한 계획을 지원하도록 작업자가 자동으로 추가됩니다. 모든 ASE는 프런트 엔드 2개를 포함하는 상태로 작성됩니다. 또한 App Service 계획의 15개 인스턴스마다 프런트 엔드가 하나씩 생성되는 속도로 프런트 엔드가 자동으로 규모 확장됩니다. 예를 들어 인스턴스가 15개이면 프런트 엔드는 세 개입니다. 인스턴스 30개로 확장하면 프런트 엔드가 네 개 있는 식입니다.
 
-대부분의 시나리오에서는 이 정도의 프런트 엔드만으로도 충분합니다. 그러나 더 빠른 속도로 규모를 확장할 수도 있습니다. 인스턴스 5개마다 프런트 엔드가 하나씩 생성되도록 비율을 더 낮게 변경할 수 있습니다. 비율 변경 시에는 요금이 발생합니다. 자세한 내용은 [Azure App Service 가격][Pricing]을 참조하세요.
+대부분의 시나리오에서는 이 정도의 프런트 엔드만으로도 충분합니다. 그러나 더 빠른 속도로 규모를 확장할 수도 있습니다. 인스턴스 5개마다 프런트 엔드가 하나씩 생성되도록 비율을 더 낮게 변경할 수 있습니다. 비율 변경 시에는 요금이 발생합니다. 자세한 내용은 [Azure App Service 가격 책정][Pricing]을 참조 하세요.
 
 프런트 엔드 리소스는 ASE의 HTTP/HTTPS 엔드포인트입니다. 기본 프런트 엔드 구성에서는 프런트 엔드당 메모리 사용량이 일관되게 약 60%입니다. 고객 작업은 프런트 엔드에서 실행되지 않습니다. 확장과 관련한 프런트 엔드의 주요 요인은 CPU입니다. CPU는 주로 HTTPS 트래픽에 의해 결정됩니다.
 
 ## <a name="app-access"></a>앱 액세스 ##
 
-외부 ASE에서는 앱을 만들 때 사용되는 도메인이 다중 테넌트 App Service와 다릅니다. 이 도메인에는 ASE의 이름이 포함됩니다. 외부 ASE를 만드는 방법에 대한 자세한 내용은 [App Service Environment 만들기][MakeExternalASE]를 참조하세요. 외부 ASE의 도메인 이름은 *.&lt;asename&gt;.p.azurewebsites.net*과 같은 형식입니다. 예를 들어 ASE 이름이 _external-ase_이고 해당 ASE에서 _contoso_라는 앱을 호스트하는 경우 다음과 같은 URL에서 앱에 액세스하게 됩니다.
+외부 ASE에서는 앱을 만들 때 사용되는 도메인이 다중 테넌트 App Service와 다릅니다. 이 도메인에는 ASE의 이름이 포함됩니다. 외부 ASE를 만드는 방법에 대 한 자세한 내용은 [App Service 환경 만들기][MakeExternalASE]를 참조 하세요. 외부 ASE의 도메인 이름은 *.&lt;asename&gt;.p.azurewebsites.net*과 같은 형식입니다. 예를 들어 ASE 이름이 _external-ase_이고 해당 ASE에서 _contoso_라는 앱을 호스트하는 경우 다음과 같은 URL에서 앱에 액세스하게 됩니다.
 
 - contoso.external-ase.p.azurewebsites.net
 - contoso.scm.external-ase.p.azurewebsites.net
 
-URL contoso.scm.external-ase.p.azurewebsites.net은 Kudu 콘솔에 액세스하거나 웹 배포를 사용하여 앱을 게시하는 데 사용됩니다. Kudu 콘솔에 대한 자세한 내용은 [Azure App Service용 Kudu 콘솔][Kudu]을 참조하세요. Kudu 콘솔은 디버깅, 파일 업로드, 파일 편집 등을 위한 웹 UI를 제공합니다.
+URL contoso.scm.external-ase.p.azurewebsites.net은 Kudu 콘솔에 액세스하거나 웹 배포를 사용하여 앱을 게시하는 데 사용됩니다. Kudu 콘솔에 대 한 자세한 내용은 [Kudu console for Azure App Service][Kudu]를 참조 하세요. Kudu 콘솔은 디버깅, 파일 업로드, 파일 편집 등을 위한 웹 UI를 제공합니다.
 
-ILB ASE에서는 배포 시간에 도메인을 결정합니다. ILB ASE를 만드는 방법에 대한 자세한 내용은 [ILB ASE 만들기 및 사용][MakeILBASE]을 참조하세요. 도메인 이름 _ilb-ase.info_를 지정하면 해당 ASE의 앱은 앱을 만드는 동안 해당 도메인을 사용합니다. 이름이 _contoso_인 앱의 경우 URL은 다음과 같습니다.
+ILB ASE에서는 배포 시간에 도메인을 결정합니다. ILB ASE를 만드는 방법에 대 한 자세한 내용은 [ILB Ase 만들기 및 사용][MakeILBASE]을 참조 하세요. 도메인 이름 _ilb-ase.info_를 지정하면 해당 ASE의 앱은 앱을 만드는 동안 해당 도메인을 사용합니다. 이름이 _contoso_인 앱의 경우 URL은 다음과 같습니다.
 
 - contoso.ilb-ase.info
 - contoso.scm.ilb-ase.info
@@ -128,15 +127,15 @@ ILB ASE에서는 배포 시간에 도메인을 결정합니다. ILB ASE를 만�
 - Kudu 콘솔에서 끌어서 놓기
 - IDE(예: Visual Studio, Eclipse 또는 IntelliJ IDEA)
 
-외부 ASE에서는 이러한 게시 옵션이 모두 동일하게 동작합니다. 자세한 내용은 [Azure App Service의 배포][AppDeploy]를 참조하세요. 
+외부 ASE에서는 이러한 게시 옵션이 모두 동일하게 동작합니다. 자세한 내용은 [Azure App Service 배포][AppDeploy]를 참조 하세요. 
 
-게시에서 중요한 차이점은 ILB ASE와 관련된 내용입니다. ILB ASE에서 게시 엔드포인트는 모두 ILB를 통해서만 사용할 수 있습니다. ILB는 Virtual Network의 ASE 서브넷에 있는 프라이빗 IP에 있습니다. ILB에 대한 네트워크 액세스 권한이 없는 경우 해당 ASE에 앱을 게시할 수 없습니다. [ILB ASE 만들기 및 사용][MakeILBASE]에 설명된 것처럼 시스템에서 앱에 대한 DNS를 구성해야 합니다. 여기에 SCM 엔드포인트가 포함됩니다. SCM 끝점이 올바르게 정의되어 있지 않으면 게시할 수 없습니다. 또한 직접 ILB에 게시하려면 IDE에 ILB에 대한 네트워크 액세스 권한이 있어야 합니다.
+게시에서 중요한 차이점은 ILB ASE와 관련된 내용입니다. ILB ASE에서 게시 엔드포인트는 모두 ILB를 통해서만 사용할 수 있습니다. ILB는 Virtual Network의 ASE 서브넷에 있는 프라이빗 IP에 있습니다. ILB에 대한 네트워크 액세스 권한이 없는 경우 해당 ASE에 앱을 게시할 수 없습니다. [ILB ASE 만들기 및 사용][MakeILBASE]에서 설명한 대로 시스템에서 앱에 대 한 DNS를 구성 해야 합니다. 여기에 SCM 엔드포인트가 포함됩니다. SCM 끝점이 올바르게 정의되어 있지 않으면 게시할 수 없습니다. 또한 직접 ILB에 게시하려면 IDE에 ILB에 대한 네트워크 액세스 권한이 있어야 합니다.
 
-기본적으로 게시 끝점이 인터넷에 액세스할 수 없기 때문에 ILB ase에서는 GitHub 및 Azure DevOps와 같은 인터넷 기반 CI 시스템이 작동 하지 않습니다. Azure DevOps에 대 한 ILB 도달할 수 있는 내부 네트워크에서 자체 호스팅된 해제 에이전트를 설치 하 여이 문제를 해결 작업할 수 있습니다. 또는 Dropbox와 같은 끌어오기 모델을 사용 하는 CI 시스템을 사용할 수 있습니다.
+기본적으로, GitHub 및 Azure DevOps와 같은 인터넷 기반 CI 시스템은 인터넷에 액세스할 수 없기 때문에 ILB ASE와 작동 하지 않습니다. Azure DevOps의 경우 ILB에 연결할 수 있는 내부 네트워크에 자체 호스팅 릴리스 에이전트를 설치 하 여이 문제를 해결할 수 있습니다. 또는 Dropbox와 같은 끌어오기 모델을 사용 하는 CI 시스템을 사용할 수도 있습니다.
 
 ILB ASE의 앱에 대한 게시 엔드포인트에서는 ILB ASE가 만들어진 도메인을 사용합니다. 해당 도메인은 앱의 게시 프로필과 앱의 포털 블레이드(**개요** > **필수** 및 **속성**)에서 확인할 수 있습니다. 
 
-## <a name="pricing"></a>가격 ##
+## <a name="pricing"></a>가격 책정 ##
 
 가격 책정 SKU **격리**는 ASEv2에서만 사용하기 위해 만들어졌습니다. ASEv2에서 호스트되는 모든 App Service 계획에는 격리 가격 책정 SKU가 적용됩니다. 격리된 App Service 계획 요금은 지역마다 다를 수 있습니다. 
 
@@ -148,7 +147,7 @@ App Service 계획에 대한 가격 외에 ASE 자체에 대한 고정 요금이
 
 프런트 엔드의 크기를 2개 코어로 조절했으나 해당 비율을 조절하지 않은 경우 추가 코어에 대한 요금을 지불하게 됩니다.  프런트 엔드 2개를 사용하여 ASE가 생성됩니다. 따라서 자동 크기 조정 임계값보다 낮더라도 해당 크기를 2 코어 프런트 엔드로 늘리면 2개의 추가 코어에 대해 요금을 지불하게 됩니다.
 
-자세한 내용은 [Azure App Service 가격][Pricing]을 참조하세요.
+자세한 내용은 [Azure App Service 가격 책정][Pricing]을 참조 하세요.
 
 ## <a name="delete-an-ase"></a>ASE 삭제 ##
 

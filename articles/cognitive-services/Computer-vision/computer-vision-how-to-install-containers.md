@@ -11,16 +11,17 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: afccce5ca9101ed1e30f69264abae7ad85b4902b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: cbf199c391b49518bb595d7d1a0ed47147903a85
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564589"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034488"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>텍스트 인식 컨테이너 설치 및 구성
 
-또한 Computer Vision의 텍스트 인식 부분은 Docker 컨테이너로 사용할 수도 있습니다. 이를 통해 영수증, 포스터, 명함과 같은 다양한 표면과 배경이 있는 다양한 개체의 이미지에서 인쇄된 텍스트를 검색하고 추출할 수 있습니다.  
+또한 Computer Vision의 텍스트 인식 부분은 Docker 컨테이너로 사용할 수도 있습니다. 이를 통해 영수증, 포스터, 명함과 같은 다양한 표면과 배경이 있는 다양한 개체의 이미지에서 인쇄된 텍스트를 검색하고 추출할 수 있습니다.
+
 > [!IMPORTANT]
 > 텍스트 인식 컨테이너는 현재 영어로만 작동합니다.
 
@@ -38,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="request-access-to-the-private-container-registry"></a>프라이빗 컨테이너 레지스트리에 대한 액세스 요청
 
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-request-access.md)]
+[!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
 ### <a name="the-host-computer"></a>호스트 컴퓨터
 
@@ -46,16 +47,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="container-requirements-and-recommendations"></a>컨테이너 요구 사항 및 추천
 
-다음 표에서는 각 텍스트 인식 컨테이너에 할당해야 하는 최소/권장 CPU 코어 수와 메모리에 대해 설명합니다.
-
-| 컨테이너 | 최소 | 권장 |TPS<br>(최소, 최대)|
-|-----------|---------|-------------|--|
-|텍스트 인식|1 코어, 8gb 메모리, 0.5 TPS|2 코어, 8gb 메모리, 1 개 TPS|0.5, 1|
-
-* 각 코어는 속도가 2.6GHz 이상이어야 합니다.
-* TPS - 초당 트랜잭션 수
-
-코어 및 메모리는 `docker run` 명령의 일부로 사용되는 `--cpus` 및 `--memory` 설정에 해당합니다.
+[!INCLUDE [Container requirements and recommendations](includes/container-requirements-and-recommendations.md)]
 
 ## <a name="get-the-container-image-with-docker-pull"></a>`docker pull`을 사용하여 컨테이너 이미지 가져오기
 
@@ -114,7 +106,7 @@ ApiKey={API_KEY}
 `docker run` 명령의 자세한 [예제](./computer-vision-resource-container-config.md#example-docker-run-commands)를 사용할 수 있습니다. 
 
 > [!IMPORTANT]
-> 컨테이너를 인스턴스화하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](#billing)를 참조하세요.
+> 컨테이너를 인스턴스화하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](#billing)을 참조하세요.
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 

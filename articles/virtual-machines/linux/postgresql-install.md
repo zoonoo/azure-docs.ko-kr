@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 1a747363-0cc5-4ba3-9be7-084dfeb04651
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: 086b36b347f214e1e9cdf44e4fb5a29fe501fa8b
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 7fc8cb7c07dd27cd42dc4c6a7e0a576f0efe04e0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67667116"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091716"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Azure에서 PostgreSQL 설치 및 구성
 PostgreSQL은 Oracle 및 DB2와 유사한 고급 오픈 소스 데이터베이스입니다. 전체 ACID 규정 준수, 신뢰할 수 있는 트랜잭션 처리 및 다중 버전 동시성 제어와 같은 엔터프라이즈 기능이 포함됩니다. 또한 ANSI SQL 및 SQL/MED(Oracle, MySQL, MongoDB 등에 대한 외부 데이터 래퍼 포함)와 같은 표준을 지원합니다. 12개 이상의 프로시저 언어, GIN 및 GiST 인덱스, 공간 데이터 지원 및 JSON에 대한 여러 NoSQL 같은 기능 또는 키 값 기반 애플리케이션에 대한 지원을 통해 확장성을 높일 수 있습니다.
@@ -232,7 +231,7 @@ Postgres 데이터베이스를 만듭니다.
 ![image](./media/postgresql-install/no8.png)
 
 ### <a name="update-data-in-a-table"></a>테이블의 데이터 업데이트
-테이블의 데이터를 업데이트하려면 다음 명령을 사용합니다. 이 Sandy가 확인는 참석은, "N"에서 "Y"로 RSVP를 변경 합니다.
+테이블의 데이터를 업데이트하려면 다음 명령을 사용합니다. 이 작업의 경우에는 샌에서 참석 하는 것을 확인 했으므로 RSVP를 "N"에서 "Y"로 변경 합니다.
 
      UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy';
 

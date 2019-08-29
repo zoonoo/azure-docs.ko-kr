@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: be3917d7943f808292e5ed15978a3d6aefd3afb5
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 2be56f5308fd16d0e20003b0038fdcb12503a574
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891841"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70074448"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -200,7 +200,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 | **런던** | BICS, Equinix, euNetworks, Telecity | Bezeq International Ltd., CoreAzure, Epsilon Telecommunications Limited, Exponential E, HSO, NexGen Networks, Proximus, Tamares Telecom, Zain |
 | **로스앤젤레스** | Equinix |Ccs (crown 성, 스펙트럼 Enterprise, and Stelco |
 | **마드리드** | Level3 | Zertia |
-| **Montreal** | Cologix, Equinix | Airgate Technologies, Inc. Cogeco Peer 1, Rogers, Zirro |
+| **Montreal** | Cologix, Equinix | Airgate Technologies, Inc. Aptum 기술, Iwmentor, Zirro |
 | **뉴욕** |Equinix, Megaport | Altice Business, Ccs (crown 성, 스펙트럼 Enterprise, Webair |
 | **파리** | Equinix | Proximus |
 | **퀘벡 시티** | Megaport | Fibrenoire |
@@ -211,7 +211,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 | **슬라우** | Equinix | HSO|
 | **시드니** | Megaport | Macquarie Telecom Group|
 | **도쿄** | Equinix | ARTERIA Networks Corporation, BroadBand Tower, Inc. |
-| **토론토** | Equinix, Megaport | 락 게이트 기술 Inc., Beanfield Metroconnect, Cogeco 피어 1, IVedha Inc., Iwmentor, Thinktel, Zirro|
+| **토론토** | Equinix, Megaport | 락 게이트 기술 Inc., Beanfield Metroconnect, Aptum 기술, IVedha Inc., Iwmentor, Thinktel, Zirro|
 | **워싱턴 DC** |Equinix | Altice Business, BICS, Cox Business, Ccs (crown 성, Gtt Communications Inc., 엡실론 통신 제한, Masergy, Windstream |
 
 ## <a name="expressroute-system-integrators"></a>ExpressRoute 시스템 통합업체

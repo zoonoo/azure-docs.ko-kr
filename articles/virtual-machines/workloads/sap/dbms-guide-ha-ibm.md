@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 keywords: SAP
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: 0da426a9302ce72b5359df15d3f8e244fc1766a0
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 4571b0e1a2c9207ce913901f11157f5155201393
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935353"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100031"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -61,7 +60,7 @@ HADR (고가용성 [및 재해 복구) 구성](https://www.ibm.com/support/knowl
 
 설치를 시작 하기 전에 다음 SAP 참고 사항 및 설명서를 참조 하세요.
 
-| SAP note | Description |
+| SAP note | 설명 |
 | --- | --- |
 | [1928533] | Azure의 SAP 응용 프로그램: 지원 제품 및 Azure VM 유형 |
 | [2015553] | Azure의 SAP: 필수 구성 요소 지원 |
@@ -144,7 +143,7 @@ Azure의 Linux Pacemaker에 대 한 자세한 내용은 [azure에서 Pacemaker o
 
 IBM Db2 LUW의 리소스 에이전트는 SAP 응용 프로그램의 SUSE Linux Enterprise Server에 포함 되어 있습니다. 이 문서에 설명 된 설치의 경우 SAP 응용 프로그램용 SUSE Linux 서버를 사용 해야 합니다. Azure Marketplace에는 새 Azure 가상 컴퓨터를 배포 하는 데 사용할 수 있는 SAP 응용 프로그램용 Enterprise Server 12 용 SUSE 이미지가 포함 되어 있습니다. Azure VM Marketplace에서 VM 이미지를 선택 하는 경우 Azure Marketplace를 통해 SUSE에서 제공 하는 다양 한 지원 또는 서비스 모델에 대해 알고 있어야 합니다. 
 
-### <a name="hosts-dns-updates"></a>호스트: DNS 업데이트
+### <a name="hosts-dns-updates"></a>호스팅해야 DNS 업데이트
 호스트 이름 확인을 위한 적절 한 IP 주소를 사용 하도록 DNS 서버를 업데이트 하 고 가상 호스트 이름을 비롯 한 모든 호스트 이름 목록을 만듭니다. DNS 서버가 없거나 DNS 항목을 업데이트 하거나 만들 수 없는 경우이 시나리오에 참여 하는 개별 Vm의 로컬 호스트 파일을 사용 해야 합니다. 호스트 파일 항목을 사용 하는 경우에는 SAP 시스템 환경의 모든 Vm에 항목이 적용 되는지 확인 합니다. 그러나 이상적으로는 Azure로 확장 되는 DNS를 사용 하는 것이 좋습니다.
 
 
@@ -443,7 +442,7 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](https:/
 
    e. IBM Db2 클러스터의 가상 머신을 선택 합니다.
 
-   f.           **확인**을 선택합니다.
+   f. **확인**을 선택합니다.
 
 1. 상태 프로브를 만듭니다.
 
@@ -453,7 +452,7 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](https:/
 
    c. 프로토콜 및 포트 **62500**로 **TCP** 를 선택 합니다. **간격** 값을 **5**로 유지 하 고 **비정상 임계값** 을 **2**로 설정 된 상태로 유지 합니다.
 
-   d.           **확인**을 선택합니다.
+   d. **확인**을 선택합니다.
 
 1. 부하 분산 규칙을 만듭니다.
 
@@ -469,7 +468,7 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](https:/
 
    f. **부동 IP를 사용하도록 설정**했는지 확인합니다.
 
-   g.           **확인**을 선택합니다.
+   g. **확인**을 선택합니다.
 
 
 ### <a name="make-changes-to-sap-profiles-to-use-virtual-ip-for-connection"></a>연결에 가상 IP를 사용 하도록 SAP 프로필 변경
@@ -513,7 +512,7 @@ HADR 설치를 위해 Db2 로그 보관을 구성 하려면 모든 로그 보관
 
 두 노드에서 로그가 기록 되는 일반적인 NFS 공유를 구성 하는 것이 좋습니다. NFS 공유는 항상 사용 가능 해야 합니다. 
 
-전송 또는 프로필 디렉터리에 대해 항상 사용 가능한 기존 NFS 공유를 사용할 수 있습니다. 참조 항목:
+전송 또는 프로필 디렉터리에 대해 항상 사용 가능한 기존 NFS 공유를 사용할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
 - [SUSE Linux Enterprise Server에서 Azure Vm의 NFS에 대 한 고가용성][nfs-ha] 
 - [SAP 응용 프로그램용 Azure NetApp Files를 사용 하 SUSE Linux Enterprise Server의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)

@@ -11,16 +11,15 @@ ms.assetid: f63ab5cc-45b8-43aa-a4e7-69dc42adbb99
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: fd4fad40ef4809c756321493854f38fd813569ca
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 23519edb61df23c97dfd2162d6cabea6b7fa5d38
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710293"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101762"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿의 가상 머신
 
@@ -375,7 +374,7 @@ Linux 운영 체제를 만들려는 경우 이 정의를 사용할 수 있습니
 ],
 ```
 
-## <a name="extensions"></a>확장
+## <a name="extensions"></a>확장명
 
 [확장](extensions-features.md)은 별도 리소스이지만 VM에 밀접하게 연결되어 있습니다. 확장은 VM의 자식 리소스 또는 별도 리소스로 추가될 수 있습니다. 예제는 VM에 추가되고 있는 [진단 확장](extensions-diagnostics-template.md)을 보여 줍니다.
 

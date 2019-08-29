@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: d9cc5da0cd2936c1ac79a308366b8164548cb202
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9de75b5537b3e267116882e7f151d893de575071
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241733"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072459"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Azure API Management에서 사용자 계정을 관리하는 방법
 
@@ -26,9 +25,9 @@ API Management에서 개발자는 API Management 사용을 공개하는 API의 �
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
-이 문서의 작업을 완료 합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
+이 문서의 전체 작업: [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -69,10 +68,10 @@ API Management에서 개발자는 API Management 사용을 공개하는 API의 �
 
 ## <a name="reset-a-user-password"></a>사용자 암호 다시 설정
 
-사용자 계정을 프로그래밍 방식으로 사용 하려면에서 사용자 엔터티 설명서를 참조 합니다 [API Management REST API](/rest/api/apimanagement/) 참조 합니다. 사용자 계정 암호를 특정 값으로 다시 설정하려면 [사용자 업데이트](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) 작업을 사용하여 원하는 암호를 지정할 수 있습니다.
+프로그래밍 방식으로 사용자 계정 작업을 수행 하려면 [API Management REST API](/rest/api/apimanagement/) 참조에서 사용자 엔터티 설명서를 참조 하세요. 사용자 계정 암호를 특정 값으로 다시 설정하려면 [사용자 업데이트](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) 작업을 사용하여 원하는 암호를 지정할 수 있습니다.
 
 ## <a name="next-steps"> </a>다음 단계
-개발자 계정이 생성된 후에는 계정과 역할을 연결하고 해당 계정으로 제품 및 API를 구독할 수 있습니다. 자세한 내용은 [그룹을 만들고 사용하는 방법][How to create and use groups]을 참조하세요.
+개발자 계정이 생성된 후에는 계정과 역할을 연결하고 해당 계정으로 제품 및 API를 구독할 수 있습니다. 자세한 내용은 [그룹을 만들고 사용하는 방법][How to create and use groups](영문)을 참조하세요.
 
 [api-management-management-console]: ./media/api-management-howto-create-or-invite-developers/api-management-management-console.png
 [api-management-add-new-user]: ./media/api-management-howto-create-or-invite-developers/api-management-add-new-user.png

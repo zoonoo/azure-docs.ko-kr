@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 83319118c778d89749b1eb5d5fd792a5200c19c5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6824eae4d5fed2eceaf85b9a674f980815afb260
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60836068"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101381"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>Azure VM에서 SAP MaxDB, liveCache 및 Content Server 배포
 
@@ -320,7 +319,7 @@ SAP MaxDB에서 SAP NetWeaver를 실행하는 방법에 대한 일반적인 내�
 ### <a name="supported-microsoft-windows-versions-and-azure-vm-types-for-sap-maxdb-dbms"></a>SAP MaxDB DBMS에 대해 지원되는 Microsoft Windows 버전 및 Azure VM 유형
 Azure에서 지원되는 SAP MaxDB DBMS용 Microsoft Windows 버전을 찾으려면 다음을 참조하세요.
 
-* [SAP PAM(제품 가용성 매트릭스)][sap-pam]
+* [SAP PAM (제품 가용성 매트릭스)][sap-pam]
 * SAP Note [1928533]
 
 최신 버전의 Microsoft Windows 운영 체제인 Microsoft Windows 2016을 사용하는 것이 좋습니다.
@@ -386,7 +385,7 @@ Azure Virtual Machines에서 지원되는 SAP liveCache의 최소 버전은 **Eh
 ### <a name="supported-microsoft-windows-versions-and-azure-vm-types-for-sap-livecache-dbms"></a>SAP liveCache DBMS에 대해 지원되는 Microsoft Windows 버전 및 Azure VM 유형
 Azure에서 지원되는 SAP liveCache용 Microsoft Windows 버전을 찾으려면 다음을 참조하세요.
 
-* [SAP PAM(제품 가용성 매트릭스)][sap-pam]
+* [SAP PAM (제품 가용성 매트릭스)][sap-pam]
 * SAP Note [1928533]
 
 최신 버전의 운영 체제인 Microsoft Windows Server를 사용하는 것이 좋습니다. 
@@ -428,12 +427,12 @@ SAP에서 현재 다음을 지원합니다.
 
 최신 버전의 SAP Content Server 및 **Microsoft IIS**를 사용하는 것이 좋습니다. 
 
-지원되는 최신 버전의 SAP Content Server 및 Microsoft IIS는 [SAP PAM(제품 가용성 매트릭스)][sap-pam]을 참조하세요.
+Sap Content Server 및 Microsoft IIS의 지원 되는 최신 버전을 [SAP PAM (제품 가용성 매트릭스)][sap-pam]에서 확인 합니다.
 
 ### <a name="supported-microsoft-windows-and-azure-vm-types-for-sap-content-server"></a>SAP Content Server에 대해 지원되는 Microsoft Windows 버전 및 Azure VM 유형
 Azure의 SAP Content Server에서 지원되는 Windows 버전을 확인하려면 다음을 참조하세요.
 
-* [SAP PAM(제품 가용성 매트릭스)][sap-pam]
+* [SAP PAM (제품 가용성 매트릭스)][sap-pam]
 * SAP Note [1928533]
 
 최신 버전의 Microsoft Windows Server를 사용하는 것이 좋습니다.

@@ -7,14 +7,14 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 08/15/2019
+ms.date: 08/22/2019
 ms.author: diberry
-ms.openlocfilehash: 570429a2d5332e7d951271b36b79d9d16df174c0
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: b0345773956a0adc5c7f403195c496a3ea5e6fd6
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535207"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982333"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services 및 기계 학습
 
@@ -25,10 +25,10 @@ Cognitive Services는 감정적 감정의 텍스트 분석 또는 개체나 얼�
 |서비스 범주|용도|
 |--|--|
 |[(A](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|합리적이고 효율적인 의사 결정을 위해 권장 사항을 표시하는 앱을 빌드하세요.|
-|[언어](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|앱에서 미리 작성 된 스크립트를 사용 하 여 자연어를 처리 하 고, 감정을 평가 하 고, 사용자가 원하는 항목을 인식 하는 방법을 배울 수 있습니다.|
-|[이를 통해 검색](https://azure.microsoft.com/services/cognitive-services/directory/search/)|앱에 Bing Search API을 추가 하 고 단일 API 호출로 수십억 개의 웹 페이지, 이미지, 동영상 및 뉴스를 수십억 하는 기능을 활용 하세요.|
-|[음성](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|음성을 텍스트로 변환하고 텍스트를 자연스러운 음성으로 변환합니다. 한 언어에서 다른 언어로 번역하고 화자 검증 및 인식 기능을 사용하도록 설정할 수 있습니다.|
-|[Vision](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|사진, 동영상 및 디지털 잉크 콘텐츠를 인식 및 식별하고 캡션을 추가하고 인덱스 및 조정합니다.|
+|[언어](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|앱에서 사전 구축된 스크립트를 통해 자연어를 처리하고, 감성을 평가하며, 사용자가 원하는 것을 인식하는 방법을 학습하도록 지원하세요.|
+|[이를 통해 검색](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Bing Search API를 앱에 추가하고, 단일 API 호출을 통해 수십억 개의 웹 페이지, 이미지, 비디오 및 뉴스를 검색하세요.|
+|[음성](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|음성을 텍스트로 변환하고 텍스트를 자연스러운 음성으로 변환합니다. 한 언어를 다른 언어로 번역하고 화자 검증 및 인식 기능을 사용하도록 설정할 수 있습니다.|
+|[Vision](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|사진, 동영상 및 디지털 잉크 콘텐츠를 인식 및 식별하고 캡션을 추가하고 인덱싱 및 조정합니다.|
 ||||
 
 Cognitive Services 사용 하는 경우:
@@ -65,7 +65,7 @@ Machine learning은 데이터와 알고리즘을 함께 가져와서 특정 요�
 
 인식 서비스는 학습 된 모델을 제공 합니다. 이를 통해 데이터와 알고리즘을 함께 사용할 수 있습니다 .이는 REST API 또는 SDK에서 사용할 수 있습니다. 시나리오에 따라 몇 분 내에이 서비스를 구현할 수 있습니다.  인지 서비스는 이미지의 텍스트 또는 항목 id의 키 구와 같은 일반적인 문제에 대 한 답변을 제공 합니다. 
 
-Machine learning은 성공적으로 구현 하는 데 더 오랜 시간이 걸리는 프로세스입니다. 이 시간은 인식 서비스에서 제공 하는 것과 동일한 수준의 기능을 얻기 위해 데이터 수집, 정리, 변환, 알고리즘 선택, 모델 학습 및 배포에 소요 됩니다. 기계 학습을 사용 하면 전문적 이거나 특정 한 문제를 포함 하 여 모든 종류의 문제에 대 한 답변을 제공할 수 있습니다. 이러한 기계 학습 문제는 실무, 기계 학습, 데이터 과학 등의 하나 이상에 대해 잘 알고 있어야 합니다.
+Machine learning은 성공적으로 구현 하는 데 더 오랜 시간이 걸리는 프로세스입니다. 이 시간은 인식 서비스에서 제공 하는 것과 동일한 수준의 기능을 얻기 위해 데이터 수집, 정리, 변환, 알고리즘 선택, 모델 학습 및 배포에 소요 됩니다. 기계 학습을 사용 하면 매우 특수화 된 및/또는 특정 문제에 대 한 답변을 제공할 수 있습니다. 기계 학습 문제는 고려해 야 하는 문제에 대 한 특정 주제와 데이터 및 데이터 과학의 전문 지식에 잘 알고 있어야 합니다.
 
 ## <a name="what-kind-of-data-do-you-have"></a>어떤 종류의 데이터가 있습니까?
 

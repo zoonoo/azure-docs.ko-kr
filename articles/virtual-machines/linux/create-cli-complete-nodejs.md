@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: 4ba4060b-ce95-4747-a735-1d7c68597a1a
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 5fbcbc63b3038151a7d45a70ce88eb7ca9829fe5
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: aaf91aa81be5fc4c5944dde804798a61ceffc5a6
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668020"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083711"
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-classic-cli"></a>Azure 클래식 CLI를 사용하여 전체 Linux 환경 만들기
 이 문서에서는 개발 및 간단한 계산에 유용한 부하 분산 장치와 한 쌍의 VM을 사용하여 간단한 네트워크를 빌드해 보겠습니다. 인터넷 어디에서나 안전하게 실행되는 두 개의 Linux VM에 연결할 수 있을 때까지 프로세스를 명령별로 진행합니다. 그 후에는 좀 더 복잡한 네트워크 및 환경으로 넘어갈 수 있습니다.
@@ -66,7 +65,7 @@ JSON 파서를 사용하여 리소스 그룹을 확인합니다.
 azure group show myResourceGroup --json | jq '.'
 ```
 
-스토리지 계정을 만듭니다. 다음 예제에서는 `mystorageaccount`라는 스토리지 계정을 만듭니다. 스토리지 계정 이름은 고유해야 하므로 자신만의 이름을 제공하세요.
+스토리지 계정을 만듭니다. 다음 예제에서는 `mystorageaccount`라는 스토리지 계정을 만듭니다. (스토리지 계정 이름은 고유해야 하므로 자신만의 이름을 제공하세요.)
 
 ```azurecli
 azure storage account create -g myResourceGroup -l westeurope \
@@ -301,7 +300,7 @@ data:
 info:    group create command OK
 ```
 
-## <a name="create-a-storage-account"></a>스토리지 계정 만들기
+## <a name="create-a-storage-account"></a>저장소 계정 만들기
 VM 디스크 및 추가하려는 추가 데이터 디스크에 대한 스토리지 계정이 필요합니다. 리소스 그룹을 만든 후 거의 즉시 스토리지 계정을 만들게 됩니다.
 
 여기서는 `azure storage account create` 명령을 사용하여 계정 위치, 계정을 제어할 리소스 그룹, 원하는 스토리지 지원 형식을 전달합니다. 다음 예제에서는 `mystorageaccount`라는 스토리지 계정을 만듭니다.

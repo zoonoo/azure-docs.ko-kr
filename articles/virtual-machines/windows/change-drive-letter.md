@@ -11,16 +11,15 @@ ms.assetid: 0867a931-0055-4e31-8403-9b38a3eeb904
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
-ms.openlocfilehash: 12986068a761b92611c557a0dfcf08905283b8bd
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 846bb7a5ea6c3f363a2811cf3feb30e37ff30504
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67719246"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079867"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>D: 드라이브를 Windows VM의 데이터 드라이브로 사용
 애플리케이션에서 D 드라이브를 사용하여 데이터를 저장해야 하는 경우 다음 지침에 따라 임시 디스크에 다른 드라이브 문자를 사용할 수 있습니다. 보관해야 하는 데이터를 저장하는 데 임시 디스크를 사용하지 마세요.
@@ -64,5 +63,5 @@ Azure에서 임시 디스크를 사용하는 방법에 대한 자세한 내용�
 9. 가상 머신을 다시 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* 가상 컴퓨터에 제공 되는 저장소를 늘릴 수 있습니다 [추가 데이터 디스크를 연결](attach-managed-disk-portal.md)합니다.
+* [추가 데이터 디스크를 연결](attach-managed-disk-portal.md)하 여 가상 컴퓨터에 사용할 수 있는 저장소를 늘릴 수 있습니다.
 

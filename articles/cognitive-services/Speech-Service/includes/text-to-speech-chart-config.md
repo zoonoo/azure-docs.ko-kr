@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 06/26/2019
+ms.date: 08/22/2019
 ms.author: dapine
-ms.openlocfilehash: e6c7dcd3015b0b8ab5b3c719ebd2397bc814b81a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c87132c3ae41dec82e3493f9a0ee2397455ff881
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67717221"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971335"
 ---
 ### <a name="text-to-speech-sub-chart-chartstexttospeech"></a>텍스트 음성 변환 (하위 차트: 차트/textToSpeech)
 
-"파라솔" 차트를 재정의 하려면 매개 변수에 접두사 `textToSpeech.` 를 추가 하 여 더 구체적으로 만듭니다. 예를 들어 `textToSpeech.numberOfConcurrentRequest` 재정의 `numberOfConcurrentRequest`와 같이 해당 매개 변수를 재정의 합니다.
+"파라솔" 차트를 재정의 하려면 매개 변수에 접두사 `textToSpeech.` 를 추가 하 여 더 구체적으로 만듭니다. 예를 들어이 매개 변수는 재정의 `textToSpeech.numberOfConcurrentRequest` `numberOfConcurrentRequest`와 같이 해당 매개 변수를 재정의 합니다.
 
-|매개 변수|Description|기본값|
+|매개 변수|설명|기본값|
 | -- | -- | -- |
 | `enabled` | **텍스트 음성 변환** 서비스의 사용 여부를 지정 합니다. | `false` |
 | `numberOfConcurrentRequest` | **텍스트 음성 변환** 서비스에 대 한 동시 요청 수입니다. 이 차트는이 값에 따라 CPU 및 메모리 리소스를 자동으로 계산 합니다. | `2` |
@@ -37,5 +37,6 @@ ms.locfileid: "67717221"
 | `image.args.apikey`하다 | 청구 정보를 추적하는 데 사용됩니다. ||
 | `service.type` | **텍스트 음성 변환** 서비스의 Kubernetes 서비스 유형입니다. 자세한 내용은 [Kubernetes service types 지침](https://kubernetes.io/docs/concepts/services-networking/service/) 및 클라우드 공급자 지원 확인을 참조 하세요. | `LoadBalancer` |
 | `service.port`|  **텍스트 음성 변환** 서비스의 포트입니다. | `80` |
+| `service.annotations` | 서비스 메타 데이터에 대 한 **텍스트 음성 변환** 주석입니다. 주석은 키 값 쌍입니다. <br>`annotations:`<br>&nbsp;&nbsp;`some/annotation1: value1`<br>&nbsp;&nbsp;`some/annotation2: value2` | |
 | `service.autoScaler.enabled` | [수평 Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) 사용 되는지 여부를 나타냅니다. 인 경우 `true`Kubernetes 클러스터에 가배포됩니다.`text-to-speech-autoscaler` | `true` |
 | `service.podDisruption.enabled` | [Pod 중단 예산이](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) 사용 되는지 여부를 나타냅니다. 인 경우 `true`Kubernetes 클러스터에 가배포됩니다.`text-to-speech-poddisruptionbudget` | `true` |

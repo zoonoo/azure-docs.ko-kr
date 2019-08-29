@@ -6,18 +6,17 @@ author: laurenhughes
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
-ms.openlocfilehash: a86ce329a19272eb83c431af395b330f75111361
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 083702a5340ed47370a8b4c7d64846848636ba30
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323306"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094867"
 ---
 # <a name="pool-create-event"></a>풀 만들기 이벤트
 
@@ -49,7 +48,7 @@ ms.locfileid: "68323306"
 
 |요소|형식|참고|
 |-------------|----------|-----------|
-|id|String|풀의 ID입니다.|
+|id|문자열|풀의 ID입니다.|
 |displayName|string|풀의 표시 이름입니다.|
 |vmSize|String|풀에 포함된 가상 머신의 크기입니다. 풀에 포함된 모든 가상 머신의 크기는 같습니다. <br/><br/> Cloud Services 풀(cloudServiceConfiguration을 사용하여 만든 풀)에 사용 가능한 가상 머신 크기에 대한 자세한 내용은 [Cloud Services에 적합한 크기](https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/)를 참조하세요. Batch는 `ExtraSmall`을 제외한 모든 Cloud Services VM 크기를 지원합니다.<br/><br/> Virtual Machines Marketplace(virtualMachineConfiguration을 사용하여 만든 풀)의 이미지를 사용한 풀에 사용 가능한 VM 크기에 대한 자세한 내용은 [Virtual Machines에 적합한 크기](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/)(Linux) 또는 [Virtual Machines에 적합한 크기](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/)(Windows)를 참조하세요. 배치는 `STANDARD_A0`및 Premium Storage(`STANDARD_GS`, `STANDARD_DS` 및 `STANDARD_DSV2` 시리즈) 크기를 제외한 모든 Azure VM 크기를 지원합니다.|
 |[cloudServiceConfiguration](#bk_csconf)|복합 형식|풀의 클라우드 서비스 구성입니다.|
@@ -61,7 +60,7 @@ ms.locfileid: "68323306"
 |enableInterNodeCommunication|Bool|풀에 노드 간 직접 통신이 설정되어 있는지 여부를 지정합니다.|
 |isAutoPool|Bool|풀이 작업의 자동 풀 메커니즘을 통해 만들어졌는지 여부를 지정합니다.|
 |maxTasksPerNode|Int32|풀의 단일 컴퓨팅 노드에서 동시에 실행할 수 있는 최대 태스크 수입니다.|
-|vmFillType|문자열|Batch 서비스는 풀의 컴퓨팅 노드 간에 태스크를 분배하는 방법을 정의합니다. 유효한 값은 Spread 또는 Pack입니다.|
+|vmFillType|String|Batch 서비스는 풀의 컴퓨팅 노드 간에 태스크를 분배하는 방법을 정의합니다. 유효한 값은 Spread 또는 Pack입니다.|
 
 ###  <a name="bk_csconf"></a> cloudServiceConfiguration
 
@@ -82,10 +81,10 @@ ms.locfileid: "68323306"
 
 |요소 이름|형식|참고|
 |------------------|----------|-----------|
-|publisher|String|이미지의 게시자입니다.|
-|제품|문자열|이미지 제안입니다.|
+|publisher|문자열|이미지의 게시자입니다.|
+|제품|String|이미지 제안입니다.|
 |sku|String|이미지의 SKU입니다.|
-|version|String|이미지의 버전입니다.|
+|version|문자열|이미지의 버전입니다.|
 
 ###  <a name="bk_winconf"></a> windowsConfiguration
 
@@ -97,4 +96,4 @@ ms.locfileid: "68323306"
 
 |요소 이름|형식|참고|
 |------------------|--------------|----------|
-|subnetId|String|풀의 컴퓨팅 노드가 생성된 서브넷의 리소스 식별자를 지정합니다.|
+|subnetId|문자열|풀의 컴퓨팅 노드가 생성된 서브넷의 리소스 식별자를 지정합니다.|

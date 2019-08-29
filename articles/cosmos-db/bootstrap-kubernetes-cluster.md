@@ -3,15 +3,15 @@ title: Azure Cosmos DB에서 Azure Kubernetes를 사용하는 방법
 description: Azure Cosmos DB(미리 보기)를 사용하는 Azure에서 Kubernetes 클러스터를 부트스트랩하는 방법 알아보기
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: sngun
-ms.openlocfilehash: 2c6af53aeec5d40f603d65595d93527107c0d80a
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: HT
+ms.openlocfilehash: 9dbbc914580d8d80a3f9b7d730574e24b44827c1
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427709"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093723"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Azure Cosmos DB(미리 보기)에서 Azure Kubernetes를 사용하는 방법
 
@@ -25,7 +25,7 @@ Azure Cosmos DB의 etcd API를 사용하면 Azure Cosmos DB를 Azure Kubernetes�
 
 Azure Cosmos DB의 etcd API에 대한 자세한 내용은 [개요](etcd-api-introduction.md) 문서를 참조하세요. 이 문서에서는 [Azure Kubernetes 엔진](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md)(aks-engine)을 사용하여 로컬로 설치 및 구성된 etcd 대신 [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/)를 사용하는 Kubernetes 클러스터를 Azure에서 부트스트랩하는 방법을 보여 줍니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 1. 최신 버전의 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)를 설치합니다. 운영 체제에 해당하는 Azure CLI를 다운로드하고 설치할 수 있습니다.
 

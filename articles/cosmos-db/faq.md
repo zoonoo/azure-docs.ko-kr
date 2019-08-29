@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 93b00aec868cf947b67329934c703f5d1b774426
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: cb2b3246264d04ce97c45dff58979079a731998e
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615389"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066090"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Azure Cosmos DB의 다양한 API에 대한 질문과 대답
 
@@ -31,6 +31,12 @@ RU([요청 단위](request-units.md))는 Azure Cosmos DB의 처리량 측정 단
 Azure Cosmos DB는 ARS(아톰, 레코드 및 시퀀스) 디자인을 기반으로 하므로 키/값(테이블), 열 형식, 문서 및 그래프 데이터 모델을 기본적으로 모두 지원합니다. 아톰, 레코드 및 시퀀스는 다양한 데이터 모델에 쉽게 매핑 및 프로젝션할 수 있습니다. 모델의 하위 집합에 대한 API는 현재 사용 가능하며(SQL, MongoDB, 테이블 및 Gremlin) 추가 데이터 모델과 관련된 기타 사항은 향후 제공될 예정입니다.
 
 Azure Cosmos DB에는 개발자로부터 스키마 또는 보조 인덱스를 요구하지 않고도 수집되는 모든 데이터를 자동으로 인덱싱할 수 있는 스키마 독립적인 인덱싱 엔진을 포함합니다. 이 엔진은 인덱스 및 쿼리 처리 하위 시스템에서 스토리지 레이아웃을 분리하는 논리적 인덱스 레이아웃 집합(반전됨, 열 형식, 트리)을 기반으로 합니다. Cosmos DB는 유선 프로토콜과 API 세트를 확장 가능한 방식으로 지원하고 핵심 데이터 모델(1)과 논리적 인덱스 레이아웃(2)으로 효율적으로 변환하여 기본적으로 둘 이상의 데이터 모델을 고유하게 지원할 수 있도록 합니다.
+
+### <a name="can-i-use-multiple-apis-to-access-my-data"></a>여러 Api를 사용 하 여 내 데이터에 액세스할 수 있나요?
+
+Azure Cosmos DB는 전 세계에 배포되는 Microsoft의 다중 모델 데이터베이스 서비스입니다. 다중 모델이 여러 Api와 여러 데이터 모델을 지원 Azure Cosmos DB을 의미 하는 경우 다른 Api는 저장소 및 유선 프로토콜에 대해 서로 다른 데이터 형식을 사용 합니다. 예를 들어 SQL에서는 JSON을 사용 하 고 MongoDB는 BSON을 사용 하며, 테이블은 EDM을 사용 하 고, Cassandra는 CQL를 사용 하 고, Gremlin는 따라서 지정 된 계정에 있는 데이터에 대 한 모든 액세스에 동일한 API를 사용 하는 것이 좋습니다.
+
+각 API는 상호 운용할 수 있는 Gremlin 및 SQL API를 제외 하 고 독립적으로 작동 합니다.
 
 ### <a name="is-azure-cosmos-db-hipaa-compliant"></a>Azure Cosmos DB는 HIPAA 규격인가요?
 

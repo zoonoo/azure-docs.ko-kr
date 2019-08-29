@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 08/21/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 85c6ff59b5f73e88c82ee8b788bd9f35d18bc0ed
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: b91adc9dd5f221a6d354a98bdc0f4a7fd4483ecb
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697962"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982345"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>QnA Maker에 대 한 문제 해결
 
@@ -136,9 +136,25 @@ App service에 대 한 디스크 공간이 가득 찼을 수 있습니다. 디�
 
 아니요, QnA Maker에서 [봇 Framework](https://github.com/Microsoft/botbuilder-dotnet) 를 사용할 필요가 없습니다. 그러나 QnA Maker은 [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)의 여러 템플릿 중 하나로 제공 됩니다. Bot Service는 Microsoft Bot Framework를 통해 지능형 봇의 신속한 개발을 사용하도록 설정하고, 서버리스 환경에서 실행됩니다.
 
-### <a name="how-can-i-create-a-bot-with-qna-maker"></a>QnA Maker를 사용하여 봇을 만들려면 어떻게 하나요?
+### <a name="how-can-i-create-a-new-bot-with-qna-maker"></a>QnA Maker를 사용 하 여 새 봇을 만들려면 어떻게 해야 하나요?
 
 [이](./Tutorials/create-qna-bot.md) 문서의 지침에 따라 Azure Bot Service를 사용하여 봇을 만듭니다.
+
+### <a name="how-do-i-use-a-different-knowledge-base-with-an-existing-azure-bot-service"></a>기존 Azure bot service에서 다른 기술 자료를 사용할 어떻게 할까요? 있나요?
+
+기술 자료에 대 한 다음 정보가 필요 합니다.
+
+* 기술 자료 ID입니다.
+* 기술 자료의 게시 된 끝점 호스트 이름-게시 후 **설정** 페이지에서 찾을 수 있습니다.
+* 기술 자료의 게시 된 끝점 키-게시 후 **설정** 페이지에서 찾을 수 있습니다. 
+
+이 정보를 사용 하 여 Azure Portal에서 봇의 app service로 이동 합니다. **설정-> 구성-> 응용 프로그램 설정**에서 해당 값을 변경 합니다.  
+
+기술 자료의 끝점 키는 ABS 서비스에서 `QnAAuthkey` 레이블이 지정 됩니다. 
+
+### <a name="can-two-or-more-client-applications-share-a-knowledge-base"></a>두 개 이상의 클라이언트 응용 프로그램에서 기술 자료를 공유할 수 있나요? 
+
+예, 기술 자료는 원하는 수의 클라이언트에서 쿼리할 수 있습니다. 기술 자료의 응답이 느리거나 시간이 초과 되는 것으로 나타나는 경우 기술 자료와 연결 된 app service에 대 한 서비스 계층을 업그레이드 하는 것이 좋습니다.
 
 ### <a name="how-do-i-embed-the-qna-maker-service-in-my-website"></a>웹 사이트에 QnA Maker 서비스를 포함하려면 어떻게 하나요?
 

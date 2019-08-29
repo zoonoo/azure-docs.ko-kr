@@ -8,18 +8,17 @@ manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.service: virtual-machines
-ms.devlang: na
 ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: changov
 ms.reviewer: vashan, rajraj
-ms.openlocfilehash: 6ae14edb7fa6b44f7c3bb961ffbcceb26eb9dee3
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: db1c6e8e4f1e98db08d5f7ff0ef218fa42d25860
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875453"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103292"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>API 제한 오류 문제 해결 
 
@@ -33,7 +32,7 @@ Azure API 클라이언트에 제한 오류가 발생하면 HTTP 상태가 429 �
 
 ## <a name="call-rate-informational-response-headers"></a>호출 속도 정보 응답 헤더 
 
-| 헤더                            | 값 형식                           | 예제                               | 설명                                                                                                                                                                                               |
+| 헤더                            | 값 형식                           | 예제                               | Description                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | x-ms-ratelimit-remaining-resource |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | 이 요청의 대상을 비롯한 리소스 버킷 또는 작업 그룹을 포함하는 제한 정책의 나머지 API 호출 수                                                                   |
 | x-ms-request-charge               | ```<count>```                             | 1                                     | 호출 수는 해당 정책의 제한에 대한 이 HTTP 요청의 경우 "청구됨"으로 계산됩니다. 이 수는 가장 일반적으로 1입니다. 가상 머신 확장 집합 크기 조정의 경우와 같이 일괄 처리 요청은 여러 개수에 요금을 청구할 수 있습니다. |

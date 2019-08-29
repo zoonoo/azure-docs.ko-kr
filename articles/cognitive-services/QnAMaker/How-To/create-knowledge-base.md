@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b2cacc8cc6d7c22a93f46007e8150a4e55dc7650
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: b2fb7496f16359f01ddbbe6db31b2d047a2ab4df
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967725"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012819"
 ---
 # <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>빠른 시작: QnA Maker API 서비스 포털을 사용 하 여 기술 자료 만들기
 
@@ -45,20 +45,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     ![데이터 원본 설정](../media/qnamaker-how-to-create-kb/set-data-sources.png)
 
-    - 서비스의 **이름**을 지정합니다. 중복 이름 및 특수 문자가 지원됩니다.
-    - 추출하려는 데이터에 대한 URL을 추가합니다. 지원되는 원본 형식에 대한 자세한 내용은 [여기](../Concepts/data-sources-supported.md)서 확인할 수 있습니다.
-    - 추출하려는 데이터에 대한 파일을 업로드합니다. 추가할 수 있는 문서 수는 [가격 책정 정보](https://aka.ms/qnamaker-pricing)를 참조하세요.
-    - QnA를 수동으로 추가하려는 경우 이전 이미지에 표시된 **4단계**를 건너뜁니다.
+1. 서비스에와 `my first kb`같은 **이름을** 지정 합니다. 중복 이름 및 특수 문자가 지원됩니다.
 
-1. KB에 **잡담**을 추가합니다. 개성 중 하나를 선택 하 여 봇에 대 한 chit-채팅 지원을 추가 하도록 선택 합니다. 
+1. QnA Maker 문제 해결 페이지를 URL `https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/troubleshooting`로 추가 하 고를 선택 `+ Add URL`합니다. 지원되는 원본 형식에 대한 자세한 내용은 [여기](../Concepts/data-sources-supported.md)서 확인할 수 있습니다. 이 빠른 시작에서는 추출 하려는 데이터에 대 한 **파일을 업로드 하지 마세요** . 추가할 수 있는 문서 수는 [가격 책정 정보](https://aka.ms/qnamaker-pricing)를 참조하세요.
 
-    ![KB에 잡담 추가](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
+1. **_전문 엔지니어_** 에 게 채팅을 추가 합니다. 
 
 1. **KB 만들기**를 선택합니다.
 
     ![기술 자료 만들기](../media/qnamaker-how-to-create-kb/create-kb.png)
 
-1. 데이터를 추출할 때까지 몇 분 정도 걸립니다.
+1. 데이터를 추출 하는 데 몇 분 정도 걸릴 수 있습니다.
 
     ![추출](../media/qnamaker-how-to-create-kb/hang-tight-extraction.png)
 

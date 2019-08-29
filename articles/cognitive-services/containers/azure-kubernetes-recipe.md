@@ -10,24 +10,24 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: 5b406f9c7f8c16038561853170896d2cd95dc383
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 852530910f7a8c6c815493d0dbcc57f67695d6de
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444859"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066100"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>Azure Kubernetes Service에 언어 감지 컨테이너 배포
 
 언어 감지 컨테이너를 배포하는 방법을 알아봅니다. 이 절차에서는 로컬 Docker 컨테이너를 만들고, 컨테이너를 고유한 프라이빗 컨테이너 레지스트리로 푸시하고, Kubernetes 클러스터에서 컨테이너를 실행하고, 웹 브라우저에서 테스트하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 절차를 수행하려면 로컬로 설치 및 실행해야 하는 몇 가지 도구가 필요합니다. Azure Cloud Shell은 사용하지 않도록 합니다.
 
 * Azure 구독을 사용합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * 이 절차에서 사용되는 [샘플](https://github.com/Azure-Samples/cognitive-services-containers-samples)을 복제할 수 있도록 사용하는 운영 체제용 [Git](https://git-scm.com/downloads)
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [Docker 엔진](https://www.docker.com/products/docker-engine). 콘솔 창에서 Docker CLI를 가 작동하는지 확인합니다.
 * [kubectl](https://storage.googleapis.com/kubernetes-release/release/v1.13.1/bin/windows/amd64/kubectl.exe).
 * 올바른 가격 책정 계층이 지정된 Azure 리소스. 모든 가격 책정 계층이 이 컨테이너에 작동하는 것은 아닙니다.
@@ -62,19 +62,19 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
 
 1. Azure CLI에 로그인
 
-    ```azurecli
+    ```azurecli-interactive
     az login
     ```
 
 1. 이 절차에서 만든 모든 리소스를 저장할 `cogserv-container-rg`라는 리소스 그룹을 만듭니다.
 
-    ```azurecli
+    ```azurecli-interactive
     az group create --name cogserv-container-rg --location westus
     ```
 
 1. 사용자 이름과 `registry` 형식(예: `pattyregistry`)으로 고유한 Azure Container Registry를 만듭니다. 이름에 대시나 밑줄 문자를 사용하지 마세요.
 
-    ```azurecli
+    ```azurecli-interactive
     az acr create --resource-group cogserv-container-rg --name pattyregistry --sku Basic
     ```
 
@@ -104,7 +104,7 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
 
 1. 컨테이너 레지스트리에 로그인합니다. 레지스트리에 이미지를 푸시하려면 먼저 로그인해야 합니다.
 
-    ```azurecli
+    ```azurecli-interactive
     az acr login --name pattyregistry
     ```
 
@@ -174,7 +174,7 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
 
 1. 서비스 주체를 만듭니다.
 
-    ```azurecli
+    ```azurecli-interactive
     az ad sp create-for-rbac --skip-assignment
     ```
 
@@ -193,7 +193,7 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
 
 1. 컨테이너 레지스트리 ID를 가져옵니다.
 
-    ```azurecli
+    ```azurecli-interactive
     az acr show --resource-group cogserv-container-rg --name pattyregistry --query "id" --o table
     ```
 
@@ -208,7 +208,7 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
 
 1. ACR 클러스터에 대해 올바른 액세스 권한을 부여하여 컨테이너 레지스트리에 저장된 이미지를 사용하도록 하려면 역할 할당을 만듭니다. `<appId>` 및 `<acrId>`를 이전 두 단계에서 수집한 값으로 바꿉니다.
 
-    ```azurecli
+    ```azurecli-interactive
     az role assignment create --assignee <appId> --scope <acrId> --role Reader
     ```
 
@@ -216,7 +216,7 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
 
 1. Kubernetes 클러스터를 만듭니다. name 매개 변수를 제외한 모든 매개 변수는 이전 섹션에서 가져옵니다. 만든 사람과 용도를 나타내는 이름을 선택합니다(예: `patty-kube`).
 
-    ```azurecli
+    ```azurecli-interactive
     az aks create --resource-group cogserv-container-rg --name patty-kube --node-count 2  --service-principal <appId>  --client-secret <client-secret>  --generate-ssh-keys
     ```
 
@@ -284,7 +284,7 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
 
 1. Kubernetes 클러스터의 자격 증명을 가져옵니다.
 
-    ```azurecli
+    ```azurecli-interactive
     az aks get-credentials --resource-group cogserv-container-rg --name patty-kube
     ```
 
@@ -313,14 +313,14 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
 
 1. 다음 표에 따라 `language.yml`의 언어-프런트 엔드 배포 줄을 변경하여 고유한 컨테이너 레지스트리에 이미지 이름, 클라이언트 비밀 및 텍스트 분석 설정을 추가합니다.
 
-    언어-프런트 엔드 배포 설정|목적|
+    언어-프런트 엔드 배포 설정|용도|
     |--|--|
     |줄 32<br> `image` 속성|Container Registry에 있는 프런트 엔드 이미지의 이미지 위치입니다.<br>`<container-registry-name>.azurecr.io/language-frontend:v1`|
     |줄 44<br> `name` 속성|이전 섹션에서 `<client-secret>`으로 나타낸 이미지의 컨테이너 레지스트리 비밀입니다.|
 
 1. 다음 표에 따라 `language.yml`의 언어 배포 줄을 변경하여 고유한 컨테이너 레지스트리에 이미지 이름, 클라이언트 비밀 및 텍스트 분석 설정을 추가합니다.
 
-    |언어 배포 설정|목적|
+    |언어 배포 설정|용도|
     |--|--|
     |줄 78<br> `image` 속성|Container Registry에 있는 언어 이미지의 이미지 위치입니다.<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
     |줄 95<br> `name` 속성|이전 섹션에서 `<client-secret>`으로 나타낸 이미지의 컨테이너 레지스트리 비밀입니다.|
@@ -397,7 +397,7 @@ replicaset.apps/language-frontend-68b9969969   1         1         1         13h
 
 클러스터가 완료되면 Azure 리소스 그룹을 삭제합니다.
 
-```azure-cli
+```azurecli-interactive
 az group delete --name cogserv-container-rg
 ```
 

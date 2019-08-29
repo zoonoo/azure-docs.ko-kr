@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: jhakulin
-ms.openlocfilehash: 8c4ecc017d058900297f2220173e064700e7051b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
-ms.translationtype: HT
+ms.openlocfilehash: 5ad912b1cee5495e18a5eb2da4d981eadd74dd7d
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559470"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066424"
 ---
 # <a name="transcribe-multi-participant-conversations-with-the-speech-sdk"></a>Speech SDK를 사용하여 다중 참가자 대화 기록
 
@@ -25,7 +25,9 @@ Speech SDK **ConversationTranscriber** API는 `PullStream` 또는`PushStream`을
 
 * 대화 기록기는 Windows, Linux 및 Android에서 C++, C#, 및 Java에 대해 지원됩니다.
 * ROOBO DevKit는 화자 식별을 위해 효율적으로 활용할 수 있는 순환 다중 마이크 배열을 제공하는 대화 기록 만들기에 대해 지원되는 하드웨어 환경입니다. 자세한 내용은 [음성 장치 SDK](speech-devices-sdk.md)를 참조하세요.
-* 대화 기록에 대한 Speech SDK 지원은 16 비트 16kHz PCM 오디오의 8개 채널로 오디오 풀 및 푸시 모드의 사용으로 제한됩니다.
+* 대화 기록에 대 한 음성 SDK 지원은 16 비트 16Khz PCM 오디오의 8 채널을 포함 하는 오디오 풀 및 푸시 모드 스트림으로 제한 됩니다. 현재는 이러한 키트만 8 채널 오디오 캡처에 대해 지원 됩니다.
+   * [ROOBO 스마트 오디오 원형 7-Mic 진한](https://ddk.roobo.com/)
+   * [Azure KINECT 진한](https://azure.microsoft.com/en-in/services/kinect-dk/).
 * 대화 기록은 현재 다음 지역에서 "en-US" 및 "zh-CN" 언어로 제공됩니다: centralus 및 eastasia.
 
 ## <a name="prerequisites"></a>필수 구성 요소

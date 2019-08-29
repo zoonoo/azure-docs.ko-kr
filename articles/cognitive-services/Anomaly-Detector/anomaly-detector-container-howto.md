@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: e3f6ad4338863fcbb35bad4f286b71993cf6fa2a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0c2ff2c745ebed8385df0d351c6d43faf5ab1b9d
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854827"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050066"
 ---
 # <a name="install-and-run-anomaly-detector-containers"></a>변칙 탐지기 컨테이너를 설치 하 고 실행 합니다.
 
@@ -30,7 +30,7 @@ Api에 대 한 자세한 내용은 다음을 참조 하세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 변칙 탐지기 컨테이너를 사용 하기 전에 다음 필수 구성 요소를 충족 해야 합니다.
 
@@ -121,7 +121,7 @@ ApiKey={API_KEY}
 * 종료 후 자동으로 컨테이너를 제거합니다. 컨테이너 이미지는 호스트 컴퓨터에서 계속 사용할 수 있습니다. 
 
 > [!IMPORTANT]
-> 컨테이너를 인스턴스화하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](#billing)를 참조하세요.
+> 컨테이너를 실행하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](#billing)을 참조하세요.
 
 ### <a name="running-multiple-containers-on-the-same-host"></a>동일한 호스트에서 여러 컨테이너 실행
 
@@ -156,7 +156,7 @@ ApiKey={API_KEY}
 
 컨테이너는 REST 기반 쿼리 예측 끝점 API를 제공합니다. 
 
-컨테이너 API에 대한 호스트, https://localhost:5000 을 사용합니다.
+컨테이너 API에 대한 호스트, http://localhost:5000 을 사용합니다.
 
 <!--  ## Validate container is running -->
 

@@ -7,19 +7,18 @@ author: saghorpa
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad7cfbac1dffdab4af7afc26c98c0582bc376c99
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: c2c8483948deae41edbe3922dc77361ba2c58a94
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494333"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099858"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>재해 복구 장애 조치(failover) 프로시저
 
@@ -105,7 +104,7 @@ DR에서 프로덕션 사이트로 장애 복구(Failback)할 수 있습니다. 
 
 재해 복구 사이트에서 한 동안 SAP 프로덕션 워크 로드를 실행 했습니다. 프로덕션 사이트의 문제가 해결되면 프로덕션 사이트로 장애 복구(Failback)하려고 할 수 있습니다. 데이터가 손실되도록 할 수는 없으므로 프로덕션 사이트로 돌아가는 단계는 Azure 운영 팀의 SAP HANA와의 몇 가지 단계 및 긴밀한 협조가 필요합니다. 문제가 해결되었을 때 운영 팀이 프로덕션 사이트로 다시 동기화를 시작하도록 트리거하는 것은 사용자의 몫입니다.
 
-다음 단계를 수행하십시오.
+다음 단계를 수행하세요.
 
 1. Azure 운영 팀의 SAP HANA는 프로덕션 상태를 나타내는 재해 복구 스토리지 볼륨에서 프로덕션 스토리지 볼륨을 동기화하는 트리거를 가져옵니다. 이 상태에서 프로덕션 사이트에 있는 HANA 큰 인스턴스 단위가 종료됩니다.
 1. Azure 운영 팀의 SAP HANA는 복제를 모니터링 하 고 사용자에 게 알리기 전에 해당 복제를 수행 하도록 합니다.
