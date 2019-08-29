@@ -259,6 +259,8 @@
               href: sql-data-warehouse-install-visual-studio.md
             - name: 소스 제어 통합
               href: sql-data-warehouse-source-control-integration.md
+            - name: 지속적인 통합 및 배포
+              href: sql-data-warehouse-continuous-integration-and-deployment.md
         - name: 연결 및 쿼리
           items:
             - name: Visual Studio SSDT

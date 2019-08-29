@@ -135,6 +135,7 @@
           href: platform/roles-permissions-security.md
         - name: IP 주소
           href: app/ip-addresses.md
+          displayname: 'firewall, firewall exceptions, whitelist'
         - name: Log Analytics 작업 영역
           items:
             - name: 작업 영역 만들기
@@ -277,7 +278,11 @@
               displayname: 'dashboard, Application Insights dashboard'
               href: app/overview-dashboard.md
             - name: 애플리케이션 맵
+              displayname: 'appmap, app map, dependency map, dependencies, hotspots, cloud role name, cloudrolename, cloud_rolename, cloud.rolename, cloud role instance, node'
               href: app/app-map.md
+            - name: 트랜잭션 진단
+              href: app/transaction-diagnostics.md
+              displayname: 'e2e, end-to-end, component, dependency, cross-compoent transaction, operation ID, dependencies'
             - name: 가용성
               items:
                 - name: URL 테스트
@@ -298,6 +303,9 @@
               items:
                 - name: 개요
                   href: app/distributed-tracing.md
+                - name: 원격 분석 상관 관계
+                  href: app/correlation.md
+                  displayname: 'correlation headers, w3c, distributed tracing, tracing'
                 - name: 로컬 전달자
                   href: app/opencensus-local-forwarder.md
                 - name: Python
@@ -406,6 +414,7 @@
                   href: app/resources-roles-access-control.md
                 - name: IP 주소 수집
                   href: app/ip-collection.md
+                  displayname: 'geolocation, IP collection, IP tracking, IP storage'
                 - name: 샘플링
                   displayname: 'adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling'
                   href: app/sampling.md
@@ -417,8 +426,10 @@
                   href: app/api-filtering-sampling.md
                 - name: 원격 분석 상관 관계
                   href: app/correlation.md
+                  displayname: 'correlation headers, w3c, distributed tracing'
                 - name: .NET SDK에서 사용자 지정 작업 추적
                   href: app/custom-operations-tracking.md
+                  displayname: 'correlation, dependency, dependencies, track dependency, OWIN, queue, service bus, background tasks, long running background tasks, outgoing dependency tracking, parallel operations, System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource, StartOperation, StopOperation'
                 - name: 사용자 지정 이메일 보고서
                   href: app/automate-custom-reports.md
                 - name: 예외
@@ -431,8 +442,6 @@
                   href: app/asp-net-dependencies.md
                 - name: ApplicationInsights.config
                   href: app/configuration-with-applicationinsights-config.md
-                - name: 트랜잭션 진단
-                  href: app/transaction-diagnostics.md
                 - name: 사용자 지정 데이터 원본 상관 관계 만들기
                   href: app/custom-data-correlation.md
                 - name: 특수 항목

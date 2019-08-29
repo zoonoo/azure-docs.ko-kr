@@ -127,8 +127,6 @@
           href: security-center-install-endpoint-protection.md
         - name: 취약성 평가 설치되지 않음
           href: security-center-vulnerability-assessment-recommendations.md
-        - name: 네트워크 보안 그룹 활성화
-          href: security-center-enable-network-security-groups.md
         - name: 위협 보고서
           href: security-center-threat-report.md
         - name: 사용자 지정 경고
@@ -143,8 +141,6 @@
           href: security-center-investigation-user-data.md
         - name: Logic Apps 플레이북
           href: security-center-playbooks.md
-        - name: 이벤트 보기
-          href: security-center-events-dashboard.md
         - name: 검색
           href: security-center-search.md
         - name: 계획 및 작업

@@ -7,18 +7,17 @@ author: MSSedusch
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 66e1e4603602835d6ed5be9af58eb09a24b00b63
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: f51870fb8f6ed71aab2558099c2361bf6e340493
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709111"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70078509"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux의 Azure VM에 있는 SAP HANA의 고가용성
 
@@ -44,7 +43,7 @@ ms.locfileid: "67709111"
 [sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
 [template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
 
-온-프레미스 개발에서 HANA 시스템 복제를 사용하거나 공유 저장소를 사용하여 SAP HANA의 고가용성을 설정할 수 있습니다.
+온-프레미스 개발에서 HANA 시스템 복제를 사용하거나 공유 스토리지를 사용하여 SAP HANA의 고가용성을 설정할 수 있습니다.
 Azure VM(Virtual Machines)에서 Azure의 HANA 시스템 복제는 현재 지원되는 유일한 고가용성 기능입니다.
 SAP HANA 복제는 하나의 기본 노드와 하나 이상의 보조 노드로 구성됩니다. 기본 노드의 데이터를 변경하면 보조 노드에 동기적 또는 비동기적으로 복제됩니다.
 
@@ -66,9 +65,9 @@ SAP HANA 복제는 하나의 기본 노드와 하나 이상의 보조 노드로 
 * SAP Note [2243692]는 Azure에서 Linux의 SAP 라이선스에 대한 정보를 포함하고 있습니다.
 * SAP Note [1999351]은 SAP용 Azure 고급 모니터링 확장을 위한 추가 문제 해결 정보를 포함하고 있습니다.
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes)는 Linux에 필요한 모든 SAP Note를 포함하고 있습니다.
-* [Azure Virtual Machines 계획 및 Linux에서 SAP 용 구현][planning-guide]
-* [Linux (이 문서)에서 SAP 용 azure Virtual Machines 배포][deployment-guide]
-* [Linux에서 SAP 용 azure Virtual Machines DBMS 배포][dbms-guide]
+* [Linux에서 SAP 용 Azure Virtual Machines 계획 및 구현][planning-guide]
+* [Linux에서 SAP 용 Azure Virtual Machines 배포 (이 문서)][deployment-guide]
+* [Linux에서 SAP 용 Azure Virtual Machines DBMS 배포][dbms-guide]
 * [SAP HANA system replication in pacemaker cluster](https://access.redhat.com/articles/3004101)(Pacemaker 클러스터의 SAP HANA 시스템 복제)
 * 일반 RHEL 설명서
   * [High Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)(고가용성 추가 기능 개요)
@@ -101,14 +100,14 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
 GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든 리소스를 배포할 수 있습니다. 템플릿에서 가상 머신, 부하 분산 장치, 가용성 집합 등을 배포합니다.
 템플릿을 배포하려면 다음 단계를 따릅니다.
 
-1. 엽니다는 [database 템플릿을][template-multisid-db] Azure portal에서 합니다.
+1. Azure Portal에서 [데이터베이스 템플릿을][template-multisid-db] 엽니다.
 1. 다음 매개 변수를 입력합니다.
     * **SAP 시스템 ID**: 설치하려는 SAP 시스템의 SAP 시스템 ID를 입력합니다. 이 ID는 배포되는 리소스의 접두사로 사용됩니다.
     * **OS 유형**: Linux 배포판 중 하나를 선택합니다. 이 예에서는 **RHEL 7**을 선택합니다.
     * **Db 형식**: **HANA**를 선택합니다.
     * **SAP 시스템 크기**: 새 시스템에서 제공할 SAP의 수를 입력합니다. 시스템에 필요한 SAP의 수를 모를 경우 SAP 기술 파트너 또는 시스템 통합자에 문의하세요.
     * **시스템 가용성**: **HA**를 선택합니다.
-    * **관리자 사용자 이름, 관리자 암호 또는 SSH 키**: 새 사용자가 만들어진 컴퓨터에 로그인 할 수 있습니다.
+    * **관리자 사용자 이름, 관리자 암호 또는 SSH 키**: 컴퓨터에 로그인 하는 데 사용할 수 있는 새 사용자가 만들어집니다.
     * **서브넷 ID**: 서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 대개 **/subscriptions/\<구독 ID>/resourceGroups/\<리소스 그룹 이름>/providers/Microsoft.Network/virtualNetworks/\<가상 네트워크 이름>/subnets/\<서브넷 이름>** 과 같은 형식입니다. 새 가상 네트워크를 만들려면 공백으로 두세요.
 
 ### <a name="manual-deployment"></a>수동 배포
@@ -181,11 +180,11 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    1. **확인**을 선택합니다.
    1. 포트 3**03**41 및 3**03**42에 대해 이러한 단계를 반복합니다.
 
-SAP HANA에 대 한 필요한 포트에 대 한 자세한 내용은 장을 읽어 [테 넌 트 데이터베이스에 연결](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) 에 [SAP HANA 테 넌 트 데이터베이스](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) 가이드 또는 [SAP Note 2388694][2388694].
+SAP HANA에 필요한 포트에 대 한 자세한 내용은 [SAP HANA 테 넌 트 데이터베이스](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) 가이드 또는 [SAP Note 2388694][2388694]에 있는 [테 넌 트 데이터베이스에](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) 대 한 연결 챕터를 참조 하세요.
 
 > [!IMPORTANT]
-> Azure Load Balancer 뒤에 배치 하는 Azure Vm에서 TCP 타임 스탬프를 사용 하지 마십시오. TCP 타임 스탬프를 사용 하도록 설정 하면 상태 프로브 실패 합니다. 매개 변수를 설정 **net.ipv4.tcp_timestamps** 하 **0**합니다. 자세한 내용은 참조 하십시오 [부하 분산 장치 상태 프로브](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)합니다.
-> SAP 참고 참고 [2382421](https://launchpad.support.sap.com/#/notes/2382421)합니다. 
+> Azure Load Balancer 뒤에 배치 되는 Azure Vm에서 TCP 타임 스탬프를 사용 하도록 설정 하지 마세요. TCP 타임 스탬프를 사용 하도록 설정 하면 상태 프로브가 실패 합니다. 매개 변수 **net.tcp. tcp 타임 스탬프** 를 **0**으로 설정 합니다. 자세한 내용은 [Load Balancer 상태 프로브](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)를 참조 하세요.
+> SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421)도 참조 하세요. 
 
 ## <a name="install-sap-hana"></a>SAP HANA 설치
 
@@ -335,7 +334,7 @@ SAP HANA에 대 한 필요한 포트에 대 한 자세한 내용은 장을 읽�
 
 1. **[A]** SAP 호스트 에이전트를 업그레이드합니다.
 
-   최신 SAP 호스트 에이전트 아카이브를 다운로드 합니다 [SAP 소프트웨어 센터][sap-swcenter] 에이전트를 업그레이드 하려면 다음 명령을 실행 합니다. 다운로드한 파일을 가리키도록 아카이브의 경로를 바꿉니다.
+   [Sap 소프트웨어 센터][sap-swcenter] 에서 최신 Sap Host Agent archive를 다운로드 하 고 다음 명령을 실행 하 여 에이전트를 업그레이드 합니다. 다운로드한 파일을 가리키도록 아카이브의 경로를 바꿉니다.
 
    <pre><code>sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive &lt;path to SAP Host Agent SAR&gt;
    </code></pre>
@@ -382,14 +381,14 @@ SAP HANA에 대 한 필요한 포트에 대 한 자세한 내용은 장을 읽�
 
    SAP HANA 2.0 또는 MDC를 사용하는 경우 SAP NetWeaver 시스템에 대한 테넌트 데이터베이스를 만듭니다. **NW1**을 SAP 시스템의 SID로 바꿉니다.
 
-   다음으로 실행 < hanasid\>adm 명령:
+   다음 명령을 실행 <\>hanasid adm을 실행 합니다.
 
    <pre><code>hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
    </code></pre>
 
 1. **[1]** 첫 번째 노드에서 시스템 복제를 구성합니다.
 
-   로 데이터베이스 백업 < hanasid\>adm:
+   데이터베이스를 < hanasid\>adm으로 백업 합니다.
 
    <pre><code>hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
    hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
@@ -409,7 +408,7 @@ SAP HANA에 대 한 필요한 포트에 대 한 자세한 내용은 장을 읽�
 
 1. **[2]** 두 번째 노드에서 시스템 복제를 구성합니다.
     
-   두 번째 노드를 등록하여 시스템 복제를 시작합니다. 로 다음 명령을 < hanasid\>adm:
+   두 번째 노드를 등록하여 시스템 복제를 시작합니다. Hanasid\>adm < 다음 명령을 실행 합니다.
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b>
@@ -457,7 +456,7 @@ SAP HANA에 대 한 필요한 포트에 대 한 자세한 내용은 장을 읽�
 
 1. **[1]** 필요한 사용자를 만듭니다.
 
-   다음 명령을 루트로 실행 합니다. 굵은 글꼴 문자열(HANA 시스템 ID **HN1** 및 인스턴스 번호 **03**)을 SAP HANA 설치의 값으로 바꿉니다.
+   루트로 다음 명령을 실행 합니다. 굵은 글꼴 문자열(HANA 시스템 ID **HN1** 및 인스턴스 번호 **03**)을 SAP HANA 설치의 값으로 바꿉니다.
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -u system -i <b>03</b> 'CREATE USER <b>hdb</b>hasync PASSWORD "<b>passwd</b>"'
@@ -467,7 +466,7 @@ SAP HANA에 대 한 필요한 포트에 대 한 자세한 내용은 장을 읽�
 
 1. **[A]** 키 저장소 항목을 만듭니다.
 
-   새 키 저장소 항목을 만드는 루트로 다음 명령을 실행 합니다.
+   Root로 다음 명령을 실행 하 여 새 키 저장소 항목을 만듭니다.
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>passwd</b>
@@ -475,7 +474,7 @@ SAP HANA에 대 한 필요한 포트에 대 한 자세한 내용은 장을 읽�
 
 1. **[1]** 데이터베이스를 백업합니다.
 
-   루트로 데이터베이스 백업:
+   루트로 데이터베이스를 백업 합니다.
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -d SYSTEMDB -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
@@ -488,7 +487,7 @@ SAP HANA에 대 한 필요한 포트에 대 한 자세한 내용은 장을 읽�
 
 1. **[1]** 첫 번째 노드에서 시스템 복제를 구성합니다.
 
-   기본 사이트를 만들려면 < hanasid\>adm:
+   기본 사이트를 < hanasid\>adm으로 만듭니다.
 
    <pre><code>su - <b>hdb</b>adm
    hdbnsutil -sr_enable –-name=<b>SITE1</b>
@@ -496,7 +495,7 @@ SAP HANA에 대 한 필요한 포트에 대 한 자세한 내용은 장을 읽�
 
 1. **[2]** 보조 노드에서 시스템 복제를 구성합니다.
 
-   보조 사이트에 등록 < hanasid\>adm:
+   보조 사이트를 < hanasid\>adm으로 등록 합니다.
 
    <pre><code>HDB stop
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b>
@@ -647,7 +646,7 @@ Resource Group: g_ip_HN1_03
 </code></pre>
 
 SAP HANA가 마스터로 실행 중인 노드에서 네트워크 인터페이스를 사용하지 않도록 설정하여 Azure 펜싱 에이전트의 설정을 테스트할 수 있습니다.
-참조 [Red Hat 기술 자료 문서 79523](https://access.redhat.com/solutions/79523) 네트워크 오류를 시뮬레이션 하는 방법에 대 한 합니다. 이 예제에서는 net_breaker 스크립트를 사용하여 네트워크에 대한 모든 액세스를 차단합니다.
+네트워크 오류를 시뮬레이션 하는 방법에 대 한 설명은 [Red Hat 기술 자료 문서 79523](https://access.redhat.com/solutions/79523) 을 참조 하세요. 이 예제에서는 net_breaker 스크립트를 사용하여 네트워크에 대한 모든 액세스를 차단합니다.
 
 <pre><code>[root@hn1-db-1 ~]# sh ./net_breaker.sh BreakCommCmd 10.0.0.6
 </code></pre>
@@ -730,7 +729,7 @@ Resource Group: g_ip_HN1_03
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Virtual Machines 계획 및 SAP에 대 한 구현][planning-guide]
-* [SAP 용 azure Virtual Machines 배포][deployment-guide]
-* [SAP 용 azure Virtual Machines DBMS 배포][dbms-guide]
+* [SAP 용 Azure Virtual Machines 계획 및 구현][planning-guide]
+* [SAP 용 Azure Virtual Machines 배포][deployment-guide]
+* [SAP 용 Azure Virtual Machines DBMS 배포][dbms-guide]
 * Azure의 SAP HANA(큰 인스턴스)에 대한 고가용성 및 재해 복구 계획을 설정하는 방법을 알아보려면 [Azure의 SAP HANA(큰 인스턴스) 고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md)를 참조하세요.
