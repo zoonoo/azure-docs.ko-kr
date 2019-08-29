@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 7fed6caa719824dd51b19789a7066ffaea13d336
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 82c2c6d7ac347949a7cf24226fdb0095313ee689
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907796"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147680"
 ---
 # <a name="get-started-with-device-management-java"></a>디바이스 관리 시작(Java)
 
@@ -51,9 +51,7 @@ ms.locfileid: "69907796"
 > [!NOTE]
 > 디바이스와 솔루션 백 엔드에서 실행할 애플리케이션을 빌드하는 데 사용할 수 있는 SDK에 대한 자세한 내용은 [Azure IoT SDK](iot-hub-devguide-sdks.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
-
-이 자습서를 완료하려면 다음이 필요합니다.
+## <a name="prerequisites"></a>전제 조건
 
 * Java SE 8. [개발 환경 준비](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md)에서는 Windows 또는 Linux에 이 자습서를 위해 Java를 설치하는 방법을 설명합니다.
 

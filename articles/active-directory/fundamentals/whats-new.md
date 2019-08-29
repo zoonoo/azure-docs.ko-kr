@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93327091d0065a67d441dd56cadd83f4f7d2d1f2
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: afab194c984dcbfa96a9342f46b892c7ec08d321
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69970392"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135681"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
@@ -75,7 +75,7 @@ Azure AD 인증 라이브러리 (ADAL.NET) 버전 5.0.0-preview부터 앱 개발
 **서비스 범주:** 엔터프라이즈 앱  
 **제품 기능:** SSO
 
-새 사용자 인터페이스 변경 내용은 **응용 프로그램 추가** 블레이드의 **갤러리에서 추가** 의 디자인에 적용 됩니다. 이러한 변경 내용을 통해 자동 프로 비전, SAML (Openid connect Connect, Security Assertion Markup Language) 및 암호 SSO (single sign-on)를 지 원하는 앱을 보다 쉽게 찾을 수 있습니다.
+새 사용자 인터페이스 변경 내용은 **응용 프로그램 추가** 블레이드의 **갤러리에서 추가** 의 디자인에 적용 됩니다. 이러한 변경 내용을 통해 자동 프로 비전, SAML (Openid connect Connect, Security Assertion Markup Language) 및 SSO (암호 Single Sign-On)를 지 원하는 앱을 보다 쉽게 찾을 수 있습니다.
 
 ---
 
@@ -85,7 +85,7 @@ Azure AD 인증 라이브러리 (ADAL.NET) 버전 5.0.0-preview부터 앱 개발
 **서비스 범주:** MFA  
 **제품 기능:** ID 보안 및 보호
 
-[Office 365 Ip 주소 및 URL 웹 서비스](https://docs.microsoft.com/office365/enterprise/office-365-ip-web-service)에서 MFA 서버 ip 주소를 제거 하는 중입니다. 현재 이러한 페이지를 사용 하 여 방화벽 설정을 업데이트 하는 경우 시작의 **Azure Multi-factor Authentication 서버 방화벽 요구 사항** 섹션에 설명 된 IP 주소 목록도 포함 하 고 있는지 확인 해야 합니다. [ Azure Multi-Factor Authentication 서버 문서를](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy#azure-multi-factor-authentication-server-firewall-requirements) 참조 하세요.
+[Office 365 Ip 주소 및 URL 웹 서비스](https://docs.microsoft.com/office365/enterprise/office-365-ip-web-service)에서 MFA 서버 ip 주소를 제거 하는 중입니다. 현재 이러한 페이지를 사용 하 여 방화벽 설정을 업데이트 하는 경우 시작의 **Azure Multi-Factor Authentication 서버 방화벽 요구 사항** 섹션에 설명 된 IP 주소 목록도 포함 하 고 있는지 확인 해야 합니다. [ Azure Multi-Factor Authentication 서버 문서를](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy#azure-multi-factor-authentication-server-firewall-requirements) 참조 하세요.
 
 ---
 
@@ -164,7 +164,7 @@ Azure AD 고객은 이제 조직의 사용자 및 그룹에 대 한 FIDO2 보안
 
 IP 주소 및 범위의 긴 목록을 관리 하는 경우 Azure 네트워크 보안 그룹에서 new **AzureActiveDirectoryDomainServices** network service 태그를 사용 하 여 Azure AD Domain Services 가상으로의 인바운드 트래픽을 보호할 수 있습니다. 네트워크 서브넷.
 
-이 새 서비스 태그에 대 한 자세한 내용은 [Azure AD Domain Services의 네트워크 보안 그룹](https://docs.microsoft.com/azure/active-directory-domain-services/network-considerations#default-network-service-group)을 참조 하세요.
+이 새 서비스 태그에 대 한 자세한 내용은 [Azure AD Domain Services의 네트워크 보안 그룹](../../active-directory-domain-services/network-considerations.md#network-security-groups-and-required-ports)을 참조 하세요.
 
 ---
 
@@ -388,7 +388,7 @@ Azure ad 활동 로그 (감사 및 로그인 보고서)는 이제 Azure AD Power
 **서비스 범주:** MFA  
 **제품 기능:** ID 보안 및 보호
 
-2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포에 대해 MFA 서버를 제공 하지 않습니다. 조직에서 multi-factor authentication을 요구 하려는 신규 고객은 이제 클라우드 기반 Azure Multi-factor Authentication을 사용 해야 합니다. 7 월 1 일 이전에 MFA 서버를 활성화 한 고객은 변경 내용이 표시 되지 않습니다. 계속 최신 버전을 다운로드 하 고, 향후 업데이트를 가져오고, 활성화 자격 증명을 생성할 수 있습니다.
+2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포에 대해 MFA 서버를 제공 하지 않습니다. 조직에서 multi-factor authentication을 요구 하려는 신규 고객은 이제 클라우드 기반 Azure Multi-Factor Authentication를 사용 해야 합니다. 7 월 1 일 이전에 MFA 서버를 활성화 한 고객은 변경 내용이 표시 되지 않습니다. 계속 최신 버전을 다운로드 하 고, 향후 업데이트를 가져오고, 활성화 자격 증명을 생성할 수 있습니다.
 
 자세한 내용은 [Azure Multi-Factor Authentication 서버 시작](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy)을 참조 하세요. 클라우드 기반 Azure Multi-Factor Authentication에 대 한 자세한 내용은 [클라우드 기반 azure Multi-Factor Authentication 배포 계획](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)을 참조 하세요.
 
@@ -590,7 +590,7 @@ Azure AD 활동 로그에 대 한 Microsoft Graph API 끝점 지원의 일반 �
 
 이제 업데이트 된 Azure AD ID 보호 기능의 일부로 Azure AD 위협 인텔리전스 검색을 사용할 수 있습니다. 이 새로운 기능을 사용 하면 Microsoft의 내부 및 외부 위협 인텔리전스 소스를 기반으로 알려진 공격 패턴과 일치 하는 특정 사용자 또는 활동에 대해 비정상적인 사용자 활동을 나타낼 수 있습니다.
 
-새로 고친 버전의 Azure AD ID 보호에 대 한 자세한 내용은 [현재 공개 미리 보기 블로그의 4 가지 주요 Azure AD ID 보호 향상 된 기능](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Four-major-Azure-AD-Identity-Protection-enhancements-are-now-in/ba-p/326935) 및 [Azure Active Directory Identity Protection (새로 고침)](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-v2) 을 참조 하세요. 자료. Azure AD 위협 인텔리전스 검색에 대 한 자세한 내용은 [Azure Active Directory Identity Protection 위험 이벤트](https://docs.microsoft.com/azure/active-directory/identity-protection/risk-events-reference#azure-ad-threat-intelligence) 문서를 참조 하세요.
+새로 고친 버전의 Azure AD ID 보호에 대 한 자세한 내용은 [현재 공개 미리 보기 블로그의 4 가지 주요 Azure AD ID 보호 향상 된 기능](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Four-major-Azure-AD-Identity-Protection-enhancements-are-now-in/ba-p/326935) 및 [Azure Active Directory Identity Protection (새로 고침)](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-v2) 을 참조 하세요. 자료. Azure AD 위협 인텔리전스 검색에 대 한 자세한 내용은 [Azure Active Directory Identity Protection 위험](https://docs.microsoft.com/azure/active-directory/identity-protection/risk-events-reference#azure-ad-threat-intelligence) 검색 문서를 참조 하세요.
 
 ---
 
@@ -632,7 +632,7 @@ Azure AD 활동 로그를 사용 하 여 시각화에 대 한 피드백을 해�
 
 - **로그인.** 로그인 위치, 사용 중인 운영 체제 또는 브라우저 클라이언트 및 버전, 성공 또는 실패 한 로그인 수를 포함 하 여 앱 및 사용자에 대 한 세부 정보를 제공 합니다.
 
-- **레거시 인증 및 조건부 액세스.** 조건부 액세스 정책에 의해 트리거된 Multi-factor Authentication 사용, 조건부 액세스 정책을 사용 하는 앱 등을 포함 하 여 레거시 인증을 사용 하는 앱 및 사용자에 대 한 세부 정보를 제공 합니다.
+- **레거시 인증 및 조건부 액세스.** 조건부 액세스 정책에 의해 트리거되는 Multi-Factor Authentication 사용, 조건부 액세스 정책을 사용 하는 앱 등을 포함 하 여 레거시 인증을 사용 하는 앱 및 사용자에 대 한 세부 정보를 제공 합니다.
 
 - **로그인 오류 분석** 사용자 작업, 정책 문제 또는 인프라로 인해 로그인 오류가 발생 하는지 여부를 확인 하는 데 도움이 됩니다.
 
@@ -718,7 +718,7 @@ Azure AD Connect는 전자 메일 경고 시스템을 전환 하 여 일부 고�
 **서비스 범주:** 조건부 액세스  
 **제품 기능:** ID 보안 및 보호
 
-Azure AD single sign-on 및 조건부 액세스에 대 한 새로운 지원을 제공 하는 것을 포함 하 여 Microsoft Edge에 대 한 Azure AD 지원 기능이 향상 되었습니다. 이전에 Managed Browser Microsoft Intune 사용한 경우 이제 Microsoft Edge를 대신 사용할 수 있습니다.
+Azure AD Single Sign-On 및 조건부 액세스에 대 한 새로운 지원을 제공 하는 것을 포함 하 여 Microsoft Edge에 대 한 Azure AD 지원 기능이 향상 되었습니다. 이전에 Managed Browser Microsoft Intune 사용한 경우 이제 Microsoft Edge를 대신 사용할 수 있습니다.
 
 조건부 액세스를 사용 하 여 장치 및 앱을 설정 하 고 관리 하는 방법에 대 한 자세한 내용은 조건부 액세스를 사용 하는 클라우드 앱 액세스를 [위한 관리 되는 장치 필요](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices) 및 조건부 액세스를 사용 하는 [cloud app access에 승인 된 ](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). Microsoft Intune 정책과 함께 Microsoft Edge를 사용 하 여 액세스를 관리 하는 방법에 대 한 자세한 내용은 [Microsoft Intune 정책으로 보호 된 브라우저를 사용 하 여 인터넷 액세스 관리](https://docs.microsoft.com/intune/app-configuration-managed-browser)를 참조 하세요.
 
@@ -796,7 +796,7 @@ Azure AD single sign-on 및 조건부 액세스에 대 한 새로운 지원을 �
 **서비스 범주:** 앱 프록시  
 **제품 기능:** Access Control
 
-이제 응용 프로그램 프록시를 통해 이러한 앱에 대 한 원격 액세스와 함께 온-프레미스 SAML 인증 앱에 대 한 SSO (Single Sign-On) 환경을 제공할 수 있습니다. 온-프레미스 앱에서 SAML SSO를 설정 하는 방법에 대 한 자세한 내용은 [응용 프로그램 프록시 (미리 보기)를 사용 하 여 온-프레미스 응용 프로그램에 대 한 saml single sign-on](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-on-premises-apps)을 참조 하세요.
+이제 응용 프로그램 프록시를 통해 이러한 앱에 대 한 원격 액세스와 함께 온-프레미스 SAML 인증 앱에 대 한 SSO (Single Sign-On) 환경을 제공할 수 있습니다. 온-프레미스 앱에서 SAML SSO를 설정 하는 방법에 대 한 자세한 내용은 [응용 프로그램 프록시를 사용 하는 온-프레미스 응용 프로그램에 대 한 saml Single Sign-On (미리 보기)](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-on-premises-apps)를 참조 하세요.
 
 ---
 

@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: caac53aec08e234f320ee4278a5a58bbc62bff68
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e3f58e596db26c04a8f3be4f87eb129fadf5e328
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66494571"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141748"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Python을 사용하여 Azure Data Explorer 클러스터 및 데이터베이스 만들기
 
@@ -24,9 +24,9 @@ ms.locfileid: "66494571"
 > * [Python](create-cluster-database-python.md)
 >  
 
-Azure Data Explorer는 애플리케이션, 웹 사이트, IoT 디바이스 등으로부터 대량의 데이터 스트리밍에 대한 실시간 분석을 제공하는 빠른 속도의 완전 관리형 데이터 분석 서비스입니다. Azure Data Explorer를 사용하려면 먼저 클러스터를 만들고 이 클러스터에 데이터베이스를 하나 이상 만듭니다. 그런 다음, 데이터베이스에 대해 쿼리를 실행할 수 있도록 데이터베이스에 데이터를 수집(로드)합니다. 이 문서에서는 클러스터 및 데이터베이스를 사용 하 여 만든 Python입니다.
+Azure Data Explorer는 애플리케이션, 웹 사이트, IoT 디바이스 등으로부터 대량의 데이터 스트리밍에 대한 실시간 분석을 제공하는 빠른 속도의 완전 관리형 데이터 분석 서비스입니다. Azure Data Explorer를 사용하려면 먼저 클러스터를 만들고 이 클러스터에 데이터베이스를 하나 이상 만듭니다. 그런 다음, 데이터베이스에 대해 쿼리를 실행할 수 있도록 데이터베이스에 데이터를 수집(로드)합니다. 이 문서에서는 Python을 사용 하 여 클러스터 및 데이터베이스를 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
@@ -71,7 +71,7 @@ pip install azure-mgmt-kusto
 
     사용 가능한 선택적 매개 변수(예: 클러스터 용량)가 추가로 있습니다.
     
-1. [*자격 증명*](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python)을 설정합니다.
+1. [*자격 증명*](/azure/python/python-sdk-azure-authenticate)을 설정합니다.
 
 1. 다음 명령을 실행하여 클러스터가 성공적으로 만들어졌는지 확인합니다.
 
@@ -119,7 +119,7 @@ pip install azure-mgmt-kusto
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-* 다른 문서를 수행 하려는 경우 사용자가 만든 리소스를 유지 합니다.
+* 다른 문서를 따르려면 만든 리소스를 유지 합니다.
 * 리소스를 정리하려면 클러스터를 삭제합니다. 클러스터를 삭제하면 해당 클러스터에 있는 모든 데이터베이스도 함께 삭제됩니다. 다음 명령을 사용하여 클러스터를 삭제합니다.
 
     ```Python

@@ -3,21 +3,20 @@ title: Azure Data Factory 시각적 모니터링 | Microsoft Docs
 description: Azure 데이터 팩터리를 시각적으로 모니터링 하는 방법 알아보기
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.author: shlo
-ms.openlocfilehash: e680610263830c856a3ff902d8e55cd8b2b4a158
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 99ae0139d7b12c0bfb87030d2b749b12834a4f96
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114589"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141092"
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Azure Data Factory를 시각적으로 모니터링하는 방법에 대해 알아봅니다
 Azure Data Factory는 클라우드 기반 데이터 통합 서비스입니다. 데이터 이동 및 데이터 변환을 오케스트레이션 하 고 자동화 하기 위해 클라우드에서 데이터 기반 워크플로를 만드는 데 사용할 수 있습니다. Azure Data Factory를 사용 하 여 다음을 수행할 수 있습니다.

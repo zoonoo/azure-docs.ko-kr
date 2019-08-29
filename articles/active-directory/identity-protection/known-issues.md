@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d5aa50aec98b3944aed92b9da49182f0608f34c
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: fe7125174129752e6d6dbe0e00d01d4f32755333
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333895"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126102"
 ---
 # <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>Azure Active Directory의 갱신된 ID 보호 기능 관련 FAQ 및 알려진 문제에 대해 설명합니다.
 
@@ -34,15 +34,15 @@ ms.locfileid: "68333895"
 
 **날짜 표시**를 설정/해제하면 **위험을 마지막으로 업데이트한 날짜** 열이 숨겨집니다. 해당 열을 다시 추가하려면 위험한 사용자 블레이드 맨 위의 **열**을 클릭합니다.
 
-클래식 ID 보호의 **모든 이벤트 해제** 기능은 위험 이벤트의 상태를 **닫힘(해결됨)** 으로 설정합니다.
+클래식 Id 보호에서 **모든 이벤트 해제** 위험 검색의 상태를 **닫힘 (확인 됨)** 으로 설정 합니다.
 
 ## <a name="risky-sign-ins-report-known-issues"></a>위험한 로그인 보고서의 알려진 문제
 
-위험 이벤트 **해결** 시에는 상태가 **사용자가 위험 기반 정책으로 구동되는 MFA를 통과함**으로 설정됩니다.
+위험 검색에 대 한 **해결** 은 **위험 기반 정책에 따라**발생 하는 MFA를 사용자에 게 설정 합니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
-### <a name="why-cant-i-set-my-own-risk-levels-for-each-risk-event"></a>각 위험 이벤트에 대해 위험 수준을 직접 설정할 수 없는 이유는 무엇인가요?
+### <a name="why-cant-i-set-my-own-risk-levels-for-each-risk-detection"></a>각 위험 검색에 대해 고유한 위험 수준을 설정 하지 못한 이유는 무엇 인가요?
 
 검색 정밀도를 기준으로 하는 ID 보호의 위험 수준은 Microsoft에서 감독하는 기계 학습을 통해 제공됩니다. 사용자에게 제공되는 환경을 사용자 지정하려는 경우 관리자는 사용자 위험 및 로그인 위험 정책에서 특정 사용자/그룹을 포함/제외할 수 있습니다.
 
@@ -68,11 +68,11 @@ IP 지리적 위치 매핑은 업계 전체에서 사용되는 챌린지입니�
 - 또한 향후에 위험 평가를 개선할 수 있도록 Microsoft 기계 학습 시스템에도 정보가 제공됩니다.
 
     > [!NOTE]
-    > 사용자의 보안이 손상되지 않았다고 생각되면 로그인 수준에서 **안전 확인**을 사용하는 대신 사용자 수준에서 **사용자 위험 해제**를 사용합니다. 사용자 수준에서 **사용자 위험 해제**를 사용하는 경우에는 사용자 위험 및 이전의 모든 위험한 로그인 및 위험 이벤트가 닫힙니다.
+    > 사용자의 보안이 손상되지 않았다고 생각되면 로그인 수준에서 **안전 확인**을 사용하는 대신 사용자 수준에서 **사용자 위험 해제**를 사용합니다. 사용자 수준에 대 한 **해제 사용자 위험은** 사용자 위험과 모든 이전 위험한 로그인 및 위험 검색을 종료 합니다.
 
-### <a name="why-am-i-seeing-a-user-with-a-low-or-above-risk-score-even-if-no-risky-sign-ins-or-risk-events-are-shown-in-identity-protection"></a>ID 보호에 위험한 로그인 또는 위험 이벤트가 표시되지 않는데 위험 점수가 더 낮거나 높은 사용자가 표시되는 이유는 무엇인가요?
+### <a name="why-am-i-seeing-a-user-with-a-low-or-above-risk-score-even-if-no-risky-sign-ins-or-risk-detections-are-shown-in-identity-protection"></a>Id 보호에 위험한 로그인 또는 위험 검색이 표시 되지 않는 경우에도 위험 점수가 낮음 인 사용자가 표시 되는 이유는 무엇 인가요?
 
-사용자 위험 점수는 기본적으로 누적되며 만료되지 않으므로, ID 보호에는 최근의 위험한 로그인 또는 위험 이벤트가 표시되지 않더라도 점수가 더 낮거나 높은 사용자 위험이 표시될 수 있습니다. 위험한 로그인 및 위험 이벤트 세부 정보가 저장되는 기간이 아닐 때만 사용자에 대해 악의적인 활동이 수행된 경우 이러한 현상이 발생할 수 있습니다. 악의적인 행위자는 추가로 공격을 하기 전에 고객 환경 내에서 손상된 ID에 대해 140일 이상 공격을 준비하는 것으로 확인되었으므로, 사용자 위험은 만료되지 않습니다. 고객은 다음 위치로 이동해 사용자 위험 시간 표시줄을 확인하여 특정 사용자가 위험한 것으로 표시되는 이유를 파악할 수 있습니다. `Azure Portal > Azure Active Directory > Risky users’ report > Click on an at-risk user > Details’ drawer > Risk history tab`
+사용자 위험은 본질적으로 누적 되 고 만료 되지 않습니다. 사용자는 Id 보호에 표시 된 최근 위험한 로그인 또는 위험 검색이 없더라도 사용자에 게 낮은 사용자의 위험을 초래할 수 있습니다. 이는 사용자의 악성 활동이 위험한 로그인 및 위험 검색의 세부 정보를 저장 하는 기간을 벗어나 발생 한 경우에 발생할 수 있습니다. 악의적인 행위자는 추가로 공격을 하기 전에 고객 환경 내에서 손상된 ID에 대해 140일 이상 공격을 준비하는 것으로 확인되었으므로, 사용자 위험은 만료되지 않습니다. 고객은 다음 위치로 이동해 사용자 위험 시간 표시줄을 확인하여 특정 사용자가 위험한 것으로 표시되는 이유를 파악할 수 있습니다. `Azure Portal > Azure Active Directory > Risky users’ report > Click on an at-risk user > Details’ drawer > Risk history tab`
 
 ### <a name="why-does-a-sign-in-have-a-sign-in-risk-aggregate-score-of-high-when-the-detections-associated-with-it-are-of-low-or-medium-risk"></a>로그인과 관련한 검색 결과에는 위험 수준이 낮음/중간으로 표시되는데 로그인의 "로그인 위험(집계)" 점수는 높음인 이유는 무엇인가요?
 

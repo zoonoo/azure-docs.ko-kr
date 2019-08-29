@@ -13,18 +13,18 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d4eb5b4c634fe495a0ed149016d862defc2eb45
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 36433aef75d38418cb74fcd195dc1e9e902f24a8
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532454"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124933"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Azure Active Directory를 사용 하는 강력한 identity foundation에 대 한 4 단계
 
 앱 및 데이터에 대 한 액세스를 관리 하는 것은 응용 프로그램을 클라우드로 빠르게 이동 하기 때문에 경계 네트워크 및 방화벽과 같은 기존의 네트워크 보안 경계 전략에 더 이상 의존 하지 않습니다. 이제 조직에서 id 솔루션을 신뢰 하 여 조직의 앱 및 데이터에 대 한 액세스 권한이 있는 사용자를 제어 해야 합니다. 조직에서 직원 들이 자신의 장치를 회사로 가져와서 인터넷에 연결할 수 있는 어디에서 나 장치를 사용할 수 있도록 합니다. 이러한 장치를 준수 하 고 안전 하 게 유지 하는 것은 조직에서 구현 하도록 선택한 id 솔루션에서 중요 한 고려 사항이 됩니다. 오늘날의 디지털 작업 공간에서 id는 클라우드로 이동 하는 모든 조직의 [기본 제어 평면](https://www.microsoft.com/security/technology/identity-access-management?rtc=1) 입니다.
 
-조직에서는 Azure Active Directory (Azure AD) 하이브리드 id 솔루션을 채택 하 여 자동화, 위임, 셀프 서비스 및 single sign-on 기능을 통해 생산성을 해제 하는 프리미엄 기능에 액세스할 수 있습니다. 이를 통해 작업자는 자신의 작업을 수행 해야 하는 모든 위치에서 회사 리소스에 액세스할 수 있으며, 적절 한 사용자가 안전한 생산성을 설정 하는 적절 한 리소스에 적절 하 게 액세스할 수 있도록 하 여 IT 팀이 해당 액세스를 제어할 수 있습니다.
+조직에서는 Azure Active Directory (Azure AD) 하이브리드 id 솔루션을 채택 하 여 자동화, 위임, 셀프 서비스 및 Single Sign-On 기능을 통해 생산성을 해제 하는 프리미엄 기능에 액세스할 수 있습니다. 이를 통해 작업자는 자신의 작업을 수행 해야 하는 모든 위치에서 회사 리소스에 액세스할 수 있으며, 적절 한 사용자가 안전한 생산성을 설정 하는 적절 한 리소스에 적절 하 게 액세스할 수 있도록 하 여 IT 팀이 해당 액세스를 제어할 수 있습니다.
 
 학습을 기반으로 하는이 모범 사례 검사 목록은 조직에서 *강력한* id 기반을 구축 하기 위한 권장 작업을 신속 하 게 배포 하는 데 도움이 됩니다.
 
@@ -35,13 +35,13 @@ ms.locfileid: "69532454"
 
 ## <a name="step-1---connect-to-apps-easily"></a>1 단계-앱에 쉽게 연결
 
-앱을 Azure AD와 연결 하 여 SSO (single sign-on)를 사용 하도록 설정 하 고 사용자 프로 비전을 수행 하 여 최종 사용자 생산성과 보안을 향상 시킬 수 있습니다. Azure AD의 단일 위치에서 앱을 관리 하 여 관리 오버 헤드를 최소화 하 고 보안 및 규정 준수 정책을 위한 단일 제어 지점을 달성할 수 있습니다.
+앱을 Azure AD와 연결 하면 SSO (Single Sign-On)를 사용 하도록 설정 하 고 사용자 프로 비전을 수행 하 여 최종 사용자 생산성과 보안을 향상 시킬 수 있습니다. Azure AD의 단일 위치에서 앱을 관리 하 여 관리 오버 헤드를 최소화 하 고 보안 및 규정 준수 정책을 위한 단일 제어 지점을 달성할 수 있습니다.
 
 이 섹션에서는 앱에 대 한 사용자 액세스를 관리 하 고, 내부 앱에 대 한 보안 원격 액세스를 설정 하 고, 앱을 Azure AD로 마이그레이션하는 이점에 대 한 옵션을 설명 합니다.
 
 ### <a name="make-apps-available-to-your-users-seamlessly"></a>사용자가 앱을 원활 하 게 사용할 수 있도록 설정
 
-관리자는 Azure AD를 사용 하 여 [Azure Portal](https://portal.azure.com/)의 엔터프라이즈 응용 프로그램 갤러리에 [응용 프로그램을 추가할](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal) 수 있습니다. 엔터프라이즈 응용 프로그램 갤러리에 응용 프로그램을 추가 하면 id 공급자로 Azure AD를 사용 하도록 응용 프로그램을 쉽게 구성할 수 있습니다. 또한 조건부 액세스 정책을 사용 하 여 응용 프로그램에 대 한 사용자 액세스를 관리 하 고 응용 프로그램에 대 한 SSO (single sign-on)를 구성 하 여 사용자가 암호를 반복 해 서 입력 하 고 온-프레미스에 자동으로 로그인 할 필요가 없도록 할 수 있습니다. 클라우드 기반 응용 프로그램.
+관리자는 Azure AD를 사용 하 여 [Azure Portal](https://portal.azure.com/)의 엔터프라이즈 응용 프로그램 갤러리에 [응용 프로그램을 추가할](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal) 수 있습니다. 엔터프라이즈 응용 프로그램 갤러리에 응용 프로그램을 추가 하면 id 공급자로 Azure AD를 사용 하도록 응용 프로그램을 쉽게 구성할 수 있습니다. 또한 조건부 액세스 정책을 사용 하 여 응용 프로그램에 대 한 사용자 액세스를 관리 하 고 응용 프로그램에 대 한 SSO (Single Sign-On)를 구성 하 여 사용자가 암호를 반복적으로 입력 하 고 온-프레미스에 자동으로 로그인 할 필요가 없도록 할 수 있습니다. 클라우드 기반 응용 프로그램.
 
 응용 프로그램이 Azure AD 갤러리에 추가 되 면 사용자는 할당 된 앱을 보고 필요에 따라 다른 앱을 검색 및 요청할 수 있습니다. Azure AD는 사용자가 앱에 액세스할 수 있는 [여러 가지 방법을](https://docs.microsoft.com/azure/active-directory/manage-apps/end-user-experiences) 제공 합니다.
 
@@ -54,7 +54,7 @@ ms.locfileid: "69532454"
 
 ### <a name="migrate-apps-from-active-directory-federation-services-to-azure-ad"></a>Active Directory Federation Services에서 Azure AD로 앱 마이그레이션
 
-Single sign-on 구성을 Active Directory Federation Services (ADFS)에서 Azure AD로 마이그레이션하면 보안의 추가 기능, 보다 일관 된 관리 효율성 및 공동 작업을 수행할 수 있습니다. 최적의 결과를 얻으려면 앱을 AD FS에서 Azure AD로 마이그레이션하는 것이 좋습니다. 응용 프로그램 인증 및 권한 부여를 Azure AD로 가져오면 다음과 같은 이점이 제공 됩니다.
+Active Directory Federation Services (ADFS)에서 Azure AD로 Single Sign-On 구성을 마이그레이션하면 보안의 추가 기능, 보다 일관 된 관리 효율성 및 공동 작업을 수행할 수 있습니다. 최적의 결과를 얻으려면 앱을 AD FS에서 Azure AD로 마이그레이션하는 것이 좋습니다. 응용 프로그램 인증 및 권한 부여를 Azure AD로 가져오면 다음과 같은 이점이 제공 됩니다.
 
 * 비용 관리
 * 위험 관리
@@ -65,13 +65,13 @@ Single sign-on 구성을 Active Directory Federation Services (ADFS)에서 Azure
 
 ### <a name="enable-secure-remote-access-to-apps"></a>앱에 대 한 보안 원격 액세스 사용
 
-[Azure AD 응용 프로그램 프록시](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-application-proxy) 는 조직이 안전한 방식으로 내부 앱에 액세스 해야 하는 원격 사용자를 위해 온-프레미스 앱을 클라우드에 게시할 수 있는 간단한 솔루션을 제공 합니다. Azure AD에 대 한 single sign-on 후 사용자는 외부 Url 또는 내부 응용 프로그램 포털을 통해 클라우드 및 온-프레미스 응용 프로그램 모두에 액세스할 수 있습니다.
+[Azure AD 응용 프로그램 프록시](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-application-proxy) 는 조직이 안전한 방식으로 내부 앱에 액세스 해야 하는 원격 사용자를 위해 온-프레미스 앱을 클라우드에 게시할 수 있는 간단한 솔루션을 제공 합니다. Azure AD에 Single Sign-On 후 사용자는 외부 Url 또는 내부 응용 프로그램 포털을 통해 클라우드 및 온-프레미스 응용 프로그램 모두에 액세스할 수 있습니다.
 
 Azure AD 응용 프로그램 프록시는 다음과 같은 이점을 제공 합니다.
 
 * Azure AD를 온-프레미스 리소스로 확장
   * 클라우드 규모 보안 및 보호
-  * 쉽게 사용할 수 있는 조건부 액세스 및 Multi-factor Authentication과 같은 기능
+  * 쉽게 사용할 수 있는 조건부 액세스 및 Multi-Factor Authentication 같은 기능
 * 경계 네트워크에 VPN 및 기존의 역방향 프록시 솔루션과 같은 구성 요소가 없습니다.
 * 필요한 인바운드 연결 없음
 * 클라우드 및 온-프레미스에서 장치, 리소스 및 앱에 대해 SSO (Single sign-on)
@@ -115,7 +115,7 @@ Azure AD Connect는 프로 비전 프로세스에서 주요 역할을 수행 합
 
 Azure AD에서 온-프레미스 디렉터리 개체에 대 한 클라우드 인증을 사용 하는 가장 간단 하 고 권장 되는 방법은 phs ( [암호 해시 동기화](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) )를 사용 하도록 설정 하는 것입니다. 또는 일부 조직에서는 pta ( [통과 인증](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) )를 사용 하도록 고려할 수 있습니다.
 
-PHS 또는 PTA를 선택 하는지 여부에 상관 없이, [원활한 Single sign-on](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso) 을 사용 하도록 설정 하 여 사용자가 회사 네트워크에서 Windows 7 및 8 장치를 사용 하는 경우 앱에 사용자 이름과 암호를 지속적으로 입력 하지 않고도 클라우드 앱에 액세스할 수 있도록 해야 합니다. Single sign-on을 사용 하지 않는 경우 사용자는 응용 프로그램 관련 암호를 기억할 수 있으며 각 응용 프로그램에 로그인 해야 합니다. 마찬가지로, IT 직원은 Office 365, Box, Salesforce 등의 각 응용 프로그램에 대 한 사용자 계정을 만들고 업데이트 해야 합니다. 사용자는 암호를 기억할 뿐만 아니라 각 응용 프로그램에 로그인 하는 데 걸리는 시간을 소비 해야 합니다. 표준화 된 single sign-on 메커니즘을 전체 엔터프라이즈에 제공 하는 것은 최상의 사용자 환경, 위험 감소, 보고 기능 및 거 버 넌 스에 매우 중요 합니다.
+PHS 또는 PTA를 선택 하는지 여부에 상관 없이, [원활한 Single sign-on](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso) 을 사용 하도록 설정 하 여 사용자가 회사 네트워크에서 Windows 7 및 8 장치를 사용 하는 경우 앱에 사용자 이름과 암호를 지속적으로 입력 하지 않고도 클라우드 앱에 액세스할 수 있도록 해야 합니다. Single Sign-On 하지 않으면 사용자는 응용 프로그램 관련 암호를 기억할 수 있으며 각 응용 프로그램에 로그인 해야 합니다. 마찬가지로, IT 직원은 Office 365, Box, Salesforce 등의 각 응용 프로그램에 대 한 사용자 계정을 만들고 업데이트 해야 합니다. 사용자는 암호를 기억할 뿐만 아니라 각 응용 프로그램에 로그인 하는 데 걸리는 시간을 소비 해야 합니다. 전체 기업에 표준화 된 Single Sign-On 메커니즘을 제공 하는 것은 최상의 사용자 환경, 위험 감소, 보고 기능 및 거 버 넌 스에 매우 중요 합니다.
 
 이미 AD FS 또는 다른 온-프레미스 인증 공급자를 사용 하는 조직의 경우 id 공급자로 Azure AD로 이동 하면 복잡성을 줄이고 가용성을 향상 시킬 수 있습니다. 페더레이션을 사용 하는 특정 사용 사례가 있는 경우를 제외 하 고는 페더레이션 인증에서 PHS와 원활한 SSO 또는 PTA와 원활한 SSO로 마이그레이션하는 것이 좋습니다. 사용자 환경을 개선 했습니다. 자세한 내용은 [페더레이션에서 Azure Active Directory에 대 한 암호 해시 동기화로 마이그레이션](https://docs.microsoft.com/azure/active-directory/hybrid/plan-migrate-adfs-password-hash-sync)을 참조 하세요.
 
@@ -141,7 +141,7 @@ Azure의 SSPR ( [셀프 서비스 암호 재설정](https://docs.microsoft.com/a
 
 Azure는 사용자와 조직에서 사용할 수 있는 보고서를 제공 하 여 사용자가 MFA 및 SSPR에 등록 되도록 합니다. 등록 하지 않은 사용자는 프로세스에 대해 교육을 받아야 할 수 있습니다.
 
-MFA [로그인 보고서](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting) 에는 mfa 사용에 대 한 정보가 포함 되어 있으며, 조직에서 mfa가 작동 하는 방식에 대 한 통찰력을 제공 합니다. Azure AD에 대 한 로그인 활동 (및 감사 및 위험 이벤트)에 대 한 액세스 권한은 문제 해결, 사용 분석 및 법적 고 조사를 위해 중요 합니다.
+MFA [로그인 보고서](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting) 에는 mfa 사용에 대 한 정보가 포함 되어 있으며, 조직에서 mfa가 작동 하는 방식에 대 한 통찰력을 제공 합니다. Azure AD에 대 한 로그인 활동에 대 한 액세스 권한 (및 감사 및 위험 검색)은 문제 해결, 사용 분석 및 법률 조사를 위해 중요 합니다.
 
 마찬가지로, [셀프 서비스 암호 관리 보고서](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-reporting) 를 사용 하 여 SSPR에 대해 등록 하거나 등록 하지 않은 사용자를 확인할 수 있습니다.
 

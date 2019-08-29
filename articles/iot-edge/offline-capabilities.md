@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 6d82b353f8b485b4441853b7ff8e70e7d69f4d6a
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 5d618f12b2a83b0aee145470aff900e26241b705
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986976"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147274"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>IoT Edge 장치, 모듈 및 자식 장치에 대 한 확장 된 오프 라인 기능 이해
 
@@ -145,11 +145,11 @@ TTL(Time to Live) 설정은 메시지가 만료되기 전까지 대기할 수 �
 **고급 Edge 런타임 설정 구성** 섹션에서 Azure Portal의 IoT Edge 허브 모듈에 대한 환경 변수 및 만들기 옵션을 구성할 수 있습니다. 
 
 1. IoT Edge 허브와 IoT Edge 에이전트 모두에서 모듈의 디렉터리를 가리키는 **Storagefolder** 라는 환경 변수를 추가 합니다.
-1. IoT Edge 허브와 IoT Edge 에이전트 모두에 대해 바인딩을 추가 하 여 호스트 컴퓨터의 로컬 디렉터리를 모듈의 디렉터리에 연결 합니다. 이는 아래와 같이 함수의 반환값을 데이터 프레임으로 바로 변환하는 데 사용할 수 있음을 나타냅니다. 
+1. IoT Edge 허브와 IoT Edge 에이전트 모두에 대해 바인딩을 추가 하 여 호스트 컴퓨터의 로컬 디렉터리를 모듈의 디렉터리에 연결 합니다. 예를 들어: 
 
    ![로컬 저장소에 대 한 만들기 옵션 및 환경 변수 추가](./media/offline-capabilities/offline-storage.png)
 
-또는 배포 매니페스트에서 직접 로컬 저장소를 구성할 수 있습니다. 이는 아래와 같이 함수의 반환값을 데이터 프레임으로 바로 변환하는 데 사용할 수 있음을 나타냅니다. 
+또는 배포 매니페스트에서 직접 로컬 저장소를 구성할 수 있습니다. 예를 들어: 
 
 ```json
 "systemModules": {
@@ -174,7 +174,7 @@ TTL(Time to Live) 설정은 메시지가 만료되기 전까지 대기할 수 �
             "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
             "createOptions": {
                 "HostConfig": {
-                    "Binds":["<HostStoragePath>:<ModuleStoragePath"],
+                    "Binds":["<HostStoragePath>:<ModuleStoragePath>"],
                     "PortBindings":{"5671/tcp":[{"HostPort":"5671"}],"8883/tcp":[{"HostPort":"8883"}],"443/tcp":[{"HostPort":"443"}]}}}
         },
         "type": "docker",
@@ -193,7 +193,7 @@ TTL(Time to Live) 설정은 메시지가 만료되기 전까지 대기할 수 �
 
 예를 들어 `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]`는 컨테이너에서 **/iotedge/storage/** 디렉터리에 매핑된 사용자의 호스트 시스템의 **/etc/iotedge/storage** 디렉터리를 의미합니다. 또는 Windows 시스템에 대한 또 다른 예로 `"Binds":["C:\\temp:C:\\contemp"]`는 컨테이너에서 **C:\\contemp** 디렉터리에 매핑된 사용자의 호스트 시스템의 **C:\\temp** 디렉터리를 의미합니다. 
 
-Linux 장치에서 IoT Edge 허브의 사용자 프로필 UID 1000에 호스트 시스템 디렉터리에 대 한 읽기, 쓰기 및 실행 권한이 있는지 확인 합니다. 이러한 권한은 IoT Edge 허브가 디렉터리에 메시지를 저장 하 고 나중에 검색할 수 있도록 하기 위해 필요 합니다. IoT Edge 에이전트는 루트로 작동 하므로 추가 권한이 필요 하지 않습니다. 를 사용 `chown` 하 여 디렉터리 소유자를 변경한 다음 `chmod` 사용 권한을 변경 하는 등 Linux 시스템에서 디렉터리 권한을 관리 하는 방법에는 여러 가지가 있습니다. 이는 아래와 같이 함수의 반환값을 데이터 프레임으로 바로 변환하는 데 사용할 수 있음을 나타냅니다.
+Linux 장치에서 IoT Edge 허브의 사용자 프로필 UID 1000에 호스트 시스템 디렉터리에 대 한 읽기, 쓰기 및 실행 권한이 있는지 확인 합니다. 이러한 권한은 IoT Edge 허브가 디렉터리에 메시지를 저장 하 고 나중에 검색할 수 있도록 하기 위해 필요 합니다. IoT Edge 에이전트는 루트로 작동 하므로 추가 권한이 필요 하지 않습니다. 를 사용 `chown` 하 여 디렉터리 소유자를 변경한 다음 `chmod` 사용 권한을 변경 하는 등 Linux 시스템에서 디렉터리 권한을 관리 하는 방법에는 여러 가지가 있습니다. 예를 들어:
 
 ```bash
 sudo chown 1000 <HostStoragePath>

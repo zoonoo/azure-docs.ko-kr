@@ -3,22 +3,20 @@ title: Azure Data Factory - 고객 사례 연구 | Microsoft Docs
 description: 고객들이 Azure 데이터 팩터리를 어떻게 사용하고 있는지 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: 5474d9a1-e278-429f-bc31-db34551d3881
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: c636032766b90af78e7794b3d515b924fa31d6cd
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 4944a870d27fd9ca0b64234b303906739bdc0d04
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596016"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139960"
 ---
 # <a name="azure-data-factory---customer-case-studies"></a>Azure Data Factory - 고객 사례 연구
 데이터 팩터리는 데이터의 이동과 변환을 자동화하는 클라우드 기반 정보 관리 서비스입니다. 많은 산업 분야의 고객들이 분석 파이프라인을 제작하고 비즈니스 문제를 해결하기 위해 데이터 팩터리와 기타 Azure 서비스를 사용합니다.  고객으로부터 직접 데이터 팩터리를 사용하는 이유와 방법에 대해 알아봅니다.

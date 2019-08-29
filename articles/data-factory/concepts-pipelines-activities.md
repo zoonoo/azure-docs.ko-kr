@@ -3,21 +3,20 @@ title: Azure Data Factory의 파이프라인 및 작업 | Microsoft Docs
 description: Azure Data Factory의 파이프라인 및 작업에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.author: shlo
-ms.openlocfilehash: 5e34dae5570c64ec2c9fdc478ba8ec1bf4bce9d2
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: c986b4efea905ce4e1d9ee6f08b688fe6ef6ef5e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976737"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142565"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory의 파이프라인 및 작업
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -67,7 +66,7 @@ Azure Data Factory는 개별적 또는 다른 작업과 연계하여 파이프�
 ## <a name="control-activities"></a>제어 작업
 다음과 같은 제어 흐름 작업이 지원 됩니다.
 
-제어 작업 | 설명
+제어 작업 | Description
 ---------------- | -----------
 [파이프라인 실행 작업](control-flow-execute-pipeline-activity.md) | 파이프라인 실행 작업을 사용하면 하나의 Data Factory 파이프라인에서 다른 파이프라인을 호출할 수 있습니다.
 [ForEachActivity](control-flow-for-each-activity.md) | ForEach 작업은 파이프라인의 반복 제어 흐름을 정의합니다. 이 작업을 사용하여 컬렉션을 반복하고 루프의 지정된 작업을 실행합니다. 이 작업의 루프 구현은 프로그래밍 언어에서 구조를 반복하는 Foreach와 비슷합니다.
@@ -129,7 +128,7 @@ parameters | **매개 변수** 섹션은 파이프라인 내에 정의된 매개
 
 다음 표에서는 활동 JSON 정의의 속성을 설명합니다.
 
-Tag | 설명 | 필수
+Tag | Description | 필수
 --- | ----------- | ---------
 name | 활동의 이름입니다. 활동이 수행하는 작업을 나타내는 이름을 지정합니다. <br/><ul><li>최대 문자 수: 55</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | 예</li></ul>
 description | 활동의 용도를 설명하는 텍스트입니다. | 예
@@ -172,7 +171,7 @@ dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이
 
 JSON 이름 | Description | 허용되는 값 | 필수
 --------- | ----------- | -------------- | --------
-timeout | 작업 실행에 대한 시간 제한을 지정합니다. | 시간 범위 | 아니요. 기본 시간 제한은 7일입니다.
+timeout | 작업 실행에 대한 시간 제한을 지정합니다. | Timespan | 아니요. 기본 시간 제한은 7일입니다.
 다시 시도 | 최대 다시 시도 횟수 | 정수 | 아니요. 기본값은 0입니다.
 retryIntervalInSeconds | 다시 시도 사이의 지연(초) | 정수 | 아니요. 기본값은 30초입니다.
 secureOutput | true로 설정된 경우 작업의 출력은 안전하다고 여기고 모니터링에 기록되지 않습니다. | Boolean | 아니요. 기본값은 false입니다.

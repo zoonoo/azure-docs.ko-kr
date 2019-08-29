@@ -1,22 +1,20 @@
 ---
 title: PowerShell 스크립트 - Data Factory를 사용하여 클라우드의 데이터 변환 | Microsoft Docs
 description: 이 PowerShell 스크립트는 Azure HDInsight Spark 클러스터에서 Spark 프로그램을 실행하여 클라우드의 데이터를 변환합니다.
-services: data-factory
-author: sharonlo101
-manager: craigg
-editor: ''
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/12/2017
-ms.author: shlo
-ms.openlocfilehash: bfec4ffa4d8a9f41b9c9c55ab0d84f4133bd2445
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 973efe90ea1da68e4c4e4b0dbbb4c191be18213d
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160649"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140869"
 ---
 # <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>PowerShell 스크립트 - Azure Data Factory를 사용하여 클라우드의 데이터 변환
 
@@ -26,7 +24,7 @@ ms.locfileid: "66160649"
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 * **Azure Storage 계정**. Python 스크립트와 입력 파일을 만들고 Azure Storage에 업로드합니다. Spark 프로그램의 출력은 이 스토리지 계정에 저장됩니다. 주문형 Spark 클러스터는 기본 스토리지와 동일한 스토리지 계정을 사용합니다.  
 
 ### <a name="upload-python-script-to-your-blob-storage-account"></a>Blob Storage 계정에 Python 스크립트 업로드
@@ -90,7 +88,7 @@ Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupN
 
 이 스크립트는 다음 명령을 사용합니다.
 
-| 명령 | 메모 |
+| 명령 | 참고 |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [Set-AzDataFactoryV2](/powershell/module/az.datafactory/set-Azdatafactoryv2) | 데이터 팩터리를 만듭니다. |

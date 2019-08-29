@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: 2b835765bbd40ffbd4a5117f767a7ba163e41dda
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 293f2a704fecb04bc6b65e49743ea80905f2394f
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68309298"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142680"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Azure Container Registry에 대 한 질문과 대답
 
@@ -31,7 +31,7 @@ ms.locfileid: "68309298"
 
 ### <a name="can-i-create-an-azure-container-registry-using-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 Azure Container Registry를 만들 수 있나요?
 
-예. 다음은 레지스트리를 만드는 데 사용할 수 있는 [템플릿입니다](https://github.com/Azure/azure-cli/blob/master/src/command_modules/azure-cli-acr/azure/cli/command_modules/acr/template.json) .
+예. 다음은 레지스트리를 만드는 데 사용할 수 있는 [템플릿입니다](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry) .
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>ACR에서 이미지를 검색 하는 보안 취약성이 있나요?
 
@@ -305,7 +305,7 @@ unauthorized: authentication required
 ```
 
 오류를 해결하려면:
-1. Docker 디먼 구성 `--signature-verification=false` 파일 `/etc/sysconfig/docker`에 옵션을 추가 합니다. 예:
+1. Docker 디먼 구성 `--signature-verification=false` 파일 `/etc/sysconfig/docker`에 옵션을 추가 합니다. 예를 들어:
 
   ```
   OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'

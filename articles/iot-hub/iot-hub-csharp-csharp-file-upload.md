@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: robinsh
-ms.openlocfilehash: 98b5fb06bf018c9176fc989786d8bd1821914f43
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: db020092c076680eddd575f8e7e85a2060603dd8
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558499"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147765"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-net"></a>IoT Hub (.NET)를 사용 하 여 장치에서 클라우드로 파일 업로드
 
@@ -26,7 +26,7 @@ ms.locfileid: "69558499"
 
 * IoT Hub 파일 업로드 알림을 사용하여 앱 백 엔드에서 파일 처리를 트리거합니다.
 
-[장치에서 IoT hub로 원격 분석 전송 빠른 시작](quickstart-send-telemetry-dotnet.md) 및 [IoT Hub를 사용 하 여 클라우드-장치 메시지 보내기](iot-hub-csharp-csharp-c2d.md) 자습서에서는 IoT Hub의 기본 장치-클라우드 및 클라우드-장치 메시징 기능을 보여 줍니다. [IoT Hub로 메시지 라우팅 구성](tutorial-routing.md) 자습서에서는 Microsoft Azure Blob 저장소에 장치-클라우드 메시지를 안정적으로 저장 하는 방법을 설명 합니다. 그러나 일부 시나리오에서는 장치가 전송 하는 데이터를 IoT Hub 허용 되는 상대적으로 작은 장치-클라우드 메시지에 쉽게 매핑할 수 없습니다. 예:
+[장치에서 IoT hub로 원격 분석 전송 빠른 시작](quickstart-send-telemetry-dotnet.md) 및 [IoT Hub를 사용 하 여 클라우드-장치 메시지 보내기](iot-hub-csharp-csharp-c2d.md) 자습서에서는 IoT Hub의 기본 장치-클라우드 및 클라우드-장치 메시징 기능을 보여 줍니다. [IoT Hub로 메시지 라우팅 구성](tutorial-routing.md) 자습서에서는 Microsoft Azure Blob 저장소에 장치-클라우드 메시지를 안정적으로 저장 하는 방법을 설명 합니다. 그러나 일부 시나리오에서는 장치가 전송 하는 데이터를 IoT Hub 허용 되는 상대적으로 작은 장치-클라우드 메시지에 쉽게 매핑할 수 없습니다. 예를 들어:
 
 * 이미지가 포함된 대형 파일
 
@@ -47,7 +47,7 @@ ms.locfileid: "69558499"
 > [!NOTE]
 > IoT Hub는 Azure IoT 장치 Sdk를 통해 C, Java, Python 및 Javascript를 비롯 한 많은 장치 플랫폼 및 언어를 지원 합니다. Azure IoT Hub에 디바이스를 연결하는 방법에 대한 단계별 지침은 [Azure IoT 개발자 센터](https://azure.microsoft.com/develop/iot)를 참조하세요.
 
-이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
+## <a name="prerequisites"></a>전제 조건
 
 * Visual Studio
 

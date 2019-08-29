@@ -16,12 +16,12 @@ ms.date: 07/10/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4430e2115e4282ba7bb618184139a845547a06ed
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 064724b3c6a5faa485850ecdfa3d3759d3631be0
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967090"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124903"
 ---
 # <a name="delegate-tasks-in-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리 (미리 보기)에서 작업 위임
 
@@ -30,13 +30,15 @@ ms.locfileid: "68967090"
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-기본적으로 전역 관리자 및 사용자 관리자는 Azure AD 자격 관리의 모든 측면을 만들고 관리할 수 있습니다. 그러나 이러한 역할의 사용자는 액세스 패키지가 필요한 모든 시나리오를 모를 수 있습니다. 일반적으로 공동 작업 해야 하는 사용자를 아는 부서 내의 사용자입니다.
+기본적으로 전역 관리자 및 사용자 관리자는 Azure AD 자격 관리의 모든 측면을 만들고 관리할 수 있습니다. 그러나 이러한 역할의 사용자는 액세스 패키지가 필요한 모든 시나리오를 모를 수 있습니다. 일반적으로 공동 작업 해야 하는 사용자를 아는 부서 내의 사용자입니다. 
 
-관리자가 아닌 사용자에 게 무제한 권한을 부여 하는 대신 사용자에 게 작업을 수행 하는 데 필요한 최소 권한을 부여 하 고 충돌 하거나 부적절 한 액세스 권한을 만들지 않도록 할 수 있습니다. 이 문서에서는 자격 관리의 다양 한 작업을 위임 하기 위해 할당할 수 있는 역할에 대해 설명 합니다.
+관리자가 아닌 사용자에 게 무제한 권한을 부여 하는 대신 사용자에 게 작업을 수행 하는 데 필요한 최소 권한을 부여 하 고 충돌 하거나 부적절 한 액세스 권한을 만들지 않도록 할 수 있습니다. 이 문서에서는 자격 관리의 다양 한 작업을 위임 하기 위해 할당할 수 있는 역할에 대해 설명 합니다. 
 
 ## <a name="delegate-example-for-departmental-adoption"></a>부서별 채택을 위한 대리자 예제
 
-자격 관리에서 작업을 위임 하는 방법을 이해 하기 위해 예제를 사용 하는 것이 좋습니다. 조직에 다음 5 명의 사용자가 있다고 가정 합니다.
+자격 관리에서 작업을 위임 하는 방법을 이해 하기 위해 예제를 사용 하는 것이 좋습니다. 
+
+조직에 다음 5 명의 사용자가 있다고 가정 합니다.
 
 | 사용자 | Department | 참고 |
 | --- | --- | --- |
@@ -59,6 +61,7 @@ ms.locfileid: "68967090"
 이제 연구 및 마케팅 부서에서 자격 관리를 활용할 수 있습니다. Bob, Dave 및 Elisa는 해당 카탈로그에서 액세스 패키지를 만들고 관리할 수 있습니다.
 
 ![자격 관리 위임 예제](./media/entitlement-management-delegate/elm-delegate.png)
+
 
 ## <a name="entitlement-management-roles"></a>권한 관리 역할
 
@@ -113,6 +116,7 @@ ms.locfileid: "68967090"
 | [애플리케이션 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 카탈로그 소유자 |  |  | :heavy_check_mark: |  |
 | [클라우드 애플리케이션 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 카탈로그 소유자 |  |  | :heavy_check_mark: |  |
 | 사용자 | 카탈로그 소유자 | 그룹 소유자 인 경우에만 | 그룹 소유자 인 경우에만 | 앱 소유자 인 경우에만 |  |
+
 
 ## <a name="add-a-catalog-creator"></a>카탈로그 작성자 추가
 

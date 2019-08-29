@@ -1,0 +1,139 @@
+---
+title: Azure Backup를 사용 하는 클라우드 워크 로드를 보호 하는 데 도움이 되는 보안 기능
+description: Azure Backup의 보안 기능을 사용 하 여 백업을 더 안전 하 게 만드는 방법에 대해 알아봅니다.
+author: dcurwin
+manager: carmonm
+ms.service: backup
+ms.topic: conceptual
+ms.date: 08/04/2019
+ms.author: dacurwin
+ms.openlocfilehash: 938c65371b05807c774c9f2d73d4c27efe706c47
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70143571"
+---
+# <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Azure Backup를 사용 하는 클라우드 워크 로드를 보호 하는 데 도움이 되는 보안 기능
+
+맬웨어, 랜섬웨어 및 침입과 같은 보안 문제에 대한 우려는 증가하고 있습니다. 이러한 보안 문제는 돈과 데이터 측면 모두에서 비용이 많이 들 수 있습니다. 이러한 공격 으로부터 보호 하기 위해 Azure Backup는 삭제 후에도 백업 데이터를 보호 하는 데 도움이 되는 보안 기능을 제공 합니다. 이러한 기능 중 하나는 일시 삭제입니다. 일시 삭제를 사용 하는 경우 악성 행위자가 VM의 백업 (또는 실수로 삭제 됨)을 삭제 하더라도 백업 데이터는 14 일 동안 보존 되므로 데이터 손실 없이 해당 백업 항목을 복구할 수 있습니다. 이러한 추가 14 일 동안 "일시 삭제" 상태의 백업 데이터를 보존 하는 것은 고객에 게 비용을 부과 하지 않습니다.
+
+> [!NOTE]
+> 일시 삭제는 삭제 된 백업 데이터만 보호 합니다. 백업을 사용 하지 않고 VM을 삭제 하면 일시 삭제 기능은 데이터를 보존 하지 않습니다. 모든 리소스는 전체 복원 력을 보장 하기 위해 Azure Backup로 보호 되어야 합니다.
+>
+
+## <a name="soft-delete"></a>일시 삭제
+
+### <a name="supported-regions"></a>지원되는 지역
+
+일시 삭제는 현재 미국 서 부 지역에서 지원 됩니다.
+
+### <a name="soft-delete-for-vms"></a>Vm에 대 한 일시 삭제
+
+1. VM의 백업 데이터를 삭제 하려면 백업을 중지 해야 합니다. Azure Portal 복구 서비스 자격 증명 모음으로 이동 하 여 백업 항목을 마우스 오른쪽 단추로 클릭 하 고 **백업 중지**를 선택 합니다.
+
+    ![Azure Portal 백업 항목의 스크린샷](./media/backup-azure-security-feature-cloud/backup-stopped.png)
+
+2. 다음 창에는 백업 데이터를 삭제 하거나 보존할 수 있는 옵션이 제공 됩니다. **백업 데이터 삭제** 를 선택한 다음 **백업 중지**를 선택 하면 VM 백업이 영구적으로 삭제 되지 않습니다. 대신 백업 데이터는 일시 삭제 된 상태에서 14 일 동안 보존 됩니다. **백업 데이터 삭제** 를 선택 하면 사용자에 게 14 일 동안 백업 데이터에 대 한 보존 기간이 남아 있음을 알리는 전자 메일 삭제 경고가 구성 된 전자 메일 ID로 전송 됩니다. 또한 12 일에 전자 메일 경고가 전송 되어 삭제 된 데이터를 부활 시킬 두 일이 남아 있음을 알려 줍니다. 영구적 삭제가 발생 하 고 데이터의 영구 삭제를 알리는 최종 전자 메일 경고가 전송 될 때 15 일이 지연 됩니다.
+
+    ![Azure Portal, 백업 중지 화면 스크린샷](./media/backup-azure-security-feature-cloud/delete-backup-data.png)
+
+3. 이 14 일 동안 Recovery Services 자격 증명 모음에 일시 삭제 된 VM이 옆에 빨간색 "일시 삭제" 아이콘이 표시 됩니다.
+
+    ![Azure Portal의 스크린샷, 일시 삭제 상태의 VM](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
+
+> [!NOTE]
+> 일시 삭제 된 백업 항목이 자격 증명 모음에 있으면 해당 시점에 자격 증명 모음을 삭제할 수 없습니다. 백업 항목이 영구적으로 삭제 된 후 자격 증명 모음 삭제를 시도 하 고, 자격 증명 모음에 일시 삭제 됨 상태의 항목이 없습니다.
+
+4. 일시 삭제 된 VM을 복원 하려면 먼저 삭제를 취소 해야 합니다. 삭제를 취소 하려면 일시 삭제 된 VM을 선택 하 고 **삭제 취소**옵션을 클릭 합니다.
+
+     ![Azure Portal의 스크린샷, VM 삭제 취소](./media/backup-azure-security-feature-cloud/choose-undelete.png)
+
+삭제 취소를 선택 하면 VM에 대 한 모든 복원 지점이 삭제 취소 되 고 복원 작업을 수행 하는 데 사용할 수 있다는 경고가 표시 됩니다. VM은 백업 정책이 적용 되지 않고 일시 중지 되 고 백업 데이터가 영구적으로 보존 되는 "데이터 보존을 사용 하 여 보호 중지" 상태로 유지 됩니다.
+
+ ![Azure Portal의 스크린샷, VM 삭제 취소 확인](./media/backup-azure-security-feature-cloud/undelete-vm.png)
+
+이 시점에서 선택한 복원 지점에서 **Vm 복원** 을 선택 하 여 vm을 복원할 수도 있습니다.  
+
+   ![Azure Portal, VM 복원 옵션의 스크린샷](./media/backup-azure-security-feature-cloud/restore-vm.png)
+
+> [!NOTE]
+> 사용자가 **백업 다시 시작** 작업을 수행한 후에만 가비지 수집기가 만료 된 복구 지점만 실행 및 정리 합니다.
+
+5. 삭제 취소 프로세스가 완료 되 면 상태는 "데이터 보존으로 백업 중지"로 돌아간 다음 **백업 다시 시작**을 선택할 수 있습니다. 백업 **다시 시작** 작업은 백업 및 보존 일정을 정의 하는 사용자가 선택한 백업 정책과 연결 된 활성 상태의 백업 항목을 다시 가져옵니다.
+
+      ![Azure Portal, 백업 다시 시작 옵션의 스크린샷](./media/backup-azure-security-feature-cloud/resume-backup.png)
+
+이 순서도는 백업 항목의 여러 단계와 상태를 보여 줍니다.
+
+   ![일시 삭제 된 백업 항목의 수명 주기](./media/backup-azure-security-feature-cloud/lifecycle.png)
+
+자세한 내용은 아래의 질문과 대답 (질문과 [대답](backup-azure-security-feature-cloud.md#frequently-asked-questions) ) 섹션을 참조 하세요.
+
+## <a name="other-security-features"></a>기타 보안 기능
+
+### <a name="storage-side-encryption"></a>스토리지 쪽 암호화
+
+Azure Storage는 클라우드로 데이터를 유지할 때 자동으로 데이터를 암호화 합니다. 암호화는 데이터를 보호 하 고 조직의 보안 및 규정 준수 약정을 충족 하는 데 도움이 됩니다. Azure Storage의 데이터는 256 비트 AES 암호화를 사용 하 여 투명 하 게 암호화 되 고 해독 되며, 사용 가능한 가장 강력한 블록 암호화 중 하나 이며 FIPS 140-2 규격입니다. Azure Storage 암호화는 Windows의 BitLocker 암호화와 비슷합니다. Azure Backup은 데이터를 저장 하기 전에 자동으로 암호화 합니다. Azure Storage는 데이터를 검색하기 전에 데이터의 암호를 해독합니다.  
+
+Azure 내에서 Azure storage와 자격 증명 모음 간의 전송 데이터는 HTTPS에 의해 보호 됩니다. 이 데이터는 Azure 백본 네트워크에 남아 있습니다.
+
+자세한 내용은 [미사용 데이터에 대 한 암호화 Azure Storage](https://docs.microsoft.com/en-in/azure/storage/common/storage-service-encryption)를 참조 하세요.
+
+### <a name="vm-encryption"></a>VM 암호화
+
+Azure Backup 서비스를 사용 하 여 암호화 된 디스크로 Windows 또는 Linux Azure Vm (가상 머신)을 백업 하 고 복원할 수 있습니다. 자세한 내용은 [Azure Backup를 사용 하 여 암호화 된 가상 컴퓨터 백업 및 복원](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption)을 참조 하세요.
+
+### <a name="protection-of-azure-backup-recovery-points"></a>Azure Backup 복구 지점의 보호
+
+Recovery services 자격 증명 모음에 사용 되는 저장소 계정은 격리 되며 악의적인 목적을 위해 사용자가 액세스할 수 없습니다. 액세스는 복원과 같은 Azure Backup 관리 작업을 통해서만 허용 됩니다. 이러한 관리 작업은 RBAC (역할 기반 Access Control)를 통해 제어 됩니다.
+
+자세한 내용은 [역할 기반 Access Control를 사용 하 여 Azure Backup 복구 지점의 관리](https://docs.microsoft.com/en-us/azure/backup/backup-rbac-rs-vault)를 참조 하세요.
+
+## <a name="frequently-asked-questions"></a>질문과 대답
+
+### <a name="soft-delete"></a>일시 삭제
+
+#### <a name="do-i-need-to-enable-the-soft-delete-feature-on-every-vault"></a>모든 자격 증명 모음에서 일시 삭제 기능을 사용 하도록 설정 해야 하나요?
+
+아니요, 모든 recovery services 자격 증명 모음에 대해 기본적으로 빌드되고 사용 하도록 설정 됩니다.
+
+#### <a name="can-i-configure-the-number-of-days-for-which-my-data-will-be-retained-in-soft-deleted-state-after-delete-operation-is-complete"></a>삭제 작업이 완료 된 후 내 데이터가 일시 삭제 된 상태로 유지 되는 일 수를 구성할 수 있나요?
+
+아니요, 삭제 작업 후 14 일 동안 추가 보존 기간이 수정 됩니다.
+  
+#### <a name="do-i-need-to-pay-the-cost-for-this-additional-14-day-retention"></a>이 14 일 추가 보존에 대 한 비용을 지불 해야 하나요?
+
+아니요,이 14 일 추가 보존은 일시 삭제 기능의 일부로 무료로 제공 됩니다.
+  
+#### <a name="can-i-perform-a-restore-operation-when-my-data-is-in-soft-delete-state"></a>내 데이터가 일시 삭제 상태일 때 복원 작업을 수행할 수 있나요?
+
+아니요, 복원 하려면 일시 삭제 된 리소스를 삭제 취소 해야 합니다. 삭제 취소 작업은 모든 특정 시점으로 복원할 수 있는 **데이터 보관을 사용 하 여 보호 중지 상태로** 리소스를 다시 가져옵니다. 가비지 수집기는이 상태에서 일시 중지 된 상태로 유지 됩니다.
+  
+#### <a name="will-my-snapshots-follow-the-same-lifecycle-as-my-recovery-points-in-the-vault"></a>내 스냅숏은 자격 증명 모음에서 복구 지점과 동일한 수명 주기를 따르고 있나요?
+
+예.
+  
+#### <a name="how-can-i-trigger-the-scheduled-backups-again-for-a-soft-deleted-resource"></a>일시 삭제 된 리소스에 대해 예약 된 백업을 다시 트리거하는 방법
+
+다시 시작 작업 후 삭제 취소 작업은 리소스를 다시 보호 합니다. 다시 시작 작업은 백업 정책을 연결 하 여 선택한 보존 기간을 사용 하 여 예약 된 백업을 트리거합니다. 또한 가비지 수집기는 다시 시작 작업이 완료 되는 즉시 실행 됩니다. 만료 날짜를 지난 복구 지점에서 복원을 수행 하려는 경우 다시 시작 작업을 트리거하기 전에 수행 하는 것이 좋습니다.
+  
+#### <a name="can-i-delete-my-vault-if-there-are-soft-deleted-items-in-the-vault"></a>자격 증명 모음에 일시 삭제 된 항목이 있는 경우 자격 증명 모음을 삭제할 수 있나요?
+
+자격 증명 모음에 일시 삭제 된 상태의 백업 항목이 있는 경우에는 Recovery Services 자격 증명 모음을 삭제할 수 없습니다. 일시 삭제 된 항목은 삭제 작업을 14 일 후에 영구적으로 삭제 됩니다. 모든 일시 삭제 된 항목이 제거 된 후에만 자격 증명 모음을 삭제할 수 있습니다.  
+
+#### <a name="how-can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>삭제 후 14 일 동안 일시적으로 삭제 되는 데이터를 삭제 하려면 어떻게 해야 하나요?
+
+삭제 후 14 일 전에 데이터를 제거할 수 있는 방법은 없습니다. 차단 또는 규정 준수 문제인 경우 Microsoft 지원에 문의 하세요.
+
+#### <a name="can-soft-delete-operations-be-performed-in-powershell-or-cli"></a>PowerShell 또는 CLI에서 일시 삭제 작업을 수행할 수 있나요?
+
+아니요, PowerShell 또는 CLI에 대 한 지원은 현재 사용할 수 없습니다.
+
+#### <a name="is-soft-delete-supported-for-other-cloud-workloads-like-sql-server-in-azure-vms-and-sap-hana-in-azure-vms"></a>Azure vm의 SQL Server 및 Azure Vm의 SAP HANA 같은 다른 클라우드 워크 로드에 대해 일시 삭제가 지원 되나요?
+
+아니요. 현재 일시 삭제는 Azure virtual machines에 대해서만 지원 됩니다.
+
+## <a name="next-steps"></a>다음 단계
+
+* [Azure Backup에 대 한 보안 특성을](https://docs.microsoft.com/en-us/azure/backup/backup-security-attributes)참조 하세요.

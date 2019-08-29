@@ -17,14 +17,18 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 719939b393b01938a4d4faa41a5dca163b2a8949
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 611947c8c1d202cf4abf4222dfe0072aced58507
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834706"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135717"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>OAuth 2.0 코드 권한 부여 흐름을 사용하여 Azure Active Directory 웹 애플리케이션에 대한 액세스 권한 부여
+
+> [!NOTE]
+>  서버에 호출 하려는 리소스를 모르는 경우 서버는 해당 리소스에 대 한 조건부 액세스 정책을 트리거되지 않습니다. 따라서 MFA 트리거를 만들려면 URL에 리소스를 포함 해야 합니다. 
+>
 
 Azure AD(Azure Active Directory)는 OAuth 2.0을 사용하여 사용자는 Azure AD 테넌트에서 웹 애플리케이션 및 웹 API에 대한 액세스 권한을 부여할 수 있습니다. 이 가이드는 언어 독립적이며 [오픈 소스 라이브러리](active-directory-authentication-libraries.md)를 사용하지 않고 HTTP 메시지를 보내고 받는 방법을 설명합니다.
 
@@ -85,7 +89,7 @@ GET  HTTP/1.1 302 Found
 Location: http://localhost:12345/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrqqf_ZT_p5uEAEJJ_nZ3UmphWygRNy2C3jJ239gV_DBnZ2syeg95Ki-374WHUP-i3yIhv5i-7KU2CEoPXwURQp6IVYMw-DjAOzn7C3JCu5wpngXmbZKtJdWmiBzHpcO2aICJPu1KvJrDLDP20chJBXzVYJtkfjviLNNW7l7Y3ydcHDsBRKZc3GuMQanmcghXPyoDg41g8XbwPudVh7uCmUponBQpIhbuffFP_tbV8SNzsPoFz9CLpBCZagJVXeqWoYMPe2dSsPiLO9Alf_YIe5zpi-zY4C3aLw5g9at35eZTfNd0gBRpR5ojkMIcZZ6IgAA&session_state=7B29111D-C220-4263-99AB-6F6E135D75EF&state=D79E5777-702E-4260-9A62-37F75FF22CCE
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
 | admin_consent |관리자가 동의 요청 프롬프트에 동의한 경우 값은 True입니다. |
 | code |애플리케이션에서 요청한 인증 코드입니다. 애플리케이션은 인증 코드를 사용하여 대상 리소스에 대한 액세스 토큰을 요청할 수 있습니다. |
@@ -110,7 +114,7 @@ error=access_denied
 #### <a name="error-codes-for-authorization-endpoint-errors"></a>권한 부여 엔드포인트 오류에 대한 오류 코드
 다음 테이블은 오류 응답의 `error` 매개 변수에 반환될 수 있는 여러 오류 코드를 설명합니다.
 
-| 오류 코드 | 설명 | 클라이언트 작업 |
+| 오류 코드 | Description | 클라이언트 작업 |
 | --- | --- | --- |
 | invalid_request |프로토콜 오류(예: 필수 매개 변수 누락). |요청을 수정하여 다시 제출하십시오. 일반적으로 초기 테스트 중에 발견되는 개발 오류입니다. |
 | unauthorized_client |클라이언트 애플리케이션이 인증 코드를 요청할 수 없습니다. |이 오류는 일반적으로 클라이언트 애플리케이션이 Azure AD에 등록되지 않았거나 사용자의 Azure AD 테넌트에 추가되지 않은 경우 발생합니다. 애플리케이션이 사용자에게 애플리케이션을 설치하고 Azure AD에 추가하기 위한 지침이 포함된 메시지를 표시할 수 있습니다. |
@@ -216,7 +220,7 @@ JSON 웹 토큰에 대한 자세한 내용은 [JWT IETF 초안 사양](https://g
 #### <a name="http-status-codes"></a>HTTP 상태 코드
 다음 테이블은 토큰 발급 엔드포인트가 반환하는 HTTP 상태 코드를 나열합니다. 오류 코드가 응답을 설명하기에 충분한 경우도 있지만 오류의 경우 함께 제공되는 JSON 문서를 구문 분석하여 오류 코드를 검사해야 합니다.
 
-| HTTP 코드 | 설명 |
+| HTTP 코드 | Description |
 | --- | --- |
 | 400 |기본 HTTP 코드입니다. 대부분의 경우에 사용되며 일반적으로 잘못된 형식의 요청으로 인해 발생합니다. 요청을 수정하여 다시 제출하십시오. |
 | 401 |인증에 실패했습니다. 예를 들어 요청에 client_secret 매개 변수가 누락되었습니다. |
@@ -224,7 +228,7 @@ JSON 웹 토큰에 대한 자세한 내용은 [JWT IETF 초안 사양](https://g
 | 500 |서비스에서 내부 오류가 발생했습니다. 요청을 다시 시도하십시오. |
 
 #### <a name="error-codes-for-token-endpoint-errors"></a>토큰 엔드포인트 오류에 대한 오류 코드
-| 오류 코드 | 설명 | 클라이언트 작업 |
+| 오류 코드 | Description | 클라이언트 작업 |
 | --- | --- | --- |
 | invalid_request |프로토콜 오류(예: 필수 매개 변수 누락). |요청을 수정하여 다시 제출 |
 | invalid_grant |권한 부여 코드가 잘못되었거나 만료되었습니다. |`/authorize` 엔드포인트에 새 요청을 시도합니다. |
@@ -256,7 +260,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 ```
 
 #### <a name="error-parameters"></a>오류 매개 변수
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | authorization_uri |권한 부여 서버의 URI(실제 엔드포인트)입니다. 이 값은 검색 엔드포인트에서 서버에 관한 자세한 정보를 가져오기 위한 조회 키로도 사용됩니다. <p><p> 클라이언트는 권한 부여 서버가 신뢰할 수 있는지 확인해야 합니다. 리소스가 Azure AD에 의해 보호되는 경우 이 값은 URL이 https://login.microsoftonline.com 또는 Azure AD가 지원하는 다른 호스트 이름으로 시작하는지 확인하기에 충분합니다. 테넌트별 리소스는 언제나 테넌트별 권한 부여 URI를 반환해야 합니다. |
 | 오류 |[OAuth 2.0 권한 부여 프레임워크](https://tools.ietf.org/html/rfc6749)의 섹션 5.2에 정의된 오류 코드 값입니다. |
@@ -278,6 +282,8 @@ RFC 6750 사양은 응답에 WWW-authenticate 헤더와 전달자 체계를 사�
 액세스 토큰은 수명이 짧으며, 만료되면 새로 고쳐야 리소스에 계속 액세스할 수 있습니다. 다른 `POST` 요청을 `/token` 엔드포인트에 제출하여 `access_token`을(를) 새로 고칠 수 있지만 이번에는 `code` 대신 `refresh_token`을(를) 제공해야 합니다.  새로 고침 토큰은 클라이언트가 이미 액세스 동의를 받은 모든 리소스에 유효합니다. 따라서 `resource=https://graph.microsoft.com`에 대한 요청에서 발행된 새로 고침 토큰을 사용하여 `resource=https://contoso.com/api`에 대한 새 액세스 토큰을 요청할 수 있습니다. 
 
 새로 고침 토큰에는 지정된 수명이 없습니다. 일반적으로 새로 고침 토큰의 수명은 비교적 깁니다. 그러나 새로 고침 토큰이 만료되거나 해지되거나 원하는 작업을 위한 충분한 권한이 없는 경우가 있습니다. 애플리케이션은 토큰 발급 엔드포인트에서 반환하는 오류를 예상하고 정확히 처리해야 합니다.
+
+[!NOTE] 액세스 토큰 수명은 다음 위치에서 찾을 수 있습니다. https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-configurable-token-lifetimes#configurable-token-lifetime-properties 액세스 토큰의 기본값은 1 시간이 며 새로 고침 토큰의 기본값은 90 일입니다. 이에 따라 토큰 수명을 구성 하 여 이러한 수명을 변경할 수 있습니다. 
 
 새로 고침 토큰 오류가 포함된 응답을 받으면 현재 새로 고침 토큰을 삭제하고 새 인증 코드 또는 액세스 토큰을 요청합니다. 특히 인증 코드 부여 흐름에 새로 고침 토큰을 사용하는 경우 `interaction_required` 또는 `invalid_grant` 오류 코드가 포함된 응답을 받으면 새로 고침 토큰을 삭제하고 새 인증 코드를 요청합니다.
 
@@ -310,7 +316,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
   "refresh_token": "AwABAAAAv YNqmf9SoAylD1PycGCB90xzZeEDg6oBzOIPfYsbDWNf621pKo2Q3GGTHYlmNfwoc-OlrxK69hkha2CF12azM_NYhgO668yfcUl4VBbiSHZyd1NVZG5QTIOcbObu3qnLutbpadZGAxqjIbMkQ2bQS09fTrjMBtDE3D6kSMIodpCecoANon9b0LATkpitimVCrl PM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4rTfgV29ghDOHRc2B-C_hHeJaJICqjZ3mY2b_YNqmf9SoAylD1PycGCB90xzZeEDg6oBzOIPfYsbDWNf621pKo2Q3GGTHYlmNfwoc-OlrxK69hkha2CF12azM_NYhgO668yfmVCrl-NyfN3oyG4ZCWu18M9-vEou4Sq-1oMDzExgAf61noxzkNiaTecM-Ve5cq6wHqYQjfV9DOz4lbceuYCAA"
 }
 ```
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
 | token_type |토큰 형식입니다. 현재 지원되는 유일한 값은 **bearer**입니다. |
 | expires_in |토큰의 남은 수명(초)입니다. 일반적인 값은 3600(한 시간)입니다. |

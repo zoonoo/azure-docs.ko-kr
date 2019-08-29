@@ -16,12 +16,12 @@ ms.date: 06/12/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf6190ae35a573ab4b9a37f5cd1f2bd75f06ca46
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 3c6ad7e305958131c4f544dfa2022e7471e9adac
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667149"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147099"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>사용자 프로 비전 상태를 확인 합니다.
 
@@ -35,7 +35,7 @@ Azure AD 프로 비전 서비스는 원본 시스템 및 대상 시스템에 대
 - 현재 실행 중이거나 마지막으로 완료 된 프로 비전 주기 (초기 또는 증분)의 유형입니다.
 - 완료 된 프로 비전 주기의 비율을 보여 주는 **진행률 표시줄** 입니다. 비율은 프로 비전 된 페이지 수를 나타냅니다. 각 페이지에는 여러 사용자 또는 그룹이 포함 될 수 있으므로이 비율은 프로 비전 된 사용자, 그룹 또는 역할의 수와 직접적으로 연관 되지 않습니다.
 - 보기를 업데이트 된 상태로 유지 하는 데 사용할 수 있는 **새로 고침** 단추입니다.
-- 프로 비전 된 **사용자** 및 **그룹** 수와 생성 된 역할 수입니다. 초기 주기 중 **사용자 수는** 사용자가 만들어지거나 업데이트 될 때 1로 계산 되 고 사용자가 삭제 되 면 1로 계산 됩니다. 증분 주기 동안 사용자 업데이트는 **사용자** 수에 영향을 주지 않습니다. 숫자는 사용자가 만들어지거나 삭제 될 때만 변경 됩니다.
+- 프로 비전 된 **사용자** 및 **그룹** 수와 생성 된 역할 수입니다. 초기 주기 중 사용자 수는 사용자가 만들어지거나 업데이트 될 때 1로 계산 되 고 사용자가 삭제 되 면 1로 계산 됩니다. 증분 주기 동안 사용자 업데이트는 **사용자** 수에 영향을 주지 않습니다. 숫자는 사용자가 만들어지거나 삭제 될 때만 변경 됩니다.
 - 개별 사용자에 대 한 프로 비전 상태를 포함 하 여 사용자 프로 비전 서비스에서 실행 하는 모든 작업에 대 한 자세한 내용은 Azure AD 감사 로그를 여는 **감사 로그 보기** 링크를 참조 하세요.(섹션 아래의 [감사 로그 사용](#use-audit-logs-to-check-a-users-provisioning-status)을 참조)
 
 프로 비전 주기가 완료 된 후 **날짜 통계** 섹션에는 마지막 주기의 완료 날짜 및 기간과 함께 날짜에 프로 비전 된 사용자 및 그룹의 누적 수가 표시 됩니다. **활동 ID** 는 가장 최근의 프로 비전 주기를 고유 하 게 식별 합니다. **작업 ID** 는 프로 비전 작업의 고유 식별자 이며, 테 넌 트의 앱에만 적용 됩니다.
@@ -62,7 +62,7 @@ Azure AD 프로 비전 서비스는 원본 시스템 및 대상 시스템에 대
 Azure Portal에서 감사 로그를 읽는 방법에 대 한 자세한 내용은 [프로 비전 보고 가이드](check-status-user-account-provisioning.md)를 참조 하세요.
 
 ## <a name="how-long-will-it-take-to-provision-users"></a>사용자를 프로비전하는 데 걸리는 시간은 어느 정도인가요?
-응용 프로그램과 함께 자동 사용자 프로 비전을 사용 하는 경우 Azure AD는 정기적으로 예약 된 시간 간격 (일반적으로 10 분 마다)으로 [사용자 및 그룹 할당](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) 같은 항목에 따라 앱의 사용자 계정을 자동으로 프로 비전 하 고 업데이트 합니다.
+응용 프로그램과 함께 자동 사용자 프로 비전을 사용 하는 경우 Azure AD는 정기적으로 예약 된 시간 간격 (일반적으로 40 분 마다)으로 [사용자 및 그룹 할당](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) 같은 항목에 따라 앱의 사용자 계정을 자동으로 프로 비전 하 고 업데이트 합니다.
 
 지정 된 사용자를 프로 비전 하는 데 걸리는 시간은 주로 프로 비전 작업이 초기 동기화를 실행 하 고 있는지 증분 동기화를 실행 하 고 있는지에 따라 다릅니다.
 

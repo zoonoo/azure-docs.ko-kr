@@ -5,20 +5,20 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 04/09/2019
 ms.author: mayg
-ms.openlocfilehash: 6528b683ec9464c2b1982d631455718e6fe6f3b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d5857e1acdc5ba06cf70d67768100e21677c0c4
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60748965"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70146988"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Azure로 Hyper-V 재해 복구를 위해 Azure Site Recovery Deployment Planner 실행
 
 다음 4가지 모드 중 원하는 모드에서 Site Recovery Deployment Planner 명령줄 도구(ASRDeploymentPlanner.exe)를 실행할 수 있습니다. 
 -   VM(가상 머신) 목록 가져오기
--   [프로필](#profile-hyper-v-vms)
+-   [Profile](#profile-hyper-v-vms)
 -   보고서 생성
 -   [처리량 가져오기](#get-throughput)
 
@@ -85,7 +85,7 @@ ASRDeploymentPlanner.exe -Operation GetVMList -Directory "E:\Hyper-V_ProfiledDat
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
 
-| 매개 변수 이름 | 설명 |
+| 매개 변수 이름 | Description |
 |---|---|
 | -Operation | StartProfiling |
 | -User | Hyper-V 호스트 또는 Hyper-V 클러스터에 연결할 사용자 이름입니다. 사용자에게 관리 액세스 권한이 필요합니다.|
@@ -96,9 +96,9 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Virtualization|가상화 유형(VMware 또는 Hyper-V)입니다.|
 |-Directory|(선택 사항) 프로파일링 도중 생성된 프로파일링 데이터를 저장하기 위한 UNC 또는 로컬 디렉터리 경로입니다. 이름을 지정하지 않으면 현재 경로 아래에 ProfiledData라는 디렉터리가 기본 디렉터리로 사용됩니다.|
 |-암호|(선택 사항) Hyper-V 호스트에 연결하기 위한 암호입니다. 매개 변수로 지정하지 않으면 명령을 실행하는 경우 메시지가 표시됩니다.|
-|-StorageAccountName|(선택 사항) 온-프레미스 환경에서 Azure로의 데이터 복제에서 달성할 수 있는 처리량을 확인하기 위해 사용되는 스토리지 계정 이름입니다. 도구에서 이 스토리지 계정에 테스트 데이터를 업로드하여 처리량을 계산합니다. 스토리지 계정은 GPv1(General-purpose v1) 형식이어야 합니다.|
-|-StorageAccountKey|(선택 사항) 스토리지 계정에 액세스하는 데 사용되는 키입니다. Azure Portal > **저장소 계정** > *저장소-계정 이름* > **설정** > **액세스 키** > **키1**(또는 클래식 저장소 계정용 기본 액세스 키)로 이동합니다.|
-|-Environment|(선택 사항) Azure Storage 계정을 위한 대상 환경입니다. 다음 세 값 중 하나일 수 있습니다. AzureCloud, AzureUSGovernment 또는 AzureChinaCloud. 기본값은 AzureCloud입니다. 대상 지역이 Azure 미국 정부 또는 Azure 중국 21Vianet 때 매개 변수를 사용 합니다.|
+|-StorageAccountName|(선택 사항) 온-프레미스 환경에서 Azure로의 데이터 복제에서 달성할 수 있는 처리량을 확인하기 위해 사용되는 스토리지 계정 이름입니다. 도구에서 이 스토리지 계정에 테스트 데이터를 업로드하여 처리량을 계산합니다. 스토리지 계정은 GPv1(범용 v1) 형식이어야 합니다.|
+|-StorageAccountKey|(선택 사항) 스토리지 계정에 액세스하는 데 사용되는 키입니다. Azure Portal &gt; **스토리지 계정** > *스토리지-계정 이름* > **설정** > **액세스 키** > **키1**(또는 클래식 스토리지 계정용 기본 액세스 키)로 이동합니다.|
+|-Environment|(선택 사항) Azure Storage 계정을 위한 대상 환경입니다. 다음 세 값 중 하나일 수 있습니다. AzureCloud, AzureUSGovernment 또는 AzureChinaCloud. 기본값은 AzureCloud입니다. 대상 지역이 Azure 미국 정부 또는 Azure 중국 21Vianet 인 경우 매개 변수를 사용 합니다.|
 
 VM을 7일 이상 프로파일링하는 것이 좋습니다. 한 달 내에 변동 패턴이 다양한 경우, 변동폭이 최대인 주에 프로파일링하는 것이 좋습니다. 가장 좋은 방법은 31일 동안 프로파일링하여 보다 나은 권장 사항을 확보하는 것입니다. 
 
@@ -167,7 +167,7 @@ Azure Site Recovery는 iSCSI 및 통과 디스크가 있는 VM을 지원하지 �
 ASRDeploymentPlanner.exe -Operation GenerateReport /?
 ```
 
-| 매개 변수 이름 | 설명 |
+| 매개 변수 이름 | Description |
 |---|---|
 | -Operation | GenerateReport |
 |-VMListFile | 그에 대한 보고서가 생성될 프로파일링된 VM의 목록을 포함하고 있는 파일입니다. 파일 경로는 절대 경로 또는 상대 경로일 수 있습니다. Hyper-V의 경우 이 파일은 GetVMList 작업의 출력 파일입니다. 수동으로 준비하는 경우 파일에 뒤에 VM 이름이 붙는 서버 이름이나 IP 주소가 포함되어야 합니다(줄마다 \ 로 구분). 파일에 지정된 VM 이름은 Hyper-V 호스트의 VM 이름과 동일해야 합니다.<br><br>**예제:** VMList.txt에는 다음과 같은 VM이 포함됩니다.<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
@@ -280,12 +280,12 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 | -Operation | GetThroughput |
 |-Virtualization|가상화 유형(VMware 또는 Hyper-V)입니다.|
 |-Directory|(선택 사항) 프로파일링된 데이터(프로파일링 중에 생성된 파일)가 저장되는 UNC 또는 로컬 디렉터리 경로입니다. 이 데이터는 보고서를 생성하는 데 필요합니다. 이름을 지정하지 않으면 현재 경로 아래에 ProfiledData라는 디렉터리가 기본 디렉터리로 사용됩니다.|
-| -StorageAccountName | 온-프레미스 환경에서 Azure로의 데이터 복제에서 사용되는 대역폭을 확인하기 위해 사용하는 스토리지 계정 이름입니다. 도구에서 이 스토리지 계정에 테스트 데이터를 업로드하여 사용되는 대역폭을 찾습니다. 스토리지 계정은 GPv1(General-purpose v1) 형식이어야 합니다.|
-| -StorageAccountKey | 스토리지 계정에 액세스하는 데 사용되는 스토리지 계정 키입니다. Azure Portal > **저장소 계정** > *저장소-계정 이름* > **설정** > **액세스 키** > **키1**로 이동합니다.|
+| -StorageAccountName | 온-프레미스 환경에서 Azure로의 데이터 복제에서 사용되는 대역폭을 확인하기 위해 사용하는 스토리지 계정 이름입니다. 도구에서 이 스토리지 계정에 테스트 데이터를 업로드하여 사용되는 대역폭을 찾습니다. 스토리지 계정은 GPv1(범용 v1) 형식이어야 합니다.|
+| -StorageAccountKey | 스토리지 계정에 액세스하는 데 사용되는 스토리지 계정 키입니다. Azure Portal &gt; **스토리지 계정** > *스토리지-계정 이름* > **설정** > **액세스 키** > **키1**로 이동합니다.|
 | -VMListFile | 사용되는 대역폭을 계산하기 위해 프로파일링할 VM의 목록을 포함하고 있는 파일입니다. 파일 경로는 절대 경로 또는 상대 경로일 수 있습니다. Hyper-V의 경우 이 파일은 GetVMList 작업의 출력 파일입니다. 수동으로 준비하는 경우 파일에 뒤에 VM 이름이 붙는 서버 이름이나 IP 주소가 포함되어야 합니다(줄마다 \ 로 구분). 파일에 지정된 VM 이름은 Hyper-V 호스트의 VM 이름과 동일해야 합니다.<br><br>**예제:** VMList.txt에는 다음과 같은 VM이 포함됩니다.<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
-|-Environment|(선택 사항) Azure Storage 계정을 위한 대상 환경입니다. 다음 세 값 중 하나일 수 있습니다. AzureCloud, AzureUSGovernment 또는 AzureChinaCloud. 기본값은 AzureCloud입니다. 대상 Azure 지역이 Azure 미국 정부 또는 Azure 중국 21Vianet 때 매개 변수를 사용 합니다.|
+|-Environment|(선택 사항) Azure Storage 계정을 위한 대상 환경입니다. 다음 세 값 중 하나일 수 있습니다. AzureCloud, AzureUSGovernment 또는 AzureChinaCloud. 기본값은 AzureCloud입니다. 대상 Azure 지역이 Azure 미국 정부 또는 Azure 중국 21Vianet 인 경우 매개 변수를 사용 합니다.|
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 ```
 ASRDeploymentPlanner.exe -Operation GetThroughput -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```

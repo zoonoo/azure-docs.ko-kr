@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/22/2019
-ms.openlocfilehash: 497a00570d85ab83f71416e979e485db4685b64a
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: e5d5d36e82914f1d6d03299db0ed1427ac5a389a
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992108"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147578"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 집합 만들기 및 액세스 (미리 보기)
 
@@ -30,7 +30,7 @@ Azure Machine Learning 데이터 집합을 사용 하 여 다음을 수행할 �
 
 * 다른 사용자와 **공동으로 데이터 & 공유** 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 데이터 집합을 만들고 작업 하려면 다음이 필요 합니다.
 
@@ -45,9 +45,11 @@ Azure Machine Learning 데이터 집합을 사용 하 여 다음을 수행할 �
 
 ## <a name="dataset-types"></a>데이터 집합 형식
 
-데이터 집합은 사용자가 학습에서 사용 하는 방법에 따라 다양 한 형식으로 분류 됩니다. 현재는 제공 된 파일 또는 파일 목록을 구문 분석 하 여 테이블 형식으로 데이터를 나타내는 [TabularDatasets](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) 을 지원 합니다. 이를 통해 pandas 데이터 프레임로 데이터를 구체화할 수 있습니다. Csv, tsv, parquet 파일, SQL 쿼리 결과 등에서 개체를만들수있습니다.`TabularDataset` 전체 목록은 설명서를 참조 하세요.
+데이터 집합은 사용자가 학습에서 사용 하는 방법에 따라 다양 한 형식으로 분류 됩니다. 데이터 집합 형식 목록:
+* [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) 는 제공 된 파일 또는 파일 목록을 구문 분석 하 여 테이블 형식으로 데이터를 나타냅니다. 이를 통해 pandas 데이터 프레임로 데이터를 구체화할 수 있습니다. Csv, tsv, parquet 파일, SQL 쿼리 결과 등에서 개체를만들수있습니다.`TabularDataset` 전체 목록은 [설명서](https://aka.ms/tabulardataset-api-reference)를 참조 하세요.
+* Filedataset은 데이터 저장소 또는 public url의 단일 또는 여러 파일을 참조 합니다. 그러면 계산에 파일을 다운로드 하거나 탑재 하는 기능이 제공 됩니다. 이 파일은 심층 학습을 비롯 한 다양 한 기계 학습 시나리오를 가능 하 게 하는 모든 형식일 수 있습니다.
 
-예정 된 API 변경에 대 한 자세한 내용은 [Azure Machine Learning service 란?](https://aka.ms/tabular-dataset) 을 참조 하세요. 
+예정 된 API 변경에 대 한 자세한 내용은 [여기](https://aka.ms/tabular-dataset)를 참조 하세요.
 
 ## <a name="create-datasets"></a>데이터 세트 만들기 
 
@@ -101,6 +103,25 @@ titanic_ds.take(3).to_pandas_dataframe()
 1|2|1|1|Cumings, Mrs Bradley (Florence Briggs Th ...|female|38.0|1|0|PC 17599|71.2833|C85|C
 2|3|1|3|Heikkinen, 누락. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
 
+### <a name="create-filedatasets"></a>FileDatasets 만들기
+클래스의 `from_files()` `FileDatasetFactory` 메서드를 사용 하 여 모든 형식의 파일을 로드 하 고 등록 되지 않은 filedataset을 만듭니다.
+
+```Python
+# create a FileDataset from multiple paths in datastore
+datastore_paths = [
+                  (datastore, 'animals/dog/1.jpg'),
+                  (datastore, 'animals/dog/2.jpg'),
+                  (datastore, 'animals/dog/*.jpg')
+                 ]
+animal_ds = Dataset.File.from_files(path=datastore_paths)
+
+# create a FileDataset from image and label files behind public web urls
+web_paths = [
+            'https://azureopendatastorage.blob.core.windows.net/mnist/train-images-idx3-ubyte.gz',
+            'https://azureopendatastorage.blob.core.windows.net/mnist/train-labels-idx1-ubyte.gz'
+           ]          
+mnist_ds = Dataset.File.from_files(path=web_paths)
+```
 ## <a name="register-datasets"></a>데이터 집합 등록
 
 만들기 프로세스를 완료 하려면 작업 영역에 데이터 집합을 등록 합니다.

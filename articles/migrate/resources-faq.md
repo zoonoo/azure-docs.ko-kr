@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: snehaa
-ms.openlocfilehash: af95ad892b62cb5d8bece554d6026525d9279777
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 03651ecb073d02a373c434b8cb55bdafec6d142a
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102883"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142211"
 ---
 # <a name="azure-migrate-frequently-asked-questions-faq"></a>Azure Migrate: 질문과 대답(FAQ)
 
@@ -172,7 +172,7 @@ Azure에서 평가를 만들 때 (성능 기간 및 성능 기록 백분위 수 
 
 ### <a name="how-can-i-automate-the-installation-of-microsoft-monitoring-agent-mma-and-the-dependency-agent"></a>Microsoft Monitoring Agent (MMA) 및 종속성 에이전트의 설치를 자동화 하려면 어떻게 해야 하나요?
 
-이 [스크립트를 사용 하 여 에이전트를 설치](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples)합니다. 명령줄 또는 자동화를 사용 하 여 [MMA을 설치 하려면 다음 지침을](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) 따르세요. MMA의 경우 [이 스크립트](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab)를 사용 합니다.
+이 [스크립트를 사용 하 여 종속성 에이전트를 설치](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples)합니다. 명령줄 또는 자동화를 사용 하 여 [MMA을 설치 하려면 다음 지침을](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) 따르세요. MMA의 경우 [이 스크립트](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab)를 사용 합니다.
 
 스크립트 외에도 System Center Configuration Manager 및 [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) 와 같은 배포 도구를 사용 하 여 에이전트를 배포할 수 있습니다.
 
@@ -183,8 +183,7 @@ Azure에서 평가를 만들 때 (성능 기간 및 성능 기록 백분위 수 
 
 ### <a name="what-operating-systems-are-supported-by-the-dependency-agent"></a>종속성 에이전트에서 지원 되는 운영 체제는 무엇 인가요?
 
-- [종속성 에이전트에서 지 원하는 Windows 운영 체제](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems)목록을 봅니다.
-- [종속성 에이전트에서 지 원하는 Linux 운영 체제](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems)목록을 봅니다.
+[VM용 Azure Monitor에서 지 원하는 Windows 및 Linux 운영 체제](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems)의 목록을 확인 합니다.
 
 ### <a name="can-i-visualize-dependencies-in-azure-migrate-for-more-than-an-hour"></a>1 시간 이상 Azure Migrate에서 종속성을 시각화할 수 있나요?
 아니요. 최대 1 시간 동안 종속성을 시각화할 수 있습니다. 기록의 특정 날짜로 다시 이동할 수 있습니다 .이 날짜는 한 달에 다시 표시 되지만 시각화의 최대 기간은 1 시간입니다. 예를 들어, 종속성 맵의 기간을 사용 하 여 어제 종속성을 볼 수 있지만 1 시간 동안만 볼 수 있습니다. 그러나 Azure Monitor 로그를 사용 하 여 더 긴 기간 동안 [종속성 데이터를 쿼리할](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) 수 있습니다.

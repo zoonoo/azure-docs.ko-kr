@@ -8,16 +8,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/15/2018
-author: gauravmalhot
-ms.author: gamal
+author: djpmsft
+ms.author: daperlov
 ms.reviewer: maghan
 manager: craigg
-ms.openlocfilehash: 3ab3ec5380fbc90dffd4f258073ad8b477e2318a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02c4644c4440c3a00a21ef22674bcc0d00902ac2
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002839"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140797"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Azure Databricks에서 Python 작업을 실행하여 데이터 변환
 
@@ -62,15 +62,15 @@ Databricks Python 작업에 대한 샘플 JSON 정의는 다음과 같습니다.
 
 다음 표에서는 JSON 정의에 사용하는 JSON 속성을 설명합니다.
 
-|자산|설명|필수|
+|속성|설명|필수|
 |---|---|---|
 |name|파이프라인의 작업 이름입니다.|예|
-|description|작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.|아닙니다.|
-|형식|Databricks Python 작업의 경우 작업 형식은 DatabricksSparkPython입니다.|예|
+|description|작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.|아니요|
+|type|Databricks Python 작업의 경우 작업 형식은 DatabricksSparkPython입니다.|예|
 |linkedServiceName|Python 작업이 실행되는 Databricks 연결된 서비스의 이름입니다. 이 연결된 서비스에 대한 자세한 내용은  [연결된 서비스 Compute](compute-linked-services.md)  문서를 참조하세요.|예|
 |pythonFile|실행할 Python 파일의 URI입니다. DBFS 경로만이 지원됩니다.|예|
-|parameters|Python 파일에 전달되는 명령줄 매개 변수입니다. 문자열의 배열입니다.|아닙니다.|
-|라이브러리|작업을 실행할 클러스터에 설치할 라이브러리의 목록입니다. <문자열, 개체>의 배열일 수 있습니다.|아닙니다.|
+|parameters|Python 파일에 전달되는 명령줄 매개 변수입니다. 문자열의 배열입니다.|아니요|
+|라이브러리|작업을 실행할 클러스터에 설치할 라이브러리의 목록입니다. <문자열, 개체>의 배열일 수 있습니다.|아니요|
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Databricks 활동에 지원되는 라이브러리
 

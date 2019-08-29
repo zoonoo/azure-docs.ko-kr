@@ -6,12 +6,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: rogarana
-ms.openlocfilehash: 23e8c82bad60675338a0482155ed8a92cdad3d3d
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 886cacc5e90136380a183f6b9ddd1123d726dcf3
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617685"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129220"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-over-smb-for-azure-files"></a>Azure Files SMB를 통한 Azure Active Directory Domain Services 인증 사용
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -46,11 +46,9 @@ Azure Files에 대한 SMB를 통한 Azure AD를 사용하도록 설정하기 전
 
 2.  **Azure AD 테넌트에서 Azure AD Domain Services를 사용하도록 설정합니다.**
 
-< < < < < < < Azure AD 자격 증명으로 인증을 지원 하려면 Azure AD 테 넌 트에 대해 Azure AD Domain Services를 사용 하도록 설정 해야 합니다. Azure AD 테넌트의 관리자가 아니라면 관리자에게 문의하고 [Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화](../../active-directory-domain-services/tutorial-create-instance.md)를 위한 단계별 지침을 따르세요.
-= = = = = = = Azure AD 자격 증명으로 인증을 지원 하려면 azure AD 테 넌 트에 대해 Azure AD DS를 사용 하도록 설정 해야 합니다. Azure AD 테 넌 트의 관리자가 아닌 경우 관리자에 게 문의 하 여 [Azure Portal를 사용 하 여 Azure Active Directory Domain Services를 사용 하도록 설정](../../active-directory-domain-services/create-instance.md)하는 단계별 지침을 따르세요.
->>>>>>> 5f049740fef320adb172d59f68bd161bdc4318e1
+    Azure AD 자격 증명을 사용한 인증을 지원하려면 Azure AD 테넌트에 대해 Azure AD Domain Services를 사용하도록 설정해야 합니다. Azure AD 테넌트의 관리자가 아니라면 관리자에게 문의하고 [Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화](../../active-directory-domain-services/tutorial-create-instance.md)를 위한 단계별 지침을 따르세요.
 
-    It typically takes about 15 minutes for an Azure AD DS deployment to complete. Verify that the health status of Azure AD DS shows **Running**, with password hash synchronization enabled, before proceeding to the next step.
+    Azure AD DS 배포를 완료 하는 데 일반적으로 약 15 분이 걸립니다. 다음 단계로 진행 하기 전에 암호 해시 동기화를 사용 하 여 Azure AD DS의 상태가 **실행 중**으로 표시 되는지 확인 합니다.
 
 3.  **Azure AD DS을 사용 하 여 Azure VM에 도메인 가입 합니다.**
 
@@ -234,7 +232,7 @@ Icacls를 사용 하 여 NTFS 권한 및 지원 되는 다양 한 권한 유형�
 
 ![사용자 인증용 Azure AD 로그인 화면이 표시된 스크린샷](media/storage-files-active-directory-enable/azure-active-directory-authentication-dialog.png)
 
-다음 명령을 사용 하 여 Azure 파일 공유를 탑재 합니다. 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다. 이미 인증 되었으므로 저장소 계정 키 또는 Azure AD 사용자 이름 및 암호를 제공할 필요가 없습니다. SMB를 통한 azure AD는 Azure AD 자격 증명을 사용 하 여 single sign-on 환경을 지원 합니다.
+다음 명령을 사용 하 여 Azure 파일 공유를 탑재 합니다. 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다. 이미 인증 되었으므로 저장소 계정 키 또는 Azure AD 사용자 이름 및 암호를 제공할 필요가 없습니다. SMB를 통한 azure AD는 Azure AD 자격 증명을 사용 하는 Single Sign-On 환경을 지원 합니다.
 
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martinco
-ms.openlocfilehash: 80c1ffd27b0668f19fd87e7eda62e578c861ba64
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: fb17d1b95d74a67f220651cf198f367bdd31f19f
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934610"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129308"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>ID 인프라를 보호하기 위한 5단계
 
@@ -130,7 +130,7 @@ Azure Active Directory에는 검색 및 응답 사이의 대기 시간을 제거
 
 ### <a name="implement-user-risk-security-policy-using-azure-ad-identity-protection"></a>Azure AD Identity Protection을 사용하여 사용자 위험 보안 정책 구현
 
-사용자 위험은 사용자의 ID가 손상되었다는 가능성을 나타내며, 사용자의 ID와 연결된 [사용자 위험 이벤트](../../active-directory/identity-protection/overview.md)를 기반으로 계산됩니다. 사용자 위험 정책은 특정 사용자 또는 그룹에 대 한 위험 수준을 평가 하는 조건부 액세스 정책입니다. 낮음, 보통, 높음 위험 수준에 따라 액세스를 차단하거나 다단계 인증을 사용한 보안 암호 변경을 요구하도록 정책을 구성할 수 있습니다. Microsoft의 권장 사항은 높은 위험 수준에 있는 사용자의 경우 보안 암호 변경이 필요합니다.
+사용자 위험은 사용자의 id가 손상 된 가능성을 나타내며 사용자 id와 연결 된 [사용자 위험](../../active-directory/identity-protection/overview.md) 검색에 따라 계산 됩니다. 사용자 위험 정책은 특정 사용자 또는 그룹에 대 한 위험 수준을 평가 하는 조건부 액세스 정책입니다. 낮음, 보통, 높음 위험 수준에 따라 액세스를 차단하거나 다단계 인증을 사용한 보안 암호 변경을 요구하도록 정책을 구성할 수 있습니다. Microsoft의 권장 사항은 높은 위험 수준에 있는 사용자의 경우 보안 암호 변경이 필요합니다.
 
 ![위험 플래그가 지정된 사용자](./media/steps-secure-identity/azure-ad-sec-steps1.png)
 
@@ -156,7 +156,7 @@ Microsoft Azure 서비스 및 기능은 구성 가능한 보안 감사 및 로�
 
 ### <a name="monitor-azure-ad-identity-protection-events"></a>Azure AD ID Identity Protection 이벤트 모니터링
 
-[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md)은 조직의 ID에 영향을 주는 잠재적 취약성을 검색하는 데 사용할 수 있는 알림, 모니터링 및 보고 도구입니다. 유출된 자격 증명, 불가능한 이동 및 감염된 디바이스, 익명 IP 주소, 의심스러운 활동 및 알 수 없는 위치에 연결된 IP 주소에서의 로그인과 같은 위험 이벤트를 검색합니다. 위험한 사용자의 이메일을 수신 및/또는 주 단위 요약 이메일을 수신하는 알림 경고를 사용하도록 설정합니다.
+[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md)은 조직의 ID에 영향을 주는 잠재적 취약성을 검색하는 데 사용할 수 있는 알림, 모니터링 및 보고 도구입니다. 누출 된 자격 증명, 불가능 한 이동, 감염 된 장치에서의 로그인, 익명 IP 주소, 의심 스러운 활동에 연결 된 IP 주소, 알 수 없는 위치 등의 위험 검색을 감지 합니다. 위험한 사용자의 이메일을 수신 및/또는 주 단위 요약 이메일을 수신하는 알림 경고를 사용하도록 설정합니다.
 
 Azure AD Identity Protection은 매일 모니터링해야 하는 두 가지 중요한 보고서를 제공합니다.
 1. 위험한 로그인 보고서는 로그인한 사람이 정당한 소유자가 아닐 가능성이 있으므로 조사가 필요한 사용자 로그인 활동을 보여줍니다.

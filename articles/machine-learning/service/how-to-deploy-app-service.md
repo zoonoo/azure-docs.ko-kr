@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/27/2019
-ms.openlocfilehash: 889158aeb40cfcbc69291845acfee833af0930b6
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 20a90a70c66310f6838b41a40aa945308bf338d4
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114286"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147900"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Azure App Service에 machine learning 모델 배포 (미리 보기)
 
@@ -265,8 +265,8 @@ print(response.json())
 
 ## <a name="next-steps"></a>다음 단계
 
-* 웹 앱을 구성 하는 방법에 대 한 자세한 내용은 [Linux의 App Service](/azure/app-service/containers/) 설명서를 참조 하세요.
-* 크기 조정에 대 한 자세한 내용은 [Azure에서 자동 크기 조정 시작](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json)을 참조 하세요.
-* SSL 지원에 대 한 자세한 내용은 [Azure App Service에서 ssl 인증서 사용](/azure/app-service/app-service-web-ssl-cert-load)을 참조 하세요.
-* 인증에 대 한 자세한 내용은 [Azure Active Directory 로그인을 사용 하도록 App Service 앱 구성](/azure/app-service/configure-authentication-provider-aad)을 참조 하세요.
+* [Linux의 App Service](/azure/app-service/containers/) 설명서에서 웹 앱을 구성 하는 방법에 대해 알아봅니다.
+* [Azure에서 자동 크기 조정 시작](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json)에서 크기 조정에 대해 자세히 알아보세요.
+* [Azure App Service에서 SSL 인증서를 사용](/azure/app-service/app-service-web-ssl-cert-load)합니다.
+* [Azure Active Directory 로그인을 사용 하도록 App Service 앱을 구성](/azure/app-service/configure-authentication-provider-aad)합니다.
 * [웹 서비스로 배포된 ML 모델 사용](how-to-consume-web-service.md)

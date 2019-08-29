@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: c53bc9527eeb6c7ca8194ef056177a79dd880957
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 2ba93ad347783d467d467b72cfa49ffccf309fa0
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874765"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147348"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>클래식 경고 및 모니터링을 Azure Monitor 통합 경고 및 모니터링으로 대체
 
@@ -72,6 +72,10 @@ Azure 리소스에 대해 사용할 수 있는 최신 메트릭은 다음과 같
 > [!IMPORTANT]
 > Microsoft Azure 모니터는 새 플랫폼에 대 한 기존 경고 규칙을 [자발적으로 마이그레이션하는 단계 도구를](alerts-using-migration-tool.md) 출시 했습니다. 그리고 9 월 2019 시작 하 여 여전히 존재 하 고 마이그레이션할 수 있는 모든 클래식 경고 규칙을 강제로 실행 합니다. 고객은 클래식 경고 규칙이 마이그레이션된 후에 [Application Insights의 통합 메트릭 및 경고](#unified-metrics-and-alerts-in-application-insights) 또는 [기타 Azure 리소스용 통합 메트릭 및 경고](#unified-metrics-and-alerts-for-other-azure-resources)에서 클래식 경고 규칙 페이로드를 사용하는 자동화 기능이 새 페이로드를 처리할 수 있도록 조정되었는지를 확인해야 합니다. 자세한 내용은 [클래식 경고 규칙 마이그레이션 준비](alerts-prepare-migration.md) 를 참조 하세요.
 
+이 문서의 내용은 신규 Azure 모니터링 및 경고 기능 관련 링크/세부 정보와, 새 Azure Monitor 플랫폼 채택 과정에서 사용자를 지원하는 도구의 사용 가능 여부 정보가 추가되는 방식으로 계속 업데이트될 예정입니다.
+
+## <a name="pricing-for-migrated-alert-rules"></a>마이그레이션된 경고 규칙에 대 한 가격 책정
+
 Azure Monitor [클래식 경고](../../azure-monitor/platform/alerts-classic.overview.md) 를 새로운 경고 환경으로 마이그레이션하는 데 도움이 되는 마이그레이션 도구를 배포 합니다. 마이그레이션된 경고 규칙 및 마이그레이션된 해당 작업 그룹 (email, webhook 또는 LogicApp)은 무료로 제공 됩니다. 임계값, 집계 유형 및 집계 세분성을 편집 하는 기능을 포함 하 여 클래식 경고와 함께 제공 되는 기능은 마이그레이션된 경고 규칙에 따라 계속 무료로 제공 됩니다. 그러나 마이그레이션된 경고 규칙을 편집 하 여 새 경고 플랫폼 기능, 알림 또는 작업 유형을 사용 하는 경우 해당 요금이 적용 됩니다. 경고 규칙 및 알림에 대 한 가격 책정에 대 한 자세한 내용은 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)을 참조 하세요.
 
 다음은 경고 규칙에 대 한 요금이 부과 되는 경우의 예입니다.
@@ -82,9 +86,6 @@ Azure Monitor [클래식 경고](../../azure-monitor/platform/alerts-classic.ove
 - Azure Monitor에 포함된 체험 단위를 초과하여 저장된 모든 사용자 지정 메트릭
 - 새 메트릭 경고 기능 (예: 빈도, 여러 리소스/차원, [동적 임계값](alerts-dynamic-thresholds.md), 리소스/신호 변경 등)을 사용 하도록 편집 된 모든 마이그레이션된 경고 규칙입니다.
 - 최신 알림을 사용 하도록 편집 된 모든 마이그레이션된 작업 그룹 또는 SMS, 음성 통화 및/또는 ITSM 통합과 같은 작업 유형입니다.
-
-이 문서의 내용은 신규 Azure 모니터링 및 경고 기능 관련 링크/세부 정보와, 새 Azure Monitor 플랫폼 채택 과정에서 사용자를 지원하는 도구의 사용 가능 여부 정보가 추가되는 방식으로 계속 업데이트될 예정입니다.
-
 
 ## <a name="next-steps"></a>다음 단계
 

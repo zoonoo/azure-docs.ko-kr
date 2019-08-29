@@ -1,18 +1,18 @@
 ---
 title: Azure Kubernetes에서 Helm을 사용하여 컨테이너 배포
-description: Helm 패키징 도구를 사용 하 여 Azure Kubernetes Service (AKS) 클러스터에서 컨테이너를 배포 하는 방법 알아보기
+description: 투구 패키징 도구를 사용 하 여 AKS (Azure Kubernetes Service) 클러스터에 컨테이너를 배포 하는 방법을 알아봅니다.
 services: container-service
 author: zr-msft
 ms.service: container-service
 ms.topic: article
 ms.date: 05/23/2019
 ms.author: zarhoads
-ms.openlocfilehash: 76a5391cbe142851d9b1f60ea9346af2e7a35d6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 27d557ab12093223450fd7bc1b88c68e1f156947
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66392133"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135496"
 ---
 # <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Helm을 사용하여 애플리케이션 설치
 
@@ -20,18 +20,18 @@ ms.locfileid: "66392133"
 
 이 아티클에서는 AKS의 Kubernetes 클러스터에서 Helm을 구성하고 사용하는 방법을 보여줍니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
-이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작[Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
+이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 [Azure CLI를 사용][aks-quickstart-cli] 하거나 [Azure Portal를 사용][aks-quickstart-portal]하 여 AKS 빠른 시작을 참조 하세요.
 
-개발 시스템에서 실행 되는 클라이언트는 Helm CLI를 설치 해야 합니다. 시작, 중지 및 Helm 사용 하 여 응용 프로그램을 관리할 수 있습니다. Azure Cloud Shell을 사용하는 경우 Helm CLI가 이미 설치되어 있습니다. 로컬 플랫폼에 대한 설치 지침은 [Helm 설치][helm-install]를 참조하세요.
+또한 개발 시스템에서 실행 되는 클라이언트 인 투구 CLI가 설치 되어 있어야 합니다. 이를 통해 투구로 응용 프로그램을 시작, 중지 및 관리할 수 있습니다. Azure Cloud Shell을 사용하는 경우 Helm CLI가 이미 설치되어 있습니다. 로컬 플랫폼에 대 한 설치 지침은 [투구 설치][helm-install]를 참조 하세요.
 
 > [!IMPORTANT]
-> Helm은 Linux 노드에서 실행 됩니다. Windows Server는 노드가 클러스터에 Helm pod Linux 노드에서 실행 되도록 예약 된만 있는지 확인 해야 합니다. 설치한 모든 Helm 차트는 올바른 노드에서 실행 되도록 예약도 있는지 확인 해야 합니다. 이 명령을 사용 하 여 문서 [노드 선택기] [ k8s-node-selector] pod의 올바른 노드 예정인 좋지만 일부 Helm 차트 노드 선택기를 노출할 수 있습니다. 같은 클러스터에 대 한 다른 옵션을 사용 하 여 할 수도 있습니다 [taints][taints]합니다.
+> 투구는 Linux 노드에서 실행 하기 위한 것입니다. 클러스터에 Windows Server 노드가 있는 경우에는 투구 pod가 Linux 노드에서 실행 되도록 예약 되어 있는지 확인 해야 합니다. 또한 설치 하는 투구 차트가 올바른 노드에서 실행 되도록 예약 되어 있는지도 확인 해야 합니다. 이 문서의 명령은 [노드][k8s-node-selector] 선택기를 사용 하 여 pod이 올바른 노드에 예약 되어 있는지 확인 하지만 일부 투구 차트는 노드 선택기를 노출할 수 없습니다. [Taints][taints]와 같은 클러스터의 다른 옵션을 사용 하는 것을 고려할 수도 있습니다.
 
 ## <a name="create-a-service-account"></a>서비스 계정 만들기
 
-RBAC 지원 AKS 클러스터에서 Helm을 배포하려면 먼저 서비스 계정과 Tiller 서비스에 대한 역할 바인딩이 필요합니다. RBAC 지원 클러스터에서 Helm/Tiller를 보호하는 방법에 대한 자세한 내용은 [Tiller, 네임스페이스 및 RBAC][tiller-rbac]를 참조하세요. AKS 클러스터가 RBAC를 사용할 수 없는 경우 이 단계를 건너뜁니다.
+RBAC 지원 AKS 클러스터에서 Helm을 배포하려면 먼저 서비스 계정과 Tiller 서비스에 대한 역할 바인딩이 필요합니다. RBAC를 사용 하는 클러스터에서 투구/Tiller를 보호 하는 방법에 대 한 자세한 내용은 [Tiller, 네임 스페이스 및 rbac][tiller-rbac]를 참조 하세요. AKS 클러스터가 RBAC를 사용할 수 없는 경우 이 단계를 건너뜁니다.
 
 `helm-rbac.yaml`이라는 파일을 만들고 다음 YAML에 복사합니다.
 
@@ -64,16 +64,16 @@ kubectl apply -f helm-rbac.yaml
 
 ## <a name="secure-tiller-and-helm"></a>Tiller 및 Helm 보호
 
-Helm 클라이언트 및 Tiller 서비스는 TLS/SSL을 사용하여 인증하고 서로 통신합니다. 이 인증 방법을 통해 Kubernetes 클러스터 및 배포할 수 있는 서비스를 보호할 수 있습니다. 보안을 향상시키 위해 자체 서명된 인증서를 생성할 수 있습니다. 각 Helm 사용자는 고유한 클라이언트 인증서를 수신하고, Tiller는 인증서를 적용하여 Kubernetes 클러스터에서 초기화될 수 있습니다. 자세한 내용은 [Helm과 Tiller 간에 TLS/SSL 사용][helm-ssl]을 참조하세요.
+Helm 클라이언트 및 Tiller 서비스는 TLS/SSL을 사용하여 인증하고 서로 통신합니다. 이 인증 방법을 통해 Kubernetes 클러스터 및 배포할 수 있는 서비스를 보호할 수 있습니다. 보안을 향상시키 위해 자체 서명된 인증서를 생성할 수 있습니다. 각 Helm 사용자는 고유한 클라이언트 인증서를 수신하고, Tiller는 인증서를 적용하여 Kubernetes 클러스터에서 초기화될 수 있습니다. 자세한 내용은 [투구와 Tiller 사이에 TLS/SSL 사용][helm-ssl]을 참조 하세요.
 
-RBAC 지원 Kubernetes 클러스터를 사용하여 Tiller가 클러스터에 대해 가진 액세스 수준을 제어할 수 있습니다. Tiller를 배포한 Kubernetes 네임스페이스를 정의한 다음, 리소스를 배포할 수 있는 Tiller 네임스페이스를 제한할 수 있습니다. 이 방법을 통해 다른 네임스페이스에 Tiller 인스턴스를 만들고, 배포 경계를 제한하고, Helm 클라이언트의 사용자 범위를 특정 네임스페이스로 지정할 수 있습니다. 자세한 내용은 [Helm 역할 기반 액세스 제어][helm-rbac]를 참조하세요.
+RBAC 지원 Kubernetes 클러스터를 사용하여 Tiller가 클러스터에 대해 가진 액세스 수준을 제어할 수 있습니다. Tiller를 배포한 Kubernetes 네임스페이스를 정의한 다음, 리소스를 배포할 수 있는 Tiller 네임스페이스를 제한할 수 있습니다. 이 방법을 통해 다른 네임스페이스에 Tiller 인스턴스를 만들고, 배포 경계를 제한하고, Helm 클라이언트의 사용자 범위를 특정 네임스페이스로 지정할 수 있습니다. 자세한 내용은 [역할 기반 액세스 제어 투구][helm-rbac]를 참조 하세요.
 
 ## <a name="configure-helm"></a>Helm 구성
 
-기본 Tiller를 AKS 클러스터에 배포하려면 [helm init][helm-init] 명령을 사용합니다. 클러스터가 RBAC를 사용할 수 없는 경우 `--service-account` 인수 및 값을 제거합니다. Tiller 및 Helm에 대한 TLS/SSL를 구성한 경우 이 기본 초기화 단계를 건너뛰고 대신 다음 예제와 같이 필수 `--tiller-tls-`를 제공합니다.
+기본 Tiller를 AKS 클러스터에 배포 하려면 [투구 init][helm-init] 명령을 사용 합니다. 클러스터가 RBAC를 사용할 수 없는 경우 `--service-account` 인수 및 값을 제거합니다. Tiller 및 Helm에 대한 TLS/SSL를 구성한 경우 이 기본 초기화 단계를 건너뛰고 대신 다음 예제와 같이 필수 `--tiller-tls-`를 제공합니다.
 
 ```console
-helm init --service-account tiller --node-selectors "beta.kubernetes.io/os"="linux"
+helm init --service-account tiller --node-selectors "beta.kubernetes.io/os=linux"
 ```
 
 Helm과 Tiller 간에 TLS/SSL을 구성한 경우 다음 예제와 같이 `--tiller-tls-*` 매개 변수 및 고유한 인증서 이름을 제공합니다.
@@ -91,7 +91,7 @@ helm init \
 
 ## <a name="find-helm-charts"></a>Helm 차트 찾기
 
-Helm 차트는 Kubernetes 클러스터에 애플리케이션을 배포하는 데 사용됩니다. 미리 만들어진 Helm 차트를 검색하려면 [helm search][helm-search] 명령을 사용합니다.
+Helm 차트는 Kubernetes 클러스터에 애플리케이션을 배포하는 데 사용됩니다. 미리 만든 투구 차트를 검색 하려면 [투구 검색][helm-search] 명령을 사용 합니다.
 
 ```console
 helm search
@@ -145,7 +145,7 @@ Update Complete. ⎈ Happy Helming!⎈
 
 ## <a name="run-helm-charts"></a>Helm 차트 실행
 
-Helm을 사용하여 차트를 설치하려면 [helm install][helm-install] 명령을 사용하고 설치할 차트의 이름을 지정합니다. Helm 차트를 실행 중인 설치를 확인 하려면 Helm 차트를 사용 하 여 기본 nginx 배포를 설치 해 보겠습니다. TLS/SSL을 구성한 경우 `--tls` 매개 변수를 추가하여 Helm 클라이언트 인증서를 사용합니다.
+투구로 차트를 설치 하려면 [투구 install][helm-install] 명령을 사용 하 여 설치할 차트의 이름을 지정 합니다. 동작에서 투구 차트 설치를 보려면 투구 차트를 사용 하 여 기본 nginx 배포를 설치 해 보겠습니다. TLS/SSL을 구성한 경우 `--tls` 매개 변수를 추가하여 Helm 클라이언트 인증서를 사용합니다.
 
 ```console
 helm install stable/nginx-ingress \
@@ -180,11 +180,11 @@ flailing-alpaca-nginx-ingress-default-backend  ClusterIP     10.0.44.97  <none> 
 ...
 ```
 
-에 대 일 분 정도 걸리는 합니다 *EXTERNAL-IP* 채워지고 웹 브라우저를 사용 하 여 액세스할 수 있도록 nginx 수신 컨트롤러 서비스의 주소입니다.
+Nginx 서비스의 *외부 IP* 주소에 대해 1 ~ 2 시간이 걸리고 웹 브라우저를 사용 하 여 액세스할 수 있습니다.
 
 ## <a name="list-helm-releases"></a>Helm 릴리스 나열
 
-클러스터에 설치된 릴리스 목록을 보려면 [helm list][helm-list] 명령을 사용합니다. 다음 예제에서는 이전 단계에서 배포 된 nginx 수신 릴리스를 보여 줍니다. TLS/SSL을 구성한 경우 `--tls` 매개 변수를 추가하여 Helm 클라이언트 인증서를 사용합니다.
+클러스터에 설치 된 릴리스 목록을 보려면 [투구 list][helm-list] 명령을 사용 합니다. 다음 예제에서는 이전 단계에서 배포 된 nginx를 수신 하는 방법을 보여 줍니다. TLS/SSL을 구성한 경우 `--tls` 매개 변수를 추가하여 Helm 클라이언트 인증서를 사용합니다.
 
 ```console
 $ helm list
@@ -195,7 +195,7 @@ flailing-alpaca   1         Thu May 23 12:55:21 2019    DEPLOYED    nginx-ingres
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-Helm 차트를 배포하면 다수의 Kubernetes 리소스가 생성됩니다. 이러한 리소스에는 Pod, 배포 및 서비스가 포함됩니다. 이러한 리소스를 정리하려면 `helm delete` 명령을 사용하고 이전 `helm list` 명령에서 찾은 릴리스 이름을 지정합니다. 다음 예제에서는 명명 된 릴리스를 삭제 *flailing alpaca*:
+Helm 차트를 배포하면 다수의 Kubernetes 리소스가 생성됩니다. 이러한 리소스에는 Pod, 배포 및 서비스가 포함됩니다. 이러한 리소스를 정리하려면 `helm delete` 명령을 사용하고 이전 `helm list` 명령에서 찾은 릴리스 이름을 지정합니다. 다음 예제에서는 *flailing-alpaca*라는 릴리스를 삭제 합니다.
 
 ```console
 $ helm delete flailing-alpaca

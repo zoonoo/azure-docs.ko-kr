@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: 1c6a0ce3e4e8d098d2bc048a331b0ae0cb5c6b13
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: bb28171ceca9861fb5cc0b7be1db9ab58ef72a1b
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881399"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124113"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights의 원격 분석 상관 관계
 
@@ -258,6 +258,7 @@ Application Insights SDK는 버전 2.4.0-beta1부터 `DiagnosticSource` 및 `Act
 ## <a name="next-steps"></a>다음 단계
 
 - [사용자 지정 원격 분석](../../azure-monitor/app/api-custom-events-metrics.md)을 작성합니다.
+- ASP.NET Core 및 ASP.NET의 고급 상관 관계 시나리오는 [사용자 지정 작업 추적](custom-operations-tracking.md) 문서를 참조 하세요.
 - 다른 SDK의 [cloud_RoleName 설정](../../azure-monitor/app/app-map.md#set-cloud-role-name)에 대해 자세히 알아봅니다.
 - Application Insights에서 마이크로 서비스의 모든 구성 요소를 온보딩합니다. [지원되는 플랫폼](../../azure-monitor/app/platforms.md)을 확인합니다.
 - Application Insights 유형에 대한 [데이터 모델](../../azure-monitor/app/data-model.md)을 참조합니다.

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C에서 로그인 유지 | Microsoft Docs
+title: Azure Active Directory B2C 로그인 상태 유지
 description: Azure Active Directory B2C에서 KMSI(로그인 유지)를 설정하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: mmacy
@@ -7,29 +7,31 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 08/29/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e99dacbe7ae0f42919616e04e60bf4f21b9bd985
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 29cdf5e7723113b4673945bf5db3158680a44b79
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835378"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147033"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 KMSI(로그인 유지) 사용
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure AD(Azure Active Directory) B2C에서 웹 및 네이티브 애플리케이션에 대한 KMSI(로그인 유지) 기능을 사용하도록 설정할 수 있습니다. 이 기능은 사용자 이름과 암호를 다시 입력하라는 메시지를 표시하지 않고 애플리케이션에 반환되는 사용자에게 액세스 권한을 부여합니다. 사용자가 로그아웃하면 이 액세스 권한이 철회됩니다.
+Azure Active Directory B2C (Azure AD B2C) 디렉터리에 로컬 계정이 있는 웹 및 네이티브 응용 프로그램 사용자에 대해 로그인 유지 (KMSI) 기능을 사용 하도록 설정할 수 있습니다. 이 기능은 사용자의 사용자 이름과 암호를 다시 입력 하 라는 메시지를 표시 하지 않고 응용 프로그램으로 돌아가는 사용자에 게 액세스 권한을 부여 합니다. 사용자가 로그아웃하면 이 액세스 권한이 철회됩니다.
 
 사용자는 공용 컴퓨터에서 이 옵션을 사용하면 안됩니다.
 
-![예제에서는 등록에서 로그인 페이지에 표시 된 유지 확인란에 로그인](./media/active-directory-b2c-reference-kmsi-custom/kmsi.PNG)
+![로그인 상태 유지 확인란을 표시 하는 등록 로그인 페이지의 예](./media/active-directory-b2c-reference-kmsi-custom/kmsi.PNG)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-로컬 계정 등록 및 로그인을 허용하도록 구성된 Azure AD B2C 테넌트가 있어야 합니다. 테넌트가 없는 경우 [자습서: Azure Active Directory B2C 테넌트 만들기](tutorial-create-tenant.md)의 단계를 사용하여 만들 수 있습니다.
+로컬 계정 로그인을 허용 하도록 구성 된 Azure AD B2C 테 넌 트입니다. 외부 id 공급자 계정에는 KMSI가 지원 되지 않습니다.
+
+테넌트가 없는 경우 [자습서: Azure Active Directory B2C 테넌트 만들기](tutorial-create-tenant.md)의 단계를 사용하여 만들 수 있습니다.
 
 ## <a name="add-a-content-definition-element"></a>콘텐츠 정의 요소 추가
 
@@ -87,7 +89,7 @@ Azure AD(Azure Active Directory) B2C에서 웹 및 네이티브 애플리케이�
 
 1. *TrustFrameworkExtensions.xml* 파일에서 식별자가 `login-NonInteractive`인 **TechnicalProfile** 요소와 식별자가 `login-NonInteractive-PasswordChange`인 **TechnicalProfile** 요소를 찾고, 모두 [시작](active-directory-b2c-get-started-custom.md)에서 설명한 대로 `IdentityExperienceFrameworkAppId`의 모든 값을 ID 경험 프레임워크 애플리케이션의 애플리케이션 식별자로 바꿉니다.
 
-    ```
+    ```XML
     <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
     ```
 
@@ -183,11 +185,3 @@ Azure AD(Azure Active Directory) B2C에서 웹 및 네이티브 애플리케이�
 5. Azure Portal에서 업로드한 사용자 지정 정책을 테스트하려면 정책 페이지로 이동한 다음, **지금 실행**을 선택합니다.
 
 [여기](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/keep%20me%20signed%20in)에서 샘플 정책을 찾을 수 있습니다.
-
-
-
-
-
-
-
-

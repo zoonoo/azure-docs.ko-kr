@@ -3,24 +3,23 @@ title: Azure Data Factory에서 파이프라인 실행 및 트리거 | Microsoft
 description: 이 문서에서는 요청 시 또는 트리거를 만들어 Azure Data Factory에서 파이프라인을 실행하는 방법에 대한 정보를 제공합니다.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.author: shlo
-ms.openlocfilehash: 21e66f962d1cc0bbbe8d780a702216d40abe2836
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 34ff075a604afdcbef67c7b10ce1ef8cbe2924e7
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66155222"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137027"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory에서 파이프라인 실행 및 트리거
-> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
+> [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스의 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-scheduling-and-execution.md)
 > * [현재 버전](concepts-pipeline-execution-triggers.md)
 

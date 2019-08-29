@@ -11,33 +11,33 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 273a6aca2050676650b955ec078b47b2ffcfe319
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 7fcf24256634ef11b575348d9da7d6bbbab8b67c
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333934"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127758"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory ID 보호 플레이 북
 
 이 플레이 북은 다음 작업을 수행하는 데 도움이 됩니다.
 
-* 위험 이벤트 및 취약성을 시뮬레이트하여 ID 보호 환경에 데이터 채우기
+* 위험 검색 및 취약성을 시뮬레이션 하 여 Id 보호 환경에서 데이터 채우기
 * 위험 기반 조건부 액세스 정책을 설정 하 고 이러한 정책의 영향을 테스트 합니다.
 
-## <a name="simulating-risk-events"></a>위험 이벤트 시뮬레이션
+## <a name="simulating-risk-detections"></a>위험 감지 시뮬레이션
 
-이 섹션에서는 다음 위험 이벤트 유형을 시뮬레이트하는 단계를 제공합니다.
+이 섹션에서는 다음 위험 검색 유형을 시뮬레이션 하는 단계를 제공 합니다.
 
 * 익명 IP 주소에서 로그인(초급)
 * 잘 모르는 위치에서 로그인(중급)
 * 비정상적 위치로 불가능한 이동(고급)
 
-안전한 방법으로 다른 위험 이벤트를 시뮬레이션할 수 없습니다.
+다른 위험 검색은 안전한 방식으로 시뮬레이트할 수 없습니다.
 
-### <a name="sign-ins-from-anonymous-ip-addresses"></a>익명 IP 주소에서의 로그인
+### <a name="sign-ins-from-anonymous-ip-addresses"></a>익명 IP 주소에서 로그인
 
-이 위험 이벤트에 대한 자세한 내용은 [익명 IP 주소에서 로그인](../reports-monitoring/concept-risk-events.md#sign-ins-from-anonymous-ip-addresses)을 참조하세요. 
+이러한 위험 검색에 대 한 자세한 내용은 [익명 IP 주소에서 로그인](../reports-monitoring/concept-risk-events.md#sign-ins-from-anonymous-ip-addresses)을 참조 하세요. 
 
 다음 절차를 완료하려면 다음을 사용해야 합니다.
 
@@ -51,9 +51,9 @@ ms.locfileid: "68333934"
 
 로그인이 10 ~ 15분 이내에 ID 보호 대시보드에 나타납니다. 
 
-### <a name="sign-ins-from-unfamiliar-locations"></a>일반적이지 않은 위치에서의 로그인
+### <a name="sign-ins-from-unfamiliar-locations"></a>알 수 없는 위치에서 로그인
 
-이 위험 이벤트에 대한 자세한 내용은 [알 수 없는 위치에서 로그인](../reports-monitoring/concept-risk-events.md#sign-in-from-unfamiliar-locations)을 참조하세요. 
+이러한 위험 검색에 대 한 자세한 내용은 [익숙하지 않은 위치에서 로그인](../reports-monitoring/concept-risk-events.md#sign-in-from-unfamiliar-locations)을 참조 하세요. 
 
 알 수 없는 위치를 시뮬레이트하려면 테스트 계정이 이전에 로그인하지 않은 위치 및 디바이스에서 로그인해야 합니다.
 
@@ -76,14 +76,14 @@ ms.locfileid: "68333934"
 
 ### <a name="impossible-travel-to-atypical-location"></a>비정상적 위치로 불가능한 이동
 
-이 위험 이벤트에 대 한 자세한 내용은 [비정상적 위치로 이동 불가능](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations)을 참조하세요. 
+이러한 위험 검색에 대 한 자세한 내용은 [불규칙 한 위치로 이동할 수](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations)없음을 참조 하세요. 
 
-알고리즘이 기계 학습을 사용하여 익숙한 디바이스에서 불가능한 이동 또는 디렉터리의 다른 사용자가 사용하는 VPN에서 시도한 로그인 등 가양성을 걸러내기 때문에 불가능한 이동 조건을 시뮬레이션하는 작업은 어렵습니다. 또한 알고리즘은 위험 이벤트의 생성을 시작하기 전에 사용자에 대한 14일 간 및 10회의 로그인 기록이 필요합니다. 복잡한 Machine Learning 모델 및 위의 규칙으로 인해 다음 단계가 위험 이벤트를 유발하지 않을 가능성이 높습니다. 여러 Azure AD 계정이 이 위험 이벤트를 게시하도록 하기 위해 이러한 단계를 복제할 수도 있습니다.
+알고리즘이 기계 학습을 사용하여 익숙한 디바이스에서 불가능한 이동 또는 디렉터리의 다른 사용자가 사용하는 VPN에서 시도한 로그인 등 가양성을 걸러내기 때문에 불가능한 이동 조건을 시뮬레이션하는 작업은 어렵습니다. 또한 알고리즘은 위험 검색 생성을 시작 하기 전에 사용자에 대 한 14 일 및 10 개의 로그인 로그인 기록이 필요 합니다. 복잡 한 기계 학습 모델 및 위의 규칙 때문에 다음 단계를 수행 해도 위험 검색이 발생 하지 않을 수 있습니다. 이러한 위험 검색을 게시 하기 위해 여러 Azure AD 계정에 대해 이러한 단계를 복제 하는 것이 좋습니다.
 
 **비정상적 위치로 불가능한 이동을 시뮬레이트하려면 다음 단계를 수행합니다.**
 
 1. 표준 브라우저를 사용하여 [https://myapps.microsoft.com](https://myapps.microsoft.com)으로 이동합니다.  
-2. 불가능한 이동 위험 이벤트를 생성하려는 계정의 자격 증명을 입력합니다.
+2. 불가능 한 이동 위험 검색을 생성 하려는 계정의 자격 증명을 입력 합니다.
 3. 사용자 에이전트를 변경합니다. 사용자 에이전트 전환기 추가 기능을 사용하여 개발자 도구에서 Internet Explorer의 사용자 에이전트를 변경하거나 Firefox 또는 Chrome에서 사용자 에이전트를 변경할 수 있습니다.
 4. 사용자의 IP 주소를 변경합니다. VPN, Tor 추가 기능을 사용하거나 다른 데이터 센터의 Azure에서 새 컴퓨터를 스핀업하여 사용자의 IP 주소를 변경할 수 있습니다.
 5. 이전과 동일한 자격 증명을 사용하여 이전 로그인 후 몇 분 내에 [https://myapps.microsoft.com](https://myapps.microsoft.com)에 로그인합니다.
@@ -118,8 +118,8 @@ ms.locfileid: "68333934"
 
 5. 컨트롤 섹션에서 원하는 액세스 제어를 선택합니다(예: 암호를 변경해야 함).
 5. **정책 적용**에 **끄기**를 선택합니다.
-6. 예를 들어 위험 이벤트 중 하나를 몇 번 시뮬레이트하여 테스트 계정의 사용자 위험을 상승시킵니다.
-7. 몇 분 정도 기다린 다음, 사용자에 대한 해당 사용자 수준이 보통인지 확인합니다. 보통이 아닌 경우 사용자에 대해 더 많은 위험 이벤트를 시뮬레이트합니다.
+6. 예를 들어, 위험 검색 중 하나를 시뮬레이션 하는 등의 방법으로 테스트 계정의 사용자 위험을 상승 시킵니다.
+7. 몇 분 정도 기다린 다음, 사용자에 대한 해당 사용자 수준이 보통인지 확인합니다. 그렇지 않으면 사용자에 대 한 더 많은 위험 검색을 시뮬레이트합니다.
 8. **정책 적용**에 **켜기**를 선택합니다.
 9. 이제 높은 위험 수준으로 사용자를 사용 하 여 로그인 하 여 사용자 위험 기반 조건부 액세스를 테스트할 수 있습니다.
 

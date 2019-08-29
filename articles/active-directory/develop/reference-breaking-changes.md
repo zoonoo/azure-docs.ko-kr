@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/26/2019
+ms.date: 08/28/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38383685f74020f5208d42df4428f896931fbe2a
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 6dd50aa00368469a9c5b42c41826da28566268d4
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931780"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125427"
 ---
 # <a name="whats-new-for-authentication"></a>인증의 새로운 기능? 
 
@@ -41,7 +41,24 @@ ms.locfileid: "68931780"
 
 ## <a name="upcoming-changes"></a>예정된 변경
 
-8 월 2019: URL 구문 분석 규칙에 따라 게시 의미 체계 적용-중복 된 매개 변수는 오류를 트리거하고 매개 변수의 따옴표는 더 이상 무시 되지 않으며 [BOM](https://www.w3.org/International/questions/qa-byte-order-mark) 은 무시 됩니다.
+9 월 2019: URL 구문 분석 규칙에 따라 게시 의미 체계의 추가 적용-중복 매개 변수는 오류 및 [BOM](https://www.w3.org/International/questions/qa-byte-order-mark) 을 무시 합니다.
+
+## <a name="august-2019"></a>2019년 8월
+
+### <a name="post-form-semantics-will-be-enforced-more-strictly---spaces-and-quotes-will-be-ignored"></a>게시 양식 의미 체계가 보다 엄격 하 게 적용 되며 따옴표는 무시 됩니다.
+
+**개시 날짜**: 2019 년 9 월 2 일
+
+**영향을 받는 엔드포인트**: v1.0 및 v2.0 모두
+
+**영향을 받는 프로토콜**: 어디서 나 게시를 사용 합니다 ([클라이언트 자격 증명](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow), [인증 코드 상환](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow), [ropc](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc), [obo](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)및 [새로 고침 토큰 상환](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow#refresh-the-access-token)).
+
+9/2 주부터 POST 메서드를 사용 하는 인증 요청은 보다 엄격한 HTTP 표준을 사용 하 여 유효성이 검사 됩니다.  특히 공백과 큰따옴표 (")는 요청 양식 값에서 더 이상 제거 되지 않습니다. 이러한 변경으로 인해 기존 클라이언트는 중단 되지 않으며, Azure AD로 전송 되는 요청은 매번 안정적으로 처리 됩니다. 나중에 (위 참조) 요청 내에서 중복 된 매개 변수를 거부 하 고 BOM을 무시할 계획입니다. 
+
+예제:
+
+현재는 `?e=    "f"&g=h` 와 `?e=f&g=h` 동일 하 게 `e`  == 구문 분석됩니다.`f`  이 변경으로 인해 이제는 `e`  ==  `    "f"` 이를 구문 분석 하 여 유효한 인수가 될 가능성이 낮으므로 요청이 실패 합니다. 
+
 
 ## <a name="july-2019"></a>7 월 2019
 

@@ -1,6 +1,6 @@
 ---
-title: Azure NetApp Files Sdk | Microsoft Docs
-description: Azure NetApp Files에서 지 원하는 Sdk를 나열 합니다.
+title: Azure NetApp Files Sdk 및 CLI 도구 | Microsoft Docs
+description: Azure NetApp Files에서 지 원하는 Sdk 및 명령줄 (CLI) 도구를 나열 합니다.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,33 +12,49 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 08/28/2019
 ms.author: b-juche
-ms.openlocfilehash: 499f9d14a20f665f545f5fdc3b31015cb57c193c
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: a99fb3b61d8193f1671fa1d8e228439941659d57
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667486"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141172"
 ---
-# <a name="azure-netapp-files-sdks"></a>Azure NetApp Files SDK
+# <a name="azure-netapp-files-sdks-and-cli-tools"></a>Azure NetApp Files Sdk 및 CLI 도구
 
-이 문서에서는 Azure NetApp Files에서 지 원하는 Sdk를 나열 합니다.
+이 문서에는 Azure NetApp Files에서 지 원하는 Sdk 및 명령줄 (CLI) 도구가 나열 되어 있습니다.
 
 ## <a name="supported-sdks"></a>지원되는 SDK 
 
 다음 표에서는 지원 되는 Sdk를 나열 합니다.  지원 되는 Sdk에 대 한 자세한 내용은 GitHub의 게시 된 위치에서 찾을 수 있습니다.  
 
-|    언어    |    SDK 게시 위치    |
-|------------------|--------------------------------------------------------------------------------------------|
-|    [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/netapp)    |    `https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/netapp`    |
-|    [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/netapp)    |    `https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/netapp`    |
-|    [Go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/netapp)    |    `https://github.com/Azure/azure-sdk-for-go/tree/master/services/netapp`       |
-|    [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/netapp/resource-manager) | `https://github.com/Azure/azure-sdk-for-java/tree/master/netapp/resource-manager` |
-|    [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/netapp/arm-netapp)    |    `https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/netapp/arm-netapp`    |
-|    [Ruby](https://github.com/Azure/azure-sdk-for-ruby/tree/master/management/azure_mgmt_netapp)    |    `https://github.com/Azure/azure-sdk-for-ruby/tree/master/management/azure_mgmt_netapp`    |
+|    언어    |    GitHub의 SDK 게시 위치    |
+|------------------|--------------------------------------------------------------|
+|    .NET  |    [Azure/azure-sdk](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/netapp)    |
+|    Python  |  [Azure/azure-python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/netapp)    |
+|    Go    |    [Azure/azure-sdk](https://github.com/Azure/azure-sdk-for-go/tree/master/services/netapp)       |
+|    Java |     [Azure/azure-java](https://github.com/Azure/azure-sdk-for-java/tree/master/netapp/resource-manager) |
+|    JavaScript    |    [Azure/azure-node.js](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/netapp/arm-netapp)    |
+|    Ruby   |    [Azure/azure--ruby](https://github.com/Azure/azure-sdk-for-ruby/tree/master/management/azure_mgmt_netapp)    |
 
-<!-- ## Command-line tools -->
+## <a name="cli-tools"></a>CLI 도구
+
+다음 표에서는 지원 되는 CLI 도구와 해당 명령 참조를 나열 합니다.   
+
+|    도구    |    명령 참조    |
+|------------------|--------------------------------------------|
+|    Azure CLI  |    [az netappfiles](https://docs.microsoft.com/cli/azure/netappfiles?view=azure-cli-latest)    |
+|    PowerShell   |    [Azure NetApp Files에 대 한 Azure PowerShell](https://docs.microsoft.com/powershell/module/az.netappfiles/?view=azps-2.5.0#netapp_files)    |
+
+## <a name="code-samples"></a>코드 샘플
+
+다음 표에서는 참조에 대 한 코드 샘플을 나열 합니다.   
+
+|    언어/도구    |    코드 샘플 설명서    |
+|------------------|--------------------------------------------|
+|    .NET   |    [에 대 한 Azure NetApp Files SDK 샘플입니다. Microsoft.netcore.portable.compatibility](https://docs.microsoft.com/samples/azure-samples/netappfiles-dotnetcore-sdk-sample/azure-netappfiles-sdk-sample-for-netcore/)    |    
+|    Pythons    |    [Python 용 Azure NetApp Files SDK 샘플](https://docs.microsoft.com/samples/azure-samples/netappfiles-python-sdk-sample/azure-netappfiles-sdk-sample-for-python/)    |
 
 ## <a name="next-steps"></a>다음 단계   
  [Azure Sdk 다운로드](https://azure.microsoft.com/downloads/)

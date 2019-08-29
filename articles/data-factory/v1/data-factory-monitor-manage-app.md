@@ -3,22 +3,21 @@ title: 데이터 파이프라인 모니터링 및 관리 - Azure | Microsoft Doc
 description: 모니터링 및 관리 앱을 사용하여 Azure Data Factory 및 파이프라인을 모니터링하고 관리하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.assetid: f3f07bc4-6dc3-4d4d-ac22-0be62189d578
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 5b70edd4f65538b52c70881258bc500a34b04d80
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 052ea99f0489458269adf4dca2c6713535933638
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60826750"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139585"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>모니터링 및 관리 앱을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리
 > [!div class="op_single_selector"]
@@ -160,7 +159,7 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 
 <table>
 <tr>
-    <th align="left">상태</th><th align="left">하위 상태</th><th align="left">설명</th>
+    <th align="left">Status</th><th align="left">하위 상태</th><th align="left">Description</th>
 </tr>
 <tr>
     <td rowspan="8">대기</td><td>ScheduleTime</td><td>활동 기간을 실행할 시간이 아직 되지 않습니다.</td>
@@ -205,10 +204,10 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 <tr>
 <td>-</td><td>활동 창이 생성되거나 유효성이 검사되지 못했습니다.</td>
 </tr>
-<td>Ready</td><td>-</td><td>작업 창을 사용할 준비가 되었습니다.</td>
+<td>준비</td><td>-</td><td>작업 창을 사용할 준비가 되었습니다.</td>
 </tr>
 <tr>
-<td>생략</td><td>-</td><td>활동 기간이 처리되지 않습니다.</td>
+<td>건너 뜀</td><td>-</td><td>활동 기간이 처리되지 않습니다.</td>
 </tr>
 <tr>
 <td>없음</td><td>-</td><td>활동 기간이 다른 상태와 함께 존재하는 데 사용되었지만 다시 설정되었습니다.</td>

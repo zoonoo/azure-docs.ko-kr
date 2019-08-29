@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 05/07/2019
+ms.date: 08/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: 129476c833e596d40daa7081e23c0fd6d1b93b30
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 275eff59c56229f45a131e107668b8fefab24536
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165771"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70123760"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Azure Time Series Insights에서 모니터링을 수행하고 제한을 축소하여 대기 시간 줄이기
 
@@ -34,7 +34,7 @@ ms.locfileid: "67165771"
 
 ## <a name="video"></a>비디오
 
-### <a name="learn-about-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>Time Series Insights 데이터 수신 동작 및에 대 한 계획 하는 방법에 알아봅니다.</br>
+### <a name="learn-about-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>Time Series Insights 데이터 수신 동작 및 계획 방법에 대해 알아봅니다.</br>
 
 > [!VIDEO https://www.youtube.com/embed/npeZLAd9lxo]
 
@@ -42,37 +42,49 @@ ms.locfileid: "67165771"
 
 경고는 환경으로 인한 대기 시간 문제를 진단하고 완화하는 데 도움이 됩니다.
 
-1. Azure portal에서 선택 **메트릭을**합니다.
+1. Azure Portal에서 **경고**를 선택 합니다.
 
-   [![Metrics](media/environment-mitigate-latency/add-metrics.png)](media/environment-mitigate-latency/add-metrics.png#lightbox)
+   [![알립니다](media/environment-mitigate-latency/add-alerts.png)](media/environment-mitigate-latency/add-alerts.png#lightbox)
 
-1. **메트릭 경고 추가**를 선택합니다.  
+1. 그러면 **규칙 만들기** 패널이 표시 됩니다. **조건**아래에서 **추가** 를 선택 합니다.
 
-   [![메트릭 경고 추가](media/environment-mitigate-latency/add-metric-alert.png)](media/environment-mitigate-latency/add-metric-alert.png#lightbox)
+   [![경고 추가](media/environment-mitigate-latency/alert-pane.png)](media/environment-mitigate-latency/alert-pane.png#lightbox)
 
-여기에서 다음 메트릭을 사용하여 경고를 구성할 수 있습니다.
+1. 그런 다음 신호 논리에 대 한 정확한 조건을 구성 합니다.
 
-|메트릭  |설명  |
-|---------|---------|
-|**수신된 바이트**     | 이벤트 원본에서 읽은 원시 바이트 수입니다. 일반적으로 원시 바이트 수에는 속성 이름 및 값이 포함됩니다.  |  
-|**수신된 잘못된 메시지**     | 모든 Azure Event Hubs 또는 Azure IoT Hub 이벤트 원본에서 읽은 잘못된 메시지 수입니다.      |
-|**수신된 메시지**   | 모든 Event Hubs 또는 IoT Hub 이벤트 원본에서 읽은 메시지 수입니다.        |
-|**저장된 수신 바이트**     | 저장되어 쿼리에 사용할 수 있는 총 이벤트 크기입니다. 크기는 속성 값에 대해서만 계산됩니다.        |
-|**저장된 수신 이벤트**     |   저장되어 쿼리에 사용할 수 있는 일반 이벤트 수입니다.      |
-|**수신된 메시지 시간 지연**    |  메시지가 이벤트 원본의 큐에 대기되는 시간과 수신 처리되는 시간 간의 차이(초)입니다.      |
-|**수신된 메시지 수 지연**    |  이벤트 원본 파티션에서 마지막 큐에 대기된 메시지의 시퀀스 번호와 수신 처리되는 메시지의 시퀀스 번호 간의 차이입니다.      |
+   [![신호 논리 구성](media/environment-mitigate-latency/configure-alert-rule.png)](media/environment-mitigate-latency/configure-alert-rule.png#lightbox)
 
-![대기 시간](media/environment-mitigate-latency/latency.png)
+   여기에서 다음 조건 중 일부를 사용 하 여 경고를 구성할 수 있습니다.
 
-* 값에 대 한 표시는 하면 제한 되는 경우는 *수신 수신 메시지 시간 지연*, (appx의 인덱싱 시간을 제외 이벤트 소스에 도달 초 단위 시간에 tsi는 실제 시간에서 메시지를 알리는 합니다. 30-60초의 인덱싱 시간 제외).  *수신된 메시지 수 지연*에도 값이 표시되므로 메시지가 뒤에 몇 개나 더 남아 있는지 알 수 있습니다.  이러한 차이를 해소하는 가장 쉬운 방법은 작업 환경의 용량을 차이가 극복될 수 있는 크기로 늘리는 것입니다.  
+   |메트릭  |Description  |
+   |---------|---------|
+   |**수신된 바이트**     | 이벤트 원본에서 읽은 원시 바이트 수입니다. 일반적으로 원시 바이트 수에는 속성 이름 및 값이 포함됩니다.  |  
+   |**수신된 잘못된 메시지**     | 모든 Azure Event Hubs 또는 Azure IoT Hub 이벤트 원본에서 읽은 잘못된 메시지 수입니다.      |
+   |**수신된 메시지**   | 모든 Event Hubs 또는 IoT Hub 이벤트 원본에서 읽은 메시지 수입니다.        |
+   |**저장된 수신 바이트**     | 저장되어 쿼리에 사용할 수 있는 총 이벤트 크기입니다. 크기는 속성 값에 대해서만 계산됩니다.        |
+   |**저장된 수신 이벤트**     |   저장되어 쿼리에 사용할 수 있는 일반 이벤트 수입니다.      |
+   |**수신된 메시지 시간 지연**    |  메시지가 이벤트 원본의 큐에 대기되는 시간과 수신 처리되는 시간 간의 차이(초)입니다.      |
+   |**수신된 메시지 수 지연**    |  이벤트 원본 파티션에서 마지막 큐에 대기된 메시지의 시퀀스 번호와 수신 처리되는 메시지의 시퀀스 번호 간의 차이입니다.      |
 
-  예를 들어, 단일 단위 S1 환경을 5,000,000 메시지 지연 인지 확인 하는 경우를 해소 하 하루 동안에 대 한 6 개 단위로 사용자 환경의 크기를 증가할 수 있습니다.  더 빠르게 따라잡기 위해 더 크게 늘릴 수도 있습니다. 캐치업 시간은 처음에 환경을 프로비전할 때 일반적으로 발생하고, 이미 이벤트가 포함된 이벤트 원본에 연결하거나 많은 기록 데이터를 대량으로 업로드할 때 특히 두드러집니다.
+   **완료** 를 선택합니다.
+
+1. 원하는 신호 논리를 구성한 후에는 선택한 경고 규칙을 시각적으로 검토 합니다.
+
+   [![수신](media/environment-mitigate-latency/ingress.png)](media/environment-mitigate-latency/ingress.png#lightbox)
+
+## <a name="throttling-and-ingress-management"></a>제한 및 수신 관리
+
+* 제한 되는 경우 *수신 받은 메시지의 지연 시간*에 대 한 값이 표시 됩니다. 여기서 tsi의 초 수는 메시지가 이벤트 원본에 도달 하는 실제 시간 (appx의 인덱싱 시간 제외)에서 발생 한 시간입니다. 30-60초의 인덱싱 시간 제외).  
+
+  *수신된 메시지 수 지연*에도 값이 표시되므로 메시지가 뒤에 몇 개나 더 남아 있는지 알 수 있습니다.  이러한 차이를 해소하는 가장 쉬운 방법은 작업 환경의 용량을 차이가 극복될 수 있는 크기로 늘리는 것입니다.  
+
+  예를 들어 단일 단위 S1 환경이 있고 500만 메시지 지연이 있음을 확인 하는 경우 사용자 환경의 크기를 하루 중 6 개 단위로 늘려 검색할 수 있습니다.  더 빠르게 따라잡기 위해 더 크게 늘릴 수도 있습니다. 캐치업 시간은 처음에 환경을 프로비전할 때 일반적으로 발생하고, 이미 이벤트가 포함된 이벤트 원본에 연결하거나 많은 기록 데이터를 대량으로 업로드할 때 특히 두드러집니다.
 
 * 또 다른 방법은 **저장된 수신 이벤트** 경고를 2시간 동안의 전체 환경 용량보다 약간 낮게 설정하는 것입니다.  이 경고는 용량이 일정한지 이해하는 데 도움이 되며 대기 시간이 길어질 가능성이 높다는 것을 나타냅니다. 
 
   예를 들어 3개의 S1 장치가 프로비전된 경우(또는 1분당 2100개의 이벤트를 수신하는 경우) **저장된 수신 이벤트** 경고를 2시간 동안 1900개 이벤트 이하로 설정할 수 있습니다. 이 임계값을 지속적으로 초과하여 경고를 발생시키는 경우 프로비전 부족 상태가 될 가능성이 큽니다.  
 
-* 비교할 수 있습니다이 제한이 적용 되는 것 같으면 사용자 **수신 된 메시지** 이벤트를 사용 하 여 원본 발신 메시지와 합니다.  Event Hub로 수신된 메시지 수가 **수신된 메시지** 수보다 크면 Time Series Insights가 제한될 수 있습니다.
+* 제한 되는 것으로 의심 되는 경우 **수신 받은 메시지** 를 이벤트 원본의 egressed 메시지와 비교할 수 있습니다.  Event Hub로 수신된 메시지 수가 **수신된 메시지** 수보다 크면 Time Series Insights가 제한될 수 있습니다.
 
 ## <a name="improving-performance"></a>성능 향상
 

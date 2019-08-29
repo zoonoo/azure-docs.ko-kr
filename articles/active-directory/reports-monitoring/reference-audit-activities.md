@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a687823d1344ca11864523cb9187f48d7373fd41
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 56a94ef3f6ea5737b629efe44bd3e1cc1f36a693
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989626"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127139"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Azure AD 감사 활동 참조
 
@@ -348,10 +348,10 @@ Azure AD의 보고 아키텍처는 다음 구성 요소로 구성됩니다.
 
 |감사 범주|활동|
 |---|---|
-|관리 단위 관리|단일 위험 이벤트 유형 다운로드|
+|관리 단위 관리|단일 위험 검색 유형 다운로드|
 |관리 단위 관리|관리자 및 주간 다이제스트 옵트인 상태 다운로드|
-|관리 단위 관리|모든 위험 이벤트 유형 다운로드|
-|관리 단위 관리|무료 사용자 위험 이벤트 다운로드|
+|관리 단위 관리|모든 위험 검색 유형 다운로드|
+|관리 단위 관리|무료 사용자 위험 검색 다운로드|
 |관리 단위 관리|위험 플래그가 지정된 사용자 다운로드|
 |애플리케이션 관리|Batch 초대가 처리됨|
 |애플리케이션 관리|Batch 초대가 업로드됨|

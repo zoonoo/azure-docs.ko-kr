@@ -3,22 +3,20 @@ title: Data Factory 및 Batch를 사용하여 대규모 데이터 세트 처리 
 description: Azure Batch의 병렬 처리 기능을 사용하여 Azure Data Factory 파이프라인에서 대용량 데이터를 처리하는 방법을 설명합니다.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: 688b964b-51d0-4faa-91a7-26c7e3150868
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 67829b6245fe4fea8da88c97fa8d5aeedccc90a0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: fe015e2ffa371c0c31f7f5f43c433d44f3ca3c42
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446621"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140049"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory 및 Batch를 사용하여 대규모 데이터 세트 처리
 > [!NOTE]
@@ -43,7 +41,7 @@ Batch 서비스를 통해 애플리케이션을 병렬로 규모에 따라 실�
 * [Batch의 기본 사항](../../batch/batch-technical-overview.md)
 * [Batch 기능 개요](../../batch/batch-api-basics.md)
 
-필요에 따라 일괄 처리에 대 한 자세한 내용은를 참조 하세요 [Batch 설명서](https://docs.microsoft.com/azure/batch/)합니다.
+필요에 따라 Batch에 대해 자세히 알아보려면 [batch 설명서](https://docs.microsoft.com/azure/batch/)를 참조 하세요.
 
 ## <a name="why-azure-data-factory"></a>Azure Data Factory를 사용해야 하는 이유
 데이터 팩터리는 데이터의 이동과 변환을 조율하고 자동화하는 클라우드 기반의 데이터 통합 서비스입니다. Data Factory를 사용하여 온-프레미스 및 클라우드 데이터 저장소에서 중앙 집중식 데이터 저장소로 데이터를 이동하는 관리되는 데이터 파이프라인을 만들 수 있습니다. 예제는 Azure Blob Storage입니다. Azure HDInsight 및 Azure Machine Learning과 같은 서비스를 사용하여 데이터를 처리/변환하는 데 Data Factory를 사용할 수 있습니다. 데이터 파이프라인을 예약된 방식(예: 매시간, 매일 및 매주)으로 실행되도록 예약할 수도 있습니다. 한 번에 파이프라인을 모니터링하고 관리하여 문제를 식별하고 조치를 취할 수 있습니다.
@@ -69,9 +67,9 @@ Data Factory는 기본 제공 작업을 포함합니다. 예를 들어 복사 �
 
 다음 목록은 프로세스의 기본 단계를 제공합니다. 솔루션에는 엔드투엔드 솔루션을 빌드하는 코드와 설명이 포함되어 있습니다.
 
-* **계산 노드(VM)의 풀과 함께 Batch를 구성합니다.** 노드 수와 각 노드의 크기를 지정할 수 있습니다.
+* **컴퓨팅 노드(VM)의 풀과 함께 Batch를 구성합니다.** 노드 수와 각 노드의 크기를 지정할 수 있습니다.
 
-* 데이터를 이동하고 변환하는 작업을 사용하여 Blob Storage, Batch 계산 서비스, 입력/출력 데이터 및 워크플로/파이프라인을 나타내는 엔터티로 구성된 **Data Factory 인스턴스를 만듭니다**.
+* 데이터를 이동하고 변환하는 작업을 사용하여 Blob Storage, Batch 컴퓨팅 서비스, 입력/출력 데이터 및 워크플로/파이프라인을 나타내는 엔터티로 구성된 **Data Factory 인스턴스를 만듭니다**.
 
 * **Data Factory 파이프라인에서 사용자 지정 .NET 작업을 만듭니다.** 작업은 Batch 풀에서 실행되는 사용자 코드입니다.
 
@@ -88,7 +86,7 @@ Data Factory는 기본 제공 작업을 포함합니다. 예를 들어 복사 �
 
 **시간:** Azure, Data Factory 및 Batch의 기본 사항에 익숙하고 다음과 같은 필수 구성 요소를 완료했다면 이 솔루션이 완료되는 데 1~2시간이 소요됩니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 #### <a name="azure-subscription"></a>Azure 구독
 Azure 구독이 없는 경우 신속하게 평가판 계정을 만들 수 있습니다. 자세한 내용은 [평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
@@ -96,7 +94,7 @@ Azure 구독이 없는 경우 신속하게 평가판 계정을 만들 수 있습
 스토리지 계정을 사용하여 이 자습서에 있는 데이터를 저장합니다. 스토리지 계정이 없는 경우 [스토리지 계정 만들기](../../storage/common/storage-quickstart-create-account.md)를 참조하세요. 샘플 솔루션은 Blob Storage를 사용합니다.
 
 #### <a name="azure-batch-account"></a>Azure Batch 계정
-[Azure Portal](https://portal.azure.com/)을 사용하여 Batch 계정을 만듭니다. 자세한 내용은 [Batch 계정 만들기 및 관리](../../batch/batch-account-create-portal.md)를 참조하세요. Batch 계정 이름 및 계정 키를 적어둡니다. 사용할 수도 있습니다는 [새로 만들기-AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) Batch 계정을 만들려면 cmdlet. 이 cmdlet 사용 방법에 대한 자세한 지침은 [Batch PowerShell cmdlet 시작](../../batch/batch-powershell-cmdlets-get-started.md)을 참조하세요.
+[Azure Portal](https://portal.azure.com/)을 사용하여 Batch 계정을 만듭니다. 자세한 내용은 [Batch 계정 만들기 및 관리](../../batch/batch-account-create-portal.md)를 참조하세요. Batch 계정 이름 및 계정 키를 적어둡니다. [AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) cmdlet을 사용 하 여 Batch 계정을 만들 수도 있습니다. 이 cmdlet 사용 방법에 대한 자세한 지침은 [Batch PowerShell cmdlet 시작](../../batch/batch-powershell-cmdlets-get-started.md)을 참조하세요.
 
 샘플 솔루션은 Batch를 사용하여(간접적으로 Data Factory 파이프라인을 통해) VM의 관리되는 컬렉션인 컴퓨팅 노드의 풀에서 병렬 방식으로 데이터를 처리합니다.
 
@@ -115,7 +113,7 @@ Azure 구독이 없는 경우 신속하게 평가판 계정을 만들 수 있습
 
    b. **운영 체제 제품군** 설정에 **Windows Server 2012 R2**를 지정합니다.
 
-   다. **노드 가격 책정 계층**을 선택합니다.
+   c. **노드 가격 책정 계층**을 선택합니다.
 
    d. **대상 전용** 설정 값으로 **2**를 입력합니다.
 
@@ -124,7 +122,7 @@ Azure 구독이 없는 경우 신속하게 평가판 계정을 만들 수 있습
    f. **확인**을 선택하여 풀을 만듭니다.
 
 #### <a name="azure-storage-explorer"></a>Azure Storage Explorer
-[Azure Storage 탐색기 6](https://azurestorageexplorer.codeplex.com/) 또는 [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer)(ClumsyLeaf Software)를 사용하여 Storage 프로젝트의 데이터를 검사하고 변경합니다. 클라우드 호스팅 애플리케이션의 로그에 있는 데이터를 검사하고 변경할 수도 있습니다.
+[Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.com/) 또는 [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer)(ClumsyLeaf Software)를 사용하여 Storage 프로젝트의 데이터를 검사하고 변경합니다. 클라우드 호스팅 애플리케이션의 로그에 있는 데이터를 검사하고 변경할 수도 있습니다.
 
 1. 프라이빗 액세스로 **mycontainer**라는 컨테이너를 만듭니다(익명 액세스 없음).
 
@@ -184,7 +182,7 @@ public IDictionary<string, string> Execute(
 
    b. **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
 
-   다. **템플릿**을 확장하고 **Visual C\#** 를 선택합니다. 이 연습에서는 C\#를 사용하지만 다른 .NET 언어를 사용하여 사용자 지정 작업을 개발할 수도 있습니다.
+   c. **템플릿**을 확장하고 **Visual C\#** 를 선택합니다. 이 연습에서는 C\#를 사용하지만 다른 .NET 언어를 사용하여 사용자 지정 작업을 개발할 수도 있습니다.
 
    d. 오른쪽의 프로젝트 형식 목록에서 **클래스 라이브러리**를 선택합니다.
 
@@ -532,7 +530,7 @@ test custom activity Microsoft test custom activity Microsoft
 
    b. **새** 블레이드에서 **데이터 + 분석**을 선택합니다.
 
-   다. **데이터 분석** 블레이드에서 **Data Factory**를 선택합니다.
+   c. **데이터 분석** 블레이드에서 **Data Factory**를 선택합니다.
 
 1. **새 Data Factory** 블레이드에서 이름으로 **CustomActivityFactory**를 입력합니다. 데이터 팩터리 이름은 전역적으로 고유해야 합니다. "Data Factory 이름 CustomActivityFactory를 사용할 수 없습니다."라는 오류를 수신하는 경우 Data Factory의 이름을 변경합니다. 예를 들어 yournameCustomActivityFactory를 사용하여 Data Factory를 다시 만듭니다.
 
@@ -558,7 +556,7 @@ test custom activity Microsoft test custom activity Microsoft
 
    ![새 데이터 저장소](./media/data-factory-data-processing-using-batch/image7.png)
 
-1. **계정 이름**을 스토리지 계정 이름으로 바꿉니다. **계정 키**를 스토리지 계정의 액세스 키로 바꿉니다. 스토리지 액세스 키를 확보하는 방법을 알아보려면 [스토리지 액세스 키 보기, 복사 및 다시 생성](../../storage/common/storage-account-manage.md#access-keys)을 참조하세요.
+1. **account name**을 스토리지 계정 이름으로 바꿉니다. **계정 키**를 스토리지 계정의 액세스 키로 바꿉니다. 스토리지 액세스 키를 확보하는 방법을 알아보려면 [스토리지 액세스 키 보기, 복사 및 다시 생성](../../storage/common/storage-account-manage.md#access-keys)을 참조하세요.
 
 1. 명령 모음에서 **배포**를 선택하여 연결된 서비스를 배포합니다.
 
@@ -575,12 +573,12 @@ test custom activity Microsoft test custom activity Microsoft
 
    b. **액세스 키**를 Batch 계정의 액세스 키로 대체합니다.
 
-   다. **poolName** 속성에 대한 풀 ID를 입력합니다. 이 속성의 경우 풀 이름 또는 풀 ID 중 하나를 지정할 수 있습니다.
+   c. **poolName** 속성에 대한 풀 ID를 입력합니다. 이 속성의 경우 풀 이름 또는 풀 ID 중 하나를 지정할 수 있습니다.
 
    d. **batchUri** JSON 속성에 대한 배치 URI를 입력합니다.
 
       > [!IMPORTANT]
-      > **Batch 계정** 블레이드의 URL은 \<accountname\>.\<region\>.batch.azure.com 형식을 사용합니다. JSON 스크립트의 **batchUri** 속성의 경우 URL에서 a88"accountname."**을 제거해야 합니다. 예는 `"batchUri": "https://eastus.batch.azure.com"`입니다.
+      > **Batch 계정** 블레이드의 URL은 \<accountname\>.\<region\>.batch.azure.com 형식을 사용합니다. JSON 스크립트의 **batchUri** 속성의 경우 URL에서 a88"accountname."**을 제거해야 합니다. 예제입니다. `"batchUri": "https://eastus.batch.azure.com"`
       >
       >
 
@@ -966,7 +964,7 @@ Data Factory 및 Batch 기능에 대한 자세한 내용을 보려면 이 샘플
 * [Power BI에서 데이터 새로 고침](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
 * [Azure 및 Power BI: 기본 개요](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
-## <a name="references"></a>참조
+## <a name="references"></a>참조 항목
 * [Azure 데이터 팩터리](https://azure.microsoft.com/documentation/services/data-factory/)
 
   * [Data Factory 서비스 소개](data-factory-introduction.md)

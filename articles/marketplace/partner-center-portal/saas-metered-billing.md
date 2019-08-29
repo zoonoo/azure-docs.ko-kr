@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 4b24805cd59d1eb9d28591749d5169486e54d506
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 3fa485c9fb2835b8270cb35fc75b57251476005f
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68250113"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141770"
 ---
 # <a name="metered-billing-using-the-marketplace-metering-service"></a>Marketplace 계량 서비스를 사용 하 여 요금제 청구
 
@@ -84,7 +84,7 @@ CN 서비스를 구독 하는 Azure 고객은 선택한 계획에 따라 월간 
 
 차원에는 "enabled" 및 "infinite"의 두 가지 특수 한 개념도 있습니다.
 
-* **Enabled** 이 계획에이 차원이 참여 하 고 있음을 나타냅니다.  이 차원을 기반으로 사용 이벤트를 보내지 않는 새 계획을 만드는 경우에는이 확인란을 선택 취소 된 상태로 둘 수 있습니다.  또한 계획을 처음 게시 한 후에 추가 된 새 차원은 이미 게시 된 계획에 "사용 안 함"으로 표시 됩니다.  이제 사용 하지 않도록 설정 된 차원이 고객에 게 표시 되는 계획의 차원 목록에 표시 됩니다.
+* **Enabled** 이 계획에이 차원이 참여 하 고 있음을 나타냅니다.  이 차원을 기반으로 사용 이벤트를 보내지 않는 새 계획을 만드는 경우에는이 확인란을 선택 취소 된 상태로 둘 수 있습니다.  또한 계획을 처음 게시 한 후에 추가 된 새 차원은 이미 게시 된 계획에 "사용 안 함"으로 표시 됩니다.  사용할 수 없는 차원은 고객이 본 계획의 차원 목록에 표시 되지 않습니다.
 * 무한대 기호 "∞"로 표시 되는 **무한**은이 계획이이 차원에 참여 하지만이 차원에 대 한 사용량을 측정 하지 않음을 나타냅니다.  이 차원으로 표시 되는 기능이 계획에 포함 되어 있지만 사용량에는 제한이 없는 고객에 게 표시 하려는 경우  이 계획에 대 한 요금이 발생 하지 않음을 나타내는 표시와 함께 무한 사용이 있는 차원이 고객이 본 계획의 차원 목록에 표시 됩니다.
 
 >[!Note] 

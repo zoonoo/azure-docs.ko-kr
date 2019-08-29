@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 97f061d94209d84b70626f8735d08f89870e7319
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 9da58bf3152867bc13dd1879ec57a69b8bd38cb0
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828715"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129323"
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure 운영 보안 모범 사례
 이 문서에서는 Azure에서 데이터, 응용 프로그램 및 기타 자산을 보호 하는 일련의 작업 모범 사례를 제공 합니다.
@@ -218,7 +218,7 @@ Azure Policy를 채택 하 고 나면 다음 몇 가지 보안 모범 사례를 
 **세부 정보**: Azure [정책 설명](../../governance/policy/concepts/definition-structure.md#display-name-and-description) 또는 azure 정책 [이니셔티브](../../governance/policy/concepts/definition-structure.md#initiatives) 설명에서 조직 정책에 대 한 참조를 추가 하 여 조직의 설명서 또는 azure 정책 자체의 문서 매핑
 
 ## <a name="monitor-azure-ad-risk-reports"></a>Azure AD 위험 보고서 모니터링
-대부분의 보안 침해는 공격자가 사용자의 ID를 도용하여 환경에 대한 액세스 권한을 얻을 때 발생합니다. 손상된 ID를 검색하는 것은 쉬운 작업이 아닙니다. Azure AD는 적응형 기계 학습 알고리즘 및 추론을 사용하여 사용자 계정과 관련된 의심스러운 동작을 감지합니다. 감지된 각 의심스러운 동작은 [위험 이벤트](../../active-directory/reports-monitoring/concept-risk-events.md)라는 레코드에 저장됩니다. 위험 이벤트는 Azure AD 보안 보고서에 기록 됩니다. 자세한 내용은 [위험에 노출 된 사용자 보안 보고서](../../active-directory/reports-monitoring/concept-user-at-risk.md) 및 [위험한 로그인 보안 보고서](../../active-directory/reports-monitoring/concept-risky-sign-ins.md)를 참조 하세요.
+대부분의 보안 침해는 공격자가 사용자의 ID를 도용하여 환경에 대한 액세스 권한을 얻을 때 발생합니다. 손상된 ID를 검색하는 것은 쉬운 작업이 아닙니다. Azure AD는 적응형 기계 학습 알고리즘 및 추론을 사용하여 사용자 계정과 관련된 의심스러운 동작을 감지합니다. 검색 된 각 의심 스러운 동작은 [위험 검색](../../active-directory/reports-monitoring/concept-risk-events.md)이라고 하는 레코드에 저장 됩니다. 위험 검색은 Azure AD 보안 보고서에 기록 됩니다. 자세한 내용은 [위험에 노출 된 사용자 보안 보고서](../../active-directory/reports-monitoring/concept-user-at-risk.md) 및 [위험한 로그인 보안 보고서](../../active-directory/reports-monitoring/concept-risky-sign-ins.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 [Azure 보안 모범 사례 및 패턴](best-practices-and-patterns.md)에서 Azure를 사용하여 클라우드 솔루션을 디자인하고, 배포하고, 관리할 때 사용할 수 있는 더 많은 보안 모범 사례를 참조하세요.

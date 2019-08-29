@@ -7,18 +7,18 @@ ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 131d6865c47a32bbefbfbd397a5f0f88dedc9c35
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 12b88e14ed1d20ad26c9c8832877da08d3d98523
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543501"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70146117"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>게스트 구성 정책을 만드는 방법
 
 게스트 구성은 DSC ( [필요한 상태 구성](/powershell/dsc) ) 리소스 모듈을 사용 하 여 Azure virtual machines의 감사에 대 한 구성을 만듭니다. DSC 구성은 가상 컴퓨터가 속해야 하는 조건을 정의 합니다. 구성 평가에 실패 하는 경우 정책 효과 **감사가** 트리거되고 가상 머신은 **비준수**로 간주 됩니다.
 
-[Azure Policy 게스트 구성은](/azure/governance/policy/concepts/guest-configuration) 가상 컴퓨터 내에서 설정을 감사 하는 데만 사용할 수 있습니다. 가상 컴퓨터 내 설정의 재구성은 아직 사용할 수 없습니다.
+[Azure Policy 게스트 구성은](/azure/governance/policy/concepts/guest-configuration) 가상 컴퓨터 내에서 설정을 감사 하는 데만 사용할 수 있습니다. 가상 컴퓨터 내에서 설정의 재구성은 아직 사용할 수 없습니다.
 
 다음 작업을 사용 하 여 Azure 가상 컴퓨터의 상태를 확인 하는 고유한 구성을 만들 수 있습니다.
 
@@ -142,7 +142,7 @@ Azure Policy 게스트 구성에서 런타임에 사용 되는 암호를 관리 
 먼저 Azure에서 사용자 할당 관리 id를 만듭니다. 이 id는 가상 컴퓨터에서 Key Vault에 저장 된 암호에 액세스 하는 데 사용 됩니다. 자세한 단계는 Azure PowerShell을 [사용 하 여 사용자 할당 관리 Id 만들기, 나열 또는 삭제](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)를 참조 하세요.
 
 다음으로 Key Vault 인스턴스를 만듭니다. 자세한 단계는 [비밀 설정 및 검색-PowerShell](../../../key-vault/quick-create-powershell.md)을 참조 하세요.
-인스턴스에 사용 권한을 할당 하 여 Key Vault에 저장 된 암호에 대 한 사용자 할당 id 액세스를 제공 합니다. 자세한 단계는 [암호 설정 및 검색-.net](../../../key-vault/quick-create-net.md#assign-permissions-to-your-application-to-read-secrets-from-key-vault)을 참조 하세요.
+인스턴스에 사용 권한을 할당 하 여 Key Vault에 저장 된 암호에 대 한 사용자 할당 id 액세스를 제공 합니다. 자세한 단계는 [암호 설정 및 검색-.net](../../../key-vault/quick-create-net.md#give-the-service-principal-access-to-your-key-vault)을 참조 하세요.
 
 그런 다음 사용자 할당 id를 가상 머신에 할당 합니다. 자세한 단계는 PowerShell을 [사용 하 여 AZURE VM에서 azure 리소스에 대 한 관리 되는 Id 구성](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity)을 참조 하세요.
 대규모로 Azure Policy를 통해 Azure Resource Manager를 사용 하 여이 id를 할당 합니다. 자세한 단계는 [템플릿을 사용 하 여 AZURE VM에서 azure 리소스에 대 한 관리 되는 Id 구성](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm)을 참조 하세요.
@@ -318,11 +318,11 @@ Azure에서 만든 정책 및 이니셔티브 정의를 사용 하 여 마지막
 
 사용자 지정 콘텐츠 패키지를 사용 하 여 사용자 지정 Azure Policy를 게시 한 후 새 릴리스를 게시 하려는 경우 두 개의 필드를 업데이트 해야 합니다.
 
-- **버전**: Cmdlet `New-GuestConfigurationPolicy` cmdlet을 실행할 때 현재 게시 된 것 보다 큰 버전 번호를 지정 해야 합니다.  그러면 새 정책 파일의 게스트 구성 할당 버전이 업데이트 되어 패키지가 업데이트 되었음을 알 수 있습니다.
-- **contentHash**: 이는 cmdlet에 `New-GuestConfigurationPolicy` 의해 자동으로 업데이트 됩니다.  에서 `New-GuestConfigurationPackage`만든 패키지의 해시 값입니다.  이는 게시 하는 `.zip` 파일에 대해 정확 해야 합니다.  다른 사람이 포털에서 정책 정의를 수동으로 변경할 수 있는 경우와 같이 속성만업데이트된경우에는확장에서콘텐츠패키지를수락하지않습니다.`contentUri`
+- **버전**: Cmdlet을 `New-GuestConfigurationPolicy` 실행할 때 현재 게시 된 것 보다 큰 버전 번호를 지정 해야 합니다.  속성은 새 정책 파일에 있는 게스트 구성 할당의 버전을 업데이트 하 여 패키지가 업데이트 되었다는 것을 인식 합니다.
+- **contentHash**: 이 속성은 cmdlet에 `New-GuestConfigurationPolicy` 의해 자동으로 업데이트 됩니다.  에서 `New-GuestConfigurationPackage`만든 패키지의 해시 값입니다.  속성은 게시 하는 `.zip` 파일에 대해 올바른 이어야 합니다.  다른 사람이 포털에서 정책 정의를 수동으로 변경할 수 있는 경우와 같이 속성만업데이트된경우에는확장에서콘텐츠패키지를수락하지않습니다.`contentUri`
 
 업데이트 된 패키지를 해제 하는 가장 쉬운 방법은이 문서에 설명 된 프로세스를 반복 하 고 업데이트 된 버전 번호를 제공 하는 것입니다.
-그러면 모든 속성이 올바르게 업데이트 됩니다.
+이 프로세스는 모든 속성이 올바르게 업데이트 되었는지 보장 합니다.
 
 ## <a name="converting-windows-group-policy-content-to-azure-policy-guest-configuration"></a>Windows 그룹 정책 콘텐츠를 Azure Policy 게스트 구성으로 변환
 
@@ -330,7 +330,7 @@ Windows 컴퓨터를 감사할 때 게스트 구성은 PowerShell 필요한 상�
 DSC 커뮤니티에서는 내보낸 그룹 정책 템플릿을 DSC 형식으로 변환 하는 도구를 게시 했습니다.
 위에서 설명한 게스트 구성 cmdlet과 함께이 도구를 사용 하 여 Windows 그룹 정책 콘텐츠를 변환 하 고 Azure Policy 감사를 위해 패키지/게시할 수 있습니다.
 도구를 사용 하는 방법에 대 한 자세한 [내용은 빠른 시작: 그룹 정책를 DSC](/powershell/dsc/quickstarts/gpo-quickstart)로 변환 합니다.
-콘텐츠를 변환한 후에는 pakcage를 만들고 Azure Policy로 게시 하는 단계는 모든 DSC 콘텐츠와 동일 합니다.
+콘텐츠를 변환한 후에는 패키지를 만들고 Azure Policy로 게시 하는 단계는 모든 DSC 콘텐츠와 동일 합니다.
 
 ## <a name="optional-signing-guest-configuration-packages"></a>선택 사항: 게스트 구성 패키지 서명
 

@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 08/28/2019
 ms.author: negoe
 ms.reviewer: negoe,CelesteDG
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abaf8c910710000930f4e0ab6200d0ebd75b8d46
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: ca82efbd4e26ccb8a169c84332e3d24196fae95e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835202"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135868"
 ---
 # <a name="national-clouds"></a>국가별 클라우드
 
@@ -68,9 +68,6 @@ ms.locfileid: "68835202"
   - 토큰 공통 엔드포인트는 `https://login.microsoftonline.de/common/oauth2/token`입니다.
 
 단일 테 넌 트 응용 프로그램의 경우 이전 Url의 "일반"을 테 넌 트 ID 또는 이름으로 바꿉니다. 예제입니다. `https://login.microsoftonline.de/contoso.com`
-
-> [!NOTE]
-> [AZURE AD v2.0 권한 부여]( https://docs.microsoft.com/azure/active-directory/develop/active-directory-appmodel-v2-overview) 및 토큰 끝점은 글로벌 서비스에 대해서만 사용할 수 있습니다. 국가별 클라우드 배포에 대해서는 지원 되지 않습니다.
 
 ## <a name="microsoft-graph-api"></a>Microsoft Graph API
 

@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a9b1144e3ef1f1a49c39d694f465653da5881cb
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: e8c3138b82c7dc4a7217e8cb67448a5d824398ba
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987915"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127019"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Azure Active Directory 보고서 관련 자주 묻는 질문
 
@@ -37,7 +37,7 @@ ms.locfileid: "68987915"
 
 **Q: 현재는 `https://graph.windows.net/<tenant-name>/reports/` 끝점 api를 사용 하 여 Azure AD 보안 보고서 (특정 유형의 검색 (예: 누출 된 자격 증명 또는 익명 IP 주소에서의 로그인)를 프로그래밍 방식으로 보고 시스템으로 끌어옵니다. 어떤 방식으로 전환해야 하나요?**
 
-**A:**  [ID 보호 위험 이벤트 API](../identity-protection/graph-get-started.md) 를 사용하여 Microsoft Graph를 통해 보안 검색에 액세스할 수 있습니다. 이 새로운 형식은 고급 필터링, 필드 선택 등을 사용하여 데이터를 보다 유연하게 쿼리할 수 있도록 하고, 위험 이벤트를 SIEM 및 기타 데이터 수집 도구에 보다 쉽게 통합하기 위해 한 가지 형식으로 표준화합니다. 데이터가 다른 형식으로 되어 있으므로 이전 쿼리를 새 쿼리로 대체할 수 없습니다. 그러나 [새로운 API는 Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent)를 사용합니다. 이것은 O365 또는 Azure AD와 같은 API에 대한 Microsoft 표준입니다. 따라서 필요한 작업이 현재 MS Graph 투자를 확장하거나 이러한 새 표준 플랫폼으로의 전환을 시작하도록 지원할 수 있습니다.
+**A:**  [Id 보호 위험 검색 API](../identity-protection/graph-get-started.md) 를 사용 하 여 Microsoft Graph 통해 보안 검색에 액세스할 수 있습니다. 이 새로운 형식을 사용 하면 고급 필터링, 필드 선택 등을 통해 데이터를 쿼리 하는 방법에 더 많은 유연성을 제공 하 고, SIEMs 및 기타 데이터 수집 도구와 쉽게 통합 하기 위해 위험 검색을 한 가지 유형으로 표준화할 수 있습니다. 데이터가 다른 형식으로 되어 있으므로 이전 쿼리를 새 쿼리로 대체할 수 없습니다. 그러나 [새로운 API는 Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent)를 사용합니다. 이것은 O365 또는 Azure AD와 같은 API에 대한 Microsoft 표준입니다. 따라서 필요한 작업이 현재 MS Graph 투자를 확장하거나 이러한 새 표준 플랫폼으로의 전환을 시작하도록 지원할 수 있습니다.
 
 ---
 
@@ -107,7 +107,7 @@ ms.locfileid: "68987915"
 
 ## <a name="risky-sign-ins"></a>위험한 로그인
 
-**Q: ID 보호에 위험 이벤트가 있는데 로그인 보고서에서 해당 로그인을 볼 수 없습니다. 이것은 예상된 동작인가요?**
+**Q: Id 보호에서 위험 검색이 있지만 로그인 보고서에 해당 로그인이 표시 되지 않습니다. 이것은 예상된 동작인가요?**
 
 **A:** 예. ID 보호는 대화형인지 여부에 관계 없이 모든 인증 흐름의 위험을 평가합니다. 그러나 모든 로그인은 대화형 로그인만 표시합니다.
 
@@ -115,7 +115,7 @@ ms.locfileid: "68987915"
 
 **Q: Azure Portal에서 로그인 또는 사용자에게 위험 플래그가 지정된 이유를 어떻게 알 수 있나요?**
 
-**A:** **Azure AD Premium** 구독이 있으면 **위험 플래그가 지정된 사용자**에서 사용자를 선택하거나 **위험한 로그인** 보고서에서 레코드를 선택하여 기반 위험 이벤트에 대해 자세히 알아볼 수 있습니다. **Free** 또는 **Basic** 구독이 있으면 위험에 노출된 사용자 보고서와 위험한 로그인 보고서를 볼 수는 있지만 기반 위험 이벤트 정보는 볼 수 없습니다.
+**A:** **Azure AD Premium** 구독이 있는 경우 **위험 플래그가 지정 된 사용자** 를 선택 하거나 **위험한 로그인** 보고서에서 레코드를 선택 하 여 기본 위험 검색에 대해 자세히 알아볼 수 있습니다. **무료** 또는 **기본** 구독이 있는 경우 위험 및 위험한 로그인 보고서에서 사용자를 볼 수 있지만 기본 위험 검색 정보는 볼 수 없습니다.
 
 ---
 
@@ -125,7 +125,7 @@ ms.locfileid: "68987915"
 
 ---
 
-**Q: “추가 위험이 있는 로그인이 감지됨” 위험 이벤트는 무엇을 의미하나요?**
+**Q: "추가 위험이 있는 로그인"이 검색 된 위험 검색은 무엇 인가요?**
 
 **A:** 사용자 환경의 위험한 로그인을 모두 파악할 수 있도록, “추가 위험이 있는 로그인이 감지됨”은 Azure AD Identity Protection 구독자에게만 제공되는 감지에 대한 로그인의 자리 표시자로 작동합니다.
 

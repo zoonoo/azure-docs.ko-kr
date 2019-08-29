@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5630c157ef7843726bcc17455a1e683e58b88ffd
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: a9464b408f43f55cb75a57798b098be6335328e3
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905223"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70136516"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID를 지원하는 서비스
 
@@ -76,8 +76,8 @@ Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리
 
 |관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| 시스템 할당 항목 | Preview | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
-| 사용자 할당 항목 | Preview | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
+| 시스템 할당 | 사용 가능 | 사용 가능 | 사용할 수 없음 | 사용할 수 없음 |
+| 사용자 할당 항목 | 사용 가능 | 사용 가능 | 사용할 수 없음 | 사용할 수 없음 |
 
 [Azure 청사진](../../governance/blueprints/overview.md)에서 관리 되는 id를 사용 하려면 다음 목록을 참조 하세요.
 

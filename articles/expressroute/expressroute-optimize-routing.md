@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 0bd8c0417b32e93a4f52b545c4d7fc532992a0b1
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 4a20318a4779b06e60d849dea0774d717d87e48e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854308"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141860"
 ---
 # <a name="optimize-expressroute-routing"></a>ExpressRoute 라우팅 최적화
 여러 개의 ExpressRoute 회로가 있는 경우 Microsoft에 연결되는 하나 이상의 경로가 있습니다. 결과적으로 최적이 아닌 라우팅이 발생할 수 있습니다. 즉, 트래픽이 Microsoft에, Microsoft에서 다시 네트워크로 도달하는 경로가 더 길어질 수 있습니다. 네트워크 경로가 길어질수록 대기 시간도 늘어납니다. 대기 시간은 애플리케이션 성능 및 사용자 환경에 직접적인 영향을 줍니다. 이 문서에서는 이 문제를 보여 주고 표준 라우팅 기술을 사용하여 라우팅을 최적화하는 방법을 설명합니다.
@@ -75,7 +75,7 @@ Microsoft 또는 공용 피어 링을 활용 하는 경우 하나 이상의 Expr
 두 번째 방법은 어떤 접두사가 어떤 사무실에 근접한지 힌트를 제공하는 것 외에도 두 ExpressRoute 회로에서 두 접두사를 계속해서 알리는 것입니다. BGP AS Path 앞에 추가를 지원하므로 라우팅에 영향을 주는 접두사에 대한 AS Path를 구성할 수 있습니다. 이 예제에서는 미국 동부 172.2.0.0/31에 대한 AS PATH를 연장할 수 있으므로 이 접두사에 대해 전송되는 트래픽에는 미국 서부의 ExpressRoute 회로를 선호하게 됩니다(네트워크에서 이 접두사에 대한 경로가 서부에서 더 짧다고 생각하므로). 마찬가지로 미국 동부에서 ExpressRoute 회로를 선호하도록 미국 서부에서 172.2.0.2/31에 대한 AS PATH를 연장할 수 있습니다. 두 사무소 모두에 대해 라우팅이 최적화됩니다. 이 디자인에서 한 ExpressRoute 회로가 중단되면 Exchange Online에서 다른 ExpressRoute 회로 및 WAN을 통해 계속 연결할 수 있습니다. 
 
 > [!IMPORTANT]
-> Microsoft 피어링에서 수신한 접두사에 대한 AS PATH에서 프라이빗 AS 번호를 제거합니다. Microsoft 피어링을 위한 라우팅에 영향을 주는 AS PATH에 공용 AS 번호를 추가해야 합니다.
+> 개인 AS 번호를 사용 하 여 피어 링 하는 경우 Microsoft 피어 링에서 수신 된 접두사에 대 한 AS PATH에서 개인 AS 번호를 제거 합니다. Microsoft 피어 링에 대 한 라우팅에 영향을 주기 위해 AS 경로에 공용 as 번호를 추가 하 여 공용으로 피어 링 해야 합니다.
 > 
 > 
 

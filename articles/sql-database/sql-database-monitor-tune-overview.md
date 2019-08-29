@@ -9,38 +9,40 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnick, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: c52b41c4e6d0618b4df9b2aed985bbd22d89f419
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ee4bd9d61856ef4ea1afdd027d6f39e730b92d78
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567189"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129214"
 ---
 # <a name="monitoring-and-performance-tuning"></a>모니터링 및 성능 튜닝
 
-Azure SQL Database는 사용을 쉽게 모니터링 하 고, 리소스 (CPU, 메모리, i/o)를 추가 또는 제거 하 고, 잠재적인 문제를 해결 하 고, 데이터베이스의 성능을 향상 시킬 수 있는 권장 사항을 찾을 수 있는 도구 및 메서드를 제공 합니다. Azure SQL Database에는 데이터베이스의 문제를 자동으로 해결할 수 있는 많은 기능이 포함 되어 있으며,이를 통해 데이터베이스에서 워크 로드를 조정 하 고 성능을 자동으로 최적화할 수 있습니다. 그러나 문제 해결이 필요할 수 있는 몇 가지 사용자 지정 문제가 있습니다. 이 문서에서는 성능 문제를 해결 하는 데 사용할 수 있는 몇 가지 모범 사례 및 도구에 대해 설명 합니다.
+Azure SQL Database는 사용을 쉽게 모니터링 하 고, 리소스 (CPU, 메모리, i/o)를 추가 또는 제거 하 고, 잠재적인 문제를 해결 하 고, 데이터베이스의 성능을 향상 시키기 위한 권장 사항을 만들 수 있는 도구와 메서드를 제공 합니다. Azure SQL Database에는 데이터베이스의 문제를 자동으로 해결할 수 있는 기능이 있습니다. 자동 조정 기능을 사용 하면 데이터베이스를 워크 로드에 맞게 조정 하 고 성능을 자동으로 최적화할 수 있습니다. 그러나 문제 해결이 필요할 수 있는 몇 가지 사용자 지정 문제가 있습니다. 이 문서에서는 성능 문제를 해결 하는 데 사용할 수 있는 몇 가지 모범 사례 및 도구에 대해 설명 합니다.
 
 데이터베이스가 문제 없이 실행 되 고 있는지 확인 하기 위해 수행 해야 하는 두 가지 주요 작업이 있습니다.
-- 데이터베이스 [성능 모니터링](#monitoring-database-performance) 을 통해 데이터베이스에 할당 된 리소스가 작업을 처리할 수 있는지 확인 합니다. 데이터베이스가 리소스 제한에 도달 하는 것으로 확인 되는 경우 상위 리소스 소비 쿼리를 식별 하 고 최적화 해야 합니다. 그렇지 않으면 서비스 계층을 업그레이드 하 여 더 많은 리소스를 추가 해야 합니다.
-- [성능 문제를 해결](#troubleshoot-performance-issues) 하 여 잠재적인 문제가 발생 한 이유를 파악 하 고 문제의 근본 원인을 파악 한 후 문제를 해결 하는 작업을 수행 합니다.
+- 데이터베이스 [성능을 모니터링](#monitoring-database-performance) 하 여 데이터베이스에 할당 된 리소스가 작업을 처리할 수 있는지 확인 합니다. 데이터베이스가 리소스 제한에 도달 하는 경우 다음을 고려 하십시오.
+   - 상위 리소스 소비 쿼리 식별 및 최적화
+   - 서비스 계층을 업그레이드 하 여 리소스를 더 추가 합니다.
+- [성능 문제를 해결](#troubleshoot-performance-issues) 하 여 잠재적인 문제가 발생 한 이유를 파악 하 고 문제의 근본 원인을 파악 합니다. 근본 원인이 결정 되 면 문제를 해결 하는 단계를 구현 합니다.
 
 ## <a name="monitoring-database-performance"></a>데이터베이스 성능 모니터링
 
-Azure에서 SQL 데이터베이스의 성능 모니터링은 데이터베이스에 대해 선택한 데이터베이스 성능 수준을 기준으로 리소스 사용률을 모니터링하는 것으로 시작합니다. 동일한에 대해 다음 리소스를 모니터링 해야 합니다.
- - **Cpu 사용량** -데이터베이스가 오랜 시간 동안 100%의 CPU 사용량에 도달 하는지 확인 합니다. 이는 데이터베이스 또는 인스턴스를 상위 서비스 계층으로 업그레이드 하거나 대부분의 계산 기능을 사용 하는 쿼리를 식별 하 고 조정 해야 함을 나타낼 수 있습니다.
- - **대기 통계** -쿼리가 일부 리소스를 대기 하는 이유를 확인 합니다. 쿼리는 데이터를 페치 하거나 데이터베이스 파일에 저장할 때까지 대기 하 여 일부 리소스 제한에도 달했기 때문에 대기 합니다.
+Azure에서 SQL 데이터베이스의 성능 모니터링은 선택한 데이터베이스 성능 수준에 따라 사용 되는 리소스를 모니터링 하는 것부터 시작 됩니다. 다음 리소스를 모니터링 해야 합니다.
+ - **Cpu 사용량** -데이터베이스가 오랜 시간 동안 100%의 CPU 사용량에 도달 하는지 확인 합니다. 높은 CPU 사용량은 계산 능력을 가장 많이 사용 하는 쿼리를 식별 하 고 조정 해야 함을 나타낼 수 있습니다. 또는 높은 CPU 사용량이 데이터베이스 또는 인스턴스를 상위 서비스 계층으로 업그레이드 해야 함을 나타낼 수 있습니다. 
+ - **대기 통계** - [_os_wait_stats (Transact-sql)](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) 를 사용 하 여 쿼리가 발생 하는 대기를 확인 합니다. 쿼리는 리소스, 큐 대기 또는 외부 대기를 기다릴 수 있습니다. 
  - **Io 사용** -데이터베이스가 기본 저장소의 IO 제한에 도달 하 고 있는지 확인 합니다.
- - **메모리 사용** -데이터베이스 또는 인스턴스에 사용할 수 있는 메모리 양은 vcores의 수에 비례 하며 작업에 충분 한지 확인 합니다. 페이지 수명 예상은 페이지를 메모리에서 제거 하는 속도를 나타낼 수 있는 매개 변수 중 하나입니다.
+ - **메모리 사용** -데이터베이스 또는 인스턴스에 사용할 수 있는 메모리 양은 vcores 수에 비례 합니다. 메모리가 작업에 충분 한지 확인 합니다. 페이지 수명 예상은 페이지를 메모리에서 제거 하는 속도를 나타낼 수 있는 매개 변수 중 하나입니다.
 
-Azure SQL Database 서비스 **는 문제를 해결 하 고 잠재적인 성능 문제를 해결 하는 데 도움이 되는 도구와 리소스를 포함 합니다** [성능 튜닝 권장 사항을](sql-database-advisor.md)검토 하 여 리소스를 변경 하지 않고도 쿼리 성능을 개선 하 고 최적화 하기 위해 기회를 쉽게 식별할 수 있습니다. 인덱스 누락 및 최적화되지 않은 쿼리는 데이터베이스 성능을 저하시키는 일반적인 원인입니다. 이러한 튜닝 권장 사항을 적용 하 여 워크 로드의 성능을 향상 시킬 수 있습니다. 또한 확인 된 모든 권장 사항을 적용 하 여 Azure SQL database에서 [쿼리 성능을 자동으로 최적화](sql-database-automatic-tuning.md) 하 고이를 통해 데이터베이스 성능을 향상 시킬 수 있습니다.
+Azure SQL Database 서비스 **는 문제를 해결 하 고 잠재적인 성능 문제를 해결 하는 데 도움이 되는 도구와 리소스를 포함 합니다** [성능 튜닝 권장 사항을](sql-database-advisor.md)검토 하 여 리소스를 변경 하지 않고 쿼리 성능을 개선 하 고 최적화 하기 위해 기회를 식별할 수 있습니다. 인덱스 누락 및 최적화되지 않은 쿼리는 데이터베이스 성능을 저하시키는 일반적인 원인입니다. 이러한 튜닝 권장 사항을 적용 하 여 워크 로드의 성능을 향상 시킬 수 있습니다. 또한 확인 된 모든 권장 사항을 적용 하 고 권장 되는 데이터베이스 성능 개선을 확인 하 여 Azure SQL database에서 [쿼리 성능을 자동으로 최적화](sql-database-automatic-tuning.md) 하도록 할 수 있습니다.
 
 데이터베이스 성능 모니터링 및 문제 해결에 사용할 수 있는 옵션은 다음과 같습니다.
 
 - [Azure Portal](https://portal.azure.com)에서 **SQL 데이터베이스**를 클릭 하 고 데이터베이스를 선택한 다음 모니터링 차트를 사용 하 여 최대 사용률에 근접 한 리소스를 찾습니다. 기본적으로 DTU 사용량이 표시됩니다. **편집** 을 클릭하여 표시된 시간 범위 및 값을 변경합니다.
-- SQL Server Management Studio와 같은 도구는 리소스 사용률을 모니터링 하 고 상위 리소스 소비 쿼리를 식별 하는 [성능 대시보드](https://docs.microsoft.com/sql/relational-databases/performance/performance-dashboard?view=sql-server-2017) 등의 많은 유용한 보고서를 제공 하거나 [쿼리 저장소](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store#Regressed) 회귀 된 쿼리를 식별 하는 데 사용할 수 있습니다. 성능도.
-- [Azure Portal](https://portal.azure.com) 에서 [Query Performance Insight](sql-database-query-performance.md) 를 사용 하 여 대부분의 리소스를 소비 하는 쿼리를 식별 합니다. 이 기능은 Single Database 및 탄력적 풀 에서만 사용할 수 있습니다.
+- SQL Server Management Studio와 같은 도구는 리소스 사용률을 모니터링 하 고 리소스를 많이 사용 하는 상위 쿼리를 식별 하는 [성능 대시보드와](https://docs.microsoft.com/sql/relational-databases/performance/performance-dashboard?view=sql-server-2017) 같은 많은 유용한 보고서를 제공 합니다. [쿼리 저장소](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store#Regressed) 를 사용 하 여 회귀 된 성능으로 쿼리를 식별할 수 있습니다.
+- [Azure Portal](https://portal.azure.com) 에서 [Query Performance Insight](sql-database-query-performance.md) 를 사용 하 여 대부분의 리소스를 활용 하는 쿼리를 식별 합니다. 이 기능은 Single Database 및 탄력적 풀 에서만 사용할 수 있습니다.
 - [SQL Database Advisor](sql-database-advisor-portal.md)를 사용하여 인덱스 만들기 및 삭제, 쿼리 매개 변수화, 스키마 문제 해결에 대한 권장 사항을 확인합니다. 이 기능은 Single Database 및 탄력적 풀 에서만 사용할 수 있습니다.
 - [AZURE SQL Intelligent Insights](sql-database-intelligent-insights.md) 를 사용 하 여 데이터베이스 성능을 자동으로 모니터링 합니다. 성능 문제가 검색되면 문제의 세부 정보와 RCA(근본 원인 분석)가 포함된 진단 로그가 생성됩니다. 성능 개선 권장 향상이 제공됩니다(가능한 경우).
 - [자동 튜닝을 사용](sql-database-automatic-tuning-enable.md)하고 Azure SQL 데이터베이스에서 식별된 성능 문제를 자동으로 수정하도록 합니다.
@@ -58,13 +60,13 @@ Azure SQL Database 서비스 **는 문제를 해결 하 고 잠재적인 성능 
 성능 문제가 있는 워크로드의 경우 문제 원인이 CPU 경합일 수도 있고(**실행 관련** 조건), 또는 개별 쿼리가 무언가를 기다리기 때문일 수도 있습니다(**대기 관련** 조건).
 
 **실행 관련** 문제의 원인은 다음과 같을 수 있습니다.
-- **컴파일 문제** -SQL 쿼리 최적화 프로그램은 오래 된 통계, 처리 되는 행 수에 대 한 잘못 된 예측 또는 필요한 메모리 추정치로 인해 최적화 된 계획을 생성할 수 있습니다. 이전 또는 다른 인스턴스 (Managed Instance 또는 SQL Server 인스턴스)에서 쿼리가 더 빠르게 실행 된 경우 실제 실행 계획을 사용 하 고 비교 하 여 서로 다른 지 확인 합니다. 더 나은 계획을 얻으려면 쿼리 힌트를 적용 하거나 통계를 다시 작성 하거나 인덱스를 다시 작성 하십시오. 자동 계획 수정 기능을 사용 하 여 이러한 문제를 자동으로 완화 Azure SQL Database.
-- **실행 문제** -쿼리 계획이 최적 이면 로그 쓰기 처리량과 같은 데이터베이스의 일부 리소스 제한에 도달 하거나 다시 작성 해야 하는 조각 모음 된 인덱스를 사용 하는 것일 수 있습니다. 리소스를 소비 하는 다 수의 동시 쿼리가 실행 문제의 원인일 수도 있습니다. 대부분의 경우에는 효율적으로 실행 되지 않는 쿼리가 일부 리소스를 기다리고 있기 때문에 대부분의 경우 **대기 관련** 문제는 실행 문제와 관련이 있습니다.
+- **컴파일 문제** -SQL 쿼리 최적화 프로그램은 오래 된 통계, 처리 되는 행 수에 대 한 잘못 된 예측 또는 필요한 메모리의 부정확 한 예상치로 인해 최적이 아닌 계획을 생성할 수 있습니다. 이전 또는 다른 인스턴스 (Managed Instance 또는 SQL Server 인스턴스)에서 쿼리가 더 빠르게 실행 된 경우 실제 실행 계획을 사용 하 여 서로 다른 지 확인 합니다. 더 나은 계획을 얻으려면 쿼리 힌트를 적용 하거나 통계를 다시 작성 하거나 인덱스를 다시 작성 하십시오. 자동 계획 수정 기능을 사용 하 여 이러한 문제를 자동으로 완화 Azure SQL Database.
+- **실행 문제** -쿼리 계획이 최적 이면 로그 쓰기 처리량과 같은 데이터베이스의 리소스 제한에 도달 하거나 다시 작성 해야 하는 조각화 된 인덱스를 사용 하는 것일 수 있습니다. 동일한 리소스를 필요로 하는 다 수의 동시 쿼리가 실행 문제의 원인일 수도 있습니다. 대부분의 경우에는 효율적으로 실행 되지 않는 쿼리가 일부 리소스를 기다리고 있기 때문에 대부분의 경우 **대기 관련** 문제는 실행 문제와 관련이 있습니다.
 
 **대기 중인 관련** 문제의 원인은 다음과 같을 수 있습니다.
-- 한 번의 쿼리는 데이터베이스의 일부 개체에 대 한 잠금을 유지할 수 있지만 다른 개체는 동일한 개체에 액세스 하려고 합니다. 블로킹 쿼리는 DMV 또는 모니터링 도구를 사용 하 여 쉽게 식별할 수 있습니다.
+- 한 번의 쿼리는 데이터베이스의 개체에 대 한 잠금을 보유 하 고 다른 사용자는 동일한 개체에 액세스 하려고 할 수 있습니다. 블로킹 쿼리는 Dmv 또는 모니터링 도구를 사용 하 여 쉽게 식별할 수 있습니다.
 - **IO 문제** -쿼리가 데이터 또는 로그 파일에 기록 될 때까지 대기 하 고 있을 수 있습니다. 이 경우 DMV의 `INSTANCE_LOG_RATE_GOVERNOR`, `WRITE_LOG`또는 `PAGEIOLATCH_*` wait 통계를 참조 하세요.
-- **TempDB 문제** -작업에서 많은 임시 테이블을 사용 하거나 계획에 tempdb가 많이 있는 경우에는 쿼리에 tempdb 처리량 문제가 있을 수 있습니다. 
+- **Tempdb 문제** -작업에서 임시 테이블을 사용 하거나 계획에 tempdb를 사용 하는 경우 쿼리에 tempdb 처리량 문제가 있을 수 있습니다. 
 - **메모리 관련 문제** -작업에 필요한 메모리가 부족 하 여 페이지 수명 예상 값이 삭제 되거나 쿼리가 필요한 것 보다 많은 메모리를 확보 하 고 있을 수 있습니다. 경우에 따라 쿼리 최적화 프로그램에서 기본 제공 되는 인텔리전스를 통해 이러한 문제를 해결할 수 있습니다.
  
  다음 섹션에서는 이러한 문제 중 일부를 식별 하 고 해결 하는 방법을 설명 합니다.
@@ -75,18 +77,18 @@ Azure SQL Database 서비스 **는 문제를 해결 하 고 잠재적인 성능 
 
 - 실행 중인 쿼리가 너무 많음
 - 컴파일 쿼리가 너무 많음
-- 하나 이상의 실행 중인 쿼리가 최적이 아닌 쿼리 계획을 사용
+- 하나 이상의 실행 중인 쿼리에서 최적이 아닌 쿼리 계획을 사용 하 고 있습니다.
 
 실행 중인 관련 성능 문제가 있음을 확인 한 경우에는 하나 이상의 방법을 사용 하 여 정확한 문제를 파악 하는 것이 목표입니다. 실행 관련 문제를 식별하는 가장 일반적인 방법은 다음과 같습니다.
 
 - [Azure Portal](sql-database-manage-after-migration.md#monitor-databases-using-the-azure-portal)을 사용하여 CPU 사용률을 모니터링합니다.
 - 다음 [동적 관리 뷰](sql-database-monitoring-with-dmvs.md)를 사용합니다.
 
-  - [sys. dm](sql-database-monitoring-with-dmvs.md#monitor-resource-use) _db_source_ggngs Azure SQL Database에 대 한 CPU, i/o 및 메모리 소비량을 반환 합니다. 데이터베이스에 활동이 없더라도 15 초 간격 마다 하나의 행이 존재 합니다. 기록 데이터는 한 시간 동안 유지됩니다.
+  - [sys. dm](sql-database-monitoring-with-dmvs.md#monitor-resource-use) _db_source_ggngs Azure SQL Database에 대 한 CPU, i/o 및 메모리 소비량을 반환 합니다. 데이터베이스에 활동이 없는 경우에도 15 초 간격 마다 하나의 행이 존재 합니다. 기록 데이터는 한 시간 동안 유지됩니다.
   - [sys.resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use)는 Azure SQL Database에 대한 CPU 사용량 및 스토리지 데이터를 반환합니다. 데이터는 5분 간격 이내로 수집 및 집계됩니다.
 
 > [!IMPORTANT]
-> 이러한 DMV를 사용하여 CPU 사용률 문제를 해결하는 T-SQL 쿼리 집합은 [CPU 성능 문제 식별](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues)을 참조하세요.
+> Resource_stats Dmv를 사용 하 여 CPU 사용률 문제를 해결 하는 T-sql 쿼리의 경우 [cpu 성능 문제 확인](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues)을 참조 하세요.
 
 ### <a name="ParamSniffing"></a>매개 변수를 구분 하는 쿼리 실행 계획 문제를 사용 하 여 쿼리 문제 해결
 
@@ -94,7 +96,7 @@ PSP(매개 변수가 중요한 계획) 문제는 쿼리 최적화 프로그램�
 
 이러한 문제를 완화 하는 데 사용 되는 몇 가지 해결 방법이 있습니다. 각 문제에는 서로 관련 된 장단점이 있습니다.
 
-- 각 쿼리 실행 시 [RECOMPILE](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) 쿼리 힌트를 사용합니다. 이 해결 방법을 사용할 경우 품질은 향상되지만 컴파일 시간 및 CPU가 늘어납니다. 경우에 따라 높은 처리량이 필요한 워크로드에는 `RECOMPILE` 옵션을 사용하지 못할 수 있습니다.
+- 각 쿼리 실행 시 [RECOMPILE](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) 쿼리 힌트를 사용합니다. 이 해결 방법은 컴파일 시간을 높이고 더 나은 계획 품질을 위해 CPU를 늘립니다. 경우에 따라 높은 처리량이 필요한 워크로드에는 `RECOMPILE` 옵션을 사용하지 못할 수 있습니다.
 - 실제 매개 변수 값을 대부분의 매개 변수 값에 충분히 적합한 계획을 생성하는 일반적인 매개 변수 값으로 재정의하려면 [OPTION (OPTIMIZE FOR…)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) 쿼리 힌트를 사용합니다.   이 옵션을 사용하려면 최적의 매개 변수 값 및 관련 계획 특성을 적절히 이해해야 합니다.
 - 밀도 벡터 평균을 사용하는 대신, 실제 매개 변수 값을 재정의하려면 [OPTION (OPTIMIZE FOR UNKNOWN)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) 쿼리 힌트를 사용합니다. 이 작업을 수행하는 또 다른 방법은 수신 매개 변수 값을 로컬 변수에 캡처하고, 매개 변수 자체를 사용하는 대신 조건자 내에서 해당 로컬 변수를 사용하는 것입니다. 평균 밀도는 이러한 특정 해결 방법에 *충분히 적절해야* 합니다.
 - [DISABLE_PARAMETER_SNIFFING](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) 쿼리 힌트를 사용하여 매개 변수 검색을 완전히 사용하지 않도록 설정합니다.
@@ -103,18 +105,19 @@ PSP(매개 변수가 중요한 계획) 문제는 쿼리 최적화 프로그램�
 - 단일 프로시저를 각각을 조건부 논리 및 연결된 매개 변수 값을 기준으로 사용할 수 있는 중첩된 프로시저 세트로 바꿉니다.
 - 정적 프로시저 정의를 대신하는 동적 문자열 실행을 만듭니다.
 
-이러한 유형의 문제를 해결하는 방법에 대한 자세한 내용은 다음을 참조하세요.
+이러한 유형의 문제를 해결 하는 방법에 대 한 자세한 내용은 블로그 게시물을 참조 하세요.
 
-- 이 [는 매개 변수 블로그 게시물을 냄새 합니다](https://blogs.msdn.microsoft.com/queryoptteam/2006/03/31/i-smell-a-parameter/) .
-- 이 [dynamic sql versus plan quality for parameterized queries](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/)(동적 SQL 및 매개 변수가 있는 쿼리의 계획 품질) 블로그 게시물
-- SQL Server의 다음 SQL 쿼리 최적화 기술입니다. [ 매개 변수](https://www.sqlshack.com/query-optimization-techniques-in-sql-server-parameter-sniffing/) 스니핑 블로그 게시물
+- [매개 변수](https://blogs.msdn.microsoft.com/queryoptteam/2006/03/31/i-smell-a-parameter/)
+- [매개 변수가 있는 쿼리에 대 한 동적 sql 및 계획 품질](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/)
+- [SQL Server의 SQL 쿼리 최적화 기술: 매개 변수 스니핑](https://www.sqlshack.com/query-optimization-techniques-in-sql-server-parameter-sniffing/)
 
 ### <a name="troubleshooting-compile-activity-due-to-improper-parameterization"></a>부적절한 매개 변수화로 인한 컴파일 활동 문제 해결
 
-쿼리에 리터럴이 있는 경우 데이터베이스 엔진이 자동으로 문을 매개 변수화하도록 선택하거나, 사용자가 컴파일 수를 줄이기 위해 문을 명시적으로 매개 변수화할 수 있습니다. 패턴이 같지만 다른 리터럴 값을 사용하는 쿼리를 여러 번 컴파일하면 CPU 사용률이 높아질 수 있습니다. 마찬가지로, 리터럴을 계속 포함하는 쿼리를 부분적으로만 매개 변수화해도 데이터베이스 엔진이 추가로 매개 변수화하지는 않습니다.  다음은 부분적으로 매개 변수가 있는 쿼리 예제입니다.
+쿼리에 리터럴이 있는 경우 데이터베이스 엔진이 자동으로 문을 매개 변수화하도록 선택하거나, 사용자가 컴파일 수를 줄이기 위해 문을 명시적으로 매개 변수화할 수 있습니다. 동일한 패턴을 사용 하지만 다른 리터럴 값을 사용 하는 쿼리에 대해 많은 컴파일이 발생 하면 CPU 사용률이 높아질 수 있습니다. 마찬가지로, 리터럴을 계속 포함하는 쿼리를 부분적으로만 매개 변수화해도 데이터베이스 엔진이 추가로 매개 변수화하지는 않습니다.  다음은 부분적으로 매개 변수가 있는 쿼리 예제입니다.
 
 ```sql
-SELECT * FROM t1 JOIN t2 ON t1.c1 = t2.c1
+SELECT * 
+FROM t1 JOIN t2 ON t1.c1 = t2.c1
 WHERE t1.c1 = @p1 AND t2.c2 = '961C3970-0E54-4E8E-82B6-5545BE897F8F'
 ```
 
@@ -151,15 +154,15 @@ ORDER BY count (distinct p.query_id) DESC
 
 인스턴스 다시 시작, 데이터베이스 범위 구성 변경, 메모리 부족 및 캐시 지우기에 대 한 명시적 요청을 비롯 한 다양 한 이유로 인해 컴파일된 계획을 캐시에서 꺼낼 수 있습니다. 또한 RECOMPILE 힌트를 사용 하면 계획이 캐시 되지 않습니다.
 
-다시 컴파일 (또는 캐시 제거 후 새로 컴파일된)은 여전히 원래 관찰 된 것과 동일한 쿼리 실행 계획을 생성할 수 있습니다.  그러나 계획이 이전 또는 원래 계획과 비교 하 여 변경 된 경우 쿼리 실행 계획이 변경 된 이유에 대 한 가장 일반적인 설명은 다음과 같습니다.
+다시 컴파일 (또는 캐시 제거 후 새로 컴파일된)은 여전히 원래 관찰 된 것과 동일한 쿼리 실행 계획을 생성할 수 있습니다.  계획이 이전 또는 원래 계획과 비교 하 여 변경 된 경우 쿼리 실행 계획이 변경 된 이유에 대 한 가장 일반적인 설명은 다음과 같습니다.
 
-- **물리적 디자인을 변경**했습니다. 예를 들어 쿼리 요구 사항을 보다 효과적으로 다루는 새 인덱스가 생성 되었습니다. 쿼리 최적화 프로그램에서 쿼리 실행의 첫 번째 버전에 대해 원래 선택 된 데이터 구조를 사용 하는 것 보다 새 인덱스를 활용 하는 것이 더 최적 이라고 판단 되는 경우 새 컴파일에서 이러한 쿼리를 사용할 수 있습니다.  참조 된 개체를 물리적으로 변경 하면 컴파일 시간에 새 계획을 선택할 수 있습니다.
+- **물리적 디자인을 변경**했습니다. 예를 들어 쿼리 요구 사항을 보다 효과적으로 다루는 새 인덱스가 생성 되었습니다. 새 인덱스는 쿼리 최적화 프로그램에서 쿼리 실행의 첫 번째 버전에 대해 원래 선택 된 데이터 구조를 사용 하는 것 보다 새 인덱스를 활용 하는 것이 더 최적이 면 새 컴파일에서 사용 될 수 있습니다.  참조 된 개체를 물리적으로 변경 하면 컴파일 시간에 새 계획을 선택할 수 있습니다.
 
 - **서버 리소스의 차이점** 한 계획이 "시스템 A"와 "시스템 B"에 종속 되는 시나리오에서 사용 가능한 프로세서 수와 같은 리소스의 가용성은 생성 되는 계획에 영향을 줄 수 있습니다.  예를 들어 한 시스템에 많은 수의 프로세서가 있는 경우 병렬 계획을 선택할 수 있습니다. 
 
-- **통계를 다르게**합니다. 참조 된 개체와 관련 된 통계가 변경 되었거나 원래 시스템의 통계와 별개인 다릅니다.  통계 변경 및 다시 컴파일을 수행 하는 경우 쿼리 최적화 프로그램은 해당 특정 시점으로 통계를 사용 합니다. 수정 된 통계의 데이터 배포 및 빈도는 원래 컴파일의 경우와 다를 수 있습니다.  이러한 변경 사항은 카디널리티 예상치를 추정 하는 데 사용 됩니다 (논리 쿼리 트리를 통해 전달 될 것으로 예상 되는 행 수).  카디널리티 예상치를 변경 하면 다른 물리 연산자 및 관련 작업 순서를 선택할 수 있습니다.  통계를 약간만 변경 해도 변경 된 쿼리 실행 계획이 발생할 수 있습니다.
+- **통계를 다르게**합니다. 참조 된 개체와 관련 된 통계가 변경 되었거나 원래 시스템의 통계와 별개인 다릅니다.  통계 변경 및 다시 컴파일을 수행 하는 경우 쿼리 최적화 프로그램은 해당 특정 시점으로 통계를 사용 합니다. 수정 된 통계의 데이터 배포 및 빈도는 원래 컴파일과 다를 수 있습니다.  이러한 변경 사항은 카디널리티 예상치를 추정 하는 데 사용 됩니다 (논리 쿼리 트리를 통해 전달 될 것으로 예상 되는 행 수).  카디널리티 예상치를 변경 하면 다른 물리 연산자 및 관련 작업 순서를 선택할 수 있습니다.  통계를 약간만 변경 해도 변경 된 쿼리 실행 계획이 발생할 수 있습니다.
 
-- **데이터베이스 호환성 수준 또는 카디널리티 평가기 버전이 변경 되었습니다**.  데이터베이스 호환성 수준을 변경 하면 다른 쿼리 실행 계획을 만들 수 있는 새로운 전략 및 기능을 사용할 수 있습니다.  데이터베이스 호환성 수준 외에도 추적 플래그 4199을 사용 하지 않거나 사용 하도록 설정 하거나 데이터베이스 범위 구성 QUERY_OPTIMIZER_HOTFIXES의 상태를 변경 하면 컴파일 시간에 쿼리 실행 계획을 선택할 수 있습니다.  추적 플래그 9481 (레거시 CE 강제 적용) 및 2312 (강제 기본 CE)도 계획에 영향을 줍니다. 
+- **데이터베이스 호환성 수준 또는 카디널리티 평가기 버전이 변경 되었습니다**.  데이터베이스 호환성 수준을 변경 하면 다른 쿼리 실행 계획을 만들 수 있는 새로운 전략 및 기능을 사용할 수 있습니다.  데이터베이스 호환성 수준 외에도 추적 플래그 4199을 사용 하지 않거나 사용 하도록 설정 하거나 데이터베이스 범위 구성 QUERY_OPTIMIZER_HOTFIXES의 상태를 변경 하면 컴파일 타임에 쿼리 실행 계획 선택에 영향을 줄 수 있습니다.  추적 플래그 9481 (레거시 CE 강제 적용) 및 2312 (강제 기본 CE)도 계획에 영향을 줍니다. 
 
 ### <a name="resolve-problem-queries-or-provide-more-resources"></a>문제 쿼리 해결 또는 더 많은 리소스 제공
 
@@ -193,7 +196,7 @@ ORDER BY count (distinct p.query_id) DESC
 
 ## <a name="waiting-related-performance-issues"></a>대기 관련 성능 문제
 
-CPU 사용량이 높은 실행 관련 성능 문제가 아닌 것으로 확인되면 대기 관련 성능 문제가 발생한 것입니다. 즉, CPU가 다른 리소스를 기다리느라 CPU 리소스가 효율적으로 사용되지 못하고 있습니다. 이 경우 그 다음으로 할 일은 CPU 리소스가 무엇을 기다리는지 확인하는 것입니다. 다음은 상위 대기 유형 범주를 표시하는 가장 일반적인 방법입니다.
+CPU 사용량이 높은 실행 관련 성능 문제가 아닌 것으로 확인되면 대기 관련 성능 문제가 발생한 것입니다. 즉, CPU가 다른 리소스를 기다리느라 CPU 리소스가 효율적으로 사용되지 못하고 있습니다. 이 경우 그 다음으로 할 일은 CPU 리소스가 무엇을 기다리는지 확인하는 것입니다. 상위 대기 형식 범주를 표시 하는 가장 일반적인 방법은 다음과 같습니다.
 
 - [쿼리 저장소](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)는 시간에 따른 쿼리당 대기 통계를 제공합니다. 쿼리 저장소에서 대기 유형은 대기 범주로 결합됩니다. 대기 범주와 대기 유형의 매핑은 [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table)에서 사용할 수 있습니다.
 - [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database)는 작업 중에 실행된 스레드로 인해 발생한 모든 대기에 대한 정보를 반환합니다. 이 집계 보기를 사용하여 Azure SQL Database와 특정 쿼리 및 일괄 처리의 성능 문제를 진단할 수도 있습니다.
@@ -204,7 +207,7 @@ CPU 사용량이 높은 실행 관련 성능 문제가 아닌 것으로 확인�
 - CPU를 많이 소비하는 쿼리가 여전히 실행 중일 수 있으며 쿼리가 완료되지 않았습니다.
 - 장애 조치(Failover)가 발생했을 때 CPU를 많이 소비하는 쿼리가 실행 중이었습니다.
 
-쿼리 저장소 및 대기 통계 추적 동적 관리 뷰는 성공적으로 완료되고 제한 시간을 초과한 쿼리의 결과만 표시하고, 현재 실행 중인 문에 대한 데이터는 표시하지 않습니다(완료될 때까지). 동적 관리 뷰 [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql)를 사용하여 현재 실행 중인 쿼리와 관련된 작업자 시간을 추적할 수 있습니다.
+쿼리 저장소 및 대기 통계 추적 동적 관리 뷰는 성공적으로 완료되고 제한 시간을 초과한 쿼리의 결과만 표시하고, 현재 실행 중인 문에 대한 데이터는 표시하지 않습니다(완료될 때까지). 동적 관리 뷰 [_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 를 사용 하 여 현재 실행 중인 쿼리와 연결 된 작업자 시간을 추적할 수 있습니다.
 
 이전 차트에 표시된 것처럼, 가장 일반적인 대기는 다음과 같습니다.
 
@@ -224,14 +227,14 @@ CPU 사용량이 높은 실행 관련 성능 문제가 아닌 것으로 확인�
 
 ## <a name="improving-database-performance-with-more-resources"></a>보다 많은 리소스와 함께 데이터베이스 성능 개선
 
-마지막으로, 데이터베이스의 성능을 향상시킬 수 있는 실행 가능한 항목이 더 없으면 Azure SQL Database에서 사용할 수 있는 리소스의 양을 변경할 수 있습니다. 단일 데이터베이스의 [DTU 서비스 계층](sql-database-service-tiers-dtu.md)을 변경하여 더 많은 리소스를 할당하거나 탄력적 풀의 eDTU를 언제든지 늘릴 수 있습니다. 또는 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 사용하는 경우, 서비스 계층을 변경하거나 데이터베이스에 할당된 리소스를 늘릴 수 있습니다.
+마지막으로, 데이터베이스의 성능을 향상시킬 수 있는 실행 가능한 항목이 더 없으면 Azure SQL Database에서 사용할 수 있는 리소스의 양을 변경할 수 있습니다. 단일 데이터베이스의 [DTU 서비스 계층](sql-database-service-tiers-dtu.md) 을 변경 하거나 언제 든 지 탄력적 풀의 edtu를 늘리는 방법으로 더 많은 리소스를 할당 합니다. 또는 [Vcore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 사용 하는 경우 서비스 계층을 변경 하거나 데이터베이스에 할당 된 리소스를 늘립니다.
 
 1. 단일 데이터베이스의 경우 필요에 따라 [서비스 계층을 변경](sql-database-single-database-scale.md)하거나 [리소스를 컴퓨팅](sql-database-single-database-scale.md)하여 데이터베이스 성능을 향상시킬 수 있습니다.
 2. 여러 데이터베이스의 경우 [탄력적 풀](sql-database-elastic-pool-guidance.md)을 사용하여 자동으로 리소스 규모를 조정할 수 있습니다.
 
 ## <a name="tune-and-refactor-application-or-database-code"></a>애플리케이션 또는 데이터베이스 코드 조정 및 리팩터링
 
-데이터베이스를 보다 최적으로 사용하도록 애플리케이션 코드를 변경하거나 인덱스를 변경하며 계획을 강제 적용하거나 힌트를 사용하여 사용자 워크로드에 맞게 데이터베이스를 수동으로 조정할 수 있습니다. 수동 튜닝 및 코드 다시 작성에 대한 몇 가지 지침 및 팁은 [성능 지침 항목](sql-database-performance-guidance.md) 문서에서 확인합니다.
+데이터베이스를 보다 최적으로 사용하도록 애플리케이션 코드를 변경하거나 인덱스를 변경하며 계획을 강제 적용하거나 힌트를 사용하여 사용자 워크로드에 맞게 데이터베이스를 수동으로 조정할 수 있습니다. 수동으로 튜닝 하 고 코드를 다시 작성 하는 방법에 대 한 지침과 팁을 보려면 [성능 지침 항목](sql-database-performance-guidance.md) 을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

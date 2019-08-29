@@ -10,12 +10,12 @@ ms.reviewer: jmartens, garye
 ms.author: jordane
 author: jpe316
 ms.date: 07/12/2019
-ms.openlocfilehash: 97b66bff0e6413b7774a054a01a0dc73649c9cce
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: b0d8eef025efb6398f1d7c734ca558540b157fef
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963012"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128261"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-pipelines"></a>Azure Machine Learning 파이프라인을 사용 하 여 대량 데이터 집합에서 일괄 처리 예측 실행
 
@@ -28,7 +28,7 @@ ms.locfileid: "68963012"
 
 다음 단계에서는 [기계 학습 파이프라인](concept-ml-pipelines.md) 을 만들어 미리 학습 된 컴퓨터 비전 모델 ([개시-V3](https://arxiv.org/abs/1512.00567))을 등록 합니다. 그런 다음 미리 학습 된 모델을 사용 하 여 Azure Blob storage 계정에서 사용할 수 있는 이미지에 대 한 일괄 처리 점수 매기기를 수행 합니다. 채점에 사용되는 이 이미지는 [ImageNet](http://image-net.org/) 데이터 세트에서 레이블되지 않은 이미지입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning 서비스의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
@@ -114,7 +114,7 @@ output_dir = PipelineData(name="scores",
 
 ### <a name="set-up-compute-target"></a>컴퓨팅 대상 설정
 
-Azure Machine Learning에서 *컴퓨팅*(또는 *컴퓨팅* 대상)은 기계 학습 파이프라인에서 계산 단계를 수행하는 머신 또는 클러스터를 가리킵니다. 예를 들어 `Azure Machine Learning compute`을 만들 수 있습니다.
+Azure Machine Learning에서 *컴퓨팅*(또는 *컴퓨팅* 대상)은 기계 학습 파이프라인에서 계산 단계를 수행하는 머신 또는 클러스터를 가리킵니다. 예를 들어 [Amlcompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py) 클래스를 사용 하 여 Azure Machine Learning 계산을 만들 수 있습니다.
 
 ```python
 from azureml.core.compute import AmlCompute

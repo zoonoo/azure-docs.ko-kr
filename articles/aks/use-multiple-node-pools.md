@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 656934f00879b47669fac4deaac5156cb100e159
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: caeb89332bd46b4f0cf2d0f9e5654aebca4d765d
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898741"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147260"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여러 노드 풀 만들기 및 관리
 
@@ -101,12 +101,15 @@ az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --enable-vmss \
-    --node-count 1 \
+    --node-count 2 \
     --generate-ssh-keys \
     --kubernetes-version 1.13.10
 ```
 
 클러스터를 만드는 데 몇 분이 걸립니다.
+
+> [!NOTE]
+> 클러스터가 안정적으로 작동 하도록 하려면이 노드 풀에서 필수적인 시스템 서비스가 실행 되 고 있으므로 기본 노드 풀에서 2 개 이상의 노드를 실행 해야 합니다.
 
 클러스터가 준비 되 면 [az aks][az-aks-get-credentials] 명령을 사용 하 여에 사용할 `kubectl`클러스터 자격 증명을 가져옵니다.
 
@@ -133,7 +136,7 @@ az aks nodepool add \
 az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
 ```
 
-다음 예제 출력은 노드 풀에서 3 개의 노드를 사용 하 여 *mynodepool* 을 성공적으로 만들었음을 보여 줍니다. 이전 단계에서 AKS 클러스터를 만든 경우 기본 *nodepool1* 노드 수를 *1*로 만들었습니다.
+다음 예제 출력은 노드 풀에서 3 개의 노드를 사용 하 여 *mynodepool* 을 성공적으로 만들었음을 보여 줍니다. 이전 단계에서 AKS 클러스터를 만든 경우 기본 *nodepool1* 노드 수를 *2*로 만들었습니다.
 
 ```console
 $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
@@ -151,7 +154,7 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
   },
   {
     ...
-    "count": 1,
+    "count": 2,
     ...
     "name": "nodepool1",
     "orchestratorVersion": "1.13.10",
@@ -166,11 +169,14 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 > 노드 풀을 추가할 때 *OrchestratorVersion* 또는 *vmsize* 가 지정 되지 않은 경우 노드는 AKS 클러스터의 기본값을 기반으로 만들어집니다. 이 예에서는 Kubernetes이 *1.13.10* 이 고 노드 크기가 *Standard_DS2_v2*입니다.
 
 ## <a name="upgrade-a-node-pool"></a>노드 풀 업그레이드
-
+ 
 > [!NOTE]
 > 클러스터 또는 노드 풀에서 업그레이드 및 크기 조정 작업은 함께 사용할 수 없습니다. 클러스터 또는 노드 풀을 동시에 업그레이드 하 고 확장할 수 없습니다. 대신, 동일한 리소스에 대 한 다음 요청 전에 대상 리소스에서 각 작업 유형이 완료 되어야 합니다. 이에 대 한 자세한 내용은 [문제 해결 가이드](https://aka.ms/aks-pending-upgrade)를 참조 하세요.
 
 첫 번째 단계에서 AKS 클러스터를 만든 경우 *1.13.10* 의가 `--kubernetes-version` 지정 되었습니다. 그러면 제어 평면과 초기 노드 풀 모두에 대해 Kubernetes 버전이 설정 됩니다. Kubernetes 버전의 제어 평면과 노드 풀을 업그레이드 하는 데는 여러 가지 명령이 있습니다. 명령은 개별 노드 풀을 업그레이드 하는 데 사용 되는 `az aks nodepool upgrade` 동안 제어 평면을 업그레이드 하는 데 사용 됩니다. `az aks upgrade`
+
+> [!NOTE]
+> 노드 풀 OS 이미지 버전은 클러스터의 Kubernetes 버전에 연결 됩니다. 클러스터 업그레이드 후에는 OS 이미지 업그레이드만 가져옵니다.
 
 *Mynodepool* 을 Kubernetes *1.13.10*로 업그레이드 하겠습니다. 다음 예제와 같이 [az aks node pool upgrade][az-aks-nodepool-upgrade] 명령을 사용 하 여 노드 풀을 업그레이드 합니다.
 
@@ -206,7 +212,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
   },
   {
     ...
-    "count": 1,
+    "count": 2,
     ...
     "name": "nodepool1",
     "orchestratorVersion": "1.13.10",
@@ -269,7 +275,7 @@ $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster
   },
   {
     ...
-    "count": 1,
+    "count": 2,
     ...
     "name": "nodepool1",
     "orchestratorVersion": "1.13.10",
@@ -319,7 +325,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
   },
   {
     ...
-    "count": 1,
+    "count": 2,
     ...
     "name": "nodepool1",
     "orchestratorVersion": "1.13.10",
@@ -372,7 +378,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
   },
   {
     ...
-    "count": 1,
+    "count": 2,
     ...
     "name": "nodepool1",
     "orchestratorVersion": "1.13.10",
@@ -389,7 +395,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 ## <a name="schedule-pods-using-taints-and-tolerations"></a>Taints 및 tolerations를 사용 하 여 pod 예약
 
-이제 클러스터에 두 개의 노드 풀 (처음에 만든 기본 노드 풀 및 GPU 기반 노드 풀)이 있습니다. [Kubectl 노드 가져오기][kubectl-get] 명령을 사용 하 여 클러스터의 노드를 볼 수 있습니다. 다음 예제 출력에서는 각 노드 풀에 있는 하나의 노드를 보여 줍니다.
+이제 클러스터에 두 개의 노드 풀 (처음에 만든 기본 노드 풀 및 GPU 기반 노드 풀)이 있습니다. [Kubectl 노드 가져오기][kubectl-get] 명령을 사용 하 여 클러스터의 노드를 볼 수 있습니다. 다음 예제 출력에서는 노드를 보여 줍니다.
 
 ```console
 $ kubectl get nodes

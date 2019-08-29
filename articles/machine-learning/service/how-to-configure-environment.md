@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: d2f60b496594946e9175ecf5c1948b08c9065b1b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 220f68461d47293e9f43a650e4fa5d1d59bce02f
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848192"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128352"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 
@@ -30,7 +30,7 @@ ms.locfileid: "68848192"
 | [로컬 환경](#local) | 개발 환경 및 종속성에 대 한 모든 권한 원하는 빌드 도구, 환경 또는 IDE를 사용 하 여를 실행 합니다. | 시작 하는 데 시간이 더 오래 걸립니다. 필요한 SDK 패키지를 설치 해야 하 고, 아직 설치 되어 있지 않은 경우에도 환경을 설치 해야 합니다. |
 | [Azure Databricks](#aml-databricks) | 확장 가능한 Apache Spark 플랫폼에서 대규모의 집약적 기계 학습 워크플로를 실행 하는 데 적합 합니다. | 실험적 기계 학습 또는 작은 규모의 실험 및 워크플로를 위한 과잉. Azure Databricks에 대해 발생 하는 추가 비용입니다. [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/databricks/)를 참조하세요. |
 | [Data Science Virtual Machine (DSVM)](#dsvm) | 클라우드 기반 노트북 VM (Python 및 SDK는 사전 설치 됨)과 유사 하지만 추가 인기 있는 데이터 과학 및 기계 학습 도구가 사전 설치 되어 있습니다. 쉽게 확장 하 고 다른 사용자 지정 도구 및 워크플로와 결합할 수 있습니다. | 클라우드 기반 노트북 VM과 비교 하 여 더 느린 시작 환경을 제공 합니다. |
-| [Azure 노트](#aznotebooks) | Python 및 SDK를 미리 설치 하 여 무료 및 경량 무게 시작 환경을 제공 합니다. | 강력 하지 않은 VM은 클라우드 기반 노트북 VM과 비교 하 여 사용할 수 있습니다. 작업 영역 및 기타 리소스에서 격리 됩니다. |
+| [Azure 노트](#aznotebooks) | Python 및 SDK가 미리 설치 된 무료 및 경량 시작 환경. | 클라우드 기반 노트북 VM과 비교 하 여 사용할 수 있는 강력 하지 않은 Vm입니다. 작업 영역 및 기타 리소스에서 격리 됩니다. |
 
 또한이 문서에서는 다음 도구에 대 한 추가 사용 팁을 제공 합니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "68848192"
 
 * [Visual Studio Code](#vscode): Visual Studio Code를 사용하는 경우 몇 가지 유용한 확장 프로그램을 설치할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Machine Learning 서비스 작업 영역. 작업 영역을 만들려면 [Azure Machine Learning 서비스 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요. [클라우드 기반 노트북 서버](#notebookvm), [dsvm](#dsvm), [Azure Databricks](#aml-databricks)또는 [Azure Notebooks](#aznotebooks)를 사용 하 여 작업 영역을 시작 하기만 하면 됩니다.
 
@@ -59,7 +59,7 @@ Azure Machine Learning 서비스 작업 영역. 작업 영역을 만들려면 [A
 
 노트북 VM은 다음과 같습니다.
 
-+ **보안**. VM 및 노트북 액세스는 HTTPS를 사용 하 고 기본적으로 Azure Active Directory으로 보안이 유지 되므로 IT 전문가는 single sign-on 및 multi-factor authentication과 같은 기타 보안 기능을 쉽게 적용할 수 있습니다.
++ **보안**. VM 및 노트북 액세스는 HTTPS를 사용 하 고 기본적으로 Azure Active Directory으로 보호 되므로 IT 전문가는 Single Sign-On 및 multi-factor authentication과 같은 기타 보안 기능을 쉽게 적용할 수 있습니다.
 
 + **미리 구성**되어 있습니다. 완전히 준비 된 Python ML 환경은 널리 사용 되는 IaaS Data Science VM 계통를 제공 하며 다음을 포함 합니다.
   + Azure ML Python SDK (최신 버전)
@@ -72,7 +72,7 @@ Azure Machine Learning 서비스 작업 영역. 작업 영역을 만들려면 [A
 
   코드를 사용 하는 경우 VM에는 Azure Machine Learning 서비스를 사용 하는 방법을 탐색 하 고 학습할 수 있는 자습서와 샘플이 포함 되어 있습니다. 샘플 노트북은 Vm 전체에서 공유할 수 있도록 작업 영역의 Azure Blob Storage 계정에 저장 됩니다. 실행 되 면 작업 영역의 데이터 저장소 및 계산 리소스에 액세스할 수 있습니다.
 
-+ **간단한 설정**: Azure Machine Learning 작업 영역 내에서 언제 든 지 하나를 만듭니다. 이름을 입력 하 고 Azure VM 유형을 지정 합니다. 이 [자습서를 사용 하 여 지금 사용해 보세요. 설정 환경 및 작업](tutorial-1st-experiment-sdk-setup.md)영역.
++ **간단한 설정**: Azure Machine Learning 작업 영역 내에서 언제 든 지 하나를 만듭니다. 이름을 입력 하 고 Azure VM 유형을 지정 합니다. 이 [자습서를 사용 하 여 지금 사용해 보세요. 환경 및 작업 영역 설정](tutorial-1st-experiment-sdk-setup.md)을 완료하는 것입니다.
 
 + **사용자 지정 가능**. 관리 및 보안 VM을 제공 하는 동안 하드웨어 기능에 대 한 모든 권한을 유지 하 고 원하는 대로 사용자 지정 합니다. 예를 들어 novel 신경망 아키텍처의 단계별 디버깅을 수행 하기 위해 최신 NVidia V100 구동 VM을 신속 하 게 만들 수 있습니다.
 
@@ -187,16 +187,21 @@ Azure Machine Learning SDK는 DSVM의 Ubuntu 또는 Windows 버전에서 작동�
 
     이 명령은 노트북 및 automl 추가 기능을 사용 하 여 기본 Azure Machine Learning SDK를 설치 합니다. `automl` 추가는 대형 설치 이며 자동화 된 기계 학습 실험을 실행 하지 않으려는 경우 괄호에서 제거할 수 있습니다. 또한 `automl` 추가에는 기본적으로 Azure Machine Learning 데이터 준비 SDK가 종속성으로 포함 됩니다.
 
-     ```shell
+    ```shell
     pip install azureml-sdk[notebooks,automl]
     ```
 
    > [!NOTE]
-   > PyYAML을 제거할 수 없다는 메시지가 표시되면 다음 명령을 대신 사용합니다.
+   > * PyYAML을 제거할 수 없다는 메시지가 표시되면 다음 명령을 대신 사용합니다.
    >
-   > `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML`
+   >   `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML`
+   >
+   > * MacOS Catalina.properties부터 zsh (Z shell)는 기본 로그인 셸 및 대화형 셸입니다. Zsh에서 괄호를 "\\" (백슬래시)로 이스케이프 하는 다음 명령을 사용 합니다.
+   >
+   >   `pip install --upgrade azureml-sdk\[notebooks,automl\]`
 
-   SDK를 설치 하는 데 몇 분 정도 걸립니다. 설치 옵션에 대 한 자세한 내용은 [설치 가이드](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) 를 참조 하세요.
+
+   SDK를 설치 하는 데 몇 분 정도 걸립니다. 설치 옵션에 대 한 자세한 내용은 [설치 가이드](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)를 참조 하세요.
 
 1. Machine learning 실험을 위한 다른 패키지를 설치 합니다.
 
@@ -329,10 +334,10 @@ Azure Machine Learning 서비스와 Azure Databricks 작동 방법:
    1. **라이브러리** 탭에서 **다시 시작**을 선택합니다.
 
    다음 사항도 고려해 야 합니다.
-   + Automl config에서 Azure Databricks 사용 하는 경우 다음 매개 변수를 추가 하세요.
+   + AutoML config에서 Azure Databricks 사용 하는 경우 다음 매개 변수를 추가 합니다.
        1. ```max_concurrent_iterations```는 클러스터의 작업자 노드 수를 기반으로 합니다.
         2. ```spark_context=sc```는 기본 spark 컨텍스트를 기반으로 합니다.
-   + 또는 이전 SDK 버전이 있는 경우 클러스터의 설치 된 라이브러리에서 선택을 취소 하 고 휴지통으로 이동 합니다. 새 SDK 버전을 설치하고 클러스터를 다시 시작합니다. 그래도 문제가 있으면 클러스트를 분리했다가 다시 연결합니다.
+   + 또는 이전 SDK 버전이 있는 경우 클러스터의 설치 된 라이브러리에서 선택을 취소 하 고 휴지통으로 이동 합니다. 새 SDK 버전을 설치하고 클러스터를 다시 시작합니다. 다시 시작한 후 문제가 발생 하면 클러스터를 분리 하 고 다시 연결 합니다.
 
 설치에 성공 하면 가져온 라이브러리는 다음 중 하 나와 같아야 합니다.
 
@@ -357,7 +362,7 @@ Databricks에 자동화 된 machine learning이 ![설치 된 자동화 된 machi
 
 [Azure Portal](https://portal.azure.com)을 사용하여 Azure Notebooks를 시작합니다.  작업 영역을 열고 **개요** 섹션에서 **Azure Notebooks 시작**을 선택 합니다.
 
-기본적으로 Azure Notebooks는 메모리 4GB, 데이터 1GB로 제한되는 무료 서비스 계층을 사용합니다. 하지만 Data Science Virtual Machine 인스턴스를 Azure Notebooks 프로젝트에 연결하여 이 제한을 제거할 수 있습니다. 자세한 내용은 [Azure Notebooks 프로젝트 관리 및 구성 - 컴퓨팅 계층](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier)을 참조하세요.
+기본적으로 Azure Notebooks는 4gb의 메모리와 1gb의 데이터로 제한 된 무료 서비스 계층을 사용 합니다. 하지만 Data Science Virtual Machine 인스턴스를 Azure Notebooks 프로젝트에 연결하여 이 제한을 제거할 수 있습니다. 자세한 내용은 [Azure Notebooks 프로젝트 관리 및 구성 - 컴퓨팅 계층](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier)을 참조하세요.
 
 ## <a id="workspace"></a>작업 영역 구성 파일 만들기
 
@@ -371,7 +376,7 @@ Databricks에 자동화 된 machine learning이 ![설치 된 자동화 된 machi
 }
 ```
 
-이 JSON 파일은 Python 스크립트 또는 Jupyter Notebook을 포함하는 디렉터리 구조 내에 있어야 합니다. 같은 디렉터리, 이름이 *azureml*인 하위 디렉터리 또는 부모 디렉터리에 있을 수 있습니다.
+이 JSON 파일은 Python 스크립트 또는 Jupyter Notebook을 포함하는 디렉터리 구조 내에 있어야 합니다. 동일한 디렉터리, *.azureml*이라는 하위 디렉터리 또는 부모 디렉터리에 있을 수 있습니다.
 
 코드에서 이 파일을 사용하려면 `ws=Workspace.from_config()`를 사용합니다. 이 코드는 파일의 정보를 로드하고 작업 영역에 연결합니다.
 

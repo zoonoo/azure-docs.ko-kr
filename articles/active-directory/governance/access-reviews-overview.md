@@ -16,14 +16,14 @@ ms.date: 08/05/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b6b310e2ca2c19bf4b163704627943a881501bd
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 5fe8b50775390d60f75fafeae490e0307912600f
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68823844"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125273"
 ---
-# <a name="what-are-azure-ad-access-reviews"></a>Azure AD 액세스 검토 란 무엇 인가요?
+# <a name="what-are-azure-ad-access-reviews"></a>Azure AD 액세스 검토란?
 
 Azure AD (Azure Active Directory) 액세스 검토를 사용 하면 조직에서 그룹 멤버 자격, 엔터프라이즈 응용 프로그램에 대 한 액세스 및 역할 할당을 효율적으로 관리할 수 있습니다. 사용자의 액세스는 정기적으로 검토하여 적합한 사용자만 계속 액세스할 수 있도록 합니다.
 
@@ -60,6 +60,7 @@ Azure AD를 사용하면 조직 내에서 내부적으로, 또한 파트너와 �
 | 연결된 앱에 할당됨 | 지정된 검토자</br>자동 검토 | Azure AD 액세스 검토</br>Azure AD 엔터프라이즈 앱(미리 보기) | 액세스 패널 |
 | Azure AD 역할 | 지정된 검토자</br>자동 검토 | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure Portal |
 | Azure 리소스 역할 | 지정된 검토자</br>자동 검토 | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure Portal |
+
 
 ## <a name="onboard-access-reviews"></a>액세스 검토 등록
 

@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 08/28/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f213acea71f22815d8b26b6c4c6cb54f64b8b34
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 1265341ecfdb7f418ea89bb0ec848a20c6b430cd
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807797"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127677"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 통해 SharePoint에 원격 액세스를 사용하도록 설정
 
@@ -36,6 +36,9 @@ Azure AD 애플리케이션 프록시를 통해 SharePoint에 원격 액세스�
 * SharePoint에는 기본 Kerberos 지원을 포함합니다. 따라서 Azure AD 애플리케이션 프록시를 통해 원격으로 내부 사이트에 액세스하는 사용자는 SSO(Single Sign-On) 환경을 사용한다고 가정할 수 있습니다.
 * 이 시나리오는 SharePoint 서버에 대한 구성 변경을 포함합니다. 스테이징 환경을 사용하는 것이 좋습니다. 이 방법에서는 스테이징 서버로 먼저 업데이트할 수 있으므로 프로덕션으로 전환하기 전에 테스트 주기를 용이하게 할 수 있습니다.
 * 게시된 URL에는 SSL이 필요합니다. 또한 링크가 올바르게 전송/매핑되도록 하려면 내부 URL에 SSL이 필요합니다.
+
+> [!NOTE]
+> 가능 하면 항상 사용자 지정 도메인을 사용 하는 것이 좋습니다. 사용자 지정 도메인을 사용 하 여 내부 URL과 외부 URL 모두에 대해 동일한 URL을 구성할 수 있습니다. 그런 다음 동일한 링크를 사용 하 여 네트워크 내부 또는 외부에서 응용 프로그램에 액세스할 수 있습니다. 이 구성은 응용 프로그램에 액세스 해야 하는 사용자 및 다른 응용 프로그램에 대 한 환경을 최적화 합니다. [Azure AD 응용 프로그램 프록시에서 사용자 지정 도메인 작업](application-proxy-configure-custom-domain.md)에 대해 자세히 알아보세요.
 
 ## <a name="step-1-configure-kerberos-constrained-delegation-kcd"></a>1단계: KCD(Kerberos 제한된 위임) 구성
 
@@ -75,7 +78,7 @@ HTTP/SharePoint
 ```
 
 > [!NOTE]
-> 내부 URL에 대 한 이러한 권장 사항을 따르십시오.
+> 내부 URL에 대해 다음 권장 사항을 따르세요.
 > * HTTPS 사용
 > * 사용자 지정 포트 사용 안 함
 > * DNS에서 별칭(CName)이 아닌 SharePoint WFE(또는 Load Balancer)를 가리키는 호스트(A) 만들기
@@ -127,7 +130,7 @@ KCD를 구성했으므로 이제 Azure AD 애플리케이션 프록시를 구성
    1. 포털의 애플리케이션 페이지에서 **Single Sign-On**을 선택합니다.
    1. Single Sign-On 모드로 **Windows 통합 인증**을 선택합니다.
    1. 내부 애플리케이션 SPN을 이전에 설정한 값으로 설정합니다. 이 예제에서는 **HTTP/SharePoint**입니다.
-   1. "위임 된 로그인 Id", Active Directory 포리스트 구성에 가장 적합 한 옵션을 선택 합니다. 예를 들어 단일 AD 도메인 선택 포리스트에 있는 경우 **온-프레미스 SAM 계정 이름** (표시 된 것 처럼 아래)를 사용자가 SharePoint와 동일한 도메인에 없는 및 앱 프록시 커넥터 서버를 선택한 경우  **온-프레미스 사용자 계정 이름** (표시 되지 않음).
+   1. "위임 된 로그인 Id"에서 Active Directory 포리스트 구성에 가장 적합 한 옵션을 선택 합니다. 예를 들어 포리스트에 단일 AD 도메인이 있는 경우 아래와 같이 **온-프레미스 SAM 계정 이름** 을 선택 합니다. 그러나 사용자가 SharePoint와 동일한 도메인에 있지 않은 경우 앱 프록시 커넥터 서버에서 **온-프레미스 사용자 계정 이름을 선택 합니다.** (표시 되지 않음).
 
    ![SSO용 통합 Windows 인증 구성](./media/application-proxy-integrate-with-sharepoint-server/configure-iwa.png)
 
@@ -151,7 +154,7 @@ KCD를 구성했으므로 이제 Azure AD 애플리케이션 프록시를 구성
 1. **시스템 설정** 아래에서 **대체 액세스 매핑 구성**을 선택합니다. 대체 액세스 매핑 상자가 열립니다.
 1. 사이트(예: **SharePoint – 80**)를 선택합니다. 지금은 엑스트라넷 영역에 내부 URL이 제대로 설정되어 있지 않습니다.
 
-   ![대체 액세스 매핑 상자를 보여 줍니다.](./media/application-proxy-integrate-with-sharepoint-server/alternate-access1.png)
+   ![대체 액세스 매핑 상자를 표시 합니다.](./media/application-proxy-integrate-with-sharepoint-server/alternate-access1.png)
 
 1. **내부 URL 추가**를 클릭합니다.
 1. **URL 프로토콜, 호스트 및 포트** 텍스트 상자에 Azure AD 프록시에 구성된 **내부 URL**(예: <https://SharePoint/>)을 입력합니다.

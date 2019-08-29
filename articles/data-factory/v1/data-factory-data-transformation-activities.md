@@ -3,22 +3,20 @@ title: '데이터 변환: 데이터 처리 및 변환 | Microsoft Docs'
 description: Hadoop, Machine Learning 또는 Azure Data Lake Analytics를 사용하여 Azure Data Factory에서 데이터를 변환 또는 처리하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: 39786731-1e4b-40a4-81b7-d06e127427aa
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: b1a99f2872a69e01232c69a73f36319552429ca0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9e70877a51c23be2d626492f84a69ae49fb27fac
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60486603"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139767"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Azure Data Factory의 데이터 변환
 > [!div class="op_single_selector"]
@@ -66,7 +64,7 @@ Azure Data Factory를 사용하면 예측 분석을 위해 게시된 Azure Machi
 
 이러한 Machine Learning 작업에 대한 자세한 내용은 [Machine Learning 작업 사용](data-factory-azure-ml-batch-execution-activity.md)을 참조하세요. 
 
-## <a name="stored-procedure-activity"></a>저장 프로시저 작업
+## <a name="stored-procedure-activity"></a>저장 프로시저 활동
 Data Factory 파이프라인에서 SQL Server 저장 프로시저 작업을 사용하여 기업의 Azure SQL Database, Azure SQL Data Warehouse, SQL Server Database 또는 Azure VM. 자세한 내용은 [저장 프로시저 작업](data-factory-stored-proc-activity.md)을 참조하세요.  
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL 작업
@@ -96,6 +94,6 @@ Azure Data Factory는 작업에 대한 다음 데이터 변환 작업 및 컴퓨
 | [Hadoop 스트리밍](data-factory-hadoop-streaming-activity.md) |HDInsight [Hadoop] |
 | [Machine Learning 작업: 일괄 처리 실행 및 리소스 업데이트](data-factory-azure-ml-batch-execution-activity.md) |Azure VM |
 | [저장 프로시저](data-factory-stored-proc-activity.md) |Azure SQL, Azure SQL Data Warehouse 또는 SQL Server |
-| [데이터 레이크 분석 U-SQL](data-factory-usql-activity.md) |Azure 데이터 레이크 분석 |
+| [데이터 레이크 분석 U-SQL](data-factory-usql-activity.md) |Azure Data Lake Analytics |
 | [DotNet](data-factory-use-custom-activities.md) |HDInsight [Hadoop] 또는 Azure Batch |
 

@@ -3,23 +3,20 @@ title: Azure Data Factory에서 Spark 프로그램 호출 | Microsoft Docs
 description: MapReduce 작업을 사용하여 Azure Data Factory에서 Spark 프로그램을 호출하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: ''
-editor: ''
-ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 5f39331cb6fb5da370ec34b38592f513d713e957
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 08aa1303aeaa0a80f0825f45e037109b98e9771e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640273"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135330"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Azure Data Factory 파이프라인에서 Spark 프로그램 호출
 
@@ -54,7 +51,7 @@ Spark 작업이 포함된 데이터 팩터리 파이프라인을 만드는 일�
 * Storage 연결된 서비스를 참조하는 데이터 세트를 만듭니다. 현재 생성 중인 출력이 없더라도 작업의 출력 데이터 세트를 지정해야 합니다. 
 * 만든 HDInsight 연결된 서비스를 참조하는 Spark 작업이 있는 파이프라인을 만듭니다. 이 작업은 이전 단계에서 출력 데이터 세트로 만든 데이터 세트를 통해 구성됩니다. 출력 데이터 세트는 일정(매시간, 매일)을 구동하는 것입니다. 따라서 작업에서 실제로 출력을 생성하지 않더라도 출력 데이터 세트를 지정해야 합니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 구성 요소
 1. [스토리지 계정 만들기](../../storage/common/storage-quickstart-create-account.md)의 지침에 따라 범용 스토리지 계정을 만듭니다.
 
 1. [HDInsight에서 Spark 클러스터 만들기](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)의 지침에 따라 HDInsight에서 Spark 클러스터를 만듭니다. 1단계에서 만든 스토리지 계정을 이 클러스터와 연결합니다.
@@ -108,7 +105,7 @@ Spark 작업이 포함된 데이터 팩터리 파이프라인을 만드는 일�
 
    ![AzureStorageLinkedService](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-1. **계정 이름** 및 **계정 키**를 스토리지 계정의 이름 및 액세스 키로 바꿉니다. 스토리지 액세스 키를 가져오는 방법은 [스토리지 계정 관리](../../storage/common/storage-account-manage.md#access-keys)에서 스토리지 액세스 키의 보기, 복사 및 재생성 방법을 참조하세요.
+1. **계정 이름** 및 **계정 키**를 스토리지 계정의 이름 및 액세스 키로 바꿉니다. 스토리지 액세스 키를 가져오는 방법을 알아보려면 [스토리지 계정 관리](../../storage/common/storage-account-manage.md#access-keys)에서 스토리지 액세스 키를 보고, 복사하고, 다시 생성하는 방법을 참조하세요.
 
 1. 연결된 서비스를 배포하려면 명령 모음에서 **배포**를 선택합니다. 연결된 서비스가 성공적으로 배포되면 후 초안 1 창이 사라집니다. 왼쪽의 트리 뷰에서 **AzureStorageLinkedService**가 표시됩니다.
 
@@ -347,7 +344,7 @@ Pig 및 Hive 작업에서 수행하는 것처럼 Spark 작업은 인라인 스�
 
 HDInsight 연결된 서비스에서 참조하는 Blob Storage에 다음 폴더 구조를 만듭니다. 그런 다음 **entryFilePath**로 표시된 루트 폴더의 해당 하위 폴더에 종속 파일을 업로드합니다. 예를 들어 Python 파일은 루트 폴더의 pyFiles 하위 폴더에 업로드하고, jar 파일은 jars 하위 폴더에 업로드합니다. 런타임 시, Data Factory 서비스에 필요한 Blob Storage의 폴더 구조는 다음과 같습니다. 
 
-| 경로 | Description | 필수 | 형식 |
+| 경로 | 설명 | 필수 | 형식 |
 | ---- | ----------- | -------- | ---- |
 | 을 선택합니다. | 스토리지 연결된 서비스의 Spark 작업에 대한 루트 경로입니다. | 예 | 폴더 |
 | &lt;사용자 정의 &gt; | Spark 작업의 입력 파일을 가리키는 경로입니다. | 예 | 파일 |

@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/16/2019
-ms.openlocfilehash: 60d8d4594d76fbef36df0259940d4437e28280cb
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 5957a7c555c5b5d9905fcb7e3310093416ae5efb
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873429"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147699"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>작업 예약 및 브로드캐스트(Java)
 
@@ -51,9 +51,7 @@ Azure IoT Hub를 사용하여 수백만 대의 디바이스를 업데이트하�
 > [!NOTE]
 > [Azure IoT SDK](iot-hub-devguide-sdks.md) 문서는 디바이스 및 백 엔드 앱을 빌드하는 데 사용할 수 있는 Azure IoT SDK에 대한 정보를 제공합니다.
 
-## <a name="prerequisites"></a>전제 조건
-
-이 자습서를 완료하려면 다음이 필요합니다.
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 최신 [Java SE Development Kit 8](https://aka.ms/azure-jdks)
 

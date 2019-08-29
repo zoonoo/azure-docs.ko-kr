@@ -3,25 +3,24 @@ title: Azure Data Factory를 사용하여 Machine Learning 모델 업데이트 |
 description: Azure Data Factory 및 Azure Machine Learning을 사용하여 예측 파이프라인을 만드는 방법을 설명합니다.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 0c0e0e3983344bba76f5f305ecaf73f91110f3bc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a980f269c8b88618ffa3311c05310a88ade379ed
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60567320"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140467"
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>업데이트 리소스 작업을 사용하여 Azure Machine Learning 모델 업데이트
 
-> [!div class="op_single_selector" title1="변환 활동"]
+> [!div class="op_single_selector" title1="변환 작업"]
 > * [Hive 작업](data-factory-hive-activity.md) 
 > * [Pig 작업](data-factory-pig-activity.md)
 > * [MapReduce 작업](data-factory-map-reduce.md)
@@ -35,7 +34,7 @@ ms.locfileid: "60567320"
 
 
 > [!NOTE]
-> 이 문서의 내용은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우 [Data Factory에서 기계 학습 모델 업데이트](../update-machine-learning-models.md)를 참조하세요.
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우 [Data Factory에서 기계 학습 모델 업데이트](../update-machine-learning-models.md)를 참조하세요.
 
 이 문서는 기본 Azure Data Factory - Azure Machine Learning 통합 문서인 [Azure Machine Learning 및 Azure Data Factory를 사용하여 예측 파이프라인 만들기](data-factory-azure-ml-batch-execution-activity.md)를 보완합니다. 수행하지 않았다면 이 문서를 읽기 전에 기본 문서를 검토하세요. 
 

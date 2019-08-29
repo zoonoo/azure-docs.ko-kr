@@ -5,23 +5,27 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 6/26/2019
+ms.date: 8/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: 1995ce2a91bfbc115f80c99687cc84b52ef614ec
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: f35a3567ae4ae7c3e2d59f776d3a3bc00ec2be3e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950103"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142394"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>문제 해결 Azure Data Factory
 
 이 문서에서는 Azure Data Factory의 외부 제어 작업에 대 한 일반적인 문제 해결 방법을 살펴봅니다.
 
+## <a name="connector-and-copy-activity"></a>커넥터 및 복사 작업
+
+커넥터 문제 (예: 복사 작업을 사용 하 여 오류 발생)의 경우 [커넥터 Azure Data Factory 문제 해결](connector-troubleshoot-guide.md)을 참조 하세요.
+
 ## <a name="azure-databricks"></a>Azure Databricks
 
-| 오류 코드 | 오류 메시지                                          | 설명                             | 권장                             |
+| 오류 코드 | 오류 메시지                                          | Description                             | 권장                             |
 | -------------- | ----------------------------------------------------- | --------------------------------------------------------------| :----------------------------------------------------------- |
 | 3200           | 오류 403.                                                    | Databricks 액세스 토큰이 만료 되었습니다.                         | 기본적으로 Databricks 액세스 토큰은 90 일 동안 유효 합니다.  새 토큰을 만들고 연결 된 서비스를 업데이트 합니다. |
 | 3201           | 필수 필드가 없습니다. notebook_task. notebook_path | 잘못 된 제작: 전자 필기장 경로가 올바르게 지정 되지 않았습니다. | Databricks 활동에서 노트북 경로를 지정 합니다. |
@@ -43,7 +47,7 @@ ms.locfileid: "68950103"
 
 다음 표는 U-SQL에 적용 됩니다.
 
-| 오류 코드         | 오류 메시지                                                | 설명                                          | 권장                            |
+| 오류 코드         | 오류 메시지                                                | Description                                          | 권장                            |
 | -------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 2709                 | 액세스 토큰이 잘못 된 테 넌 트에 있습니다.                    | 잘못 된 Azure Active Directory (Azure AD) 테 넌 트입니다.                                         | Azure Data Lake Analytics 액세스 하는 데 사용 되는 서비스 주체는 다른 Azure AD 테 넌 트에 속합니다. Data Lake Analytics 계정과 동일한 테 넌 트에 새 서비스 주체를 만듭니다. |
 | 2711,   2705,   2704 | 것. ACL 확인이 실패했습니다. 리소스가 없거나 사용자에 게 요청 된 작업을 수행할 수 있는 권한이 없습니다.<br/><br/>사용자가 Data Lake Store에 액세스할 수 없습니다.  <br/><br/>사용자에 게 Data Lake Analytics을 사용할 수 있는 권한이 없습니다. | 서비스 사용자 또는 인증서가 저장소에 있는 파일에 액세스할 수 없습니다. | 사용자가 Data Lake Analytics 작업을 위해 제공 하는 서비스 주체 또는 인증서가 루트 폴더에서 Data Lake Analytics 계정 및 기본 Data Lake Storage 인스턴스에 액세스할 수 있는지 확인 합니다. |
@@ -57,7 +61,7 @@ ms.locfileid: "68950103"
 
 ## <a name="azure-functions"></a>Azure Functions
 
-| 오류 코드 | 오류 메시지                           | Description                                                  | 권장                           |
+| 오류 코드 | 오류 메시지                           | 설명                                                  | 권장                           |
 | ------------ | --------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 3600         | 응답 콘텐츠가 올바른 JObject가 아닙니다. | 호출 된 Azure 함수에서 응답에 JSON 페이로드를 반환 하지 않았습니다. Data Factory의 Azure function 활동은 JSON 응답 콘텐츠만 지원 합니다. | 유효한 JSON 페이로드를 반환 하도록 Azure 함수를 업데이트 합니다. 예를 들어 함수 C# 는 Id\": `(ActionResult)new<OkObjectResult("{` \"\"123를반환할수`}");`있습니다.\" |
 | 3600         | 잘못 된 HttpMethod: ' ... '.               | 활동 페이로드에 지정 된 HTTP 메서드는 Azure function 활동에서 지원 되지 않습니다. | PUT, POST, GET, DELETE, OPTIONS, HEAD 또는 TRACE와 같은 지원 되는 HTTP 메서드를 사용 합니다. |
@@ -68,7 +72,7 @@ ms.locfileid: "68950103"
 
 다음 표는 Azure Batch에 적용 됩니다.
 
-| 오류 코드 | 오류 메시지                                                | Description                                                  | 권장                          |
+| 오류 코드 | 오류 메시지                                                | 설명                                                  | 권장                          |
 | ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 2500         | 예기치 않은 예외에 도달 하 여 실행 하지 못했습니다.             | 명령을 실행할 수 없거나 프로그램에서 오류 코드를 반환 했습니다. | 실행 파일이 있는지 확인 하십시오. 프로그램이 시작 되 면 *stdout* 및 *stderr* 이 저장소 계정에 업로드 되었는지 확인 합니다. 디버깅을 위해 코드에서 copious 로그를 내보내는 것이 좋습니다. |
 | 2501         | 사용자 배치 계정에 액세스할 수 없습니다. batch 계정 설정을 확인 하세요. | 일괄 처리 액세스 키 또는 풀 이름이 잘못 되었습니다.            | 연결 된 서비스의 풀 이름 및 Batch 액세스 키를 확인 합니다. |
@@ -90,7 +94,7 @@ ms.locfileid: "68950103"
 | 2,300         | Hadoop 작업을 제출 하지 못했습니다. 작업: ..., 클러스터: .../. 오류: 태스크가 취소 되었습니다. | 작업 제출 시간이 초과 되었습니다.                         | 문제는 일반적인 HDInsight 연결 또는 네트워크 연결 중 하나일 수 있습니다. 먼저 모든 브라우저에서 HDInsight Ambari UI를 사용할 수 있는지 확인 합니다. 자격 증명이 여전히 유효한 지 확인 합니다. 자체 호스팅 IR (통합 런타임)을 사용 하는 경우 자체 호스팅 IR이 설치 된 VM 또는 컴퓨터에서이 작업을 수행 해야 합니다. 그런 다음 Data Factory에서 작업을 다시 제출 하십시오. 그래도 오류가 계속 발생 하면 Data Factory 팀에 지원을 요청 하세요. |
 | 2,300         | 상태로   Ambari 사용자 이름 또는 암호가 잘못 되었습니다.  <br/><br/>상태로   사용자 관리자가 Ambari에서 잠겼습니다.   <br/><br/>403-사용할 수 없음: 액세스가 거부되었습니다. | HDInsight에 대 한 자격 증명이 잘못 되었거나 만료 되었습니다. | 자격 증명을 수정 하 고 연결 된 서비스를 다시 배포 합니다. 먼저 브라우저에서 클러스터 URI를 열고 로그인을 시도 하 여 HDInsight에서 자격 증명이 작동 하는지 확인 합니다. 자격 증명이 작동 하지 않는 경우 Azure Portal에서 자격 증명을 다시 설정할 수 있습니다. |
 | 2300,   2310 | 502 - 웹 서버에서 게이트웨이 또는 프록시 서버 역할을 하는 동안 잘못된 응답을 수신했습니다.       <br/>잘못 된 게이트웨이입니다. | 이 오류는 HDInsight에서 발생 한 것입니다.                               | 이 오류는 HDInsight 클러스터에서 발생 한 것입니다. 자세한 내용은 [AMBARI UI 502 오류](https://hdinsight.github.io/ambari/ambari-ui-502-error.html), [502 Errors to spark Thrift server](https://hdinsight.github.io/spark/spark-thriftserver-errors.html), [Thrift server에 연결 하는 502 오류](https://hdinsight.github.io/spark/spark-thriftserver-errors.html), [Application Gateway에서 잘못 된 게이트웨이 오류 문제 해결](https://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502)을 참조 하세요. |
-| 2,300         | Hadoop 작업을 제출 하지 못했습니다. 작업: ..., 클러스터: ... 오류: {\"error\":\"templeton 서비스가 너무 많은 전송 작업 요청을 사용 중 이므로 제출 작업 요청에 서비스를 수행할 수 없습니다. 잠시 기다린 후 작업을 다시 시도 하세요. Templeton 구성 parallellism을 참조 하 여 동시 요청을 구성 하십시오.  <br/><br/>Hadoop 작업을 제출 하지 못했습니다. 작업: 161da5d4-6fa8-4ef4-a240-6b6428c5ae2f, Cluster: `https://abc-analytics-prod-hdi-hd-trax-prod01.azurehdinsight.net/`.   오류: {\"오류\":\"yarn. YarnException...:. Application_1561147195099_3730을 YARN에 제출 하지 못했습니다:: Queue root. joblauncher는 이미 500 응용 프로그램을 포함 하 고 있으며, 응용 프로그램 제출을 허용할 수 없습니다. | 동시에 너무 많은 작업을 HDInsight에 전송 하 고 있습니다. | HDInsight에 제출 되는 동시 작업 수를 제한 하는 것이 좋습니다. 동일한 작업을 통해 작업을 전송 하는 경우 Data Factory 작업 동시성을 참조 하세요. 동시 파이프라인 실행이 시간이 지남에 따라 분산 되도록 트리거를 변경 합니다. 오류가 제안 된 대로 조정 `templeton.parallellism.job.submit` 하려면 HDInsight 설명서를 참조 하세요. |
+| 2,300         | Hadoop 작업을 제출 하지 못했습니다. 작업: ..., 클러스터: ... 오류: {\"error\":\"templeton 서비스가 너무 많은 전송 작업 요청을 사용 중 이므로 제출 작업 요청에 서비스를 수행할 수 없습니다. 잠시 기다린 후 작업을 다시 시도 하세요. Templeton 구성 parallellism을 참조 하 여 동시 요청을 구성 하십시오.  <br/><br/>Hadoop 작업을 제출 하지 못했습니다. 직함 161da5d4-6fa8-4ef4-a240-6b6428c5ae2f, Cluster: `https://abc-analytics-prod-hdi-hd-trax-prod01.azurehdinsight.net/`.   오류: {\"오류\":\"yarn. YarnException...:. Application_1561147195099_3730을 YARN에 제출 하지 못했습니다:: Queue root. joblauncher는 이미 500 응용 프로그램을 포함 하 고 있으며, 응용 프로그램 제출을 허용할 수 없습니다. | 동시에 너무 많은 작업을 HDInsight에 전송 하 고 있습니다. | HDInsight에 제출 되는 동시 작업 수를 제한 하는 것이 좋습니다. 동일한 작업을 통해 작업을 전송 하는 경우 Data Factory 작업 동시성을 참조 하세요. 동시 파이프라인 실행이 시간이 지남에 따라 분산 되도록 트리거를 변경 합니다. 오류가 제안 된 대로 조정 `templeton.parallellism.job.submit` 하려면 HDInsight 설명서를 참조 하세요. |
 | 2303,   2347 | Hadoop 작업이 실패 했습니다 (종료 코드 ' 5 '). 자세한 내용은wasbs://adfjobs@adftrialrun.blob.core.windows.net/StreamingJobs/da4afc6d-7836-444e-bbd5-635fce315997/18_06_2019_05_36_05_050/stderr' '을 참조 하세요.  <br/><br/>하이브 실행이 실패 했습니다 (오류 코드 ' UserErrorHiveOdbcCommandExecutionFailure ').   자세한 내용은wasbs://adfjobs@eclsupplychainblobd.blob.core.windows.net/HiveQueryJobs/16439742-edd5-4efe-adf6-9b8ff5770beb/18_06_2019_07_37_50_477/Status/hive.out' '을 참조 하세요. | 작업이 HDInsight에 제출 되었으며 HDInsight에서 실패 했습니다. | 작업이 HDInsight에 성공적으로 제출 되었습니다. 클러스터에서 실패 했습니다. HDInsight Ambari UI에서 작업 및 로그를 열거나 오류 메시지에서 제안 하는 대로 저장소에서 파일을 엽니다. 파일에 오류 정보가 표시 됩니다. |
 | 2328         | 요청을 처리 하는 동안 내부 서버 오류가 발생 했습니다. 요청을 다시 시도 하거나 고객 지원에 문의 하세요. | 이 오류는 HDInsight 주문형에서 발생 합니다.                              | 이 오류는 HDInsight 프로 비전이 실패할 때 HDInsight 서비스에서 제공 됩니다. HDInsight 팀에 문의 하 고 주문형 클러스터 이름을 제공 합니다. |
 | 2310         | java.lang.NullPointerException                               | 이 오류는 작업이 Spark 클러스터에 제출 될 때 발생 합니다.      | 이 예외는 HDInsight에서 제공 됩니다. 실제 문제를 숨깁니다. HDInsight 팀에 지원을 요청 하세요. 클러스터 이름 및 작업 실행 시간 범위를 제공 합니다. |
@@ -100,7 +104,7 @@ ms.locfileid: "68950103"
 
 ## <a name="web-activity"></a>웹 작업
 
-| 오류 코드 | 오류 메시지                                                | Description                                                  | 권장                          |
+| 오류 코드 | 오류 메시지                                                | 설명                                                  | 권장                          |
 | ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 2108         | 잘못 된 HttpMethod: ' ... '.                                    | 웹 작업은 활동 페이로드에 지정 된 HTTP 메서드를 지원 하지 않습니다. | 지원 되는 HTTP 메서드는 PUT, POST, GET 및 DELETE입니다. |
 | 2108         | 잘못 된 서버 오류 500입니다.                                     | 끝점에서 내부 오류가 발생 했습니다.                               | Fiddler 또는 Postman을 사용 하 여 URL의 기능을 확인 합니다. |

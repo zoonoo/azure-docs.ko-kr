@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: d294ceaaf77175a3010131b18864b71c7b26b88b
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: ef0237b38c8f640c0fc4b1b1788215c8804a5cd4
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360822"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141890"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Python에서 Service Bus 토픽 및 구독을 사용하는 방법
 
@@ -33,13 +33,13 @@ ms.locfileid: "68360822"
 - 구독에서 메시지 받기
 - 토픽 및 구독 삭제
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 1. Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) 을 활성화 하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 등록할 수 있습니다.
 2. 빠른 시작의 단계 [를 수행 합니다. 항목](service-bus-quickstart-topics-subscriptions-portal.md) 에 대 한 Service Bus 토픽 및 구독을 만드는 Azure Portal를 사용 하 여 Service Bus **네임 스페이스** 를 만들고 **연결 문자열**을 가져옵니다.
 
     > [!NOTE]
-    > 이 빠른 시작에서 **Python** 을 사용 하 여 **토픽 및 항목** 에 대 한 **구독** 을 만듭니다. 
-3. [Azure Python 패키지][Azure Python package]를 설치 합니다. [Python 설치 가이드](../python-how-to-install.md)를 참조 하세요.
+    > 이 빠른 시작에서 **Python** 을 사용 하 여 토픽 및 항목에 대 한 **구독** 을 만듭니다. 
+3. [Azure Python 패키지][Azure Python package]를 설치 합니다. [Python 설치 가이드](/azure/python/python-sdk-azure-install)를 참조 하세요.
 
 ## <a name="create-a-topic"></a>주제 만들기
 

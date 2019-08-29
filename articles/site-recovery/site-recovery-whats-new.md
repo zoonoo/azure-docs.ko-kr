@@ -5,25 +5,36 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 08/29/2019
 ms.author: raynew
-ms.openlocfilehash: 3dc20036ead29c62d47b4a628d7ce8101b9d31f4
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 5cd4b86c9c70f713a207f7feea9fa8efc06b6247
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972516"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70146911"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery의 새로운 기능
 
 [Azure Site Recovery](site-recovery-overview.md) 서비스는 지속적으로 업데이트되고 개선됩니다. 서비스를 최신 상태로 유지할 수 있도록 이 문서에서는 최신 릴리스, 새 기능 및 새 콘텐츠에 대한 정보를 제공합니다. 이 페이지는 정기적으로 업데이트됩니다.
 
-Site Recovery 기능에 대한 [여러분의 의견](https://feedback.azure.com/forums/256299-site-recovery)은 언제든지 환영합니다.
+[Azure 업데이트](https://azure.microsoft.com/updates/?product=site-recovery) 채널에서 Site Recovery 업데이트 알림을 수행 하 고 구독할 수 있습니다.
 
+## <a name="supported-updates"></a>지원 되는 업데이트
 
-## <a name="installing-updates"></a>업데이트 설치
+Site Recovery 구성 요소의 경우 N-4 버전을 지원 합니다. 여기서 N은 최신 릴리스 버전입니다. 각각은 다음 표에 요약되어 있습니다.
 
-Site Recovery 업데이트 지원 및 지침은 [이 문서를 검토](service-updates-how-to.md) 하세요.
+**Update 함수** |  **통합 설정** | **구성 서버 ova** | **모바일 서비스 에이전트** | **Site Recovery 공급자** | **Recovery Services 에이전트** 
+--- | --- | --- | --- | ---
+[롤업 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
+[롤업 38](https://support.microsoft.com/help/4513507/) | 9.26.5269.1 | 5.1.4500.0 | 9.26.5269.1 | 5.1.4500.0 | 2.0.9165.0
+[롤업 37](https://support.microsoft.com/help/4508614/) | 9.25.5241.1 | 5.1.4300.0 | 9.25.5241.1 | 5.1.4300.0 | 2.0.9163.0
+[롤업 36](https://support.microsoft.com/help/4503156/) | 9.24.5211.1 | 5.1.4150.0 | 9.24.5211.1 | 5.1.4150.0 | 2.0.9160.0 
+[롤업 35](https://support.microsoft.com/help/4494485/) | 9.23.5163.1 | 5.1.4000.0 | 9.23.5163.1 | 5.1.4000.0 | 2.0.9156.0 
+        
+
+업데이트 설치 및 지원에 [대해 자세히 알아보세요](service-updates-how-to.md) .
+
 
 ## <a name="updates-august-2019"></a>업데이트 (8 월 2019)
 

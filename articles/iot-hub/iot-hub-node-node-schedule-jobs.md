@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/16/2019
-ms.openlocfilehash: 0a89cd2c576a3539d7b1b6a282a2287551e8265a
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 124af71e458e103392c554a9c86d679f691df5b9
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877094"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147654"
 ---
 # <a name="schedule-and-broadcast-jobs-nodejs"></a>작업 예약 및 브로드캐스트 (node.js)
 
@@ -49,8 +49,6 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
 * **scheduleJobService.js**는 시뮬레이션된 디바이스 앱에서 직접 메서드를 호출하고 작업을 사용하여 디바이스 쌍의 desired 속성을 업데이트합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
-
-이 자습서를 완료하려면 다음이 필요합니다.
 
 * Node.js 버전 10.0. x 이상 [개발 환경 준비](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) Windows 또는 Linux에서이 자습서에 대 한 node.js를 설치 하는 방법을 설명 합니다.
 

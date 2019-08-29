@@ -3,25 +3,24 @@ title: Azure Data Factory에서 Pig 활동을 사용하여 데이터 변환 | Mi
 description: Azure Data Factory에서 Pig 작업을 사용하여 주문형/사용자 고유의 HDInsight 클러스터에서 Pig 스크립트를 실행하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.assetid: 5af07a1a-2087-455e-a67b-a79841b4ada5
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 09fd569ebfe8bc7f287eeb2a0b830399250c3a7a
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 72f532c277096a20387ab1b4922def2cd35a9afb
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67701506"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139123"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Azure Data Factory에서 Pig 활동을 사용하여 데이터 변환
-> [!div class="op_single_selector" title1="변환 활동"]
+> [!div class="op_single_selector" title1="변환 작업"]
 > * [Hive 작업](data-factory-hive-activity.md) 
 > * [Pig 작업](data-factory-pig-activity.md)
 > * [MapReduce 작업](data-factory-map-reduce.md)
@@ -125,7 +124,7 @@ Store PigSampleOut into 'wasb://adfwalkthrough@anandsub14.blob.core.windows.net/
 1. 연결된 서비스를 만들어 [자체적인 HDInsight 컴퓨팅 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)를 등록하거나 [주문형 HDInsight 컴퓨팅 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)를 구성합니다. 이 연결된 서비스를 **HDInsightLinkedService**라고 하겠습니다.
 2. 데이터를 호스팅하는 Azure Blob Storage로의 연결을 구성하기 위해 [연결된 서비스](data-factory-azure-blob-connector.md) 를 만듭니다. 이 연결된 서비스를 **StorageLinkedService**라고 하겠습니다.
 3. 입력 및 출력 데이터를 가리키는 [데이터 세트](data-factory-create-datasets.md)를 만듭니다. 입력 데이터 세트를 **PigSampleIn**이라고 하고, 출력 데이터 세트를 **PigSampleOut**이라고 하겠습니다.
-4. 2단계에서 구성한 Azure Blob Storage의 파일에 Pig 쿼리를 복사합니다. 데이터를 호스트하는 Azure Storage가 쿼리 파일을 호스트하는 Azure Storage와 다른 경우에는 별도의 Azure Storage 연결된 서비스를 만듭니다. 활동 구성에서 연결된 서비스를 참조할 수 있습니다. 사용 하 여 **scriptPath** pig 스크립트 파일의 경로를 지정 하 고 **scriptLinkedService**합니다. 
+4. 2단계에서 구성한 Azure Blob Storage의 파일에 Pig 쿼리를 복사합니다. 데이터를 호스트하는 Azure Storage가 쿼리 파일을 호스트하는 Azure Storage와 다른 경우에는 별도의 Azure Storage 연결된 서비스를 만듭니다. 활동 구성에서 연결된 서비스를 참조할 수 있습니다. **ScriptPath** 를 사용 하 여 pig 스크립트 파일 및 **scriptLinkedService**의 경로를 지정 합니다. 
    
    > [!NOTE]
    > **script** 속성을 사용하여 활동 정의에서 Pig 스크립트를 인라인으로 제공할 수도 있습니다. 그러나 이렇게 하면 스크립트의 모든 특수 문자를 이스케이프 처리해야 하므로 디버그 관련 문제가 발생할 수 있기 때문에 이 방식은 사용하지 않는 것이 좋습니다. 모법 사례는 4단계를 수행하는 것입니다.
@@ -220,7 +219,7 @@ Store PigSampleOut into 'wasb://adfwalkthrough@anandsub14.blob.core.windows.net/
     Store PigSampleOut into '$Output' USING PigStorage (','); 
     ```
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 * [Hive 작업](data-factory-hive-activity.md)
 * [MapReduce 작업](data-factory-map-reduce.md)
 * [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)

@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2019
 ms.author: spelluru
-ms.openlocfilehash: bcdb549ce5b522b2d456e2cbeb5471b9df984514
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 945afd4f0a5049985955bbc71bbf6b2250f68d2a
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774436"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129047"
 ---
 # <a name="troubleshoot-virtual-machine-vm-and-environment-creation-failures-in-azure-devtest-labs"></a>Azure DevTest Labs에서 VM (가상 머신) 및 환경 만들기 오류 문제 해결
 DevTest Labs는 컴퓨터 이름이 잘못 되었거나 랩 정책을 위반 하는 경우 경고를 제공 합니다. 경우에 따라 문제가 발생 `X` 했음을 알리는 랩 VM 또는 환경 상태 옆에 빨간색이 표시 됩니다.  이 문서에서는 기본 문제를 찾고 나중에 문제를 방지 하는 데 사용할 수 있는 몇 가지 트릭을 제공 합니다.
 
 ## <a name="portal-notifications"></a>포털 알림
-Azure Portal 사용 하는 경우에는 **알림 패널이**가장 먼저 표시 되는 위치입니다.  알림 패널을 클릭 하 여 기본 명령 모음에서 사용할 수는 **벨 아이콘**, 알려 랩 VM 또는 환경 만들기 성공 했는지 여부입니다.  오류가 발생 한 경우 생성 오류와 관련 된 오류 메시지가 표시 됩니다. 이 정보는 문제를 해결 하는 데 도움이 되는 추가 정보를 제공 하는 경우가 많습니다. 다음 예제에서는 코어 부족으로 인해 가상 컴퓨터를 만들지 못했습니다. 자세한 메시지는 문제를 해결 하 고 코어 할당량 증가를 요청 하는 방법을 알려줍니다.
+Azure Portal 사용 하는 경우에는 **알림 패널이**가장 먼저 표시 되는 위치입니다.  알림 패널을 클릭 하 여 기본 명령 모음에서 사용할 수는 **벨 아이콘**, 알려 랩 VM 또는 환경 만들기 성공 했는지 여부입니다.  오류가 발생 한 경우 생성 오류와 관련 된 오류 메시지가 표시 됩니다. 이 정보는 문제를 해결 하는 데 도움이 되는 추가 정보를 제공 하는 경우가 많습니다. 다음 예제에서는 코어 부족으로 인해 가상 컴퓨터를 만들지 못했습니다. 자세한 메시지는 문제를 해결 하 고 코어 할당량 증가를 요청 하는 방법을 알려줍니다.
 
 ![Azure Portal 알림](./media/troubleshoot-vm-environment-creation-failures/portal-notification.png)
 

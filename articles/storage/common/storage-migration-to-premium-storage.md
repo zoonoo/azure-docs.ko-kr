@@ -9,12 +9,12 @@ ms.date: 06/27/2017
 ms.author: rogarana
 ms.reviewer: yuemlu
 ms.subservice: common
-ms.openlocfilehash: 90cd079ebc82e8231b052f65156f85d612592ad2
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 1bf46240303d1f31cd09c1a2723e18d27d3ef789
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114730"
+ms.locfileid: "70124697"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Azure Premium Storage로 마이그레이션(관리되지 않는 디스크)
 
@@ -41,7 +41,7 @@ VM을 다른 플랫폼에서 Azure Premium Storage로 마이그레이션할 수�
 ## <a name="plan-the-migration-to-premium-storage"></a>Premium Storage로 마이그레이션 계획 수립
 이 섹션은 이 문서의 마이그레이션 단계를 수행할 준비를 하고 가장 적합한 VM 및 디스크 유형을 선택할 수 있도록 도와주기 위한 섹션입니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>전제 조건
 * Azure 구독이 필요합니다. 구독이 없다면, 한 달의 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 구독하거나 [Azure 가격 책정](https://azure.microsoft.com/pricing/)을 방문하여 추가 옵션을 참고합니다.
 * PowerShell cmdlet을 실행하려면 Microsoft Azure PowerShell 모듈이 필요합니다. 설치 지점 및 설치 지침에 대해서는 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview) 을 참조하세요.
 * Premium Storage에서 실행되는 Azure VM을 사용하려는 경우 Premium Storage 지원 VM을 사용해야 합니다. Premium Storage 지원 VM에서 표준 스토리지 디스크와 Premium Storage 디스크를 모두 사용할 수 있습니다. Premium Storage 디스크를 나중에 더 많은 VM 형식으로 사용할 수 있습니다. 사용 가능한 Azure VM 디스크 유형 및 크기에 대한 자세한 내용은 [가상 머신 크기](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 및 [Cloud Services 크기](../../cloud-services/cloud-services-sizes-specs.md)를 참조하세요.
@@ -90,7 +90,7 @@ Azure VM을 만들 때 특정 VM 설정을 구성해야 합니다. 나중에 다
 * [시나리오 1: “기존 Azure VM을 Azure Premium Storage로 마이그레이션하려 합니다.”](#scenario1)
 * [시나리오 2: “다른 플랫폼에서 Azure Premium Storage로 VM을 마이그레이션하려 합니다.”](#scenario2)
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>전제 조건
 마이그레이션에 사용할 VHD를 준비하려면 다음이 필요합니다.
 
 * Azure 구독, 스토리지 계정 및 VHD를 복사할 수 있는 스토리지 계정의 컨테이너. 요구 사항에 따라 대상 Storage 계정은 표준 또는 Premium Storage 계정일 수 있습니다.
@@ -177,7 +177,7 @@ AzCopy를 사용하여 인터넷을 통해 VHD를 쉽게 업로드할 수 있습
     ```azcopy
     AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /SourceKey:key1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /DestKey:key2 /Pattern:abc.vhd
     ```
-
+ 
    AzCopy 명령을 사용 하는 매개 변수에 대한 설명은 다음과 같습니다.
 
    * **/Source:** _원본:&gt; &lt;_ VHD를 포함하는 폴더 또는 스토리지 컨테이너 URL의 위치입니다.
@@ -265,15 +265,15 @@ AzCopy를 사용하여 인터넷을 통해 VHD를 쉽게 업로드할 수 있습
 2. Azure PowerShell을 열고 AzCopy를 설치한 폴더로 이동합니다.
 3. "원본"에서 "대상"으로 VHD 파일을 복사하려면 다음 명령을 사용합니다.
 
-    ```azcopy
-    AzCopy /Source: <source> /SourceKey: <source-account-key> /Dest: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>
-    ```
+   ```azcopy
+      AzCopy /Source: <source> /SourceKey: <source-account-key> /Dest: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>
+   ```
 
-    예제:
+   예제:
 
-    ```azcopy
-    AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /SourceKey:key1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /DestKey:key2 /BlobType:page /Pattern:abc.vhd
-    ```
+   ```azcopy
+      AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /SourceKey:key1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /DestKey:key2 /BlobType:page /Pattern:abc.vhd
+   ```
 
    AzCopy 명령을 사용 하는 매개 변수에 대한 설명은 다음과 같습니다.
 

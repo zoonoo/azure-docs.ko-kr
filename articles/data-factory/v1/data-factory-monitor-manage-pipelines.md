@@ -3,22 +3,20 @@ title: Azure Portal 및 PowerShell을 사용하여 파이프라인 모니터링 
 description: Azure Portal과 Azure PowerShell을 사용하여 사용자가 만든 Azure Data Factory와 파이프라인을 모니터링하고 관리하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: 9b0fdc59-5bbe-44d1-9ebc-8be14d44def9
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 64fae56bfc95b62bd60444d49100689845f64278
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8e8215d9737087cf1a5632dc8514c12988ff999f
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66123144"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139665"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Azure Portal 및 PowerShell을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리
 > [!div class="op_single_selector"]
@@ -63,7 +61,7 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 #### <a name="diagram-view-of-your-data-factory"></a>데이터 팩터리의 다이어그램 뷰
 데이터 팩터리의 **다이어그램** 뷰에는 데이터 팩터리와 그 자산을 모니터링하고 관리하기 위한 단일 돋보기 창이 제공됩니다. 데이터 팩터리의 **다이어그램** 뷰를 보려면 데이터 팩터리 홈 페이지에서 **다이어그램**을 클릭합니다.
 
-![다이어그램 뷰](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
+![다이어그램 보기](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
 
 확대, 축소, 크기에 맞게, 100% 확대, 다이어그램 레이아웃 고정, 파이프라인과 데이터 세트 자동 배치가 가능합니다. 또한 데이터 계보 정보도 볼 수 있습니다(즉, 선택한 항목의 업스트림 및 다운스트림 항목 표시).
 
@@ -89,7 +87,7 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 
 <table>
 <tr>
-    <th align="left">시스템 상태</th><th align="left">하위 상태</th><th align="left">설명</th>
+    <th align="left">State</th><th align="left">하위 상태</th><th align="left">Description</th>
 </tr>
 <tr>
     <td rowspan="8">대기</td><td>ScheduleTime</td><td>아직 조각이 실행할 시간이 되지 않습니다.</td>
@@ -134,10 +132,10 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 <tr>
 <td>-</td><td>조각 생성 및 유효성 검사가 실패했습니다.</td>
 </tr>
-<td>Ready</td><td>-</td><td>조각을 사용할 준비가 되었습니다.</td>
+<td>준비</td><td>-</td><td>조각을 사용할 준비가 되었습니다.</td>
 </tr>
 <tr>
-<td>생략</td><td>없음</td><td>조각이 처리되고 있지 않습니다.</td>
+<td>건너 뜀</td><td>없음</td><td>조각이 처리되고 있지 않습니다.</td>
 </tr>
 <tr>
 <td>없음</td><td>-</td><td>다른 상태와 함께 존재하기 위해 사용되는 조각이지만, 재설정되었습니다.</td>
@@ -152,7 +150,7 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 
 조각이 여러 번 실행된 경우 **활동 실행** 목록에 여러 행이 표시됩니다. **활동 실행** 목록에서 실행 항목을 클릭하면 활동 실행에 대한 세부 사항을 볼 수 있습니다. 목록에 모든 로그 파일과 함께 오류 메시지가 있다면 표시됩니다. 이 기능은 데이터 팩터리를 벗어나지 않고 로그를 보면서 디버그하기에 매우 유용합니다.
 
-![작업 실행 세부 정보](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
+![활동 실행 세부 정보](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 
 조각이 **준비** 상태가 아닌 경우 **준비되지 않은 업스트림** 목록에서 [준비] 상태가 아니고 현재 조각의 실행을 차단하는 업스트림 조각을 확인할 수 있습니다. 이 기능은 조각이 **대기 중** 상태일 때 조각이 기다리고 있는 업스트림 종속성을 이해하려는 경우에 유용합니다.
 
@@ -175,12 +173,12 @@ Azure PowerShell을 사용하여 파이프라인을 관리할 수 있습니다. 
 > [!NOTE] 
 > 다이어그램 보기는 파이프라인 일시 중지 및 다시 시작을 지원하지 않습니다. 사용자 인터페이스를 사용하려는 경우 모니터링 및 관리 애플리케이션을 사용합니다. 애플리케이션 사용에 대한 자세한 내용은 [모니터링 및 관리 앱을 사용하여 데이터 팩터리 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) 문서를 참조하세요. 
 
-일시 중지/일시 중단할 수 있습니다 파이프라인 사용 하 여 합니다 **Suspend AzDataFactoryPipeline** PowerShell cmdlet. 이 cmdlet은 문제가 해결될 때까지 파이프라인을 실행하지 않으려는 경우 유용합니다. 
+**AzDataFactoryPipeline** PowerShell cmdlet을 사용 하 여 파이프라인을 일시 중지/일시 중단할 수 있습니다. 이 cmdlet은 문제가 해결될 때까지 파이프라인을 실행하지 않으려는 경우 유용합니다. 
 
 ```powershell
 Suspend-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-예를 들면 다음과 같습니다.
+예를 들어:
 
 ```powershell
 Suspend-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -191,7 +189,7 @@ Suspend-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrec
 ```powershell
 Resume-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-예를 들면 다음과 같습니다.
+예를 들어:
 
 ```powershell
 Resume-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -219,26 +217,26 @@ Azure Data Factory는 Azure Portal 및 Azure PowerShell을 사용하여 파이�
 
 #### <a name="use-powershell-to-debug-an-error"></a>PowerShell을 사용한 오류 디버그
 1. **PowerShell**을 시작합니다.
-2. 실행 합니다 **Get AzDataFactorySlice** 하 여 조각과 해당 상태를 확인 합니다. 조각의 상태가 **실패**로 표시됩니다.        
+2. **AzDataFactorySlice** 명령을 실행 하 여 조각과 해당 상태를 확인 합니다. 조각의 상태가 **실패**로 표시됩니다.        
 
     ```powershell   
     Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```   
-   예를 들면 다음과 같습니다.
+   예:
 
     ```powershell   
     Get-AzDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
     ```
 
    **StartDateTime**을 파이프라인의 시작 시간으로 바꿉니다. 
-3. 이제 실행 합니다 **Get AzDataFactoryRun** 작업에 대 한 세부 정보를 가져오려는 cmdlet은 조각에 대해 실행 합니다.
+3. 이제 **AzDataFactoryRun** cmdlet을 실행 하 여 조각에 대 한 작업 실행에 대 한 세부 정보를 가져옵니다.
 
     ```powershell   
     Get-AzDataFactoryRun [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime]
     <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```
 
-    예를 들면 다음과 같습니다.
+    예를 들어:
 
     ```powershell   
     Get-AzDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
@@ -269,7 +267,7 @@ Azure Data Factory는 Azure Portal 및 Azure PowerShell을 사용하여 파이�
     PipelineName            : EnrichGameLogsPipeline
     Type                    :
     ```
-5. 실행할 수 있습니다 합니다 **저장 AzDataFactoryLog** 출력에서 참조를 사용 하 여 로그 파일을 다운로드 하는 Id 값을 사용 하 여 cmdlet는 **-DownloadLogsoption** cmdlet에 대 한 합니다.
+5. 출력에서 표시 되는 Id 값을 사용 하 여 **AzDataFactoryLog** cmdlet을 실행 하 고 cmdlet에 **-downloadlogsoption 옵션** 를 사용 하 여 로그 파일을 다운로드할 수 있습니다.
 
     ```powershell
     Save-AzDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
@@ -290,7 +288,7 @@ Azure Data Factory는 Azure Portal 및 Azure PowerShell을 사용하여 파이�
 ![오류 수정 및 유효성 검사](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### <a name="use-azure-powershell"></a>Azure PowerShell 사용
-사용 하 여 오류를 다시 실행할 수 있습니다 합니다 **집합 AzDataFactorySliceStatus** cmdlet. 참조 된 [집합 AzDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/az.datafactory/set-azdatafactoryslicestatus) 구문과 cmdlet에 대 한 기타 세부 정보에 대 한 항목입니다.
+**AzDataFactorySliceStatus** cmdlet을 사용 하 여 실패를 다시 실행할 수 있습니다. Cmdlet에 대 한 구문 및 기타 세부 정보는 [AzDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/az.datafactory/set-azdatafactoryslicestatus) 항목을 참조 하세요.
 
 **예제:**
 

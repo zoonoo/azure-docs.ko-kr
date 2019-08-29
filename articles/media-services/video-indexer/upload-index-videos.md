@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 8fffc74075abf6dcc4b5c293819f739a9725646b
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 7233bea4a030b814a5332284a80f07a71f288dba
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998167"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128212"
 ---
 # <a name="upload-and-index-your-videos"></a>비디오 업로드 및 인덱싱  
 
@@ -30,15 +30,15 @@ Video Indexer API를 사용하여 비디오를 업로드할 때 다음과 같은
 비디오가 업로드되면 Video Indexer가 필요에 따라 비디오를 인코딩합니다(이 문서에서 설명). Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 시간(분)을 가져오는 경우) 또는 유료 옵션(할당량으로 제한되지 않은 경우)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용하면 [Azure 구독 및 Azure Media Services 계정에 연결되는](connect-to-azure.md) Video Indexer 계정을 만듭니다. 인덱싱 시간(분) 및 미디어 계정과 관련된 요금을 지불합니다. 
 
 ## <a name="uploading-considerations"></a>업로드 고려 사항
-
-- URL을 기반으로 하여 비디오를 업로드하는 경우(기본 설정) TLS 1.2 이상을 사용하여 엔드포인트를 보호해야 합니다.
-- URL 옵션이 포함 된 업로드 크기는 30GB로 제한 됩니다.
-- 요청 URL 길이는 2048 자로 제한 됩니다.
-- 바이트 배열 옵션을 사용하면 업로드 크기가 2GB로 제한됩니다.
-- 바이트 배열 옵션은 30분 후 시간 초과됩니다.
-- `videoURL` 매개 변수에 제공된 URL은 인코딩해야 합니다.
+ 
+- URL (기본 설정)에 따라 비디오를 업로드 하는 경우에는 TLS 1.2 이상으로 끝점을 보호 해야 합니다.
+- URL 옵션을 사용 하는 업로드 크기는 30GB로 제한 됩니다.
+- 요청 URL 길이는 6144 자로 제한 됩니다. 쿼리 문자열 URL 길이는 4096 자로 제한 됩니다.
+- 바이트 배열이 포함 된 업로드 크기 옵션은 2GB로 제한 됩니다.
+- 바이트 배열 옵션은 30 분 후에 시간 초과 됩니다.
+- `videoURL` Param에 제공 된 URL을 인코딩해야 합니다.
 - 인덱싱 Media Services 자산에는 URL의 인덱싱과 동일한 제한이 적용 됩니다.
-- 단일 파일에 대 한 최대 기간 제한은 4 시간 Video Indexer
+- 단일 파일에 대 한 최대 기간 제한은 4 시간 Video Indexer 합니다.
 
 > [!Tip]
 > 이전 .NET Framework는 기본적으로 TLS 1.2로 설정되지 않으므로 .NET Framework 버전 4.6.2 이상을 사용하는 것이 좋습니다.
@@ -68,7 +68,7 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
 - 비디오에서 식별된 사용자
   - 속성
     
-      |이름|설명|
+      |이름|Description|
       |---|---|
       |id| 비디오 ID|
       |faceId|비디오 인덱스에 표시되는 얼굴 ID|

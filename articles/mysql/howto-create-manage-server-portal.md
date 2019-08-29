@@ -1,17 +1,17 @@
 ---
 title: Azure Portal을 사용한 MySQL용 Azure Database 서버 만들기 및 관리
-description: 이 문서에서는 Azure Portal을 사용하여 신속하게 새로운 MySQL용 Azure Database 서버를 만들고 해당 서버를 관리하는 방법을 설명합니다.
+description: 이 문서에서는 Azure Portal를 사용 하 여 새 Azure Database for MySQL 서버를 신속 하 게 만들고 서버를 관리할 수 있는 방법을 설명 합니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 6d6f24475497382dd9e04d3335fb89d6f0bdd514
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fdcb302d3a14b02ea86fb92c8dbf822ef3f42177
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61459521"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142261"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>Azure Portal을 사용한 MySQL용 Azure Database 서버 만들기 및 관리
 이 항목에서는 새로운 MySQL용 Azure Database 서버를 빠르게 만들 수 있는 방법을 설명합니다. 또한 Azure Portal을 사용하여 서버를 관리하는 방법에 대한 정보를 포함합니다. 서버 관리에는 서버 세부 정보 및 데이터베이스를 보고, 암호를 다시 설정하고, 리소스 크기를 조정하고, 서버를 삭제하는 것이 포함됩니다.
@@ -26,7 +26,7 @@ ms.locfileid: "61459521"
 
 2. 새로 만들기 페이지에서 **데이터베이스**를 선택하고 데이터베이스 페이지에서 **MySQL용 Azure Database**를 선택합니다.
 
-    > MySQL용 Azure Database 서버는 정의된 [계산 및 스토리지 리소스](./concepts-pricing-tiers.md) 세트를 사용하여 만들어집니다. 데이터베이스는 Azure 리소스 그룹 및 MySQL용 Azure Database 서버에서 만들어집니다.
+    > MySQL용 Azure Database 서버는 정의된 [컴퓨팅 및 스토리지 리소스](./concepts-pricing-tiers.md) 세트를 사용하여 만들어집니다. 데이터베이스는 Azure 리소스 그룹 및 MySQL용 Azure Database 서버에서 만들어집니다.
 
    ![create-new-server](./media/howto-create-manage-server-portal/create-new-server.png)
 
@@ -41,8 +41,10 @@ ms.locfileid: "61459521"
     | *서버 관리자 로그인* | myadmin(관리자 계정 이름을 설정함) |
     | *암호* | 관리자 계정 암호 설정 |
     | *암호 확인* | 관리자 계정 암호를 확인합니다. |
-    | *위치*: | 동남 아시아(북유럽과 미국 서부 사이에서 선택) |
-    | *버전* | 5.7(Azure Database for MySQL 서버 버전 선택) |
+    | *위치* | 동남 아시아(북유럽과 미국 서부 사이에서 선택) |
+    | *Version* | 5.7(Azure Database for MySQL 서버 버전 선택) |
+
+   ![create-new-server](./media/howto-create-manage-server-portal/form-field.png)
 
 4. **가격 책정 계층**을 클릭하고 새 서버의 서비스 계층 및 성능 수준을 지정합니다. **범용** 탭을 선택합니다. *5세대*, *vCore 2개*, *5GB* 및 *7일*은 **컴퓨팅 세대**, **vCore**, **저장소** 및 **백업 보존 기간**에 대한 기본 값입니다. 해당 슬라이더를 그대로 둘 수 있습니다. 지역 중복 스토리지에서 서버 백업을 사용하도록 설정하려면 **백업 중복 옵션**에서 **지역 중복**을 선택합니다.
 
@@ -53,7 +55,7 @@ ms.locfileid: "61459521"
     > 배포를 쉽게 추적할 수 있도록 **대시보드에 고정** 옵션을 선택합니다.
 
 ## <a name="update-an-azure-database-for-mysql-server"></a>MySQL용 Azure Database 서버 업데이트
-새 서버가 프로비전된 후에는, 관리자 암호 재설정 및 vCore나 스토리지를 변경하여 서버 확장 또는 축소를 비롯하여 기존 서버를 구성할 수 있는 옵션이 몇 가지 있습니다.
+새 서버가 프로 비전 되 면 사용자에 게 관리자 암호 재설정, 가격 책정 계층 변경, vCore 또는 저장소를 변경 하 여 서버 확장 또는 축소 등 기존 서버를 구성 하기 위한 몇 가지 옵션이 있습니다.
 
 ### <a name="change-the-administrator-user-password"></a>관리자 암호 변경
 1. 서버 **개요**에서 **암호 다시 설정**을 클릭하여 암호 재설정 창을 표시합니다.
@@ -65,6 +67,17 @@ ms.locfileid: "61459521"
    ![reset-password](./media/howto-create-manage-server-portal/reset-password.png)
 
 3. **확인**을 클릭하여 새 암호를 저장합니다.
+
+### <a name="change-the-pricing-tier"></a>가격 책정 계층 변경
+> [!NOTE]
+> 크기 조정은 범용에서 메모리 액세스에 최적화 된 서비스 계층으로만 지원 되며 그 반대의 경우도 마찬가지입니다. 서버를 만든 후에 기본 가격 책정 계층으로 변경 하는 것은 Azure Database for MySQL에서 지원 되지 않습니다.
+> 
+1. **설정** 아래에 있는 **가격 책정 계층**을 클릭합니다.
+2. 변경 하려는 **가격 책정 계층** 을 선택 합니다.
+
+    ![변경-가격 책정 계층](./media/howto-create-manage-server-portal/change-pricing-tier.png)
+
+4. **확인**을 클릭하여 변경 내용을 저장합니다. 
 
 ### <a name="scale-vcores-updown"></a>vCore 규모 확장/축소
 
@@ -90,7 +103,7 @@ ms.locfileid: "61459521"
 
 1. 서버 **개요**에서 **삭제** 단추를 클릭하여 삭제 확인 프롬프트를 엽니다.
 
-    ![delete](./media/howto-create-manage-server-portal/delete.png)
+    ![삭제](./media/howto-create-manage-server-portal/delete.png)
 
 2. 이중 확인을 위해 입력 상자에 서버 이름을 입력합니다.
 
@@ -106,7 +119,7 @@ ms.locfileid: "61459521"
 ## <a name="show-details-of-an-azure-database-for-mysql-server"></a>MySQL용 Azure Database 서버의 세부 정보 보기
 서버에 대한 세부 정보를 보려면 **설정** 아래 있는 **속성**을 클릭합니다.
 
-![properties](./media/howto-create-manage-server-portal/properties.png)
+![속성](./media/howto-create-manage-server-portal/properties.png)
 
 ## <a name="next-steps"></a>다음 단계
 

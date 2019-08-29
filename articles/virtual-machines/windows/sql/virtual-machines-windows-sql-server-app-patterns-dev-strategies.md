@@ -3,8 +3,8 @@ title: VM에서 SQL Server 애플리케이션 패턴 | Microsoft Docs
 description: 이 문서에서는 Azure VM에서 SQL Server에 대한 애플리케이션 패턴을 설명 합니다. 설계자와 개발자들에게 좋은 애플리케이션 아키텍처 및 설계를 위한 기초를 제공합니다.
 services: virtual-machines-windows
 documentationcenter: na
-author: ninarn
-manager: craigg
+author: MashaMSFT
+manager: jroth
 editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 41863c8d-f3a3-4584-ad86-b95094365e05
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
-ms.author: ninarn
-ms.openlocfilehash: 89935669d9dd2f7a30fbdc80694cc822df044c78
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: mathoma
+ms.openlocfilehash: cbc2bfbb68910c3eb12352bebb575c4548885a24
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102043"
+ms.locfileid: "70124019"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Azure Virtual Machines의 SQL Server에 대한 애플리케이션 패턴 및 개발 전략
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]

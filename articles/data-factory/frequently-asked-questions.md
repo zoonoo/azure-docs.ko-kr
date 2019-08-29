@@ -3,21 +3,20 @@ title: 'Azure Data Factory: 질문과 대답 | Microsoft 문서'
 description: Azure Data Factory에 대한 질문과 대답입니다.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: 532dec5a-7261-4770-8f54-bfe527918058
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: shlo
-ms.openlocfilehash: d704c32ee7417c6460ad6cc880e451adddfa61de
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c4836d519556e5a031f81279fef4891ba8d47c05
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61345757"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141580"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory FAQ
 이 아티클에서는 Azure Data Factory에 대한 질문과 대답을 제공합니다.  
@@ -25,81 +24,81 @@ ms.locfileid: "61345757"
 ## <a name="what-is-azure-data-factory"></a>Azure 데이터 팩터리란 무엇인가요? 
 Data Factory는 데이터의 이동과 변환을 자동화하는 완전히 관리되는 클라우드 기반 데이터 통합 서비스입니다. 장비를 작동하여 원자재를 완제품으로 변형하는 공장처럼 Azure Data Factory는 원시 데이터를 수집하여 바로 사용할 수 있는 정보로 변환하는 기존 서비스를 오케스트레이션합니다. 
 
-Azure Data Factory를 사용하여 온-프레미스와 클라우드 데이터 저장소 간에 데이터를 이동하는 데이터 기반 워크플로를 만들 수 있습니다. 처리할 수 있습니다 및 변환 데이터를 사용 하 여 Azure HDInsight, Azure Data Lake Analytics 및 SQL Server Integration Services (SSIS) integration runtime과 같은 서비스를 계산 합니다. 
+Azure Data Factory를 사용하여 온-프레미스와 클라우드 데이터 저장소 간에 데이터를 이동하는 데이터 기반 워크플로를 만들 수 있습니다. Azure HDInsight, Azure Data Lake Analytics 및 SQL Server Integration Services (SSIS) Integration runtime과 같은 계산 서비스를 사용 하 여 데이터를 처리 하 고 변환할 수 있습니다. 
 
-Data Factory를 사용하여 Azure 기반 클라우드 서비스에서 데이터 처리를 실행하거나 SSIS, SQL Server 및 Oracle과 같은 자체 호스팅 컴퓨팅 환경을 활용할 수 있습니다. 필요한 작업을 수행 하는 파이프라인을 만든 후에 주기적으로 (매시간, 매일 또는 매주, 예를 들어) 기간 예약 실행 되도록 예약할 수도 있고 파이프라인 이벤트 발생을 트리거할 수 있습니다. 자세한 내용은 [Azure Data Factory 소개](introduction.md)를 참조하세요.
+Data Factory를 사용하여 Azure 기반 클라우드 서비스에서 데이터 처리를 실행하거나 SSIS, SQL Server 및 Oracle과 같은 자체 호스팅 컴퓨팅 환경을 활용할 수 있습니다. 필요한 작업을 수행 하는 파이프라인을 만든 후 정기적 (예: 매시간, 매일 또는 매주), 시간 창 일정에 따라 실행 되도록 예약 하거나 이벤트 발생 시 파이프라인을 트리거할 수 있습니다. 자세한 내용은 [Azure Data Factory 소개](introduction.md)를 참조하세요.
 
 ### <a name="control-flows-and-scale"></a>제어 흐름 및 크기 조정 
-Data Factory 수 있도록 최신 데이터 웨어하우스의 다양 한 통합 흐름 및 패턴을 지원 하기 위해 유연한 데이터 모델링을 파이프라인입니다. 이 프로그래밍 패러다임 조건부 실행을 포함 하는, 매개 변수 내에서 그리고 이러한 흐름 간에 명시적으로 전달 하는 기능과 데이터 파이프라인을 분기의 전체 제어 흐름을 수반 합니다. 제어 흐름 작업 디스패치 외부 실행 엔진 및 복사 작업을 통해 대규모 데이터 이동을 포함 하 여 데이터 흐름 기능을 통해 데이터를 변환도 포함 합니다.
+최신 데이터 웨어하우스의 다양 한 통합 흐름 및 패턴을 지원 하기 위해 Data Factory는 유연한 데이터 파이프라인 모델링을 가능 하 게 합니다. 여기에는 조건부 실행, 데이터 파이프라인의 분기, 이러한 흐름 내에서 그리고 이러한 흐름 간에 명시적으로 매개 변수를 전달 하는 기능을 포함 하는 모든 제어 흐름 프로그래밍 패러다임이 수반 됩니다. 또한 제어 흐름은 복사 작업을 통해 작업 디스패치를 통해 데이터를 규모에 따라 데이터 이동을 포함 하는 외부 실행 엔진 및 데이터 흐름 기능으로 변환 합니다.
 
 Data Factory는 데이터 통합에 필요하고 요청 시 또는 일정에 따라 반복해서 디스패치할 수 있는 모든 흐름 스타일을 자유롭게 모델링하도록 합니다. 이 모델이 사용할 수 있는 일반적인 흐름은 다음과 같습니다.   
 
 - 제어 흐름:
-    - 파이프라인 내에서 시퀀스로 활동을 함께 연결할 수 있습니다.
-    - 파이프라인 내에서 활동을 분기할 수 있습니다.
+    - 활동은 파이프라인 내의 순서로 함께 연결 될 수 있습니다.
+    - 활동은 파이프라인 내에서 분기할 수 있습니다.
     - 매개 변수
-        - 파이프라인 수준에서 매개 변수를 정의할 수 있습니다 하 고 요청 시 또는 트리거에서 파이프라인을 호출 하는 동안에 인수를 전달할 수 있습니다.
+        - 파이프라인 수준에서 매개 변수를 정의할 수 있으며 요청 시 또는 트리거에서 파이프라인을 호출 하는 동안 인수를 전달할 수 있습니다.
         - 파이프라인에 전달되는 인수를 작업에 사용할 수 있습니다.
-    - 사용자 지정 상태 전달 합니다.
-        - 파이프라인의 이후 작업 상태를 포함 하 여 작업 출력을 사용할 수 있습니다.
-    - 컨테이너 루프 화 합니다.
-        - Foreach 작업은 루프에서 활동의 지정 된 컬렉션을 반복 됩니다. 
+    - 사용자 지정 상태 전달:
+        - 상태를 포함 한 작업 출력은 파이프라인의 후속 작업에서 사용 될 수 있습니다.
+    - 반복 컨테이너:
+        - Foreach 활동은 루프의 지정 된 활동 컬렉션을 반복 합니다. 
 - 트리거 기반 흐름:
     - 요청 시 또는 벽시계 시간에 따라 파이프라인을 트리거할 수 있습니다.
 - 델타 흐름:
-    - 데이터를 레이크에 로드 하는 클라우드 또는 온-프레미스 관계형 저장소에서 차원 또는 참조 테이블을 이동 하는 동안 복사 용 높은-워터 마크를 정의 하려면 매개 변수를 사용할 수 있습니다. 
+    - 매개 변수를 사용 하면 관계형 저장소 (온-프레미스 또는 클라우드)에서 차원 또는 참조 테이블을 이동 하 여 데이터를 lake로 로드 하는 동안 델타 복사에 대 한 최고 수 위 표시를 정의할 수 있습니다. 
 
 자세한 내용은 [자습서: 제어 흐름](tutorial-control-flow.md)을 참조하세요.
 
-### <a name="data-transformed-at-scale-with-code-free-pipelines"></a>코드가 없는 파이프라인을 사용 하 여 대규모로 변환 된 데이터
+### <a name="data-transformed-at-scale-with-code-free-pipelines"></a>코드 없는 파이프라인을 사용 하 여 대규모로 변환 된 데이터
 새로운 브라우저 기반 도구 환경을 통해 코드 제한 없이 파이프라인을 작성하고 최신 대화형 웹 기반 환경에서 배포할 수 있습니다.
 
-데이터 엔지니어와 시각적 데이터 개발자에 대 한 웹 UI를 Data Factory를 사용 하 여 파이프라인을 구축 하는 코드 없는 디자인 환경입니다. Visual Studio Online Git를 사용 하 여 완전히 통합 하 고 CI/cd 통합 및 디버깅 옵션을 사용 하 여 반복적인 개발을 제공 합니다.
+Visual 데이터 개발자 및 데이터 엔지니어를 위해 Data Factory 웹 UI는 파이프라인을 빌드하는 데 사용할 수 있는 코드 없는 디자인 환경입니다. Visual Studio Online Git과 완벽 하 게 통합 되며, 디버깅 옵션을 사용 하 여 CI/CD 및 반복적인 개발을 위한 통합 기능을 제공 합니다.
 
 ### <a name="rich-cross-platform-sdks-for-advanced-users"></a>고급 사용자를 위한 다양 한 플랫폼 간 Sdk
-Data Factory V2 제공 작성, 관리 및 즐겨 찾는 IDE를 사용 하 여 파이프라인을 모니터링 하는 Sdk의 다양 한 집합을 포함 합니다.
+Data Factory V2는 선호 하는 IDE를 사용 하 여 파이프라인을 작성, 관리 및 모니터링 하는 데 사용할 수 있는 풍부한 Sdk 집합을 제공 합니다.
 * Python SDK
 * PowerShell CLI
 * C# SDK
 
-사용자가 Data Factory V2를 사용 하 여 인터페이스에 문서화 된 REST Api를 이용할 수 있습니다.
+사용자는 문서화 된 REST Api를 사용 하 여 Data Factory V2와 인터페이스 할 수도 있습니다.
 
-### <a name="iterative-development-and-debugging-by-using-visual-tools"></a>반복적인 개발 및 시각적 도구를 사용 하 여 디버깅
-Azure Data Factory 시각적 도구 반복적인 개발 및 디버깅을 사용 합니다. 파이프라인을 만들 수 있습니다 하 고 실행을 테스트 하려면 사용 하 여 합니다 **디버그** 코드 한 줄도 작성 하지 않고 파이프라인 캔버스의 기능입니다. 테스트 실행의 결과 볼 수는 **출력** 파이프라인 캔버스의 창. 테스트 실행에 성공한 후에 파이프라인에 더 많은 작업을 추가 하 고 반복적으로 디버깅을 계속할 수 있습니다. 진행에서 된 후에 테스트 실행을 취소할 수 있습니다. 
+### <a name="iterative-development-and-debugging-by-using-visual-tools"></a>시각적 도구를 사용 하 여 반복적인 개발 및 디버깅
+Azure Data Factory 비주얼 도구를 사용 하면 반복적인 개발 및 디버깅이 가능 합니다. 파이프라인을 만들고 한 줄의 코드를 작성 하지 않고 파이프라인 캔버스에서 **디버그** 기능을 사용 하 여 테스트 실행을 수행할 수 있습니다. 파이프라인 캔버스의 **출력** 창에서 테스트 실행 결과를 볼 수 있습니다. 테스트를 성공적으로 실행 한 후에는 파이프라인에 더 많은 활동을 추가 하 고 반복적으로 디버깅을 계속할 수 있습니다. 또한 진행 중인 테스트 실행을 취소할 수 있습니다. 
 
-선택 하기 전에 데이터 팩터리 서비스에 변경 내용을 게시 하지 않아도 됩니다 **디버그**합니다. 새 추가 또는 변경 개발, 테스트 또는 프로덕션 환경에서 데이터 팩터리 워크플로 업데이트 하기 전에 예상 대로 작동 됩니다 하는지 확인 하려는 시나리오에서 유용 합니다. 
+**디버그**를 선택 하기 전에 데이터 팩터리 서비스에 변경 내용을 게시할 필요가 없습니다. 이 기능은 개발, 테스트 또는 프로덕션 환경에서 데이터 팩터리 워크플로를 업데이트 하기 전에 새로운 추가 또는 변경 내용이 예상 대로 작동 하는지 확인 하려는 경우에 유용 합니다. 
 
 ### <a name="ability-to-deploy-ssis-packages-to-azure"></a>Azure에 SSIS 패키지를 배포 하는 기능 
-SSIS 워크로드를 이동하려는 경우 Data Factory를 만들고 Azure-SSIS Integration Runtime을 프로비전할 수 있습니다. AZURE-SSIS integration runtime을는 클라우드에서 SSIS 패키지 실행을 전담 하는 Azure Vm (노드)의 완전히 관리 되는 클러스터. 단계별 지침은 [Azure에 SSIS 패키지 배포](tutorial-create-azure-ssis-runtime-portal.md) 자습서를 참조하세요. 
+SSIS 워크로드를 이동하려는 경우 Data Factory를 만들고 Azure-SSIS Integration Runtime을 프로비전할 수 있습니다. Azure SSIS integration runtime은 클라우드에서 SSIS 패키지를 실행 하기 위한 전용 Azure Vm (노드)의 완전히 관리 되는 클러스터입니다. 단계별 지침은 [Azure에 SSIS 패키지 배포](tutorial-create-azure-ssis-runtime-portal.md) 자습서를 참조하세요. 
  
 ### <a name="sdks"></a>SDK
-고급 사용자를 프로그래밍 방식 인터페이스를 찾는다면, Data Factory는 다양 한 Sdk 집합을 작성, 관리 또는 즐겨 찾는 IDE를 사용 하 여 파이프라인 모니터링에 사용할 수 있습니다. .NET, PowerShell, Python 및 REST를 비롯한 언어를 지원합니다.
+고급 사용자로 서 프로그래밍 인터페이스를 찾고 있는 경우 즐겨 사용 하는 IDE를 사용 하 여 파이프라인을 작성, 관리 또는 모니터링 하는 데 사용할 수 있는 다양 한 Sdk를 Data Factory 제공 합니다. .NET, PowerShell, Python 및 REST를 비롯한 언어를 지원합니다.
 
 ### <a name="monitoring"></a>모니터링
-브라우저 사용자 인터페이스에서 PowerShell, SDK 또는 시각적 개체 모니터링 도구를 통해 Data Factories를 모니터링할 수 있습니다. 모니터링 하 고 효율적이 고 효과적인 방식으로 요청 시 트리거를 기반으로 고 클록 기반 사용자 지정 흐름을 관리할 수 있습니다. 기존 작업 취소를 한눈에 참조 오류 드릴 다운 하 여 자세한 오류 메시지를 가져오고 컨텍스트 전환이 나 화면 간에 앞뒤로 이동 하지 않고 투명 효과 단일 창이 모두에서 문제를 디버그 합니다. 
+브라우저 사용자 인터페이스에서 PowerShell, SDK 또는 시각적 개체 모니터링 도구를 통해 Data Factories를 모니터링할 수 있습니다. 효율적이 고 효과적인 방식으로 주문형, 트리거 기반 및 클록 기반 사용자 지정 흐름을 모니터링 하 고 관리할 수 있습니다. 기존 태스크를 취소 하 고, 한 눈에 실패를 확인 하 고, 드릴 다운 하 여 자세한 오류 메시지를 확인 하 고, 문제를 디버그 합니다. 
 
-### <a name="new-features-for-ssis-in-data-factory"></a>Data Factory에서 SSIS에 대 한 새로운 기능
-초기 공용 2017의 릴리스를 미리 보려면 이므로 Data Factory가 SSIS에 대 한 다음과 같은 기능을 추가:
+### <a name="new-features-for-ssis-in-data-factory"></a>Data Factory의 SSIS에 대 한 새로운 기능
+2017 Data Factory의 초기 공개 미리 보기 릴리스는 SSIS에 대해 다음과 같은 기능을 추가 했습니다.
 
--   세 가지에 대 한 자세한 구성/프로젝트/패키지의 SSIS 데이터베이스 (SSISDB)를 호스트 하는 Azure SQL Database의 변형을 지원 합니다.
--   Virtual network 서비스 엔드포인트를 사용 하 여 SQL Database
+-   프로젝트/패키지의 SSISDB (SSIS 데이터베이스)를 호스트 하는 Azure SQL Database의 세 가지 구성/변형 지원:
+-   가상 네트워크 서비스 끝점을 사용 하 여 SQL Database
 -   Managed Instance
--   탄력적 풀
--   클래식 가상 네트워크를 나중에 사용 되지 않을 수 있는 기반으로 하는 Azure Resource Manager 가상 네트워크에 대 한 지원 삽입/조인 virtual network 서비스를 사용 하 여 SQL Database에 대해 구성 된 가상 네트워크에 AZURE-SSIS integration runtime 끝점/MI/온-프레미스 데이터 액세스. 자세한 내용은 참고 [가상 네트워크에 AZURE-SSIS 통합 런타임을 조인](join-azure-ssis-integration-runtime-virtual-network.md)합니다.
--   Azure Active Directory (Azure AD) 인증 및 Azure 리소스에 대 한 Data Factory 관리 id 사용 하 여 Azure AD 인증을 허용 하는 SSISDB에 연결할 SQL 인증에 대 한 지원
--   Azure 하이브리드 혜택 옵션에서 상당한 비용 절감을 획득 하려면 사용자 고유의 온-프레미스 SQL Server 라이선스에 대 한 지원
--   고급/프리미엄 기능을 추가 구성 요소/확장 및 파트너 에코 시스템을 설치 하는 사용자 지정 설정 인터페이스를 사용 하는 수 있는 AZURE-SSIS integration runtime Enterprise 버전에서 지원 합니다. 자세한 내용은 참고 [Enterprise Edition, 사용자 지정 설치 및 ADF에서 SSIS에 대 한 타사 파티 확장성](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/)합니다. 
--   Data Factory 파이프라인에서 SSIS 패키지 실행 작업을 첫 번째 클래스 호출/트리거 및 SSMS를 통해 예약할 수 있는 Data Factory에서 SSIS 심층적으로 통합 합니다. 자세한 내용은 참고 [Modernize ADF 파이프라인에서 SSIS 작업을 사용 하 여 ETL/ELT 워크플로 확장 하 고](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/)입니다.
+-   Elastic Pool
+-   Azure SSIS 통합 런타임을 가상 네트워크 서비스를 사용 하 여 SQL Database에 대해 구성 된 가상 네트워크에 삽입/조인할 수 있는 기존 가상 네트워크를 기반으로 하는 Azure Resource Manager 가상 네트워크에 대 한 지원은 나중에 사용 되지 않습니다. 엔드포인트/MI/온-프레미스 데이터 액세스 자세한 내용은 [AZURE SSIS integration runtime을 가상 네트워크에 가입](join-azure-ssis-integration-runtime-virtual-network.md)을 참조 하세요.
+-   Azure 리소스에 대 한 Data Factory 관리 id로 azure AD 인증을 허용 하 여 SSISDB에 연결할 수 있는 azure AD (Azure Active Directory) 인증 및 SQL 인증 지원
+-   Azure 하이브리드 혜택 옵션을 사용 하 여 비용을 크게 절감할 수 있도록 온-프레미스 SQL Server 라이선스 가져오기 지원
+-   고급/프리미엄 기능, 추가 구성 요소/확장을 설치 하기 위한 사용자 지정 설치 인터페이스 및 파트너 에코 시스템을 사용할 수 있는 Azure SSIS 통합 런타임의 Enterprise Edition에 대 한 지원입니다. 자세한 내용은 [Enterprise Edition, 사용자 지정 설정 및 ADF의 SSIS에 대 한 타사 확장성](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/)을 참조 하세요. 
+-   Data Factory에서 SSIS를 보다 긴밀 하 게 통합 하 여 Data Factory 파이프라인에서 SSIS 패키지 작업을 호출 하 고 실행 하 고 SSMS를 통해 예약할 수 있습니다. 자세한 내용은 [ADF 파이프라인에서 SSIS 작업을 사용 하 여 ETL/ELT 워크플로 현대화 및 확장](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/)(영문)을 참조 하세요.
 
 
 ## <a name="what-is-the-integration-runtime"></a>Integration runtime 이란?
-Integration runtime은 Azure Data Factory는 다양 한 네트워크 환경 간에 다음과 같은 데이터 통합 기능을 제공 하는 데 사용 하는 계산 인프라.
+Integration runtime은 다양 한 네트워크 환경에서 다음과 같은 데이터 통합 기능을 제공 하기 위해 Azure Data Factory 사용 하는 계산 인프라입니다.
 
-- **데이터 이동**: 데이터 이동을 위해, 통합 런타임은 기본 제공 커넥터, 형식 변환, 열 매핑 및 고성능 및 확장성이 뛰어난 데이터 전송에 대 한 지원을 제공 하는 동안 원본 및 대상 데이터 저장소 간에 데이터를 이동 합니다.
-- **Dispatch 활동**: 변환에 대 한 통합 런타임은 SSIS 패키지를 고유 하 게 실행 하는 기능을 제공 합니다.
-- **SSIS 패키지 실행**: Integration runtime는 고유 하 게 관리 되는 Azure 계산 환경에서 SSIS 패키지를 실행합니다. Integration runtime 디스패치와 다양 한 Azure HDInsight, Azure Machine Learning, SQL Database 및 SQL Server와 같은 계산 서비스를 실행 하는 변환 활동 모니터링을 지원 합니다.
+- **데이터 이동**: 데이터 이동의 경우 integration runtime은 기본 제공 커넥터, 형식 변환, 열 매핑, 성능과 확장성이 뛰어난 데이터 전송에 대 한 지원을 제공 하는 동시에 원본 및 대상 데이터 저장소 간에 데이터를 이동 합니다.
+- **Dispatch 활동**: 변환의 경우 통합 런타임은 SSIS 패키지를 고유 하 게 실행 하는 기능을 제공 합니다.
+- **SSIS 패키지 실행**: Integration runtime은 기본적으로 관리 되는 Azure 계산 환경에서 SSIS 패키지를 실행 합니다. Integration runtime은 Azure HDInsight, Azure Machine Learning, SQL Database 및 SQL Server와 같은 다양 한 계산 서비스에서 실행 되는 변환 작업을 디스패치 하 고 모니터링 하는 기능도 지원 합니다.
 
-이동 및 데이터를 변환 하는 데 필요한 만큼 하나 이상의 integration runtime 인스턴스를 배포할 수 있습니다. Integration runtime은 Azure 공용 네트워크 또는 개인 네트워크 (온-프레미스, Azure Virtual Network 또는 Amazon Web Services 가상 사설 클라우드 VPC)에서 실행할 수 있습니다. 
+데이터를 이동 하 고 변환 하는 데 필요한 만큼 하나 이상의 통합 런타임 인스턴스를 배포할 수 있습니다. Integration runtime은 Azure 공용 네트워크 또는 개인 네트워크 (온-프레미스, Azure Virtual Network 또는 Amazon Web Services 가상 사설 클라우드 [VPC])에서 실행할 수 있습니다. 
 
 자세한 내용은 [Azure Data Factory의 Integration Runtime](concepts-integration-runtime.md)을 참조하세요.
 
@@ -113,18 +112,18 @@ Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 Data 
 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인은 작업 단위를 수행하는 작업의 논리적 그룹입니다. 파이프라인의 활동이 모여 작업을 수행합니다. 예를 들어 Azure Blob에서 데이터를 수집한 다음 HDInsight 클러스터에서 Hive 쿼리를 실행하여 데이터를 분할하는 작업 그룹이 파이프라인에 포함될 수 있습니다. 이점은 각 작업을 개별적으로 관리하는 대신, 파이프라인을 사용하여 여러 작업을 하나의 집합으로 관리할 수 있다는 것입니다. 파이프라인의 작업을 서로 연결하여 순차적으로 작동하거나 독립적으로 병렬 작동할 수 있습니다.
 
 ### <a name="activities"></a>활동
-작업은 파이프라인의 처리 단계를 나타냅니다. 예를 들어, 하나의 데이터 저장소에서 다른 데이터 저장소로 데이터를 복사 하려면 복사 작업을 사용할 수 있습니다. 마찬가지로 데이터를 변환하거나 분석하기 위해서 Azure HDInsight 클러스터에서 Hive 쿼리를 실행하는 Hive 작업을 사용할 수 있습니다. Data Factory는 데이터 이동 작업, 데이터 변환 작업 및 제어 작업이라는 세 종류의 작업을 지원합니다.
+작업은 파이프라인의 처리 단계를 나타냅니다. 예를 들어 복사 작업을 사용 하 여 한 데이터 저장소에서 다른 데이터 저장소로 데이터를 복사할 수 있습니다. 마찬가지로 데이터를 변환하거나 분석하기 위해서 Azure HDInsight 클러스터에서 Hive 쿼리를 실행하는 Hive 작업을 사용할 수 있습니다. Data Factory는 데이터 이동 작업, 데이터 변환 작업 및 제어 작업이라는 세 종류의 작업을 지원합니다.
 
 ### <a name="datasets"></a>데이터 세트
 데이터 세트는 데이터 저장소 내의 데이터 구조를 나타내며, 사용자가 활동에서 입력 또는 출력으로 사용하려는 데이터를 가리키거나 참조할 뿐입니다. 
 
 ### <a name="linked-services"></a>연결된 서비스
-연결된 서비스는 Data Factory에서 외부 리소스에 연결하는 데 필요한 연결 정보를 정의하는 연결 문자열과 같습니다. 이 방법으로 생각해 보십시오. 데이터 원본에 연결을 정의 하는 연결된 된 서비스 및 데이터 집합 데이터의 구조를 나타냅니다. 예를 들어 Azure Storage 연결 서비스는 Azure Storage 계정에 연결할 연결 문자열을 지정합니다. 및 Azure blob 데이터 집합을 blob 컨테이너 및 데이터가 포함 된 폴더를 지정 합니다.
+연결된 서비스는 Data Factory에서 외부 리소스에 연결하는 데 필요한 연결 정보를 정의하는 연결 문자열과 같습니다. 이러한 방식으로 생각 하면 됩니다. 연결 된 서비스는 데이터 원본에 대 한 연결을 정의 하 고 데이터 집합은 데이터의 구조를 나타냅니다. 예를 들어 Azure Storage 연결 서비스는 Azure Storage 계정에 연결할 연결 문자열을 지정합니다. 그리고 Azure blob 데이터 집합은 blob 컨테이너 및 데이터가 포함 된 폴더를 지정 합니다.
 
 연결된 서비스는 Data Factory에서 다음 두 가지 용도로 사용됩니다.
 
 - 온-프레미스 SQL Server 인스턴스, Oracle 데이터베이스 인스턴스 또는 Azure Blob Storage 계정을 포함하지만 여기에 국한되지 않는 *데이터 저장소*를 나타내기 위해 사용됩니다. 지원되는 데이터 저장소 목록에 대해서는 [Azure Data Factory의 복사 작업](copy-activity-overview.md)을 참조하세요.
-- 활동의 실행을 호스팅할 수 있는 *계산 리소스*를 나타내기 위해 사용됩니다. 예를 들어, HDInsightHive 활동은 HDInsight Hadoop 클러스터에서 실행됩니다. 변환 작업 및 지원되는 컴퓨팅 환경 목록은 [Azure Data Factory에서 데이터 변환](transform-data.md)을 참조하세요.
+- 활동의 실행을 호스팅할 수 있는 *컴퓨팅 리소스*를 나타내기 위해 사용됩니다. 예를 들어, HDInsightHive 활동은 HDInsight Hadoop 클러스터에서 실행됩니다. 변환 작업 및 지원되는 컴퓨팅 환경 목록은 [Azure Data Factory에서 데이터 변환](transform-data.md)을 참조하세요.
 
 ### <a name="triggers"></a>트리거
 트리거는 파이프라인 실행을 시작할 시기를 결정하는 처리 단위를 나타냅니다. 다양한 유형의 이벤트에 대한 다른 종류의 트리거가 있습니다. 
@@ -135,12 +134,12 @@ Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 Data 
 ### <a name="parameters"></a>매개 변수
 매개 변수는 읽기 전용 구성의 키-값 쌍입니다. 파이프라인에서 매개 변수를 정의하고 실행 컨텍스트에서 실행하는 동안 정의된 매개 변수에 대한 인수를 전달합니다. 실행 컨텍스트는 트리거 또는 수동으로 실행하는 파이프라인에서 생성됩니다. 파이프라인 내의 작업은 매개 변수 값을 사용합니다.
 
-데이터 집합은 강력한 형식된 매개 변수 이며 다시 사용 하거나 참조할 수 있는 엔터티. 데이터 집합 정의에 정의 된 속성을 사용할 수 있습니다 및 작업 데이터 집합을 참조할 수 있습니다.
+데이터 집합은 강력한 형식의 매개 변수 이며 다시 사용 하거나 참조할 수 있는 엔터티입니다. 작업은 데이터 집합을 참조할 수 있으며 데이터 집합 정의에 정의 된 속성을 사용할 수 있습니다.
 
-또한 연결된 서비스도 데이터 저장소 또는 컴퓨팅 환경에 대한 연결 정보를 포함하는 강력한 형식 매개 변수입니다. 다시 사용 하거나 참조할 수 있는 엔터티 이기도 합니다.
+또한 연결된 서비스도 데이터 저장소 또는 컴퓨팅 환경에 대한 연결 정보를 포함하는 강력한 형식 매개 변수입니다. 또한 다시 사용 하거나 참조할 수 있는 엔터티입니다.
 
 ### <a name="control-flows"></a>제어 흐름
-제어 흐름은 파이프라인 수준에서 정의하는 시퀀스, 분기 및 매개 변수의 작업 연결과 요청 시 또는 트리거에서 파이프라인을 호출할 때 전달하는 인수를 포함하는 파이프라인 작업을 조율합니다. 제어 흐름에는 사용자 지정 상태 전달 및 컨테이너 루핑 (즉, foreach 반복기)도 포함 됩니다.
+제어 흐름은 파이프라인 수준에서 정의하는 시퀀스, 분기 및 매개 변수의 작업 연결과 요청 시 또는 트리거에서 파이프라인을 호출할 때 전달하는 인수를 포함하는 파이프라인 작업을 조율합니다. 제어 흐름에는 사용자 지정 상태 전달 및 반복 컨테이너 (즉, foreach 반복기)도 포함 됩니다.
 
 
 Data Factory 개념에 대한 자세한 내용은 다음 문서를 참조하세요.
@@ -162,7 +161,7 @@ Azure Data Factory에 대한 최신 정보를 얻으려면 다음 사이트로 �
 ## <a name="technical-deep-dive"></a>기술 심층 분석 
 
 ### <a name="how-can-i-schedule-a-pipeline"></a>파이프라인을 어떻게 예약할 수 있나요? 
-스케줄러 트리거 또는 기간 트리거를 사용하여 파이프라인을 예약할 수 있습니다. 트리거는 벽 시계 캘린더 일정을 예약할 수 있는 파이프라인이 주기적으로 또는 캘린더 기반 반복 패턴 (월요일 오후 6 시에) 및 목요일 오후 9 시에서 예를 들어,를 사용 합니다. 자세한 내용은 [파이프라인 실행 및 트리거](concepts-pipeline-execution-triggers.md)를 참조하세요.
+스케줄러 트리거 또는 기간 트리거를 사용하여 파이프라인을 예약할 수 있습니다. 트리거는 벽 시계 달력 일정을 사용 합니다 .이 일정은 파이프라인을 주기적으로 예약 하거나 달력 기반 반복 패턴에서 사용할 수 있습니다 (예를 들어 월요일에 6:00 PM 및 목요일 오후 9:00 시에). 자세한 내용은 [파이프라인 실행 및 트리거](concepts-pipeline-execution-triggers.md)를 참조하세요.
 
 ### <a name="can-i-pass-parameters-to-a-pipeline-run"></a>파이프라인 실행에 매개 변수를 전달할 수 있나요?
 예, 매개 변수는 Data Factory의 최상위 수준 개념입니다. 파이프라인 수준에서 매개 변수를 정의하고 요청 시 실행되는 파이프라인 실행 중에 또는 트리거를 사용하여 인수를 전달할 수 있습니다.  
@@ -179,34 +178,34 @@ Azure Data Factory에 대한 최신 정보를 얻으려면 다음 사이트로 �
 ### <a name="how-do-i-gracefully-handle-null-values-in-an-activity-output"></a>활동 출력의 Null 값을 정상적으로 처리하려면 어떻게 해야 합니까? 
 식에서 `@coalesce` 구문을 사용하여 Null 값을 정상적으로 처리할 수 있습니다. 
 
-## <a name="mapping-data-flows"></a>매핑 데이터 흐름
+## <a name="mapping-data-flows"></a>데이터 흐름 매핑
 
-### <a name="which-data-factory-version-do-i-use-to-create-data-flows"></a>Data Factory 버전 데이터 흐름을 만들고 사용 합니까?
-데이터 흐름을 만들려면 Data Factory V2 버전을 사용 합니다.
+### <a name="which-data-factory-version-do-i-use-to-create-data-flows"></a>데이터 흐름을 만드는 데 사용 하는 Data Factory 버전은 무엇 인가요?
+Data Factory V2 버전을 사용 하 여 데이터 흐름을 만듭니다.
   
-### <a name="i-was-a-previous-private-preview-customer-who-used-data-flows-and-i-used-the-data-factory-v2-preview-version-for-data-flows"></a>이전 비공개 미리 보기 고객에 게 데이터 흐름을 사용 하 고 Data Factory V2 미리 보기 버전을 데이터 흐름에 사용 되는 합니다.
-이 버전은 이제 사용 되지 않습니다. 데이터 흐름에 대 한 Data Factory V2를 사용 합니다.
+### <a name="i-was-a-previous-private-preview-customer-who-used-data-flows-and-i-used-the-data-factory-v2-preview-version-for-data-flows"></a>데이터 흐름을 사용한 이전 비공개 미리 보기 고객 이었던 데이터 흐름에 Data Factory V2 preview 버전을 사용 했습니다.
+이 버전은 이제 사용 되지 않습니다. 데이터 흐름에 Data Factory V2를 사용 합니다.
   
-### <a name="what-has-changed-from-private-preview-to-limited-public-preview-in-regard-to-data-flows"></a>무엇이 데이터 흐름 인증과 관련 하 여 제한 된 공개 미리 보기에 비공개 미리 보기에서 변경 되었습니까?
-사용자 고유의 Azure Databricks 클러스터를 더 이상. Data Factory는 클러스터 만들기 및 중지를 관리 합니다. Blob 데이터 집합 및 Azure Data Lake 저장소 Gen2 데이터 집합 구분 기호로 분리 된 텍스트 및 Apache Parquet 데이터 집합으로 나뉩니다. 이러한 파일을 저장할 Data Lake 저장소 Gen2 및 Blob storage를 사용할 수 있습니다. 이러한 저장소 엔진에 대 한 적절 한 연결 된 서비스를 사용 합니다.
+### <a name="what-has-changed-from-private-preview-to-limited-public-preview-in-regard-to-data-flows"></a>비공개 미리 보기에서 데이터 흐름과 관련 된 공개 미리 보기로 변경 된 내용은 무엇 인가요?
+이제는 사용자 고유의 Azure Databricks 클러스터를 가져올 필요가 없습니다. Data Factory에서 클러스터 만들기 및 해체를 관리 합니다. Blob 데이터 집합 및 Azure Data Lake Storage Gen2 데이터 집합은 분리 된 텍스트 및 Apache Parquet 데이터 집합으로 구분 됩니다. 이러한 파일을 저장 하는 데에도 Data Lake Storage Gen2 및 Blob 저장소를 사용할 수 있습니다. 해당 저장소 엔진에 적절 한 연결 된 서비스를 사용 합니다.
 
-### <a name="can-i-migrate-my-private-preview-factories-to-data-factory-v2"></a>Data Factory V2를 내 비공개 미리 보기 팩터리를 마이그레이션할 수 있나요?
+### <a name="can-i-migrate-my-private-preview-factories-to-data-factory-v2"></a>비공개 미리 보기 팩터리를 Data Factory V2로 마이그레이션할 수 있나요?
 
-예. [지침에 따라](https://www.slideshare.net/kromerm/adf-mapping-data-flow-private-preview-migration)합니다.
+예. [지침을 따릅니다](https://www.slideshare.net/kromerm/adf-mapping-data-flow-private-preview-migration).
 
-### <a name="i-need-help-troubleshooting-my-data-flow-logic-what-info-do-i-need-to-provide-to-get-help"></a>데이터 흐름 논리 내 문제를 해결 하는 데 도움이 필요 합니다. 어떤 정보가 도움을 제공 하나요?
+### <a name="i-need-help-troubleshooting-my-data-flow-logic-what-info-do-i-need-to-provide-to-get-help"></a>데이터 흐름 논리 문제를 해결 하는 데 도움이 필요 합니다. 도움을 받기 위해 제공 해야 하는 정보는 무엇 인가요?
 
-Microsoft 도움말 이나 데이터 흐름을 사용 하 여 문제 해결을 제공 하는 경우에 DSL 코드 계획을 제공 하세요. 이렇게 하려면 다음 단계를 수행하세요.
+Microsoft에서 데이터 흐름에 대 한 지원을 제공 하거나 문제를 해결 하는 경우 DSL 코드 계획을 제공 하세요. 이렇게 하려면 다음 단계를 수행합니다.
 
-1. 데이터 흐름 디자이너에서 선택 **코드** 오른쪽 위 모퉁이에서. 데이터 흐름에 대 한 JSON 코드를 편집 가능 보기가 표시 됩니다.
-2. 코드 보기에서 선택 **계획** 오른쪽 위 모퉁이에서. 이 설정/이 해제는 JSON에서 읽기 전용으로 서식이 지정 된 DSL 스크립트 계획으로 전환 됩니다.
-3. 이 스크립트를 복사 및 붙여넣거나 텍스트 파일에 저장 합니다.
+1. 데이터 흐름 디자이너의 오른쪽 위 모서리에서 **코드** 를 선택 합니다. 이렇게 하면 데이터 흐름에 대 한 편집 가능한 JSON 코드가 표시 됩니다.
+2. 코드 보기의 오른쪽 위 모서리에서 **요금제** 를 선택 합니다. 이 토글은 JSON에서 읽기 전용 형식의 DSL 스크립트 계획으로 전환 됩니다.
+3. 이 스크립트를 복사 하 여 붙여넣거나 텍스트 파일에 저장 합니다.
 
-### <a name="how-do-i-access-data-by-using-the-other-80-dataset-types-in-data-factory"></a>Data Factory의 다른 80 데이터 집합 형식을 사용 하 여 데이터를 액세스 하려면 어떻게 합니까?
+### <a name="how-do-i-access-data-by-using-the-other-80-dataset-types-in-data-factory"></a>Data Factory에서 다른 80 데이터 집합 형식을 사용 하 여 데이터에 액세스 어떻게 할까요??
 
-데이터 흐름 매핑 기능은 현재 Azure SQL Database, Azure SQL Data Warehouse에서 Azure Blob storage 또는 Azure Data Lake 저장소 Gen2 텍스트 파일 및 원본 및 싱크를 고유 하 게 Blob storage 또는 Data Lake 저장소 Gen2에서 Parquet 파일 구분 기호로 분리 된 수 있습니다. 
+데이터 흐름 매핑 기능을 사용 하면 현재 Azure Blob storage 또는 Azure Data Lake Storage Gen2에서 분리 된 텍스트 파일을 Azure SQL Database Azure SQL Data Warehouse 고, Blob storage에서 파일을 Parquet 하거나 원본 및 싱크에 대해 기본적으로 Data Lake Storage Gen2 수 있습니다. 
 
-다른 커넥터에서 단계 데이터 복사 작업을 사용 하 고 준비 된 후 데이터를 변환 하는 데이터 흐름 작업을 실행 합니다. 예를 들어 파이프라인 먼저 Blob 저장소에 복사 됩니다 및 다음 데이터 흐름 작업을 사용 됩니다 데이터 집합 원본에서 해당 데이터를 변환.
+복사 작업을 사용 하 여 다른 커넥터에서 데이터를 준비 하 고 데이터 흐름 작업을 실행 하 여 데이터를 준비한 후 데이터를 변환 합니다. 예를 들어 파이프라인이 먼저 Blob storage에 복사 된 다음 데이터 흐름 작업은 원본에서 데이터 집합을 사용 하 여 해당 데이터를 변환 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 데이터 팩터리를 만드는 단계별 지침은 다음 자습서를 참조하세요.

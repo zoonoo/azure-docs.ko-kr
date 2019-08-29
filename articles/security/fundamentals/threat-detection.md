@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 86b17efdb811e9e4040b8b267c161b950f6de5fd
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 6278e848a82fb31939117fa9b916a92a2fb74a3e
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036185"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129275"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure 지능형 위협 탐지
 
@@ -30,13 +30,13 @@ Azure는 앱 배포의 요구 사항에 맞게 보안을 구성하고 사용자 
 
 ## <a name="azure-active-directory-identity-protection"></a>Azure Active Directory ID 보호
 
-[Azure AD ID 보호](../../active-directory/identity-protection/overview.md)는 조직의 ID에 영향을 줄 수 있는 위험 이벤트와 잠재적 취약성에 대한 개요를 제공하는 [Azure Active Directory Premium P2](../../active-directory/active-directory-whatis.md) 버전의 기능입니다. ID 보호는 [Azure AD의 비정상적인 활동 보고서](../../active-directory/active-directory-reporting-azure-portal.md)를 통해 제공되는 기존 Azure AD의 변칙 검색 기능을 사용하고, 실시간으로 비정상을 검색할 수 있는 새로운 위험 이벤트 유형을 도입하고 있습니다.
+[Azure AD ID 보호](../../active-directory/identity-protection/overview.md) 은 조직의 id에 영향을 줄 수 있는 위험 검색 및 잠재적 취약성에 대 한 개요를 제공 하는 [Azure Active Directory Premium P2](../../active-directory/active-directory-whatis.md) 버전 기능입니다. Id 보호는 [AZURE Ad 비정상 작업 보고서](../../active-directory/active-directory-reporting-azure-portal.md)를 통해 제공 되는 기존 azure ad 변칙 검색 기능을 사용 하 고, 실시간 변칙을 검색할 수 있는 새로운 위험 검색 유형을 도입 합니다.
 
 ![Azure AD ID 보호 다이어그램](./media/threat-detection/azure-threat-detection-fig1.png)
 
-ID 보호는 적응형 기계 학습 알고리즘 및 휴리스틱을 사용하여 ID가 손상되었음을 나타낼 수 있는 비정상 및 위험 이벤트를 검색합니다. ID 보호는 이 데이터를 사용하여 이러한 위험 이벤트를 조사하고 적절한 수정 또는 완화 작업을 수행할 수 있도록 보고서와 경고를 생성합니다.
+Id 보호는 적응 기계 학습 알고리즘 및 추론을 사용 하 여 id가 손상 되었음을 나타낼 수 있는 변칙 및 위험 검색을 검색 합니다. Id 보호는이 데이터를 사용 하 여 보고서 및 경고를 생성 하므로 이러한 위험 검색을 조사 하 고 적절 한 수정 또는 완화 작업을 수행할 수 있습니다.
 
-Azure Active Directory ID 보호는 모니터링 및 보고 도구 이상입니다. ID 보호는 위험 이벤트에 따라 각 사용자에 대한 위험 수준을 계산하며 이는 위험 기반 정책을 구성하여 조직의 ID를 자동으로 보호할 수 있도록 합니다.
+Azure Active Directory ID 보호는 모니터링 및 보고 도구 이상입니다. Id 보호는 위험 검색에 따라 각 사용자에 대 한 사용자 위험 수준을 계산 하므로 조직의 id를 자동으로 보호 하도록 위험 기반 정책을 구성할 수 있습니다.
 
 Azure Active Directory 및 [EMS](../../active-directory/active-directory-conditional-access-azure-portal.md)에서 제공 하는 다른 [조건부 액세스 제어](../../active-directory/active-directory-conditional-access-azure-portal.md) 외에도 이러한 위험 기반 정책은 암호 재설정 및 다단계를 포함 하는 적응 재구성 작업을 자동으로 차단 하거나 제공할 수 있습니다. 인증 적용.
 
@@ -46,14 +46,14 @@ Azure Active Directory ID 보호는 모니터링 및 보고 도구 이상입니�
 
 Azure ID 보호를 사용하여 계정과 ID를 보호할 수 있는 몇 가지 방법의 예는 다음과 같습니다.
 
-[위험 이벤트 및 위험한 계정 검색](../../active-directory/identity-protection/overview.md)
--   기계 학습 및 휴리스틱 규칙을 사용하여 6가지 위험 이벤트 유형을 검색합니다.
+[위험 검색 및 위험한 계정 검색](../../active-directory/identity-protection/overview.md)
+-   기계 학습 및 추론 규칙을 사용 하 여 6 가지 위험 검색 유형을 검색 합니다.
 -   사용자 위험 수준을 계산합니다.
 -   취약점을 강조 표시하여 전반적인 보안 상태를 개선하도록 맞춤형 권장 사항을 제공합니다.
 
-[위험 이벤트 조사](../../active-directory/identity-protection/overview.md)
--   위험 이벤트에 대한 알림을 보냅니다.
--   관련된 컨텍스트 정보를 사용하여 위험 이벤트를 조사합니다.
+[위험 검색 조사](../../active-directory/identity-protection/overview.md)
+-   위험 검색에 대 한 알림을 보냅니다.
+-   관련 및 컨텍스트 정보를 사용 하 여 위험 검색을 조사 합니다.
 -   조사를 추적하는 기본 워크플로를 제공합니다.
 -   암호 재설정 등 수정 작업에 쉽게 액세스할 수 있습니다.
 

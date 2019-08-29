@@ -3,23 +3,20 @@ title: 'Data Factory 자습서: 첫 번째 데이터 파이프라인 | Microsoft
 description: 이 Azure 데이터 팩터리 자습서에서는 Hadoop 클러스터에서 Hive 스크립트를 사용하여 데이터를 처리하는 데이터 팩터리를 만들고 예약하는 방법을 보여 줍니다.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor: ''
-ms.assetid: 81f36c76-6e78-4d93-a3f2-0317b413f1d0
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 552c89cd3294567e8203b69f81c1ac24716a8b1b
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 2dd2edfabff51c749890fe20d47a29c1ec39947c
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839447"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140374"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>자습서: Hadoop 클러스터를 사용하여 데이터를 변환하는 첫 번째 파이프라인 빌드
 > [!div class="op_single_selector"]
@@ -35,7 +32,7 @@ ms.locfileid: "67839447"
 
 이 자습서에서는 데이터 파이프라인을 사용하여 첫 번째 Azure Data Factory를 빌드합니다. 이 파이프라인은 Azure HDInsight(Hadoop) 클러스터에서 Hive 스크립트를 실행하여 입력 데이터를 변환하고 출력 데이터를 생성합니다.  
 
-이 문서에서는 자습서에 대한 개요와 필수 구성 요소를 제공합니다. 필수 조건을 완료했으면 다음 도구/SDK 중 하나를 사용하여 자습서를 수행할 수 있습니다. Visual Studio, PowerShell, Resource Manager 템플릿, REST API입니다. 이러한 옵션 중 하나를 사용하여 자습서를 수행하려면 이 문서의 시작에 있는 드롭다운 목록이나 끝에 있는 링크에서 옵션 중 하나를 선택합니다.    
+이 문서에서는 자습서에 대한 개요와 필수 구성 요소를 제공합니다. 필수 조건을 완료했으면 다음 도구/SDK 중 하나를 사용하여 자습서를 수행할 수 있습니다. Visual Studio, PowerShell, 리소스 관리자 템플릿 REST API. 이러한 옵션 중 하나를 사용하여 자습서를 수행하려면 이 문서의 시작에 있는 드롭다운 목록이나 끝에 있는 링크에서 옵션 중 하나를 선택합니다.    
 
 ## <a name="tutorial-overview"></a>자습서 개요
 이 자습서에서는 다음 단계를 수행합니다.
@@ -97,7 +94,7 @@ adfgetstarted/partitioneddata/year=2016/month=3/000000_0
 - [Resource Manager 템플릿](data-factory-build-your-first-pipeline-using-arm.md)
 - [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-Visual Studio에는 데이터 팩터리를 빌드하는 GUI 방법을 제공 합니다. 반면, PowerShell, Resource Manager 템플릿 및 REST API 옵션은 데이터 팩터리를 빌드하는 스크립팅/프로그래밍 방식을 제공합니다.
+Visual Studio는 데이터 팩터리를 빌드하는 GUI를 제공 합니다. 반면, PowerShell, Resource Manager 템플릿 및 REST API 옵션은 데이터 팩터리를 빌드하는 스크립팅/프로그래밍 방식을 제공합니다.
 
 > [!NOTE]
 > 이 자습서의 데이터 파이프라인은 출력 데이터를 생성하는 입력 데이터를 변환합니다. 원본 데이터 저장소의 데이터를 대상 데이터 저장소로 복사하지 않습니다. Azure Data Factory를 사용하여 데이터를 복사하는 방법에 대한 자습서는 [자습서: Blob Storage에서 SQL Database로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.

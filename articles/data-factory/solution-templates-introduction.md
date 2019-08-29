@@ -8,15 +8,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/04/2019
-author: gauravmalhot
-ms.author: gamal
+author: djpmsft
+ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: d239e44364c3a4879f2f131717511385a4bd7037
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: c4a3fc20e806ec91ed2646e6131f682bf5c80e38
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234439"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140846"
 ---
 # <a name="templates"></a>템플릿
 
@@ -46,7 +46,7 @@ Data Factory는 데이터 팩터리 파이프라인 템플릿을 저장하기 �
 
     -   [데이터베이스에서 대량 복사](solution-template-bulk-copy-with-control-table.md)
     
-    -   [LastModifiedDate 새 파일 복사](solution-template-copy-new-files-lastmodifieddate.md)
+    -   [LastModifiedDate로 새 파일 복사](solution-template-copy-new-files-lastmodifieddate.md)
 
     -   [파일 기반 저장소 간에 여러 파일 컨테이너 복사](solution-template-copy-files-multiple-containers.md)
 

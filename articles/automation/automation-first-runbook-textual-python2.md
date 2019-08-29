@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a030005d73df61c31c5aa1c2e1b56e52b03a56e3
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 6808ad101a828708ff4fe77bb4b8a55cf8c5fec7
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478501"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135443"
 ---
 # <a name="my-first-python-runbook"></a>내 첫 번째 Python Runbook
 
@@ -27,9 +27,9 @@ ms.locfileid: "67478501"
 이 자습서는 Azure Automation에서 [Python Runbook](automation-runbook-types.md#python-runbooks)을 만드는 과정을 안내합니다. 먼저 간단한 Runbook을 만들어서 테스트하고 게시합니다. 그런 다음 실제로 Azure 리소스를 관리하도록 Runbook을 수정합니다. 이 경우에 Azure Virtual Machine을 시작합니다. 마지막으로 Runbook 매개 변수를 추가하여 Runbook을 더욱 강력하게 개선합니다.
 
 > [!NOTE]
-> Python runbook을 시작 하는 웹 후크를 사용 하 여 지원 되지 않습니다.
+> Webhook를 사용 하 여 Python runbook을 시작 하는 것은 지원 되지 않습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -81,7 +81,7 @@ Runbook을 게시하면 초안 버전으로 기존의 게시된 버전을 덮어
 1. **게시**를 클릭하여 Runbook을 게시한 다음 확인 메시지가 표시되면 **예**를 클릭합니다.
 1. 이제 **Runbooks** 창에서 Runbook을 보기 위해 왼쪽으로 스크롤하면 **작성 상태**가 **게시됨**으로 표시됩니다.
 1. 오른쪽으로 다시 스크롤하면 **MyFirstRunbook-Python**창이 표시됩니다.
-   맨 위에 있는 옵션은 runbook을 시작할 runbook을 보거나 나중에 특정 시간에 시작 하도록 예약할 수 있습니다.
+   위쪽의 옵션을 사용 하 여 runbook을 시작 하거나 runbook을 보거나 나중에 시작 하도록 예약할 수 있습니다.
 2. Runbook을 시작하려면 Runbook 시작 블레이드가 열린 후 **시작**을 클릭하고 **확인**을 클릭합니다.
 3. 만든 Runbook 작업에 대한 작업 창이 열립니다. 이 창을 닫아도 되지만, 이 예에서는 작업 진행 상황을 볼 수 있도록 열어 놓겠습니다.
 1. Runbook을 테스트할 때와 동일한 작업 상태가 **작업 요약**에 표시됩니다.
@@ -99,7 +99,7 @@ Azure 리소스를 관리하려면 스크립트가 Automation 계정의 자격 �
 
 > [!NOTE]
 > 실행 인증서를 만들려면 서비스 주체 기능을 사용하여 Automation 계정을 만들어야 합니다.
-> 서비스 주체를 사용하여 자동화 계정을 만들지 않은 경우 [Python용 Azure 관리 라이브러리를 사용하여 인증](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate)에서 설명하는 방법을 사용하여 인증할 수 있습니다.
+> 서비스 주체를 사용하여 자동화 계정을 만들지 않은 경우 [Python용 Azure 관리 라이브러리를 사용하여 인증](/azure/python/python-sdk-azure-authenticate)에서 설명하는 방법을 사용하여 인증할 수 있습니다.
 
 1. MyFirstRunbook-Python 창에서 **편집**을 클릭하여 텍스트 편집기를 엽니다.
 
@@ -212,5 +212,5 @@ async_vm_start.wait()
 - 그래픽 Runbook을 시작하려면 [내 첫 번째 그래픽 Runbook](automation-first-runbook-graphical.md)
 - PowerShell 워크플로 Runbook을 시작하려면 [내 첫 번째 PowerShell 워크플로 Runbook](automation-first-runbook-textual.md)
 - Runbook의 형식, 장점 및 제한 사항에 대해 자세히 알아보려면 [Azure Automation Runbook 형식](automation-runbook-types.md)
-- Python을 사용하여 Azure를 개발하는 방법에 대해 알아보려면 [Python 개발자용 Azure](https://docs.microsoft.com/python/azure/?view=azure-python)를 참조하세요.
+- Python을 사용하여 Azure를 개발하는 방법에 대해 알아보려면 [Python 개발자용 Azure](/azure/python/)를 참조하세요.
 - 샘플 Python 2 Runbook을 보려면 [Azure Automation GitHub](https://github.com/azureautomation/runbooks/tree/master/Utility/Python)를 참조하세요.

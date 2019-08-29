@@ -11,18 +11,18 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3086df4a10c803b718f5eb0c28ed66fe137e94da
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: e81cc39157231c98e38305c70e046111ec062732
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019156"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128301"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용 하 여 machine learning 파이프라인 만들기 및 실행
 
 이 문서에서는 [Azure Machine Learning SDK](https://aka.ms/aml-sdk)를 사용하여 [기계 학습 파이프라인](concept-ml-pipelines.md)을 만들고 게시, 실행 및 추적하는 방법을 알아봅니다.  **Ml 파이프라인** 을 사용 하 여 다양 한 ml 단계를 함께 연결 하는 워크플로를 만든 후 나중에 액세스 하거나 다른 사용자와 공유 하기 위해 해당 파이프라인을 Azure Machine Learning 작업 영역에 게시 합니다.  ML 파이프라인은 다양 한 계산을 사용 하 여 일괄 처리를 다시 실행 하는 대신 단계를 다시 사용 하 고 ML 워크플로를 다른 사람들과 공유 하는 일괄 처리 점수 매기기 시나리오에 적합 합니다. 
 
-ML 작업의 CI/CD 자동화를 위해 [Azure 파이프라인](https://docs.microsoft.com/en-us/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) 이라는 다른 종류의 파이프라인을 사용할 수 있지만 해당 유형의 파이프라인은 작업 영역 내에 저장 되지 않습니다. [이러한 서로 다른 파이프라인을 비교](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use)합니다.
+ML 작업의 CI/CD 자동화를 위해 [Azure 파이프라인](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) 이라는 다른 종류의 파이프라인을 사용할 수 있지만 해당 유형의 파이프라인은 작업 영역 내에 저장 되지 않습니다. [이러한 서로 다른 파이프라인을 비교](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use)합니다.
 
 데이터 준비 및 모델 교육과 같은 ML 파이프라인의 각 단계에는 하나 이상의 단계가 포함 될 수 있습니다.
 
@@ -32,7 +32,7 @@ ML 파이프라인은 계산에 원격 계산 대상을 사용 하 고 해당 �
 
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * 모든 파이프라인 리소스를 수용하는 [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)을 만듭니다.
 
@@ -113,7 +113,7 @@ output_data1 = PipelineData(
 
 ## <a name="set-up-compute-target"></a>컴퓨팅 대상 설정
 
-Azure Machine Learning에서 ‘__컴퓨팅__’(또는 ‘__컴퓨팅 대상__’) 용어는 기계 학습 파이프라인에서 계산 단계를 수행하는 머신 또는 클러스터를 가리킵니다.   컴퓨팅 대상의 전체 목록 및 컴퓨팅 대상을 만들고 작업 영역에 연결하는 방법에 대해서는 [모델 학습을 위한 컴퓨팅 대상](how-to-set-up-training-targets.md)을 참조하세요.  모델을 학습하든 파이프라인 단계를 실행하든 상관 없이 컴퓨팅 모델을 만들고 연결하는 프로세스는 동일합니다. 컴퓨팅 대상을 만들고 연결한 후 [파이프라인 단계](#steps)에서 `ComputeTarget` 개체를 사용합니다.
+Azure Machine Learning에서 computes__ (또는 __계산 대상__) 이라는 용어는 Machine Learning 파이프라인에서 계산 단계를 수행 하는 컴퓨터 또는 클러스터를 의미 합니다.   컴퓨팅 대상의 전체 목록 및 컴퓨팅 대상을 만들고 작업 영역에 연결하는 방법에 대해서는 [모델 학습을 위한 컴퓨팅 대상](how-to-set-up-training-targets.md)을 참조하세요.  모델을 학습하든 파이프라인 단계를 실행하든 상관 없이 컴퓨팅 모델을 만들고 연결하는 프로세스는 동일합니다. 컴퓨팅 대상을 만들고 연결한 후 [파이프라인 단계](#steps)에서 `ComputeTarget` 개체를 사용합니다.
 
 > [!IMPORTANT]
 > 컴퓨팅 대상에 대한 관리 작업 수행은 원격 작업 내에서 지원되지 않습니다. 기계 학습 파이프라인은 원격 작업으로 제출되므로 파이프라인 내부에서 컴퓨팅 대상에 관리 작업을 사용하지 마십시오.
@@ -159,7 +159,7 @@ else:
 
 Azure Databricks는 Azure 클라우드의 Apache Spark 기반 환경입니다. 이 환경은 Azure Machine Learning 파이프라인 사용 시 컴퓨팅 대상으로 사용할 수 있습니다.
 
-사용하기 전에 Azure Databricks 작업 영역을 만듭니다. 이러한 리소스를 만들려면 [Azure Databricks에서 Spark 작업 실행](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) 문서를 참조하세요.
+사용하기 전에 Azure Databricks 작업 영역을 만듭니다. 작업 영역 리소스를 만들려면 [Azure Databricks에서 Spark 작업 실행](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) 문서를 참조 하세요.
 
 Azure Databricks를 컴퓨팅 대상으로 연결하려면 다음 정보를 제공합니다.
 
@@ -278,7 +278,7 @@ trainStep = PythonScriptStep(
 )
 ```
 
-이전 결과 (`allow_reuse`)를 다시 사용 하는 것은 불필요 한 다시 실행이 민첩성을 제거 하기 때문에 공동 작업 환경에서 파이프라인을 사용할 때 키입니다. 이는 단계의 script_name, 입력 및 매개 변수가 동일 하 게 유지 되는 경우의 기본 동작입니다. 단계의 출력이 다시 사용 되는 경우 작업은 계산에 전송 되지 않고 이전 실행의 결과를 다음 단계의 실행에 즉시 사용할 수 있습니다. False로 설정 하면 파이프라인 실행 중에이 단계에 대 한 새 실행이 항상 생성 됩니다. 
+이전 결과 (`allow_reuse`)를 다시 사용 하는 것은 불필요 한 다시 정렬을 제거 하면 민첩성을 제공 하므로 공동 작업 환경에서 파이프라인을 사용할 때 키입니다. 다시 사용은 script_name, 입력 및 단계의 매개 변수가 동일 하 게 유지 되는 경우의 기본 동작입니다. 단계의 출력이 다시 사용 되는 경우 작업은 계산에 전송 되지 않고 이전 실행의 결과를 다음 단계의 실행에 즉시 사용할 수 있습니다. 가 `allow_reuse` false로 설정 된 경우 파이프라인 실행 중에이 단계에 대 한 새 실행이 항상 생성 됩니다. 
 
 단계를 정의한 후 일부 또는 모든 단계를 사용하여 파이프라인을 빌드합니다.
 
@@ -341,8 +341,8 @@ pipeline_run1.wait_for_completion()
 
 * 작업 영역과 연결된 Blob Storage에서 컴퓨팅 대상으로 프로젝트 스냅샷을 다운로드합니다.
 * 파이프라인의 각 단계에 해당하는 Docker 이미지를 빌드합니다.
-* 컨테이너 레지스트리에서 컴퓨팅 대상으로 각 단계의 Docker 이미지를 다운로드합니다.
-* 한 단계에서 `DataReference` 개체가 지정되면 데이터 저장소를 탑재합니다. 탑재가 지원되지 않는 경우 데이터가 대신 컴퓨팅 대상에 복사됩니다.
+* 각 단계에 대 한 Docker 이미지를 컨테이너 레지스트리에서 계산 대상으로 다운로드 합니다.
+* 단계에서 `DataReference` 개체가 지정 된 경우 데이터 저장소를 탑재 합니다. 탑재가 지원되지 않는 경우 데이터가 대신 컴퓨팅 대상에 복사됩니다.
 * 단계 정의에 지정된 컴퓨팅 대상에서 단계를 실행합니다. 
 * 단계에서 지정한 로그, stdout, stderr, 메트릭, 출력 등의 아티팩트를 만듭니다. 그런 다음, 이러한 아티팩트가 업로드되어 사용자의 기본 데이터 저장소에 보관됩니다.
 
@@ -395,7 +395,7 @@ pipeline_run1.wait_for_completion()
 
 게시된 모든 파이프라인에는 REST 엔드포인트가 있습니다. 이 엔드포인트는 비-Python 클라이언트 등의 외부 시스템에서 파이프라인 실행을 호출합니다. 이 엔드포인트는 일괄 처리 채점 및 다시 학습 시나리오에서 “관리되는 반복 가능성”을 지원합니다.
 
-이전 파이프라인의 실행을 호출하려면 [AzureCliAuthentication 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py)에 설명된 대로 Azure Active Directory 인증 헤더 토큰이 필요합니다. [Azure Machine Learning에서 인증](https://aka.ms/pl-restep-auth) 노트북에서 자세한 내용을 알아보세요.
+이전 파이프라인의 실행을 호출 하려면 [Azurecliauthentication 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py) 참조에 설명 된 대로 Azure Active Directory 인증 헤더 토큰이 필요 하거나 [Azure Machine Learning 노트북의 인증](https://aka.ms/pl-restep-auth) 에 대 한 자세한 내용을 확인 하세요.
 
 ```python
 from azureml.pipeline.core import PublishedPipeline
@@ -427,17 +427,17 @@ p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
 p.disable()
 ```
 
-에서 `p.enable()`다시 사용 하도록 설정할 수 있습니다.
+에서 `p.enable()`다시 사용 하도록 설정할 수 있습니다. 자세한 내용은 [PublishedPipeline 클래스](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?view=azure-ml-py) 참조를 참조 하세요.
 
 
 ## <a name="caching--reuse"></a>캐싱 & 재사용  
 
 파이프라인의 동작을 최적화 하 고 사용자 지정 하기 위해 캐싱 및 다시 사용에 대 한 몇 가지 작업을 수행할 수 있습니다. 예를 들어 다음을 선택할 수 있습니다.
-+ [단계 정의](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)중에를 설정 `allow_reuse=False` 하 여 **단계의 기본 재사용을 해제** 합니다. 불필요 한 실행을 제거 하면 민첩성을 제공 하므로 공동 작업 환경에서 파이프라인을 사용할 때 재사용할 수 있습니다. 그러나이를 옵트아웃 (opt out) 할 수 있습니다.
++ [단계 정의](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)중에를 설정 `allow_reuse=False` 하 여 **단계의 기본 재사용을 해제** 합니다. 불필요 한 실행을 제거 하면 민첩성을 제공 하므로 공동 작업 환경에서 파이프라인을 사용할 때 재사용할 수 있습니다. 그러나 재사용을 옵트아웃 (opt out) 할 수 있습니다.
 + **스크립트를 벗어나 해시를 확장**하 여 source_directory의 절대 경로 또는 상대 경로를 사용 하 여 다른 파일 및 디렉터리에 추가 합니다.`hash_paths=['<file or directory']` 
 + 를 사용 하 여 **실행의 모든 단계에 대해 출력 다시 생성**`pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
 
-기본적 `allow-reuse` 으로 단계를 사용 하 고 주 스크립트 파일만 해시 합니다. 따라서 지정 된 단계의 스크립트가 동일 (`script_name`, 입력 및 매개 변수) 상태로 유지 되는 경우 이전 단계 실행의 출력이 다시 사용 되 고, 작업이 계산에 전송 되지 않고, 이전 실행의 결과를 다음 단계에서 즉시 사용할 수 있습니다. .  
+기본적 `allow_reuse` 으로 단계를 사용 하 고 주 스크립트 파일만 해시 합니다. 따라서 지정 된 단계의 스크립트가 동일 (`script_name`, 입력 및 매개 변수) 상태로 유지 되는 경우 이전 단계 실행의 출력이 다시 사용 되 고, 작업이 계산에 전송 되지 않고, 이전 실행의 결과를 다음 단계에서 즉시 사용할 수 있습니다. .  
 
 ```python
 step = PythonScriptStep(name="Hello World",
@@ -452,6 +452,6 @@ step = PythonScriptStep(name="Hello World",
 ## <a name="next-steps"></a>다음 단계
 
 - [GitHub의 Jupyter 노트북](https://aka.ms/aml-pipeline-readme)을 사용하여 기계 학습 파이프라인을 추가로 살펴봅니다.
-- [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) 패키지 및 [azureml-pipelines-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) 패키지에 대한 SDK 참조 도움말을 읽습니다.
+- [Azureml-파이프라인-코어](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) 패키지 및 azureml- [파이프라인 단계](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) 패키지에 대 한 SDK 참조 도움말을 참조 하세요.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]

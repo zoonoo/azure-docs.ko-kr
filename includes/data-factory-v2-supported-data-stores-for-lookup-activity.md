@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 1b7a44a0707a3680aff7d93354f616c5d8ee7cd4
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: a2b00173f463cf5bf0cda321286042a516b7e322
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68843274"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70130101"
 ---
 | 범주 | 데이터 저장소 |
 |:--- |:--- |
@@ -81,7 +81,7 @@ ms.locfileid: "68843274"
 | &nbsp; |[Oracle Eloqua(미리 보기)](../articles/data-factory/connector-oracle-eloqua.md) |
 | &nbsp; |[Oracle Responsys(미리 보기)](../articles/data-factory/connector-oracle-responsys.md) |
 | &nbsp; |[Oracle Service Cloud(미리 보기)](../articles/data-factory/connector-oracle-service-cloud.md) |
-| &nbsp; |[Paypal(미리 보기)](../articles/data-factory/connector-paypal.md) |
+| &nbsp; |[PayPal (미리 보기)](../articles/data-factory/connector-paypal.md) |
 | &nbsp; |[QuickBooks(미리 보기)](../articles/data-factory/connector-quickbooks.md) |
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |
 | &nbsp; |[Salesforce 서비스 클라우드](../articles/data-factory/connector-salesforce-service-cloud.md) |

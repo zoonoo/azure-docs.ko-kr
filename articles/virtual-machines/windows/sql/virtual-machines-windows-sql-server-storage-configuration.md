@@ -3,8 +3,8 @@ title: SQL Server VM에 대한 스토리지 구성 | Microsoft Docs
 description: 이 항목에서는 Azure가 프로비전하는 동안 SQL Server VM에 대한 스토리지를 구성하는 방법을 설명합니다(Resource Manager 배포 모델). 또한 기존 SQL Server VM에 대한 스토리지를 구성하는 방법을 설명합니다.
 services: virtual-machines-windows
 documentationcenter: na
-author: ninarn
-manager: craigg
+author: MashaMSFT
+manager: jroth
 tags: azure-resource-manager
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-sql
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
-ms.author: ninarn
-ms.openlocfilehash: 5a8b6c9885099ed549f7f29d7f2096de5983d9d0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
-ms.translationtype: HT
+ms.author: mathoma
+ms.openlocfilehash: e28478d31a674d742870344b33eac6b84c3ae584
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100393"
+ms.locfileid: "70123831"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM에 대한 스토리지 구성
 
@@ -28,7 +28,7 @@ Azure에서 SQL Server 가상 머신 이미지를 구성하는 경우 포털에�
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 자동화된 스토리지 구성 설정을 사용하려면 가상 머신에는 다음과 같은 특성이 필요합니다.
 
@@ -140,7 +140,7 @@ Azure는 다음 설정을 사용하여 SQL Server VM에 스토리지 풀을 만�
 
 다음 테이블에서는 사용할 수 있는 세 가지 워크로드 유형 옵션 및 이에 해당하는 최적화를 설명합니다.
 
-| 워크로드 유형 | 설명 | 최적화 |
+| 워크로드 유형 | Description | 최적화 |
 | --- | --- | --- |
 | **일반** |대부분의 워크로드를 지원하는 기본 설정 |없음 |
 | **트랜잭션 처리** |기존의 데이터베이스 OLTP 워크로드용으로 스토리지를 최적화합니다. |추적 플래그 1117<br/>추적 플래그 1118 |

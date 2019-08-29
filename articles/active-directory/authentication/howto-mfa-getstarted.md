@@ -1,6 +1,6 @@
 ---
-title: Azure Multi-factor Authentication 배포 계획 및 실행-Azure Active Directory
-description: Microsoft Azure Multi-factor Authentication 배포 계획
+title: Azure Multi-Factor Authentication 배포 계획 및 실행-Azure Active Directory
+description: Microsoft Azure Multi-Factor Authentication 배포 계획
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,22 +11,22 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 776a73f8a20a3f5ad4e97a08ff3871e805a61eb3
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 4b555ecdf8bbd3d29e440675599041f40ac3c9d0
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879126"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125022"
 ---
-# <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>클라우드 기반 Azure Multi-factor Authentication 배포 계획
+# <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>클라우드 기반 Azure Multi-Factor Authentication 배포 계획
 
 사용자는 점점 더 복잡 한 시나리오에서 조직 리소스에 연결 하 고 있습니다. 사람들은 종종 여러 플랫폼에서 스마트폰, 태블릿, Pc 및 랩톱을 사용 하 여 회사 네트워크를 통해 회사 네트워크에 연결 하 고 장치를 연결 합니다. 이 항상 연결 된 다중 장치 및 다중 플랫폼 세계에서 사용자 계정의 보안은 그 어느 때 보다 더 중요 합니다. 장치, 네트워크 및 플랫폼에서 사용 되는 복잡성에 관계 없이 암호는 사용자 계정에 대 한 보안을 보장 하기에 더 이상 충분 하지 않습니다. 특히 사용자가 계정에서 암호를 다시 사용 하는 경향이 있습니다. 정교한 피싱 및 기타 소셜 엔지니어링 공격으로 인해 사용자 이름 및 암호를 진한 웹에서 게시 하 고 판매할 수 있습니다.
 
-[AZURE MFA (Multi-factor Authentication)](concept-mfa-howitworks.md) 는 데이터 및 응용 프로그램에 대 한 액세스를 보호 하는 데 도움이 됩니다. 두 번째 형태의 인증을 사용 하 여 추가 보안 계층을 제공 합니다. 조직에서는 [조건부 액세스](../conditional-access/overview.md) 를 사용 하 여 솔루션을 특정 요구 사항에 맞게 만들 수 있습니다.
+[MFA (Azure Multi-Factor Authentication)](concept-mfa-howitworks.md) 는 데이터 및 응용 프로그램에 대 한 액세스를 보호 하는 데 도움이 됩니다. 두 번째 형태의 인증을 사용 하 여 추가 보안 계층을 제공 합니다. 조직에서는 [조건부 액세스](../conditional-access/overview.md) 를 사용 하 여 솔루션을 특정 요구 사항에 맞게 만들 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-Azure Multi-factor Authentication 배포를 시작 하기 전에 고려해 야 하는 필수 조건 항목이 있습니다.
+Azure Multi-Factor Authentication 배포를 시작 하기 전에 고려해 야 하는 필수 조건 항목이 있습니다.
 
 | 시나리오 | 필수 조건 |
 | --- | --- |
@@ -67,16 +67,16 @@ Multi-factor [authentication 출시 자료](https://www.microsoft.com/download/d
 
 조건부 액세스 정책은 등록을 강제 적용 하 여 처음 로그인 할 때 등록을 완료 해야 하는 중요 한 보안 고려 사항입니다.
 
-[Azure AD ID 보호](../identity-protection/howto-configure-risk-policies.md) 는 Azure multi-factor Authentication 사례에 대 한 등록 정책 및 자동화 된 위험 검색 및 수정 정책을 모두 제공 합니다. 다음 [이벤트](../reports-monitoring/concept-risk-events.md)에 의해 로그인이 위험한 것으로 간주 되는 경우, 손상 된 id의 위협이 발생 하거나 MFA를 요구 하는 경우 암호 변경을 강제로 적용 하도록 정책을 만들 수 있습니다.
+[Azure AD ID 보호](../identity-protection/howto-configure-risk-policies.md) 는 Azure Multi-Factor Authentication 스토리에 대 한 등록 정책과 자동화 된 위험 검색 및 수정 정책을 모두 제공 합니다. 다음 [이벤트](../reports-monitoring/concept-risk-events.md)에 의해 로그인이 위험한 것으로 간주 되는 경우, 손상 된 id의 위협이 발생 하거나 MFA를 요구 하는 경우 암호 변경을 강제로 적용 하도록 정책을 만들 수 있습니다.
 
 * 손실된 자격 증명
-* 익명 IP 주소에서의 로그인
+* 익명 IP 주소에서 로그인
 * 비정상적 위치 간 이동 불가능
-* 일반적이지 않은 위치에서의 로그인
-* 감염된 디바이스에서의 로그인
+* 알 수 없는 위치에서 로그인
+* 감염된 디바이스에서 로그인
 * 의심 스러운 활동을 포함 하는 IP 주소에서의 로그인
 
-Azure Active Directory Identity Protection에서 검색 되는 일부 위험 이벤트는 실시간으로 발생 하 고 일부는 오프 라인 처리가 필요 합니다. 관리자는 위험한 동작을 수행 하는 사용자를 차단 하거나 수동으로 재구성 하거나, 암호 변경을 요구 하거나, 조건부 액세스 정책의 일부로 multi-factor authentication을 요구 하도록 선택할 수 있습니다.
+Azure Active Directory Identity Protection에서 검색 되는 일부 위험 검색은 실시간으로 발생 하 고 일부는 오프 라인 처리가 필요 합니다. 관리자는 위험한 동작을 수행 하는 사용자를 차단 하거나 수동으로 재구성 하거나, 암호 변경을 요구 하거나, 조건부 액세스 정책의 일부로 multi-factor authentication을 요구 하도록 선택할 수 있습니다.
 
 ## <a name="define-network-locations"></a>네트워크 위치 정의
 
@@ -95,7 +95,7 @@ Azure Active Directory Identity Protection에서 검색 되는 일부 위험 이
       2. IP 범위 지정
    2. 국가/지역을 사용 하는 경우
       1. 드롭다운 메뉴를 확장 하 고이 명명 된 위치에 대해 정의 하려는 국가 또는 지역을 선택 합니다.
-      2. 알 수 없는 영역을 포함할지 여부를 결정 합니다. 알 수 없는 영역은 국가/지역으로 매핑할 수 없는 IP 주소입니다.
+      2. 알 수 없는 영역을 포함할지 여부를 결정 합니다. 알 수 없는 영역은 국가/지역에 매핑할 수 없는 IP 주소입니다.
 7. **만들기**
 
 ## <a name="plan-authentication-methods"></a>인증 방법 계획
@@ -149,7 +149,7 @@ Microsoft Authenticator 앱과 같은 모바일 앱은 30 초 마다 새 OATH �
 
 #### <a name="enforcing-registration"></a>등록 적용
 
-다음 단계를 사용 하 여 조건부 액세스 정책에 따라 사용자가 Multi-factor Authentication에 등록 하도록 할 수 있습니다.
+다음 단계를 사용 하 여 조건부 액세스 정책을 통해 사용자가 Multi-Factor Authentication에 등록 하도록 할 수 있습니다.
 
 1. 그룹을 만들고 현재 등록 되지 않은 모든 사용자를 추가 합니다.
 2. 조건부 액세스를 사용 하 여 모든 리소스에 액세스할 수 있도록이 그룹에 대해 multi-factor authentication을 적용 합니다.
@@ -171,7 +171,7 @@ Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-
 
 ### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>사용자 단위 MFA의 사용자를 조건부 액세스 기반 MFA로 변환
 
-사용자 단위 사용을 사용 하도록 설정 하 고 Azure Multi-factor Authentication을 적용 한 사용자의 경우 다음 PowerShell을 사용 하 여 Azure Multi-factor Authentication을 기반으로 조건부 액세스를 변환 하는 데 도움을 받을 수 있습니다.
+사용자 단위 사용을 사용 하도록 설정 하 고 Azure Multi-Factor Authentication 적용 한 사용자의 경우 다음 PowerShell을 사용 하 여 Azure Multi-Factor Authentication를 기반으로 조건부 액세스를 변환 하는 데 도움을 받을 수 있습니다.
 
 ```PowerShell
 # Disable MFA for all users, keeping their MFA methods intact
@@ -274,13 +274,13 @@ Azure AD에서 직접 인증 하 고 최신 인증 (WS 급지됨, SAML, OAuth, O
 
 ### <a name="use-azure-mfa-with-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시에서 Azure MFA 사용
 
-온-프레미스에 상주 하는 응용 프로그램은 azure [AD 응용 프로그램 프록시](../manage-apps/application-proxy.md) 를 통해 azure ad 테 넌 트에 게시 될 수 있으며 azure ad 사전 인증을 사용 하도록 구성 된 경우 Azure multi-factor Authentication을 활용할 수 있습니다.
+온-프레미스에 상주 하는 응용 프로그램은 azure [AD 응용 프로그램 프록시](../manage-apps/application-proxy.md) 를 통해 azure ad 테 넌 트에 게시 될 수 있으며 azure ad 사전 인증을 사용 하도록 구성 된 경우 azure Multi-Factor Authentication를 활용할 수 있습니다.
 
-이러한 응용 프로그램에는 다른 Azure AD 통합 응용 프로그램과 마찬가지로 Azure Multi-factor Authentication을 적용 하는 조건부 액세스 정책이 적용 됩니다.
+이러한 응용 프로그램에는 다른 Azure AD 통합 응용 프로그램과 마찬가지로 Azure Multi-Factor Authentication를 적용 하는 조건부 액세스 정책이 적용 됩니다.
 
-마찬가지로, 모든 사용자 로그인에 대해 Azure Multi-factor Authentication이 적용 되는 경우 Azure AD 응용 프로그램 프록시로 게시 된 온-프레미스 응용 프로그램은 보호 됩니다.
+마찬가지로 Azure Multi-Factor Authentication 모든 사용자 로그인에 적용 되는 경우 Azure AD 응용 프로그램 프록시로 게시 된 온-프레미스 응용 프로그램은 보호 됩니다.
 
-### <a name="integrating-azure-multi-factor-authentication-with-network-policy-server"></a>Azure Multi-factor Authentication과 네트워크 정책 서버 통합
+### <a name="integrating-azure-multi-factor-authentication-with-network-policy-server"></a>네트워크 정책 서버와 Azure Multi-Factor Authentication 통합
 
 Azure MFA의 NPS(네트워크 정책 서버) 확장은 기존 서버를 사용하여 인증 인프라에 클라우드 기반 MFA 기능을 추가합니다. NPS 확장을 사용 하 여 전화 통화, 문자 메시지 또는 휴대폰 앱 확인을 기존 인증 흐름에 추가할 수 있습니다. 이 통합에는 다음과 같은 제한 사항이 있습니다.
 
@@ -291,7 +291,7 @@ NPS 확장은 RADIUS 및 클라우드 기반 Azure MFA 사이에서 어댑터 �
 
 #### <a name="implementing-your-nps-server"></a>NPS 서버 구현
 
-NPS 인스턴스를 배포 하 여 이미 사용 중인 경우 [기존 Nps 인프라를 Azure Multi-factor Authentication과 통합](howto-mfa-nps-extension.md)을 참조 하세요. NPS를 처음 설정 하는 경우에 대 한 자세한 내용은 [nps (네트워크 정책 서버)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) 를 참조 하세요. 문제 해결 지침은 [Azure Multi-factor Authentication에 대 한 NPS 확장의 오류 메시지 해결](howto-mfa-nps-extension-errors.md)문서에서 찾을 수 있습니다.
+NPS 인스턴스를 배포 하 여 이미 사용 중인 경우 [기존 Nps 인프라를 Azure Multi-Factor Authentication와 통합](howto-mfa-nps-extension.md)을 참조 하세요. NPS를 처음 설정 하는 경우에 대 한 자세한 내용은 [nps (네트워크 정책 서버)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) 를 참조 하세요. 문제 해결 지침은 [Azure Multi-Factor Authentication에 대 한 NPS 확장에서 오류 메시지 해결](howto-mfa-nps-extension-errors.md)문서에서 찾을 수 있습니다.
 
 #### <a name="prepare-nps-for-users-that-arent-enrolled-for-mfa"></a>MFA에 등록 되지 않은 사용자를 위한 NPS 준비
 
@@ -312,7 +312,7 @@ MFA에 등록 되지 않은 사용자가 인증을 시도 하는 경우 수행�
 
 ### <a name="integrate-with-active-directory-federation-services"></a>Active Directory Federation Services와 통합
 
-조직이 Azure AD와 페더레이션 된 경우 [Azure Multi-factor Authentication](multi-factor-authentication-get-started-adfs.md)을 사용 하 여 온-프레미스와 클라우드에서 AD FS 리소스를 보호할 수 있습니다. Azure MFA를 사용 하 여 암호를 줄이고 보다 안전한 인증 방법을 제공할 수 있습니다. 이제 Windows Server 2016부터 기본 인증을 위해 Azure MFA를 구성할 수 있습니다.
+조직이 Azure AD와 페더레이션 되는 경우 Azure Multi-Factor Authentication를 사용 하 여 온-프레미스와 클라우드에서 [AD FS 리소스를 보호할](multi-factor-authentication-get-started-adfs.md)수 있습니다. Azure MFA를 사용 하 여 암호를 줄이고 보다 안전한 인증 방법을 제공할 수 있습니다. 이제 Windows Server 2016부터 기본 인증을 위해 Azure MFA를 구성할 수 있습니다.
 
 Windows Server 2012 r 2의 AD FS와 달리 AD FS 2016 Azure MFA 어댑터는 Azure AD와 직접 통합 되며 온-프레미스 Azure MFA 서버가 필요 하지 않습니다. Azure MFA 어댑터는 Windows Server 2016에 기본 제공 되며 추가 설치는 필요 하지 않습니다.
 
@@ -365,15 +365,15 @@ Windows 보안 로그 및 AD FS 관리자 로그에 표준 AD FS 2016 및 2019 �
 
 Azure MFA에 대 한 보고서
 
-Azure Multi-factor Authentication은 Azure Portal를 통해 보고서를 제공 합니다.
+Azure Multi-Factor Authentication는 Azure Portal를 통해 보고서를 제공 합니다.
 
-| 보고서 | 위치 | 설명 |
+| 보고서 | 위치 | Description |
 | --- | --- | --- |
 | 사용량 및 사기 행위 경고 | Azure AD > 로그인 | 지정된 날짜 범위 동안 제출된 사기 행위 경고의 기록을 비롯한 전체 사용량, 사용자 요약 및 사용자 세부 정보에 대한 정보를 제공합니다. |
 
 ## <a name="troubleshoot-mfa-issues"></a>MFA 문제 해결
 
-Microsoft 지원 센터의 [Azure Multi-factor Authentication 문제 해결 문서](https://support.microsoft.com/help/2937344/troubleshooting-azure-multi-factor-authentication-issues) 에서 azure MFA와 관련 된 일반적인 문제에 대 한 솔루션을 찾습니다.
+Microsoft 지원 센터의 [azure Multi-Factor Authentication 문제 해결 문서](https://support.microsoft.com/help/2937344/troubleshooting-azure-multi-factor-authentication-issues) 에서 azure MFA와 관련 된 일반적인 문제에 대 한 솔루션을 찾습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

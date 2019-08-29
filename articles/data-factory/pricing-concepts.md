@@ -2,26 +2,27 @@
 title: 예제를 통해 Azure Data Factory 가격 책정 이해 | Microsoft Docs
 description: 이 문서에서는 자세한 예제와 함께 Azure Data Factory 가격 책정 모델을 설명하고 보여줍니다.
 documentationcenter: ''
-author: shlo
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/25/2018
-ms.author: shlo
-ms.openlocfilehash: a825982532047f6e311c5508394df243310f02ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f08dea90e7700082b6eeb708b576451060f81255
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233938"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140937"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>예제를 통해 Data Factory 가격 책정 이해
 
 이 문서에서는 자세한 예제와 함께 Azure Data Factory 가격 책정 모델을 설명하고 보여줍니다.
 
 > [!NOTE]
-> 아래 이러한 예에서 사용 된 가격은 가상 및 실제 가격 것을 의미 하지 않습니다.
+> 아래 예제에 사용 된 가격은 가상 이며 실제 가격 책정을 의미 하지는 않습니다.
 
 ## <a name="copy-data-from-aws-s3-to-azure-blob-storage-hourly"></a>AWS S3에서 Azure Blob Storage로 매시간 데이터 복사
 
@@ -125,21 +126,21 @@ ms.locfileid: "65233938"
   - 파이프라인 활동 = $0.00003(실행 시간의 1분에 대해 비례합니다. Azure Integration Runtime에서 $0.002/시간)
   - 외부 파이프라인 활동 = $0.000041(실행 시간의 10분에 대해 비례합니다. Azure Integration Runtime에서 $0.00025/시간)
 
-## <a name="using-mapping-data-flow-debug-for-a-normal-workday-preview-pricing"></a>(미리 보기 가격)는 일반 workday에 대 한 매핑 데이터 흐름 디버그를 사용 하 여
+## <a name="using-mapping-data-flow-debug-for-a-normal-workday-preview-pricing"></a>정규 workday에 대 한 매핑 데이터 흐름 디버그 사용 (미리 보기 가격 책정)
 
-데이터 엔지니어,으로 디자인, 빌드 및 매일 데이터 흐름 매핑 테스트를 담당 합니다. 아침 ADF UI에 로그인 하 고이 정보를 데이터 흐름에 대 한 디버그 모드를 사용 하도록 설정 합니다. 디버그 세션에 대 한 기본 TTL은 60 분입니다. 디버그 세션을 기간 제한 없음 하므로 10 시간으로 하루 종일 작동 합니다. 따라서 하루에 청구가 됩니다.
+데이터 엔지니어는 매일 데이터 흐름의 매핑 설계, 빌드 및 테스트를 담당 합니다. 아침에 ADF UI에 로그인 하 고 데이터 흐름에 대해 디버그 모드를 사용 하도록 설정 합니다. 디버그 세션에 대 한 기본 TTL은 60 분입니다. 10 시간 동안 하루 종일 작업 하므로 디버그 세션이 만료 되지 않습니다. 따라서 하루에 대 한 요금은 다음과 같이 청구 됩니다.
 
-**10 (시간) x 8 (코어) x $0.112 $8.96 =**
+**10 (시간) x 8 (코어) x $0.112 = $8.96**
 
-## <a name="transform-data-in-blob-store-with-mapping-data-flows-preview-pricing"></a>데이터 흐름 (미리 보기 가격) 매핑을 사용 하 여 blob 저장소에서 데이터 변환
+## <a name="transform-data-in-blob-store-with-mapping-data-flows-preview-pricing"></a>데이터 흐름 매핑을 사용 하 여 blob 저장소의 데이터 변환 (미리 보기 가격 책정)
 
-이 시나리오에서는 ADF 매시간 일정에 매핑 데이터 흐름의 시각적으로 Blob 저장소의 데이터를 변환 하려고 합니다.
+이 시나리오에서는 매시간 일정에 따라 ADF 매핑 데이터 흐름에서 시각적으로 Blob 저장소의 데이터를 변환 하려고 합니다.
 
 시나리오를 달성하려면 다음 항목을 사용하여 파이프라인을 만들어야 합니다.
 
-1. 변환 논리를 사용 하 여 데이터 흐름 작업입니다.
+1. 변환 논리를 사용 하는 데이터 흐름 활동입니다.
 
-2. Azure Storage의 데이터에 대 한 입력된 데이터 집합입니다.
+2. Azure Storage 데이터에 대 한 입력 데이터 집합입니다.
 
 3. Azure Storage의 데이터에 대한 출력 데이터 세트
 
@@ -152,7 +153,7 @@ ms.locfileid: "65233938"
 | 파이프라인 만들기 | 3개의 읽기/쓰기 엔터티(파이프라인 만들기에 대해 1개, 데이터 세트 참조에 대해 2개) |
 | 파이프라인 가져오기 | 1개의 읽기/쓰기 엔터티 |
 | 파이프라인 실행 | 2개의 활동 실행(트리거 실행에 대해 1개, 활동 실행에 대해 1개) |
-| 다음과 같은 데이터 흐름 가정을 전제로 실행 시간 = 10 분 + 10 분 TTL | 10 \* 10의 TTL 사용 하 여 일반 계산 코어 8 개 |
+| 데이터 흐름 가정: 실행 시간 = 10 분 + 10 분 TTL | TTL \* 이 10 인 일반 계산의 10 8 코어 |
 | 파이프라인 모니터링 가정: 하나의 실행만 발생했습니다. | 다시 시도되는 2개의 모니터링 실행 기록(파이프라인 실행에 대해 1개, 활동 실행에 대해 1개) |
 
 **총 시나리오 가격: $0.3011**
@@ -162,7 +163,7 @@ ms.locfileid: "65233938"
   - 모니터링 = 2\*000005 = $0.00001 [1 Monitoring = $0.25/50000 = 0.000005]
 - 파이프라인 오케스트레이션 &amp; 실행 = **$0.301**
   - 활동 실행 = 001\*2 = 0.002 [1 run = $1/1000 = 0.001]
-  - 데이터 흐름 작업 (10 분 실행 시간 + 10 분 TTL) 20 분 동안 $0.299 비례 =. $0.112 시간당 Azure Integration Runtime에서 8 개의 코어 일반 계산
+  - 데이터 흐름 활동 = $0.299 20 분 (10 분 실행 시간 + 10 분 TTL)에 비례하여 계산 됩니다. 8 코어 일반 계산을 사용 하는 Azure Integration Runtime의 $0.112/시간
 
 ## <a name="next-steps"></a>다음 단계
 

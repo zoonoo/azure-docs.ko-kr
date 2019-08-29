@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 45e1ad6bd757ec5acaf784c94e4cfb5e487ce9ba
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 52eeedf4651cee012569034ae635a4736b3f3335
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68975731"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135529"
 ---
 # <a name="configure-a-custom-domain-name"></a>사용자 지정 도메인 이름 구성
 
@@ -88,7 +88,7 @@ Azure API Management 서비스 인스턴스를 만들면 Azure에서 azure-api.n
 -   API Management 게이트웨이 IP 주소를 가리키는 A 레코드를 구성 합니다.
 
 > [!NOTE]
-> API 관리 인스턴스 IP 주소는 정적 이지만 몇 가지 시나리오에서 변경 될 수 있습니다. 따라서 사용자 지정 도메인을 구성 하는 경우 CNAME을 사용 하는 것이 좋습니다. DNS 구성 방법을 선택할 때 고려해 야 합니다. [API MANANAGEMENT FAQ](https://docs.microsoft.com/azure/api-management/api-management-faq#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)를 참조 하세요.
+> API 관리 인스턴스 IP 주소는 정적 이지만 몇 가지 시나리오에서 변경 될 수 있습니다. 따라서 사용자 지정 도메인을 구성 하는 경우 CNAME을 사용 하는 것이 좋습니다. DNS 구성 방법을 선택할 때 고려해 야 합니다. [API MANANAGEMENT FAQ](api-management-faq.md#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

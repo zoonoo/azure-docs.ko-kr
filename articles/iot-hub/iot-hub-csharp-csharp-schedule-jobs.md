@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 4847a69e7ffaefca8e0c738aee6e1077f421ec62
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: db4824203f63fa2fe0d4256a475d18a501b17e0e
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70049001"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147728"
 ---
 # <a name="schedule-and-broadcast-jobs-net"></a>작업 예약 및 브로드캐스트 (.NET)
 
@@ -50,8 +50,6 @@ Azure IoT Hub를 사용하여 수백만 대의 디바이스를 업데이트하�
 * **ScheduleJob**. 이 앱은 작업을 사용 하 여 **Lockdoor** 직접 메서드를 호출 하 고 여러 장치에서 장치 쌍의 desired 속성을 업데이트 합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
-
-이 자습서를 완료하려면 다음이 필요합니다.
 
 * Visual Studio.
 

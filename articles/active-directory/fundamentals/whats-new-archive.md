@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a978e2755818e88cad580753e041eacd50a9e6d2
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 1b5615de8df42bca64822b0e459c7815412300af
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980474"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125372"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능 보관
 
@@ -1843,11 +1843,11 @@ Azure AD 앱 갤러리에 애플리케이션을 나열하는 방법에 대한 �
 **서비스 범주:** Identity Protection  
 **제품 기능:** ID 보안 및 보호
 
-감지된 위험 이벤트에 대해 얻은 정보는 Azure AD 구독에 연결됩니다. Azure AD Premium P2 버전에서 모든 기본 감지에 대한 가장 자세한 정보를 가져옵니다.
+검색 된 위험 검색에 대 한 통찰력은 Azure AD 구독에 연결 됩니다. Azure AD Premium P2 버전에서 모든 기본 감지에 대한 가장 자세한 정보를 가져옵니다.
 
-Azure AD Premium P1 버전에서 라이선스가 적용되지 않는 검색 항목이 ‘추가 위험이 있는 로그인이 감지됨’이라는 위험 이벤트로 표시됩니다.
+Azure AD Premium P1 버전을 사용 하 여 라이선스에 포함 되지 않은 검색은 추가 위험이 검색 된 위험 검색 로그인으로 나타납니다.
 
-자세한 내용은 [Azure Active Directory 위험 이벤트](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events)를 참조하세요.
+자세한 내용은 [Azure Active Directory 위험 탐지](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events)를 참조 하세요.
  
 ---
 
@@ -1913,7 +1913,7 @@ MFA 구성 위치: **Azure Active Directory \> MFA 서버**
 
 **사용할 수 있는 기능은 무엇인가요?**
 
-새 관리 콘솔로 전환하면서 Azure AD 활동 로그를 검색할 수 있는 2개의 새로운 API를 만들었습니다. 새로 적용된 API는 다양한 감사 및 로그인 활동에 더해 다양한 필터링 및 정렬 기능을 제공합니다. 이전에 보안 보고서를 통해 사용 가능했던 데이터를 이제 Microsoft Graph의 ID 보호 위험 이벤트 API를 통해 액세스할 수 있습니다.
+새 관리 콘솔로 전환하면서 Azure AD 활동 로그를 검색할 수 있는 2개의 새로운 API를 만들었습니다. 새로 적용된 API는 다양한 감사 및 로그인 활동에 더해 다양한 필터링 및 정렬 기능을 제공합니다. 이전에 보안 보고서를 통해 사용할 수 있는 데이터에는 Microsoft Graph의 Id 보호 위험 검색 API를 통해 액세스할 수 있습니다.
 
 자세한 내용은 다음을 참조하세요.
 
@@ -2264,13 +2264,13 @@ Azure Multi-Factor Authentication용 네트워크 정책 서버 확장은 기존
  
 ---
 
-### <a name="aggregation-of-real-time-risk-events"></a>실시간 위험 이벤트의 집계
+### <a name="aggregation-of-real-time-risk-detections"></a>실시간 위험 검색 집계
 
 **유형:** 변경된 기능    
 **서비스 범주:** ID 보호  
 **제품 기능:** ID 보안 및 보호
 
-Azure AD ID 보호에서는 특정 날짜에 동일한 IP 주소에서 발생한 모든 실시간 위험 이벤트가 위험 이벤트 유형별로 집계됩니다. 이 변경으로 인해 사용자 보안에 영향을 주지 않지만, 표시되는 위험 이벤트의 양이 제한됩니다.
+Azure AD ID 보호 지정 된 날짜에 동일한 IP 주소에서 발생 한 모든 실시간 위험 검색은 이제 각 위험 검색 유형에 대해 집계 됩니다. 이 변경으로 인해 사용자 보안을 변경 하지 않고 표시 되는 위험 검색의 양이 제한 됩니다.
 
 사용자가 로그인할 때마다 기반 실시간 감지가 작동합니다. Multi-Factor Authentication 또는 액세스 차단이 설정된 로그인 위험 보안 정책이 있어도 위험한 로그인이 있을 때마다 계속 트리거됩니다.
  
@@ -2388,7 +2388,7 @@ Azure Portal에서 Azure RBAC 기능을 사용하는 모든 리소스는 Azure A
 
 **사용할 수 있는 기능은 무엇인가요?**
 
- 새 관리 콘솔로 전환하면서 Azure AD 활동 로그를 가져오는 2개의 API가 새롭게 제공됩니다. 새로 적용된 API는 다양한 감사 및 로그인 활동에 더해 다양한 필터링 및 정렬 기능을 제공합니다. 이전에 보안 보고서를 통해 사용 가능했던 데이터를 이제 Microsoft Graph의 ID 보호 위험 이벤트 API를 통해 액세스할 수 있습니다.
+ 새 관리 콘솔로 전환하면서 Azure AD 활동 로그를 가져오는 2개의 API가 새롭게 제공됩니다. 새로 적용된 API는 다양한 감사 및 로그인 활동에 더해 다양한 필터링 및 정렬 기능을 제공합니다. 이전에 보안 보고서를 통해 사용할 수 있는 데이터는 Microsoft Graph의 Id 보호 위험 검색 API를 통해 액세스할 수 있습니다.
 
 
 ## <a name="september-2017"></a>2017년 9월

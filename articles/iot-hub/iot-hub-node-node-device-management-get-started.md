@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 049fc534c6bf3d777268363968ac2a8b92ca8d1c
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 98ec53d384186968d69c3f84cdfa12fbdbe92b71
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69904453"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147442"
 ---
 # <a name="get-started-with-device-management-nodejs"></a>장치 관리 시작 (node.js)
 
@@ -34,8 +34,6 @@ ms.locfileid: "69904453"
 * **dmpatterns_getstarted_service.js**, 시뮬레이션된 디바이스 앱에 직접 메서드를 호출하고 응답을 표시하고 업데이트된 reported 속성을 표시합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
-
-이 자습서를 완료하려면 다음이 필요합니다.
 
 * Node.js 버전 10.0. x 이상 [개발 환경 준비](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) Windows 또는 Linux에서이 자습서에 대 한 node.js를 설치 하는 방법을 설명 합니다.
 

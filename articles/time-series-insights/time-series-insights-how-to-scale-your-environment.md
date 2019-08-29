@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 08/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: ce29336c6e5dc187eb2ef713cd5dfeafdc8a003f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 13fa2b892013cf4a3fb96220c901030c6b0aee0b
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165641"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129103"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Time Series Insights 환경의 크기를 조정하는 방법
 
@@ -53,7 +53,7 @@ Azure Portal을 사용하여 지정된 가격 책정 SKU 내에서 용량을 늘
 
 1. **용량** 슬라이더를 조정하여 수신 속도 및 스토리지 용량에 대한 요구 사항을 충족하는 용량을 선택합니다. **수신 속도**, **스토리지 용량** 및 **예상 비용** 업데이트가 변경으로 인한 영향을 동적으로 보여줍니다.
 
-   [![슬라이더](media/scale-your-environment/slider.png)](media/scale-your-environment/slider.png#lightbox)
+   [![슬라이드](media/scale-your-environment/slider.png)](media/scale-your-environment/slider.png#lightbox)
 
    또는 슬라이더의 오른쪽에 있는 텍스트 상자에 용량 승수를 입력할 수 있습니다.
 
@@ -61,4 +61,4 @@ Azure Portal을 사용하여 지정된 가격 책정 SKU 내에서 용량을 늘
 
 ## <a name="next-steps"></a>다음 단계
 
-- 새 용량 인지 확인 [제한을 방지 하기에 충분 한](time-series-insights-diagnose-and-solve-problems.md)합니다.
+- 새 용량이 [제한을 방지 하기에 충분](time-series-insights-diagnose-and-solve-problems.md)한지 확인 합니다.

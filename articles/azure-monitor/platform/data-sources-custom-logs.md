@@ -11,16 +11,17 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/26/2019
+ms.date: 08/28/2019
 ms.author: bwren
-ms.openlocfilehash: 397272c3a47aca2aa73394f443d76dead66308e0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9ecae51d996e2e065b15d1fa70bdaf796f8f197b
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68555341"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124187"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Azure Monitor의 사용자 지정 로그
+
 Azure Monitor의 사용자 지정 로그 데이터 원본을 통해 Windows 및 Linux 컴퓨터의 텍스트 파일에서 이벤트를 수집할 수 있습니다. 많은 애플리케이션이 Windows 이벤트 로그 또는 Syslog 같은 표준 로깅 서비스 대신 텍스트 파일에 정보를 기록합니다. 수집된 데이터를 쿼리의 개별 필드로 구문 분석하거나 수집 중에 데이터를 개별 필드로 추출할 수 있습니다.
 
 ![사용자 지정 로그 수집](media/data-sources-custom-logs/overview.png)
@@ -46,6 +47,9 @@ Azure Monitor의 사용자 지정 로그 데이터 원본을 통해 Windows 및 
 > * 열 이름의 최대 문자 수는 500자입니다. 
 >
 
+>[!IMPORTANT]
+>사용자 지정 로그를 수집 하려면 로그 파일을 작성 하는 응용 프로그램에서 로그 콘텐츠를 주기적으로 디스크에 플러시합니다. 이는 사용자 지정 로그 수집이 추적 중인 로그 파일에 대 한 파일 시스템 변경 알림을 사용 하기 때문입니다.
+
 ## <a name="defining-a-custom-log"></a>사용자 지정 로그 정의
 다음 절차에 따라 사용자 지정 로그 파일을 정의합니다.  사용자 지정 로그를 추가하는 샘플에 대한 연습을 보려면 이 문서의 끝으로 스크롤합니다.
 
@@ -64,7 +68,6 @@ Azure Monitor의 사용자 지정 로그 데이터 원본을 통해 Windows 및 
 
 타임스탬프 구분 기호가 사용되면, Azure Monitor에 저장된 각 레코드의 TimeGenerated 속성이 로그 파일의 해당 항목에 대해 지정된 날짜/시간으로 채워집니다.  새 줄 구분 기호가 사용되는 경우에는, TimeGenerated가 Azure Monitor에서 항목을 수집한 날짜와 시간으로 채워집니다.
 
-
 1. **찾아보기** 를 클릭하고 샘플 파일로 이동합니다.  일부 브라우저에서는 이 단추의 레이블이 **파일 선택** 인 경우도 있습니다.
 2. **다음**을 클릭합니다.
 3. Custom Log Wizard(사용자 지정 로그 마법사)가 파일을 업로드하고 식별된 레코드를 기록합니다.
@@ -76,10 +79,9 @@ Azure Monitor의 사용자 지정 로그 데이터 원본을 통해 Windows 및 
 
 예를 들어, 애플리케이션이 이름에 날짜가 포함된 로그 파일(예: log20100316.txt)을 매일 만들 수 있습니다. 이런 로그의 패턴으로 *log\*.txt*를 사용할 수 있으며, 이것은 애플리케이션의 명명 체계에 따르는 모든 로그 파일에 적용할 수 있습니다.
 
-
 다음 테이블은 다른 로그 파일을 지정하는 데 유효한 패턴의 예를 제공합니다.
 
-| 설명 | 경로 |
+| Description | 경로 |
 |:--- |:--- |
 | Windows 에이전트에서 확장명이 .txt인 *C:\Logs* 내 모든 파일 |C:\Logs\\\*.txt |
 | Windows 에이전트에서 이름이 log로 시작되고 확장명이 .txt인 *C:\Logs* 내 모든 파일 |C:\Logs\log\*.txt |
@@ -105,7 +107,6 @@ Azure Monitor가 사용자 지정 로그에서 수집을 시작하면, 해당 �
 > [!NOTE]
 > RawData 속성이 쿼리에 없으면, 브라우저를 닫았다가 다시 열어야 합니다.
 
-
 ### <a name="step-6-parse-the-custom-log-entries"></a>6단계. 사용자 지정 로그 항목 구문 분석
 전체 로그 항목은 **RawData**라는 하나의 속성에 저장됩니다.  각 항목에 포함된 다양한 종류의 정보를 각 레코드의 개별 속성으로 분리하려는 경우가 많습니다. **RawData**를 여러 속성으로 구문 분석하기 위한 옵션은 [Azure Monitor에서 텍스트 데이터 구문 분석](../log-query/parse-text.md)을 참조하세요.
 
@@ -114,7 +115,6 @@ Azure Portal에서 다음 프로세스를 사용하여 이전에 정의한 사�
 
 1. 작업 영역에 대한 **고급 설정**의 **데이터** 메뉴에서 **사용자 지정 로그**를 선택하여 모든 사용자 지정 로그를 나열합니다.
 2. 사용자 지정 로그 옆에 있는 **제거**를 클릭하여 제거합니다.
-
 
 ## <a name="data-collection"></a>데이터 수집
 Azure Monitor는 각 사용자 지정 로그로부터 새로운 항목을 약 5분마다 수집합니다.  에이전트는 데이터를 수집하는 각 로그 파일에서 해당 위치를 기록합니다.  에이전트가 일정 기간 동안 오프라인 상태로 전환된 경우 Azure Monitor는 마지막으로 오프라인 상태가 유지된 위치에서 항목을 수집하며, 이는 에이전트가 오프라인 상태에 있는 동안 해당 항목이 생성된 경우에도 마찬가지입니다.
@@ -135,11 +135,11 @@ Azure Monitor는 각 사용자 지정 로그로부터 새로운 항목을 약 5�
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>사용자 지정 로그 추가 샘플 연습
 다음 섹션은 사용자 지정 로그를 만드는 예제를 안내합니다.  수집되는 샘플 로그에는 각 줄에 하나의 항목이 포함되며, 각 줄은 날짜와 시간으로 시작되고 코드, 상태 및 메시지에 대해 쉼표로 구분된 필드가 있습니다.  몇 가지 샘플 항목이 아래에 표시되어 있습니다.
 
-    2016-03-10 01:34:36 207,Success,Client 05a26a97-272a-4bc9-8f64-269d154b0e39 connected
-    2016-03-10 01:33:33 208,Warning,Client ec53d95c-1c88-41ae-8174-92104212de5d disconnected
-    2016-03-10 01:35:44 209,Success,Transaction 10d65890-b003-48f8-9cfc-9c74b51189c8 succeeded
-    2016-03-10 01:38:22 302,Error,Application could not connect to database
-    2016-03-10 01:31:34 303,Error,Application lost connection to database
+    2019-08-27 01:34:36 207,Success,Client 05a26a97-272a-4bc9-8f64-269d154b0e39 connected
+    2019-08-27 01:33:33 208,Warning,Client ec53d95c-1c88-41ae-8174-92104212de5d disconnected
+    2019-08-27 01:35:44 209,Success,Transaction 10d65890-b003-48f8-9cfc-9c74b51189c8 succeeded
+    2019-08-27 01:38:22 302,Error,Application could not connect to database
+    2019-08-27 01:31:34 303,Error,Application lost connection to database
 
 ### <a name="upload-and-parse-a-sample-log"></a>샘플 로그 업로드 및 구문 분석
 로그 파일 중 하나를 제공하며 수집할 이벤트를 볼 수 있습니다.  이 경우 New Line(새 줄)은 충분한 구분 기호입니다.  하지만 로그의 단일 항목이 여러 줄에 걸치는 경우 타임스탬프 구분 기호가 사용되어야 합니다.
@@ -157,14 +157,10 @@ Azure Monitor는 각 사용자 지정 로그로부터 새로운 항목을 약 5�
 ![로그 이름](media/data-sources-custom-logs/log-name.png)
 
 ### <a name="validate-that-the-custom-logs-are-being-collected"></a>사용자 지정 로그를 수집 중인지 유효성을 검사합니다.
-수집된 로그의 모든 레코드를 반환하는 *Type=MyApp_CL* 쿼리를 사용합니다.
+*MyApp_CL* 의 간단한 쿼리를 사용 하 여 수집 된 로그의 모든 레코드를 반환 합니다.
 
 ![사용자 지정 필드가 없는 로그 쿼리](media/data-sources-custom-logs/query-01.png)
 
-### <a name="parse-the-custom-log-entries"></a>사용자 지정 로그 항목 구문 분석
-사용자 지정 필드를 사용하여 *EventTime*, *Code*, *Status*, *Message* 필드를 정의하며, 쿼리에 의해 반환되는 레코드의 차이를 볼 수 있습니다.
-
-![사용자 지정 필드가 있는 로그 쿼리](media/data-sources-custom-logs/query-02.png)
 
 ## <a name="alternatives-to-custom-logs"></a>사용자 지정 로그 대신 사용할 수 있는 방법
 데이터가 위에 나와 있는 기준에 맞는 경우에는 사용자 지정 로그가 유용하지만, 다른 전략이 필요한 다음과 같은 경우도 있습니다.

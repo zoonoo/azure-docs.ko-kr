@@ -1,5 +1,5 @@
 ---
-title: '최종 사용자 인증: Azure Active Directory를 사용 하 여 Azure 데이터 레이크 저장소 Gen1를 사용 하 여 Python | Microsoft Docs'
+title: '최종 사용자 인증: Azure Active Directory를 사용 하 Azure Data Lake Storage Gen1 Python Microsoft Docs'
 description: Azure Active Directory와 Python을 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증을 수행하는 방법을 알아봅니다.
 services: data-lake-store
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 8b72604d7e736230911d0a0987b88d372be4ddf3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 71ca7bec7f69007fd0290211fac308eb5f3983a7
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60878053"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139061"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Python을 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ ms.locfileid: "60878053"
 
 이 문서에서는 두 옵션을 모두 설명합니다. Python을 사용하여 Data Lake Storage Gen1에서 서비스 간 인증을 수행하려면 [Python을 사용한 Data Lake Storage Gen1의 서비스 간 인증](data-lake-store-service-to-service-authenticate-python.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * **Python**. Python을 [여기](https://www.python.org/downloads/)에서 다운로드할 수 있습니다. 이 문서에서는 Python 3.6.2를 사용합니다.
 
@@ -113,7 +113,7 @@ Data Lake Storage Gen1 계정에 대한 파일 시스템 작업을 수행할 수
 
 ## <a name="end-user-authentication-without-multi-factor-authentication"></a>다단계 인증을 사용하지 않는 최종 사용자 인증
 
-이 방법은 더 이상 사용되지 않습니다. 자세한 내용은 [Python SDK를 사용한 Azure 인증](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python#mgmt-auth-token)을 참조하세요.
+이 방법은 더 이상 사용되지 않습니다. 자세한 내용은 [Python SDK를 사용한 Azure 인증](/azure/python/python-sdk-azure-authenticate)을 참조하세요.
    
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 최종 사용자 인증을 사용하여 Python으로 Azure Data Lake Storage Gen1을 인증하는 방법을 배웠습니다. 이제 다음 문서를 통해 Python을 Azure Data Lake Storage Gen1과 함께 사용하는 방법을 살펴볼 수 있습니다.

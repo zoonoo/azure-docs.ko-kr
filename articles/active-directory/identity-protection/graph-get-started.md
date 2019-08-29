@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory ID 보호를 위한 Microsoft Graph | Microsoft Docs
-description: Azure Active Directory에서 위험 이벤트 및 관련된 정보의 목록에 대한 Microsoft Graph를 쿼리하는 방법을 알아봅니다.
+description: Azure Active Directory에서 위험 검색 및 관련 정보 목록을 Microsoft Graph 쿼리 하는 방법에 대해 알아봅니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1640511c2f97865f5026f9f977ed0e4a9c03e338
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: a79440d0d969e01dc94759d4619fc0359762e1fd
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774385"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126572"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Azure Active Directory ID 보호 및 Microsoft Graph 시작
 
-Microsoft Graph는 Microsoft의 통합된 API 엔드포인트이며 [Azure Active Directory ID 보호](../active-directory-identityprotection.md) API의 시작점입니다. 위험한 사용자 및 로그인에 대 한 정보를 노출 하는 네 가지 Api가 있습니다. 첫 번째 API 인 **riskDetection**를 사용 하면 사용자 및 로그인 연결 된 위험 검색의 목록 및 검색에 대 한 관련 정보를 Microsoft Graph 쿼리할 수 있습니다. 두 번째 API인 **riskyUsers**를 사용하면 위험으로 검색된 사용자 ID 보호에 대한 정보에 관하여 Microsoft Graph를 쿼리할 수 있습니다. 세 번째 API인 **signIn**을 사용하면 위험 상태, 세부 정보 및 수준과 관련된 특정 속성을 사용하여 Azure AD 로그인의 정보에 대한 Microsoft Graph를 쿼리할 수 있습니다. 네 번째 API 인 **identityRiskEvents**를 사용 하면 [위험 이벤트](../reports-monitoring/concept-risk-events.md) 및 관련 정보의 목록에 대 한 Microsoft Graph를 쿼리할 수 있습니다. 이 문서에서는 Microsoft Graph 연결 하 고 이러한 Api를 쿼리 하는 작업을 시작 합니다. 자세한 소개, 전체 설명서 및 Graph Explorer에 대한 액세스는 [Microsoft Graph 사이트](https://graph.microsoft.io/) 또는 이러한 API에 대한 특정 참조 설명서를 참조하세요.
+Microsoft Graph는 Microsoft의 통합된 API 엔드포인트이며 [Azure Active Directory ID 보호](../active-directory-identityprotection.md) API의 시작점입니다. 위험한 사용자 및 로그인에 대 한 정보를 노출 하는 네 가지 Api가 있습니다. 첫 번째 API 인 **riskDetection**를 사용 하면 사용자 및 로그인 연결 된 위험 검색의 목록 및 검색에 대 한 관련 정보를 Microsoft Graph 쿼리할 수 있습니다. 두 번째 API인 **riskyUsers**를 사용하면 위험으로 검색된 사용자 ID 보호에 대한 정보에 관하여 Microsoft Graph를 쿼리할 수 있습니다. 세 번째 API인 **signIn**을 사용하면 위험 상태, 세부 정보 및 수준과 관련된 특정 속성을 사용하여 Azure AD 로그인의 정보에 대한 Microsoft Graph를 쿼리할 수 있습니다. 네 번째 API 인 **identityRiskEvents**를 사용 하 여 [위험](../reports-monitoring/concept-risk-events.md) 검색 및 관련 정보 목록에 대 한 Microsoft Graph를 쿼리할 수 있습니다. 이 문서에서는 Microsoft Graph 연결 하 고 이러한 Api를 쿼리 하는 작업을 시작 합니다. 자세한 소개, 전체 설명서 및 Graph Explorer에 대한 액세스는 [Microsoft Graph 사이트](https://graph.microsoft.io/) 또는 이러한 API에 대한 특정 참조 설명서를 참조하세요.
 
 * [riskDetection API](https://docs.microsoft.com/graph/api/resources/riskdetection?view=graph-rest-beta)
 * [riskyUsers API](https://docs.microsoft.com/graph/api/resources/riskyuser?view=graph-rest-beta)
@@ -68,7 +68,7 @@ Microsoft Graph를 통해 ID 보호 데이터에 액세스하려면 네 가지 �
 
    ![애플리케이션 만들기](./media/graph-get-started/44.png)
 
-   1. **이름** 텍스트 상자에 애플리케이션 이름을 입력합니다(예: AADIP Risk Event API 애플리케이션).
+   1. **이름** 텍스트 상자에 애플리케이션 이름을 입력합니다(예: AADIP 위험 검색 API 응용 프로그램).
 
    1. **유형**으로 **웹 애플리케이션 및/또는 Web API**를 선택합니다.
 
@@ -122,7 +122,7 @@ Microsoft Graph를 통해 ID 보호 데이터에 액세스하려면 네 가지 �
 
    ![애플리케이션 만들기](./media/graph-get-started/24.png)
 
-   1. **키 설명** 텍스트 상자에서 설명을 입력합니다(예: *AADIP 위험 이벤트*).
+   1. **키 설명** 텍스트 상자에 설명을 입력 합니다 (예: *AADIP 위험 검색*).
    1. **기간**으로 **1년**을 선택합니다.
    1. **Save**을 클릭합니다.
    1. 키 값을 복사한 다음 안전한 위치에 붙여넣습니다.   
@@ -131,7 +131,7 @@ Microsoft Graph를 통해 ID 보호 데이터에 액세스하려면 네 가지 �
    > 이 키를 분실하면 이 섹션으로 돌아와서 새 키를 만들어야 합니다. 이 키의 비밀을 유지합니다. 키를 가진 사람은 누구나 데이터에 액세스할 수 있습니다.
    > 
 
-## <a name="authenticate-to-microsoft-graph-and-query-the-identity-risk-events-api"></a>Microsoft Graph에 인증하고 ID 위험 이벤트 API를 쿼리합니다.
+## <a name="authenticate-to-microsoft-graph-and-query-the-identity-risk-detections-api"></a>Microsoft Graph에 인증 하 고 Id 위험 검색 API를 쿼리 합니다.
 
 이 시점에서 다음 항목이 만들어 집니다.
 
@@ -157,7 +157,7 @@ API를 호출하려면 다음 매개 변수를 사용하여 헤더를 만듭니�
 
 다음 API URL에 대한 요청으로 이 헤더를 보냅니다. `https://graph.microsoft.com/beta/identityRiskEvents`
 
-성공한 경우 응답은 ID 위험 이벤트 및 OData JSON 형식으로 연결된 데이터의 컬렉션입니다. 이를 구문 분석하고 적절하게 처리할 수 있습니다.
+성공 하는 경우 응답은 id 위험 검색의 컬렉션 이며 OData JSON 형식으로 연결 된 데이터의 컬렉션입니다 .이를 구문 분석 하 고 적절 하 게 처리할 수 있습니다.
 
 다음은 PowerShell을 사용하여 API를 인증하고 호출하는 데 대한 샘플 코드입니다.  
 클라이언트 ID, 비밀 키 및 테넌트 도메인만 추가하면 됩니다.
@@ -204,9 +204,9 @@ Id 보호 로그인 위험 정책을 사용 하면 위험이 실시간으로 검
 GET https://graph.microsoft.com/beta/riskDetections?$filter=detectionTimingType eq 'offline'
 ```
 
-### <a name="get-the-high-risk-and-medium-risk-events-identityriskevents-api"></a>높은 위험 및 보통 위험 이벤트 가져오기(identityRiskEvents API)
+### <a name="get-the-high-risk-and-medium-risk-detections-identityriskevents-api"></a>높은 위험 수준 및 중간 위험 검색 (identityRiskEvents API) 받기
 
-보통 및 높은 위험 이벤트는 ID 보호 로그인 또는 사용자 위험 정책을 트리거하는 기능이 있을 수도 있는 이벤트를 나타냅니다. 로그인을 시도하는 사용자가 합법적인 ID 소유자가 아닐 보통 또는 높은 가능성이 있으므로 이러한 이벤트 수정은 우선 순위를 갖습니다. 
+중간 및 높은 위험 검색은 Id 보호 로그인 또는 사용자 위험 정책을 트리거하는 기능이 있는 기능을 나타냅니다. 로그인을 시도하는 사용자가 합법적인 ID 소유자가 아닐 보통 또는 높은 가능성이 있으므로 이러한 이벤트 수정은 우선 순위를 갖습니다. 
 
 ```
 GET https://graph.microsoft.com/beta/identityRiskEvents?`$filter=riskLevel eq 'high' or riskLevel eq 'medium'" 
@@ -230,14 +230,14 @@ https://graph.microsoft.com/beta/identityRiskEvents?`$filter=userID eq '<userID>
 ## <a name="next-steps"></a>다음 단계
 
 축하합니다! Microsoft Graph에 대한 호출을 처음으로 만들었습니다.  
-이제 ID 위험 이벤트를 쿼리하고 적절하게 데이터를 사용할 수 있습니다.
+이제 id 위험 검색을 쿼리하고 데이터를 사용할 수 있습니다.
 
 Microsoft Graph 및 Graph API를 사용하여 애플리케이션을 구축하는 방법에 대한 자세한 내용은 [설명서](https://docs.microsoft.com/graph/overview) 및 [Microsoft Graph 사이트](https://developer.microsoft.com/graph)에서 확인합니다. 
 
 관련 정보는 다음을 참조하세요.
 
 - [Azure Active Directory ID 보호](../active-directory-identityprotection.md)
-- [Azure Active Directory ID 보호에서 검색한 위험 이벤트의 유형](../reports-monitoring/concept-risk-events.md)
+- [Azure Active Directory Identity Protection에서 검색 하는 위험 검색 유형](../reports-monitoring/concept-risk-events.md)
 - [Microsoft Graph](https://developer.microsoft.com/graph/)
 - [Microsoft Graph 개요](https://developer.microsoft.com/graph/docs)
 - [Azure AD ID 보호 서비스 루트](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityprotection_root)

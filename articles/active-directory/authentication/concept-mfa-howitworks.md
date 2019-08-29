@@ -1,6 +1,6 @@
 ---
-title: Azure Multi-factor Authentication-작동 방식-Azure Active Directory
-description: Azure Multi-Factor Authentication은 간편한 로그인 프로세스를 원하는 사용자의 요구를 충족시키는 동시에 데이터와 애플리케이션에 대한 액세스 보호를 지원합니다.
+title: Azure Multi-Factor Authentication-작동 방식-Azure Active Directory
+description: 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동안 Azure Multi-Factor Authentication을 사용하면 데이터와 애플리케이션에 대한 액세스를 보호합니다.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,20 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d4f19c16149dbed34c16d021ff7100cace9a06a
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 57b441803a066b794d17b46afec4d930b94ebdea
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879136"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125124"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>작동 방법: Azure Multi-Factor Authentication
 
 2단계 인증의 보안은 계층화된 접근 방식을 기반으로 합니다. 다단계 인증 요소를 손상시키는 일은 공격자에게 매우 어렵습니다. 공격자가 사용자의 암호를 알게 된 경우에도 추가 인증 메서드가 없다면 소용이 없습니다. 이러한 인증에서는 다음 중 두 가지 이상의 인증 메서드를 요구합니다.
 
-* 사용자가 알고 있는 정보(일반적으로 암호)
-* 사용자가 보유한 디바이스(예: 휴대폰과 같이 쉽게 복제되지 않는 신뢰할 수 있는 디바이스)
-* 사용자의 신원 정보(생체 인식)
+* 사용자가 알고 있는 사항(일반적으로 암호)
+* 사용자의 소유물(전화기처럼 쉽게 복제되지 않는 신뢰할 수 있는 장치)
+* 사용자의 신체 관련 항목(생체 공학)
 
 <center>
 
@@ -36,7 +36,7 @@ ms.locfileid: "68879136"
 
 Multi-Factor Authentication은 다음과 같은 제품의 일부로 제공됩니다.
 
-* **Azure Active Directory Premium** 또는 **Microsoft 365 Business** -조건부 액세스 정책을 사용 하 여 다단계 인증을 요구 하는 Azure multi-factor authentication의 전체 기능 사용.
+* **Azure Active Directory Premium** 또는 **Microsoft 365 Business** -조건부 액세스 정책을 사용 하 여 다단계 인증을 요구 하는 Azure Multi-Factor Authentication의 전체 기능 사용.
 
 * **Azure AD Free** 또는 독립 실행형 **Office 365** 라이선스-미리 만든 [조건부 액세스 기준 보호 정책을](../conditional-access/concept-baseline-protection.md) 사용 하 여 사용자 및 관리자에 게 multi-factor authentication을 요구 합니다.
 
@@ -52,8 +52,8 @@ Multi-Factor Authentication은 다음과 같은 제품의 일부로 제공됩니
 * 사용자에게 해당 인증 방법에 대한 액세스 권한이 없거나 인증 방법이 제대로 작동하지 않기 때문에 사용자가 로그인할 수 없는 시나리오를 처리하도록 지원 담당자를 교육합니다.
    * 지원 직원은 Azure MFA 서비스에 대 한 조건부 액세스 정책을 사용 하 여 MFA를 요구 하는 정책에서 제외 된 그룹에 사용자를 추가할 수 있습니다.
 * 2 단계 인증 프롬프트를 최소화 하는 방법으로 조건부 액세스 명명 된 위치를 사용 하는 것이 좋습니다. 이 기능을 사용 하면 관리자는 새 사용자 등록에 사용 되는 네트워크 세그먼트와 같이 신뢰할 수 있는 보안 네트워크 위치에서 로그인 하는 사용자에 대해 2 단계 인증을 우회할 수 있습니다.
-* [Azure AD ID 보호](../active-directory-identityprotection.md)를 배포하고 위험 이벤트에 따라 2단계 인증을 트리거합니다.
+* [Azure AD ID 보호](../active-directory-identityprotection.md) 를 배포 하 고 위험 검색에 따라 2 단계 인증을 트리거합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [단계별 Azure Multi-factor Authentication 배포](howto-mfa-getstarted.md)
+- [단계별 Azure Multi-Factor Authentication 배포](howto-mfa-getstarted.md)

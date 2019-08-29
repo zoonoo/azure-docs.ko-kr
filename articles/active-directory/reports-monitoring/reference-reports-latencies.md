@@ -17,12 +17,12 @@ ms.date: 05/13/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f57f09f146e542768c83fa034f0b4e65bc6b2ae
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: ce62a5059304fe83d933a46ae69f4b8e0c276ba7
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987925"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127029"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory 보고 대기 시간
 
@@ -64,24 +64,24 @@ ms.locfileid: "68987925"
 | 위험에 노출된 사용자          | 5분   | 15분  | 2시간  |
 | 위험한 로그인         | 5분   | 15분  | 2시간  |
 
-## <a name="risk-events"></a>위험 이벤트
+## <a name="risk-detections"></a>위험 검색
 
-Azure AD는 적응형 기계 학습 알고리즘 및 추론을 사용하여 사용자 계정과 관련된 의심스러운 동작을 감지합니다. 감지된 각 의심스러운 동작은 **위험 이벤트**라는 레코드에 저장됩니다.
+Azure AD는 적응형 기계 학습 알고리즘 및 추론을 사용하여 사용자 계정과 관련된 의심스러운 동작을 감지합니다. 검색 된 각 의심 스러운 동작은 **위험 검색**이라고 하는 레코드에 저장 됩니다.
 
-다음 표에는 위험 이벤트에 대한 대기 시간 정보가 나와 있습니다.
+다음 표에서는 위험 검색에 대 한 대기 시간 정보를 나열 합니다.
 
 | 보고서 | 최소 | 평균 | 최대값 |
 | :-- | --- | --- | --- |
-| 익명 IP 주소에서의 로그인 |5분 |15분 |2시간 |
-| 일반적이지 않은 위치에서의 로그인 |5분 |15분 |2시간 |
+| 익명 IP 주소에서 로그인 |5분 |15분 |2시간 |
+| 알 수 없는 위치에서 로그인 |5분 |15분 |2시간 |
 | 자격 증명이 유출된 사용자 |2시간 |4시간 |8시간 |
 | 비정상적 위치 간 이동 불가능 |5분 |1시간 |8시간  |
-| 감염된 디바이스에서의 로그인 |2시간 |4시간 |8시간  |
-| 의심스러운 활동을 포함하는 IP 주소에서의 로그인 |2시간 |4시간 |8시간  |
+| 감염된 디바이스에서 로그인 |2시간 |4시간 |8시간  |
+| 의심스러운 작업이 있는 IP 주소에서 로그인 |2시간 |4시간 |8시간  |
 
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure AD 보고서 개요](overview-reports.md)
 * [Azure AD 보고서에 대한 프로그래밍 방식 액세스](concept-reporting-api.md)
-* [Azure Active Directory 위험 이벤트](concept-risk-events.md)
+* [Azure Active Directory 위험 탐지](concept-risk-events.md)

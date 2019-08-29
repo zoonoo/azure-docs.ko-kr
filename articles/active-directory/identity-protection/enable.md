@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 304ba16985d5abfc4d385b3f1150cfa544c20b2a
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: c8e73bd3639adcc43dd191ff2eacaf7335f08d72
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335513"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126593"
 ---
 # <a name="enabling-azure-active-directory-identity-protection"></a>Azure Active Directory ID 보호 활성화
 
 Azure Active Directory ID 보호는 Azure AD(Azure Active Directory)의 기능입니다. Azure AD ID 보호를 사용하여 다음을 수행할 수 있습니다.
 
-- 기계 학습 알고리즘을 사용하여 검색된 위험 이벤트와 플래그가 지정된 사용자에 대한 통합 보기 확인
+- 기계 학습 알고리즘을 사용 하 여 검색 된 플래그가 지정 된 사용자 및 위험 검색의 통합 보기 가져오기
 - 사용자를 자동으로 보호하도록 위험 기반 조건부 액세스 정책 설정
 - 취약성에 따라 조치를 취함으로써 보안 태세 개선 
 

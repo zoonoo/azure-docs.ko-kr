@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 08/29/2019
 ms.author: raynew
-ms.openlocfilehash: 49bd193303255cdf7d18fd5da9dec8d84c50a829
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 99ef5c8a4a4291dd1b9d047da9006623dacd0b53
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019184"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147873"
 ---
 # <a name="azure-migrate-support-matrix"></a>Azure Migrate 지원 매트릭스
 
@@ -31,10 +31,10 @@ Azure Migrate 서비스에는 다음과 같은 두 가지 버전이 있습니다
 
 이 표에는 지원 되는 마이그레이션 시나리오가 요약 되어 있습니다.
 
-**배포** | **대해*** 
+**배포** | **세부 정보** 
 --- | --- 
 **온-프레미스 평가** | VMware Vm 및 Hyper-v Vm에서 실행 되는 온-프레미스 워크 로드 및 데이터를 평가 합니다. Cloudamize, Corent 기술 및 Turbonomic 서버를 포함 하는 타사 도구 뿐만 아니라 DMA (Azure Migrate Server 평가 및 Microsoft Data Migration Assistant)를 사용 하 여 평가 합니다.
-**Azure로의 온-프레미스 마이그레이션** | 물리적 서버, VMware Vm, Hyper-v Vm 및 AWS/GCP 인스턴스에서 실행 되는 워크 로드 및 데이터를 Azure로 마이그레이션합니다. Azure Migrate Server 평가 및 Azure Database Migration Service (DMS)를 사용 하 고 Carbonite 및 CorentTech를 포함 하는 타사 도구를 사용 하 여 마이그레이션합니다.
+**Azure로의 온-프레미스 마이그레이션** | 물리적 서버, VMware Vm, Hyper-v Vm, 물리적 서버 및 클라우드 기반 VM에서 실행 되는 워크 로드 및 데이터를 Azure로 마이그레이션합니다. Azure Migrate Server 평가 및 Azure Database Migration Service (DMS)를 사용 하 고 Carbonite 및 CorentTech를 포함 하는 타사 도구를 사용 하 여 마이그레이션합니다.
 
 특정 도구 지원은 다음과 같이 요약 됩니다.
 
@@ -53,7 +53,7 @@ CorentTech | 마이그레이션 | [자세히 알아보기](https://www.corenttec
 
 **지원** | **세부 정보**
 --- | ---
-구독 | 구독에는 단일 Azure Migrate 프로젝트를 사용할 수 있습니다.
+구독 | 구독에서 여러 Azure Migrate 프로젝트를 사용할 수 있습니다.
 Azure 권한 | Azure Migrate 프로젝트를 만들려면 구독에 대 한 참가자 또는 소유자 권한이 있어야 합니다.
 VMware VM  | 단일 프로젝트에서 최대 35000 VMware Vm을 평가 합니다.
 Hyper-V VM | 단일 프로젝트에서 최대 1만 Hyper-v Vm을 평가 합니다.

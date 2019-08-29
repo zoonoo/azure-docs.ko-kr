@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c28e30b8e44b6888cdb7416b9c7b563b955a68ce
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 4e3756435703c4e8c887a4e7b9d4f75a6701d840
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335367"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126261"
 ---
 # <a name="how-to-unblock-users"></a>방법: 사용자 차단 해제
 
@@ -52,7 +52,7 @@ Azure Active Directory ID보호를 사용하여 로그인 위험 정책 또는 �
 위험한 계정을 차단 해제하기 위해 다음 옵션이 있습니다.
 
 1. **암호 재설정** - 사용자의 암호를 다시 설정할 수 있습니다. 
-2. **모든 위험 이벤트 해제** - 액세스 차단에 대해 구성된 사용자 위험 수준에 도달한 경우 사용자 위험 정책은 사용자를 차단합니다. 수동으로 보고된 위험 이벤트를 닫아서 사용자의 위험 수준을 줄일 수 있습니다. 
+2. **모든 위험 검색 해제** -액세스 차단에 대 한 구성 된 사용자 위험 수준에 도달한 경우 사용자 위험 정책은 사용자를 차단 합니다. 보고 된 위험 감지를 수동으로 닫아 사용자의 위험 수준을 줄일 수 있습니다. 
 3. **정책에서 제외** - 로그인 정책의 현재 구성이 특정 사용자에 대해 문제를 일으킨다고 생각하는 경우 여기에서 사용자를 제외할 수 있습니다. 자세한 내용은 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)을 참조하세요.
 4. **정책 비활성화** - 정책 구성이 모든 사용자에 대해 문제를 일으킨다고 생각하는 경우 정책을 비활성화할 수 있습니다. 자세한 내용은 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)을 참조하세요.
 

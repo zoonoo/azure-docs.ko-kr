@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: 300fd31632a6b3c9043c19dd9b47f40258080261
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 1165cbeff1144567e43f408c0866c0b8a571882d
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614211"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125585"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services를 사용하여 Enterprise Security Package로 HDInsight 클러스터 구성
 
@@ -22,12 +22,12 @@ ESP(Enterprise Security Package) 클러스터는 Azure HDInsight 클러스터에
 이 문서에서는 Azure AD DS(Azure Active Directory Domain Services)를 사용하여 ESP로 HDInsight 클러스터를 구성하는 방법을 알아봅니다.
 
 > [!NOTE]  
-> ESP는 일반적으로 HDInsight 3.6 및 4.0에서 클러스터 유형에 사용할 수 있습니다. Apache Spark, Interactive, Apache Hadoop 및 HBase입니다. Apache Kafka 클러스터 유형의 ESP는 미리 보기 상태입니다.
+> ESP는 일반적으로 HDInsight 3.6 및 4.0에서 클러스터 유형에 사용할 수 있습니다. Apache Spark, 대화형, Hadoop 및 HBase가 있습니다. Apache Kafka 클러스터 유형의 ESP는 최상의 지원과 함께 미리 보기 상태입니다. ESP GA 날짜 이전에 만든 ESP 클러스터 (2018 년 10 월 1 일)는 지원 되지 않습니다.
 
 ## <a name="enable-azure-ad-ds"></a>Azure AD-DS 사용
 
 > [!NOTE]  
-> 테넌트 관리자만 Azure AD-DS를 사용하도록 설정할 수 있는 권한이 있습니다. 클러스터 저장소가 Azure Data Lake Storage (ADLS) Gen1 또는 Gen2 인 경우 기본 Kerberos 인증을 사용 하 여 클러스터에 액세스 해야 하는 사용자에 대해서만 MFA (Multi-factor Authentication)를 사용 하지 않도록 설정 해야 합니다. 신뢰할 수 있는 [ip](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) 또는 [조건부 액세스](../../active-directory/conditional-access/overview.md) 를 사용 하 여 HDInsight 클러스터 VNET IP 범위에 액세스 하는 경우에만 특정 사용자에 대해 MFA를 사용 하지 않도록 설정할 수 있습니다. 조건부 액세스를 사용 하는 경우의 AD 서비스 끝점이 HDInsight VNET에서 사용 하도록 설정 되었는지 확인 하세요.
+> 테넌트 관리자만 Azure AD-DS를 사용하도록 설정할 수 있는 권한이 있습니다. 클러스터 저장소가 Azure Data Lake Storage (ADLS) Gen1 또는 Gen2 인 경우 기본 Kerberos 인증을 사용 하 여 클러스터에 액세스 해야 하는 사용자에 대해서만 MFA (Multi-Factor Authentication)를 사용 하지 않도록 설정 해야 합니다. 신뢰할 수 있는 [ip](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) 또는 [조건부 액세스](../../active-directory/conditional-access/overview.md) 를 사용 하 여 HDInsight 클러스터 VNET IP 범위에 액세스 하는 경우에만 특정 사용자에 대해 MFA를 사용 하지 않도록 설정할 수 있습니다. 조건부 액세스를 사용 하는 경우의 AD 서비스 끝점이 HDInsight VNET에서 사용 하도록 설정 되었는지 확인 하세요.
 >
 > 클러스터 스토리지가 Azure Blob Storage(WASB)인 경우 MFA를 해제하지 마세요.
 

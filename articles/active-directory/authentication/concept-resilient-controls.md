@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9be48d8f403d3ddde993ebdcf0142b55e52afce
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 675e970bbdaeb035273eb87394dda610e070aa39
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779683"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125120"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Azure Active Directory를 사용하여 복원력 있는 액세스 제어 관리 전략 수립
 
@@ -117,13 +117,13 @@ MFA(다단계 인증) 또는 단일 네트워크 위치와 같은 단일 액세�
 * 하나의 자격 증명 유형 또는 하나의 액세스 제어 메커니즘의 중단으로 인해 앱에 대한 액세스에 영향을 주는 경우 일단의 대체 정책을 구성합니다. 타사 MFA 공급자가 필요한 활성 정책에 대한 백업과 같이 도메인 조인이 제어로 필요한 정책을 사용 안 함 상태로 구성합니다.
 * [암호 지침](https://aka.ms/passwordguidance) 백서의 사례에 따라 MFA를 요구하지 않을 때 악의적인 행위자의 암호 추측에 대한 위험을 줄입니다.
 * [Azure AD SSPR(셀프 서비스 암호 재설정)](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr) 및 [Azure AD 암호 보호](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-deploy)를 배포하여 사용자가 금지하도록 선택한 일반적인 암호와 용어를 사용하지 못하도록 합니다.
-* 특정 인증 수준에 도달하지 못하는 경우 단순히 전체 액세스로 대체하는 대신 앱 내에서 액세스를 제한하는 정책을 사용합니다. 예:
+* 특정 인증 수준에 도달하지 못하는 경우 단순히 전체 액세스로 대체하는 대신 앱 내에서 액세스를 제한하는 정책을 사용합니다. 예를 들어:
   * 제한된 세션 클레임을 Exchange 및 SharePoint로 보내는 백업 정책을 구성합니다.
   * 조직에서 MCAS(Microsoft Cloud App Security)를 사용하는 경우 MCAS를 사용하는 정책으로 대체한 다음, MCAS에서 읽기 전용 액세스만 허용하고 업로드는 허용하지 않는 것이 좋습니다.
 * 중단 시 정책을 쉽게 찾을 수 있도록 해당 정책의 이름을 지정합니다. 정책 이름에 포함되는 요소는 다음과 같습니다.
   * 정책에 대한 *레이블 번호*
-  * 표시할 텍스트 - 이 정책은 응급 상황에만 적용됩니다. 예: **응급 상황에서 사용**
-  * 적용되는 *중단*. 예: **MFA 중단 시**
+  * 표시할 텍스트 - 이 정책은 응급 상황에만 적용됩니다. 예를 들어: **응급 상황에서 사용**
+  * 적용되는 *중단*. 예를 들어: **MFA 중단 시**
   * 정책을 활성화해야 하는 순서를 나타내는 *시퀀스 번호*
   * 적용되는 *앱*
   * 적용할 *제어*
@@ -232,7 +232,7 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 1. 변경 제어 전략의 일환으로 액세스 제어가 완전히 작동하는 즉시 구현한 모든 긴급 상황을 롤백할 수 있도록 모든 변경 내용과 이전 상태를 문서화합니다.
 2. 악의적인 행위자가 MFA를 사용하지 않는 동안 암호 스프레이 또는 피싱 공격을 통해 암호를 수집하려고 한다고 가정합니다. 또한 이전에 이 기간 동안 시도될 수 있는 리소스에 대한 액세스 권한을 부여하지 않은 암호가 악의적인 행위자에게 이미 있을 수도 있습니다. 임원과 같은 중요한 사용자의 경우 MFA를 사용하지 않도록 설정하기 전에 암호를 다시 설정하여 이 위험을 부분적으로 완화할 수 있습니다.
 3. 모든 로그인 활동을 보관하여 MFA가 사용되지 않는 동안 액세스한 사용자를 식별합니다.
-4. 이 기간 동안 [보고된 모든 위험 이벤트를 심사](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins)합니다.
+4. 이 기간 동안 [보고 된 모든 위험 감지를 심사](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) 합니다.
 
 ## <a name="after-a-disruption"></a>중단 후
 
@@ -242,7 +242,7 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 2. 대응 정책을 사용하지 않도록 설정합니다. 
 3. 중단 중에 수행되고 문서화된 다른 변경을 롤백합니다.
 4. 응급 액세스 계정을 사용한 경우 응급 액세스 계정 절차의 일환으로 자격 증명을 다시 생성하고 새 자격 증명의 세부 정보를 물리적으로 보호합니다.
-5. 의심스러운 활동의 중단 후에 [보고된 모든 위험 이벤트를 계속 심사](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins)합니다.
+5. 의심 스러운 활동의 중단 이후에 [보고 된 모든 위험](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) 검색을 계속 심사 합니다.
 6. [PowerShell을 사용](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0)하여 발급된 모든 새로 고침 토큰을 철회하여 일단의 사용자를 대상으로 지정합니다. 모든 새로 고침 토큰을 철회하는 것은 중단 중에 사용되는 권한 있는 계정에 중요합니다. 이를 수행하는 경우 복원된 정책의 제어를 다시 인증하고 충족하도록 강제로 적용합니다.
 
 ## <a name="emergency-options"></a>응급 옵션
@@ -254,7 +254,7 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
    1. 아웃바운드 IP 주소의 인벤토리가 없거나 회사 네트워크 내부 및 외부에서 액세스할 수 있어야 하는 경우 0.0.0.0/1 및 128.0.0.0/1을 지정하여 전체 IPv4 주소 공간을 신뢰할 수 있는 IP로 추가할 수 있습니다.
 
 >[!IMPORTANT]
- > 신뢰할 수 있는 IP 주소를 확장하여 액세스 차단을 해제하면 IP 주소와 관련된 위험 이벤트(예: 불가능한 이동 또는 알 수 없는 위치)가 생성되지 않습니다.
+ > 액세스를 차단 해제 하기 위해 신뢰할 수 있는 IP 주소를 확장 한 경우에는 IP 주소 (예: 불가능 한 이동 또는 익숙하지 않은 위치)와 관련 된 위험 검색이 생성 되지 않습니다.
 
 >[!NOTE]
  > Azure MFA에 대한 [신뢰할 수 있는 IP](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings)는 [Azure AD Premium 라이선스](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-licensing)에서만 구성할 수 있습니다.

@@ -3,21 +3,20 @@ title: Azure Data Factory의 데이터 집합 | Microsoft Docs
 description: Data Factory의 데이터 집합에 대해 알아봅니다. 데이터 세트는 입/출력 데이터를 나타냅니다.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: shlo
-ms.openlocfilehash: bbf7159abf88ce70cc62d202a8375aad302a0552
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: 788fee724f381ab317b97a682aa21d17ec1ffa9d
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019964"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137307"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Azure 데이터 팩터리의 데이터 세트
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -116,7 +115,7 @@ typeProperties | 형식 속성은 형식마다 다릅니다(예: Azure Blob, Azu
 -------- | ----------- | -------- |
 name | 데이터 세트의 이름입니다. [Azure Data Factory - 이름 지정 규칙](naming-rules.md)을 참조하세요. |  예 |
 type | 데이터 세트의 형식입니다. Data Factory에서 지원하는 형식(예: AzureBlob, AzureSqlTable) 중 하나를 지정합니다. <br/><br/>자세한 내용은 [데이터 세트 형식](#dataset-type)을 참조하세요. | 예 |
-스키마 | 데이터 세트의 스키마입니다. 자세한 내용은 [데이터 흐름 호환 데이터 집합](#dataset-type)을 참조 하세요. | 아니요 |
+schema | 데이터 세트의 스키마입니다. 자세한 내용은 [데이터 흐름 호환 데이터 집합](#dataset-type)을 참조 하세요. | 아니요 |
 typeProperties | 형식 속성은 형식마다 다릅니다(예: Azure Blob, Azure SQL 테이블). 지원되는 형식 및 해당 속성에 대한 자세한 내용은 [데이터 세트 형식](#dataset-type)을 참조하세요. | 예 |
 
 
@@ -147,9 +146,7 @@ typeProperties | 형식 속성은 형식마다 다릅니다(예: Azure Blob, Azu
 - linkedServiceName은 다음 JSON 코드 조각으로 정의된 AzureSqlDatabase 형식의 연결된 서비스를 가리킵니다.
 
 ## <a name="dataset-type"></a>데이터 세트 형식
-사용하는 데이터 저장소에 따라 다양한 유형의 데이터 세트가 있습니다. Data Factory에서 지원하는 데이터 저장소 목록은 다음 표를 참조하세요. 해당 데이터 저장소에 대해 연결된 서비스 및 데이터 세트를 만드는 방법을 알아보려면 데이터 저장소를 클릭합니다.
-
-[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/connector-activity-support-matrix.md)]
+사용하는 데이터 저장소에 따라 다양한 유형의 데이터 세트가 있습니다. [커넥터 개요](connector-overview.md) 문서에서 Data Factory 하 여 지원 되는 저장 된 데이터 목록을 찾을 수 있습니다. 해당 데이터 저장소에 대해 연결된 서비스 및 데이터 세트를 만드는 방법을 알아보려면 데이터 저장소를 클릭합니다.
 
 이전 섹션의 예제에서 데이터 세트의 형식은 **AzureSqlTable**로 설정되어 있습니다. 마찬가지로 Azure Blob 데이터 세트의 경우 데이터 세트의 형식이 다음 JSON과 같이 **AzureBlob**으로 설정됩니다.
 

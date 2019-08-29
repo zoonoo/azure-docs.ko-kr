@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 879e2831dc099eabe43f1eefb81b1b7373c665dc
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: a173272600bab71264ed3b85ce5141814c0a6aed
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898723"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147217"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>미리 보기-Azure CLI를 사용 하 여 AKS (Azure Kubernetes Service) 클러스터에 Windows Server 컨테이너 만들기
 
@@ -121,8 +121,11 @@ az group create --name myResourceGroup --location eastus
 ## <a name="create-an-aks-cluster"></a>AKS 클러스터 만들기
 
 Windows Server 컨테이너의 노드 풀을 지 원하는 AKS 클러스터를 실행 하려면 클러스터에서 [Azure CNI][azure-cni-about] (고급) 네트워크 플러그 인을 사용 하는 네트워크 정책을 사용 해야 합니다. 필요한 서브넷 범위 및 네트워크 고려 사항을 계획 하는 데 도움이 되는 자세한 내용은 [Azure CNI 네트워킹 구성][use-advanced-networking]을 참조 하세요. [Az aks create][az-aks-create] 명령을 사용 하 여 *myAKSCluster*라는 aks 클러스터를 만듭니다. 이 명령은 필요한 네트워크 리소스 (존재 하지 않는 경우)를 만듭니다.
-  * 클러스터가 하나의 노드로 구성 되어 있습니다.
+  * 클러스터는 두 개의 노드로 구성 됩니다.
   * *Windows-admin-password* 및 *windows-admin* 매개 변수는 클러스터에 생성 된 모든 windows Server 컨테이너에 대 한 관리자 자격 증명을 설정 합니다.
+
+> [!NOTE]
+> 클러스터가 안정적으로 작동 되도록 하려면 기본 노드 풀에서 2 개 이상의 노드를 실행 해야 합니다.
 
 사용자 고유의 보안 *PASSWORD_WIN* 을 제공 합니다 (이 문서의 명령은 BASH 셸에 입력 됨).
 
@@ -132,7 +135,7 @@ PASSWORD_WIN="P@ssw0rd1234"
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --node-count 1 \
+    --node-count 2 \
     --enable-addons monitoring \
     --kubernetes-version 1.14.6 \
     --generate-ssh-keys \
@@ -184,7 +187,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 kubectl get nodes
 ```
 
-다음 예제 출력은 이전 단계에서 만든 단일 노드를 보여줍니다. 노드 상태가 *준비*인지 확인합니다.
+다음 예제 출력은 클러스터의 모든 노드를 보여 줍니다. 모든 노드의 상태가 *준비*인지 확인 합니다.
 
 ```
 NAME                                STATUS   ROLES   AGE    VERSION

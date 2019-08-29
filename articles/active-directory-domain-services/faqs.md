@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 509bd472fe5f930ac830b8b4016129f8acb67324
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 80bc5ef78a73430dea23bdd644767d9fa9b3c9a8
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612890"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124670"
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: FAQ(질문과 대답)
 이 페이지는 Azure Active Directory Domain Services에 대한 자주 묻는 질문을 응답합니다. 업데이트를 계속 확인합니다.
@@ -61,6 +61,9 @@ Azure AD Domain Services 구성 또는 관리에서 발생하는 일반적인 �
 
 ### <a name="can-guest-users-invited-to-my-directory-use-azure-ad-domain-services"></a>내 디렉터리에 초대된 게스트 사용자가 Azure AD Domain Services를 사용할 수 있나요?
 아니요. [Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) 초대 프로세스를 사용하여 Azure AD 디렉터리에 초대된 게스트 사용자는 Azure AD Domain Services 관리되는 도메인과 동기화됩니다. 그러나 이러한 사용자에 대한 암호는 Azure AD 디렉터리에 저장되지 않습니다. 따라서 Azure AD Domain Services는 이러한 사용자를 위한 NTLM 및 Kerberos 해시를 관리되는 도메인과 동기화할 방법이 없습니다. 결과적으로, 이러한 사용자는 관리되는 도메인에 로그인하거나 관리되는 도메인에 컴퓨터를 가입할 수 없습니다.
+
+### <a name="can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network"></a>기존 Azure AD Domain Services 관리 되는 도메인을 다른 구독, 리소스 그룹, 지역 또는 가상 네트워크로 이동할 수 있나요?
+아니요. 관리 되는 Azure AD Domain Services 도메인을 만든 후에는 인스턴스를 다른 리소스 그룹, 가상 네트워크, 구독 등으로 이동할 수 없습니다. Azure AD DS 인스턴스를 배포할 때 가장 적합 한 구독, 리소스 그룹, 지역 및 가상 네트워크를 선택 합니다.
 
 ## <a name="administration-and-operations"></a>관리 및 운영
 ### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop"></a>원격 데스크톱을 사용하여 관리되는 도메인의 도메인 컨트롤러에 연결할 수 있습니까?

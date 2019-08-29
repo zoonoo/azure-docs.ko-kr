@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a228c0d349fd45f34923a64ef99dcfba50c4c548
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 93532b1b40dc138a234d5433591a2ba79167194e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034983"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135568"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -123,7 +123,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 * **[장치 관리자](#device-administrators)** : 이 역할은 [디바이스 설정](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/)의 추가 로컬 관리자로서 할당을 위해서만 사용할 수 있습니다. 이 역할을 가진 사용자가 Azure Active Directory에 가입된 모든 Windows 10 디바이스에서 로컬 컴퓨터 관리자가 됩니다. Azure Active Directory의 디바이스 개체를 관리하는 기능이 없습니다. 
 
-* **[디렉터리 읽기 권한자](#directory-readers)** : [승인 프레임 워크](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)를 지원 하지 않는 레거시 응용 프로그램에만 할당 해야 하는 역할입니다. 사용자에 게 할당 하지 않습니다.
+* **[디렉터리 읽기 권한자](#directory-readers)** : [승인 프레임 워크](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)를 지원 하지 않는 레거시 응용 프로그램에만 할당 해야 하는 역할입니다. 이 역할의 사용자는 기본 디렉터리 정보를 읽을 수 있습니다. 이 역할은 다음에 사용 해야 합니다. 1) 특정 게스트 사용자에 게 모든 게스트 사용자에 게 권한을 부여 하는 대신 읽기 액세스 권한을 부여 합니다. 2) "Azure AD 포털에 대 한 액세스를 관리자만으로 제한"을 "예"로 설정 하 여 관리자가 아닌 사용자의 특정 집합을 Azure Portal에 부여 합니다. 3) 서비스 사용자에 게 whereDirectory 디렉터리에 대 한 액세스 권한을 부여 합니다. All은 옵션이 아닙니다.
 
 * **[디렉터리 동기화 계정](#directory-synchronization-accounts)** : 사용하지 마십시오. 이 역할은 Azure AD Connect 서비스에 자동으로 할당되고 다른 사용에 적합하거나 지원되지 않습니다.
 
@@ -157,7 +157,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
   * 메시지 센터 읽기 권한자
   * 보고서 읽기 권한자
   
-  <b>중요</b>: 이 역할의 사용자는 Azure Active Directory 내부 및 외부에 있는 중요한 프라이빗 정보 또는 중요한 구성에 대한 액세스 권한이 있을 수 있는 사용자의 암호를 변경할 수 있습니다. 사용자의 암호를 변경한다는 것은 사용자의 ID 및 권한을 가정할 수 있다는 것을 의미합니다. 예를 들어:
+  <b>중요</b>: 이 역할의 사용자는 Azure Active Directory 내부 및 외부에 있는 중요한 프라이빗 정보 또는 중요한 구성에 대한 액세스 권한이 있을 수 있는 사용자의 암호를 변경할 수 있습니다. 사용자의 암호를 변경한다는 것은 사용자의 ID 및 권한을 가정할 수 있다는 것을 의미합니다. 예:
   * 애플리케이션 등록 및 엔터프라이즈 애플리케이션 소유자: 소유한 앱의 자격 증명을 관리할 수 있습니다. 이러한 앱은 Azure AD에서 권한이 부여되었을 수 있으며, 다른 위치에서는 기술 지원 팀 관리자에 권한이 부여되지 않습니다. 이 경로를 통해 기술 지원 팀 관리자는 애플리케이션 소유자의 ID를 가정하고, 애플리케이션의 자격 증명을 업데이트하여 권한 있는 애플리케이션의 ID를 추가로 가정할 수 있습니다.
   * Azure 구독 소유자: Azure에서 중요한 프라이빗 정보 또는 중요한 구성에 액세스할 수 있습니다.
   * 보안 그룹 및 Office 365 그룹 소유자: 그룹 멤버 자격을 관리할 수 있습니다. 해당 그룹은 중요한 프라이빗 정보 또는 Azure AD 및 다른 위치의 중요한 구성에 대한 액세스 권한을 부여할 수 있습니다.
@@ -658,7 +658,7 @@ Dynamics 365 제품의 모든 측면을 관리할 수 있습니다.
 | microsoft.aad.directory/groupSettingTemplates/basic/read | Azure Active Directory에서 groupSettingTemplates의 기본 속성을 읽습니다. |
 
 ### <a name="directory-readers"></a>디렉터리 읽기 권한자
-기본 디렉터리 정보를 읽을 수 있습니다. 애플리케이션에 대한 액세스 권한은 사용자를 위한 것이 아닙니다.
+기본 디렉터리 정보를 읽을 수 있습니다. 이 역할의 사용자는 기본 디렉터리 정보를 읽을 수 있습니다. 이 역할은 다음에 사용 해야 합니다. 1) 특정 게스트 사용자에 게 모든 게스트 사용자에 게 권한을 부여 하는 대신 읽기 액세스 권한을 부여 합니다. 2) "Azure AD 포털에 대 한 액세스를 관리자만으로 제한"을 "예"로 설정 하 여 관리자가 아닌 사용자의 특정 집합을 Azure Portal에 부여 합니다. 3) 서비스 사용자에 게 whereDirectory 디렉터리에 대 한 액세스 권한을 부여 합니다. All은 옵션이 아닙니다.
 
 | **actions** | **설명** |
 | --- | --- |

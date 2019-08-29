@@ -7,12 +7,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: df377b19d78a63b3cfc57347fff00345a9c63ead
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 21b046a54c2fbe309113222f54dbad4405fc409d
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562543"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70136577"
 ---
 # <a name="azure-key-vault-managed-storage-account---powershell"></a>Azure Key Vault 관리 스토리지 계정 - PowerShell
 
@@ -21,6 +21,7 @@ ms.locfileid: "69562543"
 > - 스토리지 계정 자격 증명 대신, 애플리케이션 또는 사용자 ID를 사용하여 클라이언트 애플리케이션을 인증합니다. 
 > - Azure 기반 실행 시 [Azure AD 관리 ID](/azure/active-directory/managed-identities-azure-resources/)를 사용합니다. 관리 ID를 통해 클라이언트 인증은 물론, 애플리케이션에 또는 애플리케이션을 통해 자격 증명을 저장할 필요성이 없어집니다.
 > - 권한 부여 관리에 Key Vault에서도 지원되는 역할 기반 제어(RBAC)를 사용합니다.
+> - 저장소 계정에 대 한 AAD 액세스는 아직 테이블에 액세스할 때 작동 하지 않습니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -142,7 +143,7 @@ Tags                :
 
 ### <a name="enable-key-regeneration"></a>키 다시 생성 사용
 
-Key Vault로 스토리지 계정 키를 주기적으로 다시 생성하려는 경우 다시 생성 기간을 설정할 수 있습니다. 다음 예제에서는 다시 생성 기간을 3일로 설정합니다. 3일 후에 Key Vault는 ‘key1’을 다시 생성하고 활성 키를 ‘key2’에서 ‘key1’으로 교체합니다.
+Key Vault로 스토리지 계정 키를 주기적으로 다시 생성하려는 경우 다시 생성 기간을 설정할 수 있습니다. 다음 예제에서는 다시 생성 기간을 3일로 설정합니다. 3 Key Vault 일 후에는 ' key2 '를 다시 생성 하 고 활성 키를 ' key2 '에서 ' key1 '로 바꿉니다.
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)

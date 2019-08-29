@@ -3,23 +3,20 @@ title: Data Factory에서 Resource Manager 템플릿 사용 | Microsoft 문서
 description: Azure Resource Manager 템플릿을 만들고 사용하여 데이터 팩터리 엔터티를 만드는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor: ''
-ms.assetid: 37724021-f55f-4e85-9206-6d4a48bda3d8
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: ca8b3930b9d9f708d83dc760be3ee89737b074dc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b33762ae18332854d6c25d49553b533c9b99cc44
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60583369"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139458"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>템플릿을 사용하여 Azure Data Factory 엔터티 만들기
 > [!NOTE]
@@ -28,7 +25,7 @@ ms.locfileid: "60583369"
 ## <a name="overview"></a>개요
 데이터 통합 요구에 Azure Data Factory를 사용하면서 다양한 환경에서 동일한 패턴을 재사용하거나 동일한 작업을 동일한 솔루션에서 반복적으로 구현하는 상황이 발생할 수 있습니다. 템플릿을 사용하면 이러한 시나리오에서 간편하게 구현 및 관리할 수 있습니다. Azure Data Factory의 템플릿은 재사용 및 반복이 관계된 시나리오에 적합합니다.
 
-전 세계에 10개 제조 공장이 있는 조직의 상황을 고려해 보겠습니다. 각 공장의 로그는 개별 온-프레미스 SQL Server 데이터베이스에 저장됩니다. 회사에서는 임시 분석을 위해 클라우드에서 단일 데이터 웨어하우스를 구축할 하려고 합니다. 또한 논리는 동일하면서 구성은 다른 개발, 테스트 및 프러덕션 환경이 필요합니다.
+전 세계에 10개 제조 공장이 있는 조직의 상황을 고려해 보겠습니다. 각 공장의 로그는 개별 온-프레미스 SQL Server 데이터베이스에 저장됩니다. 이 회사는 ad hoc 분석을 위해 클라우드에서 단일 데이터 웨어하우스를 구축 하려고 합니다. 또한 논리는 동일하면서 구성은 다른 개발, 테스트 및 프러덕션 환경이 필요합니다.
 
 이 경우 동일한 환경에서 작업을 반복하지만 각 제조 공장에 대해 서로 다른 값을 갖는 10개 데이터 팩터리가 생깁니다. 실제로 **반복**되는 것입니다. 템플릿에서는 이 고유 흐름(즉 각 데이터 팩터리에서 동일한 활동의 파이프라인)의 추상이 가능하지만 각 제조 공장마다 별도의 매개 변수 파일을 사용합니다.
 

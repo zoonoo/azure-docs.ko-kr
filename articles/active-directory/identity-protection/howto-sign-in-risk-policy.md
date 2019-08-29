@@ -11,20 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0645e01c8ad9c620b77abd9af6cf7fe7c26ab4ea
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: d00376c6689b6be773f24e8acd09c3697fb6a799
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335417"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126302"
 ---
 # <a name="how-to-configure-the-sign-in-risk-policy"></a>방법: 로그인 위험 정책 구성
 
-Azure Active Directory는 [위험 이벤트 유형](../reports-monitoring/concept-risk-events.md#risk-event-types)을 실시간 및 오프라인으로 검색합니다. 사용자 로그인 중에 검색된 각 위험 이벤트는 위험한 로그인이라는 논리적 개념을 파생시킵니다. 위험한 로그인은 사용자 계정의 정당한 소유자가 수행하지 않았을 수 있는 로그인 시도에 대한 지표입니다.
+Azure Active Directory은 실시간 및 오프 라인에서 [위험 검색 유형을](../reports-monitoring/concept-risk-events.md#risk-detection-types) 검색 합니다. 사용자의 로그인에 대해 검색 된 각 위험 검색은 위험한 로그인 이라는 논리적 개념에 기여 합니다. 위험한 로그인은 사용자 계정의 정당한 소유자가 수행하지 않았을 수 있는 로그인 시도에 대한 지표입니다.
 
 ## <a name="what-is-the-sign-in-risk-policy"></a>로그인 위험 정책이란?
 
-Azure AD는 사용자의 각 로그인을 분석합니다. 분석 목표는 로그인과 함께 발생하는 의심스러운 작업을 감지하는 것입니다. 예를 들어 익명 IP 주소를 사용하여 로그인되었거나 알 수 없는 위치에서 로그인이 시작되었나요? Azure AD에서 시스템이 감지할 수 있는 의심스러운 작업을 위험 이벤트라고도 합니다. 로그인하는 동안 감지된 위험 이벤트를 기반으로 Azure AD는 값을 계산합니다. 이 값은 합법적인 사용자가 로그인하지 않았을 확률(낮음, 보통, 높음)을 나타냅니다. 이 확률을 **로그인 위험 수준**이라고 합니다.
+Azure AD는 사용자의 각 로그인을 분석합니다. 분석 목표는 로그인과 함께 발생하는 의심스러운 작업을 감지하는 것입니다. 예를 들어 익명 IP 주소를 사용하여 로그인되었거나 알 수 없는 위치에서 로그인이 시작되었나요? Azure AD에서 시스템이 검색할 수 있는 의심 스러운 작업을 위험 감지 라고도 합니다. 로그인 중에 검색 된 위험 검색에 따라 Azure AD는 값을 계산 합니다. 이 값은 합법적인 사용자가 로그인하지 않았을 확률(낮음, 보통, 높음)을 나타냅니다. 이 확률을 **로그인 위험 수준**이라고 합니다.
 
 로그인 위험 정책은 특정 로그인 위험 수준에 대해 구성할 수 있는 자동화된 응답입니다. 사용자의 응답에서 리소스에 대한 액세스를 차단할 수 있으며 액세스하기 위해 MFA(Multi-Factor Authentication) 시도를 통과해야 할 수 있습니다.
    

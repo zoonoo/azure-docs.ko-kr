@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: 7ff4db2e349d0da811ef262e308477bde3b27a3c
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ac9a62a810a957c67d9c24063d01eff822c8294f
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934592"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129291"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 보안 기술 기능
 이 문서에서는 클라우드에서 데이터, 리소스 및 응용 프로그램을 보호 하 고 비즈니스의 보안 요구를 충족 하는 데 도움이 되는 Azure의 보안 서비스에 대해 소개 합니다.
@@ -53,7 +53,7 @@ Azure에서는 사용자 ID 및 자격 증명을 관리하고 액세스를 제�
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-Microsoft id 및 액세스 관리 솔루션을 사용 하면 회사 데이터 센터와 클라우드 간에 응용 프로그램 및 리소스에 대 한 액세스를 보호 하 여 multi-factor authentication 및 조건부 액세스와 같은 추가 수준의 유효성 검사를 수행할 수 있습니다. 방침. 고급 보안 보고, 감사 및 경고를 통해 의심스러운 작업을 모니터링하여 잠재적인 보안 문제를 완화시킵니다. [Azure Active Directory Premium](../../active-directory/active-directory-whatis.md) 는 수천 개의 클라우드 앱에 single sign-on을 제공 하 고 온-프레미스에서 실행 하는 웹 앱에 대 한 액세스를 제공 합니다.
+Microsoft id 및 액세스 관리 솔루션을 사용 하면 회사 데이터 센터와 클라우드 간에 응용 프로그램 및 리소스에 대 한 액세스를 보호 하 여 multi-factor authentication 및 조건부 액세스와 같은 추가 수준의 유효성 검사를 수행할 수 있습니다. 방침. 고급 보안 보고, 감사 및 경고를 통해 의심스러운 작업을 모니터링하여 잠재적인 보안 문제를 완화시킵니다. [Azure Active Directory Premium](../../active-directory/active-directory-whatis.md) 은 수천 개의 클라우드 앱에 Single Sign-On를 제공 하 고 온-프레미스에서 실행 하는 웹 앱에 대 한 액세스를 제공 합니다.
 
 Azure Active Directory (Azure AD)의 보안 이점은 다음과 같은 기능을 포함합니다.
 
@@ -97,7 +97,7 @@ Azure Active Directory (Azure AD)의 보안 이점은 다음과 같은 기능을
 
 #### <a name="multi-factor-authentication"></a>다단계 인증
 
-[AZURE MFA (Multi-factor Authentication)](../../active-directory/authentication/multi-factor-authentication.md) 는 둘 이상의 인증 방법을 사용 해야 하 고 사용자 로그인 및 트랜잭션에 중요 한 두 번째 보안 계층을 추가 하는 인증 방법입니다. [MFA는 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동안 데이터와 애플리케이션에 대한 액세스를 보호](../../active-directory/authentication/concept-mfa-howitworks.md)하는 데 도움이 됩니다. 전화 통화, 문자 메시지 또는 모바일 앱 알림 또는 확인 코드 및 타사 OAuth 토큰과 같은 다양한 확인 옵션을 통해 강력한 인증을 전달합니다.
+[MFA (Azure Multi-Factor Authentication)](../../active-directory/authentication/multi-factor-authentication.md) 는 둘 이상의 인증 방법을 사용 해야 하 고 사용자 로그인 및 트랜잭션에 중요 한 두 번째 보안 계층을 추가 하는 인증 방법입니다. [MFA는 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동안 데이터와 애플리케이션에 대한 액세스를 보호](../../active-directory/authentication/concept-mfa-howitworks.md)하는 데 도움이 됩니다. 전화 통화, 문자 메시지 또는 모바일 앱 알림 또는 확인 코드 및 타사 OAuth 토큰과 같은 다양한 확인 옵션을 통해 강력한 인증을 전달합니다.
 
 #### <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>보안 모니터링, 경고 및 기계 학습 기반 보고서
 
@@ -147,7 +147,7 @@ Azure AD Privileged Identity Management를 통해 다음을 할 수 있습니다
 
 #### <a name="identity-protection"></a>ID 보호
 
-[Azure AD ID 보호](../../active-directory/identity-protection/overview.md)는 조직의 ID에 영향을 주는 위험 이벤트와 잠재적 취약성에 대한 통합된 뷰를 제공하는 보안 서비스입니다. ID 보호는 기존 Azure Active Directory의 비정상 감지 기능(Azure AD의 비정상적인 작업 보고서를 통해 사용 가능)을 활용하고 실시간으로 잘못된 부분을 검색할 수 있는 새로운 위험 이벤트 유형을 소개합니다.
+[Azure AD ID 보호](../../active-directory/identity-protection/overview.md) 은 조직의 id에 영향을 주는 위험 검색 및 잠재적 취약성에 대 한 통합 보기를 제공 하는 보안 서비스입니다. Id 보호는 기존 Azure Active Directory의 비정상 감지 기능 (Azure AD의 비정상적인 작업 보고서를 통해 사용 가능)을 사용 하 고 실시간으로 변칙을 검색할 수 있는 새로운 위험 검색 유형을 도입 합니다.
 
 ## <a name="secure-resource-access"></a>보안 리소스 액세스
 
@@ -194,7 +194,7 @@ RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당
 > [!Note]
 > "애플리케이션 데이터" 또는 "PII' 뿐만 아니라 계정 메타데이터(구독 매핑, 계약 정보, PII)를 포함하여 애플리케이션과 관련된 모든 데이터가 열거됩니다.
 
-데이터를 저장하는 데 어떤 저장소를 사용할지 고려하세요. 예를 들어:
+데이터를 저장하는 데 어떤 저장소를 사용할지 고려하세요. 예:
 
 - 외부 스토리지(예: SQL Azure, 문서 DB, HDInsight, Data Lake 등)
 
@@ -476,7 +476,7 @@ Azure Monitor를 사용 하면 경쟁 솔루션 보다 저렴 한 비용으로 �
 
 - 판매된 품목, 승리한 게임 등의 비즈니스 이벤트를 추적하기 위해 개발자가 직접 클라이언트 또는 서버 코드로 작성하는 **사용자 지정 이벤트 및 메트릭**.
 
-애플리케이션에 대한 인프라는 일반적으로 가상 머신, 스토리지 계정 및 가상 네트워크 또는 웹앱, 데이터베이스, 데이터베이스 서버 및 타사 서비스 등의 많은 구성 요소를 만듭니다. 이러한 구성 요소를 별도 엔터티로 표시하지 않으면, 대신 관련된 단일 엔터티의 상호 종속적으로 부분으로 표시됩니다. 그룹으로 배포, 관리 및 모니터링하려고 합니다. [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)를 사용하면 솔루션에서 리소스를 그룹으로 사용할 수 있습니다.
+애플리케이션에 대한 인프라는 일반적으로 가상 컴퓨터, 스토리지 계정 및 가상 네트워크 또는 웹앱, 데이터베이스, 데이터베이스 서버 및 타사 서비스 등의 많은 구성 요소를 만듭니다. 이러한 구성 요소를 별도 엔터티로 표시하지 않으면, 대신 관련된 단일 엔터티의 상호 종속적으로 부분으로 표시됩니다. 그룹으로 배포, 관리 및 모니터링하려고 합니다. [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)를 사용하면 솔루션에서 리소스를 그룹으로 사용할 수 있습니다.
 
 조정된 단일 작업에서 솔루션에 대한 모든 리소스를 배포, 업데이트 또는 삭제할 수 있습니다. 배포용 템플릿을 사용하고 이 템플릿을 테스트, 스테이징 및 프로덕션과 같은 여러 환경에서 사용할 수 있습니다. 리소스 관리자는 보안, 감사 및 태그 기능을 제공하여 배포 후에 리소스를 관리할 수 있습니다.
 

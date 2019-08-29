@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/14/2019
-ms.openlocfilehash: ff6a071a2d157bf79ab27fcbf4f9753fdbcac118
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: a731d9e0c97cb8431b1294d961ad46ff324f32be
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68354865"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141178"
 ---
 # <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-automl-on-apache-spark-in-azure-hdinsight"></a>Azure HDInsight의 Apache Spark에서 AutoML(자동화된 기계 학습)을 사용하여 Azure Machine Learning 워크로드 실행
 
@@ -34,7 +34,7 @@ Azure Machine Learning는 기계 학습 모델의 빌드, 학습 및 배포를 �
 
 ## <a name="authentication-for-workspace"></a>작업 영역 인증
 
-작업 영역을 만들고 실험을 제출하려면 인증 토큰이 필요합니다. 이 토큰은 [Azure AD 애플리케이션](../../active-directory/develop/app-objects-and-service-principals.md)을 사용하여 생성할 수 있습니다. 계정에서 Multi-Factor Authentication을 사용하도록 설정하지 않은 경우 [Azure AD 사용자](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python)를 사용하여 필수 인증 토큰을 생성할 수도 있습니다.  
+작업 영역을 만들고 실험을 제출하려면 인증 토큰이 필요합니다. 이 토큰은 [Azure AD 애플리케이션](../../active-directory/develop/app-objects-and-service-principals.md)을 사용하여 생성할 수 있습니다. 계정에서 Multi-Factor Authentication을 사용하도록 설정하지 않은 경우 [Azure AD 사용자](/azure/python/python-sdk-azure-authenticate)를 사용하여 필수 인증 토큰을 생성할 수도 있습니다.  
 
 다음 코드 조각은 **Azure AD 애플리케이션**을 사용하여 인증 토큰을 만듭니다.
 

@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 05/07/2019
+ms.date: 08/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: fa2e26666ce863d98b5c47201eeadb1d7f6a5d2c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e7c5786f4510e11d431f9e80dd52d1ffc3adb410
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164507"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129163"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Time Series Insights 환경에서 문제 진단 및 해결
 
@@ -24,19 +24,19 @@ ms.locfileid: "67164507"
 
 ## <a name="video"></a>비디오
 
-### <a name="learn-about-common-time-series-insights-customer-challenges-and-mitigationsbr"></a>일반적인 Time Series Insights 고객 문제 및 완화 방법에 알아봅니다.</br>
+### <a name="learn-about-common-time-series-insights-customer-challenges-and-mitigationsbr"></a>일반적인 Time Series Insights 고객 과제 및 완화에 대해 알아봅니다.</br>
 
 > [!VIDEO https://www.youtube.com/embed/7U0SwxAVSKw]
 
-## <a name="problem-no-data-is-shown"></a>문제: 데이터가 표시 되지 않음
+## <a name="problem-no-data-is-shown"></a>문제: 데이터가 표시 되지 않습니다.
 
 [Azure Time Series Insights 탐색기](https://insights.timeseries.azure.com)에 데이터가 표시되지 않는 문제는 다음과 같은 몇 가지 일반적인 이유로 인해 발생할 수 있습니다.
 
-### <a name="cause-a-event-source-data-isnt-in-json-format"></a>원인 a: 이벤트 원본 데이터가 JSON 형식이 아닐
+### <a name="cause-a-event-source-data-isnt-in-json-format"></a>원인 A: 이벤트 원본 데이터가 JSON 형식이 아닙니다.
 
 Azure Time Series Insights는 JSON 데이터만 지원합니다. JSON 샘플의 경우 [지원되는 JSON 셰이프](./how-to-shape-query-json.md)를 참조하세요.
 
-### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>원인 b: 이벤트 원본 키에 필요한 사용 권한이 없는 합니다.
+### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>원인 B: 이벤트 원본 키에 필요한 사용 권한이 없습니다.
 
 * Azure IoT Hub에 있는 IoT Hub의 경우 **서비스 연결** 사용 권한이 있는 키를 제공해야 합니다. **iothubowner** 또는 **service** 정책에는 **서비스 연결** 권한이 있으므로 둘 다 사용할 수 있습니다.
 
@@ -44,17 +44,17 @@ Azure Time Series Insights는 JSON 데이터만 지원합니다. JSON 샘플의 
 
 * Azure Event Hubs의 이벤트 허브에서는 **수신** 권한이 있는 키를 제공해야 합니다. **read** 또는 **manage** 정책에는 **수신** 권한이 있으므로 둘 다 사용할 수 있습니다.
 
-   [![이벤트 허브 수신 사용 권한](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
+   [![이벤트 허브 수신 권한](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
 
-### <a name="cause-c-the-consumer-group-provided-isnt-exclusive-to-time-series-insights"></a>원인 c: 제공 된 소비자 그룹이 Time Series Insights에 단독적 없습니다.
+### <a name="cause-c-the-consumer-group-provided-isnt-exclusive-to-time-series-insights"></a>원인 C: 제공 된 소비자 그룹이 Time Series Insights 전용이 아닙니다.
 
 IoT Hub 또는 이벤트 허브를 등록할 경우 데이터를 읽는 데 사용할 소비자 그룹을 설정해야 합니다. 이 소비자 그룹은 *공유할 수 없습니다*. 소비자 그룹이 공유되면 기본 IoT Hub 또는 이벤트 허브는 자동으로 한 명의 읽기 권한자와의 연결을 임의로 끊습니다. Time Series Insights에서 읽을 고유한 소비자 그룹을 제공합니다.
 
-## <a name="problem-some-data-is-shown-but-data-is-missing"></a>문제: 일부 데이터가 표시 되며, 이지만 데이터 누락
+## <a name="problem-some-data-is-shown-but-data-is-missing"></a>문제: 일부 데이터가 표시 되지만 데이터가 누락 되었습니다.
 
 데이터가 부분적으로만 표시되고 지연되는 것처럼 보이면 여러 가지 가능성을 고려해야 합니다.
 
-### <a name="cause-a-your-environment-is-being-throttled"></a>원인 a: 사용자 환경이 제한 되 고
+### <a name="cause-a-your-environment-is-being-throttled"></a>원인 A: 사용자 환경을 제한 하 고 있습니다.
 
 데이터가 있는 이벤트 원본을 만든 후에 환경을 프로비전할 경우 일반적으로 제한이 발생합니다. Azure IoT Hub 및 Azure Event Hubs는 최대 7일 동안의 데이터를 저장합니다. Time Series Insights는 항상 이벤트 원본에서 가장 오래된 이벤트부터 시작합니다(선입선출 또는 *FIFO*).
 
@@ -69,13 +69,14 @@ IoT Hub 또는 이벤트 허브를 등록할 경우 데이터를 읽는 데 사�
 
 다음 그림에는 SKU S1 및 용량 3을 사용하는 Time Series Insights 환경이 나와 있습니다. 하루에 3백만 개의 이벤트를 수신할 수 있습니다.
 
-![환경 SKU 현재 용량](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
+[![환경 SKU 현재 용량](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
 
-예를 들어 이 환경이 이벤트 허브에서 메시지를 수집한다고 가정합니다. 다음 그림에서는 수신 속도를 보여 줍니다.
+예를 들어, 환경이 이벤트 허브에서 메시지를 수집 하는 경우를 가정 합니다. 일일 수신 속도는 67,000개 이하 메시지입니다. 이 속도를 1분마다 약 46개 메시지로 변환합니다. 
 
-[![이벤트 허브에 대 한 예제 수신 속도](media/diagnose-and-solve-problems/eventhub-ingress-rate.png)](media/diagnose-and-solve-problems/eventhub-ingress-rate.png#lightbox)
+* 각 이벤트 허브 메시지가 단일 Time Series Insights 이벤트로 결합되는 경우 제한이 나타나지 않습니다. 
+* 각 이벤트 허브 메시지가 100 Time Series Insights 이벤트로 결합되는 경우에는 1분마다 4,600개의 이벤트가 수집되어야 합니다. 
 
-일일 수신 속도는 67,000개 이하 메시지입니다. 이 속도를 1분마다 약 46개 메시지로 변환합니다. 각 이벤트 허브 메시지가 단일 Time Series Insights 이벤트로 결합되는 경우 제한이 나타나지 않습니다. 각 이벤트 허브 메시지가 100 Time Series Insights 이벤트로 결합되는 경우에는 1분마다 4,600개의 이벤트가 수집되어야 합니다. 용량이 3인 S1 SKU 환경은 1분마다 2,100개 이벤트만 수신할 수 있습니다(일별 1백만개 이벤트 = 3 단위에서 분당 700개 이벤트 = 분당 2,100개 이벤트). 이 설정의 경우 제한으로 인해 지연이 나타납니다.
+용량이 3인 S1 SKU 환경은 1분마다 2,100개 이벤트만 수신할 수 있습니다(일별 1백만개 이벤트 = 3 단위에서 분당 700개 이벤트 = 분당 2,100개 이벤트). 
 
 평면화 논리 작동 방식을 깊이 이해하기 위해서는 [지원되는 JSON 셰이프](./how-to-shape-query-json.md)를 참조하세요.
 
@@ -83,9 +84,9 @@ IoT Hub 또는 이벤트 허브를 등록할 경우 데이터를 읽는 데 사�
 
 지연을 해결하려면 사용자 환경의 SKU 용량을 늘립니다. 자세한 내용은 [Time Series Insights 환경 크기 조정](time-series-insights-how-to-scale-your-environment.md)을 참조하세요.
 
-### <a name="cause-b-initial-ingestion-of-historical-data-slows-ingress"></a>원인 b: 기록 데이터의 초기 수집 느려지는 수신
+### <a name="cause-b-initial-ingestion-of-historical-data-slows-ingress"></a>원인 B: 기록 데이터의 초기 수집이 느리게 수신 됩니다.
 
-기존 이벤트 원본에 연결하는 경우 이미 IoT Hub 또는 이벤트 허브에 데이터가 있을 수 있습니다. 환경은 이벤트 원본 메시지 보존 기간의 시작 부분에서 데이터 풀링을 시작합니다. 이 기본 처리를 재정의할 수 없습니다. 제한을 적용할 수 있습니다. 기록 데이터를 수집하면서 지연을 따라잡기 위해 얼마 동안 제한이 적용될 수 있습니다.
+기존 이벤트 원본에 연결하는 경우 이미 IoT Hub 또는 이벤트 허브에 데이터가 있을 수 있습니다. 환경은 이벤트 원본 메시지 보존 기간의 시작 부분에서 데이터 풀링을 시작합니다. 이 기본 처리는 재정의할 수 없습니다. 제한을 적용할 수 있습니다. 기록 데이터를 수집하면서 지연을 따라잡기 위해 얼마 동안 제한이 적용될 수 있습니다.
 
 #### <a name="recommended-resolutions-for-large-initial-ingestion"></a>대용량 초기 수집에 대한 권장 해결 방법
 
@@ -95,7 +96,7 @@ IoT Hub 또는 이벤트 허브를 등록할 경우 데이터를 읽는 데 사�
 
 2. 지연을 따라잡으면 SKU 용량을 다시 정상 수신 속도로 줄입니다.
 
-## <a name="problem-my-event-sources-timestamp-property-name-setting-doesnt-work"></a>문제: 내 이벤트 원본의 타임 스탬프 속성 이름 설정이 작동 하지 않음
+## <a name="problem-my-event-sources-timestamp-property-name-setting-doesnt-work"></a>문제: 내 이벤트 원본의 타임 스탬프 속성 이름 설정이 작동 하지 않습니다.
 
 타임스탬프 속성 이름 및 값이 다음 규칙을 준수하는지 확인합니다.
 

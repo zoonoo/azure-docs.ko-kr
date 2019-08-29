@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57ec69f4bc2e73bfb390a6b23b1da627d77f9b5e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 8cfefe02b8c9325a2d501289b10b09bc153b0593
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874245"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135752"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>인증 및 권한 부여 오류 코드
 
@@ -194,6 +194,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS90019 | MissingTenantRealm - Azure AD가 요청에서 테넌트 식별자를 확인할 수 없습니다. |
 | AADSTS90022 | AuthenticatedInvalidPrincipalNameFormat - 주체 이름 형식이 유효하지 않거나 예상된 `name[/host][@realm]` 형식에 맞지 않습니다. 주체 이름이 필요하고 호스트 및 영역은 선택 사항이며 null로 설정할 수 있습니다. |
 | AADSTS90023 | InvalidRequest - 인증 서비스 요청이 잘못되었습니다. |
+| AADSTS9002313 | InvalidRequest-요청의 형식이 잘못 되었거나 잘못 되었습니다. -특정 끝점에 대 한 요청에 잘못 된 문제가 있기 때문입니다. 이 문제에 대 한 제안 사항은 발생 한 오류에 대 한 fiddler 추적을 가져오고 요청이 실제로 올바른 형식 인지 여부를 확인 하는 것입니다. |
 | AADSTS90024 | RequestBudgetExceededError - 일시적인 오류가 발생했습니다. 다시 시도하세요. |
 | AADSTS90033 | MsodsServiceUnavailable - MSODS(Microsoft Online Directory Service)를 사용할 수 없습니다. |
 | AADSTS90036 | MsodsServiceUnretryableFailure - MSODS가 호스트하는 WCF 서비스에서 다시 시도할 수 없는 예기치 않은 오류가 발생했습니다. 오류에 대한 자세한 내용을 확인하려면 [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md). |

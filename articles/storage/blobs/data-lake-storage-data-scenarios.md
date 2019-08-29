@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 2954f0bfcfe78243c2df12182f45034f46c8391d
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 68e1bcfeaa998b0698554fd93fd7ed2e88a29739
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991887"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70143005"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>빅 데이터 요구 사항을 위한 Azure Data Lake Storage Gen2 사용
 
@@ -39,10 +39,10 @@ Data Lake Storage Gen2 계정은 계층 구조 네임스페이스가 있는 스�
 
 |도구 | 지침 |
 |---|--|
-|Azure Storage Explorer | [Storage 탐색기를 사용 하 여 컨테이너 만들기](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-file-system) |
+|Azure Storage Explorer | [Storage 탐색기를 사용 하 여 컨테이너 만들기](data-lake-storage-explorer.md#create-a-container) |
 |AzCopy | [AzCopyV10을 사용하여 Blob 컨테이너 또는 파일 공유 만들기](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10#transfer-files)|
-|HDInsight를 사용 하는 Hadoop 컨테이너 (HDFS) 명령줄 인터페이스 (CLI) |[HDInsight에서 HDFS를 사용 하 여 컨테이너 만들기](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-hdfs-data-lake-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system) |
-|Azure Databricks Notebook의 코드|[저장소 계정 컨테이너 만들기 (Scala)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-storage-account-file-system) <br><br> [컨테이너 만들기 및 탑재 (Python)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-databricks-spark?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system-and-mount-it)|
+|HDInsight를 사용 하는 Hadoop 컨테이너 (HDFS) 명령줄 인터페이스 (CLI) |[HDInsight에서 HDFS를 사용 하 여 컨테이너 만들기](data-lake-storage-use-hdfs-data-lake-storage.md#create-a-container) |
+|Azure Databricks Notebook의 코드|[저장소 계정 컨테이너 만들기 (Scala)](data-lake-storage-quickstart-create-databricks-account.md#create-storage-account-container) <br><br> [컨테이너 만들기 및 탑재 (Python)](data-lake-storage-use-databricks-spark.md#create-a-container-and-mount-it)|
 
 Storage Explorer 또는 AzCopy를 사용하여 파일 시스템을 만드는 방법이 가장 쉽습니다. HDInsight 및 Databricks를 사용하여 파일 시스템을 만들려면 좀 더 많은 작업이 필요합니다. 하지만 HDInsight 또는 Databricks 클러스터를 사용하여 데이터를 처리할 계획이라면 클러스터를 먼저 만들고, HDFS CLI를 사용하여 파일 시스템을 만들어도 됩니다.  
 

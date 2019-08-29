@@ -3,21 +3,20 @@ title: Azure Data Factory의 식과 함수 | Microsoft Docs
 description: 이 문서에서는 데이터 팩터리 엔터티 만들기에 사용할 수 있는 식과 함수에 대한 정보를 제공합니다.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-ms.openlocfilehash: 533d0c7461530a00e6f640ee53c0c87d336e799d
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: c500c4b2d35a449a9f9c0f693a02c008ea6e3c5e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876324"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141688"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory의 식과 함수
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -27,7 +26,7 @@ ms.locfileid: "69876324"
 이 문서에서는 Azure Data Factory에서 지원하는 식과 함수에 대한 정보를 제공합니다. 
 
 ## <a name="introduction"></a>소개
-정의의 JSON 값은 리터럴일 수도 있고 정의가 런타임에 평가되는 식일 수도 있습니다. 예:  
+정의의 JSON 값은 리터럴일 수도 있고 정의가 런타임에 평가되는 식일 수도 있습니다. 예를 들어:  
   
 ```json
 "name": "value"
@@ -152,14 +151,14 @@ ms.locfileid: "69876324"
 |함수 이름|Description|  
 |-------------------|-----------------|  
 |concat|임의 개수 문자열을 함께 결합합니다. 예를 들어, parameter1이 `foo,`이면 다음 식이 `somevalue-foo-somevalue`: `concat('somevalue-',pipeline().parameters.parameter1,'-somevalue')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1 ... *n*<br /><br /> **이름**: 문자열 *n*<br /><br /> **설명**: 필수 요소. 단일 문자열로 결합할 문자열입니다.|  
-|substring|문자열의 하위 집합을 반환합니다. 예를 들어 다음 식은<br /><br /> `substring('somevalue-foo-somevalue',10,3)`<br /><br /> 다음을 반환합니다.<br /><br /> `foo`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수 요소. 부분 문자열을 가져올 원래 문자열입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Start index<br /><br /> **설명**: 필수 요소. 매개 변수 1에서 하위 문자열이 시작되는 위치의 인덱스입니다. 시작 인덱스는 0부터 시작 합니다. <br /><br /> **매개 변수 번호**: 3<br /><br /> **이름**: 길이<br /><br /> **설명**: 필수 요소. 부분 문자열의 길이입니다.|  
+|substring|문자열의 하위 집합을 반환합니다. 예를 들어 다음 식은<br /><br /> `substring('somevalue-foo-somevalue',10,3)`<br /><br /> 다음을 반환합니다.<br /><br /> `foo`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: 문자열<br /><br /> **설명**: 필수 요소. 부분 문자열을 가져올 원래 문자열입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Start index<br /><br /> **설명**: 필수 요소. 매개 변수 1에서 하위 문자열이 시작되는 위치의 인덱스입니다. 시작 인덱스는 0부터 시작 합니다. <br /><br /> **매개 변수 번호**: 3<br /><br /> **이름**: 길이<br /><br /> **설명**: 필수 요소. 부분 문자열의 길이입니다.|  
 |replace|문자열을 지정된 문자열로 바꿉니다. 예를 들어 다음 식은<br /><br /> `replace('the old string', 'old', 'new')`<br /><br /> 다음을 반환합니다.<br /><br /> `the new string`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: string<br /><br /> **설명**: 필수 요소.  매개 변수 2가 매개 변수 1에 있으면 매개 변수 2에 대해 문자열을 검색하고 매개 변수 3으로 업데이트됩니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Old string<br /><br /> **설명**: 필수 요소. 매개 변수 1에 일치 항목이 있으면 매개 변수 3으로 바꿀 문자열입니다.<br /><br /> **매개 변수 번호**: 3<br /><br /> **이름**: New string<br /><br /> **설명**: 필수 요소. 매개 변수 1에 일치 항목이 있으면 매개 변수 2의 문자열을 바꾸는 데 사용할 문자열입니다.|  
 |GUID| 전역적으로 고유한 문자열(GUID)을 생성합니다. 예를 들어 다음 출력을 생성할 수 있습니다.`c2ecc88d-88c8-4096-912c-d6f2e2b138ce`<br /><br /> `guid()`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: 형식<br /><br /> **설명**: 선택 사항입니다. [이 Guid 값의 형식을 지정하는 방법](https://msdn.microsoft.com/library/97af8hh4%28v=vs.110%29.aspx)을 나타내는 단일 형식 지정자입니다. 형식 매개 변수는 "N", "D", "B", "P" 또는 "X"일 수 있습니다. 형식이 제공되지 않으면 "D"가 사용됩니다.|  
-|toLower|문자열을 소문자로 변환합니다. 예를 들어 다음은 `two by two is four`: `toLower('Two by Two is Four')`을 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수 요소. 소문자로 변환할 문자열입니다. 문자열에 있는 문자에 소문자로 변환할 항목이 없으면 반환된 문자열에서 해당 문자가 변경되지 않고 포함됩니다.|  
-|toUpper|문자열을 대문자로 변환합니다. 예를 들어 다음 식은 `TWO BY TWO IS FOUR`:  `toUpper('Two by Two is Four')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수 요소. 대문자로 변환할 문자열입니다. 문자열에 있는 문자에 대문자로 변환할 항목이 없으면 반환된 문자열에서 해당 문자가 변경되지 않고 포함됩니다.|  
-|indexof|문자열 내에서 대소문자를 구분하지 않고 값의 인덱스를 찾습니다. 인덱스는 0부터 시작 합니다. 예를 들어 다음 식은 `7`: `indexof('hello, world.', 'world')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: 문자열<br /><br /> **설명**: 필수 요소. 문자열은 이 값을 포함할 수 있습니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: 문자열<br /><br /> **설명**: 필수 요소. 인덱스를 검색할 값입니다.|  
+|toLower|문자열을 소문자로 변환합니다. 예를 들어 다음은 `two by two is four`: `toLower('Two by Two is Four')`을 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: 문자열<br /><br /> **설명**: 필수 요소. 소문자로 변환할 문자열입니다. 문자열에 있는 문자에 소문자로 변환할 항목이 없으면 반환된 문자열에서 해당 문자가 변경되지 않고 포함됩니다.|  
+|toUpper|문자열을 대문자로 변환합니다. 예를 들어 다음 식은 `TWO BY TWO IS FOUR`:  `toUpper('Two by Two is Four')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: 문자열<br /><br /> **설명**: 필수 요소. 대문자로 변환할 문자열입니다. 문자열에 있는 문자에 대문자로 변환할 항목이 없으면 반환된 문자열에서 해당 문자가 변경되지 않고 포함됩니다.|  
+|indexof|문자열 내에서 대소문자를 구분하지 않고 값의 인덱스를 찾습니다. 인덱스는 0부터 시작 합니다. 예를 들어 다음 식은 `7`: `indexof('hello, world.', 'world')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수 요소. 문자열은 이 값을 포함할 수 있습니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: String<br /><br /> **설명**: 필수 요소. 인덱스를 검색할 값입니다.|  
 |lastindexof|문자열 내에서 대소문자를 구분하지 않고 값의 마지막 인덱스를 찾습니다. 인덱스는 0부터 시작 합니다. 예를 들어 다음 식은 `3`: `lastindexof('foofoo', 'foo')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수 요소. 문자열은 이 값을 포함할 수 있습니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: String<br /><br /> **설명**: 필수 요소. 인덱스를 검색할 값입니다.|  
-|startswith|문자열이 대소문자를 구분하지 않고 값으로 시작하는지 확인합니다. 예를 들어 다음 식은 `true`: `startswith('hello, world', 'hello')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수 요소. 문자열은 이 값을 포함할 수 있습니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: String<br /><br /> **설명**: 필수 요소. 문자열은 이 값으로 시작할 수 있습니다.|  
+|startswith|문자열이 대소문자를 구분하지 않고 값으로 시작하는지 확인합니다. 예를 들어 다음 식은 `true`: `startswith('hello, world', 'hello')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: 문자열<br /><br /> **설명**: 필수 요소. 문자열은 이 값을 포함할 수 있습니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: String<br /><br /> **설명**: 필수 요소. 문자열은 이 값으로 시작할 수 있습니다.|  
 |endswith|문자열이 대소문자를 구분하지 않고 값으로 끝나는지 확인합니다. 예를 들어 다음 식은 `true`: `endswith('hello, world', 'world')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: 문자열<br /><br /> **설명**: 필수 요소. 문자열은 이 값을 포함할 수 있습니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: String<br /><br /> **설명**: 필수 요소. 문자열은 이 값으로 끝날 수 있습니다.|  
 |분할|구분 기호를 사용하여 문자열을 분할합니다. 예를 들어 다음 식은 `["a", "b", "c"]`: `split('a;b;c',';')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수 요소. 분할된 문자열입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: String<br /><br /> **설명**: 필수 요소. 구분 기호입니다.|  
   
@@ -167,7 +166,7 @@ ms.locfileid: "69876324"
 ## <a name="collection-functions"></a>컬렉션 함수  
  이 함수는 배열, 문자열 및 경우에 따라 사전 등 컬렉션에 대해 작동합니다.  
   
-|함수 이름|Description|  
+|함수 이름|설명|  
 |-------------------|-----------------|  
 |다음 값을 포함하는 경우|사전에 키가 포함되거나, 목록에 값이 포함되거나, 문자열에 하위 문자열이 포함된 경우 true를 반환합니다. 예를 들어 다음 식은 `true:``contains('abacaba','aca')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Within collection<br /><br /> **설명**: 필수 요소. 내부를 검색할 컬렉션입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Find object<br /><br /> **설명**: 필수 요소. **Within collection** 내부에서 찾을 개체입니다.|  
 |length|배열 또는 문자열 내의 요소 수를 반환합니다. 예를 들어 다음 식은 `3`:  `length('abc')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Collection<br /><br /> **설명**: 필수 요소. 길이를 가져올 컬렉션입니다.|  
@@ -209,11 +208,11 @@ ms.locfileid: "69876324"
   
 -   dictionaries  
   
-|함수 이름|설명|  
+|함수 이름|Description|  
 |-------------------|-----------------|  
 |ssNoversion|매개 변수를 정수로 변환합니다. 예를 들어 다음 식은 문자열 `int('100')`이 아닌 숫자로 100을 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: 값<br /><br /> **설명**: 필수 요소. 정수로 변환할 값입니다.|  
 |string|매개 변수를 문자열로 변환합니다. 예를 들어 다음 식은 `'10'`를 반환합니다.  `string(10)`. 개체를 문자열로 변환할 수도 있습니다. 예를 들어 **foo** 매개 변수가 한 속성 `bar : baz`가 있는 개체이면 다음은 `{"bar" : "baz"}` `string(pipeline().parameters.foo)`을 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: 값<br /><br /> **설명**: 필수 요소. 문자열로 변환할 값입니다.|  
-|JSON|매개 변수를 JSON 형식 값으로 변환합니다. String()의 반대입니다. 예를 들어 다음 식은 문자열이 아닌 배열로 `[1,2,3]`를 반환합니다.<br /><br /> `json('[1,2,3]')`<br /><br /> 마찬가지로, 문자열을 개체로 변환할 수 있습니다. 예를 들어 `json('{"bar" : "baz"}')`는 다음을 반환합니다.<br /><br /> `{ "bar" : "baz" }`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수 요소. 기본 형식 값으로 변환할 문자열입니다.<br /><br /> JSON 함수는 XML 입력도 지원합니다. 예를 들어 다음 매개 변수 값은<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> 다음 json으로 변환됩니다.<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
+|JSON|매개 변수를 JSON 형식 값으로 변환합니다. String()의 반대입니다. 예를 들어 다음 식은 문자열이 아닌 배열로 `[1,2,3]`를 반환합니다.<br /><br /> `json('[1,2,3]')`<br /><br /> 마찬가지로, 문자열을 개체로 변환할 수 있습니다. 예를 들어 `json('{"bar" : "baz"}')`는 다음을 반환합니다.<br /><br /> `{ "bar" : "baz" }`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: 문자열<br /><br /> **설명**: 필수 요소. 기본 형식 값으로 변환할 문자열입니다.<br /><br /> JSON 함수는 XML 입력도 지원합니다. 예를 들어 다음 매개 변수 값은<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> 다음 json으로 변환됩니다.<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
 |FLOAT|매개 변수 인수를 부동 소수점 숫자로 변환합니다. 예를 들어 다음 식은 `10.333`:  `float('10.333')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: 값<br /><br /> **설명**: 필수 요소. 부동 소수점 숫자로 변환할 값입니다.|  
 |bool|매개 변수를 부울로 변환합니다. 예를 들어 다음 식은 `false`:  `bool(0)`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: 값<br /><br /> **설명**: 필수 요소. 부울로 변환할 값입니다.|  
 |coalesce|전달된 인수에서 첫 번째 null이 아닌 개체를 반환합니다. 참고: 빈 문자열은 null이 아닙니다. 예를 들어 매개 변수 1 및 2가 정의되지 않은 경우 이 함수는 `fallback`:  `coalesce(pipeline().parameters.parameter1', pipeline().parameters.parameter2 ,'fallback')`을 반환합니다.<br /><br /> **매개 변수 번호**: 1 ... *n*<br /><br /> **이름**: Object*n*<br /><br /> **설명**: 필수 요소. `null`에 대해 검사할 개체입니다.|  
@@ -221,16 +220,16 @@ ms.locfileid: "69876324"
 |base64ToBinary|base64 인코딩 문자열의 이진 표현을 반환합니다. 예를 들어 다음 식 `base64ToBinary('c29tZSBzdHJpbmc=')`은 일부 문자열의 이진 표현을 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수 요소. Base64 인코딩된 문자열입니다.|  
 |base64ToString|based64 인코딩 문자열의 문자열 표현을 반환합니다. 예를 들어 다음 식은 일부 문자열 `base64ToString('c29tZSBzdHJpbmc=')` 를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수 요소. Base64 인코딩된 문자열입니다.|  
 |이항|값의 이진 표현을 반환합니다.  예를 들어 다음 식은 일부 문자열의 이진 표현 `binary(‘some string’).`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: 값<br /><br /> **설명**: 필수 요소. 이진으로 변환할 값입니다.|  
-|dataUriToBinary|데이터 URI의 이진 표현을 반환합니다. 예를 들어 다음 식은 일부 문자열의 이진 표현 `dataUriToBinary('data:;base64,c29tZSBzdHJpbmc=')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수 요소. 이진 표현으로 변환할 데이터 URI입니다.|  
-|dataUriToString|데이터 URI의 문자열 표현을 반환합니다. 예를 들어 다음 식은 일부 문자열 `dataUriToString('data:;base64,c29tZSBzdHJpbmc=')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: 문자열<br /><br />**설명**: 필수 요소. 문자열 표현으로 변환할 데이터 URI입니다.|  
+|dataUriToBinary|데이터 URI의 이진 표현을 반환합니다. 예를 들어 다음 식은 일부 문자열의 이진 표현 `dataUriToBinary('data:;base64,c29tZSBzdHJpbmc=')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: 문자열<br /><br /> **설명**: 필수 요소. 이진 표현으로 변환할 데이터 URI입니다.|  
+|dataUriToString|데이터 URI의 문자열 표현을 반환합니다. 예를 들어 다음 식은 일부 문자열 `dataUriToString('data:;base64,c29tZSBzdHJpbmc=')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br />**설명**: 필수 요소. 문자열 표현으로 변환할 데이터 URI입니다.|  
 |dataUri|값의 데이터 URI를 반환합니다. 예를 들어 다음 `text/plain;charset=utf8;base64,c29tZSBzdHJpbmc=: dataUri('some string')` 식은 데이터를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br />**이름**: 값<br /><br />**설명**: 필수 요소. 데이터 URI로 변환할 값입니다.|  
 |decodeBase64|입력 based64 문자열의 문자열 표현을 반환합니다. 예를 들어 다음 식은 `some string`:  `decodeBase64('c29tZSBzdHJpbmc=')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 입력 based64 문자열의 문자열 표현을 반환합니다.|  
-|encodeUriComponent|전달된 문자열을 URL-이스케이프합니다. 예를 들어 다음 식은 `You+Are%3ACool%2FAwesome`:  `encodeUriComponent('You Are:Cool/Awesome')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수 요소. URL 안전하지 않은 문자 양식을 이스케이프할 문자열입니다.|  
+|encodeUriComponent|전달된 문자열을 URL-이스케이프합니다. 예를 들어 다음 식은 `You+Are%3ACool%2FAwesome`:  `encodeUriComponent('You Are:Cool/Awesome')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: 문자열<br /><br /> **설명**: 필수 요소. URL 안전하지 않은 문자 양식을 이스케이프할 문자열입니다.|  
 |decodeUriComponent|전달된 문자열을 URL-이스케이프하지 않습니다. 예를 들어 다음 식은 `You Are:Cool/Awesome`:  `encodeUriComponent('You+Are%3ACool%2FAwesome')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수 요소. URL 안전하지 않은 문자를 디코딩할 문자열입니다.|  
-|decodeDataUri|입력 데이터 URI 문자열의 이진 표현을 반환합니다. 예를 들어 다음 식은 `some string`:  `decodeDataUri('data:;base64,c29tZSBzdHJpbmc=')`의 이진 표현을 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: 문자열<br /><br /> **설명**: 필수 요소. 이진 표현으로 디코딩할 데이터 URI입니다.|  
+|decodeDataUri|입력 데이터 URI 문자열의 이진 표현을 반환합니다. 예를 들어 다음 식은 `some string`:  `decodeDataUri('data:;base64,c29tZSBzdHJpbmc=')`의 이진 표현을 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수 요소. 이진 표현으로 디코딩할 데이터 URI입니다.|  
 |uriComponent|값의 URI 인코딩 표현을 반환합니다. 예를 들어 다음 식은 `You+Are%3ACool%2FAwesome: uriComponent('You Are:Cool/Awesome ')`를 반환합니다.<br /><br /> 매개 변수 세부 정보: 번호: 1, 이름: String, 설명: 필수 요소. URI 인코딩할 문자열입니다.|  
-|uriComponentToBinary|URI 인코딩 문자열의 이진 표현을 반환합니다. 예를 들어 다음 식은 `You Are:Cool/Awesome`: `uriComponentToBinary('You+Are%3ACool%2FAwesome')`의 이진 표현을 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: 문자열<br /><br />**설명**: 필수 요소. URI 인코딩된 문자열입니다.|  
-|uriComponentToString|URI 인코딩 문자열의 문자열 표현을 반환합니다. 예를 들어 다음 식은 `You Are:Cool/Awesome`: `uriComponentToString('You+Are%3ACool%2FAwesome')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br />**이름**: String<br /><br />**설명**: 필수 요소. URI 인코딩된 문자열입니다.|  
+|uriComponentToBinary|URI 인코딩 문자열의 이진 표현을 반환합니다. 예를 들어 다음 식은 `You Are:Cool/Awesome`: `uriComponentToBinary('You+Are%3ACool%2FAwesome')`의 이진 표현을 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br />**설명**: 필수 요소. URI 인코딩된 문자열입니다.|  
+|uriComponentToString|URI 인코딩 문자열의 문자열 표현을 반환합니다. 예를 들어 다음 식은 `You Are:Cool/Awesome`: `uriComponentToString('You+Are%3ACool%2FAwesome')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br />**이름**: 문자열<br /><br />**설명**: 필수 요소. URI 인코딩된 문자열입니다.|  
 |xml|값의 XML 표현을 반환합니다. 예를 들어 다음 식은 `'\<name>Alan\</name>'`: `xml('\<name>Alan\</name>')`으로 표현되는 xml 콘텐츠를 반환합니다. xml 함수는 JSON 개체 입력도 지원합니다. 예를 들어 `{ "abc": "xyz" }` 매개 변수는 XML 콘텐츠 `\<abc>xyz\</abc>`로 변환됩니다.<br /><br /> **매개 변수 번호**: 1<br /><br />**이름**: 값<br /><br />**설명**: 필수 요소. XML로 변환할 값입니다.|  
 |XPath|xpath 식을 평가할 값의 xpath 식과 일치하는 XML 노드 배열을 반환합니다.<br /><br />  **예제 1**<br /><br /> 매개 변수 ‘p1’ 값이 다음 XML의 문자열 표현이라고 가정합니다.<br /><br /> `<?xml version="1.0"?> <lab>   <robot>     <parts>5</parts>     <name>R1</name>   </robot>   <robot>     <parts>8</parts>     <name>R2</name>   </robot> </lab>`<br /><br /> 1. 다음 코드는 `xpath(xml(pipeline().parameters.p1), '/lab/robot/name')`<br /><br /> 다음을 반환합니다.<br /><br /> `[ <name>R1</name>, <name>R2</name> ]`<br /><br /> 반면<br /><br /> 2. 다음 코드는 `xpath(xml(pipeline().parameters.p1, ' sum(/lab/robot/parts)')`<br /><br /> 다음을 반환합니다.<br /><br /> `13`<br /><br /> <br /><br /> **예제 2**<br /><br /> 다음 XML 콘텐츠를 가정한다면:<br /><br /> `<?xml version="1.0"?> <File xmlns="http://foo.com">   <Location>bar</Location> </File>`<br /><br /> 1.  다음 코드는 `@xpath(xml(body('Http')), '/*[name()=\"File\"]/*[name()=\"Location\"]')`<br /><br /> 로 구분하거나 여러<br /><br /> 2. 다음 코드는 `@xpath(xml(body('Http')), '/*[local-name()=\"File\" and namespace-uri()=\"http://foo.com\"]/*[local-name()=\"Location\" and namespace-uri()=\"\"]')`<br /><br /> returns<br /><br /> `<Location xmlns="http://foo.com">bar</Location>`<br /><br /> 및<br /><br /> 3. 다음 코드는 `@xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')`<br /><br /> returns<br /><br /> ``bar``<br /><br /> **매개 변수 번호**: 1<br /><br />**이름**: Xml<br /><br />**설명**: 필수 요소. XPath 식을 평가할 XML입니다.<br /><br /> **매개 변수 번호**: 2<br /><br />**이름**: XPath<br /><br />**설명**: 필수 요소. 평가할 XPath 식입니다.|  
 |배열|매개 변수를 배열로 변환합니다.  예를 들어 다음 식은 `["abc"]`: `array('abc')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: 값<br /><br /> **설명**: 필수 요소. 배열로 변환할 값입니다.|
@@ -239,7 +238,7 @@ ms.locfileid: "69876324"
 ## <a name="math-functions"></a>수식 함수  
  이 함수는 **integers** 및 **floats**의 숫자 형식에 사용할 수 있습니다.  
   
-|함수 이름|Description|  
+|함수 이름|설명|  
 |-------------------|-----------------|  
 |추가|두 숫자를 합한 결과를 반환합니다. 예를 들어 이 함수는 `20.333`:  `add(10,10.333)`을 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Summand 1<br /><br /> **설명**: 필수 요소. **Summand 2**에 더할 숫자입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Summand 2<br /><br /> **설명**: 필수 요소. **Summand 1**에 더할 숫자입니다.|  
 |sub|두 숫자를 차감한 결과를 반환합니다. 예를 들어 이 함수는 `-0.333`을 반환합니다.<br /><br /> `sub(10,10.333)`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Minuend<br /><br /> **설명**: 필수 요소. **Subtrahend**를 뺄 숫자입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Subtrahend<br /><br /> **설명**: 필수 요소. **Minuend**에서 뺄 숫자입니다.|  
@@ -253,7 +252,7 @@ ms.locfileid: "69876324"
   
 ## <a name="date-functions"></a>날짜 함수  
   
-|함수 이름|설명|  
+|함수 이름|Description|  
 |-------------------|-----------------|  
 |utcnow|현재 타임스탬프를 문자열로 반환합니다. 예 `2015-03-15T13:27:36Z`:<br /><br /> `utcnow()`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: 형식<br /><br /> **설명**: 선택 사항입니다. 이 타임스탬프 값의 형식을 지정하는 방법을 나타내는 [단일 형식 지정자 문자](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) 또는 [사용자 지정 형식 패턴](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)입니다. 형식이 제공되지 않으면 ISO 8601 형식("o")이 사용됩니다.|  
 |addseconds|전달된 문자열 타임스탬프에 시간(초)에 대한 정수를 더합니다. 시간(초) 수는 양수 또는 음수일 수 있습니다. 기본적으로 결과는 형식 지정자를 제공하지 않은 경우 ISO 8601 형식("o")의 문자열입니다. 예 `2015-03-15T13:27:00Z`:<br /><br /> `addseconds('2015-03-15T13:27:36Z', -36)`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: timestamp<br /><br /> **설명**: 필수 요소. 시간을 포함하는 문자열입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: 초<br /><br /> **설명**: 필수 요소. 추가 시간 (초) 수입니다. 시간(초)을 빼기 위한 음수일 수 있습니다.<br /><br /> **매개 변수 번호**: 3<br /><br /> **이름**: 형식<br /><br /> **설명**: 선택 사항입니다. 이 타임스탬프 값의 형식을 지정하는 방법을 나타내는 [단일 형식 지정자 문자](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) 또는 [사용자 지정 형식 패턴](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)입니다. 형식이 제공되지 않으면 ISO 8601 형식("o")이 사용됩니다.|  

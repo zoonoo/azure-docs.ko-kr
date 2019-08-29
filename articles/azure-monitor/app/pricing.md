@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 08/22/2019
+ms.date: 08/29/2019
 ms.author: dalek
-ms.openlocfilehash: 45a8f8a7ee4d887503aeaf8e0e285c45a21c4bcc
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: f2ea87f237fa5cca8a4b1f6773d2b47729cfb5b0
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982599"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147544"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Application Insights의 사용량 및 비용 관리
 
@@ -147,6 +147,9 @@ systemEvents
 보존된 각 레코드에서 `itemCount`은 나타내는 원래 레코드 수를 나타냅니다. 1 + 이전에 삭제된 레코드의 수와 같습니다. 
 
 ## <a name="change-the-data-retention-period"></a>데이터 보존 기간 변경
+
+> [!NOTE]
+> 가능한 문제를 해결 하는 동안이 기능을 일시적으로 제거 했습니다.  2019 년 9 월 일에 다시 사용할 예정입니다.
 
 Application Insights 리소스에 대 한 기본 보존 기간은 90 일입니다. 각 Application Insights 리소스에 대해 서로 다른 보존 기간을 선택할 수 있습니다. 사용 가능한 보존 기간의 전체 집합은 30, 60, 90, 120, 180, 270, 365, 550 또는 730 일입니다. 
 

@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1244dd460196e5882caab0d4b526850da48d084
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 03c09a751119c1d6effa5795f2dbf7da422b7806
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60383392"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135792"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Azure AD Connect 동기화: 실수로 인한 삭제 방지
 이 항목에서는 Azure AD Connect의 실수로 인한 삭제 방지 기능을 설명합니다.
@@ -57,6 +57,8 @@ Azure AD로 내보내도록 스테이징된 삭제 수가 너무 많을 경우 �
 5. **범위** 아래의 팝업에서 **다음 이후 연결이 끊어짐**을 선택하고 과거 시간을 선택합니다. **검색**을 클릭합니다. 이 페이지는 삭제되는 모든 개체의 보기를 제공합니다. 각 항목을 클릭하면 개체에 대한 추가 정보를 얻을 수 있습니다. **열 설정**을 클릭하여 그리드에 표시되는 특성을 더 추가할 수도 있습니다.
 
 ![커넥터 공간 검색](./media/how-to-connect-sync-feature-prevent-accidental-deletes/searchcs.png)
+
+[!NOTE] 모든 삭제가 필요 하지 않은 경우 더 안전한 경로를 다운 하려고 합니다. PowerShell cmdlet `Enable-ADSyncExportDeletionThreshold` 을 사용 하 여 원하지 않는 삭제를 허용할 수 있는 임계값을 사용 하지 않고 새 임계값을 설정할 수 있습니다. 
 
 모든 삭제를 진행하려면 다음을 수행합니다.
 

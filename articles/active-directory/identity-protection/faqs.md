@@ -11,20 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc02b8b5dccbec106e90430fc1714253df6ad847
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: e30f8264870272fc12dcb7e15b37e5fd30688bcb
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334007"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126519"
 ---
 # <a name="azure-active-directory-identity-protection-faq"></a>Azure Active Directory ID 보호 FAQ
 
 이 문서에는 Azure AD(Azure Active Directory) Identity Protection에 대한 질문과 대답이 포함되어 있습니다. 자세한 내용은 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)을 참조하세요. 
 
-## <a name="why-do-some-risk-events-have-closed-system-status"></a>일부 위험 이벤트에 "닫힘(시스템)" 상태가 있는 이유는 무엇인가요?
+## <a name="why-do-some-risk-detections-have-closed-system-status"></a>일부 위험 검색에 "닫힘 (시스템)" 상태가 있는 이유는 무엇 인가요?
 
-**A:** 이러한 위험 이벤트는 Identity Protection에서 검색되었지만 위험한 것으로 더 이상 간주되지 않으므로 나중에 닫힙니다. 사용자의 위험 수준으로 계산되지 않습니다. 
+**A:** 이러한 위험 검색은 Id 보호 및 나중에 닫힌 이벤트는 더 이상 위험한 것으로 간주 되지 않으므로 검색 되었습니다. 사용자의 위험 수준으로 계산되지 않습니다. 
 
 ---
 

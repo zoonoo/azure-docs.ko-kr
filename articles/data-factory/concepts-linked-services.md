@@ -3,21 +3,20 @@ title: Azure Data Factory |의 연결 된 서비스 Microsoft Docs
 description: Data Factory의 연결 된 서비스에 대해 알아봅니다. 연결된 서비스는 계산/데이터 저장소를 데이터 팩터리에 연결합니다.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: shlo
-ms.openlocfilehash: 904e063ae64a971de7f34fbfac63b7679f3bc363
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: 80e9cee0d973dc8575e9645c537b6b69fbeef700
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019948"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137113"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Azure Data Factory의 연결 된 서비스
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -92,14 +91,11 @@ connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runt
 ```
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
+
 다음 도구 또는 Sdk 중 하나를 사용 하 여 연결 된 서비스를 만들 수 있습니다. [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager 템플릿 및 Azure Portal
 
 ## <a name="data-store-linked-services"></a>데이터 저장소 연결 된 서비스
-데이터 저장소에 연결 하는 것은 [지원 되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)에서 찾을 수 있습니다. 다른 저장소에 필요한 특정 연결 속성에 대 한 목록을 참조 합니다.
-
-## <a name="data-store-supported-activities"></a>데이터 저장소에서 지원 되는 작업
-
-[!INCLUDE [Connector-activity support matrix](../../includes/connector-activity-support-matrix.md)]
+[커넥터 개요](copy-activity-overview.md#supported-data-stores-and-formats) 문서에서 Data Factory 하 여 지원 되는 저장 된 데이터 목록을 찾을 수 있습니다. 데이터 저장소를 클릭 하 여 지원 되는 연결 속성을 알아봅니다.
 
 ## <a name="compute-linked-services"></a>컴퓨팅 연결 서비스
 데이터 팩터리에서 다른 구성에 연결할 수 있는 다양 한 계산 환경에 대 한 세부 정보를 위해 [지원 되는 참조 계산 환경](compute-linked-services.md) 입니다.

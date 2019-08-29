@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: 2a14140a395e8ccd2bf0092d5922d639914b01a7
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 8640a283cf81ddafdb8402d9bdfc46f88b35fa45
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900418"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135282"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>기능 비교: Azure SQL Database 및 SQL Server
 
@@ -160,6 +160,16 @@ Azure SQL database는 데이터를 관리 하는 데 도움이 될 수 있는 �
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | 예 | 예 |
 | [SQL Server 프로파일러](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | 아니요 - [확장 이벤트](sql-database-xevent-db-diff-from-svr.md) 참조 | 예 |
 | [System Center Operations Manager-SCOM](https://docs.microsoft.com/system-center/scom/welcome) | [예](https://www.microsoft.com/download/details.aspx?id=38829) | 아니요 |
+
+## <a name="migration-methods"></a>마이그레이션 방법
+
+서로 다른 마이그레이션 방법을 사용 하 여 SQL Server, Single Database 및 Managed Instance 데이터베이스 간에 데이터를 이동할 수 있습니다. 일부 메서드는 **온라인** 상태 이며 마이그레이션을 실행 하는 동안 원본에 적용 된 모든 변경 내용을 선택 하지만, **오프 라인** 방법에서는 마이그레이션이 진행 되는 동안 원본에서 데이터를 수정 하는 작업을 중지 해야 합니다.
+
+| **원본** | **단일 데이터베이스 및 탄력적 풀** | **Managed Instance** |
+| --- | --- | --- |
+| SQL Server (온-프레미스, Add-azurevm, Amazon RDS) | **온라인:** [DMS (데이터 마이그레이션 서비스](https://docs.microsoft.com/sql/dma/dma-overview)), [트랜잭션 복제](sql-database-managed-instance-transactional-replication.md) <br/> **라인인** [BACPAC 파일 (가져오기)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP | **온라인:** [DMS (데이터 마이그레이션 서비스](https://docs.microsoft.com/sql/dma/dma-overview)), [트랜잭션 복제](sql-database-managed-instance-transactional-replication.md) <br/> **라인인** 네이티브 백업/복원, [BACPAC 파일 (가져오기)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP, [스냅숏 복제](sql-database-managed-instance-transactional-replication.md) |
+| 단일 데이터베이스 | **라인인** [BACPAC 파일 (가져오기)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP | **라인인** [BACPAC 파일 (가져오기)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP |
+| 관리되는 인스턴스 | **온라인:** [트랜잭션 복제자](sql-database-managed-instance-transactional-replication.md) <br/> **라인인** [BACPAC 파일 (가져오기)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP, [스냅숏 복제](sql-database-managed-instance-transactional-replication.md) | **온라인:** [트랜잭션 복제자](sql-database-managed-instance-transactional-replication.md) <br/> **라인인** 인스턴스 간 지정 시간 복원 ([Azure PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase?#examples) 또는 [Azure CLI](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Cross-instance-point-in-time-restore-in-Azure-SQL-Database/ba-p/386208)), [네이티브 백업/복원](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore), [BACPAC 파일 (가져오기)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP, [스냅숏 복제](sql-database-managed-instance-transactional-replication.md) |
 
 ## <a name="next-steps"></a>다음 단계
 

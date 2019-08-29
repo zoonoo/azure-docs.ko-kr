@@ -7,22 +7,22 @@ author: luiscabrer
 ms.service: search
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 08/28/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: 8cf72ba2fff65cf3382344fd2851c9c6027676c2
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 2bdb65355f835eec232efd4f0493ecefbecfdd26
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69635900"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128185"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>이미지 분석 인식 기술
 
 **이미지 분석** 기술은 이미지 콘텐츠를 기준으로 다양한 시각적 기능 집합을 추출합니다. 예를 들어, 이미지에서 캡션을 생성하거나, 태그를 생성하거나, 유명인과 랜드마크를 식별할 수 있습니다. 이 기술은 Cognitive Services의 [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)에서 제공하는 기계 학습 모델을 사용합니다. 
 
 > [!NOTE]
-> 처리 빈도를 늘리거나 문서를 추가하거나 AI 알고리즘을 추가하여 범위를 확장할 때 [청구 가능한 Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다. Cognitive Services에서 API를 호출할 때와 Azure Search에서 문서 해독 단계의 일부로 이미지를 추출할 때는 요금이 누적됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
+> 작은 볼륨 (20 개 트랜잭션 미만)은 Azure Search에서 무료로 실행할 수 있지만, 더 큰 워크 로드 [는 청구 가능한 Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다. Cognitive Services에서 API를 호출할 때와 Azure Search에서 문서 해독 단계의 일부로 이미지를 추출할 때는 요금이 누적됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
 >
 > 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격 책정 정보는 [Azure Search 가격 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)에 설명되어 있습니다.
 
@@ -37,9 +37,8 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 | 매개 변수 이름     | Description |
 |--------------------|-------------|
 | defaultLanguageCode   |  반환할 언어를 나타내는 문자열입니다. 서비스는 지정된 언어로 인식 결과를 반환합니다. 이 매개 변수를 지정하지 않을 경우 기본값은 “en”입니다. <br/><br/>지원되는 언어는 다음과 같습니다. <br/>*en* - 영어(기본값) <br/> *zh* - 중국어 간체|
-|visualFeatures |   반환할 시각적 기능 유형을 나타내는 문자열 배열입니다. 유효한 시각적 기능 유형은 다음과 같습니다.  <ul><li> ‘범주’ - Cognitive Services [설명서](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy)에 정의된 분류에 따라 이미지 콘텐츠를 분류합니다.</li><li> ‘태그’ - 이미지 콘텐츠와 관련된 단어의 자세한 목록으로 이미지에 태그를 지정합니다.</li><li>*설명* -전체 영어 문장이 포함 된 이미지 내용에 대해 설명 합니다.</li><li>*얼굴* -얼굴이 있는지 검색 합니다. 얼굴이 있으면 좌표, 성별 및 나이를 생성합니다.</li><li> *Imagetype* -이미지가 클립 아트 인지 또는 선 그리기 인지 검색 합니다.</li><li>  *color* -악센트 색, 주요 색 및 이미지가 검은색 & 흰색 인지 여부를 결정 합니다.</li><li>*성인* -이미지가 음란 (노출 또는 성 act를 나타냅니다) 여부를 검색 합니다. 성적으로 노골적인 콘텐츠도 검색됩니다.</li></ul> 시각적 기능의 이름은 대/소문자를 구분합니다.|
-| 자세히   | 반환할 도메인 특정 세부 정보를 나타내는 문자열 배열입니다. 유효한 시각적 기능 유형은 다음과 같습니다. <ul><li>*유명인* -이미지에서 검색 된 경우 유명인를 식별 합니다.</li><li>*랜드마크* -이미지에서 검색 된 경우 랜드마크를 식별 합니다.</li></ul>
- |
+|visualFeatures |   반환할 시각적 기능 유형을 나타내는 문자열 배열입니다. 유효한 시각적 기능 유형은 다음과 같습니다.  <ul><li> *categories* -Cognitive Services [Computer Vision 설명서](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy)에 정의 된 분류에 따라 이미지 콘텐츠를 분류 합니다. </li><li> ‘태그’ - 이미지 콘텐츠와 관련된 단어의 자세한 목록으로 이미지에 태그를 지정합니다.</li><li>*설명* -전체 영어 문장이 포함 된 이미지 내용에 대해 설명 합니다.</li><li>*얼굴* -얼굴이 있는지 검색 합니다. 얼굴이 있으면 좌표, 성별 및 나이를 생성합니다.</li><li>    *Imagetype* -이미지가 클립 아트 인지 또는 선 그리기 인지 검색 합니다.</li><li>  *color* -악센트 색, 주요 색 및 이미지가 검은색 & 흰색 인지 여부를 결정 합니다.</li><li>*성인* -이미지가 음란 (노출 또는 성 act를 나타냅니다) 여부를 검색 합니다. 성적으로 노골적인 콘텐츠도 검색됩니다.</li></ul> 시각적 기능의 이름은 대/소문자를 구분합니다.|
+| 자세히   | 반환할 도메인 특정 세부 정보를 나타내는 문자열 배열입니다. 유효한 시각적 기능 유형은 다음과 같습니다. <ul><li>*유명인* -이미지에서 검색 된 경우 유명인를 식별 합니다.</li><li>*랜드마크* -이미지에서 검색 된 경우 랜드마크를 식별 합니다. </li></ul> |
 
 ## <a name="skill-inputs"></a>기술 입력
 
@@ -49,7 +48,8 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 
 
 
-##  <a name="sample-definition"></a>샘플 정의
+##  <a name="sample-skill-definition"></a>샘플 기술 정의
+
 ```json
         {
             "description": "Extract image analysis.",
@@ -316,7 +316,17 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
             "targetFieldName": "faces"
         }
 ```
+### <a name="variation-on-output-field-mappings-nested-properties"></a>출력 필드 매핑의 변형 (중첩 된 속성)
 
+랜드마크 또는 유명인와 같은 하위 수준 속성에 대 한 출력 필드 매핑을 정의할 수 있습니다. 이 경우 인덱스 스키마에 랜드마크를 포함 하는 필드가 포함 되어 있는지 확인 합니다.
+
+```json
+    "outputFieldMappings": [
+        {
+            "sourceFieldName": /document/normalized_images/*/categories/details/landmarks/*",
+            "targetFieldName": "landmarks"
+        }
+```
 ##  <a name="sample-input"></a>샘플 입력
 
 ```json
@@ -484,7 +494,7 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 ## <a name="error-cases"></a>오류 사례
 다음 오류 사례에서는 요소가 추출되지 않습니다.
 
-| 오류 코드 | Description |
+| 오류 코드 | 설명 |
 |------------|-------------|
 | NotSupportedLanguage | 제공한 언어가 지원되지 않습니다. |
 | InvalidImageUrl | 이미지 URL의 형식이 잘못되었거나 액세스할 수 없습니다.|
@@ -493,6 +503,22 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 | NotSupportedVisualFeature  | 지정한 기능 유형이 잘못되었습니다. |
 | NotSupportedImage | 지원되지 않는 이미지(예: 아동 음란물)입니다. |
 | InvalidDetails | 지원되지 않는 도메인 특정 모델입니다. |
+
+와 유사한 `"One or more skills are invalid. Details: Error in skill #<num>: Outputs are not supported by skill: Landmarks"`오류가 발생 하는 경우 경로를 확인 합니다. 유명인와 랜드마크는 둘 다의 `detail`속성입니다.
+
+```json
+"categories":[  
+      {  
+         "name":"building_",
+         "score":0.97265625,
+         "detail":{  
+            "landmarks":[  
+               {  
+                  "name":"Forbidden City",
+                  "confidence":0.92013400793075562
+               }
+            ]
+```
 
 ## <a name="see-also"></a>참고자료
 

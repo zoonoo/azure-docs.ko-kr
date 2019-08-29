@@ -3,21 +3,20 @@ title: Azure Data Factory에서 웹 작업 | Microsoft Docs
 description: Data Factory에서 지원하는 제어 흐름 작업 중 하나인 웹 작업을 사용하여 파이프라인에서 REST 엔드포인트를 호출하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor: ''
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.author: shlo
-ms.openlocfilehash: f6153bf1162eaa1c7eab2c358977d754695b64fd
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 73770e559af8a999c17fff5ea1aa6ee53ac17e83
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325385"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141596"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Azure Data Factory에서 웹 작업
 웹 작업은 Data Factory 파이프라인에서 사용자 지정 REST 엔드포인트를 호출하는 데 사용할 수 있습니다. 작업에서 사용하고 액세스하도록 데이터 세트 및 연결된 서비스를 전달할 수 있습니다.
@@ -64,9 +63,9 @@ ms.locfileid: "68325385"
 
 ## <a name="type-properties"></a>형식 속성
 
-속성 | Description | 허용되는 값 | 필수
+속성 | 설명 | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-name | 웹 작업의 이름입니다. | String | 예
+name | 웹 작업의 이름입니다. | 문자열 | 예
 type | **WebActivity**로 설정해야 합니다. | String | 예
 메서드 | 대상 엔드포인트에 대한 Rest API 메서드입니다. | 문자열. <br/><br/>지원되는 형식: "GET", "POST", "PUT" | 예
 url | 대상 엔드포인트 및 경로입니다. | 문자열(또는 resultType 문자열이 있는 식). 활동이 엔드포인트에서 응답을 수신하지 않는 경우 오류가 발생하여 1분에 시간이 초과됩니다. | 예

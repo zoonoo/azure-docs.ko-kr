@@ -4,15 +4,15 @@ description: 미사용 데이터의 암호화 및 구현 방법을 Azure Cosmos 
 author: monhaber
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 08/21/2019
 ms.author: v-mohabe
 ms.custom: seodec18
-ms.openlocfilehash: e22e05618c8b8977ba8b03afd3b654d27d4fa6bd
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 035c7e9ed5ab33c89a2a55b1133294db434bfe81
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981745"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70123890"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db"></a>Azure Cosmos DB에 대 한 Advanced Threat Protection
 
@@ -56,6 +56,31 @@ Rest API 명령을 사용 하 여 특정 Azure Cosmos DB 계정에 대 한 Advan
 * [Advanced Threat Protection 사용](https://go.microsoft.com/fwlink/?linkid=2099607&clcid=0x409)
 * [Advanced Threat Protection 가져오기](https://go.microsoft.com/fwlink/?linkid=2099608&clcid=0x409)
 * [Advanced Threat Protection 사용 안 함](https://go.microsoft.com/fwlink/?linkid=2099709&clcid=0x409)
+
+### <a name="using-azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿 사용
+
+Azure Resource Manager 템플릿을 사용 하 여 Advanced Threat Protection을 사용 하도록 설정 된 Cosmos DB를 설정 합니다.
+자세한 내용은 [Advanced Threat Protection을 사용 하 여 CosmosDB 계정 만들기](https://azure.microsoft.com/en-us/resources/templates/201-cosmosdb-advanced-threat-protection-create-account/)를 참조 하세요.
+
+### <a name="using-azure-policy"></a>Azure Policy 사용
+
+Azure Policy를 사용 하 여 Cosmos DB에 대 한 고급 위협 방지를 사용 하도록 설정 합니다.
+
+1. Azure **정책 정의** 페이지를 시작 하 고 **Cosmos DB 정책에 대 한 Advanced Threat Protection 배포** 를 검색 합니다.
+
+    ![검색 정책](./media/cosmos-db-advanced-threat-protection/cosmos-db.png) 
+
+1. **CosmosDB에 대 한 Advanced Threat Protection 배포** 정책을 클릭 한 다음 **할당**을 클릭 합니다.
+
+    ![구독 또는 그룹 선택](./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-policy.png)
+
+
+1. **범위** 필드에서 세 개의 점을 클릭 하 고 Azure 구독 또는 리소스 그룹을 선택한 다음 **선택**을 클릭 합니다.
+
+    ![정책 정의 페이지](./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-details.png)
+
+
+1. 다른 매개 변수를 입력 하 고 **할당**을 클릭 합니다.
 
 ## <a name="manage-atp-security-alerts"></a>ATP 보안 경고 관리
 

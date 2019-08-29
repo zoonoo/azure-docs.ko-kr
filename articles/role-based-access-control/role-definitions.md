@@ -15,12 +15,12 @@ ms.date: 06/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 2ec3872b9e11830f7891e98f5fc0182b99e1586d
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 4bf2e057f4c5dad650834f9b42c75be3aedec46e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997338"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142849"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Azure 리소스에 대한 역할 정의 이해
 
@@ -165,7 +165,7 @@ Bob의 권한은 [저장소 Blob 데이터 참가자](built-in-roles.md#storage-
 | [.NET용 Azure](/dotnet/azure/) | 2.8.0-미리 보기 이상 버전 |
 | [Azure SDK for Go](/azure/go/azure-sdk-go-install) | 15.0.0 이상 |
 | [Java용 Azure](/java/azure/) | 1.9.0 이상 |
-| [Python용 Azure](/python/azure) | 0.40.0 이상 |
+| [Python용 Azure](/azure/python/) | 0.40.0 이상 |
 | [Ruby용 Azure SDK](https://rubygems.org/gems/azure_sdk) | 0.17.1 이상 |
 
 REST API에서 데이터 작업을 보고 사용하려면 **api-version** 매개 변수를 다음 버전 이상으로 설정해야 합니다.

@@ -3,26 +3,26 @@ title: Azure Data Factory 엔터티 이름 지정 규칙 | Microsoft Docs
 description: 데이터 팩터리 엔터티에 대한 이름 지정 규칙을 설명합니다.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.assetid: bc5e801d-0b3b-48ec-9501-bb4146ea17f1
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: daf0b1c12ab10230690a62eb5dc772417d8b92f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd1cdfac91a48d016857d06d5c9843fcdc4f5d9f
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60824238"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139219"
 ---
 # <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - 이름 지정 규칙
 > [!NOTE]
-> 이 문서의 내용은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우 [Data Factory의 명명 규칙](../naming-rules.md)을 참조하세요.
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우 [Data Factory의 명명 규칙](../naming-rules.md)을 참조하세요.
 
 다음 테이블에서 데이터 팩터리 아티팩트에 대한 이름 지정 규칙을 제공합니다.
 

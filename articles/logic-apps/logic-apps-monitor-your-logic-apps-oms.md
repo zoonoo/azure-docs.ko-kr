@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: divswa, LADocs
 ms.topic: article
-ms.date: 08/16/2019
-ms.openlocfilehash: 2f82bd9c0bcacf2c552df84cdd4f8f2cd6a68c8a
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.date: 08/29/2019
+ms.openlocfilehash: a038a05f03ce7a209ae82203441750749bc6c4c4
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543316"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70138756"
 ---
 # <a name="get-insights-and-debugging-data-for-logic-apps-by-using-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 논리 앱에 대 한 통찰력 및 디버깅 데이터 가져오기
 
@@ -25,7 +25,7 @@ ms.locfileid: "69543316"
 > [!NOTE]
 > 이전에 설명 된이 페이지에서는 Microsoft Operations Management Suite (OMS)를 사용 하 여 이러한 작업을 수행 하는 방법에 대 한 단계를 설명 Log Analytics 했습니다 .이 작업은 [1 월 2019 일에](../azure-monitor/platform/oms-portal-transition.md)사용이 중지 되 고 해당 단계를 [Azure Monitor 로그](../azure-monitor/platform/data-platform-logs.md)로 대체 합니다. 로그 데이터는 여전히 Log Analytics 작업 영역에 저장되며 동일한 Log Analytics 서비스에 의해 계속 수집 및 분석됩니다. 자세한 내용은 [Azure Monitor 용어 변경 내용](../azure-monitor/terminology.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 시작하기 전에 Log Analytics 작업 영역이 필요합니다. [Log Analytics 작업 영역을 만드는 방법](../azure-monitor/learn/quick-create-workspace.md)을 알아봅니다.
 
@@ -107,23 +107,21 @@ ms.locfileid: "69543316"
 
    특정 논리 앱에 대한 모든 실행을 보여 주는 예제는 다음과 같습니다.
 
-   ![논리 앱 또는 상태에 대한 실행 보기](media/logic-apps-monitor-your-logic-apps-oms/logic-app-run-details.png)
+   ![논리 앱 실행 및 상태 보기](media/logic-apps-monitor-your-logic-apps-oms/logic-app-run-details.png)
 
-   이 페이지에는 이러한 고급 옵션이 있습니다.
+   이 페이지에는 다음과 같은 고급 옵션이 있습니다. 
 
-   * **추적된 속성:**
+   * **추적 된 속성** 열: 작업 별로 그룹화 된 추적 속성을 설정 하는 논리 앱의 경우이 열에서 해당 속성을 볼 수 있습니다. 이러한 추적 된 속성을 보려면 **보기**를 선택 합니다. 추적된 속성을 검색하려면 열 필터를 사용합니다.
 
-     이 열에서는 논리 앱에 대해 작업별로 그룹화되어 추적된 속성을 보여줍니다. 추적 된 속성을 보려면 **보기**를 선택 합니다. 추적된 속성을 검색하려면 열 필터를 사용합니다.
+      ![논리 앱에 대해 추적된 속성 보기](media/logic-apps-monitor-your-logic-apps-oms/logic-app-tracked-properties.png)
 
-     ![논리 앱에 대해 추적된 속성 보기](media/logic-apps-monitor-your-logic-apps-oms/logic-app-tracked-properties.png)
+      추적된 속성이 새로 추가되어 처음으로 표시되는 데 10-15분 정도 걸릴 수 있습니다. [논리 앱에 추적된 속성을 추가하는 방법](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details)을 알아보세요.
 
-     추적된 속성이 새로 추가되어 처음으로 표시되는 데 10-15분 정도 걸릴 수 있습니다. [논리 앱에 추적된 속성을 추가하는 방법](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details)을 알아보세요.
-
-   * **다시 제출:** 실패했거나 성공했거나 계속 실행 중인 하나 이상의 논리 앱 실행을 다시 제출할 수 있습니다. 다시 전송 하려는 실행의 확인란을 선택 하 고 다시 **전송**을 선택 합니다.
+   * 다시 **전송**: 실패 했거나 성공 했거나 아직 실행 중인 논리 앱 실행을 하나 이상 다시 제출할 수 있습니다. 다시 전송 하려는 실행의 확인란을 선택 하 고 다시 **전송**을 선택 합니다.
 
      ![논리 앱 실행 다시 제출](media/logic-apps-monitor-your-logic-apps-oms/logic-app-resubmit.png)
 
-1. 이러한 결과를 필터링하기 위해 클라이언트와 서버 쪽 필터링을 모두 수행할 수 있습니다.
+1. 결과를 필터링 하기 위해 클라이언트 쪽 및 서버 쪽 필터링을 모두 수행할 수 있습니다.
 
    * **클라이언트 쪽 필터**: 각 열에 대해 원하는 필터를 선택 합니다. 예를 들면 다음과 같습니다.
 
@@ -133,25 +131,21 @@ ms.locfileid: "69543316"
 
      ![시간 변경 창](media/logic-apps-monitor-your-logic-apps-oms/change-interval.png)
 
-1. 특정 실행에 대한 모든 작업 및 관련 세부 정보를 보려면 해당 논리 앱 실행에 대한 행을 선택합니다.
+1. 특정 실행에 대 한 모든 작업과 해당 세부 정보를 보려면 논리 앱 실행에 대 한 행을 선택 합니다.
 
-   다음은 특정 논리 앱 실행에 대한 모든 작업을 보여 주는 예입니다.
+   특정 논리 앱 실행에 대 한 모든 작업 및 트리거를 보여 주는 예제는 다음과 같습니다.
 
    ![논리 앱 실행에 대한 작업 보기](media/logic-apps-monitor-your-logic-apps-oms/logic-app-action-details.png)
 
-1. 결과 페이지에서 결과에 대 한 쿼리를 보거나 모든 결과를 보려면 **모두 표시**를 선택 하 여 로그 검색 페이지를 엽니다.
+1. 결과 페이지에서 결과 뒤의 쿼리를 보거나 모든 결과를 표시 하려면 **모두 표시**를 선택 하 여 **로그** 페이지를 엽니다.
 
-   ![결과에 대한 모든 참조 페이지](media/logic-apps-monitor-your-logic-apps-oms/logic-app-seeall.png)
+   ![모든 결과 보기](media/logic-apps-monitor-your-logic-apps-oms/logic-app-see-all.png)
 
-   로그 검색 페이지에서 다음 옵션을 선택할 수 있습니다.
+   **로그** 페이지에서 다음 옵션을 선택할 수 있습니다.
 
    * 테이블에서 쿼리 결과를 보려면 **테이블**을 선택 합니다.
 
-   * 검색 창에서 쿼리 문자열을 편집하여 쿼리를 변경할 수 있습니다. 더 나은 환경을 위해 **고급 분석**을 선택 합니다.
-
-     ![논리 앱 실행에 대한 작업 및 세부 정보 보기](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
-
-     Log analytics 페이지에서 쿼리를 업데이트 하 고 테이블의 결과를 볼 수 있습니다. 이 쿼리는 [Kusto 쿼리 언어](https://aka.ms/LogAnalyticsLanguageReference)를 사용하여 서로 다른 결과를 보려는 경우 편집할 수 있습니다.
+   * 쿼리에서 [Kusto 쿼리 언어](https://aka.ms/LogAnalyticsLanguageReference)를 사용 하 여 다른 결과를 보려는 경우 편집할 수 있습니다. 쿼리를 변경 하려면 쿼리 문자열을 업데이트 하 고 **실행** 을 선택 하 여 테이블의 결과를 확인 합니다. 
 
      ![Log Analytics 쿼리 뷰](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 

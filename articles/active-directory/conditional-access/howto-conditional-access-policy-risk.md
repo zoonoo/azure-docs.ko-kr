@@ -11,24 +11,24 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64d1b3e2f36256164420ae6b2e699f0ef48e2e78
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 3cf3281e00560a289fbb4adfe57083644e1a86e3
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69576551"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125439"
 ---
 # <a name="conditional-access-risk-based-conditional-access"></a>조건부 액세스: 위험 기반 조건부 액세스
 
-Azure AD Premium P2 라이선스가 있는 조직은 Azure AD ID 보호 위험 이벤트를 통합 하는 조건부 액세스 정책을 만들 수 있습니다. 사용할 수 있는 기본 정책에는 세 가지가 있습니다. 
+Azure AD Premium P2 라이선스가 있는 조직에서는 위험 검색 Azure AD ID 보호 통합 하는 조건부 액세스 정책을 만들 수 있습니다. 사용할 수 있는 기본 정책에는 세 가지가 있습니다. 
 
-* 모든 사용자가 Azure Multi-factor Authentication에 등록 하도록 요구 합니다.
+* 모든 사용자가 Azure Multi-Factor Authentication에 등록 하도록 요구 합니다.
 * 위험이 높은 사용자의 경우 암호를 변경 해야 합니다.
 * 중간 또는 높은 로그인 위험이 있는 사용자의 경우 multi-factor authentication이 필요 합니다.
 
-## <a name="require-all-users-to-register-for-azure-multi-factor-authentication"></a>모든 사용자가 Azure Multi-factor Authentication에 등록 하도록 요구
+## <a name="require-all-users-to-register-for-azure-multi-factor-authentication"></a>모든 사용자가 Azure Multi-Factor Authentication에 등록 하도록 요구
 
-이 정책을 사용 하도록 설정 하면 모든 사용자가 14 일 내에 Azure Multi-factor Authentication에 등록 해야 합니다. 
+이 정책을 사용 하도록 설정 하면 모든 사용자가 14 일 이내에 Azure Multi-Factor Authentication에 등록 해야 합니다. 
 
 1. **Azure Portal**에 로그인합니다.
 1. **모든 서비스**를 클릭하고 **Azure AD ID 보호**로 이동합니다.

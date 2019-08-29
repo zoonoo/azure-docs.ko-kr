@@ -6,14 +6,14 @@ author: laurenhughes
 manager: gwallace
 ms.service: batch
 ms.topic: article
-ms.date: 08/14/2019
+ms.date: 08/28/2019
 ms.author: lahugh
-ms.openlocfilehash: 00da17512cbc2e713955ea83c7d9fa7517958169
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 3c2213c25a8fdc6d6545711bd2af9b94662ee609
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036704"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141809"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-pool"></a>공유 이미지 갤러리를 사용 하 여 풀 만들기
 
@@ -23,7 +23,7 @@ Virtual Machine 구성을 사용하여 Azure Batch 풀을 만들 경우 풀에�
 
 사용자 지정 이미지에 대 한 공유 이미지 갤러리를 사용 하는 경우 운영 체제 유형과 구성 뿐만 아니라 데이터 디스크의 유형을 제어할 수 있습니다. 공유 이미지는 프로 비전 되는 즉시 모든 Batch 풀 노드에서 사용할 수 있게 되는 응용 프로그램 및 참조 데이터를 포함할 수 있습니다.
 
-또한 사용자 환경에 맞게 여러 버전의 이미지를 사용할 수 있습니다. 이미지 버전을 사용 하 여 VM을 만드는 경우 이미지 버전은 VM에 대 한 새 디스크를 만드는 데 사용 됩니다. 
+또한 사용자 환경에 맞게 여러 버전의 이미지를 사용할 수 있습니다. 이미지 버전을 사용 하 여 VM을 만드는 경우 이미지 버전은 VM에 대 한 새 디스크를 만드는 데 사용 됩니다.
 
 공유 이미지를 사용 하면 풀의 계산 노드를 준비 하 여 Batch 워크 로드를 실행 하는 데 걸리는 시간을 절약할 수 있습니다. 프로 비전 후에는 Azure Marketplace 이미지를 사용 하 고 각 계산 노드에 소프트웨어를 설치할 수 있지만 일반적으로 공유 이미지를 사용 하는 것이 더 효율적입니다. 또한 여러 Vm (600 개 이상)을 사용 하 여 풀을 만들 때 풀을 만들 때 시간을 절약 하기 위해 공유 이미지에 대해 여러 복제본을 지정할 수 있습니다.
 
@@ -37,7 +37,7 @@ Virtual Machine 구성을 사용하여 Azure Batch 풀을 만들 경우 풀에�
 * **사용자 지정 이미지 보다 성능이 우수 합니다.** 공유 이미지를 사용 하는 경우 풀이 안정 된 상태에 도달 하는 데 걸리는 시간은 최대 25% 더 빠르며 VM 유휴 대기 시간은 최대 30% 더 짧습니다.
 * **보다 쉽게 관리할 수 있도록 이미지 버전 관리 및 그룹화** 이미지 그룹화 정의에는 이미지를 만든 이유에 대 한 정보, 사용 중인 OS 및 이미지 사용에 대 한 정보가 포함 되어 있습니다. 이미지를 그룹화 하면 이미지를 쉽게 관리할 수 있습니다. 자세한 내용은 [이미지 정의](../virtual-machines/windows/shared-image-galleries.md#image-definitions)를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure Batch 계정.** Batch 계정을 만들려면 [Azure Portal](quick-create-portal.md) 또는 [Azure CLI](quick-create-cli.md)를 사용 하 여 일괄 처리 퀵 스타트를 참조 하세요.
 
@@ -91,6 +91,19 @@ private static void CreateBatchPool(BatchClient batchClient, VirtualMachineConfi
     ...
 }
 ```
+
+## <a name="create-a-pool-from-a-shared-image-using-the-azure-portal"></a>Azure Portal를 사용 하 여 공유 이미지에서 풀 만들기
+
+Azure Portal에서 공유 이미지를 사용 하 여 풀을 만들려면 다음 단계를 수행 합니다.
+
+1. [Azure Portal](https://portal.azure.com)을 엽니다.
+1. **Batch 계정** 으로 이동 하 여 계정을 선택 합니다.
+1. **풀** 을 선택한 다음 **추가** 를 클릭 하 여 새 풀을 만듭니다.
+1. **이미지 형식** 섹션에서 **공유 이미지 갤러리**를 선택 합니다.
+1. 관리 되는 이미지에 대 한 정보를 사용 하 여 나머지 섹션을 완료 합니다.
+1. **확인**을 선택합니다.
+
+![포털을 사용 하 여 공유 이미지에서 풀을 만듭니다.](media/batch-custom-images/create-custom-pool.png)
 
 ## <a name="considerations-for-large-pools"></a>대형 풀 관련 고려 사항
 

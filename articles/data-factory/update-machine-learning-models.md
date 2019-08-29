@@ -3,21 +3,20 @@ title: Azure Data Factory를 사용하여 Machine Learning 모델 업데이트 |
 description: Azure Data Factory 및 기계 학습을 사용하여 예측 파이프라인을 만드는 방법을 설명합니다.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.author: shlo
-ms.openlocfilehash: 8f1320db0af85f6c83a9daf8e17a691336c9b251
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 56d0ce6668c1077b99c980c2bc5b16998a3a41c1
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60335484"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140536"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>리소스 업데이트 작업을 사용하여 Azure Machine Learning 모델 업데이트
 이 문서는 기본 Azure Data Factory - Azure Machine Learning 통합 문서인 [Azure Machine Learning 및 Azure Data Factory를 사용하여 예측 파이프라인 만들기](transform-data-using-machine-learning.md)를 보완합니다. 수행하지 않았다면 이 문서를 읽기 전에 기본 문서를 검토하세요.
@@ -35,7 +34,7 @@ Machine Learning을 사용하여 만드는 모델은 일반적으로 정적이�
 
 ## <a name="azure-machine-learning-update-resource-activity"></a>Azure Machine Learning 리소스 업데이트 작업
 
-다음 JSON 코드 조각은 Azure Machine Learning Batch 실행 동작을 정의합니다.
+다음 JSON 코드 조각에서는 Azure Machine Learning 일괄 처리 실행 작업을 정의합니다.
 
 ```json
 {
@@ -57,21 +56,21 @@ Machine Learning을 사용하여 만드는 모델은 일반적으로 정적이�
 }
 ```
 
-| 자산                      | 설명                              | 필수 |
+| 속성                      | 설명                              | 필수 |
 | :---------------------------- | :--------------------------------------- | :------- |
-| 이름                          | 파이프라인의 작업 이름입니다.     | 예      |
-| description                   | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아닙니다.       |
-| 형식                          | Azure Machine Learning 리소스 업데이트 작업의 경우 작업 유형은 **AzureMLUpdateResource**입니다. | 예.      |
-| linkedServiceName             | updateResourceEndpoint 속성을 포함하는 Azure Machine Learning 연결된 서비스입니다. | 예.      |
+| name                          | 파이프라인의 작업 이름입니다.     | 예      |
+| description                   | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아니요       |
+| type                          | Azure Machine Learning 리소스 업데이트 작업의 경우 작업 유형은 **AzureMLUpdateResource**입니다. | 예      |
+| linkedServiceName             | updateResourceEndpoint 속성을 포함하는 Azure Machine Learning 연결된 서비스입니다. | 예      |
 | trainedModelName              | 업데이트할 웹 서비스 실험의 학습된 모델 모듈의 이름입니다. | 예      |
-| trainedModelLinkedServiceName | 업데이트 작업으로 업로드되는 ilearner 파일을 보유한 Azure Storage 연결된 서비스의 이름입니다. | 예.      |
-| trainedModelFilePath          | 업데이트 작업으로 업로드되는 ilearner 파일을 나타내는 trainedModelLinkedService의 상대 파일 경로입니다. | 예.      |
+| trainedModelLinkedServiceName | 업데이트 작업으로 업로드되는 ilearner 파일을 보유한 Azure Storage 연결된 서비스의 이름입니다. | 예      |
+| trainedModelFilePath          | 업데이트 작업으로 업로드되는 ilearner 파일을 나타내는 trainedModelLinkedService의 상대 파일 경로입니다. | 예      |
 
 ## <a name="end-to-end-workflow"></a>엔드투엔드 워크플로
 
 모델을 다시 학습하고 예측 웹 서비스를 업데이트하는 전체 프로세스에는 다음 단계가 포함됩니다.
 
-- **일괄 처리 실행 작업**을 사용하여 **학습 웹 서비스**를 호출합니다. 학습 웹 서비스 호출은 [Azure Machine Learning 및 Azure Data Factory 일괄 처리 실행 작업을 사용하여 예측 파이프라인 만들기](transform-data-using-machine-learning.md)에서 설명하는 예측 웹 서비스 호출과 동일합니다. 학습 웹 서비스의 출력은 예측 웹 서비스를 업데이트 하는 데 사용할 수 있는 iLearner 파일.
+- **일괄 처리 실행 작업**을 사용하여 **학습 웹 서비스**를 호출합니다. 학습 웹 서비스 호출은 [Azure Machine Learning 및 Azure Data Factory 일괄 처리 실행 작업을 사용하여 예측 파이프라인 만들기](transform-data-using-machine-learning.md)에서 설명하는 예측 웹 서비스 호출과 동일합니다. 학습 웹 서비스의 출력은 예측 웹 서비스를 업데이트 하는 데 사용할 수 있는 iLearner 파일입니다.
 - **리소스 업데이트 작업**을 통해 **예측 웹 서비스**의 **리소스 업데이트 엔드포인트**를 호출하여 새로운 학습된 모델을 통해 웹 서비스를 업데이트합니다.
 
 ## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning 연결된 서비스
@@ -95,7 +94,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 
 새 유형의 리소스 업데이트 엔드포인트에는 서비스 주체 인증이 필요합니다. 서비스 주체 인증을 사용하려면 Azure AD(Azure Active Directory)에 애플리케이션 엔터티를 등록하고, 웹 서비스가 속한 구독 또는 리소스 그룹의 **참가자** 또는 **소유자** 역할을 이 엔터티에 부여합니다. [서비스 주체를 만들고 Azure 리소스를 관리하기 위한 권한을 할당하는 방법](../active-directory/develop/howto-create-service-principal-portal.md)을 참조하세요. 연결된 서비스를 정의하는 데 사용되므로 다음 값을 적어둡니다.
 
-- 애플리케이션 UI
+- 애플리케이션 ID
 - 애플리케이션 키
 - 테넌트 ID
 

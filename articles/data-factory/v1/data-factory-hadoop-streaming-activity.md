@@ -3,25 +3,24 @@ title: Hadoop 스트리밍 작업을 사용하여 데이터 변환 - Azure | Mic
 description: Azure Data Factory에서 Hadoop 스트리밍 작업을 사용하여 주문형/사용자 고유의 HDInsight 클러스터에서 Hadoop 스트리밍 프로그램을 실행함으로써 데이터를 변환하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.assetid: 4c3ff8f2-2c00-434e-a416-06dfca2c41ec
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: dd00c0a2998009ce6c39ca19abb25a2548682cee
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fd9512f4ede8d9b8b1a8fd69b7120303fe6a0ad5
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60486348"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139557"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hadoop 스트리밍 작업을 사용하여 데이터 변환
-> [!div class="op_single_selector" title1="변환 활동"]
+> [!div class="op_single_selector" title1="변환 작업"]
 > * [Hive 작업](data-factory-hive-activity.md) 
 > * [Pig 작업](data-factory-pig-activity.md)
 > * [MapReduce 작업](data-factory-map-reduce.md)
@@ -111,7 +110,7 @@ HDInsight 클러스터는 예제 프로그램(wc.exe 및 cat.exe) 및 데이터(
 > 
 > 
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 이번 연습의 파이프라인에서는 Azure HDInsight 클러스터에서 Word Count 스트리밍 Map/Reduce 프로그램을 실행합니다. 
 
 ### <a name="linked-services"></a>연결된 서비스
@@ -223,7 +222,7 @@ HDInsight 클러스터는 예제 프로그램(wc.exe 및 cat.exe) 및 데이터(
     }
 }
 ```
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 * [Hive 작업](data-factory-hive-activity.md)
 * [Pig 작업](data-factory-pig-activity.md)
 * [MapReduce 작업](data-factory-map-reduce.md)

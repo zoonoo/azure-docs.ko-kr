@@ -9,17 +9,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-author: gauravmalhot
-ms.author: gamal
+author: djpmsft
+ms.author: daperlov
 ms.reviewer: maghan
 manager: craigg
 robots: noindex
-ms.openlocfilehash: cc880885777cbca67d6fb39b90feadc889339f76
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: d729fd11f355650b1476e6864a6d70219bf37e12
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836170"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135129"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>데이터 팩터리 문제 해결
 > [!NOTE]
@@ -48,9 +48,9 @@ ms.locfileid: "67836170"
 ### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>문제: Data Factory cmdlet을 실행할 때 권한 없음 오류 발생
 Azure PowerShell에서 올바른 Azure 계정 또는 구독을 사용하고 있지 않습니다. 다음 cmdlet을 사용하여 Azure PowerShell에서 사용할 올바른 Azure 계정 및 구독을 선택합니다.
 
-1. 연결-AzAccount-올바른 사용자 이름 및 암호
-2. Get-AzSubscription-계정의 모든 구독을 확인 합니다.
-3. 선택 AzSubscription &lt;구독 이름&gt; -올바른 구독을 선택 합니다. Azure 포털에서 데이터 팩터리를 만드는 데 사용한 것과 동일한 구독을 사용합니다.
+1. AzAccount-올바른 사용자 ID 및 암호를 사용 합니다.
+2. AzSubscription-계정에 대 한 모든 구독을 표시 합니다.
+3. AzSubscription &lt;구독 이름&gt; -올바른 구독을 선택 합니다. Azure 포털에서 데이터 팩터리를 만드는 데 사용한 것과 동일한 구독을 사용합니다.
 
 ### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>문제: Azure Portal에서 데이터 관리 게이트웨이 빠른 설치를 시작하지 못함
 데이터 관리 게이트웨이 빠른 설치를 수행하려면 Internet Explorer 또는 Microsoft ClickOnce 호환 웹 브라우저가 필요합니다. 빠른 설치를 시작할 수 없는 경우 다음 중 하나를 수행합니다.
@@ -104,7 +104,7 @@ Azure PowerShell에서 올바른 Azure 계정 또는 구독을 사용하고 있�
 데이터 관리 게이트웨이를 사용하여 온-프레미스 데이터 저장소 간 복사 작업에서 발생하는 문제를 해결하는 단계는 [게이트웨이 문제 해결](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) 을 참조하세요.
 
 ### <a name="problem-on-demand-hdinsight-provisioning-fails"></a>문제: 주문형 HDInsight 프로비전 실패
-HDInsightOnDemand 형식의 연결된 서비스를 사용하는 경우 Azure Blob Storage를 가리키는 linkedServiceName을 지정해야 합니다. Data Factory 서비스는 이 스토리지를 사용하여 주문형 HDInsight 클러스터에 대한 로그 및 지원 파일을 저장합니다.  경우에 따라 다음 오류와 함께 주문형 HDInsight 클러스터 프로비전이 실패할 수 있습니다.
+HDInsightOnDemand 형식의 연결된 서비스를 사용하는 경우 Azure Blob Storage를 가리키는 linkedServiceName을 지정해야 합니다. Data Factory 서비스는 이 스토리지를 사용하여 주문형 HDInsight 클러스터에 대한 모든 로그 및 지원 파일을 저장합니다.  경우에 따라 다음 오류와 함께 주문형 HDInsight 클러스터 프로비전이 실패할 수 있습니다.
 
 ```
 Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'StorageAccountNotColocated'.

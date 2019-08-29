@@ -8,12 +8,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: menchi
-ms.openlocfilehash: e5d2e485283f71b27bb5e93330a54e1b987044c4
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: abf8b18d13e2990f053dd4273645dd7b9a324c77
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883726"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147756"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-net"></a>IoT Hub 모듈 id 및 모듈 쌍 시작 (.NET)
 
@@ -31,7 +31,7 @@ ms.locfileid: "68883726"
 > [!NOTE]
 > 디바이스와 솔루션 백 엔드에서 실행하기 위해 두 애플리케이션을 빌드하는 데 사용할 수 있는 Azure IoT SDK에 관한 정보는 [Azure IoT SDK](iot-hub-devguide-sdks.md)를 참조하세요.
 
-이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Visual Studio.
 

@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: mlearned
-ms.openlocfilehash: 7aff0fe47d1586b63157d5df7882fc338637f714
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0e3a29e6e8f21658f03fb7fc059b54aa167496d4
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68381969"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147176"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -55,7 +55,7 @@ Kured를 사용 하는 방법에 대 한 자세한 내용은 [AKS에서 노드�
 
 ### <a name="windows-server-nodes"></a>Windows Server 노드
 
-Windows Server 노드(현재 AKS에서 프리뷰)에 대한 Windows Update는 최신 업데이트를 자동으로 실행 및 적용하지 않습니다. Windows 업데이트 릴리스 주기 및 사용자 고유의 유효성 검사 프로세스에서는 정기적인 일정에 따라 AKS 클러스터의 Windows Server 노드 풀에서 업그레이드를 수행해야 합니다. 이 업그레이드 프로세스는 최신 Windows Server 이미지 및 패치를 실행하는 노드를 생성하고 이전 노드를 제거합니다. 이 프로세스에 대한 자세한 내용은 [AKS에서 노드 풀 업그레이드][nodepool-upgrade]를 참조하세요.
+Windows Server 노드(현재 AKS에서 프리뷰)에 대한 Windows Update는 최신 업데이트를 자동으로 실행 및 적용하지 않습니다. Windows 업데이트 릴리스 주기와 사용자 고유의 유효성 검사 프로세스를 정기적으로 수행 하는 일정에 따라 클러스터에서 업그레이드를 수행 하 고 AKS 클러스터에서 Windows Server 노드 풀을 업그레이드 해야 합니다. 이 업그레이드 프로세스는 최신 Windows Server 이미지 및 패치를 실행하는 노드를 생성하고 이전 노드를 제거합니다. 이 프로세스에 대한 자세한 내용은 [AKS에서 노드 풀 업그레이드][nodepool-upgrade]를 참조하세요.
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>AKS를 통해 2개의 리소스 그룹이 생성되는 이유는 무엇인가요?
 

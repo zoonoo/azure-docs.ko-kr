@@ -15,26 +15,26 @@ ms.date: 01/17/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 950d0dc2f4a1a88e0c317b3398c7492cc6c52e2a
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 3e6b79c7d5c2ed9744dc00eb1588c35f8ea94a76
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989832"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127648"
 ---
 # <a name="users-flagged-for-risk-report-in-the-azure-portal"></a>Azure Portal에서 위험 플래그가 지정된 사용자 보고서
 
-Azure AD(Azure Active Directory)는 사용자 계정과 관련된 의심스러운 작업을 감지합니다. 작업이 감지된 경우 [위험 이벤트](concept-risk-events.md)라는 레코드가 만들어집니다.
+Azure AD(Azure Active Directory)는 사용자 계정과 관련된 의심스러운 작업을 감지합니다. 검색 된 각 작업에 대해 [위험 검색](concept-risk-events.md) 이라는 레코드가 만들어집니다.
 
 [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory** 블레이드를 선택하고 **보안** 섹션으로 이동하여 보안 보고서에 액세스할 수 있습니다. 
 
-감지된 위험 이벤트를 계산하는 데 사용합니다.
+검색 된 위험 검색은 다음을 계산 하는 데 사용 됩니다.
 
 - **위험한 로그인** - 위험한 로그인은 사용자 계정의 정당한 소유자가 아닌 사용자에 의해 수행된 로그인 시도에 대한 지표입니다. 
 
 - **위험 플래그가 지정된 사용자** - 위험한 사용자는 손상되었을 수 있는 사용자 계정에 대한 표시기입니다. 
 
-이러한 위험 이벤트를 트리거하는 정책을 구성하는 방법을 알아보려면 [사용자 위험 정책을 구성하는 방법](../identity-protection/howto-user-risk-policy.md)을 참조하세요. 
+이러한 위험 검색을 트리거하는 정책을 구성 하는 방법에 대 한 자세한 내용은 [사용자 위험 정책을 구성](../identity-protection/howto-user-risk-policy.md)하는 방법을 참조 하세요. 
 
 ![위험한 로그인](./media/concept-user-at-risk/10.png)
 
@@ -45,9 +45,9 @@ Azure AD(Azure Active Directory)는 사용자 계정과 관련된 의심스러�
 
 - **Azure Active Directory 평가판 및 기본 버전**에는 위험 플래그가 지정된 사용자 목록이 있습니다. 
 
-- **Azure Active Directory Premium 1** 버전에서는 여기에 더해 각 보고서에서 감지된 일부 기본 위험 이벤트를 살펴볼 수 있습니다. 
+- 또한 **Azure Active Directory Premium 1** 버전을 사용 하 여 각 보고서에 대해 검색 된 기본 위험 검색 중 일부를 검사할 수 있습니다. 
 
-- **Azure Active Directory Premium 2** 버전은 모든 기본 위험 이벤트에 대한 가장 자세한 정보를 제공하며, 구성된 위험 수준에 자동으로 응답하는 보안 정책을 구성할 수도 있습니다.
+- **Azure Active Directory Premium 2** 버전은 모든 기본 위험 검색에 대 한 가장 자세한 정보를 제공 하며, 구성 된 위험 수준에 자동으로 응답 하는 보안 정책을 구성할 수도 있습니다.
 
 
 ## <a name="users-at-risk-report-for-azure-ad-free-and-basic-editions"></a>Azure AD 평가판 및 기본 버전에 대한 위험에 노출된 사용자 보고서
@@ -73,7 +73,7 @@ Azure AD 프리미엄 버전에서 위험 플래그가 지정된 사용자 보�
 
 - 손상되었을 수 있는 사용자 계정 목록 
 
-- 감지된 [위험 이벤트 유형](concept-risk-events.md)에 대해 집계된 정보
+- 검색 된 [위험 검색 유형에](concept-risk-events.md) 대 한 집계 된 정보
 
 - 보고서를 다운로드할 수 있는 옵션
 
@@ -89,11 +89,11 @@ Azure AD 프리미엄 버전에서 위험 플래그가 지정된 사용자 보�
 
 - 모든 이벤트 해제
 
-- 사용자에 대해 보고된 위험 이벤트 조사. 
+- 사용자에 대해 보고 된 위험 검색을 조사 합니다. 
 
 ![위험한 로그인](./media/concept-user-at-risk/324.png)
 
-위험 이벤트를 조사하려면 목록에서 이벤트를 하나 선택하고 이 위험 이벤트에 대한 **세부 정보** 블레이드를 엽니다. **세부 정보** 블레이드에 위험 이벤트를 수동으로 닫거나 수동으로 닫은 위험 이벤트를 다시 활성화할 수 있는 옵션이 있습니다. 
+위험 검색을 조사 하려면 목록에서 하나를 선택 하 여이 위험 검색에 대 한 **세부 정보** 블레이드를 엽니다. **세부 정보** 블레이드에서 수동으로 위험 감지를 닫거나 수동으로 종료 된 위험 검색을 다시 활성화 하는 옵션을 사용할 수 있습니다. 
 
 ![위험한 로그인](./media/concept-user-at-risk/325.png)
 

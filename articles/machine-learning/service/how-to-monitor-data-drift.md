@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 07/08/2019
-ms.openlocfilehash: 41e357ee53d4c2fbc6683be3446ba2527dd9253f
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: c6c4d1d4da3679eaefacb5aa0c91fcf64afc2a6b
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69623970"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128271"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에 배포 된 모델에서 데이터 드리프트 (미리 보기) 검색
 
@@ -46,7 +46,7 @@ Azure Machine Learning 서비스를 사용 하 여 AKS에 배포 된 모델에 �
 
 - Azure 구독. 계정이 없는 경우 시작 하기 전에 무료 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
 
-- Python 용 Azure Machine Learning SDK가 설치 되어 있습니다. [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) 의 지침을 사용 하 여 다음을 수행할 수 있습니다.
+- Python용 Azure Machine Learning SDK가 설치되었습니다. [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)의 지침에 따라 다음 작업을 수행합니다.
 
     - Miniconda 환경 만들기
     - Python용 Azure Machine Learning SDK 설치
@@ -178,16 +178,7 @@ datadrift.disable_schedule()
 
 ## <a name="retrain-your-model-after-drift"></a>드리프트 후 모델 다시 학습
 
-데이터가 배포 된 모델의 성능에 부정적인 영향을 주는 경우 모델을 다시 학습 시간이 됩니다. 다음 [ 메서드는이전](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#diff-rhs-dataset--compute-target-none--columns-none-
-) 학습 데이터 집합 및 새 학습 데이터 집합 간에 변경 된 내용을 초기에 제공 합니다. `diff()` 
-
-```python
-from azureml.core import Dataset
-
-old_training_dataset.diff(new_training_dataset)
-```
-
-이전 코드의 출력에 따라 모델을 다시 학습 할 수 있습니다. 이렇게 하려면 다음 단계를 진행 합니다.
+데이터가 배포 된 모델의 성능에 부정적인 영향을 주는 경우 모델을 다시 학습 시간이 됩니다. 이렇게 하려면 다음 단계를 진행 합니다.
 
 * 수집 된 데이터를 조사 하 고 데이터를 준비 하 여 새 모델을 학습 합니다.
 * 학습/테스트 데이터로 분할 합니다.

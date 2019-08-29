@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: raynew
-ms.openlocfilehash: fa1e7fcf89ccc06e429831191ba5dfce3cf33797
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 7fea6d16c8846909a8ce9bb33aae74ce343018fa
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828321"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142316"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Migrate 문제 해결
 
@@ -271,7 +271,7 @@ Linux VM의 경우 MMA 및 종속성 에이전트의 설치 명령이 성공 했
 
 ### <a name="what-operating-systems-does-the-dependency-agent-support"></a>종속성 에이전트에서 지 원하는 운영 체제는 무엇 인가요?
 
-[다음은 종속성 에이전트에서 지 원하는 Windows 운영 체제의 목록](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems)입니다. 다음은 [종속성 에이전트에서 지 원하는 Linux 운영 체제의 목록](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems)입니다.
+[ [VM용 Azure Monitor에서 지 원하는 Windows 및 Linux 운영 체제](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems)의 목록입니다.
 
 ### <a name="i-cant-visualize-dependencies-in-azure-migrate-for-more-than-a-one-hour-duration"></a>1 시간 이상 동안 Azure Migrate에서 종속성을 시각화할 수 없습니다.
 Azure Migrate에서 최대 1 시간 동안 종속성을 시각화할 수 있습니다. Azure Migrate는 지난 달의 특정 날짜로 다시 이동할 수 있지만, 종속성을 시각화할 수 있는 최대 기간은 1 시간입니다.

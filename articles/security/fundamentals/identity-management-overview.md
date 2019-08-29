@@ -1,6 +1,6 @@
 ---
 title: ID 관리에 도움이 되는 Azure 보안 기능 | Microsoft Docs
-description: " 이 문서는 ID 관리에 도움이 되는 핵심 Azure 보안 기능의 개요를 제공합니다. Microsoft id 및 액세스 관리 솔루션을 사용 하면 회사 데이터 센터와 클라우드 간에 응용 프로그램 및 리소스에 대 한 액세스를 보호 하 여 Multi-factor Authentication 및 조건부 액세스와 같은 추가 수준의 유효성 검사를 수행할 수 있습니다. 방침. "
+description: " 이 문서는 ID 관리에 도움이 되는 핵심 Azure 보안 기능의 개요를 제공합니다. Microsoft id 및 액세스 관리 솔루션을 사용 하 여 회사 데이터 센터에서 클라우드로 응용 프로그램 및 리소스에 대 한 액세스를 보호 하 여 Multi-Factor Authentication 및 조건부 액세스와 같은 추가 수준의 유효성 검사를 수행할 수 있습니다. 방침. "
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,16 +16,16 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 1081fa8c9c7cc64418515aabbb755ecf056196ca
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 021767aa20dc35459c68fead674ff00510af2538
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68826279"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129371"
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure ID 관리 보안 개요
 
- ID 관리는 [보안 주체](/windows/security/identity-protection/access-control/security-principals)를 인증하고 권한을 부여하는 프로세스입니다. 해당 주체(ID)에 대한 정보를 제어하는 작업도 포함됩니다. 보안 주체(ID)에는 서비스, 애플리케이션, 사용자, 그룹 등이 있습니다. Microsoft ID 및 액세스 관리 솔루션은 IT가 클라우드 및 회사 데이터 센터에서 애플리케이션 및 리소스에 대한 액세스를 보호하도록 도움을 줍니다. 이러한 보호 기능은 Multi-factor Authentication 및 조건부 액세스 정책과 같은 추가 수준의 유효성 검사를 가능 하 게 합니다. 고급 보안 보고, 감사 및 경고를 통해 의심스러운 작업을 모니터링하여 잠재적인 보안 문제를 완화시킵니다. [Azure Active Directory Premium](/azure/active-directory/active-directory-editions) 은 수천 개의 클라우드 SaaS(software as a service) 앱에 SSO(Single Sign-On)을 제공하고 온-프레미스를 실행하는 웹앱에 액세스를 제공합니다.
+ ID 관리는 [보안 주체](/windows/security/identity-protection/access-control/security-principals)를 인증하고 권한을 부여하는 프로세스입니다. 해당 주체(ID)에 대한 정보를 제어하는 작업도 포함됩니다. 보안 주체(ID)에는 서비스, 애플리케이션, 사용자, 그룹 등이 있습니다. Microsoft ID 및 액세스 관리 솔루션은 IT가 클라우드 및 회사 데이터 센터에서 애플리케이션 및 리소스에 대한 액세스를 보호하도록 도움을 줍니다. 이러한 보호를 통해 Multi-Factor Authentication 및 조건부 액세스 정책과 같은 추가 수준의 유효성 검사를 수행할 수 있습니다. 고급 보안 보고, 감사 및 경고를 통해 의심스러운 작업을 모니터링하여 잠재적인 보안 문제를 완화시킵니다. [Azure Active Directory Premium](/azure/active-directory/active-directory-editions) 은 수천 개의 클라우드 SaaS(software as a service) 앱에 SSO(Single Sign-On)을 제공하고 온-프레미스를 실행하는 웹앱에 액세스를 제공합니다.
  
 Azure AD(Azure Active Directory)의 보안 이점을 활용하여 다음을 수행할 수 있습니다.
 
@@ -160,7 +160,7 @@ Azure AD Privileged Identity Management로 다음을 수행할 수 있습니다.
 
 ## <a name="identity-protection"></a>ID 보호
 
-Azure AD ID 보호는 조직의 ID에 영향을 주는 위험 이벤트와 잠재적 취약성에 대한 통합된 뷰를 제공하는 보안 서비스입니다. ID 보호는 Azure AD 비정상 작업 보고서를 통해 사용할 수 있는 기존 Azure AD 변칙 검색 기능을 활용합니다. 또한 ID 보호는 실시간으로 변칙을 검색할 수 있는 새 위험 이벤트 유형을 도입했습니다.
+Azure AD ID 보호은 조직의 id에 영향을 주는 위험 검색 및 잠재적 취약성에 대 한 통합 보기를 제공 하는 보안 서비스입니다. ID 보호는 Azure AD 비정상 작업 보고서를 통해 사용할 수 있는 기존 Azure AD 변칙 검색 기능을 활용합니다. Id 보호에는 실시간으로 변칙을 검색할 수 있는 새로운 위험 검색 유형도 도입 됩니다.
 
 자세한 정보:
 

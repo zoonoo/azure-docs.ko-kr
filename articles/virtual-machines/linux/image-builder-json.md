@@ -7,12 +7,12 @@ ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: abaf96b11abee0bf519a276f825b9c47cd333c1b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 240e0dadaebde6725974604b578328ede0b20652
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816315"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129053"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>미리 보기: Azure 이미지 작성기 템플릿 만들기 
 
@@ -190,6 +190,7 @@ az vm image list -l westus -f UbuntuServer -p Canonical --output table –-all
 는 `imageVersionId` 이미지 버전의 ResourceId 여야 합니다. [Az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) 를 사용 하 여 이미지 버전을 나열 합니다.
 
 ## <a name="properties-buildtimeoutinminutes"></a>속성: buildTimeoutInMinutes
+
 기본적으로 이미지 작성기는 240 분 동안 실행 됩니다. 그런 다음, 이미지 빌드가 완료 되었는지 여부에 관계 없이 시간 제한이 발생 하 고 중지 됩니다. 제한 시간에 도달 하면 다음과 유사한 오류가 표시 됩니다.
 
 ```text
@@ -203,7 +204,6 @@ BuildTimeoutInMinutes 값을 지정 하지 않거나 0으로 설정 하면에서
 
 
 ## <a name="properties-customize"></a>속성: 사용자 지정
-
 
 이미지 작성기는 여러 ' 개인 지정자 '를 지원 합니다. 사용자 지정자는 스크립트를 실행 하거나 서버를 다시 부팅 하는 등 이미지를 사용자 지정 하는 데 사용 되는 함수입니다. 
 

@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 356412bfca19e72d09338faf8c8bcac5ec8f273a
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 13f1746b710acd24316de3d294c1822ba108a378
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988296"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127386"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Azure Portal에서 작업 보고서 찾기
 
@@ -52,12 +52,12 @@ ms.locfileid: "68988296"
 
 범주는 다음과 같습니다.
 
-- All
+- 모두
 - AdministrativeUnit
 - ApplicationManagement
 - 인증
 - Authorization
-- 연락처
+- Contact
 - 디바이스
 - DeviceConfiguration
 - DirectoryManagement
@@ -73,7 +73,7 @@ ms.locfileid: "68988296"
 
 서비스에는 다음이 포함됩니다.
 
-- All
+- 모두
 - 액세스 검토
 - 계정 프로비전 
 - 응용 프로그램 SSO
@@ -112,29 +112,29 @@ ms.locfileid: "68988296"
 
 ### <a name="anomalous-activity-reports"></a>비정상적인 활동 보고서
 
-비정상적인 활동 보고서는 Azure AD가 감지하고 보고할 수 있는 보안 관련 위험 이벤트에 대한 정보를 제공합니다.
+비정상적인 활동 보고서는 Azure AD에서 검색 하 고 보고할 수 있는 보안 관련 위험 검색에 대 한 정보를 제공 합니다.
 
-다음 테이블에는 Azure Portal의 Azure AD 비정상 작업 보안 보고서 및 해당하는 위험 이벤트 형식이 나열되어 있습니다. 자세한 내용은 [Azure Active Directory 위험 이벤트](concept-risk-events.md)를 참조하세요.  
+다음 표에서는 Azure AD 비정상 작업 보안 보고서 및 Azure Portal의 해당 위험 검색 유형을 나열 합니다. 자세한 내용은 [Azure Active Directory 위험 탐지](concept-risk-events.md)를 참조 하세요.  
 
 
-| Azure AD 비정상 작업 보고서 |  ID 보호 위험 이벤트 유형|
+| Azure AD 비정상 작업 보고서 |  Id 보호 위험 검색 유형|
 | :--- | :--- |
 | 자격 증명이 유출된 사용자 | 손실된 자격 증명 |
 | 비정상적인 로그인 작업 | 비정상적 위치 간 이동 불가능 |
-| 감염 가능성이 있는 디바이스에서 로그인 | 감염된 디바이스에서의 로그인|
-| 알 수 없는 원본에서 로그인 | 익명 IP 주소에서의 로그인 |
-| 의심스러운 활동을 포함하는 IP 주소에서의 로그인 | 의심스러운 활동을 포함하는 IP 주소에서의 로그인 |
+| 감염 가능성이 있는 디바이스에서 로그인 | 감염된 디바이스에서 로그인|
+| 알 수 없는 원본에서 로그인 | 익명 IP 주소에서 로그인 |
+| 의심스러운 작업이 있는 IP 주소에서 로그인 | 의심스러운 작업이 있는 IP 주소에서 로그인 |
 | - | 알 수 없는 위치에서 로그인 |
 
-다음 Azure AD 비정상 작업 보안 보고서는 Azure Portal에 위험 이벤트로 포함되지 않습니다.
+다음 Azure AD 비정상 작업 보안 보고서는 Azure Portal에서 위험 감지로 포함 되지 않습니다.
 
 * 여러 번의 실패 후 로그인
 * 여러 지역에서의 로그인
 
 
-### <a name="detected-risk-events"></a>검색된 위험 이벤트
+### <a name="detected-risk-detections"></a>검색 된 위험 검색
 
-[Azure Portal](https://portal.azure.com)의 **Azure Active Directory** 블레이드 **보안** 섹션에서 검색된 위험 이벤트에 대한 보고서에 액세스할 수 있습니다. 검색된 위험 이벤트는 다음과 같은 보고서에서 추적됩니다.   
+[Azure Portal](https://portal.azure.com) **Azure Active Directory** 블레이드의 **보안** 섹션에서 검색 된 위험 검색에 대 한 보고서에 액세스할 수 있습니다. 검색 된 위험 검색은 다음 보고서에서 추적 됩니다.   
 
 - [위험에 노출된 사용자](concept-user-at-risk.md)
 - [위험한 로그인](concept-risky-sign-ins.md)
@@ -174,7 +174,7 @@ Azure Portal에서 일부 작업을 수행했고 `Activity logs > Audit Logs` �
 | 보고서 | &nbsp; | 대기 시간(P95) | 대기 시간(P99) |
 |--------|--------|---------------|---------------|
 | 디렉터리 감사 | &nbsp; | 2분 | 5분 |
-| 로그인 활동 | &nbsp; | 2분 | 5분 | 
+| 로그인 작업 | &nbsp; | 2분 | 5분 | 
 
 #### <a name="resolution"></a>해결 방법
 
@@ -195,7 +195,7 @@ Azure Portal에서 일부 작업을 수행했고 `Activity logs > Audit Logs` �
 | 보고서 | &nbsp; | 대기 시간(P95) | 대기 시간(P99) |
 |--------|--------|---------------|---------------|
 | 디렉터리 감사 | &nbsp; | 2분 | 5분 |
-| 로그인 활동 | &nbsp; | 2분 | 5분 | 
+| 로그인 작업 | &nbsp; | 2분 | 5분 | 
 
 #### <a name="resolution"></a>해결 방법
 
