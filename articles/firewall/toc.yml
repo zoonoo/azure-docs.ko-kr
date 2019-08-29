@@ -10,7 +10,7 @@
     - name: 배포 및 구성
       href: tutorial-firewall-deploy-portal.md
     - name: 하이브리드 네트워크에 배포
-      href: tutorial-hybrid-ps.md
+      href: tutorial-hybrid-portal.md
     - name: DNAT를 사용하여 인바운드 트래픽 필터링
       href: tutorial-firewall-dnat.md
     - name: 진단 로그 모니터링
@@ -39,6 +39,8 @@
   items:
     - name: Azure PowerShell을 사용하여 배포
       href: deploy-ps.md
+    - name: 하이브리드 네트워크에 배포 - PowerShell
+      href: tutorial-hybrid-ps.md
     - name: Azure CLI를 사용하여 배포
       href: deploy-cli.md
     - name: 템플릿을 사용하여 배포

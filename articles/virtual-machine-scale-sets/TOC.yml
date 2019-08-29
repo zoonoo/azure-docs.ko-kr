@@ -240,6 +240,8 @@
           href: virtual-machine-scale-sets-automatic-upgrade.md
         - name: 인스턴스 보호(미리 보기)
           href: virtual-machine-scale-sets-instance-protection.md
+        - name: 삭제 시 알림 종료(미리 보기)
+          href: virtual-machine-scale-sets-terminate-notification.md
         - name: 공유 이미지 갤러리
           items:
             - name: 개요

@@ -5,12 +5,12 @@ ms.subservice: single-database
 ms.topic: include
 ms.date: 07/31/2019
 ms.author: mathoma
-ms.openlocfilehash: d19e21edd31be461ba30e8985e80c4651bbbb02d
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: d4c426c5fe31f8fc2bfaf4697c05456124cafcb1
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69894113"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099087"
 ---
 이 단계에서는 Azure SQL Database 단일 데이터베이스를 만듭니다. 
 
@@ -23,8 +23,8 @@ ms.locfileid: "69894113"
 
 Azure Portal를 사용하여 리소스 그룹 및 단일 데이터베이스를 만듭니다.
 
-1. Azure Portal의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. **Azure SQL**이 목록에 없는 경우 **모든 서비스**를 선택한 다음, 검색 상자에 *Azure SQL*을 입력합니다.
-2. **+추가**를 선택하여 **SQL 배포 옵션 선택** 페이지를 엽니다. **데이터베이스** 타일에서 **세부 정보 표시**를 선택하여 다른 데이터베이스에 대한 추가 정보를 볼 수 있습니다.
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. **Azure SQL**이 목록에 없는 경우 **모든 서비스**를 선택한 다음, 검색 상자에 *Azure SQL*을 입력합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
+2. **+ 추가**를 선택하여 **SQL 배포 옵션 선택** 페이지를 엽니다. **데이터베이스** 타일에서 **세부 정보 표시**를 선택하여 다른 데이터베이스에 대한 추가 정보를 볼 수 있습니다.
 3. **만들기**를 선택합니다.
 
    ![단일 데이터베이스 만들기](../media/sql-database-get-started-portal/create-single-database.png)
@@ -43,7 +43,7 @@ Azure Portal를 사용하여 리소스 그룹 및 단일 데이터베이스를 �
        - **서버 이름**: `mysqlserver`에 숫자를 붙여서 고유한 이름을 입력합니다.
        - **서버 관리자 로그인**: `azureuser`을 입력합니다.
        - **암호**: 암호 요구 사항을 충족하는 복잡한 암호를 입력합니다.
-       - **위치**: 드롭다운 목록에서 위치를 선택합니다(예: `West US 2`).
+       - **위치**: 드롭다운 목록에서 위치를 선택합니다(예: `West US`).
 
          ![새 서버](../media/sql-database-get-started-portal/new-server.png)
 
@@ -86,7 +86,7 @@ PowerShell을 사용하여 리소스 그룹 및 단일 데이터베이스를 만
    # Set variables for your server and database
    $subscriptionId = '<SubscriptionID>'
    $resourceGroupName = "myResourceGroup-$(Get-Random)"
-   $location = "West US 2"
+   $location = "West US"
    $adminLogin = "azureuser"
    $password = "PWD27!"+(New-Guid).Guid
    $serverName = "mysqlserver-$(Get-Random)"

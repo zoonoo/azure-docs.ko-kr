@@ -210,6 +210,8 @@
               href: ../hdinsight-hadoop-optimize-hive-query.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
 - name: 참고 자료
   items:
+    - name: 지원되는 노드 구성
+      href: ../hdinsight-supported-node-configuration.md
     - name: 코드 샘플
       href: 'https://azure.microsoft.com/resources/samples/?service=hdinsight'
     - name: Azure PowerShell

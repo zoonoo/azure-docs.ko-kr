@@ -60,6 +60,8 @@
         - name: Marketplace 혜택
           href: ./gtm-your-marketplace-benefits.md
           items:
+            - name: 공동 판매 파트너 참여
+              href: ./marketplace-co-sell.md
             - name: 기본 설정 솔루션
               href: ./preferred-solutions.md
             - name: 통합된 솔루션
@@ -490,6 +492,13 @@
               href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md
         - name: 제품 시험 사용
           href: ./partner-center-portal/test-drive.md
+        - name: 공동 판매 옵션
+          href: ./partner-center-portal/commercial-marketplace-co-sell.md
+          items:
+            - name: 국가 및 지역 코드
+              href: ./partner-center-portal/commercial-marketplace-co-sell-countries.md
+            - name: 상태 코드
+              href: ./partner-center-portal/commercial-marketplace-co-sell-states.md
     - name: 게시 상태
       href: ./partner-center-portal/publishing-status.md
     - name: 기존 제품 업데이트
