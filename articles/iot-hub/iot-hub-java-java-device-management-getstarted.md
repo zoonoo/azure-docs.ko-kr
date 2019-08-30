@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 82c2c6d7ac347949a7cf24226fdb0095313ee689
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 52d7eb035ed06c368214b8b5cb7ef583cd99b51b
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147680"
+ms.locfileid: "70161995"
 ---
 # <a name="get-started-with-device-management-java"></a>디바이스 관리 시작(Java)
 
@@ -51,11 +51,11 @@ ms.locfileid: "70147680"
 > [!NOTE]
 > 디바이스와 솔루션 백 엔드에서 실행할 애플리케이션을 빌드하는 데 사용할 수 있는 SDK에 대한 자세한 내용은 [Azure IoT SDK](iot-hub-devguide-sdks.md)를 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-* Java SE 8. [개발 환경 준비](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md)에서는 Windows 또는 Linux에 이 자습서를 위해 Java를 설치하는 방법을 설명합니다.
+* [Java SE Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)입니다. **장기적인 지원** 에서 **Java 8** 을 선택 하 여 JDK 8 용 다운로드를 확인 합니다.
 
-* Maven 3. [개발 환경 준비](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md)에서는 Windows 또는 Linux에 이 자습서를 위해 [Maven](https://maven.apache.org/what-is-maven.html)을 설치하는 방법을 설명합니다.
+* [Maven 3](https://maven.apache.org/download.cgi)
 
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 만들 수 있습니다.
 

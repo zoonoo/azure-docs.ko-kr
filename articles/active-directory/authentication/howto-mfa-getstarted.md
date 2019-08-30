@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b555ecdf8bbd3d29e440675599041f40ac3c9d0
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 62ea1761cef48ab7808a352789963ab55129d2f8
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125022"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162382"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>클라우드 기반 Azure Multi-Factor Authentication 배포 계획
 
@@ -172,6 +172,8 @@ Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-
 ### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>사용자 단위 MFA의 사용자를 조건부 액세스 기반 MFA로 변환
 
 사용자 단위 사용을 사용 하도록 설정 하 고 Azure Multi-Factor Authentication 적용 한 사용자의 경우 다음 PowerShell을 사용 하 여 Azure Multi-Factor Authentication를 기반으로 조건부 액세스를 변환 하는 데 도움을 받을 수 있습니다.
+
+ISE 창에서이 PowerShell을 실행 하거나로 저장 합니다. 로컬로 실행할 PS1 파일입니다.
 
 ```PowerShell
 # Disable MFA for all users, keeping their MFA methods intact
@@ -367,7 +369,7 @@ Azure MFA에 대 한 보고서
 
 Azure Multi-Factor Authentication는 Azure Portal를 통해 보고서를 제공 합니다.
 
-| 보고서 | 위치 | Description |
+| 보고서 | 위치 | 설명 |
 | --- | --- | --- |
 | 사용량 및 사기 행위 경고 | Azure AD > 로그인 | 지정된 날짜 범위 동안 제출된 사기 행위 경고의 기록을 비롯한 전체 사용량, 사용자 요약 및 사용자 세부 정보에 대한 정보를 제공합니다. |
 

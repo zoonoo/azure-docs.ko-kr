@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 2fd8934f34b811c0a2532f27e32fc799c2c8186e
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 1fb377d482277a4776214d08b879d99f4234ca40
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141842"
+ms.locfileid: "70163670"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>PowerShell을 사용한 호스트 풀 만들기
 
@@ -25,7 +25,7 @@ ms.locfileid: "70141842"
 다음 cmdlet을 실행 하 여 Windows 가상 데스크톱 환경에 로그인 합니다.
 
 ```powershell
-Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
 그런 다음이 cmdlet을 실행 하 여 Windows 가상 데스크톱 테 넌 트에 새 호스트 풀을 만듭니다.

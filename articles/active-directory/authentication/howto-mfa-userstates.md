@@ -1,5 +1,5 @@
 ---
-title: Azure Multi-factor Authentication 사용자 상태-Azure Active Directory
+title: Azure Multi-Factor Authentication 사용자 상태-Azure Active Directory
 description: Azure Multi-Factor Authentication에서 사용자 상태를 알아봅니다.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc83f59d51e1552d9d68089d0b9fa23d924f491c
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: c0c941ec5010b6f9c35e81fdbcacd2093724eb21
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69561298"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162345"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>사용자에 대해 2단계 인증을 요구하는 방법
 
 2단계 인증이 필요한 두 가지 방법 중 하나를 수행할 수 있습니다. 두 방법 모두 글로벌 관리자 계정을 사용해야 합니다. 첫 번째 옵션은 각 사용자가 Azure MFA(Multi-Factor Authentication)를 사용하도록 설정하는 것입니다. 사용자가 개별적으로 설정되면 신뢰할 수 있는 IP 주소에서 로그인하거나 _기억된 디바이스_ 기능이 설정된 경우와 같이 몇 가지 예외를 제외하고는, 로그인할 때마다 2단계 인증을 수행합니다. 두 번째 옵션은 특정 조건에서 2 단계 인증을 요구 하는 조건부 액세스 정책을 설정 하는 것입니다.
 
 > [!TIP]
-> 조건부 액세스 정책을 사용 하 여 Azure Multi-factor Authentication을 사용 하도록 설정 하는 것이 좋습니다. 사용자가 로그인 할 때마다 MFA를 수행 해야 하므로 라이선스에 조건부 액세스가 포함 되지 않은 경우 사용자 상태를 변경 하는 것은 더 이상 권장 되지 않습니다.
+> 조건부 액세스 정책을 사용 하 여 Azure Multi-Factor Authentication를 사용 하도록 설정 하는 것이 좋습니다. 사용자가 로그인 할 때마다 MFA를 수행 해야 하므로 라이선스에 조건부 액세스가 포함 되지 않은 경우 사용자 상태를 변경 하는 것은 더 이상 권장 되지 않습니다.
 
 ## <a name="choose-how-to-enable"></a>사용하도록 설정하는 방법 선택
 
@@ -41,7 +41,7 @@ Azure AD ID 보호에 따라 사용하도록 설정 - 이 방법은 Azure AD ID 
 
 Azure Multi-Factor Authentication의 사용자 계정은 다음과 같은 3가지 상태를 갖습니다.
 
-| Status | 설명 | 영향 받는 비브라우저 앱 | 영향 받는 브라우저 앱 | 영향 받는 최신 인증 |
+| Status | Description | 영향 받는 비브라우저 앱 | 영향 받는 브라우저 앱 | 영향 받는 최신 인증 |
 |:---:|:---:|:---:|:--:|:--:|
 | 사용 안 함 |Azure MFA에 등록되지 않은 새 사용자에 대한 기본 상태입니다. |아니요 |아니요 |아니요 |
 | Enabled |사용자가 Azure MFA에 등록되었지만 등록하지 않았습니다. 다음에 로그인할 때 등록하라는 메시지가 표시됩니다. |아니요.  등록 프로세스가 완료될 때까지 계속 작업합니다. | 예. 세션이 만료되면 Azure MFA 등록이 필요합니다.| 예. 액세스 토큰이 만료되면 Azure MFA 등록이 필요합니다. |
@@ -136,7 +136,9 @@ MFA를 사용하지 않으려면 다음 스크립트를 사용합니다.
 
 ### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>사용자 단위 MFA의 사용자를 조건부 액세스 기반 MFA로 변환
 
-다음 PowerShell은 Azure Multi-factor Authentication을 기반으로 조건부 액세스를 변환 하는 데 도움이 될 수 있습니다.
+다음 PowerShell은 Azure Multi-Factor Authentication 기반으로 조건부 액세스를 변환 하는 데 도움이 될 수 있습니다.
+
+ISE 창에서이 PowerShell을 실행 하거나로 저장 합니다. 로컬로 실행할 PS1 파일입니다.
 
 ```PowerShell
 # Sets the MFA requirement state

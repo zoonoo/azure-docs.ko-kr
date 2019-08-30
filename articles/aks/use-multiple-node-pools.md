@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: caeb89332bd46b4f0cf2d0f9e5654aebca4d765d
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: b08ce504e96d09b7406f3d8fb1b2afc2c1925e90
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147260"
+ms.locfileid: "70164161"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여러 노드 풀 만들기 및 관리
 
@@ -486,68 +486,68 @@ Azure Resource Manager 템플릿을 사용 하 여 리소스를 만들고 관리
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "clusterName": {
-      "type": "string",
-      "metadata": {
-        "description": "The name of your existing AKS cluster."
-      }
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "clusterName": {
+            "type": "string",
+            "metadata": {
+                "description": "The name of your existing AKS cluster."
+            }
+        },
+        "location": {
+            "type": "string",
+            "metadata": {
+                "description": "The location of your existing AKS cluster."
+            }
+        },
+        "agentPoolName": {
+            "type": "string",
+            "defaultValue": "myagentpool",
+            "metadata": {
+                "description": "The name of the agent pool to create or update."
+            }
+        },
+        "vnetSubnetId": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "The Vnet subnet resource ID for your existing AKS cluster."
+            }
+        }
     },
-    "location": {
-      "type": "string",
-      "metadata": {
-        "description": "The location of your existing AKS cluster."
-      }
+    "variables": {
+        "apiVersion": {
+            "aks": "2019-04-01"
+        },
+        "agentPoolProfiles": {
+            "maxPods": 30,
+            "osDiskSizeGB": 0,
+            "agentCount": 3,
+            "agentVmSize": "Standard_DS2_v2",
+            "osType": "Linux",
+            "vnetSubnetId": "[parameters('vnetSubnetId')]"
+        }
     },
-    "agentPoolName": {
-      "type": "string",
-      "defaultValue": "myagentpool",
-      "metadata": {
-        "description": "The name of the agent pool to create or update."
-      }
-    },
-    "vnetSubnetId": {
-      "type": "string",
-      "defaultValue": "",
-      "metadata": {
-        "description": "The Vnet subnet resource ID for your existing AKS cluster."
-      }
-    }
-  },
-  "variables": {
-    "apiVersion": {
-      "aks": "2019-04-01"
-    },
-    "agentPoolProfiles": {
-      "maxPods": 30,
-      "osDiskSizeGB": 0,
-      "agentCount": 3,
-      "agentVmSize": "Standard_DS2_v2",
-      "osType": "Linux",
-      "vnetSubnetId": "[parameters('vnetSubnetId')]"
-    }
-  },
-  "resources": [
-    {
-      "apiVersion": "2019-04-01",
-      "type": "Microsoft.ContainerService/managedClusters/agentPools",
-      "name": "[concat(parameters('clusterName'),'/', parameters('agentPoolName'))]",
-      "location": "[parameters('location')]",
-      "properties": {
-            "maxPods": "[variables('agentPoolProfiles').maxPods]",
-            "osDiskSizeGB": "[variables('agentPoolProfiles').osDiskSizeGB]",
-            "count": "[variables('agentPoolProfiles').agentCount]",
-            "vmSize": "[variables('agentPoolProfiles').agentVmSize]",
-            "osType": "[variables('agentPoolProfiles').osType]",
-            "storageProfile": "ManagedDisks",
-      "type": "VirtualMachineScaleSets",
-            "vnetSubnetID": "[variables('agentPoolProfiles').vnetSubnetId]",
-            "orchestratorVersion": "1.13.10"
-      }
-    }
-  ]
+    "resources": [
+        {
+            "apiVersion": "2019-04-01",
+            "type": "Microsoft.ContainerService/managedClusters/agentPools",
+            "name": "[concat(parameters('clusterName'),'/', parameters('agentPoolName'))]",
+            "location": "[parameters('location')]",
+            "properties": {
+                "maxPods": "[variables('agentPoolProfiles').maxPods]",
+                "osDiskSizeGB": "[variables('agentPoolProfiles').osDiskSizeGB]",
+                "count": "[variables('agentPoolProfiles').agentCount]",
+                "vmSize": "[variables('agentPoolProfiles').agentVmSize]",
+                "osType": "[variables('agentPoolProfiles').osType]",
+                "storageProfile": "ManagedDisks",
+                "type": "VirtualMachineScaleSets",
+                "vnetSubnetID": "[variables('agentPoolProfiles').vnetSubnetId]",
+                "orchestratorVersion": "1.13.10"
+            }
+        }
+    ]
 }
 ```
 

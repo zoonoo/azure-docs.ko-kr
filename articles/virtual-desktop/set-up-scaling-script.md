@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: d7b91e3e74c65919a3afe80addfbd0fadd23b03c
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 7babfca617ab42da615518726d1b1d4cafe112b5
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931799"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70163227"
 ---
 # <a name="automatically-scale-session-hosts"></a>세션 호스트 자동 크기 조정
 
@@ -81,7 +81,7 @@ Azure의 많은 Windows 가상 데스크톱 미리 보기 배포의 경우 가�
 
 다음 필드에 관련 값을 입력 하 여 config.xml에서 크기 조정 스크립트 설정을 업데이트 합니다.
 
-| 필드                     | Description                    |
+| 필드                     | 설명                    |
 |-------------------------------|------------------------------------|
 | AADTenantId                   | 세션 호스트 Vm이 실행 되는 구독을 연결 하는 Azure AD 테 넌 트 ID     |
 | AADApplicationId              | 서비스 사용자 응용 프로그램 ID                                                       |

@@ -8,16 +8,21 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: divswa, LADocs
 ms.topic: article
-ms.date: 08/20/2019
+ms.date: 08/30/2019
 tags: connectors
-ms.openlocfilehash: 59263f74086f789e46e854ca320455e84dcb42c1
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 8712af60df2454b29c0691602260c8b826eae75c
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907553"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164974"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Azure Logic Apps에서 SAP 시스템에 연결
+
+> [!IMPORTANT]
+> 이전 SAP 응용 프로그램 서버 및 SAP Message Server 커넥터는 사용 중단에 대해 예약 됩니다. 현재 SAP 커넥터는 연결 형식을 변경할 필요가 없으며, 이전 커넥터와 완전히 호환 되며, 많은 추가 기능을 제공 하 고, SAP .Net 커넥터 라이브러리를 계속 사용 하도록 이전 SAP 커넥터를 통합 합니다. SAP NCo).
+>
+> 이전 커넥터를 사용 하는 논리 앱의 경우 사용 중단 날짜 전에 [최신 커넥터로 마이그레이션하십시오](#migrate) . 그렇지 않으면 이러한 논리 앱에서 실행 오류가 발생 하 여 SAP 시스템에 메시지를 보낼 수 없습니다.
 
 이 문서에서는 SAP 커넥터를 사용 하 여 논리 앱 내에서 온-프레미스 SAP 리소스에 액세스할 수 있는 방법을 보여 줍니다. 커넥터는 온-프레미스에서 R/3 및 ECC 시스템과 같은 SAP의 클래식 릴리스와 함께 작동 합니다. 또한 커넥터를 사용 하면 온-프레미스 또는 클라우드에서 호스트 되는지에 관계 없이 S/4 HANA와 같은 SAP의 최신 HANA 기반 SAP 시스템과 통합할 수 있습니다. SAP 커넥터는 IDoc (중간 문서), BAPI (비즈니스 응용 프로그래밍 인터페이스) 또는 RFC (원격 함수 호출)를 통해 SAP NetWeaver 기반 시스템과의 메시지 또는 데이터 통합을 지원 합니다.
 
@@ -27,11 +32,11 @@ SAP 커넥터는 [NCo (sap .Net connector) 라이브러리](https://support.sap.
 * **SAP에서 수신**: TRFC를 통해 IDoc를 수신 하거나 tRFC를 통해 BAPI 함수를 호출 하거나 SAP 시스템에서 RFC/tRFC를 호출 합니다.
 * **스키마 생성**: IDoc, BAPI 또는 RFC에 대 한 SAP 아티팩트에 대 한 스키마를 생성 합니다.
 
-이러한 작업의 경우 SAP 커넥터는 사용자 이름 및 암호를 통한 기본 인증을 지원 합니다. 커넥터는 [SNC (보안 네트워크 통신)](https://help.sap.com/doc/saphelp_nw70/7.0.31/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true)도 지원 합니다. SNC는 SAP NetWeaver SSO (single sign-on) 또는 외부 보안 제품에서 제공 하는 추가 보안 기능에 사용할 수 있습니다.
+이러한 작업의 경우 SAP 커넥터는 사용자 이름 및 암호를 통한 기본 인증을 지원 합니다. 커넥터는 [SNC (보안 네트워크 통신)](https://help.sap.com/doc/saphelp_nw70/7.0.31/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true)도 지원 합니다. SNC는 SAP NetWeaver Single Sign-On (SSO) 또는 외부 보안 제품에서 제공 하는 추가 보안 기능에 사용할 수 있습니다.
 
 SAP 커넥터는 [온-프레미스 데이터 게이트웨이](../logic-apps/logic-apps-gateway-connection.md)를 통해 온-프레미스 SAP 시스템과 통합됩니다. 예를 들어 보내기 시나리오에서 논리 앱에서 SAP 시스템으로 메시지를 보내는 경우 데이터 게이트웨이는 RFC 클라이언트 역할을 하 고 논리 앱에서 받은 요청을 SAP로 전달 합니다. 마찬가지로 수신 시나리오에서 데이터 게이트웨이는 SAP에서 요청을 수신 하 고 논리 앱에 전달 하는 RFC 서버 역할을 합니다.
 
-이 문서에서는 앞에서 설명한 통합 시나리오를 다루면서 SAP와 통합되는 논리 앱 예제를 만드는 방법을 보여줍니다.
+이 문서에서는 앞에서 설명한 통합 시나리오를 다루면서 SAP와 통합되는 논리 앱 예제를 만드는 방법을 보여줍니다. 이전 SAP 커넥터를 사용 하는 논리 앱의 경우이 문서에서는 논리 앱을 최신 SAP 커넥터로 마이그레이션하는 방법을 보여 줍니다.
 
 <a name="pre-reqs"></a>
 
@@ -63,11 +68,23 @@ SAP 커넥터는 [온-프레미스 데이터 게이트웨이](../logic-apps/logi
 
 * 샘플 IDoc 파일과 같이 SAP 서버에 보낼 수 있는 메시지 콘텐츠는 XML 형식 이어야 하며 사용 하려는 SAP 작업에 대 한 네임 스페이스를 포함 해야 합니다.
 
+<a name="migrate"></a>
+
+## <a name="migrate-to-current-connector"></a>현재 커넥터로 마이그레이션
+
+1. 아직 수행 하지 않은 경우 최신 버전을 사용할 수 있도록 [온-프레미스 데이터 게이트웨이](https://www.microsoft.com/download/details.aspx?id=53127) 를 업데이트 합니다. 자세한 내용은 [Azure Logic Apps에 대 한 온-프레미스 데이터 게이트웨이 설치](../logic-apps/logic-apps-gateway-install.md)를 참조 하세요.
+
+1. 이전 SAP 커넥터를 사용 하는 논리 앱에서 **sap로 보내기** 작업을 삭제 합니다.
+
+1. 최신 SAP 커넥터에서 **sap에 보내기** 작업을 추가 합니다. 이 작업을 사용 하려면 먼저 SAP 시스템에 대 한 연결을 다시 만듭니다.
+
+1. 완료되면 논리 앱을 저장합니다.
+
 <a name="add-trigger"></a>
 
 ## <a name="send-to-sap"></a>SAP로 보내기
 
-이 예제에서는 HTTP 요청으로 트리거할 수 있는 논리 앱을 사용합니다. 논리 앱은 IDoc를 SAP 서버에 보내고 논리 앱을 호출한 요청자에 게 응답을 반환 합니다. 
+이 예제에서는 HTTP 요청으로 트리거할 수 있는 논리 앱을 사용합니다. 논리 앱은 IDoc를 SAP 서버에 보내고 논리 앱을 호출한 요청자에 게 응답을 반환 합니다.
 
 ### <a name="add-an-http-request-trigger"></a>HTTP 요청 트리거 추가
 
@@ -235,7 +252,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
    또는 작업을 수동으로 지정할 수 있습니다.
 
-   ![SAP 작업을 수동으로 입력](media/logic-apps-using-sap-connector/manual-enter-SAP-action-trigger.png) 
+   ![SAP 작업을 수동으로 입력](media/logic-apps-using-sap-connector/manual-enter-SAP-action-trigger.png)
 
    다음은 두 개 이상의 메시지를 수신하도록 트리거를 설정할 때 작업이 어떻게 나타나는지 보여주는 예제입니다.
 
@@ -259,13 +276,13 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
 1. 가장 최근 실행을 엽니다. 그러면 SAP 시스템에서 보낸 메시지가 트리거 출력 섹션에 표시됩니다.
 
-## <a name="receive-idocs-packets-from-sap"></a>SAP에서 IDOCs 패킷 수신
+## <a name="receive-idoc-packets-from-sap"></a>SAP에서 IDOC 패킷 수신
 
 SAP를 설정 하 여 일괄 처리 또는 IDOCs 그룹인 [패킷으로 IDOCs를 보낼](https://help.sap.com/viewer/8f3819b0c24149b5959ab31070b64058/7.4.16/en-US/4ab38886549a6d8ce10000000a42189c.html)수 있습니다. IDOC 패킷, SAP 커넥터 및 특히 트리거를 수신 하려면 추가 구성이 필요 하지 않습니다. 그러나 트리거가 패킷을 받은 후 IDOC 패킷에서 각 항목을 처리 하려면 패킷을 개별 Idoc로 분할 하기 위해 몇 가지 추가 단계가 필요 합니다.
 
-[ `xpath()` 함수](./workflow-definition-language-functions-reference.md#xpath)를 사용 하 여 패킷에서 개별 idocs를 추출 하는 방법을 보여 주는 예제는 다음과 같습니다. 
+[ `xpath()` 함수](./workflow-definition-language-functions-reference.md#xpath)를 사용 하 여 패킷에서 개별 idocs를 추출 하는 방법을 보여 주는 예제는 다음과 같습니다.
 
-1. 시작 하기 전에 SAP 트리거를 사용 하는 논리 앱이 필요 합니다. 이 논리 앱이 아직 없는 경우이 항목의 이전 단계를 수행 하 여 [SAP 트리거를 사용 하 여 논리 앱](#receive-from-sap)을 설정 합니다. 
+1. 시작 하기 전에 SAP 트리거를 사용 하는 논리 앱이 필요 합니다. 이 논리 앱이 아직 없는 경우이 항목의 이전 단계를 수행 하 여 [SAP 트리거를 사용 하 여 논리 앱](#receive-from-sap)을 설정 합니다.
 
    예를 들어:
 
@@ -279,7 +296,7 @@ SAP를 설정 하 여 일괄 처리 또는 IDOCs 그룹인 [패킷으로 IDOCs�
 
 1. 개별 idoc를 추출 하려면 배열 변수를 만들고 다른 `xpath()` 식을 사용 하 여 idoc 컬렉션을 저장 하는 단계를 추가 합니다.
 
-   `xpath(xml(triggerBody()?['Content']), '/*[local-name()="Receive"]/*[local-name()="idocData"]')` 
+   `xpath(xml(triggerBody()?['Content']), '/*[local-name()="Receive"]/*[local-name()="idocData"]')`
 
    ![항목의 배열 가져오기](./media/logic-apps-using-sap-connector/get-array.png)
 
@@ -333,18 +350,18 @@ SAP를 설정 하 여 일괄 처리 또는 IDOCs 그룹인 [패킷으로 IDOCs�
 
    1. SAP 서버에 대한 연결 정보를 입력합니다. **Data Gateway** 속성에서, 게이트웨이 설치를 위해 Azure Portal에서 만든 데이터 게이트웨이를 선택합니다.
 
-      - **Logon Type** 속성을 **Application Server**로 설정하면 다음 속성이 필요합니다(보통은 선택 사항).
+      * **Logon Type** 속성을 **Application Server**로 설정하면 다음 속성이 필요합니다(보통은 선택 사항).
 
         ![SAP 애플리케이션 서버 연결 만들기](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
 
-      - **Logon Type** 속성을 **Group**으로 설정하면 다음 속성이 필요합니다(보통은 선택 사항).
+      * **Logon Type** 속성을 **Group**으로 설정하면 다음 속성이 필요합니다(보통은 선택 사항).
 
         ![SAP 메시지 서버 연결 만들기](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
 
       기본적으로 강력한 형식 지정은 스키마에 대해 XML 유효성 검사를 수행 하 여 잘못 된 값을 확인 하는 데 사용 됩니다. 이 동작은 이전에 발생 한 문제를 검색 하는 데 도움이 될 수 있습니다. **안전 입력** 옵션은 이전 버전과의 호환성을 위해 사용할 수 있으며 문자열 길이만 확인 합니다. [안전 입력 옵션](#safe-typing)에 대해 자세히 알아보세요.
 
-   1. 완료 되 면 **만들기**를 선택 합니다. 
-   
+   1. 완료 되 면 **만들기**를 선택 합니다.
+
       Logic Apps는 연결을 설정 하 고 테스트 하 여 연결이 제대로 작동 하는지 확인 합니다.
 
 1. 스키마를 생성할 아티팩트의 경로를 입력합니다.
@@ -427,7 +444,7 @@ SAP를 설정 하 여 일괄 처리 또는 IDOCs 그룹인 [패킷으로 IDOCs�
 
    ![연결에서 SAP SNC 구성](media/logic-apps-using-sap-connector/configure-sapsnc.png)
 
-   | 속성 | Description |
+   | 속성 | 설명 |
    |----------| ------------|
    | **SNC 라이브러리 경로** | NCo 설치 위치나 절대 경로를 기준으로 하는 SNC 라이브러리 이름 또는 경로입니다. 예를 `sapsnc.dll` 들면 `.\security\sapsnc.dll` 또는 `c:\security\sapsnc.dll`또는입니다. |
    | **SNC SSO** | SNC를 통해 연결 하는 경우 SNC id는 일반적으로 호출자를 인증 하는 데 사용 됩니다. 또 다른 옵션은를 재정의 하 여 호출자를 인증 하는 데 사용자 및 암호 정보를 사용할 수 있지만 줄은 여전히 암호화 되도록 하는 것입니다. |
@@ -484,6 +501,30 @@ SAP를 설정 하 여 일괄 처리 또는 IDOCs 그룹인 [패킷으로 IDOCs�
 <DATE>99991231</DATE>
 <TIME>235959</TIME>
 ```
+
+## <a name="advanced-scenarios"></a>고급 시나리오
+
+### <a name="confirm-transaction-explicitly"></a>명시적으로 트랜잭션 확인
+
+Logic Apps에서 SAP로 트랜잭션을 보낼 때이 exchange는 SAP 문서 [트랜잭션 RFC 서버 프로그램](https://help.sap.com/doc/saphelp_nwpi71/7.1/en-US/22/042ad7488911d189490000e829fbbd/content.htm?no_cache=true)에 설명 된 대로 두 단계로 이루어집니다. 기본적으로 **SAP로 보내기** 작업은 한 번의 호출로 함수 전송 및 트랜잭션 확인에 대 한 단계를 모두 처리 합니다. SAP 커넥터는 이러한 단계를 분리 하는 옵션을 제공 합니다. 자동으로 트랜잭션을 확인 하는 대신 IDOC를 보낼 수 있으며, 명시적 **트랜잭션 ID 확인** 작업을 사용할 수 있습니다.
+
+트랜잭션 ID 확인을 분리 하는이 기능은 네트워크 문제와 같은 원인으로 인해 오류가 발생할 수 있는 시나리오와 같이 SAP에서 트랜잭션을 복제 하지 않으려는 경우에 유용 합니다. 트랜잭션 ID를 별도로 확인 하 여 트랜잭션은 SAP 시스템에서 한 번만 완료 됩니다.
+
+이 패턴을 보여 주는 예제는 다음과 같습니다.
+
+1. 빈 논리 앱을 만들고 HTTP 트리거를 추가 합니다.
+
+1. SAP 커넥터에서 **SEND IDOC** 동작을 추가 합니다. SAP 시스템에 보내는 IDOC에 대 한 세부 정보를 제공 합니다.
+
+1. 별도의 단계에서 트랜잭션 ID를 명시적으로 확인 하려면 **TID 확인** 속성에서 **아니요**를 선택 합니다. 선택적 **트랜잭션 ID GUID** 속성의 경우 값을 수동으로 지정 하거나 커넥터에서이 guid를 자동으로 생성 하 여 SEND idoc 동작의 응답에 반환 하도록 할 수 있습니다.
+
+   ![IDOC 동작 속성 보내기](./media/logic-apps-using-sap-connector/send-idoc-action-details.png)
+
+1. 트랜잭션 ID를 명시적으로 확인 하려면 **트랜잭션 Id 확인** 작업을 추가 합니다. 동적 콘텐츠 목록이 표시 되도록 **트랜잭션 ID** 상자 내부를 클릭 합니다. 해당 목록에서 **SEND IDOC** 동작에서 반환 된 **트랜잭션 ID** 값을 선택 합니다.
+
+   ![트랜잭션 ID 작업 확인](./media/logic-apps-using-sap-connector/explicit-transaction-id.png)
+
+   이 단계가 실행 된 후에는 SAP 커넥터 쪽 및 SAP 시스템 쪽에서 현재 트랜잭션이 완료로 표시 됩니다.
 
 ## <a name="known-issues-and-limitations"></a>알려진 문제 및 제한 사항
 

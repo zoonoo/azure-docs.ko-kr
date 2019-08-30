@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: magoedte
-ms.openlocfilehash: a559fe86850ee9c1378876bc5ed8f2d0ddfb2d99
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 4b426fbc1d1b3eeed2321f86bb51c9c5d705adb4
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543056"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035626"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Azure Monitor에 Operations Manager 연결
 
@@ -40,15 +40,15 @@ Operations Manager 관리 그룹에 보고 하는 에이전트는 작업 영역�
 
 IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 허용하지 않을 경우 Log Analytics 게이트웨이에 연결하여 구성 정보를 받고 사용하도록 설정한 솔루션에 따라 수집된 데이터를 보내도록 관리 서버를 구성할 수 있습니다. Operations Manager 관리 그룹을 구성 하 여 Log Analytics 게이트웨이를 통해 Azure Monitor으로 통신 하도록 구성 하는 방법에 대 한 자세한 내용 및 단계는 [Log Analytics 게이트웨이를 사용 하 여 Azure Monitor에 컴퓨터 연결](../../azure-monitor/platform/gateway.md)을 참조 하세요.  
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작에 앞서 다음 요구 사항을 검토합니다.
 
 * Azure Monitor System Center Operations Manager 2016 이상, Operations Manager 2012 SP1 커밋하기 위한 이상 및 Operations Manager 2012 R2 U R 2 이상만 지원 합니다. 프록시 지원은 Operations Manager 2012 SP1 UR7 및 Operations Manager 2012 R2 UR3에 추가되었습니다.
 * System Center Operations Manager 2016를 미국 정부 클라우드와 통합 하려면 업데이트 롤업 2 이상에 포함 된 업데이트 된 Advisor 관리 팩이 필요 합니다. System Center Operations Manager 2012 R2 업데이트 롤업 3 이상에 포함 된 업데이트 된 Advisor 관리 팩이 필요 합니다.
 * 모든 Operations Manager 에이전트는 최소 지원 요구 사항을 만족해야 합니다. 에이전트가 최소 업데이트를 따르고 있는지 확인하고, 그렇지 않으면 Windows 에이전트 통신이 실패하고 Operations Manager 이벤트 로그에 오류가 생성될 수 있습니다.
-* Log Analytics 작업 영역. 자세한 내용은 [Log Analytics 작업 영역 개요](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json)를 검토합니다.   
-* [Log Analytics 기여자 역할](../../azure-monitor/platform/manage-access.md#manage-accounts-and-users)의 멤버인 계정으로 Azure에 인증합니다.
+* Log Analytics 작업 영역. 자세한 내용은 [Log Analytics 작업 영역 개요](design-logs-deployment.md)를 검토합니다. 
+* [Log Analytics 기여자 역할](manage-access.md#manage-access-using-azure-permissions)의 멤버인 계정으로 Azure에 인증합니다.
 
 * 지원 되는 지역-System Center Operations Manager에서 Log Analytics 작업 영역에 연결 하는 데 사용할 수 있는 Azure 지역은 다음과 같습니다.
     - 미국 중서부

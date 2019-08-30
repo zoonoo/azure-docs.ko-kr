@@ -5,29 +5,33 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 0c4702dada17e759d89c33be99b3155f4b15ad9e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e1f1ea10dc68e501cfac7ef0cf0383ce78e8f380
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60328887"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70163761"
 ---
 # <a name="configure-the-windows-virtual-desktop-preview-load-balancing-method"></a>Windows 가상 데스크톱 미리 보기 부하 분산 방법 구성
 
-호스트 풀에 대 한 부하 분산 방법을 구성할 맞게 Windows 가상 데스크톱 미리 보기 환경 요구 사항을 조정할 수 있습니다.
+호스트 풀의 부하 분산 방법을 구성 하면 사용자의 요구에 맞게 Windows 가상 데스크톱 미리 보기 환경을 조정할 수 있습니다.
 
 >[!NOTE]
-> 있으므로 사용자가 항상 1:1 매핑이 세션 호스트에 호스트 풀 내의 영구 데스크톱 호스트 풀에 적용 되지 않습니다.
+> 사용자에 게는 항상 호스트 풀 내의 세션 호스트에 대 한 1:1 매핑이 있으므로 영구 데스크톱 호스트 풀에는이 내용이 적용 되지 않습니다.
 
 ## <a name="configure-breadth-first-load-balancing"></a>너비 우선 부하 분산 구성
 
-너비 우선 부하 분산은 새 비 영구적인 호스트 풀에 대 한 기본 구성입니다. 새 사용자 세션을 호스트 풀의 모든 사용 가능한 세션 호스트 분산 너비 우선 로드 균형 조정 합니다. 너비 우선 부하 분산을 구성할 때 호스트 풀의 최대 세션 제한 세션 호스트당를 설정할 수 있습니다.
+너비 우선 부하 분산은 새로운 비영구 호스트 풀의 기본 구성입니다. 너비 우선 부하 분산은 호스트 풀에서 사용 가능한 모든 세션 호스트에 새 사용자 세션을 배포 합니다. 너비 우선 부하 분산을 구성할 때 호스트 풀의 세션당 최대 세션 제한 수를 설정할 수 있습니다.
 
-먼저 PowerShell 세션에서 사용할 [Windows Virtual Desktop PowerShell 모듈을 다운로드하고 가져옵니다](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)(아직 다운로드하고 가져오지 않은 경우).
+먼저 PowerShell 세션에서 사용할 [Windows Virtual Desktop PowerShell 모듈을 다운로드하고 가져옵니다](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)(아직 다운로드하고 가져오지 않은 경우). 그런 후 다음 cmdlet을 실행 하 여 계정에 로그인 합니다.
 
-최대 세션 제한을 조정 하지 않고 너비 우선을 분산 하는 데 호스트 풀을 구성 하려면 다음 PowerShell cmdlet을 실행 합니다.
+```powershell
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+```
+
+최대 세션 제한을 조정 하지 않고 너비 우선 부하 분산을 수행 하도록 호스트 풀을 구성 하려면 다음 PowerShell cmdlet을 실행 합니다.
 
 ```powershell
 Set-RdsHostPool <tenantname> <hostpoolname> -BreadthFirstLoadBalancer
@@ -41,9 +45,9 @@ Set-RdsHostPool <tenantname> <hostpoolname> -BreadthFirstLoadBalancer -MaxSessio
 
 ## <a name="configure-depth-first-load-balancing"></a>깊이 우선 부하 분산 구성
 
-깊이 우선 부하 분산에서 가장 많은 연결을 사용 하 여 사용 가능한 세션 호스트에 새 사용자 세션을 분산은 해당 최대 세션 제한 임계값에 도달 하지. 깊이 우선 부하 분산을 구성 하는 경우 있습니다 **해야** 호스트 풀의 최대 세션 제한 세션 호스트당를 설정 합니다.
+깊이 우선 부하 분산은 연결 수가 가장 많은 사용 가능한 세션 호스트에 새 사용자 세션을 배포 하지만 최대 세션 제한 임계값에 도달 하지 않았습니다. 깊이 우선 부하 분산을 구성 하는 경우 호스트 풀에서 세션당 최대 세션 제한을 설정 **해야 합니다** .
 
-깊이 우선 부하 분산을 수행 하려면 호스트 풀을 구성 하려면 다음 PowerShell cmdlet을 실행 합니다.
+깊이 우선 부하 분산을 수행 하도록 호스트 풀을 구성 하려면 다음 PowerShell cmdlet을 실행 합니다.
 
 ```powershell
 Set-RdsHostPool <tenantname> <hostpoolname> -DepthFirstLoadBalancer -MaxSessionLimit ###

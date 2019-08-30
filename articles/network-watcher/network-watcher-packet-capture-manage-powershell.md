@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 81b02cc7c7683bcd9abac2ad1b554644035991c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4158c2c5ce69d1811b20c9937c1d064f4fe657ee
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64710104"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70163956"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>PowerShell에서 Azure Network Watcher를 사용하여 패킷 캡처 관리
 
@@ -41,7 +41,7 @@ Network Watcher 패킷 캡처를 사용하면 가상 컴퓨터 간에 트래픽�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 이 문서에서는 사용자에게 다음 리소스가 있는 것으로 가정합니다.
 
@@ -130,8 +130,7 @@ ForceUpdateTag          :
 다음 단계는 Network Watcher 인스턴스를 검색하는 것입니다. 이 변수는 4단계에서 `New-AzNetworkWatcherPacketCapture` cmdlet으로 전달됩니다.
 
 ```powershell
-$nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
-$networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName  
+$networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
 ```
 
 ### <a name="step-2"></a>2단계
@@ -154,7 +153,7 @@ $filter2 = New-AzPacketCaptureFilterConfig -Protocol UDP
 > [!NOTE]
 > 패킷 캡처를 위해 여러 필터를 정의할 수 있습니다.
 
-### <a name="step-4"></a>4단계:
+### <a name="step-4"></a>4단계
 
 `New-AzNetworkWatcherPacketCapture` cmdlet을 실행하여 패킷 캡처 프로세스를 시작하고 이전 단계에서 검색한 필수 값을 전달합니다.
 ```powershell

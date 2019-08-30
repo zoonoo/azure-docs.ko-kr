@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: danlep
-ms.openlocfilehash: 1459b6fc45bb3d875b4869d1dcb4302dec21eb96
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: bc32ce59a7ec99278fb193f375d4ca945c227d2f
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114794"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172183"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>ACR 작업을 사용 하 여 컨테이너 이미지 빌드 및 유지 관리 자동화
 
@@ -42,13 +42,20 @@ ms.locfileid: "70114794"
 
 다음 표에서는 ACR 작업에 지원되는 컨텍스트 위치의 몇 가지 예를 보여 줍니다.
 
-| 컨텍스트 위치 | Description | 예제 |
+| 컨텍스트 위치 | 설명 | 예제 |
 | ---------------- | ----------- | ------- |
 | 로컬 파일 시스템 | 로컬 파일 시스템의 디렉터리 내에 있는 파일. | `/home/user/projects/myapp` |
 | GitHub 마스터 분기 | GitHub 리포지토리의 마스터(또는 다른 기본) 분기 내에 있는 파일.  | `https://github.com/gituser/myapp-repo.git` |
 | GitHub 분기 | GitHub 리포지토리의 특정 분기.| `https://github.com/gituser/myapp-repo.git#mybranch` |
 | GitHub 하위 폴더 | GitHub 리포지토리의 하위 폴더 내에 있는 파일. 예제에서는 분기와 하위 폴더 사양의 조합을 보여 줍니다. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
 | 원격 Tarball | 원격 웹 서버의 압축된 아카이브에 있는 파일. | `http://remoteserver/myapp.tar.gz` |
+
+기본적으로 ACR 작업은 Linux OS 및 amd64 아키텍처용 이미지를 빌드합니다. 다른 아키텍처에 대 한 Windows 이미지 또는 Linux 이미지를 빌드하기 위한 태그를지정합니다.`--platform` Os를 지정 하 고 필요에 따라 OS/아키텍처 형식으로 지원 되는 아키텍처 `--platform Linux/arm`를 지정 합니다 (예:). Arm 아키텍처의 경우 필요에 따라 OS/아키텍처/변형 형식 (예 `--platform Linux/arm64/v8`:)에서 variant를 지정 합니다.
+
+| OS | 아키텍처|
+| --- | ------- | 
+| Linux | amd64<br/>arm<br/>arm64<br/>386 |
+| Windows | amd64 |
 
 ACR 작업은 기본 컨테이너 수명 주기로 설계되었습니다. 예를 들어, ACR 작업을 CI/CD 솔루션에 통합합니다. [서비스 주체로][az-login-service-principal] [az login][az-login] 을 실행 하 여 CI/CD 솔루션은 [az acr build][az-acr-build] 명령을 실행 하 여 이미지 빌드를 시작할 수 있습니다.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory 자격 증명을 사용하여 Linux VM에 로그인 | Microsoft Docs
-description: 이 방법 문서에서는 사용자 로그인을 위해 Azure Active Directory 인증을 사용하도록 Linux VM을 만들고 구성하는 방법을 알아봅니다.
+description: Azure Active Directory 인증을 사용 하 여 로그인 하는 Linux VM을 만들고 구성 하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -12,21 +12,26 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/17/2018
+ms.date: 08/29/2019
 ms.author: cynthn
-ms.openlocfilehash: f8f00c49ced4e06eb634cbbfb1b786e6729783d2
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 0e3996c28750639b227475bf4e0196f3a0c3ab0d
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67667660"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70163212"
 ---
-# <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure에서 Azure Active Directory 인증을 사용하여 Linux 가상 머신에 로그인(미리 보기)
+# <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>미리 보기: Azure Active Directory 인증을 사용 하 여 Azure에서 Linux 가상 머신에 로그인
 
 Azure에서 Linux VM(가상 머신)의 보안을 강화하려면 Azure AD(Active Directory) 인증으로 통합하면 됩니다. Linux VM에 Azure AD 인증을 사용하면 VM에 대한 액세스를 허용하거나 거부하는 정책을 중앙에서 제어하고 적용할 수 있습니다. 이 아티클에서는 Azure AD 인증을 사용하도록 Linux VM을 만들고 구성하는 방법을 보여줍니다.
 
-> [!NOTE]
-> 이 기능은 미리 보기 상태이며 프로덕션 가상 머신 또는 워크로드와 함께 사용하지 않는 것이 좋습니다. 테스트 후에 삭제하려는 테스트 가상 머신에서 이 기능을 사용합니다.
+
+> [!IMPORTANT]
+> Azure Active Directory 인증은 현재 공개 미리 보기로 제공 됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> 테스트 후에 삭제하려는 테스트 가상 머신에서 이 기능을 사용합니다.
+>
+
 
 Azure에서 Azure AD 인증을 사용하여 Linux VM에 로그인하는 경우 다음과 같은 많은 혜택이 있습니다.
 
@@ -60,7 +65,6 @@ Azure에서 Azure AD 인증을 사용하여 Linux VM에 로그인하는 경우 �
 >[!IMPORTANT]
 > 이 미리 보기 기능을 사용하려면 지원되는 Linux 배포판만을 지원되는 Azure 지역에 배포합니다. Azure Government 또는 소버린 클라우드에서 이 기능이 지원되지 않습니다.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.31 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
@@ -93,7 +97,7 @@ az vm extension set \
     --vm-name myVM
 ```
 
-VM에 확장이 설치되면 *provisioningState*에서 *성공*이 표시됩니다.
+확장이 VM에 성공적으로 설치 되 면 *provisioningState* 의 *성공* 이 표시 됩니다.
 
 ## <a name="configure-role-assignments-for-the-vm"></a>VM에 대한 역할 할당 구성
 
@@ -132,24 +136,21 @@ Linux 가상 머신에 로그인하는 특정 사용자에 대해 다단계 인�
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv
 ```
 
-Azure AD 자격 증명을 사용하여 Azure Linux 가상 머신에 로그인합니다. `-l` 매개 변수를 사용하면 고유한 Azure AD 계정 주소를 지정할 수 있습니다. 계정 주소는 모두 소문자로 입력해야 합니다. 이전 명령에서 VM의 공용 IP 주소를 사용합니다.
+Azure AD 자격 증명을 사용하여 Azure Linux 가상 머신에 로그인합니다. `-l` 매개 변수를 사용하면 고유한 Azure AD 계정 주소를 지정할 수 있습니다. 예제 계정을 사용자 고유의 계정으로 바꿉니다. 계정 주소는 모두 소문자로 입력해야 합니다. 예제 IP 주소를 이전 명령에서 VM의 공용 IP 주소로 바꿉니다.
 
 ```azurecli-interactive
-ssh -l azureuser@contoso.onmicrosoft.com publicIps
+ssh -l azureuser@contoso.onmicrosoft.com 10.11.123.456
 ```
 
-[https://microsoft.com/devicelogin](https://microsoft.com/devicelogin)에서 일회용 코드를 사용하여 Azure AD에 로그인하라는 메시지가 표시됩니다. 다음 예제와 같이 일회용 코드를 복사하고, 디바이스 로그인 페이지에 붙여넣습니다.
+[https://microsoft.com/devicelogin](https://microsoft.com/devicelogin)에서 일회용 코드를 사용하여 Azure AD에 로그인하라는 메시지가 표시됩니다. 일회성 사용 코드를 복사 하 여 장치 로그인 페이지에 붙여 넣습니다.
 
-```bash
-~$ ssh -l azureuser@contoso.onmicrosoft.com 13.65.237.247
-To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code FJS3K6X4D to authenticate. Press ENTER when ready.
-```
+메시지가 표시되면 로그인 페이지에서 Azure AD 로그인 자격 증명을 입력합니다. 
 
-메시지가 표시되면 로그인 페이지에서 Azure AD 로그인 자격 증명을 입력합니다. 성공적으로 인증되는 경우 다음과 같은 메시지가 웹 브라우저에 표시됩니다.
+성공적으로 인증 되 면 웹 브라우저에 다음 메시지가 표시 됩니다.`You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
 
-    You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.
+브라우저 창을 닫고, SSH 프롬프트를 돌아가서, **Enter** 키를 누릅니다. 
 
-브라우저 창을 닫고, SSH 프롬프트를 돌아가서, **Enter** 키를 누릅니다. 이제 할당된 대로 *VM 사용자* 또는 *VM 관리자*와 같은 역할 권한이 있는 Azure Linux 가상 머신에 로그인했습니다. 사용자 계정에 *가상 머신 관리자 로그인* 역할이 할당된 경우 `sudo`을 사용하여 루트 권한이 필요한 명령을 실행할 수 있습니다.
+이제 할당된 대로 *VM 사용자* 또는 *VM 관리자*와 같은 역할 권한이 있는 Azure Linux 가상 머신에 로그인했습니다. 사용자 계정에 *가상 컴퓨터 관리자 로그인* 역할이 할당 된 경우를 사용 `sudo` 하 여 루트 권한이 필요한 명령을 실행할 수 있습니다.
 
 ## <a name="sudo-and-aad-login"></a>Sudo 및 AAD 로그인
 
@@ -186,7 +187,7 @@ Access denied
 
 웹 브라우저에서 인증 단계를 성공적으로 완료한 경우 즉시 새 코드를 사용하여 다시 로그인하라는 메시지가 표시될 수 있습니다. 이 오류는 일반적으로 SSH 프롬프트에서 지정한 로그인 이름과 Azure AD에 로그인한 계정 간의 불일치로 인해 발생합니다. 이 문제를 수정하려면:
 
-- SSH 프롬프트에 지정한 로그인 이름이 올바른지 확인합니다. 로그인 이름의 오타로 인해 SSH 프롬프트에서 지정한 로그인 이름과 Azure AD에 로그인한 계정 간의 불일치가 발생할 수 있습니다. 예를 들어 입력 *azuresuer\@contoso.onmicrosoft.com* 대신 *azureuser\@contoso.onmicrosoft.com*합니다.
+- SSH 프롬프트에 지정한 로그인 이름이 올바른지 확인합니다. 로그인 이름의 오타로 인해 SSH 프롬프트에서 지정한 로그인 이름과 Azure AD에 로그인한 계정 간의 불일치가 발생할 수 있습니다. 예를 들어 *azureuser\@contoso.onmicrosoft.com*대신 *azuresuer\@contoso.onmicrosoft.com* 를 입력 했습니다.
 - 여러 사용자 계정이 있는 경우 Azure AD에 로그인할 때 브라우저 창에서 다른 사용자 계정을 입력하지 않도록 확인합니다.
 - Linux는 대/소문자 구분 운영 체제입니다. 'Azureuser@contoso.onmicrosoft.com'및'azureuser@contoso.onmicrosoft.com' 간의 차이로 인해 불일치가 발생할 수 있습니다. SSH 프롬프트에서 대/소문자 구분이 올바른 UPN을 지정했는지 확인합니다.
 

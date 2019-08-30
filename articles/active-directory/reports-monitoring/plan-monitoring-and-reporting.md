@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f974b3564857a439f1ac1c40ddd572633b761862
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 6d24a4ab74f7957c068fc664fc4e8898c525afcb
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879857"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162534"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Azure Active Directory 보고 및 모니터링 배포 계획
 
@@ -164,8 +164,6 @@ Azure AD 역할을 사용 하면 사용자의 역할에 따라 Azure AD 보고�
 ### <a name="consume-and-archive-azure-ad-logs"></a>Azure AD 로그 사용 및 보관
 
 [Azure Portal에서 작업 보고서 찾기](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-find-activity-reports)
-
-[Azure AD 용 Power BI 콘텐츠 팩 사용](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-power-bi-content-pack)
 
 [Azure AD 로그를 Azure Storage 계정에 보관](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account)
 

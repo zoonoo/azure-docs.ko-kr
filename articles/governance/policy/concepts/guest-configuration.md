@@ -1,6 +1,6 @@
 ---
-title: 가상 컴퓨터의 콘텐츠를 감사 하는 방법 이해
-description: Azure Policy가 게스트 구성을 사용하여 Azure 가상 머신 내에서 설정을 감사하는 방법에 대해 알아봅니다.
+title: 컴퓨터의 콘텐츠를 감사 하는 방법 이해
+description: Azure Policy 게스트 구성을 사용 하 여 Azure 컴퓨터 내에서 설정을 감사 하는 방법을 알아봅니다.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/18/2019
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 18a85fae7d2d241bd8d582db73c71e1d1472f04d
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: b6c9e50334a25b505655a49a02cd98165d04740b
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036312"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164957"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 
-Azure 리소스를 감사 하 고 [수정](../how-to/remediate-resources.md) 하는 것 외에도, Azure Policy 가상 머신 내의 설정을 감사할 수 있습니다. 게스트 구성 확장 및 클라이언트가 유효성 검사를 수행합니다. 이 확장은 클라이언트를 통해 운영 체제 구성, 애플리케이션 구성/유무, 환경 설정 등의 설정 유효성을 검사합니다.
+Azure 리소스를 감사 하 고 [수정](../how-to/remediate-resources.md) 하는 것 외에도 Azure Policy는 컴퓨터 내의 설정을 감사할 수 있습니다. 게스트 구성 확장 및 클라이언트가 유효성 검사를 수행합니다. 이 확장은 클라이언트를 통해 운영 체제 구성, 애플리케이션 구성/유무, 환경 설정 등의 설정 유효성을 검사합니다.
 
 현재 Azure Policy 게스트 구성은 컴퓨터 내부에서 설정의 감사만 수행 합니다.
 아직 구성을 적용할 수는 없습니다.
@@ -26,7 +26,7 @@ Azure 리소스를 감사 하 고 [수정](../how-to/remediate-resources.md) 하
 
 ## <a name="extension-and-client"></a>확장 및 클라이언트
 
-가상 머신 내에서 설정을 감사할 수 있도록 [가상 머신 확장](../../../virtual-machines/extensions/overview.md)이 사용하도록 설정됩니다. 이 확장은 적용 가능한 정책 할당 및 해당 구성 정의를 다운로드합니다.
+컴퓨터 내의 설정을 감사 하려면 [가상 머신 확장](../../../virtual-machines/extensions/overview.md) 을 사용 하도록 설정 합니다. 이 확장은 적용 가능한 정책 할당 및 해당 구성 정의를 다운로드합니다.
 
 ### <a name="limits-set-on-the-exension"></a>Exension에 설정 된 제한
 
@@ -60,7 +60,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 ## <a name="validation-tools"></a>유효성 검사 도구
 
-가상 머신 내에서 게스트 구성 클라이언트는 로컬 도구를 사용하여 감사를 실행합니다.
+컴퓨터 내부에서 게스트 구성 클라이언트는 로컬 도구를 사용 하 여 감사를 실행 합니다.
 
 다음 표에는 지원되는 각 운영 체제에서 사용되는 로컬 도구 목록이 나와 있습니다.
 
@@ -71,7 +71,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 ### <a name="validation-frequency"></a>유효성 검사 빈도
 
-게스트 구성 클라이언트는 5분마다 새 콘텐츠를 확인합니다. 게스트 할당이 수신되면 15분 간격으로 설정을 확인합니다. 감사가 완료되는 즉시 게스트 구성 리소스 공급자로 결과가 전송됩니다. 정책 [평가 트리거](../how-to/get-compliance-data.md#evaluation-triggers)가 발생하면 컴퓨터 상태가 게스트 구성 리소스 공급자에 기록됩니다. 그러면 Azure Policy에서 Azure Resource Manager 속성을 평가합니다. 주문형 Azure Policy 평가판은 게스트 구성 리소스 공급자에서 최신 값을 검색 합니다. 그러나 해당 가상 머신 내 구성의 새 감사는 트리거되지 않습니다.
+게스트 구성 클라이언트는 5분마다 새 콘텐츠를 확인합니다. 게스트 할당이 수신되면 15분 간격으로 설정을 확인합니다. 감사가 완료되는 즉시 게스트 구성 리소스 공급자로 결과가 전송됩니다. 정책 [평가 트리거](../how-to/get-compliance-data.md#evaluation-triggers)가 발생하면 컴퓨터 상태가 게스트 구성 리소스 공급자에 기록됩니다. 그러면 Azure Policy에서 Azure Resource Manager 속성을 평가합니다. 주문형 Azure Policy 평가판은 게스트 구성 리소스 공급자에서 최신 값을 검색 합니다. 그러나 컴퓨터 내에서 구성의 새 감사를 트리거하지 않습니다.
 
 ## <a name="supported-client-types"></a>지원되는 클라이언트 유형
 
@@ -96,7 +96,7 @@ Windows Server Nano Server는 어떤 버전 에서도 지원 되지 않습니다
 
 ## <a name="guest-configuration-extension-network-requirements"></a>게스트 구성 확장 네트워크 요구 사항
 
-Azure에서 게스트 구성 리소스 공급자와 통신 하려면 가상 컴퓨터에서 포트 **443**의 Azure 데이터 센터에 대 한 아웃 바운드 액세스가 필요 합니다. Azure에서 개인 가상 네트워크를 사용 하며 아웃 바운드 트래픽을 허용 하지 않는 경우 [네트워크 보안 그룹](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) 규칙을 사용 하 여 예외를 구성 해야 합니다. 지금은 게스트 구성 Azure Policy에 대 한 서비스 태그가 없습니다.
+Azure에서 게스트 구성 리소스 공급자와 통신 하려면 컴퓨터에 포트 **443**에서 azure 데이터 센터에 대 한 아웃 바운드 액세스가 필요 합니다. Azure에서 개인 가상 네트워크를 사용 하며 아웃 바운드 트래픽을 허용 하지 않는 경우 [네트워크 보안 그룹](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) 규칙을 사용 하 여 예외를 구성 해야 합니다. 지금은 게스트 구성 Azure Policy에 대 한 서비스 태그가 없습니다.
 
 IP 주소 목록 [Microsoft Azure 데이터 센터 Ip 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 다운로드할 수 있습니다. 이 파일은 매주 업데이트되고 현재 배포된 범위와 향후 예정된 IP 범위 변경 내용을 포함합니다. Vm이 배포 된 지역에서 Ip에 대 한 아웃 바운드 액세스를 허용 하기만 하면 됩니다.
 
@@ -105,12 +105,12 @@ IP 주소 목록 [Microsoft Azure 데이터 센터 Ip 범위](https://www.micros
 
 ## <a name="guest-configuration-definition-requirements"></a>게스트 구성 정의 요구 사항
 
-게스트 구성에 의해 실행 되는 각 감사에는 **Deployifnotexists** 정의 및 **AuditIfNotExists** 정의의 두 정책 정의가 필요 합니다. **Deployifnotexists** 정의는 [유효성 검사 도구](#validation-tools)를 지원 하기 위해 게스트 구성 에이전트 및 기타 구성 요소를 사용 하 여 가상 컴퓨터를 준비 하는 데 사용 됩니다.
+게스트 구성에 의해 실행 되는 각 감사에는 **Deployifnotexists** 정의 및 **AuditIfNotExists** 정의의 두 정책 정의가 필요 합니다. **Deployifnotexists** 정의는 [유효성 검사 도구](#validation-tools)를 지원 하기 위해 게스트 구성 에이전트 및 기타 구성 요소를 사용 하 여 컴퓨터를 준비 하는 데 사용 됩니다.
 
 **DeployIfNotExists** 정책 정의는 다음 항목의 유효성을 검사하고 수정합니다.
 
-- 가상 머신에 평가할 구성이 할당되었는지 확인합니다. 현재 할당된 구성이 없으면 다음 작업수을 행하여 할당을 가져오고 가상 머신을 준비합니다.
-  - [관리 ID](../../../active-directory/managed-identities-azure-resources/overview.md)를 사용하여 가상 머신에 인증
+- 컴퓨터에 평가할 구성이 할당 되었는지 확인 합니다. 현재 할당이 없는 경우 다음을 수행 하 여 할당을 가져오고 컴퓨터를 준비 합니다.
+  - [관리 id](../../../active-directory/managed-identities-azure-resources/overview.md) 를 사용 하 여 컴퓨터 인증
   - **Microsoft.GuestConfiguration** 확장의 최신 버전 설치
   - [유효성 검사 도구](#validation-tools) 및 종속성(필요한 경우) 설치
 
@@ -125,11 +125,11 @@ Azure Policy는 게스트 구성 리소스 공급자 **complianceStatus** 속성
 > **AuditIfNotExists** 정책에서 결과를 반환 하려면 **Deployifnotexists** 정책이 필요 합니다.
 > **Deployifnotexists**가 없으면 **AuditIfNotExists** 정책에 "0/0" 리소스가 상태로 표시 됩니다.
 
-할당에 사용할 정의를 그룹화할 수 있도록, 게스트 구성을 위한 모든 기본 제공 정책은 이니셔티브에 포함됩니다. *[미리 보기]: Linux 및 Windows 가상 머신 내부의 암호 보안 설정 감사*라는 기본 제공 이니셔티브에는 정책 18개가 포함되어 있습니다. 그리고 Window용 **DeployIfNotExists** 및 **AuditIfNotExists** 쌍 6개와 Linux용 쌍 3개가 있습니다. 각 경우에서 정의 내의 논리는 [정책 규칙](definition-structure.md#policy-rule) 정의를 기준으로 하여 대상 운영 체제만 평가되는지 확인합니다.
+할당에 사용할 정의를 그룹화할 수 있도록, 게스트 구성을 위한 모든 기본 제공 정책은 이니셔티브에 포함됩니다. *[미리 보기]: Linux 및 Windows 컴퓨터* 내의 암호 보안 설정 감사는 18 개의 정책을 포함 합니다. 그리고 Window용 **DeployIfNotExists** 및 **AuditIfNotExists** 쌍 6개와 Linux용 쌍 3개가 있습니다. 각 경우에서 정의 내의 논리는 [정책 규칙](definition-structure.md#policy-rule) 정의를 기준으로 하여 대상 운영 체제만 평가되는지 확인합니다.
 
 ### <a name="multiple-assignments"></a>여러 할당
 
-게스트 구성 정책은 현재 정책 할당에서 다른 매개 변수를 사용 하는 경우에도 가상 컴퓨터 마다 한 번 동일한 게스트 할당을 할당 하는 것을 지원 합니다.
+게스트 구성 정책은 현재 정책 할당에서 다른 매개 변수를 사용 하는 경우에도 컴퓨터 마다 한 번 동일한 게스트 할당 할당을 지원 합니다.
 
 ## <a name="client-log-files"></a>클라이언트 로그 파일
 

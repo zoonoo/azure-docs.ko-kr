@@ -7,10 +7,6 @@
       items:
         - name: Linux 컨테이너의 웹앱
           href: secure-web-app.md
-    - name: 산업 규정 준수 솔루션
-      items:
-        - name: 지불 카드 산업
-          href: secure-pci-web-app.md
 - name: 개념
   expanded: true
   items:

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 2f9b7f5342753c27bd8159056c8f162a5a4b78d3
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: d5917ad94212c8b18d4362528bdfbafb02aec808
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473538"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171964"
 ---
 # <a name="disable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Active Directory Domain Services 비활성화
 이 문서에서는 Azure Portal을 사용하여 Azure AD 디렉터리에 대한 Azure AD(Active Directory) Domain Services를 사용하지 않도록 설정하는 방법을 설명합니다.
@@ -48,6 +48,6 @@ Azure AD Domain Services 관리되는 도메인을 삭제하려면 다음 단계
 
     ![도메인 삭제 확인](./media/getting-started/domain-services-delete-domain-confirm.png)
 
-관리되는 도메인인 약 15~20분 내에 삭제됩니다.
+관리 되는 도메인을 삭제 하는 데 15-20 분 이상 걸릴 수 있습니다.
 
 [의견 공유](contact-us.md) 를 고려하여 나중에 Azure AD Domain Services를 선택하는 데 도움이 되는 기능을 이해할 수 있습니다. 이 피드백은 서비스를 배포 요구 사항 및 사용 사례에 적합하도록 발전시키는 데 도움이 됩니다.

@@ -5,15 +5,15 @@ services: container-instances
 author: dlepow
 manager: gwallace
 ms.service: container-instances
-ms.topic: overview
+ms.topic: article
 ms.date: 04/24/2019
 ms.author: danlep
-ms.openlocfilehash: 4c1208d8cbc795e53128df0ccf93e79dc427abad
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: a26789bb41fb3fb1e7dec376b7e187f45745ea65
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325846"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172248"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Azure Container Instances에서 컨테이너 리소스 모니터링
 
@@ -49,7 +49,7 @@ Azure Monitor는 다음과 같은 [Azure Container Instances를 위한 메트릭
 1. **개요** 페이지에서 **CPU**와 같은 메트릭 차트 중 하나를 선택합니다. 
 1. **분할 적용** 단추를 선택하고 **컨테이너 이름**을 선택합니다.
 
-![차원][dimension]
+![차원(dimension)][dimension]
 
 ## <a name="get-metrics---azure-cli"></a>메트릭 가져오기 - Azure CLI
 

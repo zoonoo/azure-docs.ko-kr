@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/29/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d500f6c74bb62322a5e14ce3c489e8dba11dc2f2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 190d697dca56fa51d92987f32db0146aa79881aa
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68555778"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162408"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>클라우드에서 Azure Multi-Factor Authentication을 사용하여 사용자 설정 관리
 
@@ -32,9 +32,12 @@ ms.locfileid: "68555778"
 
 ![Azure Portal에서 인증 방법 관리](./media/howto-mfa-userdevicesettings/manage-authentication-methods.png)
 
-1. 암호 재설정은 사용자의 암호를 다시 설정 하 고 다음에 로그인 할 때 변경 해야 하는 임시 암호를 할당 합니다.
-2. MFA를 다시 등록 해야 합니다. 그러면 사용자가 다음 번에 로그인 할 때 새 MFA 인증 방법을 설정 하도록 요청 됩니다.
-3. MFA 세션 철회 사용자의 기억 된 MFA 세션을 지우고 장치에서 정책에 따라 다음에 필요할 때 MFA를 수행 하도록 요구 합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 왼쪽에서 **Azure Active Directory** > **사용자** > **모든 사용자**를 선택합니다.
+1. 작업을 수행 하려는 사용자를 선택 하 고 **인증 방법**을 선택 합니다.
+   - **암호 재설정** 은 사용자의 암호를 다시 설정 하 고 다음에 로그인 할 때 변경 해야 하는 임시 암호를 할당 합니다.
+   - **Mfa를 다시 등록 해야** 합니다. 그러면 사용자가 다음 번에 로그인 할 때 새 mfa 인증 방법을 설정 하도록 요청 됩니다.
+   - **Mfa 세션 철회** 사용자의 기억 된 mfa 세션을 지우고 장치에서 정책에 따라 다음에 필요할 때 mfa를 수행 하도록 요구 합니다.
 
 ## <a name="require-users-to-provide-contact-methods-again"></a>사용자가 연락 방법을 다시 제공하도록 요청
 

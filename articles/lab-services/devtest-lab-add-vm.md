@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
-ms.openlocfilehash: be5ff2c59878cc966e73d89c18343b0a6ea3d89c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 64a5892226b90019f175308b5984dc0a0108e226
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311631"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162246"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 VM 추가
 [첫 번째 VM을 이미 만든 경우](tutorial-create-custom-lab.md#add-a-vm-to-the-lab) 미리 로드된 [Marketplace 이미지](devtest-lab-configure-marketplace-images.md)에서 만들었을 것입니다. 이제 이후의 VM을 랩에 추가하려면 [사용자 지정 이미지](devtest-lab-create-template.md) 또는 [수식](devtest-lab-manage-formulas.md)인 *기본*을 선택하면 됩니다. 이 자습서에서는 DevTest Labs에서 랩에 VM을 추가하기 위해 Azure Portal을 사용하는 방법을 설명합니다.
@@ -107,7 +107,7 @@ VM을 만드는 동안 기존 아티팩트를 추가할 수 있습니다. 각 �
 ## <a name="save-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 저장
 Azure Resource Manager 템플릿을 사용하면 반복 가능한 배포를 선언적으로 정의할 수 있습니다.
 다음 단계는 생성 중인 VM에 대한 Azure Resource Manager 템플릿을 저장하는 방법을 설명합니다.
-저장한 Azure Resource Manager 템플릿은 [Azure PowerShell로 새 VM을 배포](../azure-resource-manager/resource-group-overview.md#template-deployment)하는 데 사용할 수 있습니다.
+저장한 Azure Resource Manager 템플릿은 [Azure PowerShell로 새 VM을 배포](../azure-resource-manager/template-deployment-overview.md)하는 데 사용할 수 있습니다.
 
 1. **가상 머신** 창에서 **Azure Resource Manager 템플릿 보기**를 선택합니다.
 2. **Azure Resource Manager 템플릿 보기** 창에서 템플릿 텍스트를 선택합니다.

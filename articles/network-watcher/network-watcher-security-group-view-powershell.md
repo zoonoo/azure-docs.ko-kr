@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 389eab13193b313d8609bfa54d5e0dc42329f5ad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4c7b79460169612a046b19a4d66f222936710a8e
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720784"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70163896"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>PowerShell를 사용하는 보안 그룹 보기에서 Virtual Machine 보안 분석
 
@@ -33,7 +33,7 @@ ms.locfileid: "64720784"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 이 시나리오에서는 `Get-AzNetworkWatcherSecurityGroupView` cmdlet을 실행하여 보안 규칙 정보를 검색합니다.
 
@@ -48,8 +48,7 @@ ms.locfileid: "64720784"
 첫 번째 단계는 Network Watcher 인스턴스를 검색하는 것입니다. 이 변수는 `Get-AzNetworkWatcherSecurityGroupView` cmdlet으로 전달됩니다.
 
 ```powershell
-$nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
-$networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
+$networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
 ```
 
 ## <a name="get-a-vm"></a>VM 확인

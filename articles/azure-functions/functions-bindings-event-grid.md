@@ -7,16 +7,15 @@ author: craigshoemaker
 manager: gwallace
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: f48eced2ebcc4ad92c5124194ed2e2df92f64f11
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: d2e15c63ac6d93824aeab3f251c2860b7ea114d6
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480652"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70086819"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure Functions의 Event Grid 트리거
 
@@ -42,7 +41,7 @@ Event Grid 트리거는 [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://w
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
 Event Grid 트리거에 대한 다음과 같은 언어별 예제를 참조하세요.
 
@@ -224,7 +223,7 @@ def main(event: func.EventGridEvent):
 
 ### <a name="trigger---java-examples"></a>트리거 - Java 예제
 
-이 섹션에는 다음 예제가 포함되어 있습니다.
+이 섹션에서는 다음과 같은 예를 보여 줍니다.
 
 * [Event Grid 트리거, 문자열 매개 변수](#event-grid-trigger-string-parameter-java)
 * [Event Grid 트리거, POJO 매개 변수](#event-grid-trigger-pojo-parameter-java)
@@ -317,7 +316,7 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, ILog
 
 전체 예제는 C# 예제를 참조하세요.
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 다음 표에서는 *function.json* 파일에 설정된 바인딩 구성 속성을 설명합니다. `EventGridTrigger` 특성에서 설정할 생성자 매개 변수 또는 속성은 없습니다.
 
@@ -327,7 +326,7 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, ILog
 | **direction** | 필수 - `in`으로 설정해야 합니다. |
 | **name** | 필수 - 이벤트 데이터를 수신하는 매개 변수에 대한 함수 코드에 사용되는 변수 이름입니다. |
 
-## <a name="usage"></a>사용 현황
+## <a name="usage"></a>사용법
 
 Azure Functions 1.x의 C# 및 C# 함수의 경우 Event Grid 트리거에 대해 다음 매개 변수 형식을 사용할 수 있습니다.
 
@@ -385,7 +384,7 @@ Event Grid 이벤트의 데이터는 HTTP 요청 본문에 JSON 개체로 수신
 
 Event Grid HTTP 요청 수신을 시작하려면 함수를 호출하는 엔드포인트 URL을 지정하는 Event Grid 구독을 만듭니다.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 Event Grid 트리거를 사용하여 Azure Portal에서 개발하는 함수에 대해 **Event Grid 구독 추가**를 선택합니다.
 
@@ -530,13 +529,13 @@ Event Grid 함수를 로컬로 실행합니다.
 * `aeg-event-type: Notification` 헤더를 설정합니다.
 * 요청 본문에 RequestBin 데이터를 붙여 넣습니다.
 * Event Grid 트리거 함수의 URL에 게시 합니다.
-  * 2\.x에 대 한 패턴을 사용 합니다.
+  * 2\.x의 경우 다음 패턴을 사용 합니다.
 
     ```
     http://localhost:7071/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
     ```
 
-  * 1\.x 사용:
+  * 1\.x의 경우 다음을 사용 합니다.
 
     ```
     http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
@@ -556,7 +555,7 @@ Event Grid 트리거 함수가 실행되고, 다음 예제와 비슷한 결과�
 
 ## <a name="local-testing-with-ngrok"></a>ngrok를 사용한 로컬 테스트
 
-Event Grid 트리거를 로컬로 테스트하는 다른 방법은 인터넷과 개발 컴퓨터 간의 HTTP 연결을 자동화하는 것입니다. 와 같은 도구를 사용 하 여 이렇게 [ngrok](https://ngrok.com/):
+Event Grid 트리거를 로컬로 테스트하는 다른 방법은 인터넷과 개발 컴퓨터 간의 HTTP 연결을 자동화하는 것입니다. [Ngrok](https://ngrok.com/)와 같은 도구를 사용 하 여이 작업을 수행할 수 있습니다.
 
 1. [ngrok 엔드포인트를 만듭니다](#create-an-ngrok-endpoint).
 1. [Event Grid 트리거 함수를 실행](#run-the-event-grid-trigger-function)합니다.

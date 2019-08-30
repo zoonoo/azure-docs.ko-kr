@@ -6,21 +6,35 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 10ddf4c42ac5aa2d1cffd7cbca6930896103d2c5
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: e17fbcebc128a7169953ed05de617efa25fc25f8
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147774"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172711"
 ---
+::: zone target="docs"
+
 # <a name="azure-data-box-disk-system-requirements"></a>Azure Data Box Disk 시스템 요구 사항
 
 이 문서에서는 Microsoft Azure Data Box Disk 솔루션 및 Data Box Disk에 연결하는 클라이언트에 대한 중요한 시스템 요구 사항을 설명합니다. Data Box Disk를 배포하기 전에 정보를 신중하게 검토하고 배포 및 후속 작업 중 필요에 따라 다시 검토하는 것이 좋습니다.
 
 시스템 요구 사항은 디스크에 연결하는 클라이언트에 대해 지원되는 플랫폼, 지원되는 스토리지 계정 및 스토리지 형식을 포함합니다.
 
+::: zone-end
+
+::: zone target="chromeless"
+
+## <a name="prerequisites"></a>필수 구성 요소
+
+데이터를 복사할 수 있는 클라이언트 컴퓨터가 있습니다. 클라이언트 컴퓨터는 다음 작업을 수행해야 합니다.
+
+- 지원 되는 운영 체제를 실행 합니다.
+- 다른 필수 소프트웨어가 설치 되어 있어야 합니다.
+
+::: zone-end
 
 ## <a name="supported-operating-systems-for-clients"></a>클라이언트에 대해 지원되는 운영 체제
 
@@ -36,7 +50,7 @@ Data Box Disk에 연결된 클라이언트를 통해 디스크 잠금 해제 및
 
 Windows 클라이언트의 경우 다음 항목도 설치해야 합니다.
 
-| **소프트웨어**| **버전** |
+| **소프트웨어**| **Version** |
 | --- | --- |
 | Windows PowerShell |5.0 |
 | .NET Framework |4.5.1 |
@@ -49,6 +63,8 @@ Linux 클라이언트의 경우 Data Box Disk 도구 집합이 다음 필수 소
 
 - dislocker
 - OpenSSL
+
+::: zone target="docs"
 
 ## <a name="supported-connection"></a>지원되는 연결
 
@@ -68,19 +84,21 @@ Data Box Disk에 대해 지원되는 스토리지 형식의 목록은 다음과 
 > Azure Data Lake Storage Gen 2 계정은 지원되지 않습니다.
 
 
-## <a name="supported-storage-types-for-upload"></a>업로드에 대 한 지원 되는 저장소 유형
+## <a name="supported-storage-types-for-upload"></a>업로드를 위해 지원 되는 저장소 유형
 
-Data Box 디스크를 사용 하 여 Azure에 업로드에 대 한 지원 저장소 형식의 목록은 다음과 같습니다.
+다음은 Data Box Disk를 사용 하 여 Azure에 업로드 하도록 지원 되는 저장소 유형 목록입니다.
 
 | **파일 형식** | **참고 사항** |
 | --- | --- |
 | Azure 블록 Blob | |
 | Azure 페이지 Blob  | |
-| Azure 파일  | |
+| Azure Files  | |
 | Managed Disks | |
 
 
 ## <a name="next-step"></a>다음 단계
 
 * [Azure Data Box Disk 배포](data-box-disk-deploy-ordered.md)
+
+::: zone-end
 

@@ -10,14 +10,14 @@ ms.topic: article
 ms.custom: seodec18, seo-java-august2019
 ms.date: 04/15/2019
 ms.author: shvija
-ms.openlocfilehash: c85d69b823956a5cf5e7f9d6dfa3c39b918cd465
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 8684e786de64f91acba0c61017083015288ca4eb
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034809"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172779"
 ---
-# <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-java"></a>Java를 사용 하 여 Azure Event Hubs에서 이벤트 보내기 또는 받기
+# <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs"></a>Java를 사용 하 여 Azure에서 이벤트를 보내거나 이벤트를 수신 Event Hubs
 
 Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 디바이스에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. Event Hub로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/스토리지 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.
 
@@ -26,7 +26,7 @@ Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 
 > [!NOTE]
 > [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend)에서 샘플로 이 빠른 시작을 다운로드하여 `EventHubConnectionString` 및 `EventHubName` 문자열을 이벤트 허브 값으로 대체하고, 실행합니다. 또는 이 자습서의 단계를 수행하여 직접 만들 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
@@ -174,14 +174,14 @@ eventHubClient.closeSync();
 
 **EventProcessorHost**는 영구적 검사점을 관리하여 Event Hubs의 이벤트 수신을 간소화하고 이러한 Event Hubs에서 병렬 수신하는 Java 클래스입니다. EventProcessorHost를 사용하면 다른 노드에 호스트된 경우라도 여러 수신기 간에 이벤트를 분할할 수 있습니다. 이 예제에서는 단일 수신기에 대해 EventProcessorHost를 사용하는 방법을 보여 줍니다.
 
-### <a name="create-a-storage-account"></a>스토리지 계정 만들기
+### <a name="create-a-storage-account"></a>저장소 계정 만들기
 
 EventProcessorHost를 사용 하려면 [Azure Storage 계정] [Azure Storage 계정]이 있어야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인 하 고 화면의 왼쪽에서 **리소스 만들기** 를 선택 합니다.
 2. **저장소**를 선택 하 고 **저장소 계정**을 선택 합니다. **스토리지 계정 만들기** 창에서 스토리지 계정에 사용할 이름을 입력합니다. 나머지 필드를 완료 하 고 원하는 지역을 선택한 후 **만들기**를 선택 합니다.
    
-    ![스토리지 계정 만들기](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
+    ![저장소 계정 만들기](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 
 3. 새로 만든 저장소 계정을 선택 하 고 **액세스 키**를 선택 합니다.
    

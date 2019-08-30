@@ -6,14 +6,14 @@ manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 08/29/2019
 ms.author: v-adgera
-ms.openlocfilehash: eca355a51b516311d060df09905c1df769037ec5
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 55b0676ce0a0dc6d4347ddcadf43b7b650f0f9a1
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722845"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172803"
 ---
 # <a name="how-to-query-azure-digital-twins-apis-for-common-tasks"></a>일반적인 작업에 대해 Azure Digital Twins API를 쿼리하는 방법
 
@@ -238,4 +238,4 @@ ms.locfileid: "67722845"
 
 관리 API를 사용하여 인증하는 방법을 알아보려면 [API를 사용하여 인증](./security-authenticating-apis.md)을 참고하세요.
 
-API 끝점에 대 한 자세한 내용은 [디지털 쌍 Swagger를 사용 하는 방법을](./how-to-use-swagger.md)합니다.
+API 끝점에 대 한 자세한 내용은 [Digital Twins Swagger를 사용 하는 방법](./how-to-use-swagger.md)을 참조 하세요.

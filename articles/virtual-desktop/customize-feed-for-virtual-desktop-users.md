@@ -5,20 +5,24 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 40fd863d9ad92b91b8e691fbb7be233e16b82c17
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 49b678bea820f3cbead7479bb414ca9f35a29fa4
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950744"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70163630"
 ---
 # <a name="customize-feed-for-windows-virtual-desktop-users"></a>Windows Virtual Desktop 사용자용 피드를 사용자 지정
 
 사용자에 게 RemoteApp 및 원격 데스크톱 리소스가 인식할 수 있는 방식으로 표시 되도록 피드를 사용자 지정할 수 있습니다.
 
-먼저 PowerShell 세션에서 사용할 [Windows Virtual Desktop PowerShell 모듈을 다운로드하고 가져옵니다](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)(아직 다운로드하고 가져오지 않은 경우).
+먼저 PowerShell 세션에서 사용할 [Windows Virtual Desktop PowerShell 모듈을 다운로드하고 가져옵니다](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)(아직 다운로드하고 가져오지 않은 경우). 그런 후 다음 cmdlet을 실행 하 여 계정에 로그인 합니다.
+
+```powershell
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+```
 
 ## <a name="customize-the-display-name-for-a-remoteapp"></a>RemoteApp의 표시 이름 사용자 지정
 

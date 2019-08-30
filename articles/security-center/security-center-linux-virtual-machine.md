@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: yurid
-ms.openlocfilehash: 725ac79414a9f94a40675bffe28a6972120c0cbf
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 402406f8aa677348d30551937cfca1e2726efba1
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515501"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70033959"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines-with-linux"></a>Linux에 설치된 Azure Security Center 및 Azure Virtual Machines
 [Azure Security Center](https://azure.microsoft.com/services/security-center/)를 통해 위협을 예방하고 감지하며 대응할 수 있습니다. 이는 Azure 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
@@ -42,7 +42,7 @@ Security Center는 Azure VM을 보호하는 것 외에도, Cloud Services, App S
 > 
 > 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 Azure Security Center를 시작하려면 다음 사항을 이해하고 고려해야 합니다.
 
 * Microsoft Azure를 구독해야 합니다. 보안 센터의 무료 및 표준 계층에 대한 자세한 내용은 [보안 센터 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)을 참조하세요.
@@ -85,7 +85,7 @@ Azure Security Center에서 구성한 보안 정책을 기반으로 생성된 �
 ![보안 상태](./media/security-center-virtual-machine/security-center-virtual-machine-fig2.png)
 
 ## <a name="manage-and-respond-to-security-alerts"></a>보안 경고 관리 및 응답
-보안 센터는 방화벽 및 엔드포인트 보호 솔루션과 같은 Azure 리소스, 네트워크 및 연결된 파트너 솔루션의 로그 데이터를 자동으로 수집하고 분석하며 통합하여 실제 위협을 감지하고 가양성을 줄입니다. [검색 기능](security-center-detection-capabilities.md)의 다양한 집계를 활용하여 보안 센터는 신속하게 문제를 조사하고 가능한 공격을 해결하는 방법에 대한 권장 사항을 제공할 수 있도록 우선 순위가 지정된 보안 경고를 생성할 수 있습니다.
+보안 센터는 방화벽 및 엔드포인트 보호 솔루션과 같은 Azure 리소스, 네트워크 및 연결된 파트너 솔루션의 로그 데이터를 자동으로 수집하고 분석하며 통합하여 실제 위협을 감지하고 가양성을 줄입니다. [검색 기능](security-center-alerts-overview.md#detect-threats)의 다양한 집계를 활용하여 보안 센터는 신속하게 문제를 조사하고 가능한 공격을 해결하는 방법에 대한 권장 사항을 제공할 수 있도록 우선 순위가 지정된 보안 경고를 생성할 수 있습니다.
 
 ![보안 경고](./media/security-center-virtual-machine/security-center-virtual-machine-fig3.png)
 

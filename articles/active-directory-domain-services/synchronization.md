@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 85b1e3eae9d7472fa829665707fca481a28f0623
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 88a5e5fa1267e834a04c46ed38868cf74acd9bb0
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011283"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171941"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리 되는 도메인에서 개체 및 자격 증명을 동기화 하는 방법
 
@@ -30,7 +30,7 @@ Azure Active Directory Domain Services (AD DS) 관리 되는 도메인의 개체
 
 ## <a name="synchronization-from-azure-ad-to-azure-ad-ds"></a>Azure AD에서 Azure AD DS로 동기화
 
-사용자 계정, 그룹 멤버 자격 및 자격 증명 해시는 Azure AD에서 Azure AD DS로 한 방법으로 동기화 됩니다. 이 동기화 프로세스는 자동입니다. 이 동기화 프로세스를 구성, 모니터링 또는 관리할 필요가 없습니다. 초기 동기화는 Azure AD 디렉터리의 개체 수에 따라 며칠에서 몇 시간이 걸릴 수 있습니다. 초기 동기화가 완료 되 면 azure AD에서 적용 된 변경 내용 (예: 암호 또는 특성 변경)이 Azure AD DS에서 업데이트 되는 데 약 20-30 분이 소요 됩니다.
+사용자 계정, 그룹 멤버 자격 및 자격 증명 해시는 Azure AD에서 Azure AD DS로 한 방법으로 동기화 됩니다. 이 동기화 프로세스는 자동입니다. 이 동기화 프로세스를 구성, 모니터링 또는 관리할 필요가 없습니다. 초기 동기화는 Azure AD 디렉터리의 개체 수에 따라 며칠에서 몇 시간이 걸릴 수 있습니다. 초기 동기화가 완료 된 후에는 Azure AD에서 적용 된 변경 내용 (예: 암호 또는 특성 변경)이 Azure AD DS에 자동으로 동기화 됩니다.
 
 동기화 프로세스는 설계에 따라 단방향/단방향입니다. Azure AD DS에서 Azure AD로의 변경 내용이 역방향으로 동기화 되지 않습니다. Azure AD DS 관리 되는 도메인은 사용자가 만들 수 있는 사용자 지정 Ou를 제외 하 고는 대부분 읽기 전용입니다. Azure AD DS 관리 되는 도메인 내에서 사용자 특성, 사용자 암호 또는 그룹 멤버 자격을 변경할 수 없습니다.
 

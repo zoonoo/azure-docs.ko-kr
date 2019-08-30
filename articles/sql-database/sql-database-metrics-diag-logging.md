@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/21/2019
-ms.openlocfilehash: 1b35533eeb4c4a364588dbea11f74e8d6b76df3b
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: d9f1afdff53ada2df7722fcfdd7014fb6c417e39
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998217"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135182"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅
 
@@ -511,7 +511,7 @@ Azure SQL Database, 탄력적 풀 및 관리 되는 인스턴스에 사용할 �
 
 ### <a name="query-store-wait-statistics"></a>쿼리 저장소 대기 통계
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
@@ -549,13 +549,13 @@ Azure SQL Database, 탄력적 풀 및 관리 되는 인스턴스에 사용할 �
 
 ### <a name="errors-dataset"></a>오류 데이터 세트
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
 |형식|항상: AzureDiagnostics |
-|ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQ |
+|ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |범주|범주 이름. 항상: 오류 |
 |OperationName|작업의 이름입니다. 항상: ErrorEvent |
 |리소스|리소스의 이름 |
@@ -630,7 +630,7 @@ Azure SQL Database, 탄력적 풀 및 관리 되는 인스턴스에 사용할 �
 
 ### <a name="blockings-dataset"></a>차단 데이터 세트
 
-|속성|설명|
+|속성|Description|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
@@ -675,7 +675,7 @@ Azure SQL Database, 탄력적 풀 및 관리 되는 인스턴스에 사용할 �
 
 ### <a name="automatic-tuning-dataset"></a>자동 조정 데이터 세트
 
-|속성|설명|
+|속성|Description|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |

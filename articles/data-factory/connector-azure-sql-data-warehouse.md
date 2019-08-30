@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 45f7db943499b8a722b8e203d676d1d80eb5091e
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 49a0c7597e8d44e3f60e2d3b6bd4c14cad1524b5
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996671"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172632"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 복사 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스의 버전을 선택 합니다."]
@@ -536,6 +536,10 @@ PolyBase는 1MB보다 작은 행으로 제한됩니다. 작고 VARCHR로 (MAX), 
 
 또는 이러한 광범위 한 열이 포함 된 데이터의 경우 PolyBase를 사용 하 여 ADF를 사용 하 여 데이터를 로드할 수 있습니다. "PolyBase 허용" 설정을 해제 합니다.
 
+### <a name="sql-data-warehouse-resource-class"></a>SQL Data Warehouse 리소스 클래스
+
+가능한 최고 수준까지 처리량을 높이려면 PolyBase를 통해 SQL Data Warehouse에 데이터를 로드하는 사용자에게 더 큰 리소스 클래스를 할당합니다.
+
 ### <a name="polybase-troubleshooting"></a>PolyBase 문제 해결
 
 **Decimal 열로 로드**
@@ -549,13 +553,7 @@ ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data typ
 이 솔루션은 복사 작업 싱크에서 PolyBase 설정 > "**형식 기본값 사용**" 옵션을 선택 취소 하는 것입니다 (false로 설정). "[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
 )"은 polybase가 텍스트 파일에서 데이터를 검색할 때 분리 된 텍스트 파일에서 누락 값을 처리 하는 방법을 지정 하는 PolyBase 네이티브 구성입니다. 
 
-**기타**
-
-### <a name="sql-data-warehouse-resource-class"></a>SQL Data Warehouse 리소스 클래스
-
-가능한 최고 수준까지 처리량을 높이려면 PolyBase를 통해 SQL Data Warehouse에 데이터를 로드하는 사용자에게 더 큰 리소스 클래스를 할당합니다.
-
-### <a name="tablename-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 **tableName**
+**`tableName`Azure SQL Data Warehouse에서**
 
 다음 표에서는 JSON 데이터 세트의 **tableName** 속성을 지정하는 방법에 대한 예를 제공합니다. 스키마 및 테이블 이름의 여러 조합을 보여 줍니다.
 
@@ -572,7 +570,7 @@ ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data typ
 Type=System.Data.SqlClient.SqlException,Message=Invalid object name 'stg.Account_test'.,Source=.Net SqlClient Data Provider
 ```
 
-### <a name="columns-with-default-values"></a>기본값이 있는 열
+**기본값이 있는 열**
 
 현재, Data Factory의 PolyBase 기능은 대상 테이블과 동일한 열 수만 허용합니다. 예를 들어, 네 개의 열이 있고 그 중 한 열이 기본값으로 정의된 테이블이 있다고 가정합니다. 이 경우, 입력 데이터에 네 개의 열이 있어야 합니다. 3열 입력 데이터 세트를 제공하면 다음 메시지와 비슷한 오류가 발생합니다.
 

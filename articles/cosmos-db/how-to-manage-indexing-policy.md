@@ -4,14 +4,14 @@ description: Azure Cosmos DB의 인덱싱 정책 관리 방법을 알아봅니�
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 08/29/2019
 ms.author: thweiss
-ms.openlocfilehash: 6e935b88c474d28c06b8cdd76d36f5ba64c942f9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a6c1ec6d58939336fb8a982e3ab1b9be20d4e0a5
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093205"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172161"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책 관리
 
@@ -61,14 +61,45 @@ az cosmosdb collection update \
 
 [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)(해당 사용법에 관한 [이 빠른 시작](create-sql-api-dotnet.md) 참조)의 `DocumentCollection` 개체는 `IndexingMode`를 변경하고 `IncludedPaths` 및 `ExcludedPaths`를 추가 또는 제거할 수 있는 `IndexingPolicy` 속성을 표시합니다.
 
+컨테이너의 세부 정보를 검색 합니다.
+
 ```csharp
-// retrieve the container's details
 ResourceResponse<DocumentCollection> containerResponse = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("database", "container"));
-// set the indexing mode to Consistent
+```
+
+인덱싱 모드를 일관 되 게 설정
+
+```csharp
 containerResponse.Resource.IndexingPolicy.IndexingMode = IndexingMode.Consistent;
-// add an excluded path
-containerResponse.Resource.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/headquarters/employees/?" });
-// update the container with our changes
+```
+
+포함 된 경로 추가
+
+```csharp
+containerResponse.Resource.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/age/*" });
+```
+
+제외 된 경로 추가
+
+```csharp
+containerResponse.Resource.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/name/*" });
+```
+
+공간 인덱스 추가
+
+```csharp
+containerResponse.Resource.IndexingPolicy.SpatialIndexes.Add(new SpatialSpec() { Path = "/locations/*", SpatialTypes = new Collection<SpatialType>() { SpatialType.Point } } );
+```
+
+복합 인덱스 추가
+
+```csharp
+containerResponse.Resource.IndexingPolicy.CompositeIndexes.Add(new Collection<CompositePath> {new CompositePath() { Path = "/name", Order = CompositePathSortOrder.Ascending }, new CompositePath() { Path = "/age", Order = CompositePathSortOrder.Descending }});
+```
+
+변경 내용으로 컨테이너 업데이트
+
+```csharp
 await client.ReplaceDocumentCollectionAsync(containerResponse.Resource);
 ```
 
@@ -85,23 +116,82 @@ long indexTransformationProgress = container.IndexTransformationProgress;
 
 [Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)(해당 사용법에 관한 [이 빠른 시작](create-sql-api-java.md) 참조)의 `DocumentCollection` 개체는 `getIndexingPolicy()` 및 `setIndexingPolicy()` 메서드를 표시합니다. 해당 메서드가 조작하는 `IndexingPolicy` 개체를 사용하여 인덱싱 모드를 변경하고 포함된 경로 및 제외된 경로를 추가 또는 제거할 수 있습니다.
 
+컨테이너의 세부 정보를 검색 합니다.
+
 ```java
-// retrieve the container's details
 Observable<ResourceResponse<DocumentCollection>> containerResponse = client.readCollection(String.format("/dbs/%s/colls/%s", "database", "container"), null);
 containerResponse.subscribe(result -> {
-    DocumentCollection container = result.getResource();
-    IndexingPolicy indexingPolicy = container.getIndexingPolicy();
-    // set the indexing mode to Consistent
-    indexingPolicy.setIndexingMode(IndexingMode.Consistent);
-    Collection<ExcludedPath> excludedPaths = new ArrayList<>();
-    ExcludedPath excludedPath = new ExcludedPath();
-    excludedPath.setPath("/*");
-    // add an excluded path
-    excludedPaths.add(excludedPath);
-    indexingPolicy.setExcludedPaths(excludedPaths);
-    // update the container with our changes
-    client.replaceCollection(container, null);
-});
+DocumentCollection container = result.getResource();
+IndexingPolicy indexingPolicy = container.getIndexingPolicy();
+```
+
+인덱싱 모드를 일관 되 게 설정
+
+```java
+indexingPolicy.setIndexingMode(IndexingMode.Consistent);
+```
+
+포함 된 경로 추가
+
+```java
+Collection<IncludedPath> includedPaths = new ArrayList<>();
+ExcludedPath includedPath = new IncludedPath();
+includedPath.setPath("/age/*");
+includedPaths.add(includedPath);
+indexingPolicy.setIncludedPaths(includedPaths);
+```
+
+제외 된 경로 추가
+
+```java
+Collection<ExcludedPath> excludedPaths = new ArrayList<>();
+ExcludedPath excludedPath = new ExcludedPath();
+excludedPath.setPath("/name/*");
+excludedPaths.add(excludedPath);
+indexingPolicy.setExcludedPaths(excludedPaths);
+```
+
+공간 인덱스 추가
+
+```java
+Collection<SpatialSpec> spatialIndexes = new ArrayList<SpatialSpec>();
+Collection<SpatialType> collectionOfSpatialTypes = new ArrayList<SpatialType>();
+
+SpatialSpec spec = new SpatialSpec();
+spec.setPath("/locations/*");
+collectionOfSpatialTypes.add(SpatialType.Point);          
+spec.setSpatialTypes(collectionOfSpatialTypes);
+spatialIndexes.add(spec);
+
+indexingPolicy.setSpatialIndexes(spatialIndexes);
+
+```
+
+복합 인덱스 추가
+
+```java
+Collection<ArrayList<CompositePath>> compositeIndexes = new ArrayList<>();
+ArrayList<CompositePath> compositePaths = new ArrayList<>();
+
+CompositePath nameCompositePath = new CompositePath();
+nameCompositePath.setPath("/name/*");
+nameCompositePath.setOrder(CompositePathSortOrder.Ascending);
+
+CompositePath ageCompositePath = new CompositePath();
+ageCompositePath.setPath("/age/*");
+ageCompositePath.setOrder(CompositePathSortOrder.Descending);
+
+compositePaths.add(ageCompositePath);
+compositePaths.add(nameCompositePath);
+
+compositeIndexes.add(compositePaths);
+indexingPolicy.setCompositeIndexes(compositeIndexes);
+```
+
+변경 내용으로 컨테이너 업데이트
+
+```java
+ client.replaceCollection(container, null);
 ```
 
 컨테이너에 대한 인덱스 변환 진행률을 추적하려면 채워야 할 할당량 정보를 요청하는 `RequestOptions` 개체를 전달한 다음, `x-ms-documentdb-collection-index-transformation-progress` 응답 헤더에서 값을 검색합니다.
@@ -122,14 +212,58 @@ containerResponse.subscribe(result -> {
 
 [Node.js SDK](https://www.npmjs.com/package/@azure/cosmos)(해당 사용법에 관한 [이 빠른 시작](create-sql-api-nodejs.md) 참조)의 `ContainerDefinition` 인터페이스는 `indexingMode`를 변경하고 `includedPaths` 및 `excludedPaths`를 제거할 수 있는 `indexingPolicy` 개체를 표시합니다.
 
+컨테이너의 세부 정보를 검색 합니다.
+
 ```javascript
-// retrieve the container's details
 const containerResponse = await client.database('database').container('container').read();
-// set the indexing mode to Consistent
+```
+
+인덱싱 모드를 일관 되 게 설정
+
+```javascript
 containerResponse.body.indexingPolicy.indexingMode = "consistent";
-// add an excluded path
-containerResponse.body.indexingPolicy.excludedPaths.push({ path: '/headquarters/employees/?' });
-// update the container with our changes
+```
+
+공간 인덱스를 포함 하 여 포함 된 경로 추가
+
+```javascript
+containerResponse.body.indexingPolicy.includedPaths.push({
+    includedPaths: [
+      {
+        path: "/age/*",
+        indexes: [
+          {
+            kind: cosmos.DocumentBase.IndexKind.Range,
+            dataType: cosmos.DocumentBase.DataType.String
+          },
+          {
+            kind: cosmos.DocumentBase.IndexKind.Range,
+            dataType: cosmos.DocumentBase.DataType.Number
+          }
+        ]
+      },
+      {
+        path: "/locations/*",
+        indexes: [
+          {
+            kind: cosmos.DocumentBase.IndexKind.Spatial,
+            dataType: cosmos.DocumentBase.DataType.Point
+          }
+        ]
+      }
+    ]
+  });
+```
+
+제외 된 경로 추가
+
+```javascript
+containerResponse.body.indexingPolicy.excludedPaths.push({ path: '/name/*' });
+```
+
+변경 내용으로 컨테이너 업데이트
+
+```javascript
 const replaceResponse = await client.database('database').container('container').replace(containerResponse.body);
 ```
 
@@ -148,16 +282,63 @@ const indexTransformationProgress = replaceResponse.headers['x-ms-documentdb-col
 
 [Python SDK](https://pypi.org/project/azure-cosmos/)(해당 사용법에 관한 [이 빠른 시작](create-sql-api-python.md) 참조)를 사용하는 경우 컨테이너 구성은 사전으로 관리됩니다. 이 사전에서 인덱싱 정책 및 해당 정책의 모든 특성에 액세스할 수 있습니다.
 
+컨테이너의 세부 정보를 검색 합니다.
+
 ```python
 containerPath = 'dbs/database/colls/collection'
-# retrieve the container's details
 container = client.ReadContainer(containerPath)
-# set the indexing mode to Consistent
+```
+
+인덱싱 모드를 일관 되 게 설정
+
+```python
 container['indexingPolicy']['indexingMode'] = 'consistent'
-# add an excluded path
-container['indexingPolicy']['excludedPaths'] = [
-    {"path": "/headquarters/employees/?"}]
-# update the container with our changes
+```
+
+포함 된 경로 및 공간 인덱스를 사용 하 여 인덱싱 정책 정의
+
+```python
+container["indexingPolicy"] = {
+
+    "indexingMode":"consistent",
+    "spatialIndexes":[
+                {"path":"/location/*","types":["Point"]}
+             ],
+    "includedPaths":[{"path":"/age/*","indexes":[]}],
+    "excludedPaths":[{"path":"/*"}]
+}
+```
+
+제외 된 경로를 사용 하 여 인덱싱 정책 정의
+
+```python
+container["indexingPolicy"] = {
+    "indexingMode":"consistent",
+    "includedPaths":[{"path":"/*","indexes":[]}],
+    "excludedPaths":[{"path":"/name/*"}]
+}
+```
+
+복합 인덱스 추가
+
+```python
+container['indexingPolicy']['compositeIndexes'] = [
+                [
+                    {
+                        "path": "/name",
+                        "order": "ascending"
+                    },
+                    {
+                        "path": "/age",
+                        "order": "descending"
+                    }
+                ]
+                ]
+```
+
+변경 내용으로 컨테이너 업데이트
+
+```python
 response = client.ReplaceContainer(containerPath, container)
 ```
 

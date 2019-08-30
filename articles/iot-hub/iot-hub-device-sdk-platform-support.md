@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: robinsh
-ms.openlocfilehash: 1fbaa54be4419d493d5179a6d6d0884393c8138a
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 9a64c6e476910ab4fe983fa949680f05fdded3ae
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967334"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70161852"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Azure IoT SDK 플랫폼 지원
 
@@ -32,7 +32,7 @@ Microsoft는 다양한 운영 체제/플랫폼/프레임워크를 지원하며, 
 * .NET Standard 1.3(.NET Core 2.1 및 .NET Framework 4.7 포함)
 * Xamarin iOS, Android, UWP
 
-## <a name="supported-platforms"></a>지원되는 플랫폼
+## <a name="supported-platforms"></a>지원 플랫폼
 
 다양한 플랫폼이 지원됩니다.
 
@@ -62,7 +62,7 @@ Microsoft는 다양한 운영 체제/플랫폼/프레임워크를 지원하며, 
 
 ### <a name="net-sdk"></a>.NET SDK
 
-| OS                  | 아키텍처 | 프레임워크            | Standard          |
+| OS                  | 아키텍처 | 프레임워크            | 표준          |
 |---------------------|------|----------------------|-------------------|
 | Ubuntu 16.04 LTS    | X64  | .NET Core 2.1        | .NET Standard 2.0 |
 | Windows Server 2016 | X64  | .NET Core 2.1        | .NET Standard 2.0 |
@@ -71,10 +71,10 @@ Microsoft는 다양한 운영 체제/플랫폼/프레임워크를 지원하며, 
 
 ### <a name="nodejs-sdk"></a>Node.js SDK
 
-| OS                                           | 아키텍처 | 노드 버전 |
-|----------------------------------------------|------|--------------|
-| Ubuntu 16.04 LTS(Node 6 Docker 이미지 사용) | X64  | Node 6       |
-| Windows Server 2016                          | X64  | Node 6       |
+| OS                                           | 아키텍처 | 노드 버전    |
+|----------------------------------------------|------|-----------------|
+| Ubuntu 16.04 LTS(Node 6 Docker 이미지 사용) | X64  | LTS 및 Current |
+| Windows Server 2016                          | X64  | LTS 및 Current |
 
 ### <a name="java-sdk"></a>Java SDK
 
@@ -89,7 +89,7 @@ Microsoft는 다양한 운영 체제/플랫폼/프레임워크를 지원하며, 
 
 고객은 Azure IoT C SDK를 이식하여, 특히 SDK의 PAL(플랫폼 추상화 계층)을 만들어서 플랫폼 지원을 확장할 수 있습니다. Microsoft는 파트너와 협력하여 확장된 지원을 제공합니다. 파트너 목록은 C SDK를 더 많은 플랫폼에 이식하고 PAL을 유지 관리합니다.
 
-| 파트너             | 디바이스                            | 링크                     | 지원 |
+| 파트너             | 장치                            | 링크                     | 지원 |
 |---------------------|------------------------------------|--------------------------|---------|
 | Espressif           | ESP32 <br/> ESP8266                              | [Esp-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
 | OPC 클래식            | Qualcomm MDM9206 LTE IoT 모뎀     | [IoT SDK용 Qualcomm LTE](https://developer.qualcomm.com/software/lte-iot-sdk) | [포럼](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |

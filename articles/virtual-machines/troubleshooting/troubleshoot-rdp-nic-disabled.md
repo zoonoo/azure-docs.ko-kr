@@ -7,18 +7,17 @@ author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: 742026a8ff35f318f58674ebc2fb5c03e45161a8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9038bdb79504289c3aa149868d8a02e74c11fdb7
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60319006"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103440"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>네트워크 인터페이스를 사용하지 않기 때문에 원격 데스크톱을 VM에 사용할 수 없음
 
@@ -31,7 +30,7 @@ ms.locfileid: "60319006"
 
 VM에서 네트워크 인터페이스를 사용하지 않기 때문에 Azure의 VM에 RDP 연결 또는 다른 포트에 대한 다른 형식의 연결을 수행할 수 없습니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 다음 단계를 수행하기 전에 영향을 받는 VM의 OS 디스크 스냅샷을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
 

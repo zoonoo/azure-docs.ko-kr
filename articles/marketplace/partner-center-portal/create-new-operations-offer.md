@@ -6,13 +6,13 @@ manager: evansma
 ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: f9223fdead9d22e8f58076b47502e71c06741e3f
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.date: 08/26/2019
+ms.openlocfilehash: e711e94a4ac8098137456c2ae5bf018107687354
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900085"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70033214"
 ---
 # <a name="create-a-new-dynamics-365-for-operations-offer"></a>운영 제안의 새 Dynamics 365 만들기
 
@@ -135,7 +135,7 @@ CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보�
 
 제품에 대 한 간단한 설명을 제공 합니다 (최대 100 자). Marketplace 검색 결과에 사용할 수 있습니다.
 
-### <a name="description"></a>설명
+### <a name="description"></a>Description
 
 제품에 대 한 더 긴 설명 (최대 3000 자)을 제공 합니다. 이 설명은 marketplace 목록 개요에서 고객에 게 표시 됩니다. 제품의 가치 제안, 주요 이점, 범주 및/또는 업계 연결, 앱 내 구매 기회 및 필요한 공개를 포함 합니다. 
 
@@ -339,11 +339,11 @@ Microsoft는이 유형의 테스트 드라이브를 사용 하 여 서비스 프
 
 ## <a name="supplemental-content"></a>추가 콘텐츠
 
-이 페이지에서는 제품에 대 한 추가 필수 정보를 제공할 수 있습니다.
+이 페이지에서는 제품의 유효성을 검사 하는 데 도움이 되는 제품에 대 한 추가 정보를 제공할 수 있습니다. 이 정보는 고객에 게 표시 되거나 marketplace에 게시 되지 않습니다.
 
 ### <a name="validation-assets"></a>유효성 검사 자산
 
-이 섹션에서는 사용자 지정 분석 보고서 (CAR)를 업로드 해야 합니다. 이 보고서는 미리 정의 된 모범 사례 규칙 집합을 기반으로 사용자 지정 및 확장 모델을 분석 하 여 생성 됩니다.
+이 섹션에서는 [사용자 지정 분석 보고서 (CAR)](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/dev-tools/customization-analysis-report) 를 업로드 해야 합니다. 이 보고서는 미리 정의 된 모범 사례 규칙 집합을 기반으로 사용자 지정 및 확장 모델을 분석 하 여 생성 됩니다.
 
 이 파일은 .xls 또는 .xlsx 형식 이어야 합니다. 둘 이상의 보고서가 있는 경우 모든 보고서를 포함 하는 .zip 파일을 업로드할 수 있습니다.
 

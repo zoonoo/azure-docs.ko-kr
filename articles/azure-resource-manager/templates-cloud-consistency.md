@@ -12,12 +12,12 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 390e49a09136c21f3fd2f6555c0d56fde6e3b267
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 38da6d39d095ce27cdd26719d9b8b752d2921bc0
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60388135"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164761"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>클라우드 일관성을 위한 Azure Resource Manager 템플릿 개발
 
@@ -47,7 +47,7 @@ Microsoft는 여러 위치에서 다음을 비롯한 지능형 엔터프라이�
 * 사용하는 템플릿 매개 변수가 대상 클라우드에서 작동하는지 확인합니다.
 * 대상 클라우드에서 리소스 특정 속성을 사용할 수 있는지 확인합니다.
 
-Azure Resource Manger 템플릿에 대한 소개는 [템플릿 배포](resource-group-overview.md#template-deployment)를 참조하세요.
+Azure Resource Manger 템플릿에 대한 소개는 [템플릿 배포](template-deployment-overview.md)를 참조하세요.
 
 ## <a name="ensure-template-functions-work"></a>템플릿 함수가 작동하는지 확인
 
@@ -445,7 +445,7 @@ API 프로필은 템플릿의 필수 요소가 아닙니다. 요소를 추가해
 * 연결 문자열(MySql, SQLServer, SQLAzure, Custom, NotificationHub, ServiceBus, EventHub, ApiHub, DocDb, RedisCache, PostgreSQL)
 * Traffic Manager
 * 공용 IP 주소의 domainNameLabel
-* 클라우드 서비스
+* Cloud Services
 
 일반적으로, 템플릿에 하드 코딩된 엔드포인트를 사용하면 안 됩니다. 모범 사례는 reference 템플릿 함수를 사용하여 엔드포인트를 동적으로 검색하는 것입니다. 예를 들어, 가장 일반적으로 하드 코딩되는 엔드포인트는 스토리지 계정의 엔드포인트 네임스페이스입니다. 각 스토리지 계정에는 스토리지 계정 이름과 엔드포인트 네임스페이스를 연결하여 생성된 고유 FQDN이 있습니다. mystorageaccount1이라는 Blob Storage 계정은 클라우드에 따라 다른 FQDN을 생성합니다.
 
@@ -493,7 +493,7 @@ Azure는 다양한 VM 이미지를 제공합니다. Microsoft 및 파트너가 �
 az vm image list -all
 ```
 
-`-Location` 매개 변수를 통해 원하는 위치를 지정하여 Azure PowerShell cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher)를 사용하면 동일한 목록을 검색할 수 있습니다. 예를 들면 다음과 같습니다.
+`-Location` 매개 변수를 통해 원하는 위치를 지정하여 Azure PowerShell cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher)를 사용하면 동일한 목록을 검색할 수 있습니다. 예를 들어:
 
 ```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRmVMImage
@@ -596,7 +596,7 @@ Get-AzureRmVMSize -Location "West Europe"
 az vm extension image list --location myLocation
 ```
 
-Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) cmdlet을 실행하고 `-Location`을 사용하여 가상 머신 이미지의 위치를 지정할 수도 있습니다. 예를 들면 다음과 같습니다.
+Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) cmdlet을 실행하고 `-Location`을 사용하여 가상 머신 이미지의 위치를 지정할 수도 있습니다. 예:
 
 ```azurepowershell-interactive
 Get-AzureRmVmImagePublisher -Location myLocation | Get-AzureRmVMExtensionImageType | Get-AzureRmVMExtensionImage | Select Type, Version

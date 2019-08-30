@@ -10,16 +10,15 @@ ms.assetid: 3c777964-02b2-4f55-8731-8c3bd3c0ae27
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: apimpm
-ms.openlocfilehash: 87693caa5343e359bb3ab424de489c2270bbca62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: df7b14c8221ab7837cabe968a82cfc5d5d9050c4
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64704432"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072590"
 ---
 # <a name="error-handling-in-api-management-policies"></a>API Management 정책에서 오류 처리
 
@@ -77,15 +76,15 @@ ms.locfileid: "64704432"
 
  오류가 발생하고 제어가 `on-error` 정책 섹션으로 이동하는 경우 오류가 `on-error` 섹션에 있는 정책에서 액세스할 수 있고 [context.LastError](api-management-policy-expressions.md#ContextVariables) 속성에 저장됩니다. LastError에는 다음 속성이 있습니다.  
   
-| 이름       | 형식   | 설명                                                                                               | 필수 |
+| 이름       | 형식   | Description                                                                                               | 필수 |
 |------------|--------|-----------------------------------------------------------------------------------------------------------|----------|
-| `Source`   | 문자열 | 오류가 발생한 요소 이름을 지정합니다. 정책 또는 기본 제공 파이프라인 단계 이름일 수 있습니다.     | 예      |
-| `Reason`   | 문자열 | 오류 처리에 사용될 수 있는 컴퓨터에 익숙한 오류 코드입니다.                                       | 아닙니다.       |
-| `Message`  | 문자열 | 사람이 읽을 수 있는 오류 설명입니다.                                                                         | 예      |
-| `Scope`    | 문자열 | 오류가 발생한 범위 이름으로 "global", "product", "api" 또는 "operation" 중 하나일 수 있습니다. | 아닙니다.       |
-| `Section`  | 문자열 | 오류가 발생한 섹션 이름입니다. 가능한 값: "inbound", "backend", "outbound" 또는 "on-error".       | 아닙니다.       |
-| `Path`     | 문자열 | 중첩된 정책(예: "choose[3]/when[2]")을 지정합니다.                                                        | 아닙니다.       |
-| `PolicyId` | 문자열 | 오류가 발생한 정책에서 `id` 특성 값(고객이 지정한 경우)             | 아닙니다.       |
+| `Source`   | string | 오류가 발생한 요소 이름을 지정합니다. 정책 또는 기본 제공 파이프라인 단계 이름일 수 있습니다.     | 예      |
+| `Reason`   | string | 오류 처리에 사용될 수 있는 컴퓨터에 익숙한 오류 코드입니다.                                       | 아니요       |
+| `Message`  | string | 사람이 읽을 수 있는 오류 설명입니다.                                                                         | 예      |
+| `Scope`    | string | 오류가 발생한 범위 이름으로 "global", "product", "api" 또는 "operation" 중 하나일 수 있습니다. | 아니요       |
+| `Section`  | string | 오류가 발생한 섹션 이름입니다. 가능한 값: "inbound", "backend", "outbound" 또는 "on-error".       | 아니요       |
+| `Path`     | string | 중첩된 정책(예: "choose[3]/when[2]")을 지정합니다.                                                        | 아니요       |
+| `PolicyId` | string | 오류가 발생한 정책에서 `id` 특성 값(고객이 지정한 경우)             | 아니요       |
 
 > [!TIP]
 > context.Response.StatusCode를 통해 상태 코드에 액세스할 수 있습니다.  
@@ -96,19 +95,19 @@ ms.locfileid: "64704432"
 ## <a name="predefined-errors-for-built-in-steps"></a>기본 제공 단계에 대해 미리 정의된 오류  
  기본 제공 처리 단계를 평가하는 동안 발생할 수 있는 오류 조건에 대해 다음 오류가 미리 정의됩니다.  
   
-| Source        | 조건                                 | Reason                  | Message                                                                                                                |
+| Source        | 조건                                 | Reason                  | 메시지                                                                                                                |
 |---------------|-------------------------------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------|
 | 구성 | Uri가 API 또는 작업과 일치하지 않음 | OperationNotFound       | 들어오는 요청을 작업과 일치시킬 수 없습니다.                                                                      |
-| authorization | 구독 키가 제공되지 않음             | SubscriptionKeyNotFound | 구독 키가 누락되어 액세스가 거부되었습니다. 이 API에 요청을 수행할 때 구독 키를 포함해야 합니다. |
-| authorization | 구독 키 값이 잘못됨         | SubscriptionKeyInvalid  | 잘못된 구독 키로 인해 액세스가 거부되었습니다. 활성 구독에 대해 유효한 키를 제공해야 합니다.            |
+| 권한 부여(authorization) | 구독 키가 제공되지 않음             | SubscriptionKeyNotFound | 구독 키가 누락되어 액세스가 거부되었습니다. 이 API에 요청을 수행할 때 구독 키를 포함해야 합니다. |
+| 권한 부여(authorization) | 구독 키 값이 잘못됨         | SubscriptionKeyInvalid  | 잘못된 구독 키로 인해 액세스가 거부되었습니다. 활성 구독에 대해 유효한 키를 제공해야 합니다.            |
   
 ## <a name="predefined-errors-for-policies"></a>정책에 대해 미리 정의된 오류  
  정책 평가 중에 발생할 수 있는 오류 조건에 대해 다음 오류가 미리 정의됩니다.  
   
-| Source       | 조건                                                       | Reason                    | Message                                                                                                                              |
+| Source       | 조건                                                       | Reason                    | 메시지                                                                                                                              |
 |--------------|-----------------------------------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | rate-limit   | 속도 제한 초과                                             | RateLimitExceeded         | 속도 제한을 초과했습니다.                                                                                                               |
-| quota        | 할당량이 초과됨                                                  | QuotaExceeded             | 호출 볼륨 할당량을 초과했습니다. 할당량이 xx:xx:xx에서 보충됩니다. 또는 대역폭 할당량을 초과했습니다. 할당량이 xx:xx:xx에서 보충됩니다. |
+| 할당량        | 할당량을 초과했음                                                  | QuotaExceeded             | 호출 볼륨 할당량을 초과했습니다. 할당량이 xx:xx:xx에서 보충됩니다. 또는 대역폭 할당량을 초과했습니다. 할당량이 xx:xx:xx에서 보충됩니다. |
 | jsonp        | 콜백 매개 변수 값이 잘못되었습니다(잘못된 문자 포함). | CallbackParameterInvalid  | 콜백 매개 변수 {callback-parameter-name} 값이 올바른 JavaScript 식별자가 아닙니다.                                          |
 | ip-filter    | 요청에서 호출자 IP를 구문 분석하지 못했음                          | FailedToParseCallerIP     | 호출자에 대한 IP 주소를 설정하지 못했습니다. 액세스가 거부되었습니다.                                                                        |
 | ip-filter    | 호출자 IP가 허용 목록에 없음                                | CallerIpNotAllowed        | 호출자 IP 주소 {ip-address}이(가) 허용되지 않습니다. 액세스가 거부되었습니다.                                                                        |
@@ -125,7 +124,7 @@ ms.locfileid: "64704432"
 | validate-jwt | 클레임 값이 일치하지 않음                                           | TokenClaimValueNotAllowed | {claim-value}의 클레임 {claim-name} 값이 허용되지 않습니다. 액세스가 거부되었습니다.                                                             |
 | validate-jwt | 기타 유효성 검사 실패                                       | JwtInvalid                | <jwt 라이브러리의 메시지\>                                                                                                          |
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
 다음에 대한 API 정책 설정
 

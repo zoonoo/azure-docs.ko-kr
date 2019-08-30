@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: b17b6d12dc60546a29d37cfa12fe1f11186579e1
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: fcf56e8088af25c14c022039bf8862f2dc21c77a
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967464"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172561"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MySQL에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -26,13 +26,16 @@ ms.locfileid: "68967464"
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 MySQL 데이터베이스에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
+>[!NOTE]
+>[Azure Database for MySQL](../mysql/overview.md) 서비스에서 데이터를 복사 하려면 특수 한 [Azure Database for MySQL 커넥터](connector-azure-database-for-mysql.md)를 사용 합니다.
+
 ## <a name="supported-capabilities"></a>지원되는 기능
 
 MySQL 데이터베이스에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
 특히 이 MySQL 커넥터는 MySQL **버전 5.6 및 5.7**을 지원합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -58,7 +61,7 @@ MySQL 연결된 서비스에 다음 속성이 지원됩니다.
 
 일반적인 연결 문자열은 `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`입니다. 사례에 따라 다음과 같은 더 많은 속성을 설정할 수 있습니다.
 
-| 속성 | 설명 | 변수 | 필수 |
+| 속성 | Description | 옵션 | 필수 |
 |:--- |:--- |:--- |:--- |
 | SSLMode | 이 옵션은 MySQL에 연결할 때 드라이버에서 SSL 암호화 및 확인을 사용하는지 여부를 지정합니다. 예를 들어 `SSLMode=<0/1/2/3/4>`| 사용 안 함(0) / 기본 설정(1) **(기본값)** / 필요(2) / VERIFY_CA(3) / VERIFY_IDENTITY(4) | 아니요 |
 | UseSystemTrustStore | 이 옵션은 시스템 신뢰 저장소 또는 지정된 PEM 파일의 CA 인증서를 사용할지 여부를 지정합니다. 예를 들어 `UseSystemTrustStore=<0/1>;`| 사용(1) / 사용 안 함(0) **(기본값)** | 아니요 |

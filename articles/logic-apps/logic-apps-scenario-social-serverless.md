@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 6f0176253d0f1953e9c779a317cfe7bf453acb8f
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: b8ba341252679a07e50f9b276f7f485b08a6acba
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385439"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164874"
 ---
 # <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Azure Logic Apps 및 Azure Functions를 사용하여 스트리밍 Customer Insights 대시보드 만들기
 
@@ -106,7 +106,7 @@ Visual Studio 또는 Azure Portal에서 이전 실행 내역을 보려면 다음
 
 ## <a name="create-automated-deployment-templates"></a>자동화된 배포 템플릿 만들기
 
-논리 앱 솔루션을 만든 후 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-overview.md#template-deployment)으로 앱을 캡처하여 전 세계의 Azure 지역에 배포합니다. 이 기능을 사용하여 앱의 다른 버전을 만들고 솔루션을 Azure Pipelines에 통합하기 위해 매개 변수를 수정할 수 있습니다. 모든 종속성과 함께 전체 솔루션을 단일 템플릿으로 관리할 수 있도록 Azure Functions를 배포 템플릿에 포함할 수 있습니다. [논리 앱 배포를 자동화](logic-apps-azure-resource-manager-templates-overview.md)하는 방법을 알아봅니다.
+논리 앱 솔루션을 만든 후 [Azure Resource Manager 템플릿](../azure-resource-manager/template-deployment-overview.md)으로 앱을 캡처하여 전 세계의 Azure 지역에 배포합니다. 이 기능을 사용하여 앱의 다른 버전을 만들고 솔루션을 Azure Pipelines에 통합하기 위해 매개 변수를 수정할 수 있습니다. 모든 종속성과 함께 전체 솔루션을 단일 템플릿으로 관리할 수 있도록 Azure Functions를 배포 템플릿에 포함할 수 있습니다. [논리 앱 배포를 자동화](logic-apps-azure-resource-manager-templates-overview.md)하는 방법을 알아봅니다.
 
 Azure 함수를 사용한 배포 템플릿의 예는 [Azure 빠른 시작 템플릿 리포지토리](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic)를 확인해 보세요.
 

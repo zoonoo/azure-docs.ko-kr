@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 220f68461d47293e9f43a650e4fa5d1d59bce02f
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 33ee006a704cec1fb0d75a953629aec68461a4f4
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128352"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70165183"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 
@@ -76,7 +76,7 @@ Azure Machine Learning 서비스 작업 영역. 작업 영역을 만들려면 [A
 
 + **사용자 지정 가능**. 관리 및 보안 VM을 제공 하는 동안 하드웨어 기능에 대 한 모든 권한을 유지 하 고 원하는 대로 사용자 지정 합니다. 예를 들어 novel 신경망 아키텍처의 단계별 디버깅을 수행 하기 위해 최신 NVidia V100 구동 VM을 신속 하 게 만들 수 있습니다.
 
-노트북 VM 요금이 발생 하지 않도록 하려면 [노트북 vm을 중지](tutorial-1st-experiment-sdk-setup.md#stop-the-notebook-vm)합니다. 
+노트북 VM 요금이 발생 하지 않도록 하려면 [노트북 vm을 중지](tutorial-1st-experiment-sdk-train.md#clean-up-resources)합니다. 
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 

@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: d6cde04d122d20c4aad5920c29995d9d33165163
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: c07086feef1851f1a6e2a5cda2f541d52a50d91d
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515529"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70163487"
 ---
 # <a name="identify-issues-with-the-diagnostics-feature"></a>진단 기능을 사용하여 문제 식별
 
@@ -24,7 +24,11 @@ Windows 가상 데스크톱 미리 보기는 관리자가 단일 인터페이스
   
 진단 역할 서비스 자체는 Windows 가상 데스크톱의 일부 이기 때문에 Windows 가상 데스크톱에 연결 되지 않은 연결은 진단 결과에 표시 되지 않습니다. Windows 가상 데스크톱 연결 문제는 최종 사용자에 게 네트워크 연결 문제가 발생 하는 경우에 발생할 수 있습니다.
 
-시작 하려면 PowerShell 세션에서 사용할 [Windows 가상 데스크톱 powershell 모듈을 다운로드 하 고 가져옵니다](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) (아직 없는 경우).
+시작 하려면 PowerShell 세션에서 사용할 [Windows 가상 데스크톱 powershell 모듈을 다운로드 하 고 가져옵니다](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) (아직 없는 경우). 그런 후 다음 cmdlet을 실행 하 여 계정에 로그인 합니다.
+
+```powershell
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+```
 
 ## <a name="diagnose-issues-with-powershell"></a>PowerShell을 사용 하 여 문제 진단
 

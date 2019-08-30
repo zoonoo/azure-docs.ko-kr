@@ -10,20 +10,20 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 06/26/2019
-ms.openlocfilehash: c35863ed1d564adf4190efa1888d24f4f4f68ddf
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.date: 08/29/2019
+ms.openlocfilehash: 4af269faab21207e1a754e309cac16e5e0a94b69
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147847"
+ms.locfileid: "70164334"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>VCore 서비스 계층 중에서 선택 하 고 DTU 서비스 계층에서 마이그레이션
 
 VCore (가상 코어) 기반 구매 모델을 사용 하면 계산 및 저장소 리소스를 독립적으로 확장 하 고, 온-프레미스 성능과 일치 하 고, 가격을 최적화할 수 있습니다. 또한 하드웨어 세대를 선택할 수 있습니다.
 
-- **Gen4**: Intel E5-2673 v3 (Haswell) 2.4 GHz 프로세서, vCore = 1mb (물리적 코어), 코어 당 7GB, 연결 된 SSD를 기반으로 하는 최대 24 개의 논리 Cpu
-- **Gen5**: Intel E5-2673 v4 (Broadwell) 2.3 GHz 프로세서, vCore = 1 LP (하이퍼 스레드), 5.1 GB/코어, fast eNVM SSD를 기반으로 하는 최대 80 논리 Cpu
+- **Gen4**: Intel E5-2673 v3 (Haswell) 2.4 g h z 프로세서, vCore = 1 PP (물리적 코어), vCore 당 7GB, 연결 된 SSD를 기반으로 하는 최대 24 개의 논리 Cpu
+- **Gen5**: Intel E5-2673 v4 (Broadwell) 2.3 GHz 프로세서, vCore = 1 LP (하이퍼 스레드), vCore 당 80 5.1, 프로 비전 된 계산에 대 한 vCore 및 서버 리스 계산에 대 한 vcore 당 24 GB 당, fast eNVM SSD
 
 4세대 하드웨어는 실질적으로 vCore당 더 많은 메모리를 제공합니다. 그러나 5세대 하드웨어를 사용하면 컴퓨팅 리소스를 훨씬 더 강화할 수 있습니다.
 
@@ -44,9 +44,9 @@ VCore 기반 구매 모델은 세 가지 서비스 계층, 즉 범용, 하이퍼
 |---|---|---|---|
 |가장 적합한 대상|대부분의 비즈니스 워크로드. 는 예산 지향적이 고 균형이 조정 되며 확장 가능한 계산 및 저장소 옵션을 제공 합니다.|I/o 요구 사항이 높은 비즈니스 응용 프로그램입니다. 에서는 여러 개의 격리 된 복제본을 사용 하 여 오류에 대 한 가장 높은 복원 력을 제공 합니다|확장성이 뛰어난 저장소 및 읽기 확장 요구 사항에 대 한 대부분의 비즈니스 워크 로드.|
 |컴퓨팅|**프로 비전 된 계산**:<br/>Gen4: 1 개에서 24 개 까지의 vCores<br/>Gen5: 2 ~ 80 vCores<br/>**서버**를 사용 하지 않는 계산:<br/>Gen5: 0.5-16 vCores|**프로 비전 된 계산**:<br/>Gen4: 1 개에서 24 개 까지의 vCores<br/>Gen5: 2 ~ 80 vCores|**프로 비전 된 계산**:<br/>Gen4: 1 개에서 24 개 까지의 vCores<br/>Gen5: 2 ~ 80 vCores|
-|메모리|**프로 비전 된 계산**:<br/>Gen4: vCore당 7GB<br/>Gen5: vCore당 5.1GB<br/>**서버**를 사용 하지 않는 계산:<br/>Gen5: vCore당 3GB|**프로 비전 된 계산**:<br/>Gen4: vCore당 7GB<br/>Gen5: vCore당 5.1GB |**프로 비전 된 계산**:<br/>Gen4: vCore당 7GB<br/>Gen5: vCore당 5.1GB|
-|저장 공간|원격 저장소를 사용 합니다.<br/>**프로 비전 된 단일 데이터베이스 계산**:<br/>5GB~4TB<br/>서버를 사용 하지 않는 **단일 데이터베이스 계산**:<br/>5GB-1TB<br/>**관리 되는 인스턴스**: 32GB~8TB |로컬 SSD 저장소를 사용 합니다.<br/>**프로 비전 된 단일 데이터베이스 계산**:<br/>5GB~4TB<br/>**관리 되는 인스턴스**:<br/>32GB~4TB |필요에 따라 저장소를 유연 하 게 자동 증가 는 최대 100 TB의 저장소를 지원 합니다. 로컬 버퍼 풀 캐시 및 로컬 데이터 저장소에 로컬 SSD 저장소를 사용 합니다. Azure 원격 저장소를 최종 장기 데이터 저장소로 사용 합니다. |
-|I/o 처리량 (근사치)|**단일 데이터베이스**: 7000 최대 IOPS를 사용 하는 vCore 당 500 IOPS<br/>**관리 되는 인스턴스**: [파일의 크기](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)에 따라 달라 집니다.|vCore당 5000 IOPS(최대 200,000 IOPS)|Hyperscale은 여러 수준에서 캐싱을 사용 하는 다중 계층 아키텍처입니다. 유효 IOPs는 워크 로드에 따라 달라 집니다.|
+|메모리|**프로 비전 된 계산**:<br/>Gen4: vCore당 7GB<br/>Gen5: vCore당 5.1GB<br/>**서버**를 사용 하지 않는 계산:<br/>Gen5: VCore 당 최대 24gb|**프로 비전 된 계산**:<br/>Gen4: vCore당 7GB<br/>Gen5: vCore당 5.1GB |**프로 비전 된 계산**:<br/>Gen4: vCore당 7GB<br/>Gen5: vCore당 5.1GB|
+|저장 공간|원격 저장소를 사용 합니다.<br/>**단일 데이터베이스 및 탄력적 풀이 프로 비전 된 계산**:<br/>5GB~4TB<br/>**서버**를 사용 하지 않는 계산:<br/>5GB-3TB<br/>**관리 되는 인스턴스**: 32GB~8TB |로컬 SSD 저장소를 사용 합니다.<br/>**단일 데이터베이스 및 탄력적 풀이 프로 비전 된 계산**:<br/>5GB~4TB<br/>**관리 되는 인스턴스**:<br/>32GB~4TB |필요에 따라 저장소를 유연 하 게 자동 증가 는 최대 100 TB의 저장소를 지원 합니다. 로컬 버퍼 풀 캐시 및 로컬 데이터 저장소에 로컬 SSD 저장소를 사용 합니다. Azure 원격 저장소를 최종 장기 데이터 저장소로 사용 합니다. |
+|I/o 처리량 (근사치)|**단일 데이터베이스 및 탄력적 풀**: 최대 4만의 vCore 당 500 IOPS.<br/>**관리 되는 인스턴스**: [파일의 크기](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)에 따라 달라 집니다.|최대 20만의 코어 당 5000 IOPS 최대 IOPS|Hyperscale은 여러 수준에서 캐싱을 사용 하는 다중 계층 아키텍처입니다. 유효 IOPs는 워크 로드에 따라 달라 집니다.|
 |가용성|복제본 1 개, 읽기 확장 복제본 없음|3개 복제본, 1개 [읽기 크기 조정 복제본](sql-database-read-scale-out.md),<br/>영역 중복 HA (고가용성)|1 읽기/쓰기 복제본 및 0-4 [읽기 확장 복제본](sql-database-read-scale-out.md)|
 |예비|[읽기 액세스 지역 중복 저장소 (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 일 (기본적으로 7 일)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35일(기본값: 7일)|Azure 원격 저장소의 스냅숏 기반 백업 복원은 빠른 복구를 위해 이러한 스냅샷을 사용합니다. 백업은 즉시 수행 되며 계산 i/o 성능에 영향을 주지 않습니다. 복원은 빠르게 수행 하 고 데이터의 크기를 조정 하는 작업이 아닙니다 (몇 시간 또는 몇 일이 아닌 분 소요).|
 |메모리 내|지원되지 않음|지원됨|지원되지 않음|

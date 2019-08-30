@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: 4d9a73ee9fb9e4019d30354e6d9fbbe57d081e33
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 4754d7c2182de79d583dce4982b33395bf037479
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147513"
+ms.locfileid: "70161887"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>IoT Hub(Java)를 사용하여 클라우드-디바이스 메시지 보내기
 
@@ -47,9 +47,9 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 * [장치에서 IoT hub로 원격 분석 전송 빠른 시작](quickstart-send-telemetry-java.md) 또는 [IoT Hub로 메시지 라우팅 구성](tutorial-routing.md) 자습서의 전체 작업 버전입니다.
 
-* 최신 [Java SE Development Kit 8](https://aka.ms/azure-jdks)
+* [Java SE Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)입니다. **장기적인 지원** 에서 **Java 8** 을 선택 하 여 JDK 8 용 다운로드를 확인 합니다.
 
-* [Maven 3](https://maven.apache.org/install.html)
+* [Maven 3](https://maven.apache.org/download.cgi)
 
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/) 을 만들 수 있습니다.
 

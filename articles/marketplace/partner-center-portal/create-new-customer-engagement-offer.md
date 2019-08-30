@@ -6,13 +6,13 @@ manager: evansma
 ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: 7cda51870a98b2606a0133a61ad6f786e7e9324a
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.date: 08/26/2019
+ms.openlocfilehash: 58dd9ade749458facd6f11682af0b730258a7584
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900149"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70033246"
 ---
 # <a name="create-a-new-dynamics-365-for-customer-engagement--powerapps-offer"></a>고객 Engagement & PowerApps 제품에 대 한 새 Dynamics 365 만들기
 
@@ -139,7 +139,7 @@ CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보�
 
 제품에 대 한 간단한 설명을 제공 합니다 (최대 100 자). Marketplace 검색 결과에 사용할 수 있습니다.
 
-### <a name="description"></a>설명
+### <a name="description"></a>Description
 
 제품에 대 한 더 긴 설명 (최대 3000 자)을 제공 합니다. 이 설명은 marketplace 목록 개요에서 고객에 게 표시 됩니다. 제품의 가치 제안, 주요 이점, 범주 및/또는 업계 연결, 앱 내 구매 기회 및 필요한 공개를 포함 합니다. 
 
@@ -353,7 +353,7 @@ Microsoft는이 유형의 테스트 드라이브를 사용 하 여 서비스 프
 
 ## <a name="supplemental-content"></a>추가 콘텐츠
 
-이 페이지에서는 제품에 대 한 추가 필수 정보를 제공할 수 있습니다.
+이 페이지에서는 제품의 유효성을 검사 하는 데 도움이 되는 제품에 대 한 추가 정보를 제공할 수 있습니다. 이 정보는 고객에 게 표시 되거나 marketplace에 게시 되지 않습니다.
 
 ### <a name="key-usage-scenario"></a>주요 사용 시나리오
 

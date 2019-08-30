@@ -11,17 +11,16 @@ ms.assetid: 00fd08c6-98fa-4d62-a3b8-ca20aa5246b1
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8e5a7bfc243fc8c797ffc66b2130756567ddc0fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a8b66c181505a617b002d1a45675d4677588b1c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65795787"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102190"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Azure VM에서 SQL Server로 SQL Server 데이터베이스 마이그레이션
 
@@ -31,7 +30,7 @@ Azure VM에서 온-프레미스 SQL Server 사용자 데이터베이스를 SQL S
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
   > [!NOTE]
-  > SQL Server 2008 및 SQL Server 2008 R2에 근접 합니다 [지원 수명 주기 끝](https://www.microsoft.com/sql-server/sql-server-2008) 온-프레미스 인스턴스에 대 한 합니다. 지원을 확장 하려면 Azure VM에 SQL Server 인스턴스를 마이그레이션하 또는 온-프레미스를 유지 하는 확장 보안 업데이트를 구입 합니다. 자세한 내용은 참조 하세요. [SQL Server 2008 및 2008 R2에서 azure에 대 한 지원 확장](virtual-machines-windows-sql-server-2008-eos-extend-support.md)
+  > SQL Server 2008 및 SQL Server 2008 R2가 온-프레미스 인스턴스에 대 한 [지원 수명 주기 끝](https://www.microsoft.com/sql-server/sql-server-2008) 에 도달 하 고 있습니다. 지원을 확장 하려면 SQL Server 인스턴스를 Azure VM으로 마이그레이션하거나 확장 된 보안 업데이트를 구입 하 여 온-프레미스로 유지할 수 있습니다. 자세한 내용은 [Azure를 사용 하 여 SQL Server 2008 및 2008 R2 지원 확장](virtual-machines-windows-sql-server-2008-eos-extend-support.md) (영문)을 참조 하세요.
 
 ## <a name="what-are-the-primary-migration-methods"></a>기본 마이그레이션 메서드란?
 기본 마이그레이션 메서드는 다음과 같습니다.
@@ -59,7 +58,7 @@ Azure VM에서 온-프레미스 SQL Server 사용자 데이터베이스를 SQL S
 
 다음 테이블에는 기본 마이그레이션 메서드가 나열되어 있고 각 메서드를 사용하기에 가장 적합한 경우가 설명되어 있습니다.
 
-| 방법 | 원본 데이터베이스 버전 | 대상 데이터베이스 버전 | 원본 데이터베이스 백업 크기 제약 조건 | 메모 |
+| 메서드 | 원본 데이터베이스 버전 | 대상 데이터베이스 버전 | 원본 데이터베이스 백업 크기 제약 조건 | 참고 |
 | --- | --- | --- | --- | --- |
 | [압축을 사용하여 온-프레미스 백업을 수행하고 Azure 가상 머신에 백업 파일을 수동으로 복사](#backup-and-restore) |SQL Server 2005 이상 |SQL Server 2005 이상 |[Azure VM 스토리지 제한](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) | 컴퓨터 간에 데이터베이스를 이동하는 매우 간단하고 검증된 방법입니다. |
 | [URL에 백업을 수행하고 URL에서 Azure 가상 머신으로 복원](#backup-to-url-and-restore) |SQL Server 2012 SP1 CU2 이상 |SQL Server 2012 SP1 CU2 이상 |SQL Server 2016의 경우 12.8TB 미만, 그렇지 않은 경우 1TB 미만 | 이 방법은 Azure Storage를 사용하여 VM에 백업 파일을 이동하는 또 다른 방법입니다. |
@@ -69,7 +68,7 @@ Azure VM에서 온-프레미스 SQL Server 사용자 데이터베이스를 SQL S
 | [Azure Replica Wizard 추가 사용](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) |SQL Server 2012 이상 |SQL Server 2012 이상 |[Azure VM 스토리지 제한](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |가동 중지 시간을 최소화하고 Always On 온-프레미스 배포가 있는 경우 사용 |
 | [SQL Server 트랜잭션 복제 사용](https://msdn.microsoft.com/library/ms151176.aspx) |SQL Server 2005 이상 |SQL Server 2005 이상 |[Azure VM 스토리지 제한](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |가동 중지 시간을 최소화하고 Always On 온-프레미스 배포가 없는 경우 사용 |
 
-## <a name="backup-and-restore"></a>Backup 및 복원
+## <a name="backup-and-restore"></a>Backup 및 Restore 메서드
 압축을 사용하여 데이터베이스를 백업하고 VM에 백업을 복사한 다음 데이터베이스를 복원합니다. 백업 파일이 1TB를 초과하는 경우에는 VM 디스크의 최대 크기가 1TB이므로 백업 파일을 스트라이핑해야 합니다. 수동 메서드를 사용하여 사용자 데이터베이스를 마이그레이션하려면 다음과 같은 일반적인 단계를 사용합니다.
 
 1. 온-프레미스 위치에 전체 데이터베이스 백업을 수행합니다.

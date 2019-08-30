@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: 3ef727c4d1f1af13b66c7de02b8e67cc5e45f065
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 81b80edcd2e880488e203960f8e2a6aa71b69679
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147489"
+ms.locfileid: "70161828"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-java"></a>IoT Hub를 사용 하 여 장치에서 클라우드로 파일 업로드 (Java)
 
@@ -44,11 +44,11 @@ ms.locfileid: "70147489"
 > [!NOTE]
 > IoT Hub는 Azure IoT 디바이스 SDK를 통해 많은 디바이스 플랫폼 및 언어(C, .NET 및 Javascript 포함)를 지원합니다. Azure IoT Hub에 디바이스를 연결하는 방법에 대한 단계별 지침은 [Azure IoT 개발자 센터](https://azure.microsoft.com/develop/iot)를 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-* 최신 [Java SE Development Kit 8](https://aka.ms/azure-jdks)
+* [Java SE Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)입니다. **장기적인 지원** 에서 **Java 8** 을 선택 하 여 JDK 8 용 다운로드를 확인 합니다.
 
-* [Maven 3](https://maven.apache.org/install.html)
+* [Maven 3](https://maven.apache.org/download.cgi)
 
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 만들 수 있습니다.
 

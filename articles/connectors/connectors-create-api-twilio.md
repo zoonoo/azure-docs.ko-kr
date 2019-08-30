@@ -11,20 +11,20 @@ ms.assetid: 43116187-4a2f-42e5-9852-a0d62f08c5fc
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: fab52236c701f10c8e8e23ac398362ca4583ea06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 09d4a6acf93f5fb01c70f9e9bd935c404c5abf50
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62104904"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050712"
 ---
 # <a name="manage-messages-in-twilio-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Twilio에서 메시지 관리
 
 Azure Logic Apps 및 Twilio 커넥터를 사용하면 글로벌 SMS, MMS 및 IP 메시지를 포함한 Twilio의 메시지를 가져오기, 전송 및 나열하는 자동화된 작업 및 워크플로를 만들 수 있습니다. 이러한 작업을 사용하여 Twilio 계정으로 작업을 수행할 수 있습니다. 또한 다른 작업에서 Twilio 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어 새 메시지가 도착하면 Slack 커넥터를 사용하여 메시지 콘텐츠를 보낼 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독. Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다. 
+* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 
 
 * [Twilio](https://www.twilio.com/)에서: 
 

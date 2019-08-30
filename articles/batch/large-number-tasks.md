@@ -8,19 +8,18 @@ manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 08/24/2018
 ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: f91d47e1f57fb74575fbdad0a76386b53fb38b1f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 1322b8eb14205ff29e109fae82466270f7507781
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322516"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094016"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Batch 작업으로 많은 수의 작업 제출
 
@@ -146,7 +145,7 @@ client = batch.BatchExtensionsClient(
 ...
 ```
 
-작업(task)의 컬렉션을 만들어 작업(job)에 추가합니다. 예를 들어:
+작업(task)의 컬렉션을 만들어 작업(job)에 추가합니다. 예:
 
 
 ```python

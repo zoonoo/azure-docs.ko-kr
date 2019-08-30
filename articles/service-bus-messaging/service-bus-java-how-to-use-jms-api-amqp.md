@@ -14,15 +14,15 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: aschhab
-ms.custom: seo-java-july2019
-ms.openlocfilehash: f816a5c84416b7f40e3062bf22dd70cbb356c6f1
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.custom: seo-java-july2019, seo-java-august2019
+ms.openlocfilehash: 3639eef1e95b354298b718af24217a8fbefb3a74
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662893"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173378"
 ---
-# <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Service Bus 및 AMQP 1.0과 함께 JMS(Java Message Service) API를 사용하는 방법
+# <a name="use-the-java-message-service-jms-with-azure-service-bus-and-amqp-10"></a>Azure Service Bus 및 AMQP 1.0와 함께 JMS (Java Message Service) 사용
 AMQP(Advanced Message Queuing Protocol) 1.0은 강력한 크로스 플랫폼 메시징 애플리케이션을 빌드하는 데 사용할 수 있는 효율성과 안정성이 뛰어난 유선 수준 메시징 프로토콜입니다.
 
 Service Bus에서 AMQP 1.0이 지원되므로 효율적인 이진 프로토콜을 사용하여 다양한 플랫폼에서 큐 및 게시/구독 조정된 메시징 기능을 이용할 수 있습니다. 뿐만 아니라 여러 언어, 프레임워크 및 운영 체제가 혼합되어 사용된 구성 요소로 이루어진 애플리케이션을 만들 수 있습니다.

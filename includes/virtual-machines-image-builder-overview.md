@@ -5,12 +5,12 @@ ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: fa34baa7569b0552708cd1a9b57d79186e5acd57
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 4be1ed779ad424d30ac34fd55f117ada3ed9c7a2
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68669752"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70166746"
 ---
 표준화 된 VM (가상 머신) 이미지를 사용 하면 조직에서 클라우드로 마이그레이션하고 배포의 일관성을 유지할 수 있습니다. 이미지에는 일반적으로 미리 정의 된 보안 및 구성 설정 및 필수 소프트웨어가 포함 되어 있습니다. 사용자 고유의 이미징 파이프라인을 설정 하려면 시간, 인프라 및 설정이 필요 하지만, Azure VM 이미지 작성기를 사용 하면 이미지를 설명 하는 간단한 구성을 제공 하 고, 서비스에 제출 하 고, 이미지를 빌드하고 배포할 수 있습니다.
  
@@ -73,7 +73,7 @@ Azure 이미지 작성기는 Azure 리소스 공급자가 액세스할 수 있�
 
 1. 이미지 템플릿을 json 파일로 만듭니다. 이 json 파일에는 이미지 원본, 사용자 지정 및 배포에 대 한 정보가 포함 되어 있습니다. [Azure 이미지 작성기 GitHub 리포지토리에](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts)는 여러 예제가 있습니다.
 1. 서비스에 제출 하면 지정 하는 리소스 그룹에 이미지 템플릿 아티팩트가 만들어집니다. 배경에서 이미지 작성기는 필요에 따라 원본 이미지 또는 ISO 및 스크립트를 다운로드 합니다. 이러한 리소스는 다음과 같은 형식으로 구독에서 자동으로 생성 되는 별도의 리소스 그룹에 저장 됩니다. IT_\<DestinationResourceGroup>_\<TemplateName>. 
-1. 이미지 템플릿이 만들어지면 이미지를 빌드할 수 있습니다. 배경 이미지 작성기는 템플릿 및 원본 파일을 사용 하 여 IT_\<destinationresourcegroup > _\<TemplateName > 리소스 그룹에 VM, 네트워크 및 저장소를 만듭니다.
+1. 이미지 템플릿이 만들어지면 이미지를 빌드할 수 있습니다. 배경 이미지 작성기는 템플릿 및 원본 파일을 사용 하 여 VM (D1v2), 네트워크, 공용 IP 및 저장소를 IT_\<destinationresourcegroup > _\<TemplateName > 리소스 그룹에 만듭니다.
 1. 이미지를 만드는 과정에서 이미지 작성기는 템플릿에 따라 이미지를 배포한 다음에 대해 만들어진 IT_\<destinationresourcegroup > _\<TemplateName > 리소스 그룹에서 추가 리소스를 삭제 합니다. 프로세스입니다.
 
 

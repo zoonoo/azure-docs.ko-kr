@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 80bc5ef78a73430dea23bdd644767d9fa9b3c9a8
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: b079d311e357f4dfb94e55fbca3cafdec198ade9
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124670"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171895"
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: FAQ(질문과 대답)
 이 페이지는 Azure Active Directory Domain Services에 대한 자주 묻는 질문을 응답합니다. 업데이트를 계속 확인합니다.
@@ -79,7 +79,7 @@ Azure AD Domain Services 구성 또는 관리에서 발생하는 일반적인 �
 아니요. Azure AD 도메인 서비스에서 서비스를 제공하는 도메인에 그룹 멤버 자격을 수정할 수 없습니다. 사용자 특성에 대해서도 동일하게 적용됩니다. 그러나 Azure AD 또는 온-프레미스 도메인에서 그룹 구성원 자격 또는 사용자 특성을 변경할 수도 있습니다. 이러한 변경 내용은 Azure AD Domain Services에 자동으로 동기화됩니다.
 
 ### <a name="how-long-does-it-take-for-changes-i-make-to-my-azure-ad-directory-to-be-visible-in-my-managed-domain"></a>Azure AD 디렉터리에 적용한 변경 사항이 내 관리되는 도메인에 표시되는 데 얼마나 걸리나요?
-Azure AD UI 또는 PowerShell을 사용하여 Azure AD 디렉터리에 적용된 변경 사항은 관리되는 도메인에 동기화되어 있습니다. 이 동기화 프로세스는 백그라운드에서 실행됩니다. 초기 동기화가 완료되면 Azure AD에 적용된 변경 사항이 관리되는 도메인에 반영되는 데 일반적으로 약 20분이 소요됩니다.
+Azure AD UI 또는 PowerShell을 사용 하 여 Azure AD 디렉터리에서 변경한 내용은 관리 되는 도메인에 자동으로 동기화 됩니다. 이 동기화 프로세스는 백그라운드에서 실행됩니다. 이 동기화가 모든 개체 변경을 완료 하는 데는 정의 된 기간이 없습니다.
 
 ### <a name="can-i-extend-the-schema-of-the-managed-domain-provided-by-azure-ad-domain-services"></a>Azure AD Domain Services에서 제공하는 관리되는 도메인의 스키마를 확장할 수 있습니까?
 아니요. 스키마는 관리되는 도메인에 대해 Microsoft에서 관리합니다. 스키마 확장은 Azure AD 도메인 서비스에서 지원되지 않습니다.

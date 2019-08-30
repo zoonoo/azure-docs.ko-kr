@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 016d68de90088314250fef1fcfdb57d7f155ef79
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8e0eddd07fc0c473e4777d9dd90d0b2c64145e34
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707151"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70165135"
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Azure Network Watcher 보안 그룹 보기를 사용하여 NSG 감사 자동화
 
@@ -30,7 +30,7 @@ ms.locfileid: "64707151"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 이 시나리오에서는 가상 머신에서 반환된 보안 그룹 보기 결과를 알려진 적합한 기준선과 비교합니다.
 
@@ -129,8 +129,7 @@ $nsgbaserules = Get-Content -Path C:\temp\testvm1-nsg.json | ConvertFrom-Json
 다음 단계는 Network Watcher 인스턴스를 검색하는 것입니다. `$networkWatcher` 변수는 `AzNetworkWatcherSecurityGroupView` cmdlet으로 전달됩니다.
 
 ```powershell
-$nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
-$networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName 
+$networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
 ```
 
 ## <a name="get-a-vm"></a>VM 확인

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/08/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: dce7cc2cd8e97eef81023eb803cace3f6d011171
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: c8ffa7b65e4f97fa537299bf542ba377da026064
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69626372"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174643"
 ---
 메모리 최적화 VM 크기는 관계형 데이터베이스 서버, 중대형 캐시 및 메모리 내 분석에 적합한 높은 메모리 대 CPU 비율을 제공합니다. 이 문서에서는 이 그룹화에서 각 크기에 대한 스토리지 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다.
 
@@ -147,7 +147,7 @@ Mv2 시리즈 VM의 기능 Intel® 하이퍼 스레딩 기술
 
 <sup>1</sup> 이러한 많은 vm에는 다음과 같은 지원 되는 게스트 os 중 하나가 필요 합니다. Windows Server 2016, Windows Server 2019, SLES 12 SP4, SLES 15.
 
-<sup>2</sup> Mv2 시리즈 vm은 2 세대 전용입니다. Linux를 사용 하는 경우 SUSE Linux 이미지를 찾고 선택 하는 방법에 대해서는 다음 섹션을 참조 하세요.
+<sup>2</sup> Mv2 시리즈 vm은 [2 세대](/azure/virtual-machines/linux/generation-2) 전용입니다. Linux를 사용 하는 경우 SUSE Linux 이미지를 찾고 선택 하는 방법에 대해서는 다음 섹션을 참조 하세요.
 
 #### <a name="find-a-suse-image"></a>SUSE 이미지 찾기
 

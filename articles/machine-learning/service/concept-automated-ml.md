@@ -11,16 +11,16 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3fb4d953f575dcf6582f9f1c8c2a725971134159
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c654da71a0c060a9344ef7d7d42b30263a7fb2db
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856251"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70165202"
 ---
 # <a name="what-is-automated-machine-learning"></a>자동화된 Machine Learning이란?
 
-AutoML이 라고도 하는 자동화 된 machine learning은 기계 학습 모델 개발의 시간이 많이 걸리는 반복적인 작업을 자동화 하는 프로세스입니다. 이를 통해 데이터 과학자, 분석가 및 개발자는 모델 품질을 유지 하면서도 확장성, 효율성 및 생산성이 높은 ML 모델을 빌드할 수 있습니다.
+AutoML이 라고도 하는 자동화 된 machine learning은 기계 학습 모델 개발의 시간이 많이 걸리는 반복적인 작업을 자동화 하는 프로세스입니다. 이를 통해 데이터 과학자, 분석가 및 개발자는 모델 품질을 유지 하면서도 확장성, 효율성 및 생산성이 높은 ML 모델을 빌드할 수 있습니다. 자동화 된 ML은 [Microsoft Research 부서의](https://arxiv.org/abs/1705.05355)혁신을 기반으로 합니다.
 
 기존의 기계 학습 모델 개발은 리소스를 많이 사용 하므로 수십 개의 모델을 생성 하 고 비교 하는 데 상당한 도메인 지식과 시간이 필요 합니다. 지정한 대상 메트릭을 사용 하 여 모델을 학습 하 고 조정 하려면 자동화 된 ML을 적용 Azure Machine Learning 합니다. 그런 다음 서비스는 기능 선택과 쌍을 이루는 ML 알고리즘을 반복 하 여 각 반복에서 학습 점수가 있는 모델을 생성 합니다. 점수가 높을수록 데이터를 "맞추기" 하는 것이 더 효율적입니다.
 
@@ -63,12 +63,12 @@ AutoML이 라고도 하는 자동화 된 machine learning은 기계 학습 모�
 
 <a name="preprocess"></a>
 
-## <a name="preprocessing"></a>바꾸면
+## <a name="preprocessing"></a>전처리
 
 자동화 된 모든 기계 학습 실험에서 데이터는 기본 메서드를 사용 하 여 전처리 되 고 선택적으로 고급 전처리를 통해 전처리 됩니다.
 
 > [!NOTE]
-> 자동화 된 기계 학습 사전 처리 단계 (기능 정규화, 누락 된 데이터 처리, 텍스트를 숫자로 변환 등)는 기본 모델의 일부가 됩니다. 예측에 모델을 사용 하는 경우 학습 중에 적용 되는 동일한 전처리 단계는 입력 데이터에 자동으로 적용 됩니다.
+> 자동화된 기계 학습 사전 처리 단계(기능 정규화, 누락된 데이터 처리, 텍스트를 숫자로 변환 등)는 기본 모델의 일부가 됩니다. 예측에 모델을 사용하는 경우 학습 중에 적용되는 동일한 전처리 단계가 입력 데이터에 자동으로 적용됩니다.
 
 ### <a name="automatic-preprocessing-standard"></a>자동 전처리 (표준)
 
@@ -119,7 +119,7 @@ Azure Machine Learning를 사용 하면 자동화 된 ML을 사용 하 여 Pytho
 
 자동화 된 ML은 다음과 같은 다른 Microsoft 솔루션 에서도 사용할 수 있습니다.
 
-|통합|Description|
+|통합|설명|
 |------------|-----------|
 |[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Visual Studio를 사용 하 여 .NET 앱에서 자동 모델 선택 및 학습 ML.NET 자동 ML (미리 보기)을 사용 하 여 Visual Studio Code 합니다.|
 |[HDInsight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|HDInsight 클러스터의 Spark에서 자동화 된 ML 학습 작업을 병렬로 확장 하세요.|

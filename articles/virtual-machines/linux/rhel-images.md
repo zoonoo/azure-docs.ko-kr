@@ -7,18 +7,17 @@ author: asinn826
 manager: BorisB2015
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 8/14/2019
 ms.author: borisb
-ms.openlocfilehash: 25b0ccfa5ed2b7b9ff031565fe7f14b1477769c4
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: e18f1db80b8fcb2c8846ce0c7294e1766cfa1ca3
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543854"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091376"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Azure의 Red Hat Enterprise Linux 이미지
 이 문서에서는 명명 및 보존 정책에 대한 정책과 함께 Azure Marketplace에서 사용할 수 있는 RHEL(Red Hat Enterprise Linux) 이미지를 설명합니다.
@@ -113,7 +112,7 @@ RHEL 8.0      |해당 사항 없음                            | Red Hat에서 �
 ## <a name="list-of-rhel-images-available"></a>사용할 수 있는 RHEL 이미지 목록
 다음 제품은 SKU이며 현재 일반 용도로 사용할 수 있습니다.
 
-제공| SKU | 분할 | 프로비전 | 메모
+제공| SKU | 분할 | 프로비전 | 참고
 :----|:----|:-------------|:-------------|:-----
 RHEL          | 7-RAW    | RAW    | Linux 에이전트 | RHEL 7 이미지 패밀리입니다. <br> 기본적으로 EUS 리포지토리에 연결 되지 않습니다.
 |             | 7-LVM    | LVM    | Linux 에이전트 | RHEL 7 이미지 패밀리입니다. <br> 기본적으로 EUS 리포지토리에 연결 되지 않습니다.
