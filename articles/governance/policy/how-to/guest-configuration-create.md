@@ -7,20 +7,20 @@ ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 12b88e14ed1d20ad26c9c8832877da08d3d98523
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 235ad37c5cf5f8ac7e801a6d25e961d32c1b7aad
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/29/2019
-ms.locfileid: "70146117"
+ms.locfileid: "70164915"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>게스트 구성 정책을 만드는 방법
 
-게스트 구성은 DSC ( [필요한 상태 구성](/powershell/dsc) ) 리소스 모듈을 사용 하 여 Azure virtual machines의 감사에 대 한 구성을 만듭니다. DSC 구성은 가상 컴퓨터가 속해야 하는 조건을 정의 합니다. 구성 평가에 실패 하는 경우 정책 효과 **감사가** 트리거되고 가상 머신은 **비준수**로 간주 됩니다.
+게스트 구성은 DSC ( [필요한 상태 구성](/powershell/dsc) ) 리소스 모듈을 사용 하 여 Azure 컴퓨터의 감사에 대 한 구성을 만듭니다. DSC 구성은 컴퓨터가 속해야 하는 조건을 정의 합니다. 구성 평가에 실패 하는 경우 정책 효과 **auditIfNotExists** 가 트리거되고 컴퓨터가 **비준수**로 간주 됩니다.
 
-[Azure Policy 게스트 구성은](/azure/governance/policy/concepts/guest-configuration) 가상 컴퓨터 내에서 설정을 감사 하는 데만 사용할 수 있습니다. 가상 컴퓨터 내에서 설정의 재구성은 아직 사용할 수 없습니다.
+[Azure Policy 게스트 구성은](/azure/governance/policy/concepts/guest-configuration) 컴퓨터 내의 설정을 감사 하는 데만 사용할 수 있습니다. 컴퓨터 내에서 설정의 재구성은 아직 사용할 수 없습니다.
 
-다음 작업을 사용 하 여 Azure 가상 컴퓨터의 상태를 확인 하는 고유한 구성을 만들 수 있습니다.
+다음 작업을 사용 하 여 Azure 컴퓨터의 상태를 확인 하는 고유한 구성을 만들 수 있습니다.
 
 > [!IMPORTANT]
 > 게스트 구성을 사용 하는 사용자 지정 정책은 미리 보기 기능입니다.
@@ -133,18 +133,18 @@ New-GuestConfigurationPackage -Name '{PackageName}' -Configuration '{PathToMOF}'
 - **경로**: 출력 폴더 경로입니다. 이 매개 변수는 선택 사항입니다. 지정 하지 않으면 패키지가 현재 디렉터리에 만들어집니다.
 - **ChefProfilePath**: InSpec profile의 전체 경로입니다. 이 매개 변수는 Linux를 감사 하는 콘텐츠를 만드는 경우에만 지원 됩니다.
 
-완료 된 패키지는 관리 되는 가상 컴퓨터에서 액세스할 수 있는 위치에 저장 해야 합니다. 이러한 예로는 GitHub 리포지토리, Azure 리포지토리 또는 Azure storage가 있습니다. 패키지를 공용으로 설정 하지 않으려는 경우 [SAS 토큰](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md) 을 URL에 포함할 수 있습니다. 이 구성은 패키지에 액세스 하 고 서비스와 통신 하지 않는 경우에만 적용 되지만 개인 네트워크의 가상 컴퓨터에 대 한 [서비스 엔드포인트](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) 를 구현할 수도 있습니다.
+완료 된 패키지는 관리 되는 가상 컴퓨터에서 액세스할 수 있는 위치에 저장 해야 합니다. 이러한 예로는 GitHub 리포지토리, Azure 리포지토리 또는 Azure storage가 있습니다. 패키지를 공용으로 설정 하지 않으려는 경우 [SAS 토큰](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md) 을 URL에 포함할 수 있습니다. 이 구성은 패키지에 액세스 하 고 서비스와 통신 하지 않는 경우에만 적용 되지만 개인 네트워크의 컴퓨터에 대 한 [서비스 엔드포인트](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) 를 구현할 수도 있습니다.
 
 ### <a name="working-with-secrets-in-guest-configuration-packages"></a>게스트 구성 패키지의 암호 작업
 
 Azure Policy 게스트 구성에서 런타임에 사용 되는 암호를 관리 하는 가장 좋은 방법은 Azure Key Vault에 저장 하는 것입니다. 이 디자인은 사용자 지정 DSC 리소스 내에서 구현 됩니다.
 
-먼저 Azure에서 사용자 할당 관리 id를 만듭니다. 이 id는 가상 컴퓨터에서 Key Vault에 저장 된 암호에 액세스 하는 데 사용 됩니다. 자세한 단계는 Azure PowerShell을 [사용 하 여 사용자 할당 관리 Id 만들기, 나열 또는 삭제](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)를 참조 하세요.
+먼저 Azure에서 사용자 할당 관리 id를 만듭니다. Id는 컴퓨터에서 Key Vault에 저장 된 암호에 액세스 하는 데 사용 됩니다. 자세한 단계는 Azure PowerShell을 [사용 하 여 사용자 할당 관리 Id 만들기, 나열 또는 삭제](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)를 참조 하세요.
 
 다음으로 Key Vault 인스턴스를 만듭니다. 자세한 단계는 [비밀 설정 및 검색-PowerShell](../../../key-vault/quick-create-powershell.md)을 참조 하세요.
 인스턴스에 사용 권한을 할당 하 여 Key Vault에 저장 된 암호에 대 한 사용자 할당 id 액세스를 제공 합니다. 자세한 단계는 [암호 설정 및 검색-.net](../../../key-vault/quick-create-net.md#give-the-service-principal-access-to-your-key-vault)을 참조 하세요.
 
-그런 다음 사용자 할당 id를 가상 머신에 할당 합니다. 자세한 단계는 PowerShell을 [사용 하 여 AZURE VM에서 azure 리소스에 대 한 관리 되는 Id 구성](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity)을 참조 하세요.
+그런 다음 사용자 할당 id를 컴퓨터에 할당 합니다. 자세한 단계는 PowerShell을 [사용 하 여 AZURE VM에서 azure 리소스에 대 한 관리 되는 Id 구성](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity)을 참조 하세요.
 대규모로 Azure Policy를 통해 Azure Resource Manager를 사용 하 여이 id를 할당 합니다. 자세한 단계는 [템플릿을 사용 하 여 AZURE VM에서 azure 리소스에 대 한 관리 되는 Id 구성](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm)을 참조 하세요.
 
 마지막으로, 사용자 지정 리소스 내에서 위에 생성 된 클라이언트 ID를 사용 하 여 컴퓨터에서 사용할 수 있는 토큰을 사용 하 여 Key Vault에 액세스 합니다. Key Vault 인스턴스에 대한 `client_id` 및 url을 리소스에 [속성](/powershell/dsc/resources/authoringresourcemof#creating-the-mof-schema)으로 전달하여 여러 환경에 대해 리소스를 업데이트할 필요가 없도록하거나 값을 변경해야 할 수 있습니다.
@@ -165,7 +165,7 @@ $credential = New-Object System.Management.Automation.PSCredential('secret',$val
 
 ## <a name="test-a-guest-configuration-package"></a>게스트 구성 패키지 테스트
 
-구성 패키지를 만든 후 Azure에 게시 하기 전에 워크스테이션 또는 CI/CD 환경에서 패키지의 기능을 테스트할 수 있습니다. GuestConfiguration 모듈에는 Azure virtual `Test-GuestConfigurationPackage` machines 내에서 사용 되는 것과 동일한 에이전트를 개발 환경에서 로드 하는 cmdlet이 포함 되어 있습니다. 이 솔루션을 사용 하 여 청구 되는 테스트/QA/프로덕션 환경에 릴리스하기 전에 통합 테스트를 로컬로 수행할 수 있습니다.
+구성 패키지를 만든 후 Azure에 게시 하기 전에 워크스테이션 또는 CI/CD 환경에서 패키지의 기능을 테스트할 수 있습니다. GuestConfiguration 모듈에는 Azure 컴퓨터 `Test-GuestConfigurationPackage` 내에서 사용 되는 것과 동일한 에이전트를 개발 환경에서 로드 하는 cmdlet이 포함 되어 있습니다. 이 솔루션을 사용 하 여 청구 되는 테스트/QA/프로덕션 환경에 릴리스하기 전에 통합 테스트를 로컬로 수행할 수 있습니다.
 
 ```azurepowershell-interactive
 Test-GuestConfigurationPackage -Path .\package\AuditWindowsService\AuditWindowsService.zip -Verbose
@@ -187,7 +187,7 @@ New-GuestConfigurationPackage -Name AuditWindowsService -Configuration .\DSCConf
 
 ## <a name="create-the-azure-policy-definition-and-initiative-deployment-files"></a>Azure Policy 정의 및 이니셔티브 배포 파일 만들기
 
-게스트 구성 사용자 지정 정책 패키지를 만들어 가상 머신에서 액세스할 수 있는 위치에 업로드 한 후에는 Azure Policy에 대 한 게스트 구성 정책 정의를 만듭니다. Cmdlet `New-GuestConfigurationPolicy` 은 공개적으로 액세스할 수 있는 게스트 구성 사용자 지정 정책 패키지를 사용 하 고 **auditIfNotExists** 및 **deployifnotexists** 정책 정의를 만듭니다. 두 정책 정의를 모두 포함 하는 정책 이니셔티브 정의도 만들어집니다.
+게스트 구성 사용자 지정 정책 패키지를 만들고 컴퓨터에서 액세스할 수 있는 위치에 업로드 한 후에는 Azure Policy에 대 한 게스트 구성 정책 정의를 만듭니다. Cmdlet `New-GuestConfigurationPolicy` 은 공개적으로 액세스할 수 있는 게스트 구성 사용자 지정 정책 패키지를 사용 하 고 **auditIfNotExists** 및 **deployifnotexists** 정책 정의를 만듭니다. 두 정책 정의를 모두 포함 하는 정책 이니셔티브 정의도 만들어집니다.
 
 다음 예에서는 Windows 용 게스트 구성 사용자 지정 정책 패키지에서 지정 된 경로에 정책 및 이니셔티브 정의를 만들고 이름, 설명 및 버전을 제공 합니다.
 
@@ -220,7 +220,7 @@ New-GuestConfigurationPolicy
 
 Cmdlet 출력은 정책 파일의 이니셔티브 표시 이름 및 경로를 포함 하는 개체를 반환 합니다.
 
-이 명령을 사용 하 여 사용자 지정 정책 프로젝트를 스 캐 폴드 하는 경우 이러한 파일을 변경할 수 있습니다. 예를 들어 가상 컴퓨터에 대해 특정 태그가 있는지 여부를 평가 하는 ' If ' 섹션을 수정 합니다. 정책을 만드는 방법에 대 한 자세한 내용은 [프로그래밍 방식으로 정책 만들기](./programmatically-create.md)를 참조 하세요.
+이 명령을 사용 하 여 사용자 지정 정책 프로젝트를 스 캐 폴드 하는 경우 이러한 파일을 변경할 수 있습니다. 예를 들어 컴퓨터에 특정 태그가 있는지 여부를 평가 하는 ' If ' 섹션을 수정 합니다. 정책을 만드는 방법에 대 한 자세한 내용은 [프로그래밍 방식으로 정책 만들기](./programmatically-create.md)를 참조 하세요.
 
 ### <a name="using-parameters-in-custom-guest-configuration-policies"></a>사용자 지정 게스트 구성 정책에서 매개 변수 사용
 
@@ -337,7 +337,7 @@ DSC 커뮤니티에서는 내보낸 그룹 정책 템플릿을 DSC 형식으로 
 게스트 구성 사용자 지정 정책은 기본적으로 SHA256 해시를 사용 하 여 감사 중인 서버에서 읽을 때 정책 패키지가 게시 될 때에서 변경 되지 않았는지 확인 합니다.
 필요에 따라 고객은 인증서를 사용 하 여 패키지에 서명 하 고 게스트 구성 확장에서 서명 된 콘텐츠를 허용 하도록 강제할 수도 있습니다.
 
-이 시나리오를 사용 하려면 두 단계를 완료 해야 합니다. Cmdlet을 실행 하 여 콘텐츠 패키지에 서명 하 고 코드에 서명 해야 하는 태그를 가상 컴퓨터에 추가 합니다.
+이 시나리오를 사용 하려면 두 단계를 완료 해야 합니다. Cmdlet을 실행 하 여 콘텐츠 패키지에 서명 하 고 코드에 서명 해야 하는 컴퓨터에 태그를 추가 합니다.
 
 서명 유효성 검사 기능을 사용 하려면 게시 하기 `Protect-GuestConfigurationPackage` 전에 cmdlet을 실행 하 여 패키지에 서명 합니다. 이 cmdlet에는 ' 코드 서명 ' 인증서가 필요 합니다.
 
@@ -353,17 +353,17 @@ Protect-GuestConfigurationPackage -Path .\package\AuditWindowsService\AuditWindo
 - **PrivateGpgKeyPath**: 개인 GPG 키 경로입니다. 이 매개 변수는 Linux 용 콘텐츠에 서명 하는 경우에만 지원 됩니다.
 - **PublicGpgKeyPath**: 공개 GPG 키 경로입니다. 이 매개 변수는 Linux 용 콘텐츠에 서명 하는 경우에만 지원 됩니다.
 
-GuestConfiguration 에이전트는 인증서 공개 키가 Windows 컴퓨터의 "신뢰할 수 있는 루트 인증 기관" 및 Linux 컴퓨터의 경로 `/usr/local/share/ca-certificates/extra` 에 있는 것으로 예상 합니다. 노드가 서명 된 콘텐츠를 확인 하려면 사용자 지정 정책을 적용 하기 전에 가상 컴퓨터에 인증서 공개 키를 설치 합니다. 이 프로세스는 VM 내에서 또는 Azure Policy를 사용 하 여 수행할 수 있습니다. 예제 템플릿이 여기에 [제공](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows)됩니다.
+GuestConfiguration 에이전트는 인증서 공개 키가 Windows 컴퓨터의 "신뢰할 수 있는 루트 인증 기관" 및 Linux 컴퓨터의 경로 `/usr/local/share/ca-certificates/extra` 에 있는 것으로 예상 합니다. 노드가 서명 된 콘텐츠를 확인 하려면 사용자 지정 정책을 적용 하기 전에 컴퓨터에 인증서 공개 키를 설치 합니다. 이 프로세스는 VM 내에서 또는 Azure Policy를 사용 하 여 수행할 수 있습니다. 예제 템플릿이 여기에 [제공](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows)됩니다.
 Key Vault 액세스 정책은 배포 하는 동안 계산 리소스 공급자가 인증서에 액세스할 수 있도록 허용 해야 합니다. 자세한 단계는 [Azure Resource Manager에서 가상 컴퓨터에 대 한 Key Vault 설정](../../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault)을 참조 하세요.
 
-다음은 서명 인증서에서 공개 키를 내보내 가상 머신으로 가져오는 예제입니다.
+다음은 서명 인증서에서 공개 키를 내보내 컴퓨터로 가져오는 예제입니다.
 
 ```azurepowershell-interactive
 $Cert = Get-ChildItem -Path cert:\LocalMachine\My | Where-Object {($_.Subject-eq "CN=mycert3") } | Select-Object -First 1
 $Cert | Export-Certificate -FilePath "$env:temp\DscPublicKey.cer" -Force
 ```
 
-Linux 가상 머신에 사용할 GPG 키를 만드는 방법에 대 한 참조는 GitHub의 문서에서 제공 하 고 [새 GPG 키를 생성](https://help.github.com/en/articles/generating-a-new-gpg-key)하는 것입니다.
+Linux 컴퓨터에서 사용할 GPG 키를 만드는 방법에 대 한 좋은 참조는 GitHub의 문서에서 제공 하 고 [새 GPG 키를 생성](https://help.github.com/en/articles/generating-a-new-gpg-key)하는 것입니다.
 
 콘텐츠를 게시 한 후에는 코드 서명이 필요한 모든 `GuestConfigPolicyCertificateValidation` 가상 컴퓨터 `enabled` 에 이름 및 값이 포함 된 태그를 추가 합니다. 이 태그는 Azure Policy을 사용 하 여 대규모로 배달 될 수 있습니다. [Apply tag and the default value](../samples/apply-tag-default-value.md) sample을 참조 하십시오.
 이 태그가 준비 되 면 `New-GuestConfigurationPolicy` cmdlet을 사용 하 여 생성 된 정책 정의를 통해 게스트 구성 확장을 통해 요구 사항을 충족할 수 있습니다.

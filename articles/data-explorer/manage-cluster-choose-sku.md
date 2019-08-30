@@ -1,18 +1,18 @@
 ---
 title: Azure 데이터 탐색기 클러스터에 올바른 VM SKU를 선택 합니다.
 description: 이 문서에서는 Azure 데이터 탐색기 클러스터에 대해 최적의 SKU 크기를 선택 하는 방법을 설명 합니다.
-author: avnera
+author: avneraa
 ms.author: avnera
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/14/2019
-ms.openlocfilehash: 2eb23a65196ac4f6456f50dbbbfd9e4b484ad171
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
-ms.translationtype: MT
+ms.openlocfilehash: 483f0c6de81fddaab7895f1686076fec56719676
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515733"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172656"
 ---
 # <a name="select-the-correct-vm-sku-for-your-azure-data-explorer-cluster"></a>Azure 데이터 탐색기 클러스터에 올바른 VM SKU를 선택 합니다. 
 

@@ -2,7 +2,7 @@
 title: OCR 인식 검색 기술 - Azure Search
 description: Azure Search 보강 파이프라인에서 OCR(광학 문자 인식)을 사용하여 이미지 파일에서 텍스트를 추출합니다.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
 ms.workload: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: 617bc843084ed8f40c9d7f8c3f02303d39f50596
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: d2b3cdac72d47afb804763c521aae0b1d5936567
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639077"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186361"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR 인식 기술
 
@@ -53,7 +53,7 @@ OCR(광학 문자 인식) 기술은 이미지 파일에서 인쇄 및 필기한 
 
 ## <a name="skill-inputs"></a>기술 입력
 
-| 이름 입력      | Description                                          |
+| 이름 입력      | 설명                                          |
 |---------------|------------------------------------------------------|
 | image         | 복합 형식입니다. ```imageAction```이 ```none``` 이외의 값으로 설정된 경우 현재 Azure Blob 인덱서에서 생성된 “/document/normalized_images” 필드에만 작동합니다. 자세한 내용은 [샘플](#sample-output)을 참조하세요.|
 

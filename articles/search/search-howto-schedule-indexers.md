@@ -3,18 +3,18 @@ title: 인덱서를 예약 하는 방법-Azure Search
 description: 정기적으로 또는 특정 시간에 콘텐츠를 인덱싱하 Azure Search 인덱서를 예약 합니다.
 ms.date: 05/31/2019
 author: HeidiSteen
-manager: HeidiSteen
+manager: nitinme
 ms.author: heidist
 services: search
 ms.service: search
 ms.devlang: ''
 ms.topic: conceptual
-ms.openlocfilehash: 245a2139aae0910ea1415811234667f2c06500ec
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f72067637f9db84a432562ea5502861355426469
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855790"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186583"
 ---
 # <a name="how-to-schedule-indexers-for-azure-search"></a>Azure Search에 대 한 인덱서를 예약 하는 방법
 인덱서는 생성 후 즉시 한 번 실행 됩니다. 포털, REST API 또는 .NET SDK를 사용 하 여 요청 시 다시 실행할 수 있습니다. 정기적으로 일정에 따라 실행 되도록 인덱서를 구성할 수도 있습니다.

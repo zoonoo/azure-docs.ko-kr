@@ -15,12 +15,12 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 842d3146bf1927871e29eb750cde09e9029b7c12
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5758f480c9216cf71e47509682053b39f0b15bf
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242095"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172409"
 ---
 # <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Azure 리소스에 대한 RBAC 변경 내용의 활동 로그 보기
 
@@ -35,7 +35,7 @@ ms.locfileid: "66242095"
 - 사용자 지정 역할 정의 만들기 또는 업데이트
 - 사용자 지정 역할 정의 삭제
 
-## <a name="azure-portal"></a>Azure portal
+## <a name="azure-portal"></a>Azure Portal
 
 가장 손쉽게 시작할 수 있는 방법은 Azure Portal을 사용하여 활동 로그를 보는 것입니다. 다음 스크린샷은 역할 할당 및 역할 정의 작업을 표시하도록 필터링된 활동 로그의 예를 보여 줍니다. 또한 로그를 CSV 파일로 다운로드하는 링크도 포함되어 있습니다.
 
@@ -46,7 +46,7 @@ ms.locfileid: "66242095"
 |Filter  |값  |
 |---------|---------|
 |이벤트 범주     | <ul><li>관리</li></ul>         |
-|작업(Operation)     | <ul><li>역할 할당 만들기</li> <li>역할 할당 삭제</li> <li>사용자 지정 역할 정의 만들기 또는 업데이트</li> <li>사용자 지정 역할 정의 삭제</li></ul>      |
+|연산     | <ul><li>역할 할당 만들기</li> <li>역할 할당 삭제</li> <li>사용자 지정 역할 정의 만들기 또는 업데이트</li> <li>사용자 지정 역할 정의 삭제</li></ul>      |
 
 
 활동 로그에 대한 자세한 내용은 [활동 로그의 이벤트 보기](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)를 참조하세요.
@@ -110,7 +110,7 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 ## <a name="azure-monitor-logs"></a>Azure Monitor 로그
 
-[Azure Monitor 로그](../log-analytics/log-analytics-overview.md) 수집 하 고 모든 Azure 리소스에 대 한 RBAC 변경을 분석 하 여 다른 도구입니다. Azure Monitor 로그에는 다음과 같은 이점이 있습니다.
+[Azure Monitor 로그](../log-analytics/log-analytics-overview.md) 는 모든 Azure 리소스에 대 한 RBAC 변경 내용을 수집 하 고 분석 하는 데 사용할 수 있는 또 다른 도구입니다. Azure Monitor 로그에는 다음과 같은 이점이 있습니다.
 
 - 복잡한 쿼리 및 로직 작성
 - 경고, Power BI 및 기타 도구와 통합
@@ -123,9 +123,9 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 1. 작업 영역에 대해 [활동 로그 분석 솔루션을 구성](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution)합니다.
 
-1. [활동 로그를 봅니다](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution). Activity Log Analytics 솔루션 개요 페이지로 이동 하는 빠른 방법은 클릭 하는 것은 **Log Analytics** 옵션입니다.
+1. [활동 로그를 봅니다](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution). 활동 로그 분석 솔루션 개요 페이지로 이동 하는 빠른 방법은 **Log Analytics** 옵션을 클릭 하는 것입니다.
 
-   ![포털에서 azure Monitor 로그 옵션](./media/change-history-report/azure-log-analytics-option.png)
+   ![포털의 Azure Monitor 로그 옵션](./media/change-history-report/azure-log-analytics-option.png)
 
 1. 선택적으로 [로그 검색](../log-analytics/log-analytics-log-search.md) 페이지 또는 [고급 분석 포털](../azure-monitor/log-query/get-started-portal.md)을 사용하여 로그를 쿼리하고 봅니다. 이러한 두 옵션에 대한 자세한 내용은 [로그 검색 페이지 또는 고급 분석 포털](../azure-monitor/log-query/portals.md)을 참조하세요.
 
@@ -133,7 +133,7 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 ```
 AzureActivity
-| where TimeGenerated > ago(60d) and OperationName startswith "Microsoft.Authorization/roleAssignments/write" and ActivityStatus == "Succeeded"
+| where TimeGenerated > ago(60d) and OperationNameValue startswith "Microsoft.Authorization/roleAssignments/write" and ActivityStatus == "Succeeded"
 | parse ResourceId with * "/providers/" TargetResourceAuthProvider "/" *
 | summarize count(), makeset(Caller) by TargetResourceAuthProvider
 ```
@@ -142,8 +142,8 @@ AzureActivity
 
 ```
 AzureActivity
-| where TimeGenerated > ago(60d) and OperationName startswith "Microsoft.Authorization/roleAssignments"
-| summarize count() by bin(TimeGenerated, 1d), OperationName
+| where TimeGenerated > ago(60d) and OperationNameValue startswith "Microsoft.Authorization/roleAssignments"
+| summarize count() by bin(TimeGenerated, 1d), OperationNameValue
 | render timechart
 ```
 

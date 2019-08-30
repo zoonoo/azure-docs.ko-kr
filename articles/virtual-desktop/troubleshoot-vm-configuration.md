@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 07/10/2019
+ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: f797d3ee525806d8002b19edb1378d0376508b08
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 03a8e8063f1a66b929311f09bf8e20cd4b951e43
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073923"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70163311"
 ---
 # <a name="tenant-and-host-pool-creation"></a>테넌트 및 호스트 풀 만들기
 
@@ -208,7 +208,12 @@ Side-by-side 스택을 설치 하 고 사용 하도록 설정 하는 경우 **qw
 **방법을** 세션 호스트 VM에 side-by-side 스택을 설치 하려면 다음 지침을 따르세요.
 
 1. RDP (원격 데스크톱 프로토콜)를 사용 하 여 로컬 관리자로 세션 호스트 VM에 직접 가져올 수 있습니다.
-2. PowerShell 세션에서 사용할 [Windows 가상 데스크톱 powershell 모듈](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) 을 다운로드 하 고 가져옵니다 (아직 없는 경우).
+2. PowerShell 세션에서 사용할 [Windows 가상 데스크톱 powershell 모듈](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) 을 다운로드 하 여 가져온 다음 (아직 없는 경우)이 cmdlet을 실행 하 여 계정에 로그인 합니다.
+    
+    ```powershell
+    Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+    ```
+    
 3. PowerShell을 사용 하 여 [호스트 풀 만들기](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell)를 사용 하 여 side-by-side 스택을 설치 합니다.
 
 ## <a name="how-to-fix-a-windows-virtual-desktop-side-by-side-stack-that-malfunctions"></a>오작동 하는 Windows 가상 데스크톱 side-by-side 스택을 수정 하는 방법

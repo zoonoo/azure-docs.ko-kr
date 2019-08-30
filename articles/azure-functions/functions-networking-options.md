@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: f4f081001f2573bccc58205ccc7955739b7f5c4c
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: ca7985ee302b35f8e7b39c46c229c7b0b263ffce
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779286"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70170652"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 네트워킹 옵션
 
@@ -52,8 +52,10 @@ IP 제한을 사용 하 여 앱에 대 한 액세스가 허용 되거나 거부 
 ## <a name="private-site-access"></a>프라이빗 사이트 액세스
 
 개인 사이트 액세스는 Azure virtual network 내에서와 같은 개인 네트워크 에서만 앱에 액세스할 수 있도록 하는 것을 말합니다. 
-* 개인 사이트 액세스는 **서비스 끝점이** 구성 될 때 [프리미엄](./functions-premium-plan.md) 및 [App Service 계획](functions-scale.md#app-service-plan) 에서 사용할 수 있습니다. 자세한 내용은 [가상 네트워크 서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md) 을 참조 하세요.
-    * 서비스 끝점을 사용 하는 경우 가상 네트워크 통합이 구성 된 경우에도 함수에서 인터넷에 대 한 전체 아웃 바운드 액세스를 계속 유지 합니다.
+* 개인 사이트 액세스는 **서비스 끝점이** 구성 될 때 [프리미엄](./functions-premium-plan.md), [소비](functions-scale.md#consumption-plan) 및 [App Service 계획](functions-scale.md#app-service-plan) 에서 사용할 수 있습니다. 
+    * 서비스 끝점은 앱 별로 구성 될 수 있습니다 > 네트워킹 > 액세스 제한 구성 > 규칙 추가를 구성 합니다. 이제 가상 네트워크를 규칙의 "유형"으로 선택할 수 있습니다.
+    * 자세한 내용은 [가상 네트워크 서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md) 을 참조 하세요.
+        * 서비스 끝점을 사용 하는 경우 가상 네트워크 통합이 구성 된 경우에도 함수에서 인터넷에 대 한 전체 아웃 바운드 액세스를 계속 유지 합니다.
 * 개인 사이트 액세스는 ILB (내부 부하 분산 장치)로 구성 된 App Service Environment 에서도 사용할 수 있습니다. 자세한 내용은 [App Service Environment를 사용 하 여 내부 부하 분산 장치 만들기 및 사용](../app-service/environment/create-ilb-ase.md)을 참조 하세요.
 
 ## <a name="virtual-network-integration"></a>가상 네트워크 통합
@@ -99,6 +101,13 @@ VNet 통합에서 지원하지 않는 다음 몇 가지 항목이 있습니다.
 * [게이트웨이 필요 VNet 통합](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
 
 가상 네트워크 통합을 사용 하는 방법에 대 한 자세한 내용은 [Azure 가상 네트워크와 함수 앱 통합](functions-create-vnet.md)을 참조 하세요.
+
+### <a name="restricting-your-storage-account-to-a-virtual-network"></a>가상 네트워크에 대 한 저장소 계정 제한
+
+> [!note] 
+> 저장소 계정에 대 한 액세스 제한을 구성 하면 일시적으로 함수 앱에서 저장소 계정을 사용할 수 있게 되는 데 최대 12 시간이 걸릴 수 있습니다. 이 시간 동안 응용 프로그램은 완전히 오프 라인 상태가 됩니다.
+
+높은 수준의 보안을 제공 하기 위해 응용 프로그램의 저장소 계정을 가상 네트워크로 제한할 수 있습니다. 그런 다음 해당 가상 네트워크와 사이트를 통합 하 여 저장소 계정에 액세스 해야 합니다. 이 구성은 가상 네트워크 통합을 지 원하는 모든 요금제에서 지원 됩니다.
 
 ## <a name="virtual-network-triggers-non-http"></a>가상 네트워크 트리거 (비 HTTP)
 

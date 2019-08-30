@@ -3,25 +3,35 @@ title: Visual Studio Code를 사용 하 여 Python에서 Azure Functions 만들�
 description: Azure Functions에 대해 Visual Studio Code 확장을 사용 하 여 Python에서 서버를 사용 하지 않는 함수를 만들고 Azure에 배포 하는 방법입니다.
 services: functions
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: glenga
-ms.openlocfilehash: f5591a3e0ca73649b1ffc51c75aa95e86e286768
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 4f5c10536992f51ac61815507a3869e521520299
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639097"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70170706"
 ---
 # <a name="deploy-python-to-azure-functions-with-visual-studio-code"></a>Visual Studio Code를 사용 하 여 Azure Functions에 Python 배포
 
 이 자습서에서는 Visual Studio Code 및 Azure Functions 확장을 사용 하 여 Python을 사용 하 여 서버 리스 HTTP 끝점을 만들고 저장소에 연결 (또는 "바인딩")도 추가 합니다. Azure Functions는 가상 컴퓨터를 프로 비전 하거나 웹 앱을 게시할 필요 없이 서버를 사용 하지 않는 환경에서 코드를 실행 합니다. Visual Studio Code에 대 한 Azure Functions 확장은 많은 구성 문제를 자동으로 처리 하 여 함수를 사용 하는 프로세스를 크게 간소화 합니다.
 
+이 자습서에서는 다음 작업을 수행하는 방법을 알아봅니다.
+
+> [!div class="checklist"]
+> * Azure Functions 확장 설치
+> * HTTP 트리거 함수 만들기
+> * 로컬에서 디버그
+> * 응용 프로그램 설정 동기화
+> * 스트리밍 로그 보기
+> * Azure Storage에 연결
+
 이 자습서의 단계 중 하나에 문제가 발생 하는 경우 세부 정보에 대 한 의견을 보내 주시기 바랍니다. 각 섹션의 끝에 있는 **문제가 발생** 했습니다. 단추를 사용 하 여 자세한 피드백을 제출 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - [Azure 구독](#azure-subscription).
 - [Azure Functions 확장을 사용 하 여 Visual Studio Code](#visual-studio-code-python-and-the-azure-functions-extension) 합니다.
@@ -84,7 +94,7 @@ Azure Functions 로고로 시작 하는 출력 (출력을 위쪽으로 스크롤
 `func` 명령이 인식 되지 않으면 Azure Functions Core Tools를 설치한 폴더가 PATH 환경 변수에 포함 되어 있는지 확인 합니다.
 
 > [!div class="nextstepaction"]
-> [문제가 발생 했습니다.](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=01-verify-prerequisites)
+> [문제가 발생했습니다.](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=01-verify-prerequisites)
 
 ## <a name="create-the-function"></a>함수 만들기
 
@@ -100,29 +110,26 @@ Azure Functions 로고로 시작 하는 출력 (출력을 위쪽으로 스크롤
     | 함수 앱 프로젝트에 대한 언어를 선택합니다. | **Python** | 코드에 사용 되는 템플릿을 결정 하는 함수에 사용할 언어입니다. |
     | 프로젝트의 첫 번째 함수에 대한 템플릿 선택 | **HTTP 트리거** | Http 트리거를 사용 하는 함수는 함수 끝점에 대 한 HTTP 요청이 있을 때마다 실행 됩니다. Azure Functions에 대 한 다양 한 트리거가 있습니다. 자세히 알아보려면 [함수를 사용 하 여 무엇을 할 수 있나요?](functions-overview.md#what-can-i-do-with-functions)를 참조 하세요. |
     | 함수 이름 제공 | HttpExample | 이름은 구성 데이터와 함께 함수 코드를 포함 하는 하위 폴더에 사용 되며 HTTP 끝점의 이름도 정의 합니다. 기본 "Httpexample"를 허용 하는 대신 "HttpExample"을 사용 하 여 트리거와 함수 자체를 구분 합니다. |
-    | 권한 수준 | **익명** | 익명 권한 부여는 함수를 누구나 공개적으로 액세스할 수 있도록 합니다. |
+    | 권한 수준 | **함수** | 함수 끝점에 대 한 호출에는 [함수 키](functions-bindings-http-webhook.md#authorization-keys)가 필요 합니다. |
     | 프로젝트를 여는 방법을 선택합니다. | **현재 창에서 열기** | 현재 Visual Studio Code 창에서 프로젝트를 엽니다. |
 
-1. 잠시 후 새 프로젝트가 생성 되었음을 나타내는 메시지입니다. **탐색기**에는 함수에 대해 만들어진 하위 폴더가 있으며 Visual Studio Code는 기본 함수 코드를 포함 하는 py 파일을 엽니다.  *\_ \_\_\_*
+1. 잠시 후 새 프로젝트가 생성 되었음을 나타내는 메시지입니다. **탐색기**에는 함수에 대해 만들어진 하위 폴더가 있습니다. 
+
+1. 아직 열려 있지 않은 경우 기본 함수 코드를 포함 하는 py 파일을 엽니다.  *\_ \_\_\_*
 
     [![새 Python 함수 프로젝트를 만든 결과](media/tutorial-vs-code-serverless-python/project-create-results.png)](media/tutorial-vs-code-serverless-python/project-create-results.png)
 
     > [!NOTE]
-    > Visual Studio Code 경우  *\_ \_py를\_열\_* 때 python 인터프리터를 선택 하지 않았다는 메시지가 표시 되 면 명령 팔레트 (F1)를 열고 python을선택합니다. **인터프리터** 명령을 선택한 다음 프로젝트의 일부로 생성 된 로컬 `.env` 폴더에서 가상 환경을 선택 합니다. 이 환경은 이전에 [사전 요구 사항](#prerequisites)에 명시 된 대로 Python 3.6 x를 기반으로 해야 합니다.
+    > Visual Studio Code에서  *\_ \_py를\_열\_* 때 python 인터프리터가 선택 되지 않았다는 메시지가 표시 되 면 명령 팔레트 (F1)를 열고 python을선택합니다. **인터프리터** 명령을 선택한 다음 프로젝트의 일부로 생성 된 로컬 `.env` 폴더에서 가상 환경을 선택 합니다. 이 환경은 이전에 [사전 요구 사항](#prerequisites)에 명시 된 대로 Python 3.6 x를 기반으로 해야 합니다.
     >
     > ![프로젝트를 사용 하 여 만든 가상 환경 선택](media/tutorial-vs-code-serverless-python/select-venv-interpreter.png)
 
-> [!TIP]
-> 동일한 프로젝트에서 다른 함수를 만들려는 경우 **Azure에서 **create function** 명령을 사용 합니다. 함수** 탐색기를 클릭 하거나 명령 팔레트 (F1)를 열고 Azure Functions를 **선택 합니다. 함수 만들기** 명령을 검색하여 선택합니다. 두 명령 모두 끝점의 이름인 함수 이름을 묻는 메시지를 표시 한 다음 기본 파일을 사용 하 여 하위 폴더를 만듭니다.
->
-> ![Azure의 새 함수 명령: 함수 탐색기](media/tutorial-vs-code-serverless-python/function-create-new.png)
-
 > [!div class="nextstepaction"]
-> [문제가 발생 했습니다.](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=02-create-function)
+> [문제가 발생했습니다.](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=02-create-function)
 
 ## <a name="examine-the-code-files"></a>코드 파일 검사
 
-새로 만든 함수 하위 폴더에는 세 개의 파일이  *\_ \_\_\_* 있습니다. py는 함수의 코드를 포함 합니다 *. json* 은 함수에 대해 설명 하 고, *샘플을 Azure Functions 합니다.* 는 샘플 데이터 파일입니다. 다른 파일을 하위 폴더에 추가할 수 있는 경우에만 존재 하므로 *샘플 .dat* 를 삭제할 수 있습니다.
+새로 만든 _httpexample_ 함수 하위 폴더는  *\_ \_\_\_py* 함수 코드를 포함 합니다. json은 함수를 Azure에 설명 *합니다* . 함수 및 *.sample* 은 샘플 데이터 파일입니다. 다른 파일을 하위 폴더에 추가할 수 있는 경우에만 존재 하므로 *샘플 .dat* 를 삭제할 수 있습니다.
 
 먼저  *\_py의 코드를\_확인 한 다음 함수를 살펴보겠습니다.\_\_*
 
@@ -135,7 +142,7 @@ Azure Functions 로고로 시작 하는 출력 (출력을 위쪽으로 스크롤
   "scriptFile": "__init__.py",
   "bindings": [
     {
-      "authLevel": "anonymous",
+      "authLevel": "function",
       "type": "httpTrigger",
       "direction": "in",
       "name": "req",
@@ -155,7 +162,7 @@ Azure Functions 로고로 시작 하는 출력 (출력을 위쪽으로 스크롤
 
 속성 `scriptFile` 은 코드의 시작 파일을 식별 하며,이 코드에는 라는 `main`Python 함수가 포함 되어 있어야 합니다. 여기에 지정 된 파일에 `main` 함수가 포함 되어 있으면 코드를 여러 파일로 나눌 수 있습니다.
 
-요소 `bindings` 는 두 개체, 즉 들어오는 요청을 설명 하는 개체와 HTTP 응답을 설명 하는 개체를 포함 합니다. 들어오는 요청의 경우 (`"direction": "in"`) 함수는 HTTP GET 또는 POST 요청에 응답 하며 인증이 필요 하지 않습니다. 응답 (`"direction": "out"`)은 `main` Python 함수에서 반환 되는 값을 반환 하는 HTTP 응답입니다.
+요소 `bindings` 는 두 개체, 즉 들어오는 요청을 설명 하는 개체와 HTTP 응답을 설명 하는 개체를 포함 합니다. 들어오는 요청 (`"direction": "in"`)의 경우 함수는 HTTP GET 또는 POST 요청에 응답 하며 함수 키를 제공 해야 합니다. 응답 (`"direction": "out"`)은 `main` Python 함수에서 반환 되는 값을 반환 하는 HTTP 응답입니다.
 
 ### <a name="__initpy__"></a>\_\_init.py\_\_
 
@@ -196,7 +203,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 - 이름이 발견 되 면 코드에서 이름이 추가 된 "Hello" 문자열을 반환 합니다. 그렇지 않은 경우 오류 메시지를 반환 합니다.
 
 > [!div class="nextstepaction"]
-> [문제가 발생 했습니다.](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=03-examine-code-files)
+> [문제가 발생했습니다.](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=03-examine-code-files)
 
 ## <a name="debug-locally"></a>로컬에서 디버그
 
@@ -233,12 +240,12 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     또는를 포함 `{"name":"Visual Studio Code"}` 하 고 명령을 `curl --header "Content-Type: application/json" --request POST --data @data.json http://localhost:7071/api/HttpExample`사용 하는 *데이터* 와 같은 파일을 만듭니다.
 
-1. 함수 디버깅을 테스트 하려면 URL을 다시 읽고 `name = req.params.get('name')` 요청 하는 줄에 중단점을 설정 합니다. Visual Studio Code 디버거는 해당 줄에서 중지 되어 변수를 검사 하 고 코드를 단계별로 실행할 수 있습니다. 기본 디버깅에 대 한 간단한 연습은 [Visual Studio Code 자습서-디버거 구성 및 실행](https://code.visualstudio.com/docs/python/python-tutorial.md#configure-and-run-the-debugger)을 참조 하세요.)
+1. 함수를 디버깅 하려면 URL을 다시 읽고 `name = req.params.get('name')` 요청 하는 줄에 중단점을 설정 합니다. Visual Studio Code 디버거는 해당 줄에서 중지 되어 변수를 검사 하 고 코드를 단계별로 실행할 수 있습니다. 기본 디버깅에 대 한 간단한 연습은 [Visual Studio Code 자습서-디버거 구성 및 실행](https://code.visualstudio.com/docs/python/python-tutorial.md#configure-and-run-the-debugger)을 참조 하세요.)
 
 1. 함수를 로컬로 철저 하 게 테스트 한 > 경우 디버깅**중지** 메뉴 명령 또는 디버깅 도구 모음의 **연결 끊기** 명령을 사용 하 여 디버거를 중지 합니다.
 
 > [!div class="nextstepaction"]
-> [문제가 발생 했습니다.](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=04-test-debug)
+> [문제가 발생했습니다.](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=04-test-debug)
 
 ## <a name="deploy-to-azure-functions"></a>Azure Functions에 배포
 
@@ -276,7 +283,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     이 끝점을 사용 하 여 요청 본문에서 JSON 데이터를 포함 하는 URL 매개 변수 및/또는 요청을 사용 하 여 로컬에서 수행한 동일한 테스트를 실행 합니다. 공용 끝점의 결과는 앞에서 테스트 한 로컬 끝점의 결과와 일치 해야 합니다.
 
 > [!div class="nextstepaction"]
-> [문제가 발생 했습니다.](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=05-deploy)
+> [문제가 발생했습니다.](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=05-deploy)
 
 ### <a name="stream-logs"></a>로그 스트리밍
 
@@ -403,7 +410,7 @@ func azure functionapp logstream <app_name> --browser
 1. 배포가 완료 되 면 (몇 분이 소요 됩니다.) **출력** 창에는 테스트를 반복할 수 있는 공용 끝점이 표시 됩니다.
 
 > [!div class="nextstepaction"]
-> [문제가 발생 했습니다.](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=06-second-function)
+> [문제가 발생했습니다.](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=06-second-function)
 
 ## <a name="add-a-binding-to-write-messages-to-azure-storage"></a>Azure storage에 메시지를 쓰는 바인딩을 추가 합니다.
 
@@ -423,7 +430,7 @@ _바인딩을_ 사용 하면 데이터 액세스 코드를 작성 하지 않고�
     | --- | --- |
     | 바인딩 방향 설정 | out |
     | 방향이 out 인 바인딩 선택 | Azure Queue Storage |
-    | 코드에서 이 바인딩을 식별하는 데 사용되는 이름입니다. | msg |
+    | 코드에서이 바인딩을 식별 하는 데 사용 되는 이름입니다. | msg |
     | 메시지가 전송 될 큐입니다. | outqueue |
     | 로컬에서 설정 (저장소 연결 요청)을 선택 *합니다.* | AzureWebJobsStorage |
 
@@ -487,7 +494,7 @@ _바인딩을_ 사용 하면 데이터 액세스 코드를 작성 하지 않고�
 1. 클라우드에서 테스트 하려면 **Azure에서 **함수 앱 배포를** 사용 하 여 코드를 다시 배포 합니다. 함수** 탐색기. 메시지가 표시 되 면 이전에 만든 함수 앱를 선택 합니다. 배포가 완료 되 면 (몇 분이 소요 됩니다.) **출력** 창에는 테스트를 반복할 수 있는 공용 끝점이 다시 표시 됩니다.
 
 > [!div class="nextstepaction"]
-> [문제가 발생 했습니다.](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=07-storage-binding)
+> [문제가 발생했습니다.](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=07-storage-binding)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

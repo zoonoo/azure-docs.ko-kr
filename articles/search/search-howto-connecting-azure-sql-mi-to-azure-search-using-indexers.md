@@ -2,18 +2,18 @@
 title: 검색 인덱싱에 대 한 Azure SQL Managed Instance 연결-Azure Search
 description: Azure Search의 인덱서에서 SQL 관리 되는 인스턴스에 대 한 연결을 허용 하도록 공용 끝점을 설정 합니다.
 author: vl8163264128
-manager: briansmi
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: victliu
-ms.openlocfilehash: ae947e85f600b3bc380898ad5820239aa823794d
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 07bc1a55c0222fda87b28acbaa8bfe552fb8e6ed
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68229129"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186632"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-managed-instance"></a>Azure Search 인덱서에 SQL Managed Instance에 대 한 연결 구성
 [인덱서를 사용 하 여 Azure Search에 Azure SQL Database 연결](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq)에 설명 된 대로 **SQL 관리** 되는 인스턴스에 대 한 인덱서 생성은 공용 끝점을 통해 Azure Search에서 지원 됩니다.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0c6186334820d0e419a06b9c60a8279825bf54c2
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: e79d7a4b97f010b035f5c864682b4d3882a21393
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927303"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171912"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 애플리케이션의 사용자 인터페이스 사용자 지정
 
@@ -23,7 +23,7 @@ ms.locfileid: "68927303"
 
 이 문서를 완료하면 브랜드와 모양이 포함된 등록 및 로그인 사용자 지정 정책을 갖습니다. Azure AD B2C(Azure Active Directory B2C)를 사용하면 사용자에게 제공되는 HTML 및 CSS 콘텐츠를 거의 완벽하게 제어할 수 있습니다. 사용자 지정 정책을 사용하는 경우 Azure Portal의 컨트롤을 사용하는 대신 XML로 UI 사용자 지정을 구성합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 [사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md)의 단계를 완료합니다. 로컬 계정을 사용하여 등록 및 로그인하기 위한 사용자 지정 정책이 작동해야 합니다.
 
@@ -65,17 +65,16 @@ Blob Storage에서 이 HTML 콘텐츠를 호스팅하려면 다음을 수행합�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **허브** 메뉴에서 **새로 만들기** > **스토리지** > **스토리지 계정**을 차례로 선택합니다.
-3. 스토리지 계정의 고유한 **이름**을 입력합니다.
-4. **배포 모델**은 **Resource Manager**로 유지하면 됩니다.
-5. **계정 종류**를 **Blob Storage**로 변경합니다.
-6. **성능**은 **표준**으로 유지하면 됩니다.
-7. **복제**는**RA-GRS**로 유지하면 됩니다.
-8. **액세스 계층**은 **핫**으로 유지하면 됩니다.
-9. **Storage 서비스 암호화**는 **사용 안 함**으로 유지하면 됩니다.
-10. 스토리지 계정에 대한 **구독**을 선택합니다.
-11. **리소스 그룹**을 만들거나 기존 그룹을 선택합니다.
-12. 스토리지 계정에 대한 **지리적 위치**를 선택합니다.
-13. **만들기** 를 클릭하여 스토리지 계정을 만들 수 있습니다.  
+3. 스토리지 계정에 대한 **구독**을 선택합니다.
+4. **리소스 그룹**을 만들거나 기존 그룹을 선택합니다.
+5. 스토리지 계정의 고유한 **이름**을 입력합니다.
+6. 스토리지 계정에 대한 **지리적 위치**를 선택합니다. 
+7. **배포 모델**은 **Resource Manager**로 유지하면 됩니다.
+8. **성능**은 **표준**으로 유지하면 됩니다.
+9. **계정 종류**를 **Blob Storage**로 변경합니다.
+10. **복제**는**RA-GRS**로 유지하면 됩니다.
+11. **액세스 계층**은 **핫**으로 유지하면 됩니다. 
+12. **검토 + 만들기** 를 클릭 하 여 저장소 계정을 만듭니다.  
     배포가 완료되면 **Storage 계정** 블레이드가 자동으로 열립니다.
 
 ## <a name="create-a-container"></a>컨테이너 만들기
@@ -172,7 +171,7 @@ git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 
 sample_templates/wingtip 폴더에는 다음과 같은 HTML 파일이 있습니다.
 
-| HTML5 템플릿 | 설명 |
+| HTML5 템플릿 | Description |
 |----------------|-------------|
 | *phonefactor.html* | 다단계 인증 페이지의 템플릿으로 사용합니다. |
 | *resetpassword.html* | 암호 찾기 페이지의 템플릿으로 사용합니다. |
@@ -192,7 +191,7 @@ sample_templates/wingtip 폴더에는 다음과 같은 HTML 파일이 있습니�
 
 등록 또는 로그인 사용자 지정 정책 수정 섹션에서 `api.idpselections`에 대한 콘텐츠 정의를 구성했습니다. 다음 표에서는 Azure AD B2C ID 환경 프레임워크에서 인식되는 콘텐츠 정의 ID 및 해당 설명에 대한 전체 집합을 보여 줍니다.
 
-| 콘텐츠 정의 ID | 설명 | 
+| 콘텐츠 정의 ID | Description | 
 |-----------------------|-------------|
 | *api.error* | **오류 페이지**입니다. 예외 또는 오류가 발생하면 이 페이지가 표시됩니다. |
 | *api.idpselections* | **ID 공급자 선택 페이지**입니다. 이 페이지는 로그인하는 동안 사용자가 선택할 수 있는 ID 공급자의 목록을 포함합니다. 이러한 옵션은 엔터프라이즈 ID 공급자, 소셜 ID 공급자(예: Facebook, Google+) 또는 로컬 계정입니다. |

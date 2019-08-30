@@ -5,15 +5,15 @@ services: container-registry
 author: stevelas
 manager: gwallace
 ms.service: container-registry
-ms.topic: overview
+ms.topic: article
 ms.date: 08/16/2019
 ms.author: stevelas
-ms.openlocfilehash: 73d497b4784a91974fab8a94c6f9fe595770ea45
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
-ms.translationtype: HT
+ms.openlocfilehash: 50ab3fc92fc980638547bb090c5d0d78aa20ab5f
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574393"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172279"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Azure Container Registry의 지리적 복제
 
@@ -64,7 +64,7 @@ Azure Container Registry의 지리적 복제 기능을 사용하면 다음과 �
 
 ## <a name="configure-geo-replication"></a>지역에서 복제 구성
 
-지도에서 해당 지역을 클릭하여 간편하게 지리적 복제를 구성할 수 있습니다. 또한 Azure CLI의 [az acr replication](/cli/azure/acr/replication) 명령을 포함한 도구를 사용하여 지역 복제를 관리할 수 있습니다.
+지도에서 해당 지역을 클릭하여 간편하게 지리적 복제를 구성할 수 있습니다. Azure CLI에서 [az acr replication](/cli/azure/acr/replication) 명령을 비롯 한 도구를 사용 하 여 지역에서 복제를 관리 하거나 [Azure Resource Manager 템플릿을](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry-geo-replication)사용 하 여 지역에서 복제를 위해 사용 하도록 설정 된 레지스트리를 배포할 수도 있습니다.
 
 지리적 복제는 [Premium 레지스트리](container-registry-skus.md) 전용 기능입니다. Basic 및 Standard 레지스트리를 사용 중인 경우, [Azure Portal](https://portal.azure.com)에서 Premium으로 변경할 수 있습니다.
 

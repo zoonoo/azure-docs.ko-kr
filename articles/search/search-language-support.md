@@ -2,18 +2,18 @@
 title: 영어 이외의 검색 쿼리를 위한 다국어 인덱싱 - Azure Search
 description: Azure Search는 Lucene 및 Microsoft 제공 자연어 처리 기술을 통해 56개 언어를 지원합니다.
 author: yahnoosh
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: jlembicz
-ms.openlocfilehash: 5383ad44f665ce809772143e23817932c3e2b7e6
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 9d2e6418eb925f0d113b7e9a91463951ca52031a
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883880"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186564"
 ---
 # <a name="how-to-create-an-index-for-multiple-languages-in-azure-search"></a>Azure Search에서 여러 언어에 대 한 인덱스를 만드는 방법
 

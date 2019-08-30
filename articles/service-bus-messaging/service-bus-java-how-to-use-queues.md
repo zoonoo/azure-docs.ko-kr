@@ -14,22 +14,22 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.custom: seo-java-july2019
-ms.openlocfilehash: 4075ceae6c40a6be8ee2b9f6580a57fafb96e17e
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.custom: seo-java-july2019, seo-java-august2019
+ms.openlocfilehash: 84f035a55256ab22c823b2aaed9c9c2400eebf5b
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663432"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173419"
 ---
-# <a name="how-to-use-service-bus-queues-with-java"></a>Java에서 Service Bus 큐를 사용하는 방법
+# <a name="use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Java가 있는 Azure Service Bus 큐를 사용 하 여 메시지 보내기 및 받기
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 이 자습서에서는 Service Bus 큐에 메시지를 보내고 메시지를 수신 하는 Java 응용 프로그램을 만드는 방법에 대해 알아봅니다. 
 
 > [!NOTE]
 > Java 샘플은 GitHub의 [azure-service-bus 리포지토리](https://github.com/Azure/azure-service-bus/tree/master/samples/Java)에 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 1. Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) 을 활성화 하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 등록할 수 있습니다.
 2. 사용할 큐가 없는 경우 [Azure Portal를 사용 하 여 Service Bus 큐 만들기](service-bus-quickstart-portal.md) 문서의 단계에 따라 큐를 만듭니다.
     1. Service Bus **큐**에 대 한 간략 한 **개요** 를 참조 하세요. 

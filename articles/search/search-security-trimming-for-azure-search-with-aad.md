@@ -2,19 +2,19 @@
 title: Active Directory를 사용하여 결과를 자르는 보안 필터 - Azure Search
 description: 보안 필터 및 AAD(Azure Active Directory) ID를 사용하는 Azure Search 콘텐츠에 대한 액세스 제어입니다.
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 410727022b092e2dd8ab8b05e628e25fd60ab833
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8bcc1dcd1d86c0ca18ed03dc60834884a42a39c9
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61282215"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186524"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Active Directory ID를 사용하여 Azure Search 결과를 자르는 보안 필터
 
@@ -31,7 +31,7 @@ ms.locfileid: "61282215"
 > [!NOTE]
 > 이 문서의 샘플 코드 조각은 C#으로 작성되었습니다. 전체 소스 코드는 [GitHub](https://aka.ms/search-dotnet-howto)를 참조하세요. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Search의 인덱스에는 문서에 대한 읽기 권한이 있는 그룹 ID 목록을 저장하는 [보안 필드](search-security-trimming-for-azure-search.md)가 있어야 합니다. 이 사용 사례에서는 보안 개체 항목(예: 개인의 대학 지원서) 및 해당 항목에 대한 액세스 권한이 있는 사람을 지정하는 보안 필드(입학 담당자) 간의 일대일 대응을 가정합니다.
 
@@ -187,7 +187,7 @@ DocumentSearchResult<SecuredFiles> results = _indexClient.Documents.Search<Secur
 
 이 연습에서는 AAD 로그인을 사용하여 Azure Search 결과의 문서를 필터링하고, 요청에서 제공한 필터와 일치하지 않는 문서 결과를 잘라내는 기술을 배웠습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 + [Azure Search 필터를 사용하여 ID 기반 액세스 제어](search-security-trimming-for-azure-search.md)
 + [Azure Search의 필터](search-filters.md)

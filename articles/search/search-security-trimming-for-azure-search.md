@@ -7,14 +7,14 @@ services: search
 ms.date: 05/02/2019
 author: brjohnstmsft
 ms.author: brjohnst
-manager: jlembicz
+manager: nitinme
 ms.custom: seodec2018
-ms.openlocfilehash: a222b9e506988929c25a560361611b8f78142053
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4d1ffa5b29a56d32a4f6a8ccf40f5bafd27795e6
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024361"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186484"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-search"></a>Azure Search의 결과를 한정하기 위한 보안 필터
 
@@ -33,7 +33,7 @@ ms.locfileid: "65024361"
 >[!NOTE]
 > 보안 주체 식별자를 검색하는 프로세스를 이 문서에서 다루지 않습니다. Id 서비스 공급자에게서 가져와야 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 문서에서는 [Azure 구독](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), [Azure Search 서비스](https://docs.microsoft.com/azure/search/search-create-service-portal) 및 [Azure Search 인덱스](https://docs.microsoft.com/azure/search/search-create-index-portal)가 있다고 가정합니다.  
 
@@ -152,9 +152,9 @@ api-key: [admin or query key]
 ```
 ## <a name="conclusion"></a>결론
 
-사용자 Id와 Azure Search `search.in()` 함수에 따라 결과를 필터링할 수 있는 방법입니다. 각 대상 문서와 연결 된 보안 주체 식별자에 대 한 일치 하도록 요청 하는 사용자에 대 한 사용자 식별자를 전달 하려면이 함수를 사용할 수 있습니다. 검색 요청이 처리될 때, `search.in` 함수는 사용자의 보안 주체 중 아무도 읽기 권한이 없는 검색 결과를 필터링합니다. 보안 주체 식별자는 보안 그룹, 역할 또는 심지어 사용자 본인 ID와 같은 것을 나타낼 수 있습니다.
+사용자 Id와 Azure Search `search.in()` 함수에 따라 결과를 필터링할 수 있는 방법입니다. 이 함수를 사용 하 여 요청 하는 사용자에 대 한 보안 주체 식별자를 전달 하 여 각 대상 문서와 연결 된 보안 주체 식별자에 대해 일치 시킬 수 있습니다. 검색 요청이 처리될 때, `search.in` 함수는 사용자의 보안 주체 중 아무도 읽기 권한이 없는 검색 결과를 필터링합니다. 보안 주체 식별자는 보안 그룹, 역할 또는 심지어 사용자 본인 ID와 같은 것을 나타낼 수 있습니다.
  
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 + [Azure Search 필터를 사용하여 Active Directory ID 기반 액세스 제어](search-security-trimming-for-azure-search-with-aad.md)
 + [Azure Search의 필터](search-filters.md)

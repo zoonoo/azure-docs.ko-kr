@@ -6,14 +6,14 @@ manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 08/29/2019
 ms.author: v-adgera
-ms.openlocfilehash: da1493d2d52f2c8a964df3b72c1622a9c6b66abf
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 8472a86800d13cedd228ca881a7c095ff748350a
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67719859"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172811"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>Azure Digital Twins 관리 API를 사용하는 방법
 
@@ -88,6 +88,7 @@ Digital Twins API는 다음 매개 변수를 사용하여 공간 그래프 전�
 
 
 ## <a name="odata-support"></a>OData 지원
+
 /spaces에서 GET 호출과 같은 컬렉션을 반환하는 대부분의 API는 일반 [OData](https://www.odata.org/getting-started/basic-tutorial/#queryData) 시스템 쿼리 옵션의 다음과 같은 하위 집합을 지원합니다.  
 
 * **$filter**
@@ -95,11 +96,12 @@ Digital Twins API는 다음 매개 변수를 사용하여 공간 그래프 전�
 * **$top**
 * **$skip** - 전체 컬렉션을 표시하려는 경우 단일 호출에서 전체 집합으로 요청한 다음, 애플리케이션에서 페이징을 수행해야 합니다. 
 
-$count, $expand, $search와 같은 다른 쿼리 옵션은 지원되지 않습니다.
+> [!NOTE]
+> 일부 OData 옵션 (예: 쿼리 옵션 **$count**, **$expand**및 **$search**)은 현재 지원 되지 않습니다.
 
 ### <a name="examples"></a>예
 
-다음 목록은 OData의 시스템 쿼리 옵션을 사용하여 쿼리하는 몇 가지 예제를 보여줍니다.
+다음 목록에서는 유효한 OData 구문을 사용한 몇 가지 쿼리를 보여 줍니다.
 
 - `YOUR_MANAGEMENT_API_URL/devices?$top=3&$orderby=Name desc`
 - `YOUR_MANAGEMENT_API_URL/keystores?$filter=endswith(Description,’space’)`
@@ -108,9 +110,10 @@ $count, $expand, $search와 같은 다른 쿼리 옵션은 지원되지 않습�
 - `YOUR_MANAGEMENT_API_URL/users?$top=4&$filter=endswith(LastName,’k’)&$orderby=LastName`
 - `YOUR_MANAGEMENT_API_URL/spaces?$orderby=Name desc&$top=3&$filter=substringof('Floor’,Name)`
  
-
 ## <a name="next-steps"></a>다음 단계
 
-몇 가지 일반적인 API 쿼리 패턴에 대해 알아보려면 [일반적인 작업에 대해 Azure Digital Twins API를 쿼리하는 방법](how-to-query-common-apis.md)을 참조하세요.
+몇 가지 일반적인 API 쿼리 패턴에 대해 알아보려면 [일반적인 작업에 대해 Azure Digital Twins API를 쿼리하는 방법](./how-to-query-common-apis.md)을 참조하세요.
 
-API 끝점에 대 한 자세한 내용은 [디지털 쌍 Swagger를 사용 하는 방법을](./how-to-use-swagger.md)합니다.
+API 끝점에 대 한 자세한 내용은 [Digital Twins Swagger를 사용 하는 방법](./how-to-use-swagger.md)을 참조 하세요.
+
+OData 구문 및 사용 가능한 비교 연산자를 검토 하려면 [Azure Search의 odata 비교 연산자](../search/search-query-odata-comparison-operators.md)를 참조 하세요.

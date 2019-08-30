@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 08/29/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: ef51a1b130323a8799d5334d8d043fda08fcc7ef
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 6ea4dbf07c8ef99c43dbe7add1ae9270056f708c
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69896958"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164319"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli-preview"></a>Azure CLI (미리 보기)를 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
 
@@ -61,7 +61,7 @@ Azure CLI를 사용 하 여 사용자 위임 SAS를 만들 때 SAS에 서명 하
 
 ### <a name="create-a-user-delegation-sas-for-a-container"></a>컨테이너에 대 한 사용자 위임 SAS 만들기
 
-Azure CLI를 사용 하 여 컨테이너에 대 한 사용자 위임 SAS를 만들려면 [az storage container generate SAS](/cli/azure/storage/container#az-storage-container-generate-sas) 명령을 호출 합니다.
+Azure CLI를 사용 하 여 컨테이너에 대 한 사용자 위임 SAS를 만들려면 [az storage container generate sas](/cli/azure/storage/container#az-storage-container-generate-sas) 명령을 호출 합니다.
 
 컨테이너에서 사용자 위임 SAS에 대해 지원 되는 권한에는 Add, Create, Delete, List, Read 및 Write가 있습니다. 권한은 단독으로 지정 하거나 조합 하 여 지정할 수 있습니다. 이러한 사용 권한에 대 한 자세한 내용은 [사용자 위임 SAS 만들기](/rest/api/storageservices/create-user-delegation-sas)를 참조 하세요.
 
@@ -112,6 +112,21 @@ https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?se=2019-
 
 > [!NOTE]
 > 사용자 위임 SAS는 저장 된 액세스 정책을 사용 하 여 사용 권한을 정의 하는 것을 지원 하지 않습니다.
+
+## <a name="revoke-a-user-delegation-sas"></a>사용자 위임 SAS 해지
+
+Azure CLI에서 사용자 위임 SAS를 해지 하려면 [az storage account revoke-keys](/cli/azure/storage/account#az-storage-account-revoke-delegation-keys) 명령을 호출 합니다. 이 명령은 지정 된 저장소 계정과 연결 된 모든 사용자 위임 키를 해지 합니다. 이러한 키와 연결 된 공유 액세스 서명은 무효화 됩니다.
+
+꺾쇠 괄호 안의 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다.
+
+```azurecli-interactive
+az storage account revoke-delegation-keys \
+    --name <storage-account> \
+    --resource-group <resource-group>
+```
+
+> [!IMPORTANT]
+> 사용자 위임 키와 RBAC 역할 할당은 모두 Azure Storage에 의해 캐시 되므로, 해지 프로세스를 시작 하 고 기존 사용자 위임 SAS가 무효화 될 때 사이에 지연이 발생할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

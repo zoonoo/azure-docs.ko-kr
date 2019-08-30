@@ -2,7 +2,7 @@
 title: 조건부 인식 검색 기술 (Azure Search) | Microsoft Docs
 description: 조건부 기술은 필터링, 기본값 만들기 및 값 병합을 가능 하 게 합니다.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
 ms.subservice: cognitive-search
@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: luisca
-ms.openlocfilehash: 21a36988b31571f2110fe4fd2802aa5d84ee0216
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 29e50a3d978338eaa46566574e6a20685a14bda4
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69635920"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186384"
 ---
 #   <a name="conditional-skill"></a>조건부 기술
 
@@ -87,7 +87,7 @@ Microsoft.Skills.Util.ConditionalSkill
 ## <a name="skill-inputs"></a>기술 입력
 입력은 대/소문자를 구분합니다.
 
-| 입력   | 설명 |
+| 입력   | Description |
 |-------------|-------------|
 | 조건   | 이 입력은 평가할 조건을 나타내는 [평가 된 필드](#evaluated-fields) 입니다. 이 조건은 부울 값 (*true* 또는 *false*)으로 계산 되어야 합니다.   <br/>  예를 들면 다음과 같습니다. <br/> "= true" <br/> "= $(/document/language) =='fr'" <br/> "= $(/document/pages/\*/language) == $(/document/expectedLanguage)" <br/> |
 | whenTrue    | 이 입력은 조건이 *true*로 평가 되는 경우 반환할 값을 나타내는 [계산 된 필드](#evaluated-fields) 입니다. 상수 문자열은 작은따옴표 (' 및 ')로 반환 되어야 합니다. <br/>샘플 값: <br/> "= ' 계약 '"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/> |

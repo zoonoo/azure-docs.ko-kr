@@ -9,14 +9,14 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2d74488f60f21e3644a7a04579bfab7e70882b01
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: ab510f7ee2f95a2c3373c0514c31554598451b27
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621537"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173326"
 ---
-# <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning-studio-preview"></a>Azure Stream Analytics 및 Azure Machine Learning Studio (미리 보기)를 사용 하 여 감정 분석을 수행 합니다.
+# <a name="perform-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-preview"></a>Azure Stream Analytics 및 Azure Machine Learning Studio를 사용 하 여 감정 분석 수행 (미리 보기)
 이 문서에서는 Azure Machine Learning Studio를 통합 하는 간단한 Azure Stream Analytics 작업을 신속 하 게 설정 하는 방법을 설명 합니다. Cortana Intelligence 갤러리의 Machine Learning 감정 분석 모델을 사용하여 실시간으로 스트리밍 텍스트 데이터를 분석하고 감정 점수를 확인합니다. Cortana Intelligence Suite를 사용하면 감정 분석 모델 빌드에 대한 걱정없이 이 작업을 수행할 수 있습니다.
 
 문서에서 알아본 내용을 다음과 같은 시나리오에 적용할 수 있습니다.
@@ -45,7 +45,7 @@ ms.locfileid: "67621537"
 좀 더 높은 수준에서 이 문서에 설명된 작업을 완료하려면 다음을 수행합니다.
 
 1. Azure Storage 계정 및 Blob Storage 컨테이너를 만들고 컨테이너에 CSV로 포맷된 입력 파일을 업로드합니다.
-3. Azure Machine Learning Studio 작업 영역에 Cortana Intelligence Gallery에서 감정 분석 모델을 추가 하 고 Machine Learning 작업 영역에서 웹 서비스로이 모델을 배포 합니다.
+3. Cortana Intelligence Gallery에서 Azure Machine Learning Studio 작업 영역에 감정 analytics 모델을 추가 하 고이 모델을 Machine Learning 작업 영역에 웹 서비스로 배포 합니다.
 5. 텍스트 입력의 감정을 결정하기 위해 이 웹 서비스를 함수로 호출하는 Stream Analytics 작업을 만듭니다.
 6. Stream Analytics 작업을 시작하고 출력을 확인합니다.
 

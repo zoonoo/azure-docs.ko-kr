@@ -7,15 +7,15 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 05/02/2019
-manager: jlembicz
+manager: nitinme
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 99abcc70a81622e4efbe85722d457bd1846b6e15
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: d9ddb5af42c538558a69ce68e7ea90161c947b12
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485209"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186450"
 ---
 # <a name="synonyms-in-azure-search"></a>Azure Search의 동의어
 
@@ -25,9 +25,9 @@ Azure Search에서 동의어 확장은 쿼리 시에 수행됩니다. 기존 작
 
 ## <a name="create-synonyms"></a>동의어 만들기
 
-동의어를 만들기 위한 포털 지원 되지 않습니다 하지만 REST API 또는.NET SDK를 사용할 수 있습니다. REST 사용을 시작 하려면이 좋습니다 [Postman을 사용 하 여](search-get-started-postman.md) 및이 API를 사용 하 여 요청을 공식화 합니다. [동의어 맵을 만들](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)합니다. 에 대 한 C# 개발자를 시작할 수 있습니다 사용 하 여 [사용 하 여 Azure 검색에서 동의어 추가 C# ](search-synonyms-tutorial-sdk.md)합니다.
+동의어를 만들 수 있는 포털 지원은 없지만 REST API 또는 .NET SDK를 사용할 수 있습니다. REST를 시작 하려면이 API를 사용 하 여 Postman 및 공식화 요청을 [사용 하](search-get-started-postman.md) 는 것이 좋습니다. [동의어 맵을 만듭니다](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). 개발자 C# 를 위해를 [사용 하 여 C#Azure 검색에서 동의어 추가 ](search-synonyms-tutorial-sdk.md)를 시작할 수 있습니다.
 
-필요에 따라 사용 중인 경우 [고객 관리 키](search-security-manage-encryption-keys.md) 서비스 쪽-미사용 데이터에 대 한 동의어 맵이의 내용에 해당 보호를 적용할 수 있습니다.
+선택적으로 서비스 쪽 암호화를 위해 [고객 관리 키](search-security-manage-encryption-keys.md) 를 사용 하는 경우 해당 보호를 동의어 맵의 내용에 적용할 수 있습니다.
 
 ## <a name="use-synonyms"></a>동의어 사용
 
@@ -76,14 +76,14 @@ Azure Search에서 동의어 지원은 사용자가 정의하고 서비스에 �
 
 ##### <a name="apache-solr-synonym-format"></a>Apache Solr 동의어 형식
 
-Solr 형식은 동등하고 명시적인 동의어 매핑을 지원합니다. 매핑 규칙을이 문서에 설명 된 Apache Solr의 공개 소스 동의어 필터 사양을 준수 합니다. ([SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter))에 설명된 Apache Solr의 공개 소스 동의어 필터 사양을 준수합니다. 다음은 동등한 동의어에 대한 샘플 규칙입니다.
+Solr 형식은 동등하고 명시적인 동의어 매핑을 지원합니다. 매핑 규칙은이 문서에 설명 된 Apache Sr의 오픈 소스 동의어 필터 사양을 따릅니다. ([SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter))에 설명된 Apache Solr의 공개 소스 동의어 필터 사양을 준수합니다. 다음은 동등한 동의어에 대한 샘플 규칙입니다.
 ```
 USA, United States, United States of America
 ```
 
 위의 규칙을 사용하면 검색 쿼리 "USA"가 "USA" 또는 "United States" 또는 "United States of America"로 확장됩니다.
 
-명시적 매핑은 "=>" 화살표로 표시됩니다. 왼쪽에 있는 일치 하는 검색 쿼리의 용어 시퀀스를 지정 하는 경우 "= >" 오른쪽에 있는 대체 항목으로 바뀝니다. 아래 규칙이 지정되면 검색 쿼리 "Washington", "Wash" 또는 "WA"가 모두 "WA"로 다시 작성됩니다. 명시적 매핑은 지정된 방향으로만 적용돠며 이 경우 "WA" 쿼리를 "Washington"으로 다시 작성하지 않습니다.
+명시적 매핑은 "=>" 화살표로 표시됩니다. 이 지정 된 경우 "= >"의 왼쪽과 일치 하는 검색 쿼리의 용어 순서가 오른쪽의 대체 항목으로 바뀝니다. 아래 규칙이 지정되면 검색 쿼리 "Washington", "Wash" 또는 "WA"가 모두 "WA"로 다시 작성됩니다. 명시적 매핑은 지정된 방향으로만 적용돠며 이 경우 "WA" 쿼리를 "Washington"으로 다시 작성하지 않습니다.
 ```
 Washington, Wash., WA => WA
 ```
