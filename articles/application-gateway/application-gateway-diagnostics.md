@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/28/2019
 ms.author: victorh
-ms.openlocfilehash: 3acae8f7d34bb02905e6e8d479b7de5ccab1bb7a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: d9b0c551cdfb92b380a967aaa5bdce7c278fd39e
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850988"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183582"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Application Gateway에 대한 백 엔드 상태, 진단 로그 및 메트릭
 
@@ -105,7 +105,7 @@ Azure에서 다양한 유형의 로그를 사용하여 Application Gateway를 �
 로그 저장에는 세 가지 옵션이 있습니다.
 
 * **스토리지 계정**: 로그를 장기간 스토리지하고 필요할 때 검토하는 경우에 가장 적합합니다.
-* **Event Hubs**: 다른 SEIM(보안 정보 및 이벤트 관리) 도구와 통합하여 리소스에 대한 알림을 얻을 수 있는 좋은 옵션입니다.
+* **Event Hubs**: Event hubs는 다른 SIEM (보안 정보 및 이벤트 관리) 도구와 통합 하 여 리소스에 대 한 경고를 얻을 수 있는 유용한 옵션입니다.
 * **Azure Monitor 로그**: Azure Monitor 로그는 일반적으로 애플리케이션을 실시간으로 모니터링하거나 추세를 파악하는 데 가장 적합합니다.
 
 ### <a name="enable-logging-through-powershell"></a>PowerShell을 통한 로깅 사용
@@ -201,7 +201,7 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 ```
 Application Gateway 및 WAF v 2의 경우 로그에 약간의 추가 정보가 표시 됩니다.
 
-|값  |설명  |
+|값  |Description  |
 |---------|---------|
 |인스턴스 ID     | 요청을 처리한 Application Gateway 인스턴스        |
 |clientIP     | 요청에 대한 원래 IP        |
@@ -255,7 +255,7 @@ Application Gateway 및 WAF v 2의 경우 로그에 약간의 추가 정보가 �
 이전 단계에서 설명한 대로 성능 로그는 각 Application Gateway 인스턴스에서 이러한 로그를 사용하도록 설정한 경우에만 생성됩니다. 데이터는 로깅을 사용하도록 설정할 때 지정한 스토리지 계정에 저장됩니다. 성능 로그 데이터는 1분 간격으로 생성됩니다. 다음 데이터가 로깅됩니다.
 
 
-|값  |Description  |
+|값  |설명  |
 |---------|---------|
 |instanceId     |  성능 데이터가 생성되는 Application Gateway 인스턴스입니다. 다중 인스턴스 애플리케이션 게이트웨이의 경우 인스턴스마다 하나의 행이 있습니다.        |
 |healthyHostCount     | 백 엔드 풀의 정상 호스트 수        |
@@ -292,7 +292,7 @@ Application Gateway 및 WAF v 2의 경우 로그에 약간의 추가 정보가 �
 이전 단계에서 설명한 대로 방화벽 로그는 각 애플리케이션 게이트웨이에서 이러한 로그를 사용하도록 설정한 경우에만 생성됩니다. 또한 이 로그를 사용하려면 애플리케이션 게이트웨이에서 웹 애플리케이션 방화벽을 구성해야 합니다. 데이터는 로깅을 사용하도록 설정할 때 지정한 스토리지 계정에 저장됩니다. 다음 데이터가 로깅됩니다.
 
 
-|값  |Description  |
+|값  |설명  |
 |---------|---------|
 |인스턴스 ID     | 방화벽 데이터가 생성되는 Application Gateway 인스턴스입니다. 다중 인스턴스 애플리케이션 게이트웨이의 경우 인스턴스마다 하나의 행이 있습니다.         |
 |clientIp     |   요청에 대한 원래 IP      |

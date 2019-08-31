@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 08ace7170a982fbaa186b77b27e342f16349aadd
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: c922799b650de7f921cc0493eb3feb2ad90b9d92
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69613314"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183151"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: 사용자 마이그레이션
 
@@ -139,7 +139,9 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
 
 ## <a name="step-2-pre-migration-application-sample"></a>2단계: 사전 마이그레이션 애플리케이션 샘플
 
-[샘플 코드를 다운로드하고 실행합니다][UserMigrationSample]. .zip 파일로 다운로드할 수 있습니다.
+커뮤니티에서 유지 관리 `azure-ad-b2c/user-migration` 되는 GitHub 리포지토리에서 마이그레이션 전 코드 샘플을 찾을 수 있습니다.
+
+[azure-ad-b2c/사용자-마이그레이션/마이그레이션 전][UserMigrationSample-code] GitHub
 
 ### <a name="step-21-edit-the-migration-data-file"></a>2\.1단계: 마이그레이션 데이터 파일 편집
 
@@ -248,7 +250,7 @@ Azure AD 테넌트를 정리하고 Azure AD 디렉터리에서 사용자를 제�
 > [!NOTE]
 > 사용자 마이그레이션 상태를 확인하고 변경하려면 사용자 지정 정책을 사용해야 합니다. [사용자 지정 정책 시작][B2C-GetStartedCustom] 의 설정 지침을 완료 해야 합니다.
 
-사용자가 먼저 암호를 재설정하지 않고 로그인하려고 하면 정책은 친절한 오류 메시지를 반환해야 합니다. 예:
+사용자가 먼저 암호를 재설정하지 않고 로그인하려고 하면 정책은 친절한 오류 메시지를 반환해야 합니다. 예를 들어:
 
 > *암호가 만료되었습니다. 다시 설정하려면 암호 다시 설정 링크를 선택하세요.*
 
@@ -364,7 +366,7 @@ RESTful API에 대한 기술 프로필을 정의한 후에 Azure AD B2C 정책�
 
 ## <a name="optional-download-the-complete-policy-files"></a>(선택 사항) 전체 정책 파일 다운로드
 
-[사용자 지정 정책을][B2C-GetStartedCustom] 사용 하 여 시작을 완료 한 후에는 고유한 사용자 지정 정책 파일을 사용 하 여 시나리오를 빌드하는 것이 좋습니다. 참조를 위해 [샘플 정책 파일][UserMigrationSample]을 제공 합니다.
+[사용자 지정 정책을][B2C-GetStartedCustom] 사용 하 여 시작을 완료 한 후에는 고유한 사용자 지정 정책 파일을 사용 하 여 시나리오를 빌드하는 것이 좋습니다. 참조를 위해 [샘플 정책 파일][UserMigrationSample-policy]을 제공 합니다.
 
 [AD-PasswordPolicies]: https://docs.microsoft.com/azure/active-directory/active-directory-passwords-policy
 [AD-Powershell]: https://docs.microsoft.com/powershell/azure/active-directory/install-adv2
@@ -375,4 +377,5 @@ RESTful API에 대한 기술 프로필을 정의한 후에 Azure AD B2C 정책�
 [B2C-GraphQuickStart]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet
 [B2C-NavContext]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-navigate-to-b2c-context
 [Portal]: https://portal.azure.com/
-[UserMigrationSample]: https://github.com/azure-ad-b2c/user-migration
+[UserMigrationSample-code]: https://github.com/azure-ad-b2c/user-migration/tree/master/pre-migration/source-code
+[UserMigrationSample-policy]: https://github.com/azure-ad-b2c/user-migration/tree/master/pre-migration/policy

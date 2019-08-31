@@ -2,7 +2,7 @@
 title: 쉐이퍼 인식 검색 기술 - Azure Search
 description: 구조화되지 않은 데이터에서 메타데이터 및 구조화된 정보를 추출하고 Azure Search 보강 파이프라인에서 복합 형식으로 구성합니다.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
 ms.workload: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: c67080cf5ffb06cd0b0ee45ea673bc45557570b0
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 22a8f891eaf72dbec9c1ec103508c81effb14b08
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638898"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186319"
 ---
 #   <a name="shaper-cognitive-skill"></a>쉐이퍼 인식 기술
 

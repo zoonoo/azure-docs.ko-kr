@@ -2,7 +2,7 @@
 title: Azure Search .NET SDK 버전 3으로 업그레이드 - Azure Search
 description: 이전 버전에서 Azure Search .NET SDK 버전 3으로 코드를 마이그레이션합니다. 새로운 기능과 필요한 코드 변경 내용을 알아봅니다.
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: dotnet
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: d41c2b541bf80448d180a1d081c255e5bf754e5e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cab0da93bbea117c216969faf2f1e194e16d675f
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65147327"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183228"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-3"></a>Azure Search .NET SDK 버전 3으로 업그레이드
 
@@ -74,7 +74,7 @@ NuGet에서 새 패키지와 해당 종속성을 다운로드했으면 프로젝
 ### <a name="indexesgetclient-return-type"></a>Indexes.GetClient 반환 형식
 `Indexes.GetClient` 메서드에는 새 반환 형식이 있습니다. 이전에는 `SearchIndexClient`를 반환했으나 버전 2.0-preview에서는 `ISearchIndexClient`로 변경되었으며 이 변경 내용이 버전 3에도 제공됩니다. 따라서 `ISearchIndexClient`의 모의 구현을 반환하여 단위 테스트를 위한 `GetClient` 메서드를 모의할 수 있습니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 코드는 다음과 같습니다.
 
 ```csharp
@@ -90,7 +90,7 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 ### <a name="analyzername-datatype-and-others-are-no-longer-implicitly-convertible-to-strings"></a>AnalyzerName, DataType 등은 더 이상 암시적으로 문자열로 변환될 수 없습니다.
 Azure Search .NET SDK에는 `ExtensibleEnum`에서 파생된 여러 형식이 있습니다. 이전에는 이러한 형식이 모두 `string` 형식으로 암시적으로 변환될 수 있었습니다. 그러나 이러한 클래스의 `Object.Equals` 구현에서 버그가 발견되었으며 버그 수정을 위해 이러한 암시적 변환을 사용하지 않도록 설정해야 했습니다. `string`로의 명시적 변환은 여전히 허용됩니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 코드는 다음과 같습니다.
 
 ```csharp
@@ -148,6 +148,6 @@ index.Analyzers = new Analyzer[]
 ## <a name="conclusion"></a>결론
 Azure Search .NET SDK 사용에 대한 자세한 내용은 [.NET 방법](search-howto-dotnet-sdk.md)을 참조하세요.
 
-SDK에 대한 귀하의 피드백을 환영합니다! 우리에 게 도움 요청에 문제가 있는 경우 자유롭게 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search)합니다. 버그를 발견하는 경우 [Azure .NET SDK GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/issues)에 문제를 제출할 수 있습니다. 문제 제목에 "[Azure Search]"라는 접두사를 지정해야 합니다.
+SDK에 대한 귀하의 피드백을 환영합니다! 문제가 발생 하는 경우 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search)에 대 한 도움을 요청 하세요. 버그를 발견하는 경우 [Azure .NET SDK GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/issues)에 문제를 제출할 수 있습니다. 문제 제목에 "[Azure Search]"라는 접두사를 지정해야 합니다.
 
 Azure Search를 이용해 주셔서 감사합니다!

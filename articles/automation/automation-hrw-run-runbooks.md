@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e726b60a08f234ef021b2901f8ed29ec74f0ff47
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 97d900146b3485df5cdf226f07aaa3aee116fc92
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087571"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186759"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 실행
 
@@ -61,7 +61,7 @@ Restart-Computer -ComputerName $Computer -Credential $Cred
 
 ### <a name="runas-account"></a>실행 계정
 
-기본적으로 Hybrid Runbook Worker는 Windows용 로컬 시스템 및 Linux용 특수 사용자 계정 `nxautomation`을 사용하여 Runbook을 실행합니다. Runbook이 로컬 리소스에 고유한 인증을 제공하는 대신 Hybrid worker 그룹에 **실행** 계정을 지정할 수 있습니다. 로컬 리소스에 액세스 권한이 있는 [자격 증명 자산](automation-credentials.md)을 지정하고 그룹의 Hybrid Runbook Worker에서 실행될 때 모든 Runbook이 이러한 자격 증명으로 실행됩니다.
+기본적으로 Hybrid Runbook Worker는 Windows용 로컬 시스템 및 Linux용 특수 사용자 계정 `nxautomation`을 사용하여 Runbook을 실행합니다. Runbook이 로컬 리소스에 고유한 인증을 제공하는 대신 Hybrid worker 그룹에 **실행** 계정을 지정할 수 있습니다. 인증서 저장소를 비롯 하 여 로컬 리소스에 대 한 액세스 권한이 있는 [자격 증명 자산](automation-credentials.md) 을 지정 하 고, 그룹의 Hybrid Runbook Worker에서 실행 될 때 모든 runbook이 이러한 자격 증명으로 실행 됩니다.
 
 자격 증명에 대한 사용자 이름은 다음 서식 중 하나여야 합니다.
 

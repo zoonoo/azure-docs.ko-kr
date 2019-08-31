@@ -2,7 +2,7 @@
 title: 핵심 문구 추출 인식 검색 기술 - Azure Search
 description: 구조화되지 않은 텍스트를 평가하 고 각 레코드에 대해 Azure Search 보강 파이프라인에서 핵심 문구 목록을 반환합니다.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
 ms.workload: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: 1c6b6455176001c752eb99d04deb3fe63a9d4006
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 0c591bb72ba859be2c5b52d8d8cc5040deffda7d
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639092"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183379"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>핵심 문구 추출 인식 기술
 
@@ -39,14 +39,14 @@ Microsoft.Skills.Text.KeyPhraseExtractionSkill
 
 매개 변수는 대/소문자를 구분합니다.
 
-| 입력                | 설명 |
+| 입력                | Description |
 |---------------------|-------------|
 | defaultLanguageCode | (선택 사항) 명시적으로 언어를 지정하지 않은 문서에 적용할 언어 코드입니다.  기본 언어 코드가 지정되지 않은 경우 영어(en)가 기본 언어 코드로 사용됩니다. <br/> [지원되는 언어 전체 목록](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)을 참조합니다. |
 | maxKeyPhraseCount   | (선택 사항) 생성할 핵심 구문의 최대 수입니다. |
 
 ## <a name="skill-inputs"></a>기술 입력
 
-| 입력     | 설명 |
+| 입력     | Description |
 |--------------------|-------------|
 | text | 분석할 텍스트입니다.|
 | languageCode  |  레코드의 언어를 나타내는 문자열입니다. 이 매개 변수를 지정하지 않으면 레코드를 분석하는 데 기본 언어 코드가 사용됩니다. <br/>[지원되는 언어 전체 목록](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) 참조|

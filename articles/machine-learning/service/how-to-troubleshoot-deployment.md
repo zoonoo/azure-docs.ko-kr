@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 07/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 24716a9b9fa5174d899cf0678b83b2da0c59957c
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 5ec92e34ffa68718525e9b407dc9e58f4c409975
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358661"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183547"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Azure Kubernetes Service 및 Azure Container Instances 배포 Azure Machine Learning 문제 해결
 
@@ -203,6 +203,9 @@ print(prediction)
 ### <a name="update-the-service"></a>서비스 업데이트
 
 로컬 테스트 중에는 로깅을 추가 하거나 검색 한 `score.py` 문제를 해결 하기 위해 파일을 업데이트 해야 할 수 있습니다. `score.py` 파일에 대 한 변경 내용을 다시 로드 `reload()`하려면를 사용 합니다. 예를 들어 다음 코드는 서비스에 대 한 스크립트를 다시 로드 한 다음 데이터를 보냅니다. 업데이트 `score.py` 된 파일을 사용 하 여 데이터 점수가 매겨집니다.
+
+> [!IMPORTANT]
+> 메서드 `reload` 는 로컬 배포에만 사용할 수 있습니다. 다른 계산 대상으로 배포를 업데이트 하는 방법에 대 한 자세한 내용은 [모델 배포](how-to-deploy-and-where.md#update)의 업데이트 섹션을 참조 하십시오.
 
 ```python
 service.reload()

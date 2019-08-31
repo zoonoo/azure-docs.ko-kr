@@ -3,16 +3,16 @@ title: MARS (Microsoft Azure Recovery Services) 에이전트에 대 한 지원 �
 description: 이 문서에서는 MARS (Microsoft Azure Recovery Services) 에이전트를 실행 하는 컴퓨터를 백업할 때 지원 Azure Backup를 요약 합니다.
 author: dcurwin
 ms.service: backup
-ms.date: 02/17/2019
+ms.date: 08/30/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: 8c983772f58c1ea01db175b47225ccfafa515b96
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 599d3f97ea30b096999d754a995af2ba660c0bc3
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951975"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186165"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>MARS(Microsoft Azure Recovery Services) 에이전트를 통한 백업 매트릭스 지원
 
@@ -44,7 +44,7 @@ MARS 에이전트를 사용 하 여 데이터를 백업 하는 경우 에이전�
 
 **캐시** | **세부 정보**
 --- | ---
-크기 |  캐시 폴더의 사용 가능한 공간은 전체 백업 데이터 크기의 5 ~ 10% 이상 이어야 합니다.
+Size |  캐시 폴더의 사용 가능한 공간은 전체 백업 데이터 크기의 5 ~ 10% 이상 이어야 합니다.
 위치 | 캐시 폴더는 백업 중인 컴퓨터에 로컬로 저장 되어 있어야 하며 온라인 상태 여야 합니다. 캐시 폴더는 네트워크 공유, 이동식 미디어 또는 오프 라인 볼륨에 있지 않아야 합니다.
 폴더 | 캐시 폴더는 중복 제거 된 볼륨이 나 압축 된 폴더 (스파스 또는 재분석 지점 포함)에서 암호화 되어야 합니다.
 위치 변경 | 백업 엔진 (`net stop bengine`)을 중지 하 고 캐시 폴더를 새 드라이브에 복사 하 여 캐시 위치를 변경할 수 있습니다. 새 드라이브에 충분 한 공간이 있는지 확인 합니다. 그런 다음 **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**config/ScratchLocation** 및 **config/cloudbackupprovider/ScratchLocation**)에서 두 레지스트리 항목을 새 위치로 업데이트 하 고 엔진을 다시 시작 합니다.
@@ -72,20 +72,22 @@ MARS 에이전트에서 액세스해야 하는 URL은 다음과 같습니다.
 
 MARS 에이전트를 사용 하 여 온-프레미스 컴퓨터 및 Azure Vm에서 실행 되는 일부 운영 체제에서 Azure로 직접 백업할 수 있습니다. 운영 체제는 64 비트 여야 하며, 최신 서비스 팩 및 업데이트를 실행 해야 합니다. 다음 표에는 이러한 운영 체제가 요약 되어 있습니다.
 
-**운영 체제** | **파일/폴더** | **시스템 상태** 
---- | --- | --- 
-Windows 10(Enterprise, Pro, Home) | 예 | 아니요
-Windows 8.1(Enterprise, Pro)| 예 |아니요
-Windows 8(Enterprise, Pro) | 예 | 아니요
-Windows 7(Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | 예 | 아니요
-Windows Server 2016(Standard, Datacenter, Essentials) | 예 | 예
-Windows Server 2012 R2(Standard, Datacenter, Foundation, Essentials) | 예 | 예
-Windows Server 2012(Standard, Datacenter, Foundation) | 예 | 예
-Windows Server 2008 R2(Standard, Enterprise, Datacenter, Foundation) | 예 | 예
-Windows Server 2008 SP2(Standard, Datacenter, Foundation) | 예 | 아니요
-Windows Storage Server 2016/2012 R2/2012 (표준, 작업 그룹) | 예 | 아니요
+**운영 체제** | **파일/폴더** | **시스템 상태** | **소프트웨어/모듈 요구 사항**
+--- | --- | --- | ---
+Windows 10(Enterprise, Pro, Home) | 예 | 아니요 |  소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
+Windows 8.1(Enterprise, Pro)| 예 |아니요 | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
+Windows 8(Enterprise, Pro) | 예 | 아니요 | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
+Windows 7(Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | 예 | 아니요 | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
+Windows Server 2016(Standard, Datacenter, Essentials) | 예 | 예 | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
+Windows Server 2012 R2(Standard, Datacenter, Foundation, Essentials) | 예 | 예 | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
+Windows Server 2012(Standard, Datacenter, Foundation) | 예 | 예 |-.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0 <br> -배포 이미지 서비스 및 관리 (DISM.EXE)
+Windows Server 2008 R2(Standard, Enterprise, Datacenter, Foundation) | 예 | 예 | -.NET 3.5, .Net 4.5 <br> -Windows PowerShell <br> 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0 <br> -배포 이미지 서비스 및 관리 (DISM.EXE)
+Windows Server 2008 SP2(Standard, Datacenter, Foundation) | 예 | 아니요 | -.NET 3.5, .Net 4.5 <br> -Windows PowerShell <br> 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0 <br> -배포 이미지 서비스 및 관리 (DISM.EXE) <br> -Virtual Server 2005 기본 + KB KB948515
+Windows Storage Server 2016/2012 R2/2012 (표준, 작업 그룹) | 예 | 아니요 | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
+Windows Server 2019(Standard, Datacenter, Essentials) | 예 | 예 | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
 
 자세한 내용은 [지원 되는 MABS 및 DPM 운영 체제](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems)를 참조 하세요.
+
 
 ## <a name="backup-limits"></a>Backup 제한
 

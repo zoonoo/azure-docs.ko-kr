@@ -1,7 +1,7 @@
 ---
 title: 기본 제공 데이터 추출, 자연어, 이미지 처리 - Azure Search
 description: 데이터 추출, 자연어, 이미지 처리 인식 기술은 Azure Search 파이프라인의 원시 콘텐츠에 의미 체계와 구조를 추가합니다.
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 services: search
 ms.service: search
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: 08f4d94f1cd5afc9e626d4b774c3924b89cbbfad
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 8d367f7588feb892f667522a515ad4411bf96624
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639119"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183446"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>콘텐츠 보강을 위해 미리 정의된 기술(Azure Search)
 

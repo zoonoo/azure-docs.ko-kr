@@ -2,7 +2,7 @@
 title: 텍스트 분할 인식 검색 기술 - Azure Search
 description: Azure Search 보강 파이프라인의 길이에 따라 텍스트를 텍스트의 페이지나 청크로 나눕니다.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
 ms.workload: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: 03ebf39db264c9d6f78b228f3af4239c6e249b26
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: fcde448c664ad85b78d275304dd01a1eedaca006
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69635938"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183308"
 ---
 #   <a name="text-split-cognitive-skill"></a>텍스트 분할 인식 기술
 
@@ -31,7 +31,7 @@ Microsoft.Skills.Text.SplitSkill
 
 매개 변수는 대/소문자를 구분합니다.
 
-| 매개 변수 이름     | Description |
+| 매개 변수 이름     | 설명 |
 |--------------------|-------------|
 | textSplitMode      | "페이지" 또는 "문장" 중 하나 | 
 | maximumPageLength | TextSplitMode가 "페이지"로 설정되는 경우 이는 `String.Length`에 의해 측정된 대로 최대 페이지 길이를 참조합니다. 최소값은 100입니다.  textSplitMode가 "pages"로 설정된 경우 알고리즘은 텍스트를 최대 "maximumPageLength" 크기의 청크로 분할하려고 합니다. 이 경우 알고리즘은 청크 크기가 "maximumPageLength"보다 약간 더 작을 수 있게 문장 경계에서 문장을 나누기 위해 최선을 다합니다. | 
@@ -47,7 +47,7 @@ Microsoft.Skills.Text.SplitSkill
 
 ## <a name="skill-outputs"></a>기술 출력 
 
-| 매개 변수 이름     | Description |
+| 매개 변수 이름     | 설명 |
 |--------------------|-------------|
 | textItems | 추출된 하위 문자열의 배열입니다. |
 

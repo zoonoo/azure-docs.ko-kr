@@ -1,7 +1,7 @@
 ---
 title: 기술 자료 저장소에서 프로젝션 작업 (미리 보기)-Azure Search
 description: 검색 이외의 시나리오에서 사용할 보강 데이터를 AI 인덱싱 파이프라인에서 저장 하 고 셰이프를 저장 합니다.
-manager: eladz
+manager: nitinme
 author: vkurpad
 services: search
 ms.service: search
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: vikurpad
 ms.subservice: cognitive-search
-ms.openlocfilehash: 4fa669eaf96c08d7a2e1e7255ff6b1f6ff7b4f14
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 2dd61a4511d406fefec5aacd0702fa732f79de92
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639828"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186240"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-search"></a>Azure Search의 기술 자료 저장소에서 프로젝션 사용
 

@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/19/2019
-ms.openlocfilehash: cbbfd5f7beb7270bf55e952c818b4802d9d9ecab
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f30ac3d5e20b3f797e083972ac179fd29f6b1475
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848001"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182547"
 ---
 # <a name="use-an-existing-model-with-azure-machine-learning-service"></a>Azure Machine Learning 서비스에서 기존 모델 사용
 
@@ -30,7 +30,7 @@ Azure Machine Learning 서비스 외부에서 학습 된 machine learning 모델
 >
 > 배포 프로세스에 대 한 일반 정보는 [Azure Machine Learning 서비스를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure Machine Learning 서비스 작업 영역. 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 
@@ -76,23 +76,40 @@ az ml model register -p ./models -n sentiment -w myworkspace -g myresourcegroup
 
 ## <a name="define-inference-configuration"></a>유추 구성 정의
 
-유추 구성은 배포 된 모델을 실행 하는 데 사용 되는 환경을 정의 합니다. 유추 구성은 모델을 배포할 때 모델을 실행 하는 데 사용 되는 다음 파일을 참조 합니다.
+유추 구성은 배포 된 모델을 실행 하는 데 사용 되는 환경을 정의 합니다. 유추 구성은 모델을 배포할 때 모델을 실행 하는 데 사용 되는 다음 엔터티를 참조 합니다.
 
-* 런타임입니다. 현재 런타임의 유효한 값은 Python입니다.
 * 항목 스크립트입니다. 이 파일 (이라고 `score.py`함)은 배포 된 서비스가 시작 될 때 모델을 로드 합니다. 또한 데이터를 수신 하 고 모델에 전달한 다음 응답을 반환 하는 일을 담당 합니다.
-* Conda 환경 파일입니다. 이 파일은 모델 및 항목 스크립트를 실행 하는 데 필요한 Python 패키지를 정의 합니다. 
+* Azure Machine Learning 서비스 [환경](how-to-use-environments.md)입니다. 환경은 모델 및 항목 스크립트를 실행 하는 데 필요한 소프트웨어 종속성을 정의 합니다.
 
-다음 예제에서는 Python SDK를 사용 하는 기본 유추 구성을 보여 줍니다.
+다음 예제에서는 SDK를 사용 하 여 환경을 만든 다음이를 유추 구성과 함께 사용 하는 방법을 보여 줍니다.
 
 ```python
 from azureml.core.model import InferenceConfig
+from azureml.core import Environment
+from azureml.core.environment import CondaDependencies
 
-inference_config = InferenceConfig(runtime= "python", 
-                                   entry_script="score.py",
-                                   conda_file="myenv.yml")
+# Create the environment
+myenv = Environment(name="myenv")
+conda_dep = CondaDependencies()
+
+# Define the packages needed by the model and scripts
+conda_dep.add_conda_package("tensorflow")
+conda_dep.add_conda_package("numpy")
+conda_dep.add_conda_package("scikit-learn")
+conda_dep.add_pip_package("keras")
+
+# Adds dependencies to PythonSection of myenv
+myenv.python.conda_dependencies=conda_dep
+
+inference_config = InferenceConfig(entry_script="score.py",
+                                   environment=myenv)
 ```
 
-자세한 내용은 [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) 참조를 참조 하세요.
+자세한 내용은 다음 문서를 참조하세요.
+
++ [환경을 사용 하는 방법](how-to-use-environments.md)
++ [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) 참조입니다.
+
 
 CLI는 YAML 파일에서 유추 구성을 로드 합니다.
 
@@ -102,6 +119,20 @@ CLI는 YAML 파일에서 유추 구성을 로드 합니다.
    "runtime": "python",
    "condaFile": "myenv.yml"
 }
+```
+
+CLI를 사용 하 여 conda 환경은 유추 구성에서 참조 `myenv.yml` 하는 파일에 정의 됩니다. 다음 YAML은이 파일의 내용입니다.
+
+```yaml
+name: inference_environment
+dependencies:
+- python=3.6.2
+- tensorflow
+- numpy
+- scikit-learn
+- pip:
+    - azureml-defaults
+    - keras
 ```
 
 유추 구성에 대 한 자세한 내용은 [Azure Machine Learning 서비스를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
@@ -190,24 +221,6 @@ def predict(text, include_neutral=True):
 ```
 
 항목 스크립트에 대 한 자세한 내용은 [Azure Machine Learning 서비스를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
-
-### <a name="conda-environment"></a>Conda 환경
-
-다음 YAML은 모델 및 입력 스크립트를 실행 하는 데 필요한 conda 환경을 설명 합니다.
-
-```yaml
-name: inference_environment
-dependencies:
-- python=3.6.2
-- tensorflow
-- numpy
-- scikit-learn
-- pip:
-    - azureml-defaults
-    - keras
-```
-
-자세한 내용은 [Azure Machine Learning 서비스를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
 
 ## <a name="define-deployment"></a>배포 정의
 
