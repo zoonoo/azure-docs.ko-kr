@@ -54,11 +54,11 @@ JSON Blob 메타데이터는 다음과 같은 모델을 준수합니다.
 | 특성 | 형식 | 설명 |
 | --- | --- | --- |
 | **parentId** | String | Blob을 연결할 부모 엔터티(공백, 디바이스 또는 사용자)입니다. |
-| **name** |문자열 | Blob의 이름입니다. |
+| **name** |String | Blob의 이름입니다. |
 | **type** | String | Blob의 형식으로, *type* 및 *typeId*를 사용할 수 없습니다.  |
-| **typeId** | 정수 | Blob 형식 ID로, *type* 및 *typeId*를 사용할 수 없습니다. |
+| **typeId** | Integer | Blob 형식 ID로, *type* 및 *typeId*를 사용할 수 없습니다. |
 | **subtype** | String | Blob 하위 형식으로, *subtype* 및 *subtypeId*를 사용할 수 없습니다. |
-| **subtypeId** | 정수 | Blob의 하위 형식 ID로, *subtype* 및 *subtypeId*를 사용할 수 없습니다. |
+| **subtypeId** | Integer | Blob의 하위 형식 ID로, *subtype* 및 *subtypeId*를 사용할 수 없습니다. |
 | **description** | String | Blob의 사용자 지정 설명입니다. |
 | **sharing** | String | Blob을 공유할 수 있는지 여부로, 열거형 [`None`, `Tree`, `Global`]입니다. |
 
