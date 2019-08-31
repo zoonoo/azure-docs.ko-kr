@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/14/2019
-ms.openlocfilehash: 483f0c6de81fddaab7895f1686076fec56719676
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
-ms.translationtype: HT
+ms.openlocfilehash: 8293fd2d84189cc1f1df3564abbfdcbf86e3543e
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172656"
+ms.locfileid: "70186740"
 ---
 # <a name="select-the-correct-vm-sku-for-your-azure-data-explorer-cluster"></a>Azure 데이터 탐색기 클러스터에 올바른 VM SKU를 선택 합니다. 
 
@@ -83,7 +83,7 @@ Small Sku에 대 한 클러스터 당 인스턴스 수가 제한 되므로 RAM�
 |L16s_1| 저장소 최적화 | 2.6&nbsp;TB | 16| 128&nbsp;GB | 0 | 2 | 1,000
 
 * Azure 데이터 탐색기 [LISTSKUS API](/dotnet/api/microsoft.azure.management.kusto.clustersoperationsextensions.listskus?view=azure-dotnet)를 사용 하 여 지역별 업데이트 된 VM SKU 목록을 볼 수 있습니다. 
-* [다양 한 계산 sku](/azure/virtual-machines/windows/sizes-compute)에 대해 자세히 알아보세요. 
+* [다양 한 sku](/azure/virtual-machines/windows/sizes)에 대해 자세히 알아보세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

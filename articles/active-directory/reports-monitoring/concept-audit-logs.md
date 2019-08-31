@@ -17,16 +17,16 @@ ms.date: 07/17/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0a31fab8dd1490b58e743c149e4a54cae11bed1
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: b2b30b6463ed3d58ec1565f3c49f98388ad09ed4
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988335"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186281"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 감사 작업 보고서 
 
-Azure AD(Azure Active Directory) 보고서를 통해 사용자 환경의 작동 방법을 결정하는 데 필요한 모든 정보를 얻을 수 있습니다.
+Azure Active Directory (Azure AD) 보고서를 사용 하 여 환경에서 수행 하는 방법을 결정 하는 데 필요한 정보를 얻을 수 있습니다.
 
 보고 아키텍처는 다음과 같은 구성 요소로 구성됩니다.
 
@@ -83,7 +83,7 @@ Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 
 - 활동
 - Status
 - 대상
-- 시작한 사람(행위자)
+- 초기자(작업자)
 - 날짜 범위
 
 ![감사 로그](./media/concept-audit-logs/filter.png "감사 로그")

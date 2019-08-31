@@ -2,7 +2,7 @@
 title: 인식 검색 파이프라인의 참조 입력 및 출력 - Azure Search
 description: Azure Search에서 인식 검색 파이프라인의 기술 집합의 입출력에서 주석을 참조하는 방법 및 주석 구문을 설명합니다.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
 ms.subservice: cognitive-search
@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 5ce2c1aebebe802aa0fd3bda74c168e7a12341c0
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: e4b94e7a6e41a5c6beaf94069c0fb6bed795ca6d
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639286"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183506"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>인식 검색 기술 집합의 주석 참조하는 방법
 
@@ -27,7 +27,7 @@ ms.locfileid: "69639286"
 
 구문을 검토를 하기 전에 이 문서의 뒷부분에 제공되는 예제를 보다 잘 이해하려면 몇 가지 중요한 개념을 다시 확인하겠습니다.
 
-| 용어 | 설명 |
+| 용어 | Description |
 |------|-------------|
 | 보강된 문서 | 보강된 문서는 문서와 관련된 모든 주석을 유지하기 위해 파이프라인에서 만들고 사용하는 내부 구조입니다. 보강된 문서를 주석의 트리라고 생각합니다. 일반적으로 이전 주석에서 만든 주석은 자식 주석이 됩니다.<p/>보강된 문서는 기술 집항 실행 동안에만 존재합니다. 콘텐츠가 검색 인덱스에 매핑되면 보강된 문서는 더 이상 필요 없습니다. 보강된 문서와 직접 상호 작용하지 않더라도 기술 집합을 만들 경우 문서의 심적 모델을 보유하는 것이 유용합니다. |
 | 보강 컨텍스트 | 요소가 보강된 점에서 보강이 일어난 컨텍스트입니다. 기본적으로 보강 컨텍스트는 `"/document"` 수준에서 개별 문서에 범위가 지정됩니다. 기술을 실행할 때 해당 기술의 출력은 [정의된 컨텍스트의 속성](#example-2)이 됩니다.|

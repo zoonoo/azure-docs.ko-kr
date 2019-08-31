@@ -2,7 +2,7 @@
 title: 텍스트 변환 인식 검색 기술-Azure Search
 description: 텍스트를 평가 하 고 각 레코드에 대해 Azure Search 보강 파이프라인에서 지정 된 대상 언어로 변환 된 텍스트를 반환 합니다.
 services: search
-manager: briansmi
+manager: nitinme
 author: careyjmac
 ms.service: search
 ms.workload: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: cmacdo
 ms.subservice: cognitive-search
-ms.openlocfilehash: 5f608ee058dd4e463253f4c4f5e410c515031e25
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 407fd246313e582a3d28a6cbb474edefecd7f0af
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638888"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183322"
 ---
 #   <a name="text-translation-cognitive-skill"></a>텍스트 변환 인식 기술
 
@@ -48,7 +48,7 @@ TranslationSkill.
 
 ## <a name="skill-inputs"></a>기술 입력
 
-| 이름 입력     | Description |
+| 이름 입력     | 설명 |
 |--------------------|-------------|
 | text | 변환할 텍스트입니다.|
 | toLanguageCode    | 텍스트를 변환할 언어를 나타내는 문자열입니다. 이 입력을 지정 하지 않으면 defaultToLanguageCode 텍스트를 변환 하는 데 사용 됩니다. <br/>[지원되는 언어 전체 목록](https://docs.microsoft.com/azure/cognitive-services/translator/language-support) 참조|

@@ -1,19 +1,19 @@
 ---
 title: 검색 상자에 제안 사항 및 자동 완성 추가-Azure Search
 description: 완료 된 사용 약관을 사용 하 여 검색 상자를 채우는 확인 기 및 공식화 요청을 만들어 Azure Search에서 형식 미리 쿼리 작업을 사용 하도록 설정 합니다.
-manager: pablocas
+manager: nitinme
 author: mrcarter8
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: mcarter
-ms.openlocfilehash: dc8bc43d6d7b17d1ecd4cf2a1dbe7b2890594e55
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 1ec343228e32c9dd6fb126560a7a17b54c5e36cb
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640458"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183283"
 ---
 # <a name="add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Azure Search 응용 프로그램에 제안 사항 또는 자동 완성 추가
 
@@ -36,7 +36,7 @@ ms.locfileid: "69640458"
 > * 에서 C#HomeController.cs의 제안 및 자동 완성 작업을 정의 합니다.
 > * JavaScript에서는 REST Api를 직접 호출 하 여 동일한 기능을 제공 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 솔루션은 준비 된 NYCJobs demo 인덱스를 호스팅하는 라이브 샌드박스 서비스를 사용 하기 때문에이 연습에서는 Azure Search 서비스를 선택 해야 합니다. 사용자 고유의 검색 서비스에서이 예제를 실행 하려면 [NYC 작업 인덱스 구성](#configure-app) 에서 지침을 참조 하세요.
 

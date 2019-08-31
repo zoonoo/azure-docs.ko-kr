@@ -2,7 +2,7 @@
 title: 명명된 엔터티 인식 검색 기술 - Azure Search
 description: Azure Search 인식 검색 파이프라인의 텍스트에서 사람, 위치 및 조직에 대해 명명된 엔터티를 추출합니다.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
 ms.workload: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: b689b577ed940dad03cdf25570187bde98222ee3
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: f91d0b17cfc984ccf56ad4a25ef2ece651dcbed5
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69635851"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183331"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>명명된 엔터티 인식 기술
 
@@ -55,7 +55,7 @@ Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
 ## <a name="skill-outputs"></a>기술 출력
 
-| 출력 이름     | Description                   |
+| 출력 이름     | 설명                   |
 |---------------|-------------------------------|
 | persons      | 각 문자열이 사람 이름을 나타내는 경우 문자열 배열입니다. |
 | locations  | 각 문자열이 위치를 나타내는 경우 문자열 배열입니다. |

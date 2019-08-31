@@ -2,7 +2,7 @@
 title: 엔터티 인식 검색 기술 - Azure Search
 description: Azure Search 인식 검색 파이프라인의 텍스트에서 다양한 형식의 엔터티를 추출합니다.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
 ms.workload: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: 25f6075d1e026745d4db1a60149e109a0f9636a4
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: eb196b9ff72201358982764f227ab7935489f05d
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69635967"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183415"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>엔터티 인식 기술
 
@@ -48,7 +48,7 @@ Microsoft.Skills.Text.EntityRecognitionSkill
 
 ## <a name="skill-inputs"></a>기술 입력
 
-| 이름 입력      | 설명                   |
+| 이름 입력      | Description                   |
 |---------------|-------------------------------|
 | languageCode  | 선택 사항입니다. 기본값은 `"en"`입니다.  |
 | text          | 분석할 텍스트입니다.          |

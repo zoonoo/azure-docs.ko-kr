@@ -2,7 +2,7 @@
 title: Azure Search .NET SDK 버전 1.1로 업그레이드 - Azure Search
 description: 이전 API 버전에서 Azure Search .NET SDK 버전 1.1로 코드를 마이그레이션합니다. 새로운 기능과 필요한 코드 변경 내용을 알아봅니다.
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: dotnet
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 82823bae76521080634d4f7ff285d94ce8495fbf
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 8227e1b372af1eee43db59da2cfad165d67be9ae
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "65024159"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183277"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-11"></a>Azure Search .NET SDK 버전 1.1로 업그레이드
 
@@ -56,7 +56,7 @@ NuGet에서 새 패키지와 해당 종속성을 다운로드했으면 프로젝
 
 `IndexAction` 은 더 이상 public 생성자를 포함하지 않으며 해당 속성은 변경할 수 없습니다. `Delete`, `Merge`, `MergeOrUpload` 및 `Upload`와 같은 다양한 용도의 작업을 만들기 위해서는 새로운 정적 메서드를 사용해야 합니다. `IndexAction.Create` 는 제거되었습니다. 한 개의 문서만 받는 오버로드를 사용한 경우 대신 `Upload` 를 사용해야 합니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 코드는 다음과 같습니다.
 
     var batch = IndexBatch.Create(documents.Select(doc => IndexAction.Create(doc)));
@@ -75,7 +75,7 @@ NuGet에서 새 패키지와 해당 종속성을 다운로드했으면 프로젝
 ### <a name="indexbatchexception-changes"></a>IndexBatchException 변경
 `IndexBatchException.IndexResponse` 속성이 `IndexingResults`로 이름이 변경되었고 형식은 이제 `IList<IndexingResult>`입니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 코드는 다음과 같습니다.
 
     catch (IndexBatchException e)
@@ -155,7 +155,7 @@ Azure Search .NET SDK의 각 작업은 동기 및 비동기 호출자에 대한 
 ### <a name="scoringparameters-changes"></a>ScoringParameters 변경
 최신 SDK에 새 클래스인 `ScoringParameter` 가 추가되어 검색 쿼리에 있는 점수 매기기 프로필에 매개 변수를 더 쉽게 제공할 수 있습니다. `SearchParameters` 클래스의 `ScoringProfiles` 속성은 이전에는 `IList<string>`으로 입력되었지만 이제는 `IList<ScoringParameter>`로 입력됩니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 코드는 다음과 같습니다.
 
     var sp = new SearchParameters();
@@ -174,7 +174,7 @@ Azure Search .NET SDK의 각 작업은 동기 및 비동기 호출자에 대한 
         };
 
 ### <a name="model-class-changes"></a>모델 클래스 변경
-[작업 메서드 변경](#OperationMethodChanges)에 설명된 서명 변경으로 인해 `Microsoft.Azure.Search.Models` 네임스페이스의 많은 클래스가 이름이 변경되거나 제거되었습니다. 예를 들면 다음과 같습니다.
+[작업 메서드 변경](#OperationMethodChanges)에 설명된 서명 변경으로 인해 `Microsoft.Azure.Search.Models` 네임스페이스의 많은 클래스가 이름이 변경되거나 제거되었습니다. 예를 들어:
 
 * `IndexDefinitionResponse`는 `AzureOperationResponse<Index>`로 대체되었습니다.
 * `DocumentSearchResponse`는 `DocumentSearchResult`로 이름이 변경되었습니다.
@@ -185,7 +185,7 @@ Azure Search .NET SDK의 각 작업은 동기 및 비동기 호출자에 대한 
 
 요약하자면 모델 개체를 래핑하기 위해서만 존재했던 `OperationResponse`파생 클래스가 제거되었습니다. 나머지 클래스는 접미사가 `Response`에서 `Result`로 변경되었습니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 코드는 다음과 같습니다.
 
     IndexerGetStatusResponse statusResponse = null;
@@ -300,7 +300,7 @@ Azure Search .NET SDK의 각 작업은 동기 및 비동기 호출자에 대한 
 > 
 > 
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 다음과 같은 코드가 있는 경우
 
     client.SetClientRequestId(Guid.NewGuid());

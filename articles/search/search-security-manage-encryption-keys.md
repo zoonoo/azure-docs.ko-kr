@@ -2,19 +2,19 @@
 title: Azure Key Vault (미리 보기)에서 고객 관리 키를 사용 하 여 미사용 암호화-Azure Search
 description: Azure Key Vault에서 만들고 관리 하는 키를 통해 Azure Search의 인덱스 및 동의어 맵에 대 한 서버 쪽 암호화를 보충 합니다.
 author: NatiNimni
-manager: jlembicz
+manager: nitinme
 ms.author: natinimn
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: ''
-ms.openlocfilehash: 9d4494cb46bece7402b1284ee6324ca9ff86e0f3
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: ce7a8af1416664a3a94b248c95203c8e775e805c
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779096"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182403"
 ---
 # <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Azure Key Vault에서 고객이 관리 하는 키를 사용 하 여 암호화 Azure Search
 

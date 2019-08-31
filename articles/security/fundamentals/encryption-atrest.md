@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/20/2019
+ms.date: 08/30/2019
 ms.author: barclayn
-ms.openlocfilehash: 910057e0e81219a68608441530d03ca1a2411b02
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 9721f22eb73c68f729ced13480370f6593c58510
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69875092"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182802"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure 미사용 데이터 암호화
 
@@ -254,14 +254,16 @@ Azure SQL Database는 현재 Microsoft 관리 서비스 쪽 및 클라이언트 
 
 Azure SQL Database 데이터의 클라이언트 쪽 암호화는 [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) 기능을 통해 지원됩니다. Always Encrypted는 클라이언트에서 만들고 저장한 키를 사용합니다. 고객은 Windows 인증서 저장소, Azure Key Vault 또는 로컬 HSM(하드웨어 보안 모듈)에 마스터 키를 저장할 수 있습니다. SQL Server Management Studio를 사용하는 경우 SQL 사용자는 어떤 열을 암호화하는 데 사용하려는 키를 선택합니다.
 
-#### <a name="encryption-model-and-key-management"></a>암호화 모델 및 키 관리
+#### <a name="encryption-model-and-key-management-table"></a>암호화 모델 및 키 관리 테이블
 
-| **서비스 관리 키를 사용하는 서버 쪽** |**고객이 관리 하는 키를 사용 하는 서버 쪽**| **클라이언트 관리를 사용하는 클라이언트 쪽** | **AI 및 Machine Learning**   |
-|--------------------|-------------------|----------------------|--------------------|
+|                                  |                    | **암호화 모델 및 키 관리** |                    |
+|----------------------------------|--------------------|-----------------------------------------|--------------------|
+|                                  | **서비스 관리 키를 사용하는 서버 쪽**     | **고객이 관리 하는 키를 사용 하는 서버 쪽**             | **클라이언트 관리를 사용하는 클라이언트 쪽**      |
+| **AI 및 Machine Learning**      |                    |                    |                    |
 | Azure Search                     | 예                | -                  | -                  |
 | Azure Machine Learning Service   | 예                | -                  | -                  |
 | Azure Machine Learning Studio    | 예                | 미리 보기, RSA 2048비트 | -               |
-| Power BI                         | 예                | 미리 보기, RSA 2048비트 | -               |
+| Power BI                         | 예                | 미리 보기, RSA 2048비트 | -                  |
 | **분석**                    |                    |                    |                    |
 | Azure Stream Analytics           | 예                | -                  | -                  |
 | Event Hubs                       | 예                | -                  | -                  |
@@ -282,7 +284,7 @@ Azure SQL Database 데이터의 클라이언트 쪽 암호화는 [Always Encrypt
 | Azure SQL Database               | 예                | 예, RSA 2048비트  | 예                |
 | Azure SQL Database for MariaDB   | 예                | -                  | -                  |
 | MySQL에 대 한 Azure SQL Database     | 예                | -                  | -                  |
-| PostgreSQL에 대 한 Azure SQL Database | 예                | -                  | -                 |
+| PostgreSQL에 대 한 Azure SQL Database | 예                | -                  | -                  |
 | Azure SQL 데이터 웨어하우스         | 예                | 예, RSA 2048비트  | 예                |
 | SQL Server 스트레치 데이터베이스      | 예                | 예, RSA 2048비트  | 예                |
 | Table Storage                    | 예                | -                  | 예                |

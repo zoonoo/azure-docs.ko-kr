@@ -2,7 +2,7 @@
 title: 감성 인식 검색 기술 - Azure Search
 description: Azure Search 보강 파이프라인의 텍스트에서 긍정-부정적 감성 점수를 추출합니다.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
 ms.workload: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: df5e33cfc19d4e91fdf4eddc50b25a2b380f0dc4
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: ad6689dad3789329ad202c82dd10847c618906a2
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638934"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183360"
 ---
 #   <a name="sentiment-cognitive-skill"></a>감성 인식 기술
 
@@ -44,14 +44,14 @@ Microsoft.Skills.Text.SentimentSkill
 
 ## <a name="skill-inputs"></a>기술 입력 
 
-| 입력 이름 | 설명 |
+| 입력 이름 | Description |
 |--------------------|-------------|
 | text | 분석할 텍스트입니다.|
 | languageCode  |  (선택 사항) 레코드의 언어를 나타내는 문자열입니다. 이 매개 변수를 지정하지 않을 경우 기본값은 "en"입니다. <br/>[지원되는 언어 전체 목록](../cognitive-services/text-analytics/text-analytics-supported-languages.md)을 참조합니다.|
 
 ## <a name="skill-outputs"></a>기술 출력
 
-| 출력 이름 | Description |
+| 출력 이름 | 설명 |
 |--------------------|-------------|
 | score에 대한 임계값 수준 보기 | 분석된 텍스트의 감성를 나타내는 0과 1 사이의 값입니다. 값 0에 가까우면 부정적 감정이고, 0.5에 가까우면 중립적 감성이고, 1에 가까우면 긍정적인 감성입니다.|
 

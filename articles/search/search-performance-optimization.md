@@ -2,7 +2,7 @@
 title: 성능 최적화를 위한 배포 전략 및 모범 사례-Azure Search
 description: Azure Search 성능을 조정하고 최적의 크기를 구성하기 위한 기술 및 모범 사례를 알아봅니다.
 author: LiamCavanagh
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: rest-api
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: liamca
 ms.custom: seodec2018
-ms.openlocfilehash: a4578e26df5a6c29e80a0bbd2e0a30725e3733ee
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 97628535deb79733e9d286977534a6ea97ba60e6
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68370648"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182280"
 ---
 # <a name="deployment-strategies-and-best-practices-for-optimizing-performance-on-azure-search"></a>Azure Search 성능 최적화를 위한 배포 전략 및 모범 사례
 

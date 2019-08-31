@@ -2,7 +2,7 @@
 title: 이미지 분석 인식 검색 기술 - Azure Search
 description: Azure Search 보강 파이프라인의 이미지 분석 인식 기술을 사용하여 이미지 분석을 통해 의미 체계 텍스트를 추출합니다.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
 ms.workload: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: 2bdb65355f835eec232efd4f0493ecefbecfdd26
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 07969a92286837f8f72b533173ac8d170378d0ea
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128185"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183391"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>이미지 분석 인식 기술
 
@@ -42,7 +42,7 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 
 ## <a name="skill-inputs"></a>기술 입력
 
-| 이름 입력      | Description                                          |
+| 이름 입력      | 설명                                          |
 |---------------|------------------------------------------------------|
 | image         | 복합 형식입니다. ```imageAction```이 ```none``` 이외의 값으로 설정된 경우 현재 Azure Blob 인덱서에서 생성된 “/document/normalized_images” 필드에만 작동합니다. 자세한 내용은 [샘플](#sample-output)을 참조하세요.|
 
@@ -494,7 +494,7 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 ## <a name="error-cases"></a>오류 사례
 다음 오류 사례에서는 요소가 추출되지 않습니다.
 
-| 오류 코드 | 설명 |
+| 오류 코드 | Description |
 |------------|-------------|
 | NotSupportedLanguage | 제공한 언어가 지원되지 않습니다. |
 | InvalidImageUrl | 이미지 URL의 형식이 잘못되었거나 액세스할 수 없습니다.|

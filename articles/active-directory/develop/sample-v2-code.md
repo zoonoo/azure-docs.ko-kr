@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bded69a256a6fb76eabcdc53bc4115f534cfda37
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 6c62bf4a887bb6d3b24cdd1234a586c61df17df4
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852919"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183124"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Microsoft id 플랫폼 코드 샘플 (v2.0 끝점)
 
@@ -55,7 +55,7 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 | ![이 이미지는](media/sample-v2-code/logo_angular.png) [msal AngularJS (](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs) 각도 JS 로고 JavaScript)를 보여 줍니다.| Microsoft Graph 호출  | [MsalAngularjsDemoApp](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angularjs/samples/MsalAngularjsDemoApp)
 | ![이 이미지는 각도 로고](media/sample-v2-code/logo_angular.png) [JavaScript (msal 각도)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular) 를 보여 줍니다.| Microsoft Graph 호출  | [MSALAngularDemoApp](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular/samples/MSALAngularDemoApp) |
 
-## <a name="web-applications"></a>웹 애플리케이션
+## <a name="web-applications"></a>웹 응용 프로그램
 
 다음 샘플은 사용자를 로그인하는 웹 애플리케이션을 보여 줍니다. 일부 샘플은 사용자 ID를 사용하여 Microsoft Graph 또는 사용자 고유의 웹 API를 호출하는 애플리케이션도 보여 줍니다.
 
@@ -63,6 +63,7 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 | -------- | ------------------- | --------------------------------- |
 | ![이 이미지는 ASP.NET Core 로고를 표시 합니다.](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | [ASP.NET Core WebApp 로그인 사용자 자습서](https://aka.ms/aspnetcore-webapp-sign-in) | [ASP.NET Core 웹 앱에서 Microsoft Graph](https://aka.ms/aspnetcore-webapp-call-msgraph) 단계를 호출 하는 동일한 샘플 |
 | ![이 이미지는 ASP.NET 로고를 보여줍니다.](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [ASP.NET 빠른 시작](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p> |[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
+| ![이 이미지는 Java 로고를 표시 합니다.](media/sample-v2-code/logo_java.png)  |                   | [webapp](https://github.com/Azure-Samples/ms-identity-java-webapp): Microsoft graph를 호출 하는 MSAL4J 웹 앱 |
 | ![이 이미지는 node.js 로고를 표시 합니다.](media/sample-v2-code/logo_nodejs.png)  |                   | [Node.js 빠른 시작](https://github.com/azureadquickstarts/appmodelv2-webapp-openidconnect-nodejs) |
 | ![이 이미지는 Ruby 로고를 표시 합니다.](media/sample-v2-code/logo_ruby.png) |                   | [msgraph-training-rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp) |
 

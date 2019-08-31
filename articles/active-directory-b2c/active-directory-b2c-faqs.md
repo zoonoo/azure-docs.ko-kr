@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e5ceb53cb0fcce40d779bd516fa4cebac6d11209
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 7b569454696717913c325581ca1f00479a371984
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061363"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183180"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: 질문과 대답(FAQ)
 
@@ -143,7 +143,7 @@ Azure AD B2C 테넌트를 삭제하려면 다음 단계를 수행합니다.
 1. **모든 응용 프로그램 보기** 선택
 1. **B2c**이라는 응용 프로그램을 선택 하 고, **삭제**를 선택한 다음, 메시지가 표시 되 면 **예** 를 선택 합니다.
 1. **관리**에서 **사용자 설정**을 선택 합니다.
-1. **LinkedIn 계정 연결**아래에서 **아니요**를 선택 하 고 **저장**을 선택 합니다.
+1. 있는 경우 **LinkedIn 계정 연결**아래에서 **아니요**를 선택 하 고 **저장**을 선택 합니다.
 1. **관리**아래에서 **속성** 을 선택 합니다.
 1. **Azure 리소스에 대 한 액세스 관리**에서 **예**를 선택한 다음, **저장**을 선택 합니다.
 1. Azure Portal에서 로그 아웃 한 후 다시 로그인 하 여 액세스를 새로 고칩니다.

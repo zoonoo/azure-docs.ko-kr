@@ -2,7 +2,7 @@
 title: 사용자 지정 인식 검색 기술 - Azure Search
 description: Web API를 호출하여 인식 검색 기술 세트의 기능을 확장합니다.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
 ms.workload: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: bd38dacd9161812032512fcb8bfdcbe90d64731c
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: a01518158e063d68734b1230f11cae78f461faac
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639864"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183460"
 ---
 # <a name="custom-web-api-skill"></a>사용자 지정 Web API 기술
 
@@ -36,7 +36,7 @@ Microsoft.Skills.Custom.WebApiSkill
 
 매개 변수는 대/소문자를 구분합니다.
 
-| 매개 변수 이름     | 설명 |
+| 매개 변수 이름     | Description |
 |--------------------|-------------|
 | URI | _JSON_ 페이로드가 전송 될 웹 API의 URI입니다. **https** URI 체계만 허용됩니다. |
 | httpMethod | 페이로드를 보내는 데 사용하는 메서드입니다. 허용되는 메서드는 `PUT` 또는 `POST`입니다. |

@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1e35baf24b59e7864982d131f44f79458e0d9015
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 01ee8e5b9d7ab1e8ab4086e559ce8dd8df76252f
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971500"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182693"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 서비스의 릴리스 정보
 
@@ -84,6 +84,7 @@ ms.locfileid: "69971500"
     + 자동 Ml 사용자가 예측 시 충분 하지 않은 학습 시리즈를 삭제할 수 있습니다.
     + 자동 Ml 사용자가 예측 시 학습 집합에 없는 테스트 집합에서 조직를 삭제할 수 있도록 허용 합니다.
     + 이제 AutoMLStep가 새 구성 매개 변수의 변경 또는 추가에 대 한 문제를 방지 하기 위해 automl config를 백 엔드에 전달 합니다.
+    + AutoML 데이터 Guardrail은 현재 공개 미리 보기로 제공 됩니다. 사용자는 학습 후에 데이터 Guardrail 보고서 (분류/회귀 작업)를 보고 SDK API를 통해 액세스할 수 있습니다.
   + **azureml-train-core**
     + PyTorch 평가기에서 torch 1.2 지원을 추가 했습니다.
   + **azureml 위젯**
