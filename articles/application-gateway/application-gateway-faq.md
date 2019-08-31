@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 08/22/2019
+ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: da8142ad035eec338a3c1ba1a23be7c2be470a04
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 3fa97c5738128907b0edad40cedf582e80c33443
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891717"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194460"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Application Gateway에 대 한 질문과 대답
 
@@ -277,7 +277,11 @@ Application Gateway은 최대 10 개의 인증 인증서를 지원 합니다. �
 
 ### <a name="how-do-i-configure-https-listeners-for-com-and-net-sites"></a>.Com 및 .net 사이트에 대해 HTTPS 수신기를 구성 어떻게 할까요?? 
 
-여러 도메인 기반 (호스트 기반) 라우팅의 경우 멀티 사이트 수신기를 만들고, HTTPS를 프로토콜로 사용 하는 수신기를 설정 하 고, 수신기를 라우팅 규칙과 연결할 수 있습니다. 자세한 내용은 [Application Gateway를 사용 하 여 여러 사이트 호스팅](https://docs.microsoft.com/azure/application-gateway/multiple-site-overview)을 참조 하세요. 
+여러 도메인 기반 (호스트 기반) 라우팅의 경우 멀티 사이트 수신기를 만들고, HTTPS를 프로토콜로 사용 하는 수신기를 설정 하 고, 수신기를 라우팅 규칙과 연결할 수 있습니다. 자세한 내용은 [Application Gateway를 사용 하 여 여러 사이트 호스팅](https://docs.microsoft.com/azure/application-gateway/multiple-site-overview)을 참조 하세요.
+
+### <a name="can-i-use-special-characters-in-my-pfx-file-password"></a>.Pfx 파일 암호에 특수 문자를 사용할 수 있나요?
+
+아니요, .pfx 파일 암호에 영숫자 문자만 사용 합니다.
 
 ## <a name="configuration---web-application-firewall-waf"></a>구성-WAF (웹 응용 프로그램 방화벽)
 

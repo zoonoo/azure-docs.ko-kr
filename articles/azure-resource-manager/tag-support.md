@@ -3,15 +3,15 @@ title: 리소스에 대한 Azure Resource Manager 태그 지원
 description: 태그를 지원하는 Azure 리소스 종류를 보여 줍니다. 모든 Azure 서비스에 대한 세부 정보를 제공합니다.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: 452230a263e623f53346fcdb8cf310e73f171aee
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: bf10274e8c492363cb54c5610ff8d912ab308d1c
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848602"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194724"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 리소스에 대한 태그 지원
 이 문서에서는 리소스 종류가 [태그](resource-group-using-tags.md)를 지원하는지 여부를 설명합니다. **태그 지원** 이라는 열은 리소스 형식에 태그에 대 한 속성이 있는지 여부를 나타냅니다. **비용 보고서에서 태그** 레이블이 지정 된 열은 리소스 종류가 태그를 비용 보고서에 전달 하는지 여부를 나타냅니다.
@@ -1610,7 +1610,7 @@ ms.locfileid: "68848602"
 > | subscriptions/resources | 아니요 |아니요 |
 > | subscriptions/tagnames | 아니요 |아니요 |
 > | subscriptions/tagNames/tagValues | 아니요 |아니요 |
-> | tags | 아니요 |아니요 |
+> | 태그 | 아니요 |아니요 |
 > | tenants | 아니요 |아니요 |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS

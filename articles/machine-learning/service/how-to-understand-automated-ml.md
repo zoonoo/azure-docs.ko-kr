@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.openlocfilehash: 387865ac229acc5d16f595b96c76e7c9a014e991
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: d626a7768e7070360a6f0249486bfa83407fe998
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70062139"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70192029"
 ---
 # <a name="understand-automated-machine-learning-results"></a>자동화 된 machine learning 결과 이해
 
@@ -75,7 +75,7 @@ ms.locfileid: "70062139"
 
 다음 메트릭은 분류 태스크에 대 한 각 실행 반복에 저장 됩니다.
 
-|메트릭|Description|계산|추가 매개 변수
+|메트릭|설명|계산|추가 매개 변수
 --|--|--|--|
 AUC_Macro| AUC는 Receiver Operating Characteristic Curve 아래의 영역입니다. Macro(매크로)는 각 클래스에 대한 AUC의 산술 평균입니다.  | [계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="macro"|
 AUC_Micro| AUC는 Receiver Operating Characteristic Curve 아래의 영역입니다. 마이크로는 각 클래스에서 참 긍정 및 거짓 긍정을 결합 하 여 전역적으로 계산 됩니다.| [계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|
@@ -102,7 +102,7 @@ weighted_accuracy|가중치가 적용 되는 정확도는 각 예제에 지정 �
 
 혼동 행렬은 분류 모델의 성능을 설명하는 데 사용됩니다. 각 행은 true 클래스 인스턴스를 표시하고, 각 열은 예측된 클래스 인스턴스를 나타냅니다. 혼동 행렬은 지정된 모델에 대해 올바르게 분류된 레이블과 잘못 분류된 레이블을 표시합니다.
 
-분류 문제를 위해 Azure Machine Learning은 빌드된 각 모델에 대한 혼동 행렬을 자동으로 제공합니다. 각 혼동 행렬에 대해 자동화된 ML에서 올바르게 분류된 레이블은 녹색으로 표시되고 잘못 분류된 레이블은 빨간색으로 표시됩니다. 원의 크기는 해당 bin의 샘플 수를 나타냅니다. 또한 각 예측된 레이블 및 각 올바른 레이블의 빈도 개수가 인접한 막대형 차트에 제공됩니다. 
+분류 문제를 위해 Azure Machine Learning은 빌드된 각 모델에 대한 혼동 행렬을 자동으로 제공합니다. 각 혼동 행렬에 대해 자동화 된 ML은 각 예측 된 레이블의 빈도와 각 진정한 레이블 교차를 표시 합니다. 이 어두운 색은 행렬의 특정 부분에서 더 높은 수입니다. 가장 이상적인 색은 행렬의 대각선을 따라 하는 것입니다. 
 
 예제 1: 정확성이 낮은 분류 모델 ![정확성이 낮은 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix1.png)
 

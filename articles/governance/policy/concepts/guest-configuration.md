@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: b6c9e50334a25b505655a49a02cd98165d04740b
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 269d13e0b64d2da7a21316b16c88acde46ba1722
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164957"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194633"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 
@@ -130,6 +130,11 @@ Azure Policy는 게스트 구성 리소스 공급자 **complianceStatus** 속성
 ### <a name="multiple-assignments"></a>여러 할당
 
 게스트 구성 정책은 현재 정책 할당에서 다른 매개 변수를 사용 하는 경우에도 컴퓨터 마다 한 번 동일한 게스트 할당 할당을 지원 합니다.
+
+## <a name="built-in-resource-modules"></a>기본 제공 리소스 모듈
+
+게스트 구성 확장을 설치 하면 ' GuestConfiguration ' PowerShell 모듈이 최신 버전의 DSC 리소스 모듈에 포함 됩니다. 이 모듈은 모듈 페이지 [GuestConfiguration/](https://www.powershellgallery.com/packages/GuestConfiguration/)에서 ' 수동 다운로드 ' 링크를 사용 하 여 PowerShell 갤러리에서 다운로드할 수 있습니다.
+압축을 풀고 검토할 수 있도록 '. nupkg ' 파일 형식의 이름을 '. p s '로 바꿀 수 있습니다.
 
 ## <a name="client-log-files"></a>클라이언트 로그 파일
 

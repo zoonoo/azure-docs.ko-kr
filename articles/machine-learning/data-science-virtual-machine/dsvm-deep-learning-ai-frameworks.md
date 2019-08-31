@@ -1,30 +1,23 @@
 ---
 title: 심층 학습 & AI 프레임 워크
-titleSuffix: Azure Data Science Virtual Machines
-description: TensorFlow, PyTorch, Keras, Caffe, MXNet, Horovod, Theano, 체 이너 등을 비롯 한 Azure Data Science Virtual Machine의 심층 학습 프레임 워크 및 도구입니다.
+titleSuffix: Azure Data Science Virtual Machine
+description: TensorFlow, PyTorch, Keras, Caffe, MXNet, Horovod, Theano, 체 이너 등을 포함 하 여 Azure Data Science Virtual Machine의 심층 학습 프레임 워크 및 도구를 사용할 수 있습니다.
 keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 08/11/2019
-ms.author: vijetaj
-ms.openlocfilehash: 3c9510b99bbdc7db292ecdc0bf59aadc305cf0c8
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: bcf5228b6d6055c4b2e716ca6b34878a3bb3b870
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035835"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70192179"
 ---
-# <a name="deep-learning-and-ai-frameworks"></a>심층 학습 및 AI 프레임워크
+# <a name="deep-learning-and-ai-frameworks-for-azure-data-science-vm"></a>Azure Data Science VM에 대 한 심층 학습 및 AI 프레임 워크
 Dsvm ( [Data Science Virtual Machine](https://aka.ms/dsvm) )은 이미지 및 언어 이해와 같은 예측 분석 및 인식 기능을 통해 AI (인공 지능) 응용 프로그램을 빌드하는 데 도움이 되는 다양 한 심층 학습 프레임 워크를 지원 합니다.
 
 DSVM에서 사용할 수 있는 심층 학습 프레임 워크는 다음과 같습니다.

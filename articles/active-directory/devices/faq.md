@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57bc2ca38b5166cfba39fb20254e169ce016ea12
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 0a6b1782b9822877850f7c223dd80eed008ef706
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706323"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193199"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 디바이스 관리 FAQ
 
@@ -194,7 +194,7 @@ Azure AD에서 디바이스가 삭제 또는 비활성화되어도 Windows 디�
 
 ---
 
-### <a name="q-why-dont-some-of-my-users-get-azure-multi-factor-authentication-prompts-on-azure-ad-joined-devices"></a>Q: 일부 사용자에 게 Azure AD 조인 장치에 대 한 Azure Multi-factor Authentication 프롬프트가 표시 되지 않는 이유는 무엇 인가요?
+### <a name="q-why-dont-some-of-my-users-get-azure-multi-factor-authentication-prompts-on-azure-ad-joined-devices"></a>Q: 일부 사용자가 Azure AD 조인 장치에서 Azure Multi-Factor Authentication 프롬프트를 가져오지 않는 이유는 무엇 인가요?
 
 **A:** 사용자가 Multi-Factor Authentication을 사용하여 디바이스를 Azure AD에 조인 또는 등록할 수 있습니다. 그러면 디바이스 자체가 해당 사용자의 신뢰할 수 있는 두 번째 요소가 됩니다. 동일한 사용자가 디바이스에 로그인하여 애플리케이션에 액세스할 때마다 Azure AD는 디바이스를 두 번째 요소로 간주합니다. 해당 사용자가 추가 Multi-Factor Authentication 프롬프트 없이 원활하게 애플리케이션에 액세스할 수 있게 해줍니다. 
 
@@ -269,24 +269,31 @@ Azure AD에서 디바이스가 삭제 또는 비활성화되어도 Windows 디�
 
 ### <a name="q-do-windows-10-hybrid-azure-ad-joined-devices-require-line-of-sight-to-the-domain-controller-to-get-access-to-cloud-resources"></a>Q: 클라우드 리소스에 대 한 액세스를 얻으려면 Windows 10 하이브리드 Azure AD 조인 장치에서 도메인 컨트롤러에 대 한 시야를 사용 해야 하나요?
 
-**A:** 아니요. 사용자의 암호가 변경 된 경우는 제외 됩니다. Windows 10 하이브리드 Azure AD 조인이 완료 되 고 사용자가 한 번 이상 로그인 한 후에는 장치에서 클라우드 리소스에 액세스 하기 위해 도메인 컨트롤러에 대 한 시야를 요구 하지 않습니다. Windows 10은 암호가 변경 되는 경우를 제외 하 고 인터넷 연결을 사용 하 여 어디서 나 Azure AD 응용 프로그램에 대 한 single sign-on을 가져올 수 있습니다. 비즈니스용 Windows Hello를 사용 하 여 로그인 하는 사용자는 도메인 컨트롤러에 대 한 시야를 갖지 않더라도 암호 변경 후에도 Azure AD 응용 프로그램에 대 한 single sign-on을 계속 받습니다. 
+**A:** 아니요. 사용자의 암호가 변경 된 경우는 제외 됩니다. Windows 10 하이브리드 Azure AD 조인이 완료 되 고 사용자가 한 번 이상 로그인 한 후에는 장치에서 클라우드 리소스에 액세스 하기 위해 도메인 컨트롤러에 대 한 시야를 요구 하지 않습니다. Windows 10은 암호를 변경 하는 경우를 제외 하 고 인터넷 연결을 사용 하 여 어디서 나 Azure AD 응용 프로그램에 대 한 Single Sign-On를 가져올 수 있습니다. 비즈니스용 Windows Hello를 사용 하 여 로그인 하는 사용자는 도메인 컨트롤러에 대 한 시야를 갖지 않는 경우에도 암호 변경 후에도 Azure AD 응용 프로그램에 대 한 Single Sign-On를 계속 받습니다. 
 
 ---
 
 ### <a name="q-what-happens-if-a-user-changes-their-password-and-tries-to-login-to-their-windows-10-hybrid-azure-ad-joined-device-outside-the-corporate-network"></a>Q: 사용자가 자신의 암호를 변경 하 고 회사 네트워크 외부의 Windows 10 하이브리드 Azure AD 조인 장치에 로그인 하려고 하면 어떻게 되나요?
 
-**A:** 암호가 회사 네트워크 외부에서 변경 된 경우 (예: Azure AD SSPR를 사용 하 여), 새 암호를 사용 하 여 로그인 하는 사용자는 실패 합니다. 하이브리드 Azure AD 조인 장치의 경우 온-프레미스 Active Directory 기본 인증 기관입니다. 장치가 도메인 컨트롤러에 대 한 시야를 갖지 않는 경우 새 암호의 유효성을 검사할 수 없습니다. 따라서 사용자는 새 암호를 사용 하 여 장치에 로그인 하기 전에 도메인 컨트롤러 (VPN 또는 회사 네트워크에 있음)에 대 한 연결을 설정 해야 합니다. 그렇지 않으면 Windows의 캐시 된 로그인 기능 때문에 이전 암호를 사용 하 여 로그인 할 수 있습니다. 그러나 토큰 요청 중에는 Azure AD에서 이전 암호를 무효화 하므로 single sign-on이 차단 되 고 장치 기반 조건부 액세스 정책이 실패 합니다. 비즈니스용 Windows Hello를 사용 하는 경우에는이 문제가 발생 하지 않습니다. 
+**A:** 암호가 회사 네트워크 외부에서 변경 된 경우 (예: Azure AD SSPR를 사용 하 여), 새 암호를 사용 하 여 로그인 하는 사용자는 실패 합니다. 하이브리드 Azure AD 조인 장치의 경우 온-프레미스 Active Directory 기본 인증 기관입니다. 장치가 도메인 컨트롤러에 대 한 시야를 갖지 않는 경우 새 암호의 유효성을 검사할 수 없습니다. 따라서 사용자는 새 암호를 사용 하 여 장치에 로그인 하기 전에 도메인 컨트롤러 (VPN 또는 회사 네트워크에 있음)에 대 한 연결을 설정 해야 합니다. 그렇지 않으면 Windows의 캐시 된 로그인 기능 때문에 이전 암호를 사용 하 여 로그인 할 수 있습니다. 그러나 토큰 요청 중에는 Azure AD에서 이전 암호를 무효화 하므로 Single Sign-On을 방지 하 고 장치 기반 조건부 액세스 정책을 실패 합니다. 비즈니스용 Windows Hello를 사용 하는 경우에는이 문제가 발생 하지 않습니다. 
 
 ---
 
 ## <a name="azure-ad-register-faq"></a>Azure AD 등록 FAQ
 
-### <a name="q-how-do-i-remove-an-azure-ad-registered-device-locally-on-the-device"></a>Q: 장치에서 로컬로 Azure AD 등록 장치를 제거할 어떻게 할까요? 있나요?
+### <a name="q-how-do-i-remove-an-azure-ad-registered-state-for-a-device-locally"></a>Q: 장치에 대 한 Azure AD 등록 상태를 로컬로 제거 하는 어떻게 할까요??
 
 **A:** 
 - Windows 10 Azure AD 등록 장치에 대해 **설정** > **계정** > **회사 또는 학교 액세스**로 이동 합니다. 계정을 선택하고 **연결 끊기**를 선택합니다. 장치 등록은 Windows 10의 사용자 프로필 당입니다.
 - IOS 및 Android의 경우 Microsoft Authenticator 응용 프로그램 **설정** > **장치 등록** 을 사용 하 고 **장치 등록 취소**를 선택할 수 있습니다.
 - MacOS의 경우 Microsoft Intune 회사 포털 응용 프로그램을 사용 하 여 관리에서 장치 등록을 취소 하 고 등록을 제거할 수 있습니다. 
+
+---
+### <a name="q-how-can-i-block-users-from-adding-additional-work-accounts-azure-ad-registered-on-my-corporate-windows-10-devices"></a>Q: 사용자가 회사 Windows 10 장치에서 추가 작업 계정 (Azure AD에 등록 됨)을 추가 하는 것을 차단 하려면 어떻게 해야 하나요?
+
+**A:** 사용자가 회사 도메인 가입, Azure AD 조인 또는 하이브리드 Azure AD 조인 Windows 10 장치에 추가 작업 계정을 추가 하지 못하도록 차단 하려면 다음 레지스트리를 사용 하도록 설정 합니다. 이 정책을 사용 하 여 도메인에 가입 된 컴퓨터가 실수로 동일한 사용자 계정으로 Azure AD를 등록 하지 못하도록 차단할 수도 있습니다. 
+
+`HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001`
 
 ---
 ### <a name="q-can-i-register-android-or-ios-byod-devices"></a>Q: Android 또는 iOS BYOD 장치를 등록할 수 있나요?

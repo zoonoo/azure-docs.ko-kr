@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 08/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a3a097c164628e6d4e4b7886a195901207d83a3
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: d3bb18f11de92680d296d747fc34e16c3264c369
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852204"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193273"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft id 플랫폼 및 OAuth 2.0 클라이언트 자격 증명 흐름
 
@@ -170,10 +170,11 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 ```
 
 ```
-curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/common/oauth2/v2.0/token'
+// Replace {tenant} with your tenant! 
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token'
 ```
 
-| 매개 변수 | 조건 | Description |
+| 매개 변수 | 조건 | 설명 |
 | --- | --- | --- |
 | `tenant` | 필수 | 애플리케이션에서 GUID 또는 도메인 이름 형식으로 작동하도록 계획하는 디렉터리 테넌트입니다. |
 | `client_id` | 필수 | 앱에 할당되는 애플리케이션 ID입니다. 앱을 등록한 포털에서 이 정보를 찾을 수 있습니다. |
@@ -218,7 +219,7 @@ client_secret 매개 변수가 두 개의 매개 변수 client_assertion_type �
 }
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
 | `access_token` | 요청된 액세스 토큰입니다. 앱은 이 토큰을 사용하여 Web API와 같은 보안 리소스를 인증할 수 있습니다. |
 | `token_type` | 토큰 유형 값을 나타냅니다. Microsoft id 플랫폼은 유일 하 게 지원 되 `bearer`는 형식은입니다. |
@@ -250,10 +251,6 @@ client_secret 매개 변수가 두 개의 매개 변수 client_assertion_type �
 | `trace_id` | 진단에 도움이 되는 요청에 대한 고유 식별자입니다. |
 | `correlation_id` | 전체 구성 요소에서 진단에 도움이 되는 요청에 대한 고유 식별자입니다. |
 
-> [!NOTE]
-> 응용 프로그램에서 v2 토큰을 받을 수 있도록 azure portal 내에서 응용 프로그램의 매니페스트 파일을 업데이트할 수 있습니다. 특성 `accessTokenAcceptedVersion` 을 추가 하 고 값을 `"accessTokenAcceptedVersion": 2`2로 설정할 수 있습니다. [응용 프로그램 매니페스트](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-reference) 문서를 확인 하 여 동일한에 대해 자세히 알아보세요. 기본적으로 응용 프로그램은 현재 v1 토큰을 받는 합니다. 응용 프로그램/웹 API 매니페스트 내에서 정의 되지 않은 경우 매니페스트의이 특성 값은 기본적으로 1로 설정 되므로 응용 프로그램이 v1 토큰을 받게 됩니다.  
-
-
 ## <a name="use-a-token"></a>토큰 사용
 
 토큰을 획득했으므로 해당 토큰을 사용하여 리소스에 요청합니다. 토큰이 만료되면 `/token` 엔드포인트에 대한 요청을 반복하여 새 액세스 토큰을 획득합니다.
@@ -269,7 +266,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ```
 
 ```
-curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q" 'https://graph.microsoft.com/v1.0/me/messages'
+curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbG...." 'https://graph.microsoft.com/v1.0/me/messages'
 ```
 
 ## <a name="code-samples-and-other-documentation"></a>코드 샘플 및 기타 설명서

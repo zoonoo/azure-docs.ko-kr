@@ -7,110 +7,114 @@ editor: cgronlun
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 08/23/2019
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 551d0cd149c4d1555a40ccf0d7baeff97c6809c2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3b57621fcec654f11c8e9a68e4568f332dbf9ac6
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60336291"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195539"
 ---
 # <a name="collaborative-coding-with-git"></a>Git를 사용하여 공동 코딩
 
-이 문서에서는 Git를 공유 코드 개발 프레임워크로 사용하여 데이터 과학 프로젝트의 공동 코드 개발을 수행하는 방법을 설명합니다. [Agile 개발](agile-development.md) 및 코드 검토를 수행하는 방법에서 계획한 작업이 이러한 코딩 활동을 연결하는 방법을 다룹니다.
+이 문서에서는 데이터 과학 프로젝트용 공동 작업 코드 개발 프레임 워크로 Git를 사용 하는 방법을 설명 합니다. 이 문서에서는 Azure Repos의 코드를 Azure Boards의 [agile 개발](agile-development.md) 작업 항목에 연결 하는 방법, 코드 검토를 수행 하는 방법 및 변경에 대 한 끌어오기 요청을 만들고 병합 하는 방법에 대해 설명 합니다.
 
+## <a name='Linkaworkitemwithagitbranch-1'></a>Azure Repos 분기에 작업 항목 연결 
 
-## 1. <a name='Linkaworkitemwithagitbranch-1'></a>Git 분기와 작업 항목 연결 
+Azure DevOps는 Azure Boards 사용자 스토리 또는 작업 작업 항목을 Azure Repos Git 리포지토리 분기에 연결 하는 편리한 방법을 제공 합니다. 사용자 스토리 또는 작업을 연결 된 코드에 직접 연결할 수 있습니다. 
 
-Azure DevOps Services는 작업 항목(스토리 또는 작업)을 Git 분기와 연결하는 편리한 방법을 제공합니다. 이렇게 하면 스토리 또는 작업을 연결되는 코드에 직접 연결할 수 있습니다. 
-
-작업 항목을 새 분기에 연결하려면 작업 항목을 두 번 클릭하고, 팝업 창의 **+ 링크 추가** 아래에서 **새 분기 만들기**를 클릭합니다.  
+작업 항목을 새 분기에 연결 하려면 작업 항목 옆에 있는 **동작** 줄임표 ( **...** )를 선택 하 고 상황에 맞는 메뉴에서를 스크롤하여 **새 분기**를 선택 합니다.  
 
 ![1](./media/collaborative-coding-with-git/1-sprint-board-view.png)
 
-이 새 분기에 대한 정보(예: 분기 이름, 기본 Git 리포지토리 및 분기)를 제공합니다. 선택한 Git 리포지토리는 작업 항목이 속한 동일한 프로젝트 아래에 있는 리포지토리여야 합니다. 기본 분기는 마스터 분기 또는 다른 기존 분기일 수 있습니다.
+**분기 만들기** 대화 상자에서 새 분기 이름과 기본 Azure Repos Git 리포지토리 및 분기를 제공 합니다. 기본 리포지토리는 작업 항목과 동일한 Azure DevOps 프로젝트에 있어야 합니다. 기본 분기는 마스터 분기 또는 다른 기존 분기가 될 수 있습니다. **분기 만들기**를 선택 합니다. 
 
 ![2](./media/collaborative-coding-with-git/2-create-a-branch.png)
 
-각 스토리 작업 항목에 대해 Git 분기를 만드는 것이 좋습니다. 그런 다음 각 작업 작업 항목에 대해 스토리 분기에 따라 분기를 만듭니다. 스토리-작업 관계에 해당하는 분기를 이러한 계층적 방식으로 구성하는 것은 여러 사람이 동일한 프로젝트의 다른 스토리에 대해 작업하거나 동일한 스토리의 다른 작업을 수행하는 경우에 유용합니다. 각 팀 구성원이 다른 분기에서 작업하는 경우 및 분기를 공유할 때 각 구성원이 다른 코드 또는 다른 아티팩트에서 작업하는 경우에 발생하는 충돌을 최소화할 수 있습니다. 
+Windows 또는 Linux에서 다음 Git bash 명령을 사용 하 여 새 분기를 만들 수도 있습니다.
 
-다음 그림에서는 TDSP에 권장되는 분기 전략을 보여 줍니다. 이 그림과 같이 많은 분기가 필요하지 않을 수 있습니다. 특히 한두 명의 사람이 동일한 프로젝트에서 작업하거나 한 사람이 스토리의 모든 작업을 수행할 때 그렇습니다. 그러나 개발 분기와 마스터 분기는 분리하는 것이 항상 좋습니다. 이렇게 하면 릴리스 분기가 개발 작업으로 인해 중단되는 것을 방지할 수 있습니다. Git 분기 모델에 대한 더 자세한 설명은 [성공적인 Git 분기 모델](https://nvie.com/posts/a-successful-git-branching-model/)에서 찾을 수 있습니다.
+```bash
+git checkout -b <new branch name> <base branch name>
+
+```
+> \<기본 분기 이름을 지정 하지 않으면 새 분기는를 `master`기반으로 합니다. 
+
+작업 분기로 전환 하려면 다음 명령을 실행 합니다. 
+
+```bash
+git checkout <working branch name>
+```
+
+작업 분기로 전환한 후에는 코드 또는 문서 아티팩트 개발을 시작 하 여 작업 항목을 완료할 수 있습니다. 를 `git checkout master` 실행 하면 `master` 분기로 다시 전환 됩니다.
+
+각 사용자 스토리 작업 항목에 대해 Git 분기를 만드는 것이 좋습니다. 그런 다음 각 작업 (Task) 작업 항목에 대해 사용자 스토리 분기를 기반으로 분기를 만들 수 있습니다. 동일한 프로젝트에 대해 여러 사용자 스토리를 작업 하거나 동일한 사용자 스토리에 대해 다른 작업을 수행 하는 사용자가 여러 명 있는 경우 사용자 스토리-작업 관계에 해당 하는 계층의 분기를 구성 합니다. 분기를 공유 하는 경우 각 팀 멤버가 다른 분기 또는 다른 코드 또는 다른 아티팩트에 대해 작업을 수행 하 여 충돌을 최소화할 수 있습니다. 
+
+다음 다이어그램은 TDSP에 권장 되는 분기 전략을 보여 줍니다. 여기에 표시 된 것과 같이 분기가 여러 개 필요 하지 않을 수 있습니다. 특히 한 명의 사용자만 프로젝트에서 작업 하거나 한 명의 사용자만이 사용자 스토리의 모든 작업에 대해 작업 하는 경우입니다. 그러나 개발 분기를 마스터 분기에서 분리 하는 것이 항상 좋은 방법 이며, 개발 작업으로 인해 릴리스 분기가 중단 되지 않도록 방지 하는 데 도움이 될 수 있습니다. Git 분기 모델에 대 한 전체 설명은 [성공적인 Git 분기 모델](https://nvie.com/posts/a-successful-git-branching-model/)을 참조 하세요.
 
 ![3](./media/collaborative-coding-with-git/3-git-branches.png)
 
-작업하려는 분기로 전환하려면 셸 명령(Windows 또는 Linux)에서 다음 명령을 실행합니다. 
-
-    git checkout <branch name>
-
-*<branch name\>* 을 **master**로 변경하면 **마스터** 분기로 다시 전환됩니다. 작업 중인 분기로 전환하면 해당 작업 항목에 대한 작업을 시작하여 항목을 완성하는 데 필요한 코드 또는 문서 아티팩트를 개발할 수 있습니다. 
-
-또한 작업 항목을 기존 분기에 연결할 수도 있습니다. 작업 항목의 **세부 정보** 페이지에서 **새 분기 만들기**를 클릭하는 대신 **+ 링크 추가**를 클릭합니다. 그런 다음 작업 항목을 연결할 분기를 선택합니다. 
+또한 작업 항목을 기존 분기에 연결할 수도 있습니다. 작업 항목의 **세부 정보** 페이지에서 **링크 추가**를 선택 합니다. 그런 다음 작업 항목을 연결할 기존 분기를 선택 하 고 **확인**을 선택 합니다. 
 
 ![4](./media/collaborative-coding-with-git/4-link-to-an-existing-branch.png)
 
-Git bash 명령으로 새 분기를 만들 수도 있습니다. <base branch name\>이 누락된 경우 <new branch name\>은 _마스터_ 분기를 기반으로 합니다. 
-    
-    git checkout -b <new branch name> <base branch name>
+## <a name='WorkonaBranchandCommittheChanges-2'></a>분기에 대 한 작업 및 변경 내용 커밋 
 
+작업 항목 (예: 로컬 컴퓨터의 `script` 분기에 R 스크립트 파일 추가)을 변경한 후에는 다음 Git bash 명령을 사용 하 여 로컬 분기에서 업스트림 작업 분기로 변경 내용을 커밋할 수 있습니다.
 
-## 2. <a name='WorkonaBranchandCommittheChanges-2'></a>분기에서 작업 및 변경 내용 커밋 
-
-이제 작업 항목(예: 로컬 컴퓨터의 분기에 R 파일 추가)에 대한 *data\_ingestion* 분기를 변경합니다. Git 셸의 해당 분기에 있으면 다음 Git 명령을 사용하여 이 작업 항목에 대한 분기에 추가된 R 파일을 커밋할 수 있습니다.
-
-    git status
-    git add .
-    git commit -m"added a R scripts"
-    git push origin data_ingestion
+```bash
+git status
+git add .
+git commit -m "added an R script file"
+git push origin script
+```
 
 ![5](./media/collaborative-coding-with-git/5-sprint-push-to-branch.png)
 
-## 3. <a name='CreateapullrequestonVSTS-3'></a>Azure DevOps Services에서 끌어오기 요청 만들기 
+## <a name='CreateapullrequestonVSTS-3'></a>끌어오기 요청 만들기
 
-몇 가지 커밋 및 푸시 후에 준비가 되면 현재 분기를 기본 분기에 병합하기 위해 Azure DevOps Services에서 **끌어오기 요청**을 제출할 수 있습니다. 
+하나 이상의 커밋 및 푸시 후에 현재 작업 분기를 기본 분기에 병합할 준비가 되 면 Azure Repos에서 *끌어오기 요청* 을 만들고 제출할 수 있습니다. 
 
-프로젝트의 기본 페이지로 이동하고 **코드**를 클릭합니다. 병합할 분기와 분기를 병합하려는 Git 리포지토리 이름을 선택합니다. 그런 다음 분기 작업을 기본 분기에 병합하기 전에 **끌어오기 요청**을 클릭하고 **새 끌어오기 요청**을 클릭하여 끌어오기 요청 검토를 만듭니다.
+Azure devops 프로젝트의 기본 페이지에서 왼쪽 탐색 영역에 있는 **리포지토리** > **끌어오기 요청** 을 가리킵니다. 그런 다음 **새 끌어오기 요청** 단추 또는 **끌어오기 요청 만들기** 링크 중 하나를 선택 합니다.
 
 ![6](./media/collaborative-coding-with-git/6-spring-create-pull-request.png)
 
-이 끌어오기 요청에 대한 설명을 채우고 검토자를 추가하여 외부로 보냅니다.
+**새 끌어오기 요청** 화면에서 필요한 경우 변경 내용을 병합할 Git 리포지토리 및 분기로 이동 합니다. 원하는 다른 정보를 추가 하거나 변경 합니다. **검토자**에서 변경 내용을 검토 해야 하는 이름을 추가 하 고 **만들기**를 선택 합니다. 
 
 ![7](./media/collaborative-coding-with-git/7-spring-send-pull-request.png)
 
-## 4. <a name='ReviewandMerge-4'></a>검토 및 병합 
+## <a name='ReviewandMerge-4'></a>검토 및 병합
 
-끌어오기 요청이 만들어지면 검토자가 끌어오기 요청을 검토하기 위한 전자 메일 알림을 받습니다. 검토자가 변경 내용의 작동 여부를 확인하고, 가능한 경우 요청자의 변경 내용을 테스트해야 합니다. 검토자는 평가에 따라 끌어오기 요청을 승인하거나 거부할 수 있습니다. 
+끌어오기 요청을 만들면 검토자가 끌어오기 요청을 검토 하는 전자 메일 알림을 받게 됩니다. 검토자는 변경 내용이 작동 하는지 테스트 하 고 가능한 경우 요청자의 변경 내용을 확인 합니다. 검토자는 평가에 따라 주석을 만들고, 변경을 요청 하 고, 끌어오기 요청을 승인 또는 거부할 수 있습니다. 
 
 ![8](./media/collaborative-coding-with-git/8-add_comments.png)
 
-![9](./media/collaborative-coding-with-git/9-spring-approve-pullrequest.png)
-
-검토가 완료되면 **완료** 단추를 클릭하여 작업 중인 분기를 기본 분기에 병합합니다. 병합한 후에 작업 중인 분기를 삭제하도록 선택할 수 있습니다. 
+검토자가 변경 내용을 승인한 후에는 사용자나 병합 권한을 가진 다른 사용자가 작업 분기를 기본 분기에 병합할 수 있습니다. **완료**를 선택 하 고 **끌어오기 요청 완료** 대화 상자에서 **전체 병합** 을 선택 합니다. 병합 한 후에 작업 분기를 삭제 하도록 선택할 수 있습니다. 
 
 ![10](./media/collaborative-coding-with-git/10-spring-complete-pullrequest.png)
 
-왼쪽 위 모서리에서 요청이 **완료됨**으로 표시되는지 확인합니다. 
+요청이 **완료**된 것으로 표시 되는지 확인 합니다. 
 
 ![11](./media/collaborative-coding-with-git/11-spring-merge-pullrequest.png)
 
-**코드** 아래의 리포지토리로 돌아가면 마스터 분기로 전환되었음을 알 수 있습니다.
+왼쪽 탐색 영역에서 **리포지토리** 로 돌아가서 `script` 분기가 삭제 된 이후 마스터 분기로 전환 되었음을 알 수 있습니다.
 
 ![12](./media/collaborative-coding-with-git/12-spring-branch-deleted.png)
 
-또한 다음 Git 명령을 사용하여 작업 중인 분기를 기본 분기에 병합하고, 병합한 후에 작업 중인 분기를 삭제할 수 있습니다.
+다음 Git bash 명령을 사용 하 여 `script` 작업 분기를 기본 분기에 병합 하 고 병합 후에 작업 분기를 삭제할 수도 있습니다.
 
-    git checkout master
-    git merge data_ingestion
-    git branch -d data_ingestion
+```bash
+git checkout master
+git merge script
+git branch -d script
+```
 
 ![13](./media/collaborative-coding-with-git/13-spring-branch-deleted-commandline.png)
 
-
- 
 ## <a name="next-steps"></a>다음 단계
 
-[데이터 과학 작업 실행](execute-data-science-tasks.md)은 유틸리티를 사용하여 반복 데이터 탐색, 데이터 분석, 보고 및 모델 생성 등과 같은 여러 가지 일반적인 데이터 과학 작업을 완료하는 방법을 보여 줍니다.
+[데이터 과학 작업 실행](execute-data-science-tasks.md) 은 유틸리티를 사용 하 여 대화형 데이터 탐색, 데이터 분석, 보고 및 모델 작성과 같은 몇 가지 일반적인 데이터 과학 작업을 완료 하는 방법을 보여 줍니다.
 
-**특정 시나리오**에 대한 프로세스의 모든 단계를 보여 주는 연습도 제공됩니다. 이러한 단계는 [예제 연습](walkthroughs.md) 자료에서 미리 보기 설명과 함께 나열되고 연결되어 있습니다. 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 애플리케이션을 만드는 방법을 보여 줍니다. 
+[예제 연습에서는](walkthroughs.md) 링크 및 미리 보기 설명과 함께 특정 시나리오의 연습이 나열 됩니다. 연결 된 시나리오에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합 하 여 지능형 응용 프로그램을 만드는 방법을 보여 줍니다. 
 

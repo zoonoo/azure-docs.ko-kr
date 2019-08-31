@@ -3,15 +3,15 @@ title: Azure Resource Manager 템플릿 함수 - 논리 | Microsoft 문서
 description: Azure Resource Manager 템플릿에서 논리 값을 확인하는 데 사용할 수 있는 함수에 대해 설명합니다.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 2487cf928685423e4b60bb2923fc7e348eaff0c3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ea91798a1c0ca0aad729128ce4694a85165f3c3b
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447980"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194793"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 논리 함수
 
@@ -21,9 +21,9 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 * [bool](#bool)
 * [if](#if)
 * [not](#not)
-* [or](#or)
+* [또는](#or)
 
-## <a name="and"></a>and
+## <a name="and"></a>및
 
 `and(arg1, arg2, ...)`
 
@@ -35,7 +35,7 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |boolean |true인지 확인할 첫 번째 값입니다. |
 | arg2 |예 |boolean |true인지 확인할 두 번째 값입니다. |
-| 추가 인수 |아닙니다. |boolean |True인지 확인할 추가 인수입니다. |
+| 추가 인수 |아니요 |boolean |True인지 확인할 추가 인수입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -69,11 +69,11 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | False |
+| andExampleOutput | Bool | 거짓 |
 | orExampleOutput | Bool | True |
-| notExampleOutput | Bool | False |
+| notExampleOutput | Bool | 거짓 |
 
 ## <a name="bool"></a>bool
 
@@ -122,12 +122,12 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | trueString | Bool | True |
-| falseString | Bool | False |
+| falseString | Bool | 거짓 |
 | trueInt | Bool | True |
-| falseInt | Bool | False |
+| falseInt | Bool | 거짓 |
 
 ## <a name="if"></a>if
 
@@ -137,9 +137,9 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | 형식 | Description |
 |:--- |:--- |:--- |:--- |
-| condition |예 |boolean |True 또는 false 인지 확인할 값입니다. |
+| 조건 |예 |boolean |True 인지 false 인지 확인 하는 값입니다. |
 | trueValue |예 | 문자열, 정수, 개체 또는 배열 |조건이 true이면 반환할 값입니다. |
 | falseValue |예 | 문자열, 정수, 개체 또는 배열 |조건이 false이면 반환할 값입니다. |
 
@@ -149,7 +149,7 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 ### <a name="remarks"></a>설명
 
-조건이 **True**에 true 값만 평가 됩니다. 조건이 **False**, false 값만 평가 됩니다. 사용 하 여 합니다 **경우** 함수만 조건에 따라 사용할 수 있는 식을 포함할 수 있습니다. 예를 들어, 하나의 조건이 하지만 다른 조건이 아니었습니다 존재 하는 리소스를 참조할 수 있습니다. 조건에 따라 식 평가의 예는 다음 섹션에 표시 됩니다.
+조건이 **true**이면 true 값만 평가 됩니다. 조건이 **false**이면 false 값만 평가 됩니다. **If** 함수를 사용 하 여 조건적 으로만 유효한 식을 포함할 수 있습니다. 예를 들어 한 조건에 있는 리소스를 참조할 수 있지만 다른 조건에는 없는 리소스를 참조할 수 있습니다. 조건에 따라 식을 평가 하는 예는 다음 섹션에 나와 있습니다.
 
 ### <a name="examples"></a>예
 
@@ -180,13 +180,13 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 위 예제의 출력은 다음과 같습니다.
 
-| Name | type | 값 |
+| 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | yesOutput | 문자열 | 예 |
 | noOutput | String | no |
 | objectOutput | Object | { "test": "value1" } |
 
-다음 [예제 템플릿](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) 만 조건에 따라 사용할 수 있는 식을 사용 하 여이 함수를 사용 하는 방법을 보여 줍니다.
+다음 [예제 템플릿에서는](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) 조건부로 유효한 식으로이 함수를 사용 하는 방법을 보여 줍니다.
 
 ```json
 {
@@ -278,11 +278,11 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | False |
+| andExampleOutput | Bool | 거짓 |
 | orExampleOutput | Bool | True |
-| notExampleOutput | Bool | False |
+| notExampleOutput | Bool | 거짓 |
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json)에서는 [equals](resource-group-template-functions-comparison.md#equals)에 **not**을 사용합니다.
 
@@ -302,11 +302,11 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
-## <a name="or"></a>또는
+## <a name="or"></a>로 구분하거나 여러
 
 `or(arg1, arg2, ...)`
 
@@ -318,7 +318,7 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |boolean |true인지 확인할 첫 번째 값입니다. |
 | arg2 |예 |boolean |true인지 확인할 두 번째 값입니다. |
-| 추가 인수 |아닙니다. |boolean |True인지 확인할 추가 인수입니다. |
+| 추가 인수 |아니요 |boolean |True인지 확인할 추가 인수입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -352,11 +352,11 @@ True인 값이 하나라도 있으면 **True**를 반환하고 그렇지 않으�
 
 위 예제의 출력은 다음과 같습니다.
 
-| Name | type | 값 |
+| 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | False |
+| andExampleOutput | Bool | 거짓 |
 | orExampleOutput | Bool | True |
-| notExampleOutput | Bool | False |
+| notExampleOutput | Bool | 거짓 |
 
 ## <a name="next-steps"></a>다음 단계
 

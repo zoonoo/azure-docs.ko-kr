@@ -3,18 +3,18 @@ title: Resource Manager 템플릿 함수 | Microsoft Docs
 description: Azure Resource Manager 템플릿에서 값을 검색하고 문자열과 숫자로 작업하며 배포 정보를 검색하는 데 사용하는 함수를 설명합니다.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: 201fea91aba2a14720a7c28df5128f94e9e327fd
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 5333bfd8c7f7d24e497e4b7ba7da3543aee54da6
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205421"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194757"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Azure Resource Manager 템플릿 함수
-이 아티클에서는 Azure Resource Manager 템플릿에서 사용할 수 있는 모든 함수에 대해 설명합니다. 서식 파일에서 함수를 사용 하는 방법에 대 한 내용은 [템플릿 구문](resource-group-authoring-templates.md#syntax)합니다.
+이 아티클에서는 Azure Resource Manager 템플릿에서 사용할 수 있는 모든 함수에 대해 설명합니다. 템플릿에서 함수를 사용 하는 방법에 대 한 자세한 내용은 [템플릿 구문](resource-group-authoring-templates.md#syntax)을 참조 하세요.
 
 함수를 직접 만들려면 [사용자 정의 함수](resource-group-authoring-templates.md#functions)를 참조하세요.
 
@@ -50,7 +50,7 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 * [json](resource-group-template-functions-array.md#json)
 * [last](resource-group-template-functions-array.md#last)
 * [length](resource-group-template-functions-array.md#length)
-* [min](resource-group-template-functions-array.md#min)
+* [분](resource-group-template-functions-array.md#min)
 * [max](resource-group-template-functions-array.md#max)
 * [range](resource-group-template-functions-array.md#range)
 * [skip](resource-group-template-functions-array.md#skip)
@@ -81,7 +81,7 @@ Resource Manager는 템플릿의 섹션에서 값을 가져오고 배포와 관�
 
 * [deployment](resource-group-template-functions-deployment.md#deployment)
 * [매개 변수](resource-group-template-functions-deployment.md#parameters)
-* [variables](resource-group-template-functions-deployment.md#variables)
+* [변수](resource-group-template-functions-deployment.md#variables)
 
 <a id="and" aria-hidden="true" />
 <a id="bool" aria-hidden="true" />
@@ -216,4 +216,4 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 * Azure Resource Manager 템플릿의 섹션에 대한 설명은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)
 * 여러 템플릿을 병합하려면 [Azure Resource Manager에서 연결된 템플릿 사용](resource-group-linked-templates.md)
 * 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)
-* 사용자가 만든 템플릿을 배포 하는 방법을 참조 하세요 [Azure Resource Manager 템플릿 사용 하 여 응용 프로그램 배포](resource-group-template-deploy.md)
+* 만든 템플릿을 배포 하는 방법을 보려면 [Azure Resource Manager 템플릿을 사용 하 여 응용 프로그램 배포](resource-group-template-deploy.md) 를 참조 하세요.

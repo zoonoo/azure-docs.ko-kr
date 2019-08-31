@@ -3,15 +3,15 @@ title: Azure Resource Manager 템플릿 함수 - 숫자 | Microsoft Docs
 description: Azure Resource Manager 템플릿에서 숫자 작업을 수행하는 데 사용할 수 있는 함수에 대해 설명합니다.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: f63ce16369fd1ff58d5368b43c3c730008e63d9a
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 3ec5477ca6ea1731f18b09d6393bdde6261e0c32
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206411"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194340"
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 숫자 함수
 
@@ -23,7 +23,7 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 * [float](#float)
 * [int](#int)
 * [max](#max)
-* [min](#min)
+* [분](#min)
 * [mod](#mod)
 * [mul](#mul)
 * [sub](#sub)
@@ -39,16 +39,16 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | 형식 | Description |
 |:--- |:--- |:--- |:--- | 
-|operand1 |예 |int |더할 첫 번째 숫자입니다. |
-|operand2 |예 |int |더할 두 번째 숫자입니다. |
+|operand1 |예 |ssNoversion |더할 첫 번째 숫자입니다. |
+|operand2 |예 |ssNoversion |더할 두 번째 숫자입니다. |
 
 ### <a name="return-value"></a>반환 값
 
 매개 변수의 합계를 포함하는 정수입니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/add.json)에서는 두 개의 매개 변수를 추가합니다.
 
@@ -85,7 +85,7 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | addResult | Int | 8 |
 
@@ -110,10 +110,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | 형식 | Description |
 |:--- |:--- |:--- |:--- |
-| loopName | 아닙니다. | 문자열 | 반복을 가져오기 위한 루프의 이름입니다. |
-| offset |아닙니다. |int |0부터 시작하는 반복 값에 더할 숫자입니다. |
+| loopName | 아니요 | string | 반복을 가져오기 위한 루프의 이름입니다. |
+| offset |아니요 |ssNoversion |0부터 시작하는 반복 값에 더할 숫자입니다. |
 
 ### <a name="remarks"></a>설명
 
@@ -125,7 +125,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 변수를 정의할 때 **copyIndex**를 사용하는 예제는 [변수](resource-group-authoring-templates.md#variables)를 참조하세요.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 예제에서는 복사 루프 및 이름에 포함되는 인덱스 값을 보여 줍니다. 
 
@@ -156,16 +156,16 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | 형식 | Description |
 |:--- |:--- |:--- |:--- |
-| operand1 |예 |int |나누어지는 수입니다. |
-| operand2 |예 |int |나누는 데 사용되는 정수입니다. 0일 수 없습니다. |
+| operand1 |예 |ssNoversion |나누어지는 수입니다. |
+| operand2 |예 |ssNoversion |나누는 데 사용되는 정수입니다. 0일 수 없습니다. |
 
 ### <a name="return-value"></a>반환 값
 
 나누기를 나타내는 정수입니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/div.json)에서는 다른 매개 변수로 매개 변수 하나를 나눕니다.
 
@@ -202,7 +202,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | divResult | Int | 2 |
 
@@ -220,7 +220,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="float" />
 
-## <a name="float"></a>float
+## <a name="float"></a>FLOAT
 `float(arg1)`
 
 값을 부동 소수점 숫자로 변환합니다. 논리 앱과 같은 애플리케이션에 사용자 지정 매개 변수를 전달할 때만 이 함수를 사용합니다.
@@ -234,7 +234,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ### <a name="return-value"></a>반환 값
 부동 소수점 수입니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 예제에서는 float를 사용해서 매개 변수를 논리 앱에 전달하는 방법을 보여 줍니다.
 
@@ -254,7 +254,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="int" />
 
-## <a name="int"></a>int
+## <a name="int"></a>ssNoversion
 `int(valueToConvert)`
 
 지정된 값을 정수로 변환합니다.
@@ -269,7 +269,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 변환된 값의 정수입니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/int.json)은 사용자가 제공한 매개 변수 값을 정수로 변환합니다.
 
@@ -296,7 +296,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | intResult | Int | 4 |
 
@@ -314,7 +314,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="max" />
 
-## <a name="max"></a>max
+## <a name="max"></a>최대
 `max (arg1)`
 
 정수 배열 또는 쉼표로 구분된 정수 목록 중에서 최대값을 반환합니다.
@@ -329,7 +329,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 컬렉션의 최대값을 나타내는 정수입니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json)에서는 배열 및 정소 목록에 최대값을 사용하는 방법을 보여줍니다.
 
@@ -359,7 +359,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 5 |
 | intOutput | Int | 5 |
@@ -393,7 +393,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 컬렉션의 최소값을 나타내는 정수입니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json)에서는 배열 및 정소 목록에 최소값을 사용하는 방법을 보여줍니다.
 
@@ -423,7 +423,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 0 |
 | intOutput | Int | 0 |
@@ -451,13 +451,13 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| operand1 |예 |int |나누어지는 수입니다. |
-| operand2 |예 |int |나누는 데 사용되는 정수로, 0일 수 없습니다. |
+| operand1 |예 |ssNoversion |나누어지는 수입니다. |
+| operand2 |예 |ssNoversion |나누는 데 사용되는 정수로, 0일 수 없습니다. |
 
 ### <a name="return-value"></a>반환 값
 나머지를 나타내는 정수입니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mod.json)에서는 다른 매개 변수로 매개 변수 하나를 나눈 나머지를 반환합니다.
 
@@ -494,7 +494,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | modResult | Int | 1 |
 
@@ -521,14 +521,14 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| operand1 |예 |int |곱할 첫 번째 숫자입니다. |
-| operand2 |예 |int |곱할 두 번째 숫자입니다. |
+| operand1 |예 |ssNoversion |곱할 첫 번째 숫자입니다. |
+| operand2 |예 |ssNoversion |곱할 두 번째 숫자입니다. |
 
 ### <a name="return-value"></a>반환 값
 
 곱하기를 나타내는 정수입니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mul.json)에서는 다른 매개 변수로 매개 변수 하나를 곱합니다.
 
@@ -565,7 +565,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | mulResult | Int | 15 |
 
@@ -590,15 +590,15 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | 형식 | Description |
 |:--- |:--- |:--- |:--- |
-| operand1 |예 |int |빼는 피감수입니다. |
-| operand2 |예 |int |빼는 감수입니다. |
+| operand1 |예 |ssNoversion |빼는 피감수입니다. |
+| operand2 |예 |ssNoversion |빼는 감수입니다. |
 
 ### <a name="return-value"></a>반환 값
 빼기를 나타내는 정수입니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/sub.json)에서는 다른 매개 변수에서 매개 변수를 뺍니다.
 
@@ -635,7 +635,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | subResult | Int | 4 |
 

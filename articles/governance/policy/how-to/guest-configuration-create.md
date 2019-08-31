@@ -7,12 +7,12 @@ ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 235ad37c5cf5f8ac7e801a6d25e961d32c1b7aad
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: ee8a17846495a122f7432e66c3e343a00dd0a015
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164915"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194613"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>게스트 구성 정책을 만드는 방법
 
@@ -367,6 +367,13 @@ Linux 컴퓨터에서 사용할 GPG 키를 만드는 방법에 대 한 좋은 �
 
 콘텐츠를 게시 한 후에는 코드 서명이 필요한 모든 `GuestConfigPolicyCertificateValidation` 가상 컴퓨터 `enabled` 에 이름 및 값이 포함 된 태그를 추가 합니다. 이 태그는 Azure Policy을 사용 하 여 대규모로 배달 될 수 있습니다. [Apply tag and the default value](../samples/apply-tag-default-value.md) sample을 참조 하십시오.
 이 태그가 준비 되 면 `New-GuestConfigurationPolicy` cmdlet을 사용 하 여 생성 된 정책 정의를 통해 게스트 구성 확장을 통해 요구 사항을 충족할 수 있습니다.
+
+## <a name="preview-troubleshooting-guest-configuration-policy-assignments"></a>모드 게스트 구성 정책 할당 문제 해결
+
+도구는 게스트 구성 할당 Azure Policy 문제 해결을 지원 하기 위해 미리 보기에서 사용할 수 있습니다.
+이 도구는 미리 보기 상태 이며 PowerShell 갤러리 모듈 이름 [게스트 구성 문제 해결사로](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/)게시 되었습니다.
+
+이 도구의 cmdlet에 대 한 자세한 내용은 PowerShell에서 Get-help 명령을 사용 하 여 기본 제공 지침을 표시 합니다.  이 도구를 자주 업데이트 하는 경우 가장 최근의 정보를 얻는 가장 좋은 방법입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

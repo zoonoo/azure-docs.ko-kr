@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2019
 ms.author: barclayn
-ms.openlocfilehash: 371c3b9fde17bba33fb6f2526be68fe89aec6b01
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 093c5878cd2f7df63502a7aff686824af3c88078
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934699"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195079"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identity Management 및 액세스 제어 보안 모범 사례
 이 문서에서는 Azure ID 관리 및 액세스 제어 보안 모범 사례 컬렉션에 대해 설명합니다. 이러한 모범 사례는 [Azure AD](../../active-directory/fundamentals/active-directory-whatis.md)에 대한 Microsoft의 경험 그리고 여러분 같은 고객의 경험에서 얻은 것입니다.
@@ -93,7 +93,7 @@ AD FS(Active Directory Federation Service) 또는 다른 ID 공급자에서 페�
 > 중요 한 계정이 상주할 디렉터리와 사용 되는 관리자 워크스테이션이 새 클라우드 서비스 또는 기존 프로세스에서 관리 되는지 여부를 선택 해야 합니다. 기존 관리 및 id 프로 비전 프로세스를 사용 하면 일부 위험을 줄일 수 있지만 공격자가 온-프레미스 계정을 손상 하 고 클라우드로 피벗 하는 위험을 만들 수도 있습니다. 다른 역할에 대해 다른 전략을 사용 하는 것이 좋습니다 (예: IT 관리자 및 비즈니스 단위 관리자). 다음 두 가지 옵션을 사용할 수 있습니다. 첫 번째 옵션은 온-프레미스 Active Directory 인스턴스와 동기화 되지 않은 Azure AD 계정을 만드는 것입니다. 관리자 워크스테이션을 Azure AD에 조인 합니다 .이는 Microsoft Intune을 사용 하 여 관리 하 고 패치할 수 있습니다. 두 번째 옵션은 온-프레미스 Active Directory 인스턴스와 동기화 하 여 기존 관리자 계정을 사용 하는 것입니다. 관리 및 보안을 위해 Active Directory 도메인에서 기존 워크스테이션을 사용 합니다.
 
 ## <a name="manage-connected-tenants"></a>연결 된 테 넌 트 관리
-보안 조직에서는 위험을 평가 하 고 조직의 정책 및 규정 요구 사항을 준수 하는지 여부를 확인 하기 위한 가시성을 요구 합니다. [Azure express](../../expressroute/expressroute-introduction.md) 경로 또는 [사이트 간 VPN](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)을 통해 프로덕션 환경 및 네트워크에 연결 된 모든 구독을 보안 조직에서 볼 수 있는지 확인 해야 합니다. Azure AD의 [전역 관리자/회사 관리자](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) 는 [사용자 액세스 관리자](../../role-based-access-control/built-in-roles.md#user-access-administrator) 역할에 대 한 액세스 권한을 상승 시키고 사용자 환경에 연결 된 모든 구독 및 관리 그룹을 볼 수 있습니다.
+보안 조직에서는 위험을 평가 하 고 조직의 정책 및 규정 요구 사항을 준수 하는지 여부를 확인 하기 위한 가시성을 요구 합니다. [Azure express](../../expressroute/expressroute-introduction.md) 경로 또는 [사이트 간 VPN](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)을 통해 프로덕션 환경 및 네트워크에 연결 된 모든 구독을 보안 조직에서 볼 수 있는지 확인 해야 합니다. Azure AD의 [전역 관리자/회사 관리자](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator-permissions) 는 [사용자 액세스 관리자](../../role-based-access-control/built-in-roles.md#user-access-administrator) 역할에 대 한 액세스 권한을 상승 시키고 사용자 환경에 연결 된 모든 구독 및 관리 그룹을 볼 수 있습니다.
 
 사용자 및 보안 그룹이 사용자 환경에 연결 된 모든 구독 또는 관리 그룹을 볼 수 있도록 [액세스 권한 상승을 참조 하 여 모든 Azure 구독 및 관리 그룹을 관리](../../role-based-access-control/elevate-access-global-admin.md) 합니다. 위험을 평가한 후이 상승 된 액세스 권한을 제거 해야 합니다.
 
@@ -146,14 +146,14 @@ SSO를 사용하여 사용자가 Azure AD에서 회사 또는 학교 계정을 �
 **옵션 1**: [사용자 상태를 변경하여 Multi-Factor Authentication을 사용하도록 설정합니다](../../active-directory/authentication/howto-mfa-userstates.md).   
 **혜택**: 2단계 인증을 요구하는 기존 메서드입니다. 이 기능은 [클라우드의 Azure Multi-Factor Authentication 및 Azure Multi-Factor Authentication 서버](/azure/active-directory/authentication/concept-mfa-whichversion)에서 작동합니다. 이 방법을 사용 하려면 사용자가 로그인 할 때마다 2 단계 인증을 수행 하 고 조건부 액세스 정책을 재정의 해야 합니다.
 
-Multi-factor Authentication을 사용 하도록 설정 해야 하는 위치를 확인 하려면 [조직에 적합 한 AZURE MFA 버전](/azure/active-directory/authentication/concept-mfa-whichversion)을 참조 하세요.
+Multi-Factor Authentication를 사용 하도록 설정 해야 하는 위치를 확인 하려면 [조직에 적합 한 AZURE MFA 버전](/azure/active-directory/authentication/concept-mfa-whichversion)을 확인 하세요.
 
-**옵션 2**: [조건부 액세스 정책을 사용 하 여 Multi-factor Authentication을 사용 하도록 설정](/azure/active-directory/authentication/howto-mfa-getstarted)합니다.
+**옵션 2**: [조건부 액세스 정책을 사용 하 여 Multi-Factor Authentication를 사용 하도록 설정](/azure/active-directory/authentication/howto-mfa-getstarted)합니다.
 **혜택**: 이 옵션을 사용 하면 [조건부 액세스](/azure/active-directory/active-directory-conditional-access-azure-portal)를 사용 하 여 특정 조건에서 2 단계 인증을 요청할 수 있습니다. 특정 조건이란 위험한 것으로 간주하는 다른 위치, 신뢰할 수 없는 디바이스 또는 애플리케이션에서 사용자 로그인이 될 수 있습니다. 2단계 인증이 필요한 특정 조건을 정의하면 번거로운 사용자 환경일 수 있는 지속적인 메시지를 사용자에게 표시하지 않도록 할 수 있습니다.
 
-이것이 사용자에게 2단계 인증을 사용하도록 설정하는 가장 유연한 방법입니다. 조건부 액세스 정책을 사용 하도록 설정 하는 것은 클라우드의 Azure Multi-factor Authentication에만 적용 되며 Azure AD의 프리미엄 기능입니다. [클라우드 기반 Azure Multi-factor Authentication 배포](/azure/active-directory/authentication/howto-mfa-getstarted)에서 이 방법에 대한 자세한 내용을 확인할 수 있습니다.
+이것이 사용자에게 2단계 인증을 사용하도록 설정하는 가장 유연한 방법입니다. 조건부 액세스 정책을 사용 하도록 설정 하는 것은 클라우드의 Azure Multi-Factor Authentication에만 적용 되며 Azure AD의 프리미엄 기능입니다. [클라우드 기반 Azure Multi-factor Authentication 배포](/azure/active-directory/authentication/howto-mfa-getstarted)에서 이 방법에 대한 자세한 내용을 확인할 수 있습니다.
 
-**옵션 3**: [Azure AD ID 보호](/azure/active-directory/authentication/tutorial-risk-based-sspr-mfa)의 사용자 및 로그인 위험을 평가 하 여 조건부 액세스 정책으로 multi-factor Authentication을 사용 하도록 설정 합니다.   
+**옵션 3**: [Azure AD ID 보호](/azure/active-directory/authentication/tutorial-risk-based-sspr-mfa)의 사용자 및 로그인 위험을 평가 하 여 조건부 액세스 정책에 Multi-Factor Authentication을 사용 하도록 설정 합니다.   
 **혜택**: 이 옵션을 사용하면 다음을 수행할 수 있습니다.
 
 - 조직의 ID에 영향을 미치는 잠재적인 취약점 검색
@@ -163,7 +163,7 @@ Multi-factor Authentication을 사용 하도록 설정 해야 하는 위치를 �
 이 방법은 Azure AD Identity Protection 위험 평가를 사용하여 모든 클라우드 애플리케이션에 대한 사용자 및 로그인 위험에 따라 2단계 인증이 필요한지 결정합니다. 이 방법에는 Azure Active Directory P2 라이선스가 필요합니다. [Azure Active Directory Identity Protection](/azure/active-directory/identity-protection/overview)에서 이 방법에 대한 자세한 내용을 찾을 수 있습니다.
 
 > [!Note]
-> 옵션 1, 사용자 상태를 변경 하 여 Multi-factor Authentication을 사용 하도록 설정 하는 것은 조건부 액세스 정책을 무시 합니다. 옵션 2와 3은 조건부 액세스 정책을 사용 하므로 옵션 1을 사용할 수 없습니다.
+> 옵션 1, 사용자 상태를 변경 하 여 Multi-Factor Authentication를 사용 하도록 설정 하는 것은 조건부 액세스 정책을 무시 합니다. 옵션 2와 3은 조건부 액세스 정책을 사용 하므로 옵션 1을 사용할 수 없습니다.
 
 2단계 인증과 같은 추가적인 ID 보호 계층을 추가하지 않는 조직은 자격 증명 도난 공격에 취약합니다. 자격 증명 도난 공격으로 인해 데이터 손상이 발생할 수 있습니다.
 
@@ -180,7 +180,7 @@ Azure의 특정 기능을 담당 하는 그룹이 나 개별 역할을 지정 �
 **세부 정보**: Azure에서 [기본 제공 RBAC 역할](/azure/role-based-access-control/built-in-roles) 을 사용 하 여 사용자에 게 권한을 할당 합니다.
 
 > [!Note]
-> 특정 사용 권한은 불필요 한 복잡성 및 혼동을 만들기 때문에 문제를 해결할 필요 없이 수정 하기 어려운 "레거시" 구성에 누적 됩니다. 리소스 관련 사용 권한을 방지 합니다. 대신 관리 그룹을 사용 하 여 구독 내의 사용 권한에 대 한 엔터프라이즈 수준의 사용 권한 및 리소스 그룹을 사용 합니다. 사용자 특정 권한을 사용 하지 않습니다. 대신, Azure AD의 그룹에 액세스 권한을 할당 합니다.
+> 특정 사용 권한은 불필요 한 복잡성 및 혼동을 만들기 때문에 문제를 해결할 필요 없이 수정 하기 어려운 "레거시" 구성에 누적 됩니다. 리소스별 사용 권한을 사용하지 않습니다. 대신 관리 그룹을 사용 하 여 구독 내의 사용 권한에 대 한 엔터프라이즈 수준의 사용 권한 및 리소스 그룹을 사용 합니다. 사용자 특정 권한을 사용 하지 않습니다. 대신, Azure AD의 그룹에 액세스 권한을 할당 합니다.
 
 **모범 사례**: 보안 팀에 게 azure 리소스를 확인 하 여 위험을 평가 하 고 수정할 수 있도록 azure 리소스를 확인 합니다.
 **세부 정보**: 보안 팀에 RBAC [보안 읽기 권한자](/azure/role-based-access-control/built-in-roles#security-reader) 역할을 부여 합니다. 루트 관리 그룹 또는 세그먼트 관리 그룹은 책임의 범위에 따라 다음과 같이 사용할 수 있습니다.
@@ -239,10 +239,10 @@ RBAC와 같은 기능을 사용 하 여 데이터 액세스 제어를 적용 하
 **모범 사례**: 응급 상황에서 "중단" 프로세스가 준비 되어 있어야 합니다.
 **세부 정보**: [AZURE AD에서 하이브리드 및 클라우드 배포에 대 한 권한 있는 액세스 보안](/azure/active-directory/users-groups-roles/directory-admin-roles-secure)의 단계를 따릅니다.
 
-**모범 사례**: 모든 중요 관리자 계정이 암호 없는 (기본 설정) 이거나 Multi-factor Authentication이 필요 합니다.
+**모범 사례**: 모든 중요 관리자 계정이 암호 없는 (기본 설정) 이거나 Multi-Factor Authentication 필요 합니다.
 **세부 정보**: [Microsoft Authenticator 앱](/azure/active-directory/authentication/howto-authentication-phone-sign-in) 을 사용 하 여 암호를 사용 하지 않고 Azure AD 계정에 로그인 합니다. [비즈니스용 Windows Hello](/windows/security/identity-protection/hello-for-business/hello-identity-verification)와 마찬가지로 Microsoft Authenticator는 키 기반 인증을 사용 하 여 장치에 연결 된 사용자 자격 증명을 사용 하도록 설정 하 고 생체 인식 인증 또는 PIN을 사용 합니다.
 
-하나 이상의 Azure AD 관리자 역할에 영구적으로 할당 된 모든 개별 사용자에 대해 로그인 시 Azure Multi-factor Authentication 필요: 전역 관리자, 권한 있는 역할 관리자, Exchange Online 관리자 및 SharePoint Online 관리자가 있습니다. [관리자 계정에 Multi-factor Authentication](/azure/active-directory/authentication/howto-mfa-userstates) 을 사용 하도록 설정 하 고 관리자 계정 사용자가 등록 했는지 확인 합니다.
+하나 이상의 Azure AD 관리자 역할에 영구적으로 할당 된 모든 개별 사용자에 대해 로그인 시 Azure Multi-Factor Authentication 필요: 전역 관리자, 권한 있는 역할 관리자, Exchange Online 관리자 및 SharePoint Online 관리자가 있습니다. [관리자 계정에 대해 Multi-Factor Authentication](/azure/active-directory/authentication/howto-mfa-userstates) 를 사용 하도록 설정 하 고 관리자 계정 사용자가 등록 했는지 확인 합니다.
 
 **모범 사례**: 중요 한 관리자 계정의 경우 프로덕션 작업이 허용 되지 않는 관리자 워크스테이션을 포함 합니다 (예: 검색 및 전자 메일). 이렇게 하면 검색 및 전자 메일을 사용 하는 공격 벡터에서 관리자 계정을 보호 하 고 중요 한 인시던트의 위험을 크게 낮춥니다.
 **세부 정보**: 관리 워크스테이션을 사용 합니다. 워크스테이션 보안 수준을 선택 합니다.

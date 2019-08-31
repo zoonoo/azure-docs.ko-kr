@@ -1,29 +1,23 @@
 ---
-title: 데이터 과학 가상 머신에 대한 액세스 자격 증명을 안전하게 저장 - Azure | Microsoft Docs
+title: 안전 하 게 액세스 자격 증명 저장
+titleSuffix: Azure Data Science Virtual Machine
 description: Data Science Virtual Machine에 대한 액세스 자격 증명을 안전하게 저장하는 방법을 알아봅니다. 관리 서비스 id 및 Azure Key Vault를 사용 하 여 액세스 자격 증명을 저장 하는 방법을 알아봅니다.
 keywords: 딥 러닝, AI, 데이터 과학 도구, 데이터 과학 가상 머신, 지리 공간적 분석, 팀 데이터 과학 프로세스
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/08/2018
+author: vijetajo
 ms.author: vijetaj
-ms.openlocfilehash: 1374cbef41f40ea270f3c4d84c68d08e7db095bc
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.topic: conceptual
+ms.date: 05/08/2018
+ms.openlocfilehash: 17e611007d2b5400497597946159826df7aa4848
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051607"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195606"
 ---
-# <a name="store-access-credentials-securely-on-a-data-science-virtual-machine"></a>Data Science Virtual Machine에 안전 하 게 액세스 자격 증명 저장
+# <a name="store-access-credentials-securely-on-an-azure-data-science-virtual-machine"></a>Azure Data Science Virtual Machine에 안전 하 게 액세스 자격 증명 저장
 
 클라우드 서비스에 대 한 인증을 위한 자격 증명을 포함 하는 클라우드 응용 프로그램의 코드에 일반적입니다. 이러한 자격 증명을 관리 하 고 보호 하는 방법은 클라우드 응용 프로그램을 빌드할 때 잘 알려진 문제입니다. 이상적으로는 자격 증명이 개발자 워크스테이션에 표시 되지 않거나 소스 제어에 체크 인 되지 않아야 합니다.
 

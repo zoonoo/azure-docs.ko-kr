@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ab74b37fa8adc58f8641893b4168f71c453b0fdd
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 0c617cbd17d9b9620c957eec45aadd962db34831
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972699"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194134"
 ---
 # <a name="cloudsimple-private-cloud-permission-model-of-vmware-vcenter"></a>VMware vCenter의 CloudSimple 사설 클라우드 권한 모델
 
@@ -24,7 +24,7 @@ CloudSimple은 사설 클라우드 환경에 대 한 모든 관리 액세스를 
 사설 클라우드를 만들 때 사설 클라우드의 개체를 관리 하기 위해 **클라우드 소유자 역할** 액세스 권한을 사용 하 여 VCenter Single sign-on 도메인에 **CloudOwner** 사용자가 만들어집니다. 이 사용자는 또한 사설 클라우드 vCenter에 추가 [VCenter Id 원본](set-vcenter-identity.md)및 기타 사용자를 설정할 수 있습니다.
 
 > [!NOTE]
-> Cloudsimple 사설 클라우드 vCenter의 기본 사용자는 온 `cloudowner@cloudsimple.local` -프레미스 vCenter와 연결 하지 않고 사설 클라우드를 만들 때입니다.
+> Cloudsimple 사설 클라우드 vCenter의 기본 사용자는 사설 cloudowner@cloudsimple.local 클라우드를 만들 때입니다.
 
 ## <a name="user-groups"></a>사용자 그룹
 

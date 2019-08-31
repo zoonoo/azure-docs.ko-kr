@@ -1,31 +1,25 @@
 ---
-title: Data Science Virtual Machine 풀 - Azure | Microsoft Docs
+title: 공유 풀
+titleSuffix: Azure Data Science Virtual Machine
 description: DSVMs의 풀을 팀의 공유 리소스로 배포
 keywords: 딥 러닝, AI, 데이터 과학 도구, 데이터 과학 가상 머신, 지리 공간적 분석, 팀 데이터 과학 프로세스
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 12/10/2018
+author: vijetajo
 ms.author: vijetaj
-ms.openlocfilehash: 76a715838fa5eb4f806fccc98675ea5acdbe1822
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.topic: conceptual
+ms.date: 12/10/2018
+ms.openlocfilehash: 929040b5dc8650a757fb9c0da58cb82a76a72b5b
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992026"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195620"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Data Science Virtual Machines의 공유 풀 만들기
 
-이 문서에서는 팀에 대 한 DSVMs (데이터 과학 Virtual Machines)의 공유 풀을 만드는 방법을 설명 합니다. 공유 풀을 사용할 경우의 이점에는 더 나은 리소스 사용률, 더 쉬워진 공유 및 공동 작업, DSVM 리소스에 대 한 보다 효과적인 관리 등이 있습니다.
+이 문서에서는 팀에 대 한 DSVMs (데이터 과학 Virtual Machines)의 공유 풀을 만드는 방법에 대해 알아봅니다. 공유 풀을 사용할 경우의 이점에는 더 나은 리소스 사용률, 더 쉬워진 공유 및 공동 작업, DSVM 리소스에 대 한 보다 효과적인 관리 등이 있습니다.
 
 다양한 메서드 및 기술을 사용하여 DSVM의 풀을 만들 수 있습니다. 이 문서는 대화형 Vm (가상 머신)에 대 한 풀을 중심으로 설명 합니다. 대체 관리형 컴퓨팅 인프라는 Azure Machine Learning 컴퓨팅입니다. 자세한 내용은 [계산 대상 설정](../service/how-to-set-up-training-targets.md#amlcompute)을 참조 하세요.
 

@@ -3,15 +3,15 @@ title: 리소스 종류에 따른 Azure Resource Manager 전체 모드 삭제
 description: 리소스 종류가 Azure Resource Manager 템플릿에서 전체 모드 삭제를 처리하는 방법을 보여줍니다.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 08/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7f804e61f77b745aa654852f4c1413a8f4bf53b4
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: d783ab9c12952393f0a74b245109dda58bff3927
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779943"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194403"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>완료 모드 배포를 위한 Azure 리소스의 삭제
 
@@ -566,7 +566,7 @@ ms.locfileid: "68779943"
 > | 리소스 형식 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | capabilities | 아니요 |
-> | disks | 아니요 |
+> | 디스크 | 아니요 |
 > | 이미지 | 아니요 |
 > | osImages | 아니요 |
 > | osPlatformImages | 아니요 |
@@ -604,7 +604,7 @@ ms.locfileid: "68779943"
 > | ------------- | ----------- |
 > | availabilitySets | 예 |
 > | Disk; 집합 | 예 |
-> | disks | 예 |
+> | 디스크 | 예 |
 > | galleries | 예 |
 > | 갤러리/응용 프로그램 | 예 |
 > | 갤러리/응용 프로그램/버전 | 예 |
@@ -1609,7 +1609,7 @@ ms.locfileid: "68779943"
 > | subscriptions/resources | 아니요 |
 > | subscriptions/tagnames | 아니요 |
 > | subscriptions/tagNames/tagValues | 아니요 |
-> | tags | 아니요 |
+> | 태그 | 아니요 |
 > | tenants | 아니요 |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS

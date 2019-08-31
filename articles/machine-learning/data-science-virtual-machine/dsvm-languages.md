@@ -1,28 +1,21 @@
 ---
-title: Data Science Virtual Machine에 대해 지원되는 언어
-titleSuffix: Azure
-description: Data Science Virtual Machine에 미리 설치된 프로그램 언어 및 관련 도구에 대해 알아봅니다.
+title: 지원되는 언어
+titleSuffix: Azure Data Science Virtual Machine
+description: Data Science Virtual Machine에 미리 설치 되어 있는 지원 되는 프로그램 언어 및 관련 도구입니다.
 keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.author: vijetaj
-ms.openlocfilehash: 1df3c986132de2a3e7ec9547a996abef60ea04ac
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 573b6b75b4534789e4e40fa3d6cc1694c5ede2ea
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68558119"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70192156"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>데이터 과학 Virtual Machine에서 지원되는 언어 
 

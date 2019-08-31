@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 08/30/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f529723abd449891dba845253502b78e8666199f
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: b562ccf81a80219caa9f80bec82f64f7d2510626
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650243"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194601"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory의 그룹에 대한 동적 멤버 자격 규칙
 
@@ -27,30 +27,32 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 동적 멤버십을 사�
 
 사용자 또는 디바이스의 특성이 변경될 때 변경 내용이 그룹 추가 또는 제거를 트리거할지를 확인하기 위해 시스템은 디렉터리에서 모든 동적 그룹 규칙을 평가합니다. 사용자 또는 디바이스가 그룹에 대한 규칙을 만족하면 해당 그룹의 멤버로 추가됩니다. 규칙을 더 이상 만족하지 않는 경우 제거됩니다. 동적 그룹의 멤버를 수동으로 추가하거나 제거할 수 없습니다.
 
-* 디바이스 또는 사용자에 대한 동적 그룹은 만들 수 있지만 사용자 및 디바이스를 모두 포함하는 규칙은 만들 수 없습니다.
-* 디바이스 소유자의 특성을 기반으로 하는 디바이스 그룹은 만들 수 없습니다. 디바이스 멤버 자격 규칙은 디바이스 특성만 참조할 수 있습니다.
+- 디바이스 또는 사용자에 대한 동적 그룹은 만들 수 있지만 사용자 및 디바이스를 모두 포함하는 규칙은 만들 수 없습니다.
+- 디바이스 소유자의 특성을 기반으로 하는 디바이스 그룹은 만들 수 없습니다. 디바이스 멤버 자격 규칙은 디바이스 특성만 참조할 수 있습니다.
 
 > [!NOTE]
 > 이 기능을 사용하려면 하나 이상의 동적 그룹의 멤버인 고유한 각 사용자에 대해 Azure AD Premium P1 라이선스가 필요합니다. 사용자에게 동적 그룹의 멤버가 될 수 있는 라이선스를 지정할 필요는 없지만, 이러한 사용자를 모두 포함하려면 테넌트에 최소 개수의 라이선스는 있어야 합니다. 예를 들어, 테넌트의 모든 동적 그룹에 고유한 사용자가 총 1,000명 있는 경우, 라이선스 요구 사항을 충족하려면 Azure AD Premium P1에 대해 1,000개 이상의 라이선스가 필요합니다.
 >
 
-## <a name="constructing-the-body-of-a-membership-rule"></a>멤버 자격 규칙 본문 구성
+## <a name="rule-builder-in-the-azure-portal"></a>Azure Portal의 규칙 작성기
 
-사용자 또는 디바이스를 그룹에 자동으로 채우는 멤버 자격 규칙은 참 또는 거짓 결과를 가져오는 이진 식입니다. 간단한 규칙의 세 부분은 다음과 같습니다.
+Azure AD는 중요 한 규칙을 더 신속 하 게 만들고 업데이트 하는 규칙 작성기를 제공 합니다. 규칙 작성기는 최대 5 개 식의 생성을 지원 합니다. 규칙 작성기를 사용 하면 몇 가지 간단한 식으로 규칙을 보다 쉽게 만들 수 있지만 모든 규칙을 재현 하는 데 사용할 수는 없습니다. 규칙 작성기에서 만들려는 규칙을 지원 하지 않는 경우 텍스트 상자를 사용할 수 있습니다.
 
-* 속성
-* 연산자
-* 값
+텍스트 상자를 사용 하 여 구성 하는 데 권장 되는 고급 규칙 또는 구문의 예는 다음과 같습니다.
 
-식 내에서 이 세 부분의 순서는 구문 오류를 방지하는 데 중요합니다.
+- 5 개 이상의 식이 있는 규칙
+- 부하 직원 규칙
+- [연산자 우선 순위](groups-dynamic-membership.md#operator-precedence) 설정
+- [복잡 한 식이 포함 된 규칙](groups-dynamic-membership.md#rules-with-complex-expressions) 예를 들어`(user.proxyAddresses -any (_ -contains "contoso"))`
 
-### <a name="rule-builder-in-the-azure-portal"></a>Azure Portal의 규칙 작성기
+> [!NOTE]
+> 규칙 작성기가 텍스트 상자에 생성 된 일부 규칙을 표시 하지 못할 수 있습니다. 규칙 작성기에서 규칙을 표시할 수 없는 경우 메시지가 표시 될 수 있습니다. 규칙 빌더는 지원 되는 구문, 유효성 검사 또는 동적 그룹 규칙의 처리를 어떤 식으로든 변경 하지 않습니다.
 
-Azure AD는 중요 한 규칙을 더 신속 하 게 만들고 업데이트 하는 규칙 작성기를 제공 합니다. 규칙 작성기는 최대 5 개의 규칙을 지원 합니다. 여섯 번째 및 모든 후속 규칙 용어를 추가 하려면 텍스트 상자를 사용 해야 합니다. 자세한 단계별 지침은 [동적 그룹 업데이트](groups-update-rule.md)를 참조 하세요.
+자세한 단계별 지침은 [동적 그룹 업데이트](groups-update-rule.md)를 참조 하세요.
 
-   ![동적 그룹에 대 한 멤버 자격 규칙 추가](./media/groups-update-rule/update-dynamic-group-rule.png)
+![동적 그룹에 대 한 멤버 자격 규칙 추가](./media/groups-update-rule/update-dynamic-group-rule.png)
 
-### <a name="rules-with-a-single-expression"></a>단일 식이 있는 규칙
+### <a name="rule-syntax-for-a-single-expression"></a>단일 식에 대 한 규칙 구문
 
 단일 식은 가장 간단한 형태의 멤버 자격 규칙이며 위에서 언급한 세 부분만 있습니다. 단일 식이 있는 규칙은 `Property Operator Value`과 비슷합니다. 여기서 속성에 대한 구문은 object.property의 이름입니다.
 
@@ -62,13 +64,23 @@ user.department -eq "Sales"
 
 단일 식에서 괄호는 선택 사항입니다. 멤버 자격 규칙 본문의 전체 길이는 2,048자를 초과할 수 없습니다.
 
+# <a name="constructing-the-body-of-a-membership-rule"></a>멤버 자격 규칙 본문 구성
+
+사용자 또는 디바이스를 그룹에 자동으로 채우는 멤버 자격 규칙은 참 또는 거짓 결과를 가져오는 이진 식입니다. 간단한 규칙의 세 부분은 다음과 같습니다.
+
+- 속성
+- 연산자
+- 값
+
+식 내에서 이 세 부분의 순서는 구문 오류를 방지하는 데 중요합니다.
+
 ## <a name="supported-properties"></a>지원되는 속성
 
 멤버 자격 규칙을 구성하는 데 사용할 수 있는 세 가지 유형의 속성이 있습니다.
 
-* Boolean
-* String
-* 문자열 컬렉션
+- Boolean
+- String
+- 문자열 컬렉션
 
 단일 식을 만드는 데 사용할 수 있는 사용자 속성은 다음과 같습니다.
 
@@ -119,7 +131,7 @@ user.department -eq "Sales"
 
 디바이스 규칙에 사용되는 속성은 [디바이스에 대한 규칙](#rules-for-devices)을 참조하세요.
 
-## <a name="supported-operators"></a>지원되는 연산자
+## <a name="supported-expression-operators"></a>지원 되는 식 연산자
 
 다음 표에는 단일 식에 지원되는 모든 연산자와 해당 구문이 나와 있습니다. 연산자는 하이픈(-) 접두사를 사용하거나 사용하지 않을 수 있습니다.
 
@@ -297,10 +309,10 @@ Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 
 규칙을 올바르게 사용하는 데 도움이 될 수 있는 팁은 다음과 같습니다.
 
-* **관리자 ID**는 관리자의 개체 ID입니다. 관리자의 **프로필**에서 찾을 수 있습니다.
-* 규칙이 작동하려면 **관리자** 속성이 테넌트의 사용자에 대해 올바르게 설정되어 있는지 확인합니다. 사용자의 **프로필**에서 현재 값을 확인할 수 있습니다.
-* 이 규칙은 관리자의 직접 보고서만 지원합니다. 다시 말해 그룹은 관리자의 직접 보고서 *및* 해당 보고서를 사용하여 만들 수는 없습니다.
-* 이 규칙은 다른 멤버 자격 규칙과 결합할 수 없습니다.
+- **관리자 ID**는 관리자의 개체 ID입니다. 관리자의 **프로필**에서 찾을 수 있습니다.
+- 규칙이 작동하려면 **관리자** 속성이 테넌트의 사용자에 대해 올바르게 설정되어 있는지 확인합니다. 사용자의 **프로필**에서 현재 값을 확인할 수 있습니다.
+- 이 규칙은 관리자의 직접 보고서만 지원합니다. 다시 말해 그룹은 관리자의 직접 보고서 *및* 해당 보고서를 사용하여 만들 수는 없습니다.
+- 이 규칙은 다른 멤버 자격 규칙과 결합할 수 없습니다.
 
 ### <a name="create-an-all-users-rule"></a>"모든 사용자" 규칙 만들기
 
@@ -373,8 +385,8 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
 
 이러한 문서는 Azure Active Directory의 그룹에 대한 추가 정보를 제공합니다.
 
-* [기존 그룹 보기](../fundamentals/active-directory-groups-view-azure-portal.md)
-* [새 그룹을 만들고 멤버 추가](../fundamentals/active-directory-groups-create-azure-portal.md)
-* [그룹의 설정 관리](../fundamentals/active-directory-groups-settings-azure-portal.md)
-* [그룹의 멤버 자격 관리](../fundamentals/active-directory-groups-membership-azure-portal.md)
-* [그룹의 사용자에 대한 동적 규칙 관리](groups-create-rule.md)
+- [기존 그룹 보기](../fundamentals/active-directory-groups-view-azure-portal.md)
+- [새 그룹을 만들고 멤버 추가](../fundamentals/active-directory-groups-create-azure-portal.md)
+- [그룹의 설정 관리](../fundamentals/active-directory-groups-settings-azure-portal.md)
+- [그룹의 멤버 자격 관리](../fundamentals/active-directory-groups-membership-azure-portal.md)
+- [그룹의 사용자에 대한 동적 규칙 관리](groups-create-rule.md)

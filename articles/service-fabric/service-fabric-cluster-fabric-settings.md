@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/29/2019
+ms.date: 08/30/2019
 ms.author: atsenthi
-ms.openlocfilehash: 5d6f1fcba5d93cbd4efb63cd080848258eb2a262
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 096b6a13c85d04ebeb4f2ffae72acdd8629ae886
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172882"
+ms.locfileid: "70191754"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric 클러스터 설정 사용자 지정
 이 문서에서는 사용자 지정할 수 있는 Service Fabric 클러스터의 다양한 패브릭 설정을 설명합니다. Azure에서 호스팅된 클러스터의 경우 [Azure Portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 설정을 사용자 지정할 수 있습니다. 자세한 내용은 [Azure 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-azure.md)를 참조하세요. 독립 실행형 클러스터의 경우 *ClusterConfig.json* 파일을 업데이트하고 클러스터에서 구성 업그레이드를 수행하여 설정을 사용자 지정합니다. 자세한 내용은 [독립 실행형 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-windows-server.md)를 참조하세요.
@@ -132,8 +132,8 @@ ms.locfileid: "70172882"
 |ApplicationLogsFormatVersion |int, 기본값: 0 | Dynamic |애플리케이션 로그 형식의 버전. 지원되는 값은 0과 1입니다. 버전 1은 버전 0보다 더 많은 ETW 이벤트 레코드 필드를 포함합니다. |
 |AuditHttpRequests |bool, 기본값: false | Dynamic | HTTP 감사를 설정 하거나 해제 합니다. 감사 목적은 클러스터에 대해 수행 된 작업을 확인 하는 것입니다. 요청을 시작한 사람을 포함 합니다. 이는 가장 좋은 로깅입니다. 그리고 추적 손실이 발생할 수 있습니다. "User" 인증을 사용 하는 HTTP 요청은 기록 되지 않습니다. |
 |CaptureHttpTelemetry|bool, 기본값: false | Dynamic | HTTP 원격 분석을 설정 하거나 해제 합니다. 원격 분석의 목적은 향후 작업을 계획 하 고 문제 영역을 식별 하는 데 도움이 되는 원격 분석 데이터를 캡처할 수 있도록 Service Fabric 하는 것입니다. 원격 분석은 개인 데이터 나 요청 본문을 기록 하지 않습니다. 달리 구성 하지 않는 한 원격 분석은 모든 HTTP 요청을 캡처합니다. |
-|ClusterId |String | Dynamic |클러스터의 고유 ID입니다. 클러스터를 만들 때 생성됩니다. |
-|ConsumerInstances |문자열 | Dynamic |DCA 소비자 인스턴스 목록 |
+|ClusterId |문자열 | Dynamic |클러스터의 고유 ID입니다. 클러스터를 만들 때 생성됩니다. |
+|ConsumerInstances |String | Dynamic |DCA 소비자 인스턴스 목록 |
 |DiskFullSafetySpaceInMB |int, 기본값: 1024 | Dynamic |DCA에서 사용하지 못하도록 보호하기 위해 남아 있는 디스크 공간(MB) |
 |EnableCircularTraceSession |bool, 기본값: false | 정적 |플래그에서 순환 추적 세션을 사용해야 하는지 여부를 나타냅니다. |
 |EnablePlatformEventsFileSink |bool, 기본값: false | 정적 |디스크에 기록 되는 플랫폼 이벤트 사용/사용 안 함 |
@@ -141,7 +141,7 @@ ms.locfileid: "70172882"
 |FailuresOnlyHttpTelemetry | bool, 기본값: true | Dynamic | HTTP 원격 분석 캡처가 사용 되 면이 고, 실패 한 요청만 캡처합니다. 이는 원격 분석을 위해 생성 되는 이벤트 수를 줄이는 데 도움이 됩니다. |
 |HttpTelemetryCapturePercentage | int, 기본값 50 | Dynamic | HTTP 원격 분석 캡처가 사용 되 면이 고, 임의 비율의 요청만 캡처합니다. 이는 원격 분석을 위해 생성 되는 이벤트 수를 줄이는 데 도움이 됩니다. |
 |MaxDiskQuotaInMB |int, 기본값: 65536 | Dynamic |Windows Fabric 로그 파일의 디스크 할당량(MB) |
-|ProducerInstances |문자열 | Dynamic |DCA 생산자 인스턴스 목록 |
+|ProducerInstances |String | Dynamic |DCA 생산자 인스턴스 목록 |
 
 ## <a name="dnsservice"></a>DnsService
 | **매개 변수** | **허용되는 값** |**업그레이드 정책**| **지침 또는 간단한 설명** |
@@ -649,6 +649,7 @@ ms.locfileid: "70172882"
 |AADClusterApplication|string, 기본값: ""|정적|클러스터를 나타내는 Web API 애플리케이션 이름 또는 ID |
 |AADLoginEndpoint|string, 기본값: ""|정적|기본 Azure 상용 인 AAD 로그인 끝점은 기본이 아닌 환경 (예: Azure Government "https:\//login.microsoftonline.us")에 대해 지정 됩니다. |
 |AADTenantId|string, 기본값: ""|정적|테넌트 ID(GUID) |
+|AcceptExpiredPinnedClusterCertificate|bool, 기본값: FALSE|Dynamic|지문을 통해 선언 된 만료 된 클러스터 인증서를 수락할지 여부를 나타내는 플래그는 클러스터 인증서에만 적용 됩니다. 따라서 클러스터를 활성 상태로 유지 합니다. |
 |AdminClientCertThumbprints|string, 기본값: ""|Dynamic|관리자 역할의 클라이언트에서 사용하는 인증서의 지문입니다. 쉼표로 구분된 이름 목록입니다. |
 |AADTokenEndpointFormat|string, 기본값: ""|정적|AAD 토큰 끝점, 기본 Azure 상용, Azure Government "https:\//login.microsoftonline.us/{0}"와 같은 기본 환경이 아닌 환경에 대해 지정 됨 |
 |AdminClientClaims|string, 기본값: ""|Dynamic|모든 가능한 클레임은 관리자 클라이언트에서 예상되는 모든 가능한 클레임이며, ClientClaims와 동일한 형식입니다. 이 목록은 ClientClaims에 내부적으로 추가되므로 ClientClaims에 동일한 항목을 추가할 필요가 없습니다. |
@@ -831,10 +832,10 @@ ms.locfileid: "70172882"
 | --- | --- | --- | --- |
 |ContainerNetworkName|string, 기본값: ""| 정적 |컨테이너 네트워크를 설정할 때 사용할 네트워크 이름입니다.|
 |ContainerNetworkSetup|bool, 기본값: FALSE| 정적 |컨테이너 네트워크를 설정할지 여부입니다.|
-|FabricDataRoot |String | 허용되지 않음 |Service Fabric 데이터 루트 디렉터리. Azure에 대한 기본값: d:\svcfab |
-|FabricLogRoot |문자열 | 허용되지 않음 |Service Fabric 로그 루트 디렉터리. SF 로그 및 추적이 배치되는 위치입니다. |
+|FabricDataRoot |문자열 | 허용되지 않음 |Service Fabric 데이터 루트 디렉터리. Azure에 대한 기본값: d:\svcfab |
+|FabricLogRoot |String | 허용되지 않음 |Service Fabric 로그 루트 디렉터리. SF 로그 및 추적이 배치되는 위치입니다. |
 |NodesToBeRemoved|string, 기본값: ""| Dynamic |구성 업그레이드의 일부로 제거해야 하는 노드입니다. (독립 실행형 배포에만 해당)|
-|ServiceRunAsAccountName |문자열 | 허용되지 않음 |패브릭 호스트 서비스를 실행할 계정 이름 |
+|ServiceRunAsAccountName |String | 허용되지 않음 |패브릭 호스트 서비스를 실행할 계정 이름 |
 |SkipContainerNetworkResetOnReboot|bool, 기본값: FALSE|NotAllowed|다시 부팅 시 컨테이너 네트워크 재설정을 건너뛸지 여부입니다.|
 |SkipFirewallConfiguration |bool, 기본값: false | 허용되지 않음 |시스템에서 방화벽 설정을 설정해야 하는지 여부를 지정합니다. Windows 방화벽을 사용하는 경우에만 적용됩니다. 타사 방화벽을 사용하는 경우 사용할 시스템 및 애플리케이션에 대한 포트를 열어야 합니다. |
 

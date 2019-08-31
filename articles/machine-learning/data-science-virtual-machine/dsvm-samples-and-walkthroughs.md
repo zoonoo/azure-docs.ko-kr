@@ -1,35 +1,29 @@
 ---
-title: Data Science Virtual Machines에 대한 샘플 및 연습 - Azure | Microsoft Docs
+title: 샘플 & 연습
+titleSuffix: Azure Data Science Virtual Machine
 description: 이러한 샘플과 연습을 통해 Data Science Virtual Machine를 사용 하 여 일반적인 작업 및 시나리오를 처리 하는 방법을 알아봅니다.
 keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: vijetaj
-ms.openlocfilehash: 628c516553c2304739229c53d725645c799d06ce
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: f3d683ffb91639db64000efa2d9791d13d84b79b
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70047844"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195669"
 ---
-# <a name="samples-on-data-science-virtual-machines"></a>Data Science Virtual Machines의 샘플
+# <a name="samples-on-azure-data-science-virtual-machines"></a>Azure 데이터 과학에 대 한 샘플 Virtual Machines
 
 DSVMs (Azure 데이터 과학 Virtual Machines)은 포괄적인 샘플 코드 집합을 포함 합니다. 이러한 샘플에는 Python 및 R과 같은 언어의 Jupyter 노트북 및 스크립트가 포함 됩니다.
 > [!NOTE]
 > 데이터 과학 virtual machines에서 Jupyter 노트북을 실행 하는 방법에 대 한 자세한 내용은 [Jupyter 액세스](#access-jupyter) 섹션을 참조 하세요.
 
-## <a name="quick-reference-of-samples"></a>샘플의 빠른 참조
+## <a name="available-samples"></a>사용 가능한 샘플
 | 샘플 범주 | Description | 위치 |
 | ------------- | ------------- | ------------- |
 | R 언어  | 샘플은 Azure 기반 클라우드 데이터 저장소에 연결 하는 방법 및 오픈 소스 R 및 Microsoft Machine Learning Server 비교 하는 방법 등의 시나리오를 보여 줍니다. 또한 Microsoft Machine Learning Server 및 SQL Server에서 모델을 운영 하는 방법을 설명 합니다. <br/> [R 언어](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|

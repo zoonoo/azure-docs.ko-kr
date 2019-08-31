@@ -1,28 +1,23 @@
 ---
-title: 데이터 탐색 및 시각화 도구 - Azure | Microsoft Docs
+title: 데이터 탐색 및 시각화 도구
+titleSuffix: Azure Data Science Virtual Machine
 description: 데이터 과학 Virtual Machine용 데이터 탐색 및 시각화 도구
 keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: vijetaj
-ms.openlocfilehash: d60acdf483d418e458f51ef6cf31b17c43b7379f
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 14c34a13440d50fcf42c2207f9933dc1de014a14
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70065899"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70191971"
 ---
-# <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>데이터 과학 Virtual Machine용 데이터 탐색 및 시각화 도구
+# <a name="data-exploration-and-visualization-tools-on-the-azure-data-science-virtual-machine"></a>Azure Data Science Virtual Machine의 데이터 탐색 및 시각화 도구
 
 데이터 과학에서 키는 데이터를 이해 하는 것입니다. 시각화 및 데이터 탐색 도구는 데이터 이해를 가속화합니다. Data Science Virtual Machine (DSVM)에 제공 되는 다음 도구를 사용 하 여이 키의 단계를 더 쉽게 수행할 수 있습니다.
 

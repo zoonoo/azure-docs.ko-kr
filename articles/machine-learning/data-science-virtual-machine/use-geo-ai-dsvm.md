@@ -1,27 +1,21 @@
 ---
-title: 지리적 인공 지능 데이터 과학 가상 머신 사용 - Azure | Microsoft Docs
+title: 지역 AI 사용
+titleSuffix: Azure Data Science Virtual Machine
 description: 지리적 AI Data Science Virtual Machine을 사용하여 지리 공간적 데이터를 기반으로 데이터를 분석하고 모델을 빌드하는 방법을 알아봅니다.
 keywords: 심화 학습, AI, 데이터 과학 도구, 데이터 과학 가상 머신, 지리 공간적 분석
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.author: vijetaj
-ms.openlocfilehash: 22c0d7d604ca41044d2d969d4ddbd2ae1a4d23d5
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 01238885e68a39ff713bd346a9206668e16e7ee4
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170496"
+ms.locfileid: "70195289"
 ---
 # <a name="using-the-geo-artificial-intelligence-data-science-virtual-machine"></a>지리적 인공 지능 데이터 과학 가상 머신 사용
 
@@ -47,7 +41,7 @@ ArcGIS에 대 한 R 브리지는에 ```C:\Program Files\Microsoft\ML Server\R_SE
 
 2. [R을 사용 하 여 지리 공간적 분석 시작](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/R%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): [Arcgisbinding](https://github.com/R-ArcGIS/r-bridge) 라이브러리에서 제공 하는 ArcGIS에 대 한 R 인터페이스를 사용 하 여 지리 공간적 데이터로 작업 하는 방법을 보여 주는 소개 샘플입니다. 
 
-3. [픽셀 수준의 토지 용도 분류](https://github.com/Azure/pixel_level_land_classification): 항공 이미지를 입력으로 사용하고 토지 레이블을 반환하는 심층 신경망 모델을 만드는 방법을 보여 주는 자습서입니다. 땅 표지 레이블의 예는 *삼림* 및 *물*입니다. 이 모델은 이미지의 모든 픽셀에 대해 이러한 레이블을 반환합니다. 모델은 Microsoft [CNTK (open source Cognitive Toolkit)](https://www.microsoft.com/en-us/cognitive-toolkit/) 심층 학습 프레임 워크를 사용 하 여 빌드됩니다.
+3. [픽셀 수준의 토지 용도 분류](https://github.com/Azure/pixel_level_land_classification): 항공 이미지를 입력으로 사용하고 토지 레이블을 반환하는 심층 신경망 모델을 만드는 방법을 보여 주는 자습서입니다. 땅 표지 레이블의 예는 *삼림* 및 *물*입니다. 이 모델은 이미지의 모든 픽셀에 대해 이러한 레이블을 반환합니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

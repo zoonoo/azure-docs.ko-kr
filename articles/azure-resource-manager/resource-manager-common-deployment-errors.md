@@ -6,14 +6,14 @@ author: tfitzmac
 keywords: 배포 오류 Azure 배포, Azure에 배포
 ms.service: azure-resource-manager
 ms.topic: troubleshooting
-ms.date: 07/28/2019
+ms.date: 08/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 639f6b3b29b7effa12de79335d44b0193f3f9932
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: df5362028a38a86ba8df46efae2e3c3109856463
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638551"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194367"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결
 
@@ -41,7 +41,7 @@ ms.locfileid: "69638551"
 | ImageNotFound | VM 이미지 설정을 확인합니다. |  |
 | InUseSubnetCannotBeDeleted | 리소스를 업데이트 하려고 할 때이 오류가 발생할 수 있으며, 리소스를 삭제 하 고 만들어 요청을 처리 합니다. 변경되지 않은 모든 값을 지정해야 합니다. | [리소스 업데이트](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | 해당 테넌트에 대한 액세스 토큰을 가져옵니다. 계정이 속한 테넌트의 토큰만 가져올 수 있습니다. | |
-| InvalidContentLink | 아마 사용할 수 없는 중첩된 템플릿에 연결하려고 했을 것입니다. 중첩된 템플릿에 제공된 URI를 다시 한 번 확인합니다. 스토리지 계정에 해당 템플릿이 있는 경우 액세스 가능한 URI인지 확인합니다. SAS 토큰을 전달 해야 할 수도 있습니다. | [연결된 템플릿](resource-group-linked-templates.md) |
+| InvalidContentLink | 사용할 수 없는 중첩 된 템플릿에 연결 하려고 시도 했을 수 있습니다. 중첩된 템플릿에 제공된 URI를 다시 한 번 확인합니다. 스토리지 계정에 해당 템플릿이 있는 경우 액세스 가능한 URI인지 확인합니다. SAS 토큰을 전달 해야 할 수도 있습니다. 현재 [Azure Storage 방화벽](../storage/common/storage-network-security.md)뒤에 있는 저장소 계정에 있는 템플릿에 연결할 수 없습니다. 템플릿을 GitHub와 같은 다른 리포지토리로 이동 하는 것이 좋습니다. | [연결된 템플릿](resource-group-linked-templates.md) |
 | InvalidParameter | 리소스에 대해 제공한 값 중 하나가 예상 값과 일치하지 않습니다. 이 오류는 다양한 조건으로 인해 발생할 수 있습니다. 예를 들어 암호가 완전하지 않거나 Blob 이름이 올바르지 않을 수 있습니다. 오류 메시지에는 수정 해야 하는 값이 표시 됩니다. | |
 | InvalidRequestContent | 배포 값에 인식할 수 없는 값이 포함 되어 있거나 필수 값이 누락 되었습니다. 리소스 종류에 대한 값을 확인합니다. | [템플릿 참조](/azure/templates/) |
 | InvalidRequestFormat | 배포를 실행할 때 디버그 로깅을 사용 하도록 설정 하 고 요청 내용을 확인 합니다. | [디버그 로깅](#enable-debug-logging) |
@@ -64,8 +64,8 @@ ms.locfileid: "69638551"
 | PasswordTooLong | 너무 많은 문자를 포함 하는 암호를 선택 하거나 암호 값을 보안 문자열로 변환한 후 매개 변수로 전달 했을 수 있습니다. 템플릿에 **보안 문자열** 매개 변수가 포함되어 있으면 값을 보안 문자열로 변환할 필요가 없습니다. 암호 값을 텍스트로 제공합니다. |  |
 | PrivateIPAddressInReservedRange | 지정된 IP 주소에는 Azure에 필요한 주소 범위가 포함됩니다. 예약된 범위를 방지하도록 IP 주소를 변경합니다. | [IP 주소](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
 | PrivateIPAddressNotInSubnet | 지정된 IP 주소가 서브넷 범위를 벗어났습니다. 서브넷 범위에 속하는 IP 주소로 변경합니다. | [IP 주소](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
-| PropertyChangeNotAllowed | 일부 속성이 배포된 리소스에서 변경될 수 없습니다. 리소스를 업데이트할 때 변경이 허용되는 속성으로 제한합니다. | [리소스 업데이트](/azure/architecture/building-blocks/extending-templates/update-resource) |
-| RequestDisallowedByPolicy | 배포 중에 수행하려는 작업을 금지하는 리소스 정책이 구독에 포함되어 있습니다. 해당 작업을 차단하는 정책을 찾습니다. 가능 하면 정책의 제한 사항을 충족 하도록 배포를 변경 합니다. | [정책 오류 해결](resource-manager-policy-requestdisallowedbypolicy-error.md) |
+| PropertyChangeNotAllowed | 배포 된 리소스에서 일부 속성을 변경할 수 없습니다. 리소스를 업데이트할 때 변경이 허용되는 속성으로 제한합니다. | [리소스 업데이트](/azure/architecture/building-blocks/extending-templates/update-resource) |
+| RequestDisallowedByPolicy | 구독에는 배포 하는 동안 수행 하려는 작업을 방해 하는 리소스 정책이 포함 됩니다. 해당 작업을 차단하는 정책을 찾습니다. 가능 하면 정책의 제한 사항을 충족 하도록 배포를 변경 합니다. | [정책 오류 해결](resource-manager-policy-requestdisallowedbypolicy-error.md) |
 | ReservedResourceName | 예약된 이름을 포함하지 않는 리소스 이름을 제공합니다. | [예약된 리소스 이름](resource-manager-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | 삭제가 완료될 때까지 기다립니다. | |
 | ResourceGroupNotFound | 배포에 대한 대상 리소스 그룹의 이름을 확인합니다. 대상 리소스 그룹이 구독에 이미 있어야 합니다. 구독 컨텍스트를 확인합니다. | [Azure CLI](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/Az.Accounts/Set-AzContext) |

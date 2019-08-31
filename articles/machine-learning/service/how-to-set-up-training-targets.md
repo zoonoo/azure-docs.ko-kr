@@ -11,14 +11,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: b1ee18abfab2cf286ee010bd6d25dfbc5a38cebb
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: c9bc9d64d7f21498acd5cb0c23447e7ff77de629
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011575"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195565"
 ---
-# <a name="set-up-compute-targets-for-model-training"></a>모델 학습의 컴퓨팅 대상 설정 
+# <a name="set-up-and-use-compute-targets-for-model-training"></a>모델 학습을 위한 계산 대상 설정 및 사용 
 
 Azure Machine Learning Service를 사용하여 다양한 리소스 또는 환경(총체적으로 [__컴퓨팅 대상__](concept-azure-machine-learning-architecture.md#compute-targets)이라고 함)에서 모델을 학습할 수 있습니다. 컴퓨팅 대상은 로컬 컴퓨터 또는 클라우드 리소스(예: Azure Machine Learning Compute, Azure HDInsight 또는 원격 가상 머신)일 수 있습니다.  ["모델 배포 위치 및 방법"](how-to-deploy-and-where.md)의 설명에 따라 모델 배포용 컴퓨팅 대상을 만들 수도 있습니다.
 
@@ -47,33 +47,9 @@ Azure Machine Learning Service에는 다양한 컴퓨팅 대상에 대한 다양
 
 학습 시에는 보통 로컬 컴퓨터에서 시작한 후 나중에 다른 컴퓨팅 대상에서 해당 학습 스크립트를 실행합니다. Azure Machine Learning Service를 사용하면 스크립트를 변경할 필요 없이 다양한 컴퓨팅 대상에서 스크립트를 실행할 수 있습니다. 
 
-**실행 구성**으로 각 컴퓨팅 대상에 대한 환경을 정의하기만 하면 됩니다.  그런 다음 다른 컴퓨팅 대상에서 학습 실험을 실행하려는 경우에 해당 컴퓨팅에 대한 실행 구성을 지정합니다.
+**실행 구성**내에서 각 계산 대상에 대 한 환경을 정의 하기만 하면 됩니다.  그런 다음 다른 컴퓨팅 대상에서 학습 실험을 실행하려는 경우에 해당 컴퓨팅에 대한 실행 구성을 지정합니다. 환경을 지정 하 고 구성 실행에 바인딩하는 방법에 대 한 자세한 내용은 [교육 및 배포를 위한 환경 만들기 및 관리](how-to-use-environments.md) 를 참조 하세요.
 
 이 문서의 끝부분에서 [실험 제출](#submit)에 대해 자세히 알아보세요.
-
-### <a name="manage-environment-and-dependencies"></a>환경 및 종속성 관리
-
-실행 구성을 만들 때 컴퓨팅 대상에서 환경 및 종속성을 관리하는 방법을 결정해야 합니다. 
-
-#### <a name="system-managed-environment"></a>시스템 관리 환경
-
-[Conda](https://conda.io/docs/)를 통해 Python 환경과 스크립트 종속성을 자동으로 관리하고자 하는 경우 시스템 관리 환경을 사용합니다. 시스템 관리 환경은 기본적으로 가정되는 가장 일반적으로 선택되는 환경입니다. 이 환경은 원격 컴퓨팅 대상에서 유용합니다(특히 해당 대상을 구성할 수 없는 경우). 
-
-[CondaDependency클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py)를 사용하여 각 패키지 종속성을 지정하기만 하면 됩니다. 그러면 Conda에서 작업 영역의 **aml_config** 디렉터리에 패키지 종속성 목록이 포함된 **conda_dependencies.yml**이라는 파일을 만들고 사용자가 학습 실험을 제출하면 Python 환경을 설정합니다. 
-
-필요한 종속성의 크기에 따라 새 환경의 초기 설정에 몇 분 정도 걸릴 수 있습니다. 패키지 목록이 변경되지 않고 그대로 유지되는 한 설정 시간은 한 번만 소요됩니다.
-  
-다음 코드는 Scikit-learn이 필요한 시스템 관리 환경의 예를 보여줍니다.
-    
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_system_managed)]
-
-#### <a name="user-managed-environment"></a>사용자 관리 환경
-
-사용자 관리 환경에서는 사용자가 사용자 환경을 설정하고 컴퓨팅 대상에 학습 스크립트에 필요한 모든 패키지를 설치해야 합니다. 로컬 머신에서와 같이 학습 환경이 이미 구성되어 있다면 `user_managed_dependencies`를 True로 설정하여 설정 단계를 건너뛸 수 있습니다. Conda에서 자동으로 환경을 확인하지도 않고 아무 것도 설치하지 않습니다.
-
-다음 코드는 사용자 관리 환경에 대한 학습 실행을 구성하는 예를 보여줍니다.
-
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_user_managed)]
 
 ## <a name="whats-an-estimator"></a>평가기?
 
@@ -390,7 +366,7 @@ Azure Machine Learning Service용 [CLI 확장](reference-azure-machine-learning-
 
 Azure Machine Learning 서비스에 대 한 [VS Code 확장](how-to-vscode-tools.md#create-and-manage-compute-targets) 을 사용 하 여 작업 영역과 연결 된 계산 대상을 액세스, 생성 및 관리할 수 있습니다.
 
-## <a id="submit"></a>학습 실행 제출
+## <a id="submit"></a>Azure Machine Learning SDK를 사용 하 여 학습 실행 제출
 
 실행 구성을 만든 후 실행 구성을 사용하여 해당 실험을 실행합니다.  학습 실행을 제출하는 코드 패턴은 모든 유형의 컴퓨팅 대상에서 동일합니다.
 
@@ -430,8 +406,70 @@ Azure Machine Learning 서비스에 대 한 [VS Code 확장](how-to-vscode-tools
 또는
 
 * [추정기를 사용하여 ML 모델 학습](how-to-train-ml-models.md)에 표시된 대로 `Estimator` 개체와 함께 실험을 제출합니다.
-* [CLI 확장을 사용하여](reference-azure-machine-learning-cli.md#experiments) 실험을 제출합니다.
+* 하이퍼 [매개 변수 조정을](how-to-tune-hyperparameters.md)위해 하이퍼 드라이브 실행을 제출 합니다.
 * [VS Code 확장](how-to-vscode-tools.md#train-and-tune-models)을 통해 실험을 제출 합니다.
+
+## <a name="create-run-configuration-and-submit-run-using-azure-machine-learning-cli"></a>Azure Machine Learning CLI를 사용 하 여 실행 구성 만들기 및 실행 제출
+
+[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 및 [Machine Learning CLI 확장](reference-azure-machine-learning-cli.md) 을 사용 하 여 실행 구성을 만들고 여러 계산 대상에서 실행을 제출할 수 있습니다. 다음 예에서는 기존 Azure Machine Learning 작업 영역 있고 CLI 명령을 사용 하 여 `az login` Azure에 로그인 한 것으로 가정 합니다. 
+
+### <a name="create-run-configuration"></a>실행 구성 만들기
+
+실행 구성을 만드는 가장 간단한 방법은 machine learning Python 스크립트를 포함 하는 폴더를 탐색 하 고 CLI 명령을 사용 하는 것입니다.
+
+```azurecli
+az ml folder attach
+```
+
+이 명령은 다양 한 계산 `.azureml` 대상에 대 한 템플릿 실행 구성 파일을 포함 하는 하위 폴더를 만듭니다. 이러한 파일을 복사 및 편집 하 여 Python 패키지를 추가 하거나 Docker 설정을 변경 하는 등의 방법으로 구성을 사용자 지정할 수 있습니다.  
+
+### <a name="create-an-experiment"></a>실험 만들기
+
+먼저 실행에 대 한 실험을 만듭니다.
+
+```azurecli
+az ml experiment create -n <experiment>
+```
+
+### <a name="script-run"></a>스크립트 실행
+
+스크립트 실행을 제출 하려면 명령을 실행 합니다.
+
+```azurecli
+az ml run submit-script -e <experiment> -c <runconfig> my_train.py
+```
+
+### <a name="hyperdrive-run"></a>HyperDrive 실행
+
+Azure CLI에서 HyperDrive를 사용 하 여 매개 변수 튜닝 실행을 수행할 수 있습니다. 먼저 다음과 같은 형식으로 하이퍼 드라이브 구성 파일을 만듭니다. 하이퍼 매개 변수 튜닝 매개 변수에 대 한 자세한 내용은 [모델에 대 한 하이퍼 매개 변수 조정](how-to-tune-hyperparameters.md) 문서를 참조 하세요.
+
+```yml
+# hdconfig.yml
+sampling: 
+    type: random # Supported options: Random, Grid, Bayesian
+    parameter_space: # specify a name|expression|values tuple for each parameter.
+    - name: --penalty # The name of a script parameter to generate values for.
+      expression: choice # supported options: choice, randint, uniform, quniform, loguniform, qloguniform, normal, qnormal, lognormal, qlognormal
+      values: [0.5, 1, 1.5] # The list of values, the number of values is dependent on the expression specified.
+policy: 
+    type: BanditPolicy # Supported options: BanditPolicy, MedianStoppingPolicy, TruncationSelectionPolicy, NoTerminationPolicy
+    evaluation_interval: 1 # Policy properties are policy specific. See the above link for policy specific parameter details.
+    slack_factor: 0.2
+primary_metric_name: Accuracy # The metric used when evaluating the policy
+primary_metric_goal: Maximize # Maximize|Minimize
+max_total_runs: 8 # The maximum number of runs to generate
+max_concurrent_runs: 2 # The number of runs that can run concurrently.
+max_duration_minutes: 100 # The maximum length of time to run the experiment before cancelling.
+```
+
+실행 구성 파일과 함께이 파일을 추가 합니다. 그런 다음를 사용 하 여 하이퍼 드라이브 실행을 제출 합니다.
+```azurecli
+az ml run submit-hyperdrive -e <experiment> -c <runconfig> --hyperdrive-configuration-name <hdconfig> my_train.py
+```
+
+.Runconfig 및 HyperDrive 구성의 *매개 변수 공간* 에 있는 *arguments* 섹션을 참조 하십시오. 학습 스크립트에 전달할 명령줄 인수를 포함 합니다. .Runconfig의 값은 각 반복에 대해 동일 하 게 유지 되는 반면, HyperDrive 구성의 범위는 반복 됩니다. 두 파일에 같은 인수를 지정 하지 마십시오.
+
+이러한 ```az ml``` CLI 명령 및 전체 인수 집합에 대 한 자세한 내용은 [참조 설명서](reference-azure-machine-learning-cli.md)를 참조 하세요.
 
 <a id="gitintegration"></a>
 
