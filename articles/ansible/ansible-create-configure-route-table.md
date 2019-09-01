@@ -58,7 +58,7 @@ ansible-playbook route_table_create.yml
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>서브넷에 경로 테이블 연결
 
-이 섹션의 플레이북 코드:
+이 섹션의 플레이북 코드는 다음과 같습니다.
 
 * 가상 네트워크를 만듭니다.
 * 가상 네트워크 내에서 서브넷 만들기
