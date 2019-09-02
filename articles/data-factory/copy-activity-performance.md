@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 05ecfdc4f082aaa44fe54e6b807a1c5faf84eb8d
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 22c83b1fe53a9209fd243fe807bb76718cbdcbbd
+ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996453"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70211687"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>복사 작업 성능 및 확장성 가이드
 > [!div class="op_single_selector" title1="사용 중인 Azure Data Factory의 버전을 선택 합니다."]
@@ -181,6 +181,7 @@ Azure Data Factory는 다음과 같은 성능 최적화 기능을 제공 합니�
 | 복사 시나리오 | 서비스에 의해 결정되는 기본 병렬 복사 개수 |
 | --- | --- |
 | 파일 기반 저장소 간의 데이터 복사 |는 파일의 크기와 두 클라우드 데이터 저장소 간에 데이터를 복사 하는 데 사용 된 DIUs의 수와 자체 호스팅 통합 런타임 컴퓨터의 물리적 구성에 따라 달라 집니다. |
+| 파티션 옵션이 설정 된 관계형 데이터 저장소에서 복사 ( [Oracle](connector-oracle.md#oracle-as-source), [Teradata](connector-teradata.md#teradata-as-source), [Sap 테이블](connector-sap-table.md#sap-table-as-source)및 [sap Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source)포함)|4 |
 | 모든 원본 저장소에서 Azure Table storage로 데이터 복사 |4 |
 | 그 밖의 모든 복사 시나리오 |1 |
 

@@ -1,18 +1,18 @@
 ---
-title: Azure Backup Server를 사용 하 여 VMware Vm 복원
+title: Azure Backup Server를 사용하여 VMware VM 복원
 description: Azure Backup Server (MABS)를 사용 하 여 VMware vCenter/ESXi 서버에서 실행 되는 VMware Vm을 복원 합니다.
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/18/2019
+ms.date: 08/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: fd851822a7068928a2f332c240bc33b70b1e16f6
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 7d267fcd27a96c5ee7820a5d9fb73c6bbdb80695
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69642306"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210152"
 ---
 # <a name="restore-vmware-virtual-machines"></a>VMware 가상 컴퓨터 복원
 

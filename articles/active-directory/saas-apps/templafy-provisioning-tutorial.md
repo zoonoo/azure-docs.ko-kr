@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: 96270ccccd8f043f116f686938c8f47c5f4f0a41
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
+ms.lasthandoff: 09/02/2019
 ms.locfileid: "68842401"
 ---
 # <a name="tutorial-configure-templafy-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Templafy 구성
@@ -95,7 +95,7 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 Templafy를 구�
 이 섹션에서는 azure ad의 사용자 및/또는 그룹 할당에 따라 Templafy에서 사용자 및/또는 그룹을 만들고, 업데이트 하 고, 사용 해제 하도록 Azure AD 프로 비전 서비스를 구성 하는 단계를 안내 합니다.
 
 > [!TIP]
-> [Templafy single sign-on 자습서](templafy-tutorial.md)에 제공 된 지침에 따라 Templafy에 대해 SAML 기반 single sign-on을 사용 하도록 선택할 수도 있습니다. Single Sign-On과 자동 사용자 프로비저닝은 서로 보완적이지만, 별개로 구성할 수 있습니다.
+> [Templafy single sign-on 자습서](templafy-tutorial.md)에 제공 된 지침에 따라 Templafy에 대해 SAML 기반 Single Sign-On를 사용 하도록 선택할 수도 있습니다. Single Sign-On과 자동 사용자 프로비저닝은 서로 보완적이지만, 별개로 구성할 수 있습니다.
 
 ### <a name="to-configure-automatic-user-provisioning-for-templafy-in-azure-ad"></a>Azure AD에서 Templafy에 대 한 자동 사용자 프로 비전을 구성 하려면:
 

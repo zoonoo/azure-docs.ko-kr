@@ -7,14 +7,14 @@ manager: carmonm
 keywords: 앱 일치 백업, 애플리케이션 일치 Azure VM 백업, Linux VM 백업, Azure Backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/12/2018
+ms.date: 01/12/2018
 ms.author: dacurwin
-ms.openlocfilehash: bb764cfa14b4bc8e53f25629961a1baecd6a6c1f
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: dc7745c7c1110bf3635b1621cecfd5e61488b9f9
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954700"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210400"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Azure Linux VM의 애플리케이션 일치 백업
 

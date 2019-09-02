@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 8ed9b86f8dd4f255a6ea8420ef27fbb131df91a9
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 1bba5e91e3edda41b75a96d8b55495ca5d1c092b
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69644888"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209640"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>관리 되는 인스턴스 T-sql의 차이점, 제한 사항 및 알려진 문제
 
@@ -284,7 +284,7 @@ Azure Key Vault 및 `SHARED ACCESS SIGNATURE` ID만 지원됩니다. Windows 사
   - T-SQL 작업 단계가 지원됩니다.
   - 다음 복제 작업이 지원됩니다.
     - 트랜잭션 로그 판독기
-    - 스냅샷
+    - 스냅숏
     - 배포자
   - SSIS 작업 단계가 지원 됩니다.
   - 다른 유형의 작업 단계는 현재 지원 되지 않습니다.
@@ -338,6 +338,10 @@ SQL Server 에이전트에 대한 자세한 내용은 [SQL Server 에이전트](
 - `CREATE ASSEMBLY FROM FILE`는 지원되지 않습니다. [CREATE ASSEMBLY FROM FILE](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql)을 참조하세요.
 - `ALTER ASSEMBLY`는 파일을 참조할 수 없습니다. [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql)를 참조하세요.
 
+### <a name="database-mail-db_mail"></a>데이터베이스 메일 (db_mail)
+ - `sp_send_dbmail`매개 변수를 사용 하 여 @file_attachments atachments 보낼 수 없습니다. 이 절차에서는 로컬 파일 시스템 및 extental 공유 또는 Azure blob 저장소에 액세스할 수 없습니다.
+ - `@query` 매개 변수 및 인증과 관련 된 알려진 문제를 참조 하세요.
+ 
 ### <a name="dbcc"></a>DBCC
 
 SQL Server에서 사용할 수 있는 문서화 되지 않은 DBCC 문은 관리 되는 인스턴스에서 지원 되지 않습니다.
@@ -536,6 +540,14 @@ Restore 문에 대 한 자세한 내용은 [restore 문](https://docs.microsoft.
 관리 되는 인스턴스는 자세한 정보를 오류 로그에 배치 합니다. 오류 로그에 기록 되는 내부 시스템 이벤트가 많이 있습니다. 사용자 지정 프로시저를 사용 하 여 일부 관련이 없는 항목을 필터링 하는 오류 로그를 읽을 수 있습니다. 자세한 내용은 [관리 되는 인스턴스 – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/)를 참조 하세요.
 
 ## <a name="Issues"></a>알려진 문제
+
+### <a name="cannot-authenicate-to-external-mail-servers-using-secure-connection-ssl"></a>보안 연결 (SSL)을 사용 하 여 외부 메일 서버에 인증 수 없음
+
+**날** 8 월 2019
+
+[보안 연결 (SSL)을 사용 하 여 구성](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-database-mail) 된 데이터베이스 메일은 Azure 외부의 일부 전자 메일 서버에서 인증할 수 없습니다. 이 문제는 곧 해결 될 보안 구성 문제입니다.
+
+**해결 방법:** 임시 제거 보안 연결 (SSL)은 문제가 해결 될 때까지 데이터베이스 메일 구성을 구성 합니다. 
 
 ### <a name="cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade"></a>서비스 계층 업그레이드 후 데이터베이스 간 Service Broker 대화 상자를 다시 초기화 해야 함
 

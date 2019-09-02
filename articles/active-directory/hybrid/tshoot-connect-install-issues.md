@@ -15,12 +15,12 @@ ms.date: 01/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e077127681f8bd7b650ab22f2d036efd7f9733ee
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e75ad29c5b4a76de5317991995f132c6cb53bbe3
+ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60454794"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70211847"
 ---
 # <a name="troubleshoot-azure-ad-connect-install-issues"></a>문제 해결: Azure AD Connect 설치 문제
 
@@ -41,11 +41,11 @@ ms.locfileid: "60454794"
 
 ### <a name="common-issues"></a>**일반적인 문제**
 
-* [온-프레미스 Active Directory를 사용 하 여 연결 문제](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adconnectivitytools)합니다.
+* [온-프레미스 Active Directory의 연결 문제](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adconnectivitytools)
 
 * [온라인 Azure Active Directory 연결 문제](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-connectivity)
 
-* [온-프레미스 Active Directory를 통한 권한 문제](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account)합니다.
+* [온-프레미스 Active Directory에 대 한 사용 권한 문제](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account)
 
 ## <a name="recommended-documents"></a>**권장되는 문서**
 * [Azure AD Connect에 대한 필수 구성 요소](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites)

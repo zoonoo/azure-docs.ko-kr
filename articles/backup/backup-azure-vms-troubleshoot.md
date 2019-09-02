@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: 11e83d0a245b2fba70926723edaf303032f90b8e
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 2f645d290175db9692649d825323313fc207a014
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170592"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210290"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 가상 머신 백업 문제 해결
 아래에 나열 된 정보를 사용 하 여 Azure Backup를 사용 하는 동안 발생 한 오류를 해결할 수 있습니다.
@@ -148,7 +148,7 @@ Windows 서비스 **Com + 시스템** 응용 프로그램 문제로 인해 백�
 
 상위(관리자) 명령 프롬프트에서 아래 명령을 실행합니다.
 
-```
+```text
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotMethod /t REG_SZ /d firstHostThenGuest /f
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTimeFromHost /t REG_SZ /d True /f
 ```
@@ -243,7 +243,7 @@ VM 백업은 기본 스토리지에 대한 스냅샷 명령 실행을 사용합�
 - **NSG를 사용하여 스토리지에 대한 네트워크 액세스가 차단되었습니다**. 허용 된 Ip 목록 또는 프록시 서버를 사용 하 여 저장소에 대 한 [네트워크 액세스를 설정](backup-azure-arm-vms-prepare.md#establish-network-connectivity) 하는 방법에 대해 자세히 알아보세요.
 - **SQL Server 백업이 구성된 VM이 스냅샷 작업을 지연시킬 수 있습니다**. 기본적으로 VM 백업은 Windows VM에서 VSS 전체 백업을 만듭니다. SQL Server 백업이 구성된 SQL Server를 실행하는 VM에서는 스냅샷 지연이 발생할 수 있습니다. 스냅샷 지연으로 인해 백업이 실패하는 경우 다음 레지스트리 키를 설정합니다.
 
-   ```
+   ```text
    [HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
    "USEVSSCOPYBACKUP"="TRUE"
    ```

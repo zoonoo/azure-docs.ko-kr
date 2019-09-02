@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a96c02d1d7d2fae43e0a5915e9233bde842ce621
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 3a014bab0252667c3c70e56399a72de4e5771a86
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066663"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210106"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Azure Virtual Network에 앱 통합
 이 문서에서는 Azure App Service 가상 네트워크 통합 기능 및 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에서 앱을 사용 하 여 설정 하는 방법을 설명 합니다. [Azure 가상 네트워크][VNETOverview] (Vnet)를 사용 하 여 인터넷 라우팅할 수 없는 네트워크에 많은 Azure 리소스를 저장할 수 있습니다.  
@@ -110,7 +110,7 @@ VNet과의 앱 연결을 끊으려면 **연결 끊기**를 선택합니다. 그�
 
 #### <a name="web-app-for-containers"></a>Web App for Containers
 
-기본 제공 이미지를 사용 하 여 Linux에서 App Service를 사용 하는 경우 지역 VNet 통합 기능은 추가 변경 없이 작동 합니다. Web App for Containers 사용 하는 경우 VNet 통합을 사용 하기 위해 docker 이미지를 수정 해야 합니다. Docker 이미지에서 하드 코드 된 포트 번호를 사용 하는 대신 포트 환경 변수를 주 웹 서버의 수신 대기 포트로 사용 합니다. 포트 환경 변수는 컨테이너 시작 시간에 App Service 플랫폼에 의해 자동으로 설정 됩니다.
+기본 제공 이미지를 사용 하 여 Linux에서 App Service를 사용 하는 경우 지역 VNet 통합 기능은 추가 변경 없이 작동 합니다. Web App for Containers 사용 하는 경우 VNet 통합을 사용 하기 위해 docker 이미지를 수정 해야 합니다. Docker 이미지에서 하드 코드 된 포트 번호를 사용 하는 대신 포트 환경 변수를 주 웹 서버의 수신 대기 포트로 사용 합니다. 포트 환경 변수는 컨테이너 시작 시간에 App Service 플랫폼에 의해 자동으로 설정 됩니다. SSH를 사용 하는 경우 지역 VNet 통합을 사용 하는 경우 SSH_PORT 환경 변수에 지정 된 포트 번호를 수신 하도록 SSH 디먼을 구성 해야 합니다.
 
 ### <a name="service-endpoints"></a>서비스 끝점
 

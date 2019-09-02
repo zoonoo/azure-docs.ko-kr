@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 7/30/2019
-ms.openlocfilehash: a61ddf57d4f01fcaf4a949add29c677aa94060a9
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 6b13eab0824307ef42f25d52a293f0f22818c1aa
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827852"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210025"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-your-data-lake-or-data-warehouse-to-azure"></a>Azure Data Factory를 사용 하 여 data lake 또는 데이터 웨어하우스의 데이터를 Azure로 마이그레이션 
 
@@ -60,3 +60,4 @@ Azure Data Factory는 네트워크 (인터넷, ER 또는 VPN)를 통해 데이�
 ## <a name="next-steps"></a>다음 단계
 
 - [AWS S3에서 Azure로 데이터 마이그레이션](data-migration-guidance-s3-azure-storage.md)
+- [온-프레미스 hadoop 클러스터에서 Azure로 데이터 마이그레이션](data-migration-guidance-hdfs-azure-storage.md)

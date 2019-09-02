@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 4bce7aeebee729ed253d39720ef520880c261a22
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 3777aecea5e25b33a7010ad90887829406e491ae
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639651"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210157"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>Azure Backup Server의 무인 설치 실행
 
@@ -26,7 +26,7 @@ Azure Backup Server V1을 설치할 경우에는 이러한 단계가 적용되�
 
 2. MABSSetup.ini 파일에 다음 코드를 붙여넣습니다. 대괄호(\< \>) 내부의 텍스트를 사용자 환경의 값으로 바꿉니다. 다음 텍스트는 예제입니다.
 
-   ```
+   ```text
    [OPTIONS]
    UserName=administrator
    CompanyName=<Microsoft Corporation>
@@ -49,7 +49,7 @@ Azure Backup Server V1을 설치할 경우에는 이러한 단계가 적용되�
 
 3. 파일을 저장합니다. 그다음에 설치 서버의 관리자 권한 명령 프롬프트에서 이 명령을 입력합니다.
 
-   ```
+   ```cmd
    start /wait <cdlayout path>/Setup.exe /i  /f <.ini file path>/setup.ini /L <log path>/setup.log
    ```
 

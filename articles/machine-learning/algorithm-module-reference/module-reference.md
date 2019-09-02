@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 065931140894478caee9d4ea49dac49f2415716b
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 76b70c742289ac98e49338b267660a30abba9557
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128649"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210457"
 ---
 # <a name="algorithm--module-reference-overview"></a>알고리즘 & 모듈 참조 개요
 
@@ -33,7 +33,7 @@ ms.locfileid: "70128649"
 | --- |--- | ---- |
 | 데이터 형식 변환 | 기계 학습에 사용 되는 다양 한 파일 형식 간에 데이터 변환 | [CSV로 변환](convert-to-csv.md) |
 | 데이터 입력 및 출력 | 클라우드 원본에서 실험으로 데이터를 이동 합니다. 실험을 실행 하거나 클라우드 저장소를 사용 하 여 실험 간에 데이터를 교환 하는 동안 결과 또는 중간 데이터를 Azure Storage, SQL database 또는 Hive에 씁니다.  | [데이터 가져오기](import-data.md)<br/>[데이터 내보내기](export-data.md)<br/>[수동으로 데이터 입력](enter-data-manually.md) |
-| 데이터 변환 | 데이터 표준화 또는 범주화, 기능 선택, 차원 감소 등 기계 학습에 고유한 데이터에 대 한 작업입니다.| [데이터 집합에서 열 선택](select-columns-in-dataset.md) <br/> [메타 데이터 편집](edit-metadata.md) <br/> [누락 데이터 정리](clean-missing-data.md) <br/> [열 추가](add-columns.md) <br/> [행 추가](add-rows.md) <br/> [중복 행 제거](remove-duplicate-rows.md) <br/> [데이터 조인](join-data.md) <br/> [데이터 분할](split-data.md) <br/> [데이터 정규화](normalize-data.md) <br/> [파티션 및 샘플](partition-and-sample.md) |
+| 데이터 변환 | 데이터 표준화 또는 범주화, 기능 선택, 차원 감소 등 기계 학습에 고유한 데이터에 대 한 작업입니다.| [데이터 집합에서 열 선택](select-columns-in-dataset.md) <br/> [메타 데이터 편집](edit-metadata.md) <br/> [누락 데이터 정리](clean-missing-data.md) <br/>  [기능 해시](feature-hashing.md) <br/>  [텍스트에서 N 개의 문법 기능 추출](extract-n-gram-features-from-text.md) <br/> [열 추가](add-columns.md) <br/> [행 추가](add-rows.md) <br/> [중복 행 제거](remove-duplicate-rows.md) <br/> [텍스트 전처리](preprocess-text.md) <br/> [데이터 조인](join-data.md) <br/> [데이터 분할](split-data.md) <br/> [데이터 정규화](normalize-data.md) <br/> [파티션 및 샘플](partition-and-sample.md) |
 | Python 및 R 모듈 | 코드를 작성 하 고이를 모듈에 포함 하 여 Python 및 R을 실험과 통합 합니다. | [Python 스크립트 실행](execute-python-script.md)   <br/> [Python 모델 만들기](create-python-model.md) <br/> [R 스크립트 실행](execute-r-script.md)
 |  | **기계 학습 알고리즘**: | |
 | 분류 | 클래스를 예측 합니다.  이진 파일 (2 클래스) 또는 다중 클래스 알고리즘에서 선택 합니다.| [다중 클래스 의사 결정 포리스트](multiclass-decision-forest.md) <br/> [다중 클래스 승격 된 의사 결정 트리](multiclass-boosted-decision-tree.md) <br/> [다중 클래스 로지스틱 회귀](multiclass-logistic-regression.md)  <br/> [다중 클래스 신경망](multiclass-neural-network.md)  <br/>  [2 클래스 로지스틱 회귀](two-class-logistic-regression.md)  <br/>[2 클래스 평균 퍼셉트론](two-class-averaged-perceptron.md) <br/> [2 클래스&nbsp;승격&nbsp;된 의사&nbsp;결정 트리](two-class-boosted-decision-tree.md)  <br/> [2 클래스 의사 결정 포리스트](two-class-decision-forest.md)  <br/> [2 클래스 신경망](two-class-neural-network.md)  <br/> [2&#8209;클래스&nbsp;지원&nbsp;벡터컴퓨터&nbsp;](two-class-support-vector-machine.md) 

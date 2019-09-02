@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 709fb3be37850be37d6378652921ce26f4ff15fe
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: dcea3c1ab715a79ebecd913885fbf9bbee61606a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 09/02/2019
 ms.locfileid: "60242222"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory Seamless Single Sign-On: 질문과 대답
@@ -39,7 +39,7 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 
 아니요. Seamless SSO는 Azure AD의 전 세계 인스턴스에서만 사용할 수 있습니다.
 
-## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Seamless SSO의 `domain_hint` 또는 `login_hint` 매개 변수 기능을 활용하는 애플리케이션은 무엇인가요?
+## <a name="what-applications-take-advantage-of-domain_hint-or-login_hint-parameter-capability-of-seamless-sso"></a>Seamless SSO의 `domain_hint` 또는 `login_hint` 매개 변수 기능을 활용하는 애플리케이션은 무엇인가요?
 
 다음은 이러한 매개 변수를 Azure AD에 전송할 수 있는 애플리케이션의 부분 목록으로, Seamless SSO를 사용하여 자동 로그온 환경을 제공합니다(예: 사용자가 사용자 이름 또는 암호를 입력할 필요가 없음).
 
@@ -49,12 +49,12 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 | 웹용 Outlook | https:\//outlook.office365.com/contoso.com |
 | Office 365 포털 | https:\//portal.office.com?domain_hint=contoso.com, https:\//www.office.com?domain_hint=contoso.com |
 
-또한 만료 된 자동 로그온 환경을 응용 프로그램이 보내면 Azure AD 끝점에 대 한 로그인 요청 설정 테 넌 트-즉, https:\//login.microsoftonline.com/contoso.com/ <... > 또는 https:\//login.microsoftonline.com/ < tenant_ID > / <... >-대신 Azure AD의 공통 끝점, 즉 https:\//login.microsoftonline.com/common/ <... >. 이러한 형식의 로그인을 요청하는 애플리케이션의 부분 목록이 아래에 나열됩니다.
+또한 응용 프로그램에서 테 넌 트 (즉, https:\//login.microsoftonline.com/contoso.com/<)로 설정 된 Azure AD의 끝점에 로그인 요청을 전송 하는 경우 자동 로그온 환경을 이용할 수 있습니다. > 또는 https:\//login.microsoftonline.com/<tenant_ID>/<.. >-Azure AD의 공통 끝점 (즉, https:\//login.microsoftonline.com/common/<) 대신 ... >. 이러한 형식의 로그인을 요청하는 애플리케이션의 부분 목록이 아래에 나열됩니다.
 
 | 응용 프로그램 이름 | 사용할 애플리케이션 URL |
 | -- | -- |
 | SharePoint Online | https:\//contoso.sharepoint.com |
-| Azure portal | https:\//portal.azure.com/contoso.com |
+| Azure Portal | https:\//portal.azure.com/contoso.com |
 
 위 표에 나오는 "contoso.com"을 도메인 이름으로 바꾸어 테넌트에 적절한 애플리케이션 URL로 이동합니다.
 

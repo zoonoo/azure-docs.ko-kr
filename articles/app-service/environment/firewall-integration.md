@@ -10,15 +10,15 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/29/2019
+ms.date: 08/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a3136939b27a5703aef8213225dee3d4d525754d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 038178b3b73e9b07ce96e079403cb641f8efe8b1
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069483"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210064"
 ---
 # <a name="locking-down-an-app-service-environment"></a>App Service Environment 잠금
 
@@ -32,9 +32,9 @@ ASE 아웃바운드 종속성은 거의 전적으로 뒤에 고정 주소가 없
 
 ## <a name="system-architecture"></a>시스템 아키텍처
 
-방화벽 장치를 통과 하는 아웃 바운드 트래픽을 사용 하 여 ASE를 배포 하려면 ASE 서브넷에서 경로를 변경 해야 합니다. 경로는 IP 수준에서 작동 합니다. 경로를 정의 하는 데 주의 하지 않으면 다른 주소에서 TCP 회신 트래픽을 원본에 강제로 적용할 수 있습니다. 이를 비대칭 라우팅 이라고 하며 TCP를 중단 합니다.
+방화벽 장치를 통과 하는 아웃 바운드 트래픽을 사용 하 여 ASE를 배포 하려면 ASE 서브넷에서 경로를 변경 해야 합니다. 경로는 IP 수준에서 작동 합니다. 경로를 정의 하는 데 주의 하지 않으면 다른 주소에서 TCP 회신 트래픽을 원본에 강제로 적용할 수 있습니다. 회신 주소가 전송 된 주소와 다른 경우 문제를 비대칭 라우팅 이라고 하 고 TCP를 중단 합니다.
 
-ASE에 대 한 인바운드 트래픽이 트래픽이 발생 하는 것과 동일한 방식으로 다시 응답할 수 있도록 정의 된 경로가 있어야 합니다. 인바운드 관리 요청이 며 인바운드 응용 프로그램 요청에 대해 true입니다.
+ASE에 대 한 인바운드 트래픽이 트래픽이 발생 하는 것과 동일한 방식으로 다시 응답할 수 있도록 정의 된 경로가 있어야 합니다. 인바운드 관리 요청 및 인바운드 응용 프로그램 요청에 대 한 경로를 정의 해야 합니다.
 
 ASE에서 들어오고 나가는 트래픽은 다음 규칙을 준수 해야 합니다.
 
@@ -49,7 +49,7 @@ ASE에서 들어오고 나가는 트래픽은 다음 규칙을 준수 해야 합
 
 Azure Firewall을 사용하여 기존 ASE의 송신을 잠그는 단계는 다음과 같습니다.
 
-1. ASE 서브넷에서 서비스 엔드포인트를 SQL, Storage 및 Event Hub에 사용하도록 설정합니다. 이렇게 하려면 네트워킹 포털 > 서브넷으로 이동하여 서비스 엔드포인트 드롭다운에서 Microsoft.EventHub, Microsoft.SQL 및 Microsoft.Storage를 선택합니다. 서비스 엔드포인트를 Azure SQL에 사용하도록 설정하면 앱에 있는 Azure SQL 종속성도 서비스 엔드포인트로 구성되어야 합니다. 
+1. ASE 서브넷에서 서비스 엔드포인트를 SQL, Storage 및 Event Hub에 사용하도록 설정합니다. 서비스 끝점을 사용 하도록 설정 하려면 네트워킹 포털 > 서브넷으로 이동 하 여 서비스 끝점 드롭다운에서 microsoft EventHub, Microsoft .SQL 및 Microsoft Storage를 선택 합니다. 서비스 엔드포인트를 Azure SQL에 사용하도록 설정하면 앱에 있는 Azure SQL 종속성도 서비스 엔드포인트로 구성되어야 합니다. 
 
    ![서비스 엔드포인트 선택][2]
   
@@ -91,7 +91,7 @@ Azure Firewall은 로그를 Azure Storage, Event Hub 또는 Azure Monitor 로그
 
     AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
  
-Azure Firewall과 Azure Monitor 로그를 통합하면 모든 애플리케이션 종속성을 알지 못하는 상태에서 애플리케이션을 처음 작동할 때 매우 유용합니다. Azure Monitor 로그에 대한 자세한 내용은 [Azure Monitor에서 로그 데이터 분석](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)을 참조하세요.
+Azure 방화벽을 Azure Monitor 로그와 통합 하는 것은 응용 프로그램의 모든 종속성을 인식 하지 못할 때 응용 프로그램을 처음 사용할 때 유용 합니다. [Azure Monitor에서 로그 데이터 분석](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)의 Azure Monitor 로그에 대해 자세히 알아볼 수 있습니다.
  
 ## <a name="dependencies"></a>종속성
 
@@ -116,7 +116,7 @@ Azure Firewall과 Azure Monitor 로그를 통합하면 모든 애플리케이션
 | 엔드포인트 | 세부 정보 |
 |----------| ----- |
 | \*:123 | NTP 클록 확인. 트래픽이 포트 123의 여러 엔드포인트에서 확인됩니다. |
-| \*:12000 | 이 포트는 일부 시스템 모니터링에 사용됩니다. 차단된 경우 일부 문제는 분류가 어려울 수 있지만 ASE는 계속 작동합니다. |
+| \*:12000 | 이 포트는 일부 시스템 모니터링에 사용됩니다. 차단 된 경우 일부 문제는 심사 하기 어려우므로 ASE는 계속 작동 합니다. |
 | 40.77.24.27:80 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
 | 40.77.24.27:443 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
 | 13.90.249.229:80 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
@@ -188,7 +188,26 @@ Azure Firewall을 사용하면 FQDN 태그로 구성된 모든 항목을 자동�
 |azureprofileruploads3.blob.core.windows.net:443 |
 |azureprofileruploads4.blob.core.windows.net:443 |
 |azureprofileruploads5.blob.core.windows.net:443 |
+|azperfmerges.blob.core.windows.net:443 |
+|azprofileruploads1.blob.core.windows.net:443 |
+|azprofileruploads10.blob.core.windows.net:443 |
+|azprofileruploads2.blob.core.windows.net:443 |
+|azprofileruploads3.blob.core.windows.net:443 |
+|azprofileruploads4.blob.core.windows.net:443 |
+|azprofileruploads6.blob.core.windows.net:443 |
+|azprofileruploads7.blob.core.windows.net:443 |
+|azprofileruploads8.blob.core.windows.net:443 | 
+|azprofileruploads9.blob.core.windows.net:443 |
 |azureprofilerfrontdoor.cloudapp.net:443 |
+|settings-win.data.microsoft.com:443 |
+|maupdateaccount2.blob.core.windows.net:443 |
+|maupdateaccount3.blob.core.windows.net:443 |
+|dc.services.visualstudio.com:443 |
+|gmstorageprodsn1.blob.core.windows.net:443 |
+|gmstorageprodsn1.file.core.windows.net:443 |
+|gmstorageprodsn1.queue.core.windows.net:443 |
+|gmstorageprodsn1.table.core.windows.net:443 |
+|rteventservice.trafficmanager.net:443 |
 
 #### <a name="wildcard-httphttps-dependencies"></a>Wildcard HTTP/HTTPS dependencies 
 
@@ -198,6 +217,7 @@ Azure Firewall을 사용하면 FQDN 태그로 구성된 모든 항목을 자동�
 | \*.management.azure.com:443 |
 | \*.update.microsoft.com:443 |
 | \*.windowsupdate.microsoft.com:443 |
+| \*. identity.azure.net:443 |
 
 #### <a name="linux-dependencies"></a>Linux 종속성 
 
@@ -212,6 +232,145 @@ Azure Firewall을 사용하면 FQDN 태그로 구성된 모든 항목을 자동�
 |download.mono-project.com:80 |
 |packages.treasuredata.com:80|
 |security.ubuntu.com:80 |
+| \*. cdn.mscr.io:443 |
+|mcr.microsoft.com:443 |
+|packages.fluentbit.io:80 |
+|packages.fluentbit.io:443 |
+|apt-mo.trafficmanager.net:80 |
+|apt-mo.trafficmanager.net:443 |
+|azure.archive.ubuntu.com:80 |
+|azure.archive.ubuntu.com:443 |
+|changelogs.ubuntu.com:80 |
+|13.74.252.37:11371 |
+|13.75.127.55:11371 |
+|13.76.190.189:11371 |
+|13.80.10.205:11371 |
+|13.91.48.226:11371 |
+|40.76.35.62:11371 |
+|104.215.95.108:11371 |
+
+## <a name="us-gov-dependencies"></a>US Gov 종속성
+
+US Gov의 경우 저장소, SQL 및 이벤트 허브에 대 한 서비스 엔드포인트를 설정 해야 합니다.  이 문서의 앞부분에 나오는 지침에 따라 Azure 방화벽을 사용할 수도 있습니다. 사용자 고유의 송신 방화벽 장치를 사용 해야 하는 경우 끝점은 아래에 나열 되어 있습니다.
+
+| 엔드포인트 |
+|----------|
+| \*. ctldl.windowsupdate.com:80 |
+| \*. management.usgovcloudapi.net:80 |
+| \*. update.microsoft.com:80 |
+|admin.core.usgovcloudapi.net:80 |
+|azperfmerges.blob.core.windows.net:80 |
+|azperfmerges.blob.core.windows.net:80 |
+|azprofileruploads1.blob.core.windows.net:80 |
+|azprofileruploads10.blob.core.windows.net:80 |
+|azprofileruploads2.blob.core.windows.net:80 |
+|azprofileruploads3.blob.core.windows.net:80 |
+|azprofileruploads4.blob.core.windows.net:80 |
+|azprofileruploads5.blob.core.windows.net:80 |
+|azprofileruploads6.blob.core.windows.net:80 |
+|azprofileruploads7.blob.core.windows.net:80 |
+|azprofileruploads8.blob.core.windows.net:80 |
+|azprofileruploads9.blob.core.windows.net:80 |
+|azureprofilerfrontdoor.cloudapp.net:80 |
+|azurewatsonanalysis.usgovcloudapp.net:80 |
+|cacerts.digicert.com:80 |
+|client.wns.windows.com:80 |
+|crl.microsoft.com:80 |
+|crl.verisign.com:80 |
+|crl3.digicert.com:80 |
+|csc3-2009-2.crl.verisign.com:80 |
+|ctldl.windowsupdate.com:80 |
+|definitionupdates.microsoft.com:80 |
+|download.windowsupdate.com:80 |
+|fairfax.warmpath.usgovcloudapi.net:80 |
+|flighting.cp.wd.microsoft.com:80 |
+|gcwsprodgmdm2billing.queue.core.usgovcloudapi.net:80 |
+|gcwsprodgmdm2billing.table.core.usgovcloudapi.net:80 |
+|global.metrics.nsatc.net:80 |
+|go.microsoft.com:80 |
+|gr-gcws-prod-bd3.usgovcloudapp.net:80 |
+|gr-gcws-prod-bn1.usgovcloudapp.net:80 |
+|gr-gcws-prod-dd3.usgovcloudapp.net:80 |
+|gr-gcws-prod-dm2.usgovcloudapp.net:80 |
+|gr-gcws-prod-phx20.usgovcloudapp.net:80 |
+|gr-gcws-prod-sn5.usgovcloudapp.net:80 |
+|login.live.com:80 |
+|login.microsoftonline.us:80 |
+|management.core.usgovcloudapi.net:80 |
+|management.usgovcloudapi.net:80 |
+|maupdateaccountff.blob.core.usgovcloudapi.net:80 |
+|mscrl.microsoft.com
+|digicert. 0 |
+|ocsp.msocsp.co|
+|ocsp. verisign. 0 |
+|rteventse.trafficmanager.net:80 |
+|settings-n.data.microsoft.com:80 |
+|shavamafestcdnprod1.azureedge.net:80 |
+|shavanifestcdnprod1.azureedge.net:80 |
+|v10ortex-win.data.microsoft.com:80 |
+|wp.microsoft.com:80 |
+|dcpalt.microsoft.com:80 |
+|www.microsoft.com:80 |
+|www.msftconnecttest.com:80 |
+|www.thawte.com:80 |
+|\*ctldl.windowsupdate.com:443 |
+|\*. management.usgovcloudapi.net:443 |
+|\*.update.microsoft.com:443 |
+|admin.core.usgovcloudapi.net:443 |
+|azperfmerges.blob.core.windows.net:443 |
+|azperfmerges.blob.core.windows.net:443 |
+|azprofileruploads1.blob.core.windows.net:443 |
+|azprofileruploads10.blob.core.windows.net:443 |
+|azprofileruploads2.blob.core.windows.net:443 |
+|azprofileruploads3.blob.core.windows.net:443 |
+|azprofileruploads4.blob.core.windows.net:443 |
+|azprofileruploads5.blob.core.windows.net:443 |
+|azprofileruploads6.blob.core.windows.net:443 |
+|azprofileruploads7.blob.core.windows.net:443 |
+|azprofileruploads8.blob.core.windows.net:443 |
+|azprofileruploads9.blob.core.windows.net:443 |
+|azureprofilerfrontdoor.cloudapp.net:443 |
+|azurewatsonanalysis.usgovcloudapp.net:443 |
+|cacerts.digicert.com:443 |
+|client.wns.windows.com:443 |
+|crl.microsoft.com:443 |
+|crl.verisign.com:443 |
+|crl3.digicert.com:443 |
+|csc3-2009-2.crl.verisign.com:443 |
+|ctldl.windowsupdate.com:443 |
+|definitionupdates.microsoft.com:443 |
+|download.windowsupdate.com:443 |
+|fairfax.warmpath.usgovcloudapi.net:443 |
+|flighting.cp.wd.microsoft.com:443 |
+|gcwsprodgmdm2billing.queue.core.usgovcloudapi.net:443 |
+|gcwsprodgmdm2billing.table.core.usgovcloudapi.net:443 |
+|global.metrics.nsatc.net:443 |
+|go.microsoft.com:443 |
+|gr-gcws-prod-bd3.usgovcloudapp.net:443 |
+|gr-gcws-prod-bn1.usgovcloudapp.net:443 |
+|gr-gcws-prod-dd3.usgovcloudapp.net:443 |
+|gr-gcws-prod-dm2.usgovcloudapp.net:443 |
+|gr-gcws-prod-phx20.usgovcloudapp.net:443 |
+|gr-gcws-prod-sn5.usgovcloudapp.net:443 |
+|login.live.com:443 |
+|login.microsoftonline.us:443 |
+|management.core.usgovcloudapi.net:443 |
+|management.usgovcloudapi.net:443 |
+|maupdateaccountff.blob.core.usgovcloudapi.net:443 |
+|mscrl.microsoft.com:443 |
+|ocsp.digicert.com:443 |
+|ocsp.msocsp.com:443 |
+|ocsp.verisign.com:443 |
+|rteventservice.trafficmanager.net:443 |
+|settings-win.data.microsoft.com:443 |
+|shavamanifestcdnprod1.azureedge.net:443 |
+|shavamanifestcdnprod1.azureedge.net:443 |
+|v10.vortex-win.data.microsoft.com:443 |
+|wdcp.microsoft.com:443 |
+|wdcpalt.microsoft.com:443 |
+|www.microsoft.com:443 |
+|www.msftconnecttest.com:443 |
+|www.thawte.com:443 |
 
 <!--Image references-->
 [1]: ./media/firewall-integration/firewall-apprule.png

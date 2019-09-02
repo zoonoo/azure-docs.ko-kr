@@ -7,14 +7,14 @@ manager: carmonm
 keywords: 항목 수준 복구, Azure 백업에서 파일 복구, Azure VM에서 파일 복원
 ms.service: backup
 ms.topic: conceptual
-ms.date: 3/01/2019
+ms.date: 03/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: 67ba9ba9bc85213ec479a90d205ed9570c62bf8c
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 5ff4f1ff8a3d6143285b2842c351e1d26bd356ea
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954602"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210361"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
@@ -68,7 +68,7 @@ Azure Backup에서는 복구 지점이라고도 하는 Azure VM 백업에서 [Az
     - download.microsoft.com
     - Recovery Service URL(복구 서비스 자격 증명 모음이 있는 지역을 참조하는 지역 이름)
         - https:\//pod01-rec2.geo-name.backup.windowsazure.com (Azure 공용 geos의 경우)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.cn (Azure 중국)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.cn (Azure 중국 21vianet의 경우)
         - https:\//pod01-rec2.geo-name.backup.windowsazure.us (Azure 미국 정부의 경우)
         - https:\//pod01-rec2.geo-name.backup.windowsazure.de (Azure 독일의 경우)
     - 아웃바운드 포트 3260
@@ -247,7 +247,7 @@ Linux에서 파일을 복원하는 데 사용하는 컴퓨터의 OS는 보호된
 
 #### <a name="select-recovery-point-who-can-generate-script"></a>복구 지점 선택 (스크립트를 생성할 수 있는 사람)
 
-이 스크립트는 VM 데이터에 대 한 액세스를 제공 하며, 처음에이를 생성할 수 있는 사람을 제어 하는 것이 중요 합니다. 하나는 Azure Portal에 로그인 해야 하며, 스크립트를 생성할 수 있도록 [RBAC 권한이](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) 있어야 합니다.
+이 스크립트는 VM 데이터에 대 한 액세스를 제공 하며, 처음에이를 생성할 수 있는 사람을 제어 하는 것이 중요 합니다. 하나는 Azure Portal에 로그인 해야 하며 스크립트를 생성할 수 있도록 [RBAC 권한이](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) 있어야 합니다.
 
 파일 복구에는 VM 복원 및 디스크 복원에 필요한 것과 동일한 수준의 권한 부여가 필요 합니다. 즉, 권한 있는 사용자만 VM 데이터를 볼 수 있습니다.
 
