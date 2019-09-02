@@ -12,12 +12,12 @@ metadata:
   ms.author: joflore
   ms.date: 08/20/2019
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 4ae9515bf7926eca305f77eff4bae3ab53d1dfa0
-  ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+  ms.openlocfilehash: a9c893f8549562c4628220cbd674eea9986e5cbb
+  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/21/2019
-  ms.locfileid: "69874377"
+  ms.lasthandoff: 08/28/2019
+  ms.locfileid: "70124853"
 landingContent:
 - title: 인증 정보
   linkLists:
@@ -61,7 +61,7 @@ landingContent:
     links:
     - text: 특정 애플리케이션에 대한 Azure MFA 파일럿
       url: tutorial-mfa-applications.md
-    - text: 위험 이벤트를 사용하여 Multi-Factor Authentication 및 암호 변경 트리거
+    - text: 위험 검색을 사용하여 Multi-Factor Authentication 및 암호 변경 트리거
       url: tutorial-risk-based-sspr-mfa.md
   - linkListType: deploy
     links:

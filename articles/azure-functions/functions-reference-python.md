@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 16cf6704096f8c1534777ffb1958d2fa858374db
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 88d9ab0063b6cf2803332d7af50190c659b3e6fe
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170547"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207218"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 
@@ -378,6 +378,8 @@ pip install -r requirements.txt
 ## <a name="publishing-to-azure"></a>Azure에 게시
 
 게시할 준비가 되 면 모든 종속성이 프로젝트 디렉터리의 루트에 있는 *요구 사항 .txt* 파일에 나열 되어 있는지 확인 합니다. 이러한 종속성을 [원격으로 빌드할](functions-deployment-technologies.md#remote-build) 수 Azure Functions.
+
+가상 환경 폴더를 비롯 하 여 게시에서 제외 되는 프로젝트 파일 및 폴더는 funcignore 파일에 나열 됩니다.  
 
 Azure에 배포 하 고 원격 빌드를 수행 하려면 다음 명령을 사용 합니다.
 

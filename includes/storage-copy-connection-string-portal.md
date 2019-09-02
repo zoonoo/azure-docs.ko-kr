@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 04/04/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 8f511eafda70fca997a08b5907e606e572b8e219
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 364da4bb5f3f76f0a8a189db5aa59cca305470ea
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67181883"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70197163"
 ---
 ## <a name="copy-your-credentials-from-the-azure-portal"></a>Azure Portal에서 자격 증명 복사
 
 애플리케이션 예제는 스토리지 계정에 대한 액세스를 인증해야 합니다. 인증하려면 연결 문자열로 애플리케이션에 스토리지 계정 자격 증명을 추가합니다. 다음 단계를 수행하여 스토리지 계정 자격 증명을 봅니다.
 
-1. [Azure Portal](https://portal.azure.com)로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 스토리지 계정을 찾습니다.
 3. 스토리지 계정 개요의 **설정** 섹션에서 **액세스 키**를 선택합니다. 여기에서 계정 액세스 키 및 각 키의 전체 연결 문자열을 볼 수 있습니다.   
 4. **key1** 아래에서 **연결 문자열** 값을 찾고, **복사** 단추를 선택하여 연결 문자열을 복사합니다. 다음 단계에서 연결 문자열 값을 환경 변수에 추가합니다.

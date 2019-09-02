@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0f386faa5a18282c9e60bdb282e01dcd53f9de4f
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 3d82846c02754f23b4a2e86a7881c952e503b36f
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114316"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207165"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 클러스터의 용량 계획
 
@@ -60,7 +60,7 @@ Azure Storage에는 일부 [용량 제한](../azure-subscription-service-limits.
 
 ## <a name="choose-a-cluster-type"></a>클러스터 유형 선택
 
-클러스터 유형은 HDInsight 클러스터(예: [Apache Hadoop](https://hadoop.apache.org/), [Apache Storm](https://storm.apache.org/), [Apache Kafka](https://kafka.apache.org/) 또는 [Apache Spark](https://spark.apache.org/))가 실행하도록 구성되는 워크로드를 결정합니다. 사용 가능한 클러스터 형식의 대한 자세한 설명은 [Azure HDInsight 소개](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight)를 참조하세요. 각 클러스터 유형은 필요한 노드 크기 및 개수를 포함하는 배포 토폴로지를 갖습니다.
+클러스터 유형은 HDInsight 클러스터(예: [Apache Hadoop](https://hadoop.apache.org/), [Apache Storm](https://storm.apache.org/), [Apache Kafka](https://kafka.apache.org/) 또는 [Apache Spark](https://spark.apache.org/))가 실행하도록 구성되는 워크로드를 결정합니다. 사용 가능한 클러스터 형식의 대한 자세한 설명은 [Azure HDInsight 소개](hdinsight-overview.md#cluster-types-in-hdinsight)를 참조하세요. 각 클러스터 유형은 필요한 노드 크기 및 개수를 포함하는 배포 토폴로지를 갖습니다.
 
 ## <a name="choose-the-vm-size-and-type"></a>VM 크기 및 유형 선택
 

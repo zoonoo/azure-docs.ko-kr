@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: 18129c625630e7e21e2139ea3967ba5152bc0b30
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: df441a55ef4a9a40fe4defcabca5f667eeddbf29
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991171"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207300"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 데이터 수집, 보존 및 스토리지
 
@@ -100,7 +100,7 @@ Visual Studio를 사용하여 앱을 개발하는 경우 디버그(F5) 모드에
 Microsoft는 서비스를 제공하기 위한 목적으로만 데이터를 사용합니다.
 
 ## <a name="where-is-the-data-held"></a>데이터가 저장되는 위치는 어디인가요?
-* 미국, 유럽 또는 동남 아시아에 있습니다. 새 Application Insights 리소스를 만들 때 위치를 선택할 수 있습니다. 
+* 새 Application Insights 리소스를 만들 때 위치를 선택할 수 있습니다. 지역별 Application Insights 가용성에 대 한 자세한 내용은 [여기](https://azure.microsoft.com/global-infrastructure/services/?products=all)를 참조 하세요.
 
 #### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>내 앱을 미국, 유럽 또는 동남 아시아에서 호스트해야 한다는 뜻인가요?
 * 아니요. 애플리케이션은 자체 온-프레미스 호스트 또는 클라우드의 어디에서나 실행할 수 있습니다.
@@ -205,7 +205,7 @@ TLS 1.3 등을 사용할 수 있게 되면 더 안전한 최신 프로토콜을 
 | Windows Server 2012 - 2016 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)을 여전히 사용하는지 확인하려면 |
 | Windows 7 SP1 및 Windows Server 2008 R2 SP1 | 지원됨, 하지만 기본적으로 활성화되지 않습니다. | 활성화하는 방법에 대한 자세한 내용은 [TLS(전송 계층 보안) 레지스트리 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) 페이지를 참조하세요.  |
 | Windows Server 2008 SP2 | TLS 1.2에 대한 지원에는 업데이트가 필요합니다. | Windows Server 2008 SP2에서 [TLS 1.2에 대한 지원을 추가하는 업데이트](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s)를 참조하세요. |
-|Windows Vista | 지원되지 않습니다. | 해당 사항 없음
+|Windows Vista | 지원되지 않습니다. | N/A
 
 ### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Linux 배포에서 실행 중인 OpenSSL 버전을 확인합니다.
 

@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 99f981698daf12bf7d493159fc7fd08a98a28104
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 8c3b9523f6e6991723b0da721dbf7667ee340772
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194270"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207981"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상업적 Marketplace 계정을 관리 하는 방법 
 
@@ -300,20 +300,19 @@ Azure AD 응용 프로그램이 Microsoft Azure AD에서 데이터를 읽고 쓰
 4.  더 많은 키를 만들려면 **다른 키 추가**를 선택 합니다.
 
 
-### <a name="define-user-roles-and-permissions"></a>사용자 역할 및 권한 정의
+## <a name="define-user-roles-and-permissions"></a>사용자 역할 및 권한 정의
 
-회사 사용자에 게 파트너 센터에서 상업적 Marketplace 프로그램에 대 한 다음 역할 및 권한을 할당할 수 있습니다. 
+파트너 센터에서 상업적 Marketplace 프로그램에 대해 회사의 사용자에 게 다음 역할 및 권한을 할당할 수 있습니다.
 
-|**역할**|**사용 권한**|
-|----------------------------------|---------------------------------|
-|관리자|-세금 및 지급 설정을 제외한 모든 Microsoft 계정 기능에 액세스할 수 있습니다.|
-|      |-사용자, 역할 및 테 넌 트 (작업 계정)를 관리할 수 있음|
-|Developer|-제품을 관리 하 고 게시할 수 있음|
-|      |-일부 게시자 보고서를 볼 수 있습니다.|
-|전역 관리자|-상업적 marketplace와 관련이 없음|
-|비즈니스 참여자|-상업적 marketplace와 관련이 없음|
-|재무 참여자|-상업적 marketplace와 관련이 없음|
-|마케터|-상업적 marketplace와 관련이 없음|
+- **관리자**
+  - 세금 및 지급 설정을 제외한 모든 Microsoft 계정 기능에 액세스할 수 있습니다.
+  - 사용자, 역할 및 테 넌 트 (작업 계정)를 관리할 수 있음
+- **Developer**
+  - 제품을 관리 하 고 게시할 수 있음
+  - 일부 게시자 보고서를 볼 수 있습니다.
+
+> [!NOTE]
+> 전역 관리자, 비즈니스 참여자, 금융 참여자 및 마케터 역할은 상용 Marketplace 프로그램에서 사용 되지 않으며 연결 된 사용 권한이 없습니다.
 
 Azure Active Directory (AD), CSP (클라우드 솔루션 공급자), CPV (제어판 공급 업체), 게스트 사용자 또는 Microsoft 파트너 네트워크 (MPN)와 같은 파트너 센터의 다른 영역에서 역할 및 권한을 관리 하는 방법에 대 한 자세한 내용은 [사용자 역할 할당을 참조 하세요. 파트너 센터의 및 사용 권한](https://docs.microsoft.com/partner-center/permissions-overview).
 

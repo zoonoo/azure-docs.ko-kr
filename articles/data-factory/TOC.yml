@@ -187,6 +187,8 @@
           href: iterative-development-debugging.md
     - name: 커넥터
       items:
+        - name: 커넥터 개요
+          href: connector-overview.md
         - name: Amazon Marketplace 웹 서비스
           href: connector-amazon-marketplace-web-service.md
         - name: Amazon Redshift
@@ -306,7 +308,7 @@
           href: connector-oracle-service-cloud.md
         - name: Parquet 형식
           href: format-parquet.md
-        - name: Paypal
+        - name: PayPal
           href: connector-paypal.md
         - name: Phoenix
           href: connector-phoenix.md
@@ -382,40 +384,40 @@
     - name: 데이터 변환
       href: transform-data.md
       items:
+        - name: Azure 함수 작업
+          href: control-flow-azure-function-activity.md
+        - name: 사용자 지정 작업
+          href: transform-data-using-dotnet-custom-activity.md
+        - name: Databricks Jar 작업
+          href: transform-data-databricks-jar.md
+        - name: Databricks Notebook 활동
+          href: transform-data-databricks-notebook.md
+        - name: Databricks Python 작업
+          href: transform-data-databricks-python.md
+        - name: Data Lake U-SQL 작업
+          href: transform-data-using-data-lake-analytics.md
         - name: HDInsight Hive 작업
           href: transform-data-using-hadoop-hive.md
-        - name: HDInsight Pig 작업
-          href: transform-data-using-hadoop-pig.md
         - name: HDInsight MapReduce 작업
           href: transform-data-using-hadoop-map-reduce.md
-        - name: HDInsight 스트리밍 작업
-          href: transform-data-using-hadoop-streaming.md
+        - name: HDInsight Pig 작업
+          href: transform-data-using-hadoop-pig.md
         - name: HDInsight Spark 작업
           href: transform-data-using-spark.md
+        - name: HDInsight 스트리밍 작업
+          href: transform-data-using-hadoop-streaming.md
         - name: ML 일괄 처리 실행 작업
           href: transform-data-using-machine-learning.md
         - name: Azure ML 업데이트 리소스 작업
           href: update-machine-learning-models.md
         - name: 저장 프로시저 작업
           href: transform-data-using-stored-procedure.md
-        - name: Data Lake U-SQL 작업
-          href: transform-data-using-data-lake-analytics.md
-        - name: Databricks Notebook 활동
-          href: transform-data-databricks-notebook.md
-        - name: Databricks Jar 작업
-          href: transform-data-databricks-jar.md
-        - name: Databricks Python 작업
-          href: transform-data-databricks-python.md
-        - name: 사용자 지정 작업
-          href: transform-data-using-dotnet-custom-activity.md
         - name: 컴퓨팅 연결 서비스
           href: compute-linked-services.md
     - name: 흐름 제어
       items:
         - name: 변수 작업 추가
           href: control-flow-append-variable-activity.md
-        - name: Azure 함수 작업
-          href: control-flow-azure-function-activity.md
         - name: Data Flow 작업 실행
           href: control-flow-execute-data-flow-activity.md
         - name: 파이프라인 작업 실행
@@ -584,6 +586,8 @@
       items:
         - name: 작업 문제 해결
           href: data-factory-troubleshoot-guide.md
+        - name: 커넥터 문제 해결
+          href: connector-troubleshoot-guide.md
         - name: AZURE-SSIS IR 관리 문제 해결
           href: ssis-integration-runtime-management-troubleshoot.md
         - name: Azure-SSIS IR의 패키지 실행 문제 해결

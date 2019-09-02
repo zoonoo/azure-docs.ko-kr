@@ -32,11 +32,11 @@
           href: howto-sign-in-risk-policy.md
         - name: 사용자 위험 정책 구성
           href: howto-user-risk-policy.md
-        - name: 활성 위험 이벤트 닫기
+        - name: 활성 위험 검색 닫기
           href: howto-close-active-risk-events.md
         - name: 사용자 차단 해제
           href: howto-unblock-user.md
-        - name: 위험 이벤트 시뮬레이션
+        - name: 위험 검색 시뮬레이션
           href: playbook.md
         - name: FAQ
           href: faqs.md
@@ -46,9 +46,9 @@
           href: overview-v2.md
         - name: 보안 개요
           href: security-overview.md
-        - name: 위험한 사용자 및 로그인 조사
-          href: howto-investigate-risky-users-signins.md
-        - name: 위험 이벤트에 대한 사용자 의견 제공
+        - name: 위험 조사
+          href: howto-investigate-risk.md
+        - name: 위험 검색에 대한 피드백 제공
           href: howto-provide-risk-event-feedback.md
         - name: 위험 정책 구성
           href: howto-configure-risk-policies.md
@@ -58,7 +58,7 @@
   items:
     - name: Microsoft Graph API 사용
       href: graph-get-started.md
-    - name: 위험 이벤트
+    - name: 위험 검색
       href: risk-events-reference.md
     - name: 용어
       href: glossary.md

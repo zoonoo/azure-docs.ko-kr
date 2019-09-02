@@ -309,7 +309,7 @@
           href: b2clogin.md
         - name: Web API를 b2clogin.com으로 마이그레이션
           href: multiple-token-endpoints.md
-          displayName: 'migrate, b2clogin, owin, jwt'
+          displayName: 'migrate, b2clogin, owin'
     - name: Automation
       items:
         - name: 사용 현황 보고서 내보내기
@@ -318,6 +318,9 @@
           href: active-directory-b2c-devquickstarts-graph-dotnet.md
     - name: 감사 로그
       href: active-directory-b2c-reference-audit-logs.md
+    - name: API Management API 보호
+      href: secure-api-management.md
+      displayName: 'apim, api management, migrate, b2clogin.com'
     - name: 규정 준수
       items:
         - name: 사용자 액세스

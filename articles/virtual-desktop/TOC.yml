@@ -66,6 +66,8 @@
       href: fslogix-containers-azure-files.md
     - name: 파트너 통합
       href: partners.md
+    - name: Windows 10 Enterprise 다중 세션 FAQ
+      href: windows-10-multisession-faq.md
 - name: 문제 해결
   items:
     - name: '문제 해결 개요, 피드백 및 지원'

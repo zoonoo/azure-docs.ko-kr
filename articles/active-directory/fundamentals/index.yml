@@ -1,47 +1,67 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Azure Active Directory 기본 사항 설명서
+summary: 기본 환경, 기본 사용자 및 그룹을 만들고 시작하는 방법을 비롯해 기본 Azure AD(Azure Active Directory) 개념 및 프로세스에 대해 알아봅니다.
 metadata:
-  document_id: null
   title: Azure Active Directory 기본 사항 설명서
-  description: Azure Active Directory를 사용하는 동안 사용할 수 있는 기본 개념 및 프로세스를 알아봅니다.
-  services: active-directory
-  ms.subservice: fundamentals
-  author: msaburnley
+  description: 기본 환경, 기본 사용자 및 그룹을 만들고 시작하는 방법을 비롯해 기본 Azure AD(Azure Active Directory) 개념 및 프로세스에 대해 알아봅니다.
   manager: daveba
-  ms.service: active-directory
-  ms.topic: landing-page
-  ms.date: 09/07/2018
   ms.author: ajburnle
-abstract:
-  description: 기본 사용자와 그룹을 만드는 방법 및 시작할 기본 환경을 만드는 방법을 비롯해 기본 Azure AD(Azure Active Directory) 개념 및 프로세스에 대해 알아봅니다.
-sections:
-  - title: 5분 빠른 시작
-    items:
-      - type: paragraph
-        text: Azure Active Directory 포털을 시작하는 방법을 알아봅니다.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ./media/index/i_portal.png
-            text: Azure AD에 액세스하여 테넌트 만들기
-            href: active-directory-access-create-new-tenant.md
-          - image:
-              src: ./media/index/i_tasks.png
-            text: 그룹 및 멤버 보기
-            href: active-directory-groups-view-azure-portal.md
-  - title: 단계별 가이드
-    items:
-      - type: paragraph
-        text: Azure Active Directory 환경에서 설정할 기본 작업을 수행하는 방법 알아보기
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/fundamentals/active-directory-get-started-premium">Azure AD Premium에 등록</a>
-          - html: <a href="/azure/active-directory/fundamentals/add-custom-domain">사용자 지정 도메인 이름을 추가하는 방법</a>
-          - html: <a href="/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal">기본 그룹을 만들고 멤버를 추가하는 방법</a>
-          - html: <a href="/azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners">그룹 소유자를 추가하는 방법</a>
-          - html: <a href="/azure/active-directory/fundamentals/add-users-azure-active-directory">새 사용자를 추가하는 방법</a>
-          - html: <a href="/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal">사용자에게 역할을 할당하는 방법</a>
-          - html: <a href="/azure/active-directory/fundamentals/license-users-groups">사용자에게 라이선스를 할당하는 방법</a>
+  ms.collection: na
+  ms.date: 08/27/2019
+  ms.service: active-directory
+  ms.subservice: na
+  ms.topic: landing-page
+  services: active-directory
+  ms.openlocfilehash: c0f85c065a4334f41c7f52a05e2b885f97dde25f
+  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 08/28/2019
+  ms.locfileid: "70124888"
+landingContent:
+- title: Azure AD 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Active Directory란?
+      url: active-directory-whatis.md
+    - text: Azure Active Directory의 새로운 기능
+      url: whats-new.md
+  - linkListType: concept
+    links:
+    - text: Azure AD 아키텍처
+      url: active-directory-architecture.md
+- title: 시작하기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 포털에 액세스 및 테넌트 만들기
+      url: active-directory-access-create-new-tenant.md
+    - text: 할당된 멤버를 사용하여 그룹 보기
+      url: active-directory-groups-view-azure-portal.md
+- title: Azure AD 계정 만들기
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Azure Active Directory Premium Edition에 가입
+      url: active-directory-get-started-premium.md
+    - text: 조직으로 Azure AD에 등록
+      url: sign-up-organization.md
+    - text: 사용자 지정 도메인 이름 추가
+      url: add-custom-domain.md
+- title: Azure AD에서 그룹 만들기
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 기본 그룹 만들기 및 멤버 추가
+      url: active-directory-groups-create-azure-portal.md
+    - text: 그룹 소유자 추가 또는 제거
+      url: active-directory-accessmanagement-managing-group-owners.md
+- title: 사용자를 추가하고 역할 및 라이선스 할당
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 사용자 추가 또는 삭제
+      url: add-users-azure-active-directory.md
+    - text: 사용자에게 라이선스 할당
+      url: license-users-groups.md

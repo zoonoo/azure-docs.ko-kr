@@ -1,0 +1,57 @@
+### YamlMime:Landing
+title: Azure 파일
+summary: Azure Files는 클라우드에서 SMB(서버 메시지 블록) 프로토콜을 통해 액세스할 수 있는, 완전 관리형 플랫폼 간 파일 공유를 제공합니다.
+metadata:
+  title: Azure 파일
+  description: Windows, Linux 및 macOS의 클라우드 또는 온-프레미스에서 파일 공유를 탑재하세요. Windows Server의 Azure 파일 공유를 Azure 파일 동기화와 함께 캐시하여 로컬 액세스를 이용할 수 있습니다.
+  services: storage
+  ms.service: storage
+  ms.subservice: files
+  ms.topic: landing-page
+  ms.collection: collection
+  author: roygara
+  ms.author: rogarana
+  ms.date: 08/27/2019
+  ms.openlocfilehash: 06764b43d46dc4fee51ac58254e2d2578257f096
+  ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 08/29/2019
+  ms.locfileid: "70143053"
+landingContent:
+- title: Azure Files 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Files 계획 가이드
+      url: storage-files-planning.md
+    - text: Azure 파일 동기화 계획 가이드
+      url: storage-sync-files-planning.md
+    - text: Azure Files란?
+      url: storage-files-introduction.md
+- title: 시작하기
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: 파일 공유 만들기/사용 - Windows
+      url: storage-files-quick-create-use-windows.md
+    - text: 프리미엄 파일 공유 만들기
+      url: storage-how-to-create-premium-fileshare.md
+    - text: Azure 파일 동기화를 사용하여 서버 관리
+      url: storage-sync-files-server-registration.md
+  - linkListType: tutorial
+    links:
+    - text: Azure 파일 동기화를 사용하여 Windows 파일 서버 확장
+      url: storage-sync-files-extend-servers.md
+- title: 문제 해결
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure Files Windows 문제 해결
+      url: storage-troubleshoot-windows-file-connection-problems.md
+    - text: Azure Files Linux 문제 해결
+      url: storage-troubleshoot-linux-file-connection-problems.md
+    - text: Azure Files 성능 문제 해결
+      url: storage-troubleshooting-files-performance.md
+    - text: Azure 파일 동기화 문제 해결
+      url: storage-sync-files-troubleshoot.md

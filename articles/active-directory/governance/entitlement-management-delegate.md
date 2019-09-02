@@ -16,12 +16,12 @@ ms.date: 07/10/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 064724b3c6a5faa485850ecdfa3d3759d3631be0
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 9b631f078240821e79513c4bd944a33b4725bc52
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124903"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207142"
 ---
 # <a name="delegate-tasks-in-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리 (미리 보기)에서 작업 위임
 
@@ -67,7 +67,7 @@ ms.locfileid: "70124903"
 
 자격 관리에는 자격 관리와 관련 된 다음과 같은 역할이 있습니다.
 
-| 역할 | Description |
+| 역할 | 설명 |
 | --- | --- |
 | 카탈로그 작성자 | 카탈로그를 만들고 관리 합니다. 일반적으로 전역 관리자가 아닌 IT 관리자 또는 리소스 컬렉션에 대 한 리소스 소유자입니다. 카탈로그를 만드는 사람은 자동으로 카탈로그의 첫 번째 카탈로그 소유자가 되며 카탈로그 소유자를 더 추가할 수 있습니다. |
 | 카탈로그 소유자 | 기존 카탈로그를 편집 하 고 관리 합니다. 일반적으로 IT 관리자 또는 리소스 소유자 이거나 카탈로그 소유자가 지정 하는 사용자입니다. |
@@ -117,6 +117,7 @@ ms.locfileid: "70124903"
 | [클라우드 애플리케이션 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 카탈로그 소유자 |  |  | :heavy_check_mark: |  |
 | 사용자 | 카탈로그 소유자 | 그룹 소유자 인 경우에만 | 그룹 소유자 인 경우에만 | 앱 소유자 인 경우에만 |  |
 
+태스크에 대 한 최소 권한 있는 역할을 확인 하려면 [Azure Active Directory에서 관리자 작업을 통해 관리자 역할](../users-groups-roles/roles-delegate-by-task.md#entitlement-management)을 참조할 수도 있습니다.
 
 ## <a name="add-a-catalog-creator"></a>카탈로그 작성자 추가
 

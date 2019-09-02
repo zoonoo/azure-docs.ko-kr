@@ -41,7 +41,7 @@ sections:
       - items:
           - html: <a href="service/tutorial-1st-experiment-sdk-setup">환경 설정 및 첫 번째 ML 실험 학습</a>
           - html: <a href="service/tutorial-train-models-with-aml">이미지 분류 모델 학습 및 배포</a>
-          - html: <a href="service/tutorial-data-prep">데이터 준비 및 자동화된 ML을 사용하여 택시 요금 예측</a>
+          - html: <a href="service/tutorial-auto-train-models">자동화된 ML을 사용하여 택시 요금 예측</a>
         style: unordered
         type: list
       - text: '모델 사용:'

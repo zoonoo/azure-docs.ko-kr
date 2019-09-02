@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: 4292b2e83c55ce62db777d846206e5857bf81ca7
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: de1c1b93b813f71b321da0625bc60e0762a859c7
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142572"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207952"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Node.js SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -414,7 +414,7 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 사용 중지된 SDK를 사용하는 Cosmos DB에 대한 요청은 서비스에서 거부됩니다.
 
 > [!WARNING]
-> SQL API 용 노드 SDK의 모든 버전 1.x는 **2020 년 8 월 30**일에 사용 중지 됩니다.
+> SQL API 용 노드 클라이언트 SDK의 모든 버전 1.x는 **2020 년 8 월 30**일에 사용 중지 됩니다. 이는 클라이언트 쪽 노드 SDK에만 영향을 주며 서버 쪽 스크립트 (저장 프로시저, 트리거 및 Udf)에는 영향을 주지 않습니다.
 > 
 >
 <br/>

@@ -1,82 +1,86 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Network Watcher 설명서
+### YamlMime:Landing
+title: Azure Network Watcher 설명서
+summary: Azure Network Watcher를 사용하는 방법에 대해 알아봅니다. 빠른 시작, 자습서 등은 패킷 캡처 및 NSG 흐름 로그와 같은 도구를 사용하여 Azure Virtual Network에 대한 정보를 얻는 방법, 트래픽 필터링 및 라우팅 관련 문제를 진단하고 연결을 모니터링하는 방법을 보여줍니다.
 metadata:
-  document_id: null
-  title: 'Network Watcher 설명서 - 자습서, 빠른 시작, API 참조 | Microsoft Docs'
-  meta.description: 'Learn how to use Azure Network Watcher. Quickstarts, tutorials, and more, show you how to gain insight into your Azure Virtual Network with tools like packet capture and NSG flows logs, to diagnose problems with traffic filtering and routing, and to monitor connections.'
+  title: Azure Network Watcher 설명서
+  description: Azure Network Watcher를 사용하는 방법에 대해 알아봅니다. 빠른 시작, 자습서 등은 패킷 캡처 및 NSG 흐름 로그와 같은 도구를 사용하여 Azure Virtual Network에 대한 정보를 얻는 방법, 트래픽 필터링 및 라우팅 관련 문제를 진단하고 연결을 모니터링하는 방법을 보여줍니다.
   services: network-watcher
-  author: KumudD
-  manager: twolley
   ms.service: network-watcher
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/24/2018
+  ms.collection: collection
+  author: KumudD
   ms.author: kumud
-abstract:
-  description: 'Azure Network Watcher를 사용하는 방법에 대해 알아봅니다. 빠른 시작, 자습서 등은 패킷 캡처 및 NSG 흐름 로그와 같은 도구를 사용하여 Azure Virtual Network에 대한 정보를 얻는 방법, 트래픽 필터링 및 라우팅 관련 문제를 진단하고 연결을 모니터링하는 방법을 보여줍니다.'
-sections:
-  - title: 5분 빠른 시작
-    items:
-      - type: paragraph
-        text: 가상 머신과의 트래픽 필터링 문제를 진단하는 방법에 대해 알아보세요.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ./media/index/portal.svg
-            text: Azure portal
-            href: /azure/network-watcher/diagnose-vm-network-traffic-filtering-problem
-          - image:
-              src: ./media/index/powershell.svg
-            text: Azure PowerShell
-            href: /azure/network-watcher/diagnose-vm-network-traffic-filtering-problem-powershell
-          - image:
-              src: ./media/index/cli.svg
-            text: Azure CLI
-            href: /azure/network-watcher/diagnose-vm-network-traffic-filtering-problem-cli
-  - title: 단계별 자습서
-    items:
-      - type: paragraph
-        text: 가상 네트워크의 문제를 진단하는 방법에 알아보세요.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/network-watcher/diagnose-vm-network-routing-problem">가상 머신 네트워크 라우팅 문제 진단</a>
-          - html: <a href="/azure/network-watcher/connection-monitor">VM 간 네트워크 통신 모니터</a>
-          - html: <a href="/azure/network-watcher/diagnose-communication-problem-between-networks">네트워크 간 통신 문제 진단</a>
-          - html: <a href="/azure/network-watcher/network-watcher-nsg-flow-logging-portal">VM과 주고 받는 네트워크 트래픽 로깅</a>
-  - title: 무료 Pluralsight 동영상 교육
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Azure 관리자
-            href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
-          - title: Azure 솔루션 설계자
-            href: 'https://go.microsoft.com/fwlink/?linkid=2012824'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://go.microsoft.com/fwlink/?linkid=2012824'
-          - title: AWS 관리자용 Azure 관리
-            href: 'https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents'
-  - title: 참고 자료
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: 명령줄
-            html: '<p><a href="/powershell/module/az.network/#network_watcher">PowerShell</a></p><p><a href="/cli/azure/network/watcher">Azure CLI</a></p>'
-          - title: Languages
-            html: <p><a href="/dotnet/api/overview/azure/virtual-network">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p><p><a href="/javascript/api/azure-arm-network">Node.JS</a></p><p><a href="/python/api/overview/azure/network">Python</a></p>
-          - title: REST (영문)
-            html: <p><a href="/rest/api/network-watcher/">REST API 참조</a></p>
+  ms.date: 08/29/2019
+  ms.openlocfilehash: 534da1b945b4a4463406d5b5c6277833fad35984
+  ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 08/30/2019
+  ms.locfileid: "70195104"
+landingContent:
+- title: Network Watcher 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Network Watcher란?
+      url: network-watcher-monitoring-overview.md
+- title: VM 트래픽 필터 문제 진단
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: IP 흐름 확인
+      url: network-watcher-ip-flow-verify-overview.md
+  - linkListType: quickstart
+    links:
+    - text: VM 트래픽 필터 문제 진단
+      url: diagnose-vm-network-traffic-filtering-problem.md
+- title: VM 라우팅 문제 진단
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 다음 홉을 사용하여 VM 라우팅 문제 진단
+      url: network-watcher-next-hop-overview.md
+  - linkListType: tutorial
+    links:
+    - text: VM 라우팅 문제 진단
+      url: diagnose-vm-network-routing-problem.md
+- title: VM 통신 문제 진단
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 아웃바운드 VM 통신 문제 진단
+      url: network-watcher-connectivity-overview.md
+  - linkListType: tutorial
+    links:
+    - text: VM 라우팅 문제 진단
+      url: network-watcher-connectivity-portal.md
+    - text: VM 간 통신 모니터링
+      url: connection-monitor.md
+- title: VM 네트워크 트래픽 로깅
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: VM 네트워크 트래픽 로깅
+      url: network-watcher-nsg-flow-logging-overview.md
+  - linkListType: tutorial
+    links:
+    - text: VM 네트워크 트래픽 로깅
+      url: network-watcher-nsg-flow-logging-portal.md
+  - linkListType: tutorial
+    links:
+    - text: NSG 흐름 로그 구성
+      url: network-watcher-nsg-flow-logging-portal.md
+    - text: 트래픽 분석을 사용하여 NSG 흐름 로그 분석
+      url: traffic-analytics.md
+    - text: VM 네트워크 트래픽 로깅
+      url: network-watcher-nsg-flow-logging-portal.md
+- title: 참고 자료
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure PowerShell
+      url: /powershell/module/az.network/#network_watcher
+    - text: Azure CLI
+      url: /cli/azure/network/watcher
+    - text: REST (영문)
+      url: /rest/api/network-watcher/

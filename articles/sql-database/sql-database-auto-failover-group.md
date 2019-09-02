@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 08/29/2019
-ms.openlocfilehash: 73aeea42cd843716c845d7712539ae5c81f03dca
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.date: 08/30/2019
+ms.openlocfilehash: 65a75bc3a2e7ab2361ee8ae53d11ba1604c1d1ef
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173066"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208349"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>자동 장애 조치(failover) 그룹을 통해 여러 데이터베이스의 투명하고 조정된 장애 조치(failover)를 사용할 수 있습니다.
 
@@ -92,7 +92,7 @@ ms.locfileid: "70173066"
 
 - **읽기 전용 장애 조치 정책**
 
-  기본적으로 읽기 전용 수신기에 대한 장애 조치가 사용되지 않습니다. 이렇게 하면 보조 서버가 오프라인 상태일 때 주 서버의 성능이 영향을 받지 않습니다. 그러나 보조 서버가 복구될 때까지 읽기 전용 세션이 연결할 수 없음을 의미합니다. 읽기 전용 세션의 가동 중지 시간을 허용할 수 없고 주 데이터베이스의 성능이 잠재적으로 저하되더라도 읽기 전용 및 읽기/쓰기 트래픽 둘 다에 주 데이터베이스를 일시적으로 사용해도 되는 경우, 읽기 전용 수신기에 대해 장애 조치(failover)를 사용하도록 설정할 수 있습니다. 이 경우 보조 데이터베이스를 사용할 수 없는 경우 읽기 전용 트래픽이 자동으로 주 데이터베이스로 리디렉션됩니다.
+  기본적으로 읽기 전용 수신기에 대한 장애 조치가 사용되지 않습니다. 이렇게 하면 보조 서버가 오프라인 상태일 때 주 서버의 성능이 영향을 받지 않습니다. 그러나 보조 서버가 복구될 때까지 읽기 전용 세션이 연결할 수 없음을 의미합니다. 읽기 전용 세션의 가동 중지 시간을 허용할 수 없고 주 복제본의 잠재적인 성능 저하를 발생 시킬 수 있는 비용으로 주 복제본을 읽기 전용 및 읽기-쓰기 트래픽에 대해 일시적으로 사용할 수 없는 경우 읽기 전용 수신기에 대 한 장애 조치 (failover)를 사용 하도록 설정할 수 있습니다. 속성을 `AllowReadOnlyFailoverToPrimary` 구성 합니다. 이 경우 보조 데이터베이스를 사용할 수 없는 경우 읽기 전용 트래픽이 자동으로 주 데이터베이스로 리디렉션됩니다.
 
 - **계획된 장애 조치**
 
@@ -112,7 +112,7 @@ ms.locfileid: "70173066"
 
 - **데이터 손실이 있는 유예 기간**
 
-  주 및 보조 데이터베이스가 비동기 복제를 사용하여 동기화되기 때문에 장애 조치로 인해 데이터가 손실될 수 있습니다. 애플리케이션의 데이터 손실 허용 오차를 반영하도록 자동 장애 조치 정책을 사용자 지정할 수 있습니다. **GracePeriodWithDataLossHours**를 구성하여 데이터 손실이 발생할 수 있는 장애 조치를 시작하기 전에 시스템에서 대기하는 시간을 제어할 수 있습니다.
+  주 및 보조 데이터베이스가 비동기 복제를 사용하여 동기화되기 때문에 장애 조치로 인해 데이터가 손실될 수 있습니다. 애플리케이션의 데이터 손실 허용 오차를 반영하도록 자동 장애 조치 정책을 사용자 지정할 수 있습니다. 를 구성 `GracePeriodWithDataLossHours`하 여 데이터가 손실 될 수 있는 장애 조치 (failover)를 시작 하기 전에 시스템에서 대기 하는 시간을 제어할 수 있습니다.
 
 - **여러 장애 조치 그룹**
 
@@ -155,7 +155,7 @@ ms.locfileid: "70173066"
 
 - **읽기 전용 워크로드에 읽기 전용 수신기 사용**
 
-  특정 데이터가 부실해도 정상적으로 수행 가능한 논리적으로 격리된 읽기 전용 작업이 있는 경우에는 애플리케이션에서 보조 데이터베이스를 사용할 수 있습니다. 읽기 전용 세션의 경우 `<fog-name>.secondary.database.windows.net`을 서버 URL로 사용하면 자동으로 보조 데이터베이스에 연결됩니다. 또한 **ApplicationIntent=ReadOnly**를 사용하여 연결 문자열 읽기 의도를 표시하는 것이 좋습니다.
+  특정 데이터가 부실해도 정상적으로 수행 가능한 논리적으로 격리된 읽기 전용 작업이 있는 경우에는 애플리케이션에서 보조 데이터베이스를 사용할 수 있습니다. 읽기 전용 세션의 경우 `<fog-name>.secondary.database.windows.net`을 서버 URL로 사용하면 자동으로 보조 데이터베이스에 연결됩니다. 또한를 사용 `ApplicationIntent=ReadOnly`하 여 연결 문자열 읽기 의도를 표시 하는 것이 좋습니다. 장애 조치 (failover) 후에 읽기 전용 작업을 다시 연결 하거나 보조 서버가 오프 라인 상태가 되는 경우에는 장애 조치 정책의 `AllowReadOnlyFailoverToPrimary` 속성을 구성 해야 합니다. 
 
 - **성능 저하에 대한 대비**
 
@@ -166,7 +166,7 @@ ms.locfileid: "70173066"
 
 - **데이터 손실에 대비**
 
-  중단이 검색되면 SQL은 **GracePeriodWithDataLossHours**에서 지정한 기간 동안 대기합니다. 기본값은 1시간입니다. 데이터 손실을 방지하려는 경우 **GracePeriodWithDataLossHours**를 24시간과 같은 충분히 큰 숫자로 설정해야 합니다. 수동 그룹 장애 조치(failover)를 사용하여 보조 데이터베이스에서 주 데이터베이스로 장애 복구할 수 있습니다.
+  중단이 감지 되 면 SQL은에 지정 된 `GracePeriodWithDataLossHours`기간 동안 대기 합니다. 기본값은 1시간입니다. 데이터 손실을 감당할 수 없는 경우 24 시간 등 충분히 큰 `GracePeriodWithDataLossHours` 숫자로 설정 해야 합니다. 수동 그룹 장애 조치(failover)를 사용하여 보조 데이터베이스에서 주 데이터베이스로 장애 복구할 수 있습니다.
 
   > [!IMPORTANT]
   > 지역 복제를 사용하는 800개 이하의 DTU 및 250개 초과의 데이터베이스가 있는 탄력적 풀에는 계획된 장애 조치 지연 및 성능 저하가 포함된 문제가 발생할 수 있습니다.  이러한 문제는 지역에서 복제 엔드포인트가 지리적으로 광범위하게 분리되어 있거나 여러 보조 엔드포인트가 각 데이터베이스에 대해 사용되는 경우 쓰기 집약적 작업에 발생할 가능성이 높습니다.  이러한 문제의 증상은 지역에서 복제 지연이 시간에 따라 증가하는 경우에 표시됩니다.  이러한 지연은 [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database)를 사용하여 모니터링할 수 있습니다.  이러한 문제가 발생하는 경우 완화 방안에는 풀 DTU의 수를 늘리거나 동일한 풀에 지역에서 복제된 데이터베이스 수를 줄이는 방법이 있습니다.
@@ -305,10 +305,10 @@ ms.locfileid: "70173066"
 
 ## <a name="preventing-the-loss-of-critical-data"></a>중요한 데이터 손실 방지
 
-광역 네트워크의 높은 대기 시간으로 인해 연속 복사는 비동기 복제 메커니즘을 사용합니다. 비동기 복제를 수행하면 오류가 발생하는 경우에 일부 데이터 손실은 불가피합니다. 그러나 일부 애플리케이션은 데이터 손실이 없어야 합니다. 이러한 중요한 업데이트를 보호하기 위해 애플리케이션 개발자는 트랜잭션을 커밋한 후 즉시 [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) 시스템 프로시저를 호출할 수 있습니다. **sp_wait_for_database_copy_sync** 호출은 마지막으로 커밋된 트랜잭션이 보조 데이터베이스로 전송될 때까지 호출 스레드를 차단합니다. 그러나 전송된 트랜잭션이 보조 데이터베이스에서 재생 및 커밋될 때까지 기다리지 않습니다. **sp_wait_for_database_copy_sync**는 그 범위가 특정 연속 복사 링크로 한정됩니다. 주 데이터베이스에 대한 연결 권한이 있는 모든 사용자는 이 프로시저를 호출할 수 있습니다.
+광역 네트워크의 높은 대기 시간으로 인해 연속 복사는 비동기 복제 메커니즘을 사용합니다. 비동기 복제를 수행하면 오류가 발생하는 경우에 일부 데이터 손실은 불가피합니다. 그러나 일부 애플리케이션은 데이터 손실이 없어야 합니다. 이러한 중요한 업데이트를 보호하기 위해 애플리케이션 개발자는 트랜잭션을 커밋한 후 즉시 [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) 시스템 프로시저를 호출할 수 있습니다. 를 `sp_wait_for_database_copy_sync` 호출 하면 마지막으로 커밋된 트랜잭션이 보조 데이터베이스로 전송 될 때까지 호출 스레드가 차단 됩니다. 그러나 전송된 트랜잭션이 보조 데이터베이스에서 재생 및 커밋될 때까지 기다리지 않습니다. `sp_wait_for_database_copy_sync`는 특정 연속 복사 링크로 범위가 지정 됩니다. 주 데이터베이스에 대한 연결 권한이 있는 모든 사용자는 이 프로시저를 호출할 수 있습니다.
 
 > [!NOTE]
-> **sp_wait_for_database_copy_sync**는 장애 조치 후 데이터 손실을 방지하지만 읽기 액세스를 위한 전체 동기화를 보장하지 않습니다. **sp_wait_for_database_copy_sync** 프로시저 호출로 인한 지연은 심각할 수 있으며 호출 시 트랜잭션 로그의 크기에 따라 달라집니다.
+> `sp_wait_for_database_copy_sync`장애 조치 (failover) 후 데이터 손실을 방지 하지만 읽기 액세스를 위해 전체 동기화를 보장 하지는 않습니다. `sp_wait_for_database_copy_sync` 프로시저 호출로 인 한 지연 시간은 매우 중요할 수 있으며 호출 시 트랜잭션 로그의 크기에 따라 달라 집니다.
 
 ## <a name="failover-groups-and-point-in-time-restore"></a>장애 조치(failover) 그룹 및 지정 시간 복원
 
@@ -360,7 +360,7 @@ ms.locfileid: "70173066"
 
 ### <a name="rest-api-manage-failover-groups-with-managed-instances-preview"></a>REST API: Managed Instance를 사용하여 장애 조치(failover) 그룹 관리(미리 보기)
 
-| API | 설명 |
+| API | Description |
 | --- | --- |
 | [장애 조치(failover) 그룹 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | 장애 조치(failover) 그룹을 만들거나 업데이트합니다. |
 | [장애 조치(failover) 그룹 삭제](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | 서버에서 장애 조치 그룹을 제거합니다. |

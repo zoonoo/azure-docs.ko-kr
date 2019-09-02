@@ -1,22 +1,20 @@
 ---
 title: Azure Functions 핵심 도구 작업 | Microsoft Docs
 description: Azure Functions에서 실행하기 전에 로컬 머신의 명령 프롬프트 및 터미널에서 Azure Functions를 코딩하고 테스트하는 방법을 알아봅니다.
-services: functions
-documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 4bad9db6af6d368c943619bc2105f3fba0b7eb7b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fc77ef6786fbd16ecfeb34397ead11be8b107176
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096151"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207271"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
@@ -251,7 +249,7 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 
 다음 인수를 사용하는 명령에서 이러한 옵션을 지정할 수도 있습니다.
 
-| 인수     | 설명                            |
+| 인수     | Description                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (버전 2.x) 버전 1.x 및 포털에서 사용되는 것과 동일한 C# 스크립트(.csx) 템플릿을 생성합니다. |
 | **`--language -l`**| C#, F# 또는 JavaScript와 같은 템플릿 프로그래밍 언어 이 옵션은 버전 1.x에서 필요합니다. 버전 2.x에서는 이 옵션을 사용하지 않거나 작업자 런타임과 일치하는 언어를 선택하세요. |
@@ -307,7 +305,7 @@ func host start
 
 `func start`은 다음 옵션을 지원합니다.
 
-| 옵션     | Description                            |
+| 옵션     | 설명                            |
 | ------------ | -------------------------------------- |
 | **`--no-build`** | 실행 전에 현재 프로젝트를 빌드하지 않도록 합니다. dotnet 프로젝트에만 해당합니다. 기본값은 false로 설정하는 것입니다. 버전 2.x 전용입니다. |
 | **`--cert`** | 프라이빗 키가 포함된 .pfx 파일에 대한 경로입니다. `--useHttps`을 통해서만 사용됩니다. 버전 2.x 전용입니다. |
@@ -415,6 +413,8 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 Azure Functions Core Tools는 [Zip](functions-deployment-technologies.md#zip-deploy) 배포 및 [사용자 지정 Docker 컨테이너](functions-deployment-technologies.md#docker-container)배포를 통해 함수 앱에 함수 프로젝트 파일을 직접 배포 하는 두 가지 유형의 배포를 지원 합니다. [Azure 구독에서](functions-cli-samples.md#create)코드를 배포할 함수 앱을 이미 만들어야 합니다. 컴파일해야 하는 프로젝트는 이진 파일을 배포할 수 있는 방식으로 빌드해야 합니다.
 
+프로젝트 폴더는 게시 하지 않아야 하는 언어별 파일 및 디렉터리를 포함할 수 있습니다. 제외 된 항목은 루트 프로젝트 폴더의 funcignore 파일에 나열 됩니다.     
+
 ### <a name="project-file-deployment"></a>배포 (프로젝트 파일)
 
 Azure의 함수 앱에 로컬 코드를 게시 하려면 다음 명령을 사용 합니다 `publish` .
@@ -431,14 +431,14 @@ func azure functionapp publish <FunctionAppName>
 
 다음 게시 옵션은 1. x 및 2.x 버전 모두에 적용 됩니다.
 
-| 옵션     | Description                            |
+| 옵션     | 설명                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  local.settings.json의 설정을 Azure에 게시하고, 설정이 이미 있는 경우 덮어쓸지 묻습니다. 저장소 에뮬레이터를 사용 하는 경우 먼저 앱 설정을 [실제 저장소 연결](#get-your-storage-connection-strings)로 변경 합니다. |
 | **`--overwrite-settings -y`** | `--publish-local-settings -i` 사용 시 앱 설정을 덮어쓴다는 메시지를 표시하지 않습니다.|
 
 다음 게시 옵션은 버전 2.x에서만 지원됩니다.
 
-| 옵션     | Description                            |
+| 옵션     | 설명                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only -o`** |  설정만 게시하고 콘텐츠는 건너뜁니다. 기본값은 프롬프트입니다. |
 |**`--list-ignored-files`** | .funcignore 파일을 기준으로 하여 게시 중에 무시되는 파일 목록을 표시합니다. |
@@ -461,7 +461,7 @@ func deploy
 
 다음과 같은 사용자 지정 컨테이너 배포 옵션을 사용할 수 있습니다.
 
-| 옵션     | Description                            |
+| 옵션     | 설명                            |
 | ------------ | -------------------------------------- |
 | **`--registry`** | 현재 사용자가 로그인되어 있는 Docker 레지스트리의 이름입니다. |
 | **`--platform`** | 함수 앱의 호스팅 플랫폼입니다. 유효한 옵션은 `kubernetes`입니다. |

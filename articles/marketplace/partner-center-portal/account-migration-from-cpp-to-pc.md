@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: f5db715ecb7d5523f5f52a356198eb547f69d4f8
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 661adb755d076b0cc6114a287855482165ccb817
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194306"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208102"
 ---
 # <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Cloud 파트너 포털에서 파트너 센터로의 계정 마이그레이션
 
@@ -26,13 +26,13 @@ CPP에서 제공 되는 제품의 경우 계정이 마이그레이션하도록 �
 
 배너를 클릭 하 여 계정 마이그레이션 프로세스를 시작 합니다. 다음 항목을 입력 해야 합니다.
 
-### <a name="work-e-mail-address"></a>회사 전자 메일 주소
+### <a name="work-email-address"></a>업무용 메일 주소
 
 대부분의 경우에는 CPP에 로그인 하는 데 사용 하는 전자 메일 주소를 사용 하 여 로그인 합니다. 특정 한 경우에는 다른 전자 메일 주소를 사용 해야 합니다.
 
-* Microsoft 계정: CPP 계정이 Microsoft 계정인 경우 MPN ID가 등록 된 테 넌 트와 연결 된 올바른 회사 전자 메일 주소를 입력 해야 합니다. 
+* Microsoft 계정: CPP 계정이 Microsoft 계정 인 경우에는 MPN ID가 등록 된 테 넌 트와 연결 된 유효한 회사 전자 메일 주소를 입력 해야 합니다.
 
-* 테 넌 트 불일치: 작업 전자 메일 주소가 CPP 계정에 있는 Microsoft 파트너 네트워크 ID와 연결 된 테 넌 트에 속하지 않는 경우 오류가 표시 됩니다. 이 오류를 발생 한 후에 이동 하려면 테 넌 트와 연결 된 전자 메일 주소를 입력 합니다. 오류 메시지에는 테 넌 트의 이름이 제공 됩니다. 
+* 테 넌 트 불일치: 작업 메일 주소가 CPP 계정에 있는 Microsoft 파트너 네트워크 ID와 연결 된 테 넌 트에 속하지 않는 경우 오류가 표시 됩니다. 이 오류를 발생 한 후에 이동 하려면 테 넌 트와 연결 된 전자 메일 주소를 입력 합니다. 오류 메시지에는 테 넌 트의 이름이 제공 됩니다.
 
 ### <a name="sign-up-for-microsoft-partner-network-program"></a>Microsoft 파트너 네트워크 프로그램에 등록
 

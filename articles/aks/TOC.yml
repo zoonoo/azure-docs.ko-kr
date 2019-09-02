@@ -60,7 +60,7 @@
       items: null
     - name: 네트워킹
       href: concepts-network.md
-    - name: 스토리지
+    - name: Storage
       href: concepts-storage.md
     - name: 확장
       href: concepts-scale.md
@@ -306,6 +306,10 @@
               href: istio-install.md
             - name: 지능형 라우팅 및 카나리아 릴리스
               href: istio-scenario-routing.md
+        - name: Hashicorp Consul 연결 사용
+          items:
+            - name: 설치 및 구성
+              href: consul-install.md
         - name: Azure Database for PostgreSQL 사용
           href: ../postgresql/concepts-aks.md
           maintainContext: true

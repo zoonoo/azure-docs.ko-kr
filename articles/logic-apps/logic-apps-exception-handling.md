@@ -1,21 +1,20 @@
 ---
-title: 오류 및 예외 처리 - Azure Logic Apps | Microsoft Docs
+title: 오류 및 예외 처리-Azure Logic Apps
 description: Azure Logic Apps에서 오류 및 예외 처리 패턴에 대해 알아보기
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: dereklee
 ms.author: deli
-manager: jeconnoc
+ms.reviewer: klam, estfan, LADocs
 ms.date: 01/31/2018
 ms.topic: article
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 3f812c1142b5cd40169f7340163295b0f7ea6a4d
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 828bea50a66b90f35843901ae2d7c703ffa58f2d
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "60996601"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208178"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Azure Logic Apps에서 예외 및 오류 처리
 
@@ -80,7 +79,7 @@ ms.locfileid: "60996601"
 
 *선택 사항*
 
-| 값 | 형식 | Description |
+| 값 | 형식 | 설명 |
 |-------|------|-------------|
 | <*minimum-interval*> | String | 지수 간격 정책에서 임의로 선택한 간격의 최소 간격([ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)) | 
 | <*maximum-interval*> | String | 지수 간격 정책에서 임의로 선택한 간격의 최대 간격([ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)) | 
@@ -219,13 +218,15 @@ ms.locfileid: "60996601"
 
 범위에 대한 제한은 [제한 및 구성](../logic-apps/logic-apps-limits-and-config.md)을 참조하세요.
 
+<a name="get-results-from-failures"></a>
+
 ### <a name="get-context-and-results-for-failures"></a>실패에 대한 컨텍스트 및 결과 가져오기
 
-범위에서 실패를 catch하는 것이 유용하지만, 실패한 작업과 반환된 오류 또는 상태 코드를 정확히 파악하는 데 도움이 되는 컨텍스트가 필요할 수 있습니다. `@result()` 식은 범위에 있는 모든 작업의 결과에 대한 컨텍스트를 제공합니다.
+범위에서 실패를 catch하는 것이 유용하지만, 실패한 작업과 반환된 오류 또는 상태 코드를 정확히 파악하는 데 도움이 되는 컨텍스트가 필요할 수 있습니다.
 
-`@result()` 식은 단일 매개 변수(범위 이름)를 수락하고 해당 범위 내에서 발생하는 모든 작업 결과의 배열을 반환합니다. 이러한 작업 개체에는 작업 시작 시간, 종료 시간, 상태, 입력, 상관 관계 id 및 출력과 같은  **\@작업 ()** 개체와 동일한 특성이 포함 됩니다. 범위 내에서 실패 한 작업에 대 한 컨텍스트를 보내려면  **\@result ()** 함수를 **runafter** 속성과 쉽게 쌍으로 연결할 수 있습니다.
+함수 [`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result) 는 범위에 있는 모든 작업의 결과에 대 한 컨텍스트를 제공 합니다. 함수 `result()` 는 범위 이름인 단일 매개 변수를 수락 하 고 해당 범위 내에서 모든 작업 결과를 포함 하는 배열을 반환 합니다. 이러한 작업 개체에는 `@actions()` 개체와 동일한 특성 (예: 작업의 시작 시간, 종료 시간, 상태, 입력, 상관 관계 id 및 출력)이 포함 됩니다. 범위 내에서 실패 한 작업에 대 한 컨텍스트를 보내려면 `@result()` `runAfter` 속성을 사용 하 여 식을 쉽게 쌍으로 연결할 수 있습니다.
 
-**실패** 한 결과가 포함 된 범위에서 각 작업에 대해 작업을 실행 하 고 실패 한 작업까지 결과 배열을 필터링 하려면  **\@결과 ()** 를 **[필터 배열](../connectors/connectors-native-query.md)** 작업 및 [**for each**](../logic-apps/logic-apps-control-flow-loops.md) 루프와 쌍으로 연결할 수 있습니다. 필터링된 결과 배열을 사용하고 **For each** 루프를 사용하여 각 오류에 대한 작업을 수행할 수 있습니다. 
+**실패** 한 결과가 포함 된 범위에서 각 작업에 대 한 작업을 실행 하 고 실패 한 작업까지 결과 배열을 필터링 하려면 식에 `@result()` [**필터 배열**](../connectors/connectors-native-query.md) 작업과 [**for each**](../logic-apps/logic-apps-control-flow-loops.md) 루프를 쌍으로 연결할 수 있습니다. 필터링된 결과 배열을 사용하고 **For each** 루프를 사용하여 각 오류에 대한 작업을 수행할 수 있습니다.
 
 다음 예제에서는 자세한 설명과 함께 "My_Scope" 범위 내에서 실패한 작업의 응답 본문이 포함된 HTTP POST 요청을 보냅니다.
 

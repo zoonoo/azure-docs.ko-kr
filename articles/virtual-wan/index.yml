@@ -1,40 +1,65 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure 가상 WAN
+### YamlMime:Landing
+title: 가상 WAN 설명서
+summary: Azure 가상 WAN을 구성하고, 만들고, 관리하는 방법을 알아봅니다. 안전한 전역 규모 분기 연결을 빌드합니다.
 metadata:
-  document_id: null
-  title: '가상 WAN 설명서 - 자습서, API 참조 | Microsoft Docs'
-  meta.description: 'Learn how to configure, create, and manage an Azure Virtual WAN. Build secure global scale branch connectivity.'
+  title: 가상 WAN 설명서
+  description: 가상 WAN에 대한 자세한 정보
   services: virtual-wan
-  author: cherylmc
-  manager: jeconnoc
   ms.service: virtual-wan
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/01/2018
+  author: cherylmc
   ms.author: cherylmc
-abstract:
-  description: 'Azure 가상 WAN을 구성하고, 만들고, 관리하는 방법을 알아봅니다. 안전한 전역 규모 분기 연결을 빌드합니다.'
-sections:
-  - title: 단계별 자습서
-    items:
-      - type: paragraph
-        text: 'Azure Virtual WAN을 사용하여 연결을 구성하고, 만들고, 관리하는 방법을 알아봅니다.'
-      - type: list
-        style: unordered
-        className: spaced Bullet
-        items:
-          - html: <a href="/azure/virtual-wan/virtual-wan-site-to-site-portal">사이트 간 연결</a>
-          - html: <a href="/azure/virtual-wan/virtual-wan-point-to-site-portal">지점 및 사이트 간 연결</a>
-          - html: <a href="/azure/virtual-wan/virtual-wan-expressroute-portal">ExpressRoute 연결</a>
-  - title: 참고 자료
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: 명령줄
-            html: '<p><a href="/powershell/module/az.network#networking">PowerShell</a></p><p><a href="/cli/azure/ext/virtual-wan">Azure CLI</a></p>'
-          - title: REST (영문)
-            html: '<p><a href="https://go.microsoft.com/fwlink/p/?linkid=2005000">REST API 참조</a></p>'
+  ms.date: 08/28/2019
+  ms.openlocfilehash: a79f04f343264669bfa4366a140c6fd11b4fc7e5
+  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 08/28/2019
+  ms.locfileid: "70128153"
+landingContent:
+- title: 가상 WAN 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Virtual WAN이란?
+      url: virtual-wan-about.md
+  - linkListType: concept
+    links:
+    - text: 위치 및 파트너 작업
+      url: virtual-wan-locations-partners.md
+    - text: FAQ
+      url: virtual-wan-faq.md
+- title: 시작하기
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 사이트 간 연결 만들기
+      url: virtual-wan-site-to-site-portal.md
+    - text: ExpressRoute 연결 만들기
+      url: virtual-wan-expressroute-portal.md
+  - linkListType: how-to-guide
+    links:
+    - text: 가상 허브에서 NVA로 트래픽 라우팅
+      url: virtual-wan-route-table-portal.md
+  - linkListType: concept
+    links:
+    - text: IPsec 연결에 대한 기본 정책
+      url: virtual-wan-ipsec.md
+- title: 아키텍처
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 글로벌 전송 네트워크 아키텍처
+      url: virtual-wan-global-transit-network-architecture.md
+    - text: Office 365 컨트롤 플레인
+      url: virtual-wan-office365-overview.md
+- title: 참고 자료
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure CLI
+      url: /cli/azure/ext/virtual-wan/network
+    - text: Azure PowerShell
+      url: /powershell/module/az.network#networking
+    - text: REST (영문)
+      url: /rest/api/virtualwan

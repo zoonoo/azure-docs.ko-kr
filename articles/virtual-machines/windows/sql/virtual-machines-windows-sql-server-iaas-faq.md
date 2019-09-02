@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 9b87e6736d37d5b03630b642fee310269e8b080a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: eeda78c69c21fafcbe64071422bf7d73a4737249
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100433"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208308"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Azure의 Windows Virtual Machines에서 실행되는 SQL Server에 대한 질문과 대답
 
@@ -171,7 +171,7 @@ ms.locfileid: "70100433"
 
 1. **SQL Server VM 리소스 공급자에 등록 한 후에 SQL Server 2008/2008 R2 인스턴스를 업그레이드할 수 있나요?**
 
-   예. 설치 미디어를 사용 하 여 SQL Server 버전 및 버전을 업그레이드 한 후 _에이전트 없음_ 에서 _전체_로 [SQL IaaS 확장 모드](virtual-machines-windows-sql-server-agent-extension.md#change-management-modes) 를 업그레이드할 수 있습니다. 이렇게 하면 포털 관리 효율성, 자동화 된 백업 및 자동화 된 패치 등 SQL IaaS 확장의 모든 이점에 액세스할 수 있습니다. 
+   예. 설치 미디어를 사용 하 여 SQL Server 버전 및 버전을 업그레이드 한 후 _에이전트 없음_ 에서 _전체_로 [SQL IaaS 확장 모드](virtual-machines-windows-sql-register-with-resource-provider.md#change-management-modes) 를 업그레이드할 수 있습니다. 이렇게 하면 포털 관리 효율성, 자동화 된 백업 및 자동화 된 패치 등 SQL IaaS 확장의 모든 이점에 액세스할 수 있습니다. 
 
 ## <a name="general"></a>일반
 

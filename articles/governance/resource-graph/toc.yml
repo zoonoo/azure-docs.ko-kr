@@ -8,6 +8,9 @@
 - name: 빠른 시작
   expanded: true
   items:
+    - name: 첫 번째 쿼리 실행 - Azure Portal
+      displayName: 'portal, resource, graph, explorer'
+      href: first-query-portal.md
     - name: 첫 번째 쿼리 실행 - Azure CLI
       displayName: 'extension, docker'
       href: first-query-azurecli.md

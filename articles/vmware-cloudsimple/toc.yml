@@ -60,6 +60,8 @@
           href: access-cloudsimple-portal.md
         - name: 온-프레미스 방화벽 구성
           href: on-premises-firewall-configuration.md
+        - name: vSphere 클라이언트 액세스
+          href: vcenter-access.md
         - name: 노드 관리
           items:
             - name: 노드 프로비전
@@ -94,23 +96,19 @@
               href: public-ips.md
             - name: VPN 연결 설정
               href: vpn-gateway.md
-            - name: CloudSimple에 가상 네트워크 연결을 설정하기 위한 피어 정보 가져오기
+            - name: CloudSimple에 대한 가상 네트워크 연결
               href: virtual-network-connection.md
-            - name: 관리 작업을 위해 vSphere 클라이언트 에스컬레이션 권한에 액세스
-              href: 'https://docs.azure.cloudsimple.com/vsphere-access/'
         - name: CloudSimple 포털 계정 관리
           items:
             - name: 계정 요약 정보 보기
               href: account.md
             - name: 사용자 목록 보기
               href: users.md
-            - name: 프라이빗 클라우드에 가상 네트워크 연결 설정
-              href: virtual-network-connection.md
-        - name: 프라이빗 클라우드에 대한 VMware 가상 머신 설정
+        - name: CloudSimple 가상 머신 설정
           items:
-            - name: Azure에서 VM 만들기
+            - name: Azure에서 CloudSimple VM 만들기
               href: azure-create-vm.md
-            - name: Azure에서 VM 관리
+            - name: Azure에서 CloudSimple VM 관리
               href: azure-manage-vm.md
     - name: 방법 가이드
       items:
@@ -126,12 +124,14 @@
               href: migration-layer-2-vpn.md
         - name: 프라이빗 클라우드 네트워킹
           items:
-            - name: 온-프레미스와 프라이빗 클라우드 간의 VPN 연결
+            - name: 프라이빗 클라우드에 대한 VPN 연결
               href: set-up-vpn.md
             - name: ExpressRoute를 통해 온-프레미스 네트워크 연결
               href: on-premises-connection.md
             - name: ExpressRoute를 통해 Azure 가상 네트워크 연결
               href: azure-expressroute-connection.md
+            - name: DNS 이름 확인 구성
+              href: on-premises-dns-setup.md
         - name: VMware 플랫폼
           items:
             - name: 프라이빗 클라우드 권한 모델 알아보기

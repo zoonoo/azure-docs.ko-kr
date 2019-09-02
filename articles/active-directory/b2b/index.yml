@@ -1,55 +1,87 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Azure Active Directory B2B 설명서
+summary: Azure AD B2B(business-to-business) 협업을 사용하여 회사의 애플리케이션과 서비스를 게스트 사용자와 모든 조직의 외부 파트너와 안전하게 공유하면서 자체 회사 데이터에 대한 제어는 유지하는 방법을 알아봅니다.
 metadata:
-  document_id: null
-  title: Azure Active Directory B2B 설명서 - Azure Active Directory | Microsoft Docs
-  description: 'B2B 게스트 사용자 액세스를 사용하여 외부 파트너와 공유 및 공동 작업하는 방법에 대해 알아보려면 자습서, 빠른 시작 및 방법을 사용합니다.'
-  services: active-directory
-  ms.subservice: authentication
-  author: msmimart
-  manager: celestedg
+  title: 애플리케이션 관리 설명서
+  description: Azure AD B2B(business-to-business) 협업을 사용하여 회사의 애플리케이션과 서비스를 게스트 사용자와 모든 조직의 외부 파트너와 안전하게 공유하면서 자체 회사 데이터에 대한 제어는 유지하는 방법을 알아봅니다.
   ms.service: active-directory
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: manage-apps
+  ms.workload: identity
   ms.topic: landing-page
-  ms.date: 09/10/2018
+  ms.date: 08/27/2019
+  author: msmimart
   ms.author: mimart
-abstract:
-  description: 'Azure AD B2B(business-to-business) 협업을 사용하여 회사의 애플리케이션과 서비스를 게스트 사용자와 모든 조직의 외부 파트너와 안전하게 공유하면서 자체 회사 데이터에 대한 제어는 유지하는 방법을 알아봅니다.  몇 가지 주요 기능은 다음과 같습니다.<ul><li>간단한 초대와 상환 프로세스를 통해 게스트 사용자는 여러분이 액세스하도록 초대한 리소스를 받아 공동 작업할 수 있습니다.</li><li>게스트 사용자와 외부 파트너는 Azure AD, 소셜 이메일 계정 또는 ID 공급자를 통해 자신의 ID를 관리할 수 있습니다.</li><li>다단계 인증과 같은 Azure AD 기능을 사용하여 회사 리소스를 보호할 수 있습니다.</li><li>API를 사용하여 환경을 사용자 지정할 수 있습니다. 예를 들어 셀프 서비스 등록 포털을 사용할 수 있습니다.</li></ul>다음 리소스를 통해 신속하게 시작할 수 있습니다.'
-  aside:
-    image:
-      alt: Azure AD B2B라는 제목의 비디오 썸네일 이미지 설명
-      height: 110
-      src: ./media/index/video.png
-      width: 246
-    title: Azure AD B2B 설명
-    href: 'https://www.youtube.com/watch?v=AhwrweCBdsc'
-    width: 246
-sections:
-  - title: 5분 빠른 시작
-    items:
-      - type: paragraph
-        text: 게스트 사용자를 초대하여 B2B 협업을 시작하는 방법을 알아봅니다.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              alt: null
-              src: ./media/index/i_security-management.png
-            text: Azure Portal에서 게스트 사용자 추가
-            href: b2b-quickstart-add-guest-users-portal.md
-          - image:
-              alt: null
-              src: ./media/index/i_security-management.png
-            text: PowerShell을 사용하여 게스트 사용자 추가
-            href: b2b-quickstart-invite-powershell.md
-  - title: 단계별 자습서
-    items:
-      - type: paragraph
-        text: B2B 협업을 설정하고 회사 리소스를 보호하는 방법을 자세히 알아봅니다.
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/b2b/tutorial-bulk-invite">PowerShell을 사용하여 B2B 게스트 사용자를 대량으로 초대</a>
-          - html: <a href="/azure/active-directory/b2b/b2b-tutorial-require-mfa">B2B 게스트 사용자에 다단계 인증 적용</a>
+  manager: celested
+  ms.openlocfilehash: a1822b3bd6ec7950bc3c0ab9304ea2f60a7127e4
+  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 08/28/2019
+  ms.locfileid: "70125169"
+landingContent:
+- title: B2B Collaboration 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: B2B 게스트 사용자 액세스란?
+      url: what-is-b2b.md
+- title: B2B 게스트 사용자 초대
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: B2B 게스트가 초대를 사용하는 방법
+      url: redemption-experience.md
+  - linkListType: quickstart
+    links:
+    - text: 디렉터리에 게스트 사용자 추가
+      url: b2b-quickstart-add-guest-users-portal.md
+    - text: PowerShell을 사용하여 게스트 사용자 추가
+      url: b2b-quickstart-invite-powershell.md
+  - linkListType: how-to-guide
+    links:
+    - text: 관리자가 게스트를 초대하는 방법
+      url: add-users-administrator.md
+    - text: 사용자가 게스트를 초대하는 방법
+      url: add-users-information-worker.md
+- title: B2B Collaboration 사용자 지정
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: B2B Collaboration 사용
+      url: delegate-invitations.md
+  - linkListType: deploy
+    links:
+    - text: 직접 페더레이션 설정(미리 보기)
+      url: direct-federation.md
+    - text: Google 페더레이션 설정
+      url: google-federation.md
+    - text: 일회성 암호 인증 설정(미리 보기)
+      url: one-time-passcode.md
+  - linkListType: tutorial
+    links:
+    - text: Multi-Factor Authentication 적용
+      url: b2b-tutorial-require-mfa.md
+  - linkListType: reference
+    links:
+    - text: B2B Collaboration 코드 및 PowerShell 샘플
+      url: code-samples.md
+- title: 게스트 사용자 관리
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: B2B 게스트 사용자 이해
+      url: user-properties.md
+    - text: 동적 그룹 및 B2B 게스트
+      url: use-dynamic-groups.md
+  - linkListType: how-to-guide
+    links:
+    - text: B2B 게스트 사용자 감사 및 보고
+      url: auditing-and-reporting.md
+    - text: B2B 게스트에게 사용 권한 부여
+      url: add-guest-to-role.md
+    - text: 조직 허용 또는 차단
+      url: allow-deny-list.md
+  - linkListType: deploy
+    links:
+    - text: B2B 협업용 SaaS 앱 구성
+      url: configure-saas-apps.md

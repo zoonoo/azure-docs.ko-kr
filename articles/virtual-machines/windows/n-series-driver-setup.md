@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bc6e37b088c6bcbb2de4693eb50be661db869ecd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 92ebd34c20e3733971593344925dcb566a1bf912
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70089180"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207361"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Windows를 실행하는 N 시리즈 VM의 NVIDIA GPU 드라이버 설치 
 
@@ -40,6 +40,8 @@ GPU 드라이버를 수동으로 설치하려는 경우 이 문서는 지원되�
 VM에서는 GRID 드라이버 설치 후 다시 시작해야 합니다. CUDA 드라이버 설치 후에는 다시 시작할 필요가 없습니다.
 
 ## <a name="verify-driver-installation"></a>드라이버 설치 확인
+
+Nvidia 제어판은 그리드 드라이버 설치로만 액세스할 수 있습니다. Verda 드라이버를 설치한 경우에는 Nvidia 제어판이 표시 되지 않습니다.
 
 디바이스 관리자에서 드라이버 설치를 확인할 수 있습니다. 다음 예제에서는 Azure NC VM에서 Tesla K80 카드의 성공적인 구성을 보여 줍니다.
 

@@ -44,8 +44,12 @@
           href: ingest-data-event-hub.md
         - name: Event Grid
           href: ingest-data-event-grid.md
+        - name: IoT Hub
+          href: ingest-data-iot-hub.md
         - name: 한 번 클릭으로 수집
           href: ingest-data-one-click.md
+        - name: 스트리밍 수집
+          href: ingest-data-streaming.md
         - name: Kafka
           href: ingest-data-kafka.md
         - name: Python
@@ -90,6 +94,12 @@
               href: power-bi-imported-query.md
             - name: SQL 쿼리
               href: power-bi-sql-query.md
+        - name: Excel
+          items:
+            - name: 커넥터
+              href: excel-connector.md
+            - name: 빈 쿼리
+              href: excel-blank-query.md
         - name: Grafana
           href: grafana.md
         - name: ODBC 커넥터

@@ -4,9 +4,9 @@
 - name: 개요
   expanded: true
   items:
-    - name: 데이터 과학 VM은 무엇입니까?
+    - name: Data Science Virtual Machine이란?
       href: overview.md
-    - name: Geo AI 데이터 과학 VM은 무엇입니까?
+    - name: Geo AI DSVM이란?
       href: geo-ai-dsvm-overview.md
 - name: 빠른 시작
   expanded: true
@@ -17,7 +17,7 @@
       href: dsvm-ubuntu-intro.md
     - name: CentOS DSVM 만들기
       href: linux-dsvm-intro.md
-    - name: Geo AI 데이터 과학 VM 만들기
+    - name: Geo AI DSVM 만들기
       href: provision-geo-ai-dsvm.md
 - name: 개념
   items:
@@ -35,7 +35,7 @@
       href: dsvm-tools-ingestion.md
     - name: 데이터 탐색 및 시각화 도구
       href: dsvm-tools-explore-and-visualize.md
-    - name: Enterprise 보안 및 지침
+    - name: 엔터프라이즈 보안 및 지침
       href: dsvm-enterprise-overview.md
 - name: 샘플
   href: dsvm-samples-and-walkthroughs.md

@@ -1,35 +1,51 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Bastion 설명서
+### YamlMime:Landing
+title: Azure Bastion 설명서(미리 보기)
+summary: Azure Bastion을 사용하여 가상 머신에 연결하는 방법을 알아봅니다. SSL을 통해 Azure Portal에서 가상 머신에 안전하고 원활한 RDP/SSH 연결을 직접 구성합니다. Azure Bastion을 통해 연결하는 경우에는 가상 머신에 공용 IP 주소가 필요하지 않습니다.
 metadata:
-  document_id: null
-  title: Bastion
-  meta.description: Learn how to use Azure Bastion
-  author: cherylmc
-  ms.service: Bastion
+  title: Azure Bastion 설명서(미리 보기)
+  description: Azure Bastion을 사용하여 가상 머신에 연결하는 방법을 알아봅니다. SSL을 통해 Azure Portal에서 가상 머신에 안전하고 원활한 RDP/SSH 연결을 직접 구성합니다.
+  services: bastion
+  ms.service: bastion
   ms.topic: landing-page
-  ms.date: 07/02/2019
+  author: cherylmc
   ms.author: cherylmc
-abstract:
-  description: Azure Bastion을 사용하여 가상 머신에 연결하는 방법을 알아봅니다. SSL을 통해 Azure Portal에서 가상 머신에 안전하고 원활한 RDP/SSH 연결을 직접 구성합니다. Azure Bastion을 통해 연결하는 경우에는 가상 머신에 공용 IP 주소가 필요하지 않습니다.
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: 'https://go.microsoft.com/fwlink/?linkid=2095604'
-      width: 250
-    title: 'Azure Bastion 사용(1:03)'
-    href: 'https://go.microsoft.com/fwlink/?linkid=2095517'
-    width: 250
-sections:
-  - title: Azure Bastion 생성 및 관리(미리 보기)
-    items:
-      - type: paragraph
-        text: 'Azure Bastion 호스트를 구성한 다음, 가상 머신에 연결하는 방법을 알아봅니다.'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/bastion/bastion-create-host-portal">Azure Bastion 호스트 생성 및 수정</a>
-          - html: <a href="/azure/bastion/bastion-connect-vm-rdp">Windows 가상 머신에 연결</a>
-          - html: <a href="/azure/bastion/bastion-connect-vm-ssh">Linux 가상 머신에 연결</a>
-          - html: <a href="/azure/bastion/bastion-faq">Azure Bastion FAQ 읽기</a>
+  ms.date: 08/29/2019
+  ms.openlocfilehash: 6854e6ec4bd36ea38fa0e1f9cd46f95e11144be6
+  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 08/28/2019
+  ms.locfileid: "70128117"
+landingContent:
+- title: Azure Bastion 정보(미리 보기)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Bastion 정보
+      url: bastion-overview.md
+  - linkListType: concept
+    links:
+    - text: Azure Bastion FAQ
+      url: bastion-faq.md
+- title: 시작하기
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 베스천 호스트 만들기
+      url: bastion-create-host-portal.md
+    - text: 가상 머신에 연결(Linux)
+      url: bastion-connect-vm-ssh.md
+    - text: 가상 머신에 연결(Windows)
+      url: bastion-connect-vm-rdp.md
+  - linkListType: video
+    links:
+    - text: Azure Bastion 사용
+      url: https://go.microsoft.com/fwlink/?linkid=2095517
+- title: 가상 머신 세션 작업
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 복사 및 붙여넣기
+      url: bastion-vm-copy-paste.md
+    - text: 전체 화면 보기
+      url: bastion-vm-full-screen.md

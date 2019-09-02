@@ -4,18 +4,21 @@ ms.service: search
 ms.topic: include
 ms.date: 05/02/2019
 ms.author: magottei
-ms.openlocfilehash: 1a375c438682c7afba2c65c049810d7d7234c808
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 8fbdbf96106cdf2bd2990042c30d346dc830d398
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182616"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208258"
 ---
 * PDF
-* Microsoft Office 형식: DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG (Outlook 메일)  
+* Microsoft Office 형식: .DOCX/DOC/.DOCM, .XLSX/XLS/.XLSM, .PPTX/PPT/PPTM, MSG (Outlook 전자 메일), XML (2003 및 2006 WORD XML 모두)
+* 열린 문서 형식: ODT, ODS, ODP  
 * HTML
 * XML
 * ZIP
+* RELEASE.TAR.GZ
+* EPUB
 * EML
 * RTF
 * 일반 텍스트 파일([일반 텍스트 인덱싱](../articles/search/search-howto-indexing-azure-blob-storage.md#IndexingPlainText)도 참조)

@@ -17,18 +17,18 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 091fb7cb9e74166b1e01c00834c2346dd2f0fd8b
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 699c8ce559d26ad226ad1dfd7f7266fe8c4acdfb
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835544"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207195"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에서 발급된 역할 클레임 구성
 
 Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나는 응답 토큰에서 역할 클레임에 대한 클레임 유형을 지정할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 디렉터리가 설치된 Azure AD 구독
 - SSO(Single Sign-On)를 사용하도록 설정된 구독 애플리케이션에 SSO를 구성해야 함
@@ -59,7 +59,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
     ![속성 페이지](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
 
-6. 또 다른 창에서 [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)를 열고 다음 단계를 수행합니다.
+6. 다른 창에서 [Microsoft Graph 탐색기](https://developer.microsoft.com/graph/graph-explorer) 를 열고 다음 단계를 수행 합니다.
 
     a. 테넌트의 전역 관리자 또는 공동 관리자 자격 증명을 사용하여 Graph Explorer 사이트에 로그인합니다.
 
@@ -186,7 +186,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
 기존 역할을 업데이트하려면 다음 단계를 수행합니다.
 
-1. [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)를 엽니다.
+1. [Microsoft Graph 탐색기](https://developer.microsoft.com/graph/graph-explorer)를 엽니다.
 
 2. 테넌트의 전역 관리자 또는 공동 관리자 자격 증명을 사용하여 Graph Explorer 사이트에 로그인합니다.
 
@@ -224,7 +224,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
 기존 역할을 삭제하려면 다음 단계를 수행합니다.
 
-1. 또 다른 창에서 [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)를 엽니다.
+1. 다른 창에서 [Microsoft Graph 탐색기](https://developer.microsoft.com/graph/graph-explorer) 를 엽니다.
 
 2. 테넌트의 전역 관리자 또는 공동 관리자 자격 증명을 사용하여 Graph Explorer 사이트에 로그인합니다.
 

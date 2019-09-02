@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 08/25/2019
+ms.date: 08/28/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 014a2c3cff3804657e4e2bf624b97eceef4bf4b2
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 74e0539095701ec104495bf5a44dec668494d444
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70033316"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207181"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Azure AD Identity Governance란?
 
@@ -69,6 +69,18 @@ IT 대리자는 일반적으로 비즈니스 의사 결정권자에 대한 승�
 ![권한 있는 액세스 수명 주기](./media/identity-governance-overview/privileged-access-lifecycle.png)
 
 PIM(Azure AD Privileged Identity Management)에서는 Azure AD, Azure 및 기타 Microsoft 온라인 서비스에서 리소스에 대한 액세스 권한을 보호하기 위해 조정된 추가 컨트롤을 제공합니다.  Multi-factor authentication 및 조건부 액세스 뿐만 아니라 Azure AD PIM에서 제공 하는 just-in-time 액세스 및 역할 변경 경고 기능을 사용 하면 회사의 리소스를 보호 하는 포괄적인 거 버 넌 스 컨트롤을 제공할 수 있습니다 (디렉터리, Office 365 및 Azure 리소스 역할). 다른 양식의 액세스를 사용하는 경우와 마찬가지로 조직은 액세스 검토를 사용하여 관리자 역할의 모든 사용자에 대해 정기 액세스 재인증을 구성할 수 있습니다.
+
+## <a name="least-privileged-roles"></a>최소 권한 역할
+
+PIM을 사용 하면 추가 보안을 위해 사용자의 관리 권한을 제한할 수 있습니다. Azure AD id 거 버 넌 스 기능에서 구성에 대 한 최소 권한 있는 디렉터리 역할은 다음과 같습니다. 
+
+| 기능 | 최소 권한 역할 |
+| ------- | --------------------- |
+| 권한 관리 | 사용자 관리자 (전역 관리자가 필요한 카탈로그에 SharePoint Online 사이트를 추가 하는 것은 제외) |
+| 서비스 계약 | 보안 관리자 또는 조건부 액세스 관리자 |
+| 액세스 검토 | 사용자 관리자 (권한 있는 역할 관리자가 필요한 Azure 또는 Azure AD 역할의 액세스 검토를 제외 하 고) |
+|권위 있는 ID 관리 | 권한 있는 역할 관리자 |
+
 
 ## <a name="getting-started"></a>시작
 

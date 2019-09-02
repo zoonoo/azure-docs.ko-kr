@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/16/2019
 ms.author: stevelas
-ms.openlocfilehash: 50ab3fc92fc980638547bb090c5d0d78aa20ab5f
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: c0de5f958c6dcbf935de4eec9557cf64620abbcf
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172279"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208009"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Azure Container Registry의 지리적 복제
 
@@ -97,8 +97,19 @@ ACR이 구성된 복제본 사이의 이미지 동기화를 시작합니다. 동
 * 지역 복제 레지스트리의 각 Azure 지역은 일단 설정되면 서로 독립적입니다. 지역 복제된 각 Azure 지역에는 Azure Container Registry SLA가 적용됩니다.
 * 지역 복제된 레지스트리의 이미지를 푸시 또는 풀하면 백그라운드의 Azure Traffic Manager는 가장 가까운 레지스트리에 요청을 보냅니다.
 * 가장 가까운 Azure 지역에 이미지 또는 태그 업데이트를 푸시한 후 Azure Container Registry가 매니페스트 및 레이어를 사용자가 옵트인한 나머지 Azure 지역에 복제할 때까지 어느 정도 시간이 걸립니다. 큰 이미지는 작은 이미지보다 복제 시간이 오래 걸립니다. 이미지 및 태그는 최종 일관성 모델을 사용하여 복제 지역에서 동기화됩니다.
-* 지역 복제 레지스트리에 푸시 업데이트를 사용하는 워크플로를 관리하려면 푸시 이벤트에 응답하는 [webhook](container-registry-webhook.md)를 구성하는 것이 좋습니다. 지역 복제된 Azure 지역에서 완료되는 푸시 이벤트를 추적하도록 지역 복제된 레지스트리 내부에 지역별 webhook를 설정할 수 있습니다.
+* 지역에서 복제 된 푸시 업데이트에 종속 되는 워크플로를 관리 하려면 푸시 이벤트에 응답 하도록 [웹 후크](container-registry-webhook.md) 를 구성 하는 것이 좋습니다. 지역 복제된 Azure 지역에서 완료되는 푸시 이벤트를 추적하도록 지역 복제된 레지스트리 내부에 지역별 webhook를 설정할 수 있습니다.
 
+## <a name="delete-a-replica"></a>복제본 삭제
+
+레지스트리에 대 한 복제본을 구성한 후에는 언제 든 지 더 이상 필요 하지 않은 복제본을 삭제할 수 있습니다. Azure Portal 또는 Azure CLI의 [az acr replication delete](/cli/azure/acr/replication#az-acr-replication-delete) 명령과 같은 기타 도구를 사용 하 여 복제본을 삭제 합니다.
+
+Azure Portal에서 복제본을 삭제 하려면 다음을 수행 합니다.
+
+1. Azure Container Registry로 이동 하 고 **복제**를 선택 합니다.
+1. 복제본의 이름을 선택 하 고 **삭제**를 선택 합니다. 복제본을 삭제할 것인지 확인 합니다.
+
+> [!NOTE]
+> 레지스트리의 *홈 지역* , 즉 레지스트리를 만든 위치에 있는 레지스트리 복제본은 삭제할 수 없습니다. 레지스트리 자체를 삭제 하 여 홈 복제본만 삭제할 수 있습니다.
 
 ## <a name="geo-replication-pricing"></a>지역에서 복제 가격 책정
 

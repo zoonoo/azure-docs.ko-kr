@@ -145,17 +145,6 @@
         - name: 데이터 세트 추가 및 등록
           displayName: 'data, dataset'
           href: how-to-create-register-datasets.md
-        - name: azureml.dataprep를 사용하여 준비
-          items:
-            - name: 데이터 로드
-              displayName: 'data, etl, data prep, dataprep'
-              href: how-to-load-data.md
-            - name: 데이터 변환
-              displayName: 'data, etl, dataprep, data prep'
-              href: how-to-transform-data.md
-            - name: 데이터 쓰기
-              displayName: 'data, etl, data prep, dataprep'
-              href: how-to-write-data.md
     - name: 모델 학습
       items:
         - name: 학습 환경 설정
@@ -347,6 +336,8 @@
               href: ../algorithm-module-reference/multiclass-neural-network.md
             - name: 다중 클래스 의사 결정 포리스트
               href: ../algorithm-module-reference/multiclass-decision-forest.md
+            - name: 다중 클래스 향상된 의사 결정 트리
+              href: ../algorithm-module-reference/multiclass-boosted-decision-tree.md
             - name: 2클래스 평균 퍼셉트론
               href: ../algorithm-module-reference/two-class-averaged-perceptron.md
             - name: 2클래스 의사 결정 포리스트

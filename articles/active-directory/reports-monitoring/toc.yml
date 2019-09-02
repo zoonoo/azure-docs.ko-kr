@@ -37,10 +37,12 @@
       href: concept-usage-insights-report.md
     - name: 위험한 로그인
       href: concept-risky-sign-ins.md
-    - name: 위험 이벤트
+    - name: 위험 검색
       href: concept-risk-events.md
     - name: 위험에 노출된 사용자
       href: concept-user-at-risk.md
+    - name: 프로비저닝 로그
+      href: concept-provisioning-logs.md
     - name: Reporting API
       href: concept-reporting-api.md
     - name: Azure Monitor의 Azure AD 로그

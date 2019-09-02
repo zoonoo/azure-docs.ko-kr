@@ -70,6 +70,8 @@
       href: backup-architecture.md
     - name: 역할 기반 Access Control
       href: backup-rbac-rs-vault.md
+    - name: 클라우드 워크로드 보안
+      href: backup-azure-security-feature-cloud.md
     - name: 하이브리드 백업 보안
       href: backup-azure-security-feature.md
     - name: 오프라인 백업 구성

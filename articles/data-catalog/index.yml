@@ -1,42 +1,63 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Azure Data Catalog 설명서
+summary: 조직에서 데이터 원본을 찾고, 이해하고, 사용할 수 있도록 데이터 카탈로그를 설정하는 방법에 대해 알아봅니다. 자습서, REST API 참조 및 기타 설명서에서는 데이터 소비자가 사용 가능한 데이터 원본을 검색하고 문제의 전문가가 제공하는 지식을 얻을 수 있는 데이터 리포지토리를 계획하고 설정하는 방법을 보여 줍니다.
 metadata:
-  title: 'Azure Data Catalog 설명서 - 자습서, API 참조'
-  meta.description: 'Learn how to set up a data catalog where your organization can find, understand, and consume data sources. Tutorials, API reference, and other documentation.'
-  services: data-catalog
-  author: JasonWHowell
+  author: jasonwhowell
+  description: 조직에서 데이터 원본을 찾아 이해하고 사용할 수 있는 데이터 카탈로그를 설정하는 방법에 대해 알아봅니다. 자습서, API, 참조 및 기타 설명서입니다.
   ms.author: jasonh
+  ms.date: 08/30/2019
   ms.service: data-catalog
   ms.topic: landing-page
-  ms.date: 07/01/2019
-abstract:
-  description: 'Data Catalog를 사용하여 조직 및 팀에서 데이터 원본을 검색하고 이해하고 사용할 수 있는 방법에 대해 알아봅니다. 자습서, REST API 참조 및 기타 설명서에서는 데이터 소비자가 사용 가능한 데이터 원본을 검색하고 문제의 전문가가 제공하는 지식을 얻을 수 있는 데이터 리포지토리를 계획하고 설정하는 방법을 보여 줍니다.'
-sections:
-  - title: 5분 빠른 시작
-    items:
-      - type: paragraph
-        text: '첫 번째 Azure Data Catalog를 배포하는 방법:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/data-catalog.svg
-            text: Azure portal
-            href: 'https://docs.microsoft.com/azure/data-catalog/data-catalog-get-started'
-  - title: 단계별 자습서
-    items:
-      - type: paragraph
-        text: 'Azure Data Catalog에서 등록, 검색, 주석 달기, 관리 및 자산을 삭제하는 방법:'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="register-data-assets-tutorial">Azure Data Catalog에서 데이터 자산 등록</a>
-  - title: 참고 자료
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: REST (영문)
-            html: <p><a href="/rest/api/datacatalog/">REST API 참조</a></p><p><a href="/rest/api/datacatalog/data-catalog-search-syntax-reference">검색 구문 참조</a></p>
+  ms.openlocfilehash: eb60085cd76fa9d3857b5e284b2cdd03f35fcb13
+  ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 08/30/2019
+  ms.locfileid: "70172687"
+landingContent:
+- title: Azure Data Catalog 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure 데이터 카탈로그란?
+      url: overview.md
+  - linkListType: quickstart
+    links:
+    - text: 첫 번째 Data Catalog를 배포하는 방법 알아보기
+      url: data-catalog-get-started.md
+  - linkListType: concept
+    links:
+    - text: 질문과 대답
+      url: data-catalog-frequently-asked-questions.md
+- title: 데이터 자산 등록
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 자산을 등록, 검색, 주석 달기, 관리 및 삭제하는 방법 알아보기
+      url: register-data-assets-tutorial.md
+  - linkListType: concept
+    links:
+    - text: 지원되는 데이터 원본
+      url: data-catalog-dsr.md
+  - linkListType: how-to-guide
+    links:
+    - text: 데이터 원본 등록
+      url: data-catalog-how-to-register.md
+- title: Data Catalog REST API 프로그래밍
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: REST를 사용하여 Data Catalog 앱 만들기
+      url: /rest/api/datacatalog/get-started-creating-a-data-catalog-app
+  - linkListType: reference
+    links:
+    - text: REST API 참조
+      url: /rest/api/datacatalog/
+  - linkListType: how-to-guide
+    links:
+    - text: Data Catalog 앱을 만드는 방법
+      url: /rest/api/datacatalog/register-a-client-app
+  - linkListType: reference
+    links:
+    - text: 검색 구문 참조
+      url: /rest/api/datacatalog/data-catalog-search-syntax-reference

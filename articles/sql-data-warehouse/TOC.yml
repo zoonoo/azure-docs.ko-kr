@@ -57,13 +57,13 @@
       items:
         - name: 개요
           href: sql-data-warehouse-overview-manage-security.md
-        - name: Advanced Data Security
+        - name: 고급 데이터 보안
           items:
             - name: 개요
               href: ../sql-database/sql-database-advanced-data-security.md?toc=/azure/sql-data-warehouse/toc.json
             - name: 데이터 검색 및 분류
               href: ../sql-database/sql-database-data-discovery-and-classification.md?toc=/azure/sql-data-warehouse/toc.json
-            - name: 취약성 평가
+            - name: 취약점 평가
               href: ../sql-database/sql-vulnerability-assessment.md?toc=/azure/sql-data-warehouse/toc.json
             - name: 고급 위협 보호
               href: ../sql-database/sql-database-threat-detection-overview.md?toc=/azure/sql-data-warehouse/toc.json

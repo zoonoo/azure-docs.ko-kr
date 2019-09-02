@@ -96,20 +96,27 @@
   href: reset-network-interface.md
 - name: VM 다시 시작 또는 크기 조정
   href: restart-resize-error-troubleshooting.md
-- name: 직렬 콘솔 사용
+- name: 직렬 콘솔
+  href: serial-console-overview.md
   items:
-    - name: Linux VM
+    - name: Linux용 직렬 콘솔
       href: serial-console-linux.md
       items:
         - name: 직렬 콘솔 GRUB/단일 사용자 모드
           href: serial-console-grub-single-user-mode.md
         - name: 직렬 콘솔 NMI/SysRq
           href: serial-console-nmi-sysrq.md
-    - name: Windows VM
+    - name: Windows용 직렬 콘솔
       href: serial-console-windows.md
       items:
         - name: CMD 및 PowerShell 명령
           href: serial-console-cmd-ps-commands.md
+    - name: 직렬 콘솔 활성화 및 비활성화
+      href: serial-console-enable-disable.md
+    - name: 직렬 콘솔 내의 전원 옵션
+      href: serial-console-power-options.md
+    - name: 일반적인 직렬 콘솔 오류
+      href: serial-console-errors.md
 - name: 스토리지 리소스 삭제 시 오류
   href: storage-resource-deletion-errors.md
 - name: 클래식 스토리지 리소스 삭제 시 오류
@@ -153,6 +160,8 @@
 - name: 부트 오류
   href: boot-error-troubleshoot.md
   items:
+    - name: Azure Virtual Machine 부트 오류
+      href: troubleshoot-vm-boot-error.md
     - name: 부트 진단
       href: boot-diagnostics.md
     - name: BitLocker 오류

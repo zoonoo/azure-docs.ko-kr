@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62814bb1e2934c406dc5fb1eb3b3bc3f3d2ee3b7
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 3799496d13259c943847625a2cf6a39a8edb1d35
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135550"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207251"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Azure Active Directory에서 관리 작업별 관리자 역할
 
@@ -143,6 +143,11 @@ Microsoft Graph 또는 Azure AD Graph에 대한 애플리케이션 권한에 동
 엔터프라이즈 애플리케이션 셀프 서비스 업데이트 | 엔터프라이즈 애플리케이션 소유자([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 클라우드 애플리케이션 관리자, 애플리케이션 관리자
 Single Sign-On 속성 업데이트 | 엔터프라이즈 애플리케이션 소유자([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 클라우드 애플리케이션 관리자, 애플리케이션 관리자
 
+## <a name="entitlement-management"></a>권한 관리
+태스크 | 최소 권한 역할 | 추가 역할
+---- | --------------------- | ----------------
+카탈로그에 리소스 추가 | 사용자 관리자 | 권한 관리를 사용 하 여이 작업을 카탈로그 소유자에 게 위임할 수 있습니다 ([설명서 참조](../governance/entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager)).
+카탈로그에 SharePoint Online 사이트 추가 | 전역 관리자
 
 
 ## <a name="groups"></a>그룹

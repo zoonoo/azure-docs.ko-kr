@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: brjohnst
-ms.openlocfilehash: 42d3a4a0840e7241666f66a09e7e6b11342cbfbc
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 3f167ee082b751f6bd686c0543db6a262615e486
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182276"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208251"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>.NET 애플리케이션에서 Azure Search를 사용하는 방법
 
@@ -579,7 +579,7 @@ namespace AzureSearch.SDKHowTo
 * 코드의 속성 이름과 인덱스의 필드 이름을 매핑할 수 있습니다.
 * 문서 필드에 속성에 매핑하는 데 사용할 수 있는 사용자 지정 특성을 만듭니다.
 
-GitHub에서 Azure Search .NET SDK에 대한 단위 테스트에서 사용자 지정 serialization을 구현하는 예제를 찾을 수 있습니다. 적절한 시작 지점은 [이 폴더](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Search/Search.Tests/Tests/Models)입니다. 여기에는 사용자 지정 serialization 테스트에 사용되는 클래스가 있습니다.
+GitHub에서 Azure Search .NET SDK에 대한 단위 테스트에서 사용자 지정 serialization을 구현하는 예제를 찾을 수 있습니다. 적절한 시작 지점은 [이 폴더](https://github.com/Azure/azure-sdk-for-net/tree/4f6f4e4c90200c1b0621c4cead302a91e89f2aba/sdk/search/Microsoft.Azure.Search/tests/Tests/Models)입니다. 여기에는 사용자 지정 serialization 테스트에 사용되는 클래스가 있습니다.
 
 ### <a name="searching-for-documents-in-the-index"></a>인덱스에서 문서 검색
 샘플 응용 프로그램의 마지막 단계는 인덱스에서 일부 문서를 검색 하는 것입니다.
