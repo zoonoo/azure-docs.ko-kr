@@ -43,7 +43,7 @@ HDInsight에서 Spark 클러스터는 완벽하게 관리되는 Spark 서비스�
 | BI 도구와의 통합 |HDInsight에서 Spark 클러스터는 데이터 분석을 위해 [Power BI](https://www.powerbi.com/)와 같은 BI 도구용 커넥터를 제공합니다. |
 | 미리 로드된 Anaconda 라이브러리 |HDInsight에서 Spark 클러스터는 미리 설치된 Anaconda 라이브러리와 함께 제공됩니다. [Anaconda](https://docs.continuum.io/anaconda/) 는 기계 학습, 데이터 분석, 시각화 등을 위해 약 200개의 라이브러리를 제공합니다. |
 | 확장성 | HDInsight를 사용하면 클러스터 노드의 수를 변경할 수 있습니다. 또한 모든 데이터가 Azure Storage 또는 Data Lake Storage에 저장되므로 데이터 손실 없이 Spark 클러스터를 삭제할 수 있습니다. |
-| SLA |HDInsight의 Spark 클러스터는 24/7 지원 및 99.9% 가동 시간 SLA와 함께 제공됩니다. |
+| SLA |HDInsight의 Spark 클러스터는 언제나 지원되며 99.9% 가동 시간 SLA와 함께 제공됩니다. |
 
 HDInsight의 Apache Spark 클러스터에는 기본적으로 클러스터에서 사용할 수 있는 다음 구성 요소가 포함되어 있습니다.
 
