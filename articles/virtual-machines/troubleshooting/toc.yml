@@ -97,8 +97,9 @@
 - name: VM 다시 시작 또는 크기 조정
   href: restart-resize-error-troubleshooting.md
 - name: 직렬 콘솔
-  href: serial-console-overview.md
   items:
+    - name: 직렬 콘솔 개요
+      href: serial-console-overview.md
     - name: Linux용 직렬 콘솔
       href: serial-console-linux.md
       items:

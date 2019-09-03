@@ -33,10 +33,10 @@
               href: tutorial-auto-train-models.md
     - name: 시각적 인터페이스
       items:
-        - name: 회귀 모델 학습
+        - name: 1. 회귀 모델 학습
           displayName: studio
           href: ui-tutorial-automobile-price-train-score.md
-        - name: 회귀 모델 배포
+        - name: 2. 회귀 모델 배포
           displayName: studio
           href: ui-tutorial-automobile-price-deploy.md
     - name: 자동화된 기계 학습

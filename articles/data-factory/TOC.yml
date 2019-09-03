@@ -147,6 +147,8 @@
           href: concepts-data-flow-overview.md
         - name: 디버그 모드
           href: concepts-data-flow-debug-mode.md
+        - name: JSON 처리
+          href: concepts-data-flow-json.md
         - name: 스키마 드리프트
           href: concepts-data-flow-schema-drift.md
         - name: 검사 창
@@ -446,6 +448,8 @@
           href: control-flow-webhook-activity.md
     - name: 데이터 흐름 변환
       items:
+        - name: 고정 너비 필드
+          href: how-to-fixed-width.md
         - name: 집계
           href: data-flow-aggregate.md
         - name: 행 변경
@@ -600,6 +604,8 @@
           href: data-migration-guidance-overview.md
         - name: AWS S3에서 Azure로 데이터 마이그레이션
           href: data-migration-guidance-s3-azure-storage.md
+        - name: 온-프레미스 Hadoop 클러스터에서 Azure로 데이터 마이그레이션
+          href: data-migration-guidance-hdfs-azure-storage.md
 - name: 참고 자료
   items:
     - name: .NET
