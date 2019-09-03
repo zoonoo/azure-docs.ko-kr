@@ -8,18 +8,40 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: 2f645d290175db9692649d825323313fc207a014
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 69d75f9050560eb4a9e394241316c0474fffe7cc
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210290"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232483"
 ---
-# <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 가상 머신 백업 문제 해결
+# <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Azure 가상 머신에서 백업 오류 문제 해결
+
 아래에 나열 된 정보를 사용 하 여 Azure Backup를 사용 하는 동안 발생 한 오류를 해결할 수 있습니다.
 
 ## <a name="backup"></a>백업
+
 이 섹션에서는 Azure 가상 컴퓨터의 백업 작업 실패에 대해 설명 합니다.
+
+### <a name="basic-troubleshooting"></a>기본 문제 해결
+
+* VM 에이전트 (WA 에이전트)가 [최신 버전](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent-on-the-virtual-machine)인지 확인 합니다.
+* Windows 또는 Linux VM OS 버전이 지원 되는지 확인 하세요. [IAAS Vm Backup 지원 매트릭스](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas)를 참조 하세요.
+* 다른 백업 서비스가 실행 되 고 있지 않은지 확인 합니다.
+   * 스냅숏 확장 문제가 없는지 확인 하려면 확장을 제거 하 여 [강제로 다시 로드 한 후 백업을 다시 시도](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-backup-extension-fails-to-update-or-load)하세요.
+* VM이 인터넷에 연결 되어 있는지 확인 합니다.
+   * 다른 백업 서비스가 실행 되 고 있지 않은지 확인 하십시오.
+* 에서 `Services.msc` **Windows Azure 게스트 에이전트** 서비스가 **실행**중인지 확인 합니다. **Microsoft Azure 게스트 에이전트** 서비스가 없는 경우 [Recovery Services 자격 증명 모음에 Azure vm 백업](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent)에서 설치 합니다.
+* **이벤트 로그** 에는 다른 백업 제품의 백업 오류 (예: Windows Server 백업)가 표시 될 수 있으며, Azure 백업으로 인 한 것이 아닙니다. 다음 단계를 사용 하 여 문제가 Azure Backup 있는지 여부를 확인 합니다.
+   * 이벤트 원본 또는 메시지에 항목을 **백업** 하는 동안 오류가 발생 하는 경우 AZURE IaaS VM 백업 백업에 성공 했는지 여부 및 원하는 스냅숏 유형으로 복원 지점을 만들었는지 여부를 확인 합니다.
+    * Azure Backup 작동 하는 경우 다른 백업 솔루션에 문제가 있을 수 있습니다. 
+    * Azure 백업이 정상적으로 작동 하지만 "Windows Server 백업"이 실패 한 이벤트 뷰어 오류의 예는 다음과 같습니다.<br>
+    ![Windows Server 백업 실패](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
+    * Azure Backup 실패 하면이 문서의 일반적인 VM 백업 오류 섹션에서 해당 오류 코드를 찾습니다. 
+
+## <a name="common-issues"></a>일반적인 문제
+
+다음은 Azure virtual machines에서의 백업 실패와 관련 된 일반적인 문제입니다.
 
 ## <a name="copyingvhdsfrombackupvaulttakinglongtime---copying-backed-up-data-from-vault-timed-out"></a>CopyingVHDsFromBackUpVaultTakingLongTime-자격 증명 모음에서 백업 데이터를 복사 하는 시간이 초과 되었습니다.
 
@@ -36,7 +58,7 @@ ms.locfileid: "70210290"
 VM이 실패 상태 여 서 백업 작업이 실패 했습니다. 성공적으로 백업 하려면 VM 상태가 실행 중, 중지 됨 또는 중지 됨 (할당 취소 됨) 이어야 합니다.
 
 * VM이 **실행 중**에서 **종료** 상태로 전환되고 있으면 상태가 변경될 때까지 기다립니다. 그런 다음, 백업 작업을 트리거합니다.
-*  VM이 Linux 에이전트이고 Security-Enhanced Linux 커널 모듈을 사용하는 경우 보안 정책에서 Azure Linux 에이전트 경로 **/var/lib/waagent**를 제외하여 백업 확장이 설치되도록 합니다.
+* VM이 Linux 에이전트이고 Security-Enhanced Linux 커널 모듈을 사용하는 경우 보안 정책에서 Azure Linux 에이전트 경로 **/var/lib/waagent**를 제외하여 백업 확장이 설치되도록 합니다.
 
 ## <a name="usererrorfsfreezefailed---failed-to-freeze-one-or-more-mount-points-of-the-vm-to-take-a-file-system-consistent-snapshot"></a>UserErrorFsFreezeFailed-파일 시스템 일치 스냅숏을 만들기 위해 VM의 탑재 위치를 하나 이상 고정 하지 못했습니다.
 

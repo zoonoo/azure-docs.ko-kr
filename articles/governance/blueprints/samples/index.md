@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 08/21/2019
 ms.author: dacoulte
 ms.custom: fasttrack-edit
-ms.openlocfilehash: fc05e8c7c1536544d9ac7c2a45f66da8316fe088
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 58deb4fff4cee21acbf99d3c4035a9941697bed4
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70076932"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231828"
 ---
 # <a name="azure-blueprints-samples"></a>Azure Blueprints 샘플
 
@@ -48,7 +48,7 @@ CAF Foundation 및 CAF Migrate 방문 영역 청사진은 고객이 온-프레�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [청사진 수명 주기](../concepts/lifecycle.md)에 대해 알아보기
+- [청사진 수명 주기](../concepts/lifecycle.md)에 대해 알아봅니다.
 - [정적 및 동적 매개 변수](../concepts/parameters.md) 사용 방법 이해
 - [청사진 시퀀싱 순서](../concepts/sequencing-order.md)를 사용자 지정하는 방법 알아보기
 - [청사진 리소스 잠금](../concepts/resource-locking.md)을 활용하는 방법 알아보기

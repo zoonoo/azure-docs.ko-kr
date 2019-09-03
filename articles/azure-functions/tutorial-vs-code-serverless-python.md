@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: glenga
-ms.openlocfilehash: 4f5c10536992f51ac61815507a3869e521520299
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 43fee2ce25e358bbcff915d2fbef96bf4b7c1a0c
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170706"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233112"
 ---
 # <a name="deploy-python-to-azure-functions-with-visual-studio-code"></a>Visual Studio Code를 사용 하 여 Azure Functions에 Python 배포
 
@@ -31,7 +31,7 @@ ms.locfileid: "70170706"
 
 이 자습서의 단계 중 하나에 문제가 발생 하는 경우 세부 정보에 대 한 의견을 보내 주시기 바랍니다. 각 섹션의 끝에 있는 **문제가 발생** 했습니다. 단추를 사용 하 여 자세한 피드백을 제출 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Azure 구독](#azure-subscription).
 - [Azure Functions 확장을 사용 하 여 Visual Studio Code](#visual-studio-code-python-and-the-azure-functions-extension) 합니다.
@@ -207,7 +207,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 ## <a name="debug-locally"></a>로컬에서 디버그
 
-1. 함수 프로젝트를 만들 때 Visual Studio Code 확장은 **Python 함수에 연결**이라는 단일 구성을 포함 `.vscode/launch.json` 하는 시작 구성도 만듭니다. 이 구성은 F5 키를 누르거나 디버그 탐색기를 사용 하 여 프로젝트를 시작할 수 있다는 것을 의미 합니다.
+1. 함수 프로젝트를 만들 때 Visual Studio Code 확장은 **Python 함수에 연결**이라는 단일 구성을 포함 `.vscode/launch.json` 하는 시작 구성도 만듭니다. 이 구성은 **F5 키** 를 선택 하거나 디버그 탐색기를 사용 하 여 프로젝트를 시작할 수 있다는 것을 의미 합니다.
 
     ![함수 시작 구성을 보여 주는 디버그 탐색기](media/tutorial-vs-code-serverless-python/launch-configuration.png)
 
@@ -393,7 +393,7 @@ func azure functionapp logstream <app_name> --browser
     }
     ```
 
-1. F5 키를 누르거나 **디버그** > **디버깅 시작** 메뉴 명령을 선택 하 여 디버거를 시작 합니다. 이제 **출력** 창에 프로젝트의 두 끝점이 모두 표시 됩니다.
+1. **F5 키** 를 누르거나 **디버그** > **디버깅 시작** 메뉴 명령을 선택 하 여 디버거를 시작 합니다. 이제 **출력** 창에 프로젝트의 두 끝점이 모두 표시 됩니다.
 
     ```output
     Http Functions:
@@ -479,15 +479,15 @@ _바인딩을_ 사용 하면 데이터 액세스 코드를 작성 하지 않고�
             )
     ```
 
-1. 이러한 변경 내용을 로컬로 테스트 하려면 F5 키를 누르거나 **디버그** > **디버깅 시작** 메뉴 명령을 선택 하 여 Visual Studio Code에서 디버거를 다시 시작 합니다. 이전 처럼 **출력** 창에는 프로젝트의 끝점이 표시 됩니다.
+1. 이러한 변경 내용을 로컬로 테스트 하려면 **F5 키** 를 누르거나 **디버그** > **디버깅 시작** 메뉴 명령을 선택 하 여 Visual Studio Code에서 디버거를 다시 시작 합니다. 이전 처럼 **출력** 창에는 프로젝트의 끝점이 표시 됩니다.
 
 1. 브라우저에서 URL `http://localhost:7071/api/HttpExample?name=VS%20Code` 을 방문 하 여 httpexample 끝점에 대 한 요청을 만듭니다. 또한 큐에 메시지를 써야 합니다.
 
 1. 메시지를 바인딩에서 이름이 지정 된 "outqueue" 큐에 쓸지 확인 하려면 다음 세 가지 방법 중 하나를 사용할 수 있습니다.
 
-    1. [Azure Portal](https://portal.azure.com)에 로그인 하 고 함수 프로젝트를 포함 하는 리소스 그룹으로 이동 합니다. 해당 리소스 그룹 내에서 로컬 및 프로젝트의 저장소 계정으로 이동한 다음 **큐**로 이동 합니다. 해당 페이지에서 로그 된 모든 메시지를 표시 하는 "outqueue"로 이동 합니다.
+    1. [Azure Portal](https://portal.azure.com)에 로그인 하 고 함수 프로젝트를 포함 하는 리소스 그룹으로 이동 합니다. 해당 리소스 그룹 내에서 프로젝트에 대 한 저장소 계정을 찾아 열고 **큐**로 이동 합니다. 해당 페이지에서 로그 된 모든 메시지를 표시 하는 "outqueue"로 이동 합니다.
 
-    1. [Visual Studio Code를 사용 하 여 Azure Storage에 연결 함수](functions-add-output-binding-storage-queue-vs-code.md)에 설명 된 대로 Visual Studio와 통합 된 Azure Storage 탐색기으로 큐를 탐색 하 고 검사 합니다. 특히 [출력 큐 검사](functions-add-output-binding-storage-queue-vs-code.md#examine-the-output-queue) 섹션을 참조 하세요.
+    1. [Visual Studio Code를 사용 하 여 Azure Storage에 연결 함수](functions-add-output-binding-storage-queue-vs-code.md)(특히 [출력 큐 검사](functions-add-output-binding-storage-queue-vs-code.md#examine-the-output-queue) 섹션)에 설명 된 대로 Visual Studio와 통합 된 Azure Storage 탐색기를 사용 하 여 큐를 열고 검사 합니다.
 
     1. [저장소 큐 쿼리](functions-add-output-binding-storage-queue-python.md#query-the-storage-queue)에 설명 된 대로 Azure CLI를 사용 하 여 저장소 큐를 쿼리 합니다.
     

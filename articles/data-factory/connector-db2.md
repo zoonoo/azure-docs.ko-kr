@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 16dd40a521a9b0a240574c2f177f896c31508a37
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.openlocfilehash: 2bdec0c70e9f11ca40e0ff9e1aa87898c94e119c
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70211711"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232997"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 DB2에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -32,7 +32,6 @@ DB2 데이터베이스에서 지원되는 모든 싱크 데이터 저장소로 �
 
 특히, 이 DB2 커넥터는 DRDA(분산 관계형 데이터베이스 아키텍처) SQLAM(SQL Access Manager) 버전 9, 10 및 11과 함께 다음 IBM DB2 플랫폼 버전을 지원합니다.
 
-* Z/OS 용 IBM DB2 12
 * z/OS용 IBM DB2 11.1
 * z/OS용 IBM DB2 10.1
 * i용 IBM DB2 7.3
@@ -181,15 +180,15 @@ DB2에서 데이터를 복사하는 경우 DB2 데이터 형식에서 Azure Data
 | Binary |Byte[] |
 | Blob |Byte[] |
 | Char |String |
-| Clob |문자열 |
+| Clob |String |
 | 날짜 |Datetime |
-| DB2DynArray |문자열 |
+| DB2DynArray |String |
 | DbClob |String |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Double |Double |
 | Float |Double |
-| 그래픽 |문자열 |
+| 그래픽 |String |
 | Integer |Int32 |
 | LongVarBinary |Byte[] |
 | LongVarChar |String |
@@ -200,8 +199,8 @@ DB2에서 데이터를 복사하는 경우 DB2 데이터 형식에서 Azure Data
 | 시간 |TimeSpan |
 | Timestamp |Datetime |
 | VarBinary |Byte[] |
-| VarChar |String |
-| VarGraphic |String |
+| VarChar |문자열 |
+| VarGraphic |문자열 |
 | Xml |Byte[] |
 
 

@@ -3,7 +3,7 @@ title: Linux에서 Azure Service Fabric 컨테이너 애플리케이션 만들�
 description: Azure Service Fabric에서 첫 번째 Linux 컨테이너 애플리케이션을 만듭니다. 애플리케이션을 사용하여 Docker 이미지를 빌드하고, 이미지를 컨테이너 레지스트리로 푸시하고, Service Fabric 컨테이너 애플리케이션을 빌드하고 배포합니다.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/4/2019
-ms.author: aljo
-ms.openlocfilehash: 16f117e7c5291216b5716aee40995e6f224705fa
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: atsenthi
+ms.openlocfilehash: 2bb9a5e8e42901f22d9f68d691684614c7161620
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359373"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650663"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Linux에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기
 > [!div class="op_single_selector"]
@@ -181,28 +181,11 @@ Service Fabric 컨테이너 애플리케이션을 만들려면 터미널 창을 
 ![컨테이너용 Service Fabric Yeoman 생성기][sf-yeoman]
 
 ## <a name="configure-container-repository-authentication"></a>컨테이너 리포지토리 인증 구성
- 컨테이너가 프라이빗 리포지토리에 인증해야 하는 경우 `RepositoryCredentials`를 추가합니다. 이 문서에서는 myregistry.azurecr.io 컨테이너 레지스트리의 계정 이름 및 암호를 추가합니다. 정책이 올바른 서비스 패키지에 해당하는 'ServiceManifestImport' 태그 아래에 추가되었는지 확인합니다.
 
-```xml
-   <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="MyServicePkg" ServiceManifestVersion="1.0.0" />
-    <Policies>
-        <ContainerHostPolicies CodePackageRef="Code">
-        <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-        <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
-        </ContainerHostPolicies>
-    </Policies>
-   </ServiceManifestImport>
-``` 
-
-리포지토리 암호를 암호화하는 것이 좋습니다. 지침은 [Service Fabric 애플리케이션에서 암호화된 비밀 관리](service-fabric-application-secret-management.md)를 참조하세요.
-
-### <a name="configure-cluster-wide-credentials"></a>클러스터 전체의 자격 증명 구성
-[여기에 있는 설명서](
-service-fabric-get-started-containers.md#configure-cluster-wide-credentials)를 참조하세요.
+컨테이너 이미지 다운로드에 대해 다양 한 유형의 인증을 구성 하는 방법을 알아보려면 [컨테이너 리포지토리 인증](configure-container-repository-credentials.md)을 참조 하세요.
 
 ## <a name="configure-isolation-mode"></a>격리 모드 구성
-6\.3 런타임 릴리스에서는 Linux 컨테이너에 대해 VM 격리가 지원되므로, 컨테이너에 대한 두 가지 격리 모드(process 및 hyperv)가 지원됩니다. hyperv 격리 모드를 사용하면 커널이 각 컨테이너와 컨테이너 호스트 간에 격리됩니다. hyperv 격리는 [컨테이너 지우기](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker)를 사용하여 구현됩니다. 격리 모드는 애플리케이션 매니페스트 파일의 `ServicePackageContainerPolicy` 요소에서 Linux 클러스터에 대해 지정됩니다. 지정될 수 있는 격리 모드는 `process`, `hyperv` 및 `default`입니다. 기본값은 process 격리 모드입니다. 다음 코드 조각은 격리 모드가 애플리케이션 매니페스트 파일에서 지정되는 방법을 보여 줍니다.
+6\.3 런타임 릴리스에서는 VM 격리가 Linux 컨테이너에 대해 지원 되므로 컨테이너에 대 한 두 가지 격리 모드 (프로세스 및 Hyper-v)를 지원 합니다. Hyper-v 격리 모드에서는 커널이 각 컨테이너와 컨테이너 호스트 간에 격리 됩니다. Hyper-v 격리는 [Clear 컨테이너](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker)를 사용 하 여 구현 됩니다. 격리 모드는 애플리케이션 매니페스트 파일의 `ServicePackageContainerPolicy` 요소에서 Linux 클러스터에 대해 지정됩니다. 지정될 수 있는 격리 모드는 `process`, `hyperv` 및 `default`입니다. 기본값은 process 격리 모드입니다. 다음 코드 조각은 격리 모드가 애플리케이션 매니페스트 파일에서 지정되는 방법을 보여 줍니다.
 
 ```xml
 <ServiceManifestImport>
@@ -236,7 +219,7 @@ service-fabric-get-started-containers.md#configure-cluster-wide-credentials)를 
 
 v6.1을 시작하면 Service Fabric에서 자동으로 [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) 이벤트를 시스템 상태 보고서에 통합합니다. 즉 컨테이너에 **HEALTHCHECK**를 사용하도록 설정된 경우, Docker에서 보고한 대로 컨테이너의 상태가 변경될 때마다 Service Fabric에서 상태를 보고합니다. *health_status*가 *healthy*이면 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)에서 **OK** 상태 보고서가 표시되고, *health_status*가 *unhealthy*이면 **경고**가 표시됩니다. 
 
-V 6.4의 최신 새로 고침 릴리스부터 docker HEALTHCHECK 평가를 오류로 보고 하도록 지정할 수 있습니다. 이 옵션을 사용 하는 경우 *health_status* 가 *정상* 상태 이면 **정상 상태 보고서** 가 표시 되 고 *health_status* 가 *비정상*상태가 되 면 **오류가** 표시 됩니다.
+V 6.4의 최신 새로 고침 릴리스부터 docker HEALTHCHECK 평가를 오류로 보고 하도록 지정할 수 있습니다. 이 옵션을 사용 하는 경우 *health_status* 가 *정상* 상태 이면 정상 상태 보고서가 표시 되 고 *health_status* 가 *비정상*상태가 되 면 **오류가** 표시 됩니다.
 
 컨테이너 상태를 모니터링하기 위해 수행되는 실제 검사를 가리키는 **HEALTHCHECK** 명령은 컨테이너 이미지를 생성하는 동안 사용되는 Dockerfile에 있어야 합니다.
 
@@ -260,7 +243,7 @@ ApplicationManifest에서 **ContainerHostPolicies**의 일부로 **HealthConfig*
     </Policies>
 </ServiceManifestImport>
 ```
-기본적으로 *IncludeDockerHealthStatusInSystemHealthReport* 는 **true**로 설정 되 고, *RestartContainerOnUnhealthyDockerHealthStatus* 는 **false**로 설정 되며, *TreatContainerUnhealthyStatusAsError* 는 false로 설정 됩니다. . 
+기본적으로 *IncludeDockerHealthStatusInSystemHealthReport* 는 **true**로 설정 되 고, *RestartContainerOnUnhealthyDockerHealthStatus* 는 **false**로 설정 되며, *TreatContainerUnhealthyStatusAsError* 는 false로 설정 됩니다.. 
 
 *RestartContainerOnUnhealthyDockerHealthStatus*가 **true**로 설정된 경우, 반복적으로 비정상으로 보고하는 컨테이너가 다시 시작됩니다(다른 노드에서도 가능).
 

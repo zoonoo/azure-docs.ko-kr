@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: victorh
-ms.openlocfilehash: 157f7fa0979da21584550e7669a20f670aca5219
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 9efda8d81c4e6cb3bf478b05c261a99dc8e1aec0
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67785712"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232095"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Azure PowerShell을 사용하여 내부 리디렉션으로 애플리케이션 게이트웨이 만들기
 
-Azure PowerShell을 사용하여 [애플리케이션 게이트웨이](application-gateway-introduction.md)를 만들 때 [웹 트래픽 리디렉션](application-gateway-multi-site-overview.md)을 구성할 수 있습니다. 이 자습서에서는 가상 머신 확장 집합을 사용하여 백 엔드 풀을 정의합니다. 그런 다음, 웹 트래픽이 적절한 풀에 도착하도록 소유한 도메인을 기준으로 수신기와 규칙을 구성합니다. 이 자습서에서는 여러 도메인 및 사용 예가 소유한 *www\.contoso.com* 하 고 *www\.contoso.org*합니다.
+Azure PowerShell을 사용하여 [애플리케이션 게이트웨이](application-gateway-introduction.md)를 만들 때 [웹 트래픽 리디렉션](application-gateway-multi-site-overview.md)을 구성할 수 있습니다. 이 자습서에서는 가상 머신 확장 집합을 사용하여 백 엔드 풀을 정의합니다. 그런 다음, 웹 트래픽이 적절한 풀에 도착하도록 소유한 도메인을 기준으로 수신기와 규칙을 구성합니다. 이 자습서에서는 사용자가 여러 도메인을 소유 하 고 *www.contoso.com* 및 *www\.contoso.org*의 예제를 사용 한다고 가정 합니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -99,7 +99,7 @@ $frontendPort = New-AzApplicationGatewayFrontendPort `
 
 ### <a name="create-the-backend-pool-and-settings"></a>백 엔드 풀 및 설정 만들기
 
-라는 백 엔드 풀을 만듭니다 *contosoPool* 사용 하 여 응용 프로그램 게이트웨이 [새로 만들기-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool)합니다. [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting)를 사용하여 백 엔드 풀에 대한 설정을 구성합니다.
+[AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool)를 사용 하 여 application gateway에 대 한 *contosoPool* 라는 백 엔드 풀을 만듭니다. [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting)를 사용하여 백 엔드 풀에 대한 설정을 구성합니다.
 
 ```azurepowershell-interactive
 $contosoPool = New-AzApplicationGatewayBackendAddressPool `
@@ -114,9 +114,9 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-first-listener-and-rule"></a>첫 번째 수신기 및 규칙 만들기
 
-애플리케이션 게이트웨이에서 트래픽을 백 엔드 풀로 적절히 라우팅할 수 있는 수신기가 필요합니다. 이 자습서에서는 두 도메인에 대해 두 개의 수신기를 만듭니다. 이 예제에서는 수신기의 도메인에 대해 만들어집니다 *www\.contoso.com* 하 고 *www\.contoso.org*합니다.
+애플리케이션 게이트웨이에서 트래픽을 백 엔드 풀로 적절히 라우팅할 수 있는 수신기가 필요합니다. 이 자습서에서는 두 도메인에 대해 두 개의 수신기를 만듭니다. 이 예제에서는 *www.contoso.com* 및 *www\.contoso.org*의 도메인에 대해 수신기가 생성 됩니다.
 
-라는 첫 번째 수신기를 만듭니다 *contosoComListener* 사용 하 여 [새로 만들기-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) 프런트 엔드 구성 및 이전에 만든 프런트 엔드 포트를 사용 하 여 합니다. 수신기에서 들어오는 트래픽에 사용할 백 엔드 풀을 인식할 수 있는 규칙이 필요합니다. 이라는 기본 규칙을 만듭니다 *contosoComRule* 사용 하 여 [새로 만들기-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule)합니다.
+이전에 만든 프런트 엔드 구성 및 프런트 엔드 포트와 함께 [AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) 를 사용 하 여 *contosoComListener* 라는 첫 번째 수신기를 만듭니다. 수신기에서 들어오는 트래픽에 사용할 백 엔드 풀을 인식할 수 있는 규칙이 필요합니다. [AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule)를 사용 하 여 *contosoComRule* 이라는 기본 규칙을 만듭니다.
 
 ```azurepowershell-interactive
 $contosoComlistener = New-AzApplicationGatewayHttpListener `
@@ -158,7 +158,7 @@ $appgw = New-AzApplicationGateway `
 
 ### <a name="add-the-second-listener"></a>두 번째 수신기 추가
 
-라는 수신기를 추가 *contosoOrgListener* 사용 하 여 트래픽을 리디렉션하는 데 필요한 [추가-AzApplicationGatewayHttpListener](/powershell/module/az.network/add-azapplicationgatewayhttplistener)합니다.
+[AzApplicationGatewayHttpListener](/powershell/module/az.network/add-azapplicationgatewayhttplistener)를 사용 하 여 트래픽을 리디렉션하는 데 필요한 *contosoOrgListener* 이라는 수신기를 추가 합니다.
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `
@@ -206,7 +206,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ### <a name="add-the-second-routing-rule"></a>두 번째 라우팅 규칙 추가
 
-이라는 새 규칙에 리디렉션 구성을 연결할 수 있습니다 *contosoOrgRule* 사용 하 여 [추가-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/add-azapplicationgatewayrequestroutingrule)합니다.
+그런 다음 [추가-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/add-azapplicationgatewayrequestroutingrule)을 사용 하 여 *contosoOrgRule* 라는 새 규칙에 리디렉션 구성을 연결할 수 있습니다.
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `
@@ -298,11 +298,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
-브라우저의 주소 표시줄에 도메인 이름을 입력합니다. Such as, http\://www.contoso.com.
+브라우저의 주소 표시줄에 도메인 이름을 입력합니다. 예:, [http://www.contoso.com](http://www.contoso.com).
 
 ![애플리케이션 게이트웨이에서 contoso 사이트 테스트](./media/tutorial-internal-site-redirect-powershell/application-gateway-iistest.png)
 
-예를 들어 다른 도메인에 주소를 변경 http://www.contoso.org 는 트래픽이 www의 수신기로 다시 리디렉션 되었다고는 표시 및\. contoso.com입니다.
+주소를 다른 도메인(예: http://www.contoso.org ) 으로 변경하면 트래픽이 www.contoso.com의 수신기로 다시 리디렉션되었다고 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

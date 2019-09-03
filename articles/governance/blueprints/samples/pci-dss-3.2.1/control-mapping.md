@@ -8,12 +8,12 @@ ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: c2dbfa5f6c9d679582a1834f2ff645c5ff79c51e
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: d7d62770bc0e2683fc7bc1554493954c0e98758b
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515696"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232680"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>PCI DSS v 3.2.1 청사진 샘플의 매핑 제어
 
@@ -32,12 +32,12 @@ ms.locfileid: "69515696"
 
 이 청사진은 특정 고 암호화 컨트롤을 적용 하 고 약한 암호화 설정의 사용을 감사 하는 [Azure Policy](../../../policy/overview.md) 정의를 할당 하 여 고 암호화 컨트롤을 사용할 때 정책을 적용 하는 데 도움이 됩니다. Azure 리소스의 암호화 구성이 최적이 아닐 수 있는 경우를 이해하면 리소스가 정보 보안 정책에 따라 구성되도록 정정 작업을 수행하는 데 도움이 될 수 있습니다. 특히이 청사진에서 할당 한 정책에는 SQL 데이터베이스에 대 한 투명 한 데이터 암호화가 필요 합니다. 저장소 계정 및 automation 계정 변수에 대 한 누락 된 암호화를 감사 합니다. 저장소 계정, 함수 앱, WebApp, API Apps 및 Redis Cache에 대 한 감사 안전 하지 않은 연결을 처리 하 고 암호화 되지 않은 Service Fabric 통신을 감사 하는 정책도 있습니다.
 
-- Function App은 HTTPS를 통해서만 액세스할 수 있어야 합니다.
-- 웹 애플리케이션은 HTTPS를 통해서만 액세스할 수 있어야 합니다.
+- 함수 앱에 HTTPS를 통해서만 액세스 가능
+- 웹 애플리케이션에 HTTPS를 통해서만 액세스 가능
 - API 앱은 HTTPS를 통해서만 액세스할 수 있어야 합니다.
 - SQL 데이터베이스에 투명한 데이터 암호화를 사용하도록 설정해야 합니다.
 - 가상 머신에서 디스크 암호화를 적용해야 합니다.
-- 계정 변수 자동화는 암호화되어야 합니다.
+- Automation 계정 변수는 암호화 되어야 합니다.
 - Redis Cache에 보안 연결만 사용하도록 설정해야 합니다.
 - Storage 계정에 보안 전송을 사용하도록 설정해야 합니다.
 - Service Fabric 클러스터는 ClusterProtectionLevel 속성을 EncryptAndSign로 설정 해야 합니다.
@@ -49,10 +49,10 @@ ms.locfileid: "69515696"
 이 청사진은 Azure의 누락 된 시스템 업데이트, 운영 체제 취약점, SQL 취약성 및 가상 머신 취약점을 모니터링 하는 [Azure Policy](../../../policy/overview.md) 정의를 할당 하 여 정보 시스템 취약성을 관리 하는 데 도움이 됩니다. Security Center. Azure Security Center는 배포된 Azure 리소스의 보안 상태에 대한 실시간 인사이트를 가질 수 있도록 하는 보고 기능을 제공합니다.
 
 - Azure Security Center에서 누락된 Endpoint Protection 모니터링
-- Windows Server에 대한 기본 Microsoft IaaSAntimalware 확장 배포
+- Windows Server용 기본 Microsoft IaaSAntimalware 확장 배포
 - SQL Server에서 위협 감지 배포
-- 시스템 업데이트를 컴퓨터에 설치 해야 합니다.
-- 컴퓨터에서 보안 구성의 취약성을 재구성 해야 함
+- 시스템 업데이트를 머신에 설치해야 합니다.
+- 머신 보안 구성의 취약성을 수정해야 합니다.
 - SQL 데이터베이스의 취약성을 수정해야 합니다.
 - 취약성 평가 솔루션으로 취약성을 수정해야 합니다.
 
@@ -110,7 +110,7 @@ Azure는 Azure의 리소스에 대 한 액세스 권한이 있는 사용자를 �
 이 청사진을 사용하면 Azure 리소스에 대한 로그 설정을 감사하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 시스템 이벤트가 기록되도록 할 수 있습니다.
 진단 로그는 Azure 리소스 내에서 수행된 작업에 대한 인사이트를 제공합니다. Azure 로그는 동기화된 내부 클록을 사용하여 리소스 간 이벤트의 시간 관련 레코드를 만듭니다.
 
-- 감사는 고급 데이터 보안 설정에서 사용 하도록 설정 해야 SQL Server
+- SQL Server의 고급 데이터 보안 설정에서 감사를 활성화해야 합니다.
 - 감사 진단 설정
 - SQL 감사 서버 수준 감사 설정
 - SQL Server에 감사 배포
@@ -134,7 +134,7 @@ Azure는 Azure의 리소스에 대 한 액세스 권한이 있는 사용자를 �
 
 ## <a name="addition-articles-about-blueprints-and-how-to-use-them"></a>청사진 및 사용 방법에 대한 추가 문서:
 
-- [청사진 수명 주기](../../concepts/lifecycle.md)에 대해 알아보기
+- [청사진 수명 주기](../../concepts/lifecycle.md)에 대해 알아봅니다.
 - [정적 및 동적 매개 변수](../../concepts/parameters.md) 사용 방법 이해
 - [청사진 시퀀싱 순서](../../concepts/sequencing-order.md)를 사용자 지정하는 방법 알아보기
 - [청사진 리소스 잠금](../../concepts/resource-locking.md)을 활용하는 방법 알아보기

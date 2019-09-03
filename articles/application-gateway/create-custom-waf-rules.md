@@ -7,12 +7,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: 2499842eeb2dd5a8fa845ed364a6aea7418acc8b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a4cc11447686f81017332a3528019a54a5167c52
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68824418"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231990"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules"></a>웹 응용 프로그램 방화벽 v2 사용자 지정 규칙 만들기 및 사용
 
@@ -127,7 +127,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
 
 ## <a name="example-2"></a>예제 2
 
-198.168.5.4/24 범위의 IP 주소에 대 한 모든 요청을 차단 하려고 합니다.
+198.168.5.0/24 범위의 IP 주소에 대 한 모든 요청을 차단 하려고 합니다.
 
 이 예에서는 IP 주소 범위에서 들어오는 모든 트래픽을 차단 합니다. 규칙 이름은 *myrule1* 이 고 우선 순위는 100로 설정 됩니다.
 
@@ -140,7 +140,7 @@ $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
 $condition1 = New-AzApplicationGatewayFirewallCondition `
    -MatchVariable $variable1 `
    -Operator IPMatch `
-   -MatchValue "192.168.5.4/24" `
+   -MatchValue "192.168.5.0/24" `
    -NegationCondition $False
 
 $rule = New-AzApplicationGatewayFirewallCustomRule `
@@ -166,7 +166,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
             "matchVariable": "RemoteAddr",
             "operator": "IPMatch",
             "matchValues": [
-              "192.168.5.4/24"
+              "192.168.5.0/24"
             ]
           }
         ]
@@ -175,11 +175,11 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
   }
 ```
 
-해당 하는 CRS 규칙:`SecRule REMOTE_ADDR "@ipMatch 192.168.5.4/24" "id:7001,deny"`
+해당 하는 CRS 규칙:`SecRule REMOTE_ADDR "@ipMatch 192.168.5.0/24" "id:7001,deny"`
 
 ## <a name="example-3"></a>예제 3
 
-이 예에서는 사용자 에이전트 *evilbot*및 192.168.5.4/24 범위의 트래픽을 차단 하려고 합니다. 이를 수행 하기 위해 두 개의 서로 다른 일치 조건을 만든 다음 둘 다 동일한 규칙에 둘 수 있습니다. 이렇게 하면 사용자 에이전트 헤더의 *evilbot* **와** 192.168.5.4/24 범위의 IP 주소가 모두 차단 됩니다.
+이 예에서는 사용자 에이전트 *evilbot*및 192.168.5.0/24 범위의 트래픽을 차단 하려고 합니다. 이를 수행 하기 위해 두 개의 서로 다른 일치 조건을 만든 다음 둘 다 동일한 규칙에 둘 수 있습니다. 이렇게 하면 사용자 에이전트 헤더의 *evilbot* **와** 192.168.5.0/24 범위의 IP 주소가 모두 차단 됩니다.
 
 논리: p **및** q
 
@@ -194,7 +194,7 @@ $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
 $condition1 = New-AzApplicationGatewayFirewallCondition `
    -MatchVariable $variable1 `
    -Operator IPMatch `
-   -MatchValue "192.168.5.4/24" `
+   -MatchValue "192.168.5.0/24" `
    -NegationCondition $False
 
 $condition2 = New-AzApplicationGatewayFirewallCondition `
@@ -229,7 +229,7 @@ $condition2 = New-AzApplicationGatewayFirewallCondition `
               "operator": "IPMatch", 
               "negateCondition": false, 
               "matchValues": [ 
-                "192.168.5.4/24" 
+                "192.168.5.0/24" 
               ] 
             }, 
             { 
@@ -251,7 +251,7 @@ $condition2 = New-AzApplicationGatewayFirewallCondition `
 
 ## <a name="example-4"></a>예제 4
 
-이 예에서는 요청이 IP 주소 범위 *192.168.5.4/24*외부에 있거나 사용자 에이전트 문자열이 *chrome* 이 아닌 경우 (사용자가 chrome 브라우저를 사용 하지 않음) 차단 하려고 합니다. 이 논리는 **또는**를 사용 하기 때문에 다음 예제에서 볼 수 있듯이 두 조건은 별도의 규칙에 있습니다. *myrule1* 및 *myrule2* 는 둘 다 일치 하 여 트래픽을 차단 해야 합니다.
+이 예에서는 요청이 IP 주소 범위 *192.168.5.0/24*외부에 있거나 사용자 에이전트 문자열이 *chrome* 이 아닌 경우 (사용자가 chrome 브라우저를 사용 하지 않음) 차단 하려고 합니다. 이 논리는 **또는**를 사용 하기 때문에 다음 예제에서 볼 수 있듯이 두 조건은 별도의 규칙에 있습니다. *myrule1* 및 *myrule2* 는 둘 다 일치 하 여 트래픽을 차단 해야 합니다.
 
 논리: **not** (p **및** q) = p가 아니거나 no q입니다.
 
@@ -266,7 +266,7 @@ $variable2 = New-AzApplicationGatewayFirewallMatchVariable `
 $condition1 = New-AzApplicationGatewayFirewallCondition `
    -MatchVariable $variable1 `
    -Operator IPMatch `
-   -MatchValue "192.168.5.4/24" `
+   -MatchValue "192.168.5.0/24" `
    -NegationCondition $True
 
 $condition2 = New-AzApplicationGatewayFirewallCondition `
@@ -307,7 +307,7 @@ $rule2 = New-AzApplicationGatewayFirewallCustomRule `
             "operator": "IPMatch",
             "negateCondition": true,
             "matchValues": [
-              "192.168.5.4/24"
+              "192.168.5.0/24"
             ]
           }
         ]

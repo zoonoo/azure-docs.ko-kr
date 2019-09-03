@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: faae9ae335e391afac4ed2ef75472f1fecdaca86
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.openlocfilehash: 94bdeebcecdf924468f022ac95867bd82df5a793
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70211668"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231325"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 SAP 테이블에서 데이터 복사
 
@@ -35,15 +35,15 @@ SAP 테이블에서 지원 되는 모든 싱크 데이터 저장소로 데이터
 - 다음의 SAP 테이블에서 데이터 복사:
 
   - Sap ERP Central 구성 요소 (SAP ECC) 버전 7.01 이상 (2015 이후에 릴리스된 최근 SAP 지원 패키지 스택)
-  - SAP Business Warehouse (SAP BW) 버전 7.01 이상
+  - SAP Business Warehouse (SAP BW) 버전 7.01 이상 (2015 이후 출시 된 최근 SAP 지원 패키지 스택)
   - SAP S/4HANA.
-  - SAP Business Suite 버전 7.01 이상에 있는 기타 제품
+  - SAP Business Suite 버전 7.01 이상 (2015 이후에 출시 된 최근 SAP 지원 패키지 스택)의 기타 제품.
 
 - SAP 투명 테이블, 풀링된 테이블, 클러스터형 테이블 및 뷰 모두에서 데이터를 복사 합니다.
 - SNC가 구성 된 경우 기본 인증 또는 SNC (Secure Network Communications)를 사용 하 여 데이터를 복사 합니다.
 - SAP 응용 프로그램 서버 또는 SAP 메시지 서버에 연결 하는 중입니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 SAP 테이블 커넥터를 사용 하려면 다음을 수행 해야 합니다.
 

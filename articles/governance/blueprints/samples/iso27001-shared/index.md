@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: c54d8aedb9464364f93a087de4bdb00c693a96ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b590eeb86972a8e769fc240b1935c6c8ed32530a
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60875162"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231727"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>ISO 27001 Shared Services 청사진 샘플 개요
 
@@ -59,7 +59,7 @@ ISO 27001 Shared Services 청사진 샘플에 대한 개요 및 아키텍처를 
 
 청사진 및 사용 방법에 대한 추가 문서:
 
-- [청사진 수명 주기](../../concepts/lifecycle.md)에 대해 알아보기
+- [청사진 수명 주기](../../concepts/lifecycle.md)에 대해 알아봅니다.
 - [정적 및 동적 매개 변수](../../concepts/parameters.md) 사용 방법 이해
 - [청사진 시퀀싱 순서](../../concepts/sequencing-order.md)를 사용자 지정하는 방법 알아보기
 - [청사진 리소스 잠금](../../concepts/resource-locking.md)을 활용하는 방법 알아보기

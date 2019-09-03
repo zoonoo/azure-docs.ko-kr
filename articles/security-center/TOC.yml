@@ -4,8 +4,10 @@
   items:
     - name: Security Center 정보
       href: security-center-intro.md
-    - name: Security Center 지원 플랫폼 및 기능
+    - name: 지원되는 플랫폼
       href: security-center-os-coverage.md
+    - name: 지원되는 기능
+      href: security-center-services.md
 - name: 빠른 시작
   expanded: true
   items:

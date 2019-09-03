@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: raynew
-ms.openlocfilehash: 3158ebddf6ffe5594c9daf0fd9f3e3fe980c0b24
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b4f9c0ab3ca50b0ce8c9ba27d8773c58a72dcfa9
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845659"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70230974"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>온-프레미스 Hyper-V VM과 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -90,7 +90,7 @@ Azure Virtual Network 서비스 엔드포인트<br/> (Azure Storage 방화벽 �
 
 ## <a name="hyper-v-host-storage"></a>Hyper-V 호스트 스토리지
 
-**스토리지** | **Hyper-V(Virtual Machine Manager 있음)** | **Hyper-V(Virtual Machine Manager 없음)**
+**저장소** | **Hyper-V(Virtual Machine Manager 있음)** | **Hyper-V(Virtual Machine Manager 없음)**
 --- | --- | --- 
 NFS | NA | NA
 SMB 3.0 | yes | 예
@@ -99,7 +99,7 @@ SAN(ISCSI) | 예 | 예
 
 ## <a name="hyper-v-vm-guest-storage"></a>Hyper-V VM 게스트 스토리지
 
-**스토리지** | **Hyper-V(Virtual Machine Manager 있음)** | **Hyper-V(Virtual Machine Manager 없음)**
+**저장소** | **Hyper-V(Virtual Machine Manager 있음)** | **Hyper-V(Virtual Machine Manager 없음)**
 --- | --- | ---
 VMDK | NA | NA
 VHD/VHDX | 예 | 예
@@ -131,7 +131,7 @@ RDM | NA | NA
 핫 스토리지| 아니요 | 아니요
 블록 Blob | 아니요 | 아니요
 미사용 암호화(SSE)| 예 | 예
-프리미엄 스토리지 | 예 | 예
+Premium Storage | 예 | 예
 Import/Export 서비스 | 아니요 | 아니요
 대상 스토리지/캐시 스토리지(복제 데이터 저장에 사용됨) 계정에 구성된 가상 네트워크용 Azure Storage 방화벽 | 아니요 | 아니요
 
@@ -151,7 +151,7 @@ Azure로 복제하는 온-프레미스 VM은 이 표에 요약되어 있는 Azur
 **구성 요소** | **요구 사항** | **세부 정보**
 --- | --- | ---
 게스트 운영 체제 | Site Recovery에서는 [Azure에서 지원](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx)하는 모든 운영 체제를 지원합니다.  | 지원되지 않는 경우 필수 구성 요소 확인이 실패함
-게스트 운영 체제 아키텍처 | 64비트 | 지원되지 않는 경우 필수 구성 요소 확인이 실패함
+게스트 운영 체제 아키텍처 | 32 비트 (Windows Server 2008)/64-bit | 지원되지 않는 경우 필수 구성 요소 확인이 실패함
 운영 체제 디스크 크기 | 1세대 VM의 경우 최대 2,048GB<br/><br/> 2세대 VM의 경우 최대 300GB  | 지원되지 않는 경우 필수 구성 요소 확인이 실패함
 운영 체제 디스크 수 | 1 | 지원되지 않는 경우 필수 구성 요소 확인이 실패함
 데이터 디스크 수 | 16개 이하  | 지원되지 않는 경우 필수 구성 요소 확인이 실패함
@@ -166,13 +166,13 @@ VM 형식 | 1세대<br/><br/> 2세대--Windows | 기본 OS 디스크 형식이 �
 
 ## <a name="recovery-services-vault-actions"></a>Recovery Services 자격 증명 모음 작업
 
-**동작** |  **Hyper-V(Virtual Machine Manager 있음)** | **Hyper-V(Virtual Machine Manager 없음)**
+**동작** |  **Hyper-V(VMM 포함)** | **VMM을 사용하지 않는 Hyper-V**
 --- | --- | ---
 리소스 그룹 간 자격 증명 모음 이동<br/><br/> 구독 내 및 구독 간 | 아니요 | 아니요
 스토리지 그룹 간 스토리지, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아니요 | 아니요
 
 > [!NOTE]
-> 온-프레미스에서 Azure로 Hyper-VM(SCVMM을 사용하거나 사용하지 않고 관리)을 복제할 때 하나의 특정 환경(해당하는 경우 Hyper-V 사이트 또는 SCVMM)에서 하나의 AD 테넌트에만 복제할 수 있습니다.
+> 온-프레미스에서 Azure로 Hyper-v Vm을 복제 하는 경우 특정 환경에서 Hyper-v 사이트 또는 Hyper-v를 사용 하는 Hyper-v를 사용 하 여 하나의 AD 테 넌 트에만 복제할 수 있습니다.
 
 
 ## <a name="provider-and-agent"></a>공급자 및 에이전트

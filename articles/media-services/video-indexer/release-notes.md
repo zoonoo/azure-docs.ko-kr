@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 08/29/2019
 ms.author: juliako
-ms.openlocfilehash: b627a78edef1c0b0fe6b3ed011678145aea397ae
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a7d178972a8c8b413e3c6336c403348f1eb78abb
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845892"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232604"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Azure Media Services Video Indexer 릴리스 정보
 
@@ -27,6 +27,43 @@ ms.locfileid: "68845892"
 * 알려진 문제
 * 버그 수정
 * 사용되지 않는 기능
+
+## <a name="august-2019"></a>2019년 8월
+ 
+### <a name="video-indexer-deployed-in-uk-south"></a>영국 남부에 배포 된 Video Indexer
+
+이제 영국 남부 지역에서 Video Indexer 유료 계정을 만들 수 있습니다.
+
+### <a name="new-editorial-shot-type-insights-available"></a>새 편집 샷 유형 정보 사용 가능
+
+비디오 샷에 추가 된 새 태그는 매우 확대/확대, 확대, 중간, 두 샷, 실외, 실내, 좌 얼굴 및 오른쪽 (에서 사용할 수 있음)과 같은 콘텐츠 생성 워크플로에 사용 되는 일반적인 편집 구를 사용 하 여 해당 항목을 식별 하는 편집 "샷 유형"을 제공 합니다. JSON).
+
+### <a name="new-people-and-locations-entities-extraction-available"></a>새 사용자 및 위치 엔터티 추출 사용 가능
+
+Video Indexer는 비디오의 OCR 및 기록에서 NLP (자연어 처리)를 통해 명명 된 위치 및 사용자를 식별 합니다. Video Indexer는 기계 학습 알고리즘을 사용 하 여 특정 위치 (예: Eiffel 타워) 나 사람 (예: John Doe)을 비디오에서 호출 하는 경우를 인식 합니다.
+
+### <a name="keyframes-extraction-in-native-resolution"></a>네이티브 해상도의 키 프레임 추출
+
+Video Indexer에 의해 추출 된 키프레임은 비디오의 원래 해상도에서 사용할 수 있습니다.
+ 
+### <a name="ga-for-training-custom-face-models-from-images"></a>이미지에서 사용자 지정 얼굴 모델을 학습 하기 위한 GA
+
+미리 보기 모드에서 GA (API 및 포털을 통해 사용 가능)로 이동 된 이미지의 교육 얼굴입니다.
+
+> [!NOTE]
+> "GA로 미리 보기" 전환과 관련 된 가격에는 영향을 주지 않습니다.
+
+### <a name="hide-gallery-toggle-option"></a>갤러리 표시/숨기기 토글 옵션
+
+사용자는 포털에서 갤러리 탭을 숨기도록 선택할 수 있습니다 (샘플 탭 숨기기와 유사).
+ 
+### <a name="maximum-url-size-increased"></a>최대 URL 크기 증가
+
+비디오를 인덱싱할 때 URL 쿼리 문자열 4096 (2048 대신)을 지원 합니다.
+ 
+### <a name="support-for-multi-lingual-projects"></a>다국어 프로젝트 지원
+
+이제 다른 언어로 인덱싱되는 비디오 (API만 해당)를 기반으로 프로젝트를 만들 수 있습니다.
 
 ## <a name="july-2019"></a>7 월 2019
 

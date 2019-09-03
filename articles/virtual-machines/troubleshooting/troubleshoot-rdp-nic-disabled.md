@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: 9038bdb79504289c3aa149868d8a02e74c11fdb7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bb4583c88f2e867c619a2163d91bff1d48b6a7a3
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103440"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70230698"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>네트워크 인터페이스를 사용하지 않기 때문에 원격 데스크톱을 VM에 사용할 수 없음
 
@@ -52,8 +52,7 @@ VM에 인터페이스를 사용하도록 설정하려면 VM에 직렬 컨트롤�
 
     예를 들어 상호 연동 인터페이스 이름이 "이더넷 2"인 경우 다음 명령을 실행합니다.
 
-        netsh interface set interface name=""Ethernet 2" admin=enabled
-
+        netsh interface set interface name="Ethernet 2" admin=enabled
 
 4.  네트워크 인터페이스를 사용할 수 있도록 다시 네트워크 인터페이스의 상태를 확인합니다.
 

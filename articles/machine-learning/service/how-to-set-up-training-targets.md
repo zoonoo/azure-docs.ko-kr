@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: c9bc9d64d7f21498acd5cb0c23447e7ff77de629
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 07176fbe22e70658856dd266687a15d719e78e9f
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195565"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231095"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>모델 학습을 위한 계산 대상 설정 및 사용 
 
@@ -422,6 +422,19 @@ az ml folder attach
 ```
 
 이 명령은 다양 한 계산 `.azureml` 대상에 대 한 템플릿 실행 구성 파일을 포함 하는 하위 폴더를 만듭니다. 이러한 파일을 복사 및 편집 하 여 Python 패키지를 추가 하거나 Docker 설정을 변경 하는 등의 방법으로 구성을 사용자 지정할 수 있습니다.  
+
+### <a name="structure-of-run-configuration-file"></a>실행 구성 파일의 구조
+
+실행 구성 파일은 다음 섹션을 포함 하는 YAML 형식입니다.
+ * 실행할 스크립트 및 해당 인수
+ * 계산 대상 이름 ("local" 또는 작업 영역 아래의 계산 이름)입니다.
+ * 실행을 실행 하기 위한 매개 변수: 프레임 워크, 분산 된 실행에 대 한 communicator, 최대 기간 및 계산 노드 수입니다.
+ * 환경 섹션. 이 섹션의 필드에 대 한 자세한 내용은 [학습 및 배포를 위한 환경 만들기 및 관리](how-to-use-environments.md) 를 참조 하세요.
+   * 실행을 위해 설치할 Python 패키지를 지정 하려면 [conda environment 파일](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually)을 만들고 __condaDependenciesFile__ 필드를 설정 합니다.
+ * 기록 세부 정보를 실행 하 여 로그 파일 폴더를 지정 하 고 출력 컬렉션을 사용 하거나 사용 하지 않도록 설정 하 고 기록 스냅숏을 실행 합니다.
+ * 선택한 프레임 워크에 특정 한 구성 세부 정보입니다.
+ * 데이터 참조 및 데이터 저장소 세부 정보
+ * 새 클러스터를 만들기 위한 Machine Learning 컴퓨팅 관련 된 구성 세부 정보입니다.
 
 ### <a name="create-an-experiment"></a>실험 만들기
 

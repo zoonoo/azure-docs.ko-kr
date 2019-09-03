@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/19/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: cebd6e5c120bdaa5e7dd5b681366e07087cd3498
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: d2c3b09277963781b90f65705e03f936f81b14ee
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069187"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232370"
 ---
 # <a name="scale-up-an-app-in-azure-app-service"></a>Azure App Service에서 앱 강화
 
@@ -85,11 +85,8 @@ ms.locfileid: "70069187"
 
 ## <a name="more-resources"></a>추가 리소스
 
-App Service 앱 크기 조정에 대한 비디오는 다음 리소스를 참조하세요.
- 
-* [Azure Websites 크기를 조정하는 방법 - 스테판 스차코우(Stefan Schackow)](https://azure.microsoft.com/resources/videos/azure-web-sites-free-vs-standard-scaling/)
-* [Azure Websites, CPU 또는 예약 리소스 크기 자동 조정 - 스테판 스차코우(Stefan Schackow)](https://azure.microsoft.com/resources/videos/auto-scaling-azure-web-sites/)
-* [Azure Websites 크기 조정 방법 - 스테판 스차코우(Stefan Schackow)](https://azure.microsoft.com/resources/videos/how-azure-web-sites-scale/)
+[수동 또는 자동으로 인스턴스 개수 조정](../monitoring-and-diagnostics/insights-how-to-scale.md)  
+[App Service에 대 한 PremiumV2 계층 구성](app-service-configure-premium-tier.md)
 
 <!-- LINKS -->
 [vmsizes]:https://azure.microsoft.com/pricing/details/app-service/

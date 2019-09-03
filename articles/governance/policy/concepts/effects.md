@@ -7,31 +7,30 @@ ms.date: 03/29/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: c2bf19a2599d59b9ff2b3d189b26134f1528a878
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 1ac0e70700b4b093fad09b4d10c6bdcf2e06adac
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448563"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231535"
 ---
 # <a name="understand-azure-policy-effects"></a>Azure Policy의 영향 파악
 
 Azure Policy의 각 정책 정의는 단일 효과가 있습니다. 해당 효과는 정책 규칙이 일치되는 것으로 평가될 때 어떻게 되는지 결정합니다. 효과는 새 리소스, 업데이트된 리소스 또는 기존 리소스인 경우 서로 다르게 동작합니다.
 
-이러한 효과 정책 정의에서 현재 지원 됩니다.
+이러한 영향은 현재 정책 정의에서 지원 됩니다.
 
-- [추가](#append)
+- [추가할](#append)
 - [감사](#audit)
 - [AuditIfNotExists](#auditifnotexists)
 - [거부](#deny)
 - [DeployIfNotExists](#deployifnotexists)
-- [사용 안 함](#disabled)
-- [EnforceRegoPolicy](#enforceregopolicy) (미리 보기)
+- [Disabled](#disabled)
+- [EnforceRegoPolicy](#enforceregopolicy) 모드
 
 ## <a name="order-of-evaluation"></a>평가 순서
 
-요청을 만들거나 Azure Resource Manager를 통해 리소스를 업데이트할 Azure 정책에 의해 먼저 평가 됩니다. Azure Policy는 리소스에 적용 하 고 다음 각 정의 대 한 리소스를 평가 하는 모든 할당 목록을 만듭니다. Azure Policy는 적절 한 리소스 공급자에 요청을 전달 하기 전에 다양 한 효과 처리 합니다. 이렇게 리소스는 Azure Policy의 설계 된 거 버 넌 스 컨트롤을 충족 하지 않는 경우 리소스 공급자에서 불필요 한 처리를 방지 합니다.
+Azure Resource Manager를 통해 리소스를 만들거나 업데이트 하는 요청은 먼저 Azure Policy에 의해 평가 됩니다. Azure Policy 리소스에 적용 되는 모든 할당 목록을 만든 다음 각 정의에 대해 리소스를 평가 합니다. Azure Policy은 적절 한 리소스 공급자에 게 요청을 전달 하기 전에 몇 가지 효과를 처리 합니다. 이렇게 하면 리소스가 Azure Policy의 디자인 된 거 버 넌 스 컨트롤을 충족 하지 않는 경우 리소스 공급자에의 한 불필요 한 처리를 방지 합니다.
 
 - **사용 안 함**을 먼저 선택하여 정책 규칙을 평가할지 여부를 확인합니다.
 - 그런 다음, **추가**를 평가합니다. 추가는 요청을 변경할 수 있으므로 추가에서 만들어진 변경은 감사를 방지하거나 트리거되는 효과를 거부할 수 있습니다.
@@ -40,7 +39,7 @@ Azure Policy의 각 정책 정의는 단일 효과가 있습니다. 해당 효�
 
 리소스 공급 기업이 성공 코드를 반환하면 **AuditIfNotExists** 및 **DeployIfNotExists**가 추가 규정 준수 로깅 또는 작업이 필요한지 확인하기 위해 평가합니다.
 
-계산 순서에 관계 없이 현재 없습니다 합니다 **EnforceRegoPolicy** 적용 합니다.
+현재 **EnforceRegoPolicy** 효과를 평가 하는 순서는 없습니다.
 
 ## <a name="disabled"></a>사용 안 함
 
@@ -74,7 +73,7 @@ Azure Policy의 각 정책 정의는 단일 효과가 있습니다. 해당 효�
 }
 ```
 
-예 2: 태그 세트를 추가하는 여러 **필드/값** 쌍입니다.
+예제 2: 태그 세트를 추가하는 여러 **필드/값** 쌍입니다.
 
 ```json
 "then": {
@@ -91,7 +90,7 @@ Azure Policy의 각 정책 정의는 단일 효과가 있습니다. 해당 효�
 }
 ```
 
-예 3: 단일 **필드/값** 사용 하 여 비-쌍 **[\*]** [별칭](definition-structure.md#aliases) 배열을 사용 하 여 **값** 저장소 계정에서 IP 규칙을 설정 합니다. **[\*]** 별칭이 아닌 별칭이 배열이면 **value**를 전체 배열로 추가합니다. 배열이 이미 있으면 충돌로 인해 거부 이벤트가 발생합니다.
+예제 3: 저장소 계정에 IP 규칙을 설정 하기 위해 배열 **값** 이 포함 된 비 **[\*]** [별칭](definition-structure.md#aliases) 을 사용 하는 단일 **필드/값** 쌍입니다. **[\*]** 별칭이 아닌 별칭이 배열이면 **value**를 전체 배열로 추가합니다. 배열이 이미 있으면 충돌로 인해 거부 이벤트가 발생합니다.
 
 ```json
 "then": {
@@ -151,7 +150,7 @@ Azure Policy의 각 정책 정의는 단일 효과가 있습니다. 해당 효�
 
 ### <a name="audit-evaluation"></a>감사 평가
 
-Audit는 마지막 효과 만들기 또는 리소스의 업데이트 하는 동안 Azure Policy로 선택 합니다. 그런 다음 azure Policy는 리소스 공급자에 리소스를 보냅니다. 감사는 리소스 요청 및 평가 주기와 동일하게 작동합니다. Azure 정책 추가 `Microsoft.Authorization/policies/audit/action` 활동 로그에 작업 하 고 호환 되지 않는 리소스를 표시 합니다.
+Audit는 리소스를 만들거나 업데이트 하는 동안 Azure Policy에서 확인 한 마지막 효과입니다. 그런 다음 리소스를 리소스 공급자에 게 보냅니다. Azure Policy 감사는 리소스 요청 및 평가 주기와 동일하게 작동합니다. Azure Policy 작업을 `Microsoft.Authorization/policies/audit/action` 활동 로그에 추가 하 고 리소스를 비규격으로 표시 합니다.
 
 ### <a name="audit-properties"></a>감사 속성
 
@@ -173,7 +172,7 @@ AuditIfNotExists는 **if** 조건과 일치하는 리소스에서 감사를 활�
 
 ### <a name="auditifnotexists-evaluation"></a>AuditIfNotExists 평가
 
-리소스 공급 기업이 리소스 만들기 또는 업데이트 요청을 처리하고 성공 상태 코드를 반환한 후 AuditIfNotExists가 실행됩니다. 관련된 리소스가 없거나 **ExistenceCondition**에서 정의된 리소스가 true로 평가되지 않는 경우 감사가 발생합니다. 추가 하는 azure Policy는 `Microsoft.Authorization/policies/audit/action` 작업 활동을 감사 효과와 동일한 방식으로 로그인 합니다. 트리거되는 경우 **if** 조건을 충족하는 리소스는 비호환으로 표시되는 리소스입니다.
+리소스 공급 기업이 리소스 만들기 또는 업데이트 요청을 처리하고 성공 상태 코드를 반환한 후 AuditIfNotExists가 실행됩니다. 관련된 리소스가 없거나 **ExistenceCondition**에서 정의된 리소스가 true로 평가되지 않는 경우 감사가 발생합니다. Azure Policy는 감사 `Microsoft.Authorization/policies/audit/action` 효과와 동일한 방식으로 작업을 활동 로그에 추가 합니다. 트리거되는 경우 **if** 조건을 충족하는 리소스는 비호환으로 표시되는 리소스입니다.
 
 ### <a name="auditifnotexists-properties"></a>AuditIfNotExists 속성
 
@@ -181,10 +180,10 @@ AuditIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
 
 - **Type**[필수]
   - 일치하는 관련된 리소스의 형식을 지정합니다.
-  - 하는 경우 **details.type** 아래에 있는 리소스 종류는 **경우** 조건 리소스의 리소스에 대 한 정책 쿼리 **형식** 계산된 리소스의 범위 내에서. 계산된 리소스와 동일한 리소스 그룹 내에서 고, 그렇지 정책 쿼리 합니다.
+  - **Details. type** 이 if condition 리소스 아래의 리소스 유형인 **경우** 정책은 평가 된 리소스의 범위 내에서이 **형식의** 리소스를 쿼리 합니다. 그렇지 않으면 평가 된 리소스와 동일한 리소스 그룹 내에서 정책 쿼리가 실행 됩니다.
 - **Name**(옵션)
   - 일치하는 리소스의 정확한 이름을 지정하고 정책에서 지정된 형식의 모든 리소스 대신 하나의 특정 리소스를 인출하도록 합니다.
-  - 조건에 대 한 값 하는 경우 **if.field.type** 하 고 **then.details.type** 다음 일치 **이름** 됩니다 _필요_ 여야합니다`[field('name')]`. 그러나는 [감사](#audit) 효과 대신 고려해 야 합니다.
+  - **If. field. 형식** 및 **. details. 형식의** 조건 값이 일치 하는 경우에는 **이름이** _필요_ 하며 `[field('name')]`이 여야 합니다. 그러나 [감사](#audit) 효과를 대신 고려해 야 합니다.
 - **ResourceGroupName**(옵션)
   - 다른 리소스 그룹에서 오는 관련된 리소스의 일치를 허용합니다.
   - **type**이 **if** 조건 리소스의 아래에 있는 리소스인 경우 적용되지 않습니다.
@@ -255,7 +254,7 @@ DeployIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
   - **if** 조건 리소스 아래의 리소스를 인출하려는 시도로 시작한 다음, **if** 리소스 조건와 동일한 리소스 그룹 내에서 쿼리합니다.
 - **Name**(옵션)
   - 일치하는 리소스의 정확한 이름을 지정하고 정책에서 지정된 형식의 모든 리소스 대신 하나의 특정 리소스를 인출하도록 합니다.
-  - 조건에 대 한 값 하는 경우 **if.field.type** 하 고 **then.details.type** 다음 일치 **이름** 됩니다 _필요_ 여야합니다`[field('name')]`.
+  - **If. field. 형식** 및 **. details. 형식의** 조건 값이 일치 하는 경우에는 **이름이** _필요_ 하며 `[field('name')]`이 여야 합니다.
 - **ResourceGroupName**(옵션)
   - 다른 리소스 그룹에서 오는 관련된 리소스의 일치를 허용합니다.
   - **type**이 **if** 조건 리소스의 아래에 있는 리소스인 경우 적용되지 않습니다.
@@ -342,30 +341,30 @@ DeployIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
 
 ## <a name="enforceregopolicy"></a>EnforceRegoPolicy
 
-정책 정의 사용 하 여이 효과가 사용 되는지 *모드* 의 `Microsoft.ContainerService.Data`합니다. 입학 허가 제어 규칙을 사용 하 여 정의 전달 하는 것 [Rego](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego) 하 [열려 정책 에이전트](https://www.openpolicyagent.org/) (불투명)에서 [Azure Kubernetes Service](../../../aks/intro-kubernetes.md)합니다.
+이 효과는의 `Microsoft.ContainerService.Data`정책 정의 *모드* 와 함께 사용 됩니다. [Rego](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego) 로 정의 된 허용 제어 규칙을 전달 하 여 [Azure Kubernetes Service](../../../aks/intro-kubernetes.md)에서 [정책 에이전트](https://www.openpolicyagent.org/) (opa)를 여는 데 사용 됩니다.
 
 > [!NOTE]
-> [Kubernetes에 대 한 azure Policy](rego-for-aks.md) 공개 미리 보기로 제공 되며만 기본 제공 정책 정의 지원 합니다.
+> [Kubernetes에 대 한 Azure Policy](rego-for-aks.md) 는 공개 미리 보기로 제공 되며 기본 제공 정책 정의만 지원 합니다.
 
 ### <a name="enforceregopolicy-evaluation"></a>EnforceRegoPolicy 평가
 
-정책 에이전트 열기 입학 허가 컨트롤러 실시간 클러스터에서 새 요청을 평가합니다.
-5 분 마다 클러스터의 전체 검색이 완료 되 고 Azure Policy에는 결과가 보고 합니다.
+Open Policy Agent 허용 컨트롤러는 클러스터의 모든 새 요청을 실시간으로 평가 합니다.
+5 분 마다 클러스터의 전체 검색이 완료 되 고 결과가 Azure Policy 보고 됩니다.
 
 ### <a name="enforceregopolicy-properties"></a>EnforceRegoPolicy 속성
 
-합니다 **세부 정보** EnforceRegoPolicy 효과의 속성이 Rego 입학 허가 제어 규칙을 설명 하는 하위 속성입니다.
+EnforceRegoPolicy 효과의 **details** 속성에는 rego 허용 제어 규칙을 설명 하는 하위 속성이 있습니다.
 
 - **policyId** [required]
-  - 고유한 이름을 Rego 입학 허가 제어 규칙을 매개 변수로 전달 합니다.
-- **policy** [required]
-  - Rego 입학 허가 제어 규칙의 URI를 지정 합니다.
-- **policyParameters** [optional]
-  - 모든 매개 변수 및 rego 정책에 전달할 값을 정의 합니다.
+  - Rego 허용 제어 규칙에 매개 변수로 전달 되는 고유 이름입니다.
+- **정책** 하다
+  - Rego 허용 제어 규칙의 URI를 지정 합니다.
+- **policyParameters** 필드
+  - Rego 정책에 전달할 매개 변수 및 값을 정의 합니다.
 
 ### <a name="enforceregopolicy-example"></a>EnforceRegoPolicy 예제
 
-예제: AKS에서 지정 된 컨테이너 이미지만 수 있도록 허용 제어 규칙을 rego입니다.
+예제: AKS에서 지정 된 컨테이너 이미지만 허용 하는 rego 허용 제어 규칙
 
 ```json
 "if": {
@@ -394,7 +393,7 @@ DeployIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
 
 ## <a name="layering-policies"></a>레이어링 정책
 
-리소스는 여러 할당에서 영향을 받을 수 있습니다. 이러한 할당은 동일한 범위 또는 서로 다른 범위에 있을 수 있습니다. 이러한 각 할당은 정의된 다른 효과를 가질 수 있습니다. 각 정책에 대한 조건 및 효과는 독립적으로 평가됩니다. 예를 들면 다음과 같습니다.
+리소스는 여러 할당에서 영향을 받을 수 있습니다. 이러한 할당은 동일한 범위 또는 서로 다른 범위에 있을 수 있습니다. 이러한 각 할당은 정의된 다른 효과를 가질 수 있습니다. 각 정책에 대한 조건 및 효과는 독립적으로 평가됩니다. 예:
 
 - 정책 1
   - 리소스 위치를 'westus'로 제한
@@ -423,9 +422,9 @@ DeployIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 예제를 검토 [Azure Policy 샘플](../samples/index.md)합니다.
+- [Azure Policy 샘플](../samples/index.md)에서 예제를 검토 합니다.
 - [Azure Policy 정의 구조](definition-structure.md)를 검토합니다.
-- 이해 하는 방법 [프로그래밍 방식으로 정책 만들기](../how-to/programmatically-create.md)합니다.
-- 에 대해 알아봅니다 하는 방법 [규정 준수 데이터를 가져올](../how-to/getting-compliance-data.md)합니다.
-- 설명 하는 방법 [비준수 리소스를 수정](../how-to/remediate-resources.md)합니다.
+- [프로그래밍 방식으로 정책을 만드는](../how-to/programmatically-create.md)방법을 알아봅니다.
+- [준수 데이터를 가져오는](../how-to/getting-compliance-data.md)방법에 대해 알아봅니다.
+- [비준수 리소스](../how-to/remediate-resources.md)를 수정 하는 방법에 대해 알아봅니다.
 - [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.

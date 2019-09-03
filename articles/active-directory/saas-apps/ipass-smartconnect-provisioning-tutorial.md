@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 09ef80742c931c9b7e8f8c2e2cf0b9e373ad6184
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 3141a32437e56bcefe830bc94109e93208e0258d
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015753"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232166"
 ---
 # <a name="tutorial-configure-ipass-smartconnect-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위해 iPass SmartConnect 구성
 
@@ -57,7 +57,7 @@ Azure Active Directory는 *할당* 이라는 개념을 사용 하 여 선택한 
 Azure AD를 사용한 자동 사용자 프로 비전을 위해 iPass SmartConnect를 구성 하기 전에 iPass SmartConnect 관리 콘솔에서 구성 정보를 검색 해야 합니다.
 
 1. IPass SmartConnect SCIM 끝점에 대해 인증 하는 데 필요한 전달자 토큰을 검색 하려면이 값만 제공 되므로 iPass SmartConnect를 처음 설정 하는 경우를 참조 하세요. 
-2. 전달자 토큰이 없는 경우 [ipass smartconnect의 지원 팀] (mailto:help@ipass.com)에 연결 하 여 새 항목을 검색 합니다.
+2. 전달자 토큰이 없으면 [Ipass SmartConnect의 지원 팀에 문의](mailto:help@ipass.com) 하 여 새 항목을 검색 합니다.
 
 ## <a name="add-ipass-smartconnect-from-the-gallery"></a>갤러리에서 iPass SmartConnect 추가
 
@@ -86,7 +86,7 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 iPass SmartConnec
 이 섹션에서는 azure ad의 사용자 및/또는 그룹 할당을 기반으로 iPass SmartConnect에서 사용자 및/또는 그룹을 만들고, 업데이트 하 고, 비활성화 하도록 Azure AD 프로 비전 서비스를 구성 하는 단계를 안내 합니다.
 
 > [!TIP]
->  [Ipass SmartConnect single sign-on 자습서](ipasssmartconnect-tutorial.md)에 제공 된 지침에 따라 BitaBIZ에 대해 SAML 기반 single sign-on을 사용 하도록 선택할 수도 있습니다. Single Sign-On과 자동 사용자 프로비저닝은 서로 보완적이지만, 별개로 구성할 수 있습니다.
+>  [Ipass SmartConnect single sign-on 자습서](ipasssmartconnect-tutorial.md)에 제공 된 지침에 따라 BitaBIZ에 대해 SAML 기반 Single Sign-On를 사용 하도록 선택할 수도 있습니다. Single Sign-On과 자동 사용자 프로비저닝은 서로 보완적이지만, 별개로 구성할 수 있습니다.
 
 ### <a name="to-configure-automatic-user-provisioning-for-ipass-smartconnect-in-azure-ad"></a>Azure AD에서 iPass SmartConnect에 대 한 자동 사용자 프로 비전을 구성 하려면:
 

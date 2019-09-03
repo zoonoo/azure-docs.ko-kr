@@ -7,13 +7,12 @@ ms.date: 08/22/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 71584c9a69ebab6583973003aa51e94a1afe1b14
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 05cc12f5416cbbbff470b40c870f41647ef37cd5
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991991"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231915"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Azure Blueprint의 배포 순서 이해
 
@@ -146,7 +145,7 @@ JSON에서 `dependsOn` 속성을 정의하여 순서를 지정할 수 있습니�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [청사진 수명 주기](lifecycle.md)에 대해 알아보기
+- [청사진 수명 주기](lifecycle.md)에 대해 알아봅니다.
 - [정적 및 동적 매개 변수](parameters.md) 사용 방법 이해
 - [청사진 리소스 잠금](resource-locking.md)을 활용하는 방법 알아보기
 - [기존 할당을 업데이트](../how-to/update-existing-assignments.md)하는 방법 알아보기

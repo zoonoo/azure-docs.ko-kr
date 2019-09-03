@@ -7,12 +7,12 @@ ms.date: 06/24/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 5362d25e1a6c9bcd273ae915bf2f599578f575ff
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: f71d21149fa842b005d81b1f222b78244def6c20
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228838"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231671"
 ---
 # <a name="overview-of-the-nist-sp-800-53-r4-blueprint-sample"></a>NIST SP 800-53 R4 청사진 샘플의 개요
 
@@ -32,7 +32,7 @@ NIST SP 800-53 R4의 개요와 그 청사진 샘플을 살펴봤습니다. 이�
 
 청사진 및 사용 방법에 대한 추가 문서:
 
-- [청사진 수명 주기](../../concepts/lifecycle.md)에 대해 알아보기
+- [청사진 수명 주기](../../concepts/lifecycle.md)에 대해 알아봅니다.
 - [정적 및 동적 매개 변수](../../concepts/parameters.md) 사용 방법 이해
 - [청사진 시퀀싱 순서](../../concepts/sequencing-order.md)를 사용자 지정하는 방법 알아보기
 - [청사진 리소스 잠금](../../concepts/resource-locking.md)을 활용하는 방법 알아보기

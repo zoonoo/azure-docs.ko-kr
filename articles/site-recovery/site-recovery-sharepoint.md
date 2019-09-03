@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: bc6d9e7214d2b7cd009e7562357bed420e49f185
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: e9b688d54049c21da3276a20e27dcc9ad3d4ceca
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325103"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231477"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 다중 계층 SharePoint 애플리케이션에 대한 재해 복구 설정
 
@@ -34,7 +34,7 @@ Azure에 대 한 다중 계층 응용 프로그램을 복구 하는 방법에 �
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 항목을 이해해야 합니다.
 
@@ -56,9 +56,9 @@ SharePoint은 계층된 토폴로지 및 서버 역할을 사용하여 한 개 �
 
 ## <a name="site-recovery-support"></a>Site Recovery 지원
 
-이 문서를 작성하기 위해 Windows Server 2012 R2 Enterprise가 있는 VMware 가상 머신이 사용되었습니다. SharePoint 2013 Enterprise Edition 및 SQL server 2014 Enterprise Edition이 사용되었습니다. Site Recovery 복제는 애플리케이션을 제한하지 않으므로 여기서 제시하는 권장 사항은 다음 시나리오에서도 유지됩니다.
+Site Recovery는 응용 프로그램에 관계 없이 지원 되는 컴퓨터에서 실행 되는 모든 버전의 SharePoint에서 작동 해야 합니다. 이 문서를 작성하기 위해 Windows Server 2012 R2 Enterprise가 있는 VMware 가상 머신이 사용되었습니다. SharePoint 2013 Enterprise Edition 및 SQL server 2014 Enterprise Edition이 사용되었습니다.
 
-### <a name="source-and-target"></a>원본 및 대상
+### <a name="source-and-target"></a>소스 및 대상
 
 **시나리오** | **보조 사이트로** | **Azure로**
 --- | --- | ---
@@ -67,13 +67,6 @@ SharePoint은 계층된 토폴로지 및 서버 역할을 사용하여 한 개 �
 **물리적 서버** | 예 | 예
 **Azure** | NA | 예
 
-### <a name="sharepoint-versions"></a>SharePoint 버전
-다음 SharePoint Server 버전이 지원됩니다.
-
-* SharePoint Server 2013 Standard
-* SharePoint Server 2013 Enterprise
-* SharePoint Server 2016 Standard
-* SharePoint Server 2016 Enterprise
 
 ### <a name="things-to-keep-in-mind"></a>주의할 사항
 

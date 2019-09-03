@@ -8,12 +8,12 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d720f220b8903d960e7bba2a75aa5a86bd0391ce
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 10d1e2fc607df205ea8922a81a1322d4121f30f7
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68225990"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232302"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>영국 공식 및 영국 NHS 청사진 샘플 배포
 
@@ -112,7 +112,7 @@ UK 공식 및 영국 NHS 청사진 샘플을 배포 하는 단계를 검토 했�
 
 청사진 및 사용 방법에 대한 추가 문서:
 
-- [청사진 수명 주기](../../concepts/lifecycle.md)에 대해 알아보기
+- [청사진 수명 주기](../../concepts/lifecycle.md)에 대해 알아봅니다.
 - [정적 및 동적 매개 변수](../../concepts/parameters.md) 사용 방법 이해
 - [청사진 시퀀싱 순서](../../concepts/sequencing-order.md)를 사용자 지정하는 방법 알아보기
 - [청사진 리소스 잠금](../../concepts/resource-locking.md)을 활용하는 방법 알아보기

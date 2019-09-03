@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 09/03/2019
 ms.author: raynew
-ms.openlocfilehash: 6882476cabc3dc3a737f31eeeb4ccd92e5ea6ee0
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: d415f303976ae454cb99f07e8d6e15e338e24d7d
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872756"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231460"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure 간 재해 복구 아키텍처
 
@@ -66,7 +66,7 @@ Azure VM 복제를 활성화하면 기본적으로 Site Recovery는 표에 요�
 **정책 설정** | **세부 정보** | **Default**
 --- | --- | ---
 **복구 지점 보존** | Site Recovery에서 복구 지점을 유지하는 기간을 지정합니다. | 24시간
-**앱 일치 스냅샷 빈도** | Site Recovery에서 앱 일치 스냅샷을 만드는 주기입니다. | 매 60분
+**앱 일치 스냅샷 빈도** | Site Recovery에서 앱 일치 스냅샷을 만드는 주기입니다. | 4 시간 마다
 
 ### <a name="managing-replication-policies"></a>복제 정책 관리
 

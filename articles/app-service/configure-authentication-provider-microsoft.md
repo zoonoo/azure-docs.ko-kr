@@ -1,6 +1,6 @@
 ---
 title: Microsoft 계정 인증 구성 - Azure App Service
-description: App Services 애플리케이션에 대해 Microsoft 계정 인증을 구성하는 방법을 알아봅니다.
+description: App Service 앱에 대 한 Microsoft 계정 인증을 구성 하는 방법을 알아봅니다.
 author: mattchenderson
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 5ef0cb2da26fcc00d1daf4b2dd0faf8bde8b743b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0832c1e5f10cdb8e1d7a2edbb88162230ab13401
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098533"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233074"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-microsoft-account-login"></a>Microsoft 계정 로그인을 사용하도록 App Service 애플리케이션을 구성하는 방법
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -61,7 +61,7 @@ ms.locfileid: "70098533"
 
 4. 필드 Microsoft 계정 사용자에 대 한 액세스를 제한 하려면 **Microsoft 계정을 사용 하 여 로그인**할 수 있도록 **요청이 인증 되지 않은 경우 수행할 작업** 을 설정 합니다. 이렇게 하려면 모든 요청이 인증되어야 하며 모든 인증되지 않은 요청은 인증을 위해 Microsoft 계정에 리디렉션되어야 합니다.
 
-> [!CAUTION]
+> [!NOTE]
 > 이러한 방식으로 액세스를 제한 하는 것은 앱에 대 한 모든 호출에 적용 됩니다 .이는 여러 단일 페이지 응용 프로그램과 마찬가지로 공개적으로 사용 가능한 홈 페이지를 사용 하는 앱에는 바람직하지 않을 수 있습니다. 이러한 응용 프로그램의 경우 [여기](overview-authentication-authorization.md#authentication-flow)에 설명 된 대로 **익명 요청 허용 (작업 없음)** 을 사용 하는 것이 좋습니다. 앱은 수동으로 로그인을 시작 합니다.
 
 5. **Save**을 클릭합니다.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c6980d11fa5fe3733e351923d058d1ad0a1677e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 66dbfa40d5a19c7f15ed2772740b84652ae3e58c
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084915"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231278"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>방법: 하이브리드 Azure Active Directory 조인 구현 계획
 
@@ -64,10 +64,10 @@ Windows 데스크톱 운영 체제를 실행 하는 장치의 경우 지원 되�
 ### <a name="windows-down-level-devices"></a>Windows 하위 수준 디바이스
 
 - Windows 8.1
-- Windows 7. Windows 7에 대 한 지원 정보는 [windows 7에 대 한 지원 종료를](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support) 참조 하세요.
+- Windows 7 Windows 7에 대 한 지원 정보 [는 windows 7 지원 종료](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support)를 참조 하세요.
 - Windows Server 2012 R2
 - Windows Server 2012
-- Windows Server 2008 R2
+- Windows Server 2008 R2. Windows Server 2008 및 2008 r 2에 대 한 지원 정보는 [Windows server 2008 지원 종료](https://www.microsoft.com/cloud-platform/windows-server-2008)를 참조 하세요.
 
 첫 번째 계획 단계에서는 사용자 환경을 검토하고 Windows 하위 수준 디바이스를 지원해야 하는지 여부를 결정해야 합니다.
 

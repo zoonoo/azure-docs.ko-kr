@@ -1,19 +1,18 @@
 ---
 title: 쿼리 언어 이해
-description: 사용 가능한 Kusto 연산자 및 Azure 리소스 그래프를 사용 하 여 사용 가능한 함수를 설명 합니다.
+description: Azure 리소스 그래프에서 사용할 수 있는 Kusto 연산자 및 함수에 대해 설명 합니다.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: dcb21a6aedf16b034fad4f0822e22758dda03c33
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c6e35d688581d0839e12806117e63c7d71fbc459
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65800502"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231504"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Azure Resource Graph 쿼리 언어 이해
 
@@ -55,31 +54,31 @@ Resource Graph에서 사용하는 쿼리 언어를 알아보는 가장 좋은 �
 
 ## <a name="escape-characters"></a>이스케이프 문자
 
-몇 개의 속성 이름을 포함 하는 것과 같은 `.` 또는 `$`, 래핑된 이거나 이스케이프 된 쿼리 또는 속성 이름을 올바르게 해석 되 고 예상된 결과 제공 하지 않습니다.
+`.` 또는`$`를 포함 하는 속성과 같은 일부 속성 이름은 쿼리에서 래핑해야 하거나 이스케이프 해야 합니다. 그렇지 않으면 속성 이름이 잘못 해석 되어 예상한 결과를 제공 하지 않습니다.
 
-- `.` -속성 이름으로를 래핑하십시오. `['propertyname.withaperiod']`
+- `.`-다음과 같이 속성 이름을 래핑합니다.`['propertyname.withaperiod']`
   
-  속성을 래핑하는 예제 쿼리입니다 _odata.type_:
+  _Odata_속성을 래핑하는 쿼리 예제:
 
   ```kusto
   where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.['odata.type']
   ```
 
-- `$` -속성 이름에 문자를 이스케이프 합니다. 사용 된 이스케이프 문자 리소스 그래프에서 실행 되는 셸에 따라 달라 집니다.
+- `$`-속성 이름에서 문자를 이스케이프 합니다. 사용 되는 이스케이프 문자는에서 실행 되는 셸 리소스 그래프에 따라 다릅니다.
 
   - **bash** - `\`
 
-    속성을 이스케이프 하는 예제 쿼리입니다  _\$형식_ bash에서:
+    Bash에서 속성  _\$형식을_ 이스케이프 하는 예제 쿼리는 다음과 같습니다.
 
     ```kusto
     where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.\$type
     ```
 
-  - **cmd** -이스케이프 하지는 `$` 문자입니다.
+  - **cmd** -문자를 `$` 이스케이프 하지 않습니다.
 
   - **PowerShell** - ``` ` ```
 
-    속성을 이스케이프 하는 예제 쿼리입니다  _\$형식_ PowerShell에서:
+    PowerShell에서 속성  _\$형식을_ 이스케이프 하는 예제 쿼리는 다음과 같습니다.
 
     ```kusto
     where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.`$type

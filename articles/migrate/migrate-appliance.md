@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: raynew
-ms.openlocfilehash: c31a9fde50de8190cdd7bc19600344a8e58cf60b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: e2faa47a58283623747ae569de22e1c57df1a51f
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827328"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231138"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate 어플라이언스
 
@@ -72,6 +72,9 @@ NIC 쓰기 처리량 (초당 MB) | net.transmitted.average  |VM 크기에 대 �
 
 ## <a name="collected-metadata-vmware"></a>수집 된 메타 데이터-VMware
 
+> [!NOTE]
+> Azure Migrate 어플라이언스에서 검색 된 메타 데이터는 Azure로 마이그레이션할 때 응용 프로그램을 적절 하 게 크기를 조정 하 고, Azure 적합성 분석, 응용 프로그램 종속성 분석 및 비용 계획을 수행 하는 데 사용 됩니다. Microsoft에서는 모든 라이센스 규정 준수 감사와 관련하여 이 데이터를 사용하지 않습니다.
+
 다음은 기기가 수집 하 여 Azure에 전송 하는 VMware VM 메타 데이터의 전체 목록입니다.
 
 **데이터** | **카운터**
@@ -85,7 +88,7 @@ VM 설명 | vm.Summary.Config.Annotation
 운영 체제 유형 | vm.SummaryConfig.GuestFullName
 부팅 유형 | vm.Config.Firmware
 코어 수 | vm.Config.Hardware.NumCPU
-메모리(MB) | vm.Config.Hardware.MemoryMB
+메모리 (MB) | vm.Config.Hardware.MemoryMB
 디스크 수 | vm. 구성 합니다. FindAll (x = >는 VirtualDisk). count
 디스크 크기 목록 | vm. 구성 합니다. FindAll (x = >는 VirtualDisk)
 네트워크 어댑터 목록 | vm. 구성 합니다. FindAll (x = >는 VirtualEthernet). count
@@ -122,6 +125,9 @@ VM 당 호스트 세부 정보 | (HostSystem) 컨테이너). VM
 
 
 ## <a name="collected-performance-data-hyper-v"></a>수집 된 성능 데이터-Hyper-v
+
+> [!NOTE]
+> Azure Migrate 어플라이언스에서 검색 된 메타 데이터는 Azure로 마이그레이션할 때 응용 프로그램을 적절 하 게 크기를 조정 하 고, Azure 적합성 분석, 응용 프로그램 종속성 분석 및 비용 계획을 수행 하는 데 사용 됩니다. Microsoft에서는 모든 라이센스 규정 준수 감사와 관련하여 이 데이터를 사용하지 않습니다.
 
 다음은 기기가 수집 하 여 Azure에 전송 하는 VMware VM 성능 데이터입니다.
 

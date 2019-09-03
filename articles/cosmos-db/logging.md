@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 3a2702abd39ecdf506d58b6bd8884f12607e29e8
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: d8a9963edd689a32ae0642ac6fa4a622c248bc5b
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615297"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232372"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB의 진단 로깅 
 
@@ -287,7 +287,7 @@ Name              : resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/C
 
 여러 리소스에 대한 로그를 수집하는 데 동일한 스토리지 계정을 사용할 수 있으므로 Blob 이름에 있는 정규화된 리소스 ID를 사용하여 필요한 특정 Blob을 액세스하거나 다운로드할 수 있습니다. 이러한 작업을 수행하기 전에, 모든 Blob을 다운로드하는 방법을 다룹니다.
 
-먼저 Blob을 다운로드할 폴더를 만듭니다. 예를 들어:
+먼저 Blob을 다운로드할 폴더를 만듭니다. 예:
 
 ```powershell
 New-Item -Path 'C:\Users\username\ContosoCosmosDBLogs'`
@@ -363,7 +363,7 @@ $blobs | Get-AzStorageBlobContent `
 
 ## <a name="manage-your-logs"></a>로그 관리
 
-진단 로그는 Azure Cosmos DB 작업이 수행된 시간부터 2시간 동안 계정에서 사용 가능합니다. 스토리지 계정의 로그 관리에 따라 다릅니다.
+진단 로그는 Azure Cosmos DB 작업이 수행된 시간부터 2시간 동안 계정에서 사용 가능합니다. 스토리지 계정에서 로그를 관리하는 것은 사용자의 책임입니다.
 
 * 표준 Azure 액세스 제어 메서드를 사용하여 액세스할 수 있는 사용자를 제한하여 로그를 보호합니다.
 * 스토리지 계정에 더 이상 보존하지 않을 로그를 삭제합니다.
@@ -436,7 +436,7 @@ Azure Cosmos 컨테이너를 모니터링 하는 데 도움이 되는 **로그 �
 * 3밀리초보다 오래 소요되는 작업을 쿼리하려면
 
     ```
-    AzureDiagnostics | where toint(duration_s) > 30000 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by clientIpAddress_s, TimeGenerated
+    AzureDiagnostics | where toint(duration_s) > 3 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by clientIpAddress_s, TimeGenerated
     ```
 
 * 작업을 실행 중인 에이전트를 쿼리하려면
@@ -448,7 +448,7 @@ Azure Cosmos 컨테이너를 모니터링 하는 데 도움이 되는 **로그 �
 * 장기 실행 작업이 수행된 시점을 쿼리하려면
 
     ```
-    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | project TimeGenerated , toint(duration_s)/1000 | render timechart
+    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | project TimeGenerated , duration_s | render timechart
     ```
 
 새 로그 검색 언어를 사용 하는 방법에 대 한 자세한 내용은 [Azure Monitor 로그의 로그 검색 이해](../log-analytics/log-analytics-log-search-new.md)를 참조 하세요. 
@@ -459,7 +459,7 @@ Azure Storage 및 Azure Monitor 로그에 저장 된 진단 데이터는 유사�
 
 다음 표는 각 로그 항목의 내용에 대해 설명합니다.
 
-| Azure Storage 필드 또는 속성 | Azure Monitor logs 속성 | Description |
+| Azure Storage 필드 또는 속성 | Azure Monitor logs 속성 | 설명 |
 | --- | --- | --- |
 | **time** | **TimeGenerated** | 작업이 발생한 날짜 및 시간(UTC)입니다. |
 | **resourceId** | **Resource** | 로그가 사용하도록 설정된 Azure Cosmos DB 계정입니다.|
@@ -474,7 +474,7 @@ Azure Storage 및 Azure Monitor 로그에 저장 된 진단 데이터는 유사�
 | **clientIpAddress** | **clientIpAddress_s** | 클라이언트의 IP 주소입니다. |
 | **requestCharge** | **requestCharge_s** | 작업에서 사용된 RU 수입니다. |
 | **collectionRid** | **collectionId_s** | 컬렉션의 고유 ID입니다.|
-| **duration** | **duration_s** | 작업 기간(틱 단위)입니다. |
+| **duration** | **duration_s** | 작업의 기간 (밀리초)입니다. |
 | **requestLength** | **requestLength_s** | 요청 길이(바이트)입니다. |
 | **responseLength** | **responseLength_s** | 길이 (바이트)에서 응답입니다.|
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | 이 값은 인증에 [리소스 토큰](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens)이 사용될 경우 비어 있지 않습니다. 값은 사용자의 리소스 ID를 가리킵니다. |

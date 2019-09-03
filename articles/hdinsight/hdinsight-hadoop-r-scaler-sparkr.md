@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: 75bbcfa831ba7ef0b3dd0da629cfa94768d6ae9d
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: b96779a0a37602b6d114c9baf517df2637f734a2
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873324"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231116"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>HDInsight에서 ScaleR과 SparkR 결합
 
@@ -193,7 +193,7 @@ rxDataStep(weatherDF, outFile = weatherDF1, rowsPerRead = 50000, overwrite = T,
 
 ## <a name="importing-the-airline-and-weather-data-to-spark-dataframes"></a>Spark DataFrame으로 항공사 및 날씨 데이터 가져오기
 
-이제 SparkR [read.df()](http://spark.apache.org/docs/latest/api/R/read.df.html) 함수를 사용하여 날씨 및 항공사 데이터를 Spark DataFrame으로 가져옵니다. 이 함수는 다른 많은 Spark 메서드와 마찬가지로 느리게 실행됩니다. 즉 실행 큐에 있지만 필요할 때까지는 실행되지 않습니다.
+이제 SparkR [read.df()](https://spark.apache.org/docs/latest/api/R/read.df.html) 함수를 사용하여 날씨 및 항공사 데이터를 Spark DataFrame으로 가져옵니다. 이 함수는 다른 많은 Spark 메서드와 마찬가지로 느리게 실행됩니다. 즉 실행 큐에 있지만 필요할 때까지는 실행되지 않습니다.
 
 ```
 airPath     <- file.path(inputDataDir, "AirOnTime08to12CSV")
@@ -266,7 +266,7 @@ weatherDF <- rename(weatherDF,
 
 ## <a name="joining-the-weather-and-airline-data"></a>날씨 및 항공사 데이터 결합
 
-SparkR [join()](http://spark.apache.org/docs/latest/api/R/join.html) 함수를 사용하여 출발 AirportID와 날짜/시간을 기준으로 항공사와 날씨 데이터의 왼쪽 외부 조인을 수행합니다. 외부 조인을 사용하면 일치하는 날씨 데이터가 없는 경우에도 모든 항공사 데이터 레코드를 유지할 수 있습니다. 조인에 따라 중복 열 몇 개를 제거하고, 유지 열의 이름을 바꿔 조인에서 도입된 들어오는 DataFrame 접두사를 제거합니다.
+SparkR [join()](https://spark.apache.org/docs/latest/api/R/join.html) 함수를 사용하여 출발 AirportID와 날짜/시간을 기준으로 항공사와 날씨 데이터의 왼쪽 외부 조인을 수행합니다. 외부 조인을 사용하면 일치하는 날씨 데이터가 없는 경우에도 모든 항공사 데이터 레코드를 유지할 수 있습니다. 조인에 따라 중복 열 몇 개를 제거하고, 유지 열의 이름을 바꿔 조인에서 도입된 들어오는 DataFrame 접두사를 제거합니다.
 
 ```
 logmsg('Join airline data with weather at Origin Airport')

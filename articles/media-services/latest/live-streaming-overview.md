@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: juliako
-ms.openlocfilehash: 5883c1aa20af106dd39bffc95036ee90f312ffea
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: bac784ea3050111184e2908fe5656a1d16545a99
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051600"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231022"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Azure Media Services v3를 통한 라이브 스트리밍
 
@@ -96,7 +96,7 @@ Media Services v3에서 라이브 스트리밍 워크플로를 이해 하려면 
     * 라이브 이벤트를 중지합니다. 라이브 이벤트가 중지되면 채널 요금이 발생하지 않습니다. 채널을 다시 시작해야 하는 경우 채널의 수집 URL은 동일하므로 인코더를 다시 구성하지 않아도 됩니다.
     * 라이브 이벤트의 보관 파일을 주문형 스트림으로 계속 제공하지 않으려면 스트리밍 엔드포인트를 중지할 수 있습니다. 라이브 이벤트가 중지된 상태이면 채널 요금이 발생하지 않습니다.
 
-라이브 이벤트가 중지되면 이벤트를 주문형 콘텐츠로 자동으로 변환합니다. 이벤트를 중단 및 삭제한 다음에도 자산을 삭제하지 않는 한 사용자는 주문형 비디오로 보관된 콘텐츠를 스트림할 수 있습니다. 자산을 이벤트에서 사용하는 경우 삭제할 수 없습니다. 이벤트를 먼저 삭제해야 합니다.
+라이브 출력이 보관 되는 자산은 라이브 출력이 삭제 될 때 자동으로 주문형 자산이 됩니다. 라이브 이벤트를 중지 하려면 먼저 모든 라이브 출력을 삭제 해야 합니다. 선택적 플래그 [removeOutputsOnStop](https://docs.microsoft.com/rest/api/media/liveevents/stop#request-body) 를 사용 하 여 중지 시 자동으로 라이브 출력을 제거할 수 있습니다. 
 
 > [!TIP]
 > [라이브 스트리밍 자습서](stream-live-tutorial-with-api.md)를 참조 하세요 .이 문서에서는 위에 설명 된 단계를 구현 하는 코드를 검사 합니다.

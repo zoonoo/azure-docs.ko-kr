@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 22c83b1fe53a9209fd243fe807bb76718cbdcbbd
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.openlocfilehash: f760917ae8f4ab11902799e36973ae896c4a2b43
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70211687"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232338"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>복사 작업 성능 및 확장성 가이드
 > [!div class="op_single_selector" title1="사용 중인 Azure Data Factory의 버전을 선택 합니다."]
@@ -181,7 +181,7 @@ Azure Data Factory는 다음과 같은 성능 최적화 기능을 제공 합니�
 | 복사 시나리오 | 서비스에 의해 결정되는 기본 병렬 복사 개수 |
 | --- | --- |
 | 파일 기반 저장소 간의 데이터 복사 |는 파일의 크기와 두 클라우드 데이터 저장소 간에 데이터를 복사 하는 데 사용 된 DIUs의 수와 자체 호스팅 통합 런타임 컴퓨터의 물리적 구성에 따라 달라 집니다. |
-| 파티션 옵션이 설정 된 관계형 데이터 저장소에서 복사 ( [Oracle](connector-oracle.md#oracle-as-source), [Teradata](connector-teradata.md#teradata-as-source), [Sap 테이블](connector-sap-table.md#sap-table-as-source)및 [sap Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source)포함)|4 |
+| 파티션 옵션이 설정 된 관계형 데이터 저장소에서 복사 ( [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [sap 테이블](connector-sap-table.md#sap-table-as-source)및 [sap Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source)포함)|4 |
 | 모든 원본 저장소에서 Azure Table storage로 데이터 복사 |4 |
 | 그 밖의 모든 복사 시나리오 |1 |
 
@@ -193,7 +193,7 @@ Azure Data Factory는 다음과 같은 성능 최적화 기능을 제공 합니�
 **주의할 사항:**
 
 - 파일 기반 저장소 간에 데이터를 복사 하는 경우 **parallelCopies** 는 파일 수준에서 병렬 처리를 결정 합니다. 단일 파일 내의 청크는 자동으로 투명 하 게 발생 합니다. 지정 된 원본 데이터 저장소 형식에 가장 적합 한 청크 크기를 사용 하 여 데이터를 병렬로 로드 하 고 **parallelCopies**에 직교 하도록 디자인 되었습니다. 런타임 시 데이터 이동 서비스에서 복사 작업에 사용하는 병렬 복사의 실제 수는 사용자가 보유한 파일의 수를 넘지 않습니다. 복사 동작이 **Mergefile**인 경우 복사 작업은 파일 수준 병렬 처리를 사용할 수 없습니다.
-- 파일 기반이 아닌 저장소 ( [Oracle](connector-oracle.md#oracle-as-source), [Teradata](connector-teradata.md#teradata-as-source), [Sap 테이블](connector-sap-table.md#sap-table-as-source)및 [sap Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source) 커넥터를 사용 하는 원본으로 데이터 분할을 사용 하는 원본으로)에서 데이터를 복사 하는 경우 데이터 이동 서비스 **parallelCopies** 속성을 무시 합니다. 병렬 처리를 지정하더라도 이 경우에는 적용되지 않습니다.
+- 파일 기반이 아닌 저장소 ( [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [sap 테이블](connector-sap-table.md#sap-table-as-source)및 [sap Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source) 커넥터를 사용 하는 원본으로 데이터 분할을 사용 하는 원본으로)에서 데이터를 복사 하는 경우 데이터를 파일 기반으로 하는 저장소로 복사 합니다. 이동 서비스는 **parallelCopies** 속성을 무시 합니다. 병렬 처리를 지정하더라도 이 경우에는 적용되지 않습니다.
 - **ParallelCopies** 속성은 **dataIntegrationUnits**와 직교 합니다. 전자는 모든 데이터 통합 단위에서 계산됩니다.
 - **ParallelCopies** 속성의 값을 지정 하는 경우 원본 및 싱크 데이터 저장소에 대 한 부하 증가를 고려해 야 합니다. 또한 하이브리드 복사의 경우와 같이 복사 작업을 통해 권한을 부여 하는 경우 자체 호스팅 통합 런타임에 대 한 부하 증가를 고려해 야 합니다. 이러한 부하가 증가 하는 것은 특히 동일한 데이터 저장소에 대해 실행 되는 동일한 활동의 여러 활동 또는 동시 실행이 있는 경우에 발생 합니다. 데이터 저장소 또는 자체 호스팅 통합 런타임이 부하가 많은 경우에는 부하를 완화 하기 위해 **parallelCopies** 값을 줄입니다.
 

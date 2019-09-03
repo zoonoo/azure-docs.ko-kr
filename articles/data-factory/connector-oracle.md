@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 9c27b81717c32ccf4c78143a3d3d31de7181c5fe
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 90adacffd947be38b447117bfe64242bed3a90af
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996621"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231363"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Oracle 간 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -206,7 +206,7 @@ Oracle에서 데이터를 복사 하려면 복사 작업의 원본 형식을로 
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을로 `OracleSource`설정 해야 합니다. | 예 |
 | oracleReaderQuery | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제입니다. `"SELECT * FROM MyTable"`<br>분할 된 로드를 사용 하도록 설정 하는 경우 쿼리에 해당 하는 기본 제공 파티션 매개 변수를 후크 해야 합니다. 예제는 [Oracle에서 병렬 복사](#parallel-copy-from-oracle) 섹션을 참조 하세요. | 아니요 |
-| partitionOptions | Oracle에서 데이터를 로드 하는 데 사용 되는 데이터 분할 옵션을 지정 합니다. <br>허용되는 값은 다음과 같습니다. **없음** (기본값), **PhysicalPartitionsOfTable** 및 **dynamicrange**입니다.<br>파티션 옵션을 사용 하도록 설정 하는 경우 (즉 `None`,이 아님) 복사 [`parallelCopies`](copy-activity-performance.md#parallel-copy) 작업의 설정도 구성 합니다. 이는 Oracle 데이터베이스에서 데이터를 동시에 로드 하는 병렬 수준을 결정 합니다. 예를 들어이를 4로 설정할 수 있습니다. | 아니요 |
+| partitionOptions | Oracle에서 데이터를 로드 하는 데 사용 되는 데이터 분할 옵션을 지정 합니다. <br>허용되는 값은 다음과 같습니다. **없음** (기본값), **PhysicalPartitionsOfTable** 및 **dynamicrange**입니다.<br>파티션 옵션을 사용 하도록 설정 하는 경우 (즉 `None`,이 아님) Oracle 데이터베이스에서 데이터를 동시에 로드 하는 병렬 처리 수준은 복사 [`parallelCopies`](copy-activity-performance.md#parallel-copy) 작업의 설정에 의해 제어 됩니다. | 아니요 |
 | partitionSettings | 데이터 분할에 대 한 설정 그룹을 지정 합니다. <br>Partition 옵션을 사용할 수 없는 `None`경우에 적용 됩니다. | 아니요 |
 | partitionNames | 복사 해야 하는 실제 파티션 목록입니다. <br>파티션 옵션이 인 경우에 적용 `PhysicalPartitionsOfTable`됩니다. 쿼리를 사용 하 여 원본 데이터를 검색 하는 경우 `?AdfTabularPartitionName` WHERE 절에 후크 합니다. 예제는 [Oracle에서 병렬 복사](#parallel-copy-from-oracle) 섹션을 참조 하세요. | 아니요 |
 | partitionColumnName | 병렬 복사를 위해 범위 분할에서 사용할 원본 열의 이름을 **정수 형식으로** 지정 합니다. 지정 하지 않으면 테이블의 기본 키가 자동으로 검색 되 고 파티션 열로 사용 됩니다. <br>파티션 옵션이 인 경우에 적용 `DynamicRange`됩니다. 쿼리를 사용 하 여 원본 데이터를 검색 하는 경우 `?AdfRangePartitionColumnName` WHERE 절에 후크 합니다. 예제는 [Oracle에서 병렬 복사](#parallel-copy-from-oracle) 섹션을 참조 하세요. | 아니요 |
@@ -295,7 +295,7 @@ Data Factory Oracle 커넥터는 Oracle의 데이터를 병렬로 복사 하기 
 
 분할 된 복사를 사용 하도록 설정 하면 Data Factory Oracle 원본에 대해 병렬 쿼리를 실행 하 여 파티션으로 데이터를 로드 합니다. 병렬 수준은 복사 작업의 [`parallelCopies`](copy-activity-performance.md#parallel-copy) 설정에 의해 제어 됩니다. 예를 들어를 4로 `parallelCopies` 설정 하는 경우 Data Factory는 지정 된 파티션 옵션 및 설정을 기반으로 4 개의 쿼리를 동시에 생성 하 고 실행 하며 각 쿼리는 Oracle 데이터베이스에서 데이터의 일부를 검색 합니다.
 
-특히 Oracle 데이터베이스에서 많은 양의 데이터를 로드 하는 경우 데이터 분할을 사용 하 여 병렬 복사를 사용 하는 것이 좋습니다. 다음은 다양 한 시나리오에 권장 되는 구성입니다. 파일 기반 데이터 저장소로 데이터를 복사 하는 경우 폴더에 여러 파일 (폴더 이름만 지정)로 기록 하는 것이 좋습니다 .이 경우에는 단일 파일에 쓰는 것 보다 성능이 좋습니다.
+특히 Oracle 데이터베이스에서 대량의 데이터를 로드 하는 경우 데이터 분할으로 병렬 복사를 사용 하도록 설정 하는 것이 좋습니다. 다음은 다양 한 시나리오에 권장 되는 구성입니다. 파일 기반 데이터 저장소로 데이터를 복사 하는 경우 폴더에 여러 파일 (폴더 이름만 지정)로 기록 하는 것이 좋습니다 .이 경우에는 단일 파일에 쓰는 것 보다 성능이 좋습니다.
 
 | 시나리오                                                     | 제안 된 설정                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -348,17 +348,17 @@ Oracle에서 Oracle로 데이터를 복사 하는 경우 다음 매핑이 적용
 | DATE |DateTime |
 | FLOAT |Decimal, 문자열(전체 자릿수의 경우 > 28) |
 | INTEGER |Decimal, 문자열(전체 자릿수의 경우 > 28) |
-| LONG |String |
+| LONG |문자열 |
 | LONG RAW |Byte[] |
 | NCHAR |String |
 | NCLOB |String |
 | NUMBER |Decimal, 문자열(전체 자릿수의 경우 > 28) |
-| NVARCHAR2 |문자열 |
+| NVARCHAR2 |String |
 | RAW |Byte[] |
-| ROWID |String |
+| ROWID |문자열 |
 | TIMESTAMP |DateTime |
-| TIMESTAMP WITH LOCAL TIME ZONE |String |
-| TIMESTAMP WITH TIME ZONE |문자열 |
+| TIMESTAMP WITH LOCAL TIME ZONE |문자열 |
+| TIMESTAMP WITH TIME ZONE |String |
 | UNSIGNED INTEGER |NUMBER |
 | VARCHAR2 |String |
 | XML |String |

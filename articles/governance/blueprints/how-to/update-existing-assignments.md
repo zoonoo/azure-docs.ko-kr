@@ -1,19 +1,18 @@
 ---
 title: 포털에서 기존 할당을 업데이트 하는 방법
-description: Azure Blueprint에서 포털에서 기존 할당을 업데이트 하기 위한 메커니즘에 알아봅니다.
+description: Azure 청사진의 포털에서 기존 할당을 업데이트 하는 메커니즘에 대해 알아봅니다.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: c75bd8c3831bad0c8217f16315843cbe3824fe4d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5697d00c2b0a869667d74e93c3ccae593bf200b
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63766625"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231941"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>기존 청사진 할당을 업데이트하는 방법
 
@@ -29,19 +28,19 @@ ms.locfileid: "63766625"
 
 1. 왼쪽 페이지에서 **할당된 청사진**을 선택합니다.
 
-1. 청사진 목록에서 청사진 할당을 마우스 왼쪽 단추로 클릭하고 클릭 합니다 **할당 업데이트할** 단추 또는 blueprint 할당을 마우스 오른쪽 단추로 클릭 하 고 선택 **할당을 업데이트**합니다.
+1. 청사진 목록에서 청사진 할당을 마우스 왼쪽 단추로 클릭하고 그런 다음 **업데이트 할당** 단추를 클릭 하거나 청사진 할당을 마우스 오른쪽 단추로 클릭 하 고 **할당 업데이트**를 선택 합니다.
 
-   ![기존 blueprint 할당을 업데이트 합니다.](../media/update-existing-assignments/update-assignment.png)
+   ![기존 청사진 할당 업데이트](../media/update-existing-assignments/update-assignment.png)
 
-1. 합니다 **할당 blueprint** 페이지는 원래 할당의 모든 값으로 미리 채워진 로드 됩니다. **청사진 정의 버전**, **잠금 할당** 상태, 청사진 정의에 있는 동적 매개 변수를 변경합니다. 변경을 마쳤으면 **할당**을 클릭합니다.
+1. **청사진 할당** 페이지가 원래 할당의 모든 값으로 미리 채워져 로드 됩니다. **청사진 정의 버전**, **잠금 할당** 상태, 청사진 정의에 있는 동적 매개 변수를 변경합니다. 변경을 마쳤으면 **할당**을 클릭합니다.
 
 1. 업데이트된 할당 세부 정보 페이지에서 새 상태를 확인합니다. 이 예제에서는 할당에 **잠금**을 추가했습니다.
 
-   ![기존 blueprint 할당-변경 하는 잠금 모드를 업데이트 합니다.](../media/update-existing-assignments/updated-assignment.png)
+   ![기존 청사진 할당을 업데이트 함-잠금 모드 변경 됨](../media/update-existing-assignments/updated-assignment.png)
 
-1. 다른 방법에 대 한 세부 정보를 찾는 **할당 작업** 드롭다운을 사용 하 여 합니다. 목차 **관리 되는 리소스** 선택한 할당 작업에 의해 업데이트 합니다.
+1. 드롭다운을 사용 하 여 다른 **할당 작업** 에 대 한 세부 정보를 탐색 합니다. 선택한 할당 작업에서 **관리 되는 리소스** 를 업데이트 하는 테이블입니다.
 
-   ![Blueprint 할당의 할당 작업](../media/update-existing-assignments/assignment-operations.png)
+   ![청사진 할당의 할당 작업](../media/update-existing-assignments/assignment-operations.png)
 
 ## <a name="rules-for-updating-assignments"></a>할당 업데이트에 대한 규칙
 
@@ -68,7 +67,7 @@ ms.locfileid: "63766625"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [청사진 수명 주기](../concepts/lifecycle.md)에 대해 알아보기
+- [청사진 수명 주기](../concepts/lifecycle.md)에 대해 알아봅니다.
 - [정적 및 동적 매개 변수](../concepts/parameters.md) 사용 방법 이해
 - [청사진 시퀀싱 순서](../concepts/sequencing-order.md)를 사용자 지정하는 방법 알아보기
 - [청사진 리소스 잠금](../concepts/resource-locking.md)을 활용하는 방법 알아보기

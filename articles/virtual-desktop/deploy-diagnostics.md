@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.author: helohr
-ms.openlocfilehash: d5f0dbf916096b608495c0cc1017d919616653d4
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 625515223da12751b7765baa795bc68d2a7b46b4
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899696"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233245"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>진단 도구 배포
 
@@ -154,7 +154,7 @@ Vm의 상태를 볼 수 있으려면 Log Analytics 연결을 사용 하도록 �
 
 진단 도구에 대 한 Azure 리소스 관리 템플릿을 배포 하려면 다음을 수행 합니다.
 
-1.  GitHub Azure RDS-템플릿 페이지로 이동 합니다.
+1.   [GitHub AZURE RDS-템플릿 페이지](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy)로 이동 합니다.
 2.  템플릿을 Azure에 배포 하 고 템플릿의 지침을 따릅니다. 다음 정보를 사용할 수 있는지 확인 합니다.
 
     -   클라이언트 Id

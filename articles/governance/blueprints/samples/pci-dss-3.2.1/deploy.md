@@ -8,12 +8,12 @@ ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 237444cde6e9ccd709f61d13669da03094e5be10
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: f6ae466d10d585b46c9c71614cfeff6b688e6e48
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019433"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231652"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>PCI DSS v 3.2.1 청사진 샘플 배포
 
@@ -96,7 +96,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 다음 테이블은 청사진 아티팩트 매개 변수의 목록을 제공합니다.
 
-|아티팩트 이름|아티팩트 형식|매개 변수 이름|설명|
+|아티팩트 이름|아티팩트 형식|매개 변수 이름|Description|
 |-|-|-|-|
 |\[Preview\] PCI v 3.2.1:2018 컨트롤 및 감사 요구 사항을 지원 하도록 특정 VM 확장 배포|정책 할당|리소스 종류 목록 | 선택한 리소스 종류에 대 한 감사 진단 설정입니다. 기본값은 모든 리소스를 선택 합니다.| 
 |허용 되는 위치|정책 할당|허용 되는 위치 목록|에 배포 되는 리소스에 허용 되는 데이터 센터 위치 목록입니다. 이 목록은 원하는 Azure 위치에 전역적으로 사용자 지정할 수 있습니다. 허용할 위치를 선택 합니다.| 
@@ -114,7 +114,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 청사진 및 사용 방법에 대한 추가 문서:
 
-- [청사진 수명 주기](../../concepts/lifecycle.md)에 대해 알아보기
+- [청사진 수명 주기](../../concepts/lifecycle.md)에 대해 알아봅니다.
 - [정적 및 동적 매개 변수](../../concepts/parameters.md) 사용 방법 이해
 - [청사진 시퀀싱 순서](../../concepts/sequencing-order.md)를 사용자 지정하는 방법 알아보기
 - [청사진 리소스 잠금](../../concepts/resource-locking.md)을 활용하는 방법 알아보기

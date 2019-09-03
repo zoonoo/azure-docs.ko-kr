@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: helohr
-ms.openlocfilehash: 05289b8e3aa0e083dd948a2d43f3af92418bc5d2
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 078a29fc1ab66151aa41c3901bb6a3af6479a0ba
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051994"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233261"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Azure NetApp Files를 사용 하 여 호스트 풀의 FSLogix 프로필 컨테이너 만들기
 
@@ -218,7 +218,7 @@ Windows 가상 데스크톱 환경에 대해 엔터프라이즈급 SMB 볼륨을
 
 6. 원격 데스크톱을 사용 하 여 호스트 풀의 모든 VM 부분에 직접 연결 하 고 **파일 탐색기** 를 엽니다. 그런 다음 **탑재 경로로** 이동 합니다 (다음 예제에서는 탑재 경로가 \\ \\anf-SMB-3863.gt1107.onmicrosoft.com\\anf-VOL).
 
-   이 폴더에는 다음 예제에 나와 있는 것과 같은 프로필 VHD가 있어야 합니다.
+   이 폴더에는 다음 예제에 나와 있는 것과 같은 프로필 VHD (또는 VHDX)가 있어야 합니다.
 
    ![탑재 경로에 있는 폴더 내용의 스크린샷 내부는 이름이 "Profile_ssbb" 인 단일 VHD 파일입니다.](media/mount-path-folder.png)
 

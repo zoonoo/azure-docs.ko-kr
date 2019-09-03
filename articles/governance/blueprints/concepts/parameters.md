@@ -7,13 +7,12 @@ ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 5c1bb1f959f920ea9bce23082ec531dc83d873ad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9670433284ae963783b655322c4b18f748df52c5
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66356976"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231962"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>매개 변수를 통해 동적 청사진 만들기
 
@@ -27,7 +26,7 @@ ms.locfileid: "66356976"
 
 이 문제에 대한 해결 방법은 매개 변수입니다. 청사진을 사용하면 구독에 할당하는 중 아티팩트의 각 속성 값을 정의할 수 있습니다. 매개 변수를 통해 충돌 없이 단일 구독 내에 리소스 그룹과 기타 리소스를 만드는 청사진을 재사용할 수 있습니다.
 
-## <a name="blueprint-parameters"></a>청사진 매개 변수
+## <a name="blueprint-parameters"></a>Blueprint 매개 변수
 
 REST API를 통해 청사진 자체에 매개 변수를 만들 수 있습니다. 이러한 매개 변수는 지원되는 각 아티팩트의 매개 변수와 다릅니다. 청사진에 매개 변수를 만들면 해당 청사진의 아티팩트에서 매개 변수를 사용할 수 있습니다. 리소스 그룹의 이름을 지정하는 접두사를 예로 들 수 있습니다. 아티팩트는 청사진 매개 변수를 사용하여 “대체로 동적인” 매개 변수를 만들 수 있습니다. 할당 중에 매개 변수를 정의할 수도 있으므로 이 패턴은 명명 규칙을 준수할 수 있는 일관성을 허용합니다. 자세한 단계는 [정적 매개 변수 설정 - 청사진 수준 매개 변수](#blueprint-level-parameter)를 참조하세요.
 
@@ -40,12 +39,12 @@ Resource Manager 템플릿 _아티팩트_가 **secureString** 및 **secureObject
 - Key Vault 비밀 이름
 - Key Vault 비밀 버전
 
-Blueprint 할당을 사용 하는 경우는 **관리 시스템 할당 id**, Key Vault 참조 _해야_ blueprint 정의에 할당 된 동일한 구독에 존재 합니다.
+청사진 할당에서 **시스템 할당 관리 id**를 사용 하는 경우 참조 된 Key Vault는 청사진 정의가 할당 된 동일한 구독에 _있어야 합니다_ .
 
-Blueprint 할당을 사용 하는 경우는 **사용자 할당 관리 id**, Key Vault 참조 _수 있습니다_ 중앙 집중화 된 구독에 존재 합니다. 관리 되는 id blueprint 할당 하기 전에 Key Vault에 적절 한 권한이 부여 되어야 합니다.
+청사진 할당에 **사용자 할당 관리 id**가 사용 되는 경우 참조 되는 Key Vault는 중앙 집중식 구독에 있을 _수 있습니다_ . 관리 id에는 청사진 할당 이전에 Key Vault에 대 한 적절 한 권한을 부여 해야 합니다.
 
 > [!IMPORTANT]
-> 두 경우 모두에 Key Vault가 있어야 합니다 **Azure Resource Manager 템플릿 배포에 대 한 액세스를 사용 하도록 설정** 에서 구성 합니다 **액세스 정책** 페이지입니다. 이 기능을 사용하는 방법에 대한 지침은 [Key Vault - 템플릿 배포 사용](../../../managed-applications/key-vault-access.md#enable-template-deployment)을 참조하세요.
+> 두 경우 모두 Key Vault는 **액세스 정책** 페이지에서 구성 된 **템플릿 배포에 대 한 Azure Resource Manager에 액세스할 수** 있어야 합니다. 이 기능을 사용하는 방법에 대한 지침은 [Key Vault - 템플릿 배포 사용](../../../managed-applications/key-vault-access.md#enable-template-deployment)을 참조하세요.
 
 Azure Key Vault에 대한 자세한 내용은 [Key Vault 개요](../../../key-vault/key-vault-overview.md)를 참조하세요.
 
@@ -61,17 +60,17 @@ Azure Key Vault에 대한 자세한 내용은 [Key Vault 개요](../../../key-va
 
 1. 왼쪽 페이지에서 **청사진 정의**를 선택합니다.
 
-1. 기존 blueprint를 클릭 하 고 클릭 **편집 blueprint** 누르거나 **+ 만들기 blueprint** 에서 정보를 입력 하 고는 **기본 사항** 탭 합니다.
+1. 기존 청사진을 클릭 한 다음 **청사진 편집** 을 클릭 하거나 **+ 청사진 만들기** 를 클릭 하 고 **기본 사항** 탭에서 정보를 입력 합니다.
 
 1. **다음: 아티팩트**를 클릭하거나 **아티팩트** 탭을 클릭합니다.
 
 1. 청사진에 추가되고 매개 변수 옵션이 있는 아티팩트는 **매개 변수** 열에 **X/Y 매개 변수 채워짐**으로 표시됩니다. 아티팩트 행을 클릭하여 아티팩트 매개 변수를 편집합니다.
 
-   ![Blueprint 정의에서 blueprint 매개 변수](../media/parameters/parameter-column.png)
+   ![청사진 정의의 청사진 매개 변수](../media/parameters/parameter-column.png)
 
 1. **아티팩트 편집** 페이지에는 클릭한 아티팩트에 적절한 값 옵션이 표시됩니다. 아티팩트의 각 매개 변수에는 제목, 값 상자 및 확인란이 있습니다. **정적 매개 변수**로 만들려면 확인란을 선택 취소하도록 상자를 설정합니다. 아래 예제에서는 _위치_가 선택 취소되고 _리소스 그룹 이름_이 선택되었기 때문에 위치만이 **정적 매개 변수**입니다.
 
-   ![청사진 아티팩트에 blueprint 정적 매개 변수](../media/parameters/static-parameter.png)
+   ![청사진 아티팩트의 청사진 정적 매개 변수](../media/parameters/static-parameter.png)
 
 #### <a name="setting-static-parameters-from-rest-api"></a>REST API에서 정적 매개 변수 설정
 
@@ -170,7 +169,7 @@ REST API를 통해 청사진을 만들 때 [청사진 매개 변수](#blueprint-
 
 ### <a name="dynamic-parameters"></a>동적 매개 변수
 
-정적 매개 변수와 대조되는 것이 **동적 매개 변수**입니다. 이 매개 변수는 청사진에서 정의되는 것이 아니라 청사진을 할당할 때 정의됩니다. 리소스 그룹 예제에서는 **동적 매개 변수**를 리소스 그룹 이름에 사용하는 것이 좋습니다. 청사진의 모든 할당에 다른 이름을 제공합니다. Blueprint 함수의 목록을 보려면 참조는 [blueprint 함수](../reference/blueprint-functions.md) 참조 합니다.
+정적 매개 변수와 대조되는 것이 **동적 매개 변수**입니다. 이 매개 변수는 청사진에서 정의되는 것이 아니라 청사진을 할당할 때 정의됩니다. 리소스 그룹 예제에서는 **동적 매개 변수**를 리소스 그룹 이름에 사용하는 것이 좋습니다. 청사진의 모든 할당에 다른 이름을 제공합니다. 청사진 함수 목록은 [청사진 함수](../reference/blueprint-functions.md) 참조를 참조 하세요.
 
 #### <a name="setting-dynamic-parameters-in-the-portal"></a>포털에서 동적 매개 변수 설정
 
@@ -178,15 +177,15 @@ REST API를 통해 청사진을 만들 때 [청사진 매개 변수](#blueprint-
 
 1. 왼쪽 페이지에서 **청사진 정의**를 선택합니다.
 
-1. 할당하려는 청사진을 마우스 오른쪽 단추로 클릭하고 선택 **할당 blueprint** 또는 청사진에 할당 하려면 클릭 합니다 **할당 blueprint** 단추입니다.
+1. 할당하려는 청사진을 마우스 오른쪽 단추로 클릭하고 **청사진 할당** 을 선택 하거나 할당 하려는 청사진을 클릭 한 다음 **청사진 할당** 단추를 클릭 합니다.
 
-1. 에 **할당 blueprint** 페이지에서 찾을 합니다 **아티팩트 매개 변수** 섹션. **동적 매개 변수**가 하나 이상 있는 아티팩트는 아티팩트 및 구성 옵션을 표시합니다. 매개 변수에 필요한 값을 제공한 후 청사진을 할당합니다. 아래 예제에서 _이름_은 청사진을 완료하려면 정의해야 하는 **동적 매개 변수**입니다.
+1. **청사진 할당** 페이지에서 **아티팩트 매개 변수** 섹션을 찾습니다. **동적 매개 변수**가 하나 이상 있는 아티팩트는 아티팩트 및 구성 옵션을 표시합니다. 매개 변수에 필요한 값을 제공한 후 청사진을 할당합니다. 아래 예제에서 _이름_은 청사진을 완료하려면 정의해야 하는 **동적 매개 변수**입니다.
 
-   ![Blueprint 할당 중에 blueprint 동적 매개 변수](../media/parameters/dynamic-parameter.png)
+   ![청사진을 할당 하는 동안 청사진 동적 매개 변수](../media/parameters/dynamic-parameter.png)
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>REST API에서 정적 매개 변수 설정
 
-할당 과정에서 **동적 매개 변수**를 설정하는 작업은 값을 직접 입력하는 방식으로 수행됩니다. 와 같은 함수를 사용 하는 대신 [parameters()](../reference/blueprint-functions.md#parameters), 제공 된 값은 적절 한 문자열입니다. 리소스 그룹에 대한 아티팩트는 “템플릿 이름”, **이름** 및 **위치** 속성으로 정의됩니다. 포함된 아티팩트에 대한 그 외의 매개 변수는 **\<이름\>** 및 **값** 키 쌍을 사용하여 **매개 변수** 아래에 정의됩니다. 할당 과정에서 제공하지 않는 동적 매개 변수에 대해 청사진이 구성된 경우 할당이 실패합니다.
+할당 과정에서 **동적 매개 변수**를 설정하는 작업은 값을 직접 입력하는 방식으로 수행됩니다. [매개 변수 ()](../reference/blueprint-functions.md#parameters)와 같은 함수를 사용 하는 대신 제공 된 값이 적절 한 문자열입니다. 리소스 그룹에 대한 아티팩트는 “템플릿 이름”, **이름** 및 **위치** 속성으로 정의됩니다. 포함된 아티팩트에 대한 그 외의 매개 변수는 **\<이름\>** 및 **값** 키 쌍을 사용하여 **매개 변수** 아래에 정의됩니다. 할당 과정에서 제공하지 않는 동적 매개 변수에 대해 청사진이 구성된 경우 할당이 실패합니다.
 
 - REST API URI
 
@@ -239,8 +238,8 @@ REST API를 통해 청사진을 만들 때 [청사진 매개 변수](#blueprint-
 
 ## <a name="next-steps"></a>다음 단계
 
-- 목록은 [함수를 blueprint](../reference/blueprint-functions.md)합니다.
-- [청사진 수명 주기](lifecycle.md)에 대해 알아보기
+- [청사진 함수](../reference/blueprint-functions.md)목록을 참조 하세요.
+- [청사진 수명 주기](lifecycle.md)에 대해 알아봅니다.
 - [청사진 시퀀싱 순서](sequencing-order.md)를 사용자 지정하는 방법 알아보기
 - [청사진 리소스 잠금](resource-locking.md)을 활용하는 방법 알아보기
 - [기존 할당을 업데이트](../how-to/update-existing-assignments.md)하는 방법 알아보기

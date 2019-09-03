@@ -8,12 +8,12 @@ ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 1261f90910891fa4cae6ff915fbb3f9a9b714c9c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 390d07a473cff86d8870a7ec8229c6343f62c4e7
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67451192"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232658"
 ---
 # <a name="overview-of-the-pci-dss-v321-blueprint-sample"></a>PCI DSS v3.2.1 청사진 샘플 개요
 
@@ -36,7 +36,7 @@ PCI DSS v3.2.1 청사진 샘플 개요를 살펴봤습니다. 이제 다음 문�
 
 청사진 및 사용 방법에 대한 추가 문서:
 
-- [청사진 수명 주기](../../concepts/lifecycle.md)에 대해 알아보기
+- [청사진 수명 주기](../../concepts/lifecycle.md)에 대해 알아봅니다.
 - [정적 및 동적 매개 변수](../../concepts/parameters.md) 사용 방법 이해
 - [청사진 시퀀싱 순서](../../concepts/sequencing-order.md)를 사용자 지정하는 방법 알아보기
 - [청사진 리소스 잠금](../../concepts/resource-locking.md)을 활용하는 방법 알아보기

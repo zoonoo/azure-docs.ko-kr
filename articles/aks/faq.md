@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: mlearned
-ms.openlocfilehash: 0e3a29e6e8f21658f03fb7fc059b54aa167496d4
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 6d122b3ac1504db0a2d22fea749c6c94174e4ff9
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147176"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233151"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -66,7 +66,7 @@ Windows Server 노드(현재 AKS에서 프리뷰)에 대한 Windows Update는 �
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>AKS node 리소스 그룹에 대 한 고유한 이름을 제공할 수 있나요?
 
-예. 기본적으로 AKS는 노드 리소스 그룹의 이름을 *MC_clustername_resourcegroupname_location*로 지정 하지만 사용자 고유의 이름을 제공할 수도 있습니다.
+예. 기본적으로 AKS는 노드 리소스 그룹의 이름을 *MC_resourcegroupname_clustername_location*로 지정 하지만 사용자 고유의 이름을 제공할 수도 있습니다.
 
 고유한 리소스 그룹 이름을 지정 하려면 [aks-preview][aks-preview-cli] Azure CLI 확장 버전 *0.3.2* 이상을 설치 합니다. [Az AKS create][az-aks-create] 명령을 사용 하 여 AKS 클러스터를 만들 때 *--node-group* 매개 변수를 사용 하 고 리소스 그룹의 이름을 지정 합니다. [Azure Resource Manager 템플릿을 사용][aks-rm-template] 하 여 AKS 클러스터를 배포 하는 경우 *Noderesourcegroup* 속성을 사용 하 여 리소스 그룹 이름을 정의할 수 있습니다.
 
@@ -110,7 +110,7 @@ AKS는 현재 기본적으로 Azure Key Vault와 통합 되지 않습니다. 그
 
 예, Windows Server 컨테이너는 미리 보기에서 사용할 수 있습니다. AKS에서 Windows Server 컨테이너를 실행 하려면 게스트 OS로 Windows Server를 실행 하는 노드 풀을 만듭니다. Windows Server 컨테이너는 Windows Server 2019만 사용할 수 있습니다. 시작 하려면 [Windows Server 노드 풀을 사용 하 여 AKS 클러스터 만들기][aks-windows-cli]를 참조 하세요.
 
-노드 풀에 대 한 창 서버 지원에는 Kubernetes 프로젝트의 업스트림 Windows Server에 포함 되는 몇 가지 제한 사항이 포함 되어 있습니다. 이러한 제한 사항에 대 한 자세한 내용은 [Windows Server 컨테이너의 AKS 제한 사항][aks-windows-limitations]을 참조 하세요.
+노드 풀에 대 한 Windows Server 지원에는 Kubernetes 프로젝트의 업스트림 Windows Server에 포함 되는 몇 가지 제한 사항이 포함 되어 있습니다. 이러한 제한 사항에 대 한 자세한 내용은 [Windows Server 컨테이너의 AKS 제한 사항][aks-windows-limitations]을 참조 하세요.
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>AKS는 서비스 수준 계약을 제공 하나요?
 

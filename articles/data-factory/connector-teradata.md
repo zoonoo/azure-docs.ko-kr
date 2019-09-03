@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/23/2019
 ms.author: jingwang
-ms.openlocfilehash: ddce94cab0067c34ad056a40251d79c5470ba460
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: bec1c0c3523e6d9cfb0b2fdbc7a093ffe0637743
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996578"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232505"
 ---
 # <a name="copy-data-from-teradata-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Teradata에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -197,9 +197,9 @@ Teradata에서 데이터를 복사 하려면 복사 작업 **원본** 섹션에�
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을로 `TeradataSource`설정 해야 합니다. | 예 |
 | query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제입니다. `"SELECT * FROM MyTable"`<br>분할 된 로드를 사용 하도록 설정 하는 경우 쿼리에 해당 하는 기본 제공 파티션 매개 변수를 후크 해야 합니다. 예제는 [Teradata에서 Parallel 복사](#parallel-copy-from-teradata) 섹션을 참조 하세요. | 아니요 (데이터 집합의 테이블이 지정 된 경우) |
-| partitionOptions | Teradata에서 데이터를 로드 하는 데 사용 되는 데이터 분할 옵션을 지정 합니다. <br>허용 되는 값은 다음과 같습니다. **없음** (기본값), **Hash** 및 **dynamicrange**입니다.<br>파티션 옵션을 사용 하도록 설정 하는 경우 (즉 `None`,이 아님) 복사 [`parallelCopies`](copy-activity-performance.md#parallel-copy) 작업의 설정도 구성 합니다. 이는 Teradata 데이터베이스에서 데이터를 동시에 로드 하는 병렬 수준을 결정 합니다. 예를 들어이를 4로 설정할 수 있습니다. | 아니요 |
+| partitionOptions | Teradata에서 데이터를 로드 하는 데 사용 되는 데이터 분할 옵션을 지정 합니다. <br>허용 되는 값은 다음과 같습니다. **없음** (기본값), **Hash** 및 **dynamicrange**입니다.<br>파티션 옵션을 사용 하도록 설정 하는 경우 (즉 `None`,이 아님), Teradata 데이터베이스에서 데이터를 동시에 로드 하는 병렬 처리 수준은 [`parallelCopies`](copy-activity-performance.md#parallel-copy) 복사 작업의 설정에 의해 제어 됩니다. | 아니요 |
 | partitionSettings | 데이터 분할에 대 한 설정 그룹을 지정 합니다. <br>Partition 옵션을 사용할 수 `None`없는 경우에 적용 합니다. | 아니요 |
-| partitionColumnName | 병렬 복사를 위해 범위 분할에서 사용할 원본 열의 이름을 **정수 형식으로** 지정 합니다. 지정 하지 않으면 테이블의 기본 키가 자동으로 검색 되 고 파티션 열로 사용 됩니다. <br>Partition 옵션이 또는 `DynamicRange`인 경우에 `Hash` 적용 됩니다. 쿼리를 사용 하 여 원본 데이터, 후크 `?AdfHashPartitionCondition` 또는 `?AdfRangePartitionColumnName` where 절을 검색 하는 경우 [Teradata의 Parallel copy](#parallel-copy-from-teradata) 섹션에서 예제를 참조 하세요. | 아니요 |
+| partitionColumnName | 병렬 복사를 위해 범위 파티션 또는 해시 파티션에서 사용할 원본 열의 이름을 지정 합니다. 지정 하지 않으면 테이블의 주 인덱스가 자동으로 검색 되 고 파티션 열로 사용 됩니다. <br>Partition 옵션이 또는 `DynamicRange`인 경우에 `Hash` 적용 됩니다. 쿼리를 사용 하 여 원본 데이터, 후크 `?AdfHashPartitionCondition` 또는 `?AdfRangePartitionColumnName` where 절을 검색 하는 경우 [Teradata의 Parallel copy](#parallel-copy-from-teradata) 섹션에서 예제를 참조 하세요. | 아니요 |
 | partitionUpperBound | 데이터를 복사할 파티션 열의 최대값입니다. <br>파티션 옵션이 인 `DynamicRange`경우 적용 합니다. 쿼리를 사용 하 여 원본 데이터를 검색 하 `?AdfRangePartitionUpbound` 는 경우 WHERE 절에 후크 합니다. 예제는 [Teradata에서 Parallel 복사](#parallel-copy-from-teradata) 섹션을 참조 하세요. | 아니요 |
 | partitionLowerBound | 데이터를 복사할 파티션 열의 최소값입니다. <br>파티션 옵션이 인 경우에 적용 `DynamicRange`됩니다. 쿼리를 사용 하 여 원본 데이터를 검색 하는 경우 `?AdfRangePartitionLowbound` WHERE 절에 후크 합니다. 예제는 [Teradata에서 Parallel 복사](#parallel-copy-from-teradata) 섹션을 참조 하세요. | 아니요 |
 
@@ -247,7 +247,7 @@ Data Factory Teradata 커넥터는 Teradata에서 병렬로 데이터를 복사 
 
 분할 된 복사를 사용 하도록 설정 하면 Data Factory는 Teradata 원본에 대해 병렬 쿼리를 실행 하 여 파티션당 데이터를 로드 합니다. 병렬 수준은 복사 작업의 [`parallelCopies`](copy-activity-performance.md#parallel-copy) 설정에 의해 제어 됩니다. 예를 들어를 4로 `parallelCopies` 설정 하는 경우 Data Factory는 지정 된 파티션 옵션 및 설정을 기반으로 4 개의 쿼리를 동시에 생성 하 고 실행 하며 각 쿼리는 Teradata 데이터베이스에서 데이터의 일부를 검색 합니다.
 
-특히 Teradata 데이터베이스에서 대량의 데이터를 로드 하는 경우 데이터 분할으로 병렬 복사를 사용 하도록 설정 하는 것이 좋습니다. 다음은 다양 한 시나리오에 권장 되는 구성입니다. 파일 기반 데이터 저장소로 데이터를 복사 하는 경우 폴더에 여러 파일 (폴더 이름만 지정)로 기록 하는 것이 좋습니다 .이 경우에는 단일 파일에 쓰는 것 보다 성능이 좋습니다.
+데이터 분할으로 병렬 복사를 사용 하도록 설정 하는 것이 좋습니다 .이는 Teradata 데이터베이스에서 많은 양의 데이터를 로드 하는 경우에 유용 합니다. 다음은 다양 한 시나리오에 권장 되는 구성입니다. 파일 기반 데이터 저장소로 데이터를 복사 하는 경우 폴더에 여러 파일 (폴더 이름만 지정)로 기록 하는 것이 좋습니다 .이 경우에는 단일 파일에 쓰는 것 보다 성능이 좋습니다.
 
 | 시나리오                                                     | 제안 된 설정                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -293,7 +293,7 @@ Teradata에서 데이터를 복사 하는 경우 다음 매핑이 적용 됩니�
 | Blob |Byte[] |
 | Byte |Byte[] |
 | ByteInt |Int16 |
-| Char |문자열 |
+| Char |String |
 | Clob |String |
 | 날짜 |DateTime |
 | Decimal |Decimal |

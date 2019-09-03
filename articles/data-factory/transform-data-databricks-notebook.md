@@ -6,18 +6,18 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-author: djpmsft
-ms.author: daperlov
+author: nabhishek
+ms.author: abnarain
 manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: db437c7699c7fddc2b04175537446f53c4c4bc85
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 23166a4a0110629674db6ccc9d225118264b3c15
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140823"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233071"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Databricks Notebook을 실행하여 데이터 변환
 
@@ -111,6 +111,19 @@ Databricks Notebook 활동에 대한 샘플 JSON 정의는 다음과 같습니�
 ```
 
 자세한 내용은 라이브러리 유형에 대한 [Databricks 설명서](https://docs.azuredatabricks.net/api/latest/libraries.html#managedlibrarieslibrary)를 참조하세요.
+
+## <a name="passing-parameters-between-notebooks-and-data-factory"></a>노트북과 Data Factory 사이에 매개 변수 전달
+
+Databricks 활동의 *baseparameters* 속성을 사용 하 여 데이터 팩터리 매개 변수를 노트북에 전달할 수 있습니다. 
+
+특정 한 경우에는 노트북의 특정 값을 데이터 팩터리에 대 한 제어 흐름 (조건부 검사)에 사용 하거나 다운스트림 활동에서 사용 (크기 제한은 2MB) 할 수 있는 데이터 팩터리에 다시 전달 해야 할 수 있습니다. 
+
+1. 노트북에서 returnValue [("")](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-workflows.html#notebook-workflows-exit) 를 호출 하면 해당 하는 "returnValue"이 data factory로 반환 됩니다.
+
+2. 와 `'@activity('databricks notebook activity name').output.runOutput'`같은 식을 사용 하 여 data factory의 출력을 사용할 수 있습니다. 
+
+   > [!IMPORTANT]
+   > JSON 개체를 전달 하는 경우 속성 이름을 추가 하 여 값을 검색할 수 있습니다. 예: `'@activity('databricks notebook activity name').output.runOutput.PropertyName'`
 
 ## <a name="how-to-upload-a-library-in-databricks"></a>Databricks에서 라이브러리를 업로드하는 방법
 

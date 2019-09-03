@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: 9ef1dad0e90ec3e48a4bf22325cba0beb197d290
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 771a4ffde9f3929a55ee8ce48c2b38e16b83ad49
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599520"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650674"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기
 
@@ -265,136 +265,9 @@ Service Fabric SDK 및 도구에서는 Service Fabric 클러스터에 컨테이�
 > [!NOTE]
 > 적용 가능한 속성 값으로 PortBinding 요소를 추가로 선언하여 서비스에 대한 추가 PortBinding을 추가할 수 있습니다.
 
-## <a name="configure-container-registry-authentication"></a>컨테이너 레지스트리 인증 구성
+## <a name="configure-container-repository-authentication"></a>컨테이너 리포지토리 인증 구성
 
-ApplicationManifest.xml 파일의 `ContainerHostPolicies`에 `RepositoryCredentials`를 추가하여 컨테이너 레지스트리 인증을 구성합니다. 서비스에서 리포지토리의 컨테이너 이미지를 다운로드할 수 있게 하는 myregistry.azurecr.io 컨테이너 레지스트리에 대한 계정과 암호를 추가합니다.
-
-```xml
-<ServiceManifestImport>
-    ...
-    <Policies>
-        <ContainerHostPolicies CodePackageRef="Code">
-            <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-            <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
-        </ContainerHostPolicies>
-    </Policies>
-    ...
-</ServiceManifestImport>
-```
-
-클러스터의 모든 노드에 배포된 암호화 인증서를 사용하여 리포지토리 암호를 암호화하는 것이 좋습니다. Service Fabric에서 서비스 패키지를 클러스터에 배포할 때 이 암호화 인증서를 사용하여 암호화 텍스트를 해독합니다. Invoke-ServiceFabricEncryptText cmdlet은 ApplicationManifest.xml 파일에 추가되는 암호의 암호화 텍스트를 만드는 데 사용됩니다.
-
-다음 스크립트에서는 자체 서명된 새 인증서를 만들어 PFX 파일로 내보냅니다. 인증서를 기존 키 자격 증명 모음에 가져온 다음 Service Fabric 클러스터에 배포합니다.
-
-```powershell
-# Variables.
-$certpwd = ConvertTo-SecureString -String "Pa$$word321!" -Force -AsPlainText
-$filepath = "C:\MyCertificates\dataenciphermentcert.pfx"
-$subjectname = "dataencipherment"
-$vaultname = "mykeyvault"
-$certificateName = "dataenciphermentcert"
-$groupname="myclustergroup"
-$clustername = "mycluster"
-
-$subscriptionId = "subscription ID"
-
-Login-AzAccount
-
-Select-AzSubscription -SubscriptionId $subscriptionId
-
-# Create a self signed cert, export to PFX file.
-New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEncipherment -Subject $subjectname -Provider 'Microsoft Enhanced Cryptographic Provider v1.0' `
-| Export-PfxCertificate -FilePath $filepath -Password $certpwd
-
-# Import the certificate to an existing key vault. The key vault must be enabled for deployment.
-$cer = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certificateName -FilePath $filepath -Password $certpwd
-
-Set-AzKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $groupname -EnabledForDeployment
-Add-AzServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername -SecretIdentifier $cer.SecretId
-```
-[Invoke-ServiceFabricEncryptText](/powershell/module/servicefabric/Invoke-ServiceFabricEncryptText?view=azureservicefabricps) cmdlet을 사용하여 암호를 암호화합니다.
-
-```powershell
-$text = "=P==/==/=8=/=+u4lyOB=+=nWzEeRfF="
-Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint $cer.Thumbprint -Text $text -StoreLocation Local -StoreName My
-```
-
-암호를 [ Invoke-ServiceFabricEncryptText ](/powershell/module/servicefabric/Invoke-ServiceFabricEncryptText?view=azureservicefabricps) cmdlet에서 반환한 암호화 텍스트로 바꾸고 `PasswordEncrypted`를 "true"로 설정합니다.
-
-```xml
-<ServiceManifestImport>
-    ...
-    <Policies>
-        <ContainerHostPolicies CodePackageRef="Code">
-            <RepositoryCredentials AccountName="myregistry" Password="MIIB6QYJKoZIhvcNAQcDoIIB2jCCAdYCAQAxggFRMIIBTQIBADA1MCExHzAdBgNVBAMMFnJ5YW53aWRhdGFlbmNpcGhlcm1lbnQCEFfyjOX/17S6RIoSjA6UZ1QwDQYJKoZIhvcNAQEHMAAEg
-gEAS7oqxvoz8i6+8zULhDzFpBpOTLU+c2mhBdqXpkLwVfcmWUNA82rEWG57Vl1jZXe7J9BkW9ly4xhU8BbARkZHLEuKqg0saTrTHsMBQ6KMQDotSdU8m8Y2BR5Y100wRjvVx3y5+iNYuy/JmM
-gSrNyyMQ/45HfMuVb5B4rwnuP8PAkXNT9VLbPeqAfxsMkYg+vGCDEtd8m+bX/7Xgp/kfwxymOuUCrq/YmSwe9QTG3pBri7Hq1K3zEpX4FH/7W2Zb4o3fBAQ+FuxH4nFjFNoYG29inL0bKEcTX
-yNZNKrvhdM3n1Uk/8W2Hr62FQ33HgeFR1yxQjLsUu800PrYcR5tLfyTB8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBBybgM5NUV8BeetUbMR8mJhgFBrVSUsnp9B8RyebmtgU36dZiSObDsI
-NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==" PasswordEncrypted="true"/>
-            <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
-        </ContainerHostPolicies>
-    </Policies>
-    ...
-</ServiceManifestImport>
-```
-
-### <a name="configure-cluster-wide-credentials"></a>클러스터 전체의 자격 증명 구성
-
-6\.3 런타임부터 Service Fabric을 사용하면 애플리케이션에서 기본 리포지토리 자격 증명으로 사용할 수 있는 클러스터 전체의 자격 증명을 구성할 수 있습니다.
-
-`true` 또는 `false` 값을 통해 `UseDefaultRepositoryCredentials` 특성을 ApplicationManifest.xml의 `ContainerHostPolicies`에 추가하여 기능을 사용하거나 사용하지 않도록 설정할 수 있습니다.
-
-```xml
-<ServiceManifestImport>
-    ...
-    <Policies>
-        <ContainerHostPolicies CodePackageRef="Code" UseDefaultRepositoryCredentials="true">
-            <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
-        </ContainerHostPolicies>
-    </Policies>
-    ...
-</ServiceManifestImport>
-```
-
-그런 다음, Service Fabric은 `Hosting` 섹션의 ClusterManifest에서 지정할 수 있는 기본 리포지토리 자격 증명을 사용합니다.  `UseDefaultRepositoryCredentials`이 `true`인 경우 Service Fabric은 ClusterManifest에서 다음 값을 읽습니다.
-
-* DefaultContainerRepositoryAccountName(문자열)
-* DefaultContainerRepositoryPassword(문자열)
-* IsDefaultContainerRepositoryPasswordEncrypted(bool)
-* DefaultContainerRepositoryPasswordType(문자열) --- 6.4 런타임부터 지원됨
-
-ClusterManifestTemplate.json 파일의 `Hosting` 섹션 내에서 추가할 수 있는 예제는 다음과 같습니다. 섹션 `Hosting` 은 클러스터를 만들 때 또는 나중에 구성 업그레이드에서 추가할 수 있습니다. 자세한 내용은 [Azure Service Fabric 클러스터 설정 변경](service-fabric-cluster-fabric-settings.md) 및 [Azure Service Fabric 애플리케이션 비밀 관리](service-fabric-application-secret-management.md)를 참조하세요.
-
-```json
-"fabricSettings": [
-    ...,
-    {
-        "name": "Hosting",
-        "parameters": [
-          {
-            "name": "EndpointProviderEnabled",
-            "value": "true"
-          },
-          {
-            "name": "DefaultContainerRepositoryAccountName",
-            "value": "someusername"
-          },
-          {
-            "name": "DefaultContainerRepositoryPassword",
-            "value": "somepassword"
-          },
-          {
-            "name": "IsDefaultContainerRepositoryPasswordEncrypted",
-            "value": "false"
-          },
-          {
-            "name": "DefaultContainerRepositoryPasswordType",
-            "value": "PlainText"
-          }
-        ]
-      },
-]
-```
+컨테이너 이미지 다운로드에 대해 다양 한 유형의 인증을 구성 하는 방법을 알아보려면 [컨테이너 리포지토리 인증](configure-container-repository-credentials.md)을 참조 하세요.
 
 ## <a name="configure-isolation-mode"></a>격리 모드 구성
 Windows는 컨테이너, 즉 프로세스 및 Hyper-V에 대한 두 가지 격리 모드를 지원합니다. 프로세스 격리 모드를 사용하여 동일한 호스트 컴퓨터에서 실행되는 모든 컨테이너는 호스트와 커널을 공유합니다. Hyper-V 격리 모드를 사용하여 커널은 각 Hyper-V 컨테이너와 컨테이너 호스트 간에 격리됩니다. 격리 모드는 애플리케이션 매니페스트 파일의 `ContainerHostPolicies` 요소에 지정됩니다. 지정될 수 있는 격리 모드는 `process`, `hyperv` 및 `default`입니다. 기본값은 Windows Server 호스트에서 프로세스 격리 모드입니다. Windows 10 호스트에서는 Hyper-V 격리 모드만 지원되므로 격리 모드 설정에 관계없이 컨테이너가 Hyper-V 격리 모드로 실행됩니다. 다음 코드 조각은 격리 모드가 애플리케이션 매니페스트 파일에서 지정되는 방법을 보여 줍니다.
@@ -423,7 +296,7 @@ Windows는 컨테이너, 즉 프로세스 및 Hyper-V에 대한 두 가지 격�
 
 v6.1을 시작하면 Service Fabric에서 자동으로 [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) 이벤트를 시스템 상태 보고서에 통합합니다. 즉 컨테이너에 **HEALTHCHECK**를 사용하도록 설정된 경우, Docker에서 보고한 대로 컨테이너의 상태가 변경될 때마다 Service Fabric에서 상태를 보고합니다. *health_status*가 *healthy*이면 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)에서 **OK** 상태 보고서가 표시되고, *health_status*가 *unhealthy*이면 **경고**가 표시됩니다. 
 
-V 6.4의 최신 새로 고침 릴리스부터 docker HEALTHCHECK 평가를 오류로 보고 하도록 지정할 수 있습니다. 이 옵션을 사용 하는 경우 *health_status* 가 *정상* 상태 이면 **정상 상태 보고서** 가 표시 되 고 *health_status* 가 *비정상*상태가 되 면 **오류가** 표시 됩니다.
+V 6.4의 최신 새로 고침 릴리스부터 docker HEALTHCHECK 평가를 오류로 보고 하도록 지정할 수 있습니다. 이 옵션을 사용 하는 경우 *health_status* 가 *정상* 상태 이면 정상 상태 보고서가 표시 되 고 *health_status* 가 *비정상*상태가 되 면 **오류가** 표시 됩니다.
 
 컨테이너 상태를 모니터링하기 위해 수행되는 실제 검사를 가리키는 **HEALTHCHECK** 명령은 컨테이너 이미지를 생성하는 동안 사용되는 Dockerfile에 있어야 합니다.
 
@@ -447,7 +320,7 @@ ApplicationManifest에서 **ContainerHostPolicies**의 일부로 **HealthConfig*
     </Policies>
 </ServiceManifestImport>
 ```
-기본적으로 *IncludeDockerHealthStatusInSystemHealthReport* 는 **true**로 설정 되 고, *RestartContainerOnUnhealthyDockerHealthStatus* 는 **false**로 설정 되며, *TreatContainerUnhealthyStatusAsError* 는 false로 설정 됩니다. 
+기본적으로 *IncludeDockerHealthStatusInSystemHealthReport* 는 **true**로 설정 되 고, *RestartContainerOnUnhealthyDockerHealthStatus* 는 **false**로 설정 되며, *TreatContainerUnhealthyStatusAsError* 는 false로 설정 됩니다.. 
 
 *RestartContainerOnUnhealthyDockerHealthStatus*가 **true**로 설정된 경우, 반복적으로 비정상으로 보고하는 컨테이너가 다시 시작됩니다(다른 노드에서도 가능).
 
@@ -458,7 +331,7 @@ ApplicationManifest에서 **ContainerHostPolicies**의 일부로 **HealthConfig*
 ## <a name="deploy-the-container-application"></a>컨테이너 애플리케이션 배포
 모든 변경 내용을 저장하고 애플리케이션을 빌드합니다. 애플리케이션을 게시하려면 [솔루션 탐색기]에서 **MyFirstContainer**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
-**연결 엔드포인트**에서 클러스터에 대한 관리 엔드포인트를 입력합니다. 예를 들어 "containercluster.westus2.cloudapp.azure.com:19000"이 있습니다. [Azure Portal](https://portal.azure.com)에 있는 클러스터의 개요 탭에서 클라이언트 연결 엔드포인트를 찾을 수 있습니다.
+**연결 엔드포인트**에서 클러스터에 대한 관리 엔드포인트을 입력합니다. 예를 들어 "containercluster.westus2.cloudapp.azure.com:19000"이 있습니다. [Azure Portal](https://portal.azure.com)에 있는 클러스터의 개요 탭에서 클라이언트 연결 엔드포인트를 찾을 수 있습니다.
 
 **게시**를 클릭합니다.
 
