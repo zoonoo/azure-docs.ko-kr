@@ -82,12 +82,12 @@ Power BI Desktop 및 Excel과 같은 Microsoft 클라이언트 애플리케이�
   
 ### <a name="amo"></a>AMO
 
-1. [https://partnercenter.microsoft.com/partner/support](`C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices\`)로 이동하세요. 둘 이상의 폴더가 있는 경우 더 높은 숫자를 선택합니다.
+1. 로 이동하세요 `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices\`. 둘 이상의 폴더가 있는 경우 더 높은 숫자를 선택합니다.
 2. 마우스 오른쪽 단추로 **Microsoft.AnalysisServices** > **속성** > **세부 정보**를 클릭합니다.  
 
 ### <a name="adomd"></a>ADOMD
 
-1. [https://partnercenter.microsoft.com/partner/support](`C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices.AdomdClient\`)로 이동하세요. 둘 이상의 폴더가 있는 경우 더 높은 숫자를 선택합니다.
+1. 로 이동하세요 `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices.AdomdClient\` 둘 이상의 폴더가 있는 경우 더 높은 숫자를 선택합니다.
 2. 마우스 오른쪽 단추로 **Microsoft.AnalysisServices.AdomdClient** > **속성** > **세부 정보**를 클릭합니다.  
 
 

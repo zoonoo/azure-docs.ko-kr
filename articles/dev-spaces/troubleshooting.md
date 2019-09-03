@@ -247,7 +247,7 @@ VS Code 디버거를 실행하면 오류 `Invalid 'cwd' value '/src'. The system
 2. 새 빌드 컨텍스트를 기준으로 올바르게 프로젝트 파일( _.csproj_)을 참조하도록 _Dockerfile_ 및 _Dockerfile.develop_ 파일을 수정합니다.
 3. .sln 파일 옆에 _.dockerignore_ 파일을 배치하고 필요에 따라 수정합니다.
 
-https://github.com/sgreenmsft/buildcontextsample 에서 예제를 찾을 수 있습니다.
+[https://github.com/sgreenmsft/buildcontextsample](https://github.com/sgreenmsft/buildcontextsample ) 에서 예제를 찾을 수 있습니다.
 
 ## <a name="microsoftdevspacesregisteraction-authorization-error"></a>'Microsoft.DevSpaces/register/action' 권한 부여 오류
 Azure Dev Spaces를 관리하려면 Azure 구독에서 ‘owner’ 또는 ‘contributor’ 액세스 권한이 있어야 합니다. Dev Spaces를 관리하려고 하는데 관련 Azure 구독에 대한 ‘owner’ 또는 ‘contributor’ 액세스 권한이 없는 경우 이 오류가 표시될 수 있습니다.

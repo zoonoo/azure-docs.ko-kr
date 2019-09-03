@@ -119,8 +119,8 @@ Azure VM은 오류 응답에 다음 JSON 형식을 사용합니다.
 |  InvalidParameter  |  VM 에이전트가 프로비전되어 있지 않으면 VM에 인증서를 추가할 수 없습니다.  |
 |  InvalidParameter  |  LUN {0}에 디스크가 이미 있습니다.  |
 |  InvalidParameter  |  현재 가용성 집합이 할당된 클러스터에서 요청한 크기 {0}을(를) 사용할 수 없기 때문에 VM을 만들 수 없습니다. 사용 가능한 크기는 {1}입니다. [https://aka.ms/azure-resizevm](https://aka.ms/azure-resizevm ) 에서 VM 크기 조정 전략에 대해 자세히 알아봅니다.  |
-|  InvalidParameter  |  요청한 VM 크기 {0}을(를) 현재 지역에서 사용할 수 없습니다. 현재 지역에서 사용할 수 있는 크기는 {1}입니다. https://aka.ms/azure-regions 에서 각 지역에서 사용 가능한 VM 크기에 대해 자세히 알아봅니다.  |
-|  InvalidParameter  |  요청한 VM 크기 {0}을(를) 현재 지역에서 사용할 수 없습니다. https://aka.ms/azure-regions 에서 각 지역에서 사용 가능한 VM 크기에 대해 자세히 알아봅니다.  |
+|  InvalidParameter  |  요청한 VM 크기 {0}을(를) 현재 지역에서 사용할 수 없습니다. 현재 지역에서 사용할 수 있는 크기는 {1}입니다. https://aka.ms/azure-regions  에서 각 지역에서 사용 가능한 VM 크기에 대해 자세히 알아봅니다.  |
+|  InvalidParameter  |  요청한 VM 크기 {0}을(를) 현재 지역에서 사용할 수 없습니다. https://aka.ms/azure-regions  에서 각 지역에서 사용 가능한 VM 크기에 대해 자세히 알아봅니다.  |
 |  InvalidParameter  |  Windows 관리자 사용자 이름은 길이가 {0}자 이하이거나 마침표(.)로 끝나거나 문자 {1}을(를) 포함할 수 없습니다.  |
 |  InvalidParameter  |  Windows 컴퓨터 이름은 길이가 {0}자 이하이거나 전체가 숫자이거나 문자 {1}을(를) 포함할 수 없습니다.  |
 |  MissingMoveDependentResources  |  리소스 이동 요청에는 모든 종속 리소스가 포함되지 않습니다. 누락된 리소스 ID에 대한 오류 세부 정보를 확인하세요.  |

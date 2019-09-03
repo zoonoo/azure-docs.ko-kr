@@ -329,7 +329,7 @@ Azure App Service 백 엔드에 대 한 두 가지 필수 설정을 선택 하�
 
 이 기능은 응용 프로그램 게이트웨이에서 들어오는 요청의 *호스트* 헤더를 지정한 호스트 이름으로 바꿉니다.
 
-예를 들어, *<i></i>* **호스트 이름** 설정에 appgw.eastus.cloudapp.net/path1 *<i></i>* 를 지정 하는 경우 원래 요청 *https<i></i>://* www.contoso.com/path1 요청이 백 엔드 서버로 전달 됩니다.
+예를 들어, *<i></i>* **호스트 이름** 설정에 appgw.eastus.cloudapp.net/path1 *<i></i>* 를 지정 하는 경우 원래 요청 *https<i></i>://* www.contoso.com/path1요청이 백 엔드 서버로 전달 됩니다.
 
 ## <a name="back-end-pool"></a>백 엔드 풀
 

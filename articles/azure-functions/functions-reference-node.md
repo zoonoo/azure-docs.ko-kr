@@ -453,7 +453,7 @@ module.exports = function(context) {
 
 
 ### <a name="using-kudu"></a>Kudu 사용
-1. [https://partnercenter.microsoft.com/partner/support](`https://<function_app_name>.scm.azurewebsites.net`)로 이동하세요.
+1. `https://<function_app_name>.scm.azurewebsites.net` 로 이동하세요.
 
 2. **디버그 콘솔** > **CMD**를 클릭합니다.
 
