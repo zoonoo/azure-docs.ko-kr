@@ -26,7 +26,7 @@ ms.locfileid: "68932089"
 
 1. 사용자가 봇에 용어 또는 구를 입력합니다(예: ‘what's the weather in Seattle?’).
 1. CL이 엔터티를 추출하는 Machine Learning 모델에 사용자 입력을 전달합니다.
-   - 이 모델은 Conversation Learner에서 빌드되고 www.luis.ai에 호스트됩니다.
+   - 이 모델은 Conversation Learner에서 빌드되고 www.luis.ai 에 호스트됩니다.
 1. 추출된 엔터티 및 사용자 입력 텍스트가 봇 코드의 엔터티 검색 콜백 메서드에 전달됩니다.
     - 이 코드는 엔터티 값을 설정/지우기/조작할 수 있습니다.
 1. CL 신경망이 엔터티 추출 출력과 사용자 입력을 사용하여 봇에 정의된 모든 작업에 점수를 지정합니다.

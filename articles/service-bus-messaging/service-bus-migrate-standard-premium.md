@@ -179,8 +179,8 @@ az servicebus migration abort --resource-group $resourceGroup --name $standardNa
 
 #### <a name="azure-portal"></a>Azure Portal
 
-![흐름 중단-동기화][]
-![중단 흐름 중단-중단 완료][]
+![흐름 중단-동기화 중단][]
+![흐름 중단-중단 완료][]
 
 마이그레이션 프로세스가 중단 되 면 표준에서 프리미엄 네임 스페이스로 엔터티 (토픽, 구독 및 필터)를 복사 하는 프로세스를 중단 하 고 페어링을 중단 합니다.
 

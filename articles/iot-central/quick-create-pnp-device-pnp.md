@@ -1,5 +1,5 @@
 ---
-title: Azure IoT 플러그 앤 플레이 미리 보기 디바이스를 IoT Central에 연결 | Microsoft Docs
+title: IoT 플러그 앤 플레이 미리 보기 디바이스를 Azure IoT Central에 연결 | Microsoft Docs
 description: 디바이스 기능 모델을 사용하여 디바이스 코드를 만듭니다. 그런 다음, 디바이스 코드를 실행하고, 디바이스가 IoT Central 애플리케이션에 연결되는 것을 확인하고, 자동으로 생성되는 보기를 사용합니다.
 author: dominicbetts
 ms.author: dobett
@@ -8,18 +8,18 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 152e373f3a340a8abe3d8bc54d6515296d95efba
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 2f1ee5caf89af718d91abeac01730700c131ab41
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69881692"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70048952"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-device-and-connect-it-to-your-iot-central-application"></a>빠른 시작: 디바이스 기능 모델을 사용하여 IoT 플러그 앤 플레이 디바이스를 만들고 IoT Central 애플리케이션에 연결
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
-_DCM(디바이스 기능 모델)_ 은 [IoT 플러그 앤 플레이](https://aka.ms/iot-pnp-docs) 디바이스의 기능을 설명합니다. 디바이스를 처음으로 연결할 때 IoT Central은 DCM을 사용하여 디바이스 템플릿을 만들고 디바이스를 시각화할 수 있습니다. 이 빠른 시작에서는 다음을 수행하는 방법을 보여 줍니다.
+_DCM(디바이스 기능 모델)_ 은 [IoT 플러그 앤 플레이](../iot-pnp/overview-iot-plug-and-play.md) 디바이스의 기능을 설명합니다. 디바이스를 처음으로 연결할 때 IoT Central은 DCM을 사용하여 디바이스 템플릿을 만들고 디바이스를 시각화할 수 있습니다. 이 빠른 시작에서는 다음을 수행하는 방법을 보여 줍니다.
 
 * Visual Studio Code에서 DCM을 사용하여 IoT 플러그 앤 플레이 디바이스를 만듭니다.
 * Windows에서 디바이스 코드를 실행하고 IoT Central 애플리케이션에 연결되는 것을 확인합니다.
