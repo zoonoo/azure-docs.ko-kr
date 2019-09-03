@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: dc31abaadf3f39d31a4c1b04f9911b5ce1677916
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: e01bb13b904aaf8671512daa3ef3cbad182f01e3
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70048568"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70161940"
 ---
 이 섹션에서는 [Azure Portal](https://portal.azure.com)을 사용하여 IoT Hub를 만드는 방법에 대해 설명합니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "70048568"
 
     - **고급 설정** > **디바이스-클라우드 파티션**: 이 속성은 디바이스-클라우드 메시지를 메시지의 동시 판독기 수와 연결합니다. 대부분의 허브에는 4개의 파티션만 필요합니다.
 
-1. 이 자습서에서는 기본 옵션을 적용한 다음, **검토 + 만들기**를 선택하여 옵션을 검토합니다. 다음 화면과 비슷하게 표시됩니다.
+1. 이 문서에서는 기본 선택 항목을 적용한 다음, **검토 + 만들기**를 선택하여 선택 항목을 검토합니다. 다음 화면과 비슷하게 표시됩니다.
 
    ![새 허브를 만들기 위한 정보 검토](./media/iot-hub-include-create-hub/iot-hub-create-review-vs2019.png)
 

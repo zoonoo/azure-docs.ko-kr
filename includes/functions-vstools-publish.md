@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: a0cf557cec0f20d257c3c70290e2d74f077d881a
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: b96586c801acfc0419b80fa725a468dcb896f79e
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68593861"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70197164"
 ---
 1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
@@ -25,7 +25,7 @@ ms.locfileid: "68593861"
     | ------------ |  -------------------------------------------------- |
     | **Azure Functions 사용량 요금제** |   프로젝트를 [사용량 요금제](../articles/azure-functions/functions-scale.md#consumption-plan)에서 실행되는 함수 앱에 게시하는 경우 함수 앱의 실행에 대한 비용만 지불합니다. 다른 호스팅 계획에는 비용이 더 많이 듭니다. 자세한 내용은 [Azure Functions 크기 조정 및 호스팅](../articles/azure-functions/functions-scale.md)을 참조하세요. | 
     | **새로 만들기** | Azure에서 관련 리소스가 있는 새 함수 앱이 만들어집니다. **기존 항목 선택**을 선택하면 Azure에 있는 기존 함수 앱의 모든 파일을 로컬 프로젝트의 파일로 덮어씁니다. 기존 함수 앱에 업데이트를 다시 게시하는 경우에만 이 옵션을 사용합니다. |
-    | **패키지 파일에서 실행** | [Run-From-Package](../articles/azure-functions/run-functions-from-deployment-package.md) 모드를 사용하도록 설정된 상태에서 [Zip 배포](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy)를 사용하여 함수 앱이 배포됩니다. 성능을 향상시키므로 함수를 실행하는 데 추천되는 방법입니다. |
+    | **패키지 파일에서 실행** | [Run-From-Package](../articles/azure-functions/run-functions-from-deployment-package.md) 모드를 사용하도록 설정된 상태에서 [Zip 배포](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy)를 사용하여 함수 앱이 배포됩니다. 성능을 향상시키므로 함수를 실행하는 데 추천되는 방법입니다. 이 옵션을 사용하지 않는 경우 Azure에 게시하기 전에 함수 앱 프로젝트가 로컬로 실행되지 않도록 해야 합니다. |
 
 
 3. **게시**를 선택합니다. Visual Studio에서 Azure 계정에 아직 로그인하지 않은 경우 **로그인**을 선택합니다. Azure 체험 계정을 만들 수도 있습니다.
