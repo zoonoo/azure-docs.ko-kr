@@ -4,26 +4,26 @@ description: 고객이 Azure 위임 리소스 관리에 고객을 온보딩하�
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 07/11/2019
+ms.date: 08/22/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: bb2f26a170bbd60eb927bd00f6def7d033fafee9
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: f9d3fad2a98647bcd10d54c03a76e95bc3e05227
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810837"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011856"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Azure Marketplace에 관리형 서비스 솔루션 게시
 
-이 문서에서는 [Cloud 파트너 포털](https://cloudpartner.azure.com/)을 사용하여 [Azure Marketplace](https://azuremarketplace.microsoft.com)에 퍼블릭 또는 프라이빗 관리형 서비스 제품을 게시하여 제품을 구매하는 고객을 Azure 위임 리소스 관리를 위해 온보딩하도록 하는 방법을 알아봅니다. 
+이 문서에서는 [Cloud 파트너 포털](https://cloudpartner.azure.com/)을 사용하여 [Azure Marketplace](https://azuremarketplace.microsoft.com)에 퍼블릭 또는 프라이빗 관리형 서비스 제품을 게시하여 제품을 구매하는 고객을 Azure 위임 리소스 관리를 위해 온보딩하도록 하는 방법을 알아봅니다.
 
 > [!NOTE]
 > 이러한 제품을 만들고 게시하려면 [파트너 센터에 유효한 계정](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)이 있어야 합니다. 계정이 아직 없는 경우 [등록 프로세스](https://aka.ms/joinmarketplace)를 통해 파트너 센터에서 계정을 만들고 상업적 Marketplace 프로그램에 등록하는 단계를 진행합니다. MPN(Microsoft 파트너 네트워크) ID는 게시하는 제품에 [자동으로 연결되어](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started) 고객 계약에 미치는 영향을 추적합니다.
 >
 > Azure Marketplace에 제품을 게시하지 않으려는 경우 Azure Resource Manager 템플릿을 사용하여 수동으로 고객을 온보딩할 수 있습니다. 자세한 내용은 [Azure 위임 리소스 관리에 고객 온보딩](onboard-customer.md)을 참조하세요.
 
-관리 서비스 제품 게시는 Azure Marketplace에 다른 유형의 제품을 게시하는 것과 비슷합니다. 해당 프로세스에 대해 알아보려면 [Azure Marketplace 및 AppSource 게시 가이드](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) 및 [Azure 및 AppSource Marketplace 제품 관리](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers)를 참조하세요.
+관리 서비스 제품 게시는 Azure Marketplace에 다른 유형의 제품을 게시하는 것과 비슷합니다. 해당 프로세스에 대해 알아보려면 [Azure Marketplace 및 AppSource 게시 가이드](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) 및 [Azure 및 AppSource Marketplace 제품 관리](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers)를 참조하세요. [상업 마켓플레이스 인증 정책](https://docs.microsoft.com/legal/marketplace/certification-policies), 특히 [관리 서비스](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services) 섹션도 검토해야 합니다.
 
 > [!IMPORTANT]
 > 관리형 서비스 제품의 각 플랜에는 해당 플랜을 구입하는 고객의 위임된 리소스 그룹 및/또는 구독에 액세스할 수 있는 테넌트의 Azure AD(Azure Active Directory) 엔터티를 정의하는 **매니페스트 세부 정보** 섹션이 포함되어 있습니다. 여기에 포함하는 모든 그룹(또는 사용자 또는 서비스 주체)이 플랜을 구입하는 모든 고객에 대해 동일한 권한을 갖게 됩니다. 각 고객에 작동할 다른 그룹을 할당하려면 각 고객에게 단독으로 사용되는 별도의 프라이빗 플랜을 게시해야 합니다.
@@ -64,7 +64,7 @@ ms.locfileid: "67810837"
 
 마지막으로 **매니페스트 세부 정보** 섹션을 완료합니다. 이렇게 하면 고객 리소스를 관리하기 위한 권한 부여 정보가 포함된 매니페스트가 생성됩니다. 여기에서 제공하는 정보는 Azure 위임 리소스 관리에 고객을 온보딩하는 데 필요합니다. 위에서 설명한 것처럼 이러한 권한은 플랜을 구입하는 모든 고객에게 적용되므로 특정 고객으로 액세스 권한을 제한하려는 경우 단독 사용을 위해 프라이빗 플랜을 게시해야 합니다.
 
-- 먼저 매니페스트의 **버전**을 제공합니다. *n.n.n* 형식(예: 1.2.5)을 사용합니다.
+- 먼저 매니페스트의 **버전** 을 제공합니다. *n.n.n* 형식(예: 1.2.5)을 사용합니다.
 - 그런 다음, **테넌트 ID**를 입력합니다. 이 GUID는 조직의 Azure Active Directory 테넌트 ID(예: 고객의 리소스를 관리하기 위해 작업할 테넌트)와 연결된 GUID입니다. 이 작업이 어려운 경우 Azure Portal의 오른쪽 위에 있는 계정 이름으로 마우스를 가져가거나 **디렉터리 전환**을 선택하여 찾을 수 있습니다. 
 - 마지막으로 플랜에 하나 이상의 **권한 부여** 항목을 추가합니다. 권한 부여는 플랜을 구매한 고객의 리소스 및 구독에 액세스할 수 있는 엔터티를 정의합니다. Azure 위임 리소스 관리를 사용하여 고객을 대신하여 리소스에 액세스할 수 있도록 하려면 이 정보를 제공해야 합니다.
   각 권한 부여에 대해 다음을 제공합니다. 그런 다음, 사용자/역할 정의를 더 추가하는 데 필요한 횟수만큼 **새 권한 부여**를 선택할 수 있습니다.
@@ -89,7 +89,7 @@ ms.locfileid: "67810837"
 |**제목**     |  제안의 제목이며. 종종 긴 정식 이름입니다. 이 제목은 마켓플레이스에서 눈에 띄게 표시됩니다. 최대 길이는 50자입니다. 대부분의 경우 이 이름은 **제품 설정** 섹션에 입력한 **이름**과 동일해야 합니다.       |
 |**요약**     | 제품의 간략한 용도 또는 기능입니다. 일반적으로 제목 아래에 표시됩니다. 최대 길이는 100자입니다.        |
 |**긴 요약**     | 제품의 용도 또는 기능을 좀 더 자세히 요약한 것입니다. 최대 길이는 256자입니다.        |
-|**설명**     | 제품에 대한 자세한 정보입니다. 이 필드의 최대 길이는 3000자이며 단순 HTML 형식을 지원합니다.        |
+|**설명**     | 제품에 대한 자세한 정보입니다. 이 필드의 최대 길이는 3000자이며 단순 HTML 형식을 지원합니다. 설명의 어딘가에 "관리 서비스" 또는 "관리 서비스"라는 단어를 포함해야 합니다.       |
 |**마케팅 식별자**     | 고유한 URL 식별자입니다. 이 제품의 Marketplace URL에서 사용됩니다. 예를 들어, 게시자 ID가 *contoso*이고 마케팅 식별자가 *sampleApp*이면 Azure Marketplace에서 제품의 URL은 *https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp* 이 됩니다.        |
 |**미리 보기 구독 ID**     | 1-100개의 구독 식별자를 추가합니다. 이러한 구독과 연결된 고객은 활성화되기 전에 Azure Marketplace에서 제품을 볼 수 있습니다. 고객이 제품을 사용하도록 설정하기 전에 Azure Marketplace에서 제품이 표시되는 방식을 미리 볼 수 있도록 여기에 사용자 고유의 구독을 포함하는 것이 좋습니다.  Microsoft 지원 및 엔지니어링 팀은 이 미리 보기 기간 중에 제품을 볼 수도 있습니다.   |
 |**유용한 링크**     | 설명서, 릴리스 정보, FAQ 등의 제품과 관련된 URL입니다.        |
@@ -112,7 +112,7 @@ ms.locfileid: "67810837"
 - 대표 로고의 배경은 검은색, 흰색 또는 투명이 아닐 수 있습니다. 포함된 텍스트가 흰색으로 표시되기 때문에 배경색이 너무 밝지 않은지 확인합니다.
 - 대표 아이콘이 있는 제품을 게시한 후에는 제거할 수 없습니다(원할 경우 다른 버전으로 업데이트할 수 있음).
 
-**잠재 고객 관리** 섹션에서 원할 경우 잠재 고객이 저장될 CRM 시스템을 선택할 수 있습니다. 
+**잠재 고객 관리** 섹션에서 잠재 고객이 저장될 CRM 시스템을 선택할 수 있습니다. [관리 서비스 인증 정책](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services)에 따라 **잠재 대상 고객**이 필요합니다.
 
 마지막으로 **법적 정보** 섹션에서 **개인정보취급방침 URL** 및 **사용 약관**을 제공합니다. 이 제품에 대해 [표준 계약](https://docs.microsoft.com/azure/marketplace/standard-contract)을 사용할지 여부를 여기에서 지정할 수도 있습니다.
 

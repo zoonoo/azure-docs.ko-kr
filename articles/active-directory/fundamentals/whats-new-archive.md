@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b5615de8df42bca64822b0e459c7815412300af
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: b72bf3c95c1d2217688fbc98a4383aed898f7c0e
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125372"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70192682"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능 보관
 
@@ -31,6 +31,124 @@ ms.locfileid: "70125372"
 - 버그 수정
 - 사용되지 않는 기능
 - 변경 계획
+
+---
+
+## <a name="february-2019"></a>2019년 2월
+
+### <a name="configurable-azure-ad-saml-token-encryption-public-preview"></a>구성 가능한 Azure AD SAML 토큰 암호화(공개 미리 보기) 
+
+**유형:** 새 기능  
+**서비스 범주:** 엔터프라이즈 앱  
+**제품 기능:** SSO
+
+이제 암호화 된 SAML 토큰을 수신 하도록 지원 되는 SAML 앱을 구성할 수 있습니다. 앱에서 구성 하 고 사용 하는 경우 azure AD는 Azure AD에 저장 된 인증서에서 가져온 공개 키를 사용 하 여 내보낸 SAML 어설션을 암호화 합니다.
+
+SAML 토큰 암호화를 구성 하는 방법에 대 한 자세한 내용은 [AZURE AD saml 토큰 암호화 구성](https://docs.microsoft.com/azure/active-directory/manage-apps/howto-saml-token-encryption)을 참조 하세요.
+
+---
+
+### <a name="create-an-access-review-for-groups-or-apps-using-azure-ad-access-reviews"></a>Azure AD 액세스 검토를 사용하여 그룹 또는 앱에 대한 액세스 검토 만들기
+
+**유형:** 새 기능  
+**서비스 범주:** 액세스 검토  
+**제품 기능:** 거버넌스
+
+이제 그룹 멤버 자격 또는 앱 할당에 대 한 단일 Azure AD 액세스 검토에 여러 그룹 또는 앱을 포함할 수 있습니다. 여러 그룹 또는 앱을 사용한 액세스 검토는 동일한 설정을 사용 하 여 설정 되며 포함 된 모든 검토자에 게 동시에 알림이 표시 됩니다.
+
+Azure AD 액세스 검토를 사용 하 여 액세스 검토를 만드는 방법에 대 한 자세한 내용은 [AZURE Ad 액세스 검토에서 그룹 또는 응용 프로그램에 대 한 액세스 검토 만들기](https://docs.microsoft.com/azure/active-directory/governance/create-access-review) 를 참조 하세요.
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---february-2019"></a>Azure AD 앱 갤러리에서 사용할 수 있는 새로운 페더레이션된 앱 - 2019년 2월
+
+**유형:** 새 기능  
+**서비스 범주:** 엔터프라이즈 앱  
+**제품 기능:** 타사 통합
+ 
+2 월 2019에 앱 갤러리에 페더레이션 지원이 있는 27 개의 새 앱을 추가 했습니다.
+
+[Euromonitor Passport](https://docs.microsoft.com/azure/active-directory/saas-apps/euromonitor-passport-tutorial), [MINDTICKLE](https://docs.microsoft.com/azure/active-directory/saas-apps/mindtickle-tutorial), [FAT 손가락](https://seeforgetest-exxon.azurewebsites.net/Account/create?Length=7), 여는 [스택](https://docs.microsoft.com/azure/active-directory/saas-apps/airstack-tutorial), [Oracle Fusion ERP](https://docs.microsoft.com/azure/active-directory/saas-apps/oracle-fusion-erp-tutorial), [IDrive](https://docs.microsoft.com/azure/active-directory/saas-apps/idrive-tutorial), [Skyward QMLATIV](https://docs.microsoft.com/azure/active-directory/saas-apps/skyward-qmlativ-tutorial), [Brightidea](https://docs.microsoft.com/azure/active-directory/saas-apps/brightidea-tutorial), [AlertOps](https://docs.microsoft.com/azure/active-directory/saas-apps/alertops-tutorial), [Soloinsight-cloudgate SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/soloinsight-cloudgate-sso-tutorial), 권한 클릭, [Brandfolder](https://docs.microsoft.com/azure/active-directory/saas-apps/brandfolder-tutorial), [StoregateSmartFile](https://docs.microsoft.com/azure/active-directory/saas-apps/smartfile-tutorial), [pexip](https://docs.microsoft.com/azure/active-directory/saas-apps/pexip-tutorial), [stormboard](https://docs.microsoft.com/azure/active-directory/saas-apps/stormboard-tutorial), [지진](https://docs.microsoft.com/azure/active-directory/saas-apps/seismic-tutorial), [꿈](https://www.shareadream.org/how-it-works), [Bugsnag](https://docs.microsoft.com/azure/active-directory/saas-apps/bugsnag-tutorial), [webMethods Integration Cloud](https://docs.microsoft.com/azure/active-directory/saas-apps/webmethods-integration-cloud-tutorial), [기술 자료 모든 위치에서 LMS](https://docs.microsoft.com/azure/active-directory/saas-apps/knowledge-anywhere-lms-tutorial), [OU 캠퍼스](https://docs.microsoft.com/azure/active-directory/saas-apps/ou-campus-tutorial), [periscope 데이터](https://docs.microsoft.com/azure/active-directory/saas-apps/periscope-data-tutorial), [netop 포털](https://docs.microsoft.com/azure/active-directory/saas-apps/netop-portal-tutorial), [Smartvid.io](https://docs.microsoft.com/azure/active-directory/saas-apps/smartvid.io-tutorial), [PureCloud by genesys](https://docs.microsoft.com/azure/active-directory/saas-apps/purecloud-by-genesys-tutorial), [생산성 플랫폼](https://docs.microsoft.com/azure/active-directory/saas-apps/clickup-productivity-platform-tutorial)
+
+앱에 대한 자세한 내용은 [Azure Active Directory와 SaaS 애플리케이션 통합](https://aka.ms/appstutorial)을 참조하세요. Azure AD 앱 갤러리에 애플리케이션을 나열하는 방법에 대한 자세한 내용은 [Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열](https://aka.ms/azureadapprequest)을 참조하세요.
+
+---
+
+### <a name="enhanced-combined-mfasspr-registration"></a>향상된 통합 MFA/SSPR 등록
+
+**유형:** 변경된 기능  
+**서비스 범주:** 셀프 서비스 암호 재설정  
+**제품 기능:** 사용자 인증
+
+고객 피드백에 대 한 응답으로, 통합 된 MFA/SSPR 등록 미리 보기 환경을 개선 하 여 사용자가 MFA와 SSPR에 대 한 보안 정보를 더 빠르게 등록할 수 있도록 지원 합니다. 
+
+**현재 사용자에 게 향상 된 환경을 설정 하려면 다음 단계를 수행 합니다.**
+
+1. 전역 관리자 또는 사용자 관리자는 Azure Portal에 로그인 하 여 **Azure Active Directory > 사용자 설정 > 액세스 패널 미리 보기 기능에 대 한 설정 관리**로 이동 합니다. 
+
+2. **보안 정보를 등록 하 고 관리 하기 위한 미리 보기 기능을 사용할 수 있는 사용자 – 새로 고침** 옵션에서 **선택한 사용자 그룹** 또는 **모든 사용자**에 대 한 기능을 설정 하도록 선택 합니다.
+
+다음 몇 주 동안 아직 켜져 있지 않은 테 넌 트에 대해 이전에 결합 된 MFA/SSPR 등록 미리 보기 환경을 설정 하는 기능을 제거 합니다.
+
+**테 넌 트에서 컨트롤이 제거 되는지 확인 하려면 다음 단계를 수행 합니다.**
+
+1. 전역 관리자 또는 사용자 관리자는 Azure Portal에 로그인 하 여 **Azure Active Directory > 사용자 설정 > 액세스 패널 미리 보기 기능에 대 한 설정 관리**로 이동 합니다.  
+
+2. **보안 정보를 등록 하 고 관리 하기 위한 미리 보기 기능을 사용할 수 있는 사용자가** **없음**으로 설정 된 경우이 옵션은 테 넌 트에서 제거 됩니다.
+
+이전에 사용자의 이전에 결합 된 MFA/SSPR 등록 미리 보기 환경을 설정 했는지 여부에 관계 없이 이전 환경은 이후 날짜에 해제 됩니다. 따라서 가능한 한 빨리 새로운 고급 환경으로 전환 하는 것이 좋습니다.
+
+향상 된 등록 환경에 대 한 자세한 내용은 [AZURE AD 결합 MFA 및 암호 재설정 등록 환경에 대 한 유용한 기능](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Cool-enhancements-to-the-Azure-AD-combined-MFA-and-password/ba-p/354271)을 참조 하세요.
+
+---
+
+### <a name="updated-policy-management-experience-for-user-flows"></a>사용자 흐름의 업데이트된 정책 관리 환경
+
+**유형:** 변경된 기능  
+**서비스 범주:** B2C - 소비자 ID 관리  
+**제품 기능:** B2B/B2C
+
+사용자 흐름 (이전의 기본 제공 정책)에 대 한 정책 만들기 및 관리 프로세스를 보다 쉽게 업데이트 했습니다. 이 새로운 환경은 이제 모든 Azure AD 테 넌 트에 대 한 기본값입니다.
+
+포털 화면 위쪽의 **사용자 의견 보내기** 영역에서 웃는 얼굴 또는 찡그린 얼굴 보내기 아이콘을 사용 하 여 추가 피드백과 제안을 제공할 수 있습니다.
+
+새 정책 관리 환경에 대 한 자세한 내용은 [이제 JavaScript 사용자 지정을 포함 하는 Azure AD B2C 및 더 많은 새 기능](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-B2C-now-has-JavaScript-customization-and-many-more-new/ba-p/353595) 블로그를 참조 하세요.
+
+---
+
+### <a name="choose-specific-page-element-versions-provided-by-azure-ad-b2c"></a>Azure AD B2C에서 제공하는 특정 페이지 요소 버전 선택
+
+**유형:** 새 기능  
+**서비스 범주:** B2C - 소비자 ID 관리  
+**제품 기능:** B2B/B2C
+
+이제 Azure AD B2C에서 제공 하는 특정 버전의 페이지 요소를 선택할 수 있습니다. 특정 버전을 선택 하 여 페이지에 표시 되기 전에 업데이트를 테스트 하 고 예측 가능한 동작을 얻을 수 있습니다. 또한 이제 특정 페이지 버전을 적용 하 여 JavaScript 사용자 지정을 허용 하도록 선택할 수 있습니다. 이 기능을 켜려면 사용자 흐름의 **속성** 페이지로 이동 합니다.
+
+특정 버전의 페이지 요소를 선택 하는 방법에 대 한 자세한 내용은 [이제 JavaScript 사용자 지정 Azure AD B2C 및 더 많은 새 기능](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-B2C-now-has-JavaScript-customization-and-many-more-new/ba-p/353595) 블로그를 참조 하세요.
+
+---
+
+### <a name="configurable-end-user-password-requirements-for-b2c-ga"></a>B2C를 위한 구성 가능한 최종 사용자 암호 요구 사항(GA)
+
+**유형:** 새 기능  
+**서비스 범주:** B2C - 소비자 ID 관리  
+**제품 기능:** B2B/B2C
+
+이제 기본 Azure AD 암호 정책을 사용 하지 않고 최종 사용자에 대 한 조직의 암호 복잡성을 설정할 수 있습니다. 사용자 흐름의 **속성** 블레이드 (이전에 기본 제공 정책 이라고 함)에서 **단순** 또는 **강력한**암호 복잡성을 선택 하거나 **사용자 지정** 요구 사항 집합을 만들 수 있습니다.
+
+암호 복잡성 요구 사항 구성에 대 한 자세한 내용은 [Azure Active Directory B2C의 암호 복잡성 요구 사항 구성](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-password-complexity)을 참조 하세요.
+
+---
+
+### <a name="new-default-templates-for-custom-branded-authentication-experiences"></a>사용자 지정 브랜드 인증 환경을 위한 새로운 기본 템플릿
+
+**유형:** 새 기능  
+**서비스 범주:** B2C - 소비자 ID 관리  
+**제품 기능:** B2B/B2C
+
+사용자 흐름의 **페이지 레이아웃** 블레이드 (이전의 기본 제공 정책)에 있는 새 기본 템플릿을 사용 하 여 사용자에 대 한 사용자 지정 브랜드 인증 환경을 만들 수 있습니다.
+
+템플릿을 사용 하는 방법에 대 한 자세한 내용은 [이제 JavaScript 사용자 지정 및 더 많은 새 기능을 Azure AD B2C](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-B2C-now-has-JavaScript-customization-and-many-more-new/ba-p/353595)를 참조 하세요.
 
 ---
 

@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: design
-ms.date: 04/17/2018
+ms.date: 08/23/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 38d353541b233f3cd9466e8dcf6c2b84083bd859
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 6c198b6d5e9ecfed3f36ddc3be831af85a913ca5
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515778"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69995830"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 치트 시트
 이 치트 시트는 Azure SQL Data Warehouse 솔루션을 구축하는 데 유용한 팁과 모범 사례를 제공합니다. 시작하기 전에 [Azure SQL Data Warehouse 작업 패턴 및 안티 패턴](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns)을 참조하여 각 단계에 대해 자세히 알아보세요. 이러한 패턴은 SQL Data Warehouse 정의 및 장단점에 대해 설명합니다.
@@ -96,9 +96,11 @@ ELT가 필요한 스테이징 테이블을 사용하면 분할의 이점을 활�
 
 ## <a name="incremental-load"></a>증분 로드
 
-데이터를 증분 방식으로 로드하려면 먼저 더 큰 리소스 클래스를 데이터 로드에 할당해야 합니다. ELT 파이프라인을 SQL Data Warehouse로 자동화하는 데 PolyBase 및 ADF V2를 사용하는 것이 좋습니다.
+데이터를 증분 방식으로 로드하려면 먼저 더 큰 리소스 클래스를 데이터 로드에 할당해야 합니다.  클러스터형 columnstore 인덱스가 있는 테이블로 로드할 때 특히 중요합니다.  자세한 내용은 [리소스 클래스](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management)를 참조하세요.  
 
-기록 데이터에 대한 대규모 업데이트 일괄 처리의 경우 먼저 관련 데이터를 삭제합니다. 그런 다음 새 데이터를 대량 삽입합니다. 이러한 2단계 접근 방법이 더 효율적입니다.
+ELT 파이프라인을 SQL Data Warehouse로 자동화하는 데 PolyBase 및 ADF V2를 사용하는 것이 좋습니다.
+
+기록 데이터의 업데이트를 대량으로 일괄 처리하는 경우 INSERT, UPDATE 및 DELETE를 사용하는 대신 [CTAS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-ctas)를 사용하여 테이블에 유지할 데이터를 작성하는 것이 좋습니다.
 
 ## <a name="maintain-statistics"></a>통계 유지 관리
  자동 통계를 일반적으로 사용할 수 있을 때까지 SQL Data Warehouse에서는 통계를 수동으로 유지 관리해야 합니다. 데이터에 *중요한* 변경 내용이 있는 것 만큼 통계를 업데이트하는 것도 중요합니다. 이는 쿼리 계획을 최적화하는 데 도움이 됩니다. 모든 통계를 유지 관리하는 데 시간이 너무 오래 걸리는 경우 통계가 있는 열을 선택해야 합니다. 
