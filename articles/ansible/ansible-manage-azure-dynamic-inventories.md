@@ -216,13 +216,13 @@ ansible-inventory-test-vm1 | SUCCESS => {
 
 1. `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
-   - Ansible 2.8 이전 버전:
+   - Ansible 2.8 이전 버전은 다음과 같습니다. 
 
     ```bash
     ansible-playbook -i azure_rm.py nginx.yml
     ```
 
-   - Ansible 2.8 이상 버전:
+   - Ansible 2.8 이상 버전은 다음과 같습니다. 
 
     ```bash
      ansible-playbook  -i ./myazure_rm.yml  nginx.yml
