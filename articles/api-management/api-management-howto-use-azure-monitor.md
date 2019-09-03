@@ -9,17 +9,16 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: c3148adc42cb4f899a87d894909eedff4c798575
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 598168285ee67921ab17ab8c2ce780753c562f81
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680250"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072353"
 ---
 # <a name="monitor-published-apis"></a>게시된 API 모니터링
 
@@ -64,8 +63,9 @@ API Management는 1분 간격으로 메트릭을 내보내, 거의 실시간으�
 
     ![메트릭](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
-2. 드롭다운 목록에서 관심 있는 메트릭을 선택합니다. 예를 들어 **성공한 게이트웨이 요청 수**를 선택합니다. 더 많은 메트릭을 차트에 추가할 수도 있습니다.
-3. 차트에는 성공한 총 API 호출 수가 표시됩니다.
+1. 드롭다운 목록에서 관심 있는 메트릭을 선택합니다. 예: **Requests** 
+1. 차트에는 총 API 호출 수가 표시됩니다.
+1. **요청** 메트릭의 차원을 사용하여 차트를 필터링할 수 있습니다. 예를 들어 **필터 추가**를 클릭하고 **백 엔드 응답 코드**를 선택하여 500을 값으로 입력합니다. 이제 차트에는 API 백 엔드에서 실패한 요청의 수가 표시됩니다.   
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>권한 없는 요청에 대한 경고 규칙 설정
 
@@ -184,42 +184,42 @@ API Management는 현재 다음 스키마를 갖는 각 항목으로 개별 API 
 | ------------- | ------------- | ------------- |
 | isRequestSuccess | 부울 | HTTP 요청이 완료되고 응답 상태 코드가 2xx 또는 3xx 범위 이내이면 True입니다. |
 | time | 날짜-시간 | 게이트웨이에서 HTTP 요청을 수신하는 타임스탬프 |
-| operationName | string | 상수 값 'Microsoft.ApiManagement/GatewayLogs' |
-| category | string | 상수 값 'GatewayLogs' |
+| operationName | 문자열 | 상수 값 'Microsoft.ApiManagement/GatewayLogs' |
+| category | 문자열 | 상수 값 'GatewayLogs' |
 | durationMS | 정수 | 게이트웨이에서 요청을 수신한 순간부터 응답이 완전히 전송될 때까지 걸린 시간(밀리초) |
-| callerIpAddress | string | 즉각적인 게이트웨이 호출자의 IP 주소(중간자 가능) |
-| correlationId | string | API Management에서 할당하는 고유의 http 요청 식별자 |
-| location | string | 요청을 처리한 게이트웨이가 있었던 Azure 지역의 이름 |
-| httpStatusCodeCategory | string | http 응답 상태 코드의 범주: 성공(301 이하, 304 또는 307), 권한이 없음(401, 403, 429), 오류가 있음(400, 500~600), 기타 |
-| resourceId | string | API Management 리소스의 ID /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
+| callerIpAddress | 문자열 | 즉각적인 게이트웨이 호출자의 IP 주소(중간자 가능) |
+| correlationId | 문자열 | API Management에서 할당하는 고유의 http 요청 식별자 |
+| location | 문자열 | 요청을 처리한 게이트웨이가 있었던 Azure 지역의 이름 |
+| httpStatusCodeCategory | 문자열 | http 응답 상태 코드의 범주: 성공(301 이하, 304 또는 307), 권한이 없음(401, 403, 429), 오류가 있음(400, 500~600), 기타 |
+| resourceId | 문자열 | API Management 리소스의 ID /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
 | properties | object | 현재 요청의 속성 |
-| method | string | 들어오는 요청의 HTTP 메서드 |
-| url | string | 들어오는 요청의 URL |
-| clientProtocol | string | 들어오는 요청의 HTTP 프로토콜 버전 |
+| method | 문자열 | 들어오는 요청의 HTTP 메서드 |
+| url | 문자열 | 들어오는 요청의 URL |
+| clientProtocol | 문자열 | 들어오는 요청의 HTTP 프로토콜 버전 |
 | responseCode | 정수 | 클라이언트로 전송된 HTTP 응답의 상태 코드 |
-| backendMethod | string | 백 엔드로 전송된 요청의 HTTP 메서드 |
-| backendUrl | string | 백 엔드로 전송된 요청의 URL |
+| backendMethod | 문자열 | 백 엔드로 전송된 요청의 HTTP 메서드 |
+| backendUrl | 문자열 | 백 엔드로 전송된 요청의 URL |
 | backendResponseCode | 정수 | 백 엔드에서 받은 HTTP 응답 코드 |
-| backendProtocol | string | 백 엔드로 전송된 요청의 HTTP 프로토콜 버전 | 
+| backendProtocol | 문자열 | 백 엔드로 전송된 요청의 HTTP 프로토콜 버전 | 
 | requestSize | 정수 | 요청을 처리하는 동안 클라이언트에서 받은 바이트 수 | 
 | responseSize | 정수 | 요청을 처리하는 동안 클라이언트로 전송된 바이트 수 | 
-| cache | string | 요청 처리에서 API Management 캐시 개입 상태(적중, 놓침, 없음) | 
+| cache | 문자열 | 요청 처리에서 API Management 캐시 개입 상태(적중, 놓침, 없음) | 
 | cacheTime | 정수 | 전체 API Management 캐시 IO(연결, 바이트 송신 및 수신)에 소요된 시간(밀리초) | 
 | backendTime | 정수 | 전체 백 엔드 IO(연결, 바이트 송신 및 수신)에 소요된 시간(밀리초) | 
 | clientTime | 정수 | 전체 클라이언트 IO(연결, 바이트 송신 및 수신)에 소요된 시간(밀리초) | 
-| apiId | string | 현재 요청에 대한 API 엔터티 식별자 | 
-| operationId | string | 현재 요청에 대한 작업 엔터티 식별자 | 
-| productId | string | 현재 요청에 대한 제품 엔터티 식별자 | 
-| userId | string | 현재 요청에 대한 사용자 엔터티 식별자 | 
-| apimSubscriptionId | string | 현재 요청에 대한 구독 엔터티 식별자 | 
-| backendId | string | 현재 요청에 대한 백 엔드 엔터티 식별자 | 
+| apiId | 문자열 | 현재 요청에 대한 API 엔터티 식별자 | 
+| operationId | 문자열 | 현재 요청에 대한 작업 엔터티 식별자 | 
+| productId | 문자열 | 현재 요청에 대한 제품 엔터티 식별자 | 
+| userId | 문자열 | 현재 요청에 대한 사용자 엔터티 식별자 | 
+| apimSubscriptionId | 문자열 | 현재 요청에 대한 구독 엔터티 식별자 | 
+| backendId | 문자열 | 현재 요청에 대한 백 엔드 엔터티 식별자 | 
 | lastError | object | 마지막 요청 처리 오류 | 
 | elapsed | 정수 | 게이트웨이에서 요청을 받은 순간부터 오류가 발생한 순간까지 경과한 시간(밀리초) | 
-| source | string | 오류를 발생시킨 정책 또는 처리 내부 처리기의 이름 | 
-| scope | string | 오류를 발생시킨 정책이 포함되어 있는 정책 문서의 범위 | 
-| section | string | 오류를 발생시킨 정책이 포함되어 있는 정책 문서의 섹션 | 
-| reason | string | 오류 원인 | 
-| message | string | 오류 메시지 | 
+| source | 문자열 | 오류를 발생시킨 정책 또는 처리 내부 처리기의 이름 | 
+| scope | 문자열 | 오류를 발생시킨 정책이 포함되어 있는 정책 문서의 범위 | 
+| section | 문자열 | 오류를 발생시킨 정책이 포함되어 있는 정책 문서의 섹션 | 
+| reason | 문자열 | 오류 원인 | 
+| message | 문자열 | 오류 메시지 | 
 
 ## <a name="next-steps"></a>다음 단계
 

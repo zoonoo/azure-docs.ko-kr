@@ -4,18 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 993654f22e3eaec0758366b85501c4c93373f2bc
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 5a362d2610e6feb85de730c086070636f3afa2b9
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968327"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906760"
 ---
-## <a name="prerequisites"></a>필수 조건
+[!INCLUDE [Prerequisites](prerequisites-java.md)]
 
-* [JDK 7 이상](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* [Gradle](https://gradle.org/install/)
-* Translator Text에 대한 Azure 구독 키
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## <a name="initialize-a-project-with-gradle"></a>Gradle을 사용하여 프로젝트 초기화
 
@@ -89,11 +87,12 @@ public class Translate {
 }
 ```
 
-`Translate` 클래스에 이러한 줄을 추가합니다. `api-version`과 함께 두 개의 매개 변수가 `url`에 추가된 것을 알 수 있습니다. 이러한 매개 변수는 번역 출력을 설정하는 데 사용됩니다. 이 샘플에서 이는 독일어(`de`) 및 이탈리아어(`it`)로 설정됩니다. 구독 키 값을 업데이트해야 합니다.
+`Translate` 클래스에 이러한 줄을 추가합니다. 먼저 구독 키와 엔드포인트를 환경 변수에서 읽습니다. 그러면 `api-version`과 함께 두 개의 매개 변수가 `url`에 추가된 것을 알 수 있습니다. 이러한 매개 변수는 번역 출력을 설정하는 데 사용됩니다. 이 샘플에서 이는 독일어(`de`) 및 이탈리아어(`it`)로 설정됩니다. 
 
 ```java
-String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-String url = "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=de,it";
+private static String subscriptionKey = System.getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY");
+private static String endpoint = System.getenv("TRANSLATOR_TEXT_ENDPOINT");
+String url = endpoint + "/translate?api-version=3.0&to=de,it";
 ```
 
 Cognitive Services 다중 서비스 구독을 사용하는 경우 요청 매개 변수에 `Ocp-Apim-Subscription-Region`도 포함해야 합니다. [다중 서비스 구독을 사용한 인증에 대해 자세히 알아봅니다](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).

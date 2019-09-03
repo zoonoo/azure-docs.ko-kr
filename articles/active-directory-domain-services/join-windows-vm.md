@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: iainfou
-ms.openlocfilehash: c3c3252ec2fd850a763bbbf089d470df5173843f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 86e0f09e957df308f3af868d9590951f29d226b1
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612457"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073898"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>자습서: Windows Server 가상 머신을 관리되는 도메인에 가입
 
@@ -37,7 +37,7 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
     * Azure 구독이 없는 경우 [계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
     * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant] [Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
-* Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리형 도메인
+* Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
     * 필요한 경우 [Azure Active Directory Domain Services 인스턴스를 만들고 구성합니다][create-azure-ad-ds-instance].
 * Azure AD 테넌트에서 *Azure AD DC 관리자* 그룹의 멤버인 사용자 계정
     * 계정에서 Azure AD DS 관리형 도메인에 로그인할 수 있도록 Azure AD Connect 암호 해시 동기화 또는 셀프 서비스 암호 재설정이 수행되었는지 확인합니다.
@@ -153,15 +153,23 @@ VM이 만들어지고 RDP 연결이 설정되었으면 이제 Windows Server 가
 1. Azure AD DS 관리형 도메인에 조인하는 프로세스를 완료하려면 VM을 다시 시작합니다.
 
 > [!TIP]
-> PowerShell에서 [Add-Computer][add-computer] cmdlet을 사용하여 VM을 도메인에 조인할 수도 있습니다. 다음 예제에서는 *CONTOSO* 도메인에 조인한 다음, VM을 다시 시작합니다. 메시지가 표시되면 *Azure AD DC 관리자* 그룹에 속한 사용자의 자격 증명을 입력합니다.
+> PowerShell에서 [Add-Computer][add-computer] cmdlet을 사용하여 VM을 도메인에 조인할 수 있습니다. 다음 예제에서는 *CONTOSO* 도메인에 조인한 다음, VM을 다시 시작합니다. 메시지가 표시되면 *Azure AD DC 관리자* 그룹에 속한 사용자의 자격 증명을 입력합니다.
 >
 > `Add-Computer -DomainName CONTOSO -Restart`
+>
+> VM에 연결하지 않고 연결을 수동으로 구성하지 않고 VM을 도메인에 조인하려면 [Set-AzVmAdDomainExtension][set-azvmaddomainextension] Azure PowerShell cmdlet의 사용을 검색할 수도 있습니다.
 
 Windows Server VM이 다시 시작되면 Azure AD DS 관리형 도메인에 적용된 모든 정책이 VM으로 푸시됩니다. 이제 적절한 도메인 자격 증명을 사용하여 Windows Server VM에 로그인할 수도 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
 다음 자습서에서는 이 Windows Server VM을 사용하여 Azure AD DS 관리형 도메인을 관리할 수 있는 관리 도구를 설치합니다. 이 자습서 시리즈를 계속하지 않으려면 다음 정리 단계를 검토하여 [RDP를 사용하지 않도록 설정](#disable-rdp)하거나 [VM을 삭제](#delete-the-vm)합니다. 그렇지 않으면 [다음 자습서로 계속 진행](#next-steps)합니다.
+
+### <a name="un-join-the-vm-from-azure-ad-ds-managed-domain"></a>VM을 Azure AD DS 관리형 도메인에서 조인 해제
+
+Azure AD DS 관리형 도메인에서 VM을 제거하려면 단계를 다시 수행하여 [VM을 도메인에 조인](#join-the-vm-to-the-azure-ad-ds-managed-domain)합니다. Azure AD DS 관리형 도메인에 조인하는 대신 기본 *WORKGROUP*과 같은 작업 그룹에 조인하도록 선택합니다. VM을 다시 부팅한 후에는 Azure AD DS 관리형 도메인에서 컴퓨터 개체가 제거됩니다.
+
+도메인에서 조인 해제를 수행하지 않고 [VM을 삭제](#delete-the-vm)하는 경우 분리된 컴퓨터 개체가 Azure AD DS에 남아 있습니다.
 
 ### <a name="disable-rdp"></a>RDP를 사용하지 않도록 설정
 
@@ -231,3 +239,4 @@ Azure AD DS 관리형 도메인을 관리하려면 ADAC(Active Directory 관리 
 [add-computer]: /powershell/module/microsoft.powershell.management/add-computer
 [jit-access]: ../security-center/security-center-just-in-time.md
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
+[set-azvmaddomainextension]: /powershell/module/az.compute/set-azvmaddomainextension

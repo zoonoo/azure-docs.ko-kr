@@ -1,7 +1,7 @@
 ---
 title: 'Python 빠른 시작: REST API를 사용하여 인덱스 만들기, 로드 및 쿼리 - Azure Search'
 description: Python, Jupyter Notebook 및 Azure Search REST API를 사용하여 인덱스를 만들고, 데이터를 로드하고, 쿼리를 실행하는 방법을 설명합니다.
-ms.date: 07/11/2019
+ms.date: 08/28/2019
 author: heidisteen
 manager: nitinme
 ms.author: heidist
@@ -9,12 +9,12 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.openlocfilehash: 308e296ba5306949e87e68f14c8c219b85825af4
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 352d26a1f3e781f7dbb6e502caea44bdb45b398a
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656800"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129396"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-python-using-jupyter-notebooks"></a>빠른 시작: Jupyter Notebook을 사용하여 Python에서 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -71,6 +71,8 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
    headers = {'Content-Type': 'application/json',
            'api-key': '<YOUR-ADMIN-API-KEY>' }
    ```
+
+   ConnectionError `"Failed to establish a new connection"`을 가져오는 경우 api-key가 기본 또는 보조 관리자 키이고 모든 선행 및 후행 문자(`?` 및 `/`)가 있는지 확인합니다.
 
 1. 세 번째 셀에서 요청을 작성합니다. 이 GET 요청은 검색 서비스의 indexes 컬렉션을 대상으로 하고, 기존 인덱스의 name 속성을 선택합니다.
 

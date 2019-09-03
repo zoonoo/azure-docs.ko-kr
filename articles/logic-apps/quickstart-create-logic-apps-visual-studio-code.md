@@ -1,27 +1,29 @@
 ---
-title: Visual Studio Code를 사용하여 자동화된 워크플로 만들기 및 관리 - Azure Logic Apps | Microsoft Docs
+title: Visual Studio Code를 사용하여 자동화된 워크플로 만들기 및 관리 - Azure Logic Apps
 description: VS Code(Visual Studio Code)에서 JSON을 사용하여 논리 앱을 만들고 관리하는 방법을 보여 주는 빠른 시작을 제공합니다.
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 ms.workload: azure-vs
 author: ecfan
 ms.author: estfan
-ms.topic: article
+ms.manager: carmonm
 ms.reviewer: klam, deli, LADocs
-ms.suite: integration
+ms.topic: quickstart
+ms.custom: mvc
 ms.date: 10/05/2018
-ms.openlocfilehash: 0fec590523fa130af2e5670a92914c056df289d1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: f0b568289a50b9883e6e0f1cba6b793c9e6e90e8
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60512016"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051737"
 ---
 # <a name="quickstart-create-and-manage-automated-logic-app-workflows---visual-studio-code"></a>빠른 시작: 자동화된 논리 앱 워크플로 만들기 및 관리 - Visual Studio Code
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 Visual Studio Code를 사용하여 조직 및 기업 전체에서 앱, 데이터, 시스템 및 서비스를 통합하기 위한 작업, 워크플로 및 프로세스를 자동화하는 데 도움이 되는 논리 앱을 만들고 관리할 수 있습니다. 이 빠른 시작에서는 코드 기반 환경을 통해 JSON(JavaScript Object Notation)의 워크플로 정의 스키마를 사용하여 논리 앱 워크플로 정의를 만들고 편집하는 방법을 설명합니다. 클라우드에서 <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a>에 이미 배포된 기존 논리 앱에서 작업할 수도 있습니다. 
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 Visual Studio Code를 사용하여 조직 및 기업 전체에서 앱, 데이터, 시스템 및 서비스를 통합하기 위한 작업, 워크플로 및 프로세스를 자동화하는 데 도움이 되는 논리 앱을 만들고 관리할 수 있습니다. 이 빠른 시작에서는 코드 기반 환경을 통해 JSON(JavaScript Object Notation)의 워크플로 정의 스키마를 사용하여 논리 앱 워크플로 정의를 만들고 편집하는 방법을 설명합니다. Azure에 이미 배포된 기존 논리 앱에서 작업할 수도 있습니다. 
 
-<a href="https://portal.azure.com" target="_blank">Azure Portal</a> 및 Visual Studio에서 이러한 동일 작업을 수행할 수도 있지만, 논리 앱 정의를 이미 숙지하고 있으며 코드에서 직접 작업하려는 경우 Visual Studio Code를 사용하면 작업을 더 빨리 시작할 수 있습니다. 예를 들어 이미 생성된 논리 앱을 사용하거나 사용하지 않도록 설정하고 삭제하고 새로 고칠 수 있습니다. 또한 Linux, Windows 및 Mac과 같은 Visual Studio Code가 실행되는 모든 개발 플랫폼의 논리 앱 및 통합 계정에서 작업할 수 있습니다.
+Azure Portal(https://portal.azure.com) 및 Visual Studio에서 이러한 동일 작업을 수행할 수 있지만, 논리 앱 정의를 이미 숙지하고 있으며 코드에서 직접 작업하려는 경우 Visual Studio Code에서 더 빨리 시작할 수 있습니다. 예를 들어 이미 생성된 논리 앱을 사용하거나 사용하지 않도록 설정하고 삭제하고 새로 고칠 수 있습니다. 또한 Linux, Windows 및 Mac과 같은 Visual Studio Code가 실행되는 모든 개발 플랫폼의 논리 앱 및 통합 계정에서 작업할 수 있습니다.
 
 이 문서의 경우에는 기본 개념에 더 초점을 맞추는 [Azure Portal에 논리 앱을 만들기 위한 빠른 시작](../logic-apps/quickstart-create-first-logic-app-workflow.md)의 경우와 동일한 논리 앱을 만들 수 있습니다. Visual Studio Code에서 논리 앱은 다음 예제와 같이 표시됩니다.
 
@@ -29,7 +31,7 @@ ms.locfileid: "60512016"
 
 시작하기 전에 이러한 항목이 있는지 확인합니다.
 
-* Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다.
+* Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * JSON(JavaScript Object Notation)을 사용하는 [논리 앱 워크플로 정의](../logic-apps/logic-apps-workflow-definition-language.md) 및 해당 구조에 대한 기본 지식 
 
@@ -39,7 +41,7 @@ ms.locfileid: "60512016"
 
 * 다음 도구가 없으면 다운로드하여 설치합니다. 
 
-  * 체험인 <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code 버전 1.25.1 이상</a>.
+  * 체험인 [Visual Studio Code 버전 1.25.1 이상]("https://code.visualstudio.com/).
 
   * Azure Logic Apps용 Visual Studio Code 확장
 
@@ -52,7 +54,7 @@ ms.locfileid: "60512016"
 
     ![설치된 확장](./media/create-logic-apps-visual-studio-code/installed-extension.png)
 
-    자세한 내용은 <a href="https://code.visualstudio.com/docs/editor/extension-gallery" target="_blank">확장 마켓플레이스</a>를 참조하세요. [GitHub의 Visual Studio Code용 Azure Logic Apps 확장](https://github.com/Microsoft/vscode-azurelogicapps)을 방문하여 이 확장의 오픈 소스 버전에 대한 기여를 보고 제출할 수도 있습니다. 
+    자세한 내용은 [확장 마켓플레이스](https://code.visualstudio.com/docs/editor/extension-gallery)를 참조하세요. [GitHub의 Visual Studio Code용 Azure Logic Apps 확장](https://github.com/Microsoft/vscode-azurelogicapps)을 방문하여 이 확장의 오픈 소스 버전에 대한 기여를 보고 제출할 수도 있습니다. 
 
 <a name="sign-in-azure"></a>
 
@@ -220,8 +222,7 @@ Azure에 이미 배포된 기존 논리 앱에서 작업하려면 Visual Studio 
 
    ![편집 내용 업로드](./media/create-logic-apps-visual-studio-code/upload-logic-app-changes.png)
 
-## <a name="get-support"></a>지원 받기
+## <a name="next-steps"></a>다음 단계
 
-* 질문이 있는 경우 <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">Azure Logic Apps 포럼</a>을 방문해 보세요.
-* 기능 아이디어를 제출하거나 투표하려면 <a href="https://aka.ms/logicapps-wish" target="_blank">Logic Apps 사용자 의견 사이트</a>를 방문하세요.
-
+> [!div class="nextstepaction"]
+> * [Visual Studio로 논리 앱 만들기](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)

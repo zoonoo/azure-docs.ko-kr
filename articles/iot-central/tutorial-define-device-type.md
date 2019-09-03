@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: fd3ec276fdc95ad326d14a5b21e8ab793b154080
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: db9f7e75af01ed83c39ef3a37ab2612426ef6ea4
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69875774"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099618"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>자습서: Azure IoT Central 애플리케이션에서 새 디바이스 유형 정의
 
@@ -49,7 +49,7 @@ ms.locfileid: "69875774"
 
 이 자습서를 완료하려면 Azure IoT Central 애플리케이션이 필요합니다. [Azure IoT Central 애플리케이션](quick-deploy-iot-central.md) 빠른 시작을 완료한 경우 빠른 시작에서 만든 애플리케이션을 다시 사용할 수 있습니다. 그렇지 않은 경우 빈 Azure IoT Central 애플리케이션을 만들려면 다음 단계를 완료합니다.
 
-1. Azure IoT Central [애플리케이션 관리자](https://aka.ms/iotcentral) 페이지로 이동합니다.
+1. [Azure IoT Central 애플리케이션 관리자](https://aka.ms/iotcentral) 웹 사이트로 이동합니다.
 
 2. Azure 구독에 액세스 하는 데 사용하는 이메일 주소와 암호를 입력합니다.
 

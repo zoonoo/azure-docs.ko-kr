@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 07/23/2019
+ms.date: 08/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 49f3f608ff34847905b219047af843db00da78c4
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 15960c39878e0c8ae22f94197ed1937597f1ee02
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68480042"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126142"
 ---
 ::: zone target="docs"
 
@@ -29,6 +29,16 @@ ms.locfileid: "68480042"
 > * 디스크에 연결 및 암호 가져오기
 > * Windows 클라이언트에서 디스크 잠금 해제
 > * Linux 클라이언트에서 디스크 잠금 해제
+
+::: zone-end
+
+::: zone target="chromeless"
+
+## <a name="unpack-connect-and-unlock-azure-data-box-disk"></a>Azure Data Box Disk 압축 풀기, 연결 및 잠금 해제
+
+::: zone-end
+
+::: zone target="docs"
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -282,7 +292,7 @@ Windows 또는 Linux 클라이언트에 연결되는지에 따라 디스크의 �
         ``` 
         .\DataBoxDiskUnlock.exe
         ```
-    -  Azure Portal의 **일반 > 디바이스 세부 정보**에서 획득한 암호를 입력합니다. 디스크에 할당한 드라이브 문자가 표시됩니다. 
+    -  Azure Portal의 **일반 > 디바이스 세부 정보**에서 암호를 가져와 여기에 입력합니다. 디스크에 할당한 드라이브 문자가 표시됩니다. 
 4. 디스크를 Linux 클라이언트에 잠금 해제하려면 터미널을 엽니다. 소프트웨어를 다운로드한 폴더로 이동합니다. 이러한 파일을 실행할 수 있도록 다음 명령을 입력하여 파일 사용 권한을 변경합니다. 
 
     ```
@@ -294,7 +304,7 @@ Windows 또는 Linux 클라이언트에 연결되는지에 따라 디스크의 �
     ```
     sudo ./DataBoxDiskUnlock_Prep.sh
     ```
-    Data Box Disk 잠금 해제 도구를 실행합니다. **일반 > 디바이스 세부 정보**로 이동하여 Azure Portal의 암호를 입력합니다. 필요에 따라 잠금을 해제할 BitLocker 암호화 볼륨 목록을 작은 따옴표 안에 지정합니다.
+    Data Box Disk 잠금 해제 도구를 실행합니다. Azure Portal의 **일반 > 디바이스 세부 정보**에서 암호를 가져와 여기에 입력합니다. 필요에 따라 잠금을 해제할 BitLocker 암호화 볼륨 목록을 작은 따옴표 안에 지정합니다.
 
     ```
     sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’
@@ -303,7 +313,9 @@ Windows 또는 Linux 클라이언트에 연결되는지에 따라 디스크의 �
 
 디스크가 잠금 해제되면 디스크의 콘텐츠를 볼 수 있습니다.
 
-디스크를 설정하고 잠금 해제하는 방법에 대한 자세한 내용은 [자습서: Azure Data Box Disk 압축 풀기, 연결 및 잠금 해제](data-box-disk-deploy-set-up.md)를 참조하세요.
+디스크를 설정하는 방법에 대한 자세한 내용은 [Data Box Disk 압축 풀기](data-box-disk-deploy-set-up.md#unpack-your-disks)로 이동하세요.
+
+디스크 잠금 해제 방법에 대한 자세한 내용은 [Windows 클라이언트에서 Data Box Disk 잠금 해제](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client)로 이동하세요.
 
 ::: zone-end
 

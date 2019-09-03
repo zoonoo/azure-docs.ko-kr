@@ -9,19 +9,18 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: cb9df71859947f868b858cbed0d6f75b91956a94
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: e65e9670facdfcbf9d1aac04fa25ee53996a9c4b
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708133"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100302"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>자습서: Azure Security Center를 사용하여 Windows 가상 머신 모니터링
 
@@ -73,14 +72,14 @@ VM 보안 구성을 확인하려면 먼저 Security Center 데이터 수집을 �
 
 ## <a name="view-vm-configuration-health"></a>VM 구성 상태 보기
 
-데이터 수집을 설정하고 보안 정책을 설정하면 Security Center에서 경고 및 권장 사항을 제공하기 시작합니다. VM이 배포되면 데이터 수집 에이전트가 설치됩니다. 그러면 Security Center가 새 VM에 대한 데이터로 채워집니다. VM 구성 상태에 대한 자세한 내용은 [Security Center에서 VM 보호](../../security-center/security-center-virtual-machine-recommendations.md)를 참조하세요. 
+데이터 수집을 설정하고 보안 정책을 설정하면 Security Center에서 경고 및 권장 사항을 제공하기 시작합니다. VM이 배포되면 데이터 수집 에이전트가 설치됩니다. 그러면 Security Center가 새 VM에 대한 데이터로 채워집니다. VM 구성 상태에 대한 자세한 내용은 [Security Center에서 VM 보호](../../security-center/security-center-virtual-machine-protection.md)를 참조하세요. 
 
 데이터가 수집되면 각 VM 및 관련 Azure 리소스에 대한 리소스 상태가 집계됩니다. 이 정보는 읽기 쉬운 차트로 표시됩니다. 
 
 리소스 상태를 보려면
 
 1.  Security Center 대시보드의 **방지**에서 **컴퓨팅**을 선택합니다. 
-2.  **계산** 블레이드에서 **VM 및 계산**을 선택합니다. 이 보기는 모든 VM의 구성 상태에 대한 요약을 제공합니다.
+2.  **컴퓨팅** 블레이드에서 **VM 및 컴퓨팅**을 선택합니다. 이 보기는 모든 VM의 구성 상태에 대한 요약을 제공합니다.
 
 ![컴퓨팅 상태](./media/tutorial-azure-security/compute-health.png)
 
@@ -105,7 +104,7 @@ Azure Security Center가 구성 데이터로 채워지기 시작하면 설정한
 
 ## <a name="view-detected-threats"></a>검색된 위협 보기
 
-Security Center에서는 리소스 구성 권장 사항 외에도 위협 검색 경고를 표시합니다. 보안 경고 기능은 각 VM, Azure 네트워킹 로그 및 연결된 파트너 솔루션에서 수집된 데이터를 집계하여 Azure 리소스에 대한 보안 위협을 검색합니다. Security Center 위협 검색 기능에 대한 자세한 내용은 [Azure Security Center 검색 기능](../../security-center/security-center-detection-capabilities.md)을 참조하세요.
+Security Center에서는 리소스 구성 권장 사항 외에도 위협 검색 경고를 표시합니다. 보안 경고 기능은 각 VM, Azure 네트워킹 로그 및 연결된 파트너 솔루션에서 수집된 데이터를 집계하여 Azure 리소스에 대한 보안 위협을 검색합니다. Security Center 위협 탐지 기능에 대한 자세한 내용은 [Security Center 위협 검색 방법](../../security-center/security-center-alerts-overview.md#detect-threats)을 참조하세요.
 
 보안 경고 기능을 사용하려면 Azure Security Center 가격 책정 계층을 *체험*에서 *표준*으로 높여야 합니다. 이 상위 가격 책정 계층으로 전환하면 **평가판**을 사용할 수 있습니다. 
 

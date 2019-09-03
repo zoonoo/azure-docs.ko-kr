@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Machines에 대한 데이터 수집 | Microsoft Docs
+title: Azure Monitor를 사용하여 Azure 가상 머신에서 데이터 수집 | Microsoft Docs
 description: Log Analytics를 사용하여 Log Analytics 에이전트 VM 확장을 사용하도록 설정하고 Azure VM에서 데이터 수집을 사용하도록 설정하는 방법을 알아봅니다.
 services: log-analytics
 documentationcenter: log-analytics
@@ -14,16 +14,16 @@ ms.topic: quickstart
 ms.date: 08/19/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 1a61c0f96f62712bbd2500b2e80fd08565990bbe
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 8e44908baea506efa488899c90e9022acc6e30b8
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874907"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992145"
 ---
-# <a name="collect-data-about-azure-virtual-machines"></a>Azure 가상 머신에 대한 데이터 수집
+# <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>Azure Monitor를 사용하여 Azure 가상 머신에서 데이터 수집
 
-[Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md)는 상세한 분석 및 상관 관계 파악을 위해 Azure Virtual Machines 및 사용자 환경의 다른 리소스의 데이터를 단일 저장소로 직접 수집할 수 있습니다. 이 빠른 시작 가이드에서는 몇 가지 간단한 단계로 Azure Linux 또는 Windows VM에서 데이터를 구성 및 수집하는 방법을 보여 줍니다.  
+[Azure Monitor](../overview.md)는 상세한 분석 및 상관 관계 파악을 위해 Azure 가상 머신 데이터를 Log Analytics 작업 영역으로 직접 수집할 수 있습니다. [Windows](../../virtual-machines/extensions/oms-windows.md) 및 [Linux](../../virtual-machines/extensions/oms-linux.md)용 Log Analytics VM 확장을 설치하면 Azure Monitor에서 Azure VM 데이터를 수집할 수 있습니다. 이 빠른 시작에서는 VM 확장을 사용하여 Azure Linux 또는 Windows VM에서 데이터를 구성 및 수집하는 방법을 몇 가지 간단한 단계로 보여줍니다.  
  
 또한 기존 Azure Virtual Machine이 있다고 가정합니다. 그렇지 않은 경우 VM 빠른 시작 가이드에 따라 [Windows VM을 만들거나](../../virtual-machines/windows/quick-create-portal.md) [Linux VM을 만들 수 있습니다](../../virtual-machines/linux/quick-create-cli.md).
 
@@ -33,7 +33,7 @@ ms.locfileid: "69874907"
 
 ## <a name="create-a-workspace"></a>작업 영역 만들기
 
-1. Azure Portal에서 **모든 서비스**를 선택합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.
+1. Azure Portal에서 **모든 서비스**를 선택합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics 작업 영역**을 선택합니다.
 
     ![Azure portal](media/quick-collect-azurevm/azure-portal-01.png)<br>  
 
@@ -55,7 +55,7 @@ ms.locfileid: "69874907"
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
-Azure에 이미 배포된 Windows 및 Linux 가상 머신에 대해, Log Analytics VM 확장을 사용하여 Log Analytics 에이전트를 설치합니다. 이 확장을 사용하면 설치 프로세스가 간소화되고 지정한 Log Analytics 작업 영역에 데이터를 전송하도록 에이전트가 자동으로 구성됩니다. 에이전트도 자동으로 업그레이드되므로 최신 기능 및 수정 사항을 받아볼 수 있습니다. 계속하기 전에 VM이 실행되는지 확인합니다. 그렇지 않으면, 프로세스를 완료하는 데 실패합니다.  
+Azure에 이미 배포된 Windows 및 Linux 가상 머신에 대해, Log Analytics VM 확장을 사용하여 Log Analytics 에이전트를 설치합니다. 이 확장을 사용하면 설치 프로세스가 간소화되고 지정한 Log Analytics 작업 영역에 데이터를 전송하도록 에이전트가 자동으로 구성됩니다. 최신 버전이 릴리스될 때 에이전트도 자동으로 업그레이드되므로 최신 기능 및 수정 사항을 받아볼 수 있습니다. 계속하기 전에 VM이 실행되는지 확인합니다. 그렇지 않으면, 프로세스를 완료하는 데 실패합니다.  
 
 >[!NOTE]
 >Linux용 Log Analytics 에이전트는 둘 이상의 Log Analytics 작업 영역에 보고하도록 구성할 수 없습니다. 
@@ -74,7 +74,7 @@ Azure에 이미 배포된 Windows 및 Linux 가상 머신에 대해, Log Analyti
 
 ## <a name="collect-event-and-performance-data"></a>이벤트 및 성능 데이터 수집
 
-Log Analytics는 Windows 이벤트 로그 또는 Linux Syslog에서 이벤트를 수집하고, 좀 더 긴 기간의 분석 및 보고를 위해 지정한 성능 카운터를 수집할 수 있으며 특정 조건이 검색되면 작업을 수행할 수 있습니다. 다음 단계에 따라 Windows 시스템 로그 및 Linux Syslog의 수집과 시작할 몇 가지 일반 성능 카운터를 구성하세요.  
+Azure Monitor는 Windows 이벤트 로그 또는 Linux Syslog에서 이벤트를 수집하고, 더 긴 기간의 분석 및 보고를 위해 지정한 성능 카운터를 수집할 수 있으며 특정 조건이 검색되면 작업을 수행할 수 있습니다. 다음 단계에 따라 Windows 시스템 로그 및 Linux Syslog의 수집과 시작할 몇 가지 일반 성능 카운터를 구성하세요.  
 
 ### <a name="data-collection-from-windows-vm"></a>Windows VM에서 데이터 수집
 
@@ -124,15 +124,15 @@ Log Analytics는 Windows 이벤트 로그 또는 Linux Syslog에서 이벤트를
 
 데이터 수집을 사용하도록 설정했으므로 대상 VM의 일부 데이터를 확인하는 간단한 로그 검색 예제를 실행해보겠습니다.  
 
-1. Azure Portal에서 Log Analytics로 이동한 후 앞서 만든 작업 영역을 선택합니다.
+1. 선택한 작업 영역의 왼쪽 창에서 **로그**를 선택합니다.
 
-2. **로그 검색** 타일을 선택하고 로그 검색 창의 쿼리 필드에 `Perf`를 입력한 다음, Enter 키를 누르거나 쿼리 필드의 오른쪽의 검색 단추를 선택합니다.
+2. 로그 쿼리 페이지에서 쿼리 편집기에 `Perf`를 입력하고 **실행**을 선택합니다.
 
-    ![Log Analytics 로그 검색 쿼리 예제](./media/quick-collect-azurevm/log-analytics-portal-perf-query.png) 
+    ![Log Analytics 로그 검색 쿼리 예제](./media/quick-collect-windows-computer/log-analytics-portal-queryexample.png) 
 
-예를 들어, 다음 그림의 쿼리는 735개의 성능 레코드를 반환했습니다.  결과는 훨씬 더 적습니다.
+    예를 들어, 다음 이미지의 쿼리는 10,000개의 성능 레코드를 반환했습니다. 결과는 훨씬 더 적습니다.
 
-![Log Analytics 로그 검색 결과](media/quick-collect-azurevm/log-analytics-search-perf.png)
+    ![Log Analytics 로그 검색 결과](media/quick-collect-azurevm/log-analytics-search-perf.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

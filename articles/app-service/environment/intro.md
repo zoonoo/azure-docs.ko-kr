@@ -9,17 +9,16 @@ ms.assetid: 3c7eaefa-1850-4643-8540-428e8982b7cb
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 48b053b6520bff2ac83cd02af31194f81413e92c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 5c668d1d0783300333e4d0b78c93fe5e7a9d0dd0
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598757"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069231"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>App Service Environment 소개 #
  
@@ -44,10 +43,10 @@ ASE(App Service Environment)는 다음을 필요로 하는 애플리케이션 �
 ASE는 단일 고객의 애플리케이션만을 실행하도록 격리되며 항상 가상 네트워크에 배포됩니다. 고객은 인바운드 및 아웃바운드 애플리케이션 네트워크 트래픽을 세부적으로 제어할 수 있습니다. 애플리케이션은 온-프레미스 회사 리소스에 VPN을 통한 고속 보안 연결을 설정할 수도 있습니다.
 
 * ASE에는 고유한 가격 책정 계층이 있습니다. [격리 솔루션](https://channel9.msdn.com/Shows/Azure-Friday/Security-and-Horsepower-with-App-Service-The-New-Isolated-Offering?term=app%20service%20environment)이 하이퍼스케일 및 보안을 구현하는 데 어떻게 도움이 되는지 알아보세요.
-* [App Service Environments v2](https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud?term=app%20service%20environment)는 네트워크의 서브넷에서 앱을 보호하는 환경을 제공하고, Azure App Service의 자체 비공개 배포를 지원합니다.
+* [App Service Environments v2](https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud?term=app%20service%20environment)는 네트워크의 서브넷에서 앱을 보호하는 환경을 제공하고, Azure App Service의 자체 프라이빗 배포를 지원합니다.
 * 여러 ASE를 수평적 크기 조정에 사용할 수 있습니다. 자세한 내용은 [지리적으로 분산된 앱 설치 공간 설정 방법](app-service-app-service-environment-geo-distributed-scale.md)을 참조하세요.
 * AzureCon 심층 분석에 표시된 대로 ASE는 보안 아키텍처를 구성하는 데 사용할 수 있습니다. AzureCon 심층 분석에 표시된 보안 아키텍처가 어떻게 구성되었는지 확인하려면 App Service Environment를 사용하여 [계층화된 보안 아키텍처를 구현하는 방법에 대한 문서](app-service-app-service-environment-layered-security.md)를 참조하세요.
-* ASE에서 실행 중인 앱은 WAF(웹 애플리케이션 방화벽) 등의 업스트림 디바이스에서 제어된 액세스를 가질 수 있습니다. 자세한 내용은 [웹 애플리케이션 방화벽(WAF)][AppGW]을 참조하세요.
+* ASE에서 실행 중인 앱은 WAF(웹 애플리케이션 방화벽) 등의 업스트림 디바이스에서 제어된 액세스를 가질 수 있습니다. 자세한 내용은 [WAF(웹 애플리케이션 방화벽)][AppGW]를 참조하세요.
 
 ## <a name="dedicated-environment"></a>전용 환경 ##
 
@@ -63,7 +62,7 @@ ASE는 프런트 엔드 및 작업자로 구성됩니다. 프런트 엔드는 AS
 
 고객은 프런트 엔드와 작업자를 관리할 필요가 없습니다. 모든 인프라는 고객이 App Service 계획을 스케일 아웃함에 따라 자동으로 추가됩니다. ASE에서 App Service 계획을 생성하거나 규모를 변경함에 따라 필요한 인프라가 적절하게 추가되거나 제거됩니다.
 
-인프라에 대해 대금을 지급하고 ASE 크기에 따라 변경되지 않는 ASE의 월정액이 있습니다. 거기에 App Service 계획 vCPU당 비용이 발생합니다. ASE에 호스트되는 모든 앱은 격리 가격 책정 SKU에 해당합니다. ASE에 대한 가격 책정에 대한 정보는 [App Service 가격 책정][Pricing] 페이지를 참조하고 ASE에 대한 사용 가능한 옵션을 검토하세요.
+인프라에 대해 대금을 지급하고 ASE 크기에 따라 변경되지 않는 ASE의 월정액이 있습니다. 거기에 App Service 계획 vCPU당 비용이 발생합니다. ASE에 호스트되는 모든 앱은 격리 가격 책정 SKU에 해당합니다. ASE의 가격 책정에 대한 정보는 [App Service 가격 책정][Pricing] 페이지를 참조하고 ASE에 대한 사용 가능한 옵션을 검토하세요.
 
 ## <a name="virtual-network-support"></a>가상 네트워크 지원 ##
 

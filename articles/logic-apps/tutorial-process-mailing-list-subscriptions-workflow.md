@@ -6,16 +6,17 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
+ms.manager: carmonm
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 2b28c38d2444f227d26df1f9ca2d70876ff41064
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 016d004a538a1313ca31f36b46e961098051785c
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68260605"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051720"
 ---
 # <a name="manage-mailing-list-requests-with-azure-logic-apps"></a>Azure Logic Apps로 메일 그룹 요청 관리
 
@@ -37,17 +38,17 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
 ![완료된 상위 수준 논리 앱](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-overview.png)
 
-Azure 구독이 아직 없는 경우 시작하기 전에 <a href="https://azure.microsoft.com/free/" target="_blank">Azure 체험 계정에 등록합니다</a>.
+Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정에 등록합니다](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>필수 조건
 
 * MailChimp 계정. 논리 앱이 승인된 구성원에 대한 이메일 주소를 추가할 수 있는 "test-members-ML"이라는 목록을 만듭니다. 계정이 없는 경우 [무료 계정을 등록](https://login.mailchimp.com/signup/)하고 [목록을 만드는 방법](https://us17.admin.mailchimp.com/lists/#)을 알아보세요. 
 
-* 승인 워크플로를 지원하는 이메일 계정과 Office 365 Outlook 또는 Outlook.com. 이 문서에서는 Office 365 Outlook을 사용합니다. 다른 이메일 계정을 사용하는 경우 일반적인 단계는 동일하지만 UI가 약간 다르게 표시될 수 있습니다.
+* 승인 워크플로를 지원하는 Office 365 Outlook 또는 Outlook.com이 포함된 이메일 계정입니다. 이 문서에서는 Office 365 Outlook을 사용합니다. 다른 이메일 계정을 사용하는 경우 일반적인 단계는 동일하지만 UI가 약간 다르게 표시될 수 있습니다.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>에 로그인합니다.
+Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 ## <a name="create-your-logic-app"></a>논리 앱 만들기
 
@@ -196,7 +197,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
    | 설정 | 값 | 설명 | 
    | ------- | ----- | ----------- | 
    | **목록 Id** | test-members-ML | MailChimp 메일 그룹의 이름 | 
-   | **상태** | subscribed | 새 구성원의 구독 상태입니다. 자세한 내용은 <a href="https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/" target="_blank">MailChimp API로 구독자 관리</a>를 참조하세요. | 
+   | **상태** | subscribed | 새 구성원의 구독 상태입니다. 자세한 내용은 [MailChimp API로 구독자 관리](https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/)를 참조하세요. | 
    | **이메일 주소** | <*new-member-email-address*> | 매개 변수 목록 또는 동적 콘텐츠 목록의 **새 이메일이 도착하는 경우** 아래에서 새 구성원의 이메일 주소를 전달하는 **보내는 사람**을 선택합니다. 
    |  |  |  | 
 

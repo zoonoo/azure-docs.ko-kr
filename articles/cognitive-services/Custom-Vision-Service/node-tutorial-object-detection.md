@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 08/08/2019
 ms.author: areddish
-ms.openlocfilehash: 7f43507566109a52b914f27e37e5392345ec2eaf
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 6e3bf7b4fb60d81ff8883c2592de3739572bf2fa
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946157"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997804"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-nodejs-sdk"></a>빠른 시작: Custom Vision Node.js SDK를 사용하여 개체 검색 프로젝트 만들기
 
@@ -26,20 +26,19 @@ ms.locfileid: "68946157"
 - [Node.js 8](https://www.nodejs.org/en/download/) 이상이 설치되어 있어야 합니다.
 - [npm](https://www.npmjs.com/)이 설치되어 있어야 합니다.
 
+[!INCLUDE [get-keys](includes/get-keys.md)]
+
+[!INCLUDE [node-get-images](includes/node-get-images.md)]
+
+
 ## <a name="install-the-custom-vision-sdk"></a>Custom Vision SDK 설치
 
-Node.js용 Custom Vision Service SDK를 설치하려면 다음 명령을 실행합니다.
+프로젝트에 Node.js용 Custom Vision Service SDK를 설치하려면 다음 명령을 실행합니다.
 
 ```shell
 npm install @azure/cognitiveservices-customvision-training
 npm install @azure/cognitiveservices-customvision-prediction
 ```
-
-[Node.js 샘플](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)과 함께 이미지를 다운로드할 수 있습니다.
-
-[!INCLUDE [get-keys](includes/get-keys.md)]
-
-[!INCLUDE [node-get-images](includes/node-get-images.md)]
 
 ## <a name="add-the-code"></a>코드 추가
 
@@ -47,9 +46,10 @@ npm install @azure/cognitiveservices-customvision-prediction
 
 ### <a name="create-the-custom-vision-service-project"></a>Custom Vision Service 프로젝트 만들기
 
-새 Custom Vision Service 프로젝트를 만드는 다음 코드를 스크립트에 추가합니다. 구독 키를 적절한 정의에 삽입합니다. 개체 검색 프로젝트와 이미지 분류 프로젝트를 만드는 작업 간의 차이점은 **create_project** 호출에 지정되는 도메인입니다.
+새 Custom Vision Service 프로젝트를 만드는 다음 코드를 스크립트에 추가합니다. 적절한 정의에 구독 키를 삽입하고 sampleDataRoot 경로 값을 이미지 폴더 경로로 설정합니다. endPoint 값이 [Customvision.ai](https://www.customvision.ai/)에서 만든 학습 및 예측 엔드포인트와 일치하는지 확인합니다. 개체 검색 프로젝트와 이미지 분류 프로젝트를 만드는 작업 간의 차이점은 **create_project** 호출에 지정되는 도메인입니다.
 
 ```javascript
+const fs = require('fs');
 const util = require('util');
 const TrainingApi = require("@azure/cognitiveservices-customvision-training");
 const PredictionApi = require("@azure/cognitiveservices-customvision-prediction");

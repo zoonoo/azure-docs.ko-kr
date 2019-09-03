@@ -1,5 +1,5 @@
 ---
-title: Azure IoT 플러그 앤 플레이 미리 보기 디바이스 만들기 및 테스트 | Microsoft Docs
+title: IoT 플러그 앤 플레이 미리 보기 디바이스 만들기 및 테스트 | Microsoft Docs
 description: 디바이스 개발자가 VS Code를 사용하여 IoT 플러그 앤 플레이 미리 보기 디바이스의 새 디바이스 기능 모델을 만들고 테스트하는 방법을 알아봅니다.
 author: dominicbetts
 ms.author: dobett
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 5a03eea84d0d68f06b432014fc4374e799914d67
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 10eb9655371177a52d1c1a5a9118665015076b35
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878724"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70047985"
 ---
 # <a name="tutorial-create-and-test-a-device-capability-model-using-visual-studio-code"></a>자습서: Visual Studio Code를 사용하여 디바이스 기능 모델 만들기 및 테스트
 

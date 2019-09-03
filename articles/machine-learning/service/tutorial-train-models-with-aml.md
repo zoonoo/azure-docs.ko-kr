@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 05/08/2019
+ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: df5085011fd2771f094131244c1f466cebcbc89a
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 90f745d3ef5fd4442a184a51d82cd61b12828e15
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534792"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036205"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>자습서: Azure Machine Learning에서 MNIST 데이터와 scikit-learn을 사용하여 이미지 분류 모델 학습
 
@@ -96,11 +96,11 @@ experiment_name = 'sklearn-mnist'
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
 
-### <a name="create-or-attach-an-existing-compute-resource"></a>기존 컴퓨팅 리소스 만들기 또는 연결
+### <a name="create-or-attach-an-existing-compute-target"></a>기존 컴퓨팅 대상 만들기 또는 연결
 
 데이터 과학자는 관리형 서비스인 Azure Machine Learning 컴퓨팅을 사용하여 Azure 가상 머신 클러스터에서 기계 학습 모델을 학습할 수 있습니다. 예를 들어 GPU가 지원되는 VM이 있습니다. 이 자습서에서는 학습 환경으로 Azure Machine Learning 컴퓨팅을 만듭니다. 아래 코드는 작업 영역에 아직 컴퓨팅 클러스터가 없으면 새로 만듭니다.
 
- **컴퓨팅을 만드는 데 약 5분이 걸립니다.** 작업 영역에 이미 컴퓨팅이 있으면 이 코드는 기존 컴퓨팅을 사용하고 만들기 프로세스를 건너뜁니다.
+ **컴퓨팅 대상을 만드는 데 약 5분이 걸립니다.** 작업 영역에 이미 컴퓨팅 리소스가 있으면 코드는 해당 컴퓨팅 리소스를 사용하고 만들기 프로세스를 건너뜁니다.
 
 ```python
 from azureml.core.compute import AmlCompute
@@ -211,9 +211,9 @@ plt.show()
 
 ### <a name="upload-data-to-the-cloud"></a>클라우드에 데이터 업로드
 
-이제 로컬 머신의 데이터를 Azure에 업로드하여 원격으로 데이터에 액세스할 수 있도록 합니다. 그러면 원격 학습에 액세스할 수 있습니다. 데이터 저장소는 데이터를 업로드하거나 다운로드할 수 있는 작업 영역과 연결된 편리한 구조입니다. 원격 컴퓨팅 대상에서도 이 데이터 저장소와 상호 작용할 수 있습니다. 이는 Azure Blob 스토리지 계정에서 지원됩니다.
+Notebook을 실행 중인 컴퓨터에서 학습 데이터를 다운로드하여 사용했습니다.  다음 섹션에서는 원격 Azure Machine Learning 컴퓨팅에 대한 모델을 학습합니다.  또한 원격 컴퓨팅 리소스에는 데이터에 대한 액세스 권한이 필요합니다. 액세스를 제공하려면 작업 영역과 연결된 중앙 집중화된 데이터 저장소에 데이터를 업로드합니다. 이 데이터 저장소는 Azure 데이터 센터에 있는 것처럼 클라우드에서 원격 컴퓨팅 대상을 사용할 때 데이터에 빠르게 액세스할 수 있도록 합니다.
 
-MNIST 파일은 데이터 저장소의 루트에 있는 `mnist` 디렉터리로 업로드됩니다.
+MNIST 파일을 데이터 저장소의 루트에 있는 `mnist` 디렉터리로 업로드합니다. 자세한 내용은 [데이터 저장소에서 데이터 액세스](how-to-access-data.md)를 참조하세요.
 
 ```python
 ds = ws.get_default_datastore()

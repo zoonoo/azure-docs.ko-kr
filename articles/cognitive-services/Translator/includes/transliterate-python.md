@@ -4,19 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: c047d03f27325ffa133c62ef3fe945f330139656
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 86ef8f3730fe7ae3ab3428956aaafb86331c5cf5
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968303"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906626"
 ---
-## <a name="prerequisites"></a>필수 조건
+[!INCLUDE [Prerequisites](prerequisites-python.md)]
 
-이 빠른 시작에는 다음이 필요합니다.
-
-* Python 2.7.x 또는 3.x
-* Translator Text에 대한 Azure 구독 키
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## <a name="create-a-project-and-import-required-modules"></a>프로젝트 만들기 및 필요한 모듈 가져오기
 
@@ -24,10 +21,7 @@ ms.locfileid: "68968303"
 
 ```python
 # -*- coding: utf-8 -*-
-import os
-import requests
-import uuid
-import json
+import os, requests, uuid, json
 ```
 
 > [!NOTE]
@@ -35,27 +29,25 @@ import json
 
 첫 번째 주석은 Python 해석기가 UTF-8 인코딩을 사용하라고 알려줍니다. 그런 다음, 필요한 모듈을 가져와 환경 변수에서 구독 키를 읽고 http 요청을 구성한 다음, 고유한 ID를 만들고 Translator Text API에서 반환하는 JSON 응답을 처리합니다.
 
-## <a name="set-the-subscription-key-base-url-and-path"></a>구독 키, 기본 url 및 경로를 설정합니다.
+## <a name="set-the-subscription-key-endpoint-and-path"></a>구독 키, 엔드포인트 및 경로 설정
 
-이 샘플에서는 환경 변수 `TRANSLATOR_TEXT_KEY`에서 Translator Text 구독 키를 읽으려고 합니다. 환경 변수를 잘 모르는 경우에는 `subscriptionKey`를 문자열로 설정하고 조건문을 주석으로 처리할 수 있습니다.
+이 샘플에서는 `TRANSLATOR_TEXT_KEY` 및 `TRANSLATOR_TEXT_ENDPOINT` 환경 변수에서 Translator Text 구독 키와 엔드포인트를 읽으려고 합니다. 환경 변수에 익숙하지 않은 경우 `subscription_key` 및 `endpoint`를 문자열로 설정하고 조건문을 주석으로 처리할 수 있습니다.
 
 이 코드를 프로젝트에 복사합니다.
 
 ```python
-# Checks to see if the Translator Text subscription key is available
-# as an environment variable. If you are setting your subscription key as a
-# string, then comment these lines out.
-if 'TRANSLATOR_TEXT_KEY' in os.environ:
-    subscriptionKey = os.environ['TRANSLATOR_TEXT_KEY']
-else:
-    print('Environment variable for TRANSLATOR_TEXT_KEY is not set.')
-    exit()
-# If you want to set your subscription key as a string, uncomment the line
-# below and add your subscription key.
-#subscriptionKey = 'put_your_key_here'
+key_var_name = 'TRANSLATOR_TEXT_SUBSCRIPTION_KEY'
+if not key_var_name in os.environ:
+    raise Exception('Please set/export the environment variable: {}'.format(key_var_name))
+subscription_key = os.environ[key_var_name]
+
+endpoint_var_name = 'TRANSLATOR_TEXT_ENDPOINT'
+if not endpoint_var_name in os.environ:
+    raise Exception('Please set/export the environment variable: {}'.format(endpoint_var_name))
+endpoint = os.environ[endpoint_var_name]
 ```
 
-Translator Text 글로벌 엔드포인트가 `base_url`로 설정되어 있습니다. `path`는 `transliterate` 루트를 설정하며 API의 버전 3을 실행하기 원한다는 것을 식별합니다.
+Translator Text 글로벌 엔드포인트가 `endpoint`로 설정되어 있습니다. `path`는 `transliterate` 루트를 설정하며 API의 버전 3을 실행하기 원한다는 것을 식별합니다.
 
 `params`는 입력 언어와 입력 및 출력 스크립트를 설정하는 데 사용됩니다. 이 샘플에서는 일본어를 라틴어 알파벳으로 음역합니다.
 
@@ -63,10 +55,9 @@ Translator Text 글로벌 엔드포인트가 `base_url`로 설정되어 있습�
 > 엔드포인트, 루트 및 요청 매개 변수에 대한 자세한 내용은 [Translator Text API 3.0: Transliterate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate)를 참조하세요.
 
 ```python
-base_url = 'https://api.cognitive.microsofttranslator.com'
 path = '/transliterate?api-version=3.0'
 params = '&language=ja&fromScript=jpan&toScript=latn'
-constructed_url = base_url + path + params
+constructed_url = endpoint + path + params
 ```
 
 ## <a name="add-headers"></a>헤더 추가
@@ -77,7 +68,7 @@ constructed_url = base_url + path + params
 
 ```python
 headers = {
-    'Ocp-Apim-Subscription-Key': subscriptionKey,
+    'Ocp-Apim-Subscription-Key': subscription_key,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
 }

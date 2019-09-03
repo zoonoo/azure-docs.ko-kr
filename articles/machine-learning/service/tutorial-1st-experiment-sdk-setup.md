@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: cc16f3c8ea287e78d7b7b4d9a56f5a2e82c26f01
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 7ed81375912613995d573b110607e7913adfd10f
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515332"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051671"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment"></a>자습서: 첫 번째 ML 실험 만들기 시작
 
@@ -73,7 +73,12 @@ VM이 실행되면 **Notebook VM** 섹션을 사용하여 Jupyter 웹 인터페�
     > [!TIP]
     > 이 폴더는 Notebook VM 자체가 아닌 작업 영역의 [스토리지 컨테이너](concept-workspace.md#resources)에 있습니다.  Notebook VM을 삭제하고 모든 작업을 그대로 유지할 수 있습니다.  나중에 새 Notebook VM를 만들면 이 동일한 폴더가 로드됩니다. 자신의 작업 영역을 다른 사용자와 공유하면 해당 사용자에게 해당 폴더가 표시되고 자신에게도 해당 사용자의 폴더가 표시됩니다.
 
-1. `samples-*` 하위 디렉터리를 연 다음, `tutorials/tutorial-1st-experiment-sdk-train.ipynb`를 열어 자습서의 **2부**를 실행합니다.
+1. `samples-*` 하위 디렉터리를 연 다음, `tutorials/tutorial-1st-experiment-sdk-train.ipynb`를 엽니다.
+
+> [!Warning]
+> > 같은 이름의 `.yml` 파일이 **아닌** `tutorial-1st-experiment-sdk-train.ipynb` 파일을 열어야 합니다. 
+
+자습서의 **2부**에서 `tutorial-1st-experiment-sdk-train.ipynb`의 코드를 실행하여 기계 학습 모델을 학습합니다.
 
 ## <a name="end"></a> 리소스 정리
 

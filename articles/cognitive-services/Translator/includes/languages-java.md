@@ -4,17 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: d37efdaf7e8f2b2b2cb6d3c5fcc90e166feab96a
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 34ff0e792fc388f3083e2d490b2658822793988f
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968345"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906981"
 ---
-## <a name="prerequisites"></a>필수 조건
+[!INCLUDE [Prerequisites](prerequisites-java.md)]
 
-* [JDK 7 이상](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* [Gradle](https://gradle.org/install/)
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## <a name="initialize-a-project-with-gradle"></a>Gradle을 사용하여 프로젝트 초기화
 
@@ -88,10 +87,12 @@ public class GetLanguages {
 }
 ```
 
-`GetLanguages` 클래스에 이러한 줄을 추가합니다.
+`GetLanguages` 클래스에 이러한 줄을 추가합니다. 환경 변수에서 구독 키와 엔드포인트를 읽는 중임을 확인할 수 있습니다.
 
 ```java
-String url = "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0";
+private static String subscriptionKey = System.getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY");
+private static String endpoint = System.getenv("TRANSLATOR_TEXT_ENDPOINT");
+String url = endpoint + "/languages?api-version=3.0";
 ```
 
 Cognitive Services 다중 서비스 구독을 사용하는 경우 요청 매개 변수에 `Ocp-Apim-Subscription-Region`도 포함해야 합니다. [다중 서비스 구독을 사용한 인증에 대해 자세히 알아봅니다](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).

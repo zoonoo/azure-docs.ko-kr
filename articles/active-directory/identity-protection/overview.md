@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99a542d3208d5871d88c966fffc65cf16e0fbeee
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 8b89cab41061376fc1d8b4cbffc8fe87b9677688
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335398"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125670"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection이란?
 
@@ -45,10 +45,10 @@ Azure Active Directory ID 보호는 모니터링 및 보고 도구 이상입니�
 - 로그인 위험 수준 계산
 - 사용자 위험 수준 계산
 
-**위험 이벤트 조사:**
+**위험 탐지 조사:**
 
-- 위험 이벤트에 대한 알림 보내기
-- 관련된 컨텍스트 정보를 사용하여 위험 이벤트 조사
+- 위험 탐지에 대한 알림 보내기
+- 관련된 컨텍스트 정보를 사용하여 위험 탐지 조사
 - 기본 워크플로를 제공하여 조사 추적
 - 암호 재설정 등 수정 작업에 쉬운 액세스 제공
 
@@ -76,10 +76,10 @@ ID 보호 구현에 관련된 관리 작업의 부하를 분산하기 위해 몇
 
 Azure Active Directory ID 보호는 구성을 분석하고 사용자의 ID에 영향을 줄 수 있는 취약점을 검색합니다. 자세한 내용은 [Azure Active Directory ID 보호에서 검색되는 취약성](vulnerabilities.md)을 참조하세요.
 
-### <a name="risk-events"></a>위험 이벤트
+### <a name="risk-detections"></a>위험 탐지
 
-Azure Active Directory는 적응 Machine Learning 알고리즘 및 추론을 사용하여 사용자의 ID와 관련된 의심스러운 작업을 검색합니다. 시스템은 검색된 각 의심스러운 작업에 대한 레코드를 만듭니다. 이러한 레코드를 위험 이벤트라고도 합니다.  
-자세한 내용은 [Azure Active Directory 위험 이벤트](../active-directory-identity-protection-risk-events.md)를 참조하세요.
+Azure Active Directory는 적응 Machine Learning 알고리즘 및 추론을 사용하여 사용자의 ID와 관련된 의심스러운 작업을 검색합니다. 시스템은 검색된 각 의심스러운 작업에 대한 레코드를 만듭니다. 이러한 레코드를 위험 탐지라고도 합니다.  
+자세한 내용은 [Azure Active Directory 위험 탐지](../active-directory-identity-protection-risk-events.md)를 참조하세요.
 
 ## <a name="investigation"></a>조사
 
@@ -89,10 +89,10 @@ ID 보호를 통한 이동은 일반적으로 ID 보호 대시보드를 시작�
 
 대시보드는 다음에 대한 액세스를 제공합니다.
 
-- **위험 플래그가 지정된 사용자**, **위험 이벤트** 및 **취약성**과 같은 보고서
+- **위험 플래그가 지정된 사용자**, **위험 탐지** 및 **취약성**과 같은 보고서
 - **보안 정책**, **알림** 및 **다단계 인증 등록** 구성과 같은 설정
 
-일반적으로 조사를 위한 시작점으로, 위험 이벤트와 관련된 활동, 로그 및 기타 관련 정보를 검토하여 재구성 또는 완화 단계가 필요한지 여부, ID가 손상된 방식 및 손상된 ID가 사용된 방식을 결정하는 과정입니다.
+일반적으로 조사를 위한 시작점으로, 위험 탐지와 관련된 활동, 로그 및 기타 관련 정보를 검토하여 재구성 또는 완화 단계가 필요한지 여부, ID가 손상된 방식 및 손상된 ID가 사용된 방식을 결정하는 과정입니다.
 
 Azure Active Directory 보호에서 전자 메일을 통해 보내는 [알림](notifications.md) 에 조사 활동을 연결할 수 있습니다.
 

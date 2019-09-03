@@ -4,19 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 43f9d82ca2b6db55fe5c125b63da6c199e7cf24c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: b342838c41ad72609cf9917b345ef0f72b352f2e
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968349"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907162"
 ---
-## <a name="prerequisites"></a>필수 조건
+[!INCLUDE [Prerequisites](prerequisites-nodejs.md)]
 
-이 빠른 시작에는 다음이 필요합니다.
-
-* [Node 8.12.x 이상](https://nodejs.org/en/)
-* Translator Text에 대한 Azure 구독 키
+[!INCLUDE [Setup and use environment variables](setup-env-variables.md)]
 
 ## <a name="create-a-project-and-import-required-modules"></a>프로젝트 만들기 및 필요한 모듈 가져오기
 
@@ -32,23 +29,23 @@ const uuidv4 = require('uuid/v4');
 
 이러한 모듈은 HTTP 요청을 생성하고 `'X-ClientTraceId'` 헤더의 고유 식별자를 만드는 데 필요합니다.
 
-## <a name="set-the-subscription-key"></a>구독 키 설정
+## <a name="set-the-subscription-key-and-endpoint"></a>구독 키 및 엔드포인트 설정
 
-이 코드는 환경 변수 `TRANSLATOR_TEXT_KEY`에서 Translator Text 구독 키를 읽으려고 시도합니다. 환경 변수를 잘 모르는 경우에는 `subscriptionKey`를 문자열로 설정하고 조건문을 주석으로 처리할 수 있습니다.
+이 샘플에서는 `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` 및 `TRANSLATOR_TEXT_ENDPOINT` 환경 변수에서 Translator Text 구독 키와 엔드포인트를 읽으려고 합니다. 환경 변수에 익숙하지 않은 경우 `subscriptionKey` 및 `endpoint`를 문자열로 설정하고 조건문을 주석으로 처리할 수 있습니다.
 
 이 코드를 프로젝트에 복사합니다.
 
 ```javascript
-/* Checks to see if the subscription key is available
-as an environment variable. If you are setting your subscription key as a
-string, then comment these lines out.
-
-If you want to set your subscription key as a string, replace the value for
-the Ocp-Apim-Subscription-Key header as a string. */
-const subscriptionKey = process.env.TRANSLATOR_TEXT_KEY;
-if (!subscriptionKey) {
-  throw new Error('Environment variable for your subscription key is not set.')
-};
+var key_var = 'TRANSLATOR_TEXT_SUBSCRIPTION_KEY';
+if (!process.env[key_var]) {
+    throw new Error('Please set/export the following environment variable: ' + key_var);
+}
+var subscriptionKey = process.env[key_var];
+var endpoint_var = 'TRANSLATOR_TEXT_ENDPOINT';
+if (!process.env[endpoint_var]) {
+    throw new Error('Please set/export the following environment variable: ' + endpoint_var);
+}
+var endpoint = process.env[endpoint_var];
 ```
 
 ## <a name="configure-the-request"></a>요청 구성
@@ -61,7 +58,7 @@ if (!subscriptionKey) {
 ```javascript
 let options = {
     method: 'POST',
-    baseUrl: 'https://api.cognitive.microsofttranslator.com/',
+    baseUrl: endpoint,
     url: 'detect',
     qs: {
       'api-version': '3.0',

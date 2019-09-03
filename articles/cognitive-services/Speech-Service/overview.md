@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: da88c6d0195236a6f93f81d3296e4624228125f2
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 0aa4286d8cb630f221613bebd13f7ea722224ac6
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624274"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70068838"
 ---
 # <a name="what-are-the-speech-services"></a>Speech Services란?
 
@@ -84,12 +84,10 @@ Speech Services를 사용해본 경우 Speech SDK 및 LUIS를 사용하여 음�
 
 Azure Speech Services는 기본 제공 모델에 잘 작동하지만, 제품 또는 환경에 대한 경험을 추가로 사용자 지정하고 조정하려고 할 수 있습니다. 사용자 지정 옵션은 음향 모델 조정부터 브랜드를 위한 고유한 음성 글꼴까지 다양합니다. 사용자 지정 모델을 작성한 후 Azure Speech Services와 함께 사용할 수 있습니다.
 
-| Speech Service | 모델 | 설명 |
-|----------------|-------|-------------|
-| 음성 텍스트 변환 | [음향 모델](how-to-customize-acoustic-models.md) | 자동차 또는 공장 작업장과 같은 고유한 녹음 조건을 갖는 특수한 환경에서 사용되는 애플리케이션, 도구 또는 디바이스에 대해 사용자 지정 음향 모델을 만듭니다. 액센트가 있는 음성, 특정 배경 소음, 레코딩에 특정 마이크 사용 등을 예로 들 수 있습니다. |
-| | [언어 모델](how-to-customize-language-model.md) | 필드별 어휘 및 문법(예: 의료 용어 또는 IT 전문 용어)으로 기록을 향상시키는 사용자 지정 언어 모델을 만듭니다. |
-| | [발음 모델](how-to-customize-pronunciation.md) | 사용자 지정 발음 모델을 사용하여 사용자가 발음 유형과 단어 또는 용어의 표시를 정의할 수 있습니다. 제품 이름 또는 머리글자어와 같은 사용자 지정된 용어를 처리하는 데 유용합니다. 발음 파일만 있으면 시작 가능 - 간단한 .txt 파일 |
-| 텍스트 음성 변환 | [음성 글꼴](how-to-customize-voice-font.md) | 사용자 지정 글꼴을 사용하여 브랜드에 대해 인식 가능한 한 가지 종류의 음성을 만들 수 있습니다. 처음에는 소량의 데이터로 시작하세요. 더 많은 데이터를 제공할수록 더 자연스럽고 인간과 유사한 소리가 나는 음성 글꼴이 됩니다. |
+| Speech Service | 플랫폼 | 설명 |
+|----------------|-------------|-------------|
+| 음성 텍스트 변환 | [Custom Speech](https://aka.ms/customspeech) | 사용자의 요구 사항과 사용 가능한 데이터에 맞게 음성 인식 모델을 사용자 지정합니다. 말하기 스타일, 어휘 및 배경 소음과 같은 음성 인식 장벽을 해결하세요. |
+| 텍스트 음성 변환 | [Custom Voice](https://aka.ms/customvoice) | 사용 가능한 발언 데이터를 사용하여 텍스트 음성 변환 앱에 대한 다양한 종류의 음성을 만듭니다. 음성 매개 변수 세트를 조정하여 음성 출력을 세밀하게 조정할 수 있습니다. |
 
 ## <a name="reference-docs"></a>참조 문서
 

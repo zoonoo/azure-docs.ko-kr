@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
-ms.date: 02/26/2019
+ms.date: 08/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: 65bf4e973ce33b2898abf585fe306a8bc85c64a0
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: cbc55433517174c8080b941ca8526e5a4fd3427d
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477792"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126009"
 ---
 ::: zone target="docs"
 
@@ -24,7 +24,7 @@ ms.locfileid: "67477792"
 
 ::: zone target="chromeless"
 
-# <a name="get-started-with-azure-data-box-disk-using-azure-portal"></a>Azure Portal을 사용하여 Azure Data Box Disk 시작하기
+## <a name="get-started-with-azure-data-box-disk"></a>Azure Data Box Disk 시작 
 
 ::: zone-end
 
@@ -40,7 +40,7 @@ Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com
 
 ::: zone target="chromeless"
 
-이 빠른 시작에서는 Azure Portal을 사용하여 Azure Data Box Disk를 배포하는 방법을 설명합니다. 단계에서는 필수 조건을 검토하고, 디스크 잠금을 해제하고, Azure에 업로드하도록 데이터를 디스크에 연결하고 복사합니다.
+이 가이드에서는 Azure Portal에서 Azure Data Box Disk를 배포하는 방법을 설명합니다. 이 단계에서는 필수 구성 요소를 검토하고, 디스크 잠금을 해제하고, Azure에 업로드하도록 데이터를 디스크에 연결하고 복사합니다.
 
 ::: zone-end
 
@@ -60,10 +60,11 @@ Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com
 
 ::: zone target="chromeless"
 
-## <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 조건
 
 - Data Box Disk에 대한 주문을 배치합니다. [자습서: Azure Data Box Disk 주문](data-box-disk-deploy-ordered.md)을 참조하세요.
 - 디스크를 받고 포털에서 작업 상태가 **배달됨**으로 업데이트되었습니다.
+- 받은 디스크 수를 확인하고 디스크당 연결 케이블이 있는지 확인합니다.
 - 데이터를 복사할 수 있는 클라이언트 컴퓨터가 있습니다. 클라이언트 컴퓨터는 다음 작업을 수행해야 합니다.
 
     - [지원되는 운영 체제](data-box-disk-system-requirements.md#supported-operating-systems-for-clients)를 실행합니다.

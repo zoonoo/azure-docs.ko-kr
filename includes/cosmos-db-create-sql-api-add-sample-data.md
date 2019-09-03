@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 08/07/2019
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 6656c374ae0ff4aae7f99fd340e9e25e5cbc67d1
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f80efbac256871af073354f23317c447d6a85f1e
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854189"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020163"
 ---
 이제 데이터 탐색기를 사용하여 새 컨테이너에 데이터를 추가할 수 있습니다.
 
-1. **Data Explorer**에서 **Tasks** 데이터베이스를 확장하고 **Items** 컨테이너를 확장합니다. **항목**을 선택한 다음, **새 항목**을 클릭합니다.
+1. **Data Explorer**에서 **Tasks** 데이터베이스를 확장하고 **Items** 컨테이너를 확장합니다. **항목**을 선택한 다음, **새 항목**을 선택합니다.
 
    ![Azure Portal의 데이터 탐색기에서 새 문서 만들기](./media/cosmos-db-create-sql-api-add-sample-data/azure-cosmosdb-data-explorer-new-document.png)
   

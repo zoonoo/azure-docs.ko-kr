@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 05b761dbf9f58f6afca6459e28d2fecca9aa7b06
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 0ae82f8980b995edab3419374e27a2cb905935d5
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69881672"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099505"
 ---
 # <a name="create-an-azure-iot-central-application-preview-features"></a>Azure IoT Central 애플리케이션 만들기(미리 보기 기능)
 
@@ -27,7 +27,7 @@ ms.locfileid: "69881672"
 
 ## <a name="create-an-application"></a>애플리케이션 만들기
 
-Azure IoT Central [애플리케이션 관리자](https://aka.ms/iotcentral) 페이지로 이동합니다. 그런 다음, Microsoft 개인, 회사 또는 학교 계정을 사용하여 로그인합니다.
+[Azure IoT Central 애플리케이션 관리자](https://aka.ms/iotcentral) 웹 사이트로 이동합니다. 그런 다음, Microsoft 개인, 회사 또는 학교 계정을 사용하여 로그인합니다.
 
 새로운 Azure IoT Central 애플리케이션 만들기를 시작하려면 **새 애플리케이션**을 선택합니다. 그러면 **애플리케이션 만들기** 페이지로 이동합니다.
 
@@ -55,4 +55,4 @@ IoT 플러그 앤 플레이와 같은 미리 보기 기능을 포함하는 새 A
 이 빠른 시작에서는 미리 보기 기능을 사용하는 IoT Central 애플리케이션을 만들었습니다. 권장되는 다음 단계는 다음과 같습니다.
 
 > [!div class="nextstepaction"]
-> [IoT Central 둘러보기](overview-iot-central-tour-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [Azure IoT Central 애플리케이션에서 새 디바이스 유형 정의](./tutorial-define-device-type-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)

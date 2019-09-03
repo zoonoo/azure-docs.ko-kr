@@ -4,18 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 62a90e30b281a7a9b0d1369893cf58fb12086a0b
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 7f14a12d5de64206f64e8c7205beb2c59c4f1f2a
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968343"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906969"
 ---
-## <a name="prerequisites"></a>필수 조건
+[!INCLUDE [Prerequisites](prerequisites-python.md)]
 
-이 빠른 시작에는 다음이 필요합니다.
-
-* Python 2.7.x 또는 3.x
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## <a name="create-a-project-and-import-required-modules"></a>프로젝트 만들기 및 필요한 모듈 가져오기
 
@@ -23,10 +21,7 @@ ms.locfileid: "68968343"
 
 ```python
 # -*- coding: utf-8 -*-
-import os
-import requests
-import uuid
-import json
+import os, requests, uuid, json
 ```
 
 > [!NOTE]
@@ -34,17 +29,25 @@ import json
 
 첫 번째 주석은 Python 해석기가 UTF-8 인코딩을 사용하라고 알려줍니다. 그런 다음, 필요한 모듈을 가져와 환경 변수에서 구독 키를 읽고 http 요청을 구성한 다음, 고유한 ID를 만들고 Translator Text API에서 반환하는 JSON 응답을 처리합니다.
 
-## <a name="set-the-base-url-and-path"></a>기준 URL 및 경로 설정
+## <a name="set-the-endpoint-and-path"></a>엔드포인트 및 경로 설정
 
-Translator Text 글로벌 엔드포인트가 `base_url`로 설정되어 있습니다. `path`는 `languages` 루트를 설정하며 API의 버전 3을 실행하기 원한다는 것을 식별합니다.
+이 샘플에서는 환경 변수 `TRANSLATOR_TEXT_ENDPOINT`에서 Translator Text 엔드포인트를 읽으려고 합니다. 환경 변수를 잘 모르는 경우에는 `endpoint`를 문자열로 설정하고 조건문을 주석으로 처리할 수 있습니다.
+
+```python
+endpoint_var_name = 'TRANSLATOR_TEXT_ENDPOINT'
+if not endpoint_var_name in os.environ:
+    raise Exception('Please set/export the environment variable: {}'.format(endpoint_var_name))
+endpoint = os.environ[endpoint_var_name]
+```
+
+Translator Text 글로벌 엔드포인트가 `endpoint`로 설정되어 있습니다. `path`는 `languages` 루트를 설정하며 API의 버전 3을 실행하기 원한다는 것을 식별합니다.
 
 >[!NOTE]
 > 엔드포인트, 루트 및 요청 매개 변수에 대한 자세한 내용은 [Translator Text API 3.0: 언어](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages)를 참조하세요.
 
 ```python
-base_url = 'https://api.cognitive.microsofttranslator.com'
 path = '/languages?api-version=3.0'
-constructed_url = base_url + path
+constructed_url = endpoint + path
 ```
 
 ## <a name="add-headers"></a>헤더 추가

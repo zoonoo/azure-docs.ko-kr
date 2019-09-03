@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 3a283f6cbcf4dc345a8c55192507c461f33244d6
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 66394600963cf154b3cb1fe661968f4ded2ec225
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855437"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992275"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>자습서: Spark를 사용하여 Azure Databricks로 Data Lake Storage Gen2 데이터에 액세스
 
@@ -124,18 +124,18 @@ AzCopy를 사용하여 *.csv* 파일의 데이터를 Data Lake Storage Gen2 계�
 2. *.csv* 계정의 데이터를 복사하려면 다음 명령을 입력합니다.
 
    ```bash
-   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time.csv
+   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<container-name>/folder1/On_Time.csv
    ```
 
    * `<csv-folder-path>` 자리 표시자 값을 *.csv* 파일의 경로로 바꿉니다.
 
    * `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
 
-   * `<file-system-name>` 자리 표시자를 파일 시스템에 지정할 이름으로 바꿉니다.
+   * `<container-name>` 자리 표시자를 컨테이너에 지정할 이름으로 바꿉니다.
 
-## <a name="create-a-file-system-and-mount-it"></a>파일 시스템 만들기 및 탑재
+## <a name="create-a-container-and-mount-it"></a>컨테이너 생성 및 탑재
 
-이 섹션에서는 스토리지 계정에 파일 시스템 및 폴더를 만들겠습니다.
+이 섹션에서는 스토리지 계정에 컨테이너와 폴더를 만듭니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 본인이 만든 Azure Databricks 서비스로 이동한 다음, **작업 영역 시작**을 선택합니다.
 
@@ -158,12 +158,12 @@ AzCopy를 사용하여 *.csv* 파일의 데이터를 Data Lake Storage Gen2 계�
            "fs.azure.createRemoteFileSystemDuringInitialization": "true"}
 
     dbutils.fs.mount(
-    source = "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/folder1",
+    source = "abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/folder1",
     mount_point = "/mnt/flightdata",
     extra_configs = configs)
     ```
 
-18. 이 코드 블록에서 `appId`, `password`, `tenant` 및 `storage-account-name` 자리 표시자 값을 이 자습서의 필수 조건을 수행하는 동안 수집한 값으로 바꿉니다. `file-system-name` 자리 표시자 값을 이전 단계에서 ADLS 파일 시스템에 지정한 이름으로 바꿉니다.
+18. 이 코드 블록에서 `appId`, `password`, `tenant` 및 `storage-account-name` 자리 표시자 값을 이 자습서의 필수 조건을 수행하는 동안 수집한 값으로 바꿉니다. `container-name` 자리 표시자 값을 이전 단계에서 컨테이너에 지정한 이름으로 바꿉니다.
 
 이러한 값을 사용하여 언급된 자리 표시자를 바꿉니다.
 
@@ -173,7 +173,7 @@ AzCopy를 사용하여 *.csv* 파일의 데이터를 Data Lake Storage Gen2 계�
 
    * `storage-account-name`은 Azure Data Lake Storage Gen2 스토리지 계정의 이름입니다.
 
-   * `file-system-name` 자리 표시자를 파일 시스템에 지정할 이름으로 바꿉니다.
+   * `container-name` 자리 표시자를 컨테이너에 지정할 이름으로 바꿉니다.
 
    > [!NOTE]
    > 프로덕션 설정에서 Azure Databricks에서 암호를 저장하는 것이 좋습니다. 그런 다음, 암호 대신 코드 블록에 조회 키를 추가합니다. 이 빠른 시작을 완료했으면 Azure Databricks 웹 사이트에서 [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) 문서에서 이 방법에 대한 예제를 살펴보세요.

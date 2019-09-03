@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 12/11/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 530e37400881ace2de603aed6875ed236e45f2c7
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2cc93ad9ae1d9d6d21064a2a80c3d62bf661dabc
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847413"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992291"
 ---
 # <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2와 함께 Azure Storage Explorer를 사용하여 파일 및 디렉터리 수준 사용 권한 설정
 
@@ -28,11 +28,11 @@ Azure Data Lake Storage Gen2에 저장된 파일은 세분화된 사용 권한 �
 
 ## <a name="prerequisites"></a>필수 조건
 
-프로세스를 가장 잘 설명하려면 [Azure Storage Explorer 빠른 시작](data-lake-storage-Explorer.md)을 완료해야 합니다. 이렇게 하면 스토리지 계정이 가장 적합한 상태가 됩니다(파일 시스템이 생성되고 데이터가 업로드됨).
+프로세스를 가장 잘 설명하려면 [Azure Storage Explorer 빠른 시작](data-lake-storage-Explorer.md)을 완료해야 합니다. 이렇게 하면 스토리지 계정이 가장 적합한 상태가 됩니다(컨테이너가 생성되고 데이터가 업로드됨).
 
 ## <a name="managing-access"></a>액세스 관리
 
-파일 시스템의 루트에서 사용 권한을 설정할 수 있습니다. 이렇게 하려면 해당 권한이 있는 개인 계정으로 Azure Storage Explorer에 로그인해야 합니다(연결 문자열을 사용하는 경우와 다름). 파일 시스템을 마우스 오른쪽 단추로 클릭하고 **사용 권한 관리**를 선택하여 **사용 권한 관리** 대화 상자를 표시합니다.
+컨테이너의 루트에서 사용 권한을 설정할 수 있습니다. 이렇게 하려면 해당 권한이 있는 개인 계정으로 Azure Storage Explorer에 로그인해야 합니다(연결 문자열을 사용하는 경우와 다름). 컨테이너를 마우스 오른쪽 단추로 클릭하고 **사용 권한 관리**를 선택하여 **사용 권한 관리** 대화 상자를 표시합니다.
 
 ![Microsoft Azure Storage Explorer - 디렉터리 액세스 관리](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
 

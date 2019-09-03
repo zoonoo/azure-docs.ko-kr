@@ -4,12 +4,12 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
-ms.openlocfilehash: b46a2b18309851bbe2934980137a53d2de6f6efc
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 1007533df077c58d9e4d57f9e86b035730ea917f
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "67135320"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69903933"
 ---
 ## <a name="set-up-your-device-in-unity"></a>Unity에서 디바이스 설정
 
@@ -29,7 +29,7 @@ ms.locfileid: "67135320"
 
 [!INCLUDE [Configure Unity Scene](spatial-anchors-unity-configure-scene.md)]
 
-**검사기** 창에서, `Base Sharing Url`의 값으로 `Sharing Anchors Service url`(ASP.NET 웹앱 Azure 배포의)을 입력하고 `index.html`을 `api/anchors`로 바꿉니다. `https://<app_name>.azurewebsites.net/api/anchors`와 비슷한 형식이어야 합니다.
+**프로젝트** 창에서 `Assets\AzureSpatialAnchors.Examples\Resources`로 이동합니다. `SpatialAnchorSamplesConfig`를 선택합니다. 그런 다음, **검사기** 창에서 `Sharing Anchors Service url`(ASP.NET 웹앱에서 Azure 배포)을 `Base Sharing Url`에 대한 값으로 입력하고 `index.html`을 `api/anchors`로 바꿉니다. `https://<app_name>.azurewebsites.net/api/anchors`와 비슷한 형식이어야 합니다.
 
 **파일** > **저장**을 선택하여 장면을 저장합니다.
 

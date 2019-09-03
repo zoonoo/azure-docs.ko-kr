@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 07/02/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e78dd093c4bbf0cf1bdbd5280ffaa63286e585d4
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 52ccaa17b9994751bb9dfd54848e20aef90146c3
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537140"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905891"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>빠른 시작: 서버 방화벽 구성 - 포털
 
@@ -23,6 +23,7 @@ ms.locfileid: "67537140"
 
 - 구독의 Azure Analysis Services 서버 자세한 내용은 [빠른 시작: 서버 만들기 - 포털](analysis-services-create-server.md) 또는 [빠른 시작: 서버 만들기 - PowerShell](analysis-services-create-powershell.md)을 참조하세요.
 - 클라이언트 컴퓨터에 대한 하나 이상의 IP 주소 범위(필요한 경우)
+- Power BI Premium에서 가져오기 시나리오는 현재 지원되지 않습니다.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인 
 

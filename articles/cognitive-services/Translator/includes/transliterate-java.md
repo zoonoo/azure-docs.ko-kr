@@ -4,18 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 14c8bf746df5a9423c6c29306addb7a7be2251b4
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: ad5c51b3d373947e8a09762b0cb27afff990e6da
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968305"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906501"
 ---
-## <a name="prerequisites"></a>필수 조건
+[!INCLUDE [Prerequisites](prerequisites-java.md)]
 
-* [JDK 7 이상](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* [Gradle](https://gradle.org/install/)
-* Translator Text에 대한 Azure 구독 키
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## <a name="initialize-a-project-with-gradle"></a>Gradle을 사용하여 프로젝트 초기화
 
@@ -90,11 +88,12 @@ public class Transliterate {
 }
 ```
 
-`Transliterate` 클래스에 이러한 줄을 추가합니다. `api-version`과 함께 두 개의 매개 변수가 `url`에 추가된 것을 알 수 있습니다. 이러한 매개 변수는 입력 언어 및 음역 스크립트를 설정하는 데 사용됩니다. 이 샘플에서는 일본어(`jpan`) 및 라틴어(`latn`)로 설정됩니다. 구독 키 값을 업데이트해야 합니다.
+`Transliterate` 클래스에 이러한 줄을 추가합니다. 먼저 구독 키와 엔드포인트를 환경 변수에서 읽습니다. 그러면 `api-version`과 함께 두 개의 매개 변수가 `url`에 추가된 것을 알 수 있습니다. 이러한 매개 변수는 입력 언어 및 음역 스크립트를 설정하는 데 사용됩니다. 이 샘플에서는 일본어(`jpan`) 및 라틴어(`latn`)로 설정됩니다. 
 
 ```java
-String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-String url = "https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=jpan&toScript=latn";
+private static String subscriptionKey = System.getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY");
+private static String endpoint = System.getenv("TRANSLATOR_TEXT_ENDPOINT");
+String url = endpoint + "/transliterate?api-version=3.0&language=ja&fromScript=jpan&toScript=latn";
 ```
 Cognitive Services 다중 서비스 구독을 사용하는 경우 요청 매개 변수에 `Ocp-Apim-Subscription-Region`도 포함해야 합니다. [다중 서비스 구독을 사용한 인증에 대해 자세히 알아봅니다](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 

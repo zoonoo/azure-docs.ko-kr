@@ -9,17 +9,16 @@ ms.assetid: 384cf393-5c63-4ffb-9eb2-bfd990bc7af1
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 36324ccd9b6e9470c93949efed6c29a9b8d3ab61
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: e80c0e4e57f8af067c17d0dcfefd26ce7ce8255f
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389297"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069463"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>강제 터널링으로 App Service Environment 구성
 
@@ -46,7 +45,7 @@ Azure Virtual Network에서 라우팅은 LPM(Longest Prefix Match)을 기반으�
 
 Azure 가상 네트워크가 ExpressRoute를 통해 구성된 경우에도 인터넷에 직접 액세스해 ASE를 사용하려면 다음을 수행할 수 있습니다.
 
-* 0.0.0.0/0을 보급하도록 ExpressRoute를 구성합니다. 기본적으로 ExpressRoute는 온-프레미스의 모든 아웃바운드 트래픽을 라우팅합니다.
+* 0\.0.0.0/0을 보급하도록 ExpressRoute를 구성합니다. 기본적으로 ExpressRoute는 온-프레미스의 모든 아웃바운드 트래픽을 라우팅합니다.
 * 그리고 주소 접두사가 0.0.0.0/0이며 다음 홉 형식이 인터넷인 UDR을 만들어 ASE 서브넷에 적용합니다.
 
 이러한 두 가지 사항을 변경하면 App Service Environment 서브넷에서 발생하는 인터넷용 트래픽이 ExpressRoute 연결로 강제 전송되지 않습니다.

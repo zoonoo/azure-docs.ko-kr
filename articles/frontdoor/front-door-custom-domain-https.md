@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: 48733a8c2a554fc62c7731b6c0fb4ef5b8d45159
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5b44bfd94dffa14fcd501f5e0ddea11309adabf6
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450188"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907838"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>자습서: Front Door 사용자 지정 도메인에서 HTTPS 구성
 
@@ -81,11 +81,17 @@ Azure Front Door Service에서 관리되는 인증서를 사용하면 단 몇 �
 > [!WARNING]
 > Azure Front Door Service는 현재 Front Door 구성과 동일한 구독의 Key Vault 계정만 지원합니다. Front Door와 다른 구독의 Key Vault를 선택하면 실패하게 됩니다.
 
-2. Azure Key Vault 인증서: 인증서가 이미 있는 경우 Azure Key Vault 계정에 직접 업로드하거나 Azure Key Vault와 통합하는 파트너 CA 중 하나에서 Azure Key Vault를 통해 직접 새 인증서를 만들 수 있습니다.
+2. Azure Key Vault 인증서: 인증서가 이미 있는 경우 Azure Key Vault 계정에 직접 업로드하거나 Azure Key Vault와 통합하는 파트너 CA 중 하나에서 Azure Key Vault를 통해 직접 새 인증서를 만들 수 있습니다. 인증서를 **비밀** 대신 **인증서** 개체로 업로드합니다.
+
+> [!IMPORTANT]
+> 암호 보호 **없이** PFX 형식으로 인증서를 업로드해야 합니다.
 
 #### <a name="register-azure-front-door-service"></a>Azure Front Door Service 등록
 
 PowerShell을 통해 Azure Active Directory에 Azure Front Door Service의 서비스 사용자를 앱으로 등록합니다.
+
+> [!NOTE]
+> 이 작업은 테넌트당 **한 번** 수행해야 합니다.
 
 1. 필요한 경우 로컬 컴퓨터의 PowerShell에 [Azure PowerShell](/powershell/azure/install-az-ps)을 설치합니다.
 
@@ -95,18 +101,19 @@ PowerShell을 통해 Azure Active Directory에 Azure Front Door Service의 서�
 
 #### <a name="grant-azure-front-door-service-access-to-your-key-vault"></a>키 자격 증명 모음에 Azure Front Door Service 액세스 권한 부여
  
-Azure Key Vault 계정에서 비밀의 인증서에 액세스하려면 Azure Front Door Service 사용 권한을 부여합니다.
+Azure Key Vault 계정에서 인증서에 액세스하기 위한 Azure Front Door Service 사용 권한을 부여합니다.
 
 1. 키 자격 증명 모음 계정의 설정에서 **액세스 정책**을 선택한 다음, **새로 추가**를 선택하여 새 정책을 만듭니다.
 
 2. **주체 선택**에서 **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037**을 검색하고 **Microsoft.Azure.Frontdoor**를 선택합니다. **선택**을 클릭합니다.
 
+3. **비밀 사용 권한**에서 **가져오기**를 선택하여 Front Door가 인증서를 검색하도록 허용합니다.
 
-3. **비밀 권한**에서 **가져오기**를 선택하여 Front Door에서 인증서를 가져오고 나열하는 이러한 권한을 수행하도록 허용합니다. 
+4. **인증서 사용 권한**에서 **가져오기**를 선택하여 Front Door가 인증서를 검색하도록 허용합니다.
 
-4. **확인**을 선택합니다. 
+5. **확인**을 선택합니다. 
 
-    Azure Front Door Service는 이제 이 키 자격 증명 모음에 저장된 이 키 자격 증명 모음 및 인증서(비밀)에 액세스할 수 있습니다.
+    Azure Front Door Service는 이제 이 Key Vault에 저장된 이 Key Vault 및 인증서에 액세스할 수 있습니다.
  
 #### <a name="select-the-certificate-for-azure-front-door-service-to-deploy"></a>배포할 Azure Front Door Service 인증서 선택
  
@@ -140,7 +147,7 @@ Front Door의 프런트 엔드 호스트에 사용자 지정 도메인을 추가
 
 CNAME 레코드는 다음 형식이어야 합니다. 여기서 *Name*은 사용자 지정 도메인 이름이고 *Value*는 Front Door의 기본 .azurefd.net 호스트 이름입니다.
 
-| 이름            | type  | 값                 |
+| Name            | type  | 값                 |
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azurefd.net |
 

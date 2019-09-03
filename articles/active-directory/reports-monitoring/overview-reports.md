@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cf5770cf052a478ea56f906efc19698554a1cd0
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: cd3907231ce3963d43fa8279039a736b63fc2043
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989714"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127269"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>Azure Active Directory 보고서란?
 
@@ -54,9 +54,9 @@ Azure AD(Azure Active Directory) 보고서는 환경에서 작업의 포괄적�
 
 - **Azure Active Directory Free 및 Basic 버전**에는 위험 플래그가 지정된 사용자 및 위험한 로그인 목록이 있습니다. 
 
-- **Azure Active Directory Premium 1** 버전은 각 보고서에서 검색된 기본 위험 이벤트 중 일부를 검사할 수 있게 함으로써 이 모델을 확장합니다. 
+- **Azure Active Directory Premium 1** 버전은 각 보고서에서 검색된 기본 위험 탐지 중 일부를 검사할 수 있게 함으로써 이 모델을 확장합니다. 
 
-- **Azure Active Directory Premium 2** 버전은 기본 위험 이벤트에 대한 가장 자세한 정보를 제공하며, 구성된 위험 수준에 자동으로 응답하는 보안 정책을 구성할 수도 있습니다.
+- **Azure Active Directory Premium 2** 버전은 기본 위험 탐지에 대한 가장 자세한 정보를 제공하며, 구성된 위험 수준에 자동으로 응답하는 보안 정책을 구성할 수도 있습니다.
 
 
 ## <a name="activity-reports"></a>작업 보고서

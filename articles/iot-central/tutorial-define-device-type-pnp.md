@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: a622aa85d1d0a9dcd5d5ad9b2b30e7a3120ea974
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 660b2ead146695657ae13444cb7936eff8224f3a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878634"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099511"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application-preview-features"></a>자습서: Azure IoT Central 애플리케이션에서 새 디바이스 유형 정의(미리 보기 기능)
 
@@ -44,7 +44,7 @@ ms.locfileid: "69878634"
 
 이 자습서를 완료하려면 Azure IoT Central 애플리케이션이 필요합니다. [Azure IoT Central 애플리케이션](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) 빠른 시작을 완료한 경우 빠른 시작에서 만든 애플리케이션을 다시 사용할 수 있습니다. 그렇지 않은 경우 빈 Azure IoT Central 애플리케이션을 만들려면 다음 단계를 완료합니다.
 
-1. Azure IoT Central [애플리케이션 관리자](https://aka.ms/iotcentral) 페이지로 이동합니다.
+1. [Azure IoT Central 애플리케이션 관리자](https://aka.ms/iotcentral) 웹 사이트로 이동합니다.
 
 1. Azure 구독이 있으면 액세스하는 데 사용하는 자격 증명을 사용하여 로그인하고, 그렇지 않으면 Microsoft 계정을 사용하여 서명합니다.
 
@@ -70,7 +70,7 @@ IoT 플러그 앤 플레이를 포함한 미리 보기 기능을 사용하는 �
 
     자세한 내용은 [애플리케이션 만들기 빠른 시작](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)을 참조하세요.
 
-또한 [IoT 플러그 앤 플레이](https://aka.ms/iot-pnp-docs) 디바이스 기능 모델이 포함된 **EnvironmentalSensorInline.capabilitymodel.json** 파일의 로컬 복사본이 필요합니다. [여기](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensorInline.capabilitymodel.json)에서 다운로드할 수 있습니다. 마우스 오른쪽 단추로 페이지를 클릭하고, **다른 이름으로 저장**을 선택합니다.
+또한 [IoT 플러그 앤 플레이](../iot-pnp/overview-iot-plug-and-play.md) 디바이스 기능 모델이 포함된 **EnvironmentalSensorInline.capabilitymodel.json** 파일의 로컬 복사본이 필요합니다. [여기](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensorInline.capabilitymodel.json)에서 다운로드할 수 있습니다. 마우스 오른쪽 단추로 페이지를 클릭하고, **다른 이름으로 저장**을 선택합니다.
 
 파일이 다운로드되면 텍스트 편집기에서 파일을 열고 `<YOUR_COMPANY_NAME_HERE>`의 두 인스턴스를 사용자의 이름으로 바꿉니다. a-z, A-Z, 0-9 및 밑줄 문자만 사용합니다.
 
@@ -90,11 +90,11 @@ IoT Central에는 디바이스 기능 모델을 작성하기 위한 몇 가지 �
 
 1. 새 디바이스 템플릿을 추가하려면 **디바이스 템플릿** 페이지에서 **+ 새로 만들기**를 선택합니다.
 
-1. 디바이스 기능 모델 목록에서 **사용자 지정**을 선택합니다.
+1. 템플릿 목록에서 **사용자 지정**을 선택합니다.
 
 1. 디바이스 템플릿 이름으로 **환경 센서**를 입력합니다.
 
-1. **기능 모델 가져오기**를 선택하여 JSON 파일에서 새 디바이스 기능 모델을 만듭니다. **EnvironmentalSensorInline.capabilitymodel.json** 파일을 로컬 머신에 저장한 폴더로 이동합니다. **EnvironmentalSensorInline.capabilitymodel.json** 파일을 선택한 다음, 가져오기를 선택합니다. 환경 센서 기능 모델에 **환경 센서** 및 **디바이스 정보** 인터페이스가 포함됩니다.
+1. **기능 모델 가져오기**를 선택하여 JSON 파일에서 새 디바이스 기능 모델을 만듭니다. **EnvironmentalSensorInline.capabilitymodel.json** 파일을 로컬 머신에 저장한 폴더로 이동합니다. **EnvironmentalSensorInline.capabilitymodel.json** 파일을 선택한 다음, **열기**를 선택합니다. 환경 센서 기능 모델에 **환경 센서** 및 **디바이스 정보** 인터페이스가 포함됩니다.
 
     ![환경 센서 디바이스 기능 모델](./media/tutorial-define-device-type-pnp/newdevicecapabilitymodel.png)
 
@@ -147,7 +147,7 @@ IoT Central에는 디바이스 기능 모델을 작성하기 위한 몇 가지 �
 
 디바이스 대시보드를 사용하면 운영자가 차트와 메트릭을 사용하여 디바이스를 시각화할 수 있습니다. 작성기로서 디바이스 대시보드에 표시되는 정보를 정의할 수 있습니다. 디바이스에 대해 여러 개의 대시보드를 정의할 수 있습니다. 환경 센서 원격 분석을 시각화하는 대시보드를 만들려면 **보기**, **디바이스를 시각화하는 중**을 차례로 선택합니다.
 
-1. 모든 디바이스 속성, 클라우드 속성, 원격 분석 및 정적 옵션이 오른쪽 패널에 나열됩니다. 이러한 항목 중 하나를 보기로 끌어서 놓을 수 있습니다. 속성을 보기로 끌어옵니다. 기어 아이콘을 사용하여 타일을 구성할 수 있습니다.
+1. 모든 디바이스 속성, 클라우드 속성, 원격 분석 및 정적 옵션이 **속성**에 나열됩니다. 이러한 항목 중 하나를 보기로 끌어서 놓을 수 있습니다. **밝기 수준** 속성을 보기로 끌어옵니다. 기어 아이콘을 사용하여 타일을 구성할 수 있습니다.
 
 1. 원격 분석을 그리는 차트를 추가하려면 **습도** 및 **온도**, **결합**을 차례로 선택합니다. 이 차트를 다른 형식(예: 원형 차트 또는 막대형 차트)으로 보려면 타일 위쪽의 **시각화 변경** 단추를 선택합니다.
 
@@ -161,7 +161,7 @@ IoT Central에는 디바이스 기능 모델을 작성하기 위한 몇 가지 �
 
 환경 센서 속성을 보고 편집할 양식을 만들려면 다음을 수행합니다.
 
-1. **디바이스 및 클라우드 데이터를 편집하는 중** 타일을 선택합니다.
+1. **환경 센서** 템플릿에서 **보기**로 이동합니다. **디바이스 및 클라우드 데이터 편집** 타일을 선택하여 새 보기를 추가합니다.
 
 1. **환경 센서 속성**이라는 양식 이름을 입력합니다.
 
@@ -169,10 +169,9 @@ IoT Central에는 디바이스 기능 모델을 작성하기 위한 몇 가지 �
 
 1. **밝기 수준** 및 **디바이스 상태** 디바이스 속성을 선택합니다. 그런 다음, **섹션 추가**를 선택합니다. 섹션의 제목을 **센서 속성**으로 편집합니다. **적용**을 선택합니다.
 
-1. **남아 있는 배터리**, **디바이스 모델**, **펌웨어 버전**, **제조업체** 및 **일련 번호** 디바이스 속성을 선택합니다. 그런 다음, **섹션 추가**를 선택합니다. 섹션의 제목을 **디바이스 속성**으로 편집합니다. **적용**을 선택합니다.
+1. **디바이스 모델**, **소프트웨어 버전**, **제조업체** 및 **프로세서 제조업체** 디바이스 속성을 선택합니다. 그런 다음, **섹션 추가**를 선택합니다. 섹션의 제목을 **디바이스 속성**으로 편집합니다. **적용**을 선택합니다.
 
 1. **저장**을 선택하여 보기를 저장합니다.
-
 
 ## <a name="publish-device-template"></a>디바이스 템플릿 게시
 

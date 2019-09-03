@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: iainfou
-ms.openlocfilehash: f575dd882c217badb3320b85229149d9793ceb5f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 505a3104968e285a7fe4801db8029dc45647087a
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619033"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011356"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>자습서: Azure Active Directory Domain Services 관리되는 도메인에 대한 보안 LDAP 구성
 
@@ -286,7 +286,7 @@ Azure AD DS 관리형 도메인에 저장된 개체를 확인하려면 다음을
 > * Azure AD DS 관리되는 도메인에 대한 보안 LDAP 바인딩 및 테스트
 
 > [!div class="nextstepaction"]
-> [Azure AD Domain Services 관리형 도메인의 동기화 작동 방식 알아보기](synchronization.md)
+> [하이브리드 Azure AD 환경에 대한 암호 해시 동기화 구성](tutorial-configure-password-hash-sync.md)
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

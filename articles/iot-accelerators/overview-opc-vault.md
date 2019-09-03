@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 40a9016ac7a10175b51f0fb6f072dd089bde3a51
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 44315790116545dd888aed533731bbf01abe801d
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606287"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997299"
 ---
 # <a name="what-is-opc-vault"></a>OPC 자격 증명 모음이란?
 
@@ -30,3 +30,10 @@ OPC 자격 증명 모음에는 인증서 레지스트리, 스토리지 및 수�
 다음 다이어그램은 전체 OPC 자격 증명 모음 아키텍처를 보여줍니다.
 
 ![OPC 자격 증명 모음 아키텍처](media/overview-opc-vault-architecture/opc-vault.png)
+
+## <a name="next-steps"></a>다음 단계
+
+이제 OPC Vault와 그 용도에 대해 파악했으므로, 권장되는 단계는 다음과 같습니다.
+
+> [!div class="nextstepaction"]
+> [OPC Vault 아키텍처](overview-opc-vault-architecture.md)

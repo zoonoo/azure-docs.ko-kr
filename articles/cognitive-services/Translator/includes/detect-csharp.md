@@ -4,20 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 03719408c456a3f99265e1f25a91af66b10640a0
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 0c263ed1f18ceaa2db976632ea31b9fe1eb47a93
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968347"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907130"
 ---
-## <a name="prerequisites"></a>필수 조건
+[!INCLUDE [Prerequisites](prerequisites-csharp.md)]
 
-* C# 7.1 이상
-* [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
-* [Json.NET NuGet 패키지](https://www.nuget.org/packages/Newtonsoft.Json/)
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) 또는 즐겨 사용하는 텍스트 편집기
-* Translator Text에 대한 Azure 구독 키
+[!INCLUDE [Setup and use environment variables](setup-env-variables.md)]
 
 ## <a name="create-a-net-core-project"></a>.NET Core 프로젝트 만들기
 
@@ -86,12 +82,37 @@ public class AltTranslations
 }
 ```
 
-## <a name="create-a-function-to-detect-the-source-texts-language"></a>원본 텍스트의 언어를 감지하는 함수 만들기
+## <a name="get-subscription-information-from-environment-variables"></a>환경 변수에서 구독 정보 가져오기
 
-`Program` 클래스 내에서 `DetectTextRequest()`라는 함수를 만듭니다. 이 클래스는 Detect 리소스를 호출하는 데 사용되는 코드를 캡슐화하고 콘솔에 결과를 출력합니다.
+`Program` 클래스에 다음 줄을 추가합니다. 이러한 줄은 환경 변수에서 구독 키와 엔드포인트를 읽고 문제가 발생하면 오류를 throw합니다.
 
 ```csharp
-static public async Task DetectTextRequest(string subscriptionKey, string host, string route, string inputText)
+private const string key_var = "TRANSLATOR_TEXT_SUBSCRIPTION_KEY";
+private static readonly string subscriptionKey = Environment.GetEnvironmentVariable(key_var);
+
+private const string endpoint_var = "TRANSLATOR_TEXT_ENDPOINT";
+private static readonly string endpoint = Environment.GetEnvironmentVariable(endpoint_var);
+
+static Program()
+{
+    if (null == subscriptionKey)
+    {
+        throw new Exception("Please set/export the environment variable: " + key_var);
+    }
+    if (null == endpoint)
+    {
+        throw new Exception("Please set/export the environment variable: " + endpoint_var);
+    }
+}
+// The code in the next section goes here.
+```
+
+## <a name="create-a-function-to-detect-the-source-texts-language"></a>원본 텍스트의 언어를 감지하는 함수 만들기
+
+`Program` 클래스에서 `DetectTextRequest()`라는 함수를 만듭니다. 이 클래스는 Detect 리소스를 호출하는 데 사용되는 코드를 캡슐화하고 콘솔에 결과를 출력합니다.
+
+```csharp
+static public async Task DetectTextRequest(string subscriptionKey, string endpoint, string route, string inputText)
 {
   /*
    * The code for your call to the translation service will be added to this
@@ -138,7 +159,7 @@ using (var request = new HttpRequestMessage())
 // Build the request.
 request.Method = HttpMethod.Post;
 // Construct the URI and add headers.
-request.RequestUri = new Uri(host + route);
+request.RequestUri = new Uri(endpoint + route);
 request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
 request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
 
@@ -178,11 +199,11 @@ static async Task Main(string[] args)
     // This is our main function.
     // Output languages are defined in the route.
     // For a complete list of options, see API reference.
-    string subscriptionKey = "YOUR_TRANSLATOR_TEXT_KEY_GOES_HERE";
-    string host = "https://api.cognitive.microsofttranslator.com";
     string route = "/detect?api-version=3.0";
-    string breakSentenceText = @"How are you doing today? The weather is pretty pleasant. Have you been to the movies lately?";
-    await DetectTextRequest(subscriptionKey, host, route, breakSentenceText);
+    string detectSentenceText = @"How are you doing today? The weather is pretty pleasant. Have you been to the movies lately?";
+    await DetectTextRequest(subscriptionKey, endpoint, route, detectSentenceText);
+    Console.WriteLine("Press any key to continue.");
+    Console.ReadKey();
 }
 ```
 ## <a name="run-the-sample-app"></a>샘플 앱 실행

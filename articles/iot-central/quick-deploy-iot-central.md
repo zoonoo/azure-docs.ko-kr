@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: 78fb48d2584e94e5c38a4648f1ae41e566637601
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 0d5f04d9c0cc6dcd8a784ae7a816d93e2aab30aa
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69875590"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099480"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Azure IoT Central 애플리케이션 만들기
 
@@ -24,7 +24,7 @@ _작성기_로 Azure IoT Central UI를 사용하여 Microsoft Azure IoT Central 
 
 ## <a name="create-an-application"></a>애플리케이션 만들기
 
-Azure IoT Central [애플리케이션 관리자](https://aka.ms/iotcentral) 페이지로 이동합니다. Microsoft 개인 또는 회사 또는 학교 계정을 사용하여 로그인해야 합니다.
+[Azure IoT Central 애플리케이션 관리자](https://aka.ms/iotcentral) 웹 사이트로 이동합니다. Microsoft 개인 또는 회사 또는 학교 계정을 사용하여 로그인해야 합니다.
 
 새로운 Azure IoT Central 애플리케이션 만들기를 시작하려면 **새 애플리케이션**을 선택합니다. **애플리케이션 만들기** 페이지로 이동합니다.
 
@@ -58,4 +58,4 @@ Azure IoT Central [애플리케이션 관리자](https://aka.ms/iotcentral) 페�
 이 빠른 시작에서는 IoT Central 애플리케이션을 만들었습니다. 권장되는 단계는 다음과 같습니다.
 
 > [!div class="nextstepaction"]
-> [IoT Central 둘러보기](overview-iot-central-tour.md)
+> [Azure IoT Central 애플리케이션에서 새 디바이스 유형 정의](./tutorial-define-device-type.md)

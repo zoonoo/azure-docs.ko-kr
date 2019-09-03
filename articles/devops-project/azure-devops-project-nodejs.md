@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: dadc394e9c9ddb152923095de10b8f727310d3f7
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: eeab0433310892f27b9cb2d2eb6f64e17e6f14ef
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164529"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991717"
 ---
 #  <a name="create-a-cicd-pipeline-for--nodejs-with-azure-devops-projects"></a>Azure DevOps Projects를 사용하여 Node.js용 CI/CD 파이프라인 만들기 
 
@@ -54,9 +54,9 @@ DevOps Projects는 Azure Pipelines에 CI/CD 파이프라인을 만듭니다. 새
 
 1. 새 Azure DevOps 조직을 만들거나 기존 조직을 선택합니다. 
 
-    a. 프로젝트의 이름을 선택합니다. 
+    a. 프로젝트의 이름을 입력합니다.
 
-    b. Azure 구독 및 위치를 선택하고 애플리케이션의 이름을 선택한 후 **완료**를 선택합니다.  
+    b. Azure 구독 및 위치를 선택하고 애플리케이션의 이름을 입력한 후 **완료**를 선택합니다.  
     잠시 후에 DevOps Projects 대시보드가 Azure Portal에 표시됩니다. 샘플 애플리케이션이 Azure DevOps 조직의 리포지토리에서 설정되고, 빌드가 실행되고, 애플리케이션이 Azure에 배포됩니다. 이 대시보드에서는 코드 리포지토리, CI/CD 파이프라인 및 Azure의 애플리케이션에 가시성을 제공합니다.
      
 3. **찾아보기**를 선택하여 실행 중인 애플리케이션을 볼 수 있습니다.
@@ -78,7 +78,7 @@ DevOps Projects는 Azure Repos 또는 GitHub에 Git 리포지토리를 만듭니
 1. 브라우저의 왼쪽에서 **views/index.pug** 파일로 이동합니다.
 
 1. **편집**을 선택하고 h2 제목을 변경합니다.  
-    예를 들어 **Azure DevOps 프로젝트를 사용하여 바로 시작하기**를 입력하거나 일부 다른 내용을 변경합니다.
+    예를 들어 **Azure DevOps Projects를 사용하여 바로 시작하기**를 입력하거나 일부 다른 내용을 변경합니다.
 
 1. **커밋**을 선택하고 변경 내용을 저장합니다.
 

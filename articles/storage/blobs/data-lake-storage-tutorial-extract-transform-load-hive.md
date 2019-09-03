@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 344dddb4e16f23ae40028c090c499d210adb8837
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f58785b17a1e6236636744c32dac07a6c9ed138d
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855464"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992245"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>자습서: Azure HDInsight에서 Apache Hive를 사용하여 데이터 추출, 변환 및 로드
 
@@ -92,26 +92,26 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
    이 명령은 **.csv** 파일을 추출합니다.
 
-4. 다음 명령을 사용하여 Data Lake Storage Gen2 파일 시스템을 만듭니다.
+4. 다음 명령을 사용하여 Data Lake Storage Gen2 컨테이너를 만듭니다.
 
    ```bash
-   hadoop fs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/
+   hadoop fs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/
    ```
 
-   `<file-system-name>` 자리 표시자를 파일 시스템에 지정할 이름으로 바꿉니다.
+   `<container-name>` 자리 표시자를 컨테이너에 지정할 이름으로 바꿉니다.
 
    `<storage-account-name>` 자리 표시자를 스토리지 계정 이름으로 바꿉니다.
 
 5. 다음 명령을 사용하여 디렉터리를 만듭니다.
 
    ```bash
-   hdfs dfs -mkdir -p abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/data
+   hdfs dfs -mkdir -p abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/data
    ```
 
 6. 다음 명령을 사용하여 *.csv* 파일을 다음 디렉터리에 복사합니다.
 
    ```bash
-   hdfs dfs -put "<file-name>.csv" abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/data/
+   hdfs dfs -put "<file-name>.csv" abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/data/
    ```
 
    파일 이름에 공백이나 특수 문자가 포함된 경우 파일 이름 주위에 따옴표를 사용합니다.
@@ -128,7 +128,7 @@ Apache Hive 작업의 일부로 .csv 파일의 데이터를 **delays**라는 Apa
    nano flightdelays.hql
    ```
 
-2. `<file-system-name>` 및 `<storage-account-name>` 자리 표시자를 파일 시스템 및 스토리지 계정 이름으로 바꿔서 다음 텍스트를 수정합니다. SHIFT 키를 누른 상태에서 마우스 오른쪽 단추를 클릭하여 텍스트를 복사하고 nano 콘솔에 붙여넣습니다.
+2. `<container-name>` 및 `<storage-account-name>` 자리 표시자를 컨테이너 및 스토리지 계정 이름으로 바꿔서 다음 텍스트를 수정합니다. SHIFT 키를 누른 상태에서 마우스 오른쪽 단추를 클릭하여 텍스트를 복사하고 nano 콘솔에 붙여넣습니다.
 
     ```hiveql
     DROP TABLE delays_raw;
@@ -160,14 +160,14 @@ Apache Hive 작업의 일부로 .csv 파일의 데이터를 **delays**라는 Apa
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
     LINES TERMINATED BY '\n'
     STORED AS TEXTFILE
-    LOCATION 'abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/data';
+    LOCATION 'abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/data';
 
     -- Drop the delays table if it exists
     DROP TABLE delays;
     -- Create the delays table and populate it with data
     -- pulled in from the CSV file (via the external table defined previously)
     CREATE TABLE delays
-    LOCATION 'abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/processed'
+    LOCATION 'abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/processed'
     AS
     SELECT YEAR AS year,
         FL_DATE AS flight_date,
@@ -218,7 +218,7 @@ Apache Hive 작업의 일부로 .csv 파일의 데이터를 **delays**라는 Apa
     GROUP BY origin_city_name;
     ```
 
-   이 쿼리는 평균 지연 시간과 함께 날씨 지연이 발생된 도시 목록이 검색된 후 `abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output`에 저장됩니다. 나중에 Sqoop는 이 위치에서 데이터를 읽어 Azure SQL Database로 내보냅니다.
+   이 쿼리는 평균 지연 시간과 함께 날씨 지연이 발생된 도시 목록이 검색된 후 `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output`에 저장됩니다. 나중에 Sqoop는 이 위치에서 데이터를 읽어 Azure SQL Database로 내보냅니다.
 
 7. Beeline을 종료하려면 프롬프트에 `!quit`을 입력합니다.
 
@@ -300,7 +300,7 @@ Apache Hive 작업의 일부로 .csv 파일의 데이터를 **delays**라는 Apa
 
 ## <a name="export-and-load-the-data"></a>데이터 내보내기 및 로드
 
-이전 섹션에서는 `abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output` 위치에서 변환된 데이터를 복사했습니다. 이 섹션에서는 Sqoop을 사용하여 `abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output`에서 Azure SQL 데이터베이스에 만든 테이블로 데이터를 내보냅니다.
+이전 섹션에서는 `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output` 위치에서 변환된 데이터를 복사했습니다. 이 섹션에서는 Sqoop을 사용하여 `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output`에서 Azure SQL 데이터베이스에 만든 테이블로 데이터를 내보냅니다.
 
 1. 다음 명령을 사용하여 Sqoop이 SQL Database를 볼 수 있는지 확인합니다.
 
@@ -313,7 +313,7 @@ Apache Hive 작업의 일부로 .csv 파일의 데이터를 **delays**라는 Apa
 2. 다음 명령을 사용하여 **hivesampletable** 테이블에서 **delays** 테이블로 데이터를 내보냅니다.
 
    ```bash
-   sqoop export --connect 'jdbc:sqlserver://<SERVER_NAME>.database.windows.net:1433;database=<DATABASE_NAME>' --username <ADMIN_LOGIN> --password <ADMIN_PASSWORD> --table 'delays' --export-dir 'abfs://<file-system-name>@.dfs.core.windows.net/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
+   sqoop export --connect 'jdbc:sqlserver://<SERVER_NAME>.database.windows.net:1433;database=<DATABASE_NAME>' --username <ADMIN_LOGIN> --password <ADMIN_PASSWORD> --table 'delays' --export-dir 'abfs://<container-name>@.dfs.core.windows.net/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
    ```
 
    Sqoop은 **delays** 테이블을 포함하는 데이터베이스에 연결한 다음, `/tutorials/flightdelays/output` 디렉터리에서 **delays** 테이블로 데이터를 내보냅니다.

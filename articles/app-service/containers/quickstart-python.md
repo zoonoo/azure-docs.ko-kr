@@ -10,16 +10,15 @@ ms.assetid: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/29/2019
+ms.date: 08/23/2019
 ms.author: cephalin
-ms.openlocfilehash: 163876d63ba2127dd3f3444e95b284918e60e368
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: d4f1cd5193f29e929c822966ca427c6e6ebf67de
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951990"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070970"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Azure App Service on Linux에서 Python 앱 만들기
 
@@ -82,7 +81,7 @@ Cloud Shell에서 quickstart 디렉터리를 만든 다음, 해당 디렉토리�
 ```bash
 mkdir quickstart
 
-cd quickstart
+cd $HOME/quickstart
 ```
 
 이어서 다음 명령을 실행하여 quickstart 디렉터리에 샘플 앱 리포지토리를 복제합니다.
@@ -158,7 +157,7 @@ Python 샘플 코드가 기본 제공 이미지가 있는 Linux의 App Service�
 
 ## <a name="update-locally-and-redeploy-the-code"></a>로컬로 코드 업데이트 및 다시 배포
 
-Cloud Shell에서 `code application.py`을 입력하여 Cloud Shell 편집기를 엽니다.
+Cloud Shell에서 `code application.py`를 입력하여 Cloud Shell 편집기를 엽니다.
 
 ![application.py 코드](media/quickstart-python/code-applicationpy.png)
 
@@ -184,7 +183,7 @@ az webapp up -n <app-name> -l <location-name>
 
 만든 앱을 관리하려면 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>로 이동합니다.
 
-왼쪽 메뉴에서 **App Services**를 클릭한 다음, Azure 앱의 이름을 클릭합니다.
+왼쪽 메뉴에서 **App Services**를 선택한 다음, Azure 앱의 이름을 선택합니다.
 
 ![Azure 앱에 대한 포털 탐색](./media/quickstart-python/app-service-list.png)
 

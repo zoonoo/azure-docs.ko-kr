@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: 17fee1f01bf883aa2a9845fe4f2817fb806056dd
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: cee5801826c78bdee51ba5afb14d6776a1191702
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69516233"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051637"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>자습서: 첫 번째 ML 모델 학습
 
@@ -31,14 +31,18 @@ ms.locfileid: "69516233"
 
 ## <a name="prerequisites"></a>필수 조건
 
-유일한 필수 조건은 이전의 [환경 및 작업 영역 설정](tutorial-1st-experiment-sdk-setup.md) 자습서를 실행하는 것입니다.
+유일한 필수 조건은 이 자습서 중 하나인 [환경 및 작업 영역 설정](tutorial-1st-experiment-sdk-setup.md)을 실행하는 것입니다.
+
+자습서의 이 부분에서는 1부의 마지막에 열린 샘플 Jupyter Notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb`에서 코드를 실행합니다. 이 문서에서는 Notebook에 있는 동일한 코드를 안내합니다.
 
 ## <a name="connect-workspace-and-create-experiment"></a>작업 영역 연결 및 실험 만들기
 
-`Workspace` 클래스를 가져오고 `from_config().` 함수를 사용하여 `config.json` 파일에서 구독 정보를 로드합니다. 이 함수는 기본적으로 현재 디렉터리에서 JSON 파일을 찾지만 `from_config(path="your/file/path")`를 사용하여 파일을 가리키는 경로 매개 변수를 지정할 수도 있습니다. 작업 영역의 클라우드 Notebook 서버에서 이 Notebook을 실행하는 경우 파일은 자동으로 루트 디렉터리에 있습니다.
+`Workspace` 클래스를 가져오고 `from_config().` 함수를 사용하여 `config.json` 파일에서 구독 정보를 로드합니다. 이 함수는 기본적으로 현재 디렉터리에서 JSON 파일을 찾지만 `from_config(path="your/file/path")`를 사용하여 파일을 가리키는 경로 매개 변수를 지정할 수도 있습니다. 클라우드 Notebook 서버에서 파일은 루트 디렉터리에 자동으로 있습니다.
 
 다음 코드에서 추가 인증을 요청하는 경우 링크를 브라우저에 붙여넣고 인증 토큰을 입력하기만 하면 됩니다.
 
+> [!TIP]
+> Jupyter Notebook을 처음 접하는 경우 코드 셀을 클릭하고 **Shift + Enter** 키를 눌러 코드를 실행하면서 한 번에 하나씩 셀을 실행합니다. 또는 한 번에 전체 Notebook을 실행하려면 최상위 메뉴 모음에서 **셀**을 클릭한 다음, **모두 실행**을 클릭합니다.
 
 ```python
 from azureml.core import Workspace

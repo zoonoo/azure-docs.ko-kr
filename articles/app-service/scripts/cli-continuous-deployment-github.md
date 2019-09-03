@@ -16,18 +16,18 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 43c070513f23564bd4679531e20b411f178920ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2d9b9512df294b25fa73b890a646f29dfd0c3d88
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136752"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113632"
 ---
 # <a name="create-an-app-service-app-with-continuous-deployment-from-github-using-cli"></a>CLI를 사용하여 GitHub에서 지속적인 배포를 통해 App Service 앱 만들기
 
 이 샘플 스크립트는 관련된 리소스를 사용하여 App Service에서 앱을 만든 다음, GitHub 리포지토리에서 지속적인 배포를 설정합니다. 지속적인 배포를 사용하지 않는 GitHub 배포는 [GitHub에서 앱 만들기 및 코드 배포](cli-deploy-github.md)를 참조하세요. 이 샘플에는 다음이 필요합니다.
 
-* 관리 권한이 있는 애플리케이션 코드를 포함하는 GitHub 리포지토리
+* 관리 권한이 있는 애플리케이션 코드를 포함하는 GitHub 리포지토리 자동 빌드를 가져오려면 [리포지토리 준비](../deploy-continuous-deployment.md#prepare-your-repository) 테이블에 따라 리포지토리를 구성합니다.
 * GitHub 계정에 대한 [PAT(개인 액세스 토큰)](https://help.github.com/articles/creating-an-access-token-for-command-line-use)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

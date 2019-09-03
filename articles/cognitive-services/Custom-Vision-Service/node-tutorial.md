@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 08/08/2019
 ms.author: areddish
-ms.openlocfilehash: 2fd9ccff68eb368107a299af02a54ae6fc6cc0e2
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: edb9e50cceed95d8ca77567e7c1228704b5f177d
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946141"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982374"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-nodejs-sdk"></a>빠른 시작: Custom Vision Node.js SDK를 사용하여 이미지 분류 프로젝트 만들기
 
@@ -45,7 +45,7 @@ npm install @azure/cognitiveservices-customvision-prediction
 
 ### <a name="create-the-custom-vision-service-project"></a>Custom Vision Service 프로젝트 만들기
 
-새 Custom Vision Service 프로젝트를 만드는 다음 코드를 스크립트에 추가합니다. 구독 키를 적절한 정의에 삽입합니다.
+새 Custom Vision Service 프로젝트를 만드는 다음 코드를 스크립트에 추가합니다. 적절한 정의에 구독 키를 삽입하고 sampleDataRoot 경로 값을 이미지 폴더 경로로 설정합니다. endPoint 값이 [Customvision.ai](https://www.customvision.ai/)에서 만든 학습 및 예측 엔드포인트와 일치하는지 확인합니다.
 
 ```javascript
 const util = require('util');

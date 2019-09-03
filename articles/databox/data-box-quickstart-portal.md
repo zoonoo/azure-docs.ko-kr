@@ -6,21 +6,43 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 08/27/2019
 ms.author: alkohli
-ms.openlocfilehash: bd591ff30755fd68bb2dc673899d0ac993215e68
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6e9854bf46de40cc288a04ac67beb48e8a4fb959
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834729"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098775"
 ---
+::: zone target="docs"
+
 # <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Data Box 배포
+
+::: zone-end
+
+::: zone target="chromeless"
+
+# <a name="get-started-with-azure-data-box-disk-using-azure-portal"></a>Azure Portal을 사용하여 Azure Data Box Disk 시작하기
+
+::: zone-end
+
+::: zone target="docs"
 
 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Data Box를 배포하는 방법을 설명합니다. 여기서는 Data Box를 케이블로 연결 및 구성하고 Azure에 업로드되도록 Data Box에 데이터를 복사하는 단계를 수행합니다. 디바이스의 로컬 웹 UI와 Azure Portal에서 이 빠른 시작을 수행합니다.
 
 자세한 단계별 배포 및 추적 지침은 [자습서: Azure Data Box 주문](data-box-deploy-ordered.md)을 참조하세요.
 
+::: zone-end 
+
+::: zone target="chromeless"
+
+이 가이드에서는 Azure Portal을 사용하여 Azure Data Box를 배포하는 방법을 설명합니다. 단계에는 필수 구성 요소를 검토하고 디바이스에 연결하고 Azure에 업로드하도록 데이터를 디바이스에 복사하는 것이 포함됩니다.
+
+::: zone-end
+
+::: zone target="docs"
+ 
 ## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에
@@ -41,6 +63,31 @@ ms.locfileid: "57834729"
     - RJ-45 CAT 6 네트워크 케이블 1개(MGMT 네트워크 인터페이스에 사용)
     - RJ-45 CAT 6A 1개 또는 RJ-45 CAT 6 네트워크 케이블 1개(각각 10Gbps 또는 1Gbps로 구성된 DATA 3 네트워크 인터페이스에 사용)
 
+::: zone-end 
+
+::: zone target="chromeless"
+
+## <a name="prerequisites"></a>필수 조건
+
+시작하기 전에 다음을 수행했는지 확인합니다.
+
+1. [자습서: Azure Data Box 주문](data-box-deploy-ordered.md)을 완료했습니다.
+2. Data Box를 받았고 포털의 주문 상태가 **배달됨**입니다. 
+3. [Data Box 안전 지침](data-box-safety.md)을 검토했습니다.
+4. 100TB 스토리지 디바이스에 사용할 접지된 전원 코드를 하나 받았습니다.
+5. Data Box에 복사할 데이터가 포함된 호스트 컴퓨터에 액세스했습니다. 호스트 컴퓨터는 다음 사항이 필수입니다.
+    - [지원되는 운영 체제](data-box-system-requirements.md)를 실행합니다.
+    - 고속 네트워크에 연결되어 있어야 합니다. 10GbE 연결이 하나 이상 있는 것이 좋습니다. 10GbE 연결을 사용할 수 없는 경우 1GbE 데이터 링크를 사용할 수 있지만 복사 속도에 영향을 미칩니다. 
+6. Data Box를 배치할 평평한 면을 정합니다. 표준 랙 선반에 디바이스를 반듯이 똑바로 놓으려면 랙에 7U 슬롯이 있어야 합니다.
+7. Data Box를 호스트 컴퓨터에 연결하기 위해 다음과 같은 케이블을 준비해 둡니다.
+    - 하나 이상의 10GbE SFP+ 2축 동 또는 SFP+ 광섬유 케이블(DATA 1, DATA 2 네트워크 인터페이스에 사용). 자세한 내용은 Mellanox ConnectX®-3 Pro EN Dual-Port 10GBASE-T 어댑터(PCI Express 3.0 네트워크 인터페이스 포함)와 호환되는 [Mellanox의 지원되는 케이블 및 스위치 목록](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf)을 참조하세요.
+    - RJ-45 CAT 6 네트워크 케이블 1개(MGMT 네트워크 인터페이스에 사용)
+    - RJ-45 CAT 6A 1개 또는 RJ-45 CAT 6 네트워크 케이블 1개(각각 10Gbps 또는 1Gbps로 구성된 DATA 3 네트워크 인터페이스에 사용)
+
+::: zone-end
+
+::: zone target="docs"
+
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
@@ -55,6 +102,8 @@ ms.locfileid: "57834729"
 4. 주문 세부 정보 및 배송 정보를 입력합니다. 해당 지역에서 서비스를 사용할 수 있는 경우 알림 이메일 주소를 제공하고, 요약을 검토한 다음, 주문을 만듭니다.
 
 주문을 작성하고 나면 디바이스가 배송 가능하도록 준비됩니다.
+
+
 
 ## <a name="cable"></a>케이블 
 
@@ -132,5 +181,7 @@ Data Box를 받으면 다음 단계를 수행하여 디바이스에 케이블을
 
 > [!div class="nextstepaction"]
 > [Azure Portal을 사용하여 Data Box 관리](data-box-portal-admin.md)
+
+::: zone-end
 
 

@@ -11,20 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17cea353df0337b062b89cd440f79f7869450f8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9289bfe9e90186896a753e5853d81d2f06669917
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113213"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125189"
 ---
-# <a name="tutorial-use-risk-events-to-trigger-multi-factor-authentication-and-password-changes"></a>자습서: 위험 이벤트를 사용하여 Multi-Factor Authentication 및 암호 변경 트리거
+# <a name="tutorial-use-risk-detections-to-trigger-multi-factor-authentication-and-password-changes"></a>자습서: 위험 탐지를 사용하여 Multi-Factor Authentication 및 암호 변경 트리거
 
 이 자습서에서는 단순한 모니터링 및 보고 도구 이상의 역할을 하는 Azure AD Premium P2 기능인 Azure AD(Azure Active Directory) ID 보호를 사용하도록 설정할 것입니다. 조직의 ID를 보호하려면 위험한 동작에 자동으로 대응하는 위험 기반 정책을 구성하면 됩니다. 이러한 정책은 암호 변경을 요구하거나 Multi-Factor Authentication을 적용하는 등 자동으로 업데이트를 차단하거나 시작할 수 있습니다.
 
 기존 조건부 액세스 정책 외에도 Azure AD ID 보호 정책을 추가 보호 계층으로 사용할 수 있습니다. 사용자가 이러한 정책 중 하나가 필요한 위험한 동작을 전혀 트리거하지 않을 수도 있지만, 관리자는 사용자가 보호된다는 사실을 알고 있습니다.
 
-다음과 같은 일부 항목이 위험 이벤트를 트리거할 수 있습니다.
+다음과 같은 일부 항목이 위험 탐지를 트리거할 수 있습니다.
 
 * 자격 증명이 손실된 사용자
 * 익명 IP 주소에서 로그인

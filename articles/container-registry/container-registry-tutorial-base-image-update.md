@@ -6,15 +6,15 @@ author: dlepow
 manager: gwallace
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 06/12/2019
+ms.date: 08/12/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 496aa065b3b10eac546dbe41f5a2650acc112d29
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 23b0990be7f215d9cc443c5549ae38de86826d17
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68310514"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114611"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>자습서: Azure Container Registry에서 기본 이미지가 업데이트될 때 컨테이너 이미지 빌드 자동화 
 
@@ -72,7 +72,16 @@ GIT_PAT=<personal-access-token> # The PAT you generated in the second tutorial
 
 ### <a name="tasks-triggered-by-a-base-image-update"></a>기본 이미지 업데이트에 의해 트리거된 작업
 
-* 현재 이미지는 Dockerfile에서 빌드되므로 ACR 작업은 동일한 Azure Container Registry, 공용 Docker Hub 리포지토리 또는 Microsoft Container Registry의 공용 리포지토리에서 기본 이미지에 대한 종속성을 감지합니다. `FROM` 문에 지정된 기본 이미지가 이러한 위치 중 하나에 있으면 이미지가 기본 이미지의 업데이트 시 다시 빌드되도록 ACR 작업이 후크를 추가합니다.
+* Dockerfile의 이미지 빌드의 경우 ACR 태스크는 다음 위치의 기본 이미지에 대한 종속성을 검색합니다.
+
+  * 태스크가 실행되는 동일한 Azure Container Registry
+  * 동일한 지역의 다른 Azure Container Registry 
+  * Docker Hub의 공용 리포지토리 
+  * Microsoft 컨테이너 레지스트리의 공용 리포지토리
+
+   `FROM` 문에 지정된 기본 이미지가 이러한 위치 중 하나에 있으면 이미지가 기본 이미지의 업데이트 시 다시 빌드되도록 ACR 작업이 후크를 추가합니다.
+
+* 현재 ACR 작업은 애플리케이션(*런타임*) 이미지에 대한 기본 이미지 업데이트만 추적합니다. 다중 단계 Dockerfiles에서 사용되는 중간(*buildtime*) 이미지에 대한 기본 이미지 업데이트는 추적하지 않습니다.  
 
 * [az acr task create][az-acr-task-create] 명령을 사용하여 ACR 작업을 만들 경우 작업은 기본 이미지 업데이트에 의해 트리거되도록 기본적으로 *사용*으로 설정되어 있습니다. 즉, `base-image-trigger-enabled` 속성이 True로 설정됩니다. 작업에서 이 동작을 사용하지 않도록 설정하려면 속성을 False로 업데이트합니다. 예를 들어 다음 [az acr task update][az-acr-task-update] 명령을 실행합니다.
 
@@ -82,7 +91,7 @@ GIT_PAT=<personal-access-token> # The PAT you generated in the second tutorial
 
 * ACR 작업에서 기본 이미지가 포함된 컨테이너 이미지의 종속성을 결정하고 추적할 수 있게 하려면 작업을 **한 번 이상** 트리거해야 합니다. 예를 들어 [az acr task run][az-acr-task-run] 명령을 사용하여 작업을 수동으로 트리거합니다.
 
-* 기본 이미지 업데이트에 작업을 트리거하려면 기본 이미지에 *stable* 태그(예: `node:9-alpine`)가 있어야 합니다. 안정적인 최신 릴리스에 OS 및 프레임워크 패치로 업데이트되는 기본 이미지의 경우 이 태그를 지정하는 것이 일반적입니다. 기본 이미지가 새 버전 태그로 업데이트되면 작업을 트리거하지 않습니다. 이미지 태그 지정에 대한 자세한 내용은 [모범 사례 지침](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/)을 참조하세요. 
+* 기본 이미지 업데이트에 작업을 트리거하려면 기본 이미지에 *stable* 태그(예: `node:9-alpine`)가 있어야 합니다. 안정적인 최신 릴리스에 OS 및 프레임워크 패치로 업데이트되는 기본 이미지의 경우 이 태그를 지정하는 것이 일반적입니다. 기본 이미지가 새 버전 태그로 업데이트되면 작업을 트리거하지 않습니다. 이미지 태그 지정에 대한 자세한 내용은 [모범 사례 지침](container-registry-image-tag-version.md)을 참조하세요. 
 
 ### <a name="base-image-update-scenario"></a>기본 이미지 업데이트 시나리오
 
@@ -217,7 +226,7 @@ az acr task list-runs --registry $ACR_NAME --output table
 출력은 다음과 유사합니다. 마지막으로 실행된 빌드에 대한 TRIGGER는 기본 이미지의 빠른 작업에서 작업을 시작했음을 나타내는 "Image Update"(이미지 업데이트)여야 합니다.
 
 ```console
-$ az acr task list-builds --registry $ACR_NAME --output table
+$ az acr task list-runs --registry $ACR_NAME --output table
 
 Run ID    TASK            PLATFORM    STATUS     TRIGGER       STARTED               DURATION
 --------  --------------  ----------  ---------  ------------  --------------------  ----------

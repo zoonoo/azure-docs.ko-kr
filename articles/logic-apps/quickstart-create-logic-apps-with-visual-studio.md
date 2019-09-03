@@ -3,20 +3,21 @@ title: Visual Studio를 사용하여 자동 워크플로 만들기 - Azure Logic
 description: Azure Logic Apps 및 Visual Studio를 사용하여 엔터프라이즈 통합 작업, 비즈니스 프로세스 및 워크플로 자동화
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 ms.workload: azure-vs
 author: ecfan
 ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.manager: carmonm
 ms.topic: quickstart
 ms.custom: mvc
-ms.reviewer: klam, LADocs
-ms.suite: integration
 ms.date: 04/25/2019
-ms.openlocfilehash: 51d1af24a22f7ed86b01b1c7c79b204cd552a7ea
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: c9248e5bcc9ebd819518b6ee609f529ea9b8f8bc
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385427"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051706"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>빠른 시작: Azure Logic Apps를 사용하여 자동화된 작업, 프로세스 및 워크플로 만들기 - Visual Studio
 
@@ -82,6 +83,8 @@ Azure Logic Apps을 처음 사용하는 경우 기본 개념만 알아보려면 
    ![Azure 리소스 그룹 프로젝트 만들기](./media/quickstart-create-logic-apps-with-visual-studio/create-azure-cloud-service-project.png)
 
    > [!NOTE]
+   > 리소스 그룹 이름은 문자, 숫자, 마침표(`.`), 밑줄(`_`), 하이픈(`-`) 및 괄호(`(`, `)`)만 포함할 수 있지만 마침표(`.`)로 *종료*할 수 없습니다.
+   >
    > **클라우드**나 **Azure 리소스 그룹**이 나타나지 않으면 Visual Studio 용 Azure SDK를 설치해야 합니다.
 
    Visual Studio 2019를 사용하는 경우 다음 단계를 따르세요.

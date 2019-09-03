@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6aab04826a3c06b595859c0f41f658b6e5d3432
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 1adda943676eb4918369d3cb8027f559d5dd0f6e
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562318"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050007"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex-meetings"></a>자습서: Cisco Webex Meetings와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -118,7 +118,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     d. 원본을 **특성**으로 선택합니다.
 
-    e. **원본 특성** 목록에서 해당 행에 표시된 특성 값을 입력합니다.
+    e. **원본 특성** 목록에서 해당 행에 표시된 특성 값을 드롭다운 목록에서 선택합니다.
 
     f. **저장**을 클릭합니다.
 

@@ -3,19 +3,20 @@ title: 자습서 - 이메일 및 첨부 파일 처리 자동화 - Azure Logic Ap
 description: Azure Logic Apps, Azure Storage 및 Azure Functions를 사용하여 이메일과 첨부 파일을 처리하도록 자동화된 워크플로를 만드는 자습서입니다.
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
+ms.manager: carmonm
 ms.reviewer: klam, LADocs
-manager: carmonm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/07/2019
-ms.openlocfilehash: ee232b54bc4d65d6380a6f2a1d1c88ee7dcf53c3
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: e7c27d284ef93d15c5ac9a6228205e79518f2ffa
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312656"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051781"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>자습서: Azure Logic Apps를 사용하여 이메일 및 첨부 파일 처리 자동화
 
@@ -61,9 +62,9 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
    | 설정 | 값 | 설명 |
    |---------|-------|-------------|
    | **구독** | <*Azure-subscription-name*> | Azure 구독의 이름 |  
-   | **리소스 그룹** | LA-Tutorial-RG | 관련 리소스를 구성하고 관리하는 데 사용되는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)의 이름. <p>**참고:** 리소스 그룹은 특정 지역 내에 있습니다. 일부 지역에서 이 자습서의 항목을 사용할 수 없을 수도 있지만, 가능하면 동일한 지역을 사용해 보세요. |
-   | **스토리지 계정 이름** | attachmentstorageacct | 스토리지 계정의 이름 |
-   | **위치**: | 미국 서부 | 스토리지 계정에 대한 정보를 저장할 지역 |
+   | **리소스 그룹** | <*Azure-resource-group*> | 관련 리소스를 구성하고 관리하는 데 사용되는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)의 이름. 이 예제에서는 "LA-Tutorial-RG"를 사용합니다. <p>**참고:** 리소스 그룹은 특정 지역 내에 있습니다. 일부 지역에서 이 자습서의 항목을 사용할 수 없을 수도 있지만, 가능하면 동일한 지역을 사용해 보세요. |
+   | **스토리지 계정 이름** | <*Azure-storage-account-name*> | 스토리지 계정 이름은 3-24자여야 하고 소문자와 숫자만 포함할 수 있습니다. 이 예제에서는 "attachmentstorageacct"를 사용합니다. |
+   | **위치**: | <*Azure-region*> | 스토리지 계정에 대한 정보를 저장할 지역입니다. 이 예제에서는 "미국 서부"를 사용합니다. |
    | **성능** | Standard | 이 설정은 지원되는 데이터 형식 및 데이터를 저장하기 위한 미디어를 지정합니다. [스토리지 계정 유형](../storage/common/storage-introduction.md#types-of-storage-accounts)을 참조하세요. |
    | **계정 종류** | 범용 가상 컴퓨터 | [스토리지 계정 유형](../storage/common/storage-introduction.md#types-of-storage-accounts) |
    | **복제** | LRS(로컬 중복 스토리지) | 이 설정은 데이터가 복사, 저장, 관리 및 동기화되는 방식을 지정합니다. [LRS(로컬 중복 스토리지): Azure Storage에 대한 저렴한 데이터 중복성](../storage/common/storage-redundancy-lrs.md)을 참조하세요. |
@@ -160,7 +161,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    ![함수 앱 선택](./media/tutorial-process-email-attachments-workflow/select-function-app.png)
 
-   Azure 메뉴에 **Function App**이 표시되지 않으면 **모든 서비스**로 대신 이동합니다. 검색 상자에서 **Function App**을 찾아 선택합니다. 자세한 내용은 [함수 만들기](../azure-functions/functions-create-first-azure-function.md)를 참조하세요.
+   Azure 메뉴에 **함수 앱**이 표시되지 않으면 **모든 서비스**로 대신 이동합니다. 검색 상자에서 **함수 앱**을 찾아 선택합니다. 자세한 내용은 [함수 만들기](../azure-functions/functions-create-first-azure-function.md)를 참조하세요.
 
    그렇지 않으면 Azure에서 다음과 같이 함수 앱을 자동으로 엽니다.
 

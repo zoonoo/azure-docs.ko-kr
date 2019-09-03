@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/28/2018
+ms.date: 08/29/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: df57faad770b252228b6c55d4caff775acfe3594
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f0a58382b9825a7b32aee69c00b9801d1c77251a
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531167"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114627"
 ---
 # <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Firewall DNAT를 통해 인바운드 트래픽 필터링
 
@@ -62,8 +62,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
      방화벽은 이 서브넷에 있고 해당 서브넷 이름은 AzureFirewallSubnet이 **되어야** 합니다.
      > [!NOTE]
-     > AzureFirewallSubnet 서브넷의 최소 크기는 /26입니다.
-10. **주소 범위**에 **10.0.1.0/24**를 입력합니다.
+     > AzureFirewallSubnet 서브넷의 크기는 /26입니다. 서브넷 크기에 대한 자세한 내용은 [Azure 방화벽 FAQ](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size)를 참조하세요.
+
+10. **주소 범위**에 **10.0.1.0/26**을 입력합니다.
 11. 다른 기본 설정을 사용한 다음, **만들기**를 클릭합니다.
 
 ### <a name="create-a-spoke-vnet"></a>스포크 VNet 만들기
@@ -110,7 +111,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 워크로드 가상 머신을 만들어 **SN-Workload** 서브넷에 배치합니다.
 
 1. Azure Portal 홈 페이지에서 **모든 서비스**를 클릭합니다.
-2. **계산** 아래에서 **가상 머신**을 클릭합니다.
+2. **컴퓨팅** 아래에서 **가상 머신**을 클릭합니다.
 3. **추가**, **Windows Server**, **Windows Server 2016 Datacenter** 및 **만들기**를 차례로 클릭합니다.
 
 **기본 사항**
@@ -151,8 +152,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    |설정  |값  |
    |---------|---------|
    |Name     |FW-DNAT-test|
-   |구독     |\<구독\>|
-   |리소스 그룹     |**기존 리소스 사용**: RG-DNAT-Test |
+   |Subscription     |\<구독\>|
+   |Resource group     |**기존 리소스 사용**: RG-DNAT-Test |
    |위치     |전에 사용한 동일한 위치 선택|
    |가상 네트워크 선택     |**기존 리소스 사용**: VN-Hub|
    |공용 IP 주소     |**새로 만듭니다**. 공용 IP 주소는 표준 SKU 형식이어야 합니다.|
@@ -202,7 +203,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 8. **원본 주소**에 *를 입력합니다. 
 9. **대상 주소**에 방화벽의 공용 IP 주소를 입력합니다. 
 10. **대상 포트**에 **3389**를 입력합니다. 
-11. **변환 주소**에 Srv-Workload 가상 머신의 사설 IP 주소를 입력합니다. 
+11. **변환 주소**에 Srv-Workload 가상 머신의 개인 IP 주소를 입력합니다. 
 12. **변환 포트**에 **3389**를 입력합니다. 
 13. **추가**를 클릭합니다. 
 

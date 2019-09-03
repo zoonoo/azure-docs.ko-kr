@@ -4,18 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 6b1fff913defce20aff41f685c5b96f0547faaca
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: fd8b4ae06018de1d03ca60e836534a535c8f5df8
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968351"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906997"
 ---
-## <a name="prerequisites"></a>필수 조건
+[!INCLUDE [Prerequisites](prerequisites-nodejs.md)]
 
-이 빠른 시작에는 다음이 필요합니다.
-
-* [Node 8.12.x 이상](https://nodejs.org/en/)
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## <a name="create-a-project-and-import-required-modules"></a>프로젝트 만들기 및 필요한 모듈 가져오기
 
@@ -31,6 +29,14 @@ const uuidv4 = require('uuid/v4');
 
 이러한 모듈은 HTTP 요청을 생성하고 `'X-ClientTraceId'` 헤더의 고유 식별자를 만드는 데 필요합니다.
 
+## <a name="set-the-endpoint"></a>엔드포인트 설정
+
+이 샘플에서는 환경 변수 `TRANSLATOR_TEXT_ENDPOINT`에서 Translator Text 엔드포인트를 읽으려고 합니다. 환경 변수를 잘 모르는 경우에는 `endpoint`를 문자열로 설정하고 조건문을 주석으로 처리할 수 있습니다.
+
+```javascript
+lorum ipsum
+```
+
 ## <a name="configure-the-request"></a>요청 구성
 
 요청 모듈을 통해 제공되는 `request()` 메서드를 사용하면 HTTP 메서드, URL, 요청 매개 변수, 헤더 및 JSON 본문을 `options` 개체로 전달할 수 있습니다. 이 코드 조각에서 다음 요청을 구성합니다.
@@ -41,7 +47,7 @@ const uuidv4 = require('uuid/v4');
 ```javascript
 let options = {
     method: 'GET',
-    baseUrl: 'https://api.cognitive.microsofttranslator.com/',
+    baseUrl: endpoint,
     url: 'languages',
     qs: {
       'api-version': '3.0',

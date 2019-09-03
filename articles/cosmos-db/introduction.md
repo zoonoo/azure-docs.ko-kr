@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: overview
 ms.date: 07/23/2019
 ms.author: rimman
-ms.openlocfilehash: ee863b6003444ec099753a6488f3fe4078338e60
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 5e53a671c866b9482296622d19d4ad6bec46829d
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384128"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905284"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB 시작
 
@@ -23,6 +23,11 @@ Azure 구독, 요금 및 약정 없이 [무료로 Azure Cosmos DB를 사용해 �
 
 > [!div class="nextstepaction"]
 > [무료로 Azure Cosmos DB 사용해 보기](https://azure.microsoft.com/try/cosmosdb/)
+
+[Cosmos DB 부트스트랩 프로그램](https://azurecosmosdb.github.io/CosmosBootstrap/)을 사용하여 Azure Cosmos DB에서 애플리케이션을 빌드하거나 마이그레이션하는 속도를 높일 수도 있습니다. 이 프로그램에 가입하면 Azure Cosmos DB 엔지니어가 프로젝트를 지원하기 위해 할당되며, 데이터를 Azure Cosmos DB로 마이그레이션하거나 Azure Cosmos DB에서 새 앱을 빌드하는 데 도움을 받을 수 있습니다.
+
+> [!div class="nextstepaction"]
+> [Cosmos DB 부트스트랩 프로그램 가입](https://azurecosmosdb.github.io/CosmosBootstrap/)
 
 ![Azure Cosmos DB는 탄력적 규모 확장, 낮은 대기 시간 보증, 일관성 모델 5개, 포괄적 보장 SLA를 갖춘 글로벌하게 배포된 데이터베이스 서비스입니다.](./media/introduction/azure-cosmos-db.png)
 

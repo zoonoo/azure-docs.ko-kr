@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 5174b46bae5bbcc18f5a2575fb68cce1305507a3
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a1a97e7521e9772b1d13049d42e67d7ac318fffc
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68826617"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907373"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob Storage에서 SQL 데이터베이스로 데이터 복사
 이 자습서에서는 Azure Data Factory UI(사용자 인터페이스)를 사용하여 데이터 팩터리를 만듭니다. 데이터 팩터리의 파이프라인은 Azure Blob Storage에서 SQL 데이터베이스로 데이터를 복사합니다. 이 자습서의 구성 패턴은 파일 기반 데이터 저장소에서 관계형 데이터 저장소로 복사하는 데 적용됩니다. 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
@@ -172,6 +172,9 @@ ms.locfileid: "68826617"
 1. 파이프라인이 있는 탭으로 이동하고, **싱크 데이터 세트**에서 **OutputSqlDataset**가 선택되어 있는지 확인합니다.
 
     ![파이프라인 탭](./media/tutorial-copy-data-portal/pipeline-tab-2.png)       
+
+[복사 작업의 스키마 매핑](copy-activity-schema-and-type-mapping.md)을 따라 선택적으로 원본 스키마를 대상의 해당 스키마에 매핑할 수 있습니다.
+    
 ## <a name="validate-the-pipeline"></a>파이프라인 유효성 검사
 파이프라인에 대한 유효성을 검사하려면 도구 모음에서 **유효성 검사**를 선택합니다.
  

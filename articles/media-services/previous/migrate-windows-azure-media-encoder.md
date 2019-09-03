@@ -64,7 +64,7 @@ ITask task = job.Tasks.AddNew("My encoding task",
 
 ### <a name="advanced-scenarios"></a>고급 시나리오 
 
-해당 스키마를 사용 하 여 WAME에 대해 고유한 인코딩 사전 설정을 만든 경우 [Media Encoder Standard에 대해 동일한 스키마](media-services-mes-schema.md)가 있습니다. 이전 설정을 새 인코더에 매핑하는 방법에 대 한 질문이 있는 경우 다음을 통해 문의 하세요.mailto:amshelp@microsoft.com  
+해당 스키마를 사용 하 여 WAME에 대해 고유한 인코딩 사전 설정을 만든 경우 [Media Encoder Standard에 대해 동일한 스키마](media-services-mes-schema.md)가 있습니다. 이전 설정을 새 인코더에 매핑하는 방법에 대 한 질문이 있는 경우 다음을 통해 문의 하세요. mailto:amshelp@microsoft.com  
 
 ## <a name="known-differences"></a>알려진 차이점 
 

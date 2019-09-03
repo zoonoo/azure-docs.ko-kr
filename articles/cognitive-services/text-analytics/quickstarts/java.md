@@ -10,15 +10,15 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 07/30/2019
 ms.author: aahi
-ms.custom: seo-java-july2019
-ms.openlocfilehash: 437456ecb700b2efb60f2f6269643ca39d8775e2
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.custom: seo-java-july2019, seo-java-august2019
+ms.openlocfilehash: 438a1290b5807d69b5b867c4afc3c1ca0e3a7203
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697518"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128182"
 ---
-# <a name="quickstart-using-java-to-call-the-text-analytics-cognitive-service"></a>빠른 시작: Java를 사용하여 텍스트 분석 Cognitive Service 호출
+# <a name="quickstart-use-java-to-call-the-azure-text-analytics-cognitive-service"></a>빠른 시작: Java를 사용하여 Azure Text Analytics Cognitive Service 호출
 <a name="HOLTop"></a>
 
 이 문서에서는  [Text Analytics API](//go.microsoft.com/fwlink/?LinkID=759711) 및 Java를 사용하여 [언어 감지](#Detect), [감정 분석](#SentimentAnalysis), [핵심 구 추출](#KeyPhraseExtraction) 및 [연결된 엔터티 식별](#Entities)을 수행하는 방법을 보여 줍니다.

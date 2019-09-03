@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/15/2019
 ms.reviewer: jeking
-ms.openlocfilehash: a1e7ee4f81f2b40b804ee69c8366ca87c377e6ac
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 4e4e4d250de823ae8fb78a306bae313f340e7ce9
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855487"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992296"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>빠른 시작: Azure Databricks를 사용하여 Azure Data Lake Storage Gen2의 데이터 분석
 
@@ -88,7 +88,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 클러스터를 만드는 방법에 대한 자세한 내용은 [Azure Databricks에서 Spark 클러스터 만들기](https://docs.azuredatabricks.net/user-guide/clusters/create.html)를 참조하세요.
 
-## <a name="create-storage-account-file-system"></a>스토리지 계정 파일 시스템 만들기
+## <a name="create-storage-account-container"></a>스토리지 계정 컨테이너 만들기
 
 이 섹션에서는 Azure Databricks 작업 영역에서 노트북을 만든 다음, 코드 조각을 실행하여 스토리지 계정을 구성합니다.
 
@@ -113,15 +113,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    spark.conf.set("fs.azure.account.oauth2.client.secret.<storage-account-name>.dfs.core.windows.net", "<password>")
    spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account-name>.dfs.core.windows.net", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
-   dbutils.fs.ls("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/")
+   dbutils.fs.ls("abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
 
    ```
 
     > [!NOTE]
-    > 이 코드 블록은 OAuth를 사용하여 Data Lake Gen2 엔드포인트에 직접 액세스하지만 Data Lake Storage Gen2 계정에 Databricks 작업 영역을 연결하는 다른 방법이 있습니다. 예를 들어 OAuth를 사용하여 파일 시스템을 탑재하거나 공유 키로 직접 액세스를 사용할 수 있습니다. <br>이러한 방법의 예제를 보려면 Azure Databricks 웹 사이트에서 [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) 문서를 참조하세요.
+    > 이 코드 블록은 OAuth를 사용하여 Data Lake Gen2 엔드포인트에 직접 액세스하지만 Data Lake Storage Gen2 계정에 Databricks 작업 영역을 연결하는 다른 방법이 있습니다. 예를 들어 OAuth를 사용하여 컨테이너를 탑재하거나 공유 키로 직접 액세스를 사용할 수 있습니다. <br>이러한 방법의 예제를 보려면 Azure Databricks 웹 사이트에서 [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) 문서를 참조하세요.
 
-5. 이 코드 블록에서 `storage-account-name`, `appID`, `password` 및 `tenant-id` 자리 표시자 값을 서비스 주체를 만들 때 수집한 값으로 바꿉니다. `file-system-name` 자리 표시자 값을 파일 시스템에 제공하려는 이름으로 설정합니다.
+5. 이 코드 블록에서 `storage-account-name`, `appID`, `password` 및 `tenant-id` 자리 표시자 값을 서비스 주체를 만들 때 수집한 값으로 바꿉니다. `container-name` 자리 표시자 값을 컨테이너에 제공하려는 이름으로 설정합니다.
 
     > [!NOTE]
     > 프로덕션 설정에서 Azure Databricks에서 인증 키를 저장하는 것이 좋습니다. 그런 다음, 인증 키 대신 코드 블록에 조회 키를 추가합니다. 이 빠른 시작을 완료했으면 Azure Databricks 웹 사이트에서 [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) 문서에서 이 방법에 대한 예제를 살펴보세요.
@@ -148,7 +148,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 다음 작업을 수행하여 데이터에 대한 Spark SQL 작업을 실행합니다.
 
-1. SQL 문을 실행하여 샘플 JSON 데이터 파일인 **small_radio_json.json**의 데이터를 사용하여 임시 테이블을 만듭니다. 다음 코드 조각에서 자리 표시자 값을 파일 시스템 이름 및 스토리지 계정 이름으로 바꿉니다. 앞에서 만든 노트북을 사용하여 노트북의 새 코드 셀에 코드 조각을 붙여넣은 다음, SHIFT+ENTER를 누릅니다.
+1. SQL 문을 실행하여 샘플 JSON 데이터 파일인 **small_radio_json.json**의 데이터를 사용하여 임시 테이블을 만듭니다. 다음 코드 조각에서 자리 표시자 값을 컨테이너 이름 및 스토리지 계정 이름으로 대체합니다. 앞에서 만든 노트북을 사용하여 노트북의 새 코드 셀에 코드 조각을 붙여넣은 다음, SHIFT+ENTER를 누릅니다.
 
     ```sql
     %sql
@@ -156,7 +156,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     CREATE TABLE radio_sample_data
     USING json
     OPTIONS (
-     path  "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/small_radio_json.json"
+     path  "abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/small_radio_json.json"
     )
     ```
 

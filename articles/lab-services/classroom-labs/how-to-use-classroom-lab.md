@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 08/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 8987a22d4546fe887d1dda9adff8f46afe667618
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: a7d1249d68ddd4a161d1c0476e5f56e80c4d32f9
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69644980"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032009"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Azure Lab Services의 클래스룸 랩에 액세스하는 방법
 이 문서에서는 클래스룸 랩에 등록하고, 액세스할 수 있는 모든 랩을 살펴보고, 랩에서 VM을 시작/중지하고, VM에 연결하는 방법을 설명합니다. 
@@ -55,6 +55,30 @@ ms.locfileid: "69644980"
 2. 다음 단계 중 하나를 수행합니다. 
     1. **Windows** 가상 머신의 경우 **RDP** 파일을 하드 디스크에 저장합니다. RDP 파일을 열어 가상 머신에 연결합니다. 강사/교수로부터 받은 **사용자 이름** 및 **암호**를 사용하여 머신에 로그인합니다. 
     3. **Linux** 가상 머신의 경우, **SSH** 또는 **RDP**(사용하도록 설정된 경우)를 사용하여 연결할 수 있습니다. 자세한 내용은 [Linux 머신에 대해 원격 데스크톱 연결을 사용하도록 설정](how-to-enable-remote-desktop-linux.md)을 참조하세요. 
+    1. **Mac**을 사용하여 랩 VM에 연결하는 경우 다음 섹션의 지침을 따르세요. 
+
+## <a name="connect-to-a-vm-using-rdp-on-a-mac"></a>Mac에서 RDP를 사용하여 VM에 연결
+이 섹션에서는 학생이 RDP를 사용하여 Mac에서 VM에 연결할 수 있는 방법을 보여줍니다.
+
+### <a name="step-1-install-microsoft-remote-desktop-on-a-mac"></a>1단계: Mac에서 Microsoft 원격 데스크톱 설치
+1. Mac에서 App Store를 열고 **Microsoft 원격 데스크톱**을 검색합니다.
+
+    ![Microsoft 원격 데스크톱](../media/how-to-use-classroom-lab/install-ms-remote-desktop.png)
+1. 최신 버전의 Microsoft 원격 데스크톱를 설치합니다. 
+
+### <a name="step-2-access-the-vm-from-your-mac-using-rdp"></a>2단계: RDP를 사용하여 Mac에서 VM 액세스
+1. **Microsoft 원격 데스크톱**이 설치된 컴퓨터에서 다운로드한 **RDP** 파일을 엽니다. VM에 대한 연결이 시작되어야 합니다. 
+
+    ![VM에 연결](../media/how-to-use-classroom-lab/connect-linux-vm.png)
+1. 다음 경고가 표시되면 **계속**을 선택합니다. 
+
+    ![인증서 경고](../media/how-to-use-classroom-lab/certificate-error.png)
+1. VM이 표시됩니다. 
+
+    > [!NOTE]
+    > 다음 예제는 CentOS Linux VM에 대한 것입니다. 
+
+    ![VM](../media/how-to-use-classroom-lab/vm-ui.png)
 
 ## <a name="progress-bar"></a>진행률 표시줄 
 타일의 진행률 표시줄에는 할당된 [할당량 시간](how-to-configure-student-usage.md#set-quotas-for-users) 대비 사용한 시간이 표시됩니다. 이 시간은 랩의 예약된 시간 외에 사용자에게 할당된 추가 시간입니다. 진행률 표시줄 및 진행률 표시줄 아래의 텍스트 색은 다음 시나리오에 따라 달라집니다.

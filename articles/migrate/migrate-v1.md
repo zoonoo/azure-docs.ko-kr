@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7cf87c3a146f51666a2c24c7cd0d6e9425159225
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: ad321dfa3db69c89b8da080673cb3bab02e4af66
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228407"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905215"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>이전 버전의 Azure Migrate 사용
 
@@ -135,7 +135,7 @@ vCenter Server에서 **기타**로 지정된 OS | 이 경우 Azure Migrate가 OS
 예상 비용은 각 머신의 세부 사항과 함께 Azure에서 VM을 실행하는 데 필요한 총 컴퓨팅 및 스토리지 비용을 보여 줍니다.
 
 - 예상 비용은 VM 컴퓨터 및 해당 디스크에 대한 권장 크기 사항과 평가 속성을 사용하여 계산됩니다.
-- 계산 및 스토리지에 대한 월별 예상 비용은 그룹의 모든 VM에 대해 집계됩니다.
+- 컴퓨팅 및 스토리지에 대한 월별 예상 비용은 그룹의 모든 VM에 대해 집계됩니다.
 - 비용 예측은 온-프레미스 VM을 Azure IaaS(Infrastructure as a service) VM으로 실행하기 위한 것입니다. Azure Migrate는 PaaS(Platform as a Service) 또는 SaaS(Software as a Service) 비용을 고려하지 않습니다.
 
 ### <a name="review-confidence-rating-performance-based-assessment"></a>신뢰 등급 검토(성능 기반 평가)
@@ -246,7 +246,6 @@ MMA에서 지원하는 Linux 운영 체제 목록을 [자세히 확인](https://
 
 System Center Operations Manager 2012 R2 이상에서 모니터링하는 머신의 경우 MMA 에이전트를 설치할 필요가 없습니다. 서비스 맵은 Operations Manager MMA와 연결되어 필요한 종속성 데이터를 수집합니다. [자세히 알아보기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). 종속성 에이전트를 설치해야 합니다.
 
-
 ### <a name="install-the-dependency-agent"></a>종속성 에이전트 설치
 
 1. Windows 컴퓨터에 종속성 에이전트를 설치하려면 설치 파일을 두 x 누르고 마법사를 따릅니다.
@@ -254,9 +253,11 @@ System Center Operations Manager 2012 R2 이상에서 모니터링하는 머신�
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-- [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) 및 [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) 운영 체제에 대한 종속성 에이전트 지원에 대해 자세히 알아보세요.
-- 스크립트를 사용하여 종속성 에이전트를 설치하는 방법에 대해 [자세히 알아봅니다](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples).
+- Windows 및 Linux 운영 체제에 대한 [종속성 에이전트 지원](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems)에 대해 자세히 알아보세요.
+- 스크립트를 사용하여 종속성 에이전트를 설치하는 방법에 대해 [자세히 알아봅니다](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples).
 
+>[!NOTE]
+> 시스템 필수 구성 요소 및 종속성 에이전트를 배포하는 방법에 대한 개요를 제공하기 위해 참조되는 VM용 Azure Monitor 문서는 서비스 맵 솔루션에도 적용됩니다.
 
 ### <a name="create-a-group-with-dependency-mapping"></a>종속성 매핑을 사용하여 그룹 만들기
 

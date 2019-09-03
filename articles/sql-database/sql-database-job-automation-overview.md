@@ -10,12 +10,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 01/25/2019
-ms.openlocfilehash: f4d2afd65ec06c331498ce974e933fe08c8e67dd
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 432580017cec548b7ecd7cf766aa8f5cdb2253cc
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935184"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113589"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>데이터베이스 작업을 사용하여 관리 작업 자동화
 
@@ -43,7 +43,7 @@ Azure SQL Database를 통해 T-SQL 쿼리를 실행하고 유지 관리 작업�
 
 다음 작업 예약 기술은 Azure SQL Database에서 사용할 수 있습니다.
 
-- **SQL 에이전트 작업**은 Managed Instance에서 사용할 수 있는 클래식 및 입증된 SQL Server 작업 예약 구성 요소입니다. SQL 에이전트 작업은 단일 데이터베이스에서 사용할 수 없습니다.
+- **SQL 에이전트 작업**은 Managed Instance에서 사용할 수 있는 클래식 및 입증된 SQL Server 작업 예약 구성 요소입니다. SQL 에이전트 작업은 Azure SQL 단일 데이터베이스에서 사용할 수 없습니다.
 - **Elastic Database 작업(미리 보기)** 은 하나 또는 여러 Azure SQL Databases에서 사용자 지정 작업을 실행하는 작업 예약 서비스입니다.
 
 SQL 에이전트(온-프레미스 및 SQL Database Managed Instance의 일부로 사용 가능)와 Database 탄력적 작업 에이전트(Azure SQL 데이터베이스의 단일 데이터베이스 및 SQL Data Warehouse의 데이터베이스에서 사용 가능) 사이의 몇 가지 차이점을 주목할 필요가 있습니다.

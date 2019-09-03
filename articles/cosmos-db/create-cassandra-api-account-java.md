@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to build a Java application to access and manage Azure Cosmos DB resources so that customers can store key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: b6876bf8210d47729ad8e765ccffe709a0fccacc
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: d2d4d568f53c426b063f3285cc8d3d510c3db440
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958697"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034607"
 ---
 # <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>자습서: 키/값 데이터를 저장하는 Java 애플리케이션을 사용하여 Azure Cosmos DB의 Cassandra API 계정 만들기
 
@@ -32,16 +32,16 @@ ms.locfileid: "56958697"
 
 ## <a name="prerequisites"></a>필수 조건 
 
-* Azure 구독이 아직 없는 경우 시작하기 전에  [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 을 만듭니다. 
+* Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다. 
 
 * 최신 버전의 [JDK(Java Development Kit)](https://aka.ms/azure-jdks)를 가져옵니다. 
 
 * [Maven](https://maven.apache.org/) 이진 보관 파일을 [다운로드](https://maven.apache.org/download.cgi)하여 [설치](https://maven.apache.org/install.html)합니다. 
-  - Ubuntu에서  `apt-get install maven` 을 실행하여 Maven을 실행할 수 있습니다. 
+  - Ubuntu에서 `apt-get install maven`을 실행하여 Maven을 실행할 수 있습니다. 
 
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기 
 
-1.  [Azure Portal](https://portal.azure.com/)에 로그인합니다. 
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다. 
 
 2. **리소스 만들기** > **데이터베이스** > **Azure Cosmos DB**를 선택합니다. 
 
@@ -51,7 +51,7 @@ ms.locfileid: "56958697"
    |---------|---------|---------|
    |ID   |   고유한 이름을 입력합니다.    | 이 Azure Cosmos 계정을 식별하는 고유한 이름을 입력합니다. <br/><br/>접점을 만들기 위해 제공하는 ID에 cassandra.cosmosdb.azure.com이 추가되므로 식별할 수 있는 고유한 ID를 사용해야 합니다.         |
    |API    |  Cassandra   |  API는 만들 계정의 형식을 결정합니다. <br/> 이 문서에서는 CQL(Cassandra 쿼리 언어) 구문을 사용하여 쿼리할 수 있는 넓은 열 데이터베이스를 만들므로 **Cassandra**를 선택합니다.  |
-   |구독    |  사용자의 구독        |  이 Azure Cosmos 계정에 사용하려는 Azure 구독을 선택합니다.        |
+   |Subscription    |  사용자의 구독        |  이 Azure Cosmos 계정에 사용하려는 Azure 구독을 선택합니다.        |
    |리소스 그룹   | 이름 입력    |  **새로 만들기**를 선택한 다음, 계정에 대한 새 리소스 그룹 이름을 입력합니다. 간단히 하기 위해 ID와 동일한 이름을 사용할 수 있습니다.    |
    |위치    |  사용자와 가장 가까운 지역 선택    |  Azure Cosmos 계정을 호스팅할 지리적 위치를 선택합니다. 데이터에 가장 빨리 액세스할 수 있도록 사용자와 가장 가까운 위치를 사용합니다.    |
 
@@ -63,9 +63,9 @@ ms.locfileid: "56958697"
 
 Azure Portal에서 연결 문자열 정보를 가져오고, Java 구성 파일에 복사합니다. 연결 문자열을 통해 앱이 호스트된 데이터베이스와 통신할 수 있습니다. 
 
-1.  [Azure Portal](https://portal.azure.com/)에서 Azure Cosmos 계정으로 이동합니다. 
+1. [Azure Portal](https://portal.azure.com/)에서 Azure Cosmos 계정으로 이동합니다. 
 
-2.  **연결 문자열** 창을 엽니다.  
+2. **연결 문자열** 창을 엽니다.  
 
 3. 다음 단계에서 사용할 **CONTACT POINT**, **PORT**, **USERNAME** 및 **PRIMARY PASSWORD** 값을 복사합니다.
 

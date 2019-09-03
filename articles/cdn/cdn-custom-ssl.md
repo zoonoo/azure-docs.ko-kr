@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/17/2019
+ms.date: 08/28/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: f22273a28d5e4207712bdba71ef788629d51916e
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 1f7c212b7bb850816557feb53099973986bab587
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321665"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114503"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>자습서: Azure CDN 사용자 지정 도메인에서 HTTPS 구성
 
@@ -130,7 +130,7 @@ Azure Key Vault 계정에서 인증서(비밀)에 액세스하려면 Azure CDN �
 
     ![액세스 정책 설정](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
 
-3. **비밀 권한**에서 **가져오기**를 선택하여 CDN에서 인증서를 가져오고 나열하는 이러한 권한을 수행하도록 허용합니다. 
+3. **비밀 권한 가져오기**를 선택한 다음, **인증서 권한**을 가져오고 나열하여 CDN에서 인증서를 가져오고 나열하는 이러한 권한을 수행하도록 허용합니다. 
 
 4. **확인**을 선택합니다. 
 
@@ -312,6 +312,9 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
     Microsoft가 애플리케이션에 대한 SNI 클라이언트 요청이 있는지 분석하는 경우 기존 도메인은 향후 몇 달 안에 단일 인증서로 점진적으로 마이그레이션됩니다. Microsoft가 애플리케이션에 대한 일부 비 SNI 클라이언트 요청을 검색하는 경우 도메인은 IP 기반 TLS/SSL을 사용하여 SAN 인증서에 유지됩니다. 어떤 경우든 해당 요청이 SNI인지 비 SNI인지에 관계 없이 서비스에 대한 중단 또는 클라이언트 요청에 대한 지원이 없습니다.
 
+7. *사용자 고유의 인증서 가져오기로 인증서를 갱신하는 방법*
+
+    최신 인증서가 PoP 인프라에 배포되도록 하려면 새 인증서를 Azure KeyVault에 업로드한 다음, Azure CDN의 SSL 설정에서 최신 인증서 버전을 선택하고 저장을 누릅니다. 그러면 Azure CDN이 새로 업데이트된 인증서를 전파합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

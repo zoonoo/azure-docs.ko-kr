@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1cb9cd72908dc88ef2890764bc8d3fad88a82707
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: b5a21bd144558459ac60ae2da405f9ea57ca2fd1
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951916"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020198"
 ---
 # <a name="build-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>Azure App Service에서 PostgreSQL을 사용하여 Python(Django) 웹앱 빌드
 
@@ -140,9 +140,9 @@ Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
 ```
 
-브라우저에서 `http://localhost:8000` 으로 이동합니다. 메시지 `No polls are available.`이 표시되어야 합니다. 
+브라우저에서 `http://localhost:8000`으로 이동합니다. 메시지 `No polls are available.`이 표시되어야 합니다. 
 
-`http://localhost:8000/admin`으로 이동하고 마지막 단계에서 만든 관리 사용자를 사용하여 로그인합니다. **질문** 옆의 **추가**를 클릭하고 몇 가지 옵션을 사용하여 설문 조사 질문을 만듭니다.
+`http://localhost:8000/admin`으로 이동하고 마지막 단계에서 만든 관리 사용자를 사용하여 로그인합니다. **질문** 옆의 **추가**를 선택하고 몇 가지 옵션을 사용하여 설문 조사 질문을 만듭니다.
 
 ![로컬로 Python Django 애플리케이션 실행](./media/tutorial-python-postgresql-app/django-admin-local.png)
 
@@ -269,7 +269,7 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-`http://localhost:8000`으로 다시 이동합니다. 메시지 `No polls are available.`이 다시 표시되어야 합니다. 
+다시 `http://localhost:8000`으로 이동합니다. 메시지 `No polls are available.`이 다시 표시되어야 합니다. 
 
 `http://localhost:8000/admin`으로 이동하고 만든 관리 사용자를 사용하여 로그인하고, 전과 같이 설문 조사 질문을 만듭니다.
 
@@ -400,7 +400,7 @@ App Service는 기본적으로 `manage.py startproject`에서 만들어진 각 �
 
 [Azure Portal](https://portal.azure.com)로 이동하여 만든 앱을 확인합니다.
 
-왼쪽 메뉴에서 **App Services**를 클릭한 다음, Azure 앱의 이름을 클릭합니다.
+왼쪽 메뉴에서 **App Services**를 선택한 다음, Azure 앱의 이름을 선택합니다.
 
 ![Azure 앱에 대한 포털 탐색](./media/tutorial-python-postgresql-app/app-resource.png)
 

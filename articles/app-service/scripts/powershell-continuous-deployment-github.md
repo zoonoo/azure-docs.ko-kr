@@ -10,27 +10,25 @@ tags: azure-service-management
 ms.assetid: 42f901f8-02f7-4869-b22d-d99ef59f874c
 ms.service: app-service-web
 ms.workload: web
-ms.devlang: na
 ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: d60fc1afbd129471ba56dddb6e2d5beba5ca2330
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc8be33ede80070b8e9928e01d07b6066f1c887c
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136492"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113568"
 ---
 # <a name="create-a-web-app-with-continuous-deployment-from-github"></a>GitHub의 연속 배포를 사용하여 웹앱 만들기
 
-이 샘플 스크립트는 관련된 리소스를 사용하여 App Service에서 웹앱을 만든 다음 GitHub 리포지토리의 연속 배포를 설정합니다. 연속 배포를 사용하지 않는 GitHub 배포는 [웹앱 만들기 및 GitHub의 코드 배포](powershell-deploy-github.md)를 참조하세요.
+이 샘플 스크립트는 관련된 리소스를 사용하여 App Service에서 웹앱을 만든 다음, GitHub 리포지토리의 [연속 배포](../deploy-continuous-deployment.md)를 설정합니다. 연속 배포를 사용하지 않는 GitHub 배포는 [웹앱 만들기 및 GitHub의 코드 배포](powershell-deploy-github.md)를 참조하세요.
 
 필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Connect-AzAccount`를 실행하여 Azure에 연결합니다. 또한 다음 사항을 확인합니다.
 
-- `az login` 명령을 사용하여 Azure와 연결했습니다.
-- 애플리케이션 코드는 사용자가 소유한 공용 또는 프라이빗 GitHub 리포지토리에 있습니다.
-- [GitHub 계정에서 액세스 토큰을 만들](https://help.github.com/articles/creating-an-access-token-for-command-line-use/)었습니다.
+- 애플리케이션 코드는 사용자가 소유한 공용 또는 프라이빗 GitHub 리포지토리에 있습니다. 자동 빌드를 가져오려면 [리포지토리 준비](../deploy-continuous-deployment.md#prepare-your-repository) 테이블에 따라 리포지토리를 구성합니다.
+- [GitHub 계정에서 개인용 액세스 토큰을 만들](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line)었습니다.
 
 ## <a name="sample-script"></a>샘플 스크립트
 

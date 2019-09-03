@@ -9,14 +9,14 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: fd1be6e2354a87bfb0de87b85fe46a1feb42100c
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 56a73449c69010bc97122023f7dcbc9e3a9df154
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69881602"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70048013"
 ---
-# <a name="what-is-azure-iot-plug-and-play-preview"></a>IoT 플러그 앤 플레이 미리 보기란?
+# <a name="what-is-iot-plug-and-play-preview"></a>IoT 플러그 앤 플레이 미리 보기란?
 
 IoT 플러그 앤 플레이 미리 보기를 사용하면 솔루션 개발자는 포함된 코드를 작성하지 않고도 디바이스를 솔루션과 통합할 수 있습니다. IoT 플러그 앤 플레이의 핵심은 디바이스 기능을 설명하는 _디바이스 기능 모델_ 스키마입니다. 이 스키마는 다음 정의를 포함하는 인터페이스 세트로 구성되는 JSON 문서입니다.
 

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 07/01/2019
+ms.date: 08/27/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 260d2774eecb42d0234c33e40b4f10680a4fbfbd
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ebb6c05645a991d22ac30ee013e5a51007994eb6
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932225"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073861"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
 
@@ -67,6 +67,8 @@ Azure Analysis Services는 **개발자**, **기본** 및 **표준** 계층에서
 |S4    |    400     |    100     |
 |S8*    |    320     |    200     |
 |S9*    |    640    |    400     |
+|S8v2*    |    640     |    200     |
+|S9v2*    |    1280    |    400     |
 
 \* 일부 지역에서 지원되지 않습니다.  
 
@@ -82,34 +84,35 @@ Azure Analysis Services는 전 세계 지역에서 지원됩니다. 지원되는
 |캐나다 중부    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |미국 동부     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
 |미국 동부 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
-|미국 동부 2     |     S8, S9   |    1    |
+|미국 동부 2     |     S8, S9, S8v2, S9v2   |    1    |
 |미국 중북부     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |미국 중부     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |미국 중남부     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |미국 중서부   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |미국 서부     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
-|미국 서부     |    S8, S9   |    2  |
+|미국 서부     |    S8, S9, S8v2, S9v2   |    2  |
 |미국 서부2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
-|미국 서부2    |    S8, S9  |    1     |
+|미국 서부2    |    S8, S9, S8v2, S9v2  |    1     |
 
 ### <a name="europe"></a>유럽
 
 |지역  | 지원되는 계획 | 쿼리 복제본(표준 계획만) |
 |---------|---------|:---------:|
 |북유럽     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
+|북유럽     |    S8v2, S9v2      |    3     |
 |영국 남부     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
 |서유럽     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
-|서유럽    |   S8, S9  |  1  |
+|서유럽    |   S8, S9, S8v2, S9v2  |  1  |
 
 ### <a name="asia-pacific"></a>아시아 태평양 
 
 |지역  | 지원되는 계획 | 쿼리 복제본(표준 계획만) |
 |---------|---------|:---------:|
 |오스트레일리아 동부     |    B1, B2, S0, S1, S2, S4     |    3     |
-|오스트레일리아 동부     |    S8, S9    |    1     |
+|오스트레일리아 동부     |    S8, S9, S8v2, S9v2    |    1     |
 |오스트레일리아 남동부     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |일본 동부     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|동남아시아     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   1      |
+|동남아시아     |     B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2, D1     |   1      |
 |인도 서부     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
 ## <a name="scale-to-your-needs"></a>사용자의 요구 사항에 맞게 규모 조정
@@ -246,7 +249,7 @@ Azure Analysis Services 설명서는 [GitHub 문제](https://docs.microsoft.com/
 
 ## <a name="blogs"></a>블로그
 
-상황이 빠르게 변화하고 있습니다. 최신 정보는 [Analysis Services 팀 블로그](https://blogs.msdn.microsoft.com/analysisservices/) 및 [Azure 블로그](https://azure.microsoft.com/blog/)에서 얻을 수 있습니다.
+상황이 빠르게 변화하고 있습니다. [Power BI 블로그](https://powerbi.microsoft.com/blog/category/analysis-services/) 및 [Azure 블로그](https://azure.microsoft.com/blog/)에서 최신 정보를 살펴봅니다.
 
 ## <a name="community"></a>커뮤니티
 

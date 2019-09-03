@@ -1,5 +1,5 @@
 ---
-title: 즉시 인증 가능한 Azure IoT 플러그 앤 플레이 미리 보기 디바이스 빌드 | Microsoft Docs
+title: 즉시 인증 가능한 IoT 플러그 앤 플레이 미리 보기 디바이스 빌드 | Microsoft Docs
 description: 디바이스 개발자로서 즉시 인증 가능한 IoT 플러그 앤 플레이 미리 보기 디바이스를 빌드하는 방법을 알아봅니다.
 author: tbhagwat3
 ms.author: tanmayb
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: bfa611eba8e7a990626fbace8b930962615e0594
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 151f6609375063a68a848f4c799af0b459124f23
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878754"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70047897"
 ---
 # <a name="build-an-iot-plug-and-play-preview-device-thats-ready-for-certification"></a>즉시 인증 가능한 IoT 플러그 앤 플레이 미리 보기 디바이스 빌드
 
@@ -124,7 +124,7 @@ VS Code에서 **디바이스 정보** 인터페이스를 보려면 다음을 수
 
 #### <a name="implement-the-model-information-and-sdk-information-interfaces"></a>모델 정보 및 SDK 정보 인터페이스 구현
 
-Azure IoT 디바이스 SDK는 모델 정보 및 SDK 정보 인터페이스를 구현합니다. VS Code의 코드 생성 함수를 사용하는 경우 디바이스 코드에서는 Azure IoT 플러그 앤 플레이 디바이스 SDK를 사용합니다.
+Azure IoT 디바이스 SDK는 모델 정보 및 SDK 정보 인터페이스를 구현합니다. VS Code의 코드 생성 함수를 사용하는 경우 디바이스 코드에서는 IoT 플러그 앤 플레이 디바이스 SDK를 사용합니다.
 
 Azure IoT 디바이스 SDK를 사용하지 않기로 선택한 경우 SDK 소스 코드를 구현의 참조로 사용할 수 있습니다.
 
