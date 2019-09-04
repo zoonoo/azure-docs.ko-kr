@@ -131,24 +131,16 @@
           href: security-center-vulnerability-assessment-recommendations.md
         - name: 위협 보고서
           href: security-center-threat-report.md
-        - name: 사용자 지정 경고
-          href: security-center-custom-alert.md
         - name: 경고 신뢰도 점수
           href: security-center-confidence-score.md
-        - name: 보안 경고 맵 및 위협 인텔리전스
-          href: security-center-threat-intel.md
         - name: 조사
           href: security-center-investigation.md
         - name: 조사 사용자 데이터 관리
           href: security-center-investigation-user-data.md
         - name: Logic Apps 플레이북
           href: security-center-playbooks.md
-        - name: 검색
-          href: security-center-search.md
         - name: 계획 및 작업
           href: security-center-planning-and-operations-guide.md
-        - name: 보안 구성 사용자 지정
-          href: security-center-customize-os-security-config.md
 - name: 참고 자료
   items:
     - name: REST API

@@ -55,7 +55,9 @@ sections:
         style: cards
         className: cardsD
         items:
-          - title: Languages
+          - title: 언어
             html: <p><a href="/dotnet/api/overview/azure/datashare">.NET</a></p>
+          - title: PowerShell
+            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.datashare/?view=azps-2.6.0">Azure PowerShell</a></p>'
           - title: REST (영문)
             html: <p><a href="/rest/api/datashare">REST API</a></p>

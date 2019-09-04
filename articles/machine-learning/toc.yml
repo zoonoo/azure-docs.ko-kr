@@ -1,5 +1,5 @@
 - name: Azure Machine Learning 서비스
-  href: service/index.yml
+  href: service/overview-what-is-azure-ml.md
 - name: Azure Machine Learning Studio
   href: studio/index.yml
 - name: Microsoft의 ML 제품 비교
