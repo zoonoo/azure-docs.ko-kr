@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2019
 ms.author: atsenthi
-ms.openlocfilehash: 096b6a13c85d04ebeb4f2ffae72acdd8629ae886
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: cdbb545e981e50e23bbbb011dc54577acf7974f7
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70191754"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241762"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric 클러스터 설정 사용자 지정
 이 문서에서는 사용자 지정할 수 있는 Service Fabric 클러스터의 다양한 패브릭 설정을 설명합니다. Azure에서 호스팅된 클러스터의 경우 [Azure Portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 설정을 사용자 지정할 수 있습니다. 자세한 내용은 [Azure 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-azure.md)를 참조하세요. 독립 실행형 클러스터의 경우 *ClusterConfig.json* 파일을 업데이트하고 클러스터에서 구성 업그레이드를 수행하여 설정을 사용자 지정합니다. 자세한 내용은 [독립 실행형 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-windows-server.md)를 참조하세요.
@@ -141,7 +141,7 @@ ms.locfileid: "70191754"
 |FailuresOnlyHttpTelemetry | bool, 기본값: true | Dynamic | HTTP 원격 분석 캡처가 사용 되 면이 고, 실패 한 요청만 캡처합니다. 이는 원격 분석을 위해 생성 되는 이벤트 수를 줄이는 데 도움이 됩니다. |
 |HttpTelemetryCapturePercentage | int, 기본값 50 | Dynamic | HTTP 원격 분석 캡처가 사용 되 면이 고, 임의 비율의 요청만 캡처합니다. 이는 원격 분석을 위해 생성 되는 이벤트 수를 줄이는 데 도움이 됩니다. |
 |MaxDiskQuotaInMB |int, 기본값: 65536 | Dynamic |Windows Fabric 로그 파일의 디스크 할당량(MB) |
-|ProducerInstances |String | Dynamic |DCA 생산자 인스턴스 목록 |
+|ProducerInstances |문자열 | Dynamic |DCA 생산자 인스턴스 목록 |
 
 ## <a name="dnsservice"></a>DnsService
 | **매개 변수** | **허용되는 값** |**업그레이드 정책**| **지침 또는 간단한 설명** |
@@ -311,7 +311,7 @@ ms.locfileid: "70191754"
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
 |EnableApplicationTypeHealthEvaluation |bool, 기본값: false |정적|클러스터 상태 평가 정책이며, 애플리케이션 유형별 상태 평가를 사용하도록 설정됩니다. |
-|MaxSuggestedNumberOfEntityHealthReports|Int, 기본값 500 |Dynamic|Watchdog의 상태 보고 논리에 대 한 문제를 발생 시키기 전에 엔터티에 포함 될 수 있는 최대 상태 보고서 수입니다. 각 상태 엔터티는 비교적 적은 수의 상태 보고서를 포함 해야 합니다. 보고서 수가이 값 보다 위에 있으면이 고, 그렇지 않으면입니다. watchdog의 구현에 문제가 있을 수 있습니다. 보고서가 너무 많은 엔터티에는 엔터티가 평가 될 때 경고 상태 보고서를 통해 플래그가 지정 됩니다. |
+|MaxSuggestedNumberOfEntityHealthReports|Int, 기본값 100 |Dynamic|Watchdog의 상태 보고 논리에 대 한 문제를 발생 시키기 전에 엔터티에 포함 될 수 있는 최대 상태 보고서 수입니다. 각 상태 엔터티는 비교적 적은 수의 상태 보고서를 포함 해야 합니다. 보고서 수가이 값 보다 위에 있으면이 고, 그렇지 않으면입니다. watchdog의 구현에 문제가 있을 수 있습니다. 보고서가 너무 많은 엔터티에는 엔터티가 평가 될 때 경고 상태 보고서를 통해 플래그가 지정 됩니다. |
 
 ## <a name="healthmanagerclusterhealthpolicy"></a>HealthManager/ClusterHealthPolicy
 
@@ -832,7 +832,7 @@ ms.locfileid: "70191754"
 | --- | --- | --- | --- |
 |ContainerNetworkName|string, 기본값: ""| 정적 |컨테이너 네트워크를 설정할 때 사용할 네트워크 이름입니다.|
 |ContainerNetworkSetup|bool, 기본값: FALSE| 정적 |컨테이너 네트워크를 설정할지 여부입니다.|
-|FabricDataRoot |문자열 | 허용되지 않음 |Service Fabric 데이터 루트 디렉터리. Azure에 대한 기본값: d:\svcfab |
+|FabricDataRoot |String | 허용되지 않음 |Service Fabric 데이터 루트 디렉터리. Azure에 대한 기본값: d:\svcfab |
 |FabricLogRoot |String | 허용되지 않음 |Service Fabric 로그 루트 디렉터리. SF 로그 및 추적이 배치되는 위치입니다. |
 |NodesToBeRemoved|string, 기본값: ""| Dynamic |구성 업그레이드의 일부로 제거해야 하는 노드입니다. (독립 실행형 배포에만 해당)|
 |ServiceRunAsAccountName |String | 허용되지 않음 |패브릭 호스트 서비스를 실행할 계정 이름 |

@@ -11,12 +11,12 @@ ms.author: tedway
 author: tedway
 ms.date: 07/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: ff4259c438fec448ba510e4c248de6f4acc184ab
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: c3d1d211f85c50a482e1dd9c482cb75477942de7
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990498"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278194"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>FPGA (필드 프로그래밍 가능 게이트 배열) 및 배포 방법
 
@@ -30,7 +30,7 @@ FPGA는 프로그래밍 가능한 논리 블록 배열과 재구성 가능한 �
 
 ![Azure Machine Learning Service FPGA 비교 다이어그램](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
 
-|프로세서||설명|
+|프로세서||Description|
 |---|:-------:|------|
 |애플리케이션 관련 집적 회로|ASIC|Google의 TPU(TensorFlow Processor Units) 같은 사용자 지정 회로는 가장 높은 효율성을 제공합니다. 이러한 회로는 변하는 요구 사항에 따라 재구성할 수 없습니다.|
 |Field-programmable Gate Arrays|FPGA|Azure에서 사용할 수 있는 것과 같은 FPGA는 ASIC에 가까운 성능을 제공합니다. 또한 유연하고, 시간 경과에 따라 새 논리를 구현하기 위해 다시 구성할 수 있습니다.|
@@ -82,12 +82,12 @@ Azure FPGAs는 Azure Machine Learning와 통합 됩니다. Microsoft에서는 DN
 
 
 
-## <a name="example-deploy-models-on-fpgas"></a>예: FPGA에 모델 배포 
+## <a name="example-deploy-models-on-fpgas"></a>예제: FPGA에 모델 배포 
 
 Azure Machine Learning 하드웨어 가속 모델를 사용 하 여 모델을 FPGAs에서 웹 서비스로 배포할 수 있습니다. FPGAs를 사용 하면 단일 일괄 처리 크기를 사용 하는 경우에도 매우 짧은 대기 시간 유추가 가능 합니다. 유추 또는 모델 점수 매기기는 배포 된 모델이 예측에 사용 되는 단계 이며 가장 일반적으로 프로덕션 데이터에 사용 됩니다.
 
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독.  계정이 없는 경우 시작 하기 전에 무료 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
 
@@ -133,7 +133,7 @@ Azure Machine Learning 하드웨어 가속 모델를 사용 하 여 모델을 FP
 * 배포된 모델 사용
 * 배포된 서비스 삭제
 
-[Python용 Azure Machine Learning SDK](https://aka.ms/aml-sdk)를 사용하여 서비스 정의를 만듭니다. 서비스 정의는 TensorFlow를 기반으로 그래프(입력, 기능화기 및 분류자) 파이프라인을 설명하는 파일입니다. 배포 명령은 자동으로 정의 및 그래프를 ZIP 파일로 압축하고, ZIP 파일을 Azure Blob Storage에 업로드합니다. DNN가 FPGA에서 실행 되도록 이미 배포 되었습니다.
+[Python용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 사용하여 서비스 정의를 만듭니다. 서비스 정의는 TensorFlow를 기반으로 그래프(입력, 기능화기 및 분류자) 파이프라인을 설명하는 파일입니다. 배포 명령은 자동으로 정의 및 그래프를 ZIP 파일로 압축하고, ZIP 파일을 Azure Blob Storage에 업로드합니다. DNN가 FPGA에서 실행 되도록 이미 배포 되었습니다.
 
 ### <a name="load-azure-ml-workspace"></a>Azure ML 작업 영역 로드
 

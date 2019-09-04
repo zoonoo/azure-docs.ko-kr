@@ -7,13 +7,13 @@ ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: cc28cf590a1fd2c3fdfe8651f136526188801c04
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.date: 09/01/2019
+ms.openlocfilehash: cb34ea44c069f067d13a6480531a94a1a515f380
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615634"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241235"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Spark에서 Azure Cosmos DB Cassandra API에 연결
 
@@ -29,7 +29,7 @@ ms.locfileid: "69615634"
 
 * **Cassandra API용 Azure Cosmos DB 도우미 라이브러리:** Spark 커넥터 외에 Azure Cosmos DB에서 [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar)라는 다른 라이브러리가 필요합니다. 이 라이브러리는 사용자 지정 연결 팩터리 및 다시 시도 정책 클래스를 포함합니다.
 
-  Azure Cosmos DB의 재시도 정책은 HTTP 상태 코드 429("요청 빈도가 높음") 예외를 처리하도록 구성됩니다. Azure Cosmos DB Cassandra API는 Cassandra 네이티브 프로토콜에서 이러한 예외를 오버로드된 오류로 변환하고, back-off를 사용하여 다시 시도할 수 있습니다. Azure Cosmos DB는 프로비전된 처리량 모델을 사용하므로 수신/송신 요금이 증가하는 경우 요청 속도 제한 예외가 발생합니다. 재시도 정책은 일시적으로 컬렉션에 할당된 처리량을 초과하는 데이터 급증에 대해 spark 작업을 보호합니다.
+  Azure Cosmos DB의 재시도 정책은 HTTP 상태 코드 429("요청 빈도가 높음") 예외를 처리하도록 구성됩니다. Azure Cosmos DB Cassandra API는 Cassandra 네이티브 프로토콜에서 이러한 예외를 오버로드된 오류로 변환하고, back-off를 사용하여 다시 시도할 수 있습니다. Azure Cosmos DB는 프로비전된 처리량 모델을 사용하므로 수신/송신 요금이 증가하는 경우 요청 속도 제한 예외가 발생합니다. 재시도 정책은 컨테이너에 할당 된 처리량을 일시적으로 초과 하는 데이터 급증에 대해 spark 작업을 보호 합니다.
 
   > [!NOTE] 
   > 재시도 정책은 순간적인 급증에 대해서만 spark 작업을 보호할 수 있습니다. 워크로드를 실행하는 데 필요한 충분한 RU를 구성하지 않은 경우 다시 시도 정책이 적용되지 않고 재시도 정책 클래스에서 예외를 다시 throw합니다.

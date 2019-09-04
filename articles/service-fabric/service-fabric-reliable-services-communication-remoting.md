@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: f9cd6e2fee738d2d42c790b4eb7b9a876a44b01d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a9ef2cd695f9591f299bb85b95d14d60b987c38d
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60772978"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258700"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Reliable Services로 C#에서 서비스 원격 호출
 
@@ -320,6 +320,11 @@ V2_1 스택으로 변경하려면 다음 단계를 따르세요.
 ## <a name="upgrade-from-remoting-v1-to-remoting-v2-interface-compatible"></a>Remoting V1에서 Remoting V2(인터페이스 호환 가능)로 업그레이드
 
 V1에서 V2(인터페이스 호환 가능, V2_1이라고 함)로 업그레이드하려면 2단계 업그레이드가 필요합니다. 이 순서대로 단계를 따르세요.
+
+> [!NOTE]
+> V 1에서 v 2로 업그레이드 하는 `Remoting` 경우 v2를 사용 하도록 네임 스페이스를 업데이트 해야 합니다. 예제: ' ServiceFabric ' (' FabricTransport ')
+>
+>
 
 1. 다음 특성을 사용하여 V1 서비스를 V2_1 서비스로 업그레이드합니다.
 이렇게 변경하면 서비스가 V1 및 V2_1 수신기에서 수신 중인지 확인합니다.

@@ -11,12 +11,12 @@ author: nishankgu
 ms.author: nigup
 ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 110040592474ec432912e7f545abad19ca3ae1ff
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: bc0455b34ebdcb080e0cd702e58d8163228b60ff
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991984"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278061"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Azure 리소스에 대한 할당량 관리 및 요청
 
@@ -78,7 +78,7 @@ Azure Machine Learning 컴퓨팅의 경우 구독의 영역당 허용되는 코�
 ### <a name="azure-machine-learning-pipelines"></a>Azure Machine Learning 파이프라인
 Azure Machine Learning 파이프라인의 경우 파이프라인의 단계 수와 구독에서 지역별 게시 된 파이프라인의 일정 기반 실행 수에 대 한 할당량 한도가 있습니다.
 - 파이프라인에서 허용 되는 최대 단계 수는 3만입니다.
-- 월별 구독 당 게시 된 파이프라인의 최대 일정 기반 실행 수는 10만입니다.
+- 일정 기반 실행 및 월별 구독 당 게시 된 파이프라인에 대 한 blob 풀의 최대 합계 수는 10만입니다.
 
 > [!NOTE]
 > 이 제한을 높이려면 [Microsoft 지원](https://azure.microsoft.com/support/options/)에 문의하세요.

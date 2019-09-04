@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 79cb276f121c351a9954994038d9d826819edf5d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1e6d3b78887c9d195fdf0137553860c141bdaaba
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087446"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241052"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>지속성 함수의 검사점 및 재생(Azure Functions)
 
@@ -145,6 +145,9 @@ module.exports = df.orchestrator(function*(context) {
   오케스트레이터가 지연해야 하는 경우 [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_)(.NET) 또는 `createTimer`(JavaScript) API를 사용하면 됩니다.
 
 * 오케스트레이터 코드는 [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) API 또는 `context.df` 개체의 API를 사용하는 경우를 제외하고 **어떤 비동기 작업도 시작하면 안 됩니다**. .NET의 `Task.Run`, `Task.Delay`, `HttpClient.SendAsync` 또는 JavaScript의 `setTimeout()`, `setInterval()`을 예로 들 수 있습니다. 지속성 작업 프레임워크는 오케스트레이터 코드를 단일 스레드에서 실행하며, 다른 비동기 API에서 예약할 수 있는 다른 스레드와 상호 작용할 수 없습니다. 이 오류가 발생 `InvalidOperationException` 하면 예외가 throw 됩니다.
+
+> [!NOTE]
+> [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) API는 오 케 스트레이 터 함수에서 허용 되지 않으며 오 케 스트레이 터 함수 에서만 사용할 수 있는 비동기 i/o를 수행 합니다.
 
 * 오케스트레이터 코드에서 **무한 루프를 사용하면 안됩니다**. 지속성 작업 프레임워크는 오케스트레이션 함수가 진행됨에 따라 실행 기록을 저장하기 때문에 무한 루프로 인해 오케스트레이터 인스턴스의 메모리가 부족해질 수 있습니다. 무한 루프 시나리오의 경우 [ContinueAsNew](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_)(.NET) 또는 `continueAsNew`(JavaScript) 같은 API를 사용하여 함수 실행을 다시 시작하고 이전 실행 기록을 버립니다.
 

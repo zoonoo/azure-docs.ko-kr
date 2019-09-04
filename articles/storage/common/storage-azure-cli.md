@@ -10,12 +10,12 @@ ms.date: 06/02/2017
 ms.author: tamram
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: d259ea02824937f0c496bb253fa4b6c1f5cea412
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 46ae70bf4f1c2fe0276a3327ff37650dd57341d0
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015629"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259398"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>Azure Storage에서 Azure CLI 사용
 
@@ -25,11 +25,11 @@ ms.locfileid: "69015629"
 
 이 가이드의 예제에서는 Ubuntu에서 Bash 셸을 사용한다고 가정하지만 다른 플랫폼에서도 비슷하게 수행해야 합니다. 
 
-[!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
-
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+[!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
+
+## <a name="prerequisites"></a>전제 조건
 이 가이드에서는 Azure Storage의 기본 개념을 이해하고 있다고 가정합니다. 또한 Azure와 Storage 서비스에 대해 아래에 지정된 계정 만들기 요구 사항을 충족할 수 있다고 가정합니다.
 
 ### <a name="accounts"></a>계정

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 09/04/2019
 ms.author: raynew
-ms.openlocfilehash: 99ef5c8a4a4291dd1b9d047da9006623dacd0b53
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 3fb36eb9b8507903d1aee00b82c375685a4dfa6c
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147873"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279466"
 ---
 # <a name="azure-migrate-support-matrix"></a>Azure Migrate 지원 매트릭스
 
@@ -56,7 +56,7 @@ CorentTech | 마이그레이션 | [자세히 알아보기](https://www.corenttec
 구독 | 구독에서 여러 Azure Migrate 프로젝트를 사용할 수 있습니다.
 Azure 권한 | Azure Migrate 프로젝트를 만들려면 구독에 대 한 참가자 또는 소유자 권한이 있어야 합니다.
 VMware VM  | 단일 프로젝트에서 최대 35000 VMware Vm을 평가 합니다.
-Hyper-V VM | 단일 프로젝트에서 최대 1만 Hyper-v Vm을 평가 합니다.
+Hyper-V VM | 단일 프로젝트에서 최대 35000 Hyper-v Vm을 평가 합니다.
 
 프로젝트에는 VMware Vm과 Hyper-v Vm이 모두 포함 될 수 있습니다 (평가 제한까지).
 

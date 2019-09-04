@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 8174b2e8bc63db8954e596d831eb2f9cad2ba440
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.openlocfilehash: 72019b3bf5c17525b9a0dd8afc126f1bfc248041
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70211626"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274454"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP HANA에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -27,7 +27,7 @@ ms.locfileid: "70211626"
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 SAP HANA 데이터베이스에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 >[!TIP]
->SAP 데이터 통합 시나리오에 대 한 ADF의 전반적인 지원에 대 한 자세한 내용은 [Azure Data Factory 백서를 사용 하 여 Sap 데이터 통합](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) 에서 자세한 소개, comparsion 및 지침을 참조 하세요.
+>SAP 데이터 통합 시나리오에 대 한 ADF의 전반적인 지원에 대 한 자세한 내용은 [Azure Data Factory 백서를 사용 하 여 sap 데이터 통합](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) 에서 자세한 소개, comparsion 및 지침을 참조 하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -136,7 +136,7 @@ SAP HANA 연결된 서비스에 다음 속성이 지원됩니다.
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 데이터 세트 문서를 참조하세요. 이 섹션에는 SAP HANA 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에는 SAP HANA 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
 SAP HANA에서 데이터를 복사 하기 위해 지원 되는 속성은 다음과 같습니다.
 
@@ -246,7 +246,7 @@ SAP HANA에서 데이터를 복사하는 경우 SAP HANA 데이터 형식에서 
 | TEXT               | String                         |
 | TIME               | TimeSpan                       |
 | TINYINT            | Byte                           |
-| VARCHAR            | String                         |
+| VARCHAR            | 문자열                         |
 | TIMESTAMP          | DateTime                       |
 | VARBINARY          | Byte[]                         |
 

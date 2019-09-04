@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: a8ab2039cde11876d853b411ca09a51e96e2ca0a
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: c9192a6d6b8cf122092963f2352af8bb6e5a6c21
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233036"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275913"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Database 간 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Azure Data Factory의 버전을 선택 합니다."]
@@ -234,7 +234,9 @@ Azure SQL Database에서 또는로 데이터를 복사 하려면 다음 속성�
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 **type** 속성을 **AzureSqlTable**로 설정해야 합니다. | 예 |
-| tableName | 연결된 서비스가 참조하는 Azure SQL Database 인스턴스의 테이블 또는 뷰 이름입니다. | 원본에는 아니요이고 싱크에는 예입니다 |
+| schema | 스키마의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
+| table | 테이블/뷰의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
+| tableName | 스키마가 포함 된 테이블/뷰의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원 됩니다. 새 워크 로드의 경우 `schema` 및 `table`를 사용 합니다. | 원본에는 아니요이고 싱크에는 예입니다 |
 
 #### <a name="dataset-properties-example"></a>데이터 세트 속성 예제
 
@@ -250,7 +252,8 @@ Azure SQL Database에서 또는로 데이터를 복사 하려면 다음 속성�
         },
         "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
-            "tableName": "MyTable"
+            "schema": "<schema_name>",
+            "table": "<table_name>"
         }
     }
 }

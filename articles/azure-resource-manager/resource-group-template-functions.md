@@ -6,15 +6,15 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5333bfd8c7f7d24e497e4b7ba7da3543aee54da6
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 968e55cc07d10a0d4b54d4a7e866417d18e98bb5
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194757"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258876"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Azure Resource Manager 템플릿 함수
-이 아티클에서는 Azure Resource Manager 템플릿에서 사용할 수 있는 모든 함수에 대해 설명합니다. 템플릿에서 함수를 사용 하는 방법에 대 한 자세한 내용은 [템플릿 구문](resource-group-authoring-templates.md#syntax)을 참조 하세요.
+이 아티클에서는 Azure Resource Manager 템플릿에서 사용할 수 있는 모든 함수에 대해 설명합니다. 템플릿에서 함수를 사용 하는 방법에 대 한 자세한 내용은 [템플릿 구문](template-expressions.md)을 참조 하세요.
 
 함수를 직접 만들려면 [사용자 정의 함수](resource-group-authoring-templates.md#functions)를 참조하세요.
 

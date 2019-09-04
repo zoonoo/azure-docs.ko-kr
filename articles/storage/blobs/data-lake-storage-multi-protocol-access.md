@@ -1,5 +1,5 @@
 ---
-title: Azure Data Lake Storage에서 멀티 프로토콜 액세스 Microsoft Docs
+title: Azure Data Lake Storage에서 멀티 프로토콜 액세스 (미리 보기) | Microsoft Docs
 description: Azure Data Lake Storage Gen2에서 Blob Api를 사용 하는 응용 프로그램 및 Blob Api를 사용 합니다.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: cc0191a9484a09ed12e0ca0cde4d51681e44ec5f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 471e3008c25ddef83dd9b502dd8f677ae31cc71b
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855548"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259368"
 ---
-# <a name="multi-protocol-access-on-azure-data-lake-storage"></a>Azure Data Lake Storage에 대 한 다중 프로토콜 액세스
+# <a name="multi-protocol-access-on-azure-data-lake-storage-preview"></a>Azure Data Lake Storage에서 멀티 프로토콜 액세스 (미리 보기)
 
 Blob Api는 이제 계층 구조가 있는 계정으로 작동 합니다. 이는 모든 Blob 저장소 기능 뿐만 아니라 도구, 응용 프로그램 및 서비스의 전체 에코 시스템을 계층 구조 네임 스페이스를 갖는 계정으로 잠금 해제 합니다.
 
 최근 까지는 개체 저장소와 분석 저장소에 대 한 별도의 저장소 솔루션을 유지 해야 했을 수 있습니다. Azure Data Lake Storage Gen2는 에코 시스템 지원이 제한 되어 있기 때문입니다. 진단 로깅과 같은 Blob service 기능에 대 한 제한 된 액세스 권한도 있었습니다. 조각화 된 저장소 솔루션은 다양 한 시나리오를 수행 하기 위해 계정 간에 데이터를 이동 해야 하기 때문에 유지 관리가 어렵습니다. 더 이상이 작업을 수행할 필요가 없습니다.
 
 > [!NOTE]
-> Data Lake Storage에 대 한 멀티 프로토콜 액세스는 공개 미리 보기 상태 이며 **미국 서 부 2** 및 **미국 서 부** 지역 에서만 사용할 수 있습니다. 제한 사항을 검토 하려면 [알려진 문제](data-lake-storage-known-issues.md) 문서를 참조 하세요. 미리 보기에 등록 하려면 [이 페이지](https://aka.ms/blobinteropsignup)를 참조 하세요.
+> Data Lake Storage에 대 한 다중 프로토콜 액세스는 공개 미리 보기 상태 이며 [이러한 지역](#region-availability)에서 사용할 수 있습니다. 제한 사항을 검토 하려면 [알려진 문제](data-lake-storage-known-issues.md) 문서를 참조 하세요. 미리 보기에 등록 하려면 [이 페이지](https://aka.ms/blobinteropsignup)를 참조 하세요.
 
 ## <a name="use-the-entire-ecosystem-of-applications-tools-and-services"></a>응용 프로그램, 도구 및 서비스의 전체 에코 시스템 사용
 
@@ -46,7 +46,21 @@ Blob Api 및 Data Lake Storage Gen2 Api는 계층적 네임 스페이스를 포�
 
 ![Data Lake Storage 개념에 대 한 다중 프로토콜 액세스](./media/data-lake-storage-interop/interop-concept.png) 
 
-기존 도구와 Blob API를 사용 하는 응용 프로그램은 이러한 혜택을 자동으로 얻습니다. 개발자는이를 수정할 필요가 없습니다. Data Lake Storage Gen2는 도구 및 응용 프로그램에서 데이터에 액세스 하는 데 사용 하는 프로토콜에 관계 없이 디렉터리 및 파일 수준 Acl을 일관 되 게 적용 합니다.   
+기존 도구와 Blob API를 사용 하는 응용 프로그램은 이러한 혜택을 자동으로 얻습니다. 개발자는이를 수정할 필요가 없습니다. Data Lake Storage Gen2는 도구 및 응용 프로그램에서 데이터에 액세스 하는 데 사용 하는 프로토콜에 관계 없이 디렉터리 및 파일 수준 Acl을 일관 되 게 적용 합니다. 
+
+<a id="region-availability" />
+
+## <a name="region-availability"></a>지역 가용성
+
+Azure Data Lake Storage (미리 보기)에 대 한 다중 프로토콜 액세스는 다음 지역에서 제공 됩니다.
+
+|||||
+|-|-|-|-|
+|미국 중부|미국 중서부|캐나다 중부|
+|East US|아시아 동부|유럽 북부|
+|미국 동부 2|동남아시아|유럽 서부|
+|미국 서부|오스트레일리아 동부|일본 동부|
+|미국 서부 2|브라질 남부||
 
 ## <a name="next-steps"></a>다음 단계
 

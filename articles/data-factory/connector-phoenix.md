@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 01f764d96eacdc94fd90b4f695c4b774a6ded5c5
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 891fff203fbec8433793d3f3873e985dfebc31b0
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967441"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277616"
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Phoenix에서 데이터 복사 
 
@@ -93,7 +93,9 @@ Phoenix에서 데이터를 복사하려면 데이터 세트의 type 속성을 **
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **PhoenixObject** | 예 |
-| tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
+| schema | 스키마의 이름입니다. |아니요(작업 원본에서 "query"가 지정된 경우)  |
+| table | 테이블 이름입니다. |아니요(작업 원본에서 "query"가 지정된 경우)  |
+| tableName | 스키마가 있는 테이블의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원 됩니다. 새 `schema` 워크 `table` 로드에 및를 사용 합니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
 
@@ -102,11 +104,12 @@ Phoenix에서 데이터를 복사하려면 데이터 세트의 type 속성을 **
     "name": "PhoenixDataset",
     "properties": {
         "type": "PhoenixObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Phoenix linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```

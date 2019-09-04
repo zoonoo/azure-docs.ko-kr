@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: b08ce504e96d09b7406f3d8fb1b2afc2c1925e90
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 675d3e2f0dc27e70af497284ce273e87d005a2e1
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164161"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241081"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여러 노드 풀 만들기 및 관리
 
@@ -173,7 +173,7 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 > [!NOTE]
 > 클러스터 또는 노드 풀에서 업그레이드 및 크기 조정 작업은 함께 사용할 수 없습니다. 클러스터 또는 노드 풀을 동시에 업그레이드 하 고 확장할 수 없습니다. 대신, 동일한 리소스에 대 한 다음 요청 전에 대상 리소스에서 각 작업 유형이 완료 되어야 합니다. 이에 대 한 자세한 내용은 [문제 해결 가이드](https://aka.ms/aks-pending-upgrade)를 참조 하세요.
 
-첫 번째 단계에서 AKS 클러스터를 만든 경우 *1.13.10* 의가 `--kubernetes-version` 지정 되었습니다. 그러면 제어 평면과 초기 노드 풀 모두에 대해 Kubernetes 버전이 설정 됩니다. Kubernetes 버전의 제어 평면과 노드 풀을 업그레이드 하는 데는 여러 가지 명령이 있습니다. 명령은 개별 노드 풀을 업그레이드 하는 데 사용 되는 `az aks nodepool upgrade` 동안 제어 평면을 업그레이드 하는 데 사용 됩니다. `az aks upgrade`
+첫 번째 단계에서 AKS 클러스터를 만든 경우 *1.13.10* 의가 `--kubernetes-version` 지정 되었습니다. 그러면 제어 평면과 초기 노드 풀 모두에 대해 Kubernetes 버전이 설정 됩니다. [아래](#upgrade-a-cluster-control-plane-with-multiple-node-pools)에서 설명 하는 Kubernetes 버전의 제어 평면과 노드 풀을 업그레이드 하는 데는 여러 가지 명령이 있습니다.
 
 > [!NOTE]
 > 노드 풀 OS 이미지 버전은 클러스터의 Kubernetes 버전에 연결 됩니다. 클러스터 업그레이드 후에는 OS 이미지 업그레이드만 가져옵니다.
@@ -190,7 +190,7 @@ az aks nodepool upgrade \
 ```
 
 > [!Tip]
-> 컨트롤 평면을 *1.14.6*로 업그레이드 하려면를 실행 `az aks upgrade -k 1.14.6`합니다.
+> 컨트롤 평면을 *1.14.6*로 업그레이드 하려면를 실행 `az aks upgrade -k 1.14.6`합니다. [여러 노드 풀을 사용한 제어 평면 업그레이드](#upgrade-a-cluster-control-plane-with-multiple-node-pools)에 대 한 자세한 내용은 여기를 참조 하세요.
 
 [Az aks node pool list][az-aks-nodepool-list] 명령을 사용 하 여 노드 풀의 상태를 다시 나열 합니다. 다음 예에서는 *mynodepool* 이 *1.13.10*에 대 한 *업그레이드* 상태임을 보여 줍니다.
 
@@ -229,14 +229,32 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 AKS 클러스터의 모든 노드 풀을 동일한 Kubernetes 버전으로 업그레이드 하는 것이 가장 좋습니다. 개별 노드 풀을 업그레이드 하는 기능을 사용 하면 롤링 업그레이드를 수행 하 고 노드 풀 간에 pod 일정을 예약 하 여 위에서 언급 한 제약 조건 내에서 응용 프로그램 작동 시간을 유지할 수 있습니다
 
+## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>여러 노드 풀을 사용 하 여 클러스터 제어 평면 업그레이드
+
 > [!NOTE]
 > Kubernetes는 표준 [의미 체계 버전](https://semver.org/) 관리 체계를 사용 합니다. 버전 번호는 *x-y*로 표시 됩니다. 여기서 *x* 는 주 버전이 고 *y* 는 부 버전이 며 *z* 는 패치 버전입니다. 예를 들어 버전 *1.12.6*에서 1은 주 버전이 고 12는 부 버전 이며 6은 패치 버전입니다. 클러스터를 만드는 동안 초기 노드 풀 뿐만 아니라 제어 평면의 Kubernetes 버전이 설정 되어 있습니다. 모든 추가 노드 풀은 클러스터에 추가 될 때 해당 Kubernetes 버전을 설정 합니다. Kubernetes 버전은 노드 풀과 노드 풀 및 제어 평면 사이에서 다를 수 있지만 다음과 같은 제한 사항이 적용 됩니다.
 > 
 > * 노드 풀 버전은 제어 평면과 동일한 주 버전을 포함 해야 합니다.
 > * 노드 풀 버전은 제어 평면 버전 보다 한 부 버전이 될 수 있습니다.
 > * 노드 풀 버전은 다른 두 제약 조건을 준수 하는 한 모든 패치 버전이 될 수 있습니다.
-> 
-> Kubernetes 버전의 제어 평면을 업그레이드 하려면를 사용 `az aks upgrade`합니다. 클러스터에 노드 풀이 `az aks upgrade` 하나만 있는 경우이 명령은 노드 풀의 Kubernetes 버전도 업그레이드 합니다.
+
+AKS 클러스터에는 두 개의 클러스터 리소스 개체가 있습니다. 첫 번째는 Kubernetes 버전의 제어 평면입니다. 두 번째는 Kubernetes 버전을 포함 하는 에이전트 풀입니다. 컨트롤 평면은 하나 이상의 노드 풀에 매핑되고 각각에 고유한 Kubernetes 버전이 있습니다. 업그레이드 작업에 대 한 동작은 대상으로 하는 리소스 및 기본 API의 버전에 따라 달라 집니다.
+
+1. 컨트롤 평면을 업그레이드 하려면를 사용 해야 합니다.`az aks upgrade`
+   * 클러스터에 단일 에이전트 풀이 있으면 제어 평면과 단일 에이전트 풀이 함께 업그레이드 됩니다.
+   * 클러스터에 여러 에이전트 풀이 있으면 제어 평면만 업그레이드 됩니다.
+1. 로 업그레이드`az aks nodepool upgrade`
+   * 지정 된 Kubernetes 버전을 사용 하 여 대상 노드 풀만 업그레이드 합니다.
+
+노드 풀에서 보유 한 Kubernetes 버전 간의 관계도 일련의 규칙을 따라야 합니다.
+
+1. 제어 평면 또는 노드 풀 Kubernetes 버전을 다운 그레이드할 수 없습니다.
+1. 컨트롤 평면 Kubernetes version을 지정 하지 않으면 기본값은 현재 기존 컨트롤 평면 버전입니다.
+1. Node pool Kubernetes version이 지정 되지 않은 경우 기본값은 제어 평면 버전입니다.
+1. 지정 된 시간에 제어 평면 또는 노드 풀을 업그레이드 하거나 크기를 조정할 수 있습니다. 두 작업을 동시에 전송할 수는 없습니다.
+1. 노드 풀 Kubernetes 버전은 제어 평면과 동일한 주 버전 이어야 합니다.
+1. Node pool Kubernetes 버전은 제어 평면 보다 두 개 (2) 부 버전이 될 수 있으며, 더 크지 않습니다.
+1. 노드 풀은 제어 평면 보다 작거나 같은 Kubernetes patch 버전 보다 클 수 없습니다.
 
 ## <a name="scale-a-node-pool-manually"></a>수동으로 노드 풀 크기 조정
 

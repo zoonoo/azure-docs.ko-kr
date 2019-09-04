@@ -4,15 +4,15 @@ description: 전역적으로 분산된 다중 모델 데이터베이스 서비�
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: cb2b3246264d04ce97c45dff58979079a731998e
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 30530f445941747c659f584d279261148b08825e
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066090"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240796"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Azure Cosmos DB의 다양한 API에 대한 질문과 대답
 
@@ -119,7 +119,7 @@ Azure Cosmos DB는 [Azure 지역](https://azure.microsoft.com/regions/) 페이�
 
 ### <a name="is-it-possible-to-switch-from-container-level-throughput-provisioning-to-database-level-throughput-provisioning-or-vice-versa"></a>컨테이너 수준 처리량 프로비전에서 데이터베이스 수준 처리량 프로비전으로 전환할 수 있나요? 또는 그 반대로 가능한가요?
 
-컨테이너 및 데이터베이스 수준 처리량 프로비전은 별개의 제안이며 이를 전환하려면 원본에서 대상으로 데이터를 마이그레이션해야 합니다. 즉, 새 데이터베이스 또는 새 컬렉션을 만든 다음, [bulk executor library](bulk-executor-overview.md) 또는 [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)를 사용하여 데이터를 마이그레이션해야 합니다.
+컨테이너 및 데이터베이스 수준 처리량 프로비전은 별개의 제안이며 이를 전환하려면 원본에서 대상으로 데이터를 마이그레이션해야 합니다. 즉, 새 데이터베이스 또는 새 컨테이너를 만든 다음 [대량 실행자 라이브러리나](bulk-executor-overview.md) [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)를 사용 하 여 데이터를 마이그레이션해야 합니다.
 
 ### <a name="does-azure-cosmosdb-support-time-series-analysis"></a>Azure CosmosDB는 시계열 분석을 지원하나요?
 
@@ -149,7 +149,8 @@ GitHub에서 SQL API [.NET](sql-api-dotnet-samples.md), [Java](https://github.co
 
 컨테이너는 문서 및 관련 JavaScript 애플리케이션 논리의 그룹입니다. 컨테이너는 처리량 및 사용한 스토리지에 따라 [비용](performance-levels.md)이 결정되는 청구 가능 엔터티입니다. 컨테이너는 하나 이상의 파티션 또는 서버에 걸쳐 있을 수 있으며 크기가 거의 무제한인 스토리지 또는 처리량을 처리하도록 확장할 수 있습니다.
 
-* SQL API 및 Cosmos DB의 API for MongoDB 계정인 경우 컨테이너가 컬렉션에 매핑됩니다.
+* SQL API의 경우 컨테이너는 컨테이너에 매핑됩니다.
+* MongoDB 계정에 대 한 Cosmos DB API의 경우 컨테이너는 컬렉션에 매핑됩니다.
 * Cassandra 및 Table API 계정의 경우 컨테이너는 테이블에 매핑됩니다.
 * Gremlin API 계정의 경우 컨테이너는 Graph에 매핑됩니다.
 
@@ -157,7 +158,7 @@ GitHub에서 SQL API [.NET](sql-api-dotnet-samples.md), [Java](https://github.co
 
 ### <a name="how-do-i-create-a-database"></a>데이터베이스를 어떻게 만드나요?
 
-[컬렉션 추가](create-sql-api-java.md#add-a-container)의 설명대로 [Azure Portal](https://portal.azure.com)을 사용하거나 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) 중 하나를 사용하거나 [REST API](/rest/api/cosmos-db/)를 사용하여 데이터베이스를 만들 수 있습니다.
+[컨테이너 추가](create-sql-api-java.md#add-a-container), [Azure Cosmos DB sdk](sql-api-sdk-dotnet.md)중 하나 또는 [REST api](/rest/api/cosmos-db/)에 설명 된 대로 [Azure Portal](https://portal.azure.com)를 사용 하 여 데이터베이스를 만들 수 있습니다.
 
 ### <a name="how-do-i-set-up-users-and-permissions"></a>사용자 및 사용 권한을 어떻게 설정하나요?
 
@@ -179,7 +180,7 @@ SQL API는 HTTP 엔터티 태그 또는 ETag를 통해 OCC(낙관적 동시성 �
 
 ### <a name="how-do-i-perform-transactions-in-the-sql-api"></a>SQL API에서 어떻게 트랜잭션을 수행하나요?
 
-SQL API는 JavaScript 저장 프로시저 및 트리거를 통해 언어 통합 트랜잭션을 지원합니다. 스크립트 내의 모든 데이터베이스 작업은 스냅샷이 격리된 상태에서 실행됩니다. 단일 파티션 컬렉션인 경우 실행 범위는 해당 컬렉션으로 지정됩니다. 컬렉션이 분할된 경우 실행 범위는 컬렉션 내에서 파티션 키 값이 동일한 문서로 지정됩니다. 문서 버전의 스냅샷(ETags)은 트랜잭션의 시작 부분에서 찍고 스크립트가 성공한 경우에만 커밋됩니다. JavaScript에서 오류가 발생한 경우 트랜잭션이 롤백됩니다. 자세한 내용은 [Azure Cosmos DB에 대한 서버 쪽 JavaScript 프로그래밍](stored-procedures-triggers-udfs.md)을 참조하세요.
+SQL API는 JavaScript 저장 프로시저 및 트리거를 통해 언어 통합 트랜잭션을 지원합니다. 스크립트 내의 모든 데이터베이스 작업은 스냅샷이 격리된 상태에서 실행됩니다. 단일 파티션 컨테이너의 경우 실행 범위는 컨테이너로 지정 됩니다. 컨테이너가 분할 된 경우 컨테이너 내에서 동일한 파티션 키 값을 가진 문서로 실행 범위가 한정 됩니다. 문서 버전의 스냅샷(ETags)은 트랜잭션의 시작 부분에서 찍고 스크립트가 성공한 경우에만 커밋됩니다. JavaScript에서 오류가 발생한 경우 트랜잭션이 롤백됩니다. 자세한 내용은 [Azure Cosmos DB에 대한 서버 쪽 JavaScript 프로그래밍](stored-procedures-triggers-udfs.md)을 참조하세요.
 
 ### <a name="how-can-i-bulk-insert-documents-into-cosmos-db"></a>Cosmos DB에 문서를 어떻게 일괄 삽입할 수 있나요?
 
@@ -191,7 +192,7 @@ SQL API는 JavaScript 저장 프로시저 및 트리거를 통해 언어 통합 
 
 ### <a name="does-the-sql-api-support-resource-link-caching"></a>SQL API에서 리소스 링크 캐싱을 지원하나요?
 
-예, Azure Cosmos DB는 RESTful 서비스이므로 리소스 링크가 제한되며 캐시될 수 있습니다. SQL API 클라이언트는 문서 또는 컬렉션과 같은 모든 리소스 읽기에 대해 “If-None-Match” 헤더를 지정하고, 서버 버전이 변경된 후 로컬 복사본을 업데이트할 수 있습니다.
+예, Azure Cosmos DB는 RESTful 서비스이므로 리소스 링크가 제한되며 캐시될 수 있습니다. SQL API 클라이언트는 리소스와 유사한 문서나 컨테이너에 대 한 읽기의 "비-일치" 헤더를 지정한 다음 서버 버전이 변경 된 후 로컬 복사본을 업데이트할 수 있습니다.
 
 ### <a name="is-a-local-instance-of-sql-api-available"></a>SQL API의 로컬 인스턴스를 사용할 수 있나요?
 
@@ -225,7 +226,7 @@ Azure Cosmos DB의 API for MongoDB는 일반적인 MongoDB 오류 코드 외에�
 
 | Error               | 코드  | Description  | 솔루션  |
 |---------------------|-------|--------------|-----------|
-| TooManyRequests     | 16500 | 사용된 총 요청 단위 수가 컬렉션에 프로비전된 요청 단위 비율을 초과하여 제한되었습니다. | Azure Portal에서 컨테이너 또는 컨테이너 집합에 할당된 처리량을 크기 조정하거나 다시 시도하는 것이 좋습니다. |
+| TooManyRequests     | 16500 | 사용 된 총 요청 단위 수가 컨테이너에 대 한 프로 비전 된 요청 단위 요금 보다 더 많이 제한 되어 있습니다. | Azure Portal에서 컨테이너 또는 컨테이너 집합에 할당된 처리량을 크기 조정하거나 다시 시도하는 것이 좋습니다. |
 | ExceededMemoryLimit | 16501 | 다중 테넌트 서비스로써 작업이 클라이언트의 메모리 할당량을 초과했습니다. | [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에서 보다 제한적인 쿼리 조건을 통해 작업 범위를 줄이거나 고객 지원에 문의하세요. <br><br>예: <em> &nbsp; db.&nbsp;getcollection (' users '). aggregate ([ &nbsp; &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {이름: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age:-1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])</em>) |
 
 ### <a name="is-the-simba-driver-for-mongodb-supported-for-use-with-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB에 사용할 수 있도록 MongoDB용 Simba 드라이버가 지원됩니까?
@@ -523,7 +524,7 @@ RU 청구는 결과 집합이 아닌 횡단의 유효 데이터 집합에 기반
 
 ### <a name="whats-the-maximum-scale-that-a-graph-database-can-have-in-azure-cosmos-db-gremlin-api"></a>그래프 데이터베이스가 Azure Cosmos DB Gremlin API에서 가질 수 있는 최대 축적은 얼마입니까?
 
-Azure Cosmos DB는 [수평 분할](partition-data.md)을 활용하여 스토리지 및 처리량 요구 사항 증가를 자동으로 해결합니다. 워크로드의 최대 처리량 및 스토리지 용량은 지정된 컬렉션과 연결된 파티션 수에 따라 결정됩니다. 그러나 Gremlin API 컬렉션에는 척도에서 적절한 성능 경험을 보장할 수 있도록 특정 집합의 가이드라인이 있습니다. 분할에 대한 자세한 내용 및 모범 사례는 [Azure Cosmos DB에서 분할](partition-data.md) 문서를 참조하세요.
+Azure Cosmos DB는 [수평 분할](partition-data.md)을 활용하여 스토리지 및 처리량 요구 사항 증가를 자동으로 해결합니다. 작업의 최대 처리량 및 저장소 용량은 지정 된 컨테이너와 연결 된 파티션 수에 따라 결정 됩니다. 그러나 Gremlin API 컨테이너에는 적절 한 규모의 성능 환경을 보장 하기 위한 특정 지침 집합이 있습니다. 분할에 대한 자세한 내용 및 모범 사례는 [Azure Cosmos DB에서 분할](partition-data.md) 문서를 참조하세요.
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Gremlin 드라이버를 사용하여 삽입 공격을 방지하려면 어떻게 하나요?
 

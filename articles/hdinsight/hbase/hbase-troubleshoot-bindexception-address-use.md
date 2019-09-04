@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 08/08/2019
-ms.openlocfilehash: 8851a4dfb7deafab7ad77ef80619dd49ca46ed71
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.date: 08/16/2019
+ms.openlocfilehash: c2f7575dca5432d90bf421afa5a39a4a4cd79744
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947852"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69983053"
 ---
 # <a name="scenario-bindexception---address-already-in-use-in-azure-hdinsight"></a>시나리오: BindException-Azure HDInsight에서 이미 사용 중입니다.
 
@@ -31,23 +31,23 @@ Caused by: java.net.BindException: Address already in use
 
 ## <a name="cause"></a>원인
 
-작업량이 많은 작업을 수행 하는 동안 HBase 지역 서버를 다시 시작 합니다. 다음은 사용자가 Ambari UI의 HBase 지역 서버에서 다시 시작 작업을 시작할 때 백그라운드에서 수행 되는 작업입니다.
+작업량이 많은 작업을 수행 하는 동안 Apache HBase 지역 서버를 다시 시작 합니다. 다음은 사용자가 Apache Ambari UI에서 HBase 지역 서버의 다시 시작 작업을 시작할 때 백그라운드에서 수행 되는 작업입니다.
 
-1. Ambari 에이전트에서 지역 서버에 중지 요청을 보냅니다.
+1. Ambari 에이전트가 영역 서버에 중지 요청을 보냅니다.
 
-1. 그런 다음 Ambari 에이전트는 지역 서버가 정상적으로 종료 될 때까지 30 초 동안 대기 합니다.
+1. Ambari 에이전트는 지역 서버가 정상적으로 종료 될 때까지 30 초 동안 대기 합니다.
 
-1. 응용 프로그램이 지역 서버와 계속 연결 되 면 즉시 종료 되지 않으므로 30 초 제한 시간이 더 빨리 만료 됩니다.
+1. 애플리케이션이 영역 서버에 계속 연결될 경우 서버는 즉시 종료되지 않습니다. 종료되기 전에 30초 제한 시간에 만료됩니다.
 
-1. 30초가 만료되면 Ambari 에이전트에서 강제 종료(kill -9)를 지역 서버로 보냅니다.
+1. 30초 후 Ambari 에이전트는 영역 서버에 강제 종료(`kill -9`) 명령을 전송합니다.
 
 1. 이러한 갑작스러운 종료로 인해 지역 서버 프로세스가 종료 되더라도 프로세스와 연결 된 포트가 해제 되지 않아 결국로 `AddressBindException`이어질 수 있습니다.
 
 ## <a name="resolution"></a>해결 방법
 
-다시 시작을 시작 하기 전에 HBase 지역 서버의 부하를 줄입니다.
+다시 시작을 시작 하기 전에 HBase 지역 서버의 부하를 줄입니다. 또한 먼저 모든 테이블을 플러시하는 것이 좋습니다. 테이블을 플러시하는 방법에 대한 참조는 [HDInsight HBase: 테이블을 플러시하여 Apache HBase 클러스터 다시 시작 시간을 개선하는 방법](https://web.archive.org/web/20190112153155/https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/)을 참조하세요.
 
-또는 다음 명령을 사용 하 여 작업자 노드에서 지역 서버를 수동으로 다시 시작 합니다.
+또는 다음 명령을 사용 하 여 작업자 노드에서 지역 서버를 수동으로 다시 시작 해 봅니다.
 
 ```bash
 sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh stop regionserver"

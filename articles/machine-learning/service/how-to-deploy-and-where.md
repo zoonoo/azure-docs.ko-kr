@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/06/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: e3c2c7e4f3bb6c4c06d2f445adc5056c854a7503
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 14ced5ed45bcc91e6b6c812f2d1cbb61e139cc4f
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70138547"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278945"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning Services를 사용하여 모델 배포
 
@@ -31,13 +31,13 @@ Azure 클라우드에서 machine learning 모델을 웹 서비스로 배포 하�
 
 배포 워크플로에 관련된 개념에 대한 자세한 내용은 [Azure Machine Learning Service를 사용하여 모델 관리, 배포 및 모니터링](concept-model-management-and-deployment.md)을 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure Machine Learning 서비스 작업 영역. 자세한 내용은 [Azure Machine Learning 서비스 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 
 - 모델. 학습 된 모델이 없는 경우 [이 자습서](https://aka.ms/azml-deploy-cloud)에서 제공 하는 모델 & 종속성 파일을 사용할 수 있습니다.
 
-- Machine Learning 서비스, [Azure Machine Learning PYTHON SDK](https://aka.ms/aml-sdk)또는 [Azure Machine Learning Visual Studio Code 확장](how-to-vscode-tools.md) [에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md)입니다.
+- Machine Learning 서비스, [Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)또는 [Azure Machine Learning Visual Studio Code 확장](how-to-vscode-tools.md) [에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md)입니다.
 
 ## <a name="connect-to-your-workspace"></a>작업 영역에 연결
 
@@ -240,7 +240,7 @@ dependencies:
     - inference-schema[numpy-support]
 ```
 
-자동 스키마 생성을 사용 하려면 항목 스크립트가 패키지를 `inference-schema` 가져와야 합니다.
+자동 스키마 생성을 사용 하려면 **항목 스크립트가 패키지** 를 `inference-schema` 가져와야 합니다.
 
 `input_sample` 및`output_sample` 변수에서 웹 서비스의 요청 및 응답 형식을 나타내는 입력 및 출력 샘플 형식을 정의 합니다. `run()` 함수에 대 한 입력 및 출력 함수 데코레이터에서 이러한 샘플을 사용 합니다. 아래 scikit 예제에서는 스키마 생성을 사용 합니다.
 
@@ -562,7 +562,7 @@ print(service.state)
 CLI를 사용 하 여 배포 하려면 다음 명령을 사용 합니다. 를 `mymodel:1` 등록 된 모델의 이름 및 버전으로 바꿉니다.
 
 ```azurecli-interactive
-az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.json
+az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json
 ```
 
 [!INCLUDE [aml-local-deploy-config](../../../includes/machine-learning-service-local-deploy-config.md)]
@@ -621,7 +621,7 @@ print(response.json())
 
 ### <a name="web-service-schema-openapi-specification"></a>웹 서비스 스키마 (OpenAPI 사양)
 
-배포와 함께 자동 스키마 생성을 사용 하는 경우 [swagger_uri 속성](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri)을 사용 하 여 서비스에 대 한 openapi 사양의 주소를 가져올 수 있습니다. `print(service.swagger_uri)` )을 입력합니다. GET 요청을 사용 하거나 브라우저에서 URI를 열어 사양을 검색 합니다.
+배포와 함께 자동 스키마 생성을 사용 하는 경우 [swagger_uri 속성](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri)을 사용 하 여 서비스에 대 한 openapi 사양의 주소를 가져올 수 있습니다. [http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest](`print(service.swagger_uri)`)을 입력합니다. GET 요청을 사용 하거나 브라우저에서 URI를 열어 사양을 검색 합니다.
 
 다음 JSON 문서는 배포에 대해 생성 된 스키마 (OpenAPI 사양)의 예입니다.
 
@@ -831,7 +831,7 @@ package = Model.package(ws, [model], inference_config)
 package.wait_for_creation(show_output=True)
 ```
 
-패키지를 만든 후를 사용 `package.pull()` 하 여 이미지를 로컬 Docker 환경으로 끌어올 수 있습니다. 이 명령의 출력에 이미지 이름이 표시 됩니다. `Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338` )을 입력합니다. 다운로드 한 후 `docker images` 명령을 사용 하 여 로컬 이미지를 나열 합니다.
+패키지를 만든 후를 사용 `package.pull()` 하 여 이미지를 로컬 Docker 환경으로 끌어올 수 있습니다. 이 명령의 출력에 이미지 이름이 표시 됩니다. [http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest](`Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`)을 입력합니다. 다운로드 한 후 `docker images` 명령을 사용 하 여 로컬 이미지를 나열 합니다.
 
 ```text
 REPOSITORY                               TAG                 IMAGE ID            CREATED             SIZE

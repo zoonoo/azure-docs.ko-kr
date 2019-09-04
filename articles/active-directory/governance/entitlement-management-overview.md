@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/10/2019
+ms.date: 09/03/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d93a20494886bb7d563439e2699f60bedb646dcd
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 0c99ee1987b592a2e8314d529b118fb26945271e
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032540"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241706"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>Azure AD 권한 관리란? (미리 보기)
 
@@ -46,7 +46,7 @@ Azure AD (Azure Active Directory) 자격 관리를 통해 내부 사용자와 �
 - 사용자가 올바른 개인 또는 올바른 리소스를 찾는 데 어려움이 있을 수 있습니다.
 - 사용자가 리소스에 대 한 액세스를 찾고 받은 후에는 비즈니스 목적에 필요한 것 보다 더 긴 액세스를 유지할 수 있습니다.
 
-이러한 문제는 공급망 조직 또는 다른 비즈니스 파트너의 외부 사용자와 같이 다른 디렉터리에서 액세스 해야 하는 사용자에 게 복잡해 집니다. 예:
+이러한 문제는 공급망 조직 또는 다른 비즈니스 파트너의 외부 사용자와 같이 다른 디렉터리에서 액세스 해야 하는 사용자에 게 복잡해 집니다. 예를 들어:
 
 - 조직에서 다른 디렉터리의 모든 특정 개인을 초대할 수 있는 것을 알지 못할 수 있습니다.
 - 조직에서 이러한 사용자를 초대할 수 있는 경우에도 조직은 사용자의 모든 액세스를 일관 되 게 관리 하지 못할 수 있습니다.
@@ -77,7 +77,7 @@ Id 거 버 넌 스 및 자격 관리에 대 한 개요는 Ignite 2018 회의에�
 - 페더레이션 또는 프로 비전을 지 원하는 SaaS 응용 프로그램 및 사용자 지정 통합 응용 프로그램을 포함 한 Azure AD 엔터프라이즈 응용 프로그램
 - SharePoint Online 사이트 모음 및 사이트
 
-Azure AD 보안 그룹 또는 Office 365 그룹을 사용 하는 다른 리소스에 대 한 액세스를 제어할 수도 있습니다.  예:
+Azure AD 보안 그룹 또는 Office 365 그룹을 사용 하는 다른 리소스에 대 한 액세스를 제어할 수도 있습니다.  예를 들어:
 
 - 액세스 패키지의 Azure AD 보안 그룹을 사용 하 고 해당 그룹에 대 한 [그룹 기반 라이선스](../users-groups-roles/licensing-groups-assign.md) 를 구성 하 여 Microsoft Office 365에 대 한 라이선스를 사용자에 게 제공할 수 있습니다.
 - 액세스 패키지의 Azure AD 보안 그룹을 사용 하 여 Azure 리소스를 관리 하 고 해당 그룹에 대 한 [azure 역할 할당](../../role-based-access-control/role-assignments-portal.md) 을 만들어 사용자에 게 액세스 권한을 부여할 수 있습니다.
@@ -119,7 +119,7 @@ Azure AD 보안 그룹 또는 Office 365 그룹을 사용 하는 다른 리소�
 
 권한 관리 및 해당 설명서를 더 잘 이해 하려면 다음 약관을 검토 해야 합니다.
 
-| 용어 또는 개념 | 설명 |
+| 용어 또는 개념 | Description |
 | --- | --- |
 | 자격 관리 | 액세스 패키지를 할당, 해지 및 관리 하는 서비스입니다. |
 | 액세스 패키지 | 사용자가 요청할 수 있는 리소스에 대 한 권한 및 정책 컬렉션입니다. 액세스 패키지는 항상 카탈로그에 포함 되어 있습니다. |
@@ -139,6 +139,18 @@ Azure AD 보안 그룹 또는 Office 365 그룹을 사용 하는 다른 리소�
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
 Azure Government, Azure 독일 및 Azure 중국 21Vianet과 같은 특수 클라우드는 현재이 미리 보기에서 사용할 수 없습니다.
+
+### <a name="which-users-must-have-licenses"></a>어떤 사용자에게 라이선스가 있어야 하나요?
+
+활성 구성원 사용자가 있는 경우 테 넌 트에는 적어도 Azure AD Premium P2 라이선스가 있어야 합니다. 자격 관리의 활성 구성원 사용자는 다음과 같습니다.
+
+- 액세스 패키지에 대 한 요청을 시작 하거나 승인 하는 사용자입니다.
+- 액세스 패키지가 할당 된 사용자입니다. 
+- 액세스 패키지를 관리 하는 사용자입니다.
+
+멤버 사용자에 대 한 라이선스의 일부로 많은 게스트 사용자가 자격 관리와 상호 작용 하도록 허용할 수도 있습니다. 포함할 수 있는 게스트 사용자 수를 계산 하는 방법에 대 한 자세한 내용은 [AZURE ACTIVE DIRECTORY B2B 공동 작업 라이선스 지침](../b2b/licensing-guidance.md)을 참조 하세요.
+
+사용자에 게 라이선스를 할당 하는 방법에 대 한 자세한 내용은 [Azure Active Directory 포털을 사용 하 여 라이선스 할당 또는 제거](../fundamentals/license-users-groups.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

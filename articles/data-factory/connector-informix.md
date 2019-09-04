@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 66ae9fa1ff4038a77ecc0b7046434d4d606f5015
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 4c9d4e84be59ab50174350c20e505f34919d5041
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842570"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276315"
 ---
 # <a name="copy-data-from-and-to-ibm-informix-data-stores-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 IBM Informix 데이터 저장소 간 데이터 복사
 
@@ -83,7 +83,7 @@ Informix 원본에서 지원 되는 모든 싱크 데이터 저장소로 데이�
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 데이터 세트 문서를 참조하세요. 이 섹션에서는 Informix 데이터 집합에서 지 원하는 속성의 목록을 제공 합니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Informix 데이터 집합에서 지 원하는 속성의 목록을 제공 합니다.
 
 Informix에서 데이터를 복사 하기 위해 지원 되는 속성은 다음과 같습니다.
 

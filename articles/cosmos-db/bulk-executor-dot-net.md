@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 09/01/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 0b74c7b178ee4512067de4b8decba0c3c565ccd4
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 26e4c4edbcfc282fffd0d43673d3585cfe973848
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616961"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241277"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>대량 실행기 .NET 라이브러리를 사용하여 Azure Cosmos DB에서 대량 작업 수행
 
@@ -58,7 +58,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
    private static readonly int CollectionThroughput = int.Parse(ConfigurationManager.AppSettings["CollectionThroughput"]);
    ```
 
-   대량 가져오기는 App.config 파일에 지정된 데이터베이스 이름, 컬렉션 이름 및 처리량 값이 포함된 새 데이터베이스 및 컬렉션을 만듭니다. 
+   대량 가져오기에서는 App.config 파일에 지정 된 데이터베이스 이름, 컨테이너 이름 및 처리량 값을 사용 하 여 새 데이터베이스 및 컨테이너를 만듭니다. 
 
 3. 다음으로 DocumentClient 개체가 직접 TCP 연결 모드를 사용하여 초기화됩니다.  
 

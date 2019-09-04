@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 64bd71d89446a19d2afe56a32b0c7124e897cb48
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 8d7346bb61fad09e3f7c9098809463285ef57e93
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072408"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242492"
 ---
 # <a name="ip-addresses-of-azure-api-management"></a>Azure API Management의 IP 주소
 
@@ -27,7 +27,9 @@ IP 주소를 사용 하 여 방화벽 규칙을 만들거나, 백 엔드 서비�
 
 ## <a name="ip-addresses-of-api-management-service"></a>API Management 서비스의 IP 주소
 
-API Management 서비스가 Developer, Basic, Standard 또는 Premium 계층 서비스인 경우 Azure Portal 리소스의 개요 대시보드에서 IP 주소를 검색할 수 있습니다.
+Developer, Basic, Standard 또는 Premium 계층의 모든 API Management 서비스 인스턴스에는 공용 IP 주소가 있으며이 주소는 해당 서비스 인스턴스에만 단독으로 사용 되며 다른 리소스와 공유 되지 않습니다. 
+
+Azure Portal에서 리소스의 개요 대시보드에서 IP 주소를 검색할 수 있습니다.
 
 ![API Management IP 주소](media/api-management-howto-ip-addresses/public-ip.png)
 

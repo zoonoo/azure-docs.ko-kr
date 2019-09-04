@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: snehaa
-ms.openlocfilehash: 03651ecb073d02a373c434b8cb55bdafec6d142a
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 46c6ac52e1afb6c1619b814580a1059fd3dfedda
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142211"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279496"
 ---
 # <a name="azure-migrate-frequently-asked-questions-faq"></a>Azure Migrate: 질문과 대답(FAQ)
 
@@ -27,7 +27,7 @@ ms.locfileid: "70142211"
 
 Azure Migrate은 마이그레이션을 시작 하 고, 컴퓨터 및 워크 로드의 검색 및 평가를 실행 하 고 추적 하 고, 컴퓨터 및 워크 로드를 Azure로 마이그레이션하는 작업을 실행 하 고 추적 하는 중앙 허브를 제공 합니다. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) 은 재해 복구 솔루션입니다. Azure Migrate 서버 마이그레이션은 백 엔드에서 Azure Site Recovery를 사용 하 여 온-프레미스 컴퓨터의 리프트 앤 시프트 마이그레이션에 대 한 마이그레이션 시나리오를 사용 하도록 설정 합니다.
 
-## <a name="azure-migrate-appliance-vmwarephysical-servers"></a>Azure Migrate 어플라이언스 (VMware/물리적 서버)
+## <a name="azure-migrate-appliance"></a>Azure Migrate 어플라이언스
 
 ### <a name="how-does-the-azure-migrate-appliance-connect-to-azure"></a>Azure Migrate 어플라이언스는 Azure에 어떻게 연결 되나요?
 
@@ -87,6 +87,9 @@ Hyper-v의 경우 검색에서 Hyper-v 호스트 자격 증명을 사용 합니�
 ### <a name="how-many-vms-can-i-discover-with-a-single-migration-appliance"></a>단일 마이그레이션 어플라이언스로 검색할 수 있는 Vm은 몇 개입니까?
 
 단일 마이그레이션 어플라이언스를 사용 하 여 최대 1만 VMware Vm 및 최대 5000 Hyper-v Vm을 검색할 수 있습니다. 온-프레미스 환경에 더 많은 컴퓨터가 있는 경우 [hyper-v](scale-hyper-v-assessment.md) 및 [VMware](scale-vmware-assessment.md) 평가를 확장 하는 방법을 알아보세요.
+
+### <a name="can-i-delete-the-azure-migrate-appliance-from-the-project"></a>프로젝트에서 Azure Migrate 어플라이언스를 삭제할 수 있나요?
+현재 프로젝트에서 어플라이언스를 삭제 하는 것은 지원 되지 않습니다. 어플라이언스를 삭제 하는 유일한 방법은 어플라이언스와 연결 된 Azure Migrate 프로젝트를 포함 하는 리소스 그룹을 삭제 하는 것 이지만, 등록 된 다른 어플라이언스, 검색 된 인벤토리, 평가 및 기타 모든 Azure 아티팩트도 삭제 됩니다. 리소스 그룹의 프로젝트와 연결 된입니다.
 
 ## <a name="azure-migrate-server-assessment"></a>Azure Migrate 서버 평가
 

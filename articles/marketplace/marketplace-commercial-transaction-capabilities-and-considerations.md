@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 6991ebfa58099a42b09e482d11c0d3c3983decce
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: f6f409c42c7ffa5639315e71ff565f9c672e227c
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535048"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279751"
 ---
 # <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>상업적 marketplace 트랜잭션 기능 및 고려 사항
 
@@ -75,7 +75,7 @@ SaaS 앱의 경우 게시자는 Azure 인프라 사용 요금 및 소프트웨�
 
 ### <a name="pay-as-you-go-and-subscription-site-based-pricing"></a>종량제 및 구독(사이트 기준) 가격 책정
 
-WPay 량 제 및 구독 가격 종 량 제 또는 구독 트랜잭션 제안을 게시할 때 Microsoft는 소프트웨어 라이선스 구매, 반환 및 지불 거절을 처리 하는 기술 및 서비스를 제공 합니다. 이 시나리오에서 게시자는 Microsoft가 이러한 목적을 위한 에이전트 역할을 하도록 권한을 부여합니다. 게시자는 Microsoft가 판매자, 공급 기업, 배포자 및 라이선스 허가자로서의 역할을 유지하는 동시에 소프트웨어 라이선스 트랜잭션을 촉진하도록 허용합니다.
+종량제 또는 구독 트랜잭션 제품을 게시하는 경우 Microsoft는소프트웨어 라이선스 구입, 반품 및 지불 거절을 처리하는 기술 및 서비스를 제공합니다. 이 시나리오에서 게시자는 Microsoft가 이러한 목적을 위한 에이전트 역할을 하도록 권한을 부여합니다. 게시자는 Microsoft가 판매자, 공급 기업, 배포자 및 라이선스 허가자로서의 역할을 유지하는 동시에 소프트웨어 라이선스 트랜잭션을 촉진하도록 허용합니다.
 
 Microsoft에서는 고객 들이 Microsoft의 상용 Marketplace 및 게시자의 최종 사용자 사용권 계약에 대 한 사용 약관에 테스트할 게시자 소프트웨어를 주문 하 고, 라이선스를 부여 하 고, 사용할 수 있습니다. 제품을 만들 때 게시자는 최종 사용자 사용권 계약을 제공 하거나 [표준 계약](https://docs.microsoft.com/azure/marketplace/standard-contract) 을 선택 해야 합니다.
 
@@ -176,7 +176,7 @@ Microsoft에서는 고객 들이 Microsoft의 상용 Marketplace 및 게시자�
 
 고객이 기업 계약을 사용하여 구매하는 경우:
 
-| Description |    날짜  |
+| 설명 |    날짜  |
 |----------|----------|
 |주문 기간 | 2018년 8월 15일 - 2018년 8월 30일 |
 |기간 종료일(분기) | 2018년 9월 30일 |

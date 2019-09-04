@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/22/2019
-ms.openlocfilehash: e5d5d36e82914f1d6d03299db0ed1427ac5a389a
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 2ce64df5eeb8aa44ef714d6b465b7f2e1819635d
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147578"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259283"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 집합 만들기 및 액세스 (미리 보기)
 
@@ -30,7 +30,7 @@ Azure Machine Learning 데이터 집합을 사용 하 여 다음을 수행할 �
 
 * 다른 사용자와 **공동으로 데이터 & 공유** 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 데이터 집합을 만들고 작업 하려면 다음이 필요 합니다.
 
@@ -47,7 +47,7 @@ Azure Machine Learning 데이터 집합을 사용 하 여 다음을 수행할 �
 
 데이터 집합은 사용자가 학습에서 사용 하는 방법에 따라 다양 한 형식으로 분류 됩니다. 데이터 집합 형식 목록:
 * [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) 는 제공 된 파일 또는 파일 목록을 구문 분석 하 여 테이블 형식으로 데이터를 나타냅니다. 이를 통해 pandas 데이터 프레임로 데이터를 구체화할 수 있습니다. Csv, tsv, parquet 파일, SQL 쿼리 결과 등에서 개체를만들수있습니다.`TabularDataset` 전체 목록은 [설명서](https://aka.ms/tabulardataset-api-reference)를 참조 하세요.
-* Filedataset은 데이터 저장소 또는 public url의 단일 또는 여러 파일을 참조 합니다. 그러면 계산에 파일을 다운로드 하거나 탑재 하는 기능이 제공 됩니다. 이 파일은 심층 학습을 비롯 한 다양 한 기계 학습 시나리오를 가능 하 게 하는 모든 형식일 수 있습니다.
+* [Filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) 은 데이터 저장소 또는 public url의 단일 또는 여러 파일을 참조 합니다. 그러면 계산에 파일을 다운로드 하거나 탑재 하는 기능이 제공 됩니다. 이 파일은 심층 학습을 비롯 한 다양 한 기계 학습 시나리오를 가능 하 게 하는 모든 형식일 수 있습니다.
 
 예정 된 API 변경에 대 한 자세한 내용은 [여기](https://aka.ms/tabular-dataset)를 참조 하세요.
 

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 116ffa31fb540897f9a769b73c3a6474dda45b88
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d9b4cf755bbf2e225bee813510c083570b0f8064
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101930"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70280165"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM에 대한 가격 책정 지침
 
@@ -111,9 +111,9 @@ License Mobility를 통한 SQL 사용자 라이선스 필요가 권장되는 경
 
 BYOL과 함께 SQL Server VM을 사용하려면 SQL Server Standard 또는 Enterprise에 대한 라이선스와 함께 일부 볼륨 라이선싱 프로그램을 통한 필수 옵션이자 다른 프로그램에 대한 선택적 구매인 [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx#tab=1)가 있어야 합니다. 볼륨 라이선싱을 통해 제공된 가격 수준은 SQL Server에 대한 계약 유형과 수량 및/또는 약정에 따라 달라집니다. 하지만 일반적으로 연속 프로덕션 작업에 대한 사용자 라이선스 필요에는 다음과 같은 이점이 있습니다.
 
-| BYOL 이점 | 설명 |
+| BYOL 이점 | Description |
 |-----|-----|
-| **비용 절감** | [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/) 는 최대 55% 절감 액을 제공 합니다. 자세한 내용은 [스위치 라이선스 모델] (ahb.md)을 참조 하세요. |
+| **비용 절감** | [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/) 는 최대 55% 절감 액을 제공 합니다. 자세한 내용은 [Switch license model](virtual-machines-windows-sql-ahb.md) 항목을 참조 하세요. |
 | **무료 수동 보조 복제본** | 사용자 라이선스 필요의 또 다른 이점은 고가용성을 위해 SQL Server당 [하나의 수동 보조 복제본에 무료 라이선스가 제공](https://azure.microsoft.com/pricing/licensing-faq/)된다는 것입니다. 이에 따라 가용성이 높은 SQL Server 배포(예: Always On 가용성 그룹 사용)의 라이선스 비용이 50% 절감됩니다. 수동 보조 복제본을 실행할 권한은 장애 조치(failover) 서버 Software Assurance 이점을 통해 제공됩니다. |
 
 이러한 사용자 라이선스 필요 이미지 중 하나를 사용하여 SQL Server 2017 Azure VM을 만들려면 접두사 “{BYOL}”이 추가된 VM을 참조하세요.

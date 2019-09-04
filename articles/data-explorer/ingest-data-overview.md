@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 891d2acc42f8d6f03976f0553e2e3127bc6d16f7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: be77ae932ec72239bea04fce298d7f1b84e5e4d8
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60759341"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240644"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Azure 데이터 탐색기 데이터 수집
 
@@ -52,7 +52,7 @@ Azure Data Explorer는 현재 다음을 지원합니다.
 
 ### <a name="ingestion-using-integration-services"></a>통합 서비스를 사용한 수집
 
-* Azure 데이터 팩터리 (ADF)를 azure에서 사용 하 여 Azure 데이터 탐색기에서 데이터를 복사 하는 분석 워크 로드를 위한 완전히 관리 되는 데이터 통합 서비스 [지원 되는 데이터 저장소 및 형식](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)합니다. 자세한 내용은 [Azure 데이터 탐색기로 Azure Data Factory에서 데이터를 복사](/azure/data-explorer/data-factory-load-data)합니다.
+* Azure의 분석 워크 로드를 위한 완전히 관리 되는 데이터 통합 서비스인 ADF (Azure Data Factory)는 [지원 되는 데이터 저장소와 형식을](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)사용 하 여 azure 데이터 탐색기 간에 데이터를 복사 하는 데 사용 됩니다. 자세한 내용은 [Azure Data Factory에서 Azure 데이터 탐색기로 데이터 복사](/azure/data-explorer/data-factory-load-data)를 참조 하세요.
 
 ### <a name="programmatic-ingestion"></a>프로그래밍 방식 수집
 
@@ -80,7 +80,7 @@ Kusto는 데이터를 수집하고 쿼리하는 데 사용할 수 있는 다음�
 
 * Azure 데이터 탐색기 엔진에 직접 데이터 수집(탐색 및 프로토타입에 가장 적합):
 
-  * **인라인 수집**: 제어 명령은 (.ingest 인라인)에서 데이터가 포함 된 임시 테스트 목적으로 만들어졌습니다.
+  * **인라인**수집: 대역 외 데이터를 포함 하는 제어 명령 (. 수집 인라인)은 임시 테스트 목적으로 사용 됩니다.
 
   * **쿼리에서 수집**: 쿼리 결과를 가리키는 제어 명령(.set, .set-or-append, .set-or-replace)이 보고서 또는 작은 임시 테이블을 생성하는 데 사용됩니다.
 
@@ -88,7 +88,7 @@ Kusto는 데이터를 수집하고 쿼리하는 데 사용할 수 있는 다음�
 
 **다양한 메서드의 대기 시간**:
 
-| 방법 | 대기 시간 |
+| 메서드 | 대기 시간 |
 | --- | --- |
 | **인라인 수집** | 즉시 |
 | **쿼리에서 수집** | 쿼리 시간 + 처리 시간 |
@@ -113,13 +113,13 @@ Kusto는 데이터를 수집하고 쿼리하는 데 사용할 수 있는 다음�
 * 대기 시간 요구 사항은 무엇인가요? 
 * 기존에 관리되는 수집 파이프라인 중 하나를 사용할 수 있나요? 
 
-이벤트 허브와 같은 메시징 서비스 기반의 기존 인프라가 있는 조직의 경우 커넥터를 사용하는 것이 가장 적합한 솔루션일 수 있습니다. 큐에 대기된 수집은 큰 데이터 볼륨에 적합합니다.
+이벤트 허브 및 IoT Hub 같은 메시징 서비스를 기반으로 하는 기존 인프라를 사용 하는 조직의 경우 커넥터를 사용 하는 것이 가장 적합 한 솔루션 일 수 있습니다. 큐에 대기된 수집은 큰 데이터 볼륨에 적합합니다.
 
 ## <a name="supported-data-formats"></a>지원되는 데이터 형식
 
 쿼리에서 수집을 제외한 모든 수집 방법에 대해 Azure Data Explorer에서 구문 분석이 가능하도록 데이터 형식을 지정합니다. 지원되는 데이터 형식은 다음과 같습니다.
 
-* CSV, TSV, PSV, SCSV, SOH
+* CSV, TSV, TSVE, PSV, SCSV, SOH
 * JSON(구분된 줄, 여러 줄), Avro
 * ZIP 및 GZIP 
 

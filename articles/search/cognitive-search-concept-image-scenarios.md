@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 65b6eb07a866db405af3e5bc609a540c36f148a8
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 84109cf04588a5de6fb3fd946a89b5dfee4baa1b
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186438"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259144"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>인식 검색 시나리오의 이미지에서 정보를 처리하고 추출하는 방법
 
@@ -31,19 +31,18 @@ ms.locfileid: "70186438"
 
 이미지 정규화를 해제할 수 없습니다. 이미지에서 기술을 반복하려면 정규화된 이미지를 사용하는 것이 좋습니다. 인덱서에 대해 이미지 정규화를 사용 하도록 설정 하려면 기술를 해당 인덱서에 연결 해야 합니다.
 
-| 구성 매개 변수 | Description |
+| 구성 매개 변수 | 설명 |
 |--------------------|-------------|
 | imageAction   | 포함된 이미지 또는 이미지 파일이 있을 때 아무 작업도 수행하지 않아야 하는 경우 "없음"으로 설정합니다. <br/>정규화된 이미지의 배열을 문서 해독의 일부로 생성하려 "generateNormalizedImages"로 설정합니다.<br/>정규화된 이미지 배열을 생성하려면 “generateNormalizedImagePerPage”로 설정합니다. 여기서 데이터 원본에 있는 PDF의 경우 각 페이지가 하나의 출력 이미지로 렌더링됩니다.  기능은 비 PDF 파일 형식에 대한 “generateNormalizedImages”와 동일합니다.<br/>“none”이 아닌 옵션의 경우 이미지가 *normalized_images* 필드에 공개됩니다. <br/>기본값은 "없음"입니다. 이 구성은 "dataToExtract"가 "contentAndMetadata"로 설정된 경우 Blob 데이터 원본에만 관련됩니다. <br/>지정 된 문서에서 최대 1000 개의 이미지가 추출 됩니다. 문서에 1000 개가 넘는 이미지가 있으면 첫 번째 1000이 추출 되 고 경고가 생성 됩니다. |
-|  normalizedImageMaxWidth | 정규화된 이미지의 최대 너비(픽셀 단위)가 생성되었습니다. 기본값은 2000입니다.|
-|  normalizedImageMaxHeight | 정규화된 이미지의 최대 높이(픽셀 단위)가 생성되었습니다. 기본값은 2000입니다.|
+|  normalizedImageMaxWidth | 정규화된 이미지의 최대 너비(픽셀 단위)가 생성되었습니다. 기본값은 2000입니다. 허용 되는 최대값은 1만입니다. | 
+|  normalizedImageMaxHeight | 정규화된 이미지의 최대 높이(픽셀 단위)가 생성되었습니다. 기본값은 2000입니다. 허용 되는 최대값은 1만입니다.|
 
 > [!NOTE]
 > *imageAction*을 "없음" 이외의 값으로 설정하는 경우 *parsingMode* 속성을 "기본값" 이외의 값으로 설정할 수 없습니다.  인덱서 구성에서 이러한 두 속성 중 하나를 기본이 아닌 값으로 설정할 수 있습니다.
 
 **parsingMode** 매개 변수를 `json`(각 blob을 단일 문서로 인덱싱) 또는 `jsonArray`(blob에 JSON 배열이 포함되어 있고 각 배열 요소를 별도 문서로 처리해야 하는 경우)로 설정합니다.
 
-정규화된 이미지의 최대 너비와 높이에 대한 2000 픽셀이라는 기본값은 [OCR 기술](cognitive-search-skill-ocr.md) 및 [이미지 분석 기술](cognitive-search-skill-image-analysis.md)에서 지원하는 최대 크기에 기반합니다. 최대 한도를 늘리면 더 큰 이미지를 처리하는 데 실패할 수 있습니다.
-
+정규화된 이미지의 최대 너비와 높이에 대한 2000 픽셀이라는 기본값은 [OCR 기술](cognitive-search-skill-ocr.md) 및 [이미지 분석 기술](cognitive-search-skill-image-analysis.md)에서 지원하는 최대 크기에 기반합니다. [OCR 기술은](cognitive-search-skill-ocr.md) 영어가 아닌 언어의 경우 최대 너비와 높이를 4200, 영어의 경우 1만을 지원 합니다.  최대 한도를 늘리면 기술 정의 및 문서 언어에 따라 큰 이미지에서 처리가 실패할 수 있습니다. 
 
 다음과 같이 [인덱서 정의](https://docs.microsoft.com/rest/api/searchservice/create-indexer)에서 imageAction을 지정합니다.
 

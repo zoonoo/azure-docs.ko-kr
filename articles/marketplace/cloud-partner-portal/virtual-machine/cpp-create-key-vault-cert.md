@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault 인증서를 만듭니다. | Azure Marketplace
+title: Azure Key Vault 인증서 만들기 | Azure Marketplace
 description: Azure에서 배포한 VHD에서 VM을 등록하는 방법을 설명합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 5163aa0a9195aa712fa333667b3f7ccf227469be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c27605d2f9b87a9d4ba3d2326c0ce7ad437d3441
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938397"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240989"
 ---
 # <a name="create-certificates-for-azure-key-vault"></a>Azure Key Vault용 인증서 만들기
 
@@ -201,7 +201,7 @@ Azure Powershell 스크립트를 편집한 후 실행하여 로컬 폴더에 인
     "dataType" :"pfx",
     "password": "$certpassword"
     }
-    "@
+"@
             echo $certpassword
             $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
             $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)

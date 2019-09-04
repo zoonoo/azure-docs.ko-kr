@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b1c0d33a7d920f76bcbea6d8d6babc7390003bc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9618e02f54fbb2a3b92771761c5fcf700d126b5c
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60383760"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275224"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect에 대한 토폴로지
 이 문서에서는 주요 통합 솔루션으로 Azure AD Connect Sync를 사용하는 다양한 온-프레미스 및 Azure AD(Azure Active Directory) 토폴로지에 대해 설명합니다. 이 문서에는 지원되는 구성과 지원되지 않는 구성이 포함되어 있습니다.
@@ -29,7 +29,7 @@ ms.locfileid: "60383760"
 
 다음은 문서의 그림에 대한 범례입니다.
 
-| 설명 | 기호 |
+| Description | 기호 |
 | --- | --- |
 | 온-프레미스 Active Directory 포리스트 |![온-프레미스 Active Directory 포리스트](./media/plan-connect-topologies/LegendAD1.png) |
 | 필터링된 가져오기를 사용한 온-프레미스 Active Directory |![필터링된 가져오기를 사용한 Active Directory](./media/plan-connect-topologies/LegendAD2.png) |
@@ -60,7 +60,7 @@ ms.locfileid: "60383760"
 
 많은 조직에는 다중 온-프레미스 Active Directory 포리스트가 있는 환경이 있습니다. 둘 이상의 온-프레미스 Active Directory 포리스트가 있는 이유는 여러 가지가 있습니다. 대표적인 예는 계정 리소스 포리스트를 사용하는 디자인과 합병 또는 인수의 결과입니다.
 
-포리스트가 여러 개인 경우 단일 Azure AD Connect Sync 서버에서 모든 포리스트에 연결할 수 있어야 합니다. 서버를 도메인에 가입할 필요가 없습니다. 모든 포리스트에 연결해야 하는 경우 서버를 경계 네트워크(DMZ, 완충 지역 또는 스크린된 서브넷이라고도 함)에 배치할 수 있습니다.
+포리스트가 여러 개인 경우 단일 Azure AD Connect Sync 서버에서 모든 포리스트에 연결할 수 있어야 합니다. 서버는 도메인에 가입 되어 있어야 합니다. 모든 포리스트에 연결해야 하는 경우 서버를 경계 네트워크(DMZ, 완충 지역 또는 스크린된 서브넷이라고도 함)에 배치할 수 있습니다.
 
 Azure AD Connect 설치 마법사는 여러 포리스트에 표시되는 사용자를 통합하는 몇 가지 옵션을 제공합니다. 이러한 옵션의 목표는 사용자를 Azure AD에서 한 번만 표시하는 것입니다. 설치 마법사에서 사용자 지정 설치 경로에 구성할 수 있는 몇 가지 일반적인 토폴로지가 있습니다. **사용자를 고유하게 식별** 페이지에서 해당 토폴로지를 나타내는 옵션을 선택합니다. 통합은 사용자에 대해서만 구성됩니다. 중복된 그룹은 기본 구성과 통합되지 않습니다.
 
@@ -120,7 +120,7 @@ Azure AD Connect 동기화의 기본 구성에서 다음 사항을 가정합니�
 ## <a name="office-365-and-topology-considerations"></a>Office 365 및 토폴로지 고려 사항
 일부 Office 365 워크로드의 경우 지원되는 토폴로지에 약간의 제한이 있습니다.
 
-| 워크로드 | 제한 |
+| 작업 | Restrictions |
 | --------- | --------- |
 | Exchange Online | Exchange Online에서 지원하는 하이브리드 토폴로지에 대한 자세한 내용은 [여러 Active Directory 포리스트를 사용한 하이브리드 배포](https://technet.microsoft.com/library/jj873754.aspx)를 참조하세요. |
 | 비즈니스용 Skype | 다중 포리스트 온-프레미스를 사용하는 경우 계정 리소스 포리스트 토폴로지만 지원됩니다. 자세한 내용은 [Business Server 2015용 Skype에 대한 환경 요구 사항](https://technet.microsoft.com/library/dn933910.aspx)을 참조하세요. |

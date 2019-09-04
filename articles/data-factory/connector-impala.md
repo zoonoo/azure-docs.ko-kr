@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: a344c94561c43652e360f7da02c16877e4d70529
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 01712508b15be947f4c3d7df401ad431d9f25455
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966976"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276372"
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory-preview"></a>Azure Data Factory를 사용하여 Impala에서 데이터 복사(미리 보기)
 
@@ -32,7 +32,7 @@ Impala에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복�
 
 데이터 팩터리는 연결을 허용하는 기본 제공 드라이버를 제공합니다. 따라서 이 커넥터를 사용하기 위해 드라이버를 수동으로 설치할 필요가 없습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -49,7 +49,7 @@ Impala에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복�
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **Impala**로 설정됩니다. | 예 |
-| host | Impala 서버의 IP 주소 또는 호스트 이름입니다(즉, 192.168.222.160).  | 예 |
+| 호스트 | Impala 서버의 IP 주소 또는 호스트 이름입니다(즉, 192.168.222.160).  | 예 |
 | port | Impala 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. 기본값은 21050입니다.  | 아니요 |
 | authenticationType | 사용할 인증 유형입니다. <br/>허용되는 값은 **Anonymous**, **SASLUsername** 및 **UsernameAndPassword**입니다. | 예 |
 | username | Impala 서버에 액세스하는 데 사용되는 사용자 이름입니다. SASLUsername을 사용하는 경우 기본값은 익명입니다.  | 아니요 |
@@ -95,7 +95,9 @@ Impala에서 데이터를 복사하려면 데이터 세트의 type 속성을 **I
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **ImpalaObject** | 예 |
-| tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
+| schema | 스키마의 이름입니다. |아니요(작업 원본에서 "query"가 지정된 경우)  |
+| table | 테이블 이름입니다. |아니요(작업 원본에서 "query"가 지정된 경우)  |
+| tableName | 스키마가 있는 테이블의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원 됩니다. 새 `schema` 워크 `table` 로드에 및를 사용 합니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
 
@@ -104,11 +106,12 @@ Impala에서 데이터를 복사하려면 데이터 세트의 type 속성을 **I
     "name": "ImpalaDataset",
     "properties": {
         "type": "ImpalaObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Impala linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```

@@ -4,14 +4,14 @@ description: Azure Cosmos 컨테이너에 대해 실행한 작업의 RU(요청 �
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 09/01/2019
 ms.author: thweiss
-ms.openlocfilehash: 682273524269682f62cd386de1c9161888747f16
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c5699bb851bd0a818a987228155c62683e93f51a
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093719"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240779"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Azure Cosmos DB에서 요청 단위 요금 알아보기
 
@@ -176,7 +176,7 @@ RU 요금은 `getLastRequestStatistics`라는 사용자 지정 [데이터베이�
 
 1. [새 Azure Cosmos 계정을 만들고](create-mongodb-dotnet.md#create-a-database-account) 데이터를 입력하거나, 이미 데이터가 들어 있는 기존 계정을 선택합니다.
 
-1. **Data Explorer** 창으로 이동한 다음, 작업할 컬렉션을 선택합니다.
+1. **Data Explorer** 창으로 이동한 다음, 작업할 컨테이너를 선택합니다.
 
 1. **새 쿼리**를 선택합니다.
 

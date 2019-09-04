@@ -10,21 +10,21 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 0a47bb70ef87783d9b275329452c94526c67a2c3
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.openlocfilehash: d82f843cb5cdd7b910c734f26a93144374061b74
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70211744"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274490"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Open Hub를 통해 SAP Business Warehouse에서 데이터 복사
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Open Hub를 통해 SAP BW(Business Warehouse)에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 >[!TIP]
->SAP 데이터 통합 시나리오에 대 한 ADF의 전반적인 지원에 대 한 자세한 내용은 [Azure Data Factory 백서를 사용 하 여 Sap 데이터 통합](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) 에서 자세한 소개, comparsion 및 지침을 참조 하세요.
+>SAP 데이터 통합 시나리오에 대 한 ADF의 전반적인 지원에 대 한 자세한 내용은 [Azure Data Factory 백서를 사용 하 여 sap 데이터 통합](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) 에서 자세한 소개, comparsion 및 지침을 참조 하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -145,11 +145,8 @@ SAP BW Open Hub 간에 데이터를 복사하려면 데이터 세트의 형식 �
 |:--- |:--- |:--- |
 | type | 이 속성은 **SapOpenHubTable**로 설정해야 합니다.  | 예 |
 | openHubDestinationName | 복사할 데이터가 있는 Open Hub 대상의 이름입니다. | 예 |
-| excludeLastRequest | 마지막 요청의 레코드를 제외할지 여부입니다. | No(기본값: **true**) |
-| baseRequestId | 델타 로드의 요청 ID입니다. 설정하는 경우 requestId가 이 속성의 값**보다 큰** 데이터만 검색됩니다.  | 아니요 |
 
->[!TIP]
->항상 테이블의 기존 데이터를 모두 로드하고 덮어쓰거나, 테스트를 위해 DTP를 한 번만 실행하는 등 Open Hub 테이블에 단일 요청 ID를 통해 생성된 데이터만 포함되는 경우에는 "excludeLastRequest" 옵션 선택을 취소하여 데이터를 외부로 복사해야 합니다.
+데이터 집합에서 및 `excludeLastRequest` `baseRequestId` 를 설정 하는 경우 계속 해 서는 그대로 지원 되지만 작업 원본에서 새 모델을 사용 하는 것이 좋습니다.
 
 **예제:**
 
@@ -158,12 +155,13 @@ SAP BW Open Hub 간에 데이터를 복사하려면 데이터 세트의 형식 �
     "name": "SAPBWOpenHubDataset",
     "properties": {
         "type": "SapOpenHubTable",
+        "typeProperties": {
+            "openHubDestinationName": "<open hub destination name>"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<SAP BW Open Hub linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "openHubDestinationName": "<open hub destination name>"
         }
     }
 }
@@ -175,7 +173,16 @@ SAP BW Open Hub 간에 데이터를 복사하려면 데이터 세트의 형식 �
 
 ### <a name="sap-bw-open-hub-as-source"></a>SAP BW Open Hub(원본)
 
-SAP BW Open Hub에서 데이터를 복사하려면 복사 작업의 원본 형식을 **SapOpenHubSource**로 설정합니다. 복사 작업 **원본** 섹션에 필요한 추가 형식별 속성이 없습니다.
+SAP BW 열려 있는 허브에서 데이터를 복사 하려면 복사 작업 **원본** 섹션에서 다음 속성을 지원 합니다.
+
+| 속성 | 설명 | 필수 |
+|:--- |:--- |:--- |
+| type | 복사 작업 원본의 **type** 속성은 **SapOpenHubSource**로 설정 해야 합니다. | 예 |
+| excludeLastRequest | 마지막 요청의 레코드를 제외할지 여부입니다. | No(기본값: **true**) |
+| baseRequestId | 델타 로드의 요청 ID입니다. 설정하는 경우 requestId가 이 속성의 값**보다 큰** 데이터만 검색됩니다.  | 아니요 |
+
+>[!TIP]
+>항상 테이블의 기존 데이터를 모두 로드하고 덮어쓰거나, 테스트를 위해 DTP를 한 번만 실행하는 등 Open Hub 테이블에 단일 요청 ID를 통해 생성된 데이터만 포함되는 경우에는 "excludeLastRequest" 옵션 선택을 취소하여 데이터를 외부로 복사해야 합니다.
 
 데이터 로드 속도를 높이기 위해 복사 작업에서를 [`parallelCopies`](copy-activity-performance.md#parallel-copy) 설정 하 여 SAP BW 열려 있는 허브에서 데이터를 병렬로 로드할 수 있습니다. 예를 들어를 4로 `parallelCopies` 설정 하는 경우 Data Factory는 네 개의 rfc 호출을 동시에 실행 하 고 각 RFC 호출은 DTP 요청 id 및 패키지 id로 분할 된 SAP BW 열린 허브 테이블에서 데이터의 일부를 검색 합니다. 고유 DTP 요청 ID + 패키지 ID 수가의 값 보다 큰 경우에 `parallelCopies`적용 됩니다. 파일 기반 데이터 저장소로 데이터를 복사 하는 경우에는 폴더에 여러 파일로 기록 (폴더 이름만 지정) 하는 것이 좋습니다 .이 경우에는 단일 파일에 쓰는 것 보다 성능이 좋습니다.
 
@@ -200,7 +207,8 @@ SAP BW Open Hub에서 데이터를 복사하려면 복사 작업의 원본 형�
         ],
         "typeProperties": {
             "source": {
-                "type": "SapOpenHubSource"
+                "type": "SapOpenHubSource",
+                "excludeLastRequest": true
             },
             "sink": {
                 "type": "<sink type>"

@@ -1,27 +1,27 @@
 ---
 title: '예제: AdventureWorks Inventory 데이터베이스 모델링 - Azure Search'
 description: Azure Search에서 인덱싱 및 전체 텍스트 검색이 가능하도록 관계형 데이터를 모델링하고 일반 데이터 세트로 변환하는 방법을 알아봅니다.
-author: cstone
+author: HeidiSteen
 manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/25/2019
-ms.author: chstone
-ms.openlocfilehash: 52ccf3edfca5b3481b038bd5d3449c1dd6354179
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 09/05/2019
+ms.author: heidist
+ms.openlocfilehash: c25dd34460e7e92bb20913f5b812044623dd38e3
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69649913"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274031"
 ---
 # <a name="example-model-the-adventureworks-inventory-database-for-azure-search"></a>예제: Azure Search에 대한 AdventureWorks Inventory 데이터베이스 모델링
 
-정형 데이터베이스 콘텐츠를 효율적인 검색 인덱스로 모델링하는 연습은 결코 쉽지 않습니다. 일정 및 변경 관리 외에도, 원본 행을 테이블 조인 상태에서 검색 친화적인 엔터티로 비정규화해야 하는 문제가 있습니다. 이 문서에서는 온라인에서 제공하는 AdventureWorks 샘플 데이터를 사용하여 데이터베이스에서 검색으로 변환하는 일반 환경을 집중적으로 다룹니다. 
+Azure Search는 일반 행 집합을 [인덱싱 (데이터 수집) 파이프라인](search-what-is-an-index.md)에 대 한 입력으로 받아들입니다. 원본 데이터가 SQL Server 관계형 데이터베이스에서 시작 된 경우이 문서에서는 AdventureWorks 예제 데이터베이스를 예로 사용 하 여 인덱싱 전에 일반 행 집합을 만드는 한 가지 방법을 보여 줍니다.
 
 ## <a name="about-adventureworks"></a>AdventureWorks 정보
 
-SQL Server 인스턴스가 있는 분들은 AdventureWorks 샘플 데이터베이스에 익숙하실 것입니다. 이 데이터베이스에는 제품 정보를 공개하는 5개 테이블이 포함되어 있습니다.
+SQL Server 인스턴스를 사용 하는 경우 [AdventureWorks 예제 데이터베이스](https://docs.microsoft.com/sql/samples/adventureworks-install-configure?view=sql-server-2017)에 대해 잘 알고 있을 수 있습니다. 이 데이터베이스에는 제품 정보를 공개하는 5개 테이블이 포함되어 있습니다.
 
 + **ProductModel**: 이름
 + **Product**: 이름, 색, 비용, 크기, 무게, 이미지, 범주(각 행은 특정 ProductModel에 조인)
@@ -29,7 +29,7 @@ SQL Server 인스턴스가 있는 분들은 AdventureWorks 샘플 데이터베�
 + **ProductModelProductDescription**: 로캘(각 행은 ProductModel을 특정 언어의 특정 ProductDescription에 조인)
 + **ProductCategory**: 이름, 부모 범주
 
-이 모든 데이터를 검색 인덱스로 수집할 수 있는 일반 행 세트에 아주 쉽게 결합할 수 있습니다. 
+이 예의 목표는이 모든 데이터를 검색 인덱스에 수집 수 있는 일반 행 집합으로 결합 하는 것입니다. 
 
 ## <a name="considering-our-options"></a>옵션 고려
 
@@ -43,7 +43,7 @@ Road-650 모델은 12가지 옵션이 있습니다. 일대다 엔터티 행을 �
 
 ## <a name="use-a-collection-data-type"></a>컬렉션 데이터 형식 사용
 
-"올바른 방법"은 데이터베이스 모델에서 직접 병렬이 없는 스키마 검색 기능을 활용하는 것입니다. **Collection(Edm.String)** . 매우 긴 (단일) 문자열 대신 개별 문자열 목록이 있는 경우에 컬렉션 데이터 형식이 사용됩니다. 태그 또는 키워드가 있는 경우 이 필드에 컬렉션 데이터 형식을 사용합니다.
+"올바른 방법"은 데이터베이스 모델에서 직접 병렬이 없는 스키마 검색 기능을 활용하는 것입니다. **Collection(Edm.String)** . 이 구문은 Azure Search 인덱스 스키마에 정의 되어 있습니다. 컬렉션 데이터 형식은 매우 긴 (단일) 문자열이 아닌 개별 문자열의 목록을 나타내야 할 때 사용 됩니다. 태그 또는 키워드가 있는 경우 이 필드에 컬렉션 데이터 형식을 사용합니다.
 
 "색", "크기", "이미지"에 대한 **Collection(Edm.String)** 의 다중 값 인덱스 필드를 정의하면 중복 항목으로 인덱스를 오염시키지 않고 패싯 및 필터링을 위한 보조 정보가 보존됩니다. 마찬가지로, 숫자 Product 필드에 집계 함수를 적용하고, 모든 단일 제품 **listPrice** 대신 **minListPrice**를 인덱싱합니다.
 
@@ -164,5 +164,3 @@ WHERE
 
 > [!div class="nextstepaction"]
 > [예제: Azure Search의 다중 수준 패싯 분류](search-example-adventureworks-multilevel-faceting.md)
-
-

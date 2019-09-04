@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: b500a7b2c74acbd4e035e710f7e25f1aacd86126
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 3df481245db8d737032d1abf5906a2ffe949a2fe
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194855"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275701"
 ---
 # <a name="resource-providers-for-azure-services"></a>Azure 서비스에 대 한 리소스 공급자
 
@@ -102,9 +102,9 @@ ms.locfileid: "70194855"
 | Microsoft.LogAnalytics | [Azure Monitor](../azure-monitor/index.yml) |
 | Microsoft.Logic | [Logic Apps](../logic-apps/index.yml) |
 | Microsoft.MachineLearning | [Machine Learning Studio](../machine-learning/studio/index.yml) |
-| Microsoft.MachineLearningCompute | [Machine Learning 서비스](../machine-learning/service/index.yml) |
-| Microsoft.MachineLearningModelManagement | [Machine Learning 서비스](../machine-learning/service/index.yml) |
-| Microsoft.MachineLearningServices | [Machine Learning 서비스](../machine-learning/service/index.yml) |
+| Microsoft.MachineLearningCompute | [Machine Learning 서비스](../machine-learning/index.yml) |
+| Microsoft.MachineLearningModelManagement | [Machine Learning 서비스](../machine-learning/index.yml) |
+| Microsoft.MachineLearningServices | [Machine Learning 서비스](../machine-learning/index.yml) |
 | Microsoft.ManagedIdentity | [Azure 리소스에 대한 관리 ID](../active-directory/managed-identities-azure-resources/index.yml) |
 | Microsoft.ManagedLab | [Azure Lab Services](../lab-services/index.yml) |
 | Microsoft.Management | [관리 그룹](/azure/governance/management-groups/) |

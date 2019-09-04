@@ -8,15 +8,15 @@ editor: ''
 ms.service: app-service
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/20/2018
+ms.date: 09/03/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 30bd7c68ae1c88aba288b515d0ec32581f90b868
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b33f0dec9e6ec685b19e01ce82cfe4adec88b575
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088177"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258608"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>App Service 및 Azure Functions의 Key Vault 참조 사용(미리 보기)
 
@@ -184,3 +184,27 @@ Azure Resource Manager 템플릿을 통해 리소스 배포를 자동화할 때 
 
 > [!NOTE] 
 > 이 예제에서 원본 제어 배포는 애플리케이션 설정에 따라 다릅니다. 일반적으로 앱 설정 업데이트는 비동기적으로 동작하므로 안전하지 않은 동작입니다. 그러나 `WEBSITE_ENABLE_SYNC_UPDATE_SITE` 애플리케이션 설정을 포함했으므로 업데이트가 동기적입니다. 이는 애플리케이션 설정이 완전히 업데이트된 후에만 원본 제어 배포가 시작됨을 의미합니다.
+
+## <a name="troubleshooting-key-vault-references"></a>Key Vault 참조 문제 해결
+
+참조가 제대로 확인 되지 않으면 참조 값이 대신 사용 됩니다. 즉, 응용 프로그램 설정의 경우 값이 `@Microsoft.KeyVault(...)` 구문을 갖는 환경 변수가 만들어집니다. 이로 인해 응용 프로그램에서 오류를 throw 할 수 있습니다 .이 경우 특정 구조의 비밀이 필요 하기 때문입니다.
+
+가장 일반적으로는 [Key Vault 액세스 정책의](#granting-your-app-access-to-key-vault)잘못 된 구성으로 인해 발생 합니다. 그러나 비밀이 더 이상 존재 하지 않거나 참조 자체의 구문 오류가 원인일 수도 있습니다.
+
+구문이 올바르면 기본 제공 탐지기를 사용 하 여 현재 해결 상태를 확인 하 여 오류에 대 한 다른 원인을 확인할 수 있습니다.
+
+### <a name="using-the-detector-for-app-service"></a>App Service에 대 한 탐지기 사용
+
+1. 포털에서 앱으로 이동 합니다.
+2. **진단 및 해결 prolems를**선택 합니다.
+3. **가용성 및 성능** 을 선택 하 고 **웹 앱 중단을 선택 합니다.**
+4. **Key Vault 응용 프로그램 설정 진단을** 찾고 **추가 정보**를 클릭 합니다.
+
+
+### <a name="using-the-detector-for-azure-functions"></a>Azure Functions에 대 한 탐지기 사용
+
+1. 포털에서 앱으로 이동 합니다.
+2. **플랫폼 기능으로 이동 합니다.**
+3. **진단 및 해결 prolems를**선택 합니다.
+4. **가용성 및 성능** 을 선택 하 고 **함수 앱 중단 또는 오류 보고를 선택 합니다.**
+5. **Key Vault 응용 프로그램 설정 진단을 클릭 합니다.**

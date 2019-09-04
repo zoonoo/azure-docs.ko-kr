@@ -7,12 +7,12 @@ ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 869be11639fd4e957a991cadb44f2714875ddf7e
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: d9aadc477c3f39cfbb108d2f3eece0c9e0b06264
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232714"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70239156"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Azure 리소스의 준수 데이터 가져오기
 
@@ -27,8 +27,6 @@ Azure Policy의 가장 큰 혜택 중 하나는 구독 및 구독의 [데이터 
 
 > [!WARNING]
 > 준수 상태가 **등록 되지 않음**으로 보고 되는 경우 **Microsoft Policyinsights** 리소스 공급자가 등록 되어 있고 [의 rbac에 설명 된 대로 사용자에 게 적절 한 rbac (역할 기반 액세스 제어) 권한이 있는지 확인 합니다. Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
-
-[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="evaluation-triggers"></a>평가 트리거
 

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 20c27a3e4e9a96a19b347e5ef57ab9fb3c047140
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: f054d0665c49ee048451681a7cc34d2a648a6e9e
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194439"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240216"
 ---
 ::: zone target="docs"
 
@@ -30,7 +30,7 @@ ms.locfileid: "70194439"
 
 # <a name="review-prerequisites"></a>필수 구성 요소 검토
 
-1. 자습서를 사용 하 여 Data Box Disk 순서를 지정 해야 합니다. Azure Data Box Disk를 주문 합니다. 디스크 및 디스크당 1 개의 연결 케이블을 받았습니다.
+1. 자습서를 [사용 하 여 Data Box Disk 순서를 지정 해야 합니다. Azure Data Box Disk](data-box-disk-deploy-ordered.md)를 주문 합니다. 디스크 및 디스크당 1 개의 연결 케이블을 받았습니다.
 2. 데이터를 복사할 수 있는 클라이언트 컴퓨터가 있습니다. 클라이언트 컴퓨터는 다음 작업을 수행해야 합니다.
 
     - 지원 되는 운영 체제를 실행 합니다.

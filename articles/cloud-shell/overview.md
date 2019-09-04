@@ -12,19 +12,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/03/2019
 ms.author: damaerte
-ms.openlocfilehash: f3d7edf21edf116732eceb332cb8725a0dee85dc
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: acdf52022d8498a186ed4cff90284cd6e299d6c0
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742027"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240852"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure Cloud Shell 개요
-Azure Cloud Shell은 Azure 리소스를 관리하기 위한 브라우저에서 액세스할 수 있는 대화형 셸입니다.
-작업 방식에 가장 적합한 셸 환경을 유연하게 선택할 수 있습니다.
-Linux 사용자는 Bash 환경을 선택할 수 있으며, Windows 사용자는 PowerShell을 선택할 수 있습니다.
+Azure Cloud Shell은 Azure 리소스를 관리 하는 데 사용할 수 있는 대화형으로 인증 되 고 브라우저에서 액세스할 수 있는 셸입니다.
+Bash 또는 PowerShell을 사용 하는 방식에 가장 적합 한 셸 환경을 유연 하 게 선택할 수 있습니다.
 
 아래를 클릭하여 shell.azure.com에서 시도하세요.
 

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 9ee0f4ccfcd75504be6bb636e7ee54a845a10280
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: a20a901d5fde251fdc1a044795615acdc1d61c5b
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966913"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277640"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Azure Data Factory를 사용하여 ODBC 데이터 저장소 간 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -114,13 +114,13 @@ ODBC 연결된 서비스에 다음 속성이 지원됩니다.
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 데이터 세트 문서를 참조하세요. 이 섹션에서는 ODBC 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 ODBC 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-ODBC 호환 데이터 저장소 간에 데이터를 복사하려면 데이터 세트의 type 속성을 **RelationalTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+ODBC 호환 데이터 저장소에서 데이터를 복사 하려면 다음 속성이 지원 됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **RelationalTable** | 예 |
+| type | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **OdbcTable** | 예 |
 | tableName | ODBC 데이터 저장소에 있는 테이블의 이름입니다. | 원본: 아니요(작업 원본에서 "query"가 지정된 경우)<br/>싱크: 예 |
 
 **예제**
@@ -129,7 +129,8 @@ ODBC 호환 데이터 저장소 간에 데이터를 복사하려면 데이터 �
 {
     "name": "ODBCDataset",
     "properties": {
-        "type": "RelationalTable",
+        "type": "OdbcTable",
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<ODBC linked service name>",
             "type": "LinkedServiceReference"
@@ -141,17 +142,19 @@ ODBC 호환 데이터 저장소 간에 데이터를 복사하려면 데이터 �
 }
 ```
 
+형식화 된 데이터 집합 `RelationalTable` 을 사용 하는 경우에는 계속 해 서 새 항목을 사용 하는 것이 좋습니다.
+
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 
 작업 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인](concepts-pipelines-activities.md) 문서를 참조하세요. 이 섹션에서는 ODBC 원본에서 지원하는 속성의 목록을 제공합니다.
 
 ### <a name="odbc-as-source"></a>ODBC를 원본으로
 
-ODBC 호환 데이터 저장소에서 데이터를 복사하려면 복사 작업의 원본 형식을 **RelationalSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
+ODBC 호환 데이터 저장소에서 데이터를 복사 하려면 복사 작업 **원본** 섹션에서 다음 속성을 지원 합니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **RelationalSource** | 예 |
+| type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **OdbcSource** | 예 |
 | query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"`. | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**
@@ -175,7 +178,7 @@ ODBC 호환 데이터 저장소에서 데이터를 복사하려면 복사 작업
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "OdbcSource",
                 "query": "SELECT * FROM MyTable"
             },
             "sink": {
@@ -185,6 +188,8 @@ ODBC 호환 데이터 저장소에서 데이터를 복사하려면 복사 작업
     }
 ]
 ```
+
+형식화 된 소스를 `RelationalSource` 사용 하는 경우에는 계속 해 서 새 항목을 사용 하는 것이 좋습니다.
 
 ### <a name="odbc-as-sink"></a>ODBC를 싱크로
 

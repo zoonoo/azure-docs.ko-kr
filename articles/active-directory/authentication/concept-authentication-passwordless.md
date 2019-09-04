@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ae8f6854241240249cb3b7494872cbbd8fd41e6
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: fc633780d8b816d8fc2e313bb1955a5719979efe
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68823749"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240863"
 ---
-# <a name="what-is-passwordless"></a>Passwordless 란?
+# <a name="what-is-passwordless"></a>암호 없음이란?
 
 MFA (multi-factor authentication)는 조직을 보호 하는 훌륭한 방법 이지만 사용자가 암호를 기억할 필요 없이 추가 계층을 사용 하지 않아도 됩니다. 암호는 제거 되 고 사용자가 알고 있는 것과 다른 항목으로 대체 되기 때문에 암호 없는 인증 방법이 더 편리 합니다.
 
@@ -26,7 +26,7 @@ MFA (multi-factor authentication)는 조직을 보호 하는 훌륭한 방법 �
 | --- | --- | --- |
 | 암호 없음 | 전화 또는 보안 키 | 생체 인식 또는 PIN |
 
-각 조직에는 인증을 할 때 서로 다른 요구 사항이 있습니다. Microsoft는 현재 windows Pc 용 Windows Hello를 제공 합니다. Microsoft Authenticator app 및 FIDO2 보안 키를 암호 없는 패밀리에 추가 합니다.
+각 조직에는 인증을 할 때 서로 다른 요구 사항이 있습니다. Microsoft는 현재 Windows Pc에 대 한 Windows Hello를 제공 합니다. Microsoft Authenticator app 및 FIDO2 보안 키를 암호 없는 패밀리에 추가 합니다.
 
 ## <a name="microsoft-authenticator-app"></a>Microsoft Authenticator 앱
 

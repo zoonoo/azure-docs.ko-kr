@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/22/2019
-ms.openlocfilehash: f303e6ba30b8b68f1bed4c5bcacd746932cbe156
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 998318ad1418c1076676725af03bd7f33c963b3a
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873821"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279928"
 ---
 # <a name="choose-the-right-deployment-option-in-azure-sql"></a>Azure SQL에서 적절 한 배포 옵션 선택
 
@@ -33,7 +33,7 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 
 다이어그램에 표시 된 것 처럼 각 제품은 인프라를 통해 보유 하 고 있는 관리 수준 및 비용 효율성을 기준으로 지정할 수 있습니다.
 
-Azure에서 SQL Server 작업을 호스트 서비스 ([PaaS](https://azure.microsoft.com/overview/what-is-paas/)) 또는 호스트 된 인프라 ([IaaS](https://azure.microsoft.com/overview/what-is-iaas/))로 실행할 수 있습니다. PaaS 내에는 여러 배포 옵션이 있고 각 배포 옵션 내에는 여러 서비스 계층이 있습니다. IaaS 또는 PaaS 중에서 결정할 때 물어보아야 하는 핵심 질문은 직접 데이터베이스를 관리하거나, 패치를 적용하거나, 백업을 수행할 것인지 아니면 이러한 작업을 Azure에 위임할 것인가입니다.
+Azure에서 SQL Server 작업을 호스트 서비스 ([PaaS](https://azure.microsoft.com/overview/what-is-paas/)) 또는 호스트 된 인프라 ([IaaS](https://azure.microsoft.com/overview/what-is-iaas/))로 실행할 수 있습니다. PaaS 내에는 여러 배포 옵션이 있고 각 배포 옵션 내에는 여러 서비스 계층이 있습니다. PaaS 또는 IaaS를 결정할 때 확인 해야 하는 주요 질문은 데이터베이스를 관리 하 고, 패치를 적용 하 고, 백업을 수행 하 시겠습니까? 아니면 이러한 작업을 Azure로 위임 하 시겠습니까?
 
 대답에 따라 다음 옵션을 사용할 수 있습니다.
 

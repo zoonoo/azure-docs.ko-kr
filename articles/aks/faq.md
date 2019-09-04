@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: mlearned
-ms.openlocfilehash: 6d122b3ac1504db0a2d22fea749c6c94174e4ff9
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 54a95186a297cf3604858341fb8f5aba3702bf5a
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233151"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241791"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -116,6 +116,8 @@ AKS는 현재 기본적으로 Azure Key Vault와 통합 되지 않습니다. 그
 
 SLA (서비스 수준 계약)에서 공급자는 게시 된 서비스 수준이 충족 되지 않는 경우 고객에 게 서비스 비용을 상환에 동의 합니다. AKS는 무료 이므로 상환에는 비용을 사용할 수 없으므로 AKS에는 공식적인 SLA가 없습니다. 그러나 AKS는 Kubernetes API 서버에 대해 최소 99.5%의 가용성을 유지 하려고 합니다.
 
+Kubernetes 제어 평면의 작동 시간 및 Azure Virtual Machines에서 실행 되는 특정 워크 로드의 가용성을 나타내는 AKS 서비스 가용성 간의 차이점을 인식 하는 것이 중요 합니다. 제어 평면이 준비 되지 않은 경우 제어 평면을 사용할 수 없는 경우에도 Azure Vm에서 실행 되는 클러스터 워크 로드가 계속 작동할 수 있습니다. 지정 된 Azure Vm은 유료 리소스 이며 재무 SLA를 통해 지원 됩니다. Azure VM SLA에 대 한 자세한 내용 및 [가용성 영역][availability-zones]같은 기능을 사용 하 여 가용성을 높이는 방법에 [대 한 자세한 내용은 여기를](https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_8/) 참조 하세요.
+
 ## <a name="why-cant-i-set-maxpods-below-30"></a>MaxPods를 30 미만으로 설정할 수 없는 이유는 무엇입니까?
 
 AKS에서는 Azure CLI 및 Azure Resource Manager 템플릿을 사용 `maxPods` 하 여 클러스터를 만들 때 값을 설정할 수 있습니다. 그러나 Kubenet 및 Azure CNI에는 최소한의 *값* (생성 시 유효성 검사 됨)이 필요 합니다.
@@ -204,6 +206,7 @@ AKS는 관리 되는 서비스 이며 IaaS 리소스 조작은 지원 되지 않
 [reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md
 [api-server-authorized-ip-ranges]: ./api-server-authorized-ip-ranges.md
 [multi-node-pools]: ./use-multiple-node-pools.md
+[availability-zones]: ./availability-zones.md
 
 <!-- LINKS - external -->
 

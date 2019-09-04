@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ee359b76072da3caee9ae1f5fab3d0fc28d25c0e
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: c06cd53e408ebcae24de487fe1d4d25e14aae11b
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972696"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240723"
 ---
 # <a name="connect-from-on-premises-to-cloudsimple-using-expressroute"></a>Express 경로를 사용 하 여 온-프레미스에서 CloudSimple로 연결
 
@@ -21,7 +21,11 @@ ms.locfileid: "69972696"
 
 [![온-프레미스 Express 경로 연결-Global Reach](media/cloudsimple-global-reach-connection.png)](media/cloudsimple-global-reach-connection.png)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
+
+온-프레미스에서 Global Reach 연결을 설정 하려면 **/29** 네트워크 주소 블록이 필요 합니다.  /29 주소 공간은 Express 경로 회로 간의 전송 네트워크에 사용 됩니다.  전송 네트워크는 Azure 가상 네트워크, 온-프레미스 네트워크 또는 CloudSimple 사설 클라우드 네트워크와 겹치지 않아야 합니다.
+
+## <a name="prerequisites"></a>전제 조건
 
 * 회로와 CloudSimple 사설 클라우드 네트워크 간의 연결을 설정 하려면 Azure Express 경로 회로가 필요 합니다.
 * 사용자는 Express 경로 회로에서 인증 키를 만들 수 있는 권한이 필요 합니다.
@@ -49,7 +53,7 @@ Express 경로 연결을 설정 하려면 Express 경로 회로에 대 한 권�
 
 3. CloudSimple 네트워크에 연결 하려는 Express 경로 회로를 선택 합니다.
 
-4. Express 경로 페이지에서 권한 부여를 클릭 하 고 권한 부여에 대 한 이름을 입력 한 다음 **저장**을 클릭 합니다.
+4. Express 경로 페이지 **에서 권한 부여를 클릭 하**고 권한 부여에 대 한 이름을 입력 한 다음 **저장**을 클릭 합니다.
     [![Express 경로 회로 권한 부여](media/azure-expressroute-transit-authorizations.png)](media/azure-expressroute-transit-authorizations.png)
 
 5. 복사 아이콘을 클릭 하 여 리소스 ID와 권한 부여 키를 복사 합니다. ID와 키를 텍스트 파일에 붙여 넣습니다.
@@ -65,3 +69,8 @@ Express 경로 연결을 설정 하려면 Express 경로 회로에 대 한 권�
     * 문제 유형: **서비스 요청**
     * 문제 하위 유형: **온-프레미스에 대 한 Express 경로 연결 만들기**
     * 세부 정보 창에서 복사 하 여 저장 한 리소스 ID와 권한 부여 키를 제공 합니다.
+    * 전송 네트워크에 대 한/29 네트워크 주소 공간을 제공 합니다.
+
+## <a name="next-steps"></a>다음 단계
+
+* [Azure 네트워크 연결에 대 한 자세한 정보](cloudsimple-azure-network-connection.md)  

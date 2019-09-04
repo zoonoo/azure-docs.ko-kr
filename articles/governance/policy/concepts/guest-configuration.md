@@ -7,30 +7,28 @@ ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 054f9ed21ee0d7ef725c2b7eee8174c53374b5bc
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 06a767af71f457273e0e20d1248d64c22b3563e7
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232265"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274940"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 
 Azure 리소스를 감사 하 고 [수정](../how-to/remediate-resources.md) 하는 것 외에도 Azure Policy는 컴퓨터 내의 설정을 감사할 수 있습니다. 게스트 구성 확장 및 클라이언트가 유효성 검사를 수행합니다. 이 확장은 클라이언트를 통해 운영 체제 구성, 애플리케이션 구성/유무, 환경 설정 등의 설정 유효성을 검사합니다.
 
-현재 Azure Policy 게스트 구성은 컴퓨터 내부에서 설정의 감사만 수행 합니다.
+지금은 게스트 구성 Azure Policy 컴퓨터 내 설정의 감사만 수행 합니다.
 아직 구성을 적용할 수는 없습니다.
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="extension-and-client"></a>확장 및 클라이언트
 
 컴퓨터 내의 설정을 감사 하려면 [가상 머신 확장](../../../virtual-machines/extensions/overview.md) 을 사용 하도록 설정 합니다. 이 확장은 적용 가능한 정책 할당 및 해당 구성 정의를 다운로드합니다.
 
-### <a name="limits-set-on-the-exension"></a>Exension에 설정 된 제한
+### <a name="limits-set-on-the-extension"></a>확장에 설정 된 제한
 
 컴퓨터 내에서 실행 되는 응용 프로그램에 영향을 주지 않도록 확장을 제한 하기 위해 게스트 구성은 CPU 사용률의 5%를 초과할 수 없습니다.
-Microsoft에서 "기본 제공"으로 제공 하는 구성과 고객이 작성 한 사용자 지정 구성에 대해서는 진정한 boh입니다.
+Microsoft에서 "기본 제공"으로 제공 하는 구성과 고객이 작성 한 사용자 지정 구성에 대해서도 마찬가지입니다.
 
 ## <a name="register-guest-configuration-resource-provider"></a>게스트 구성 리소스 공급자 등록
 
@@ -144,6 +142,32 @@ Windows: `C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindo
 Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-<version>/GCAgent/logs/dsc.log`
 
 여기서 `<version>` 는 현재 버전 번호를 참조 합니다.
+
+### <a name="collecting-logs-remotely"></a>원격으로 로그 수집
+
+게스트 구성 구성 또는 모듈 문제를 해결 하는 첫 번째 단계는 `Test-GuestConfigurationPackage` [게스트 구성 패키지 테스트](../how-to/guest-configuration-create.md#test-a-guest-configuration-package)의 단계에 따라 cmdlet을 사용 하는 것입니다.  성공 하지 못하면 클라이언트 로그를 수집 하 여 문제를 진단할 수 있습니다.
+
+#### <a name="windows"></a>Windows
+
+Azure VM 실행 명령 기능을 사용 하 여 Windows 컴퓨터의 로그 파일에서 정보를 캡처하는 경우 다음 예제 PowerShell 스크립트를 사용 하는 것이 도움이 될 수 있습니다. Azure Portal에서 또는 Azure PowerShell를 사용 하 여 스크립트를 실행 하는 방법에 대 한 자세한 내용은 [Run 명령을 사용 하 여 WINDOWS VM에서 PowerShell 스크립트 실행](../../../virtual-machines/windows/run-command.md)을 참조 하세요.
+
+```powershell
+$linesToIncludeBeforeMatch = 0
+$linesToIncludeAfterMatch = 10
+$latestVersion = Get-ChildItem -Path 'C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\' | ForEach-Object {$_.FullName} | Sort-Object -Descending | Select-Object -First 1
+Select-String -Path "$latestVersion\dsc\logs\dsc.log" -pattern 'DSCEngine','DSCManagedEngine' -CaseSensitive -Context $linesToIncludeBeforeMatch,$linesToIncludeAfterMatch | Select-Object -Last 10
+```
+
+#### <a name="linux"></a>Linux
+
+Azure VM 실행 명령 기능을 사용 하 여 Linux 컴퓨터의 로그 파일에서 정보를 캡처하는 경우 다음 예제 Bash 스크립트가 유용할 수 있습니다. Azure Portal에서 또는 Azure CLI를 사용 하 여 스크립트를 실행 하는 방법에 대 한 자세한 내용은 [Run 명령을 사용 하 여 LINUX VM에서 셸 스크립트 실행](../../../virtual-machines/linux/run-command.md) 을 참조 하세요.
+
+```Bash
+linesToIncludeBeforeMatch=0
+linesToIncludeAfterMatch=10
+latestVersion=$(find /var/lib/waagent/ -type d -name "Microsoft.GuestConfiguration.ConfigurationforLinux-*" -maxdepth 1 -print | sort -z | sed -n 1p)
+egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCManagedEngine' "$latestVersion/GCAgent/logs/dsc.log" | tail
+```
 
 ## <a name="guest-configuration-samples"></a>게스트 구성 샘플
 

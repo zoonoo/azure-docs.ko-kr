@@ -7,12 +7,12 @@ ms.date: 12/11/2018
 ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 8cbefcbadc14c1249d2783f1539e40c99c3be66c
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 14e957986df7a114b8c865ee82e2ac447683dc2c
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231558"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70257184"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Azure Blueprints를 사용하여 오류 문제 해결
 
@@ -63,7 +63,7 @@ ms.locfileid: "70231558"
 
 #### <a name="resolution"></a>해결 방법
 
-함수를 매개 변수로 전달하려면 청사진 매개 변수가 `[[resourceGroup().tags.myTag]`와 같이 표시되도록 `[`를 사용하여 전체 문자열을 이스케이프 처리합니다. 이스케이프 문자를 추가하면 청사진을 처리할 때 Blueprints에서 값을 문자열로 처리합니다. Blueprints는 그런 후에 함수를 아티팩트에 배치하므로 함수가 동적으로 올바르게 설정됩니다. 자세한 내용은 [템플릿 파일 구조-구문](../../../azure-resource-manager/resource-group-authoring-templates.md#syntax)을 참조 하세요.
+함수를 매개 변수로 전달하려면 청사진 매개 변수가 `[[resourceGroup().tags.myTag]`와 같이 표시되도록 `[`를 사용하여 전체 문자열을 이스케이프 처리합니다. 이스케이프 문자를 추가하면 청사진을 처리할 때 Blueprints에서 값을 문자열로 처리합니다. Blueprints는 그런 후에 함수를 아티팩트에 배치하므로 함수가 동적으로 올바르게 설정됩니다. 자세한 내용은 [Azure Resource Manager 템플릿의 구문 및 식](../../../azure-resource-manager/template-expressions.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

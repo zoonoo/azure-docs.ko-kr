@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: 95df72875338b6964f42075404cf9c30ba132f9d
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 401b33c28e4ba91a0da5e4ab38f920e173302ea1
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900219"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242362"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -105,6 +105,8 @@ ms.locfileid: "69900219"
 
 ### <a name="integration-service-environment-ise"></a>ISE (Integration service environment)
 
+Premium SKU에 대 한 처리량 제한은 다음과 같습니다.
+
 | 이름 | 제한 | 참고 |
 |------|-------|-------|
 | 기본 단위 실행 제한 | 인프라 용량이 80%에 도달 하면 시스템 제한 됨 | 분당 ~ 4000 작업 실행을 제공 합니다 .이는 월 당 ~ 1억6000만 작업 실행입니다. | |
@@ -113,6 +115,9 @@ ms.locfileid: "69900219"
 ||||
 
 정상적인 처리에서 이러한 제한을 초과하거나 이러한 제한을 초과하는 부하 테스트를 실행하려면 [Logic Apps 팀에 문의](mailto://logicappsemail@microsoft.com)하여 요구 사항에 대해 도움을 받으세요.
+
+> [!NOTE]
+> 이 SKU에는 확장에 대 한 SLA (서비스 수준 계약) 또는 기능이 없기 때문에 [개발자 SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) 에는 게시 된 제한이 없습니다. 프로덕션 또는 성능 테스트가 아닌 실험, 개발 및 테스트에만이 SKU를 사용 합니다.
 
 <a name="request-limits"></a>
 
@@ -181,10 +186,10 @@ ms.locfileid: "69900219"
 
 * [개발자 또는 프리미엄](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)에 관계 없이 각 ISE는 총 5 개 통합 계정으로 제한 됩니다.
 
-  | ISE SKU | 제한 |
-  |---------|-------|
-  | **Premium** | 5 전체- [표준](../logic-apps/logic-apps-pricing.md#integration-accounts) 만, 무료 또는 기본 |
-  | **Developer** | 5 전체-무료 (1로 제한 됨), 표준 또는 둘 다, 기본 없음 |
+  | ISE SKU | 통합 계정 제한 |
+  |---------|----------------------------|
+  | **Premium** | 총 5 개 [표준 계정](../logic-apps/logic-apps-pricing.md#integration-accounts) (무료 표준 계정 포함) 무료 또는 기본 계정은 허용 되지 않습니다. |
+  | **Developer** | 5 전체- [무료](../logic-apps/logic-apps-pricing.md#integration-accounts) (계정 1 개로 제한 됨) 및 [표준](../logic-apps/logic-apps-pricing.md#integration-accounts) 결합 또는 모든 표준 계정. 기본 계정이 허용 되지 않습니다. 실험, 개발 및 테스트를 위해 [개발자 SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) 를 사용 하지만 프로덕션 또는 성능 테스트에는 사용 하지 않습니다. |
   |||
 
 ISE에 포함 된 통합 계정 외에 추가 하는 통합 계정에 추가 비용이 적용 됩니다. ISEs에 대 한 가격 책정 및 청구의 작동 방식에 대 한 자세한 [Logic Apps 내용은 가격 책정 모델](../logic-apps/logic-apps-pricing.md#fixed-pricing)을 참조 하세요. 가격 책정 요금은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 참조 하세요.
@@ -255,11 +260,9 @@ ISE에 포함 된 통합 계정 외에 추가 하는 통합 계정에 추가 비
 
 동일한 지역의 모든 논리 앱은 동일한 IP 주소 범위를 사용합니다. 논리 앱에서 직접 확인 하는 호출을 지원 하기 위해 [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) 및 기타 HTTP 요청을 통해 직접 호출하도록 지원하려면 논리 앱이 있는 지역에 따라 Logic Apps 서비스에서 사용하는 모든 [인바운드](#inbound) *및* [아웃바운드](#outbound) IP 주소가 포함되도록 방화벽을 설정합니다. 이러한 주소는 이 섹션의 **인바운드** 및 **아웃바운드** 제목 아래에 표시되고 지역별로 정렬됩니다. 
 
-[Microsoft 관리되는 커넥터](../connectors/apis-list.md)가 호출하도록 지원하려면 논리 앱이 있는 지역에 따라 모든 [아웃바운드](#outbound) IP 주소가 포함되도록 방화벽을 설정합니다. 이러한 주소는 이 섹션의 **아웃바운드** 제목 아래에 표시되고 지역별로 정렬됩니다.
+[Microsoft 관리되는 커넥터](../connectors/apis-list.md)가 호출하도록 지원하려면 논리 앱이 있는 지역에 따라 모든 [아웃바운드](#outbound) IP 주소가 포함되도록 방화벽을 설정합니다. 이러한 주소는 이 섹션의 **아웃바운드** 제목 아래에 표시되고 지역별로 정렬됩니다. ISE (integration service environment)에서 실행 되는 논리 앱의 경우 [이러한 포트를 열어야](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports)합니다.
 
-ISE (integration service environment)에서 실행 되는 논리 앱의 경우 [이러한 포트를 열어야](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports)합니다.
-
-[Azure Government](../azure-government/documentation-government-overview.md) 및 [Azure China 21Vianet](https://docs.microsoft.com/azure/china/)의 경우 커넥터에 대한 예약된 IP 주소를 현재 사용할 수 없습니다.
+사용자 지정 커넥터, [Azure Government](../azure-government/documentation-government-overview.md)및 [Azure 중국 21vianet](https://docs.microsoft.com/azure/china/)의 경우 고정 또는 예약 된 IP 주소를 사용할 수 없습니다.
 
 > [!IMPORTANT]
 >

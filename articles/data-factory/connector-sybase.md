@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 55ff6d37f18f4ffa2f12e17bd33dd196b77f79af
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab2035ec344e07d88e2ac4ffb19cb1b2361f2e92
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61473062"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277478"
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Sybase에서 데이터 복사
-> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
+> [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-onprem-sybase-connector.md)
 > * [현재 버전](connector-sybase.md)
 
@@ -35,7 +35,7 @@ Sybase 데이터베이스에서 지원되는 모든 싱크 데이터 저장소�
 - SAP Sybase SQL ASA(Anywhere) **버전 16 이상**. IQ 및 ASE는 지원되지 않습니다.
 - **Basic** 또는 **Windows** 인증을 사용한 데이터 복사
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 Sybase 커넥터를 사용하려면 다음을 수행해야 합니다.
 
@@ -52,7 +52,7 @@ Sybase 데이터베이스에서 지원되는 모든 싱크 데이터 저장소�
 
 Sybase 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성을 다음으로 설정해야 합니다. **Sybase** | 예 |
 | server | Sybase 서버의 이름입니다. |예 |
@@ -60,7 +60,7 @@ Sybase 연결된 서비스에 다음 속성이 지원됩니다.
 | authenticationType | Sybase 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 다음과 같습니다. **Basic** 및 **Windows**. |예 |
 | username | Sybase 데이터베이스에 연결할 사용자 이름을 지정합니다. |예 |
 | password | 사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예. |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예 |
 
 **예제:**
 
@@ -89,13 +89,13 @@ Sybase 연결된 서비스에 다음 속성이 지원됩니다.
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 데이터 세트 문서를 참조하세요. 이 섹션에는 Sybase 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에는 Sybase 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-Sybase에서 데이터를 복사하려면 데이터 세트의 type 속성을 **RelationalTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+Sybase에서 데이터를 복사 하기 위해 지원 되는 속성은 다음과 같습니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **RelationalTable** | 예 |
+| type | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **SybaseTable** | 예 |
 | tableName | Sybase 데이터베이스의 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
@@ -104,15 +104,18 @@ Sybase에서 데이터를 복사하려면 데이터 세트의 type 속성을 **R
 {
     "name": "SybaseDataset",
     "properties": {
-        "type": "RelationalTable",
+        "type": "SybaseTable",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Sybase linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
+
+형식화 된 데이터 집합 `RelationalTable` 을 사용 하는 경우에는 계속 해 서 새 항목을 사용 하는 것이 좋습니다.
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 
@@ -120,12 +123,12 @@ Sybase에서 데이터를 복사하려면 데이터 세트의 type 속성을 **R
 
 ### <a name="sybase-as-source"></a>Sybase를 원본으로
 
-Sybase에서 데이터를 복사하려면 복사 작업의 원본 형식을 **RelationalSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
+Sybase에서 데이터를 복사 하기 위해 복사 작업 **원본** 섹션에서 다음 속성이 지원 됩니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **RelationalSource** | 예 |
-| query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
+| type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **SybaseSource** | 예 |
+| query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"`. | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**
 
@@ -148,7 +151,7 @@ Sybase에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Re
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "SybaseSource",
                 "query": "SELECT * FROM MyTable"
             },
             "sink": {
@@ -158,6 +161,8 @@ Sybase에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Re
     }
 ]
 ```
+
+형식화 된 소스를 `RelationalSource` 사용 하는 경우에는 계속 해 서 새 항목을 사용 하는 것이 좋습니다.
 
 ## <a name="data-type-mapping-for-sybase"></a>Sybase에 대한 데이터 형식 매핑
 

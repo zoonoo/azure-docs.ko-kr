@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f0222c64b53bf9e6e8dc69da42d6e6a9c5549765
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 3240bb689447c16de8c62e9e8118b0b0df2b1ea3
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208370"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259421"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>SQL Server IaaS 에이전트 확장을 사용 하 여 Azure virtual machines에서 관리 작업 자동화
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ SQL Server Iaas 에이전트 확장이 설치 되어 실행 되 면 관리 기�
 * Azure Portal에서 가상 컴퓨터의 SQL Server 패널에서 Azure Marketplace의 SQL Server 이미지에 Azure PowerShell 합니다.
 * 확장의 수동 설치에 대 한 Azure PowerShell. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 VM에서 SQL Server IaaS 에이전트 확장을 사용 하기 위한 요구 사항은 다음과 같습니다.
 
 **운영 체제**:
@@ -80,7 +80,10 @@ VM에서 SQL Server IaaS 에이전트 확장을 사용 하기 위한 요구 사�
 SQL Server IaaS 확장은 [SQL VM 리소스 공급자](virtual-machines-windows-sql-register-with-resource-provider.md)를 사용 하 여 SQL Server VM를 등록할 때 설치 됩니다. 필요한 경우 아래 PowerShell 명령을 사용 하 여 SQL Server IaaS 에이전트를 수동으로 설치할 수 있습니다. 
 
   ```powershell-interactive
-    Set-AzVMExtension -ResourceGroupName "<ResourceGroupName>" -Location "<VMLocation>" -VMName "<VMName>" -Name "SqlIaasExtension" -Publisher "Microsoft.SqlServer.Management" -ExtensionType "SqlIaaSAgent" -TypeHandlerVersion "2.0";  
+    Set-AzVMExtension -ResourceGroupName "<ResourceGroupName>" `
+    -Location "<VMLocation>" -VMName "<VMName>" `
+    -Name "SqlIaasExtension" -Publisher "Microsoft.SqlServer.Management" `
+    -ExtensionType "SqlIaaSAgent" -TypeHandlerVersion "2.0";  
   ```
 
 > [!NOTE]

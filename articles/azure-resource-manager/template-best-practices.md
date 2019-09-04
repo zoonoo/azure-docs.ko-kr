@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2019
 ms.author: tomfitz
-ms.openlocfilehash: cf6a5b07dd72c4e2364281b755e77e642f8fe167
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 161539aaec4d3b7162405f437b7fb3dd1f6a00e6
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69542977"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258838"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure Resource Manager 템플릿 모범 사례
 
@@ -175,7 +175,7 @@ Azure 구독을 관리하는 방법에 대한 권장 사항은 [Azure 엔터프�
 
 * 자식 리소스가 부모 리소스에 종속되도록 설정합니다.
 
-* false로 설정된 [condition 요소](resource-group-authoring-templates.md#condition)가 있는 리소스는 종속성 순서에서 자동으로 제거됩니다. 리소스를 항상 배포하는 경우에 따라 종속성을 설정합니다.
+* false로 설정된 [condition 요소](conditional-resource-deployment.md)가 있는 리소스는 종속성 순서에서 자동으로 제거됩니다. 리소스를 항상 배포하는 경우에 따라 종속성을 설정합니다.
 
 * 종속성을 명시적으로 설정하지 않고 계단식으로 배열되도록 합니다. 예를 들어 가상 머신은 가상 네트워크 인터페이스에 종속되고 가상 네트워크 인터페이스는 가상 네트워크 및 공용 IP 주소에 종속됩니다. 따라서 가상 머신은 세 가지 모든 리소스보다 나중에 배포되지만 가상 머신이 세 가지 모든 리소스에 종속된다고 명시적으로 설정하지 않습니다. 이러한 방법은 종속성 순서를 명확히 하고 나중에 템플릿을 쉽게 변경할 수 있도록 합니다.
 

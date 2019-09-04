@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 30bad3dd519d622d7e224da7bd53e7c6625014f6
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: a31f0618f7e9dc8fdb0e9b2988d3d3c32fefcf64
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966472"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277664"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 OData 원본에서 데이터 복사
 
@@ -36,7 +36,7 @@ OData 소스에서 지원되는 모든 싱크 데이터 저장소로 데이터�
 - OData 버전 3.0 및 4.0
 - 인증 방법인 **익명**, **기본**, **Windows**, **AAD 서비스 주체** 및 **Azure 리소스의 관리 ID** 중 하나를 사용하여 데이터 복사
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -212,6 +212,7 @@ OData에서 데이터를 복사하려면 데이터 세트의 **type** 속성을 
     "properties":
     {
         "type": "ODataResource",
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<OData linked service name>",
             "type": "LinkedServiceReference"
@@ -232,11 +233,11 @@ OData에서 데이터를 복사하려면 데이터 세트의 **type** 속성을 
 
 ### <a name="odata-as-source"></a>OData를 원본으로
 
-OData에서 데이터를 복사하려면 복사 작업의 **source** 형식을 **RelationalSource**로 설정합니다. 복사 작업 **source** 섹션에서 지원되는 속성은 다음과 같습니다.
+OData에서 데이터를 복사 하려면 복사 작업 **원본** 섹션에서 다음 속성을 지원 합니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 **type** 속성을 **RelationalSource**로 설정해야 합니다. | 예 |
+| type | 복사 작업 원본의 **type** 속성을 **odatasource**로 설정 해야 합니다. | 예 |
 | query | 데이터 필터링에 대한 OData 쿼리 옵션입니다. 예를 들어, `"$select=Name,Description&$top=5"` 같은 형식입니다.<br/><br/>**참고**: OData 커넥터가 결합된 URL(`[URL specified in linked service]/[path specified in dataset]?[query specified in copy activity source]`)에서 데이터를 복사합니다. 자세한 내용은 [OData URL 구성 요소](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)를 참조하세요. | 아니요 |
 
 **예제**
@@ -260,7 +261,7 @@ OData에서 데이터를 복사하려면 복사 작업의 **source** 형식을 *
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "ODataSource",
                 "query": "$select=Name,Description&$top=5"
             },
             "sink": {
@@ -270,6 +271,8 @@ OData에서 데이터를 복사하려면 복사 작업의 **source** 형식을 *
     }
 ]
 ```
+
+형식화 된 소스를 `RelationalSource` 사용 하는 경우에는 계속 해 서 새 항목을 사용 하는 것이 좋습니다.
 
 ## <a name="data-type-mapping-for-odata"></a>OData에 대한 데이터 형식 매핑
 
@@ -284,7 +287,7 @@ OData에서 데이터를 복사하는 경우 OData 데이터 형식과 Azure Dat
 | Edm.Decimal | Decimal |
 | Edm.Double | Double |
 | Edm.Single | Single |
-| Edm.Guid | GUID |
+| Edm.Guid | Guid |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |

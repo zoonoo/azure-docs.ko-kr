@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 8c7c8faad70022ba985a4041fd578becbaf70078
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 0bd97a6b1636d4b540c616958e5531c86362f597
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966875"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276617"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 REST 엔드포인트에서 데이터 복사
 
@@ -25,7 +25,7 @@ ms.locfileid: "68966875"
 
 이 REST 커넥터와 [HTTP 커넥터](connector-http.md)와 [웹 테이블 커넥터](connector-web-table.md)의 차이점은 다음과 같습니다.
 
-- **REST 커넥터**는 특히 RESTful API에서 데이터를 복사하는 것을 지원합니다. 
+- **REST 커넥터** 는 RESTful api에서 데이터를 복사 하는 것을 구체적으로 지원 합니다. 
 - **HTTP 커넥터**는 일반적으로 모든 HTTP 엔드포인트에서 데이터를 검색합니다(예: 파일 다운로드). 이 REST 커넥터를 사용할 수 있게 되기 전에는 HTTP 커넥터를 사용하여 지원은 되지만 REST 커넥터와 비교할 때 기능이 적은 RESTful API에서 데이터를 복사할 수도 있습니다.
 - **웹 테이블 커넥터**는 HTML 웹 페이지에서 테이블 콘텐츠를 추출합니다.
 
@@ -61,7 +61,7 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 |:--- |:--- |:--- |
 | type | **Type** 속성은 **RestService**로 설정 해야 합니다. | 예 |
 | url | REST 서비스의 기본 URL입니다. | 예 |
-| enableServerCertificateValidation | 엔드포인트에 연결할 때 서버 쪽 SSL 인증서의 유효성을 검사할지 여부를 나타냅니다. | 아니요<br /> (기본값: **true**) |
+| enableServerCertificateValidation | 끝점에 연결할 때 서버 쪽 SSL 인증서의 유효성을 검사할지 여부를 나타냅니다. | 아니요<br /> (기본값: **true**) |
 | authenticationType | REST 서비스에 연결하는 데 사용되는 인증 형식입니다. 허용되는 값은 **Anonymous**, **Basic**, **AadServicePrincipal** 및 **ManagedServiceIdentity**입니다. 추가 속성 및 예제를 보려면 아래 해당 섹션을 참조하세요. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. [전제 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 이 속성은 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
@@ -175,50 +175,23 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 |:--- |:--- |:--- |
 | type | 데이터 세트의 **type** 속성을 **RestResource**로 설정해야 합니다. | 예 |
 | relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 이 속성을 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. | 아니요 |
-| requestMethod | HTTP 메서드입니다. 허용되는 값은 **Get**(기본값) 또는 **Post**입니다. | 아니요 |
-| additionalHeaders | 추가 HTTP 요청 헤더입니다. | 아니요 |
-| requestBody | HTTP 요청의 본문입니다. | 아니요 |
-| paginationRules | 다음 페이지 요청을 작성하기 위한 페이지 매김 규칙입니다. 자세한 내용은 [페이지 매김 지원](#pagination-support)을 참조하세요. | 아니요 |
 
-**예제 1: Get 메서드에서 페이지 매김 사용**
+데이터 `requestMethod`집합에서 `additionalHeaders` ,및`paginationRules`를 설정 하는 경우 계속 해 서는 그대로 지원 되지만 작업 원본에서 새 모델을 사용 하는 것이 좋습니다. `requestBody`
+
+**예제:**
 
 ```json
 {
     "name": "RESTDataset",
     "properties": {
         "type": "RestResource",
+        "typeProperties": {
+            "relativeUrl": "<relative url>"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<REST linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "relativeUrl": "<relative url>",
-            "additionalHeaders": {
-                "x-user-defined": "helloworld"
-            },
-            "paginationRules": {
-                "AbsoluteUrl": "$.paging.next"
-            }
-        }
-    }
-}
-```
-
-**예제 2: POST 메서드 사용**
-
-```json
-{
-    "name": "RESTDataset",
-    "properties": {
-        "type": "RestResource",
-        "linkedServiceName": {
-            "referenceName": "<REST linked service name>",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "relativeUrl": "<relative url>",
-            "requestMethod": "Post",
-            "requestBody": "<body for POST REST request>"
         }
     }
 }
@@ -237,10 +210,14 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **type** 속성은 **RestSource**로 설정해야 합니다. | 예 |
+| requestMethod | HTTP 메서드입니다. 허용되는 값은 **Get**(기본값) 또는 **Post**입니다. | 아니요 |
+| additionalHeaders | 추가 HTTP 요청 헤더입니다. | 아니요 |
+| requestBody | HTTP 요청의 본문입니다. | 아니요 |
+| paginationRules | 다음 페이지 요청을 작성하기 위한 페이지 매김 규칙입니다. 자세한 내용은 [페이지 매김 지원](#pagination-support)을 참조하세요. | 아니요 |
 | httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 이 값은 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. 기본값은 **00:01:40**입니다.  | 아니요 |
 | requestInterval | 다음 페이지에 대한 요청을 보내기 전에 대기할 시간입니다. 기본값은 **00:00:01**입니다. |  아니요 |
 
-**예제**
+**예제 1: Get 메서드에서 페이지 매김 사용**
 
 ```json
 "activities":[
@@ -262,6 +239,46 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
         "typeProperties": {
             "source": {
                 "type": "RestSource",
+                "additionalHeaders": {
+                    "x-user-defined": "helloworld"
+                },
+                "paginationRules": {
+                    "AbsoluteUrl": "$.paging.next"
+                },
+                "httpRequestTimeout": "00:01:00"
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+**예제 2: POST 메서드 사용**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromREST",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<REST input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "RestSource",
+                "requestMethod": "Post",
+                "requestBody": "<body for POST REST request>",
                 "httpRequestTimeout": "00:01:00"
             },
             "sink": {
@@ -274,7 +291,7 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 
 ## <a name="pagination-support"></a>페이지 매김 지원
 
-일반적으로 REST API는 단일 요청의 응답 페이로드 크기를 적절한 수치로 제한합니다. 대량의 데이터를 반환하려는 경우 결과를 여러 페이지로 분할하고 호출자에게 연속 요청을 전송하여 결과의 다음 페이지를 가져오도록 요구합니다. 보통 한 페이지에 대한 요청은 동적이고 이전 페이지의 응답에서 반환된 정보로 구성됩니다.
+일반적으로 REST API은 적절 한 수의 단일 요청에 대 한 응답 페이로드 크기를 제한 합니다. 많은 양의 데이터를 반환 하는 경우 결과를 여러 페이지로 분할 하 고 호출자가 다음 결과 페이지를 가져오기 위해 연속 요청을 보내야 합니다. 보통 한 페이지에 대한 요청은 동적이고 이전 페이지의 응답에서 반환된 정보로 구성됩니다.
 
 이 일반 REST 커넥터는 다음 페이지 매김 패턴을 지원합니다. 
 
@@ -285,7 +302,7 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 * 다음 요청의 헤더 = 현재 응답 본문의 속성 값
 * 다음 요청의 헤더 = 현재 응답 헤더의 헤더 값
 
-**페이지 매김 규칙**은 하나 이상의 대/소문자 구분 키-값 쌍을 포함하는 데이터 세트의 사전으로 정의됩니다. 이 구성은 두 번째 페이지에서 시작하는 요청을 생성하는 데 사용됩니다. 커넥터는 HTTP 상태 코드 204(콘텐츠 없음)를 가져오거나 "paginationRules"의 JSONPath 식 중 하나가 null을 반환하면 반복을 중지합니다.
+**페이지 매김 규칙** 은 대/소문자를 구분 하는 키-값 쌍이 하나 이상 포함 된 데이터 집합의 사전으로 정의 됩니다. 이 구성은 두 번째 페이지에서 시작하는 요청을 생성하는 데 사용됩니다. 커넥터는 HTTP 상태 코드 204 (콘텐츠 없음)가 발생 하거나 "paginationRules"의 JSONPath 식이 null을 반환 하는 경우 반복을 중지 합니다.
 
 페이지 매김 규칙의 **지원되는 키**는 다음과 같습니다.
 
@@ -336,23 +353,19 @@ Facebook Graph API는 다음 구조의 응답을 반환합니다. 이 경우 다
 }
 ```
 
-해당 REST 데이터 세트 구성에서 `paginationRules`는 다음과 같습니다.
+해당 하 `paginationRules` 는 REST 복사 활동 원본 구성은 특히 다음과 같습니다.
 
 ```json
-{
-    "name": "MyFacebookAlbums",
-    "properties": {
-            "type": "RestResource",
-            "typeProperties": {
-                "relativeUrl": "albums",
-                "paginationRules": {
-                    "AbsoluteUrl": "$.paging.next"
-                }
-            },
-            "linkedServiceName": {
-                "referenceName": "MyRestService",
-                "type": "LinkedServiceReference"
-            }
+"typeProperties": {
+    "source": {
+        "type": "RestSource",
+        "paginationRules": {
+            "AbsoluteUrl": "$.paging.next"
+        },
+        ...
+    },
+    "sink": {
+        "type": "<sink type>"
     }
 }
 ```

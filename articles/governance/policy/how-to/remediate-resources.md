@@ -7,18 +7,16 @@ ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: f88ecb782598cabacc29f97ee3225a5abf280a84
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 40658412f19c444cfa06f5663f567a78453c7e9a
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232334"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241148"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Azure Policy를 사용하여 비준수 리소스 수정
 
 **deployIfNotExists** 정책을 준수하지 않는 리소스는 **수정**을 통해 정책을 준수하는 상태로 설정할 수 있습니다. 업데이트는 기존 리소스에 대해 할당 된 정책의 **Deployifnotexists** 효과를 실행 하도록 Azure Policy 지시 하 여 수행 됩니다. 이 문서에서는 Azure Policy를 사용 하 여 수정 사항을 이해 하 고 수행 하는 데 필요한 단계를 보여 줍니다.
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="how-remediation-security-works"></a>수정 보안의 작동 방식
 

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 2bdec0c70e9f11ca40e0ff9e1aa87898c94e119c
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: c774725d4a4db4f624cd3980041b2974dfc8ed28
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232997"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275559"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 DB2에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -32,6 +32,7 @@ DB2 데이터베이스에서 지원되는 모든 싱크 데이터 저장소로 �
 
 특히, 이 DB2 커넥터는 DRDA(분산 관계형 데이터베이스 아키텍처) SQLAM(SQL Access Manager) 버전 9, 10 및 11과 함께 다음 IBM DB2 플랫폼 버전을 지원합니다.
 
+* Z/OS 용 IBM DB2 12.1
 * z/OS용 IBM DB2 11.1
 * z/OS용 IBM DB2 10.1
 * i용 IBM DB2 7.3
@@ -99,14 +100,16 @@ DB2 연결된 서비스에 다음 속성이 지원됩니다.
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 데이터 세트 문서를 참조하세요. 이 섹션에서는 DB2 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 DB2 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-DB2에서 데이터를 복사하려면 데이터 세트의 type 속성을 **RelationalTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+DB2에서 데이터를 복사 하려면 다음 속성이 지원 됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **RelationalTable** | 예 |
-| tableName | DB2 데이터베이스의 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
+| type | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **Db2Table** | 예 |
+| schema | 스키마의 이름입니다. |아니요(작업 원본에서 "query"가 지정된 경우)  |
+| table | 테이블 이름입니다. |아니요(작업 원본에서 "query"가 지정된 경우)  |
+| tableName | 스키마가 있는 테이블의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원 됩니다. 새 `schema` 워크 `table` 로드에 및를 사용 합니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
 
@@ -115,15 +118,18 @@ DB2에서 데이터를 복사하려면 데이터 세트의 type 속성을 **Rela
     "name": "DB2Dataset",
     "properties":
     {
-        "type": "RelationalTable",
+        "type": "Db2Table",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<DB2 linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
+
+형식화 된 데이터 집합 `RelationalTable` 을 사용 하는 경우에는 계속 해 서 새 항목을 사용 하는 것이 좋습니다.
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 
@@ -131,11 +137,11 @@ DB2에서 데이터를 복사하려면 데이터 세트의 type 속성을 **Rela
 
 ### <a name="db2-as-source"></a>DB2를 원본으로
 
-DB2에서 데이터를 복사하려면 복사 작업의 원본 형식을 **RelationalSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
+DB2에서 데이터를 복사 하기 위해 복사 작업 **원본** 섹션에서 다음 속성이 지원 됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **RelationalSource** | 예 |
+| type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **Db2Source** | 예 |
 | query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**
@@ -159,7 +165,7 @@ DB2에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Relat
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "Db2Source",
                 "query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""
             },
             "sink": {
@@ -169,6 +175,8 @@ DB2에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Relat
     }
 ]
 ```
+
+형식화 된 소스를 `RelationalSource` 사용 하는 경우에는 계속 해 서 새 항목을 사용 하는 것이 좋습니다.
 
 ## <a name="data-type-mapping-for-db2"></a>DB2에 대한 데이터 형식 매핑
 
@@ -180,7 +188,7 @@ DB2에서 데이터를 복사하는 경우 DB2 데이터 형식에서 Azure Data
 | Binary |Byte[] |
 | Blob |Byte[] |
 | Char |String |
-| Clob |String |
+| Clob |문자열 |
 | 날짜 |Datetime |
 | DB2DynArray |String |
 | DbClob |String |
@@ -188,19 +196,19 @@ DB2에서 데이터를 복사하는 경우 DB2 데이터 형식에서 Azure Data
 | DecimalFloat |Decimal |
 | Double |Double |
 | Float |Double |
-| 그래픽 |String |
+| 그래픽 |문자열 |
 | Integer |Int32 |
 | LongVarBinary |Byte[] |
-| LongVarChar |String |
-| LongVarGraphic |문자열 |
+| LongVarChar |문자열 |
+| LongVarGraphic |String |
 | 숫자 |Decimal |
 | Real |Single |
 | SmallInt |Int16 |
 | 시간 |TimeSpan |
 | Timestamp |Datetime |
 | VarBinary |Byte[] |
-| VarChar |문자열 |
-| VarGraphic |문자열 |
+| VarChar |String |
+| VarGraphic |String |
 | Xml |Byte[] |
 
 

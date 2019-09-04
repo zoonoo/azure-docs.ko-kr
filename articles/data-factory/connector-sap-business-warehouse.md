@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: cd17dcb7a9f68c25617c9e6b928ddebebcdbddbe
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.openlocfilehash: 4ee9048202a5953ff27ea83cfb39cb1af0739e7a
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70211730"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277498"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP Business Warehouse에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -27,7 +27,7 @@ ms.locfileid: "70211730"
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 SAP BW(Business Warehouse)에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 >[!TIP]
->SAP 데이터 통합 시나리오에 대 한 ADF의 전반적인 지원에 대 한 자세한 내용은 [Azure Data Factory 백서를 사용 하 여 Sap 데이터 통합](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) 에서 자세한 소개, comparsion 및 지침을 참조 하세요.
+>SAP 데이터 통합 시나리오에 대 한 ADF의 전반적인 지원에 대 한 자세한 내용은 [Azure Data Factory 백서를 사용 하 여 sap 데이터 통합](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) 에서 자세한 소개, comparsion 및 지침을 참조 하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -98,9 +98,9 @@ SAP BW(Business Warehouse) 연결된 서비스에 다음 속성이 지원됩니�
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 데이터 세트 문서를 참조하세요. 이 섹션에는 SAP BW 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에는 SAP BW 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-SAP BW에서 데이터를 복사하려면 데이터 세트의 type 속성을 **RelationalTable**로 설정합니다. 반면에 RelationalTable 형식의 SAP BW 데이터 세트에 대해 지원되는 type별 속성은 없습니다.
+SAP BW에서 데이터를 복사 하려면 데이터 집합의 type 속성을 **SapBwCube**로 설정 합니다. 반면에 RelationalTable 형식의 SAP BW 데이터 세트에 대해 지원되는 type별 속성은 없습니다.
 
 **예제:**
 
@@ -108,15 +108,18 @@ SAP BW에서 데이터를 복사하려면 데이터 세트의 type 속성을 **R
 {
     "name": "SAPBWDataset",
     "properties": {
-        "type": "RelationalTable",
+        "type": "SapBwCube",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<SAP BW linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
+
+형식화 된 데이터 집합 `RelationalTable` 을 사용 하는 경우에는 계속 해 서 새 항목을 사용 하는 것이 좋습니다.
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 
@@ -124,11 +127,11 @@ SAP BW에서 데이터를 복사하려면 데이터 세트의 type 속성을 **R
 
 ### <a name="sap-bw-as-source"></a>SAP BW를 원본으로
 
-SAP BW에서 데이터를 복사하려면 복사 작업의 원본 형식을 **RelationalSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
+SAP BW에서 데이터를 복사 하려면 복사 작업 **원본** 섹션에서 다음 속성을 지원 합니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **RelationalSource** | 예 |
+| type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **SapBwSource** | 예 |
 | query | SAP BW 인스턴스에서 데이터를 읽을 MDX 쿼리를 지정합니다. | 예 |
 
 **예제:**
@@ -152,7 +155,7 @@ SAP BW에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Re
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "SapBwSource",
                 "query": "<MDX query for SAP BW>"
             },
             "sink": {
@@ -162,6 +165,8 @@ SAP BW에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Re
     }
 ]
 ```
+
+형식화 된 소스를 `RelationalSource` 사용 하는 경우에는 계속 해 서 새 항목을 사용 하는 것이 좋습니다.
 
 ## <a name="data-type-mapping-for-sap-bw"></a>SAP BW에 대한 데이터 형식 매핑
 

@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: f2ffd88b21d8cf331435a030199b562e6b5b979f
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: b9d853cc0de08b64f2e0f5530e153724d9eeddda
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840257"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277086"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Azure Data Factory에서 지원되는 파일 형식 및 압축 코덱
 
@@ -35,7 +35,7 @@ ms.locfileid: "68840257"
 ## <a name="text-format"></a>텍스트 형식
 
 >[!NOTE]
->새 구분 된 텍스트 형식 datset를 소개 하는 Data Factory 자세한 내용은 [구분 기호로 분리 된 텍스트 형식](format-delimited-text.md) 문서를 참조 하세요. 파일 기반 데이터 저장소 데이터 집합에 대 한 다음 구성은 이전 compabitility의 경우 그대로 계속 지원 됩니다. 앞으로 새 모델을 사용 하는 것이 좋습니다.
+>새 구분 기호로 분리 된 텍스트 형식 데이터 집합을 소개 하는 Data Factory 자세한 내용은 [구분 된 텍스트 형식](format-delimited-text.md) 문서를 참조 하세요. 파일 기반 데이터 저장소 데이터 집합에 대 한 다음 구성은 이전 compabitility의 경우 그대로 계속 지원 됩니다. 앞으로 새 모델을 사용 하는 것이 좋습니다.
 
 텍스트 파일을 읽거나 텍스트 파일에 쓰려면 데이터 세트의 `format` 섹션에서 `type` 속성을 **TextFormat**으로 지정합니다. `format` 섹션에서 다음 **선택적** 속성을 지정할 수도 있습니다. 구성 방법은 [TextFormat 예제](#textformat-example) 섹션을 참조하세요.
 
@@ -413,7 +413,7 @@ SQL Database에 다음 테이블이 있는 경우:
 ## <a name="parquet-format"></a>Parquet 형식
 
 >[!NOTE]
->새 Parquet format datset에 도입 된 Data Factory [Parquet format](format-parquet.md) 문서 (세부 정보 포함)를 참조 하세요. 파일 기반 데이터 저장소 데이터 집합에 대 한 다음 구성은 이전 compabitility의 경우 그대로 계속 지원 됩니다. 앞으로 새 모델을 사용 하는 것이 좋습니다.
+>새 Parquet 형식 데이터 집합이 도입 된 Data Factory [Parquet format](format-parquet.md) 문서 (세부 정보)를 참조 하세요. 파일 기반 데이터 저장소 데이터 집합에 대 한 다음 구성은 이전 compabitility의 경우 그대로 계속 지원 됩니다. 앞으로 새 모델을 사용 하는 것이 좋습니다.
 
 Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰려면 `format` `type` 속성을 **ParquetFormat**으로 설정합니다. typeProperties 섹션 내의 Format 섹션에서는 속성을 지정할 필요가 없습니다. 예제:
 
@@ -449,7 +449,7 @@ Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰�
 
 | Data Factory 중간 데이터 형식 | Parquet 기본 형식 | Parquet 원본 형식(Deserialize) | Parquet 원본 형식(Serialize) |
 |:--- |:--- |:--- |:--- |
-| Boolean | Boolean | N/A | 해당 사항 없음 |
+| Boolean | Boolean | N/A | N/A |
 | SByte | Int32 | Int8 | Int8 |
 | Byte | Int32 | UInt8 | Int16 |
 | Int16 | Int32 | Int16 | Int16 |
@@ -458,17 +458,17 @@ Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰�
 | UInt32 | Int64 | UInt32 | Int64 |
 | Int64 | Int64 | Int64 | Int64 |
 | UInt64 | Int64/이진 | UInt64 | Decimal |
-| Single | Float | 해당 사항 없음 | 해당 사항 없음 |
-| Double | Double | 해당 사항 없음 | N/A |
+| Single | Float | N/A | 해당 사항 없음 |
+| Double | Double | N/A | 해당 사항 없음 |
 | Decimal | 이항 | Decimal | Decimal |
 | String | 이항 | Utf8 | Utf8 |
-| DateTime | Int96 | N/A | N/A |
+| DateTime | Int96 | 해당 사항 없음 | 해당 사항 없음 |
 | TimeSpan | Int96 | 해당 사항 없음 | 해당 사항 없음 |
 | DateTimeOffset | Int96 | 해당 사항 없음 | 해당 사항 없음 |
 | ByteArray | 이항 | 해당 사항 없음 | 해당 사항 없음 |
 | Guid | 이항 | Utf8 | Utf8 |
 | Char | 이항 | Utf8 | Utf8 |
-| CharArray | 지원되지 않음 | N/A | N/A |
+| CharArray | 지원되지 않음 | N/A | 해당 사항 없음 |
 
 ## <a name="orc-format"></a>ORC 형식
 
@@ -507,11 +507,11 @@ ORC 파일을 구문 분석하거나 데이터를 ORC 형식으로 쓰려면 `fo
 | Int32 | Int |
 | UInt32 | 길게 |
 | Int64 | 길게 |
-| UInt64 | 문자열 |
+| UInt64 | String |
 | Single | Float |
 | Double | Double |
 | Decimal | Decimal |
-| String | 문자열 |
+| String | String |
 | DateTime | timestamp |
 | DateTimeOffset | timestamp |
 | TimeSpan | timestamp |
@@ -520,6 +520,9 @@ ORC 파일을 구문 분석하거나 데이터를 ORC 형식으로 쓰려면 `fo
 | Char | Char(1) |
 
 ## <a name="avro-format"></a>AVRO 형식
+
+>[!NOTE]
+>새 Avro 형식 데이터 집합이 도입 된 Data Factory [Avri 형식](format-avro.md) 문서를 참조 하세요. 파일 기반 데이터 저장소 데이터 집합에 대 한 다음 구성은 이전 compabitility의 경우 그대로 계속 지원 됩니다. 앞으로 새 모델을 사용 하는 것이 좋습니다.
 
 Avro 파일을 구문 분석하거나 데이터를 Avro 형식으로 쓰려면 `format` `type` 속성을 **AvroFormat**으로 설정합니다. typeProperties 섹션 내의 Format 섹션에서는 속성을 지정할 필요가 없습니다. 예제:
 

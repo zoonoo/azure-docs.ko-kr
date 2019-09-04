@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: 69d75f9050560eb4a9e394241316c0474fffe7cc
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: f053cc9bf6b08b9cf76b6e992c3d8cbdf5f759da
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232483"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258977"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Azure 가상 머신에서 백업 오류 문제 해결
 
@@ -34,10 +34,10 @@ ms.locfileid: "70232483"
 * 에서 `Services.msc` **Windows Azure 게스트 에이전트** 서비스가 **실행**중인지 확인 합니다. **Microsoft Azure 게스트 에이전트** 서비스가 없는 경우 [Recovery Services 자격 증명 모음에 Azure vm 백업](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent)에서 설치 합니다.
 * **이벤트 로그** 에는 다른 백업 제품의 백업 오류 (예: Windows Server 백업)가 표시 될 수 있으며, Azure 백업으로 인 한 것이 아닙니다. 다음 단계를 사용 하 여 문제가 Azure Backup 있는지 여부를 확인 합니다.
    * 이벤트 원본 또는 메시지에 항목을 **백업** 하는 동안 오류가 발생 하는 경우 AZURE IaaS VM 백업 백업에 성공 했는지 여부 및 원하는 스냅숏 유형으로 복원 지점을 만들었는지 여부를 확인 합니다.
-    * Azure Backup 작동 하는 경우 다른 백업 솔루션에 문제가 있을 수 있습니다. 
+    * Azure Backup 작동 하는 경우 다른 백업 솔루션에 문제가 있을 수 있습니다.
     * Azure 백업이 정상적으로 작동 하지만 "Windows Server 백업"이 실패 한 이벤트 뷰어 오류의 예는 다음과 같습니다.<br>
     ![Windows Server 백업 실패](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
-    * Azure Backup 실패 하면이 문서의 일반적인 VM 백업 오류 섹션에서 해당 오류 코드를 찾습니다. 
+    * Azure Backup 실패 하면이 문서의 일반적인 VM 백업 오류 섹션에서 해당 오류 코드를 찾습니다.
 
 ## <a name="common-issues"></a>일반적인 문제
 
@@ -65,7 +65,7 @@ VM이 실패 상태 여 서 백업 작업이 실패 했습니다. 성공적으�
 오류 코드: UserErrorFsFreezeFailed <br/>
 오류 메시지: VM의 탑재 지점을 하나 이상을 동결하지 못하여 파일-시스템 일치 스냅샷을 만들지 못했습니다.
 
-* **Tune2fs** 명령을 사용 하 여 탑재 된 모든 장치의 파일 시스템 상태를 확인 합니다 (예: **tune2fs- \\l** \| /dev/sdb1 filefilestate).
+* **Tune2fs** 명령을 사용 하 여 탑재 된 모든 장치의 파일 시스템 상태를 확인 합니다 (예: **tune2fs- \\l** \| /dev/sdb1 **filefilestate**).
 * **분리할** 명령을 사용 하 여 파일 시스템 상태가 정리 되지 않은 장치를 분리 합니다.
 * **Fsck** 명령을 사용 하 여 이러한 장치에 대 한 파일 시스템 일관성 검사를 실행 합니다.
 * 장치를 다시 탑재 하 고 백업 작업을 다시 시도 하세요.</ol>
@@ -193,7 +193,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 | **오류 코드**: VmNotInDesirableState <br/> **오류 메시지**:  VM이 백업을 허용하지 않는 상태입니다. |<ul><li>VM이 **실행 중**에서 **종료** 상태로 전환되고 있으면 상태가 변경될 때까지 기다립니다. 그런 다음, 백업 작업을 트리거합니다. <li> VM이 Linux 에이전트이고 Security-Enhanced Linux 커널 모듈을 사용하는 경우 보안 정책에서 Azure Linux 에이전트 경로 **/var/lib/waagent**를 제외하여 백업 확장이 설치되도록 합니다.  |
 | VM 에이전트가 가상 머신에 없습니다. <br>모든 필수 구성 요소 및 VM 에이전트를 설치합니다. 그런 다음, 작업을 다시 시작합니다. |[VM 에이전트 설치 및 VM 에이전트 설치의 유효성을 검사하는 방법](#vm-agent)에 대해 자세히 알아보세요. |
 | **오류 코드**: ExtensionSnapshotFailedNoSecureNetwork <br/> **오류 메시지**: 보안 네트워크 통신 채널을 생성하지 못하여 스냅샷 작업이 실패했습니다. | <ol><li> 관리자 권한 모드에서 **regedit.exe**를 실행하여 레지스트리 편집기를 엽니다. <li> 시스템에 있는 모든 버전의 .NET Framework를 파악합니다. 이러한 버전은 레지스트리 키 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**의 계층 구조 아래에 있습니다. <li> 레지스트리 키에 있는 각 .NET Framework에 대해 다음 키를 추가합니다. <br> **SchUseStrongCrypto"=dword:00000001** </ol>|
-| **오류 코드**: ExtensionVCRedistInstallationFailure <br/> **오류 메시지**: Visual Studio 2012용 Visual C++ 재배포 가능 패키지의 설치 실패로 인해 스냅샷 작업이 실패했습니다. | C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion으로 이동한 후 vcredist2012_x64를 설치합니다.<br/>서비스 설치를 허용 하는 레지스트리 키 값이 올바른 값으로 설정 되어 있는지 확인 합니다. 즉, **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** 의 **시작** 값을 **4**가 아닌 **3** 으로 설정 합니다. <br><br>설치하는 데 여전히 문제가 발생할 경우 관리자 권한 명령 프롬프트에서 **MSIEXEC /UNREGISTER**를 실행한 후 **MSIEXEC /REGISTER**를 실행하여 설치 서비스를 다시 시작합니다.  |
+| **오류 코드**: ExtensionVCRedistInstallationFailure <br/> **오류 메시지**: Visual Studio 2012용 Visual C++ 재배포 가능 패키지의 설치 실패로 인해 스냅샷 작업이 실패했습니다. | C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion으로 이동 하 여 vcredist2013_x64를 설치 합니다.<br/>서비스 설치를 허용 하는 레지스트리 키 값이 올바른 값으로 설정 되어 있는지 확인 합니다. 즉, **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** 의 **시작** 값을 **4**가 아닌 **3** 으로 설정 합니다. <br><br>설치하는 데 여전히 문제가 발생할 경우 관리자 권한 명령 프롬프트에서 **MSIEXEC /UNREGISTER**를 실행한 후 **MSIEXEC /REGISTER**를 실행하여 설치 서비스를 다시 시작합니다.  |
 
 
 ## <a name="jobs"></a>에서

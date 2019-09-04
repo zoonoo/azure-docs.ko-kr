@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 504158f248cde3a399475cdec99de3e6a4ebfcc5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b0881cb6dac9ec83d2126942c758508e760f9c83
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60598020"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274434"
 ---
 # <a name="install-packages-from-within-a-notebook"></a>노트 내에서 패키지 설치
 
@@ -66,9 +66,19 @@ F#의 패키지는 코드 셀 내에서 Paket 종속성 관리자를 호출하�
 
 ```fsharp
 Paket.Package
-[ "MathNet.Numerics"
-"MathNet.Numerics.FSharp"
-]
+  [ "MathNet.Numerics"
+    "MathNet.Numerics.FSharp"
+  ]
+```
+
+그런 다음 paket 생성기를 로드 합니다.
+```fsharp
+#load "Paket.Generated.Refs.fsx"
+```
+
+라이브러리를 엽니다.
+```fsharp
+open MathNet.Numerics
 ```
 
 ## <a name="next-steps"></a>다음 단계

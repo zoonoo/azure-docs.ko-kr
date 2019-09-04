@@ -12,12 +12,12 @@ ms.server: functions
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: glenga
-ms.openlocfilehash: 3d60e5e4aae3457ae04cd7e4ecfe4f9253a04751
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 976121e2fd7af280ccc959ba2a93aceb4ae2bdea
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085394"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276837"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Azure Functions의 함수 앱에 대한 리소스 배포 자동화
 
@@ -87,7 +87,7 @@ Azure Functions 런타임에서는 `AzureWebJobsStorage` 연결 문자열을 사
 
 ### <a name="application-insights"></a>Application Insights
 
-Application Insights 함수 앱 모니터링에 권장 됩니다. Application Insights 리소스는 다음과 같은 형식으로 지정 됩니다 **.**
+Application Insights 함수 앱 모니터링에 권장 됩니다. Application Insights 리소스 **는 다음과 같은**형식으로 지정 됩니다 **.**
 
 ```json
         {
@@ -126,7 +126,7 @@ Application Insights 함수 앱 모니터링에 권장 됩니다. Application In
 
 ### <a name="function-app"></a>함수 앱
 
-함수 앱 리소스는 다음과 같은 형식의 리소스를 사용 하 여 정의 됩니다 **.**
+함수 앱 리소스 **는 다음과 같은**형식의 리소스를 사용 하 여 정의 됩니다 **.**
 
 ```json
 {
@@ -146,7 +146,7 @@ Application Insights 함수 앱 모니터링에 권장 됩니다. Application In
 
 함수 앱에는 다음과 같은 응용 프로그램 설정이 포함 되어야 합니다.
 
-| 설정 이름                 | Description                                                                               | 예제 값                        |
+| 설정 이름                 | 설명                                                                               | 예제 값                        |
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
 | AzureWebJobsStorage          | 내부 큐를 위한 함수 런타임에 대 한 저장소 계정에 대 한 연결 문자열입니다. | [저장소 계정](#storage) 을 참조 하세요.       |
 | FUNCTIONS_EXTENSION_VERSION  | Azure Functions 런타임의 버전입니다.                                                | `~2`                                  |
@@ -195,16 +195,22 @@ Application Insights 함수 앱 모니터링에 권장 됩니다. Application In
 소비 계획은 특수 한 유형의 "서버 팜" 리소스입니다. Windows의 경우 `Dynamic` `computeMode` 및 `sku` 속성에 대 한 값을 사용 하 여 지정할 수 있습니다.
 
 ```json
-{
-    "type": "Microsoft.Web/serverfarms",
-    "apiVersion": "2015-04-01",
-    "name": "[variables('hostingPlanName')]",
-    "location": "[resourceGroup().location]",
-    "properties": {
-        "name": "[variables('hostingPlanName')]",
-        "computeMode": "Dynamic",
-        "sku": "Dynamic"
-    }
+{  
+   "type":"Microsoft.Web/serverfarms",
+   "apiVersion":"2016-09-01",
+   "name":"[variables('hostingPlanName')]",
+   "location":"[resourceGroup().location]",
+   "properties":{  
+      "name":"[variables('hostingPlanName')]",
+      "computeMode":"Dynamic"
+   },
+   "sku":{  
+      "name":"Y1",
+      "tier":"Dynamic",
+      "size":"Y1",
+      "family":"Y",
+      "capacity":0
+   }
 }
 ```
 

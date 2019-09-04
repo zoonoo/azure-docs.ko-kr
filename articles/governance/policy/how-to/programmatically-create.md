@@ -7,20 +7,18 @@ ms.date: 01/31/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: d158950749a9704276a666b58101bb5ad9dcbc42
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 1039073aaaf9d1a6b7bd9ac21a95c73871ce3ba3
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232627"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70239032"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>프로그래밍 방식으로 정책 및 보기 규정 준수 데이터 만들기
 
 이 문서는 프로그래밍 방식으로 정책을 만들고 관리하는 방법을 설명합니다. Azure Policy 정의는 리소스에 대해 다양 한 규칙과 효과를 적용 합니다. 적용은 리소스가 회사 표준 및 서비스 수준 계약을 준수하는지 확인합니다.
 
 규정 준수에 대한 내용은 [준수 데이터 가져오기](getting-compliance-data.md)를 참조하세요.
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

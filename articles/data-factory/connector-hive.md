@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 9bfa5aca56352f616b3527e65eec26fa635d1771
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 40f97c3b31a7e49c9a5ecc790e3cc762572ecaa3
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967002"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276362"
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Hive에서 데이터 복사 
 
@@ -94,7 +94,9 @@ Hive에서 데이터를 복사하려면 데이터 세트의 type 속성을 **Hiv
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 **HiveObject**로 설정해야 합니다. | 예 |
-| tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
+| schema | 스키마의 이름입니다. |아니요(작업 원본에서 "query"가 지정된 경우)  |
+| table | 테이블 이름입니다. |아니요(작업 원본에서 "query"가 지정된 경우)  |
+| tableName | 스키마 파트를 포함 하는 테이블의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원 됩니다. 새 워크 로드의 경우 `schema` 및 `table`를 사용 합니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
 
@@ -103,11 +105,12 @@ Hive에서 데이터를 복사하려면 데이터 세트의 type 속성을 **Hiv
     "name": "HiveDataset",
     "properties": {
         "type": "HiveObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Hive linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```

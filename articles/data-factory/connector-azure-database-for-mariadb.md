@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: cb783630b32b4cc28d4e4f1cfb33027da3b8d2e0
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 3325cb7170ebe42962c403d25d04c9fe2bae3b45
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966555"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276038"
 ---
 # <a name="copy-data-from-azure-database-for-mariadb-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Database for MariaDB에서 데이터 복사 
 
@@ -41,7 +41,7 @@ Azure Database for MariaDB 연결된 서비스에 다음 속성이 지원됩니�
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | type 속성을 다음으로 설정해야 합니다. **MariaDB** | 예 |
+| type | type 속성을 다음으로 설정해야 합니다. **Azureaadb** | 예 |
 | connectionString | Azure Database for MariaDB에 연결하는 연결 문자열입니다. Azure Portal -> Azure Database for MariaDB -> 연결 문자열 -> ADO.NET에서 찾을 수 있습니다. <br/>이 필드를 SecureString으로 표시하여 Data Factory에서 안전하게 저장합니다. Azure Key Vault에 암호를 넣고, 연결 문자열에서 `pwd` 구성을 끌어올 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
@@ -51,7 +51,7 @@ Azure Database for MariaDB 연결된 서비스에 다음 속성이 지원됩니�
 {
     "name": "AzureDatabaseForMariaDBLinkedService",
     "properties": {
-        "type": "MariaDB",
+        "type": "AzureMariaDB",
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
@@ -72,7 +72,7 @@ Azure Database for MariaDB 연결된 서비스에 다음 속성이 지원됩니�
 {
     "name": "AzureDatabaseForMariaDBLinkedService",
     "properties": {
-        "type": "MariaDB",
+        "type": "AzureMariaDB",
         "typeProperties": {
             "connectionString": {
                  "type": "SecureString",
@@ -99,11 +99,11 @@ Azure Database for MariaDB 연결된 서비스에 다음 속성이 지원됩니�
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Azure Database for MariaDB 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-Azure Database for MariaDB에서 데이터를 복사하려면 데이터 세트의 type 속성을 **MariaDBTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+Azure Database for MariaDB에서 데이터를 복사 하기 위해 지원 되는 속성은 다음과 같습니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **MariaDBTable** | 예 |
+| type | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **AzureMariaDBTable** | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
@@ -112,12 +112,13 @@ Azure Database for MariaDB에서 데이터를 복사하려면 데이터 세트�
 {
     "name": "AzureDatabaseForMariaDBDataset",
     "properties": {
-        "type": "MariaDBTable",
+        "type": "AzureMariaDBTable",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Azure Database for MariaDB linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -128,11 +129,11 @@ Azure Database for MariaDB에서 데이터를 복사하려면 데이터 세트�
 
 ### <a name="azure-database-for-mariadb-as-source"></a>Azure Database for MariaDB 원본
 
-Azure Database for MariaDB에서 데이터를 복사하려면 복사 작업의 source 형식을 **MariaDBSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
+Azure Database for MariaDB에서 데이터를 복사 하려면 복사 작업 **원본** 섹션에서 다음 속성을 지원 합니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **MariaDBSource** | 예 |
+| type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **AzureMariaDBSource** | 예 |
 | query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"`. | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**
@@ -156,7 +157,7 @@ Azure Database for MariaDB에서 데이터를 복사하려면 복사 작업의 s
         ],
         "typeProperties": {
             "source": {
-                "type": "MariaDBSource",
+                "type": "AzureMariaDBSource",
                 "query": "SELECT * FROM MyTable"
             },
             "sink": {

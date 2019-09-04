@@ -16,12 +16,12 @@ ms.date: 08/28/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74e0539095701ec104495bf5a44dec668494d444
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: a17b64cbfffbe9cabd909bccb16d55c07bba8bb0
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207181"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241443"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Azure AD Identity Governance란?
 
@@ -72,7 +72,7 @@ PIM(Azure AD Privileged Identity Management)에서는 Azure AD, Azure 및 기타
 
 ## <a name="least-privileged-roles"></a>최소 권한 역할
 
-PIM을 사용 하면 추가 보안을 위해 사용자의 관리 권한을 제한할 수 있습니다. Azure AD id 거 버 넌 스 기능에서 구성에 대 한 최소 권한 있는 디렉터리 역할은 다음과 같습니다. 
+최소 권한 있는 역할을 사용 하 여 Id 거 버 넌 스에서 관리 작업을 수행 하는 것이 가장 좋습니다. 이러한 작업을 수행 하는 데 필요한 경우 Azure AD PIM을 사용 하 여 역할을 활성화 하는 것이 좋습니다. Id 거 버 넌 스 기능을 구성 하는 데 필요한 최소 권한 있는 디렉터리 역할은 다음과 같습니다. 
 
 | 기능 | 최소 권한 역할 |
 | ------- | --------------------- |

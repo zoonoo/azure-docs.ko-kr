@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2019
 ms.author: v-miegge
-ms.openlocfilehash: 57dc9c05778563bc0c5df1a8ac8895b51008b01f
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 5032762c1275d3f1c8d1a020a54d20555f8ba3fe
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69657074"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242427"
 ---
 # <a name="troubleshoot-azure-sign-up"></a>Azure 등록 문제 해결
 
@@ -106,7 +106,7 @@ Microsoft Azure portal 또는 Azure 계정 센터에서 새 계정을 등록 하
 
 ### <a name="cant-activate-new-azure-in-open-subscription"></a>새 Azure In Open 구독을 활성화할 수 없습니다.
 
-Azure In Open 구독을 만들려면 하나 이상의 Azure In Open 토큰이 연결 된 유효한 OSA (온라인 서비스 활성화) 키가 있어야 합니다. OSA 키가 없는 경우 [microsoft](http://pinpoint.microsoft.com/)에 나열 된 microsoft 파트너 중 하나에 문의 하세요.
+Azure In Open 구독을 만들려면 하나 이상의 Azure In Open 토큰이 연결 된 유효한 OSA (온라인 서비스 활성화) 키가 있어야 합니다. OSA 키가 없는 경우 [microsoft](https://pinpoint.microsoft.com/)에 나열 된 microsoft 파트너 중 하나에 문의 하세요.
 
 ### <a name="error-you-are-not-eligible-for-an-azure-subscription"></a>오류: *Azure 구독에 대 한 자격이 없습니다.*
 

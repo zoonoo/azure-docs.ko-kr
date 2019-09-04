@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 8b424696c3350ff2592df9a97189dde3df57845f
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 5b6ece20f67258391e31b941edfc1ec0aa5db98f
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70138571"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279259"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>API Management를 사용하여 Azure Machine Learning Studio 웹 서비스 관리
 ## <a name="overview"></a>개요
@@ -166,7 +166,7 @@ API를 만들려면:
 
 ## <a name="appendix-a---creating-and-testing-a-simple-azureml-web-service"></a>부록 A - 간단한 AzureML 웹 서비스 만들기 및 테스트
 ### <a name="creating-the-experiment"></a>실험 만들기
-간단한 AzureML 실험을 만들고 웹 서비스로 배포하는 단계는 다음과 같습니다. 웹 서비스에서는 임의 텍스트 열을 입력으로 사용하고 정수로 표시되는 기능 집합을 반환합니다. 예:
+간단한 AzureML 실험을 만들고 웹 서비스로 배포하는 단계는 다음과 같습니다. 웹 서비스에서는 임의 텍스트 열을 입력으로 사용하고 정수로 표시되는 기능 집합을 반환합니다. 예를 들어:
 
 | 텍스트 | 해시된 텍스트 |
 | --- | --- |
@@ -301,7 +301,7 @@ RRS를 테스트하는 또 다른 방법은 클라이언트 코드를 사용하�
     except urllib2.HTTPError, error:
         printHttpError(error)
         return
-    with open(output_file, "w+") as f:
+    with open(output_file, "wb+") as f:
         f.write(response.read())
     print(resultsLabel + " have been written to the file " + output_file)
     return

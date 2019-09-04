@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 33ee006a704cec1fb0d75a953629aec68461a4f4
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 8bf83f483bb7680b71bf928430858240deb3d603
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165183"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278821"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 
@@ -38,7 +38,7 @@ ms.locfileid: "70165183"
 
 * [Visual Studio Code](#vscode): Visual Studio Code를 사용하는 경우 몇 가지 유용한 확장 프로그램을 설치할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 Azure Machine Learning 서비스 작업 영역. 작업 영역을 만들려면 [Azure Machine Learning 서비스 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요. [클라우드 기반 노트북 서버](#notebookvm), [dsvm](#dsvm), [Azure Databricks](#aml-databricks)또는 [Azure Notebooks](#aznotebooks)를 사용 하 여 작업 영역을 시작 하기만 하면 됩니다.
 
@@ -411,5 +411,4 @@ Databricks에 자동화 된 machine learning이 ![설치 된 자동화 된 machi
 ## <a name="next-steps"></a>다음 단계
 
 - MNIST 데이터 세트를 사용하여 Azure Machine Learning에서 [모델 학습](tutorial-train-models-with-aml.md)
-- [Python용 Azure Machine Learning SDK](https://aka.ms/aml-sdk) 참조 보기
-- [Azure Machine Learning에 대 한 데이터 준비 패키지](https://aka.ms/data-prep-sdk) 에 대해 알아보기
+- [Python용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 참조 보기

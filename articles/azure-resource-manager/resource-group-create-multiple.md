@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 09/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: dbacec6e8f91480996150e73f2a81dbcde67550b
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: b349576f5e9f5410afc29f48e40c38e12168252d
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494800"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258891"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 리소스, 속성 또는 변수 반복
 
@@ -43,13 +43,13 @@ ms.locfileid: "68494800"
 
 이 문서에서는 두 가지 사용 방법을 자세히 설명 합니다. 자습서의 경우 [자습서: Resource Manager 템플릿을 사용하여 여러 리소스 인스턴스 만들기](./resource-manager-tutorial-create-multiple-instances.md)를 참조하세요.
 
-리소스 배포 여부를 지정해야 하는 경우, [조건 요소](resource-group-authoring-templates.md#condition)를 참조하세요.
+리소스 배포 여부를 지정해야 하는 경우, [조건 요소](conditional-resource-deployment.md)를 참조하세요.
 
 ## <a name="copy-limits"></a>복사 제한
 
 반복 횟수를 지정 하려면 count 속성의 값을 제공 합니다. 개수는 800를 초과할 수 없습니다.
 
-개수는 음수일 수 없습니다. REST API 버전 **2019-05-10** 이상을 사용 하 여 템플릿을 배포 하는 경우 count를 0으로 설정할 수 있습니다. 이전 버전의 REST API는 count에 대해 0을 지원 하지 않습니다. 현재 Azure CLI 또는 PowerShell은 count에 대해 0을 지원 하지 않지만 이후 릴리스에서는 해당 지원이 추가 될 예정입니다.
+개수는 음수일 수 없습니다. Azure PowerShell 2.6 이상 또는 REST API **2019-05-10** 이상 버전을 사용 하 여 템플릿을 배포 하는 경우 count를 0으로 설정할 수 있습니다. 이전 버전의 PowerShell과 REST API는 카운트에 대해 0을 지원 하지 않습니다. 현재 Azure CLI는 개수에 대해 0을 지원 하지 않지만 이후 릴리스에서는 지원이 추가 될 예정입니다.
 
 Copy를 사용 하 여 [전체 모드 배포](deployment-modes.md) 를 주의 해 서 사용 합니다. 전체 모드를 사용 하 여 리소스 그룹에 다시 배포 하면 복사 루프를 확인 한 후 템플릿에 지정 되지 않은 모든 리소스가 삭제 됩니다.
 

@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 09/04/2019
 ms.author: raynew
-ms.openlocfilehash: 00f222472a9b41c7f95ae90bdca57f13175b2b5d
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 26b7f185a05bcf50db3af6bd3b75d5e61d6ec84b
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952134"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279566"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Hyper-V 평가 및 마이그레이션 지원 매트릭스
 
@@ -37,7 +37,7 @@ System Center Virtual Machine Manager (VMM)로 관리 되는 Hyper-v 서버의 �
 --- | ---
 Azure 권한 | Azure Migrate 프로젝트를 만들려면 구독에 대 한 참가자 또는 소유자 권한이 있어야 합니다.
 Hyper-V VM | 단일 프로젝트에서 최대 35000 Hyper-v Vm을 평가 합니다. Azure 구독에 여러 프로젝트를 포함할 수 있습니다. 프로젝트에는 VMware Vm과 Hyper-v Vm이 모두 포함 될 수 있습니다 (평가 제한까지).
-지리 | 여러 지역에서 Azure Migrate 프로젝트를 만들 수 있습니다. 특정 ographies 프로젝트를 만들 수 있지만 다른 대상 위치의 컴퓨터를 평가 하거나 마이그레이션할 수 있습니다. 프로젝트 지역은 검색된 메타데이터를 저장하는 데만 사용됩니다.
+지리 | 여러 지역에서 Azure Migrate 프로젝트를 만들 수 있습니다. 특정 지역에 프로젝트를 만들 수 있지만 다른 대상 위치의 컴퓨터를 평가 하거나 마이그레이션할 수 있습니다. 프로젝트 지역은 검색된 메타데이터를 저장하는 데만 사용됩니다.
 
   **Geography** | **메타데이터 스토리지 위치**
   --- | ---
@@ -82,8 +82,13 @@ Hyper-V VM | 단일 프로젝트에서 최대 35000 Hyper-v Vm을 평가 합니�
 
 | **지원**                | **세부 정보**               
 | :-------------------       | :------------------- |
-| **Azure Migrate 프로젝트**  |  어플라이언스는 단일 프로젝트에 연결할 수 있습니다.<br/> 단일 어플라이언스를 사용 하 여 최대 5000 Hyper-v Vm을 검색할 수 있습니다.
-| **Hyper-V**    |  어플라이언스를 Hyper-v VM으로 배포 합니다.<br/> 제공 된 어플라이언스 VM은 Hyper-v VM 버전 5.0입니다.<br/> VM 호스트에서 Windows Server 2012 R2 이상을 실행 해야 합니다.<br/> 어플라이언스 VM에 16gb RAM, 8 vCPUs 및 1 개의 외부 스위치를 할당 하는 데 충분 한 공간이 필요 합니다.<br/> 어플라이언스에는 정적 또는 동적 IP 주소와 인터넷 액세스 권한이 필요 합니다.
+| **어플라이언스 배포**   |  어플라이언스를 Hyper-v VM으로 배포 합니다.<br/> Azure Migrate에서 제공 하는 어플라이언스 VM은 Hyper-v VM 버전 5.0입니다.<br/> Hyper-v 호스트는 Windows Server 2012 R2 이상을 실행 해야 합니다.<br/> 호스트에는 VM에 16gb RAM, 8 vCPUs 및 1 개의 외부 스위치를 할당 하는 데 충분 한 공간이 필요 합니다.<br/> 어플라이언스에는 정적 또는 동적 IP 주소와 인터넷 액세스가 필요 합니다.
+| **Azure Migrate 프로젝트**  |  어플라이언스는 단일 프로젝트에 연결할 수 있습니다.<br/> 모든 수의 어플라이언스를 단일 프로젝트에 연결할 수 있습니다.<br/> 프로젝트에서 최대 35000 개의 Vm을 평가할 수 있습니다.
+| **Hyper-V 호스트**          | 어플라이언스는 최대 300 Hyper-v 호스트에 연결할 수 있습니다.
+| **조사**              | 단일 어플라이언스에서 최대 5000 Vm을 검색할 수 있습니다.
+| **평가 그룹**       | 단일 그룹에 최대 35000 대의 컴퓨터를 추가할 수 있습니다.
+| **평가**             | 단일 평가에서 최대 35000 Vm을 평가할 수 있습니다.
+
 
 
 ## <a name="assessment-appliance-url-access"></a>평가-어플라이언스 URL 액세스
@@ -116,6 +121,9 @@ https://download.microsoft.com/download/* | Microsoft 다운로드 사이트에�
 --- | ---
 **기기가** | 어플라이언스에 대 한 원격 데스크톱 연결을 허용 하기 위해 TCP 포트 3389에서 인바운드 연결<br/> URL을 사용 하 여 어플라이언스 관리 앱에 원격으로 액세스 하기 위해 포트 44368에서 인바운드 연결:``` https://<appliance-ip-or-name>:44368 ```<br/> Azure Migrate에 검색 및 성능 메타 데이터를 보내기 위한 포트 443, 5671 및 5672의 아웃 바운드 연결
 **Hyper-v 호스트/클러스터** | CIM(Common Information Model) (CIM) 세션을 사용 하 여 Hyper-v Vm의 구성과 성능 메타 데이터를 끌어오기 위해 WinRM 포트 5985 (HTTP) 및 5986 (HTTPS)에서 인바운드 연결
+
+## <a name="migration-limitations"></a>마이그레이션-제한 사항
+복제를 위해 한 번에 최대 10 개의 Vm을 선택할 수 있습니다. 더 많은 컴퓨터를 마이그레이션하려는 경우 10 그룹으로 복제 합니다.
 
 ## <a name="migration-hyper-v-host-requirements"></a>마이그레이션-Hyper-v 호스트 요구 사항
 

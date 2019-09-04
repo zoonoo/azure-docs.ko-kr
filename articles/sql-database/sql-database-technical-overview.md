@@ -12,16 +12,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: 1c4fae5c41f4f23c4a7fe3135b602133aa69aacd
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 8c931521e77123844817dff0e9209f8f95f7ad59
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873698"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279890"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Azure SQL Database 서비스 정의
 
-Azure SQL Database은 Microsoft Azure 클라우드의 응용 프로그램 및 솔루션에 대해 고가용성 및 고성능 데이터 저장소 계층을 만들 수 있도록 하는 범용 관계형 데이터베이스 관리 서비스입니다. SQL Database은 다양 한 최신 클라우드 응용 프로그램에 적합 한 선택이 될 수 있습니다 .이를 통해 graph, JSON, 공간, XML 등의 비관계형 [구조](sql-database-multi-model-features.md) 와 관계형 데이터를 모두 처리 하는 데 강력한 기능을 사용할 수 있습니다. 안정적인 최신 버전의 [Microsoft SQL Server 데이터베이스 엔진](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json) 을 기반으로 하며, [고성능 메모리 내 기술과](sql-database-in-memory.md) [지능형 쿼리 처리와 같은 풍부한 고급 쿼리 처리 기능을 사용할 수 있습니다. ](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json).
+Azure SQL Database은 Microsoft Azure 클라우드의 응용 프로그램 및 솔루션에 대해 고가용성 및 고성능 데이터 저장소 계층을 만들 수 있도록 하는 범용 관계형 데이터베이스 관리 서비스입니다. SQL Database은 다양 한 최신 클라우드 응용 프로그램에 적합 한 선택이 될 수 있습니다 .이를 통해 graph, JSON, 공간, XML 등의 비관계형 [구조](sql-database-multi-model-features.md) 와 관계형 데이터를 모두 처리 하는 데 강력한 기능을 사용할 수 있습니다. 안정적인 최신 버전의 [Microsoft SQL Server 데이터베이스 엔진](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json) 을 기반으로 하며, [고성능 메모리 내 기술과](sql-database-in-memory.md) [지능형 쿼리 처리와 같은 풍부한 고급 쿼리 처리 기능 집합을 사용할 수 있습니다. ](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json).
 Microsoft의 클라우드 우선 전략을 사용하여 SQL Server의 최신 기능을 SQL Database에 먼저 릴리스한 다음 SQL Server 자체에 릴리스합니다. 이 방법은 패치 기능 또는 업그레이드에 대한 오버헤드 없이 수백만 개의 데이터베이스에 대해 테스트된 이러한 새로운 기능을 사용하여 최신 SQL Server 기능을 제공합니다. SQL Database를 사용 하면 [Vcore 기반 구매 모델](sql-database-service-tiers-vcore.md) 및 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)이라는 두 가지 구매 모델 내에서 성능을 쉽게 정의 하 고 확장할 수 있습니다. SQL Database은 가용성, 백업 및 기타 일반적인 유지 관리 작업을 기본 제공 하는 완전히 관리 되는 서비스입니다. Microsoft는 SQL 및 OS 코드의 모든 패치 및 업데이트를 원활 하 게 처리 하 고 기본 인프라의 모든 관리를 추상화 합니다.
 
 > [!NOTE]
@@ -31,7 +31,7 @@ Azure SQL Database는 Azure SQL 데이터베이스에 다음과 같은 옵션을
 
 ![배포 옵션](./media/sql-database-technical-overview/deployment-options.png)
 
-- [단일 데이터베이스](sql-database-single-database.md) 는 신뢰할 수 있는 단일 데이터 원본이 필요한 최신 클라우드 응용 프로그램 및 마이크로 서비스에 적합 한 완전히 관리 되는 격리 된 데이터베이스를 나타냅니다. 단일 데이터베이스는 [Microsoft SQL Server 데이터베이스 엔진](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json)에 [포함](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases?toc=/azure/sql-database/toc.json) 된 데이터베이스와 비슷합니다.
+- [단일 데이터베이스](sql-database-single-database.md) 는 신뢰할 수 있는 단일 데이터 원본이 필요한 최신 클라우드 응용 프로그램 및 마이크로 서비스에 적합 한 완전히 관리 되는 격리 된 데이터베이스를 나타냅니다. 단일 데이터베이스는 [Microsoft SQL Server 데이터베이스 엔진](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json)에 [포함 된 데이터베이스](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases?toc=/azure/sql-database/toc.json) 와 비슷합니다.
 - [관리](sql-database-managed-instance.md) 되는 인스턴스는 함께 사용할 수 있는 데이터베이스 집합을 포함 하는 [Microsoft SQL Server 데이터베이스 엔진](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json) 의 완전히 관리 되는 인스턴스입니다. 온-프레미스 SQL Server 데이터베이스를 Azure 클라우드로 쉽게 마이그레이션할 수 있도록 하 고 데이터베이스 엔진에서 제공 하 SQL Server 강력한 데이터베이스 기능을 활용 해야 하는 응용 프로그램에 적합 합니다.
 - [탄력적 풀](sql-database-elastic-pool.md) 은 CPU, 메모리 등의 공유 리소스 집합을 포함 하는 [단일 데이터베이스](sql-database-single-database.md) 의 컬렉션입니다. 단일 데이터베이스를 탄력적 풀로 이동하거나 탄력적 풀에서 제거할 수 있습니다.
 
@@ -80,12 +80,12 @@ Azure SQL Database는 작업 특성에 대 한 전체 정보를 얻는 데 도�
  - 최신 버전의 SQL Server 데이터베이스 엔진에서 제공 하는 기본 제공 모니터링 기능을 통해 실시간 성능 정보를 찾을 수 있습니다. 
  - Azure 플랫폼에서 제공 하는 PaaS 모니터링 기능을 통해 많은 수의 데이터베이스 인스턴스를 쉽게 모니터링 하 고 성능 문제를 해결 하는 데 도움이 되는 문제 해결 자세히 알려줍니다 제공할 수 있습니다.
 
-사용 해야 하는 가장 중요 한 기본 제공 데이터베이스 엔진 모니터링 기능은 쿼리의 성능을 실시간으로 기록 하 고 잠재적인 성능 문제를 식별 하는 데 사용 되는 구성 요소 [쿼리 저장소](sql-database-operate-query-store.md) 입니다. 리소스 소비자. 자동 조정 및 권장 사항은 재발 된 성능 및 누락 되거나 중복 된 인덱스의 쿼리와 관련 된 자세히 알려줍니다을 제공 합니다. Azure SQL Database 자동 조정 기능을 사용 하면 문제를 해결할 수 있는 스크립트를 수동으로 적용 Azure SQL Database 하거나 수정, 테스트 및 확인을 통해 몇 가지 이점을 제공 하는지 확인 하 고 결과에 따라 변경 내용을 유지 하거나 되돌릴 수 있습니다. 쿼리 저장소 및 자동 조정 기능 외에도 표준 [dmv 및 XEvent](sql-database-monitoring-with-dmvs.md) 를 사용 하 여 워크 로드 성능을 모니터링할 수 있습니다.
+활용 해야 하는 가장 중요 한 기본 제공 데이터베이스 엔진 모니터링 기능은 쿼리의 성능을 실시간으로 기록 하 고 잠재적인 성능 문제 및 상위 리소스를 식별할 수 있도록 하는 [쿼리 저장소](sql-database-operate-query-store.md) 구성 요소입니다. 시스템인. 자동 조정 및 권장 사항은 재발 된 성능 및 누락 되거나 중복 된 인덱스의 쿼리와 관련 된 자세히 알려줍니다을 제공 합니다. Azure SQL Database 자동 조정 기능을 사용 하면 문제를 해결할 수 있는 스크립트를 수동으로 적용 Azure SQL Database 하거나 수정, 테스트 및 확인을 통해 몇 가지 이점을 제공 하는지 확인 하 고 결과에 따라 변경 내용을 유지 하거나 되돌릴 수 있습니다. 쿼리 저장소 및 자동 조정 기능 외에도 표준 [dmv 및 XEvent](sql-database-monitoring-with-dmvs.md) 를 사용 하 여 워크 로드 성능을 모니터링할 수 있습니다.
 
-Azure platform은 성능 등급과 결합 된 [기본 제공 성능 모니터링](sql-database-performance.md) 및 [경고](sql-database-insights-alerts-portal.md) 도구를 제공 하므로 수천 개의 데이터베이스 상태를 쉽게 모니터링할 수 있습니다. 이 도구를 사용하면 현재 또는 프로젝트의 성능 요구에 기반하여 확장 또는 축소의 영향을 신속하게 평가할 수 있습니다. 또한 SQL Database는 쉬운 모니터링을 위해 [메트릭 및 진단 로그를 내보낼](sql-database-metrics-diag-logging.md) 수 있습니다. 리소스 사용량, 작업자와 세션 및 연결을 이러한 Azure 리소스 중 하나에 저장하도록 SQL Database를 구성할 수 있습니다.
+Azure platform은 성능 등급과 결합 된 [기본 제공 성능 모니터링](sql-database-performance.md) 및 [경고](sql-database-insights-alerts-portal.md) 도구를 제공 하므로 수천 개의 데이터베이스 상태를 쉽게 모니터링할 수 있습니다. 이러한 도구를 사용 하면 현재 또는 예상 되는 성능 요구 사항에 따라 확장 또는 축소의 영향을 신속 하 게 평가할 수 있습니다. 또한 SQL Database는 쉬운 모니터링을 위해 [메트릭 및 진단 로그를 내보낼](sql-database-metrics-diag-logging.md) 수 있습니다. 리소스 사용량, 작업자와 세션 및 연결을 이러한 Azure 리소스 중 하나에 저장하도록 SQL Database를 구성할 수 있습니다.
 
-- **Azure Storage**: 저렴한 가격으로 방대한 양의 원격 분석을 보관할 수 있습니다.
-- **Azure Event Hub**: 사용자 지정 모니터링 솔루션 또는 핫 파이프라인과 SQL Database 원격 분석을 통합합니다.
+- **Azure Storage**: 작은 가격으로 방대한 양의 원격 분석을 보관 합니다.
+- **Azure Event Hub**: 사용자 지정 모니터링 솔루션 또는 핫 파이프라인과 SQL Database 원격 분석을 통합 하는 데 사용 됩니다.
 - **Azure Monitor 로그**: 보고, 경고 및 완화 기능을 사용하는 기본 제공 모니터링 솔루션의 경우
 
     ![architecture](./media/sql-database-metrics-diag-logging/architecture.png)
@@ -94,7 +94,7 @@ Azure platform은 성능 등급과 결합 된 [기본 제공 성능 모니터링
 
 기존 SQL Server 환경에서는 일반적으로 (최소) 2 대의 컴퓨터를 로컬에서 로컬로 설정 (AlwaysOn 가용성 그룹 또는 장애 조치 (Failover) 클러스터 인스턴스 등의 기능 사용) 하 여 데이터의 복사본을 보호 합니다. 단일 컴퓨터/구성 요소에 오류가 발생 했습니다. 이는 고가용성을 제공 하지만 데이터 센터의 자연 재해를 방지 하는 것은 아닙니다.
 
-재해 복구는 데이터 복사본을 사용 하는 다른 컴퓨터/컴퓨터 집합을 보유 하는 데 충분 한 지역으로 재해를 지역화 한다고 가정 합니다.  SQL Server에서 비동기 모드로 실행 되는 Always On 가용성 그룹을 사용 하 여이 기능을 얻을 수 있습니다.  일반적으로 낮은 문제의 속도는 트랜잭션이 트랜잭션을 커밋하기 전에 복제가 수행 될 때까지 기다릴 필요가 없기 때문에 계획 되지 않은 장애 조치 (failover)를 수행 하면 데이터가 손실 될 수 있습니다.
+재해 복구는 데이터 복사본을 사용 하는 다른 컴퓨터/컴퓨터 집합을 보유 하는 데 충분 한 지역으로 재해를 지역화 한다고 가정 합니다.  SQL Server에서 비동기 모드로 실행 되는 Always On 가용성 그룹을 사용 하 여이 기능을 얻을 수 있습니다.  일반적으로 낮은 문제의 속도는 트랜잭션이 트랜잭션을 커밋하기 전에 복제가 발생할 때까지 기다리지 않기 때문에 계획 되지 않은 장애 조치 (failover)를 수행할 때 데이터가 손실 될 수 있다는 의미입니다.
 
 프리미엄 및 중요 비즈니스용 서비스 계층의 데이터베이스는 이미 가용성 그룹의 동기화와 [매우 유사한 작업을 수행](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) 합니다. 낮은 서비스 계층의 데이터베이스는 [다른 메커니즘](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability)을 사용 하는 저장소를 통해 중복성을 제공 합니다. 단일 컴퓨터 오류 로부터 보호 하는 논리가 있습니다.  활성 지역 복제 기능을 사용 하면 전체 지역이 제거 되는 재해 로부터 보호 하는 기능을 사용할 수 있습니다.
 
@@ -121,15 +121,15 @@ Azure 가용성 영역는 고가용성 문제에 대 한 재생입니다.  단�
 
 ## <a name="built-in-intelligence"></a>기본 제공 인텔리전스
 
-SQL Database에서 기본 제공 인텔리전스를 통해 데이터베이스를 실행하고 관리하는 비용을 크게 줄이고 애플리케이션의 성능과 보안을 모두 극대화할 수 있습니다. SQL Database는 수백만 개의 고객 워크로드를 24시간 실행하여 많은 양의 원격 분석 데이터를 수집하고 처리하는 동시에 고객 개인 정보를 완벽하게 관리합니다. 다양한 알고리즘은 서비스가 애플리케이션에 적용될 수 있도록 지속적으로 원격 분석 데이터를 평가합니다. 이 분석을 기반으로 서비스에서는 특정 워크로드에 맞게 성능 개선 권장 사항을 제공합니다.
+SQL Database에서 기본 제공 인텔리전스를 통해 데이터베이스를 실행하고 관리하는 비용을 크게 줄이고 애플리케이션의 성능과 보안을 모두 극대화할 수 있습니다. SQL Database는 수백만 개의 고객 워크로드를 24시간 실행하여 많은 양의 원격 분석 데이터를 수집하고 처리하는 동시에 고객 개인 정보를 완벽하게 관리합니다. 다양한 알고리즘은 서비스가 애플리케이션에 적용될 수 있도록 지속적으로 원격 분석 데이터를 평가합니다. 이 분석을 기반으로 서비스는 특정 워크 로드에 맞게 조정 된 성능 향상 권장 사항을 제공 합니다.
 
 ### <a name="automatic-performance-monitoring-and-tuning"></a>자동 성능 모니터링 및 튜닝
 
 SQL Database는 모니터링해야 하는 쿼리에 대한 자세한 정보를 제공합니다. SQL Database는 데이터베이스 패턴을 인식하고 워크로드에 맞게 데이터베이스 스키마를 적용할 수 있습니다. SQL Database는 튜닝 작업을 검토하고 적용할 수 있는 [성능 튜닝 권장 사항](sql-database-advisor.md)을 제공합니다.
 
-그러나 지속적으로 데이터베이스를 모니터링하는 것은 특히 많은 데이터베이스를 처리할 때 힘들고 지루한 작업입니다. [Intelligent Insights](sql-database-intelligent-insights.md)는 대규모로 SQL Database 성능을 자동으로 모니터링하여 이 작업을 수행하고 나서, 성능 저하 문제를 알리고, 문제의 근본 원인을 식별하고, 가능한 경우 성능 개선 권장 사항을 제공합니다.
+그러나 데이터베이스를 지속적으로 모니터링 하는 작업은 특히 많은 데이터베이스를 처리할 때 어렵고 지루한 작업입니다. [Intelligent Insights](sql-database-intelligent-insights.md)는 대규모로 SQL Database 성능을 자동으로 모니터링하여 이 작업을 수행하고 나서, 성능 저하 문제를 알리고, 문제의 근본 원인을 식별하고, 가능한 경우 성능 개선 권장 사항을 제공합니다.
 
-SQL Database 및 Azure Portal에서 제공하는 모든 사용 가능한 도구 및 보고서를 사용하더라도 상당히 많은 데이터베이스를 효율적으로 관리하기 어려울 수 있습니다. 수동으로 데이터베이스를 모니터링하고 튜닝하는 대신 [자동 튜닝](sql-database-automatic-tuning.md)을 사용하여 SQL Database에 대한 모니터링 및 튜닝 작업을 위임하도록 고려할 수 있습니다. SQL Database은 자동으로 권장 사항을 적용 하 고 각 튜닝 작업을 확인 하 여 성능을 향상 시킬 수 있도록 합니다. 이러한 방식으로 SQL Database는 자동으로 안전하게 제어된 방법으로 워크로드에 적용됩니다. 자동 튜닝은 데이터베이스 성능을 신중하게 모니터링하고 모든 튜닝 작업 전후와 비교함을 의미합니다. 성능이 개선되지 않는 경우 튜닝 작업은 되돌려집니다.
+SQL Database 및 Azure Portal에서 제공하는 모든 사용 가능한 도구 및 보고서를 사용하더라도 상당히 많은 데이터베이스를 효율적으로 관리하기 어려울 수 있습니다. 수동으로 데이터베이스를 모니터링하고 튜닝하는 대신 [자동 튜닝](sql-database-automatic-tuning.md)을 사용하여 SQL Database에 대한 모니터링 및 튜닝 작업을 위임하도록 고려할 수 있습니다. SQL Database은 자동으로 권장 사항을 적용 하 고 각 튜닝 작업을 확인 하 여 성능을 향상 시킬 수 있도록 합니다. 이러한 방식으로 SQL Database는 제어 되 고 안전한 방식으로 워크 로드에 자동으로 적응 합니다. 자동 튜닝은 데이터베이스 성능을 신중하게 모니터링하고 모든 튜닝 작업 전후와 비교함을 의미합니다. 성능이 개선되지 않는 경우 튜닝 작업은 되돌려집니다.
 
 현재 SQL Database를 기반으로 [SaaS 다중 테넌트 앱](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 실행하는 파트너는 대부분 자동 성능 튜닝을 사용하여 애플리케이션이 항상 안정적이고 예측 가능한 성능을 제공하도록 합니다. 이 기능은 갑자기 성능 인시던트가 발생하는 위험을 크게 줄여 줍니다. 또한 일부 해당 고객이 SQL Server를 사용하기 때문에 SQL Database에서 제공하는 동일한 인덱싱 권장 사항을 사용하여 SQL Server 고객을 도울 수 있습니다.
 

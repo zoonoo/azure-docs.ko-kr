@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8a53ed1eea66c976c46a21378a9c48a1ad5ce902
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: c82d8b90d9da44ab8f4b8ea0aa0e063ea70350e2
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508214"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258973"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager 배포 모드
 
@@ -21,31 +21,31 @@ ms.locfileid: "67508214"
 
 ## <a name="complete-mode"></a>전체 모드
 
-전체 모드에서는 Resource Manager가 리소스 그룹에 존재하지만 템플릿에는 지정되지 않은 리소스를 **삭제**합니다. 템플릿에 지정되었지만 [condition](resource-group-authoring-templates.md#condition)(조건)이 false로 평가되어 배포되지 않은 리소스는 삭제되지 않습니다.
+전체 모드에서는 Resource Manager가 리소스 그룹에 존재하지만 템플릿에는 지정되지 않은 리소스를 **삭제**합니다. 템플릿에 지정되었지만 [condition](conditional-resource-deployment.md)(조건)이 false로 평가되어 배포되지 않은 리소스는 삭제되지 않습니다.
 
-완료 모드를 사용 하 여 주의 [복사 루프](resource-group-create-multiple.md)합니다. 복사 루프를 해결 한 후 템플릿에 지정 되지 않은 모든 리소스가 삭제 됩니다.
+[복사 루프](resource-group-create-multiple.md)에서 전체 모드를 사용할 때는 주의 해야 합니다. 복사 루프를 확인 한 후 템플릿에 지정 되지 않은 모든 리소스는 삭제 됩니다.
 
-리소스 종류에서 전체 모드 삭제를 처리 하는 방법에 차이가 있습니다. 전체 모드로 배포된 템플릿에 없는 경우 부모 리소스가 자동으로 삭제됩니다. 일부 자식 리소스는 템플릿에 없더라도 자동으로 삭제되지 않습니다. 그러나 이러한 자식 리소스가 부모 리소스 삭제 되 면 삭제 됩니다. 
+리소스 형식에서 완료 모드 삭제를 처리 하는 방법에는 몇 가지 차이점이 있습니다. 전체 모드로 배포된 템플릿에 없는 경우 부모 리소스가 자동으로 삭제됩니다. 일부 자식 리소스는 템플릿에 없더라도 자동으로 삭제되지 않습니다. 그러나 이러한 자식 리소스는 부모 리소스가 삭제 되는 경우 삭제 됩니다. 
 
-예를 들어 리소스 그룹에 DNS 영역(Microsoft.Network/dnsZones 리소스 종류)과 CNAME 레코드(Microsoft.Network/dnsZones/CNAME 리소스 종류)가 포함된 경우 DNS 영역은 CNAME 레코드의 부모 리소스입니다. 전체 모드로 배포하고 템플릿에 DNS 영역을 포함하지 않으면 DNS 영역과 CNAME 레코드가 둘 다 삭제됩니다. 서식 파일에서 DNS 영역을 포함 하지만 경우 CNAME 레코드를 포함 하지 CNAME 삭제 되지 않습니다. 
+예를 들어 리소스 그룹에 DNS 영역(Microsoft.Network/dnsZones 리소스 종류)과 CNAME 레코드(Microsoft.Network/dnsZones/CNAME 리소스 종류)가 포함된 경우 DNS 영역은 CNAME 레코드의 부모 리소스입니다. 전체 모드로 배포하고 템플릿에 DNS 영역을 포함하지 않으면 DNS 영역과 CNAME 레코드가 둘 다 삭제됩니다. 템플릿에 DNS 영역을 포함 하지만 CNAME 레코드를 포함 하지 않는 경우 CNAME은 삭제 되지 않습니다. 
 
 리소스 종류의 삭제 처리 방식에 대한 목록은 [전체 모드 배포에 대한 Azure 리소스 삭제](complete-mode-deletion.md)를 참조하세요.
 
-리소스 그룹의 경우 [잠긴](resource-group-lock-resources.md), 완료 모드에서 리소스를 삭제 하지 않습니다.
+리소스 그룹이 [잠겨](resource-group-lock-resources.md)있으면 전체 모드에서 리소스를 삭제 하지 않습니다.
 
 > [!NOTE]
 > 루트 수준 템플릿만 전체 배포 모드를 지원합니다. [연결된 또는 중첩된 템플릿](resource-group-linked-templates.md)의 경우 증분 모드만 사용해야 합니다. 
 >
-> [구독 수준 배포](deploy-to-subscription.md) 전체 모드를 지원 하지 않습니다.
+> [구독 수준 배포](deploy-to-subscription.md) 는 완료 모드를 지원 하지 않습니다.
 >
-> 현재 포털 전체 모드를 지원 하지 않습니다.
+> 현재 포털에서 전체 모드를 지원 하지 않습니다.
 >
 
 ## <a name="incremental-mode"></a>증분 모드
 
 증분 모드에서는 Resource Manager가 리소스 그룹에 존재하지만 템플릿에는 지정되지 않은 리소스를 **변경하지 않고 유지**합니다.
 
-그러나 증분 모드에서 기존 리소스를 재배포 하는 경우 결과는 다릅니다. 뿐 아니라 업데이트 하는 리소스에 대 한 모든 속성을 지정 합니다. 지정 되지 않은 속성은 생각에 대 한 일반적인 오해가 변경 되지 않습니다. 특정 속성을 지정하지 않으면 Resource Manager는 업데이트가 해당 값을 덮어쓰는 것으로 해석합니다.
+그러나 증분 모드에서 기존 리소스를 다시 배포 하는 경우 결과는 다릅니다. 업데이트 하는 것 뿐만 아니라 리소스의 모든 속성을 지정 합니다. 일반적인 있다면 오해는 지정 되지 않은 속성은 변경 되지 않은 상태로 유지 하는 것입니다. 특정 속성을 지정하지 않으면 Resource Manager는 업데이트가 해당 값을 덮어쓰는 것으로 해석합니다.
 
 ## <a name="example-result"></a>결과 예제
 

@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: hrasheed
-ms.openlocfilehash: 7c4af8346b5da20c662b5549284a3540d08908f8
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 4ebdf1d14b1f8721a3709a7e8c90f2a1db76b6fc
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072918"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259138"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Apache Hive와 Apache Beeline 클라이언트 사용
 
@@ -44,9 +44,9 @@ beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
 
 ---
 
-### <a name="to-hdinsight-enterprise-security-package-esp-cluster"></a>HDInsight Enterprise Security Package (ESP) 클러스터로
+### <a name="to-hdinsight-enterprise-security-package-esp-cluster-using-kerberos"></a>Kerberos를 사용 하는 HDInsight Enterprise Security Package (ESP) 클러스터
 
-클라이언트에서 클러스터의 동일한 영역에 있는 컴퓨터의 AAD (Azure Active Directory) 클러스터에 연결 Enterprise Security Package 하는 경우에는에 대 한 권한이 있는 도메인 사용자 계정의 이름 및 도메인 이름을 `<AAD-Domain>` 지정 해야 합니다. 클러스터 `<username>`에 액세스 합니다.
+클라이언트에서 클러스터의 동일한 영역에 있는 컴퓨터의 AAD (Azure Active Directory)-DS에 연결 된 Enterprise Security Package (ESP) 클러스터에 연결 하는 경우 도메인 이름과 `<AAD-Domain>` 도메인 사용자 계정의 이름도 지정 해야 합니다. 클러스터 `<username>`에 액세스할 수 있는 권한:
 
 ```bash
 kinit <username>
@@ -57,12 +57,18 @@ beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD
 
 ---
 
-### <a name="over-public-internet"></a>공용 인터넷을 통해
+### <a name="over-public-or-private-endpoints"></a>공용 또는 개인 끝점을 통해
 
-공용 인터넷을 통해 비 esp 또는 AAD (Azure Active Directory)에 연결 된 esp 클러스터에 연결 하는 경우 클러스터 로그인 계정 이름 (기본값 `admin`) 및 암호를 제공 해야 합니다. 예를 들어 클라이언트 시스템에서 Beeline을 사용하여 `<clustername>.azurehdinsight.net` 주소에 연결합니다. 이 연결은 `443` 포트를 통해 이루어지며 SSL을 사용하여 암호화됩니다.
+공용 또는 개인 끝점을 사용 하 여 클러스터에 연결 하는 경우 클러스터 로그인 계정 이름 (기본값 `admin`) 및 암호를 제공 해야 합니다. 예를 들어 클라이언트 시스템에서 Beeline을 사용하여 `<clustername>.azurehdinsight.net` 주소에 연결합니다. 이 연결은 `443` 포트를 통해 이루어지며 SSL을 사용하여 암호화됩니다.
 
 ```bash
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password
+```
+
+또는 개인 끝점의 경우:
+
+```bash
+beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password
 ```
 
 `clustername`을 HDInsight 클러스터 이름으로 바꿉니다. `admin`을 클러스터의 클러스터 로그인 계정으로 바꿉니다. `password`를 클러스터 로그인 계정의 암호로 바꿉니다.
@@ -73,13 +79,21 @@ beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportM
 
 Apache Spark는 자체적으로 HiveServer2를 구현하며, HiveServer2는 종종 Spark Thrift 서버라고 합니다. 이 서비스는 Hive 대신 Spark SQL을 사용하여 쿼리를 해결하고, 쿼리에 따라 더 나은 성능을 제공할 수 있습니다.
 
-#### <a name="over-public-internet-with-apache-spark"></a>Apache Spark를 사용 하는 공용 인터넷을 통해
+#### <a name="through-public-or-private-endpoints"></a>공용 또는 개인 끝점을 통해
 
-인터넷을 통해 연결할 때 사용 되는 연결 문자열은 약간 다릅니다. 이를 포함 `httpPath=/hive2` 하는 `httpPath/sparkhive2`대신 다음을 수행 합니다.
+사용 된 연결 문자열은 약간 다릅니다. 이를 포함 `httpPath=/hive2` 하는 `httpPath/sparkhive2`대신 다음을 수행 합니다.
 
 ```bash 
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
 ```
+
+또는 개인 끝점의 경우:
+
+```bash 
+beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
+```
+
+`clustername`을 HDInsight 클러스터 이름으로 바꿉니다. `admin`을 클러스터의 클러스터 로그인 계정으로 바꿉니다. `password`를 클러스터 로그인 계정의 암호로 바꿉니다.
 
 ---
 

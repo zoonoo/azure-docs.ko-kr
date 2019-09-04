@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: a419bdcda3507dd82ec92f621e7405c87f0cb98f
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.openlocfilehash: 3f51ad3d0a75ab1f0662ea0b747852fcb98e5026
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70211646"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259058"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 SAP ECC에서 데이터 복사
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용 하 여 SAP Enterprise Central Component (ECC)에서 데이터를 복사 하는 방법을 설명 합니다. 자세한 내용은 [복사 작업 개요](copy-activity-overview.md)를 참조 하세요.
 
 >[!TIP]
->SAP 데이터 통합 시나리오에 대 한 ADF의 전반적인 지원에 대 한 자세한 내용은 [Azure Data Factory 백서를 사용 하 여 Sap 데이터 통합](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) 에서 자세한 소개, comparsion 및 지침을 참조 하세요.
+>SAP 데이터 통합 시나리오에 대 한 ADF의 전반적인 지원에 대 한 자세한 내용은 [Azure Data Factory 백서를 사용 하 여 sap 데이터 통합](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) 에서 자세한 소개, comparsion 및 지침을 참조 하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -45,7 +45,7 @@ SAP ECC에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복
 >[!TIP]
 >Sap 테이블 또는 뷰를 통해 SAP ECC에서 데이터를 복사 하려면 더 빠르고 확장 가능한 [sap 테이블](connector-sap-table.md) 커넥터를 사용 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 일반적으로 SAP ECC는 SAP 게이트웨이를 통해 OData 서비스를 통해 엔터티를 공개합니다. 이 SAP ECC 커넥터를 사용하려면 다음을 수행해야 합니다.
 

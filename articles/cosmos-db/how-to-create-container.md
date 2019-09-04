@@ -4,14 +4,14 @@ description: Azure Cosmos DB에서 컨테이너를 만드는 방법 알아보기
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 09/01/2019
 ms.author: mjbrown
-ms.openlocfilehash: a88d8f33624278ac6e70b918cec7cef133fe4b34
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 876e35e320e37081cf6e6f89fda4f31af8713571
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093469"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240758"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Azure Cosmos 컨테이너 만들기
 
@@ -25,15 +25,15 @@ ms.locfileid: "70093469"
 
 1. [새 Azure Cosmos 계정을 만들거나](create-sql-api-dotnet.md#create-account) 기존 계정을 선택합니다.
 
-1. **데이터 탐색기** 창을 열고 **새 컬렉션**을 선택합니다. 다음으로, 다음과 같은 세부 정보를 제공합니다.
+1. **데이터 탐색기** 창을 열고 **새 컨테이너**를 선택 합니다. 다음으로, 다음과 같은 세부 정보를 제공합니다.
 
    * 새 데이터베이스를 만드는지 아니면 기존 데이터베이스를 사용하는지 표시합니다.
-   * 컬렉션 ID를 입력합니다.
+   * 컨테이너 ID를 입력 하십시오.
    * 파티션 키를 입력합니다.
    * 프로비저닝할 처리량을 입력합니다(예: 1000RU).
    * **확인**을 선택합니다.
 
-![새 컬렉션이 강조 표시된 데이터 탐색기 창 스크린샷](./media/how-to-create-container/partitioned-collection-create-sql.png)
+![새 컨테이너가 강조 표시 된 데이터 탐색기 창의 스크린샷](./media/how-to-create-container/partitioned-collection-create-sql.png)
 
 ### <a id="portal-mongodb"></a>Azure Cosmos DB API for MongoDB
 
@@ -41,15 +41,15 @@ ms.locfileid: "70093469"
 
 1. [새 Azure Cosmos 계정을 만들거나](create-mongodb-dotnet.md#create-a-database-account) 기존 계정을 선택합니다.
 
-1. **데이터 탐색기** 창을 열고 **새 컬렉션**을 선택합니다. 다음으로, 다음과 같은 세부 정보를 제공합니다.
+1. **데이터 탐색기** 창을 열고 **새 컨테이너**를 선택 합니다. 다음으로, 다음과 같은 세부 정보를 제공합니다.
 
    * 새 데이터베이스를 만드는지 아니면 기존 데이터베이스를 사용하는지 표시합니다.
-   * 컬렉션 ID를 입력합니다.
+   * 컨테이너 ID를 입력 하십시오.
    * 분할 키를 입력합니다.
    * 프로비저닝할 처리량을 입력합니다(예: 1000RU).
    * **확인**을 선택합니다.
 
-![Azure Cosmos DB API for MongoDB, 컬렉션 추가 대화 상자의 스크린샷](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
+![MongoDB API에 대 한 Azure Cosmos DB API, 컨테이너 추가 대화 상자 스크린샷](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
 
 ### <a id="portal-cassandra"></a>Cassandra API
 

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/21/2019
 ms.author: atsenthi
-ms.openlocfilehash: b7d34095568fa1d98c5f2987a70397ca042c8867
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: ca7a3cfe62520ed82dcf494a33f3bd188dbebe76
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036401"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279993"
 ---
 # <a name="supported-service-fabric-versions"></a>지원되는 Service Fabric 버전
 
-클러스터가 항상 지원 되는 Azure Service Fabric 버전을 실행 하 고 있는지 확인 합니다. Service Fabric 새 버전의 릴리스를 발표 한 후 최소 60 일이 지나면 이전 버전에 대 한 지원이 종료 됩니다. [Service Fabric 팀 블로그에서](https://blogs.msdn.microsoft.com/azureservicefabric/)새 릴리스에 대 한 공지를 확인할 수 있습니다.
+클러스터가 항상 지원 되는 Azure Service Fabric 버전을 실행 하 고 있는지 확인 합니다. Service Fabric 새 버전의 릴리스를 발표 한 후 최소 60 일이 지나면 이전 버전에 대 한 지원이 종료 됩니다. [Service Fabric 팀 블로그에서](https://azure.microsoft.com/updates/?product=service-fabric)새 릴리스에 대 한 공지를 확인할 수 있습니다.
 
 클러스터에서 지원 되는 Service Fabric 버전을 계속 실행 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 

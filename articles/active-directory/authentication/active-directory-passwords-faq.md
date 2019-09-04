@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f98b72d9b5e59155bb7215181fd1ecd336126ee6
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4001f3c88b676a2786159946a8981823e18ea5f6
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67440966"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274406"
 ---
 # <a name="password-management-frequently-asked-questions"></a>암호 관리 질문과 대답
 
@@ -46,7 +46,7 @@ ms.locfileid: "67440966"
   >
 * **Q:  내 사용자 대신 암호 재설정 데이터를 정의할 수 있나요?**
 
-  > **A:** Azure AD Connect, PowerShell 사용 하 여이 수행할 수는 예는 [Azure portal](https://portal.azure.com), 또는 [Microsoft 365 관리 센터](https://admin.microsoft.com)합니다. 자세한 내용은 [Azure AD 셀프 서비스 암호 재설정에서 사용하는 데이터](howto-sspr-authenticationdata.md)를 참조하세요.
+  > **A:** 예, Azure AD Connect, PowerShell, [Azure Portal](https://portal.azure.com)또는 [Microsoft 365 관리 센터](https://admin.microsoft.com)를 사용 하 여이 작업을 수행할 수 있습니다. 자세한 내용은 [Azure AD 셀프 서비스 암호 재설정에서 사용하는 데이터](howto-sspr-authenticationdata.md)를 참조하세요.
   >
   >
 * **Q:  온-프레미스에서 본인 확인 질문 데이터를 동기화할 수 있나요?**
@@ -101,7 +101,7 @@ ms.locfileid: "67440966"
   > 이 시간 내에 알림이 수신되지 않으면 다음을 수행합니다.
   > * 정크 메일 폴더를 확인합니다.
   > * 연락받을 전화 번호나 메일이 올바른지 확인합니다.
-  > * 디렉터리의 인증 데이터가 올바르게 확인 형식, 예를 들어, + 1 4255551234 또는 *사용자\@contoso.com*합니다. 
+  > * 디렉터리의 인증 데이터 형식이 올바른지 확인 합니다 (예: + 1 4255551234 또는 *사용자\@contoso.com*). 
 * **Q:  암호 재설정에서 지원되는 언어는 무엇인가요?**
 
   > **A:** 암호 재설정 UI, SMS 메시지 및 음성 통화는 Office 365에서 지원되는 동일한 언어로 지역화됩니다.
@@ -179,7 +179,7 @@ ms.locfileid: "67440966"
   >
 * **Q:  메일 및 SMS 일회용 암호는 얼마 동안 유효하나요?**
 
-  > **A:** 암호 재설정을 위한 세션 수명은 15분입니다. 암호 재설정 작업을 시작한 순간부터 15분 동안 암호 재설정을 마쳐야 합니다. 이 기간이 만료된 후 전자 메일 및 SMS 일회용 암호는 유효하지 않습니다.
+  > **A:** 암호 재설정을 위한 세션 수명은 15분입니다. 암호 재설정 작업을 시작한 순간부터 15분 동안 암호 재설정을 마쳐야 합니다. 전자 메일 및 SMS 일회용 암호는 암호 다시 설정 세션 동안 5 분 동안 유효 합니다.
   >
   >
 * **Q:  사용자가 암호를 다시 설정하지 못하도록 차단할 수 있나요?**

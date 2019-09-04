@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: 793474495f3ab3ef06a17b48d15c2f91d0677365
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2a037a495a1e1ed211bd9a535891ccf75fdb140b
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848156"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278173"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측 모델 자동 학습
 
@@ -35,7 +35,7 @@ ms.locfileid: "68848156"
 
 학습 데이터에서 추출 된 기능은 중요 한 역할을 합니다. 그리고 자동화 된 ML은 표준 전처리 단계를 수행 하 고, 계절 효과를 캡처하고 예측 정확도를 최대화 하기 위한 추가 시계열 기능을 생성 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * Azure Machine Learning 서비스 작업 영역. 작업 영역을 만들려면 [Azure Machine Learning 서비스 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 * 이 문서에서는 자동화 된 machine learning 실험을 설정 하는 방법에 대 한 기본 지식이 있다고 가정 합니다. [자습서](tutorial-auto-train-models.md) 또는 [방법에](how-to-configure-auto-train.md) 따라 기본적인 자동화 된 기계 학습 실험 디자인 패턴을 볼 수 있습니다.
@@ -96,7 +96,7 @@ y_test = X_test.pop("sales_quantity").values
 |`grain_column_names`|입력 데이터에서 개별 계열 그룹을 정의 하는 이름입니다. 그레인을 정의 하지 않으면 데이터 집합은 하나의 시계열으로 간주 됩니다.||
 |`max_horizon`|시계열 빈도 단위로 원하는 최대 예측 구간을 정의 합니다. 단위는 학습 데이터의 시간 간격 (예: 매월, 매주 forecaster)을 기반으로 합니다.|✓|
 |`target_lags`|*n* 모델 학습 전에 지연 대상 값에 대 한 기간입니다.||
-|`target_rolling_window_size`|예측 값을 생성 하는 데 사용할 수 있는 기록 기간 < = 학습 집합 크기입니다. 생략 하는 경우 *n* 은 전체 학습 집합 크기입니다.||
+|`target_rolling_window_size`|예측 값을 생성 하는 데 사용할 수 *있는 기록 기간* < = 학습 집합 크기입니다. 생략 하는 경우 *n* 은 전체 학습 집합 크기입니다.||
 
 시간 계열 설정을 사전 개체로 만듭니다. `time_column_name` 을`day_datetime` 데이터 집합의 필드로 설정 합니다. 매개 변수 `grain_column_names` 를 정의 하 여 데이터에 대해 **두 개의 개별 시계열 그룹이** 생성 되도록 합니다. 즉, 매장 A와 B에 대해 하나씩, `max_horizon` 마지막으로 전체 테스트 집합에 대해 예측 하려면를 50로 설정 합니다. 를 사용 `target_rolling_window_size`하 여 예측 기간을 10 개로 설정 하 고 `target_lags` 매개 변수를 사용 하 여 대상 값 2 기간을 앞으로 지연 합니다.
 
@@ -112,7 +112,7 @@ time_series_settings = {
 ```
 
 > [!NOTE]
-> 자동화 된 기계 학습 사전 처리 단계 (기능 정규화, 누락 된 데이터 처리, 텍스트를 숫자로 변환 등)는 기본 모델의 일부가 됩니다. 예측에 모델을 사용 하는 경우 학습 중에 적용 되는 동일한 전처리 단계는 입력 데이터에 자동으로 적용 됩니다.
+> 자동화된 기계 학습 사전 처리 단계(기능 정규화, 누락된 데이터 처리, 텍스트를 숫자로 변환 등)는 기본 모델의 일부가 됩니다. 예측에 모델을 사용하는 경우 학습 중에 적용되는 동일한 전처리 단계가 입력 데이터에 자동으로 적용됩니다.
 
 이제 `forecasting` 작업 유형을 지정 `AutoMLConfig` 하 고 실험을 제출 하는 표준 개체를 만듭니다. 모델이 완료 된 후 최상의 실행 반복을 검색 합니다.
 
@@ -199,4 +199,4 @@ rmse
 ## <a name="next-steps"></a>다음 단계
 
 * 자동화 된 machine learning을 사용 하 여 실험을 만드는 방법을 알아보려면 [자습서](tutorial-auto-train-models.md) 를 따르세요.
-* [AZURE MACHINE LEARNING SDK For Python](https://aka.ms/aml-sdk) 참조 설명서를 확인 하세요.
+* [AZURE MACHINE LEARNING SDK For Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 참조 설명서를 확인 하세요.

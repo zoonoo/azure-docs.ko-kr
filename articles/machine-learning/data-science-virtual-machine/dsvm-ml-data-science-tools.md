@@ -10,29 +10,30 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: d823eb615f983190ee6974ee3012f069309ca753
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: f97412bc3f8d8b046df1324c7e1a0ad568f5db52
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195649"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278776"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Azure 데이터 과학 Virtual Machines의 기계 학습 및 데이터 과학 도구
 Azure Data Science Virtual Machines에는 Python, R, Julia와 같이 인기 있는 언어에서 사용할 수 있는 ML(기계 학습)을 위한 다양한 도구 및 라이브러리 집합이 있습니다. 
 
 다음은 Data Science Virtual Machines의 ML 도구 및 라이브러리입니다. 
 
-## <a name="azure-machine-learning-sdk-for-python"></a>Python 용 Azure Machine Learning SDK
+## <a name="azure-machine-learning-sdk-for-python"></a>Python용 Azure Machine Learning SDK
 [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml)에 대 한 전체 참조를 참조 하세요.
+
 |    |           |
 | ------------- | ------------- |
-| 무엇인가요?   |   Azure Machine Learning은 ML 모델을 개발하고 배포하는 데 사용할 수 있는 클라우드 서비스입니다. Python SDK를 사용하여 모델을 빌드, 학습, 확장 및 관리하는 대로 추적할 수 있습니다. 모델을 컨테이너로 배포하고 클라우드, 온-프레미스 또는 Azure IoT Edge에서 실행합니다.   |
-| 지원되는 버전     | Windows(conda 환경: AzureML), Linux(conda 환경: py36)    |
-| 일반적인 사용 용도      | 일반 ML 플랫폼      |
-| 구성/설치 방법      |  GPU 지원과 함께 설치됨   |
-| 사용/실행 방법      | Python SDK 및 Azure CLI의 경우. Windows 버전에서 conda 환경 `AzureML`로 ‘또는’ Linux 버전에서 `py36`으로 활성화합니다.      |
-| 샘플에 대한 링크      | 샘플 Jupyter 노트북은 노트북 아래의 `AzureML` 디렉터리에 포함되어 있습니다.  |
-| 관련 도구      | Visual Studio Code, Jupyter   |
+| 무엇인가요? |   Azure Machine Learning은 ML 모델을 개발하고 배포하는 데 사용할 수 있는 클라우드 서비스입니다. Python SDK를 사용하여 모델을 빌드, 학습, 확장 및 관리하는 대로 추적할 수 있습니다. 모델을 컨테이너로 배포하고 클라우드, 온-프레미스 또는 Azure IoT Edge에서 실행합니다. |
+| 지원되는 버전  | Windows(conda 환경: AzureML), Linux(conda 환경: py36) |
+| 일반적인 사용 용도      | 일반 ML 플랫폼  |
+| 구성/설치 방법 |  GPU 지원과 함께 설치됨 |
+| 사용/실행 방법 | Python SDK 및 Azure CLI의 경우. Windows 버전에서 conda 환경 `AzureML`로 ‘또는’ Linux 버전에서 `py36`으로 활성화합니다.  |
+| 샘플에 대한 링크 | 샘플 Jupyter 노트북은 노트북 아래의 `AzureML` 디렉터리에 포함되어 있습니다.  |
+| 관련 도구  | Visual Studio Code, Jupyter   |
 
 ## <a name="xgboost"></a>XGBoost 
 |    |           |

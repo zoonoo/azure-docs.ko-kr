@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 08/29/2019
+ms.date: 09/04/2019
 ms.author: dalek
-ms.openlocfilehash: f2ea87f237fa5cca8a4b1f6773d2b47729cfb5b0
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: f0a3930cfb3ff403e0ce9d9be308370810e2065a
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147544"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277004"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Application Insights의 사용량 및 비용 관리
 
@@ -119,6 +119,8 @@ systemEvents
 일일 한도를 변경 하려면 Application Insights 리소스의 **구성** 섹션에 있는 **사용량 및 예상 비용** 페이지에서 **일일 상한**을 선택 합니다.
 
 ![일별 원격 분석 볼륨 한도 조정](./media/pricing/pricing-003.png)
+
+[Azure Resource Manager를 통해 일일](../../azure-monitor/app/powershell.md)한도를 변경 하려면 변경할 `dailyQuota`속성은입니다.  Azure Resource Manager를 통해 `dailyQuotaResetTime` 및 일일 `warningThreshold`상한를 설정할 수도 있습니다. 
 
 ## <a name="sampling"></a>샘플링
 [샘플링](../../azure-monitor/app/sampling.md)은 진단 검색 중에 관련 이벤트를 찾는 기능은 유지하면서 앱에 원격 분석이 전송되는 속도를 줄이는 방법입니다. 또한 올바른 이벤트 개수를 유지합니다.

@@ -7,12 +7,12 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: atsenthi
-ms.openlocfilehash: 8e39318dcaa31a111908c6be1ae7a51d73eb7478
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 36c0f02202c738ac96d26b748b741cd8eee27380
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69623823"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241814"
 ---
 # <a name="what-is-the-service-fabric-application-resource-model"></a>Service Fabric 응용 프로그램 리소스 모델은 무엇 인가요?
 Service Fabric 응용 프로그램은 Azure Resource Manager를 통해 Service Fabric 클러스터에 배포 하는 것이 좋습니다. 이 방법을 사용 하면 JSON에서 응용 프로그램 및 서비스를 설명 하 고 클러스터와 동일한 리소스 관리자 템플릿에 배포할 수 있습니다. PowerShell 또는 Azure CLI를 통해 응용 프로그램을 배포 하 고 관리 하는 것과는 반대로 클러스터가 준비 될 때까지 기다릴 필요가 없습니다. 애플리케이션 등록, 프로비저닝 및 배포 프로세스를 모두 한 단계로 수행할 수 있습니다. 이 방식은 클러스터의 애플리케이션 수명 주기를 관리하는 모범 사례입니다. 자세한 내용은 [모범 사례](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources)를 참조 하세요.
@@ -38,7 +38,7 @@ Azure Resource Manager 응용 프로그램 리소스 모델을 사용 하 여 �
 ### <a name="create-a-storage-account"></a>Storage 계정 만들기 
 응용 프로그램 이미지를 준비 하려면 리소스 관리자 템플릿에서 응용 프로그램을 배포 하려면 저장소 계정이 필요 합니다. 기존 저장소 계정을 다시 사용 하거나 새 저장소 계정을 만들어 응용 프로그램을 준비할 수 있습니다. 기존 저장소 계정을 사용 하려는 경우이 단계를 건너뛸 수 있습니다. 
 
-![스토리지 계정 만들기][CreateStorageAccount]
+![저장소 계정 만들기][CreateStorageAccount]
 
 ### <a name="configure-storage-account"></a>저장소 계정 구성 
 저장소 계정을 만든 후에는 응용 프로그램이 준비 될 수 있는 blob 컨테이너를 만들어야 합니다. Azure Portal에서 응용 프로그램을 저장 하려는 저장소 계정으로 이동 합니다. **Blob** 블레이드를 선택 하 고 **컨테이너 추가** 단추를 클릭 합니다. Blob 공용 액세스 수준을 사용 하 여 새 컨테이너를 추가 합니다.
@@ -154,6 +154,10 @@ Azure Resource Manager에서 응용 프로그램 리소스 모델을 사용 하 
 
 * [Service Fabric에서 애플리케이션 모델링](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model)
 * [응용 프로그램 및 서비스 매니페스트 Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-and-service-manifests)
+
+## <a name="see-also"></a>관련 항목
+* [모범 사례](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)
+* [응용 프로그램 및 서비스를 Azure 리소스로 관리](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)
 
 <!--Image references-->
 [CreateStorageAccount]: ./media/service-fabric-application-model/create-storage-account.png

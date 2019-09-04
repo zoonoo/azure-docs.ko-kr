@@ -10,19 +10,67 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 01ee8e5b9d7ab1e8ab4086e559ce8dd8df76252f
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 0880b5706f2621971a4e5c82a6db03cdd22ce4d6
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182693"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278299"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 서비스의 릴리스 정보
 
-이 문서에서는 Azure Machine Learning 서비스의 릴리스에 대해 알아봅니다.  전체 SDK 참조 콘텐츠는 Azure Machine Learning의 [**Python 용 기본 SDK**](https://aka.ms/aml-sdk) 참조 페이지를 참조 하세요. 
+이 문서에서는 Azure Machine Learning 서비스의 릴리스에 대해 알아봅니다.  전체 SDK 참조 콘텐츠는 Azure Machine Learning의 [**Python 용 기본 SDK**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 참조 페이지를 참조 하세요. 
 
 알려진 버그 및 해결 방법에 대해 알아 보려면 [알려진 문제 목록](resource-known-issues.md)을 참조하세요.
 
+## <a name="2019-09-03"></a>2019-09-03
+### <a name="azure-machine-learning-sdk-for-python-v1060"></a>Azure Machine Learning SDK for Python v 1.0.60
+
++ **새로운 기능**
+  + 에는 데이터 저장소 또는 public url의 단일 또는 여러 파일을 참조 하는 filedataset이 도입 되었습니다. 파일은 모든 형식일 수 있습니다. FileDataset은 계산에 파일을 다운로드 하거나 탑재 하는 기능을 제공 합니다. FileDataset에 대해 알아보려면을 (를 https://aka.ms/file-dataset ) 참조 하세요.
+  + PythonScript Step, Adla Step, Databrick Step, DataTransferStep 및 AzureBatch 단계에 대 한 파이프라인 Yaml 지원 추가 됨
+
++ **버그 수정 및 향상 된 기능**
+  + **azureml-automl-core**
+    + 이제 AutoArima는 미리 보기용 으로만 suggestable 파이프라인입니다.
+    + 예측에 대 한 오류 보고 기능이 향상 되었습니다.
+    + 예측 작업에서 제네릭이 아닌 사용자 지정 예외를 사용 하 여 로깅이 향상 되었습니다.
+    + Max_concurrent_iterations에 대 한 검사를 전체 반복 횟수 보다 작게 제거 했습니다.
+    + AutoML 모델은 이제 AutoMLExceptions을 반환 합니다.
+    + 이 릴리스는 자동화 된 machine learning 로컬 실행의 실행 성능을 향상 시킵니다.
+  + **azureml-core**
+    + 등록 `Dataset.get_all()` 이름으로 키가 지정 `TabularDataset` 된 `FileDataset` 및 개체의 사전을 반환 하는를 소개 합니다. 
+    
+    ```py 
+    workspace = Workspace.from_config() 
+    all_datasets = Dataset.get_all(workspace) 
+    mydata = all_datasets['my-data'] 
+    ```
+    
+    + 및 `parition_format` 에`Dataset.Tabular.from_parquet.files`인수를 도입 합니다. `Dataset.Tabular.from_delimited_files` 각 데이터 경로의 파티션 정보는 지정 된 형식에 따라 열로 추출 됩니다. ' {column_name} '은 (는) 문자열 열을 만들며 ' {column_name: yyyy/MM/dd/HH/mm/ss} '는 datetime 열을 만듭니다. 여기에서 ' yyyy ', ' MM ', ' dd ', ' HH ', ' mm ' 및 ' ss '는 datetime 형식의 연도, 월, 일, 시, 분, 초를 추출 하는 데 Partition_format는 파일 경로가 끝날 때까지 첫 번째 파티션 키의 위치부터 시작 해야 합니다. 예를 들어 '.. 경로를 지정 합니다. /USA/2019/01/01/data.csv ' 파티션이 국가 및 시간별 이며, partition_format = '/{Country}/{PartitionDate: yyyy/MM/dd}/m a s t '는 값이 ' USA ' 인 ' Country ' 문자열 열과 ' 2019-01-01 ' 값이 포함 된 datetime 열을 만듭니다.
+    + `to_csv_files`및 `to_parquet_files` 메서드가에 `TabularDataset`추가 되었습니다. 이러한 메서드는 데이터를 지정 `TabularDataset` 된 형식의 `FileDataset` 파일로 변환 하 여와 간의 변환을 가능 하 게 합니다.
+    + 모델인 ()에서 생성 된 Dockerfile을 저장할 때 기본 이미지 레지스트리에 자동으로 로그인 합니다.
+    + ' gpu_support '은 더 이상 필요 하지 않습니다. 이제 AzureML에서 nvidia docker 확장을 자동으로 검색 하 고 사용 합니다 (사용 가능한 경우). 후속 릴리스에서 제거될 예정입니다.
+    + PipelineDrafts을 만들고, 업데이트 하 고, 사용할 수 있는 지원이 추가 되었습니다.
+    + 이 릴리스는 자동화 된 machine learning 로컬 실행의 실행 성능을 향상 시킵니다.
+    + 사용자는 이름으로 실행 기록에서 메트릭을 쿼리할 수 있습니다.
+    + 예측 작업에서 제네릭이 아닌 사용자 지정 예외를 사용 하 여 로깅이 향상 되었습니다.
+  + **azureml-explain-model**
+    + 새 MimicWrapper에 feature_maps 매개 변수를 추가 하 여 사용자가 원시 기능 설명을 가져올 수 있도록 합니다.
+    + 이제 설명 업로드에 대 한 데이터 집합 업로드가 기본적으로 해제 되어 있으며 upload_datasets = True를 사용 하 여 다시 활성화할 수 있습니다.
+    + 설명 목록에 "is_law" 필터링 매개 변수를 추가 하 고 함수를 다운로드 합니다.
+    + 전역 및 `get_raw_explanation(feature_maps)` 로컬 설명 개체에 메서드를 추가 합니다.
+    + 아래 지원 되는 버전의 경우 인쇄 된 경고로 lightgbm에 버전 검사가 추가 되었습니다.
+    + 일괄 처리에 대 한 설명을 일괄 처리할 때 최적화 된 메모리 사용
+    + AutoML 모델은 이제 AutoMLExceptions을 반환 합니다.
+  + **azureml-pipeline-core**
+    + PipelineDrafts 만들기, 업데이트 및 사용에 대 한 추가 지원은 변경 가능한 파이프라인 정의를 유지 관리 하 고 대화형으로 실행 하는 데 사용할 수 있습니다.
+  + **azureml-train-automl**
+    + 원격 python 런타임 환경에서 BERT/XLNet을 사용 하도록 설정 하는 데 필요한 특정 버전의 gpu 지원 pytorch v 1.1.0, udda toolkit 9.0, pytorch를 설치 하는 기능을 만들었습니다.
+  + **azureml-train-core**
+    + 서버 쪽 대신 sdk에서 직접 일부 하이퍼 매개 변수 공간 정의 오류가 발생 합니다.
+
+  
 ## <a name="2019-08-19"></a>2019-08-19
 
 ### <a name="azure-machine-learning-sdk-for-python-v1057"></a>Azure Machine Learning SDK for Python v 1.0.57

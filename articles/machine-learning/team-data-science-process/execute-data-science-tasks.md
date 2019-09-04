@@ -10,18 +10,18 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 9d8ae3a95262b1554e7e97fac8375a44743bf4df
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eb792034e49b0f8f663eb9ee968ea6fac1372373
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60344668"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278619"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>데이터 과학 작업 실행: 탐색, 모델링 및 배포
 
 일반적인 데이터 과학 작업으로 데이터 탐색, 모델링 및 배포가 있습니다. 이 문서에서는 **IDEAR(대화형 데이터 탐색, 분석 및 보고)** 및 **AMAR(자동 모델링 및 보고)** 유틸리티를 사용하여 대화형 데이터 탐색, 데이터 분석, 보고 및 모델 생성 등과 같은 여러 가지 일반적인 데이터 과학 작업을 완료하는 방법을 보여 줍니다. 또한 다양한 도구 키트 및 다음과 같은 데이터 플랫폼을 사용하여 프로덕션 환경에서 모델을 배포하는 옵션도 개괄적으로 설명합니다.
 
-- [Azure Machine Learning](../service/index.yml)
+- [Azure Machine Learning](../index.yml)
 - [ML 서비스 포함 SQL-Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-services)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
@@ -73,7 +73,7 @@ YAML 파일은 다음을 지정하는 데 사용됩니다.
 ### <a name="model-management"></a>모델 관리
 복수의 모델을 작성한 후에는 일반적으로 모델을 등록하고 관리하기 위한 시스템이 있어야 합니다. 일반적으로 스크립트 또는 API와 백 엔드 데이터베이스 또는 버전 관리 시스템의 조합이 필요합니다. 이러한 관리 작업에 대해 고려할 수 있는 몇 가지 옵션은 같습니다.
 
-1. [Azure Machine Learning 모델 관리 서비스](../service/index.yml)
+1. [Azure Machine Learning 모델 관리 서비스](../index.yml)
 2. [MIT의 ModelDB](https://mitdbg.github.io/modeldb/) 
 3. [모델 관리 시스템으로 SQL Server 사용](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
 4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)

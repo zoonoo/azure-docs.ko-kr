@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 0cc7313531e92aa0f57b09a9252902848297bdbf
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: f664e0419396eaf60c037c2adfde70df0034cc5b
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996658"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275990"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Database Managed Instance 간에 데이터 복사
 
@@ -39,7 +39,7 @@ Azure SQL Database Managed Instance에서 지원되는 싱크 데이터 저장�
 >[!NOTE]
 >현재이 커넥터에서 서비스 사용자 및 관리 id 인증을 지원 하지 않습니다. 해결 하려면 Azure SQL Database 커넥터를 선택 하 고 관리 되는 인스턴스의 서버를 수동으로 지정 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 Azure SQL Database Managed Instance [공용 끝점](../sql-database/sql-database-managed-instance-public-endpoint-securely.md)에 액세스 하려면 Azure Data Factory 관리 되는 Azure integration runtime을 사용할 수 있습니다. 공용 끝점을 사용 하도록 설정 하 고, Azure Data Factory 데이터베이스에 연결할 수 있도록 네트워크 보안 그룹에 대 한 공용 끝점 트래픽만 허용 해야 합니다. 자세한 내용은 [이 지침](../sql-database/sql-database-managed-instance-public-endpoint-configure.md)을 참조 하세요.
 
@@ -239,7 +239,9 @@ Azure SQL Database Managed Instance 간에 데이터를 복사 하려면 다음 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 집합의 type 속성은 **AzureSqlMITable**로 설정 해야 합니다. | 예 |
-| tableName |이 속성은 연결된 서비스가 참조하는 데이터베이스 인스턴스의 테이블이나 뷰 이름입니다. | 원본에는 아니요이고 싱크에는 예입니다 |
+| schema | 스키마의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
+| table | 테이블/뷰의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
+| tableName | 스키마가 포함 된 테이블/뷰의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원 됩니다. 새 워크 로드의 경우 `schema` 및 `table`를 사용 합니다. | 원본에는 아니요이고 싱크에는 예입니다 |
 
 **예제**
 
@@ -255,7 +257,8 @@ Azure SQL Database Managed Instance 간에 데이터를 복사 하려면 다음 
         },
         "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
-            "tableName": "MyTable"
+            "schema": "<schema_name>",
+            "table": "<table_name>"
         }
     }
 }

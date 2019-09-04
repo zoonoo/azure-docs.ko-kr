@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 90adacffd947be38b447117bfe64242bed3a90af
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 28c7ca6470e15f4ff1f5e80df2ab63fa19da1544
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231363"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277804"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Oracle 간 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -110,7 +110,7 @@ Oracle 연결에서 암호화를 사용하도록 설정하려면 다음 두 가�
         ```
 
     3.  자체 호스팅 `truststore` IR 컴퓨터에 파일을 저장 합니다. 예를 들어 파일을 C:\mytrustfilefilefilefilefilefilefile.
-    4.  `EncryptionMethod=1` Azure Data Factory에서 및 해당 `TrustStore` /값 을사용하여Oracle연결문자열을구성합니다.`TrustStorePassword` `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>` )을 입력합니다.
+    4.  `EncryptionMethod=1` Azure Data Factory에서 및 해당 `TrustStore` /값 을사용하여Oracle연결문자열을구성합니다.`TrustStorePassword` [http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest](`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`)을 입력합니다.
 
 **예제:**
 
@@ -170,7 +170,9 @@ Oracle 간에 데이터를 복사 하려면 데이터 집합의 type 속성을�
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 집합의 type 속성을로 `OracleTable`설정 해야 합니다. | 예 |
-| tableName |연결된 서비스가 참조하는 Oracle 데이터베이스에 있는 테이블의 이름입니다. | 예 |
+| schema | 스키마의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
+| table | 테이블/뷰의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
+| tableName | 스키마가 포함 된 테이블/뷰의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원 됩니다. 새 워크 로드의 경우 `schema` 및 `table`를 사용 합니다. | 원본에는 아니요이고 싱크에는 예입니다 |
 
 **예제:**
 
@@ -180,12 +182,14 @@ Oracle 간에 데이터를 복사 하려면 데이터 집합의 type 속성을�
     "properties":
     {
         "type": "OracleTable",
+        "schema": [],
+        "typeProperties": {
+            "schema": "<schema_name>",
+            "table": "<table_name>"
+        },
         "linkedServiceName": {
             "referenceName": "<Oracle linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "MyTable"
         }
     }
 }
@@ -348,7 +352,7 @@ Oracle에서 Oracle로 데이터를 복사 하는 경우 다음 매핑이 적용
 | DATE |DateTime |
 | FLOAT |Decimal, 문자열(전체 자릿수의 경우 > 28) |
 | INTEGER |Decimal, 문자열(전체 자릿수의 경우 > 28) |
-| LONG |문자열 |
+| LONG |String |
 | LONG RAW |Byte[] |
 | NCHAR |String |
 | NCLOB |String |
@@ -358,7 +362,7 @@ Oracle에서 Oracle로 데이터를 복사 하는 경우 다음 매핑이 적용
 | ROWID |문자열 |
 | TIMESTAMP |DateTime |
 | TIMESTAMP WITH LOCAL TIME ZONE |문자열 |
-| TIMESTAMP WITH TIME ZONE |String |
+| TIMESTAMP WITH TIME ZONE |문자열 |
 | UNSIGNED INTEGER |NUMBER |
 | VARCHAR2 |String |
 | XML |String |

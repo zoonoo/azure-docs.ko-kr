@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 90d77d511c76d8d718c8b0b3dea9ef8536b2e864
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 136f7e290947066e6d4ea4e9bb89d06fe9b2cac7
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172642"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274528"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 SQL Server 간에 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Azure Data Factory의 버전을 선택 합니다."]
@@ -145,7 +145,7 @@ SQL Server 연결 된 서비스에 대해 지원 되는 속성은 다음과 같�
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 데이터 세트 문서를 참조하세요. 이 섹션에서는 SQL Server 데이터 집합에서 지 원하는 속성의 목록을 제공 합니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 SQL Server 데이터 집합에서 지 원하는 속성의 목록을 제공 합니다.
 
 SQL Server 데이터베이스에서 데이터를 복사 하려면 다음 속성이 지원 됩니다.
 
@@ -533,7 +533,7 @@ SQL Server에서로 데이터를 복사 하는 경우 SQL Server 데이터 형�
 
     자세한 단계는 [원격 액세스 서버 구성 옵션 구성](https://msdn.microsoft.com/library/ms191464.aspx)을 참조 하세요.
 
-2. **SQL Server 구성 관리자**를 시작 합니다. 사용하려는 인스턴스에 대한 **SQL Server 네트워크 구성**을 확장하고 **MSSQLSERVER용 프로토콜**을 선택합니다. 프로토콜이 오른쪽 창에 표시 됩니다. Tcp/ip를 마우스 오른쪽 단추로 클릭 하 고 **사용**을 선택 하 여 tcp/ip를 사용 하도록 설정 합니다.
+2. **SQL Server 구성 관리자**를 시작 합니다. 사용하려는 인스턴스에 대한 **SQL Server 네트워크 구성**을 확장하고 **MSSQLSERVER용 프로토콜**을 선택합니다. 프로토콜이 오른쪽 창에 표시 됩니다. Tcp/ip를 마우스 오른쪽 **단추로 클릭 하** 고 **사용**을 선택 하 여 tcp/ip를 사용 하도록 설정 합니다.
 
     ![TCP/IP 사용](./media/copy-data-to-from-sql-server/EnableTCPProptocol.png)
 

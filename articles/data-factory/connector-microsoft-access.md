@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: jingwang
-ms.openlocfilehash: 79a960b106cc9de4116e8e59b2fa17f48c896221
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 796d2a4730f5de8d2f294fb2b30a0616b81f3e59
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061459"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276229"
 ---
 # <a name="copy-data-from-and-to-microsoft-access-data-stores-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Microsoft Access 데이터 저장소에서 데이터 복사
 
@@ -27,7 +27,7 @@ ms.locfileid: "70061459"
 
 Microsoft Access 원본에서 지원 되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 Microsoft Access connector를 사용 하려면 다음을 수행 해야 합니다.
 
@@ -86,7 +86,7 @@ Microsoft Access 연결 된 서비스에 대해 지원 되는 속성은 다음�
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 데이터 세트 문서를 참조하세요. 이 섹션에서는 Microsoft Access 데이터 집합에서 지 원하는 속성의 목록을 제공 합니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Microsoft Access 데이터 집합에서 지 원하는 속성의 목록을 제공 합니다.
 
 Microsoft Access에서 데이터를 복사 하기 위해 지원 되는 속성은 다음과 같습니다.
 

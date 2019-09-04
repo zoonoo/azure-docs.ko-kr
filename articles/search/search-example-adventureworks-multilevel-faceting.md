@@ -1,19 +1,19 @@
 ---
 title: '예제: 다중 수준 패싯 - Azure Search'
 description: 다중 수준 분류를 위한 패싯 구조를 빌드하여 애플리케이션 페이지에 포함할 수 있는 중첩 탐색 구조를 만드는 방법을 알아봅니다.
-author: cstone
+author: HeidiSteen
 manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.author: chstone
-ms.openlocfilehash: 5a6fda0157f0f3a4ca5861acd4bcbead7839e451
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.author: heidist
+ms.openlocfilehash: 9a56bba55f9b3a59126168bc2bbbd50927c3fc78
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69649928"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274091"
 ---
 # <a name="example-multi-level-facets-in-azure-search"></a>예제: Azure Search의 다중 수준 패싯
 

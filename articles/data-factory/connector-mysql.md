@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: fcf56e8088af25c14c022039bf8862f2dc21c77a
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: d76b51aa5117e662e9ff17bb91516c758de3071c
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172561"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277716"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MySQL에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -61,7 +61,7 @@ MySQL 연결된 서비스에 다음 속성이 지원됩니다.
 
 일반적인 연결 문자열은 `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`입니다. 사례에 따라 다음과 같은 더 많은 속성을 설정할 수 있습니다.
 
-| 속성 | Description | 옵션 | 필수 |
+| 속성 | Description | 변수 | 필수 |
 |:--- |:--- |:--- |:--- |
 | SSLMode | 이 옵션은 MySQL에 연결할 때 드라이버에서 SSL 암호화 및 확인을 사용하는지 여부를 지정합니다. 예를 들어 `SSLMode=<0/1/2/3/4>`| 사용 안 함(0) / 기본 설정(1) **(기본값)** / 필요(2) / VERIFY_CA(3) / VERIFY_IDENTITY(4) | 아니요 |
 | UseSystemTrustStore | 이 옵션은 시스템 신뢰 저장소 또는 지정된 PEM 파일의 CA 인증서를 사용할지 여부를 지정합니다. 예를 들어 `UseSystemTrustStore=<0/1>;`| 사용(1) / 사용 안 함(0) **(기본값)** | 아니요 |
@@ -144,13 +144,13 @@ MySQL 연결된 서비스에 다음 속성이 지원됩니다.
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 데이터 세트 문서를 참조하세요. 이 섹션에서는 MySQL 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 MySQL 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-MySQL에서 데이터를 복사하려면 데이터 세트의 type 속성을 **RelationalTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+MySQL에서 데이터를 복사 하는 데 지원 되는 속성은 다음과 같습니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **RelationalTable** | 예 |
+| type | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **MySqlTable** | 예 |
 | tableName | MySQL 데이터베이스의 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
@@ -160,15 +160,18 @@ MySQL에서 데이터를 복사하려면 데이터 세트의 type 속성을 **Re
     "name": "MySQLDataset",
     "properties":
     {
-        "type": "RelationalTable",
+        "type": "MySqlTable",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<MySQL linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
+
+형식화 된 데이터 집합 `RelationalTable` 을 사용 하는 경우에는 계속 해 서 새 항목을 사용 하는 것이 좋습니다.
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 
@@ -176,11 +179,11 @@ MySQL에서 데이터를 복사하려면 데이터 세트의 type 속성을 **Re
 
 ### <a name="mysql-as-source"></a>MySQL을 원본으로
 
-MySQL에서 데이터를 복사하려면 복사 작업의 원본 형식을 **RelationalSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
+MySQL에서 데이터를 복사 하려면 복사 작업 **원본** 섹션에서 다음 속성을 지원 합니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **RelationalSource** | 예 |
+| type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **MySqlSource** | 예 |
 | query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"`. | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**
@@ -204,7 +207,7 @@ MySQL에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Rel
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "MySqlSource",
                 "query": "SELECT * FROM MyTable"
             },
             "sink": {
@@ -214,6 +217,8 @@ MySQL에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Rel
     }
 ]
 ```
+
+형식화 된 소스를 `RelationalSource` 사용 하는 경우에는 계속 해 서 새 항목을 사용 하는 것이 좋습니다.
 
 ## <a name="data-type-mapping-for-mysql"></a>MySQL에 대한 데이터 형식 매핑
 

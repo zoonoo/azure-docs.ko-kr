@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 404b33b948fc2b39082f6cdac8699dfd78e5d143
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 267c21087042904ef04a7bc930d5f31439217e17
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966419"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276631"
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Spark에서 데이터 복사 
 
@@ -29,7 +29,7 @@ Spark에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복�
 
 Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제공합니다. 따라서 이 커넥터를 사용하여 드라이버를 수동으로 설치하지 않아도 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -46,7 +46,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성을 다음으로 설정해야 합니다. **Spark** | 예 |
-| host | Spark 서버의 IP 주소 또는 호스트 이름입니다.  | 예 |
+| 호스트 | Spark 서버의 IP 주소 또는 호스트 이름입니다.  | 예 |
 | port | Spark 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. Azure HDInsights에 연결하는 경우 포트를 443으로 지정합니다. | 예 |
 | serverType | Spark 서버의 유형입니다. <br/>허용되는 값은 다음과 같습니다. **SharkServer**, **SharkServer2**, **SparkThriftServer** | 아니요 |
 | thriftTransportProtocol | Thrift 계층에서 사용할 전송 프로토콜입니다. <br/>허용되는 값은 다음과 같습니다. **Binary**, **SASL**, **HTTP** | 아니요 |
@@ -91,7 +91,9 @@ Spark에서 데이터를 복사하려면 데이터 세트의 type 속성을 **Sp
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **SparkObject** | 예 |
-| tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
+| schema | 스키마의 이름입니다. |아니요(작업 원본에서 "query"가 지정된 경우)  |
+| table | 테이블 이름입니다. |아니요(작업 원본에서 "query"가 지정된 경우)  |
+| tableName | 스키마가 있는 테이블의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원 됩니다. 새 `schema` 워크 `table` 로드에 및를 사용 합니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
 
@@ -100,11 +102,12 @@ Spark에서 데이터를 복사하려면 데이터 세트의 type 속성을 **Sp
     "name": "SparkDataset",
     "properties": {
         "type": "SparkObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Spark linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```

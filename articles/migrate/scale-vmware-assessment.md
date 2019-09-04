@@ -7,19 +7,19 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/12/2019
 ms.author: hamusa
-ms.openlocfilehash: c9c57a07100f2ea6db86408826bf74d05c8df5aa
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 0d279781cdc27dbf2140c0100d84de5128c6a3d5
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868675"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279419"
 ---
 # <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Azure로의 마이그레이션에 대 한 많은 수의 VMware Vm 평가
 
 
 이 문서에서는 Azure Migrate Server 평가 도구를 사용 하 여 Azure로 마이그레이션하기 위한 온-프레미스 VMware Vm의 많은 숫자 (1000-35000)를 평가 하는 방법을 설명 합니다.
 
-[Azure Migrate](migrate-services-overview.md) 는 앱, 인프라 및 워크 로드를 검색 하 고, 평가 하 고, Microsoft Azure으로 마이그레이션하는 데 도움이 되는 도구 허브를 제공 합니다. 허브는 Azure Migrate 도구 및 타사 ISV (독립 소프트웨어 공급 업체) 제품을 포함 합니다. 
+[Azure Migrate](migrate-services-overview.md)는 앱, 인프라 및 워크로드를 검색, 평가 및 Microsoft Azure로 마이그레이션하는 데 도움이 되는 도구의 허브를 제공합니다. 허브에는 Azure Migrate 도구와 타사 ISV(독립 소프트웨어 공급업체) 제품이 포함되어 있습니다. 
 
 이 문서에서는 다음 방법을 설명합니다.
 > [!div class="checklist"]
@@ -48,7 +48,8 @@ ms.locfileid: "67868675"
 **계획** | **제한**
 --- | --- 
 **Azure Migrate 프로젝트** | 프로젝트에서 최대 35000 개의 Vm을 평가 합니다.
-**Azure Migrate 어플라이언스** | 어플라이언스는 단일 vCenter Server에만 연결할 수 있습니다.<br/><br/> 어플라이언스는 단일 Azure Migrate 프로젝트에만 연결할 수 있습니다.<br/> 어플라이언스는 vCenter Server에서 최대 1만 개의 Vm을 검색할 수 있습니다.
+**Azure Migrate 어플라이언스** | 어플라이언스는 vCenter Server에서 최대 1만 개의 Vm을 검색할 수 있습니다.<br/> 어플라이언스는 단일 vCenter Server에만 연결할 수 있습니다.<br/> 어플라이언스는 단일 Azure Migrate 프로젝트에만 연결할 수 있습니다.<br/>  모든 수의 어플라이언스를 단일 Azure Migrate 프로젝트에 연결할 수 있습니다. <br/><br/> 
+**그룹** | 단일 그룹에서 최대 35000 개의 Vm을 추가할 수 있습니다.
 **Azure Migrate 평가** | 단일 평가에서 최대 35000 Vm을 평가할 수 있습니다.
 
 이러한 한도를 염두에 두면 몇 가지 예 배포를 고려해 야 합니다.
@@ -68,7 +69,7 @@ ms.locfileid: "67868675"
 
 - 어플라이언스 검색 범위는 vCenter Server 데이터 센터, 클러스터 또는 클러스터, 호스트 또는 호스트의 폴더 또는 개별 Vm으로 설정할 수 있습니다.
 - 사용자 환경이 테 넌 트 간에 공유 되 고 각 테 넌 트를 개별적으로 검색 하려는 경우 어플라이언스에서 검색에 사용 하는 vCenter 계정에 대 한 액세스 범위를 지정할 수 있습니다. 
-    - 테 넌 트가 호스트를 공유 하는 경우 VM 폴더로 범위를 지정할 수 있습니다. Vcenter 계정에 vCenter VM 폴더 수준에서 액세스 권한이 부여 된 경우 Vm을 검색할 수 Azure Migrate. VM 폴더로 검색 범위를 지정 하려는 경우 vCenter 계정에 VM 수준에서 읽기 전용 액세스 권한이 할당 되도록 하 여이 작업을 수행할 수 있습니다. 범위 검색에 대 한 자세한 내용은 [여기](tutorial-assess-vmware.md#scoping-discovery)를 참조 하세요.
+    - 테 넌 트가 호스트를 공유 하는 경우 VM 폴더로 범위를 지정할 수 있습니다. Vcenter 계정에 vCenter VM 폴더 수준에서 액세스 권한이 부여 된 경우 Vm을 검색할 수 Azure Migrate. 검색 범위를 VM 폴더로 지정하려는 경우 vCenter 계정에 VM 수준의 읽기 전용 액세스 권한이 할당되도록 하여 검색을 수행할 수 있습니다. 범위 검색에 대 한 자세한 내용은 [여기](tutorial-assess-vmware.md#scoping-discovery)를 참조 하세요.
 
 ## <a name="prepare-for-assessment"></a>평가 준비
 

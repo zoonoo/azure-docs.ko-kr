@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 8c3b9523f6e6991723b0da721dbf7667ee340772
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: c28469e15841e2675c20868b74cf044159c4e9ca
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207981"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259184"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상업적 Marketplace 계정을 관리 하는 방법 
 
@@ -312,7 +312,7 @@ Azure AD 응용 프로그램이 Microsoft Azure AD에서 데이터를 읽고 쓰
   - 일부 게시자 보고서를 볼 수 있습니다.
 
 > [!NOTE]
-> 전역 관리자, 비즈니스 참여자, 금융 참여자 및 마케터 역할은 상용 Marketplace 프로그램에서 사용 되지 않으며 연결 된 사용 권한이 없습니다.
+> 상업적 Marketplace 프로그램의 경우 전역 관리자, 비즈니스 참여자, 금융 참여자 및 마케터 역할은 사용 되지 않습니다. 이러한 역할을 사용자에 게 할당 하는 것은 효과가 없습니다. 관리자 및 개발자 역할만 사용자에 게 권한을 부여 합니다.
 
 Azure Active Directory (AD), CSP (클라우드 솔루션 공급자), CPV (제어판 공급 업체), 게스트 사용자 또는 Microsoft 파트너 네트워크 (MPN)와 같은 파트너 센터의 다른 영역에서 역할 및 권한을 관리 하는 방법에 대 한 자세한 내용은 [사용자 역할 할당을 참조 하세요. 파트너 센터의 및 사용 권한](https://docs.microsoft.com/partner-center/permissions-overview).
 
@@ -349,7 +349,7 @@ Azure Active Directory (AD), CSP (클라우드 솔루션 공급자), CPV (제어
 
 ### <a name="remove-a-tenant"></a>테 넌 트 제거
 
-파트너 센터 계정에서 테 넌 트를 제거 하려면 테 넌 트 페이지 ( **계정 설정**)에서 해당 이름을 찾은 다음 **제거**를 선택 합니다. 테 넌 트를 제거할지를 확인 하는 메시지가 표시 됩니다. 이렇게 하면 해당 테 넌 트의 사용자가 파트너 센터 계정에 로그인 할 수 없으며 해당 사용자에 대해 구성한 모든 권한이 제거 됩니다.
+파트너 센터 계정에서 테 넌 트를 제거 **하려면 테 넌 트 페이지 (** **계정 설정**)에서 해당 이름을 찾은 다음 **제거**를 선택 합니다. 테 넌 트를 제거할지를 확인 하는 메시지가 표시 됩니다. 이렇게 하면 해당 테 넌 트의 사용자가 파트너 센터 계정에 로그인 할 수 없으며 해당 사용자에 대해 구성한 모든 권한이 제거 됩니다.
 
 테 넌 트를 제거 하는 경우 해당 테 넌 트의 파트너 센터 계정에 추가 된 모든 사용자는 더 이상 계정에 로그인 할 수 없습니다.
 

@@ -11,18 +11,18 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 03579d75ad9cbaceca1a5d42913ff546088f6cfe
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 5f57be9a1fc5d260ce580b969c8f92c87aea17a8
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982788"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279123"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>웹 서비스로 배포된 Azure Machine Learning 모델 사용
 
 Azure Machine Learning 모델을 웹 서비스로 배포하면 REST API가 생성됩니다. 이 API로 데이터를 보내고 모델에서 반환된 예측을 받을 수 있습니다. 이 문서에서는 C#, Go, Java 및 Python을 사용하여 웹 서비스용 클라이언트를 만드는 방법에 대해 알아봅니다.
 
-Azure Container Instances, Azure Kubernetes Service 또는 FPGA (필드 프로그래밍 가능 게이트 배열)에 이미지를 배포할 때 웹 서비스를 만듭니다. 등록된 모델과 채점 파일에서 이미지를 만듭니다. [Azure Machine Learning SDK](https://aka.ms/aml-sdk)를 사용하여 웹 서비스에 액세스하는 데 사용되는 URI를 검색합니다. 인증을 사용 하는 경우 SDK를 사용 하 여 인증 키 또는 토큰을 가져올 수도 있습니다.
+Azure Container Instances, Azure Kubernetes Service 또는 FPGA (필드 프로그래밍 가능 게이트 배열)에 이미지를 배포할 때 웹 서비스를 만듭니다. 등록된 모델과 채점 파일에서 이미지를 만듭니다. [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 사용하여 웹 서비스에 액세스하는 데 사용되는 URI를 검색합니다. 인증을 사용 하는 경우 SDK를 사용 하 여 인증 키 또는 토큰을 가져올 수도 있습니다.
 
 기계 학습 웹 서비스를 사용하는 클라이언트를 만들기 위한 일반적인 워크플로는 다음과 같습니다.
 
