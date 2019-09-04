@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 08/14/2019
-ms.openlocfilehash: dee813cbe1da6a6300f65b7005bf4a4b0226112a
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 11287ee5ca0df3e51bca20b39c35eb5ce33b88bd
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208633"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231047"
 ---
 1. 사용하는 Azure 구독에 대한 자격 증명을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 
 
@@ -28,9 +28,7 @@ ms.locfileid: "70208633"
 
 1. **Machine Learning 서비스 작업 영역** 창에서 **만들기**를 선택하여 시작합니다.
 
-  
-
-1. 작업 영역 이름, 구독, 리소스 그룹 및 위치를 입력하여 새 작업 영역을 구성합니다.
+1. 새 작업 영역을 구성하려면 다음 정보를 제공하세요.
 
    필드|설명 
    ---|---
