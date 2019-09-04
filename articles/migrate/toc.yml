@@ -76,6 +76,8 @@
       href: how-to-create-group-machine-dependencies.md
     - name: 평가 만들기
       href: how-to-create-assessment.md
+    - name: SQL Server 데이터베이스 평가
+      href: 'https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json&view=sql-server-2017'
     - name: 평가 사용자 지정
       href: how-to-modify-assessment.md
     - name: 마이그레이션 도구 추가
