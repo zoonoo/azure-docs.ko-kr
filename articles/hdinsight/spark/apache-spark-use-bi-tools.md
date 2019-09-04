@@ -88,7 +88,7 @@ Spark를 사용하는 첫 번째 단계는 Power BI Desktop에서 클러스터�
 
 5. **데이터 연결 모드**에서 **DirectQuery**를 선택합니다. 그런 다음 **확인**을 선택합니다.
 
-    Spark와 함께 데이터 연결 모드 중 하나를 사용할 수 있습니다. DirectQuery를 사용하는 경우 변경 내용은 전체 데이터 세트를 새로 고치지 않고 보고서에 반영됩니다. 데이터를 가져오는 경우 변경 내용을 보려면 데이터 집합을 새로 고쳐야 합니다. DirectQuery를 사용하는 방법 및 경우에 대한 자세한 내용은 [Power BI에서 DirectQuery 사용](https://powerbi.microsoft.com/documentation/powerbi-desktop-directquery-about/)을 참조하세요.
+    Spark와 함께 데이터 연결 모드 중 하나를 사용할 수 있습니다. DirectQuery를 사용하는 경우 변경 내용은 전체 데이터 세트를 새로 고치지 않고 보고서에 반영됩니다. 데이터를 가져오는 경우 변경 내용을 보려면 데이터 집합을 새로 고쳐야 합니다. DirectQuery를 사용하는 방법 및 사례에 대한 자세한 내용은 [Power BI에서 DirectQuery 사용](https://powerbi.microsoft.com/documentation/powerbi-desktop-directquery-about/)을 참조하세요.
 
 6. HDInsight 로그인 계정 정보를 입력한 다음 **연결**을 선택합니다. 기본 계정 이름은 *admin*입니다.
 
