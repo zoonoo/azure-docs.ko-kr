@@ -7,12 +7,12 @@ ms.date: 07/22/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 7be9a208f82dd9a487c1794a7996f9bb11bb09d8
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: b37f5aca010c4b0bfd8d87c95d85e66f35b42f81
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515445"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232746"
 ---
 # <a name="control-mapping-of-the-iso-27001-blueprint-sample"></a>ISO 27001 청사진 샘플의 컨트롤 매핑
 
@@ -211,7 +211,7 @@ Azure 리소스의 암호화 구성이 최적이 아닐 수 있는 경우를 이
 
 청사진 및 사용 방법에 대한 추가 문서:
 
-- [청사진 수명 주기](../../concepts/lifecycle.md)에 대해 알아보기
+- [청사진 수명 주기](../../concepts/lifecycle.md)에 대해 알아봅니다.
 - [정적 및 동적 매개 변수](../../concepts/parameters.md) 사용 방법 이해
 - [청사진 시퀀싱 순서](../../concepts/sequencing-order.md)를 사용자 지정하는 방법 알아보기
 - [청사진 리소스 잠금](../../concepts/resource-locking.md)을 활용하는 방법 알아보기
