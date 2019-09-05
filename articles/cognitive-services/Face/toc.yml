@@ -9,12 +9,8 @@
   items:
     - name: 클라이언트 SDK 사용
       items:
-        - name: 이미지에서 얼굴 감지
-          items:
-            - name: 'C#'
-              href: QuickStarts/csharp-detect-sdk.md
-            - name: Python
-              href: Tutorials/FaceAPIinPythonTutorial.md
+        - name: .NET SDK
+          href: Quickstarts/csharp-sdk.md
         - name: Python SDK
           href: QuickStarts/python-sdk.md
     - name: REST API 사용
