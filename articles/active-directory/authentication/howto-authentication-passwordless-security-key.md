@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a063891339a46366490447b7c7a7a1a14fd81be6
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 316a523a6216354ae5b6166be55e183a4e050766
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828918"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305068"
 ---
 # <a name="enable-passwordless-security-key-sign-in-for-azure-ad-preview"></a>Azure AD에 대해 암호 없는 보안 키 로그인 사용 (미리 보기)
 
@@ -40,7 +40,7 @@ ms.locfileid: "68828918"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **Microsoft Intune**장치등록 > windows 등록비즈니스용 > windows Hello 속성으로 이동 합니다. >  > 
-1. **설정** 에서 **로그인에 대 한 보안 키 사용** 을 사용으로 설정 합니다.
+1. **설정** 에서 **로그인에 대 한 보안 키 사용** 을 사용 **으로 설정**합니다.
 
 로그인에 대 한 보안 키 구성은 비즈니스용 Windows Hello 구성에 종속 되지 않습니다.
 
@@ -54,7 +54,7 @@ ms.locfileid: "68828918"
    1. 이름: Windows 로그인에 대 한 보안 키
    1. 설명: Windows 로그인 중에 FIDO 보안 키를 사용할 수 있도록 합니다.
    1. 플랫폼: Windows 10 이상
-   1. 플랫폼 유형: 사용자 지정
+   1. 프로필 유형: 사용자 지정
    1. 사용자 지정 OMA-URI 설정:
       1. 이름: Windows 로그인에 대 한 FIDO 보안 키 설정
       1. OMA-URI: ./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
@@ -118,8 +118,8 @@ Intune에서 관리 되지 않는 장치의 경우 기능을 사용 하도록 �
 1. [https://myprofile.microsoft.com](https://myprofile.microsoft.com)으로 이동합니다.
 1. 아직 로그인 하지 않은 경우 로그인
 1. **보안 정보** 를 클릭 합니다.
-   1. 사용자가 이미 하나 이상의 Azure Multi-factor Authentication 메서드를 등록 한 경우 FIDO2 보안 키를 즉시 등록할 수 있습니다.
-   1. 하나 이상의 Azure Multi-factor Authentication 방법이 등록 되지 않은 경우 하나를 추가 해야 합니다.
+   1. 사용자가 이미 하나 이상의 Azure Multi-Factor Authentication 메서드를 등록 한 경우 FIDO2 보안 키를 즉시 등록할 수 있습니다.
+   1. 하나 이상의 Azure Multi-Factor Authentication 메서드를 등록 하지 않은 경우 하나를 추가 해야 합니다.
 1. **메서드 추가** 를 클릭 하 고 **보안 키** 를 선택 하 여 FIDO2 보안 키를 추가 합니다.
 1. **USB 장치** 또는 **NFC 장치** 선택
 1. 키를 준비 하 고 **다음** 을 선택 합니다.

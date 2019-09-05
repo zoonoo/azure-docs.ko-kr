@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6f23a1f8e60567e1c2ed89b27f0eb2bab4ca5912
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 5d607809b6e0356c8807879962927e99f2bd12fd
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061821"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382734"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -138,7 +138,7 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 * 업데이트 배포 MP
 
 > [!NOTE]
-> 관리 그룹 수준에서 구성 된 에이전트가 있는 Operations Manager 1807 관리 그룹을 작업 영역에 연결 하려는 경우이 그룹을 표시 하기 위해 최신 해결 방법은 **IsAutoRegistrationEnabled** 을 **True** 로 재정의 하는 것입니다. **Microsoft.intelligencepacks.updateassessment. eventmessage** 규칙.
+> 관리 그룹 수준에서 구성 된 에이전트를 사용 하 여 작업 영역에 연결 하는 Operations Manager 1807 또는 2019 관리 그룹이 있는 경우이를 표시 하기 위해 최신 해결 방법은 **IsAutoRegistrationEnabled** 을 **True** 로 재정의 하는 것입니다. **microsoft.intelligencepacks.updateassessment. eventmessage** 규칙입니다.
 
 솔루션 관리 팩을 업데이트 하는 방법에 대 한 자세한 내용은 [Azure Monitor 로그에 Operations Manager 연결](../azure-monitor/platform/om-agents.md)을 참조 하세요.
 

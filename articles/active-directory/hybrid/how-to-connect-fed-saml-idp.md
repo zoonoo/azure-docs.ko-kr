@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: SAML 2.0 Id 공급자를 사용 하 여 Single sign On-Azure'
+title: 'Azure AD Connect: Single Sign-on에 SAML 2.0 Id 공급자 사용-Azure'
 description: 이 문서에서는 Single Sign-On에 SAML 2.0 호환 Idp를 사용하는 방법을 설명합니다.
 services: active-directory
 author: billmath
@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e25060152577e7947a78aa0e8d78c85cc7fd2fad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff4f1b81f476159c13d3725cd3cb1766aec7dc87
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65138335"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305108"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Single Sign-On에 SAML 2.0 IdP(ID 공급자) 사용
 
@@ -41,7 +41,7 @@ Microsoft는 Office 365와 같은 Microsoft 클라우드 서비스를 올바르�
 >     - Windows 8 메일 클라이언트 및 Windows 8.1 메일 클라이언트
 >     - Windows 10 메일 클라이언트
 
-다른 모든 클라이언트는 SAML 2.0 ID 공급자를 사용하는 이러한 로그온 시나리오에서 사용할 수 없습니다. 예를 들어 Lync 2010 데스크톱 클라이언트에서 single sign-on에 대해 구성 된 SAML 2.0 Id 공급자를 사용 하 여 서비스에 로그인 할 아닙니다.
+다른 모든 클라이언트는 SAML 2.0 ID 공급자를 사용하는 이러한 로그온 시나리오에서 사용할 수 없습니다. 예를 들어 Lync 2010 데스크톱 클라이언트는 Single Sign-On에 대해 구성 된 SAML 2.0 Id 공급자를 사용 하 여 서비스에 로그인 할 수 없습니다.
 
 ## <a name="azure-ad-saml-20-protocol-requirements"></a>Azure AD SAML 2.0 프로토콜 요구 사항
 이 문서에는 SAML 2.0 ID 공급자가 하나 이상의 Microsoft 클라우드 서비스(예: Office 365)에 대한 로그온을 위해 Azure AD와 페더레이션할 때 구현해야 하는 프로토콜 및 메시지 서식에 대한 자세한 요구 사항이 나와 있습니다. 이 시나리오에서 사용되는 Microsoft 클라우드 서비스용 SAML 2.0 신뢰 당사자(SP-STS)는 Azure AD입니다.
@@ -71,8 +71,8 @@ SAML 응답 메시지 내에서 서명 노드에는 메시지 자체에 대한 �
 바인딩은 필요한 전송 관련 통신 매개 변수입니다. 바인딩에는 다음 요구 사항이 적용됩니다.
 
 1. HTTPS는 필수 전송입니다.
-2.  Azure AD 로그인 동안의 토큰 전송을 위해 HTTP POST를 사용 해야 합니다.
-3.  Azure AD id 공급자 및 리디렉션 메시지 id 공급자 로그 아웃에 대 한 인증 요청에 대 한 HTTP POST를 사용 합니다.
+2.  Azure AD는 로그인 중에 토큰을 제출 하기 위해 HTTP POST를 요구 합니다.
+3.  Azure AD는 id 공급자에 대 한 인증 요청에 HTTP POST를 사용 하 여 id 공급자에 대 한 로그 아웃 메시지를 리디렉션합니다.
 
 ## <a name="required-attributes"></a>필수 특성
 다음 표에는 SAML 2.0 메시지의 특정 특성에 대한 요구 사항을 표시됩니다.
@@ -185,7 +185,7 @@ SAML 2.0 ID 공급자를 사용하여 페더레이션하려는 각 Azure Active 
 
 
 1. Azure AD 디렉터리에 테넌트 관리자 권한으로 연결: Connect-MsolService.
-2.  원하는 Office 365 도메인이 SAML 2.0에서 페더레이션을 사용하도록 구성: `$dom = "contoso.com" $BrandName - "Sample SAML 2.0 IDP" $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" $MyURI = "urn:uri:MySamlp2IDP" $MySigningCert = @" MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyh BREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDT E1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9yb WVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/kupQ VcjKuKLitVDbssFyqbDTjP7WRjlVMWAHBI3kgNT7oE362Gf2WMJFf1b0HcrsgLin7daRXpq4Qi6OA57 sW1YFMj3sqyuTP0eZV3S4+ZbDVob6amsZIdIwxaLP9Zfywg2bLsGnVldB0+XKedZwDbCLCVg+3ZWxd9 T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEM b2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcC AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9 eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+ CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvy JOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBy Sx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==" "@ $uri = "http://WS2012R2-0.contoso.com/adfs/services/trust" $Protocol = "SAMLP" Set-MsolDomainAuthentication -DomainName $dom -FederationBrandName $dom -Authentication Federated -PassiveLogOnUri $MyURI -ActiveLogOnUri $ecpUrl -SigningCertificate $MySigningCert -IssuerUri $uri -LogOffUri $url -PreferredAuthenticationProtocol $Protocol` 
+2.  원하는 Office 365 도메인이 SAML 2.0에서 페더레이션을 사용하도록 구성: `$dom = "contoso.com" $BrandName - "Sample SAML 2.0 IDP" $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" $MyURI = "urn:uri:MySamlp2IDP" $MySigningCert = @" MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyh BREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDT E1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9yb WVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/kupQ VcjKuKLitVDbssFyqbDTjP7WRjlVMWAHBI3kgNT7oE362Gf2WMJFf1b0HcrsgLin7daRXpq4Qi6OA57 sW1YFMj3sqyuTP0eZV3S4+ZbDVob6amsZIdIwxaLP9Zfywg2bLsGnVldB0+XKedZwDbCLCVg+3ZWxd9 T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEM b2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcC AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9 eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+ CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvy JOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBy Sx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==" "@ $uri = "http://WS2012R2-0.contoso.com/adfs/services/trust" $Protocol = "SAMLP" Set-MsolDomainAuthentication -DomainName $dom -FederationBrandName $BrandName -Authentication Federated -PassiveLogOnUri $LogOnUrl -ActiveLogOnUri $ecpUrl -SigningCertificate $MySigningCert -IssuerUri $MyURI -LogOffUri $LogOffUrl -PreferredAuthenticationProtocol $Protocol` 
 
 3.  IDP 메타데이터 파일에서 서명 인증서 base64 인코딩 문자열을 얻을 수 있습니다. 이 위치의 예가 제공되어 있으나 구현에 따라 약간 다를 수 있습니다.
 
@@ -194,7 +194,7 @@ SAML 2.0 ID 공급자를 사용하여 페더레이션하려는 각 Azure Active 
 “Set-MsolDomainAuthentication”에 대한 자세한 내용은 [https://technet.microsoft.com/library/dn194112.aspx](https://technet.microsoft.com/library/dn194112.aspx)를 참조하세요.
 
 >[!NOTE]
->실행 해야 `$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"` id 공급자에 대해 ECP 확장을 설정 하는 경우에 합니다. OWA(Outlook Web Application)를 제외한 Exchange Online 클라이언트는 POST 기반 활성 끝점에 의존합니다. SAML 2.0 STS가 Shibboleth의 ECP 활성 끝점 구현과 비슷한 활성 끝점을 구현하는 경우 이러한 리치 클라이언트가 Exchange Online 서비스와 상호 작용할 수 있습니다.
+>Id 공급자에 대해 `$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"` ECP 확장을 설정한 경우에만 사용을 실행 해야 합니다. OWA(Outlook Web Application)를 제외한 Exchange Online 클라이언트는 POST 기반 활성 끝점에 의존합니다. SAML 2.0 STS가 Shibboleth의 ECP 활성 끝점 구현과 비슷한 활성 끝점을 구현하는 경우 이러한 리치 클라이언트가 Exchange Online 서비스와 상호 작용할 수 있습니다.
 
 페더레이션이 구성되면 "비페더레이션"(또는 "관리")으로 다시 전환할 수 있지만 이 변경을 완료하려면 최대 2시간이 걸릴 수 있으며 클라우드 기반 로그인을 위한 새 임의 암호를 각 사용자에게 배포해야 합니다. 일부 시나리오에서는 설정의 오류를 복구하기 위해 "관리"로 다시 전환해야 할 수 있습니다. 도메인 변환에 대한 자세한 내용은 [https://msdn.microsoft.com/library/windowsazure/dn194122.aspx](https://msdn.microsoft.com/library/windowsazure/dn194122.aspx)를 참조하세요.
 
@@ -209,7 +209,7 @@ Azure AD에 새 사용자 추가를 자동화하고 온-프레미스 디렉터�
 
 
 1. Azure AD 디렉터리에 테넌트 관리자 권한으로 연결: Connect-MsolService.
-2.  새 사용자 계정을 만듭니다.
+2.  새 사용자 계정 만들기:
     ```powershell
     New-MsolUser
       -UserPrincipalName elwoodf1@contoso.com
@@ -258,7 +258,7 @@ Microsoft는 SAML 2.0 기반된 ID 공급자를 테스트하는 데 사용할 �
 2.  지금 설치를 클릭하여 이 도구를 다운로드하여 설치하기 시작합니다.
 3.  "Office 365, Azure 또는 Azure Active Directory를 사용하는 다른 서비스와 페더레이션을 설정할 수 없습니다."를 선택합니다.
 4.  이 도구가 다운로드되고 실행되면 연결 진단 창이 표시됩니다. 이 도구는 페더레이션 연결을 테스트하는 과정을 안내합니다.
-5.  연결 분석기는 로그인, 사용자 테스트 하는 보안 주체에 대 한 자격 증명을 입력 하 여 SAML 2.0 IDP를 엽니다. ![SAML](./media/how-to-connect-fed-saml-idp/saml1.png)
+5.  연결 분석기가 로그인 할 수 있도록 SAML 2.0 IDP을 열고 테스트 중인 사용자 계정에 대 한 자격 증명을 입력 합니다. ![SAML](./media/how-to-connect-fed-saml-idp/saml1.png)
 6.  페더레이션 테스트 로그인 창에서 SAML 2.0 ID 공급자와 페더레이션되도록 구성된 Azure AD 테넌트에 대한 계정 이름 및 암호를 입력해야 합니다. 이 도구는 해당 자격 증명을 사용하여 로그인을 시도하고 로그인 기도 중에 수행된 자세한 테스트 결과를 출력으로 제공합니다.
 ![SAML](./media/how-to-connect-fed-saml-idp/saml2.png)
 7. 이 창에는 실패한 테스트 결과가 표시됩니다. 자세한 결과 검토를 클릭하면 수행한 각 테스트 결과에 대한 정보가 표시됩니다. 또한 결과를 공유하기 위해 디스크를 저장할 수도 있습니다.
@@ -271,7 +271,7 @@ Microsoft는 SAML 2.0 기반된 ID 공급자를 테스트하는 데 사용할 �
 Single Sign-On이 올바르게 설정되어 있는지 확인하려면 다음 단계를 완료합니다.
 
 
-1. 도메인에 가입 된 컴퓨터에 로그인을 같은 로그인 이름을 회사 자격 증명을 사용 하는 사용 하 여 클라우드 서비스입니다.
+1. 도메인에 가입 된 컴퓨터에서 회사 자격 증명에 사용 하는 것과 동일한 로그인 이름을 사용 하 여 클라우드 서비스에 로그인 합니다.
 2.  암호 상자 내부를 클릭합니다. Single Sign-On이 설정되면 암호 상자가 음영 처리되며 "이제 &lt;회사&gt;에 로그인해야 합니다"라는 메시지가 표시됩니다.
 3.  &lt;회사&gt; 링크에서 로그인을 클릭합니다. 로그인할 수 있으면 Single Sign-On이 설정된 것입니다.
 

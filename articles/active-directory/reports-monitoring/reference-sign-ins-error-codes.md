@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c5f7e45a1e1daa5d8504db2506a79e88c28bcc1
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1b5aedd5c9bde7689df14c7efdf8d58692680c13
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989604"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383165"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>로그인 활동 보고서 오류 코드 
 
@@ -53,7 +53,7 @@ ms.locfileid: "68989604"
 ## <a name="error-codes"></a>오류 코드
 
 
-|오류|설명|
+|오류|Description|
 |---|---|
 |16000|이것은 오류 조건이 아닌 내부 구현 세부 정보입니다. 이 참조를 무시해도 됩니다.|
 |20001|페더레이션 ID 공급자에 문제가 있습니다. 이 문제를 해결하려면 IDP에 문의하세요.|
@@ -153,6 +153,8 @@ ms.locfileid: "68989604"
 |70018|사용자가 디바이스 코드 흐름에 대해 잘못된 사용자 코드를 입력했기 때문에 확인 코드가 잘못되었습니다. 권한 부여가 승인되지 않았습니다.|
 |70019|확인 코드가 만료되었습니다. 사용자가 로그인을 다시 시도해야 합니다.|
 |70037|잘못된 시도 응답이 제공되었습니다. 원격 인증 세션이 거부되었습니다.|
+|70043|Azure 조건부 액세스 세션 관리로 인해 세션이 강제로 만료 됩니다.|
+|70044|Azure 조건부 액세스 세션 관리로 인해 세션이 강제로 만료 됩니다.|
 |75001|SAML 메시지를 바인딩하는 동안 오류가 발생했습니다.|
 |75003|애플리케이션에서 지원되지 않는 바인딩 관련 오류를 반환했습니다. SAML 프로토콜 응답은 HTTP POST 이외의 바인딩을 통해 보낼 수 없습니다. 애플리케이션 소유자에게 문의하세요.|
 |75005|Azure AD에서는 Single Sign-On의 애플리케이션에서 보낸 SAML 요청을 지원하지 않습니다. 애플리케이션 소유자에게 문의하세요.|

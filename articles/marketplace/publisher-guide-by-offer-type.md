@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 4864e2c040ad6771ad187269de43d5978fc6324f
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 8a06573e6bcb2d5a6c6c97ad19e168f9c71aaa13
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876047"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308231"
 ---
 # <a name="publishing-guide-by-offer-type"></a>제품 형식별 게시 가이드
 
@@ -34,7 +34,7 @@ Azure Marketplace 제품 유형은 아래 표에 나열되어 있습니다.
 | **제품 유형**    | **설명**  |
 | :------------------- | :-------------------|
 | [**가상 컴퓨터**](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) | 고객과 연결된 구독에 가상 어플라이언스를 배포할 경우 가상 머신 제품 형식을 사용합니다. |
-| [**솔루션 템플릿**](https://docs.microsoft.com/azure/marketplace/marketplace-solution-templates) | 솔루션에 단순 VM 이외의 추가 배포 및 구성 자동화가 필요한 경우, 솔루션 템플릿 제품 유형을 사용합니다. |
+| [**솔루션 템플릿**](https://docs.microsoft.com/azure/marketplace/marketplace-solution-templates) | 솔루션에 간단한 VM 이외에 추가 배포 및 구성 자동화가 필요한 경우 솔루션 템플릿 (Azure 응용 프로그램이 라고도 함) 제품 유형을 사용 합니다. 솔루션 템플릿은 Vm을 비롯 하 여 다양 한 종류의 Azure 리소스를 사용할 수 있습니다.  |
 | [**관리형 애플리케이션**](https://docs.microsoft.com/azure/marketplace/marketplace-managed-apps) | 다음 조건이 필요한 경우 Azure 앱: 관리되는 앱 제품 형식을 사용합니다. <br> <ul> <li> VM 또는 전체 IaaS 기반 솔루션을 사용하여 고객에게 구독 기반 솔루션을 배포합니다. </li> <li>사용자 또는 고객이 솔루션을 파트너가 관리하도록 요구합니다. </li> <ul> |
 | [**SaaS 애플리케이션**](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) | SaaS 앱 제품 유형을 사용하면 고객이 SaaS 기반, 기술 솔루션을 구독으로 구매할 수 있습니다. |
 | [**컨테이너 제품**](https://docs.microsoft.com/azure/marketplace/marketplace-containers) | 솔루션이 Kubernetes 기반 Azure Container Service로 프로비전된 Docker 컨테이너 이미지인 경우 컨테이너 제품 유형을 사용합니다. |

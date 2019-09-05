@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: guide
 ms.date: 07/05/2019
-ms.openlocfilehash: b1839316f8f11af7e4f365694fc017c262d00a86
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 71a74476bcec6cb2ab3dc5efabe1a550577f0107
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70191734"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383235"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상용 마켓플레이스 계정 만들기
 
@@ -20,7 +20,7 @@ ms.locfileid: "70191734"
 
 ## <a name="create-a-partner-center-account"></a>파트너 센터 계정 만들기
 
-이 문서에서는 다음 방법을 포함 하 여 파트너 센터 계정을 만드는 방법을 설명 합니다. 
+이 문서에서는 다음 방법을 포함 하 여 파트너 센터 계정을 만드는 방법을 설명 합니다.
 
 - [파트너 센터 등록 페이지를 사용 하 여 등록](#to-create-a-commercial-marketplace-account-in-partner-center)
 - [회사 계정으로 로그인](#sign-in-with-a-work-account)
@@ -56,11 +56,11 @@ ms.locfileid: "70191734"
 
 #### <a name="provide-your-publisher-profile"></a>게시자 프로필 제공
 
-게시자 프로필에는 회사 이름 및 MPN ID가 포함 됩니다. 아직 수행 하지 않은 경우 [Microsoft 파트너 네트워크](https://partner.microsoft.com/commercial)에 조인 해야 합니다. Microsoft 파트너 네트워크에 가입한 후에는 MPN ID가 제공 됩니다. 
+게시자 프로필에는 회사 이름 및 MPN ID가 포함 됩니다. 아직 수행 하지 않은 경우 [Microsoft 파트너 네트워크](https://partner.microsoft.com/commercial)에 조인 해야 합니다. Microsoft 파트너 네트워크에 가입한 후에는 MPN ID가 제공 됩니다.
 
-게시자 ID를 만듭니다. 게시자 ID는 Marketplace 및 AppSource에서 회사 및 제품을 고유 하 게 식별 합니다. 
+게시자 ID를 만듭니다. 게시자 ID는 Marketplace 및 AppSource에서 회사 및 제품을 고유 하 게 식별 합니다.
 
-게시자 프로필 정보를 확인 한 후 동의 후 **계속**을 선택 하 여 사용 약관에 동의 하 고 파트너 센터 계정을 만듭니다. 
+게시자 프로필 정보를 확인 한 후 동의 후 **계속**을 선택 하 여 사용 약관에 동의 하 고 파트너 센터 계정을 만듭니다.
 
 >[!Important]
 >*이러한 약관에 동의 하려면 회사를 대신 하 여 작업할 수 있는 권한이 있어야 합니다.*

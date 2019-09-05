@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/10/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: c993e465bc439ff52cba3241dbff64b7655d1f12
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: f7d205920704ce8aedf3b2e3c07bd429b3c64964
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849167"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375338"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall"></a>Azure 웹 응용 프로그램 방화벽에 대 한 질문과 대답
 
@@ -53,12 +53,6 @@ WAF 정책을 전역적으로 배포 하는 작업은 일반적으로 약 5 분 
 
 프런트 도어 서비스와 통합 된 경우 WAF는 전역 리소스입니다. 모든 전면 도어 위치에서 동일한 구성이 적용 됩니다.
  
-## <a name="how-do-i-limit-access-to-my-back-end-to-be-from-front-door-only"></a>프런트 도어 에서만 내 백 엔드에 대 한 액세스를 제한 어떻게 할까요??
-
-프런트 도어 아웃 바운드 IP 주소 범위만 허용 하 고 인터넷에서 직접 액세스를 거부 하도록 백 엔드에서 IP Access Control 목록을 구성할 수 있습니다. 서비스 태그는 가상 네트워크에서 사용할 수 있도록 지원 됩니다. 또한 웹 응용 프로그램에 대해 X 전달-호스트 HTTP 헤더 필드가 유효한 지 확인할 수 있습니다.
-
-
-
 
 ## <a name="which-azure-waf-options-should-i-choose"></a>어떤 Azure WAF 옵션을 선택 해야 하나요?
 
@@ -72,6 +66,9 @@ Azure에서 WAF 정책을 적용할 때 두 가지 옵션이 있습니다. Azure
 ## <a name="is-ddos-protection-integrated-with-front-door"></a>DDoS 보호가 전면 도어와 통합 되나요? 
 
 Azure 네트워크에 지에서 전 세계적으로 배포 되는 Azure Front 도어가 대규모 볼륨 공격을 흡수 하 고 지리적으로 격리할 수 있습니다. 알려진 서명이 있는 http (s) 공격을 자동으로 차단 및 평가 하는 사용자 지정 WAF 정책을 만들 수 있습니다. 또한 백 엔드가 배포 되는 VNet에서 DDoS Protection Standard를 사용 하도록 설정할 수 있습니다. Azure DDoS Protection 표준 고객은 비용 보호, SLA 보증, 공격 중에 즉각적인 도움을 받을 수 있는 DDoS 빠른 응답 팀의 전문가에 게 액세스 등의 추가 혜택을 받습니다. 
+
+DDoS 공격 노출 영역을 줄이기 위해 프로덕션 환경에서 백 엔드 잠금을 해제 하는 것이 좋습니다. [내 백 엔드에 대 한 액세스를 Azure Front 도어에만 잠금 어떻게 할까요?를 참조 하세요](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door) .
+
 
 ## <a name="next-steps"></a>다음 단계
 

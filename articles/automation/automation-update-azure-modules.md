@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 06/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a71eb00ce4d4ace6ccc17e050946b39debed929c
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 23475fb77210eeea0568bb996529c81458db9c6c
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034894"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382773"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Azure Automation에서 Azure PowerShell 모듈을 업데이트하는 방법
 
@@ -48,10 +48,6 @@ Automation 계정에서 Azure 모듈을 업데이트 하려면 오픈 소스로 
 
 * PowerShell 갤러리에서 사용할 수 있는 최신 버전 대신 특정 Azure PowerShell 모듈 버전을 사용하려면 이러한 버전을 **Update-AutomationAzureModulesForAccount** Runbook의 선택적 `ModuleVersionOverrides` 매개 변수에 전달합니다. 예제는 [Update-AutomationAzureModulesForAccount.ps1](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update/blob/master/Update-AutomationAzureModulesForAccount.ps1
 ) Runbook을 참조하세요. `ModuleVersionOverrides` 매개 변수에 언급되지 않은 Azure PowerShell 모듈은 PowerShell 갤러리의 최신 모듈 버전으로 업데이트됩니다. `ModuleVersionOverrides` 매개 변수에 아무 것도 전달하지 않으면 모든 모듈이 PowerShell 갤러리의 최신 모듈 버전으로 업데이트됩니다. 이 동작은 **Azure 모듈 업데이트** 단추와 동일합니다.
-
-## <a name="known-issues"></a>알려진 문제
-
-숫자 이름이 0으로 시작 하는 리소스 그룹에 있는 Automation 계정에서 AzureRM 모듈을 업데이트 하는 것과 관련 된 알려진 문제가 있습니다. Automation 계정에서 Azure 모듈을 업데이트 하려면 영숫자 이름이 있는 리소스 그룹에 있어야 합니다. 숫자 이름이 0부터 시작 하는 리소스 그룹은 현재 AzureRM 모듈을 업데이트할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

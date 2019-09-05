@@ -6,19 +6,16 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 7944f985f2317690f3a13add783192c49acbe22f
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: ba0f3bd002b2675c33ea5106ce64c7957c9989d0
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907655"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309118"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for MariaDB에서 읽기 복제본을 만들고 관리 하는 방법
 
 이 문서에서는 Azure CLI를 사용 하 여 Azure Database for MariaDB 서비스에서 마스터와 동일한 Azure 지역 내에서 읽기 복제본을 만들고 관리 하는 방법에 대해 설명 합니다.
-
-> [!IMPORTANT]
-> 마스터 서버와 동일한 지역 또는 선택한 다른 Azure 지역에서 읽기 복제본을 만들 수 있습니다. 읽기 복제본 (동일한 지역 및 지역 간)은 현재 공개 미리 보기로 제공 됩니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -103,7 +100,7 @@ az mariadb server replica list --server-name mydemoserver --resource-group myres
 
 `az mariadb server replica list` 명령에는 다음과 같은 매개 변수가 필요합니다.
 
-| 설정 | 예제 값 | 설명  |
+| 설정 | 예제 값 | Description  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  복제본 서버가 만들어지는 리소스 그룹입니다.  |
 | 서버 이름 | mydemoserver | 마스터 서버의 이름 또는 ID입니다. |

@@ -10,21 +10,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/06/2019
+ms.date: 09/04/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e15fa8c79663fc2517039124f9be8c1ecd57b8a8
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 8b5479bc7f4e65f23a2e2dcf7deb91742fe50610
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68837885"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382495"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Azure Active Directory에서 앱 등록 권한 위임
 
-이 문서에서는 Azure AD (Azure Active Directory)에서 사용자 지정 역할의 앱 사용 권한을 사용 하 여 응용 프로그램 관리 요구 사항을 해결 하는 방법을 설명 합니다. Azure Active Directory (Azure AD)를 사용 하 여 다음과 같은 방법으로 응용 프로그램 만들기 및 관리 권한을 위임할 수 있습니다.
+이 문서에서는 Azure AD (Azure Active Directory)에서 사용자 지정 역할에 부여 된 사용 권한을 사용 하 여 응용 프로그램 관리 요구 사항을 해결 하는 방법을 설명 합니다. Azure AD에서 다음과 같은 방법으로 응용 프로그램 만들기 및 관리 권한을 위임할 수 있습니다.
 
 - [응용 프로그램을 만들고 사용자가](#restrict-who-can-create-applications) 만드는 응용 프로그램을 관리할 수 있는 사용자를 제한 합니다. 기본적으로 Azure AD에서는 모든 사용자가 응용 프로그램 등록을 등록 하 고 자신이 만든 응용 프로그램의 모든 측면을 관리할 수 있습니다. 이는 사용 권한을 가진 사용자만 허용 하도록 제한할 수 있습니다.
 - [하나 이상의 소유자를 응용 프로그램에 할당](#assign-application-owners)합니다. 이 방법은 사용자에 게 특정 응용 프로그램에 대 한 Azure AD 구성의 모든 측면을 관리할 수 있는 기능을 부여 하는 간단한 방법입니다.
@@ -40,7 +40,7 @@ ms.locfileid: "68837885"
 ### <a name="to-disable-the-default-ability-to-create-application-registrations-or-consent-to-applications"></a>응용 프로그램 등록을 만들거나 응용 프로그램에 동의할 수 있는 기본 기능을 사용 하지 않도록 설정 하려면
 
 1. Azure AD 조직에서 전역 관리자 역할을 수행할 수 있는 계정을 사용 하 여 Azure AD 조직에 로그인 합니다.
-1. 충분한 권한을 얻은 경우 다음 중 하나 또는 둘 다를 설정합니다.
+1. 다음 중 하나 또는 둘 다를 설정 합니다.
 
     -  [조직의 사용자 설정 페이지](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings)에서 **사용자가 응용 프로그램을 등록할 수 있음** 설정을 아니요로 설정 합니다. 이렇게 하면 사용자가 응용 프로그램 등록을 만들 수 있는 기본 기능을 사용 하지 않도록 설정 됩니다.
     -  [엔터프라이즈 응용 프로그램에 대 한 사용자 설정](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)에서 사용자를 대신 하 여 **회사 데이터에 액세스 하는 응용 프로그램에 동의할 수 있음** 설정을 아니요로 설정 합니다. 이렇게 하면 사용자가 대신 회사 데이터에 액세스 하는 응용 프로그램에 동의할 수 있는 기본 기능이 사용 되지 않습니다.
@@ -55,7 +55,7 @@ ms.locfileid: "68837885"
 
 ### <a name="enterprise-application-owners"></a>엔터프라이즈 응용 프로그램 소유자
 
-사용자는 소유자로 서 single sign-on 구성, 프로 비전 및 사용자 할당과 같은 엔터프라이즈 응용 프로그램의 조직 특정 구성을 관리할 수 있습니다. 소유자는 다른 소유자를 추가하거나 제거할 수도 있습니다. 전역 관리자와 달리 소유자는 자신이 소유한 엔터프라이즈 응용 프로그램만 관리할 수 있습니다.
+사용자는 소유자로 서 Single Sign-On 구성, 프로 비전 및 사용자 할당과 같은 엔터프라이즈 응용 프로그램의 조직 특정 구성을 관리할 수 있습니다. 소유자는 다른 소유자를 추가하거나 제거할 수도 있습니다. 전역 관리자와 달리 소유자는 자신이 소유한 엔터프라이즈 응용 프로그램만 관리할 수 있습니다.
 
 경우에 따라 응용 프로그램 갤러리에서 만든 엔터프라이즈 응용 프로그램에는 엔터프라이즈 응용 프로그램과 응용 프로그램 등록이 모두 포함 됩니다. 이 속성이 true 이면 엔터프라이즈 응용 프로그램에 소유자를 추가 하면 해당 응용 프로그램 등록에 소유자가 자동으로 추가 됩니다.
 

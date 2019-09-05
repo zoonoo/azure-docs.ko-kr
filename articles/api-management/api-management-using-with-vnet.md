@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: f79fffe2117de77e4e44dcbbaa782b2ade81e04b
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: b89f4d2264924983aac93fb266efd71e46bea6bf
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164181"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305223"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure Vnet (가상 네트워크)를 사용 하면 액세스를 제어 하는 인터넷 라우팅할 수 없는 네트워크에 Azure 리소스를 둘 수 있습니다. 이러한 네트워크는 다양한 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. Azure Virtual Network에 대해 자세히 알아보려면 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)부터 참조하세요.
@@ -25,7 +25,7 @@ Azure Vnet (가상 네트워크)를 사용 하면 액세스를 제어 하는 인
 Azure API Management가 네트워크 내의 백 엔드 서비스에 액세스할 수 있도록 VNET(가상 네트워크) 내에 배포할 수 있습니다. 개발자 포털 및 API 게이트웨이를 인터넷에서 또는 가상 네트워크 내에서만 액세스할 수 있게 구성할 수 있습니다.
 
 > [!NOTE]
-> Azure API Management는 클래식 및 Azure Resource Manager Vnet을 모두 지원합니다.
+> API 가져오기 문서 URL은 공개적으로 액세스할 수 있는 인터넷 주소에서 호스팅되어야 합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

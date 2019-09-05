@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: mathoma
-ms.openlocfilehash: e28478d31a674d742870344b33eac6b84c3ae584
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 2705b42849922ce7e3650162b8f1ff78723685c2
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70123831"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309235"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM에 대한 스토리지 구성
 
@@ -28,7 +28,7 @@ Azure에서 SQL Server 가상 머신 이미지를 구성하는 경우 포털에�
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 자동화된 스토리지 구성 설정을 사용하려면 가상 머신에는 다음과 같은 특성이 필요합니다.
 
@@ -110,8 +110,7 @@ SQL Server VM에 이미 스토리지를 구성한 경우 스토리지를 확장�
 
 이 섹션에서는 SQL VM을 프로 비전 하는 동안 Azure에서 자동으로 수행 하는 저장소 구성 변경 내용 및 Azure Portal 구성에 대 한 참조를 제공 합니다.
 
-* VM에 대한 2TB 미만의 스토리지를 선택한 경우 Azure는 스토리지 풀을 만들지 않습니다.
-* VM에 대한 2TB 이상의 스토리지를 선택한 경우 Azure는 스토리지 풀을 구성합니다. 이 항목의 다음 섹션에서는 스토리지 풀 구성의 세부 정보를 제공합니다.
+* Azure는 VM에서 선택한 저장소에서 저장소 풀을 구성 합니다. 이 항목의 다음 섹션에서는 저장소 풀 구성에 대해 자세히 설명 합니다.
 * 자동 스토리지 구성은 항상 [프리미엄 SSD](../disks-types.md) P30 데이터 디스크를 사용합니다. 따라서 선택한 테라바이트 수와 VM에 연결된 데이터 디스크의 수 간에 1:1 매핑이 됩니다.
 
 가격 책정 정보는 [디스크 스토리지](https://azure.microsoft.com/pricing/details/storage) 탭의 **스토리지 가격 책정** 페이지를 참조하세요.

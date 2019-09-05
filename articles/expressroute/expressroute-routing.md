@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 09/04/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 458808f9d2c496ae4c29b05bd8a3531b94ba78c0
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 9d4822d07a95fcdec32c0c4146562884302fa4f8
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68422679"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308328"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 라우팅 요구 사항
 ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면 라우팅을 설치하고 관리해야 합니다. 일부 연결 공급자는 라우팅을 관리 서비스로 설치하고 관리해 줍니다. 연결 공급자를 확인하여 이 서비스를 제공하는지를 확인합니다. 제공하지 않는 경우 다음 요구 사항을 준수해야 합니다.
@@ -211,9 +211,9 @@ Microsoft에서 보급하는 모든 경로는 적절한 커뮤니티 값으로 �
 > 
 
 ### <a name="service-to-bgp-community-value"></a>서비스와 BGP 커뮤니티 값
-또한 위의 내용 외에도 Microsoft는 자신이 속한 서비스에 기반한 접두사에 태그합니다. Microsoft 피어링에 적용됩니다. 다음 테이블에서는 BGP 커뮤니티 값에 서비스의 매핑을 제공합니다.
+또한 위의 내용 외에도 Microsoft는 자신이 속한 서비스에 기반한 접두사에 태그합니다. Microsoft 피어링에 적용됩니다. 다음 테이블에서는 BGP 커뮤니티 값에 서비스의 매핑을 제공합니다. ' AzBgpServiceCommunity ' cmdlet을 실행 하 여 최신 값의 전체 목록을 볼 수 있습니다.
 
-| **서비스** | **BGP 커뮤니티 값** |
+| **Service** | **BGP 커뮤니티 값** |
 | --- | --- |
 | Exchange Online | 12076분 5010초 |
 | SharePoint Online | 12076분 5020초 |

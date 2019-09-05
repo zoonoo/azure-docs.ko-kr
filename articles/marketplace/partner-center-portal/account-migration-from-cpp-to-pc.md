@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 661adb755d076b0cc6114a287855482165ccb817
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 8c7680896507cd3738fa3bce0d30a516d08509c4
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208102"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383300"
 ---
 # <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Cloud 파트너 포털에서 파트너 센터로의 계정 마이그레이션
 
@@ -43,17 +43,17 @@ CPP 계정에 Microsoft 파트너 네트워크 ID가 없거나 잘못 된 ID가 
 마이그레이션은 지정 된 계정에 대해 한 번만 수행 해야 합니다. 지정 된 파트너가 계정에 대 한 마이그레이션을 완료 하면 모든 소유자는 게시자 프로필 페이지에서이 동작을 볼 수 있습니다.
 
 1. 이제 계정 설정을 관리할 수 있는 Microsoft 파트너 네트워크의 파트너 설정 페이지가 표시 됩니다. 
-2. CPP의 게시자 프로필 페이지에 있는 노란색 배너가 소유자 역할을 가진 사용자에 게 표시 되어 파트너 센터에서 자신의 계정 설정을 관리 하 라는 메시지가 표시 됩니다. 
-3. CPP의 계정 설정 페이지는 읽기 전용 모드로 변환 됩니다. 
+2. CPP의 게시자 프로필 페이지에 있는 노란색 배너가 소유자 역할을 가진 사용자에 게 표시 되어 파트너 센터에서 자신의 계정 설정을 관리 하 라는 메시지가 표시 됩니다.
+3. CPP의 계정 설정 페이지는 읽기 전용 모드로 변환 됩니다.
 
 ## <a name="move-dynamics-365-based-solutions-to-partner-center"></a>Dynamics 365 기반 솔루션을 파트너 센터로 이동
 
 단일 상업용 파트너 GTM 포털에서 재무 및 운영 솔루션에 대해 고객 Engagement 또는 Dynamics 365 용 Dynamics 365을 만든 경우 **이제 파트너 센터에서 이러한 솔루션을 관리 해야 합니다**.
 
-**2019 년 8 월 31 일까 지 솔루션을 이동 하지 않은 경우**가능한 한 빨리 아래 단계를 완료 합니다. 이렇게 하려면 다음을 수행 합니다. 
+**2019 년 8 월 31 일까 지 솔루션을 이동 하지 않은 경우**가능한 한 빨리 아래 단계를 완료 합니다. 이렇게 하려면 다음을 수행 합니다.
 - Isv는 마케팅 혜택에 액세스할 수 없습니다.
 - 공동 판매 우선 순위를 지정 하면 상태가 손실 됩니다.
-- 클라우드 Embed가 필요한 것은 규정을 준수 하지 않습니다.
+- 클라우드 Embed가 필요한 것은 2019 년 10 월 15 일 이후에는 규정을 준수 하지 않습니다.
 
 > [!NOTE]
 > MPN membership 계정이 원래 PMC (파트너 구성원 센터)에서 만들어진 경우 [파트너 센터](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) 에 로그인 하 여 다음 단계를 완료 하기 전에 계정이 마이그레이션 되었는지 확인 합니다. MPN ID를 사용 하 여 프로필 화면이 표시 되 면 진행할 준비가 된 것입니다. 그렇지 않으면 [파트너 구성원 센터](https://partners.microsoft.com/partnerprogram/Welcome.aspx)의 지시에 따라 계정 마이그레이션을 시작 해야 합니다. 이에 대 한 도움이 필요한 경우 [지원](https://partner.microsoft.com/support?issueid=100-0077)을 참조 하세요.

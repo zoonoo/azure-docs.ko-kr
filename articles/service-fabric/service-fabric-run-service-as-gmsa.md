@@ -1,5 +1,5 @@
 ---
-title: GMSA 계정으로 Azure Service Fabric 서비스 실행 | Microsoft Docs
+title: GMSA 계정으로 Azure Service Fabric 서비스를 실행 합니다. | Microsoft Docs
 description: Service Fabric Windows 독립 실행형 클러스터에서 gMSA로 서비스를 실행하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/29/2018
 ms.author: dekapur
-ms.openlocfilehash: 5c3781c2111fff7483a7fb65bd7b2e69c2011d18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d00eceffebb222196191a389058c0feb496e169a
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837745"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307652"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>그룹 관리 서비스 계정으로 서비스 실행
 Windows Server 독립 실행형 클러스터에서 RunAs 정책을 사용하여 gMSA(그룹 관리 서비스 계정)로 서비스를 실행할 수 있습니다.  기본적으로 서비스 패브릭 애플리케이션은 Fabric.exe 프로세스가 실행하는 계정을 통해 실행됩니다. 서로 다른 계정에서 애플리케이션을 실행하면 공유 호스트 환경에서도 서로를 더욱 안전하게 보호할 수 있습니다. 여기에는 Azure AD(Azure Active Directory)가 아닌 도메인 내의 Active Directory 온-프레미스가 사용됩니다. gMSA를 사용하면 애플리케이션 매니페스트에 저장되는 암호나 암호화된 암호가 없습니다.  [Active Directory 사용자 또는 그룹](service-fabric-run-service-as-ad-user-or-group.md)으로 서비스를 실행할 수도 있습니다.
@@ -28,7 +28,7 @@ Windows Server 독립 실행형 클러스터에서 RunAs 정책을 사용하여 
 
 필수 조건:
 - 도메인에 KDS 루트 키가 필요합니다.
-- Windows Server 2012 이상 기능 수준에 도메인이 있어야 합니다.
+- 도메인에 Windows Server 2012 (또는 R2) DC가 하나 이상 있어야 합니다.
 
 1. Active Directory 도메인 관리자가 `New-ADServiceAccount` commandlet을 사용하여 그룹 관리 서비스 계정을 만들고 `PrincipalsAllowedToRetrieveManagedPassword`에 Serivce Fabric 클러스터 노드가 모두 포함되도록 합니다. `AccountName`, `DnsHostName` 및 `ServicePrincipalName`은 고유해야 합니다.
 

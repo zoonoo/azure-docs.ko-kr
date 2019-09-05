@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 26fea4322df625b2e38028a3b7121fb41f2acf81
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 5558eeb4012ac563388ad47df61114534e9859ed
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311854"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308337"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Media Services v3 Api를 사용 하 여 개발
 
@@ -76,6 +76,10 @@ Azure Media Services v3 리소스 이름(예: 자산, 작업, 변환)은 Azure R
 Media Services 리소스 이름에는 '<', '>', '%', '&', ':', '&#92;', '?', '/', '*', '+', '.', 작은 따옴표 또는 제어 문자가 포함될 수 없습니다. 다른 문자를 모두 허용합니다. 리소스 이름의 최대 길이는 260자입니다. 
 
 Azure Resource Manager 이름 지정에 대한 자세한 내용은 [명명 요구 사항](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) 및 [명명 규칙](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요.
+
+### <a name="names-of-filesblobs-within-an-asset"></a>자산 내의 파일/blob 이름
+
+자산 내의 파일/b a s 이름은 [blob 이름 요구 사항](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) 및 [NTFS 이름 요구 사항을](https://docs.microsoft.com/windows/win32/fileio/naming-a-file)따라야 합니다. 이러한 요구 사항에 대 한 이유는 파일을 blob 저장소에서 로컬 NTFS 디스크로 복사 하 여 처리할 수 있다는 것입니다.
 
 ## <a name="long-running-operations"></a>장기 실행 작업
 

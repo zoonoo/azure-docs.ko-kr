@@ -11,12 +11,12 @@ author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2019
-ms.openlocfilehash: 9b58d6e189c891d0dd2917d7d150f133dc35f917
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: b938d55749373711ddf2a19df12b987276b224ca
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019106"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376305"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Python에서 학습 실행 시작, 모니터링 및 취소
 
@@ -226,7 +226,7 @@ with exp.start_logging() as parent_run:
 
 자식 실행은 부모 실행에서 제출할 수도 있습니다. 이를 통해 각각 서로 다른 계산 대상에서 실행 되는 부모 및 자식 실행의 계층 구조를 만들어 공통 부모 실행 ID로 연결할 수 있습니다.
 
-[' Submit_child () '](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-count-none--tag-key-none--tag-values-none-) 메서드를 사용 하 여 부모 실행 내에서 자식 실행을 제출 합니다. 부모 실행 스크립트에서이 작업을 수행 하려면 컨텍스트 인스턴스의 ' ' submit_child ' ' ' 메서드를 사용 하 여 실행 컨텍스트를 가져오고 자식 실행을 제출 합니다.
+[' Submit_child () '](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-config--tags-none----kwargs-) 메서드를 사용 하 여 부모 실행 내에서 자식 실행을 제출 합니다. 부모 실행 스크립트에서이 작업을 수행 하려면 컨텍스트 인스턴스의 ' ' submit_child ' ' ' 메서드를 사용 하 여 실행 컨텍스트를 가져오고 자식 실행을 제출 합니다.
 
 ```python
 ## In parent run script

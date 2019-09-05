@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: damaerte
-ms.openlocfilehash: f60125123d019cbfa93bfc1b06da7ac90b54e311
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: b2823c935d11ae99ab1d87ae708945721820ad8c
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742030"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306742"
 ---
 [!INCLUDE [PersistingStorage-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
@@ -31,18 +31,35 @@ Cloud Shell은 다음 방법 모두를 통해 파일을 유지합니다.
 > [!NOTE]
 > SSH 키와 같이 `$Home` 디렉터리의 모든 파일은 마운트된 파일 공유에 저장된 사용자 디스크 이미지에서 유지됩니다. `$Home` 디렉터리 및 마운트된 파일 공유에서 정보를 유지하는 경우 모범 사례를 적용합니다.
 
-## <a name="bash-specific-commands"></a>Bash 관련 명령
+## <a name="clouddrive-commands"></a>clouddrive 명령
 
 ### <a name="use-the-clouddrive-command"></a>`clouddrive` 명령 사용
-Azure Cloud Shell의 Bash에서 `clouddrive` 명령을 실행하여 Azure Cloud Shell에 마운트된 파일 공유를 수동으로 업데이트할 수 있습니다.
+Cloud Shell에서 라는 `clouddrive`명령을 실행할 수 있습니다 .이 명령을 사용 하면 Cloud Shell에 탑재 된 파일 공유를 수동으로 업데이트할 수 있습니다.
 ![clouddrive 명령 실행](media/persisting-shell-storage/clouddrive-h.png)
+
+### <a name="list-clouddrive"></a>목록 `clouddrive`
+`clouddrive`로 마운트된 파일 공유를 확인하려면 `df` 명령을 실행합니다. 
+
+clouddrive에 대한 파일 경로는 URL에서 스토리지 계정 이름 및 파일 공유를 표시합니다. 예를 들면 `//storageaccountname.file.core.windows.net/filesharename`
+
+```
+justin@Azure:~$ df
+Filesystem                                          1K-blocks   Used  Available Use% Mounted on
+overlay                                             29711408 5577940   24117084  19% /
+tmpfs                                                 986716       0     986716   0% /dev
+tmpfs                                                 986716       0     986716   0% /sys/fs/cgroup
+/dev/sda1                                           29711408 5577940   24117084  19% /etc/hosts
+shm                                                    65536       0      65536   0% /dev/shm
+//mystoragename.file.core.windows.net/fileshareName 5368709120    64 5368709056   1% /home/justin/clouddrive
+justin@Azure:~$
+```
 
 ### <a name="mount-a-new-clouddrive"></a>새 clouddrive 탑재
 
 #### <a name="prerequisites-for-manual-mounting"></a>수동 마운트를 위한 필수 구성 요소
 `clouddrive mount` 명령을 사용하여 Cloud Shell과 연결된 파일 공유를 업데이트할 수 있습니다.
 
-기존 파일 공유를 탑재할 경우 스토리지 계정은 선택하는 Cloud Shell 영역에 있어야 합니다. Bash에서 `env`를 실행하고 `ACC_LOCATION`을 확인하여 위치를 검색합니다.
+기존 파일 공유를 탑재할 경우 스토리지 계정은 선택하는 Cloud Shell 영역에 있어야 합니다. 를 실행 `env` 하 고를 `ACC_LOCATION`확인 하 여 위치를 검색 합니다.
 
 #### <a name="the-clouddrive-mount-command"></a>`clouddrive mount` 명령
 
@@ -70,24 +87,7 @@ clouddrive mount -s mySubscription -g myRG -n storageAccountName -f fileShareNam
 ![‘clouddrive unmount’ 명령 실행](media/persisting-shell-storage/unmount-h.png)
 
 > [!WARNING]
-> 이 명령을 실행해도 리소스가 삭제되는 것은 아니지만 Cloud Shell에 매핑된 리소스 그룹, 스토리지 계정 또는 파일 공유를 수동으로 삭제하면 `$Home` 디렉터리 디스크 이미지 및 파일 공유의 모든 파일이 지워집니다. 이 작업은 실행 취소할 수 없습니다.
-
-### <a name="list-clouddrive"></a>목록 `clouddrive`
-`clouddrive`로 마운트된 파일 공유를 확인하려면 `df` 명령을 실행합니다. 
-
-clouddrive에 대한 파일 경로는 URL에서 스토리지 계정 이름 및 파일 공유를 표시합니다. 예를 들면 `//storageaccountname.file.core.windows.net/filesharename`
-
-```
-justin@Azure:~$ df
-Filesystem                                          1K-blocks   Used  Available Use% Mounted on
-overlay                                             29711408 5577940   24117084  19% /
-tmpfs                                                 986716       0     986716   0% /dev
-tmpfs                                                 986716       0     986716   0% /sys/fs/cgroup
-/dev/sda1                                           29711408 5577940   24117084  19% /etc/hosts
-shm                                                    65536       0      65536   0% /dev/shm
-//mystoragename.file.core.windows.net/fileshareName 5368709120    64 5368709056   1% /home/justin/clouddrive
-justin@Azure:~$
-```
+> 이 명령을 실행해도 리소스가 삭제되는 것은 아니지만 Cloud Shell에 매핑된 리소스 그룹, 스토리지 계정 또는 파일 공유를 수동으로 삭제하면 `$Home` 디렉터리 디스크 이미지 및 파일 공유의 모든 파일이 지워집니다. 이 작업은 취소할 수 없습니다.
 ## <a name="powershell-specific-commands"></a>PowerShell 관련 명령
 
 ### <a name="list-clouddrive-azure-file-shares"></a>`clouddrive` Azure 파일 공유 나열
@@ -105,7 +105,6 @@ justin@Azure:~$
 참고: 파일에서 함수를 정의하고 PowerShell cmdlet에서 호출해야 하는 경우 점 연산자를 포함해야 합니다. 예: . .\MyFunctions.ps1
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Cloud Shell의 Bash 빠른 시작](quickstart.md) <br>
-[Cloud Shell의 PowerShell 빠른 시작](quickstart-powershell.md) <br>
+[Cloud Shell 빠른 시작](quickstart.md) <br>
 [Microsoft Azure Files 스토리지에 대해 알아보기](https://docs.microsoft.com/azure/storage/storage-introduction) <br>
 [스토리지 태그에 대해 알아보기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

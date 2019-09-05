@@ -9,16 +9,16 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 61a9b319b9ea44f766bc6f014b76bc48d15efc57
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 36fb40dcee010ab68dc87eb6f81c0b2fb8977914
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598463"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376390"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps에 온-프레미스 데이터 게이트웨이 설치
 
-Azure Logic Apps에서 온-프레미스 데이터 원본에 연결하려면 로컬 컴퓨터에 온-프레미스 데이터 게이트웨이를 다운로드하고 설치합니다. 게이트웨이는 온-프레미스(클라우드 아님) 데이터 원본과 논리 앱 간에 빠른 데이터 전송 및 암호화를 제공하는 브리지 역할을 합니다. 이 문서에서는 온-프레미스 데이터 게이트웨이를 다운로드하고, 설치하고, 설정하는 방법을 설명합니다. 
+Azure Logic Apps에서 온-프레미스 데이터 원본에 연결하려면 로컬 컴퓨터에 온-프레미스 데이터 게이트웨이를 다운로드하고 설치합니다. 게이트웨이는 온-프레미스(클라우드 아님) 데이터 원본과 논리 앱 간에 빠른 데이터 전송 및 암호화를 제공하는 브리지 역할을 합니다. 이 문서에서는 온-프레미스 데이터 게이트웨이를 다운로드하고, 설치하고, 설정하는 방법을 설명합니다.
 
 Power BI, Microsoft Flow, PowerApps 및 Azure Analysis Services와 같은 기타 서비스에도 동일한 게이트웨이 설치를 사용할 수 있습니다. [데이터 게이트웨이 작동 원리](#gateway-cloud-service)에 대해 자세히 알아봅니다.
 
@@ -26,19 +26,18 @@ Power BI, Microsoft Flow, PowerApps 및 Azure Analysis Services와 같은 기타
 
 이 게이트웨이는 다음 데이터 원본에 대해 Azure Logic Apps의 [온-프레미스 커넥터](../connectors/apis-list.md#on-premises-connectors)를 지원합니다.
 
-*   BizTalk Server 2016
-*   파일 시스템
-*   IBM DB2  
-*   IBM Informix
-*   IBM MQ
-*   MySQL
-*   Oracle Database
-*   PostgreSQL
-*   SAP 애플리케이션 서버 
-*   SAP 메시지 서버
-*   SharePoint Server
-*   SQL Server
-*   Teradata
+* BizTalk Server 2016
+* 파일 시스템
+* IBM DB2  
+* IBM Informix
+* IBM MQ
+* MySQL
+* Oracle Database
+* PostgreSQL
+* SAP
+* SharePoint Server
+* SQL Server
+* Teradata
 
 다른 서비스에서 게이트웨이를 사용하는 방법에 대한 내용은 다음 문서를 참조하세요.
 
@@ -49,13 +48,11 @@ Power BI, Microsoft Flow, PowerApps 및 Azure Analysis Services와 같은 기타
 
 <a name="requirements"></a>
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
-* [Azure 구독](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access)이 있는 [회사 또는 학교 계정](../active-directory/fundamentals/sign-up-organization.md) 
+* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
-  게이트웨이 설치를 Azure 구독에 연결할 수 있도록 게이트웨이 설치 동안 이 계정에 로그인합니다. 
-  나중에 Azure Portal에서 게이트웨이 설치를 위한 Azure 리소스를 만들 때도 동일한 계정을 사용합니다. 
-  아직 Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다.
+  게이트웨이 설치를 Azure 구독에 연결할 수 있도록 게이트웨이 설치 동안 이 계정에 로그인합니다. 나중에 Azure Portal에서 게이트웨이 설치를 위한 Azure 리소스를 만들 때도 동일한 계정을 사용합니다.
 
 * 로컬 컴퓨터에 대한 요구 사항은 다음과 같습니다.
 
@@ -70,6 +67,9 @@ Power BI, Microsoft Flow, PowerApps 및 Azure Analysis Services와 같은 기타
   * 8GB 메모리
   * 64비트 버전의 Windows Server 2008 R2 이상
 
+  > [!NOTE]
+  > 게이트웨이가 Windows Server 2016 Core를 지원 하지 않습니다.
+
 * **중요 고려 사항**
 
   * 온-프레미스 데이터 게이트웨이를 도메인 컨트롤러가 아닌 로컬 컴퓨터에 설치할 수 있습니다. 그렇지만 데이터 원본과 동일한 컴퓨터에 게이트웨이를 설치할 필요가 없습니다. 또한 모든 데이터 원본에 대해 하나의 게이트웨이만 필요하므로 각 데이터 원본에 대해 게이트웨이를 설치할 필요는 없습니다.
@@ -77,13 +77,9 @@ Power BI, Microsoft Flow, PowerApps 및 Azure Analysis Services와 같은 기타
     > [!TIP]
     > 대기 시간을 최소화하려면 권한이 있다고 가정하여 가능하면 데이터 원본과 가깝게 또는 동일한 컴퓨터에 게이트웨이를 설치하면 됩니다.
 
-  * 항상 켜져 있는 인터넷에 연결된 컴퓨터에 게이트웨이를 설치하고 절전 모드로 전환하지 *마세요*. 그렇지 않은 경우 게이트웨이를 실행할 수 없습니다. 
-  또한 무선 네트워크에서는 성능이 저하될 수 있습니다.
+  * 항상 켜져 있는 인터넷에 연결된 컴퓨터에 게이트웨이를 설치하고 절전 모드로 전환하지 *마세요*. 그렇지 않은 경우 게이트웨이를 실행할 수 없습니다. 또한 무선 네트워크에서는 성능이 저하될 수 있습니다.
 
-  * 설치하는 동안 @hotmail.com 또는 @outlook.com 같은 Azure B2B(게스트) 계정이나 개인 Microsoft 계정이 아닌 Azure AD(Azure Active Directory)에서 관리하는 [회사 또는 학교 계정](../active-directory/sign-up-organization.md)(예: @contoso.onmicrosoft.com)으로만 로그인할 수 있습니다. 
-  Azure Portal에서 게이트웨이 리소스를 만들어서 게이트웨이 설치를 등록할 때 동일한 로그인 계정을 사용해야 합니다. 
-  그런 다음, 논리 앱에서 온-프레미스 데이터 원본으로의 연결을 만들 때 이 게이트웨이 리소스를 선택할 수 있습니다. 
-  [Azure AD 회사 또는 학교 계정을 사용해야 하는 이유는 무엇인가요?](#why-azure-work-school-account)
+  * 설치하는 동안 @hotmail.com 또는 @outlook.com 같은 Azure B2B(게스트) 계정이나 개인 Microsoft 계정이 아닌 Azure AD(Azure Active Directory)에서 관리하는 [회사 또는 학교 계정](../active-directory/sign-up-organization.md)(예: @contoso.onmicrosoft.com)으로만 로그인할 수 있습니다. Azure Portal에서 게이트웨이 리소스를 만들어서 게이트웨이 설치를 등록할 때 동일한 로그인 계정을 사용해야 합니다. 그런 다음, 논리 앱에서 온-프레미스 데이터 원본으로의 연결을 만들 때 이 게이트웨이 리소스를 선택할 수 있습니다. [Azure AD 회사 또는 학교 계정을 사용해야 하는 이유는 무엇인가요?](#why-azure-work-school-account)
 
   > [!TIP]
   > Office 365 서비스에 등록하고 실제 회사 이메일을 제공하지 않은 경우 로그인 주소는 예제 `username@domain.onmicrosoft.com`과 같을 수 있습니다. 
@@ -92,8 +88,7 @@ Power BI, Microsoft Flow, PowerApps 및 Azure Analysis Services와 같은 기타
   > 암호가 있는 사용자를 디렉터리를 추가한 다음 해당 사용자에게 구독에 대한 액세스 권한을 제공합니다. 
   > 그런 다음 이 사용자 이름 및 암호를 사용하여 게이트웨이 설치 중에 로그인할 수 있습니다.
 
-  * 게이트웨이 설치를 위해 선택한 지역은 나중에 Azure 리소스를 만들어 Azure에서 게이트웨이를 등록하는 위치를 결정합니다. 
-  Azure에서 이 게이트웨이 리소스를 만들 때 게이트웨이 설치와 *동일한* 위치를 선택해야 합니다. 기본 지역은 Azure 계정을 관리하는 Azure AD 테넌트와 동일한 위치이지만 게이트웨이 설치하는 동안 이 위치를 변경할 수 있습니다.
+  * 게이트웨이 설치를 위해 선택한 지역은 나중에 Azure 리소스를 만들어 Azure에서 게이트웨이를 등록하는 위치를 결정합니다. Azure에서 이 게이트웨이 리소스를 만들 때 게이트웨이 설치와 *동일한* 위치를 선택해야 합니다. 기본 지역은 Azure 계정을 관리하는 Azure AD 테넌트와 동일한 위치이지만 게이트웨이 설치하는 동안 이 위치를 변경할 수 있습니다.
 
   * 14.16.6317.4보다 이전 버전인 설치 관리자를 사용하여 설정한 게이트웨이가 이미 있는 경우 최신 설치 관리자를 실행하여 게이트웨이 위치를 변경할 수 없습니다. 그러나 최신 설치 관리자를 사용하여 새 게이트웨이를 원하는 위치로 설정할 수 있습니다.
   
@@ -105,12 +100,11 @@ Power BI, Microsoft Flow, PowerApps 및 Azure Analysis Services와 같은 기타
 
 온-프레미스 데이터 게이트웨이를 사용하려면 다음 요구 사항 및 고려 사항을 검토합니다.
 
-* 해당 설치에 대한 기본 게이트웨이 및 복구 키가 있는 동일한 Azure 구독 내에 하나 이상의 게이트웨이 설치가 이미 있어야 합니다. 
+* 해당 설치에 대한 기본 게이트웨이 및 복구 키가 있는 동일한 Azure 구독 내에 하나 이상의 게이트웨이 설치가 이미 있어야 합니다.
 
 * 기본 게이트웨이에서는 2017년 11월 또는 이후의 게이트웨이 업데이트가 실행되고 있어야 합니다.
 
-이러한 요구 사항을 충족한 후, 다음 게이트웨이 만들 때 **기존 게이트웨이 클러스터에 추가**를 선택하고 클러스터에 대한 기본 게이트웨이를 선택한 후 해당 기본 게이트웨이에 대한 복구 키를 제공합니다.
-자세한 내용은 참조 [온-프레미스 데이터 게이트웨이에 대한 고가용성 클러스터](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters)를 참조하세요.
+이러한 요구 사항을 충족한 후, 다음 게이트웨이 만들 때 **기존 게이트웨이 클러스터에 추가**를 선택하고 클러스터에 대한 기본 게이트웨이를 선택한 후 해당 기본 게이트웨이에 대한 복구 키를 제공합니다. 자세한 내용은 참조 [온-프레미스 데이터 게이트웨이에 대한 고가용성 클러스터](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters)를 참조하세요.
 
 <a name="install-gateway"></a>
 
@@ -118,63 +112,61 @@ Power BI, Microsoft Flow, PowerApps 및 Azure Analysis Services와 같은 기타
 
 1. [로컬 컴퓨터에서 게이트웨이 설치 관리자를 다운로드하고 저장하고 실행합니다](https://aka.ms/on-premises-data-gateway-installer).
 
-2. 기본 설치 경로를 그대로 적용하거나 게이트웨이를 설치하려는 컴퓨터의 위치를 지정합니다.
+1. 기본 설치 경로를 그대로 적용하거나 게이트웨이를 설치하려는 컴퓨터의 위치를 지정합니다.
 
-3. 개인정보처리방침 및 사용 약관을 검토하고 동의한 후 **설치**를 선택합니다.
+1. 개인정보처리방침 및 사용 약관을 검토하고 동의한 후 **설치**를 선택합니다.
 
    ![사용 약관 및 개인정보처리방침에 동의](./media/logic-apps-gateway-install/accept-terms.png)
 
-4. 게이트웨이가 성공적으로 설치되면 회사 또는 학교 계정에 대한 이메일 주소를 입력하고 **로그인**을 선택합니다.
+1. 게이트웨이가 성공적으로 설치되면 회사 또는 학교 계정에 대한 이메일 주소를 입력하고 **로그인**을 선택합니다.
 
    ![회사 또는 학교 계정으로 로그인](./media/logic-apps-gateway-install/sign-in-gateway-install.png)
 
-5. **이 컴퓨터에 새 게이트웨이 등록** > **다음**를 선택하여 [게이트웨이 클라우드 서비스](#gateway-cloud-service)에 게이트웨이 설치를 등록합니다. 
+1. **이 컴퓨터에 새 게이트웨이 등록** > **다음**를 선택하여 [게이트웨이 클라우드 서비스](#gateway-cloud-service)에 게이트웨이 설치를 등록합니다.
 
    ![게이트웨이 등록](./media/logic-apps-gateway-install/register-new-gateway.png)
 
-6. 게이트웨이 설치에 대해 다음 정보를 제공합니다.
+1. 게이트웨이 설치에 대해 다음 정보를 제공합니다.
 
-   * 설치에 사용하려는 이름 
+   * 설치에 사용하려는 이름
 
    * 만들려는 복구 기(8자 이상이어야 함)
 
      > [!IMPORTANT]
      > 복구 키를 저장한 후 안전한 장소에 보관합니다. 게이트웨이의 위치를 변경하거나, 기존 게이트웨이를 마이그레이션, 복구 또는 인수할 때 이 키가 필요합니다.
 
-   * 복구 키 확인 
+   * 복구 키 확인
 
      ![게이트웨이 설정](./media/logic-apps-gateway-install/set-up-gateway.png)
 
-7. 게이트웨이 설치에서 사용되는 게이트웨이 클라우드 서비스 및 Azure Service Bus에 대해 선택한 지역을 확인합니다. 
+1. 게이트웨이 설치에서 사용되는 게이트웨이 클라우드 서비스 및 Azure Service Bus에 대해 선택한 지역을 확인합니다.
 
    ![지역 확인](./media/logic-apps-gateway-install/check-region.png)
 
    > [!IMPORTANT]
    > 게이트웨이 설치를 마친 후 이 영역을 변경하려면 해당 게이트웨이 설치에 대한 복구 키가 필요합니다. 또한 게이트웨이를 제거했다가 다시 설치해야 합니다. 자세한 내용은 [위치 변경, 기존 게이트웨이 마이그레이션, 복구 또는 인수](#update-gateway-installation)를 참조하세요.
 
-   *게이트웨이 설치에 대한 지역을 변경하는 이유는 무엇인가요?* 
+   *게이트웨이 설치에 대한 지역을 변경하는 이유는 무엇인가요?*
 
-   예를 들어, 대기 시간을 줄이기 위해 논리 앱과 동일한 지역으로 게이트웨이 지역을 변경할 수 있습니다. 
-   또는 온-프레미스 데이터 원본에 가장 가까운 지역을 선택할 수 있습니다. 
-   *Azure의 게이트웨이 리소스*와 논리 앱은 서로 다른 위치에 있을 수 있습니다.
+   예를 들어, 대기 시간을 줄이기 위해 논리 앱과 동일한 지역으로 게이트웨이 지역을 변경할 수 있습니다. 또는 온-프레미스 데이터 원본에 가장 가까운 지역을 선택할 수 있습니다.    *Azure의 게이트웨이 리소스*와 논리 앱은 서로 다른 위치에 있을 수 있습니다.
 
-8. 기본 지역을 그대로 사용하려면 **구성**을 선택합니다. 또는 기본 영역을 변경하려면 다음 단계를 수행합니다.
+1. 기본 지역을 그대로 사용하려면 **구성**을 선택합니다. 또는 기본 영역을 변경하려면 다음 단계를 수행합니다.
 
-   1. 현재 지역 옆에 있는 **지역 변경**을 선택합니다. 
+   1. 현재 지역 옆에 있는 **지역 변경**을 선택합니다.
 
       ![지역 변경](./media/logic-apps-gateway-install/change-region.png)
 
-   2. 다음 페이지에서 **지역 선택** 목록을 열고 원하는 지역을 선택한 후 **완료**를 선택합니다.
+   1. 다음 페이지에서 **지역 선택** 목록을 열고 원하는 지역을 선택한 후 **완료**를 선택합니다.
 
       ![다른 지역 선택](./media/logic-apps-gateway-install/select-region-gateway-install.png)
 
-9. 확인 페이지가 나타나면 **닫기**를 선택합니다. 
+1. 확인 페이지가 나타나면 **닫기**를 선택합니다.
 
    설치 관리자는 게이트웨이가 현재 온라인 상태이고 사용할 준비가 되었는지 확인합니다.
 
    ![완료된 게이트웨이](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
 
-10. 이제 [게이트웨이 설치에 대한 Azure 리소스를 만들어](../logic-apps/logic-apps-gateway-connection.md) Azure에서 게이트웨이를 등록합니다. 
+1. 이제 [게이트웨이 설치에 대한 Azure 리소스를 만들어](../logic-apps/logic-apps-gateway-connection.md) Azure에서 게이트웨이를 등록합니다.
 
 <a name="update-gateway-installation"></a>
 
@@ -184,27 +176,27 @@ Power BI, Microsoft Flow, PowerApps 및 Azure Analysis Services와 같은 기타
 
 1. 컴퓨터의 **제어판**에서 **프로그램 및 기능**으로 이동합니다. 프로그램 목록에서 **온-프레미스 데이터 게이트웨이**를 선택한 후 **제거**를 선택합니다.
 
-2. [온-프레미스 데이터 게이트웨이 다시 설치](https://aka.ms/on-premises-data-gateway-installer).
+1. [온-프레미스 데이터 게이트웨이 다시 설치](https://aka.ms/on-premises-data-gateway-installer).
 
-3. 설치 관리자가 열리면 이전에 게이트웨이 설치에 사용한 것과 동일한 회사 또는 학교 계정으로 로그인합니다.
+1. 설치 관리자가 열리면 이전에 게이트웨이 설치에 사용한 것과 동일한 회사 또는 학교 계정으로 로그인합니다.
 
-4. **Migrate, restore, or takeover an existing gateway**(기존 게이트웨이 마이그레이션, 복원 또는 인수)를 선택한 후 **다음**을 선택합니다.
+1. **Migrate, restore, or takeover an existing gateway**(기존 게이트웨이 마이그레이션, 복원 또는 인수)를 선택한 후 **다음**을 선택합니다.
 
    ![Migrate, restore, or takeover an existing gateway(기존 게이트웨이 마이그레이션, 복원 또는 인수) 선택](./media/logic-apps-gateway-install/migrate-recover-take-over-gateway.png)
 
-5. **사용 가능한 게이트웨이** 또는 **사용 가능한 게이트웨이 클러스터** 아래에서 변경하려는 게이트웨이 설치를 선택합니다. 게이트웨이 설치에 대한 복구 키를 입력합니다. 
+1. **사용 가능한 게이트웨이** 또는 **사용 가능한 게이트웨이 클러스터** 아래에서 변경하려는 게이트웨이 설치를 선택합니다. 게이트웨이 설치에 대한 복구 키를 입력합니다.
 
    ![기본 게이트웨이 선택](./media/logic-apps-gateway-install/select-existing-gateway.png)
 
-6. 지역을 변경하려면 **지역 변경** 및 새 영역을 선택합니다.
+1. 지역을 변경하려면 **지역 변경** 및 새 영역을 선택합니다.
 
-7. 작업을 완료하면 **구성**을 선택합니다.
+1. 작업을 완료하면 **구성**을 선택합니다.
 
 ## <a name="configure-proxy-or-firewall"></a>프록시 또는 방화벽 구성
 
-온-프레미스 데이터 게이트웨이는 [Azure Service Bus](https://azure.microsoft.com/services/service-bus/)에 대한 아웃바운드 연결을 만듭니다. 작업 환경에서 트래픽이 인터넷에 액세스하기 위해 프록시를 통과해야 할 경우 이러한 제한 때문에 데이터 게이트웨이가 게이트웨이 클라우드 서비스에 연결하지 못할 수 있습니다. 네트워크가 프록시를 사용하고 있는지 여부를 확인하려면 superuser.com에서 다음 문서를 검토하세요. 
+온-프레미스 데이터 게이트웨이는 [Azure Service Bus](https://azure.microsoft.com/services/service-bus/)에 대한 아웃바운드 연결을 만듭니다. 작업 환경에서 트래픽이 인터넷에 액세스하기 위해 프록시를 통과해야 할 경우 이러한 제한 때문에 데이터 게이트웨이가 게이트웨이 클라우드 서비스에 연결하지 못할 수 있습니다. 네트워크가 프록시를 사용하고 있는지 여부를 확인하려면 superuser.com에서 다음 문서를 검토하세요.
 
-[How do I know what proxy server I'm using?(사용 중인 프록시 서버를 확인하는 방법) (SuperUser.com)](https://superuser.com/questions/346372/how-do-i-know-what-proxy-server-im-using) 
+[How do I know what proxy server I'm using?(사용 중인 프록시 서버를 확인하는 방법) (SuperUser.com)](https://superuser.com/questions/346372/how-do-i-know-what-proxy-server-im-using)
 
 게이트웨이에 대한 프록시 정보를 제공하려면 [프록시 설정 구성](https://docs.microsoft.com/power-bi/service-gateway-proxy)을 참조하세요. 프록시 또는 방화벽이 연결을 차단할 수 있는지를 확인하려면 컴퓨터가 인터넷 및 [Azure Service Bus](https://azure.microsoft.com/services/service-bus/)에 실제로 연결할 수 있는지 여부를 확인합니다. PowerShell 창에서 다음 명령을 실행합니다.
 
@@ -238,33 +230,32 @@ TcpTestSucceeded       : True
 
 게이트웨이는 다음과 같은 정규화된 도메인 이름을 사용합니다.
 
-| 도메인 이름 | 아웃바운드 포트 | 설명 | 
-| ------------ | -------------- | ----------- | 
-| *.analysis.windows.net | 443 | HTTPS | 
-| *.core.windows.net | 443 | HTTPS | 
-| *.frontend.clouddatahub.net | 443 | HTTPS | 
-| *.login.windows.net | 443 | HTTPS | 
-| *.microsoftonline-p.com | 443 | 구성에 따라 인증에 사용합니다. | 
-| *.msftncsi.com | 443 | Power BI 서비스에서 게이트웨이에 연결할 수 없는 경우 인터넷 연결을 테스트하는 데 사용합니다. | 
-| \*.servicebus.windows.net | 443, 9350-9354 | TCP의 Service Bus Relay에 대한 수신기(Access Control 토큰 획득에 443 필요) | 
-| \*.servicebus.windows.net | 5671-5672 | AMQP(고급 메시지 큐 프로토콜) | 
-| login.microsoftonline.com | 443 | HTTPS | 
+| 도메인 이름 | 아웃바운드 포트 | 설명 |
+| ------------ | -------------- | ----------- |
+| *.analysis.windows.net | 443 | HTTPS |
+| *.core.windows.net | 443 | HTTPS |
+| *.frontend.clouddatahub.net | 443 | HTTPS |
+| *.login.windows.net | 443 | HTTPS |
+| *.microsoftonline-p.com | 443 | 구성에 따라 인증에 사용합니다. |
+| *.msftncsi.com | 443 | Power BI 서비스에서 게이트웨이에 연결할 수 없는 경우 인터넷 연결을 테스트하는 데 사용합니다. |
+| \*.servicebus.windows.net | 443, 9350-9354 | TCP의 Service Bus Relay에 대한 수신기(Access Control 토큰 획득에 443 필요) |
+| \*.servicebus.windows.net | 5671-5672 | AMQP(고급 메시지 큐 프로토콜) |
+| login.microsoftonline.com | 443 | HTTPS |
 ||||
 
-일부 경우에는 정규화된 도메인 이름이 아닌 IP 주소를 사용해서 Azure Service Bus를 연결합니다. 따라서 방화벽에서 데이터 지역에 대한 IP 주소를 허용 목록에 추가하려고 할 수 있습니다. 도메인 대신 IP 주소를 허용 목록에 추가하려면 [Microsoft Azure 데이터 센터 IP 범위 목록](https://www.microsoft.com/download/details.aspx?id=41653)을 다운로드하여 사용할 수 있습니다. 이 목록의 IP 주소는 [CIDR(Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 표기법을 따릅니다.
+일부 경우에는 정규화된 도메인 이름이 아닌 IP 주소를 사용해서 Azure Service Bus를 연결합니다. 따라서 방화벽에서 데이터 영역에 대 한 IP 주소의 차단을 해제 하는 것이 좋습니다. 도메인 대신 IP 주소에 대 한 액세스를 허용 하려면 [Microsoft Azure 데이터 센터 IP 범위 목록을](https://www.microsoft.com/download/details.aspx?id=41653)다운로드 하 여 사용 합니다. 이 목록의 IP 주소는 [CIDR(Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 표기법을 따릅니다.
 
 ### <a name="force-https-communication-with-azure-service-bus"></a>Azure Service Bus와의 HTTPS 통신 강제 적용
 
-일부 프록시는 포트 80 및 443으로만 트래픽을 허용합니다. 기본적으로 Azure Service Bus와의 통신은 443 이외의 포트에서 발생합니다.
-강제로 게이트웨이가 직접 TCP 대신 HTTPS를 통해 Azure Service Bus와 통신하도록 할 수 있지만 이렇게 하면 성능이 크게 저하될 수 있습니다. 이 작업을 수행하려면 다음 단계를 따릅니다.
+일부 프록시는 포트 80 및 443으로만 트래픽을 허용합니다. 기본적으로 Azure Service Bus와의 통신은 443 이외의 포트에서 발생합니다. 강제로 게이트웨이가 직접 TCP 대신 HTTPS를 통해 Azure Service Bus와 통신하도록 할 수 있지만 이렇게 하면 성능이 크게 저하될 수 있습니다. 이 작업을 수행하려면 다음 단계를 따릅니다.
 
 1. 일반적으로 ```C:\Program Files\On-premises data gateway\Microsoft.PowerBI.EnterpriseGateway.exe```에서 찾을 수 있는 온-프레미스 데이터 게이트웨이 클라이언트에 대한 위치로 이동합니다.
 
    그렇지 않고 클라이언트 위치를 찾으려면 동일한 컴퓨터에서 서비스 콘솔을 열고, **온-프레미스 데이터 게이트웨이 서비스**를 찾은 후 **실행 파일 경로** 속성을 확인합니다.
 
-2. 이 *구성 파일*을 엽니다. **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
+1. 이 *구성 파일*을 엽니다. **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
 
-3. **ServiceBusSystemConnectivityModeString** 값을 **AutoDetect**에서 **Https**로 변경합니다.
+1. **ServiceBusSystemConnectivityModeString** 값을 **AutoDetect**에서 **Https**로 변경합니다.
 
    ```html
    <setting name="ServiceBusSystemConnectivityModeString" serializeAs="String">
@@ -278,7 +269,7 @@ TcpTestSucceeded       : True
 
 온-프레미스 데이터 게이트웨이를 설치할 컴퓨터에서 게이트웨이는 “온-프레미스 데이터 게이트웨이 서비스”라는 Windows 서비스 계정으로 실행됩니다. 그러나 게이트웨이는 해당 “다음으로 로그온” 계정 자격 증명에 대해 “NT SERVICE\PBIEgwService” 이름을 사용합니다. 기본적으로 게이트웨이에는 게이트웨이를 설치하는 컴퓨터에서 “서비스로 로그온” 권한이 있습니다. 게이트웨이에 대한 Windows 서비스 계정은 온-프레미스 데이터 원본에 연결하는 데 사용하는 계정 및 클라우드 서비스에 로그인하는 데 사용하는 회사 또는 학교 계정과는 다릅니다.
 
-Azure Portal에서 게이트웨이를 만들고 유지 관리하려면 Windows 서비스 계정에 적어도 **기여자** 권한이 있어야 합니다. 이러한 사용 권한을 확인하려면 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요. 
+Azure Portal에서 게이트웨이를 만들고 유지 관리하려면 Windows 서비스 계정에 적어도 **기여자** 권한이 있어야 합니다. 이러한 사용 권한을 확인하려면 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
 <a name="restart-gateway"></a>
 
@@ -294,15 +285,15 @@ Azure Portal에서 게이트웨이를 만들고 유지 관리하려면 Windows �
   
   `net start PBIEgwService`
 
-## <a name="tenant-level-administration"></a>테넌트 수준 관리 
+## <a name="tenant-level-administration"></a>테넌트 수준 관리
 
-현재, 테넌트 관리자가 다른 사용자가 설치 및 구성한 모든 게이트웨이를 관리할 수 있는 단일 위치가 없습니다. 테넌트 관리자인 경우 조직의 사용자에게 설치한 모든 게이트웨이에 대한 관리자로 추가해줄 것을 요청할 수 있습니다. 이와 같이 게이트웨이 설정 페이지 또는 [PowerShell 명령](/data-integration/gateway/service-gateway-powershell-support)을 통해 조직에서 모든 게이트웨이를 관리할 수 있습니다. 
+현재, 테넌트 관리자가 다른 사용자가 설치 및 구성한 모든 게이트웨이를 관리할 수 있는 단일 위치가 없습니다. 테넌트 관리자인 경우 조직의 사용자에게 설치한 모든 게이트웨이에 대한 관리자로 추가해줄 것을 요청할 수 있습니다. 이와 같이 게이트웨이 설정 페이지 또는 [PowerShell 명령](/data-integration/gateway/service-gateway-powershell-support)을 통해 조직에서 모든 게이트웨이를 관리할 수 있습니다.
 
 <a name="gateway-cloud-service"></a>
 
 ## <a name="how-does-the-gateway-work"></a>게이트웨이는 어떻게 작동하나요?
 
-데이터 게이트웨이는 논리 앱, 게이트웨이 클라우드 서비스 및 온-프레미스 데이터 원본 간의 빠르고 안전한 통신을 지원합니다. 게이트웨이 클라우드 서비스는 데이터 원본 자격 증명 및 게이트웨이 세부 정보를 암호화하고 저장합니다. 또한 서비스는 논리 앱, 온-프레미스 데이터 게이트웨이 및 온-프레미스 데이터 원본 간에 쿼리 및 해당 결과를 라우팅합니다. 
+데이터 게이트웨이는 논리 앱, 게이트웨이 클라우드 서비스 및 온-프레미스 데이터 원본 간의 빠르고 안전한 통신을 지원합니다. 게이트웨이 클라우드 서비스는 데이터 원본 자격 증명 및 게이트웨이 세부 정보를 암호화하고 저장합니다. 또한 서비스는 논리 앱, 온-프레미스 데이터 게이트웨이 및 온-프레미스 데이터 원본 간에 쿼리 및 해당 결과를 라우팅합니다.
 
 게이트웨이는 방화벽과 함께 작동하며 아웃바운드 연결만 사용합니다. 보안으로 시작하는 모든 트래픽은 게이트웨이 에이전트에서 트래픽을 아웃바운드합니다. 게이트웨이는 Azure Service Bus를 통해 암호화된 채널의 온-프레미스 원본에서 데이터를 릴레이합니다. 이 Service Bus는 게이트웨이와 호출 서비스 간에 채널을 만들지만 데이터를 저장하지는 않습니다. 게이트웨이를 통해 전송되는 모든 데이터는 암호화됩니다.
 
@@ -312,15 +303,15 @@ Azure Portal에서 게이트웨이를 만들고 유지 관리하려면 Windows �
 
 1. 게이트웨이 클라우드 서비스가 데이터 원본에 대해 암호화된 자격 증명과 함께 쿼리를 만들고, 게이트웨이가 처리할 수 있게 쿼리를 큐에 전송합니다.
 
-2. 게이트웨이 클라우드 서비스에서 쿼리를 분석하고 Azure Service Bus에 대한 요청을 푸시합니다.
+1. 게이트웨이 클라우드 서비스에서 쿼리를 분석하고 Azure Service Bus에 대한 요청을 푸시합니다.
 
-3. 온-프레미스 데이터 게이트웨이가 보류 중인 요청을 위해 Azure Service Bus를 폴링합니다.
+1. 온-프레미스 데이터 게이트웨이가 보류 중인 요청을 위해 Azure Service Bus를 폴링합니다.
 
-4. 게이트웨이가 쿼리를 가져오고, 자격 증명의 암호를 해독하고, 해당 자격 증명으로 데이터 원본에 연결합니다.
+1. 게이트웨이가 쿼리를 가져오고, 자격 증명의 암호를 해독하고, 해당 자격 증명으로 데이터 원본에 연결합니다.
 
-5. 게이트웨이가 실행을 위해 데이터 원본에 쿼리를 보냅니다.
+1. 게이트웨이가 실행을 위해 데이터 원본에 쿼리를 보냅니다.
 
-6. 결과가 데이터 원본에서 게이트웨이로 다시 전송된 후 게이트웨이 클라우드 서비스로 전송됩니다. 게이트웨이 클라우드 서비스에서 해당 결과를 사용합니다.
+1. 결과가 데이터 원본에서 게이트웨이로 다시 전송된 후 게이트웨이 클라우드 서비스로 전송됩니다. 게이트웨이 클라우드 서비스에서 해당 결과를 사용합니다.
 
 <a name="faq"></a>
 
@@ -381,8 +372,7 @@ Azure Portal에서 게이트웨이를 만들고 유지 관리하려면 Windows �
 **Q**: Azure에서 게이트웨이 리소스를 만들 때 내 게이트웨이 설치가 보이지 않는 이유는 무엇인가요? <br/>
 **A**: 이 문제는 다음과 같은 이유 때문에 발생할 수 있습니다.
 
-* 게이트웨이 설치가 Azure의 다른 게이트웨이 리소스에 의해 이미 등록되고 클레임되었습니다. 게이트웨이 설치는 게이트웨이 리소스가 만들어진 후에 인스턴스 목록에 나타나지 않습니다.
-Azure Portal에서 게이트웨이 등록을 확인하려면 *모든* Azure 구독에 대해 **온-프레미스 데이터 게이트웨이** 유형을 사용하여 모든 Azure 리소스를 검토합니다. 
+* 게이트웨이 설치가 Azure의 다른 게이트웨이 리소스에 의해 이미 등록되고 클레임되었습니다. 게이트웨이 설치는 게이트웨이 리소스가 만들어진 후에 인스턴스 목록에 나타나지 않습니다. Azure Portal에서 게이트웨이 등록을 확인하려면 *모든* Azure 구독에 대해 **온-프레미스 데이터 게이트웨이** 유형을 사용하여 모든 Azure 리소스를 검토합니다.
 
 * 게이트웨이를 설치한 사용자의 Azure AD ID가 Azure Portal에 로그인한 사용자의 ID와 다릅니다. 게이트웨이를 설치할 때 사용한 것과 동일한 ID로 로그인되어 있는지 확인합니다.
 
@@ -408,30 +398,34 @@ Azure Portal에서 게이트웨이 등록을 확인하려면 *모든* Azure 구�
 
 ### <a name="logs"></a>로그
 
-이 문제를 해결하는 데 도움을 얻으려면 먼저 게이트웨이 로그를 수집 및 검토합니다. 로그를 수집하는 방법에는 몇 가지가 있지만 게이트웨이를 설치한 이후에 사용할 수 있는 가장 간단한 옵션은 게이트웨이 설치 관리자의 사용자 인터페이스를 사용하는 것입니다. 
+이 문제를 해결하는 데 도움을 얻으려면 먼저 게이트웨이 로그를 수집 및 검토합니다. 로그를 수집하는 방법에는 몇 가지가 있지만 게이트웨이를 설치한 이후에 사용할 수 있는 가장 간단한 옵션은 게이트웨이 설치 관리자의 사용자 인터페이스를 사용하는 것입니다.
 
 1. 컴퓨터에서 온-프레미스 데이터 게이트웨이 설치 관리자를 엽니다.
-2. 왼쪽 메뉴에서 **진단**을 선택합니다.
-3. **게이트웨이 로그** 아래에서 **로그 내보내기**를 선택합니다.
+
+1. 왼쪽 메뉴에서 **진단**을 선택합니다.
+
+1. **게이트웨이 로그** 아래에서 **로그 내보내기**를 선택합니다.
 
    ![게이트웨이 설치 관리자에서 로그 내보내기](./media/logic-apps-gateway-install/export-logs.png)
 
 다양한 로그를 찾을 수 있는 다른 위치는 다음과 같습니다.
 
-| 로그 형식 | 위치 | 
-|----------|----------| 
-| **설치 관리자 로그** | %localappdata%\Temp\On-premises_data_gateway_<*yyyymmdd*>.<*number*>.log | 
-| **구성 로그** | C:\Users\<*username*>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator<*yyyymmdd*>.<*number*>.log | 
-| **엔터프라이즈 게이트웨이 서비스 로그** | C:\Users\PBIEgwService\AppData\Local\Microsoft\On-premises data gateway\Gateway<*yyyymmdd*>.<*number*>.log | 
-||| 
+| 로그 형식 | 위치 |
+|----------|----------|
+| **설치 관리자 로그** | %localappdata%\Temp\On-premises_data_gateway_<*yyyymmdd*>.<*number*>.log |
+| **구성 로그** | C:\Users\<*username*>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator<*yyyymmdd*>.<*number*>.log |
+| **엔터프라이즈 게이트웨이 서비스 로그** | C:\Users\PBIEgwService\AppData\Local\Microsoft\On-premises data gateway\Gateway<*yyyymmdd*>.<*number*>.log |
+|||
 
 **이벤트 로그**
 
 게이트웨이에 대한 이벤트 로그를 찾으려면 다음 단계를 수행합니다.
 
-1. 게이트웨이가 설치된 컴퓨터에서 **이벤트 뷰어**를 엽니다. 
-2. **이벤트 뷰어(로컬)**  > **애플리케이션 및 서비스 로그**를 확장합니다. 
-3. **온-프레미스 데이터 게이트웨이 서비스**를 선택합니다.
+1. 게이트웨이가 설치된 컴퓨터에서 **이벤트 뷰어**를 엽니다.
+
+1. **이벤트 뷰어(로컬)**  > **애플리케이션 및 서비스 로그**를 확장합니다.
+
+1. **온-프레미스 데이터 게이트웨이 서비스**를 선택합니다.
 
    ![게이트웨이에 대한 이벤트 로그 보기](./media/logic-apps-gateway-install/event-viewer.png)
 
@@ -445,11 +439,11 @@ Azure Portal에서 게이트웨이 등록을 확인하려면 *모든* Azure 구�
 
    그렇지 않고 클라이언트 위치를 찾으려면 동일한 컴퓨터에서 서비스 콘솔을 열고, **온-프레미스 데이터 게이트웨이 서비스**를 찾은 후 **실행 파일 경로** 속성을 확인합니다.
 
-2. 다음 설명대로 이러한 구성 파일을 열어서 편집합니다.
+1. 다음 설명대로 이러한 구성 파일을 열어서 편집합니다.
 
    * **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
 
-     이 파일에서 **EmitQueryTraces** 값을 **false**에서 **true**로 변경하여 게이트웨이가 게이트웨이에서 데이터 원본으로 전송된 쿼리를 로드할 수 있도록 합니다.
+     게이트웨이가 게이트웨이에서 전송 된 쿼리를 데이터 원본에 기록할 수 있도록이 파일에서 **면 emitquerytraces** 값을 **false** 에서 **true** 로 변경 합니다.
 
      ```html
      <setting name="EmitQueryTraces" serializeAs="String">
@@ -462,9 +456,9 @@ Azure Portal에서 게이트웨이 등록을 확인하려면 *모든* Azure 구�
 
    * **Microsoft.PowerBI.DataMovement.Pipeline.Diagnostics.dll.config**
 
-     게이트웨이가 기간을 표시하는 항목을 포함하여 자세한 정보를 표시하도록 하려면 다음 단계를 수행하여 **TracingVerbosity** 값을 **4**에서 **5**로 변경합니다. 
+     게이트웨이가 기간을 표시하는 항목을 포함하여 자세한 정보를 표시하도록 하려면 다음 단계를 수행하여 **TracingVerbosity** 값을 **4**에서 **5**로 변경합니다.
 
-     * 이 구성 파일에서 **TracingVerbosity** 값을 **4**에서 **5**로 변경합니다. 
+     * 이 구성 파일에서 **TracingVerbosity** 값을 **4**에서 **5**로 변경합니다.
 
        ```html
        <setting name="TracingVerbosity" serializeAs="String">
@@ -479,29 +473,28 @@ Azure Portal에서 게이트웨이 등록을 확인하려면 *모든* Azure 구�
      > [!IMPORTANT]
      > TracingVerbosity 설정을 켜면 게이트웨이 사용량에 따라 로그 크기를 상당히 커질 수 있습니다. 로그 검토를 마친 후에는 오랫동안 이 설정을 그대로 두지 말고 게이트웨이 설치 관리자에서 **Additional logging**을 끄거나 TracingVerbosity를 **4**로 다시 설정해야 합니다.
 
-3. 쿼리 기간을 확인하려면 다음 단계를 수행합니다.
+1. 쿼리 기간을 확인하려면 다음 단계를 수행합니다.
 
    1. 게이트웨이 로그를 [내보낸 후](#logs) 엽니다.
 
-   2. 쿼리를 찾으려면 다음과 같은 활동 유형을 검색합니다. 
+   1. 쿼리를 찾으려면 다음과 같은 활동 유형을 검색합니다.
 
-      | 활동 유형 | Description | 
-      |---------------|-------------| 
-      | MGEQ | ADO.NET을 통해 실행되는 쿼리입니다. | 
-      | MGEO | OLEDB를 통해 실행되는 쿼리입니다. | 
-      | MGEM | 매시업 엔진에서 실행되는 쿼리입니다. | 
-      ||| 
+      | 활동 유형 | Description |
+      |---------------|-------------|
+      | MGEQ | ADO.NET를 통해 실행 되는 쿼리 |
+      | MGEO | OLEDB를 통해 실행 되는 쿼리 |
+      | MGEM | 매시업 엔진에서 실행 되는 쿼리 |
+      |||
 
-   3. 요청 ID에 해당하는 두 번째 GUID를 적어둡니다.
+   1. 요청 ID에 해당하는 두 번째 GUID를 적어둡니다.
 
-   4. 기간(밀리초)이 정해진 "FireActivityCompletedSuccessfullyEvent"라는 항목을 찾을 때까지 활동 유형을 계속 검색합니다. 
-   항목이 동일한 요청 ID를 갖는지 확인합니다. 예를 들면 다음과 같습니다.
+   1. 기간(밀리초)이 정해진 "FireActivityCompletedSuccessfullyEvent"라는 항목을 찾을 때까지 활동 유형을 계속 검색합니다. 항목이 동일한 요청 ID를 갖는지 확인합니다. 예를 들면 다음과 같습니다.
 
-      ```text 
+      ```text
       DM.EnterpriseGateway Verbose: 0 : 2016-09-26T23:08:56.7940067Z DM.EnterpriseGateway    baf40f21-2eb4-4af1-9c59-0950ef11ec4a    5f99f566-106d-c8ac-c864-c0808c41a606    MGEQ    21f96cc4-7496-bfdd-748c-b4915cb4b70c    B8DFCF12 [DM.Pipeline.Common.TracingTelemetryService] Event: FireActivityCompletedSuccessfullyEvent (duration=5004)
       ```
 
-      > [!NOTE] 
+      > [!NOTE]
       > "FireActivityCompletedSuccessfullyEvent" 항목은 자세한 정보 표시 항목으로, "TracingVerbosity" 설정이 수준 5가 아니면 로깅되지 않습니다.
 
 ### <a name="trace-traffic-with-fiddler"></a>Fiddler 사용하여 트래픽 추적
@@ -509,7 +502,7 @@ Azure Portal에서 게이트웨이 등록을 확인하려면 *모든* Azure 구�
 [Fiddler](https://www.telerik.com/fiddler) 는 HTTP 트래픽을 모니터링하는 Telerik의 무료 도구입니다. 클라이언트 컴퓨터에서 Power BI를 사용하여 트래픽을 검토할 수 있습니다. 이 서비스는 오류 및 기타 관련된 정보를 표시할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-    
+
 * [논리 앱에서 온-프레미스 데이터에 연결](../logic-apps/logic-apps-gateway-connection.md)
 * [엔터프라이즈 통합 기능](../logic-apps/logic-apps-enterprise-integration-overview.md)
 * [Azure Logic Apps용 커넥터](../connectors/apis-list.md)

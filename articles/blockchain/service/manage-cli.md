@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
-ms.openlocfilehash: ee7e529593960c3a7c62021225122370c122b3c4
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 4dd58f2542674633f2d5e2a1724adc7934d7f030
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240967"
+ms.locfileid: "70307054"
 ---
 # <a name="manage-azure-blockchain-service-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure Blockchain 서비스 관리
 
@@ -86,7 +86,7 @@ az resource create --resource-group <myResourceGroup> --name <myMemberName>/tran
 az resource update --resource-group <myResourceGroup> --name <myMemberName>/transactionNodes/<myTransactionNode> --resource-type Microsoft.Blockchain/blockchainMembers  --set properties.password="<myStrongPassword>"
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |---------|-------------|
 | **resource-group** | Azure Blockchain 서비스 리소스가 있는 리소스 그룹 이름입니다. |
 | **name** | 새 트랜잭션 노드 이름도 포함 하는 Azure Blockchain 서비스 Blockchain 멤버의 이름입니다. |
@@ -142,7 +142,7 @@ az resource invoke-action --resource-group <myResourceGroup> --name <myMemberNam
 ```
 
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |---------|-------------|
 | **resource-group** | Azure Blockchain 서비스 리소스가 있는 리소스 그룹 이름입니다. |
 | **name** | 새 트랜잭션 노드 이름도 포함 하는 Azure Blockchain 서비스 Blockchain 멤버의 이름입니다. |
@@ -156,7 +156,7 @@ az resource invoke-action --resource-group <myResourceGroup> --name <myMemberNam
 az resource delete --resource-group <myResourceGroup> --name <myMemberName>/transactionNodes/<myTransactionNode> --resource-type Microsoft.Blockchain/blockchainMembers
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |---------|-------------|
 | **resource-group** | Azure Blockchain 서비스 리소스가 있는 리소스 그룹 이름입니다. |
 | **name** | 삭제할 새 트랜잭션 노드 이름도 포함 하는 Azure Blockchain 서비스 Blockchain 멤버의 이름입니다. |
@@ -169,7 +169,7 @@ az resource delete --resource-group <myResourceGroup> --name <myMemberName>/tran
 az resource delete --resource-group <myResourceGroup> --name <myMemberName> --resource-type Microsoft.Blockchain/blockchainMembers
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |---------|-------------|
 | **resource-group** | Azure Blockchain 서비스 리소스가 있는 리소스 그룹 이름입니다. |
 | **name** | 삭제할 Azure Blockchain 서비스 Blockchain 멤버의 이름입니다. |
@@ -182,11 +182,11 @@ az resource delete --resource-group <myResourceGroup> --name <myMemberName> --re
 az role assignment create --role <role> --assignee <assignee> --scope /subscriptions/<subId>/resourceGroups/<groupName>/providers/Microsoft.Blockchain/blockchainMembers/<myMemberName>
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |---------|-------------|
 | **role** | Azure AD 역할의 이름입니다. |
 | **assignee** | Azure AD 사용자 ID입니다. 예를 들면 `user@contoso.com` |
-| **범위** | 역할 할당의 범위입니다. 는 트랜잭션 노드의 blockchain 멤버일 수 있습니다. |
+| **범위** | 역할 할당의 범위입니다. Blockchain 멤버 또는 트랜잭션 노드일 수 있습니다. |
 
 **예제:**
 
@@ -215,11 +215,11 @@ az role assignment create \
 ```azurecli
 az role assignment create --role <role> --assignee-object-id <assignee_object_id>
 ```
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |---------|-------------|
 | **role** | Azure AD 역할의 이름입니다. |
 | **assignee-object-id** | Azure AD 그룹 ID 또는 응용 프로그램 ID입니다. |
-| **범위** | 역할 할당의 범위입니다. 는 트랜잭션 노드의 blockchain 멤버일 수 있습니다. |
+| **범위** | 역할 할당의 범위입니다. Blockchain 멤버 또는 트랜잭션 노드일 수 있습니다. |
 
 **예제:**
 
@@ -242,7 +242,7 @@ az role assignment delete --role <myRole> --assignee <assignee> --scope /subscri
 |---------|-------------|
 | **role** | Azure AD 역할의 이름입니다. |
 | **assignee** | Azure AD 사용자 ID입니다. 예를 들면 `user@contoso.com` |
-| **범위** | 역할 할당의 범위입니다. 는 트랜잭션 노드의 blockchain 멤버일 수 있습니다. |
+| **범위** | 역할 할당의 범위입니다. Blockchain 멤버 또는 트랜잭션 노드일 수 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

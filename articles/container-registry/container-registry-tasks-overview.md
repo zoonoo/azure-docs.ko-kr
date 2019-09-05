@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: danlep
-ms.openlocfilehash: bc32ce59a7ec99278fb193f375d4ca945c227d2f
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 2d7237c1d142e9f7bb5a47294d1375040be43ac3
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172183"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308032"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>ACR 작업을 사용 하 여 컨테이너 이미지 빌드 및 유지 관리 자동화
 
@@ -36,26 +36,9 @@ ms.locfileid: "70172183"
 
 첫 번째 코드 줄을 커밋하기 전에, ACR 작업의 빠른 [작업](container-registry-tutorial-quick-task.md) 기능은 컨테이너 이미지 빌드를 Azure에 오프로드하여 통합 개발 환경을 제공할 수 있습니다. 빠른 작업을 사용하면 코드를 커밋하기 전에 자동화된 빌드 정의를 확인하고 잠재적인 문제점을 발견할 수 있습니다.
 
-친숙 `docker build` 한 형식을 사용 하는 경우 Azure CLI의 [az acr build][az-acr-build] 명령은 *컨텍스트* (빌드할 파일 집합)를 사용 하 여 acr 작업을 보내고, 기본적으로 완료 되 면 빌드된 이미지를 레지스트리에 푸시합니다.
+친숙 `docker build` 한 형식을 사용 하는 경우 Azure CLI의 [az acr build][az-acr-build] 명령은 [컨텍스트](#context-locations) (빌드할 파일 집합)를 사용 하 여 acr 작업을 보내고, 기본적으로 완료 되 면 빌드된 이미지를 레지스트리에 푸시합니다.
 
 소개는 Azure Container Registry에서 [컨테이너 이미지를 빌드하고 실행](container-registry-quickstart-task-cli.md) 하는 빠른 시작을 참조 하세요.  
-
-다음 표에서는 ACR 작업에 지원되는 컨텍스트 위치의 몇 가지 예를 보여 줍니다.
-
-| 컨텍스트 위치 | 설명 | 예제 |
-| ---------------- | ----------- | ------- |
-| 로컬 파일 시스템 | 로컬 파일 시스템의 디렉터리 내에 있는 파일. | `/home/user/projects/myapp` |
-| GitHub 마스터 분기 | GitHub 리포지토리의 마스터(또는 다른 기본) 분기 내에 있는 파일.  | `https://github.com/gituser/myapp-repo.git` |
-| GitHub 분기 | GitHub 리포지토리의 특정 분기.| `https://github.com/gituser/myapp-repo.git#mybranch` |
-| GitHub 하위 폴더 | GitHub 리포지토리의 하위 폴더 내에 있는 파일. 예제에서는 분기와 하위 폴더 사양의 조합을 보여 줍니다. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
-| 원격 Tarball | 원격 웹 서버의 압축된 아카이브에 있는 파일. | `http://remoteserver/myapp.tar.gz` |
-
-기본적으로 ACR 작업은 Linux OS 및 amd64 아키텍처용 이미지를 빌드합니다. 다른 아키텍처에 대 한 Windows 이미지 또는 Linux 이미지를 빌드하기 위한 태그를지정합니다.`--platform` Os를 지정 하 고 필요에 따라 OS/아키텍처 형식으로 지원 되는 아키텍처 `--platform Linux/arm`를 지정 합니다 (예:). Arm 아키텍처의 경우 필요에 따라 OS/아키텍처/변형 형식 (예 `--platform Linux/arm64/v8`:)에서 variant를 지정 합니다.
-
-| OS | 아키텍처|
-| --- | ------- | 
-| Linux | amd64<br/>arm<br/>arm64<br/>386 |
-| Windows | amd64 |
 
 ACR 작업은 기본 컨테이너 수명 주기로 설계되었습니다. 예를 들어, ACR 작업을 CI/CD 솔루션에 통합합니다. [서비스 주체로][az-login-service-principal] [az login][az-login] 을 실행 하 여 CI/CD 솔루션은 [az acr build][az-acr-build] 명령을 실행 하 여 이미지 빌드를 시작할 수 있습니다.
 
@@ -82,10 +65,10 @@ ACR 작업은 컨테이너 이미지를 빌드할 때 기본 이미지 종속성
 
 ACR 작업은 기본 이미지가 다음 위치 중 하나에 있을 때 기본 이미지 업데이트를 추적 합니다.
 
-* 태스크가 실행 되는 동일한 Azure container registry
-* 동일한 지역에 있는 다른 Azure container registry 
-* Docker 허브의 공용 리포지토리
-* Microsoft Container Registry의 공용 리포지토리
+* 태스크가 실행되는 동일한 Azure Container Registry
+* 동일한 지역의 다른 Azure Container Registry 
+* Docker Hub의 공용 리포지토리
+* Microsoft 컨테이너 레지스트리의 공용 리포지토리
 
 세 번째 ACR 작업 자습서의 OS 및 프레임 워크 패치에 대 한 자세한 내용은 [Azure Container Registry 작업을 사용 하 여 기본 이미지 업데이트에서 이미지 빌드 자동화](container-registry-tutorial-base-image-update.md)를 확인 하세요.
 
@@ -106,9 +89,30 @@ ACR 작업은 기본 이미지가 다음 위치 중 하나에 있을 때 기본 
 
 [ACR 작업에서 다단계 빌드, 테스트 및 패치 작업 실행](container-registry-tasks-multi-step.md)에서 다단계 작업에 대해 알아보세요.
 
+## <a name="context-locations"></a>컨텍스트 위치
+
+다음 표에서는 ACR 작업에 지원되는 컨텍스트 위치의 몇 가지 예를 보여 줍니다.
+
+| 컨텍스트 위치 | Description | 예제 |
+| ---------------- | ----------- | ------- |
+| 로컬 파일 시스템 | 로컬 파일 시스템의 디렉터리 내에 있는 파일. | `/home/user/projects/myapp` |
+| GitHub 마스터 분기 | GitHub 리포지토리의 마스터(또는 다른 기본) 분기 내에 있는 파일.  | `https://github.com/gituser/myapp-repo.git` |
+| GitHub 분기 | GitHub 리포지토리의 특정 분기.| `https://github.com/gituser/myapp-repo.git#mybranch` |
+| GitHub 하위 폴더 | GitHub 리포지토리의 하위 폴더 내에 있는 파일. 예제에서는 분기와 하위 폴더 사양의 조합을 보여 줍니다. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
+| 원격 Tarball | 원격 웹 서버의 압축된 아카이브에 있는 파일. | `http://remoteserver/myapp.tar.gz` |
+
+## <a name="image-platforms"></a>이미지 플랫폼
+
+기본적으로 ACR 작업은 Linux OS 및 amd64 아키텍처용 이미지를 빌드합니다. 다른 아키텍처에 대 한 Windows 이미지 또는 Linux 이미지를 빌드하기 위한 태그를지정합니다.`--platform` Os를 지정 하 고 필요에 따라 OS/아키텍처 형식으로 지원 되는 아키텍처 `--platform Linux/arm`를 지정 합니다 (예:). ARM 아키텍처의 경우 필요에 따라 OS/아키텍처/변형 형식 (예 `--platform Linux/arm64/v8`:)에서 variant를 지정 합니다.
+
+| OS | 아키텍처|
+| --- | ------- | 
+| Linux | amd64<br/>arm<br/>arm64<br/>386 |
+| Windows | amd64 |
+
 ## <a name="view-task-logs"></a>작업 로그 보기
 
-각 태스크 실행은 작업 단계가 성공적으로 실행 되었는지 여부를 확인 하기 위해 검사할 수 있는 로그 출력을 생성 합니다. [Az acr build](/cli/azure/acr#az-acr-build), [az acr run](/cli/azure/acr#az-acr-run)또는 [az acr task run](/cli/azure/acr/task#az-acr-task-run) 명령을 사용 하 여 작업을 트리거하는 경우에는 태스크 실행에 대 한 로그 출력이 콘솔로 스트리밍되 고 나중에 검색할 수 있도록 저장 됩니다. Azure Portal에서 실행 되는 작업에 대 한 로그를 보거나 [az acr task logs](/cli/azure/acr/task#az-acr-task-logs) 명령을 사용 합니다.
+각 태스크 실행은 작업 단계가 성공적으로 실행 되었는지 여부를 확인 하기 위해 검사할 수 있는 로그 출력을 생성 합니다. [Az acr build](/cli/azure/acr#az-acr-build), [az acr run](/cli/azure/acr#az-acr-run)또는 [az acr task run](/cli/azure/acr/task#az-acr-task-run) 명령을 사용 하 여 작업을 트리거하는 경우에는 태스크 실행에 대 한 로그 출력이 콘솔로 스트리밍되 고 나중에 검색할 수 있도록 저장 됩니다. 소스 코드 커밋 또는 기본 이미지 업데이트 등에서 태스크가 자동으로 트리거되면 작업 로그만 저장 됩니다. Azure Portal에서 실행 되는 작업에 대 한 로그를 보거나 [az acr task logs](/cli/azure/acr/task#az-acr-task-logs) 명령을 사용 합니다.
 
 7 월 2019부터 레지스트리의 작업 실행에 대 한 데이터 및 로그는 기본적으로 30 일 동안 보존 된 후 자동으로 제거 됩니다. 태스크 실행에 대 한 데이터를 보관 하려면 [az acr 작업 업데이트-실행](/cli/azure/acr/task#az-acr-task-update-run) 명령을 사용 하 여 보관을 사용 하도록 설정 합니다. 다음 예에서는 registry *myregistry*에서 *cf11* 작업 실행을 위해 보관을 사용 하도록 설정 합니다.
 

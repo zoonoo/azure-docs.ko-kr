@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: mlearned
-ms.openlocfilehash: 1f07581be8fc416f8aae5eec1460ca3d33bda8f9
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 3c11367945b74db9be20ade86c7bc26901440e4d
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114245"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305157"
 ---
 # <a name="preview---authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>미리 보기-Azure Kubernetes Service에서 Azure Container Registry 인증
 
@@ -37,7 +37,7 @@ Azure CLI를 사용 하 여 몇 가지 간단한 명령에서 ACR 통합에 AKS�
 
 ## <a name="install-latest-aks-cli-preview-extension"></a>최신 AKS CLI 미리 보기 확장 설치
 
-**Aks-preview 0.4.8** extension 이상이 필요 합니다.
+**Aks-preview 0.4.13** extension 이상이 필요 합니다.
 
 ```azurecli
 az extension remove --name aks-preview 
@@ -46,25 +46,33 @@ az extension add -y --name aks-preview
 
 ## <a name="create-a-new-aks-cluster-with-acr-integration"></a>ACR 통합을 사용 하 여 새 AKS 클러스터 만들기
 
-AKS 클러스터를 처음 만들 때 AKS 및 ACR 통합을 설정할 수 있습니다.  AKS 클러스터가 ACR과 상호 작용할 수 있도록 Azure Active Directory **서비스 주체가** 사용 됩니다. 다음 CLI 명령은 지정 하는 리소스 그룹에 ACR을 만들고 서비스 주체에 대 한 적절 한 **Acrpull** 역할을 구성 합니다. 지정한 리소스 그룹에 *acr 이름이* 없으면의 `aks<resource-group>acr` 기본 acr 이름이 자동으로 생성 됩니다.  아래 매개 변수에 대 한 유효한 값을 제공 합니다.  대괄호 안의 매개 변수는 선택 사항입니다.
+AKS 클러스터를 처음 만들 때 AKS 및 ACR 통합을 설정할 수 있습니다.  AKS 클러스터가 ACR과 상호 작용할 수 있도록 Azure Active Directory **서비스 주체가** 사용 됩니다. 다음 CLI 명령을 사용 하 여 구독에서 기존 ACR에 권한을 부여 하 고 서비스 주체에 대 한 적절 한 **Acrpull** 역할을 구성할 수 있습니다. 아래 매개 변수에 대 한 유효한 값을 제공 합니다.  대괄호 안의 매개 변수는 선택 사항입니다.
 ```azurecli
 az login
-az aks create -n myAKSCluster -g myResourceGroup --enable-acr [--acr <acr-name-or-resource-id>]
+az acr create -n myContainerRegistry -g myContainerRegistryResourceGroup --sku basic [in case you do not have an existing ACR]
+az aks create -n myAKSCluster -g myResourceGroup --attach-acr <acr-name-or-resource-id>
 ```
 \* * ACR 리소스 id의 형식은 다음과 같습니다. 
 
-/subscriptions/< subscription-d >/Stggs/< 리소스 그룹 이름 >/providers/Microsoft.ContainerRegistry/registries/<name> 
+/subscriptions/< subscription-d >/Stggs/< 리소스 그룹 이름 >/providers/Microsoft.ContainerRegistry/registries/{name} 
   
 이 단계를 완료 하는 데 몇 분 정도 걸릴 수 있습니다.
 
-## <a name="create-acr-integration-for-existing-aks-clusters"></a>기존 AKS 클러스터에 대 한 ACR 통합 만들기
+## <a name="configure-acr-integration-for-existing-aks-clusters"></a>기존 AKS 클러스터에 대 한 ACR 통합 구성
 
 아래와 같이 **acr 이름** 또는 **acr-resource id** 에 대 한 유효한 값을 제공 하 여 기존 acr을 기존 AKS 클러스터와 통합 합니다.
 
 ```azurecli
-az aks update -n myAKSCluster -g myResourceGroup --enable-acr --acr <acrName>
-az aks update -n myAKSCluster -g myResourceGroup --enable-acr --acr <acr-resource-id>
+az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acrName>
+az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-resource-id>
 ```
+
+다음을 사용 하 여 ACR과 AKS 클러스터 간의 통합을 제거할 수도 있습니다.
+```azurecli
+az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acrName>
+az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acr-resource-id>
+```
+
 
 ## <a name="log-in-to-your-acr"></a>ACR에 로그인
 

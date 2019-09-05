@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a3423635ab226693e0b3b057e2c2cb441861ea1b
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 9abe9eb9cdad6351f49fba2dace64095783455cf
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839418"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376014"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Azure Maps Android SDK 시작
 
 Azure Maps Android SDK는 Android 용 벡터 맵 라이브러리입니다. 이 문서에서는 Azure Maps Android SDK를 설치 하 고 지도를 로드 하는 프로세스를 안내 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 ### <a name="create-an-azure-maps-account"></a>Azure Maps 계정 만들기
 
@@ -109,7 +109,18 @@ Android Studio를 사용하면 컴퓨터에 가상 Android 디바이스를 설�
     * Azure Maps 인증 정보 설정
     * **onCreate** 메서드에서 map 컨트롤 인스턴스 가져오기
 
-    SetSubscriptionKey 또는 setAadProperties 메서드를 사용 하 여 AzureMaps 클래스의 인증 정보를 전역적으로 설정 하면 모든 보기에 인증 정보를 추가할 필요가 없습니다. 맵 컨트롤에는 Android의 OpenGL 수명 주기를 관리 하는 자체 수명 주기 방법이 포함 되어 있습니다 .이를 포함 하는 작업에서 직접 호출 해야 합니다. 응용 프로그램이 올바르게 작동 하려면 맵 컨트롤의 수명 주기 메서드를 호출 하 고, 맵 컨트롤을 포함 하는 작업에서 다음 수명 주기 메서드를 재정의 하 고 해당 맵 컨트롤 메서드를 호출 해야 합니다. 
+    또는 `AzureMaps` `setSubscriptionKey` 메서드를 사용 하 여 클래스의 인증 정보를 전역적으로 설정 하면 모든 보기에 인증 정보를 추가할 필요가 없습니다. `setAadProperties` 
+
+    맵 컨트롤에는 Android의 OpenGL 수명 주기를 관리 하는 자체 수명 주기 방법이 포함 되어 있습니다 .이를 포함 하는 작업에서 직접 호출 해야 합니다. 응용 프로그램이 올바르게 작동 하려면 맵 컨트롤의 수명 주기 메서드를 호출 하 고, 맵 컨트롤을 포함 하는 작업에서 다음 수명 주기 메서드를 재정의 하 고 해당 맵 컨트롤 메서드를 호출 해야 합니다. 
+
+    * onCreate (번들) 
+    * onStart () 
+    * onResume () 
+    * onPause () 
+    * onStop () 
+    * onDestroy () 
+    * onSaveInstanceState (번들) 
+    * onLowMemory () 
 
     다음과 같이 **Mainactivity. java** 파일을 편집 합니다.
     
@@ -140,13 +151,24 @@ Android Studio를 사용하면 컴퓨터에 가상 Android 디바이스를 설�
             mapControl = findViewById(R.id.mapcontrol);
 
             mapControl.onCreate(savedInstanceState);
-
+    
+            //Wait until the map resources are ready.
+            mapControl.onReady(map -> {
+                //Add your post map load code here.
+    
+            });
         }
 
         @Override
         public void onResume() {
             super.onResume();
             mapControl.onResume();
+        }
+
+        @Override
+        protected void onStart(){
+            super.onStart();
+            mapControl.onStart();
         }
 
         @Override
@@ -178,7 +200,6 @@ Android Studio를 사용하면 컴퓨터에 가상 Android 디바이스를 설�
             super.onSaveInstanceState(outState);
             mapControl.onSaveInstanceState(outState);
         }
-
     }
 
     ```

@@ -7,19 +7,19 @@ services: monitoring
 ms.service: service-health
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 1151eb8659c60cd71430c3dd971e73ec03a5545f
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 40ffe0b377a5cbb21f07c479097958d7c15a2879
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538277"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383155"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>서비스 알림에 대한 활동 로그 경고 만들기
 ## <a name="overview"></a>개요
 
 이 문서에서는 Azure Portal을 사용하여 서비스 상태 알림에 대한 활동 로그 경고를 설정하는 방법을 보여 줍니다.  
 
-서비스 상태 알림에 저장 되는 [Azure 활동 로그](../azure-monitor/platform/activity-logs-overview.md) 별도 사용자 인터페이스를 쉽게 보고 서비스 상태에 대 한 경고를 설정 하는 활동 로그에 저장 하는 정보의 양이 클 들어 알림입니다. 
+서비스 상태 알림은 활동 로그에 저장 된 대용량 정보를 제공 하는 [Azure 활동 로그](../azure-monitor/platform/activity-logs-overview.md) 에 저장 됩니다. 서비스 상태 알림에 대 한 경고를 쉽게 확인 하 고 설정할 수 있는 별도의 사용자 인터페이스가 있습니다. 
 
 Azure에서 Azure 구독에 서비스 상태 알림을 전송할 때 경고를 받을 수 있습니다. 다음 항목에 따라 경고를 구성할 수 있습니다.
 
@@ -40,7 +40,7 @@ Azure에서 Azure 구독에 서비스 상태 알림을 전송할 때 경고를 �
 
 Azure 리소스 관리자 템플릿을 사용하여 서비스 상태 알림 경고를 구성하는 방법에 대한 자세한 내용은 [ 템플릿](../azure-monitor/platform/alerts-activity-log.md)을 참조하세요.
 
-### <a name="watch-a-video-on-setting-up-your-first-azure-service-health-alert"></a>첫 번째 Azure Service Health 경고 설정에 대 한 비디오를 시청 하세요.
+### <a name="watch-a-video-on-setting-up-your-first-azure-service-health-alert"></a>첫 번째 Azure Service Health 경고 설정 비디오 보기
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
 
@@ -61,10 +61,10 @@ Azure 리소스 관리자 템플릿을 사용하여 서비스 상태 알림 경�
 
     ![“활동 로그 경고 추가” 대화 상자](media/alerts-activity-log-service-notifications/activity-log-alert-new-ux.png)
 
-> [!NOTE]
-> 이 구독은 활동 로그 경고를 저장하는 데 사용됩니다. 경고 리소스가 이 구독에 배포되고 이에 대한 활동 로그에서 이벤트를 모니터링합니다.
+    > [!NOTE]
+    > 이 구독은 활동 로그 경고를 저장하는 데 사용됩니다. 경고 리소스가 이 구독에 배포되고 이에 대한 활동 로그에서 이벤트를 모니터링합니다.
 
-1. 다음 중에 경고를 표시할 **이벤트 유형**을 선택합니다. ‘서비스 문제’, ‘계획된 유지 관리’ 및 ‘상태 공지’    
+1. 다음 중에 경고를 표시할 **이벤트 유형**을 선택합니다. ‘서비스 문제’, ‘계획된 유지 관리’ 및 ‘상태 공지’ 
 
 1. **경고 규칙 이름** 및 **설명**을 입력하여 경고 세부 정보를 정의합니다.
 
@@ -91,11 +91,10 @@ Azure 리소스 관리자 템플릿을 사용하여 서비스 상태 알림 경�
 >[!NOTE]
 >이러한 단계에서 정의한 작업 그룹은 향후의 모든 경고 정의에 대해 기존 작업 그룹으로 다시 사용할 수 있습니다.
 >
->
 
 ## <a name="alert-with-existing-action-group-using-azure-portal"></a>Azure Portal을 사용하여 기존 작업 그룹에 경고
 
-1. 에 서비스 상태 알림을 생성 하려면 이전 섹션의 1-6 단계를 수행 합니다. 
+1. 이전 섹션의 1 ~ 6 단계를 수행 하 여 서비스 상태 알림을 만듭니다. 
 
 1. **작업 그룹 정의** 아래에서 **작업 그룹 선택** 단추를 클릭합니다. 적절한 작업 그룹을 선택합니다.
 
@@ -202,8 +201,8 @@ Azure 리소스 관리자 템플릿을 사용하여 서비스 상태 알림 경�
 * 해당 경고에 대한 알림 수신을 일시적으로 중지하거나 다시 시작하려면 사용 안 함 또는 사용하도록 설정합니다.
 
 ## <a name="next-steps"></a>다음 단계
-- 에 대 한 자세한 [Azure Service Health 경고 설정에 대 한 유용한](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUa)합니다.
-- 설명 하는 방법 [Azure Service Health에 대 한 모바일 푸시 알림을 설정](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUw)합니다.
+- [Azure Service Health 경고 설정에 대 한 모범 사례](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUa)에 대해 알아봅니다.
+- [Azure Service Health에 대 한 모바일 푸시 알림을 설정](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUw)하는 방법을 알아봅니다.
 - [기존 문제 관리 시스템에 대한 웹후크 알림 구성](service-health-alert-webhook-guide.md) 방법에 대해 알아봅니다.
 - [서비스 상태 알림](service-notifications.md)에 대해 자세히 알아보세요.
 - [알림 속도 제한](../azure-monitor/platform/alerts-rate-limiting.md)에 대해 자세히 알아보세요.

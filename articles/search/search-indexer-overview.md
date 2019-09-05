@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: af01b6127a8a3e20edfac19ce3b54cecb9d561d1
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: e50d88181a27dcc46da858f220404eb09ad9b4bd
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640578"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308963"
 ---
 # <a name="indexers-in-azure-search"></a>Azure Search의 인덱서
 
@@ -48,11 +48,7 @@ Azure Search의 *인덱서*는 외부 Azure 데이터 원본에서 검색 가능
 * [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
-* [Azure Table Storage](search-howto-indexing-azure-tables.md) 
-
-> [!Note]
-> Azure Table Storage는 [인지 검색](cognitive-search-concept-intro.md)을 지원 하지 않습니다.
->
+* [Azure Table Storage](search-howto-indexing-azure-tables.md)
 
 ## <a name="basic-configuration-steps"></a>기본 구성 단계
 인덱서는 데이터 원본에 고유한 기능을 제공할 수 있습니다. 이러한 점에서 인덱서 또는 데이터 원본 구성의 일부 측면은 인덱서 유형에 따라 달라집니다. 그러나 인덱서는 모두 동일한 기본 구성 및 요구 사항을 공유합니다. 인덱서 모두에 공통되는 단계는 아래에서 다룹니다.

@@ -7,12 +7,12 @@ ms.reviewer: michazag
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 4/29/2019
-ms.openlocfilehash: 0fe81926327bcccac56718cc0d06e336e1af17fe
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 6a95cbad161906bd12a608880ac694d6bdf1ed27
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165082"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383060"
 ---
 # <a name="azure-data-explorer-connector-for-apache-spark-preview"></a>Apache Spark 용 Azure 데이터 탐색기 커넥터 (미리 보기)
 
@@ -21,7 +21,7 @@ ms.locfileid: "70165082"
 Spark 용 azure 데이터 탐색기 커넥터는 데이터 원본 및 데이터 싱크를 구현 하 여 Azure 데이터 탐색기 및 Spark 클러스터 간에 데이터를 이동 하 여 두 기능을 모두 사용 합니다. Azure Data Explorer와 Apache Spark를 사용하면 ML(기계 학습), ETL(추출-변환-로드) 및 Log Analytics와 같은 데이터 기반 시나리오를 대상으로 빠르고 확장성 있는 애플리케이션을 구축할 수 있습니다. 일괄 처리 및 스트리밍 모드에서 Azure 데이터 탐색기에 대 한 쓰기를 수행할 수 있습니다.
 Azure 데이터 탐색기에서 읽으면 열 정리 및 조건자 푸시 다운이 지원 되므로 Azure 데이터 탐색기에서 데이터를 필터링 하 여 전송 되는 데이터의 양을 줄일 수 있습니다.
 
-Azure 데이터 탐색기 Spark 커넥터는 모든 Spark 클러스터에서 실행할 수 있는 [오픈 소스 프로젝트](https://github.com/Azure/azure-kusto-spark) 입니다.
+Azure 데이터 탐색기 Spark 커넥터는 모든 Spark 클러스터에서 실행할 수 있는 [오픈 소스 프로젝트](https://github.com/Azure/azure-kusto-spark) 입니다. Azure 데이터 탐색기 Spark 커넥터를 사용 하면 Azure 데이터 탐색기는 표준 Spark 원본 및 싱크 작업 (예: write, read 및 writeStream)에 대 한 유효한 데이터 저장소입니다. 
 
 > [!NOTE]
 > 아래 예제 중 일부는 [Azure Databricks](https://docs.azuredatabricks.net/) spark 클러스터를 참조 하지만, Azure 데이터 탐색기 spark 커넥터는 Databricks 또는 다른 spark 배포에 대 한 직접적인 종속성을 취하지 않습니다.

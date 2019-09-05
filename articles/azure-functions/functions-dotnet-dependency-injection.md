@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 05/28/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 1dbbb6e7bd88e08520225515c422529dc260e1b2
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: e31f3dc166177ce36289b97d85d90a9582c9cae5
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377380"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375991"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>.NET Azure Functions에서 종속성 주입 사용
 
@@ -71,7 +71,7 @@ namespace MyNamespace
 
 ## <a name="use-injected-dependencies"></a>삽입 된 종속성 사용
 
-ASP.NET Core는 생성자 주입을 사용 하 여 함수에서 종속성을 사용할 수 있도록 합니다. 다음 샘플에서는 `IMyService` 및 `HttpClient` 종속성이 HTTP로 트리거되는 함수에 삽입 되는 방법을 보여 줍니다.
+ASP.NET Core는 생성자 주입을 사용 하 여 함수에서 종속성을 사용할 수 있도록 합니다. 다음 샘플에서는 `IMyService` 및 `HttpClient` 종속성이 HTTP로 트리거되는 함수에 삽입 되는 방법을 보여 줍니다. 
 
 ```csharp
 using System;
@@ -112,7 +112,7 @@ namespace MyNamespace
 }
 ```
 
-생성자 주입을 사용 하는 것은 종속성 주입을 활용 하려는 경우 정적 함수를 사용 하지 않아야 함을 의미 합니다.
+생성자 주입을 사용 하는 것은 종속성 주입을 활용 하려는 경우 정적 함수를 사용 하지 않아야 함을 의미 합니다. Cosmos client의 경우 [이](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/CodeSamples/AzureFunctions/AzureFunctionsCosmosClient.cs)를 참조 하세요.
 
 ## <a name="service-lifetimes"></a>서비스 수명
 

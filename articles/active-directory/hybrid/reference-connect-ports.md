@@ -16,12 +16,12 @@ ms.date: 08/02/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48d2ef0de9ae59e63cd9957200c46c788e2d785f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e9277e35fceb382fbccd009e5bbfe63ce57b8361
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60387312"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305169"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>포트 및 프로토콜이 필요한 하이브리드 ID
 다음 문서는 하이브리드 ID 솔루션을 구현하는 포트 및 프로토콜에 대한 기술 참조입니다. 다음 그림을 사용하고 해당 테이블을 참조합니다.
@@ -31,7 +31,7 @@ ms.locfileid: "60387312"
 ## <a name="table-1---azure-ad-connect-and-on-premises-ad"></a>테이블 1 - Azure AD Connect 및 온-프레미스 AD
 이 테이블은 Azure AD Connect 서버 및 온-프레미스 AD 간의 통신에 필요한 포트와 프로토콜에 대해 설명합니다.
 
-| 프로토콜 | 포트 | 설명 |
+| 프로토콜 | 포트 | Description |
 | --- | --- | --- |
 | DNS |53(TCP/UDP) |DNS는 대상 포리스트에 대해 조회합니다. |
 | Kerberos |88(TCP/UDP) |AD 포리스트에 대한 Kerberos 인증. |
@@ -40,11 +40,13 @@ ms.locfileid: "60387312"
 | SMB | 445(TCP/UDP) |AD 포리스트에서 컴퓨터 계정을 만들기 위해 Seamless SSO에서 사용합니다. |
 | LDAP/SSL |636(TCP/UDP) |AD에서 데이터를 가져오기 위해 사용합니다. 데이터 전송이 서명 및 암호화합니다. SSL을 사용하는 경우에만 사용합니다. |
 | RPC |49152- 65535(임의의 높은 RPC 포트)(TCP/UDP) |AD 포리스트를 바인딩할 때 Azure AD Connect의 초기 구성 중 및 암호 동기화 중에 사용합니다. 자세한 내용은 [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017) 및 [KB224196](https://support.microsoft.com/kb/224196)을 참조하세요. |
+|WinRM  | 5985 (TCP/UDP) |GMSA를 사용 하 여 AD FS Azure AD Connect 마법사를 설치 하는 경우에만 사용 됩니다.|
+|AD DS 웹 서비스 | 9389 (TCP/UDP) |GMSA를 사용 하 여 AD FS Azure AD Connect 마법사를 설치 하는 경우에만 사용 됩니다. |
 
 ## <a name="table-2---azure-ad-connect-and-azure-ad"></a>테이블 2 - Azure AD Connect 및 Azure AD
 이 테이블은 Azure AD Connect 서버 및 Azure AD 간의 통신에 필요한 포트와 프로토콜에 대해 설명합니다.
 
-| 프로토콜 | 포트 | 설명 |
+| 프로토콜 | 포트 | Description |
 | --- | --- | --- |
 | HTTP |80(TCP/UDP) |CRL(인증서 해지 목록)를 다운로드하여 SSL 인증서를 확인하는 데 사용합니다. |
 | HTTPS |443(TCP/UDP) |Azure AD와 동기화하는 데 사용합니다. |
@@ -79,7 +81,7 @@ ms.locfileid: "60387312"
 다음 테이블은 Azure AD Connect 및 Azure AD 간의 통신에 필요한 포트와 프로토콜에 대해 설명합니다.
 
 ### <a name="table-6a---pass-through-authentication-with-sso"></a>테이블 6a - SSO로 통과 인증
-|프로토콜|포트 번호|설명
+|프로토콜|포트 번호|Description
 | --- | --- | ---
 |HTTP|80|SSL과 같은 보안 유효성 검사에 아웃바운드 HTTP 트래픽을 사용하도록 설정합니다. 커넥터 자동 업데이트 기능이 제대로 작동하는 데도 필요합니다.
 |HTTPS|443| 기능 활성화 및 비활성화, 커넥터 등록, 커넥터 업데이트 다운로드 및 모든 사용자 로그인 요청 처리와 같은 작업을 위해 아웃바운드 HTTPS 트래픽을 사용합니다.
@@ -88,7 +90,7 @@ ms.locfileid: "60387312"
 
 ### <a name="table-6b---password-hash-sync-with-sso"></a>테이블 6b - SSO와 암호 해시 동기화
 
-|프로토콜|포트 번호|설명
+|프로토콜|포트 번호|Description
 | --- | --- | ---
 |HTTPS|443| SSO 등록(SSO 등록 프로세스에만 필요)을 사용하도록 설정합니다.
 
@@ -102,8 +104,10 @@ ms.locfileid: "60387312"
 
 | 프로토콜 | 포트 | 설명 |
 | --- | --- | --- |
-| HTTPS |443(TCP/UDP) |아웃바운드 |
-| Azure Service Bus |5671(TCP/UDP) |아웃바운드 |
+| HTTPS |443 (TCP) |아웃바운드 |
+| Azure Service Bus |5671 (TCP) |아웃바운드 |
+
+최신 버전의 에이전트에는 Azure Service Bus 포트 5671가 더 이상 필요 하지 않습니다. 최신 Azure AD Connect Health 에이전트 버전에는 포트 443만 필요 합니다.
 
 ### <a name="7b---endpoints-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>7b - Azure AD Connect Health 에이전트(AD FS/동기화)와 Azure AD에 대한 엔드포인트
 엔드포인트의 목록에 대한 자세한 내용은 [Azure AD Connect Health 에이전트에 대한 요구 사항 섹션](how-to-connect-health-agent-install.md#requirements)을 참조하세요.

@@ -9,12 +9,12 @@ ms.date: 02/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 7785c6b5c575bf862b1ba0edccc75fc1c6031b08
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: b2cd7232bce674dfa5aa2c6f4b6d9386fa7a189b
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015653"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376458"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Azure Storage에서 재해 복구 및 스토리지 계정 장애 조치(Failover)(미리 보기)
 
@@ -168,7 +168,6 @@ VM이 종료되면 임시 디스크에 저장된 데이터가 손실됩니다.
 다음 기능 또는 서비스는 미리 보기 릴리스의 계정 장애 조치(failover)에서 지원되지 않습니다.
 
 - Azure 파일 동기화는 스토리지 계정 장애 조치(Failover)를 지원하지 않습니다. Azure 파일 동기화에서 클라우드 엔드포인트로 사용되는 Azure 파일 공유를 포함하는 스토리지 계정은 장애 조치(failover)하지 않아야 합니다. 이러한 계정을 장애 조치(failover)하면 동기화가 더 이상 진행되지 않고, 새로 계층화된 파일의 경우 예기치 않은 데이터 손실이 발생할 수도 있습니다.  
-- Azure Data Lake Storage Gen2 계층 구조 네임스페이스를 사용하는 스토리지 계정은 장애 조치(failover)할 수 없습니다.
 - 보관된 blob을 포함하는 스토리지 계정은 장애 조치(failover)할 수 없습니다. 보관된 blob은 장애 조치(failover)하지 않으려는 별도 스토리지 계정에 유지 관리합니다.
 - 프리미엄 블록 blob을 포함하는 스토리지 계정은 장애 조치(failover)할 수 없습니다. 프리미엄 블록 blob를 지원하는 스토리지 계정은 현재 지리적 중복을 지원하지 않습니다.
 - 장애 조치 (failover)가 완료 되 면 원래 사용 하도록 설정 된 경우 다음 기능이 작동을 중지 합니다. [이벤트 구독](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview), [수명 주기 정책](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts), [스토리지 분석 로깅](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging)
@@ -181,7 +180,7 @@ VM이 종료되면 임시 디스크에 저장된 데이터가 손실됩니다.
 
 중대한 재해로 인해 지역이 손실되는 극단적인 경우 Microsoft는 지역 장애 조치(failover)를 시작할 수 있습니다. 이 경우에 사용자의 조치가 필요하지 않습니다. Microsoft에서 관리하는 장애 조치(failover)가 완료될 때까지 스토리지 계정에 대한 쓰기 액세스 권한이 없습니다. 애플리케이션은 스토리지 계정이 RA-GRS용으로 구성된 경우 보조 지역에서 읽을 수 있습니다. 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고자료
 
 * [계정 장애 조치(failover) 시작(미리 보기)](storage-initiate-account-failover.md)
 * [RA-GRS를 사용하여 항상 사용 가능한 애플리케이션 디자인](storage-designing-ha-apps-with-ragrs.md)

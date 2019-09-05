@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
-ms.openlocfilehash: 9ef35e0865a7c5bbfb4accc058a8d63bb6f1e80b
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 246e3550650dfd458b4aeecda3b5b7733e49f017
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/04/2019
-ms.locfileid: "70243075"
+ms.locfileid: "70307343"
 ---
 # <a name="use-powershell-to-accept-a-data-share-invitation"></a>PowerShell을 사용 하 여 데이터 공유 초대 수락
 
@@ -42,8 +42,8 @@ New-AzDataShareSubscription -ResourceGroupName $resourceGroupName -AccountName $
 
 | 명령 | 참고 |
 |---|---|
-| [AzDataShareInvitation](/powershell/module/az.resources/get-azdatashareinvitation) | 전송 데이터 공유 초대를 가져오고 나열 합니다. |
-| [AzDataShareSubscription](/powershell/module/az.resources/get-azdatashareinvitation) | 데이터 공유 구독을 만듭니다. |
+| [AzDataShareInvitation](/powershell/module/az.datashare/get-azdatashareinvitation?view=azps-2.6.0) | 전송 데이터 공유 초대를 가져오고 나열 합니다. |
+| [AzDataShareSubscription](/powershell/module/az.datashare/get-azdatasharesubscription?view=azps-2.6.0) | 데이터 공유 구독을 만듭니다. |
 |||
 
 ## <a name="next-steps"></a>다음 단계

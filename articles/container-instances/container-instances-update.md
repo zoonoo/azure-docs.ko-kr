@@ -6,26 +6,29 @@ author: dlepow
 manager: gwallace
 ms.service: container-instances
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 09/03/2019
 ms.author: danlep
-ms.openlocfilehash: d555ba6b8c2b32fc6ec56d6c51dda9626b6f0cb0
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 3103fe7fbf7dcd587f43b673ef53f32893908ecb
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325538"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307707"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Azure Container Instances에서 컨테이너 업데이트
 
-컨테이너 인스턴스가 정상적으로 작동하는 동안 컨테이너 그룹의 컨테이너를 업데이트해야 할 수도 있습니다. 예를 들어 이미지 버전을 업데이트하거나, DNS 이름을 변경하거나, 환경 변수를 업데이트하거나, 애플리케이션이 손상된 컨테이너의 상태를 새로 고치려는 경우가 있습니다.
+컨테이너 인스턴스를 정상적으로 작동 하는 동안 [컨테이너 그룹](container-instances-container-groups.md)에서 실행 중인 컨테이너를 업데이트 해야 하는 경우가 있을 수 있습니다. 예를 들어 이미지 버전을 업데이트하거나, DNS 이름을 변경하거나, 환경 변수를 업데이트하거나, 애플리케이션이 손상된 컨테이너의 상태를 새로 고치려는 경우가 있습니다.
+
+> [!NOTE]
+> 종료되거나 삭제된 컨테이너 그룹은 업데이트할 수 없습니다. 컨테이너 그룹이 종료 되었거나 (성공 또는 실패 상태) 삭제 된 경우 그룹을 새로 배포 해야 합니다.
 
 ## <a name="update-a-container-group"></a>컨테이너 그룹 업데이트
 
-하나 이상의 수정된 속성으로 기존 그룹을 다시 배포하여 컨테이너 그룹의 컨테이너를 업데이트합니다. 컨테이너 그룹을 업데이트하면 그룹에서 실행되는 모든 컨테이너가 다시 시작됩니다.
+하나 이상의 수정 된 속성을 사용 하 여 기존 그룹을 다시 배포 하 여 실행 중인 컨테이너 그룹의 컨테이너를 업데이트 합니다. 컨테이너 그룹을 업데이트 하면 일반적으로 동일한 기본 컨테이너 호스트에서 그룹의 실행 중인 모든 컨테이너가 내부에서 다시 시작 됩니다.
 
-create 명령을 실행하거나 Azure Portal을 사용하여 기존 컨테이너 그룹을 다시 배포하고 기존 그룹의 이름을 지정합니다. create 명령을 실행하여 재배포가 트리거되면 그룹의 유효한 속성을 하나 이상 수정합니다. 일부 컨테이너 그룹 속성은 재배포에 적합하지 않습니다. 지원되지 않는 속성에 대한 목록은 [삭제해야 하는 속성](#properties-that-require-container-delete)을 참조하세요.
+create 명령을 실행하거나 Azure Portal을 사용하여 기존 컨테이너 그룹을 다시 배포하고 기존 그룹의 이름을 지정합니다. 다시 배포를 트리거하기 위해 create 명령을 실행 하 고 나머지 속성은 변경 하지 않고 그대로 두거나 기본값을 계속 사용 하려면 그룹의 유효한 속성을 하나 이상 수정 합니다. 일부 컨테이너 그룹 속성은 재배포에 적합하지 않습니다. 지원되지 않는 속성에 대한 목록은 [삭제해야 하는 속성](#properties-that-require-container-delete)을 참조하세요.
 
-다음 Azure CLI 예제에서는 컨테이너 그룹을 새 DNS 이름 레이블로 업데이트합니다. 그룹의 DNS 이름 레이블 속성이 수정되므로 컨테이너 그룹이 다시 배포되고 해당 컨테이너가 다시 시작됩니다.
+다음 Azure CLI 예제에서는 컨테이너 그룹을 새 DNS 이름 레이블로 업데이트합니다. 그룹의 DNS 이름 레이블 속성은 업데이트할 수 있는 속성 이므로 컨테이너 그룹을 다시 배포 하 고 컨테이너를 다시 시작 합니다.
 
 *myapplication-staging* DNS 이름 레이블을 사용한 초기 배포는 다음과 같습니다.
 
@@ -35,10 +38,10 @@ az container create --resource-group myResourceGroup --name mycontainer \
     --image nginx:alpine --dns-name-label myapplication-staging
 ```
 
-컨테이너 그룹을 새 *myapplication* DNS 이름 레이블로 업데이트합니다.
+새 DNS 이름 레이블 *myapplication*으로 컨테이너 그룹을 업데이트 하 고 나머지 속성은 변경 되지 않은 상태로 둡니다.
 
 ```azurecli-interactive
-# Update container group (restarts container)
+# Update DNS name label (restarts container), leave other properties unchanged
 az container create --resource-group myResourceGroup --name mycontainer \
     --image nginx:alpine --dns-name-label myapplication
 ```
@@ -81,10 +84,10 @@ Windows Server Core와 같이 더 큰 컨테이너 이미지를 기반으로 하
 
 [다중 컨테이너 그룹 배포](container-instances-multi-container-group.md)
 
+[Azure Container Instances에서 수동으로 컨테이너 중지 또는 시작](container-instances-stop-start.md)
+
 <!-- LINKS - External -->
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
-[az-container-logs]: /cli/azure/container?view=azure-cli-latest#az-container-logs
-[az-container-show]: /cli/azure/container?view=azure-cli-latest#az-container-show
 [azure-cli-install]: /cli/azure/install-azure-cli

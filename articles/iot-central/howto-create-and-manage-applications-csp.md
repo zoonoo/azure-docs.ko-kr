@@ -8,14 +8,14 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 4d20256381eab155d4b7532591cea85e43080ec0
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: d7c538bd98b3924b422a93bc67cac405a6e4b7af
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019793"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383117"
 ---
-# <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>CSP로서 고객을 대신하여 Azure IoT Central 애플리케이션 만들기 및 관리 
+# <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>CSP로서 고객을 대신하여 Azure IoT Central 애플리케이션 만들기 및 관리
 
 Microsoft CSP(클라우드 솔루션 공급자) 프로그램은 Microsoft 재판매인 프로그램입니다. 이의 의도는 모든 Microsoft 상용 온라인 서비스를 재판매하기 위한 원스톱 프로그램을 채널 파트너에게 제공하는 것입니다. [클라우드 솔루션 공급자 프로그램](https://partner.microsoft.com/cloud-solution-provider)을 자세히 알아봅니다.
 
@@ -73,6 +73,9 @@ Azure 구독이 아직 없는 경우 Microsoft 파트너 센터에서 만들 수
 
 Azure IoT Central 애플리케이션을 만들 지역을 선택합니다. 일반적으로 최적의 성능을 얻으려면 디바이스와 물리적으로 가장 가까운 지역을 선택해야 합니다.
 
+> [!NOTE]
+> **Preview 응용 프로그램** 템플릿은 현재 **북부** 및 **미국 중부** 지역 에서만 사용할 수 있습니다.
+
 자세한 내용은 [Azure 지역](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#azure-regions)을 참조하세요.
 
 Azure IoT Central을 사용할 수 있는 지역은 [지역별 사용 가능한 제품](https://azure.microsoft.com/regions/services/) 페이지에서 확인할 수 있습니다.
@@ -84,7 +87,7 @@ Azure IoT Central을 사용할 수 있는 지역은 [지역별 사용 가능한 
 
 새 Azure IoT Central 애플리케이션에 사용 가능한 애플리케이션 템플릿 중 하나를 선택할 수 있습니다. 애플리케이션 템플릿에는 시작하는 데 도움이 되는 디바이스 템플릿이나 대시보드 같은 미리 정의된 항목이 포함될 수 있습니다.
 
-| 애플리케이션 템플릿 | Description |
+| 애플리케이션 템플릿 | 설명 |
 | -------------------- | ----------- |
 | 사용자 지정 애플리케이션   | 사용자 고유의 디바이스 템플릿 및 디바이스로 채울 빈 애플리케이션을 만듭니다. |
 | 샘플 Contoso       | 간단한 연결된 디바이스를 만들 수 있는 디바이스 템플릿이 포함된 애플리케이션을 만듭니다. 이 템플릿을 사용하여 Azure IoT Central 탐색을 시작하세요. |

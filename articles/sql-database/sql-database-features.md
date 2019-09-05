@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: 8640a283cf81ddafdb8402d9bdfc46f88b35fa45
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: fc56a2900a291ff600433a6e660dca274c7b92e7
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135282"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382846"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>기능 비교: Azure SQL Database 및 SQL Server
 
@@ -116,9 +116,10 @@ Azure platform은 표준 데이터베이스 기능에 추가 값으로 추가 �
 | --- | --- | --- |
 | [활성 지역 복제](sql-database-active-geo-replication.md) | 예-대규모 이외의 모든 서비스 계층 | 아니요, 대 안으로 [자동 장애 조치 그룹 (미리 보기)](sql-database-auto-failover-group.md) 을 참조 하세요. |
 | [자동 장애 조치(failover) 그룹](sql-database-auto-failover-group.md) | 예-대규모 이외의 모든 서비스 계층 | 예, [공개 미리 보기 상태](sql-database-auto-failover-group.md)|
-| 자동 크기 조정 | 예, [서버 리스 모델](sql-database-serverless.md) 에서 | 아니요, 예약 된 계산 및 저장소를 선택 해야 합니다. |
+| 자동 크기 조정 | 예, 하지만 서버 리스 [모델](sql-database-serverless.md)에서만 사용 됩니다. 서버를 사용 하지 않는 모델에서는 서비스 계층의 변경 (vCore, 저장소 또는 DTU 변경)이 빠르고 온라인 상태입니다. 서비스 계층을 변경 하려면 가동 중지 시간을 최소화 해야 합니다. | 아니요, 예약 된 계산 및 저장소를 선택 해야 합니다. 서비스 계층 (vCore 또는 max storage)의 변경은 온라인 상태 이며 가동 중지 시간을 최소화 하거나 거의 필요 하지 않습니다. |
 | [자동 백업](sql-database-automated-backups.md) | 예. 전체 백업은 7 일, 차등 12 시간 및 로그 백업 마다 5-10 분 마다 수행 됩니다. | 예. 전체 백업은 7 일, 차등 12 시간 및 로그 백업 마다 5-10 분 마다 수행 됩니다. |
 | [자동 조정(인덱스)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [예](sql-database-automatic-tuning.md)| 아니요 |
+| [가용성 영역](/azure/availability-zones/az-overview) | 예 | 아니요 |
 | [Azure Resource Health](/azure/service-health/resource-health-overview) | 예 | 아니요 |
 | 백업 보존 | 예. 기본값은 7 일, 최대 35 일입니다. | 예. 기본값은 7 일, 최대 35 일입니다. |
 | [DMS(데이터 마이그레이션 서비스)](https://docs.microsoft.com/sql/dma/dma-overview) | 예 | 예 |
@@ -132,6 +133,7 @@ Azure platform은 표준 데이터베이스 기능에 추가 값으로 추가 �
 | [지정 시간 데이터베이스 복원](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | 예-대규모 이외의 모든 서비스 계층- [SQL Database 복구](sql-database-recovery-using-backups.md#point-in-time-restore) 참조 | 예 - [SQL Database 복구](sql-database-recovery-using-backups.md#point-in-time-restore) 참조 |
 | 리소스 풀 | 예, [탄력적 풀](sql-database-elastic-pool.md) 로 | 아니요. 단일 관리 되는 인스턴스는 동일한 리소스 풀을 공유 하는 여러 데이터베이스를 포함할 수 있습니다. 관리 되는 인스턴스는 리소스를 공유할 수 없습니다. |
 | 규모 확장 또는 축소 (온라인) | 예, 최소 가동 중지 시간으로 DTU 또는 예약 vCores 또는 max storage를 변경할 수 있습니다. | 예, 최소 가동 중지 시간으로 예약 된 vCores 또는 max storage를 변경할 수 있습니다. |
+| SQL 별칭 | 예, [DNS 별칭](dns-alias-overview.md) 을 참조 하세요. | 아니요 |
 | [SQL Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | 예 | 예 |
 | [SQL 데이터 동기화](sql-database-get-started-sql-data-sync.md) | 예 | 아니요 |
 | [SSAS(SQL Server Analysis Services)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | 아니요, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) 별도의 Azure 클라우드 서비스입니다. | 아니요, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) 별도의 Azure 클라우드 서비스입니다. |

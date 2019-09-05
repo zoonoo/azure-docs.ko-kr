@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
-ms.openlocfilehash: ef027387d6c8e119c03fef6e4e5d7fd7a4125e51
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 95a10b112c9f6448c437f20ee95f808632a31d2d
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/04/2019
-ms.locfileid: "70243036"
+ms.locfileid: "70307311"
 ---
 # <a name="use-powershell-to-create-a-data-share-in-azure"></a>PowerShell을 사용 하 여 Azure에서 데이터 공유 만들기
 
@@ -44,7 +44,7 @@ New-AzDataShareDataSet -ResourceGroupName $resourceGroupName -AccountName $dataS
 
 | 명령 | 참고 |
 |---|---|
-| [AzDataShareDataSet](/powershell/module/az.resources/new-azdatasharedataset) | 데이터 집합을 데이터 공유에 추가 합니다. |
+| [AzDataShareDataSet](/powershell/module/az.datashare/new-azdatasharedataset?view=azps-2.6.0) | 데이터 집합을 데이터 공유에 추가 합니다. |
 |||
 
 ## <a name="next-steps"></a>다음 단계

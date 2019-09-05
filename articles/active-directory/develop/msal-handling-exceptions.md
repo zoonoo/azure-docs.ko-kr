@@ -16,12 +16,12 @@ ms.date: 08/19/2019
 ms.author: negoe
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 77a2e571b76044ff9114f6671b187118cf03c0ba
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: fe3ad29cfd113deba5824ce25721dc543c6267c0
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135801"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305061"
 ---
 # <a name="handling-exceptions-and-errors-using-msal"></a>MSAL을 사용하여 예외 및 오류 처리
 MSAL(Microsoft 인증 라이브러리)의 예외는 앱 개발자가 최종 사용자에게 표시하지 않고 문제를 해결하기 위한 것입니다. 예외 메시지는 지역화되지 않았습니다.
@@ -179,7 +179,7 @@ myMSALObj.acquireTokenSilent(accessTokenRequest).then(function (accessTokenRespo
 
 조건부 액세스가 필요한 API를 호출할 때 클레임 챌린지를 API의 오류로 받을 수 있습니다. 이 경우 오류에서 반환 된 클레임을 `claimsRequest` `AuthenticationParameters.ts` 클래스의 필드에 전달 하 여 적절 한 정책을 충족 시킬 수 있습니다. 
 
-자세한 내용은 [추가 클레임 요청]() 을 참조 하세요.
+자세한 내용은 [추가 클레임 요청](active-directory-optional-claims.md) 을 참조 하세요.
 
 ## <a name="retrying-after-errors-and-exceptions"></a>오류 및 예외 후 다시 시도
 

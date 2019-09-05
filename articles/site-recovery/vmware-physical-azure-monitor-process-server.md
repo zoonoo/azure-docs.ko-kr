@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 09/05/2019
 ms.author: raynew
-ms.openlocfilehash: 5d746385a034fdf742b8958b3d1fe51ea2a3c5cf
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 00b424672b505a5bb3d576c0ca4d8e334e2a1753
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972187"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383201"
 ---
 # <a name="monitor-the-process-server"></a>프로세스 서버 모니터링
 
@@ -57,10 +57,12 @@ ms.locfileid: "69972187"
 ![경고][yellow] | 지난 15 분간 CPU 사용률 > 80%
 ![경고][yellow] | 최근 15 분 동안 메모리 사용 > 80%
 ![경고][yellow] | 최근 15 분 동안 캐시 폴더의 사용 가능한 공간 < 30%
+![경고][yellow] | Site Recovery은 5 분 마다 보류/발신 데이터를 모니터링 하 고, 프로세스 서버 캐시의 데이터를 30 분 내에 Azure에 업로드할 수 없음을 추정 합니다.
 ![경고][yellow] | 지난 15 분간 프로세스 서버 서비스가 실행 되 고 있지 않음
 ![심각][red] | 지난 15 분간 CPU 사용률 > 95%
 ![심각][red] | 최근 15 분 동안 메모리 사용 > 95%
 ![심각][red] | 최근 15 분 동안 캐시 폴더의 사용 가능한 공간 < 25%
+![심각][red] | Site Recovery은 5 분 마다 보류/발신 데이터를 모니터링 하 고, 프로세스 서버 캐시의 데이터를 45 분 내에 Azure에 업로드할 수 없음을 예상 합니다.
 ![심각][red] | 15 분 동안 프로세스 서버에서 하트 비트가 없습니다.
 
 ![테이블 키](./media/vmware-physical-azure-monitor-process-server/table-key.png)

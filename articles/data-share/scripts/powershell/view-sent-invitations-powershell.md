@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
-ms.openlocfilehash: 1304b478bd07ed61293b668badee56338a9cab5a
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 157b844afd9d59b6c03c7ae8585bc2182370d3a3
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/04/2019
-ms.locfileid: "70242906"
+ms.locfileid: "70307146"
 ---
 # <a name="use-powershell-to-get-a-data-share-invitation"></a>PowerShell을 사용 하 여 데이터 공유 초대 가져오기
 
@@ -40,7 +40,7 @@ Get-AzDataShareInvitation -location -invitationId
 
 | 명령 | 참고 |
 |---|---|
-| [AzDataShareInvitation](/powershell/module/az.resources/get-azdatashareinvitation) | 전송 데이터 공유 초대를 가져오고 나열 합니다. |
+| [AzDataShareInvitation](/powershell/module/az.datashare/get-azdatashareinvitation?view=azps-2.6.0) | 전송 데이터 공유 초대를 가져오고 나열 합니다. |
 |||
 
 ## <a name="next-steps"></a>다음 단계

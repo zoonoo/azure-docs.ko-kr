@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
-ms.openlocfilehash: f3d2439c4456c34e5c554a5399a77f19a954a9e3
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 4f3148a4d5bd0d39ccfcf7e92e80300a7e19effa
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/04/2019
-ms.locfileid: "70243088"
+ms.locfileid: "70307227"
 ---
 # <a name="use-powershell-to-monitor-the-usage-of-a-sent-data-share"></a>PowerShell을 사용 하 여 전송 된 데이터 공유의 사용 모니터링
 
@@ -47,8 +47,8 @@ Get-AzDataShareTrigger -ResourceGroupName $resourceGroupName -AccountName $dataS
 
 | 명령 | 참고 |
 |---|---|
-| [AzDataShareTrigger](/powershell/module/az.resources/new-azdatasharetrigger) | 공유 스냅숏 트리거를 만듭니다. |
-| [AzDataShareTrigger](/powershell/module/az.resources/get-azdatasharetrigger) | 공유 동기화의 동기화 설정을 가져옵니다. |
+| [AzDataShareTrigger](/powershell/module/az.datashare/new-azdatasharetrigger?view=azps-2.6.0) | 공유 스냅숏 트리거를 만듭니다. |
+| [AzDataShareTrigger](/powershell/module/az.datashare/get-azdatasharesynchronizationsetting?view=azps-2.6.0) | 공유 동기화의 동기화 설정을 가져옵니다. |
 |||
 
 ## <a name="next-steps"></a>다음 단계

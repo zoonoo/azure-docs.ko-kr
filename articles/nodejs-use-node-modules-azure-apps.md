@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: routlaw
-ms.openlocfilehash: 571e8d640e068b6635ab4091a01283d698b0264d
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 61be6bcd957a4e81147d5ef472b8f850e5605e41
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595661"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309284"
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>Azure 애플리케이션에 Node.js 모듈 사용
 이 문서에서는 Azure에서 호스트되는 애플리케이션에 Node.js 모듈을 사용하는 방법에 대해 안내합니다. 또한 애플리케이션에서 특정 버전의 모듈을 사용하고 Azure를 통해 네이티브 모듈을 사용하도록 하는 방법에 대한 지침을 제공합니다.
@@ -87,7 +87,7 @@ Azure App Service는 일부 네이티브 모듈을 지원하지 않으며 특정
 ## <a name="next-steps"></a>다음 단계
 이제 Azure에서 Node.js 모듈을 사용하는 방법을 익혔습니다. [Node.js 버전 지정](https://github.com/squillace/staging/blob/master/articles/nodejs-specify-node-version-azure-apps.md), [Node.js 웹앱 빌드 및 배포](app-service/app-service-web-get-started-nodejs.md) 방법 및 [Mac 및 Linux에서 Azure 명령줄 인터페이스를 사용하는 방법](https://azure.microsoft.com/blog/using-windows-azure-with-the-command-line-tools-for-mac-and-linux/)을 알아보겠습니다.
 
-자세한 내용은 [Node.js 개발자 센터](/nodejs/azure/)를 참조하세요.
+자세한 내용은 [Node.js 개발자 센터](/azure/javascript/)를 참조하세요.
 
 [specify the Node.js version]: nodejs-specify-node-version-azure-apps.md
 [How to use the Azure Command-Line Interface for Mac and Linux]:cli-install-nodejs.md

@@ -7,12 +7,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: ef4dfc4370c71eac1978a6f3535b571a5e6009b5
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: b0056df16dccaf1dc7e94aad1a2c6c262ffd89ee
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950131"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383372"
 ---
 # <a name="query-data-in-azure-data-lake-using-azure-data-explorer-preview"></a>Azure 데이터 탐색기 (미리 보기)를 사용 하 여 Azure Data Lake에서 데이터 쿼리
 
@@ -50,6 +50,7 @@ Azure 데이터 탐색기는 Azure Blob Storage 및 Azure Data Lake Storage Gen2
     > * 보다 세분화 된 분할을 통해 성능이 향상 됩니다. 예를 들어 일별 파티션이 있는 외부 테이블에 대 한 쿼리는 월별 분할 된 테이블이 있는 쿼리 보다 성능이 더 우수 합니다.
     > * 파티션이 있는 외부 테이블을 정의 하는 경우 저장소 구조가 동일할 것으로 예상 됩니다.
 예를 들어 테이블이 yyyy/MM/dd 형식의 DateTime 파티션으로 정의 된 경우 (기본값) URI 저장소 파일 경로는 *container1/yyyy/mm/dd/all_exported_blobs*여야 합니다. 
+    > * 외부 테이블이 datetime 열에 의해 분할 된 경우 쿼리에서 닫힌 범위에 대 한 시간 필터를 항상 포함 합니다. 예를 들어 쿼리 `ArchivedProducts | where Timestamp between (ago(1h) .. 10m)` 는이 (열린 범위) `ArchivedProducts | where Timestamp > ago(1h)` 1 보다 더 잘 수행 되어야 합니다. 
 
 1. 외부 테이블은 웹 UI의 왼쪽 창에 표시 됩니다.
 

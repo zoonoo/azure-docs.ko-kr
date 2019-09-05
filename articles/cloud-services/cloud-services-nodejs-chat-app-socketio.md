@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: gwallace
-ms.openlocfilehash: 251fd8ec3708ed154e12b0511be24eb776a48fbf
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: bbeaacd4c7028905e279dd5dc421414f4eafae54
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359084"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306753"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 애플리케이션 빌드
 
@@ -24,7 +24,7 @@ Socket.IO는 node.js 서버와 클라이언트 간에 실시간 통신을 제공
 
 ![Azure에 호스트된 서비스를 표시하는 브라우저 창][completed-app]  
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 이 문서의 예제를 완료하려면 다음 제품 및 버전이 설치되어 있는지 확인합니다.
 
 * [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
@@ -144,7 +144,7 @@ Azure 에뮬레이터에서 애플리케이션을 테스트하기 전에 몇 가
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 Azure 클라우드 서비스에 호스팅된 기본 채팅 애플리케이션을 만드는 방법을 학습했습니다. Azure 웹 사이트에서이 응용 프로그램을 호스트 하는 방법에 대 한 자세한 내용은 [Azure 웹 사이트에서 Socket.IO를 사용 하 여 Node.js 채팅 응용 프로그램 빌드][chatwebsite]를 참조 하세요.
 
-자세한 내용은 [Node.js 개발자 센터](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest)도 참조하세요.
+자세한 내용은 [Node.js 개발자 센터](https://docs.microsoft.com/azure/javascript/)도 참조하세요.
 
 [chatwebsite]: https://docs.microsoft.com/azure/cloud-services/cloud-services-nodejs-develop-deploy-app
 

@@ -1,6 +1,6 @@
 ---
-title: Azure AD 역할 기반 액세스 제어에서 사용자 지정 역할 정의 만들기-Azure Active Directory | Microsoft Docs
-description: Azure Active Directory 리소스에 대 한 리소스 범위를 사용 하 여 사용자 지정 Azure AD 역할을 만듭니다.
+title: Azure AD 역할 기반 액세스 제어에서 사용자 지정 역할 만들기 및 할당-Azure Active Directory | Microsoft Docs
+description: 리소스 범위를 사용 하 여 Azure Active Directory 리소스에 대 한 사용자 지정 Azure AD 역할을 만들고 할당 합니다.
 services: active-directory
 author: curtand
 manager: mtillman
@@ -8,25 +8,25 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 09/04/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1166839608c709db9aa052d6d0db5221fa15354
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: f008cdf80e15e2737fea19f72ec6703932cf301f
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880741"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382815"
 ---
-# <a name="create-a-custom-role-and-assign-at-resource-scope-in-azure-active-directory"></a>Azure Active Directory에서 사용자 지정 역할을 만들고 리소스 범위에서 할당
+# <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Azure Active Directory에서 사용자 지정 역할 만들기 및 할당
 
-이 문서에서는 Azure Active Directory (Azure AD)에서 새 사용자 지정 역할을 만드는 방법을 설명 합니다. Azure AD 개요 페이지의 [역할 및 관리자](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) 탭에서 사용자 지정 역할을 만들 수 있습니다. 역할은 디렉터리 수준 범위 또는 앱 등록 리소스 범위에만 할당할 수 있습니다.
+이 문서에서는 Azure Active Directory (Azure AD)에서 새 사용자 지정 역할을 만드는 방법을 설명 합니다. 사용자 지정 역할에 대 한 기본 사항은 [사용자 지정 역할 개요](roles-custom-overview.md)를 참조 하세요. 역할은 디렉터리 수준 범위 또는 앱 등록 리소스 범위에만 할당할 수 있습니다.
 
-자세한 내용은 사용자 지정 역할에 대 한 기본 사항에 대 한 [사용자 지정 역할 개요](roles-custom-overview.md) 를 참조 하세요.
+Azure AD 개요 페이지의 [역할 및 관리자](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) 탭에서 사용자 지정 역할을 만들 수 있습니다.
 
-## <a name="using-the-azure-ad-portal"></a>Azure AD 포털 사용
+## <a name="create-a-role-in-the-azure-portal"></a>Azure Portal에서 역할 만들기
 
 ### <a name="create-a-new-custom-role-to-grant-access-to-manage-app-registrations"></a>앱 등록 관리에 대 한 액세스 권한을 부여 하는 새 사용자 지정 역할 만들기
 
@@ -49,22 +49,7 @@ ms.locfileid: "68880741"
 
 사용자 지정 역할이 할당할 수 있는 역할 목록에 표시 됩니다.
 
-## <a name="assign-a-role-scoped-to-a-resource"></a>리소스에 범위가 지정 된 역할 할당
-
-기본 제공 역할과 마찬가지로 조직 전체 범위에서 사용자 지정 역할을 할당 하 여 모든 앱 등록에 대 한 액세스 권한을 부여할 수 있습니다. 그러나 사용자 지정 역할은 리소스 범위에서 할당 될 수도 있습니다. 이를 통해 두 번째 사용자 지정 역할을 만들 필요 없이 단일 앱의 기본 속성 및 자격 증명을 업데이트할 수 있는 권한을 담당자에 게 제공할 수 있습니다.
-
-1. 아직 없는 경우 Azure ad 조직에서 응용 프로그램 개발자 권한으로 [AZURE ad 관리 센터](https://aad.portal.azure.com) 에 로그인 합니다.
-1. **앱 등록**을 선택합니다.
-1. 관리 권한을 부여 하는 앱 등록을 선택 합니다. Azure AD 조직에서 앱 등록의 전체 목록을 보려면 **모든 응용 프로그램** 을 선택 해야 할 수도 있습니다.
-
-    ![역할 할당에 대 한 리소스 범위로 앱 등록을 선택 합니다.](./media/roles-create-custom/appreg-all-apps.png)
-
-1. 앱 등록에서 **역할 및 관리자**를 선택 합니다. 아직 만들지 않은 경우 지침은 [이전 절차](#create-a-new-custom-role-to-grant-access-to-manage-app-registrations)에 나와 있습니다.
-
-1. 역할을 선택 하 여 **할당** 페이지를 엽니다.
-1. **할당 추가** 를 선택 하 여 사용자를 추가 합니다. 사용자에 게 선택한 앱 이외의 앱 등록에 대 한 사용 권한이 부여 되지 않습니다.
-
-## <a name="create-a-custom-role-using-azure-ad-powershell"></a>Azure AD PowerShell을 사용 하 여 사용자 지정 역할 만들기
+## <a name="create-a-role-using-powershell"></a>PowerShell을 사용 하 여 역할 만들기
 
 ### <a name="prepare-powershell"></a>PowerShell 준비
 
@@ -125,7 +110,7 @@ $resourceScope = '/' + $appRegistration.objectId
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-## <a name="create-a-custom-role-using-microsoft-graph-api"></a>Microsoft Graph API를 사용 하 여 사용자 지정 역할 만들기
+## <a name="create-a-role-with-graph-api"></a>Graph API를 사용 하 여 역할 만들기
 
 1. 역할 정의를 만듭니다.
 
@@ -175,6 +160,21 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
        "resourceScope":"/<GUID OF APPLICATION REGISTRATION>"
    }
     ```
+
+## <a name="assign-a-custom-role-scoped-to-a-resource"></a>리소스에 범위가 지정 된 사용자 지정 역할 할당
+
+기본 제공 역할과 마찬가지로 사용자 지정 역할은 기본적으로 조직의 모든 앱 등록에 대 한 액세스 권한을 부여 하는 기본 조직 전체 범위에서 할당 됩니다. 그러나 기본 제공 역할과 달리 사용자 지정 역할은 단일 Azure AD 리소스의 범위에서 할당 될 수도 있습니다. 이렇게 하면 두 번째 사용자 지정 역할을 만들 필요 없이 단일 앱의 기본 속성 및 자격 증명을 업데이트할 수 있는 권한을 사용자에 게 제공할 수 있습니다.
+
+1. Azure ad 조직에서 응용 프로그램 개발자 권한으로 [AZURE ad 관리 센터](https://aad.portal.azure.com) 에 로그인 합니다.
+1. **앱 등록**을 선택합니다.
+1. 관리 권한을 부여 하는 앱 등록을 선택 합니다. Azure AD 조직에서 앱 등록의 전체 목록을 보려면 **모든 응용 프로그램** 을 선택 해야 할 수도 있습니다.
+
+    ![역할 할당에 대 한 리소스 범위로 앱 등록을 선택 합니다.](./media/roles-create-custom/appreg-all-apps.png)
+
+1. 앱 등록에서 **역할 및 관리자**를 선택 합니다. 아직 만들지 않은 경우 지침은 [이전 절차](#create-a-new-custom-role-to-grant-access-to-manage-app-registrations)에 나와 있습니다.
+
+1. 역할을 선택 하 여 **할당** 페이지를 엽니다.
+1. **할당 추가** 를 선택 하 여 사용자를 추가 합니다. 사용자에 게는 선택한 앱 등록에 대 한 모든 권한이 부여 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

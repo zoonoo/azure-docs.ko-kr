@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 021341406f1a7269aadf18eb3a748e539cbb5bf5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 421d41f95eff0ba0fdbca02c588d4a9a0c461a84
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086954"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70381051"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Azure CLI에서 IoT Central 관리
 
@@ -62,11 +62,14 @@ az iotcentral app create \
 
 **애플리케이션 템플릿**
 
-| 템플릿 이름            | 설명 |
+| 템플릿 이름            | Description |
 | ------------------------ | ----------- |
 | iotc-default@1.0.0       | 사용자 고유의 디바이스 템플릿 및 디바이스로 채울 빈 애플리케이션을 만듭니다. |
 | iotc-demo@1.0.0          | Refrigerated Vending Machine에 대해 이미 만든 디바이스 템플릿을 포함하는 애플리케이션을 만듭니다. 이 템플릿을 사용하여 Azure IoT Central 탐색을 시작하세요. |
 | iotc-devkit-sample@1.0.0 | MXChip 또는 Raspberry Pi 디바이스를 연결할 수 있는 디바이스 템플릿을 사용하여 애플리케이션을 만듭니다. 다음 디바이스 중 하나를 실험하는 디바이스 개발자인 경우 이 템플릿을 사용합니다. |
+
+> [!NOTE]
+> **Preview 응용 프로그램** 템플릿은 현재 **북부** 및 **미국 중부** 지역 에서만 사용할 수 있습니다.
 
 ## <a name="view-your-applications"></a>애플리케이션 보기
 
@@ -84,7 +87,7 @@ az iotcentral app update --name myiotcentralapp \
 
 ## <a name="remove-an-application"></a>애플리케이션 제거
 
-[Az iotcentral app delete](/cli/azure/iotcentral/app#az-iotcentral-app-delete) 명령을 사용 하 여 IoT Central 응용 프로그램을 삭제 합니다. 예를 들어:
+[Az iotcentral app delete](/cli/azure/iotcentral/app#az-iotcentral-app-delete) 명령을 사용 하 여 IoT Central 응용 프로그램을 삭제 합니다. 예:
 
 ```azurecli-interactive
 az iotcentral app delete --name myiotcentralapp \

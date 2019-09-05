@@ -8,18 +8,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 06/30/2019
 ms.author: raynew
-ms.openlocfilehash: 8d1471188999182623a57db50d3205a859c160a2
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: da55d83665792f6ea2f4c78aa2a6c3ca26c39233
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491789"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383197"
 ---
 # <a name="fail-over-vms-and-physical-servers"></a>VM 및 물리적 서버 장애 조치 
 
 이 문서에서는 Site Recovery에서 보호하는 가상 머신 및 물리적 서버를 장애 조치하는 방법에 대해 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 1. 장애 조치를 수행하기 전에 [테스트 장애 조치](site-recovery-test-failover-to-azure.md)를 수행하여 모든 것이 예상대로 작동하는지 확인합니다.
 1. 장애 조치를 수행하기 전에 대상 위치에서 [네트워크를 준비](site-recovery-network-design.md)합니다.  
 
@@ -27,15 +27,15 @@ ms.locfileid: "67491789"
 
 | 시나리오 | 애플리케이션 복구 요구 사항 | Hyper-V에 대한 워크플로 | VMware에 대한 워크플로
 |---|--|--|--|
-|예정된 데이터 센터 가동 중지 시간으로 인한 계획된 장애 조치| 계획된 작업을 수행할 때 애플리케이션에 대한 데이터 손실 없음| Hyper-V의 경우 ASR는 사용자가 지정한 빈도로 데이터를 복제합니다. 계획된 장애 조치는 장애 조치를 시작하기 전에 이 빈도를 재정의하고 최종 변경 내용을 복제하는 데 사용됩니다. <br/> <br/> 1.    비즈니스 변경 관리 프로세스에 따라 유지 관리 기간을 계획합니다. <br/><br/> 2. 예정된 가동 중지 시간을 사용자에게 알립니다. <br/><br/> 3. 사용자용 애플리케이션을 오프라인으로 전환합니다.<br/><br/>4. ASR 포털을 사용하여 계획된 장애 조치를 시작합니다. 온-프레미스 가상 머신은 자동으로 종료됩니다.<br/><br/>유효한 애플리케이션 데이터 손실 = 0 <br/><br/>이전의 복구 지점을 사용하려는 사용자에 대해 보존 기간 동안 복구 지점 저널이 제공됩니다. (Hyper-V의 경우 24시간 보존). 보존 기간 범위를 지나서 복제가 중지된 경우에도 고객은 사용 가능한 최신 복구 지점을 사용하여 장애 조치(failover)를 수행할 수 있습니다. | VMware의 경우 ASR은 CDP를 사용하여 데이터를 지속적으로 복제합니다. 장애 조치를 통해 최신 데이터로 장애 조치하는 옵션이 사용자에게 제공됩니다(애플리케이션 종료 후 포함).<br/><br/> 1. 변경 관리 프로세스에 따라 유지 관리 기간을 계획합니다. <br/><br/>2. 예정된 가동 중지 시간을 사용자에게 알립니다. <br/><br/>3.    사용자용 애플리케이션을 오프라인으로 전환합니다. <br/><br/>4.  애플리케이션이 오프라인으로 전환된 후에는 ASR 포털을 사용하여 최신 지점으로 계획된 장애 조치(failover)를 시작합니다. 포털에서 [계획되지 않은 장애 조치(failover)] 옵션을 사용하고 장애 조치할 최신 지점을 선택합니다. 온-프레미스 가상 머신은 자동으로 종료됩니다.<br/><br/>유효한 애플리케이션 데이터 손실 = 0 <br/><br/>이전의 복구 지점을 사용하려는 고객에 대해 보존 기간 동안 복구 지점 저널이 제공됩니다. (VMware의 경우 72시간 보존) 보존 기간 범위를 지나서 복제가 중지된 경우에도 고객은 사용 가능한 최신 복구 지점을 사용하여 장애 조치(failover)를 수행할 수 있습니다.
-|계획되지 않은 데이터 센터 가동 중지 시간으로 인한 장애 조치(자연 재해 또는 IT 재해) | 애플리케이션에 대한 최소한의 데이터 손실 | 1. 조직의 BCP 계획을 시작합니다. <br/><br/>2. ASR 포털을 사용하여 최신 또는 보존 기간의 지점(저널)으로 계획되지 않은 장애 조치를 시작합니다.| 1. 조직의 BCP 계획을 시작합니다. <br/><br/>2.  ASR 포털을 사용하여 최신 또는 보존 기간의 지점(저널)으로 계획되지 않은 장애 조치를 시작합니다.
+|예정된 데이터 센터 가동 중지 시간으로 인한 계획된 장애 조치| 계획된 작업을 수행할 때 애플리케이션에 대한 데이터 손실 없음| Hyper-V의 경우 ASR는 사용자가 지정한 빈도로 데이터를 복제합니다. 계획된 장애 조치는 장애 조치를 시작하기 전에 이 빈도를 재정의하고 최종 변경 내용을 복제하는 데 사용됩니다. <br/> <br/> 1. 비즈니스 변경 관리 프로세스에 따라 유지 관리 기간을 계획합니다. <br/><br/> 2. 예정 된 가동 중지 시간을 사용자에 게 알립니다. <br/><br/> 3. 사용자용 애플리케이션을 오프라인으로 전환합니다.<br/><br/>4. ASR 포털을 사용 하 여 계획 된 장애 조치를 시작 합니다. 온-프레미스 가상 머신은 자동으로 종료됩니다.<br/><br/>유효한 애플리케이션 데이터 손실 = 0 <br/><br/>이전의 복구 지점을 사용하려는 사용자에 대해 보존 기간 동안 복구 지점 저널이 제공됩니다. (Hyper-V의 경우 24시간 보존). 보존 기간 범위를 지나서 복제가 중지된 경우에도 고객은 사용 가능한 최신 복구 지점을 사용하여 장애 조치(failover)를 수행할 수 있습니다. | VMware의 경우 ASR은 CDP를 사용하여 데이터를 지속적으로 복제합니다. 장애 조치를 통해 최신 데이터로 장애 조치하는 옵션이 사용자에게 제공됩니다(애플리케이션 종료 후 포함).<br/><br/> 1. 변경 관리 프로세스에 따라 유지 관리 기간을 계획합니다. <br/><br/>2. 예정된 가동 중지 시간을 사용자에게 알립니다. <br/><br/>3. 사용자용 애플리케이션을 오프라인으로 전환합니다.<br/><br/>4. 애플리케이션이 오프라인으로 전환된 후에는 ASR 포털을 사용하여 최신 지점으로 계획된 장애 조치(failover)를 시작합니다. 포털에서 "계획 된 장애 조치 (Failover)" 옵션을 사용 하 고 장애 조치 (failover) 할 최신 지점을 선택 합니다. 온-프레미스 가상 머신은 자동으로 종료됩니다.<br/><br/>유효한 애플리케이션 데이터 손실 = 0 <br/><br/>이전의 복구 지점을 사용하려는 고객에 대해 보존 기간 동안 복구 지점 저널이 제공됩니다. (VMware의 경우 72시간 보존) 보존 기간 범위를 지나서 복제가 중지된 경우에도 고객은 사용 가능한 최신 복구 지점을 사용하여 장애 조치(failover)를 수행할 수 있습니다.
+|계획되지 않은 데이터 센터 가동 중지 시간으로 인한 장애 조치(자연 재해 또는 IT 재해) | 애플리케이션에 대한 최소한의 데이터 손실 | 1. 조직의 BCP 계획 시작 <br/><br/>2. ASR 포털을 사용하여 최신 또는 보존 기간의 지점(저널)으로 계획되지 않은 장애 조치를 시작합니다.| 1. 조직의 BCP 계획을 시작합니다. <br/><br/>2. ASR 포털을 사용하여 최신 또는 보존 기간의 지점(저널)으로 계획되지 않은 장애 조치를 시작합니다.
 
 
-## <a name="run-a-failover"></a>장애 조치(Failover) 실행
+## <a name="run-a-failover"></a>장애 조치(failover) 실행
 이 절차에서는 [복구 계획](site-recovery-create-recovery-plans.md)에 대한 장애 조치를 실행하는 방법을 설명합니다. 또는 [여기](vmware-azure-tutorial-failover-failback.md#run-a-failover-to-azure)에 설명된 대로 **복제된 항목** 페이지에서 단일 가상 머신 또는 물리적 서버에 대한 장애 조치(failover)를 실행할 수 있습니다.
 
 
-![장애 조치(failover)](./media/site-recovery-failover/Failover.png)
+![장애 조치](./media/site-recovery-failover/Failover.png)
 
 1. **복구 계획** > *recoveryplan_name*을 선택합니다. **장애 조치(Failover)** 를 클릭합니다.
 2. **장애 조치(Failover)** 화면에서 장애 조치할 **복구 지점**을 선택합니다. 다음 옵션 중 하나를 사용할 수 있습니다.
@@ -65,7 +65,7 @@ ms.locfileid: "67491789"
 1. 장애 조치 후에 가상 머신에 로그인하여 해당 가상 머신의 유효성을 검사합니다. 가상 머신에 대한 다른 복구 지점으로 전환하려면 **복구 지점 변경** 옵션을 사용할 수 있습니다.
 1. 장애 조치된 가상 머신에 만족하면 장애 조치를 **커밋**할 수 있습니다. **커밋하면 서비스에서 사용할 수 있는 복구 지점이 모두 삭제**되고 **복구 지점 변경** 옵션을 더 이상 사용할 수 없게 됩니다.
 
-## <a name="planned-failover"></a>계획된 장애 조치
+## <a name="planned-failover"></a>계획된 장애 조치(failover)
 Site Recovery를 사용하여 보호되는 가상 머신/물리적 서버는 **계획된 장애 조치**도 지원합니다. 계획된 장애 조치(failover)는 데이터 무손실 장애 조치 옵션입니다. 계획된 장애 조치(failover)가 트리거되면 먼저 원본 가상 머신이 종료되고, 최신 데이터가 동기화된 다음, 장애 조치(failover)가 트리거됩니다.
 
 > [!NOTE]
@@ -74,7 +74,7 @@ Site Recovery를 사용하여 보호되는 가상 머신/물리적 서버는 **�
  
 ## <a name="failover-job"></a>장애 조치 작업
 
-![장애 조치(failover)](./media/site-recovery-failover/FailoverJob.png)
+![장애 조치](./media/site-recovery-failover/FailoverJob.png)
 
 장애 조치가 트리거되면 다음 단계를 수행합니다.
 
@@ -111,7 +111,7 @@ Site Recovery를 사용하여 보호되는 가상 머신/물리적 서버는 **�
 ## <a name="post-failover-considerations"></a>장애 조치 후 고려 사항
 장애 조치 후 다음 권장 사항을 고려하는 것이 좋습니다.
 ### <a name="retaining-drive-letter-after-failover"></a>장애 조치 후 드라이브 문자 유지
-Azure Site Recovery는 보존 드라이브 문자를 처리합니다. [자세한](vmware-azure-exclude-disk.md#example-1-exclude-the-sql-server-tempdb-disk) 일부 디스크를 제외 하도록 선택 하면 수행 되는 방법입니다.
+Azure Site Recovery는 드라이브 문자 보존을 처리 합니다. 일부 디스크를 제외 하도록 선택 하는 경우 수행 되는 방법에 대해 [자세히](vmware-azure-exclude-disk.md#example-1-exclude-the-sql-server-tempdb-disk) 알아보세요.
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>장애 조치(Failover) 후 Azure VM에 연결할 준비
 

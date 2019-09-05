@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 8/14/2019
 ms.author: borisb
-ms.openlocfilehash: e18f1db80b8fcb2c8846ce0c7294e1766cfa1ca3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: accc59ee31ddb7371774da3235cc9ccff24ad641
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091376"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309217"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Azure의 Red Hat Enterprise Linux 이미지
 이 문서에서는 명명 및 보존 정책에 대한 정책과 함께 Azure Marketplace에서 사용할 수 있는 RHEL(Red Hat Enterprise Linux) 이미지를 설명합니다.
@@ -133,12 +133,12 @@ RHEL-SAP-HANA | 6.7      | RAW    | Linux 에이전트 | SAP HANA용 RHEL 6.7
 |             | 7.3      | LVM    | Linux 에이전트 | SAP HANA용 RHEL 7.3
 RHEL-SAP-APPS | 6.8      | RAW    | Linux 에이전트 | SAP Business Applications용 RHEL 6.8
 |             | 7.3      | LVM    | Linux 에이전트 | SAP Business Applications용 RHEL 7.3
-RHEL-HA       | 7.4      | RAW    | Linux 에이전트 | HA 추가 기능을 사용 하는 RHEL 7.4
-|             | 7.5      | RAW    | Linux 에이전트 | HA 추가 기능을 사용 하는 RHEL 7.5
-|             | 7.6      | RAW    | Linux 에이전트 | HA 추가 기능을 사용 하는 RHEL 7.6
-RHEL-HA   | 7.4      | RAW    | Linux 에이전트 | HA 추가 기능을 사용 하는 SAP 용 RHEL 7.4
-|             | 7.5      | RAW    | Linux 에이전트 | HA 추가 기능을 사용 하는 SAP 용 RHEL 7.5
-|             | 7.6      | RAW    | Linux 에이전트 | HA 추가 기능을 사용 하는 SAP 용 RHEL 7.6
+RHEL-HA       | 7.4      | LVM    | Linux 에이전트 | HA 추가 기능을 사용 하는 RHEL 7.4
+|             | 7.5      | LVM    | Linux 에이전트 | HA 추가 기능을 사용 하는 RHEL 7.5
+|             | 7.6      | LVM    | Linux 에이전트 | HA 추가 기능을 사용 하는 RHEL 7.6
+RHEL-HA   | 7.4      | LVM    | Linux 에이전트 | HA 추가 기능을 사용 하는 SAP 용 RHEL 7.4
+|             | 7.5      | LVM    | Linux 에이전트 | HA 추가 기능을 사용 하는 SAP 용 RHEL 7.5
+|             | 7.6      | LVM    | Linux 에이전트 | HA 추가 기능을 사용 하는 SAP 용 RHEL 7.6
 
 ### <a name="old-naming-convention"></a>이전 명명 규칙
 RHEL 7 이미지의 제품군 RHEL 6 이미지의 제품군은 위에서 설명한 명명 규칙이 변경될 때까지 해당 SKU의 특정 버전을 사용했습니다.

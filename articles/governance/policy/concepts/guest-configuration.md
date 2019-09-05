@@ -3,23 +3,26 @@ title: 컴퓨터의 콘텐츠를 감사 하는 방법 이해
 description: Azure Policy 게스트 구성을 사용 하 여 Azure 컴퓨터 내에서 설정을 감사 하는 방법을 알아봅니다.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/18/2019
+ms.date: 09/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 06a767af71f457273e0e20d1248d64c22b3563e7
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: bfa7f7486a9fa5ef62e8bf9e01dbe39d675d8d27
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/04/2019
-ms.locfileid: "70274940"
+ms.locfileid: "70308564"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 
-Azure 리소스를 감사 하 고 [수정](../how-to/remediate-resources.md) 하는 것 외에도 Azure Policy는 컴퓨터 내의 설정을 감사할 수 있습니다. 게스트 구성 확장 및 클라이언트가 유효성 검사를 수행합니다. 이 확장은 클라이언트를 통해 운영 체제 구성, 애플리케이션 구성/유무, 환경 설정 등의 설정 유효성을 검사합니다.
+감사 및 [수정](../how-to/remediate-resources.md) Azure 리소스 외에도 Azure Policy는 컴퓨터 내의 설정을 감사할 수 있습니다. 게스트 구성 확장 및 클라이언트가 유효성 검사를 수행합니다. 확장은 클라이언트를 통해 다음과 같은 설정의 유효성을 검사 합니다.
 
-지금은 게스트 구성 Azure Policy 컴퓨터 내 설정의 감사만 수행 합니다.
-아직 구성을 적용할 수는 없습니다.
+- 운영 체제의 구성
+- 응용 프로그램 구성 또는 상태
+- 환경 설정
+
+지금은 게스트 구성 Azure Policy 컴퓨터 내의 설정만 감사 합니다. 구성은 적용 되지 않습니다.
 
 ## <a name="extension-and-client"></a>확장 및 클라이언트
 
@@ -27,8 +30,7 @@ Azure 리소스를 감사 하 고 [수정](../how-to/remediate-resources.md) 하
 
 ### <a name="limits-set-on-the-extension"></a>확장에 설정 된 제한
 
-컴퓨터 내에서 실행 되는 응용 프로그램에 영향을 주지 않도록 확장을 제한 하기 위해 게스트 구성은 CPU 사용률의 5%를 초과할 수 없습니다.
-Microsoft에서 "기본 제공"으로 제공 하는 구성과 고객이 작성 한 사용자 지정 구성에 대해서도 마찬가지입니다.
+컴퓨터 내부에서 실행 되는 응용 프로그램에 영향을 주지 않도록 확장을 제한 하기 위해 게스트 구성은 CPU 사용률의 5%를 초과할 수 없습니다. 기본 제공 및 사용자 지정 정의 모두에 대해 이러한 제한 사항이 존재 합니다.
 
 ## <a name="register-guest-configuration-resource-provider"></a>게스트 구성 리소스 공급자 등록
 
@@ -68,7 +70,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 ### <a name="validation-frequency"></a>유효성 검사 빈도
 
-게스트 구성 클라이언트는 5분마다 새 콘텐츠를 확인합니다. 게스트 할당이 수신되면 15분 간격으로 설정을 확인합니다. 감사가 완료되는 즉시 게스트 구성 리소스 공급자로 결과가 전송됩니다. 정책 [평가 트리거](../how-to/get-compliance-data.md#evaluation-triggers)가 발생하면 컴퓨터 상태가 게스트 구성 리소스 공급자에 기록됩니다. 그러면 Azure Policy에서 Azure Resource Manager 속성을 평가합니다. 주문형 Azure Policy 평가판은 게스트 구성 리소스 공급자에서 최신 값을 검색 합니다. 그러나 컴퓨터 내에서 구성의 새 감사를 트리거하지 않습니다.
+게스트 구성 클라이언트는 5분마다 새 콘텐츠를 확인합니다. 게스트 할당이 수신되면 15분 간격으로 설정을 확인합니다. 감사가 완료되는 즉시 게스트 구성 리소스 공급자로 결과가 전송됩니다. 정책 [평가 트리거](../how-to/get-compliance-data.md#evaluation-triggers)가 발생하면 컴퓨터 상태가 게스트 구성 리소스 공급자에 기록됩니다. 이 업데이트를 실행 하면 Azure Policy에서 Azure Resource Manager 속성을 평가 합니다. 주문형 Azure Policy 평가판은 게스트 구성 리소스 공급자에서 최신 값을 검색 합니다. 그러나 컴퓨터 내에서 구성의 새 감사를 트리거하지 않습니다.
 
 ## <a name="supported-client-types"></a>지원되는 클라이언트 유형
 
@@ -93,7 +95,7 @@ Windows Server Nano Server는 어떤 버전 에서도 지원 되지 않습니다
 
 ## <a name="guest-configuration-extension-network-requirements"></a>게스트 구성 확장 네트워크 요구 사항
 
-Azure에서 게스트 구성 리소스 공급자와 통신 하려면 컴퓨터에 포트 **443**에서 azure 데이터 센터에 대 한 아웃 바운드 액세스가 필요 합니다. Azure에서 개인 가상 네트워크를 사용 하며 아웃 바운드 트래픽을 허용 하지 않는 경우 [네트워크 보안 그룹](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) 규칙을 사용 하 여 예외를 구성 해야 합니다. 지금은 게스트 구성 Azure Policy에 대 한 서비스 태그가 없습니다.
+Azure에서 게스트 구성 리소스 공급자와 통신 하려면 컴퓨터에 포트 **443**에서 azure 데이터 센터에 대 한 아웃 바운드 액세스가 필요 합니다. 아웃 바운드 트래픽을 허용 하지 않는 Azure에서 개인 가상 네트워크를 사용 하는 경우 [네트워크 보안 그룹](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) 규칙을 사용 하 여 예외를 구성 합니다. Azure Policy 게스트 구성에 대 한 서비스 태그가 현재 존재 하지 않습니다.
 
 IP 주소 목록 [Microsoft Azure 데이터 센터 Ip 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 다운로드할 수 있습니다. 이 파일은 매주 업데이트되고 현재 배포된 범위와 향후 예정된 IP 범위 변경 내용을 포함합니다. Vm이 배포 된 지역에서 Ip에 대 한 아웃 바운드 액세스를 허용 하기만 하면 됩니다.
 
@@ -113,16 +115,14 @@ IP 주소 목록 [Microsoft Azure 데이터 센터 Ip 범위](https://www.micros
 
 **Deployifnotexists** 할당이 비규격 이면 [수정 작업](../how-to/remediate-resources.md#create-a-remediation-task) 을 사용할 수 있습니다.
 
-**Deployifnotexists** 할당이 규격을 준수 하는 경우 **AuditIfNotExists** 정책 할당은 로컬 유효성 검사 도구를 사용 하 여 구성 할당이 규격 인지 아니면 비규격 인지를 확인 합니다.
-유효성 검사 도구는 게스트 구성 클라이언트에 결과를 제공합니다. 클라이언트는 게스트 확장에 결과를 전달하므로 게스트 구성 리소스 공급자를 통해 사용할 수 있습니다.
+**Deployifnotexists** 할당이 규격을 준수 하는 경우 **AuditIfNotExists** 정책 할당은 로컬 유효성 검사 도구를 사용 하 여 구성 할당이 규격 인지 아니면 비규격 인지를 확인 합니다. 유효성 검사 도구는 게스트 구성 클라이언트에 결과를 제공합니다. 클라이언트는 게스트 확장에 결과를 전달하므로 게스트 구성 리소스 공급자를 통해 사용할 수 있습니다.
 
 Azure Policy는 게스트 구성 리소스 공급자 **complianceStatus** 속성을 사용하여 **규정 준수** 노드에서 규정 준수를 보고합니다. 자세한 내용은 [규정 준수 데이터 가져오기](../how-to/getting-compliance-data.md)를 참조하세요.
 
 > [!NOTE]
-> **AuditIfNotExists** 정책에서 결과를 반환 하려면 **Deployifnotexists** 정책이 필요 합니다.
-> **Deployifnotexists**가 없으면 **AuditIfNotExists** 정책에 "0/0" 리소스가 상태로 표시 됩니다.
+> **AuditIfNotExists** 정책에서 결과를 반환 하려면 **Deployifnotexists** 정책이 필요 합니다. **Deployifnotexists**가 없으면 **AuditIfNotExists** 정책에 "0/0" 리소스가 상태로 표시 됩니다.
 
-할당에 사용할 정의를 그룹화할 수 있도록, 게스트 구성을 위한 모든 기본 제공 정책은 이니셔티브에 포함됩니다. *[미리 보기]: Linux 및 Windows 컴퓨터* 내의 암호 보안 설정 감사는 18 개의 정책을 포함 합니다. 그리고 Window용 **DeployIfNotExists** 및 **AuditIfNotExists** 쌍 6개와 Linux용 쌍 3개가 있습니다. 각 경우에서 정의 내의 논리는 [정책 규칙](definition-structure.md#policy-rule) 정의를 기준으로 하여 대상 운영 체제만 평가되는지 확인합니다.
+할당에 사용할 정의를 그룹화할 수 있도록, 게스트 구성을 위한 모든 기본 제공 정책은 이니셔티브에 포함됩니다. *[미리 보기]: Linux 및 Windows 컴퓨터* 내의 암호 보안 설정 감사는 18 개의 정책을 포함 합니다. 그리고 Window용 **DeployIfNotExists** 및 **AuditIfNotExists** 쌍 6개와 Linux용 쌍 3개가 있습니다. [정책 정의](definition-structure.md#policy-rule) 논리는 대상 운영 체제만 평가 되는지 확인 합니다.
 
 ### <a name="multiple-assignments"></a>여러 할당
 
@@ -130,7 +130,7 @@ Azure Policy는 게스트 구성 리소스 공급자 **complianceStatus** 속성
 
 ## <a name="built-in-resource-modules"></a>기본 제공 리소스 모듈
 
-게스트 구성 확장을 설치 하면 ' GuestConfiguration ' PowerShell 모듈이 최신 버전의 DSC 리소스 모듈에 포함 됩니다. 이 모듈은 모듈 페이지 [GuestConfiguration/](https://www.powershellgallery.com/packages/GuestConfiguration/)에서 ' 수동 다운로드 ' 링크를 사용 하 여 PowerShell 갤러리에서 다운로드할 수 있습니다.
+게스트 구성 확장을 설치 하는 경우 ' GuestConfiguration ' PowerShell 모듈은 최신 버전의 DSC 리소스 모듈에 포함 됩니다. 이 모듈은 모듈 페이지 [GuestConfiguration/](https://www.powershellgallery.com/packages/GuestConfiguration/)에서 ' 수동 다운로드 ' 링크를 사용 하 여 PowerShell 갤러리에서 다운로드할 수 있습니다.
 압축을 풀고 검토할 수 있도록 '. nupkg ' 파일 형식의 이름을 '. p s '로 바꿀 수 있습니다.
 
 ## <a name="client-log-files"></a>클라이언트 로그 파일
@@ -145,11 +145,12 @@ Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-<ver
 
 ### <a name="collecting-logs-remotely"></a>원격으로 로그 수집
 
-게스트 구성 구성 또는 모듈 문제를 해결 하는 첫 번째 단계는 `Test-GuestConfigurationPackage` [게스트 구성 패키지 테스트](../how-to/guest-configuration-create.md#test-a-guest-configuration-package)의 단계에 따라 cmdlet을 사용 하는 것입니다.  성공 하지 못하면 클라이언트 로그를 수집 하 여 문제를 진단할 수 있습니다.
+게스트 구성 구성 또는 모듈 문제를 해결 하는 첫 번째 단계는 `Test-GuestConfigurationPackage` [게스트 구성 패키지 테스트](../how-to/guest-configuration-create.md#test-a-guest-configuration-package)의 단계에 따라 cmdlet을 사용 하는 것입니다.
+실패 한 경우 클라이언트 로그를 수집 하면 문제를 진단 하는 데 도움이 될 수 있습니다.
 
 #### <a name="windows"></a>Windows
 
-Azure VM 실행 명령 기능을 사용 하 여 Windows 컴퓨터의 로그 파일에서 정보를 캡처하는 경우 다음 예제 PowerShell 스크립트를 사용 하는 것이 도움이 될 수 있습니다. Azure Portal에서 또는 Azure PowerShell를 사용 하 여 스크립트를 실행 하는 방법에 대 한 자세한 내용은 [Run 명령을 사용 하 여 WINDOWS VM에서 PowerShell 스크립트 실행](../../../virtual-machines/windows/run-command.md)을 참조 하세요.
+Azure VM 실행 명령 기능을 사용 하 여 Windows 컴퓨터의 로그 파일에서 정보를 캡처하려면 다음과 같은 PowerShell 스크립트를 사용 하는 것이 도움이 될 수 있습니다. 자세한 내용은 [Run 명령을 사용 하 여 WINDOWS VM에서 PowerShell 스크립트 실행](../../../virtual-machines/windows/run-command.md)을 참조 하세요.
 
 ```powershell
 $linesToIncludeBeforeMatch = 0
@@ -160,7 +161,7 @@ Select-String -Path "$latestVersion\dsc\logs\dsc.log" -pattern 'DSCEngine','DSCM
 
 #### <a name="linux"></a>Linux
 
-Azure VM 실행 명령 기능을 사용 하 여 Linux 컴퓨터의 로그 파일에서 정보를 캡처하는 경우 다음 예제 Bash 스크립트가 유용할 수 있습니다. Azure Portal에서 또는 Azure CLI를 사용 하 여 스크립트를 실행 하는 방법에 대 한 자세한 내용은 [Run 명령을 사용 하 여 LINUX VM에서 셸 스크립트 실행](../../../virtual-machines/linux/run-command.md) 을 참조 하세요.
+Azure VM 실행 명령 기능을 사용 하 여 Linux 컴퓨터의 로그 파일에서 정보를 캡처하는 경우 다음 예의 Bash 스크립트를 사용 하는 것이 도움이 될 수 있습니다. 자세한 내용은 [Run 명령을 사용 하 여 LINUX VM에서 셸 스크립트 실행](../../../virtual-machines/linux/run-command.md) 을 참조 하세요.
 
 ```Bash
 linesToIncludeBeforeMatch=0

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: ellacroi
-ms.openlocfilehash: b8d0759d96b0b2566934f117f5dea32ec4ad015c
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 209905eaf90e006ded232be73ab2a3a428568eda
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68000015"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309029"
 ---
 # <a name="marketplace-faqs"></a>Marketplace FAQ
 
@@ -263,7 +263,7 @@ Azure Marketplace는 상용 IT 소프트웨어와 서비스에 관심이 있는 
 
 **Azure Marketplace에서 애플리케이션을 판매해야 하는 이유와 Azure Marketplace에서 제공되는 이점은 무엇인가요?**
 
-Azure Marketplace에서는 제품과 서비스를 Azure 고객에게 홍보하고 판매할 수 있는 시장을 Microsoft 파트너에게 제공합니다. 게시자는 140 글로벌 시장, 당사의 300000 + 파트너 및 Azure의 엔터프라이즈 고객 네트워크에 즉시 액세스할 수 있습니다.  Marketplace에는 90% 이상의 Fortune 500 회사와 많은 세계 최고의 개발자가 포함 됩니다. Azure Marketplace의 새 파트너는 Azure Marketplace에서 제공 하는 제품의 인식을 향상 시킬 수 있도록 무료로 제공 되는 무료 [출시 혜택](gtm-your-marketplace-benefits.md#go-to-market-gtm-benefits-in-the-marketplace) 집합을 자동으로 제공 합니다.
+Azure Marketplace에서는 제품과 서비스를 Azure 고객에게 홍보하고 판매할 수 있는 시장을 Microsoft 파트너에게 제공합니다. 게시자는 140 글로벌 시장, 당사의 300000 + 파트너 및 Azure의 엔터프라이즈 고객 네트워크에 즉시 액세스할 수 있습니다.  Marketplace에는 90% 이상의 Fortune 500 회사와 많은 세계 최고의 개발자가 포함 됩니다. Azure Marketplace의 새 파트너는 Azure Marketplace에서 제공 하는 제품의 인식을 향상 시킬 수 있도록 무료로 제공 되는 무료 [출시 혜택](gtm-your-marketplace-benefits.md#list-trial-and-consulting-benefits) 집합을 자동으로 제공 합니다.
 
 **Azure Marketplace와 AppSource 간의 차별화 요소는 무엇인가요?**
 
@@ -348,7 +348,7 @@ Microsoft는 AAD를 통해 모든 Marketplace 사용자를 인증합니다.  추
 *Web Apps (SaaS 앱, 추가 기능) & 컨설팅 서비스:*
 
 1. Cloud 파트너 포털에서 물음표 아이콘을 선택 하 고 **지원**을 클릭 합니다.
-1. [https://partnercenter.microsoft.com/partner/support](<https://go.microsoft.com/fwlink/?linkid=844975>)로 이동하세요.
+1. 로 이동하세요 <https://go.microsoft.com/fwlink/?linkid=844975>.
 1. 지원 페이지에서 제품 유형을 선택합니다.
 1. 게시 된 제안 **제거** 를 선택 합니다.
 1. 인시던트 티켓을 만듭니다.

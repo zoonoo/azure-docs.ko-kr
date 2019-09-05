@@ -4,20 +4,20 @@ description: 선언적 JSON 구문을 사용하여 Azure Resource Manager 템플
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/02/2019
+ms.date: 08/29/2019
 ms.author: tomfitz
-ms.openlocfilehash: 53b2f9783b33c859ca2c5de5f35353b8482ea5c7
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: d396b6b48687e451396849cc256c25f847a219cf
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275129"
+ms.locfileid: "70306834"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 구조 및 구문 이해
 
-이 문서에서는 Azure Resource Manager 템플릿의 구조에 대해 설명합니다. 여기서는 템플릿의 다른 섹션 및 해당 섹션에서 사용할 수 있는 속성을 보여 줍니다. 템플릿은 배포에 대한 값을 생성하는 데 사용할 수 있는 식과 JSON으로 구성됩니다.
+이 문서에서는 Azure Resource Manager 템플릿의 구조에 대해 설명합니다. 여기서는 템플릿의 다른 섹션 및 해당 섹션에서 사용할 수 있는 속성을 보여 줍니다.
 
-이 문서는 리소스 관리자 템플릿에 대해 잘 알고 있는 사용자를 위한 것입니다. 템플릿의 구조 및 구문에 대 한 자세한 정보를 제공 합니다. 템플릿을 만드는 방법에 대 한 소개는 [첫 Azure Resource Manager 템플릿 만들기](resource-manager-create-first-template.md)를 참조 하세요.
+이 문서는 리소스 관리자 템플릿에 대해 잘 알고 있는 사용자를 위한 것입니다. 템플릿의 구조에 대 한 자세한 정보를 제공 합니다. 템플릿을 만드는 방법에 대 한 소개는 [Azure Resource Manager 템플릿](template-deployment-overview.md)을 참조 하세요.
 
 ## <a name="template-format"></a>템플릿 형식
 
@@ -51,11 +51,7 @@ ms.locfileid: "70275129"
 
 ## <a name="parameters"></a>매개 변수
 
-템플릿의 매개 변수 섹션에서는 리소스를 배포할 때 입력할 수 있는 값을 지정합니다. 이러한 매개 변수 값을 사용하여 개발, 테스트 및 프로덕션 등의 특정 환경에 맞게 조정되는 값을 제공함으로써 배포를 사용자 지정할 수 있습니다. 템플릿에서 매개 변수를 제공할 필요는 없지만 매개 변수가 없으면 템플릿이 항상 이름, 위치 및 속성이 같은 동일한 리소스를 배포합니다.
-
-템플릿에서 매개 변수는 256개로 제한됩니다. 이 문서에 표시된 것처럼 여러 속성이 포함된 개체를 사용하여 매개 변수 수를 줄일 수 있습니다.
-
-### <a name="available-properties"></a>사용 가능한 속성
+템플릿의 매개 변수 섹션에서는 리소스를 배포할 때 입력할 수 있는 값을 지정합니다. 템플릿에서 매개 변수는 256개로 제한됩니다. 여러 속성을 포함 하는 개체를 사용 하 여 매개 변수 수를 줄일 수 있습니다.
 
 매개 변수에 사용할 수 있는 속성은 다음과 같습니다.
 
@@ -76,9 +72,9 @@ ms.locfileid: "70275129"
 }
 ```
 
-| 요소 이름 | 필수 | Description |
+| 요소 이름 | 필수 | 설명 |
 |:--- |:--- |:--- |
-| parameterName |예 |매개 변수의 이름입니다. 유효한 JavaScript 식별자여야 합니다. |
+| 매개 변수-이름 |예 |매개 변수의 이름입니다. 유효한 JavaScript 식별자여야 합니다. |
 | type |예 |매개 변수 값의 유형입니다. 허용되는 유형 및 값은 **string**, **securestring**, **int**, **bool**, **object**, **secureObject** 및 **array**입니다. |
 | defaultValue |아니요 |매개 변수 값을 제공하지 않는 경우 매개 변수의 기본값입니다. |
 | allowedValues |아니요 |올바른 값을 제공하도록 매개 변수에 대해 허용되는 값의 배열입니다. |
@@ -88,150 +84,9 @@ ms.locfileid: "70275129"
 | maxLength |아니요 |string, securestring 및 array 형식 매개 변수의 최대 길이이며, 이 값이 포함됩니다. |
 | description |아니요 |포털에서 사용자에게 표시되는 매개 변수의 설명입니다. 자세한 내용은 [템플릿의 주석](#comments)을 참조하세요. |
 
-### <a name="define-and-use-a-parameter"></a>매개 변수 정의 및 사용
-
-다음 예제에서는 간단한 매개 변수 정의를 보여 줍니다. 매개 변수 이름을 정의하고 문자열 값을 사용하도록 지정합니다. 매개 변수는 용도에 적합한 값만 허용합니다. 매개 변수는 배포 중에 값을 제공하지 않으면 기본값을 지정합니다. 마지막으로 매개 변수에는 용도에 대한 설명이 포함됩니다.
-
-```json
-"parameters": {
-  "storageSKU": {
-    "type": "string",
-    "allowedValues": [
-      "Standard_LRS",
-      "Standard_ZRS",
-      "Standard_GRS",
-      "Standard_RAGRS",
-      "Premium_LRS"
-    ],
-    "defaultValue": "Standard_LRS",
-    "metadata": {
-      "description": "The type of replication to use for the storage account."
-    }
-  }   
-}
-```
-
-템플릿에서 다음 구문을 사용하여 매개 변수 값을 참조합니다.
-
-```json
-"resources": [
-  {
-    "type": "Microsoft.Storage/storageAccounts",
-    "sku": {
-      "name": "[parameters('storageSKU')]"
-    },
-    ...
-  }
-]
-```
-
-### <a name="template-functions-with-parameters"></a>매개 변수가 있는 템플릿 함수
-
-매개 변수에 기본값을 지정하는 경우 대부분의 템플릿 함수를 사용할 수 있습니다. 다른 매개 변수 값을 사용하여 기본값을 빌드할 수 있습니다. 다음 템플릿은 기본값인 함수의 사용을 보여 줍니다.
-
-```json
-"parameters": {
-  "siteName": {
-    "type": "string",
-    "defaultValue": "[concat('site', uniqueString(resourceGroup().id))]",
-    "metadata": {
-      "description": "The site name. To use the default value, do not specify a new value."
-    }
-  },
-  "hostingPlanName": {
-    "type": "string",
-    "defaultValue": "[concat(parameters('siteName'),'-plan')]",
-    "metadata": {
-      "description": "The host name. To use the default value, do not specify a new value."
-    }
-  }
-}
-```
-
-매개 변수 섹션에서는 `reference` 함수를 사용할 수 없습니다. 매개 변수는 배포 전에 평가되므로 `reference` 함수에서 리소스의 런타임 상태를 가져올 수 없습니다. 
-
-### <a name="objects-as-parameters"></a>개체를 매개 변수로 사용
-
-관련 값을 개체로 전달하면 더 쉽게 구성할 수 있습니다. 이렇게 하면 템플릿의 매개 변수 수도 줄어듭니다.
-
-템플릿에서 매개 변수를 정의하고 배포 중에 단일 값 대신 JSON 개체를 지정하세요. 
-
-```json
-"parameters": {
-  "VNetSettings": {
-    "type": "object",
-    "defaultValue": {
-      "name": "VNet1",
-      "location": "eastus",
-      "addressPrefixes": [
-        {
-          "name": "firstPrefix",
-          "addressPrefix": "10.0.0.0/22"
-        }
-      ],
-      "subnets": [
-        {
-          "name": "firstSubnet",
-          "addressPrefix": "10.0.0.0/24"
-        },
-        {
-          "name": "secondSubnet",
-          "addressPrefix": "10.0.1.0/24"
-        }
-      ]
-    }
-  }
-},
-```
-
-그런 다음 점 연산자를 사용하여 매개 변수의 하위 속성을 참조하세요.
-
-```json
-"resources": [
-  {
-    "apiVersion": "2015-06-15",
-    "type": "Microsoft.Network/virtualNetworks",
-    "name": "[parameters('VNetSettings').name]",
-    "location": "[parameters('VNetSettings').location]",
-    "properties": {
-      "addressSpace":{
-        "addressPrefixes": [
-          "[parameters('VNetSettings').addressPrefixes[0].addressPrefix]"
-        ]
-      },
-      "subnets":[
-        {
-          "name":"[parameters('VNetSettings').subnets[0].name]",
-          "properties": {
-            "addressPrefix": "[parameters('VNetSettings').subnets[0].addressPrefix]"
-          }
-        },
-        {
-          "name":"[parameters('VNetSettings').subnets[1].name]",
-          "properties": {
-            "addressPrefix": "[parameters('VNetSettings').subnets[1].addressPrefix]"
-          }
-        }
-      ]
-    }
-  }
-]
-```
-
-### <a name="parameter-example-templates"></a>매개 변수 예제 템플릿
-
-이러한 예제 템플릿은 매개 변수 사용에 대한 일부 시나리오를 보여 줍니다. 다른 시나리오에서 처리되는 방식을 테스트하려면 매개 변수를 배포하세요.
-
-|템플릿  |Description  |
-|---------|---------|
-|[parameters with functions for default values](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json)(기본값에 대한 함수가 있는 매개 변수) | 매개 변수의 기본값을 정의할 때 템플릿 함수를 사용하는 방법을 보여 줍니다. 템플릿은 리소스를 배포하지 않으며, 매개 변수 값을 구성하고 해당 값을 반환합니다. |
-|[parameter object](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json)(매개 변수 개체) | 매개 변수에 대한 개체 사용을 보여 줍니다. 템플릿은 리소스를 배포하지 않으며, 매개 변수 값을 구성하고 해당 값을 반환합니다. |
-
 ## <a name="variables"></a>변수
 
 변수 섹션에서 템플릿을 통해 사용할 수 있는 값을 생성합니다. 변수를 정의할 필요는 없지만 종종 변수를 통해 복잡한 식을 줄이면 템플릿이 단순화됩니다.
-
-### <a name="available-definitions"></a>사용 가능한 정의
 
 다음 예에서는 변수를 정의 하는 데 사용할 수 있는 옵션을 보여 줍니다.
 
@@ -262,76 +117,6 @@ ms.locfileid: "70275129"
 
 를 사용 `copy` 하 여 변수에 대 한 여러 값을 만드는 방법에 대 한 자세한 내용은 [변수 반복](resource-group-create-multiple.md#variable-iteration)을 참조 하세요.
 
-### <a name="define-and-use-a-variable"></a>변수를 정의하고 사용합니다.
-
-다음 예제는 변수 정의를 보여 줍니다. 스토리지 계정 이름의 문자열 값을 만듭니다. 여러 템플릿 함수를 사용 하 여 매개 변수 값을 가져오고이를 고유한 문자열에 연결 합니다.
-
-```json
-"variables": {
-  "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
-},
-```
-
-리소스를 정의할 때 변수를 사용합니다.
-
-```json
-"resources": [
-  {
-    "name": "[variables('storageName')]",
-    "type": "Microsoft.Storage/storageAccounts",
-    ...
-```
-
-### <a name="configuration-variables"></a>구성 변수
-
-복합 JSON 형식을 사용하여 환경에 대한 관련 값을 정의할 수 있습니다.
-
-```json
-"variables": {
-  "environmentSettings": {
-    "test": {
-      "instanceSize": "Small",
-      "instanceCount": 1
-    },
-    "prod": {
-      "instanceSize": "Large",
-      "instanceCount": 4
-    }
-  }
-},
-```
-
-매개 변수에서 사용할 구성 값을 나타내는 값을 만듭니다.
-
-```json
-"parameters": {
-  "environmentName": {
-    "type": "string",
-    "allowedValues": [
-      "test",
-      "prod"
-    ]
-  }
-},
-```
-
-다음과 같이 현재 설정을 검색합니다.
-
-```json
-"[variables('environmentSettings')[parameters('environmentName')].instanceSize]"
-```
-
-### <a name="variable-example-templates"></a>변수 예제 템플릿
-
-이러한 예제 템플릿은 변수 사용에 대한 일부 시나리오를 보여 줍니다. 변수가 다른 시나리오에서 처리되는 방식을 테스트하려면 변수를 배포하세요. 
-
-|템플릿  |Description  |
-|---------|---------|
-| [변수 정의](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | 다양한 변수 형식을 보여 줍니다. 템플릿은 리소스를 배포하지 않으며, 변수 값을 구성하고 해당 값을 반환합니다. |
-| [구성 변수](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | 구성 값을 정의하는 변수의 사용을 보여 줍니다. 템플릿은 리소스를 배포하지 않으며, 변수 값을 구성하고 해당 값을 반환합니다. |
-| [네트워크 보안 규칙](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) 및 [매개 변수 파일](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json) | 보안 규칙을 네트워크 보안 그룹에 할당하기 위한 올바른 형식으로 배열을 구성합니다. |
-
-
 ## <a name="functions"></a>함수
 
 템플릿 내에서 함수를 직접 만들 수 있습니다. 이러한 함수는 템플릿에서 사용할 수 있습니다. 일반적으로 템플릿 전체에서 반복하지 않으려는 복잡한 식을 정의합니다. 템플릿에서 지원되는 식 및 [함수](resource-group-template-functions.md)에서 사용자 정의 함수를 만듭니다.
@@ -344,23 +129,21 @@ ms.locfileid: "70275129"
 * 함수는 [참조 함수](resource-group-template-functions-resource.md#reference)를 사용할 수 없습니다.
 * 함수의 매개 변수는 기본값을 가질 수 없습니다.
 
-함수는 템플릿 함수와 이름 충돌을 피하기 위해 네임스페이스 값이 필요합니다. 다음 예제에서는 스토리지 계정 이름을 반환하는 함수를 보여줍니다.
-
 ```json
 "functions": [
   {
-    "namespace": "contoso",
+    "namespace": "<namespace-for-functions>",
     "members": {
-      "uniqueName": {
+      "<function-name>": {
         "parameters": [
           {
-            "name": "namePrefix",
-            "type": "string"
+            "name": "<parameter-name>",
+            "type": "<type-of-parameter-value>"
           }
         ],
         "output": {
-          "type": "string",
-          "value": "[concat(toLower(parameters('namePrefix')), uniqueString(resourceGroup().id))]"
+          "type": "<type-of-output-value>",
+          "value": "<function-return-value>"
         }
       }
     }
@@ -368,29 +151,18 @@ ms.locfileid: "70275129"
 ],
 ```
 
-다음을 사용하여 함수를 호출합니다.
-
-```json
-"resources": [
-  {
-    "name": "[contoso.uniqueName(parameters('storageNamePrefix'))]",
-    "type": "Microsoft.Storage/storageAccounts",
-    "apiVersion": "2016-01-01",
-    "sku": {
-      "name": "Standard_LRS"
-    },
-    "kind": "Storage",
-    "location": "South Central US",
-    "tags": {},
-    "properties": {}
-  }
-]
-```
+| 요소 이름 | 필수 | Description |
+|:--- |:--- |:--- |
+| namespace |예 |사용자 지정 함수에 대 한 네임 스페이스입니다. 템플릿 함수와의 이름 충돌을 방지 하는 데 사용 합니다. |
+| 함수 이름 |예 |사용자 지정 함수의 이름입니다. 함수를 호출할 때 함수 이름을 네임 스페이스와 결합 합니다. 예를 들어 contoso 네임 스페이스에서 uniqueName 이라는 함수를 호출 하려면를 사용 `"[contoso.uniqueName()]"`합니다. |
+| 매개 변수-이름 |아니요 |사용자 지정 함수 내에서 사용 되는 매개 변수의 이름입니다. |
+| 매개 변수-값 |아니요 |매개 변수 값의 유형입니다. 허용되는 유형 및 값은 **string**, **securestring**, **int**, **bool**, **object**, **secureObject** 및 **array**입니다. |
+| 출력 형식 |예 |출력 값의 유형입니다. 출력 값은 함수 입력 매개 변수와 동일한 형식을 지원 합니다. |
+| 출력-값 |예 |함수에서 계산 되 고 반환 되는 템플릿 언어 식입니다. |
 
 ## <a name="resources"></a>리소스
-리소스 섹션에서 배포되거나 업데이트되는 리소스를 정의합니다.
 
-### <a name="available-properties"></a>사용 가능한 속성
+리소스 섹션에서 배포되거나 업데이트되는 리소스를 정의합니다.
 
 다음과 같은 구조를 사용하여 리소스를 정의합니다.
 
@@ -448,13 +220,13 @@ ms.locfileid: "70275129"
 ]
 ```
 
-| 요소 이름 | 필수 | Description |
+| 요소 이름 | 필수 | 설명 |
 |:--- |:--- |:--- |
-| 조건 | 아니요 | 리소스가 이 배포 중 프로비전되는지 여부를 나타내는 부울 값입니다. `true`인 경우 리소스는 배포하는 동안 만들어집니다. `false`인 경우 리소스는 이 배포에 대해 건너뛰어집니다. [조건부 배포](conditional-resource-deployment.md)를 참조 하세요. |
+| 조건 | 아니요 | 리소스가 이 배포 중 프로비전되는지 여부를 나타내는 부울 값입니다. `true`인 경우 리소스는 배포하는 동안 만들어집니다. `false`인 경우 리소스는 이 배포에 대해 건너뛰어집니다. [조건](conditional-resource-deployment.md)을 참조 하세요. |
 | apiVersion |예 |리소스를 만들 때 사용하는 REST API의 버전입니다. 사용 가능한 값을 확인 하려면 [템플릿 참조](/azure/templates/)를 참조 하세요. |
 | type |예 |리소스 유형입니다. 이 값은 리소스 공급자의 네임스페이스와 리소스 형식을 조합한 값입니다(예: **Microsoft.Storage/storageAccounts**). 사용 가능한 값을 확인 하려면 [템플릿 참조](/azure/templates/)를 참조 하세요. 자식 리소스의 경우 형식의 형식은 부모 리소스 내에 중첩 되어 있는지, 부모 리소스 외부에 정의 되는지에 따라 달라 집니다. [자식 리소스에 대한 이름 및 형식 설정](child-resource-name-type.md)을 참조하세요. |
-| name |예 |리소스의 이름입니다. 이 이름은 RFC3986에 정의된 URI 구성 요소 제한을 따라야 합니다. 또한 리소스 이름을 외부에 노출하는 Azure 서비스는 다른 ID를 스푸핑하려는 시도가 아님을 확인하기 위해 이름의 유효성을 검사합니다. 자식 리소스의 경우 이름의 형식은 부모 리소스 내에 중첩 되어 있는지, 부모 리소스 외부에 정의 되는지에 따라 달라 집니다. [자식 리소스에 대한 이름 및 형식 설정](child-resource-name-type.md)을 참조하세요. |
-| 위치 |다름 |제공된 리소스의 지역적 위치를 지원합니다. 사용 가능한 위치 중 하나를 선택할 수 있지만 대개는 사용자에게 가까운 하나를 선택하는 것이 좋습니다. 일반적으로 동일한 지역에서 서로 상호 작용하도록 리소스를 배치하는 것도 좋습니다. 대부분의 리소스 종류에는 위치가 필요하지만 일부 종류(예: 역할 할당)에는 위치가 필요하지 않습니다. [리소스 위치 설정](resource-location.md) 을 참조 하세요. |
+| name |예 |리소스의 이름입니다. 이 이름은 RFC3986에 정의된 URI 구성 요소 제한을 따라야 합니다. 외부 파티에 리소스 이름을 노출 하는 Azure 서비스는 이름 유효성을 검사 하 여 다른 id를 스푸핑 하려고 하지 않았는지 확인 합니다. 자식 리소스의 경우 이름의 형식은 부모 리소스 내에 중첩 되어 있는지, 부모 리소스 외부에 정의 되는지에 따라 달라 집니다. [자식 리소스에 대한 이름 및 형식 설정](child-resource-name-type.md)을 참조하세요. |
+| 위치 |다름 |제공된 리소스의 지역적 위치를 지원합니다. 사용 가능한 위치 중 하나를 선택할 수 있지만 대개는 사용자에게 가까운 하나를 선택하는 것이 좋습니다. 일반적으로 동일한 지역에서 서로 상호 작용하도록 리소스를 배치하는 것도 좋습니다. 대부분의 리소스 종류에는 위치가 필요하지만 일부 종류(예: 역할 할당)에는 위치가 필요하지 않습니다. [리소스 위치 설정](resource-location.md)을 참조 하세요. |
 | 태그 |아니요 |리소스와 연결된 태그입니다. 태그를 적용하여 구독에서 리소스를 논리적으로 구성합니다. |
 | 설명 |아니요 |템플릿에서 리소스를 문서화하는 내용에 대한 참고입니다. 자세한 내용은 [템플릿의 주석](resource-group-authoring-templates.md#comments)을 참조하세요. |
 | 복사 |아니요 |인스턴스가 둘 이상 필요한 경우 만드는 리소스의 수입니다. 기본 모드는 병렬입니다. 모든 리소스를 동시에 배포하지 않으려면 직렬 모드를 지정합니다. 자세한 내용은 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요. |
@@ -465,71 +237,15 @@ ms.locfileid: "70275129"
 | 계획 | 아니요 | 일부 리소스에서는 배포할 계획을 정의하는 값을 허용합니다. 예를 들어 가상 머신에 대한 마켓플레이스 이미지를 지정할 수 있습니다. | 
 | 리소스 |아니요 |정의 중인 리소스에 종속되는 하위 리소스입니다. 부모 리소스의 스키마에서 허용되는 리소스 유형만 제공합니다. 부모 리소스에 대한 종속성은 암시되지 않습니다. 해당 종속성을 명시적으로 정의해야 합니다. [자식 리소스에 대한 이름 및 형식 설정](child-resource-name-type.md)을 참조하세요. |
 
-### <a name="resource-names"></a>리소스 이름
-
-일반적으로 Resource Manager에서는 세 가지 유형의 리소스 이름으로 작업합니다.
-
-* 고유해야 하는 리소스 이름
-* 고유해야 할 필요는 없지만, 리소스를 식별하는 데 도움이 될 수 있는 이름을 제공하기 위해 선택하는 리소스 이름입니다.
-* 일반적일 수 있는 리소스 이름
-
-데이터 액세스 끝점이 있는 리소스 형식에 대해 **고유한 리소스 이름을** 제공 합니다. 고유 이름이 필요한 일반적인 리소스 유형은 다음과 같습니다.
-
-* Azure Storage<sup>1</sup> 
-* Azure App Service의 Web Apps 기능
-* SQL Server
-* Azure Key Vault
-* Azure Cache for Redis
-* Azure Batch
-* Azure Traffic Manager
-* Azure Search
-* Azure HDInsight
-
-<sup>1</sup> Storage 계정 이름은 24자 이내의 소문자여야 하며 하이픈은 포함할 수 없습니다.
-
-이름을 설정할 때 고유한 이름을 수동으로 만들거나 [uniqueString()](resource-group-template-functions-string.md#uniquestring) 함수를 사용하여 이름을 생성할 수 있습니다. 또한 **uniqueString** 결과에 접두사 또는 접미사를 추가할 수도 있습니다. 고유한 이름을 수정하면 이름으로 리소스 유형을 보다 쉽게 식별할 수 있습니다. 예를 들어 다음 변수를 사용하여 스토리지 계정에 대한 고유 이름을 생성할 수 있습니다.
-
-```json
-"variables": {
-  "storageAccountName": "[concat(uniqueString(resourceGroup().id),'storage')]"
-}
-```
-
-일부 리소스 종류의 경우 **식별 이름을**지정할 수 있지만 이름은 고유 하지 않아도 됩니다. 이러한 리소스 형식에 대해 또는 특성을 사용 하 여 설명 하는 이름을 제공 합니다.
-
-```json
-"parameters": {
-  "vmName": { 
-    "type": "string",
-    "defaultValue": "demoLinuxVM",
-    "metadata": {
-      "description": "The name of the VM to create."
-    }
-  }
-}
-```
-
-주로 다른 리소스를 통해 액세스 하는 리소스 유형의 경우 템플릿에 하드 코드 된 **일반 이름을** 사용할 수 있습니다. 예를 들어 SQL Server에서 방화벽 규칙에 대해 표준 일반 이름을 설정할 수 있습니다.
-
-```json
-{
-  "type": "firewallrules",
-  "name": "AllowAllWindowsAzureIps",
-  ...
-}
-```
-
 ## <a name="outputs"></a>출력
 
 Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 일반적으로 배포 된 리소스에서 값을 반환 합니다.
-
-### <a name="available-properties"></a>사용 가능한 속성
 
 다음 예제에서는 출력 정의의 구조를 보여줍니다.
 
 ```json
 "outputs": {
-  "<outputName>" : {
+  "<output-name>" : {
     "condition": "<boolean-value-whether-to-output-value>",
     "type" : "<type-of-output-value>",
     "value": "<output-value-expression>"
@@ -539,72 +255,10 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 일반�
 
 | 요소 이름 | 필수 | Description |
 |:--- |:--- |:--- |
-| outputName |예 |출력 값의 이름입니다. 유효한 JavaScript 식별자여야 합니다. |
+| 출력-이름 |예 |출력 값의 이름입니다. 유효한 JavaScript 식별자여야 합니다. |
 | 조건 |아니요 | 이 출력 값의 반환 여부를 나타내는 부울 값입니다. `true`이면 해당 값이 배포의 출력에 포함됩니다. `false`이면 이 배포에 대한 출력 값을 건너뜁니다. 지정하지 않으면 기본값은 `true`입니다. |
 | type |예 |출력 값의 유형입니다. 출력 값은 템플릿 입력 매개 변수와 동일한 유형을 지원합니다. 출력 유형에 대해 **securestring** 을 지정 하는 경우 값은 배포 기록에 표시 되지 않으며 다른 템플릿에서 검색할 수 없습니다. 둘 이상의 템플릿에서 비밀 값을 사용 하려면 Key Vault에 비밀을 저장 하 고 매개 변수 파일에서 비밀을 참조 합니다. 자세한 내용은 [Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달](resource-manager-keyvault-parameter.md)을 참조하세요. |
 | value |예 |출력 값으로 계산되어 반환되는 템플릿 언어 식입니다. |
-
-### <a name="define-and-use-output-values"></a>출력 값 정의 및 사용
-
-다음 예제에서는 공용 IP 주소의 리소스 ID를 반환하는 방법을 보여줍니다.
-
-```json
-"outputs": {
-  "resourceID": {
-    "type": "string",
-    "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
-  }
-}
-```
-
-다음 예제에서는 새 항목이 배포되었는지 여부에 따라 공용 IP 주소의 리소스 ID를 조건부로 반환하는 방법을 보여 줍니다.
-
-```json
-"outputs": {
-  "resourceID": {
-    "condition": "[equals(parameters('publicIpNewOrExisting'), 'new')]",
-    "type": "string",
-    "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
-  }
-}
-```
-
-조건부 출력의 간단한 예는 [조건부 출력 템플릿](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/conditional-output/azuredeploy.json)을 참조 하세요.
-
-배포 후에 스크립트를 사용하여 값을 검색할 수 있습니다. PowerShell의 경우 다음을 사용합니다.
-
-```powershell
-(Get-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -Name <deployment-name>).Outputs.resourceID.value
-```
-
-Azure CLI의 경우
-
-```azurecli-interactive
-az group deployment show -g <resource-group-name> -n <deployment-name> --query properties.outputs.resourceID.value
-```
-
-[참조](resource-group-template-functions-resource.md#reference) 함수를 사용하여 연결된 템플릿에서 출력 값을 검색할 수 있습니다. 연결된 템플릿에서 출력 값을 가져오려면 `"[reference('deploymentName').outputs.propertyName.value]"` 같은 구문으로 속성 값을 검색합니다.
-
-연결된 템플릿에서 출력 속성을 가져올 때 속성 이름에 대시를 포함할 수 없습니다.
-
-다음 예제에서는 연결 된 템플릿에서 값을 검색 하 여 부하 분산 장치에서 IP 주소를 설정 하는 방법을 보여 줍니다.
-
-```json
-"publicIPAddress": {
-  "id": "[reference('linkedTemplate').outputs.resourceID.value]"
-}
-```
-
-`reference` 함수는 [중첩된 템플릿](resource-group-linked-templates.md#link-or-nest-a-template)의 출력 섹션에 사용할 수 없습니다. 중첩된 템플릿에서 배포된 리소스의 값을 반환하려면 중첩된 템플릿을 연결된 템플릿으로 변환합니다.
-
-### <a name="output-example-templates"></a>출력 예제 템플릿
-
-|템플릿  |Description  |
-|---------|---------|
-|[변수 복사](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | 복잡한 변수를 만들고 해당 값을 출력합니다. 여기서는 리소스를 배포하지 않습니다. |
-|[공용 IP 주소](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | 공용 IP 주소를 만들고 리소스 ID를 출력합니다. |
-|[부하 분산 장치](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) | 이전 템플릿에 연결됩니다. 부하 분산 장치를 만들 때 출력에 리소스 ID를 사용합니다. |
-
 
 <a id="comments" />
 
@@ -703,9 +357,8 @@ VS Code에서 언어 모드를 주석 포함 JSON으로 설정할 수 있습니�
 
    ![언어 모드 선택](./media/resource-group-authoring-templates/select-json-comments.png)
 
-[!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
-
 ## <a name="next-steps"></a>다음 단계
+
 * 다양한 유형의 솔루션에 대한 전체 템플릿을 보려면 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)을 참조하세요.
 * 템플릿 내에서 사용할 수 있는 함수에 대한 자세한 내용은 [Azure Resource Manager 템플릿 함수](resource-group-template-functions.md)를 참조하세요.
 * 배포 중 여러 템플릿을 결합하려면 [Azure Resource Manager에서 연결된 템플릿 사용](resource-group-linked-templates.md)을 참조하세요.

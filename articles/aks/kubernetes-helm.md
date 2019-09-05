@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/23/2019
 ms.author: zarhoads
-ms.openlocfilehash: 27d557ab12093223450fd7bc1b88c68e1f156947
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: bc74ac660c5bba0624416d0a1724d959a4c385a7
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135496"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305268"
 ---
 # <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Helm을 사용하여 애플리케이션 설치
 
@@ -70,10 +70,12 @@ RBAC 지원 Kubernetes 클러스터를 사용하여 Tiller가 클러스터에 �
 
 ## <a name="configure-helm"></a>Helm 구성
 
-기본 Tiller를 AKS 클러스터에 배포 하려면 [투구 init][helm-init] 명령을 사용 합니다. 클러스터가 RBAC를 사용할 수 없는 경우 `--service-account` 인수 및 값을 제거합니다. Tiller 및 Helm에 대한 TLS/SSL를 구성한 경우 이 기본 초기화 단계를 건너뛰고 대신 다음 예제와 같이 필수 `--tiller-tls-`를 제공합니다.
+기본 Tiller를 AKS 클러스터에 배포 하려면 [투구 init][helm-init] 명령을 사용 합니다. 클러스터가 RBAC를 사용할 수 없는 경우 `--service-account` 인수 및 값을 제거합니다. 또한 다음 예제에서는 [기록-최대][helm-history-max] 를 200으로 설정 합니다.
+
+Tiller 및 Helm에 대한 TLS/SSL를 구성한 경우 이 기본 초기화 단계를 건너뛰고 대신 다음 예제와 같이 필수 `--tiller-tls-`를 제공합니다.
 
 ```console
-helm init --service-account tiller --node-selectors "beta.kubernetes.io/os=linux"
+helm init --history-max 200 --service-account tiller --node-selectors "beta.kubernetes.io/os=linux"
 ```
 
 Helm과 Tiller 간에 TLS/SSL을 구성한 경우 다음 예제와 같이 `--tiller-tls-*` 매개 변수 및 고유한 인증서 이름을 제공합니다.
@@ -85,8 +87,9 @@ helm init \
     --tiller-tls-key tiller.key.pem \
     --tiller-tls-verify \
     --tls-ca-cert ca.cert.pem \
+    --history-max 200 \
     --service-account tiller \
-    --node-selectors "beta.kubernetes.io/os"="linux"
+    --node-selectors "beta.kubernetes.io/os=linux"
 ```
 
 ## <a name="find-helm-charts"></a>Helm 차트 찾기
@@ -140,7 +143,7 @@ $ helm repo update
 Hold tight while we grab the latest from your chart repositories...
 ...Skip local chart repository
 ...Successfully got an update from the "stable" chart repository
-Update Complete. ⎈ Happy Helming!⎈
+Update Complete.
 ```
 
 ## <a name="run-helm-charts"></a>Helm 차트 실행
@@ -217,6 +220,7 @@ Helm을 사용하여 Kubernetes 애플리케이션 배포를 관리하는 방법
 [helm-install]: https://docs.helm.sh/using_helm/#installing-helm
 [helm-install-options]: https://github.com/kubernetes/helm/blob/master/docs/install.md
 [helm-list]: https://docs.helm.sh/helm/#helm-list
+[helm-history-max]: https://helm.sh/docs/using_helm/#initialize-helm-and-install-tiller
 [helm-rbac]: https://docs.helm.sh/using_helm/#role-based-access-control
 [helm-repo-update]: https://docs.helm.sh/helm/#helm-repo-update
 [helm-search]: https://docs.helm.sh/helm/#helm-search

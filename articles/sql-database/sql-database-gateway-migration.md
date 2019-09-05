@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 1fc6c054b32c62fbebaa2af738e25ef0dec362ac
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 2e578c6bfdfb25eaba3d0c692ff33aa5b0572669
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981297"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306016"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>최신 게이트웨이로 트래픽 마이그레이션 Azure SQL Database
 
@@ -45,7 +45,7 @@ Azure 인프라가 개선 됨에 따라 Microsoft는 최상의 고객 환경을 
 - 온-프레미스 방화벽의 특정 게이트웨이에 대 한 IP 주소 하드 코딩
 - Microsoft .SQL를 서비스 엔드포인트로 사용 하지만 게이트웨이 IP 주소와 통신할 수 없는 모든 서브넷
 
-다음이 있는 경우에는 영향을 받지 않습니다. 
+다음이 있는 경우에는 영향을 받지 않습니다.
 - 연결 정책으로 리디렉션
 - Azure 내부에서 SQL Database 하 고 서비스 태그를 사용 하 여 연결
 - SQL Server에 대해 지원 되는 버전의 JDBC 드라이버를 사용 하 여 만든 연결은 영향을 받지 않습니다. 지원 되는 JDBC 버전은 [SQL Server 용 MICROSOFT JDBC Driver 다운로드](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server)를 참조 하세요.

@@ -11,12 +11,12 @@ ms.date: 06/18/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 2c90dcf1672a3d3505aaa19aec953ad97f5289bb
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: be59f5fd34c52397b54146a8aeaf51f4d594452f
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446212"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383345"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기 및 구성
 IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 컴퓨팅 인프라입니다. IR에 대한 세부 정보는 [통합 런타임 개요](concepts-integration-runtime.md)를 참조하세요.
@@ -44,7 +44,7 @@ IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합
 
     ```
 
-## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure VM에서 자체 호스팅된 IR을 설정 
+## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure VM에서 자체 호스팅 IR 설정 
 [이 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime)을 사용하여 Azure 가상 머신에서 자체 호스팅 IR 설정을 자동화할 수 있습니다. 이 템플릿을 사용하면 노드 수를 2개 이상으로 설정하는 한 Azure 가상 네트워크 내에서 고가용성 및 확장성 기능이 포함된 완벽하게 작동하는 자체 호스팅 IR을 쉽게 사용할 수 있습니다.
 
 ## <a name="command-flow-and-data-flow"></a>명령 흐름 및 데이터 흐름
@@ -57,13 +57,13 @@ IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합
 1. 데이터 개발자가 PowerShell cmdlet을 사용하여 Azure Data Factory 내에서 자체 호스팅 통합 런타임을 만듭니다. 현재 Azure Portal은 이 기능을 지원하지 않습니다.
 2. 데이터 개발자가 데이터 스토리지에 연결하는 데 사용할 자체 호스팅 통합 런타임 인스턴스를 지정하여 온-프레미스 데이터 스토리지에 대한 연결된 서비스를 만듭니다.
 3. 자체 호스팅 통합 런타임 노드가 Windows DPAPI(데이터 보호 응용 프로그래밍 인터페이스)를 사용하여 자격 증명을 암호화하고 로컬에 저장합니다. 고가용성을 위해 여러 노드가 설정된 경우 자격 증명이 다른 노드 간에 동기화됩니다. 각 노드는 DPAPI를 사용하여 자격 증명을 암호화하고 로컬에 저장합니다. 자격 증명 동기화는 데이터 개발자에게는 표시되지 않으며, 자체 호스팅 IR에서 처리됩니다.    
-4. 예약 및 관리를 통해 작업에 대 한 자체 호스팅된 integration runtime을 사용 하 여 통신 하는 Data Factory 서비스는 *컨트롤 채널* 공유를 사용 하는 [Azure Service Bus Relay](https://docs.microsoft.com/azure/service-bus-relay/relay-what-is-it#wcf-relay)합니다. 작업을 실행해야 할 때 데이터 팩터리가 자격 증명 정보와 함께 요청을 큐에 지정합니다(자격 증명이 아직 자체 호스팅 통합 런타임에 저장되지 않은 경우). 큐 폴링 후 자체 호스팅 통합 런타임에서 작업을 시작합니다.
+4. Data Factory 서비스는 공유 [Azure Service Bus Relay](https://docs.microsoft.com/azure/service-bus-relay/relay-what-is-it#wcf-relay)를 사용 하는 *컨트롤 채널* 을 통해 작업을 예약 하 고 관리 하기 위해 자체 호스팅 통합 런타임과 통신 합니다. 작업을 실행해야 할 때 데이터 팩터리가 자격 증명 정보와 함께 요청을 큐에 지정합니다(자격 증명이 아직 자체 호스팅 통합 런타임에 저장되지 않은 경우). 큐 폴링 후 자체 호스팅 통합 런타임에서 작업을 시작합니다.
 5. 자체 호스팅 통합 런타임이 데이터 파이프라인에서 복사 작업이 구성된 방법에 따라 온-프레미스 스토리지와 클라우드 스토리지 간에 데이터를 복사합니다. 이 단계에서 자체 호스팅 통합 런타임은 보안(HTTPS) 채널을 통해 Azure Blob Storage 등의 클라우드 기반 스토리지 서비스와 직접 통신합니다.
 
 ## <a name="considerations-for-using-a-self-hosted-ir"></a>자체 호스팅 IR 사용을 위한 고려 사항
 
 - 단일 자체 호스팅 통합 런타임을 여러 온-프레미스 데이터 원본에 사용할 수 있습니다. 각 자체 호스팅 통합 런타임은 같은 Azure Active Directory 테넌트 내의 다른 데이터 팩터리와만 공유할 수 있습니다. 자세한 내용은 [자체 호스팅 통합 런타임 공유](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories)를 참조하세요.
-- 각 컴퓨터에는 자체 호스팅 통합 런타임 인스턴스를 하나씩만 설치할 수 있습니다. 두 데이터 팩터리에 하거나 온-프레미스 데이터 원본에 액세스 해야 하는 사용 해야 하는 경우는 [자체 호스팅 IR 공유 기능](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories) 자체 호스팅된 통합 런타임을 공유 또는 두 자체 호스팅된 통합 런타임 설치 각 데이터 팩터리가 대 한 온-프레미스 컴퓨터입니다.  
+- 각 컴퓨터에는 자체 호스팅 통합 런타임 인스턴스를 하나씩만 설치할 수 있습니다. 온-프레미스 데이터 원본에 액세스 해야 하는 두 개의 데이터 팩터리가 있는 경우 자체 호스팅 [IR 공유 기능](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories) 을 사용 하 여 자체 호스팅 통합 런타임을 공유 하거나, 다음에 대해 하나씩 두 개의 온-프레미스 컴퓨터에 자체 호스팅 통합 런타임을 설치 합니다. 각 데이터 팩터리.  
 - 자체 호스팅 통합 런타임이 데이터 원본과 같은 컴퓨터에 있을 필요는 없습니다. 그러나 자체 호스팅 통합 런타임이 데이터 원본에 가까울수록 데이터 원본에 연결하는 시간이 줄어듭니다. 온-프레미스 데이터 원본을 호스트하는 컴퓨터와는 다른 컴퓨터에 자체 호스팅 통합 런타임을 설치하는 것이 좋습니다. 자체 호스팅 통합 런타임과 데이터 원본이 서로 다른 컴퓨터에 있으면 자체 호스팅 통합 런타임과 데이터 원본 간에 리소스 경합이 발생하지 않습니다.
 - 서로 다른 컴퓨터의 여러 자체 호스팅 통합 런타임이 동일한 온-프레미스 데이터 원본에 연결할 수 있습니다. 두 자체 호스팅 통합 런타임이 두 데이터 팩터리를 처리하는데 두 데이터 팩터리에 동일한 온-프레미스 데이터 원본에 등록되어 있는 경우를 예로 들 수 있습니다.
 - 컴퓨터에 Power BI 시나리오를 처리할 게이트웨이가 이미 설치된 경우 별도의 Azure Data Factory용 자체 호스팅 통합 런타임을 다른 컴퓨터에 설치합니다.
@@ -72,21 +72,24 @@ IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합
 - 클라우드의 데이터 스토리지가 Azure IaaS 가상 머신에 있더라도 자체 호스팅 통합 런타임을 사용해야 합니다.
 - FIPS 규격 암호화가 설정된 Windows 서버에 설치된 자체 호스팅 통합 런타임에서는 작업이 실패할 수 있습니다. 이 문제를 해결하려면 서버에서 FIPS 규격 암호화를 사용하지 않도록 설정합니다. FIPS 호환 암호화를 사용하지 않도록 설정하려면 다음 레지스트리 값을 1(사용)에서 0(사용 안 함)으로 변경합니다. `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-- Windows 7 서비스 팩 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 및 Windows Server 2019 버전은 지원 되는 운영 체제 버전. 도메인 컨트롤러에는 자체 호스팅 통합 런타임을 설치할 수 없습니다.
+- 지원 되는 운영 체제 버전은 Windows 7 서비스 팩 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 및 Windows Server 2019입니다. 도메인 컨트롤러에는 자체 호스팅 통합 런타임을 설치할 수 없습니다.
 - .NET Framework 4.6.1 이상이 필요합니다. Windows 7 컴퓨터에 자체 호스팅 통합 런타임을 설치하는 경우 .NET Framework 4.6.1 이상을 설치합니다. 자세한 내용은 [.NET Framework 시스템 요구 사항](/dotnet/framework/get-started/system-requirements)을 참조하세요.
 - 자체 호스팅 통합 런타임 컴퓨터의 권장 구성은 최소 2GHz, 4개 코어, 8GB RAM 및 80GB 디스크입니다.
 - 호스트 컴퓨터가 최대 절전 모드인 경우 자체 호스팅 통합 런타임이 데이터 요청에 응답하지 않습니다. 따라서 자체 호스팅 통합 런타임을 설치하기 전에 컴퓨터에서 전원 관리 옵션을 적절하게 구성하세요. 컴퓨터가 최대 절전 모드로 구성된 경우 자체 호스팅 통합 런타임 설치 시에 메시지가 표시됩니다.
 - 자체 호스팅 통합 런타임을 성공적으로 설치 및 구성하려면 컴퓨터의 관리자여야 합니다.
 - 복사 작업은 특정 빈도로 실행됩니다. 컴퓨터의 리소스(CPU, 메모리) 사용량은 사용량이 최대인 시간 및 유효 시간과 동일한 패턴을 따릅니다. 리소스 사용률은 이동하는 데이터 양에 따라 달라집니다. 여러 복사 작업이 진행 중인 경우 사용량이 많은 시간 동안 리소스 사용량이 증가하는 것을 볼 수 있습니다.
+- Parquet, ORC 또는 Avro 형식의 데이터를 추출 하는 경우 태스크가 실패할 수 있습니다. 파일 생성은 자체 호스팅 통합 컴퓨터에서 실행 되며 다음과 같은 필수 구성 요소가 예상 대로 작동 해야 합니다 ( [Azure Data Factory Parquet 형식](https://docs.microsoft.com/azure/data-factory/format-parquet#using-self-hosted-integration-runtime)참조).
+    - [Visual C++ 2010 재배포 가능](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) 패키지 (x64)
+    - Jre (Java Runtime) 버전 8 (예: `JAVA_HOME` [openjdk 채택](https://adoptopenjdk.net/))은 환경 변수가 설정 되었는지 확인 합니다.
 
 ## <a name="installation-best-practices"></a>설치 모범 사례
 자체 호스팅 통합 런타임은 [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=39717)에서 MSI 설치 패키지를 다운로드하여 설치할 수 있습니다. 단계별 지침은 [온-프레미스 및 클라우드 간 데이터 이동](tutorial-hybrid-copy-powershell.md) 문서를 참조하세요.
 
 - 호스트 컴퓨터가 최대 절전 모드로 설정되지 않도록 해당 컴퓨터에서 자체 호스팅 통합 런타임에 대한 전원 관리 옵션을 구성합니다. 호스트 컴퓨터가 최대 절전 모드로 설정되면 자체 호스팅 통합 런타임도 오프라인 상태가 됩니다.
 - 자체 호스팅된 통합 런타임과 연결된 자격 증명은 정기적으로 백업합니다.
-- 자체 호스팅된 IR을 자동화 하는 것에 대 한 설치 작업을 참조 하세요 [섹션 아래](#automation-support-for-self-hosted-ir-function)합니다.  
+- 자체 호스팅 IR 설정 작업을 자동화 하려면 [아래 섹션](#automation-support-for-self-hosted-ir-function)을 참조 하세요.  
 
 ## <a name="install-and-register-self-hosted-ir-from-the-download-center"></a>다운로드 센터에서 자체 호스팅 IR 설치 및 등록
 
@@ -111,15 +114,15 @@ IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합
 
     다. **등록**을 선택합니다.
 
-## <a name="automation-support-for-self-hosted-ir-function"></a>자체 호스팅 IR 함수 방식이 대 한 자동화 지원
+## <a name="automation-support-for-self-hosted-ir-function"></a>자체 호스팅 IR 함수에 대 한 자동화 지원
 
 
 > [!NOTE]
-> 자체 호스팅된 IR을 Azure 가상 머신에서 설치 및 Azure Resource Manager 템플릿을 사용 하 여 설치를 자동화 하려면, 하세요 계획 이라면 [섹션](#setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template)합니다.
+> Azure 가상 컴퓨터에서 자체 호스팅 IR을 설정 하 고 Azure Resource Manager 템플릿을 사용 하 여 설치를 자동화 하려는 경우 [섹션](#setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template)을 참조 하세요.
 
-명령줄을 사용 하 여 설정 또는 기존 자체 호스팅된 IR.를 관리 하기 위한 설치, 자체 호스팅 IR 노드의 등록을 자동화 하는 데 특히이 사용할 수 있습니다. 
+명령줄을 사용 하 여 기존 자체 호스팅 IR을 설정 하거나 관리할 수 있습니다. 이는 특히 자체 호스팅 IR 노드의 등록을 자동화 하는 데 사용할 수 있습니다. 
 
-**Dmgcmd.exe** 일반적으로 자체 호스팅된 설치에 포함 됩니다. C:\Program Files\Microsoft Integration Runtime\3.0\Shared\ folder. 이 다양 한 매개 변수를 지원 하며 자동화에 대 한 일괄 처리 스크립트를 사용 하 여 명령 프롬프트를 통해 호출할 수 있습니다. 
+**Dmgcmd** 는 일반적으로 다음과 같은 자체 호스팅 설치에 포함 되어 있습니다. C:\Program Files\Microsoft Integration Runtime\3.0\Shared\ folder. 이는 다양 한 매개 변수를 지원 하며, 자동화를 위해 배치 스크립트를 사용 하 여 명령 프롬프트를 통해 호출할 수 있습니다. 
 
 *사용:* 
 
@@ -127,36 +130,36 @@ IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합
 dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<thumbprint>"] -EnableRemoteAccessInContainer "<port>" ["<thumbprint>"] -DisableRemoteAccess -Key "<AuthenticationKey>" -GenerateBackupFile "<filePath>" "<password>" -ImportBackupFile "<filePath>" "<password>" -Restart -Start -Stop -StartUpgradeService -StopUpgradeService -TurnOnAutoUpdate -TurnOffAutoUpdate -SwitchServiceAccount "<domain\user>" ["password"] -Loglevel <logLevel> ] 
 ```
 
- *세부 정보 (매개 변수 / 속성):* 
+ *세부 정보 (매개 변수/속성):* 
 
-| 자산                                                    | 설명                                                  | 필수 |
+| 속성                                                    | 설명                                                  | 필수 |
 | ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
-| RegisterNewNode "`<AuthenticationKey>`"                     | 지정된 된 인증 키를 사용 하 여 Integration Runtime (자체 호스팅된) 노드 등록 | 아닙니다.       |
-| EnableRemoteAccess "`<port>`" ["`<thumbprint>`"]            | 높은 가용성 클러스터 설정 및/또는 사용 하 여 자체 호스팅 IR (않고 ADF 서비스)에 대해 직접 자격 증명의 설정을 사용 하면 현재 노드에서의 원격 액세스를 사용 하도록 설정  **새 AzDataFactoryV2LinkedServiceEncryptedCredential** 동일한 네트워크에서 원격 컴퓨터에서 cmdlet. | 아닙니다.       |
-| EnableRemoteAccessInContainer "`<port>`" ["`<thumbprint>`"] | 노드는 컨테이너에서 실행 중인 경우 현재 노드로 원격 액세스를 사용 하도록 설정 | 아닙니다.       |
-| DisableRemoteAccess                                         | 현재 노드에 원격 액세스를 사용 하지 않도록 설정 합니다. 원격 액세스 다중 노드 설치 필요 합니다. 새로 만들기-**AzDataFactoryV2LinkedServiceEncryptedCredential** PowerShell cmdlet도 경우 원격 액세스는 사용 하지 않도록 설정 자체 호스팅된 IR 노드가 동일한 컴퓨터에서 실행 될으로 계속 작동 합니다. | 아닙니다.       |
-| 키 "`<AuthenticationKey>`"                                 | 덮어쓰기/이전 인증 키를 업데이트 합니다. 주의 하세요 새 통합 런타임의 키가 있으면이 오프 라인으로 전환, 자체 호스팅된 IR 노드 이전 될 수 있습니다. | 아닙니다.       |
-| GenerateBackupFile "`<filePath>`" "`<password>`"            | 현재 노드에 대 한 백업 파일을 생성, 노드 키 및 데이터 저장소 자격 증명을 포함 하는 백업 파일 | 아닙니다.       |
-| ImportBackupFile "`<filePath>`" "`<password>`"              | 백업 파일에서 노드 복원                          | 아닙니다.       |
-| 다시 시작                                                     | Integration Runtime (자체 호스팅된) 호스트 서비스를 다시 시작   | 아닙니다.       |
-| 시작                                                       | Integration Runtime (자체 호스팅된) 호스트 서비스를 시작 합니다.     | 아닙니다.       |
-| 중지                                                        | Integration Runtime (자체 호스팅된) 업데이트 서비스 중지        | 아닙니다.       |
-| StartUpgradeService                                         | Integration Runtime (자체 호스팅된) 업데이트 서비스 시작       | 아닙니다.       |
-| StopUpgradeService                                          | Integration Runtime (자체 호스팅된) 업데이트 서비스 중지        | 아닙니다.       |
-| TurnOnAutoUpdate                                            | Integration Runtime (자체 호스팅된) 자동 업데이트 설정        | 아닙니다.       |
-| TurnOffAutoUpdate                                           | Integration Runtime (자체 호스팅된) 자동 업데이트 해제       | 아닙니다.       |
-| SwitchServiceAccount "<domain\user>" ["password"]           | 새 계정으로 실행 되도록 DIAHostService를 설정 합니다. 빈 암호 사용 ("") 시스템 계정 또는 가상 계정에 대 한 | 아닙니다.       |
-| Loglevel `<logLevel>`                                       | ETW 로그 수준입니다 (해제, 오류, 자세히 또는 모두)을 설정 합니다. 디버깅 하는 동안 Microsoft 지원에서 사용 됩니다. | 아닙니다.       |
+| RegisterNewNode "`<AuthenticationKey>`"                     | 지정 된 인증 키를 사용 하 여 Integration Runtime(자체 호스팅) 노드 등록 | 아니요       |
+| EnableRemoteAccess "`<port>`" ["`<thumbprint>`"]            | 고가용성 클러스터를 설정 하기 위해 현재 노드에서 원격 액세스를 사용 하도록 설정 하거나,를 사용 하 여 **자체 호스팅 IR (ADF 서비스를 통하지 않고)에 대해 직접 자격 증명을 설정 하도록 설정 합니다.** 동일한 네트워크에 있는 원격 컴퓨터의 AzDataFactoryV2LinkedServiceEncryptedCredential cmdlet | 아니요       |
+| EnableRemoteAccessInContainer "`<port>`" ["`<thumbprint>`"] | 노드가 컨테이너에서 실행 되는 경우 현재 노드에 대 한 원격 액세스 사용 | 아니요       |
+| DisableRemoteAccess                                         | 현재 노드에 대 한 원격 액세스를 사용 하지 않도록 설정 합니다. 다중 노드 설정에는 원격 액세스가 필요 합니다. **AzDataFactoryV2LinkedServiceEncryptedCredential** PowerShell cmdlet은 자체 호스팅 IR 노드와 동일한 컴퓨터에서 실행 되는 원격 액세스를 사용 하지 않도록 설정한 경우에도 계속 작동 합니다. | 아니요       |
+| "`<AuthenticationKey>`" 키                                 | 이전 인증 키를 덮어쓰거나 업데이트 합니다. 키가 새 통합 런타임 인 경우이로 인해 이전 자체 호스팅 IR 노드가 오프 라인으로 전환 될 수 있으므로 주의 하세요. | 아니요       |
+| GenerateBackupFile "`<filePath>`" "`<password>`"            | 현재 노드에 대 한 백업 파일을 생성 합니다. 백업 파일에는 노드 키와 데이터 저장소 자격 증명이 포함 됩니다. | 아니요       |
+| ImportBackupFile "`<filePath>`" "`<password>`"              | 백업 파일에서 노드 복원                          | 아니요       |
+| 다시 시작                                                     | Integration Runtime(자체 호스팅) 호스트 서비스를 다시 시작 합니다.   | 아니요       |
+| 시작                                                       | Integration Runtime(자체 호스팅) 호스트 서비스 시작     | 아니요       |
+| Stop                                                        | Integration Runtime(자체 호스팅) 업데이트 서비스 중지        | 아니요       |
+| StartUpgradeService                                         | Integration Runtime(자체 호스팅) 업데이트 서비스 시작       | 아니요       |
+| StopUpgradeService                                          | Integration Runtime(자체 호스팅) 업데이트 서비스 중지        | 아니요       |
+| TurnOnAutoUpdate                                            | Integration Runtime(자체 호스팅) 자동 업데이트 설정        | 아니요       |
+| TurnOffAutoUpdate                                           | 자동 업데이트 Integration Runtime(자체 호스팅) 해제       | 아니요       |
+| SwitchServiceAccount "<domain\user>" ["password"]           | 새 계정으로 실행 되도록 DIAHostService를 설정 합니다. 시스템 계정 또는 가상 계정에 대해 빈 암호 ("")를 사용 합니다. | 아니요       |
+| Loglevel`<logLevel>`                                       | ETW 로그 수준을 설정 합니다 (해제, 오류, 자세한 정보 표시 또는 모두). 일반적으로 디버깅 하는 동안 Microsoft 지원에 사용 됩니다. | 아니요       |
 
    
 
 
 ## <a name="high-availability-and-scalability"></a>고가용성 및 확장성
-자체 호스팅된 통합 런타임을 여러 온-프레미스 컴퓨터나 Azure에서 가상 컴퓨터를 사용 하 여 연결할 수 있습니다. 이러한 컴퓨터를 노드라고 합니다. 최대 4개의 노드를 자체 호스팅 통합 런타임에 연결할 수 있습니다. 논리 게이트웨이에 여러 노드(게이트웨이가 설치된 온-프레미스 컴퓨터)를 사용하는 경우의 이점은 다음과 같습니다.
+자체 호스팅 integration runtime은 여러 온-프레미스 컴퓨터 또는 Azure에서 Virtual Machines 연결할 수 있습니다. 이러한 컴퓨터를 노드라고 합니다. 최대 4개의 노드를 자체 호스팅 통합 런타임에 연결할 수 있습니다. 논리 게이트웨이에 여러 노드(게이트웨이가 설치된 온-프레미스 컴퓨터)를 사용하는 경우의 이점은 다음과 같습니다.
 * 최대 4개의 노드를 연결하여 장애 시에도 작업을 계속할 수 있으므로 클라우드 데이터와 Azure Data Factory 통합 또는 빅 데이터 솔루션에서 더 이상 단일 장애 지점이 발생하지 않습니다. 따라서 자체 호스팅 통합 런타임의 가용성이 높아집니다.
 * 온-프레미스 및 클라우드 데이터 저장소 간의 데이터 이동 성능 및 처리량을 향상시킵니다. 자세한 내용은 [성능 비교](copy-activity-performance.md)를 참조하세요.
 
-[다운로드 센터](https://www.microsoft.com/download/details.aspx?id=39717)에서 자체 호스팅 통합 런타임 소프트웨어를 설치해 여러 노드를 연결할 수 있습니다. 다음, 등록에서 얻은 인증 키 중 하나를 사용 하 여는 **새로 만들기-AzDataFactoryV2IntegrationRuntimeKey** 에 설명 된 대로 cmdlet는 [자습서](tutorial-hybrid-copy-powershell.md)합니다.
+[다운로드 센터](https://www.microsoft.com/download/details.aspx?id=39717)에서 자체 호스팅 통합 런타임 소프트웨어를 설치해 여러 노드를 연결할 수 있습니다. 그런 다음 [자습서](tutorial-hybrid-copy-powershell.md)에 설명 된 대로 **AzDataFactoryV2IntegrationRuntimeKey** cmdlet에서 가져온 인증 키 중 하나를 사용 하 여 등록 합니다.
 
 > [!NOTE]
 > 각 노드 연결을 위해 자체 호스팅 통합 런타임을 새로 만들 필요는 없습니다. 자체 호스팅 통합 런타임을 다른 컴퓨터에서 설치하고 동일한 인증 키를 사용하여 등록할 수 있습니다. 
@@ -187,7 +190,7 @@ Integration Runtime 노드 간의 통신 보안에 사용되는 TLS/SSL 인증�
 - CNG 키를 사용하는 인증서는 지원되지 않습니다.  
 
 > [!NOTE]
-> 이 인증서는 암호화에 사용 되는 자체 호스팅 IR 노드의 포트에 사용 됩니다 **노드 간 통신** (에 대 한 연결 된 서비스를 포함 하는 동기화 상태 노드에서 동기화 자격 증명) 및 while **PowerShell을 사용 하 여 연결 된 서비스에 대 한 cmdlet credential 설정을** 에서 로컬 네트워크 내에서. 프라이빗 네트워크 환경이 안전하지 않거나 프라이빗 네트워크 내의 노드 간 통신을 보호하려는 경우 이 인증서를 사용하는 것이 좋습니다. 자체 호스팅된 IR에서 다른 데이터 저장소로 전송되는 데이터 이동은이 인증서의 설정 여부와 관계 없이 항상 암호화된 채널을 사용하여 이루어집니다. 
+> 이 인증서는 노드 간 **통신** 에 사용 되는 자체 호스팅 IR 노드의 포트를 암호화 하는 데 사용 됩니다 .이 경우에는 노드에 대 한 연결 된 서비스의 자격 증명 동기화를 포함 하는 상태 동기화에 대해 **PowerShell cmdlet을 사용 합니다. 로컬 네트워크 내에서 연결 된 서비스 자격 증명 설정** 입니다. 프라이빗 네트워크 환경이 안전하지 않거나 프라이빗 네트워크 내의 노드 간 통신을 보호하려는 경우 이 인증서를 사용하는 것이 좋습니다. 자체 호스팅된 IR에서 다른 데이터 저장소로 전송되는 데이터 이동은이 인증서의 설정 여부와 관계 없이 항상 암호화된 채널을 사용하여 이루어집니다. 
 
 ## <a name="sharing-the-self-hosted-integration-runtime-with-multiple-data-factories"></a>여러 데이터 팩터리와 자체 호스팅 통합 런타임 공유
 
@@ -295,7 +298,7 @@ download.microsoft.com | 443 | 업데이트 다운로드에 사용됨
 
 ![프록시 지정](media/create-self-hosted-integration-runtime/specify-proxy.png)
 
-프록시 서버를 사용 하 여 클라우드 서비스에 연결 하려면 원본 자체 호스팅된 integration runtime 구성 되 면 / 대상 (HTTP를 사용 하 여 / HTTPS 프로토콜). 이 선택 **변경 링크** 초기 설정 중입니다. 그러면 프록시 설정 대화 상자가 나타납니다.
+구성 된 경우 자체 호스팅 통합 런타임은 프록시 서버를 사용 하 여 클라우드 서비스, 원본/대상 (HTTP/HTTPS 프로토콜을 사용 하는)에 연결 합니다. 초기 설치 중에 **변경 링크** 를 선택 합니다. 그러면 프록시 설정 대화 상자가 나타납니다.
 
 ![프록시 설정](media/create-self-hosted-integration-runtime/set-http-proxy.png)
 
@@ -371,7 +374,7 @@ Microsoft Azure가 회사의 허용 목록에 있는지도 확인해야 합니�
     ```
 
 ### <a name="enabling-remote-access-from-an-intranet"></a>인트라넷에서 원격 액세스를 사용하도록 설정  
-PowerShell을 사용 하 여 자체 호스팅된 통합 런타임이 설치 된 위치 이외의 다른 컴퓨터 (네트워크)에서 자격 증명을 암호화 하는 경우 사용할 수 있습니다 합니다 **인트라넷에서 원격 액세스** 옵션입니다. PowerShell을 실행 하는 동일한 컴퓨터에 자격 증명을 암호화 자체 호스팅된 통합 런타임이 설치 되어 있는 경우 사용할 수 없습니다 **인트라넷에서 원격 액세스**합니다.
+PowerShell을 사용 하 여 자체 호스팅 통합 런타임이 설치 된 위치 이외의 다른 컴퓨터 (네트워크)에서 자격 증명을 암호화 하는 경우 **인트라넷에서 원격 액세스** 옵션을 사용 하도록 설정할 수 있습니다. PowerShell을 실행 하 여 자체 호스팅 통합 런타임이 설치 된 컴퓨터와 동일한 컴퓨터에서 자격 증명을 암호화 하는 경우 **인트라넷에서 원격 액세스**를 사용 하도록 설정할 수 없습니다.
 
 고가용성과 확장성을 보장하기 위해 다른 노드를 추가하기 전에 **인트라넷에서 원격 액세스**를 사용하도록 설정해야 합니다.  
 
@@ -383,7 +386,7 @@ PowerShell을 사용 하 여 자체 호스팅된 통합 런타임이 설치 된 
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 ```
 
-자체 호스팅 통합 런타임 컴퓨터에서 포트 8060을 열지 않는 경우 자격 증명 설정 애플리케이션을 사용하는 방식 이외의 메커니즘을 사용하여 데이터 스토리지 자격 증명을 구성합니다. 예를 들어 사용할 수 있습니다 합니다 **새로 만들기-AzDataFactoryV2LinkedServiceEncryptCredential** PowerShell cmdlet.
+자체 호스팅 통합 런타임 컴퓨터에서 포트 8060을 열지 않는 경우 자격 증명 설정 애플리케이션을 사용하는 방식 이외의 메커니즘을 사용하여 데이터 스토리지 자격 증명을 구성합니다. 예를 들어 **AzDataFactoryV2LinkedServiceEncryptCredential** PowerShell cmdlet을 사용할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계
