@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 08/30/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b90b4806e86ed0ba33500cf31a6ed892241ceabe
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: c7b0dc39d2da403383f245b9ff3227734c58cbbe
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423459"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193494"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker 기술 자료 제한 및 경계
 
@@ -44,19 +44,31 @@ URL 페이지에서 QnAs를 추출 하기 위해 크롤링할 수 있는 딥 링
 
 ## <a name="metadata-limits"></a>메타데이터 제한
 
+### <a name="by-azure-search-pricing-tier"></a>Azure Search 가격 책정 계층
+
 기술 자료 당 최대 메타 데이터 필드 수는 **[Azure Search 계층 제한을](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)** 기반으로 합니다.
 
 |**Azure Search 계층** | **Free** | **기본** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
 |QnA Maker 서비스별 최대 메타데이터 필드 수(모든 기술 자료에서)|1,000|100*|1,000|1,000|1,000|1,000|
 
+### <a name="by-name-and-value"></a>이름 및 값으로
+
+다음 표에서는 메타 데이터 이름 및 값에 대 한 길이와 허용 가능한 문자를 나열 합니다.
+
+|항목|허용 되는 문자|Regex 패턴 일치|최대 문자|
+|--|--|--|--|
+|이름|수 있습니다<br>영숫자 (문자와 숫자)<br>`_` (밑줄)|`^[a-zA-Z0-9_]+$`|100|
+|값|제외한 모든 항목 허용<br>`:`탑재<br>`|`(수직 파이프)|`^[^:|]+$`|500|
+|||||
+
 ## <a name="knowledge-base-content-limits"></a>기술 자료 콘텐츠 제한
 기술 자료에서 전반적인 콘텐츠 제한 사항은 아래와 같습니다.
 * 답변 텍스트 길이: 25,000
 * 질문 텍스트 길이: 1,000
 * 메타데이터 키/값 텍스트 길이: 100
-* 메타데이터 이름에 지원되는 문자: 알파벳, 숫자 및 _  
-* 메타데이터 값에 지원되는 문자: : 및 | 외 모든 문자 
+* 메타데이터 이름에 지원되는 문자: 영문자, 숫자 및`_`  
+* 메타데이터 값에 지원되는 문자: 및를 `:` 제외한 모든`|` 
 * 파일 이름 길이: 200
 * 지원되는 파일 형식: “.tsv”, “.pdf”, “.txt”, “.docx”, “.xlsx”
 * 최대 대체 질문 수: 300
@@ -78,8 +90,4 @@ URL 페이지에서 QnAs를 추출 하기 위해 크롤링할 수 있는 딥 링
 
 ## <a name="next-steps"></a>다음 단계
 
-서비스 계층을 변경해야 하는 시기와 변경 방법을 알아봅니다.
-
-* [QnA Maker](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku): 현재 계층을 초과 하 여 기술 자료에 더 많은 원본 파일이 나 더 큰 문서를 포함 해야 하는 경우 QnA Maker 서비스 가격 책정 계층을 업그레이드 합니다.
-* [App Service](how-to/upgrade-qnamaker-service.md#upgrade-app-service): 기술 자료에서 클라이언트 앱에서 더 많은 요청을 처리해야 하는 경우 앱 서비스 가격 책정 계층을 업그레이드하세요.
-* [Azure Search](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service): 많은 기술 자료를 포함할 계획인 경우 Azure Search 서비스 가격 책정 계층을 업그레이드하세요.
+[서비스 가격 책정 계층](How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker)을 변경 하는 시기 및 방법에 대해 알아봅니다.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 1342616a0d32d8ac68965bc04f1fd3ca60146369
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 1450d6b41d9a193f8069509aacd3343ae646c6ac
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966761"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307016"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>QnA Maker의 기술 자료 편집
 
@@ -36,7 +36,7 @@ QnA Maker는 사용하기 쉬운 편집 환경을 제공하여 기술 자료 콘
  
 1. **설정**을 선택합니다. 여기에서 필수 필드인 서비스 이름을 편집할 수 있습니다.
   
-    |목표|작업|
+    |목표|동작|
     |--|--|
     |URL 추가|**기술 자료 관리 -> '+ URL 추가'** 링크를 클릭하여 기술 자료에 새 FAQ 콘텐츠를 추가할 새 URL을 추가할 수 있습니다.|
     |URL 삭제|삭제 아이콘, 휴지통을 선택하여 기존 URL을 삭제할 수 있습니다.|
@@ -54,7 +54,7 @@ QnA Maker는 사용하기 쉬운 편집 환경을 제공하여 기술 자료 콘
 
 ## <a name="add-a-qna-pair"></a>QnA 쌍 추가
 
-**설정** 페이지에서 **QnA pair 추가** 를 선택 하 여 기술 자료 테이블에 새 행을 추가 합니다.
+**편집** 페이지에서 **QnA pair 추가** 를 선택 하 여 기술 자료 테이블에 새 행을 추가 합니다.
 
 ![QnA 쌍 추가](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
 

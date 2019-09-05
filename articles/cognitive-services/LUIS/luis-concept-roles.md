@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: b4bd61ea74055a04718d8a9d8d5ccd42671af2ac
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: eead9e0fec8ac4322bc7816de4a4774f8be8129c
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638340"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70257962"
 ---
 # <a name="entity-roles-for-contextual-subtypes"></a>상황별 하위 형식에 대 한 엔터티 역할
 
@@ -27,7 +27,7 @@ ms.locfileid: "68638340"
 
 ## <a name="machine-learned-entity-example-of-roles"></a>컴퓨터에서 학습 된 엔터티 예제 역할 예제
 
-Utterance " **뉴욕에서** **런던**으로 티켓 구입" 뉴욕 및 런던은 모두 도시 이지만 각 문장에는 서로 다른 의미가 있습니다. New York은 출발 도시이고 London은 도착 도시입니다. 
+Utterance "뉴욕에서 **런던** **으로 티켓** 구입" 뉴욕 및 런던은 모두 도시 이지만 각 문장에는 서로 다른 의미가 있습니다. New York은 출발 도시이고 London은 도착 도시입니다. 
 
 ```
 buy a ticket from New York to London
@@ -93,7 +93,7 @@ Utterance에 의미가 `I want to travel from Seattle, with a layover in Londen,
 
 ## <a name="entity-roles-versus-collaborator-roles"></a>엔터티 역할과 협력자 역할 비교
 
-엔터티 역할은 LUIS 앱의 데이터 모델에 적용 됩니다. [협력자](luis-concept-collaborator.md) 역할은 제작 액세스 수준에 적용 됩니다. 
+엔터티 역할은 LUIS 앱의 데이터 모델에 적용 됩니다. [협력자 또는 참가자](luis-concept-keys.md#contributions-from-other-authors) 역할은 제작 액세스 수준에 적용 됩니다. 
 
 [!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 

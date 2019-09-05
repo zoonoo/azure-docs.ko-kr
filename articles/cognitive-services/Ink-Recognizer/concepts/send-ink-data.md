@@ -10,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: a5fe77ace5f745911bb9085dd6996a8d21fe265f
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 0ad961495d44f13522a3c02224a5612aaedaf076
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879045"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274482"
 ---
 # <a name="send-ink-data-to-the-ink-recognizer-api"></a>Ink Recognizer API에 잉크 데이터 보내기 
 
@@ -82,7 +82,7 @@ Ink Recognizer REST API는 애플리케이션에 따라 다양한 패턴으로 �
 
 ## <a name="integrate-the-ink-recognizer-api-with-windows-ink"></a>Ink Recognizer API와 Windows Ink 통합
 
-[Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions)는 다양한 디바이스에서 디지털 잉크 입력 환경을 사용할 수 있게 하는 도구와 기술을 제공합니다. Windows Ink 플랫폼을 Ink Recognizer API와 결합하여 디지털 잉크 스트로크를 표시하고 해석하는 애플리케이션을 만들 수 있습니다.
+[Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions)는 다양한 디바이스에서 디지털 잉크 입력 환경을 사용할 수 있게 하는 도구와 기술을 제공합니다. Windows 잉크 플랫폼과 잉크 인식기 API를 결합 하 여 디지털 잉크 스트로크를 표시 하 고 해석 하는 응용 프로그램을 만들 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: sbowles
-ms.openlocfilehash: 36cd9b560bd149fd837db09cba33ce6bb2199a20
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 07089def3290d6d64919ad2551de7584646cc681
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827732"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306624"
 ---
 # <a name="get-face-detection-data"></a>얼굴 감지 데이터 가져오기
 
@@ -29,7 +29,7 @@ ms.locfileid: "68827732"
 
 ## <a name="setup"></a>설정
 
-이 가이드에서는 얼굴 구독 키와 끝점 URL을 사용하여 `faceClient`라는 [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) 개체를 이미 생성 했다고 가정 합니다. 여기서는이 가이드에서 사용 되는 [DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet)또는 [DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet)를 호출 하 여 얼굴 감지 기능을 사용할 수 있습니다. 이 기능을 설정 하는 방법에 대 한 지침은 [얼굴 검색 빠른 C# ](../quickstarts/csharp-detect-sdk.md)시작을 참조 하세요.
+이 가이드에서는 얼굴 구독 키와 끝점 URL을 사용하여 `faceClient`라는 [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) 개체를 이미 생성 했다고 가정 합니다. 여기서는이 가이드에서 사용 되는 [DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet)또는 [DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet)를 호출 하 여 얼굴 감지 기능을 사용할 수 있습니다. 이 기능을 설정 하는 방법에 대 한 지침은 빠른 시작 중 하나를 수행 합니다.
 
 이 가이드는 전달할 수 있는 인수와 반환 된 데이터로 수행할 수 있는 작업을 비롯 하 여 검색 호출의 세부 사항을 중점적으로 설명 합니다. 필요한 기능만 쿼리 하는 것이 좋습니다. 각 작업을 완료 하려면 추가 시간이 필요 합니다.
 

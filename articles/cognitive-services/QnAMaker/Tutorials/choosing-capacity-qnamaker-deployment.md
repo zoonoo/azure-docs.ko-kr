@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 08/20/2019
+ms.date: 08/30/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 2b2879a1ebcf01a0433873e8da77c4ce55a078cd
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 2d8f0fce3cb8f1cd8fdb596cb4e238a79d6cee4c
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647009"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193489"
 ---
 # <a name="choosing-capacity-for-your-qna-maker-deployment"></a>QnA Maker 배포 용량 선택
 
@@ -45,9 +45,9 @@ QnA Maker 서비스를 만들기 전에 적합한 위 서비스 계층을 결정
 | 개발/테스트 환경   | 표준 SKU         | Shared      | Basic        | 최대 14KB, 2GB 크기까지 게시    |
 | 프로덕션 환경 | 표준 SKU         | Basic       | 표준     | KB 최대 49개, 25GB 크기까지 게시 |
 
-QnA Maker 스택을 업그레이드하려면 [QnA Maker 서비스 업그레이드](../How-To/upgrade-qnamaker-service.md)를 참조하세요.
+QnA Maker 스택을 업그레이드하려면 [QnA Maker 서비스 업그레이드](../How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [QnA Maker 서비스 업그레이드](../How-To/upgrade-qnamaker-service.md)
+> [QnA Maker 서비스 업그레이드](../How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker)

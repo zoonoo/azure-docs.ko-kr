@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/02/2019
 ms.author: diberry
-ms.openlocfilehash: 2e13efa70d0344defeb306a92ac405439635e929
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: c519b030aaee58397766ecb8658e7af08b5986e1
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619691"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70256869"
 ---
 # <a name="understand-how-and-when-to-use-a-luis-version"></a>LUIS 버전을 사용하는 방법 및 시기 이해
 
@@ -48,7 +48,7 @@ LUIS의 버전은 기존의 프로그래밍 버전과 유사합니다. 각 버�
 
 앱 수준에서 버전을 내보내거나 버전 수준에서 버전을 내보낼 수 있습니다. 유일한 차이는 앱 수준에서 내보낸 버전이 현재 활성 버전이지만, 버전 수준에서는 **[설정](luis-how-to-manage-versions.md)** 페이지에서 내보낼 버전을 선택할 수 있다는 것입니다. 
 
-앱을 가져온 후에 앱이 보존되므로 내보낸 파일에는 기계 학습 정보가 없습니다. 내보낸 파일에는 협력자가 없습니다. 버전을 새 앱으로 가져온 후 협력자를 다시 추가해야 합니다.
+앱을 가져온 후에 앱이 보존되므로 내보낸 파일에는 기계 학습 정보가 없습니다. 내보낸 파일에는 참가자 정보가 포함 되어 있지 않습니다.
 
 ## <a name="export-each-version-as-app-backup"></a>앱 백업으로 각 버전 내보내기
 LUIS 앱을 백업하려면 **[설정](luis-how-to-manage-versions.md)** 페이지에서 각 버전을 내보냅니다.
@@ -59,8 +59,23 @@ LUIS 앱을 백업하려면 **[설정](luis-how-to-manage-versions.md)** 페이�
 ## <a name="version-availability-at-the-endpoint"></a>엔드포인트의 버전 가용성
 학습된 버전은 앱 [엔드포인트](luis-glossary.md#endpoint)에서 자동으로 제공되지 않습니다. 앱 엔드포인트에서 사용할 수 있으려면 버전을 [게시](luis-how-to-publish-app.md)하거나 다시 게시해야 합니다. **스테이징** 및 **프로덕션**에 게시하면 엔드포인트에서 사용 가능한 최대 두 개의 앱 버전이 제공됩니다. 엔드포인트에서 사용할 수 있는 추가 앱 버전이 필요한 경우, 버전을 내보내고 새 앱으로 다시 가져와야 합니다. 새 앱에는 다른 앱 ID가 포함됩니다.
 
-## <a name="collaborators"></a>협력자
-소유자 및 모든 [협력자](luis-how-to-collaborate.md)가 모든 앱 버전의 전체 액세스 권한을 가집니다.
+## <a name="manage-multiple-versions-inside-the-same-app"></a>동일한 앱 내부에서 여러 버전 관리
+먼저 각 작성자에 기본 버전에서 [복제](luis-how-to-manage-versions.md#clone-a-version)합니다. 
+
+각 작성자는 자신의 앱 버전을 변경 합니다. 각 작성자가 모델에 만족하면 새 버전을 JSON 파일로 내보냅니다.  
+
+내보낸 앱은 JSON 형식 파일이며 변경 내용을 비교할 수 있습니다. 파일을 결합하여 새 버전의 단일 JSON 파일을 만듭니다. JSON에서 **versionId** 속성을 변경하여 새 병합 버전을 표시합니다. 해당 버전을 원래 앱으로 가져옵니다. 
+
+이 방법을 사용하면 하나의 활성 버전, 하나의 스테이지 버전 및 하나의 게시된 버전을 사용할 수 있습니다. 활성 버전의 결과를 [대화형 테스트 창](luis-interactive-test.md)에서 게시 된 버전 (스테이지 또는 프로덕션)과 비교할 수 있습니다.
+
+## <a name="manage-multiple-versions-as-apps"></a>여러 버전을 앱으로 관리
+기본 버전을 [내보냅니다](luis-how-to-manage-versions.md#export-version). 각 작성자는 버전을 가져옵니다. 앱을 가져오는 사용자는 버전의 소유자입니다. 앱 수정을 완료하면 버전을 내보냅니다. 
+
+내보낸 앱은 JSON 형식 파일이며 기본 내보내기와 변경 내용을 비교할 수 있습니다. 파일을 결합하여 새 버전의 단일 JSON 파일을 만듭니다. JSON에서 **versionId** 속성을 변경하여 새 병합 버전을 표시합니다. 해당 버전을 원래 앱으로 가져옵니다.
+
+## <a name="contributions-from-collaborators"></a>협력자의 기여
+
+[공동 작업자](luis-how-to-collaborate.md)의 기여 작성에 대해 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 

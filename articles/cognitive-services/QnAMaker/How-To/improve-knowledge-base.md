@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 08/30/2019
 ms.author: diberry
-ms.openlocfilehash: 577bf7f157eb89da360fa6cbdd4d22c1054f234f
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: ae186209395078ed56a046aafdbe01bb513fc3a0
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966719"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277425"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>활성 학습을 사용 하 여 기술 자료 개선
 
@@ -56,7 +56,7 @@ QnA Maker의 암시적 피드백은 알고리즘을 사용 하 여 점수의 유
 
 ## <a name="upgrade-your-runtime-version-to-use-active-learning"></a>런타임 버전을 업그레이드 하 여 활성 학습 사용
 
-활성 학습은 런타임 버전 4.4.0 이상에서 지원됩니다. 기술 자료가 이전 버전에서 작성된 경우 이 기능을 사용하려면 [런타임을 업그레이드](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates)합니다. 
+활성 학습은 런타임 버전 4.4.0 이상에서 지원됩니다. 기술 자료가 이전 버전에서 작성된 경우 이 기능을 사용하려면 [런타임을 업그레이드](set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates)합니다. 
 
 ## <a name="turn-on-active-learning-to-see-suggestions"></a>활성 학습을 사용 하 여 제안 보기
 

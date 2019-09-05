@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: 85f6be7a897908ef9198ac71ada809efb7c033bc
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: c4ea9c5663755a4feb1693dd925d99b10c466140
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650549"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70256599"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Microsoft Azure Traffic Manager를 사용하여 키 전체에서 엔드포인트 할당량 관리
 Language Understanding(LUIS)은 단일 키의 할당량 이상으로 엔드포인트 요청 할당량을 늘리는 기능을 제공합니다. 이렇게 하려면 **게시** 페이지의 **리소스 및 키** 섹션에서 LUIS에 대해 더 많은 키를 만들고 LUIS 애플리케이션에 추가합니다. 
@@ -48,7 +48,7 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
 
     ![luis-traffic-manager 리소스 그룹에 두 개의 LUIS 키가 있는 Azure Portal의 스크린샷](./media/traffic-manager/luis-keys.png)
 
-2. [LUIS][LUIS] 웹 사이트의 **관리** 섹션에 있는 **키 및 끝점** 페이지에서 앱에 키를 할당 하 고 오른쪽 위에 있는 메뉴에서 **게시** 단추를 선택 하 여 앱을 다시 게시 합니다. 
+2. [LUIS][LUIS] 웹 사이트의 **관리** 섹션에 있는 **Azure 리소스** 페이지에서 앱에 키를 할당 하 고 오른쪽 위에 있는 메뉴에서 **게시** 단추를 선택 하 여 앱을 다시 게시 합니다. 
 
     **엔드포인트** 열의 예제 URL에서는 엔드포인트 키가 있는 GET 요청을 쿼리 매개 변수로 사용합니다. 새 키 두 개의 엔드포인트 URL을 복사합니다. 이 URL은 이 문서의 뒷부분에 나오는 Traffic Manager 구성의 일부로 사용됩니다.
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: 2a540606a6f9cfa790a2244628e7f0b7bef35986
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 4356d9e1cd3d6f1a924603f7405d612814d35859
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639268"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70256921"
 ---
 # <a name="authoring-cycle-for-your-luis-app"></a>LUIS 앱에 대한 주기 작성
 LUIS는 모델 변경, 발화 예제, 게시 및 엔드포인트 쿼리에서 데이터 수집의 반복 주기에서 가장 좋은 사례를 학습합니다. 
@@ -38,12 +38,12 @@ LUIS에는 의도의 예제 발화가 필요합니다. 예제에는 발화의 �
 ## <a name="train-and-publish-the-app"></a>앱 학습 및 게시
 각 의도에 15 ~ 30 개의 다른 길이 발언가 있는 경우 레이블이 지정 된 필수 엔터티가 있으면 [학습](luis-how-to-train.md) 한 다음 [게시](luis-how-to-publish-app.md)해야 합니다. 게시 성공 알림에서 링크를 사용하여 엔드포인트를 가져옵니다. 필요한 [끝점 지역](luis-reference-regions.md) 에서 사용할 수 있도록 앱을 만들고 게시 해야 합니다. 
 
-## <a name="https-endpoint-testing"></a>HTTPS 엔드포인트 테스트
-HTTPS 엔드포인트에서 LUIS 앱을 테스트할 수 있습니다. 끝점에서 테스트를 통해 LUIS는 [검토](luis-how-to-review-endpoint-utterances.md)를 위해 신뢰도가 낮은 길이 발언를 선택할 수 있습니다.  
+## <a name="https-prediction-endpoint-testing"></a>HTTPS 예측 끝점 테스트
+HTTPS 예측 끝점에서 LUIS 앱을 테스트할 수 있습니다. 예측 끝점에서 테스트를 통해 LUIS는 [검토](luis-how-to-review-endpoint-utterances.md)를 위해 신뢰도가 낮은 길이 발언를 선택할 수 있습니다.  
 
 ## <a name="recycle"></a>휴지통
 
-작성 주기를 완료하면 다시 시작할 수 있습니다. 낮은 신뢰도로 표시 된 [endpoint 길이 발언](luis-how-to-review-endpoint-utterances.md) LUIS을 검토 하는 것으로 시작 합니다. 의도 및 엔터티에 모두 이러한 발화를 확인합니다. 발화를 검토한 후 검토 목록이 비어 있어야 합니다.  
+작성 주기를 완료하면 다시 시작할 수 있습니다. 낮은 신뢰도로 표시 된 [예측 끝점 길이 발언](luis-how-to-review-endpoint-utterances.md) LUIS을 검토 하는 것으로 시작 합니다. 의도 및 엔터티에 모두 이러한 발화를 확인합니다. 발화를 검토한 후 검토 목록이 비어 있어야 합니다.  
 
 현재 버전을 새 버전으로 [복제](luis-concept-version.md#clone-a-version) 한 다음 새 버전에서 변경 내용을 작성 하는 것이 좋습니다. 
 
@@ -53,4 +53,4 @@ HTTPS 엔드포인트에서 LUIS 앱을 테스트할 수 있습니다. 끝점에
 
 ## <a name="next-steps"></a>다음 단계
 
-[협업](luis-concept-collaborator.md) 개념을 알아봅니다.
+[협업](luis-concept-keys.md) 개념을 알아봅니다.

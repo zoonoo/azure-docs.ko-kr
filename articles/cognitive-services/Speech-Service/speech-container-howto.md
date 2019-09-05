@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 14a360e7dc672266e8445a5ae5eb2168ae766af8
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 7708133fcba0d594ecd420afd8da1b2881055aa7
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741875"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241030"
 ---
 # <a name="install-and-run-speech-service-containers"></a>음성 서비스 컨테이너 설치 및 실행
 
@@ -25,8 +25,8 @@ ms.locfileid: "68741875"
 
 |함수|기능|최신 버전|
 |-|-|--|
-|음성을 텍스트로| <li>연속 실시간 음성 또는 일괄 처리 오디오 녹음/녹화를 중간 결과 텍스트로 기록합니다.|1.1.3|
-|텍스트 음성 변환| <li>사용하여 텍스트를 자연스럽게 들리는 음성으로 변환합니다. 일반 텍스트 입력 또는 SSML(Speech Synthesis Markup Language)을 |1.1.0|
+|음성을 텍스트로| <li>연속 실시간 음성 또는 일괄 처리 오디오 녹음/녹화를 중간 결과 텍스트로 기록합니다.|1.2.0|
+|텍스트 음성 변환| <li>사용하여 텍스트를 자연스럽게 들리는 음성으로 변환합니다. 일반 텍스트 입력 또는 SSML(Speech Synthesis Markup Language)을 |1.2.0|
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -101,10 +101,10 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 다음 태그는 해당 형식의 예입니다.
 
 ```
-1.1.3-amd64-en-us-preview
+1.2.0-amd64-en-us-preview
 ```
 
-다음 표에서는 1.1.3 버전의 컨테이너에서 **음성 텍스트** 에 대해 지원 되는 로캘을 나열 합니다.
+다음 표에서는 1.2.0 버전의 컨테이너에서 **음성 텍스트** 에 대해 지원 되는 로캘을 나열 합니다.
 
 |언어 로캘|Tags|
 |--|--|
@@ -129,10 +129,10 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 다음 태그는 해당 형식의 예입니다.
 
 ```
-1.1.0-amd64-en-us-jessarus-preview
+1.2.0-amd64-en-us-jessarus-preview
 ```
 
-다음 표는 컨테이너의 버전 1.1.1에서 **음성 텍스트 변환**에 대해 지원되는 로캘을 나열합니다.
+다음 표에서는 1.2.0 버전의 컨테이너에서 **텍스트 음성 변환** 에 대해 지원 되는 로캘을 나열 합니다.
 
 |언어 로캘|Tags|지원 되는 음성|
 |--|--|--|

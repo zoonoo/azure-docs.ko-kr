@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: diberry
-ms.openlocfilehash: 82285b27822b6c93f8efc24579bb99c308649ac0
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 5b0516f3d610c0a518d6afc461dddebfb68a7c5d
+ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932665"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70213521"
 ---
 # <a name="preview-migrate-to-api-version-3x-for-luis-apps"></a>미리 보기: LUIS apps에 대 한 API 버전 3.x로 마이그레이션
 
@@ -164,7 +164,7 @@ const score = intents[topIntentName];
 응답 JSON 스키마 변경 내용:
 
 * 원래 utterance `query`의 차이를 명확 하 게 구분 하 고 `prediction`예측을 반환 합니다.
-* 예측 된 데이터에 대 한 프로그래밍 방식의 액세스를 용이 하 게 합니다. V 2에서 배열을 열거 하는 대신, 의도 및 엔터티 모두에 대해 **명명 된** 값에 액세스할 수 있습니다. 예측 된 엔터티 역할의 경우 전체 앱에서 고유 하므로 역할 이름이 반환 됩니다.
+* 예측 된 데이터에 대 한 프로그래밍 방식의 액세스를 용이 하 게 합니다. V 2에서 배열을 열거 하는 대신 **이름** 및 엔터티 모두에 대 한 값에 액세스할 수 있습니다. 예측 된 엔터티 역할의 경우 전체 앱에서 고유 하므로 역할 이름이 반환 됩니다.
 * 데이터 형식이 결정 되 면 적용 됩니다. 숫자는 더 이상 문자열로 반환 되지 않습니다.
 * 첫 번째 우선 순위 예측 정보와 추가 메타 데이터의 차이 ( `$instance` 개체에 반환 됨) 
 
@@ -418,7 +418,7 @@ LUIS 앱에서 목록 엔터티는 비어 있을 수 있지만 존재 해야 합
     },
     "dynamicLists": [
         {
-            "listEntityName":"ProductList",
+            "listEntity*":"ProductList",
             "requestLists":[
                 {
                     "name": "Azure Cognitive Services",

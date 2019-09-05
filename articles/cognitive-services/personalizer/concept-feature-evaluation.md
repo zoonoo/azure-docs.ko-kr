@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: d03c5f66f760a2bea9f99501cec478831a347c5d
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 31243b5e9da55aafbc376fa416c1b00a4499c116
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668746"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242424"
 ---
 # <a name="feature-evaluation"></a>기능 평가
 
@@ -32,9 +32,9 @@ ms.locfileid: "68668746"
 
 ## <a name="getting-feature-importance-evaluation"></a>기능 중요도 평가를 가져오는 중
 
-기능 중요도 결과를 보려면 평가를 실행 해야 합니다. 기능 중요도에 대 한 결과 정보는 현재 Personalizer online 모델을 나타냅니다. 평가는 평가 기간의 종료 날짜에 저장 된 모델의 기능 중요도를 분석 합니다. 
+기능 중요도 결과를 보려면 평가를 실행 해야 합니다. 평가 기간 동안 관찰 된 기능 이름을 기반으로 사람이 읽을 수 있는 기능 레이블을 만듭니다.
 
-평가 기간 동안 관찰 된 기능 이름을 기반으로 사람이 읽을 수 있는 기능 레이블을 만듭니다.
+기능 중요도에 대 한 결과 정보는 현재 Personalizer online 모델을 나타냅니다. 평가는 평가 기간의 종료 날짜에 저장 된 모델의 중요도를 분석 하 여 현재 온라인 학습 정책으로 평가 중에 수행 된 모든 학습을 수행 합니다. 
 
 기능 중요도 결과는 평가 중에 테스트 되거나 생성 된 다른 정책과 모델을 나타내지 않습니다.  평가 기간이 끝난 후에는 Personalizer로 전송 된 기능이 평가에 포함 되지 않습니다.
 

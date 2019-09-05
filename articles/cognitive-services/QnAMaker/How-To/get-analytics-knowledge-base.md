@@ -9,14 +9,14 @@ displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 07/16/2019
+ms.date: 08/30/2019
 ms.author: diberry
-ms.openlocfilehash: 961bb7d5f64fa6d6cafa4730a5849abb4b82478f
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: ebc06057dfa4bce72821ddf807cda46270e8ff3e
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967695"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70206842"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>기술 자료에 대한 분석 가져오기
 
@@ -32,7 +32,7 @@ ms.locfileid: "68967695"
 
 3. 다음 쿼리에 붙여넣고 실행합니다.
 
-    ```query
+    ```kusto
     requests
     | where url endswith "generateAnswer"
     | project timestamp, id, name, resultCode, duration, performanceBucket
@@ -54,7 +54,7 @@ ms.locfileid: "68967695"
 
 ### <a name="total-90-day-traffic"></a>총 90일 트래픽
 
-```query
+```kusto
     //Total Traffic
     requests
     | where url endswith "generateAnswer" and name startswith "POST"
@@ -64,7 +64,7 @@ ms.locfileid: "68967695"
 
 ### <a name="total-question-traffic-in-a-given-time-period"></a>지정된 기간 동안 총 질문 트래픽
 
-```query
+```kusto
     //Total Question Traffic in a given time period
     let startDate = todatetime('2018-02-18');
     let endDate = todatetime('2018-03-12');
@@ -77,7 +77,7 @@ ms.locfileid: "68967695"
 
 ### <a name="user-traffic"></a>사용자 트래픽
 
-```query
+```kusto
     //User Traffic
     requests
     | where url endswith "generateAnswer"
@@ -92,7 +92,7 @@ ms.locfileid: "68967695"
 
 ### <a name="latency-distribution-of-questions"></a>질문 배포 대기 시간
 
-```query
+```kusto
     //Latency distribution of questions
     requests
     | where url endswith "generateAnswer" and name startswith "POST"
@@ -104,4 +104,4 @@ ms.locfileid: "68967695"
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [키 관리](./key-management.md)
+> [Capactiy 선택](../tutorials/choosing-capacity-qnamaker-deployment.md)

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 08/29/2019
 ms.author: dapine
-ms.openlocfilehash: 3c0129275ecf78e6a4e6b9286f975ded2b6f9ae3
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 25ea4c96a0e392db2af9c25a150696ca2b25b2dd
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051195"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164547"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Form Recognizer 컨테이너 설치 및 실행
 
@@ -58,28 +58,25 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 | 컨테이너 | 최소 | 권장 |
 |-----------|---------|-------------|
-|cognitive-services-form-recognizer | 2 코어, 4gb 메모리 | 4 코어, 8gb 메모리 |
+| Form Recognizer | 2 코어, 4gb 메모리 | 4 코어, 8gb 메모리 |
+| 텍스트 인식 | 1 코어, 8gb 메모리 | 2 코어, 8gb 메모리 |
 
 * 각 코어는 속도가 2.6GHz 이상이어야 합니다.
-* TPS - 초당 트랜잭션 수
 * 코어 및 메모리는 `docker run` 명령의 일부로 사용되는 `--cpus` 및 `--memory` 설정에 해당합니다.
 
 > [!Note]
 > 최소 및 권장 값은 호스트 컴퓨터 리소스가 *아니라* Docker 제한을 기반으로 합니다.
 
-## <a name="get-the-container-image-with-the-docker-pull-command"></a>docker pull 명령을 사용 하 여 컨테이너 이미지 가져오기
+## <a name="get-the-container-images-with-the-docker-pull-command"></a>docker pull 명령을 사용 하 여 컨테이너 이미지 가져오기
 
-양식 인식기의 컨테이너 이미지는 다음 리포지토리에서 사용할 수 있습니다.
+**양식 인식기** 와 **텍스트 인식** 제공 모두에 대 한 컨테이너 이미지는 다음 컨테이너 레지스트리에서 사용할 수 있습니다.
 
-| 컨테이너 | 리포지토리 |
+| 컨테이너 | 정규화 된 이미지 이름 |
 |-----------|------------|
-| cognitive-services-form-recognizer | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest` |
+| Form Recognizer | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest` |
+| 텍스트 인식 | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest` |
 
-Form Recognizer 서비스 대신 `cognitive-services-recognize-text` [컨테이너](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull)를 사용하려면 `docker pull` 명령을 올바른 컨테이너 이름과 함께 사용해야 합니다. 
-
-```
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
-```
+두 컨테이너가 모두 필요 합니다. **인식기 텍스트** 컨테이너는 [이 문서 외부에 자세히 설명](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull) 되어 있습니다.
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
@@ -91,6 +88,15 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-t
 
 ```Docker
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest
+```
+### <a name="docker-pull-for-the-recognize-text-container"></a>텍스트 인식 컨테이너용 docker pull
+
+#### <a name="recognize-text"></a>텍스트 인식
+
+텍스트 인식 컨테이너를 가져오려면 다음 명령을 사용 합니다.
+
+```Docker
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
 ```
 
 ## <a name="how-to-use-the-container"></a>컨테이너사용 방법

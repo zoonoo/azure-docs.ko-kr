@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: yluiu
-ms.openlocfilehash: 26ab3cb247309aa21791ca5a984f39ef40ce9a78
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 4306a918d56240bfe038100124b3c2b94964cebc
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249626"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306678"
 ---
 # <a name="specify-a-face-detection-model"></a>얼굴 감지 모델 지정
 
@@ -71,7 +71,7 @@ string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 await client.PersonGroupPerson.AddFaceFromUrlAsync(personGroupId, personId, imageUrl, detectionModel: "detection_02");
 ```
 
-이 코드는 ID  `mypersongroupid` 를 사용 하 여 PersonGroup를 만들고 여기에 **사람** 을 추가 합니다. 그런 다음 `detection_02` 모델을 사용 하 여이 **사용자** 에 게 얼굴을 추가 합니다. *DetectionModel* 매개 변수를 지정 하지 않으면 API는 기본 모델인를 `detection_01`사용 합니다.
+이 코드는 ID `mypersongroupid` 를 사용 하 여 PersonGroup를 만들고 여기에 **사람** 을 추가 합니다. 그런 다음 `detection_02` 모델을 사용 하 여이 **사용자** 에 게 얼굴을 추가 합니다. *DetectionModel* 매개 변수를 지정 하지 않으면 API는 기본 모델인를 `detection_01`사용 합니다.
 
 > [!NOTE]
 > **Person** 개체의 모든 면에 대해 동일한 검색 모델을 사용할 필요는 없으며, **개인** 개체와 비교할 새 얼굴을 검색할 때 동일한 검색 모델을 사용할 필요가 없습니다 (예: [얼굴 식별] API).
@@ -109,7 +109,8 @@ await client.FaceList.AddFaceFromUrlAsync(faceListId, imageUrl, detectionModel: 
 
 이 문서에서는 다른 얼굴 Api와 함께 사용할 검색 모델을 지정 하는 방법을 배웠습니다. 다음으로, 얼굴 감지를 사용하는 것을 시작하는 빠른 시작을 수행합니다.
 
-* [이미지에서 얼굴 감지 (.NET SDK)](../quickstarts/csharp-detect-sdk.md)
+* [Face .NET SDK](../Quickstarts/csharp-sdk.md)
+* [Face Python SDK](../Quickstarts/python-sdk.md)
 
 [얼굴 검색]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d
 [Face - Find Similar]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237

@@ -8,19 +8,37 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 08/21/2019
+ms.date: 08/30/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b91adc9dd5f221a6d354a98bdc0f4a7fd4483ecb
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 95b4978b66accce0182e58493cb9d600dbe5e35f
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982345"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277493"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>QnA Maker에 대 한 문제 해결
 
 QnA Maker 서비스와 관련 하 여 가장 자주 묻는 질문의 큐 레이트 목록은 서비스를 더 빠르게 채택 하 고 더 나은 결과를 생성 하는 데 도움이 됩니다.
+
+
+## <a name="how-to-get-the-qnamaker-service-hostname"></a>QnAMaker 서비스 호스트 이름을 가져오는 방법
+
+QnAMaker 서비스 호스트 이름은 QnAMaker 고객 지원팀 또는 UserVoice에 디버깅에 대해 문의할 때 유용합니다. 호스트 이름은 https:// *{hostname}* . AZUREWEBSITES.NET 형식의 URL입니다.
+    
+1. [Azure Portal](https://portal.azure.com)에서 QnAMaker 서비스(리소스 그룹)로 이동
+
+    ![Azure Portal의 QnAMaker Azure 리소스 그룹](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
+
+1. QnA Maker 리소스와 연결 된 App Service를 선택 합니다. 일반적으로 이름은 동일 합니다.
+
+     ![QnAMaker App Service 선택](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
+
+1. 호스트 이름 URL은 [개요] 섹션에서 사용 가능
+
+    ![QnAMaker 호스트 이름](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-gethostname.png)
+    
 
 ## <a name="use-the-help-bot-in-the-qna-maker-portal"></a>QnA Maker 포털에서 도움말 봇 사용
 
@@ -98,6 +116,14 @@ Azure에서 QnA Maker 서비스를 아직 만들지 않았습니다. 만드는 �
 
 **사용자 설정** [페이지](https://www.qnamaker.ai/UserSettings)의 **엔드포인트 키** 테이블에서 기술 자료에 대한 버전 값 옆에 주의 아이콘이 표시되면 App Service를 새로 고칩니다.
 
+### <a name="i-deleted-my-existing-search-service-how-can-i-fix-this"></a>기존 검색 서비스를 삭제 했습니다. 이 문제를 어떻게 해결할 수 있나요?
+
+Azure Search 인덱스를 삭제한 경우 작업이 최종이며 인덱스를 복구할 수 없습니다. 
+
+### <a name="i-deleted-my-testkb-index-in-my-search-service-how-can-i-fix-this"></a>검색 서비스에서 `testkb` 인덱스를 삭제 했습니다. 이 문제를 어떻게 해결할 수 있나요? 
+
+이전 데이터를 복구할 수 없습니다. 새 QnA Maker 리소스를 만들고 기술 자료를 다시 만듭니다.
+
 ### <a name="when-should-i-refresh-my-endpoint-keys"></a>엔드포인트 키를 새로 고쳐야 하는 경우는 언제인가요?
 
 엔드포인트 키가 손상되었다고 의심되는 경우 엔드포인트 키를 새로 고칩니다.
@@ -108,7 +134,7 @@ Azure에서 QnA Maker 서비스를 아직 만들지 않았습니다. 만드는 �
 
 ### <a name="how-can-i-change-the-name-of-the-azure-search-resource-used-by-qna-maker"></a>QnA Maker에서 사용하는 Azure Search 이름을 변경하려면 어떻게 해야 하나요?
 
-Azure Search 리소스의 이름은 일부 임의 문자가 끝에 추가되는 QnA Maker 리소스 이름입니다. 이 이름으로는 QnA Maker의 여러 Search 리소스를 구별하기 어렵습니다. 별도의 Azure Search 서비스(원하는 방식으로 명명)를 만들고 QnA 서비스에 연결합니다. 단계는 [Azure Search를 업그레이드](How-To/upgrade-qnamaker-service.md#upgrade-azure-search-service)하기 위해 수행해야 하는 단계와 유사합니다.
+Azure Search 리소스의 이름은 일부 임의 문자가 끝에 추가되는 QnA Maker 리소스 이름입니다. 이 이름으로는 QnA Maker의 여러 Search 리소스를 구별하기 어렵습니다. 별도의 Azure Search 서비스(원하는 방식으로 명명)를 만들고 QnA 서비스에 연결합니다. 이러한 단계는 [Azure search를 업그레이드](How-To/set-up-qnamaker-service-azure.md#upgrade-the-azure-search-service)하기 위해 수행 해야 하는 단계와 비슷합니다.
 
 ### <a name="when-qna-maker-returns-runtime-core-is-not-initialized-how-do-i-fix-it"></a>QnA Maker에서 반환 `Runtime core is not initialized,` 하는 경우 어떻게 해결할 수 있나요?
 

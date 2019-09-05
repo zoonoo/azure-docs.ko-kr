@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: b69bd39e97cc97830142c8b1911f1116927643b2
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: ae3530af7741b8ce48e08c2a85589ffae8a83f49
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467532"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276788"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Azure Cognitive Services에 대한 요청 인증
 
@@ -25,7 +25,7 @@ Azure Cognitive Service에 대한 각 요청은 인증 헤더를 포함해야 �
 * [토큰으로 인증](#authenticate-with-an-authentication-token)
 * [AAD (Azure Active Directory를 사용 하 여 인증](#authenticate-with-azure-active-directory)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 요청을 수행하기 전에 Azure 계정과 Azure Cognitive Services 구독이 필요합니다. 계정이 이미 있는 경우 다음 섹션으로 건너뜁니다. 계정이 없는 경우 몇 분 내에 설정할 수 있도록 안내하는 [Azure에서 Cognitive Services 계정 만들기](cognitive-services-apis-create-account.md) 가이드가 있습니다.
 
@@ -35,7 +35,7 @@ Azure Cognitive Service에 대한 각 요청은 인증 헤더를 포함해야 �
 
 Azure Cognitive Services에서 사용할 수 있는 인증 헤더를 빠르게 살펴보겠습니다.
 
-| 헤더 | Description |
+| 헤더 | 설명 |
 |--------|-------------|
 | Ocp-Apim-Subscription-Key | 특정 서비스에 대한 구독 키 또는 다중 서비스 구독 키를 사용하여 인증하려면 이 헤더를 사용합니다. |
 | Ocp-Apim-Subscription-Region | 이 헤더는 [Translator Text API](./Translator/reference/v3-0-reference.md)에서 다중 서비스 구독 키를 사용하는 경우에만 필요합니다. 이 헤더를 사용하여 구독 지역을 지정합니다. |
@@ -66,7 +66,7 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 ## <a name="authenticate-with-a-multi-service-subscription-key"></a>다중 서비스 구독 키로 인증
 
 >[!WARNING]
-> 이 경우 이러한 서비스는 다음과 같은 다중 서비스 키를 지원하지 **않습니다**. QnA Maker, 음성 서비스 및 Custom Vision.
+> 이 경우 이러한 서비스는 다음과 같은 다중 서비스 키를 지원하지 **않습니다**. QnA Maker, Speech Services, Custom Vision 및 변칙 탐지기가 있습니다.
 
 또한 이 옵션은 구독 키를 사용하여 요청을 인증합니다. 주요 차이점은 구독 키가 특정 서비스에 연결되지 않고, 오히려 단일 키를 사용하여 여러 Cognitive Services에 대한 요청을 인증할 수 있다는 것입니다. 지역별 가용성, 지원되는 기능 및 가격 책정에 대한 자세한 내용은 [Cognitive Services 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)을 참조하세요.
 

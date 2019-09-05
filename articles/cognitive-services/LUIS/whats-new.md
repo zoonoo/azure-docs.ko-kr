@@ -9,20 +9,26 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: a7f64a07378b5ef0085fe77018d6b202984bc1a3
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: b29fdf4e5b3f2719865820695f659df7e75e19b5
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945819"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70256434"
 ---
 # <a name="whats-new-in-language-understanding"></a>Language Understanding의 새로운 기능
 
 서비스의 새로운 기능에 대해 알아봅니다. 이러한 항목은 메모, 비디오, 블로그 게시물 및 기타 정보 유형을 릴리스할 수 있습니다. 서비스를 최신 상태로 유지 하려면이 페이지에 책갈피를 설정 합니다.  
 
 ## <a name="release-notes"></a>릴리스 정보 
+
+### <a name="september-3-2019"></a>2019 년 9 월 3 일
+
+* Azure 제작 리소스- [지금 마이그레이션](luis-migration-authoring.md).
+* 미리 빌드된 엔터티에 대 한 터키어 지원
+* DatetimeV2에 대 한 이탈리아어 지원
 
 ### <a name="july-23-2019"></a>2019 년 7 월 23 일
 
