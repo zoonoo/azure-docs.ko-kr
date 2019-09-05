@@ -19,7 +19,7 @@ Azure Cloud Shell을 시작하려면 다음을 수행합니다.
 
 | 옵션 | 예제/링크 |
 |-----------------------------------------------|---|
-| 코드 블록의 오른쪽 위 모서리에서 **사용**을 선택합니다. **사용해보기**를 선택하면 코드가 Cloud Shell에 자동으로 복사되지 않습니다. | ![Azure Cloud Shell에 대한 사용 예제](./media/cloud-shell-try-it/cli-try-it.png) |
+| 코드 블록의 오른쪽 위 모서리에서 **사용해 보세요.**를 선택합니다. **사용해 보세요.**를 선택하더라도 코드가 Cloud Shell에 자동으로 복사되지는 않습니다. | ![Azure Cloud Shell에 대한 사용 예제](./media/cloud-shell-try-it/cli-try-it.png) |
 | [https://shell.azure.com](https://shell.azure.com)으로 이동하거나 **Cloud Shell 시작** 버튼을 선택하여 브라우저에서 Cloud Shell을 엽니다. | [![새 창에서 Cloud Shell 시작](media/cloud-shell-try-it/launchcloudshell.png)](https://shell.azure.com) |
 | [Azure Portal](https://portal.azure.com) 오른쪽 위에 있는 메뉴 모음에서 **Cloud Shell** 단추를 선택합니다. | ![Azure Portal의 Cloud Shell 단추](./media/cloud-shell-try-it/cloud-shell-menu.png) |
 
