@@ -7,17 +7,16 @@ author: nabhishek
 manager: craigg
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: fad8045ac8bddb236f0f80ad223ebafc7aa7e93a
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: b6426017b7608742866cedb08b5ac9298400d433
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002851"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140899"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Azure Data Factory에서 Databricks Notebook 작업으로 Databricks Notebook 실행
 
@@ -93,7 +92,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     
     ![새 연결 만들기](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image6.png)
 
-1.  **새 연결된 서비스** 창에서 **계산** \> **Azure Databricks**를 차례로 선택한 다음, **계속**을 선택합니다.
+1.  **새 연결된 서비스** 창에서 **컴퓨팅**\>**Azure Databricks**를 차례로 선택한 다음, **계속**을 선택합니다.
     
     ![Databricks 연결된 서비스 지정](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image7.png)
 
@@ -121,7 +120,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
 
-1.  **+**(더하기) 단추를 선택한 다음 메뉴에서 **파이프라인**을 선택합니다.
+1.  **+** (더하기) 단추를 선택한 다음 메뉴에서 **파이프라인**을 선택합니다.
 
     ![새 파이프라인 만들기에 대한 단추](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image9.png)
 
@@ -181,7 +180,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     b.  매개 변수의 이름을 **input**으로 지정하고 값을 **\@pipeline().parameters.name** 식으로 제공합니다.
 
-1.  파이프라인에 대한 유효성을 검사하려면 도구 모음에서 **유효성 검사** 단추를 선택합니다. 유효성 검사 창을 닫으려면 **\>\>**(오른쪽 화살표) 단추를 선택합니다.
+1.  파이프라인에 대한 유효성을 검사하려면 도구 모음에서 **유효성 검사** 단추를 선택합니다. 유효성 검사 창을 닫으려면 **\>\>** (오른쪽 화살표) 단추를 선택합니다.
 
     ![파이프라인 유효성 검사](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image18.png)
 

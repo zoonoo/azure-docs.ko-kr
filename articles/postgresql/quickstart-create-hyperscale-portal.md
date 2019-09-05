@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/14/2019
-ms.openlocfilehash: 6e9e7d884b7580d7655921134a7ab63b0b1b0dd6
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: fe981167249e24a43a8cb14c51c9b7c1eb081225
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899996"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164024"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-preview-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Database for PostgreSQL - 하이퍼스케일(Citus)(미리 보기)
 
@@ -88,6 +88,8 @@ SELECT create_distributed_table('github_users', 'user_id');
 다음으로, 파일의 데이터를 분산 테이블에 로드합니다.
 
 ```sql
+SET CLIENT_ENCODING TO 'utf8';
+
 \copy github_events from 'events.csv' WITH CSV
 \copy github_users from 'users.csv' WITH CSV
 ```

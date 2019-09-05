@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 08/06/2019
+ms.date: 08/30/2019
 ms.author: diberry
-ms.openlocfilehash: 2902e63f65db3883d6d8f442db273d19f60e82a8
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 1724e2d81f1a18da5a200637cd25636166d5cb37
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012782"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70206745"
 ---
 # <a name="quickstart-qna-maker-client-library-for-net"></a>빠른 시작: .NET용 QnA Maker 클라이언트 라이브러리
 
@@ -182,7 +182,7 @@ create 및 update와 같은 일부 메서드는 프로세스가 완료될 때까
 
 애플리케이션 디렉터리에서 dotnet `run` 명령을 사용하여 애플리케이션을 실행합니다.
 
-```dotnet
+```console
 dotnet run
 ```
 

@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ad321dfa3db69c89b8da080673cb3bab02e4af66
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: b3607f0b462efceab322e6eaf616268a34b02fb0
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905215"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142078"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>이전 버전의 Azure Migrate 사용
 
@@ -201,7 +201,7 @@ Azure Migrate에서는 성능 기반 크기 조정을 위해 다음이 필요합
 1. 프로젝트에 Log Analytics 작업 영역을 연결하려면 **개요** > **기본 정보**에서 **구성 필요**를 클릭합니다.
 2. 새 작업 영역을 만들거나 기존 작업 영역을 연결할 수 있습니다.
   - 새 작업 영역을 만들려면 이름을 지정합니다. 마이그레이션 프로젝트와 같은 [Azure 지리적 위치](https://azure.microsoft.com/global-infrastructure/geographies/)에 해당하는 지역에서 작업 영역이 작성됩니다.
-  - 기존 작업 영역을 연결하는 경우에는 마이그레이션 프로젝트와 동일한 구독에서 사용 가능한 모든 작업 영역을 선택할 수 있습니다. [지원되는 서비스 맵 지역](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions)에서 만든 해당 작업 영역만 나열됩니다. 작업 영역을 연결하려면 작업 영역에 대한 '읽기 권한자' 액세스 권한이 있어야 합니다.
+  - 기존 작업 영역을 연결하는 경우에는 마이그레이션 프로젝트와 동일한 구독에서 사용 가능한 모든 작업 영역을 선택할 수 있습니다. [지원되는 서비스 맵 지역](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites)에서 만든 해당 작업 영역만 나열됩니다. 작업 영역을 연결하려면 작업 영역에 대한 '읽기 권한자' 액세스 권한이 있어야 합니다.
 
 > [!NOTE]
 > 마이그레이션 프로젝트에 연결된 작업 영역은 변경할 수 없습니다.

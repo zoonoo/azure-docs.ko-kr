@@ -1,5 +1,5 @@
 ---
-title: QnA Maker에서 만들기, 게시 및 답변
+title: '자습서: QnA Maker에서 만들기, 게시 및 답변'
 titleSuffix: Azure Cognitive Services
 description: 공용 웹 기반 FAQ의 질문과 답변을 사용하여 새 기술 자료를 만듭니다. 기술 자료를 저장, 학습 및 게시합니다. 기술 자료가 게시되면 cURL 명령을 사용하여 질문을 보내고 답변을 받습니다. 그런 다음, 봇을 만들고 동일한 질문을 사용하여 봇을 테스트합니다.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 05/07/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: a13e0cb0e594571344b16d007ef13475b384b73d
-ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
+ms.openlocfilehash: 6cc509b9f9a9087fbe832dbd35b3dfd8d60a6577
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66693013"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308071"
 ---
 # <a name="tutorial-from-the-qna-maker-portal-create-a-knowledge-base"></a>자습서: QnA Maker 포털에서 기술 자료를 만듭니다.
 

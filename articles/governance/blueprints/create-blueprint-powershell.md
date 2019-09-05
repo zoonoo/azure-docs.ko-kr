@@ -7,12 +7,12 @@ ms.date: 08/21/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 7f3a3ac2559e23eecbab46cb801f73fb09c20211
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: bfd2d1215e7673f7ff73a0c875973e45362ce6b0
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036601"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231895"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>빠른 시작: PowerShell로 Azure Blueprint 정의 및 할당
 
@@ -397,7 +397,7 @@ Remove-AzBlueprintAssignment -Name 'assignMyBlueprint'
 
 ## <a name="next-steps"></a>다음 단계
 
-- [청사진 수명 주기](./concepts/lifecycle.md)에 대해 알아보기
+- [청사진 수명 주기](./concepts/lifecycle.md)에 대해 알아봅니다.
 - [정적 및 동적 매개 변수](./concepts/parameters.md) 사용 방법 이해
 - [청사진 시퀀싱 순서](./concepts/sequencing-order.md)를 사용자 지정하는 방법 알아보기
 - [청사진 리소스 잠금](./concepts/resource-locking.md)을 활용하는 방법 알아보기

@@ -8,16 +8,15 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: dbf45853f5f7a440578f3a9005831a4ef63d85e7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 49b5b03356790bd45b2ad29897a57b746af1abe1
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65778856"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140696"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob에서 Azure SQL Database로 데이터 복사
 
@@ -58,7 +57,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     Jane|Doe
     ```
 
-2. [Azure Storage 탐색기](https://storageexplorer.com/)와 같은 도구를 사용하여 **adfv2tutorial** 컨테이너를 만들고 **inputEmp.txt** 파일을 이 컨테이너에 업로드합니다.
+2. [Azure Storage Explorer](https://storageexplorer.com/)와 같은 도구를 사용하여 **adfv2tutorial** 컨테이너를 만들고 **inputEmp.txt** 파일을 이 컨테이너에 업로드합니다.
 
 #### <a name="create-a-sink-sql-table"></a>싱크 SQL 테이블 만들기
 
@@ -89,7 +88,7 @@ Visual Studio 2015/2017을 사용하여 C# .NET 콘솔 애플리케이션을 만
 
 1. **Visual Studio**를 시작합니다.
 2. **File**을 클릭하고 **New**를 가리킨 다음 **프로젝트**를 클릭합니다.
-3. 오른쪽의 프로젝트 형식 목록에서 **Visual C#** -> **콘솔 앱(.NET Framework)** 을 차례로 선택합니다. .NET 버전 4.5.2 이상이 필요합니다.
+3. 오른쪽의 프로젝트 형식 목록에서 **Visual C#**  -> **콘솔 앱(.NET Framework)** 을 차례로 선택합니다. .NET 버전 4.5.2 이상이 필요합니다.
 4. 이름으로 **ADFv2Tutorial**을 입력합니다.
 5. **확인**을 클릭하여 프로젝트를 만듭니다.
 

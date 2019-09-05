@@ -3,22 +3,21 @@ title: 데이터 팩터리 개요, 데이터 통합 서비스 | Microsoft Docs
 description: 데이터의 이동과 변환을 오케스트레이션하고 자동화하는 클라우드 데이터 통합 서비스인 Azure Data Factory에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.assetid: cec68cb5-ca0d-473b-8ae8-35de949a009e
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 01/22/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: aed073e7d65f193c4123106ba1ae3f4f442965e1
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 2e508839cd343820a36cc715ebde0f47c2ac4ab1
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836308"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139516"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory 소개 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -115,7 +114,7 @@ Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 Data 
 
 * 온-프레미스 SQL Server 데이터베이스, Oracle 데이터베이스, 파일 공유 또는 Azure Blob Storage 계정을 포함하지만 여기에 국한되지 않는 *데이터 스토리지*를 나타내기 위해 사용됩니다. 지원되는 데이터 저장소 목록은 [데이터 이동 활동](#data-movement-activities) 섹션을 참조하세요.
 
-* 활동의 실행을 호스팅할 수 있는 *계산 리소스*를 나타내기 위해 사용됩니다. 예를 들어, HDInsightHive 활동은 HDInsight Hadoop 클러스터에서 실행됩니다. 지원되는 컴퓨팅 환경 목록은 [데이터 변환 활동](#data-transformation-activities) 섹션을 참조하세요.
+* 활동의 실행을 호스팅할 수 있는 *컴퓨팅 리소스*를 나타내기 위해 사용됩니다. 예를 들어, HDInsightHive 활동은 HDInsight Hadoop 클러스터에서 실행됩니다. 지원되는 컴퓨팅 환경 목록은 [데이터 변환 활동](#data-transformation-activities) 섹션을 참조하세요.
 
 ### <a name="relationship-between-data-factory-entities"></a>Data Factory 엔터티 간의 관계
 

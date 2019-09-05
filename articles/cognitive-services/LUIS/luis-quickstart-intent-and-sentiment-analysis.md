@@ -1,5 +1,5 @@
 ---
-title: 감정 분석 - LUIS
+title: '자습서: 감정 분석 - LUIS'
 titleSuffix: Azure Cognitive Services
 description: 이 자습서에서는 발언에서 긍정, 부정 및 중립적 감정을 추출하는 방법을 보여주는 앱을 만듭니다. 감정은 전체 발화에서 판별됩니다.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/03/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: ad1dba3c35c0f1fa5640e484319b584731843dd8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ed403e3d761b32c6837eb8e72edef3f3e6380217
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563571"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307584"
 ---
 # <a name="tutorial--get-sentiment-of-utterance"></a>자습서:  발언의 감정 가져오기
 

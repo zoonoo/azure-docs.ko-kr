@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 8678bacb48bdf63abb2ce517f1bead83d86a5827
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: d4376632b8f912cd76f3af5e9a8819b75f8144b6
+ms.sourcegitcommit: dcea3c1ab715a79ebecd913885fbf9bbee61606a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70113751"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209475"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Data Factory 만들기
 
@@ -314,7 +314,7 @@ ms.locfileid: "70113751"
 
 이 단계에서는 파이프라인 실행을 만듭니다.
 
-1. **Invoke-AzDataFactoryV2Pipeline** cmdlet을 실행하여 파이프라인 실행을 만듭니다. Cmdlet은 향후 모니터링을 위해 파이프라인 실행 ID를 캡처합니다.
+**Invoke-AzDataFactoryV2Pipeline** cmdlet을 실행하여 파이프라인 실행을 만듭니다. Cmdlet은 향후 모니터링을 위해 파이프라인 실행 ID를 캡처합니다.
 
     ```powershell
     $RunId = Invoke-AzDataFactoryV2Pipeline `

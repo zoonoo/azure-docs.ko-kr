@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 599b0c8f45f91f9ecff210264a813e302f18059e
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: ad059e6047dd883c0a5aab0d714d999840050584
+ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488896"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70213625"
 ---
 # <a name="tutorial-integrate-adaptive-insights-with-azure-active-directory"></a>자습서: Adaptive Insights와 Azure Active Directory 통합
 
@@ -81,7 +81,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1.  **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
+1. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
     a. **식별자** 텍스트 상자에서 `https://login.adaptiveinsights.com:443/samlsso/<unique-id>` 패턴을 사용하여 URL을 입력합니다.
 

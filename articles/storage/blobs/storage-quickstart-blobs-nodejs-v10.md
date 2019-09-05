@@ -7,12 +7,12 @@ ms.date: 11/14/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: cada5c3dd74832140fd76cbdd637554b5f829c33
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 9d709d19f179dc29b5e290a141d446f3353f4971
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721997"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306032"
 ---
 # <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript"></a>빠른 시작: JavaScript용 Azure Storage v10 SDK를 사용하여 blob 업로드, 다운로드, 나열 및 삭제
 
@@ -75,7 +75,7 @@ Blob "quickstart.txt" is deleted
 Container "demo" is deleted
 Done
 ```
-이 빠른 시작에 새로운 저장소 계정을 사용할 경우 “*Containers*”라는 레이블 아래에 나열된 컨테이너 이름이 보이지 않을 수 있습니다.
+이 빠른 시작에 새로운 스토리지 계정을 사용할 경우 “*Containers*”라는 레이블 아래에 나열된 컨테이너 이름이 보이지 않을 수 있습니다.
 
 ## <a name="understanding-the-code"></a>코드 이해
 Azure Blob Storage 네임스페이스에서 다양한 클래스 및 함수를 가져오면 샘플이 시작됩니다. 가져온 각 항목은 각 샘플에서 사용되는 상황에 맞게 설명되어 있습니다.
@@ -348,4 +348,4 @@ console.log(`Container "${containerName}" is deleted`);
 
 > [!div class="nextstepaction"]
 > [JavaScript 리포지토리용 Azure Storage v10 SDK](https://github.com/Azure/azure-storage-js)
-> [JavaScript API 참조](https://docs.microsoft.com/javascript/api/overview/azure/storage/client?view=azure-node-preview)
+> [JavaScript API 참조](https://docs.microsoft.com/javascript/api/overview/azure/storage/client)

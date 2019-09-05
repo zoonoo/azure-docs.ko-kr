@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: overview
-ms.date: 07/03/2019
+ms.date: 08/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 0f4657cdd71a104ca111f62a6e9757b5a33b46e8
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 362b7457538a16d389c3cc40fc44da19b073c0b0
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592310"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142908"
 ---
 # <a name="what-is-azure-data-box-heavy"></a>Azure Data Box Heavy란?
 
@@ -68,7 +68,7 @@ Data Box Heavy는 네트워크에 거의 영향을 주지 않고 방대한 양�
 | 거듭제곱                                                    | 두 디바이스 노드 모두에서 공유되는 4개 기본 PSU(전원 공급 장치) <br> 1,200와트 일반 전력 소모|
 | 스토리지 용량                                        | 1PB 이하 원시, 각각 14TB의 70개 디스크 <br> 770TB의 사용 가능한 용량|
 | 노드 수                                          | 디바이스당 2개 독립 노드(각각 500TB) |
-| 노드당 네트워크 인터페이스 수                             | 노드당 4개 네트워크 인터페이스 <br><br> MGMT, DATA3 <ul><li> 2개 1GbE 인터페이스 </li><li> MGMT - 관리용 및 초기 설치용, 사용자 구성 가능하지 않음 </li><li> DATA3 - 사용자 구성 가능, 기본적으로 DHCP(Dynamic Host Configuration Protocol) 구성</li><li>1GbE 네트워크 인터페이스도 10GbE 인터페이스로 구성할 수 있음</li></ul>DATA1, DATA2 데이터 인터페이스 <ul><li>2개 40GbE 인터페이스 </li><li> 사용자 구성 가능(DHCP(기본값) 또는 정적)</li></ul>|
+| 노드당 네트워크 인터페이스 수                             | 노드당 4개 네트워크 인터페이스 <br><br> MGMT, DATA3 <ul><li> 2개 1GbE 인터페이스 </li><li> MGMT - 관리용 및 초기 설치용, 사용자 구성 가능하지 않음 </li><li> DATA3 - 사용자 구성 가능, 기본적으로 DHCP(Dynamic Host Configuration Protocol) 구성</li></ul>DATA1, DATA2 데이터 인터페이스 <ul><li>2개 40GbE 인터페이스 </li><li> 사용자 구성 가능(DHCP(기본값) 또는 정적)</li></ul>|
 
 
 ## <a name="components"></a>구성 요소

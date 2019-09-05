@@ -3,21 +3,20 @@ title: Azure Data Factory 파이프라인 분기 | Microsoft Docs
 description: 분기 및 연결 작업을 통해 Azure Data Factory에서 데이터 흐름을 제어하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2019
-ms.author: shlo
-ms.openlocfilehash: 9a03094683a973db16aa949f0610bc7f9914be45
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 264d8e049cc7b714e00aaa77441cdc81a1e0a0c9
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649223"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140745"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Data Factory 파이프라인 분기 및 연결 작업
 
@@ -58,7 +57,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     Jane|Doe
     ```
 
-2. [Azure Storage 탐색기](https://storageexplorer.com/)와 같은 도구를 사용하여 **adfv2branch** 컨테이너를 만들고 **input.txt** 파일을 이 컨테이너에 업로드합니다.
+2. [Azure Storage Explorer](https://storageexplorer.com/)와 같은 도구를 사용하여 **adfv2branch** 컨테이너를 만들고 **input.txt** 파일을 이 컨테이너에 업로드합니다.
 
 ## <a name="create-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 
@@ -66,7 +65,7 @@ Visual Studio 2015/2017을 사용하여 C# .NET 콘솔 애플리케이션을 만
 
 1. **Visual Studio**를 시작합니다.
 2. **File**을 클릭하고 **New**를 가리킨 다음 **프로젝트**를 클릭합니다. .NET 버전 4.5.2 이상이 필요합니다.
-3. 오른쪽의 프로젝트 형식 목록에서 **Visual C#** -> **콘솔 앱(.NET Framework)** 을 차례로 선택합니다.
+3. 오른쪽의 프로젝트 형식 목록에서 **Visual C#**  -> **콘솔 앱(.NET Framework)** 을 차례로 선택합니다.
 4. 이름으로 **ADFv2BranchTutorial**을 입력합니다.
 5. **확인**을 클릭하여 프로젝트를 만듭니다.
 

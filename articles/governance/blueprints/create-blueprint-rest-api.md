@@ -7,13 +7,12 @@ ms.date: 02/04/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 83133629d92abb50d9fd7509cf182282503fc041
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: f5c2b58fc6877bc196eb98faab88712f474523cb
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799222"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241337"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>빠른 시작: REST API로 Azure Blueprint 정의 및 할당
 
@@ -28,8 +27,6 @@ ms.locfileid: "65799222"
 > - 구독에 할당된 청사진 제거
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="getting-started-with-rest-api"></a>REST API 사용 시작
 
@@ -439,7 +436,7 @@ REST API를 사용하여 청사진을 게시하고 나면 구독에 할당할 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [청사진 수명 주기](./concepts/lifecycle.md)에 대해 알아보기
+- [청사진 수명 주기](./concepts/lifecycle.md)에 대해 알아봅니다.
 - [정적 및 동적 매개 변수](./concepts/parameters.md) 사용 방법 이해
 - [청사진 시퀀싱 순서](./concepts/sequencing-order.md)를 사용자 지정하는 방법 알아보기
 - [청사진 리소스 잠금](./concepts/resource-locking.md)을 활용하는 방법 알아보기

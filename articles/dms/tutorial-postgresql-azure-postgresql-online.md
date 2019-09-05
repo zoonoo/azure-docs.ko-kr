@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 06/28/2019
-ms.openlocfilehash: 96bfb80602efe8e63f814fc9bf6cff3ae52e5983
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 29776c1a49161daf9cf972c43c1378e52f5c3069
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461527"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141511"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>자습서: DMS를 사용하여 PostgreSQL을 Azure Database for PostgreSQL로 온라인 마이그레이션
 
@@ -268,7 +268,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
    * 대상 플랫폼: AzureDbForPostgreSql
 
      ```
-     az dms project create -l eastus2 -n PGMigration -g PostgresDemo --service-name PostgresCLI --source-platform PostgreSQL --target-platform AzureDbForPostgreSql
+     az dms project create -l westcentralus -n PGMigration -g PostgresDemo --service-name PostgresCLI --source-platform PostgreSQL --target-platform AzureDbForPostgreSql
      ```
 
 6. 다음 단계를 사용하여 PostgreSQL 마이그레이션 작업을 만듭니다.

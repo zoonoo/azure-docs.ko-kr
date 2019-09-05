@@ -8,12 +8,13 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: c7fbd37ff8d40f27e0ca18a6f9816d3d96422ab9
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.localizationpriority: high
+ms.openlocfilehash: dce3549bde4c62245e1d2b1f8ac0c88c0b70260c
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592406"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241398"
 ---
 # <a name="tutorial-order-azure-data-box-heavy"></a>자습서: Azure Data Box Heavy 주문
 
@@ -80,7 +81,7 @@ Azure Data Box Heavy는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-�
 
     |설정  |값  |
     |---------|---------|
-    |구독     | Data Box 서비스에 대한 EA, CSP 또는 Azure 스폰서쉽 구독을 선택합니다. <br> 구독은 대금 청구 계정에 연결됩니다.       |
+    |Subscription     | Data Box 서비스에 대한 EA, CSP 또는 Azure 스폰서쉽 구독을 선택합니다. <br> 구독은 대금 청구 계정에 연결됩니다.       |
     |전송 형식     | **Azure로 가져오기**를 선택합니다.        |
     |원천 국가     | 현재 데이터가 있는 국가/지역을 선택합니다.         |
     |대상 Azure 지역     | 데이터를 전송하려는 Azure 지역을 선택합니다.        |
@@ -95,8 +96,8 @@ Azure Data Box Heavy는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-�
     
     |설정  |값  |
     |---------|---------|
-    |이름     | 주문을 추적하는 데 친숙한 이름을 입력합니다. <br> 이 이름은 2~24자 사이의 문자, 숫자 및 하이픈일 수 있습니다. <br> 이름은 문자 또는 숫자로 시작하고 끝나야 합니다.      |
-    |리소스 그룹     | 기존 그룹을 사용하거나 새 그룹을 만듭니다. <br> 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다.         |
+    |Name     | 주문을 추적하는 데 친숙한 이름을 입력합니다. <br> 이 이름은 2~24자 사이의 문자, 숫자 및 하이픈일 수 있습니다. <br> 이름은 문자 또는 숫자로 시작하고 끝나야 합니다.      |
+    |Resource group     | 기존 그룹을 사용하거나 새 그룹을 만듭니다. <br> 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다.         |
     |대상 Azure 지역     | 스토리지 계정에 대한 지역을 선택합니다. <br> 자세한 내용은 [지역 가용성](https://azure.microsoft.com/global-infrastructure/services/?products=databox)을 참조하세요.        |
     |스토리지 대상     | 스토리지 계정이나 관리형 디스크 또는 둘 다를 선택합니다. <br> 지정된 Azure 지역에 따라 필터링된 기존 스토리지 계정 목록에서 하나 이상의 스토리지 계정을 선택합니다. <br>Data Box Heavy는 최대 10개의 스토리지 계정과 연결할 수 있습니다. <br> 새 **범용 v1**, **범용 v2** 또는 **Blob Storage 계정**도 만들 수 있습니다. <br> Azure Data Lake Storage Gen 2 계정은 지원되지 않습니다. [디바이스에 지원되는 스토리지 계정](data-box-heavy-system-requirements.md#supported-storage-accounts)을 참조하세요. <br>가상 네트워크를 사용하는 스토리지 계정은 지원됩니다. Data Box 서비스에서 보안 스토리지 계정을 사용하려면 스토리지 계정 네트워크 방화벽 설정 내에서 신뢰할 수 있는 서비스를 사용하도록 설정합니다. 자세한 내용은 [Azure Data Box 서비스를 신뢰할 수 있는 서비스로 추가](../storage/common/storage-network-security.md#exceptions)하는 방법을 참조하세요.|
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/07/2019
+ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: f54643883028d93b56c7e122f43db95bb6d0b8c1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ff666437790a1e32dde83f9e3be90b4c62637181
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560884"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307739"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>빠른 시작: LUIS 포털에서 새 앱 만들기
 
@@ -23,9 +23,9 @@ ms.locfileid: "68560884"
 
 앱을 작성하는 것은 무료이며, Azure 구독이 필요하지 않습니다. 앱을 배포할 준비가 되면 [앱을 배포하기 위한 빠른 시작](get-started-portal-deploy-app.md)을 참조하세요. Azure Cognitive Service 리소스를 만들어서 앱에 할당하는 방법을 보여줍니다.
 
-## <a name="create-an-app"></a>앱 만들기
+[!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
-1. 브라우저에서 [LUIS 포털](https://www.luis.ai)을 열고 로그인합니다. 처음 로그인하는 경우에는 무료 LUIS 포털 사용자 계정을 만들어야 합니다.
+## <a name="create-an-app"></a>앱 만들기
 
 1. 상황에 맞는 도구 모음에서 **새 앱 만들기**를 선택합니다.
 
