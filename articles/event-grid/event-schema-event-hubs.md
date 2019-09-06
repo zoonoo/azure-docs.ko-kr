@@ -72,15 +72,15 @@ Event Hubs는 캡처 파일이 생성되면 **Microsoft.EventHub.CaptureFileCrea
 
 | 자산 | Type | 설명 |
 | -------- | ---- | ----------- |
-| fileUrl | 문자열 | 캡처 파일에 대한 경로입니다. |
-| fileType | 문자열 | 캡처 파일의 파일 형식입니다. |
-| partitionId | 문자열 | shard ID입니다. |
+| fileUrl | string | 캡처 파일에 대한 경로입니다. |
+| fileType | string | 캡처 파일의 파일 형식입니다. |
+| partitionId | string | shard ID입니다. |
 | sizeInBytes | 정수 | 파일 크기입니다. |
 | eventCount | 정수 | 파일에 있는 이벤트의 수입니다. |
 | firstSequenceNumber | 정수 | 큐의 가장 작은 시퀀스 번호입니다. |
 | lastSequenceNumber | 정수 | 큐의 마지막 시퀀스 번호입니다. |
-| firstEnqueueTime | 문자열 | 큐의 처음 시간입니다. |
-| lastEnqueueTime | 문자열 | 큐의 마지막 시간입니다. |
+| firstEnqueueTime | string | 큐의 처음 시간입니다. |
+| lastEnqueueTime | string | 큐의 마지막 시간입니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
