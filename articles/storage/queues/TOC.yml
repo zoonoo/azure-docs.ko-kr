@@ -1,4 +1,4 @@
-- name: Azure Queue Storage 설명서
+- name: Azure Queue storage 설명서
   href: /azure/storage/queues/
 - name: 개요
   expanded: true

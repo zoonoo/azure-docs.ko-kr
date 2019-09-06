@@ -48,7 +48,7 @@
       items:
         - name: 자산
           href: assets-concept.md
-          displayName: naming
+          displayName: 'name, naming, file name'
     - name: Encoding
       items:
         - name: 개요
@@ -150,7 +150,7 @@
       items:
         - name: 개요
           href: media-services-apis-overview.md
-          displayName: 'accessing, naming, long-running, invalid character'
+          displayName: 'accessing, long-running, invalid character, name, naming, file name'
         - name: '엔터티 필터링, 순서 지정 및 페이징'
           href: entities-overview.md
         - name: RBAC
@@ -179,6 +179,8 @@
           href: media-reserved-units-cli-how-to.md
         - name: 자산 만들기 - CLI
           href: cli-create-asset.md
+    - name: 개발자 가이드
+      items:
         - name: REST를 사용하여 개발
           items:
             - name: Postman으로 연결

@@ -1,53 +1,101 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Resource Graph 서비스에 대한 설명서
+### YamlMime:Landing
+title: Azure Resource Graph 설명서
+summary: 모든 클라우드 리소스를 탐색하고 보다 효율적으로 클라우드 인벤토리 관리
 metadata:
-  title: 'Azure Resource Graph 설명서 - 자습서, API 참조'
-  description: Azure Resource Graph는 대규모의 복잡한 리소스 쿼리를 지원하는 Azure의 서비스입니다.
-  author: DCtheGeek
-  manager: carmonm
+  title: Azure Resource Graph 설명서
+  description: 모든 클라우드 리소스를 탐색하고 보다 효율적으로 클라우드 인벤토리 관리
   ms.service: resource-graph
   ms.topic: landing-page
-  ms.date: 08/25/2019
+  ms.collection: collection
+  author: DCtheGeek
   ms.author: dacoulte
-abstract:
-  description: Azure Resource Graph 설명서는 대규모로 리소스를 검색하고 살펴보기 위한 쿼리 언어를 구성하고 학습하는 데 도움이 됩니다.
-sections:
-  - title: 5분 빠른 시작
-    items:
-      - type: paragraph
-        text: Resource Graph를 구성하고 첫 번째 쿼리를 실행해 보세요.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              alt: Azure Resource Graph Explorer
-              src: ./media/arg_explorer.svg
-            text: Resource Graph Explorer
-            href: first-query-portal.md
-          - image:
-              alt: Azure CLI
-              src: ./media/cli.svg
-            text: Azure CLI
-            href: first-query-azurecli.md
-          - image:
-              alt: Azure PowerShell
-              src: ./media/powershell.svg
-            text: Azure PowerShell
-            href: first-query-powershell.md
-  - title: 사용자 의견
-    items:
-      - type: paragraph
-        text: '이 기능에 대한 피드백을 제공하거나 쿼리에 대한 지원을 받으려면 Azure Portal의 <b>Azure Policy</b>에서 <b>리소스 그래프(미리 보기)</b> 페이지에 방문하여 피드백을 클릭하세요. <a href="https://feedback.azure.com/forums/915958-azure-governance">UserVoice</a>에서 제안 사항을 보낼 수도 있습니다.'
-  - title: 참고 자료
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: 명령줄
-            html: <p><a href="/cli/azure/ext/resource-graph/graph">Azure CLI</a></p><p><a href="/powershell/module/az.resourcegraph/">Azure PowerShell</a></p>
-          - title: 언어
-            html: '<p><a href="/dotnet/api/Microsoft.Azure.Management.ResourceGraph">Azure SDK for .NET</a></p><p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceGraph/">Azure SDK for .NET(NuGet)</a></p><p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph">Azure SDK for Go</a></p><p><a href="/java/api/overview/azure/resourcegraph/management?view=azure-java-stable">Java용 Azure SDK</a></p><p><a href="https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta/jar">Java용 Azure SDK(Maven)</a></p><p><a href="/javascript/api/@azure/arm-resourcegraph">Node용 Azure SDK</a></p><p><a href="/python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph">Python용 Azure SDK</a></p><p><a href="https://rubygems.org/gems/azure_mgmt_resourcegraph">Ruby용 Azure SDK(Gem)</a></p>'
-          - title: REST (영문)
-            html: '<p><a href="/rest/api/azureresourcegraph/resources/resources">API 참조</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01">2019-04-01(OpenAPI)</a></p>'
+  ms.date: 09/01/2019
+  ms.openlocfilehash: 1f23338b7e894b2ff58b1a5bf9565f842b273465
+  ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 09/04/2019
+  ms.locfileid: "70239049"
+landingContent:
+- title: Azure Resource Graph 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Resource Graph란?
+      url: ./overview.md
+  - linkListType: concept
+    links:
+    - text: 쿼리 언어 검토
+      url: ./concepts/query-language.md
+  - linkListType: how-to-guide
+    links:
+    - text: 리소스 변경 내용 가져오기
+      url: ./how-to/get-resource-changes.md
+- title: 시작하기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 첫 번째 쿼리(포털)
+      url: ./first-query-portal.md
+    - text: 첫 번째 쿼리(PowerShell)
+      url: ./first-query-powershell.md
+    - text: 첫 번째 쿼리(CLI)
+      url: ./first-query-azurecli.md
+  - linkListType: concept
+    links:
+    - text: Resource Graph를 사용하여 탐색
+      url: ./concepts/explore-resources.md
+  - linkListType: deploy
+    links:
+    - text: 시작 쿼리 샘플
+      url: ./samples/starter.md
+    - text: 고급 쿼리 샘플
+      url: ./samples/advanced.md
+- title: "'대규모'에 사용"
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 대규모 데이터 세트로 작업
+      url: ./concepts/work-with-data.md
+    - text: 제한된 요청에 대한 지침
+      url: ./concepts/guidance-for-throttled-requests.md
+- title: 참여하기
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Azure 거버넌스 YouTube 채널
+      url: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
+    - text: 제품 기능 요청
+      url: https://feedback.azure.com/forums/915958-azure-governance?category_id=345061
+    - text: Azure 거버넌스를 위한 기술 커뮤니티
+      url: https://techcommunity.microsoft.com/t5/Azure-Governance/bd-p/AzureGovernance
+- title: 참조 - 다운로드
+  linkLists:
+  - linkListType: download
+    links:
+    - text: OpenAPI - 2019-04-01
+      url: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01
+    - text: .NET용 SDK - NuGet
+      url: https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceGraph/
+    - text: Java용 SDK - Maven
+      url: https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta/jar
+    - text: Ruby용 SDK - Gem
+      url: https://rubygems.org/gems/azure_mgmt_resourcegraph
+- title: 참조 - SDK
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure PowerShell
+      url: /powershell/module/az.resourcegraph/
+    - text: Azure CLI
+      url: /cli/azure/ext/resource-graph/graph
+    - text: .NET
+      url: /dotnet/api/Microsoft.Azure.Management.ResourceGraph
+    - text: Go
+      url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph
+    - text: Java
+      url: /java/api/overview/azure/resourcegraph/management?view=azure-java-stable
+    - text: 노드
+      url: /javascript/api/@azure/arm-resourcegraph
+    - text: Python
+      url: /python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph

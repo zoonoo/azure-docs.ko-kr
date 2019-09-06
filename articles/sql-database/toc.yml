@@ -219,10 +219,16 @@
       items:
         - name: 관리형 인스턴스 설명서
           href: sql-database-managed-instance-index.yml
-        - name: 관리되는 인스턴스 기능
+        - name: Managed Instance 개요
           href: sql-database-managed-instance.md
         - name: 관리형 인스턴스 FAQ
           href: sql-database-managed-instance-faq.md
+        - name: 인스턴스 풀
+          items:
+            - name: 인스턴스 풀 개요
+              href: sql-database-instance-pools.md
+            - name: 인스턴스 풀 방법 가이드
+              href: sql-database-instance-pools-how-to.md
         - name: 관리 API 참조
           href: sql-database-managed-instance-create-manage.md
         - name: 리소스 한계

@@ -81,8 +81,10 @@
       items:
         - name: 상태 프로브
           href: application-gateway-probe-overview.md
-        - name: 진단
+        - name: 진단 로그 및 백 엔드 상태
           href: application-gateway-diagnostics.md
+        - name: 메트릭
+          href: application-gateway-metrics.md
     - name: App Service 웹앱 및 다중 테넌트 지원
       href: application-gateway-web-app-overview.md
     - name: WebSocket 지원
@@ -225,6 +227,8 @@
           href: resource-health-overview.md
         - name: Log Analytics 사용
           href: log-analytics.md
+        - name: 백 엔드 상태 이슈
+          href: application-gateway-backend-health-troubleshooting.md
     - name: v1에서 v2로 마이그레이션
       href: migrate-v1-v2.md
 - name: 참고 자료

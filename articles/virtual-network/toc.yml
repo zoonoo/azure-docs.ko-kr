@@ -273,6 +273,8 @@
           href: troubleshoot-outbound-smtp-connectivity.md
         - name: IP 주소(168.63.129.16) 정보
           href: what-is-ip-address-168-63-129-16.md
+        - name: Azure VM 연결 문제 해결
+          href: troubleshoot-vm-connectivity.md
     - name: 클래식
       items:
         - name: 가상 네트워크 만들기 및 관리

@@ -1,55 +1,57 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Azure Data Science Virtual Machine 설명서
+summary: Azure DSVM(Data Science Virtual Machine)은 데이터 과학 및 ML 도구가 포함된 사용자 지정 VM 이미지입니다. 이 VM을 사용하여 고급 분석을 위한 인텔리전트 애플리케이션을 빌드할 수 있습니다.
 metadata:
   title: Data Science Virtual Machine 설명서 - Azure
-  description: 데이터 과학용으로 빌드된 Azure 클라우드의 실험 환경인 Data Science Virtual Machine을 사용하는 방법을 알아봅니다. 인기 있는 데이터 과학 및 기계 학습 도구가 사전 설치 및 미리 구성되어 있습니다. 이 디자인은 고급 분석을 위한 지능형 애플리케이션을 빌드할 때의 시작점을 제공합니다.
+  description: Data Science Virtual Machine은 데이터 과학용으로 빌드된 Azure 클라우드의 실험 환경입니다. 인기 있는 데이터 과학 및 ML 도구가 미리 설치되어 있습니다.
   services: machine-learning
-  author: vijetajo
   ms.service: machine-learning
   ms.subservice: data-science-vm
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 08/19/2019
-  ms.author: vijetaj
-abstract:
-  description: DSVM(Data Science Virtual Machine)은 데이터 과학 및 기계 학습 도구가 포함된 사용자 지정 VM 이미지입니다. 이 VM을 사용하여 고급 분석을 위한 지능형 애플리케이션을 빌드할 수 있습니다. <a href="overview.md">자세히 알아보기</a>.
-sections:
-  - title: 5분 빠른 시작
-    items:
-      - type: paragraph
-        text: Windows 또는 Linux 기반 Data Science Virtual Machine을 설정하는 방법을 알아봅니다.
-      - type: paragraph
-        text: <b>Windows DSVM</b>
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="provision-vm">Windows DSVM 설정</a>
-          - html: <a href="vm-do-ten-things">Windows DSVM 사용</a>
-      - type: paragraph
-        text: <b>Linux DSVM(Ubuntu | CentOS)</b>
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="linux-dsvm-intro">Linux CentOS DSVM 설정</a>
-          - html: <a href="dsvm-ubuntu-intro">Linux Ubuntu DSVM 설정</a>
-          - html: <a href="linux-dsvm-walkthrough">Linux DSVM 사용</a>
-  - title: Azure Machine Learning 기술 추가 정보
-    items:
-      - type: paragraph
-        text: Azure Machine Learning에서 사용할 수 있는 다른 기술은 다음과 같습니다.
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Azure Machine Learning 서비스
-            href: /azure/machine-learning/service/
-            image:
-              src: media/index/i_machine-learning.svg
-              href: /azure/machine-learning/service/
-          - title: Azure Machine Learning Studio
-            href: /azure/machine-learning/studio/
-            image:
-              src: media/index/machine-learning-studio.svg
-              href: /azure/machine-learning/studio/
+  ms.collection: collection
+  author: j-martens
+  ms.author: jmartens
+  ms.date: 09/03/2019
+  ms.openlocfilehash: c33504124bdef2edf44842581143a8468cbb1e20
+  ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 09/04/2019
+  ms.locfileid: "70308806"
+landingContent:
+- title: DSVM 시작
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure DSVM이란?
+      url: overview.md
+    - text: Geo AI DSVM이란?
+      url: geo-ai-dsvm-overview.md
+  - linkListType: get-started
+    links:
+    - text: Windows DSVM 만들기
+      url: provision-vm.md
+    - text: Ubuntu DSVM 만들기
+      url: dsvm-ubuntu-intro.md
+    - text: CentOS DSVM 만들기
+      url: linux-dsvm-intro.md
+    - text: Geo AI DSVM 만들기
+      url: provision-geo-ai-dsvm.md
+- title: DSVM 관리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 자동 크기 조정 DSVM 풀 만들기
+      url: dsvm-pools.md
+    - text: Active Directory와 통합할 수 있습니다.
+      url: dsvm-common-identity.md
+    - text: 안전한 리소스 액세스 자격 증명
+      url: dsvm-secure-access-keys.md
+- title: Azure Machine Learning 기술 추가 정보
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure Machine Learning 서비스
+      url: /azure/machine-learning/
+    - text: ML 제품 비교
+      url: https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context

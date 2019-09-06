@@ -1,5 +1,5 @@
-- name: Azure Storage 설명서
-  href: /azure/storage/
+- name: Azure Files 설명서
+  href: index.yml
 - name: 개요
   expanded: true
   items:

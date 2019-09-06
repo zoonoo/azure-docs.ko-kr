@@ -125,6 +125,14 @@
               href: map-events.md
             - name: 앱에 액세스할 수 있게 만들기
               href: map-accessibility.md
+        - name: 그리기 도구
+          items:
+            - name: 그리기 도구 모음 추가
+              href: map-add-drawing-toolbar.md
+            - name: 그리기 옵션 설정
+              href: set-drawing-options.md
+            - name: 도형 데이터 가져오기
+              href: map-get-shape-data.md
         - name: 서비스 모듈
           items:
             - name: 서비스 모듈 사용
@@ -198,7 +206,7 @@
 - name: 리소스
   items:
     - name: Azure Maps 사용 약관
-      href: 'https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31'
+      href: 'https://azure.microsoft.com/support/legal/'
     - name: Azure Maps 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/azure-maps'
     - name: 요금 계산기
@@ -209,6 +217,8 @@
       href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs'
     - name: Azure Maps 비디오
       href: 'https://aka.ms/AzureMapsVideos'
+    - name: Azure Maps 사례 연구
+      href: 'https://aka.ms/AzureMapsCaseStudies'
     - name: Azure Maps 용어집
       href: glossary.md
     - name: 서비스 업데이트

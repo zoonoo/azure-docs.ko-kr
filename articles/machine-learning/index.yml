@@ -1,92 +1,103 @@
-### YamlMime:YamlDocument
-abstract:
-  description: '다음 Azure Machine Learning 제품을 사용하여 앱 및 웹 사이트에 지능형 알고리즘을 빌드하는 방법을 알아봅니다.  자습서, 빠른 시작, API 참조 및 예제는 방법을 보여줍니다.'
-documentType: LandingData
-metadata:
-  author: j-martens
-  description: '사용자의 요구 사항을 자연스러운 의사 소통 방식으로 보고 듣고 말하고 이해할 수 있도록 앱, 웹사이트 및 봇에 지능적인 알고리즘을 빌드하는 방법을 알아봅니다. 자습서, 빠른 시작, API 참조 및 예제는 방법을 보여줍니다.'
-  ms.author: jmartens
-  ms.subservice: core
-  ms.date: 8/14/2019
-  ms.devlang: na
-  ms.service: machine-learning
-  ms.tgt_pltfrm: na
-  ms.topic: landing-page
-  services: machine-learning
-  title: 'Azure Machine Learning 설명서 – 자습서, API 참조 | Microsoft Docs'
-sections:
-  - items:
-      - className: cardsM
-        columns: 2
-        items:
-          - href: /azure/machine-learning/service/overview-what-is-azure-ml
-            html: '<p>이 서비스에서 데이터 과학자가 CLI/Python 도구 및 라이브러리와 다양한 Azure 데이터 및 계산 서비스를<br/> 다양한 Azure 데이터 및 컴퓨팅 서비스를 사용하여 Azure CLI, Python 도구 및 라이브러리를 사용합니다. 자세히 알아보기...</p>'
-            image:
-              src: /azure/machine-learning/media/index/i_machine-learning.svg
-            title: Azure Machine Learning 서비스
-        style: cards
-        type: list
-  - items:
-      - text: Azure Machine Learning Service를 사용하여 설정하고 시작합니다.
-        type: paragraph
-      - text: '사용하기 쉽고 코드 인터페이스가 없는 Azure Portal를 사용하여 ML 모델을 학습, 배포 및 관리합니다.'
-        type: paragraph
-      - items:
-          - html: <a href="service/ui-tutorial-automobile-price-train-score">시각적 개체 인터페이스의 끌어서 놓기 UI에서 첫 번째 실험 학습</a>
-          - html: <a href="service/tutorial-first-experiment-automated-ml">자동화된 기계 학습을 사용하여 첫 번째 분류 모델 학습 및 배포</a>
-        style: unordered
-        type: list
-      - text: '스크립트 및 Notebooks에서 Python SDK를 사용하여 ML 모델을 학습, 배포 및 관리합니다.'
-        type: paragraph
-      - items:
-          - html: <a href="service/tutorial-1st-experiment-sdk-setup">환경 설정 및 첫 번째 ML 실험 학습</a>
-          - html: <a href="service/tutorial-train-models-with-aml">이미지 분류 모델 학습 및 배포</a>
-          - html: <a href="service/tutorial-auto-train-models">자동화된 ML을 사용하여 택시 요금 예측</a>
-        style: unordered
-        type: list
-      - text: '모델 사용:'
-        type: paragraph
-      - items:
-          - html: <a href="service/how-to-consume-web-service">요청-응답 모델 사용</a>
-          - html: <a href="service/how-to-run-batch-predictions">ML 파이프라인을 사용하는 일괄 처리 예측</a>
-        style: unordered
-        type: list
-    title: 단계별 자습서
-  - items:
-      - className: cardsM
-        columns: 2
-        items:
-          - href: /azure/cognitive-services/
-            html: '<p>앱, 웹 사이트 및 봇에 지능형 알고리즘을 제공하는 API입니다.</p>'
-            image:
-              src: /azure/machine-learning/media/index/cognitive-services.png
-            title: Cognitive Services
-          - href: /azure/machine-learning/studio/
-            html: "<p>R 또는 Python에서 데이터에 대한 예측 분석 솔루션을 빌드, 테스트 및 배포하는 공동 끌어서 놓기 도구입니다.\_</p>"
-            image:
-              src: /azure/machine-learning/media/index/machine-learning-studio.svg
-            title: Azure Machine Learning Studio
-          - href: /sql/advanced-analytics/r/r-services
-            html: <p>R 및 Python 둘 다에 대한 지원을 포함하는 데이터베이스 내 분석입니다.</p>
-            image:
-              src: /azure/machine-learning/media/index/logo_sql.png
-            title: SQL Server Machine Learning 서비스
-          - href: /machine-learning-server/
-            html: '<p>유연한 엔터프라이즈 기계 학습 플랫폼으로, Windows, Linux 및 HDInsight Spark와 Hadoop 클러스터에서 R 및 Python 배포를 지원합니다.</p>'
-            image:
-              src: /azure/machine-learning/media/index/ml-server.png
-            title: Microsoft Machine Learning 서버
-          - href: /azure/machine-learning/team-data-science-process
-            html: <p>팀에 도움이 되는 공동 데이터 과학 방법론은 예측 분석 솔루션 및 지능형 애플리케이션을 효율적으로 제공합니다.</p>
-            image:
-              src: /azure/machine-learning/media/index/tdsp.png
-            title: Team Data Science Process
-          - href: /azure/machine-learning/data-science-virtual-machine/
-            html: '<p>DSVM(Data Science Virtual Machine) 및 DLVM(Deep Learning Virtual Machine)을 사용하여 소프트웨어를 설치하거나 구성하지 않고 실험합니다. 인기 있는 데이터 분석, 기계 학습 및 AI 도구가 사전 설치되어 있습니다.</p>'
-            image:
-              src: /azure/machine-learning/media/index/virtualmachine.svg
-            title: 데이터 과학 Virtual Machine
-        style: cards
-        type: list
-    title: 기타 Microsoft Machine Learning 기술
+### YamlMime:Landing
 title: Azure Machine Learning 설명서
+summary: Azure Machine Learning은 웹 인터페이스 및 SDK를 제공하므로 기계 학습 모델과 파이프라인을 대규모로 신속하게 학습시키고 배포할 수 있습니다. PyTorch, TensorFlow 및 scikit-learn과 같은 오픈 소스 Python 프레임워크와 함께 이러한 기능을 사용하세요.
+metadata:
+  title: Machine Learning 설명서 - Azure
+  description: Azure Machine Learning은 기계 학습 모델과 파이프라인을 대규모로 신속하게 학습시키고 배포할 수 있는 웹 인터페이스 및 SDK를 제공합니다. PyTorch, TensorFlow 및 scikit-learn과 같은 오픈 소스 Python 프레임워크와 함께 이러한 기능을 사용하세요.
+  services: machine-learning
+  ms.service: machine-learning
+  ms.subservice: core
+  ms.topic: landing-page
+  ms.collection: collection
+  author: j-martens
+  ms.author: jmartens
+  ms.date: 09/03/2019
+  ms.openlocfilehash: e2c5e592c2330f1e5514c5c59c92ff5c8a3a62b2
+  ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 09/04/2019
+  ms.locfileid: "70278310"
+landingContent:
+- title: Azure ML 시작
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Notebook으로 실험
+      url: service/tutorial-1st-experiment-sdk-setup.md
+    - text: 시각적 인터페이스에서 실험
+      url: service/ui-tutorial-automobile-price-train-score.md
+    - text: 첫 번째 실험 자동화
+      url: service/tutorial-first-experiment-automated-ml.md
+  - linkListType: overview
+    links:
+    - text: Azure ML이란?
+      url: service/overview-what-is-azure-ml.md
+    - text: 아키텍처 및 개념
+      url: service/concept-azure-machine-learning-architecture.md
+  - linkListType: how-to-guide
+    links:
+    - text: 개발 환경 설정
+      url: service/how-to-configure-environment.md
+    - text: 학습 컴퓨팅 대상 설정
+      url: service/how-to-set-up-training-targets.md
+- title: Python으로 학습
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 첫 번째 ML 실험 만들기
+      url: service/tutorial-1st-experiment-sdk-setup.md
+    - text: 이미지 분류 모델 학습
+      url: service/tutorial-train-models-with-aml.md
+    - text: 자동화된 ML로 택시 요금 예측
+      url: service/tutorial-auto-train-models.md
+  - linkListType: how-to-guide
+    links:
+    - text: Scikit-learn을 사용하여 학습
+      url: service/how-to-train-scikit-learn.md
+    - text: TensorFlow로 학습
+      url: service/how-to-train-tensorflow.md
+    - text: PyTorch로 학습
+      url: service/how-to-train-pytorch.md
+    - text: Keras로 학습
+      url: service/how-to-train-keras.md
+- title: 시각적 인터페이스에서 학습
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: 자동화된 ML 실험 학습
+      url: service/tutorial-first-experiment-automated-ml.md
+    - text: 시각적 인터페이스에서 학습
+      url: service/ui-tutorial-automobile-price-train-score.md
+  - linkListType: how-to-guide
+    links:
+    - text: '시각적 인터페이스: 자동차 가격 예측'
+      url: service/ui-sample-regression-predict-automobile-price-basic.md
+    - text: '시각적 인터페이스: 신용 위험 예측'
+      url: service/ui-sample-classification-predict-credit-risk-cost-sensitive.md
+    - text: '시각적 인터페이스: 지연 예측'
+      url: service/ui-sample-classification-predict-flight-delay.md
+    - text: '시각적 인터페이스: 이탈 예측'
+      url: service/ui-sample-classification-predict-churn.md
+- title: 모델 배포 및 관리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: MLOps란?
+      url: service/concept-model-management-and-deployment.md
+    - text: 배포 방법 및 배포 위치
+      url: service/how-to-deploy-and-where.md
+    - text: 실시간 예측
+      url: service/how-to-consume-web-service.md
+    - text: 일괄 처리 예측
+      url: service/how-to-run-batch-predictions.md
+- title: 참조 문서 살펴보기
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure ML Python SDK
+      url: https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py
+    - text: Azure ML CLI
+      url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
+    - text: 시각적 인터페이스 알고리즘 및 모듈
+      url: algorithm-module-reference/module-reference.md

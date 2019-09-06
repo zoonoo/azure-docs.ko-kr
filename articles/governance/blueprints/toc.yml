@@ -153,6 +153,9 @@
     - name: PowerShell로 할당 관리
       displayName: 'create, update, remove'
       href: ./how-to/manage-assignments-ps.md
+    - name: PowerShell을 사용하여 가져오기 및 내보내기
+      displayName: 'import, export, folders'
+      href: ./how-to/import-export-ps.md
     - name: 포털에서 기존 할당 업데이트
       displayName: 'lock, errors'
       href: ./how-to/update-existing-assignments.md

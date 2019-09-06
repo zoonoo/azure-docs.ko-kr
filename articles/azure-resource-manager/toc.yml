@@ -60,9 +60,6 @@
   items:
     - name: 템플릿 배포
       href: template-deployment-overview.md
-    - name: 템플릿 파일 구조
-      displayName: 'parameters,variables,resources,outputs,condition'
-      href: resource-group-authoring-templates.md
     - name: 템플릿 모범 사례
       href: template-best-practices.md
     - name: 클라우드 일관성을 위한 템플릿
@@ -85,26 +82,38 @@
   items:
     - name: 템플릿 만들기
       items:
-        - name: 개발 도구 - VS Code
+        - name: VS Code 사용
           href: resource-manager-tools-vs-code.md
-        - name: 템플릿 만들기
-          href: how-to-create-template.md
-        - name: 자식 리소스 이름 및 유형
-          href: child-resource-name-type.md
-        - name: 구독에서 리소스 그룹 및 리소스 만들기
-          displayName: subscription level deployment
-          href: deploy-to-subscription.md
-        - name: 리소스 종속성 정의
-          href: resource-group-define-dependencies.md
+        - name: 템플릿 식 작성
+          href: template-expressions.md
+        - name: 매개 변수
+          href: template-parameters.md
+        - name: variables
+          href: template-variables.md
+        - name: 사용자 정의 함수
+          href: template-user-defined-functions.md
+        - name: 리소스
+          items:
+            - name: 자식 리소스 이름 및 유형
+              href: child-resource-name-type.md
+            - name: 조건부 배포
+              href: conditional-resource-deployment.md
+            - name: 리소스 종속성 설정
+              href: resource-group-define-dependencies.md
+            - name: 리소스 위치 설정
+              href: resource-location.md
+            - name: 템플릿 확장 사용
+              href: resource-manager-use-extensions.md
+        - name: outputs
+          href: template-outputs.md
         - name: 템플릿 모듈화
           displayName: 'linked templates, nested templates'
           href: resource-group-linked-templates.md
         - name: 여러 인스턴스 만들기
           href: resource-group-create-multiple.md
-        - name: 템플릿 확장 사용
-          href: resource-manager-use-extensions.md
-        - name: 리소스 업데이트
-          href: /azure/architecture/building-blocks/extending-templates/update-resource
+        - name: 구독에서 리소스 그룹 및 리소스 만들기
+          displayName: subscription level deployment
+          href: deploy-to-subscription.md
     - name: 템플릿 배포
       items:
         - name: 배포 - 포털
@@ -244,6 +253,9 @@
       href: resource-manager-async-operations.md
 - name: 참고 자료
   items:
+    - name: 템플릿 파일 구조
+      displayName: 'parameters,variables,resources,outputs,condition'
+      href: resource-group-authoring-templates.md
     - name: 템플릿 참조
       href: /azure/templates/
     - name: 템플릿 함수

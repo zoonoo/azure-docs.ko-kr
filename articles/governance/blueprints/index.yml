@@ -1,49 +1,103 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Blueprints 서비스에 대한 설명서
+### YamlMime:Landing
+title: Azure Blueprints 설명서
+summary: Resource Manager 템플릿, 역할 기반 액세스 제어, 정책 등의 아티팩트를 하나의 청사진 정의로 패키징하여 배포를 간소화하세요.
 metadata:
-  title: 'Azure Blueprints 설명서 - 자습서, API 참조'
-  description: Azure Blueprints는 Azure 환경에서 아티팩트를 만들고 정의하고 배포하는 데 사용하는 Azure의 서비스입니다.
-  author: DCtheGeek
-  manager: carmonm
+  title: Azure Blueprints 설명서
+  description: Resource Manager 템플릿, 역할 기반 액세스 제어, 정책 등의 아티팩트를 하나의 청사진 정의로 패키징하여 배포를 간소화하세요.
   ms.service: blueprints
   ms.topic: landing-page
-  ms.date: 06/14/2019
+  ms.collection: collection
+  author: DCtheGeek
   ms.author: dacoulte
-abstract:
-  description: 'Azure Blueprint를 사용하면 리소스, 역할 기반 액세스 제어 및 정책을 프로비저닝하는 Azure Resource Manager 템플릿과 같은 구성 가능한 아티팩트를 사용하여 반복 가능한 방식으로 클라우드 환경을 배포하고 업데이트할 수 있습니다.'
-sections:
-  - title: 5분 빠른 시작
-    items:
-      - type: paragraph
-        text: 'Azure에서 청사진 정의를 만들고, 할당하고, 관리하는 방법을 알아봅니다.'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              alt: Azure Portal
-              src: ./media/portal.svg
-            text: Azure Portal
-            href: create-blueprint-portal.md
-          - image:
-              alt: Azure PowerShell
-              src: ./media/powershell.svg
-            text: Azure PowerShell
-            href: create-blueprint-powershell.md
-          - image:
-              alt: REST (영문)
-              src: ./media/rest.svg
-            text: REST (영문)
-            href: create-blueprint-rest-api.md
-  - title: 참고 자료
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: 명령줄
-            html: '<p><a href="/powershell/module/az.blueprint/#blueprint">Azure PowerShell</a></p>'
-          - title: 언어
-            html: <p><a href="/dotnet/api/overview/azure/blueprints/management">Azure SDK for .NET</a></p>
-          - title: REST (영문)
-            html: <p><a href="/rest/api/blueprints/">API 참조</a></p>
+  ms.date: 09/01/2019
+  ms.openlocfilehash: 44d21c07a81dc3fe5912137691b67af1a3e910e2
+  ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 09/04/2019
+  ms.locfileid: "70239220"
+landingContent:
+- title: Azure Blueprints 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Blueprints란?
+      url: ./overview.md
+    - text: 배포 단계
+      url: ./concepts/deployment-stages.md
+    - text: 청사진 수명 주기
+      url: ./concepts/lifecycle.md
+  - linkListType: video
+    links:
+    - text: Azure Friday - Azure Blueprints 개요
+      url: https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints
+- title: 시작하기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 새 청사진 만들기(포털)
+      url: ./create-blueprint-portal.md
+    - text: 새 청사진 만들기(PowerShell)
+      url: ./create-blueprint-powershell.md
+    - text: 새 청사진 만들기(REST API)
+      url: ./create-blueprint-rest-api.md
+  - linkListType: tutorial
+    links:
+    - text: 청사진 샘플 사용
+      url: ./tutorials/create-from-sample.md
+  - linkListType: deploy
+    links:
+    - text: 청사진 샘플 인덱스
+      url: ./samples/index.md
+- title: 청사진 사용자 지정
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 동적 매개 변수
+      url: ./concepts/parameters.md
+    - text: 시퀀스 아티팩트
+      url: ./concepts/sequencing-order.md
+    - text: 배포된 리소스 잠금
+      url: ./concepts/resource-locking.md
+  - linkListType: tutorial
+    links:
+    - text: 잠금을 사용하여 새 리소스 보호
+      url: ./tutorials/protect-new-resources.md
+- title: "'대규모'로 발전"
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 기존 청사진 업데이트
+      url: ./how-to/update-existing-assignments.md
+    - text: PowerShell로 할당 관리
+      url: ./how-to/manage-assignments-ps.md
+    - text: PowerShell을 사용하여 가져오기 및 내보내기
+      url: ./how-to/import-export-ps.md
+    - text: 청사진 연산자 구현
+      url: ./how-to/configure-for-blueprint-operator.md
+    - text: 청사진을 코드로 관리
+      url: https://github.com/Azure/azure-blueprints/blob/master/README.md
+- title: 참여하기
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Azure 거버넌스 YouTube 채널
+      url: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
+    - text: 제품 기능 요청
+      url: https://feedback.azure.com/forums/915958-azure-governance
+    - text: Azure 거버넌스를 위한 기술 커뮤니티
+      url: https://techcommunity.microsoft.com/t5/Azure-Governance/bd-p/AzureGovernance
+- title: 참고 자료
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 청사진 관련 함수
+      url: ./reference/blueprint-functions.md
+    - text: PowerShell 모듈(PSGallery)
+      url: https://www.powershellgallery.com/packages/Az.Blueprint
+    - text: Azure PowerShell
+      url: /powershell/module/az.blueprint/#blueprint
+    - text: REST API
+      url: /rest/api/blueprints/
+    - text: .NET
+      url: /dotnet/api/overview/azure/blueprints/management

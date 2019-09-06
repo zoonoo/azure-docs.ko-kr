@@ -1,57 +1,81 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Azure Blockchain Service 설명서
+summary: 블록체인 애플리케이션을 만드는 방법을 알아봅니다. 자습서, API 참조 및 기타 문서에서는 Azure Blockchain Service를 사용하여 Azure에서 블록체인 애플리케이션을 만들고, 개발하고, 관리하는 방법을 보여줍니다.
 metadata:
-  title: 'Azure Blockchain Service 설명서 - 자습서, API 참조'
-  description: '블록체인 애플리케이션을 만드는 방법을 알아봅니다. 자습서, API 참조 및 기타 문서에서는 Azure Blockchain Service를 사용하여 Azure에서 블록체인 애플리케이션을 만들고, 개발하고, 관리하는 방법을 보여줍니다.'
+  title: Azure Blockchain Service 설명서 - 자습서, API 참조
+  description: 블록체인 애플리케이션을 만드는 방법을 알아봅니다. 자습서, API 참조 및 기타 문서에서는 Azure Blockchain Service를 사용하여 Azure에서 블록체인 애플리케이션을 만들고, 개발하고, 관리하는 방법을 보여줍니다.
   services: azure-blockchain
-  author: patricka
-  manager: femila
   ms.service: azure-blockchain
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 03/13/2019
+  author: PatAltimore
   ms.author: patricka
-abstract:
-  description: '블록체인 애플리케이션을 만드는 방법을 알아봅니다. 자습서, API 참조 및 기타 문서에서는 Azure Blockchain Service를 사용하여 Azure에서 블록체인 애플리케이션을 만들고, 개발하고, 사용하는 방법을 보여줍니다.'
-sections:
-  - title: 5분 빠른 시작
-    items:
-      - type: paragraph
-        text: Azure에서 컨소시엄 멤버를 만들고 연결하는 방법을 알아봅니다.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ./media/index/deploy.svg
-            text: 컨소시엄 멤버 만들기
-            href: /azure/blockchain/service/create-member
-          - image:
-              src: ./media/index/multi-connect.svg
-            text: MetaMask를 사용하여 연결
-            href: /azure/blockchain/service/connect-metamask
-          - image:
-              src: ./media/index/cligeneric.svg
-            text: geth를 사용하여 연결
-            href: /azure/blockchain/service/connect-geth
-          - image:
-              src: ./media/index/code-blocks.svg
-            text: Truffle을 사용하여 연결
-            href: /azure/blockchain/service/connect-truffle
-  - title: 단계별 자습서
-    items:
-      - type: paragraph
-        text: 'Azure에서 블록체인 애플리케이션을 만들고, 구성하고, 개발하는 방법을 알아봅니다.'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/blockchain/service/send-transaction">Azure Blockchain Service 멤버를 만들고 트랜잭션 보내기</a>
-  - title: 참고 자료
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: REST (영문)
-            html: '<p><a href="https://docs.microsoft.com/rest/api/blockchain">REST API</a></p>'
+  ms.date: 08/29/2019
+  ms.openlocfilehash: c5816bb2278c138a8df07c5c289d53a818614d86
+  ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 09/04/2019
+  ms.locfileid: "70240830"
+landingContent:
+- title: Azure Blockchain Service 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Blockchain Service란?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: 프라이빗 컨소시엄 블록체인 네트워크
+      url: consortium.md
+    - text: 데이터 액세스 및 보안
+      url: data-security.md
+    - text: 개발 도구
+      url: develop.md
+- title: 시작하기
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: 블록체인 멤버 만들기 - 포털
+      url: create-member.md
+    - text: 블록체인 멤버 만들기 - CLI
+      url: create-member-cli.md
+  - linkListType: quickstart
+    links:
+    - text: MetaMask를 사용하여 스마트 계약을 연결하고 Remix를 사용하여 배포
+      url: connect-metamask.md
+    - text: Geth를 사용하여 트랜잭션 노드에 연결
+      url: connect-geth.md
+    - text: Truffle을 사용하여 트랜잭션 노드에 연결
+      url: connect-truffle.md
+  - linkListType: tutorial
+    links:
+    - text: Azure Blockchain Service에서 스마트 계약 사용
+      url: send-transaction.md
+  - linkListType: video
+    links:
+    - text: 네트워크 배포 및 구성
+      url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-I-Deploy-and-configure-your-network
+    - text: VS Code를 사용하여 스마트 계약 작성 및 테스트
+      url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-II-Write-and-test-smart-contracts-with-VS-Code
+    - text: 원장으로 데이터 보내기
+      url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-III-Send-data-to-the-ledger
+    - text: 이벤트 및 원장 데이터 게시
+      url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-IV-Publish-events-and-ledger-data
+- title: 관리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 블록 체인 멤버 관리 - CLI
+      url: manage-cli.md
+    - text: 컨소시엄 멤버 관리 - PowerShell
+      url: manage-consortium-powershell.md
+    - text: 트랜잭션 노드 구성
+      url: configure-transaction-nodes.md
+    - text: Active Directory 액세스 구성
+      url: configure-aad.md
+- title: API
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: REST API
+      url: https://docs.microsoft.com/rest/api/blockchain
