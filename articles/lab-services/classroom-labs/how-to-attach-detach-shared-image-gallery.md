@@ -13,17 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 18a14981c97af8e9d90480f7b04d50fc6df6b01d
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: d8f16baccd3a4980ee9dbe410cb2a95878b346d4
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382716"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390018"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Azure Lab Services에서 공유 이미지 갤러리 연결 또는 분리
 교사/랩 관리자는 다른 사용자가 다시 사용할 수 있도록 Azure [공유 이미지 갤러리](../../virtual-machines/windows/shared-image-galleries.md) 에 템플릿 VM 이미지를 저장할 수 있습니다. 첫 번째 단계로 랩 관리자는 기존 공유 이미지 갤러리를 랩 계정에 연결 합니다. 공유 이미지 갤러리가 연결 되 면 랩 계정에서 생성 된 랩에서 공유 이미지 갤러리에 이미지를 저장할 수 있습니다. 다른 교사는 공유 이미지 갤러리에서이 이미지를 선택 하 여 해당 클래스에 대 한 템플릿을 만들 수 있습니다. 
 
 이 문서에서는 공유 이미지 갤러리를 랩 계정에 연결 하거나 분리 하는 방법을 보여 줍니다. 
+
+> [!NOTE]
+> 공유 이미지 갤러리 서비스와 관련 된 비용에 대해 알아보려면 [공유 이미지 갤러리에 대 한 요금 청구](../../virtual-machines/windows/shared-image-galleries.md#billing)를 참조 하세요.
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>랩 계정 생성 시 구성
 랩 계정을 만들 때 공유 이미지 갤러리를 랩 계정에 연결할 수 있습니다. 드롭다운 목록에서 기존 공유 이미지 갤러리를 선택 하거나 새로 만들 수 있습니다. 공유 이미지 갤러리를 만들어 랩 계정에 첨부 하려면 **새로 만들기**를 선택 하 고, 갤러리의 이름을 입력 하 고, **확인**을 입력 합니다. 

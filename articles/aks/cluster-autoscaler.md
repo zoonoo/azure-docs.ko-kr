@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: 6ed50380b47040793e9826b64297bacf6ab12c71
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 7dd3c3904115db4fa3978f39b86023bf9fb0805c
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533600"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390059"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes 서비스 (AKS)에서 응용 프로그램 요구 사항을 충족 하도록 클러스터를 자동으로 확장 합니다.
 
@@ -40,29 +40,6 @@ az extension add --name aks-preview
 
 # Update the extension to make sure you have the latest version installed
 az extension update --name aks-preview
-```
-
-### <a name="register-scale-set-feature-provider"></a>확장 집합 기능 공급자 등록
-
-확장 집합을 사용하는 AKS를 만들려면 구독에서 기능 플래그도 사용해야 합니다. *VMSSPreview* 기능 플래그를 등록 하려면 다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용 합니다.
-
-> [!CAUTION]
-> 구독에 기능을 등록 하면 현재 해당 기능을 등록 취소할 수 없습니다. 일부 미리 보기 기능을 사용 하도록 설정한 후에는 구독에서 만든 모든 AKS 클러스터에 대 한 기본값을 사용할 수 있습니다. 프로덕션 구독에서 미리 보기 기능을 사용 하도록 설정 하지 마세요. 별도의 구독을 사용 하 여 미리 보기 기능을 테스트 하 고 피드백을 수집 합니다.
-
-```azurecli-interactive
-az feature register --name VMSSPreview --namespace Microsoft.ContainerService
-```
-
-상태가 *Registered*로 표시되는 데 몇 분 정도 걸립니다. [Az feature list][az-feature-list] 명령을 사용 하 여 등록 상태를 확인할 수 있습니다.
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
-```
-
-준비가 되 면 [az provider register][az-provider-register] 명령을 사용 하 여 *ContainerService* 리소스 공급자 등록을 새로 고칩니다.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
 ```
 
 ## <a name="limitations"></a>제한 사항

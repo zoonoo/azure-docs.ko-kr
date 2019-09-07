@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/03/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: b33f0dec9e6ec685b19e01ce82cfe4adec88b575
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 9c7f920c6b66995d53ef742a9faf574286a51d69
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258608"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390441"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>App Service 및 Azure Functions의 Key Vault 참조 사용(미리 보기)
 
@@ -38,7 +38,8 @@ Key Vault에서 비밀을 읽으려면 자격 증명 모음을 만들고 해당 
 
 1. 이전에 만든 애플리케이션 ID에 대한 [Key Vault에서 액세스 정책](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies)을 만듭니다. 이 정책에 대한 “가져오기” 비밀 권한을 사용하도록 설정합니다. "권한 있는 애플리케이션" 또는 `applicationId` 설정은 관리 ID와 호환되지 않으므로 구성하지 마세요.
 
-    Key vault의 응용 프로그램 id에 대 한 액세스 권한은 onetime 작업 이며 모든 Azure 구독에 대해 동일 하 게 유지 됩니다. 이를 사용 하 여 원하는 수의 인증서를 배포할 수 있습니다. 
+    > [!NOTE]
+    > Key Vault 참조는 현재 [네트워크 제한이](../key-vault/key-vault-overview-vnet-service-endpoints.md)있는 주요 자격 증명 모음에 저장 된 비밀을 확인할 수 없습니다.
 
 ## <a name="reference-syntax"></a>참조 구문
 

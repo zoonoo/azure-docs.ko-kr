@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/16/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 89c24512e50dedbf10d145088ec77c2e6e303d1e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 34522c9a672de51cfa53ce52c5a6a6506fcd5454
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873159"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390505"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure Machine Learning 서비스에 대 한 작업 영역 만들기
 
@@ -55,6 +55,11 @@ ms.locfileid: "69873159"
 * **workspace name** - Azure Machine Learning 작업 영역의 이름입니다.
 
     다른 서비스의 이름은 임의로 생성됩니다.
+
+> [!TIP]
+> 이 문서와 연결 된 템플릿은 새 Azure Container Registry을 만들지만 컨테이너 레지스트리를 만들지 않고 새 작업 영역을 만들 수도 있습니다. 컨테이너 레지스트리가 작업 영역에 있는 경우 컨테이너 레지스트리가 필요한 작업을 수행할 때 생성 됩니다. 예를 들어 모델을 학습 하거나 배포 합니다.
+>
+> 새 컨테이너 레지스트리를 만드는 대신 Azure Resource Manager 템플릿에서 기존 컨테이너 레지스트리 또는 저장소 계정을 참조할 수도 있습니다.
 
 템플릿에 대한 자세한 내용은 다음 문서를 참조하세요.
 

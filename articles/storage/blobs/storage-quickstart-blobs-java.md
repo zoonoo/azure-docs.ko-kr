@@ -7,21 +7,18 @@ ms.date: 02/04/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: 8cb9a9c6dd2e84318cd4d05bf6e67e127fc39ce3
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 0aa3af754082d91c4a5994e42146d1f1f475f64d
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726375"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390325"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>Java v7용 클라이언트 라이브러리를 사용하여 Blob을 업로드, 다운로드 및 나열하는 방법
 
 이 방법 가이드에서는 Java v7용 클라이언트 라이브러리를 사용하여 Azure Blob 스토리지의 컨테이너에 블록 Blob을 업로드, 다운로드 및 나열하는 방법을 알아봅니다.
 
-> [!TIP]
-> Java용 Azure Storage 클라이언트 라이브러리의 최신 버전은 v10입니다. 되도록이면 클라이언트 라이브러리의 최신 버전을 사용 하는 것이 좋습니다. v10을 사용하여 시작하려면 [빠른 시작: Java Storage SDK V10을 사용하여 Blob 업로드, 다운로드 및 나열](storage-quickstart-blobs-java-v10.md)을 참조하세요.
-
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -64,7 +61,7 @@ public static final String storageConnectionString =
 
 ## <a name="run-the-sample"></a>샘플 실행
 
-이 응용 프로그램 예제는 기본 디렉터리(Windows 사용자의 경우 *C:\Users\<user&gt;\AppData\Local\Temp*)에 테스트 파일을 만들고, Blob Storage에 업로드하고, 컨테이너의 Blob을 나열한 다음, 해당 파일을 새 이름으로 다운로드하여 이전 파일과 새 파일을 비교할 수 있도록 합니다. 
+이 애플리케이션 예제는 기본 디렉터리(Windows 사용자의 경우 *C:\Users\<user&gt;\AppData\Local\Temp*)에 테스트 파일을 만들고, Blob Storage에 업로드하고, 컨테이너의 Blob을 나열한 다음, 해당 파일을 새 이름으로 다운로드하여 이전 파일과 새 파일을 비교할 수 있도록 합니다. 
 
 명령줄에서 Maven을 사용하여 샘플을 실행합니다. 셸을 열고 복제한 디렉터리 내부의 **blobAzureApp**으로 이동합니다. 그런 후 `mvn compile exec:java`를 입력합니다. 
 

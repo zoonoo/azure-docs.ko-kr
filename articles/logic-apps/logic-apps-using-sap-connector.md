@@ -10,17 +10,17 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 08/30/2019
 tags: connectors
-ms.openlocfilehash: 8712af60df2454b29c0691602260c8b826eae75c
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 98e6b515d5e9d60f95873016ad1cb06a13799bb2
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164974"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390117"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Azure Logic Apps에서 SAP 시스템에 연결
 
 > [!IMPORTANT]
-> 이전 SAP 응용 프로그램 서버 및 SAP Message Server 커넥터는 사용 중단에 대해 예약 됩니다. 현재 SAP 커넥터는 연결 형식을 변경할 필요가 없으며, 이전 커넥터와 완전히 호환 되며, 많은 추가 기능을 제공 하 고, SAP .Net 커넥터 라이브러리를 계속 사용 하도록 이전 SAP 커넥터를 통합 합니다. SAP NCo).
+> 이전 SAP 응용 프로그램 서버 및 SAP Message Server 커넥터는 2019 년 11 월 30 일에 사용이 중단 될 예정입니다. 현재 SAP 커넥터는 연결 형식을 변경할 필요가 없으며, 이전 커넥터와 완전히 호환 되며, 많은 추가 기능을 제공 하 고, SAP .Net 커넥터 라이브러리를 계속 사용 하도록 이전 SAP 커넥터를 통합 합니다. SAP NCo).
 >
 > 이전 커넥터를 사용 하는 논리 앱의 경우 사용 중단 날짜 전에 [최신 커넥터로 마이그레이션하십시오](#migrate) . 그렇지 않으면 이러한 논리 앱에서 실행 오류가 발생 하 여 SAP 시스템에 메시지를 보낼 수 없습니다.
 
@@ -40,7 +40,7 @@ SAP 커넥터는 [온-프레미스 데이터 게이트웨이](../logic-apps/logi
 
 <a name="pre-reqs"></a>
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 문서를 따르려면 다음 항목이 필요합니다.
 
@@ -98,7 +98,7 @@ Azure Logic Apps에서 모든 논리 앱은 특정 이벤트가 발생하거나 
 
    ![HTTP 요청 트리거 추가](./media/logic-apps-using-sap-connector/add-trigger.png)
 
-1. 이제 논리 앱에 대 한 끝점 URL을 생성할 수 있도록 논리 앱을 저장 합니다. 디자이너 도구 모음에서 **저장**을 선택 합니다.
+1. 이제 논리 앱에 대 한 끝점 URL을 생성할 수 있도록 논리 앱을 저장 합니다. 디자이너 도구 모음에서 **저장**을 선택합니다.
 
    이제 엔드포인트 URL이 트리거에 표시됩니다. 예를 들면 다음과 같습니다.
 
@@ -165,7 +165,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
       ![SAP 작업 완료](./media/logic-apps-using-sap-connector/SAP-app-server-complete-action.png)
 
-1. 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장**을 선택 합니다.
+1. 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장**을 선택합니다.
 
 <a name="add-response"></a>
 
@@ -261,7 +261,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
    SAP 작업에 대한 자세한 내용은 [IDOC 작업에 대한 메시지 스키마](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations)를 참조하세요.
 
 1. 이제 SAP 시스템에서 메시지 수신을 시작할 수 있도록 논리 앱을 저장합니다.
-디자이너 도구 모음에서 **저장**을 선택 합니다.
+디자이너 도구 모음에서 **저장**을 선택합니다.
 
 이제 논리 앱이 SAP 시스템에서 메시지를 수신할 준비가 완료되었습니다.
 
@@ -324,7 +324,7 @@ SAP를 설정 하 여 일괄 처리 또는 IDOCs 그룹인 [패킷으로 IDOCs�
    ![HTTP 요청 트리거 추가](./media/logic-apps-using-sap-connector/add-trigger.png)
 
 1. 이제 논리 앱을 위한 엔드포인트 URL을 생성할 수 있도록 논리 앱을 저장합니다.
-디자이너 도구 모음에서 **저장**을 선택 합니다.
+디자이너 도구 모음에서 **저장**을 선택합니다.
 
    이제 엔드포인트 URL이 트리거에 표시됩니다. 예를 들면 다음과 같습니다.
 
@@ -382,7 +382,7 @@ SAP를 설정 하 여 일괄 처리 또는 IDOCs 그룹인 [패킷으로 IDOCs�
 
    SAP 동작에 대 한 자세한 내용은 [IDOC 작업에 대 한 메시지 스키마](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations)를 참조 하세요.
 
-1. 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장**을 선택 합니다.
+1. 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장**을 선택합니다.
 
 ### <a name="test-your-logic-app"></a>논리 앱 테스트
 
@@ -424,7 +424,7 @@ SAP를 설정 하 여 일괄 처리 또는 IDOCs 그룹인 [패킷으로 IDOCs�
    > }
    > ```
 
-1. 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장**을 선택 합니다.
+1. 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장**을 선택합니다.
 
 ### <a name="test-your-logic-app"></a>논리 앱 테스트
 
@@ -444,7 +444,7 @@ SAP를 설정 하 여 일괄 처리 또는 IDOCs 그룹인 [패킷으로 IDOCs�
 
    ![연결에서 SAP SNC 구성](media/logic-apps-using-sap-connector/configure-sapsnc.png)
 
-   | 속성 | 설명 |
+   | 속성 | Description |
    |----------| ------------|
    | **SNC 라이브러리 경로** | NCo 설치 위치나 절대 경로를 기준으로 하는 SNC 라이브러리 이름 또는 경로입니다. 예를 `sapsnc.dll` 들면 `.\security\sapsnc.dll` 또는 `c:\security\sapsnc.dll`또는입니다. |
    | **SNC SSO** | SNC를 통해 연결 하는 경우 SNC id는 일반적으로 호출자를 인증 하는 데 사용 됩니다. 또 다른 옵션은를 재정의 하 여 호출자를 인증 하는 데 사용자 및 암호 정보를 사용할 수 있지만 줄은 여전히 암호화 되도록 하는 것입니다. |

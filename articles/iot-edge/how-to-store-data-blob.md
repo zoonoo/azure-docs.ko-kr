@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: f2b26e3418e264c2613a183570c7e27f75ab5d63
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 1a48088d0d7ef1e14614629340ee477833535861
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208232"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390387"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>IoT Edge에서 Azure Blob Storage를 사용 하 여에 지에 데이터 저장
 
@@ -55,7 +55,7 @@ Blob을 업로드 하는 동안 예기치 않은 프로세스 종료 (예: 전�
 - DeleteAfterMinutes 값이 만료 되는 경우 업로드 하는 동안 blob을 유지 하는 기능을 선택 합니다.
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure IoT Edge 디바이스:
 
@@ -173,7 +173,6 @@ Azure Blob Storage 설명서에는 여러 언어의 빠른 시작 샘플 코드�
 다음 퀵 스타트 샘플에서는 IoT Edge 에서도 지원 되는 언어를 사용 하므로 blob storage 모듈과 함께 IoT Edge 모듈로 배포할 수 있습니다.
 
 - [.NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
-- [Java](../storage/blobs/storage-quickstart-blobs-java-v10.md)
 - [Python](../storage/blobs/storage-quickstart-blobs-python.md)
     - 이 버전의 모듈은 blob 생성 시간을 반환 하지 않기 때문에이 SDK를 사용 하는 동안 알려진 문제가 있습니다. 따라서 목록 blob과 같은 몇 가지 메서드는 작동 하지 않습니다. 해결 방법으로 blob 클라이언트에서 명시적으로 API 버전을 ' 2017-04-17 '로 설정 합니다. <br>예제: `block_blob_service._X_MS_VERSION = '2017-04-17'`
 - [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs-v10.md)

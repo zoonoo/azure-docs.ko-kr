@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 43369131700681de5523043f414129a2e4169f44
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 9e50a2705982a022284e1c54bd5ed7360a2d1663
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306919"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390702"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 리소스 함수
 
@@ -42,6 +42,10 @@ Resource Manager는 리소스 값을 가져오기 위한 다음 함수를 제공
 | resourceName 또는 resourceIdentifier |예 |string |리소스에 대한 고유 식별자. |
 | apiVersion |예 |string |리소스 런타임 상태의 API 버전입니다. 일반적으로 **yyyy-mm-dd** 형식입니다. |
 | functionValues |아니요 |개체(object) | 함수에 대한 값이 있는 개체입니다. 저장소 계정의 **listAccountSas** 같은 매개 변수 값을 가진 개체를 받는 것을 지원하는 함수에 대해 이 개체를 제공합니다. 함수 값을 전달하는 예제가 이 문서에 나와 있습니다. | 
+
+### <a name="valid-uses"></a>유효한 용도
+
+목록 함수는 템플릿 또는 배포의 리소스 정의 및 출력 섹션의 속성에만 사용할 수 있습니다. [속성 반복](resource-group-create-multiple.md#property-iteration)에 사용할 경우 식이 리소스 속성에 할당 되기 때문에 `input` 에 대 한 목록 함수를 사용할 수 있습니다. 목록 함수가 확인 되기 전에 `count` 카운트를 확인 해야 하기 때문에이를 사용할 수 없습니다.
 
 ### <a name="implementations"></a>구현
 

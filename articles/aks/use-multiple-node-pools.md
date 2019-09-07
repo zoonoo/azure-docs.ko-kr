@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 675d3e2f0dc27e70af497284ce273e87d005a2e1
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 2a18362546ae3c31b06fc5294495d8f5ac5f0be3
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241081"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70389929"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여러 노드 풀 만들기 및 관리
 
@@ -47,14 +47,13 @@ az extension update --name aks-preview
 
 ### <a name="register-multiple-node-pool-feature-provider"></a>여러 노드 풀 기능 공급자 등록
 
-여러 노드 풀을 사용할 수 있는 AKS 클러스터를 만들려면 먼저 구독에 대해 두 가지 기능 플래그를 사용 하도록 설정 합니다. 다중 노드 풀 클러스터는 VMSS (가상 머신 확장 집합)를 사용 하 여 Kubernetes 노드의 배포 및 구성을 관리 합니다. 다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용 하 여 *Multiagentpoolpreview* 및 *VMSSPreview* 기능 플래그를 등록 합니다.
+여러 노드 풀을 사용할 수 있는 AKS 클러스터를 만들려면 먼저 구독에서 기능 플래그를 사용 하도록 설정 합니다. 다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용 하 여 *Multiagentpoolpreview* 기능 플래그를 등록 합니다.
 
 > [!CAUTION]
 > 구독에 기능을 등록 하면 현재 해당 기능을 등록 취소할 수 없습니다. 일부 미리 보기 기능을 사용 하도록 설정한 후에는 구독에서 만든 모든 AKS 클러스터에 대 한 기본값을 사용할 수 있습니다. 프로덕션 구독에서 미리 보기 기능을 사용 하도록 설정 하지 마세요. 별도의 구독을 사용 하 여 미리 보기 기능을 테스트 하 고 피드백을 수집 합니다.
 
 ```azurecli-interactive
 az feature register --name MultiAgentpoolPreview --namespace Microsoft.ContainerService
-az feature register --name VMSSPreview --namespace Microsoft.ContainerService
 ```
 
 > [!NOTE]
@@ -64,7 +63,6 @@ az feature register --name VMSSPreview --namespace Microsoft.ContainerService
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MultiAgentpoolPreview')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
 ```
 
 준비가 되 면 [az provider register][az-provider-register] 명령을 사용 하 여 *ContainerService* 리소스 공급자 등록을 새로 고칩니다.
@@ -77,7 +75,7 @@ az provider register --namespace Microsoft.ContainerService
 
 여러 노드 풀을 지 원하는 AKS 클러스터를 만들고 관리 하는 경우 다음과 같은 제한 사항이 적용 됩니다.
 
-* 여러 노드 풀은 구독에 대해 *Multiagentpoolpreview* 및 *VMSSPreview* 기능을 성공적으로 등록 한 후에 만든 클러스터에만 사용할 수 있습니다. 이러한 기능이 성공적으로 등록 되기 전에 만든 기존 AKS 클러스터를 사용 하 여 노드 풀을 추가 하거나 관리할 수 없습니다.
+* 구독에 대 한 *Multiagentpoolpreview* 기능을 성공적으로 등록 한 후에는 여러 노드 풀을 만든 클러스터에만 사용할 수 있습니다. 이 기능이 성공적으로 등록 되기 전에 만든 기존 AKS 클러스터를 사용 하 여 노드 풀을 추가 하거나 관리할 수 없습니다.
 * 첫 번째 노드 풀은 삭제할 수 없습니다.
 * HTTP 응용 프로그램 라우팅 추가 기능을 사용할 수 없습니다.
 * 대부분의 작업과 마찬가지로 기존 리소스 관리자 템플릿을 사용 하 여 노드 풀을 추가/업데이트/삭제할 수 없습니다. 대신 [별도의 리소스 관리자 템플릿을 사용](#manage-node-pools-using-a-resource-manager-template) 하 여 AKS 클러스터의 노드 풀을 변경 합니다.

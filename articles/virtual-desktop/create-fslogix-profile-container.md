@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: helohr
-ms.openlocfilehash: 078a29fc1ab66151aa41c3901bb6a3af6479a0ba
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: dd3b68d600edcbbae73fff542e677d3ebc6b16ee
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233261"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390812"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Azure NetApp Files를 사용 하 여 호스트 풀의 FSLogix 프로필 컨테이너 만들기
 
@@ -195,11 +195,11 @@ Windows 가상 데스크톱 환경에 대해 엔터프라이즈급 SMB 볼륨을
 4. 다음 cmdlet을 실행 하 여 원격 데스크톱 그룹에 사용자를 할당 합니다.
 
    ```powershell
-   $tenant = "<your-wvd-tenant>"
-   $pool1 = "<wvd-pool>"
-   $appgroup = "Desktop Application Group"
-   $user1 = "<user-principal>"
-   Add-RdsAppGroupUser $tenant $pool1 $appgroup $user1
+   $wvdTenant = "<your-wvd-tenant>"
+   $hostPool = "<wvd-pool>"
+   $appGroup = "Desktop Application Group"
+   $user = "<user-principal>"
+   Add-RdsAppGroupUser $wvdTenant $hostPool $appGroup $user
    ```
 
 ## <a name="make-sure-users-can-access-the-azure-netapp-file-share"></a>사용자가 Azure NetApp 파일 공유에 액세스할 수 있는지 확인

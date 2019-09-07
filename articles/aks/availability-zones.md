@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: mlearned
-ms.openlocfilehash: 4c2058072df4fcb068257c3e265dfe365c6d7e65
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 690d22eadf37a24b4679ce10838074533ac65fcb
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033147"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390081"
 ---
 # <a name="preview---create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>미리 보기-가용성 영역를 사용 하는 AKS (Azure Kubernetes Service) 클러스터 만들기
 
@@ -44,25 +44,21 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-### <a name="register-feature-flags-for-your-subscription"></a>구독에 대 한 기능 플래그 등록
+### <a name="register-the-availabilityzonepreview-feature-flag-for-your-subscription"></a>구독에 대 한 AvailabilityZonePreview 기능 플래그 등록
 
-가용성 영역에서 AKS 클러스터를 만들려면 먼저 구독에서 일부 기능 플래그를 사용 하도록 설정 합니다. 클러스터는 가상 머신 확장 집합을 사용 하 여 Kubernetes 노드의 배포 및 구성을 관리 합니다. Azure 부하 분산 장치의 *표준* SKU는 트래픽을 클러스터로 라우팅하는 네트워크 구성 요소에 대 한 복원 력을 제공 하는 데에도 필요 합니다. 다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용 하 여 *AvailabilityZonePreview*, *AKSAzureStandardLoadBalancer*및 *VMSSPreview* 기능 플래그를 등록 합니다.
+가용성 영역에서 AKS 클러스터를 만들려면 먼저 구독에서 *AvailabilityZonePreview* 기능 플래그를 사용 하도록 설정 합니다. 다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용 하 여 *AvailabilityZonePreview* feature 플래그를 등록 합니다.
 
 > [!CAUTION]
 > 구독에 기능을 등록 하면 현재 해당 기능을 등록 취소할 수 없습니다. 일부 미리 보기 기능을 사용 하도록 설정한 후에는 구독에서 만든 모든 AKS 클러스터에 대 한 기본값을 사용할 수 있습니다. 프로덕션 구독에서 미리 보기 기능을 사용 하도록 설정 하지 마세요. 별도의 구독을 사용 하 여 미리 보기 기능을 테스트 하 고 피드백을 수집 합니다.
 
 ```azurecli-interactive
 az feature register --name AvailabilityZonePreview --namespace Microsoft.ContainerService
-az feature register --name AKSAzureStandardLoadBalancer --namespace Microsoft.ContainerService
-az feature register --name VMSSPreview --namespace Microsoft.ContainerService
 ```
 
 상태가 *Registered*로 표시되는 데 몇 분 정도 걸립니다. [Az feature list][az-feature-list] 명령을 사용 하 여 등록 상태를 확인할 수 있습니다.
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AvailabilityZonePreview')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSAzureStandardLoadBalancer')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
 ```
 
 준비가 되 면 [az provider register][az-provider-register] 명령을 사용 하 여 *ContainerService* 리소스 공급자 등록을 새로 고칩니다.
@@ -90,7 +86,7 @@ AKS 클러스터는 현재 다음 지역에서 가용성 영역을 사용 하 �
 * 가용성 영역을 사용 하도록 설정 된 클러스터는 영역 간에 배포 하기 위해 Azure 표준 부하 분산 장치를 사용 해야 합니다.
 * 표준 부하 분산 장치를 배포 하려면 Kubernetes 버전 1.13.5 이상을 사용 해야 합니다.
 
-가용성 영역을 사용 하는 AKS 클러스터는 Azure 부하 분산 장치 *표준* SKU를 사용 해야 합니다. Azure 부하 분산 장치의 기본 *기본* SKU는 가용성 영역 간 배포를 지원 하지 않습니다. 표준 부하 분산 장치의 제한 사항 및 제한 사항에 대 한 자세한 내용은 [Azure 부하 분산 장치 표준 SKU 미리 보기 제한 사항][standard-lb-limitations]을 참조 하세요.
+가용성 영역을 사용 하는 AKS 클러스터는 Azure 부하 분산 장치 *표준* SKU를 사용 해야 합니다. Azure 부하 분산 장치의 기본 *기본* SKU는 가용성 영역 간 배포를 지원 하지 않습니다. 표준 부하 분산 장치의 제한 사항 및 제한 사항에 대 한 자세한 내용은 [Azure 부하 분산 장치 표준 SKU 제한][standard-lb-limitations]을 참조 하세요.
 
 ### <a name="azure-disks-limitations"></a>Azure 디스크 제한 사항
 

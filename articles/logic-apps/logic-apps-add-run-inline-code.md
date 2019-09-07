@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: derek1ee, LADocs
 ms.topic: article
 ms.date: 05/14/2019
-ms.openlocfilehash: 76b3807727f4b5c9ab0a2c2bc21c45af1f713b83
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 3b51215e0cf48df2d3cd9df85a3d4c5641a17215
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70242453"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390797"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Azure Logic Apps에서 인라인 코드를 사용 하 여 코드 조각 추가 및 실행
 
@@ -23,6 +23,7 @@ ms.locfileid: "70242453"
 * JavaScript에서 실행 됩니다. 더 많은 언어가 제공 될 예정입니다.
 * 5 초 이하로 실행을 완료 합니다.
 * 최대 50 크기의 데이터를 처리 합니다.
+* 는 아직 지원 되지 않는 [ **Variables** 작업](../logic-apps/logic-apps-create-variables-store-values.md)을 사용할 필요가 없습니다.
 * Node.js 버전 8.11.1을 사용 합니다. 자세한 내용은 [표준 기본 제공 개체](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects)를 참조 하세요. 
 
   > [!NOTE]
@@ -220,7 +221,7 @@ ms.locfileid: "70242453"
 
    ![매개 변수 추가](./media/logic-apps-add-run-inline-code/inline-code-action-add-parameters.png)
 
-   | 매개 변수 | Description |
+   | 매개 변수 | 설명 |
    |-----------|-------------|
    | **actions** | 이전 작업의 결과를 포함 합니다. [작업 결과 포함](#action-results)을 참조 하세요. |
    | **트리거** | 트리거의 결과를 포함 합니다. [트리거 결과 포함](#trigger-results)을 참조 하세요. |

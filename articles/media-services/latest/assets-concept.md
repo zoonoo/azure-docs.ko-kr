@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 08/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2f2dea922b7a3ba45ad6493ce94f0c52649dfa68
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 3dc1866a3c0339bca0c27fb53894a14581e88490
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70230986"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390492"
 ---
 # <a name="assets"></a>자산
 
@@ -48,7 +48,7 @@ Azure Media Services [자산](https://docs.microsoft.com/rest/api/media/assets) 
     az storage blob upload -f /path/to/file -c MyContainer -n MyBlob
     ```
 2. 읽기-쓰기 권한을 사용하여 디지털 파일을 자산 컨테이너에 업로드하는 데 사용할 SAS URL을 가져옵니다. Media Services API를 사용하여 [자산 컨테이너 URL을 나열](https://docs.microsoft.com/rest/api/media/assets/listcontainersas)할 수 있습니다.
-3. Azure Storage API 또는 SDK(예: [Storage REST API](../../storage/common/storage-rest-api-auth.md), [JAVA SDK](../../storage/blobs/storage-quickstart-blobs-java-v10.md) 또는 [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md))를 사용하여 파일을 자산 컨테이너에 업로드합니다. 
+3. Azure Storage Api 또는 Sdk (예: [저장소 REST API](../../storage/common/storage-rest-api-auth.md) 또는 [.net SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md))를 사용 하 여 자산 컨테이너에 파일을 업로드 합니다. 
 4. Media Services v3 API를 사용하여 "입력" 자산을 처리하는 Transform 및 Job을 만듭니다. 자세한 내용은 [Transform 및 Jobs](transform-concept.md)를 참조하세요.
 5. "출력" 자산의 콘텐츠를 스트리밍합니다.
 

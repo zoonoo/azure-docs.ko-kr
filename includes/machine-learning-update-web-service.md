@@ -4,14 +4,14 @@ ms.service: machine-learning
 ms.topic: include
 ms.date: 07/26/2019
 ms.author: larryfr
-ms.openlocfilehash: f1eee95cf35b831fc2a213044d700fd5afbdfc96
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 11cc93e0eb11d0422fae4fbbbf0a549df067daca
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997946"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390600"
 ---
-웹 서비스를 업데이트하려면 `update` 메서드를 사용합니다. 새 모델, 항목 스크립트 또는 유추 구성을 사용 하 여 지정할 수 있는 종속성을 사용 하도록 웹 서비스를 업데이트할 수 있습니다. 자세한 내용은 [Webservice. 업데이트](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#update--args-)에 대 한 참조를 참조 하세요.
+웹 서비스를 업데이트 하려면 `update` 메서드를 사용 합니다. 새 모델, 새 항목 스크립트 또는 유추 구성에서 지정할 수 있는 새 종속성을 사용 하도록 웹 서비스를 업데이트할 수 있습니다. 자세한 내용은 [웹 서비스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#update--args-)에 대 한 설명서를 참조 하십시오.
 
 > [!IMPORTANT]
 > 모델의 새 버전을 만들 때 사용 하려는 각 서비스를 수동으로 업데이트 해야 합니다.
@@ -25,25 +25,25 @@ from azureml.core import Environment
 from azureml.core.webservice import Webservice
 from azureml.core.model import Model, InferenceConfig
 
-# register new model
+# Register new model.
 new_model = Model.register(model_path="outputs/sklearn_mnist_model.pkl",
                            model_name="sklearn_mnist",
                            tags={"key": "0.1"},
                            description="test",
                            workspace=ws)
 
-# Use version 3 of the environment
+# Use version 3 of the environment.
 deploy_env = Environment.get(workspace=ws,name="myenv",version="3")
 inference_config = InferenceConfig(entry_script="score.py",
                                    environment=deploy_env)
 
 service_name = 'myservice'
-# Retrieve existing service
+# Retrieve existing service.
 service = Webservice(name=service_name, workspace=ws)
 
 
 
-# Update to new model(s)
+# Update to new model(s).
 service.update(models=[new_model], inference_config=inference_config)
 print(service.state)
 print(service.get_logs())
@@ -63,4 +63,4 @@ az ml service update -n myservice --model-metadata-file modelinfo.json
 >
 > 새 항목 스크립트나 환경을 사용 하도록 서비스를 업데이트 하려면 [유추 구성 파일](/azure/machine-learning/service/reference-azure-machine-learning-cli#inference-configuration-schema) 을 만들고 `ic` 매개 변수를 사용 하 여 지정 합니다.
 
-자세한 내용은 [az ml service update](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-update) reference를 참조 하세요.
+자세한 내용은 [az ml service update](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-update) 설명서를 참조 하세요.

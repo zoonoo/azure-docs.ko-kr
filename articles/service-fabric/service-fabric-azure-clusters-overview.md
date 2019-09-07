@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: d1681aee9dc11f0dbd3133bced0b919a8c1623b8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: edb6a84762ce65e65ff33492f3a7bcebbce60777
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60310932"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390372"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Azure의 Service Fabric 클러스터 개요
 Service Fabric 클러스터는 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 머신 집합입니다. 클러스터의 일부인 컴퓨터나 VM을 클러스터 노드라고 합니다. 클러스터의 규모를 수천 개의 노드로 확장할 수 있습니다. 새 노드를 클러스터에 추가하면 Service Fabric이 증가된 수의 노드에서 서비스 파티션 복제본 및 인스턴스의 균형을 조정합니다. 전반적인 애플리케이션 성능이 향상되고 메모리 액세스에 대한 경합이 감소합니다. 클러스터의 노드가 효율적으로 사용되지 않는 경우 클러스터의 노드 수를 줄일 수 있습니다. Service Fabric은 각 노드의 하드웨어를 보다 효율적으로 사용할 수 있도록 감소된 노드 수에 맞게 파티션 복제본 및 인스턴스의 균형을 다시 조정합니다.
@@ -29,7 +29,7 @@ Service Fabric 클러스터는 마이크로 서비스가 배포되고 관리되�
 ## <a name="cluster-components-and-resources"></a>클러스터 구성 요소 및 리소스
 Azure의 Service Fabric 클러스터는 다른 Azure 리소스를 사용하고 상호 작용하는 Azure 리소스입니다.
 * VM 및 가상 네트워크 카드
-* 가상 머신 크기 집합
+* Virtual Machine Scale Sets
 * 가상 네트워크
 * 부하 분산 장치
 * 스토리지 계정
@@ -59,7 +59,7 @@ VM 인스턴스는 [공용 IP 주소](/azure/virtual-network/virtual-network-ip-
 
 클러스터의 VM에는 [개인 IP 주소](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses)만 있습니다.  관리 트래픽 및 서비스 트래픽은 공용 Load Balancer를 통해 라우팅됩니다.  네트워크 트래픽은 NAT 규칙(클라이언트가 특정 노드/인스턴스에 연결) 또는 부하 분산 규칙(트래픽이 VM으로 왕복 이동)을 통해 이러한 컴퓨터로 라우팅됩니다.  부하 분산 장치에서는 *&lt;clustername&gt;.&lt;location&gt;.cloudapp.azure.com* 형식으로 DNS 이름에 공용 IP가 연결됩니다.  공용 IP는 리소스 그룹의 다른 Azure 리소스입니다.  클러스터에 여러 노드 형식을 정의하면 각 노드 형식/확장 집합에 대해 부하 분산 장치가 만들어집니다. 또는 여러 노드 형식에 대해 단일 부하 분산 장치를 설정할 수도 있습니다.  주 노드 형식은 DNS 레이블이 *&lt;clustername&gt;.&lt;location&gt;.cloudapp.azure.com*이고, 다른 노드 형식은 DNS 레이블이 *&lt;clustername&gt;-&lt;nodetype&gt;.&lt;location&gt;.cloudapp.azure.com*입니다.
 
-### <a name="storage-accounts"></a>Storage 계정
+### <a name="storage-accounts"></a>저장소 계정
 각 클러스터 노드 형식은 [Azure Storage 계정](/azure/storage/common/storage-introduction) 및 Managed Disks에서 지원됩니다.
 
 ## <a name="cluster-security"></a>클러스터 보안
@@ -89,13 +89,13 @@ NSG(네트워크 보안 그룹)은 서브넷, VM 또는 특정 NIC의 인바운�
 
 자세한 내용은 [보안 그룹](/azure/virtual-network/security-overview)을 참조하세요.
 
-## <a name="scaling"></a>확장
+## <a name="scaling"></a>크기 조정
 
 애플리케이션 수요는 시간이 지남에 따라 달라집니다. 늘어난 애플리케이션 워크로드나 네트워크 트래픽을 충족하기 위해 클러스터 리소스를 늘리고, 수요가 줄어들면 클러스터 리소스를 줄여야 할 수 있습니다. Service Fabric 클러스터를 만든 후에 수평으로(노드 수 변경) 또는 수직으로(노드의 리소스 변경) 클러스터 크기를 조정할 수 있습니다. 클러스터에서 워크로드가 실행되는 경우에도 언제든지 클러스터의 크기를 조정할 수 있습니다. 클러스터의 크기를 조정하면 애플리케이션 크기도 자동으로 조정됩니다.
 
 자세한 내용은 [Azure 클러스터 크기 조정](service-fabric-cluster-scaling.md)을 참조하세요.
 
-## <a name="upgrading"></a>업그레이드 중
+## <a name="upgrading"></a>업그레이드
 Azure 서비스 패브릭 클러스터는 개인이 소유하지만 Microsoft에서 부분적으로 관리하는 리소스입니다. Microsoft는 기본 OS를 패치하고 클러스터에서 Service Fabric 런타임 업그레이드를 수행합니다. Microsoft에서 새로운 버전을 릴리스하거나 원하는 런타임 버전을 선택하도록 한 경우 클러스터가 자동 런타임 업그레이드를 수신하도록 설정할 수 있습니다. 런타임 업그레이드 외에도 인증서 또는 애플리케이션 포트와 같은 클러스터 구성을 업데이트할 수 있습니다.
 
 자세한 내용은 [클러스터 업그레이드](service-fabric-cluster-upgrade.md)를 참조하세요.
@@ -103,12 +103,17 @@ Azure 서비스 패브릭 클러스터는 개인이 소유하지만 Microsoft에
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 다음 운영 체제를 실행하는 가상 머신에서 클러스터를 만들 수 있습니다.
 
-* Windows Server 2012 R2
-* Windows Server 2016 
-* Windows Server 1709
-* Windows Server 1803
-* Linux Ubuntu 16.04
-* Red Hat Enterprise Linux 7.4(미리 보기 지원)
+| 운영 체제 | 가장 이른 지원 Service Fabric 버전 |
+| --- | --- |
+| Windows Server 2012 R2 | 모든 버전 |
+| Windows Server 2016 | 모든 버전 |
+| Windows Server 1709 | 6.0 |
+| Windows Server 1803 | 6.4 |
+| Windows Server 1809 | 6.4.654.9590 |
+| Windows Server 2019 | 6.4.654.9590 |
+| Linux Ubuntu 16.04 | 6.0 |
+
+자세한 내용은 [Azure에서 지원 되는 클러스터 버전](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-operating-systems) 을 참조 하세요.
 
 > [!NOTE]
 > Windows Server 1709에 Service Fabric을 배포하기로 결정한 경우 (1) 장기 서비스 분기가 아니므로 나중에 버전을 이동해야 할 수 있으며 (2) 컨테이너를 배포하는 경우 Windows Server 2016에 빌드한 컨테이너는 Windows Server 1709에서 작동하지 않으며 그 반대의 경우도 마찬가지라는(배포하려면 다시 빌드가 필요함) 점에 유의해야 합니다.

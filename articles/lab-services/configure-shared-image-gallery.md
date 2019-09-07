@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2019
+ms.date: 09/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 93b3c7671a5beb4b3a451fe0efd13b9f48e00436
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 6e0c1419e5656f184d27dce8d185a86bea71d173
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68941812"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70389962"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Azure DevTest Labs에서 공유 이미지 갤러리 구성
 DevTest Labs는 이제 [공유 이미지 갤러리](../virtual-machines/windows/shared-image-galleries.md) 기능을 지원 합니다. 랩 사용자는 랩 리소스를 만드는 동안 이 기능을 사용하여 공유 위치의 이미지에 액세스할 수 있습니다. 사용자 지정 관리형 VM 이미지를 기준으로 구조와 조직을 구축하는 데도 사용할 수 있습니다. 공유 이미지 갤러리 기능은 다음을 지원 합니다.
@@ -32,6 +32,9 @@ DevTest Labs는 이제 [공유 이미지 갤러리](../virtual-machines/windows/
 자세한 내용은 [공유 이미지 갤러리 설명서](../virtual-machines/windows/shared-image-galleries.md)를 참조 하세요. 
  
 유지 관리해야 하는 관리되는 이미지가 많고, 회사 전체에서 사용 가능하도록 하려면 공유 이미지 갤러리를 이미지를 쉽게 업데이트하고 공유할 수 있게 해주는 리포지토리로 사용할 수 있습니다. 랩 소유자는 기존 공유 이미지 갤러리를 랩에 연결할 수 있습니다. 이 갤러리가 연결되고 나면 랩 사용자가 해당 최신 이미지에서 머신을 만들 수 있습니다. 이 기능의 주요 이점은 이제 DevTest Labs가 랩, 구독 및 지역 간에 이미지 공유를 활용할 수 있다는 점입니다. 
+
+> [!NOTE]
+> 공유 이미지 갤러리 서비스와 관련 된 비용에 대해 알아보려면 [공유 이미지 갤러리에 대 한 요금 청구](../virtual-machines/windows/shared-image-galleries.md#billing)를 참조 하세요.
 
 ## <a name="considerations"></a>고려 사항
 - 한 번에 하나의 공유 이미지 갤러리만 랩에 연결할 수 있습니다. 다른 갤러리를 연결 하려면 기존 항목을 분리 하 고 다른 갤러리를 연결 해야 합니다. 

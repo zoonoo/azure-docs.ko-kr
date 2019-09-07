@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82b8dcfa02d21183a06fa510adb774338e72cb4e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 8a1914b7cf79287831e0e94c19c50107c2ac216d
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851718"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390783"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시에서 사용자 지정 도메인 작업
 
@@ -36,11 +36,11 @@ Azure Active Directory 애플리케이션 프록시를 통해 애플리케이션
 
 ## <a name="configure-a-custom-domain"></a>사용자 지정 도메인 구성
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>전제 조건
 
 사용자 지정 도메인을 구성하기 전에 다음 요구 사항이 준비되어 있는지 확인합니다. 
 - [Azure Active Directory에 추가된 확인된 도메인](../fundamentals/add-custom-domain.md).
-- PFX 파일 형태의 도메인에 대한 사용자 지정 인증서. 
+- PFX 파일 형태의 도메인에 대한 사용자 지정 인증서.
 - [애플리케이션 프록시를 통해 게시된](application-proxy-add-on-premises-application.md) 온-프레미스 앱.
 
 ### <a name="configure-your-custom-domain"></a>사용자 지정 도메인 구성
@@ -72,6 +72,8 @@ Azure Active Directory 애플리케이션 프록시를 통해 애플리케이션
 인증서 서명 메서드에 대한 제한은 없습니다. ECC(타원 곡선암호화), SAN(주체 대체 이름 ) 및 다른 일반적인 인증서 형식은 모두 지원됩니다. 
 
 와일드카드가 원하는 외부 URL과 일치하는 한 와일드카드 인증서를 사용할 수 있습니다.
+
+인증서에 개인 키가 포함 되어 있어야 합니다.
 
 인증서 체인이 클라이언트 장치에 설치 된 경우 사용자 고유의 PKI (공개 키 인프라)에서 발급 한 인증서를 사용할 수 있습니다. Intune을 사용 하 여 이러한 인증서를 관리 되는 장치에 배포할 수 있습니다. 관리 되지 않는 장치의 경우 이러한 인증서를 수동으로 설치 해야 합니다.
 

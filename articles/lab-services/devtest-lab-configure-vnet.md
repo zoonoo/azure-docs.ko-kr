@@ -12,19 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 09/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 8fb3b4ac748fcae2e3aad5b3bfb2a893340dc61a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6cf3d2f82c98a3caab47ff48a600316747932b72
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60694819"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390044"
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Azure DevTest Labs에서 가상 네트워크 구성
 [랩에 VM 추가](devtest-lab-add-vm.md) 문서에 설명된 대로 랩에 VM을 만들 때 구성된 가상 네트워크를 지정할 수 있습니다. 예를 들어 ExpressRoute 또는 사이트 간 VPN으로 구성된 가상 네트워크를 사용하여 VM에서 회사 네트워크 리소스에 액세스해야 할 수 있습니다.
 
 이 문서에서는 VM을 만들 때 선택할 수 있도록 랩의 Virtual Network 설정으로 기존 가상 네트워크를 추가하는 방법을 설명합니다.
+
+> [!NOTE]
+> Azure Virtual Network 서비스와 관련 된 비용에 대해 알아보려면 [azure Virtual Network 가격 책정](../virtual-network/virtual-networks-overview.md#pricing)을 참조 하세요.
 
 ## <a name="configure-a-virtual-network-for-a-lab-using-the-azure-portal"></a>Azure 포털을 사용하여 랩에 대한 가상 네트워크 구성
 다음 단계에서는 동일한 랩에서 VM을 만들 때 사용할 수 있도록 랩에 기존 가상 네트워크(및 서브넷)를 추가하는 방법을 안내합니다. 
