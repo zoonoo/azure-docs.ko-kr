@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: 71c166b9c596c3c8628f943ae5c7dbebd9c2d51c
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 227ecb57b125264e7d0eba56e634966d677e0f58
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70384139"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70387278"
 ---
 # <a name="user-defined-functions-in-azure-resource-manager-template"></a>Azure Resource Manager 템플릿의 사용자 정의 함수
 
@@ -73,7 +73,7 @@ ms.locfileid: "70384139"
 * 함수는 변수에 액세스할 수 없습니다.
 * 함수는 함수에 정의된 매개 변수만 사용할 수 있습니다. 사용자 정의 함수 내에서 [parameters](resource-group-template-functions-deployment.md#parameters) 함수를 사용 하면 해당 함수에 대 한 매개 변수로 제한 됩니다.
 * 함수는 다른 사용자 정의 함수를 호출할 수 없습니다.
-* 함수는 [참조](resource-group-template-functions-resource.md#reference) 또는 [목록](resource-group-template-functions-resource.md#list) 함수를 사용할 수 없습니다.
+* 함수는 [reference](resource-group-template-functions-resource.md#reference) 함수 또는 [list](resource-group-template-functions-resource.md#list) 함수를 사용할 수 없습니다.
 * 함수의 매개 변수는 기본값을 가질 수 없습니다.
 
 

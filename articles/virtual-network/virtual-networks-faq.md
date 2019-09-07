@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: ecb840d97a45479d32079766807b4f2788cc29ec
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 836a9fd0b441ff9669c224dc41537e3c177d7dde
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382899"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70389700"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
 
@@ -42,7 +42,7 @@ VNet을 다음에 사용합니다.
 예. VNet을 온-프레미스에 연결하지 않고도 사용할 수 있습니다. 예를 들어 Azure VNet에서만 Microsoft Windows Server Active Directory 도메인 컨트롤러와 SharePoint 팜을 실행할 수 있습니다.
 
 ### <a name="can-i-perform-wan-optimization-between-vnets-or-a-vnet-and-my-on-premises-data-center"></a>VNet 간 또는 VNet과 온-프레미스 데이터 센터 간에 WAN 최적화를 수행할 수 있습니까?
-예. Azure Marketplace를 통해 여러 공급업체에서 [WAN 최적화 네트워크 가상 어플라이언스](https://azure.microsoft.com/marketplace/?term=wan+optimization)를 배포할 수 있습니다.
+예. Azure Marketplace를 통해 여러 공급업체에서 [WAN 최적화 네트워크 가상 어플라이언스](https://azuremarketplace.microsoft.com/en-us/marketplace/?term=wan%20optimization)를 배포할 수 있습니다.
 
 ## <a name="configuration"></a>Configuration
 

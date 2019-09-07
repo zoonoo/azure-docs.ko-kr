@@ -1,30 +1,28 @@
 ---
-title: 미리 보기-Azure Kubernetes 서비스 (AKS)에서 표준 SKU 부하 분산 장치 사용
+title: AKS (Azure Kubernetes Service)에서 표준 SKU 부하 분산 장치 사용
 description: 표준 SKU에서 부하 분산 장치를 사용 하 여 Azure Kubernetes 서비스 (AKS)를 통해 서비스를 노출 하는 방법을 알아봅니다.
 services: container-service
 author: zr-msft
 ms.service: container-service
 ms.topic: article
-ms.date: 06/25/2019
+ms.date: 09/05/2019
 ms.author: zarhoads
-ms.openlocfilehash: 422189952096ef25b69e62aa2708c59385b0637a
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 5586886f348fd20ec316461e603156043d4233e8
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898951"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70387357"
 ---
-# <a name="preview---use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes 서비스 (AKS)에서 표준 SKU 부하 분산 장치 사용
+# <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에서 표준 SKU 부하 분산 장치 사용
 
 AKS (Azure Kubernetes Service)에서 응용 프로그램에 대 한 액세스를 제공 하기 위해 Azure Load Balancer를 만들고 사용할 수 있습니다. AKS에서 실행 중인 부하 분산 장치는 내부 또는 외부 부하 분산 장치로 사용할 수 있습니다. 내부 부하 분산 장치는 AKS 클러스터와 동일한 가상 네트워크에서 실행 되는 응용 프로그램에만 Kubernetes 서비스에 액세스할 수 있도록 합니다. 외부 부하 분산 장치는 수신에 대 한 공용 Ip를 하나 이상 수신 하 고 공용 Ip를 사용 하 여 외부에서 Kubernetes 서비스에 액세스할 수 있도록 합니다.
 
-Azure Load Balancer는 ‘기본’ 및 ‘표준’이라는 두 SKU에서 사용할 수 있습니다. 기본적으로 *기본* SKU는 서비스 매니페스트가 AKS에서 부하 분산 장치를 만드는 데 사용 되는 경우에 사용 됩니다. *표준* SKU 부하 분산 장치를 사용 하면 더 큰 백 엔드 풀 크기 및 가용성 영역 같은 추가 기능 및 기능이 제공 됩니다. 사용할 것을 선택 하기 전에 *표준* 부하 분산 장치 간의 차이점을 이해 하는 것이 중요 합니다. AKS 클러스터를 만든 후에는 해당 클러스터에 대 한 부하 분산 장치 SKU를 변경할 수 없습니다. *기본* 및 *표준* sku에 대 한 자세한 내용은 [Azure 부하 분산 장치 SKU 비교][azure-lb-comparison]를 참조 하세요.
+Azure Load Balancer는 ‘기본’ 및 ‘표준’이라는 두 SKU에서 사용할 수 있습니다. 기본적으로 *기본* SKU는 서비스 매니페스트가 AKS에서 부하 분산 장치를 만드는 데 사용 되는 경우에 사용 됩니다. *표준* SKU 부하 분산 장치를 사용 하면 더 큰 백 엔드 풀 크기 및 가용성 영역 같은 추가 기능 및 기능이 제공 됩니다. 사용할 *것을 선택* 하기 전에 *표준* 부하 분산 장치 간의 차이점을 이해 하는 것이 중요 합니다. AKS 클러스터를 만든 후에는 해당 클러스터에 대 한 부하 분산 장치 SKU를 변경할 수 없습니다. *기본* 및 *표준* sku에 대 한 자세한 내용은 [Azure 부하 분산 장치 SKU 비교][azure-lb-comparison]를 참조 하세요.
 
 이 문서에서는 AKS (Azure Kubernetes Service)를 사용 하 여 *표준* SKU와 함께 Azure Load Balancer를 만들고 사용 하는 방법을 보여 줍니다.
 
 이 문서에서는 Kubernetes 및 Azure Load Balancer 개념을 기본적으로 이해 하 고 있다고 가정 합니다. 자세한 내용은 [Kubernetes core 개념에 대 한 AKS (Azure Kubernetes Service)][kubernetes-concepts] 및 [Azure Load Balancer 정의][azure-lb]를 참조 하세요.
-
-이 기능은 현재 미리 보기로 제공됩니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -36,17 +34,11 @@ CLI를 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 문서�
 
 기존 서브넷 또는 리소스 그룹을 사용 하는 경우 AKS 클러스터 서비스 주체에 네트워크 리소스를 관리할 수 있는 권한이 있어야 합니다. 일반적으로 위임 된 리소스의 서비스 사용자에 게 *네트워크 참가자* 역할을 할당 합니다. 사용 권한에 대 한 자세한 내용은 [DELEGATE AKS access to Other Azure resources를][aks-sp]참조 하세요.
 
-기본 *기본*이 아닌 *표준* 으로 부하 분산 장치의 SKU를 설정 하는 AKS 클러스터를 만들어야 합니다. AKS 클러스터 만들기는 이후 단계에서 설명 하지만 먼저 몇 가지 미리 보기 기능을 사용 하도록 설정 해야 합니다.
-
-> [!IMPORTANT]
-> AKS 미리 보기 기능은 셀프 서비스 옵트인입니다. 미리 보기는 "있는 그대로" 및 "사용 가능한 상태로" 제공 되며 서비스 수준 계약 및 제한 된 보증에서 제외 됩니다. AKS 미리 보기는 최상의 노력에 대 한 고객 지원에서 부분적으로 다룹니다. 이러한 기능은 프로덕션 용도로는 사용할 수 없습니다. 추가 정보 다음 지원 문서를 참조 하세요.
->
-> * [AKS 지원 정책][aks-support-policies]
-> * [Azure 지원 FAQ][aks-faq]
+기본 *기본*이 아닌 *표준* 으로 부하 분산 장치의 SKU를 설정 하는 AKS 클러스터를 만들어야 합니다.
 
 ### <a name="install-aks-preview-cli-extension"></a>aks-preview CLI 확장 설치
 
-Azure 부하 분산 장치 표준 SKU를 사용 하려면 *aks-preview* CLI 확장 버전 0.4.1 이상이 필요 합니다. [Az extension add][az-extension-add] 명령을 사용 하 여 *aks-preview* Azure CLI 확장을 설치한 다음 [az extension update][az-extension-update] 명령을 사용 하 여 사용 가능한 업데이트를 확인 합니다.
+Azure 부하 분산 장치 표준 SKU를 사용 하려면 *aks-preview* CLI 확장 버전 0.4.12 이상이 필요 합니다. [Az extension add][az-extension-add] 명령을 사용 하 여 *aks-preview* Azure CLI 확장을 설치한 다음 [az extension update][az-extension-update] 명령을 사용 하 여 사용 가능한 업데이트를 확인 합니다.
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -56,47 +48,17 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-### <a name="register-aksazurestandardloadbalancer-preview-feature"></a>AKSAzureStandardLoadBalancer 미리 보기 기능 등록
-
-*표준* SKU가 있는 부하 분산 장치를 사용할 수 있는 AKS 클러스터를 만들려면 구독에서 *AKSAzureStandardLoadBalancer* 기능 플래그를 사용 하도록 설정 해야 합니다. *AKSAzureStandardLoadBalancer* 기능은 가상 머신 확장 집합을 사용 하 여 클러스터를 만들 때에도 *VMSSPreview* 를 사용 합니다. 이 기능은 클러스터를 구성할 때 제공 되는 최신 서비스 기능 집합을 제공 합니다. 필수는 아니지만 *VMSSPreview* 기능 플래그를 사용 하도록 설정 하는 것이 좋습니다.
-
-> [!CAUTION]
-> 구독에 기능을 등록 하면 현재 해당 기능을 등록 취소할 수 없습니다. 일부 미리 보기 기능을 사용 하도록 설정한 후에는 구독에서 만든 모든 AKS 클러스터에 대 한 기본값을 사용할 수 있습니다. 프로덕션 구독에서 미리 보기 기능을 사용 하도록 설정 하지 마세요. 별도의 구독을 사용 하 여 미리 보기 기능을 테스트 하 고 피드백을 수집 합니다.
-
-다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용 하 여 *VMSSPreview* 및 *AKSAzureStandardLoadBalancer* 기능 플래그를 등록 합니다.
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "VMSSPreview"
-az feature register --namespace "Microsoft.ContainerService" --name "AKSAzureStandardLoadBalancer"
-```
-
-> [!NOTE]
-> *VMSSPreview* 또는 *AKSAzureStandardLoadBalancer* 기능 플래그를 성공적으로 등록 한 후에 만든 AKS 클러스터는이 미리 보기 클러스터 환경을 사용 합니다. 완전히 지원 되는 일반 클러스터를 계속 만들려면 프로덕션 구독에서 미리 보기 기능을 사용 하도록 설정 하지 마세요. 별도의 테스트 또는 개발 Azure 구독을 사용 하 여 미리 보기 기능을 테스트 합니다.
-
-상태가 *Registered*로 표시되는 데 몇 분 정도 걸립니다. [Az feature list][az-feature-list] 명령을 사용 하 여 등록 상태를 확인할 수 있습니다.
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSAzureStandardLoadBalancer')].{Name:name,State:properties.state}"
-```
-
-준비가 되 면 [az provider register][az-provider-register] 명령을 사용 하 여 *ContainerService* 리소스 공급자 등록을 새로 고칩니다.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
 ### <a name="limitations"></a>제한 사항
 
 *표준* SKU를 사용 하 여 부하 분산 장치를 지 원하는 AKS 클러스터를 만들고 관리 하는 경우 다음과 같은 제한 사항이 적용 됩니다.
 
-* 부하 분산 장치에 대 한 *표준* SKU를 사용 하는 경우 공용 주소를 허용 하 고 IP 생성을 차단을 하는 Azure Policy를 만들지 않도록 해야 합니다. AKS 클러스터는 AKS 클러스터에 대해 만들어진 것과 동일한 리소스 그룹에 *표준* SKU 공용 IP를 자동으로 만듭니다 .이는 일반적으로 처음에 *MC_* 로 이름이 지정 됩니다. AKS는 *표준* SKU 부하 분산 장치에 공용 IP를 할당 합니다. 공용 IP는 AKS 클러스터에서 송신 트래픽을 허용 하는 데 필요 합니다. 이 공용 IP는 또한 이전 버전의 AKS와의 호환성을 유지 하기 위해 제어 평면과 에이전트 노드 간의 연결을 유지 하는 데 필요 합니다.
-* 부하 분산 장치에 대 한 *표준* SKU를 사용 하는 경우 Kubernetes 버전 1.13.5 이상을 사용 해야 합니다.
-
-이 기능은 미리 보기 상태 이지만 다음과 같은 추가 제한 사항이 적용 됩니다.
-
-* AKS에서 부하 분산 장치에 대 한 *표준* SKU를 사용 하는 경우 부하 분산 장치에 대 한 송신에 대 한 사용자 고유의 공용 IP 주소를 설정할 수 없습니다. AKS는 부하 분산 장치에 할당 하는 IP 주소를 사용 해야 합니다.
-* 이는 [노드 공용 IP 기능과](use-multiple-node-pools.md#assign-a-public-ip-per-node-in-a-node-pool)함께 사용할 수 없습니다.
+* AKS 클러스터에서 송신 트래픽을 허용 하려면 하나 이상의 공용 IP 또는 IP 접두사가 필요 합니다. 공용 IP 또는 IP 접두사는 AKS의 이전 버전과의 호환성을 유지 하기 위해 제어 평면과 에이전트 노드 간의 연결을 유지 하는 데에도 필요 합니다. *표준* SKU 부하 분산 장치를 사용 하 여 공용 IP 또는 IP 접두사를 지정 하는 다음과 같은 옵션이 있습니다.
+    * 사용자 고유의 공용 Ip를 제공 합니다.
+    * 사용자 고유의 공용 IP 접두사를 제공 합니다.
+    * AKS 클러스터가 AKS 클러스터로 만든 것과 동일한 리소스 그룹에 많은 *표준* SKU 공용 ip를 만들 수 있도록 허용 하는 100 숫자 (일반적으로 *MC_* 로 이름이 지정 됨)를 지정 합니다. AKS는 *표준* SKU 부하 분산 장치에 공용 IP를 할당 합니다. 공용 ip, 공용 IP 접두사 또는 Ip 수가 지정 되지 않은 경우 기본적으로 하나의 공용 IP가 AKS 클러스터와 동일한 리소스 그룹에 자동으로 만들어집니다. 또한 공용 주소를 허용 하 고 IP 생성을 차단을 하는 Azure Policy를 만들지 않도록 해야 합니다.
+* 부하 분산 장치에 대 한 *표준* SKU를 사용 하는 경우 Kubernetes 버전 1.13 이상을 사용 해야 합니다.
+* 부하 분산 장치 SKU를 정의 하는 것은 AKS 클러스터를 만들 때만 수행할 수 있습니다. AKS 클러스터를 만든 후에는 부하 분산 장치 SKU를 변경할 수 없습니다.
+* 단일 클러스터에서 하나의 부하 분산 장치 SKU만 사용할 수 있습니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -125,10 +87,12 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-aks-cluster"></a>AKS 클러스터 만들기
-*표준* SKU를 사용 하 여 부하 분산 장치를 지 원하는 AKS 클러스터를 실행 하기 위해 클러스터에서 *부하 분산 장치-SKU* 매개 변수를 *표준*으로 설정 해야 합니다. 이 매개 변수는 클러스터를 만들 때 *표준* SKU를 사용 하 여 부하 분산 장치를 만듭니다. 클러스터에서 *LoadBalancer* 서비스를 실행 하는 경우 *표준* /부하 분산 장치의 구성이 서비스의 구성으로 업데이트 됩니다. [Az aks create][az-aks-create] 명령을 사용 하 여 *myAKSCluster*라는 aks 클러스터를 만듭니다.
+*표준* SKU를 사용 하 여 부하 분산 장치를 지 원하는 AKS 클러스터를 실행 하기 위해 클러스터에서 *부하 분산 장치-SKU* 매개 변수를 *표준*으로 설정 해야 합니다. 이 매개 변수는 클러스터를 만들 때 *표준* SKU를 사용 하 여 부하 분산 장치를 만듭니다. 클러스터에서 *LoadBalancer* 서비스를 실행 하는 경우 *표준* SKU 부하 분산 장치의 구성이 서비스의 구성으로 업데이트 됩니다. [Az aks create][az-aks-create] 명령을 사용 하 여 *myAKSCluster*라는 aks 클러스터를 만듭니다.
 
 > [!NOTE]
 > *부하 분산 장치-sku* 속성은 클러스터를 만들 때만 사용할 수 있습니다. AKS 클러스터를 만든 후에는 부하 분산 장치 SKU를 변경할 수 없습니다. 또한 단일 클러스터에서 한 가지 유형의 부하 분산 장치 SKU만 사용할 수 있습니다.
+> 
+> 사용자 고유의 공용 Ip를 사용 하려면 *부하 분산 장치-아웃 바운드* *ip 또는 부하 분산 장치-접두사* 매개 변수를 사용 합니다. 이러한 매개 변수는 모두 [클러스터를 업데이트할](#optional---provide-your-own-public-ips-or-prefixes-for-egress)때 사용할 수도 있습니다.
 
 ```azurecli-interactive
 az aks create \
@@ -309,6 +273,71 @@ azure-vote-front    LoadBalancer   10.0.227.198   52.179.23.131   80:31201/TCP  
 > [!NOTE]
 > 부하 분산 장치를 내부로 구성 하 고 공용 IP를 노출 하지 않을 수도 있습니다. 부하 분산 장치를 내부로 구성 하려면 `service.beta.kubernetes.io/azure-load-balancer-internal: "true"` *LoadBalancer* 서비스에 주석으로 추가 합니다. [여기][internal-lb-yaml]에서 내부 부하 분산 장치에 대 한 자세한 정보 뿐만 아니라 yaml 매니페스트 예제를 볼 수 있습니다.
 
+## <a name="optional---scale-the-number-of-managed-public-ips"></a>선택 사항-관리 되는 공용 Ip 수를 조정 합니다.
+
+기본적으로 생성 되는 관리 되는 아웃 바운드 공용 Ip를 사용 하 여 *표준* SKU 부하 분산 장치를 사용 하는 경우, *부하 분산 장치 관리-ip 카운트* 매개 변수를 사용 하 여 관리 되는 아웃 바운드 공용 ip 수를 조정할 수 있습니다.
+
+```azurecli-interactive
+az aks update \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --load-balancer-managed-outbound-ip-count 2
+```
+
+위의 예에서는 *Myresourcegroup*의 *myAKSCluster* 클러스터에 대 한 관리 되는 아웃 바운드 공용 ip 수를 *2* 로 설정 합니다. 또한 *부하 분산 장치-ip 카운트* 매개 변수를 사용 하 여 클러스터를 만들 때 관리 되는 아웃 바운드 공용 ip의 초기 수를 설정할 수 있습니다. 관리 되는 아웃 바운드 공용 Ip의 기본 수는 1입니다.
+
+## <a name="optional---provide-your-own-public-ips-or-prefixes-for-egress"></a>선택 사항-사용자 고유의 공용 Ip 또는 송신에 대 한 접두사를 제공 합니다.
+
+*표준* sku 부하 분산 장치를 사용 하는 경우 AKS 클러스터는 AKS 클러스터에 대해 생성 된 동일한 리소스 그룹에서 공용 ip를 자동으로 만들고 *표준* SKU 부하 분산 장치에 공용 ip를 할당 합니다. 또는 사용자 고유의 공용 IP를 할당할 수 있습니다.
+
+> [!IMPORTANT]
+> 부하 분산 장치를 *표준* sku와 함께 수신 하려면 *표준* sku 공용 ip를 사용 해야 합니다. [Az network public ip show][az-network-public-ip-show] 명령을 사용 하 여 공용 IP의 SKU를 확인할 수 있습니다.
+>
+> ```azurecli-interactive
+> az network public-ip show --resource-group myResourceGroup --name myPublicIP --query sku.name -o tsv
+> ```
+
+[Az network 공용-ip show][az-network-public-ip-show] 명령을 사용 하 여 공용 Ip의 id를 나열 합니다.
+
+```azurecli-interactive
+az network public-ip show --resource-group myResourceGroup --name myPublicIP --query id -o tsv
+```
+
+위의 명령은 *Myresourcegroup* 리소스 그룹의 *myPublicIP* 공용 IP에 대 한 ID를 표시 합니다.
+
+Aks *매개 변수와* 함께 *az update* 명령을 사용 하 여 공용 ip로 클러스터를 업데이트 합니다.
+
+다음 예제에서는 이전 명령의 Id를 사용 하 여 *부하 분산 장치-아웃 바운드 ip* 매개 변수를 사용 합니다.
+
+```azurecli-interactive
+az aks update \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --load-balancer-outbound-ips <publicIpId1>,<publicIpId2>
+```
+
+*표준* SKU 부하 분산 장치에 대 한 공용 IP 접두사를 사용할 수도 있습니다. 다음 예제에서는 [az network 공용 ip prefix show][az-network-public-ip-prefix-show] 명령을 사용 하 여 공용 ip 접두사의 id를 나열 합니다.
+
+```azurecli-interactive
+az network public-ip prefix show --resource-group myResourceGroup --name myPublicIPPrefix --query id -o tsv
+```
+
+위의 명령은 *Myresourcegroup* 리소스 그룹의 *myPublicIPPrefix* 공용 IP 접두사에 대 한 ID를 표시 합니다.
+
+이전 명령의 Id를 사용 하 여 aks *매개 변수와* 함께 *az update* 명령을 사용 합니다.
+
+다음 예제에서는 이전 명령의 Id를 사용 하 여 *부하 분산 장치-아웃 바운드 ip 접두사* 매개 변수를 사용 합니다.
+
+```azurecli-interactive
+az aks update \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --load-balancer-outbound-ip-prefixes <publicIpPrefixId1>,<publicIpPrefixId2>
+```
+
+> [!IMPORTANT]
+> 공용 Ip 및 IP 접두사는 AKS 클러스터와 동일한 구독의 일부 및 동일한 지역에 있어야 합니다.
+
 ## <a name="clean-up-the-standard-sku-load-balancer-configuration"></a>표준 SKU 부하 분산 장치 구성 정리
 
 예제 응용 프로그램 및 부하 분산 장치 구성을 제거 하려면 [kubectl delete][kubectl-delete]를 사용 합니다.
@@ -346,6 +375,8 @@ Kubernetes services에 대 한 자세한 내용은 [Kubernetes services 설명�
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-group-create]: /cli/azure/group#az-group-create
 [az-provider-register]: /cli/azure/provider#az-provider-register
+[az-network-public-ip-show]: /cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-show
+[az-network-public-ip-prefix-show]: /cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-prefix-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [azure-lb]: ../load-balancer/load-balancer-overview.md
 [azure-lb-comparison]: ../load-balancer/load-balancer-overview.md#skus
@@ -355,3 +386,4 @@ Kubernetes services에 대 한 자세한 내용은 [Kubernetes services 설명�
 [use-kubenet]: configure-kubenet.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+

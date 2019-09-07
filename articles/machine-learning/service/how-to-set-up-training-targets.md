@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 07176fbe22e70658856dd266687a15d719e78e9f
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 27361017241ba6529b93c24ce7fb95b2c1b22a62
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231095"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70389903"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>모델 학습을 위한 계산 대상 설정 및 사용 
 
@@ -106,7 +106,7 @@ Azure Machine Learning 컴퓨팅에는 할당할 수 있는 코어 수와 같은
 Azure Machine Learning 컴퓨팅을 런타임에 컴퓨팅 대상으로 만들 수 있습니다. 실행에 대해 컴퓨팅이 자동으로 만들어집니다. 실행이 완료되면 컴퓨팅이 자동으로 삭제됩니다. 
 
 > [!NOTE]
-> 사용할 최대 노드 수를 지정 하려면 일반적으로 노드 수로 설정 `node_count` 합니다. 현재이 작업을 수행 하지 못하게 하는 버그가 있습니다 (04/04/2019). 이 문제를 해결 하려면 실행 `amlcompute._cluster_max_node_count` 구성의 속성을 사용 합니다. `run_config.amlcompute._cluster_max_node_count = 5` )을 입력합니다.
+> 사용할 최대 노드 수를 지정 하려면 일반적으로 노드 수로 설정 `node_count` 합니다. 현재이 작업을 수행 하지 못하게 하는 버그가 있습니다 (04/04/2019). 이 문제를 해결 하려면 실행 `amlcompute._cluster_max_node_count` 구성의 속성을 사용 합니다. [http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest](`run_config.amlcompute._cluster_max_node_count = 5`)을 입력합니다.
 
 > [!IMPORTANT]
 > Azure Machine Learning 컴퓨팅의 실행 기반 만들기는 현재 미리 보기로 제공됩니다. 하이퍼 매개 변수 튜닝 또는 자동화된 Machine Learning을 사용 중인 경우에는 실행 기반 만들기를 사용하지 마세요. 하이퍼 매개 변수 튜닝 또는 자동화된 기계 학습을 사용하려면 [영구적 컴퓨팅](#persistent) 대상을 대신 만듭니다.
@@ -403,11 +403,20 @@ Azure Machine Learning 서비스에 대 한 [VS Code 확장](how-to-vscode-tools
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=amlcompute_submit)]
 
+> [!TIP]
+> 이 예에서는 기본적으로 학습에 계산 대상의 노드 하나를 사용 합니다. 둘 이상의 노드를 사용 하려면 실행 구성의 `node_count` 을 원하는 노드 수로 설정 합니다. 예를 들어 다음 코드는 학습에 사용 되는 노드 수를 4로 설정 합니다.
+>
+> ```python
+> src.run_config.node_count = 4
+> ```
+
 또는
 
 * [추정기를 사용하여 ML 모델 학습](how-to-train-ml-models.md)에 표시된 대로 `Estimator` 개체와 함께 실험을 제출합니다.
 * 하이퍼 [매개 변수 조정을](how-to-tune-hyperparameters.md)위해 하이퍼 드라이브 실행을 제출 합니다.
 * [VS Code 확장](how-to-vscode-tools.md#train-and-tune-models)을 통해 실험을 제출 합니다.
+
+자세한 내용은 [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) 및 [runconfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) 설명서를 참조 하세요.
 
 ## <a name="create-run-configuration-and-submit-run-using-azure-machine-learning-cli"></a>Azure Machine Learning CLI를 사용 하 여 실행 구성 만들기 및 실행 제출
 

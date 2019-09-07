@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: mlearned
-ms.openlocfilehash: a173272600bab71264ed3b85ce5141814c0a6aed
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: ee798ba624aaf9f21886edab36185fb1b6ae67f2
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147217"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70387328"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>미리 보기-Azure CLI를 사용 하 여 AKS (Azure Kubernetes Service) 클러스터에 Windows Server 컨테이너 만들기
 
@@ -79,7 +79,7 @@ az provider register --namespace Microsoft.ContainerService
 
 여러 노드 풀을 지 원하는 AKS 클러스터를 만들고 관리 하는 경우 다음과 같은 제한 사항이 적용 됩니다.
 
-* *WindowsPreview*를 성공적으로 등록 한 후 생성 된 클러스터에 여러 노드 풀을 사용할 수 있습니다. 구독에 대해 *Multiagentpoolpreview* 및 *VMSSPreview* 기능을 등록 한 경우에도 여러 노드 풀을 사용할 수 있습니다. 이러한 기능이 성공적으로 등록 되기 전에 만든 기존 AKS 클러스터를 사용 하 여 노드 풀을 추가 하거나 관리할 수 없습니다.
+* *WindowsPreview*를 성공적으로 등록 한 후 생성 된 클러스터에 여러 노드 풀을 사용할 수 있습니다. 구독에 대해 *Multiagentpoolpreview* 기능을 등록 한 경우에도 여러 노드 풀을 사용할 수 있습니다. 이 기능이 성공적으로 등록 되기 전에 만든 기존 AKS 클러스터를 사용 하 여 노드 풀을 추가 하거나 관리할 수 없습니다.
 * 첫 번째 노드 풀은 삭제할 수 없습니다.
 
 이 기능은 미리 보기 상태 이지만 다음과 같은 추가 제한 사항이 적용 됩니다.

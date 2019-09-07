@@ -4,6 +4,8 @@
   items:
     - name: Resource Manager란?
       href: resource-group-overview.md
+    - name: 템플릿 개요
+      href: template-deployment-overview.md
 - name: 빠른 시작
   expanded: true
   items:
@@ -58,8 +60,6 @@
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=azure-resource-manager'
 - name: 개념
   items:
-    - name: 템플릿 배포
-      href: template-deployment-overview.md
     - name: 템플릿 모범 사례
       href: template-best-practices.md
     - name: 클라우드 일관성을 위한 템플릿

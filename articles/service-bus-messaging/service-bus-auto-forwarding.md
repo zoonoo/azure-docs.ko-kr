@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 86fa7f62230c0ae0530b67ff2384942c876083d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d7b76a58a427b687d0dc36d13cfc00f32196853
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64686145"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390140"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>자동 전달을 사용한 Service Bus 엔터티 연결
 
@@ -27,7 +27,7 @@ Service Bus *자동 전달* 기능을 통해 동일한 네임스페이스의 일
 
 ## <a name="using-autoforwarding"></a>자동 전달 사용
 
-자동 전달은 다음 예제와 같이 [QueueDescription][QueueDescription] 또는 [SubscriptionDescription][SubscriptionDescription] 개체를 원본으로 하는 [QueueDescription.ForwardTo][QueueDescription.ForwardTo] 또는 [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo] 속성을 설정하여 사용할 수 있습니다.
+에서와 같이 queuedescription 또는 subscriptiondescription 개체의 속성 [을][SubscriptionDescription.ForwardTo] 원본에 대 한 [Queuedescription][QueueDescription] 또는 [subscriptiondescription][SubscriptionDescription] 개체의 속성으로 설정 하 여 자동 전달을 사용 하도록 설정할 수 있습니다 [.][QueueDescription.ForwardTo] 예를 들면 다음과 같습니다.
 
 ```csharp
 SubscriptionDescription srcSubscription = new SubscriptionDescription (srcTopic, srcSubscriptionName);
@@ -48,8 +48,10 @@ namespaceManager.CreateSubscription(srcSubscription));
 Alice가 휴가를 가면 ERP 토픽이 아닌 그녀의 개인 큐가 채워집니다. 이러한 경우 영업 담당자가 메시지를 확인하지 못하기 때문에 어떤 ERP 토픽도 할당량에 도달하지 못합니다.
 
 > [!NOTE]
-> 자동 전달에는 설치 되 면 AutoDeleteOnIdle 대상에 대 한 값 데이터 형식의 최대값을 자동으로 설정 됩니다.
-> 이렇게 메시지를 전달할 대상 항상 인지 확인 합니다.
+> 자동 전달 설정 된 경우 **원본 및 대상 모두** 에서 autodeleteonidle의 값이 자동으로 데이터 형식의 최대값으로 설정 됩니다.
+> 
+>   - 원본 측에서 자동 전달 수신 작업으로 작동 합니다. 따라서 자동 전달 설정 된 원본은 절대 "유휴" 상태가 아닙니다.
+>   - 대상 측에서는 메시지를 전달할 대상이 항상 있는지 확인 하기 위해이 작업이 수행 됩니다.
 
 ## <a name="autoforwarding-considerations"></a>자동 전달 관련 고려 사항
 
@@ -72,7 +74,7 @@ Service Bus는 전달된 각 메시지당 하나의 작업을 요청합니다. �
 Service Bus 성능 향상에 대한 자세한 내용은 다음을 참조하세요. 
 
 * [Service Bus 메시징을 사용한 성능 향상의 모범 사례](service-bus-performance-improvements.md)
-* [분할된 메시징 엔터티][Partitioned messaging entities]
+* [분할 된 메시징 엔터티][Partitioned messaging entities].
 
 [QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo
 [SubscriptionDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.forwardto#Microsoft_ServiceBus_Messaging_SubscriptionDescription_ForwardTo

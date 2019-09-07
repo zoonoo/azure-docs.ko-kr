@@ -24,7 +24,7 @@
     - name: Ruby 앱 만들기
       href: quickstart-ruby.md
     - name: 사용자 지정 컨테이너 실행
-      href: quickstart-docker-go.md
+      href: quickstart-docker.md
     - name: 다중 컨테이너 앱 만들기
       href: quickstart-multi-container.md
 - name: 자습서

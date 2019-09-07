@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 09/05/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a82571260f5da679202e96f5e6f72aa2db6788a
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 7c2e80f80ea5d7e7d5ee26eee8b26506386a6e2f
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834694"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70389782"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>OpenID Connect 및 Azure Active Directory를 사용하여 웹 애플리케이션에 대한 액세스 권한 부여
 
@@ -134,7 +134,7 @@ Content-Type: application/x-www-form-urlencoded
 error=access_denied&error_description=the+user+canceled+the+authentication
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
 | 오류 |발생하는 오류 유형을 분류하는 데 사용할 수 있고 오류에 대응하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | error_description |개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
@@ -179,9 +179,9 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 ```
 
-| 매개 변수 |  | 설명 |
+| 매개 변수 |  | Description |
 | --- | --- | --- |
-| post_logout_redirect_uri |권장 |성공적으로 로그 아웃 한 후에 사용자가 리디렉션되는 URL입니다. 포함되지 않은 경우 사용자에게 일반 메시지를 표시합니다. |
+| post_logout_redirect_uri |권장 |성공적으로 로그 아웃 한 후에 사용자가 리디렉션되는 URL입니다.  URL은 앱 등록 포털에서 애플리케이션에 등록한 리디렉션 URI 중 하나와 일치해야 합니다.  *Post_logout_redirect_uri* 이 포함 되어 있지 않으면 사용자에 게 일반 메시지가 표시 됩니다. |
 
 ## <a name="single-sign-out"></a>Single Sign-Out
 
@@ -226,7 +226,7 @@ Content-Type: application/x-www-form-urlencoded
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&state=12345
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | id_token |앱이 요청한 `id_token` 입니다. `id_token` 을 사용하여 사용자 ID를 확인하고 사용자와 세션을 시작할 수 있습니다. |
 | code |앱이 요청한 authorization_code입니다. 앱은 인증 코드를 사용하여 대상 리소스에 대한 액세스 토큰을 요청할 수 있습니다. authorization_code는 수명이 매우 짧으며, 일반적으로 약 10분 후에 만료됩니다. |

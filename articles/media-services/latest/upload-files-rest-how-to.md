@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: a6f872880b61a5bd9510abda2f15e2edea16e940
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 78c07330558241c889f284bcaf7302ce1327b5b8
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67703873"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70389796"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>REST를 사용하여 Media Services 계정에 파일 업로드
 
@@ -59,7 +59,7 @@ Media Services에서 자산에 연결된 Blob 컨테이너에 디지털 파일�
 
 ## <a name="upload-a-file-to-blob-storage-using-the-upload-url"></a>업로드 URL을 사용하여 Blob Storage에 파일 업로드
 
-Azure Storage API 또는 SDK(예: [Storage REST API](../../storage/common/storage-rest-api-auth.md), [JAVA SDK](../../storage/blobs/storage-quickstart-blobs-java-v10.md) 또는 [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md))를 사용합니다.
+Azure Storage Api 또는 Sdk (예: [저장소 REST API](../../storage/common/storage-rest-api-auth.md) 또는 [.net sdk](../../storage/blobs/storage-quickstart-blobs-dotnet.md))를 사용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

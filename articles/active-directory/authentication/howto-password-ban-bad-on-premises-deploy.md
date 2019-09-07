@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0b15c9730f7e469fde8fabd1bc4cbcd28efa66c
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 5949f57a87f324dc2e6651611574f4b66215c8a8
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68953005"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70389772"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Azure AD 암호 보호 배포
 
@@ -32,7 +32,7 @@ ms.locfileid: "68953005"
 * 사용자는 보안 되지 않은 암호를 사용 하는 경우가 많습니다.
 * 사용자에 게 보안 적용의 예정 된 변경 내용, 영향을 받는 보안 암호를 선택 하는 방법에 대 한 정보를 알려 주어 야 합니다.
 
-기존 Active Directory 도메인 컨트롤러 배포 자동화에 영향을 주는 더 강력한 암호 유효성 검사를 수행할 수도 있습니다. 이러한 문제를 미리 파악 하기 위해 감사 기간 평가 중에 하나 이상의 DC 수준 올리기 및 DC 수준 내리기를 수행 하는 것이 좋습니다.  참조 항목:
+기존 Active Directory 도메인 컨트롤러 배포 자동화에 영향을 주는 더 강력한 암호 유효성 검사를 수행할 수도 있습니다. 이러한 문제를 미리 파악 하기 위해 감사 기간 평가 중에 하나 이상의 DC 수준 올리기 및 DC 수준 내리기를 수행 하는 것이 좋습니다.  자세한 내용은 다음을 참조하세요.
 
 * [Ntdsutil.exe에서 weak 디렉터리 서비스 복구 모드 암호를 설정할 수 없습니다.](howto-password-ban-bad-on-premises-troubleshoot.md##ntdsutilexe-fails-to-set-a-weak-dsrm-password)
 * [취약 한 디렉터리 서비스 복구 모드 암호로 인해 도메인 컨트롤러 복제본 수준을 올리지 못했습니다.](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password)
@@ -142,7 +142,7 @@ Azure AD 암호 보호에는 두 가지 필수 설치 관리자가 있습니다.
         ```
 
         > [!NOTE]
-        > 계정에 대해 Azure Multi-factor Authentication이 필요한 경우이 모드는 실패 합니다. 이 경우 이전 두 인증 모드 중 하나를 사용 하거나 대신 MFA를 요구 하지 않는 다른 계정을 사용 합니다.
+        > 계정에 Azure Multi-Factor Authentication가 필요한 경우이 모드는 실패 합니다. 이 경우 이전 두 인증 모드 중 하나를 사용 하거나 대신 MFA를 요구 하지 않는 다른 계정을 사용 합니다.
         >
         > Azure AD 암호 보호에서 다루는 Azure 장치 등록이 MFA를 전역적으로 요구 하도록 구성 된 경우 MFA가 필요할 수도 있습니다. 이 문제를 해결 하려면 이전 두 인증 모드 중 하나를 사용 하 여 MFA를 지 원하는 다른 계정을 사용 하거나, Azure 장치 등록 MFA 요구 사항을 일시적으로 완화 시킬 수도 있습니다. 이렇게 하려면 Azure 관리 포털로 이동한 다음 Azure Active Directory, 장치, 장치 설정으로 이동한 후 "Multi-factor Auth를 통해 장치를 연결 하도록 요구"를 아니요로 설정 합니다. 등록이 완료 되 면이 설정을 다시 [예]로 다시 구성 해야 합니다.
         >
@@ -186,7 +186,7 @@ Azure AD 암호 보호에는 두 가지 필수 설치 관리자가 있습니다.
         ```
 
         > [!NOTE]
-        > 계정에 대해 Azure Multi-factor Authentication이 필요한 경우이 모드는 실패 합니다. 이 경우 이전 두 인증 모드 중 하나를 사용 하거나 대신 MFA를 요구 하지 않는 다른 계정을 사용 합니다.
+        > 계정에 Azure Multi-Factor Authentication가 필요한 경우이 모드는 실패 합니다. 이 경우 이전 두 인증 모드 중 하나를 사용 하거나 대신 MFA를 요구 하지 않는 다른 계정을 사용 합니다.
         >
         > Azure AD 암호 보호에서 다루는 Azure 장치 등록이 MFA를 전역적으로 요구 하도록 구성 된 경우 MFA가 필요할 수도 있습니다. 이 문제를 해결 하려면 이전 두 인증 모드 중 하나를 사용 하 여 MFA를 지 원하는 다른 계정을 사용 하거나, Azure 장치 등록 MFA 요구 사항을 일시적으로 완화 시킬 수도 있습니다. 이렇게 하려면 Azure 관리 포털로 이동한 다음 Azure Active Directory, 장치, 장치 설정으로 이동한 후 "Multi-factor Auth를 통해 장치를 연결 하도록 요구"를 아니요로 설정 합니다. 등록이 완료 되 면이 설정을 다시 [예]로 다시 구성 해야 합니다.
         >
@@ -295,7 +295,7 @@ Azure AD 암호 보호에는 두 가지 필수 설치 관리자가 있습니다.
 
 최신 버전의 프록시 소프트웨어를 제거할 필요는 없습니다. 설치 관리자에서 전체 업그레이드를 수행 합니다. 프록시 소프트웨어를 업그레이드 하는 경우 다시 부팅할 필요가 없습니다. 소프트웨어 업그레이드는 표준 MSI 절차를 사용 하 여 자동화할 수 있습니다. `AzureADPasswordProtectionProxySetup.exe /quiet`예를 들면와 같습니다.
 
-프록시 에이전트는 자동 업그레이드를 지원 합니다. 자동 업그레이드는 프록시 서비스와 함께 설치 되는 Microsoft Azure AD 연결 에이전트 업데이트 서비스를 사용 합니다. 자동 업그레이드는 기본적으로 설정 되어 있으며 AzureADPasswordProtectionProxyConfiguration cmdlet을 사용 하 여 사용 하거나 사용 하지 않도록 설정할 수 있습니다. AzureADPasswordProtectionProxyConfiguration cmdlet을 사용 하 여 현재 설정을 쿼리할 수 있습니다. 자동 업그레이드를 사용 하도록 설정 하는 것이 좋습니다.
+프록시 에이전트는 자동 업그레이드를 지원 합니다. 자동 업그레이드는 프록시 서비스와 함께 설치 되는 Microsoft Azure AD 연결 에이전트 업데이트 서비스를 사용 합니다. 자동 업그레이드는 기본적으로 설정 되어 있으며 `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet을 사용 하 여 사용 하거나 사용 하지 않도록 설정할 수 있습니다. Cmdlet을 `Get-AzureADPasswordProtectionProxyConfiguration` 사용 하 여 현재 설정을 쿼리할 수 있습니다. 자동 업그레이드를 사용 하도록 설정 하는 것이 좋습니다.
 
 이 `Get-AzureADPasswordProtectionProxy` cmdlet은 포리스트에 현재 설치 되어 있는 모든 프록시 에이전트의 소프트웨어 버전을 쿼리 하는 데 사용할 수 있습니다.
 
