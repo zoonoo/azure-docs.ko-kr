@@ -1,6 +1,6 @@
 ---
 title: HDInsight 클러스터에서 느리거나 실패 한 작업 문제 해결-Azure HDInsight
-description: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 진단 및 해결
+description: Azure HDInsight 클러스터에서 느리거나 실패 한 작업을 진단 하 고 문제를 해결 합니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: b7afeee554a1faee9507f0a891803024f3bc11e4
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 8c50068914c1519a5522372310bd0f5863a94b39
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69573686"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735781"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>HDInsight 클러스터에서 느리거나 실패 한 작업 문제 해결
 

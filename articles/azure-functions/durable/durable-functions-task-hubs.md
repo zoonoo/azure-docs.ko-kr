@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 40144fb50a01a64bbd67d541562b4fe0842fbf10
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b0a58251530467d788710b0584b15715a207e20f
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097790"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734318"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>지속성 함수의 작업 허브(Azure Functions)
 
@@ -101,6 +101,8 @@ ms.locfileid: "70097790"
 
 [OrchestrationClientBinding](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html)을 사용하여 앱 설정으로 구성된 작업 허브에서 작업하는 함수를 작성하는 방법의 미리 컴파일된 C# 예제는 다음과 같습니다.
 
+### <a name="c"></a>C#
+
 ```csharp
 [FunctionName("HttpStart")]
 public static async Task<HttpResponseMessage> Run(
@@ -119,8 +121,9 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-또한 JavaScript에 필요한 구성은 다음과 같습니다. `function.json` 파일의 작업 허브 속성은 앱 설정을 통해 설정됩니다.
+### <a name="javascript"></a>JavaScript
 
+`function.json` 파일의 작업 허브 속성은 앱 설정을 통해 설정됩니다.
 ```json
 {
     "name": "input",

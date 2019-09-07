@@ -1,6 +1,6 @@
 ---
 title: HDInsight에서 Hadoop 서비스에서 사용하는 포트 - Azure
-description: HDInsight에서 실행 중인 Hadoop 서비스에 사용된 포트 목록입니다.
+description: Azure HDInsight에서 실행 되는 Apache Hadoop 서비스에서 사용 하는 포트 목록을 제공 합니다.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: 34ab49378f9237a42bed869a6f6d67249b5238f9
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 1fe66c1c171e779f48f4cc7c6767307feaafbd5f
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68464686"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70733421"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>HDInsight의 Apache Hadoop 서비스에서 사용하는 포트
 
@@ -95,7 +95,7 @@ HDInsight 클러스터의 모든 노드는 Azure Virtual Network에 있으며 �
 
 ### <a name="yarn-ports"></a>YARN 포트
 
-| 서비스 | 노드 | 포트 | 프로토콜 | Description |
+| 서비스 | 노드 | 포트 | 프로토콜 | 설명 |
 | --- | --- | --- | --- | --- |
 | Resource Manager 웹 UI |헤드 노드 |8088 |HTTP |Resource Manager용 웹 UI |
 | Resource Manager 웹 UI |헤드 노드 |8090 |HTTPS |Resource Manager용 웹 UI |
@@ -109,20 +109,20 @@ HDInsight 클러스터의 모든 노드는 Azure Virtual Network에 있으며 �
 
 ### <a name="hive-ports"></a>Hive 포트
 
-| 서비스 | 노드 | 포트 | 프로토콜 | Description |
+| 서비스 | 노드 | 포트 | 프로토콜 | 설명 |
 | --- | --- | --- | --- | --- |
 | HiveServer2 |헤드 노드 |10001 |Thrift |Hive에 연결하기 위한 서비스(Thrift/JDBC) |
 | Hive Metastore |헤드 노드 |9083 |Thrift |Hive 메타데이터에 연결하기 위한 서비스(Thrift/JDBC) |
 
 ### <a name="webhcat-ports"></a>WebHCat 포트
 
-| 서비스 | 노드 | 포트 | 프로토콜 | 설명 |
+| 서비스 | 노드 | 포트 | 프로토콜 | Description |
 | --- | --- | --- | --- | --- |
 | WebHCat 서버 |헤드 노드 |30111 |HTTP |HCatalog 및 기타 Hadoop 서비스 맨 위의 웹 API |
 
 ### <a name="mapreduce-ports"></a>MapReduce 포트
 
-| 서비스 | 노드 | 포트 | 프로토콜 | Description |
+| 서비스 | 노드 | 포트 | 프로토콜 | 설명 |
 | --- | --- | --- | --- | --- |
 | JobHistory |헤드 노드 |19888 |HTTP |MapReduce JobHistory 웹 UI |
 | JobHistory |헤드 노드 |10020 |&nbsp; |MapReduce JobHistory 서버 |

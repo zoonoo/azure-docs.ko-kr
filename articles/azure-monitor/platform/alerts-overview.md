@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 67318fee540195fc913739d78e80649100c54e70
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
-ms.translationtype: MT
+ms.openlocfilehash: defc317618dfffd0e2b28c75b6168ec1dbda36b7
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034825"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735119"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft Azure의 경고 개요 
 
@@ -53,6 +53,7 @@ ms.locfileid: "70034825"
 **경고 설명** – 사용자가 구성한 경고 규칙의 설명
 
 **심각도** - 경고 규칙에 지정된 조건이 충족될 때의 경고 심각도. 심각도 범위는 0~4입니다.
+심각도 0 = Critical 심각도 1 = Error 심각도 2 = Warning 심각도 3 = 정보 심각도 4 = 세부 정보 표시
 
 **작업** - 경고가 발생할 때 수행되는 특정 작업입니다. 자세한 내용은 [작업 그룹](../../azure-monitor/platform/action-groups.md)을 참조하세요.
 

@@ -1,5 +1,5 @@
 ---
-title: 클러스터 구성에 대 한 세분화 된 역할 기반 액세스로 마이그레이션-Azure HDInsight
+title: 세분화 된 역할 기반 액세스로 마이그레이션-Azure HDInsight 클러스터 구성
 description: HDInsight 클러스터 구성에 대 한 세분화 된 역할 기반 액세스로 마이그레이션의 일부로 필요한 변경 사항에 대해 알아봅니다.
 author: tylerfox
 ms.author: tyfox
@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: 03bea7b9df929914e25ca97b382dc5c120b5a769
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 9eb77b3e4066712aecebee4660d50baf45957cb8
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69983029"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70733228"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>클러스터 구성에 대한 세밀한 역할 기반 액세스로 마이그레이션
 

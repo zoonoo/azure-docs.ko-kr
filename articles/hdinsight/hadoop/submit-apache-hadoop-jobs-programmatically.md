@@ -1,6 +1,6 @@
 ---
 title: HDInsight에서 Apache Hadoop 작업 제출
-description: Azure HDInsight에서 Apache Hadoop 작업을 제출하는 방법을 알아봅니다.
+description: Microsoft .NET SDK, 말아 또는 PowerShell을 사용 하 여 Azure HDInsight에서 Apache Hadoop 작업 제출
 ms.reviewer: jasonh
 ms.author: hrasheed
 author: hrasheed-msft
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 617eb8c8cfcdc7af5e91d0ed122ccdd21e7b86ff
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: a595d002ebeecee1a8fd62a52f47cab487474494
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508087"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734840"
 ---
 # <a name="submit-apache-hadoop-jobs-in-hdinsight"></a>HDInsight에서 Apache Hadoop 작업 제출
 
@@ -40,6 +40,6 @@ HDInsight, curl 또는 Azure PowerShell에 대해 Microsoft.NET SDK를 사용하
   - [HDInsight에서 Apache Hadoop과 함께 Apache Sqoop 사용](apache-hadoop-use-sqoop-powershell.md)
   - [PowerShell을 사용하여 HDInsight에서 Apache Hadoop과 함께 MapReduce 작업 실행](apache-hadoop-use-mapreduce-powershell.md)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 - [Azure HDInsight 설명서](https://docs.microsoft.com/azure/hdinsight/)

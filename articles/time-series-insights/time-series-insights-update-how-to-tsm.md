@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 09/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 05faf77d22f77da87e7c22d47473e6debf0f77c8
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 245a69f5e5834e68bbbd17a96859a93bc16eacbe
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461064"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744124"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기의 데이터 모델링
 
@@ -31,7 +31,7 @@ ms.locfileid: "67461064"
 
     [![단일 형식 만들기](media/v2-update-how-to-tsm/portal-one.png)](media/v2-update-how-to-tsm/portal-one.png#lightbox)
 
-1. **추가**를 선택합니다.
+1. 선택 **+ 추가**합니다.
 1. 형식과 관련된 모든 세부 정보를 입력하고 **만들기**를 선택합니다. 이 작업은 환경에 형식을 만듭니다.
 
     [![형식 추가](media/v2-update-how-to-tsm/portal-two.png)](media/v2-update-how-to-tsm/portal-two.png#lightbox)
@@ -49,14 +49,14 @@ ms.locfileid: "67461064"
 1. 형식을 선택하고 **편집**을 선택합니다. 
 1. 필요에 따라 변경하고 **저장**을 선택합니다.
 
-    [![형식을 편집합니다](media/v2-update-how-to-tsm/portal-four.png)](media/v2-update-how-to-tsm/portal-four.png#lightbox)
+    [![형식 편집](media/v2-update-how-to-tsm/portal-four.png)](media/v2-update-how-to-tsm/portal-four.png#lightbox)
 
 ### <a name="delete-a-type"></a>형식 삭제
 
 1. 형식을 선택하고 **삭제**를 선택합니다.
 1. 형식과 연결된 인스턴스가 없으면 형식이 삭제됩니다.
 
-    [![유형을 삭제합니다](media/v2-update-how-to-tsm/portal-five.png)](media/v2-update-how-to-tsm/portal-five.png#lightbox)
+    [![유형 삭제](media/v2-update-how-to-tsm/portal-five.png)](media/v2-update-how-to-tsm/portal-five.png#lightbox)
 
 ## <a name="hierarchies"></a>계층 구조
 
@@ -66,13 +66,13 @@ ms.locfileid: "67461064"
 
     [![계층 선택](media/v2-update-how-to-tsm/portal-six.png)](media/v2-update-how-to-tsm/portal-six.png#lightbox)
 
-1. **추가**를 선택합니다.
+1. 선택 **+ 추가**합니다.
 
     [![계층 추가](media/v2-update-how-to-tsm/portal-seven.png)](media/v2-update-how-to-tsm/portal-seven.png#lightbox)
 
-1. 오른쪽 창에서 **수준 추가**를 선택합니다.
+1. 오른쪽 창에서 **+ 수준 추가** 를 선택 합니다.
 
-    [![수준을 추가합니다](media/v2-update-how-to-tsm/portal-eight.png)](media/v2-update-how-to-tsm/portal-eight.png#lightbox)
+    [![수준 추가](media/v2-update-how-to-tsm/portal-eight.png)](media/v2-update-how-to-tsm/portal-eight.png#lightbox)
 
 1. 계층 구조 정보를 입력하고 **만들기**를 선택합니다.
 
@@ -84,7 +84,7 @@ ms.locfileid: "67461064"
 1. 계층 구조 페이로드를 포함하는 파일을 선택합니다.
 1. **업로드**를 선택합니다.
 
-    [![대량 업로드 계층](media/v2-update-how-to-tsm/portal-ten.png)](media/v2-update-how-to-tsm/portal-ten.png#lightbox)
+    [![계층 대량 업로드](media/v2-update-how-to-tsm/portal-ten.png)](media/v2-update-how-to-tsm/portal-ten.png#lightbox)
 
 ### <a name="edit-a-single-hierarchy"></a>단일 계층 구조 편집
 
@@ -106,7 +106,7 @@ ms.locfileid: "67461064"
 
 1. 시계열 모델 선택기 패널로 이동한 다음, 메뉴에서 **인스턴스**를 선택합니다. 패널을 축소하여 시계열 모델 인스턴스에 집중합니다.
 
-    [![단일 인스턴스를 만들려면](media/v2-update-how-to-tsm/portal-thirteen.png)](media/v2-update-how-to-tsm/portal-thirteen.png#lightbox)
+    [![단일 인스턴스 만들기](media/v2-update-how-to-tsm/portal-thirteen.png)](media/v2-update-how-to-tsm/portal-thirteen.png#lightbox)
 
 1. **추가**를 선택합니다.
 
@@ -119,7 +119,7 @@ ms.locfileid: "67461064"
 1. **JSON 업로드**를 선택합니다.
 1. 인스턴스 페이로드를 포함하는 파일을 선택합니다.
 
-    [![대량 업로드 인스턴스가 하나 이상](media/v2-update-how-to-tsm/portal-fifteen.png)](media/v2-update-how-to-tsm/portal-fifteen.png#lightbox)
+    [![하나 이상의 인스턴스 대량 업로드](media/v2-update-how-to-tsm/portal-fifteen.png)](media/v2-update-how-to-tsm/portal-fifteen.png#lightbox)
 
 1. **업로드**를 선택합니다.
 
@@ -128,7 +128,7 @@ ms.locfileid: "67461064"
 1. 인스턴스를 선택하고 **편집**을 선택합니다. 
 1. 필요에 따라 변경하고 **저장**을 선택합니다.
 
-    [![단일 인스턴스를 편집 합니다.](media/v2-update-how-to-tsm/portal-sixteen.png)](media/v2-update-how-to-tsm/portal-sixteen.png#lightbox)
+    [![단일 인스턴스 편집](media/v2-update-how-to-tsm/portal-sixteen.png)](media/v2-update-how-to-tsm/portal-sixteen.png#lightbox)
 
 ## <a name="next-steps"></a>다음 단계
 

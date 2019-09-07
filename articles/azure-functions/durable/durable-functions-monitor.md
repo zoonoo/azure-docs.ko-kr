@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ae6c2bd27e9192966ecffb4d4296063201fca970
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 992e3f7aa53fdd006d29c06113cd30b07a406f3b
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098011"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734347"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>지속성 함수의 모니터 시나리오 - 날씨 관찰 앱 샘플
 
@@ -67,7 +67,7 @@ API 키가 확보되면 함수 앱에 다음 **앱 설정**을 추가합니다.
 
 다음은 이 함수를 구현하는 코드입니다.
 
-### <a name="c"></a>C#
+### <a name="c-script"></a>C# 스크립트
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Monitor/run.csx)]
 
@@ -103,7 +103,7 @@ JavaScript 샘플은 매개 변수로 기본 JSON 개체를 사용합니다.
 
 그리고 구현은 다음과 같습니다. 데이터 전송에 사용되는 POCO와 마찬가지로 API 호출을 처리하고 응답 JSON을 구문 분석하는 논리는 C#에서 공유 클래스로 추상화됩니다. [Visual Studio 샘플 코드](#run-the-sample)의 일부로 찾을 수 있습니다.
 
-### <a name="c"></a>C#
+### <a name="c-script"></a>C# 스크립트
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/run.csx)]
 
@@ -117,7 +117,7 @@ JavaScript 샘플은 매개 변수로 기본 JSON 개체를 사용합니다.
 
 SMS 메시지를 보내는 코드는 다음과 같습니다.
 
-### <a name="c"></a>C#
+### <a name="c-script"></a>C# 스크립트
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/run.csx)]
 

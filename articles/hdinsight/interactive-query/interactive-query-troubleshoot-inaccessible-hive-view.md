@@ -1,17 +1,17 @@
 ---
-title: Azure HDInsight에서 Apache 사육 사에 대 한 연결을 설정 하지 못한 Apache Hive
+title: Apache Hive Apache 사육 사 연결 설정 실패-Azure HDInsight
 description: 사육 사 문제로 인해 Hive 보기에 액세스할 수 없음
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 07/30/2019
-ms.openlocfilehash: d8e94627cefccc0be4cbe35ae09104fb104034f6
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: b5822e69f2e16e5fb24064862a64764e7516dbd7
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817096"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70733118"
 ---
 # <a name="scenario-apache-hive-fails-to-establish-a-connection-to-apache-zookeeper-in-azure-hdinsight"></a>시나리오: Azure HDInsight에서 Apache 사육 사에 대 한 연결을 설정 하지 못한 Apache Hive
 

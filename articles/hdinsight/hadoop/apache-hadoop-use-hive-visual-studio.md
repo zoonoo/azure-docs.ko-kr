@@ -1,5 +1,5 @@
 ---
-title: Visual Studio용 Data Lake(Apache Hadoop) 도구로 Apache Hive 사용 - Azure HDInsight
+title: Visual Studio 용 Data Lake 도구를 사용 하 여 Apache Hive-Azure HDInsight
 description: Azure HDInsight의 Apache Hadoop에서 Data Lake Tools for Visual Studio를 사용하여 Apache Hive 쿼리를 실행하는 방법을 알아봅니다.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: hrasheed
-ms.openlocfilehash: 7480dafe435e555bfba81ebd9242bb5724c0bf3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bded3ac97732a7cd18411cc9f4ef1707dbdf68e3
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65861591"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735812"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Visual Studio용 Data Lake 도구를 사용하여 Apache Hive 쿼리 실행
 
@@ -39,13 +39,13 @@ Hive 쿼리를 만들고 실행하기 위한 두 가지 옵션이 있습니다.
 
 ### <a name="ad-hoc"></a>임시
 
-임시 쿼리를 실행할 수 있습니다 **일괄 처리** 하거나 **대화형** 모드입니다.
+임시 쿼리를 **일괄 처리** 또는 **대화형** 모드로 실행할 수 있습니다.
 
-1. 오픈 **Visual Studio**합니다.
+1. **Visual Studio**를 엽니다.
 
-2. **서버 탐색기**, 이동할 **Azure** > **HDInsight**합니다.
+2. **서버 탐색기**에서 **Azure** > **HDInsight**로 이동 합니다.
 
-3. 확장 **HDInsight**, 쿼리를 실행 하 고 클릭 하려는 클러스터를 마우스 오른쪽 단추로 클릭 하 고 **Hive 쿼리 작성**합니다.
+3. **HDInsight**를 확장 하 고 쿼리를 실행 하려는 클러스터를 마우스 오른쪽 단추로 클릭 한 다음 **Hive 쿼리 작성**을 선택 합니다.
 
 4. 다음 hive 쿼리를 입력 합니다.
 
@@ -53,15 +53,15 @@ Hive 쿼리를 만들고 실행하기 위한 두 가지 옵션이 있습니다.
     SELECT * FROM hivesampletable;
     ```
 
-5. **실행**을 선택합니다. 실행 모드는 기본값으로 보면 **대화형**합니다.
+5. **실행**을 선택합니다. 실행 모드는 기본적으로 **Interactive**로 설정 됩니다.
 
     ![대화형 Hive 쿼리 실행 스크린샷](./media/apache-hadoop-use-hive-visual-studio/vs-execute-hive-query.png)
 
-6. 동일한 쿼리를 실행 하려면 **일괄 처리** 모드, 토글 드롭다운 목록에서 **대화형** 하 **일괄 처리**합니다. 실행 단추에서 변경 되 면 **Execute** 하 **제출**합니다.
+6. **일괄 처리** 모드에서 동일한 쿼리를 실행 하려면 드롭다운 목록을 **대화형** 에서 **일괄 처리**로 전환 합니다. 실행 단추는 **실행** 에서 **전송**으로 변경 됩니다.
 
     ![Hive 쿼리 제출 스크린샷](./media/apache-hadoop-use-hive-visual-studio/vs-batch-query.png)
 
-    Hive 편집기는 IntelliSense를 지원합니다. Data Lake Tools for Visual Studio는 Hive 스크립트를 편집할 때 원격 메타데이터 로드를 지원합니다. 예를 들어 입력 `SELECT * FROM`, IntelliSense 제안 된 테이블 이름을 모두 나열 합니다. 테이블 이름이 지정되면 IntelliSense에서 열 이름을 나열합니다. 이 도구는 대부분의 Hive DML 문, 하위 쿼리 및 기본 제공 UDF를 지원합니다. IntelliSense는 HDInsight 도구 모음에서 선택한 클러스터의 메타데이터만 제안합니다.
+    Hive 편집기는 IntelliSense를 지원합니다. Data Lake Tools for Visual Studio는 Hive 스크립트를 편집할 때 원격 메타데이터 로드를 지원합니다. 예를 들어를 입력 `SELECT * FROM`하면 IntelliSense에서 제안 된 테이블 이름을 모두 나열 합니다. 테이블 이름이 지정되면 IntelliSense에서 열 이름을 나열합니다. 이 도구는 대부분의 Hive DML 문, 하위 쿼리 및 기본 제공 UDF를 지원합니다. IntelliSense는 HDInsight 도구 모음에서 선택한 클러스터의 메타데이터만 제안합니다.
 
     ![HDInsight Visual Studio Tools- IntelliSense 예 1의 스크린샷](./media/apache-hadoop-use-hive-visual-studio/vs-intellisense-table-name.png "U-SQL IntelliSense")
    
@@ -75,13 +75,13 @@ Hive 쿼리를 만들고 실행하기 위한 두 가지 옵션이 있습니다.
 
 ### <a name="hive-application"></a>Hive 응용 프로그램
 
-1. 오픈 **Visual Studio**합니다.
+1. **Visual Studio**를 엽니다.
 
-2. 메뉴 모음에서로 이동 **파일** > **새로 만들기** > **프로젝트**합니다.
+2. 메뉴 모음에서 **파일** > **새로 만들기** > **프로젝트**로 이동 합니다.
 
-3. **새 프로젝트** 창에서 이동할 **템플릿** > **Azure Data Lake** > **HIVE (HDInsight)**  >  **응용 프로그램을 hive**합니다. 
+3. **새 프로젝트** 창에서 **템플릿** > **Azure Data Lake** > **hive (HDInsight)**  > **hive 응용 프로그램**으로 이동 합니다. 
 
-4. 이 프로젝트에 대 한 이름을 입력 하 고 선택한 **확인**합니다.
+4. 이 프로젝트의 이름을 입력 하 고 **확인**을 선택 합니다.
 
 5. 이 프로젝트에서 만든 **Script.hql** 파일을 열고 아래 HiveQL 문을 붙여 넣습니다.
 
@@ -125,9 +125,9 @@ Hive 쿼리를 만들고 실행하기 위한 두 가지 옵션이 있습니다.
 
 ### <a name="additional-example"></a>추가 예제
 
-이 예에서는 `log4jLogs` 이전 단계에서 만든 테이블입니다.
+이 예에서는 `log4jLogs` 이전 단계에서 만든 테이블을 사용 합니다.
 
-1. **서버 탐색기**, 클러스터를 마우스 오른쪽 단추로 **Hive 쿼리 작성**합니다.
+1. **서버 탐색기**에서 클러스터를 마우스 오른쪽 단추로 클릭 하 고 **Hive 쿼리 작성**을 선택 합니다.
 
 2. 다음 hive 쿼리를 입력 합니다.
 
@@ -148,7 +148,7 @@ Hive 쿼리를 만들고 실행하기 위한 두 가지 옵션이 있습니다.
     
     * `INSERT OVERWRITE ... SELECT`: `[ERROR]`가 포함된 `log4jLogs` 테이블에서 행을 선택하고 데이터를 `errorLogs` 테이블에 삽입합니다.
 
-3. 쿼리를 실행할 **일괄 처리** 모드입니다.
+3. **일괄 처리** 모드로 쿼리를 실행 합니다.
 
 4. 작업에서 테이블이 만들어졌는지 확인하려면 **서버 탐색기**를 사용하여 **Azure** > **HDInsight** > HDInsight 클러스터 > **Hive 데이터베이스** > **기본값**을 확장합니다. **errorLogs** 및 **log4jLogs** 테이블이 나열됩니다.
 

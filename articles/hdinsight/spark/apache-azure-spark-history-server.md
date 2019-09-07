@@ -1,19 +1,19 @@
 ---
-title: 확장된 Spark 기록 서버를 사용하여 Spark 애플리케이션 디버그 및 진단 - Azure HDInsight
+title: Spark 응용 프로그램을 디버그 하는 확장 Spark 기록 서버-Azure HDInsight
 description: 확장된 Spark 기록 서버를 사용하여 Spark 애플리케이션 디버그 및 진단 - Azure HDInsight.
 ms.service: hdinsight
-author: jejiang
-ms.author: jejiang
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 09/14/2018
-ms.openlocfilehash: 641fc41c25746a67b4b1fe3d5316df17f14f113c
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.date: 09/04/2019
+ms.openlocfilehash: 9ba03f6b1e658e08c3d07d7ccb5e2a99e96fe69c
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377253"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736465"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>확장된 Apache Spark 기록 서버를 사용하여 Apache Spark 애플리케이션 디버그 및 진단
 
@@ -300,7 +300,7 @@ Spark 기록 서버 웹 UI는 다음과 같습니다.
 
 **Azure Portal에서 Bash 파일을 사용하려면**
 
-1. [Azure Portal](https://ms.portal.azure.com)을 시작하고 클러스터를 선택합니다.
+1. [Azure Portal](https://ms.portal.azure.com)를 시작 하 고 클러스터를 선택 합니다.
 2. **스크립트 동작** 및 **새로운 항목 제출**을 차례로 클릭합니다. **스크립트 동작 제출** 양식을 완료한 다음, **만들기** 단추를 클릭합니다.
     
     + **스크립트 유형**: **사용자 지정**을 선택합니다.

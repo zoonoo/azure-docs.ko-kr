@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: bwren
-ms.openlocfilehash: 11c3ded45e87e815b6c694f0a3f9c0ccb96f8750
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a34faeb42fce0a1ee7960f71ffce176492495f9c
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68813915"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744521"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>HTTP 데이터 수집기 API로 Azure Monitor에 로그 데이터 전송(공개 미리 보기)
 이 문서에서는 HTTP 데이터 수집기 API를 사용하여 REST API 클라이언트에서 Azure Monitor로 로그 데이터를 전송하는 방법을 보여 줍니다.  스크립트 또는 애플리케이션에서 수집한 데이터의 서식을 지정하고, 요청에 포함하며, 해당 요청에 대한 Azure Monitor의 인증을 받는 방법을 설명합니다.  PowerShell, C# 및 Python에 예가 제공됩니다.
@@ -56,10 +56,10 @@ HTTP 데이터 수집기 API를 사용하려면 JSON(JavaScript Object Notation)
 | API 버전 |이 요청에 사용하는 API의 버전입니다. 현재 2016-04-01입니다. |
 
 ### <a name="request-headers"></a>요청 헤더
-| 헤더 | 설명 |
+| 헤더 | Description |
 |:--- |:--- |
 | 권한 부여 |권한 부여 서명입니다. 문서의 뒷부분에 HMAC-SHA256 헤더를 만드는 방법이 나와 있습니다. |
-| Log-Type |제출 중인 데이터의 레코드 종류를 지정합니다. 이 매개 변수에 대한 크기 제한은 100자입니다. |
+| Log-Type |제출 중인 데이터의 레코드 종류를 지정합니다. 는 문자, 숫자 및 밑줄 (_)만 포함할 수 있으며 100 자를 초과할 수 없습니다. |
 | x-ms-date |RFC 1123 형식의 요청이 처리된 날짜입니다. |
 | x-ms-AzureResourceId | 데이터가 연결 되어야 하는 Azure 리소스의 리소스 ID입니다. 그러면 [_Resourceid](log-standard-properties.md#_resourceid) 속성이 채워지고 [리소스 컨텍스트](design-logs-deployment.md#access-mode) 쿼리에 데이터가 포함 될 수 있습니다. 이 필드를 지정 하지 않으면 데이터는 리소스 컨텍스트 쿼리에 포함 되지 않습니다. |
 | time-generated-field | 데이터 항목의 타임스탬프가 포함된 데이터의 필드 이름입니다. 필드를 지정하면 그 내용이 **TimeGenerated**에 사용됩니다. 이 필드를 지정하지 않으면 **TimeGenerated**의 기본값은 메시지가 수집된 시간입니다. 메시지 필드의 내용은 ISO 8601 형식 YYYY-MM-DDThh:mm:ssZ를 따라야 합니다. |
@@ -100,7 +100,7 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 다음 섹션의 샘플은 권한 부여 헤더를 만드는 데 도움이 되는 예제 코드입니다.
 
 ## <a name="request-body"></a>요청 본문
-메시지의 본문은 JSON에 있어야 합니다. 다음 형식으로 속성 이름과 값 쌍을 갖는 하나 이상의 레코드를 포함해야 합니다.
+메시지의 본문은 JSON에 있어야 합니다. 다음 형식의 속성 이름 및 값 쌍을 포함 하는 하나 이상의 레코드를 포함 해야 합니다. 속성 이름에는 문자, 숫자 및 밑줄 (_)만 사용할 수 있습니다.
 
 ```json
 [

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7033c7bd3e783157280709b2c7e889473166ac84
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 330b02e3db6af90fcfeb962e78b043b04090116e
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879222"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743237"
 ---
 # <a name="deploy-azure-ad-self-service-password-reset"></a>Azure AD 셀프 서비스 암호 재설정 배포
 
@@ -37,7 +37,7 @@ SSPR를 배포 하기 전에 조직에서는 시간에 따라 발생 하는 암�
 
 ## <a name="licensing-considerations"></a>라이선스 고려 사항
 
-Azure Active Directory는 각 사용자가 사용 하는 기능에 대 한 적절 한 라이선스를 보유 해야 하는 사용자 당 라이선스를 의미 합니다.
+사용이 허가 된 Azure Active Directory는 각 사용자가 사용 하는 기능에 대 한 적절 한 라이선스를 보유 해야 한다는 의미입니다.
 
 라이선스에 대 한 자세한 내용은 [Azure Active Directory 가격 책정 페이지](https://azure.microsoft.com/pricing/details/active-directory/) 에서 찾을 수 있습니다.
 
@@ -47,7 +47,7 @@ Azure Active Directory는 각 사용자가 사용 하는 기능에 대 한 적�
 
 ![결합 된 보안 정보 등록](./media/howto-sspr-deployment/combined-security-info.png)
 
-결합 된 등록 환경에서는 조직이 SSPR와 Azure Multi-factor Authentication을 모두 사용할 수 있도록 요구 하지 않습니다. 결합 된 등록 환경에서는 기존의 개별 구성 요소와 비교 하 여 더 나은 사용자 환경을 제공 합니다. 결합 된 등록 및 사용 방법에 대 한 자세한 내용은 [결합 된 보안 정보 등록 (미리 보기)](concept-registration-mfa-sspr-combined.md) 문서에서 찾을 수 있습니다.
+결합 된 등록 환경에서는 조직에서 SSPR 및 Azure Multi-Factor Authentication를 모두 사용할 수 있도록 요구 하지 않습니다. 결합 된 등록 환경에서는 기존의 개별 구성 요소와 비교 하 여 더 나은 사용자 환경을 제공 합니다. 결합 된 등록 및 사용 방법에 대 한 자세한 내용은 [결합 된 보안 정보 등록 (미리 보기)](concept-registration-mfa-sspr-combined.md) 문서에서 찾을 수 있습니다.
 
 ## <a name="plan-the-configuration"></a>구성 계획
 
@@ -55,11 +55,11 @@ Azure Active Directory는 각 사용자가 사용 하는 기능에 대 한 적�
 
 | 영역 | 설정 | 값 |
 | --- | --- | --- |
-| **SSPR 속성** | 셀프 서비스 암호 재설정 사용 | 파일럿/프로덕션용으로 **선택한** 그룹 |
+| **SSPR 속성** | 셀프 서비스 암호 재설정 사용 | 파일럿 **/프로덕션용** 으로 **선택한** 그룹 |
 | **인증 방법** | 등록 하는 데 필요한 인증 방법 | 다시 설정 하는 데 필요한 것 보다 항상 1 개 이상 |
 |   | 다시 설정 하는 데 필요한 인증 방법 | 1개 또는 2개 |
 | **등록** | 로그인 시 사용자가 등록하도록 요구 | 예 |
-|   | 사용자에게 해당 인증 정보를 다시 확인하도록 요청하기까지의 기간 | 90 – 180 일 |
+|   | 사용자가 인증 정보를 다시 확인 하도록 요청 하기 전 까지의 일 수 | 90 – 180 일 |
 | **알림** | 사용자에게 암호 재설정에 대해 알림 | 예 |
 |   | 다른 관리자가 암호를 재설정하면 모든 관리자에게 알림 | 예 |
 | **사용자 지정** | 기술 지원팀 링크 사용자 지정 | 예 |
@@ -222,7 +222,7 @@ Azure AD 조인 또는 하이브리드 Azure AD 조인 된 버전 1803 이상을
 
 지원 팀의 성공 여부를 설정 하기 위해 사용자가 받은 질문에 따라 FAQ를 만들 수 있습니다. 다음 표에는 일반적인 지원 시나리오가 나와 있습니다.
 
-| 시나리오 | 설명 |
+| 시나리오 | Description |
 | --- | --- |
 | 사용자에 게 사용 가능한 등록 된 인증 방법이 없습니다. | 사용자가 자신의 암호를 재설정 하려고 하지만 등록 한 인증 방법이 없습니다 (예: 집에서 휴대폰을 사용 하 고 전자 메일에 액세스할 수 없음). |
 | 사용자가 사무실 또는 휴대폰에서 텍스트 또는 통화를 받지 않습니다. | 사용자가 텍스트 또는 호출을 통해 id를 확인 하려고 하지만 텍스트/호출을 받지 않습니다. |

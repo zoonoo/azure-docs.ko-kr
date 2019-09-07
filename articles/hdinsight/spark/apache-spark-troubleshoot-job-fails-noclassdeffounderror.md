@@ -1,17 +1,17 @@
 ---
-title: Azure HDInsight에서 NoClassDefFoundError을 사용 하 여 Apache Kafka 클러스터에서 데이터를 읽는 Apache Spark 스트리밍 작업이 실패 함
+title: NoClassDefFoundError-Azure HDInsight에서 Apache Kafka 데이터를 사용 하 여 Apache Spark
 description: Azure HDInsight에서 NoClassDefFoundError을 사용 하 여 Apache Kafka 클러스터에서 데이터를 읽는 Apache Spark 스트리밍 작업이 실패 함
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 07/29/2019
-ms.openlocfilehash: 986b1dd2e749a0968c744f861feb0ac0bf2376e8
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: b7cbf4d460f872f33c447d0eea8430916d65bd18
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68700484"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736278"
 ---
 # <a name="scenario-apache-spark-streaming-job-that-reads-data-from-an-apache-kafka-cluster-fails-with-a-noclassdeffounderror-in-azure-hdinsight"></a>시나리오: Azure HDInsight에서 NoClassDefFoundError을 사용 하 여 Apache Kafka 클러스터에서 데이터를 읽는 Apache Spark 스트리밍 작업이 실패 함
 

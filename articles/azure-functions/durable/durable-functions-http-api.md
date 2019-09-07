@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 11ae418ddbe007c6fd5aa44ef22ed7fddec9c702
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b34fd30b8e43e674b0b346672366d680d99ebd5c
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087263"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734265"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>지속성 함수의 HTTP API(Azure Functions)
 
@@ -33,7 +33,11 @@ ms.locfileid: "70087263"
 
 [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) 클래스는 지원되는 모든 작업에 대한 링크가 포함된 HTTP 응답 페이로드를 생성하는 데 사용할 수 있는 [CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_) API를 공개합니다. 다음은 이 API를 사용하는 방법을 보여 주는 예제 HTTP 트리거 함수입니다.
 
-### <a name="c"></a>C#
+### <a name="precompiled-c"></a>미리 컴파일된 C#
+
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
+
+### <a name="c-script"></a>C# 스크립트
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/HttpStart/run.csx)]
 
@@ -91,7 +95,7 @@ Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d84
 
 확장에서 구현된 모든 HTTP API에서 사용하는 매개 변수는 다음과 같습니다. 모든 매개 변수의 데이터 형식은 `string`입니다.
 
-| 매개 변수        | 매개 변수 유형  | Description |
+| 매개 변수        | 매개 변수 유형  | 설명 |
 |------------------|-----------------|-------------|
 | **`taskHub`**    | 쿼리 문자열    | [작업 허브](durable-functions-task-hubs.md)의 이름입니다. 지정하지 않으면 현재 함수 앱의 작업 허브 이름이 사용됩니다. |
 | **`connection`** | 쿼리 문자열    | 스토리지 계정에 대한 연결 문자열의 **이름**입니다. 지정하지 않으면 함수 앱에 대한 기본 연결 문자열이 사용됩니다. |
@@ -133,7 +137,7 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}
 
 이 API에 대한 요청 매개 변수에는 앞에서 언급한 기본 집합과 다음과 같은 고유한 매개 변수가 포함됩니다.
 
-| 필드                   | 매개 변수 유형  | Description |
+| 필드                   | 매개 변수 유형  | 설명 |
 |-------------------------|-----------------|-------------|
 | **`instanceId`**        | URL             | 오케스트레이션 인스턴스의 ID입니다. |
 | **`showInput`**         | 쿼리 문자열    | 선택적 매개 변수입니다. 로 `false`설정 된 경우 함수 입력은 응답 페이로드에 포함 되지 않습니다.|
@@ -155,7 +159,7 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}
 
 **HTTP 200** 및 **HTTP 202** 사례에 대한 응답 페이로드는 다음 필드가 있는 JSON 개체입니다.
 
-| 필드                 | 데이터 형식 | 설명 |
+| 필드                 | 데이터 형식 | Description |
 |-----------------------|-----------|-------------|
 | **`runtimeStatus`**   | string    | 인스턴스의 런타임 상태입니다. *Running*, *Pending*, *Failed*, *Canceled*, *Terminated*, *Completed* 값이 포함됩니다. |
 | **`input`**           | JSON      | 인스턴스를 초기화하는 데 사용되는 JSON 데이터입니다. `showInput` 쿼리 문자열 매개 변수가 `false`로 설정되면 이 필드는 `null`입니다.|
@@ -261,7 +265,7 @@ GET /runtime/webhooks/durableTask/instances?
 
 이 API에 대한 요청 매개 변수에는 앞에서 언급한 기본 집합과 다음과 같은 고유한 매개 변수가 포함됩니다.
 
-| 필드                   | 매개 변수 유형  | Description |
+| 필드                   | 매개 변수 유형  | 설명 |
 |-------------------------|-----------------|-------------|
 | **`instanceId`**        | URL             | 오케스트레이션 인스턴스의 ID입니다. |
 | **`showInput`**         | 쿼리 문자열    | 선택적 매개 변수입니다. 로 `false`설정 된 경우 함수 입력은 응답 페이로드에 포함 되지 않습니다.|
@@ -372,7 +376,7 @@ DELETE /runtime/webhooks/durabletask/instances/{instanceId}
 
 **HTTP 200** 케이스에 대 한 응답 페이로드는 다음 필드를 포함 하는 JSON 개체입니다.
 
-| 필드                  | 데이터 형식 | Description |
+| 필드                  | 데이터 형식 | 설명 |
 |------------------------|-----------|-------------|
 | **`instancesDeleted`** | integer   | 삭제 된 인스턴스 수입니다. 단일 인스턴스 사례에 대해서는이 값이 항상 이어야 `1`합니다. |
 
@@ -416,7 +420,7 @@ DELETE /runtime/webhooks/durabletask/instances
 
 이 API에 대한 요청 매개 변수에는 앞에서 언급한 기본 집합과 다음과 같은 고유한 매개 변수가 포함됩니다.
 
-| 필드                 | 매개 변수 유형  | Description |
+| 필드                 | 매개 변수 유형  | 설명 |
 |-----------------------|-----------------|-------------|
 | **`createdTimeFrom`** | 쿼리 문자열    | 지정 된 ISO8601 타임 스탬프 또는 이후에 만들어진 제거 된 인스턴스의 목록을 필터링 합니다.|
 | **`createdTimeTo`**   | 쿼리 문자열    | 선택적 매개 변수입니다. 지정 된 경우 지정 된 ISO8601 타임 스탬프 또는 그 이전에 생성 된 제거 된 인스턴스의 목록을 필터링 합니다.|
@@ -434,7 +438,7 @@ DELETE /runtime/webhooks/durabletask/instances
 
 **HTTP 200** 케이스에 대 한 응답 페이로드는 다음 필드를 포함 하는 JSON 개체입니다.
 
-| 필드                   | 데이터 형식 | 설명 |
+| 필드                   | 데이터 형식 | Description |
 |-------------------------|-----------|-------------|
 | **`instancesDeleted`**  | integer   | 삭제 된 인스턴스 수입니다. |
 
@@ -527,7 +531,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate
 
 이 API에 대한 요청 매개 변수에는 앞에서 언급한 기본 집합과 다음과 같은 고유한 매개 변수가 포함됩니다.
 
-| 필드             | 매개 변수 유형  | Description |
+| 필드             | 매개 변수 유형  | 설명 |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | 오케스트레이션 인스턴스의 ID입니다. |
 | **`reason`**      | 쿼리 문자열    | 선택 사항입니다. 오케스트레이션 인스턴스를 종료하는 이유입니다. |
@@ -576,7 +580,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind
 
 이 API에 대한 요청 매개 변수에는 앞에서 언급한 기본 집합과 다음과 같은 고유한 매개 변수가 포함됩니다.
 
-| 필드             | 매개 변수 유형  | 설명 |
+| 필드             | 매개 변수 유형  | Description |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | 오케스트레이션 인스턴스의 ID입니다. |
 | **`reason`**      | 쿼리 문자열    | 선택 사항입니다. 오케스트레이션 인스턴스를 되감는 이유입니다. |

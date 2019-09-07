@@ -1,6 +1,6 @@
 ---
 title: HDInsight에서 ML 서비스 운영 - Azure
-description: Azure HDInsight에서 ML 서비스를 운영하는 방법을 알아봅니다.
+description: Azure HDInsight에서 ML 서비스를 사용 하 여 예측 하도록 데이터 모델을 운영 하는 방법을 알아봅니다.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,22 +8,22 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 36d2ebe00f735089633240914421e2259181e63e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 91407fc76d0a7555a87a8a3dcd1b3ad04ee2af80
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448979"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736227"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 ML 서비스 클러스터 운영
 
 HDInsight에서 ML 서비스 클러스터를 사용하여 데이터 모델링을 완료한 후에 모델을 운영하여 예측할 수 있습니다. 이 문서에서는 이 작업을 수행하는 방법에 대한 지침을 제공합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-* HDInsight에서 기계 학습 서비스 클러스터를 합니다. 참조 [Apache Hadoop 클러스터 만들기 Azure portal을 사용 하 여](../hdinsight-hadoop-create-linux-clusters-portal.md) 선택한 **ML Services** 에 대 한 **클러스터 유형**합니다.
+* HDInsight의 ML Services 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형**으로 **ML Services**를 선택합니다.
 
-* SSH (보안 셸) 클라이언트: SSH 클라이언트는 HDInsight 클러스터에 원격으로 연결하여 클러스터에서 직접 명령을 실행하는 데 사용됩니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+* SSH (Secure Shell) 클라이언트: SSH 클라이언트는 HDInsight 클러스터에 원격으로 연결하여 클러스터에서 직접 명령을 실행하는 데 사용됩니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 ## <a name="operationalize-ml-services-cluster-with-one-box-configuration"></a>원 박스 구성을 사용하여 ML 서비스 클러스터 운영
 
@@ -192,5 +192,5 @@ ML 서비스 클러스터는 [Apache Hadoop YARN](https://hadoop.apache.org/docs
 ## <a name="next-steps"></a>다음 단계
 
 * [HDInsight에서 ML 서비스 클러스터 관리](r-server-hdinsight-manage.md)
-* [HDInsight에서 ML Services 클러스터에 대한 계산 컨텍스트 옵션](r-server-compute-contexts.md)
+* [HDInsight에서 ML Services 클러스터에 대한 컴퓨팅 컨텍스트 옵션](r-server-compute-contexts.md)
 * [HDInsight에서 ML 서비스 클러스터에 대한 Azure Storage 옵션](r-server-storage.md)

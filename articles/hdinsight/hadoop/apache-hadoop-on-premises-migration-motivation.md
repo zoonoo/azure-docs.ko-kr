@@ -1,5 +1,5 @@
 ---
-title: 온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 동기 부여 및 혜택
+title: 온-프레미스 Apache Hadoop를 Azure HDInsight로 마이그레이션-동기 및 혜택
 description: 온-프레미스 Hadoop 클러스터를 Azure HDInsight로 마이그레이션하도록 유도하는 동기 부여 및 혜택에 대해 알아봅니다.
 author: hrasheed-msft
 ms.reviewer: ashishth
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: f886cb71d4dbc191dae317e8ea72d8c896f37c03
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 3c122a68e9f28772be4e3a17a21e5457aa187ce6
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442082"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736107"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 동기 부여 및 혜택
 
@@ -33,7 +33,7 @@ Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure H
 
 ## <a name="azure-hdinsight-advantages-over-on-premises-hadoop"></a>온-프레미스 Hadoop에 비해 Azure HDInsight의 이점
 
-- **저렴한 비용** - [주문형 클러스터를 만들고](../hdinsight-hadoop-create-linux-clusters-adf.md) 사용한 만큼만 지불하여 비용을 줄일 수 있습니다. 계산과 스토리지가 분리되어 클러스터 크기에 관계없이 데이터 볼륨이 유지되므로 유연성이 우수합니다.
+- **저렴한 비용** - [주문형 클러스터를 만들고](../hdinsight-hadoop-create-linux-clusters-adf.md) 사용한 만큼만 지불하여 비용을 줄일 수 있습니다. 컴퓨팅과 스토리지가 분리되어 클러스터 크기에 관계없이 데이터 볼륨이 유지되므로 유연성이 우수합니다.
 
 - **클러스터 만들기 자동화** - 클러스터 만들기를 자동화하려면 최소한의 설치 및 구성이 필요합니다. 주문형 클러스터에 자동화를 사용할 수 있습니다.
 

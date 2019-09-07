@@ -3,18 +3,17 @@ title: 지속성 함수의 검사점 및 재생 - Azure
 description: Azure Functions의 지속성 함수 확장에서 검사점 설정 및 회신이 작동하는 방법을 알아봅니다.
 services: functions
 author: ggailey777
-manager: jeconnoc
-keywords: ''
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 1e6d3b78887c9d195fdf0137553860c141bdaaba
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 5d0527de556c25a1d369d7b22c3f62579bc508f0
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241052"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735257"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>지속성 함수의 검사점 및 재생(Azure Functions)
 
@@ -128,17 +127,9 @@ module.exports = df.orchestrator(function*(context) {
 
   오케스트레이터 코드에서 현재 날짜/시간을 가져와야 하는 경우 안전하게 재생할 수 있는 [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime)(.NET) 또는 `currentUtcDateTime`(JavaScript) API를 사용해야 합니다.
 
-  오케스트레이터 코드는 임의 GUID를 생성해야 하는 경우 안전하게 재생할 수 있는 [NewGuid](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_NewGuid)(.NET) API를 사용하거나 이 예제처럼 작업 함수(JavaScript)에 GUID 생성을 위임해야 합니다.
+  오 케 스트레이 터 코드에서 임의 guid를 생성 해야 하는 경우에는 [newguid](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_NewGuid) (.net) 또는 `newGuid` (JavaScript) API 중 하나를 사용 해야 합니다 .이 API는 재생에 안전 합니다.
 
-  ```javascript
-  const uuid = require("uuid/v1");
-
-  module.exports = async function(context) {
-    return uuid();
-  }
-  ```
-
-  비결정적 작업은 작업 함수에서 수행되어야 합니다. 여기에는 다른 입력 또는 출력 바인딩과의 상호 작용이 포함됩니다. 이렇게 하면 모든 비결정적 값이 첫 번째 실행에서 한 번 생성되고 실행 기록에 저장됩니다. 그런 다음 후속 실행에서 저장된 값을 자동으로 사용합니다.
+   이러한 특수 한 경우를 제외 하 고는 동작 함수에서 비결 정적 작업을 수행 해야 합니다. 여기에는 다른 입력 또는 출력 바인딩과의 상호 작용이 포함됩니다. 이렇게 하면 모든 비결정적 값이 첫 번째 실행에서 한 번 생성되고 실행 기록에 저장됩니다. 그런 다음 후속 실행에서 저장된 값을 자동으로 사용합니다.
 
 * 오케스트레이터 코드는 **비차단**이어야 합니다. 예를 들어 I/O가 없거나 `Thread.Sleep`(.NET) 또는 해당 API에 대한 호출이 없음을 의미합니다.
 
@@ -165,7 +156,7 @@ module.exports = df.orchestrator(function*(context) {
 
 오케스트레이터 함수에서 안전하게 기다릴 수 있는 작업을 종종 *지속성 작업*이라고 합니다. 이러한 작업은 지속성 작업 프레임워크에서 만들고 관리하는 작업입니다. 예제는 `CallActivityAsync`, `WaitForExternalEvent` 및 `CreateTimer`에서 반환된 작업입니다.
 
-이러한 *지속성 작업*은 `TaskCompletionSource` 개체의 목록을 사용하여 내부적으로 관리됩니다. 이러한 작업은 재생하는 동안 오케스트레이터 코드 실행의 일부로 만들어지고 디스패처에서 해당 기록 이벤트를 열거하는 대로 완료됩니다. 모든 기록이 재생될 때까지 단일 스레드를 사용하여 모든 작업이 동기적으로 수행됩니다. 기록 재생이 끝날 때까지 완료되지 않은 모든 지속성 작업에는 적절한 조치가 수행됩니다. 예를 들어 메시지를 큐에 추가하여 작업 함수를 호출할 수 있습니다.
+이러한 *지속성 작업*은 `TaskCompletionSource` 개체의 목록을 사용하여 내부적으로 관리됩니다. 이러한 작업은 재생하는 동안 오케스트레이터 코드 실행의 일부로 만들어지고 디스패처에서 해당 기록 이벤트를 열거하는 대로 완료됩니다. 모든 기록이 재생될 때까지 단일 스레드를 사용하여 모든 작업이 동기적으로 수행됩니다. 기록 재생이 끝날 때까지 완료 되지 않은 모든 내구성이 있는 작업에는 적절 한 작업이 수행 됩니다. 예를 들어 메시지를 큐에 추가하여 작업 함수를 호출할 수 있습니다.
 
 여기서 설명한 실행 동작은 오케스트레이터 함수 코드에서 비지속성 작업을 절대로 `await`(대기)하면 안되는 이유를 이해하는 데 도움이 됩니다. 즉 디스패처 스레드가 완료될 때까지 기다릴 수 없으며, 해당 작업의 콜백으로 인해 오케스트레이터 함수의 추적 상태가 손상될 수 있습니다. 일부 런타임 검사가 이를 방지하기 위해 수행됩니다.
 

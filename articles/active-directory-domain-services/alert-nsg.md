@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory Domain Services: 네트워크 보안 그룹 구성 문제 해결 | Microsoft Docs'
-description: Azure AD Domain Services에 대한 NSG 구성 문제 해결
+title: 'Azure Active Directory Domain Services: 네트워크 보안 그룹 문제 해결 | Microsoft Docs'
+description: Azure AD Domain Services에 대 한 네트워크 보안 그룹 구성 문제 해결
 services: active-directory-ds
 documentationcenter: ''
 author: iainfoulds
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 08875ec23740eab7787c4a919566df521deba9a5
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 450ee5635b378ed7c4d4e4bedc1c4245f6b52d70
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473917"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "70743437"
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>관리되는 도메인에 대한 잘못된 네트워킹 구성 문제 해결
 이 문서를 통해 다음과 같은 경고 메시지가 발생하는 네트워크 관련 구성 오류를 해결하고 문제를 해결합니다.
@@ -28,14 +28,14 @@ ms.locfileid: "67473917"
 ## <a name="alert-aadds104-network-error"></a>경고 AADDS104: 네트워크 오류
 **경고 메시지:** *Microsoft는 이 관리되는 도메인에 대한 도메인 컨트롤러에 연결할 수 없습니다. 가상 네트워크에 구성된 NSG(네트워크 보안 그룹)가 관리되는 도메인에 대한 액세스를 차단하려고 할 때 이 문제가 발생할 수 있습니다. 다른 가능한 이유는 인터넷에서 들어오는 트래픽을 차단하는 사용자 정의 경로가 있는 경우입니다.*
 
-잘못된 NSG 구성은 Azure AD Domain Services에 대한 네트워크 오류의 가장 일반적인 원인입니다. 가상 네트워크에 구성된 NSG(네트워크 보안 그룹)는 [특정 포트](network-considerations.md#ports-required-for-azure-ad-domain-services)에 대한 액세스를 허용해야 합니다. 이러한 포트가 차단되면 Microsoft는 관리되는 도메인을 모니터링하거나 업데이트할 수 없습니다. 또한 Azure AD 디렉터리와 관리되는 도메인 간의 동기화에 영향을 줍니다. NSG를 만드는 동안 이러한 포트를 열어 두어, 서비스가 중단되지 않도록 합니다.
+잘못된 NSG 구성은 Azure AD Domain Services에 대한 네트워크 오류의 가장 일반적인 원인입니다. 가상 네트워크에 구성된 NSG(네트워크 보안 그룹)는 [특정 포트](network-considerations.md#network-security-groups-and-required-ports)에 대한 액세스를 허용해야 합니다. 이러한 포트가 차단되면 Microsoft는 관리되는 도메인을 모니터링하거나 업데이트할 수 없습니다. 또한 Azure AD 디렉터리와 관리되는 도메인 간의 동기화에 영향을 줍니다. NSG를 만드는 동안 이러한 포트를 열어 두어, 서비스가 중단되지 않도록 합니다.
 
 ### <a name="checking-your-nsg-for-compliance"></a>NSG의 규정 준수 확인
 
 1. Azure Portal에서 [네트워크 보안 그룹](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) 페이지로 이동합니다.
 2. 테이블에서 관리되는 도메인이 사용하도록 설정된 서브넷에 연결된 NSG를 선택합니다.
 3. 왼쪽 패널의 **설정**에서 **인바운드 보안 규칙**을 클릭합니다.
-4. 작동 중인 규칙을 검토하여 [이러한 포트](network-considerations.md#ports-required-for-azure-ad-domain-services)에 대한 액세스를 막고 있는 규칙을 식별합니다.
+4. 작동 중인 규칙을 검토하여 [이러한 포트](network-considerations.md#network-security-groups-and-required-ports)에 대한 액세스를 막고 있는 규칙을 식별합니다.
 5. 규정을 준수하도록 규칙을 삭제하거나 규칙을 추가하거나 NSG를 처음부터 새로 만드는 등 NSG를 편집합니다. [규칙을 추가](#add-a-rule-to-a-network-security-group-using-the-azure-portal)하거나 새로운 규격 준수 NSG를 만드는 단계는 다음과 같습니다.
 
 ## <a name="sample-nsg"></a>샘플 NSG

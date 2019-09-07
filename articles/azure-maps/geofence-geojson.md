@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: d4b6c8289ae7c22521fc433c928f2b25a56c87ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5946180c161a38a30f44e235ce0b626fd70a5400
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64723579"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735136"
 ---
 # <a name="geofencing-geojson-data"></a>지오펜싱 GeoJSON 데이터
 
@@ -30,15 +30,15 @@ Azure Maps [GET 지오펜스](/rest/api/maps/spatial/getgeofence) 및 [POST 지�
 * `expiredTime`은 지오펜싱 데이터의 만료 날짜 및 시간입니다. 요청의 `userTime` 값이 이 값보다 이후이면 해당 지오펜스 데이터는 만료된 데이터로 간주되며 쿼리되지 않습니다. 이 경우 이 지오펜스 데이터의 geometryId가 지오펜스 응답 내의 `expiredGeofenceGeometryId` 배열에 포함됩니다.
 * `validityPeriod`는 지오펜스의 유효 기간 목록입니다. 요청의 `userTime` 값이 유효 기간을 벗어난 경우 해당 지오펜스 데이터는 잘못된 데이터로 간주되며 쿼리되지 않습니다. 이 지오펜스 데이터의 geometryId가 지오펜스 응답 내의 `invalidPeriodGeofenceGeometryId` 배열에 포함됩니다. 다음 표에는 validityPeriod 요소의 속성이 나와 있습니다.
 
-| 이름 | Type | 필수  | 설명 |
+| 이름 | 형식 | 필수  | Description |
 | :------------ |:------------: |:---------------:| :-----|
-| startTime | DateTime  | true | 유효 기간의 시작 날짜/시간입니다. |
-| endTime   | DateTime  | true |  유효 기간의 종료 날짜/시간입니다. |
-| recurrenceType | string | false |   기간의 되풀이 유형입니다. 값은 `Daily`, `Weekly`, `Monthly` 또는 `Yearly`일 수 있습니다. 기본값은 `Daily`입니다.|
-| businessDayOnly | Boolean | false |  데이터가 영업일에만 유효한지 여부를 나타냅니다. 기본값은 `false`입니다.|
+| startTime | Datetime  | true | 유효 기간의 시작 날짜/시간입니다. |
+| endTime   | Datetime  | true |  유효 기간의 종료 날짜/시간입니다. |
+| recurrenceType | string | false |   기간의 되풀이 유형입니다. 값은 `Daily`, `Weekly`, `Monthly` 또는 `Yearly`일 수 있습니다. 기본값은 `Daily`여야 합니다.|
+| businessDayOnly | Boolean | false |  데이터가 영업일에만 유효한지 여부를 나타냅니다. 기본값은 `false`여야 합니다.|
 
 
-* 모든 좌표 값은 `WGS84`에 정의된 [위도, 경도]로 표시됩니다.
+* 모든 좌표 값은에 `WGS84`정의 된 [경도, 위도]로 표시 됩니다.
 * `MultiPoint`, `MultiLineString`, `MultiPolygon` 또는 `GeometryCollection`을 포함하는 각 기능의 경우 속성이 모든 요소에 적용됩니다. 예: `MultiPoint`의 모든 점은 동일한 반경을 사용하여 여러 개의 원형 지오펜스를 형성합니다.
 * 점-원형 시나리오에서는 [GeoJSON 기하 도형 확장](https://docs.microsoft.com/azure/azure-maps/extend-geojson)에 자세히 설명된 속성을 가진 `Point` 기하 도형 개체를 사용하여 원형 기하 도형을 표시할 수 있습니다.      
 

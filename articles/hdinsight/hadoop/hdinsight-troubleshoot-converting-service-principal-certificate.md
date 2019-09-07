@@ -1,17 +1,17 @@
 ---
-title: Azure HDInsight에서 서비스 주체 인증서 콘텐츠를 base-64로 인코딩된 문자열 형식으로 변환
+title: 서비스 사용자 인증서 콘텐츠를 base-64-Azure HDInsight로 변환
 description: Azure HDInsight에서 서비스 주체 인증서 콘텐츠를 base-64로 인코딩된 문자열 형식으로 변환
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 07/31/2019
-ms.openlocfilehash: 2045121d16d67d09826eaaad7800f21422776cdc
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 09fcb963ed036dd56c5f9b501b9daf929c12c2ea
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68700276"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735764"
 ---
 # <a name="scenario-converting-service-principal-certificate-contents-to-base-64-encoded-string-format-in-azure-hdinsight"></a>시나리오: Azure HDInsight에서 서비스 주체 인증서 콘텐츠를 base-64로 인코딩된 문자열 형식으로 변환
 

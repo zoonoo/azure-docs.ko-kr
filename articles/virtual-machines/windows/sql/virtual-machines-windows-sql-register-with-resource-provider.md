@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: eeabb4547e3c02ebf540e6d156df97954e612fbc
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: edda6dffa04bfc0492b7336893c5b167ccc42ca5
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208326"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743927"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>SQL VM 리소스 공급자를 사용 하 여 Azure에 SQL Server 가상 머신 등록
 
@@ -33,7 +33,7 @@ Azure Portal를 통해 SQL Server VM Azure Marketplace 이미지를 배포 하�
 
 SQL VM 리소스 공급자를 활용 하려면 SQL VM 리소스 공급자를 구독과 함께 등록 해야 합니다. Azure Portal, Azure CLI 또는 PowerShell을 사용 하 여이를 수행할 수 있습니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 리소스 공급자에 SQL Server VM을 등록 하려면 다음이 필요 합니다. 
 
@@ -338,7 +338,7 @@ SQL Server IaaS 확장을 설치 하는 경우에만 SQL Server를 다시 시작
 
 아니요. SQL Server IaaS 확장 관리 효율성 모드의 다운 그레이드는 지원 되지 않습니다. 관리 효율성 모드는 전체 모드에서 경량 모드로 또는 에이전트 없음 모드로 다운 그레이드할 수 없으며 경량 모드에서 에이전트 없음 모드로 다운 그레이드할 수 없습니다. 
 
-관리 효율성 모드를 전체 관리 기능으로 변경 하려면 SQL Server IaaS 확장을 제거 합니다. 그런 다음 Micorsoft SqlVirtualMachine 리소스를 삭제 하 고 SQL VM 리소스 공급자를 사용 하 여 SQL Server VM를 다시 등록 합니다.
+관리 효율성 모드를 전체 관리 기능으로 변경 하려면 SQL Server IaaS 확장을 제거 합니다. 그런 다음 SqlVirtualMachine 리소스를 삭제 하 고 SQL VM 리소스 공급자를 사용 하 여 SQL Server VM를 다시 등록 합니다.
 
 **Azure Portal에서 SQL VM 리소스 공급자에 등록할 수 있나요?**
 

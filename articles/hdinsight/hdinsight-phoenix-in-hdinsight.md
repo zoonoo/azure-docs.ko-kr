@@ -1,19 +1,19 @@
 ---
 title: HDinsight의 Apache Phoenix - Azure HDInsight
-description: ''
+description: Apache Phoenix 개요
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 09/05/2019
 ms.author: ashishth
-ms.openlocfilehash: 7d9aafeb920eab7f6a87061a135bf2e464add436
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f07c7b7a6b1eea05ba41a875e9e78f31404c5f32
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64698003"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70733192"
 ---
 # <a name="apache-phoenix-in-hdinsight"></a>HDInsight의 Apache Phoenix
 
@@ -73,7 +73,7 @@ WHERE metric_type = 'm';
 
 검색 건너뛰기는 HBase 필터의 `SEEK_NEXT_USING_HINT` 열거형을 사용합니다. `SEEK_NEXT_USING_HINT`를 사용할 경우 검색 건너뛰기는 각 열에 대해 검색되는 키 집합 또는 키 범위를 추적합니다. 검색 건너뛰기는 필터 평가 중에 전달된 키를 받고, 이러한 키가 키 조합 중 하나인지를 확인합니다. 그렇지 않으면, 검색 건너뛰기는 건너뛸 다음으로 가장 높은 키를 평가합니다.
 
-### <a name="transactions"></a>트랜잭션
+### <a name="transactions"></a>의
 
 HBase는 행 수준 트랜잭션을 제공하지만, Phoenix는 [Tephra](https://tephra.io/)와 통합되어 전체 [ACID](https://en.wikipedia.org/wiki/ACID) 의미 체계에 대한 행 간 및 테이블 간 트랜잭션 지원을 추가합니다.
 
@@ -135,6 +135,6 @@ HDInsight HBase 클러스터에는 구성을 변경하기 위한 [Ambari UI](hdi
 
     ![Ambari Phoenix SQL 구성 섹션](./media/hdinsight-phoenix-in-hdinsight/ambari-phoenix.png)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 * [HDInsight에서 Linux 기반 HBase 클러스터와 함께 Apache Phoenix 사용](hbase/apache-hbase-phoenix-squirrel-linux.md)

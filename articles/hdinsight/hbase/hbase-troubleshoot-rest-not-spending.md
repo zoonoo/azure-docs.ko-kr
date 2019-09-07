@@ -1,17 +1,17 @@
 ---
 title: Azure HDInsight에서 요청에 응답 하지 않는 Apache HBase REST
-description: HDInsight HBase REST에서 요청에 응답 하지 않는 문제 해결
+description: Azure HDInsight에서 요청에 응답 하지 않는 Apache HBase REST 문제를 해결 합니다.
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 08/01/2019
-ms.openlocfilehash: 7219f66457e47bba34e750ec74810b8d2edee36e
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 5b1291e6996cb5db366128f829ca2cdf3cad0a9d
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817109"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735309"
 ---
 # <a name="scenario-apache-hbase-rest-not-responding-to-requests-in-azure-hdinsight"></a>시나리오: Azure HDInsight에서 요청에 응답 하지 않는 Apache HBase REST
 

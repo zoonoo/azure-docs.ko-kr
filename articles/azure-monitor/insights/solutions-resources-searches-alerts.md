@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e2e32fb57a5ee34da8c342649cc1740d111723ec
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
-ms.translationtype: MT
+ms.openlocfilehash: 7ec30e2445a5ed6008256f7abcef496247922968
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662899"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744489"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>관리 솔루션(미리 보기)에 Log Analytics에서 저장한 검색 및 경고 추가
 
@@ -119,7 +119,7 @@ Azure로 경고를 확장하는 사용자의 경우 작업은 이제 Azure 작�
 
 | 요소 이름 | 필수 | description |
 |:--|:--|:--|
-| 사용       | 예 | 경고를 만들 때 사용 여부를 지정합니다. |
+| enabled       | 예 | 경고를 만들 때 사용 여부를 지정합니다. |
 | 간격      | 예 | 쿼리가 실행되는 빈도(분)입니다. |
 | queryTimeSpan | 예 | 결과를 평가하는 시간의 길이(분)입니다. |
 
@@ -169,30 +169,30 @@ Azure로 경고를 확장하는 사용자의 경우 작업은 이제 Azure 작�
 
 경고 작업 리소스의 속성은 다음 테이블에 설명되어 있습니다.
 
-| 요소 이름 | 필수 | description |
+| 요소 이름 | 필수 | Description |
 |:--|:--|:--|
-| type | 예 | 작업의 유형입니다.  경고 작업의 **경고**가 됩니다. |
-| name | 예 | 경고에 대한 표시 이름입니다.  경고 규칙에 대한 콘솔에 표시되는 이름입니다. |
-| description | 아니요 | 경고에 대한 선택적 설명입니다. |
-| severity | 예 | 다음 값의 경고 레코드의 심각도입니다.<br><br> **중요**<br>**경고**<br>**정보 제공**
+| `Type` | 예 | 작업의 유형입니다.  경고 작업의 **경고**가 됩니다. |
+| `Name` | 예 | 경고에 대한 표시 이름입니다.  경고 규칙에 대한 콘솔에 표시되는 이름입니다. |
+| `Description` | 아니요 | 경고에 대한 선택적 설명입니다. |
+| `Severity` | 예 | 다음 값의 경고 레코드의 심각도입니다.<br><br> **중요**<br>**경고**<br>**정보 제공**
 
 
 #### <a name="threshold"></a>임계값
 이 섹션은 필수입니다. 경고 임계값의 속성을 정의합니다.
 
-| 요소 이름 | 필수 | description |
+| 요소 이름 | 필수 | 설명 |
 |:--|:--|:--|
-| Operator | 예 | 다음 값의 비교 연산자입니다.<br><br>**gt = 보다 큼<br>lt = 보다 작음** |
-| Value | 예 | 결과를 비교하는 값입니다. |
+| `Operator` | 예 | 다음 값의 비교 연산자입니다.<br><br>**gt = 보다 큼<br>lt = 보다 작음** |
+| `Value` | 예 | 결과를 비교하는 값입니다. |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 이 섹션은 선택 사항입니다. 미터법 경고에는 이 섹션을 포함해야 합니다.
 
-| 요소 이름 | 필수 | description |
+| 요소 이름 | 필수 | Description |
 |:--|:--|:--|
-| TriggerCondition | 예 | 임계값이 총 위반 수인지 아니면 연속 위반인지 다음 값을 사용하여 지정합니다.<br><br>**총<br>연속** |
-| Operator | 예 | 다음 값의 비교 연산자입니다.<br><br>**gt = 보다 큼<br>lt = 보다 작음** |
-| Value | 예 | 경고를 트리거하기 위해 조건을 충족해야 하는 시간입니다. |
+| `TriggerCondition` | 예 | 임계값이 총 위반 수인지 아니면 연속 위반인지 다음 값을 사용하여 지정합니다.<br><br>**총<br>연속** |
+| `Operator` | 예 | 다음 값의 비교 연산자입니다.<br><br>**gt = 보다 큼<br>lt = 보다 작음** |
+| `Value` | 예 | 경고를 트리거하기 위해 조건을 충족해야 하는 시간입니다. |
 
 
 #### <a name="throttling"></a>제한

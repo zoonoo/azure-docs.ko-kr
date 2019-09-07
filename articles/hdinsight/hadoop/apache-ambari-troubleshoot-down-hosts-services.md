@@ -1,17 +1,17 @@
 ---
 title: Apache Ambari UI는 Azure HDInsight에서 호스트 및 서비스를 표시 합니다.
-description: Apache Ambari UI는 Azure HDInsight에서 호스트 및 서비스를 표시 합니다.
+description: Azure HDInsight에서 호스트 및 서비스를 표시 하는 경우 Apache Ambari UI 문제 해결
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 08/02/2019
-ms.openlocfilehash: 1227635a193fdf1b55e2c1cc141a837a250ee08c
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: bc65387252fd425256684474f38ec5d783bb45e7
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842518"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734841"
 ---
 # <a name="scenario-apache-ambari-ui-shows-down-hosts-and-services-in-azure-hdinsight"></a>시나리오: Apache Ambari UI는 Azure HDInsight에서 호스트 및 서비스를 표시 합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Enterprise Security Package를 사용하여 Apache Oozie 워크플로 보안 유지 - Azure HDInsight
+title: Enterprise Security Package를 사용 하는 Apache Oozie 워크플로-Azure HDInsight
 description: Azure HDInsight Enterprise Security Package를 사용하여 Apache Oozie 워크플로 보안을 유지합니다. 또한 Oozie 워크플로를 정의하고 Oozie 작업을 제출하는 방법에 대해서도 살펴봅니다.
 ms.service: hdinsight
 author: omidm1
@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: 7d7fbf5d72654c26edf09ab27f024eaf39f8c387
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ea724a9bc8ddd92f04a781d5c3ce9bc08a35312e
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64709004"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734874"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Enterprise Security Package가 포함된 HDInsight Hadoop 클러스터에서 Apache Oozie 실행
 
@@ -25,7 +25,7 @@ Apache Oozie는 Apache Hadoop 작업을 관리하는 워크플로 및 코디네�
 
 Oozie를 사용하여 Java 프로그램이나 셸 스크립트와 같은 시스템에 특정한 작업을 예약할 수도 있습니다.
 
-## <a name="prerequisite"></a>필수 요소
+## <a name="prerequisite"></a>필수 조건
 
 - ESP(Enterprise Security Package)가 포함된 Azure HDInsight Hadoop 클러스터입니다. [ESP가 포함된 HDInsight 클러스터 구성](./apache-domain-joined-configure-using-azure-adds.md)을 참조하세요.
 
@@ -169,7 +169,7 @@ Oozie 워크플로 정의는 hPDL(Apache Hadoop 프로세스 정의 언어)로 �
    ```
 4. `clustername`을 클러스터의 이름으로 바꿉니다. 
 
-5. 파일을 저장하려면 Ctrl + X를 선택합니다. [https://slack.botframework.com](`Y`) 을 입력합니다. 그런 다음, **Enter** 키를 선택합니다.
+5. 파일을 저장하려면 Ctrl + X를 선택합니다. `Y` 을 입력합니다. 그런 다음, **Enter** 키를 선택합니다.
 
     워크플로는 두 부분으로 구분됩니다.
    * **자격 증명 섹션.** 이 섹션에서는 Oozie 작업을 인증하는 데 사용되는 자격 증명을 사용합니다.

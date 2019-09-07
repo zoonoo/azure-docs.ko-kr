@@ -1,17 +1,17 @@
 ---
-title: Apache Spark 스트리밍 응용 프로그램은 Azure HDInsight의 로그에 알려진 오류 없이 24 일간 실행 한 후 데이터 처리를 중지 합니다.
+title: Azure HDInsight에서 24 일 후에 스트리밍 응용 프로그램이 중지 Apache Spark
 description: 24 일간 실행 한 후 Apache Spark 스트리밍 응용 프로그램이 중지 되 고 로그 파일에 오류가 없습니다.
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 07/29/2019
-ms.openlocfilehash: 002c45c514b5d8207a1aa70ec8e1c749677a239a
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: c513c5df0d83eb0049683f88d85e8a1c41fd0bf0
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68620884"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736287"
 ---
 # <a name="scenario-apache-spark-streaming-application-stops-after-executing-for-24-days-in-azure-hdinsight"></a>시나리오: Azure HDInsight에서 24 일간 실행 한 후 스트리밍 응용 프로그램이 중지 Apache Spark
 

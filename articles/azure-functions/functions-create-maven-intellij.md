@@ -7,17 +7,17 @@ author: jeffhollan
 manager: jpconnock
 keywords: Azure Functions, 함수, 이벤트 처리, 컴퓨팅, 서버리스 아키텍처, Java
 ms.service: azure-functions
-ms.devlang: java
 ms.topic: conceptual
+ms.devlang: java
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: da93c60b52edf509900adf89fb688a0596d9763b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 5aa0763206289305e98960b6e03ad903eb4547ae
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61342227"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70744015"
 ---
 # <a name="create-your-first-azure-function-with-java-and-intellij"></a>Java 및 IntelliJ를 사용 하 여 첫 번째 Azure function 만들기
 
@@ -52,8 +52,8 @@ Java 및 IntelliJ를 사용하여 함수를 개발하려면 다음 소프트웨�
 1. **Archetype 추가** 창에서 다음과 같이 필드를 완성합니다.
     - _GroupId_: com.microsoft.azure
     - _ArtifactId_: azure-functions-archetype
-    - _버전_: 최신 버전을 사용 하 여 [중앙 리포지토리](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
-    ![IntelliJ IDEA에서 원형에서 Maven 프로젝트 만들기](media/functions-create-first-java-intellij/functions-create-intellij.png)  
+    - _버전_: [중앙 리포지토리에서](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+     최신![버전 1.22을 사용 하 여 원형에서 Maven 프로젝트 만들기 IntelliJ 아이디어](media/functions-create-first-java-intellij/functions-create-intellij.png)  
 1. **확인**을 선택하고 **다음**을 선택합니다.
 1. 현재 프로젝트에 대한 세부 정보를 입력하고 **완료**를 선택합니다.
 
@@ -87,13 +87,13 @@ Maven은 이름이 _ArtifactId_ 값인 새 폴더에 프로젝트 파일을 만�
 1. _이름_ 및 _설정_ 필드를 완료한 다음, **확인**을 선택하여 구성을 저장합니다.
 1. 설정이 끝나면 **디버그 < 원격 구성 이름 >** 를 선택하거나 키보드에서 Shift+F9를 눌러 디버깅을 시작합니다.
 
-   ![IntelliJ에서 함수 디버깅](media/functions-create-first-java-intellij/debug-configuration-intellij.PNG)
+   ![IntelliJ에서 함수 디버깅](media/functions-create-first-java-intellij/debug-configuration-intellij.png)
 
 1. 디버깅이 끝나면 디버거 및 실행 중인 프로세스를 중지합니다. 한 번에 하나의 함수 호스트만 활성화되고 로컬로 실행될 수 있습니다.
 
 ## <a name="deploy-the-function-to-azure"></a>Azure에 함수 배포
 
-1. Azure에 함수를 배포하려면 먼저 [Azure CLI를 사용하여 로그인](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)해야 합니다.
+1. 함수를 Azure에 배포 하려면 먼저 [Azure CLI를 사용 하 여 로그인](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)해야 합니다.
 
    ``` azurecli
    az login

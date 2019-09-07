@@ -1,17 +1,17 @@
 ---
-title: Azure HDInsight에서 InvalidNetworkConfigurationErrorCode를 사용 하 여 클러스터 만들기 실패
+title: Azure HDInsight에서 클러스터 만들기의 InvalidNetworkConfigurationErrorCode
 description: Azure HDInsight에서 InvalidNetworkConfigurationErrorCode를 사용 하 여 실패 한 클러스터 만들기에 대 한 다양 한 이유
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 08/05/2019
-ms.openlocfilehash: 9d55041e05101c610a050574f2e940c40dac991a
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 1f60ef5e267b0ee3233f9adb9dc9e8ccd3ac1c65
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817148"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734785"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>Azure HDInsight에서 InvalidNetworkConfigurationErrorCode를 사용 하 여 클러스터 만들기 실패
 
@@ -63,7 +63,7 @@ Azure Storage 및 SQL에 고정 IP 주소가 없으므로 이러한 서비스에
 
 * 클러스터가 [UDR (사용자 정의 경로)](../../virtual-network/virtual-networks-udr-overview.md)를 사용 하는 경우
 
-    Azure Portal로 이동 하 여 클러스터가 배포 되는 서브넷과 연결 된 경로 테이블을 식별 합니다. 서브넷에 대 한 경로 테이블을 찾았으면 경로 섹션을 검사 합니다.
+    Azure Portal로 이동 하 여 클러스터가 배포 되는 서브넷과 연결 된 경로 테이블을 식별 합니다. 서브넷에 대 한 경로 테이블을 찾았으면 **경로 섹션을 검사 합니다.**
 
     경로가 정의 되어 있으면 클러스터가 배포 된 지역에 대 한 IP 주소에 대 한 경로가 있는지 확인 하 고 각 경로에 대 한 **NextHopType** 는 **인터넷**입니다. 앞서 언급 한 문서에서 설명 하는 각 필수 IP 주소에 대해 정의 된 경로가 있어야 합니다.
 

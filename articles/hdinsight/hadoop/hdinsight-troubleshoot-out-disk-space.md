@@ -1,17 +1,17 @@
 ---
 title: Azure HDInsight에서 클러스터 노드의 디스크 공간이 부족 합니다.
-description: Azure HDInsight에서 클러스터 노드의 디스크 공간이 부족 합니다.
+description: Azure HDInsight의 클러스터 노드 디스크 공간 문제 Apache Hadoop 문제 해결
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 08/05/2019
-ms.openlocfilehash: 696327a00135ba6b3414c773732b8bc99ce4100c
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 139fb0e77f8f6960e7b13899f9586dd78bf46a92
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842453"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735859"
 ---
 # <a name="scenario-cluster-node-runs-out-of-disk-space-in-azure-hdinsight"></a>시나리오: Azure HDInsight에서 클러스터 노드의 디스크 공간이 부족 합니다.
 

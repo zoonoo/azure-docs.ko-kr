@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: 7ba85d74f9126f4586313dc4e2b365d1e11f3798
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 251a7c21b671052a23f6ee18cb4278737464b25c
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934191"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744866"
 ---
 # <a name="manage-storage-account-keys-with-azure-key-vault-and-the-azure-cli"></a>Azure Key Vault 및 Azure CLI를 사용 하 여 저장소 계정 키 관리 
 
@@ -53,7 +53,7 @@ Key Vault은 모든 Azure AD 테 넌 트에서 미리 등록 된 Microsoft 응�
 
 <!-- Add closing sentences to summarize what the user accomplished in this section. -->
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 Key Vault를 사용 하 여 저장소 계정 키를 관리 하기 전에 필수 구성 요소를 검토 합니다.
 
@@ -67,7 +67,7 @@ Key Vault를 사용 하 여 저장소 계정 키를 관리 하는 네 가지 기
 
 1. 기존 저장소 계정을 가져옵니다.
 1. 기존 key vault를 인출 합니다.
-1. 자격 증명 모음에 Key Vault 관리 저장소 계정을 추가 합니다. 다시 `key1` 생성 기간이 180 일인 활성 키로 설정 합니다.
+1. 자격 증명 모음에 Key Vault 관리 저장소 계정을 추가 합니다. 다시 `key1` 생성 기간이 90 일인 활성 키로 설정 합니다.
 1. 지정 `key1` 된 저장소 계정에 대 한 저장소 컨텍스트를 설정 하는 데 사용 합니다.
 
 > [!NOTE]

@@ -1,17 +1,17 @@
 ---
-title: NativeAzureFileSystem ... RequestBodyTooLarge는 Azure HDInsight의 Apache Spark 스트리밍 앱에 대 한 로그에 표시 됩니다.
+title: Azure HDInsight의 Apache Spark 스트리밍 앱에 대 한 로그의 RequestBodyTooLarge
 description: NativeAzureFileSystem ... RequestBodyTooLarge는 Azure HDInsight의 Apache Spark 스트리밍 앱에 대 한 로그에 표시 됩니다.
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 07/29/2019
-ms.openlocfilehash: 571e02e79714d2e713d4173936120e78e4b067de
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 92e9e41d5829e10bc0130d209249301d78f1b5d3
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68700497"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736324"
 ---
 # <a name="scenario-nativeazurefilesystem--requestbodytoolarge-appears-in-log-for-apache-spark-streaming-app-in-azure-hdinsight"></a>시나리오: "NativeAzureFileSystem ... RequestBodyTooLarge "는 Azure HDInsight의 Apache Spark 스트리밍 앱에 대 한 로그에 표시 됩니다.
 

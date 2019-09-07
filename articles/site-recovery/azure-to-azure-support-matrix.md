@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: raynew
-ms.openlocfilehash: 92bd53fd0426f896eff8dc63b690167db3ee700b
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: dc98a0ab47e269aa99f21d3f10952cdabe2c897f
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884115"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736033"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>한 지역에서 다른 지역으로 Azure VM 복제를 위한 지원 매트릭스
 
@@ -53,6 +53,7 @@ Europe | 영국 서부, 영국 남부, 북아메리카 유럽, 유럽 서부, �
 Azure Government    | US Gov 버지니아, US Gov 아이오와, US Gov 애리조나, US Gov 텍사스, US DoD 동부, US DoD 중부 
 독일 | 독일 중부, 독일 북동부
 중국 | 중국 동부, 중국 북부, 중국 북부 2, 중국 동부 2
+국내 재해 복구를 위해 예약 된 제한 된 지역 |독일 중서부 용으로 예약 된 독일 북부, 프랑스 중부 고객용으로 프랑스 남부 예약 스위스 북부 스위스 서부 
 
 >[!NOTE]
 >
@@ -64,7 +65,7 @@ Azure Government    | US Gov 버지니아, US Gov 아이오와, US Gov 애리조
 
 
 
-## <a name="cache-storage"></a>캐시 스토리지
+## <a name="cache-storage"></a>캐시 저장소
 
 이 표에서는 복제하는 동안 Site Recovery에서 사용하는 캐시 스토리지 계정에 대한 지원을 요약해서 보여 줍니다.
 
@@ -153,7 +154,7 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9.24 | SP1 3.12.49-11-def
 
 **설정** | **지원** | **세부 정보**
 --- | --- | ---
-크기 | CPU 코어가 2개 이상이고 1GB 이상의 RAM이 탑재된 모든 Azure VM | [Azure Virtual Machine 크기](../virtual-machines/windows/sizes.md)를 확인합니다.
+Size | CPU 코어가 2개 이상이고 1GB 이상의 RAM이 탑재된 모든 Azure VM | [Azure Virtual Machine 크기](../virtual-machines/windows/sizes.md)를 확인합니다.
 가용성 집합 | 지원됨 | 기본 옵션을 사용 하 여 Azure VM에 대 한 복제를 사용 하도록 설정 하면 원본 지역 설정에 따라 가용성 집합이 자동으로 만들어집니다. 이러한 설정을 수정할 수 있습니다.
 가용성 영역 | 지원됨 |
 HUB(하이브리드 사용 혜택) | 지원됨 | 원본 VM에 활성 HUB 라이선스가 있는 경우 테스트 장애 조치(failover) 또는 장애 조치(failover)된 VM에서도 HUB 라이선스를 사용합니다.
@@ -167,7 +168,7 @@ RBAC 정책 | 지원되지 않음 | Vm의 RBAC (역할 기반 액세스 제어) 
 
 ## <a name="replicated-machines---disk-actions"></a>복제된 컴퓨터 - 디스크 작업
 
-**동작** | **세부 정보**
+**작업** | **세부 정보**
 -- | ---
 복제된 VM에서 디스크 크기 조정 | 지원됨
 복제된 VM에 디스크 추가 | 지원됨
@@ -195,14 +196,14 @@ Managed Disk - Premium | Azure Site Recovery가 지원되는 Azure 지역에서 
 표준 SSD | 지원됨 |
 중복 | LRS 및 GRS가 지원됩니다.<br/><br/> ZRS는 지원되지 않습니다.
 콜드 및 핫 스토리지 | 지원되지 않음 | VM 디스크는 콜드 및 핫 스토리지에서 지원되지 않습니다.
-스토리지 공간 | 지원됨 |
+저장소 공간 | 지원됨 |
 미사용 암호화(SSE) | 지원됨 | SSE은 스토리지 계정의 기본 설정입니다.   
 Windows OS용 ADE(Azure Disk Encryption) | 관리 디스크가 있는 Vm에 대해 지원 됩니다. 관리 되지 않는 디스크를 사용 하는 Vm은 지원 되지 않습니다. |
 Linux OS용 ADE(Azure Disk Encryption) | 지원되지 않음 |
 핫 추가 | 지원됨 | 복제 된 Azure VM에 추가 하는 데이터 디스크에 대 한 복제를 사용 하도록 설정 하는 것은 managed disks를 사용 하는 Vm에 대해 지원 됩니다.
 디스크 핫 제거 | 지원되지 않음 | VM에서 데이터 디스크를 제거 하는 경우 복제를 사용 하지 않도록 설정 하 고 VM에 대해 복제를 다시 사용 하도록 설정 해야 합니다.
 디스크 제외 | 지원은. [Powershell](azure-to-azure-exclude-disks.md) 을 사용 하 여를 구성 해야 합니다. |  임시 디스크는 기본적으로 제외 됩니다.
-직접 스토리지 공간  | 크래시 일관성이 있는 복구 지점을 지원합니다. 애플리케이션 일관성이 있는 복구 지점은 지원되지 않습니다. |
+저장소 공간 다이렉트  | 크래시 일관성이 있는 복구 지점을 지원합니다. 애플리케이션 일관성이 있는 복구 지점은 지원되지 않습니다. |
 스케일 아웃 파일 서버  | 크래시 일관성이 있는 복구 지점을 지원합니다. 애플리케이션 일관성이 있는 복구 지점은 지원되지 않습니다. |
 LRS | 지원됨 |
 GRS | 지원됨 |

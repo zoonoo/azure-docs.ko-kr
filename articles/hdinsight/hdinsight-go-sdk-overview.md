@@ -1,18 +1,18 @@
 ---
 title: Go 용 Azure HDInsight SDK
-description: Go 용 Azure HDInsight SDK에 대 한 참조
+description: Go 및 Apache Hadoop 클러스터에 대해 Azure HDInsight SDK 사용에 대 한 참조 자료
 author: tylerfox
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/8/2019
 ms.author: tyfox
 ms.custom: seodec18
-ms.openlocfilehash: 299e99d291e593ec01d2951c62541a7666565528
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: fccca42a7185f430c679e0128649575620bdce0f
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977056"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70733149"
 ---
 # <a name="hdinsight-sdk-for-go-preview"></a>Go 용 HDInsight SDK (미리 보기)
 

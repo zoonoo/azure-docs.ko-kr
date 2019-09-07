@@ -1,17 +1,17 @@
 ---
-title: Azure HDInsight에서 InvalidClassException, 클래스 버전이 일치 하지 않으므로 Apache Spark 작업이 실패 합니다.
+title: Azure HDInsight에서 InvalidClassException을 사용 하 여 Apache Spark 작업이 실패 함
 description: Azure HDInsight에서 InvalidClassException, 클래스 버전이 일치 하지 않으므로 Apache Spark 작업이 실패 합니다.
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 07/29/2019
-ms.openlocfilehash: 6f81ed121c98c8428e710082aae7ab75b672335e
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 86ebfe14936f4cfbc6fc5f674ee691341eacfd47
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707501"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736318"
 ---
 # <a name="scenario-apache-spark-job-fails-with-invalidclassexception-class-version-mismatch-in-azure-hdinsight"></a>시나리오: Azure HDInsight에서 InvalidClassException, 클래스 버전이 일치 하지 않으므로 Apache Spark 작업이 실패 합니다.
 

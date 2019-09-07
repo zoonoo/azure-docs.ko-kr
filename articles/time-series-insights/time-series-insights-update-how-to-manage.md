@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 09/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: f626ce2e009a18afcb4d04b7caa6850ea58c7483
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a84c587a2666982e862f0640b30d2d6bef3b9a42
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446826"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744616"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Azure Time Series 미리 보기 프로비전 및 관리
 
@@ -33,7 +33,7 @@ Azure Time Series Insights 미리 보기 환경을 프로비전할 때는 두 �
 [환경을 계획하는 방법](./time-series-insights-update-plan.md)을 알아봅니다.
 
 >[!IMPORTANT]
-> 미리 보기의 경우는 Azure Storage의 범용 v1 사용 중인지 확인 (GPv1) 계정을 합니다.
+> 미리 보기의 경우 Azure Storage 범용 v1 (GPv1) 계정을 사용 하 고 있는지 확인 합니다.
 
 경우에 따라 각 Azure Time Series Insights 미리 보기 환경을 이벤트 원본에 연결할 수 있습니다. 자세한 내용은 [이벤트 허브 원본 추가](./time-series-insights-how-to-add-an-event-source-eventhub.md) 및 [IoT Hub 원본 추가](./time-series-insights-how-to-add-an-event-source-iothub.md)를 참조하세요. 이 단계 중에 타임스탬프 ID 속성 및 고유한 소비자 그룹을 제공합니다. 이렇게 하면 환경에서 적합한 이벤트에 액세스할 수 있습니다.
 
@@ -88,12 +88,12 @@ Azure Portal을 사용하여 Azure Time Series Insights 미리 보기 환경을 
 
 * 참조 데이터가 PAYG 환경의 구성 요소가 아니므로 Azure Portal **참조 데이터** 블레이드는 Azure Time Series Insights 미리 보기에서 제거되었습니다.
 
-[![Azure portal에서 time Series Insights 미리 보기 환경](media/v2-update-manage/manage-four.png)](media/v2-update-manage/manage-four.png#lightbox)
+[![Azure Portal에서 Time Series Insights 미리 보기 환경](media/v2-update-manage/manage-four.png)](media/v2-update-manage/manage-four.png#lightbox)
 
 ## <a name="next-steps"></a>다음 단계
 
 - [환경 계획](./time-series-insights-update-plan.md)을 읽어봅니다.
 
-- 설명 하는 방법 [이벤트 허브 원본을 추가](./time-series-insights-how-to-add-an-event-source-eventhub.md)합니다.
+- [이벤트 허브 원본을 추가](./time-series-insights-how-to-add-an-event-source-eventhub.md)하는 방법에 대해 알아봅니다.
 
-- 구성할 [IoT hub 소스를](./time-series-insights-how-to-add-an-event-source-iothub.md)입니다.
+- [IoT hub 원본을](./time-series-insights-how-to-add-an-event-source-iothub.md)구성 합니다.

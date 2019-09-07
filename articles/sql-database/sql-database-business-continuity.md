@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: e57427fbb7e0d3c67fc4fcbab1a50f14ef8c9501
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5cc033787e1045926ff4fece6826e41f430d48fd
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569341"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744462"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Azure SQL Database의 비즈니스 연속성 개요
 
@@ -140,7 +140,7 @@ PITR (지정 시간 복원)에 대해 지원 되는 최대 백업 보존 기간�
 복구 메커니즘에서 복구한 후에는 사용자 및 애플리케이션이 다시 실행되기 전에 다음과 같은 추가 작업을 수행해야 합니다.
 
 - 클라이언트 및 클라이언트 애플리케이션을 새 서버 및 복원된 데이터베이스로 리디렉션
-- 사용자가 연결할 수 있는 또는 [데이터베이스 수준 방화벽](sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-the-azure-portal)을 사용하여 적절한 규칙을 설정할 수 있는 적절한 서버 수준 IP 방화벽 규칙이 적용되고 있는지 확인합니다.
+- 사용자가 연결할 수 있는 또는 [데이터베이스 수준 방화벽](sql-database-firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)을 사용하여 적절한 규칙을 설정할 수 있는 적절한 서버 수준 IP 방화벽 규칙이 적용되고 있는지 확인합니다.
 - 적절한 로그인 및 master 데이터베이스 수준 사용 권한이 설정되었는지 확인합니다(또는 [포함된 사용자](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)사용).
 - 필요에 따라 감사를 구성합니다.
 - 필요에 따라 경고를 구성합니다.

@@ -1,17 +1,17 @@
 ---
-title: Azure HDInsight에서 JDBC/ODBC 및 Apache Thrift 소프트웨어 프레임 워크를 사용 하 여 대량 데이터 집합을 다운로드할 수 없음
+title: JDBC/ODBC 및 Apache Thrift framework를 사용 하 여 다운로드 문제-Azure HDInsight
 description: Azure HDInsight에서 JDBC/ODBC 및 Apache Thrift 소프트웨어 프레임 워크를 사용 하 여 대량 데이터 집합을 다운로드할 수 없음
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 07/29/2019
-ms.openlocfilehash: 4283de9d9046cc63ee10731c05b70850648ff981
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 97aaec9d42baa3e94be72a748e82345d159f4583
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668886"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736237"
 ---
 # <a name="scenario-unable-to-download-large-data-sets-using-jdbcodbc-and-apache-thrift-software-framework-in-azure-hdinsight"></a>시나리오: Azure HDInsight에서 JDBC/ODBC 및 Apache Thrift 소프트웨어 프레임 워크를 사용 하 여 대량 데이터 집합을 다운로드할 수 없음
 

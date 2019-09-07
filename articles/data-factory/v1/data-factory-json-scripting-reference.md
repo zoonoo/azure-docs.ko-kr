@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: f94d3cdbbd1683b20dbe1d370bcac43817458f44
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 69218cedcd5d775fe6e499086663aa124f6bfe25
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139375"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735997"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON 스크립팅 참조
 > [!NOTE]
@@ -334,7 +334,7 @@ structure:
 
 데이터 세트 정의의 **정책** 섹션에서 데이터 세트 조각이 충족해야 하는 기준 또는 조건을 정의합니다.
 
-| 정책 이름 | Description | 에 적용 | 필수 | 기본값 |
+| 정책 이름 | 설명 | 에 적용 | 필수 | 기본값 |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |**Azure Blob** 에서 데이터가 최소 크기 요구 사항(메가바이트)을 충족하는지 확인합니다. |Azure Blob |아니요 |NA |
 | minimumRows |**Azure SQL 데이터베이스** 또는 **Azure 테이블**에서 데이터가 최소 행 수를 포함하는지 확인합니다. |<ul><li>Azure SQL Database</li><li>Azure 테이블</li></ul> |아니요 |NA |
@@ -732,7 +732,7 @@ Azure Data Lake Store에서 데이터를 복사하는 경우 복사 활동의 **
 ### <a name="azure-data-lake-store-sink-in-copy-activity"></a>복사 활동의 Azure Data Lake Store 싱크
 Azure Data Lake Store에 데이터를 복사하는 경우 복사 활동의 **sink type**을 **AzureDataLakeStoreSink**로 설정하고 **sink** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | copyBehavior |복사 동작을 지정합니다. |<b>PreserveHierarchy</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><br/><b>FlattenHierarchy</b>: 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 만들어집니다. 대상 파일은 자동 생성된 이름으로 만들어집니다.<br/><br/><b>MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일/Blob 이름이 지정된 경우 지정된 이름이 병합된 파일 이름이 됩니다. 그렇지 않으면 자동 생성된 파일 이름이 병합된 파일 이름이 됩니다. |아니요 |
 
@@ -992,7 +992,7 @@ Azure SQL Database 데이터 세트를 정의하려면 데이터 세트의 **typ
 Azure SQL Database에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **SqlSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | sqlReaderQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: `select * from MyTable`. |아니오 |
 | sqlReaderStoredProcedureName |원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. |저장 프로시저의 이름입니다. |아니요 |
@@ -1167,7 +1167,7 @@ Azure SQL Data Warehouse 데이터 세트를 정의하려면 데이터 세트의
 Azure SQL Data Warehouse에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **SqlDWSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | sqlReaderQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예를 들어 `select * from MyTable`을 참조하십시오. |아니요 |
 | sqlReaderStoredProcedureName |원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. |저장 프로시저의 이름입니다. |아니요 |
@@ -1221,7 +1221,7 @@ Azure SQL Data Warehouse에서 데이터를 복사하는 경우 복사 활동의
 ### <a name="sql-dw-sink-in-copy-activity"></a>복사 활동의 SQL DW 싱크
 Azure SQL Data Warehouse에 데이터를 복사하는 경우 복사 활동의 **sink type**을 **SqlDWSink**로 설정하고 **sink** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | sqlWriterCleanupScript |특정 조각의 데이터를 정리하기 위해 복사 활동에 대해 실행할 쿼리를 지정합니다. |쿼리 문입니다. |아니요 |
 | allowPolyBase |BULKINSERT 메커니즘 대신 PolyBase(있는 경우)를 사용할지 여부를 나타냅니다. <br/><br/> **PolyBase를 사용하여 SQL Data Warehouse에 데이터를 로드하는 것이 좋습니다.** |True <br/>False(기본값) |아니요 |
@@ -1531,7 +1531,7 @@ Azure Table Storage에서 데이터를 복사하는 경우 복사 활동의 **so
 ### <a name="azure-table-sink-in-copy-activity"></a>복사 활동의 Azure Table 싱크
 Azure Table Storage에 데이터를 복사하는 경우 복사 활동의 **sink type**을 **AzureTableSink**로 설정하고 **sink** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | azureTableDefaultPartitionKeyValue |싱크에서 사용할 수 있는 기본 파티션 키 값입니다. |문자열 값 |아니요 |
 | azureTablePartitionKeyName |해당 값이 파티션 키로 사용되는 열의 이름을 지정합니다. 지정하지 않으면 AzureTableDefaultPartitionKeyValue가 파티션 키로 사용됩니다. |열 이름 |아니요 |
@@ -1887,7 +1887,7 @@ MySQL 데이터 세트를 정의하려면 데이터 세트의 **type**을 **Rela
 MySQL 데이터베이스에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **RelationalSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예를 들어 `select * from MyTable`을 참조하십시오. |아니요(**데이터 세트**의 **tableName**이 지정된 경우) |
 
@@ -2055,7 +2055,7 @@ Oracle 데이터베이스에서 데이터를 복사하는 경우 복사 활동�
 ### <a name="oracle-sink-in-copy-activity"></a>복사 활동의 Oracle 싱크
 Oracle 데이터베이스에 데이터를 복사하는 경우 복사 활동의 **sink type**을 **OracleSink**로 설정하고 **sink** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. |TimeSpan<br/><br/> 예제: 00:30:00(30분). |아니요 |
 | writeBatchSize |버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입 |정수(행 수) |아니요(기본값: 100) |
@@ -2176,7 +2176,7 @@ PostgreSQL 데이터 세트를 정의하려면 데이터 세트의 **type**을 *
 PostgreSQL 데이터베이스에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **RelationalSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: "query": "select * from \"MySchema\".\"MyTable\"". |아니요(**데이터 세트**의 **tableName**이 지정된 경우) |
 
@@ -2338,7 +2338,7 @@ SAP Business Warehouse에서 데이터를 복사하는 경우 복사 활동의 *
 ### <a name="linked-service"></a>연결된 서비스
 SAP HANA 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **SapHana**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-속성 | 설명 | 허용되는 값 | 필수
+속성 | Description | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
 서버 | SAP HANA 인스턴스가 상주하는 서버의 이름. 서버에서 사용자 지정된 포트를 사용하는 경우 `server:port`를 지정합니다. | string | 예
 authenticationType | 인증 유형입니다. | string. "Basic" 또는 "Windows" | 예
@@ -2392,7 +2392,7 @@ SAP HANA 데이터 세트를 정의하려면 데이터 세트의 **type**을 **R
 ### <a name="relational-source-in-copy-activity"></a>복사 활동의 Relational 소스
 SAP HANA 데이터 저장소에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **RelationalSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | 쿼리 | SAP HANA 인스턴스에서 데이터를 읽을 SQL 쿼리를 지정합니다. | SQL 쿼리. | 예 |
 
@@ -2539,7 +2539,7 @@ SQL Server 데이터 세트를 정의하려면 데이터 세트의 **type**을 *
 SQL Server 데이터베이스에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **SqlSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | sqlReaderQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예를 들어 `select * from MyTable`을 참조하십시오. 입력 데이터 세트에 의해 참조되는 데이터베이스의 여러 테이블을 참조할 수 있습니다. 지정하지 않는 경우 실행되는 SQL 문: select from MyTable. |아니요 |
 | sqlReaderStoredProcedureName |원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. |저장 프로시저의 이름입니다. |아니요 |
@@ -2606,7 +2606,7 @@ sqlReaderQuery 또는 sqlReaderStoredProcedureName을 지정하지 않으면 str
 ### <a name="sql-sink-in-copy-activity"></a>복사 활동의 SQL 싱크
 SQL Server 데이터베이스에 데이터를 복사하는 경우 복사 활동의 **sink type**을 **SqlSink**로 설정하고 **sink** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. |TimeSpan<br/><br/> 예제: “00:30:00”(30분) |아니요 |
 | writeBatchSize |버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입 |정수(행 수) |아니요(기본값: 10000) |
@@ -2736,7 +2736,7 @@ Sybase 데이터 세트를 정의하려면 데이터 세트의 **type**을 **Rel
 Sybase 데이터베이스에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **RelationalSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예를 들어 `select * from MyTable`을 참조하십시오. |아니요(**데이터 세트**의 **tableName**이 지정된 경우) |
 
@@ -3095,7 +3095,7 @@ MongoDB 데이터 세트를 정의하려면 데이터 세트의 **type**을 **Mo
 #### <a name="mongodb-source-in-copy-activity"></a>복사 활동의 MongoDB 소스
 MongoDB에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **MongoDbSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL-92 쿼리 문자열입니다. 예를 들어 `select * from MyTable`을 참조하십시오. |아니요(**데이터 세트**의 **collectionName**이 지정된 경우) |
 
@@ -3149,7 +3149,7 @@ MongoDB에서 데이터를 복사하는 경우 복사 활동의 **source type**�
 ### <a name="linked-service"></a>연결된 서비스
 Amazon S3 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **AwsAccessKey**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | accessKeyID |비밀 액세스 키의 ID입니다. |string |예 |
 | secretAccessKey |비밀 액세스 키 자체입니다. |암호화된 비밀 문자열 |예 |
@@ -3175,7 +3175,7 @@ Amazon S3 데이터 세트를 정의하려면 데이터 세트의 **type**을 **
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| bucketName |S3 버킷 이름입니다. |문자열 |예 |
+| bucketName |S3 버킷 이름입니다. |String |예 |
 | Key |S3 개체 키입니다. |문자열 |아니요 |
 | prefix |S3 개체 키에 대한 접두사입니다. 이 접두사로 시작하는 키를 가진 개체가 선택됩니다. 키가 비어 있을 때에만 적용됩니다. |String |아니요 |
 | version |S3 버전 관리를 사용하도록 설정되면 S3 개체의 버전입니다. |String |아니요 |
@@ -3257,7 +3257,7 @@ Amazon S3 데이터 세트의 접두사 속성에 대해서도 동일하게 수�
 Amazon S3에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **FileSystemSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | recursive |S3 개체를 디렉터리 아래에 재귀적으로 나열할 것인지를 지정합니다. |True/False |아니요 |
 
@@ -3442,7 +3442,7 @@ Amazon S3에서 데이터를 복사하는 경우 복사 활동의 **source type*
 ### <a name="file-system-source-in-copy-activity"></a>복사 활동의 파일 시스템 소스
 파일 시스템에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **FileSystemSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | recursive |하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. |True, False(기본값) |아니요 |
 
@@ -3674,7 +3674,7 @@ FTP 데이터 세트를 정의하려면 데이터 세트의 **type**을 **FileSh
 ### <a name="file-system-source-in-copy-activity"></a>복사 활동의 파일 시스템 소스
 FTP 서버에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **FileSystemSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | recursive |하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. |True, False(기본값) |아니요 |
 
@@ -4537,7 +4537,7 @@ ODBC 데이터 세트를 정의하려면 데이터 세트의 **type**을 **Relat
 ### <a name="relational-source-in-copy-activity"></a>복사 활동의 Relational 소스
 ODBC 데이터 저장소에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **RelationalSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예를 들어 `select * from MyTable`을 참조하십시오. |예 |
 
@@ -4655,7 +4655,7 @@ Salesforce 데이터 세트를 정의하려면 데이터 세트의 **type**을 *
 ### <a name="relational-source-in-copy-activity"></a>복사 활동의 Relational 소스
 Salesforce에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **RelationalSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL-92 쿼리 또는 [SOQL(Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 쿼리입니다. 예제: `select * from MyTable__c` |아니요(**데이터 세트**의 **tableName**이 지정된 경우) |
 
@@ -4826,7 +4826,7 @@ Salesforce에서 데이터를 복사하는 경우 복사 활동의 **source type
 | [Azure Batch](#azure-batch) |[.NET 사용자 지정 작업](#net-custom-activity) |
 | [Azure Machine Learning](#azure-machine-learning) | [Machine Learning Batch 실행 활동](#machine-learning-batch-execution-activity), [Machine Learning 업데이트 리소스 활동](#machine-learning-update-resource-activity) |
 | [Azure 데이터 레이크 분석](#azure-data-lake-analytics) |[데이터 레이크 분석 U-SQL](#data-lake-analytics-u-sql-activity) |
-| [Azure SQL Database](#azure-sql-database-1), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-1), [SQL Server](#sql-server-1) |[저장 프로시저](#stored-procedure-activity) |
+| [Azure SQL Database](#azure-sql-database), [Azure SQL Data Warehouse](#azure-sql-data-warehouse), [SQL Server](#sql-server-1) |[저장 프로시저](#stored-procedure-activity) |
 
 ## <a name="on-demand-azure-hdinsight-cluster"></a>주문형 Azure HDInsight 클러스터
 Azure 데이터 팩터리 서비스는 데이터를 처리하는 Windows/Linux 기반 주문형 HDInsight 클러스터를 자동으로 만들 수 있습니다. 클러스터는 클러스터와 연결된 스토리지 계정(JSON에서 linkedServiceName 속성)과 동일한 하위 지역에 만들어집니다. 이 연결된 서비스에서는 변환 활동, 즉 [.NET 사용자 지정 활동](#net-custom-activity), [Hive 활동](#hdinsight-hive-activity), [Pig 활동](#hdinsight-pig-activity), [MapReduce 활동](#hdinsight-mapreduce-activity), Hadoop 스트리밍 활동, [Spark 활동](#hdinsight-spark-activity)을 실행할 수 있습니다.
@@ -4995,58 +4995,6 @@ Azure Machine Learning 연결된 서비스를 만들어 데이터 팩터리에 M
     }
 }
 ```
-
-## <a name="azure-sql-database"></a>Azure SQL Database
-Azure SQL 연결된 서비스를 만들고 [저장 프로시저 활동](#stored-procedure-activity) 에서 사용하여 Data Factory 파이프라인에서 저장 프로시저를 호출합니다.
-
-### <a name="linked-service"></a>연결된 서비스
-Azure SQL Database 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **AzureSqlDatabase**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
-
-| 속성 | 설명 | 필수 |
-| --- | --- | --- |
-| connectionString |Azure SQL Database 인스턴스에 연결하는 데 필요한 정보를 connectionString 속성에 대해 지정합니다. |예 |
-
-#### <a name="json-example"></a>JSON 예제
-
-```json
-{
-    "name": "AzureSqlLinkedService",
-    "properties": {
-        "type": "AzureSqlDatabase",
-        "typeProperties": {
-            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-        }
-    }
-}
-```
-
-이 연결된 서비스에 대한 자세한 내용은 [Azure SQL 커넥터](data-factory-azure-sql-connector.md#linked-service-properties) 문서를 참조하세요.
-
-## <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
-Azure SQL Data Warehouse 연결된 서비스를 만들고 [저장 프로시저 활동](data-factory-stored-proc-activity.md) 에서 사용하여 Data Factory 파이프라인에서 저장 프로시저를 호출합니다.
-
-### <a name="linked-service"></a>연결된 서비스
-Azure SQL Data Warehouse 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **AzureSqlDW**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
-
-| 속성 | 설명 | 필수 |
-| --- | --- | --- |
-| connectionString |connectionString 속성에 대한 Azure SQL Data Warehouse 인스턴스에 연결하는 데 필요한 정보를 지정합니다. |예 |
-
-#### <a name="json-example"></a>JSON 예제
-
-```json
-{
-    "name": "AzureSqlDWLinkedService",
-    "properties": {
-        "type": "AzureSqlDW",
-        "typeProperties": {
-            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-        }
-    }
-}
-```
-
-자세한 내용은 [Azure SQL Data Warehouse 커넥터](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties) 문서를 참조하세요.
 
 ## <a name="sql-server"></a>SQL Server
 SQL Server 연결된 서비스를 만들고 [저장 프로시저 활동](data-factory-stored-proc-activity.md) 에서 사용하여 Data Factory 파이프라인에서 저장 프로시저를 호출합니다.

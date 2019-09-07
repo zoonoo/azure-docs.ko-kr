@@ -1,18 +1,18 @@
 ---
 title: Azure HDInsight에서 ScaleR 및 SparkR 사용
-description: HDInsight의 ML 서비스에서 ScaleR 및 SparkR 사용
+description: Azure HDInsight의 ML 서비스를 사용 하 여 데이터 조작 및 모델 개발에 ScaleR 및 SparkR 사용
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: b96779a0a37602b6d114c9baf517df2637f734a2
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: a91d2d569b4900e3d5b787145c242a75b928d822
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231116"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70733377"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>HDInsight에서 ScaleR과 SparkR 결합
 

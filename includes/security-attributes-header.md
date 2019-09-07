@@ -2,15 +2,15 @@
 author: msmbaldwin
 ms.service: security
 ms.topic: include
-ms.date: 07/23/2019
+ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4aea8c1d1d7112ac1f9ff9042ff01d173ed986c5
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: b7881d38e04f9b5793f61110e0e3e4c76baeddf2
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68440871"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743763"
 ---
-보안 특성은 Azure 서비스의 품질 또는 기능입니다. 이 서비스는 보안 취약성을 예방, 감지 및 대응 하는 서비스의 기능에 기여 합니다.
+보안 제어는 서비스에서 보안 취약성을 예방, 감지 및 대응 하는 기능을 제공 하는 Azure 서비스의 품질 또는 기능입니다.
 
-각 범주에 "예" 또는 "아니요"를 표시 하 여 특성이 사용 되는지 여부를 나타냅니다. 일부 서비스의 경우 해당 되지 않는 특성에 대해 "N/A"를 표시 합니다. 또한 특성에 대 한 추가 정보를 제공 하는 참고 사항 또는 링크도 제공 될 것입니다.
+각 컨트롤에 대해 "예" 또는 "아니요"를 사용 하 여 서비스에 대해 현재 사용 중인지 여부를 나타냅니다. "N/A"는 서비스에 적용할 수 없는 컨트롤입니다. 또한 특성에 대 한 추가 정보를 제공 하는 링크를 제공할 수도 있습니다.

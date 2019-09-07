@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: b549e8bf53ca7728b18e04542c7291f0ce720cb0
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 9c65d6055807ee2735f1915e8ca289dc0754535b
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876451"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736390"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Azure 간 복제의 네트워킹 정보
 
@@ -113,7 +113,11 @@ Site Recovery IP 주소 범위는 다음과 같습니다.
    중국 북부 2 | 40.73.35.193 | 40.73.33.230
    중국 동부 | 42.159.205.45 | 42.159.132.40
    중국 동부 2 | 40.73.118.52| 40.73.100.125
-  
+   독일 북부| 51.116.208.58| 51.116.58.128
+   독일 중서부 | 51.116.156.176 | 51.116.154.192
+   스위스 서부 | 51.107.231.223| 51.107.154.128
+   스위스 북부 | 51.107.68.31| 51.107.58.128
+
 ## <a name="example-nsg-configuration"></a>NSG 구성 예제
 
 이 예제에서는 복제할 VM에 대한 NSG 규칙을 구성하는 방법을 보여 줍니다.

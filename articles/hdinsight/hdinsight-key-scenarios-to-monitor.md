@@ -1,6 +1,6 @@
 ---
 title: 클러스터 성능 모니터링 - Azure HDInsight
-description: HDInsight 클러스터의 용량 및 성능을 모니터링하는 방법을 설명합니다.
+description: Azure HDInsight에서 Apache Hadoop 클러스터의 상태와 성능을 모니터링 하는 방법입니다.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 3fcd1e54a8993b2693b169a2c8b4c6e9bca57119
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 591fd2e0f5c6d36ad6b84b1f3ec035488fa02614
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393407"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70733259"
 ---
 # <a name="monitor-cluster-performance"></a>클러스터 성능 모니터링
 
@@ -27,10 +27,10 @@ Hadoop 클러스터는 클러스터의 부하가 모든 노드에 균등하게 �
 
 클러스터의 노드와 노드의 로드를 대략적인 수준에서 살펴보려면 [Ambari 웹 UI](hdinsight-hadoop-manage-ambari.md)에 로그인한 다음, **호스트** 탭을 선택합니다. 호스트는 정규화된 도메인 이름으로 나열됩니다. 각 호스트의 운영 상태는 색이 지정된 상태 표시기로 표시됩니다.
 
-| 색 | 설명 |
+| 색 | Description |
 | --- | --- |
-| 빨간색 | 호스트에서 적어도 하나 이상의 마스터 구성 요소가 중단되었습니다. 마우스를 가져다 대면 영향을 받는 구성 요소 목록을 나열하는 도구 설명이 표시됩니다. |
-| 주황색 | 호스트에서 적어도 하나의 보조 구성 요소는 중단 되었습니다. 마우스를 가져다 대면 영향을 받는 구성 요소 목록을 나열하는 도구 설명이 표시됩니다. |
+| 빨강 | 호스트에서 적어도 하나 이상의 마스터 구성 요소가 중단되었습니다. 마우스를 가져다 대면 영향을 받는 구성 요소 목록을 나열하는 도구 설명이 표시됩니다. |
+| 주황 | 호스트에서 하나 이상의 보조 구성 요소가 다운 되었습니다. 마우스를 가져다 대면 영향을 받는 구성 요소 목록을 나열하는 도구 설명이 표시됩니다. |
 | 노랑 | Ambari 서버가 3분 이상 호스트에서 하트비트를 수신하지 못했습니다. |
 | 녹색 | 정상적인 실행 상태입니다. |
 

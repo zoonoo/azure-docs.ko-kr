@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/22/2019
+ms.date: 09/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 154848c33960cb78b10c58e7a39ddec669d4fae0
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: c63feb02712447d2427061cbfabc525622107043
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872984"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744586"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor를 사용하여 AKS 클러스터 성능 이해
 컨테이너에 대 한 Azure Monitor를 사용 하면 성능 차트와 상태를 사용 하 여 두 가지 관점에서 AKS (Azure Kubernetes Service) 클러스터의 작업을 모니터링할 수 있습니다. AKS 클러스터에서 직접 모니터링 하거나 Azure Monitor 구독의 모든 AKS 클러스터를 모니터링할 수 있습니다. Azure Container Instances 보기는 특정 AKS 클러스터를 모니터링 하는 경우에도 가능 합니다.
@@ -88,7 +88,7 @@ Linux 클러스터와 비교 하 여 컨테이너에 대 한 Azure Monitor를 �
 | |심각 |<60% |
 | |알 수 없음 |지난 30분 동안 보고하지 않은 경우 |
 
-클러스터의 목록에서 클러스터의 이름을 선택 하 여 **클러스터** 페이지로 드릴 다운할 수 있습니다. 그런 다음 노드 성능 페이지로 이동 하 여 해당 특정 클러스터에 대 한 **노드** 열에서 노드 롤업을 선택 합니다. 또는 **사용자 pod** 또는 **System pod** 열에 대 한 롤업을 선택 하 여 **컨트롤러** 성능 페이지로 드릴 다운할 수 있습니다.  
+클러스터의 목록에서 클러스터의 이름을 선택 하 여 **클러스터** 페이지로 드릴 다운할 수 있습니다. 그런 다음 노드 성능 페이지로 이동 하 여 해당 특정 클러스터에 대 한 **노드** 열에서 노드 롤업을 **선택 합니다.** 또는 **사용자 pod** 또는 **System pod** 열에 대 한 롤업을 선택 하 여 **컨트롤러** 성능 페이지로 드릴 다운할 수 있습니다.  
 
 ## <a name="view-performance-directly-from-an-aks-cluster"></a>AKS 클러스터에서 직접 성능 보기
 
@@ -118,18 +118,18 @@ Linux 클러스터와 비교 하 여 컨테이너에 대 한 Azure Monitor를 �
 
 메트릭 탐색기에서 컨테이너에 대 한 Azure Monitor 집계 된 노드 및 pod 사용률 메트릭을 볼 수 있습니다. 다음 표에서는 메트릭 차트를 사용 하 여 컨테이너 메트릭을 시각화 하는 방법을 이해 하는 데 도움이 되는 세부 정보를 요약 하 여 보여 줍니다.
 
-|네임스페이스 | 메트릭 |
-|----------|--------|
+|네임스페이스 | 메트릭 | Description | 
+|----------|--------|-------------|
 | insights.container/nodes | |
-| | cpuUsageMillicores |
-| | cpuUsagePercentage |
-| | memoryRssBytes |
-| | memoryRssPercentage |
-| | memoryWorkingSetBytes |
-| | memoryWorkingSetPercentage |
-| | nodesCount |
+| | cpuUsageMillicores | 클러스터 전반의 CPU 사용률 집계 측정. 1000 단위로 분할 된 CPU 코어 (밀리초 = 1000)입니다. 많은 응용 프로그램에서 코어 하나를 사용할 수 있는 컨테이너의 코어 사용량을 확인 하는 데 사용 됩니다.| 
+| | cpuUsagePercentage | 집계 된 평균 CPU 사용률은 클러스터 전체에서 백분율로 측정 됩니다.|
+| | memoryRssBytes | 사용 되는 컨테이너 RSS 메모리 (바이트)입니다.| 
+| | memoryRssPercentage | %에 사용 되는 컨테이너 RSS 메모리입니다.|
+| | memoryWorkingSetBytes | 사용 되는 컨테이너 작업 집합 메모리입니다.| 
+| | memoryWorkingSetPercentage | %에 사용 되는 컨테이너 작업 집합 메모리입니다. | 
+| | nodesCount | Kubernetes의 노드 수입니다.|
 | insights.container/pods | |
-| | PodCount |
+| | PodCount | Kubernetes의 pod 개수입니다.|
 
 메트릭을 [분할](../platform/metrics-charts.md#apply-splitting-to-a-chart) 하 여 차원 별로 표시 하 고 서로 다른 세그먼트의 서로 비교 하는 방법을 시각화할 수 있습니다. 노드의 경우 *호스트* 차원에 따라 차트를 분할할 수 있습니다. Pod에서 다음 차원으로 분할할 수 있습니다.
 
@@ -170,7 +170,7 @@ Linux OS를 실행 하는 Azure Container Instances 가상 노드는 목록의 �
 
 페이지 맨 위에 있는 컨트롤러 또는 컨테이너를 선택 하 여 해당 개체의 상태 및 리소스 사용률을 검토 합니다. 메모리 사용률을 검토 하려면 **메트릭** 드롭다운 목록에서 **메모리 RSS** 또는 **메모리 작업 집합**을 선택 합니다. **메모리 RSS**는 Kubernetes 버전 1.8 이상에서만 지원됩니다. 그렇지 않으면 **Min&nbsp;%** 에 대한 값이 *NaN&nbsp;%* 로 표시됩니다. 이것은 정의되지 않았거나 표현할 수 없는 값을 나타내는 숫자 데이터 형식 값입니다.
 
-**메모리 작업 집합** 에는 포함 된 메모리 및 가상 메모리 (캐시)가 모두 표시 되 고 응용 프로그램에서 사용 하는 총 메모리와 총 메모리가 표시 됩니다. **메모리 RSS** 는 주 메모리 (상주 메모리)만 표시 합니다. 이 메트릭은 사용 가능한 메모리의 실제 용량을 보여 줍니다.
+**메모리 작업 집합** 에는 포함 된 메모리 및 가상 메모리 (캐시)가 모두 표시 되 고 응용 프로그램에서 사용 하는 총 메모리와 총 메모리가 표시 됩니다. **메모리 RSS** 는 주 메모리만 표시 합니다. 즉,이 경우에는 상주 하는 메모리는 없습니다. 이 메트릭은 사용 가능한 메모리의 실제 용량을 보여 줍니다.
 
 ![컨테이너 노드 성능 보기](./media/container-insights-analyze/containers-node-metric-dropdown.png)
 

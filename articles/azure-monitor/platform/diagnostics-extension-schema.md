@@ -6,15 +6,15 @@ author: rboucher
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 09/20/2018
+ms.date: 09/04/2019
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 1230a9bcea01ef394a6299c50b8d5537850cfee5
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: e8ea8ea749243821e5382fc285e3c38f05d4c6b5
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "60527307"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735081"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure Diagnostics 확장 구성 스키마 버전 및 기록
 이 페이지는 Microsoft Azure SDK의 일부로 제공되는 Azure Diagnostics 확장 스키마 버전을 인덱스합니다.  
@@ -54,13 +54,7 @@ Azure 진단 확장은 Application Insights 및 Log Analytics를 포함 하는 A
  SDK 2.5(진단 버전 1.2)부터는 Azure 진단이 확장 모델로 이동되었습니다. 새 기능을 활용하기 위한 도구는 최신 Azure SDK에서만 사용할 수 있었지만 Azure 진단을 사용하는 모든 서비스는 Azure에서 직접 최신 전달 버전을 선택할 수 있습니다. 예를 들어, 여전히 SDK 2.5를 사용하는 모든 사용자는 최신 기능을 사용 중인지 여부와 관계 없이 이전 테이블에 표시된 최신 버전이 로딩됩니다.  
 
 ## <a name="schemas-index"></a>스키마 색인  
-서로 다른 버전의 Azure 진단은 다른 구성 스키마를 사용합니다.
-
-[진단 1.0 구성 스키마](diagnostics-extension-schema-1dot0.md)  
-
-[진단 1.2 구성 스키마](diagnostics-extension-schema-1dot2.md)  
-
-[진단 1.3 이상 구성 스키마](diagnostics-extension-schema-1dot3.md)  
+서로 다른 버전의 Azure 진단은 다른 구성 스키마를 사용합니다. 스키마 1.0 및 1.2은 더 이상 사용 되지 않습니다. 버전 1.3 이상에 대 한 자세한 내용은 [진단 1.3 이상 구성 스키마](diagnostics-extension-schema-1dot3.md) 를 참조 하세요.  
 
 ## <a name="version-history"></a>버전 기록
 
@@ -198,7 +192,7 @@ Azure SDK 2.5에서 Azure SDK 2.6 이상으로 마이그레이션하는 경우 .
 * 진단 연결 문자열이.cscfg 파일에 지정되지 않은 경우 Visual Studio에서는 게시할 때와 패키징 중 공용 구성 xml 파일을 생성할 때 .wadcfgx 파일에 지정된 스토리지 계정을 대신 사용하여 진단 확장을 구성합니다.
 * .cscfg 파일의 진단 연결 문자열은 .wadcfgx 파일의 스토리지 계정보다 우선합니다. 진단 연결 문자열이.cscfg 파일에 지정된 경우, Visual Studio에서는 이 문자열을 사용하고 .wadcfgx의 스토리지 계정은 무시합니다.
 
-#### <a name="what-does-the-update-development-storage-connection-strings-checkbox-do"></a>“개발 저장소 연결 문자열 업데이트...” 확인란의 기능은 무엇인가요?
+#### <a name="what-does-the-update-development-storage-connection-strings-checkbox-do"></a>“개발 스토리지 연결 문자열 업데이트...” 확인란의 기능은 무엇인가요?
 **Microsoft Azure에 게시할 때 Microsoft Azure Storage 계정 자격 증명을 사용하여 진단 및 캐싱을 위한 개발 스토리지 연결 문자열 업데이트** 확인란은 게시하는 동안 지정된 Azure Storage 계정으로 개발 스토리지 계정 연결 문자열을 업데이트하는 편리한 방법을 제공합니다.
 
 예를 들어, 사용자가 이 확인란을 선택하고 진단 연결 문자열에서 `UseDevelopmentStorage=true`를 지정한다고 가정합니다. Azure에 프로젝트를 게시할 때 Visual Studio는 사용자가 게시 마법사에 지정한 스토리지 계정을 사용하여 진단 연결 문자열을 자동으로 업데이트합니다. 그러나 실제 스토리지 계정을 진단 연결 문자열로 지정한 경우 해당 계정이 대신 사용됩니다.
