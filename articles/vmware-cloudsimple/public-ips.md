@@ -8,18 +8,18 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 12a6af73dc0abc9598184f6c83e9d7652973a99e
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 565c9ad0fbd37b026a1ba555d83b9032d2efcba4
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544449"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773793"
 ---
 # <a name="allocate-public-ip-addresses-for-private-cloud-environment"></a>사설 클라우드 환경에 대 한 공용 IP 주소 할당
 
 네트워크 페이지에서 공용 IP 탭을 열어 사설 클라우드 환경의 가상 컴퓨터에 대 한 공용 IP 주소를 할당 합니다.
 
-1. [CloudSimple 포털에 액세스](monitor-activity.md) 하 고 측면 메뉴에서 **네트워크** 를 선택 합니다.
+1. [CloudSimple 포털에 액세스](access-cloudsimple-portal.md) 하 고 측면 메뉴에서 **네트워크** 를 선택 합니다.
 2. **공용 ip**를 선택 합니다.
 3. **새 공용 IP**를 클릭 합니다.
 

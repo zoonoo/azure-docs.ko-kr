@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 290af605525d552e73c5f3a7a961593689326946
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1e9c3556d904dd961a2b8f99f84983c35ccf5c6a
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60467683"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772272"
 ---
 # <a name="make-resources-more-secure-with-azure-advisor"></a>Azure Advisor로 리소스를 보다 안전하게 만들기
 
@@ -38,7 +38,7 @@ Azure Advisor는 모든 Azure 리소스에 대한 권장 사항을 일관되고 
 Advisor 권장 사항에 대한 자세한 내용은 다음을 참조하세요.
 * [Advisor 소개](advisor-overview.md)
 * [Advisor 시작](advisor-get-started.md)
-* [Advisor 비용 권장 사항](advisor-performance-recommendations.md)
+* [Advisor 비용 권장 사항](advisor-cost-recommendations.md)
 * [Advisor 성능 권장 사항](advisor-performance-recommendations.md)
 * [Advisor 고가용성 권장 사항](advisor-high-availability-recommendations.md)
 

@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: victorh
-ms.openlocfilehash: 1a62a4d5f06856ca0fe6356ca388047679097e3f
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: ccc418cd3af14c0468ab8d669ad2e2e11a0b6d57
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68004467"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772265"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>DNS 영역 및 레코드 개요
 
@@ -30,7 +30,7 @@ ms.locfileid: "68004467"
 
 Domain Name System은 도메인 계층 구조입니다. 계층 구조는 이름이 단순히 ' **.** '인 'root' 도메인에서 시작합니다.  그 아래에 'com', 'net', 'org', 'uk' 또는 'jp'와 같은 최상위 도메인이 있습니다.  그 아래에 'org.uk' 또는 'co.jp'와 같은 두 번째 수준의 도메인이 있는 DNS 계층 구조의 도메인은 전체적으로 분산되며 전 세계의 DNS 이름 서버에서 호스팅됩니다.
 
-도메인 이름 등록 기관은 'contoso.com'과 같은 도메인 이름을 구입할 수 있는 조직입니다.  도메인 이름을 구입할 경우 해당 이름 하의 DNS 계층 구조를 관리할 수 있습니다. 예를 들어, 'www.contoso.com'이라는 이름을 회사 웹 사이트에 사용할 수 있습니다. 등록 기관은 사용자 대신 자체 이름 서버에 도메인을 호스트하거나 사용자가 다른 이름 서버를 지정할 수 있습니다.
+도메인 이름 등록 기관은 'contoso.com'과 같은 도메인 이름을 구입할 수 있는 조직입니다.  도메인 이름을 구매 하면 이름을 www.contoso.com으로 지정할 수 있습니다. 예를 들어 회사 웹 사이트로 이름을 지정할 수 있습니다. 등록 기관은 사용자 대신 자체 이름 서버에 도메인을 호스트하거나 사용자가 다른 이름 서버를 지정할 수 있습니다.
 
 Azure DNS는 전 세계적으로 분산된 고가용성 이름 서버 인프라를 제공하므로 조직은 이러한 인프라를 사용하여 도메인을 호스팅할 수 있습니다. Azure에 도메인을 호스팅하면 다른 Azure 서비스와 동일한 자격 증명, API, 도구 및 대금 청구를 사용하여 DNS 레코드를 관리할 수 있습니다.
 

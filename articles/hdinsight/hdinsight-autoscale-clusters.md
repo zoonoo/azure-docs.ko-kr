@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: 333eecb11f0bd20c747bc44419fea26765f886c5
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: f7e34d2bbad5f5d8e6b063269b7e87c314fdce90
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69509118"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70770694"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Azure HDInsight 클러스터 크기 자동 조정 (미리 보기)
 
@@ -31,7 +31,7 @@ Azure HDInsight의 클러스터 자동 크기 조정 기능은 클러스터의 �
 | HDInsight 3.6 (ESP 제외) | 예 | 예 | 아니오 | 아니요 | 아니요 | 아니요 | 아니요 |
 | HDInsight 4.0 (ESP 제외) | 예 | 예 | 아니오 | 아니요 | 아니요 | 아니요 | 아니요 |
 | HDInsight 3.6 및 ESP | 예 | 예 | 아니오 | 아니요 | 아니요 | 아니요 | 아니요 |
-| HDInsight 3.6 및 ESP | 예 | 예 | 아니오 | 아니요 | 아니요 | 아니요 | 아니요 |
+| HDInsight 4.0 및 ESP | 예 | 예 | 아니오 | 아니요 | 아니요 | 아니요 | 아니요 |
 
 ## <a name="how-it-works"></a>작동 방법
 
@@ -241,7 +241,7 @@ Azure Portal에 나열 된 클러스터 상태를 통해 자동 크기 조정 �
 | 업데이트하는 중  | 클러스터 자동 크기 조정 구성을 업데이트 하 고 있습니다.  |
 | HDInsight 구성  | 클러스터 확장 또는 축소 작업이 진행 중입니다.  |
 | 업데이트 오류  | HDInsight에서 자동 크기 조정 구성 업데이트 중에 문제가 발생 했습니다. 고객은 업데이트를 다시 시도 하거나 자동 크기 조정을 사용 하지 않도록 선택할 수 있습니다.  |
-| Error  | 클러스터에 문제가 있어 사용할 수 없습니다. 이 클러스터를 삭제 하 고 새 클러스터를 만듭니다.  |
+| 오류  | 클러스터에 문제가 있어 사용할 수 없습니다. 이 클러스터를 삭제 하 고 새 클러스터를 만듭니다.  |
 
 클러스터의 현재 노드 수를 보려면 클러스터의 **개요** 페이지에서 **클러스터 크기** 차트로 이동 하거나 **설정**아래에서 **클러스터 크기** 를 클릭 합니다.
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 22cf2be8eaed47a9440c6798acfb4383bd84c916
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: cf36c233df9f8aaf76333b0add8b1ffce869156b
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611708"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773242"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - 지리적 재해 복구 
 
@@ -110,13 +110,19 @@ Azure Event Hubs의 지역 재해 복구 기능은 재해 복구 솔루션입니
 
 이 릴리스에서 고려할 다음과 같은 고려 사항에 유의하세요.
 
-1. 장애 조치 계획에서 시간 요소를 고려해야 합니다. 예를 들어 15~20분이 넘게 연결이 손실된 경우 장애 조치를 시작하기로 결정할 수 있습니다. 
+1. Event Hubs 기본적으로 지역 재해 복구는 데이터를 복제 하지 않으므로 보조 이벤트 허브에서 기본 이벤트 허브의 이전 오프셋 값을 다시 사용할 수 없습니다. 다음 중 하나를 사용 하 여 이벤트 수신기를 다시 시작 하는 것이 좋습니다.
+
+- *Eventposition. FromStart ()* -보조 이벤트 허브의 모든 데이터를 읽도록 합니다.
+- *FromEnd ()* -보조 이벤트 허브에 연결 된 시간부터 모든 새 데이터를 읽으려고 합니다.
+- *FromEnqueuedTime (dateTime)* -지정 된 날짜 및 시간에서 시작 하 여 보조 이벤트 허브에서 받은 모든 데이터를 읽으려고 합니다.
+
+2. 장애 조치 계획에서 시간 요소를 고려해야 합니다. 예를 들어 15~20분이 넘게 연결이 손실된 경우 장애 조치를 시작하기로 결정할 수 있습니다. 
  
-2. 데이터가 복제되지 않으면 현재 활성 세션이 복제되지 않습니다. 또한 중복 검색 및 예약된 메시지가 작동하지 않을 수 있습니다. 새 세션, 예약된 메시지 및 새 중복이 작동합니다. 
+3. 데이터가 복제되지 않으면 현재 활성 세션이 복제되지 않습니다. 또한 중복 검색 및 예약된 메시지가 작동하지 않을 수 있습니다. 새 세션, 예약된 메시지 및 새 중복이 작동합니다. 
 
-3. 복잡한 분산 인프라를 장애 조치하려면 한 번 이상 [예행 연습](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan)을 수행해야 합니다. 
+4. 복잡한 분산 인프라를 장애 조치하려면 한 번 이상 [예행 연습](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan)을 수행해야 합니다. 
 
-4. 엔터티를 동기화하는 데 분당 약 50~100개의 엔터티를 처리하므로 다소 시간이 걸릴 수 있습니다.
+5. 엔터티를 동기화하는 데 분당 약 50~100개의 엔터티를 처리하므로 다소 시간이 걸릴 수 있습니다.
 
 ## <a name="availability-zones"></a>가용성 영역 
 

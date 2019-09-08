@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 8/14/2019
 ms.author: borisb
-ms.openlocfilehash: accc59ee31ddb7371774da3235cc9ccff24ad641
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: c11ce31913baa8c638e94bdf92ef622cd8899e03
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309217"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70764314"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Azure의 Red Hat Enterprise Linux 이미지
 이 문서에서는 명명 및 보존 정책에 대한 정책과 함께 Azure Marketplace에서 사용할 수 있는 RHEL(Red Hat Enterprise Linux) 이미지를 설명합니다.
@@ -106,7 +106,7 @@ RedHat:RHEL:7.4:7.4.2019041718
 RHEL 7.4      |RedHat:RHEL:7.4:7.4.2019041718 | 4 월 2019 일에 게시 된 이미지는 기본적으로 EUS입니다.|
 RHEL 7.5      |RedHat:RHEL:7.5:7.5.2019060305 | 6 월 2019 일 이후 게시 된 이미지는 기본적으로 EUS입니다. |
 RHEL 7.6      |RedHat:RHEL:7.6:7.6.2019052206 | 2019 이상 게시 된 이미지는 기본적으로 EUS입니다.  |
-RHEL 8.0      |해당 사항 없음                            | Red Hat에서 제공 되는 EUS 없음                               |
+RHEL 8.0      |N/A                            | Red Hat에서 제공 되는 EUS 없음                               |
 
 
 ## <a name="list-of-rhel-images-available"></a>사용할 수 있는 RHEL 이미지 목록
@@ -114,18 +114,19 @@ RHEL 8.0      |해당 사항 없음                            | Red Hat에서 �
 
 제공| SKU | 분할 | 프로비전 | 참고
 :----|:----|:-------------|:-------------|:-----
-RHEL          | 7-RAW    | RAW    | Linux 에이전트 | RHEL 7 이미지 패밀리입니다. <br> 기본적으로 EUS 리포지토리에 연결 되지 않습니다.
-|             | 7-LVM    | LVM    | Linux 에이전트 | RHEL 7 이미지 패밀리입니다. <br> 기본적으로 EUS 리포지토리에 연결 되지 않습니다.
-|             | 7-RAW-CI | RAW-CI | Cloud-init  | RHEL 7 이미지 패밀리입니다. <br> 기본적으로 EUS 리포지토리에 연결 되지 않습니다.
-|             | 6.7      | RAW    | Linux 에이전트 | RHEL 6.7 이미지, 이전 명명 규칙
-|             | 6.8      | RAW    | Linux 에이전트 | RHEL 6.8에 대해 위와 동일
-|             | 6.9      | RAW    | Linux 에이전트 | RHEL 6.9에 대해 위와 동일
-|             | 6.10     | RAW    | Linux 에이전트 | RHEL 6.10에 대해 위와 동일
-|             | 7.2      | RAW    | Linux 에이전트 | RHEL 7.2에 대해 위와 동일
-|             | 7.3      | RAW    | Linux 에이전트 | RHEL 7.3에 대해 위와 동일
-|             | 7.4      | RAW    | Linux 에이전트 | RHEL 7.4의 경우 위와 동일 합니다. <br> 기본적으로 4 월 2019 일 기준으로 EUS 리포지토리에 연결 됨
-|             | 7.5      | RAW    | Linux 에이전트 | RHEL 7.5의 경우 위와 동일 합니다. <br> 기본적으로 EUS 리포지토리에 연결 됩니다 (6 월 2019 기준).
-|             | 7.6      | RAW    | Linux 에이전트 | RHEL 7.6의 경우 위와 동일 합니다. <br> 2019 년 5 월 기본으로 EUS 리포지토리에 연결 됨
+RHEL          | 7-RAW    | RAW    | Linux 에이전트 | RHEL 7.x 이미지 제품군 <br> 기본적으로 EUS 리포지토리에 연결 되지 않습니다.
+|             | 7-LVM    | LVM    | Linux 에이전트 | RHEL 7.x 이미지 제품군 <br> 기본적으로 EUS 리포지토리에 연결 되지 않습니다.
+|             | 7-RAW-CI | RAW-CI | Cloud-init  | RHEL 7.x 이미지 제품군 <br> 기본적으로 EUS 리포지토리에 연결 되지 않습니다.
+|             | 6.7      | RAW    | Linux 에이전트 |
+|             | 6.8      | RAW    | Linux 에이전트 |
+|             | 6.9      | RAW    | Linux 에이전트 |
+|             | 6.10     | RAW    | Linux 에이전트 |
+|             | 7.2      | RAW    | Linux 에이전트 |
+|             | 7.3      | RAW    | Linux 에이전트 |
+|             | 7.4      | RAW    | Linux 에이전트 | 2019 년 4 월 기준으로 기본적으로 EUS 리포지토리에 연결 됩니다.
+|             | 7.5      | RAW    | Linux 에이전트 | 기본적으로 EUS 리포지토리에 연결 됩니다. 6 월 2019을 기준으로 합니다.
+|             | 7.6      | RAW    | Linux 에이전트 | 2019 년 5 월에 기본적으로 EUS 리포지토리에 연결 됩니다.
+|             | 7.7      | LVM    | Linux 에이전트 | 기본적으로 EUS 리포지토리에 연결 됩니다.
 RHEL-SAP      | 7.4      | LVM    | Linux 에이전트 | SAP HANA 및 비즈니스 앱용 RHEL 7.4
 |             | 7.5      | LVM    | Linux 에이전트 | SAP HANA 및 비즈니스 앱용 RHEL 7.5
 RHEL-SAP-HANA | 6.7      | RAW    | Linux 에이전트 | SAP HANA용 RHEL 6.7

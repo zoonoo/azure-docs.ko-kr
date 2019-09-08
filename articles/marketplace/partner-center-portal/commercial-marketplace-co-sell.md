@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 8524a315228601adbb30a5def383f7b54a8f1495
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: f021ac0a7c9c46592f7969dd0df10f76aec88cb7
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70076109"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773231"
 ---
 # <a name="co-sell-option-in-partner-center"></a>파트너 센터의 공동 판매 옵션
 
@@ -47,10 +47,10 @@ ms.locfileid: "70076109"
 
 | **문서**    | **설명**  |
 | :------------------- | :-------------------|
-| *고객 1-호출기* | 제품에 대 한 고객 지원 설명입니다. Microsoft 영업 팀은이 정보를 고객과 공유 하 여 제품이 적절 한지 여부를 확인 하 고 고객의 준비를 보장할 수 있습니다. <br> <br> 아래와 관련 된 템플릿 중 하나를 사용 합니다. <br> <ul> <li> [Microsoft Azure one 페이저 템플릿](https://aka.ms/Customer-One-Pager_MicrosoftAzure) </li> <li> [Microsoft Dynamics 365 1-페이저 템플릿](https://aka.ms/Customer-One-Pager_MicrosoftDynamics365) </li> <li> [Office 365 1-페이저 템플릿](https://aka.ms/Customer-One-Pager_MicrosoftOffice365) </li> <li> [Windows 10 1-페이저 템플릿](https://aka.ms/Customer-One-Pager_Windows) </li> </ul>
+| *고객 1-호출기* | 제품에 대 한 고객 지원 설명입니다. Microsoft 영업 팀은이 정보를 고객과 공유 하 여 제품이 적절 한지 여부를 확인 하 고 고객의 준비를 보장할 수 있습니다. <br> <br> 파트너 센터에서 사용할 수 있는 관련 템플릿 중 하나를 사용 합니다. <br> <ul> <li> Microsoft Azure one 페이저 템플릿 </li> <li> Microsoft Dynamics 365 1-페이저 템플릿 </li> <li> Office 365 1-페이저 템플릿 </li> <li> Windows 10 1-페이저 템플릿 </li> </ul>
  |
-| *고객 프레젠테이션* | 슬라이드 데크를 통해 솔루션 및 가치 제안을 피치 합니다. 제품을 고객에 게 제공 하는 것을 확인 한 후 Microsoft 영업 팀은 고객과 프레젠테이션을 공유 하 여 공동 솔루션을 배포할 때 두 회사가 가져오는 가치를 분명히 할 수 있습니다. 프레젠테이션은 솔루션이 수행 하는 작업, 고객이 지원 하는 방법, 솔루션의 대상 산업 및 경쟁 솔루션과 비교 하는 방법을 설명 해야 합니다. <br> <br> 자세한 내용은 [고객 프레젠테이션 템플릿](https://aka.ms/GTMServices_CustomerPresentation)을 참조 하세요.|
-| *고객 사례 연구* | 이 정보는 잠재적 고객 및 Microsoft가 이전 사례에서이 솔루션을 성공적으로 배포한 방법을 보여 줍니다. <br> <br> 자세한 내용은 [사례 연구 템플릿](https://aka.ms/GTM_Case_Study_Template)을 참조 하세요. |
+| *고객 프레젠테이션* | 슬라이드 데크를 통해 솔루션 및 가치 제안을 피치 합니다. 제품을 고객에 게 제공 하는 것을 확인 한 후 Microsoft 영업 팀은 고객과 프레젠테이션을 공유 하 여 공동 솔루션을 배포할 때 두 회사가 가져오는 가치를 분명히 할 수 있습니다. 프레젠테이션은 솔루션이 수행 하는 작업, 고객이 지원 하는 방법, 솔루션의 대상 산업 및 경쟁 솔루션과 비교 하는 방법을 설명 해야 합니다. <br> <br> 파트너 센터에서 사용할 수 있는 템플릿을 사용 합니다.|
+| *고객 사례 연구* | 이 정보는 잠재적 고객 및 Microsoft가 이전 사례에서이 솔루션을 성공적으로 배포한 방법을 보여 줍니다. <br> <br> 파트너 센터에서 사용할 수 있는 템플릿을 사용 합니다. |
 | *안정형 고객 승리 (옵션)* | 솔루션이 배포 된 후 고객 성공의 구체적인 예입니다. |
 | *채널 피치 데크 (선택 사항)* | 채널 재판매인이 솔루션에 대 한 자세한 정보를 제공 하 고 제품을 판매 하는 영업 팀을 준비 하는 데 도움이 되는 정보가 포함 된 슬라이드 데크입니다. 일반적으로 엘리베이터 피치, 대상 고객에 대 한 정보, 고객에 게 요청 하는 질문, 통신 점수, 비디오, 설명서 및 지원 정보에 대 한 링크를 포함 합니다. |
 | *참조 아키텍처 다이어그램* | Microsoft 클라우드 서비스와의 관계와 함께 파트너가 만든 IP를 나타내는 모델 및 IP 공동 판매 프로그램의 기술 요구 사항을 충족 하는 방법을 보여 주는 문서입니다. |

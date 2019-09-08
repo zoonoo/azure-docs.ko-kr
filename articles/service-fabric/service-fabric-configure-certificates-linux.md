@@ -11,14 +11,14 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/26/2018
+ms.date: 09/06/2019
 ms.author: chackdan
-ms.openlocfilehash: 3816fb56b806029d7a23b67741197e32de6a6ff3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 9599d59f7f23de4e54ce323aa4a2ad837d8ed074
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103000"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773266"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Linux 클러스터의 인증서 및 보안
 
@@ -30,7 +30,7 @@ Service Fabric은 일반적으로 X.509 인증서가 Linux 클러스터 노드�
 
 Linux 클러스터의 경우 Service Fabric은 인증서가 인증서와 프라이빗 키를 포함하는 .pem 파일 또는 인증서를 포함하는 .crt 파일 및 프라이빗 키를 포함하는 .key 파일로 존재할 것으로 예상합니다. 모든 파일은 PEM 형식이어야 합니다. 
 
-[Resource Manager 템플릿](./service-fabric-cluster-creation-create-template.md) 또는 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/?view=latest#service_fabric) 명령을 사용하여 Azure Key Vault에서 인증서를 설치하는 경우 인증서는 각 노드의 */var/ lib/sfcerts* 디렉터리에 올바른 형식으로 설치됩니다. 다른 방법을 통해 인증서를 설치하는 경우 클러스터 노드에 인증서가 올바르게 설치되어 있는지 확인해야 합니다.
+[Resource Manager 템플릿](./service-fabric-cluster-creation-create-template.md) 또는 [PowerShell](https://docs.microsoft.com/powershell/module/az.servicefabric/?view=azps-2.6.0) 명령을 사용하여 Azure Key Vault에서 인증서를 설치하는 경우 인증서는 각 노드의 */var/ lib/sfcerts* 디렉터리에 올바른 형식으로 설치됩니다. 다른 방법을 통해 인증서를 설치하는 경우 클러스터 노드에 인증서가 올바르게 설치되어 있는지 확인해야 합니다.
 
 ## <a name="certificates-referenced-in-the-application-manifest"></a>애플리케이션 매니페스트에서 참조되는 인증서
 

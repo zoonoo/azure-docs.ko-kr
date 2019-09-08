@@ -8,12 +8,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: glenga
-ms.openlocfilehash: 10c356afc235494b00777561259190ae78b65482
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: ebc900735dfbb25206c4b22e3d20da62d85c61df
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905673"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773153"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Visual Studio를 사용하여 Azure Functions 개발  
 
@@ -41,6 +41,8 @@ Azure Storage 계정과 같이 필요한 다른 리소스는 게시 프로세스
 
 > [!NOTE]
 > Visual Studio 2017에서 Azure 개발 워크 로드는 Azure Functions 도구를 별도의 확장으로 설치 합니다. Visual Studio 2017를 업데이트할 때 [최신 버전](#check-your-tools-version) 의 Azure Functions 도구를 사용 하 고 있는지도 확인 합니다. 다음 섹션에서는 Visual Studio 2017에서 Azure Functions 도구 확장을 확인 하 고 필요한 경우 업데이트 하는 방법을 보여 줍니다. 
+>
+> Visual Studio 2019을 사용 하는 경우이 섹션을 건너 뛰 세요.
 
 ### <a name="check-your-tools-version"></a>Visual Studio 2017에서 도구 버전 확인
 
@@ -96,7 +98,7 @@ Visual Studio 2019 이상에서 Azure Functions 도구 확장은 Visual Studio�
 
 스토리지 계정 연결 문자열을 설정하려면 다음을 수행합니다.
 
-1.  > Visual Studio에서 **클라우드 탐색기**열고 저장소 계정**저장소**계정을 확장 한 다음 **속성** 탭에서 **기본 연결 문자열** 값을 복사 합니다.
+1. Visual Studio에서 **클라우드 탐색기**열고 저장소 계정**저장소**계정 **을 확장** > 한 다음 **속성** 탭에서 **기본 연결 문자열** 값을 복사 합니다.
 
 2. 사용자 프로젝트에서 local.settings.json 파일을 열고 **AzureWebJobsStorage** 키의 값을 복사한 연결 문자열로 설정합니다.
 
@@ -146,7 +148,7 @@ Visual Studio 2019 이상에서 Azure Functions 도구 확장은 Visual Studio�
 
 트리거와 마찬가지로 입력 및 출력 바인딩이 바인딩 특성으로 함수에 추가됩니다. 다음과 같이 함수에 바인딩을 추가합니다.
 
-1. [로컬 개발에 대한 프로젝트를 구성](#configure-the-project-for-local-development)했는지 확인합니다.
+1. [로컬 개발에 대 한 프로젝트를 구성](#configure-the-project-for-local-development)했는지 확인 합니다.
 
 2. 특정 바인딩에 대한 적절한 NuGet 확장 패키지를 추가합니다. 자세한 내용은 트리거 및 바인딩 문서의 [Visual Studio를 사용하여 로컬 C# 개발](./functions-bindings-register.md#local-csharp)을 참조하세요. 바인딩에 대한 참조 문서에 바인딩 전용 NuGet 패키지 요구 사항이 있습니다. 예를 들어 [Event Hubs 바인딩 참조 문서](functions-bindings-event-hubs.md)에서 Event Hubs 트리거에 대한 패키지 요구 사항을 찾습니다.
 
@@ -199,7 +201,7 @@ Visual Studio에서 게시 하는 경우 다음 두 가지 배포 방법 중 하
 
 ## <a name="function-app-settings"></a>함수 앱 설정
 
-local.settings.json에서 추가한 모든 설정을 Azure의 함수 앱에도 추가해야 합니다. 이러한 설정은 프로젝트를 게시할 때 자동으로 업로드되지 않습니다.
+local.settings.json에서 추가한 모든 설정을 Azure의 함수 앱에도 추가해야 합니다. 이러한 설정은 프로젝트를 게시할 때 자동으로 업로드 되지 않습니다.
 
 Azure에서 함수 앱에 필요한 설정을 업로드하는 가장 쉬운 방법은 프로젝트를 성공적으로 게시한 후에 표시되는 **애플리케이션 설정 관리...** 링크를 사용하는 것입니다.
 

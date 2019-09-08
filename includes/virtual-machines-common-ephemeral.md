@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 0e59a28ce1fb3c562bf76420a5e62e347230e964
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: c3a7fb14dbd22730d95a5aaed146b59ad790ce6b
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68669751"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70775874"
 ---
 삭제 된 OS 디스크는 로컬 VM (가상 컴퓨터) 저장소에 생성 되며 원격 Azure Storage에 저장 되지 않습니다. 사용 후 삭제 OS 디스크는 응용 프로그램이 개별 VM 오류를 허용 하는 상태 비저장 워크 로드에서 잘 작동 하지만 VM 배포 시간 또는 개별 VM 인스턴스 이미지로 다시 설치에 더 많은 영향을 줍니다. 사용 후 삭제 OS 디스크를 사용 하는 경우 OS 디스크에 대 한 읽기/쓰기 대기 시간 및 더 빠른 VM 이미지로 다시 설치 됩니다. 
  
@@ -175,7 +175,7 @@ Azure Portal에서 **디스크** 탭의 **고급** 섹션을 열어 VM을 배포
 
 
 ## <a name="reimage-a-vm-using-rest"></a>REST를 사용 하 여 VM 이미지로 다시 설치
-현재 사용 후 삭제 OS 디스크를 사용 하 여 가상 컴퓨터 인스턴스를 이미지로 다시 설치 하는 유일한 방법은 REST API를 사용 하는 것입니다. 확장 집합의 경우 Powershell, CLI 및 포털을 통해 이미지로 다시 설치를 이미 사용할 수 있습니다.
+아래에 설명 된 대로 REST API를 사용 하 고 VM의 개요 창으로 이동 하 여 Azure Portal을 통해 사용 후 삭제 OS 디스크를 사용 하 여 가상 머신 인스턴스를 이미지로 다시 설치할 수 있습니다. 확장 집합의 경우 Powershell, CLI 및 포털을 통해 이미지로 다시 설치를 이미 사용할 수 있습니다.
 
 ```
 POST https://management.azure.com/subscriptions/{sub-

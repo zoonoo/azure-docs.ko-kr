@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: 618f118ceedb7d55caefc5e2bebceb08c1d732ac
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: fa1aa8c560f4b9cc48c7a6a761abe4d69d5d0265
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018179"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773165"
 ---
 # <a name="control-access-to-iot-hub"></a>IoT Hub에 대한 액세스 제어
 
@@ -134,7 +134,7 @@ IoT Hub는 네트워크에서 토큰이 전송되는 것을 피하기 위해 보
 
 다음은 예상 값입니다.
 
-| 값 | Description |
+| 값 | 설명 |
 | --- | --- |
 | {signature} |형식의 HMAC-SHA256 서명 문자열은 `{URL-encoded-resourceURI} + "\n" + expiry`입니다. **중요**: 키는 base64에서 디코딩되며 HMAC-SHA256 계산을 수행하는 데 키로 사용됩니다. |
 | {resourceURI} |이 토큰으로 액세스할 수 있는 엔드포인트의 URI 접두사(세그먼트별)이며 IoT Hub의 호스트 이름으로 시작합니다(프로토콜 없음). 예를 들면 `myHub.azure-devices.net/devices/device1` |
@@ -363,7 +363,7 @@ var token = generateSasToken(endpoint, policyKey, policyName, 60);
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>디바이스에 대해 X.509 인증서 등록
 
-[C#용 Azure IoT 서비스 SDK](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service)(버전 1.0.8 이상)는 인증에 X.509 인증서를 사용하는 디바이스의 등록을 지원합니다. 디바이스 가져오기/내보내기 같은 기타 API에서도 X.509 인증서를 지원합니다.
+[C#용 Azure IoT 서비스 SDK](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/service)(버전 1.0.8 이상)는 인증에 X.509 인증서를 사용하는 디바이스의 등록을 지원합니다. 디바이스 가져오기/내보내기 같은 기타 API에서도 X.509 인증서를 지원합니다.
 
 CLI 확장 명령 [az iot hub device-identity](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest)를 사용하여 디바이스에 대한 X.509 인증서를 구성할 수도 있습니다.
 
@@ -390,7 +390,7 @@ await registryManager.AddDeviceAsync(device);
 
 ### <a name="use-an-x509-certificate-during-run-time-operations"></a>런타임 작업 중에 X.509 인증서 사용
 
-[.NET용 Azure IoT 디바이스 SDK](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device)(버전 1.0.11 이상)는 X.509 인증서의 사용을 지원합니다.
+[.NET용 Azure IoT 디바이스 SDK](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device)(버전 1.0.11 이상)는 X.509 인증서의 사용을 지원합니다.
 
 ### <a name="c-support"></a>C\# 지원
 

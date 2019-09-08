@@ -14,12 +14,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 07/16/2019
 ms.author: shvija
-ms.openlocfilehash: 013200295f3a6a48d6d96663f98bce506808cd70
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 312800482405530d57ce7b0b1e77b91c2ad069ce
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277365"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772153"
 ---
 # <a name="event-processor-host"></a>이벤트 프로세서 호스트
 
@@ -184,6 +184,10 @@ Epoch를 사용 하 여 수신기를 만든 다음 동일한 소비자 그룹에
 - Epoch e1을 사용 하 여 이미 생성 된 수신기가 있고 적극적으로 이벤트를 받고 새 받는 사람이 epoch를 사용 하지 않고 생성 된 경우 새 받는 사람 만들기가 실패 합니다. Epoch 수신기는 항상 시스템에서 우선 적용 됩니다.
 - 이미 epoch e1을 사용 하 여 만든 수신기가 있고 새 MessagingFactory에 epoch를 사용 하지 않고 새 수신자를 만든 경우 새 수신자 만들기가 성공 합니다. 여기서는 시스템에서 10 분 후에 "받는 사람 연결 끊김"을 감지 한다는 주의 사항이 있습니다.
 - Epoch를 사용 하지 않고 만든 수신기가 하나 이상 있고 epoch e1을 사용 하 여 새 수신자를 만든 경우 모든 이전 수신기의 연결이 끊어집니다.
+
+
+> [!NOTE]
+> Epoch를 사용 하는 응용 프로그램 및 epoch를 사용 하지 않는 응용 프로그램에 대해 서로 다른 소비자 그룹을 사용 하 여 오류를 방지 하는 것이 좋습니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

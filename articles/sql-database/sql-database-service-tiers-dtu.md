@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 06/25/2019
-ms.openlocfilehash: c46913f24deffc7c4db95d8a77db1c49ae54b6ae
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 09/06/2019
+ms.openlocfilehash: 03f16987941f79f9161ccbc172bb2ca1a7139384
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566683"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773201"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>DTU 기반 구매 모델에서 서비스 계층
 
@@ -37,10 +37,10 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 |작동 시간 SLA|99.99%|99.99%|99.99%|
 |백업 보존|7일|35일|35일|
 |CPU|낮음|낮음, 보통, 높음|보통, 높음|
-|IO 처리량(근사치) |DTU당 2.5 IOPS| DTU당 2.5 IOPS | DTU당 48 IOPS|
+|IO 처리량(근사치) |DTU 당 1-5 IOPS| DTU 당 1-5 IOPS | DTU 당 25iops|
 |IO 대기 시간(근사치)|5ms(읽기), 10ms(쓰기)|5ms(읽기), 10ms(쓰기)|2ms(읽기/쓰기)|
-|Columnstore 인덱싱 |N/A|S3 이상|지원됨|
-|메모리 내 OLTP|해당 사항 없음|해당 사항 없음|지원됨|
+|Columnstore 인덱싱 |해당 사항 없음|S3 이상|지원됨|
+|메모리 내 OLTP|N/A|해당 사항 없음|지원됨|
 |||||
 
 > [!NOTE]
@@ -71,7 +71,7 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 |||||
 
 > [!IMPORTANT]
-> 현재 다음 지역을 제외한 모든 지역에서 프리미엄 계층의 스토리지 1TB 이상을 사용할 수 있습니다. 중국 동부, 중국 북부, 독일 중부, 독일 북동부, 미국 중서부, 미국 DoD 지역 및 미국 중앙 정부 이러한 지역에서 프리미엄 계층 스토리지 최대 크기는 1TB로 제한됩니다.  자세한 내용은 [P11-P15 현재 제한 사항](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb)을 참조하세요.  
+> 현재 다음 지역을 제외한 모든 지역에서 프리미엄 계층의 스토리지 1TB 이상을 사용할 수 있습니다. 중국 동부, 중국 북부, 독일 중부, 독일 북동부, 미국 중서부, 미국 DoD 지역 및 미국 중앙 정부 이러한 지역에서 프리미엄 계층 저장소 최대 크기는 1TB로 제한됩니다.  자세한 내용은 [P11-P15 현재 제한 사항](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb)을 참조하세요.  
 > [!IMPORTANT]
 > 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database의 파일 공간 관리](sql-database-file-space-management.md)를 참조하세요.
 

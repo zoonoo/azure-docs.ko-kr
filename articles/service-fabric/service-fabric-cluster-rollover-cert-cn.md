@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric 클러스터 인증서 롤오버 | Microsoft Docs
-description: 인증서 일반 이름으로 식별된 Service Fabric 클러스터 인증서를 롤오버하는 방법을 알아봅니다.
+description: 인증서 일반 이름으로 식별 되는 Service Fabric 클러스터 인증서를 롤오버 하는 방법에 대해 알아봅니다.
 services: service-fabric
 documentationcenter: .net
 author: athinanthny
@@ -11,14 +11,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/24/2018
+ms.date: 09/06/2019
 ms.author: atsenthi
-ms.openlocfilehash: 5d11054ca8eb684f1f25a25ddeac1b53e82b3775
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: d6ead6aaa5d4c0e864126bf63d4cc0e9339464f2
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599909"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773362"
 ---
 # <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Service Fabric 클러스터 인증서를 수동으로 롤오버
 Service Fabric 클러스터 인증서가 만료될 시간이 다가오면 인증서를 업데이트해야 합니다.  클러스터가 지문 대신 [일반 이름을 기준으로 인증서를 사용하도록 설정](service-fabric-cluster-change-cert-thumbprint-to-cn.md)된 경우 인증서를 롤오버하는 방법은 간단합니다.  인증 기관에서 새 만료 날짜와 함께 새 인증서를 얻습니다.  자체 서명된 인증서를 사용하면 프로덕션 Service Fabric 클러스터가 Azure Portal 클러스터 만들기 워크플로 중에 생성된 인증서를 포함하는 기능이 지원되지 않습니다. 새 인증서의 일반 이름이 이전 인증서와 동일해야 합니다. 
@@ -53,7 +53,7 @@ $resourceId = $keyVault.ResourceId
 
 # Add the certificate to the key vault.
 $PasswordSec = ConvertTo-SecureString -String $Password -AsPlainText -Force
-$KVSecret = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certName  -FilePath $certFilename -Password $PasswordSec
+$KVSecret = Import-AzKeyVaultCertificate -VaultName $vaultName -Name $certName  -FilePath $certFilename -Password $PasswordSec
 
 $CertificateThumbprint = $KVSecret.Thumbprint
 $CertificateURL = $KVSecret.SecretId
@@ -83,7 +83,7 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -Virtual
 >[!NOTE]
 > Computes Virtual Machine Scale Set Secrets에서는 두 개의 개별 비밀에 같은 리소스 ID를 사용할 수 없습니다. 각 비밀은 버전이 지정된 고유한 리소스이기 때문입니다. 
 
-자세한 내용은 다음 항목을 읽어보세요.
+## <a name="next-steps"></a>다음 단계
+
 * [클러스터 보안](service-fabric-cluster-security.md)에 대해 알아보기
 * [클러스터 인증서 업데이트 및 관리](service-fabric-cluster-security-update-certs-azure.md)
-

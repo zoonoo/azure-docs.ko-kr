@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c56d469360814cb663b4c5c11689961225eebb2d
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 798f95281740213ac23892eb3b54ff780ca18395
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544670"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772338"
 ---
 # <a name="set-up-firewall-tables-and-rules-for-private-clouds"></a>사설 클라우드에 대 한 방화벽 테이블 및 규칙 설정
 
@@ -24,7 +24,7 @@ ms.locfileid: "69544670"
 
 ## <a name="add-a-new-firewall-table"></a>새 방화벽 테이블 추가
 
-1. [CloudSimple 포털에 액세스](monitor-activity.md) 하 고 측면 메뉴에서 **네트워크** 를 선택 합니다.
+1. [CloudSimple 포털에 액세스](access-cloudsimple-portal.md) 하 고 측면 메뉴에서 **네트워크** 를 선택 합니다.
 2. **방화벽 테이블**을 선택 합니다.
 3. **방화벽 테이블 만들기**를 선택 합니다.
 

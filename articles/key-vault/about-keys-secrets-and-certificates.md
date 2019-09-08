@@ -3,18 +3,18 @@ title: Azure Key Vault 키, 비밀 및 인증서 정보 - Azure Key Vault
 description: 키, 비밀 및 인증서에 대한 Azure Key Vault REST 인터페이스 및 개발자 정보의 개요입니다.
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 52a0bc1b07ebf1aed55551e37ecc122ff393c0f7
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 8ea7fc5a318775b05c03166df3d9b457ec004273
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67703909"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773121"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>키, 비밀 및 인증서 정보
 
@@ -76,7 +76,7 @@ Key Vault의 개체는 현재 식별자 또는 버전별 식별자를 사용하�
 |`keyvault-name`|Microsoft Azure Key Vault 서비스의 키 자격 증명 모음에 대한 이름입니다.<br /><br /> Key Vault 이름은 사용자가 선택하며 전역적으로 고유합니다.<br /><br /> Key Vault 이름은 0~9, a~z, A~Z 및 -만 포함된 3-24자 길이의 문자열이어야 합니다.|  
 |`object-type`|개체의 형식은 "키" 또는 "비밀"입니다.|  
 |`object-name`|`object-name`은 사용자가 제공한 이름이며 Key Vault 내에서 고유해야 합니다. 이름은 0~9, a~z, A~Z 및 -만 포함된 1-127자 길이의 문자열이어야 합니다.|  
-|`object-version`|`object-version`은 시스템에서 생성된 32자의 문자열 식별자이며, 필요에 따라 고유한 버전의 개체를 처리하는 데 사용됩니다.|  
+|`object-version`|`object-version` 는 선택적으로 사용 되는 시스템 생성 32 문자열 식별자입니다 .이 식별자는 개체의 고유 버전 주소를 지정할 수 있습니다.|  
 
 ## <a name="key-vault-keys"></a>Key Vault 키
 
@@ -85,7 +85,7 @@ Key Vault의 개체는 현재 식별자 또는 버전별 식별자를 사용하�
 Key Vault의 암호화 키는 JWK[JSON 웹 키] 개체로 표현됩니다. 또한 기본 JWK/JWA 사양을 확장하여 Key Vault 구현에 고유한 키 유형을 지원할 수 있습니다. 예를 들어 HSM 공급업체별 패키징을 사용하여 키를 가져오면 Key Vault HSM에서만 사용할 수 있는 키를 안전하게 전송할 수 있습니다.  
 
 - **“소프트” 키**: 소프트웨어에서 Key Vault를 통해 처리되지만, 사용되지 않을 때에는 HSM에 있는 시스템 키를 사용하여 암호화되는 키입니다. 클라이언트는 기존 RSA 또는 EC(타원 곡선) 키를 가져오거나 Key Vault에서 생성하도록 요청할 수 있습니다.
-- **“하드” 키**: HSM(하드웨어 보안 모듈)에서 처리되는 키입니다. 이러한 키는 Key Vault HSM 보안 권역 중 하나에서 보호됩니다(격리를 유지하기 위해 지역별로 보안 권역이 하나씩 있음). 클라이언트는 소프트 형식으로 또는 호환되는 HSM 디바이스에서 내보내는 방식으로 RSA 또는 EC 키를 가져올 수 있습니다. 클라이언트는 Key Vault에 키를 생성하라고 요청할 수도 있습니다. 이 키 유형은 HSM 키 자료를 전송하기 위해 가져오는 JWK에 T 특성을 추가합니다.
+- **“하드” 키**: HSM(하드웨어 보안 모듈)에서 처리되는 키입니다. 이러한 키는 Key Vault HSM 보안 권역 중 하나에서 보호됩니다(격리를 유지하기 위해 지역별로 보안 권역이 하나씩 있음). 클라이언트는 소프트 형식으로 또는 호환되는 HSM 디바이스에서 내보내는 방식으로 RSA 또는 EC 키를 가져올 수 있습니다. 클라이언트는 Key Vault에 키를 생성하라고 요청할 수도 있습니다. 이 키 유형은 key_hsm 특성을 JWK 가져오기에 추가 하 여 HSM 키 자료를 전달 합니다.
 
      지리적 경계에 대한 자세한 내용은 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/privacy/)를 참조하세요.  
 
@@ -198,7 +198,7 @@ IntDate 및 기타 데이터 형식에 대한 자세한 내용은 [데이터 형
 
 Key Vault에서 관리하는 키에 대한 액세스 제어는 키 컨테이너 역할을 하는 Key Vault 수준에서 제공됩니다. 키에 대한 액세스 제어 정책은 동일한 Key Vault의 비밀에 대한 액세스 제어 정책과 다릅니다. 사용자는 키를 보관할 하나 이상의 자격 증명 모음을 만들 수 있으며, 시나리오에 따라 키를 적절하게 세분화하고 관리해야 합니다. 키 액세스 제어는 비밀 액세스 제어와 무관합니다.  
 
-자격 증명 모음의 키 액세스 제어 항목에 대해 사용자/서비스 사용자별로 부여할 수 있는 권한은 다음과 같습니다. 이러한 권한은 키 개체에 허용 되는 작업을 밀접 하 게 반영 합니다.  서비스 사용자 키 자격 증명 모음에 대 한 액세스 권한을 부여 하는 일회성 작업 및 모든 Azure 구독에 대 한 동일한 상태로 유지 됩니다. 원하는 만큼 많은 인증서를 배포 하 고 사용할 수 있습니다. 
+자격 증명 모음의 키 액세스 제어 항목에 대해 사용자/서비스 사용자별로 부여할 수 있는 권한은 다음과 같습니다. 이러한 권한은 키 개체에서 허용 되는 작업을 긴밀 하 게 미러링합니다.  Key vault에서 서비스 사용자에 게 액세스 권한을 부여 하는 작업은 onetime 작업 이며 모든 Azure 구독에 대해 동일 하 게 유지 됩니다. 이를 사용 하 여 원하는 수의 인증서를 배포할 수 있습니다. 
 
 - 키 관리 작업에 필요한 권한
   - *get*: 키의 공개 부분 및 해당 특성 읽기
@@ -363,14 +363,14 @@ Key Vault 인증서를 처음부터 새로 만드는 경우 정책을 제공해�
 
 |**X509 키 사용 플래그**|**Key Vault 키 작업**|**기본 동작**|
 |----------|--------|--------|
-|DataEncipherment|encrypt, decrypt| 해당 사항 없음 |
-|DecipherOnly|decrypt| N/A  |
+|DataEncipherment|encrypt, decrypt| N/A |
+|DecipherOnly|decrypt| 해당 사항 없음  |
 |DigitalSignature|sign, verify| 인증서를 만들 때 사용하도록 지정하지 않은 Key Vault 기본값 | 
 |EncipherOnly|encrypt| 해당 사항 없음 |
 |KeyCertSign|sign, verify|해당 사항 없음|
 |KeyEncipherment|wrapKey, unwrapKey| 인증서를 만들 때 사용하도록 지정하지 않은 Key Vault 기본값 | 
-|NonRepudiation|sign, verify| N/A |
-|crlsign|sign, verify| 해당 사항 없음 |
+|NonRepudiation|sign, verify| 해당 사항 없음 |
+|crlsign|sign, verify| N/A |
 
 ### <a name="certificate-issuer"></a>인증서 발급자
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 8c6f13f85b692d2405928fe06605d8b2ac0ec8e7
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 36d24e798e73ef336324eedadee1ba3fec4c0e1d
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012708"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773039"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure Functions PowerShell 개발자 가이드
 
@@ -134,9 +134,9 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 다음은를 호출 `Push-OutputBinding`하기 위한 유효한 매개 변수입니다.
 
-| 이름 | 형식 | 위치 | 설명 |
+| 이름 | 형식 | 위치 | Description |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | String | 1 | 설정 하려는 출력 바인딩의 이름입니다. |
+| **`-Name`** | 문자열 | 1 | 설정 하려는 출력 바인딩의 이름입니다. |
 | **`-Value`** | Object | 2 | 파이프라인 ByValue에서 허용 되는 설정 하려는 출력 바인딩의 값입니다. |
 | **`-Clobber`** | SwitchParameter | 명명됨 | 필드 지정 된 경우 지정 된 출력 바인딩에 대해 값이 설정 되도록 합니다. | 
 
@@ -241,7 +241,7 @@ PowerShell 함수의 로깅은 일반적인 PowerShell 로깅과 같은 방식�
 
 | 함수 로깅 수준 | 로깅 cmdlet |
 | ------------- | -------------- |
-| Error | **`Write-Error`** |
+| 오류 | **`Write-Error`** |
 | 경고 | **`Write-Warning`**  | 
 | 정보 | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | 정보 | _정보_ 수준 로깅에 씁니다. |
 | 디버그 | **`Write-Debug`** |
@@ -403,14 +403,18 @@ Visual Studio Code 및 Azure Functions Core Tools와 같은 도구를 사용 하
 
 ## <a name="dependency-management"></a>종속성 관리
 
-PowerShell 함수는 서비스에의 한 Azure 모듈 관리를 지원 합니다. Host-a를 수정 하 고 managedDependency enabled 속성을 true로 설정 하면 psd1 파일이 처리 됩니다. 최신 Azure 모듈은 자동으로 다운로드 되 고 함수에서 사용할 수 있게 됩니다.
+PowerShell 함수는 서비스에의 한 [powershell 갤러리](https://www.powershellgallery.com) 모듈 다운로드 및 관리를 지원 합니다. Host-a를 수정 하 고 managedDependency enabled 속성을 true로 설정 하면 psd1 파일이 처리 됩니다. 지정 된 모듈은 자동으로 다운로드 되 고 함수에서 사용할 수 있게 됩니다. 
+
+현재 지원 되는 모듈의 최대 수는 10 개입니다. 지원 되는 구문은 아래와 같이 MajorNumber. * 또는 정확한 모듈 버전입니다. Azure Az module은 새 PowerShell 함수 앱을 만들 때 기본적으로 포함 됩니다.
+
+언어 작업자는 다시 시작 시 업데이트 된 모듈을 선택 합니다.
 
 host.json
 ```json
 {
-    "managedDependency": {
-        "enabled": true
-    }
+  "managedDependency": {
+          "enabled": true
+       }
 }
 ```
 
@@ -419,10 +423,11 @@ requirements.psd1
 ```powershell
 @{
     Az = '1.*'
+    SqlServer = '21.1.18147'
 }
 ```
 
-사용자 고유의 사용자 지정 모듈 또는 모듈을 [PowerShell 갤러리](https://powershellgallery.com) 에서 활용 하는 것은 일반적으로 수행 하는 방법과 약간 다릅니다.
+사용자 고유의 사용자 지정 모듈을 활용 하는 것은 일반적으로 수행 하는 방법과 약간 다릅니다.
 
 로컬 컴퓨터에 모듈을 설치 하면에서 `$env:PSModulePath`전역적으로 사용 가능한 폴더 중 하나로 이동 합니다. 함수가 Azure에서 실행 되기 때문에 컴퓨터에 설치 된 모듈에는 액세스할 수 없습니다. 이를 위해서는 `$env:PSModulePath` powershell 함수 앱에 대 한이 일반 `$env:PSModulePath` powershell 스크립트의와 달라 야 합니다.
 
@@ -433,16 +438,19 @@ requirements.psd1
 
 ### <a name="function-app-level-modules-folder"></a>함수 앱 수준 `Modules` 폴더
 
-PowerShell 갤러리에서 사용자 지정 모듈 또는 PowerShell 모듈을 사용 하려면 함수가 `Modules` 폴더에 종속 되는 모듈을 저장할 수 있습니다. 이 폴더에서 모듈은 함수 런타임에 자동으로 사용할 수 있습니다. 함수 앱의 모든 함수는 이러한 모듈을 사용할 수 있습니다.
+사용자 지정 모듈을 사용 하기 위해 함수가 `Modules` 폴더에 종속 되는 모듈을 저장할 수 있습니다. 이 폴더에서 모듈은 함수 런타임에 자동으로 사용할 수 있습니다. 함수 앱의 모든 함수는 이러한 모듈을 사용할 수 있습니다. 
 
-이 기능을 활용 하려면 함수 앱의 루트 `Modules` 에 폴더를 만듭니다. 이 위치의 함수에서 사용 하려는 모듈을 저장 합니다.
+> [!NOTE]
+> Psd1 파일에 지정 된 모듈은 자동으로 다운로드 되어 경로에 포함 되므로 modules 폴더에 포함할 필요가 없습니다. 이러한 항목은 $env: LOCALAPPDATA/AzureFunctions 폴더에 로컬로 저장 되 고, 클라우드에서 실행 될 때/Dv/dv\managedl 폴더에 저장 됩니다.
+
+사용자 지정 모듈 기능을 활용 하려면 함수 앱의 루트 `Modules` 에 폴더를 만듭니다. 함수에서 사용 하려는 모듈을이 위치에 복사 합니다.
 
 ```powershell
 mkdir ./Modules
-Save-Module MyGalleryModule -Path ./Modules
+Copy-Item -Path /mymodules/mycustommodule -Destination ./Modules -Recurse
 ```
 
-를 `Save-Module` 사용 하 여 함수에서 사용 하는 모든 모듈을 저장 하거나 사용자 지정 모듈 `Modules` 을 해당 폴더에 복사 합니다. Modules 폴더를 사용 하는 경우 함수 앱은 다음과 같은 폴더 구조를 가져야 합니다.
+Modules 폴더를 사용 하는 경우 함수 앱은 다음과 같은 폴더 구조를 가져야 합니다.
 
 ```
 PSFunctionApp
@@ -450,11 +458,12 @@ PSFunctionApp
  | | - run.ps1
  | | - function.json
  | - Modules
- | | - MyGalleryModule
- | | - MyOtherGalleryModule
- | | - MyCustomModule.psm1
+ | | - MyCustomModule
+ | | - MyOtherCustomModule
+ | | - MySpecialModule.psm1
  | - local.settings.json
  | - host.json
+ | - requirements.psd1
 ```
 
 함수 앱을 시작 하는 경우 powershell 언어 작업자는이 `Modules` 폴더 `$env:PSModulePath` 를에 추가 하므로 일반 powershell 스크립트에서와 마찬가지로 모듈 자동 로드에 의존할 수 있습니다.
@@ -503,17 +512,7 @@ PSWorkerInProcConcurrencyUpperBound
 
 ### <a name="considerations-for-using-concurrency"></a>동시성 사용에 대 한 고려 사항
 
-PowerShell은 기본적으로 _단일 스레드_ 스크립팅 언어입니다. 그러나 동일한 프로세스에서 여러 PowerShell runspace을 사용 하 여 동시성을 추가할 수 있습니다. 이 기능은 Azure Functions PowerShell 런타임이 작동 하는 방식입니다.
-
-이 접근 방식에는 몇 가지 단점이 있습니다.
-
-#### <a name="concurrency-is-only-as-good-as-the-machine-its-running-on"></a>동시성은 실행 중인 컴퓨터와 동일 하 게 작동 합니다.
-
-함수 앱이 단일 코어만 지 원하는 [App Service 계획](functions-scale.md#app-service-plan) 에서 실행 되는 경우에는 동시성이 그다지 유용 하지 않습니다. 부하를 분산 하는 데 도움이 되는 추가 코어가 없기 때문입니다. 이 경우 단일 코어가 runspace 간에 컨텍스트 전환 되어야 하는 경우 성능이 달라질 수 있습니다.
-
-[소비 계획](functions-scale.md#consumption-plan) 은 코어를 하나만 사용 하 여 실행 되므로 동시성을 활용할 수 없습니다. 동시성을 최대한 활용 하려면 충분 한 코어가 있는 전용 App Service 계획에서 실행 되는 함수 앱에 함수를 배포 합니다.
-
-#### <a name="azure-powershell-state"></a>Azure PowerShell 상태
+PowerShell은 기본적으로 _단일 스레드_ 스크립팅 언어입니다. 그러나 동일한 프로세스에서 여러 PowerShell runspace을 사용 하 여 동시성을 추가할 수 있습니다. 만든 runspace의 양은 PSWorkerInProcConcurrencyUpperBound 응용 프로그램 설정과 일치 합니다. 처리량은 선택한 계획에서 사용할 수 있는 CPU 및 메모리의 양에 따라 영향을 받습니다.
 
 Azure PowerShell은 몇 가지 _프로세스 수준_ 컨텍스트 및 상태를 사용 하 여 과도 한 입력을 저장 하는 데 도움이 됩니다. 그러나 함수 앱에서 동시성을 설정 하 고 상태를 변경 하는 작업을 호출 하는 경우 경합 상태가 발생할 수 있습니다. 이러한 경합 상태는 한 호출이 특정 상태를 사용 하 고 다른 호출이 상태를 변경 하기 때문에 디버깅 하기 어렵습니다.
 

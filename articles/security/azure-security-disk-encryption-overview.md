@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 07/29/2019
+ms.date: 09/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1dfcc69d90daae5869c3b69c922e99eab3585e14
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 7855b1048826a9146e206226ae7326661e4609cb
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164631"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70764391"
 ---
 # <a name="azure-disk-encryption-overview"></a>Azure Disk Encryption 개요
 
@@ -72,6 +72,7 @@ Azure Disk Encryption 다음 시나리오, 기능 및 기술에는 적용 되지
 * Azure 파일(공유 파일 시스템)
 * NFS(네트워크 파일 시스템)
 * 동적 볼륨
+* 각 컨테이너에 대해 동적 볼륨을 만드는 Windows Server 컨테이너
 * 운영 체제 디스크를 삭제 합니다.
 * 공유/분산 파일 시스템 암호화 (그러나 다음으로 제한 되지 않음): DFS, GFS, DRDB, CephFS 등
 

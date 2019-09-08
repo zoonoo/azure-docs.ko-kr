@@ -6,16 +6,16 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: e1e9e998c2ac4695d955a546d0f02fbc2b517d5e
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 5f1b64753d19158b17d4de1b3fbbe50d30ea0254
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907485"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70764680"
 ---
 # <a name="performance-recommendations-in-azure-database-for-postgresql---single-server"></a>PostgreSQL-단일 서버용 Azure Database에서의 성능 권장 사항
 
-**적용 대상:** Azure Database for PostgreSQL-단일 서버 9.6 및 10
+**적용 대상:** Azure Database for PostgreSQL-단일 서버 버전 9.6, 10, 11
 
 성능 권장 사항 기능은 향상된 성능을 위해 사용자 지정된 제안을 만들기 위해 데이터베이스를 분석합니다. 권장 사항을 생성하기 위해, 해당 분석은 스키마를 포함하여 다양한 데이터베이스 특성을 살펴봅니다. 성능 권장 사항 기능을 완벽하게 활용하려면 서버의 [쿼리 저장소](concepts-query-store.md)를 사용 설정합니다. 성능 권장 사항을 구현한 후, 이러한 변경의 영향을 평가하는 성능을 테스트 해야 합니다. 
 

@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e21bd2b20ac48d3719e41b1e93a82cbe5a864b7
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 923c828a3d7e9e10d79fcf079839b84c2f0e0f77
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382536"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772381"
 ---
 # <a name="view-custom-role-assignments-in-azure-active-directory"></a>Azure Active Directory에서 사용자 지정 역할 할당 보기
 
@@ -100,9 +100,9 @@ HTTP/1.1 200 OK
 }
 ```
 
-## <a name="view-assignments-of-a-role-with-single-application-scope-preview"></a>단일 응용 프로그램 범위를 사용 하 여 역할 할당 보기 (미리 보기)
+## <a name="view-assignments-of-single-application-scope"></a>단일 응용 프로그램 범위의 할당 보기
 
-이 섹션에서는 단일 응용 프로그램 범위를 사용 하는 역할의 할당을 보는 방법을 설명 합니다.
+이 섹션에서는 단일 응용 프로그램 범위를 사용 하는 역할의 할당을 보는 방법을 설명 합니다. 이 기능은 현재 공개 미리 보기로 제공됩니다.
 
 1. Azure ad 조직에서 권한 있는 역할 관리자 또는 전역 관리자 권한으로 [azure ad 관리 센터](https://aad.portal.azure.com) 에 로그인 합니다.
 1. **앱 등록**를 선택 하 고 앱 등록을 선택 하 여 해당 속성을 확인 합니다. Azure AD 조직에서 앱 등록의 전체 목록을 보려면 **모든 응용 프로그램** 을 선택 해야 할 수도 있습니다.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e6f781926e2a30ecf6d34274b20991b81f0bb96d
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 0f8e605db3d647b5907c8c6741e4e2200bf14c4f
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972918"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772357"
 ---
 # <a name="create-and-manage-vlanssubnets-for-your-private-clouds"></a>사설 클라우드에 대 한 Vlan/서브넷 만들기 및 관리
 
@@ -21,7 +21,7 @@ ms.locfileid: "69972918"
 
 ## <a name="create-a-vlansubnet"></a>VLAN/서브넷 만들기
 
-1. [CloudSimple 포털에 액세스](monitor-activity.md) 하 고 측면 메뉴에서 **네트워크** 를 선택 합니다.
+1. [CloudSimple 포털에 액세스](access-cloudsimple-portal.md) 하 고 측면 메뉴에서 **네트워크** 를 선택 합니다.
 2. **Vlan/서브넷**을 선택 합니다.
 3. **VLAN/서브넷 만들기**를 클릭 합니다.
 
@@ -43,7 +43,7 @@ VSphere 분산 포트 그룹을 만들려면 <a href="https://docs.vmware.com/en
 
 ## <a name="select-a-firewall-table"></a>방화벽 테이블 선택
 
-방화벽 테이블 및 관련 규칙은 **네트워크 > 방화벽 테이블** 페이지에 정의 되어 있습니다. 사설 클라우드의 v m/서브넷에 적용할 방화벽 테이블을 선택 하려면 vlan/서브넷 페이지에서 **방화벽 테이블 첨부 파일** 을 클릭 합니다. 방화벽 테이블 설정 및 규칙 정의에 대 한 지침은 [방화벽 테이블](firewall.md) 을 참조 하세요.
+방화벽 테이블 및 관련 규칙은 **네트워크 > 방화벽 테이블** 페이지에 정의 되어 있습니다. 사설 클라우드의 v m/서브넷에 적용할 방화벽 테이블을 선택 **하려면 vlan/서브넷 페이지에서** **방화벽 테이블 첨부 파일** 을 클릭 합니다. 방화벽 테이블 설정 및 규칙 정의에 대 한 지침은 [방화벽 테이블](firewall.md) 을 참조 하세요.
 
 ![방화벽 테이블 링크](media/vlan-subnet-firewall-link.png)
 

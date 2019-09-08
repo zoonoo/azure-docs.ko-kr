@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 08/26/2019
-ms.openlocfilehash: 418ca6f8d6258b826bb126252d7cf7b1c5fee299
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.date: 09/06/2019
+ms.openlocfilehash: 5b13c3c93f8b2d6f3eed5a32c49baf1b9d1b201e
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035716"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773348"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>서버를 사용 하지 않는 Azure SQL Database (미리 보기)
 
@@ -115,7 +115,8 @@ Autopause 지연 기간 동안 다음 조건이 모두 true 인 경우 Autopausi
 
 - 지역에서 복제 (활성 지역 복제 및 자동 장애 조치 그룹)
 - 장기 백업 보존 (LTR).
-- SQL 데이터 동기화에 사용되는 동기화 데이터베이스
+- SQL 데이터 동기화에 사용되는 동기화 데이터베이스  동기화 데이터베이스와 달리 허브 및 멤버 데이터베이스는 autopausing을 지원 합니다.
+- 탄력적 작업에 사용 되는 작업 데이터베이스입니다.
 
 Autopausing는 데이터베이스를 온라인 상태로 만들어야 하는 일부 서비스 업데이트를 배포 하는 동안 일시적으로 차단 됩니다.  이러한 경우 서비스 업데이트가 완료 되 면 autopausing가 다시 허용 됩니다.
 

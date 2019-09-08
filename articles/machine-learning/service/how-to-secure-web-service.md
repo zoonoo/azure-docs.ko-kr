@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5a2cab9dff4a075545d919cb41e72cf6e446e9d2
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 8805e065c92b42013c1e56f20b4a032d280cb8ac
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69897361"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772514"
 ---
 # <a name="use-ssl-to-secure-a-web-service-through-azure-machine-learning"></a>SSL을 사용 하 여 Azure Machine Learning 통해 웹 서비스 보호
 
@@ -77,7 +77,7 @@ SSL을 사용 하는 서비스를 배포 (또는 다시 배포) 하려면 해당
   > [!NOTE]
   > 이 단원의 정보는 시각적 인터페이스에 대 한 보안 웹 서비스를 배포 하는 경우에도 적용 됩니다. Python SDK를 사용 하는 방법을 잘 모르는 경우 [python 용 AZURE MACHINE LEARNING SDK 란 무엇 인가요?](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 참조 하세요.
 
-AKS에 배포할 때 새 AKS 클러스터를 만들거나 기존 클러스터를 연결할 수 있습니다.
+AKS에 배포할 때 새 AKS 클러스터를 만들거나 기존 클러스터를 연결할 수 있습니다. 클러스터를 만들거나 연결 하는 방법에 대 한 자세한 내용은 [Azure Kubernetes Service 클러스터에 모델 배포](how-to-deploy-azure-kubernetes-service.md)를 참조 하세요.
   
 -  새 클러스터를 만드는 경우 **[AksCompute. provisionining_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none-)** 를 사용 합니다.
 - 기존 클러스터를 연결 하는 경우 **[AksCompute. attach_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** 를 사용 합니다. 둘 다 **enable_ssl** 메서드가 있는 구성 개체를 반환 합니다.

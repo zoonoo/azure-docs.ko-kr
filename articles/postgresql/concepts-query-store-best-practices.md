@@ -1,21 +1,21 @@
 ---
-title: Azure Database for PostgreSQL-단일 서버에서에서 쿼리 저장소 모범 사례
+title: Azure Database for PostgreSQL에서 쿼리 저장소 모범 사례-단일 서버
 description: 이 문서에서는 PostgreSQL-단일 서버에 대한 Azure Database의 쿼리 저장소에 대한 모범 사례를 설명합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 798a7a3edbf11c8421848871d26ba55b5bada0b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51239f4cf49784dd47470e1272b90508eaf25e6f
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067245"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70764229"
 ---
 # <a name="best-practices-for-query-store"></a>쿼리 저장소의 모범 사례
 
-**적용 대상:** Azure Database for PostgreSQL-단일 서버 9.6 및 10
+**적용 대상:** Azure Database for PostgreSQL-단일 서버 버전 9.6, 10, 11
 
 이 문서에서는 Azure Database for PostgreSQL에서 쿼리 저장소를 사용하는 모범 사례를 설명합니다.
 
@@ -24,7 +24,7 @@ ms.locfileid: "65067245"
 
 |**pg_qs.query_capture_mode** | **시나리오**|
 |---|---|
-|_All_  |모든 쿼리 및 쿼리 실행 빈도와 기타 통계 측면에서 워크로드를 철저하게 분석합니다. 워크로드의 새 쿼리를 식별합니다. 임시 쿼리는 사용자나 자동 매개 변수화에 대 한 기회를 식별 하는 데 사용 되어 검색 합니다. _All_는 리소스 사용 비용이 증가합니다. |
+|_All_  |모든 쿼리 및 쿼리 실행 빈도와 기타 통계 측면에서 워크로드를 철저하게 분석합니다. 워크로드의 새 쿼리를 식별합니다. 임시 쿼리가 사용자 또는 자동 매개 변수화에 대 한 기회를 식별 하는 데 사용 되는지 검색 합니다. _All_는 리소스 사용 비용이 증가합니다. |
 |_Top_  |클라이언트에서 실행한 상위 쿼리에 집중합니다.
 |_None_ |조사하려는 쿼리 집합 및 시간 범위를 이미 캡처했으며 다른 쿼리 때문에 발생할 수 있는 방해 요소를 제거하고 싶은 경우에 사용합니다. _None_은 환경 테스트 및 벤치마킹에 적합합니다. _None_을 사용하면 중요한 새 쿼리를 추적하고 최적화하는 기회를 놓칠 수 있으므로 주의해서 사용해야 합니다. 지나간 시간 범위의 데이터를 복구할 수 없습니다. |
 

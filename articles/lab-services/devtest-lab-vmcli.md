@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 09/06/2019
 ms.author: spelluru
-ms.openlocfilehash: 11ac4e10cbd116ed204a8a11274408f5a5a9b4d9
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 7a089eae935fe5ecbf3dd2836d86912d0c63ef84
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183137"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773111"
 ---
 # <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>Azure CLI를 사용하여 DevTest Labs에서 가상 머신 만들기 및 관리
 이 빠른 시작에서는 랩에서 개발 컴퓨터를 만들고, 시작 하 고, 연결 하 고, 업데이트 하 고, 정리 하는 과정을 안내 합니다. 
@@ -123,15 +123,31 @@ az lab vm apply-artifacts --lab-name  sampleLabName --name sampleVMName  --resou
 ]
 ```
 
-랩에서 사용할 수 있는 아티팩트를 나열합니다.
-```azurecli
-az lab vm show --lab-name sampleLabName --name sampleVMName --resource-group sampleResourceGroup --expand "properties(\$expand=artifacts)" --query 'artifacts[].{artifactId: artifactId, status: status}'
+### <a name="list-artifacts-available-in-the-lab"></a>랩에서 사용할 수 있는 아티팩트 나열
+
+랩에서 VM에서 사용할 수 있는 아티팩트를 나열 하려면 다음 명령을 실행 합니다.
+
+**Cloud Shell-PowerShell**: $ in $expand 앞에 억음 (\`)을 사용 하는 것을 확인 합니다 (즉, ' $expand).
+
+```azurecli-interactive
+az lab vm show --resource-group <resourcegroupname> --lab-name <labname> --name <vmname> --expand "properties(`$expand=artifacts)" --query "artifacts[].{artifactId: artifactId, status: status}"
 ```
+
+**Cloud Shell-Bash**: 명령에서 $ 앞에 슬래시 (\\) 문자가 사용 되는지 확인 합니다. 
+
+```azurecli-interactive
+az lab vm show --resource-group <resourcegroupname> --lab-name <labname> --name <vmname> --expand "properties(\$expand=artifacts)" --query "artifacts[].{artifactId: artifactId, status: status}"
+```
+
+샘플 출력: 
+
 ```json
-{
-  "artifactId": "/subscriptions/abcdeftgh1213123/resourceGroups/lisalab123RG822645/providers/Microsoft.DevTestLab/labs/lisalab123/artifactSources/public repo/artifacts/linux-install-nodejs",
-  "status": "Succeeded"
-}
+[
+  {
+    "artifactId": "/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DevTestLab/labs/<lab name>/artifactSources/public repo/artifacts/windows-7zip",
+    "status": "Succeeded"
+  }
+]
 ```
 
 ## <a name="stop-and-delete-the-virtual-machine"></a>가상 머신 중지 및 삭제    

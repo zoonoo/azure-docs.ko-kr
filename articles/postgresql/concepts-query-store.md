@@ -6,16 +6,16 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 5ddbff62421d97b1105a997bd084e1fe5b44cf12
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: deab527d44713bffed1f430ec283592d0e4232ee
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907411"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70764405"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>쿼리 저장소를 사용하여 성능 모니터링
 
-**적용 대상:** Azure Database for PostgreSQL-단일 서버 9.6 및 10
+**적용 대상:** Azure Database for PostgreSQL-단일 서버 버전 9.6, 10, 11
 
 Azure Database for PostgreSQL의 쿼리 저장소 기능은 시간 경과에 따라 쿼리 성능을 추적하는 방법을 제공합니다. 쿼리 저장소는 가장 오래 실행되고 리소스를 가장 많이 사용하는 쿼리를 신속하게 찾도록 지원하여 성능 문제 해결을 단순화합니다. 쿼리 저장소는 쿼리 및 런타임 통계의 기록을 자동으로 캡처하고 검토를 위해 보존합니다. 데이터베이스 사용량 패턴을 볼 수 있도록 데이터를 기간별로 구분합니다. 모든 사용자, 데이터베이스 및 쿼리에 대한 데이터는 Azure Database for PostgreSQL 인스턴스의 **azure_sys**라는 데이터베이스에 저장됩니다.
 
@@ -73,7 +73,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 
 다음은 쿼리 저장소의 대기 통계를 사용하여 워크로드에 대한 더 많은 통찰력을 얻을 수 있는 방법의 몇 가지 예입니다.
 
-| **관찰** | **동작** |
+| **관찰** | **작업** |
 |---|---|
 |최고 잠금 대기 | 영향을 받는 쿼리에 대한 쿼리 텍스트를 확인하고 대상 엔터티를 식별합니다. 쿼리 저장소에서 자주 실행되거나 오래 실행되는 동일한 엔터티를 수정하는 다른 쿼리를 확인합니다. 이러한 쿼리를 식별한 후 동시성 향상을 위해 애플리케이션 논리를 변경해 보거나 덜 제한적인 격리 수준을 사용합니다.|
 | 높은 버퍼 IO 대기 | 쿼리 저장소에서 물리적 읽기 횟수가 많은 쿼리를 찾습니다. 해당 쿼리가 IO 대기가 많은 쿼리와 일치하는 경우 검사 대신 검색을 수행하기 위해 기본 엔터티에 인덱스를 도입하는 것이 좋습니다. 이렇게 하면 쿼리의 IO 오버헤드가 최소화됩니다. 포털에서 서버에 대한 **성능 권장 사항**을 확인하여 쿼리를 최적화하는 이 서버에 대한 인덱스 권장 사항이 있는지 확인합니다.|

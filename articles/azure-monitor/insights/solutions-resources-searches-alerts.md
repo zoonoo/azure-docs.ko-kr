@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7ec30e2445a5ed6008256f7abcef496247922968
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
-ms.translationtype: HT
+ms.openlocfilehash: d5372ac8b31db91aaac018b203ee8868fa313fd8
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744489"
+ms.locfileid: "70772998"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>관리 솔루션(미리 보기)에 Log Analytics에서 저장한 검색 및 경고 추가
 
@@ -171,16 +171,15 @@ Azure로 경고를 확장하는 사용자의 경우 작업은 이제 Azure 작�
 
 | 요소 이름 | 필수 | Description |
 |:--|:--|:--|
-| `Type` | 예 | 작업의 유형입니다.  경고 작업의 **경고**가 됩니다. |
-| `Name` | 예 | 경고에 대한 표시 이름입니다.  경고 규칙에 대한 콘솔에 표시되는 이름입니다. |
-| `Description` | 아니요 | 경고에 대한 선택적 설명입니다. |
-| `Severity` | 예 | 다음 값의 경고 레코드의 심각도입니다.<br><br> **중요**<br>**경고**<br>**정보 제공**
-
+| `type` | 예 | 작업의 유형입니다.  경고 작업의 **경고**가 됩니다. |
+| `name` | 예 | 경고에 대한 표시 이름입니다.  경고 규칙에 대한 콘솔에 표시되는 이름입니다. |
+| `description` | 아니요 | 경고에 대한 선택적 설명입니다. |
+| `severity` | 예 | 다음 값의 경고 레코드의 심각도입니다.<br><br> **중요**<br>**경고**<br>**정보 제공**
 
 #### <a name="threshold"></a>임계값
 이 섹션은 필수입니다. 경고 임계값의 속성을 정의합니다.
 
-| 요소 이름 | 필수 | 설명 |
+| 요소 이름 | 필수 | Description |
 |:--|:--|:--|
 | `Operator` | 예 | 다음 값의 비교 연산자입니다.<br><br>**gt = 보다 큼<br>lt = 보다 작음** |
 | `Value` | 예 | 결과를 비교하는 값입니다. |
