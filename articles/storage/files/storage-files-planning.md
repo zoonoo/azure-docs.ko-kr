@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: aa81f181c8d062e5fd68b0fbb2445f5c37540889
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 163c3cbaeed1526f08d047c3bf357232ccb534a3
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309590"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802402"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
 
@@ -206,14 +206,17 @@ GRS를 사용 하는 저장소 계정의 경우 모든 데이터는 먼저 LRS (
 
 표준 파일 공유는 최대 5 TiB의 모든 지역에서 사용할 수 있습니다. 특정 지역에서 100 TiB 한도를 사용할 수 있습니다. 이러한 지역은 다음 표에 나와 있습니다.
 
-|Region |지원 되는 중복성 |기존 저장소 계정 지원 |포털 지원 *   |
+|Region |지원 되는 중복성 |기존 저장소 계정 지원 |포털 지원 * |
 |-------|---------|---------|---------|
-|오스트레일리아 동부  |LRS     |아니요    |예|
-|프랑스 중부  |LRS     |아니요    |아직 준비되지 않음|
-|프랑스 남부    |LRS     |아니요    |아직 준비되지 않음|
-|동남 아시아  |LRS, ZRS|아니요    |예|
-|유럽 서부     |LRS, ZRS|아니요    |예|
-|미국 서부 2       |LRS, ZRS|아니요    |예|
+|오스트레일리아 동부 |LRS     |아니요    |예|
+|오스트레일리아 남동부|LRS     |아니요    |아직 준비되지 않음|
+|인도 중부  |LRS     |아니요    |아직 준비되지 않음|
+|프랑스 중부  |LRS, ZRS|아니요    |LRS-예, ZRS-아직|
+|인도 남부    |LRS     |아니요    |아직 준비되지 않음|
+|동남아시아 |LRS, ZRS|아니요    |예|
+|미국 중서부|LRS     |아니요    |아직 준비되지 않음|
+|유럽 서부    |LRS, ZRS|아니요    |예|
+|미국 서부 2      |LRS, ZRS|아니요    |예|
 
 \* 포털을 지원 하지 않는 지역의 경우에도 PowerShell 또는 Azure CLI (명령줄 인터페이스)를 사용 하 여 5 개 보다 큰 TiB 공유를 만들 수 있습니다. 또는 할당량을 지정 하지 않고 포털을 통해 새 공유를 만듭니다. 그러면 나중에 PowerShell 또는 Azure CLI를 통해 업데이트 될 수 있는 기본 크기인 100 TiB 공유가 생성 됩니다.
 

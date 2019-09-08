@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: c8533f79dd2bf02a03ff4a37283359f3b3a5bf39
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: b145b341a4db503a00d517decf6406e26f23c3cd
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70065988"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802464"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 데이터베이스 감사 시작
 
@@ -201,8 +201,6 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
 
     >[!IMPORTANT]
     >데이터베이스 수준 감사에서 보조 데이터베이스의 스토리지 설정은 주 데이터베이스와 동일하기 때문에 지역 간 트래픽이 발생합니다. 서버 수준 감사만 활성화하고 모든 데이터베이스에 대해 데이터베이스 수준 감사를 비활성화로 유지하는 것이 좋습니다.
-    > [!WARNING]
-    > 서버 수준 감사 로그에 대한 대상으로 이벤트 허브 또는 Azure Monitor 로그를 사용하는 것은 보조 지역에서 복제된 데이터베이스에 대해서 현재 지원되지 않습니다.
 
 ### <a id="subheading-6">스토리지 키 다시 생성</a>
 

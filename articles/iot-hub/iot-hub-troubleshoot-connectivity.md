@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
-ms.openlocfilehash: a107689796c58b17c445e7a9cf7c6f0402ef6005
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3904c6390cfe8de197bae470c4ae32d22605ae6a
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61440151"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801417"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Azure IoT Hub의 연결 끊김 문제 감지지 및 해결
 
@@ -45,7 +45,7 @@ IoT 디바이스의 연결 문제는 가능한 실패 지점이 많기 때문에
 
 ### <a name="set-up-alerts-for-the-_connected-devices_-count-metric"></a>_연결된 디바이스_ 개수 메트릭에 대한 경고 설정
 
-장치 연결을 끊을 때 경고를 받으려면,에서 경고를 구성 합니다 **연결 된 장치 (미리 보기)** 메트릭.
+장치가 연결을 끊을 때 경고를 받으려면 **연결 된 장치 (미리 보기)** 메트릭에 대 한 경고를 구성 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -53,17 +53,17 @@ IoT 디바이스의 연결 문제는 가능한 실패 지점이 많기 때문에
 
 3. **경고**를 선택합니다.
 
-4. 선택 **새 경고 규칙**합니다.
+4. **새 경고 규칙**을 선택 합니다.
 
-5. 선택 **조건 추가**, "연결 된 장치 (미리 보기)"를 선택 합니다.
+5. **조건 추가**를 선택한 다음 "연결 된 장치 (미리 보기)"를 선택 합니다.
 
-6. 프로그램이 원하는 임계값을 설정 하 고 다음 프롬프트를 여는 경고 옵션을 완료 합니다.
+6. 프롬프트에 따라 원하는 임계값 및 경고 옵션을 설정 하는 작업을 완료 합니다.
 
 자세한 내용은은 [Microsoft Azure의 클래식 경고란?](../azure-monitor/platform/alerts-overview.md)을 참조하세요.
 
 ## <a name="resolve-connectivity-errors"></a>연결 오류 해결
 
-연결된 디바이스에 대한 진단 로그 및 경고가 켜져 있는 경우 오류가 발생하면 경고가 표시됩니다. 이 섹션에서는 경고를 받게 되면 일반적인 문제를 해결하는 방법을 설명합니다. 아래 단계에 진단 로그에 대 한 Azure Monitor 로그를 설정한 것을 가정 합니다.
+연결된 디바이스에 대한 진단 로그 및 경고가 켜져 있는 경우 오류가 발생하면 경고가 표시됩니다. 이 섹션에서는 경고를 받게 되면 일반적인 문제를 해결하는 방법을 설명합니다. 아래 단계에서는 진단 로그에 대 한 Azure Monitor 로그를 설정 했다고 가정 합니다.
 
 1. Azure Portal에서 **Log Analytics**의 작업 영역으로 이동합니다.
 
@@ -71,7 +71,7 @@ IoT 디바이스의 연결 문제는 가능한 실패 지점이 많기 때문에
 
 3. IoT Hub에 대한 연결 오류 로그를 격리하려면 다음 쿼리를 입력한 다음, **실행**을 선택합니다.
 
-    ```
+    ```kusto
     search *
     | where ( Type == "AzureDiagnostics" and ResourceType == "IOTHUBS")
     | where ( Category == "Connections" and Level == "Error")

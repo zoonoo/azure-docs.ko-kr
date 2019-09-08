@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/06/2019
 ms.author: yushwang
-ms.openlocfilehash: add6fbf0177586bc8969a563260427bc8397d97e
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 2fd83162c17950b34394e4fce52f2f40805ca84c
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773774"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801583"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>사이트 간 VPN Gateway 연결에 대한 VPN 디바이스 및 IPsec/IKE 매개 변수 정보
 
@@ -44,13 +44,13 @@ VPN 디바이스를 구성하려면 적절한 디바이스 제품군에 해당�
 | Check Point |Security Gateway |R80.10 |[구성 가이드](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[구성 가이드](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | 시스코              |ASA       |8.3<br>8.4+(IKEv2*) |지원됨 |[구성 가이드*](https://www.cisco.com/c/en/us/support/docs/security/adaptive-security-appliance-asa-software/214109-configure-asa-ipsec-vti-connection-to-az.html) |
 | 시스코 |ASR |정책 기반: IOS 15.1<br>경로 기반: IOS 15.2 |지원됨 |지원됨 |
-| 시스코 | CSR | 경로 기반: IOS-XE 16.10 | | [구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
+| 시스코 | CSR | 경로 기반: IOS-XE 16.10 | (테스트 되지 않음) | [구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
 | 시스코 |ISR |정책 기반: IOS 15.0<br>경로 기반*: IOS 15.1 |지원됨 |지원됨 |
 | 시스코 |Meraki |해당 사항 없음 |호환되지 않음 |호환되지 않음 |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 이상 |[구성 가이드](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |호환되지 않음 |
 | F5 |BIG-IP 시리즈 |12.0 |[구성 가이드](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[구성 가이드](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
-| Fortinet |FortiGate |FortiOS 5.6 |  |[구성 가이드](https://docs.fortinet.com/document/fortigate/6.2.0/azure-cookbook/989216/connecting-a-local-fortigate-to-an-azure-vnet-vpn) |
-| Hillstone 네트워크 | 다음-Gen 방화벽 (NGFW) | 5.5 R7  |  | [구성 가이드](https://www.hillstonenet.com/wp-content/uploads/How-to-setup-Site-to-Site-VPN-between-Microsoft-Azure-and-an-on-premise-Hillstone-Networks-Security-Gateway.pdf) |
+| Fortinet |FortiGate |FortiOS 5.6 | (테스트 되지 않음) |[구성 가이드](https://web.archive.org/web/20180613172511/http:/cookbook.fortinet.com/ipsec-vpn-microsoft-azure-56/) |
+| Hillstone 네트워크 | 다음-Gen 방화벽 (NGFW) | 5.5 R7  | (테스트 되지 않음) | [구성 가이드](https://www.hillstonenet.com/wp-content/uploads/How-to-setup-Site-to-Site-VPN-between-Microsoft-Azure-and-an-on-premise-Hillstone-Networks-Security-Gateway.pdf) |
 | IIJ(Internet Initiative Japan) |SEIL 시리즈 |SEIL/X 4.60<br>SEIL/B1 4.60<br>SEIL/x86 3.20 |[구성 가이드](https://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) |호환되지 않음 |
 | Juniper |SRX |정책 기반: JunOS 10.2<br>경로 기반: JunOS 11.4 |지원됨 |[구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
 | Juniper |J 시리즈 |정책 기반: JunOS 10.4r9<br>경로 기반: JunOS 11.4 |지원됨 |[구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
@@ -59,14 +59,14 @@ VPN 디바이스를 구성하려면 적절한 디바이스 제품군에 해당�
 | Juniper |MX |JunOS 12.x|지원됨 |[구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
 | Microsoft |라우팅 및 원격 액세스 서비스 |Windows Server 2012 |호환되지 않음 |지원됨 |
 | 개방형 시스템 AG |핵심 업무 제어 보안 게이트웨이 |해당 사항 없음 |[구성 가이드](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |호환되지 않음 |
-| Palo Alto Networks |PAN-OS를 실행하는 모든 디바이스 |PAN-OS<br>정책 기반: 6.1.5 이상<br>경로 기반: 7.1.4 |[구성 가이드](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[구성 가이드](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000Cm6WCAS) |
+| Palo Alto Networks |PAN-OS를 실행하는 모든 디바이스 |PAN-OS<br>정책 기반: 6.1.5 이상<br>경로 기반: 7.1.4 |지원됨 |[구성 가이드](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000Cm6WCAS) |
 | ShareTech | 차세대 UTM(NU 시리즈) | 9.0.1.3 | 호환되지 않음 | [구성 가이드](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |
 | SonicWall |TZ 시리즈, NSA 시리즈<br>SuperMassive 시리즈<br>E-클래스 NSA 시리즈 |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |호환되지 않음 |[구성 가이드](https://www.sonicwall.com/support/knowledge-base/170505320011694) |
-| Sophos | XG 차세대 방화벽 | XG v17 | | [구성 가이드](https://community.sophos.com/kb/127546)<br><br>[구성 가이드 - 다중 SA](https://community.sophos.com/kb/en-us/133154) |
-| Synology | MR2200ac <br>RT2600ac <br>RT1900ac | SRM1.1.5/VpnPlusServer-1.2.0 |  | [구성 가이드](https://www.synology.com/en-global/knowledgebase/SRM/tutorial/VPN/How_to_set_up_Site_to_Site_VPN_between_Synology_Router_and_MS_Azure) |
-| Ubiquiti | EdgeRouter | EdgeOS v1.10 |  | [IKEv2/IPsec을 통한 BGP](https://help.ubnt.com/hc/en-us/articles/115012374708)<br><br>[IKEv2/IPsec을 통한 VTI](https://help.ubnt.com/hc/en-us/articles/115012305347)
+| Sophos | XG 차세대 방화벽 | XG v17 | (테스트 되지 않음) | [구성 가이드](https://community.sophos.com/kb/127546)<br><br>[구성 가이드 - 다중 SA](https://community.sophos.com/kb/en-us/133154) |
+| Synology | MR2200ac <br>RT2600ac <br>RT1900ac | SRM1.1.5/VpnPlusServer-1.2.0 | (테스트 되지 않음) | [구성 가이드](https://www.synology.com/en-global/knowledgebase/SRM/tutorial/VPN/How_to_set_up_Site_to_Site_VPN_between_Synology_Router_and_MS_Azure) |
+| Ubiquiti | EdgeRouter | EdgeOS v1.10 | (테스트 되지 않음) | [IKEv2/IPsec을 통한 BGP](https://help.ubnt.com/hc/en-us/articles/115012374708)<br><br>[IKEv2/IPsec을 통한 VTI](https://help.ubnt.com/hc/en-us/articles/115012305347)
 | WatchGuard |모두 |Fireware XTM<br> 정책 기반: v11.11.x<br>경로 기반: v11.12.x |[구성 가이드](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[구성 가이드](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
-| Zyxel |ZyWALL USG 시리즈<br>ZyWALL ATP 시리즈<br>ZyWALL VPN 시리즈 | ZLD v4.32+ | | [IKEv2/IPsec을 통한 VTI](https://businessforum.zyxel.com/discussion/2648/)<br>[IKEv2/IPsec을 통한 BGP](https://businessforum.zyxel.com/discussion/2650/)|
+| Zyxel |ZyWALL USG 시리즈<br>ZyWALL ATP 시리즈<br>ZyWALL VPN 시리즈 | ZLD v4.32+ | (테스트 되지 않음) | [IKEv2/IPsec을 통한 VTI](https://businessforum.zyxel.com/discussion/2648/)<br>[IKEv2/IPsec을 통한 BGP](https://businessforum.zyxel.com/discussion/2650/)|
 
 > [!NOTE]
 >

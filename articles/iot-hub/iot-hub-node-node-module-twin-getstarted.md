@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.openlocfilehash: 803162110ead050f9d1a595b11c29ec6707640a8
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 3796017af643c993871757482ed17d1765cd6494
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147407"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802410"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-nodejs"></a>IoT Hub 모듈 id 및 모듈 쌍 시작 (node.js)
 
@@ -32,7 +32,7 @@ ms.locfileid: "70147407"
 > [!NOTE]
 > 디바이스와 솔루션 백 엔드에서 실행하기 위해 두 애플리케이션을 빌드하는 데 사용할 수 있는 Azure IoT SDK에 관한 정보는 [Azure IoT SDK](iot-hub-devguide-sdks.md)를 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Node.js 버전 10.0. x 이상 [개발 환경 준비](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) Windows 또는 Linux에서이 자습서에 대 한 node.js를 설치 하는 방법을 설명 합니다.
 
@@ -194,16 +194,21 @@ node add.js를 사용하여 실행합니다. 그러면 디바이스 ID에 대한
 
 4. 이제  **node twin.js** 명령을 사용하여 실행합니다.
 
-    ```
-    F:\temp\module_twin>node twin.js
-    client opened
-    twin contents:
-    { reported: { update: [Function: update], '$version': 1 },
-      desired: { '$version': 1 } }
-    new desired properties received:
-    {"$version":1}
-    twin state reported
-    ```
+   ```cmd/sh
+   F:\temp\module_twin>node twin.js
+   ```
+
+   그러면 다음과 같이 표시 됩니다.
+
+   ```console
+   client opened
+   twin contents:
+   { reported: { update: [Function: update], '$version': 1 },
+     desired: { '$version': 1 } }
+   new desired properties received:
+   {"$version":1}
+   twin state reported
+   ```
 
 ## <a name="next-steps"></a>다음 단계
 

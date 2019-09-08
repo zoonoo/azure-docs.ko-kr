@@ -3,15 +3,15 @@ title: Azure 리소스 종류별 이동 작업 지원
 description: 새 리소스 그룹이나 구독으로 이동할 수 있는 Azure 리소스 종류를 소개합니다.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: conceptual
-ms.date: 08/23/2019
+ms.topic: reference
+ms.date: 09/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 3100ce897a09c2747c2b339662c699d197ba73d7
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 9dc86fe7876a050fe67ec73a665be6141a4b98da
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194837"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801356"
 ---
 # <a name="move-operation-support-for-resources"></a>리소스에 대한 이동 작업 지원
 이 문서에서는 Azure 리소스 종류가 이동 작업을 지원하는지 여부에 대한 정보를 제공합니다. 또한 리소스를 이동할 때 고려해 야 할 특수 조건에 대 한 정보를 제공 합니다.

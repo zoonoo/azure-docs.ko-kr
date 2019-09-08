@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: 5b13c3c93f8b2d6f3eed5a32c49baf1b9d1b201e
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 738d6738469960c8b21809b9320c4d034613c4e3
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773348"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802371"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>서버를 사용 하지 않는 Azure SQL Database (미리 보기)
 
@@ -255,7 +255,7 @@ PowerShell에서 인수를 `MinVcore` 사용 하 여 [AzSqlDatabase](https://doc
 
 응용 프로그램 패키지의 리소스 사용 및 서버를 사용 하지 않는 데이터베이스의 사용자 풀 모니터링에 대 한 메트릭은 다음 표에 나와 있습니다.
 
-|엔터티|메트릭|Description|단위|
+|엔터티|메트릭|설명|단위|
 |---|---|---|---|
 |앱 패키지|app_cpu_percent|앱에 허용되는 최대 vCore 수에 대한 앱에서 사용한 vCore 수의 백분율입니다.|백분율|
 |앱 패키지|app_cpu_billed|보고 기간 동안 앱에 대해 요금이 청구되는 컴퓨팅의 양입니다. 이 기간 동안에 대한 지불 금액은 이 메트릭과 vCore 단가를 곱한 값입니다. <br><br>이 메트릭의 값은 시간이 지남에 따라 사용된 최대 CPU와 사용된 초당 메모리를 집계하여 결정됩니다. 사용된 양이 최소 vCore 수 및 최소 메모리로 설정된 최소 프로비저닝된 양보다 적으면 최소 프로비저닝된 양에 대한 요금이 청구됩니다. 청구의 목적으로 CPU를 메모리와 비교하기 위해 메모리는 vCore당 메모리 양(GB 단위)을 3GB로 다시 조정하여 vCore 단위로 정규화됩니다.|vCore 시간(초)|
@@ -292,7 +292,7 @@ Get-AzSqlDatabase `
 - **청구 금액**: vcore 단가 * max (최소 vcore, 사용 되는 vcore, 최소 메모리 gb * 1/3, 사용 되는 메모리 gb * 1/3) 
 - **청구 주기**: 초당
 
-초당 vcore 당 vCore 단가입니다. 지정된 지역의 특정 단가는 [Azure SQL Database 가격 페이지](https://azure.microsoft.com/pricing/details/sql-database/single/)를 참조하세요.
+VCore 단가는 초당 vCore 당 비용입니다. 지정된 지역의 특정 단가는 [Azure SQL Database 가격 페이지](https://azure.microsoft.com/pricing/details/sql-database/single/)를 참조하세요.
 
 요금이 청구되는 컴퓨팅 양은 다음 메트릭에서 공개됩니다.
 
