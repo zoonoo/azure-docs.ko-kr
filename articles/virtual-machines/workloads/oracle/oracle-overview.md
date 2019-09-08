@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
-ms.openlocfilehash: e9e37c54668ec0343cbfd45e51e90216955b46c4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d8fed68d9b830df359f8129d55f1b9911f69e8f1
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100014"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802265"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Azure의 Oracle 응용 프로그램 및 솔루션 개요
 
@@ -26,13 +26,13 @@ ms.locfileid: "70100014"
 
 ## <a name="oracle-databases-on-azure-infrastructure"></a>Azure 인프라의 Oracle 데이터베이스
 
-Azure Marketplace에서 제공 하는 Linux 이미지를 사용 하 여 Azure 인프라에서 Oracle 데이터베이스를 실행 합니다.
+Azure Marketplace에서 제공 하는 Oracle Linux 이미지에 대 한 Oracle Database를 사용 하 여 Azure 인프라에서 Oracle 데이터베이스를 실행 합니다.
 
 * Oracle Database 12.1, 12.2 및 18.3 Enterprise Edition 
 
 * Oracle Database 12.1, 12.2 및 18.3 Standard Edition 
 
-Azure에서 처음부터 만들거나 온-프레미스 환경에서 사용자 지정 이미지를 업로드 하는 사용자 지정 이미지를 기반으로 하도록 선택할 수도 있습니다.
+Azure에서 사용할 수 있는 Oracle Linux 되지 않은 이미지에 대 한 Oracle Database를 설정 하거나, Azure에서 처음부터 만들거나 온-프레미스 환경에서 사용자 지정 이미지를 업로드 하는 사용자 지정 이미지를 기반으로 하도록 선택할 수도 있습니다.
 
 필요에 따라 여러 연결 된 디스크를 사용 하 여 구성 하 고 Oracle ASM (자동 저장소 관리)을 설치 하 여 데이터베이스 성능을 향상 시킵니다.
 
@@ -46,11 +46,17 @@ Azure에서 처음부터 만들거나 온-프레미스 환경에서 사용자 �
 
 ## <a name="high-availability-and-disaster-recovery-options"></a>고가용성 및 재해 복구 옵션
 
-* 고가용성을 위해 [가용성 영역](../../../availability-zones/az-overview.md) 와 함께 Azure 인프라에서 Oracle data Guard, Active Data Guard 또는 GoldenGate를 구성 합니다.
+* Azure 인프라에서 [분할](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/admin/sharding-overview.html) 또는 [골든 게이트](https://www.oracle.com/middleware/technologies/goldengate.html) 를 사용 하 여 [Oracle Data guard](https://docs.oracle.com/cd/B19306_01/server.102/b14239/concepts.htm#g1049956), [활성 데이터 가드](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/index.html)를 지역 내 고가용성을 위한 [가용성 영역](../../../availability-zones/az-overview.md) 와 함께 구성 합니다. 또한 추가 가용성 및 재해 복구를 위해 여러 Azure 지역에서 이러한 구성을 설정할 수 있습니다.
 
 * [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) 를 사용 하 여 Azure 및 온-프레미스 또는 물리적 서버에서 Oracle Linux vm에 대 한 재해 복구를 오케스트레이션 하 고 관리 합니다. 
 
-* [FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/)를 사용 하 여 Azure에서 Oracle RAC (실제 응용 프로그램 클러스터)를 사용 하도록 설정 합니다.
+* Azure [VMWare 솔루션](https://docs.azure.cloudsimple.com/oracle-rac/) 또는 [FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/)를 사용 하 여 azure에서 Oracle RAC (실제 응용 프로그램 클러스터)를 사용 하도록 설정 합니다.
+
+## <a name="backup-oracle-workloads"></a>Oracle 워크 로드 백업
+
+* [Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-overview) 를 사용 하 여 Oracle vm 백업
+
+* Oracle RMAN을 사용 하 여 Oracle Database를 백업 하 고, 필요에 따라 [Azure Blob 퓨즈](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-how-to-mount-container-linux) 를 사용 하 여 [매우 redudant Azure Blob Storage 계정을](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy) 탑재 하 고, 추가 복원 력을 위해 rman 백업을 작성 합니다.
 
 ## <a name="integration-of-azure-with-oci-preview"></a>Azure를 OCI와 통합 (미리 보기)
 

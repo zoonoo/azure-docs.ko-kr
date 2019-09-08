@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 06/07/2019
+ms.date: 09/06/2019
 ms.author: juliako
-ms.openlocfilehash: f4a859f1e63866a50167031569dca05de3e9af27
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 618aa58fe8553789c831ca933ae6be73843b93dd
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856303"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801395"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -34,7 +34,11 @@ ms.locfileid: "68856303"
 
 자세한 내용은 [Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침](migrate-from-v2-to-v3.md#known-issues)을 참조하세요.
 
-## <a name="august-2019"></a>8 월 2019
+## <a name="september-2019"></a>9 월 2019
+
+Media Services v3은 라이브 이벤트의 라이브 선형 인코딩의 24 시간 x 365 일 미리 보기를 발표 하 고 있습니다.
+ 
+## <a name="august-2019"></a>2019년 8월
 
 ### <a name="south-africa-regional-pair-is-open-for-media-services"></a>Media Services에 대 한 동남 공화국 지역 쌍이 열려 있습니다. 
 
@@ -98,7 +102,7 @@ Media Services 성능 개선을 포함 하는 업데이트를 추가 했습니�
 * [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) 가 기본 제공 분석기 사전 설정에 추가 되었습니다.
 * [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) 가 기본 제공 인코더 사전 설정에 추가 되었습니다. 자세한 내용은 [콘텐츠 인식 인코딩](cae-experimental.md)을 참조 하세요. 
 
-## <a name="march-2019"></a>3 월 2019
+## <a name="march-2019"></a>2019년 3월
 
 동적 패키징은 이제 돌비 Atmos을 지원 합니다. 자세한 내용은 [동적 패키징에서 지 원하는 오디오 코덱](dynamic-packaging-overview.md#audio-codecs)을 참조 하세요.
 

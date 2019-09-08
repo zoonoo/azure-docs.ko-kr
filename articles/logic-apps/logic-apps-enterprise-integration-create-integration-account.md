@@ -11,16 +11,16 @@ manager: carmonm
 ms.assetid: d3ad9e99-a9ee-477b-81bf-0881e11e632f
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 55843f9acaafa0c5963cfac735fdb92eeeacdc02
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: be0f534e6770cde561f18bfcb310524a7c506416
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982922"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801294"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-solutions-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 B2B 솔루션에 대 한 통합 계정 만들기 및 관리
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md)를 사용 하 여 [엔터프라이즈 통합 및 B2B 솔루션](../logic-apps/logic-apps-enterprise-integration-overview.md) 을 빌드하기 전에,에 대 한 안전 하 고 확장 가능 하며 관리 하기 쉬운 컨테이너를 제공 하는 별도의 Azure 리소스인 통합 계정을 만들어야 합니다. 논리 앱 워크플로와 함께 정의 하 고 사용 하는 통합 아티팩트
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md)를 사용하여 [엔터프라이즈 통합 및 B2B 솔루션](../logic-apps/logic-apps-enterprise-integration-overview.md)을 빌드하려면 먼저 통합 계정을 만들어야 합니다. 이 계정은 논리 앱 워크플로에서 정의하고 사용할 수 있는 통합 아티팩트에 대한 안전하고 확장 가능하며 관리할 수 있는 컨테이너를 제공하는 별도의 Azure 리소스입니다.
 
 예를 들어 거래 업체, 규약, 맵, 스키마, 인증서 및 일괄 처리 구성과 같은 B2B 아티팩트를 생성, 저장 및 관리할 수 있습니다. 또한 논리 앱이 이러한 아티팩트를 사용 하 여 작동 하 고 Logic Apps B2B 커넥터를 사용 하기 전에 [통합 계정을](#link-account) 논리 앱에 연결 해야 합니다. 통합 계정 및 논리 앱은 모두 *동일한* 위치 또는 지역에 있어야 합니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "69982922"
 * 통합 계정을 다른 Azure 리소스 그룹 또는 구독으로 이동합니다.
 * 통합 계정을 삭제합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -64,7 +64,7 @@ ms.locfileid: "69982922"
    | **구독** | 예 | <*Azure-subscription-name*> | Azure 구독의 이름 |
    | **리소스 그룹** | 예 | <*Azure-resource-group-name*> | 관련 리소스를 구성 하는 데 사용할 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 의 이름입니다. 이 예에서는 "FabrikamIntegration-RG" 라는 이름으로 새 리소스 그룹을 만듭니다. |
    | **가격 책정 계층** | 예 | <*가격 책정 수준*> | 통합 계정에 대 한 가격 책정 계층으로, 나중에 변경할 수 있습니다. 이 예에서는 **Free**를 선택 합니다. 자세한 내용은 다음 항목을 참조하세요. <p>- [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md#integration-accounts) <p>- [Logic Apps 제한 및 구성](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) <p>- [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/) |
-   | **위치** | 예 | <*Azure-지역*> | 통합 계정 메타 데이터를 저장할 지역입니다. 논리 앱과 동일한 위치를 선택 하거나 통합 계정과 동일한 위치에 논리 앱을 만듭니다. 이 예에서는 "미국 서 부"를 사용 합니다. <p>**참고**: [Ise (통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)내에서 통합 계정을 만들려면 해당 ise를 위치로 선택 합니다. 자세한 내용은 [ISE에서 통합 계정 만들기](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment)를 참조 하세요. |
+   | **위치** | 예 | <*Azure-region*> | 통합 계정 메타 데이터를 저장할 지역입니다. 논리 앱과 동일한 위치를 선택 하거나 통합 계정과 동일한 위치에 논리 앱을 만듭니다. 이 예에서는 "미국 서 부"를 사용 합니다. <p>**참고**: [Ise (통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)내에서 통합 계정을 만들려면 해당 ise를 위치로 선택 합니다. 자세한 내용은 [ISE에서 통합 계정 만들기](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment)를 참조 하세요. |
    | **Log Analytics** | 아니요 | 꺼짐, 켜기 | 이 예에서는 **Off** 설정을 그대로 둡니다. |
    |||||
 
@@ -80,7 +80,7 @@ ms.locfileid: "69982922"
 
 ## <a name="link-to-logic-app"></a>논리 앱에 연결
 
-논리 앱에 B2B 아티팩트가 포함 된 통합 계정에 대 한 액세스 권한을 부여 하려면 먼저 통합 계정을 논리 앱에 연결 해야 합니다. 논리 앱과 통합 계정 모두 동일한 지역에 있어야 합니다. 이 작업의 경우이 섹션의 단계에 따라 Azure Portal를 사용할 수 있습니다.
+논리 앱에 B2B 아티팩트가 포함 된 통합 계정에 대 한 액세스 권한을 부여 하려면 먼저 통합 계정을 논리 앱에 연결 해야 합니다. 논리 앱과 통합 계정 모두 동일한 지역에 있어야 합니다. 이 작업을 완료 하려면 Azure Portal를 사용할 수 있습니다. Visual Studio를 사용 하 고 논리 앱이 [Azure 리소스 그룹 프로젝트](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)에 있는 경우 [visual studio를 사용 하 여 논리 앱을 통합 계정에 연결할](../logic-apps/manage-logic-apps-with-visual-studio.md#link-integration-account)수 있습니다.
 
 1. Azure Portal에서 논리 앱을 찾아서 엽니다.
 
@@ -209,7 +209,7 @@ ms.locfileid: "69982922"
    },
    ```
 
-   예를 들어:
+   예:
 
    !["IntegrationAccount" 개체 찾기](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-delete-integration-account.png)
 

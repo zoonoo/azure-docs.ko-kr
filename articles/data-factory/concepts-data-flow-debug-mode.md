@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/04/2018
-ms.openlocfilehash: 71e08f00600bebcc21eba32d991353c9bcaeaa97
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.date: 09/06/2019
+ms.openlocfilehash: 7d1023f6c46c15b6f982193350923f5c91cdc4b9
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991934"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801716"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mapping Data Flow 디버그 모드
 
@@ -20,16 +20,17 @@ ms.locfileid: "69991934"
 
 ## <a name="overview"></a>개요
 
-Azure Data Factory 매핑 데이터 흐름의 디버그 모드는 디자인 화면 맨 위에 있는 "데이터 흐름 디버그" 단추로 전환할 수 있습니다. 데이터 흐름을 디자인할 때 디버그 모드를 설정 하면 데이터 흐름을 빌드하고 디버그 하는 동안 대화형으로 데이터 셰이프 변환을 볼 수 있습니다. 디버그 세션은 데이터 흐름의 파이프라인 디버그 실행 중 뿐만 아니라 데이터 흐름 디자인 세션에서 모두 사용할 수 있습니다.
+데이터 흐름의 디버그 모드를 Azure Data Factory 데이터 흐름을 작성 하 고 디버그 하는 동안 데이터 셰이프 변환을 대화형으로 볼 수 있습니다. 디버그 세션은 데이터 흐름의 파이프라인 디버그 실행 중 뿐만 아니라 데이터 흐름 디자인 세션에서 모두 사용할 수 있습니다. 디버그 모드를 켜려면 디자인 화면 위쪽에 있는 "데이터 흐름 디버그" 단추를 사용 합니다.
 
-![디버그 단추](media/data-flow/debugbutton.png "디버그 단추")
+![디버그 슬라이더](media/data-flow/debugbutton.png "디버그 슬라이더")
+
+슬라이더를 켜면 사용할 integration runtime 구성을 선택 하 라는 메시지가 표시 됩니다. AutoResolveIntegrationRuntime가 선택 된 경우 60 분의 일반 계산 코어 8 개를 포함 하는 클러스터가 분리 됩니다. 데이터 흐름 통합 런타임에 대 한 자세한 내용은 [데이터 흐름 성능](concepts-data-flow-performance.md#increase-size-of-your-compute-engine-in-azure-integration-runtime)을 참조 하세요.
+
+![IR 선택 항목 디버그](media/data-flow/debugbutton2.png "IR 선택 항목 디버그")
 
 디버그 모드를 설정 하면 활성 Spark 클러스터로 데이터 흐름을 대화형으로 작성할 수 있습니다. Azure Data Factory에서 디버그를 끄면 세션이 닫힙니다. 디버그 세션이 켜진 시간 동안 Azure Databricks에서 부과되는 시간당 요금에 유의해야 합니다.
 
 대부분의 경우에는 Azure Data Factory 작업을 게시 하기 전에 비즈니스 논리의 유효성을 검사 하 고 데이터 변환을 볼 수 있도록 디버그 모드에서 데이터 흐름을 작성 하는 것이 좋습니다. 파이프라인 패널의 "디버그" 단추를 사용 하 여 파이프라인의 데이터 흐름을 테스트 합니다.
-
-> [!NOTE]
-> Data Factory 도구 모음에서 디버그 모드 표시등이 녹색 인 동안 60 분 ttl이 있는 일반 계산의 8 개 코어/시간에 대 한 데이터 흐름 디버그 속도로 요금이 청구 됩니다. 
 
 ## <a name="cluster-status"></a>클러스터 상태
 

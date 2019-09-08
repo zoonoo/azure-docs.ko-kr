@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
 ms.date: 05/07/2019
-ms.openlocfilehash: f628be48039df63700f8e786821f29ba55cfd943
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: dd6cd16302c69266a954816868c04c8507762717
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164886"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801212"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Visual Studio로 논리 앱 관리
 
@@ -85,7 +85,7 @@ Visual Studio에서 클라우드 탐색기를 사용하여 Azure 구독에 연�
 
 ## <a name="open-in-visual-studio"></a>Visual Studio에서 열기
 
-Visual Studio에서 Azure Portal을 통해 직접 또는 Visual Studio에서 Azure Resource Manager 프로젝트로 만들고 배포한 논리 앱을 열 수 있습니다.
+Visual Studio에서는 Visual Studio를 사용 하 여 Azure Portal 또는 Azure 리소스 그룹 프로젝트로 직접 만들고 배포한 논리 앱을 열 수 있습니다.
 
 1. 클라우드 탐색기를 열고 논리 앱을 찾습니다. 
 
@@ -123,7 +123,34 @@ Visual Studio에서 Azure Portal을 통해 직접 또는 Visual Studio에서 Azu
 
 4. 위치를 묻는 메시지가 표시되면 해당 위치로 이동하여 논리 앱 정의에 대한 Resource Manager 템플릿을 JSON(.json) 파일 형식으로 저장합니다. 
 
-논리 앱 정의는 Resource Manager 템플릿 내부의 `resources` 하위 섹션에 표시됩니다. 이제 Visual Studio를 사용하여 논리 앱 정의 및 Resource Manager 템플릿을 편집할 수 있습니다. 또한 템플릿을 Visual Studio 솔루션에 Azure Resource Manager 프로젝트로 추가할 수 있습니다. [Visual Studio의 논리 앱에 대한 Resource Manager 프로젝트](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)에 대해 알아보세요. 
+논리 앱 정의는 Resource Manager 템플릿 내부의 `resources` 하위 섹션에 표시됩니다. 이제 Visual Studio를 사용하여 논리 앱 정의 및 Resource Manager 템플릿을 편집할 수 있습니다. [Azure 리소스 그룹 프로젝트로](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) 템플릿을 Visual Studio 솔루션에 추가할 수도 있습니다. [Visual Studio에서 논리 앱에 대 한 Azure 리소스 그룹 프로젝트](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)에 대해 알아봅니다. 
+
+<a name="link-integration-account"></a>
+
+## <a name="link-to-integration-account"></a>통합 계정에 연결
+
+B2B (기업 간) 엔터프라이즈 통합 시나리오에 대 한 논리 앱을 구축 하기 위해 논리 앱과 동일한 지역에 있는 이전에 만든 [통합 계정](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 에 논리 앱을 연결할 수 있습니다. 통합 계정은 거래 업체, 규약, 스키마 및 맵과 같은 B2B 아티팩트를 포함 하 고 있으며, 논리 앱은 XML 유효성 검사 및 플랫 파일 인코딩 또는 디코딩에 B2B 커넥터를 사용할 수 있습니다. [Azure Portal를 사용 하 여이 링크를 만들](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account)수 있지만, [필수 구성 요소](#requirements)를 충족 한 후에도 Visual Studio를 사용할 수 있으며, 논리 앱은 [Azure 리소스 그룹 프로젝트](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)내에 json (json) 파일로 존재 합니다. [Visual Studio에서 논리 앱에 대 한 Azure 리소스 그룹 프로젝트](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#create-resource-group-project)에 대해 알아봅니다.
+
+1. Visual Studio에서 논리 앱을 포함 하는 Azure 리소스 그룹 프로젝트를 엽니다.
+
+1. 솔루션 탐색기에서 **< 논리-앱-이름 > json** 파일의 바로 가기 메뉴를 열고 **논리 앱 디자이너를 사용 하 여 열기**를 선택 합니다. (키보드: Ctrl+L)
+
+   ![논리 앱 디자이너를 사용 하 여 논리 앱의 json 파일 열기](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
+
+   > [!TIP]
+   > Visual Studio 2019에 이 명령이 없으면 Visual Studio에 대한 최신 업데이트가 있는지 확인합니다.
+
+1. 논리 앱 디자이너에 포커스가 있는지 확인 하려면 디자이너의 탭 또는 화면을 선택 하 여 속성 창에 논리 앱에 대 한 **통합 계정** 속성이 표시 되도록 합니다.
+
+   ![속성 창에 "통합 계정" 속성이 표시 됩니다.](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties.png)
+
+1. **통합 계정** 목록을 열고 논리 앱에 연결 하려는 통합 계정을 선택 합니다. 예를 들면 다음과 같습니다.
+
+   !["통합 계정" 속성 목록 열기](./media/manage-logic-apps-with-visual-studio/select-integration-account.png)
+
+1. 완료 되 면 Visual Studio 솔루션을 저장 해야 합니다.
+
+Visual Studio에서 **통합 계정** 속성을 설정 하 고 논리 앱을 Azure Resource Manager 템플릿으로 저장 하는 경우 해당 템플릿에는 선택한 통합 계정에 대 한 매개 변수 선언도 포함 됩니다. 템플릿 매개 변수 및 논리 앱 [에 대 한 자세한 내용은 개요: 논리 앱 배포](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters)를 자동화 합니다.
 
 <a name="refresh"></a>
 
