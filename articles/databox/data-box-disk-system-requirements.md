@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 09/03/2019
+ms.date: 09/04/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: f054d0665c49ee048451681a7cc34d2a648a6e9e
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
-ms.translationtype: MT
+ms.openlocfilehash: fb2fd89664517e44cf5128a5c82e583f03087061
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240216"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70307690"
 ---
 ::: zone target="docs"
 
@@ -28,13 +28,13 @@ ms.locfileid: "70240216"
 
 ::: zone target="chromeless"
 
-# <a name="review-prerequisites"></a>필수 구성 요소 검토
+## <a name="review-prerequisites"></a>필수 구성 요소 검토
 
-1. 자습서를 [사용 하 여 Data Box Disk 순서를 지정 해야 합니다. Azure Data Box Disk](data-box-disk-deploy-ordered.md)를 주문 합니다. 디스크 및 디스크당 1 개의 연결 케이블을 받았습니다.
+1. [자습서: Azure Data Box Disk 주문](data-box-disk-deploy-ordered.md)을 사용하여 Data Box Disk를 주문해야 합니다. 디스크 및 디스크당 1개의 연결 케이블을 받았습니다.
 2. 데이터를 복사할 수 있는 클라이언트 컴퓨터가 있습니다. 클라이언트 컴퓨터는 다음 작업을 수행해야 합니다.
 
-    - 지원 되는 운영 체제를 실행 합니다.
-    - 다른 필수 소프트웨어가 설치 되어 있어야 합니다.
+    - 지원되는 운영 체제를 실행합니다.
+    - 다른 필수 소프트웨어가 설치되어 있어야 합니다.
 
 ::: zone-end
 
@@ -45,14 +45,14 @@ Data Box Disk에 연결된 클라이언트를 통해 디스크 잠금 해제 및
 | **운영 체제** | **테스트 버전** |
 | --- | --- |
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 |
-| Windows (64 비트) |7, 8, 10 |
+| Windows(64비트) |7, 8, 10 |
 |Linux <br> <li> Ubuntu </li><li> Debian </li><li> RHEL(Red Hat Enterprise Linux) </li><li> CentOS| <br>14.04, 16.04, 18.04 <br> 8.11, 9 <br> 7.0 <br> 6.5, 6.9, 7.0, 7.5 |  
 
 ## <a name="other-required-software-for-windows-clients"></a>Windows 클라이언트에 필요한 다른 소프트웨어
 
 Windows 클라이언트의 경우 다음 항목도 설치해야 합니다.
 
-| **소프트웨어**| **Version** |
+| **소프트웨어**| **버전** |
 | --- | --- |
 | Windows PowerShell |5.0 |
 | .NET Framework |4.5.1 |
@@ -66,8 +66,6 @@ Linux 클라이언트의 경우 Data Box Disk 도구 집합이 다음 필수 소
 - dislocker
 - OpenSSL
 
-::: zone target="docs"
-
 ## <a name="supported-connection"></a>지원되는 연결
 
 데이터를 포함하는 클라이언트 컴퓨터에 USB 3.0 이상 포트가 있어야 합니다. 제공된 케이블을 사용하여 디스크를 이 클라이언트에 연결합니다.
@@ -76,7 +74,7 @@ Linux 클라이언트의 경우 Data Box Disk 도구 집합이 다음 필수 소
 
 Data Box Disk에 대해 지원되는 스토리지 형식의 목록은 다음과 같습니다.
 
-| **저장소 계정** | **참고 사항** |
+| **Storage 계정** | **참고 사항** |
 | --- | --- |
 | 클래식 | Standard |
 | 범용  |표준; V1 및 V2 모두 지원됩니다. 핫 및 쿨 계층은 모두 지원됩니다. |
@@ -86,17 +84,18 @@ Data Box Disk에 대해 지원되는 스토리지 형식의 목록은 다음과 
 > Azure Data Lake Storage Gen 2 계정은 지원되지 않습니다.
 
 
-## <a name="supported-storage-types-for-upload"></a>업로드를 위해 지원 되는 저장소 유형
+## <a name="supported-storage-types-for-upload"></a>업로드를 위해 지원되는 스토리지 형식
 
-다음은 Data Box Disk를 사용 하 여 Azure에 업로드 하도록 지원 되는 저장소 유형 목록입니다.
+다음은 Data Box Disk를 사용하여 Azure에 업로드하기 위해 지원되는 스토리지 유형 목록입니다.
 
 | **파일 형식** | **참고 사항** |
 | --- | --- |
 | Azure 블록 Blob | |
 | Azure 페이지 Blob  | |
-| Azure Files  | |
+| Azure 파일  | |
 | Managed Disks | |
 
+::: zone target="docs"
 
 ## <a name="next-step"></a>다음 단계
 
