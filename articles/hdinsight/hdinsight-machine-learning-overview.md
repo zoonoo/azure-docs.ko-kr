@@ -1,6 +1,6 @@
 ---
 title: 기계 학습 개요 - Azure HDInsight
-description: HDInsight의 기계 학습 옵션에 대해 설명합니다.
+description: Azure HDInsight의 클러스터에 대 한 빅 데이터 기계 학습 옵션의 개요입니다.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: hrasheed
-ms.openlocfilehash: ca69424ecbddc068fdaf8bb5839a647701ee27fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 17615c0005a3cbc5b20cea697b4c75b5ed06ae0a
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64686603"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812006"
 ---
 # <a name="machine-learning-on-hdinsight"></a>HDInsight의 기계 학습
 
@@ -49,7 +49,7 @@ Azure Machine Learning은 예측 분석을 모델링하는 도구를 제공할 �
 
 딥 러닝에서 자체의 작업을 진행하도록 지원하기 위해 Microsoft는 추가 비용이 없고 사용하기 쉬운 오픈 소스 [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/)를 개발했습니다. 이 도구 키트는 광범위한 Microsoft 제품, 규모에 맞게 딥 러닝을 배포해야 하는 요구 사항이 있는 전세계 회사 및 최신의 알고리즘과 기술에 관심이 있는 학생들이 사용하고 있습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 ### <a name="scenarios"></a>시나리오
 
@@ -62,6 +62,6 @@ Azure Machine Learning은 예측 분석을 모델링하는 도구를 제공할 �
 
 ### <a name="deep-learning-resources"></a>딥 러닝 리소스
 
-* [Microsoft Cognitive Toolkit 딥 러닝 모델 Azure HDInsight Spark 클러스터와 함께 사용](spark/apache-spark-microsoft-cognitive-toolkit.md)
+* [Azure HDInsight Spark 클러스터에서 Microsoft Cognitive Toolkit 심층 학습 모델 사용](spark/apache-spark-microsoft-cognitive-toolkit.md)
 * [분산 심층 학습을 위해 Azure HDInsight Spark에서 Caffe 사용](spark/apache-spark-deep-learning-caffe.md)
-* [딥 러닝 및 AI 프레임 워크 데이터 과학 Virtual Machine (DSVM)](../machine-learning/data-science-virtual-machine/dsvm-deep-learning-ai-frameworks.md)
+* [Data Science Virtual Machine (DSVM)의 심층 학습 및 AI 프레임 워크](../machine-learning/data-science-virtual-machine/dsvm-deep-learning-ai-frameworks.md)

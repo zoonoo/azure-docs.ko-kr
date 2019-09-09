@@ -1,18 +1,18 @@
 ---
 title: 정확히 한 번의 이벤트 처리를 사용 하는 Spark 스트리밍 작업-Azure HDInsight
-description: 이벤트를 오직 한 번만 처리하도록 Spark 스트리밍을 설정하는 방법.
+description: Apache Spark 스트리밍을 설정 하 여 한 번만 이벤트를 처리 하는 방법입니다.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: ce676031e0cace3f3dffc77fcd71159337938661
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: ce2cff6a1a6bf769f52940ecc0d1dc5a4678cbd5
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735983"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814023"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>이벤트를 정확하게 한 번만 처리하는 Apache Spark 스트리밍 작업 만들기
 

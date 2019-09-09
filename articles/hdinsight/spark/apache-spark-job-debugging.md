@@ -8,18 +8,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5e384520c1b8d6cf5e3b182bbddf41a5f4f7f8f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d6a8ac97aa3896eaf98651f5f1120fcc6bf25516
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707817"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814103"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Azure HDInsight에서 실행 중인 Apache Spark 작업 디버그
 
 이 문서에서는 [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) UI, Spark UI 및 Spark 기록 서버를 사용하여 HDInsight 클러스터에서 실행 중인 [Apache Spark](https://spark.apache.org/) 작업을 추적하고 디버깅하는 방법을 알아봅니다. Spark 클러스터에서 사용할 수 있는 Notebook을 통해 Spark 작업, **Machine Learning: MLLib를 사용하여 식품 검사 데이터에 대한 예측 분석**을 시작합니다. 다음 단계를 사용하여 **spark-submit** 등의 다른 방법으로 제출한 애플리케이션을 추적할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 다음이 있어야 합니다.
 
 * Azure 구독. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
@@ -49,16 +49,16 @@ Spark UI에서 이전에 시작한 애플리케이션에 의해 생성된 Spark 
 1. Spark UI를 시작하려면 애플리케이션 보기에서 위의 화면 캡처에 표시된 것처럼 **추적 URL**에 대한 링크를 클릭합니다. Jupyter Notebook에서 실행 중인 애플리케이션에 의해 시작되는 모든 Spark 작업을 확인할 수 있습니다.
    
     ![Spark 작업 보기](./media/apache-spark-job-debugging/view-spark-jobs.png)
-2. **실행자** 탬을 클릭하여 각 실행자에 대한 처리 및 스토리지 정보를 봅니다. **Thread Dump** 링크를 클릭하여 호출 스택을 검색할 수도 있습니다.
+2. **실행자** 탭을 클릭하여 각 실행자에 대한 처리 및 스토리지 정보를 봅니다. **Thread Dump** 링크를 클릭하여 호출 스택을 검색할 수도 있습니다.
    
     ![Spark 실행자 보기](./media/apache-spark-job-debugging/view-spark-executors.png)
 3. **단계** 탭을 클릭하여 애플리케이션과 관련된 단계를 봅니다.
    
-    ![Spark 단계 보기](./media/apache-spark-job-debugging/view-spark-stages.png)
+    ![Spark 단계 보기](./media/apache-spark-job-debugging/view-spark-stages.png "Spark 단계 보기")
    
     각 단계에서는 아래와 같이 실행 통계를 볼 수 있는 여러 작업이 있습니다.
    
-    ![Spark 단계 보기](./media/apache-spark-job-debugging/view-spark-stages-details.png) 
+    ![Spark 단계 세부 정보 보기](./media/apache-spark-job-debugging/view-spark-stages-details.png "Spark 단계 세부 정보 보기") 
 4. 단계 세부 정보 페이지에서 DAG 시각화를 시작할 수 있습니다. 아래와 같이 페이지의 위쪽에서 **DAG 시각화** 링크를 확장합니다.
    
     ![Spark 단계 DAG 시각화 보기](./media/apache-spark-job-debugging/view-spark-stages-dag-visualization.png)
@@ -87,16 +87,16 @@ Spark UI에서 이전에 시작한 애플리케이션에 의해 생성된 Spark 
 
 1. Spark 기록 서버를 시작하려면 개요 블레이드의 **클러스터 대시보드**에서 **Spark 기록 서버**를 클릭합니다.
    
-    ![Spark 기록 서버 시작](./media/apache-spark-job-debugging/launch-spark-history-server.png)
+    ![Spark 기록 Server1 시작](./media/apache-spark-job-debugging/launch-spark-history-server.png "Spark 기록 Server1 시작")
    
    > [!TIP]  
    > 또는 Ambari UI에서 Spark 기록 서버를 시작할 수도 있습니다. Ambari UI를 시작하려면 개요 블레이드의 **클러스터 대시보드**에서 **Ambari 홈**을 클릭합니다. Ambari UI에서 **Spark**, **빠른 링크**, **Spark 기록 서버 UI**를 차례로 클릭합니다.
 
 2. 완료된 애플리케이션이 모두 표시됩니다. 자세한 내용은 애플리케이션 ID를 클릭하여 애플리케이션에 대해 더 자세히 살펴봅니다.
    
-    ![Spark 기록 서버 시작](./media/apache-spark-job-debugging/view-completed-applications.png)
+    ![Spark 기록 시작](./media/apache-spark-job-debugging/view-completed-applications.png "Spark 기록 시작")
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 *  [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](apache-spark-resource-manager.md)
 *  [확장된 Spark 기록 서버를 사용하여 Apache Spark 작업 디버그](apache-azure-spark-history-server.md)
 

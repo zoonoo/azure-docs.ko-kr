@@ -7,12 +7,12 @@ ms.author: nakhanha
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: 98b97abf9fe0d8e71f93022dcbfeff0a5339d5a1
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 068dc76112db39ad8db118062656013e20cfc2ab
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69983077"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70811668"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Hive 웨어하우스 커넥터를 사용 하 여 Apache Spark 및 Apache Hive 통합
 
@@ -229,10 +229,10 @@ Hive 웨어하우스 커넥터를 사용 하 여 Spark 스트리밍을 사용 �
 1. 열의 마지막 4 자만 표시 하는 열 마스킹 정책을 적용 합니다.  
     1. 에서 `https://CLUSTERNAME.azurehdinsight.net/ranger/`레인저 관리 UI로 이동 합니다.
     1. **Hive**에서 클러스터에 대 한 hive 서비스를 클릭 합니다.
-        ![레인저 정책을 적용 하기 전의 데모 테이블](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
-    1. **마스킹** 탭을 클릭 한 다음 **새 정책** ![정책 목록 추가를 클릭 합니다.](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
+        ![레인저 service manager](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
+    1. **마스킹** 탭을 클릭 한 다음 **새 정책** ![hive 정책 목록 추가를 클릭 합니다.](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
     1. 원하는 정책 이름을 제공 합니다. 데이터베이스 선택: **기본**, hive 테이블: **demo**, hive 열: **이름**, 사용자: **Rsadmin2**, 액세스 형식: **선택**및 부분 마스크: 선택 **마스킹 옵션** 메뉴에서 **마지막 4 표시** . **추가**를 클릭합니다.
-                ![정책 목록](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
+                ![정책 만들기](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
 1. 테이블의 내용을 다시 봅니다. 레인저 정책을 적용 한 후에는 열의 마지막 4 자만 볼 수 있습니다.
 
     ![레인저 정책을 적용 한 후의 데모 테이블](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-after-ranger-policy.png)

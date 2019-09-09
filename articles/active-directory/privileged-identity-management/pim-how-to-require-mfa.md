@@ -1,9 +1,9 @@
 ---
-title: Multi-factor authentication (MFA) 및 PIM-Azure Active Directory | Microsoft Docs
+title: MFA (multi-factor authentication) 및 PIM-Azure Active Directory | Microsoft Docs
 description: Azure AD PIM(Privileged Identity Management)에서 MFA(Multi-Factor Authentication)의 유효성을 검사하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,21 +11,21 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
 ms.date: 08/31/2018
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8831a838a403d58d8673c6400e0dda06c03dc69f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 686c39c9fb1f1ff7c0ecf068a6612f530620d5dc
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60442678"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804309"
 ---
 # <a name="multi-factor-authentication-mfa-and-pim"></a>MFA(Multi-Factor authentication) 및 PIM
 
 모든 관리자에 대해 Multi-Factor Authentication(MFA)을 요구하는 것이 좋습니다. 이렇게 하면 손상된 암호로 인한 공격의 위험이 줄어듭니다.
 
-사용자가 로그인할 때 MFA 챌린지를 완료하도록 요구할 수 있습니다. 사용자가 역할에서 Azure Active Directory (Azure AD) Privileged Identity Management (PIM)을 활성화할 때 MFA 챌린지를 완료 하도록 요구할 수 있습니다. 이러한 방식으로 사용자가 로그인 시 MFA 챌린지를 완료하지 않은 경우 PIM에서 이 작업을 수행하도록 메시지를 표시합니다.
+사용자가 로그인할 때 MFA 챌린지를 완료하도록 요구할 수 있습니다. Azure Active Directory (Azure AD) Privileged Identity Management (PIM)에서 역할을 활성화할 때 사용자가 MFA 챌린지를 완료 하도록 요구할 수도 있습니다. 이러한 방식으로 사용자가 로그인 시 MFA 챌린지를 완료하지 않은 경우 PIM에서 이 작업을 수행하도록 메시지를 표시합니다.
 
 > [!IMPORTANT]
 > 현재, Azure MFA는 회사 또는 학교 계정에서만 작동하며 Microsoft 계정 (일반적으로 Skype, Xbox, Outlook.com 등과 같은 Microsoft 서비스에 로그인하는 데 사용되는 개인 계정)에서는 작동하지 않습니다. 이 때문에 Microsoft 계정을 사용하는 사용자는 MFA를 사용하여 해당 역할을 활성화할 수 없기 때문에 적격 관리자가 될 수 없습니다. 이 사용자들이 Microsoft 계정을 사용하여 계속 워크로드를 관리해야 하는 경우 영구 관리자로 승격하세요.

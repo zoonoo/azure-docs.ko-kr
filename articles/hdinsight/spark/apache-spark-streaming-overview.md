@@ -1,6 +1,6 @@
 ---
 title: Azure HDInsight의 Spark Streaming
-description: HDInsight Spark 클러스터에서 Spark 스트리밍 애플리케이션을 사용하는 방법.
+description: HDInsight Spark 클러스터에서 Apache Spark 스트리밍 응용 프로그램을 사용 하는 방법입니다.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.openlocfilehash: 19d77d4aa49008232a01cd3ac2761a796505a35c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f990e5eb2761f1743c2731f499ecc341990edf53
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712002"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813984"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Apache Spark Streaming 개요
 
@@ -145,7 +145,7 @@ stream.foreachRDD { rdd =>
 ssc.start()
 ```
 
-위의 응용 프로그램을 시작한 후 약 30 초 동안 기다립니다.  그런 다음 예를 들어이 SQL 쿼리를 사용 하 여 일괄 처리에 있는 값의 현재 집합을 정기적으로 데이터 프레임 쿼리할 수 있습니다.
+위에서 응용 프로그램을 시작한 후 30 초 정도 기다립니다.  그런 다음 데이터 프레임을 정기적으로 쿼리하여 일괄 처리에 있는 값의 현재 집합을 확인할 수 있습니다. 예를 들어 다음 SQL 쿼리를 사용할 수 있습니다.
 
 ```sql
 %%sql

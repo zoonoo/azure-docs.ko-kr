@@ -1,6 +1,6 @@
 ---
 title: Azure HDInsight의 Phoenix 성능
-description: Phoenix 성능을 최적화하는 모범 사례입니다.
+description: Azure HDInsight 클러스터에 대 한 Apache Phoenix 성능 최적화를 위한 모범 사례
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 4fc4d1843ddb8d007ca062d928ebbddf90909583
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b2a40802070510939332c3f5e876293445cf2df1
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64690043"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810434"
 ---
 # <a name="apache-phoenix-performance-best-practices"></a>Apache Phoenix 성능 모범 사례
 
@@ -31,31 +31,31 @@ Phoenix의 테이블에 정의된 기본 키는 기본 HBase 테이블의 rowkey
 
 예를 들어 연락처에 대한 테이블의 이름, 성, 전화 번호 및 주소는 모두 같은 열 패밀리에 있습니다. 증가하는 시퀀스 번호를 기준으로 기본 키를 정의할 수 있습니다.
 
-|rowkey|       address|   phone| firstname| Lastname|
+|rowkey|       주소|   전화| firstname| Lastname|
 |------|--------------------|--------------|-------------|--------------|
 |  1000|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole|
 |  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji|
 
 그러나 lastName으로 자주 쿼리하는 경우 이 기본 키가 제대로 수행되지 않을 수 있습니다. 이는 각 쿼리에서 모든 lastName의 값을 읽기 위해 전체 테이블 검색이 필요하기 때문입니다. 대신 lastName, firstName 및 사회 보장 번호 열에 기본 키를 정의할 수 있습니다. 이 마지막 열은 아버지 및 아들과 같은 이름으로 동일한 주소의 두 명의 거주자를 명확히 구분하는 것입니다.
 
-|rowkey|       address|   phone| firstname| Lastname| socialSecurityNum |
+|rowkey|       주소|   전화| firstname| Lastname| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
 |  1000|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
 |  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 이 새로운 기본 키를 사용하여 Phoenix에서 생성한 행 키는 다음과 같습니다.
 
-|rowkey|       address|   phone| firstname| Lastname| socialSecurityNum |
+|rowkey|       주소|   전화| firstname| Lastname| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
 |  Dole-John-111|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
 |  Raji-Calvin-222|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 위의 첫 번째 행에서 rowkey에 대한 데이터는 다음과 같이 표시됩니다.
 
-|rowkey|       key|   값| 
+|rowkey|       Key|   value| 
 |------|--------------------|---|
-|  Dole-John-111|address |1111 San Gabriel Dr.|  
-|  Dole-John-111|phone |1-425-000-0002|  
+|  Dole-John-111|주소 |1111 San Gabriel Dr.|  
+|  Dole-John-111|전화 |1-425-000-0002|  
 |  Dole-John-111|firstname |John|  
 |  Dole-John-111|Lastname |Dole|  
 |  Dole-John-111|socialSecurityNum |111| 
@@ -113,7 +113,7 @@ covered 인덱스는 인덱싱된 값 외에도 행의 데이터를 포함하는
 
 예를 들어 연락처 테이블 예제에서 socialSecurityNum 열에만 보조 인덱스를 만들 수 있습니다. 이 보조 인덱스는 socialSecurityNum 값으로 필터링하는 쿼리의 속도를 높이지만, 다른 필드 값을 검색하는 경우 주 테이블에 대한 다른 읽기가 필요합니다.
 
-|rowkey|       address|   phone| firstname| Lastname| socialSecurityNum |
+|rowkey|       주소|   전화| firstname| Lastname| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
 |  Dole-John-111|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
 |  Raji-Calvin-222|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |

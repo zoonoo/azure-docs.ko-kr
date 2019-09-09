@@ -1,33 +1,33 @@
 ---
-title: Azure reserved capacity를 사용 하는 SQL Data Warehouse 요금에 대 한 선불
-description: 요금을 절감 하기 위해 예약 된 용량으로 SQL Data Warehouse 요금을 선불 수 있는 방법에 대해 알아봅니다.
+title: Azure reserved capacity를 사용 하 여 SQL Data Warehouse 요금 비용 절감
+description: 비용 절감을 위해 예약 된 용량으로 SQL Data Warehouse 요금 비용을 절감 하는 방법을 알아보세요.
 services: billing
 author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 08/02/2019
+ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: 6ee7a661434bb756c6cf196937229db19d06b373
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 381a709c74f5fcf6bb1f89f07ad84d5e3af0c5e0
+ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779977"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806285"
 ---
-# <a name="prepay-for-sql-data-warehouse-charges-with-reserved-capacity"></a>예약 된 용량을 사용 하는 SQL Data Warehouse 요금에 대 한 선불
+# <a name="save-costs-for-sql-data-warehouse-charges-with-reserved-capacity"></a>예약 된 용량을 사용 하 여 SQL Data Warehouse 요금 비용 절감
 
-1 년 또는 3 년 동안 cDWU 사용에 대 한 총액를 통해 Azure SQL Data Warehouse를 사용 하 여 비용을 절감할 수 있습니다. SQL Data Warehouse reserved capacity를 구매 하려면 Azure 지역 및 용어를 선택 해야 합니다. 그런 다음, 카트에 SQL Data Warehouse SKU를 추가 하 고 구매할 cDWU 단위의 수량을 선택 합니다.
+1 년 또는 3 년 동안 cDWU 사용에 대 한 예약을 커밋하여 Azure SQL Data Warehouse를 사용 하 여 비용을 절감할 수 있습니다. SQL Data Warehouse reserved capacity를 구매 하려면 Azure 지역 및 용어를 선택 해야 합니다. 그런 다음, SQL Data Warehouse SKU를 카트에 추가하고 구매하려는 cDWU 단위 용량을 선택합니다.
 
-예약을 구매 하는 경우 예약 특성과 일치 하는 SQL Data Warehouse 사용량은 더 이상 종 량 제 요금으로 청구 되지 않습니다.
+예약을 구매하는 경우 예약 특성과 일치하는 SQL Data Warehouse 사용에 대해 종량제 요금이 더 이상 청구되지 않습니다.
 
-예약은 SQL Data Warehouse 사용량과 관련 된 저장소 또는 네트워킹 요금을 포함 하지 않습니다.
+SQL Data Warehouse 사용과 관련된 스토리지 또는 네트워킹 요금은 예약에 포함되지 않습니다.
 
-예약 된 용량이 만료 되 면 SQL Data Warehouse 인스턴스는 계속 실행 되지만 종 량 제 요금으로 청구 됩니다. 예약은 자동으로 갱신 되지 않습니다.
+예약 용량이 만료되면 SQL Data Warehouse 인스턴스가 계속 실행되지만 종량제 요금이 청구됩니다. 예약은 자동으로 갱신되지 않습니다.
 
 가격 책정 정보는 [SQL Data Warehouse 예약 된 용량 제공](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2/)을 참조 하세요.
 
-[Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade)에서 Azure SQL Data Warehouse 예약 된 용량을 구매할 수 있습니다. 예약 용량을 구입할 수 있는 조건은 다음과 같습니다.
+[Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade)에서 Azure SQL Data Warehouse 예약 된 용량을 구매할 수 있습니다. 예약에 대 한 요금을 지불 [하거나 매월 지불](billing-monthly-payments-reservations.md)합니다. 예약 용량을 구입할 수 있는 조건은 다음과 같습니다.
 
 - 하나 이상의 enterprise 또는 종 량 제 구독에 대 한 소유자 역할이 있어야 합니다.
 - 엔터프라이즈 구독의 경우 [EA 포털](https://ea.azure.com/)에서 **예약 된 인스턴스 추가** 옵션을 사용 하도록 설정 해야 합니다. 설정을 사용 하지 않도록 설정한 경우 EA 관리자 여야 합니다.
@@ -45,7 +45,7 @@ SQL Data Warehouse 예약 크기는 사용 하는 총 cDWU (계산 데이터 웨
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. **모든 서비스** > **예약**을 선택합니다.
-3. 구독 선택 구독 목록을 사용 하 여 예약 된 용량에 대 한 비용을 지불 하는 데 사용 되는 구독을 선택 합니다. 구독의 지불 방법에는 예약 된 용량에 대 한 선행 비용이 청구 됩니다. 구독 유형은 기업계약(제안 번호: MS-AZR-0017P 또는 MS-AZR-0148P) 또는 종량제(제안 번호: MS-AZR-0003P 또는 MS-AZR-0023P)여야 합니다.
+3. 구독을 선택합니다. 구독 목록을 사용 하 여 예약 된 용량에 대 한 비용을 지불 하는 데 사용 되는 구독을 선택 합니다. 구독의 지불 방법은 예약 된 용량에 대 한 비용을 청구 합니다. 구독 유형은 기업계약(제안 번호: MS-AZR-0017P 또는 MS-AZR-0148P) 또는 종량제(제안 번호: MS-AZR-0003P 또는 MS-AZR-0023P)여야 합니다.
    - Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과 비용으로 청구됩니다.
    - 종량제 구독에 대한 요금은 신용 카드 또는 구독 시 선택한 청구서 결제 방법으로 청구됩니다.
 4. 범위를 선택 합니다. 범위 목록을 사용 하 여 구독 범위를 선택 합니다.
@@ -67,7 +67,7 @@ SQL Data Warehouse 예약 크기는 사용 하는 총 cDWU (계산 데이터 웨
 
 예약 할인은 SQL Data Warehouse 예약 된 용량 범위 및 영역과 일치 하는 SQL Data Warehouse 인스턴스 수에 자동으로 적용 됩니다. [Azure Portal](https://portal.azure.com/), POWERSHELL, CLI 또는 API를 통해 SQL Data Warehouse 예약 된 용량의 범위를 업데이트할 수 있습니다.
 
-## <a name="need-help-contact-us"></a>도움이 필요하십니까? 문의
+## <a name="need-help-contact-us"></a>도움 필요 시 문의
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/).
 

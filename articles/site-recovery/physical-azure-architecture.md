@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 354a68d7d4d07657baa7044566dde8b7ed77ca63
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5d3dfe6457c4b70f0b23c2d8aa7ac5e58e68dc7
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66400063"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814476"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>물리적 서버에서 Azure로의 재해 복구 아키텍처
 
@@ -25,7 +25,7 @@ ms.locfileid: "66400063"
 
 **구성 요소** | **요구 사항** | **세부 정보**
 --- | --- | ---
-**Azure** | Azure 구독 및 Azure 네트워크입니다. | 온-프레미스에서 물리적 컴퓨터는 Azure에 저장 된 복제 된 데이터 디스크를 관리 합니다. 온-프레미스에서 Azure로의 장애 조치가 발생한 경우 복제된 데이터를 사용하여 Azure VM을 만듭니다. Azure VM을 만들 때 Azure 가상 네트워크에 연결합니다.
+**Azure** | Azure 구독 및 Azure 네트워크. | 온-프레미스 물리적 컴퓨터의 복제 된 데이터는 Azure managed disks에 저장 됩니다. 온-프레미스에서 Azure로의 장애 조치가 발생한 경우 복제된 데이터를 사용하여 Azure VM을 만듭니다. Azure VM을 만들 때 Azure 가상 네트워크에 연결합니다.
 **구성 서버** | 모든 온-프레미스 Site Recovery 구성 요소를 실행하도록 단일 온-프레미스 물리적 컴퓨터나 VMware VM이 배포됩니다. VM은 구성 서버, 프로세스 서버 및 마스터 대상 서버를 실행합니다. | 구성 서버는 온-프레미스와 Azure 간의 통신을 조정하여 데이터 복제를 관리합니다.
  **프로세스 서버**:  | 기본적으로 구성 서버와 함께 설치됩니다. | 복제 게이트웨이의 역할을 합니다. 복제 데이터를 수신하고 캐싱, 압축 및 암호화를 사용하여 최적화하며 복제 데이터를 Azure Storage로 전송합니다.<br/><br/> 프로세스 서버도 복제하려는 서버에 모바일 서비스를 설치합니다.<br/><br/> 배포가 늘어나면 프로세스 서버로 실행하는 별도의 프로세스 서버를 추가하여 더 큰 복제 트래픽을 처리할 수 있습니다.
  **마스터 대상 서버** | 기본적으로 구성 서버와 함께 설치됩니다. | Azure에서 장애 복구 중에 복제 데이터를 처리합니다.<br/><br/> 대규모 배포의 경우 장애 복구를 위해 추가적인 별도의 마스터 대상 서버를 추가할 수 있습니다.
@@ -54,7 +54,7 @@ ms.locfileid: "66400063"
 
 ## <a name="failover-and-failback-process"></a>장애 조치 및 장애 복구 프로세스
 
-복제가 설정되고 재해 복구 훈련(테스트 장애 조치)를 실행하여 모든 것이 예상대로 돌아가는 것을 확인한 후에는 필요에 따라 장애 조치와 장애 복구를 실행할 수 있습니다. 다음 사항에 유의하세요.
+복제가 설정되고 재해 복구 훈련(테스트 장애 조치)를 실행하여 모든 것이 예상대로 돌아가는 것을 확인한 후에는 필요에 따라 장애 조치와 장애 복구를 실행할 수 있습니다. 다음 사항에 유의합니다.
 
 - 계획된 장애 조치는 지원되지 않습니다.
 - 온-프레미스 VMware VM으로 장애 복구해야 합니다. 즉, 온-프레미스 물리적 서버를 Azure로 복제하는 경우에도 온-프레미스 VMware 인프라가 필요합니다.
@@ -75,7 +75,7 @@ ms.locfileid: "66400063"
 
 **Azure로부터 VMware 장애 복구**
 
-![장애 복구](./media/physical-azure-architecture/enhanced-failback.png)
+![장애 복구(failback)](./media/physical-azure-architecture/enhanced-failback.png)
 
 
 ## <a name="next-steps"></a>다음 단계

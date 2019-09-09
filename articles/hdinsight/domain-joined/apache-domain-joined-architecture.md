@@ -1,6 +1,6 @@
 ---
 title: Enterprise Security Package를 사용하는 Azure HDInsight 아키텍처
-description: Enterprise Security Package를 사용하여 HDInsight 보안을 계획하는 방법을 알아봅니다.
+description: Enterprise Security Package를 사용 하 여 Azure HDInsight 보안을 계획 하는 방법을 알아봅니다.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: 8b8c200979b70e145fca64746547b37dee558848
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: e7983c4da4803965dabaa6a471fbea8a2fba5229
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67720442"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810950"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>HDInsight에서 Enterprise Security Package 사용
 
@@ -37,7 +37,7 @@ HDInsight의 VM(가상 머신)은 제공된 도메인에 가입된 도메인입�
 
 요약하면 다음으로 환경을 설정해야 합니다.
 
-- Active Directory 도메인(Azure AD DS에서 관리함) **도메인 이름은 39 자를 해야 합니다. 또는 Azure HDInsight를 사용 하 합니다.**
+- Active Directory 도메인(Azure AD DS에서 관리함) **Azure HDInsight에서 작업 하려면 도메인 이름이 39 자이 하 여야 합니다.**
 - Azure AD DS에서 사용하도록 설정된 보안 LDAP(LDAPS)
 - 가상 네트워크를 별도로 선택하는 경우, HDInsight 가상 네트워크에서 Azure AD DS 가상 네트워크로 적절한 네트워킹 연결 HDInsight 가상 네트워크 내의 VM은 가상 네트워크 피어링을 통해 Azure AD DS에 연결되어 있어야 합니다. HDInsight 및 Azure AD DS가 동일한 가상 네트워크에 배포된 경우, 연결이 자동으로 제공되며 추가 작업이 필요하지 않습니다.
 
@@ -63,7 +63,7 @@ Azure AD 및 Azure AD DS 없이 온-프레미스 Active Directory 또는 IaaS VM
 
 페더레이션을 사용 중이고 암호 해시가 올바르게 동기화되었지만 인증 오류가 발생하는 경우에는 PowerShell 서비스 주체에 대해 클라우드 암호 인증이 활성화되어 있는지 확인합니다. 그렇지 않은 경우 Azure AD 테넌트에 대해 [HRD(홈 영역 검색) 정책](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md)을 설정해야 합니다. HRD 정책을 확인하고 설정하려면:
 
-1. 미리 보기를 설치할 [Azure AD PowerShell 모듈](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2)합니다.
+1. Preview [AZURE AD PowerShell 모듈](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2)을 설치 합니다.
 
    ```powershell
    Install-Module AzureAD
@@ -81,7 +81,7 @@ Azure AD 및 Azure AD DS 없이 온-프레미스 Active Directory 또는 IaaS VM
    Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
    ```
 
-4. 존재 하지 않는 경우에 다음 서비스 주체를 만듭니다.
+4. 존재 하지 않는 경우 서비스 주체를 만듭니다.
 
    ```powershell
    $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2

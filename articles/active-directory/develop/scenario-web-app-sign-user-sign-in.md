@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be7801515355452306cd5e7afa709a0681c7c314
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9766b530b4d795d0f35f097de20155cdd17687ca
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562208"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812389"
 ---
 # <a name="web-app-that-signs-in-users---sign-in"></a>사용자가 로그인 하는 웹 앱-로그인
 
@@ -28,7 +28,8 @@ ms.locfileid: "68562208"
 
 ## <a name="sign-in"></a>로그인
 
-이전 문서 [응용 프로그램의 코드 구성](scenario-web-app-sign-user-app-configuration.md) 에 있는 코드는 모두 로그 아웃을 구현 하는 데 필요 합니다. 사용자가 앱에 로그인 한 후에는 로그 아웃 하도록 설정 하는 것이 좋습니다. ASP.NET core는 로그 아웃을 처리 합니다.
+이전 문서 [응용 프로그램의 코드 구성](scenario-web-app-sign-user-app-configuration.md) 에서 검토 한 코드는 모두 로그인을 구현 하는 데 필요 합니다.
+사용자가 앱에 로그인 한 후에는 로그 아웃 하도록 설정 하는 것이 좋습니다. ASP.NET core는 로그 아웃을 처리 합니다.
 
 ## <a name="what-sign-out-involves"></a>로그 아웃 관련 내용
 

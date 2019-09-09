@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3286ca3b9c85236ff322eb19324bc5ac7a904e22
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 580712c4d1815b1c994fd62be78e8d7f3f1c9a01
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65605444"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70809432"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Hortonworks Sandbox와 Azure Data Lake tools for Visual Studio 사용
 
@@ -21,11 +21,11 @@ Azure Data Lake는 제네릭 Apache Hadoop 클러스터를 사용하기 위한 �
 
 Hortonworks Sandbox를 사용하여 개발 환경에서 로컬로 Hadoop를 사용할 수 있습니다. 솔루션을 개발하여 대규모로 배포했으므로 HDInsight 클러스터를 살펴볼 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * 개발 환경의 가상 머신에서 실행되는 Hortonworks Sandbox입니다. 이 문서는 Oracle VirtualBox에서 실행 중인 샌드박스로 작성 및 테스트되었으며, 샌드박스 설정에 대한 자세한 내용은 [Hortonworks 샌드박스 시작](hadoop/apache-hadoop-emulator-get-started.md) 문서를 참조하세요.
 
-* 있습니다.
+* Visual Studio.
 
 * [Azure SDK for .NET](https://azure.microsoft.com/downloads/) 2.7.1 이상
 
@@ -45,13 +45,13 @@ Hortonworks Sandbox가 실행 중인지 확인합니다. [Hortonworks 샌드박�
 
 3. **HDInsight Emulator에 연결** 대화 상자에서 Ambari에 대해 구성한 암호를 입력합니다.
 
-    ![암호 텍스트 상자가 강조 표시된 대화 상자의 스크린샷](./media/hdinsight-hadoop-emulator-visual-studio/enter-ambari-password.png)
+    ![Ambari 암호 입력란이 강조 표시 된 대화 상자의 스크린샷](./media/hdinsight-hadoop-emulator-visual-studio/enter-ambari-password.png)
 
     **다음**을 선택하여 계속합니다.
 
 4. **암호** 필드를 사용하여 `root` 계정에 대해 구성한 암호를 입력합니다. 다른 필드는 기본값으로 둡니다.
 
-    ![암호 텍스트 상자가 강조 표시된 대화 상자의 스크린샷](./media/hdinsight-hadoop-emulator-visual-studio/enter-root-password.png)
+    ![루트 암호 입력란이 강조 표시 된 대화 상자의 스크린샷](./media/hdinsight-hadoop-emulator-visual-studio/enter-root-password.png)
 
     **다음**을 선택하여 계속합니다.
 
@@ -90,7 +90,7 @@ Hive에서는 구조화된 데이터로 작업하기 위한 SQL과 유사한 쿼
 
     **제출** 옆의 드롭다운 메뉴를 사용하여 **고급**을 선택할 수도 있습니다. 고급 옵션을 사용하여 작업을 제출할 때 추가 옵션을 제공할 수 있습니다.
 
-    ![스크립트 제출 대화 상자의 스크린샷](./media/hdinsight-hadoop-emulator-visual-studio/advanced-hive.png)
+    ![스크립트 제출 대화 상자 hive의 스크린샷](./media/hdinsight-hadoop-emulator-visual-studio/advanced-hive.png)
 
 3. 쿼리를 제출하면 작업 상태가 표시됩니다. 작업 상태에는 Hadoop에서 처리되는 작업에 대한 정보가 표시됩니다. **작업 상태**는 작업의 상태를 제공합니다. 상태는 정기적으로 업데이트됩니다. 또는 새로 고침 아이콘을 사용하여 상태를 수동으로 새로 고칠 수 있습니다.
 
@@ -149,7 +149,7 @@ Hive에서는 구조화된 데이터로 작업하기 위한 SQL과 유사한 쿼
 
     Pig에서 Hive와 다른 언어를 사용하는 동안 **제출** 단추를 통해 두 언어 간에 작업을 실행하는 방법은 일치합니다. **제출** 옆에 있는 드롭다운을 선택하면 Pig의 고급 제출 대화 상자가 표시됩니다.
 
-    ![스크립트 제출 대화 상자의 스크린샷](./media/hdinsight-hadoop-emulator-visual-studio/advanced-pig.png)
+    ![스크립트 제출 대화 상자 pig 스크린샷](./media/hdinsight-hadoop-emulator-visual-studio/advanced-pig.png)
 
 3. 또한 작업 상태 및 출력은 Hive 쿼리와 동일하게 표시됩니다.
 

@@ -1,17 +1,17 @@
 ---
 title: Azure HDInsight에서 Apache Hive LLAP 쿼리 성능 저하
-description: Apache Hive LLAP의 쿼리가 예상 보다 느리게 실행 되 고 있습니다.
+description: Apache Hive LLAP의 쿼리가 Azure HDInsight에서 예상 보다 느리게 실행 되 고 있습니다.
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 07/30/2019
-ms.openlocfilehash: b9d98d4aa73bef417d253901744445b848d60066
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: d05febbe6ba9e30ef46f5e961af155d37c76c205
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68700289"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70811369"
 ---
 # <a name="scenario-poor-performance-in-apache-hive-llap-queries-in-azure-hdinsight"></a>시나리오: Azure HDInsight에서 Apache Hive LLAP 쿼리 성능 저하
 

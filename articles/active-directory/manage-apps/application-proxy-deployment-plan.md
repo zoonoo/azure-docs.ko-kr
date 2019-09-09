@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: cd19d1e0cdfa1b160734b23d7f50310948ded80d
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 04a2a3f2557ccef510a831a5c9fbf89bb62cb9a7
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879907"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812840"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Azure AD 응용 프로그램 프록시 배포 계획
 
@@ -71,7 +71,7 @@ Azure AD 응용 프로그램 프록시를 구성 하 고 구현 하려면 다음
 * **공용 인증서**: 사용자 지정 도메인 이름을 사용 하는 경우 타사의 신뢰할 수 있는 인증 기관에서 발급 한 공용 인증서를 구입 해야 합니다. 조직의 요구 사항에 따라 인증서를 가져오는 데 약간의 시간이 걸릴 수 있으므로 가능한 한 빨리 프로세스를 시작 하는 것이 좋습니다. Azure 애플리케이션 프록시는 표준, [와일드 카드](application-proxy-wildcard.md)또는 SAN 기반 인증서를 지원 합니다.
 
 * **도메인 요구 사항**: KCD (Kerberos 제한 위임)를 사용 하 여 게시 된 응용 프로그램에 Single sign-on을 사용 하려면 커넥터를 실행 하는 서버와 앱을 실행 하는 서버가 도메인에 가입 되어 있고 동일한 도메인 또는 트러스팅 도메인에 속해 있어야 합니다.
-항목에 대 한 자세한 내용은 응용 프로그램 프록시를 사용 하는 [single sign-on 용 Kcd](application-proxy-configure-single-sign-on-with-kcd.md) 를 참조 하세요. 커넥터 서비스는 로컬 시스템의 컨텍스트에서 실행 되며 사용자 지정 id를 사용 하도록 구성 되지 않아야 합니다.
+항목에 대 한 자세한 내용은 응용 프로그램 프록시를 사용 하는 [Single Sign-On 용 Kcd](application-proxy-configure-single-sign-on-with-kcd.md) 를 참조 하세요. 커넥터 서비스는 로컬 시스템의 컨텍스트에서 실행 되며 사용자 지정 id를 사용 하도록 구성 되지 않아야 합니다.
 
 * **Url에 대 한 DNS 레코드**
 
@@ -85,7 +85,7 @@ Azure AD 응용 프로그램 프록시를 구성 하 고 구현 하려면 다음
 
    * 응용 프로그램 **게시 및 관리** 에는 *응용 프로그램 관리자* 역할이 필요 합니다. 응용 프로그램 관리자는 등록, SSO 설정, 사용자 및 그룹 할당/라이선스, 응용 프로그램 프록시 설정 및 동의를 포함 하 여 디렉터리에 있는 모든 응용 프로그램을 관리할 수 있습니다. 조건부 액세스를 관리하는 기능은 부여하지 않습니다. *클라우드 응용 프로그램 관리자* 역할에는 응용 프로그램 프록시 설정 관리를 허용 하지 않는다는 점을 제외 하 고 응용 프로그램 관리자의 모든 기능이 있습니다.
 
-* **라이선스**: 응용 프로그램 프록시는 Azure AD Basic 구독을 통해 사용할 수 있습니다. 라이선스 옵션 및 기능의 전체 목록은 [Azure Active Directory 가격 책정 페이지](https://azure.microsoft.com/pricing/details/active-directory/) 를 참조 하세요.  
+* **라이선스**: 응용 프로그램 프록시는 Azure AD Premium 구독을 통해 사용할 수 있습니다. 라이선스 옵션 및 기능의 전체 목록은 [Azure Active Directory 가격 책정 페이지](https://azure.microsoft.com/pricing/details/active-directory/) 를 참조 하세요.  
 
 ### <a name="application-discovery"></a>응용 프로그램 검색
 
@@ -93,7 +93,7 @@ Azure AD 응용 프로그램 프록시를 구성 하 고 구현 하려면 다음
 
 | 정보 유형| 수집할 정보 |
 |---|---|
-| 서비스 종류| 예: SharePoint, SAP, CRM, 사용자 지정 웹 응용 프로그램, API |
+| 서비스 종류| 예를 들어: SharePoint, SAP, CRM, 사용자 지정 웹 응용 프로그램, API |
 | 애플리케이션 플랫폼 | 예를 들어: Windows IIS, Linux의 Apache, Tomcat, NGINX |
 | 도메인 멤버 자격| 웹 서버의 FQDN (정규화 된 도메인 이름) |
 | 응용 프로그램 위치 | 웹 서버 또는 팜이 인프라에 있는 위치 |
@@ -113,7 +113,7 @@ Azure AD 응용 프로그램 프록시를 구성 하 고 구현 하려면 다음
 
  **액세스 권한**
 
-* 도메인에 가입 된 원격 사용자 또는 Azure AD 조인 장치 사용자는 원활한 SSO (single sign-on)를 통해 게시 된 응용 프로그램에 안전 하 게 액세스할 수 있습니다.
+* 도메인에 가입 된 원격 사용자 또는 Azure AD 조인 장치 사용자는 원활한 SSO (Single Sign-On)를 사용 하 여 게시 된 응용 프로그램에 안전 하 게 액세스할 수 있습니다.
 
 * 승인 된 개인 장치를 사용 하는 원격 사용자는 MFA에 등록 된 경우 게시 된 응용 프로그램에 안전 하 게 액세스할 수 있으며 인증 방법으로 휴대폰에 Microsoft Authenticator 앱을 등록 했습니다.
 
@@ -239,7 +239,7 @@ SSO (Single sign-on)를 사용 하 여 단일 응용 프로그램에 대해 원�
 
 3. **사전 인증** 필드에서 드롭다운 목록을 사용 하 여 **Azure Active Directory**를 선택 하 고 **저장**을 선택 합니다.
 
-사전 인증을 사용 하는 경우 Azure AD는 사용자에 게 먼저 인증을 시도 하 고 single sign-on이 configued 경우 백 엔드 응용 프로그램은 응용 프로그램에 대 한 액세스 권한이 부여 되기 전에 사용자도 확인 합니다. 이전 인증 모드를 통과에서 Azure AD로 변경 하면 HTTPS를 사용 하 여 외부 URL도 구성 되므로 HTTP에 대해 초기에 구성 된 모든 응용 프로그램은 이제 HTTPS를 사용 하 여 보안이 유지 됩니다.
+사전 인증을 사용 하는 경우 Azure AD는 인증을 위해 먼저 사용자에 게 질문을 하 고, Single Sign-On configued 경우 백 엔드 응용 프로그램은 응용 프로그램에 대 한 액세스가 부여 되기 전에 사용자도 확인 합니다. 이전 인증 모드를 통과에서 Azure AD로 변경 하면 HTTPS를 사용 하 여 외부 URL도 구성 되므로 HTTP에 대해 초기에 구성 된 모든 응용 프로그램은 이제 HTTPS를 사용 하 여 보안이 유지 됩니다.
 
 ### <a name="enable-single-sign-on"></a>Single Sign-On 사용
 

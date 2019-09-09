@@ -1,6 +1,6 @@
 ---
 title: 사용자 지정 MapReduce 프로그램 실행 - Azure HDInsight
-description: HDInsight에서 사용자 지정 MapReduce 프로그램을 실행하는 경우 및 방법입니다.
+description: Azure HDInsight 클러스터에서 사용자 지정 Apache MapReduce 프로그램을 실행 하는 시기 및 방법
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2017
 ms.author: ashishth
-ms.openlocfilehash: 5ed82fc21aedc9af394922059859f81cfba1867e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 305eefbaa674e414ab8134986e6cd526abe8208e
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64713095"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810751"
 ---
 # <a name="run-custom-mapreduce-programs"></a>사용자 지정 MapReduce 프로그램 실행
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: dfd926f3e091f4516685fd73f3a6b87949330afb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0d97ca91466516b8722ecca77d19078399a258f7
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64706358"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814101"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark 클러스터용 리소스 관리 
 
@@ -69,10 +69,11 @@ YARN UI를 사용하여 현재 Spark 클러스터에서 실행 중인 애플리�
 ### <a name="change-the-parameters-using-ambari-ui"></a>Ambari UI를 사용하여 매개 변수 변경
 1. Ambari UI에서 **Spark**, **Configs**를 차례로 클릭한 다음 **사용자 지정 spark 기본값**을 확장합니다.
 
-    ![Ambari를 사용하여 매개 변수 설정](./media/apache-spark-resource-manager/set-parameters-using-ambari.png)
+    ![Ambari 사용자 지정을 사용 하 여 매개 변수 설정](./media/apache-spark-resource-manager/set-parameters-using-ambari.png "Ambari 사용자 지정을 사용 하 여 매개 변수 설정")
 2. 기본값으로 Spark 클러스터에서 4개의 애플리케이션을 동시에 실행할 수 있습니다. 다음 스크린샷에 표시된 대로 사용자 인터페이스에서 이러한 값을 변경할 수 있습니다.
 
-    ![Ambari를 사용하여 매개 변수 설정](./media/apache-spark-resource-manager/set-executor-parameters.png)
+    ![Ambari를 사용 하 여 매개 변수 설정](./media/apache-spark-resource-manager/set-executor-parameters.png "Ambari를 사용 하 여 매개 변수 설정")
+
 3. **저장** 을 클릭하여 구성 변경을 저장합니다. 페이지 맨 위에 모든 영향을 받는 서비스를 다시 시작하라는 메시지가 표시됩니다. **다시 시작**을 클릭합니다.
 
     ![서비스 다시 시작](./media/apache-spark-resource-manager/restart-services.png)
@@ -104,10 +105,10 @@ Spark Thrift 서버는 Spark 동적 실행자 할당을 사용하며 따라서 `
 
 * **고급 spark-thrift-sparkconf** 범주를 확장하여 `spark.dynamicAllocation.minExecutors`, `spark.dynamicAllocation.maxExecutors` 및 `spark.executor.memory` 매개 변수를 업데이트합니다.
 
-    ![Spark Thrift 서버 구성](./media/apache-spark-resource-manager/spark-thrift-server-1.png)    
+    ![Spark thrift 서버 구성](./media/apache-spark-resource-manager/spark-thrift-server-1.png "Spark thrift 서버 구성")
 * **사용자 지정 spark thrift sparkconf** 범주를 확장하여 `spark.executor.cores` 매개 변수를 업데이트합니다.
 
-    ![Spark Thrift 서버 구성](./media/apache-spark-resource-manager/spark-thrift-server-2.png)
+    ![Spark thrift 서버 매개 변수 구성](./media/apache-spark-resource-manager/spark-thrift-server-2.png "Spark thrift 서버 매개 변수 구성")
 
 ### <a name="change-the-driver-memory-of-the-spark-thrift-server"></a>Spark Thrift 서버의 드라이버 메모리 변경
 Spark Thrift 서버 드라이버 메모리는 헤드 노드 RAM 크기의 25%로 구성되어 제공된 헤드 노드의 총 RAM 크기는 14GB보다 큽니다. 다음 스크린샷에 표시된 대로 Ambari UI를 사용하여 드라이버 메모리 구성을 변경할 수 있습니다.
@@ -122,13 +123,13 @@ Spark 동적 할당 때문에 Thrift 서버에서 사용되는 리소스만이 �
 1. Ambari UI의 왼쪽된 창에서 **Spark**를 클릭합니다.
 2. 다음 페이지에서 **Spark Thrift 서버**를 클릭합니다.
 
-    ![Thrift 서버 다시 시작](./media/apache-spark-resource-manager/restart-thrift-server-1.png)
+    ![Thrift Server1 다시 시작](./media/apache-spark-resource-manager/restart-thrift-server-1.png "Thrift Server1 다시 시작")
 3. Spark Thrift 서버가 실행되는 두 개의 헤드 노드가 표시되어야 됩니다. 헤드 노드 중 하나를 클릭합니다.
 
-    ![Thrift 서버 다시 시작](./media/apache-spark-resource-manager/restart-thrift-server-2.png)
+    ![Thrift Server2 다시 시작](./media/apache-spark-resource-manager/restart-thrift-server-2.png "Thrift Server2 다시 시작")
 4. 다음 페이지는 헤드 노드에서 실행 중인 모든 서비스를 나열합니다. 목록에서 Spark Thrift 서버 옆에 있는 드롭다운 단추를 클릭한 다음 **중지**를 클릭합니다.
 
-    ![Thrift 서버 다시 시작](./media/apache-spark-resource-manager/restart-thrift-server-3.png)
+    ![Thrift Server3 다시 시작](./media/apache-spark-resource-manager/restart-thrift-server-3.png "Thrift Server3 다시 시작")
 5. 다른 헤드 노드에서도 이 단계를 반복합니다.
 
 ## <a name="restart-the-jupyter-service"></a>Jupyter 서비스 다시 시작
@@ -150,7 +151,7 @@ Spark 동적 할당 때문에 Thrift 서버에서 사용되는 리소스만이 �
 
     ![App2 종료](./media/apache-spark-resource-manager/kill-app2.png "App2 종료")
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 * [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](apache-spark-job-debugging.md)
 
 ### <a name="for-data-analysts"></a>데이터 분석가

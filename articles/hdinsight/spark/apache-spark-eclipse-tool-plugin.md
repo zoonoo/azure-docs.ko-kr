@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: hrasheed
-ms.openlocfilehash: 6e8f8e7d8324f23a81cd6ae3284bd6d7cff24117
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 87ac2283e96081297fdd54c1c131aa5b78a5973a
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489850"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814269"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Azure Toolkit for Eclipse를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기
 
@@ -28,7 +28,7 @@ Azure Toolkit for [Eclipse](https://www.eclipse.org/)의 HDInsight Tools를 사�
 > 
 > 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * HDInsight의 Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
 * Eclipse IDE 런타임에 사용되는 Oracle Java Development 키트 버전 8입니다. [Oracle 웹 사이트](https://aka.ms/azure-jdks)에서 다운로드할 수 있습니다.
@@ -61,7 +61,7 @@ Eclipse를 열면 HDInsight Tools는 Scala 플러그 인을 설치했는지 여�
    ![구독 선택 대화 상자](./media/apache-spark-eclipse-tool-plugin/Select-Subscriptions.png)
 1. **Azure 탐색기** 탭에서 **HDInsight**를 확장하여 구독에서 HDInsight Spark 클러스터를 표시합니다.
    
-   ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-eclipse-tool-plugin/view-explorer-3.png)
+   ![Azure Explorer3의 HDInsight Spark 클러스터](./media/apache-spark-eclipse-tool-plugin/view-explorer-3.png)
 1. 클러스터 이름 노드를 더 확장하여 클러스터와 연결된 리소스(예: 스토리지 계정)를 표시할 수 있습니다.
    
    ![클러스터 이름을 확장하여 리소스 표시](./media/apache-spark-eclipse-tool-plugin/view-explorer-4.png)
@@ -235,16 +235,16 @@ Windows 컴퓨터에서 로컬 Spark Scala 애플리케이션을 실행하는 �
        
 2. **Azure 탐색기**에서 **HDInsight**를 확장하여 구독에 포함된 HDInsight 클러스터를 표시합니다. **"Role:Reader"** 표시가 있는 클러스터에는 판독기 전용 역할 권한만 있습니다.
 
-    ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-eclipse-tool-plugin/view-explorer-6.png)
+    ![Azure 탐색기 역할 판독기의 HDInsight Spark 클러스터](./media/apache-spark-eclipse-tool-plugin/view-explorer-6.png)
 
 3. 판독기 전용 역할 권한이 있는 클러스터를 마우스 오른쪽 단추로 클릭 합니다. 상황에 맞는 메뉴에서 **Link this cluster**(이 클러스터 연결)를 선택하여 클러스터를 연결합니다. Ambari 사용자 이름 및 암호를 입력 합니다.
 
-    ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-eclipse-tool-plugin/view-explorer-7.png)
+    ![Azure 탐색기 링크의 HDInsight Spark 클러스터](./media/apache-spark-eclipse-tool-plugin/view-explorer-7.png)
 
 4. 클러스터가 연결되면 HDInsight가 새로 고쳐집니다.
    클러스터의 단계가 연결됨으로 변경됩니다.
   
-    ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-eclipse-tool-plugin/view-explorer-8.png)
+    ![Azure 탐색기에서 HDInsight Spark 클러스터 연결](./media/apache-spark-eclipse-tool-plugin/view-explorer-8.png)
 
 
 
@@ -254,7 +254,7 @@ Windows 컴퓨터에서 로컬 Spark Scala 애플리케이션을 실행하는 �
    
 2. **Link this cluster**(이 클러스터 연결)를 클릭하여 클러스터를 연결합니다.
    
-    ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-eclipse-tool-plugin/view-explorer-9.png)
+    ![Azure Explorer9의 HDInsight Spark 클러스터](./media/apache-spark-eclipse-tool-plugin/view-explorer-9.png)
 
 ### <a name="link-cluster-from-spark-submission-window"></a>Spark 제출 창에서 클러스터 연결
 
@@ -262,34 +262,34 @@ Windows 컴퓨터에서 로컬 Spark Scala 애플리케이션을 실행하는 �
 
 2. 패키지를 마우스 오른쪽 단추로 클릭 합니다. 그런 다음 **HDInsight에 Spark 응용 프로그램 제출을**선택 합니다.
    
-   ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-eclipse-tool-plugin/view-explorer-11.png)
+   ![Azure 탐색기에서 HDInsight Spark 클러스터 전송](./media/apache-spark-eclipse-tool-plugin/view-explorer-11.png)
 
 3. **클러스터 이름**에 대 한 읽기 전용 역할 권한이 있는 클러스터를 선택 합니다. 경고 메시지가 표시됩니다. **이 클러스터에 연결** 을 클릭 하 여 클러스터에 연결할 수 있습니다.
    
-   ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-eclipse-tool-plugin/view-explorer-15.png)
+   ![Azure 탐색기에서 HDInsight Spark 클러스터이 링크](./media/apache-spark-eclipse-tool-plugin/view-explorer-15.png)
    
 ### <a name="view-storage-accounts"></a>스토리지 계정 보기
 
 * 판독기 전용 역할 권한이 있는 클러스터에 대해 **스토리지 계정** 노드를 클릭하면 **Storage Access Denied**(스토리지 계정 거부됨) 창이 표시됩니다. 
      
-   ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-eclipse-tool-plugin/view-explorer-13.png)
+   ![Azure 탐색기 저장소의 HDInsight Spark 클러스터](./media/apache-spark-eclipse-tool-plugin/view-explorer-13.png)
 
-   ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-eclipse-tool-plugin/view-explorer-12.png)
+   ![Azure 탐색기에서 HDInsight Spark 클러스터 거부 됨](./media/apache-spark-eclipse-tool-plugin/view-explorer-12.png)
 
 * 연결된 클러스터에 대해 **스토리지 계정** 노드를 클릭하면 **Storage Access Denied**(스토리지 계정 거부됨) 창이 표시됩니다. 
      
-   ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-eclipse-tool-plugin/view-explorer-14.png)
+   ![Azure 탐색기에서 HDInsight Spark 클러스터 denied2](./media/apache-spark-eclipse-tool-plugin/view-explorer-14.png)
 
 ## <a name="known-problems"></a>알려진 문제
-클러스터를 연결하는 경우 스토리지의 자격 증명을 제공하는 것이 좋습니다.
+클러스터를 연결하는 경우 스토리지 자격 증명을 제공하는 것이 좋습니다.
 
 ![대화형 로그인](./media/apache-spark-eclipse-tool-plugin/link-cluster-with-storage-credential-eclipse.png)
 
 작업을 제출하는 두 가지 모드가 있습니다. 스토리지 자격 증명을 제공하는 경우 작업을 제출하는 데 일괄 처리 모드가 사용됩니다. 그렇지 않으면 대화형 모드가 사용됩니다. 클러스터가 사용 중인 경우 아래 오류가 발생할 수 있습니다.
 
-![클러스터가 사용 중인 경우 Eclipse에 오류가 발생합니다.](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-upload.png)
+![클러스터를 사용 하는 경우 eclipse 오류 가져오기](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-upload.png "클러스터를 사용 하는 경우 eclipse 오류 가져오기")
 
-![클러스터가 사용 중인 경우 Eclipse에 오류가 발생합니다.](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png)
+![클러스터 사용량이 yarn 때 eclipse 가져오기 오류](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png "클러스터 사용량이 yarn 때 eclipse 가져오기 오류")
 
 ## <a name="seealso"></a>참고 항목
 * [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)

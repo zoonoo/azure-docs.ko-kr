@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 677f3cbb6416086843ceb530abd07d412c8b38f0
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 470152e12f3a7a0c643a147f0989a5cc72d2ed22
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275415"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813571"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 파일 시스템 간에 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -99,12 +99,12 @@ ms.locfileid: "70275415"
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 
 
-- **Parquet,로 구분 된 텍스트, avro 및 이진 형식의**경우 [Parquet, 구분 된 텍스트, avro 및 이진 형식 데이터 집합](#format-based-dataset) 섹션을 참조 하세요.
-- **ORC/JSON 형식과**같은 다른 형식에 대해서는 [다른 형식 데이터 집합](#other-format-dataset) 섹션을 참조 하세요.
+- **Parquet, 구분 된 텍스트, json, avro 및 이진 형식의**경우 [Parquet, 구분 된 텍스트, json, avro 및 이진 형식 데이터 집합](#format-based-dataset) 섹션을 참조 하세요.
+- **ORC format**같은 다른 형식에 대해서는 [다른 형식 데이터 집합](#other-format-dataset) 섹션을 참조 하세요.
 
-### <a name="format-based-dataset"></a>Parquet, 구분 기호로 분리 된 텍스트, Avro 및 이진 형식 데이터 집합
+### <a name="format-based-dataset"></a>Parquet, 구분 된 텍스트, JSON, Avro 및 이진 형식 데이터 집합
 
-**Parquet, 구분 된 텍스트, avro 또는 이진 형식**간에 데이터를 복사 하려면 형식 기반 데이터 집합 및 지원 되는 설정에 대 한 [Parquet 형식](format-parquet.md), [구분 된 텍스트 형식](format-delimited-text.md), [avro 형식](format-avro.md) 및 [이진 형식](format-binary.md) 문서를 참조 하세요. 형식 기반 데이터 집합의 설정에서 `location` 파일 시스템에 대해 지원 되는 속성은 다음과 같습니다.
+**Parquet, 구분 된 텍스트, JSON, avro 및 이진 형식**간에 데이터를 복사 하려면 형식 기반 데이터 집합 및 지원 되는 설정에 대 한 [Parquet 형식](format-parquet.md), [구분 된 텍스트 형식](format-delimited-text.md), [avro 형식](format-avro.md) 및 [이진 형식](format-binary.md) 문서를 참조 하세요. . 형식 기반 데이터 집합의 설정에서 `location` 파일 시스템에 대해 지원 되는 속성은 다음과 같습니다.
 
 | 속성   | 설명                                                  | 필수 |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -143,7 +143,7 @@ ms.locfileid: "70275415"
 
 ### <a name="other-format-dataset"></a>기타 형식 데이터 집합
 
-**ORC/JSON 형식의**파일 시스템 간에 데이터를 복사 하려면 다음 속성이 지원 됩니다.
+**ORC 형식**으로 파일 시스템 간에 데이터를 복사 하려면 다음 속성이 지원 됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
@@ -197,12 +197,12 @@ ms.locfileid: "70275415"
 
 ### <a name="file-system-as-source"></a>원본으로 파일 시스템
 
-- **Parquet, 구분 된 텍스트, avro 및 이진 형식**에서 복사 하려면 [Parquet, 구분 된 텍스트, avro 및 이진 형식 원본](#format-based-source) 섹션을 참조 하세요.
-- **ORC/JSON 형식과**같은 다른 형식에서 복사 하려면 [다른 형식 소스](#other-format-source) 섹션을 참조 하세요.
+- **Parquet, 구분 된 텍스트, json, avro 및 이진 형식**에서 복사 하려면 [Parquet, 구분 된 텍스트, json, avro 및 이진 형식 원본](#format-based-source) 섹션을 참조 하세요.
+- **ORC format**같은 다른 형식에서 복사 하려면 [다른 형식 소스](#other-format-source) 섹션을 참조 하세요.
 
-#### <a name="format-based-source"></a>Parquet, 구분 된 텍스트, Avro 및 이진 형식 원본
+#### <a name="format-based-source"></a>Parquet, 구분 된 텍스트, JSON, Avro 및 이진 형식 원본
 
-**Parquet, 구분 된 텍스트, avro 또는 이진 형식**에서 데이터를 복사 하려면 형식 기반 복사 작업 원본 및 지원 되는 설정에 대 한 [Parquet 형식](format-parquet.md), [구분 된 텍스트 형식](format-delimited-text.md), [avro 형식](format-avro.md) 및 [이진 형식](format-binary.md) 문서를 참조 하세요. . 다음은 형식 기반 복사 원본에서 설정 아래의 `storeSettings` 파일 시스템에 대해 지원 되는 속성입니다.
+**Parquet, 구분 된 텍스트, JSON, avro 및 이진 형식**에서 데이터를 복사 하려면 형식 기반 복사 작업 원본 및 지원 되는 [Parquet 형식](format-parquet.md), [구분 된 텍스트 형식](format-delimited-text.md), [avro 형식](format-avro.md) 및 [이진 형식](format-binary.md) 문서를 참조 하세요. 설정. 다음은 형식 기반 복사 원본에서 설정 아래의 `storeSettings` 파일 시스템에 대해 지원 되는 속성입니다.
 
 | 속성                 | 설명                                                  | 필수                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -260,7 +260,7 @@ ms.locfileid: "70275415"
 
 #### <a name="other-format-source"></a>기타 서식 원본
 
-**ORC/JSON 형식의**파일 시스템에서 데이터를 복사 하려면 복사 작업 **원본** 섹션에서 다음 속성을 지원 합니다.
+**ORC 형식**으로 파일 시스템에서 데이터를 복사 하려면 복사 작업 **원본** 섹션에서 다음 속성을 지원 합니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
@@ -302,12 +302,12 @@ ms.locfileid: "70275415"
 
 ### <a name="file-system-as-sink"></a>싱크로 파일 시스템
 
-- **Parquet, 구분 된 텍스트, avro 또는 이진 형식**으로 복사 하려면 [Parquet, 구분 된 텍스트, avro 및 이진 형식 싱크](#format-based-sink) 섹션을 참조 하세요.
-- **ORC/JSON 형식과**같은 다른 형식으로 복사 하려면 [기타 형식 싱크](#other-format-sink) 섹션을 참조 하세요.
+- **Parquet, 구분 된 텍스트, json, avro 및 이진 형식**으로 복사 하려면 [Parquet, 구분 된 텍스트, json, avro 및 이진 형식 싱크](#format-based-sink) 섹션을 참조 하세요.
+- **ORC format**같은 다른 형식으로 복사 하려면 [기타 형식 싱크](#other-format-sink) 섹션을 참조 하세요.
 
-#### <a name="format-based-sink"></a>Parquet, 구분 기호로 분리 된 텍스트, Avro 및 이진 형식 싱크
+#### <a name="format-based-sink"></a>Parquet, 구분 된 텍스트, JSON, Avro 및 이진 형식 싱크
 
-**Parquet, 구분 된 텍스트, avro 또는 이진 형식**으로 데이터를 복사 하려면 형식 기반 복사 작업 싱크 및 지원 되는 설정에 대 한 [Parquet 형식](format-parquet.md), [구분 된 텍스트 형식](format-delimited-text.md), [avro 형식](format-avro.md) 및 [이진 형식](format-binary.md) 문서를 참조 하세요. 형식 기반 복사 싱크의 설정에서 `storeSettings` 파일 시스템에 대해 지원 되는 속성은 다음과 같습니다.
+**Parquet, 구분 된 텍스트, JSON, avro 및 이진 형식**으로 데이터를 복사 하려면 형식 기반 복사 작업 싱크에서 [Parquet 형식](format-parquet.md), [구분 된 텍스트 형식](format-delimited-text.md), [avro 형식](format-avro.md) 및 [이진 형식](format-binary.md) 문서를 참조 하세요. 설정. 형식 기반 복사 싱크의 설정에서 `storeSettings` 파일 시스템에 대해 지원 되는 속성은 다음과 같습니다.
 
 | 속성                 | 설명                                                  | 필수 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
@@ -355,7 +355,7 @@ ms.locfileid: "70275415"
 
 #### <a name="other-format-sink"></a>기타 형식 싱크
 
-**ORC/JSON 형식의**파일 시스템에 데이터를 복사 하려면 **sink** 섹션에서 다음 속성을 지원 합니다.
+**ORC 형식**으로 파일 시스템에 데이터를 복사 하려면 **sink** 섹션에서 다음 속성을 지원 합니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |

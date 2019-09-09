@@ -1,18 +1,18 @@
 ---
 title: 분산 심층 학습을 위해 Azure HDInsight Spark에서 Caffe 사용
-description: 분산 심층 학습을 위해 Azure HDInsight Spark에서 Caffe 사용
+description: Azure HDInsight에서 분산 심층 학습을 위해 Apache Spark에서 Caffe을 사용 합니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: d0d68263485c5ab6e57a349317b1975862470cc2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 31911c6c2456ab8b4949bab6ef8e541b91fc8a2c
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64721504"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814203"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>분산 심층 학습을 위해 Azure HDInsight Spark에서 Caffe 사용
 
@@ -175,7 +175,7 @@ CaffeOnSpark는 MNIST 학습을 위한 몇 가지 네트워크 토폴로지를 �
     # solver mode: CPU or GPU
     solver_mode: CPU
 
-![Caffe 구성](./media/apache-spark-deep-learning-caffe/Caffe-1.png)
+![Caffe Config1](./media/apache-spark-deep-learning-caffe/Caffe-1.png)
 
 필요에 따라 다른 줄을 변경할 수 있습니다.
 
@@ -184,7 +184,7 @@ CaffeOnSpark는 MNIST 학습을 위한 몇 가지 네트워크 토폴로지를 �
 - "file:/Users/mridul/bigml/demodl/mnist_train_lmdb"를 "wasb:///projects/machine_learning/image_dataset/mnist_train_lmdb"로 변경합니다.
 - "file:/Users/mridul/bigml/demodl/mnist_test_lmdb/"를 "wasb:///projects/machine_learning/image_dataset/mnist_test_lmdb"로 변경합니다.
 
-![Caffe 구성](./media/apache-spark-deep-learning-caffe/Caffe-2.png)
+![Caffe Config2](./media/apache-spark-deep-learning-caffe/Caffe-2.png)
 
 네트워크를 정의하는 방법에 대한 자세한 내용은 [MNIST 데이터 세트에 대한 Caffe 설명서](https://caffe.berkeleyvision.org/gathered/examples/mnist.html)를 확인하세요.
 
@@ -286,7 +286,7 @@ SampleID는 MNIST 데이터 세트에서 ID를 나타내며 레이블은 모델�
 
 ## <a name="conclusion"></a>결론
 
-이 설명서에서는 간단한 예를 실행하여 CaffeOnSpark를 설치하려고 시도했습니다. HDInsight는 완전히 관리되는 클라우드 분산된 계산 플랫폼으로, 분산 딥 러닝을 위해 대규모 데이터 세트에 대해 Machine Learning 및 고급 분석 워크로드를 실행하기 위한 최적의 장소이며 HDInsight Spark에서 Caffe를 사용하여 딥 러닝 작업을 수행할 수 있습니다.
+이 설명서에서는 간단한 예를 실행하여 CaffeOnSpark를 설치하려고 시도했습니다. HDInsight는 완전히 관리되는 클라우드 분산된 컴퓨팅 플랫폼으로, 분산 딥 러닝을 위해 대규모 데이터 세트에 대해 Machine Learning 및 고급 분석 워크로드를 실행하기 위한 최적의 장소이며 HDInsight Spark에서 Caffe를 사용하여 딥 러닝 작업을 수행할 수 있습니다.
 
 
 ## <a name="seealso"></a>참고 항목
@@ -294,7 +294,7 @@ SampleID는 MNIST 데이터 세트에서 ID를 나타내며 레이블은 모델�
 
 ### <a name="scenarios"></a>시나리오
 * [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 HVAC 데이터로 건물 온도 분석](apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 식품 검사 결과 예측](apache-spark-machine-learning-mllib-ipython.md)
+* [Machine Learning과 Apache Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="manage-resources"></a>리소스 관리
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](apache-spark-resource-manager.md)

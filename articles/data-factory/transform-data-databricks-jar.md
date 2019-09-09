@@ -12,12 +12,12 @@ ms.date: 03/15/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: d299a785d50657ef40c0c49cb2dce33b8939fd02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 924367c6bb85b64bafbcb8feb546eeb490e07a34
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60860990"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812782"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Azure Databricks에서 Jar 활동을 실행하여 데이터 변환
 
@@ -56,15 +56,18 @@ Databricks Jar 활동에 대한 샘플 JSON 정의는 다음과 같습니다.
 
 다음 표에서는 JSON 정의에 사용하는 JSON 속성을 설명합니다.
 
-|자산|설명|필수|
+|속성|설명|필수|
 |:--|---|:-:|
 |name|파이프라인의 작업 이름입니다.|예|
-|description|작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.|아닙니다.|
-|형식|Databricks Jar 활동의 경우 활동 유형은 DatabricksSparkJar입니다.|예|
+|description|작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.|아니요|
+|type|Databricks Jar 활동의 경우 활동 유형은 DatabricksSparkJar입니다.|예|
 |linkedServiceName|Jar 활동이 실행되는 Databricks 연결된 서비스의 이름입니다. 이 연결된 서비스에 대한 자세한 내용은  [연결된 서비스 Compute](compute-linked-services.md)  문서를 참조하세요.|예|
 |mainClassName|실행될 main 메서드가 포함된 클래스의 전체 이름입니다. 이 클래스는 라이브러리로 제공된 JAR에 포함되어야 합니다.|예|
-|parameters|main 메서드에 전달할 매개 변수이며,  문자열의 배열입니다.|아닙니다.|
+|parameters|main 메서드에 전달할 매개 변수이며,  문자열의 배열입니다.|아니요|
 |라이브러리|작업을 실행할 클러스터에 설치할 라이브러리의 목록입니다. <문자열, 개체>의 배열일 수 있습니다.|예(mainClassName 메서드가 하나 이상 포함되는 경우)|
+
+> [!NOTE]
+> **알려진 문제** -동일한 [대화형 클러스터](compute-linked-services.md#example---using-existing-interactive-cluster-in-databricks) 를 사용 하 여 동시 Databricks Jar 활동을 실행 하는 경우 (클러스터를 다시 시작 하지 않음) Databricks에 알려진 문제가 있습니다. 여기서 첫 번째 활동의 매개 변수는 다음 활동에서 사용 됩니다. 또한 따라서 후속 작업에 전달 되는 잘못 된 매개 변수를 생성 합니다. 이를 완화 하려면 [작업 클러스터](compute-linked-services.md#example---using-new-job-cluster-in-databricks) 를 대신 사용 합니다. 
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Databricks 활동에 지원되는 라이브러리
 

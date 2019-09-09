@@ -1,6 +1,6 @@
 ---
 title: 성능을 위한 Spark 작업 최적화 - Azure HDInsight
-description: 최상의 Spark 클러스터 성능을 얻기 위한 일반적인 전략을 보여 줍니다.
+description: Azure HDInsight에서 Apache Spark 클러스터의 최상의 성능을 위한 일반적인 전략을 보여 줍니다.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 5701bb534d0fd0e25aab90f9d1035c96bb55c518
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d058c55eab3d161e625d7d4ca3ef53b36497e00
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476108"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814083"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Apache Spark 작업 최적화
 
@@ -23,7 +23,7 @@ ms.locfileid: "66476108"
 
 ## <a name="choose-the-data-abstraction"></a>데이터 추상화 선택
 
-Spark 버전 Rdd를 사용 하 여 데이터를 Spark 1.3을 추상화 하 고 1.6 Dataframe 및 데이터 집합을 도입 각각 했습니다. 다음 상대적인 장점을 고려합니다.
+이전 Spark 버전에서는 RDDs를 사용 하 여 데이터, Spark 1.3 및 1.6이 각각 데이터 프레임 및 데이터 집합을 추상화 합니다. 다음 상대적인 장점을 고려합니다.
 
 * **데이터 프레임**
     * 대부분의 상황에서 최선의 선택
@@ -62,7 +62,7 @@ Spark는 csv, json, xml, parquet, orc, avro 등의 여러 가지 형식을 지�
 | Azure Blob Storage | **wasb:** //url/ | **Standard** | 예 | 임시 클러스터 |
 | Azure Data Lake Storage Gen 2| **abfs[s]:** //url/ | **보다 빠름** | 예 | 임시 클러스터 |
 | Azure Data Lake Storage Gen 1| **adl:** //url/ | **보다 빠름** | 예 | 임시 클러스터 |
-| 로컬 HDFS | **hdfs:** //url/ | **가장 빠름** | 아닙니다. | 대화형 24/7 클러스터 |
+| 로컬 HDFS | **hdfs:** //url/ | **가장 빠름** | 아니요 | 대화형 24/7 클러스터 |
 
 ## <a name="use-the-cache"></a>캐시 사용
 

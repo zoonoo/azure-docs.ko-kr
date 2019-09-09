@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 51a19d867b4906aacfe58cb4fdfd08f32a16e5f3
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: bd83cff243c94ed62014ff95f6ca7c4e878f6af7
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972349"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814578"
 ---
 # <a name="private-cloud-vmware-components"></a>사설 클라우드 VMware 구성 요소
 
@@ -30,10 +30,10 @@ ms.locfileid: "69972349"
 
 | 구성 요소 | 버전 | 사용이 허가 된 버전 |
 |-----------|---------|------------------|
-| ESXi | 6.7U1 | Enterprise Plus |
-| vCenter | 6.7U1 | vCenter 표준 |
+| ESXi | 6.7 U2 | Enterprise Plus |
+| vCenter | 6.7 U2 | vCenter 표준 |
 | vSAN | 6.7 | Enterprise |
-| NSX 데이터 센터 | 2.3 | 고급 |
+| NSX 데이터 센터 | 2.4.1 | 고급 |
 
 ## <a name="esxi"></a>ESXi
 

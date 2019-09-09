@@ -1,9 +1,9 @@
 ---
-title: 다른 관리자가 PIM-Azure Active Directory를 관리 하 게 액세스 권한을 부여 | Microsoft Docs
+title: 다른 관리자에 게 PIM-Azure Active Directory를 관리 하는 액세스 권한 부여 Microsoft Docs
 description: Azure AD PIM(Privileged Identity Management)을 관리하기 위해 다른 관리 기관에 액세스 권한을 부여하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
 ms.date: 04/09/2019
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb22e3cc93baebac023c0148812c6a4c6c95be60
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f3a0173108b6c884994ca25fd0495e9cb8d45186
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60288612"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804354"
 ---
 # <a name="grant-access-to-other-administrators-to-manage-pim"></a>PIM 관리를 위해 다른 관리자에게 액세스 권한 부여
 
-Azure Active Directory (Azure AD) PIM Privileged Identity Management ()는 조직을 위해을 사용 하면 자동으로 전역 관리자 역할 할당 및 PIM에 대 한 액세스를 얻습니다. 하지만, 기본적으로 다른 전역 관리자를 포함하여 아무도 쓰기 액세스 권한을 갖지 못합니다. 다른 전역 관리자, 보안 관리자 및 보안 읽기 권한자에는 PIM에 대한 읽기 전용 액세스 권한이 있습니다. PIM에 대한 액세스 권한을 부여하기 위해 첫 번째 사용자가 다른 사용자를 **권한 있는 역할 관리자** 역할에 할당할 수 있습니다.
+조직에서 Azure Active Directory (Azure AD) Privileged Identity Management (PIM)를 사용 하도록 설정 하는 전역 관리자는 자동으로 역할 할당을 가져오고 PIM에 액세스할 수 있습니다. 하지만, 기본적으로 다른 전역 관리자를 포함하여 아무도 쓰기 액세스 권한을 갖지 못합니다. 다른 전역 관리자, 보안 관리자 및 보안 읽기 권한자에는 PIM에 대한 읽기 전용 액세스 권한이 있습니다. PIM에 대한 액세스 권한을 부여하기 위해 첫 번째 사용자가 다른 사용자를 **권한 있는 역할 관리자** 역할에 할당할 수 있습니다.
 
 > [!NOTE]
 > PIM 관리에 Azure MFA가 필요합니다. Azure MFA에 대해 Microsoft 계정을 등록할 수 없기 때문에 Microsoft 계정으로 로그인하는 사용자는 PIM에 액세스할 수 없습니다.
@@ -38,7 +38,7 @@ Azure Active Directory (Azure AD) PIM Privileged Identity Management ()는 조�
 
 1. **Azure AD 역할**을 클릭합니다.
 
-1. **역할**을 클릭합니다.
+1. **역할**을 누릅니다.
 
     ![PIM Azure AD 역할-역할](./media/pim-how-to-give-access-to-pim/pim-directory-roles-roles.png)
 
@@ -76,7 +76,7 @@ Azure Active Directory (Azure AD) PIM Privileged Identity Management ()는 조�
 
 1. **Azure AD 역할**을 클릭합니다.
 
-1. **역할**을 클릭합니다.
+1. **역할**을 누릅니다.
 
 1. **권한 있는 역할 관리자** 역할을 클릭하여 멤버 페이지를 엽니다.
 

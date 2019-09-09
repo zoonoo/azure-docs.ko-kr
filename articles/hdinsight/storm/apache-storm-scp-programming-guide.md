@@ -8,14 +8,15 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: c85074a2b26a79dbf5e464972e7f82b5955d15f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b7bb26cd35daf67a3337907aded18e3302b19d81
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64692480"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813873"
 ---
-# <a name="scp-programming-guide"></a>SCP 프로그래밍 가이드
+# <a name="scp-programming-guide-for-apache-storm-in-azure-hdinsight"></a>Azure HDInsight의 Apache Storm에 대 한 SCP 프로그래밍 가이드
+
 SCP는 안정적이며 일관성 있는 실시간 고성능 데이터 처리 애플리케이션을 빌드하기 위한 플랫폼입니다. 이 플랫폼은 OSS 커뮤니티에서 디자인한 스트림 처리 시스템인 [Apache Storm](https://storm.incubator.apache.org/)을 기반으로 구축되었습니다. Nathan Marz가 디자인한 Storm은 Twitter에서 오픈 소스 방식으로 제공되며, 매우 안정적인 분산 방식 조정과 상태 관리를 수행하는 데 사용할 수 있는 또 다른 Apache 프로젝트인 [Apache ZooKeeper](https://zookeeper.apache.org/)를 활용합니다. 
 
 SCP 프로젝트를 통해 Windows에서 Storm을 포팅할 수 있을 뿐 아니라 Windows 에코시스템용 확장 및 사용자 지정도 추가할 수 있습니다. 이 확장에는 .NET 개발자 환경과 라이브러리가 포함되고 사용자 지정에는 Windows 기반 배포가 포함됩니다. 
@@ -31,7 +32,7 @@ Storm에서는 애플리케이션 토폴로지에 따라 계산 그래프가 정
 
 SCP는 최상의 노력, 최소한 한 번 및 정확히 한 번 방식의 데이터 처리를 지원합니다. 분산된 스트리밍 처리 애플리케이션에서 네트워크 중단, 머신 오류 또는 사용자 코드 오류 등과 같은 데이터 처리 중 다양한 오류가 발생할 수 있습니다. 최소한 한 번 방식의 처리는 오류 발생 시 동일한 데이터를 자동으로 재생하여 모든 데이터를 한 번 이상 처리되도록 합니다. 최소한 한 번 방식의 처리는 간단하고 안정적이며 대부분의 애플리케이션에 적합합니다. 그러나 애플리케이션에서 정확한 계산을 수행해야 하는 경우에는 애플리케이션 토폴로지에서 같은 데이터가 재생될 가능성이 있으므로 최소한 한 번 방식의 처리로는 부족합니다. 이러한 경우에는 데이터가 여러 번 재생 및 처리되어도 올바른 결과를 계산하는 정확히 한 번 방식의 처리 방식을 사용해야 합니다.
 
-.NET 개발자는 SCP를 통해 JVM(Java Virtual Machine)에서 Storm을 백그라운드에서 활용하면서 실시간 데이터 프로세스 애플리케이션을 개발할 수 있습니다. .NET과 JVM은 TCP 로컬 소켓을 통해 통신합니다. 기본적으로 각 Spout/Bolt는.NET/Java 프로세스 쌍 이며 사용자 논리 플러그 인으로.NET 프로세스에서 실행 되는 위치
+.NET 개발자는 SCP를 통해 JVM(Java Virtual Machine)에서 Storm을 백그라운드에서 활용하면서 실시간 데이터 프로세스 애플리케이션을 개발할 수 있습니다. .NET과 JVM은 TCP 로컬 소켓을 통해 통신합니다. 기본적으로 각 Spout/볼트는 .net/Java 프로세스 쌍 이며, 사용자 논리는 .NET 프로세스에서 플러그 인으로 실행 됩니다.
 
 SCP를 기반으로 데이터 처리 애플리케이션을 빌드하려면 몇 가지 단계를 수행해야 합니다.
 
@@ -70,7 +71,7 @@ ISCPSpout는 비트랜잭션 Spout용 인터페이스입니다.
 
 `NextTuple()`가 호출되면 C\# 사용자 코드가 하나 이상의 튜플을 내보낼 수 있습니다. 내보낼 튜플이 없으면 아무 항목도 내보내지 않고 이 메서드가 반환되어야 합니다. `NextTuple()`, `Ack()` 및 `Fail()`은 모두 C\# 프로세스 내 단일 스레드의 조밀한 루프에서 호출됩니다. 내보낼 튜플이 없으면 CPU를 너무 많이 낭비하지 않도록 10밀리초 등의 짧은 시간 동안 NextTuple을 유휴 상태로 유지하는 것이 좋습니다.
 
-`Ack()` 및 `Fail()`은 사양 파일에서 승인 메커니즘이 사용하도록 설정되어 있어야 호출됩니다. `seqId` 승인 되었거나 실패 한 튜플을 식별 하는 데 사용 됩니다. 따라서 비트랜잭션 토폴로지에서 승인이 사용하도록 설정되어 있으면 Spout에서 다음의 내보내기 함수를 사용해야 합니다.
+`Ack()` 및 `Fail()`은 사양 파일에서 승인 메커니즘이 사용하도록 설정되어 있어야 호출됩니다. 는 `seqId` 승인 되거나 실패 한 튜플을 식별 하는 데 사용 됩니다. 따라서 비트랜잭션 토폴로지에서 승인이 사용하도록 설정되어 있으면 Spout에서 다음의 내보내기 함수를 사용해야 합니다.
 
     public abstract void Emit(string streamId, List<object> values, long seqId); 
 
@@ -122,7 +123,7 @@ ISCPBatchBolt는 트랜잭션 Bolt용 인터페이스입니다.
 ## <a name="object-model"></a>개체 모델
 SCP.NET에서는 개발자가 프로그래밍에 사용할 수 있는 주요 개체의 간단한 집합도 제공합니다. 이러한 개체는 **Context**, **StateStore** 및 **SCPRuntime**입니다. 이 섹션의 나머지 부분에서 각 개체에 대해 설명합니다.
 
-### <a name="context"></a>Context
+### <a name="context"></a>컨텍스트
 Context는 애플리케이션에 실행 환경을 제공합니다. 각 ISCPPlugin 인스턴스(ISCPSpout/ISCPBolt/ISCPTxSpout/ISCPBatchBolt)에는 해당하는 Context 인스턴스가 있습니다. Context에서 제공하는 기능은 두 부분 즉 (1) 전체 C\# 프로세스에서 사용할 수 있는 정적 부분과 (2) 특정 Context 인스턴스에서만 사용할 수 있는 동적 부분으로 구분할 수 있습니다.
 
 ### <a name="static-part"></a>정적 부분
@@ -149,7 +150,7 @@ Context는 애플리케이션에 실행 환경을 제공합니다. 각 ISCPPlugi
     public Dictionary<string, Object> stormConf { get; set; }  
     public Dictionary<string, Object> pluginConf { get; set; }  
 
-`stormConf`은(는) Storm에서 정의하는 매개 변수이고 `pluginConf`은(는) SCP에서 정의하는 매개 변수입니다. 예를 들면 다음과 같습니다.
+`stormConf`은(는) Storm에서 정의하는 매개 변수이고 `pluginConf`은(는) SCP에서 정의하는 매개 변수입니다. 예를 들어:
 
     public class Constants
     {
@@ -163,7 +164,7 @@ Context는 애플리케이션에 실행 환경을 제공합니다. 각 ISCPPlugi
         public static readonly String STORM_ZOOKEEPER_PORT = "storm.zookeeper.port";                 
     }
 
-`TopologyContext` 은(는) 토폴로지 컨텍스트를 가져오기 위한 용도로 제공되며 여러 병렬 처리를 수행하는 구성 요소에 가장 유용합니다. 다음은 예제입니다.
+`TopologyContext` 은(는) 토폴로지 컨텍스트를 가져오기 위한 용도로 제공되며 여러 병렬 처리를 수행하는 구성 요소에 가장 유용합니다. 다음 예를 참조하세요.
 
     //demo how to get TopologyContext info
     if (Context.pluginType != SCPPluginType.SCP_NET_LOCAL)                      
@@ -358,12 +359,12 @@ SCP.NET에는 트랜잭션 토폴로지를 정의하는 다음 함수가 추가�
 | **scp-tx-batch-bolt** |exec-name<br />args<br />fields |트랜잭션 Batch Bolt를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 애플리케이션을 실행합니다.<br /><br />Fields는 Bolt의 출력 필드입니다. |
 | **scp-tx-commit-bolt** |exec-name<br />args<br />fields |트랜잭션 커밋 Bolt를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 애플리케이션을 실행합니다.<br /><br />***fields*** 는 Bolt의 출력 필드입니다. |
 | **nontx-topolopy** |topology-name<br />spout-map<br />bolt-map |토폴로지 이름, &nbsp; Spout 정의 맵 및 Bolt 정의 맵으로 비트랜잭션 토폴로지를 정의합니다. |
-| **scp-spout** |exec-name<br />args<br />fields<br />매개 변수 |비트랜잭션 Spout를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 애플리케이션을 실행합니다.<br /><br />***fields*** 는 Spout의 출력 필드입니다.<br /><br />***parameters***는 선택적 항목으로, "nontransactional.ack.enabled"와 같은 일부 매개 변수를 지정하는 데 사용됩니다. |
-| **scp-bolt** |exec-name<br />args<br />fields<br />매개 변수 |비트랜잭션 Bolt를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 애플리케이션을 실행합니다.<br /><br />***fields*** 는 Bolt의 출력 필드입니다.<br /><br />***parameters***는 선택적 항목으로, "nontransactional.ack.enabled"와 같은 일부 매개 변수를 지정하는 데 사용됩니다. |
+| **scp-spout** |exec-name<br />args<br />fields<br />parameters |비트랜잭션 Spout를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 애플리케이션을 실행합니다.<br /><br />***fields*** 는 Spout의 출력 필드입니다.<br /><br />***parameters***는 선택적 항목으로, "nontransactional.ack.enabled"와 같은 일부 매개 변수를 지정하는 데 사용됩니다. |
+| **scp-bolt** |exec-name<br />args<br />fields<br />parameters |비트랜잭션 Bolt를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 애플리케이션을 실행합니다.<br /><br />***fields*** 는 Bolt의 출력 필드입니다.<br /><br />***parameters***는 선택적 항목으로, "nontransactional.ack.enabled"와 같은 일부 매개 변수를 지정하는 데 사용됩니다. |
 
 SCP.NET에는 다음 키워드가 정의되어 있습니다.
 
-| **키워드** | **설명** |
+| **C++ 키워드** | **설명** |
 | --- | --- |
 | **:name** |토폴로지 이름을 정의합니다. |
 | **:topology** |이전 함수와 기본 제공 함수를 사용하여 토폴로지를 정의합니다. |
@@ -430,7 +431,7 @@ SCP.NET Context 개체에는 두 개의 메서드가 추가되었습니다. 이�
 존재하지 않는 스트림으로 내보내기를 수행하는 경우 런타임 예외가 발생합니다.
 
 ### <a name="fields-grouping"></a>필드 그룹화
-Storm의 기본 제공 필드 그룹화는 SCP.NET에서 제대로 작동 하지 않습니다. Java 프록시 쪽에서는 모든 필드 데이터 형식은 실제로 byte[]이고 필드 그룹화는 byte[] 개체 해시 코드를 사용하여 그룹화를 수행합니다. byte[] 개체 해시 코드는 메모리에서 이 개체의 주소입니다. 따라서 같은 콘텐츠를 공유하지만 주소는 다른 두 byte[] 개체의 경우 그룹화가 올바르게 적용되지 않습니다.
+SCP.NET에서 기본 제공 필드 그룹화가 제대로 작동 하지 않습니다. Java 프록시 쪽에서는 모든 필드 데이터 형식은 실제로 byte[]이고 필드 그룹화는 byte[] 개체 해시 코드를 사용하여 그룹화를 수행합니다. byte[] 개체 해시 코드는 메모리에서 이 개체의 주소입니다. 따라서 같은 콘텐츠를 공유하지만 주소는 다른 두 byte[] 개체의 경우 그룹화가 올바르게 적용되지 않습니다.
 
 SCP.NET에는 사용자 지정된 그룹화 메서드가 추가되었습니다. 이 메서드는 byte[]의 콘텐츠를 사용하여 그룹화를 수행합니다. **SPEC** 파일의 구문은 다음과 같습니다.
 
@@ -449,7 +450,7 @@ SCP.NET에는 사용자 지정된 그룹화 메서드가 추가되었습니다. 
 3. [0,1]은 0부터 시작하는 필드 ID의 해시 집합을 의미합니다.
 
 ### <a name="hybrid-topology"></a>하이브리드 토폴로지
-원시 Storm은 Java로 작성됩니다. SCP.NET C 수 있도록 향상 되었습니다\# 개발자가 C를 쓸\# 고객이 비즈니스 논리를 처리 하는 코드입니다. 그러나 C\# Spout/Bolt뿐 아니라 Java Spout/Bolt도 포함하는 하이브리드 토폴로지도 지원됩니다.
+원시 Storm은 Java로 작성됩니다. 그리고 SCP.NET는 c\# 개발자가 비즈니스 논리를 처리 하는 c\# 코드를 작성할 수 있도록 향상 되었습니다. 그러나 C\# Spout/Bolt뿐 아니라 Java Spout/Bolt도 포함하는 하이브리드 토폴로지도 지원됩니다.
 
 ### <a name="specify-java-spoutbolt-in-spec-file"></a>사양 파일에서 Java Spout/Bolt 지정
 사양 파일에서 "scp-spout" 및 "scp-bolt"를 사용하여 Java Spout 및 Bolt를 지정할 수도 있습니다. 해당 예제는 다음과 같습니다.
@@ -461,7 +462,7 @@ SCP.NET에는 사용자 지정된 그룹화 메서드가 추가되었습니다. 
 여기에서 `microsoft.scp.example.HybridTopology.Generator`은(는) Java Spout 클래스의 이름입니다.
 
 ### <a name="specify-java-classpath-in-runspec-command"></a>runSpec 명령에서 Java 클래스 경로 지정
-Java Spout 또는 Bolt를 포함하는 토폴로지를 제출하려면 먼저 Java Spout 또는 Bolt를 컴파일한 다음 Jar 파일을 가져와야 합니다. 그런 후에 토폴로지를 제출할 때 Jar 파일을 포함하는 Java 클래스 경로를 지정해야 합니다. 다음은 예제입니다.
+Java Spout 또는 Bolt를 포함하는 토폴로지를 제출하려면 먼저 Java Spout 또는 Bolt를 컴파일한 다음 Jar 파일을 가져와야 합니다. 그런 후에 토폴로지를 제출할 때 Jar 파일을 포함하는 Java 클래스 경로를 지정해야 합니다. 다음 예를 참조하세요.
 
     bin\runSpec.cmd examples\HybridTopology\HybridTopology.spec specs examples\HybridTopology\net\Target -cp examples\HybridTopology\java\target\*
 
@@ -561,7 +562,7 @@ SCP 구성 요소는 Java 쪽과 C\# 쪽을 포함합니다. 네이티브 Java S
 
 ## <a name="scp-programming-examples"></a>SCP 프로그래밍 예제
 ### <a name="helloworld"></a>HelloWorld
-**HelloWorld** 은 SCP.NET의 사용법을 확인할 수를 표시 하는 간단한 예제입니다. 여기에는 **generator**라는 Spout와 **splitter** 및 **counter**라는 Bolt 2개가 포함된 비트랜잭션 토폴로지가 사용됩니다. **generator** Spout는 문장을 임의로 생성하여 **splitter**로 내보냅니다. **splitter** Bolt는 이러한 문장을 단어로 분할한 다음 **counter** Bolt로 단어를 내보냅니다. "counter" Bolt는 사전을 사용하여 각 단어가 나오는 횟수를 기록합니다.
+**HelloWorld** 는 SCP.NET의 맛을 보여 주는 간단한 예제입니다. 여기에는 **generator**라는 Spout와 **splitter** 및 **counter**라는 Bolt 2개가 포함된 비트랜잭션 토폴로지가 사용됩니다. **generator** Spout는 문장을 임의로 생성하여 **splitter**로 내보냅니다. **splitter** Bolt는 이러한 문장을 단어로 분할한 다음 **counter** Bolt로 단어를 내보냅니다. "counter" Bolt는 사전을 사용하여 각 단어가 나오는 횟수를 기록합니다.
 
 이 예제에는 **HelloWorld.spec** 및 **HelloWorld\_EnableAck.spec**의 두 가지 사양 파일이 있습니다. C\# 코드는 Java 쪽에서 pluginConf를 가져와 승인이 사용되는지 여부를 확인할 수 있습니다.
 
@@ -572,7 +573,7 @@ SCP 구성 요소는 Java 쪽과 C\# 쪽을 포함합니다. 네이티브 Java S
     }
     Context.Logger.Info("enableAck: {0}", enableAck);
 
-Spout ack를 사용 하는 경우 사전 승인 되지 않은 튜플을 캐시에 사용 됩니다. Fail()을 호출하면 오류가 발생한 튜플이 재생됩니다.
+Spout에서 ack를 사용 하는 경우 사전이 승인 되지 않은 튜플을 캐시 하는 데 사용 됩니다. Fail()을 호출하면 오류가 발생한 튜플이 재생됩니다.
 
     public void Fail(long seqId, Dictionary<string, Object> parms)
     {

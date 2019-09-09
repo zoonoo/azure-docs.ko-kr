@@ -1,31 +1,31 @@
 ---
-title: 예약 된 용량에 대 한 Azure App Service 격리 된 스탬프 요금 선불
-description: 비용 절감을 위해 예약 된 용량으로 Azure App Service 격리 된 스탬프 요금을 선불 수 있는 방법에 대해 알아봅니다.
+title: 예약 된 용량으로 Azure App Service 격리 된 스탬프 요금에 대 한 비용 절감
+description: 예약 된 용량으로 Azure App Service 격리 된 스탬프 요금에 대 한 비용을 절감 하는 방법을 알아보세요.
 services: billing
 author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 08/02/2019
+ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: f122ec2474c09cdd6c9ada4ddc59b1adb44f619f
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 5161f18499c082b7064eec2be612557ba09eec97
+ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780025"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806365"
 ---
-# <a name="prepay-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>예약 된 용량에 대 한 Azure App Service 격리 된 스탬프 요금 선불
+# <a name="save-costs-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>예약 된 용량으로 Azure App Service 격리 된 스탬프 요금에 대 한 비용 절감
 
-3 년 동안 스탬프 사용에 대 한 총액으로 Azure App Service 격리 된 스탬프 요금에 대 한 비용을 절감할 수 있습니다. 격리 된 스탬프 요금 예약 용량을 구매 하려면 스탬프를 배포할 Azure 지역 및 구입할 스탬프 수를 선택 해야 합니다.
+3 년 동안 스탬프 사용에 대 한 예약을 커밋하여 Azure App Service 격리 된 스탬프 요금에 대 한 비용을 절감할 수 있습니다. 격리 된 스탬프 요금 예약 용량을 구매 하려면 스탬프를 배포할 Azure 지역 및 구입할 스탬프 수를 선택 해야 합니다.
 
 예약을 구매 하는 경우 예약 특성과 일치 하는 격리 된 스탬프 요금 사용은 더 이상 종 량 제 요금으로 청구 되지 않습니다. 예약은 예약 된 용량 범위 및 지역과 일치 하는 격리 된 스탬프 수에 자동으로 적용 됩니다. 격리 된 스탬프에는 예약을 할당할 필요가 없습니다. 예약은 작업자에 게 적용 되지 않으므로 스탬프와 연결 된 다른 모든 리소스는 별도로 청구 됩니다.
 
-예약 된 용량이 만료 되 면 격리 된 스탬프는 계속 실행 되지만 종 량 제 요금으로 청구 됩니다. 예약은 자동으로 갱신 되지 않습니다.
+예약 된 용량이 만료 되 면 격리 된 스탬프는 계속 실행 되지만 종 량 제 요금으로 청구 됩니다. 예약은 자동으로 갱신되지 않습니다.
 
 ## <a name="determine-the-right-reservation-to-purchase"></a>구입할 올바른 예약 결정
 
-예약을 구매 하 여 향후 3 년 동안 모든 시간에 예약 된 수량을 사용 하도록 사전 요금을 지불 하 게 됩니다. 사용 현황 데이터를 확인 하 여 지속적으로 사용 하는 App Service 격리 스탬프 수를 확인 하 고 나중에 사용할 수 있습니다.
+예약을 구매 하 여 향후 3 년 동안 예약 된 수량을 사용 하도록 커밋 합니다. 사용 현황 데이터를 확인 하 여 지속적으로 사용 중인 App Service 격리 스탬프 수를 확인 하 고 나중에 사용할 수 있습니다.
 
 또한 격리 된 스탬프에서 Linux 또는 Windows 측정기를 내보내는 방법을 이해 해야 합니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "68780025"
 
 ## <a name="buy-isolated-stamp-reserved-capacity"></a>격리 된 스탬프 예약 된 용량 구입
 
-[Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D)에서 격리 된 스탬프 예약 용량을 구매할 수 있습니다. 예약 된 용량을 구입 하려면 하나 이상의 enterprise 구독 또는 종 량 제 요금이 있는 개별 구독에 대 한 소유자 역할이 있어야 합니다.
+[Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D)에서 격리 된 스탬프 예약 용량을 구매할 수 있습니다. 예약에 대 한 요금을 지불 [하거나 매월 지불](billing-monthly-payments-reservations.md)합니다. 예약 된 용량을 구입 하려면 하나 이상의 enterprise 구독 또는 종 량 제 요금이 있는 개별 구독에 대 한 소유자 역할이 있어야 합니다.
 
 - 엔터프라이즈 구독의 경우 [EA 포털](https://ea.azure.com/)에서 **예약 된 인스턴스 추가** 옵션을 사용 하도록 설정 해야 합니다. 또는 설정을 사용 하지 않도록 설정한 경우 EA 관리자 여야 합니다.
 - CSP (클라우드 솔루션 공급자) 프로그램의 경우 관리 에이전트 또는 판매 에이전트만 SQL Data Warehouse 예약 된 용량을 구매할 수 있습니다.
@@ -47,7 +47,7 @@ ms.locfileid: "68780025"
 **구입 하려면:**
 
 1. [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D)로 이동 합니다.
-1. 구독 선택 **구독** 목록을 사용 하 여 예약 된 용량에 대 한 비용을 지불 하는 데 사용 되는 구독을 선택 합니다. 구독의 지불 방법에는 예약 된 용량에 대 한 선행 비용이 청구 됩니다. 구독 유형은 기업계약(제안 번호: MS-AZR-0017P 또는 MS-AZR-0148P) 또는 종량제(제안 번호: MS-AZR-0017P-0003P 또는 MS-AZR-0017P-0023P) 또는 CSP 구독.
+1. 구독을 선택합니다. **구독** 목록을 사용 하 여 예약 된 용량에 대 한 비용을 지불 하는 데 사용 되는 구독을 선택 합니다. 구독의 지불 방법은 예약 된 용량에 대 한 비용을 청구 합니다. 구독 유형은 기업계약(제안 번호: MS-AZR-0017P 또는 MS-AZR-0148P) 또는 종량제(제안 번호: MS-AZR-0017P-0003P 또는 MS-AZR-0017P-0023P) 또는 CSP 구독.
     - Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과 비용으로 청구됩니다.
     - 종량제 구독에 대한 요금은 신용 카드 또는 구독 시 선택한 청구서 결제 방법으로 청구됩니다.
 1. **범위** 를 선택 하 여 구독 범위를 선택 합니다.

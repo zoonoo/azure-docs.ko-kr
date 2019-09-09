@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: f96171e1c75676a185edf4a1901ef65b7181135a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5ae05b2ad1dc03bad210b1f67834865afd49df3
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64721004"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810884"
 ---
 # <a name="analyze-apache-hadoop-logs"></a>Apache Hadoop 로그 분석
 
@@ -32,7 +32,7 @@ HDInsight 클러스터를 만들 때 6개 테이블은 기본 Table Storage에�
 * ambariserverlog
 * ambariagentlog
 
-테이블 파일 이름은 **u\<ClusterName > DDMonYYYYatHHMMSSsss\<TableName >** 합니다.
+테이블 파일 이름은 **u\<ClusterName >\<DDMonYYYYatHHMMSSsss TableName >** 입니다.
 
 이 테이블은 다음 필드를 포함합니다.
 
@@ -41,13 +41,13 @@ HDInsight 클러스터를 만들 때 6개 테이블은 기본 Table Storage에�
 * EventTimestamp
 * 호스트
 * MALoggingHash
-* Message
+* 메시지
 * N
 * PreciseTimeStamp
 * 역할
 * RowIndex
 * 테넌트
-* TIMESTAMP
+* timestamp
 * TraceLevel
 
 ### <a name="tools-for-accessing-the-logs"></a>로그에 액세스하기 위한 도구
@@ -73,7 +73,7 @@ HDInsight 클러스터를 만들 때 6개 테이블은 기본 Table Storage에�
 5. **탐색기** 창에서 hadoopservicelog 테이블을 마우스 오른쪽 단추로 클릭하고 **편집**을 선택합니다. 4개의 열이 표시됩니다. 필요에 따라 **파티션 키**, **행 키** 및 **타임스탬프** 열을 선택한 다음 리본 메뉴에 있는 **열 제거**를 클릭하여 옵션에서 삭제합니다.
 6. 콘텐츠 열에서 확장 아이콘을 클릭하여 Excel 스프레드시트에 가져오려는 열을 선택합니다. 이 데모에서는 TraceLevel 및 ComponentName을 선택했습니다. 이 항목은 문제가 있는 구성 요소에 대한 기본 정보를 제공할 수 있습니다.
    
-    ![HDInsight Hadoop 로그는 열을 선택합니다](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-filter.png)
+    ![HDInsight Hadoop 로그 excel 열 선택](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-filter.png "HDInsight Hadoop 로그 excel 열 선택")
 7. **확인** 을 클릭하여 데이터를 가져옵니다.
 8. **TraceLevel**, 역할 및 **ComponentName** 열을 선택한 다음 리본 메뉴에서 **그룹별** 컨트롤을 클릭합니다.
 9. 그룹별 대화 상자에서 **확인** 을 클릭합니다.
@@ -89,11 +89,11 @@ HDInsight 클러스터를 만들 때 6개 테이블은 기본 Table Storage에�
 3. **클라우드 탐색기**에서 **리소스 유형**을 선택합니다.  사용 가능한 다른 옵션은 **리소스 그룹**입니다.
 4. **Storage 계정은**, 클러스터에 대한 기본 Storage 계정, **테이블**을 차례로 확장합니다.
 5. **hadoopservicelog**를 두 번 클릭합니다.
-6. 필터를 추가합니다. 예를 들면 다음과 같습니다.
+6. 필터를 추가합니다. 예를 들어:
    
         TraceLevel eq 'ERROR'
    
-    ![HDInsight Hadoop 로그는 열을 선택합니다](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png)
+    ![HDInsight Hadoop 로그 선택 열 vs](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png "HDInsight Hadoop 로그 선택 열 vs")
    
     필터를 생성하는 방법에 대한 자세한 내용은 [테이블 디자이너에 필터 문자열 생성](../../vs-azure-tools-table-designer-construct-filter-strings.md)을 참조하세요.
 
@@ -120,7 +120,7 @@ YARN UI를 사용하여 다음을 수행할 수 있습니다.
 
 * **클러스터 상태를 가져옵니다**. 왼쪽 창에서 **클러스터**를 확장하고 **정보**를 클릭합니다. 이 현재 클러스터는 전체 할당된 메모리, 사용된 코어, 클러스터 리소스 관리자의 상태, 클러스터 버전 등을 자세히 설명합니다.
   
-    ![클러스터 대시보드 시작](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png)
+    ![클러스터 대시보드 시작 yarn](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png "클러스터 대시보드 시작 yarn")
 * **노드 상태를 가져옵니다**. 왼쪽 창에서 **클러스터**를 확장하고 **노드**를 클릭합니다. 클러스터의 모든 노드, 각 노드의 HTTP 주소, 각 노드에 할당된 리소스 등을 나열합니다.
 * **작업 상태를 모니터링**합니다. 왼쪽 창에서 **클러스터**를 확장하고 **애플리케이션**을 클릭하여 클러스터의 모든 작업을 나열합니다. 특정 상태(새로움, 제출됨, 실행 중과 같은)에 있는 작업을 확인하려면 **애플리케이션**에서 적절한 링크를 클릭합니다. 더 자세한 내용을 보려면 작업 이름을 클릭하여 출력, 로그 등을 비롯하여 작업에 대해 자세히 확인할 수 있습니다.
 
@@ -133,7 +133,7 @@ Azure Portal에서 HDInsight HBase 클러스터 이름을 클릭하여 클러스
 이러한 오류 메시지 중 일부는 Azure 포털에서 HDInsight 클러스터를 관리할 때도 발생할 수 있습니다. 하지만 이때 발생할 수 있는 다른 오류 메시지는 해당 컨텍스트에서 가능한 수정 작업의 제약 조건으로 인해 세분화하기 어렵습니다. 다른 오류 메시지는 뚜렷한 해결 방법이 있는 경우 제공됩니다. 
 
 ### <a id="AtLeastOneSqlMetastoreMustBeProvided"></a>AtLeastOneSqlMetastoreMustBeProvided
-* **설명**: Hive 및 Oozie 메타스토어에 사용자 지정 설정을 사용하려면 하나 이상의 구성 요소에 대한 Azure SQL Database 세부 정보를 제공하세요.
+* **설명**: Hive 및 Oozie 메타스토어에 사용자 지정 설정을 사용하려면 하나 이상의 구성 요소에 대한 Azure SQL 데이터베이스 세부 정보를 제공하세요.
 * **해결 방법**: 사용자가 올바른 SQL Azure 메타스토어를 제공하고 요청을 다시 시도해야 합니다.  
 
 ### <a id="AzureRegionNotSupported"></a>AzureRegionNotSupported

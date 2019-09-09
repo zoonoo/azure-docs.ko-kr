@@ -7,19 +7,20 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.openlocfilehash: c07326cc3a4334f1873eef2dc23da05156a93577
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da871a1fed0663c5654ebcfd61f4189bf2267026
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64574654"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814057"
 ---
-# <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>HDInsight의 Apache Spark 클러스터에서 스크립트 작업을 사용하여 Jupyter Notebook용 외부 python 패키지 설치
+# <a name="script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-on-hdinsight"></a>HDInsight의 Apache Spark에서 Jupyter 노트북용 외부 Python 패키지를 설치 하는 스크립트 작업
+
 > [!div class="op_single_selector"]
 > * [셀 매직 사용](apache-spark-jupyter-notebook-use-external-packages.md)
 > * [스크립트 작업 사용](apache-spark-python-package-installation.md)
 
-스크립트 동작을 사용 하 여 구성 하는 방법을 알아봅니다는 [Apache Spark](https://spark.apache.org/) 외부의 커뮤니티 제공를 사용 하는 HDInsight 클러스터 **python** 하지 않은 패키지를 클러스터의 기본 제공을 포함 합니다.
+클러스터에 기본적으로 포함 되지 않는 외부의 커뮤니티 제공 **python** 패키지를 사용 하도록 HDInsight에서 [Apache Spark](https://spark.apache.org/) 클러스터를 구성 하는 스크립트 작업을 사용 하는 방법에 대해 알아봅니다.
 
 > [!NOTE]  
 > `%%configure` 매직을 사용하여 외부 패키지를 사용하도록 Jupyter Notebook을 구성할 수도 있습니다. 지침에 대해서는 [HDInsight의 Apache Spark 클러스터에서 Jupyter Notebook과 함께 외부 패키지 사용](apache-spark-jupyter-notebook-use-external-packages.md)을 참조하세요.
@@ -28,7 +29,7 @@ ms.locfileid: "64574654"
 
 이 문서에서는 클러스터에서 스크립트 작업을 사용하여 [TensorFlow](https://www.tensorflow.org/) 패키지를 설치하고 Jupyter 노트북을 통해 예제로 사용하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 다음이 있어야 합니다.
 
 * Azure 구독. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
@@ -54,13 +55,13 @@ HDInsight 서비스에서 사용할 수 있는 오픈 소스 구성 요소에는
 
 ## <a name="use-external-packages-with-jupyter-notebooks"></a>Jupyter 노트북에서 외부 패키지 사용
 
-1. [Azure portal](https://portal.azure.com/)를 클러스터로 이동 합니다.  
+1. [Azure Portal](https://portal.azure.com/)에서 클러스터로 이동 합니다.  
 
-2. 선택한 왼쪽된 창에서 클러스터를 사용 하 여 **설정을**를 선택 **스크립트 작업**합니다.
+2. 클러스터를 선택한 상태에서 왼쪽 창의 **설정**아래에서 **스크립트 동작**을 선택 합니다.
 
-3. 선택 **+ 새로운 항목 제출**합니다.
+3. **+ 새 제출**을 선택 합니다.
 
-4. 다음 값을 입력 합니다 **스크립트 동작 제출** 창:  
+4. **스크립트 동작 제출** 창에서 다음 값을 입력 합니다.  
 
 
     |매개 변수 | 값 |
@@ -68,9 +69,9 @@ HDInsight 서비스에서 사용할 수 있는 오픈 소스 구성 요소에는
     |스크립트 유형 | 드롭다운 목록에서 **- 사용자 지정**을 선택합니다.|
     |이름 |텍스트 상자에 `tensorflow`를 입력합니다.|
     |Bash 스크립트 URI |텍스트 상자에 `https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh`를 입력합니다. |
-    |노드 유형 | 선택 된 **Head**, 및 **작업자** 확인란 합니다. |
+    |노드 유형 | **헤드**및 **작업자** 확인란을 선택 합니다. |
 
-    `tensorflowinstall.sh` 다음 명령을 포함 되어 있습니다.
+    `tensorflowinstall.sh`에는 다음 명령이 포함 되어 있습니다.
 
     ```bash
     #!/usr/bin/env bash
@@ -79,9 +80,9 @@ HDInsight 서비스에서 사용할 수 있는 오픈 소스 구성 요소에는
 
 5. **만들기**를 선택합니다.  [사용자 지정 스크립트 작업을 사용하는 방법](../hdinsight-hadoop-customize-cluster-linux.md)에 대한 설명서를 참조하세요.
 
-6. 스크립트가 완료 될 때까지 기다립니다.  합니다 **스크립트 동작** 창의 상태는 **현재 클러스터 작업이 완료 된 후 새 스크립트 작업을 제출할 수 있습니다** 스크립트를 실행 하는 동안.  Ambari UI에서 진행률 표시줄을 볼 수 있습니다 **백그라운드 작업** 창입니다.
+6. 스크립트가 완료 될 때까지 기다립니다.  스크립트 **작업** 창에는 스크립트가 실행 되는 동안 **현재 클러스터 작업이 완료 된 후 새 스크립트 작업을 제출할 수 있습니다** .  Ambari UI **백그라운드 작업** 창에서 진행률 표시줄을 볼 수 있습니다.
 
-7. PySpark Jupyter notebook을 엽니다.  참조 [HDInsight Spark에서 Jupyter notebook 만들기](./apache-spark-jupyter-notebook-kernels.md#create-a-jupyter-notebook-on-spark-hdinsight) 단계에 대 한 합니다.
+7. PySpark Jupyter 노트북을 엽니다.  단계는 [Spark HDInsight에서 Jupyter 노트북 만들기](./apache-spark-jupyter-notebook-kernels.md#create-a-jupyter-notebook-on-spark-hdinsight) 를 참조 하세요.
 
     ![새 Jupyter 노트북 만들기](./media/apache-spark-python-package-installation/hdinsight-spark-create-notebook.png "새 Jupyter 노트북 만들기")
 
@@ -94,7 +95,7 @@ HDInsight 서비스에서 사용할 수 있는 오픈 소스 구성 요소에는
     print(sess.run(hello))
     ```
 
-    결과는 다음과 유사하게 표시됩니다.
+    결과 다음과 같습니다.
     
     ![TensorFlow 코드 실행](./media/apache-spark-python-package-installation/execution.png "TensorFlow 코드 실행")
 

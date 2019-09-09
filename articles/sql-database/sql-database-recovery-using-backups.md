@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 08/27/2019
-ms.openlocfilehash: 00982ea837783a7e7a9dca257f04c77d48aceef2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6f1a0485dbae3234d476ba5df62126f05d52f435
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103113"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813352"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>자동화된 데이터베이스 백업을 사용하여 Azure SQL 데이터베이스 복구
 
@@ -127,10 +127,7 @@ Azure Portal를 사용 하 여 삭제 된 데이터베이스를 복구 하려면
 
 ### <a name="geo-restore-using-the-azure-portal"></a>Azure Portal을 사용한 지역 복원
 
-Azure Portal를 사용 하 여 데이터베이스를 지역 복원 하려면 SQL 데이터베이스 페이지를 연 다음 **추가**를 클릭 합니다. **Select source**(소스 선택) 텍스트 상자에서 **Backup**을 선택합니다. 선택한 서버 또는 지역에서 복구를 수행할 백업을 지정합니다.
-
-> [!Note]
-> Azure Portal를 사용한 지역 복원은 Managed Instance에서 사용할 수 없습니다. PowerShell을 대신 사용 하세요.
+Azure Portal를 사용 하 여 데이터베이스를 지역 복원 하려면 SQL 데이터베이스 페이지를 연 다음 **추가**를 클릭 합니다. **Select source**(소스 선택) 텍스트 상자에서 **Backup**을 선택합니다. 선택한 서버 또는 지역에서 복구를 수행할 백업을 지정합니다. 
 
 ## <a name="programmatically-performing-recovery-using-automated-backups"></a>자동화된 백업을 사용하여 프로그래밍 방식으로 복구 수행
 
@@ -166,7 +163,7 @@ Azure Portal를 사용 하 여 데이터베이스를 지역 복원 하려면 SQL
 
 REST API를 사용하여 단일 또는 풀링된 데이터베이스를 복원하려면:
 
-| API | 설명 |
+| API | Description |
 | --- | --- |
 | [REST(createMode=Recovery)](https://docs.microsoft.com/rest/api/sql/databases) |데이터베이스를 복원합니다. |
 | [데이터베이스 만들기 또는 업데이트 상태 가져오기](https://docs.microsoft.com/rest/api/sql/operations) |복원 작업 동안 상태를 반환합니다. |

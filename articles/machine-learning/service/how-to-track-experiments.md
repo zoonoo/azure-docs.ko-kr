@@ -12,21 +12,21 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7b14ed2c18c1106477e21062afaa4cc8f672c203
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 0630ca28652b48b3632dbae94c5e16d6adb462c4
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946378"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812297"
 ---
-# <a name="log-metrics-during-training-runs"></a>학습 실행 중의 로그 메트릭
+# <a name="track-machine-learning-training-metrics-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 기계 학습 교육 메트릭 추적
 
-실험 및 모니터링 메트릭을 추적 하 여 모델 생성 프로세스를 개선 합니다. 이 문서에서는 학습 스크립트에 로깅을 추가 하 고, 실험 실행을 제출 하 고, 실행을 모니터링 하 고, Azure Machine Learning 서비스에서 실행 한 결과를 확인 하는 방법에 대해 알아봅니다.
+실험 및 모니터링 메트릭을 추적 하 여 모델 생성 프로세스를 개선 합니다. 이 문서에서는 학습 스크립트에 로깅 코드를 추가 하 고, 실험 실행을 제출 하 고, 실행을 모니터링 하 고, Azure Machine Learning 서비스에서 결과를 검사 하는 방법에 대해 알아봅니다.
 
 > [!NOTE]
-> Azure Machine Learning 서비스는 학습 작업을 실행 하는 Docker 컨테이너 또는 AutoML과 같은 학습 중 다른 원본의 정보를 기록할 수도 있습니다. 이러한 로그는 문서화 되어 있지 않습니다. 문제가 발생 하 고 Microsoft 지원에 문의 하는 경우 문제 해결 중에 이러한 로그를 사용할 수 있습니다.
+> Azure Machine Learning 서비스는 자동화 된 Machine Learning 실행 또는 학습 작업을 실행 하는 Docker 컨테이너와 같은 학습 중 다른 원본의 정보를 기록할 수도 있습니다. 이러한 로그는 문서화 되어 있지 않습니다. 문제가 발생 하 고 Microsoft 지원에 문의 하는 경우 문제 해결 중에 이러한 로그를 사용할 수 있습니다.
 
-## <a name="list-of-training-metrics"></a>학습 메트릭 목록 
+## <a name="available-metrics-to-track"></a>추적할 수 있는 메트릭
 
 실험을 학습하는 동안 실행에 추가할 수 있는 메트릭은 다음과 같습니다. 실행 시 추적할 수 있는 메트릭에 대한 자세한 목록을 보려면 [Run 클래스 참조 설명서](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py)를 참조하세요.
 
@@ -43,7 +43,7 @@ ms.locfileid: "68946378"
 > [!NOTE]
 > 스칼라, 목록, 행 및 테이블에 대한 메트릭은 부동 소수점, 정수 또는 문자열 형식일 수 있습니다.
 
-## <a name="start-logging-metrics"></a>로깅 메트릭 시작
+## <a name="choose-a-logging-option"></a>로깅 옵션 선택
 
 실험을 추적하거나 모니터링하려면 실행을 제출할 때 로깅을 시작하는 코드를 추가해야 합니다. 실행 제출을 트리거하는 방법은 다음과 같습니다.
 * __Run.start_logging__ - 학습 스크립트에 로깅 함수를 추가하고 지정된 실험에서 대화형 로깅 세션을 시작합니다. **start_logging**은 노트북과 같은 시나리오에서 사용할 대화형 실행을 만듭니다. 세션 중에 기록된 모든 메트릭이 실험의 실행 기록에 추가됩니다.

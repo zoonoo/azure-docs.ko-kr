@@ -251,14 +251,14 @@ VM을 만들거나 스토리지 계정을 삭제할 때와 같이 리소스 그�
 | -------- | ---- | ----------- |
 | authorization | object | 작업에 대해 요청된 권한입니다. |
 | claims | object | 클레임의 속성입니다. 자세한 내용은 [JWT 사양](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)을 참조하세요. |
-| CorrelationId | 문자열 | 문제 해결을 위한 작업 ID입니다. |
+| CorrelationId | string | 문제 해결을 위한 작업 ID입니다. |
 | httpRequest | object | 작업의 세부 정보입니다. 이 개체는 기존 리소스를 업데이트하거나 리소스를 삭제하는 경우에만 포함됩니다. |
-| resourceProvider | 문자열 | 작업에 대한 리소스 공급자입니다. |
-| resourceUri | 문자열 | 작업에서 리소스의 URI입니다. |
-| operationName | 문자열 | 수행된 작업입니다. |
-| status | 문자열 | 작업의 상태. |
-| subscriptionId | 문자열 | 리소스의 구독 ID입니다. |
-| tenantId | 문자열 | 리소스의 테넌트 ID입니다. |
+| resourceProvider | string | 작업에 대한 리소스 공급자입니다. |
+| resourceUri | string | 작업에서 리소스의 URI입니다. |
+| operationName | string | 수행된 작업입니다. |
+| status | string | 작업의 상태. |
+| subscriptionId | string | 리소스의 구독 ID입니다. |
+| tenantId | string | 리소스의 테넌트 ID입니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

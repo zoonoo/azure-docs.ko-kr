@@ -5,14 +5,14 @@ author: raynew
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 5/30/2019
+ms.date: 9/09/2019
 ms.author: raynew
-ms.openlocfilehash: a00c129126886bd71c82940aa340a8db29cf7a0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dca8174caabf4799c338d780a78ba58f1af5a2f1
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417786"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814317"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>VMware VM에서 Azure로의 재해 복구 정보
 
@@ -34,7 +34,7 @@ BCDR(비즈니스 연속성 및 재해 복구) 전략은 비즈니스가 계속 
     - 이러한 훈련은 실제 요구가 있을 때 장애 조치(Failover)가 예상대로 진행되도록 하는 데 도움이 됩니다.
     - 또한 이러한 훈련 중에는 프로덕션 환경에 영향을 주지 않고 테스트 장애 조치(Failover)가 수행됩니다.
 5. 중단이 발생하는 경우에 Azure로의 전체 장애 조치(Failover)를 실행합니다. 단일 컴퓨터를 장애 조치(Failover)하거나 여러 컴퓨터를 동시에 장애 조치(Failover)하는 복구 계획을 만들 수 있습니다.
-6. 장애 조치 시 관리 디스크 또는 저장소 계정에 VM 데이터에서 Azure Vm은 만듭니다. 사용자는 Azure VM에서 앱 및 워크로드에 계속 액세스할 수 있습니다.
+6. 장애 조치 (failover) 시 관리 디스크 또는 저장소 계정의 VM 데이터에서 Azure Vm이 만들어집니다. 사용자는 Azure VM에서 앱 및 워크로드에 계속 액세스할 수 있습니다.
 7. 온-프레미스 사이트를 다시 사용할 수 있게 되면 Azure에서 장애 복구(Failback)합니다.
 8. 장애 복구(Failback)를 수행하고 기본 사이트에서 한 번 더 작업한 후에 온-프레미스 VM을 Azure로 다시 복제할 수 있습니다.
 
@@ -56,12 +56,12 @@ Site Recovery는 지원되는 VMware VM 또는 실제 서버에서 실행 중인
 Azure에서 다음을 준비해야 합니다.
 
 1. Azure 계정에 Azure에서 VM을 만들 수 있는 권한이 있는지 확인합니다.
-2. 장애 조치 후 저장소 계정 또는 관리 되는 디스크에서 만든 경우 Azure Vm은 조인 하는 Azure 네트워크를 만듭니다.
+2. 장애 조치 (failover) 후 저장소 계정 또는 관리 디스크에서 만들 때 Azure Vm이 가입할 Azure 네트워크를 만듭니다.
 3. Site Recovery에 대한 Azure Recovery Services 자격 증명 모음을 설정합니다. 이 자격 증명 모음은 Azure Portal에 있고, 배포, 구성, 오케스트레이션, 모니터링 작업과 Site Recovery 배포 문제를 해결하는 데 사용됩니다.
 
 *도움이 더 필요하세요?*
 
-Azure로 설정 하는 방법을 알아봅니다 [계정 확인](tutorial-prepare-azure.md#verify-account-permissions)을 만듭니다는 [네트워크](tutorial-prepare-azure.md#set-up-an-azure-network), 및 [자격 증명 모음 설정](tutorial-prepare-azure.md#create-a-recovery-services-vault)합니다.
+[계정을 확인](tutorial-prepare-azure.md#verify-account-permissions)하 고, [네트워크](tutorial-prepare-azure.md#set-up-an-azure-network)를 만들고, [자격 증명 모음을 설정](tutorial-prepare-azure.md#create-a-recovery-services-vault)하 여 Azure를 설정 하는 방법을 알아봅니다.
 
 
 
@@ -93,10 +93,10 @@ Azure 및 온-프레미스 인프라가 준비된 후에 재해 복구를 설정
     - 구성 서버는 단일 온-프레미스 컴퓨터입니다. VMware 재해 복구의 경우 다운로드 가능 OVF 템플릿에서 배포할 수 있는 VMware VM으로 배포하는 것이 좋습니다.
     - 구성 서버는 온-프레미스와 Azure 간의 통신을 조정합니다.
     - 다른 일부 구성 요소는 구성 서버 컴퓨터에서 실행됩니다.
-        - 프로세스 서버, 최적화, 받고 Azure에서 캐시 저장소 계정에 복제 데이터를 보냅니다. 또한 복제하려는 컴퓨터에서 모바일 서비스의 자동 설치를 처리하고, VMware 서버에서 VM의 자동 검색을 수행합니다.
+        - 프로세스 서버는 Azure의 캐시 저장소 계정에 복제 데이터를 수신, 최적화 및 전송 합니다. 또한 복제하려는 컴퓨터에서 모바일 서비스의 자동 설치를 처리하고, VMware 서버에서 VM의 자동 검색을 수행합니다.
         - 마스터 대상 서버는 Azure에서 장애 복구 중 복제 데이터를 처리합니다.
     - 설정 중에 자격 증명 모음에 구성 서버가 등록되고, MySQL Server 및 VMware PowerCLI가 다운로드되고, 자동 검색 및 모바일 서비스 설치용으로 만든 계정이 지정됩니다.
-4. **대상 환경**: 대상 Azure 환경 여 설정한 Azure 구독 및 네트워크 설정을 지정 합니다.
+4. **대상 환경**: Azure 구독 및 네트워크 설정을 지정 하 여 대상 Azure 환경을 설정 합니다.
 5. **복제 정책**: 복제 수행 방법을 지정합니다. 또한 복구 지점이 생성 및 저장되는 주기와 앱 일치 스냅샷을 만들지 여부가 설정됩니다.
 6. **복제를 활성화합니다**. 온-프레미스 컴퓨터에 대해 복제를 사용하도록 설정합니다. 모바일 서비스를 설치하기 위한 계정을 만든 경우 컴퓨터에 대해 복제를 사용하도록 설정할 때 해당 계정이 설치됩니다. 
 

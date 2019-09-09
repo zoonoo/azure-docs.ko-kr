@@ -1,6 +1,6 @@
 ---
-title: 그룹-Azure Active Directory 라이선스에 대 한 PowerShell 및 Graph 예 | Microsoft Docs
-description: PowerShell + 그래프 예제와 Azure Active Directory 그룹 기반 라이선스에 대 한 시나리오
+title: 라이선스 그룹에 대 한 PowerShell 및 그래프 예제-Azure Active Directory | Microsoft Docs
+description: Azure Active Directory 그룹 기반 라이선스에 대 한 PowerShell + 그래프 예제 및 시나리오
 services: active-directory
 keywords: Azure AD 라이선스
 documentationcenter: ''
@@ -14,19 +14,19 @@ ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f95c0596d7a2b55867cdb7ed9355006500e89242
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2e6ac548a4b7599857b116e8059acc51c21fdf4e
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67065507"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812265"
 ---
-# <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Azure AD에서 그룹 기반 라이선스에 대 한 PowerShell 및 Graph 예제
+# <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Azure AD의 그룹 기반 라이선스에 대 한 PowerShell 및 그래프 예제
 
-그룹 기반 라이선스에 대 한 전체 기능을 통해 사용할 수는 [Azure portal](https://portal.azure.com), 및 현재 PowerShell 및 Microsoft Graph 지원 읽기 전용 작업으로 제한 됩니다. 그러나 기존 [MSOnline PowerShell cmdlet](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) 및 Microsoft Graph를 사용하여 수행할 수 있는 몇 가지 유용한 작업이 있습니다. 이 문서는 가능한 작업에 대한 예제를 제공합니다.
+[Azure Portal](https://portal.azure.com)를 통해 그룹 기반 라이선스의 전체 기능을 사용할 수 있으며 현재 PowerShell 및 Microsoft Graph 지원은 읽기 전용 작업으로 제한 됩니다. 그러나 기존 [MSOnline PowerShell cmdlet](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) 및 Microsoft Graph를 사용하여 수행할 수 있는 몇 가지 유용한 작업이 있습니다. 이 문서는 가능한 작업에 대한 예제를 제공합니다.
 
 > [!NOTE]
-> Cmdlet을 실행을 시작 하기 전에 실행 하 여 먼저 조직에 연결할 수 있는지 확인 합니다 `Connect-MsolService`  cmdlet.
+> Cmdlet 실행을 시작 하기 전에 `Connect-MsolService`  cmdlet을 실행 하 여 조직에 먼저 연결 해야 합니다.
 
 > [!WARNING]
 > 이 코드는 데모 용도의 예로 제공됩니다. 사용자 환경에서 사용하려는 경우, 먼저 작은 규모로 테스트하거나 별도의 테스트 테넌트에서 테스트하는 것이 좋습니다. 환경의 특정 요구에 맞게 코드를 조정해야 할 수도 있습니다.
@@ -39,7 +39,7 @@ ms.locfileid: "67065507"
 (Get-MsolGroup -ObjectId 99c4216a-56de-42c4-a4ac-e411cd8c7c41).Licenses
 | Select SkuPartNumber
 ```
-출력
+출력:
 ```
 SkuPartNumber
 -------------
@@ -50,12 +50,12 @@ EMSPREMIUM
 > [!NOTE]
 > 데이터는 제품(SKU) 정보로 제한됩니다. 라이선스에 사용하지 않도록 설정된 서비스 계획은 나열할 수 없습니다.
 
-다음 샘플을 사용 하 여 Microsoft Graph에서 동일한 데이터를 가져옵니다.
+다음 샘플을 사용 하 여 Microsoft Graph에서 동일한 데이터를 가져올 수 있습니다.
 
 ```
-GET https://graph.microsoft.com/v1.0/groups/99c4216a-56de-42c4-a4ac-e411cd8c7c41$select=assignedLicenses
+GET https://graph.microsoft.com/v1.0/groups/99c4216a-56de-42c4-a4ac-e411cd8c7c41?$select=assignedLicenses
 ```
-출력
+출력:
 ```
 HTTP/1.1 200 OK
 {
@@ -92,7 +92,7 @@ Get-MsolGroup | Where {$_.Licenses} | Select `
     @{Name="Licenses";Expression={$_.Licenses | Select -ExpandProperty SkuPartNumber}}
 ```
 
-출력
+출력:
 ```
 ObjectId                             DisplayName              Licenses
 --------                             -----------              --------
@@ -146,7 +146,7 @@ Get-MsolGroup -All | Where {$_.Licenses}  | Foreach {
 ```
 
 
-출력
+출력:
 ```
 GroupName         GroupId                              GroupLicenses       TotalUserCount LicensedUserCount LicenseErrorCount
 ---------         -------                              -------------       -------------- ----------------- -----------------
@@ -165,7 +165,7 @@ Access to Offi... 11151866-5419-4d93-9141-0603bbf78b42 STANDARDPACK             
 ```powershell
 Get-MsolGroup -HasLicenseErrorsOnly $true
 ```
-출력
+출력:
 ```
 ObjectId                             DisplayName             GroupType Description
 --------                             -----------             --------- -----------
@@ -175,7 +175,7 @@ ObjectId                             DisplayName             GroupType Descripti
 ```
 GET https://graph.microsoft.com/v1.0/groups?$filter=hasMembersWithLicenseErrors+eq+true
 ```
-출력
+출력:
 ```
 HTTP/1.1 200 OK
 {
@@ -219,7 +219,7 @@ Get-MsolGroupMember -All -GroupObjectId $groupId |
            @{Name="LicenseError";Expression={$_.IndirectLicenseErrors | Where {$_.ReferencedObjectId -eq $groupId} | Select -ExpandProperty Error}}
 ```
 
-출력
+출력:
 
 ```powershell
 ObjectId                             DisplayName      License Error
@@ -227,13 +227,13 @@ ObjectId                             DisplayName      License Error
 6d325baf-22b7-46fa-a2fc-a2500613ca15 Catherine Gibson MutuallyExclusiveViolation
 ```
 
-Microsoft Graph에서 동일한 데이터를 가져오려면 다음을 사용 합니다.
+다음을 사용 하 여 Microsoft Graph에서 동일한 데이터를 가져옵니다.
 
 ```powershell
 GET https://graph.microsoft.com/v1.0/groups/11151866-5419-4d93-9141-0603bbf78b42/membersWithLicenseErrors
 ```
 
-출력
+출력:
 ```powershell
 HTTP/1.1 200 OK
 {
@@ -271,7 +271,7 @@ Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {
     }  
 ```
 
-출력
+출력:
 
 ```powershell
 UserName         UserId                               GroupId                              LicenseError
@@ -378,7 +378,7 @@ Get-MsolUser -All | where {$_.isLicensed -eq $true -and $_.Licenses.AccountSKUID
     @{Name="AssignedFromGroup";Expression={(UserHasLicenseAssignedFromGroup $_ $skuId)}}
 ```
 
-출력
+출력:
 
 ```powershell
 ObjectId                             SkuId       AssignedDirectly AssignedFromGroup
@@ -388,13 +388,13 @@ ObjectId                             SkuId       AssignedDirectly AssignedFromGr
 240622ac-b9b8-4d50-94e2-dad19a3bf4b5 contoso:EMS             True              True
 ```
 
-그래프의 결과 표시 하는 간단한 방법을 없지만이 API에서 볼 수 있습니다.
+그래프에는 결과를 표시 하는 간단한 방법이 없지만이 API에서 볼 수 있습니다.
 
 ```powershell
 GET https://graph.microsoft.com/v1.0/users/e61ff361-5baf-41f0-b2fd-380a6a5e406a?$select=licenseAssignmentStates
 ```
 
-출력
+출력:
 
 ```powershell
 HTTP/1.1 200 OK
@@ -607,7 +607,7 @@ Get-MsolGroupMember -All -GroupObjectId $groupId | Get-MsolUser -ObjectId {$_.Ob
 #END: executing the script
 ```
 
-출력
+출력:
 
 ```powershell
 UserId                               OperationResult
@@ -617,7 +617,7 @@ UserId                               OperationResult
 aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipping.
 ```
 > [!NOTE]
-> 변수의 값을 업데이트 하세요 `$skuId` 하 고 `$groupId`  위의 스크립트를 실행 하기 전에 테스트 환경에 따라 직접 라이선스 제거에 대 한 대상이 되는 합니다. 
+> 위의 스크립트를 실행 하기 전에 테스트 `$skuId` 환경 `$groupId`에 따라 직접 라이선스 제거를 대상으로 하는 변수에  대 한 값을 업데이트 하십시오. 
 
 ## <a name="next-steps"></a>다음 단계
 

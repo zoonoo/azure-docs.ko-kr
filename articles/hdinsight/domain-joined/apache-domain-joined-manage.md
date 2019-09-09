@@ -1,6 +1,6 @@
 ---
 title: Enterprise Security Package - Azure를 사용하여 HDInsight 클러스터 관리
-description: Enterprise Security Package를 사용하여 HDInsight 클러스터를 관리하는 방법을 알아봅니다.
+description: Enterprise Security Package를 사용 하 여 Azure HDInsight 클러스터를 관리 하는 방법을 알아봅니다.
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: 7fa215f843fd025d26ba0f583b96f3bb7e63c9ed
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: acf11b8107855c6f087f63f592cdbbad3766795e
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488716"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70811033"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Enterprise Security Package를 사용하여 HDInsight 클러스터 관리
 HDInsight ESP(Enterprise Security Package)의 사용자 및 역할과 ESP 클러스터 관리 방법을 알아봅니다.
@@ -34,7 +34,7 @@ Apache Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 �
    
 3. **List cluster** 명령을 사용하여 연결된 클러스터를 볼 수 있습니다. 이제 연결된 클러스터에 스크립트를 제출할 수 있습니다.
 
-   ![연결된 클러스터](./media/apache-domain-joined-manage/linked-cluster.png)
+   ![연결 된 클러스터](./media/apache-domain-joined-manage/linked-cluster.png "연결 된 클러스터")
 
 4. 명령 팔레트에서 **HDInsight: Unlink a Cluster**를 입력하여 클러스터의 연결을 끊을 수도 있습니다.
 
@@ -43,11 +43,11 @@ Apache Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 �
 Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러스터를 연결할 수 있고 도메인 사용자 이름(예: `user1@contoso.com`)을 사용하여 보안 Hadoop 클러스터를 연결할 수 있습니다. 
 1. **Azure Explorer**에서 **Link a cluster**(클러스터 연결)를 클릭합니다.
 
-   ![클러스터 연결 상황에 맞는 메뉴](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
+   ![클러스터 연결 상황에 맞는 메뉴 intellij](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
 
 2. **클러스터 이름**, **사용자 이름** 및 **암호**를 입력합니다. 인증에 실패하면 사용자 이름과 암호를 확인해야 합니다. 필요에 따라 스토리지 계정, 스토리지 키를 추가한 다음, 스토리지 컨테이너에서 컨테이너를 선택합니다. 저장소 정보는 왼쪽 트리의 스토리지 탐색기용입니다.
    
-   ![클러스터 연결 대화 상자](./media/apache-domain-joined-manage/link-a-cluster-dialog.png)
+   ![클러스터 연결 대화 상자 intellij](./media/apache-domain-joined-manage/link-a-cluster-dialog.png)
 
    > [!NOTE]  
    > 클러스터가 Azure 구독 및 연결된 클러스터 모두에 로그인되어 있으면, 연결된 스토리지 키, 사용자 이름 및 암호를 사용합니다.
@@ -56,22 +56,22 @@ Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러�
    
 3. 입력 정보가 올바르면 연결된 클러스터가 **HDInsight** 노드에 표시됩니다. 이제 애플리케이션을 연결된 클러스터에 제출할 수 있습니다.
 
-   ![연결된 클러스터](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
+   ![연결 된 클러스터 intellij](./media/apache-domain-joined-manage/linked-cluster-intellij.png "연결 된 클러스터 intellij]")
 
 4. **Azure Explorer**에서 클러스터 연결을 해제할 수도 있습니다.
    
-   ![연결되지 않은 클러스터](./media/apache-domain-joined-manage/unlink.png)
+   ![연결 되지 않은 클러스터 intellij](./media/apache-domain-joined-manage/unlink.png)
 
 ## <a name="use-eclipse-to-link-to-domain-joined-cluster"></a>Eclipse를 사용하여 도메인 가입된 클러스터에 연결
 
 Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러스터를 연결할 수 있고 도메인 사용자 이름(예: `user1@contoso.com`)을 사용하여 보안 Hadoop 클러스터를 연결할 수 있습니다.
 1. **Azure Explorer**에서 **Link a cluster**(클러스터 연결)를 클릭합니다.
 
-   ![클러스터 연결 상황에 맞는 메뉴](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
+   ![클러스터 연결 상황에 맞는 메뉴 eclipse](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
 
 2. **클러스터 이름**, **사용자 이름** 및 **암호**를 입력한 다음, 확인 단추를 클릭하여 클러스터에 연결합니다. 선택적으로 스토리지 계정, 스토리지 키를 입력한 다음, Storage Explorer의 스토리지 컨테이너를 선택하여 왼쪽 트리 뷰에서 작업합니다.
    
-   ![클러스터 연결 대화 상자](./media/apache-domain-joined-manage/link-cluster-dialog.png)
+   ![클러스터 연결 대화 상자 eclipse](./media/apache-domain-joined-manage/link-cluster-dialog.png)
    
    > [!NOTE]  
    > 클러스터가 Azure 구독 및 연결된 클러스터 모두에 로그인되어 있으면, 연결된 스토리지 키, 사용자 이름 및 암호를 사용합니다.
@@ -79,11 +79,11 @@ Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러�
 
 3. 입력 정보가 올바르면 확인 단추를 클릭한 후 **HDInsight** 노드에 연결된 클러스터가 표시됩니다. 이제 애플리케이션을 연결된 클러스터에 제출할 수 있습니다.
 
-   ![연결된 클러스터](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
+   ![연결 된 클러스터 eclipse](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
 
 4. **Azure Explorer**에서 클러스터 연결을 해제할 수도 있습니다.
    
-   ![연결되지 않은 클러스터](./media/apache-domain-joined-manage/unlink.png)
+   ![연결 되지 않은 클러스터 eclipse](./media/apache-domain-joined-manage/unlink.png)
 
 ## <a name="access-the-clusters-with-enterprise-security-package"></a>엔터프라이즈 보안 패키지를 사용하여 클러스터에 액세스합니다.
 

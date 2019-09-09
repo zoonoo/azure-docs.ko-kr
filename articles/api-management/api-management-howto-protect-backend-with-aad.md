@@ -12,18 +12,21 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 344613c50f46337ffbd7e786f6753e8030c2af22
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 653089042c87b3223b3de048b6f12056d04b0f3c
+ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072239"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806335"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Azure Active Directory 및 API Management에서 OAuth 2.0을 사용하여 API 보호
 
 이 가이드에서는 Azure AD(Azure Active Directory)에서 OAuth 2.0 프로토콜을 사용하여 API를 보호하도록 Azure API Management 인스턴스를 구성하는 방법을 보여 줍니다. 
 
-## <a name="prerequisites"></a>전제 조건
+> [!NOTE]
+> 이 기능은 API Management **개발자**, **표준** 및 **프리미엄** 계층에서 사용할 수 있습니다.
+
+## <a name="prerequisites"></a>필수 구성 요소
 이 문서의 단계를 따르려면 다음이 있어야 합니다.
 * API Management 인스턴스
 * API Management 인스턴스를 사용하는 게시되고 있는 API

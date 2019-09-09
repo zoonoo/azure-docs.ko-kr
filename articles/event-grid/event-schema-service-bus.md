@@ -95,12 +95,12 @@ Service Bus는 다음과 같은 이벤트 유형을 내보냅니다.
 
 | 자산 | Type | 설명 |
 | -------- | ---- | ----------- |
-| namespaceName | 문자열 | 리소스가 있는 Service Bus 네임스페이스입니다. |
-| requestUri | 문자열 | 이벤트를 내보내는 특정 큐 또는 구독의 URI입니다. |
-| entityType | 문자열 | 이벤트를 내보내는 Service Bus 엔터티의 유형(큐 또는 구독)입니다. |
-| queueName | 문자열 | 큐를 구독하는 경우 활성 메시지가 있는 큐입니다. 토픽/구독을 사용하는 경우 값이 null입니다. |
-| topicName | 문자열 | 활성 메시지가 있는 Service Bus 구독이 속하는 토픽입니다. 큐를 사용하는 경우 null 값입니다. |
-| subscriptionName | 문자열 | 활성 메시지가 있는 Service Bus 구독입니다. 큐를 사용하는 경우 null 값입니다. |
+| namespaceName | string | 리소스가 있는 Service Bus 네임스페이스입니다. |
+| requestUri | string | 이벤트를 내보내는 특정 큐 또는 구독의 URI입니다. |
+| entityType | string | 이벤트를 내보내는 Service Bus 엔터티의 유형(큐 또는 구독)입니다. |
+| queueName | string | 큐를 구독하는 경우 활성 메시지가 있는 큐입니다. 토픽/구독을 사용하는 경우 값이 null입니다. |
+| topicName | string | 활성 메시지가 있는 Service Bus 구독이 속하는 토픽입니다. 큐를 사용하는 경우 null 값입니다. |
+| subscriptionName | string | 활성 메시지가 있는 Service Bus 구독입니다. 큐를 사용하는 경우 null 값입니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,9 +1,9 @@
 ---
-title: Azure Active Directory PIM-를 사용 하기 위한 요구 사항 라이선스 | Microsoft Docs
+title: PIM을 사용 하기 위한 라이선스 요구 사항-Azure Active Directory | Microsoft Docs
 description: Azure AD PIM(Privileged Identity Management)을 사용하기 위한 라이선스 요구 사항에 대해 설명합니다.
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: markwahl-msft
 ms.assetid: 34367721-8b42-4fab-a443-a2e55cdbf33d
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
 ms.date: 01/16/2019
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40e16209a185623b6e15650f70141edd6394e337
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 83c31c2731a8e872dfd2750fced8b91d283d0892
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60437459"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804066"
 ---
 # <a name="license-requirements-to-use-pim"></a>PIM을 사용하기 위한 라이선스 요구 사항
 
 Azure AD(Azure Active Directory) PIM(Privileged Identity Management)을 사용하려면 디렉터리에 유효한 라이선스가 있어야 합니다. 또한 관리자 및 해당 사용자에게 라이선스를 할당해야 합니다. 이 문서에서는 PIM을 사용하기 위한 라이선스 요구 사항에 대해 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 PIM을 사용하려면 디렉터리에 다음과 같은 유료 또는 평가판 라이선스 중 하나가 있어야 합니다.
 
@@ -40,12 +40,12 @@ PIM을 사용하려면 디렉터리에 다음과 같은 유료 또는 평가판 
 
 ## <a name="which-users-must-have-licenses"></a>어떤 사용자에게 라이선스가 있어야 하나요?
 
-PIM의 혜택과 상호 작용하거나 혜택을 받는 각 관리자 또는 사용자에게 라이선스가 있어야 합니다. 다음은 이러한 템플릿의 예입니다.
+PIM의 혜택과 상호 작용하거나 혜택을 받는 각 관리자 또는 사용자에게 라이선스가 있어야 합니다. 예를 들어 다음과 같습니다.
 
 - Azure AD 역할이 PIM을 사용하여 관리되는 관리자
 - Azure 리소스가 PIM을 사용하여 관리되는 관리자
 - 권한 있는 역할 관리자 역할에 할당된 관리자
-- Azure AD 역할에 적격으로 할당 하는 사용자가 PIM을 사용 하 여 관리
+- PIM을 사용 하 여 관리 되는 Azure AD 역할에 적격으로 할당 된 사용자
 - PIM에서 요청을 승인/거부할 수 있는 사용자
 - JIT(Just-in-time) 또는 직접(시간 기반) 할당을 통해 Azure 리소스 역할에 할당된 사용자  
 - 액세스 검토에 할당된 사용자

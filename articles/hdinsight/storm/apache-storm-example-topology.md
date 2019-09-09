@@ -8,30 +8,29 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: a535510ce56147f708f1cd8219cf898e6e0df36b
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 42819749b019b4b1db77942e22e09ea31a137fe7
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483784"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813864"
 ---
 # <a name="example-apache-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>HDInsight의 Apache Storm에 대한 Apache Storm 토폴로지 및 구성 요소 예제
 
 HDInsight에서 [Apache Storm](https://storm.apache.org/)과 함께 사용하기 위해 Microsoft에서 만들고 유지 관리하는 예제 목록은 다음과 같습니다. 이러한 예제에서는 기본 C# 및 Java 토폴로지 생성부터 Event Hub, Cosmos DB, SQL Database, HDInsight의 [Apache HBase](https://hbase.apache.org/), Azure Storage 등 Azure 서비스 작업에 이르는 다양한 토픽을 다룹니다. 또한 일부 예제에서는 SignalR 및 Socket.IO와 같은 Azure가 아니거나 Microsoft가 아닌 기술로 작업하는 방법을 보여 줍니다.
 
-| 설명 | 데모 | 언어/프레임워크 |
+| Description | 데모 | 언어/프레임워크 |
 |:--- |:--- |:--- |
 | [Apache Storm에서 Azure Data Lake Storage에 쓰기](apache-storm-write-data-lake-store.md) |Azure Data Lake Storage에 쓰기 |Java |
 | [이벤트 허브 Spout 및 Bolt 원본](https://github.com/apache/storm/tree/master/external/storm-eventhubs) |이벤트 허브 Spout 및 Bolt에 대한 소스 |Java |
-| [HDInsight에서 Apache Storm 용 Java 기반 토폴로지 개발][5797064f] |Maven |Java |
-| [Visual Studio를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발][16fce2d1] |Visual Studio용 HDInsight 도구 |C#, Java |
+| [HDInsight의 Apache Storm에 대 한 Java 기반 토폴로지 개발][5797064f] |Maven |Java |
+| [Visual Studio를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발][16fce2d1] |HDInsight Tools for Visual Studio |C#, Java |
 | [HDInsight의 Apache Storm으로 Azure Event Hubs의 이벤트 처리(C#)][844d1d81] |Event Hubs |C# 및 Java |
 | [HDInsight의 Storm으로 Azure Event Hubs에서 이벤트 처리(Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/) |Event Hubs |Java |
 | [HDInsight의 Apache Storm을 사용하여 Event Hubs의 차량 센서 데이터 처리][246ee964] |Event Hubs, Cosmos DB, Azure Storage Blob(WASB) |C#, Java |
-| [추출, 변환 및 로드 (ETL) Azure Event Hubs에서 Apache HBase가 HDInsight의 Apache Storm을 사용 하려면][b4b68194] |Event Hubs, HBase |C# |
-| [템플릿 C# HDInsight의 Apache Storm에서 Azure 서비스를 사용 하 여 작업에 대 한 Storm 토폴로지 프로젝트][ce0c02a2] |Event Hub, Cosmos DB SQL Database, HBase, SignalR |C#, Java |
-| [HDInsight에서 Apache Storm을 사용 하 여 Azure Event Hubs에서 읽기에 대 한 확장성 벤치 마크][d6c540e3] |메시지 처리량, Event Hubs, SQL Database |C#, Java |
-| [HDInsight의 Apache Storm에서 Python 사용](apache-storm-develop-python-topology.md) |Flux 토폴로지를 포함하는 Python 구성 요소 |Python |
+| [HDInsight의 Apache Storm를 사용 하 여 Azure Event Hubs에서 Apache HBase로 ETL (추출, 변환 및 로드)][b4b68194] |Event Hubs, HBase |C# |
+| [HDInsight C# 의 Apache Storm에서 Azure 서비스를 사용 하기 위한 템플릿 스톰 토폴로지 프로젝트][ce0c02a2] |Event Hub, Cosmos DB SQL Database, HBase, SignalR |C#, Java |
+| [HDInsight의 Apache Storm를 사용 하 여 Azure Event Hubs에서 읽기 위한 확장성 벤치 마크][d6c540e3] |메시지 처리량, Event Hubs, SQL Database |C#, Java |
 | [HDInsight의 Apache Storm에서 Apache Kafka 사용](../hdinsight-apache-storm-with-kafka.md) | Apache Kafka에 Apache Storm 읽기 및 쓰기 | Java |
 
 > [!WARNING]  
@@ -39,10 +38,14 @@ HDInsight에서 [Apache Storm](https://storm.apache.org/)과 함께 사용하기
 >
 > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다.
 
-### <a name="next-steps"></a>다음 단계
+## <a name="python-only"></a>Python만
 
-* [만들기 및 Azure HDInsight에서 Apache Storm 토폴로지를 모니터링 합니다.](./apache-storm-quickstart.md)
-* [HDInsight의 Apache Storm을 사용 하 여 Apache Storm 토폴로지 배포 및 관리 하는 방법을 알아봅니다][6eb0d3b8]
+Flux 토폴로지를 사용 하는 Python 구성 요소 예제는 [HDInsight에서 Apache Storm와 함께 Python 사용](apache-storm-develop-python-topology.md) 을 참조 하세요.
+
+## <a name="next-steps"></a>다음 단계
+
+* [Azure HDInsight에서 Apache Storm 토폴로지 만들기 및 모니터링](./apache-storm-quickstart.md)
+* [HDInsight에서 Apache Storm를 사용 하 여 Apache Storm 토폴로지를 배포 및 관리 하는 방법을 알아봅니다.][6eb0d3b8]
 
 
 [6eb0d3b8]:apache-storm-deploy-monitor-topology-linux.md "배포 및 웹 기반 Apache Storm 대시보드 및 Storm UI 또는 HDInsight 도구를 사용하여 Visual Studio에 대한 토폴로지를 관리하는 방법에 대해 알아봅니다."

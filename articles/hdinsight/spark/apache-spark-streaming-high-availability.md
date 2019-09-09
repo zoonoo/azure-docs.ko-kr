@@ -1,6 +1,6 @@
 ---
 title: YARN에서 고가용성 Spark Streaming 작업 만들기 - Azure HDInsight
-description: 고가용성 시나리오에 대한 Spark Streaming을 설정하는 방법
+description: Azure HDInsight에서 고가용성 시나리오에 대 한 Apache Spark 스트리밍을 설정 하는 방법
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/26/2018
-ms.openlocfilehash: 79a36ad39284dc66467ba7c500a363668f78b893
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dcd9095a1e5010a3d0dd5ea7ad884e36e24c7c1d
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720665"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814017"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>YARN을 사용하여 고가용성 Apache Spark Streaming 작업 만들기
 

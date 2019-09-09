@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: hrasheed
-ms.openlocfilehash: 28f30270ab0a6c057ee583ccebc2a8540980c6cc
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: f5052d7e35c3d1c81a3d958bd6e340b9a6a5a244
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442181"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810688"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>사용자에게 Apache Ambari Views에 대한 권한 부여
 
@@ -97,7 +97,7 @@ Tez 보기 인스턴스에 사용자 및 그룹을 할당하려면 앞서 설명
 
 각 역할에 지정된 권한 목록을 보려면 역할 페이지의 **역할** 테이블 머리글 옆에 있는 파란색 물음표를 클릭합니다.
 
-![역할 메뉴 연결](./media/hdinsight-authorize-users-to-ambari/roles-permissions.png)
+![역할 메뉴 링크 권한](./media/hdinsight-authorize-users-to-ambari/roles-permissions.png "역할 메뉴 링크 권한")
 
 이 페이지에는 사용자 및 그룹에 대한 역할을 관리하는 데 사용할 수 있는 두 가지 보기가 있습니다. 블록 및 목록
 

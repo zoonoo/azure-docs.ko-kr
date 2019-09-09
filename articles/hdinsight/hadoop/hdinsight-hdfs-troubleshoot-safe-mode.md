@@ -1,17 +1,17 @@
 ---
 title: Azure HDInsight 클러스터의 안전 모드에서 로컬 HDFS가 중단 됨
-description: Azure HDInsight 클러스터의 안전 모드에서 로컬 HDFS가 중단 됨
+description: Azure HDInsight에서 Apache 클러스터의 안전 모드로 로컬 Apache HDFS 정지 문제 해결
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 08/14/2019
-ms.openlocfilehash: e0fbb93e11c170f80620ac9b1e895650752ad638
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 4c97700fa69c2f2ae235308063ee431a8dbfcbfd
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69511364"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810710"
 ---
 # <a name="scenario-local-hdfs-stuck-in-safe-mode-on-azure-hdinsight-cluster"></a>시나리오: Azure HDInsight 클러스터의 안전 모드에서 로컬 HDFS가 중단 됨
 

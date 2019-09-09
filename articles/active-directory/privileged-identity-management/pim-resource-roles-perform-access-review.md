@@ -1,9 +1,9 @@
 ---
-title: PIM-Azure Active Directory에서에서 Azure 리소스 역할에 대 한 액세스 검토 | Microsoft Docs
-description: Azure AD Privileged Identity Management (PIM)에서 Azure 리소스 역할에 대 한 액세스를 검토 하는 방법에 알아봅니다.
+title: PIM에서 Azure 리소스 역할에 대 한 액세스 검토-Azure Active Directory | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM)에서 Azure 리소스 역할에 대 한 액세스를 검토 하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: markwahl-msft
 ms.service: active-directory
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
 ms.date: 03/30/2018
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ede412292caf682c3078002d23e1956bd68d1378
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22c0ce1a5eee4b8d4cc40c47dadd4bcdc74d03ba
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65602217"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804092"
 ---
-# <a name="review-access-to-azure-resource-roles-in-pim"></a>PIM에서 Azure 리소스 역할에 대 한 액세스를 검토 합니다.
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM)는 기업에서는 Azure의 리소스에 대 한 권한 있는 액세스를 관리 하는 방법을 간소화 합니다. 
+# <a name="review-access-to-azure-resource-roles-in-pim"></a>PIM에서 Azure 리소스 역할에 대 한 액세스 검토
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM)는 기업에서 Azure의 리소스에 대 한 권한 있는 액세스를 관리 하는 방법을 간소화 합니다. 
 
 관리 역할에 할당된 경우 조직의 권한 있는 역할 관리자가 작업에 해당 역할이 여전히 필요한지 정기적으로 확인하도록 요청할 수 있습니다. 링크가 포함된 메일을 받거나 [Azure 포털](https://portal.azure.com)로 바로 이동할 수 있습니다. 할당된 역할을 자체 검토하려면 이 문서의 단계를 따릅니다.
 
@@ -54,4 +54,4 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM)는 기업
 
 ## <a name="next-steps"></a>다음 단계
 
-- [PIM에서 내 Azure AD 역할의 액세스 검토 수행](pim-how-to-perform-security-review.md)
+- [PIM에서 내 Azure AD 역할에 대 한 액세스 검토 수행](pim-how-to-perform-security-review.md)

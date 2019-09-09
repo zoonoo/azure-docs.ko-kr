@@ -1,23 +1,22 @@
 ---
-title: Azure Site Recovery를 사용하여 보조 사이트로 VMM 클라우드의 Hyper-V VM 재해 복구를 위한 지원 매트릭스 | Microsoft Docs
+title: Azure Site Recovery를 사용 하 여 보조 사이트에 대 한 VMM 클라우드의 Hyper-v Vm 재해 복구를 위한 지원 매트릭스
 description: Azure Site Recovery를 사용하여 VMM 클라우드의 Hyper-V VM을 보조 사이트에 복제하는 기능 지원에 대해 요약합니다.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: e8b8f9856fe7e0fa591ceb42aab97e92642b6098
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9c3a19d44a4ac0fba37f4815b65b17c26d257dbc
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399361"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813610"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Hyper-V VM을 보조 사이트로 재해 복구하기 위한 지원 매트릭스
 
-이 문서에서는 사용 하는 경우 지원 되는 기능을 요약 합니다 [Azure Site Recovery](site-recovery-overview.md) 보조 사이트를 System Center Virtual Machine Manager (VMM) 클라우드에서 관리 되는 Hyper-v Vm을 복제 하는 서비스입니다. Hyper-V VM을 Azure에 복제하려면 [이 지원 매트릭스](hyper-v-azure-support-matrix.md)를 검토하세요.
+이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용 하 여 SYSTEM CENTER VIRTUAL MACHINE MANAGER (VMM) 클라우드에서 관리 되는 hyper-v vm을 보조 사이트에 복제할 때 지원 되는 기능을 요약 합니다. Hyper-V VM을 Azure에 복제하려면 [이 지원 매트릭스](hyper-v-azure-support-matrix.md)를 검토하세요.
 
 > [!NOTE]
 > Hyper-V 호스트를 VMM 클라우드에서 관리하는 경우에만 보조 사이트에 복제할 수 있습니다.
@@ -58,21 +57,21 @@ Windows Server 2012 R2 | Windows Server 2012 R2에서 [Hyper-V가 지원하는](
 호스트 - NIC 팀 | 예 
 호스트 - VLAN | 예 
 호스트 - IPv4 | 예 
-호스트 - IPv6 | 아닙니다. 
-게스트 VM - NIC 팀 | 아닙니다.
+호스트 - IPv6 | 아니요 
+게스트 VM - NIC 팀 | 아니요
 게스트 VM - IPv4 | 예
-게스트 VM - IPv6 | 아닙니다.
+게스트 VM - IPv6 | 아니요
 게스트 VM - Windows/Linux - 고정 IP 주소 | 예
 게스트 VM - 다중 NIC | 예
 
 
-## <a name="storage"></a>스토리지
+## <a name="storage"></a>저장 공간
 
 ### <a name="host-storage"></a>호스트 스토리지
 
 **Storage(호스트)** | **지원됨**
 --- | --- 
-NFS | N/A
+NFS | 해당 사항 없음
 SMB 3.0 |  예
 SAN(ISCSI) | 예
 다중 경로(MPIO) | 예
@@ -81,19 +80,19 @@ SAN(ISCSI) | 예
 
 **구성** | **지원됨**
 --- | --- | 
-VMDK |  N/A
+VMDK |  해당 사항 없음
 VHD/VHDX | 예(최대 16개 디스크)
 2세대 VM | 예
-공유 클러스터 디스크 | 아닙니다.
-암호화된 디스크 | 아닙니다.
-UEFI| N/A
-NFS | 아닙니다.
-SMB 3.0 | 아닙니다.
-RDM | N/A
+공유 클러스터 디스크 | 아니요
+암호화된 디스크 | 아니요
+UEFI| 해당 사항 없음
+NFS | 아니요
+SMB 3.0 | 아니요
+RDM | 해당 사항 없음
 디스크 > 1TB | 예
 스트라이프 디스크 포함 볼륨 > 1TB<br/><br/> LVM | 예
-스토리지 공간 | 예
-디스크 핫 추가/제거 | 아닙니다.
+저장소 공간 | 예
+디스크 핫 추가/제거 | 아니요
 디스크 제외 | 예
 다중 경로(MPIO) | 예
 
@@ -101,14 +100,14 @@ RDM | N/A
 
 **작업** | **지원됨**
 --- | --- 
-리소스 그룹 간에 자격 증명 모음 이동(동일 구독 내 또는 구독 간에) |  아닙니다.
-리소스 그룹 간에 스토리지, 네트워크, Azure VM 이동(동일 구독 내 또는 구독 간에) | 아닙니다.
+리소스 그룹 간에 자격 증명 모음 이동(동일 구독 내 또는 구독 간에) |  아니요
+리소스 그룹 간에 스토리지, 네트워크, Azure VM 이동(동일 구독 내 또는 구독 간에) | 아니요
 
 ## <a name="azure-site-recovery-provider"></a>Azure Site Recovery 공급자
 
 공급자는 VMM 서버 간의 통신을 조정합니다. 
 
-**최신** | **업데이트**
+**최신** | **Updates**
 --- | --- 
 5.1.19([포털에서 사용 가능](https://aka.ms/downloaddra)) | [최신 기능 및 수정](https://support.microsoft.com/kb/3155002)
 

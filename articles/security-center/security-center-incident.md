@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/27/2019
 ms.author: rkarlin
-ms.openlocfilehash: df487b5d16568605544fb69111579bd4a9fb045f
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 9f757d5fb2c8d3a807e325068d386e16a7d6caa7
+ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70047641"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806563"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Azure Security Center에서 보안 인시던트 관리
 
@@ -41,7 +41,7 @@ ms.locfileid: "70047641"
 
     ![Azure Security Center의 보안 인시던트에 대응](./media/security-center-managing-and-responding-alerts/security-center-alert-incident.png)
 
-1. 각 경고에 대 한 자세한 내용을 보려면 경고를 클릭 합니다. Security Center에서 제안하는 수정은 보안 경고에 따라 다릅니다. Security Center에서 제안하는 수정은 보안 경고에 따라 다릅니다. 
+1. 각 경고에 대 한 자세한 내용을 보려면 경고를 클릭 합니다. Security Center에서 제안하는 수정은 보안 경고에 따라 다릅니다.
 
    > [!NOTE]
    > 동일한 경고가 인시던트의 일부로 있을 수 있을 뿐만 아니라 독립 실행형 경고로 표시 될 수도 있습니다.

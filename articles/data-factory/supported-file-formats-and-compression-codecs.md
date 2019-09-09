@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: b9d853cc0de08b64f2e0f5530e153724d9eeddda
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 2c8983b5d6a44834d0c9659877c857fd73805ce6
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277086"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812317"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Azure Data Factory에서 지원되는 파일 형식 및 압축 코덱
 
@@ -39,7 +39,7 @@ ms.locfileid: "70277086"
 
 텍스트 파일을 읽거나 텍스트 파일에 쓰려면 데이터 세트의 `format` 섹션에서 `type` 속성을 **TextFormat**으로 지정합니다. `format` 섹션에서 다음 **선택적** 속성을 지정할 수도 있습니다. 구성 방법은 [TextFormat 예제](#textformat-example) 섹션을 참조하세요.
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | columnDelimiter |파일의 열을 구분하는 데 사용되는 문자입니다. 데이터에 없을 가능성이 높은 인쇄할 수 없는 희귀 문자를 사용하도록 고려할 수도 있습니다. 예를 들어 헤딩의 시작(SOH)을 나타내는 "\u0001"을 지정합니다. |문자는 하나만 사용할 수 있습니다. **기본값**은 **쉼표(,)** 입니다. <br/><br/>유니코드 문자를 사용하려면 [유니코드 문자](https://en.wikipedia.org/wiki/List_of_Unicode_characters)를 참조하여 해당하는 코드를 가져옵니다. |아니요 |
 | rowDelimiter |파일의 행을 구분하는 데 사용되는 문자입니다. |문자는 하나만 사용할 수 있습니다. **기본값**은 읽기의 경우 **["\r\n", "\r", "\n"]** 중 하나이고, 쓰기의 경우 **"\r\n"** 입니다. |아니요 |
@@ -87,6 +87,9 @@ ms.locfileid: "70277086"
 * 텍스트 파일에서 데이터를 복사할 때 시작 부분에서 데이터도 없고 머리글 정보도 없는 몇 줄을 건너뛰려고 합니다. 건너뛸 줄 수를 나타내는 `skipLineCount`를 지정합니다. 파일의 나머지 부분에 헤더 줄이 있으면 `firstRowAsHeader`도 지정할 수 있습니다. `skipLineCount`와 `firstRowAsHeader`를 둘 다 지정하면 먼저 해당 줄을 먼저 건너뛴 다음 입력 파일에서 헤더 정보를 읽습니다.
 
 ## <a name="json-format"></a>JSON 형식
+
+>[!NOTE]
+>새 JSON 형식 데이터 집합이 도입 된 Data Factory 자세한 내용은 [json](format-json.md) 문서를 참조 하세요. 파일 기반 데이터 저장소 데이터 집합에 대 한 다음 구성은 이전 compabitility의 경우 그대로 계속 지원 됩니다. 앞으로 새 모델을 사용 하는 것이 좋습니다.
 
 **Azure Cosmos DB에서 JSON 파일을 그대로 가져오거나 내보내려면** [Azure Cosmos DB 간에 데이터 이동](connector-azure-cosmos-db.md) 문서에서 JSON 문서 가져오기/내보내기 섹션을 참조하세요.
 
@@ -449,7 +452,7 @@ Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰�
 
 | Data Factory 중간 데이터 형식 | Parquet 기본 형식 | Parquet 원본 형식(Deserialize) | Parquet 원본 형식(Serialize) |
 |:--- |:--- |:--- |:--- |
-| Boolean | Boolean | N/A | N/A |
+| Boolean | Boolean | N/A | 해당 사항 없음 |
 | SByte | Int32 | Int8 | Int8 |
 | Byte | Int32 | UInt8 | Int16 |
 | Int16 | Int32 | Int16 | Int16 |
@@ -462,13 +465,13 @@ Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰�
 | Double | Double | N/A | 해당 사항 없음 |
 | Decimal | 이항 | Decimal | Decimal |
 | String | 이항 | Utf8 | Utf8 |
-| DateTime | Int96 | 해당 사항 없음 | 해당 사항 없음 |
-| TimeSpan | Int96 | 해당 사항 없음 | 해당 사항 없음 |
-| DateTimeOffset | Int96 | 해당 사항 없음 | 해당 사항 없음 |
-| ByteArray | 이항 | 해당 사항 없음 | 해당 사항 없음 |
+| DateTime | Int96 | N/A | 해당 사항 없음 |
+| TimeSpan | Int96 | 해당 사항 없음 | N/A |
+| DateTimeOffset | Int96 | N/A | 해당 사항 없음 |
+| ByteArray | 이항 | N/A | 해당 사항 없음 |
 | Guid | 이항 | Utf8 | Utf8 |
 | Char | 이항 | Utf8 | Utf8 |
-| CharArray | 지원되지 않음 | N/A | 해당 사항 없음 |
+| CharArray | 지원되지 않음 | 해당 사항 없음 | 해당 사항 없음 |
 
 ## <a name="orc-format"></a>ORC 형식
 
@@ -511,7 +514,7 @@ ORC 파일을 구문 분석하거나 데이터를 ORC 형식으로 쓰려면 `fo
 | Single | Float |
 | Double | Double |
 | Decimal | Decimal |
-| String | String |
+| 문자열 | String |
 | DateTime | timestamp |
 | DateTimeOffset | timestamp |
 | TimeSpan | timestamp |

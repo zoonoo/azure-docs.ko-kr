@@ -1,19 +1,19 @@
 ---
-title: Azure Site Recovery를 사용한 온-프레미스 컴퓨터 및 Azure VM 마이그레이션 정보 | Microsoft Docs
+title: 온-프레미스 컴퓨터 및 Azure Vm의 마이그레이션 정보 Azure Site Recovery
 description: 이 문서에서는 Azure Site Recovery 서비스를 사용하여 온-프레미스 및 Azure IaaS VM을 Azure로 마이그레이션하는 방법을 설명합니다.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 5b7858793ec75d20bb367a6cf49b59fa9906ec9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c043950de9565f96d52c848f96efac80385f2321
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66396477"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814478"
 ---
 # <a name="about-migration"></a>마이그레이션 정보
 
@@ -25,10 +25,12 @@ Site Recovery를 사용하여 마이그레이션할 수 있는 항목은 다음�
 - **Azure 내에서 마이그레이션**: Azure 지역 간에 Azure VM을 마이그레이션합니다. 
 - **AWS 마이그레이션**: AWS Windows 인스턴스를 Azure IaaS VM으로 마이그레이션합니다. 
 
+> [!NOTE]
+> 이제 Azure Migrate 서비스를 사용 하 여 온-프레미스에서 Azure로 마이그레이션할 수 있습니다. [자세히 알아보기](../migrate/migrate-overview.md).
 
 ## <a name="what-do-we-mean-by-migration"></a>마이그레이션 기준은 어떤 의미인가요?
 
-온-프레미스 및 Azure VM의 재해 복구를 위해 Site Recovery를 사용하는 것 외에도, Site Recovery 서비스를 사용하여 마이그레이션을 수행할 수 있습니다. 차이점은 무엇입니까?
+온-프레미스 및 Azure VM의 재해 복구를 위해 Site Recovery를 사용하는 것 외에도, Site Recovery 서비스를 사용하여 마이그레이션을 수행할 수 있습니다. 차이점은 무엇인가요?
 
 - 재해 복구를 위해서는 컴퓨터를 Azure에 정기적으로 복제합니다. 중단이 발생하면 컴퓨터를 기본 사이트에서 보조 Azure 사이트로 장애 조치(Failover)하고 여기에서 액세스합니다. 기본 사이트를 다시 사용할 수 있게 되면 Azure에서 장애 복구(Failback)합니다.
 - 마이그레이션의 경우에는 온-프레미스 컴퓨터를 Azure로 복제하거나 Azure VM을 보조 지역으로 복제합니다. 그런 다음 기본 사이트의 VM을 보조 사이트로 장애 조치(Failover)하고 마이그레이션 프로세스를 완료합니다. 장애 복구는 필요하지 않습니다.  

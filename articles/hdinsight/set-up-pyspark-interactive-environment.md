@@ -8,12 +8,12 @@ ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 54adb2ec61d77ea429f7da1b88aa9347c1addfe0
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 8e90be5a38ff40b748c11539e1d5c6558d198b62
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736407"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814226"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Visual Studio Code용 PySpark 대화형 환경 설정
 
@@ -24,13 +24,13 @@ ms.locfileid: "70736407"
 1. [Python](https://www.python.org/downloads/) 및 [pip](https://pip.pypa.io/en/stable/installing/)를 설치합니다.
    
    + [https://www.python.org/downloads/](https://www.python.org/downloads/)에서 Python을 설치합니다.
-   + [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/)에서 pip를 설치합니다. (Python 설치에서 설치되지 않은 경우)
-   + 다음 명령을 사용하여 Python 및 pip가 제대로 설치되었는지 유효성을 검사합니다. (옵션)
+   + (Python 설치 [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/) 에서 설치 되지 않은 경우)에서 pip를 설치 합니다.
+   + 다음 명령을 사용 하 여 Python 및 pip가 성공적으로 설치 되었는지 확인 합니다. (옵션)
  
         ![Python pip 버전](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
      > [!NOTE]
-     > MacOS 기본 버전을 사용하는 대신 Python을 수동으로 설치하는 것이 좋습니다.
+     > MacOS 기본 버전을 사용 하는 대신 Python을 수동으로 설치 하는 것이 좋습니다.
 
 
 2. 아래 명령을 실행하여 **virtualenv**를 설치합니다.
@@ -39,19 +39,21 @@ ms.locfileid: "70736407"
    pip install virtualenv
    ```
 
-3. Linux의 경우에만 오류 메시지가 표시될 경우 아래 명령을 실행하여 필수 패키지를 설치합니다.
-   
-    ![Python pip 버전](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
-       
-   ```
-   sudo apt-get install libkrb5-dev 
-   ```
+## <a name="other-packages"></a>기타 패키지
 
-   ```
-   sudo apt-get install python-dev
-   ```
+오류 메시지가 표시 되 면 다음 명령을 실행 하 여 필요한 패키지를 설치 합니다.
 
-4. VS Code를 다시 시작하고 **HDInsight: PySpark 대화형**을 실행하는 스크립트 편집기로 돌아옵니다.
+   ![Python pip 버전](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
+
+```
+sudo apt-get install libkrb5-dev
+```
+
+```
+sudo apt-get install python-dev
+```
+
+VS Code를 다시 시작하고 **HDInsight: PySpark 대화형**을 실행하는 스크립트 편집기로 돌아옵니다.
 
 ## <a name="next-steps"></a>다음 단계
 

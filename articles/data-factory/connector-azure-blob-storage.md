@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 56d332ca00cbd47448b7e3fb8d3ab2d141380b70
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 8925ea9da06ff718f08b7be73944c75d388bc01f
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061516"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814167"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob Storage 간 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -315,12 +315,12 @@ Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같�
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 
 
-- **Parquet, 구분 된 텍스트 및 이진 형식의**경우 [Parquet, 구분 된 텍스트 및 이진 형식 데이터 집합](#format-based-dataset) 섹션을 참조 하세요.
-- **ORC/Avro/JSON 형식과**같은 다른 형식에 대해서는 [다른 형식 데이터 집합](#other-format-dataset) 섹션을 참조 하세요.
+- **Parquet, 구분 된 텍스트, json, avro 및 이진 형식의**경우 [Parquet, 구분 된 텍스트, json, avro 및 이진 형식 데이터 집합](#format-based-dataset) 섹션을 참조 하세요.
+- **ORC/JSON 형식과**같은 다른 형식에 대해서는 [다른 형식 데이터 집합](#other-format-dataset) 섹션을 참조 하세요.
 
-### <a name="format-based-dataset"></a>Parquet, 구분 기호로 분리 된 텍스트 및 이진 형식 데이터 집합
+### <a name="format-based-dataset"></a>Parquet, 구분 된 텍스트, JSON, Avro 및 이진 형식 데이터 집합
 
-Parquet, 구분 된 텍스트 또는 이진 형식으로 Blob storage 간에 데이터를 복사 하려면 형식 기반 데이터 집합 및 지원 되는 설정에 대 한 [Parquet 형식](format-parquet.md), [구분 된 텍스트 형식](format-delimited-text.md) 및 [이진 형식](format-binary.md) 문서를 참조 하세요. 형식 기반 데이터 집합의 설정에서 `location` Azure Blob에 대해 지원 되는 속성은 다음과 같습니다.
+Parquet, 구분 된 텍스트, Avro 또는 이진 형식으로 Blob storage 간에 데이터를 복사 하려면 형식 기반 데이터 집합 및 지원 되는 설정에 대 한 [Parquet 형식](format-parquet.md), [구분 된 텍스트 형식](format-delimited-text.md), [avro 형식](format-avro.md) 및 [이진 형식](format-binary.md) 문서를 참조 하세요. 형식 기반 데이터 집합의 설정에서 `location` Azure Blob에 대해 지원 되는 속성은 다음과 같습니다.
 
 | 속성   | 설명                                                  | 필수 |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -362,7 +362,7 @@ Parquet, 구분 된 텍스트 또는 이진 형식으로 Blob storage 간에 데
 
 ### <a name="other-format-dataset"></a>기타 형식 데이터 집합
 
-ORC/Avro/JSON 형식의 Blob storage 간에 데이터를 복사 하려면 데이터 집합의 type 속성을 **Azureblob**으로 설정 합니다. 다음과 같은 속성이 지원됩니다.
+ORC/JSON 형식으로 Blob storage에서 데이터를 복사 하려면 데이터 집합의 type 속성을 **Azureblob**으로 설정 합니다. 다음과 같은 속성이 지원됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
@@ -413,12 +413,12 @@ ORC/Avro/JSON 형식의 Blob storage 간에 데이터를 복사 하려면 데이
 
 ### <a name="blob-storage-as-a-source-type"></a>Blob Storage를 원본 형식으로
 
-- **Parquet, 구분 된 텍스트 및 이진 형식**에서 복사 하려면 [Parquet, 구분 된 텍스트 및 이진 형식 원본](#format-based-source) 섹션을 참조 하세요.
-- **ORC/Avro/JSON 형식과**같은 다른 형식에서 복사 하려면 [기타 형식 소스](#other-format-source) 섹션을 참조 하세요.
+- **Parquet, 구분 된 텍스트, json, avro 및 이진 형식**에서 복사 하려면 [Parquet, 구분 된 텍스트, json, avro 및 이진 형식 원본](#format-based-source) 섹션을 참조 하세요.
+- **ORC format**같은 다른 형식에서 복사 하려면 [다른 형식 소스](#other-format-source) 섹션을 참조 하세요.
 
-#### <a name="format-based-source"></a>Parquet, 구분 기호로 분리 된 텍스트 및 이진 형식 원본
+#### <a name="format-based-source"></a>Parquet, 구분 된 텍스트, JSON, Avro 및 이진 형식 원본
 
-**Parquet, 구분 된 텍스트 또는 이진 형식**으로 Blob storage 간에 데이터를 복사 하려면 형식 기반 데이터 집합 및 지원 되는 설정에 대 한 [Parquet 형식](format-parquet.md), [구분 된 텍스트 형식](format-delimited-text.md) 및 [이진 형식](format-binary.md) 문서를 참조 하세요. 다음은 형식 기반 복사 원본에서 설정 아래의 `storeSettings` Azure Blob에 대해 지원 되는 속성입니다.
+**Parquet, 구분 된 텍스트, JSON, avro 및 이진 형식**으로 Blob storage 간에 데이터를 복사 하려면 형식 기반 데이터 집합에 대 한 [Parquet 형식](format-parquet.md), [구분 된 텍스트 형식](format-delimited-text.md), [avro 형식](format-avro.md) 및 [이진 형식](format-binary.md) 문서를 참조 하세요. 지원 되는 설정입니다. 다음은 형식 기반 복사 원본에서 설정 아래의 `storeSettings` Azure Blob에 대해 지원 되는 속성입니다.
 
 | 속성                 | 설명                                                  | 필수                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -476,7 +476,7 @@ ORC/Avro/JSON 형식의 Blob storage 간에 데이터를 복사 하려면 데이
 
 #### <a name="other-format-source"></a>기타 서식 원본
 
-**ORC, Avro 또는 JSON 형식의**Blob 저장소에서 데이터를 복사 하려면 복사 작업의 원본 형식을 **blobsource**로 설정 합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
+**ORC 형식**으로 Blob storage에서 데이터를 복사 하려면 복사 작업의 원본 형식을 **blobsource**로 설정 합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
@@ -518,12 +518,12 @@ ORC/Avro/JSON 형식의 Blob storage 간에 데이터를 복사 하려면 데이
 
 ### <a name="blob-storage-as-a-sink-type"></a>Blob Storage를 싱크 형식으로
 
-- **Parquet, 구분 된 텍스트 및 이진 형식**에서 복사 하려면 [Parquet, 구분 된 텍스트 및 이진 형식 원본](#format-based-source) 섹션을 참조 하세요.
-- **ORC/Avro/JSON 형식과**같은 다른 형식에서 복사 하려면 [기타 형식 소스](#other-format-source) 섹션을 참조 하세요.
+- **Parquet, 구분 된 텍스트, json, avro 및 이진 형식**에서 복사 하려면 [Parquet, 구분 된 텍스트, json, avro 및 이진 형식 원본](#format-based-source) 섹션을 참조 하세요.
+- **ORC format**같은 다른 형식에서 복사 하려면 [다른 형식 소스](#other-format-source) 섹션을 참조 하세요.
 
-#### <a name="format-based-source"></a>Parquet, 구분 기호로 분리 된 텍스트 및 이진 형식 원본
+#### <a name="format-based-source"></a>Parquet, 구분 된 텍스트, JSON, Avro 및 이진 형식 원본
 
-**Parquet, 구분 된 텍스트 또는 이진 형식**으로 Blob 저장소에서 데이터를 복사 하려면 형식 기반 복사 작업 원본 및 지원 되는 설정에 대 한 [Parquet 형식](format-parquet.md), [구분 된 텍스트 형식](format-delimited-text.md) 및 [이진 형식](format-binary.md) 문서를 참조 하세요. 형식 기반 복사 싱크의 설정에서 `storeSettings` Azure Blob에 대해 지원 되는 속성은 다음과 같습니다.
+**Parquet, 구분 된 텍스트, JSON, avro 및 이진 형식**으로 Blob 저장소에서 데이터를 복사 하려면 형식 기반 복사 작업 원본에서 [Parquet 형식](format-parquet.md), [구분 된 텍스트 형식](format-delimited-text.md), [avro 형식](format-avro.md) 및 [이진 형식](format-binary.md) 문서를 참조 하세요. 및 지원 되는 설정입니다. 형식 기반 복사 싱크의 설정에서 `storeSettings` Azure Blob에 대해 지원 되는 속성은 다음과 같습니다.
 
 | 속성                 | 설명                                                  | 필수 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
@@ -571,7 +571,7 @@ ORC/Avro/JSON 형식의 Blob storage 간에 데이터를 복사 하려면 데이
 
 #### <a name="other-format-sink"></a>기타 형식 싱크
 
-**ORC/Avro/JSON 형식의**Blob 저장소에 데이터를 복사 하려면 복사 작업의 싱크 형식을 **blobsink**로 설정 합니다. **sink** 섹션에서 지원되는 속성은 다음과 같습니다.
+**ORC 형식**으로 Blob storage에 데이터를 복사 하려면 복사 작업의 싱크 형식을 **blobsink**로 설정 합니다. **sink** 섹션에서 지원되는 속성은 다음과 같습니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |

@@ -1,6 +1,6 @@
 ---
 title: HDInsight에서 ML 서비스 클러스터 관리 - Azure
-description: Azure HDInsight에서 ML 서비스 클러스터를 관리하는 방법을 알아봅니다.
+description: Azure HDInsight에서 ML 서비스 클러스터에 대 한 다양 한 작업을 관리 하는 방법을 알아봅니다.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,23 +8,23 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: fa838f371607f3c0b0f76f81d6755c842a5901f7
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 568c4324f3b542e2b913596c1d93ffb72bbbaec7
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448954"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814253"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 ML 서비스 클러스터 관리
 
-이 문서에서는 여러 동시 사용자를 추가 하는 ML Services 클러스터에 원격으로 연결 등, 계산 컨텍스트를 변경 하는 등의 작업을 수행 하려면 Azure HDInsight에서 기존 ML 서비스 클러스터를 관리 하는 방법을 알아봅니다.
+이 문서에서는 여러 동시 사용자 추가, ML 서비스 클러스터에 원격 연결, 계산 컨텍스트 변경 등의 작업을 수행 하기 위해 Azure HDInsight에서 기존 ML 서비스 클러스터를 관리 하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-* HDInsight에서 기계 학습 서비스 클러스터를 합니다. 참조 [Apache Hadoop 클러스터 만들기 Azure portal을 사용 하 여](../hdinsight-hadoop-create-linux-clusters-portal.md) 선택한 **ML Services** 에 대 한 **클러스터 유형**합니다.
+* HDInsight의 ML Services 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형**으로 **ML Services**를 선택합니다.
 
 
-* SSH (보안 셸) 클라이언트: SSH 클라이언트는 HDInsight 클러스터에 원격으로 연결하여 클러스터에서 직접 명령을 실행하는 데 사용됩니다. 자세한 내용은 [HDInsight에서 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+* SSH (Secure Shell) 클라이언트: SSH 클라이언트는 HDInsight 클러스터에 원격으로 연결하여 클러스터에서 직접 명령을 실행하는 데 사용됩니다. 자세한 내용은 [HDInsight에서 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 
 ## <a name="enable-multiple-concurrent-users"></a>여러 동시 사용자 사용
@@ -80,7 +80,7 @@ RStudio가 클러스터의 에지 노드에서 실행되므로 여기서는 다�
 
 ## <a name="connect-remotely-to-microsoft-ml-services"></a>Microsoft ML 서비스에 원격으로 연결
 
-데스크톱에서 실행되는 ML 클라이언트의 원격 인스턴스에서 HDInsight Spark 컴퓨팅 컨텍스트에 대한 액세스를 설정할 수 있습니다. 이렇게 하려면 데스크톱 컴퓨터에서 RxSpark 컴퓨팅 컨텍스트를 정의할 때 옵션(hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches 및 sshProfileScript)을 지정해야 합니다. 예를 들면 다음과 같습니다.
+데스크톱에서 실행되는 ML 클라이언트의 원격 인스턴스에서 HDInsight Spark 컴퓨팅 컨텍스트에 대한 액세스를 설정할 수 있습니다. 이렇게 하려면 데스크톱 컴퓨터에서 RxSpark 컴퓨팅 컨텍스트를 정의할 때 옵션(hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches 및 sshProfileScript)을 지정해야 합니다. 예:
 
     myNameNode <- "default"
     myPort <- 0
@@ -108,7 +108,7 @@ RStudio가 클러스터의 에지 노드에서 실행되므로 여기서는 다�
 
 ## <a name="use-a-compute-context"></a>컴퓨팅 컨텍스트 사용
 
-컴퓨팅 컨텍스트를 사용하여 컴퓨팅을 이제 노드에서 로컬로 수행할지 여부 또는 HDInsight 클러스터의 노드 간에 분산할지 여부를 제어할 수 있습니다.  RStudio Server를 사용 하 여 계산 컨텍스트를 설정 하는 예제를 보려면 [ML Services 클러스터에 RStudio Server를 사용 하 여 Azure HDInsight에서 R 스크립트 실행](machine-learning-services-quickstart-job-rstudio.md)합니다.
+컴퓨팅 컨텍스트를 사용하여 컴퓨팅을 이제 노드에서 로컬로 수행할지 여부 또는 HDInsight 클러스터의 노드 간에 분산할지 여부를 제어할 수 있습니다.  RStudio Server를 사용 하 여 계산 컨텍스트를 설정 하는 예제는 [Rstudio 서버를 사용 하 여 Azure HDInsight의 ML 서비스 클러스터에서 R 스크립트 실행](machine-learning-services-quickstart-job-rstudio.md)을 참조 하세요.
 
 ## <a name="distribute-r-code-to-multiple-nodes"></a>여러 노드에 R 코드 분산
 
@@ -198,7 +198,7 @@ HDInsight ML 서비스를 사용하면 Spark 컴퓨팅 컨텍스트의 ScaleR �
 
    * **작업자** 확인란만 선택합니다.
 
-   * **매개 변수**: 설치할 R 패키지. 예를 들어 `bitops stringr arules`
+   * **매개 변수**: 설치할 R 패키지. 예를 들면 `bitops stringr arules`
 
    * **이 스크립트 작업 유지** 확인란을 선택합니다.  
 
@@ -216,5 +216,5 @@ HDInsight ML 서비스를 사용하면 Spark 컴퓨팅 컨텍스트의 ScaleR �
 ## <a name="next-steps"></a>다음 단계
 
 * [HDInsight에서 ML 서비스 클러스터 운영](r-server-operationalize.md)
-* [HDInsight에서 ML 서비스 클러스터에 대한 계산 컨텍스트 옵션](r-server-compute-contexts.md)
+* [HDInsight에서 ML 서비스 클러스터에 대한 컴퓨팅 컨텍스트 옵션](r-server-compute-contexts.md)
 * [HDInsight에서 ML 서비스 클러스터에 대한 Azure Storage 옵션](r-server-storage.md)

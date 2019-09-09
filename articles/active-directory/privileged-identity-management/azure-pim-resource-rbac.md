@@ -1,9 +1,9 @@
 ---
-title: PIM-Azure Active Directory에서에서 Azure 리소스 역할에 대 한 작업 및 감사 기록 보기 | Microsoft Docs
+title: PIM에서 Azure 리소스 역할에 대 한 활동 및 감사 기록 보기-Azure Active Directory | Microsoft Docs
 description: Azure AD PIM(Privileged Identity Management)에서 Azure 리소스 역할에 대한 작업 및 감사 기록을 봅니다.
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: ''
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 04/09/2019
-ms.author: rolyon
+ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84bd491d992ed15df288d9226b58bfe832e0692a
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 40e1ed018f66d4f5eefd02d587504cf64969f47b
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476510"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804056"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-pim"></a>PIM에서 Azure 리소스 역할에 대한 작업 및 감사 기록 보기
 
@@ -43,11 +43,11 @@ Azure AD(Azure Active Directory) PIM(Privileged Identity Management)을 사용�
 
     Azure 리소스에서 사용자가 수행한 작업이 날짜별로 그래픽으로 표시됩니다. 같은 기간에 이루어진 최근 역할 활성화도 표시됩니다.
 
-    ![리소스 활동 요약 및 역할 활성화를 사용 하 여 사용자 세부 정보](media/azure-pim-resource-rbac/rbac-user-details.png)
+    ![리소스 활동 요약 및 역할 활성화를 사용 하는 사용자 세부 정보](media/azure-pim-resource-rbac/rbac-user-details.png)
 
 1. 특정 역할 활성화를 클릭하면 역할 활성화 세부 정보와 해당 사용자가 활성화된 동안 발생한 해당 Azure 리소스 작업이 표시됩니다.
 
-    ![선택한 역할 활성화 및 날짜별으로 표시 하는 작업 세부 정보](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
+    ![선택한 역할 활성화 및 날짜에 의해 표시 된 작업 세부 정보](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
 
 ## <a name="export-role-assignments-with-children"></a>자식 요소가 있는 역할 할당 내보내기
 
@@ -63,11 +63,11 @@ Azure AD(Azure Active Directory) PIM(Privileged Identity Management)을 사용�
 
 1. **내보내기**를 클릭하여 [멤버 자격 내보내기] 창을 엽니다.
 
-    ![모든 멤버를 내보내려면 내보내기 멤버 창](media/azure-pim-resource-rbac/export-membership.png)
+    ![모든 멤버를 내보내기 위해 멤버 자격 창 내보내기](media/azure-pim-resource-rbac/export-membership.png)
 
 1. 모든 역할 할당을 CSV 파일로 내보려면 **모든 멤버 자격 내보내기**를 클릭합니다.
 
-    ![내보낸 Excel에서 표시 하는 CSV 파일에서 역할 할당](media/azure-pim-resource-rbac/export-csv.png)
+    ![CSV fil에서 내보낸 역할 할당은 Excel에서 표시로 표시 됩니다.](media/azure-pim-resource-rbac/export-csv.png)
 
 ## <a name="view-resource-audit-history"></a>리소스 감사 기록 보기
 
@@ -83,11 +83,11 @@ Azure AD(Azure Active Directory) PIM(Privileged Identity Management)을 사용�
 
 1. 미리 정의된 날짜 또는 사용자 지정 범위를 사용하여 기록을 필터링합니다.
 
-    ![필터를 사용 하 여 리소스 감사 목록](media/azure-pim-resource-rbac/rbac-resource-audit.png)
+    ![필터를 사용 하는 리소스 감사 목록](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
 1. **감사 유형**으로 **활성화(할당됨 + 활성화됨)** 을 선택합니다.
 
-    ![활성화 감사 유형으로 필터링 되는 리소스 감사 목록](media/azure-pim-resource-rbac/rbac-audit-activity.png)
+    ![감사 유형을 활성화 하 여 필터링 되는 리소스 감사 목록](media/azure-pim-resource-rbac/rbac-audit-activity.png)
 
 1. **작업** 아래에서, Azure 리소스에서 수행한 작업 세부 정보를 보고 싶은 사용자의 **(작업)** 을 클릭합니다.
 

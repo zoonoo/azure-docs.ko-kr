@@ -1,9 +1,9 @@
 ---
-title: PIM-Azure Active Directory에서에서 알림 전자 메일 | Microsoft Docs
+title: PIM에서 전자 메일 알림-Azure Active Directory | Microsoft Docs
 description: Azure AD PIM(Privileged Identity Management)의 이메일 알림에 대해 설명합니다.
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
@@ -12,26 +12,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
 ms.date: 01/05/2019
-ms.author: rolyon
+ms.author: curtand
 ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9aa9da83a7a6e97f5b721dad550831fe2645ffd3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f0db4828ef7a6d3392ce53b2f2f95b0f7f014d65
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60289190"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804536"
 ---
 # <a name="email-notifications-in-pim"></a>PIM에서 이메일 알림
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 역할을 할당 하거나 활성화 하는 경우와 같은 중요 한 이벤트가 발생할 때를 알 수 있습니다. PIM은 사용자 및 다른 참가자에게 이메일 알림을 보내 계속해서 정보를 제공합니다. 이러한 이메일에는 역할 활성화 또는 갱신과 같은 관련 작업에 대한 링크도 포함될 수 있습니다. 이 문서에서는 이러한 이메일이 어떻게 구성되고 언제 전송되며 누가 이메일을 받는지에 대해 설명합니다.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM)를 사용 하면 역할이 할당 되거나 활성화 되는 경우와 같은 중요 한 이벤트가 발생 하는 시기를 알 수 있습니다. PIM은 사용자 및 다른 참가자에게 이메일 알림을 보내 계속해서 정보를 제공합니다. 이러한 이메일에는 역할 활성화 또는 갱신과 같은 관련 작업에 대한 링크도 포함될 수 있습니다. 이 문서에서는 이러한 이메일이 어떻게 구성되고 언제 전송되며 누가 이메일을 받는지에 대해 설명합니다.
 
 ## <a name="sender-email-address-and-subject-line"></a>보낸 사람 이메일 주소 및 제목 줄
 
 Azure AD 및 Azure 리소스 역할 모두에 대해 PIM에서 보낸 이메일은 다음과 같은 보낸 사람 이메일 주소를 포함합니다.
 
-- 전자 메일 주소: **azure noreply\@microsoft.com**
+- 전자 메일 주소: **azure-\@noreply microsoft.com**
 - 표시 이름: Microsoft Azure
 
 이러한 이메일은 제목 줄에 **PIM** 접두사를 포함합니다. 예를 들면 다음과 같습니다.
@@ -50,9 +50,9 @@ Azure AD 역할에 대한 이러한 이메일을 받는 사람은 역할, 이벤
 
 | 사용자 | 역할 활성화가 승인 보류 중임 | 역할 활성화 요청이 완료됨 | PIM이 사용하도록 설정됨 |
 | --- | --- | --- | --- |
-| 권한 있는 역할 관리자</br>(활성화/적격) | 예</br>(명시적인 승인자가 지정되지 않은 경우만) | 예* | 예 |
-| 보안 관리자</br>(활성화/적격) | 아닙니다. | 예* | 예 |
-| 전역 관리자</br>(활성화/적격) | 아닙니다. | 예* | 예 |
+| 권한있는 역할 관리자</br>(활성화/적격) | 예</br>(명시적인 승인자가 지정되지 않은 경우만) | 예* | 예 |
+| 보안 관리자</br>(활성화/적격) | 아니요 | 예* | 예 |
+| 전역 관리자</br>(활성화/적격) | 아니요 | 예* | 예 |
 
 \* [**알림** 설정](pim-how-to-change-default-settings.md#notifications)이 **사용**으로 설정된 경우
 
@@ -102,4 +102,4 @@ Azure 리소스 역할에 대해 다음 이벤트가 발생할 때 PIM은 최종
 ## <a name="next-steps"></a>다음 단계
 
 - [PIM에서 Azure AD 역할 설정 구성](pim-how-to-change-default-settings.md)
-- [승인 또는 거부 PIM에서 Azure AD 역할에 대 한 요청](azure-ad-pim-approval-workflow.md)
+- [PIM에서 Azure AD 역할에 대 한 요청 승인 또는 거부](azure-ad-pim-approval-workflow.md)

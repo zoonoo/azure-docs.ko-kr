@@ -1,9 +1,9 @@
 ---
-title: PIM-Azure Active Directory에서에서 Azure 리소스에 대 한 사용자 지정 역할을 사용 합니다. | Microsoft Docs
+title: PIM에서 Azure 리소스에 대 한 사용자 지정 역할 사용-Azure Active Directory | Microsoft Docs
 description: Azure AD PIM(Privileged Identity Management)에서 Azure 리소스에 사용자 지정 역할을 사용하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 03/30/2018
-ms.author: rolyon
+ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e814cde49374b52266f725b4d57657a507874ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d36514c97cf1f45ee0a435d3b716019d2762e5a
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65602033"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804185"
 ---
 # <a name="use-custom-roles-for-azure-resources-in-pim"></a>PIM에서 Azure 리소스에 사용자 지정 역할 사용
 
-다른 사용자에 대 한 더 많은 자율성을 제공 하는 동안 역할의 일부 구성원에 엄격 하 게 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 설정을 적용 해야 합니다. Azure 구독에서 실행될 애플리케이션 개발을 지원하기 위해 조직이 일부 계약 직원을 채용하는 시나리오를 가정합니다.
+역할의 일부 구성원에 대해 엄격한 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 설정을 적용 하 고 다른 사용자에 게 더 많은 자율성을 제공 해야 할 수 있습니다. Azure 구독에서 실행될 애플리케이션 개발을 지원하기 위해 조직이 일부 계약 직원을 채용하는 시나리오를 가정합니다.
 
 리소스 관리자로서 직원이 승인 없이 액세스할 수 있도록 하려고 합니다. 그러나 조직의 리소스에 대한 액세스를 요청할 때 모든 계약 당사자는 승인을 받아야 합니다.
 

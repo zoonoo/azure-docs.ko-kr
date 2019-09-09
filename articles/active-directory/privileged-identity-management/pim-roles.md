@@ -1,9 +1,9 @@
 ---
-title: 역할이 PIM-Azure Active Directory에서에서 관리할 수 없습니다 | Microsoft Docs
+title: PIM-Azure Active Directory에서 관리할 수 없는 역할 Microsoft Docs
 description: Azure AD PIM(Privileged Identity Management)에서 관리할 수 없는 역할을 설명합니다.
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
 ms.date: 01/18/2019
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa5fb632ee5fd9c18bde7443e81fe2ef6e5335e4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d66d433d9de537358777e54e3c7d5489c25c849b
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60437276"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804077"
 ---
 # <a name="roles-you-cannot-manage-in-pim"></a>PIM에서 관리할 수 없는 역할
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM)을 사용 하면 모든를 관리할 수 있습니다 [Azure AD 역할](../users-groups-roles/directory-assign-admin-roles.md) all [Azure 리소스 역할](../../role-based-access-control/built-in-roles.md)입니다. 이러한 역할에는 관리 그룹, 구독, 리소스 그룹 및 리소스에 연결된 사용자 지정 역할이 포함됩니다. 그러나 관리할 수 없는 몇 가지 역할이 있습니다. 이 문서에서는 PIM에서 관리할 수 없는 역할을 설명합니다.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM)를 사용 하 여 모든 [AZURE ad 역할](../users-groups-roles/directory-assign-admin-roles.md) 및 모든 [azure 리소스 역할](../../role-based-access-control/built-in-roles.md)을 관리할 수 있습니다. 이러한 역할에는 관리 그룹, 구독, 리소스 그룹 및 리소스에 연결된 사용자 지정 역할이 포함됩니다. 그러나 관리할 수 없는 몇 가지 역할이 있습니다. 이 문서에서는 PIM에서 관리할 수 없는 역할을 설명합니다.
 
 ## <a name="classic-subscription-administrator-roles"></a>클래식 구독 관리자 역할
 

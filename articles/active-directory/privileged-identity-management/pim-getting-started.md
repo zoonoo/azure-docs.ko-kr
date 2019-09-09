@@ -1,9 +1,9 @@
 ---
-title: PIM-Azure Active Directory를 사용 하 여 시작 | Microsoft Docs
+title: PIM을 사용 하 여 시작-Azure Active Directory | Microsoft Docs
 description: Azure Portal에서 Azure AD PIM(Privileged Identity Management)을 사용하도록 설정하고 시작하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.subservice: pim
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/09/2019
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 408991ffc3922986234f7d40e1cd589b1d126ba1
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 018cc54a770a0d18fa9af3d93fec2f5f720ce17b
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476481"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804521"
 ---
 # <a name="start-using-pim"></a>PIM 사용
 
@@ -27,7 +27,7 @@ Azure AD(Azure Active Directory) PIM(Privileged Identity Management)을 사용�
 
 이 문서에서는 PIM을 사용하도록 설정하고 사용을 시작하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 PIM을 사용하려면 다음 라이선스 중 하나가 있어야 합니다.
 
@@ -56,25 +56,25 @@ PIM을 사용하려면 다음 라이선스 중 하나가 있어야 합니다.
 
 1. 목록에서 **PIM에 동의**를 클릭합니다.
 
-    ![PIM을 사용 하도록 설정 하려면 PIM에 동의](./media/pim-getting-started/consent-pim.png)
+    ![Pim을 사용 하도록 설정 하는 데 동의](./media/pim-getting-started/consent-pim.png)
 
 1. **ID 확인**을 클릭하여 Azure MFA를 통해 ID를 확인합니다. 계정을 선택하라는 메시지가 표시됩니다.
 
-    ![본인 여부를 확인 하기 위해 계정 창을 선택 합니다.](./media/pim-getting-started/pick-account.png)
+    ![Id를 확인 하려면 계정 창을 선택 합니다.](./media/pim-getting-started/pick-account.png)
 
 1. 확인을 위해 추가 정보가 필요한 경우 프로세스 안내가 제공됩니다. 자세한 내용은 [2단계 확인에 대한 도움말 보기](https://go.microsoft.com/fwlink/p/?LinkId=708614)를 참조하세요.
 
-    ![자세한 내용은 조직 정보가 더 필요한 경우 창 필수](./media/pim-getting-started/more-information-required.png)
+    ![조직에 추가 정보가 필요한 경우 추가 정보 필요 창](./media/pim-getting-started/more-information-required.png)
 
     예를 들어 전화 확인을 제공하도록 요청하는 메시지가 표시될 수 있습니다.
 
-    ![사용자에 게 연락 하는 방법을 요청 하는 추가 보안 인증 페이지](./media/pim-getting-started/additional-security-verification.png)
+    ![사용자에 게 연락 하는 방법을 요청 하는 추가 보안 확인 페이지](./media/pim-getting-started/additional-security-verification.png)
 
 1. 확인 절차를 완료하면 **동의** 단추를 클릭합니다.
 
 1. 나타나는 메시지에서 **예**를 클릭하여 PIM 서비스에 동의합니다.
 
-    ![PIM 승인 프로세스를 완료 하는 메시지에 동의](./media/pim-getting-started/consent-pim-message.png)
+    ![PIM 메시지에 동의 하 여 승인 프로세스 완료](./media/pim-getting-started/consent-pim-message.png)
 
 ## <a name="sign-up-pim-for-azure-ad-roles"></a>Azure AD 역할을 위해 PIM에 가입
 
@@ -100,15 +100,15 @@ PIM을 사용하려면 다음 라이선스 중 하나가 있어야 합니다.
 
 PIM이 설정되면 ID 관리 작업을 수행할 수 있습니다.
 
-![탐색 창에서 PIM 보여 주는 작업 및 관리 옵션](./media/pim-getting-started/pim-quickstart-tasks.png)
+![작업 및 관리 옵션을 보여 주는 PIM의 탐색 창](./media/pim-getting-started/pim-quickstart-tasks.png)
 
-| 작업 + 관리 | 설명 |
+| 작업 + 관리 | Description |
 | --- | --- |
 | **내 역할**  | 사용자에게 할당된 적격 및 활성 역할의 목록을 표시합니다. 여기서 할당된 적합한 역할을 활성화할 수 있습니다. |
 | **내 요청** | 적격 역할 할당을 활성화할 보류 중인 요청을 표시합니다. |
 | **요청 승인** | 승인하도록 지정된 디렉터리에서 사용자를 통해 적격 역할을 활성화하기 위한 요청 목록을 표시합니다. |
 | **액세스 검토** | 사용자 자신 또는 다른 사용자에 대한 액세스를 검토하는지와 관계없이 사용자에게 수행하도록 할당된 활성 액세스 검토를 나열합니다. |
-| **Azure AD 역할** | 대시보드 및 Azure AD 역할 할당을 관리 하는 권한 있는 역할 관리자에 대 한 설정을 표시 합니다. 이 대시보드는 권한 있는 역할 관리자가 아닌 사용자에게 비활성화됩니다. 이러한 사용자는 [내 보기]라는 특수한 대시보드에 액세스할 수 있습니다. [내 보기] 대시보드는 전체 테넌트가 아닌 대시보드에 액세스하는 사용자에 대한 정보만 표시합니다. |
+| **Azure AD 역할** | Azure AD 역할 할당을 관리 하는 권한 있는 역할 관리자에 대 한 대시보드 및 설정을 표시 합니다. 이 대시보드는 권한 있는 역할 관리자가 아닌 사용자에게 비활성화됩니다. 이러한 사용자는 [내 보기]라는 특수한 대시보드에 액세스할 수 있습니다. [내 보기] 대시보드는 전체 테넌트가 아닌 대시보드에 액세스하는 사용자에 대한 정보만 표시합니다. |
 | **Azure 리소스** | 권한 있는 역할 관리자가 Azure 리소스 역할 할당을 관리하기 위한 대시보드 및 설정을 표시합니다. 이 대시보드는 권한 있는 역할 관리자가 아닌 사용자에게 비활성화됩니다. 이러한 사용자는 [내 보기]라는 특수한 대시보드에 액세스할 수 있습니다. [내 보기] 대시보드는 전체 테넌트가 아닌 대시보드에 액세스하는 사용자에 대한 정보만 표시합니다. |
 
 ## <a name="add-a-pim-tile-to-the-dashboard"></a>대시보드에 PIM 타일 추가
@@ -125,7 +125,7 @@ PIM을 더 쉽게 열려면 Azure Portal 대시보드에 PIM 타일을 추가해
 
 1. **대시보드에 블레이드 고정**을 선택하여 PIM 빠른 시작 블레이드를 대시보드에 고정합니다.
 
-    ![대시보드에 PIM 블레이드를 고정 하려면 압정 아이콘](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
+    ![대시보드에 PIM 블레이드를 고정 하는 압정 아이콘](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
 
     Azure 대시보드에 다음과 같은 타일이 표시됩니다.
 

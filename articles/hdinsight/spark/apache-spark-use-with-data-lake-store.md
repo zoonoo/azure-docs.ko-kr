@@ -1,6 +1,6 @@
 ---
 title: Apache Spark를 사용하여 Azure Data Lake Storage Gen1의 데이터 분석
-description: Spark 작업을 실행하여 Azure Data Lake Storage Gen1에 저장된 데이터 분석
+description: Apache Spark 작업을 실행 하 여 Azure Data Lake Storage Gen1에 저장 된 데이터 분석
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,18 +8,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 5a98cb2356c25329e091514dd1d6181dfc2690be
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f57d054134b9f2c8b327fe157e7a5b5e3d5ff183
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448650"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813929"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>HDInsight Spark 클러스터를 사용하여 Data Lake Storage Gen1의 데이터 분석
 
-이 문서를 사용 하 여 [Jupyter Notebook](https://jupyter.org/) Data Lake Storage 계정에서 데이터를 읽는 작업을 실행 하려면 HDInsight Spark 클러스터와 함께 사용할 수 있습니다.
+이 문서에서는 HDInsight Spark 클러스터에서 사용할 수 있는 [Jupyter Notebook](https://jupyter.org/) 를 사용 하 여 Data Lake Storage 계정에서 데이터를 읽는 작업을 실행 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * Azure Data Lake Storage Gen1 계정. [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](../../data-lake-store/data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다.
 

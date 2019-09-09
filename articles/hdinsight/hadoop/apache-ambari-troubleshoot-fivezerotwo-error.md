@@ -1,17 +1,17 @@
 ---
 title: Azure HDInsight의 Apache Ambari UI 502 오류
-description: Azure HDInsight의 Apache Ambari UI 502 오류
+description: Azure HDInsight 클러스터에 액세스 하려고 하면 Apache Ambari UI 502 오류가 발생 합니다.
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 08/05/2019
-ms.openlocfilehash: 1b79ef044271c926bf8c4255d0cee67943a0e58b
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 8e911fcb68fb318ce0a9c1178eee1c7d126728e0
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68886703"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810938"
 ---
 # <a name="scenario-apache-ambari-ui-502-error-in-azure-hdinsight"></a>시나리오: Azure HDInsight의 Apache Ambari UI 502 오류
 

@@ -1,6 +1,6 @@
 ---
 title: Azure HDInsight에 타사 애플리케이션 설치
-description: Azure HDInsight에 타사 Hadoop 애플리케이션을 설치하는 방법에 대해 알아봅니다.
+description: Azure HDInsight에 타사 Apache Hadoop 응용 프로그램을 설치 하는 방법을 알아봅니다.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9b96294362400891113812e308ff59bd0e438b90
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 8ed854a5775dfc20e258c14de51fe2066fa6caad
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873360"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810279"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight에 타사 Apache Hadoop 애플리케이션 설치
 
@@ -23,7 +23,7 @@ HDInsight 애플리케이션은 HDInsight 클러스터에 사용자가 설치할
 
 다음 목록에서는 게시된 애플리케이션을 보여 줍니다.
 
-|애플리케이션 |클러스터 유형 | 설명 |
+|애플리케이션 |클러스터 유형 | Description |
 |---|---|---|
 |[AtScale Intelligence 플랫폼](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/atscale.atscale) |Hadoop |AtScale은 HDInsight 클러스터를 스케일 아웃 OLAP 서버로 전환 하 여 Microsoft Excel, Power BI, Tableau Software에서 QlikView으로 이미 알고 있고 소유 하 고 있는 BI 도구를 사용 하 여 수십억 개의 데이터 행을 대화형으로 쿼리할 수 있도록 합니다. |
 |[HDInsight 용 CDAP](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cask.cdap-for-hdinsight) |Hbase |CDAP는 Hadoop 값에 대 한 시간을 가속화 하 고 셀프 서비스 데이터를 제공할 수 있도록 하는 빅 데이터에 대 한 최초의 통합 플랫폼입니다. 오픈 소스 및 확장 가능, CDAP는 혁신의 장애물을 제거 합니다. 요구 사항: 4 개 지역 노드, 최소 D3 v2 |

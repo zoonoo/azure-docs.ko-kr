@@ -1,9 +1,9 @@
 ---
-title: PIM-Azure Active Directory에서에서 Azure 리소스 역할 설정 구성 | Microsoft Docs
+title: PIM-Azure Active Directory |에서 Azure 리소스 역할 설정 구성 Microsoft Docs
 description: Azure AD PIM(Privileged Identity Management)에서 Azure 리소스 역할 설정을 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 04/09/2019
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6da92ccd50707e676a1f5d583fe22ae8b3d8b73
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 88645d07ff213b0b7a56f2b081f0aaed01fd2929
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476313"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804209"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>PIM에서 Azure 리소스 역할 설정 구성
 
-Azure 리소스 역할 설정을 구성한 경우에 Azure 리소스 역할 할당에서 Azure Active Directory (Azure AD) Privileged Identity Management (PIM)에 적용 되는 기본 설정을 정의 합니다. 다음 절차에 따라 승인 워크플로를 구성하고 요청을 승인하거나 거부할 수 있는 사용자를 지정합니다.
+Azure 리소스 역할 설정을 구성 하는 경우 Azure Active Directory (Azure AD) Privileged Identity Management (PIM)에서 Azure 리소스 역할 할당에 적용 되는 기본 설정을 정의 합니다. 다음 절차에 따라 승인 워크플로를 구성하고 요청을 승인하거나 거부할 수 있는 사용자를 지정합니다.
 
 ## <a name="open-role-settings"></a>역할 설정 열기
 
@@ -38,7 +38,7 @@ Azure 리소스 역할 설정을 구성한 경우에 Azure 리소스 역할 할�
 
 1. 관리하려는 리소스(예: 구독 또는 관리 그룹)를 클릭합니다.
 
-    ![관리할 수 있는 리소스를 나열 하는 azure 리소스 페이지](./media/pim-resource-roles-configure-role-settings/resources-list.png)
+    ![관리할 수 있는 리소스를 나열 하는 Azure 리소스 페이지](./media/pim-resource-roles-configure-role-settings/resources-list.png)
 
 1. **역할 설정**을 클릭합니다.
 
@@ -46,11 +46,11 @@ Azure 리소스 역할 설정을 구성한 경우에 Azure 리소스 역할 할�
 
 1. 설정을 구성하려는 역할을 선택합니다.
 
-    ![역할 설정 세부 정보 페이지 할당 및 활성화에 대 한 몇 가지 설정을 나열 합니다.](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
+    ![몇 가지 할당 및 활성화 설정을 나열 하는 역할 설정 세부 정보 페이지](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
 
 1. **편집**을 클릭하여 역할 설정 창을 엽니다.
 
-    ![할당 및 활성화 설정을 업데이트 하는 옵션을 사용 하 여 역할 설정 페이지를 편집 합니다.](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
+    ![할당 및 활성화 설정 업데이트 옵션을 사용 하 여 역할 설정 페이지 편집](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
 
     각 역할에 대한 역할 설정 페이지에서 몇 가지 설정을 구성할 수 있습니다.
 
@@ -101,7 +101,7 @@ PIM은 서로 다른 두 가지 시나리오에 대해 Azure MFA(Multi-Factor Au
 
 멤버가 활성 할당에 대해 또는 활성화될 때 근거를 입력하도록 요구할 수 있습니다. 근거를 요구하려면 **활성 할당에 대한 근거 필요** 확인란 또는 **활성화에 대한 근거 필요** 확인란을 선택합니다.
 
-## <a name="require-approval-to-activate"></a>활성화할 승인 필요
+## <a name="require-approval-to-activate"></a>활성화하려면 승인이 필요함
 
 역할을 활성화하기 위해 승인을 요구하려는 경우 다음 단계를 수행합니다.
 
@@ -109,7 +109,7 @@ PIM은 서로 다른 두 가지 시나리오에 대해 Azure MFA(Multi-Factor Au
 
 1. **승인자 선택**을 클릭하여 멤버 또는 그룹 선택 창을 엽니다.
 
-    ![승인자를 선택 하는 멤버 또는 그룹 창 선택](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
+    ![승인자를 선택할 멤버 또는 그룹 창을 선택 합니다.](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
 1. 하나 이상의 멤버 또는 그룹을 선택하고 **선택**을 클릭합니다. 멤버 및 그룹의 조합을 추가할 수 있습니다. 하나 이상의 승인자를 선택해야 합니다. 기본 승인자가 없습니다.
 

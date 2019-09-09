@@ -1,6 +1,6 @@
 ---
 title: Azure HDInsight에 사용자 지정 Apache Hadoop 애플리케이션 설치
-description: HDInsight 애플리케이션에서 HDInsight 애플리케이션을 설치하는 방법을 알아봅니다.
+description: Azure HDInsight에서 Apache Hadoop 클러스터용 HDInsight 응용 프로그램을 설치 하는 방법에 대해 알아봅니다.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5fbee86f09246684a0e553114e367907ddabfa16
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 22a2eddcd94f6082d248450d825c5ba12b31571e
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445496"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810350"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight에 사용자 지정 Apache Hadoop 애플리케이션 설치
 
@@ -27,7 +27,7 @@ HDInsight 애플리케이션은 Linux 기반 HDInsight 클러스터에 사용자
 * [HDInsight 애플리케이션 게시](hdinsight-apps-publish-applications.md): 사용자 지정 HDInsight 애플리케이션을 Azure Marketplace에 게시하는 방법을 알아봅니다.
 * [MSDN: HDInsight 애플리케이션 설치](https://msdn.microsoft.com/library/mt706515.aspx): HDInsight 애플리케이션을 정의하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 기존 HDInsight 클러스터에 HDInsight 애플리케이션을 설치하려면 HDInsight 클러스터가 있어야 합니다. HDInsight 클러스터를 만들려면 [클러스터 만들기](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)를 참조하세요. HDInsight 클러스터를 만들 경우 HDInsight 애플리케이션도 설치할 수 있습니다.
 
 ## <a name="install-hdinsight-applications"></a>HDInsight 애플리케이션 설치
@@ -107,7 +107,7 @@ HDInsight 애플리케이션을 삭제하는 방법에는 여러 가지가 있�
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 메뉴에서 **HDInsight 클러스터** 를 클릭합니다.  표시되지 않으면 **찾아보기**를 클릭한 다음 **HDInsight 클러스터**를 클릭합니다.
 3. 애플리케이션을 설치한 클러스터를 클릭합니다.
-4. **설정** 블레이드에서 **일반** 범주에 있는 **애플리케이션**을 클릭합니다. 설치된 애플리케이션 목록이 표시됩니다. 이 아티클의 **hue** 에 나열 된는 **설치 된 앱** 블레이드입니다.
+4. **설정** 블레이드에서 **일반** 범주에 있는 **애플리케이션**을 클릭합니다. 설치된 애플리케이션 목록이 표시됩니다. 이 문서의 경우 **설치 된 앱** 블레이드에 색 **이 표시 됩니다** .
 5. 제거할 애플리케이션을 마우스 오른쪽 단추로 클릭한 다음, **삭제**를 클릭합니다.
 6. **예** 를 클릭하여 확인합니다.
 

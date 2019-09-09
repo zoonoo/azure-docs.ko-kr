@@ -1,9 +1,9 @@
 ---
-title: PIM-Azure Active Directory에서에서 Azure AD 역할 설정 구성 | Microsoft Docs
-description: Azure AD Privileged Identity Management (PIM)에서 Azure AD 역할 설정을 구성 하는 방법을 알아봅니다.
+title: PIM-Azure Active Directory |에서 Azure AD 역할 설정 구성 Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM)에서 Azure AD 역할 설정을 구성 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,23 +11,23 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
 ms.date: 05/31/2019
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bc7d3ffcb56251825bf5f6d760de647938f1ead
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e9252e3bb8ccddb810074b485f6f073f1bda3f05
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417881"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804445"
 ---
 # <a name="configure-azure-ad-role-settings-in-pim"></a>PIM에서 Azure AD 역할 설정 구성
 
-권한 있는 역할 관리자는 Azure Active Directory (Azure AD) PIM Privileged Identity Management ()는 적격 역할 할당을 활성화 하는 사용자의 환경을 변경 하는 등, 해당 조직에서 사용자 지정할 수 있습니다.
+권한 있는 역할 관리자는 적격 역할 할당을 활성화 하는 사용자에 대 한 환경 변경을 포함 하 여 조직에서 PIM (Azure Active Directory Privileged Identity Management)을 사용자 지정할 수 있습니다.
 
 ## <a name="open-role-settings"></a>역할 설정 열기
 
-Azure AD 역할에 대 한 설정을 열려면 다음이 단계를 수행 합니다.
+다음 단계에 따라 Azure AD 역할에 대한 설정을 엽니다.
 
 1. **Azure AD Privileged Identity Management**를 엽니다.
 
@@ -37,7 +37,7 @@ Azure AD 역할에 대 한 설정을 열려면 다음이 단계를 수행 합니
 
     ![Azure AD 역할-설정](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
 
-1. **역할**을 클릭합니다.
+1. **역할**을 누릅니다.
 
 1. 설정을 구성하려는 역할을 선택합니다.
 
@@ -55,7 +55,7 @@ Azure AD 역할에 대 한 설정을 열려면 다음이 단계를 수행 합니
 
 **사용**으로 설정되면 다음 사용자에게 알림이 전송됩니다.
 
-- 권한 있는 역할 관리자
+- 권한있는 역할 관리자
 - 보안 관리자
 - 전역 관리자
 
@@ -75,18 +75,18 @@ Azure AD 역할에 대 한 설정을 열려면 다음이 단계를 수행 합니
   * Azure Information Protection 관리자
   * 대금 청구 관리자
   * 클라우드 애플리케이션 관리자
-  * 규정 준수 관리자
+  * 준수 관리자
   * 조건부 액세스 관리자
   * CRM 서비스 관리자
   * 고객 LockBox 액세스 승인자
-  * 디렉터리 작성자
+  * 디렉터리 작성기
   * Exchange 관리자
   * 전역 관리자
   * Intune 서비스 관리자
   * Power BI 서비스 관리자
-  * 권한 있는 역할 관리자
+  * 권한있는 역할 관리자
   * 보안 관리자
-  * SharePoint 서비스 관리자
+  * SharePoint Service 관리자
   * 비즈니스용 Skype 관리자
   * 사용자 관리자
 
@@ -118,4 +118,4 @@ Azure AD 역할에 대 한 설정을 열려면 다음이 단계를 수행 합니
 ## <a name="next-steps"></a>다음 단계
 
 - [PIM에서 Azure AD 역할 할당](pim-how-to-add-role-to-user.md)
-- [PIM에서 Azure AD 역할에 대 한 보안 경고를 구성 합니다.](pim-how-to-configure-security-alerts.md)
+- [PIM에서 Azure AD 역할에 대 한 보안 경고 구성](pim-how-to-configure-security-alerts.md)

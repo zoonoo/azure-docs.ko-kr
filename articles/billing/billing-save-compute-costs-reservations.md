@@ -5,18 +5,20 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: 2122b6bd5fbd6b15bd5a2e411898d957708bf4c9
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: bb90a9dec161746356b8c13df448718c53626684
+ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558879"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806352"
 ---
 # <a name="what-are-azure-reservations"></a>Azure Reservations란?
 
-Azure 예약은 1년치 또는 3년치 가상 머신, SQL Database 컴퓨팅 용량, Azure Cosmos DB 처리량 또는 기타 Azure 리소스를 선결제하여 비용을 줄일 수 있는 제도입니다. 선결제하면 사용하는 리소스 요금에 대한 할인을 받을 수 있습니다. 예약을 사용하면 가상 머신, SQL Database 컴퓨팅, Azure Cosmos DB 또는 기타 리소스 비용이 종량제 가격의 최대 72%까지 감소합니다. 예약은 청구 할인을 제공하며, 리소스의 런타임 상태에 영향을 주지 않습니다.
+Azure Reservations 1 년 또는 3 년간의 가상 머신에 대해 계산 용량, Azure Cosmos DB 처리량 또는 기타 Azure 리소스를 SQL Database 하 여 비용을 절감 하는 데 도움이 됩니다. 커밋을 사용 하면 사용 하는 리소스에 대 한 할인을 받을 수 있습니다. 예약을 사용하면 가상 머신, SQL Database 컴퓨팅, Azure Cosmos DB 또는 기타 리소스 비용이 종량제 가격의 최대 72%까지 감소합니다. 예약은 청구 할인을 제공하며, 리소스의 런타임 상태에 영향을 주지 않습니다.
+
+예약에 대 한 선불 또는 월별 요금을 지불할 수 있습니다. 선불 및 월별 예약의 총 비용은 동일 하며, 매월 지불 하기로 선택 하는 경우 추가 요금은 청구 되지 않습니다. 월간 결제는 타사 제품이 아닌 Azure 예약에 사용할 수 있습니다.
 
 예약은 [Azure Portal](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade)에서 구입할 수 있습니다.
 
@@ -31,6 +33,8 @@ Azure 예약은 1년치 또는 3년치 가상 머신, SQL Database 컴퓨팅 용
 - **예약 가상 머신 인스턴스** -예약에는 가상 머신 계산 비용만 포함 됩니다. 추가 소프트웨어, 네트워킹 또는 스토리지 요금은 포함되지 않습니다.
 - **Azure Cosmos DB 예약 된 용량** -예약에는 리소스에 대해 프로 비전 된 처리량이 포함 됩니다. 스토리지 및 네트워킹 요금은 포함하지 않습니다.
 - **SQL Database Reserved vCore** -예약에 계산 비용만 포함 됩니다. 라이선스는 별도로 청구됩니다.
+- **SQL Data Warehouse** -에는 cdwu 사용이 포함 됩니다. SQL Data Warehouse 사용량과 관련 된 저장소 또는 네트워킹 요금은 다루지 않습니다.
+- **App Service 스탬프 요금** -예약에는 스탬프 사용이 포함 됩니다. 작업자에 게는 적용 되지 않으므로 스탬프와 연결 된 다른 모든 리소스는 별도로 청구 됩니다.
 
 Windows 가상 머신 및 SQL Database의 경우 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)으로 라이선스 비용을 처리할 수 있습니다.
 
@@ -92,17 +96,17 @@ Azure Portal, Api 또는 사용 현황 데이터를 통해 여러 가지 방법�
 
 ## <a name="discounted-subscription-and-offer-types"></a>할인 구독 및 제안 유형
 
-예약 할인은 다음과 같은 적격 구독 및 제안 유형에 적용 됩니다.
+예약 할인은 다음과 같은 적격 구독 및 제품 유형에 적용됩니다.
 
-- 기업 계약 (제품 번호: MS-AZR-0017P-0017P 또는 MS-AZR-0017P-Ms-azr-0148p)
-- 종 량 제 요금이 있는 개별 요금제 (제품 번호: MS-AZR-0017P-0003P 또는 MS-AZR-0017P-0023P)
+- 기업계약(제품 번호: MS-AZR-0017P 또는 MS-AZR-0148P)
+- 종량제 요금을 사용한 개별 계획(제품 번호: MS-AZR-0003P 또는 MS-AZR-0023P)
 - CSP 구독
 
 다른 유형의 구독에서 실행되는 리소스는 예약 할인을 받지 못합니다.
 
 ## <a name="how-is-a-reservation-billed"></a>예약 요금은 어떻게 청구되나요?
 
-예약 요금은 구독에 연결된 결제 방법으로 청구됩니다. Enterprise 구독이 있는 경우 예약 비용은 현금 약정 잔액에서 차감됩니다. 현금 약정 잔액이 예약 비용에 포함 되지 않는 경우 초과분 요금이 청구 됩니다. 종 량 제 요금이 있는 개별 요금제의 구독이 있는 경우 계정에 대 한 신용 카드는 즉시 청구 됩니다. 청구서로 청구 되는 경우 다음 청구서에 요금이 표시 됩니다.
+예약 요금은 구독에 연결된 결제 방법으로 청구됩니다. Enterprise 구독이 있는 경우 예약 비용은 현금 약정 잔액에서 차감됩니다. 현금 약정 잔액이 예약 비용에 포함 되지 않는 경우 초과분 요금이 청구 됩니다. 종 량 제 요금이 있는 개별 요금제의 구독이 있는 경우 계정에 대 한 신용 카드는 사전 구매를 위해 즉시 청구 됩니다. 월간 지불액은 청구서에 표시 되며 신용 카드 요금은 매월 청구 됩니다. 청구서로 청구 되는 경우 다음 청구서에 요금이 표시 됩니다.
 
 ## <a name="how-reservation-discount-is-applied"></a>예약 할인이 적용 되는 방법
 
@@ -154,7 +158,7 @@ EA 구독을 사용 하는 고객의 경우:
 - 계정 소유자는 다른 모든 알림을 받습니다.
 
 
-## <a name="need-help-contact-us"></a>도움이 필요하십니까? 문의하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 궁금한 사항이 있거나 도움이 필요 하면 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 

@@ -1,9 +1,9 @@
 ---
-title: PIM-Azure Active Directory에서에서 Azure AD 역할에 대 한 보안 경고 구성 | Microsoft Docs
-description: Azure AD Privileged Identity Management (PIM)에서 Azure AD 역할에 대 한 보안 경고를 구성 하는 방법에 알아봅니다.
+title: PIM에서 Azure AD 역할에 대 한 보안 경고 구성-Azure Active Directory | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM)에서 Azure AD 역할에 대 한 보안 경고를 구성 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,25 +11,25 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
 ms.date: 04/09/2019
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6875ab8f184c67b02c91d1a8e312959f3ba9553b
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 3984d3276590357866c824d01ea8c51cf5b28fd7
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476409"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804397"
 ---
-# <a name="configure-security-alerts-for-azure-ad-roles-in-pim"></a>PIM에서 Azure AD 역할에 대 한 보안 경고를 구성 합니다.
+# <a name="configure-security-alerts-for-azure-ad-roles-in-pim"></a>PIM에서 Azure AD 역할에 대 한 보안 경고 구성
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM)은 사용자 환경에서 의심 스러운 또는 안전 하지 않은 활동이 있을 때 경고를 생성 합니다. 경고가 트리거될 때 PIM 대시보드에 표시됩니다. 경고를 선택하여 경고를 트리거하는 사용자 또는 역할을 나열하는 보고서를 확인합니다.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM)은 사용자 환경에 의심 스러운 또는 안전 하지 않은 활동이 있을 때 경고를 생성 합니다. 경고가 트리거될 때 PIM 대시보드에 표시됩니다. 경고를 선택하여 경고를 트리거하는 사용자 또는 역할을 나열하는 보고서를 확인합니다.
 
-![Azure AD 역할-경고 및 심각도 나열 하는 경고 창](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
+![Azure AD 역할-경고 및 심각도를 나열 하는 경고 창](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
 ## <a name="security-alerts"></a>보안 경고
 
-이 섹션에서는 Azure AD 역할을 수정 하는 방법 및 방지 하는 방법에 대 한 모든 보안 경고를 나열 합니다. 심각도의 의미는 다음과 같습니다.
+이 섹션에는 Azure AD 역할에 대 한 모든 보안 경고와 해결 방법 및 방지 방법이 나와 있습니다. 심각도의 의미는 다음과 같습니다.
 
 * **높음**: 정책 위반으로 인해 즉각적인 조치가 필요합니다.
 * **보통**: 즉각적인 조치가 필요하지는 않지만 잠재적으로 정책이 위반될 수 있음을 나타냅니다.
@@ -69,7 +69,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM)은 사용
 
 | | |
 | --- | --- |
-| **Severity** | 중간 |
+| **Severity** | 보통 |
 | **이 경고가 표시된 이유는 무엇인가요?** | 지난 90일 동안에서 자신의 암호를 변경하지 않은 권한 있는 역할의 계정입니다. 이러한 계정은 유지되지 않고 공격자에게 취약한 서비스 또는 공유 계정일 수 있습니다. |
 | **해결 방법** | 목록에서 계정을 검토합니다. 액세스가 더 이상 필요하지 않으면 권한 있는 역할에서 제거합니다. |
 | **방지** | 암호를 아는 사용자에게 변경 내용이 있으면 공유되는 계정에서 강력한 암호가 회전되는지 확인합니다. </br>정기적으로 [액세스 검토](pim-how-to-start-security-review.md)를 사용하여 권한 있는 역할이 있는 계정을 검토하고, 더 이상 필요하지 않은 역할 할당을 제거합니다. |
@@ -107,7 +107,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM)은 사용
 | **이 경고가 표시된 이유는 무엇인가요?** | 동일한 사용자를 통해 같은 권한 있는 역할에 대해 여러 번 활성화하는 것은 공격의 징후입니다. |
 | **해결 방법** | 해당 권한 있는 역할에 대한 [활성화 기간](pim-how-to-change-default-settings.md)이 작업을 수행할 만큼 충분히 길게 설정되어 있는지 확인합니다. |
 | **방지** | 해당 권한 있는 역할에 대한 [활성화 기간](pim-how-to-change-default-settings.md)이 작업을 수행할 만큼 충분히 길게 설정되어 있는지 확인합니다.</br>여러 관리자가 공유하는 계정을 갖는 권한 있는 역할에 대해 [MFA를 요구합니다](pim-how-to-change-default-settings.md). |
-| **포털 내 완화 작업** | N/A |
+| **포털 내 완화 작업** | 해당 사항 없음 |
 | **트리거** | 사용자가 지정된 기간 내에 동일한 권한 있는 역할을 여러 번 활성화한다면 트리거됩니다. 기간 및 활성화 횟수를 모두 구성할 수 있습니다. |
 | **활성화 갱신 기간** | 이 설정은 의심스러운 갱신을 추적하는 데 사용할 기간을 일, 시, 분, 초로 지정합니다. |
 | **활성화 갱신 수** | 이 설정은 선택한 기간 내에 경고할만하다고 생각되는 활성화 회수를 2~100 사이로 지정합니다. 슬라이더를 이동하거나 텍스트 상자에 숫자를 입력하여 이 설정을 변경할 수 있습니다. |
@@ -122,11 +122,11 @@ PIM의 일부 보안 경고를 환경 및 보안 목표에 맞게 사용자 지�
 
 1. **설정**을 클릭한 다음, **경고**를 클릭합니다.
 
-    ![Azure AD 역할-경고를 사용 하 여 설정 선택](./media/pim-how-to-configure-security-alerts/settings-alerts.png)
+    ![Azure AD 역할-경고가 선택 된 설정](./media/pim-how-to-configure-security-alerts/settings-alerts.png)
 
 1. 경고 이름을 클릭하여 해당 경고에 대해 설정을 구성합니다.
 
-    ![선택한 경고 보안 경고 설정 창](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
+    ![선택한 경고의 경우 보안 경고 설정 창](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
 
 ## <a name="next-steps"></a>다음 단계
 

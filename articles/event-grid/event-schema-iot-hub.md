@@ -163,8 +163,8 @@ DeviceCreated 및 DeviceDeleted 이벤트에 대한 스키마는 구조가 동�
 
 | 자산 | Type | 설명 |
 | -------- | ---- | ----------- |
-| hubName | 문자열 | 디바이스가 만들어지거나 삭제된 IoT Hub의 이름입니다. |
-| deviceId | 문자열 | 디바이스의 고유 식별자입니다. 이 대/소문자 구분 문자열은 최대 128자까지 가능하며, ASCII 7 비트 영숫자 문자 + 다음 특수 문자 `- : . + % _ # * ? ! ( ) , = @ ; $ '`을 지원합니다. |
+| hubName | string | 디바이스가 만들어지거나 삭제된 IoT Hub의 이름입니다. |
+| deviceId | string | 디바이스의 고유 식별자입니다. 이 대/소문자 구분 문자열은 최대 128자까지 가능하며, ASCII 7 비트 영숫자 문자 + 다음 특수 문자 `- : . + % _ # * ? ! ( ) , = @ ; $ '`을 지원합니다. |
 
 데이터 개체의 내용은 각 이벤트 게시자에 따라 다릅니다. 
 
@@ -172,39 +172,39 @@ DeviceCreated 및 DeviceDeleted 이벤트에 대한 스키마는 구조가 동�
 
 | 자산 | Type | 설명 |
 | -------- | ---- | ----------- |
-| moduleId | 문자열 | 모듈의 고유 식별자입니다. 이 필드는 모듈 디바이스에 대해서만 출력됩니다. 이 대/소문자 구분 문자열은 최대 128자까지 가능하며, ASCII 7 비트 영숫자 문자 + 다음 특수 문자 `- : . + % _ # * ? ! ( ) , = @ ; $ '`을 지원합니다. |
-| deviceConnectionStateEventInfo | 개체(object) | 디바이스 연결 상태 이벤트 정보
-| sequenceNumber | 문자열 | 연결된 디바이스 또는 디바이스 분리 이벤트의 순서를 나타내는 데 도움이 되는 숫자입니다. 최신 이벤트는 이전 이벤트보다 시퀀스 번호가 높습니다. 이 숫자는 1을 초과하여 변경될 수 있지만 엄격하게 증가합니다. [시퀀스 번호 사용 방법](../iot-hub/iot-hub-how-to-order-connection-state-events.md)을 참조하세요. |
+| moduleId | string | 모듈의 고유 식별자입니다. 이 필드는 모듈 디바이스에 대해서만 출력됩니다. 이 대/소문자 구분 문자열은 최대 128자까지 가능하며, ASCII 7 비트 영숫자 문자 + 다음 특수 문자 `- : . + % _ # * ? ! ( ) , = @ ; $ '`을 지원합니다. |
+| deviceConnectionStateEventInfo | object | 디바이스 연결 상태 이벤트 정보
+| sequenceNumber | string | 연결된 디바이스 또는 디바이스 분리 이벤트의 순서를 나타내는 데 도움이 되는 숫자입니다. 최신 이벤트는 이전 이벤트보다 시퀀스 번호가 높습니다. 이 숫자는 1을 초과하여 변경될 수 있지만 엄격하게 증가합니다. [시퀀스 번호 사용 방법](../iot-hub/iot-hub-how-to-order-connection-state-events.md)을 참조하세요. |
 
 에 대 한 **장치 원격 분석** IoT Hub 이벤트 데이터 개체에서 장치-클라우드 메시지를 포함 합니다 [IoT hub 메시징 형식](../iot-hub/iot-hub-devguide-messages-construct.md) 및에 다음 속성이 있습니다.
 
 | 자산 | Type | 설명 |
 | -------- | ---- | ----------- |
-| 본문 | 문자열 | 장치에서 메시지의 콘텐츠입니다. |
-| properties | 문자열 | 애플리케이션 속성은 메시지에 추가할 수 있는 사용자 정의 문자열입니다. 이러한 필드는 선택 사항입니다. |
+| 본문 | string | 장치에서 메시지의 콘텐츠입니다. |
+| properties | string | 애플리케이션 속성은 메시지에 추가할 수 있는 사용자 정의 문자열입니다. 이러한 필드는 선택 사항입니다. |
 | 시스템 속성 | string | [시스템 속성](../iot-hub/iot-hub-devguide-routing-query-syntax.md#system-properties) 내용과 메시지의 소스를 식별할 수 있도록 합니다. 장치 원격 분석 메시지에서 JSON으로 contentEncoding 메시지 시스템 속성에서 u t F-8로 설정 된 contentType을 사용 하 여 올바른 JSON 형식에서 이어야 합니다. 이 설정 하지 않으면 IoT Hub 기본 64로 인코딩된 형식으로 메시지를 작성 합니다.  |
 
 **디바이스가 생성됨** 및 **디바이스가 삭제됨** IoT Hub 이벤트의 경우 데이터 개체에 다음 속성이 포함됩니다.
 
 | 자산 | Type | 설명 |
 | -------- | ---- | ----------- |
-| twin | 개체(object) | 응용 프로그램 장치 메타 데이터의 클라우드 표현인 장치 쌍에 대 한 정보를 제공 합니다. | 
-| deviceID | 문자열 | 디바이스 쌍의 고유 식별자입니다. | 
+| twin | object | 응용 프로그램 장치 메타 데이터의 클라우드 표현인 장치 쌍에 대 한 정보를 제공 합니다. | 
+| deviceID | string | 디바이스 쌍의 고유 식별자입니다. | 
 | etag | string | 디바이스 쌍에 대한 업데이트의 일관성을 확인하는 유효성 검사기입니다. 각 etag은 디바이스 쌍마다 고유합니다. |  
 | deviceEtag| string | 디바이스 레지스트리에 대한 업데이트의 일관성을 확인하는 유효성 검사기입니다. 각 deviceEtag는 디바이스 레지스트리마다 고유해야 합니다. |
-| status | 문자열 | 디바이스 쌍의 활성화 여부를 나타냅니다. | 
-| statusUpdateTime | 문자열 | 마지막 디바이스 쌍 상태 업데이트의 ISO8601 타임 스탬프입니다. |
-| connectionState | 문자열 | 디바이스의 연결 여부를 나타냅니다. | 
-| lastActivityTime | 문자열 | 마지막 활동의 ISO8601 타임스탬프입니다. | 
+| status | string | 디바이스 쌍의 활성화 여부를 나타냅니다. | 
+| statusUpdateTime | string | 마지막 디바이스 쌍 상태 업데이트의 ISO8601 타임 스탬프입니다. |
+| connectionState | string | 디바이스의 연결 여부를 나타냅니다. | 
+| lastActivityTime | string | 마지막 활동의 ISO8601 타임스탬프입니다. | 
 | cloudToDeviceMessageCount | 정수 | 이 디바이스에 전송된 클라우드-디바이스 메시지 횟수입니다. | 
-| authenticationType | 문자열 | 이 디바이스에 사용되는 인증 유형은 `SAS`, `SelfSigned` 또는 `CertificateAuthority`입니다. |
-| x509Thumbprint | 문자열 | 지문은 x509 인증서에 대한 고유값으로, 인증서 저장소에서 특정 인증서를 찾는 데 주로 사용됩니다. 지문은 SHA1 알고리즘을 사용하여 동적으로 생성되며, 인증서에 실제로 존재하지는 않습니다. | 
+| authenticationType | string | 이 디바이스에 사용되는 인증 유형은 `SAS`, `SelfSigned` 또는 `CertificateAuthority`입니다. |
+| x509Thumbprint | string | 지문은 x509 인증서에 대한 고유값으로, 인증서 저장소에서 특정 인증서를 찾는 데 주로 사용됩니다. 지문은 SHA1 알고리즘을 사용하여 동적으로 생성되며, 인증서에 실제로 존재하지는 않습니다. | 
 | primaryThumbprint | string | x509 인증서에 대한 주된 지문입니다. |
-| secondaryThumbprint | 문자열 | x509 인증서에 대한 보조 지문입니다. | 
+| secondaryThumbprint | string | x509 인증서에 대한 보조 지문입니다. | 
 | version | 정수 | 디바이스 쌍이 업데이트될 때마다 하나씩 증가하는 정수입니다. |
-| desired | 개체(object) | 애플리케이션 백 엔드에서만 작성할 수 있고 디바이스에서 읽을 수 있는 속성의 일부입니다. | 
-| reported | 개체(object) | 디바이스에서만 작성할 수 있고 애플리케이션 백 엔드에서 읽을 수 있는 속성의 일부입니다. |
-| lastUpdated | 문자열 | 마지막 디바이스 쌍 속성 업데이트의 ISO8601 타임 스탬프입니다. | 
+| desired | object | 애플리케이션 백 엔드에서만 작성할 수 있고 디바이스에서 읽을 수 있는 속성의 일부입니다. | 
+| reported | object | 디바이스에서만 작성할 수 있고 애플리케이션 백 엔드에서 읽을 수 있는 속성의 일부입니다. |
+| lastUpdated | string | 마지막 디바이스 쌍 속성 업데이트의 ISO8601 타임 스탬프입니다. | 
 
 ## <a name="next-steps"></a>다음 단계
 

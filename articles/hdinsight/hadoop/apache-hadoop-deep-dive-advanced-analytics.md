@@ -1,6 +1,6 @@
 ---
 title: 딥 다이브 분석 - 고급 분석 - Azure HDInsight
-description: 고급 분석에서 알고리즘을 사용하여 빅 데이터를 처리하는 방법을 알아봅니다.
+description: 고급 분석에서 알고리즘을 사용 하 여 Azure HDInsight에서 빅 데이터를 처리 하는 방법을 알아봅니다.
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: ac0edf2de4337154b665b8f3898134a7c2fd1f4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 973ac928900cc02f176931ffa3865c2997e552f2
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712401"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810839"
 ---
 # <a name="deep-dive---advanced-analytics"></a>딥 다이브 분석 - 고급 분석
 
@@ -23,7 +23,7 @@ HDInsight는 대량의 구조화된 데이터, 구조화되지 않은 데이터 
 
 ## <a name="advanced-analytics-process"></a>고급 분석 프로세스
 
-![Process](./media/apache-hadoop-deep-dive-advanced-analytics/process.png)
+![프로세스](./media/apache-hadoop-deep-dive-advanced-analytics/process.png)
 
 비즈니스 문제를 확인하고 데이터 수집 및 처리를 시작한 후에는 예측하려는 질문을 나타내는 모델을 만들어야 합니다. 모델은 하나 이상의 기계 학습 알고리즘을 사용하여 비즈니스 요구에 가장 적합한 유형의 예측을 만듭니다.  대부분의 데이터는 모델을 학습하는 데 사용해야 하고, 나머지는 모델을 테스트하거나 평가하는 데 사용해야 합니다. 
 
