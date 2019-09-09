@@ -4,21 +4,21 @@ description: App Service의 인증 및 권한 부여를 사용자 지정하고, 
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: cfowler
+manager: gwallace
 editor: ''
 ms.service: app-service
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 09/02/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ee8d8c54bd618780e00d9975f2fc6950cd795d44
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 105728bdab9c70bb807f38e4a09d5be863694c16
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098537"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231966"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Azure App Service의 고급 인증 및 권한 부여 사용
 
@@ -95,7 +95,7 @@ Content-Type: application/json
 }
 ```
 
-이 세션 토큰이 있으면 `X-ZUMO-AUTH` 헤더를 HTTP 요청에 추가하여 보호된 앱 리소스에 액세스할 수 있습니다. 예를 들어: 
+이 세션 토큰이 있으면 `X-ZUMO-AUTH` 헤더를 HTTP 요청에 추가하여 보호된 앱 리소스에 액세스할 수 있습니다. 예: 
 
 ```
 GET https://<appname>.azurewebsites.net/api/products/1
@@ -130,7 +130,7 @@ GET /.auth/logout?post_logout_redirect_uri=/index.html
 GET /.auth/logout?post_logout_redirect_uri=https%3A%2F%2Fmyexternalurl.com
 ```
 
-[Azure Cloud Shell](../cloud-shell/quickstart.md)에서 다음 명령을 실행해야 합니다.
+[Azure Cloud Shell](../cloud-shell/quickstart.md)에서 다음 명령을 실행 합니다.
 
 ```azurecli-interactive
 az webapp auth update --name <app_name> --resource-group <group_name> --allowed-external-redirect-urls "https://myexternalurl.com"
@@ -185,7 +185,7 @@ App Service는 특수 헤더를 사용하여 사용자 클레임을 애플리케
 - **Microsoft 계정**: [Microsoft 계정 인증 설정을 구성](configure-authentication-provider-microsoft.md)할 때 `wl.offline_access` 범위를 선택합니다.
 - **Azure Active Directory**: [https://resources.azure.com](https://resources.azure.com)에서 다음 단계를 수행합니다.
     1. 페이지의 위쪽에서 **읽기/쓰기**를 선택합니다.
-    2. 왼쪽 브라우저에서 **subscriptions** >  **_\<subscription\_name_**  > **resourceGroups** >  **_\<resource\_group\_name>_**  > **providers** > **Microsoft.Web** > **사이트** >  **_\<app\_name>_**  > **config** > **authsettings**로 이동합니다. 
+    2. 왼쪽 브라우저에서 **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > **_\<resource\_group\_name>_** > **providers** > **Microsoft.Web** > **사이트** > **_\<app\_name>_** > **config** > **authsettings**로 이동합니다. 
     3. **편집**을 클릭합니다.
     4. 다음 속성을 수정합니다. _\<app\_id&gt;_ 를 액세스하려는 서비스의 Azure Active Directory 애플리케이션 ID로 바꿉니다.
 
@@ -197,7 +197,7 @@ App Service는 특수 헤더를 사용하여 사용자 클레임을 애플리케
 
 공급자가 구성되면 토큰 저장소에서 [새로 고침 토큰 및 액세스 토큰에 대한 만료 시간 찾을](#retrieve-tokens-in-app-code) 수 있습니다. 
 
-언제든지 액세스 토큰을 새로 고치려면 아무 언어에서나 `/.auth/refresh`를 호출하면 됩니다. 다음 코드 조각은 jQuery를 사용하여 JavaScript 클라이언트에서 액세스 토큰을 새로 고칩니다.
+언제 든 지 액세스 토큰을 새로 고치려면 모든 언어로를 `/.auth/refresh` 호출 하면 됩니다. 다음 코드 조각은 jQuery를 사용하여 JavaScript 클라이언트에서 액세스 토큰을 새로 고칩니다.
 
 ```JavaScript
 function refreshTokens() {
@@ -230,15 +230,63 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 ## <a name="limit-the-domain-of-sign-in-accounts"></a>로그인 계정의 도메인 제한
 
-Microsoft 계정과 Azure Active Directory는 모두 여러 도메인에서 로그인할 수 있습니다. 예를 들어 Microsoft 계정은 _outlook.com_, _live.com_ 및 _hotmail.com_ 계정을 허용합니다. Azure Active Directory는 로그인 계정에 대해 여러 사용자 지정 도메인을 허용합니다. 이 동작은 _outlook.com_ 계정을 사용하는 사람이 액세스하는 것을 원치 않는 내부 앱의 경우 바람직하지 않을 수도 있습니다. 로그인 계정의 도메인 이름을 제한하려면 다음 단계를 수행합니다.
+Microsoft 계정과 Azure Active Directory는 모두 여러 도메인에서 로그인할 수 있습니다. 예를 들어 Microsoft 계정은 _outlook.com_, _live.com_ 및 _hotmail.com_ 계정을 허용합니다. Azure AD는 로그인 계정에 대해 원하는 수의 사용자 지정 도메인을 허용 합니다. 그러나 사용자의 브랜드 Azure AD 로그인 페이지 (예: `contoso.com`)로 직접 사용자를 가속화 하는 것이 좋습니다. 로그인 계정의 도메인 이름을 제안 하려면 다음 단계를 수행 합니다.
 
-[https://resources.azure.com](https://resources.azure.com)에서 **subscriptions** >  **_\< subscription\_ name_**  > **resourceGroups** >  **_\< resource\_ group\_ name>_**  > **providers** > **Microsoft.Web** > **사이트** >  **_\< app\_ name>_**  > **config** > **authsettings**로 이동합니다. 
+[https://resources.azure.com](https://resources.azure.com)에서 **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > **_\<resource\_group\_name>_** > **providers** > **Microsoft.Web** > **사이트** > **_\<app\_name>_** > **config** > **authsettings**로 이동합니다. 
 
 **편집**을 클릭하고 다음 속성을 수정한 다음, **배치**를 클릭합니다. _\<domain\_name>_ 을 원하는 도메인으로 바꿨는지 확인합니다.
 
 ```json
 "additionalLoginParams": ["domain_hint=<domain_name>"]
 ```
+
+이 설정은 `domain_hint` 쿼리 문자열 매개 변수를 로그인 리디렉션 URL에 추가 합니다. 
+
+> [!IMPORTANT]
+> 클라이언트는 리디렉션 URL을 받은 후 `domain_hint` 매개 변수를 제거 하 고 다른 도메인으로 로그인 할 수 있습니다. 따라서이 함수는 편리 하지만 보안 기능이 아닙니다.
+>
+
+## <a name="authorize-or-deny-users"></a>사용자 권한 부여 또는 거부
+
+App Service는 가장 간단한 인증 사례 (예: 인증 되지 않은 요청 거부)를 처리 하지만 앱에는 특정 사용자 그룹에만 액세스를 제한 하는 것과 같은 보다 세분화 된 권한 부여 동작이 필요할 수 있습니다. 특정 한 경우에는 로그인 한 사용자에 대 한 액세스를 허용 하거나 거부 하는 사용자 지정 응용 프로그램 코드를 작성 해야 합니다. 다른 경우에는 App Service 또는 id 공급자가 코드를 변경 하지 않고도 도움을 받을 수 있습니다.
+
+- [서버 수준](#server-level-windows-apps-only)
+- [Id 공급자 수준](#identity-provider-level)
+- [응용 프로그램 수준](#application-level)
+
+### <a name="server-level-windows-apps-only"></a>서버 수준 (Windows 앱에만 해당)
+
+모든 Windows 앱의 경우 *web.config 파일을* 편집 하 여 IIS 웹 서버의 권한 부여 동작을 정의할 수 있습니다. Linux 앱은 IIS를 사용 하지 않으며 *web.config*를 통해 구성할 수 없습니다.
+
+1. 탐색`https://<app-name>.scm.azurewebsites.net/DebugConsole`
+
+1. App Service 파일의 브라우저 탐색기에서 *site/wwwroot*로 이동 합니다. *Web.config가* 없는 경우 **+** **새 파일**을 선택  > 하 여 만듭니다. 
+
+1. *Web.config* 의 연필을 선택 하 여 편집 합니다. 다음 구성 코드를 추가 하 고 **저장**을 클릭 합니다. Web.config *가 이미 있는 경우 요소* 를 포함 하는 `<authorization>` 요소를 추가 하기만 하면 됩니다. `<allow>` 요소에 허용 하려는 계정을 추가 합니다.
+
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <configuration>
+       <system.web>
+          <authorization>
+            <allow users="user1@contoso.com,user2@contoso.com"/>
+            <deny users="*"/>
+          </authorization>
+       </system.web>
+    </configuration>
+    ```
+
+### <a name="identity-provider-level"></a>Id 공급자 수준
+
+Id 공급자는 특정 턴 키 인증을 제공할 수 있습니다. 예:
+
+- [Azure App Service](configure-authentication-provider-aad.md)의 경우 Azure AD에서 직접 [엔터프라이즈 수준의 액세스를 관리할](../active-directory/manage-apps/what-is-access-management.md) 수 있습니다. 자세한 내용은 [응용 프로그램에 대 한 사용자 액세스를 제거 하는 방법](../active-directory/manage-apps/methods-for-removing-user-access.md)을 참조 하세요.
+- [Google](configure-authentication-provider-google.md)의 경우 조직에 속한 google API 프로젝트는 조직의 사용자 에게만 액세스를 허용 하도록 구성할 [수 있습니다 (](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#organizations) [Google의 **OAuth 2.0 지원 설정** 페이지](https://support.google.com/cloud/answer/6158849?hl=en)참조).
+
+### <a name="application-level"></a>애플리케이션 수준
+
+다른 수준 중 하나에서 필요한 권한 부여를 제공 하지 않거나 플랫폼 또는 id 공급자가 지원 되지 않는 경우 사용자 [클레임](#access-user-claims)에 따라 사용자에 게 권한을 부여 하는 사용자 지정 코드를 작성 해야 합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]

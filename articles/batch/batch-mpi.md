@@ -8,18 +8,17 @@ manager: gwallace
 editor: ''
 ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.date: 03/13/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8d816236cfda1513734f5cdf63800543f227aef9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1f54f5d5265508bb3716ff4ffd4d1d741d3bfa2e
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68323443"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094967"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>다중 인스턴스 작업을 사용하여 Batch에서 MPI(메시지 전달 인터페이스) 애플리케이션 실행
 
@@ -214,7 +213,7 @@ cmd /c ""%MSMPI_BIN%\mpiexec.exe"" -c 1 -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIAp
 
 다중 인스턴스 작업을 삭제하는 경우 주 및 모든 하위 작업도 Batch 서비스에서 삭제됩니다. 모든 하위 작업 디렉터리 및 해당 파일은 표준 작업의 경우처럼 컴퓨팅 노드에서 삭제됩니다.
 
-[MaxTaskRetryCount][net_taskconstraint_maxretry], [MaxWallClockTime][net_taskconstraint_maxwallclock] [및 작업][net_taskconstraint_retention] 이름 속성과 같은 다중 인스턴스 작업에 대 한 [taskconstraints][net_taskconstraints] 는 표준 태스크에 대 한 것 처럼 적용 되며 주 및 모든 하위 작업에 적용 됩니다. 그러나 다중 인스턴스 태스크를 작업에 추가한 후에는 [보존][net_taskconstraint_retention] 여부 속성을 변경할 경우이 변경 내용은 주 작업에만 적용 됩니다. 모든 하위 작업은 원래 [보존][net_taskconstraint_retention]을 계속 해 서 사용 합니다.
+[MaxTaskRetryCount][net_taskconstraint_maxretry], [MaxWallClockTime][net_taskconstraint_maxwallclock] [및 작업 이름 속성과 같은][net_taskconstraint_retention] 다중 인스턴스 작업에 대 한 [taskconstraints][net_taskconstraints] 는 표준 태스크에 대 한 것 처럼 적용 되며 주 및 모든 하위 작업에 적용 됩니다. 그러나 다중 인스턴스 태스크를 작업에 추가한 후에는 [보존][net_taskconstraint_retention] 여부 속성을 변경할 경우이 변경 내용은 주 작업에만 적용 됩니다. 모든 하위 작업은 원래 [보존][net_taskconstraint_retention]을 계속 해 서 사용 합니다.
 
 컴퓨팅 노드의 최근 작업 목록은 최근 작업이 다중 인스턴스 작업의 일부일 경우 하위 작업의 ID를 반영합니다.
 

@@ -73,9 +73,6 @@
       href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: 개념
   items:
-    - name: 심층 학습
-      displayName: 'deep learning vs machine learning, deep learning, vs, versus'
-      href: concept-deep-learning-vs-machine-learning.md
     - name: 작업 영역
       href: concept-workspace.md
     - name: 컴퓨팅 대상
@@ -111,12 +108,17 @@
           href: how-to-secure-web-service.md
         - name: 스토리지 액세스 키 다시 생성
           href: how-to-change-storage-access-key.md
+    - name: 심층 학습
+      displayName: 'deep learning vs machine learning, deep learning, vs, versus'
+      href: concept-deep-learning-vs-machine-learning.md
 - name: 방법 가이드
   items:
-    - name: 작업 영역 관리
+    - name: 작업 영역 만들기 및 관리
       items:
-        - name: 작업 영역에 대해 포털 사용
+        - name: Azure Portal 사용
           href: how-to-manage-workspace.md
+        - name: Azure CLI 사용
+          href: how-to-manage-workspace-cli.md
         - name: Resource Manager 템플릿 사용
           displayName: arm
           href: how-to-create-workspace-template.md

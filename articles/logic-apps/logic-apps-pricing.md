@@ -9,12 +9,12 @@ ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: e1285f6bc3bd081eae03cf1e5a124a86cac7a2ae
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 62b96fa8722408aed81e87cb31218140fa4f5da8
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335981"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099404"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps용 가격 책정 모델
 
@@ -33,7 +33,7 @@ ms.locfileid: "68335981"
 * Outlook 365, Dropbox 등과 같은 [관리 되는 커넥터](../connectors/apis-list.md##managed-connectors) 에 대 한 호출
 * 루프, 조건문 등의 제어 흐름 단계
 
-표준 커넥터는 [표준 커넥터 가격](https://azure.microsoft.com/pricing/details/logic-apps)으로 요금이 [청구 됩니다.](../connectors/apis-list.md#managed-connectors) 일반적으로 사용할 수 있는 [엔터프라이즈 커넥터](../connectors/apis-list.md#managed-connectors) 는 [엔터프라이즈 커넥터 가격](https://azure.microsoft.com/pricing/details/logic-apps)으로 청구 되 고, 공개 미리 보기 엔터프라이즈 커넥터는 [표준 커넥터 가격](https://azure.microsoft.com/pricing/details/logic-apps)으로 청구 됩니다.
+[표준 커넥터](../connectors/apis-list.md#managed-connectors) 는 [표준 커넥터 가격](https://azure.microsoft.com/pricing/details/logic-apps)으로 요금이 청구 됩니다. 일반적으로 사용할 수 있는 [엔터프라이즈 커넥터](../connectors/apis-list.md#managed-connectors) 는 [엔터프라이즈 커넥터 가격](https://azure.microsoft.com/pricing/details/logic-apps)으로 청구 되 고, 공개 미리 보기 엔터프라이즈 커넥터는 [표준 커넥터 가격](https://azure.microsoft.com/pricing/details/logic-apps)으로 청구 됩니다.
 
 [트리거](#triggers) 및 [작업](#actions)에 대 한 청구의 작동 방식에 대해 자세히 알아보세요.
 
@@ -61,7 +61,7 @@ ms.locfileid: "68335981"
 
   * **개발자 SKU**: 최대 4 개의 표준 계정 또는 최대 5 개의 총 표준 계정. 기본 계정이 없습니다.
 
-통합 계정 제한에 대 한 자세한 내용은 [Logic Apps 제한 및 구성](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)을 참조 하세요. [통합 계정 계층 및 해당 가격 책정 모델](#integration-accounts) 에 대 한 자세한 내용은이 항목의 뒷부분에서 확인할 수 있습니다. 
+통합 계정 제한에 대 한 자세한 내용은 [Logic Apps 제한 및 구성](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)을 참조 하세요. [통합 계정 계층 및 해당 가격 책정 모델](#integration-accounts) 에 대 한 자세한 내용은이 항목의 뒷부분에서 확인할 수 있습니다.
 
 프리미엄 ISE SKU의 경우 기본 단위는 고정 용량을 가지 므로, 더 많은 처리량이 필요한 경우에는 만들거나 나중에 [확장 단위를 추가할](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity)수 있습니다. 개발자 ISE SKU에는 배율 단위를 추가 하는 기능이 없습니다. ISE에서 실행 되는 논리 앱은 데이터 보존 비용을 초래 하지 않습니다.
 

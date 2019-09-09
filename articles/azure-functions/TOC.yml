@@ -250,6 +250,8 @@
           href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: HTTP 함수 엔드포인트 사용자 지정
           href: functions-create-serverless-api.md
+        - name: 온-프레미스 리소스 관리
+          href: functions-hybrid-powershell.md
     - name: 문제 해결
       items:
         - name: 스토리지 문제 해결

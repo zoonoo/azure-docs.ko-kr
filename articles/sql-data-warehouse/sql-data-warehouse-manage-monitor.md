@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 07/23/2019
+ms.date: 08/23/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: f2dab34ea0ef64f4062819e9b2d475e6a226856b
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 1d1af13eb54daf060f0172a0506370ca459f2ece
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405428"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018958"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>DMV를 사용하여 작업 모니터링
 이 문서에서는 동적 관리 뷰(DMV)를 사용하여 워크로드를 모니터링하는 방법을 설명합니다. 여기에는 Azure SQL Data Warehouse에서 쿼리 실행을 조사하는 것이 포함됩니다.
@@ -206,9 +206,11 @@ WHERE DB_NAME(ssu.database_id) = 'tempdb'
 ORDER BY sr.request_id;
 ```
 
-쿼리에서 많은 양의 메모리를 소비하거나 tempdb의 할당에 관련된 오류 메시지를 받은 경우, 이는 종종 매우 많은 [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 문이나 [INSERT SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) 문 실행이 최종 데이터 이동 작업에 실패하게 되면 발생합니다. 이것은 일반적으로 최종 INSERT SELECT 직전 분산된 쿼리 계획 ShuffleMove 작업으로 식별할 수 있습니다.
+많은 양의 메모리를 사용 하는 쿼리를 사용 하거나 tempdb 할당과 관련 된 오류 메시지를 받은 경우 [select (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 또는 [INSERT select](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) 문이 실행 중에 실패 하는 것으로 CREATE TABLE 인해이 오류가 발생할 수 있습니다. 최종 데이터 이동 작업 이것은 일반적으로 최종 INSERT SELECT 직전 분산된 쿼리 계획 ShuffleMove 작업으로 식별할 수 있습니다.  ShuffleMove 작업을 [모니터링 하려면](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) 작업을 사용 합니다. 
 
-가장 일반적인 완화 방법은 데이터 볼륨이 tempdb 노드 제한당 1TB를 초과하지 않도록 CTAS 또는 INSERT SELECT 문을 여러 load 문으로 분해하는 것입니다. 또한 각 개별 노드에서 tempdb를 줄여 더 많은 노드에 tempdb 크기를 분산하여 더 큰 크기로 클러스터를 확장할 수 있습니다. 
+가장 일반적인 완화 방법은 데이터 볼륨이 tempdb 노드 제한당 1TB를 초과하지 않도록 CTAS 또는 INSERT SELECT 문을 여러 load 문으로 분해하는 것입니다. 또한 각 개별 노드에서 tempdb를 줄여 더 많은 노드에 tempdb 크기를 분산하여 더 큰 크기로 클러스터를 확장할 수 있습니다.
+
+CTAS 및 INSERT SELECT 문 외에도 메모리 부족으로 실행 되는 복잡 한 쿼리는 tempdb로 분할 되어 쿼리가 실패할 수 있습니다.  Tempdb로 분산 하지 않도록 더 큰 [리소스 클래스](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management) 를 사용 하 여 실행 하는 것이 좋습니다.
 
 ## <a name="monitor-memory"></a>메모리 모니터링
 
@@ -260,6 +262,31 @@ SELECT
 FROM sys.dm_pdw_nodes_tran_database_transactions t
 JOIN sys.dm_pdw_nodes nod ON t.pdw_node_id = nod.pdw_node_id
 GROUP BY t.pdw_node_id, nod.[type]
+```
+
+## <a name="monitor-polybase-load"></a>PolyBase 부하 모니터링
+다음 쿼리는 부하의 진행 상황에 대 한 개략적인 예상치를 제공 합니다. 이 쿼리는 현재 처리 중인 파일만 표시 합니다. 
+
+```sql
+
+-- To track bytes and files
+SELECT
+    r.command,
+    s.request_id,
+    r.status,
+    count(distinct input_name) as nbr_files, 
+    sum(s.bytes_processed)/1024/1024/1024 as gb_processed
+FROM
+    sys.dm_pdw_exec_requests r
+    inner join sys.dm_pdw_dms_external_work s
+        on r.request_id = s.request_id
+GROUP BY
+    r.command,
+    s.request_id,
+    r.status
+ORDER BY
+    nbr_files desc,
+    gb_processed desc;
 ```
 
 ## <a name="next-steps"></a>다음 단계

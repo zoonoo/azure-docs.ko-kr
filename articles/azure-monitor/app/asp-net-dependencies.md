@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: mbullwin
-ms.openlocfilehash: c2f115564c81f38dd437f1d3ff1e33d7d162a42f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: 5e07243720872ff4555d4c000dcb7b0b7236e66f
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326438"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126748"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Azure 애플리케이션 Insights에서 종속성 추적 
 
@@ -25,7 +25,7 @@ ms.locfileid: "68326438"
 
 ## <a name="automatically-tracked-dependencies"></a>자동으로 추적 되는 종속성
 
-.Net 및 .net Core 용 Application Insights sdk는 종속성 `DependencyTrackingTelemetryModule` 을 자동으로 수집 하는 원격 분석 모듈인과 함께 제공 됩니다. 이 종속성 컬렉션은 연결 된 공식 문서에 따라 구성 된 경우 [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) 및 [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) 응용 프로그램에 대해 자동으로 사용 하도록 설정 됩니다.`DependencyTrackingTelemetryModule` 는 [이](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) nuget  패키지로 제공 되며 nuget 패키지 `Microsoft.ApplicationInsights.Web` 또는 `Microsoft.ApplicationInsights.AspNetCore`중 하나를 사용 하는 경우 자동으로 가져옵니다.
+.Net 및 .net Core 용 Application Insights sdk는 종속성 `DependencyTrackingTelemetryModule` 을 자동으로 수집 하는 원격 분석 모듈인과 함께 제공 됩니다. 이 종속성 컬렉션은 연결 된 공식 문서에 따라 구성 된 경우 [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) 및 [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) 응용 프로그램에 대해 자동으로 사용 하도록 설정 됩니다.`DependencyTrackingTelemetryModule` 는 [이](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) nuget  패키지로 제공 되며 nuget 패키지 `Microsoft.ApplicationInsights.Web` 또는 `Microsoft.ApplicationInsights.AspNetCore`중 하나를 사용 하는 경우 자동으로 가져옵니다. 
 
  `DependencyTrackingTelemetryModule`는 현재 다음 종속성을 자동으로 추적 합니다.
 
@@ -35,10 +35,11 @@ ms.locfileid: "68326438"
 |WCF 호출| Http 기반 바인딩을 사용 하는 경우에만 자동으로 추적 됩니다.|
 |SQL | 를 사용 하 `SqlClient`여 호출 합니다. SQL 쿼리 캡처는 [이](#advanced-sql-tracking-to-get-full-sql-query) 항목을 참조 하세요.  |
 |[Azure storage (Blob, 테이블, 큐)](https://www.nuget.org/packages/WindowsAzure.Storage/) | Azure Storage 클라이언트를 사용 하 여 호출 합니다. |
-|[EventHub 클라이언트 SDK](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | 1\.1.0 버전 이상. |
-|[ServiceBus 클라이언트 SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| 3\.0.0 버전 이상. |
+|[EventHub 클라이언트 SDK](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | 1.1.0 버전 이상. |
+|[ServiceBus 클라이언트 SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| 3.0.0 버전 이상. |
 |Azure Cosmos DB | HTTP/HTTPS를 사용 하는 경우에만 자동으로 추적 됩니다. Application Insights에서는 TCP 모드가 캡처되지 않습니다. |
 
+종속성이 누락 되었거나 다른 SDK를 사용 하는 경우 [자동 수집 된 종속성](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies)목록에 있는지 확인 합니다. 종속성이 자동으로 수집 되지 않으면 [track 종속성 호출](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency)을 사용 하 여 수동으로 추적할 수 있습니다.
 
 ## <a name="setup-automatic-dependency-tracking-in-console-apps"></a>콘솔 앱에서 자동 종속성 추적 설정
 
@@ -86,11 +87,11 @@ SDK에서 자동으로 수집 되지 않는 종속성의 경우 표준 자동 �
 
 또는는 [다음과](custom-operations-tracking.md#outgoing-dependencies-tracking) 같이 종속성을 `StopOperation` 수동으로 추적 하는 데 사용할 수 있는 확장 메서드 `StartOperation` 를 제공합니다.`TelemetryClient`
 
-표준 종속성 추적 모듈을 해제 하려면 ASP.NET 응용 프로그램 [에 대 한](../../azure-monitor/app/configuration-with-applicationinsights-config.md) DependencyTrackingTelemetryModule의 참조를 제거 합니다. ASP.NET Core 응용 프로그램의 경우 [여기](asp-net-core.md#configuring-or-removing-default-telemetrymodules)에 있는 지침을 따르세요.
+표준 종속성 추적 모듈을 해제 하려면 ASP.NET 응용 프로그램에 대 한 DependencyTrackingTelemetryModule의 참조를 제거 [합니다.](../../azure-monitor/app/configuration-with-applicationinsights-config.md) ASP.NET Core 응용 프로그램의 경우 [여기](asp-net-core.md#configuring-or-removing-default-telemetrymodules)에 있는 지침을 따르세요.
 
 ## <a name="tracking-ajax-calls-from-web-pages"></a>웹 페이지에서 AJAX 호출 추적
 
-웹 페이지의 경우 JavaScript SDK Application Insights [여기](javascript.md#ajax-performance)에 설명 된 대로 AJAX 호출을 종속성으로 자동 수집 합니다. 이 문서에서는 서버 구성 요소의 종속성에 대해 집중적으로 설명 합니다.
+웹 페이지의 경우 JavaScript SDK Application Insights AJAX 호출을 종속성으로 자동 수집 합니다.
 
 ## <a name="advanced-sql-tracking-to-get-full-sql-query"></a>전체 SQL 쿼리를 가져오기 위한 고급 SQL 추적
 
@@ -113,7 +114,7 @@ ASP.NET 응용 프로그램의 경우 응용 프로그램 계측 엔진을 필�
 
 * [애플리케이션 맵](app-map.md)은 앱과 인접 구성 요소 간의 종속성을 시각화합니다.
 * [트랜잭션 진단은](transaction-diagnostics.md) 상관 관계가 지정 된 통합 서버 데이터를 표시 합니다.
-* [브라우저 탭](javascript.md#ajax-performance) 은 사용자 브라우저의 AJAX 호출을 보여 줍니다.
+* [브라우저 탭](javascript.md) 은 사용자 브라우저의 AJAX 호출을 보여 줍니다.
 * 느리거나 실패한 요청 클릭: 해당 종속성 호출을 확인합니다.
 * [분석](#logs-analytics): 종속성 데이터를 쿼리하는 데 사용됩니다.
 
@@ -147,7 +148,7 @@ ASP.NET 응용 프로그램의 경우 응용 프로그램 계측 엔진을 필�
 
 여기에서 실패 한 종속성 수를 확인할 수 있습니다. 실패 한 발생에 대 한 자세한 정보를 보려면 아래쪽 테이블에서 종속성 이름을 클릭 합니다. 오른쪽 아래에 있는 파란색 **종속성** 단추를 클릭 하 여 종단 간 트랜잭션 세부 정보를 가져올 수 있습니다.
 
-## <a name="logs-analytics"></a>로그 (분석)
+## <a name="logs-analytics"></a>로그(분석)
 
 [Kusto 쿼리 언어](/azure/kusto/query/)에서 종속성을 추적할 수 있습니다. 다음은 몇 가지 예제입니다.
 

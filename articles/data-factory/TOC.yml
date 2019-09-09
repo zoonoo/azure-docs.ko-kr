@@ -450,8 +450,6 @@
           href: control-flow-webhook-activity.md
     - name: 데이터 흐름 변환
       items:
-        - name: 고정 너비 필드
-          href: how-to-fixed-width.md
         - name: 집계
           href: data-flow-aggregate.md
         - name: 행 변경
@@ -610,6 +608,10 @@
           href: data-migration-guidance-hdfs-azure-storage.md
         - name: 온-프레미스 Netezza 서버에서 Azure로 데이터 마이그레이션
           href: data-migration-guidance-netezza-azure-sqldw.md
+    - name: Data Flow 매핑을 사용한 변환
+      items:
+        - name: 고정 너비 텍스트 파일 처리
+          href: how-to-fixed-width.md
 - name: 참고 자료
   items:
     - name: .NET

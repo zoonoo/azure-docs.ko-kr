@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
-ms.date: 08/22/2019
-ms.openlocfilehash: 476b8cff23d09d81fe356a6445e27794b267d9a2
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.date: 08/26/2019
+ms.openlocfilehash: 84dc0115edcab07036b43d5fa19310918f7a2408
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998098"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035975"
 ---
 # <a name="troubleshoot-cluster-creation-failures-with-azure-hdinsight"></a>Azure HDInsight를 사용 하 여 클러스터 만들기 오류 문제 해결
 
@@ -29,9 +29,9 @@ ms.locfileid: "69998098"
 
 ## <a name="permissions-issues"></a>권한 이슈
 
-Azure Data Lake Storage Gen 2를 사용 하는 경우 "이 요청에는이 권한을 사용 하 여이 작업을 수행할 수 있는 권한이 없습니다." 라는 오류 메시지가 표시 되 면 Azure Portal를 열고 저장소 계정으로 이동한 다음 Access Control (IAM)에서 저장소 Blob이 있는지 확인 합니다.  **데이터 참가자** 또는 **저장소 Blob 데이터 소유자 역할** 역할이 구독에 대해 **사용자 할당 관리 id** 에 대 한 액세스 권한을 할당 했습니다. 자세한 지침은 [Data Lake Storage Gen2 계정에서 관리 되는 id에 대 한 사용 권한 설정](../hdinsight-hadoop-use-data-lake-storage-gen2.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account) 을 참조 하세요.
+Azure Data Lake Storage Gen2를 사용 하 고 오류 ```AmbariClusterCreationFailedErrorCode``` ```Internal server error occurred while processing the request. Please retry the request or contact support.```를 수신 하는 경우 Azure Portal를 열고 저장소 계정으로 이동한 다음 Access Control (IAM)에서 **저장소 blob 데이터 참가자** 또는 **저장소 blob이 있는지 확인 합니다. 데이터 소유자** 역할에는 구독에 대 한 **사용자 할당 관리 id** 에 대 한 액세스 권한이 할당 됩니다. 자세한 지침은 [Data Lake Storage Gen2 계정에서 관리 ID에 대한 권한 설정](../hdinsight-hadoop-use-data-lake-storage-gen2.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account)을 참조하세요.
 
-[여기](../hdinsight-hadoop-use-data-lake-store.md)에서 Data Lake Storage Gen 1을 사용 하는 경우 설치 및 구성 지침을 참조 하세요. Data Lake Storage Gen 1은 HBase 클러스터에 대해 지원 되지 않으며 HDInsight 버전 4.0에서 지원 되지 않습니다.
+Azure Data Lake Storage Gen1를 사용 하는 경우 설치 및 [구성 지침을 참조 하십시오.](../hdinsight-hadoop-use-data-lake-store.md) Data Lake Storage Gen1은 HBase 클러스터에 대해 지원 되지 않으며 HDInsight 버전 4.0에서 지원 되지 않습니다.
 
 Azure Storage 사용 하는 경우 클러스터를 만드는 동안 저장소 계정 이름이 유효한 지 확인 합니다.
 

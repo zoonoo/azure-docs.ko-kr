@@ -97,20 +97,12 @@
       items:
         - name: 개요
           href: platform/alerts-overview.md
-        - name: 클래식 경고
-          href: platform/alerts-classic.overview.md
         - name: 메트릭 경고
           href: platform/alerts-metric-overview.md
         - name: 로그 경고
           href: platform/alerts-unified-log.md
         - name: 활동 로그 경고
           href: platform/activity-log-alerts.md
-        - name: 일반 경고 스키마
-          href: platform/alerts-common-schema.md
-        - name: 작업 규칙
-          href: platform/alerts-action-rules.md
-        - name: 스마트 그룹
-          href: platform/alerts-smartgroups-overview.md
         - name: 변경 분석
           href: app/change-analysis.md
     - name: 데이터 가상화
@@ -516,11 +508,7 @@
                   href: insights/container-insights-troubleshoot.md
             - name: Docker 및 Windows 컨테이너 모니터링
               href: insights/containers.md
-        - name: 스토리지
-          items:
-            - name: Storage용 Azure Monitor
-              href: insights/storage-insights-overview.md
-        - name: 가상 머신
+        - name: 운영 체제(VM 등)
           items:
             - name: 에이전트
               items:
@@ -530,26 +518,38 @@
                   items:
                     - name: 개요
                       href: platform/diagnostics-extension-overview.md
-                    - name: Azure Storage에 보내기
-                      href: platform/diagnostics-extension-to-storage.md
-                    - name: Application Insights로 보내기
-                      href: platform/diagnostics-extension-to-application-insights.md
-                    - name: Event Hubs로 보내기
-                      href: platform/diagnostics-extension-stream-event-hubs.md
-                    - name: 문제 해결
-                      href: platform/diagnostics-extension-troubleshooting.md
-                    - name: JSON 줄 진단 로그 형식에 대한 준비
-                      href: platform/diagnostic-logs-append-blobs.md
-                    - name: 메트릭에 대한 VM 게스트
-                      href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
-                    - name: 메트릭 Linux VM(Telegraf)에 대한 GuestOS
-                      href: platform/collect-custom-metrics-linux-telegraf.md
-                    - name: 메트릭에 대한 가상 머신 확장 집합 게스트
-                      href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
-                    - name: 메트릭에 대한 VM 클래식 게스트
-                      href: platform/collect-custom-metrics-guestos-vm-classic.md
-                    - name: 메트릭에 대한 클라우드 서비스 게스트
-                      href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
+                    - name: Windows
+                      items:
+                        - name: 버전 기록
+                          href: platform/diagnostics-extension-schema.md
+                        - name: 스키마
+                          href: platform/diagnostics-extension-schema-1dot3.md
+                        - name: Azure Storage에 보내기
+                          href: platform/diagnostics-extension-to-storage.md
+                        - name: Application Insights로 보내기
+                          href: platform/diagnostics-extension-to-application-insights.md
+                        - name: Event Hubs로 보내기
+                          href: platform/diagnostics-extension-stream-event-hubs.md
+                        - name: 사용자 지정 메트릭으로 Azure Monitor에 보내기
+                          items:
+                            - name: Virtual Machine
+                              href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
+                            - name: VM 확장 집합
+                              href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
+                            - name: VM 클래식
+                              href: platform/collect-custom-metrics-guestos-vm-classic.md
+                            - name: 클라우드 서비스
+                              href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
+                        - name: JSON Lines 진단 로그 형식
+                          href: platform/diagnostic-logs-append-blobs.md
+                        - name: 문제 해결
+                          href: platform/diagnostics-extension-troubleshooting.md
+                    - name: Linux
+                      items:
+                        - name: VM에서 사용
+                          href: ../virtual-machines/extensions/diagnostics-linux.md
+                        - name: Telegraf를 사용하는 사용자 지정 메트릭
+                          href: platform/collect-custom-metrics-linux-telegraf.md
                 - name: Log Analytics 에이전트
                   items:
                     - name: 개요
@@ -645,13 +645,21 @@
               href: platform/computer-groups.md
             - name: 구성 관리자
               href: platform/collect-sccm.md
-        - name: 데이터베이스
-          items:
-            - name: Azure SQL
-              href: insights/azure-sql.md
-            - name: SQL Server
-              href: insights/sql-assessment.md
         - name: Azure 리소스
+          items:
+            - name: 진단 로그
+              items:
+                - name: 개요
+                  href: platform/diagnostic-logs-overview.md
+                - name: 로그 수집
+                  href: platform/diagnostic-logs-stream-log-store.md
+                - name: Azure Storage에서 수집
+                  href: platform/azure-storage-iis-table.md
+                - name: 스토리지에 보관
+                  href: platform/archive-diagnostic-logs.md
+                - name: Resource Manager 템플릿 사용
+                  href: platform/diagnostic-logs-stream-template.md
+        - name: Azure 구독
           items:
             - name: 활동 로그
               items:
@@ -667,20 +675,6 @@
                   href: platform/activity-log-export.md
                 - name: 스키마
                   href: platform/activity-log-schema.md
-            - name: 진단 로그
-              items:
-                - name: 개요
-                  href: platform/diagnostic-logs-overview.md
-                - name: 로그 수집
-                  href: platform/diagnostic-logs-stream-log-store.md
-                - name: Azure Storage에서 수집
-                  href: platform/azure-storage-iis-table.md
-                - name: 스토리지에 보관
-                  href: platform/archive-diagnostic-logs.md
-                - name: Event Hubs로 데이터 스트리밍
-                  href: platform/diagnostic-logs-stream-event-hubs.md
-                - name: Resource Manager 템플릿 사용
-                  href: platform/diagnostic-logs-stream-template.md
             - name: Event Hubs로 데이터 스트리밍
               href: platform/stream-monitoring-data-event-hubs.md
             - name: Key Vault 분석
@@ -689,6 +683,16 @@
               href: ../service-fabric/service-fabric-diagnostics-oms-agent.md
             - name: 리소스 그룹 모니터링
               href: insights/resource-group-insights.md
+        - name: 스토리지
+          items:
+            - name: Storage용 Azure Monitor
+              href: insights/storage-insights-overview.md
+        - name: 데이터베이스
+          items:
+            - name: Azure SQL
+              href: insights/azure-sql.md
+            - name: SQL Server
+              href: insights/sql-assessment.md
         - name: 네트워크
           items:
             - name: 네트워킹 분석
@@ -729,18 +733,20 @@
           items:
             - name: 사용자 지정 메트릭
               href: platform/metrics-custom-overview.md
+            - name: 메트릭 REST API
+              href: platform/metrics-store-custom-rest-api.md
             - name: Log Analytics 데이터 수집기 API
               href: platform/data-collector-api.md
             - name: Log Analytics 데이터 수집기 API 파이프라인 예제
               href: platform/create-pipeline-datacollector-api.md
-            - name: 메트릭 REST API
-              href: platform/metrics-store-custom-rest-api.md
         - name: System Center 사용
           items:
             - name: Operations Manager 연결
               href: platform/om-agents.md
             - name: Operations Manager 평가
               href: insights/scom-assessment.md
+        - name: Event Hubs로 데이터 스트리밍
+          href: platform/diagnostic-logs-stream-event-hubs.md
     - name: 데이터 분석
       items:
         - name: 메트릭
@@ -873,7 +879,7 @@
               href: app/monitor-web-app-availability.md
             - name: 메트릭 경고
               href: app/alerts.md
-        - name: 플랫폼 메트릭 경고 규칙
+        - name: 메트릭 경고 규칙
           items:
             - name: 메트릭 경고 관리
               href: platform/alerts-metric.md
@@ -899,28 +905,40 @@
               href: platform/alerts-activity-log.md
             - name: 관리 이벤트를 활동 로그 경고로 마이그레이션
               href: platform/migrate-management-alerts.md
-        - name: 작업 그룹
+        - name: 활동 로그의 서비스 상태 경고
           items:
+            - name: 알림 확인
+              href: platform/service-notifications.md
+            - name: 알림 이벤트에 대한 경고 구성
+              href: platform/alerts-activity-log-service-notifications.md
+        - name: 알림 및 작업
+          items:
+            - name: 작업 규칙(미리 보기)
+              href: platform/alerts-action-rules.md
             - name: 작업 그룹 만들기
               href: platform/action-groups.md
-            - name: 웹후크 스키마
-              href: platform/activity-log-alerts-webhook.md
+            - name: 일반 경고 스키마
+              href: platform/alerts-common-schema.md
             - name: 일반 경고 스키마 정의
               href: platform/alerts-common-schema-definitions.md
+            - name: 일반 경고 스키마를 Logic Apps와 통합
+              href: platform/alerts-common-schema-integrations.md
+            - name: 웹후크 스키마
+              href: platform/activity-log-alerts-webhook.md
             - name: SMS 경고 동작
               href: platform/alerts-sms-behavior.md
-            - name: 경고 속도 제한
+            - name: 알림 속도 제한
               href: platform/alerts-rate-limiting.md
             - name: Resource Manager로 작업 그룹 만들기
               href: platform/action-groups-create-resource-manager-template.md
             - name: 논리 앱 작업 구현
               href: platform/action-groups-logic-app.md
-            - name: 일반 경고 스키마를 Logic Apps와 통합
-              href: platform/alerts-common-schema-integrations.md
         - name: 경고 관리 솔루션
           href: platform/alert-management-solution.md
         - name: 경고 사용자 인터페이스
           items:
+            - name: 스마트 그룹 정보
+              href: platform/alerts-smartgroups-overview.md
             - name: 경고 인스턴스 관리
               href: platform/alerts-managing-alert-instances.md
             - name: 스마트 그룹 관리
@@ -931,6 +949,8 @@
               href: platform/alerts-managing-nagios-zabbix-scom.md
         - name: 클래식 경고 규칙 마이그레이션
           items:
+            - name: 클래식 경고 정보
+              href: platform/alerts-classic.overview.md
             - name: 마이그레이션 준비
               href: platform/alerts-prepare-migration.md
             - name: 마이그레이션 도구 이해
@@ -945,12 +965,6 @@
               href: platform/alerts-enable-template.md
             - name: 웹후크를 호출하는 클래식 메트릭 경고
               href: platform/alerts-webhooks.md
-        - name: 활동 로그의 서비스 상태 알림
-          items:
-            - name: 알림 확인
-              href: platform/service-notifications.md
-            - name: 알림 이벤트에 대한 경고 구성
-              href: platform/alerts-activity-log-service-notifications.md
         - name: 알림 API
           href: platform/api-alerts.md
         - name: IT 서비스 관리
@@ -1057,6 +1071,18 @@
               href: app/data-model-metric-telemetry.md
             - name: Context
               href: app/data-model-context.md
+            - name: Azure Functions와 통합
+              href: app/azure-functions-supported-features.md
+    - name: 메트릭
+      items:
+        - name: 지원되는 메트릭
+          href: platform/metrics-supported.md
+        - name: 최신 경고에 대해 지원되는 메트릭
+          href: platform/alerts-metric-near-real-time.md
+    - name: 진단 로그
+      items:
+        - name: '진단 로그 서비스, 범주 및 스키마'
+          href: platform/diagnostic-logs-schema.md
     - name: Azure CLI
       href: /cli/azure/monitor?view=azure-cli-latest
     - name: Azure CLI - Application Insights(미리 보기)
@@ -1081,25 +1107,6 @@
           href: /azure/templates/microsoft.insights/allversions
         - name: 로그
           href: /azure/templates/microsoft.operationalinsights/allversions
-    - name: 메트릭
-      items:
-        - name: 지원되는 메트릭
-          href: platform/metrics-supported.md
-        - name: 최신 경고에 대해 지원되는 메트릭
-          href: platform/alerts-metric-near-real-time.md
-    - name: 진단 로그
-      items:
-        - name: '진단 로그 서비스, 범주 및 스키마'
-          href: platform/diagnostic-logs-schema.md
-        - name: Azure Diagnostics 확장 스키마
-          href: platform/diagnostics-extension-schema.md
-          items:
-            - name: 1.3 이상
-              href: platform/diagnostics-extension-schema-1dot3.md
-            - name: 1.2
-              href: platform/diagnostics-extension-schema-1dot2.md
-            - name: 1
-              href: platform/diagnostics-extension-schema-1dot0.md
     - name: 기능 및 API 사용 중지
       items:
         - name: 클래식 자동 크기 조정 및 메트릭 API

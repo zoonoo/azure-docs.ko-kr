@@ -22,6 +22,11 @@
       href: how-to/move-account.md
     - name: Automation Services의 온보딩 자동화
       href: /azure/architecture/cloud-adoption/operations/azure-server-management/onboarding-automation
+    - name: Log Analytics 작업 영역 매핑에 대해 지원되는 지역
+      href: how-to/region-mappings.md
+    - name: Azure Automation 데이터 관리
+      href: automation-managing-data.md
+      displayName: backup
 - name: 프로세스 Automation
   items:
     - name: Hybrid Runbook Worker 개요
@@ -39,16 +44,10 @@
       items:
         - name: Runbook 만들기
           href: automation-quickstart-create-runbook.md
-    - name: 온보딩
-      items:
-        - name: 포털에서 다중 VM 등록
-          href: automation-onboard-solutions-from-browse.md
-        - name: Azure VM에서 온보드
-          href: automation-onboard-solutions-from-vm.md
-        - name: Automation 계정에서 온보드
-          href: automation-onboard-solutions-from-automation-account.md
     - name: 방법 가이드
       items:
+        - name: 작업 시간 외 VM 시작/중지
+          href: automation-solution-vm-management.md
         - name: Runbook 관리
           href: manage-runbooks.md
         - name: Runbook 만들기
@@ -86,8 +85,6 @@
               href: automation-child-runbooks.md
             - name: Azure Automation Runbook에 JSON 개체 전달
               href: automation-pass-json-string.md
-            - name: 작업 시간 외 VM 시작/중지
-              href: automation-solution-vm-management.md
         - name: Runbook 모니터링
           items:
             - name: Runbook 출력
@@ -98,15 +95,6 @@
               displayName: 'fair share, activity log'
             - name: 그래픽 Runbook에서 오류 처리
               href: automation-runbook-graphical-error-handling.md
-            - name: 소스 제어 통합
-              href: source-control-integration.md
-              displayName: 'github, vsts, azure devops, personal access token'
-            - name: 소스 제어 통합 - 레거시
-              href: automation-source-control-integration-legacy.md
-              displayname: github
-            - name: Azure Automation 데이터 관리
-              href: automation-managing-data.md
-              displayName: backup
         - name: Hybrid Runbook Worker
           items:
             - name: Windows Hybrid Runbook Worker 배포
@@ -120,6 +108,19 @@
             - name: 감시자 작업을 사용하여 업데이트된 파일 추적
               href: automation-watchers-tutorial.md
               displayName: 'hybrid runbook worker, hybrid worker, trigger'
+        - name: 소스 제어 통합
+          items:
+            - name: 소스 제어 통합
+              href: source-control-integration.md
+              displayName: 'github, vsts, azure devops, personal access token'
+            - name: 소스 제어 통합 - 레거시
+              href: automation-source-control-integration-legacy.md
+              displayname: github
+            - name: GitHub Enterprise와 소스 제어 통합
+              href: automation-scenario-source-control-integration-with-github-ent.md
+              displayName: 'CI, runbooks'
+            - name: Azure DevOps와 소스 제어 통합
+              href: automation-scenario-source-control-integration-with-VSTS.md
     - name: 문제 해결
       items:
         - name: Hybrid Runbook Worker 문제 해결
@@ -297,7 +298,7 @@
       href: automation-connections.md
     - name: 자격 증명
       href: automation-credentials.md
-    - name: 통합 모듈
+    - name: 모듈
       href: automation-integration-modules.md
     - name: 일정
       href: automation-schedules.md
@@ -321,11 +322,6 @@
       displayName: 'Monitor, Azure Monitor'
     - name: Amazon 웹 서비스 VM 만들기
       href: automation-scenario-aws-deployment.md
-    - name: GitHub Enterprise와 소스 제어 통합
-      href: automation-scenario-source-control-integration-with-github-ent.md
-      displayName: 'CI, runbooks'
-    - name: Azure DevOps와 소스 제어 통합
-      href: automation-scenario-source-control-integration-with-VSTS.md
       displayName: 'VSTS, CI, runbooks'
     - name: Azure Automation PowerShell Runbook에 Azure Resource Manager 템플릿 배포
       href: automation-deploy-template-runbook.md
@@ -348,14 +344,10 @@
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.automation
-    - name: Azure PowerShell(클래식)
-      href: /powershell/module/azure/?view=azuresmps-3.7.0
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.automation
     - name: REST (영문)
       href: /rest/api/automation
-    - name: REST(클래식)
-      href: 'https://msdn.microsoft.com/library/azure/mt163781'
 - name: 리소스
   items:
     - name: Automation 소개 비디오

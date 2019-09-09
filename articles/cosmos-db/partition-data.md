@@ -6,12 +6,12 @@ author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 67ad37491f71ac82ff52331d19ea92a646c80a52
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 8f83c40aeecdbf9ca30adc20286712850882ee41
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716975"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616787"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Azure Cosmos DB의 분할 및 수평적 크기 조정
 
@@ -27,7 +27,7 @@ Azure Cosmos DB에서 컨테이너는 확장성의 기본 단위입니다. 컨�
 
 ## <a name="physical-partitions"></a>실제 파티션
 
-Azure Cosmos 컨테이너는 많은 수의 논리적 파티션에서 데이터와 처리량을 분산 하 여 크기를 조정 합니다. 내부적으로 하나 이상의 논리 파티션은 복제본 집합으로도 불리는 복제본 집합으로 구성 되는 실제 파티션에 [*매핑됩니다.* ](global-dist-under-the-hood.md) 각 복제본 집합은 Azure Cosmos DB 데이터베이스 엔진의 인스턴스를 호스팅합니다. 복제본 세트를 사용 하면 실제 파티션 내에 저장 된 데이터를 지 속성, 고가용성 및 일관성을 유지할 수 있습니다. 실제 파티션은 저장소 및 요청 단위 (RUs)의 최대 크기를 지원 합니다. 실제 파티션을 구성 하는 각 복제본은 파티션의 저장소 할당량을 상속 합니다. 실제 파티션의 모든 복제본은 실제 파티션에 할당 된 처리량을 전체적으로 지원 합니다. 
+Azure Cosmos 컨테이너는 많은 수의 논리적 파티션에서 데이터와 처리량을 분산 하 여 크기를 조정 합니다. 내부적으로 하나 이상의 논리 [*파티션은 복제본 집합*](global-dist-under-the-hood.md)으로도 불리는 복제본 집합으로 구성 되는 실제 파티션에 매핑됩니다. 각 복제본 집합은 Azure Cosmos 데이터베이스 엔진의 인스턴스를 호스팅합니다. 복제본 세트를 사용 하면 실제 파티션 내에 저장 된 데이터를 지 속성, 고가용성 및 일관성을 유지할 수 있습니다. 실제 파티션은 저장소 및 요청 단위 (RUs)의 최대 크기를 지원 합니다. 실제 파티션을 구성 하는 각 복제본은 파티션의 저장소 할당량을 상속 합니다. 실제 파티션의 모든 복제본은 실제 파티션에 할당 된 처리량을 전체적으로 지원 합니다. 
 
 다음 이미지에서는 논리 파티션이 전역적으로 배포된 실제 파티션에 매핑되는 방법을 보여 줍니다.
 

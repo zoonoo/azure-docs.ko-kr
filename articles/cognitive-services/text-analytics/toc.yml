@@ -12,7 +12,7 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: 클라이언트
+    - name: 클라이언트 라이브러리
       items:
         - name: 'C#'
           href: quickstarts/csharp.md
@@ -56,11 +56,11 @@
       href: How-tos/text-analytics-how-to-call-api.md
     - name: 언어 검색
       href: How-tos/text-analytics-how-to-language-detection.md
-    - name: 감정 분석
+    - name: 정서 분석
       href: How-tos/text-analytics-how-to-sentiment-analysis.md
-    - name: 핵심 구 추출
+    - name: 핵심 문구 추출
       href: How-tos/text-analytics-how-to-keyword-extraction.md
-    - name: 명명된 엔터티 인식 호출
+    - name: 명명된 엔터티 인식
       href: How-tos/text-analytics-how-to-entity-linking.md
     - name: 컨테이너 사용
       items:
