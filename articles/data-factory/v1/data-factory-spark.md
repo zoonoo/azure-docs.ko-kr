@@ -273,7 +273,7 @@ getDebugInfo를 **Always**로 설정했으므로 Blob 컨테이너의 pyFiles �
 문제를 추가로 해결하려면 다음 단계를 수행합니다.
 
 
-1. [https://partnercenter.microsoft.com/partner/support](`https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`)로 이동하세요.
+1. 로 이동하세요.`https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`
 
     ![YARN UI 애플리케이션](media/data-factory-spark/yarnui-application.png)
 
