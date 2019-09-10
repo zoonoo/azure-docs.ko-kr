@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: b716cbf3efb044da68d4dd1dcb724369855d1ed1
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 5aa2d694c2c74b493a7fd1a2a89d39866928d1d4
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173652"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70843863"
 ---
 # <a name="streaming-ingestion-preview"></a>스트리밍 수집 (미리 보기)
 
@@ -44,7 +44,7 @@ ms.locfileid: "70173652"
     > [!TIP]
     > 정책이 데이터베이스 수준에서 정의 된 경우 데이터베이스의 모든 테이블에 대해 스트리밍 수집을 사용할 수 있습니다.
 
-## <a name="supported-streaming-ingestion-types"></a>지원 되는 스트리밍 수집 유형
+## <a name="use-streaming-ingestion-to-ingest-data-to-your-cluster"></a>스트리밍 수집을 사용 하 여 데이터를 클러스터로 수집 합니다.
 
 지원 되는 스트리밍 수집 형식은 다음 두 가지입니다.
 
@@ -72,7 +72,7 @@ ms.locfileid: "70173652"
 
 ## <a name="limitations"></a>제한 사항
 
-* VM 및 클러스터 크기를 늘려 스트리밍 수집 성능 및 용량을 확장 합니다. 단일 단일 노드에 대해 권장 되는 부하는 초당 최대 20 개의 요청입니다. 단일 D14 노드에 대해 권장 되는 로드는 초당 최대 150 요청입니다.
+* VM 및 클러스터 크기를 늘려 스트리밍 수집 성능 및 용량을 확장 합니다. 단일 D14 노드에 대해 권장 되는 로드는 초당 최대 150 요청입니다.
 * 현재는 8 및 16 코어 Sku (D13, D14, L8 및 L16)만 지원 합니다.
 * 수집 요청당 데이터 크기 제한은 4mb입니다.
 * 테이블 생성 및 수정과 수집 매핑 등의 스키마 업데이트는 스트리밍 수집 서비스에 대해 최대 5 분이 걸릴 수 있습니다.

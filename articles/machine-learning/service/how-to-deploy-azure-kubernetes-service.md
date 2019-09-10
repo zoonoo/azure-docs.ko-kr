@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: 7afa96c3c4d1a163e323aa0bb50ec361ff74aac3
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 302fad84a2f0443fb639e57d7bb0cfddef4c3443
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278702"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858740"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터에 모델 배포
 
@@ -30,7 +30,7 @@ Azure Machine Learning 서비스를 사용 하 여 AKS (Azure Kubernetes Service
 
 Azure Kubernetes Service에 배포 하는 경우 __작업 영역에 연결__된 AKS 클러스터에 배포 합니다. AKS 클러스터를 작업 영역에 연결 하는 방법에는 두 가지가 있습니다.
 
-* Azure Machine Learning service SDK, Machine Learning CLI 또는 Azure Portal를 사용 하 여 AKS 클러스터를 만듭니다. 이 프로세스는 클러스터를 작업 영역에 자동으로 연결 합니다.
+* Azure Machine Learning service SDK, Machine Learning CLI, [Azure Portal](https://portal.azure.com) 또는 [작업 영역 방문 페이지 (미리 보기)](https://ml.azure.com)를 사용 하 여 AKS 클러스터를 만듭니다. 이 프로세스는 클러스터를 작업 영역에 자동으로 연결 합니다.
 * 기존 AKS 클러스터를 Azure Machine Learning 서비스 작업 영역에 연결 합니다. 클러스터는 Azure Machine Learning service SDK, Machine Learning CLI 또는 Azure Portal를 사용 하 여 연결할 수 있습니다.
 
 > [!IMPORTANT]

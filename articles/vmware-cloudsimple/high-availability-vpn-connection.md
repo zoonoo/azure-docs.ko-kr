@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ea8ad80d8d12ae9ecac88bd6a3d661ca895d67f4
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 0b40c15956dc03209dcab49641af66bc8ae24187
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972770"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845332"
 ---
 # <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>온-프레미스에서 CloudSimple VPN gateway로 고가용성 연결 구성
 
@@ -50,7 +50,7 @@ ms.locfileid: "69972770"
 
 온-프레미스 방화벽을 구성 하기 전에 다음 작업을 완료 합니다.
 
-1. 조직에서 필요한 노드를 [구매](create-nodes.md) 하 고 하나 이상의 Cloudsimple 사설 클라우드를 만들었는지 확인 합니다.
+1. 조직에서 필요한 노드를 [프로 비전](create-nodes.md) 하 고 하나 이상의 Cloudsimple 사설 클라우드를 만들었는지 확인 합니다.
 2. 온-프레미스 네트워크와 CloudSimple 사설 클라우드 간에 [사이트 간 VPN gateway를 구성](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) 합니다.
 
 ## <a name="configure-on-premises-cisco-asa-firewall"></a>온-프레미스 Cisco GLOBAL.ASA 방화벽 구성

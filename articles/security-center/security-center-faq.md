@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 6e41453a096f4812b9ba541a2693b9c9b975b7c9
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 33ce4c3c7f7cba8310ca75ffd0de3ecb24ad6d8d
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68779070"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873417"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Security Center FAQ(질문과 대답)
 이 FAQ는 증가된 가시성으로 위협을 예방, 감지 및 대응하고 Microsoft Azure 리소스의 보안을 제어하는 서비스인 Azure Security Center에 관한 질문에 답변합니다.
 
 > [!NOTE]
-> 2017년 6월 초를 시작으로 Security Center는 Microsoft Monitoring Agent를 사용하여 데이터를 수집 및 저장합니다. 자세한 내용은 [Azure Security Center 플랫폼 마이그레이션](security-center-platform-migration.md)을 참조하세요. 이 문서의 정보는 Microsoft Monitoring Agent로 전환된 후의 Security Center 기능을 나타냅니다.
+> Security Center는 Microsoft Monitoring Agent를 사용 하 여 데이터를 수집 하 고 저장 합니다. 자세한 내용은 [Azure Security Center 플랫폼 마이그레이션](security-center-platform-migration.md)을 참조하세요.
 >
 >
 
@@ -45,7 +45,7 @@ Security Center는 두 계층으로 제공됩니다.
 **표준 계층**은 인텔리전스, 동작 분석, 변칙 검색, 보안 사고 위협 및 위협 특성 보고서 등 고급 위협 감지 기능을 추가합니다. 표준 계층 무료 평가판을 시작할 수 있습니다. 업그레이드하려면 보안 정책에서 [가격 책정 계층](https://docs.microsoft.com/azure/security-center/security-center-pricing)을 선택합니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
 
 ### <a name="how-can-i-track-who-in-my-organization-performed-pricing-tier-changes-in-azure-security-center"></a>에서 조직의 가격 책정 계층 변경을 수행한 사람을 추적 하려면 어떻게 해야 하나요? Azure Security Center
-Azure 구독에는 가격 책정 계층을 변경할 수 있는 권한이 있는 관리자가 여러 개 있을 수 있으므로 사용자는 가격 책정 계층 변경을 수행한 사용자를 알고 싶을 수 있습니다. 이를 사용 하려면 Azure 활동 로그를 사용할 수 있습니다. 자세한 내용은 [여기](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832) 를 참조 하세요.
+Azure 구독에는 가격 책정 계층을 변경할 수 있는 권한이 있는 관리자가 여러 개 있을 수 있으므로 사용자는 가격 책정 계층 변경을 수행한 사용자를 알고 싶을 수 있습니다. 이를 사용 하려면 Azure 활동 로그를 사용할 수 있습니다. [여기](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832) 에서 추가 지침을 참조 하세요.
 
 ## <a name="permissions"></a>사용 권한
 Azure Security Center는 Azure에서 사용자, 그룹 및 서비스에 [기본 제공 역할](../role-based-access-control/built-in-roles.md)을 제공하는 [RBAC(역할 기반 Access Control)](../role-based-access-control/role-assignments-portal.md)를 사용합니다.
@@ -63,7 +63,7 @@ Security Center는 Azure Vm (가상 머신), VMSS (가상 머신 확장 집합),
 - **무료 계층** – Security Center는 기본 작업 영역에서 'SecurityCenterFree' 솔루션을 사용하도록 설정합니다. 체험 계층에 대한 요금이 청구되지 않습니다.
 - **표준 계층** – Security Center는 기본 작업 영역에서 'Security' 솔루션을 사용하도록 설정합니다.
 
-자세한 내용은 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)을 참조하세요. 가격 책정 페이지 주소는 2017년 6월부터 보안 데이터 스토리지 및 비례 배분 청구로 변경됩니다.
+자세한 내용은 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)을 참조하세요.
 
 > [!NOTE]
 > Security Center에서 만든 작업 영역의 log analytics 가격 책정 계층은 Security Center 청구에 영향을 주지 않습니다.
@@ -105,7 +105,7 @@ Security Center는 Azure Vm (가상 머신), VMSS (가상 머신 확장 집합),
    >
    >
 
-3.           **저장**을 선택합니다.
+3. **저장**을 선택합니다.
 4. **저장**을 선택하고 나면 모니터링되는 VM을 다시 구성할지를 묻는 메시지가 표시됩니다.
 
    - 새 작업 영역 설정을 **새 VM에만 적용**하려면 **아니요**를 선택합니다. 그러면 새 작업 영역 설정이 새 Agent 설치(Microsoft Monitoring Agent가 설치되어 있지 않은 새로 검색된 VM)에만 적용됩니다.
@@ -136,7 +136,7 @@ Linux 컴퓨터의 경우 에이전트 멀티 호 밍은 아직 지원 되지 �
  자세한 내용은 다음 섹션 [SCOM 또는 OMS 직접 에이전트가 VM에 이미 설치되어 있으면 어떻게 되나요?](#scomomsinstalled)를 참조하세요.
 
 ### System Center Operations Manager (SCOM) 에이전트가 VM에 이미 설치 되어 있으면 어떻게 되나요?<a name="scomomsinstalled"></a>
-Security center에서는 기존 System Center Operations Manager 에이전트에 Microsoft Monitoring Agent 확장을 함께 설치 합니다. 기존 SCOM 에이전트는 System Center Operations Manager 서버에 정상적으로 계속 보고 합니다. System Center Operations Manager 에이전트와 Microsoft Monitoring Agent는 공용 런타임 라이브러리를 공유 하며,이는이 프로세스 중에 최신 버전으로 업데이트 됩니다. 참고-System Center Operations Manager 에이전트 버전 2012가 설치 되어 있는 경우에는 자동 프로 비전을 설정 하지 마십시오. System Center Operations Manager 서버가 2012 버전인 경우에도 관리 기능이 손실 될 수 있습니다.
+Security center에서는 기존 System Center Operations Manager 에이전트에 Microsoft Monitoring Agent 확장을 함께 설치 합니다. 기존 SCOM 에이전트는 System Center Operations Manager 서버에 정상적으로 계속 보고 합니다. System Center Operations Manager 에이전트와 Microsoft Monitoring Agent는이 프로세스 중에 최신 버전으로 업데이트 되는 공용 런타임 라이브러리를 공유 합니다. 참고-System Center Operations Manager 에이전트 버전 2012가 설치 되어 있는 경우에는 자동 프로 비전을 설정 하지 마십시오. System Center Operations Manager 서버가 2012 버전인 경우에도 관리 기능이 손실 될 수 있습니다.
 
 ### <a name="what-is-the-impact-of-removing-these-extensions"></a>이러한 확장을 제거할 경우 어떤 영향이 있나요?
 Microsoft Monitoring 확장을 제거하는 경우 Security Center는 VM의 보안 데이터 및 일부 보안 권장 사항을 수집할 수 없고 경고를 사용할 수 없습니다. 24시간 이내에 Security Center는 VM이 확장을 누락하고 확장을 다시 설치했는지 확인합니다.
@@ -161,7 +161,7 @@ Microsoft Monitoring 확장을 제거하는 경우 Security Center는 VM의 보�
 다음에 해당하는 경우 자동 프로비전을 옵트아웃하는 것이 좋습니다.
 
 - Security Center에 의한 자동 에이전트 설치가 전체 구독에 적용됩니다.  VM의 하위 집합에 자동 설치를 적용할 수 없습니다. Microsoft Monitoring Agent와 함께 설치할 수 없는 중요한 VM이 있는 경우 자동 프로비전을 옵트아웃해야 합니다.
-- MMA (Microsoft Monitoring Agent) 확장을 설치 하면 에이전트 버전이 업데이트 됩니다. 이는 직접 에이전트 및 SCOM 에이전트에 적용 됩니다 (후자의 경우 SCOM 및 MMA share 공용 런타임 라이브러리-프로세스에서 업데이트 됨). 설치된 SCOM 에이전트가 2012 버전이고 업그레이드된 경우 SCOM 서버도 2012 버전이면 관리 기능이 손실될 수 있습니다. 설치된 SCOM 에이전트가 2012 버전인 경우 자동 프로비전을 옵트아웃하는 것이 좋습니다.
+- MMA (Microsoft Monitoring Agent) 확장을 설치 하면 에이전트 버전이 업데이트 됩니다. 이는 직접 에이전트 및 SCOM 에이전트에 적용 됩니다 (후자의 경우 SCOM 및 MMA share 공용 런타임 라이브러리-프로세스에서 업데이트 됨). 설치된 SCOM 에이전트가 2012 버전이고 업그레이드된 경우 SCOM 서버도 2012 버전이면 관리 기능이 손실될 수 있습니다. 설치 된 SCOM 에이전트가 버전 2012 인 경우 자동 프로 비전을 옵트아웃 하는 것이 좋습니다.
 - 구독 외부의 사용자 지정 작업 영역(중앙 집중식 작업 영역)이 있는 경우 자동 프로비전을 옵트아웃해야 합니다. Microsoft Monitoring Agent 확장을 수동으로 설치하고 Security Center가 연결을 재정의하지 않고 작업 영역에 연결할 수 있습니다.
 - 구독 내에 자신의 사용자 지정 작업 영역이 있고 구독당 작업 영역을 여러 개 만들지 않으려는 경우 두 가지 옵션이 있습니다.
 
@@ -329,7 +329,7 @@ Security Center에서 취약점, 업데이트 및 문제를 검색하는 대기 
 Security Center는 일반적으로 한 시간마다 새 데이터를 검사하며 그에 따라 권장 사항을 새로 고칩니다. 
 
 > [!NOTE]
-> 2017년 6월 초를 시작으로 Security Center는 Microsoft Monitoring Agent를 사용하여 데이터를 수집 및 저장합니다. 자세한 내용은 [Azure Security Center 플랫폼 마이그레이션](security-center-platform-migration.md)을 참조하세요. 이 문서의 정보는 Microsoft Monitoring Agent로 전환된 후의 Security Center 기능을 나타냅니다.
+> Security Center는 Microsoft Monitoring Agent를 사용 하 여 데이터를 수집 하 고 저장 합니다. 자세한 내용은 [Azure Security Center 플랫폼 마이그레이션](security-center-platform-migration.md)을 참조하세요.
 >
 >
 

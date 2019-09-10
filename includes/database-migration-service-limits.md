@@ -5,14 +5,14 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: douglasl
 ms.openlocfilehash: f76ad3f91c2d05508d700e6ef40c9d342b87b5e3
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "67182600"
 ---
-Azure Database Migration Service는 Azure 데이터 플랫폼 최소 가동 중지 시간으로 여러 데이터베이스 소스에서 원활 하 게 마이그레이션할 수 있도록 설계 된 완전히 관리 되는 서비스입니다.
+Azure Database Migration Service은 가동 중지 시간을 최소화 하면서 여러 데이터베이스 소스에서 Azure 데이터 플랫폼으로 원활 하 게 마이그레이션할 수 있도록 설계 된 완전히 관리 되는 서비스입니다.
 
-| **리소스** | **기본 제한** | **설명** |
+| **Resource** | **기본 제한** | **설명** |
 | --- | --- | --- |
-| 지역별 구독당 최대 서비스 수 |2 | 이 제한 증가 요청 하려면 지원에 문의 합니다. |
+| 지역별 구독당 최대 서비스 수 |2 | 이 제한에 대 한 증가를 요청 하려면 지원 담당자에 게 문의 하세요. |

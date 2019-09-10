@@ -1,25 +1,25 @@
 ---
-title: Video Indexer란?
-titlesuffix: Azure Media Services
-description: 이 항목에서는 Video Indexer 서비스에 대한 개요를 제공합니다.
+title: Azure Media Services Video Indexer란?
+titleSuffix: Azure Media Services
+description: 이 항목에서는 Azure Media Services Video Indexer 서비스에 대 한 개요를 제공 합니다.
 services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 09/06/2019
 ms.author: juliako
-ms.openlocfilehash: b0d0df5d113b1d75602022085b8bb17133f07333
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: e3f60b5fb0693e40c9db040f7b14f487fce8f68e
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68422974"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860249"
 ---
 # <a name="what-is-video-indexer"></a>Video Indexer란?
 
-Azure Video Indexer는 Azure 미디어 분석, Azure Search, Cognive Services(예: Face API, Microsoft Translator, Computer Vision API 및 Custom Speech Service)에 기반하여 구축된 클라우드 애플리케이션입니다. 이 애플리케이션에서 아래에 설명된 Video Indexer 비디오 및 오디오 모델을 사용하여 비디오의 인사이트를 추출할 수 있습니다.
+Azure Media Services Video Indexer는 Azure 미디어 분석, Azure Search, Cognive Services(예: Face API, Microsoft Translator, Computer Vision API 및 Custom Speech Service)에 기반하여 구축된 클라우드 애플리케이션입니다. 이 애플리케이션에서 아래에 설명된 Video Indexer 비디오 및 오디오 모델을 사용하여 비디오의 인사이트를 추출할 수 있습니다.
   
 ## <a name="video-insights"></a>비디오 인사이트
 
@@ -35,10 +35,13 @@ Azure Video Indexer는 Azure 미디어 분석, Azure Search, Cognive Services(�
 - **검정 프레임 감지**: 비디오에 표시되는 검은색 프레임을 식별합니다.
 - **키 프레임 추출**: 비디오에서 안정적인 키 프레임을 검색합니다.
 - **롤링 크레딧**: TV 쇼 및 동영상의 끝에 있는 롤링 크레딧의 시작과 끝을 식별 합니다.
+- **애니메이션 문자 검색** (미리 보기): [Cognitive Services 사용자 지정 비전](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/)과의 통합을 통해 애니메이션 내용에서 문자를 검색, 그룹화 및 인식 합니다. 자세한 내용은 [문자 검색에 애니메이션 적용](animated-characters-recognition.md)을 참조 하세요.
+- **편집 샷 유형 검색**: 해당 유형 (예: 넓은 샷, 중간 샷, 근접, 매우 근접 한 근접, 두 샷, 여러 사람, 실외, 실내 등)을 기반으로 하 여 샷을 태그를 지정 합니다. 자세한 내용은 [편집 샷 유형 검색](scenes-shots-keyframes.md#editorial-shot-type-detection)을 참조 하세요.
 
 ## <a name="audio-insights"></a>오디오 인사이트
 
 - **자동 언어 감지**: 기준 음성 언어를 자동으로 식별합니다. 지원 되는 언어는 영어, 스페인어, 프랑스어, 독일어, 이탈리아어, 중국어 (간체), 일본어, 러시아어 및 포르투갈어 (브라질)입니다. 언어가 자신을 식별할 수 없는 경우 Video Indexer는 음성 언어를 영어로 가정 합니다. 자세한 내용은 [언어 식별 모델](language-identification-model.md)을 참조 하세요.
+- **다국어 음성 식별 및** 기록 (미리 보기): 는 오디오의 여러 세그먼트에서 음성 언어를 자동으로 식별 하 여 미디어 파일의 각 세그먼트를 transcribed으로 보내고 기록을 다시 하나의 통합 된 기록으로 결합 합니다. 자세한 내용은 [다중 언어 콘텐츠 자동 식별 및 높여줄](multi-language-identification-transcription.md)를 참조 하세요.
 - **오디오 전사**: 음성을 12개 언어의 텍스트로 변환하고 확장을 허용합니다. 지원 되는 언어는 영어, 스페인어, 프랑스어, 독일어, 이탈리아어, 중국어 (간체), 일본어, 아랍어, 러시아어, 포르투갈어 (브라질), 힌디어, 한국어를 포함 합니다.
 - **선택 자막**: VTT, TTML, SRT의 세 가지 형식으로 선택 자막을 만듭니다.
 - **두 채널 처리**: 자동으로 감지하고, 개별적으로 전사하고, 단일 타임라인에 병합합니다.
@@ -56,7 +59,7 @@ Azure Video Indexer는 Azure 미디어 분석, Azure Search, Cognive Services(�
 한 채널로 인덱싱하는 경우 해당 모델에 대한 부분 결과가 제공됩니다.
 
 - **키워드 추출**: 음성 및 시각적 텍스트에서 키워드를 추출합니다.
-- **브랜드 추출**: 음성 및 시각적 텍스트에서 브랜드를 추출합니다.
+- **명명 된 엔터티 추출**: NLP (자연어 처리)를 통해 음성 및 시각적 텍스트에서 브랜드, 위치 및 사람을 추출 합니다.
 - **주제 유추**: 전사에서 주요 주제를 유추합니다. IPTC 수준 1 분류가 포함됩니다.
 - **아티팩트**: 각 모델에 대한 풍부한 아티팩트 세트(“다음 수준의 세부 정보”)를 추출합니다.
 - **감정 분석**: 음성 및 시각적 텍스트에서 긍정적, 부정적 및 중립적 감정을 식별합니다.

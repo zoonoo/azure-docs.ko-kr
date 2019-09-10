@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2019
+ms.date: 09/10/2019
 ms.author: barclayn
-ms.openlocfilehash: 9721f22eb73c68f729ced13480370f6593c58510
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: f3cacdad2986de257ae345f4baa9d14ea6c894b2
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182802"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873182"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure 미사용 데이터 암호화
 
@@ -266,7 +266,7 @@ Azure SQL Database 데이터의 클라이언트 쪽 암호화는 [Always Encrypt
 | Power BI                         | 예                | 미리 보기, RSA 2048비트 | -                  |
 | **분석**                    |                    |                    |                    |
 | Azure Stream Analytics           | 예                | -                  | -                  |
-| Event Hubs                       | 예                | -                  | -                  |
+| Event Hubs                       | 예                | Preview, 모든 RSA 길이입니다. | -                  |
 | Azure Analysis Services          | 예                | -                  | -                  |
 | Azure Data Catalog               | 예                | -                  | -                  |
 | Azure HDInsight의 Apache Kafka  | 예                | 모든 RSA 길이입니다.   | -                  |

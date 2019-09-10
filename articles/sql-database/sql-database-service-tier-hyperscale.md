@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/06/2019
-ms.openlocfilehash: d9d70444adee26eab77c0e3d256cd8f340a1b4c8
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 1d70c5d86221213ae3f9a2d31fdf40857cb516be
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981155"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845672"
 ---
 # <a name="hyperscale-service-tier-for-up-to-100-tb"></a>최대 100 TB에 대 한 하이퍼 크기 조정 서비스 계층
 
@@ -186,7 +186,7 @@ Azure SQL Database Hyperscale 계층은 현재 다음 지역에서 사용할 수
 
 2. [ **새 지원 요청** 을 클릭 합니다.](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
-    ![Azure 도움말 및 지원 블레이드](media/sql-database-service-tier-hyperscale/whitelist-request-screen-1.png)
+    ![Azure 도움말 및 지원 블레이드](media/sql-database-service-tier-hyperscale/request-screen-1.png)
 
 3. **문제 유형**에서 **서비스 및 구독 제한 (할당량)** 을 선택 합니다.
 
@@ -198,13 +198,13 @@ Azure SQL Database Hyperscale 계층은 현재 다음 지역에서 사용할 수
 
 1. **세부 정보 제공** 을 클릭 합니다.
 
-    ![문제 세부 정보](media/sql-database-service-tier-hyperscale/whitelist-request-screen-2.png)
+    ![문제 세부 정보](media/sql-database-service-tier-hyperscale/request-screen-2.png)
 
 8. **SQL Database 할당량 유형**선택: **기타 할당량 요청**
 
 9. 다음 템플릿을 입력 합니다.
 
-    ![할당량 정보](media/sql-database-service-tier-hyperscale/whitelist-request-screen-3.png)
+    ![할당량 정보](media/sql-database-service-tier-hyperscale/request-screen-3.png)
 
     템플릿에서 다음 정보를 제공 합니다.
 
@@ -222,7 +222,7 @@ Azure SQL Database Hyperscale 계층은 현재 다음 지역에서 사용할 수
 ## <a name="known-limitations"></a>알려진 제한 사항
 이는 GA를 기준으로 하는 Hyperscale 서비스 계층에 대 한 현재 제한 사항입니다.  가능한 한 많은 제한 사항을 제거 하기 위해 적극적으로 노력 하 고 있습니다.
 
-| 문제점 | 설명 |
+| 문제점 | Description |
 | :---- | :--------- |
 | 논리 서버에 대 한 백업 관리 창은 SQL server에서 필터링 되는 Hyperscale 데이터베이스를 표시 하지 않습니다.  | Hyperscale에는 백업을 관리 하는 별도의 방법이 있지만 장기 보존 및 지정 시간 백업 보존 설정은 적용/무효화 되지 않습니다. 따라서 하이퍼스케일 데이터베이스가 백업 관리 창에 나타나지 않습니다. |
 | 지정 시간 복원 | 데이터베이스가 하이퍼 크기 조정 서비스 계층으로 마이그레이션되면 마이그레이션 전의 특정 시점으로의 복원은 지원 되지 않습니다.|

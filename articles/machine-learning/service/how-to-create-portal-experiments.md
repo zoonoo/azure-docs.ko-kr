@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/02/2019
-ms.openlocfilehash: 0286c82c0b4378e24fa46d0327bd6a5b26037496
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 79632a2b5862538ef702cec01a60aada14d8dbce
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813651"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860494"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Azure Portal에서 자동화 된 machine learning 실험 만들기, 탐색 및 배포 (미리 보기)
 
@@ -24,7 +24,8 @@ ms.locfileid: "70813651"
 
  더 많은 코드 기반 환경을 선호 하는 경우 [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 사용 하 여 [Python에서 자동화 된 machine learning 실험을 구성할](how-to-configure-auto-train.md) 수도 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
 
@@ -39,6 +40,8 @@ ms.locfileid: "70813651"
  처음으로 실험을 수행 하는 경우 **자동화 된 Machine Learning 시작** 화면이 표시 됩니다. 
 
 그렇지 않으면 자동화 **된 machine learning 대시보드가 SDK** 를 사용 하 여 만든 실험을 포함 하 여 자동화 된 모든 기계 학습 실험의 개요를 볼 수 있습니다. 여기에서 날짜, 실험 이름 및 실행 상태별로 실행을 필터링 하 고 탐색할 수 있습니다.
+
+[작업 영역 방문 페이지 (미리 보기)](https://ml.azure.com)에서 자동화 된 Machine Learning에 액세스할 수도 있습니다.
 
 ## <a name="create-an-experiment"></a>실험 만들기
 
@@ -134,7 +137,7 @@ Variance| 이 열의 데이터에 대 한 분포의 평균 값을 측정 한 값
 
 실험을 구성할 때 고급 설정을 `Preprocess`사용 하도록 설정할 수 있습니다. 이렇게 하면 다음 데이터 전처리 및 기능화 단계가 자동으로 수행 됩니다.
 
-|전처리&nbsp;단계| 설명 |
+|전처리&nbsp;단계| Description |
 | ------------- | ------------- |
 |높은 카디널리티 또는 분산 없는 기능 삭제|모든 값이 누락 된 기능을 포함 하 여 학습 및 유효성 검사 집합에서이를 삭제 하거나, 모든 행에서 동일한 값을 사용 하거나, 해시, Id 또는 Guid와 같은 매우 높은 카디널리티를 사용 합니다.|
 |누락 값 입력|숫자 기능의 경우 열에 있는 값의 평균을 돌립니다 합니다.<br/><br/>범주 기능의 경우 가장 자주 사용 되는 값을 돌립니다 합니다.|

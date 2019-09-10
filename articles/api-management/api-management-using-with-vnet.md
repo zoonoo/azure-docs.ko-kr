@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 09/09/2019
 ms.author: apimpm
-ms.openlocfilehash: b89f4d2264924983aac93fb266efd71e46bea6bf
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 44fd3f0381c25f2fe0a3e9dc4cf5b8c685486ae0
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70305223"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861148"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure Vnet (가상 네트워크)를 사용 하면 액세스를 제어 하는 인터넷 라우팅할 수 없는 네트워크에 Azure 리소스를 둘 수 있습니다. 이러한 네트워크는 다양한 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. Azure Virtual Network에 대해 자세히 알아보려면 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)부터 참조하세요.
@@ -79,7 +79,7 @@ Azure API Management가 네트워크 내의 백 엔드 서비스에 액세스할
 >
 
 > [!IMPORTANT]
-> VNET에서 API Management를 제거하거나 배포된 것을 변경할 경우 이전에 사용한 VNET은 최대 2시간 동안 잠긴 상태를 유지할 수 있습니다. 이 기간에는 VNET를 삭제하거나 새 리소스를 배포할 수 없게 됩니다.
+> VNET에서 API Management 제거 하거나 배포 된 항목을 변경 하는 경우 이전에 사용한 VNET은 최대 6 시간 동안 잠겨 있을 수 있습니다. 이 기간에는 VNET를 삭제하거나 새 리소스를 배포할 수 없게 됩니다. 이 동작은 api 버전 2018-01-01 및 이전 버전을 사용 하는 클라이언트에 적용 됩니다. 클라이언트-버전 2019-01-01 이상을 사용 하는 클라이언트에서는 연결 된 API Management 서비스가 삭제 되는 즉시 VNET이 해제 됩니다.
 
 ## <a name="enable-vnet-powershell"> </a>PowerShell cmdlet을 사용하여 VNET 연결 사용
 PowerShell cmdlet을 사용하여 VNET 연결을 사용하도록 설정할 수도 있습니다.

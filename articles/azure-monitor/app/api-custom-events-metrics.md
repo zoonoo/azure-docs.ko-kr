@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
 ms.openlocfilehash: 9bedb74f4e882ac6e4206ee7fef676c94dc2422d
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "68717458"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>사용자 지정 이벤트 및 메트릭용 Application Insights API
@@ -580,7 +580,7 @@ trackTrace(message: string, properties?: {[string]:string}, severityLevel?: AI.S
 
 메서드 출입 같은 진단 이벤트를 기록합니다.
 
- 매개 변수 | 설명
+ 매개 변수 | Description
 ---|---
 `message` | 진단 데이터입니다. 이름보다 훨씬 길어질 수 있습니다.
 `properties` | 문자열 대 문자열의 맵: 포털에서 [예외를 필터링](https://azure.microsoft.com/documentation/articles/app-insights-api-custom-events-metrics/#properties)하는 데 사용되는 추가 데이터입니다. 기본적으로 비어 있습니다.
@@ -591,7 +591,7 @@ trackTrace(message: string, properties?: {[string]:string}, severityLevel?: AI.S
 `message`의 크기 제한이 속성의 크기 제한보다 훨씬 높습니다.
 TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수 있습니다. 예를 들어, POST 데이터를 인코딩할 수 있습니다.  
 
-또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대해 필터링 또는 검색하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 예:
+또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대해 필터링 또는 검색하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 예를 들어:
 
 *C#*
 

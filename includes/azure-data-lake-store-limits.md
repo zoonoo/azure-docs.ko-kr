@@ -9,16 +9,16 @@ ms.date: 06/22/2018
 ms.author: twooley
 ms.custom: include file
 ms.openlocfilehash: f328de00d206b58037fda800354e9634b1c374d6
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "67182594"
 ---
-Azure Data Lake Storage Gen1은 빅 데이터 분석 작업을 위한 엔터프라이즈 수준 하이퍼 스케일 리포지토리입니다. 데이터 레이크 저장소 Gen1 작동 및 예비 분석을 위해 단일 위치에서 모든 크기, 형식 및 수집 속도의 데이터를 캡처 하는데 사용할 수 있습니다. 데이터 레이크 저장소 Gen1 계정에 저장할 수 있는 데이터 양에 대 한 제한은 없습니다.
+Azure Data Lake Storage Gen1은 빅 데이터 분석 작업을 위한 엔터프라이즈 수준 하이퍼 스케일 리포지토리입니다. Data Lake Storage Gen1를 사용 하 여 운영 및 예비 분석을 위해 하나의 단일 장소에서 모든 크기, 유형 및 수집 속도의 데이터를 캡처할 수 있습니다. Data Lake Storage Gen1 계정에 저장할 수 있는 데이터의 양에는 제한이 없습니다.
 
-| **리소스** | **기본 제한** | **설명** |
+| **Resource** | **기본 제한** | **설명** |
 | --- | --- | --- |
-| 지역당 구독 당 데이터 레이크 저장소 Gen1 계정의 최대 수 |10 | 이 제한 증가 요청 하려면 지원에 문의 합니다. |
-| 액세스 Acl, 파일 또는 폴더당 최대 수 |32 | 이것은 하드 한도입니다. 더 적은 항목을 사용 하 여 액세스를 관리 하려면 그룹을 사용 합니다. |
-| 기본 Acl, 파일 또는 폴더당 최대 수 |32 | 이것은 하드 한도입니다. 더 적은 항목을 사용 하 여 액세스를 관리 하려면 그룹을 사용 합니다. |
+| 지역별 최대 Data Lake Storage Gen1 계정 수 (구독 당) |10 | 이 제한에 대 한 증가를 요청 하려면 지원 담당자에 게 문의 하세요. |
+| 파일 또는 폴더 당 최대 액세스 Acl 수 |32 | 이것은 하드 한도입니다. 항목 수를 줄여서 그룹을 사용 하 여 액세스를 관리 합니다. |
+| 파일 또는 폴더 당 기본 Acl의 최대 수 |32 | 이것은 하드 한도입니다. 항목 수를 줄여서 그룹을 사용 하 여 액세스를 관리 합니다. |

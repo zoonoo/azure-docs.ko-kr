@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 7af6abefd132df7980bdc6e485734a996761653b
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 151058f23bed674883da57e0b728dc1df4b698d9
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972791"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70846126"
 ---
 # <a name="set-up-private-cloud-as-a-disaster-recovery-target-with-vmware-site-recovery-manager"></a>VMware Site Recovery Manager를 사용 하 여 사설 클라우드를 재해 복구 대상으로 설정
 
@@ -33,6 +33,8 @@ CloudSimple 솔루션을 사용 하려면 다음을 수행 해야 합니다.
 * 사설 클라우드가 보호 된 사이트인 경우 SRM에 대 한 사용자 고유의 라이선스를 제공 합니다. CloudSimple 사이트를 복구 사이트로 사용 하는 경우 추가 SRM 라이선스가 필요 하지 않습니다.
 
 이 솔루션을 사용 하면 vSphere 복제 및 SRM을 완벽 하 게 제어할 수 있습니다. 친숙 한 UI, API 및 CLI 인터페이스를 사용 하면 기존 스크립트 및 도구를 사용할 수 있습니다.
+
+![Site Recovery Manager 배포](media/srm-deployment.png)
 
 사설 클라우드 및 온-프레미스 환경과 호환 되는 모든 버전의 vRA 및 SRM을 사용할 수 있습니다. 이 가이드의 예제에서는 vRA 6.5 및 SRM 6.5을 사용 합니다. 이러한 버전은 CloudSimple에서 지원 되는 vSphere 6.5와 호환 됩니다.
 

@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 08/27/2019
-ms.openlocfilehash: c0bfbbd8b85f0b3eadf468cdd1261f52bff26abe
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
-ms.translationtype: HT
+ms.openlocfilehash: 33e21b54927280e2692a58c311e2de23e257f923
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813373"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845373"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>관리 되는 인스턴스 리소스 제한 Azure SQL Database 개요
 
@@ -65,9 +65,9 @@ Azure SQL Database 관리 되는 인스턴스는 두 가지 하드웨어 세대�
 | 최대 tempDB 크기 | 192~1,920GB(vCore당 24GB)<br/>더 많은 vCores를 추가 하 여 TempDB 공간을 더 확보 합니다. | 최대 인스턴스 저장소 크기에 의해 제한 됩니다. TempDB 로그 파일 크기는 현재 24GB/vCore로 제한 됩니다. |
 | 메모리 내 OLTP | 지원되지 않음 | 사용 가능 |
 | 최대 세션 | 30000 | 30000 |
-| 읽을 수 있는 복제본 | 0 | 1 (가격에 포함 됨) |
-| 가격 책정/청구 | vCore, 예약 된 저장소  <br/> IOPS가 청구 되지 않아 백업 저장소에 아직 요금이 부과 되지 않습니다. | vCore, 예약 된 저장소  <br/> IOPS가 청구 되지 않아 백업 저장소에 아직 요금이 부과 되지 않습니다. | 
-| 할인 모델 | [예약 인스턴스](sql-database-reserved-capacity.md)<br/>[Azure 하이브리드 혜택](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (개발/테스트 구독에서 사용할 수 없음) | [예약 인스턴스](sql-database-reserved-capacity.md)<br/>[Azure 하이브리드 혜택](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (개발/테스트 구독에서 사용할 수 없음)|
+| [읽기 전용 복제본](sql-database-read-scale-out.md) | 0 | 1 (가격에 포함 됨) |
+| 가격 책정/청구 | [Vcore 및 예약 된 저장소](https://azure.microsoft.com/pricing/details/sql-database/managed/) 에는 요금이 부과 됩니다. <br/>IOPS에는 요금이 부과 되지 않습니다.<br/>백업 저장소에 아직 요금이 청구 되지 않았습니다. | [Vcore 및 예약 된 저장소](https://azure.microsoft.com/pricing/details/sql-database/managed/) 에는 요금이 부과 됩니다. <br/>IOPS에는 요금이 부과 되지 않습니다.<br/>백업 저장소에 아직 요금이 청구 되지 않았습니다. | 
+| 할인 모델 | [예약 인스턴스](sql-database-reserved-capacity.md)<br/>[Azure 하이브리드 혜택](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (개발/테스트 구독에서 사용할 수 없음)<br/>[엔터프라이즈](https://azure.microsoft.com/offers/ms-azr-0148p/) 및 [종 량](https://azure.microsoft.com/offers/ms-azr-0023p/) 제 개발/테스트 구독| [예약 인스턴스](sql-database-reserved-capacity.md)<br/>[Azure 하이브리드 혜택](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (개발/테스트 구독에서 사용할 수 없음)<br/>[엔터프라이즈](https://azure.microsoft.com/offers/ms-azr-0148p/) 및 [종 량](https://azure.microsoft.com/offers/ms-azr-0023p/) 제 개발/테스트 구독|
 
 > [!NOTE]
 > - 사용자 및 시스템 데이터베이스의 데이터 및 로그 파일 크기는 최대 스토리지 크기 제한과 비교되는 인스턴스 스토리지 크기에 포함됩니다. <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> 시스템 뷰를 사용하여 데이터베이스에서 사용되는 총 공간을 확인합니다. 오류 로그는 영구적이지 않으며 크기에 포함되지 않습니다. 백업은 스토리지 크기에 포함되지 않습니다.

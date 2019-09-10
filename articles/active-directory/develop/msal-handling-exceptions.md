@@ -3,7 +3,7 @@ title: 오류 및 예외(MSAL) | Azure
 description: MSAL 애플리케이션에서 오류와 예외, 조건부 액세스 및 클레임 챌린지를 처리하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
-author: negoe
+author: jmprieur
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -12,18 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/19/2019
+ms.date: 09/08/2019
 ms.author: negoe
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: fe3ad29cfd113deba5824ce25721dc543c6267c0
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 280746281fd45b3286cc76be5d3483f0cc65f90f
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70305061"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70872797"
 ---
 # <a name="handling-exceptions-and-errors-using-msal"></a>MSAL을 사용하여 예외 및 오류 처리
+
 MSAL(Microsoft 인증 라이브러리)의 예외는 앱 개발자가 최종 사용자에게 표시하지 않고 문제를 해결하기 위한 것입니다. 예외 메시지는 지역화되지 않았습니다.
 
 예외 및 오류를 처리할 때 예외 유형 자체와 오류 코드를 사용하여 예외를 구별할 수 있습니다.  오류 코드 목록은 [인증 및 권한 부여 오류 코드](reference-aadsts-error-codes.md)를 참조하세요.
@@ -47,13 +48,96 @@ throw될 수 있는 일반적인 예외와 몇 가지 가능한 완화는 다음
 | [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception?view=azure-dotnet)| unknown_user 메시지: 로그인한 사용자를 식별할 수 없음| 라이브러리에서 현재 Windows에 로그인한 사용자를 쿼리할 수 없거나, 이 사용자가 AD 또는 AAD에 조인되어 있지 않습니다(작업 공간에 조인된 사용자는 지원되지 않음). 완화 1: UWP에서 애플리케이션에 엔터프라이즈 인증, 사설망(클라이언트 및 서버), 사용자 계정 정보와 같은 기능이 있는지 확인합니다. 해결 방법 2: 사용자 이름(예: john@contoso.com)을 가져오도록 사용자 고유의 논리를 구현하고 사용자 이름을 사용하는 `AcquireTokenByIntegratedWindowsAuth` 양식을 사용합니다.|
 | [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception?view=azure-dotnet)|integrated_windows_auth_not_supported_managed_user| 이 메서드는 AD(Active Directory)에서 공개되는 프로토콜을 사용합니다. 사용자("관리" 사용자)를 AD 지원 없이 Azure Active Directory에서 만든 경우 이 메서드는 실패합니다. AD에서 만들어지고 AAD에서 지원하는 사용자("페더레이션" 사용자)는 이 비대화형 인증 메서드를 활용할 수 있습니다. 완화: 대화형 인증을 사용합니다.|
 
+### `MsalUiRequiredException`
+
+를 호출할 `AcquireTokenSilent()` 때 MSAL.NET에서 반환 되는 일반적인 상태 코드 `MsalError.InvalidGrantError`중 하나는입니다. 이 상태 코드는 응용 프로그램이 인증 라이브러리를 다시 호출 하지만 대화형 모드 (공용 클라이언트 응용 프로그램의 경우 AcquireTokenInteractive 또는 AcquireTokenByDeviceCodeFlow)에서 웹 앱에 대 한 문제를 해결 하는 것을 의미 합니다. 인증 토큰을 발급 하려면 추가 사용자 조작이 필요 하기 때문입니다.
+
+가 실패 하면 `AcquireTokenSilent` 대부분 토큰 캐시에는 요청과 일치 하는 토큰이 없기 때문입니다. 액세스 토큰은 1 시간 후에 만료 `AcquireTokenSilent` 되 고 새로 고침 토큰을 기반으로 새 토큰을 인출 하려고 시도 합니다 (OAuth2,이는 "새로 고침 토큰 흐름). 이 흐름은 여러 가지 이유로 실패할 수도 있습니다. 예를 들어 테 넌 트 관리자가 보다 엄격한 로그인 정책을 구성 하는 경우입니다. 
+
+상호 작용은 사용자가 작업을 수행 하는 것을 목표로 합니다. 이러한 조건 중 일부는 한 번의 클릭으로 사용 약관에 동의 하는 것과 같이 사용자가 쉽게 해결할 수 있으며 일부는 현재 구성으로 해결할 수 없습니다 (예: 해당 컴퓨터에서 특정 회사 네트워크에 연결 해야 하는 경우). 일부는 사용자가 Multi-factor authentication을 설정 하거나 장치에 Microsoft Authenticator를 설치 하는 데 도움이 됩니다.
+
+### <a name="msaluirequiredexception-classification-enumeration"></a>`MsalUiRequiredException`분류 열거
+
+Msal은 `Classification` 필드를 노출 합니다. 예를 들어 사용자가 암호를 만료 했거나 일부 리소스를 사용 하는 데 동의 해야 한다는 것을 사용자에 게 알려 주는 사용자 환경을 향상 시킬 수 있습니다. 지원 되는 값은 `UiRequiredExceptionClassification` 열거형의 일부입니다.
+
+| 분류    | 의미           | 권장 처리 |
+|-------------------|-------------------|----------------------|
+| BasicAction | 대화형 인증 흐름 중에 사용자 상호 작용을 통해 조건을 확인할 수 있습니다. | AcquireTokenInteractively ()를 호출 합니다. |
+| AdditionalAction | 상태는 대화형 인증 흐름 외부에서 시스템과의 추가 수정 조작으로 해결할 수 있습니다. | AcquireTokenInteractively ()를 호출 하 여 수정 작업을 설명 하는 메시지를 표시 합니다. 사용자가 수정 작업을 완료할 가능성이 없는 경우 응용 프로그램을 호출 하면 additional_action가 필요한 흐름을 숨기도록 선택할 수 있습니다. |
+| MessageOnly      | 지금은 조건을 확인할 수 없습니다. 대화형 인증 흐름을 시작 하면 조건을 설명 하는 메시지가 표시 됩니다. | AcquireTokenInteractively ()를 호출 하 여 조건을 설명 하는 메시지를 표시 합니다. AcquireTokenInteractively ()는 사용자가 메시지를 읽고 창을 닫은 후 UserCanceled 오류를 반환 합니다. 응용 프로그램을 호출 하면 사용자가 메시지를 효율적으로 message_only 수 있는 흐름을 숨기도록 선택할 수 있습니다.|
+| ConsentRequired  | 사용자 동의가 누락 되었거나 해지 되었습니다. | 사용자가 동의할 수 있도록 AcquireTokenInteractively ()를 호출 합니다. |
+| UserPasswordExpired | 사용자의 암호가 만료 되었습니다. | 사용자가 암호를 재설정할 수 있도록 AcquireTokenInteractively ()를 호출 합니다. |
+| PromptNeverFailed| 대화형 인증은 매개 변수 프롬프트를 사용 하 여 호출 되었습니다. MSAL이 브라우저 쿠키를 사용 하 고 브라우저를 표시 하지는 않습니다. 이로 인해 오류가 발생 했습니다. | 프롬프트를 표시 하지 않고 AcquireTokenInteractively ()를 호출 합니다. 없음 |
+| AcquireTokenSilentFailed | MSAL SDK에는 캐시에서 토큰을 인출 하는 데 충분 한 정보가 없습니다. 이는 캐시에 토큰이 없거나 계정을 찾을 수 없기 때문일 수 있습니다. 오류 메시지에 자세한 내용이 있습니다.  | AcquireTokenInteractively ()를 호출 합니다. |
+| 없음    | 자세한 내용은 제공 되지 않습니다. 대화형 인증 흐름 중에 사용자 상호 작용을 통해 조건을 확인할 수 있습니다. | AcquireTokenInteractively ()를 호출 합니다. |
+
+## <a name="code-example"></a>코드 예제
+
+```csharp
+AuthenticationResult res;
+try
+{
+ res = await application.AcquireTokenSilent(scopes, account)
+        .ExecuteAsync();
+}
+catch (MsalUiRequiredException ex) when (ex.ErrorCode == MsalError.InvalidGrantError)
+{
+ switch (ex.Classification)
+ {
+  case UiRequiredExceptionClassification.None:
+   break;
+  case UiRequiredExceptionClassification.MessageOnly:
+  // You might want to call AcquireTokenInteractive(). Azure AD will show a message
+  // that explains the condition. AcquireTokenInteractively() will return UserCanceled error
+  // after the user reads the message and closes the window. The calling application may choose
+  // to hide features or data that result in message_only if the user is unlikely to benefit 
+  // from the message
+  try
+  {
+   res = await application.AcquireTokenInteractive(scopes)
+                          .ExecuteAsync();
+  }
+  catch (MsalClientException ex2) when (ex2.ErrorCode == MsalError.AuthenticationCanceledError)
+  {
+   // Do nothing. The user has seen the message
+  }
+  break;
+
+  case UiRequiredExceptionClassification.BasicAction:
+  // Call AcquireTokenInteractive() so that the user can, for instance accept terms
+  // and conditions
+
+  case UiRequiredExceptionClassification.AdditionalAction:
+  // You might want to call AcquireTokenInteractive() to show a message that explains the remedial action. 
+  // The calling application may choose to hide flows that require additional_action if the user 
+  // is unlikely to complete the remedial action (even if this means a degraded experience)
+
+  case UiRequiredExceptionClassification.ConsentRequired:
+  // Call AcquireTokenInteractive() for user to give consent.
+  
+  case UiRequiredExceptionClassification.UserPasswordExpired:
+  // Call AcquireTokenInteractive() so that user can reset their password
+  
+  case UiRequiredExceptionClassification.PromptNeverFailed:
+  // You used WithPrompt(Prompt.Never) and this failed
+  
+  case UiRequiredExceptionClassification.AcquireTokenSilentFailed:
+  default:
+  // May be resolved by user interaction during the interactive authentication flow.
+  res = await application.AcquireTokenInteractive(scopes)
+                         .ExecuteAsync(); break;
+ }
+}
+```
+
+
 ## <a name="javascript-errors"></a>JavaScript 오류
 
 MSAL는 여러 유형의 일반적인 오류를 추상화 하 고 분류 하는 오류 개체를 제공 합니다. 또한 오류 메시지와 같은 오류에 대 한 특정 세부 정보에 액세스 하 여 적절 하 게 처리할 수 있는 인터페이스도 제공 합니다.
 
 **Error 개체**
 
-```javascript                                
+```javascript
 export class AuthError extends Error {
     // This is a short code describing the error
     errorCode: string;
@@ -63,7 +147,8 @@ export class AuthError extends Error {
     // Name of the error class
     this.name = "AuthError";
 }
-```                
+```
+
 오류 클래스를 확장하면 다음 속성에 액세스할 수 있습니다.
 * **AuthError.message:**  ErrorMessage와 동일 합니다.
 * **AuthError.stack:** throw된 오류에 대한 스택 추적입니다. 오류의 원점에 대한 추적을 허용합니다.
@@ -111,13 +196,13 @@ myMSALObj.acquireTokenPopup(request).then(
 
 ### <a name="interaction-required-errors"></a>상호 작용에 필요한 오류
 
-토큰을 획득 하는 비 대화형 메서드 (예: `acquireTokenSilent`)를 사용 하려고 할 때 msal에서 자동으로이 작업을 수행할 수 없는 경우 오류가 반환 됩니다. 
+토큰을 획득 하는 비 대화형 메서드 (예: `acquireTokenSilent`)를 사용 하려고 할 때 msal에서 자동으로이 작업을 수행할 수 없는 경우 오류가 반환 됩니다.
 
 가능한 원인은 다음과 같습니다.
 
-* 로그인해야 합니다.
-* 동의해야 합니다.
-* 다단계 인증 환경을 거쳐야 합니다.
+* 사용자가 로그인 해야 합니다.
+* 사용자가 동의 해야 합니다.
+* 사용자는 multi-factor authentication 환경에서 진행 해야 합니다.
 
 업데이트 관리는 `acquireTokenPopup` 또는 `acquireTokenRedirect`와 같은 대화형 메서드를 호출하는 것입니다.
 
@@ -142,7 +227,7 @@ myMSALObj.acquireTokenSilent(request).then(function (response) {
 ```
 
 ## <a name="conditional-access-and-claims-challenges"></a>조건부 액세스 및 클레임 챌린지
-토큰을 자동으로 가져올 때 액세스하려는 API에서 [조건부 액세스 클레임 챌린지](conditional-access-dev-guide.md)와 같은 MFA 정책이 필요한 경우 애플리케이션에서 오류가 발생할 수 있습니다.
+토큰을 자동으로 가져올 때 액세스 하려는 API가 MFA 정책과 같은 [조건부 액세스 클레임 챌린지](conditional-access-dev-guide.md) 를 필요로 하는 경우 응용 프로그램에서 오류를 수신할 수 있습니다.
 
 이 오류를 처리하는 패턴은 MSAL을 사용하여 토큰을 대화형으로 획득하는 것입니다. 토큰을 대화형으로 획득하면 사용자에게 메시지가 표시되어 필요한 조건부 액세스 정책을 충족시킬 수 있는 기회가 제공됩니다.
 
@@ -151,10 +236,10 @@ myMSALObj.acquireTokenSilent(request).then(function (response) {
 ### <a name="net"></a>.NET
 MSAL.NET에서 조건부 액세스가 필요한 API를 호출하는 경우 애플리케이션에서 클레임 챌린지 예외를 처리해야 합니다. 이 예외는 [Claims](/dotnet/api/microsoft.identity.client.msalserviceexception.claims?view=azure-dotnet) 속성이 비어 있지 않은 [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet)으로 표시됩니다.
 
-클레임 챌린지를 처리하려면 `PublicClientApplicationBuilder` 클래스의 `.WithClaim()` 메서드를 사용해야 합니다.
+클레임 챌린지를 처리 하려면 `.WithClaim()` `PublicClientApplicationBuilder` 클래스의 메서드를 사용 해야 합니다.
 
 ### <a name="javascript"></a>JavaScript
-MSAL.js를 사용하여 자동으로 토큰을 가져올 때(`acquireTokenSilent` 사용) 액세스하려는 API에서 MFA 정책과 같은 [조건부 액세스 클레임 챌린지](conditional-access-dev-guide.md)를 요구하면 애플리케이션에서 오류가 발생할 수 있습니다.
+Msal를 사용 하 여 `acquireTokenSilent`토큰을 자동으로 가져올 때 (를 사용 하 여) 액세스 하려는 API가 MFA 정책과 같은 [조건부 액세스 클레임 챌린지](conditional-access-dev-guide.md) 를 필요로 하는 경우 응용 프로그램에서 오류를 받을 수 있습니다.
 
 이 오류를 처리하는 패턴은 다음 예제와 같이 MSAL.js에서 토큰(예: `acquireTokenPopup` 또는 `acquireTokenRedirect`)을 획득하기 위해 대화형 호출을 수행하는 것입니다.
 
@@ -183,13 +268,18 @@ myMSALObj.acquireTokenSilent(accessTokenRequest).then(function (accessTokenRespo
 
 ## <a name="retrying-after-errors-and-exceptions"></a>오류 및 예외 후 다시 시도
 
+MSAL을 호출할 때 사용자 고유의 재시도 정책을 구현 해야 합니다. MSAL은 AAD 서비스에 대 한 HTTP 호출을 수행 하 고 가끔 오류가 발생할 수 있습니다. 예를 들어 네트워크 작동이 중단 되거나 서버가 오버 로드 될 수 있습니다.  
+
 ### <a name="http-error-codes-500-600"></a>500-600 HTTP 오류 코드
+
 MSAL.NET은 500-600 HTTP 오류 코드의 오류에 대한 간단한 일회성 다시 시도 메커니즘을 구현합니다.
 
 ### <a name="http-429"></a>429 HTTP
+
 STS (서비스 토큰 서버)가 너무 많은 요청으로 오버 로드 되는 경우 시간을 기준으로 다시 시도할 수 있는 경우의 힌트를 사용 하 여 HTTP 오류 429을 반환 합니다. 응답 필드에서 `Retry-After` 오류를 읽을 수 있습니다.
 
 #### <a name="net"></a>.NET
+
 [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) 예외는 `System.Net.Http.Headers.HttpResponseHeaders`를 `namedHeaders` 속성으로 표시합니다. 따라서 오류 코드의 추가 정보를 활용하여 애플리케이션의 안정성을 향상시킬 수 있습니다. 방금 설명한 경우에는 `RetryAfterproperty`(`RetryConditionHeaderValue` 형식)를 사용하여 다시 시도 시기를 계산할 수 있습니다.
 
 다음은 클라이언트 자격 증명 흐름을 사용하는 디먼 애플리케이션에 대한 예제이지만, 토큰을 획득하는 방법 중 하나에 이를 적용할 수 있습니다.

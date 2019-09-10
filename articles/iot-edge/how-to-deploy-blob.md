@@ -1,20 +1,20 @@
 ---
 title: 장치에 Azure Blob Storage 모듈 배포-Azure IoT Edge | Microsoft Docs
 description: 에지에 데이터를 저장하도록 IoT Edge 디바이스에 Azure Blob Storage 모듈을 배포합니다.
-author: kgremban
-ms.author: kgremban
+author: arduppal
+ms.author: arduppal
 ms.date: 08/07/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
-ms.reviewer: kgremban
+ms.reviewer: arduppal
 manager: mchad
-ms.openlocfilehash: 089c90abb999751db77bbe1d89d1d118ae712b52
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: e5420bbe7f65dcef4997d909b3bc4ede00dd9902
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947087"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844216"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>IoT Edge 모듈에 Azure Blob Storage를 장치에 배포
 
@@ -93,7 +93,7 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
      > [!IMPORTANT]
      > 저장소 탑재 값의 절반을 변경 하지 마십시오 .이 값은 모듈의 특정 위치를 가리킵니다. 저장소 탑재는 항상 Linux 컨테이너에 대 한 **/blobroot** 및 Windows 컨테이너의 경우 **: C:/blobroot** 로 끝나야 합니다.
 
-1. 다음 JSON을 복사 하 여 모듈 쌍 **의 desired 속성** 상자에 붙여넣어 모듈의 [DeviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) 및 [deviceautodeleteproperties](how-to-store-data-blob.md#deviceautodeleteproperties) 속성을 설정 합니다. 적절 한 값을 사용 하 여 각 속성을 구성 하 고 저장 한 다음 배포를 계속 합니다.
+1. 다음 JSON을 복사 하 여 모듈 쌍 **의 desired 속성** 상자에 붙여넣어 모듈의 [DeviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) 및 [deviceautodeleteproperties](how-to-store-data-blob.md#deviceautodeleteproperties) 속성을 설정 합니다. 적절 한 값을 사용 하 여 각 속성을 구성 하 고 저장 한 다음 배포를 계속 합니다. IoT Edge 시뮬레이터를 사용 하는 경우 이러한 속성에 대 한 관련 환경 변수로 값을 설정 합니다 .이 속성은 [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) 및 [deviceautodeleteproperties](how-to-store-data-blob.md#deviceautodeleteproperties)의 설명 섹션에서 찾을 수 있습니다.
 
    ```json
    {
@@ -207,7 +207,7 @@ Azure IoT Edge는 Visual Studio Code에 에지 솔루션 개발을 도와주는 
      > [!IMPORTANT]
      > 저장소 탑재 값의 절반을 변경 하지 마십시오 .이 값은 모듈의 특정 위치를 가리킵니다. 저장소 탑재는 항상 Linux 컨테이너에 대 한 **/blobroot** 및 Windows 컨테이너의 경우 **: C:/blobroot** 로 끝나야 합니다.
 
-1. *deployment.template.json* 파일에 다음 JSON을 추가하여 모듈에 대한 [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) 및 [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties)를 구성합니다. 적절 한 값을 사용 하 여 각 속성을 구성 하 고 파일을 저장 합니다.
+1. *deployment.template.json* 파일에 다음 JSON을 추가하여 모듈에 대한 [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) 및 [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties)를 구성합니다. 적절 한 값을 사용 하 여 각 속성을 구성 하 고 파일을 저장 합니다. IoT Edge 시뮬레이터를 사용 하는 경우 이러한 속성에 대 한 관련 환경 변수로 값을 설정 합니다 .이 속성은 [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) 및 [deviceautodeleteproperties](how-to-store-data-blob.md#deviceautodeleteproperties) 의 설명 섹션에서 찾을 수 있습니다.
 
    ```json
    "<your azureblobstorageoniotedge module name>":{

@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/09/2019
-ms.openlocfilehash: 8da50757182609402ecb035b6f3e92959758ef46
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: bb6a3cff46c975ae6b59f0c6f97e37037f638620
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442305"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845924"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Azure HDInsight에서 Enterprise Security Package 클러스터 만들기 및 구성
 
@@ -75,19 +75,19 @@ Azure HDInsight에 대 한 Enterprise Security Package는 Active Directory 기�
 
     1. **새 개체-사용자** 화면에서 `HDIUser` **사용자 로그온 이름** 으로를 입력 하 고 **다음**을 클릭 합니다.
 
-        ![첫 번째 관리 사용자 만들기](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image020.png)
+        ![첫 번째 관리 사용자 만들기](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0020.png)
 
     1. 표시 되는 팝업에서 새 계정에 대 한 원하는 암호를 입력 합니다. **암호가 만료 되지 않음**이라는 확인란을 선택 합니다. HDIClick **OK**.
     1. **마침** 을 클릭 하 여 새 계정을 만듭니다.
     1. 다른 사용자 `HDIAdmin`를 만듭니다.
 
-        ![두 번째 관리자 사용자 만들기](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image024.png)
+        ![두 번째 관리자 사용자 만들기](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0024.png)
 
 1. **사용자 및 컴퓨터 Active Directory** 화면에서 **작업** > **새** > **그룹**을 클릭 합니다. 새 `HDIUserGroup` 그룹으로를 만듭니다.
 
     ![새 Active Directory 그룹 만들기](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-new-group.png)
 
-    ![새 group2 만들기](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image028.png)
+    ![새 group2 만들기](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0028.png)
 
 1. 이전 단계에서 만든 **Hdiuser** 를 **HDIUserGroup** 에 멤버로 추가 합니다.
 
@@ -133,11 +133,11 @@ Azure HDInsight에 대 한 Enterprise Security Package는 Active Directory 기�
 
     1. **그룹** 섹션을 클릭 하 고 **AAD DC 관리자**를 검색 한 다음 **선택**을 클릭 합니다.
 
-        ![그룹](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image038.png)
+        ![그룹](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0038.png)
 
     1. **디렉터리 역할** 섹션을 클릭 하 고 오른쪽에서 **전역 관리자** 를 선택 합니다. **확인**을 클릭합니다.
 
-        ![디렉터리 역할](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image040.png)
+        ![디렉터리 역할](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0040.png)
 
     1. 사용자에 대 한 암호를 입력 합니다. **만들기**를 클릭합니다.
 
@@ -152,7 +152,7 @@ Azure HDInsight에 대 한 Enterprise Security Package는 Active Directory 기�
 1. 도메인 컨트롤러에 Microsoft Azure Active Directory 연결을 설치 합니다.
     1. 이전 단계에서 다운로드 한 실행 파일을 열고 사용 조건에 동의 합니다. **계속**을 클릭합니다.
 
-        ![Azure AD Connect](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image052.png)
+        ![Azure AD Connect](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0052.png)
 
     1. **Express 설정 사용** 을 클릭 하 고 설치를 완료 합니다.
 
@@ -161,16 +161,16 @@ Azure HDInsight에 대 한 Enterprise Security Package는 Active Directory 기�
 ### <a name="configure-sync-with-on-premises-domain-controller"></a>온-프레미스 도메인 컨트롤러와 동기화 구성
 
 1. **AZURE ad에 연결** 화면에서 azure ad에 대 한 전역 관리자의 사용자 이름 및 암호를 입력 합니다.  **다음**을 클릭 합니다. AD 테 넌 트 `fabrikamazureadmin@hdifabrikam.com` 를 구성할 때 만든 사용자 이름입니다.
-    ![Azure AD에 연결](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image058.png)
+    ![Azure AD에 연결](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png)
 1. **Active Directory Domain Services에 연결** 화면에서 엔터프라이즈 관리자 계정의 사용자 이름 및 암호를 입력 합니다.  **다음**을 클릭 합니다. 이전에 만든 사용자 `HDIFabrikam\HDIFabrikamAdmin` 이름과 일치 하는 암호입니다.
 
-   ![Active Directory Domain Services에 연결](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image060.png)
+   ![Active Directory Domain Services에 연결](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png)
 1. **AZURE AD 로그인 구성** 페이지에서 **다음**을 클릭 합니다.
-    ![Azure AD 로그인 구성](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image062.png)
+    ![Azure AD 로그인 구성](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0062.png)
 1. 구성 준비 완료 화면에서 **설치**를 클릭 합니다.
     ![설치](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image064.png)
 1. **구성 완료** 화면이 표시 되 면 **끝내기**를 클릭 합니다.
-    ![구성 완료](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image078.png)
+    ![구성 완료](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0078.png)
 
 1. 동기화가 완료 된 후 IAAS Active Directory에서 만든 사용자가 Azure Active Directory와 동기화 되었는지 확인 합니다.
     1. Azure 포털에 로그인합니다.
@@ -188,7 +188,7 @@ Azure Active Directory Domain Services (Azure AD DS)를 구성 하는 데 사용
 1. **위치**에서 **미국 중부** 를 선택 합니다.
 1. **만들기**를 클릭합니다.
 
-![사용자 할당 관리 id 새로 만들기](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image082.png)
+![사용자 할당 관리 id 새로 만들기](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0082.png)
 
 ### <a name="enable-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services 활성화
 
@@ -217,11 +217,11 @@ Azure Active Directory Domain Services (Azure AD DS)를 구성 하는 데 사용
 
 1. **네트워크** 화면 전체에서 이전 powershell 스크립트를 사용 하 여 만든 네트워크 (**HDIFABRIKAM-VNET**) 및 서브넷 (**aadds-서브넷**)을 선택 합니다. 또는 **새로 만들기** 옵션을 사용 하 여 이제 가상 네트워크를 만들 수 있습니다.
 
-    ![네트워크 선택](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image086.png)
+    ![네트워크 선택](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0086.png)
 
 1. **관리자 그룹** 화면에서이 그룹을 관리 하기 위해 **AAD DC 관리자** 라는 그룹이 이미 생성 되었다는 알림이 표시 됩니다. 필요에 따라이 그룹의 멤버 자격을 수정할 수 있지만이 문서의 단계에서는 필요 하지 않습니다. **확인**을 클릭합니다.
 
-    ![관리자 그룹 보기](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image088.png)
+    ![관리자 그룹 보기](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0088.png)
 
 1. **동기화** 화면에서 **모두** 를 선택 하 여 전체 동기화를 사용 하도록 설정 하 고 **확인**을 클릭 합니다.
 
@@ -229,7 +229,7 @@ Azure Active Directory Domain Services (Azure AD DS)를 구성 하는 데 사용
 
 1. **요약** 화면에서 AZURE AD DS에 대 한 세부 정보를 확인 하 고 **확인**을 클릭 합니다.
 
-    ![세부 정보 확인](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image092.png)
+    ![세부 정보 확인](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0092.png)
 
 1. Azure AD-DS를 사용하도록 설정하면 로컬 DNS(도메인 이름 서비스) 서버가 AD VM(Virtual Machine)에서 실행됩니다.
 
@@ -243,7 +243,7 @@ Azure Active Directory Domain Services (Azure AD DS)를 구성 하는 데 사용
 
 1. **Hdifabrikam-aaddsvnet** 을 사용자 지정 ip `10.0.0.4` 및 `10.0.0.5`로 구성 합니다.
 
-    1.   **설정** 범주아래에서DNS서버를선택 합니다. 그런 다음 **사용자 지정**옆의 라디오 단추를 클릭 하 고 아래의 텍스트 상자에 첫 번째 IP 주소 (10.0.0.4)를 입력 한 다음 **저장**을 클릭 합니다.
+    1.   **설정**범주아래에서DNS서버를선택 합니다. 그런 다음 **사용자 지정**옆의 라디오 단추를 클릭 하 고 아래의 텍스트 상자에 첫 번째 IP 주소 (10.0.0.4)를 입력 한 다음 **저장**을 클릭 합니다.
     1. 동일한 단계를 사용 하 여 추가 IP 주소 (10.0.0.5)를 추가 합니다.
 
 1. 이 시나리오에서 Azure AD-DS는 IP 주소 10.0.0.4 및 10.0.0.5를 사용 하도록 구성 되었으며, 아래 이미지에 표시 된 것 처럼 AADDS에 동일한 IP 주소를 설정 합니다.
@@ -276,7 +276,7 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
 1. 로컬 컴퓨터에서 인증서를 관리 하는 인증서 스냅인을 추가 합니다.
 1.  **인증서 (로컬 컴퓨터)** 를 확장 하 고 **개인**을 확장 한 다음 **인증서**를 확장 합니다. 새 인증서가 개인 저장소에 있어야 합니다. 이 인증서는 정규화 된 호스트 이름에 발급 됩니다.
 
-    ![인증서 만들기 확인](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image102.png)
+    ![인증서 만들기 확인](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0102.png)
 
 1. 오른쪽 창에서 이전 단계에서 만든 인증서를 마우스 오른쪽 단추로 클릭 하 고 **모든 작업**을 가리킨 다음 **내보내기**를 클릭 합니다.
 
@@ -285,7 +285,7 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
     ![프라이빗 키 내보내기](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image103.png)
 
 1.  **내보내기 파일 형식** 페이지에서 기본 설정을 그대로 두고 **다음**을 클릭 합니다. 
-1.  **암호**    페이지에서 개인 키에 대 한 암호를 입력 하 고 암호화에 TripleDES-SHA1을 선택 하 고 다음을 클릭 합니다. 
+1.  **암호** 페이지에서 개인 키에 대 한 암호를 입력 하 고 암호화에 TripleDES-SHA1을 선택 하 고 다음을 클릭 합니다. 
 1.  **내보낼** 파일 페이지에서 내보낸 인증서 파일의 경로와 이름을 입력 하 고 **다음**을 클릭 합니다.
 1. 파일 이름은 .pfx 확장명 이어야 하며,이 파일은 Azure Portal에 구성 되어 보안 연결을 설정 합니다.
 1. Azure AD Domain Services 관리 되는 도메인에 대해 보안 LDAP (LDAPS)를 사용 하도록 설정 합니다.
@@ -295,7 +295,7 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
     1. 컴퓨터에서 내보낸 .pfx 인증서 파일을 찾습니다.
     1. 인증서 암호를 입력 합니다.
 
-    ![보안 ldap 사용](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image113.png)
+    ![보안 ldap 사용](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0113.png)
 
 1. 보안 LDAP를 사용 하도록 설정 했으므로 포트 636을 사용 하도록 설정 하 여 연결할 수 있는지 확인 합니다.
     1. **Hdifabrikam-CentralUS** 리소스 그룹에서 네트워크 보안 그룹 **AADDS-nsg** 를 클릭 합니다.
@@ -317,7 +317,7 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
 
 1. `HDIFabrikamManagedIdentity`는 사용자 할당 관리 id 이며,이 Id에서 도메인 서비스 작업을 읽고, 만들고, 수정 하 고, 삭제할 수 있도록 하는 관리 id에 대해 HDInsight Domain Services 기여자 역할을 사용 하도록 설정 됩니다.
 
-    ![사용자 할당 관리 id 만들기](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image117.png)
+    ![사용자 할당 관리 id 만들기](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0117.png)
 
 ## <a name="creating-enterprise-security-package-enabled-hdinsight-cluster"></a>Enterprise Security Package 사용 가능한 HDInsight 클러스터 만들기
 
@@ -347,7 +347,7 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
     1. **사용자 지정** 을 선택 `10.0.0.4` 하 `10.0.0.5`고 및을 입력 합니다.
     1. **Save**을 클릭합니다.
 
-        ![사용자 지정 dns 설정 저장](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image123.png)
+        ![사용자 지정 dns 설정 저장](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0123.png)
 
 1. 새 ESP 사용 HDInsight Spark 클러스터를 만듭니다.
     1. **사용자 지정 (크기, 설정, 앱)** 을 클릭 합니다.
@@ -359,7 +359,7 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
 
         1. **클러스터 액세스 그룹** 을 클릭 한 다음 **HDIUserGroup**를 선택 합니다. 향후이 그룹에 추가 하는 모든 사용자는 HDInsight 클러스터에 액세스할 수 있습니다.
 
-            ![클러스터 액세스 그룹 선택](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image129.jpg)
+            ![클러스터 액세스 그룹 선택](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0129.jpg)
 
     1. 클러스터 구성의 다른 단계를 완료 하 고 **클러스터 요약**에서 세부 정보를 확인 합니다. **만들기**를 클릭합니다.
 
@@ -370,11 +370,11 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
 1. 클러스터 대시보드에서 **역할** 을 클릭 합니다.
 1. **역할** 페이지에서 그룹 **hdiusergroup** 를 입력 하 여 **역할 할당**아래의 **클러스터 관리자** 역할에 할당 합니다.
 
-    ![hdiusergroup에 클러스터 관리자 역할 할당](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image137.jpg)
+    ![hdiusergroup에 클러스터 관리자 역할 할당](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0137.jpg)
 
 1. SSH 클라이언트를 열고 이전에 온-프레미스 Active Directory에서 만든 **hdiuser** 를 사용 하 여 클러스터에 로그인 합니다.
 
-    ![SSH를 사용 하 여 클러스터에 로그인](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image139.jpg)
+    ![SSH를 사용 하 여 클러스터에 로그인](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0139.jpg)
 
 이 계정으로 로그인 할 수 있는 경우 온-프레미스 active directory와 동기화 하도록 ESP 클러스터를 올바르게 구성 해야 합니다.
 

@@ -1,19 +1,18 @@
 ---
-title: 온-프레미스 Hyper-V VM과 Azure 간 재해 복구를 위한 지원 매트릭스 | Microsoft Docs
+title: 온-프레미스 Hyper-V VM과 Azure 간 재해 복구를 위한 지원 매트릭스
 description: Azure Site Recovery를 사용한 Hyper-V VM과 Azure 간 재해 복구를 위해 지원되는 구성 요소 및 요구 사항이 요약되어 있습니다.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 09/10/2019
 ms.author: raynew
-ms.openlocfilehash: b4f9c0ab3ca50b0ce8c9ba27d8773c58a72dcfa9
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 5d7ac7cf00ee59a06a914d312fd58de00515a0b4
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70230974"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873347"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>온-프레미스 Hyper-V VM과 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -50,7 +49,7 @@ VM 구성 | Azure로 복제하는 VM은 [Azure 요구 사항](#azure-vm-requirem
 
 ## <a name="vmdisk-management"></a>VM/디스크 관리
 
-**동작** | **세부 정보**
+**작업** | **세부 정보**
 --- | ---
 복제된 Hyper-V VM에서 디스크 크기 조정 | 지원되지 않습니다. 복제를 사용하지 않도록 설정하고, 변경 작업을 수행하고, VM에 복제를 다시 사용하도록 설정.
 복제된 Hyper-V VM에서 디스크 추가 | 지원되지 않습니다. 복제를 사용하지 않도록 설정하고, 변경 작업을 수행하고, VM에 복제를 다시 사용하도록 설정.
@@ -134,6 +133,7 @@ RDM | NA | NA
 Premium Storage | 예 | 예
 Import/Export 서비스 | 아니요 | 아니요
 대상 스토리지/캐시 스토리지(복제 데이터 저장에 사용됨) 계정에 구성된 가상 네트워크용 Azure Storage 방화벽 | 아니요 | 아니요
+저장소 계정 수정 | 아니요. 복제를 사용 하도록 설정한 후에는 대상 Azure storage 계정을 수정할 수 없습니다. 수정 하려면 재해 복구를 사용 하지 않도록 설정한 다음 했다가 다시 설정할. | 아니요
 
 
 ## <a name="azure-compute-features"></a>Azure 컴퓨팅 기능
@@ -166,7 +166,7 @@ VM 형식 | 1세대<br/><br/> 2세대--Windows | 기본 OS 디스크 형식이 �
 
 ## <a name="recovery-services-vault-actions"></a>Recovery Services 자격 증명 모음 작업
 
-**동작** |  **Hyper-V(VMM 포함)** | **VMM을 사용하지 않는 Hyper-V**
+**작업** |  **Hyper-V(VMM 포함)** | **VMM을 사용하지 않는 Hyper-V**
 --- | --- | ---
 리소스 그룹 간 자격 증명 모음 이동<br/><br/> 구독 내 및 구독 간 | 아니요 | 아니요
 스토리지 그룹 간 스토리지, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아니요 | 아니요

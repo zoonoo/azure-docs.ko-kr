@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fdf1fc14eb4ab1458c25b484bae6cd84ecec6d7f
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: bbb5b90ffac4a89c14a4a6df51022bb61b10fbb0
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575499"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845504"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>빠른 시작-사설 클라우드 환경 구성
 
@@ -23,7 +23,7 @@ ms.locfileid: "69575499"
 
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
-## <a name="create-a-private-cloud"></a>사설 클라우드 만들기
+## <a name="create-a-private-cloud"></a>프라이빗 클라우드 만들기
 
 사설 클라우드는 ESXi 호스트, vCenter, vSAN 및 NSX를 지 원하는 격리 된 VMware 스택입니다.
 
@@ -46,7 +46,7 @@ ms.locfileid: "69575499"
 9. **다음: 고급 옵션**입니다.
 10. VSphere/Vsphere 서브넷의 CIDR 범위를 입력 합니다. CIDR 범위가 온-프레미스 또는 기타 Azure 서브넷 (가상 네트워크) 또는 게이트웨이 서브넷과 겹치지 않는지 확인 합니다.
 
-    **CIDR 범위 옵션:** /24,/23,/22 또는/21. /24 CIDR 범위는 최대 9 개의 노드를 지원 하 고/23 CIDR 범위는 최대 41 노드를 지원 하며,/22 및/21 CIDR 범위는 최대 64 노드 (사설 클라우드의 최대 노드 수)를 지원 합니다.
+    **CIDR 범위 옵션:** /24,/23,/22 또는/21. /24 CIDR 범위는 최대 26 개의 노드를 지원 하 고/23 CIDR 범위는 최대 58 노드를 지원 하며,/22 및/21 CIDR 범위는 64 노드 (사설 클라우드의 최대 노드 수)를 지원 합니다.  Vlan 및 서브넷에 대 한 자세한 내용은 [vlan 및 서브넷 개요](cloudsimple-vlans-subnets.md)를 참조 하세요.
 
       > [!IMPORTANT]
       > VSphere/Vsphere CIDR 범위의 IP 주소는 사설 클라우드 인프라에서 사용 하도록 예약 되어 있습니다.  가상 머신에서는이 범위의 IP 주소를 사용 하지 마세요.

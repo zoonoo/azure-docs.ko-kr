@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 09/10/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b562ccf81a80219caa9f80bec82f64f7d2510626
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 4b5f85aa99876ef6c3c9193612051085f3e0ffc0
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194601"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70872196"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory의 그룹에 대한 동적 멤버 자격 규칙
 
@@ -358,6 +358,11 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
 ## <a name="rules-for-devices"></a>디바이스에 대한 규칙
 
 또한 그룹의 멤버 자격에 대한 디바이스 개체를 선택하는 규칙을 만들 수 있습니다. 사용자와 디바이스는 모두 그룹 멤버로 사용할 수 없습니다. **organizationalUnit** 특성은 더 이상 나열되지 않고 사용할 수 없습니다. 이 문자열은 특정 사례에서 Intune에 의해 설정되지만 Azure AD에서 인식되지 않습니다. 따라서 디바이스는 이 특성을 기반으로 하는 그룹에 추가됩니다.
+
+> [!NOTE]
+> systemlabels Intune으로 설정할 수 없는 읽기 전용 특성입니다.
+>
+> Windows 10의 경우 deviceOSVersion 특성의 올바른 형식은 다음과 같습니다. (장치. deviceOSVersion-eq "10.0 (17763)"). Get-msoldevice PowerShell cmdlet을 사용 하 여 서식 지정의 유효성을 검사할 수 있습니다.
 
 다음과 같은 디바이스 특성을 사용할 수 있습니다.
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: rogirdh
 ms.custom: seodec18
-ms.openlocfilehash: 3d3805fe5a574d3e6ecd9a6fa8f95dd28f308d25
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 4480819a08ef9a7a4ad7257f75a94c5d10a3d312
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101404"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858565"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Oracle VM 이미지 및 Microsoft Azure에 대 한 배포
 
@@ -58,11 +58,8 @@ Oracle-WebLogic-Server  Oracle       Oracle-WebLogic-Server  Oracle:Oracle-WebLo
 
 또한 개인은 솔루션이 Azure에서 처음부터 만들거나 온-프레미스 환경에서 업로드한 사용자 지정 이미지를 기반으로 하도록 선택할 수도 있습니다.
 
-## <a name="support-for-jd-edwards"></a>JD Edwards 지원
-Oracle 지원 정보 [문서 ID 2178595.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4)에 따르면, jd Edwards enterpriseone 버전 9.2 이상이 특정 `Minimum Technical Requirements` (mtr)을 충족 하는 **공용 클라우드 제품** 에서 지원 됩니다.  OS 및 소프트웨어 애플리케이션 호환성에 대한 해당 MTR 사양을 충족하는 사용자 지정 이미지를 만들어야 합니다. 
-
 ## <a name="oracle-database-vm-images"></a>Oracle 데이터베이스 VM 이미지
-Oracle은 Oracle Linux 기반 가상 머신 이미지의 Azure에서 Oracle DB 12.1 Standard 및 Enterprise Edition을 실행하도록 지원합니다.  Azure에서 Oracle DB의 프로덕션 워크로드에 대한 최상의 성능을 위해 VM 이미지 크기를 적절히 조정하고 Premium Storage에서 지원되는 관리 디스크를 사용해야 합니다. Oracle에서 게시한 VM 이미지를 사용하여 Azure에서 Oracle DB를 신속하게 실행하는 방법에 대한 지침은 [Oracle DB 빠른 시작 연습](oracle-database-quick-create.md)을 참조하세요.
+Oracle은 Oracle Linux을 기반으로 하는 가상 머신 이미지의 Azure에서 Oracle DB 12.1 이상 Standard 및 Enterprise edition을 지원 합니다.  Azure에서 Oracle DB의 프로덕션 워크 로드에 대 한 최상의 성능을 위해 VM 이미지 크기를 적절히 조정 하 고 프리미엄 SSD 또는 울트라 SSD Managed Disks를 사용 해야 합니다. Oracle에서 게시한 VM 이미지를 사용하여 Azure에서 Oracle DB를 신속하게 실행하는 방법에 대한 지침은 [Oracle DB 빠른 시작 연습](oracle-database-quick-create.md)을 참조하세요.
 
 ### <a name="attached-disk-configuration-options"></a>연결된 디스크 구성 옵션
 
@@ -80,6 +77,13 @@ Azure NetApp Files는 클라우드의 데이터베이스와 같은 고성능 워
 이러한 기능은 Azure NetApp Files는 NetApp® ONTAP® azure 데이터 센터 환경 내에서 실행 되는 모든 플래시 시스템에서 Azure 네이티브 서비스로 실행 되기 때문에 가능 합니다. 그 결과 다른 Azure 저장소 옵션과 마찬가지로 프로 비전 하 고 사용할 수 있는 이상적인 데이터베이스 저장소 기술이 있습니다. NFS 볼륨 Azure NetApp Files를 배포 하 고 액세스 하는 방법에 대 한 자세한 내용은 [Azure NetApp Files 설명서](https://docs.microsoft.com/azure/azure-netapp-files/) 를 참조 하세요. Azure NetApp Files에서 Oracle 데이터베이스를 운영 하는 방법에 대 한 모범 사례 권장 사항은 [Azure NetApp Files를 사용 하 여 Azure 배포 모범 사례 가이드의 oracle](https://www.netapp.com/us/media/tr-4780.pdf) 을 참조 하세요.
 
 
+## <a name="licensing-oracle-database--software-on-azure"></a>Azure의 라이선스 Oracle Database & 소프트웨어
+Microsoft Azure은 Oracle Database을 실행할 수 있는 권한이 있는 클라우드 환경입니다. Oracle 데이터베이스를 클라우드에서 라이선스를 라이선싱 하는 경우에는 Oracle Core 요소 테이블을 사용할 수 없습니다. 대신, 엔터프라이즈 버전 데이터베이스에 대해 하이퍼 스레딩 기술을 사용 하도록 설정 된 Vm을 사용 하는 경우 하이퍼 프로세서를 사용 하는 경우 두 개의 vCPUs를 단일 Oracle 프로세서 라이선스 (정책 문서에 명시 된 대로)로 계산 합니다. 정책 세부 정보는 [여기](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf)에서 찾을 수 있습니다.
+Oracle 데이터베이스에는 일반적으로 더 높은 메모리와 IO가 필요 합니다. 이러한 이유로 이러한 작업에는 메모리 액세스에 [최적화 된 vm](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-memory) 을 권장 합니다. 워크 로드를 더 최적화 하기 위해, 높은 메모리, 저장소 및 i/o 대역폭을 필요로 하지만 높은 코어 수가 아닌 Oracle DB 워크 로드에 대해 [제한 된 코어 vCPUs](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/constrained-vcpu) 를 권장 합니다.
+
+Oracle 소프트웨어와 워크 로드를 온-프레미스에서 Microsoft Azure로 마이그레이션하는 경우 Oracle은 [Azure의 ORACLE FAQ](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html) 에 명시 된 대로 라이선스 이동성을 제공 합니다.
+
+
 ## <a name="oracle-real-application-cluster-oracle-rac"></a>Oracle RAC(Oracle Real Application Cluster)
 Oracle RAC는 온-프레미스 다중 노드 클러스터 구성에서 단일 노드의 오류를 완화하도록 고안되었습니다. 이 기능은 하이퍼스케일(hyper-scale) 퍼블릭 클라우드 환경에 네이티브가 아닌 두 가지 온-프레미스 기술인 네트워크 멀티캐스트 및 공유 디스크에 의존합니다. 데이터베이스 솔루션에 Azure에서 Oracle RAC가 필요한 경우 이러한 기술을 사용 하려면 타사 소프트웨어가 필요 합니다. Oracle RAC에 대 한 자세한 내용은 [FlashGrid SkyCluster 페이지](https://www.flashgrid.io/oracle-rac-in-azure/)를 참조 하세요.
 
@@ -95,6 +99,11 @@ Oracle 데이터 가드로, 가상 머신에서 주 데이터베이스, 또 다�
 [Azure에서 Oracle GoldenGate 구현](configure-oracle-golden-gate.md) 자습서에서는 azure의 기본 설정 절차를 안내 합니다.
 
 Azure에서 HA 및 DR 솔루션을 설계 하는 것 외에도 데이터베이스를 복원 하기 위한 백업 전략이 필요 합니다. [Oracle Database 백업 및 복구](oracle-backup-recovery.md) 자습서에서는 일관 된 백업을 설정 하기 위한 기본 절차를 안내 합니다.
+
+
+## <a name="support-for-jd-edwards"></a>JD Edwards 지원
+Oracle 지원 정보 [문서 ID 2178595.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4)에 따르면, jd Edwards enterpriseone 버전 9.2 이상이 특정 `Minimum Technical Requirements` (mtr)을 충족 하는 **공용 클라우드 제품** 에서 지원 됩니다.  OS 및 소프트웨어 애플리케이션 호환성에 대한 해당 MTR 사양을 충족하는 사용자 지정 이미지를 만들어야 합니다. 
+
 
 ## <a name="oracle-weblogic-server-virtual-machine-images"></a>Oracle WebLogic Server 가상 머신 이미지
 

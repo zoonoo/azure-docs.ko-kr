@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 79b57a9c9f12c6014b9002b0688beae334af3587
-ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
+ms.openlocfilehash: 7b37912c58312644059f3990b4776514e081a4bb
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806521"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858837"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>IoT 플러그 앤 플레이 미리 보기용 용어 설명
 
@@ -46,9 +46,9 @@ Azure IoT Central는 [IoT 플러그 앤 플레이 장치](#iot-plug-and-play-dev
 
 Azure IoT 인증 서비스는 [IoT용 Azure Certified 포털](#azure-certified-for-iot-portal)을 통해 인증을 위해 [IoT 플러그 앤 플레이 장치](#iot-plug-and-play-device) 를 제출할 때 일련의 인증 테스트를 실행 합니다. 장치를 [IoT용 Certified 디바이스 카탈로그](#certified-for-iot-device-catalog)에 추가 하려면 먼저 장치를 인증 해야 합니다.
 
-## <a name="azure-iot-device-workbench-extension"></a>Azure IoT 장치 워크 벤치 확장
+## <a name="azure-iot-tools-extension"></a>Azure IoT 도구 확장
 
-Azure IoT 장치 워크 벤치는 다음과 같은 통합 환경을 제공 하는 [Visual Studio code](#visual-studio-code) 확장입니다.
+Azure IoT 도구는 IoT Hub 상호 작용 하 고 IoT 장치를 개발 하는 데 도움이 되는 [Visual Studio code](#visual-studio-code) 의 확장 모음입니다. IoT 플러그 앤 플레이 장치 개발의 경우 다음 작업을 수행 하는 데 도움이 됩니다.
 
 - [장치 기능 모델](#device-capability-model) 및 [인터페이스](#interface)를 작성 합니다.
 - [모델 리포지토리에](#model-repository)게시 합니다.
@@ -200,4 +200,4 @@ IoT 플러그 앤 플레이 장치는 일반적으로 데이터를 수집 하거
 
 ## <a name="visual-studio-code"></a>Visual Studio code
 
-Visual Studio code는 여러 플랫폼에서 사용할 수 있는 최신 코드 편집기입니다. [Azure IoT 장치 워크 벤치 확장과](#azure-iot-device-workbench-extension) 같은 확장을 사용 하면 다양 한 개발 시나리오를 지원 하도록 사용자 지정할 수 있습니다.
+Visual Studio code는 여러 플랫폼에서 사용할 수 있는 최신 코드 편집기입니다. [Azure IoT 도구](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 팩의 확장과 같은 확장을 사용 하면 다양 한 개발 시나리오를 지원 하도록 편집기를 사용자 지정할 수 있습니다.

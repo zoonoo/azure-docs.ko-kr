@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 00fadd8a98ec4f58783ed8b407e2621a7c107149
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 50bb26aa1a29dc8b1454fadec416aceea76405b2
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533528"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844252"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 
@@ -132,3 +132,12 @@ AKS 클러스터가 다음 예제와 같이 가상 머신 확장 집합에 없�
 * 클러스터가 *성공* 또는 *실패*이외의 프로 비전 상태에 있으면 작업 (*업그레이드/업데이트/만들기/크기 조정/삭제/마이그레이션*)이 종료 될 때까지 기다립니다. 이전 작업이 완료 되 면 최신 클러스터 작업을 다시 시도 합니다.
 
 * 클러스터의 업그레이드가 실패 한 경우에는 [내 클러스터가 실패 한 상태에 있음을 나타내는 단계를 수행 하 고, 업그레이드가 완료 될 때까지 업그레이드 또는 크기 조정이 작동 하지](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed)않습니다.
+
+## <a name="im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one"></a>기존 항목을 전달 하지 않고 새 클러스터를 만들려고 할 때 서비스 주체를 찾을 수 없다는 오류를 수신 합니다.
+
+AKS 클러스터를 만들 때 사용자를 대신 하 여 리소스를 만들어야 하는 서비스 주체가 필요 합니다. AKS은 클러스터를 만들 때 새 서비스 주체를 만들 수 있는 기능을 제공 하지만, 클러스터를 만드는 데 성공 하기 위해 적절 한 시간에 새 서비스 주체를 완전히 전파 하는 Azure Active Directory 필요 합니다. 이 전파 시간이 너무 오래 걸리면 클러스터에서 사용할 수 있는 서비스 주체를 찾을 수 없기 때문에를 만들기 위해 유효성 검사가 실패 합니다. 
+
+이에 대 한 다음 해결 방법을 사용 합니다.
+1. 지역에 걸쳐 이미 전파 된 기존 서비스 사용자를 사용 하 여 클러스터 만들기 시간에 AKS에 전달 합니다.
+2. 자동화 스크립트를 사용 하는 경우 서비스 주체 만들기와 AKS 클러스터 만들기 사이의 시간 지연을 추가 합니다.
+3. Azure Portal 사용 하는 경우 만드는 동안 클러스터 설정으로 돌아가서 몇 분 후에 유효성 검사 페이지를 다시 시도 합니다.

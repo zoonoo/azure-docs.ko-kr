@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 78d16e8e6fc43644cdb318f8e402c2e8bbe0363e
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 6aca340994f10bd546a25e577258d90d7b7b1368
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772503"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860928"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 서비스의 릴리스 정보
 
@@ -23,12 +23,42 @@ ms.locfileid: "70772503"
 
 알려진 버그 및 해결 방법에 대해 알아 보려면 [알려진 문제 목록](resource-known-issues.md)을 참조하세요.
 
+## <a name="2019-09-09"></a>2019-09-09
+
+### <a name="new-web-experience-for-azure-machine-learning-workspaces-preview"></a>Azure Machine Learning 작업 영역에 대 한 새로운 웹 환경 (미리 보기)
+새로운 웹 환경을 통해 데이터 과학자 및 데이터 엔지니어가 prepping에서 종단 간 기계 학습 수명 주기를 완료 하 고 데이터를 시각화 하 여 단일 위치에서 모델을 학습 하 고 배포할 수 있습니다. 
+
+![Azure Machine Learning 작업 영역 UI (미리 보기)](./media/azure-machine-learning-release-notes/new-ui-for-workspaces.jpg)
+
+**주요 기능:**
+
+이제이 새로운 Azure Machine Learning 인터페이스를 사용 하 여 다음을 수행할 수 있습니다.
++ 노트북 관리 또는 Jupyter에 연결
++ 자동화 된 ML 실험 실행
++ [로컬 파일, datastores, & 웹 파일에서 데이터 집합 만들기](how-to-create-register-datasets.md)
++ 모델을 만들기 위한 데이터 집합 준비 & 탐색
++ 모델에 대 한 데이터 드리프트 모니터링 
++ 대시보드에서 최근 리소스 보기
+
+이 릴리스가 출시 될 때 지원 되는 브라우저는 다음과 같습니다. Chrome, Firefox, Safari 및 Microsoft Edge Preview를 제공 합니다.
+
+**알려진 문제:**
+
+1. "문제가 발생 했습니다." 라는 메시지가 표시 되 면 브라우저를 새로 고칩니다. 배포가 진행 중일 때 "청크 파일을 로드 하는 동안 오류가 발생 했습니다.  
+
+1. 노트북 및 파일에서 파일을 삭제 하거나 이름을 바꿀 수 없습니다. 공개 미리 보기 중에는 노트북 VM에서 Jupyter UI 또는 터미널을 사용 하 여 업데이트 파일 작업을 수행할 수 있습니다. 탑재 된 네트워크 파일 시스템 이므로, 노트북 VM에서 변경한 내용은 모두 노트북 작업 영역에 즉시 반영 됩니다. 
+
+1. 노트북 VM으로 SSH를 수행 하려면:
+   1. VM을 설치 하는 동안 생성 된 SSH 키를 찾습니다. 또는 Azure ML Azure Portal에서 키를 찾고, 목록에서 노트북 VM을 찾고, 목록에서 노트북 VM을 찾고, 속성: 대화 상자에서 키를 복사 > > > 합니다.
+   1. 이러한 공개 및 개인 SSH 키를 로컬 컴퓨터로 가져옵니다.
+   1. 이를 사용 하 여 노트북 VM에 SSH 합니다. 
+
 ## <a name="2019-09-03"></a>2019-09-03
 ### <a name="azure-machine-learning-sdk-for-python-v1060"></a>Azure Machine Learning SDK for Python v 1.0.60
 
 + **새로운 기능**
   + 에는 데이터 저장소 또는 public url의 단일 또는 여러 파일을 참조 하는 filedataset이 도입 되었습니다. 파일은 모든 형식일 수 있습니다. FileDataset은 계산에 파일을 다운로드 하거나 탑재 하는 기능을 제공 합니다. FileDataset에 대해 알아보려면을 (를 https://aka.ms/file-dataset ) 참조 하세요.
-  + PythonScript Step, Adla Step, Databrick Step, DataTransferStep 및 AzureBatch 단계에 대 한 파이프라인 Yaml 지원 추가 됨
+  + PythonScript Step, Adla Step, Databricks Step, DataTransferStep 및 AzureBatch 단계에 대 한 파이프라인 Yaml 지원 추가 됨
 
 + **버그 수정 및 향상 된 기능**
   + **azureml-automl-core**
@@ -39,7 +69,7 @@ ms.locfileid: "70772503"
     + AutoML 모델은 이제 AutoMLExceptions을 반환 합니다.
     + 이 릴리스는 자동화 된 machine learning 로컬 실행의 실행 성능을 향상 시킵니다.
   + **azureml-core**
-    + 등록 `Dataset.get_all()` 이름으로 키가 지정 `TabularDataset` 된 `FileDataset` 및 개체의 사전을 반환 하는를 소개 합니다. 
+    + 데이터 집합을 소개 합니다. (작업 영역) get (작업 영역 `TabularDataset` ) `FileDataset` 은 등록 이름으로 키가 지정 된 및 개체의 사전을 반환 합니다. 
     
     ```py 
     workspace = Workspace.from_config() 
@@ -47,7 +77,7 @@ ms.locfileid: "70772503"
     mydata = all_datasets['my-data'] 
     ```
     
-    + 및 `parition_format` 에`Dataset.Tabular.from_parquet.files`인수를 도입 합니다. `Dataset.Tabular.from_delimited_files` 각 데이터 경로의 파티션 정보는 지정 된 형식에 따라 열로 추출 됩니다. ' {column_name} '은 (는) 문자열 열을 만들며 ' {column_name: yyyy/MM/dd/HH/mm/ss} '는 datetime 열을 만듭니다. 여기에서 ' yyyy ', ' MM ', ' dd ', ' HH ', ' mm ' 및 ' ss '는 datetime 형식의 연도, 월, 일, 시, 분, 초를 추출 하는 데 Partition_format는 파일 경로가 끝날 때까지 첫 번째 파티션 키의 위치부터 시작 해야 합니다. 예를 들어 '.. 경로를 지정 합니다. /USA/2019/01/01/data.csv ' 파티션이 국가 및 시간별 이며, partition_format = '/{Country}/{PartitionDate: yyyy/MM/dd}/m a s t '는 값이 ' USA ' 인 ' Country ' 문자열 열과 ' 2019-01-01 ' 값이 포함 된 datetime 열을 만듭니다.
+    + 및 `parition_format` 에`Dataset.Tabular.from_parquet.files`인수를 도입 합니다. `Dataset.Tabular.from_delimited_files` 각 데이터 경로의 파티션 정보는 지정 된 형식에 따라 열로 추출 됩니다. ' {column_name} '은 (는) 문자열 열을 만들며 ' {column_name: yyyy/MM/dd/HH/MM/ss} '는 datetime 열을 만듭니다. 여기에서 ' yyyy ', ' MM ', ' dd ', ' HH ', ' mm ' 및 ' ss '는 datetime 형식의 연도, 월, 일, 시간 Partition_format는 파일 경로가 끝날 때까지 첫 번째 파티션 키의 위치부터 시작 해야 합니다. 예를 들어 '.. 경로를 지정 합니다. /USA/2019/01/01/data.csv ' 파티션이 국가 및 시간별 이며, partition_format = '/{Country}/{PartitionDate: yyyy/MM/dd}/m a s t '는 값이 ' USA ' 인 ' Country ' 문자열 열과 ' 2019-01-01 ' 값이 포함 된 datetime 열을 만듭니다.
     + `to_csv_files`및 `to_parquet_files` 메서드가에 `TabularDataset`추가 되었습니다. 이러한 메서드는 데이터를 지정 `TabularDataset` 된 형식의 `FileDataset` 파일로 변환 하 여와 간의 변환을 가능 하 게 합니다.
     + 모델인 ()에서 생성 된 Dockerfile을 저장할 때 기본 이미지 레지스트리에 자동으로 로그인 합니다.
     + ' gpu_support '은 더 이상 필요 하지 않습니다. 이제 AzureML에서 nvidia docker 확장을 자동으로 검색 하 고 사용 합니다 (사용 가능한 경우). 후속 릴리스에서 제거될 예정입니다.
@@ -116,9 +146,9 @@ ms.locfileid: "70772503"
     + 전송-hyperdrive CLI 명령에 추가 재정의 매개 변수를 추가 했습니다.
     + API 호출의 안정성 향상은 일반적인 요청 라이브러리 예외에 대 한 다시 시도를 확장 합니다.
     + 제출 된 실행에서 실행을 제출 하기 위한 지원을 추가 합니다.
-    + 초기 토큰이 만료 된 후 파일의 업로드를 중지 시킨 FileWatcher의 SAS 토큰 문제를 수정 했습니다.
+    + FileWatcher의 만료 된 SAS 토큰 문제를 수정 했습니다 .이로 인해 초기 토큰이 만료 된 후 파일의 업로드가 중지 됩니다.
     + 데이터 집합 python SDK에서 HTTP csv/tsv 파일 가져오기를 지원 합니다.
-    + 작업 영역. setup () 메서드를 사용 하지 않습니다. 사용자에 게 create () 또는 get ()/from_config ()를 대신 사용 하도록 제안 하는 경고 메시지가 표시 됩니다.
+    + 작업 영역. setup () 메서드를 사용 하지 않습니다. 사용자에 게 create () 또는 get ()/from_config ()를 대신 사용 하는 경고 메시지가 표시 됩니다.
     + 환경을 추가 했습니다. 추가 _private_pip_wheel ()를 사용 하 여 개인 사용자 지정 python 패키지 (whl)를 작업 영역에 업로드 하 고이를 안전 하 게 사용 하 여 환경을 빌드하거나 구체화할 수 있습니다.
     + 이제 Microsoft에서 생성 한 및 고객 인증서 모두 AKS 클러스터에 배포 된 점수 매기기 끝점에 대 한 SSL 인증서를 업데이트할 수 있습니다.
   + **azureml-explain-model**
@@ -274,7 +304,7 @@ ms.locfileid: "70772503"
   + **azureml-explain-model**
     + Azureml의 원시 기능 중요도에 대 한 라임 설명의 수정 된 변환 인수-설명-모델 패키지
     + LimeExplainer에 대 한 scipy sparse 지원 추가
-    + 선형 모델을 설명 하는 다른 수준 뿐만 아니라 shap 선형 설명 래퍼를 추가 했습니다.
+    + 선형 모델을 설명 하는 shape 선형 설명 래퍼 뿐만 아니라 테이블 형식 설명에 다른 수준 추가
     + 모델 라이브러리 설명의 설명 모방의 경우 스파스 데이터 입력에 대해 include_local = False 인 경우 오류 해결
     + automl output에 예상 값 추가
     + 원시 기능 중요도를 얻기 위해 변환 인수를 제공 했을 때 순열 기능 중요도 수정 됨
@@ -411,7 +441,7 @@ Azure Databricks를 사용 하는 일부 고객에 게 문제가 발생 하 여 
 + **버그 수정 및 향상 된 기능**
   + Azureml 코어에서 paramiko 종속성을 제거 했습니다. 레거시 계산 대상 연결 방법에 대 한 사용 중단 경고가 추가 되었습니다.
   + Create_children의 성능 향상
-  + 이진 분류자를 사용 하는 설명에서 교사 확률이 shap 값 크기 조정에 사용 되는 경우 확률의 순서를 수정 합니다.
+  + 이진 분류자를 사용 하는 설명 모방에서 교사 확률이 셰이프 값 크기 조정에 사용 되는 경우 확률의 순서를 수정 합니다.
   + 자동화 된 machine learning에 대 한 오류 처리 및 메시지가 개선 되었습니다. 
   + 자동화 된 machine learning에 대 한 반복 시간 제한 문제를 수정 했습니다.
   + 자동화 된 기계 학습에 대 한 시계열 변환 성능이 개선 되었습니다.

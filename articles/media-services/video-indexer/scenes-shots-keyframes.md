@@ -1,6 +1,6 @@
 ---
-title: Video Indexer 장면, 샷 및 키 프레임-Azure
-titlesuffix: Azure Media Services
+title: Video Indexer 장면, 샷 및 키 프레임
+titleSuffix: Azure Media Services
 description: 이 항목에서는 Video Indexer 장면, 샷 및 키 프레임에 대 한 개요를 제공 합니다.
 services: media-services
 author: Juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
-ms.openlocfilehash: cdabc1b6bfed519098f656710ef49a946e676cf2
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: b24778434596f583be44572612c856fa4e0cecde
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815660"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860236"
 ---
 # <a name="scenes-shots-and-keyframes"></a>장면, 샷 및 키 프레임
 
@@ -39,6 +39,30 @@ Video Indexer 인접 한 프레임의 색 구성표에서 급격 한 전환 및 
 샷을 가장 잘 나타내는 프레임을 선택 합니다. 키 프레임은 미적 속성 (예: contrast 및 stableness)을 기반으로 전체 비디오에서 선택한 대표 프레임입니다. Video Indexer는 키 프레임 미리 보기를 추출할 수 있는 고객을 기반으로 하 여 샷의 메타 데이터의 일부로 키 프레임 Id 목록을 검색 합니다. 
 
 키 프레임은 출력 JSON의 샷과 연결 됩니다. 
+
+## <a name="editorial-shot-type-detection"></a>편집 샷 유형 검색
+
+Insights JSON의 개별 샷에 연결 된 샷 유형은 해당 편집 유형을 나타냅니다. 비디오를 클립, 트레일러 또는 미술 용의 특정 스타일을 검색 하는 경우 이러한 샷 유형 특성을 유용 하 게 사용할 수 있습니다. 각 샷의 첫 번째 키의 분석에 따라 다양 한 유형이 결정 됩니다. 샷을 첫 번째 키프레임에 나타나는 얼굴의 크기, 크기 및 위치로 식별 됩니다. 
+
+샷 크기와 크기는 카메라와 프레임에 나타나는 얼굴 사이의 거리에 따라 결정 됩니다. 이러한 속성을 사용 하 여 Video Indexer는 다음과 같은 샷 유형을 검색 합니다.
+
+* 넓게: 전체 사용자의 본문을 표시 합니다.
+* 보통: 개인의 위쪽 본문과 얼굴을 표시 합니다.
+* 닫기: 주로 사용자의 얼굴을 표시 합니다.
+* 매우 가깝게: 화면을 채우는 사람의 얼굴을 표시 합니다. 
+
+또한 샷 유형은 프레임의 중심을 기준으로 주제 문자의 위치에 따라 결정 될 수 있습니다. 이 속성은 Video Indexer에서 다음과 같은 샷 유형을 정의 합니다.
+
+* 왼쪽: 사람이 프레임의 왼쪽에 표시 됩니다.
+* 가운데 얼굴: 사람이 프레임의 중앙 영역에 나타납니다.
+* 오른쪽 얼굴: 사람이 프레임의 오른쪽에 나타납니다.
+* 옥외: 개인은 옥외 설정에 표시 됩니다.
+* 실내: 개인이 실내 설정에 표시 됩니다.
+
+추가 특성:
+
+* 두 가지 샷: 중간 크기의 두 사람 얼굴을 표시 합니다.
+* 여러 얼굴: 세 명 이상이 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

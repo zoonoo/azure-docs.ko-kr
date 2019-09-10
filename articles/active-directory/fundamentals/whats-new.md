@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 197df5c5467a9cea9a76c888569752ed2576d2d2
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: e6bb926aeab4f88f2d41c578ae3962737df7b2f3
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375754"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70872872"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
@@ -50,6 +50,23 @@ Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확�
 2019 년 10 월 1 일부 터 Power BI는 Azure AD Power BI 콘텐츠 팩을 비롯 한 모든 콘텐츠 팩에 대 한 사용 중단을 시작 합니다. 이 콘텐츠 팩의 대 안으로 azure ad 통합 문서를 사용 하 여 Azure AD 관련 서비스에 대 한 정보를 얻을 수 있습니다. 보고서 전용 모드의 조건부 액세스 정책에 대 한 통합 문서, 앱 동의 기반 정보 등을 비롯 한 추가 통합 문서가 제공 됩니다.
 
 통합 문서에 대 한 자세한 내용은 [Azure Active Directory 보고서에 Azure Monitor 통합 문서를 사용 하는 방법](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks)을 참조 하세요. 콘텐츠 팩을 사용 하지 않는 방법에 대 한 자세한 내용은 [발표 Power BI 템플릿 앱 일반](https://powerbi.microsoft.com/blog/announcing-power-bi-template-apps-general-availability/) 공급 블로그 게시물을 참조 하세요.
+
+---
+
+### <a name="enhanced-search-filtering-and-sorting-for-groups-is-available-in-the-azure-ad-portal-public-preview"></a>Azure AD 포털 (공개 미리 보기)에서 그룹에 대 한 향상 된 검색, 필터링 및 정렬을 사용할 수 있습니다.
+
+**유형:** 새 기능  
+**서비스 범주:** 그룹 관리  
+**제품 기능:** 공동 작업
+
+Azure AD 포털에서 향상 된 그룹 관련 환경의 공개 미리 보기 가용성을 발표 하 게 되어 기쁘게 생각 합니다. 이러한 향상 된 기능을 통해 다음을 제공 하 여 그룹 및 멤버 목록을 보다 효율적으로 관리할 수 있습니다.
+
+- 그룹 목록에 있는 부분 문자열 검색 등의 고급 검색 기능
+- 멤버 및 소유자 목록의 고급 필터링 및 정렬 옵션입니다.
+- 멤버 및 소유자 목록에 대 한 새로운 검색 기능.
+- 그룹 수가 클 경우 그룹 수가 더 정확 합니다.
+
+자세한 내용은 [Azure Portal에서 그룹 관리](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-members-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context)를 참조 하세요.
 
 ---
 
@@ -170,7 +187,7 @@ AzureAD 및 AzureAD Preview PowerShell 모듈에 대 한 새로운 업데이트�
 
 ---
 
-### <a name="improvements-to-the-ui-of-the-dynamic-group-rule-builder-in-the-azure-portal"></a>Azure Portal에서 동적 그룹 규칙 작성기의 UI에 대 한 향상 된 기능
+### <a name="improvements-to-the-ui-of-the-dynamic-group-rule-builder-in-the-azure-portal"></a>Azure Portal에서 동적 그룹 규칙 작성기 UI의 향상 된 기능
 
 **유형:** 변경된 기능  
 **서비스 범주:** 그룹 관리  

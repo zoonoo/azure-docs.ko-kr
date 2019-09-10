@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: 5d0d276096441c780dee4f8b1e95442a1d7e7b25
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: d3c6395f7fd66e1b89fc49536e228249bc4ed2a9
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050919"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859243"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Excel Online 데이터 관리
 
@@ -33,7 +33,7 @@ Azure Logic Apps 및 Excel Online 커넥터를 사용하여 비즈니스 또는 
 > [!NOTE]
 > [비즈니스용 Excel Online](/connectors/excelonlinebusiness/) 및 [OneDrive용 Excel Online](/connectors/excelonline/) 커넥터는 Azure Logic Apps와 작동하며 [PowerApps용 Excel 커넥터](/connectors/excel/)와 다릅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -53,6 +53,9 @@ Azure Logic Apps 및 Excel Online 커넥터를 사용하여 비즈니스 또는 
 1. 트리거 아래에서 **새 단계**를 선택합니다.
 
 1. 검색 상자에서 필터로 “excel”을 입력합니다. 작업 목록에서 원하는 작업을 선택합니다.
+
+   > [!NOTE]
+   > 논리 앱 디자이너는 100 개 이상의 열이 있는 테이블을 로드할 수 없습니다. 가능 하면 디자이너에서 테이블을 로드할 수 있도록 선택한 테이블의 열 수를 줄입니다.
 
 1. 메시지가 표시 되 면 Office 365 계정에 로그인 합니다.
 

@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: 01025acfa2fd939db8134a1e61c7902034a1d2c3
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: b78a1b250f46c2ddd2b36e19590c4a94ca3ab3fb
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424222"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844695"
 ---
 # <a name="azure-data-share-preview-concepts"></a>Azure 데이터 공유 미리 보기 개념 
 
@@ -35,7 +35,7 @@ Azure 데이터 공유 미리 보기에는 데이터 공유와 관련 된 몇 �
 
 데이터 소비자는 **받은** 공유로 이동 하 여 받은 공유의 상태를 확인 하 여 활성 공유 구독이 있는지 확인할 수 있습니다. 
 
-## <a name="snapshot"></a>스냅샷
+## <a name="snapshot"></a>스냅숏
 
 데이터 소비자가 데이터 공유 초대를 수락 하면 스냅숏을 만들 수 있습니다. 초대를 수락 하면 공유 된 데이터에 대 한 전체 스냅숏을 트리거할 수 있습니다. 스냅숏은 데이터 소비자가 스냅숏을 생성 한 시점의 데이터 복사본입니다. 
 
@@ -53,7 +53,9 @@ Azure 데이터 공유 미리 보기에는 데이터 공유와 관련 된 몇 �
 
 데이터 공급자는 여러 수신자를 데이터 공유에 초대할 수 있습니다. 데이터 공유에 받는 사람을 추가 하 여이 작업을 수행할 수 있습니다. 데이터 공유를 만든 후에도 초대를 추가할 수 있습니다. 
 
-데이터 공급자는 초대를 보낸 후 해당 초대를 삭제할 수 있습니다. 데이터 공급자가 초대를 받은 후에도 초대를 삭제 하는 경우 데이터 소비자는 활성 공유 구독을 보유 하 고 있을 수 있습니다. 데이터 공급자가 초대를 삭제 하 고 아직 수락 하지 않은 경우 데이터 소비자는이를 수락할 수 없습니다. 
+데이터 공급자는 초대가 수락 되지 않은 경우 보낸 후 초대를 삭제할 수 있습니다. 데이터 공급자가 초대를 삭제 하 고 아직 수락 하지 않은 경우 데이터 소비자는이를 수락할 수 없습니다. 
+
+하루에 최대 5 번 초대를 다시 보낼 수 있습니다. 
 
 ## <a name="recipient"></a>받는 사람
 

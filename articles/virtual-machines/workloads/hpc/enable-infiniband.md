@@ -1,6 +1,6 @@
 ---
-title: InifinBand SR-IOV-Azure Virtual Machines를 사용 하 여 사용 하도록 설정 | Microsoft Docs
-description: SR-IOV를 사용 하 여 InfiniBand를 사용 하는 방법에 알아봅니다.
+title: SR-IOV를 사용 하 여 InifinBand 사용-Azure Virtual Machines | Microsoft Docs
+description: SR-IOV로 InfiniBand를 사용 하도록 설정 하는 방법에 대해 알아봅니다.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
@@ -12,25 +12,25 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 2e28627359f339a3bf818a15d6a5c8e456fb554a
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 7218fceae71969f204c6c25ba4793a7c94341693
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797533"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858474"
 ---
-# <a name="enable-infiniband-with-sr-iov"></a>SR-IOV를 사용 하 여 InfiniBand를 사용 하도록 설정
+# <a name="enable-infiniband-with-sr-iov"></a>SR-IOV를 사용 하 여 InfiniBand 사용
 
-InfiniBand (IB) 사용 하 여 사용자 지정 VM 이미지를 구성 하는 가장 간단 하 고 권장 되는 방법은 배포 InfiniBandDriverLinux 또는 InfiniBandDriverWindows VM 확장을 추가 하는 것입니다.
-이러한 VM 확장을 사용 하는 방법을 알아봅니다 [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances) 고 [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances)
+HPC 용 IaaS Vm을 시작 하는 가장 간단 하 고 권장 되는 방법은 CentOS-HPC 7.6 VM OS 이미지를 사용 하는 것입니다. 사용자 지정 VM 이미지를 사용 하는 경우 InfiniBand (IB)를 사용 하 여이 이미지를 구성 하는 가장 쉬운 방법은 배포에 InfiniBandDriverLinux 또는 InfiniBandDriverWindows VM 확장을 추가 하는 것입니다.
+[Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances) 및 [WINDOWS](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances) 에서 이러한 VM 확장을 사용 하는 방법을 알아봅니다.
 
-SR-IOV에 InfiniBand를 수동으로 구성 하려면 (현재: HB 및 HC 시리즈) Vm을 사용 하도록 설정, 다음 단계를 수행 합니다. 이러한 단계가 RHEL/CentOS에만 합니다. Ubuntu 16.04과 18.04 및 SLES (SP4 12 및 15)에 대 한 받은 편지함 드라이버는 잘 작동 합니다.
+SR-IOV를 사용 하도록 설정 된 Vm (현재 HB 및 HC 시리즈)에서 InfiniBand를 수동으로 구성 하려면 다음 단계를 수행 합니다. 이러한 단계는 RHEL/CentOS에만 해당 됩니다. Ubuntu (16.04 및 18.04) 및 SLES (12 SP4 및 15)의 경우 수신함 드라이버가 제대로 작동 합니다.
 
-## <a name="manually-install-ofed"></a>OFED를 수동으로 설치
+## <a name="manually-install-ofed"></a>수동으로 OFED 설치
 
-ConnectX 5에 대 한 최신 MLNX_OFED 드라이버를 설치 [Mellanox](https://www.mellanox.com/page/products_dyn?product_family=26)합니다.
+[Mellanox](https://www.mellanox.com/page/products_dyn?product_family=26)에서 connectx-3-5에 대 한 최신 MLNX_OFED 드라이버를 설치 합니다.
 
-RHEL/centos (7.6에 대 한 아래 예제):
+RHEL/CentOS의 경우 (예: 7.6):
 
 ```bash
 sudo yum install -y kernel-devel python-devel
@@ -41,9 +41,9 @@ tar zxvf MLNX_OFED_LINUX-4.5-1.0.1.0-rhel7.6-x86_64.tgz
 sudo ./MLNX_OFED_LINUX-4.5-1.0.1.0-rhel7.6-x86_64/mlnxofedinstall --add-kernel-support
 ```
 
-Windows를 다운로드 하 여 ConnectX-5에서 WinOF 2 드라이버 설치 [Mellanox](https://www.mellanox.com/page/products_dyn?product_family=32&menu_section=34)
+Windows의 경우 [Mellanox](https://www.mellanox.com/page/products_dyn?product_family=32&menu_section=34) 에서 connectx-3에 대 한 winof 드라이버를 다운로드 하 여 설치 합니다.
 
-## <a name="enable-ipoib"></a>IPoIB를 사용 하도록 설정
+## <a name="enable-ipoib"></a>IPoIB 사용
 
 ```bash
 sudo sed -i 's/LOAD_EIPOIB=no/LOAD_EIPOIB=yes/g' /etc/infiniband/openib.conf
@@ -55,11 +55,11 @@ then
 fi
 ```
 
-## <a name="assign-an-ip-address"></a>IP 주소를 할당 합니다.
+## <a name="assign-an-ip-address"></a>IP 주소 할당
 
-Ib0 인터페이스 중 하나를 사용 하 여 IP 주소를 할당 합니다.
+다음 중 하나를 사용 하 여 ib0 인터페이스에 IP 주소를 할당 합니다.
 
-- 루트로 ib0 인터페이스에 IP 주소를 수동으로 할당 합니다.
+- Ib0 인터페이스 (root)에 IP 주소를 수동으로 할당 합니다.
 
     ```bash
     ifconfig ib0 $(sed '/rdmaIPv4Address=/!d;s/.*rdmaIPv4Address="\([0-9.]*\)".*/\1/' /var/lib/waagent/SharedConfig.xml)/16
@@ -67,7 +67,7 @@ Ib0 인터페이스 중 하나를 사용 하 여 IP 주소를 할당 합니다.
 
 또는
 
-- WALinuxAgent를 사용 하 여 IP 주소 할당을 유지 하도록 합니다.
+- WALinuxAgent를 사용 하 여 IP 주소를 할당 하 고 유지 합니다.
 
     ```bash
     yum install -y epel-release
@@ -84,4 +84,4 @@ Ib0 인터페이스 중 하나를 사용 하 여 IP 주소를 할당 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-에 대해 자세히 알아보세요 [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) Azure에서.
+Azure의 [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) 에 대해 자세히 알아보세요.

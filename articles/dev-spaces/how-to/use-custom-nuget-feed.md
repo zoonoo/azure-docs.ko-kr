@@ -10,12 +10,12 @@ ms.topic: conceptual
 description: Azure Dev Space에서 사용자 지정 NuGet 피드를 사용하여 NuGet 패키지에 액세스하고 이를 사용합니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, 컨테이너
 manager: gwallace
-ms.openlocfilehash: 44a87491d276e09e1fa8fed3f5e6803648c3e4a2
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 9df095011c1ff66ff0c85993c7c85dffe62623b8
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305392"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873263"
 ---
 #  <a name="use-a-custom-nuget-feed-in-an-azure-dev-space"></a>Azure Dev Space에서 사용자 지정 NuGet 피드 사용
 
@@ -33,7 +33,7 @@ NuGet 피드는 프로젝트에 패키지 원본을 포함하는 편리한 방�
 </ItemGroup>
 ```
 
-프로젝트 폴더에 [nuget.exe](https://docs.microsoft.com/nuget/reference/nuget-config-file) 파일을 만들고 nuget 피드에 대 한 `packageSources` 및 `packageSourceCredentials` 섹션을 설정 합니다. 섹션 `packageSources` 은 공개적으로 액세스할 수 있어야 하는 피드 url을 포함 합니다. 는 `packageSourceCredentials` 피드에 액세스 하기 위한 자격 증명입니다. 예를 들어:
+프로젝트 폴더에 [nuget.exe](https://docs.microsoft.com/nuget/reference/nuget-config-file) 파일을 만들고 nuget 피드에 대 한 `packageSources` 및 `packageSourceCredentials` 섹션을 설정 합니다. 섹션 `packageSources` 에는 AKS 클러스터에서 액세스할 수 있어야 하는 피드 url이 포함 되어 있습니다. 는 `packageSourceCredentials` 피드에 액세스 하기 위한 자격 증명입니다. 예:
 
 ```xml
 <packageSources>
@@ -48,7 +48,7 @@ NuGet 피드는 프로젝트에 패키지 원본을 포함하는 편리한 방�
 </packageSourceCredentials>
 ```
 
-Dockerfiles를 업데이트 하 여 `NuGet.Config` 파일을 이미지에 복사 합니다. 예를 들어:
+Dockerfiles를 업데이트 하 여 `NuGet.Config` 파일을 이미지에 복사 합니다. 예:
 
 ```console
 COPY ["<project folder>/NuGet.Config", "./NuGet.Config"]

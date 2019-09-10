@@ -8,12 +8,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/08/2019
-ms.openlocfilehash: acfcee6e8308bc508bd709c40bd1794beab3130f
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 5a6aebd276ef8658da9ca763be7da5c38a9c772a
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804731"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873423"
 ---
 # <a name="use-azure-data-factory-template-for-bulk-copy-from-database-to-azure-data-explorer"></a>데이터베이스에서 Azure로 대량 복사 Azure Data Factory 템플릿 사용 데이터 탐색기
 
@@ -38,19 +38,19 @@ Azure 데이터 탐색기는 응용 프로그램, 웹 사이트 및 IoT 장치�
 
 SQL Server 원본 테이블 형식의 예:
     
-    ```sql   
-    CREATE TABLE control_table (
-        PartitionId int,
-        SourceQuery varchar(255),
-        ADXTableName varchar(255)
-    );
-    ```
+```sql   
+CREATE TABLE control_table (
+PartitionId int,
+SourceQuery varchar(255),
+ADXTableName varchar(255)
+);
+```
     
-        |속성  |Description  | 예제
-        |---------|---------| ---------|
-        |PartitionId   |   복사 순서 | 1  |  
-        |SourceQuery   |   파이프라인 런타임 중에 복사할 데이터를 나타내는 쿼리입니다. | <br>`select * from table where lastmodifiedtime  LastModifytime >= ''2015-01-01 00:00:00''>` </br>    
-        |ADXTableName  |  대상 테이블 이름 | MyAdxTable       |  
+|속성  |Description  | 예제
+|---------|---------| ---------|
+|PartitionId   |   복사 순서 | 1  |  
+|SourceQuery   |   파이프라인 런타임 중에 복사할 데이터를 나타내는 쿼리입니다. | <br>`select * from table where lastmodifiedtime  LastModifytime >= ''2015-01-01 00:00:00''>` </br>    
+|ADXTableName  |  대상 테이블 이름 | MyAdxTable       |  
 
 **Controltabledataset** 의 형식이 다른 경우 형식에 대 한 비교할 수 있는 **controltabledataset** 을 만듭니다.
 

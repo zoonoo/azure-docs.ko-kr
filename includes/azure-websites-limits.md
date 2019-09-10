@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/09/2019
 ms.author: jroth
 ms.openlocfilehash: 1080e3488483610af0f0c9afadaf000895021821
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "69657825"
 ---
 | 리소스 | Free | Shared | Basic | 표준 | 프리미엄(v2) | 격리 </th> |
@@ -20,7 +20,7 @@ ms.locfileid: "69657825"
 | 스토리지<sup>5</sup> |1GB<sup>5</sup> |1GB<sup>5</sup> |10GB<sup>5</sup> |50GB<sup>5</sup> |250GB<sup>5</sup></p> |1TB<sup>5</sup>|
 | CPU 시간 (5 분)<sup>6</sup> |3분 |3분 |무제한, 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/)으로 결제</a> |무제한, 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/)으로 결제</a> |무제한, 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/)으로 결제</a> |무제한, 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/)으로 결제</a>|
 | CPU 시간(일)<sup>6</sup> |60분 |240분 |무제한, 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/)으로 결제</a> |무제한, 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/)으로 결제</a> |무제한, 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/)으로 결제</a> |무제한, 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/)으로 결제</a> |
-| 메모리(1시간) |App Service 요금제 당 1024 MB |앱 당 1024 MB |해당 사항 없음 |해당 사항 없음 |해당 사항 없음 |해당 사항 없음 |
+| 메모리(1시간) |App Service 요금제 당 1024 MB |앱 당 1024 MB |N/A |해당 사항 없음 |해당 사항 없음 |해당 사항 없음 |
 | 대역폭 |165 MB |무제한, [데이터 전송 요금](https://azure.microsoft.com/pricing/details/data-transfers/) 이 적용 |무제한, [데이터 전송 요금](https://azure.microsoft.com/pricing/details/data-transfers/) 이 적용 |무제한, [데이터 전송 요금](https://azure.microsoft.com/pricing/details/data-transfers/) 이 적용 |무제한, [데이터 전송 요금](https://azure.microsoft.com/pricing/details/data-transfers/) 이 적용 |무제한, [데이터 전송 요금](https://azure.microsoft.com/pricing/details/data-transfers/) 이 적용 |
 | 애플리케이션 아키텍처 |32비트 |32비트 |32비트/64비트 |32비트/64비트 |32비트/64비트 |32비트/64비트 |
 | 인스턴스당 웹 소켓<sup>7</sup> |5 |35 |350 |제한 없음 |제한 없음 |무제한 |

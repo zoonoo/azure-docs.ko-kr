@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: f053cc9bf6b08b9cf76b6e992c3d8cbdf5f759da
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 1b3d02d5cfdae2f196f2f35f075dd8c250b5ece1
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258977"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860334"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Azure 가상 머신에서 백업 오류 문제 해결
 
@@ -25,7 +25,7 @@ ms.locfileid: "70258977"
 
 ### <a name="basic-troubleshooting"></a>기본 문제 해결
 
-* VM 에이전트 (WA 에이전트)가 [최신 버전](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent-on-the-virtual-machine)인지 확인 합니다.
+* VM 에이전트 (WA 에이전트)가 [최신 버전](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent)인지 확인 합니다.
 * Windows 또는 Linux VM OS 버전이 지원 되는지 확인 하세요. [IAAS Vm Backup 지원 매트릭스](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas)를 참조 하세요.
 * 다른 백업 서비스가 실행 되 고 있지 않은지 확인 합니다.
    * 스냅숏 확장 문제가 없는지 확인 하려면 확장을 제거 하 여 [강제로 다시 로드 한 후 백업을 다시 시도](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-backup-extension-fails-to-update-or-load)하세요.

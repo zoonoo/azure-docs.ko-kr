@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
 ms.openlocfilehash: 7c4c80950e43f374b40085cb4e1c3e026e5f3abd
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "68698273"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
@@ -85,7 +85,7 @@ Azure 가격 책정에 대해 자세히 알아보려면 [azure 가격 책정 개
 * [네트워킹](#networking-limits)
   * [Application Gateway](#application-gateway-limits)
   * [Azure DNS](#azure-dns-limits)
-  * [Azure Front 도어 서비스](#azure-front-door-service-limits)
+  * [Azure Front Door Service](#azure-front-door-service-limits)
   * [Azure Firewall](#azure-firewall-limits)
   * [ExpressRoute](#expressroute-limits)
   * [Load Balancer](#load-balancer)
@@ -101,7 +101,7 @@ Azure 가격 책정에 대해 자세히 알아보려면 [azure 가격 책정 개
 * [사이트 복구](#site-recovery-limits)
 * [SQL Database](#sql-database-limits)
 * [SQL Data Warehouse](#sql-data-warehouse-limits)
-* [스토리지](#storage-limits)
+* [저장소](#storage-limits)
 * [StorSimple 시스템](#storsimple-system-limits)
 * [Stream Analytics](#stream-analytics-limits)
 * [구독](#subscription-limits)
@@ -372,7 +372,7 @@ Azure Database for PostgreSQL 제한은 [Azure Database for PostgreSQL의 제한
 ### <a name="key-vault-limits"></a>키 값 제한
 [!INCLUDE [key-vault-limits](../includes/key-vault-limits.md)]
 
-### <a name="multi-factor-authentication-limits"></a>Multi-factor Authentication 제한
+### <a name="multi-factor-authentication-limits"></a>Multi-Factor Authentication 제한
 [!INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
 
 ### <a name="automation-limits"></a>Automation 한도

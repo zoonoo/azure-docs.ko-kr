@@ -9,10 +9,10 @@ ms.date: 06/25/2019
 ms.author: anavin
 ms.custom: include file
 ms.openlocfilehash: a37280fddf34221a9d08501ef55c6b069cd877a4
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "70242717"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>네트워킹 제한-Azure Resource Manager 다음 제한은 구독 당 지역 별로 **Azure Resource Manager** 를 통해 관리 되는 네트워킹 리소스에 대해서만 적용 됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.

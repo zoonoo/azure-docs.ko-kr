@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 88d9ab0063b6cf2803332d7af50190c659b3e6fe
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 7922f07cfe08d0bd58827b59337b86387c624778
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207218"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844676"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 
@@ -94,6 +94,7 @@ Python 함수 프로젝트에 대 한 폴더 구조는 다음 예제와 같습�
  | - MyFirstFunction
  | | - __init__.py
  | | - function.json
+ | | - example.py
  | - MySecondFunction
  | | - __init__.py
  | | - function.json
@@ -110,6 +111,12 @@ Python 함수 프로젝트에 대 한 폴더 구조는 다음 예제와 같습�
 
 ```
 from __app__.SharedCode import myFirstHelperFunction
+```
+
+함수에 대 한 로컬 모듈을 참조 하려면 다음과 같이 상대 가져오기 구문을 사용할 수 있습니다.
+
+```
+from . import example
 ```
 
 Azure의 함수 앱에 함수 프로젝트를 배포할 때 *Functionapp* 폴더의 전체 콘텐츠는 패키지에 포함 되어야 하지만 폴더 자체에는 포함 되지 않아야 합니다.

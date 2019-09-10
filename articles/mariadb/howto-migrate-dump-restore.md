@@ -6,19 +6,19 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: bcb76fcbba02bf53b48cc462e3dad8f264db02ed
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 05626535a2ab2d8da29b8c817ebfe84c257c76aa
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60745952"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845054"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>덤프 및 복원을 사용하여 MariaDB Database를 Azure Database for MariaDB로 마이그레이션
 이 문서에서는 Azure Database for MariaDB에서 데이터베이스를 백업 및 복원하는 2가지 일반적인 방법에 대해 설명
 - 명령줄에서 덤프 및 복원(mysqldump 사용) 
 - PHPMyAdmin을 사용하여 덤프 및 복원
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
 - [Azure Database for MariaDB 서버 만들기 - Azure Portal](quickstart-create-mariadb-server-database-using-azure-portal.md)
 - [mysqldump](https://mariadb.com/kb/en/library/mysqldump/) 명령줄 유틸리티가 컴퓨터에 설치되어 있어야 함
@@ -78,10 +78,6 @@ $ mysqldump -u root -p testdb table1 table2 > testdb_tables_backup.sql
 한 번에 둘 이상의 데이터베이스를 백업하려면 --database 스위치를 사용하고 데이터베이스 이름을 공백으로 구분합니다. 
 ```bash
 $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sql 
-```
-서버의 모든 데이터베이스를 한 번에 백업하려면 --all-databases 옵션을 사용해야 합니다.
-```bash
-$ mysqldump -u root -p --all-databases > alldb_backup.sql 
 ```
 
 ## <a name="create-a-database-on-the-target-server"></a>대상 서버에서 데이터베이스 만들기

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5ccc4ef6c095eacd29590504d46756ead856574
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 73784afd9577d66850596056df1974accd62e4b4
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058610"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844455"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>그룹 설정을 구성하는 Azure Active Directory cmdlets
 이 문서에서는 Azure Active Directory(Azure AD) PowerShell cmdlet을 사용하여 그룹을 만들고 업데이트하는 방법을 설명합니다. 이 콘텐츠는 Office 365 그룹에만 적용됩니다(통합 그룹이라고도 함). 
@@ -28,13 +28,11 @@ ms.locfileid: "67058610"
 > [!IMPORTANT]
 > 일부 설정에는 Azure Active Directory Premium P1 라이선스가 필요합니다. 자세한 내용은 [템플릿 설정](#template-settings) 표를 참조하세요.
 
-관리자가 아닌 사용자가 보안 그룹을 만들지 못하게 방지하려면 [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)에 설명된 대로 `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False`를 설정하세요. 
+관리자가 아닌 사용자가 보안 그룹을 만들지 못하게 방지하려면 [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)에 설명된 대로 `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False`를 설정하세요.
 
 Office 365 그룹 설정은 설정 개체와 SettingsTemplate 개체를 사용하여 구성됩니다. 처음에는 디렉터리가 기본 설정으로 구성되어 있으므로 디렉터리에 설정 개체가 표시되지 않습니다. 기본 설정을 변경하려면 설정 템플릿을 사용하여 새 설정 개체를 만들어야 합니다. 설정 템플릿은 Microsoft가 정의합니다. 여러 종류의 설정 템플릿이 있습니다. 디렉터리에 대한 Office 365 그룹 설정을 구성하려면 "Group.Unified" 템플릿을 사용하세요. 단일 그룹의 Office 365 그룹 설정을 구성하려면 "Group.Unified.Guest" 템플릿을 사용하세요. 이 템플릿은 Office 365 그룹에 대한 게스트 액세스 관리에 사용됩니다. 
 
 cmdlet은 Azure Active Directory PowerShell V2 모듈의 일부입니다. 컴퓨터에 모듈을 다운로드하여 설치하는 방법에 대한 지침은 [Azure Active Directory PowerShell 버전 2](https://docs.microsoft.com/powershell/azuread/)를 참조하세요. 모듈의 버전 2 릴리스를 [PowerShell 갤러리](https://www.powershellgallery.com/packages/AzureAD/)에서 설치할 수 있습니다.
-
-
 
 ## <a name="create-settings-at-the-directory-level"></a>디렉터리 수준에서 설정 만들기
 다음 단계는 디렉터리 수준에서 설정을 만드는 것입니다. 이 설정은 디렉터리에 있는 모든 Office 365 그룹에 적용됩니다. Get-AzureADDirectorySettingTemplate cmdlet은 [Graph에 대한 Azure AD PowerShell 미리 보기 모듈](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137)에서만 지원됩니다.
@@ -71,51 +69,51 @@ cmdlet은 Azure Active Directory PowerShell V2 모듈의 일부입니다. 컴퓨
    ```powershell
    $Setting["UsageGuidelinesUrl"] = "https://guideline.example.com"
    ```  
-5. 다음 설정이 적용 됩니다.
+5. 그런 다음 설정을 적용 합니다.
   
    ```powershell
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
-6. 사용 하 여 값을 읽을 수 있습니다.
+6. 다음을 사용 하 여 값을 읽을 수 있습니다.
 
    ```powershell
    $Setting.Values
    ```  
 ## <a name="update-settings-at-the-directory-level"></a>디렉터리 수준에서 설정 업데이트
-값에 대 한 업데이트 UsageGuideLinesUrl 설정 템플릿에서 하려면 위의 4 단계를 사용 하 여 URL을 편집 다음 새 값을 설정 하려면 5 단계를 수행 하면 됩니다.
+설정 템플릿에서 UsageGuideLinesUrl의 값을 업데이트 하려면 위의 4 단계를 사용 하 여 URL을 편집한 후 5 단계를 수행 하 여 새 값을 설정 하면 됩니다.
 
-UsageGuideLinesUrl의 값을 제거 하려면 위의 4 단계를 사용 하 여 빈 문자열일 수 URL을 편집 합니다.
+UsageGuideLinesUrl의 값을 제거 하려면 위의 4 단계를 사용 하 여 URL을 빈 문자열로 편집 합니다.
 
    ```powershell
    $Setting["UsageGuidelinesUrl"] = ""
    ```  
-그런 다음 새 값을 설정 하려면 5 단계를 수행 합니다.
+그런 다음 5 단계를 수행 하 여 새 값을 설정 합니다.
 
 ## <a name="template-settings"></a>템플릿 설정
 다음은 Group.Unified 설정 템플릿에서 정의된 설정입니다. 달리 명시되지 않은 한 이 기능에는 Azure Active Directory Premium P1 라이선스가 필요합니다. 
 
 | **설정** | **설명** |
 | --- | --- |
-|  <ul><li>EnableGroupCreation<li>형식: Boolean<li>Default: True |관리자가 아닌 사용자에 의해 디렉터리에서 Office 365 그룹 만들기가 허용되는지 여부를 나타내는 플래그입니다. 이 설정에는 Azure Active Directory Premium P1 라이선스가 필요하지 않습니다.|
+|  <ul><li>EnableGroupCreation<li>형식: Boolean<li>기본값: True |관리자가 아닌 사용자에 의해 디렉터리에서 Office 365 그룹 만들기가 허용되는지 여부를 나타내는 플래그입니다. 이 설정에는 Azure Active Directory Premium P1 라이선스가 필요하지 않습니다.|
 |  <ul><li>GroupCreationAllowedGroupId<li>형식: String<li>기본값: “” |EnableGroupCreation == false일 때도 구성원이 Office 365 그룹을 만들도록 허용된 보안 그룹의 GUID입니다. |
 |  <ul><li>UsageGuidelinesUrl<li>형식: String<li>기본값: “” |그룹 사용 지침 링크입니다. |
-|  <ul><li>ClassificationDescriptions<li>형식: String<li>기본값: “” | 쉼표로 구분된 분류 설명 목록입니다. ClassificationDescriptions 값은 다음 형식일 때만 유효합니다.<br>$setting[“ClassificationDescriptions”] ="Classification:Description,Classification:Description"<br>여기서 분류는 ClassificationList 문자열 일치 합니다.|
+|  <ul><li>ClassificationDescriptions<li>형식: String<li>기본값: “” | 쉼표로 구분된 분류 설명 목록입니다. ClassificationDescriptions 값은 다음 형식일 때만 유효합니다.<br>$setting ["ClassificationDescriptions"] = "분류: 설명, 분류: 설명"<br>여기서 분류가 ClassificationList의 문자열과 일치 합니다.|
 |  <ul><li>DefaultClassification<li>형식: String<li>기본값: “” | 설정이 지정되지 않은 경우에 그룹의 기본 분류로 사용되는 분류입니다.|
-|  <ul><li>PrefixSuffixNamingRequirement<li>형식: String<li>기본값: “” | Office 365 그룹에 대해 구성된 명명 규칙을 정의하는 최대 64자의 문자열입니다. 자세한 내용은 [Office 365 그룹에 대한 명명 정책 적용](groups-naming-policy.md)을 참조하세요. |
-| <ul><li>CustomBlockedWordsList<li>형식: String<li>기본값: “” | 사용자가 그룹 이름 또는 별칭에서 사용하도록 허용되지 않은 쉼표로 구분된 구의 문자열입니다. 자세한 내용은 [Office 365 그룹에 대한 명명 정책 적용](groups-naming-policy.md)을 참조하세요. |
-| <ul><li>EnableMSStandardBlockedWords<li>형식: Boolean<li>Default: “False” | 사용 안 함
-|  <ul><li>AllowGuestsToBeGroupOwner<li>형식: Boolean<li>Default: False | 게스트 사용자가 그룹의 소유자일 수 있는지 여부를 나타내는 부울 값입니다. |
-|  <ul><li>AllowGuestsToAccessGroups<li>형식: Boolean<li>Default: True | 게스트 사용자가 Office 365 그룹의 콘텐츠에 액세스할 수 있는지 여부를 나타내는 부울 값입니다.  이 설정에는 Azure Active Directory Premium P1 라이선스가 필요하지 않습니다.|
+|  <ul><li>PrefixSuffixNamingRequirement<li>형식: 문자열<li>기본값: “” | Office 365 그룹에 대해 구성된 명명 규칙을 정의하는 최대 64자의 문자열입니다. 자세한 내용은 [Office 365 그룹에 대한 명명 정책 적용](groups-naming-policy.md)을 참조하세요. |
+| <ul><li>CustomBlockedWordsList<li>형식: 문자열<li>기본값: “” | 사용자가 그룹 이름 또는 별칭에서 사용하도록 허용되지 않은 쉼표로 구분된 구의 문자열입니다. 자세한 내용은 [Office 365 그룹에 대한 명명 정책 적용](groups-naming-policy.md)을 참조하세요. |
+| <ul><li>EnableMSStandardBlockedWords<li>형식: Boolean<li>기본값: “False” | 사용 안 함
+|  <ul><li>AllowGuestsToBeGroupOwner<li>형식: Boolean<li>기본값: 거짓 | 게스트 사용자가 그룹의 소유자일 수 있는지 여부를 나타내는 부울 값입니다. |
+|  <ul><li>AllowGuestsToAccessGroups<li>형식: Boolean<li>기본값: True | 게스트 사용자가 Office 365 그룹의 콘텐츠에 액세스할 수 있는지 여부를 나타내는 부울 값입니다.  이 설정에는 Azure Active Directory Premium P1 라이선스가 필요하지 않습니다.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>형식: String<li>기본값: “” | 게스트 사용 지침의 링크 url입니다. |
-|  <ul><li>AllowToAddGuests<li>형식: Boolean<li>Default: True | 이 디렉터리에 게스트를 추가하는 것이 허용되는지 여부를 나타내는 부울 값입니다.|
-|  <ul><li>ClassificationList<li>형식: String<li>기본값: “” |Office 365 그룹에 적용할 수 있는 유효한 분류 값을 쉼표로 구분한 목록입니다. |
+|  <ul><li>AllowToAddGuests<li>형식: Boolean<li>기본값: True | 이 디렉터리에 게스트를 추가하는 것이 허용되는지 여부를 나타내는 부울 값입니다.|
+|  <ul><li>ClassificationList<li>형식: 문자열<li>기본값: “” |Office 365 그룹에 적용할 수 있는 유효한 분류 값을 쉼표로 구분한 목록입니다. |
 
 ## <a name="example-configure-guest-policy-for-groups-at-the-directory-level"></a>예제: 디렉터리 수준에서 그룹에 대 한 게스트 정책 구성
-1. 모든 설정 템플릿을 가져오려면
+1. 모든 설정 템플릿을 가져옵니다.
    ```powershell
    Get-AzureADDirectorySettingTemplate
    ```
-2. 해야 Group.Unified 템플릿입니다 디렉터리 수준에서 그룹에 대 한 게스트 정책을 설정 하려면
+2. 디렉터리 수준에서 그룹에 대 한 게스트 정책을 설정 하려면 그룹이 필요 합니다. 통합 템플릿
    ```powershell
    $Template = Get-AzureADDirectorySettingTemplate -Id 62375ab9-6b52-47ed-826b-58e47e0e304b
    ```
@@ -124,16 +122,16 @@ UsageGuideLinesUrl의 값을 제거 하려면 위의 4 단계를 사용 하 여 
    ```powershell
    $Setting = $template.CreateDirectorySetting()
    ```  
-4. AllowToAddGuests 설정을 업데이트 합니다
+4. 그런 다음 AllowToAddGuests 설정을 업데이트 합니다.
    ```powershell
    $Setting["AllowToAddGuests"] = $False
    ```  
-5. 다음 설정이 적용 됩니다.
+5. 그런 다음 설정을 적용 합니다.
   
    ```powershell
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
-6. 사용 하 여 값을 읽을 수 있습니다.
+6. 다음을 사용 하 여 값을 읽을 수 있습니다.
 
    ```powershell
    $Setting.Values
@@ -227,13 +225,13 @@ UsageGuideLinesUrl의 값을 제거 하려면 위의 4 단계를 사용 하 여 
    ```powershell
    New-AzureADObjectSetting -TargetType Groups -TargetObjectId $groupID -DirectorySetting $SettingCopy
    ```
-7. 설정을 확인,이 명령을 실행 합니다.
+7. 설정을 확인 하려면 다음 명령을 실행 합니다.
    ```powershell
    Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups | fl Values
    ```
 
 ## <a name="update-settings-for-a-specific-group"></a>특정 그룹의 설정 업데이트
-1. 해당 설정이 업데이트 하려는 그룹의 ID를 가져옵니다.
+1. 업데이트 하려는 설정이 있는 그룹의 ID 가져오기:
    ```powershell
    $groupID= (Get-AzureADGroup -SearchString "YourGroupName").ObjectId
    ```
@@ -241,7 +239,7 @@ UsageGuideLinesUrl의 값을 제거 하려면 위의 4 단계를 사용 하 여 
    ```powershell
    $Setting = Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups
    ```
-3. 예: 필요에 따라 그룹의 설정 업데이트
+3. 필요한 경우 그룹의 설정을 업데이트 합니다. 예를 들어
    ```powershell
    $Setting["AllowToAddGuests"] = $True
    ```
@@ -249,7 +247,7 @@ UsageGuideLinesUrl의 값을 제거 하려면 위의 4 단계를 사용 하 여 
    ```powershell
    Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups
    ```
-   다음과 유사 하 게 응답을 받습니다가 있습니다.
+   다음과 유사한 응답을 받게 됩니다.
    ```powershell
    Id                                   DisplayName            TemplateId                             Values
    --                                   -----------            -----------                            ----------
@@ -259,7 +257,7 @@ UsageGuideLinesUrl의 값을 제거 하려면 위의 4 단계를 사용 하 여 
    ```powershell
    Set-AzureADObjectSetting -TargetType Groups -TargetObjectId $groupID -Id 2dbee4ca-c3b6-4f0d-9610-d15569639e1a -DirectorySetting $Setting
    ```
-6. 올바르게 업데이트 된 되도록 설정의 값을 읽을 수 있습니다.
+6. 설정이 올바르게 업데이트 되었는지 확인 하기 위해 설정 값을 읽을 수 있습니다.
    ```powershell
    Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups | fl Values
    ```

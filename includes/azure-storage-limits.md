@@ -9,10 +9,10 @@ ms.date: 07/19/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: d5ce4c094da3a411168c7fe4c282b15ceac7bb86
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "70036745"
 ---
 다음 표에서는 Azure 범용 v1, v2 및 Blob storage 계정에 대 한 기본 제한을 설명 합니다. *수신* 제한은 저장소 계정으로 전송 되는 요청의 모든 데이터를 나타냅니다. *송신* 한도는 저장소 계정에서 받은 응답의 모든 데이터를 나타냅니다.
@@ -20,7 +20,7 @@ ms.locfileid: "70036745"
 | 리소스 | 기본 제한 |
 | --- | --- |
 | 표준 및 프리미엄 계정 모두를 포함하는 구독당 지역당 스토리지 계정 수 | 250 |
-| 최대 저장소 계정 용량 | 미국 및 유럽 2 PB 및 기타 모든 지역 (영국 포함)에 대해 500 TB<sup></sup>|
+| 최대 저장소 계정 용량 | 미국 및 유럽 2 PB 및 기타 모든 지역 (영국<sup>포함)에</sup> 대해 500 TB|
 | 저장소 계정 당 blob 컨테이너, blob, 파일 공유, 테이블, 큐, 엔터티 또는 메시지의 최대 수 | 제한 없음 |
 | 스토리지 계정당 최대 요청 속도<sup>1</sup> | 초당 20,000회 요청 |
 | 저장소 계정 당 최대 수신<sup>1</sup> (미국, 유럽 지역) | 25gbps |

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 908ae768ae471ab6f49452c99323c31d34772d45
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 750b49e149907f204b8b15f0b5728ab25f917743
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60472334"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844521"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Azure Active Directory에서 사용자 지정 도메인 이름 관리
 
@@ -37,7 +37,7 @@ ms.locfileid: "60472334"
 4. 기본 도메인으로 사용할 도메인의 이름을 선택합니다.
 5. **Make primary** 명령을 선택합니다. 메시지가 표시되면 선택을 확인합니다.
   
-   ![주 이름을 도메인 확인](./media/domains-manage/make-primary-domain.png)
+   ![도메인 이름을 기본으로 설정](./media/domains-manage/make-primary-domain.png)
 
 디렉터리의 주 도메인 이름을 페더레이션되지 않은 확인된 사용자 지정 도메인으로 변경할 수 있습니다. 디렉터리의 주 도메인을 변경해도 기존 사용자의 사용자 이름은 변경되지 않습니다.
 
@@ -90,7 +90,7 @@ Azure Portal에서 **ForceDelete**를 호출하려면 도메인 이름에 대한
 **Q: 도메인 삭제가 실패하고 이 도메인 이름에 Exchange Mastered 그룹이 있다는 오류가 표시되는 이유는 무엇인가요?** <br>
 **A:** 현재 메일 사용이 가능한 보안 그룹 및 배포 목록과 같은 특정 그룹은 Exchange에서 프로비전되므로 [EAC(Exchange 관리 센터)](https://outlook.office365.com/ecp/)에서 수동으로 정리해야 합니다. 사용자 지정 도메인 이름을 사용하는 느린 ProxyAddresses가 있을 수도 있으며, 이러한 항목은 다른 도메인 이름으로 수동 업데이트해야 합니다. 
 
-**Q: 관리자로 로그인\@contoso.com 했는데 도메인 이름이 "contoso.com"을 삭제할 수 없습니다.**<br>
+**Q: Admin\@contoso.com로 로그인 했지만 도메인 이름 "contoso.com"를 삭제할 수 없습니다.**<br>
 **A:** 사용자 계정 이름에서 삭제하려는 사용자 지정 도메인 이름을 참조할 수는 없습니다. 전역 관리자 계정이 admin@contoso.onmicrosoft.com과 같이 초기 기본 도메인 이름(.onmicrosoft.com)을 사용하는지 확인하세요. admin@contoso.onmicrosoft.com 등의 다른 전역 관리자 계정이나 “fabrikam.com” 등의 다른 사용자 지정 도메인 이름(계정: admin@fabrikam.com)으로 로그인해야 합니다.
 
 **Q: 도메인 삭제 단추를 클릭했는데 삭제 작업의 상태가 `In Progress`로 표시됩니다. 소요 시간 작업이 실패하는 경우에는 어떻게 되나요?**<br>
@@ -106,7 +106,7 @@ Azure Portal에서 **ForceDelete**를 호출하려면 도메인 이름에 대한
 
 Azure Active Directory의 도메인 이름에 대한 대부분의 관리 작업은 Microsoft PowerShell을 사용하거나 프로그래밍 방식으로 Azure AD Graph API를 사용하여 완료할 수도 있습니다.
 
-* [PowerShell을 사용하여 Azure AD에서 도메인 이름 관리](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
+* [PowerShell을 사용하여 Azure AD에서 도메인 이름 관리](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#domains)
 * [Graph API를 사용하여 Azure AD에서 도메인 이름 관리](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
 ## <a name="next-steps"></a>다음 단계

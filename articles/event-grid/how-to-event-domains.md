@@ -6,13 +6,13 @@ author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 01/17/2019
-ms.openlocfilehash: 0042b0bd8c6ed9e9d253c44151dcf0588c742b48
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.date: 07/11/2019
+ms.openlocfilehash: 9d7cef35ef6d1138b037f7c520f21bee86567aa8
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137838"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70842570"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>이벤트 도메인을 사용하여 토픽을 관리하고 이벤트를 게시하는 방법
 
@@ -27,27 +27,39 @@ ms.locfileid: "67137838"
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
+## <a name="install-preview-feature"></a>미리 보기 기능 설치
+
+[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
+
 ## <a name="create-an-event-domain"></a>이벤트 도메인 만들기
 
 대규모 토픽 집합을 관리하려면 이벤트 도메인을 만듭니다.
 
-Azure CLI의 경우
+# <a name="azure-clitabazurecli"></a>[Azure CLI](#tab/azurecli)
 
 ```azurecli-interactive
+# If you haven't already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
 az eventgrid domain create \
   -g <my-resource-group> \
   --name <my-domain-name> \
   -l <location>
 ```
 
-PowerShell의 경우 다음을 사용합니다.
-
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 ```azurepowershell-interactive
+# If you have not already installed the module, do it now.
+# This module is required for preview features.
+Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
+
 New-AzureRmEventGridDomain `
   -ResourceGroupName <my-resource-group> `
   -Name <my-domain-name> `
   -Location <location>
 ```
+---
 
 성공적으로 만들어지면 다음 값이 반환됩니다.
 
@@ -74,6 +86,7 @@ New-AzureRmEventGridDomain `
 
 Event Grid는 도메인 내 다양한 토픽에 대한 특정 사용자 액세스를 할당하는 데 사용할 수 있는 두 가지 기본 제공 역할을 제공합니다. 이러한 역할은 구독을 만들고 삭제할 수 있는 `EventGrid EventSubscription Contributor (Preview)` 및 이벤트 구독을 나열하는 것만 가능한 `EventGrid EventSubscription Reader (Preview)`입니다.
 
+# <a name="azure-clitabazurecli"></a>[Azure CLI](#tab/azurecli)
 다음 Azure CLI 명령은 `demotopic1` 토픽에만 이벤트 구독을 만들고 삭제하도록 `alice@contoso.com`을 제한합니다.
 
 ```azurecli-interactive
@@ -83,6 +96,7 @@ az role assignment create \
   --scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1
 ```
 
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 다음 PowerShell 명령은 `demotopic1` 토픽에만 이벤트 구독을 만들고 삭제하도록 `alice@contoso.com`을 제한합니다.
 
 ```azurepowershell-interactive
@@ -91,6 +105,7 @@ New-AzureRmRoleAssignment `
   -RoleDefinitionName "EventGrid EventSubscription Contributor (Preview)" `
   -Scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1
 ```
+---
 
 Event Grid 작업에 대한 액세스를 관리하는 방법에 대한 자세한 내용은 [Event Grid 보안 및 인증](./security-authentication.md)을 참조하세요.
 
@@ -102,7 +117,7 @@ Event Grid 서비스는 도메인 토픽에 대한 이벤트 구독 만들기 �
 
 일반적으로 이전 섹션에서 액세스 권한을 부여한 사용자가 구독을 만듭니다. 이 문서를 간소화하기 위해 구독을 만듭니다. 
 
-Azure CLI의 경우
+# <a name="azure-clitabazurecli"></a>[Azure CLI](#tab/azurecli)
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
@@ -111,7 +126,7 @@ az eventgrid event-subscription create \
   --endpoint https://contoso.azurewebsites.net/api/updates
 ```
 
-PowerShell의 경우 다음을 사용합니다.
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
 ```azurepowershell-interactive
 New-AzureRmEventGridSubscription `
@@ -119,6 +134,8 @@ New-AzureRmEventGridSubscription `
   -EventSubscriptionName <event-subscription> `
   -Endpoint https://contoso.azurewebsites.net/api/updates
 ```
+
+---
 
 이벤트를 구독할 테스트 엔드포인트가 필요한 경우 들어오는 이벤트를 표시하는 [미리 빌드된 웹앱](https://github.com/Azure-Samples/azure-event-grid-viewer)을 언제든지 배포할 수 있습니다. `https://<your-site-name>.azurewebsites.net/api/updates`에서 테스트 웹 사이트에 이벤트를 보낼 수 있습니다.
 
@@ -158,6 +175,7 @@ New-AzureRmEventGridSubscription `
 }]
 ```
 
+# <a name="azure-clitabazurecli"></a>[Azure CLI](#tab/azurecli)
 Azure CLI로 도메인 엔드포인트를 가져오려면 다음을 사용합니다.
 
 ```azurecli-interactive
@@ -174,6 +192,7 @@ az eventgrid domain key list \
   -n <my-domain>
 ```
 
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 PowerShell로 도메인 엔드포인트를 가져오려면 다음을 사용합니다.
 
 ```azurepowershell-interactive
@@ -189,25 +208,9 @@ Get-AzureRmEventGridDomainKey `
   -ResourceGroupName <my-resource-group> `
   -Name <my-domain>
 ```
+---
 
 그런 다음, 선호하는 방법으로 HTTP POST를 만들어서 Event Grid 도메인에 이벤트를 게시합니다.
-
-## <a name="search-lists-of-topics-or-subscriptions"></a>항목 또는 구독 목록을 검색 합니다.
-
-검색 및 많은 수의 항목 또는 구독 관리를 확인 하기 위해 Event Grid의 Api 목록 및 페이지 매기기를 지원 합니다.
-
-### <a name="using-cli"></a>CLI 사용
-
-사용 하는 이상을 0.4.1 Azure CLI의 Event Grid 확장 버전을 사용 중인지 확인 합니다.
-
-```azurecli-interactive
-# If you haven't already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
-az eventgrid topic list \
-    --odata-query "contains(name, 'my-test-filter')"
-```
 
 ## <a name="next-steps"></a>다음 단계
 

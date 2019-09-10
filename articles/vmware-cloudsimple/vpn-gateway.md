@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a61e789bb40d8263d293c70a67567ea61d5d2652
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: a8b7e238333196381524d189904871fe5933c906
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972599"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845368"
 ---
 # <a name="set-up-vpn-gateways-on-cloudsimple-network"></a>CloudSimple 네트워크에서 VPN 게이트웨이 설정
 
@@ -56,7 +56,7 @@ VPN gateway에 Vlan/서브넷을 추가 하는 정책은 사이트 간 VPN 및 �
     > [!WARNING]
     > 고가용성을 사용 하도록 설정 하려면 온-프레미스 VPN 장치가 두 개의 IP 주소에 대 한 연결을 지원 해야 합니다. VPN gateway를 배포한 후에는이 옵션을 사용 하지 않도록 설정할 수 없습니다.
 
-5. 온-프레미스 네트워크에서 첫 번째 연결을 만들고 **다음** 을 클릭 합니다.
+5. 온-프레미스 네트워크에서 첫 번째 연결을 만들고 **다음**을 클릭 합니다.
 
     * 연결을 식별 하는 이름을 입력 합니다.
     * 피어 IP의 경우 온-프레미스 VPN 게이트웨이의 공용 IP 주소를 입력 합니다.

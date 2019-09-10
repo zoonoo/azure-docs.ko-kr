@@ -11,12 +11,12 @@ ms.author: marthalc
 author: marthalc
 ms.date: 07/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 1c12f55228d77656ef57598da0fb002fdea29bd4
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: ff9261e2720ed80fc96131cea69d2985c8e0883e
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871776"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858747"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Application Insights를 사용하여 Azure Machine Learning 모델 모니터링
 
@@ -97,7 +97,7 @@ Azure Portal에서 Application Insights를 사용하거나 사용하지 않도�
 
 1. 화면 맨 아래에서 **업데이트**를 선택하여 변경 내용을 적용합니다. 
 
-### <a name="disable"></a>사용 안 함
+### <a name="disable"></a>없음
 1. [Azure Portal](https://portal.azure.com)에서 작업 영역을 엽니다.
 1. **배포**를 선택하고 서비스를 선택한 후 **편집**을 선택합니다.
 
@@ -127,7 +127,7 @@ Azure Portal에서 Application Insights를 사용하거나 사용하지 않도�
    [![사용자 지정 추적](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
 
 Application Insights 사용 방법에 대한 자세한 내용은 [Application Insights란?](../../azure-monitor/app/app-insights-overview.md)을 참조하세요.
-    
+
 
 ## <a name="example-notebook"></a>예제 Notebook
 

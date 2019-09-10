@@ -9,10 +9,10 @@ ms.date: 05/14/2019
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: ee8ff3529524a63ca2e54a64327570197f363538
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "67182567"
 ---
 | 리소스 | Basic | 표준 | Premium |
@@ -24,8 +24,8 @@ ms.locfileid: "67182567"
 | 다운로드 대역폭 MBps<sup>2</sup> | 30 | 60 | 100 |
 | 업로드 대역폭 MBps<sup>2</sup> | 10 | 20 | 50 |
 | webhooks | 2 | 10 | 100 |
-| 지역에서 복제 | N/A | 해당 사항 없음 | [지원됨][geo-replication] |
-| 콘텐츠 신뢰 | 해당 사항 없음 | 해당 사항 없음 | [지원됨][content-trust] |
+| 지역에서 복제 | N/A | N/A | [지원됨][geo-replication] |
+| 콘텐츠 신뢰 | N/A | 해당 사항 없음 | [지원됨][content-trust] |
 
 <sup>1</sup> 지정 된 저장소 제한은 각 계층에 대해 *포함* 된 저장소의 크기입니다. 이러한 한도 초과 이미지 스토리지에 대해 GiB당 추가 일별 요금이 청구됩니다. 요금 정보는 [Azure Container Registry 가격 책정][pricing]을 참조 하세요.
 

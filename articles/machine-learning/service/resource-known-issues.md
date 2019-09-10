@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 74d345249e1cbaeb45a1a35d3c3d2f61a4c0b9cf
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 96af61089f2b7b85d58a8a2ab61936459cef158b
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032973"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858680"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Azure Machine Learning 서비스의 알려진 문제 및 문제 해결
 
@@ -49,7 +49,7 @@ Python용 Azure Machine Learning SDK: PyYAML은 distutils 설치 프로젝트입
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 ```
 
-**오류 메시지:`ERROR: No matching distribution found for azureml-dataprep-native`**
+**오류 메시지: `ERROR: No matching distribution found for azureml-dataprep-native`**
 
 Anaconda의 Python 3.7.4 배포에는 azureml sdk 설치를 중단 하는 버그가 있습니다. 이 문제는이 [GitHub 문제](https://github.com/ContinuumIO/anaconda-issues/issues/11195) 에 설명 되어 있습니다 .이 작업은 다음 명령을 사용 하 여 새 Conda 환경을 만들어 해결할 수 있습니다.
 ```bash
@@ -140,7 +140,7 @@ SDK 또는 포털의 공유 링크에서 작업 영역을 직접 확인하려는
 
 ## <a name="diagnostic-logs"></a>진단 로그
 
-도움말을 요청할 때 진단 정보를 제공할 수 있는 경우에 유용할 수 있습니다. 일부 로그를 보려면 [Azure Portal](https://portal.azure.com) 를 방문 하 고 작업 영역으로 이동한 다음 **작업 영역 > 실험을 선택 하 > > 로그를 실행**합니다.
+도움말을 요청할 때 진단 정보를 제공할 수 있는 경우에 유용할 수 있습니다. 일부 로그를 보려면 [Azure Portal](https://portal.azure.com) 를 방문 하 고 작업 영역으로 이동한 다음 **작업 영역 > 실험을 선택 하 > > 로그를 실행**합니다.  [작업 영역 방문 페이지 (미리 보기)](https://ml.azure.com)의 **실험** 섹션에서이 정보를 찾을 수도 있습니다.
 
 > [!NOTE]
 > Azure Machine Learning 서비스는 자동 Ml 또는 교육 작업을 실행 하는 Docker 컨테이너와 같은 학습 중 다양 한 원본의 정보를 기록 합니다. 이러한 로그는 대부분 문서화 되어 있지 않습니다. 문제가 발생 하 고 Microsoft 지원에 문의 하는 경우 문제 해결 중에 이러한 로그를 사용할 수 있습니다.
@@ -149,7 +149,7 @@ SDK 또는 포털의 공유 링크에서 작업 영역을 직접 확인하려는
 
 Azure Machine Learning 작업 영역 내의 일부 작업은 __작업 로그__에 정보를 기록 하지 않습니다. 예를 들어 학습을 시작 하거나 모델을 등록 합니다.
 
-이러한 작업 중 일부는 작업 영역의 작업 영역에 표시 되지만 작업을 시작한 사용자는 표시 되지 않습니다.
+이러한 작업 중 일부는 작업 영역의 __작업 영역에__ 표시 되지만 작업을 시작한 사용자는 표시 되지 않습니다.
 
 ## <a name="resource-quotas"></a>리소스 할당량
 

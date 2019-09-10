@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.openlocfilehash: d23d1881bb2d07d6287d648bb8ceb3e7930d547e
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: e4379c38d90f444102a9bbddbae64a8018defcf8
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074467"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844581"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Azure IoT Hub에 IoT DevKit AZ3166 연결
 
@@ -179,7 +179,7 @@ DevKit는 IoT hub의 장치 특정 끝점에 연결 하 여 온도 및 습도 �
 
 5. Arduino 설정을 사용하여 VS Code를 구성합니다.
 
-    Visual Studio Code에서 **파일 > 기본 설정 > 설정**을 클릭합니다. 그런 후 **...** 를 클릭하고 **settings.json을 엽니다**.
+    Visual Studio Code에서 **파일 > 기본 설정 > 설정** (macos, **코드 > 기본 설정 > 설정**)을 클릭 합니다. 그런 다음 *설정* 페이지의 오른쪽 위 모퉁이에 있는 **설정 열기 (JSON)** 아이콘을 클릭 합니다.
 
     ![Azure IoT Tools 설치](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/user-settings-arduino.png)
 

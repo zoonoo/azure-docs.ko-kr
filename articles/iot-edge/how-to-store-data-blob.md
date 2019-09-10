@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 1a48088d0d7ef1e14614629340ee477833535861
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 7d504bae16b5b9b10debd916ef8888e90e79364e
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390387"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844176"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>IoT Edge에서 Azure Blob Storage를 사용 하 여에 지에 데이터 저장
 
@@ -77,20 +77,20 @@ Azure의 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
 
 ### <a name="devicetoclouduploadproperties"></a>deviceToCloudUploadProperties
 
-이 설정의 이름은입니다.`deviceToCloudUploadProperties`
+이 설정 `deviceToCloudUploadProperties`의 이름은입니다. IoT Edge 시뮬레이터를 사용 하는 경우 이러한 속성에 대 한 관련 환경 변수로 값을 설정 합니다. 설명 섹션에서 찾을 수 있습니다.
 
 | 속성 | 가능한 값 | 설명 |
 | ----- | ----- | ---- |
 | uploadOn | true, false | 기본적으로 `false` 로 설정 됩니다. 이 기능을 설정 하려면이 필드를로 `true`설정 합니다. <br><br> 환경 변수:`deviceToCloudUploadProperties__uploadOn={false,true}` |
 | uploadOrder | NewestFirst, OldestFirst | 데이터를 Azure로 복사 하는 순서를 선택할 수 있습니다. 기본적으로 `OldestFirst` 로 설정 됩니다. 순서는 Blob의 마지막 수정 시간에 따라 결정 됩니다. <br><br> 환경 변수:`deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
 | cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"`데이터를 업로드 하려는 저장소 계정을 지정할 수 있는 연결 문자열입니다. , `Azure Storage Account Name` ,`Azure Storage Account Key` 를`End point suffix`지정 합니다. 데이터가 업로드 되는 Azure의 적절 한 EndpointSuffix를 추가 합니다 .이는 글로벌 Azure, 정부 Azure 및 Microsoft Azure Stack에 따라 달라 집니다. <br><br> 여기에서 Azure Storage SAS 연결 문자열을 지정 하도록 선택할 수 있습니다. 그러나 만료 될 때이 속성을 업데이트 해야 합니다. <br><br> 환경 변수:`deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
-| storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Azure에 업로드 하려는 컨테이너 이름을 지정할 수 있습니다. 이 모듈을 사용 하 여 원본 및 대상 컨테이너 이름을 모두 지정할 수 있습니다. 대상 컨테이너 이름을 지정 하지 않으면 컨테이너 이름이로 `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`자동 할당 됩니다. 대상 컨테이너 이름에 대 한 템플릿 문자열을 만들고 가능한 값 열을 체크 아웃할 수 있습니다. <br>*% h-> IoT Hub 이름 (3-50 자)입니다. <br>*% d-> IoT Edge 장치 ID (1 ~ 129 자)입니다. <br>*% m-> 모듈 이름 (1 ~ 64 자)입니다. <br>*% c-> 원본 컨테이너 이름 (3 ~ 63 자) <br><br>컨테이너 이름의 최대 크기는 63 자입니다. 컨테이너 크기가 63 자를 초과 하는 경우 대상 컨테이너 이름을 자동으로 할당 하는 동안 각 섹션 (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName)은 15로 잘립니다. 자를. <br><br> 환경 변수:`deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target: <targetName>` |
+| storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Azure에 업로드 하려는 컨테이너 이름을 지정할 수 있습니다. 이 모듈을 사용 하 여 원본 및 대상 컨테이너 이름을 모두 지정할 수 있습니다. 대상 컨테이너 이름을 지정 하지 않으면 컨테이너 이름이로 `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`자동 할당 됩니다. 대상 컨테이너 이름에 대 한 템플릿 문자열을 만들고 가능한 값 열을 체크 아웃할 수 있습니다. <br>*% h-> IoT Hub 이름 (3-50 자)입니다. <br>*% d-> IoT Edge 장치 ID (1 ~ 129 자)입니다. <br>*% m-> 모듈 이름 (1 ~ 64 자)입니다. <br>*% c-> 원본 컨테이너 이름 (3 ~ 63 자) <br><br>컨테이너 이름의 최대 크기는 63 자입니다. 컨테이너 크기가 63 자를 초과 하는 경우 대상 컨테이너 이름을 자동으로 할당 하는 동안 각 섹션 (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName)은 15로 잘립니다. 자를. <br><br> 환경 변수:`deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target=<targetName>` |
 | deleteAfterUpload | true, false | 기본적으로 `false` 로 설정 됩니다. 로 `true`설정 되 면 클라우드 저장소에 업로드가 완료 되 면 데이터가 자동으로 삭제 됩니다. <br><br> 환경 변수:`deviceToCloudUploadProperties__deleteAfterUpload={false,true}` |
 
 
 ### <a name="deviceautodeleteproperties"></a>deviceAutoDeleteProperties
 
-이 설정의 이름은입니다.`deviceAutoDeleteProperties`
+이 설정 `deviceAutoDeleteProperties`의 이름은입니다. IoT Edge 시뮬레이터를 사용 하는 경우 이러한 속성에 대 한 관련 환경 변수로 값을 설정 합니다. 설명 섹션에서 찾을 수 있습니다.
 
 | 속성 | 가능한 값 | 설명 |
 | ----- | ----- | ---- |

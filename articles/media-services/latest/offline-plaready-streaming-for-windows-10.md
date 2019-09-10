@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: ae5fdd51d9bc1a3e7e2521c6ca1ff64d884c96f8
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 25559c7a6f66a1092007054c72f601b428fa4e7b
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341774"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845519"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Windows 10에서 PlayReady 오프라인 스트리밍
 
@@ -29,7 +29,7 @@ Azure Media Services는 DRM 보호 기능을 사용하여 오프라인 다운로
 - [Android용 오프라인 Widevine 스트리밍](offline-widevine-for-android.md)
 
 > [!NOTE]
-> 오프 라인 DRM은만 콘텐츠를 다운로드 하는 경우 라이선스에 대 한 단일 요청에 대 한 요금이 청구 됩니다. 오류 청구 되지 않습니다.
+> 오프 라인 DRM은 콘텐츠를 다운로드할 때 라이선스에 대 한 단일 요청을 만드는 경우에만 청구 됩니다. 모든 오류는 청구 되지 않습니다.
 
 ## <a name="overview"></a>개요
 
@@ -37,14 +37,14 @@ Azure Media Services는 DRM 보호 기능을 사용하여 오프라인 다운로
 
 * 일부 국가/지역에서는 인터넷 가용성 및/또는 대역폭이 여전히 제한 됩니다. 사용자가 만족스러운 보기 환경을 위해 충분히 높은 해상도로 콘텐츠를 보고자 먼저 다운로드를 선택할 수도 있습니다. 이 경우 대개 문제는 네트워크 가용성이 아니라 제한된 네트워크 대역폭입니다. OTT/OVP 공급자가 오프라인 모드 지원을 요청하고 있습니다.
 * Netflix 2016 Q3 주주 컨퍼런스에서 공개된 바와 같이 Netflix CEO인 Reed Hastings는 콘텐츠 다운로드는 “자주 요청되는 기능”이고 “이 기능에 대해 열려 있습니다”라고 밝혔습니다.
-* 일부 콘텐츠 공급자에는 국가/지역의 테두리 너머로 DRM 라이선스 배달을 허용 되지 않을 수 있습니다. 사용자가 해외 여행을 하면서도 콘텐츠를 보려는 경우 오프라인 다운로드가 필요합니다.
+* 일부 콘텐츠 공급자는 국가/지역 테두리를 넘어 DRM 라이선스 배달을 허용 하지 않을 수 있습니다. 사용자가 해외 여행을 하면서도 콘텐츠를 보려는 경우 오프라인 다운로드가 필요합니다.
  
 오프라인 모드 구현 시 직면하는 문제는 다음과 같습니다.
 
 * MP4는 다양한 플레이어와 인코더 도구를 지원하지만 MP4 컨테이너와 DRM 사이에 바인딩이 되어 있지 않습니다.
 * 장기적으로는, CENC 지원 CFF가 바람직합니다. 하지만 현재 에코시스템을 지원하는 도구/플레이어가 아직 없습니다. 솔루션이 필요합니다.
  
-H264/AAC를 사용하는 부드러운 스트리밍([PIFF](https://go.microsoft.com/?linkid=9682897)) 파일 형식은 PlayReady(AES-128 CTR)와 바인딩되어 있습니다. 개별 부드러운 스트리밍 .ismv 파일(비디오에 오디오를 담은)은 그 자체가 fMP4이며 재생에 사용할 수 있습니다. 부드러운 스트리밍 콘텐츠가 PlayReady 암호화를 거칠 경우 각 .ismv 파일은 PlayReady 보호 조각난 MP4가 됩니다. 기본 비트 전송률을 사용하는 .ismv 파일을 선택하여 .mp4로 이름을 바꾸어 다운로드할 수 있습니다.
+H264/AAC를 사용하는 부드러운 스트리밍([PIFF](https://docs.microsoft.com/iis/media/smooth-streaming/protected-interoperable-file-format)) 파일 형식은 PlayReady(AES-128 CTR)와 바인딩되어 있습니다. 개별 부드러운 스트리밍 .ismv 파일(비디오에 오디오를 담은)은 그 자체가 fMP4이며 재생에 사용할 수 있습니다. 부드러운 스트리밍 콘텐츠가 PlayReady 암호화를 거칠 경우 각 .ismv 파일은 PlayReady 보호 조각난 MP4가 됩니다. 기본 비트 전송률을 사용하는 .ismv 파일을 선택하여 .mp4로 이름을 바꾸어 다운로드할 수 있습니다.
 
 점진적 다운로드 시 PlayReady 보호 MP4를 호스트하는 데 두 가지 옵션이 있습니다.
 
@@ -66,7 +66,7 @@ H264/AAC를 사용하는 부드러운 스트리밍([PIFF](https://go.microsoft.c
 자산 #2:
 
 * 점진적 다운로드 URL: [https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
-* PlayReady LA_URL (온-프레미스): [https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
+* PlayReady LA_URL (온-프레미스):[https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
 
 재생 테스트 시 Windows 10에서 Universal Windows Application을 사용했습니다. [Windows 10 유니버설 샘플](https://github.com/Microsoft/Windows-universal-samples)에는 [적응 스트리밍 샘플](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming)을 호출하는 기본 플레이어 샘플이 있습니다. 우리가 해야 할 일은 코드를 추가하여 다운로드한 비디오를 선택하여 적응 스트리밍 원본 대신에 해당 비디오를 원본으로 사용하는 것입니다. 변경 사항은 단추 클릭 이벤트 처리기에 있습니다.
 

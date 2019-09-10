@@ -8,14 +8,14 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 55401ca498f06aa0b959c3926f2a07f40e7fb638
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 9e0afd26b46fc6249b697c38983b9c219c42b1a0
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972629"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845479"
 ---
-# <a name="migrate-workloads-using-layer-2-stretched-networks"></a>계층 2 스트레치 네트워크를 사용 하 여 워크 로드 마이그레이션
+# <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Layer 2 확장 네트워크로 워크로드 마이그레이션
 
 이 가이드에서는 계층 2 VPN (L2VPN)을 사용 하 여 온-프레미스 환경에서 CloudSimple 사설 클라우드로 계층 2 네트워크를 스트레치 하는 방법에 대해 설명 합니다. 이 솔루션을 사용 하면 워크 로드를 다시 IP 하지 않고도 온-프레미스 VMware 환경에서 실행 되는 워크 로드를 동일한 서브넷 주소 공간 내의 Azure 사설 클라우드로 마이그레이션할 수 있습니다.
 
@@ -108,7 +108,7 @@ VMware NSX-T 2.3 릴리스를 기반으로 합니다.
 
 다음 단계는 IPsec 및 L2VPN 서비스에 대 한 Tier0 DR 논리 라우터 인스턴스의 논리 라우터 ID를 인출 하는 방법을 보여 줍니다. 논리 라우터 ID는 나중에 L2VPN을 구현할 때 필요 합니다.
 
-1. NSX- https://nsx-t-manager-ip-address) T Manager에 로그인 하 고 **네트워킹** > **라우터** > **공급자-LR** > **개요**를 선택 합니다. 고가용성 **모드**의 경우 **활성-대기**를 선택 합니다. 이 작업을 수행 하면 Tier0 라우터가 현재 활성 상태인에 지 VM을 보여 주는 팝업 창이 열립니다.
+1. NSX-t 관리자 https://*NSX* 에 로그인 하 고 **네트워킹** > **라우터** > **공급자-LR** > **개요**를 선택 합니다. 고가용성 **모드**의 경우 **활성-대기**를 선택 합니다. 이 작업을 수행 하면 Tier0 라우터가 현재 활성 상태인에 지 VM을 보여 주는 팝업 창이 열립니다.
 
     ![활성-대기 선택](media/l2vpn-fetch01.png)
 
@@ -158,7 +158,7 @@ NSX-T Tier0 라우터와 독립 실행형 NSX Edge 클라이언트 간에 IPsec 
 
     ![고정 경로 추가](media/l2vpn-routing-security01.png)
 
-2. IP 접두사 목록을 만듭니다. NSX-T Manager에 로그인 하 고 **네트워킹** > **라우팅** > **라우터** > **공급자-LR** > **라우팅** > **IP 접두사 목록**을 선택 합니다. **추가**를 클릭합니다. 목록을 식별 하는 이름을 입력 합니다. **접두사**의 경우 **추가** 를 두 번 클릭 합니다. 첫 번째 줄에서 **네트워크** 에 대해 ' 0.0.0.0/0 '을 입력 하 고 **동작**에 대해 ' 거부 '를 입력 합니다. 두 번째 줄에서 **네트워크** 에 대해를 선택 하 고 **작업**을 **허용** 합니다.
+2. IP 접두사 목록을 만듭니다. NSX-T Manager에 로그인 하 고 **네트워킹** > **라우팅** > **라우터** > **공급자-LR** > **라우팅** > **IP 접두사 목록**을 선택 합니다. **추가**를 클릭합니다. 목록을 식별 하는 이름을 입력 합니다. **접두사**의 경우 **추가** 를 두 번 클릭 합니다. 첫 번째 줄에서 **네트워크** 에 대해 ' 0.0.0.0/0 '을 입력 하 고 **동작**에 대해 ' 거부 '를 입력 합니다. 두 번째 줄에서 **네트워크** 에 대해 **를 선택 하** 고 **작업**을 **허용** 합니다.
 3. 두 BGP 환경 ()에 IP 접두사 목록을 연결 합니다. IP 접두사 목록을 BGP 환경에 연결 하면 기본 경로가 BGP에서 대상 스위치로 보급 되지 않습니다. 그러나 null 경로를 포함 하는 다른 모든 경로는 루프백 인터페이스 IP 주소를 대상 스위치에 보급 합니다.
 
     ![IP 접두사 목록 만들기](media/l2vpn-routing-security02.png)

@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: c654da71a0c060a9344ef7d7d42b30263a7fb2db
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 319871280b94f54b99f7a9957f671ec50122ebf3
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165202"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860917"
 ---
 # <a name="what-is-automated-machine-learning"></a>자동화된 Machine Learning이란?
 
@@ -47,7 +47,7 @@ AutoML이 라고도 하는 자동화 된 machine learning은 기계 학습 모�
 
 1. **모델 학습을 위한 계산 목표**(예: [로컬 컴퓨터, Azure Machine Learning 계산, 원격 vm 또는 Azure Databricks](how-to-set-up-training-targets.md))를 구성 합니다.  [원격 리소스에](how-to-auto-train-remote.md)대 한 자동화 된 학습에 대해 알아봅니다.
 
-1. 다른 모델에 대 한 반복 횟수, 하이퍼 매개 변수 설정, 고급 전처리/기능화 및 최상의 모델을 결정할 때 살펴볼 메트릭을 결정 하는 **자동화 된 machine learning 매개 변수를 구성 합니다** .  [Azure Portal](how-to-create-portal-experiments.md) 또는 [SDK를 사용 하](how-to-configure-auto-train.md)여 자동 학습 실험의 설정을 구성할 수 있습니다.
+1. 다른 모델에 대 한 반복 횟수, 하이퍼 매개 변수 설정, 고급 전처리/기능화 및 최상의 모델을 결정할 때 살펴볼 메트릭을 결정 하는 **자동화 된 machine learning 매개 변수를 구성 합니다** .  [Azure Portal](how-to-create-portal-experiments.md), [작업 영역 방문 페이지 (미리 보기)](https://ml.azure.com)또는 [SDK를 사용](how-to-configure-auto-train.md)하 여 자동 학습 실험의 설정을 구성할 수 있습니다. 
 
 1. **학습 실행을 제출 합니다.**
 
@@ -119,7 +119,7 @@ Azure Machine Learning를 사용 하면 자동화 된 ML을 사용 하 여 Pytho
 
 자동화 된 ML은 다음과 같은 다른 Microsoft 솔루션 에서도 사용할 수 있습니다.
 
-|통합|설명|
+|통합|Description|
 |------------|-----------|
 |[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Visual Studio를 사용 하 여 .NET 앱에서 자동 모델 선택 및 학습 ML.NET 자동 ML (미리 보기)을 사용 하 여 Visual Studio Code 합니다.|
 |[HDInsight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|HDInsight 클러스터의 Spark에서 자동화 된 ML 학습 작업을 병렬로 확장 하세요.|
@@ -133,7 +133,7 @@ Azure Machine Learning를 사용 하면 자동화 된 ML을 사용 하 여 Pytho
 + 자습서를 [따릅니다. Azure 자동화 Machine Learning를 사용 하 여 자동으로 회귀 모델 학습](tutorial-auto-train-models.md)
 
 + 자동 학습 실험의 설정 구성:
-  + Azure Portal 인터페이스에서 [다음 단계를 사용](how-to-create-portal-experiments.md)합니다.
+  + Azure Portal 인터페이스 또는 작업 영역 방문 페이지 (미리 보기)에서 [다음 단계를 사용](how-to-create-portal-experiments.md)합니다.
   + Python SDK를 사용 하 여 [다음 단계를 수행](how-to-configure-auto-train.md)합니다.
 
 + 시계열 데이터를 사용 하 여 자동으로 학습 하는 방법에 대해 설명 하 고 [다음 단계를 사용](how-to-auto-train-forecast.md)합니다.

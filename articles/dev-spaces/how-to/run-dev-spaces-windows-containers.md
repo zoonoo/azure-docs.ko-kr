@@ -9,12 +9,12 @@ ms.date: 07/25/2019
 ms.topic: conceptual
 description: Windows 컨테이너를 사용 하 여 기존 클러스터에서 Azure Dev Spaces를 실행 하는 방법을 알아봅니다.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Windows 컨테이너
-ms.openlocfilehash: 2110636b331f0cf4e74c77f41726ead5bf80a64f
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 6c15534d5d47ba384a0f368f5d212fb1350e5229
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501521"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858586"
 ---
 # <a name="use-azure-dev-spaces-to-interact-with-windows-containers"></a>Azure Dev Spaces를 사용 하 여 Windows 컨테이너와 상호 작용
 
@@ -49,6 +49,9 @@ Windows 노드에 [taint][using-taints] 을 적용 합니다. Windows 노드의 
 ```azurecli-interactive
 kubectl taint node aksnpwin987654 sku=win-node:NoSchedule
 ```
+
+> [!IMPORTANT]
+> 노드에 taint를 적용 하는 경우 서비스의 배포 템플릿에서 일치 하는 toleration를 구성 하 여 해당 노드에서 서비스를 실행 해야 합니다. 샘플 응용 프로그램은 이전 명령에서 구성한 taint 일치 하는 [toleration][sample-application-toleration-example] 으로 이미 구성 되어 있습니다.
 
 ## <a name="run-your-windows-service"></a>Windows 서비스 실행
 
@@ -180,8 +183,8 @@ Azure Dev Spaces를 통해 여러 컨테이너에서 더 복잡한 애플리케�
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [helm-installed]: https://github.com/helm/helm/blob/master/docs/install.md
 [sample-application]: https://github.com/Azure/dev-spaces/tree/master/samples/existingWindowsBackend
+[sample-application-toleration-example]: https://github.com/Azure/dev-spaces/blob/master/samples/existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml#L24-L27
 [team-development-qs]: ../quickstart-team-development.md
-
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [team-development]: ../team-development-netcore.md
 [using-taints]: ../../aks/use-multiple-node-pools.md#schedule-pods-using-taints-and-tolerations

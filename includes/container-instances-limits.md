@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 02/13/2019
 ms.author: danlep
 ms.openlocfilehash: f8821060b98ebfc954a6e59abad60350e6779b76
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
-ms.translationtype: HT
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "67182568"
 ---
 | 리소스 | 기본 제한 |
@@ -25,7 +25,7 @@ ms.locfileid: "67182568"
 | 5분당 컨테이너 삭제 수 | 100<sup>1</sup> |
 
 
-<sup>1</sup> 제한 증가를 요청하려면 [Azure 지원 요청][azure-support]을 만듭니다.<br />
+<sup>1</sup> 제한 증가를 요청 하려면 [Azure 지원 요청][azure-support]를 만듭니다.<br />
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

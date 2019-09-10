@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: b7cb4f1a106d8caa2c43f5f17c5efa16a3ee6df2
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 4e953ad732852f9ee99c7830997e2d1dc29b8f84
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011634"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844998"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 서비스 작동 방법: 아키텍처 및 개념
 
@@ -129,7 +129,7 @@ PyTorch, TensorFlow 및 체 이너 Azure Machine Learning 작업의 경우 이�
 
 ### <a name="datasets-and-datastores"></a>데이터 집합 및 데이터 저장소
 
-**Azure Machine Learning 데이터 집합** (미리 보기)를 사용 하면 데이터에 쉽게 액세스 하 고 작업을 수행할 수 있습니다. 데이터 집합은 모델 학습 및 파이프라인 생성과 같은 다양 한 시나리오에서 데이터를 관리 합니다. Azure Machine Learning SDK를 사용 하 여 기본 저장소에 액세스 하 고, 데이터를 탐색 및 준비 하 고, 여러 데이터 집합 정의의 수명 주기를 관리 하 고, 학습 및 프로덕션 환경에서 사용 되는 데이터 집합을 비교할 수 있습니다.
+**Azure Machine Learning 데이터 집합** (미리 보기)를 사용 하면 데이터에 쉽게 액세스 하 고 작업을 수행할 수 있습니다. 데이터 집합은 모델 학습 및 파이프라인 생성과 같은 다양 한 시나리오에서 데이터를 관리 합니다. Azure Machine Learning SDK를 사용 하 여 기본 저장소에 액세스 하 고, 데이터를 탐색 하 고, 다양 한 데이터 집합 정의의 수명 주기를 관리할 수 있습니다.
 
 데이터 집합은 또는 `from_delimited_files()` `to_pandas_dataframe()`을 사용 하는 것과 같이 널리 사용 되는 형식으로 데이터 작업을 위한 메서드를 제공 합니다
 

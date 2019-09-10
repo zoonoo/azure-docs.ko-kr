@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 87897c031ff717fb67830cb8fa3bc5fced336418
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 12ba2991f22576dc62559d5c62dc4a0e769d2681
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278850"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858778"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용 하 여 machine learning 파이프라인 만들기 및 실행
 
@@ -32,7 +32,7 @@ ML 파이프라인은 계산에 원격 계산 대상을 사용 하 고 해당 �
 
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 모든 파이프라인 리소스를 수용하는 [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)을 만듭니다.
 
@@ -410,19 +410,21 @@ response = requests.post(published_pipeline1.endpoint,
 ### <a name="view-results-of-a-published-pipeline"></a>게시 된 파이프라인의 결과 보기
 
 게시 된 모든 파이프라인 목록과 해당 실행 세부 정보를 확인 합니다.
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.  
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 1. [작업 영역을 보고](how-to-manage-workspace.md#view) 파이프라인 목록을 찾습니다.
  ![기계 학습 파이프라인 목록](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. 특정 파이프라인을 선택하여 실행 결과를 확인합니다.
 
+이러한 결과는 [작업 영역 방문 페이지 (미리 보기)](https://ml.azure.com)에서도 사용할 수 있습니다.
+
 ### <a name="disable-a-published-pipeline"></a>게시 된 파이프라인 사용 안 함
 
 게시 된 파이프라인 목록에서 파이프라인을 숨기려면 사용 하지 않도록 설정 합니다.
 
 ```
-# Get the pipeline by using its ID in the Azure portal
+# Get the pipeline by using its ID from the Azure portal
 p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
 p.disable()
 ```

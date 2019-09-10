@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 9e62dd25c3ff16e280eda1ad11053ef520a85e4d
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 57e9cec16326068cc7de74b8f7266fbe47808fed
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706517"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845441"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Azure Logic Apps에 대 한 배포를 자동화 하는 Azure Resource Manager 템플릿 만들기
 
@@ -39,7 +39,7 @@ Azure Resource Manager 템플릿에 대 한 자세한 내용은 다음 항목을
 
 논리 앱을 다운로드 하 여 논리 앱에 대 한 정의와 연결 등의 기타 리소스를 포함 하는 템플릿을 가져옵니다. 또한이 템플릿은 논리 앱 및 기타 리소스를 배포 하는 데 사용 되는 값에 대 한 매개 변수를 *매개 변수화*정의 합니다. 별도의 매개 변수 파일에서 이러한 매개 변수의 값을 제공할 수 있습니다. 이렇게 하면 배포 요구 사항에 따라 이러한 값을 보다 쉽게 변경할 수 있습니다. 자세한 내용은 다음 항목을 참조하세요.
 
-* [Visual Studio를 사용 하 여 논리 앱 만들기](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
+* [Visual Studio로 논리 앱 만들기](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Visual Studio에서 논리 앱 관리](../logic-apps/manage-logic-apps-with-visual-studio.md)
 
 <a name="azure-powershell"></a>
@@ -83,10 +83,10 @@ LogicAppTemplate 모듈에서 모든 Azure 테 넌 트 및 구독 액세스 토�
 
 ### <a name="generate-template-with-powershell"></a>PowerShell을 사용 하 여 템플릿 생성
 
-LogicAppTemplate 모듈을 설치한 후 템플릿을 생성 하려면 다음 PowerShell 명령을 실행 합니다.
+LogicAppTemplate 모듈을 설치 하 고 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)하 여 템플릿을 생성 하려면 다음 PowerShell 명령을 실행 합니다.
 
 ```text
-PS> Get-LogicAppTemplate
+PS> Get-LogicAppTemplate -Token (az account get-access-token | ConvertFrom-Json).accessToken -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json
 ```
 
 [Azure Resource Manager 클라이언트 도구의](https://github.com/projectkudu/ARMClient)토큰에서 파이프에 대 한 권장 사항을 따르려면 Azure 구독 ID를 대신 `$SubscriptionId` 하 여 다음 명령을 실행 합니다.
@@ -107,7 +107,7 @@ Azure Key Vault 참조 (정적 전용)를 사용 하 여 추출 하려면 다음
 PS> Get-ParameterTemplate -TemplateFile $filename -KeyVault Static | Out-File $fileNameParameter
 ```
 
-| 매개 변수 | 필수 | 설명 |
+| 매개 변수 | 필수 | Description |
 |------------|----------|-------------|
 | TemplateFile | 예 | 템플릿 파일에 대 한 파일 경로입니다. |
 | KeyVault | 아니요 | 가능한 키 자격 증명 모음 값을 처리 하는 방법을 설명 하는 열거형입니다. 기본값은 `None`입니다. |

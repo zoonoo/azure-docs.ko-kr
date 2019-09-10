@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03c9f0908d8b5290dc4585a330a7ea78a6577ab9
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 60f38b60b5fbf0166f25c423663d157cf8f13ee2
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68942963"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860895"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Azure Portal를 사용 하 여 장치 id 관리
 
@@ -67,12 +67,12 @@ Azure AD 포털을 사용 하 여 장치 id를 관리 하려면 장치를 Azure 
 - **장치를 연결 하려면 Multi-factor Auth 필요** -사용자가 Azure AD에 장치를 연결 하기 위해 추가 인증 요소를 제공 해야 하는지 여부를 선택할 수 있습니다. 기본값은 **No**입니다. 그러나 디바이스를 등록하는 경우 Multi-Factor Authentication을 사용하는 것이 좋습니다. 이 서비스에 대해 Multi-Factor Authentication을 사용하도록 설정하기 전에 디바이스를 등록하는 사용자에 대해 Multi-Factor Authentication을 구성해야 합니다. 다양한 Azure Multi-Factor Authentication 서비스에 대한 자세한 내용은 [Azure Multi-Factor Authentication 시작](../authentication/concept-mfa-whichversion.md)을 참조하세요. 
 
 > [!NOTE]
-> **장치를 연결 하려면 Multi-factor Auth 필요** 설정이 하이브리드 Azure AD 조인 장치에 적용 되지 않습니다.
+> **장치에 연결 하기 위한 Multi-factor Auth 필요** 설정은 azure ad에 가입 된 장치 또는 azure ad에 등록 된 장치에 적용 됩니다. 하이브리드 Azure AD 조인 장치에는이 설정이 적용 되지 않습니다.
 
-- **최대 디바이스 수** - 이 설정을 사용하여 Azure AD에서 사용자가 보유할 수 있는 디바이스의 최대 수를 선택할 수 있습니다. 사용자가 이 할당량에 도달하는 경우 기존 디바이스 중 하나 이상이 제거될 때까지 디바이스를 더 추가할 수 없습니다. 장치 할당량은 현재 Azure AD에 가입 된 모든 장치 또는 오늘 등록 된 Azure AD에 대해 계산 됩니다. 기본값은 **20**입니다.
+- **최대 장치 수** -이 설정을 사용 하면 azure ad에 가입 된 azure ad 또는 azure ad에 등록 된 장치의 최대 수를 선택할 수 있습니다. 사용자가 이 할당량에 도달하는 경우 기존 디바이스 중 하나 이상이 제거될 때까지 디바이스를 더 추가할 수 없습니다. 기본값은 **20**입니다.
 
 > [!NOTE]
-> 하이브리드 Azure AD 조인 장치에는 **최대 장치 수** 설정이 적용 되지 않습니다.
+> **최대 장치 수** 설정은 azure ad에 가입 된 장치 또는 azure ad에 등록 된 장치에 적용 됩니다. 하이브리드 Azure AD 조인 장치에는이 설정이 적용 되지 않습니다.
 
 - **사용자자 디바이스 간에 설정 및 앱 데이터를 동기화할 수 있음** - 기본적으로 이 설정은 **없음**으로 지정됩니다. 특정 사용자 또는 그룹을 선택하거나 모두를 선택하면 Windows 10 디바이스 간에 사용자 설정 및 앱 데이터를 동기화할 수 있습니다. Windows 10에서 동기화가 작동되는 방식에 대해 자세히 알아봅니다.
 이 옵션은 Azure AD Premium 또는 EMS(Enterprise Mobility Suite) 등의 제품을 통해 사용할 수 있는 프리미엄 기능입니다.
@@ -215,7 +215,7 @@ BitLocker 키를 보거나 복사하려면, 디바이스의 소유자 또는 다
 - 활동
 - 날짜 범위
 - 대상
-- 행위자(시작한 사람)
+- 초기자(작업자)
 
 필터 이외의 방법으로도 특정 항목을 검색할 수 있습니다.
 

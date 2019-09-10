@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: d479a568ddeac29be88d0709b7544ba645274afa
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: cd1c6cf0ff5a963720df7420a5d983d24e7b4d3e
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875670"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861396"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>일반적인 질문: Azure 간 재해 복구
 
@@ -41,7 +41,15 @@ Site Recovery 팀은 Azure 용량 관리 팀과 협력 하 여 충분 한 인프
 ## <a name="replication"></a>복제
 
 ### <a name="can-i-replicate-vms-enabled-through-azure-disk-encryption"></a>Azure 디스크 암호화를 통해 지원되는 VM을 복제할 수 있나요?
-예, 복제할 수 있습니다. [Azure 디스크 암호화 사용 가상 머신을 다른 Azure 지역에 복제](azure-to-azure-how-to-enable-replication-ade-vms.md) 문서를 참조하세요. 현재 Azure Site Recovery에서는 Windows OS를 실행 중이며 Azure Active Directory(Azure AD) 앱으로 암호화가 가능한 Azure VM만 지원됩니다.
+
+예, Site Recovery는 ADE (Azure disk encryption)를 사용 하는 Vm의 재해 복구를 지원 합니다. 복제를 사용 하도록 설정 하면 필요한 모든 디스크 암호화 키와 비밀이 원본 지역에서 사용자 컨텍스트의 대상 지역으로 복사 됩니다. 적절 한 권한이 없는 경우에는 바로 사용할 수 있는 스크립트를 보안 관리자에 게 전달 하 여 키와 비밀을 복사할 수 있습니다.
+
+- Site Recovery은 Windows를 실행 하는 Azure Vm에 대해 ADE를 지원 합니다.
+- Site recovery는 aad를 사용 하 여 Azure Active Directory (AAD) 및 버전 1.1을 사용 하는 스키마를 사용 하 여 ADE 버전 0.1를 지원 합니다. [자세히 알아보기](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schemata).
+- ADE 버전 1.1, Windows Vm은 관리 디스크를 사용 해야 합니다.
+- 암호화 된 Vm에 대 한 복제 사용에 대해 [자세히 알아보세요](azure-to-azure-how-to-enable-replication-ade-vms.md) .
+
+
 
 ### <a name="can-i-replicate-vms-to-another-subscription"></a>VM을 다른 구독에 복제할 수 있나요?
 예, Azure VM을 동일한 Azure AD 테넌트의 다른 구독에 복제할 수 있습니다.

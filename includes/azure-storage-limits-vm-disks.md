@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
 ms.openlocfilehash: 8b25d2395811a2197aff6d653c5038a4380021e9
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "68669753"
 ---
 Azure 가상 컴퓨터에 많은 데이터 디스크를 연결할 수 있습니다. VM의 데이터 디스크에 대 한 확장성 및 성능 목표에 따라 성능 및 용량 요구 사항을 충족 하는 데 필요한 디스크의 수와 유형을 결정할 수 있습니다.

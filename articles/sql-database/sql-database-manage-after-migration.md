@@ -11,12 +11,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 2edd12435643f88a0923abf0927149993d49e424
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: dead041845c123672d881a8538644b56c34a58a2
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567815"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845592"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>클라우드의 새 DBA - Azure SQL Database의 단일 데이터베이스 및 풀링된 데이터베이스 관리
 
@@ -142,7 +142,7 @@ SQL Database에서 [두 가지 사용자 인증 방법](sql-database-control-acc
 
 #### <a name="reserved-ips"></a>예약된 IP
 
-다른 옵션은 VM에 대해 [예약된 IP](../virtual-network/virtual-networks-reserved-public-ip.md)를 프로비전하고, 서버 방화벽 설정에 있는 특정 VM IP 주소를 허용목록에 넣습니다. 예약된 IP를 할당하면 IP 주소 변경에 따라 방화벽 규칙을 직접 업데이트해야 할 필요가 없습니다.
+또 다른 옵션은 Vm에 대해 [예약 된 ip](../virtual-network/virtual-networks-reserved-public-ip.md) 를 프로 비전 하 고 서버 방화벽 설정에 해당 특정 VM IP 주소를 추가 하는 것입니다. 예약된 IP를 할당하면 IP 주소 변경에 따라 방화벽 규칙을 직접 업데이트해야 할 필요가 없습니다.
 
 ### <a name="what-port-do-i-connect-to-sql-database-on"></a>어떤 포트를 통해 SQL Database에 연결하나요?
 

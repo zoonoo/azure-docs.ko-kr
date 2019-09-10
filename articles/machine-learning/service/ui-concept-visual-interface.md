@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/15/2019
-ms.openlocfilehash: 1cb56386f52d1c7b1ec357b912c648c1961b4c1d
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 70141e3ad438ff7ff6d4486e6c27ff4163416e95
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677979"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860404"
 ---
 # <a name="what-is-the-visual-interface-for-azure-machine-learning-service"></a>Azure Machine Learning 서비스에 대 한 시각적 인터페이스는 무엇 인가요? 
 
@@ -55,7 +55,7 @@ Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 �
 * 각 모듈에 필요한 모든 매개 변수를 설정 해야 합니다.
 
 
-시각적 인터페이스를 시작 하는 방법에 대 한 자세한 내용은 [자습서: 시각적 인터페이스](ui-tutorial-automobile-price-train-score.md)를 사용 하 여 자동차 가격을 예측 합니다.
+시각적 인터페이스를 시작 하는 방법에 대 한 자세한 내용은 [자습서: 시각적 개체 인터페이스로 자동차 가격 예측](ui-tutorial-automobile-price-train-score.md)을 사용하여 시각적 개체 인터페이스(미리 보기)를 시도해 보세요.
 
 ## <a name="dataset"></a>데이터 집합
 
@@ -81,7 +81,7 @@ Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 �
 | Azure Machine Learning 컴퓨팅 | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
-계산 대상은 Machine Learning [작업 영역](concept-workspace.md)에 연결 됩니다. [Azure Portal](https://portal.azure.com)의 작업 영역에서 계산 대상을 관리 합니다.
+계산 대상은 Machine Learning [작업 영역](concept-workspace.md)에 연결 됩니다. 작업 영역에서 [Azure Portal](https://portal.azure.com) 또는 [작업 영역 방문 페이지 (미리 보기)](https://ml.azure.com)에서 계산 대상을 관리 합니다.
 
 ## <a name="deployment"></a>배포
 

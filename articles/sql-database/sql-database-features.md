@@ -11,22 +11,22 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: fc56a2900a291ff600433a6e660dca274c7b92e7
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 2ddef73121ef2f6c145516ca114989aa12b8003c
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382846"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873503"
 ---
-# <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>기능 비교: Azure SQL Database 및 SQL Server
+# <a name="azure-sql-database-features"></a>Azure SQL Database 기능
 
-Azure SQL Database는 SQL Server와 공용 코드 베이스를 공유합니다. 대부분의 표준 SQL 기능은 SQL server와 Azure SQL Database 동일 합니다. SQL Server에서 공통적으로 제공 되는 기능과 Azure SQL Database의 모든 특성은 다음과 같습니다.
+Azure SQL Database 서비스는 SQL Server의 안정적인 최신 버전을 사용 하 여 공통 코드 베이스를 공유 합니다. 표준 SQL 언어, 쿼리 처리 및 데이터베이스 관리 기능은 대부분 SQL Server 및 Azure SQL Database에서 동일 합니다. SQL Server에서 공통적으로 제공 되는 기능과 Azure SQL Database의 모든 특성은 다음과 같습니다.
   - 언어 기능- [흐름 언어 키워드](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow), [커서](https://docs.microsoft.com/sql/t-sql/language-elements/cursors-transact-sql), [데이터 형식](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql), [DML 문](https://docs.microsoft.com/sql/t-sql/queries/queries), [조건자](https://docs.microsoft.com/sql/t-sql/queries/predicates), [시퀀스 번호](https://docs.microsoft.com/sql/relational-databases/sequence-numbers/sequence-numbers), [저장 프로시저](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine)및 [변수](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql)를 제어 합니다.
   - 데이터베이스 기능- [자동 조정 (강제 적용)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning), [변경 내용 추적](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server), [데이터베이스 데이터 정렬](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation), [포함 된 데이터베이스](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases), [포함 된 사용자](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable), [데이터 압축](https://docs.microsoft.com/sql/relational-databases/data-compression/data-compression), [데이터베이스 구성 설정](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) [온라인 인덱스 작업](https://docs.microsoft.com/sql/relational-databases/indexes/perform-index-operations-online), [분할](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes)및 [임시 테이블](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) ([시작 가이드 참조](sql-database-temporal-tables.md))
   - 보안 기능- [응용 프로그램 역할](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles), [동적 데이터 마스킹](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking) ([시작 가이드 참조](sql-database-dynamic-data-masking-get-started.md)), [행 수준 보안](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)및 위협 감지- [단일 데이터베이스 및 탄력적 풀](sql-database-threat-detection.md) [에 대 한 시작 가이드를 참조 하세요. 관리 되는 인스턴스입니다](sql-database-managed-instance-threat-detection.md).
   - 다중 모델 기능- [그래프 처리](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview), [JSON 데이터](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) ([시작 가이드 참조](sql-database-json-features.md)), [OPENXML](https://docs.microsoft.com/sql/t-sql/functions/openxml-transact-sql), [공간](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server), [OPENJSON](https://docs.microsoft.com/sql/t-sql/functions/openjson-transact-sql)및 [XML 인덱스](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql)입니다.
 
-만든 Azure SQL database의 유형에 따라 달라 지는 데이터베이스 기능이 있습니다. 이러한 기능은 아래 표에 설명 되어 있습니다. Azure SQL Database를 사용하면 데이터베이스를 [Managed Instance](sql-database-managed-instance.md) 또는 탄력적 풀의 일부분으로 만들거나 단일 데이터베이스로 만들 수 있습니다. 차이점에 대 한 자세한 내용이 필요한 경우 [단일 데이터베이스 및 탄력적 풀](sql-database-transact-sql-information.md) 에 대 한 별도의 페이지 또는 [Managed Instance](sql-database-managed-instance-transact-sql-information.md)에서 찾을 수 있습니다.
+Azure SQL Database는 데이터베이스를 관리 하 고 고가용성을 보장 합니다. 고가용성에 영향을 주거나 PaaS 세계에서 사용할 수 없는 일부 기능에는 Azure SQL Database 기능이 제한 되어 있습니다. 또한 일부 데이터베이스 기능은 사용자가 만드는 Azure SQL Database 유형에 따라 달라 집니다. 이러한 기능은 아래 표에 설명 되어 있습니다. Azure SQL Database를 사용하면 데이터베이스를 [Managed Instance](sql-database-managed-instance.md) 또는 탄력적 풀의 일부분으로 만들거나 단일 데이터베이스로 만들 수 있습니다. 차이점에 대 한 자세한 내용이 필요한 경우 [단일 데이터베이스 및 탄력적 풀](sql-database-transact-sql-information.md) 에 대 한 별도의 페이지 또는 [Managed Instance](sql-database-managed-instance-transact-sql-information.md)에서 찾을 수 있습니다.
 
 ## <a name="sql-features"></a>SQL 기능
 

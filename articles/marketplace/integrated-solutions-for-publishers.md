@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 08/15/2019
 ms.author: v-qiwe
-ms.openlocfilehash: 63f9112696156f2192669913bb15a82b9a7eede7
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 2d23b2b39844d48c6414d269f8d69d7b96fff272
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69657464"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860296"
 ---
 # <a name="publishing-integrated-solutions"></a>게시 통합 솔루션
 
@@ -88,6 +88,6 @@ ms.locfileid: "69657464"
 
 ## <a name="going-to-market-with-your-integrated-solution"></a>통합 솔루션으로 출시 
 
-솔루션이 Azure Marketplace 또는 AppSource에 살고 있으면 마케팅 활동을 통해 인식 및 수요 생성을 유도 하는 것이 좋습니다. 파트너가 자신의 팀 내에서 서로 연결할 수 있는 작업을 포함 하 여 [프로젝트 계획 및 타임 라인](https://aka.ms/AA5qiuc)에 나열 된 작업을 검토 합니다. 그런 다음 marketplace에 게시 한 파트너에 게 제공 되는 [시장 출시 혜택](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#how-to-access-microsoft-resources) 에 액세스 하세요. 모든 통합 솔루션 제품은 평가판 수준의 혜택을 받을 자격이 있습니다.
+솔루션이 Azure Marketplace 또는 AppSource에 살고 있으면 마케팅 활동을 통해 인식 및 수요 생성을 유도 하는 것이 좋습니다. 파트너가 자신의 팀 내에서 서로 연결할 수 있는 작업을 포함 하 여 [프로젝트 계획 및 타임 라인](https://aka.ms/AA5qiuc)에 나열 된 작업을 검토 합니다. 그런 다음 marketplace에 게시 한 파트너에 게 제공 되는 [시장 출시 혜택](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#list-trial-and-consulting-benefits) 에 액세스 하세요. 모든 통합 솔루션 제품은 평가판 수준의 혜택을 받을 자격이 있습니다.
 
 ---

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ed20dd9068ccdea1fb9cd04801eb0096fed2c922
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 929c923fda8c1c2bddd96d0b4d4e4b6ce6d29de9
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972440"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845317"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>온-프레미스 워크스테이션에서 사설 클라우드 vCenter 액세스의 이름 확인에 대 한 DNS 구성
 
@@ -56,18 +56,24 @@ zone “cloudsimple.io”
 
 ### <a name="create-a-zone-on-a-microsoft-windows-dns-server"></a>Microsoft Windows DNS 서버에서 영역 만들기
 
-1. DNS 서버를 마우스 오른쪽 단추로 클릭 하 고 **새 영역**을 선택 합니다.  
-![새 영역](media/DNS01.png)
+1. DNS 서버를 마우스 오른쪽 단추로 클릭 하 고 **새 영역**을 선택 합니다. 
+  
+    ![새 영역](media/DNS01.png)
 2. **스텁 영역** 을 선택 하 고 **다음**을 클릭 합니다.
-![새 영역](media/DNS02.png)
+
+    ![새 영역](media/DNS02.png)
 3. 사용자 환경에 따라 적절 한 옵션을 선택 하 고 **다음**을 클릭 합니다.
-![새 영역](media/DNS03.png)
+
+    ![새 영역](media/DNS03.png)
 4. **전방 조회 영역** 을 선택 하 고 **다음**을 클릭 합니다.
-![새 영역](media/DNS01.png)
+
+    ![새 영역](media/DNS01.png)
 5. 영역 이름을 입력 하 고 **다음**을 클릭 합니다.
-![새 영역](media/DNS05.png)
+
+    ![새 영역](media/DNS05.png)
 6. CloudSimple 포털에서 가져온 사설 클라우드에 대 한 DNS 서버의 IP 주소를 입력 합니다.
-![새 영역](media/DNS06.png)
+
+    ![새 영역](media/DNS06.png)
 7. 필요에 따라 **다음** 을 클릭 하 여 마법사 설치를 완료 합니다.
 
 ## <a name="create-a-conditional-forwarder"></a>조건부 전달자 만들기
@@ -91,5 +97,6 @@ zone “cloudsimple.io” {
 
 1. DNS 서버에서 DNS 관리자를 엽니다.
 2. **조건부 전달자** 를 마우스 오른쪽 단추로 클릭 하 고 옵션을 선택 하 여 새 조건부 전달자를 추가 합니다.
-![조건부 전달자 1 Windows DNS](media/DNS08.png)
+
+    ![조건부 전달자 1 Windows DNS](media/DNS08.png)
 3. 사설 클라우드에 dns 도메인 및 DNS 서버의 IP 주소를 입력 하 고 **확인**을 클릭 합니다.

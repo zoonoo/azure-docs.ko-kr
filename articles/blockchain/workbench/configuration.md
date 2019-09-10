@@ -1,21 +1,21 @@
 ---
 title: Azure Blockchain Workbench 구성 참조
-description: Azure Blockchain Workbench 애플리케이션 구성 개요.
+description: Azure Blockchain 워크 벤치 미리 보기 응용 프로그램 구성 개요.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/15/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 4d29d8e86a30f105c4aa50ec9615f8165fa238d3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1c737106b47b95fcc6d1abdadc81398a3bc9256d
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60578983"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845106"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Azure Blockchain Workbench 구성 참조
 
@@ -43,7 +43,7 @@ Azure Blockchain Workbench 애플리케이션은 구성 메타데이터 및 스�
 |-------|-------------|:--------:|
 | ApplicationName | 고유 애플리케이션 이름. 해당 스마트 계약은 적용 가능한 계약 클래스에 대해 동일한 **ApplicationName**을 사용해야 합니다.  | 예 |
 | DisplayName | 애플리케이션의 친숙한 표시 이름. | 예 |
-| Description | 애플리케이션에 대한 설명. | 아닙니다. |
+| Description | 애플리케이션에 대한 설명. | 아니요 |
 | ApplicationRoles | [ApplicationRoles](#application-roles)의 콜렉션. 애플리케이션 내에서 작업하거나 참여할 수 있는 사용자 역할.  | 예 |
 | Workflows | [워크플로](#workflows) 컬렉션. 각 워크플로는 비즈니스 논리의 흐름을 제어하는​상태 시스템의 역할을 합니다. | 예 |
 
@@ -57,33 +57,33 @@ Azure Blockchain Workbench 애플리케이션은 구성 메타데이터 및 스�
 |-------|-------------|:--------:|-----------:|
 | Name | 고유 워크플로 이름. 해당 스마트 계약은 적용 가능한 계약 클래스에 대해 동일한 **Name**을 사용해야 합니다. | 예 | 50 |
 | DisplayName | 워크플로의 친숙한 표시 이름. | 예 | 255 |
-| Description | 워크플로에 대한 설명. | 아닙니다. | 255 |
+| Description | 워크플로에 대한 설명. | 아니요 | 255 |
 | Initiators | [ApplicationRoles](#application-roles)의 콜렉션. 워크플로에서 계약을 만들 권한이 있는 사용자에게 할당된 역할. | 예 | |
 | StartState | 워크플로의 초기 상태 이름. | 예 | |
 | Properties | [식별자](#identifiers)의 콜렉션. 사용자 경험 도구에서 오프 체인으로 읽히거나 또는 시각화 될 수 있는 데이터를 나타냅니다. | 예 | |
 | Constructor | 워크플로의 인스턴스를 만들기 위한 입력 매개 변수를 정의합니다. | 예 | |
-| Functions | 워크플로에서 실행할 수 있는 [함수](#functions) 컬렉션. | 예 | |
+| 함수 | 워크플로에서 실행할 수 있는 [함수](#functions) 컬렉션. | 예 | |
 | States | 워크플로 [상태](#states)의 컬렉션. | 예 | |
 
 예를 들어 [구성 파일 예제](#configuration-file-example)를 참조하세요.
 
-## <a name="type"></a>Type
+## <a name="type"></a>형식
 
 지원되는 데이터 형식.
 
-| Type | Description |
+| 형식 | Description |
 |-------|-------------|
-| address  | *계약* 또는 *사용자*와 같은 블록체인 주소 형식 |
-| array    | 정수, 부울, 돈 또는 시간 형식의 단일 수준 배열입니다. 배열은 정적 또는 동적일 수 있습니다. **ElementType**을 사용하여 배열 내 요소의 데이터 형식을 지정합니다. [예제 구성](#example-configuration-of-type-array)을 참조하세요. |
+| 주소  | *계약* 또는 *사용자*와 같은 블록체인 주소 형식 |
+| 배열    | 정수, 부울, 돈 또는 시간 형식의 단일 수준 배열입니다. 배열은 정적 또는 동적일 수 있습니다. **ElementType**을 사용하여 배열 내 요소의 데이터 형식을 지정합니다. [예제 구성](#example-configuration-of-type-array)을 참조하세요. |
 | bool     | 부울 데이터 형식입니다. |
-| 계약 | 계약 형식의 주소입니다. |
-| enum     | 명명된 값의 열거형 집합입니다. 열거형 형식을 사용하는 경우 EnumValues 목록도 지정합니다. 태그 값은 255자로 제한됩니다. 유효한 값 문자에는 대/소문자(A-Z, a-z)와 숫자(0-9)가 포함됩니다. [Solidity에서 예제 구성 및 사용](#example-configuration-of-type-enum)을 참조하세요. |
-| int      | 정수 데이터 형식입니다. |
+| 계약(contract) | 계약 형식의 주소입니다. |
+| 열거형     | 명명된 값의 열거형 집합입니다. 열거형 형식을 사용하는 경우 EnumValues 목록도 지정합니다. 태그 값은 255자로 제한됩니다. 유효한 값 문자에는 대/소문자(A-Z, a-z)와 숫자(0-9)가 포함됩니다. [Solidity에서 예제 구성 및 사용](#example-configuration-of-type-enum)을 참조하세요. |
+| ssNoversion      | 정수 데이터 형식입니다. |
 | money    | 돈 데이터 형식입니다. |
 | state    | 워크플로 상태입니다. |
-| 문자열  | 문자열 데이터 형식입니다. 최대 4000자입니다. [예제 구성](#example-configuration-of-type-string)을 참조하세요. |
+| string  | 문자열 데이터 형식입니다. 최대 4000자입니다. [예제 구성](#example-configuration-of-type-string)을 참조하세요. |
 | 사용자     | 사용자 형식의 주소입니다. |
-| 실시간     | 시간 데이터 형식입니다. |
+| Time     | 시간 데이터 형식입니다. |
 |`[ Application Role Name ]`| 애플리케이션 역할에 지정된 임의의 이름. 사용자를 그 역할 유형에 해당하는 경우로 제한합니다. |
 
 ### <a name="example-configuration-of-type-array"></a>배열 형식의 예제 구성
@@ -104,7 +104,7 @@ Azure Blockchain Workbench 애플리케이션은 구성 메타데이터 및 스�
 
 #### <a name="using-a-property-of-type-array"></a>배열 형식의 속성 사용
 
-구성에서 배열 형식으로 속성을 정의하는 경우 Solidity에서 배열 형식의 공용 속성을 반환하는 명시적인 가져오기 함수를 포함해야 합니다. 예를 들면 다음과 같습니다.
+구성에서 배열 형식으로 속성을 정의하는 경우 Solidity에서 배열 형식의 공용 속성을 반환하는 명시적인 가져오기 함수를 포함해야 합니다. 예를 들어:
 
 ```
 function GetQuotes() public constant returns (int[]) {
@@ -203,7 +203,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 }
 ```
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>함수
 
 워크플로에서 실행할 수 있는 함수를 정의합니다.
 
@@ -211,7 +211,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 |-------|-------------|:--------:|-----------:|
 | Name | 함수의 고유한 이름. 해당 스마트 계약은 적용 가능한 함수에 대해 동일한 **Name**을 사용해야 합니다. | 예 | 50 |
 | DisplayName | 함수의 친숙한 표시 이름. | 예 | 255 |
-| Description | 함수에 대한 설명 | 아닙니다. | 255 |
+| Description | 함수에 대한 설명 | 아니요 | 255 |
 | 매개 변수 | 함수의 매개 변수에 해당하는 [식별자](#identifiers)의 컬렉션. | 예 | |
 
 ### <a name="functions-example"></a>함수 예제
@@ -259,10 +259,10 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 |-------|-------------|:--------:|-----------:|
 | Name | 상태의 고유 이름. 해당 스마트 계약은 적용 가능한 상태에 대해 동일한 **Name**을 사용해야 합니다. | 예 | 50 |
 | DisplayName | 상태의 친숙한 표시 이름. | 예 | 255 |
-| Description | 상태에 대한 설명. | 아닙니다. | 255 |
+| Description | 상태에 대한 설명. | 아니요 | 255 |
 | PercentComplete | Blockchain Workbench 사용자 인터페이스에 표시되는 정수 값은 비즈니스 논리 제어 흐름 내에서의 진행 상황을 보여줍니다. | 예 | |
-| Style | 상태가 성공 또는 실패 상태인지 여부를 나타내는 시각적 힌트. 유효한 값은 다음 두 가지입니다. `Success` 또는 `Failure`. | 예 | |
-| 전환 | 현재 상태에서 다음 상태 집합으로 [전환](#transitions) 가능한 컬렉션. | 아닙니다. | |
+| 스타일 | 상태가 성공 또는 실패 상태인지 여부를 나타내는 시각적 힌트. 유효한 값은 다음 두 가지입니다. `Success` 또는 `Failure`. | 예 | |
+| 전환 | 현재 상태에서 다음 상태 집합으로 [전환](#transitions) 가능한 컬렉션. | 아니요 | |
 
 ### <a name="states-example"></a>상태 예제
 
@@ -326,10 +326,10 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 
 | 필드 | Description | 필수 |
 |-------|-------------|:--------:|
-| AllowedRoles | 전환을 시작하도록 허용된 애플리케이션 역할 목록. 지정된 역할의 모든 사용자가 작업을 수행할 수 있습니다. | 아닙니다. |
-| AllowedInstanceRoles | 전환을 시작하도록 허용된 스마트 계약에 참여하거나 지정된 사용자 역할 목록. 인스턴스 역할은 워크플로 내의 **속성**에서 정의됩니다. AllowedInstanceRoles는 스마트 계약의 인스턴스에 참여하는 사용자를 나타냅니다. AllowedInstanceRoles는 계약 인스턴스에서 사용자 역할에 대한 작업을 수행하도록 제한하는 기능을 제공합니다.  예를 들어 AllowedRoles에서 역할을 지정하는 경우 계약(InstanceOwner)을 만든 사용자가 역할 유형(소유자)의 모든 사용자 대신 종료할 수도 있습니다. | 아닙니다. |
+| AllowedRoles | 전환을 시작하도록 허용된 애플리케이션 역할 목록. 지정된 역할의 모든 사용자가 작업을 수행할 수 있습니다. | 아니요 |
+| AllowedInstanceRoles | 전환을 시작하도록 허용된 스마트 계약에 참여하거나 지정된 사용자 역할 목록. 인스턴스 역할은 워크플로 내의 **속성**에서 정의됩니다. AllowedInstanceRoles는 스마트 계약의 인스턴스에 참여하는 사용자를 나타냅니다. AllowedInstanceRoles는 계약 인스턴스에서 사용자 역할에 대한 작업을 수행하도록 제한하는 기능을 제공합니다.  예를 들어 AllowedRoles에서 역할을 지정하는 경우 계약(InstanceOwner)을 만든 사용자가 역할 유형(소유자)의 모든 사용자 대신 종료할 수도 있습니다. | 아니요 |
 | DisplayName | 전환의 친숙한 표시 이름. | 예 |
-| Description | 전환에 대한 설명. | 아닙니다. |
+| Description | 전환에 대한 설명. | 아니요 |
 | 함수 | 전환을 시작하는 함수의 이름. | 예 |
 | NextStates | 성공적인 전환 후 잠재적인 다음 상태의 컬렉션. | 예 |
 
@@ -372,7 +372,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 | 필드 | Description | 필수 | 최대 길이 |
 |-------|-------------|:--------:|-----------:|
 | Name | 애플리케이션 역할의 고유한 이름입니다. 해당 스마트 계약은 적용 가능한 역할에 대해 동일한 **Name**을 사용해야 합니다. 기본 형식 이름은 예약되어 있습니다. [형식](#type)과 같은 이름으로 애플리케이션 역할의 이름을 지정할 수 없습니다.| 예 | 50 |
-| Description | 애플리케이션 역할에 대한 설명. | 아닙니다. | 255 |
+| Description | 애플리케이션 역할에 대한 설명. | 아니요 | 255 |
 
 ### <a name="application-roles-example"></a>애플리케이션 역할 예제
 
@@ -396,7 +396,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 |-------|-------------|:--------:|-----------:|
 | Name | 속성 또는 매개 변수의 고유 이름. 해당 스마트 계약은 적용 가능한 속성 또는 매개 변수에 대해 동일한 **Name**을 사용해야 합니다. | 예 | 50 |
 | DisplayName | 속성 또는 매개 변수의 친숙한 표시 이름. | 예 | 255 |
-| Description | 속성 또는 매개 변수에 대한 설명. | 아닙니다. | 255 |
+| Description | 속성 또는 매개 변수에 대한 설명. | 아니요 | 255 |
 
 ### <a name="identifiers-example"></a>식별자 예제
 

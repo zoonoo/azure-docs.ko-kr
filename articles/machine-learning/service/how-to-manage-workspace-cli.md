@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
 ms.date: 08/30/2019
-ms.openlocfilehash: 1213e9bc3b27b8d5f6f6ef93b6eefa5a8c32be57
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: f398eb8124f45562ebc3c4238c641a6638811394
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70392676"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873489"
 ---
-# <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure Machine Learning 서비스에 대 한 작업 영역 만들기
+# <a name="create-a-workspace-for-azure-machine-learning-service-with-azure-cli"></a>Azure CLI를 사용 하 여 Azure Machine Learning 서비스에 대 한 작업 영역 만들기
 
 이 문서에서는 Azure CLI를 사용 하 여 Azure Machine Learning 서비스 작업 영역을 만드는 방법에 대해 알아봅니다. Azure CLI는 Azure 리소스를 관리 하기 위한 명령을 제공 합니다. CLI에 대 한 machine learning 확장은 Azure Machine Learning 서비스 리소스를 사용 하기 위한 명령을 제공 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**. 구독이 없는 경우[Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 

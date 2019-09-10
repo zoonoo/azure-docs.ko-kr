@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: juliako
-ms.openlocfilehash: ff85638a05855d0b755a7b1812ee7025274b559c
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 6fea7b7d3d3ef3b1a46aeeff0bab8fef2a9bf3ad
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019302"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860359"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services 릴리스 정보
 
@@ -29,7 +29,7 @@ Azure Media Services에 대한 이 릴리스 정보에는 이전 릴리스 이�
 
 Azure 팀은 고객의 의견을 수렴하여 고객에게 영향을 주는 문제를 해결하기 위해 노력하고 있습니다. 문제를 보고하거나 질문이 있는 경우 [Azure Media Services MSDN 포럼]에서 게시물을 제출하세요. 
 
-## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>현재 알려진 문제
+## <a name="a-idissuesknown-issues"></a><a id="issues"/>알려진 문제
 ### <a name="a-idgeneral_issuesmedia-services-general-issues"></a><a id="general_issues"/>Media Services 관련 일반 문제
 
 | 문제점 | Description |
@@ -41,6 +41,7 @@ Azure 팀은 고객의 의견을 수렴하여 고객에게 영향을 주는 문�
 | 엔터티를 쿼리할 때 한 번에 반환되는 엔터티 수의 제한은 1,000개입니다. 공용 REST 버전 2에서는 쿼리 결과를 1,000개로 제한하기 때문입니다. |[이 .NET 예제](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) 및 [이 REST API 예제](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)에 설명된 대로 건너뛰기 및 포함(.NET)/top(REST)을 사용합니다. |
 | 일부 클라이언트에 부드러운 스트리밍 매니페스트의 반복 태그 문제가 발생할 수 있습니다. |자세한 내용은 [이 섹션](media-services-deliver-content-overview.md#known-issues)을 참조하세요. |
 | Media Services .NET SDK 개체는 직렬화할 수 없으며 따라서 Azure Redis Cache에서 작동하지 않습니다. |SDK AssetCollection 개체를 직렬화하여 Azure Redis Cache에 추가하려는 경우 예외가 throw됩니다. |
+|REST API는 자산 또는 계정 수준 필터를 가져오려고 할 때 "이 버전의 REST Api에서 필터에 액세스할 수 없습니다." 라는 오류 메시지와 함께 응답 합니다.|필터를 가져오는 데 사용 되는 것 보다 최신 API 버전으로 필터를 만들거나 수정 했습니다. 이는 고객이 사용 하는 코드 또는 도구에서 두 API 버전을 사용 하는 경우에 발생할 수 있습니다.  여기에서 가장 좋은 해결책은 최신 또는 두 개의 API 버전을 사용 하도록 코드를 업그레이드 하는 것입니다.|
 
 ## <a name="a-idrest_version_historyrest-api-version-history"></a><a id="rest_version_history"/>REST API 버전 기록
 Media Services REST API 버전 기록에 대한 자세한 내용은 [Azure Media Services REST API 참조]를 참조하세요.

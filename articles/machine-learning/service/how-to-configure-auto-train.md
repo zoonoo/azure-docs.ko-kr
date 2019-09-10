@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: a73d048a66c70eaf22caf6b33c4a495df6d730dd
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 9a2b030185c821ec9bd577ecdabbc929766f2d14
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997913"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858891"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python에서 자동화 된 ML 실험 구성
 
@@ -34,7 +34,7 @@ ms.locfileid: "69997913"
 * 모델 메트릭 탐색
 * 모델 등록 및 배포
 
-코드 환경을 사용 하지 않으려는 경우 [Azure Portal에서 자동화 된 machine learning 실험을 만들](how-to-create-portal-experiments.md)수도 있습니다.
+코드를 사용 하지 않으려는 경우 [Azure Portal에서 자동화 된 machine learning 실험을 만들](how-to-create-portal-experiments.md)수도 있습니다.
 
 ## <a name="select-your-experiment-type"></a>실험 유형 선택
 
@@ -553,13 +553,13 @@ LogisticRegression
     print(per_class_summary)
     ```
 
-Azure Portal의 작업 영역에서 기능 중요도 차트를 시각화할 수 있습니다. Run 개체를 사용 하 여 URL을 표시 합니다.
+실행 개체를 사용 하 여 기능 중요도를 보려면 URL을 표시 합니다.
 
 ```
 automl_run.get_portal_url()
 ```
 
-Azure Portal의 작업 영역에서 기능 중요도 차트를 시각화할 수 있습니다. 노트북에서 [jupyter 위젯을](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) 사용 `RunDetails` 하는 경우에도 차트가 표시 됩니다. 차트에 대 한 자세한 내용은 자동화 된 [machine learning 결과 이해](how-to-understand-automated-ml.md)를 참조 하세요.
+작업 영역에서 Azure Portal 또는 [작업 영역 방문 페이지 (미리 보기)](https://ml.azure.com)에서 기능 중요도 차트를 시각화할 수 있습니다. 노트북에서 [jupyter 위젯을](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) 사용 `RunDetails` 하는 경우에도 차트가 표시 됩니다. 차트에 대 한 자세한 내용은 자동화 된 [machine learning 결과 이해](how-to-understand-automated-ml.md)를 참조 하세요.
 
 ```Python
 from azureml.widgets import RunDetails

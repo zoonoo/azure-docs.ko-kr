@@ -9,10 +9,10 @@ ms.date: 12/13/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: d6c5d881c5ca6eee14835ab0ec10bff2749299dc
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "68502310"
 ---
 다음 표에는 Azure Service Bus 메시징과 관련 된 할당량 정보가 나와 있습니다. Service Bus에 대 한 가격 책정 및 기타 할당량에 대 한 자세한 내용은 [Service Bus 가격 책정](https://azure.microsoft.com/pricing/details/service-bus/)을 참조 하세요.

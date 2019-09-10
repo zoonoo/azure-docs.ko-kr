@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7d7333a9316e4d39fd550872c3df04024a75d21d
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: c40fd4f776e0372d7368d182d30cfb2e01a4b0e2
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128323"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858827"
 ---
 # <a name="what-are-ml-pipelines-in-azure-machine-learning-service"></a>Azure Machine Learning 서비스의 ML 파이프라인 이란?
 
@@ -54,7 +54,7 @@ Machine learning 파이프라인은 인프라 및 자동화 대신 전문 지식
 
 Azure Machine Learning를 사용 하 여 파이프라인의 각 단계에 대 한 다양 한 도구 키트와 프레임 워크 (예: PyTorch 또는 TensorFlow)를 사용할 수 있습니다. Azure는 중간 데이터가 다운스트림 컴퓨팅 대상과 간편하게 공유될 수 있도록 사용하는 다양한 [컴퓨팅 대상](concept-azure-machine-learning-architecture.md) 간에 조정합니다.
 
-Azure Portal에서 직접 [파이프라인 실험에 대한 메트릭을 추적](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments). 파이프라인이 게시 된 후에는 모든 플랫폼 또는 스택에서 파이프라인을 다시 실행할 수 있는 REST 끝점을 구성할 수 있습니다.
+Azure Portal 또는 [작업 영역 방문 페이지 (미리 보기)](https://ml.azure.com)에서 직접 [파이프라인 실험의 메트릭을 추적할](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments) 수 있습니다. 파이프라인이 게시 된 후에는 모든 플랫폼 또는 스택에서 파이프라인을 다시 실행할 수 있는 REST 끝점을 구성할 수 있습니다.
 
 ## <a name="key-advantages"></a>주요 장점
 

@@ -11,18 +11,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 27361017241ba6529b93c24ce7fb95b2c1b22a62
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 0a34ccf5201b81a2c74c2eccd0ec3f311a1158ab
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70389903"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860547"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>모델 학습을 위한 계산 대상 설정 및 사용 
 
 Azure Machine Learning Service를 사용하여 다양한 리소스 또는 환경(총체적으로 [__컴퓨팅 대상__](concept-azure-machine-learning-architecture.md#compute-targets)이라고 함)에서 모델을 학습할 수 있습니다. 컴퓨팅 대상은 로컬 컴퓨터 또는 클라우드 리소스(예: Azure Machine Learning Compute, Azure HDInsight 또는 원격 가상 머신)일 수 있습니다.  ["모델 배포 위치 및 방법"](how-to-deploy-and-where.md)의 설명에 따라 모델 배포용 컴퓨팅 대상을 만들 수도 있습니다.
 
-Azure Machine Learning SDK, Azure Portal, Azure CLI 또는 Azure Machine Learning VS Code 확장을 사용 하 여 계산 대상을 만들고 관리할 수 있습니다. 다른 서비스(예: HDInsight 클러스터)를 통해 만든 컴퓨팅 대상이 있는 경우 해당 컴퓨팅 대상을 Azure Machine Learning Service 작업 영역에 연결하여 사용할 수 있습니다.
+Azure Machine Learning SDK, Azure Portal, 작업 영역 방문 페이지 (미리 보기), Azure CLI 또는 Azure Machine Learning VS Code 확장을 사용 하 여 계산 대상을 만들고 관리할 수 있습니다. 다른 서비스(예: HDInsight 클러스터)를 통해 만든 컴퓨팅 대상이 있는 경우 해당 컴퓨팅 대상을 Azure Machine Learning Service 작업 영역에 연결하여 사용할 수 있습니다.
  
 이 문서에서는 모델 학습에 다양한 컴퓨팅 대상을 사용하는 방법을 알아봅니다.  모든 컴퓨팅 대상에 대한 단계는 동일한 워크플로를 따릅니다.
 1. 컴퓨팅 대상이 이미 없는 경우 __만듭니다__.
@@ -45,9 +45,9 @@ Azure Machine Learning Service에는 다양한 컴퓨팅 대상에 대한 다양
 
 ## <a name="whats-a-run-configuration"></a>실행 구성이란?
 
-학습 시에는 보통 로컬 컴퓨터에서 시작한 후 나중에 다른 컴퓨팅 대상에서 해당 학습 스크립트를 실행합니다. Azure Machine Learning Service를 사용하면 스크립트를 변경할 필요 없이 다양한 컴퓨팅 대상에서 스크립트를 실행할 수 있습니다. 
+학습 시에는 보통 로컬 컴퓨터에서 시작한 후 나중에 다른 컴퓨팅 대상에서 해당 학습 스크립트를 실행합니다. Azure Machine Learning Service를 사용하면 스크립트를 변경할 필요 없이 다양한 컴퓨팅 대상에서 스크립트를 실행할 수 있습니다.
 
-**실행 구성**내에서 각 계산 대상에 대 한 환경을 정의 하기만 하면 됩니다.  그런 다음 다른 컴퓨팅 대상에서 학습 실험을 실행하려는 경우에 해당 컴퓨팅에 대한 실행 구성을 지정합니다. 환경을 지정 하 고 구성 실행에 바인딩하는 방법에 대 한 자세한 내용은 [교육 및 배포를 위한 환경 만들기 및 관리](how-to-use-environments.md) 를 참조 하세요.
+**실행 구성**내에서 각 계산 대상에 대 한 환경을 정의 하기만 하면 됩니다.  그런 다음 다른 컴퓨팅 대상에서 학습 실험을 실행하려는 경우에 해당 컴퓨팅에 대한 실행 구성을 지정합니다. 환경을 지정 하 고 구성 실행에 바인딩하는 방법에 대 한 자세한 내용은 [학습 및 배포를 위한 환경 만들기 및 관리](how-to-use-environments.md)를 참조 하세요.
 
 이 문서의 끝부분에서 [실험 제출](#submit)에 대해 자세히 알아보세요.
 
@@ -106,7 +106,7 @@ Azure Machine Learning 컴퓨팅에는 할당할 수 있는 코어 수와 같은
 Azure Machine Learning 컴퓨팅을 런타임에 컴퓨팅 대상으로 만들 수 있습니다. 실행에 대해 컴퓨팅이 자동으로 만들어집니다. 실행이 완료되면 컴퓨팅이 자동으로 삭제됩니다. 
 
 > [!NOTE]
-> 사용할 최대 노드 수를 지정 하려면 일반적으로 노드 수로 설정 `node_count` 합니다. 현재이 작업을 수행 하지 못하게 하는 버그가 있습니다 (04/04/2019). 이 문제를 해결 하려면 실행 `amlcompute._cluster_max_node_count` 구성의 속성을 사용 합니다. [http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest](`run_config.amlcompute._cluster_max_node_count = 5`)을 입력합니다.
+> 사용할 최대 노드 수를 지정 하려면 일반적으로 노드 수로 설정 `node_count` 합니다. 현재이 작업을 수행 하지 못하게 하는 버그가 있습니다 (04/04/2019). 이 문제를 해결 하려면 실행 `amlcompute._cluster_max_node_count` 구성의 속성을 사용 합니다. 예를 들어, `run_config.amlcompute._cluster_max_node_count = 5`을 입력합니다.
 
 > [!IMPORTANT]
 > Azure Machine Learning 컴퓨팅의 실행 기반 만들기는 현재 미리 보기로 제공됩니다. 하이퍼 매개 변수 튜닝 또는 자동화된 Machine Learning을 사용 중인 경우에는 실행 기반 만들기를 사용하지 마세요. 하이퍼 매개 변수 튜닝 또는 자동화된 기계 학습을 사용하려면 [영구적 컴퓨팅](#persistent) 대상을 대신 만듭니다.
@@ -278,6 +278,7 @@ Azure Portal에서 작업 영역과 연결된 컴퓨팅 대상에 액세스할 �
 * 작업 영역에서 [컴퓨팅 대상 만들기](#portal-create)
 * 작업 영역 외부에서 만든 [컴퓨팅 대상 연결](#portal-reuse)
 
+
 대상을 만들고 작업 영역에 연결한 후 `ComputeTarget` 개체와 함께 실행 구성에서 대상을 사용합니다. 
 
 ```python
@@ -290,7 +291,8 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 작업 영역에 대한 컴퓨팅 대상을 확인하려면 다음 단계를 사용합니다.
 
-1. [Azure Portal](https://portal.azure.com)로 이동하여 자신의 작업 영역을 엽니다. 
+1. [Azure Portal](https://portal.azure.com)로 이동하여 자신의 작업 영역을 엽니다. 아래 이미지에 Azure Portal 표시 되어 있지만 [작업 영역 방문 페이지 (미리 보기)](https://ml.azure.com)에서 이와 동일한 단계에 액세스할 수도 있습니다.
+ 
 1. __애플리케이션__에서 __컴퓨팅__을 선택합니다.
 
     [![계산 탭 보기](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace-expanded.png)

@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 04/16/2019
-ms.openlocfilehash: aac328806e2570bd124626e916c250d481a11311
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d539bd569eee613eb43947e5fd0e3b0614ca5d79
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567595"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858613"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL Database에서 관리 되는 인스턴스의 연결 아키텍처
 
@@ -96,7 +96,7 @@ Microsoft는 관리 끝점을 사용 하 여 관리 되는 인스턴스를 관�
 
 ### <a name="mandatory-inbound-security-rules"></a>필수 인바운드 보안 규칙
 
-| 이름       |포트                        |프로토콜|Source           |Destination|Action|
+| 이름       |포트                        |프로토콜|원본           |Destination|작업|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |관리  |9000, 9003, 1438, 1440, 1452|TCP     |임의의 값              |MI SUBNET  |Allow |
 |mi_subnet   |임의의 값                         |임의의 값     |MI SUBNET        |MI SUBNET  |Allow |
@@ -104,7 +104,7 @@ Microsoft는 관리 끝점을 사용 하 여 관리 되는 인스턴스를 관�
 
 ### <a name="mandatory-outbound-security-rules"></a>필수 아웃바운드 보안 규칙
 
-| 이름       |포트          |프로토콜|Source           |Destination|Action|
+| 이름       |포트          |프로토콜|원본           |Destination|작업|
 |------------|--------------|--------|-----------------|-----------|------|
 |관리  |80, 443, 12000|TCP     |MI SUBNET        |AzureCloud |Allow |
 |mi_subnet   |임의의 값           |임의의 값     |MI SUBNET        |MI SUBNET  |Allow |
@@ -238,4 +238,4 @@ Microsoft는 관리 끝점을 사용 하 여 관리 되는 인스턴스를 관�
   - [Azure Portal](sql-database-managed-instance-get-started.md)
   - [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md)사용.
   - [Azure Resource Manager 템플릿을](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/)사용 합니다.
-  - [Azure Resource Manager 템플릿을 사용 합니다 (SSMS 포함 된 JumpBox 사용)](https://portal.azure.com/). 
+  - [Azure Resource Manager 템플릿을 사용 합니다 (SSMS 포함 된 JumpBox 사용)](https://azure.microsoft.com/en-us/resources/templates/201-sqlmi-new-vnet-w-jumpbox/). 

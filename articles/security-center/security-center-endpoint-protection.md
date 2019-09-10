@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 4d3fc90a722b9f4043e891a14b542e6b90c94c55
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: a5cd0f88173abb65a120aa305206505af51d9f9e
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881028"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861381"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Azure Security Center의 Endpoint protection 평가 및 권장 사항
 
-Azure Security Center의 endpoint protection 평가 및 권장 사항은 [지원 되](https://docs.microsoft.com/azure/security-center/security-center-os-coverage#supported-platforms-for-windows-computers-and-vms) 는 버전의 endpoint protection 솔루션에 대 한 상태 평가를 검색 하 고 제공 합니다. 이 항목에서는 Azure Security Center 하 여 Endpoint protection 솔루션에 대해 다음과 같은 두 가지 권장 사항을 생성 하는 시나리오에 대해 설명 합니다.
+Azure Security Center의 endpoint protection 평가 및 권장 사항은 [지원 되](https://docs.microsoft.com/azure/security-center/security-center-os-coverage) 는 버전의 endpoint protection 솔루션에 대 한 상태 평가를 검색 하 고 제공 합니다. 이 항목에서는 Azure Security Center 하 여 Endpoint protection 솔루션에 대해 다음과 같은 두 가지 권장 사항을 생성 하는 시나리오에 대해 설명 합니다.
 
 * **가상 컴퓨터에 endpoint protection 솔루션 설치**
 * **컴퓨터에서 endpoint protection 상태 문제 해결**
@@ -180,6 +180,6 @@ Azure Security Center의 endpoint protection 평가 및 권장 사항은 [지원
 Microsoft 맬웨어 방지 확장 로그는 다음 위치에서 제공 됩니다.  
 **%Systemdrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.Security.IaaSAntimalware(Or PaaSAntimalware)\1.5.5.x(version#)\CommandExecution.log**
 
-### <a name="support"></a>Support(지원)
+### <a name="support"></a>지원
 
 이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 지원 인시던트를 파일에 입력할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 가서 지원 받기를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.

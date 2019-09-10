@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8368fc5369ee6cd93bbf472d4904cd647d66058d
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 692eff26dbbc2289ec589a327dbe58958b414a56
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673032"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70842733"
 ---
 # <a name="tutorial-configure-bonusly-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Bonusly 구성
 
@@ -39,7 +39,7 @@ ms.locfileid: "67673032"
 * 관리자 권한이 있는 Bonusly의 사용자 계정
 
 > [!NOTE]
-> Azure AD 프로비전 통합에는 Bonusly 개발자에게 제공되는 [Bonusly Rest API](https://bonusly.gelato.io/reference)가 사용됩니다.
+> Azure AD 프로비전 통합에는 Bonusly 개발자에게 제공되는 [Bonusly Rest API](https://konghq.com/solutions/gateway/)가 사용됩니다.
 
 ## <a name="adding-bonusly-from-the-gallery"></a>갤러리에서 Bonusly 추가
 
@@ -86,7 +86,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 ### <a name="to-configure-automatic-user-provisioning-for-bonusly-in-azure-ad"></a>Azure AD에서 Bonusly에 대한 자동 사용자 프로비전을 구성하려면 다음을 수행합니다.
 
-1. 에 로그인 합니다 [Azure portal](https://portal.azure.com) 선택한 **엔터프라이즈 응용 프로그램**를 선택 **모든 응용 프로그램**을 선택한 후 **Bonusly**합니다.
+1. [Azure Portal](https://portal.azure.com) 에 로그인 하 고 **엔터프라이즈 응용 프로그램**을 선택한 다음 **모든 응용 프로그램**을 선택 하 고 **Bonusly**를 선택 합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 

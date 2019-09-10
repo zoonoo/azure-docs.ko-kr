@@ -17,12 +17,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 906f2fc8cdac31922e6e93526f65577fe76c4b9c
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 054033c0fc9f1138ef9ecf7eaceca626f6f53423
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532384"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70872854"
 ---
 # <a name="xamarin-ios-specific-considerations-with-msalnet"></a>MSAL.NET를 사용 하 여 Xamarin iOS 관련 고려 사항
 Xamarin iOS에서 MSAL.NET 사용 시 고려해 야 할 몇 가지 고려 사항이 있습니다.
@@ -104,19 +104,29 @@ MSAL 2.x에서 여러 응용 프로그램에 걸쳐 토큰 캐시를 유지 하�
 
 이전에는이 `WithIosKeychainSecurityGroup()` api를 사용할 때마다 msal에서 $ (AppIdentifierPrefix)를 추가 했습니다. AppIdentifierPrefix 또는 "팀 ID"는 동일한 게시자가 만든 응용 프로그램만 키 집합 액세스를 공유할 수 있도록 하는 데 사용 되기 때문입니다.
 
-#### <a name="note-keychainsecuritygroup-property-deprecated"></a>참고: KeychainSecurityGroup 속성 사용 되지 않음
+> [!NOTE]
+> **속성 `KeychainSecurityGroup` 은 사용 되지 않습니다.**
+> 
+> 이전에는 msal 2.x에서 개발자가 `KeychainSecurityGroup` 속성을 사용할 때 teamid 접두사를 포함 해야 했습니다.
+>
+>  Msal 2.7. x에서 새 `iOSKeychainSecurityGroup` 속성을 사용 하는 경우 msal은 런타임 중에 teamid 접두사를 확인 합니다. 이 속성을 사용 하는 경우 값은 TeamId 접두사를 포함 하지 않아야 합니다.
+>  `iOSKeychainSecurityGroup` 이전`KeychainSecurityGroup` 속성이 더 이상 사용 되지 않으므로 teamid를 제공 하지 않아도 되는 새 속성을 사용 합니다.
 
-이전에는 msal 2.x에서 개발자가 `KeychainSecurityGroup` 속성을 사용할 때 teamid 접두사를 포함 해야 했습니다.
+### <a name="use-microsoft-authenticator"></a>Microsoft Authenticator 사용
 
-Msal 2.7. x에서 새 `iOSKeychainSecurityGroup` 속성을 사용 하는 경우 msal은 런타임 중에 teamid 접두사를 확인 합니다. 이 속성을 사용 하는 경우 값은 TeamId 접두사를 포함 하지 않아야 합니다.
+응용 프로그램에서 Microsoft Authenticator (broker)를 사용 하 여 다음을 사용할 수 있습니다.
 
-`iOSKeychainSecurityGroup` 이전`KeychainSecurityGroup` 속성이 더 이상 사용 되지 않으므로 개발자가 teamid를 제공 하지 않아도 되는 새 속성을 사용 합니다.
+- SSO (Single Sign On). 사용자는 각 응용 프로그램에 로그인 할 필요가 없습니다.
+- 장치 id입니다. 장치 인증서에 액세스 하 여 작업 공간에 연결 된 장치에서 생성 되었습니다. 테 넌 트 관리자가 장치와 관련 된 조건부 액세스를 사용 하도록 설정 하면 응용 프로그램이 준비 됩니다.
+- 응용 프로그램 id 확인. 응용 프로그램은 broker를 호출할 때 리디렉션 url을 전달 하 고 broker는이를 확인 합니다.
+
+Broker를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [Xamarin iOS 및 Android 응용 프로그램에서 Microsoft Authenticator 또는 Microsoft Intune 회사 포털 사용](msal-net-use-brokers-with-xamarin-apps.md)을 참조 하세요.
 
 ### <a name="sample-illustrating-xamarin-ios-specific-properties"></a>Xamarin iOS 관련 속성을 보여 주는 샘플
 
 자세한 내용은 다음 샘플의 readme.md 파일에 있는 [IOS 관련 고려 사항](https://github.com/azure-samples/active-directory-xamarin-native-v2#ios-specific-considerations) 단락에서 제공 됩니다.
 
-예제 | 플랫폼 | Description
+예제 | 플랫폼 | 설명
 ------ | -------- | -----------
 [https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, UWP | 간단한 Xamarin Forms 앱은 MSAL을 사용 하 여 Azure AD v2.0 끝점을 통해 MSA 및 Azure AD를 인증 하 고 결과 토큰을 사용 하 여 Microsoft Graph에 액세스 하는 방법을 보여주는 합니다.
 

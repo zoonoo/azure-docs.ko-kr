@@ -11,12 +11,12 @@ ms.author: tedway
 author: tedway
 ms.date: 07/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: c3d1d211f85c50a482e1dd9c482cb75477942de7
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 8f95846844f9ff498b1b99a0b7a375f1c883457d
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278194"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860471"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>FPGA (필드 프로그래밍 가능 게이트 배열) 및 배포 방법
 
@@ -30,7 +30,7 @@ FPGA는 프로그래밍 가능한 논리 블록 배열과 재구성 가능한 �
 
 ![Azure Machine Learning Service FPGA 비교 다이어그램](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
 
-|프로세서||Description|
+|프로세서||설명|
 |---|:-------:|------|
 |애플리케이션 관련 집적 회로|ASIC|Google의 TPU(TensorFlow Processor Units) 같은 사용자 지정 회로는 가장 높은 효율성을 제공합니다. 이러한 회로는 변하는 요구 사항에 따라 재구성할 수 없습니다.|
 |Field-programmable Gate Arrays|FPGA|Azure에서 사용할 수 있는 것과 같은 FPGA는 ASIC에 가까운 성능을 제공합니다. 또한 유연하고, 시간 경과에 따라 새 논리를 구현하기 위해 다시 구성할 수 있습니다.|
@@ -319,7 +319,7 @@ for i in Image.list(workspace=ws):
 
 ### <a name="deploy-to-the-cloud"></a>클라우드에 배포
 
-모델을 확장성이 뛰어난 프로덕션 웹 서비스로 배포하려면 AKS(Azure Kubernetes Service)를 사용합니다. Azure Machine Learning SDK, CLI 또는 Azure Portal를 사용 하 여 새 항목을 만들 수 있습니다.
+모델을 확장성이 뛰어난 프로덕션 웹 서비스로 배포하려면 AKS(Azure Kubernetes Service)를 사용합니다. Azure Machine Learning SDK, CLI, [Azure Portal](https://portal.azure.com) 또는 [작업 영역 방문 페이지 (미리 보기)](https://ml.azure.com)를 사용 하 여 새 항목을 만들 수 있습니다.
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget

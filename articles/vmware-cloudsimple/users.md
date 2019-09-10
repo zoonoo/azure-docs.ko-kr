@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c775f5352461dce6c63f5cc4a1c910c7f8df80ec
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 9d261acf80f51a09cc4daa9182a87b0354cf8a3d
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69564096"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845394"
 ---
 # <a name="view-the-list-of-cloudsimple-portal-users"></a>CloudSimple 포털 사용자 목록 보기
 
-사용자가 CloudSimple 포털에 처음 액세스할 때 사용자 목록에 추가 됩니다. Azure를 통해 CloudSimple 포털에 대 한 액세스 권한이 있는 사용자 목록을 보려면 [cloudsimple 포털에 액세스](monitor-activity.md)하 고, 측면 메뉴에서 **계정** 을 선택한 다음 Cloudsimple 포털에서 **사용자** 를 선택 합니다.
+사용자가 CloudSimple 포털에 처음 액세스할 때 사용자 목록에 추가 됩니다. Azure를 통해 CloudSimple 포털에 대 한 액세스 권한이 있는 사용자 목록을 보려면 [cloudsimple 포털에 액세스](access-cloudsimple-portal.md)하 고, 측면 메뉴에서 **계정** 을 선택한 다음 Cloudsimple 포털에서 **사용자** 를 선택 합니다.
 
 * Azure 구독, 테 넌 트 및 사용자 Id를 비롯 한 사용자 세부 정보를 표시 하려면 **사용자** 페이지에서 항목을 클릭 합니다.
 

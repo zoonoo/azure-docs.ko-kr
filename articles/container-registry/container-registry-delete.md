@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: danlep
-ms.openlocfilehash: 12c1b5f9fa9620622b31f22c701d58ae237bcbf2
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: d652c511a3f54fd0b756a95fbe183b4678416a10
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035146"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873210"
 ---
 # <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Container Registry에서 컨테이너 이미지 삭제
 
@@ -60,7 +60,7 @@ Are you sure you want to continue? (y/n): y
 
 [매니페스트 다이제스트](container-registry-concepts.md#manifest-digest)는 하나 이상의 태그와 연결되거나 어떤 태그와도 연결되지 않을 수 있습니다. 다이제스트에 따라 삭제하면 이미지에 고유한 모든 계층에 대한 계층 데이터와 마찬가지로 매니페스트에서 참조되는 모든 태그가 삭제됩니다. 공유 계층 데이터는 삭제되지 않습니다.
 
-다이제스트에 따라 삭제하려면 먼저 삭제하려는 이미지를 포함하는 리포지토리의 매니페스트 다이제스트를 나열합니다. 예를 들어:
+다이제스트에 따라 삭제하려면 먼저 삭제하려는 이미지를 포함하는 리포지토리의 매니페스트 다이제스트를 나열합니다. 예:
 
 ```console
 $ az acr repository show-manifests --name myregistry --repository acr-helloworld
@@ -227,7 +227,6 @@ then
     az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY  --query "[?tags[0]==null].digest" -o tsv \
     | xargs -I% az acr repository delete --name $REGISTRY --image $REPOSITORY@% --yes
 else
-    else
     echo "No data deleted."
     echo "Set ENABLE_DELETE=true to enable image deletion of these images in $REPOSITORY:"
     az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY --query "[?tags[0]==null]" -o tsv
@@ -260,7 +259,7 @@ if ($enableDelete) {
 }
 ```
 
-## <a name="automatically-purge-tags-and-manifests-preview"></a>자동으로 태그 및 매니페스트 제거 (미리 보기)
+## <a name="automatically-purge-tags-and-manifests-preview"></a>태그 및 매니페스트 자동 제거(미리 보기)
 
 Azure CLI 명령을 스크립팅 하는 대신 주문형 또는 예약 된 ACR 작업을 실행 하 여 특정 기간 보다 오래 되었거나 지정 된 이름 필터와 일치 하는 모든 태그를 삭제 합니다. 자세한 내용은 [Azure container registry에서 자동으로 이미지 제거](container-registry-auto-purge.md)를 참조 하세요.
 

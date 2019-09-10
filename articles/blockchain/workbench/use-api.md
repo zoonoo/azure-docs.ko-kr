@@ -1,25 +1,25 @@
 ---
-title: Azure Blockchain Workbench REST API 사용
-description: Azure Blockchain Workbench REST API를 사용하는 방법에 대한 시나리오
+title: Azure Blockchain 워크 벤치 미리 보기 사용 REST API
+description: Azure Blockchain 워크 벤치 미리 보기를 사용 하는 방법에 대 한 시나리오 REST API
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/15/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 7fa72ad62d7d11c795422a203d13a4dd45484c19
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 412b78363be70918969734cd8890a8ee940df431
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60896046"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70843821"
 ---
-# <a name="using-the-azure-blockchain-workbench-rest-api"></a>Azure Blockchain Workbench REST API 사용
+# <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>Azure Blockchain 워크 벤치 미리 보기 사용 REST API
 
-Azure Blockchain Workbench REST API는 개발자 및 정보 근로자에게 블록체인 애플리케이션과 통합하는 다양한 방법을 제공합니다. 이 문서에서는 Workbench REST API의 여러 가지 핵심 메서드를 안내합니다. 예를 들어 개발자가 사용자 지정 블록체인 클라이언트를 만들려고 한다고 가정합니다. 이 블록체인 클라이언트를 통해 로그인된 사용자는 할당된 블록체인 애플리케이션을 보고 상호 작용할 수 있습니다. 이 클라이언트에서는 사용자가 계약 인스턴스를 살펴보고 스마트 계약에 대한 작업을 수행할 수 있습니다. 클라이언트는 로그인한 사용자의 컨텍스트에서 Workbench REST API를 사용하여 다음 작업을 수행합니다.
+Azure Blockchain 워크 벤치 미리 보기 REST API 개발자 및 정보 근로자에 게 블록 체인 응용 프로그램에 대 한 다양 한 통합을 구축 하는 방법을 제공 합니다. 이 문서에서는 Workbench REST API의 여러 가지 핵심 메서드를 안내합니다. 예를 들어 개발자가 사용자 지정 블록체인 클라이언트를 만들려고 한다고 가정합니다. 이 블록체인 클라이언트를 통해 로그인된 사용자는 할당된 블록체인 애플리케이션을 보고 상호 작용할 수 있습니다. 이 클라이언트에서는 사용자가 계약 인스턴스를 살펴보고 스마트 계약에 대한 작업을 수행할 수 있습니다. 클라이언트는 로그인한 사용자의 컨텍스트에서 Workbench REST API를 사용하여 다음 작업을 수행합니다.
 
 * 애플리케이션 나열
 * 애플리케이션에 대한 워크플로 나열
@@ -210,8 +210,8 @@ Content-type: application/json
 
 사용자가 계약 중 하나를 자세히 살펴보기로 결정하면 블록체인 클라이언트는 계약의 상태를 고려하여 사용 가능한 사용자 작업을 표시할 수 있습니다. 이 예제의 사용자는 자신이 만든 새 스마트 계약에 사용 가능한 작업을 살펴봅니다.
 
-* 수정 합니다. 사용자를가 자산의 가격과 설명을 수정할 수 있습니다.
-* 종료: 사용자를가 자산의 계약 종료 수 있습니다.
+* 변경 사용자가 자산의 설명 및 가격을 수정할 수 있습니다.
+* 끝나야 사용자가 자산의 계약을 종료할 수 있습니다.
 
 [Contract Action GET API](/rest/api/azure-blockchain-workbench/contractsv2/contractactionget) 사용:
 
@@ -277,7 +277,7 @@ Content-type: application/json
 
 그러면 사용자는 지정된 스마트 계약 인스턴스에 대한 조치를 취할 것인지 결정할 수 있습니다. 이 예제에서는 사용자가 자산의 설명과 가격을 다음 작업과 같이 수정하려 하는 시나리오를 고려해 보세요.
 
-* 설명: "내 업데이트 car"
+* 설명: "내 업데이트 된 자동차"
 * 가격: 54321
 
 [Contract Action POST API](/rest/api/azure-blockchain-workbench/contractsv2/contractactionpost) 사용:

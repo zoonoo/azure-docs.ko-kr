@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 06/28/2019
-ms.openlocfilehash: 15ec46511f1269606e0b0416c7c4a25f93012bec
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 6c16b38cce31c45158a5871c10dbd01339da9203
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736894"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845425"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 및 데이터 보호
 
@@ -48,7 +48,7 @@ Azure Logic Apps에서 데이터 액세스 및 보호를 제어 하기 위해 �
 
 각 URL에는 `sp`다음 `sv`표에 설명 `sig` 된 대로, 및 쿼리 매개 변수가 포함 되어 있습니다.
 
-| 쿼리 매개 변수 | 설명 |
+| 쿼리 매개 변수 | Description |
 |-----------------|-------------|
 | `sp` | 사용할 수 있는 HTTP 메서드에 대 한 사용 권한을 지정 합니다. |
 | `sv` | 서명을 생성 하는 데 사용할 SAS 버전을 지정 합니다. |
@@ -437,10 +437,10 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 이 예제 템플릿에는 `securestring` 형식을 사용 하는 여러 보안 매개 변수 정의가 포함 되어 있습니다.
 
-| 매개 변수 이름 | Description |
+| 매개 변수 이름 | 설명 |
 |----------------|-------------|
 | `TemplatePasswordParam` | 워크플로 정의의 `basicAuthPasswordParam` 매개 변수에 전달 되는 암호를 수락 하는 템플릿 매개 변수입니다. |
-| `TemplatePasswordParam` | 워크플로 정의의 `basicAuthUserNameParam` 매개 변수에 전달 되는 사용자 이름을 허용 하는 템플릿 매개 변수입니다. |
+| `TemplateUsernameParam` | 워크플로 정의의 `basicAuthUserNameParam` 매개 변수에 전달 되는 사용자 이름을 허용 하는 템플릿 매개 변수입니다. |
 | `basicAuthPasswordParam` | HTTP 작업의 기본 인증에 대 한 암호를 허용 하는 워크플로 정의 매개 변수 |
 | `basicAuthUserNameParam` | HTTP 작업의 기본 인증에 대 한 사용자 이름을 허용 하는 워크플로 정의 매개 변수 |
 |||

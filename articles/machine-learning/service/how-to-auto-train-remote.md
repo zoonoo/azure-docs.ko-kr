@@ -11,12 +11,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 7/12/2019
-ms.openlocfilehash: 3c3205b64803ac4ee67997ef546ffd64c89f23b4
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 5918cc3835d00536845a96ed81ef663867291e29
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624823"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858805"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>클라우드의 자동화된 기계 학습을 사용하여 모델 학습
 
@@ -278,7 +278,7 @@ print(per_class_imp)
 
 ![모델 설명 콘솔 출력](./media/how-to-auto-train-remote/expl-print.png)
 
-작업 영역 내에서 Azure Portal의 웹 UI 뿐만 아니라 위젯 UI를 통해서도 기능 중요도를 시각화할 수 있습니다.
+위젯 UI, Azure Portal의 웹 UI 또는 [작업 영역 방문 페이지 (미리 보기)](https://ml.azure.com)를 통해 기능 중요도를 시각화할 수도 있습니다. 
 
 ![모델 설명 UI](./media/how-to-auto-train-remote/model-exp.png)
 

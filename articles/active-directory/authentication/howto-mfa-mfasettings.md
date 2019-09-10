@@ -1,5 +1,5 @@
 ---
-title: Azure Multi-factor Authentication 구성-Azure Active Directory
+title: Azure Multi-Factor Authentication 구성-Azure Active Directory
 description: 이 문서에서는 Azure Portal에서 Azure Multi-Factor Authentication 설정을 구성하는 방법을 설명합니다.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12fd08fa301cb22857470e3c81d7f4f7c1f04de9
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 9eab92f044f62a1ca32062753f824ea76a2726a8
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68948884"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860291"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure Multi-Factor Authentication 구성 설정
 
-이 문서는 Azure Portal에서 Multi-Factor Authentication 설정을 관리하는 데 도움이 됩니다. Azure Multi-Factor Authentication을 최대한 활용할 수 있게 하는 다양한 항목을 설명합니다. 모든 버전의 Azure Multi-factor Authentication에서 모든 기능을 사용할 수 있는 것은 아닙니다.
+이 문서는 Azure Portal에서 Multi-Factor Authentication 설정을 관리하는 데 도움이 됩니다. Azure Multi-Factor Authentication을 최대한 활용할 수 있게 하는 다양한 항목을 설명합니다. 모든 버전의 Azure Multi-Factor Authentication에서 모든 기능을 사용할 수 있는 것은 아닙니다.
 
-**Azure Active Directory** > **MFA**로 이동 하 여 Azure Portal에서 Azure multi-factor Authentication과 관련 된 설정에 액세스할 수 있습니다.
+**Azure Active Directory** > **MFA**를 탐색 하 여 Azure Portal에서 Azure Multi-Factor Authentication 관련 된 설정에 액세스할 수 있습니다.
 
 ![Azure Portal - Azure AD Multi-Factor Authentication 설정](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
 
@@ -33,7 +33,7 @@ ms.locfileid: "68948884"
 | 기능 | Description |
 | ------- | ----------- |
 | 계정 잠금 | 연이어 거부된 인증 시도가 너무 많은 경우 Multi-Factor Authentication 서비스에서 계정을 일시적으로 잠급니다. 이 기능은 인증을 위해 PIN을 입력하는 사용자에게만 적용됩니다. (MFA 서버) |
-| [사용자 차단/차단 해제](#block-and-unblock-users) | 특정 사용자가 Multi-factor Authentication 요청을 받을 수 없도록 차단 하는 데 사용 됩니다. 차단된 사용자에 대한 모든 인증 시도가 자동으로 거부됩니다. 사용자는 차단된 시간 이후 90일 동안 차단된 상태로 유지됩니다. |
+| [사용자 차단/차단 해제](#block-and-unblock-users) | 특정 사용자가 Multi-Factor Authentication 요청을 받을 수 없도록 차단 하는 데 사용 됩니다. 차단된 사용자에 대한 모든 인증 시도가 자동으로 거부됩니다. 사용자는 차단된 시간 이후 90일 동안 차단된 상태로 유지됩니다. |
 | [사기 행위 경고](#fraud-alert) | 사기성 인증 요청을 보고 하는 사용자 기능과 관련 된 설정 구성 |
 | [알림](#notifications) | MFA 서버의 이벤트 알림이 가능하도록 설정합니다. |
 | [OATH 토큰](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | 클라우드 기반 Azure MFA 환경에 사용되어 사용자의 OATH 토큰을 관리합니다. |
@@ -44,7 +44,7 @@ ms.locfileid: "68948884"
 
 이 섹션의 설정은 MFA 서버에만 해당됩니다.
 
-| 기능 | Description |
+| 기능 | 설명 |
 | ------- | ----------- |
 | 서버 설정 | MFA 서버를 다운로드하고 활성화 자격 증명을 생성하여 환경을 초기화합니다. |
 | [일회성 바이패스](#one-time-bypass) | 제한된 시간 동안 2단계 인증을 수행하지 않고 사용자가 인증하도록 허용합니다. |
@@ -84,7 +84,7 @@ _사용자 차단 및 차단 해제_ 기능을 사용하여 사용자가 인증 
 1. 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Azure Active Directory** > **MFA** > **사기 행위 경고**로 이동합니다.
 3. **사기 행위 경고 제출 허용** 설정을 **켜기**로 설정합니다.
-4.           **저장**을 선택합니다.
+4. **저장**을 선택합니다.
 
 ### <a name="configuration-options"></a>구성 옵션
 
@@ -159,20 +159,20 @@ _사용자 지정 음성 메시지_ 기능을 통해 2단계 인증에 사용자
 | 인증됨 | 로그인이 확인 되었습니다. 안녕히 계세요. |
 | 내선 번호 묻기 | Microsoft 로그인 인증 시스템을 사용해 주셔서 감사 합니다. 계속 하려면 우물 정자를 누르세요. |
 | 사기 행위 확인 | 사기 행위 경고를 제출 했습니다. 계정을 차단 해제 하려면 회사의 IT 지원 센터에 문의 하세요. |
-| 사기 인사말(표준) | Microsoft 로그인 인증 시스템을 사용해 주셔서 감사 합니다. 확인을 마치려면 우물정자를 누르세요. 이 확인을 시작 하지 않은 경우 누군가가 계정에 액세스 하려고 할 수 있습니다. 사기 행위 경고를 제출 하려면 0 파운드를 누릅니다. 이렇게 하면 회사의 IT 팀에 게 알리고 추가 인증 시도를 차단 합니다. |
+| 사기 인사말 (표준) | Microsoft 로그인 인증 시스템을 사용해 주셔서 감사 합니다. 우물 정자를 눌러 확인을 완료 하세요. 이 확인을 시작 하지 않은 경우 누군가가 계정에 액세스 하려고 할 수 있습니다. 사기 행위 경고를 제출 하려면 0 파운드를 누릅니다. 이렇게 하면 회사의 IT 팀에 게 알리고 추가 인증 시도를 차단 합니다. |
 | 사기 행위 경고를 보고 했습니다. | 계정을 차단 해제 하려면 회사의 IT 지원 센터에 문의 하세요. |
-| 활성화 | Microsoft의 로그인 인증 시스템을 사용해 주셔서 감사 합니다. 확인을 마치려면 우물정자를 누르세요. |
-| 거부된 인증 다시 시도 | 확인이 거부되었습니다. |
-| 다시 시도(표준) | Microsoft의 로그인 인증 시스템을 사용해 주셔서 감사 합니다. 확인을 마치려면 우물정자를 누르세요. |
-| 인사말(표준) | Microsoft의 로그인 인증 시스템을 사용해 주셔서 감사 합니다. 확인을 마치려면 우물정자를 누르세요. |
-| 인사말(PIN) | Microsoft 로그인 인증 시스템을 사용해 주셔서 감사 합니다. 확인을 완료 하려면 PIN을 입력 하 고 우물 정자를 입력 하세요. |
-| 사기 인사말(PIN) | Microsoft 로그인 인증 시스템을 사용해 주셔서 감사 합니다.  확인을 완료 하려면 PIN을 입력 하 고 우물 정자를 입력 하세요. 이 확인을 시작 하지 않은 경우 누군가가 계정에 액세스 하려고 할 수 있습니다. 사기 행위 경고를 제출 하려면 0 파운드를 누릅니다. 이렇게 하면 회사의 IT 팀에 게 알리고 추가 인증 시도를 차단 합니다. |
+| 활성화 | Microsoft의 로그인 인증 시스템을 사용해 주셔서 감사 합니다. 우물 정자를 눌러 확인을 완료 하세요. |
+| 거부된 인증 다시 시도 | 확인이 거부 되었습니다. |
+| 다시 시도 (표준) | Microsoft의 로그인 인증 시스템을 사용해 주셔서 감사 합니다. 우물 정자를 눌러 확인을 완료 하세요. |
+| 인사말 (표준) | Microsoft의 로그인 인증 시스템을 사용해 주셔서 감사 합니다. 우물 정자를 눌러 확인을 완료 하세요. |
+| 인사말 (PIN) | Microsoft 로그인 인증 시스템을 사용해 주셔서 감사 합니다. 확인을 완료 하려면 PIN을 입력 하 고 우물 정자를 입력 하세요. |
+| 사기 인사말 (PIN) | Microsoft 로그인 인증 시스템을 사용해 주셔서 감사 합니다.  확인을 완료 하려면 PIN을 입력 하 고 우물 정자를 입력 하세요. 이 확인을 시작 하지 않은 경우 누군가가 계정에 액세스 하려고 할 수 있습니다. 사기 행위 경고를 제출 하려면 0 파운드를 누릅니다. 이렇게 하면 회사의 IT 팀에 게 알리고 추가 인증 시도를 차단 합니다. |
 | 다시 시도 (PIN) | Microsoft 로그인 인증 시스템을 사용해 주셔서 감사 합니다. 확인을 완료 하려면 PIN을 입력 하 고 우물 정자를 입력 하세요. |
-| 번호 이후에 내선 번호 묻기 | 이 내선 번호로 이미 전환된 경우 계속하려면 우물정자를 누르세요. |
+| 번호 이후에 내선 번호 묻기 | 이 확장에 이미 있는 경우 우물 정자를 눌러 계속 합니다. |
 | 인증이 거부됨 | 죄송 합니다. 지금은 로그인 할 수 없습니다. 나중에 다시 시도하세요. |
-| 활성화 인사말(표준) | Microsoft의 로그인 인증 시스템을 사용해 주셔서 감사 합니다. 확인을 마치려면 우물정자를 누르세요. |
-| 활성화 다시 시도(표준) | Microsoft의 로그인 인증 시스템을 사용해 주셔서 감사 합니다. 확인을 마치려면 우물정자를 누르세요. |
-| 활성화 인사말(PIN) | Microsoft 로그인 인증 시스템을 사용해 주셔서 감사 합니다. 확인을 완료 하려면 PIN을 입력 하 고 우물 정자를 입력 하세요. |
+| 활성화 인사말 (표준) | Microsoft의 로그인 인증 시스템을 사용해 주셔서 감사 합니다. 우물 정자를 눌러 확인을 완료 하세요. |
+| 활성화 다시 시도 (표준) | Microsoft의 로그인 인증 시스템을 사용해 주셔서 감사 합니다. 우물 정자를 눌러 확인을 완료 하세요. |
+| 활성화 인사말 (PIN) | Microsoft 로그인 인증 시스템을 사용해 주셔서 감사 합니다. 확인을 완료 하려면 PIN을 입력 하 고 우물 정자를 입력 하세요. |
 | 번호 이전에 내선 번호 묻기 | Microsoft 로그인 인증 시스템을 사용해 주셔서 감사 합니다. 이 호출을 확장으로 전송 하십시오. |
 
 ## <a name="one-time-bypass"></a>일회성 바이패스
@@ -274,7 +274,7 @@ Azure AD는 온-프레미스 Windows Server Active Directory Domain Services(AD 
 기본적으로 사용자가 앱 암호를 만들 수 없습니다. 앱 암호 기능을 사용하도록 설정해야 합니다. 사용자에게 앱 암호를 만드는 기능을 제공하려면 다음 절차를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽에서 **Azure Active Directory** > **사용자 및 그룹** > **모든 사용자**를 선택합니다.
+2. 왼쪽에서 **Azure Active Directory** > **사용자**를 선택합니다.
 3. **Multi-Factor Authentication**을 선택합니다.
 4. Multi-Factor Authentication 섹션 아래에서 **서비스 설정**을 선택합니다.
 5. **서비스 설정** 페이지에서 **사용자가 비 브라우저 앱에 로그인하기 위해 앱 암호를 만들 수 있음** 옵션을 선택합니다.
@@ -314,7 +314,7 @@ Azure Multi-Factor Authentication의 _신뢰할 수 있는 IP_ 기능은 관리�
 ### <a name="enable-named-locations-by-using-conditional-access"></a>조건부 액세스를 사용 하 여 명명 된 위치 사용
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽에서 **Azure Active Directory** > **조건부 액세스** > **명명 된 위치**를 선택 합니다.
+2. 왼쪽에서 **Azure Active Directory** > **보안** > **조건부**액세스명명 > **된 위치**를 선택 합니다.
 3. **새 위치**를 선택합니다.
 4. 위치에 대한 이름을 입력합니다.
 5. **신뢰할 수 있는 위치로 표시**를 선택합니다.
@@ -324,7 +324,7 @@ Azure Multi-Factor Authentication의 _신뢰할 수 있는 IP_ 기능은 관리�
 ### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>조건부 액세스를 사용 하 여 신뢰할 수 있는 Ip 기능 사용
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽에서 **Azure Active Directory** > **조건부 액세스** > **명명 된 위치**를 선택 합니다.
+2. 왼쪽에서 **Azure Active Directory** > **보안** >  **조건부**액세스명명 > **된 위치**를 선택 합니다.
 3. **MFA에서 신뢰할 수 있는 IP 구성**을 선택합니다.
 4. **서비스 설정** 페이지의 **신뢰할 수 있는 IP** 아래에 있는 다음 두 가지 옵션 중에서 선택합니다.
 
@@ -337,7 +337,7 @@ Azure Multi-Factor Authentication의 _신뢰할 수 있는 IP_ 기능은 관리�
       * 단일 IP 주소의 경우 **xxx.xxx.xxx.xxx/32** 같은 표기법을 사용합니다.
       * 최대 50개의 IP 주소 범위를 입력합니다. 이러한 IP 주소에서 로그인한 사용자는 2단계 인증을 바이패스합니다.
 
-5.           **저장**을 선택합니다.
+5. **저장**을 선택합니다.
 
 ### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>서비스 설정을 사용하여 신뢰할 수 있는 IP 기능을 사용하도록 설정
 
@@ -356,7 +356,7 @@ Azure Multi-Factor Authentication의 _신뢰할 수 있는 IP_ 기능은 관리�
       * 단일 IP 주소의 경우 **xxx.xxx.xxx.xxx/32** 같은 표기법을 사용합니다.
       * 최대 50개의 IP 주소 범위를 입력합니다. 이러한 IP 주소에서 로그인한 사용자는 2단계 인증을 바이패스합니다.
 
-6.           **저장**을 선택합니다.
+6. **저장**을 선택합니다.
 
 ## <a name="verification-methods"></a>확인 방법
 
@@ -374,7 +374,7 @@ Azure Multi-Factor Authentication의 _신뢰할 수 있는 IP_ 기능은 관리�
 ### <a name="enable-and-disable-verification-methods"></a>인증 방법 사용 및 사용 안 함
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽에서 **Azure Active Directory** > **사용자 및 그룹** > **모든 사용자**를 선택합니다.
+2. 왼쪽에서 **Azure Active Directory** > **사용자**를 선택합니다.
 3. **Multi-Factor Authentication**을 선택합니다.
 4. Multi-Factor Authentication 섹션 아래에서 **서비스 설정**을 선택합니다.
 5. **서비스 설정** 페이지의 **인증 옵션** 아래에서 사용자에게 제공하는 방법을 선택/선택 취소합니다.
@@ -408,12 +408,12 @@ Multi-Factor Authentication 저장 기능은 사용자가 로그인 시 **X일 �
 ### <a name="enable-remember-multi-factor-authentication"></a>Multi-Factor Authentication 저장 사용
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽에서 **Azure Active Directory** > **사용자 및 그룹** > **모든 사용자**를 선택합니다.
+2. 왼쪽에서 **Azure Active Directory** > **사용자**를 선택합니다.
 3. **Multi-Factor Authentication**을 선택합니다.
 4. Multi-Factor Authentication 섹션 아래에서 **서비스 설정**을 선택합니다.
 5. **서비스 설정** 페이지의 **Multi-Factor Authentication 저장 관리**에서 **사용자가 신뢰하는 디바이스에 대한 다단계 인증을 저장하도록 허용** 옵션을 선택합니다.
 6. 신뢰할 수 있는 디바이스가 2단계 인증을 바이패스할 수 있는 일 수를 설정합니다. 기본값은 14일입니다.
-7.           **저장**을 선택합니다.
+7. **저장**을 선택합니다.
 
 ### <a name="mark-a-device-as-trusted"></a>디바이스를 신뢰할 수 있음으로 표시
 

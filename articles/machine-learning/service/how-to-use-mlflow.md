@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: d819479c5e4bdbf8287dc7408c0f7813f5e32b13
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: c7bed307373289c6a6f76117fa07ee2ee3242bfc
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900196"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860448"
 ---
 # <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-service-preview"></a>MLflow 및 Azure Machine Learning 서비스 (미리 보기)를 사용 하 여 메트릭 추적 및 모델 배포
 
@@ -39,7 +39,7 @@ ms.locfileid: "69900196"
  MLflow 추적은 [Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 통해 사용 가능한 경우에만 사용할 수 있는 메트릭 로깅 및 아티팩트 저장소 기능을 제공 합니다.
 
 
-| | MLflow 추적 & 배포 | Azure Machine Learning Python SDK |  Azure Machine Learning CLI | Azure Portal|
+| | MLflow 추적 & 배포 | Azure Machine Learning Python SDK |  Azure Machine Learning CLI | Azure Portal 또는 작업 영역 방문 페이지 (미리 보기)|
 |---|---|---|---|---|
 | 작업 영역 관리 |   | ✓ | ✓ | ✓ |
 | 데이터 저장소 사용  |   | ✓ | ✓ | |
@@ -203,7 +203,7 @@ mlflow.log_metric('epoch_loss', loss.item())
 
 ## <a name="view-metrics-and-artifacts-in-your-workspace"></a>작업 영역에서 메트릭 및 아티팩트 보기
 
-MLflow 로깅의 메트릭과 아티팩트가 작업 영역에 유지 됩니다. 언제 든 지 작업 영역으로 이동 하 여 [Azure Portal](https://portal.azure.com) 에서 이름별로 실험을 찾거나 아래 코드를 실행 하 여 찾을 수 있습니다. 
+MLflow 로깅의 메트릭과 아티팩트가 작업 영역에 유지 됩니다. 언제 든 지 작업 영역으로 이동 하 여 [Azure Portal](https://portal.azure.com) 또는 [작업 영역 방문 페이지 (미리 보기)](https://ml.azure.com)에서 이름별로 실험을 찾습니다.  또는 아래 코드를 실행 합니다. 
 
 ```python
 run.get_metrics()

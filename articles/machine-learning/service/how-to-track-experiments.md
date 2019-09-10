@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0630ca28652b48b3632dbae94c5e16d6adb462c4
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 0f295bf3a76d89e811fe9a022a3ccb68fbe7556a
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812297"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858727"
 ---
 # <a name="track-machine-learning-training-metrics-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 기계 학습 교육 메트릭 추적
 
@@ -273,7 +273,7 @@ print(run.get_portal_url())
 ```run.get_metrics()```를 사용하여 학습된 모델의 메트릭을 볼 수 있습니다. 이제 위의 예제에 기록된 모든 메트릭을 가져와 최상의 모델을 결정할 수 있습니다.
 
 <a name="view-the-experiment-in-the-web-portal"></a>
-## <a name="view-the-experiment-in-the-azure-portal"></a>Azure Portal에서 실험 보기
+## <a name="view-the-experiment-in-the-azure-portal-or-your-workspace-landing-page-previewhttpsmlazurecom"></a>Azure Portal 또는 [작업 영역 방문 페이지에서 실험 보기 (미리 보기)](https://ml.azure.com)
 
 실험에서 실행이 완료되면 기록된 실험 실행 기록을 찾아볼 수 있습니다. 다음 두 가지 방법으로 기록에 액세스할 수 있습니다.
 

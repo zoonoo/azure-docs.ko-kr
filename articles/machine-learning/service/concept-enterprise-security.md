@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/07/2019
-ms.openlocfilehash: 81e8601ac83d43bde0767e38eb387f489d76125b
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: e1029ad34a05d342e5aed5bb30407dee7c914f3c
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165233"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873569"
 ---
 # <a name="enterprise-security-for-the-azure-machine-learning-service"></a>Azure Machine Learning 서비스에 대 한 엔터프라이즈 보안
 
@@ -132,7 +132,7 @@ print(token)
 
 관리자가 이전 표에 언급 된 리소스에 대 한 관리 되는 id의 액세스를 취소 하는 것은 좋지 않습니다. 키 다시 동기화 작업을 사용 하 여 액세스를 복원할 수 있습니다.
 
-Azure Machine Learning 서비스는 모든 작업 영역 영역에 대 한 구독에서 `aml-`참가자 수준 액세스 권한이 있는 추가 응용 프로그램 (이름으로 시작)을 만듭니다. 예를 들어 미국 동부에 한 작업 영역이 있고 동일한 구독의 북아메리카에 다른 작업 영역이 있는 경우 이러한 응용 프로그램 중 두 개를 볼 수 있습니다. 이러한 응용 프로그램을 통해 Azure Machine Learning 서비스를 통해 계산 리소스를 관리할 수 있습니다.
+Azure Machine Learning 서비스는 모든 작업 영역 영역에 대 한 구독에서 `aml-` 참가자 `Microsoft-AzureML-Support-App-`수준 액세스를 사용 하 여 추가 응용 프로그램 (또는로 시작 하는 이름)을 만듭니다. 예를 들어 미국 동부에 한 작업 영역이 있고 동일한 구독의 북아메리카에 다른 작업 영역이 있는 경우 이러한 응용 프로그램 중 두 개를 볼 수 있습니다. 이러한 응용 프로그램을 통해 Azure Machine Learning 서비스를 통해 계산 리소스를 관리할 수 있습니다.
 
 ## <a name="network-security"></a>네트워크 보안
 

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: dacurwin
-ms.openlocfilehash: df9e60c8d517c35029e425d50dba81a18c2f1114
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: da987b5e841824dc62f3b740cae2961de9d7b293
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617357"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70872898"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 [Azure Backup 서비스](backup-overview.md) 를 사용 하 여 온-프레미스 컴퓨터 및 워크 로드와 Azure vm (가상 머신)을 백업할 수 있습니다. 이 문서에서는 Azure Backup를 사용 하 여 Azure Vm을 백업할 때 지원 설정 및 제한 사항을 요약 합니다.
@@ -37,7 +37,7 @@ Backup server에 Azure VM 백업  | 파일/폴더/볼륨 백업 시스템 상태
 
 ## <a name="supported-backup-actions"></a>지원되는 백업 작업
 
-**동작** | **지원**
+**작업** | **지원**
 --- | ---
 Microsoft Azure VM을 만들 때 백업 사용 | 지원 대상: <br/><br/> -Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> -Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> -Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> -Windows Server 2008 R2 (RTM 및 SP1 Standard)
 Linux VM을 만들 때 백업 사용 | 지원 대상:<br/><br/> - Ubuntu Server: 18.04, 17.10, 17.04, 16.04 (LTS), 14.04 (LTS)<br/><br/> - Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3, 15 <br/><br/> - Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> - Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
@@ -70,7 +70,7 @@ DPM/MABS를 사용 하 여 백업 | [MABS](backup-mabs-protection-matrix.md) 및
 
 Linux 머신을 백업하려는 경우 지원되는 사항은 다음과 같습니다.
 
-**동작** | **지원**
+**작업** | **지원**
 --- | ---
 Linux Azure VM 에이전트를 사용하여 Linux Azure VM 백업 | 파일 일치 백업입니다.<br/><br/> [사용자 지정 스크립트](backup-azure-linux-app-consistent.md)를 사용하는 앱 일치 백업입니다.<br/><br/> 복원 중에는 새 VM을 만들고, 디스크를 복원 하 고이를 사용 하 여 VM을 만들거나, 디스크를 복원 하 고이를 사용 하 여 기존 VM의 디스크를 교체할 수 있습니다. 또한 개별 파일 및 폴더를 복원할 수도 있습니다.
 MARS 에이전트를 사용하여 Linux Azure VM 백업 | 지원되지 않습니다.<br/><br/> MARS 에이전트는 Windows 머신에만 설치할 수 있습니다.
@@ -151,6 +151,7 @@ Azure로 마이그레이션된 Vm 백업  | 지원됩니다.<br/><br/> VM을 백
 다중 VM 일관성 백업 | Azure Backup는 여러 Vm에서 데이터 및 응용 프로그램 일관성을 제공 하지 않습니다.
 [진단 설정을](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview) 사용 하 여 백업  | 지원 안 됨 <br/><br/> [새로 만들기](backup-azure-arm-restore-vms.md#create-a-vm) 옵션을 사용 하 여 진단 설정을 사용 하는 Azure VM의 복원이 트리거되면 복원에 실패 합니다.
 영역 고정 Vm 복원 | 지원 됨 (1 월 2019 일 이후에 백업 되는 VM의 경우 [가용성 영역](https://azure.microsoft.com/global-infrastructure/availability-zones/) 을 사용할 수 있는 경우).<br/><br/>현재 Vm에 고정 되어 있는 동일한 영역으로 복원을 지원 합니다. 그러나 영역을 사용할 수 없는 경우 복원이 실패 합니다.
+Gen2 Vm | 지원됨 <br> Azure Backup [Gen2 vm](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/)의 백업 및 복원을 지원 합니다. 이러한 Vm은 복구 지점에서 복원 되는 경우 [Gen2 vm](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/)으로 복원 됩니다.
 
 
 ## <a name="vm-storage-support"></a>VM 스토리지 지원
@@ -159,7 +160,7 @@ Azure로 마이그레이션된 Vm 백업  | 지원됩니다.<br/><br/> VM을 백
 --- | ---
 Azure VM 데이터 디스크 수 | 16개 이하의 데이터 디스크가 있는 VM을 백업합니다. <br/><br/> 최대 4TB까지 디스크 크기를 지원합니다.<br/><br/>4 TB 이상의 디스크에 대 한 Azure Backup 큰 디스크 지원의 제한 된 공개 미리 보기에 등록 하려면이 [문서](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb)를 참조 하세요.
 데이터 디스크 크기 | 개별 디스크의 크기는 최대 4,095GB입니다.<br/><br/>4TB 30TB 보다 큰 디스크에 대 한 Azure Backup 큰 디스크 지원의 제한 된 공개 미리 보기에 등록 하려면이 [문서](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb)를 참조 하세요.
-스토리지 유형 | 표준 HDD, 표준 SSD, 프리미엄 SSD.
+스토리지 형식 | 표준 HDD, 표준 SSD, 프리미엄 SSD.
 관리 디스크 | 지원됩니다.
 암호화된 디스크 | 지원됩니다.<br/><br/> Azure Disk Encryption에서 사용 하도록 설정 된 azure Vm은 Azure AD 앱을 사용 하거나 사용 하지 않고 백업할 수 있습니다.<br/><br/> 암호화된 VM은 파일/폴더 수준에서 복구할 수 없습니다. 전체 VM을 복구 해야 합니다.<br/><br/> Azure Backup에서 이미 보호되는 VM에 암호화를 사용하도록 설정할 수 있습니다.
 Write Accelerator가 설정된 디스크 | 지원되지 않습니다.<br/><br/> Azure backup은 백업 하는 동안 쓰기 가속기 사용 하도록 설정 된 디스크를 자동으로 제외 합니다. 이러한 디스크는 백업 되지 않으므로 VM의 복구 점에서 복원할 수 없습니다.

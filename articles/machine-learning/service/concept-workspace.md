@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 08/06/2019
-ms.openlocfilehash: cb1fd8e98a5eba350774ff6ccb8f86dcd3e4d734
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: ef060c083109a7096b62ebb35f2b49bb37a371b8
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856208"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860506"
 ---
 # <a name="what-is-an-azure-machine-learning-service-workspace"></a>Azure Machine Learning 서비스 작업 영역 이란 무엇 인가요?
 
@@ -36,7 +36,7 @@ ms.locfileid: "68856208"
 + 작업 영역을 만들 때 [연결 된 리소스도](#resources) 생성 됩니다.
 + [실험](concept-azure-machine-learning-architecture.md#experiments) 은 모델을 작성 하는 데 사용 하는 학습 실행입니다.  다음을 사용 하 여 실험을 만들고 실행할 수 있습니다.
     + [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)입니다.
-    + Azure Portal의 [자동화 된 machine learning 실험 (미리 보기)](how-to-create-portal-experiments.md) 섹션입니다.
+    + Azure Portal 또는 작업 영역 방문 페이지 (미리 보기)의 [자동화 된 machine learning 실험 (미리 보기)](how-to-create-portal-experiments.md) 섹션
     + [시각적 인터페이스 (미리 보기)](ui-concept-visual-interface.md)입니다.
 + [파이프라인](concept-azure-machine-learning-architecture.md#ml-pipelines) 은 모델을 학습 하 고 재 학습 하는 데 사용할 수 있는 워크플로입니다.
 + 데이터 [집합](concept-azure-machine-learning-architecture.md#datasets-and-datastores) 은 모델 학습 및 파이프라인 생성에 사용 하는 데이터를 관리 하는 데 도움이 됩니다.
@@ -49,6 +49,7 @@ ms.locfileid: "68856208"
 
 + 웹에서:
     + [Azure Portal](https://portal.azure.com)
+    + [작업 영역 방문 페이지 (미리 보기)](https://ml.azure.com)
     + [시각적 인터페이스 (미리 보기)](ui-concept-visual-interface.md)
 + Azure Machine Learning [SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 를 사용 하는 Python
 + Azure Machine Learning [CLI 확장](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli) 을 사용 하 여 명령줄에서

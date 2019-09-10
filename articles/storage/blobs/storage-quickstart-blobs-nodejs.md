@@ -1,5 +1,5 @@
 ---
-title: Node.js v2용 클라이언트 라이브러리를 사용하여 Azure Storage에 Blob을 만드는 방법
+title: Node.js에 대 한 Azure Storage에서 blob 만들기
 description: 개체(Blob) 스토리지에서 스토리지 계정 및 컨테이너를 만듭니다. 그런 다음, Node.js v2용 Azure Storage 클라이언트 라이브러리를 사용하여 Azure Storage에 Blob을 업로드하고, Blob을 다운로드하고, 컨테이너에 Blob을 나열합니다.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -7,12 +7,13 @@ ms.date: 02/04/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: 89dbd6cc9a03398427b157fa207adb898d3bfc56
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.custom: seo-javascript-september2019
+ms.openlocfilehash: 8fada27f82fea557d7d078f06b5c05e7d1db906d
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721965"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861244"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-nodejs-v2"></a>Node.js SDK v2용 클라이언트 라이브러리를 사용하여 Blob을 업로드, 다운로드 및 나열하는 방법
 

@@ -1,29 +1,26 @@
 ---
-title: Azure Site Recovery에서 Azure Disk Encryption 지원 Vm에 대 한 복제 구성 Microsoft Docs
+title: Azure Site Recovery에서 Azure Disk Encryption 지원 Vm에 대 한 복제 구성
 description: 이 문서에서는 Site Recovery를 사용 하 여 한 Azure 지역에서 다른 지역으로 Azure Disk Encryption 지원 Vm에 대 한 복제를 구성 하는 방법을 설명 합니다.
-services: site-recovery
 author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 1bb94b70510be30d676ad707ab2fbfbbcbf50833
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: bf0ee89bb091a13560a7a7d8d9e77c74827d94a2
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884122"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861324"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Azure Disk Encryption 사용 가능한 가상 컴퓨터를 다른 Azure 지역에 복제
 
-이 문서에서는 한 Azure 지역에서 다른 Azure 지역으로 Azure Disk Encryption 사용 가능한 Vm을 복제 하는 방법을 설명 합니다.
+이 문서에서는 한 Azure 지역에서 다른 Azure 지역으로 Azure Vm (ADE)을 사용 하도록 설정 Azure Disk Encryption 된 Azure Vm을 복제 하는 방법을 설명 합니다.
 
 >[!NOTE]
->현재 Azure Site Recovery는 Windows OS를 실행 하는 Azure Disk Encryption 지원 Vm만 지원 합니다. Azure AD 앱이 없는 Azure Disk Encryption 사용 Vm은 관리 디스크를 사용 하는 경우에만 지원 됩니다. 관리 되지 않는 디스크가 있는 Vm은 지원 되지 않습니다.
+> Site Recovery는 현재 Windows를 실행 하는 Vm에 대해 AAD (Azure Active Directory)를 사용 하거나 사용 하지 않고 ADE를 지원 합니다.  AAD를 사용 하지 않고 ADE 1.1를 실행 하는 컴퓨터의 경우 Windows Vm에서 관리 디스크를 사용 해야 합니다. 관리 되지 않는 디스크가 있는 Vm은 지원 되지 않습니다. ADE 0.1 (AAD)에서 1.1로 전환 하는 경우에는 복제를 사용 하지 않도록 설정 하 고 1.1를 사용 하도록 설정한 후 VM에 대해 복제를 사용 하도록 설정 해야 합니다.
 
->[!NOTE]
->ADE V1 (Azure AD 앱 사용)에서 ADE V2로 전환 하는 경우 (Azure AD 앱 없음), ADE V2를 사용 하도록 설정한 후 복제를 사용 하지 않도록 설정 하 고 복제를 사용 하도록 설정 해야 합니다.
 
 ## <a id="required-user-permissions"></a>필요한 사용자 권한
 Site Recovery를 사용 하려면 사용자에 게 대상 지역에서 키 자격 증명 모음을 만들고 원본 지역 key vault에서 대상 지역 key vault로 키를 복사할 수 있는 권한이 있어야 합니다.
@@ -114,7 +111,7 @@ Site Recovery 기본 대상 설정을 수정 하려면 다음 단계를 수행 �
 2. "리소스 그룹, 네트워크, 저장소 및 가용성 집합" 옆의 **사용자 지정** 을 선택 하 여 다음 기본 설정을 수정 합니다.
     - **대상 리소스 그룹**의 경우 구독 대상 위치의 리소스 그룹 목록에서 리소스 그룹을 선택 합니다.
     - **대상 가상 네트워크**의 경우 대상 위치의 가상 네트워크 목록에서 네트워크를 선택 합니다.
-    - 가용성집합의 경우 가용성 집합 설정이 원본 지역의 가용성 집합의 일부인 경우 VM에 해당 설정을 추가할 수 있습니다.
+    - 가용성 **집합의 경우**가용성 집합 설정이 원본 지역의 가용성 집합의 일부인 경우 VM에 해당 설정을 추가할 수 있습니다.
     - **대상 저장소 계정**에 대해 사용할 계정을 선택 합니다.
 
 2. "암호화 설정" 옆의 **사용자 지정** 을 선택 하 여 다음 기본 설정을 수정 합니다.

@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: 738d6738469960c8b21809b9320c4d034613c4e3
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: ba4e1e933b00aa8ca74be30a6ea5e1a22844b15f
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802371"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858508"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>서버를 사용 하지 않는 Azure SQL Database (미리 보기)
 
@@ -201,7 +201,7 @@ New-AzSqlDatabase `
 다음 예에서는 프로 비전 된 계산 계층에서 서버를 사용 하지 않는 계산 계층으로 데이터베이스를 이동 합니다. 이 예제에서는 최소 vCore 수, 최대 vCore 수 및 자동 일시 중지 지연을 명시적으로 지정합니다.
 
 ```powershell
-Set-AzSqlDatabase
+Set-AzSqlDatabase `
   -ResourceGroupName $resourceGroupName `
   -ServerName $serverName `
   -DatabaseName $databaseName `

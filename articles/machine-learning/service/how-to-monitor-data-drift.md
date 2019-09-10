@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 07/08/2019
-ms.openlocfilehash: c6c4d1d4da3679eaefacb5aa0c91fcf64afc2a6b
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 7d47b74d4fef3676101f3f624dcacb832dcedc3a
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128271"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858698"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에 배포 된 모델에서 데이터 드리프트 (미리 보기) 검색
 
@@ -134,6 +134,7 @@ datadrift_contribution|드리프트에 영향을 주는 기능의 중요 한 기
 * [Jupyter 위젯을 사용 합니다.](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) `RunDetails`
 * [`get_metrics()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#get-metrics-name-none--recursive-false--run-type-none--populate-false-) 모든`datadrift` 실행 개체에 대해 함수를 사용 합니다.
 * 모델에서 Azure Portal의 메트릭을 확인 합니다.
+* [작업 영역 방문 페이지 (미리 보기)](https://ml.azure.com)의 **모델** 섹션에서 메트릭을 확인 합니다.
 
 다음 Python 예제에서는 관련 데이터 드리프트 메트릭을 그리는 방법을 보여 줍니다. 반환 된 메트릭을 사용 하 여 사용자 지정 시각화를 빌드할 수 있습니다.
 
@@ -158,7 +159,7 @@ datadrift.enable_schedule()
 datadrift.disable_schedule()
 ```
 
-데이터 드리프트 탐지기 구성은 Azure Portal의 모델 정보 페이지에서 볼 수 있습니다.
+데이터 드리프트 탐지기 구성은 Azure Portal 또는 작업 영역 방문 페이지 (미리 보기)의 모델 정보 페이지에서 볼 수 있습니다.
 
 ![데이터 드리프트 구성 Azure Portal](media/how-to-monitor-data-drift/drift_config.png)
 
@@ -167,6 +168,8 @@ datadrift.disable_schedule()
 [Azure Portal](https://portal.azure.com)작업 영역에서 결과를 보려면 모델 페이지로 이동 합니다. 모델의 자세히 탭에 데이터 드리프트 구성이 표시 됩니다. 이제 데이터 드리프트 메트릭을 시각화 하는 ' 데이터 드리프트 (미리 보기) ' 탭을 사용할 수 있습니다. 
 
 ![Azure Portal 데이터 드리프트](media/how-to-monitor-data-drift/drift_ui.png)
+
+[작업 영역 방문 페이지 (미리 보기)](https://ml.azure.com)의 모델 세부 정보 에서도 결과를 사용할 수 있습니다.
 
 ## <a name="receiving-drift-alerts"></a>드리프트 경고 수신
 

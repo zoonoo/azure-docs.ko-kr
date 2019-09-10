@@ -5,21 +5,21 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: wesmc
 ms.openlocfilehash: 77019068279261a36f8ba40247e5f5694ca77892
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "67182607"
 ---
-| Resource | 제한 |
+| 리소스 | 제한 |
 | --- | --- |
 | 캐시 크기 |530GB |
 | 데이터베이스 |64 |
-| 최대 연결 된 클라이언트 |40,000 |
-| 고가용성에 대 한 Redis 복제본에 대 한 azure 캐시 |1 |
+| 연결 된 최대 클라이언트 |40,000 |
+| 고가용성을 위한 Azure Cache for Redis 복제본 |1 |
 | 클러스터링을 사용하여 프리미엄 캐시 분할 |10 |
 
-Azure Cache for Redis 제한 및 크기는 각 가격 책정 계층에 따라 다릅니다. 가격 책정 계층 및 해당 크기를 보려면 [Redis 가격 책정에 대 한 Azure 캐시](https://azure.microsoft.com/pricing/details/cache/)합니다.
+Azure Cache for Redis 제한 및 크기는 각 가격 책정 계층에 따라 다릅니다. 가격 책정 계층 및 해당 크기를 확인 하려면 [Redis 가격 책정에 대 한 Azure Cache](https://azure.microsoft.com/pricing/details/cache/)를 참조 하세요.
 
 Azure Cache for Redis 구성 제한에 대한 자세한 내용은 [기본 Redis 서버 구성](../articles/azure-cache-for-redis/cache-configure.md#default-redis-server-configuration)을 참조하세요.
 

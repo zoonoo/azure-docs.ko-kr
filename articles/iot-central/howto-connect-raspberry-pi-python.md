@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 3f91e09e35eec0685cb4333802b860fb08412cb6
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: 5c6e99c62d199c36081113011845a3bf2607bcb3
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019756"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70842564"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Azure IoT Central 애플리케이션에 Raspberry Pi 연결(Python)
 
@@ -70,13 +70,13 @@ Azure IoT Central 응용 프로그램에서 **Raspberry Pi** 장치 템플릿의
 
 1. 다음 명령을 실행 하 여 Python 클라이언트 IoT Central를 설치 합니다.
 
-    ```sh
+    ```bash
     pip install iotc
     ```
 
 1. 샘플 Python 코드를 다운로드 합니다.
 
-    ```sh
+    ```bash
     curl -O https://raw.githubusercontent.com/Azure/iot-central-firmware/master/RaspberryPi/app.py
     ```
 
@@ -85,9 +85,9 @@ Azure IoT Central 응용 프로그램에서 **Raspberry Pi** 장치 템플릿의
     > [!TIP]
     > Raspberry Pi의 셸에서 **nano** 또는 **vi** 텍스트 편집기 중 하나를 사용할 수 있습니다.
 
-1. 다음 명령을 사용 하 여 샘플을 실행 합니다.
+1. 다음 명령을 사용하여 샘플을 실행합니다.
 
-    ```sh
+    ```bash
     python app.py
     ```
 
@@ -141,7 +141,7 @@ Azure IoT Central 응용 프로그램에서 **Raspberry Pi** 장치 템플릿의
 | 형식            | Display name | 필드 이름 | 데이터 형식 |
 | --------------- | ------------ | ---------- | --------- |
 | 디바이스 속성 | 다이 번호   | dieNumber  | number    |
-| 텍스트            | 위치     | 위치   | N/A       |
+| 텍스트            | 위치     | 위치   | 해당 사항 없음       |
 
 ## <a name="next-steps"></a>다음 단계
 
