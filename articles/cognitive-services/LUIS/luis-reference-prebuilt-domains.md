@@ -419,12 +419,12 @@ WindDirectionUnit | 목록 | 바람의 방향 단어 | north<br>설정한<br>한
 ### <a name="intents"></a>**의도**
 의도 이름 | 설명 | 예
 ---------|----------|---------
- WebSearch | 지정 된 웹 사이트로 이동 하거나 검색 엔진에서 검색 하는 요청입니다. | Google.com의 검색 화면입니다. <br> 웹에서 행복 한 생일 곡 찾기 <br> Www.twitter.com로 이동 합니다.
+ WebSearch | 지정 된 웹 사이트로 이동 하거나 검색 엔진에서 검색 하는 요청입니다. | Google.com의 검색 화면입니다. <br> 웹에서 행복 한 생일 곡 찾기 <br> [www.twitter.com](www.twitter.com) 로 이동 합니다.
 
 ### <a name="entities"></a>**엔터티**
 LUIS 엔터티 | 엔터티 형식 | Description | 예
 ------------|-------------|-------------|---------
 SearchEngine | List | 검색 엔진 사용자가를 사용 하려고 합니다. | Bing <br> Google
 SearchText | 단순, 패턴. 일부 | 사용자가 검색 하려고 하는 텍스트입니다. <br> _"In" 뒤의 웹 사이트가 검색 엔진이 아닌 경우 "facebook의 친구" 태그를 SearchText로 태그를 만듭니다. Url은 SearchText로도 태그를 지정 해야 합니다._ | 영화 <br> 심층 학습 <br> Tom 크루즈
-링크 | url | 웹 사이트 링크입니다. | www.twitter.com
+링크 | url | 웹 사이트 링크입니다. | [www.twitter.com](www.twitter.com)
 
