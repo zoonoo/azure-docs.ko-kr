@@ -204,7 +204,7 @@ $definition = New-AzPolicyDefinition -Name 'denyCoolTiering' -Description 'Deny 
 }'
 ```
 
-출력 `$definition` 개체에 저장되어 정책 할당 중에 사용됩니다. 다음 예제에서는 매개 변수를 포함하는 정책 정의를 만듭니다.
+출력은 `$definition` 개체에 저장되어 정책 할당 중에 사용됩니다. 다음 예제에서는 매개 변수를 포함하는 정책 정의를 만듭니다.
 
 ```azurepowershell-interactive
 $policy = '{

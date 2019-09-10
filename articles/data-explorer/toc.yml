@@ -132,6 +132,8 @@
           href: using-metrics.md
     - name: 다른 도구와 통합
       items:
+        - name: Azure Data Factory 템플릿을 사용하여 데이터 대량 복사
+          href: data-factory-template.md
         - name: Apache Spark 커넥터
           href: spark-connector.md
         - name: Python을 사용하여 Databricks에서 연결

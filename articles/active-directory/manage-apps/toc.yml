@@ -228,10 +228,14 @@
               href: Customize-application-attributes.md
             - name: 범위 지정 필터
               href: define-conditional-rules-for-provisioning-user-accounts.md
+            - name: 범위를 벗어난 사용자에 대해 삭제 건너뛰기
+              href: skip-out-of-scope-deletions.md
             - name: 프로비저닝 상태 확인
               href: application-provisioning-when-will-provisioning-finish-specific-user.md
             - name: 자동 사용자 프로비전에 대한 보고
               href: check-status-user-account-provisioning.md
+            - name: 구성 내보내기 및 가져오기
+              href: export-import-provisioning-configuration.md
         - name: 사용자 프로비전 문제 해결
           items:
             - name: 사용자 프로비전 문제 해결

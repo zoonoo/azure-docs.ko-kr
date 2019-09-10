@@ -74,7 +74,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 이 Azure Resource Manager 템플릿은 일관성 수준, 자동 장애 조치(failover) 및 다중 마스터를 선택하기 위한 옵션 및 두 개의 지역으로 구성된 지원되는 API에 대한 Azure Cosmos 계정을 만듭니다. 이 템플릿을 배포하려면 추가 정보 페이지인 [Azure Cosmos 계정 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-create-multi-region-account)에서 Azure에 배포를 클릭합니다
 
-## <a name="addremove-regions-from-your-database-account"></a>데이터베이스 계정에서 Azure 지역 추가/제거
+## <a name="addremove-regions-from-your-database-account"></a>데이터베이스 계정에서 지역 추가/제거
 
 ### <a id="add-remove-regions-via-portal"></a>Azure Portal
 
@@ -82,7 +82,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 1. Azure Cosmos 계정으로 이동하고, **전역적으로 데이터 복제** 메뉴를 엽니다.
 
-1. 지역을 추가하려면 지도에서 원하는 지역에 해당하는 **+** 레이블이 있는 육각형을 선택합니다. 또는, 지역을 추가하려면 **+ 지역 추가** 옵션을 선택하고 드롭다운 메뉴에서 Azure 지역을 선택합니다.
+1. 지역을 추가하려면 지도에서 원하는 지역에 해당하는 **+** 레이블이 있는 육각형을 선택합니다. 또는, 지역을 추가하려면 **+ 지역 추가** 옵션을 선택하고 드롭다운 메뉴에서 지역을 선택합니다.
 
 1. 지역을 제거하려면 확인 표시가 있는 파란색 육각형을 선택하여 맵에서 하나 이상의 지역을 지웁니다. 또는 오른쪽의 지역 옆에 있는 "휴지통"(🗑) 아이콘을 선택합니다.
 
@@ -90,9 +90,9 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
    ![지역 추가 또는 제거 메뉴](./media/how-to-manage-database-account/add-region.png)
 
-단일 지역 쓰기 모드에서는 쓰기 지역을 제거할 수 없습니다. 현재 쓰기 지역을 삭제하려면 먼저 다른 Azure 지역으로 장애 조치해야 합니다.
+단일 지역 쓰기 모드에서는 쓰기 지역을 제거할 수 없습니다. 현재 쓰기 지역을 삭제하려면 먼저 다른 지역으로 장애 조치해야 합니다.
 
-다중 지역 쓰기 모드에서는 하나 이상의 Azure 지역이 있으면 Azure 지역을 추가하거나 제거할 수 있습니다.
+다중 지역 쓰기 모드에서는 하나 이상의 지역이 있으면 지역을 추가하거나 제거할 수 있습니다.
 
 ### <a id="add-remove-regions-via-cli"></a>Azure CLI
 
@@ -173,7 +173,7 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ![다중 마스터를 구성하는 Azure Cosmos 계정 스크린샷](./media/how-to-manage-database-account/single-to-multi-master.png)
 
-이 기능에 대한 추가 질문은 askcosmosdb@microsoft.com 별칭을 참조하세요. 
+이 기능에 대한 추가 질문은 askcosmosdb@microsoft.com 별칭으로 연락주세요. 
 
 ### <a id="configure-multiple-write-regions-cli"></a>Azure CLI
 

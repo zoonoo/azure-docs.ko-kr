@@ -47,7 +47,7 @@ GitHub에서 최신 [Cognitive Services Speech SDK 샘플](https://github.com/Az
 
 1. `YourSubscriptionKey` 문자열을 찾아서 Speech Service 구독 키로 바꿉니다.
 
-1. `YourServiceRegion` 문자열을 찾아서 구독과 연결된 [Azure 지역](regions.md)으로 바꿉니다. 예를 들어 평가판을 사용하는 경우 Azure 지역은 `westus`입니다.
+1. `YourServiceRegion` 문자열을 찾아서 구독과 연결된 [지역](regions.md)으로 바꿉니다. 예를 들어 평가판을 사용하는 경우 지역은 `westus`입니다.
 
 1. 프로젝트 변경 내용을 저장합니다.
 

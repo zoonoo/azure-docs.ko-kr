@@ -111,7 +111,7 @@ Unity 프로젝트에 대한 샘플 스크립트 코드를 추가하려면 다�
 
 1. `YourSubscriptionKey` 문자열을 찾아서 Speech Services 구독 키로 바꿉니다.
 
-1. `YourServiceRegion` 문자열을 찾아서 구독과 연결된 [지역](regions.md)으로 바꿉니다. 예를 들어 평가판을 사용하는 경우 Azure 지역은 `westus`입니다.
+1. `YourServiceRegion` 문자열을 찾아서 구독과 연결된 [지역](regions.md)으로 바꿉니다. 예를 들어 평가판을 사용하는 경우 지역은 `westus`입니다.
 
 1. 변경 내용을 스크립트에 저장합니다.
 

@@ -770,6 +770,8 @@
                   href: log-query/get-started-portal.md
                 - name: 로그 쿼리 자습서
                   href: log-query/get-started-queries.md
+                - name: 간단한 로그 환경
+                  href: log-query/simple-logs.md
             - name: 로그 데이터
               items:
                 - name: 로그 데이터 구조
