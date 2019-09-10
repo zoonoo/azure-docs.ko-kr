@@ -1,8 +1,6 @@
 ---
 title: Azure에서 HTTP 트리거 함수 만들기
 description: Azure에서 Azure Functions Core Tools 및 Azure CLI를 사용하여 첫 번째 Azure 함수를 만드는 방법을 알아봅니다.
-services: functions
-keywords: ''
 author: ggailey777
 ms.author: glenga
 ms.date: 04/24/2019
@@ -10,13 +8,13 @@ ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
-manager: jeconnoc
-ms.openlocfilehash: 5b90702f89af260a67b69bf96c2e079a45298723
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+manager: gwallace
+ms.openlocfilehash: cb7f5a10169c8baaecae0fc1916a439d61bfbf7c
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575450"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70170864"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Azure에서 HTTP 트리거 함수 만들기
 
@@ -28,7 +26,7 @@ ms.locfileid: "69575450"
 
 시작하려면 다음 조건을 충족해야 합니다.
 
-+ [Python 3.6](https://www.python.org/downloads/)을 설치합니다.
++ [Python 3.6.x](https://www.python.org/downloads/)를 설치합니다.
 
 + [Azure Functions Core Tools](./functions-run-local.md#v2) 버전 2.7.1575 이상을 설치합니다.
 
@@ -104,7 +102,7 @@ _HttpTrigger_ 라는 하위 폴더가 만들어지며, 이 폴더에는 다음 �
 
 다음 명령은 Azure에 있는 동일한 Azure Functions 런타임을 사용하여 로컬로 실행되는 함수 앱을 시작합니다.
 
-```bash
+```console
 func host start
 ```
 
@@ -134,7 +132,7 @@ Application started. Press Ctrl+C to shut down.
 
 Http Functions:
 
-        HttpTrigger: http://localhost:7071/api/MyHttpTrigger
+        HttpTrigger: http://localhost:7071/api/HttpTrigger
 
 [8/27/2018 10:38:27 PM] Host started (29486ms)
 [8/27/2018 10:38:27 PM] Job host started
@@ -168,7 +166,33 @@ az functionapp create --resource-group myResourceGroup --os-type Linux \
 
 이제 로컬 함수 프로젝트를 Azure의 함수 앱에 게시할 준비가 되었습니다.
 
-[!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
+## <a name="deploy-the-function-app-project-to-azure"></a>함수 앱 프로젝트를 Azure에 배포
+
+Azure에서 함수 앱이 만들어지면 [`func azure functionapp publish`](functions-run-local.md#project-file-deployment) Core Tools 명령을 사용하여 프로젝트 코드를 Azure에 배포할 수 있습니다. 이 예제에서는 `<APP_NAME>`을 이전 단계의 앱 이름으로 바꿉니다.
+
+```command
+func azure functionapp publish <APP_NAME> --build remote
+```
+
+`--build remote` 옵션은 배포 패키지의 파일에서 원격으로 Python 프로젝트를 Azure에 빌드합니다. 
+
+보기 편하게 잘린 다음과 유사한 출력이 표시됩니다.
+
+```output
+Getting site publishing info...
+...
+
+Preparing archive...
+Uploading content...
+Upload completed successfully.
+Deployment completed successfully.
+Syncing triggers...
+Functions in myfunctionapp:
+    HttpTrigger - [httpTrigger]
+        Invoke url: https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....
+```
+
+이제 Azure에서 함수를 테스트하는 데 사용할 수 있는 `HttpTrigger`의 `Invoke url` 값을 복사합니다. 이 URL에는 함수 키인 `code` 쿼리 문자열 값이 포함되어 있습니다. 이 키는 다른 사람이 Azure에서 HTTP 트리거 엔드포인트를 호출하기 어렵게 만듭니다.
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 

@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 04/05/2019
+ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: f692303140db1441aa34aacef62523d7f596dba1
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: d6628f1522880f650bfd8c728fe46fd050a8e6a0
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204727"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208389"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>자습서: Azure Marketplace를 사용하여 호스트 풀 만들기
 
@@ -26,7 +26,11 @@ ms.locfileid: "67204727"
 > * VM을 Active Directory 도메인에 조인
 > * VM을 Windows Virtual Desktop에 등록
 
-시작하기 전에 PowerShell 세션에서 사용할 [Windows Virtual Desktop PowerShell 모듈을 다운로드하고 가져옵니다](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)(아직 없는 경우).
+시작하기 전에 PowerShell 세션에서 사용할 [Windows Virtual Desktop PowerShell 모듈을 다운로드하고 가져옵니다](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)(아직 없는 경우). 그런 후, 다음 cmdlet을 실행하여 계정에 로그인합니다.
+
+```powershell
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+```
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -40,7 +44,7 @@ ms.locfileid: "67204727"
 2. Marketplace 검색 창에 **Windows Virtual Desktop**을 입력합니다.
 3. **Windows Virtual Desktop - 호스트 풀 프로비전**을 선택한 다음, **만들기** 선택합니다.
 
-지침에 따라 적절한 블레이드에 대한 정보를 입력합니다.
+그런 후, 다음 섹션의 지침에 따라 적절한 블레이드에 대한 정보를 입력합니다.
 
 ### <a name="basics"></a>기본 사항
 
@@ -52,6 +56,9 @@ ms.locfileid: "67204727"
 4. **새로 만들기**를 선택하고 새 리소스 그룹의 이름을 입력합니다.
 5. **위치**의 경우 Active Directory 서버에 연결되어 있는 가상 네트워크와 동일한 위치를 선택합니다.
 6. **확인**을 선택합니다.
+
+>[!IMPORTANT]
+>순수 Azure Active Directory Domain Services 및 Azure Active Directory 솔루션을 사용하는 경우 도메인 가입 및 자격 증명 오류를 방지하기 위해 Azure Active Directory Domain Services와 동일한 지역에 호스트 풀을 배포해야 합니다.
 
 ### <a name="configure-virtual-machines"></a>가상 머신 구성
 
@@ -66,7 +73,7 @@ ms.locfileid: "67204727"
 **가상 머신 설정** 블레이드의 경우:
 
 >[!NOTE]
-> Azure AD DS(Azure Active Directory Domain Services) 환경에 VM을 조인하는 경우 도메인 가입 사용자가 [AAD DC 관리자 그룹](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group)의 멤버이기도 한지 확인합니다.
+> Azure AD DS(Azure Active Directory Domain Services) 환경에 VM을 조인하는 경우 도메인 가입 사용자가 [AAD DC 관리자 그룹](../active-directory-domain-services/tutorial-create-instance.md#configure-an-administrative-group)의 멤버이기도 한지 확인합니다.
 
 1. **이미지 원본**의 경우 원본을 선택하고 원본을 찾고 저장할 방법에 대한 적절한 정보를 입력합니다. 관리 디스크를 사용하지 않으려면 .vhd 파일이 포함된 스토리지 계정을 선택합니다.
 2. Active Directory 도메인에 VM을 조인하는 도메인 계정에 대한 사용자 계정 이름 및 암호를 입력합니다. 이 동일한 사용자 이름과 암호는 로컬 계정으로 가상 머신에서 생성됩니다. 이러한 로컬 계정은 나중에 다시 설정할 수 있습니다.

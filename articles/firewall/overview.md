@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 08/23/2019
+ms.date: 09/4/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: f65b1d62a9c0e6835421c2ae796f9ea390407c9a
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: c685b2314d15e431ccac3470fd337ca92697e1a5
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971607"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241171"
 ---
 # <a name="what-is-azure-firewall"></a>Azure Firewall이란?
 
@@ -93,6 +93,12 @@ FQDN 태그를 활용하면 방화벽을 통해 잘 알려진 Azure 서비스 �
 ## <a name="azure-monitor-logging"></a>Azure Monitor 로깅
 
 모든 이벤트가 Azure Monitor와 통합되기 때문에 스토리지 계정에 로그를 보관하고 Event Hub에 이벤트를 스트리밍하거나 Azure Monitor 로그에 보낼 수 있습니다.
+
+## <a name="pci-soc-and-iso-compliant"></a>PCI, SOC 및 ISO 규격
+
+Azure Firewall은 PCI(결제 카드 산업), SOC(서비스 조직 컨트롤) 및 ISO(국제 표준화 기구) 규격입니다. 현재 SOC 1 Type 2, SOC 2 Type 2, SOC 3, PCI DSS 및 ISO 27001, 27018, 20000-1, 22301, 9001, 27017을 지원합니다.
+
+자세한 내용은 [Microsoft 규정 준수 가이드](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide)를 참조하세요.
 
 ## <a name="known-issues"></a>알려진 문제
 

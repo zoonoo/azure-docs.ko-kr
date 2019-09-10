@@ -7,15 +7,15 @@ ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
 ms.localizationpriority: high
-ms.date: 08/22/2019
+ms.date: 09/04/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: e36f009422307b3b70091775d2288ee710839172
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: fc3145ee0b60402026389863b94d21da4b3e4123
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013998"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70307758"
 ---
 ::: zone target="docs"
 
@@ -70,6 +70,24 @@ Microsoft에서 디스크를 수신하고 검사할 때 작업 상태는 **수�
       ![관리 디스크의 리소스 그룹](media/data-box-disk-deploy-picked-up/resource-group-attached-managed-disk.png)
 
   - VHDX 또는 동적/차이점 보관용 VHD를 복사한 경우 VHD/VHD가 준비 스토리지 계정에 블록 Blob으로 업로드됩니다. 준비 **Storage 계정 > Blob**으로 차례로 이동한 다음, 적절한 컨테이너(StandardSSD, StandardHDD 또는 PremiumSSD)를 선택합니다. VHDX/VHD는 준비 스토리지 계정에서 블록 Blob으로 표시되어야 합니다.
+  
+::: zone-end
+
+::: zone target="chromeless"
+
+## <a name="verify-data-upload-to-azure"></a>Azure에 대한 데이터 업로드 확인
+
+데이터가 Azure에 업로드되면 데이터가 스토리지 계정에 있는지 확인한 후 원본에서 데이터를 삭제합니다. 데이터는 다음 위치에 있을 수 있습니다.
+
+- Azure Storage 계정. Data Box에 데이터를 복사할 때, 데이터 형식에 따라 Azure Storage 계정에서 다음 경로 중 하나에 업로드됩니다.
+
+    - **블록 Blob 및 페이지 Blob**: https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt
+
+    - **Azure Files**: https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt
+
+- 관리 디스크 리소스 그룹. 관리 디스크를 만들 때 VHD는 페이지 Blob으로 업로드된 다음, 관리 디스크로 변환됩니다. 관리 디스크는 주문을 만들 때 지정된 리소스 그룹에 연결됩니다.
+
+::: zone-end
 
 데이터가 Azure로 업로드되었는지 확인하려면 다음 단계를 수행합니다.
 
@@ -77,13 +95,15 @@ Microsoft에서 디스크를 수신하고 검사할 때 작업 상태는 **수�
 2. **Blob service > Blob 찾아보기**로 이동합니다. 컨테이너 목록이 표시됩니다. *BlockBlob* 및 *PageBlob* 폴더 아래에서 만든 하위 폴더에 해당하는 동일한 이름의 컨테이너가 스토리지 계정에 만들어집니다.
     폴더 이름이 Azure 명명 규칙을 따르지 않는 경우 Azure에 대한 데이터 업로드가 실패합니다.
 
-4. 전체 데이터 세트가 로드되었는지 확인하려면 Microsoft Azure Storage Explorer를 사용합니다. 디스크 임대 주문에 해당하는 스토리지 계정을 연결한 다음, Blob 컨테이너의 목록을 살펴봅니다. 컨테이너를 선택하고, **...자세히**를 클릭한 다음, **폴더 통계**를 클릭합니다. **작업** 창에서 Blob의 수 및 총 Blob 크기를 포함하는 해당 폴더에 대한 통계가 표시됩니다. 총 Blob 크기(바이트)는 데이터 세트의 크기와 일치해야 합니다.
+3. 전체 데이터 세트가 로드되었는지 확인하려면 Microsoft Azure Storage Explorer를 사용합니다. Data Box Disk 순서에 해당하는 스토리지 계정을 연결한 다음, Blob 컨테이너의 목록을 살펴봅니다. 컨테이너를 선택하고, **...자세히**를 클릭한 다음, **폴더 통계**를 클릭합니다. **작업** 창에서 Blob의 수 및 총 Blob 크기를 포함하는 해당 폴더에 대한 통계가 표시됩니다. 총 Blob 크기(바이트)는 데이터 세트의 크기와 일치해야 합니다.
 
     ![Storage Explorer에서 폴더 통계](media/data-box-disk-deploy-picked-up/folder-statistics-storage-explorer.png)
 
 ## <a name="erasure-of-data-from-data-box-disk"></a>Data Box Disk에서 데이터 지우기
 
 복사가 완료되고 데이터가 Azure Storage 계정에 있는지 확인한 후 NIST 표준에 따라 디스크가 안전하게 지워집니다.
+
+::: zone target="docs"
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -101,22 +121,6 @@ Azure Portal을 통해 Data Box Disk를 관리하는 방법을 알아보려면 �
 
 ::: zone-end
 
-::: zone target="chromeless"
 
-# <a name="verify-data-upload-to-azure"></a>Azure에 대한 데이터 업로드 확인
-
-데이터가 Azure에 업로드되면 데이터가 스토리지 계정에 있는지 확인한 후 원본에서 데이터를 삭제합니다. 데이터는 다음 위치에 있을 수 있습니다.
-
-- Azure Storage 계정. Data Box에 데이터를 복사할 때, 데이터 형식에 따라 Azure Storage 계정에서 다음 경로 중 하나에 업로드됩니다.
-
-    - **블록 Blob 및 페이지 Blob**: https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt
-
-    - **Azure Files**: https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt
-
-    또는 Azure Portal에서 Azure storage 계정으로 이동하여 찾아볼 수도 있습니다.
-
-- 관리 디스크 리소스 그룹. 관리 디스크를 만들 때 VHD는 페이지 Blob으로 업로드된 다음, 관리 디스크로 변환됩니다. 관리 디스크는 주문을 만들 때 지정된 리소스 그룹에 연결됩니다.
-
-::: zone-end
 
 

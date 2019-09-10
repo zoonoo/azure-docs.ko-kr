@@ -7,13 +7,12 @@ ms.date: 01/23/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: a8221de15dfa48b4eebcf0fe0df29ea0c3a1868e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 7c47b233e508c22ef7b380acfb7720ad763d8de3
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854960"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241100"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -22,8 +21,6 @@ Azure Resource Graph를 사용하는 첫 번째 단계는 Azure PowerShell용 �
 이 프로세스가 끝나면 선택한 Azure PowerShell 설치에 모듈이 추가되고 첫 번째 Resource Graph 쿼리를 실행하게 됩니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
-
-[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
 ## <a name="add-the-resource-graph-module"></a>Resource Graph 모듈 추가
 
@@ -48,7 +45,7 @@ PowerShell용 Resource Graph 모듈은 **Az.ResourceGraph**입니다.
    Install-Module -Name Az.ResourceGraph
    ```
 
-1. 모듈을 가져왔고 올바른 버전(0.7.3)인지 확인합니다.
+1. 모듈을 가져왔으며 최신 버전(0.7.5)인지 확인합니다.
 
    ```azurepowershell-interactive
    # Get a list of commands for the imported Az.ResourceGraph module

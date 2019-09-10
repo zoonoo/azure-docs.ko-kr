@@ -6,17 +6,29 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 84db33e4c7ac612353c590ac9d2904ac3bc48d38
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.localizationpriority: high
+ms.openlocfilehash: e438fb38afb649f6f4c7f595059ef64800977242
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592385"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70240342"
 ---
+::: zone target = "docs"
+
 # <a name="tutorial-return-azure-data-box-heavy-and-verify-data-upload-to-azure"></a>자습서: Azure Data Box Heavy 반송 및 Azure에 대한 데이터 업로드 확인
 
+::: zone-end
+
+::: zone target = "chromeless"
+
+# <a name="return-azure-data-box-heavy-and-verify-data-upload-to-azure"></a>Azure Data Box Heavy 반송 및 Azure에 대한 데이터 업로드 확인
+
+::: zone-end
+
+::: zone target = "docs"
 
 이 자습서에서는 Azure Data Box Heavy를 반송하고 Azure에 업로드된 데이터를 확인하는 방법을 설명합니다.
 
@@ -36,9 +48,25 @@ ms.locfileid: "67592385"
 - [자습서: Azure Data Box에 데이터 복사 및 확인](data-box-heavy-deploy-copy-data.md)을 완료했는지 확인합니다.
 - 복사 작업이 완료되었습니다. 복사 작업이 진행 중이면 배송 준비를 실행할 수 없습니다.
 
+
 ## <a name="prepare-to-ship"></a>배송 준비
 
 [!INCLUDE [data-box-heavy-prepare-to-ship](../../includes/data-box-heavy-prepare-to-ship.md)]
+
+::: zone-end
+
+::: zone target = "chromeless"
+
+## <a name="prepare-to-ship"></a>배송 준비
+
+배송을 준비하기 전에 복사 작업이 완료되었는지 확인합니다.
+
+1. 로컬 웹 UI에서 배송 준비 페이지로 이동하여 배송 준비를 시작합니다.
+2. 로컬 웹 UI에서 디바이스를 끕니다. 디바이스에서 케이블을 뽑습니다.
+
+이제 디바이스를 다시 배송할 준비가 되었습니다.
+
+::: zone-end
 
 ## <a name="ship-data-box-heavy-back"></a>Data Box Heavy 반송
 
@@ -50,6 +78,8 @@ ms.locfileid: "67592385"
     3. 배송품 외부에 배송 레이블이 잘 표시되어 있는지 확인합니다.
     4. 이전 배송의 이전 배송 레이블을 디바이스에서 제거합니다.
 3. 운송업체에서 Data Box Heavy를 픽업하고 나면 포털의 주문 상태가 **픽업됨**으로 업데이트됩니다. 추적 ID도 표시됩니다.
+
+::: zone target = "docs"
 
 ## <a name="verify-data-upload-to-azure"></a>Azure에 대한 데이터 업로드 확인
 
@@ -79,10 +109,25 @@ Microsoft에서 디바이스를 수신하고 검사하면 주문 상태가 **수
         ![리소스 그룹에 연결된 관리 디스크](media/data-box-deploy-copy-data-from-vhds/managed-disks-resource-group.png)
 
     - VHDX 또는 동적/차이점 보관용 VHD를 복사한 경우 VHD/VHD가 준비 스토리지 계정에 페이지 Blob으로 업로드되지만 VHD를 관리 디스크로 변환하지 못합니다. 준비 **스토리지 계정 > Blob**으로 차례로 이동한 다음, 적절한 컨테이너(표준 SSD, 표준 HDD 또는 표준 HDD)를 선택합니다. VHD는 준비 스토리지 계정에 페이지 Blob으로 업로드됩니다.
+    
+::: zone-end
+
+::: zone target = "chromeless"
+
+## <a name="verify-data-upload-to-azure"></a>Azure에 대한 데이터 업로드 확인
+
+Data Box Heavy 디바이스가 Azure 데이터 센터 네트워크에 연결되면 Azure에 데이터 업로드가 자동으로 시작됩니다. Data Box 서비스에서 Azure Portal을 통해 데이터 복사가 완료되었음을 알려줍니다.
+
+- 모든 오류에 대한 오류 로그를 확인하고 적절한 조치를 수행합니다.
+- 원본에서 데이터를 삭제하기 전에 데이터 스토리지 계정에 있는지 확인합니다.
+
+::: zone-end
 
 ## <a name="erasure-of-data-from-data-box-heavy"></a>Data Box Heavy에서 데이터 지우기
  
 Azure에 대한 업로드가 완료되면 Data Box 디스크의 데이터가 [NIST SP800-88 개정 1 지침](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi)에 따라 지워집니다. 지우기가 완료된 후에 [주문 기록을 다운로드](data-box-portal-admin.md#download-order-history)할 수 있습니다.
+
+::: zone target = "docs"
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -99,5 +144,7 @@ Azure에 대한 업로드가 완료되면 Data Box 디스크의 데이터가 [NI
 
 > [!div class="nextstepaction"]
 > [로컬 웹 UI를 사용하여 Azure Data Box 관리](./data-box-local-web-ui-admin.md)
+
+::: zone-end
 
 

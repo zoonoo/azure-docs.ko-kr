@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/28/2019
+ms.date: 08/28/2019
 ms.author: aahi
-ms.openlocfilehash: 3ef7f65bbb27992278eb467f840c1443ac0db0b8
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 669cd43b73bc66289a355f7fbf9c4498d8a7b99a
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725891"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135035"
 ---
 # <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>빠른 시작: Python REST API를 사용하여 Text Analytics Cognitive Service 호출 
 <a name="HOLTop"></a>
@@ -49,11 +49,20 @@ import requests
 from pprint import pprint
 ```
 
-구독 키에 대한 변수 및 Text Analytics REST API에 대한 엔드포인트를 만듭니다. 엔드포인트의 하위 지역이 가입할 때 사용한 것과 일치하는지 확인합니다(예: `westcentralus`). 평가판 키를 사용하는 경우에는 아무것도 변경할 필요가 없습니다.
+리소스의 Azure 엔드포인트 및 구독 키에 대한 변수를 만듭니다. 환경 변수 TEXT_ANALYTICS_SUBSCRIPTION_KEY 및 TEXT_ANALYTICS_ENDPOINT에서 이러한 값을 가져옵니다. 애플리케이션 편집을 시작한 후 이러한 환경 변수를 만든 경우 변수에 액세스하기 위해 사용 중인 편집기, IDE 또는 셸을 닫았다가 다시 열어야 합니다.
     
 ```python
-subscription_key = "<ADD YOUR KEY HERE>"
-text_analytics_base_url = "https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/"
+import os
+
+key_var_name = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY'
+if not key_var_name in os.environ:
+    raise Exception('Please set/export the environment variable: {}'.format(key_var_name))
+subscription_key = os.environ[key_var_name]
+
+endpoint_var_name = 'TEXT_ANALYTICS_ENDPOINT'
+if not endpoint_var_name in os.environ:
+    raise Exception('Please set/export the environment variable: {}'.format(endpoint_var_name))
+endpoint = os.environ[endpoint_var_name]
 ```
 
 다음 섹션에서는 각 API 기능을 호출하는 방법을 설명합니다.
@@ -65,7 +74,7 @@ text_analytics_base_url = "https://westcentralus.api.cognitive.microsoft.com/tex
 Text Analytics 기본 엔드포인트에 `languages`를 추가하여 언어 검색 URL을 형성합니다. 예: `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`
     
 ```python
-language_api_url = text_analytics_base_url + "languages"
+language_api_url = endpoint + "/text/analytics/v2.1/languages"
 ```
 
 API에 대한 페이로드는 각각 `id` 및 `text` 특성이 포함된 튜플인 `documents`의 목록으로 구성됩니다. `text` 특성은 분석할 텍스트를 저장하며, `id`는 임의의 값이 될 수 있습니다. 
@@ -134,7 +143,7 @@ pprint(languages)
 문서 세트의 감정(양수 또는 음수 사이의 범위)을 검색하려면 Text Analytics 기본 엔드포인트에 `sentiment`를 추가하여 언어 검색 URL을 형성합니다. 예: `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
     
 ```python
-sentiment_url = text_analytics_base_url + "sentiment"
+sentiment_url = endpoint + "/text/analytics/v2.1/sentiment"
 ```
 
 언어 검색 예제와 마찬가지로, 문서 목록으로 구성된 `documents` 키가 있는 사전을 만듭니다. 각 문서는 `id`, 분석할 `text` 및 텍스트의 `language`로 구성된 튜플입니다. 
@@ -196,7 +205,7 @@ pprint(sentiments)
 문서 세트에서 핵심 구를 추출하려면 Text Analytics 기본 엔드포인트에 `keyPhrases`를 추가하여 언어 검색 URL을 형성합니다. 예: `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
     
 ```python
-keyphrase_url = text_analytics_base_url + "keyPhrases"
+keyphrase_url = endpoint + "/text/analytics/v2.1/keyphrases"
 ```
 
 이 문서 컬렉션은 감정 분석 예제에 사용된 것과 동일합니다.
@@ -272,7 +281,7 @@ pprint(key_phrases)
 텍스트 문서에서 잘 알려진 엔터티(사람, 장소 및 사물)를 식별하려면 Text Analytics 기본 엔드포인트에 `entities`를 추가하여 언어 검색 URL을 형성합니다. 예: `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/entities`
     
 ```python
-entities_url = text_analytics_base_url + "entities"
+entities_url = endpoint + "/text/analytics/v2.1/entities"
 ```
 
 이전 예제에서와 같은 문서 컬렉션을 만듭니다. 

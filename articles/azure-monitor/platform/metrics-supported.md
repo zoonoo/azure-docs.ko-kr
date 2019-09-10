@@ -683,7 +683,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |d2c.endpoints.latency.storage|라우팅: 스토리지에 대한 메시지 대기 시간|밀리초|평균|IoT Hub에 대한 메시지 수신과 스토리지 엔드포인트에 대한 원격 분석 메시지 수신 간의 평균 대기 시간(밀리초)입니다.|차원 없음|
 |d2c.endpoints.egress.storage.bytes|라우팅: 스토리지에 배달된 데이터|바이트|Total|IoT Hub 라우팅에서 스토리지 엔드포인트에 배달된 데이터 양입니다(바이트).|차원 없음|
 |d2c.endpoints.egress.storage.blobs|라우팅: 스토리지에 배달된 Blob|개수|Total|IoT Hub 라우팅에서 스토리지 엔드포인트에 Blob을 배달한 횟수입니다.|차원 없음|
-|EventGridDeliveries|Event Grid 배달 (미리 보기)|개수|Total|Event Grid에 게시 된 IoT Hub 이벤트 수입니다. 성공 및 실패 한 요청의 수에 대해 결과 차원을 사용 합니다. EventType dimension 이벤트 유형 ()https://aka.ms/ioteventgrid) 을 표시 합니다.|Result, EventType|
+|EventGridDeliveries|Event Grid 배달 (미리 보기)|개수|Total|Event Grid에 게시 된 IoT Hub 이벤트 수입니다. 성공 및 실패 한 요청의 수에 대해 결과 차원을 사용 합니다. EventType dimension 이벤트 유형 (https://aka.ms/ioteventgrid) 을 표시 합니다.|Result, EventType|
 |EventGridLatency|Event Grid에 이벤트가 게시 될 때 Iot Hub 이벤트가 생성 된 시간에 대 한 평균 대기 시간 (밀리초)입니다. 이 숫자는 모든 이벤트 유형 사이의 평균입니다. 특정 유형의 이벤트에 대 한 대기 시간을 확인 하려면 EventType 차원을 사용 합니다.|이벤트 유형|
 |d2c.twin.read.success|디바이스에서의 성공한 쌍 읽기|개수|Total|성공한 모든 디바이스 시작 쌍 읽기 수입니다.|차원 없음|
 |d2c.twin.read.failure|디바이스에서의 실패한 쌍 읽기|개수|Total|실패한 모든 디바이스 시작 쌍 읽기 수입니다.|차원 없음|

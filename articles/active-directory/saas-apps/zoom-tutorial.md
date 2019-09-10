@@ -1,5 +1,5 @@
 ---
-title: '자습서: Zoom과 Azure Active Directory 통합 | Microsoft Docs'
+title: '자습서: Zoom과 Azure Active Directory SSO(Single Sign-On) 연결 | Microsoft Docs'
 description: Azure Active Directory와 Zoom 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/08/2019
+ms.date: 08/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e36d1bb91e70e21ee1940e189bfedaebafa4412
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: c0d5a87d4723bcc21b75db1b31ada72823abdf02
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68975937"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171383"
 ---
-# <a name="tutorial-integrate-zoom-with-azure-active-directory"></a>자습서: Azure Active Directory와 Zoom 통합
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zoom"></a>자습서: Zoom과 Azure Active Directory SSO(Single Sign-On) 연결
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Zoom을 통합하는 방법에 대해 알아봅니다. Azure AD와 Zoom을 통합하는 경우 다음을 수행할 수 있습니다.
 
@@ -89,50 +89,19 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Zoom 클라이언트 지원팀](https://support.zoom.us/hc/en-us)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-5. Zoom 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 할당 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.  **편집**  아이콘을 클릭하여  **사용자 특성**  대화 상자를 엽니다.
-
-    ![이미지](common/edit-attribute.png)
-
-6. 위에서 언급한 특성 외에도, Zoom 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다.  **사용자 특성**  대화 상자의  **사용자 클레임**  섹션에서 다음 단계를 수행하여 아래 표와 같이 SAML 토큰 특성을 추가합니다. 
-
-    | Name | 네임스페이스  |  원본 특성|
-    | ---------------| --------------- | --------- |
-    | 메일 주소  | user.mail  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail` |
-    | 이름  | user.givenname  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |
-    | 성  | user.surname  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |
-    | 전화 번호  | user.telephonenumber  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone` |
-    | department  | user.department  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department` |
-    | role |    user.assignedrole |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role` |
-
-    > [!NOTE]
-    > [여기](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management)를 클릭하여 Azure AD에서 역할을 구성하는 방법을 알아봅니다.
-
-    a. **새 클레임 추가**를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
-
-    ![이미지](common/new-save-attribute.png)
-
-    ![이미지](common/new-attribute-details.png)
-
-    b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
-
-    다. 원본을 **특성**으로 선택합니다.
-
-    d. **원본 특성** 목록에서 해당 행에 표시된 특성 값을 입력합니다.
-
-    e. **확인**을 클릭합니다.
-
-    f. **저장**을 클릭합니다.
-
-    > [!NOTE]
-    > Zoom은 SAML 페이로드에서 그룹 클레임이 필요할 수 있으므로 그룹을 만든 경우 해당 그룹 정보와 함께 [Zoom 클라이언트 지원 팀](https://support.zoom.us/hc/en-us)에 문의하여 이 그룹 정보를 최종적으로 구성할 수 있도록 합니다. 또한 최종적인 구성을 위해 개체 ID를 [Zoom 클라이언트 지원 팀](https://support.zoom.us/hc/en-us)에 제공해야 합니다. 개체 ID를 가져오려면 이 [문서](https://support.zoom.us/hc/en-us/articles/115005887566)를 따르세요.
-
-4. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 다운로드하고 본인의 컴퓨터에 저장합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 다운로드하고 본인의 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/certificatebase64.png)
 
-6. **Zoom 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
+1. **Zoom 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
+
+> [!NOTE]
+> Azure AD에서 역할을 구성하는 방법을 알아보려면 [엔터프라이즈 애플리케이션의 SAML 토큰에서 발급된 역할 클레임 구성](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management)을 참조하세요.
+
+> [!NOTE]
+> 확대/축소는 SAML 페이로드에서 그룹 클레임을 예측할 수 있습니다. 그룹을 만든 경우 그룹 정보를 [Zoom 클라이언트 지원 팀](https://support.zoom.us/hc/en-us)에 문의하여 그룹 정보를 최종적으로 구성할 수 있습니다. 또한 최종적인 개체 ID구성을 위해 개체 ID를 [Zoom 클라이언트 지원 팀](https://support.zoom.us/hc/en-us)에 제공해야 합니다. 개체 ID를 가져오려면 [Azure를 사용하여 확대/축소 구성](https://support.zoom.us/hc/en-us/articles/115005887566)을 참조하세요.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -242,3 +211,4 @@ Azure AD 사용자가 Zoom에 로그인할 수 있도록 하려면 사용자 계
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [Azure AD로 확대/축소 사용해 보기](https://aad.portal.azure.com/)

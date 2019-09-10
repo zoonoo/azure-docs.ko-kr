@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: iainfou
-ms.openlocfilehash: 86e0f09e957df308f3af868d9590951f29d226b1
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 3fd2a50946f0857d527c34b62687b2dbdd71298e
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073898"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172037"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>자습서: Windows Server 가상 머신을 관리되는 도메인에 가입
 
@@ -214,7 +214,7 @@ Windows Server VM은 일반 온-프레미스 컴퓨터에서 Active Directory Do
 * 지정한 사용자 계정이 *AAD DC 관리자* 그룹에 속하는지 확인합니다.
 * UPN 형식을 사용하여 자격 증명(예: `contosoadmin@contoso.onmicrosoft.com`)을 지정합니다. 테넌트에서 여러 사용자가 동일한 UPN 접두사를 사용하거나 UPN 접두사가 너무 긴 경우 사용자 계정의 *SAMAccountName*이 자동으로 생성될 수 있습니다. 이러한 경우 사용자 계정의 *SAMAccountName* 형식이 온-프레미스 도메인에서 필요하거나 사용하는 것과 다를 수 있습니다.
 * 관리되는 도메인에 대해 [암호 동기화를 사용하도록 설정][password-sync]했는지 확인합니다. 이 구성 단계를 수행하지 않으면 필요한 암호 해시가 Azure AD DS 관리형 도메인에 없어 로그인 시도를 올바르게 인증할 수 없습니다.
-* 암호 동기화가 완료될 때까지 기다립니다. 사용자 계정의 암호가 변경되면 해당 암호가 도메인 조인에 사용할 수 있게 되는 데 15-20분이 걸릴 수 있습니다.
+* 암호 동기화가 완료될 때까지 기다립니다. 사용자 계정의 암호가 변경되면 Azure AD의 자동 백그라운드 동기화가 Azure AD DS의 암호를 업데이트합니다. 도메인 조인 사용에 암호를 사용하려면 시간이 다소 걸립니다.
 
 ## <a name="next-steps"></a>다음 단계
 

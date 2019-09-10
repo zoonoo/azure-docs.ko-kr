@@ -3,16 +3,16 @@ title: Azure Blueprints 개요
 description: Azure Blueprints 서비스를 통해 Azure 환경에서 아티팩트를 만들고 정의하고 배포하는 방법을 알아봅니다.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/08/2019
+ms.date: 08/26/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: be7e3043172f988a429bbf02dec08bfbbc1a70b7
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 631aa956573fd611988030af8ea7e34c6c266045
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848428"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70146109"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Azure Blueprints 서비스 요약
 
@@ -106,14 +106,23 @@ Blueprints에서는 정책/이니셔티브 또는 Azure Resource Manager 템플�
 > [!NOTE]
 > 청사진 할당은 구독에서 생성되므로 청사진 할당 및 할당 해제 권한은 구독 범위에서 부여되거나 구독 범위로 상속되어야 합니다.
 
-위의 모든 권한은 **소유자** 역할에 포함됩니다. **Contributor** 역할에는 청사진 만들기 및 청사진 삭제 권한이 포함되지만 청사진 할당 권한은 포함되지 않습니다. 이러한 기본 제공 역할이 보안 요구에 적합하지 않다면 [사용자 지정 역할](../../role-based-access-control/custom-roles.md)을 만드는 것이 좋습니다.
+다음과 같은 기본 제공 역할을 사용할 수 있습니다.
+
+|RBAC 역할 | 설명 |
+|-|-|
+|[소유자](../../role-based-access-control/built-in-roles.md#owner) | 다른 권한 외에도 모든 Azure Blueprint 관련 권한이 포함됩니다. |
+|[기여자](../../role-based-access-control/built-in-roles.md#contributor) | 다른 권한 외에도 청사진 정의를 만들고 삭제할 수 있지만 청사진 할당 권한은 없습니다. |
+|[청사진 기여자](../../role-based-access-control/built-in-roles.md#blueprint-contributor) | 청사진 정의를 관리할 수 있지만 할당할 수는 없습니다. |
+|[청사진 연산자](../../role-based-access-control/built-in-roles.md#blueprint-operator) | 게시된 기존 청사진을 할당할 수 있지만 새 청사진 정의를 만들 수는 없습니다. 청사진 할당은 할당이 사용자 할당 관리 ID로 수행되는 경우에만 작동합니다. |
+
+이러한 기본 제공 역할이 보안 요구에 적합하지 않다면 [사용자 지정 역할](../../role-based-access-control/custom-roles.md)을 만드는 것이 좋습니다.
 
 > [!NOTE]
 > 시스템 할당 관리 ID를 사용하는 경우 Azure Blueprints의 서비스 주체가 배포를 사용하려면 할당된 구독에 대한 **소유자** 역할이 필요합니다. 포털을 사용하는 경우에는 이 역할이 배포에 대해 자동으로 부여 및 취소됩니다. REST API를 사용하는 경우에는 이 역할을 수동으로 부여해야 합니다. 하지만 배포가 완료되면 역할은 자동으로 취소됩니다. 사용자 할당 관리 ID를 사용하는 경우 청사진 할당을 만드는 사용자만 **소유자** 권한이 필요합니다.
 
 ## <a name="naming-limits"></a>이름 지정 제한
 
-다음은 특정 필드에 존재하는 제한 사항 목록입니다.
+특정 필드에 다음과 같은 제한 사항이 존재합니다.
 
 |Object|필드|허용되는 문자|최대 길이|
 |-|-|-|-|

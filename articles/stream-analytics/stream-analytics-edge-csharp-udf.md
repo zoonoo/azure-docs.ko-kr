@@ -1,5 +1,5 @@
 ---
-title: Visual Studio(Preview)에서 Azure Stream Analytics Edge 작업용 C# 사용자 정의 함수 작성
+title: Visual Studio에서 Azure Stream Analytics Edge 작업에 대한 C# 사용자 정의 함수 작성(미리 보기)
 description: Visual Studio에서 Stream Analytics Edge 작업용으로 C# 사용자 정의 함수를 작성하는 방법을 알아봅니다.
 services: stream-analytics
 author: mamccrea
@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5597109a65a8af88bf286977d039656635565ed9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: cadc603a94d5d17ad2df419f8507c37f9e3272f8
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086909"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173304"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-edge-job-preview"></a>자습서: Azure Stream Analytics Edge 작업용 C# 사용자 정의 함수 작성(미리 보기)
 
@@ -63,7 +63,7 @@ Visual Studio에서 만든 C# UDF(사용자 정의 함수)를 사용하면 원�
     |---------|---------|
     |어셈블리 원본  |  로컬 프로젝트 참조 또는 CodeBehind   |
     |리소스  |  현재 계정의 데이터 선택   |
-    |구독  |  구독을 선택합니다.   |
+    |Subscription  |  구독을 선택합니다.   |
     |스토리지 계정  |  스토리지 계정 선택   |
     |컨테이너  |  스토리지 계정에서 만든 컨테이너 선택   |
 

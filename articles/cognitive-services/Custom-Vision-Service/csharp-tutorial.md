@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 08/08/2019
 ms.author: anroth
-ms.openlocfilehash: ef5e1d7bb2c5b4404ce1a43bc719b7b5a242b1c7
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 7faad2c432e15ed363bd1caf290e03dc75e9d298
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946241"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141058"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-net-sdk"></a>빠른 시작: Custom Vision .NET SDK를 사용하여 이미지 분류 프로젝트 만들기
 
@@ -103,7 +103,7 @@ CustomVisionPredictionClient endpoint = new CustomVisionPredictionClient()
 
 ### <a name="submit-an-image-to-the-default-prediction-endpoint"></a>기본 예측 엔드포인트에 이미지 제출
 
-이 스크립트의 테스트 이미지는 **LoadImagesFromDisk** 메서드에 로드되고, 모델의 예측 출력은 콘솔에 표시됩니다.
+이 스크립트의 테스트 이미지는 **LoadImagesFromDisk** 메서드에 로드되고, 모델의 예측 출력은 콘솔에 표시됩니다. publishedModelName 변수의 값은 Custom Vision 포털의 **성능** 탭에 있는 "다음으로 게시된" 값과 일치해야 합니다. 
 
 ```csharp
 // Make a prediction against the new project

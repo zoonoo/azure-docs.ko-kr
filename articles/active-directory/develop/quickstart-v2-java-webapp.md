@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/11/2019
 ms.author: sagonzal
 ms.custom: aaddev
-ms.openlocfilehash: 549b4457ee38504001e83c4b831cd321e1542068
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: f1ceae17195c08af380a7448dd4dbf3bfa3f9de2
+ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125467"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70211883"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>빠른 시작: Java 웹앱에 Microsoft로 로그인 추가
 
@@ -35,13 +35,10 @@ ms.locfileid: "70125467"
 > ## <a name="prerequisites"></a>필수 조건
 > 이 샘플을 실행하려면 다음이 필요합니다. 
 > - JDK(Java Development Kit) 8 이상 및 Maven.
-> - Azure AD(Azure Active Directory) 테넌트. Azure AD 테넌트를 가져오는 방법에 대한 자세한 내용은 [Azure AD 테넌트를 가져오는 방법](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-create-new-tenant)을 참조하세요.
 >
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>빠른 시작 앱 등록 및 다운로드
-> 빠른 시작 애플리케이션을 시작하는 옵션은 두 가지가 있습니다.
-> * 기본: [옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
-> * 수동: [옵션 2: 애플리케이션 및 코드 샘플을 등록하고 수동으로 구성](#option-2-register-and-manually-configure-your-application-and-code-sample)
+> 빠른 시작 애플리케이션을 시작할 수 있는 기본(옵션 1) 또는 수동(옵션 2)의 두 가지 옵션이 있습니다.
 > 
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드
 >
@@ -123,7 +120,7 @@ ms.locfileid: "70125467"
 ### <a name="getting-msal"></a>MSAL 가져오기
 MSAL4J는 사용자를 로그인하고 Microsoft ID 플랫폼으로 보호되는 API 액세스에 사용되는 토큰을 요청할 때 사용되는 라이브러리입니다. Maven이나 Gradle을 사용하여 MSAL4J를 애플리케이션에 추가하고 애플리케이션에서 pom.xml 또는 build.gradle 파일을 다음과 같이 변경하여 종속성을 관리할 수 있습니다. 
 
-```
+```XML
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>msal4j</artifactId>
@@ -139,7 +136,7 @@ compile group: 'com.microsoft.azure', name: 'msal4j', version: '0.5.0-preview'
 ### <a name="msal-initialization"></a>Msal 초기화
 MSAL4J를 사용할 파일 맨 위에 다음 코드를 추가하여 MSAL4J에 대한 참조를 추가할 수 있습니다. 
 
-```
+```Java
 import com.microsoft.aad.msal4j.*;
 ```
 

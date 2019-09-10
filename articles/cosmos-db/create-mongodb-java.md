@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 12/26/2018
 ms.author: rimman
 ms.custom: seo-java-august2019
-ms.openlocfilehash: 693e58cf578b5b2374a1d8fc63da8bb1a77faf1b
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: f30b1ef7a80e11c2cefd8689845fb7d450a1c167
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515836"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172343"
 ---
-# <a name="quickstart-build-a-web-app-using-azure-cosmos-dbs-api-for-mongodb-and-java-sdk"></a>빠른 시작: Azure Cosmos DB의 API for MongoDB 및 Java SDK를 사용하여 웹앱 빌드
+# <a name="quickstart-create-a-console-app-with-java-and-the-mongodb-api-in-azure-cosmos-db"></a>빠른 시작: Azure Cosmos DB에서 Java 및 MongoDB API를 사용하여 콘솔 앱 만들기
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)

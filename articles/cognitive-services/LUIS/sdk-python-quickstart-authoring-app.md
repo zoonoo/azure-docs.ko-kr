@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 08/07/2019
 ms.author: diberry
-ms.openlocfilehash: f5756c479d47e905e0110c9919cf4b5be4e75099
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: f8149372e0a96cda81ef38558ee0bcf87eb53bb3
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932121"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258758"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-python"></a>빠른 시작: Python용 LUIS(Language Understanding) 작성 클라이언트 라이브러리
 
@@ -37,9 +37,9 @@ Python용 LUIS(Language Understanding) 작성 클라이언트 라이브러리를
 
 ## <a name="setting-up"></a>설치
 
-### <a name="get-your-language-understanding-luis-authoring-key"></a>LUIS(Language Understanding) 작성 키 가져오기
+### <a name="get-your-language-understanding-luis-starter-key"></a>LUIS(Language Understanding) 시작 키 가져오기
 
-[작성 키](luis-how-to-account-settings.md)를 가져와서 `LUIS_AUTHORING_KEY`라는 키에 대한 환경 변수와 `LUIS_REGION` 키 지역에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
+[시작 키](luis-how-to-azure-subscription.md#starter-key)를 가져와서 `LUIS_AUTHORING_KEY`라는 키에 대한 환경 변수와 `LUIS_REGION` 키 지역에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
 
 ### <a name="install-the-python-library-for-luis"></a>LUIS용 Python 라이브러리 설치
 

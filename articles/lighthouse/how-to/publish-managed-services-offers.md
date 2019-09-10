@@ -4,19 +4,19 @@ description: 고객이 Azure 위임 리소스 관리에 고객을 온보딩하�
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 08/22/2019
+ms.date: 08/29/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: f9d3fad2a98647bcd10d54c03a76e95bc3e05227
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: c0c2ccf03292434b3f23b26857ec0d2b3fc3ceed
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011856"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70165262"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Azure Marketplace에 관리형 서비스 솔루션 게시
 
-이 문서에서는 [Cloud 파트너 포털](https://cloudpartner.azure.com/)을 사용하여 [Azure Marketplace](https://azuremarketplace.microsoft.com)에 퍼블릭 또는 프라이빗 관리형 서비스 제품을 게시하여 제품을 구매하는 고객을 Azure 위임 리소스 관리를 위해 온보딩하도록 하는 방법을 알아봅니다.
+이 문서에서는 [Cloud 파트너 포털](https://cloudpartner.azure.com/)을 사용하여 [Azure Marketplace](https://azuremarketplace.microsoft.com)에 공용 또는 프라이빗 관리형 서비스 제품을 게시하여 제품을 구매하는 고객이 Azure 위임 리소스 관리를 위해 리소스를 온보딩할 수 있도록 하는 방법을 알아봅니다.
 
 > [!NOTE]
 > 이러한 제품을 만들고 게시하려면 [파트너 센터에 유효한 계정](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)이 있어야 합니다. 계정이 아직 없는 경우 [등록 프로세스](https://aka.ms/joinmarketplace)를 통해 파트너 센터에서 계정을 만들고 상업적 Marketplace 프로그램에 등록하는 단계를 진행합니다. MPN(Microsoft 파트너 네트워크) ID는 게시하는 제품에 [자동으로 연결되어](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started) 고객 계약에 미치는 영향을 추적합니다.
@@ -127,6 +127,65 @@ ms.locfileid: "70011856"
 ## <a name="publish-your-offer"></a>제품 게시
 
 제공한 모든 정보에 만족하면 다음 단계는 Azure Marketplace에 제품을 게시하는 것입니다. **게시** 단추를 선택하여 제품을 라이브로 전환하는 프로세스를 시작합니다. 이 프로세스에 대한 자세한 내용은 [Azure Marketplace 및 AppSource 제안 게시](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-publish-offer)를 참조하세요.
+
+## <a name="the-customer-onboarding-process"></a>고객 온보딩 프로세스
+
+고객이 제품을 추가하면 [하나 이상의 특정 구독 또는 리소스 그룹을 위임](view-manage-service-providers.md#delegate-resources)할 수 있습니다. 그러면 Azure 위임 리소스 관리에 온보딩됩니다. 고객이 제품을 수락했지만 아직 리소스를 위임하지 않은 경우 Azure Portal에서 [**서비스 공급자**](view-manage-service-providers.md) 페이지의 **공급자 제품** 섹션 맨 위에 메모가 표시됩니다.
+
+구독(또는 구독 내의 리소스 그룹)을 온보딩하려면 먼저 **Microsoft.ManagedServices** 리소스 공급자를 수동으로 등록하여 온보딩에 대한 권한을 구독에 부여해야 합니다. 기여자 또는 소유자 역할이 있는 고객 테넌트의 사용자는 [Azure 리소스 공급자 및 유형](../../azure-resource-manager/resource-manager-supported-services.md)에 설명된 단계에 따라 이 작업을 수행할 수 있습니다.
+
+고객은 다음 중 한 가지 방법으로 구독이 온보딩할 준비가 되었는지 확인할 수 있습니다.
+
+### <a name="azure-portal"></a>Azure portal
+
+1. Azure Portal에서 구독을 선택합니다.
+1. **리소스 공급자**를 선택합니다.
+1. **Microsoft.ManagedServices**가 **등록됨**으로 표시되는지 확인합니다.
+
+### <a name="powershell"></a>PowerShell
+
+```azurepowershell-interactive
+# Log in first with Connect-AzAccount if you're not using Cloud Shell
+
+Set-AzContext -Subscription <subscriptionId>
+Get-AzResourceProvider -ProviderNameSpace 'Microsoft.ManagedServices'
+```
+
+그러면 다음과 같은 결과가 반환됩니다.
+
+```output
+ProviderNamespace : Microsoft.ManagedServices
+RegistrationState : Registered
+ResourceTypes     : {registrationDefinitions}
+Locations         : {}
+
+ProviderNamespace : Microsoft.ManagedServices
+RegistrationState : Registered
+ResourceTypes     : {registrationAssignments}
+Locations         : {}
+
+ProviderNamespace : Microsoft.ManagedServices
+RegistrationState : Registered
+ResourceTypes     : {operations}
+Locations         : {}
+```
+
+### <a name="azure-cli"></a>Azure CLI
+
+```azurecli-interactive
+# Log in first with az login if you're not using Cloud Shell
+
+az account set –subscription <subscriptionId>
+az provider show --namespace "Microsoft.ManagedServices" --output table
+```
+
+그러면 다음과 같은 결과가 반환됩니다.
+
+```output
+Namespace                  RegistrationState
+-------------------------  -------------------
+Microsoft.ManagedServices  Registered
+```
 
 ## <a name="next-steps"></a>다음 단계
 

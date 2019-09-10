@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0e2e161c22ee87d11156c4818bd689c316799e87
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 372c65f1ac9a08d066f26e637f3af86807b35f11
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305611"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182817"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Marketplace에서 Azure 관리되는 애플리케이션
 
@@ -177,5 +177,6 @@ Marketplace 양식에서 [Azure Marketplace](https://azuremarketplace.microsoft.
 
 ## <a name="next-steps"></a>다음 단계
 
+* **게시**를 클릭한 후 발생하는 상황에 대한 자세한 내용은 [Azure 애플리케이션 제품 게시](../marketplace/cloud-partner-portal/azure-applications/cpp-publish-offer.md)를 참조하세요.
 * 관리형 애플리케이션에 대한 소개는 [관리형 애플리케이션 개요](overview.md)를 참조하세요.
 * 서비스 카탈로그 관리형 애플리케이션을 게시하는 방법에 대한 자세한 내용은 [서비스 카탈로그 관리형 애플리케이션 만들기 및 게시](publish-service-catalog-app.md)를 참조하세요.

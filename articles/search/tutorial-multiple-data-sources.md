@@ -2,18 +2,18 @@
 title: 'C# 자습서: 여러 데이터 원본 인덱싱 - Azure Search'
 description: 데이터를 여러 데이터 원본에서 단일 Azure Search 인덱스로 가져오는 방법을 알아봅니다.
 author: RobDixon22
-manager: HeidiSteen
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: tutorial
 ms.date: 06/21/2019
 ms.author: heidist
-ms.openlocfilehash: 2776bcd095c570be500fa6ddb2675820b2259716
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: d55a586d3dfb22b5dad377ff656b8d6a6c940bdb
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840666"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241846"
 ---
 # <a name="c-tutorial-combine-data-from-multiple-data-sources-in-one-azure-search-index"></a>C# 자습서: 여러 데이터 원본의 데이터를 하나의 Azure Search 인덱스에 결합
 
@@ -70,7 +70,7 @@ Azure Search 서비스와 상호 작용하려면 서비스 URL과 액세스 키�
 
 1. [Azure Portal에 로그인](https://portal.azure.com)한 다음, Azure Cosmos DB 계정 개요 페이지를 탐색합니다.
 
-1. 메뉴 모음에서 [컨테이너 추가]를 클릭합니다. "새 데이터베이스 만들기"를 지정하고, **hotel-rooms-db** 이름을 사용합니다. 컬렉션 이름에 대해 **hotel-rooms**를 입력하고, 파티션 키에 대해 **/HotelId**를 입력합니다. **확인**을 클릭하여 데이터베이스와 컨테이너를 만듭니다.
+1. 메뉴 모음에서 [컨테이너 추가]를 클릭합니다. "새 데이터베이스 만들기"를 지정하고, **hotel-rooms-db** 이름을 사용합니다. 컬렉션 이름에 대해 **hotels**를 입력하고, 파티션 키에 대해 **/HotelId**를 입력합니다. **확인**을 클릭하여 데이터베이스와 컨테이너를 만듭니다.
 
    ![Azure Cosmos DB 컨테이너 추가](media/tutorial-multiple-data-sources/cosmos-add-container.png "Azure Cosmos DB 컨테이너 추가")
 

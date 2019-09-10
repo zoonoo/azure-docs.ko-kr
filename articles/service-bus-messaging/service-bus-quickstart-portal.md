@@ -3,18 +3,17 @@ title: 빠른 시작 - Azure Portal을 사용하여 Service Bus 큐 만들기 | 
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 Service Bus 큐를 만드는 방법에 대해 알아봅니다. 그런 다음, 샘플 클라이언트 애플리케이션을 사용하여 큐에서 메시지를 보내고 받습니다.
 services: service-bus-messaging
 author: spelluru
-manager: timlt
 ms.service: service-bus-messaging
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/10/2019
+ms.date: 09/03/2019
 ms.author: spelluru
-ms.openlocfilehash: 315f8d30b7c7559947c599edd0e18eaa5a99ac22
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: dc9b8260a8ddde6633bc9215d9efff7aaaa71ad3
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67513631"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242390"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>빠른 시작: Azure Portal을 사용하여 Service Bus 큐 만들기
 이 빠른 시작에서는 [Azure Portal][Azure portal]을 사용하여 메시징 네임스페이스 및 해당 네임스페이스 내에 큐를 만들고 네임스페이스에서 권한 부여 자격 증명을 얻은 다음, Service Bus 큐에서 메시지를 보내고 받는 방법을 보여 줍니다. 그런 다음, [.NET 표준 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)를 사용하여 이 큐에서 메시지를 보내고 받는 방법을 보여 줍니다.
@@ -34,6 +33,18 @@ ms.locfileid: "67513631"
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
 ## <a name="send-and-receive-messages"></a>메시지 보내기 및 받기
+
+> [!NOTE]
+> 이 섹션에서 메시지를 보내고 받는 데 사용되는 샘플은 .NET 샘플입니다. 다른 프로그래밍 언어를 사용하여 메시지를 송/수신하는 샘플은 [Service Bus 샘플](service-bus-samples.md)을 참조하세요. 
+> 
+> 다양한 프로그래밍 언어를 사용하여 메시지를 송/수신하기 위한 단계별 지침은 다음 빠른 시작을 참조하세요.
+> - [.NET](service-bus-dotnet-get-started-with-queues.md)
+> - [Java](service-bus-java-how-to-use-queues.md)
+> - [azure/service-bus 패키지를 사용하는 Node.js](service-bus-nodejs-how-to-use-queues-new-package.md)
+> - [azure-sb 패키지를 사용하는 Node.js](service-bus-nodejs-how-to-use-queues.md)
+> - [PHP](service-bus-php-how-to-use-queues.md)
+> - [Python](service-bus-python-how-to-use-queues.md)
+> - [Ruby](service-bus-ruby-how-to-use-queues.md)
 
 네임스페이스와 큐가 프로비전되고 필요한 자격 증명이 있으면 메시지를 보내고 받을 준비가 됩니다. [이 GitHub 샘플 폴더](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters)에서 코드를 검사할 수 있습니다.
 

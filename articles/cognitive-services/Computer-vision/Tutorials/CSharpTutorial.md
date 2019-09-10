@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 63b5130e3cade54a2fbc432b2391ad3ee1ea8a1a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 3da22d11dce1e535763476d906ac45f3da22bc8d
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004026"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141278"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>샘플: C#으로 이미지 처리 앱 탐색
 
@@ -33,7 +33,7 @@ Computer Vision을 사용하는 기본 Windows 애플리케이션을 탐색합�
 샘플 앱을 탐색하기 전에 다음 필수 조건을 충족하는지 확인합니다.
 
 * [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) 이상이 있어야 합니다.
-* Computer Vision에 대한 구독 키가 있어야 합니다. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)에서 평가판 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Computer Vision을 구독하고 키를 가져옵니다.
+* Computer Vision에 대한 구독 키가 있어야 합니다. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)에서 평가판 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Computer Vision을 구독하고 키를 가져옵니다. 서비스 엔드포인트 URL도 기록해 둡니다.
 
 ## <a name="get-the-sample-app"></a>샘플 앱 가져오기
 
@@ -79,8 +79,9 @@ git clone --recurse-submodules https://github.com/Microsoft/Cognitive-Face-Windo
 1. 샘플 앱이 표시되면 탐색 창에서 **구독 키 관리**를 선택하여 구독 키 관리 페이지를 표시합니다.
    ![구독 키 관리 페이지](../Images/Vision_UI_Subscription.PNG)  
 1. **구독 키**에 구독 키를 입력합니다.
-1. **엔드포인트**의 구독 키에 대한 Computer Vision 리소스에서 `/vision/v1.0`은 생략한 채로 엔드포인트 URL을 입력합니다.  
-   예를 들어, Computer Vision 평가판의 구독 키를 사용하는 경우 미국 중서부 Azure 지역에 대한 다음 엔드포인트 URL을 입력합니다. `https://westcentralus.api.cognitive.microsoft.com`
+1. **엔드포인트**에 엔드포인트 URL을 입력합니다.  
+   예를 들어, Computer Vision 평가판의 구독 키를 사용하는 경우 `https://westcentralus.api.cognitive.microsoft.com`
+   [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)] 엔드포인트 URL을 입력합니다.
 1. 다음에 샘플 앱을 실행할 때 구독 키 및 엔드포인트 URL을 입력하지 않도록 하려면 **설정 저장**을 선택하여 구독 키 및 엔드포인트 URL을 사용자 컴퓨터에 저장합니다. 이전에 저장된 구독 키 및 엔드포인트 URL을 삭제하려면 **설정 삭제**를 선택합니다.
 
    > [!NOTE]

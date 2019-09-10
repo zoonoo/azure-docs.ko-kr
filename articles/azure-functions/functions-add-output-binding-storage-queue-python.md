@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 34ec7c678410b2e0814f8dbb7a69257886cb891d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 9fdbf3466256c5e24de17541770fa2095fcf38a4
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639128"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171078"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Python 함수에 Azure Storage 큐 바인딩 추가
 
@@ -145,7 +145,7 @@ func host start
 
 이번에는 출력 바인딩이 Storage 계정에 `outqueue`라는 큐를 만들고 똑같은 이 문자열을 사용하여 메시지를 추가합니다.
 
-다음으로, Azure CLI를 사용하여 새 큐를 살펴보고 메시지가 추가되었는 확인합니다. 큐는 [Microsoft Azure Storage Explorer][Azure Storage Explorer] 또는 [Azure Portal](https://portal.azure.com)을 사용하여 확인할 수도 있습니다.
+다음으로, Azure CLI를 사용하여 새 큐를 살펴보고 메시지가 추가되었는지 확인합니다. 큐는 [Microsoft Azure Storage Explorer][Azure Storage Explorer] 또는 [Azure Portal](https://portal.azure.com)을 사용하여 확인할 수도 있습니다.
 
 ### <a name="set-the-storage-account-connection"></a>Storage 계정 연결 설정
 
@@ -194,7 +194,7 @@ curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow54
 
 ## <a name="next-steps"></a>다음 단계
 
-데이터를 Storage 큐에 쓰도록 HTTP 트리거 함수를 업데이트했습니다. Python을 사용하여 Azure Functions를 개발하는 방법에 대한 자세한 내용은 [Azure Functions Python 개발자 가이드](functions-reference-python.md) 및 [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)을 참조하세요.
+데이터를 Storage 큐에 쓰도록 HTTP 트리거 함수를 업데이트했습니다. Python을 사용하여 Azure Functions를 개발하는 방법에 대한 자세한 내용은 [Azure Functions Python 개발자 가이드](functions-reference-python.md) 및 [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)을 참조하세요. Python의 전체 함수 프로젝트 예제는 [Python Functions 샘플](/samples/browse/?products=azure-functions&languages=python)을 참조하세요. 
 
 다음으로, 함수 앱에 Application Insights 모니터링을 사용하도록 설정해야 합니다.
 

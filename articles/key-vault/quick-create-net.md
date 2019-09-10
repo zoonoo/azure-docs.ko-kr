@@ -1,190 +1,221 @@
 ---
-title: '빠른 시작: .NET 웹앱을 사용하여 Azure Key Vault에서 비밀 설정 및 검색 - Azure Key Vault | Microsoft Docs'
-description: 빠른 시작에서 .NET 웹앱을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색합니다.
-services: key-vault
+title: 빠른 시작 - .NET용 Azure Key Vault 클라이언트 라이브러리
+description: Azure SDK 클라이언트 라이브러리에 대한 빠른 시작을 작성하기 위한 형식과 콘텐츠 조건을 제공합니다.
 author: msmbaldwin
-manager: sumedhb
+ms.author: mbaldwin
+ms.date: 05/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.date: 01/02/2019
-ms.author: barclayn
-ms.custom: mvc
-ms.openlocfilehash: 9ddb1db9b39ac942a3476f50aad39c98198b2a18
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: c67b24d57117a248559424497939a04ce347658c
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68958601"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308952"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>빠른 시작: .NET 웹앱을 사용하여 Azure Key Vault에서 비밀 설정 및 검색
+# <a name="quickstart-azure-key-vault-client-library-for-net"></a>빠른 시작: .NET용 Azure Key Vault 클라이언트 라이브러리
 
-이 빠른 시작에서는 Azure 리소스의 관리 ID를 사용하여 Azure Key Vault에서 정보를 읽는 Azure 웹 애플리케이션을 가져오는 단계를 수행합니다. Key Vault를 사용하여 정보를 안전하게 보호할 수 있습니다. 다음 방법을 알아봅니다.
+.NET용 Azure Key Vault 클라이언트 라이브러리를 시작합니다. 아래 단계에 따라 패키지를 설치하고 기본 작업에 대한 예제 코드를 사용해 봅니다.
 
-* 키 자격 증명 모음을 만듭니다.
-* 키 자격 증명 모음에 비밀을 저장합니다.
-* 키 자격 증명 모음에서 비밀을 검색합니다.
-* Azure 웹 애플리케이션을 만듭니다.
-* 웹앱의 [관리 서비스 ID](../active-directory/managed-identities-azure-resources/overview.md)를 사용하도록 설정합니다.
-* 웹 애플리케이션이 키 자격 증명 모음에서 데이터를 읽는 데 필요한 권한을 부여합니다.
+Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 됩니다. .NET 용 Key Vault 클라이언트 라이브러리를 사용하여 다음을 수행합니다.
 
-본론으로 들어가기 전에 [Key Vault의 기본 개념](key-vault-whatis.md#basic-concepts)을 읽어보세요.
+- 키 및 암호에 대한 보안과 제어를 강화합니다.
+- 몇 분 안에 암호화 키를 만들고 가져옵니다.
+- 클라우드 규모와 글로벌 중복성을 통해 대기 시간을 줄입니다.
+- SSL/TLS 인증서 작업을 간소화하고 자동화합니다.
+- FIPS 140-2 수준 2 유효성이 검사된 HSM을 사용합니다.
 
->[!NOTE]
->Key Vault는 프로그래밍 방식으로 비밀을 저장하는 중앙 리포지토리입니다. 하지만 이렇게 하려면 애플리케이션과 사용자가 먼저 Key Vault에 인증해야 합니다. 즉, 비밀을 제공해야 합니다. 보안 모범 사례에 따라 이 첫 번째 비밀을 정기적으로 회전시켜야 합니다. 
->
->[Azure 리소스의 관리 서비스 ID](../active-directory/managed-identities-azure-resources/overview.md)를 사용하면 Azure에서 실행되는 애플리케이션에 Azure에서 자동으로 관리하는 ID가 부여됩니다. 이렇게 하면 *비밀 소개 문제*를 해결할 수 있으므로 사용자와 애플리케이션에서 모범 사례를 따를 수 있고 첫 번째 비밀을 회전시켜야 하는 것에 대해 걱정할 필요가 없습니다.
+[API 참조 설명서](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/KeyVault) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/)
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Windows에서:
-  * 다음 워크로드가 포함된 [Visual Studio 2019](https://www.microsoft.com/net/download/windows):
-    * ASP.NET 및 웹 개발
-    * .NET Core 플랫폼 간 개발
-  * [.NET Core 2.1 SDK 이상](https://www.microsoft.com/net/download/windows)
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* [.NET Core 2.1 SDK 이상](https://dotnet.microsoft.com/download/dotnet-core/2.1)
+* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 또는 [Azure PowerShell](/powershell/azure/overview)
 
-* Mac에서:
-  * [Mac용 Visual Studio의 새로운 기능](https://visualstudio.microsoft.com/vs/mac/)을 참조하세요.
+이 빠른 시작에서는 Windows 터미널(예: [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6) 또는 [Azure Cloud Shell](https://shell.azure.com/))에서 `dotnet`, [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 및 Windows 명령을 실행한다고 가정합니다.
 
-* 모든 플랫폼:
-  * Git([다운로드](https://git-scm.com/downloads)).
-  * Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-  * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 버전 2.0.4 이상. Windows, Mac 및 Linux에서 사용할 수 있습니다.
+## <a name="setting-up"></a>설치
 
-## <a name="log-in-to-azure"></a>Azure에 로그인
+### <a name="create-new-net-console-app"></a>새 .NET 콘솔 앱 만들기
 
-Azure CLI를 사용하여 Azure에 로그인하려면 다음을 입력합니다.
+선호하는 편집기 또는 IDE에서 .NET Core 애플리케이션을 새로 만듭니다.
+
+콘솔 창에서 `dotnet new` 명령을 사용하여 `akv-dotnet`이라는 새 콘솔 앱을 만듭니다.
+
+
+```console
+dotnet new console -n akvdotnet
+```
+
+새로 만든 앱 폴더로 디렉터리를 변경합니다. 다음을 통해 애플리케이션을 빌드할 수 있습니다.
+
+```console
+dotnet build
+```
+
+빌드 출력에 경고나 오류가 포함되지 않아야 합니다.
+
+```console
+Build succeeded.
+ 0 Warning(s)
+ 0 Error(s)
+```
+
+### <a name="install-the-package"></a>패키지 설치
+
+콘솔 창에서 .NET용 Azure Key Vault 클라이언트 라이브러리를 설치합니다.
+
+```console
+dotnet add package Microsoft.Azure.KeyVault
+```
+
+이 빠른 시작에서는 다음 패키지도 설치해야 합니다.
+
+```console
+dotnet add package System.Threading.Tasks
+dotnet add package Microsoft.IdentityModel.Clients.ActiveDirectory
+dotnet add package Microsoft.Azure.Management.ResourceManager.Fluent
+```
+
+### <a name="create-a-resource-group-and-key-vault"></a>리소스 그룹 및 키 자격 증명 모음 만들기
+
+이 빠른 시작에서는 미리 만든 Azure Key Vault를 사용합니다. [Azure CLI 빠른 시작](quick-create-cli.md), [Azure PowerShell 빠른 시작](quick-create-powershell.md) 또는 [Azure Portal 빠른 시작](quick-create-portal.md)의 단계에 따라 키 자격 증명 모음을 만들 수 있습니다. 또는 아래의 Azure CLI 명령을 실행하기만 하면 됩니다.
+
+> [!Important]
+> 각 Key Vault마다 고유한 이름이 있어야 합니다. 다음 예제에서는 *myKV*라는 Key Vault를 만들지만, 다른 이름을 지정하여 이 빠른 시작 전체에서 해당 이름을 사용해야 합니다.
 
 ```azurecli
-az login
+az group create --name "myResourceGroup" -l "EastUS"
+
+az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 ```
 
-## <a name="create-a-resource-group"></a>리소스 그룹 만들기
+### <a name="create-a-service-principal"></a>서비스 주체 만들기
 
-[az group create](/cli/azure/group#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
-
-리소스 그룹 이름을 선택하고 자리 표시자를 입력합니다.
-다음 예제에서는 미국 동부 위치에 리소스 그룹을 만듭니다.
+클라우드 기반 .NET 애플리케이션을 인증하는 가장 간단한 방법은 관리 ID를 사용하는 것입니다. 자세한 내용은 [.NET을 사용하여 Azure Key Vault에 서비스 간 인증](service-to-service-authentication.md)을 참조하세요. 그러나 간단히 하기 위해 이 빠른 시작에서는 .NET 콘솔 애플리케이션을 만듭니다. Azure에서 데스크톱 애플리케이션을 인증하려면 서비스 주체를 사용해야 합니다.
+서비스 주체는 [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) Azure CLI 명령을 사용하여 만듭니다.
 
 ```azurecli
-# To list locations: az account list-locations --output table
-az group create --name "<YourResourceGroupName>" --location "East US"
+az ad sp create-for-rbac -n "http://mySP" --sdk-auth
 ```
 
-방금 만든 리소스 그룹은 이 문서 전체에서 사용됩니다.
+이 작업을 수행하면 일련의 키/값 쌍이 반환됩니다. 
 
-## <a name="create-a-key-vault"></a>키 자격 증명 모음 만들기
+```console
+{
+  "clientId": "7da18cae-779c-41fc-992e-0527854c6583",
+  "clientSecret": "b421b443-1669-4cd7-b5b1-394d5c945002",
+  "subscriptionId": "443e30da-feca-47c4-b68f-1636b75e16b3",
+  "tenantId": "35ad10f1-7799-4766-9acf-f2d946161b77",
+  "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
+  "resourceManagerEndpointUrl": "https://management.azure.com/",
+  "activeDirectoryGraphResourceId": "https://graph.windows.net/",
+  "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
+  "galleryEndpointUrl": "https://gallery.azure.com/",
+  "managementEndpointUrl": "https://management.core.windows.net/"
+}
+```
 
-다음으로, 이전 단계에서 만든 리소스 그룹에 키 자격 증명 모음을 만듭니다. 다음 정보를 지정합니다.
+아래의 [키 자격 증명 모음에 인증](#authenticate-to-your-key-vault) 단계에서 사용되므로 clientId, clientSecret, subscriptionId 및 tenantId를 적어둡니다.
 
-* 키 자격 증명 모음 이름: 3-24자의 문자열이어야 하며 0-9, a-z, A-Z 및 하이픈(-)만 포함해야 합니다.
-* 리소스 그룹 이름
-* 위치: **미국 동부**.
+또한 서비스 주체의 appID도 필요합니다. 이 appID는 `--show-mine` 매개 변수가 포함된 [az ad sp list](https://docs.microsoft.com/en-us/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list)를 실행하여 찾을 수 있습니다.
 
 ```azurecli
-az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "East US"
+az ad sp list --show-mine
 ```
 
-이 시점에서 Azure 계정은 이 새 자격 증명 모음에서 모든 작업을 수행할 권한이 있는 유일한 계정입니다.
+`appID`가 반환된 JSON에 표시됩니다.
 
-## <a name="add-a-secret-to-the-key-vault"></a>키 자격 증명 모음에 비밀 추가
+```json
+    "appId": "2cf5aa18-0100-445a-9438-0b93e577a3ed",
+```
 
-이 작업을 설명하기 위한 비밀을 추가하고 있습니다. 안전하게 유지하면서 애플리케이션에서 사용할 수 있도록 하는 데 필요한 SQL 연결 문자열 또는 기타 정보를 저장할 수 있습니다.
+#### <a name="give-the-service-principal-access-to-your-key-vault"></a>키 자격 증명 모음에 대한 액세스 권한을 서비스 주체에 부여
 
-다음 명령을 입력하여 키 자격 증명 모음에 **AppSecret**라고 하는 비밀을 만듭니다. 이 비밀에는 **MySecret** 값이 저장됩니다.
+서비스 주체에 권한을 부여하는 키 자격 증명 모음에 대한 액세스 정책을 만듭니다. 이 작업은 [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) 명령을 사용하여 수행합니다. 여기서는 키와 비밀 모두에 대한 get, list 및 set 권한을 서비스 주체에 부여합니다.
 
 ```azurecli
-az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --value "MySecret"
+az keyvault set-policy -n <your-unique-keyvault-name> --spn <appid-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
 ```
 
-비밀에 들어 있는 값을 일반 텍스트로 보려면:
+## <a name="object-model"></a>개체 모델
+
+.NET용 Azure Key Vault 클라이언트 라이브러리를 사용하면 키 및 관련 자산(예: 인증서 및 비밀)을 관리할 수 있습니다. 아래의 코드 샘플에서는 비밀을 설정하고 검색하는 방법을 보여 줍니다.
+
+전체 콘솔 앱은 https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/akvdotnet 에서 사용할 수 있습니다.
+
+## <a name="code-examples"></a>코드 예제
+
+### <a name="add-directives"></a>지시문 추가
+
+다음 지시문을 코드 위쪽에 추가합니다.
+
+[!code-csharp[Directives](~/samples-key-vault-dotnet-quickstart/akvdotnet/Program.cs?name=directives)]
+
+### <a name="authenticate-to-your-key-vault"></a>키 자격 증명 모음에 인증
+
+이 .NET 빠른 시작에서는 환경 변수를 사용하여 코드에 포함되지 않아야 하는 자격 증명을 저장합니다. 
+
+앱을 빌드하고 실행하기 전에 `setx` 명령을 사용하여 `akvClientId`, `akvClientSecret`, `akvTenantId` 및 `akvSubscriptionId` 환경 변수를 위에서 적어둔 값으로 설정합니다.
+
+```console
+setx akvClientId <your-clientID>
+
+setx akvClientSecret <your-clientSecret>
+
+setx akvTenantId <your-tentantId>
+
+setx akvSubscriptionId <your-subscriptionId>
+````
+
+`setx`를 호출할 때마다 "SUCCESS: 지정된 값이 저장되었습니다."라는 응답이 표시됩니다.
+
+이러한 환경 변수를 코드의 문자열에 할당한 다음, [KeyVaultClient 클래스](/dotnet/api/microsoft.azure.keyvault.keyvaultclient)에 전달하여 애플리케이션을 인증합니다.
+
+[!code-csharp[Authentication](~/samples-key-vault-dotnet-quickstart/akvdotnet/Program.cs?name=authentication)]
+
+### <a name="save-a-secret"></a>비밀 저장
+
+이제 애플리케이션이 인증되었으므로 [SetSecretAsync 메서드](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync)를 사용하여 비밀을 키 자격 증명 모음에 저장할 수 있습니다. 이 경우 `https://<your-unique-keyvault-name>.vault.azure.net/secrets/` 형식으로 된 키 자격 증명 모음의 URL이 필요합니다. 또한 비밀의 이름도 필요합니다. 여기서는 "mySecret"을 사용합니다.  이러한 문자열은 다시 사용할 수 있도록 변수에 할당할 수 있습니다.
+
+[!code-csharp[Set secret](~/samples-key-vault-dotnet-quickstart/akvdotnet/Program.cs?name=setsecret)]
+
+[az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) 명령을 사용하여 비밀이 설정되었는지 확인할 수 있습니다.
 
 ```azurecli
-az keyvault secret show --name "AppSecret" --vault-name "<YourKeyVaultName>"
+az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 ```
 
-이 명령은 URI를 포함한 비밀 정보를 표시합니다. 이러한 단계가 완료되면 비밀에 대한 URI가 키 자격 증명 모음에 있어야 합니다. 이 정보를 기록해 둡니다. 이후 단계에서 필요합니다.
+### <a name="retrieve-a-secret"></a>비밀 검색
 
-## <a name="clone-the-repo"></a>리포지토리 복제
+이제 [GetSecretAsync 메서드](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.getsecretasync)를 사용하여 이전에 설정한 값을 검색할 수 있습니다.
 
-리포지토리를 복제하여 원본을 편집할 수 있는 로컬 복사본을 만듭니다. 다음 명령 실행:
+[!code-csharp[Get secret](~/samples-key-vault-dotnet-quickstart/akvdotnet/Program.cs?name=getsecret)]
 
-```
-git clone https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart.git
-```
-
-## <a name="open-and-edit-the-solution"></a>솔루션 열기 및 편집
-
-특정 키 자격 증명 모음 이름으로 샘플을 실행하도록 program.cs 파일을 편집합니다.
-
-1. key-vault-dotnet-core-quickstart 폴더로 이동합니다.
-2. Visual Studio 2019에서 key-vault-dotnet-core-quickstart.sln 파일을 엽니다.
-3. Program.cs 파일을 열고, *YourKeyVaultName* 자리 표시자를 앞에서 만든 키 자격 증명 모음의 이름으로 업데이트합니다.
-
-이 솔루션에서는 [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 및 [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet 라이브러리를 사용합니다.
-
-## <a name="run-the-app"></a>앱 실행
-
-Visual Studio 2019의 주 메뉴에서 **디버그** > **디버깅하지 않고 시작**을 차례로 선택합니다. 브라우저가 표시되면 **정보** 페이지로 이동합니다. **AppSecret**에 대한 값이 표시됩니다.
-
-## <a name="publish-the-web-application-to-azure"></a>Azure에 웹 애플리케이션 게시
-
-이 앱을 Azure에 게시하여 웹앱으로 라이브로 표시하고 비밀 값을 가져올 수 있는지 확인합니다.
-
-1. Visual Studio에서 **key-vault-dotnet-core-quickstart** 프로젝트를 선택합니다.
-2. **게시** > **시작**을 차례로 선택합니다.
-3. 새 **App Service**를 만든 다음, **게시**를 선택합니다.
-4. 앱 이름을 **keyvaultdotnetcorequickstart**로 변경합니다.
-5. **만들기**를 선택합니다.
-
->[!VIDEO https://sec.ch9.ms/ch9/e93d/a6ac417f-2e63-4125-a37a-8f34bf0fe93d/KeyVault_high.mp4]
-
-## <a name="enable-a-managed-identity-for-the-web-app"></a>웹앱의 관리 ID를 사용하도록 설정
-
-Azure Key Vault를 사용하면 자격 증명과 기타 키 및 비밀을 안전하게 저장할 수 있습니다. 하지만 이러한 자격 증명/키/비밀을 검색하려면 코드가 Key Vault에 인증해야 합니다. [Azure 리소스에 대한 관리 ID 개요](../active-directory/managed-identities-azure-resources/overview.md)를 통해 Azure AD(Azure Active Directory)에서 자동으로 관리되는 ID를 Azure 서비스에 제공함으로써 이 문제를 보다 간편하게 해결할 수 있습니다. 이 ID를 사용하면 Key Vault를 비롯하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다.
-
-Azure CLI에서 이 애플리케이션에 대한 ID를 만들려면 assign-identity 명령을 실행합니다.
-
-   ```azurecli
-   az webapp identity assign --name "keyvaultdotnetcorequickstart" --resource-group "<YourResourceGroupName>"
-   ```
-
->[!NOTE]
->이 절차의 명령은 포털로 이동하여 웹 애플리케이션 속성에서 **ID/시스템 할당됨** 설정을 **켜기**로 전환하는 것과 동일합니다.
-
-## <a name="assign-permissions-to-your-application-to-read-secrets-from-key-vault"></a>애플리케이션에 Key Vault에서 비밀을 읽을 수 있는 권한 할당
-
-Azure에 애플리케이션을 게시할 때 출력을 적어 둡니다. 형식은 다음과 같아야 합니다.
-        
-        {
-          "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-          "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-          "type": "SystemAssigned"
-        }
-        
-그런 다음, 키 자격 증명 모음의 이름 및 **PrincipalId** 값을 사용하여 다음 명령을 실행합니다.
-
-```azurecli
-
-az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get list
-
-```
-
-이제 애플리케이션이 실행되면 검색된 비밀 값이 표시됩니다. 앞의 명령에서는 Key Vault에서 **가져오기** 및 **나열** 작업을 수행할 App Service 사용 권한의 ID를 제공합니다.
+이제 비밀이 `keyvaultSecret.Value;`로 저장됩니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
-더 이상 필요하지 않을 때 리소스 그룹, 가상 머신 및 모든 관련 리소스를 삭제합니다. 이렇게 하려면 키 자격 증명 모음에 대한 리소스 그룹을 선택하고 **삭제**를 선택합니다.
 
-[az keyvault delete](https://docs.microsoft.com/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-delete) 명령을 사용하여 키 자격 증명 모음을 삭제합니다.
+더 이상 필요하지 않은 경우 Azure CLI 또는 Azure PowerShell을 사용하여 키 자격 증명 모음 및 해당 리소스 그룹을 제거할 수 있습니다.
 
 ```azurecli
-az keyvault delete --name
-                   [--resource-group]
-                   [--subscription]
+az group delete -g "myResourceGroup" -l "EastUS" 
+```
+
+```azurepowershell
+Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [Key Vault에 대한 자세한 정보](key-vault-whatis.md)
+이 빠른 시작에서는 키 자격 증명 모음을 만들고, 비밀을 저장하고, 해당 비밀을 검색했습니다. [GitHub의 전체 콘솔 앱](https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/akvdotnet)을 참조하세요.
+
+Key Vault 및 이를 애플리케이션과 통합하는 방법에 대해 자세히 알아보려면 아래 문서로 계속 진행하세요.
+
+- [.NET을 사용하여 Azure Key Vault에 서비스 간 인증](service-to-service-authentication.md) 구현
+- [Azure Key Vault 개요](key-vault-overview.md) 참조
+- [Azure Key Vault 개발자 가이드](key-vault-developers-guide.md) 참조
+- [키, 비밀 및 인증서](about-keys-secrets-and-certificates.md) 알아보기
+- [Azure Key Vault 모범 사례](key-vault-best-practices.md) 검토

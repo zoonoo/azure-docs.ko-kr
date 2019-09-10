@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 07/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 011345cca1ed1c763a628c94401320862182c9cc
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: f0bd4a49a35392c25b8985aa68ad4e4b66be026c
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707363"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306512"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>빠른 시작: Python용 Face 클라이언트 라이브러리
 
@@ -109,6 +109,14 @@ Face Python SDK의 주요 기능 중 일부를 처리하는 클래스와 인터�
 
 자세한 감지 시나리오는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/Face/FaceQuickstart.py)의 샘플 코드를 참조하세요.
 
+### <a name="display-and-frame-faces"></a>표시 및 프레임 면
+
+다음 코드는 DetectedFace.faceRectangle 속성을 사용하여 지정된 이미지를 디스플레이에 출력하고 얼굴 주위에 사각형을 그립니다.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_frame)]
+
+![얼굴 주위에 빨간색 사각형이 그려진 젊은 여자](../images/face-rectangle-result.png)
+
 ## <a name="find-similar-faces"></a>유사 얼굴 찾기
 
 다음 코드에서는 감지된 하나의 얼굴을 가져오고, 다른 얼굴 세트를 검색하여 일치 항목을 찾습니다. 일치 항목을 찾으면 일치하는 얼굴의 사각형 좌표를 콘솔에 출력합니다. 
@@ -161,7 +169,7 @@ Face Python SDK의 주요 기능 중 일부를 처리하는 클래스와 인터�
 
 ## <a name="identify-a-face"></a>얼굴 식별
 
-다음 코드에서는 여러 얼굴이 있는 이미지를 가져오고, 해당 이미지에서 각 사람의 ID를 찾습니다. 감지된 각 얼굴을 각각 여러 얼굴이 연결된 서로 다른 **Person** 개체의 데이터베이스인 **PersonGroup**과 비교합니다. 
+다음 코드에서는 여러 얼굴이 있는 이미지를 가져오고, 해당 이미지에서 각 사람의 ID를 찾습니다. 감지된 각 얼굴을 얼굴 특징이 알려진 서로 다른 **Person** 개체의 데이터베이스인 **PersonGroup**과 비교합니다.
 
 > [!IMPORTANT]
 > 이 예제를 실행하려면 먼저 [사람 그룹 만들기 및 학습](#create-and-train-a-person-group)에서 코드를 실행해야 합니다.
@@ -188,7 +196,7 @@ Face Python SDK의 주요 기능 중 일부를 처리하는 클래스와 인터�
 
 먼저, Face 리소스가 포함된 두 번째 Azure 구독이 있어야 합니다. 이 작업은 [설정](#setting-up) 섹션의 단계에 따라 수행할 수 있습니다. 
 
-그런 다음, 다음 변수를 스크립트의 위쪽 근처에 만듭니다. 또한 Azure 계정의 구독 ID와 새 (대상) 계정의 키 및 구독 ID에 대한 새 환경 변수를 만들어야 합니다. 
+그런 다음, 다음 변수를 스크립트의 위쪽 근처에 만듭니다. 또한 Azure 계정의 구독 ID와 새(대상) 계정의 키, 엔드포인트 및 구독 ID에 대한 새 환경 변수를 만들어야 합니다. 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshotvars)]
 

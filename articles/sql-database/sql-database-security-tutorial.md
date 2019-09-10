@@ -8,14 +8,14 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-ms.date: 07/29/2019
+ms.date: 09/03/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 9850285482db4f5981c183b51152ba1a3ac4975c
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: ba648a2bf563b775c39f11ab8d5c4069c4bf740f
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640135"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231196"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>자습서: 단일 또는 풀링된 데이터베이스 보호
 
@@ -58,7 +58,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-firewall-rules"></a>방화벽 규칙 만들기
 
-SQL 데이터베이스는 Azure에서 방화벽으로 보호됩니다. 기본적으로 다른 Azure 서비스의 연결을 제외하고는 서버와 데이터베이스에 대한 모든 연결이 거부됩니다. 자세한 내용은 [Azure SQL Database 서버 수준 및 데이터베이스 수준 방화벽 규칙](sql-database-firewall-configure.md)을 참조하세요.
+SQL 데이터베이스는 Azure에서 방화벽으로 보호됩니다. 기본적으로 서버 및 데이터베이스에 대한 모든 연결은 거부됩니다. 자세한 내용은 [Azure SQL Database 서버 수준 및 데이터베이스 수준 방화벽 규칙](sql-database-firewall-configure.md)을 참조하세요.
 
 가장 안전한 구성을 위해 **Azure 서비스 방문 허용**을 **끄기**로 설정합니다. 그런 다음, Azure VM 또는 클라우드 서비스와 같이 연결해야 하는 리소스에 대해 [예약된 IP(클래식 배포)](../virtual-network/virtual-networks-reserved-public-ip.md)를 만들고, 해당 IP 주소만 방화벽을 통해 액세스하도록 허용합니다. [Resource Manager](/azure/virtual-network/virtual-network-ip-addresses-overview-arm) 배포 모델을 사용하는 경우 각 리소스에 대한 전용 공용 IP 주소가 필요합니다.
 
@@ -87,9 +87,6 @@ SQL 데이터베이스는 Azure에서 방화벽으로 보호됩니다. 기본적
    1. **확인**을 선택하고, **방화벽 설정** 페이지를 닫습니다.
 
 이제 지정된 IP 주소 또는 IP 주소 범위로 서버의 모든 데이터베이스에 연결할 수 있습니다.
-
-> [!IMPORTANT]
-> SQL Database 방화벽을 통한 액세스는 기본적으로 **Azure 서비스 방문 허용** 아래의 모든 Azure 서비스에서 사용하도록 설정됩니다. **끄기**를 선택하여 모든 Azure 서비스에서 이 액세스를 사용하지 않도록 설정합니다.
 
 ### <a name="setup-database-firewall-rules"></a>데이터베이스 방화벽 규칙 설정
 

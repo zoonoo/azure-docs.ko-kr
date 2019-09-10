@@ -6,15 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 08/28/2019
+ms.date: 09/03/2019
 ms.author: alkohli
+ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 30f9597e6a42b8bdd35a7d69594a2feb16edae30
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: c309a7cb18086526b23c875b41d9d4f4db4bc213
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70126178"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70231369"
 ---
 ::: zone target="docs"
 
@@ -26,9 +27,11 @@ ms.locfileid: "70126178"
 
 ## <a name="copy-data-to-azure-data-box-disk-and-validate"></a>Azure Data Box Disk에 데이터 복사 및 확인
 
-디스크가 연결되고 잠금이 해제된 후에는 원본 데이터 서버에서 디스크로 데이터를 복사할 수 있습니다. 데이터 복사가 완료된 후에는 복사한 데이터의 유효성을 확인해야 합니다. 유효성 검사를 수행하면 데이터가 나중에 Azure에 성공적으로 업로드됩니다.
+디스크가 연결되고 잠금이 해제된 후에는 원본 데이터 서버에서 디스크로 데이터를 복사할 수 있습니다. 데이터 복사가 완료되면 데이터의 유효성을 검사하여 Azure에 성공적으로 업로드되는지 확인해야 합니다.
 
 ::: zone-end
+
+::: zone target="docs"
 
 이 자습서에는 호스트 컴퓨터에서 데이터를 복사한 다음, 데이터 무결성을 확인하는 체크섬을 생성하는 방법을 설명합니다.
 
@@ -333,6 +336,6 @@ Data Box Disk를 반환하고 Azure에 대한 데이터 업로드를 확인하�
 1. 드라이브의 *DataBoxDiskImport* 폴더에서 체크섬 유효성 검사를 위해 `DataBoxDiskValidation.cmd`를 실행합니다.
 2. 옵션 2를 사용하여 파일의 유효성을 검사하고 체크섬을 생성합니다. 데이터 크기에 따라 이 단계는 시간이 걸릴 수 있습니다. 유효성 검사 및 체크섬 생성 중에 오류가 있으면 알림이 표시되고 오류 로그에 대한 링크도 제공됩니다.
 
-    데이터 유효성 검사에 대한 자세한 내용은 [데이터 유효성 검사](data-box-disk-deploy-copy-data.md#validate-data)를 참조하세요. 유효성 검사 중 오류가 표시되면 [유효성 검사 오류 문제 해결](data-box-disk-troubleshoot.md)을 참조하세요.
+    데이터 유효성 검사에 대한 자세한 내용은 [데이터 유효성 검사](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-copy-data#validate-data)를 참조하세요. 유효성 검사 중 오류가 표시되면 [유효성 검사 오류 문제 해결](data-box-disk-troubleshoot.md)을 참조하세요.
 
 ::: zone-end

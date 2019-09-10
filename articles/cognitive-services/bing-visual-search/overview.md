@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: overview
-ms.date: 03/27/2019
+ms.date: 08/30/2019
 ms.author: scottwhi
-ms.openlocfilehash: 15abbfd8892464f3a2c21a85c07bc5b8e94e47ad
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 22a8bb2609439a82a825bf7f542709d46771ad92
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68594696"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195214"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>Bing Visual Search API란?
 
-Bing Visual Search API는 이미지에 대한 인사이트를 반환합니다. 이미지를 업로드하거나 이미지에 대한 URL을 제공할 수 있습니다. 인사이트는 시각적으로 비슷한 이미지, 쇼핑 소스, 이미지가 포함된 웹 페이지 등입니다. Bing Visual Search API가 반환하는 인사이트는 Bing.com/이미지에 표시되는 것과 유사합니다.
+Bing Visual Search API는 이미지에 대한 인사이트를 반환합니다. 이미지를 업로드하거나 이미지에 대한 URL을 제공할 수 있습니다. 인사이트는 시각적으로 비슷한 이미지, 쇼핑 소스, 이미지가 포함된 웹 페이지 등입니다. Bing Visual Search API가 반환하는 인사이트는 Bing.com/이미지에 표시되는 것과 유사합니다. 
 
 [Bing Image Search API](../bing-image-search/overview.md)를 사용하는 경우 이미지를 업로드하는 대신 Bing Visual Search에 대한 API의 검색 결과의 인사이트 토큰을 사용할 수 있습니다.
 
@@ -38,6 +38,7 @@ Bing Visual Search를 사용하여 다음과 같은 인사이트를 검색할 �
 | 관련 검색                     | 다른 사람이 수행했거나 이미지 콘텐츠를 기반으로 하는 관련 검색 목록            |
 | 이미지를 포함하는 웹 페이지     | 입력 이미지를 포함하는 웹 페이지            |
 | 레시피                              | 입력 이미지에 표시된 요리를 만드는 조리법이 포함된 웹 페이지            |
+| 엔터티                             | 잘 알려진 사람, 장소 및 사물. |
 
 이러한 인사이트 외에도 Bing Visual Search는 입력 이미지에서 파생된 다양한 용어(즉, 태그)도 반환합니다. 이러한 태그를 사용하여 이미지에서 찾은 개념을 살펴볼 수 있습니다. 예를 들어 입력 이미지가 유명 운동 선수인 경우 태그 중 하나는 운동 선수의 이름이고, 다른 태그는 스포츠일 수 있습니다. 또는 입력 이미지가 애플 파이인 경우 태그는 애플 파이, 파이, 디저트일 수 있습니다.
 

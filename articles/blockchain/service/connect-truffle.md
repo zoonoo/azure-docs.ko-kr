@@ -5,21 +5,21 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 07/31/2019
+ms.date: 08/29/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 6768c1e26435ace60b26adb46c9955d080029828
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 822402f548fe0fc866051a9c77adef6e37c3fa75
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68705163"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240911"
 ---
-# <a name="quickstart-use-truffle-to-connect-to-an-azure-blockchain-service-network"></a>빠른 시작: Truffle을 사용하여 Azure Blockchain Service 네트워크에 연결
+# <a name="quickstart-use-truffle-to-connect-to-a-transaction-node"></a>빠른 시작: Truffle을 사용하여 트랜잭션 노드에 연결
 
-Truffle은 Azure Blockchain Service 노드에 연결할 때 사용할 수 있는 블록체인 개발 환경입니다.
+Truffle은 Azure Blockchain Service 트랜잭션 노드에 연결하는 데 사용할 수 있는 블록체인 개발 환경입니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

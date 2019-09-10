@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/16/2019
+ms.date: 08/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1adda943676eb4918369d3cb8027f559d5dd0f6e
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 141d3062f231e198b3587efcdf4ae6e9a1c97ed6
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050007"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162673"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex-meetings"></a>자습서: Cisco Webex Meetings와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -78,14 +78,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. [Azure Portal](https://portal.azure.com/)의 **Cisco Webex Meetings** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾은 후 **Single Sign-On**을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML**을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성**에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
-
-   ![기본 SAML 구성 편집](common/edit-urls.png)
-
-1. **기본 SAML 구성** 섹션에서 다음 단계를 수행하여 다운로드한 **서비스 공급자 메타데이터 파일**을 업로드하고  **IDP** 시작 모드에서 애플리케이션을 구성합니다.
-
-    >[!Note]
-    >서비스 공급자 메타데이터 파일이 생성되며, 본 자습서의 **Cisco Webex Meetings SSO 구성** 섹션의 뒷부분에 설명되어 있습니다. 
+1. **SAML을 사용하여 Single Sign-On 설정 페이지**에서 다음과 같이 **서비스 공급자 메타데이터** 파일을 업로드하여  **IDP**  시작 모드에서 애플리케이션을 구성할 수 있습니다.
 
     a. **메타데이터 파일 업로드**를 클릭합니다.
 
@@ -93,9 +86,16 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     다. 서비스 공급자 메타데이터 파일이 성공적으로 업로드되면 **기본 SAML 구성** 섹션에 **식별자** 및 **회신 URL** 값이 자동으로 채워집니다.
 
-5. **SP** 시작 모드로 애플리케이션을 구성하려는 경우 다음 단계를 수행합니다.
+    >[!Note]
+    >이 자습서의 뒷부분에 설명되어 있는 **Cisco Webex Meetings SSO 구성** 섹션에서 서비스 공급자 메타데이터 파일을 가져올 수 있습니다. 
+
+1. **SP** 시작 모드로 애플리케이션을 구성하려는 경우 다음 단계를 수행합니다.  
+
+    a. **기본 SAML 구성 섹션**에서 편집/펜 아이콘을 클릭합니다.
+
+   ![기본 SAML 구성 편집](common/edit-urls.png)
     
-    **로그온 URL** 텍스트 상자에서 `https://<customername>.webex.com` 패턴을 사용하여 URL을 입력합니다.
+    b. **로그온 URL** 텍스트 상자에서 ` https://<customername>.my.webex.com` 패턴을 사용하여 URL을 입력합니다.
 
 5. Cisco Webex Meetings 애플리케이션은 특정 서식에서 SAML 어설션이 필요합니다. 이를 위해서는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.  **편집**  단추를 클릭하여 사용자 특성 대화 상자를 엽니다.
 

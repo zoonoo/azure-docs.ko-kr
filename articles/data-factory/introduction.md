@@ -3,24 +3,23 @@ title: Azure Data Factory 소개 | Microsoft Docs
 description: 데이터의 이동과 변환을 조율하고 자동화하는 클라우드 데이터 통합 서비스인 Azure Data Factory에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 01/11/2018
-ms.author: shlo
-ms.openlocfilehash: 66ea269e2f29bfd39cdb81086391e0277474219d
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 985d38b75ca99e85c8b066427ecea9eb4d3e90f2
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961358"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194456"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory 소개 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-introduction.md)
 > * [현재 버전](introduction.md)
 
@@ -53,7 +52,7 @@ Azure Data Factory의 파이프라인(데이터 기반 워크플로)는 일반�
 
 데이터 팩터리가 없으면 기업은 사용자 지정 데이터 이동 구성 요소를 구축하거나 사용자 지정 서비스를 작성하여 이러한 데이터 원본과 처리를 통합해야 합니다. 이러한 시스템을 통합하고 유지 관리하는 것은 비용이 많이 들고 어렵습니다. 또한 완전히 관리되는 서비스에서 제공할 수 있는 엔터프라이즈급 모니터링, 경고 및 컨트롤이 종종 부족합니다.
 
-Data Factory가 있으면 향후 분석에 사용할 수 있도록 데이터 파이프라인에서 [복사 작업](copy-activity-overview.md)을 사용하여 온-프레미스 및 클라우드 소스 데이터 저장소에서 클라우드의 중앙 데이터 저장소로 데이터를 이동할 수 있습니다. 예를 들어, Azure Data Lake Store에서 데이터를 수집하고 나중에 Azure Data Lake Analytics 컴퓨팅 서비스를 사용하여 데이터를 변환할 수 있습니다. 또한 Azure HDInsight Hadoop 클러스터를 사용하여 Azure Blob Storage에서 데이터를 수집하고 나중에 변환할 수 있습니다.
+Data Factory가 있으면 향후 분석에 사용할 수 있도록 데이터 파이프라인에서 [복사 작업](copy-activity-overview.md)을 사용하여 온-프레미스 및 클라우드 소스 데이터 저장소에서 클라우드의 중앙 데이터 저장소로 데이터를 이동할 수 있습니다. 예를 들어, Azure Data Lake Storage에서 데이터를 수집하고 나중에 Azure Data Lake Analytics 컴퓨팅 서비스를 사용하여 데이터를 변환할 수 있습니다. 또한 Azure HDInsight Hadoop 클러스터를 사용하여 Azure Blob Storage에서 데이터를 수집하고 나중에 변환할 수 있습니다.
 
 ### <a name="transform-and-enrich"></a>변환 및 보강
 데이터가 클라우드에서 중앙 집중화된 데이터 저장소에 표시되면 HDInsight Hadoop, Spark, Data Lake Analytics 및 Machine Learning과 같은 컴퓨팅 서비스를 사용하여 수집된 데이터를 처리하거나 변환합니다. 이제 유지 관리할 수 있고 제어된 일정에 따라 변환된 데이터를 안정적으로 생성하여 프로덕션 환경에 신뢰할 수 있는 데이터를 공급하려고 합니다.
@@ -85,7 +84,7 @@ Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 데�
 
 - 온-프레미스 SQL Server 데이터베이스, Oracle 데이터베이스, 파일 공유 또는 Azure Blob Storage 계정을 포함하지만 여기에 국한되지 않는 **데이터 스토리지**를 나타내기 위해 사용됩니다. 지원되는 데이터 저장소 목록은 [복사 작업](copy-activity-overview.md) 문서를 참조하세요.
 
-- 활동의 실행을 호스팅할 수 있는 **계산 리소스**를 나타내기 위해 사용됩니다. 예를 들어, HDInsightHive 활동은 HDInsight Hadoop 클러스터에서 실행됩니다. 변환 작업 및 지원되는 컴퓨팅 환경 목록은 [데이터 변환](transform-data.md) 문서를 참조하세요.
+- 활동의 실행을 호스팅할 수 있는 **컴퓨팅 리소스**를 나타내기 위해 사용됩니다. 예를 들어, HDInsightHive 활동은 HDInsight Hadoop 클러스터에서 실행됩니다. 변환 작업 및 지원되는 컴퓨팅 환경 목록은 [데이터 변환](transform-data.md) 문서를 참조하세요.
 
 ### <a name="triggers"></a>트리거
 트리거는 파이프라인 실행을 시작해야 하는 시기를 결정하는 처리 단위를 나타냅니다. 다양한 유형의 이벤트에 대한 다른 종류의 트리거가 있습니다.

@@ -1,19 +1,18 @@
 ---
 title: 고급 쿼리 샘플
-description: Azure Resource Graph를 사용하여 VMSS 용량, 사용된 모든 태그 나열 및 정규식과 일치하는 가상 머신을 비롯한 일부 고급 쿼리를 실행합니다.
+description: Azure Resource Graph를 사용하여 가상 머신 확장 집합 용량, 사용된 모든 태그 나열 및 정규식과 일치하는 가상 머신을 비롯한 일부 고급 쿼리를 실행합니다.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 08/29/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 7684ae6b4ddb6320efc62ef6f9963bef1b9a66fa
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 33c67f77a26e2a4fc97d7f5483aad53c121e117b
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692005"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70239007"
 ---
 # <a name="advanced-resource-graph-queries"></a>고급 Resource Graph 쿼리
 
@@ -25,10 +24,9 @@ Azure Resource Graph를 사용하는 쿼리를 이해하는 첫 번째 단계는
 > - [가상 머신 확장 집합 용량 및 크기 가져오기](#vmss-capacity)
 > - [모든 태그 이름 나열](#list-all-tags)
 > - [정규식과 일치하는 가상 머신](#vm-regex)
+> - [DisplayNames를 사용한 테넌트 및 구독 이름 포함](#displaynames)
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="language-support"></a>언어 지원
 
@@ -72,8 +70,8 @@ Search-AzGraph -Query "project tags | summarize buildschema(tags)"
 
 ## <a name="vm-regex"></a>정규식과 일치하는 가상 머신
 
-이 쿼리는 [정규식](/dotnet/standard/base-types/regular-expression-language-quick-reference)(_regex_로 알려짐)과 일치하는 가상 머신을 찾습니다.
-**matches regex \@** 는 일치시킬 정규식을 정의할 수 있으며, `^Contoso(.*)[0-9]+$`입니다. 해당 regex 정의는 다음으로 설명되어 있습니다.
+이 쿼리는 [정규식](/dotnet/standard/base-types/regular-expression-language-quick-reference)(_regex_로 알려짐)과 일치하는 가상 머신을 찾습니다. **matches regex \@** 는 일치시킬 정규식을 정의할 수 있으며, `^Contoso(.*)[0-9]+$`입니다.
+해당 regex 정의는 다음으로 설명되어 있습니다.
 
 - `^` - 일치는 문자열의 시작 부분에서 시작해야 합니다.
 - `Contoso` - 대/소문자 구분 문자열입니다.
@@ -99,6 +97,22 @@ az graph query -q "where type =~ 'microsoft.compute/virtualmachines' and name ma
 ```azurepowershell-interactive
 Search-AzGraph -Query "where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
 ```
+
+## <a name="displaynames"></a>DisplayNames를 사용한 테넌트 및 구독 이름 포함
+
+이 쿼리는 _DisplayNames_ 옵션과 함께 새로운 **Include** 매개 변수를 사용하여 **subscriptionDisplayName** 및 **tenantDisplayName**을 결과에 추가합니다. 이 매개 변수는 Azure CLI 및 Azure PowerShell에 대해서만 사용할 수 있습니다.
+
+```azurecli-interactive
+az graph query -q "limit 1" --include displayNames
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "limit 1" -Include DisplayNames
+```
+
+> [!NOTE]
+> 쿼리에서 **project**를 사용하여 반환된 속성을 지정하지 않으면 **subscriptionDisplayName** 및 **tenantDisplayName**이 결과에 자동으로 포함됩니다.
+> 쿼리에서 **project**를 사용하는 경우 각 _DisplayName_ 필드를 **project**에 명시적으로 포함해야 합니다. 그렇지 않으면 **Include** 매개 변수가 사용되는 경우에도 이러한 매개 변수는 결과에 반환되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

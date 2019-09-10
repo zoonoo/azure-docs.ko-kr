@@ -7,12 +7,12 @@ ms.date: 03/05/2019
 ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: b0d5d96ff897ac1710206eb49bca785e8809cb7d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 137764cba91ab94adef4719a0d34b6fb9e6efe29
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798308"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232619"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>자습서: 청사진 샘플을 사용하여 환경 만들기
 
@@ -104,11 +104,11 @@ ms.locfileid: "65798308"
 
      |아티팩트 이름|아티팩트 형식|매개 변수 이름|값|설명|
      |-|-|-|-|-|
-     |ProdRG 리소스 그룹|리소스 그룹|Name|ProductionRG|첫 번째 리소스 그룹의 이름을 정의합니다.|
-     |ProdRG 리소스 그룹|리소스 그룹|위치|미국 서부 2|첫 번째 리소스 그룹의 위치를 설정합니다.|
+     |ProdRG 리소스 그룹|Resource group|Name|ProductionRG|첫 번째 리소스 그룹의 이름을 정의합니다.|
+     |ProdRG 리소스 그룹|Resource group|위치|미국 서부 2|첫 번째 리소스 그룹의 위치를 설정합니다.|
      |참가자|역할 할당|사용자 또는 그룹|{Your ID}|첫 번째 리소스 그룹 내에서 _참가자_ 역할 할당을 부여할 사용자 또는 그룹을 정의합니다.|
-     |PreProdRG 리소스 그룹|리소스 그룹|Name|PreProductionRG|두 번째 리소스 그룹의 이름을 정의합니다.|
-     |PreProdRG 리소스 그룹|리소스 그룹|위치|미국 서부|두 번째 리소스 그룹의 위치를 설정합니다.|
+     |PreProdRG 리소스 그룹|Resource group|Name|PreProductionRG|두 번째 리소스 그룹의 이름을 정의합니다.|
+     |PreProdRG 리소스 그룹|Resource group|위치|미국 서부|두 번째 리소스 그룹의 위치를 설정합니다.|
      |소유자|역할 할당|사용자 또는 그룹|{Your ID}|두 번째 리소스 그룹 내에서 _소유자_ 역할 할당을 부여할 사용자 또는 그룹을 정의합니다.|
      |읽기 권한자|역할 할당|사용자 또는 그룹|{Your ID}|두 번째 리소스 그룹 내에서 _읽기 권한자_ 역할 할당을 부여할 사용자 또는 그룹을 정의합니다.|
 

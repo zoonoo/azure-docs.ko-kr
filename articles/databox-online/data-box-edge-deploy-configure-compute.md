@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/19/2019
+ms.date: 09/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 7b3d725eb05c811d3fdd44516c1bde9a8dfbaaac
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: b641ae62ba6e0cdacaeb46b1ffee2f02c7544763
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924328"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277250"
 ---
 # <a name="tutorial-transform-data-with-azure-data-box-edge"></a>자습서: Azure Data Box Edge를 사용하여 데이터 변환
 
@@ -61,6 +61,9 @@ Data Box Edge에 컴퓨팅을 구성하려면 IoT Hub 리소스를 만들어야 
     
     ![컴퓨팅 시작](./media/data-box-edge-deploy-configure-compute/configure-compute-3.png)
 
+    > [!NOTE]
+    > IoT Hub가 Data Box Edge 디바이스와 연결되기 전에 **컴퓨팅 구성** 대화 상자가 닫히면 IoT Hub가 생성되지만 컴퓨팅 구성에는 표시되지 않습니다. 
+    
     Edge 컴퓨팅 역할이 Edge 디바이스에 설정되면 두 가지 디바이스, 즉 IoT 디바이스와 IoT Edge 디바이스가 만들어집니다. 이 두 디바이스는 모두 IoT Hub 리소스에서 볼 수 있습니다. IoT Edge 런타임 역시 이 IoT Edge 디바이스에서 실행됩니다. 이 시점에서 IoT Edge 디바이스에는 Linux 플랫폼만 사용할 수 있습니다.
 
 
@@ -145,7 +148,7 @@ Data Box Edge에 컴퓨팅을 구성하려면 IoT Hub 리소스를 만들어야 
 
     ![데이터 변환 확인](./media/data-box-edge-deploy-configure-compute/verify-data-4.png)  
 
-    그런 다음, 데이터가 클라우드 공유에서 스토리지 계정으로 푸시됩니다. 데이터를 보려면 Storage 탐색기로 이동합니다.
+    그런 다음, 데이터가 클라우드 공유에서 스토리지 계정으로 푸시됩니다. 데이터를 보려면 Storage Explorer로 이동합니다.
 
     ![데이터 변환 확인](./media/data-box-edge-deploy-configure-compute/verify-data-5.png) 
  

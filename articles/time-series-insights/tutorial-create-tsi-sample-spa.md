@@ -4,16 +4,16 @@ description: Azure Time Series Insights 환경에서 데이터를 쿼리하고 �
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 06/29/2019
+ms.date: 08/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 4d9af918c222107cfca5863309efb391b8e6d2e0
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 031e8074585426584d7ef63a103c9c2b4d90e6c3
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720875"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194240"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>자습서: Azure Time Series Insights 단일 페이지 웹앱 만들기
 
@@ -127,6 +127,10 @@ Time Series Insights 샘플 SPA는 이 자습서에서 사용되는 디자인 �
 
       [![Visual Studio - 프로필 게시 창](media/tutorial-create-tsi-sample-spa/vs-publish-profile-target.png)](media/tutorial-create-tsi-sample-spa/vs-publish-profile-target.png#lightbox)
 
+   1. 새 Azure App Service 인스턴스를 게시하거나 기존 인스턴스를 사용하도록 선택합니다.
+
+      [![Azure App Service 인스턴스 선택](media/tutorial-create-tsi-sample-spa/vs-publish-select-target.png)](media/tutorial-create-tsi-sample-spa/vs-publish-select-target.png#lightbox)
+
    1. 애플리케이션을 게시하는 데 사용하려는 구독을 선택합니다. **TsiSpaApp** 프로젝트를 선택합니다. 그런 다음 **확인**을 선택합니다.
 
       [![Visual Studio - 프로필 게시 App Service 창](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service.png)](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service.png#lightbox)
@@ -137,12 +141,16 @@ Time Series Insights 샘플 SPA는 이 자습서에서 사용되는 디자인 �
 
    1. Visual Studio **출력** 창에 성공 게시 로그가 표시됩니다. 배포가 완료되면 Visual Studio의 브라우저 탭에서 해당 웹 애플리케이션이 열리고 로그인하라는 메시지가 표시됩니다. 성공적인 로그인 후 Time Series Insights 컨트롤이 데이터로 채워집니다.
 
+   1. 웹앱으로 이동하고 로그인하여 렌더링된 Time Series Insights 시각적 데이터를 확인합니다.
+
+      [![호스팅된 웹앱 검토](media/tutorial-create-tsi-sample-spa/vs-publish-hosted-app.png)](media/tutorial-create-tsi-sample-spa/vs-publish-hosted-app.png#lightbox)
+
 ## <a name="troubleshoot"></a>문제 해결  
 
 오류 코드/조건 | 설명
 ---------------------| -----------
-*AADSTS50011: 애플리케이션에 대해 등록된 회신 주소가 없습니다.* | Azure AD 등록에 **회신 URL** 속성이 없습니다. Azure AD 애플리케이션 등록의 **설정** > **회신 URL**로 이동합니다. [Azure AD를 사용하도록 애플리케이션을 등록](#register-with-azure-ad)했을 때 **2단계** 또는 **4단계**에서 지정하는 옵션인 **리디렉션 URI**가 있는지 확인합니다.
-*AADSTS50011: 요청에 지정된 회신 URL이 애플리케이션에 대해 구성된 회신 URL과 일치하지 않습니다. '\<애플리케이션 ID GUID>'.* | [웹 애플리케이션 빌드 및 게시](#build-and-publish)의 **6.b단계**에서 지정한 `postLogoutRedirectUri`는 Azure AD 애플리케이션 등록의 **설정** > **회신 URL**에서 지정한 값과 일치해야 합니다. |
+*AADSTS50011: 애플리케이션에 대해 등록된 회신 주소가 없습니다.* | Azure AD 등록에 **리디렉션 URI** 속성이 없습니다. Azure AD 애플리케이션 등록을 위해 **인증** > **리디렉션 URI**로 이동합니다. [Azure AD를 사용하도록 애플리케이션을 등록](#register-with-azure-ad)했을 때 **2단계** 또는 **4단계**에서 지정하는 옵션인 **리디렉션 URI**가 있는지 확인합니다.
+*AADSTS50011: 요청에 지정된 회신 URL이 애플리케이션에 대해 구성된 회신 URL과 일치하지 않습니다. '\<애플리케이션 ID GUID>'.* | [웹 애플리케이션 빌드 및 게시](#build-and-publish)의 **6.b단계**에서 지정한 `postLogoutRedirectUri`는 Azure AD 애플리케이션 등록의 **인증** > **리디렉션 URI**에서 지정한 값과 일치해야 합니다. |
 웹 애플리케이션이 로드되지만, 흰색 배경에 스타일 없이 텍스트로만 구성된 로그인 페이지가 표시됩니다. | [웹 애플리케이션 빌드 및 게시](#build-and-publish)의 **6단계**에서 설명한 경로가 올바른지 확인합니다. 웹 애플리케이션이 .css 파일을 찾을 수 없는 경우 페이지 스타일이 올바르게 지정되지 않습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af98633e1dfdbe6392199ade282a918c6134a033
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: c0b1471abd7e057af919ed274547daf94d356c2b
+ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347410"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70213597"
 ---
 # <a name="tutorial-integrate-the-cloud-security-fabric-with-azure-active-directory"></a>자습서: The Cloud Security Fabric과 Azure Active Directory 통합
 
@@ -104,7 +104,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![인증서 다운로드 링크](common/metadataxml.png)
 
-5. 요구 사항에 따라 **서명** 옵션을 수정하려면  **편집** 단추를 클릭하여  **SAML 서명 인증서** 대화 상자를 엽니다.
+5. 요구 사항에 따라 **서명** 옵션을 수정하려면 **편집** 단추를 클릭하여 **SAML 서명 인증서** 대화 상자를 엽니다.
 
     ![Saml 응답](./media/ciscocloudlock-tutorial/saml.png)
 
@@ -153,7 +153,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ### <a name="create-the-cloud-security-fabric-test-user"></a>The Cloud Security Fabric 테스트 사용자 만들기
 
-이 섹션에서는 The Cloud Security Fabric에서 B.Simon이라는 사용자를 만듭니다.  [The Cloud Security Fabric 지원 팀](mailto:support@cloudlock.com)과 협력하여 The Cloud Security Fabric 플랫폼에서 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 The Cloud Security Fabric에서 B.Simon이라는 사용자를 만듭니다. [The Cloud Security Fabric 지원 팀](mailto:support@cloudlock.com)과 협력하여 The Cloud Security Fabric 플랫폼에서 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="test-sso"></a>SSO 테스트 
 

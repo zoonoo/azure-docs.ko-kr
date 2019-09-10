@@ -12,12 +12,12 @@ ms.date: 08/28/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e13ab3378857bd0254d7cb2fb98249ccc24b1cb7
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: fe6da9b1557293ee9002681c6ce90c1c6c62a25b
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125618"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231264"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>자습서: Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가
 
@@ -69,7 +69,7 @@ TLS 1.2를 사용하도록 설정하려면:
 1. 서버를 다시 시작합니다.
 
 > [!IMPORTANT]
-> 고객에게 동급 최고의 암호화를 제공하기 위해 액세스 권한을 TLS 1.2 프로토콜로 제한하도록 애플리케이션 프록시 서비스를 업데이트할 것입니다. 고객의 준비 상태에 따라 TLS 1.2 프로토콜만 사용하는 고객에게 점진적으로 변경 내용을 적용할 예정이며 이 변경 내용으로 인한 영향은 없을 것입니다. 2019년 8월 31부터 TLS 1.0 및 1.1이 완전히 사용 중단되며 고객은 이 변화에 대비하라는 사전 알림을 받게 됩니다. 이 변화에 대비하려면 TLS 1.2를 사용하여 애플리케이션 프록시 서비스에 대한 연결을 유지하도록 모든 클라이언트-서버 및 브라우저-서버 조합을 업데이트해야 합니다. 여기에는 사용자가 애플리케이션 프록시를 통해 게시된 애플리케이션에 액세스할 때 사용하는 클라이언트도 포함됩니다. [Office 365의 TLS 1.2](https://support.microsoft.com/help/4057306/preparing-for-tls-1-2-in-office-365)에서 유용한 참고 자료 및 리소스를 확인하세요.
+> 고객에게 동급 최고의 암호화를 제공하기 위해 애플리케이션 프록시 서비스는 TLS 1.2 프로토콜에 대한 액세스만 제한합니다. 이러한 변경 내용은 2019년 8월 31일 이후에 점진적으로 롤아웃되고 유효합니다. TLS 1.2를 사용하여 애플리케이션 프록시 서비스에 대한 연결을 유지하도록 모든 클라이언트-서버 및 브라우저-서버 조합을 업데이트해야 합니다. 여기에는 사용자가 애플리케이션 프록시를 통해 게시된 애플리케이션에 액세스할 때 사용하는 클라이언트도 포함됩니다. [Office 365의 TLS 1.2](https://support.microsoft.com/help/4057306/preparing-for-tls-1-2-in-office-365)에서 유용한 참고 자료 및 리소스를 확인하세요.
 
 ## <a name="prepare-your-on-premises-environment"></a>온-프레미스 환경 준비
 
@@ -94,7 +94,7 @@ TLS 1.2를 사용하도록 설정하려면:
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | 커넥터와 애플리케이션 프록시 클라우드 서비스 간의 통신 |
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure에서는 다음과 같은 URL을 사용하여 인증서를 확인합니다. |
-| login.windows.net<br>login.microsoftonline.com<br>secure.aadcdn.microsoftonline-p.com  | 커넥터는 등록 프로세스 동안 다음과 같은 URL을 사용합니다. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>\*.microsoftonline.com<br>\*.microsoftonline-p.com<br>\*.msauth.net<br>\*.msauthimages.net<br>\*.msecnd.net<br>\*.msftauth.net<br>\*.msftauthimages.net<br>\*.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net | 커넥터는 등록 프로세스 동안 다음과 같은 URL을 사용합니다. |
 
 방화벽이나 프록시에서 DNS 허용 목록을 허용하면 \*.msappproxy.net 및 \*.servicebus.windows.net에 대한 연결을 허용할 수 있습니다. 그렇지 않은 경우 [Azure IP 범위 및 서비스 태그 - 공용 클라우드](https://www.microsoft.com/download/details.aspx?id=56519)에 대한 액세스를 허용해야 합니다. IP 범위는 매주 업데이트됩니다.
 
@@ -115,7 +115,7 @@ TLS 1.2를 사용하도록 설정하려면:
 1. 서비스 약관을 참고하세요. 준비되면 **사용 약관 동의 및 다운로드**를 선택합니다.
 1. 창의 맨 아래에서 **실행**을 선택하여 커넥터를 설치합니다. 설치 마법사가 열립니다.
 1. 마법사의 지침에 따라 서비스를 설치합니다. Azure AD 테넌트에 대한 애플리케이션 프록시에서 커넥터를 등록하라는 메시지가 나타나면 애플리케이션 관리자 자격 증명을 제공합니다.
-    - IE(Internet Explorer)에서 **IE 보안 강화 구성**이 **켜기**로 설정되어 있으면 등록 화면이 표지되지 않을 수 있습니다. 액세스하려면 오류 메시지의 지침에 따릅니다. **Internet Explorer 보안 강화 구성**이 **꺼짐**으로 설정되어 있는지 확인하세요.
+    - IE(Internet Explorer)에서 **IE 보안 강화 구성**이 **켜기**로 설정되어 있으면 등록 화면이 표시되지 않을 수 있습니다. 액세스하려면 오류 메시지의 지침에 따릅니다. **Internet Explorer 보안 강화 구성**이 **꺼짐**으로 설정되어 있는지 확인하세요.
 
 ### <a name="general-remarks"></a>일반적인 설명
 

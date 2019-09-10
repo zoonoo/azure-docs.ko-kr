@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/07/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: 99750971e11171c0b315cac38089c216d42c7ba6
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 8c21878fc23f3880f6c6e66b1e304c7dd2e9177c
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663657"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306956"
 ---
 # <a name="what-is-personalizer"></a>Personalizer란?
 
@@ -65,4 +65,8 @@ Personalizer 서비스는 다음과 같은 두 가지 API를 제공합니다.
 ## <a name="next-steps"></a>다음 단계
 
 * [빠른 시작: C#으로 피드백 루프 만들기](csharp-quickstart-commandline-feedback-loop.md)
+* [빠른 시작: Node.js에서 피드백 루프 만들기](quickstart-command-line-feedback-loop-nodejs-sdk.md)
+* [빠른 시작: Python에서 피드백 루프 만들기](python-quickstart-commandline-feedback-loop.md)
+* [Rank 요청에 대한 기능 및 작업에 대해 알아보기](concepts-features.md)
+* [Reward 요청 점수를 확인하는 방법 알아보기](concept-rewards.md)
 * [대화형 데모 사용](https://personalizationdemo.azurewebsites.net/)

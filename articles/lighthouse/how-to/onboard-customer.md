@@ -4,15 +4,15 @@ description: 고객을 Azure 위임 리소스 관리에 등록하여 고유한 �
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 08/22/2019
+ms.date: 08/29/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 35cf61897d012690f0a0f752a7cb36270e11e10e
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: dabee74dc757a8ccdc4384662f5c9bc09a1e5fbe
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012069"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70165039"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Azure 위임 리소스 관리에 고객 등록
 
@@ -61,63 +61,8 @@ az account set --subscription <subscriptionId/name>
 az account show
 ```
 
-
-## <a name="ensure-the-customers-subscription-is-registered-for-onboarding"></a>고객의 구독이 온보딩을 위해 등록되었는지 확인
-
-**Microsoft.ManagedServices** 리소스 공급자를 수동으로 등록하여 각 구독에 온보딩 권한을 부여해야 합니다. 고객은 [Azure 리소스 공급자 및 형식](../../azure-resource-manager/resource-manager-supported-services.md)에 설명된 단계에 따라 구독을 등록할 수 있습니다.
-
-고객은 다음 중 한 가지 방법으로 구독이 온보딩할 준비가 되었는지 확인할 수 있습니다.
-
-### <a name="azure-portal"></a>Azure portal
-
-1. Azure Portal에서 구독을 선택합니다.
-1. **리소스 공급자**를 선택합니다.
-1. **Microsoft.ManagedServices**가 **등록됨**으로 표시되는지 확인합니다.
-
-### <a name="powershell"></a>PowerShell
-
-```azurepowershell-interactive
-# Log in first with Connect-AzAccount if you're not using Cloud Shell
-
-Set-AzContext -Subscription <subscriptionId>
-Get-AzResourceProvider -ProviderNameSpace 'Microsoft.ManagedServices'
-```
-
-그러면 다음과 같은 결과가 반환됩니다.
-
-```output
-ProviderNamespace : Microsoft.ManagedServices
-RegistrationState : Registered
-ResourceTypes     : {registrationDefinitions}
-Locations         : {}
-
-ProviderNamespace : Microsoft.ManagedServices
-RegistrationState : Registered
-ResourceTypes     : {registrationAssignments}
-Locations         : {}
-
-ProviderNamespace : Microsoft.ManagedServices
-RegistrationState : Registered
-ResourceTypes     : {operations}
-Locations         : {}
-```
-
-### <a name="azure-cli"></a>Azure CLI
-
-```azurecli-interactive
-# Log in first with az login if you're not using Cloud Shell
-
-az account set –subscription <subscriptionId>
-az provider show --namespace "Microsoft.ManagedServices" --output table
-```
-
-그러면 다음과 같은 결과가 반환됩니다.
-
-```output
-Namespace                  RegistrationState
--------------------------  -------------------
-Microsoft.ManagedServices  Registered
-```
+> [!NOTE]
+> 여기에 설명된 프로세스를 사용하여 구독 또는 구독 내의 하나 이상의 리소스 그룹을 온보딩하면 **Microsoft.ManagedServices** 리소스 공급자가 해당 구독에 등록됩니다.
 
 ## <a name="define-roles-and-permissions"></a>역할 및 권한 정의
 
@@ -129,8 +74,6 @@ Microsoft.ManagedServices  Registered
 > 역할 할당은 RBAC(역할 기반 액세스 제어) [기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)을 사용해야 합니다. 현재, 소유자 및 [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) 권한이 있는 기본 제공 역할을 제외한 모든 기본 제공 역할이 Azure 위임 리소스 관리에서 지원됩니다. 사용자 액세스 관리자 기본 제공 역할은 아래에 설명된 대로 제한적으로만 사용하도록 지원됩니다. 사용자 지정 역할 및 [클래식 구독 관리자 역할](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators)도 지원되지 않습니다.
 
 권한 부여를 정의하려면 액세스 권한을 부여하려는 각 사용자, 사용자 그룹 또는 서비스 주체의 ID 값을 알고 있어야 합니다. 또한 할당하려는 각 기본 제공 역할에 대한 역할 정의 ID도 필요합니다. 이 ID를 아직 모르는 경우 다음 방법 중 하나를 통해 검색할 수 있습니다.
-
-
 
 ### <a name="powershell"></a>PowerShell
 

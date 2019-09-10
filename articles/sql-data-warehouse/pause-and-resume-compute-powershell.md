@@ -10,14 +10,14 @@ ms.subservice: manage
 ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 220d2aefd714cd3546fa4d5c2ac8852d2786b8ac
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: da9c3d42919bba6ce04fc54bafc2fb5d245379f5
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575412"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306100"
 ---
-# <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure SQL Data Warehouse에서 컴퓨팅 일시 중지 및 다시 시작
+# <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure SQL Data Warehouse에서 컴퓨팅 일시 중지 및 다시 시작
 
 비용 절감을 위해 PowerShell을 사용하여 Azure SQL Data Warehouse에서 컴퓨팅을 일시 중지합니다. 데이터 웨어하우스를 사용할 준비가 되면 [컴퓨팅을 다시 시작](sql-data-warehouse-manage-compute-overview.md)합니다.
 

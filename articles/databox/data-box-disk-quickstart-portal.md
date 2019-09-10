@@ -6,15 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
-ms.date: 08/28/2019
+ms.date: 09/03/2019
 ms.author: alkohli
+ms.localizationpriority: high
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: cbc55433517174c8080b941ca8526e5a4fd3427d
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: b07adc955b7904c6e6a3278480cec5a2be91ec35
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70126009"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70232901"
 ---
 ::: zone target="docs"
 
@@ -40,7 +41,7 @@ Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com
 
 ::: zone target="chromeless"
 
-이 가이드에서는 Azure Portal에서 Azure Data Box Disk를 배포하는 방법을 설명합니다. 이 단계에서는 필수 구성 요소를 검토하고, 디스크 잠금을 해제하고, Azure에 업로드하도록 데이터를 디스크에 연결하고 복사합니다.
+이 가이드에서는 Azure Portal에서 Azure Data Box Disk를 사용하는 단계를 안내합니다. 이 가이드는 다음과 같은 질문에 대답하는 데 도움이 됩니다.
 
 ::: zone-end
 
@@ -60,17 +61,16 @@ Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com
 
 ::: zone target="chromeless"
 
-### <a name="prerequisites"></a>필수 조건
-
-- Data Box Disk에 대한 주문을 배치합니다. [자습서: Azure Data Box Disk 주문](data-box-disk-deploy-ordered.md)을 참조하세요.
-- 디스크를 받고 포털에서 작업 상태가 **배달됨**으로 업데이트되었습니다.
-- 받은 디스크 수를 확인하고 디스크당 연결 케이블이 있는지 확인합니다.
-- 데이터를 복사할 수 있는 클라이언트 컴퓨터가 있습니다. 클라이언트 컴퓨터는 다음 작업을 수행해야 합니다.
-
-    - [지원되는 운영 체제](data-box-disk-system-requirements.md#supported-operating-systems-for-clients)를 실행합니다.
-    - Windows 클라이언트인 경우 [다른 필수 소프트웨어](data-box-disk-system-requirements.md#other-required-software-for-windows-clients)를 설치합니다.
+> [!div class="checklist"]
+>
+> - **필수 구성 요소 검토**: 디스크 및 케이블, 운영 체제 및 기타 소프트웨어의 수를 확인합니다.
+> - **연결 및 잠금 해제**: 디바이스를 연결하고 디스크를 잠금 해제하여 데이터를 복사합니다.
+> - **디스크에 데이터 복사 및 유효성 검사**: 디스크에 데이터를 미리 생성된 폴더로 복사합니다.
+> - **디스크 반환**: 데이터가 스토리지 계정에 업로드되는 Azure 데이터 센터에 디스크를 반환합니다.
+> - **Azure에서 데이터 확인**: 원본 데이터 서버에서 데이터를 삭제하기 전에 스토리지 계정에 데이터가 업로드되었는지 확인합니다.
 
 ::: zone-end
+
 
 ::: zone target="docs"
 

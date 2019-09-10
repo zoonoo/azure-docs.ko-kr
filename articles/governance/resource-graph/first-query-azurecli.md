@@ -7,12 +7,12 @@ ms.date: 07/26/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: afe32c197b5eab24ba298395bb2c9e83f847d6c5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6fffd9e0bbaea47bfeac56a7972a38df0cbef351
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562583"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164705"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -35,7 +35,7 @@ Azure CLI를 사용하도록 설정하여 Azure Resource Graph를 쿼리하려�
    az extension add --name resource-graph
    ```
 
-1. 확장이 설치되었고 필요한 버전인지(최소 **0.1.11**) 유효성을 검사합니다.
+1. 확장이 설치되었고 필요한 버전인지(최소 **1.0.0**) 유효성을 검사합니다.
 
    ```azurecli-interactive
    # Check the extension list (note that you may have other extensions installed)

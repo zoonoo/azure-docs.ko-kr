@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 7fa2a5088e2eae039d43ecf0db080190f74cd772
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 7f913eebb2dd3926165a36c37dcb356aa05f2de4
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125212"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172044"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>자습서: Azure Active Directory Domain Services 인스턴스 만들기 및 구성
 
@@ -202,7 +202,7 @@ Azure AD DS가 성공적으로 배포되면 이제 연결된 다른 VM과 애플
 1. **암호 변경** 페이지에서 기존(이전) 암호를 입력한 다음, 새 암호를 입력하고 확인합니다.
 1. **제출**을 선택합니다.
 
-암호를 변경한 후 Azure AD DS에서 새 암호를 사용할 수 있을 때까지 몇 분 정도 걸립니다. 약 20분 후에 새 암호를 사용하여 관리되는 도메인에 조인된 컴퓨터에 로그인할 수 있습니다.
+암호를 변경한 후 Azure AD DS에서 새 암호를 사용할 수 있고 관리되는 도메인에 조인한 컴퓨터에 성공적으로 로그인될 때까지 몇 분 정도 걸립니다.
 
 ## <a name="next-steps"></a>다음 단계
 

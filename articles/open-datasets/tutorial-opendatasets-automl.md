@@ -9,12 +9,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 05/02/2019
-ms.openlocfilehash: 6f72daa4a601df0e3592910645c2f9b35ab64431
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0218221426351b0b508021fc74693557f200b4e8
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845823"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309253"
 ---
 # <a name="tutorial-build-a-regression-model-with-automated-machine-learning-and-open-datasets"></a>자습서: 자동화된 기계 학습 및 Azure Open Datasets를 사용하여 회귀 모델 만들기
 
@@ -1246,7 +1246,7 @@ weather_df.head(10)
 
 기상 데이터의 `datetime` 필드에 대해 `taxi_holidays_df`의 시간 키와 일치하도록 `pandas.Series.dt.normalize`를 다시 호출합니다. 불필요한 열을 삭제하고 온도가 `NaN`인 레코드를 필터링하여 제거합니다.
 
-그런 다음, 매일 기상 값이 집계되도록 기상 데이터를 그룹화합니다. 사전 `aggregations`를 정의하여 각 필드를 일일 수준으로 집계하는 방법을 정의합니다. `snowDepth` 및 `temperature`는 평균을 가져오며 `precipTime` 및 `precipDepth`는 일일 최댓값을 가져옵니다. `groupby()` 함수를 집계와 함께 사용하여 데이터를 그룹화합니다. 데이터를 미리 보고 일당 1개의 레코드가 있는지 확인합니다.
+그런 다음, 매일 기상 값이 집계되도록 기상 데이터를 그룹화합니다. 각 필드를 일일 수준으로 집계하는 방법을 정의하려면 `aggregations`라는 사전을 정의합니다. `snowDepth` 및 `temperature`는 평균을 가져오며 `precipTime` 및 `precipDepth`는 일일 최댓값을 가져옵니다. `groupby()` 함수를 집계와 함께 사용하여 데이터를 그룹화합니다. 데이터를 미리 보고 일당 1개의 레코드가 있는지 확인합니다.
 
 ```python
 weather_df["datetime"] = weather_df["datetime"].dt.normalize()

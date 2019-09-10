@@ -1,31 +1,31 @@
 ---
-title: Azure Portal을 사용하여 Azure Blockchain Service 만들기
-description: Azure Blockchain Service를 사용하여 컨소시엄 멤버를 만듭니다.
+title: Azure Portal을 사용하여 Azure Blockchain Service 블록체인 멤버 만들기
+description: Azure Blockchain 서비스를 사용하여 블록체인 멤버를 만듭니다.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/29/2019
+ms.date: 08/29/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 5cb236dc38ae41b202004b7e4806d8129378cfdb
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 9f58379acd88fd93a00edc11b73b41dc3d6226a5
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417502"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241034"
 ---
-# <a name="quickstart-create-an-azure-blockchain-service-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Blockchain Service 만들기
+# <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Blockchain Service 블록체인 멤버 만들기
 
-Azure Blockchain Service는 스마트 계약 내에서 비즈니스 논리를 실행할 수 있는 블록체인 플랫폼입니다. 이 빠른 시작에서는 Azure Portal을 통해 관리 원장을 만들어서 시작하는 방법을 보여줍니다.
+Azure Blockchain Service는 스마트 계약 내에서 비즈니스 논리를 실행할 수 있는 블록체인 플랫폼입니다. 이 빠른 시작에서는 Azure Portal을 사용하여 블록체인 멤버를 만들어서 시작하는 방법을 보여줍니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-managed-ledger"></a>관리 원장 만들기
+## <a name="create-a-blockchain-member"></a>블록체인 멤버 만들기
 
-Azure Blockchain Service는 정의된 컴퓨팅 및 스토리지 리소스 세트를 사용하여 만들어집니다.
+신규 또는 기존 컨소시엄에서 Quorum 원장 프로토콜을 실행하는 블록체인 멤버를 만듭니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 선택합니다.
@@ -36,9 +36,9 @@ Azure Blockchain Service는 정의된 컴퓨팅 및 스토리지 리소스 세�
 
     설정 | 설명
     --------|------------
-    블록체인 멤버 | Azure Blockchain Service 멤버를 식별하는 고유한 이름을 선택합니다. 블록체인 멤버 이름에는 소문자와 숫자만 사용할 수 있습니다. 첫 번째 자리는 반드시 문자여야 합니다. 이름의 길이는 2-20자 사이여야 합니다.
-    구독 | 서비스에 사용할 Azure 구독을 선택합니다. 구독이 여러 개인 경우, 리소스에 대해 요금이 청구되는 구독을 선택합니다.
-    리소스 그룹 | 새 리소스 그룹 이름 또는 구독의 기존 이름입니다.
+    블록체인 멤버 | Azure Blockchain Service 블록체인 멤버를 식별하는 고유한 이름을 선택합니다. 블록체인 멤버 이름에는 소문자와 숫자만 사용할 수 있습니다. 첫 번째 자리는 반드시 문자여야 합니다. 이름의 길이는 2-20자 사이여야 합니다.
+    Subscription | 서비스에 사용할 Azure 구독을 선택합니다. 구독이 여러 개인 경우, 리소스에 대해 요금이 청구되는 구독을 선택합니다.
+    Resource group | 새 리소스 그룹 이름 또는 구독의 기존 이름입니다.
     지역 | 위치는 컨소시엄의 모든 멤버에 대해 동일해야 합니다.
     멤버 계정 암호 | 멤버 계정 암호는 멤버용으로 생성된 Ethereum 계정의 프라이빗 키를 암호화하는 데 사용됩니다. 컨소시엄 관리용 멤버 계정과 멤버 계정 암호를 사용합니다.
     컨소시엄 이름 | 새 컨소시엄인 경우 고유한 이름을 입력합니다. 초대를 통해 컨소시엄에 참가하는 경우 이 값은 참가하는 컨소시엄입니다.

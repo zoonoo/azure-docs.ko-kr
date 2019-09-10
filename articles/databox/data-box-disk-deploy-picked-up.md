@@ -6,15 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 08/28/2019
+ms.date: 09/03/2019
+ms.localizationpriority: high
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 1104c017541b8124366a6121763318f199f3aad5
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: aab97257ff2e917dc264017043d3ca11a2ced1fc
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70126078"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240206"
 ---
 ::: zone target="chromeless"
 
@@ -49,18 +50,7 @@ ms.locfileid: "70126078"
     - 안전하게 보호하는 공기 쿠션 랩을 사용하여 디스크를 포장하는 것이 좋습니다.
     - 상자 내의 움직임을 줄이기 위해 빈틈 없이 채워졌는지 확인합니다.
 
-다음 단계는 디바이스를 반송하는 위치에 따라 결정됩니다. 지침은 미국/캐나다, 오스트레일리아 또는 아시아 국가에 따라 다릅니다.
-
-- [미국 및 캐나다에서 디바이스를 반환하는 경우 UPS로 픽업을 예약합니다](data-box-disk-deploy-picked-up.md#pick-up-in-us-canada).
-- 웹 사이트를 방문하고 항공사 요금 청구 번호를 지정하여 [DHL로 유럽의 픽업을 예약합니다](data-box-disk-deploy-picked-up.md#pick-up-in-europe).
-- [오스트레일리아에서 픽업 일정 예약](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-picked-up#pick-up-in-australia)
-- [아시아 지역의 픽업 일정 예약](data-box-disk-deploy-picked-up.md#pick-up-in-asia)(예: 일본, 대한민국, 싱가포르)
-
-::: zone target="chromeless"
-
-배송업체에서 디스크를 픽업하면 포털의 주문 상태가 업데이트되고 추적 ID가 표시됩니다.
-
-::: zone-end
+다음 단계는 디바이스를 반송하는 위치에 따라 결정됩니다. 지침은 미국/캐나다, EU(유럽 연합) 오스트레일리아 또는 아시아 국가에 따라 다릅니다.
 
 ### <a name="pick-up-in-us-canada"></a>미국, 캐나다에서 픽업
 
@@ -151,9 +141,6 @@ ms.locfileid: "70126078"
 
 1. 포장용 레이블을 인쇄하고 상자에 부착합니다. 레이블이 손상되었거나 손실된 경우 다음을 수행합니다.
     - **개요 > 배송 레이블 다운로드**로 이동하여 반송 포장용 레이블을 가져옵니다.
-
-        ![포장용 레이블 다운로드](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
-
     - 디바이스에 레이블을 부착합니다. 레이블이 보이는지 확인합니다.
 
 2. 픽업을 요청하려면 다음을 수행합니다.

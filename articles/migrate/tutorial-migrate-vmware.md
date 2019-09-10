@@ -4,15 +4,15 @@ description: Azure Migrate를 사용하여 에이전트 없이 온-프레미스 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/08/2019
+ms.date: 09/04/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7fba9cbbaa15359e7e4dd95e66645dd5f4022431
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: ec7d10a1d9fec43c149c068fb408211db76d19eb
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640774"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309372"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>VMware VM을 Azure로 마이그레이션(에이전트 없음)
 
@@ -126,7 +126,10 @@ Azure에서 Linux VM을 실행하기 위해 이러한 단계를 설명하고 인
 
 ## <a name="replicate-vms"></a>VM 복제
 
-검색이 완료되면 VMware VM을 Azure로 복제할 수 있습니다.
+검색이 완료되면 VMware VM을 Azure로 복제할 수 있습니다. 
+
+> [!NOTE]
+> 최대 10대의 머신을 함께 복제할 수 있습니다. 추가로 복제해야 하는 경우 10개씩 일괄 처리로 동시에 복제합니다. 에이전트 없는 마이그레이션의 경우 최대 100개의 동시 복제를 실행할 수 있습니다.
 
 1. Azure Migrate 프로젝트 > **서버**, **Azure Migrate: 서버 마이그레이션**에서 **복제**를 클릭합니다.
 

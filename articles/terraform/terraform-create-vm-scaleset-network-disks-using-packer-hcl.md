@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/29/2017
-ms.openlocfilehash: 5aff45b4a6b5da62569e0a39c13239a726e6b80b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 08/28/2019
+ms.openlocfilehash: 9a80cb7ba44c86d449e4ff4178a2982db302a717
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002000"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70138335"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Terraform을 사용하여 Packer 사용자 지정 이미지에서 Azure 가상 머신 확장 집합 만들기
 
@@ -44,7 +44,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 - ```variables.tf``` 이 파일은 템플릿에 사용되는 변수 값을 포함합니다.
 - ```output.tf``` 이 파일은 배포 후에 표시될 설정을 설명합니다.
-- ```vmss.tf``` 이 파일은 배포 중인 인프라의 코드를 포함합니다.
+- ```vmss.tf``` 이 파일에는 배포 중인 인프라의 코드가 포함되어 있습니다.
 
 ##  <a name="create-the-variables"></a>변수 만들기 
 
@@ -124,7 +124,7 @@ resource "azurerm_public_ip" "vmss" {
   name                         = "vmss-public-ip"
   location                     = "${var.location}"
   resource_group_name          = "${azurerm_resource_group.vmss.name}"
-  public_ip_address_allocation = "static"
+  allocation_method            = "static"
   domain_name_label            = "${azurerm_resource_group.vmss.name}"
 
   tags {
@@ -175,12 +175,12 @@ terraform apply
 ## <a name="edit-the-infrastructure-to-add-the-virtual-machine-scale-set"></a>인프라를 편집하여 가상 머신 확장 집합 추가
 
 이 단계에서는 이전에 배포한 네트워크에서 다음 리소스를 만듭니다.
-- Azure Load Balancer를 애플리케이션에 제공 및 4단계에서 배포된 공용 IP 주소에 연결
+- 애플리케이션을 서비스하고 이전에 배포된 공용 IP 주소에 연결하는 Azure 부하 분산 장치.
 - 하나의 Azure Load Balancer 및 애플리케이션을 제공하여 이전에 구성된 공용 IP 주소에 연결하는 규칙
-- Azure 백 엔드 주소 풀 및 이를 부하 분산 장치에 할당 
-- 애플리케이션에서 사용되고 부하 분산 장치에 구성된 상태 프로브 포트 
-- 이전에 배포한 vnet에서 실행 중인, 부하 분산 장치 뒤에 있는 가상 머신 확장 집합
-- 사용자 지정 이미지에서 설치된 가상 머신 확장 노드의 [Nginx](https://nginx.org/)
+- Azure 백 엔드 주소 풀을 부하 분산 장치에 할당합니다.
+- 애플리케이션에서 사용되고 부하 분산 장치에 구성된 상태 프로브 포트.
+- 이전에 배포한 VNET에서 실행 중인 부하 분산 장치 뒤에 있는 가상 머신 확장 집합.
+- 사용자 지정 이미지에서 설치된 가상 머신 확장 노드의 [Nginx](https://nginx.org/).
 
 
 `vmss.tf` 파일의 끝에 다음 코드를 추가합니다.
@@ -290,6 +290,7 @@ resource "azurerm_virtual_machine_scale_set" "vmss" {
       name                                   = "IPConfiguration"
       subnet_id                              = "${azurerm_subnet.vmss.id}"
       load_balancer_backend_address_pool_ids = ["${azurerm_lb_backend_address_pool.bpepool.id}"]
+      primary = true
     }
   }
   
@@ -355,7 +356,7 @@ resource "azurerm_public_ip" "jumpbox" {
   name                         = "jumpbox-public-ip"
   location                     = "${var.location}"
   resource_group_name          = "${azurerm_resource_group.vmss.name}"
-  public_ip_address_allocation = "static"
+  allocation_method            = "static"
   domain_name_label            = "${azurerm_resource_group.vmss.name}-ssh"
 
   tags {

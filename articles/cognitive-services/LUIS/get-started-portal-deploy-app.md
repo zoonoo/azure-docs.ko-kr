@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/07/2019
+ms.date: 09/02/2019
 ms.author: diberry
-ms.openlocfilehash: 5c310c1943eaf23423be873c6172e27c621fe109
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4e9ecdad0fb4d02f160977fa28a484b2a3a5bb30
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564074"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70257086"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>빠른 시작: LUIS 포털에서 앱 배포
 
@@ -59,11 +59,11 @@ LUIS에 대한 새 리소스를 만들 때마다 LUIS 앱에 리소스를 할당
 
 1. [LUIS 포털](https://www.luis.ai)에 로그인하고, 앱 목록에서 **myEnglishApp** 앱을 선택합니다.
 
-1. 오른쪽 상단 메뉴에서 **관리**를 선택한 다음, **키 및 엔드포인트**를 선택합니다.
+1. 오른쪽 상단 메뉴에서 **관리**를 선택한 다음, **Azure Resources**를 선택합니다.
 
-1. LUIS를 추가하려면 **리소스 할당 +** 을 선택합니다.
+1. LUIS를 추가하려면 **예측 리소스 추가**를 선택합니다.
 
-   [![앱에 리소스 할당](./media/get-started-portal-deploy-app/assign-resource-button.png)](./media/get-started-portal-deploy-app/assign-resource-button.png#lightbox)
+    <!-- TBD: get screenshot-->
 
 1. 테넌트, 구독 및 리소스 이름을 선택합니다. **리소스 할당**을 선택합니다.
 

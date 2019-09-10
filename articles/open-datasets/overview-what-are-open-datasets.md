@@ -7,12 +7,12 @@ ms.topic: overview
 author: cjgronlund
 ms.author: cgronlun
 ms.date: 05/02/2019
-ms.openlocfilehash: 7fa8562c466c81ebc05360bf06cdde1ee29bed9e
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 0c4bf3143bbf1ceb2f2f3c4a22477daa03690a0e
+ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598979"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70213583"
 ---
 # <a name="what-are-azure-open-datasets-preview-and-how-can-you-use-them"></a>Azure Open Datasets(미리 보기)란 무엇이며 사용하려면 어떻게 해야 하나요?
 
@@ -49,7 +49,7 @@ Azure 계정이 있으면 코드를 사용하여 또는 Azure 서비스 인터�
 
 Open Datasets는 Azure Machine Learning Service 및 Azure Databricks에 데이터를 연결하는 데 사용할 수 있는 Azure Notebooks 및 Azure Databricks Notebook을 제공합니다. Python SDK를 통해 데이터 세트에 액세스할 수도 있습니다. 
 
-하지만 Open Datasets에 액세스할 때 Azure 계정이 필요 없습니다. 모든 Python 환경에서 Spark 없이 액세스할 수 있습니다.
+그러나 Open Datasets에 액세스하기 위한 Azure 계정이 필요하지 않습니다. Spark와 상관없이 모든 Python 환경에서 액세스할 수 있습니다.
 
 ## <a name="request-or-contribute-datasets"></a>데이터 세트 요청 또는 기여
 

@@ -1,22 +1,19 @@
 ---
 title: 사용자 지정 이미지를 사용하여 Linux에서 Azure Functions 만들기
 description: 사용자 지정 Linux 이미지에서 실행되는 Azure Functions를 만드는 방법을 알아봅니다.
-services: functions
-keywords: ''
 author: ggailey777
 ms.author: glenga
 ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: azure-functions
 ms.custom: mvc
-ms.devlang: azure-cli
-manager: jeconnoc
-ms.openlocfilehash: 525cb444ad7b1b78de867f83539ac338ddd144e9
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+manager: gwallace
+ms.openlocfilehash: 80f7185b69a7953656235d3bd622b7f61611de1a
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562922"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210186"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>사용자 지정 이미지를 사용하여 Linux에서 함수 만들기
 
@@ -56,7 +53,7 @@ Azure Functions를 사용하면 사용자 지정 컨테이너에서 Linux의 함
 
 ## <a name="create-the-local-function-app-project"></a>로컬 함수 앱 프로젝트 만들기
 
-명령줄에서 다음 명령을 실행하여 현재 로컬 디렉터리의 `MyFunctionProj` 폴더에 함수 앱 프로젝트를 만듭니다.
+명령줄에서 다음 명령을 실행하여 현재 로컬 디렉터리의 `MyFunctionProj` 폴더에 함수 앱 프로젝트를 만듭니다. Python 프로젝트의 경우 [가상 환경에서 실행 중이어야 합니다](functions-create-first-function-python.md#create-and-activate-a-virtual-environment-optional).
 
 ```bash
 func init MyFunctionProj --docker
@@ -68,7 +65,7 @@ func init MyFunctionProj --docker
 
 * `dotnet`: .NET Core 클래스 라이브러리 프로젝트(.csproj)를 만듭니다.
 * `node`: JavaScript 프로젝트를 만듭니다.
-* `python`: Python 프로젝트를 만듭니다.
+* `python`: Python 프로젝트를 만듭니다.  
 
 명령을 실행하는 경우 다음 출력과 같이 표시됩니다.
 

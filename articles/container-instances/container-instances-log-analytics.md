@@ -5,25 +5,28 @@ services: container-instances
 author: dlepow
 manager: gwallace
 ms.service: container-instances
-ms.topic: article
-ms.date: 07/09/2019
+ms.topic: overview
+ms.date: 09/02/2019
 ms.author: danlep
-ms.openlocfilehash: 9b57775040251312c8afbff5983a52ae9d14e6c6
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
-ms.translationtype: MT
+ms.openlocfilehash: 1c4846414036e86d460d9abe0bd93e785e710395
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172487"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258454"
 ---
 # <a name="container-instance-logging-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 컨테이너 인스턴스 로깅
 
-Log Analytics 작업 영역은 Azure 리소스뿐만 아니라 온-프레미스 리소스 및 다른 클라우드의 리소스에서도 로그 데이터를 저장 및 쿼리할 수 있는 중앙 집중식 위치를 제공합니다. Azure Container Instances는 Azure Monitor 로그로 데이터를 전송할 수 있는 기능을 기본 제공합니다.
+Log Analytics 작업 영역은 Azure 리소스뿐만 아니라 온-프레미스 리소스 및 다른 클라우드의 리소스에서도 로그 데이터를 저장 및 쿼리할 수 있는 중앙 집중식 위치를 제공합니다. Azure Container Instances는 Azure Monitor 로그로 로그 및 이벤트 데이터를 전송할 수 있는 기능을 기본 제공합니다.
 
-Azure Monitor 로그로 컨테이너 인스턴스 데이터를 전송하려면 컨테이너 그룹을 만들 때 Log Analytics 작업 영역 ID와 작업 영역 키를 지정해야 합니다. 다음 섹션에서는 로깅을 사용할 수 있는 컨테이너 그룹과 쿼리 로그를 만드는 방법을 설명합니다.
+Azure Monitor 로그로 컨테이너 그룹 로그 및 이벤트 데이터를 전송하려면 컨테이너 그룹을 만들 때 Log Analytics 작업 영역 ID와 작업 영역 키를 지정해야 합니다. 다음 섹션에서는 로깅을 사용할 수 있는 컨테이너 그룹과 쿼리 로그를 만드는 방법을 설명합니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>전제 조건
+> [!NOTE]
+> 현재는 Linux 컨테이너 인스턴스에서 Log Analytics로만 이벤트 데이터를 보낼 수 있습니다.
+
+## <a name="prerequisites"></a>필수 조건
 
 컨테이너 인스턴스에 로그인을 사용하도록 설정하려면 다음이 필요합니다.
 
@@ -99,30 +102,43 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 
 명령 실행 즉시 Azure에서 배포 세부 정보가 포함된 응답이 수신되어야 합니다.
 
-## <a name="view-logs-in-azure-monitor-logs"></a>Azure Monitor 로그에서 로그 보기
+## <a name="view-logs"></a>로그 보기
 
-컨테이너 그룹을 배포한 후 첫 번째 로그 항목이 Azure Portal에 표시되기 까지 몇 분(최대 10분)이 걸릴 수 있습니다. 컨테이너 그룹의 로그를 보려면 다음을 수행합니다.
+컨테이너 그룹을 배포한 후 첫 번째 로그 항목이 Azure Portal에 표시되기 까지 몇 분(최대 10분)이 걸릴 수 있습니다. `ContainerInstanceLog_CL` 테이블에서 컨테이너 그룹의 로그를 보려면 다음을 수행합니다.
 
 1. Azure Portal에서 Log Analytics 작업 영역으로 이동
 1. **일반** 아래에서 **로그** 선택  
-1. 다음 쿼리 입력: `search *`
+1. 다음 쿼리 입력: `ContainerInstanceLog_CL | limit 50`
 1. **실행**을 선택합니다.
 
-`search *` 쿼리에서 몇 가지 결과를 표시해야 합니다. 처음에 아무 결과도 표시되지 않으면 몇 분 정도 기다린 다음, **실행** 단추를 선택하여 쿼리를 다시 실행합니다. 기본적으로 로그 항목이 **테이블** 형식으로 표시됩니다. 그런 다음, 행을 확장하여 개별 로그 항목의 내용을 볼 수 있습니다.
+쿼리에서 몇 가지 결과를 표시해야 합니다. 처음에 아무 결과도 표시되지 않으면 몇 분 정도 기다린 다음, **실행** 단추를 선택하여 쿼리를 다시 실행합니다. 기본적으로 로그 항목이 **테이블** 형식으로 표시됩니다. 그런 다음, 행을 확장하여 개별 로그 항목의 내용을 볼 수 있습니다.
 
 ![Azure Portal의 로그 검색 결과][log-search-01]
+
+## <a name="view-events"></a>이벤트 보기
+
+Azure Portal에서 컨테이너 인스턴스에 대한 이벤트를 볼 수도 있습니다. 이벤트에는 인스턴스가 생성된 시간 및 인스턴스가 시작된 시간이 포함됩니다. `ContainerEvent_CL` 테이블에서 이벤트 데이터를 보려면 다음을 수행합니다.
+
+1. Azure Portal에서 Log Analytics 작업 영역으로 이동
+1. **일반** 아래에서 **로그** 선택  
+1. 다음 쿼리 입력: `ContainerEvent_CL | limit 50`
+1. **실행**을 선택합니다.
+
+쿼리에서 몇 가지 결과를 표시해야 합니다. 처음에 아무 결과도 표시되지 않으면 몇 분 정도 기다린 다음, **실행** 단추를 선택하여 쿼리를 다시 실행합니다. 기본적으로 항목이 **테이블** 형식으로 표시됩니다. 그런 다음, 행을 확장하여 개별 항목의 콘텐츠를 볼 수 있습니다.
+
+![Azure Portal의 이벤트 검색 결과][log-search-02]
 
 ## <a name="query-container-logs"></a>쿼리 컨테이너 로그
 
 Azure Monitor 로그에는 약 수천 줄의 로그 출력에서 정보를 가져오기 위한 광범위한 [쿼리 언어][query_lang]가 포함되어 있습니다.
 
-Azure Container Instances 로깅 에이전트는 Log Analytics 작업 영역의 `ContainerInstanceLog_CL` 테이블로 항목을 전송합니다. 쿼리의 기본 구조는 원본 테이블(`ContainerInstanceLog_CL`)이며 그 뒤에 파이프 문자(`|`)로 구분된 일련의 연산자가 있습니다. 여러 연산자를 묶어 결과를 구체화하고 고급 기능을 수행할 수 있습니다.
+쿼리의 기본 구조는 원본 테이블(이 문서에서는 `ContainerInstanceLog_CL` 또는 `ContainerEvent_CL`)이며 그 뒤에 파이프 문자(`|`)로 구분된 일련의 연산자가 있습니다. 여러 연산자를 묶어 결과를 구체화하고 고급 기능을 수행할 수 있습니다.
 
-예제 쿼리 결과를 보려면 다음 쿼리를 쿼리 텍스트 상자("레거시 언어 변환기 표시" 아래)에 붙여넣고 **실행** 단추를 선택하여 쿼리를 실행합니다. 이 쿼리는 "메시지" 필드에 "warn"이라는 단어가 포함된 모든 로그 항목을 표시합니다.
+예제 쿼리 결과를 보려면 다음 쿼리를 쿼리 텍스트 상자에 붙여넣고 **실행** 단추를 선택하여 쿼리를 실행합니다. 이 쿼리는 "메시지" 필드에 "warn"이라는 단어가 포함된 모든 로그 항목을 표시합니다.
 
 ```query
 ContainerInstanceLog_CL
-| where Message contains("warn")
+| where Message contains "warn"
 ```
 
 더 복잡한 쿼리도 지원됩니다. 예를 들어 이 쿼리는 지난 1시간 이내에 생성된 "mycontainergroup001" 컨테이너 그룹의 로그 항목만 표시합니다.
@@ -151,6 +167,7 @@ Azure Monitor 로그에서 로그를 쿼리하고 경고를 구성하는 방법�
 
 <!-- IMAGES -->
 [log-search-01]: ./media/container-instances-log-analytics/portal-query-01.png
+[log-search-02]: ./media/container-instances-log-analytics/portal-query-02.png
 
 <!-- LINKS - External -->
 [fluentd]: https://hub.docker.com/r/fluent/fluentd/

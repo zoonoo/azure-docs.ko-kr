@@ -6,15 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: quickstart
-ms.date: 06/04/2019
+ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 3467b25c085fb86d4aed3918d5446d118f76ffb8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.localizationpriority: high
+ms.openlocfilehash: b2ebb4c5a0df360cede084a90ebe5da041a08aa0
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446728"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70241388"
 ---
+::: zone target = "docs"
+
 # <a name="quickstart-deploy-azure-data-box-heavy-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Data Box Heavy 배포
 
 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Data Box Heavy를 배포하는 방법에 대해 설명합니다. 여기서는 Azure에 업로드하기 위해 Data Box Heavy를 케이블로 연결하여 구성하고 데이터를 복사하는 단계를 수행합니다. 디바이스의 로컬 웹 UI와 Azure Portal에서 이 빠른 시작을 수행합니다.
@@ -55,6 +58,7 @@ ms.locfileid: "67446728"
     - 10Gbps 케이블의 경우 한쪽 끝에는 10G 스위치에 꽂을 SFP+ 케이블이 필요하고, 디바이스에 꽂는 쪽에는 QSFP+ ~ SFP+ 어댑터(또는 QSA 어댑터)가 필요합니다.
 - 전원 케이블은 디바이스 뒷면의 트레이에 들어 있습니다.
 
+
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
@@ -69,6 +73,16 @@ ms.locfileid: "67446728"
 4. 주문 세부 정보 및 배송 정보를 입력합니다. 해당 지역에서 서비스를 사용할 수 있는 경우 알림 이메일 주소를 제공하고, 요약을 검토한 다음, 주문을 만듭니다.
 
 주문을 작성하고 나면 디바이스가 배송 가능하도록 준비됩니다.
+
+::: zone-end
+
+::: zone target = "chromeless"
+
+# <a name="cable-and-connect-to-your-device"></a>디바이스에 케이블 연결
+
+필수 구성 요소를 검토한 후 디바이스에 케이블을 연결합니다.
+
+::: zone-end
 
 ## <a name="cable-for-power"></a>전원 케이블 연결
 
@@ -105,6 +119,9 @@ Data Box Heavy를 받으면 다음 단계에 따라 디바이스의 전원 케�
 이 단계는 완료하는 데 15~20분 정도 걸립니다.
 
 케이블을 첫 번째 노드에 연결하는 데 사용한 단계를 따르고 디바이스에서 두 번째 노드를 구성합니다.  
+
+
+::: zone target = "docs"
 
 ## <a name="copy-data"></a>데이터 복사
 
@@ -157,3 +174,5 @@ Data Box Heavy를 받으면 다음 단계에 따라 디바이스의 전원 케�
 
 > [!div class="nextstepaction"]
 > [Azure Portal을 사용하여 Data Box Heavy 관리](data-box-portal-admin.md)
+
+::: zone-end

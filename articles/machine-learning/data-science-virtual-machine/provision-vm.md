@@ -1,28 +1,22 @@
 ---
-title: Windows Data Science Virtual Machine 만들기
-titleSuffix: Azure
+title: '빠른 시작: Windows 만들기'
+titleSuffix: Azure Data Science Virtual Machine
 description: 분석 및 기계 학습을 수행하기 위해 Azure에서 데이터 과학 Virtual Machine 구성 및 만들기
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: quickstart
 ms.date: 02/22/2019
-ms.author: vijetaj
-ms.openlocfilehash: 2b328ccf63259c7faf4debdc07313d24381313a5
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: ac4b9b4d32d05083ceabd41207243eb483648baa
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70047692"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278590"
 ---
-# <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Azure에서 Windows 데이터 과학 Virtual Machine 프로비전
+# <a name="quickstart-set-up-a-windows-data-science-virtual-machine-on-azure"></a>빠른 시작: Azure에서 Windows Data Science Virtual Machine 설정
 
 Microsoft Windows DSVM(Data Science Virtual Machine)은 Azure의 Windows Server 2016 VM(가상 머신) 이미지입니다. 데이터 분석 및 기계 학습 도구가 사전 설치되고 구성되어 있습니다.
 
@@ -30,7 +24,7 @@ Microsoft Windows DSVM(Data Science Virtual Machine)은 Azure의 Windows Server 
 
 DSVM에는 다음과 같은 도구가 포함되어 있습니다.
 
-* [Azure Machine Learning Service](../service/index.yml)용 Python SDK
+* [Azure Machine Learning Service](../index.yml)용 Python SDK
 * [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/index) 디벨로퍼 버전
 * Anaconda Python 배포판
 * Jupyter Notebook(R, Python 및 PySpark 커널 포함)
@@ -234,7 +228,7 @@ Python SDK는 Microsoft Data Science Virtual Machine에 미리 설치되어 있�
 ## <a name="next-steps"></a>다음 단계
 
 * **시작** 메뉴를 열어서 DSVM의 도구를 살펴봅니다.
-* [Azure Machine Learning Service란?](../service/overview-what-is-azure-ml.md)을 참조하여 Azure Machine Learning Service에 대해 알아보고 [빠른 시작 및 자습서](../service/index.yml)를 시도해봅니다.
+* [Azure Machine Learning Service란?](../service/overview-what-is-azure-ml.md)을 참조하여 Azure Machine Learning Service에 대해 알아보고 [자습서](../index.yml)를 사용해 보세요.
 * 엔터프라이즈 규모의 데이터 분석을 지원하는 R에서 RevoScaleR 라이브러리를 사용하는 샘플을 보려면 파일 탐색기에서 C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts로 이동합니다. 
 * [Data Science Virtual Machine으로 할 수 있는 10가지 작업](https://aka.ms/dsvmtenthings) 문서를 참조합니다.
 * [팀 데이터 과학 프로세스](../team-data-science-process/index.yml)를 사용하여 엔드투엔드 분석 솔루션을 체계적으로 빌드하는 방법을 알아봅니다.

@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: faad0a0166c1b11f51f814bb6ce3351d7a017239
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 7091e2bd1ee24843299721d3c21a8546197fac6f
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900018"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207583"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Azure Resource Graph 서비스 개요
 
@@ -35,7 +35,7 @@ Azure Resource Graph는 제공된 구독 세트에서 대규모로 쿼리를 수
 
 Azure Resource Manager는 현재 기본 리소스 필드, 특히 리소스 이름, ID, 유형, 리소스 그룹, 구독 및 위치에서 쿼리를 지원합니다. 또한 Resource Manager는 한 번에 하나의 리소스에 대한 세부 속성을 위해 개별 리소스 공급 기업을 호출하는 기능을 제공합니다.
 
-Azure Resource Graph를 사용하면 각 리소스 공급자를 별도로 호출하지 않고도 리소스 공급자가 반환하는 이러한 속성에 액세스할 수 있습니다. 지원되는 리소스 유형의 목록을 보려면 [전체 모드 배포용 리소스](../../azure-resource-manager/complete-mode-deletion.md) 테이블에서 **예**를 찾습니다.
+Azure Resource Graph를 사용하면 각 리소스 공급자를 별도로 호출하지 않고도 리소스 공급자가 반환하는 이러한 속성에 액세스할 수 있습니다. 지원되는 리소스 유형의 목록을 보려면 [전체 모드 배포용 리소스](../../azure-resource-manager/complete-mode-deletion.md) 테이블에서 **예**를 찾습니다. 지원되는 리소스 종류를 확인하는 다른 방법은 [Azure Graph Explorer Schema 브라우저](./first-query-portal.md#schema-browser)를 사용하는 것입니다.
 
 Azure Resource Graph를 통해 다음을 수행할 수 있습니다.
 
@@ -80,7 +80,13 @@ Resource Graph는 사용자 수준에서 쿼리를 제한합니다. 서비스 �
 
 ## <a name="running-your-first-query"></a>첫 번째 쿼리 실행
 
-Resource Graph는 Azure CLI, Azure PowerShell 및 Azure SDK for .NET을 지원합니다. 쿼리는 각 언어에서 동일하게 구조화됩니다. [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension) 및 [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module)에서 Resource Graph를 사용하도록 설정하는 방법에 대해 알아봅니다.
+Azure Portal의 일부인 Azure Resource Graph Explorer를 사용하면 Azure Portal에서 직접 Resource Graph 쿼리를 실행할 수 있습니다. 결과를 동적 차트로 고정하여 포털 워크플로에 실시간 동적 정보를 제공합니다. 자세한 내용은 [Azure Resource Graph Explorer를 사용한 첫 번째 쿼리](first-query-portal.md)를 참조하세요.
+
+Resource Graph는 Azure CLI, Azure PowerShell, Azure SDK for .NET 등을 지원합니다. 쿼리는 각 언어에서 동일하게 구조화됩니다. 다음을 사용하여 Resource Graph를 활성화하는 방법을 알아봅니다.
+
+- [Azure Portal 및 Resource Graph Explorer](first-query-portal.md) 
+- [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension)
+- [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module)
 
 ## <a name="next-steps"></a>다음 단계
 

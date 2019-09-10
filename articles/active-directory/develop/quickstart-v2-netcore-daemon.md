@@ -17,12 +17,12 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a2b6d01802fd819471a9cfb382166e6293261ca
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a130878baa10be426072dfe79284a1d602dfb6ff
+ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852888"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70211868"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>빠른 시작: 앱의 ID를 사용하여 콘솔 앱에서 토큰 가져오기 및 Microsoft Graph API 호출
 
@@ -39,9 +39,7 @@ ms.locfileid: "68852888"
 
 > [!div renderon="docs" class="sxs-lookup"]
 >
-> 빠른 시작 애플리케이션을 시작하는 옵션은 두 가지가 있습니다.
-> * [기본] [옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
-> * [수동] [옵션 2: 애플리케이션 및 코드 샘플을 등록하고 수동으로 구성](#option-2-register-and-manually-configure-your-application-and-code-sample)
+> 빠른 시작 애플리케이션을 시작하는 옵션은 두 가지가 있습니다. 기본(아래 옵션 1) 및 수동(옵션 2)
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드
 >
@@ -80,12 +78,12 @@ ms.locfileid: "68852888"
 
 #### <a name="step-2-download-your-visual-studio-project"></a>2단계: Visual Studio 프로젝트 다운로드
 
-[Visual Studio 프로젝트 다운로드](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/msal3x.zip)
+[Visual Studio 프로젝트 다운로드](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>3단계: Visual Studio 프로젝트 구성
 
 1. zip 파일을 디스크 루트에 가까운 로컬 폴더(예: **C:\Azure-Samples**)로 추출합니다.
-1. Visual Studio - **daemon-console.sln**에서 솔루션을 엽니다(선택 사항).
+1. Visual Studio - **1-Call-MSGraph\daemon-console.sln**에서 솔루션을 엽니다(선택 사항).
 1. **appsettings.json**을 편집하고 `ClientId`, `Tenant` 및 `ClientSecret` 필드의 값을 다음으로 바꿉니다.
 
     ```json
@@ -145,7 +143,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 Visual Studio를 사용하는 경우 **F5** 키를 눌러 애플리케이션을 실행합니다. 그렇지 않은 경우 명령 프롬프트 또는 콘솔을 통해 애플리케이션을 실행합니다.
 
 ```console
-cd {ProjectFolder}\daemon-console
+cd {ProjectFolder}\daemon-console\1-Call-Graph
 dotnet run
 ```
 
@@ -166,7 +164,7 @@ MSAL([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identi
  Visual Studio의 **패키지 관리자 콘솔**에서 다음 명령을 실행하여 MSAL.NET을 설치할 수 있습니다.
 
 ```powershell
-Install-Package Microsoft.Identity.Client -Pre
+Install-Package Microsoft.Identity.Client
 ```
 
 또는 Visual Studio를 사용하지 않는 경우 다음 명령을 실행하여 프로젝트에 MSAL을 추가할 수 있습니다.
@@ -221,8 +219,15 @@ result = await app.AcquireTokenForClient(scopes)
 
 ## <a name="next-steps"></a>다음 단계
 
+디먼 애플리케이션에 대해 자세히 알아보려면 시나리오 방문 페이지를 참조하세요.
+
 > [!div class="nextstepaction"]
-> [.NET Core 디먼 샘플](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
+> [웹 API를 호출하는 디먼 애플리케이션](scenario-daemon-overview.md)
+
+디먼 애플리케이션 자습서는 다음을 참조하세요.
+
+> [!div class="nextstepaction"]
+> [디먼 .NET Core 콘솔 자습서](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
 
 권한 및 동의에 대한 자세한 정보:
 
@@ -233,9 +238,6 @@ result = await app.AcquireTokenForClient(scopes)
 
 > [!div class="nextstepaction"]
 > [클라이언트 자격 증명 Oauth 흐름](v2-oauth2-client-creds-grant-flow.md)
-
-> [!div class="nextstepaction"]
-> [MSAL.NET을 사용하여 클라이언트 자격 증명 흐름](https://aka.ms/msal-net-client-credentials)
 
 Microsoft ID 플랫폼을 개선할 수 있도록 도와주세요. 간단한 두 가지 설문 조사를 완료하여 의견을 알려주세요.
 

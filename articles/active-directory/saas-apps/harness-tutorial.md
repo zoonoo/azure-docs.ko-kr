@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/22/2019
+ms.date: 09/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37a527e8cd83d292d8af8af5acd0c903c63081f2
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 709bf2e413ddb40ae1ed84672cea0c0b71be2ce6
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013848"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305933"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-harness"></a>자습서: Harness와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -131,17 +131,25 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-harness-sso"></a>Harness SSO 구성
 
-1. 새 웹 브라우저 창을 열고, Harness 회사 사이트에 관리자 권한으로 로그인합니다.
+1. Harness 내에서 구성을 자동화하려면 **확장 설치**를 클릭하여 **내 앱 보안 로그인 브라우저 확장**을 설치해야 합니다.
 
-1. 페이지의 오른쪽 위에서  **연속 보안** > **액세스 관리** > **인증 설정**을 클릭합니다.
+    ![내 앱 확장](common/install-myappssecure-extension.png)
+
+2. 브라우저에 확장을 추가한 후 **Harness 설정**을 클릭하면 Harness 애플리케이션으로 이동됩니다. 여기서 관리자 자격 증명을 입력하여 Harness에 로그인합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 3-6단계를 자동으로 수행합니다.
+
+    ![구성 설정](common/setup-sso.png)
+
+3. Harness를 수동으로 설정하려면 새 웹 브라우저 창을 열고 Harness 회사 사이트에 관리자로 로그인한 후에 다음 단계를 수행합니다.
+
+4. 페이지의 오른쪽 위에서  **연속 보안** > **액세스 관리** > **인증 설정**을 클릭합니다.
 
     ![Harness 구성](./media/harness-tutorial/configure01.png)
 
-1. **SSO 공급 기업** 섹션에서  **+ SSO 공급 기업 추가** > **SAML**을 클릭합니다.
+5. **SSO 공급 기업** 섹션에서  **+ SSO 공급 기업 추가** > **SAML**을 클릭합니다.
 
     ![Harness 구성](./media/harness-tutorial/configure03.png)
 
-1. **SAML 공급 기업** 팝업에서 다음 단계를 수행합니다.
+6. **SAML 공급 기업** 팝업에서 다음 단계를 수행합니다.
 
     ![Harness 구성](./media/harness-tutorial/configure02.png)
 

@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/07/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: e53f8d6e08b345d417ce54deacd658275cb1cd00
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5e635064af21996b7bd87b9da0f6b1ec9aa29378
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563923"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307782"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>빠른 시작: 미리 빌드된 홈 자동화 앱 사용
 
@@ -26,10 +26,10 @@ ms.locfileid: "68563923"
 
 이 문서에서는 [https://www.luis.ai](https://www.luis.ai)의 LUIS 포털에 만들어진 무료 LUIS 계정이 필요합니다. 
 
+[!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
+
 ## <a name="create-a-new-app"></a>새 앱 만들기
 애플리케이션은 **내 앱**에서 만들고 관리할 수 있습니다. 
-
-1. LUIS 포털에 로그인합니다.
 
 2. **새 앱 만들기**를 선택합니다.
 
@@ -65,7 +65,7 @@ ms.locfileid: "68563923"
 
 **HomeAutomation.TurnOff** 의도를 선택합니다. 엔터티를 사용하여 레이블이 지정된 발언 목록이 의도에 포함된 것을 볼 수 있습니다.
 
-[![HomeAutomation.TurnOff 의도 스크린샷](media/luis-quickstart-new-app/home-automation-turnon.png "HomeAutomation.TurnOff 의도 스크린샷")](media/luis-quickstart-new-app/home-automation-turnon.png)
+[![HomeAutomation.TurnOff 의도 스크린샷](media/luis-quickstart-new-app/home-automation-turnoff.png "HomeAutomation.TurnOff 의도 스크린샷")](media/luis-quickstart-new-app/home-automation-turnoff.png)
 
 ## <a name="train-the-luis-app"></a>LUIS 앱 학습
 
@@ -85,6 +85,10 @@ Turn off the lights
 [![발화가 강조 표시된 테스트 패널의 스크린샷](media/luis-quickstart-new-app/test.png "발화가 강조 표시된 테스트 패널의 스크린샷")](media/luis-quickstart-new-app/test.png)
 
 
+**검사**를 선택하여 예측에 대한 자세한 정보를 검토합니다.
+
+![발언이 강조 표시된 테스트 패널의 스크린샷](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
+
 **테스트**를 다시 선택하여 테스트 창을 접습니다. 
 
 <a name="publish-your-app"></a>
@@ -97,9 +101,78 @@ Turn off the lights
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
-2. 주소의 URL 끝으로 이동하고 `turn off the living room light`를 입력한 다음, Enter 키를 누릅니다. 브라우저는 HTTP 엔드포인트의 JSON 응답을 표시합니다.
+2. 주소의 URL 끝으로 이동하고 `turn off the living room light`를 입력한 다음, Enter 키를 누릅니다. 브라우저는 HTTP 엔드포인트의 JSON 응답 V2 API 버전을 표시합니다.
 
-    [![JSON 결과에서 TurnOff 의도가 검색된 브라우저의 스크린샷](media/luis-quickstart-new-app/turn-off-living-room.png "JSON 결과에서 TurnOff 의도가 검색된 브라우저의 스크린샷")](media/luis-quickstart-new-app/turn-off-living-room.png)
+```json
+{
+  "query": "turn off the living room light",
+  "topScoringIntent": {
+    "intent": "HomeAutomation.TurnOff",
+    "score": 0.9753089
+  },
+  "intents": [
+    {
+      "intent": "HomeAutomation.TurnOff",
+      "score": 0.9753089
+    },
+    {
+      "intent": "HomeAutomation.QueryState",
+      "score": 0.01027893
+    },
+    {
+      "intent": "HomeAutomation.TurnUp",
+      "score": 0.006881481
+    },
+    {
+      "intent": "HomeAutomation.SetDevice",
+      "score": 0.006786365
+    },
+    {
+      "intent": "HomeAutomation.TurnDown",
+      "score": 0.005145787
+    },
+    {
+      "intent": "HomeAutomation.TurnOn",
+      "score": 0.004114749
+    },
+    {
+      "intent": "None",
+      "score": 0.000598924
+    }
+  ],
+  "entities": [
+    {
+      "entity": "living room",
+      "type": "HomeAutomation.Location",
+      "startIndex": 13,
+      "endIndex": 23,
+      "score": 0.94558233
+    },
+    {
+      "entity": "living room light",
+      "type": "HomeAutomation.DeviceName",
+      "startIndex": 13,
+      "endIndex": 29,
+      "resolution": {
+        "values": [
+          "living room light"
+        ]
+      }
+    },
+    {
+      "entity": "light",
+      "type": "HomeAutomation.DeviceType",
+      "startIndex": 25,
+      "endIndex": 29,
+      "resolution": {
+        "values": [
+          "light"
+        ]
+      }
+    }
+  ]
+}
+```
     
 ## <a name="clean-up-resources"></a>리소스 정리
 

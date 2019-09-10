@@ -1,7 +1,7 @@
 ---
 title: 'REST 자습서: 인지 검색을 사용하여 AI 보강 파이프라인 작성 - Azure Search'
 description: Postman 및 Azure Search REST API를 사용하여 JSON Blob의 콘텐츠에서 텍스트를 추출하고 자연어를 처리하는 예제를 단계별로 실행합니다.
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 services: search
 ms.service: search
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: e647d3c66d339a60278fa7d0f078497157b3fff1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 726fdd6aeebac970142fa9225381af77114bfe42
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102757"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274121"
 ---
 # <a name="tutorial-add-structure-to-unstructured-content-with-cognitive-search"></a>자습서: 인지 검색을 사용하여 구조를 "비정형 콘텐츠"에 추가
 
@@ -22,10 +22,10 @@ ms.locfileid: "70102757"
 
 > [!div class="checklist"]
 > * Azure Blob 스토리지에서 PDF, MD, DOCX 및 PPTX와 같은 전체 문서(비정형 텍스트)로 시작합니다.
-> * 텍스트를 추출하고, 언어를 감지하고, 엔터티를 인식하고, 핵심 구를 검색하는 파이프라인을 만듭니다.
+> * 텍스트를 추출하고, 언어를 감지하고, 엔터티를 인식하고, 핵심 구를 검색하는 파이프라인을 정의합니다.
 > * 출력(원시 콘텐츠 및 파이프라인에서 생성된 이름-값 쌍)을 저장할 인덱스를 정의합니다.
-> * 파이프라인을 실행하여 인덱스를 만들고 로드합니다.
-> * 전체 텍스트 검색과 풍부한 쿼리 구문을 사용하여 콘텐츠를 검색합니다.
+> * 파이프라인을 실행하여 변환 및 분석을 시작하고 인덱스를 생성하고 로드합니다.
+> * 전체 텍스트 검색과 풍부한 쿼리 구문을 사용하여 결과를 검색합니다.
 
 이 연습을 완료하려면 몇 가지 서비스 및 가 필요하며, REST API를 호출하는 [Postman 데스크톱 앱](https://www.getpostman.com/) 또는 다른 웹 테스트 도구가 필요합니다. 
 

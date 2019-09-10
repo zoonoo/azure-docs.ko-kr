@@ -6,17 +6,29 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 3e6bfe4a93ab8c97bcffb84bda08977f8d811fa8
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.localizationpriority: high
+ms.openlocfilehash: f5473ae7bd9ac1615d59d18c996e01902e1adbd6
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592366"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70241408"
 ---
+::: zone target = "docs"
+
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box-heavy"></a>자습서: Azure Data Box Heavy에 케이블 연결
 
+::: zone-end
+
+::: zone target = "chromeless"
+
+## <a name="get-started-with-azure-data-box-heavy"></a>Azure Data Box Heavy 시작
+
+::: zone-end
+
+::: zone target = "docs"
 
 이 자습서에서는 Azure Data Box Heavy에 케이블을 장착하고, 연결을 설정하고, 전원을 켜는 방법을 설명합니다.
 
@@ -25,6 +37,14 @@ ms.locfileid: "67592366"
 > [!div class="checklist"]
 > * Data Box Heavy에 케이블 장착
 > * Data Box Heavy에 연결
+
+::: zone-end
+
+::: zone target = "chromeless"
+
+이 가이드에서는 필수 구성 요소를 검토하고, 디바이스를 케이블에 연결하고, 데이터를 복사하고, Azure에 업로드한 다음, 업로드된 데이터를 확인하는 방법에 대한 지침을 제공합니다.
+
+::: zone-end
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -42,6 +62,8 @@ ms.locfileid: "67592366"
     - [Mellanox MCX314A-BCCT](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html) 네트워크 인터페이스와 호환되는 케이블을 선택합니다.
     - 40Gbps 케이블의 경우 케이블의 디바이스 끝이 QSFP+이어야 합니다.
     - 10Gbps 케이블의 경우, 한 쪽에는 10Gbps 스위치에 꽂을 SFP+ 케이블이 필요하고, 디바이스에 꽂는 쪽에는 QSFP+ ~ SFP+ 어댑터(또는 QSA 어댑터)가 필요합니다.
+
+::: zone target = "docs"
 
 ## <a name="cable-your-device-for-power"></a>디바이스에 전원 케이블 연결
 
@@ -138,3 +160,5 @@ ms.locfileid: "67592366"
 
 > [!div class="nextstepaction"]
 > [Azure Data Box에 데이터 복사](./data-box-heavy-deploy-copy-data.md)
+
+::: zone-end
