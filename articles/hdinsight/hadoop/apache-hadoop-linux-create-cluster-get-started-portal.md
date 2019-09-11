@@ -136,7 +136,7 @@ Hive 작업을 완료한 후에 [결과를 Azure SQL 데이터베이스 또는 S
 > [!NOTE]  
 > HDInsight에서 Hadoop을 사용하여 ETL 작업을 실행하는 방법을 알아보기 위해 다음 문서를 ‘즉시’ 진행하는 경우 클러스터가 실행되도록 유지할 수 있습니다.  자습서에서 Hadoop 클러스터를 다시 만들어야 하기 때문입니다. 그러나 다음 문서로 바로 진행하지 않는 경우 이제 클러스터를 삭제해야 합니다.
 
-### <a name="to-delete-the-cluster-andor-the-default-storage-account"></a>클러스터 및/또는 기본 스토리지 계정을 삭제하려면
+### <a name="to-delete-the-cluster-andor-the-default-storage-account"></a>클러스터와 기본 스토리지 계정을 모두 삭제하거나 또는 그 중에 하나를 삭제하려면
 
 1. Azure Portal이 있는 브라우저 탭으로 돌아갑니다. 그러면 클러스터 개요 페이지가 표시됩니다. 클러스터는 삭제하지만 기본 스토리지 계정은 유지하려는 경우 **삭제**를 선택합니다.
 
