@@ -6,6 +6,8 @@
       href: sql-database-technical-overview.md
     - name: SQL 옵션 선택
       href: sql-database-paas-vs-sql-server-iaas.md
+    - name: 기능 비교
+      href: sql-database-features.md
     - name: 릴리스 정보
       href: sql-database-release-notes.md
     - name: 게이트웨이 IP 마이그레이션 업데이트
@@ -390,10 +392,8 @@
               href: sql-database-advisor.md
     - name: 데이터베이스 기능
       items:
-        - name: SQL Database 기능 설명서
+        - name: 개요
           href: sql-database-features-index.yml
-        - name: SQL 기능 비교
-          href: sql-database-features.md
         - name: 다중 모델 기능
           href: sql-database-multi-model-features.md
         - name: 메모리 내
@@ -534,6 +534,8 @@
           href: sql-database-managed-instance-connect-app.md
     - name: 데이터 로드 및 이동
       items:
+        - name: 특정 시점 복원
+          href: sql-database-managed-instance-point-in-time-restore.md
         - name: 새 지역으로 리소스 이동
           href: sql-database-move-resources-across-regions.md
         - name: Azure 내에서 데이터베이스 복사

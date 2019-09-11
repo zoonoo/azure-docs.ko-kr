@@ -76,7 +76,7 @@ Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619
 
 X-Powered-By: ASP.NET
 ```
-이전 예제에서 응답 헤더의 상태 코드는 리디렉션에 대해 301입니다. Location 헤더에는 원래 호스트 이름 www.contoso.com 대신 app service의 호스트 이름이 있습니다.
+이전 예제에서 응답 헤더의 상태 코드는 리디렉션에 대해 301입니다. Location 헤더에는 원래 호스트 이름 [www.contoso.com](www.contoso.com) 대신 app service의 호스트 이름이 있습니다.
 
 ## <a name="solution-rewrite-the-location-header"></a>해결책: 위치 헤더 다시 작성
 
@@ -97,9 +97,9 @@ V1 SKU를 사용 하는 경우에는 location 헤더를 다시 작성할 수 없
 
     ![App service 사용자 지정 도메인 목록](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 
-- App service에서 호스트 이름 www.contoso.com을 받아들일 준비가 되었습니다. DNS에서 CNAME 항목을 변경 하 여 응용 프로그램 게이트웨이의 FQDN (예: appgw.eastus.cloudapp.azure.com)으로 다시 가리키도록 합니다.
+- App service에서 호스트 이름 [www.contoso.com](www.contoso.com)을 받아들일 준비가 되었습니다. DNS에서 CNAME 항목을 변경 하 여 응용 프로그램 게이트웨이의 FQDN (예: appgw.eastus.cloudapp.azure.com)으로 다시 가리키도록 합니다.
 
-- DNS 쿼리를 수행할 때 도메인 www.contoso.com 응용 프로그램 게이트웨이의 FQDN으로 확인 되는지 확인 합니다.
+- DNS 쿼리를 수행할 때 도메인 [www.contoso.com](www.contoso.com) 응용 프로그램 게이트웨이의 FQDN으로 확인 되는지 확인 합니다.
 
 - 사용자 지정 프로브를 설정 하 여 **백 엔드 HTTP 설정에서 호스트 이름 선택**을 사용 하지 않도록 설정 합니다. Azure Portal에서 프로브 설정의 확인란을 선택 취소 합니다. PowerShell에서 **AzApplicationGatewayProbeConfig** 명령에 **-PickHostNameFromBackendHttpSettings** 스위치를 사용 하지 마세요. 프로브의 호스트 이름 필드에 app service의 FQDN, example.azurewebsites.net를 입력 합니다. Application gateway에서 전송 된 프로브 요청은 호스트 헤더에이 FQDN을 포함 합니다.
 
@@ -110,7 +110,7 @@ V1 SKU를 사용 하는 경우에는 location 헤더를 다시 작성할 수 없
 
 - 사용자 지정 프로브를 백 엔드 HTTP 설정에 다시 연결 하 고 백 엔드가 정상 상태 인지 확인 합니다.
 
-- 이제 application gateway는 동일한 호스트 이름인 www.contoso.com를 app service에 전달 해야 합니다. 리디렉션이 동일한 호스트 이름에서 발생 합니다. 다음 예제 요청 및 응답 헤더를 확인 합니다.
+- 이제 application gateway는 동일한 호스트 이름인 [www.contoso.com](www.contoso.com)를 app service에 전달 해야 합니다. 리디렉션이 동일한 호스트 이름에서 발생 합니다. 다음 예제 요청 및 응답 헤더를 확인 합니다.
 
 기존 설치를 위해 PowerShell을 사용 하 여 이전 단계를 구현 하려면 다음에 나오는 샘플 PowerShell 스크립트를 사용 합니다. 프로브 및 HTTP 설정 구성에서 **-PickHostname** 스위치를 사용 하지 않은 경우를 확인 합니다.
 

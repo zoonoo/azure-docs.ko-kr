@@ -1,34 +1,33 @@
 ---
-title: Hyper-V VM과 Azure 간 재해 복구를 위한 온-프레미스 Hyper-V 서버 준비 | Microsoft Docs
+title: Azure로 Hyper-V VM 재해 복구를 위한 온-프레미스 Hyper-V 서버 준비
 description: Azure Site Recovery 서비스를 사용하여 Azure로 재해 복구하기 위해 온-프레미스 Hyper-V VM을 준비하는 방법을 알아봅니다.
-services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: article
-ms.date: 05/30/2019
+ms.topic: tutorial
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: aec5632b5ea29d52426c5d065ca41e18573fd5b9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: b17e42378daf51543a2664315f2971d15c288611
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399397"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813717"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Azure로의 재해 복구용으로 온-프레미스 Hyper-V 서버 준비
 
-이 문서에서는 설명 Hyper-vm을 Azure로 재해 복구를 설정 하려는 경우 온-프레미스 Hyper-v 인프라를 준비 하는 방법을 사용 하 여 [Azure Site Recovery](site-recovery-overview.md)합니다.
+이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 Azure로 Hyper-VM 재해 복구를 설정하려는 경우 온-프레미스 Hyper-V 인프라를 준비하는 방법을 설명합니다.
 
 
-온-프레미스 Hyper-v Vm에 대 한 Azure로 재해 복구를 설정 하는 방법을 보여 주는 시리즈의 두 번째 자습서입니다. 첫 번째 자습서에서는 했습니다 [Azure 구성 요소를 설정](tutorial-prepare-azure.md) Hyper-v 재해 복구를 위해 필요 합니다.
+이는 온-프레미스 Hyper-V VM에 대한 재해 복구를 Azure에 설정하는 방법을 보여주는 자습서 시리즈 중 두 번째 자습서입니다. 첫 번째 자습서에서는 Hyper-V 재해 복구에 필요한 [Azure 구성 요소를 설정](tutorial-prepare-azure.md)했습니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * System Center VMM에서 Hyper-v 호스트 관리 되는 경우 Hyper-v 요구 사항 및 VMM 요구 사항을 검토 합니다.
-> * 해당 하는 경우 VMM을 준비 합니다.
-> * Azure 위치에 대 한 인터넷 액세스를 확인 합니다.
-> * Azure로 장애 조치 후 액세스할 수 있도록 Vm을 준비 합니다.
+> * Hyper-V 호스트가 System Center VMM에서 관리되는 경우 Hyper-V 요구 사항 및 VMM 요구 사항을 검토합니다.
+> * 해당되는 경우 VMM을 준비합니다.
+> * Azure 위치에 대한 인터넷 액세스를 확인합니다.
+> * Azure로 장애 조치(failover)한 후 액세스할 수 있도록 VM을 준비합니다.
 
 > [!NOTE]
 > 자습서는 시나리오에 맞는 가장 간단한 배포 경로를 보여줍니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 자세한 내용은 Site Recovery 목차의 방법 섹션에 있는 문서를 참조하세요.
@@ -44,7 +43,7 @@ Hyper-V 호스트 및 VM이 요구 사항을 준수하는지 확인합니다.
 1. 온-프레미스 서버 요구 사항을 [확인](hyper-v-azure-support-matrix.md#on-premises-servers)합니다.
 2. Azure로 복제하려는 Hyper-V VM에 대한 [요구 사항을 확인](hyper-v-azure-support-matrix.md#replicated-vms)합니다.
 3. 온-프레미스 Hyper-V 호스트에 대한 Hyper-V 호스트 [네트워킹](hyper-v-azure-support-matrix.md#hyper-v-network-configuration) 및 호스트와 게스트 [스토리지](hyper-v-azure-support-matrix.md#hyper-v-host-storage) 지원을 확인합니다.
-4. 장애 조치(failover) 후 [Azure 네트워킹](hyper-v-azure-support-matrix.md#azure-vm-network-configuration-after-failover), [스토리지](hyper-v-azure-support-matrix.md#azure-storage) 및 [계산](hyper-v-azure-support-matrix.md#azure-compute-features)에 대해 지원되는 기능을 확인합니다.
+4. 장애 조치(failover) 후 [Azure 네트워킹](hyper-v-azure-support-matrix.md#azure-vm-network-configuration-after-failover), [스토리지](hyper-v-azure-support-matrix.md#azure-storage) 및 [컴퓨팅](hyper-v-azure-support-matrix.md#azure-compute-features)에 대해 지원되는 기능을 확인합니다.
 5. Azure에 복제하려는 온-프레미스 VM은 [Azure VM 요구 사항](hyper-v-azure-support-matrix.md#azure-vm-requirements)을 준수해야 합니다.
 
 

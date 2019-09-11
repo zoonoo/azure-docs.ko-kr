@@ -346,6 +346,10 @@
       items:
         - name: 특성 매핑 식 작성
           href: functions-for-customizing-application-data.md
+    - name: Azure AD Connect 프로비저닝 에이전트
+      items:
+        - name: 프로비저닝 에이전트 버전 기록
+          href: provisioning-agent-release-version-history.md
     - name: 온-프레미스 앱에 대한 애플리케이션 프록시
       items:
         - name: 애플리케이션 프록시 버전 내역

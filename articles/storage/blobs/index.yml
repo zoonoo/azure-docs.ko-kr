@@ -1,0 +1,153 @@
+### YamlMime:Landing
+title: Azure Blob Storage 설명서
+summary: Azure Blob Storage는 클라우드를 위한 Microsoft의 개체 스토리지 솔루션입니다. Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화되어 있습니다.
+metadata:
+  title: Azure Blob Storage 설명서
+  description: Azure Blob Storage는 클라우드를 위한 Microsoft의 개체 스토리지 솔루션입니다. Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화되어 있습니다.
+  services: storage
+  ms.service: storage
+  ms.subservice: blobs
+  ms.topic: landing-page
+  ms.collection: collection
+  author: normesta
+  ms.author: normesta
+  ms.date: 08/20/2019
+  ms.openlocfilehash: 3bc4bf920f4c780f0b73cdd75e62d8aff77b3c94
+  ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 09/10/2019
+  ms.locfileid: "70875574"
+landingContent:
+- title: Blob Storage 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Blob Storage란?
+      url: storage-blobs-overview.md
+- title: 시작하기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Azure Portal 사용
+      url: storage-quickstart-blobs-portal.md
+    - text: Storage Explorer 사용
+      url: storage-quickstart-blobs-storage-explorer.md
+  - linkListType: concept
+    links:
+    - text: Storage 계정 개요
+      url: ../common/storage-account-overview.md
+    - text: 데이터 중복
+      url: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - linkListType: how-to-guide
+    links:
+    - text: 스토리지 계정 만들기
+      url: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - text: 블록 Blob 스토리지 계정 만들기
+      url: storage-blob-create-account-block-blob.md
+    - text: 사용자 지정 도메인 구성
+      url: storage-custom-domain-name.md
+- title: 분석 및 인사이트
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Data Lake Storage Gen2
+      url: data-lake-storage-introduction.md
+  - linkListType: quickstart
+    links:
+    - text: Databricks로 데이터 분석
+      url: data-lake-storage-quickstart-create-databricks-account.md
+  - linkListType: concept
+    links:
+    - text: 빅 데이터 처리
+      url: data-lake-storage-data-scenarios.md
+    - text: 멀티 프로토콜 액세스
+      url: data-lake-storage-multi-protocol-access.md
+    - text: 모범 사례
+      url: data-lake-storage-best-practices.md
+  - linkListType: tutorial
+    links:
+    - text: Azure Databricks를 사용하여 데이터 추출, 변환 및 로드
+      url: ../../azure-databricks/databricks-extract-load-sql-data-warehouse.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - text: Azure HDInsight에서 Apache Hive를 사용하여 데이터 추출, 변환 및 로드
+      url: data-lake-storage-tutorial-extract-transform-load-hive.md
+    - text: Event Grid를 사용하여 Databricks 테이블에 데이터 삽입
+      url: data-lake-storage-events.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - linkListType: how-to-guide
+    links:
+    - text: Azure HDInsight 클러스터와 함께 사용
+      url: ../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - text: Power BI와 함께 사용
+      url: data-lake-storage-use-power-bi.md
+- title: 애플리케이션 개발
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: .NET 사용
+      url: storage-quickstart-blobs-dotnet.md
+    - text: Python 사용
+      url: storage-quickstart-blobs-python.md
+    - text: 웹 엔드포인트로 이벤트 라우팅
+      url: ../../event-grid/blob-event-quickstart-portal.md
+    - text: 정적 웹 사이트 호스트
+      url: storage-blob-static-website-how-to.md
+  - linkListType: concept
+    links:
+    - text: 이벤트 처리
+      url: storage-blob-event-overview.md
+    - text: 정적 웹 사이트
+      url: storage-blob-static-website.md
+  - linkListType: tutorial
+    links:
+    - text: 이미지 데이터를 업로드할 웹앱 만들기
+      url: storage-upload-process-images.md
+- title: 보안 및 ID 관리
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Azure Storage에 대한 액세스 권한 부여
+      url: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - text: Data Lake 액세스 제어
+      url: data-lake-storage-access-control.md
+  - linkListType: how-to-guide
+    links:
+    - text: Azure AD 계정으로 Blob 데이터 액세스
+      url: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - text: RBAC를 사용하여 액세스 권한 관리
+      url: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - text: 관리 ID를 사용하여 Blob 스토리지에 대한 액세스 권한 부여
+      url: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+- title: 데이터 전송
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 데이터 전송 솔루션 비교
+      url: ../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - text: 오프라인 전송에 Azure Data Box 사용
+      url: ../../databox/data-box-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - linkListType: how-to-guide
+    links:
+    - text: AzCopy로 전송
+      url: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - text: Azure Data Factory로 전송
+      url: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+- title: 성능 및 확장성
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 확장성 및 성능
+      url: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - text: 성능 및 확장성 검사 목록
+      url: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - linkListType: tutorial
+    links:
+    - text: 성능 및 확장성을 위한 최적화
+      url: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+- title: 데이터 백업 및 보관
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 핫, 쿨 및 보관 스토리지
+      url: storage-blob-storage-tiers.md
+    - text: Blob 스토리지 수명 주기 관리
+      url: storage-lifecycle-management-concepts.md

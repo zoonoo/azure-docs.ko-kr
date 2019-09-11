@@ -21,7 +21,7 @@
       href: tutorial-configure-password-hash-sync.md
 - name: 샘플
   items:
-    - name: Azure PowerShell을 사용하여 Azure AD DS 인스턴스 만들기
+    - name: Azure PowerShell을 사용하여 관리되는 도메인 만들기
       href: powershell-create-instance.md
 - name: 개념
   items:

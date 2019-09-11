@@ -1,61 +1,101 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Personalizer 설명서
+summary: Personalizer를 사용하여 애플리케이션이 사용자에게 보여줄 최상의 환경을 선택하여 사용자의 실시간 동작을 통해 학습하는 방법을 알아봅니다.
 metadata:
-  document_id: null
-  title: 'Personalizer - 자습서, 빠른 시작, API 참조'
-  description: 'Personalizer 서비스를 사용하여 애플리케이션에서 사용자에게 표시할 최상의 환경을 선택하고, 사용자의 실시간 동작을 통해 학습하는 방법을 알아봅니다.'
+  ms.topic: landing-page
+  ms.date: 09/09/2019
+  ms.author: nitinme
   author: nitinme
-  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: personalizer
-  ms.topic: landing-page
-  ms.date: 05/07/2019
-  ms.author: nitinme
-abstract:
-  description: 'Azure Personalizer는 사용자에게 표시할 최상의 환경을 선택할 수 있는 클라우드 기반 API 서비스로, 사용자의 실시간 동작을 통해 학습합니다.'
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/personalizer/what-is-personalizer
-            html: <p>Personalizer가 하는 일과 사용 방법을 알아보세요.</p>
-            image:
-              src: ../media/index/i_guidelines.svg
-            title: Personalizer란?
-          - href: /azure/cognitive-services/personalizer/how-personalizer-works
-            html: <p>Personalizer 피드백 루프가 순위 및 보상 API와 함께 작동하는 방식을 알아보세요.</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: Personalizer의 작동 원리
-          - href: /azure/cognitive-services/personalizer/ethics-responsible-use
-            html: <p>귀사와 귀사에서 제공하는 서비스의 신뢰도를 높이는 방법으로 개인 설정을 구현하세요.</p>
-            image:
-              src: ../media/index/i_guidelines.svg
-            title: 윤리 및 책임
-  - title: 5분 빠른 시작
-    items:
-      - type: paragraph
-        text: ''
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ../media/index/logo_Csharp.svg
-            href: csharp-quickstart-commandline-feedback-loop.md
-            text: 'C#'
-  - title: 참고 자료
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: REST API
-            html: '<p><a href="https://go.microsoft.com/fwlink/?linkid=2092082">Personalizer API</a></p>'
-          - title: PowerShell
-            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
-          - title: CLI
-            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list">Azure CLI</a></p>'
+  services: cognitive-services
+  title: Personalizer 설명서
+  titleSuffix: Azure Cognitive Services
+  description: Azure Personalizer는 사용자에게 표시할 최상의 환경을 선택할 수 있는 클라우드 기반 API 서비스로, 사용자의 실시간 동작을 통해 학습합니다.
+  ms.openlocfilehash: 7c73472231b563c1efa583e356774f755abea3bf
+  ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 09/10/2019
+  ms.locfileid: "70845410"
+landingContent:
+- title: Personalizer 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Personalizer란?
+      url: what-is-personalizer.md
+  - linkListType: concept
+    links:
+    - text: Personalizer의 작동 원리
+      url: how-personalizer-works.md
+    - text: Personalizer를 사용할 수 있는 위치
+      url: where-can-you-use-personalizer.md
+    - text: 윤리 및 책임 있는 사용
+      url: ethics-responsible-use.md
+    - text: 개인 설정할 기능 및 작업 선택
+      url: concepts-features.md
+    - text: 보상을 계산하는 방법
+      url: concept-rewards.md
+    - text: 오프라인 평가
+      url: concepts-offline-evaluation.md
+  - linkListType: how-to-guide
+    links:
+    - text: 오프라인 평가로 성공 분석
+      url: how-to-offline-evaluation.md
+- title: Personalizer로 개발
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: .Net 사용
+      url: csharp-quickstart-commandline-feedback-loop.md
+    - text: Python 사용
+      url: python-quickstart-commandline-feedback-loop.md
+    - text: Node.js
+      url: quickstart-command-line-feedback-loop-nodejs-sdk.md
+  - linkListType: how-to-guide
+    links:
+    - text: Personalizer를 만들고 구성하는 방법
+      url: how-to-settings.md
+  - linkListType: reference
+    links:
+    - text: 코드 샘플
+      url: https://github.com/Azure-Samples/cognitive-services-personalizer-samples
+    - text: REST API
+      url: https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank
+    - text: NuGet 패키지
+      url: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/0.8.0-preview
+    - text: NPM 패키지
+      url: https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0
+    - text: Pypi 패키지
+      url: https://pypi.org/project/azure-cognitiveservices-personalizer/
+  - linkListType: concept
+    links:
+    - text: 확장성 및 성능
+      url: concepts-scalability-performance.md
+- title: 보충 학습 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 보충 학습이란?
+      url: concepts-reinforcement-learning.md
+  - linkListType: concept
+    links:
+    - text: 탐색
+      url: concepts-exploration.md
+    - text: 기능, 작업 및 컨텍스트
+      url: concepts-features.md
+    - text: 능동적 학습
+      url: concept-active-learning.md
+    - text: 보상
+      url: concept-rewards.md
+- title: 도움말 및 피드백
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 문제 해결
+      url: troubleshooting.md
+    - text: Stack Overflow에 대한 질문
+      url: https://stackoverflow.com/questions/tagged/personalizer
+    - text: UserVoice를 통한 서비스 영향
+      url: https://cognitive.uservoice.com/forums/921562-personalizer

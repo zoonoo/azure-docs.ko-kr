@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/03/2019
-ms.localizationpriority: high
+ms.date: 09/05/2019
 ms.author: alkohli
+ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: aab97257ff2e917dc264017043d3ca11a2ced1fc
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: b982e0bcd87a60e29b11c7123fbe5d675ab017b3
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240206"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390418"
 ---
 ::: zone target="chromeless"
 
@@ -85,12 +85,9 @@ ms.locfileid: "70240206"
 
 오스트레일리아의 Azure 데이터 센터에는 추가 보안 알림이 있습니다. 모든 인바운드 배송에는 고급 알림이 있어야 합니다. 오스트레일리아에서 픽업하려면 다음 단계를 수행합니다.
 
-1. 고유한 인바운드 ID 또는 TAU 코드가 있는 배송 레이블을 요청하는 이메일을 `adbops@microsoft.com`에 보냅니다. 레이블을 제 시간에 맞춰 받으려면 계획한 배송 날짜보다 최소 3일 전에 요청합니다.
-2. 이메일 제목은 *TAU 코드가 있는 역방향 배송 레이블 요청*이어야 합니다. 이메일에 포함되는 세부 정보는 다음과 같습니다. 
-
-    - 주문 이름
-    - 주소
-    - 담당자 이름
+1. 제공된 반송 레이블을 사용하고 TAU 코드(참조 번호)가 작성되어 있는지 확인합니다. 제공된 배송 레이블이 없거나 다른 문제가 있는 경우 [Data Box Asia Operations](mailto:adbo@microsoft.com)로 이메일을 보냅니다. 제목 헤더에 주문 이름과 사용자가 직면한 문제의 세부 정보를 제공합니다.
+3. 상자에 레이블을 부착합니다. 
+4. 링크 https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference 에서 온라인으로 픽업을 예약합니다. 
 
 ### <a name="pick-up-in-asia"></a>아시아에서 픽업
 

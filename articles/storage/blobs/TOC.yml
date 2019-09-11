@@ -1,5 +1,5 @@
-- name: Azure Storage 설명서
-  href: /azure/storage/
+- name: Azure Blob Storage 설명서
+  href: /azure/storage/blobs/
 - name: 개요
   expanded: true
   items:

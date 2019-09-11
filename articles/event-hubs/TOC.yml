@@ -30,6 +30,18 @@
           href: event-hubs-dotnet-standard-getstarted-send.md
         - name: Java
           href: event-hubs-java-get-started-send.md
+        - name: Python
+          href: event-hubs-python-get-started-send.md
+        - name: Node.js
+          href: event-hubs-node-get-started-send.md
+        - name: Go
+          href: event-hubs-go-get-started-send.md
+        - name: C(보내기 전용)
+          href: event-hubs-c-getstarted-send.md
+        - name: Apache Storm(받기 전용)
+          href: event-hubs-storm-getstarted-receive.md
+        - name: .NET Framework
+          href: event-hubs-dotnet-framework-getstarted-send.md
     - name: 이벤트 캡처
       items:
         - name: Azure Portal을 사용하여 Event Hubs 캡처를 사용하도록 설정
@@ -104,46 +116,20 @@
           href: event-hubs-exchange-events-different-protocols.md
         - name: 프로그래밍 가이드
           href: event-hubs-programming-guide.md
+        - name: 'Python을 사용하여 이벤트 보내기, 받기 및 캡처'
+          href: event-hubs-python.md
     - name: 데이터 처리
       items:
         - name: Azure Stream Analytics를 사용하여 데이터 처리
           href: process-data-azure-stream-analytics.md
-    - name: 클라이언트 라이브러리 사용
+    - name: Spring 프레임워크와 통합
       items:
-        - name: .NET Framework
-          items:
-            - name: .NET Framework를 사용하여 이벤트 보내기 및 받기
-              href: event-hubs-dotnet-framework-getstarted-send.md
-        - name: Java
-          items:
-            - name: Spring Cloud 스트림 바인더 앱 만들기
-              href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub
-              maintainContext: true
-            - name: Apache Kafka용 Spring Boot Starter 사용
-              href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
-              maintainContext: true
-        - name: Python
-          items:
-            - name: Python을 사용하여 이벤트 보내기 및 받기
-              href: event-hubs-python-get-started-send.md
-            - name: 'Python을 사용하여 이벤트 보내기, 받기 및 캡처'
-              href: event-hubs-python.md
-        - name: Node.js
-          items:
-            - name: Node.js를 사용하여 이벤트 보내기 및 받기
-              href: event-hubs-node-get-started-send.md
-        - name: Go
-          items:
-            - name: Go를 사용하여 이벤트 보내기 및 받기
-              href: event-hubs-go-get-started-send.md
-        - name: C(보내기 전용)
-          items:
-            - name: C를 사용하여 이벤트 보내기
-              href: event-hubs-c-getstarted-send.md
-        - name: Apache Storm(받기 전용)
-          items:
-            - name: Apache Storm을 사용하여 이벤트 받기
-              href: event-hubs-storm-getstarted-receive.md
+        - name: Spring Cloud 스트림 바인더 앱 만들기
+          href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub
+          maintainContext: true
+        - name: Apache Kafka용 Spring Boot Starter 사용
+          href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
+          maintainContext: true
     - name: Apache Kafka와 통합
       items:
         - name: Apache Kafka 지원 이벤트 허브 만들기

@@ -205,6 +205,8 @@
                       href: msal-net-system-browser-android-considerations.md
                     - name: Xamarin iOS
                       href: msal-net-xamarin-ios-considerations.md
+                    - name: Xamarin iOS 및 Android 애플리케이션과 함께 broker 사용
+                      href: msal-net-use-brokers-with-xamarin-apps.md
                     - name: 범용 Windows 플랫폼
                       href: msal-net-uwp-considerations.md
                 - name: 앱용 토큰 획득
@@ -225,6 +227,8 @@
                   href: msal-net-migration.md
                 - name: MSAL.js로 마이그레이션
                   href: msal-compare-msal-js-and-adal-js.md
+                - name: broker를 사용하여 ADAL.NET에서 MSAL.NET으로 Xamarin 앱 마이그레이션
+                  href: msal-net-migration-ios-broker.md
             - name: 지원되는 인증 흐름
               href: msal-authentication-flows.md
             - name: 토큰 획득 및 캐시
