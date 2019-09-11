@@ -29,7 +29,7 @@ ms.locfileid: "70242055"
 
 [Azure App Service](overview.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다.
 
-이 빠른 시작에서는 첫 번째 ASP.NET Core 웹앱을 Azure App Service에 배포하는 방법을 보여줍니다. 완료되면 배포된 웹 애플리케이션으로 App Service 계획 및 App Service 앱으로 구성된 리소스 그룹이 만들어집니다.
+이 빠른 시작에서는 첫 번째 ASP.NET Core 웹앱을 Azure App Service에 배포하는 방법을 보여줍니다. 빠른 시작을 마치고 나면 배포된 웹 애플리케이션으로 App Service 계획 및 App Service 앱으로 구성된 리소스 그룹이 만들어집니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -75,7 +75,7 @@ Visual Studio 2019를 이미 설치한 경우:
 1. **App Service 새로 만들기**의 옵션은 Azure에 이미 로그인했는지 여부와 Azure 계정에 연결된 Visual Studio 계정이 있는지 여부에 따라 달라집니다. **계정 추가** 또는 **로그인** 중 하나를 선택하여 Azure 구독에 로그인합니다. 이미 로그인한 경우 원하는 계정을 선택합니다.
 
    > [!NOTE]
-   > 이미 로그인한 경우 **만들기**를 선택하지 마십시오.
+   > 이미 로그인한 경우 아직 **만들기**를 선택하지 마십시오.
    >
 
    ![Azure에 로그인](./media/app-service-web-get-started-dotnet/sign-in-azure-vs2019.png)
@@ -94,7 +94,7 @@ Visual Studio 2019를 이미 설치한 경우:
 
    | 설정 | 제안 값 | 설명 |
    |-|-|-|
-   |App Service 플랜| myAppServicePlan | App Service 계획의 이름입니다. |
+   |App Service 계획| myAppServicePlan | App Service 계획의 이름입니다. |
    | 위치 | 서유럽 | 웹앱이 호스팅된 데이터 센터입니다. |
    | 크기 | 무료 | [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)은 호스팅 기능을 결정합니다. |
 
