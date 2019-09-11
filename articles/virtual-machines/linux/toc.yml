@@ -145,8 +145,8 @@
       href: backup-recovery.md
     - name: 인프라 지침
       href: infrastructure-example.md
-    - name: 보안 특성
-      href: virtual-machines-linux-security-attributes.md
+    - name: 기본 제공 보안 컨트롤
+      href: virtual-machines-linux-security-controls.md
 - name: 방법 가이드
   items:
     - name: VM 만들기

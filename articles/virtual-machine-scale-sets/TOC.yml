@@ -163,8 +163,8 @@
           maintainContext: true
     - name: 확장 집합 FAQ
       href: virtual-machine-scale-sets-faq.md
-    - name: 보안 특성
-      href: virtual-machine-scale-sets-security-attributes.md
+    - name: 기본 제공 보안 컨트롤
+      href: virtual-machine-scale-sets-security-controls.md
 - name: 방법
   items:
     - name: 계획 및 디자인

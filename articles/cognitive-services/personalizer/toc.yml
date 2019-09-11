@@ -6,6 +6,9 @@
     - name: Personalizer란?
       href: what-is-personalizer.md
       displayName: 'loop, context, feature, action, rank, reward, developer, use case'
+    - name: 새로운 기능
+      href: whats-new.md
+      displayName: 'release notes, service updates, videos'
 - name: 빠른 시작
   items:
     - name: 'C# 사용'

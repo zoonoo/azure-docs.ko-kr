@@ -77,8 +77,8 @@
           href: overview-authentication-authorization.md
         - name: OS 및 런타임 패치
           href: overview-patch-os-runtime.md
-        - name: 보안 특성
-          href: app-service-security-attributes.md
+        - name: 기본 제공 보안 컨트롤
+          href: app-service-security-controls.md
         - name: 보안 개요
           href: overview-security.md
     - name: 네트워킹 기능

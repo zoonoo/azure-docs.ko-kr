@@ -131,8 +131,8 @@
           href: service-fabric-application-and-service-security.md
         - name: Service Fabric 클러스터 보안
           href: service-fabric-cluster-security.md
-        - name: Azure 공통 보안 특성
-          href: service-fabric-security-attributes.md
+        - name: 기본 제공 보안 컨트롤
+          href: service-fabric-security-controls.md
     - name: 용어
       href: service-fabric-technical-overview.md
     - name: 애플리케이션 빌드

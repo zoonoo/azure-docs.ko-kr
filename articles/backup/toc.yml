@@ -80,8 +80,8 @@
       href: backup-azure-backup-server-import-export-.md
     - name: 테이프 라이브러리 교체
       href: backup-azure-backup-cloud-as-tape.md
-    - name: Azure 공통 보안 특성
-      href: backup-security-attributes.md
+    - name: 기본 제공 보안 컨트롤
+      href: backup-security-controls.md
 - name: 방법
   items:
     - name: Azure Backup 서버

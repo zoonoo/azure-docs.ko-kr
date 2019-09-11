@@ -29,7 +29,7 @@
     - name: 클라이언트 라이브러리
       href: analysis-services-data-providers.md
     - name: 호환성 수준
-      href: analysis-services-compat-level.md
+      href: 'https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services'
     - name: 온-프레미스 데이터 원본에 연결
       href: analysis-services-gateway.md
     - name: 서버에 연결

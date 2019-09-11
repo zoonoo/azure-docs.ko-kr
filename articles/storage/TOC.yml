@@ -8,13 +8,13 @@
     - name: 'Blob, 파일 또는 디스크 선택'
       href: ./common/storage-decide-blobs-files-disks.md
 - name: Blob
-  href: ./blobs/storage-blobs-overview.md
+  href: ./blobs/index.yml
 - name: Data Lake Storage Gen2
-  href: ./blobs/data-lake-storage-introduction.md
+  href: ./blobs/index.yml
 - name: 파일
-  href: ./files/storage-files-introduction.md
+  href: ./files/index.yml
 - name: 큐
-  href: ./queues/storage-queues-introduction.md
+  href: ./queues/index.yml
 - name: 테이블
   href: ./tables/table-storage-overview.md
 - name: 디스크

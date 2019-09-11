@@ -321,8 +321,8 @@
   href: best-practices-and-patterns.md
 - name: 리소스
   items:
-    - name: 일반적인 보안 특성
-      href: common-security-attributes.md
+    - name: 기본 제공 보안 컨트롤
+      href: security-controls.md
     - name: Azure 보안 MVP 프로그램
       href: mvp.md
     - name: 사이버 보안 컨설팅
