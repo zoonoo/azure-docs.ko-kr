@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 8d7346bb61fad09e3f7c9098809463285ef57e93
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 6e12a16b221a8f31d82a002fbc93b090d6f0c577
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70242492"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861260"
 ---
 # <a name="ip-addresses-of-azure-api-management"></a>Azure API Management의 IP 주소
 
@@ -102,5 +102,6 @@ API Management의 개발자, 기본, 표준 및 프리미엄 계층에서 VIP (�
 * 서비스가 삭제된 다음 다시 생성되었습니다.
 * 서비스 구독이 [일시 중단](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states)되거나 [경고](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states)된 다음(예: 미지불) 복원되었습니다.
 * Azure Virtual Network 서비스에서 추가 되거나 제거 됩니다.
+* API Management 서비스가 외부 및 내부 Vnet 배포 모드 사이에서 전환 되었습니다.
 
 [다중 지역 배포](api-management-howto-deploy-multi-region.md)에서는 지역이 비워진 후 복원 되는 경우 지역 IP 주소가 변경 됩니다.

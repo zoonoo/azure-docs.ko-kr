@@ -183,7 +183,7 @@ VNet에 방화벽을 배포합니다.
 
 ## <a name="configure-an-application-rule"></a>애플리케이션 규칙 구성
 
-www.google.com에 대한 아웃바운드 액세스를 허용하는 애플리케이션 규칙입니다.
+[www.google.com](www.google.com) 에 대한 아웃바운드 액세스를 허용하는 애플리케이션 규칙입니다.
 
 1. **Test-FW-RG**를 열고 **Test-FW01** 방화벽을 선택합니다.
 2. **Test-FW01** 페이지의 **설정**에서 **규칙**을 선택합니다.

@@ -15,12 +15,12 @@ ms.date: 08/27/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: fb1007929a26384da60e542865c750fd1d642440
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 5f273f2eb36b0bd1d6757eb1ffb2403641cd461f
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114665"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801382"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure 리소스에 대한 기본 제공 역할
 
@@ -36,7 +36,7 @@ ms.locfileid: "70114665"
 | 기본 제공 역할 | 설명 |
 | --- | --- |
 | [소유자](#owner) | 리소스 액세스를 비롯한 모든 것을 관리할 수 있습니다. |
-| [기여자](#contributor) | 리소스 액세스를 제외한 모든 것을 관리할 수 있습니다. |
+| [기여자](#contributor) | 리소스 액세스 권한을 부여 하는 것을 제외 하 고 모든 항목을 관리할 수 있습니다. |
 | [판독기](#reader) | 모든 것을 볼 수 있지만 변경은 할 수 없습니다. |
 | [AcrDelete](#acrdelete) | acr 삭제 |
 | [AcrImageSigner](#acrimagesigner) | acr 이미지 서명자 |

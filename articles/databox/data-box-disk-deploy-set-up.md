@@ -10,12 +10,12 @@ ms.date: 09/04/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: a0c43a43525b208927cc3512872e7f79fddab217
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 91baec55cb976a3bc64ac60b1759c80e64fd18a3
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307161"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375896"
 ---
 ::: zone target="docs"
 
@@ -314,9 +314,7 @@ Windows 또는 Linux 클라이언트에 연결되는지에 따라 디스크의 �
 
 디스크가 잠금 해제되면 디스크의 콘텐츠를 볼 수 있습니다.
 
-디스크를 설정하는 방법에 대한 자세한 내용은 [Data Box Disk 압축 풀기](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-set-up?context=context/chromeless&linktarget=new)로 이동하세요.
-
-디스크 잠금 해제 방법에 대한 자세한 내용은 [Windows 클라이언트에서 Data Box Disk 잠금 해제](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-set-up?context=context/chromeless&fromOrigin=https://ms.azure.com&linktarget=new)로 이동하세요.
+디스크 설정 및 잠금 해제하는 방법에 대한 자세한 내용은 [Data Box Disk 설정](data-box-disk-deploy-set-up.md)으로 이동하세요.
 
 ::: zone-end
 

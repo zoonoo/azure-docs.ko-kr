@@ -1,105 +1,96 @@
 ---
-title: 'Azure Active Directory Domain Services: 범위가 지정된 동기화 | Microsoft Docs'
-description: Azure AD에서 관리되는 도메인으로 범위 동기화 구성
+title: Azure AD Domain Services에 대 한 범위 동기화 Microsoft Docs
+description: Azure AD에서 Azure Active Directory Domain Services 관리 되는 도메인으로 범위 동기화를 구성 하는 방법을 알아봅니다.
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 ms.assetid: 9389cf0f-0036-4b17-95da-80838edd2225
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 09/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 7d3bd8c6c62c0b8a1be6203e426337fcee7d2126
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 5fe19d3800883782187ae15c0a6fc0cd9709f0e9
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617126"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70842676"
 ---
-# <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Azure AD에서 관리되는 도메인으로 범위 동기화 구성
-이 문서에서는 Azure AD 디렉터리에서 Azure AD Domain Services 관리되는 도메인으로 특정 사용자 계정만 동기화하도록 구성하는 방법을 보여 줍니다.
+# <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services"></a>Azure AD에서 Azure Active Directory Domain Services로 범위 동기화 구성
 
+인증 서비스를 제공 하기 위해 Azure Active Directory Domain Services (Azure AD DS)는 Azure AD에서 사용자 및 그룹을 동기화 합니다. 하이브리드 환경에서 온-프레미스 Active Directory Domain Services (AD DS) 환경의 사용자와 그룹은 먼저 Azure AD Connect를 사용 하 여 Azure AD에 동기화 한 후 Azure AD DS로 동기화 할 수 있습니다. 기본적으로 Azure AD 디렉터리의 모든 사용자 및 그룹은 Azure AD DS 관리 되는 도메인에 동기화 됩니다. 특정 요구 사항이 있는 경우에는 정의 된 사용자 집합만 동기화 하도록 선택할 수 있습니다.
 
-## <a name="group-based-scoped-synchronization"></a>그룹 기반 범위 동기화
-기본적으로 Azure AD 디렉터리 내의 모든 사용자와 그룹이 관리되는 도메인에 동기화됩니다. 몇몇 사용자만 관리되는 도메인을 사용하는 경우 해당 사용자 계정만 동기화할 수 있습니다. 그룹 기반 범위 동기화를 사용하여 이를 수행할 수 있습니다. 구성될 경우 지정한 그룹에 속한 사용자 계정만 관리되는 도메인에 동기화됩니다.
+이 문서에서는 범위 지정 된 동기화를 사용 하는 Azure AD DS 관리 되는 도메인을 만든 다음 범위 지정 된 사용자 집합을 변경 하거나 사용 하지 않도록 설정 하는 방법을 보여 줍니다.
 
-다음 표는 범위 동기화를 사용하는 방법을 확인하는 데 도움이 됩니다.
+## <a name="scoped-synchronization-overview"></a>범위 동기화 개요
 
-| **현재 상태** | **필요한 상태** | **필수 구성** |
+기본적으로 Azure AD 디렉터리의 모든 사용자 및 그룹은 Azure AD DS 관리 되는 도메인에 동기화 됩니다. 사용자가 관리 되는 도메인에만 액세스 해야 하는 경우에는 해당 사용자 계정만 동기화 할 수 있습니다. 이 범위 동기화는 그룹을 기반으로 합니다. 그룹 기반 범위 동기화를 구성 하는 경우 지정한 그룹에 속하는 사용자 계정만 Azure AD DS 관리 되는 도메인에 동기화 됩니다.
+
+다음 표에서는 범위 동기화를 사용 하는 방법을 간략하게 설명 합니다.
+
+| 현재 상태 | 필요한 상태 | 필요한 구성 |
 | --- | --- | --- |
-| 기존 관리되는 도메인이 모든 사용자 계정 및 그룹을 동기화하도록 구성되어 있습니다. | 특정 그룹에 속한 사용자 계정만 관리되는 도메인에 동기화하려고 합니다. | [기존 관리되는 도메인을 삭제](delete-aadds.md)합니다. 그런 다음, 이 문서의 지침에 따라 범위 동기화를 구성하고 관리되는 도메인을 다시 만듭니다. |
-| 기존 관리되는 도메인이 없습니다. | 새 관리되는 도메인을 만들고 특정 그룹에 속한 사용자 계정만 동기화하려고 합니다. | 이 문서의 지침에 따라 범위 동기화를 구성하고 새 관리되는 도메인을 만듭니다. |
-| 기존 관리되는 도메인이 특정 그룹에 속한 계정만 동기화하도록 구성되어 있습니다. | 관리되는 도메인에 동기화되어야 하는 사용자가 속한 그룹 목록을 수정하려고 합니다. | 이 문서의 지침에 따라 범위 동기화를 수정합니다. |
+| 기존 관리 되는 도메인은 모든 사용자 계정 및 그룹을 동기화 하도록 구성 됩니다. | 특정 그룹에 속한 사용자 계정만 동기화 하려고 합니다. | 범위 동기화를 사용 하 여 모든 사용자를 동기화 하도록 변경할 수는 없습니다. [기존 관리 되는 도메인을 삭제](delete-aadds.md)한 다음이 문서의 단계에 따라 범위 동기화를 구성 하 여 Azure AD DS 관리 되는 도메인을 다시 만듭니다. |
+| 기존 관리 되는 도메인이 없습니다. | 새 관리되는 도메인을 만들고 특정 그룹에 속한 사용자 계정만 동기화하려고 합니다. | 이 문서의 단계에 따라 범위 동기화를 구성 하 여 Azure AD DS 관리 되는 도메인을 만듭니다. |
+| 기존 관리 되는 도메인은 특정 그룹에 속한 계정만 동기화 하도록 구성 됩니다. | 사용자가 Azure AD DS 관리 되는 도메인에 동기화 해야 하는 그룹 목록을 수정 하려고 합니다. | 이 문서의 단계에 따라 범위 동기화를 수정 합니다. |
+
+Azure Portal 또는 PowerShell을 사용 하 여 범위 지정 동기화 설정을 구성 합니다.
+
+| 작업 | | |
+|--|--|--|
+| Azure AD DS 관리 되는 도메인을 만들고 범위 동기화를 구성 합니다. | [Azure Portal](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
+| 범위 동기화 수정 | [Azure Portal](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |
+| 범위 동기화 사용 안 함 | [Azure Portal](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
 
 > [!WARNING]
-> **동기화 범위를 변경하면 관리되는 도메인이 다시 동기화됩니다.**
+> 동기화 범위를 변경 하면 Azure AD DS 관리 되는 도메인에서 모든 데이터를 다시 동기화 합니다.
 > 
->  * 관리되는 도메인의 동기화 범위를 변경하면 전체 다시 동기화가 수행됩니다.
->  * 관리되는 도메인에서 더 이상 필요하지 않은 개체는 삭제됩니다. 새 개체는 관리되는 도메인에서 만들어집니다.
->  * 다시 동기화는 관리되는 도메인 및 Azure AD 디렉터리의 개체(사용자, 그룹 및 그룹 멤버십) 수에 따라 완료하는 데 오래 걸릴 수 있습니다. 수십만 개의 많은 개체가 있는 큰 디렉터리의 경우 다시 동기화에 며칠이 걸릴 수 있습니다.
+>  * Azure AD DS 관리 되는 도메인에 대 한 동기화 범위를 변경 하는 경우 전체 다시 동기화가 발생 합니다.
+>  * Azure AD DS 관리 되는 도메인에서 더 이상 필요 하지 않은 개체는 삭제 됩니다. 새 개체는 관리되는 도메인에서 만들어집니다.
+>  * 다시 동기화를 완료 하는 데 시간이 오래 걸릴 수 있습니다. 동기화 시간은 Azure AD DS 관리 되는 도메인 및 Azure AD 디렉터리의 사용자, 그룹 및 그룹 멤버 자격과 같은 개체의 수에 따라 달라 집니다. 수십만 개의 많은 개체가 있는 큰 디렉터리의 경우 다시 동기화에 며칠이 걸릴 수 있습니다.
 
+## <a name="enable-scoped-synchronization-using-the-azure-portal"></a>Azure Portal를 사용 하 여 범위 동기화 사용
 
-## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-azure-portal"></a>새 관리형 도메인 만들기 및 Azure Portal을 사용하여 그룹 기반 범위 동기화 사용하도록 설정
+1. 자습서에 따라 [Azure AD DS 인스턴스를 만들고 구성](tutorial-create-instance.md)합니다. 동기화 범위 이외의 모든 필수 구성 요소 및 배포 단계를 완료 합니다.
+1. 동기화 단계에서 **범위** 를 선택 하 고 azure AD DS 인스턴스에 동기화 할 azure AD 그룹을 선택 합니다.
 
-1. [시작 가이드](tutorial-create-instance.md)에 따라 관리형 도메인을 만듭니다.
-2. Azure AD Domain Services 만들기 마법사에서 동기화 스타일 선택 중에 **범위**를 선택합니다.
+Azure AD DS 관리 되는 도메인은 배포를 완료 하는 데 최대 한 시간이 걸릴 수 있습니다. Azure Portal에서 Azure AD DS 관리 되는 도메인의 **개요** 페이지에는이 배포 단계 전체에서 현재 상태가 표시 됩니다.
 
-## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-powershell"></a>새 관리형 도메인 만들기 및 PowerShell을 사용하여 그룹 기반 범위 동기화 사용하도록 설정
-PowerShell을 사용하여 이 단계 집합을 완료합니다. [PowerShell을 사용하여 Azure Active Directory Domain Services를 사용](powershell-create-instance.md)하도록 설정하려면 지침을 참조하세요. 이 문서의 몇 단계는 범위 동기화를 구성하기 위해 약간 수정되었습니다.
+Azure Portal Azure AD DS 관리 되는 도메인이 프로 비전을 완료 한 것으로 표시 되는 경우 다음 작업을 완료 해야 합니다.
 
-다음 단계를 완료하여 관리되는 도메인에 대한 그룹 기반 범위 동기화를 구성합니다.
+* 가상 머신이 도메인 가입 또는 인증을 위해 관리되는 도메인을 찾을 수 있도록 가상 네트워크에 대한 DNS 설정을 업데이트합니다.
+    * DNS를 구성 하려면 포털에서 Azure AD DS 관리 되는 도메인을 선택 합니다. **개요** 창에서 자동으로 이러한 DNS 설정을 구성 하 라는 메시지가 표시 됩니다.
+* 최종 사용자가 회사 자격 증명을 사용 하 여 관리 되는 도메인에 로그인 할 수 있도록 [Azure AD Domain Services에 대해 암호 동기화를 사용 하도록 설정](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) 합니다.
 
-1. 다음 작업을 완료합니다.
-   * [작업 1: 필수 PowerShell 모듈 설치](powershell-create-instance.md#task-1-install-the-required-powershell-modules)
-   * [작업 2: Azure AD 디렉터리에서 필요한 서비스 주체 만들기](powershell-create-instance.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory)
-   * [작업 3: ' AAD DC 관리자 ' 그룹] powershell을 만들고 구성 합니다. md # 작업-3----------------------------------
-   * [작업 4: Azure AD Domain Services 리소스 공급자 등록](powershell-create-instance.md#task-4-register-the-azure-ad-domain-services-resource-provider)
-   * [작업 5: 리소스 그룹 만들기](powershell-create-instance.md#task-5-create-a-resource-group)
-   * [작업 6: 가상 네트워크 만들기 및 구성](powershell-create-instance.md#task-6-create-and-configure-the-virtual-network)
+## <a name="modify-scoped-synchronization-using-the-azure-portal"></a>Azure Portal를 사용 하 여 범위 동기화 수정
 
-2. 동기화할 그룹을 선택하고 관리되는 도메인에 동기화할 그룹의 표시 이름을 제공합니다.
+사용자가 Azure AD DS 관리 되는 도메인에 동기화 해야 하는 그룹 목록을 수정 하려면 다음 단계를 완료 합니다.
 
-3. [다음 섹션의 스크립트](scoped-synchronization.md#script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1)를 ```Select-GroupsToSync.ps1``` 파일에 저장합니다. 다음과 같이 스크립트를 실행합니다.
+1. Azure Portal에서 Azure AD DS 인스턴스 (예: *contoso.com*)를 선택 합니다.
+1. 왼쪽의 메뉴에서 **동기화** 를 선택 합니다.
+1. 그룹을 추가 하려면 위쪽에서 **+ 그룹을 선택** 하 고 추가할 그룹을 선택 합니다.
+1. 동기화 범위에서 그룹을 제거 하려면 현재 동기화 된 그룹 목록에서 해당 그룹을 선택 하 고 **그룹 제거**를 선택 합니다.
+1. 모든 변경이 수행 되 면 **동기화 범위 저장**을 선택 합니다.
 
-   ```powershell
-   .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName2")
-   ```
+동기화 범위를 변경 하면 Azure AD DS 관리 되는 도메인에서 모든 데이터를 다시 동기화 합니다. Azure AD DS 관리 되는 도메인에서 더 이상 필요 하지 않은 개체가 삭제 되 고 다시 동기화를 완료 하는 데 시간이 오래 걸릴 수 있습니다.
 
-   > [!WARNING]
-   > **‘AAD DC 관리자’ 그룹을 포함해야 합니다.**
-   >
-   > 범위 동기화를 위해 구성된 그룹 목록에 ‘AAD DC 관리자’ 그룹을 포함해야 합니다. 이 그룹을 포함하지 않으면 관리되는 도메인을 사용할 수 없습니다.
-   >
+## <a name="disable-scoped-synchronization-using-the-azure-portal"></a>Azure Portal를 사용 하 여 범위 동기화 사용 안 함
 
-4. 이제 관리되는 도메인을 만들고 관리되는 도메인의 그룹 기반 범위 동기화를 사용하도록 설정합니다. ```Properties``` 매개 변수에 ```"filteredSync" = "Enabled"``` 속성을 포함합니다. 예를 들어, [작업 7: Azure AD Domain Services 관리되는 도메인 프로비전](powershell-create-instance.md#task-7-provision-the-azure-ad-domain-services-managed-domain)에서 복사한 다음 스크립트 조각을 참조하세요.
+Azure AD DS 관리 되는 도메인에 대 한 그룹 기반 범위 동기화를 사용 하지 않도록 설정 하려면 다음 단계를 완료 합니다.
 
-   ```powershell
-   $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-   $ManagedDomainName = "contoso.com"
-   $ResourceGroupName = "ContosoAaddsRg"
-   $VnetName = "DomainServicesVNet_WUS"
-   $AzureLocation = "westus"
+1. Azure Portal에서 Azure AD DS 인스턴스 (예: *contoso.com*)를 선택 합니다.
+1. 왼쪽의 메뉴에서 **동기화** 를 선택 합니다.
+1. 동기화 범위를 **범위** 에서 **모두**로 설정 하 고 **동기화 범위 저장**을 선택 합니다.
 
-   # Enable Azure AD Domain Services for the directory.
-   New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
-   -Location $AzureLocation `
-   -Properties @{"DomainName"=$ManagedDomainName; "filteredSync" = "Enabled"; `
-    "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
-   -ApiVersion 2017-06-01 -Force -Verbose
-   ```
+동기화 범위를 변경 하면 Azure AD DS 관리 되는 도메인에서 모든 데이터를 다시 동기화 합니다. Azure AD DS 관리 되는 도메인에서 더 이상 필요 하지 않은 개체가 삭제 되 고 다시 동기화를 완료 하는 데 시간이 오래 걸릴 수 있습니다.
 
-   > [!TIP]
-   > ```-Properties``` 매개 변수에 ```"filteredSync" = "Enabled"```를 포함해야 관리되는 도메인에 범위 동기화를 사용할 수 있습니다.
+## <a name="powershell-script-for-scoped-synchronization"></a>범위가 지정 된 동기화를 위한 PowerShell 스크립트
 
+PowerShell을 사용 하 여 범위 동기화를 구성 하려면 먼저 다음 스크립트를 라는 `Select-GroupsToSync.ps1`파일에 저장 합니다. 이 스크립트는 azure AD에서 선택한 그룹을 동기화 하도록 Azure AD DS를 구성 합니다. 지정 된 그룹에 속하는 모든 사용자 계정은 Azure AD DS 관리 되는 도메인에 동기화 됩니다.
 
-## <a name="script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1"></a>관리되는 도메인에 동기화할 그룹을 선택하는 스크립트(Select-GroupsToSync.ps1)
-다음 스크립트를 파일(```Select-GroupsToSync.ps1```)에 저장합니다. 이 스크립트는 선택한 그룹을 관리되는 도메인에 동기화하도록 Azure AD Domain Services를 구성합니다. 지정된 그룹에 속한 모든 사용자 계정이 관리되는 도메인에 동기화됩니다.
+이 스크립트는이 문서의 추가 단계에서 사용 됩니다.
 
 ```powershell
 param (
@@ -178,33 +169,87 @@ foreach ($id in $newGroupIds)
 Write-Output "****************************************************************************`n"
 ```
 
+## <a name="enable-scoped-synchronization-using-powershell"></a>PowerShell을 사용 하 여 범위 동기화 사용
 
-## <a name="modify-group-based-scoped-synchronization"></a>그룹 기반 범위 동기화 수정
-관리되는 도메인에 동기화되어야 하는 사용자가 속한 그룹 목록을 수정하려면 [PowerShell 스크립트](scoped-synchronization.md#script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1)를 다시 실행하고 새 그룹 목록을 지정합니다. 항상 이 목록에서 ‘AAD DC 관리자’ 그룹을 지정해야 합니다.
+PowerShell을 사용하여 이 단계 집합을 완료합니다. [PowerShell을 사용하여 Azure Active Directory Domain Services를 사용](powershell-create-instance.md)하도록 설정하려면 지침을 참조하세요. 이 문서의 몇 단계는 범위 동기화를 구성하기 위해 약간 수정되었습니다.
+
+1. PowerShell을 사용 하 여 Azure AD DS를 사용 하도록 설정 하려면 문서에서 다음 작업을 완료 합니다. 관리 되는 도메인을 실제로 만드는 단계를 중지 합니다. 범위 동기화를 구성 하 여 Azure AD DS 관리 되는 도메인을 만듭니다.
+
+   * [필요한 PowerShell 모듈을 설치](powershell-create-instance.md#prerequisites)합니다.
+   * [관리 액세스를 위해 필요한 서비스 주체 및 AZURE AD 그룹을 만듭니다](powershell-create-instance.md#create-required-azure-ad-resources).
+   * [가상 네트워크 및 서브넷과 같은 지원 Azure 리소스를 만듭니다](powershell-create-instance.md#create-supporting-azure-resources).
+
+1. Azure AD에서 동기화 하려는 그룹 및 사용자가 포함 되어 있는지 확인 합니다. Azure AD DS와 동기화 할 그룹의 표시 이름 목록을 만듭니다.
+
+1. [이전 섹션에서 스크립트](#powershell-script-for-scoped-synchronization) 를 실행 하 고 *-groupstoadd* 매개 변수를 사용 하 여 동기화 할 그룹 목록을 전달 합니다.
+
+   > [!WARNING]
+   > 범위 동기화에 대 한 그룹 목록에 *AAD DC 관리자* 그룹을 포함 해야 합니다. 이 그룹을 포함 하지 않으면 Azure AD DS 관리 되는 도메인을 사용할 수 없습니다.
+
+   ```powershell
+   .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName2")
+   ```
+
+1. 이제 Azure AD DS 관리 되는 도메인을 만들고 그룹 기반 범위 동기화를 사용 하도록 설정 합니다. *-Properties* 매개 변수에는 *"filteredSync" = "Enabled"* 를 포함 합니다.
+
+    Azure 구독 ID를 설정 하 고 관리 되는 도메인의 이름 (예: *contoso.com*)을 입력 합니다. [AzSubscription][Get-AzSubscription] cmdlet을 사용 하 여 구독 ID를 가져올 수 있습니다. 리소스 그룹 이름, 가상 네트워크 이름 및 지역을 이전 단계에서 사용 된 값으로 설정 하 여 지원 되는 Azure 리소스를 만듭니다.
+
+   ```powershell
+   $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
+   $ManagedDomainName = "contoso.com"
+   $ResourceGroupName = "myResourceGroup"
+   $VnetName = "myVnet"
+   $AzureLocation = "westus"
+
+   # Enable Azure AD Domain Services for the directory.
+   New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
+   -Location $AzureLocation `
+   -Properties @{"DomainName"=$ManagedDomainName; "filteredSync" = "Enabled"; `
+    "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
+   -Force -Verbose
+   ```
+
+리소스를 만들고 PowerShell 프롬프트로 제어를 반환 하는 데 몇 분 정도 걸립니다. Azure AD DS 관리 되는 도메인은 백그라운드에서 계속 프로 비전 되 고 배포를 완료 하는 데 최대 한 시간이 걸릴 수 있습니다. Azure Portal에서 Azure AD DS 관리 되는 도메인의 **개요** 페이지에는이 배포 단계 전체에서 현재 상태가 표시 됩니다.
+
+Azure Portal Azure AD DS 관리 되는 도메인이 프로 비전을 완료 한 것으로 표시 되는 경우 다음 작업을 완료 해야 합니다.
+
+* 가상 머신이 도메인 가입 또는 인증을 위해 관리되는 도메인을 찾을 수 있도록 가상 네트워크에 대한 DNS 설정을 업데이트합니다.
+    * DNS를 구성 하려면 포털에서 Azure AD DS 관리 되는 도메인을 선택 합니다. **개요** 창에서 자동으로 이러한 DNS 설정을 구성 하 라는 메시지가 표시 됩니다.
+* 최종 사용자가 회사 자격 증명을 사용 하 여 관리 되는 도메인에 로그인 할 수 있도록 [Azure AD Domain Services에 대해 암호 동기화를 사용 하도록 설정](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) 합니다.
+
+## <a name="modify-scoped-synchronization-using-powershell"></a>Powershell을 사용 하 여 범위 동기화 수정
+
+사용자가 Azure AD DS 관리 되는 도메인에 동기화 해야 하는 그룹 목록을 수정 하려면 [PowerShell 스크립트](#powershell-script-for-scoped-synchronization) 를 다시 실행 하 고 새 그룹 목록을 지정 합니다. 다음 예제에서는 동기화 할 그룹이 더 이상 *GroupName2*를 포함 하지 않으며 이제 *GroupName3*를 포함 합니다.
 
 > [!WARNING]
-> **‘AAD DC 관리자’ 그룹을 포함해야 합니다.**
->
-> 범위 동기화를 위해 구성된 그룹 목록에 ‘AAD DC 관리자’ 그룹을 포함해야 합니다. 이 그룹을 포함하지 않으면 관리되는 도메인을 사용할 수 없습니다.
->
-
-
-## <a name="disable-group-based-scoped-synchronization"></a>그룹 기반 범위 동기화 사용 안 함
-다음 PowerShell 스크립트를 사용하여 관리되는 도메인의 그룹 기반 범위 동기화를 사용하지 않도록 설정합니다.
+> 범위 동기화에 대 한 그룹 목록에 *AAD DC 관리자* 그룹을 포함 해야 합니다. 이 그룹을 포함 하지 않으면 Azure AD DS 관리 되는 도메인을 사용할 수 없습니다.
 
 ```powershell
-// Login to your Azure AD tenant
-Login-AzAccount
+.\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName3")
+```
 
-// Retrieve the Azure AD Domain Services resource.
+동기화 범위를 변경 하면 Azure AD DS 관리 되는 도메인에서 모든 데이터를 다시 동기화 합니다. Azure AD DS 관리 되는 도메인에서 더 이상 필요 하지 않은 개체가 삭제 되 고 다시 동기화를 완료 하는 데 시간이 오래 걸릴 수 있습니다.
+
+## <a name="disable-scoped-synchronization-using-powershell"></a>PowerShell을 사용 하 여 범위 동기화 사용 안 함
+
+Azure AD DS 관리 되는 도메인에 대 한 그룹 기반 범위 동기화를 사용 하지 않도록 설정 하려면 Azure AD DS 리소스에서 *"filteredSync" = "Disabled"* 를 설정 하 고 관리 되는 도메인을 업데이트 합니다. 완료 되 면 모든 사용자 및 그룹이 Azure AD에서 동기화 되도록 설정 됩니다.
+
+```powershell
+// Retrieve the Azure AD DS resource.
 $DomainServicesResource = Get-AzResource -ResourceType "Microsoft.AAD/DomainServices"
 
 // Disable group-based scoped synchronization.
 $disableScopedSync = @{"filteredSync" = "Disabled"}
 
+// Update the Azure AD DS resource
 Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $disableScopedSync
 ```
 
+동기화 범위를 변경 하면 Azure AD DS 관리 되는 도메인에서 모든 데이터를 다시 동기화 합니다. Azure AD DS 관리 되는 도메인에서 더 이상 필요 하지 않은 개체가 삭제 되 고 다시 동기화를 완료 하는 데 시간이 오래 걸릴 수 있습니다.
+
 ## <a name="next-steps"></a>다음 단계
-* [Azure AD Domain Services의 동기화 이해](synchronization.md)
-* [PowerShell을 사용하여 Azure Active Directory Domain Services 사용](powershell-create-instance.md)
+
+동기화 프로세스에 대해 자세히 알아보려면 [Azure AD Domain Services의 동기화 이해](synchronization.md)를 참조 하세요.
+
+<!-- EXTERNAL LINKS -->
+[Get-AzSubscription]: /powershell/module/Az.Accounts/Get-AzSubscription
