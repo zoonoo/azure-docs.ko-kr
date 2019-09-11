@@ -67,7 +67,7 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
 STORED AS TEXTFILE LOCATION '/example/data/';
 ```
 
-또한 Hive는 복잡하거나 불규칙하게 구조화된 데이터에 대한 사용자 지정을 **serializer/deserializers(SerDe)** 지원합니다. 자세한 내용은 [HDInsight와 함께 사용자 지정 JSON SerDe를 사용하는 방법](https://web.archive.org/web/20190217104719/ https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/) 문서를 참조하세요.
+또한 Hive는 복잡하거나 불규칙하게 구조화된 데이터에 대한 사용자 지정을 **serializer/deserializers(SerDe)** 지원합니다. 자세한 내용은 [HDInsight와 함께 사용자 지정 JSON SerDe를 사용하는 방법](https://web.archive.org/web/20190217104719/https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/) 문서를 참조하세요.
 
 하이브에서 지원하는 파일 형식에 대한 자세한 내용은 [언어 설명서(https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)를 참조하세요.
 
@@ -75,20 +75,20 @@ STORED AS TEXTFILE LOCATION '/example/data/';
 
 Hive로 다음과 같은 두 가지 형식의 테이블을 만들 수 있습니다.
 
-* __내부__: 데이터가 Hive 데이터 웨어하우스에 저장됩니다. 데이터 웨어하우스는 클러스터의 기본 저장소인 `/hive/warehouse/`에 있습니다.
+* __내부__: 데이터가 Hive 데이터 웨어하우스에 저장됩니다. 데이터 웨어하우스는 클러스터의 기본 스토리지인 `/hive/warehouse/`에 있습니다.
 
     다음 조건 중 하나가 적용되는 경우 내부 테이블을 사용합니다.
 
     * 데이터가 일시적입니다.
     * Hive로 테이블 및 데이터의 수명 주기를 관리하고자 합니다.
 
-* __외부__: 데이터가 데이터 웨어하우스 외부에 저장됩니다. 클러스터에서 액세스할 수 있는 저장소에 데이터를 저장할 수 있습니다.
+* __외부__: 데이터가 데이터 웨어하우스 외부에 저장됩니다. 클러스터에서 액세스할 수 있는 스토리지에 데이터를 저장할 수 있습니다.
 
     다음 조건 중 하나가 적용되는 경우 외부 테이블을 사용합니다.
 
     * 데이터를 Hive 외부에서도 사용합니다. 예를 들어, 데이터 파일이 다른 프로세스에 의해 업데이트됩니다(파일을 잠그지 않음).
     * 테이블을 삭제한 후에도 데이터는 기본 위치에 남아 있어야 합니다.
-    * 기본이 아닌 저장소 계정과 같은 사용자 지정 위치가 필요합니다.
+    * 기본이 아닌 스토리지 계정과 같은 사용자 지정 위치가 필요합니다.
     * Hive가 아닌 프로그램이 데이터 형식, 위치 등을 관리합니다.
 
 자세한 내용은 참조는 [Hive 내부 및 외부 테이블 소개](https://blogs.msdn.microsoft.com/cindygross/2013/02/05/hdinsight-hive-internal-and-external-tables-intro/) 블로그 게시물.
@@ -109,7 +109,7 @@ Hive는 **사용자 정의 함수(UDF)** 를 통해 확장 될 수도 있습니�
 
 ## <a id="data"></a>예제 데이터
 
-HDInsight에서 Hive는 `hivesampletable`이라는 내부 테이블로 미리 로드됩니다. 또한 HDInsight는 Hive와 함께 사용할 수 있는 예제 데이터 집합을 제공합니다. 이러한 데이터 집합은 `/example/data` 및 `/HdiSamples` 디렉터리에 저장됩니다. 이러한 디렉터리는 클러스터의 기본 저장소에 있습니다.
+HDInsight에서 Hive는 `hivesampletable`이라는 내부 테이블로 미리 로드됩니다. 또한 HDInsight는 Hive와 함께 사용할 수 있는 예제 데이터 집합을 제공합니다. 이러한 데이터 집합은 `/example/data` 및 `/HdiSamples` 디렉터리에 저장됩니다. 이러한 디렉터리는 클러스터의 기본 스토리지에 있습니다.
 
 ## <a id="job"></a>예제 Hive 쿼리
 

@@ -94,7 +94,7 @@ IP 주소를 제거하는 두 가지 옵션이 있습니다.
 
 Azure Portal을 사용하여 연결 문자열을 찾을 수도 있습니다. 배포의 리소스 그룹의 IoT Hub 리소스에서 연결 문자열 설정을 찾습니다.
 
-### <a name="which-iot-hub-devices-does-the-connected-factory-simulation-use"></a>연결된 팩터리 시뮬레이션에서 어떤 IoT Hub 장치를 사용하나요?
+### <a name="which-iot-hub-devices-does-the-connected-factory-simulation-use"></a>연결된 팩터리 시뮬레이션에서 어떤 IoT Hub 디바이스를 사용하나요?
 
 시뮬레이션은 다음 디바이스를 자체 등록합니다.
 
@@ -146,7 +146,7 @@ IoT Hub로 전송된 데이터를 볼 수 없는 경우 시뮬레이션에 문�
 
 연결된 팩터리 GitHub 리포지토리의 `build.ps1` 스크립트를 사용하여 배포하는 경우 빌드 창의 변수 `$env:MapApiQueryKey`를[ Azure Maps 계정의 키](../azure-maps/how-to-manage-account-keys.md)로 설정합니다. 그러면 대화형 지도가 자동으로 사용되도록 설정됩니다.
 
-또한 배포 후 솔루션 가속기에 Azure Maps 계정 키를 추가할 수도 있습니다. Azure Portal로 이동한 후 연결된 팩터리 배포의 App Service 리소스에 액세스합니다. **응용 프로그램 설정** 섹션을 찾을 수 있는 **응용 프로그램 설정**으로 이동합니다. **MapApiQueryKey**를 [Azure Maps 계정의 키](../azure-maps/how-to-manage-account-keys.md)로 설정합니다. 설정을 저장한 다음 **개요**로 이동하고 App Service를 다시 시작합니다.
+또한 배포 후 솔루션 가속기에 Azure Maps 계정 키를 추가할 수도 있습니다. Azure Portal로 이동한 후 연결된 팩터리 배포의 App Service 리소스에 액세스합니다. **애플리케이션 설정** 섹션을 찾을 수 있는 **애플리케이션 설정**으로 이동합니다. **MapApiQueryKey**를 [Azure Maps 계정의 키](../azure-maps/how-to-manage-account-keys.md)로 설정합니다. 설정을 저장한 다음 **개요**로 이동하고 App Service를 다시 시작합니다.
 
 ### <a name="how-do-i-create-an-azure-maps-account"></a>Azure Maps 계정 만들기
 
@@ -164,7 +164,7 @@ IoT Hub로 전송된 데이터를 볼 수 없는 경우 시뮬레이션에 문�
 
 대시보드의 홈페이지에서 표시되는 고정 이미지를 변경하려면 `WebApp\Content\img\world.jpg` 이미지를 바꿉니다. 그러면 WebApp을 다시 빌드하고 다시 배포합니다.
 
-### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>연결된 팩터리에서 비 OPC UA 장치를 사용하려면 어떻게 할까요?
+### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>연결된 팩터리에서 비 OPC UA 디바이스를 사용하려면 어떻게 할까요?
 
 비 OPC UA 디바이스에서 연결된 팩터리에 원격 분석 데이터를 보내려면:
 

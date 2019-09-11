@@ -48,13 +48,13 @@ Visual Studio 2019를 이미 설치한 경우:
 
 1. Visual Studio를 연 다음, **새 프로젝트 만들기**를 선택합니다.
 
-1. **새 프로젝트 만들기**에서 C#용 **ASP.NET Core 웹 애플리케이션**을 찾아서 선택하고, **다음**을 선택합니다.
+1. **새 프로젝트 만들기**에서 C#용 **ASP.NET Core 웹 응용 프로그램**을 찾아서 선택하고, **다음**을 선택합니다.
 
 1. **새 프로젝트 구성**에서 애플리케이션 이름을 _myFirstAzureWebApp_으로 지정한 다음, **만들기**를 선택합니다.
 
    ![웹앱 프로젝트 구성](./media/app-service-web-get-started-dotnet/configure-web-app-project.png)
 
-1. 이 빠른 시작에서는 **웹 애플리케이션** 템플릿을 선택합니다. 인증이 **인증 없음**으로 설정되어 있고 다른 옵션이 선택되어 있지 않은지 확인합니다. **만들기**를 선택합니다.
+1. 이 빠른 시작에서는 **웹 응용 프로그램** 템플릿을 선택합니다. 인증이 **인증 없음**으로 설정되어 있고 다른 옵션이 선택되어 있지 없음을 확인합니다. **만들기**를 선택합니다.
 
    ![이 자습서에서 ASP.NET Core Razor Pages 선택](./media/app-service-web-get-started-dotnet/aspnet-razor-pages-app.png)
 
