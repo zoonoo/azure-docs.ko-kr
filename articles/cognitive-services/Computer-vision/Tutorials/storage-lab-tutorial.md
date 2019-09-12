@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial
-ms.date: 04/17/2019
+ms.date: 09/04/2019
 ms.author: pafarley
-ms.openlocfilehash: c125941414c73b14138f2b2fc15e470d9ed2d905
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 8ecf5fb7d54e7c9411c1153610d3a637477285bf
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70137549"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382961"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>자습서: Computer Vision을 사용하여 Azure Storage에서 이미지 메타데이터 생성
 
@@ -42,7 +42,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 Azure 계정에 사용할 Computer Vision 리소스를 만들어야 합니다. 이 리소스는 Azure의 Computer Vision 서비스에 대한 액세스를 관리합니다. 
 
-1. [Azure Cognitive Services 리소스 만들기](../../cognitive-services-apis-create-account.md#single-service-resource)의 지침에 따라 Computer Vision 리소스를 만듭니다.
+1. [Azure Cognitive Services 리소스 만들기](../../cognitive-services-apis-create-account.md)의 지침에 따라 Computer Vision 리소스를 만듭니다.
 
 1. 그런 다음, 리소스 그룹의 메뉴로 이동하여 방금 만든 Computer Vision API 구독을 클릭합니다. **엔드포인트** 아래의 URL을 잠시 후에 쉽게 검색할 수 있는 위치에 복사합니다. 그런 다음, **액세스 키 표시**를 클릭합니다.
 

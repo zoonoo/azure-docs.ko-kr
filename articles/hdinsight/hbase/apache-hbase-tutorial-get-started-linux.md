@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: tutorial
 ms.date: 06/25/2019
 ms.author: hrasheed
-ms.openlocfilehash: 48b02a042b55af9ff65f57220f7a64c9cbde8848
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: df216c4d634ac20365cc5a1cc6e26fbd78be7ab9
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445558"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70917404"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 Apache HBase 사용
 
@@ -41,14 +41,14 @@ ms.locfileid: "67445558"
 
 1. Azure Portal에서 템플릿을 열려면 다음 이미지를 선택합니다. 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)에 있습니다.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
 
 2. **사용자 지정 배포** 블레이드에서 다음 값을 입력합니다.
 
     |자산 |설명 |
     |---|---|
-    |구독|클러스터를 만드는 데 사용할 Azure 구독을 선택합니다.|
-    |리소스 그룹|Azure 리소스 관리 그룹을 만들거나 기존 그룹을 사용합니다.|
+    |Subscription|클러스터를 만드는 데 사용할 Azure 구독을 선택합니다.|
+    |Resource group|Azure 리소스 관리 그룹을 만들거나 기존 그룹을 사용합니다.|
     |위치|리소스 그룹의 위치를 지정합니다. |
     |ClusterName|HBase 클러스터의 이름을 입력합니다.|
     |클러스터 로그인 이름 및 암호|기본 로그인 이름은 **admin**입니다.|
@@ -56,7 +56,7 @@ ms.locfileid: "67445558"
 
     다른 매개 변수는 선택 사항입니다.  
 
-    각 클러스터에는 Azure Storage 계정 종속성이 있습니다. 클러스터를 삭제한 후에는 데이터가 스토리지 계정에 유지됩니다. 클러스터 기본 저장소 계정 이름은 "저장소"가 추가된 클러스터 이름이입니다. 템플릿 변수 섹션에 하드 코딩됩니다.
+    각 클러스터에는 Azure Storage 계정 종속성이 있습니다. 클러스터를 삭제한 후에는 데이터가 스토리지 계정에 유지됩니다. 클러스터 기본 스토리지 계정 이름은 &quot;스토리지&quot;가 추가된 클러스터 이름이입니다. 템플릿 변수 섹션에 하드 코딩됩니다.
 
 3. **위에 명시된 사용 약관에 동의함**을 선택한 다음, **구매**를 선택합니다. 클러스터를 만들려면 20분 정도가 걸립니다.
 

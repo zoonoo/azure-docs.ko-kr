@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 74a9e5e6be326bf9cef3dc6d26594b80491deb3e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e85f2ea849aca9deeb92da7d7b2381d6c2b1b725
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446058"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802450"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>빠른 시작: IoT Hub 디바이스 스트림을 통해 Node.js에서 디바이스 애플리케이션과 통신(미리 보기)
 
@@ -38,7 +38,7 @@ Microsoft Azure IoT Hub는 현재 디바이스 스트림을 [미리 보기 기�
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -54,7 +54,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 다음 명령을 사용하여 개발 컴퓨터에서 Node.js의 현재 버전을 확인할 수 있습니다.
 
-```
+```cmd/sh
 node --version
 ```
 
@@ -120,7 +120,7 @@ az extension add --name azure-cli-iot-ext
 
 * 환경 변수로 서비스 자격 증명 및 디바이스 ID를 제공합니다.
  
-   ```
+   ```cmd/sh
    # In Linux
    export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
    export STREAMING_TARGET_DEVICE="MyDevice"
@@ -134,7 +134,7 @@ az extension add --name azure-cli-iot-ext
 
 * 압축을 푼 프로젝트 폴더의 `Quickstarts/device-streams-service`로 이동하고 노드를 사용하여 샘플을 실행합니다.
 
-   ```
+   ```cmd/sh
    cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
     
    # Install the preview service SDK, and other dependencies

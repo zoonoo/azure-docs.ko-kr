@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: f8488195ed9e115843c2dc551af52d5da010ffe7
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 286b75166e6216513afc46e5779b8a2f969aeaf6
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036735"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858900"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>자습서: WPF를 사용하여 번역 앱 만들기
 
@@ -48,7 +48,7 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
 
 계속하기 전에 다음이 필요합니다.
 
-* Azure Cognitive Services 구독. [Cognitive Services 키 가져오기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#multi-service-resource).
+* Azure Cognitive Services 구독. [Cognitive Services 키 가져오기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#create-a-new-azure-cognitive-services-resource).
 * Windows 머신
 * [Visual Studio 2019](https://www.visualstudio.com/downloads/) - Community 또는 Enterprise
 

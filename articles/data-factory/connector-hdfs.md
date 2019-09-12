@@ -10,27 +10,27 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: c528f37c8970380678a318ec2d63babd37f89501
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a695f08f00b99fcd0bc634d12e30c0f3cfbd312
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65228041"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813099"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HDFS에서 데이터 복사
-> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
+> [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-hdfs-connector.md)
 > * [현재 버전](connector-hdfs.md)
 
-이 문서에는 HDFS 서버에서 데이터를 복사 하는 방법을 설명 합니다. Azure Data Factory에 대해 자세히 알아보려면 [소개 문서](introduction.md)를 참조하세요.
+이 문서에서는 HDFS 서버에서 데이터를 복사 하는 방법을 설명 합니다. Azure Data Factory에 대해 자세히 알아보려면 [소개 문서](introduction.md)를 참조하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
-이 HDFS 커넥터는 다음 작업에 대 한 지원 됩니다.
+이 HDFS 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
 
-- [복사 활동](copy-activity-overview.md) 사용 하 여 [원본/싱크 매트릭스를 지원 합니다.](copy-activity-overview.md)
+- [지원 되는 원본/싱크 매트릭스](copy-activity-overview.md) 를 사용 하 여 [복사 작업](copy-activity-overview.md)
 - [조회 작업](control-flow-lookup-activity.md)
 
 특히 이 HDFS 커넥터는 다음을 지원합니다.
@@ -39,9 +39,9 @@ ms.locfileid: "65228041"
 - **webhdfs** 프로토콜 또는 **기본 제공 DistCp** 지원을 사용하여 파일을 복사합니다.
 - 파일을 있는 그대로 복사하거나 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs.md)을 사용하여 파일을 붙여넣거나 생성합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-공개적으로 액세스할 수 없는 HDFS 간 데이터를 복사하려면 자체 호스팅 Integration Runtime을 설정해야 합니다. 자세한 내용은 [자체 호스팅 통합 런타임](concepts-integration-runtime.md) 문서를 참조하세요.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 > [!NOTE]
 > Integration Runtime에서 Hadoop 클러스터의 **모든** [이름 노드 서버]:[이름 노드 포트] 및 [데이터 노드 서버]:[데이터 노드 포트]에 액세스할 수 있는지 확인합니다. 기본 [이름 노드 포트]는 50070이며 기본 [데이터 노드 포트]는 50075입니다.
@@ -56,14 +56,14 @@ ms.locfileid: "65228041"
 
 HDFS 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | type 속성을 다음으로 설정해야 합니다. **HDFS**. | 예. |
+| type | type 속성을 다음으로 설정해야 합니다. **HDFS**. | 예 |
 | url |HDFS에 대한 URL |예 |
 | authenticationType | 허용되는 값은 다음과 같습니다. **익명**, 또는 **Windows**. <br><br> HDFS 커넥터에 **Kerberos 인증**을 사용하려면 [이 섹션](#use-kerberos-authentication-for-hdfs-connector)을 참조하여 온-프레미스 환경을 적절히 설정합니다. |예 |
 | userName |Windows 인증에 대한 사용자 이름. Kerberos 인증의 경우 `<username>@<domain>.com`을 지정합니다. |예(Windows 인증에 대한) |
 | password |Windows 인증에 대한 암호. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예(Windows 인증에 대한) |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 자체 호스팅 Integration Runtime 또는 Azure Integration Runtime을 사용할 수 있습니다(데이터 저장소를 공개적으로 액세스할 수 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아닙니다. |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [전제 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 **예제: 익명 인증 사용**
 
@@ -113,21 +113,21 @@ HDFS 연결된 서비스에 다음 속성이 지원됩니다.
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 
 
-- 에 대 한 **Parquet 및 구분 기호로 분리 된 텍스트 형식**를 참조 하세요 [Parquet 및 구분 기호로 분리 된 텍스트 데이터 집합 형식](#parquet-and-delimited-text-format-dataset) 섹션입니다.
-- 와 같은 다른 형식에 대 한 **ORC/Avro/JSON/이진 파일 형식**를 참조 [다른 형식으로 데이터 집합을](#other-format-dataset) 섹션입니다.
+- **Parquet, 구분 된 텍스트, json, avro 및 이진 형식의**경우 [Parquet, 구분 된 텍스트, json, avro 및 이진 형식 데이터 집합](#format-based-dataset) 섹션을 참조 하세요.
+- **ORC format**같은 다른 형식에 대해서는 [다른 형식 데이터 집합](#other-format-dataset) 섹션을 참조 하세요.
 
-### <a name="parquet-and-delimited-text-format-dataset"></a>Parquet 및 구분 기호로 분리 된 텍스트 데이터 집합 형식
+### <a name="format-based-dataset"></a>Parquet, 구분 된 텍스트, JSON, Avro 및 이진 형식 데이터 집합
 
-HDFS에서 데이터를 복사할 **Parquet 또는 구분 기호로 분리 된 텍스트 형식**를 참조 [Parquet 형식](format-parquet.md) 및 [구분 기호로 분리 된 텍스트 형식으로](format-delimited-text.md) 형식 기반의 데이터 집합에 대 한 문서 및 지원 설정. HDFS에서 다음 속성이 지원 됩니다 `location` 형식 기반의 데이터 집합의 설정:
+**Parquet, 구분 된 텍스트, JSON, avro 및 이진 형식**에서 데이터를 복사 하려면 형식 기반 데이터 집합 및 지원 되는 설정에 대 한 [Parquet 형식](format-parquet.md), [구분 된 텍스트 형식](format-delimited-text.md), [avro 형식](format-avro.md) 및 [이진 형식](format-binary.md) 문서를 참조 하세요. 형식 기반 데이터 집합의 설정에서 `location` HDFS에 대해 지원 되는 속성은 다음과 같습니다.
 
-| 자산   | 설명                                                  | 필수 |
+| 속성   | 설명                                                  | 필수 |
 | ---------- | ------------------------------------------------------------ | -------- |
-| type       | Type 속성은 아래 `location` 데이터 집합에서으로 설정 되어 있어야 **HdfsLocation**합니다. | 예.      |
-| folderPath | 폴더 경로입니다. 와일드 카드 필터 폴더로 사용 하려는 경우이 설정은 건너뛰고 활동 원본 설정에서 지정 합니다. | 아닙니다.       |
-| fileName   | 지정 된 folderPath에서 파일 이름입니다. 와일드 카드를 사용 하 여 파일을 필터링 하려는 경우이 설정은 건너뛰고 활동 원본 설정에서 지정 합니다. | 아닙니다.       |
+| type       | 데이터 집합의 아래 `location` 에 있는 type 속성은 **HdfsLocation**로 설정 해야 합니다. | 예      |
+| folderPath | 폴더에 대 한 경로입니다. 와일드 카드를 사용 하 여 폴더를 필터링 하려면이 설정을 건너뛰고 작업 원본 설정에서를 지정 합니다. | 아니요       |
+| fileName   | 지정 된 folderPath의 파일 이름입니다. 와일드 카드를 사용 하 여 파일을 필터링 하려는 경우이 설정을 건너뛰고 작업 원본 설정에서를 지정 합니다. | 아니요       |
 
 > [!NOTE]
-> **FileShare** 다음 섹션에 언급 된 Parquet/텍스트 형식 사용 하 여 데이터 집합 형식으로 계속 지원-이전 버전과 호환성에 대 한 복사/조회 작업입니다. 앞으로이 새 모델을 사용 하도록 제안 된 및 UI를 작성 하는 ADF 이러한 새 형식 생성로 전환 되었습니다.
+> 다음 섹션에서 언급 된 Parquet/Text 형식의 파일 **공유** 형식 데이터 집합은 이전 버전과의 호환성을 위해 복사/조회 작업에 대해 그대로 계속 지원 됩니다. 앞으로이 새 모델을 사용 하 고 ADF 제작 UI가 이러한 새 유형을 생성 하도록 전환 하는 것이 좋습니다.
 
 **예제:**
 
@@ -155,19 +155,19 @@ HDFS에서 데이터를 복사할 **Parquet 또는 구분 기호로 분리 된 �
 }
 ```
 
-### <a name="other-format-dataset"></a>다른 형식으로 데이터 집합
+### <a name="other-format-dataset"></a>기타 형식 데이터 집합
 
-HDFS에서 데이터를 복사 **ORC/Avro/JSON/이진 형식**, 다음 속성이 지원 됩니다.
+HDFS에서 **ORC 형식**으로 데이터를 복사 하기 위해 지원 되는 속성은 다음과 같습니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **FileShare** |예 |
 | folderPath | 파일의 경로입니다. 와일드카드 필터가 지원되며, 허용되는 와일드카드는 `*`(0개 이상의 문자 일치) 및 `?`(0-1개의 문자 일치)입니다. 실제 파일 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다. <br/><br/>예: rootfolder/subfolder/(더 많은 예제는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples) 참조) |예 |
-| fileName |  지정된 "folderPath" 아래의 파일에 대한 **이름 또는 와일드 카드 필터**입니다. 이 속성의 값을 지정하지 않으면 데이터 세트는 폴더에 있는 모든 파일을 가리킵니다. <br/><br/>필터에 허용되는 와일드카드는 `*`(문자 0자 이상 일치) 및 `?`(문자 0자 또는 1자 일치)입니다.<br/>- 예 1: `"fileName": "*.csv"`<br/>- 예 2: `"fileName": "???20180427.txt"`<br/>실제 폴더 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다. |아닙니다. |
-| modifiedDatetimeStart | 특성에 기반한 파일 필터링: 마지막으로 수정한 날짜 마지막 수정 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd` 사이의 시간 범위 내에 있으면 파일이 선택됩니다. 시간은 UTC 표준 시간대에 "2018-12-01T05:00:00Z" 형식으로 적용됩니다. <br/><br/> 대용량 파일에서에서 필터 파일 수행 하려는 경우이 설정을 사용 하 여 데이터 이동의 전반적인 성능을 영향을 알아야 합니다. <br/><br/> 속성에는 데이터 집합에 없는 파일 특성 필터를 적용할 것을 의미 하는 NULL 일 수 있습니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 크거나 같은 파일이 선택됩니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 작은 파일이 선택됩니다.| 아닙니다. |
-| modifiedDatetimeEnd | 특성에 기반한 파일 필터링: 마지막으로 수정한 날짜 마지막 수정 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd` 사이의 시간 범위 내에 있으면 파일이 선택됩니다. 시간은 UTC 표준 시간대에 "2018-12-01T05:00:00Z" 형식으로 적용됩니다. <br/><br/> 대용량 파일에서에서 필터 파일 수행 하려는 경우이 설정을 사용 하 여 데이터 이동의 전반적인 성능을 영향을 알아야 합니다. <br/><br/> 속성에는 데이터 집합에 없는 파일 특성 필터를 적용할 것을 의미 하는 NULL 일 수 있습니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 크거나 같은 파일이 선택됩니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 작은 파일이 선택됩니다.| 아닙니다. |
+| fileName |  지정된 "folderPath" 아래의 파일에 대한 **이름 또는 와일드 카드 필터**입니다. 이 속성의 값을 지정하지 않으면 데이터 세트는 폴더에 있는 모든 파일을 가리킵니다. <br/><br/>필터에 허용되는 와일드카드는 `*`(문자 0자 이상 일치) 및 `?`(문자 0자 또는 1자 일치)입니다.<br/>- 예 1: `"fileName": "*.csv"`<br/>- 예 2: `"fileName": "???20180427.txt"`<br/>실제 폴더 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다. |아니요 |
+| modifiedDatetimeStart | 특성에 기반한 파일 필터링: 마지막으로 수정한 날짜 마지막 수정 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd` 사이의 시간 범위 내에 있으면 파일이 선택됩니다. 시간은 UTC 표준 시간대에 "2018-12-01T05:00:00Z" 형식으로 적용됩니다. <br/><br/> 많은 양의 파일에서 파일을 필터링 하려는 경우이 설정을 사용 하면 데이터 이동의 전반적인 성능에 영향을 줄 수 있습니다. <br/><br/> 속성은 데이터 집합에 적용 되는 파일 특성 필터가 없음을 의미 하는 NULL 일 수 있습니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 크거나 같은 파일이 선택됩니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 작은 파일이 선택됩니다.| 아니요 |
+| modifiedDatetimeEnd | 특성에 기반한 파일 필터링: 마지막으로 수정한 날짜 마지막 수정 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd` 사이의 시간 범위 내에 있으면 파일이 선택됩니다. 시간은 UTC 표준 시간대에 "2018-12-01T05:00:00Z" 형식으로 적용됩니다. <br/><br/> 많은 양의 파일에서 파일을 필터링 하려는 경우이 설정을 사용 하면 데이터 이동의 전반적인 성능에 영향을 줄 수 있습니다. <br/><br/> 속성은 데이터 집합에 적용 되는 파일 특성 필터가 없음을 의미 하는 NULL 일 수 있습니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 크거나 같은 파일이 선택됩니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 작은 파일이 선택됩니다.| 아니요 |
 | format | 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사**하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다.<br/><br/>특정 형식의 파일을 구문 분석하려는 경우, 지원되는 파일 형식 유형은 **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**입니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](supported-file-formats-and-compression-codecs.md#text-format), [Json 형식](supported-file-formats-and-compression-codecs.md#json-format), [Avro 형식](supported-file-formats-and-compression-codecs.md#avro-format), [Orc 형식](supported-file-formats-and-compression-codecs.md#orc-format) 및 [Parquet 형식](supported-file-formats-and-compression-codecs.md#parquet-format) 섹션을 참조하세요. |아니요(이진 복사 시나리오에만 해당) |
-| compression | 데이터에 대한 압축 유형 및 수준을 지정합니다. 자세한 내용은 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs.md#compression-support)을 참조하세요.<br/>지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다.<br/>지원되는 수준은 **최적** 및 **가장 빠름**입니다. |아닙니다. |
+| compression | 데이터에 대한 압축 유형 및 수준을 지정합니다. 자세한 내용은 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs.md#compression-support)을 참조하세요.<br/>지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다.<br/>지원되는 수준은 **최적** 및 **가장 빠름**입니다. |아니요 |
 
 >[!TIP]
 >폴더 아래에서 모든 파일을 복사하려면 **folderPath**만을 지정합니다.<br>지정된 이름의 단일 파일을 복사하려면 폴더 부분으로 **folderPath** 및 파일 이름으로 **fileName**을 지정합니다.<br>폴더 아래에서 파일의 하위 집합을 복사하려면 폴더 부분으로 **folderPath** 및 와일드카드 필터로 **fileName**을 지정합니다.
@@ -208,25 +208,29 @@ HDFS에서 데이터를 복사 **ORC/Avro/JSON/이진 형식**, 다음 속성이
 
 ### <a name="hdfs-as-source"></a>원본으로 HDFS
 
-- 복사본에 대 한 **Parquet 및 구분 기호로 분리 된 텍스트 형식**를 참조 하세요 [Parquet 및 구분 기호로 분리 된 텍스트 형식으로 원본](#parquet-and-delimited-text-format-source) 섹션.
-- 와 같은 다른 형식에서 복사본에 대 한 **ORC/Avro/JSON/이진 파일 형식**를 참조 [다른 형식으로 원본](#other-format-source) 섹션입니다.
+- **Parquet, 구분 된 텍스트, json, avro 및 이진 형식**에서 복사 하려면 [Parquet, 구분 된 텍스트, json, avro 및 이진 형식 원본](#format-based-source) 섹션을 참조 하세요.
+- **ORC format**같은 다른 형식에서 복사 하려면 [다른 형식 소스](#other-format-source) 섹션을 참조 하세요.
 
-#### <a name="parquet-and-delimited-text-format-source"></a>Parquet 및 구분 기호로 분리 된 텍스트 형식으로 원본
+#### <a name="format-based-source"></a>Parquet, 구분 된 텍스트, JSON, Avro 및 이진 형식 원본
 
-HDFS에서 데이터를 복사할 **Parquet 또는 구분 기호로 분리 된 텍스트 형식**를 참조 [Parquet 형식](format-parquet.md) 및 [구분 기호로 분리 된 텍스트 형식으로](format-delimited-text.md) 형식 기반의 복사 활동 원본에 대 한 문서 및 지원 되는 설정입니다. HDFS에서 다음 속성이 지원 됩니다 `storeSettings` 형식 기반의 복사 원본에 설정 합니다.
+**Parquet, 구분 된 텍스트, JSON, avro 및 이진 형식**에서 데이터를 복사 하려면 형식 기반 복사 작업 원본 및 지원 되는 [Parquet 형식](format-parquet.md), [구분 된 텍스트 형식](format-delimited-text.md), [avro 형식](format-avro.md) 및 [이진 형식](format-binary.md) 문서를 참조 하세요. 설정. 다음은 형식 기반 복사 원본에서 설정 `storeSettings` 아래의 HDFS에 대해 지원 되는 속성입니다.
 
-| 자산                 | 설명                                                  | 필수                                      |
+| 속성                 | 설명                                                  | 필수                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | 아래에 있는 type 속성은 `storeSettings` 으로 설정 되어 있어야 **HdfsReadSetting**합니다. | 예.                                           |
-| recursive                | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. recursive를 true로 설정하고 싱크가 파일 기반 저장소인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사되거나 만들어지지 않습니다. 허용되는 값은 **true**(기본값) 및 **false**입니다. | 아닙니다.                                            |
-| wildcardFolderPath       | 소스 폴더를 필터링 하려면 와일드 카드 문자를 사용 하 여 폴더 경로입니다. <br>허용되는 와일드카드는 `*`(0개 이상의 문자 일치) 및 `?`(0-1개의 문자 일치)입니다. 실제 폴더 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다. <br>더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | 아닙니다.                                            |
-| wildcardFileName         | 필터 소스 파일에 지정 된 folderPath/wildcardFolderPath에서 와일드 카드 문자를 사용 하 여 파일 이름입니다. <br>허용되는 와일드카드는 `*`(0개 이상의 문자 일치) 및 `?`(0-1개의 문자 일치)입니다. 실제 폴더 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다.  더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | 경우에 예 `fileName` 데이터 집합에 지정 되지 않은 |
-| modifiedDatetimeStart    | 특성에 기반한 파일 필터링: 마지막으로 수정한 날짜 마지막 수정 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd` 사이의 시간 범위 내에 있으면 파일이 선택됩니다. 시간은 UTC 표준 시간대에 "2018-12-01T05:00:00Z" 형식으로 적용됩니다. <br> 속성은 NULL일 수 있습니다. 이 경우 파일 특성 필터가 데이터 세트에 적용되지 않습니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 크거나 같은 파일이 선택됩니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 작은 파일이 선택됩니다. | 아닙니다.                                            |
-| modifiedDatetimeEnd      | 위와 동일합니다.                                               | 아닙니다.                                            |
-| maxConcurrentConnections | Storage 저장소에 동시에 연결할 연결 횟수입니다. 데이터 저장소에 대 한 동시 연결을 제한 하려는 경우에 지정 합니다. | 아닙니다.                                            |
+| type                     | 아래의 `storeSettings` type 속성은 **HdfsReadSetting**로 설정 해야 합니다. | 예                                           |
+| recursive                | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. recursive를 true로 설정하고 싱크가 파일 기반 저장소인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사되거나 만들어지지 않습니다. 허용되는 값은 **true**(기본값) 및 **false**입니다. | 아니요                                            |
+| wildcardFolderPath       | 원본 폴더를 필터링 할 와일드 카드 문자가 포함 된 폴더 경로입니다. <br>허용되는 와일드카드는 `*`(0개 이상의 문자 일치) 및 `?`(0-1개의 문자 일치)입니다. 실제 폴더 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다. <br>더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | 아니요                                            |
+| wildcardFileName         | 소스 파일을 필터링 하기 위해 지정 된 folderPath/wildcardFolderPath 아래의 와일드 카드 문자가 포함 된 파일 이름입니다. <br>허용되는 와일드카드는 `*`(0개 이상의 문자 일치) 및 `?`(0-1개의 문자 일치)입니다. 실제 폴더 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다.  더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | 데이터 집합 `fileName` 에이 지정 되지 않은 경우 예 |
+| modifiedDatetimeStart    | 특성에 기반한 파일 필터링: 마지막으로 수정한 날짜 마지막 수정 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd` 사이의 시간 범위 내에 있으면 파일이 선택됩니다. 시간은 UTC 표준 시간대에 "2018-12-01T05:00:00Z" 형식으로 적용됩니다. <br> 속성은 NULL일 수 있습니다. 이 경우 파일 특성 필터가 데이터 세트에 적용되지 않습니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 크거나 같은 파일이 선택됩니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 작은 파일이 선택됩니다. | 아니요                                            |
+| modifiedDatetimeEnd      | 위와 동일합니다.                                               | 아니요                                            |
+| distcpSettings | HDFS DistCp를 사용하는 경우 속성 그룹입니다. | 아니요 |
+| resourceManagerEndpoint | Yarn 리소스 관리자 끝점 | 예(DistCp를 사용하는 경우) |
+| tempScriptPath | 임시 DistCp 명령 스크립트를 저장하는 데 사용되는 폴더 경로입니다. 스크립트 파일이 Data Factory에 의해 생성되고 복사 작업을 완료한 후에 제거됩니다. | 예(DistCp를 사용하는 경우) |
+| distcpOptions | DistCp 명령에 제공된 추가 옵션입니다. | 아니요 |
+| maxConcurrentConnections | 저장소 저장소에 동시에 연결 하기 위한 연결 수입니다. 데이터 저장소에 대 한 동시 연결 수를 제한 하려는 경우에만를 지정 합니다. | 아니요                                            |
 
 > [!NOTE]
-> Parquet/구분 기호로 분리 된 텍스트 형식에 대 한 **FileSystemSource** 다음 섹션에 언급 된 형식 복사 활동 원본으로 계속 지원 됩니다-이전 버전과 호환성입니다. 앞으로이 새 모델을 사용 하도록 제안 된 및 UI를 작성 하는 ADF 이러한 새 형식 생성로 전환 되었습니다.
+> Parquet/구분 된 텍스트 형식의 경우 다음 섹션에서 언급 한 **FileSystemSource** type 복사 작업 원본은 이전 버전과의 호환성을 위해 그대로 계속 지원 됩니다. 앞으로이 새 모델을 사용 하 고 ADF 제작 UI가 이러한 새 유형을 생성 하도록 전환 하는 것이 좋습니다.
 
 **예제:**
 
@@ -256,7 +260,12 @@ HDFS에서 데이터를 복사할 **Parquet 또는 구분 기호로 분리 된 �
                 },
                 "storeSettings":{
                     "type": "HdfsReadSetting",
-                    "recursive": true
+                    "recursive": true,
+                    "distcpSettings": {
+                        "resourceManagerEndpoint": "resourcemanagerendpoint:8088",
+                        "tempScriptPath": "/usr/hadoop/tempscript",
+                        "distcpOptions": "-m 100"
+                    }
                 }
             },
             "sink": {
@@ -267,21 +276,21 @@ HDFS에서 데이터를 복사할 **Parquet 또는 구분 기호로 분리 된 �
 ]
 ```
 
-#### <a name="other-format-source"></a>다른 형식으로 원본
+#### <a name="other-format-source"></a>기타 서식 원본
 
-HDFS에서 데이터를 복사할 **ORC/Avro/JSON/이진 파일 형식**를 복사 작업에서 다음 속성이 지원 됩니다 **원본** 섹션:
+HDFS에서 **ORC 형식**으로 데이터를 복사 하기 위해 복사 작업 **원본** 섹션에서 다음 속성이 지원 됩니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **HdfsSource** |예. |
-| recursive | 하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. recursive가 true로 설정되고 싱크가 파일 기반 저장소인 경우 싱크에서 빈 폴더/하위 폴더가 복사/생성되지 않습니다.<br/>허용되는 값은 **true**(기본값), **false**입니다. | 아닙니다. |
-| distcpSettings | HDFS DistCp를 사용하는 경우 속성 그룹입니다. | 아닙니다. |
+| type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **HdfsSource** |예 |
+| recursive | 하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. recursive가 true로 설정되고 싱크가 파일 기반 저장소인 경우 싱크에서 빈 폴더/하위 폴더가 복사/생성되지 않습니다.<br/>허용되는 값은 **true**(기본값), **false**입니다. | 아니요 |
+| distcpSettings | HDFS DistCp를 사용하는 경우 속성 그룹입니다. | 아니요 |
 | resourceManagerEndpoint | Yarn 리소스 관리자 끝점 | 예(DistCp를 사용하는 경우) |
 | tempScriptPath | 임시 DistCp 명령 스크립트를 저장하는 데 사용되는 폴더 경로입니다. 스크립트 파일이 Data Factory에 의해 생성되고 복사 작업을 완료한 후에 제거됩니다. | 예(DistCp를 사용하는 경우) |
-| distcpOptions | DistCp 명령에 제공된 추가 옵션입니다. | 아닙니다. |
-| maxConcurrentConnections | Storage 저장소에 동시에 연결할 연결 횟수입니다. 데이터 저장소에 대 한 동시 연결을 제한 하려는 경우에 지정 합니다. | 아닙니다. |
+| distcpOptions | DistCp 명령에 제공된 추가 옵션입니다. | 아니요 |
+| maxConcurrentConnections | 저장소 저장소에 동시에 연결 하기 위한 연결 수입니다. 데이터 저장소에 대 한 동시 연결 수를 제한 하려는 경우에만를 지정 합니다. | 아니요 |
 
-**예제: DistCp를 사용 하 여 복사 작업에서 HDFS 원본**
+**예제: DistCp를 사용 하 여 복사 작업의 HDFS 원본**
 
 ```json
 "source": {
@@ -311,9 +320,9 @@ HDFS에서 데이터를 복사할 **ORC/Avro/JSON/이진 파일 형식**를 복�
 
 [DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html)는 Hadoop 클러스터에 분산된 복사를 수행하는 Hadoop 네이티브 명령줄 도구입니다. Distcp 명령을 실행하는 경우 먼저 복사될 모든 파일을 나열하고, Hadoop 클러스터에 여러 맵 작업을 만들며 각 맵 작업은 원본에서 싱크로 이진 복사를 수행합니다.
 
-복사 작업은 DistCp를 사용하여 파일을 있는 그대로 Azure Blob([준비된 복사](copy-activity-performance.md) 또는 Azure Data Lake Store 포함)으로 복사를 지원하며 이 경우 자체 호스팅 Integration Runtime에서 실행하는 대신 클러스터의 기능을 완벽하게 활용할 수 있습니다. 클러스터가 매우 강력한 경우에 특히 더 나은 복사 처리량을 제공합니다. Azure Data Factory의 구성에 따라 복사 작업은 자동으로 distcp 명령을 생성하고, Hadoop 클러스터에 제출하고, 복사 상태를 모니터링합니다.
+복사 작업은 DistCp를 사용 하 여 Azure Blob ( [준비 된 복사](copy-activity-performance.md)포함)에 있는 그대로 파일을 복사 하거나 Azure Data Lake Store 하 여 자체 호스팅 Integration Runtime를 실행 하는 대신 클러스터의 기능을 완벽 하 게 활용할 수 있습니다. 클러스터가 매우 강력한 경우에 특히 더 나은 복사 처리량을 제공합니다. Azure Data Factory의 구성에 따라 복사 작업은 자동으로 distcp 명령을 생성하고, Hadoop 클러스터에 제출하고, 복사 상태를 모니터링합니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>전제 조건
 
 DistCp를 사용하여 HDFS에서 Azure Blob(준비된 복사 포함) 또는 Azure Data Lake Store로 파일을 있는 그대로 복사하려면 Hadoop 클러스터가 아래 요구 사항을 충족하는지 확인합니다.
 
@@ -329,7 +338,7 @@ DistCp를 사용하여 HDFS에서 Azure Blob(준비된 복사 포함) 또는 Azu
 
 ### <a name="configurations"></a>구성
 
-DistCp를 참조 하세요. 관련 구성 및 예제의 [원본으로 HDFS](#hdfs-as-source) 섹션입니다.
+HDFS의 DistCp 관련 구성 및 예제를 [원본](#hdfs-as-source) 섹션을 참조 하세요.
 
 ## <a name="use-kerberos-authentication-for-hdfs-connector"></a>HDFS 커넥터에 Kerberos 인증 사용
 
@@ -419,7 +428,7 @@ HDFS 커넥터에 Kerberos 인증을 사용하도록 온-프레미스 환경을 
 
    **다시 시작** 구성 후에 KDC 서비스입니다.
 
-2. 명명 된 보안 주체를 준비 **krbtgt/REALM.COM\@AD.COM** 다음 명령 사용 하 여 KDC 서버에서:
+2. 다음 명령을 사용 하 여 KDC 서버에서 **krbtgt\@/AD.COM** 라는 보안 주체를 준비 합니다.
 
            Kadmin> addprinc krbtgt/REALM.COM@AD.COM
 
@@ -432,7 +441,7 @@ HDFS 커넥터에 Kerberos 인증을 사용하도록 온-프레미스 환경을 
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-2.  Windows 도메인에서 Kerberos 영역으로의 트러스트를 설정합니다. [password]는 보안 주체에 대 한 암호 **krbtgt/REALM.COM\@AD.COM**합니다.
+2.  Windows 도메인에서 Kerberos 영역으로의 트러스트를 설정합니다. [password]는 주 **krbtgt/REALM\@.com AD.COM**의 암호입니다.
 
             C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
 

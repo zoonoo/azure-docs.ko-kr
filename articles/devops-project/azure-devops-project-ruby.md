@@ -6,23 +6,22 @@ ms.technology: devops-cicd
 services: vsts
 documentationcenter: vs-devops-build
 author: mlearned
-manager: douge
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 4cf3feeb92f04b4e97cbdc83c539c206790a78c8
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 5cb47cdd76d1de284c4dc6dbdfbfedd0095653ab
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264525"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899578"
 ---
 # <a name="create-a-cicd-pipeline-for-ruby-on-rails-by-using-azure-devops-projects"></a>Azure DevOps Projects 사용하여 Ruby on Rails용 CI/CD 파이프라인 만들기
 
@@ -46,7 +45,7 @@ Azure DevOps Projects는 Azure Repos에 CI/CD 파이프라인을 만듭니다. �
 
 1. **Ruby** 샘플 앱을 선택합니다.
 
-1. **Ruby on Rails** 응용 프로그램 프레임워크를 선택합니다. 완료되면 **다음**을 선택합니다.
+1. **Ruby on Rails** 애플리케이션 프레임워크를 선택합니다. 완료되면 **다음**을 선택합니다.
 
 1. **Web App on Linux**는 기본 배포 대상입니다.  
     필요에 따라 **Web App for Containers**를 선택할 수 있습니다. 이전에 선택한 애플리케이션 프레임워크는 여기에서 사용 가능한 Azure 서비스 배포 대상의 유형을 나타냅니다. 
@@ -110,7 +109,7 @@ Azure DevOps 프로젝트는 Azure DevOps 조직에서 전체 CI/CD 파이프라
     이 창에 대한 최근 변경 내용의 감사 내역이 표시됩니다. Azure DevOps는 빌드 파이프라인에 대한 모든 변경 내용을 계속 추적하고 버전을 비교할 수 있습니다.
 
 1. **트리거**를 선택합니다.  
-    DevOps Projects는 CI 트리거를 자동으로 생성하면 리포지토리에 대한 모든 커밋이 새 빌드를 시작합니다. 필요에 따라 CI 프로세스에서 분기를 포함할지를 선택할 수 있습니다.
+    DevOps Projects는 CI 트리거를 자동으로 생성하며, 리포지토리에 대한 모든 커밋이 새 빌드를 시작합니다. 필요에 따라 CI 프로세스에서 분기를 포함할지를 선택할 수 있습니다.
 
 1. **보존**을 선택합니다.  
     시나리오에 따라 특정 수의 빌드를 유지하거나 제거하는 정책을 지정할 수 있습니다.

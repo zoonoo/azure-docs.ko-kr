@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: 89e67fd58f6cfc54e21406e9385e7ca5e5bc1d17
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 659f6333d16f84cc35be45c45b7a7119e53fd0d0
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569154"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70764297"
 ---
 # <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>빠른 시작: Python을 사용하여 Azure SQL 데이터베이스 쿼리
 
@@ -56,7 +56,7 @@ Azure SQL 데이터베이스에 연결하는 데 필요한 연결 정보를 가�
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-2. **SQL 데이터베이스** 또는 **SQL 관리되는 인스턴스** 페이지로 이동합니다.
+2. **SQL 데이터베이스** 또는 **SQL 관리형 인스턴스** 페이지로 이동합니다.
 
 3. **개요** 페이지에서 단일 데이터베이스에 대한 **서버 이름** 옆에 있는 정규화된 서버 이름 또는 관리되는 인스턴스에 대한 **호스트** 옆에 있는 정규화된 서버 이름을 검토합니다. 서버 이름이나 호스트 이름을 복사하려면 마우스로 해당 이름 위를 가리키고 **복사** 아이콘을 선택합니다.
 

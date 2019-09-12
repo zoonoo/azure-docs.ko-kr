@@ -1,6 +1,6 @@
 ---
 title: 규모에 맞게 ETL(추출, 변환 및 로드) - Azure HDInsight
-description: HDInsight에서 Apache Hadoop과 ETL을 사용하는 방법을 알아봅니다.
+description: Apache Hadoop를 사용 하 여 HDInsight에서 추출, 변환 및 로드를 사용 하는 방법에 대해 알아봅니다.
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: ashishth
-ms.openlocfilehash: d3ce2a19e195174cd302b25005b3b063d028b6cf
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: e4168b2aec73efcaa282398cbe145df49a117da0
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137165"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810768"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>규모에 맞게 ETL(추출, 변환 및 로드)
 
@@ -37,7 +37,7 @@ Apache Oozie는 Hadoop 작업을 관리하는 워크플로 조정 시스템입�
 
 자세한 내용은 [Apache Hadoop과 함께 Apache Oozie를 사용하여 HDInsight에서 워크플로 정의 및 실행](../hdinsight-use-oozie-linux-mac.md)을 참조하세요. Oozie를 사용하여 엔드투엔드 파이프라인을 구동하는 방법에 대한 자세한 내용은 [데이터 파이프라인 운용](../hdinsight-operationalize-data-pipeline.md)을 참조하세요. 
 
-### <a name="azure-data-factory"></a>Azure 데이터 팩터리
+### <a name="azure-data-factory"></a>Azure Data Factory
 
 Azure Data Factory는 오케스트레이션 기능을 PaaS(Platform as a Service ) 형태로 제공합니다. 데이터 이동 및 데이터 변환을 오케스트레이션하고 자동화하기 위해 클라우드에서 데이터 기반 워크플로를 만들 수 있는 클라우드 기반 데이터 통합 서비스입니다. 
 
@@ -49,7 +49,7 @@ Azure Data Factory를 사용하면 다음을 수행할 수 있습니다.
 
 Azure Data Factory에 대한 자세한 내용은 [이 설명서](../../data-factory/introduction.md)를 참조하세요.
 
-## <a name="ingest-file-storage-and-result-storage"></a>파일 저장소 및 결과 저장소 수집
+## <a name="ingest-file-storage-and-result-storage"></a>파일 스토리지 및 결과 스토리지 수집
 
 원본 데이터 파일은 일반적으로 Azure Storage 또는 Azure Data Lake Storage의 한 위치에 로드됩니다. 파일은 어떤 형식이든 될 수 있지만 일반적으로 CSV와 같은 플랫 파일입니다. 
 
@@ -65,7 +65,7 @@ Azure Storage에는 여러 가지 유형의 Blob이 있습니다.  *추가 Blob*
 
 데이터는 일반적으로 PowerShell, Azure Storage SDK 또는 AZCopy를 사용하여 Azure Storage로 수집됩니다.
 
-### <a name="azure-data-lake-storage"></a>Azure Data Lake 스토리지
+### <a name="azure-data-lake-storage"></a>Azure Data Lake Storage
 
 ADLS(Azure Data Lake Storage)는 HDFS와 호환되는 분석 데이터를 위한 관리되는 하이퍼스케일 리포지토리입니다.  ADLS는 HDFS와 비슷한 디자인 패러다임을 사용하며, 총 용량 및 개별 파일 크기 측면에서 무제한의 확장성을 제공합니다. ADLS는 큰 파일을 여러 노드에 걸쳐 저장할 수 있으므로 큰 파일로 작업할 때 매우 유용합니다.  ADLS에서 데이터를 분할하는 작업은 백그라운드에서 수행됩니다.  수백 테라바이트의 데이터를 효율적으로 읽고 쓰는 수천 개의 동시 실행기를 사용하여 분석 작업을 실행하는 대규모 처리량을 얻을 수 있습니다.
 
@@ -73,7 +73,7 @@ ADLS(Azure Data Lake Storage)는 HDFS와 호환되는 분석 데이터를 위한
 
 또한 ADLS는 Azure Event Hub 또는 Apache Storm을 사용하는 이벤트 수집에 최적화되어 있습니다.
 
-#### <a name="considerations-for-both-storage-options"></a>두 저장소 옵션 모두에 대한 고려 사항
+#### <a name="considerations-for-both-storage-options"></a>두 스토리지 옵션 모두에 대한 고려 사항
 
 테라바이트 범위의 데이터 세트를 업로드하는 경우, 특히 데이터가 온-프레미스 위치에서 제공되면 네트워크 대기 시간이 중요한 문제가 될 수 있습니다.  이러한 경우 아래 옵션을 사용할 수 있습니다.
 
@@ -85,7 +85,7 @@ ADLS(Azure Data Lake Storage)는 HDFS와 호환되는 분석 데이터를 위한
 
 Azure SQL DW(SQL Data Warehouse)는 향후 분석을 위해 정리되고 준비된 결과를 저장하는 데 매우 적합합니다.  Azure HDInsight는 Azure SQL DW에 대해 이러한 서비스를 수행하는 데 사용할 수 있습니다.
 
-Azure SQL DW는 분석 작업에 최적화된 관계형 데이터베이스 저장소입니다.  Azure SQL DW의 크기는 분할된 테이블에 따라 조정됩니다.  테이블은 여러 노드에 걸쳐 분할될 수 있습니다.  Azure SQL DW 노드는 테이블을 만들 때 선택됩니다.  사후에 크기를 조정할 수 있지만, 이 경우 데이터 이동이 필요할 수 있는 활성 프로세스입니다. 자세한 내용은 [SQL Data Warehouse - 계산 관리](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)를 참조하세요.
+Azure SQL DW는 분석 작업에 최적화된 관계형 데이터베이스 저장소입니다.  Azure SQL DW의 크기는 분할된 테이블에 따라 조정됩니다.  테이블은 여러 노드에 걸쳐 분할될 수 있습니다.  Azure SQL DW 노드는 테이블을 만들 때 선택됩니다.  사후에 크기를 조정할 수 있지만, 이 경우 데이터 이동이 필요할 수 있는 활성 프로세스입니다. 자세한 내용은 [SQL Data Warehouse - 컴퓨팅 관리](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)를 참조하세요.
 
 ### <a name="apache-hbase"></a>Apache HBase
 

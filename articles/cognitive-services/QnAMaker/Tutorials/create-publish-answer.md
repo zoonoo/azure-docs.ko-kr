@@ -1,5 +1,5 @@
 ---
-title: 만들기, 게시, 답변 - QnA Maker
+title: '자습서: 만들기, 게시, 답변 - QnA Maker'
 titleSuffix: Azure Cognitive Services
 description: 이 REST 기반 자습서에서는 프로그래매틱 방식으로 기술 자료를 생성 및 게시한 후 기술 자료의 질문에 답변하는 방법을 안내합니다.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 08/20/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: f81492dcdd095762127baabda14da602c6698ef6
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: e5b8cd01a64274e58927a5647897b1f9d86f7c24
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647000"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390863"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>자습서: C#을 사용하여 기술 자료를 만든 후 질문에 답변하기
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: f7dce448b01c211441fd1e0fd530ff6ad062c303
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 08c1a8940bedb1093f618c8de53abc78f81c10dd
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114868"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918779"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 하이브리드 네트워크에서 Azure Firewall 배포 및 구성
 
@@ -102,7 +102,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 4. **이름**에 대해 **VNet-Spoke**를 입력합니다.
 5. **주소 공간**에 대해 **10.6.0.0/16**을 입력합니다.
 6. **구독**의 경우 사용자의 구독을 선택합니다.
-7. **리소스 그룹**의 경우 **Test-FW-RG**를 선택합니다.
+7. **리소스 그룹**에 대해 **FW-Hybrid-Test**를 선택합니다.
 8. **위치**의 경우 전에 사용한 동일한 위치를 선택합니다.
 9. **서브넷** 아래의 **이름**에 대해 **SN-Workload**를 입력합니다.
 10. **주소 범위**에 대해 **10.6.0.0/24**를 입력합니다.

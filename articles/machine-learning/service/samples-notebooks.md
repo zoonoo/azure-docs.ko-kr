@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2ea124ecf6786142ac1703dab1e267b225751079
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 14962b936d1c09a6c50daa7bec460ce11dbefe5d
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035938"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860387"
 ---
 # <a name="explore-azure-machine-learning-service-with-jupyter-notebooks"></a>Jupyter Notebooks를 사용하여 Azure Machine Learning Service 탐색
 
@@ -27,7 +27,6 @@ ms.locfileid: "70035938"
 - [Azure Machine Learning Notebook VM](#notebookvm)
 - [사용자 고유의 Notebook 서버 구현](#byo)
 - [데이터 과학 Virtual Machine](#dsvm)
-- [Azure 노트](#aznb)
 
 > [!NOTE]
 > 리포지토리를 복제하면 **tutorials** 폴더에서 자습서 Notebook, **how-to-use-azureml** 폴더에서 기능별 Notebook을 확인할 수 있습니다.
@@ -53,13 +52,6 @@ ms.locfileid: "70035938"
 DSVM(Data Science Virtual Machine)은 데이터 과학 수행을 위해 특별히 구축된 사용자 지정 VM 이미지입니다. [DSVM을 만드는](how-to-configure-environment.md#dsvm) 경우 SDK 및 Notebook 서버가 사용자를 위해 설치 및 구성됩니다. 그러나 작업 영역을 만들고 샘플 리포지토리는 복제해야 합니다.
 
 [!INCLUDE [aml-dsvm-server](../../../includes/aml-dsvm-server.md)]
-
-<a name="aznb"></a>
-## <a name="get-samples-on-azure-notebooks"></a>Azure Notebooks에서 샘플 가져오기
-
-[Azure Notebooks](https://notebooks.azure.com/)에서 SDK 및 Notebook 서버가 사용자를 위해 설치 및 구성됩니다. Azure Notebooks는 사용자가 살펴볼 수 있도록 완전 관리형 경량 Notebook 환경을 제공합니다.
-
-Azure Notebooks에서 샘플 리포지토리에 액세스하려면 [Azure Portal](https://portal.azure.com)을 통해 Azure Machine Learning 작업 영역으로 이동합니다. **개요** 섹션에서 **Azure Notebooks에서 시작**을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

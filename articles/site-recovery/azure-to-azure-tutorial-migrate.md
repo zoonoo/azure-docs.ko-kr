@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 3790b543a1a6dcbb793dbf661441700e6fa24232
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4404f785116110d99dc242d2dae39c4a462f45e9
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611883"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376241"
 ---
 # <a name="move-azure-vms-to-another-region"></a>다른 지역으로 Azure VM 이동
 
@@ -71,7 +71,7 @@ ms.locfileid: "69611883"
 
     원본 VM 구성에 따라 관련성이 있는 가장 일반적으로 사용되는 네트워크 리소스를 만들려면 다음 문서를 참조하세요.
     - [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+    - [부하 분산 장치](https://docs.microsoft.com/azure/load-balancer)
     -  [공용 IP](../virtual-network/virtual-network-public-ip-address.md)
     - 그 외의 네트워킹 구성 요소는 [네트워킹 설명서](https://docs.microsoft.com/azure/#pivot=products&panel=network)를 참조하세요.
 

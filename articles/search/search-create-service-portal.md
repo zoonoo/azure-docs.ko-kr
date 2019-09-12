@@ -1,22 +1,22 @@
 ---
-title: 포털에서 Azure Search 서비스 만들기 - Azure Search
+title: '빠른 시작: 포털에서 Azure Search 서비스 만들기 - Azure Search'
 description: Azure Portal에서 Azure Search 리소스를 프로비전합니다. 리소스 그룹, 지역 및 SKU 또는 가격 책정 계층을 선택합니다.
 manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 08/09/2019
+ms.date: 09/10/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 0aabf10b3be8f2f13abbba15d514a008f193646c
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 483810f89ea4bbb3a68e616929bd7d752c4d509f
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69649940"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883857"
 ---
-# <a name="create-an-azure-search-service-in-the-portal"></a>포털에서 Azure Search서비스 만들기
+# <a name="quickstart-create-an-azure-search-service-in-the-portal"></a>빠른 시작: 포털에서 Azure Search서비스 만들기
 
 Azure Search는 사용자 지정 앱에 검색 환경을 추가하는 데 사용되는 독립 실행형 리소스입니다. Azure Search는 다른 여러 Azure 서비스와 쉽게 통합되지만, 단독 실행형 구성 요소로 사용하거나 네트워크 서버의 앱 또는 다른 클라우드 플랫폼에서 실행되는 소프트웨어와 통합할 수 있습니다.
 

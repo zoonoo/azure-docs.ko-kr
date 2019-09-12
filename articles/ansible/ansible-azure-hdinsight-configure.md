@@ -8,18 +8,18 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: d6b6dd333d04457a68c3f2452d3cc538a32b61f6
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: ff135473443589650d90bfb7f3e5aa248f72e821
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230253"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861263"
 ---
 # <a name="tutorial-configure-a-cluster-in-azure-hdinsight-using-ansible"></a>자습서: Ansible을 사용하여 Azure HDInsight에 클러스터 구성
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
-[Azure HDInsight](/azure/hdinsight/)는 데이터 처리를 위한 Hadoop 기반 분석 서비스입니다. HDInsight는 빅 데이터(구조화 또는 비구조화) 작동에 사용되는 ETL(추출, 변환, 로드) 도구입니다. HDInsight는 각각이 다른 구성 요소 세트를 지원하는 여러 [클러스터 유형](/azure/hdinsight/hadoop/apache-hadoop-introduction#cluster-types-in-hdinsight)을 지원합니다. 
+[Azure HDInsight](/azure/hdinsight/)는 데이터 처리를 위한 Hadoop 기반 분석 서비스입니다. HDInsight는 빅 데이터(구조화 또는 비구조화) 작동에 사용되는 ETL(추출, 변환, 로드) 도구입니다. HDInsight는 각각이 다른 구성 요소 세트를 지원하는 여러 [클러스터 유형](/azure/hdinsight/hadoop/apache-hadoop-introduction)을 지원합니다. 
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
@@ -205,8 +205,8 @@ HDInsight 클러스터에 대한 청구는 분 단위로 비례 배분됩니다.
 ## <a name="get-the-sample-playbook"></a>샘플 플레이북 가져오기
 
 전체 샘플 플레이북을 가져오는 방법에는 다음 두 가지가 있습니다.
-- [플레이북을 다운로드](https://github.com/Azure-Samples/ansible-playbooks/blob/master/hdinsight_create.yml)한 후 `hdinsight_create.yml`에 저장합니다.
-- `hdinsight_create.yml`이라는 새 파일을 만들고 다음 콘텐츠에 복사합니다.
+- [플레이북을 다운로드](https://github.com/Azure-Samples/ansible-playbooks/blob/master/hdinsight_create.yml)하여 `hdinsight_create.yml`에 저장합니다.
+- `hdinsight_create.yml`이라는 새 파일을 만들고 다음 콘텐츠를 이 파일에 복사합니다.
 
 ```yml
 ---
@@ -365,7 +365,7 @@ ansible-playbook hdinsight.yml
 
 더 이상 필요하지 않은 경우 이 문서에서 만든 리소스를 삭제합니다. 
 
-다음 코드를 `cleanup.yml`에 저장합니다.
+다음 코드를 `cleanup.yml`로 저장합니다.
 
 ```yml
 - hosts: localhost
@@ -379,7 +379,7 @@ ansible-playbook hdinsight.yml
         state: absent
 ```
 
-`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
+다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook cleanup.yml

@@ -3,7 +3,7 @@ title: PIM용 Microsoft Graph API(미리 보기) - Azure Active Directory | Micr
 description: Azure AD PIM(Privileged Identity Management)용 Microsoft Graph API(미리 보기)를 사용하는 방법에 대한 정보를 제공합니다.
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
 ms.date: 11/13/2018
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e54ec4049b2b0cd67c148d881a64a40efff438a2
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 45c7f42d536880f2578c62c6c4866b21be1cc9dc
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578971"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804565"
 ---
 # <a name="microsoft-graph-apis-for-pim-preview"></a>PIM용 Microsoft Graph API(미리 보기)
 

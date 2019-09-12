@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 6e26f9d344a4c11c335d1ea34998c848cbe3598a
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: a9e8ddcca727c4c457e4d92a880fb0cafe5ca6f8
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66753755"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375735"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>가용성 영역으로 Azure VM 이동
 Azure 프로젝트의 가용성 영역은 데이터 센터 오류로부터 애플리케이션과 데이터를 보호할 수 있도록 지원합니다. 각 가용성 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 복원력을 보장하려면 활성화된 모든 지역에서 최소한 세 개의 별도 영역이 필요합니다. 지역 내에서 가용성 영역의 물리적 구분은 애플리케이션 및 데이터를 데이터 센터 오류로부터 보호할 수 있도록 합니다. 가용성 영역을 사용하여 Azure는 이제 VM(가상 머신) 작동 시간에 대해 99.99% SLA(서비스 수준 약정)를 제공합니다. 가용성 영역은 [Azure에서 가용성 영역이란?](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region)에 설명된 것처럼 선택 지역에서 지원됩니다.
@@ -68,8 +68,8 @@ VM을 특정 지역에 *단일 인스턴스*로 배포했으며 이러한 VM을 
      다음 문서에서 원본 VM 구성에 따라 가장 일반적으로 사용되는 네트워크 리소스를 만드는 방법을 참조하세요.
 
     - [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-    - [공용 IP](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+    - [부하 분산 장치](https://docs.microsoft.com/azure/load-balancer)
+    - [공용 IP](../virtual-network/virtual-network-public-ip-address.md)
     
    그 외의 네트워킹 구성 요소는 네트워킹 [설명서](https://docs.microsoft.com/azure/#pivot=products&panel=network)를 참조하세요.
 
@@ -115,9 +115,9 @@ VM을 특정 지역에 *단일 인스턴스*로 배포했으며 이러한 VM을 
 2. **테스트 장애 조치(failover)** 아이콘을 선택합니다.
 3. **테스트 장애 조치(failover)** 에서 장애 조치에 사용할 복구 지점을 선택합니다.
 
-   - **가장 최근에 처리됨**: VM을 Site Recovery 서비스에서 처리된 최신 복구 지점으로 장애 조치합니다. 타임스탬프가 표시됩니다. 이 옵션을 사용하면 데이터를 처리하는 데 시간을 소비하지 않으므로 낮은 RTO(복구 시간 목표)가 제공됩니다.
-   - **최신 앱 일치**: 모든 VM을 최신 앱 일치 복구 지점으로 장애 조치합니다. 타임스탬프가 표시됩니다.
-   - **사용자 지정**: 복구 지점을 선택합니다.
+   - **가장 최근에 처리됨**: VM을 Site Recovery 서비스에서 처리된 최신 복구 지점으로 장애 조치합니다. 타임스탬프가 표시됩니다. 이 옵션을 사용하면 데이터를 처리하는 데 시간을 소비하지 않으므로 낮은 RTO(복구 목표 시간)가 제공됩니다.
+   - **최신 앱 일치**: 모든 VM을 최신 앱 일치 복구 시점으로 장애 조치합니다. 타임스탬프가 표시됩니다.
+   - **사용자 지정**: 복구 시점을 선택합니다.
 
 3. 구성을 테스트하기 위해 Azure VM을 이동할 테스트 대상 Azure 가상 네트워크를 선택합니다. 
 

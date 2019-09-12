@@ -1,5 +1,5 @@
 ---
-title: QnA 봇 - Azure Bot Service - QnA Maker
+title: '자습서: QnA 봇 - Azure Bot Service - QnA Maker'
 titleSuffix: Azure Cognitive Services
 description: 기존 기술 자료의 게시 페이지에서 QnA 채팅 봇을 만듭니다. 이 봇에는 Bot Framework SDK v4가 사용됩니다. 봇 빌드를 위해 코드를 작성할 필요가 없습니다. 모든 코드가 제공됩니다.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 07/31/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 4bb987a5a091871bec2c0cc8cec6d9ab804bb244
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: ea6e0d266c181d930f3d18171b09d222e53da7ab
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698003"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390900"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>자습서: Azure Bot Service v4로 QnA 봇 만들기
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 09/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 366c0c50cee521c5e70496403fd77211a875065f
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 740b3fae81521fec2cba31e3b8fd161f767c4380
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606755"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858978"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>자습서: 이미지에서 얼굴을 감지하고 포착하는 Android 앱 만들기
 
@@ -37,7 +37,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Face API 구독 키. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=face-api)에서 평가판 구독 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Face API 서비스를 구독하고 키를 가져옵니다.
+- Face API 구독 키. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=face-api)에서 평가판 구독 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Face API 서비스를 구독하고 키를 가져옵니다. 그런 다음, 각각 `FACE_SUBSCRIPTION_KEY` 및 `FACE_ENDPOINT`라는 키 및 서비스 엔드포인트 문자열에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
+- [Visual Studio 2015 또는 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
 - API 수준 22 이상의 [Android Studio](https://developer.android.com/studio/)(Face 클라이언트 라이브러리에 필요).
 
 ## <a name="create-the-android-studio-project"></a>Android Studio 프로젝트 만들기
@@ -56,17 +57,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 *activity_main.xml*을 엽니다. 레이아웃 편집기에서 **텍스트** 탭을 선택하고, 콘텐츠를 다음 코드로 바꿉니다.
 
-[!code-xml[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/res/layout/activity_main.xml?range=1-18)]
+[!code-xml[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/res/layout/activity_main.xml?name=snippet_activitymain)]
 
 ### <a name="create-the-main-class"></a>기본 클래스 만들기
 
 *MainActivity.java*를 열고 기존 `import` 문을 다음 코드로 바꿉니다.
 
-[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=3-11)]
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_imports)]
 
 그런 다음, **MainActivity** 클래스의 콘텐츠를 다음 코드로 바꿉니다. 이렇게 하면 사용자가 그림을 선택할 수 있도록 새 작업을 시작하는 이벤트 처리기가 **단추**에 생성됩니다. **ImageView**에 사진이 표시됩니다.
 
-[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=29-68)]
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_mainactivity_methods)]
 
 ### <a name="try-the-app"></a>앱 시험
 
@@ -86,17 +87,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 **MainActivity.java**로 돌아가서 다음 `import` 문을 추가합니다.
 
-[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=13-14)]
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_face_imports)]
 
 **MainActivity** 클래스에서 **onCreate** 메서드 위에 다음 코드를 삽입합니다.
 
-[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=17-27)]
-
-`<Subscription Key>`를 해당 구독 키로 바꿔야 합니다. 또한 해당 키에 적합한 지역 식별자를 사용하여 `<API endpoint>`를 Face API 엔드포인트로 바꿉니다(모든 지역 엔드포인트 목록을 보려면 [Face API 문서](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 참조). 평가판 구독 키는 **westus** 지역에 생성됩니다.
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_mainactivity_fields)]
 
 **프로젝트** 창에서 **앱**, **매니페스트**를 확장하고 *AndroidManifest.xml*을 엽니다. 다음 요소를 `manifest` 요소의 직계 하위 항목으로 삽입합니다.
 
-[!code-xml[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/AndroidManifest.xml?range=5)]
+[!code-xml[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/AndroidManifest.xml?name=snippet_manifest_entry)]
 
 ## <a name="upload-image-and-detect-faces"></a>이미지 업로드 및 얼굴 감지
 
@@ -106,13 +105,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 다음 두 메서드를 **MainActivity** 클래스에 삽입합니다. 얼굴 감지가 완료되면 앱이 **drawFaceRectanglesOnBitmap** 메서드를 호출하여 **ImageView**를 수정합니다. 이 메서드는 다음에 정의하겠습니다.
 
-[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=70-150)]
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_detection_methods)]
 
 ## <a name="draw-face-rectangles"></a>얼굴 사각형 그리기
 
 다음 도우미 메서드를 **MainActivity** 클래스에 삽입합니다. 이 메서드는 각 **얼굴** 인스턴스의 사각형 좌표를 사용하여 감지된 각 얼굴 주위에 사각형을 그립니다.
 
-[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=152-173)]
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_drawrectangles)]
 
 마지막으로, **onActivityResult**의 **detectAndFrame** 메서드 호출에 대한 주석 처리를 제거합니다.
 

@@ -6,15 +6,15 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b8c8d1a867f6872c5e3ec9e1b48dac8f80c84950
-ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
+ms.openlocfilehash: 14ef3bf8420acf03f5c8329c6c78834dbc16ae40
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602131"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814287"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Azure로 재해 복구 훈련 실행
 
@@ -48,7 +48,7 @@ ms.locfileid: "68602131"
 
 1. **보호된 항목**에서 **복제된 항목**을 클릭하고 VM을 클릭합니다.
 2. **복제된 항목** 창에 VM 정보, 상태 및 최신 사용 가능한 복구 지점의 요약이 제공됩니다. 자세한 내용을 보려면 **속성**을 클릭합니다.
-3. **계산 및 네트워크**에서 Azure 이름, 리소스 그룹, 대상 크기, 가용성 집합 및 관리 디스크 설정을 수정할 수 있습니다.
+3. **컴퓨팅 및 네트워크**에서 Azure 이름, 리소스 그룹, 대상 크기, 가용성 집합 및 관리 디스크 설정을 수정할 수 있습니다.
 4. 장애 조치(failover) 후 Azure VM이 배치될 네트워크/서브넷 및 할당되는 IP 주소를 포함한 네트워크 설정을 보고 수정할 수 있습니다.
 5. **디스크**에서 VM의 운영 체제 및 데이터 디스크에 대한 정보를 볼 수 있습니다.
 
@@ -65,7 +65,7 @@ ms.locfileid: "68602131"
 테스트 장애 조치(failover)를 실행하면 다음 상황이 발생합니다.
 
 1. 필수 구성 요소 확인은 장애 조치(failover)에 필요한 모든 조건이 충족되었는지 확인하기 위해 실행합니다.
-2. 장애 조치(failover)는 데이터를 처리하며 이 데이터에서 Azure VM이 만들어질 수 있습니다. 최신 복구 지점을 선택하는 경우 해당 데이터에서 복구 지점이 만들어집니다.
+2. 장애 조치(failover)는 데이터를 처리하며 이 데이터에서 Azure VM이 만들어질 수 있습니다. 최신 복구 시점을 선택하는 경우 해당 데이터에서 복구 시점이 만들어집니다.
 3. 이전 단계에서 처리한 데이터를 사용하여 Azure VM이 만들어집니다.
 
 다음과 같이 테스트 장애 조치(Failover)를 실행합니다.

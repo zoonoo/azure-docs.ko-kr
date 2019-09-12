@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/21/2019
-ms.openlocfilehash: f072b6905881da7b7854b0e51d690dbbd40dffb5
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: a58d7befdb1066ce08ad1e46e6550141e2b0824f
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227434"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899983"
 ---
 # <a name="tutorial-use-r-in-a-spark-compute-context-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 Spark 컴퓨팅 컨텍스트에 R 사용
 
@@ -59,7 +59,7 @@ https://CLUSTERNAME.azurehdinsight.net/rstudio/
 
 1. 오른쪽 창에서 **환경** 탭을 선택합니다. 변수는 **값** 아래에 표시됩니다.
 
-    ![RStudio](./media/ml-services-tutorial-spark-compute/rstudio.png)
+    ![RStudio](./media/ml-services-tutorial-spark-compute/hdinsight-rstudio-image.png)
 
 1.  로컬 디렉터리를 만들고 샘플 데이터를 다운로드합니다. RStudio에서 다음 코드를 입력합니다.
 

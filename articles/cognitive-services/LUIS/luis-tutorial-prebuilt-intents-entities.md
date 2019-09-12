@@ -1,5 +1,5 @@
 ---
-title: 미리 빌드된 의도 및 엔터티 - LUIS
+title: '자습서: 미리 빌드된 의도 및 엔터티 - LUIS'
 titleSuffix: Azure Cognitive Services
 description: 이 자습서에서는 미리 빌드된 의도 및 엔터티를 앱에 추가하여 의도 예측 및 데이터 추출을 빠르게 수행합니다. 미리 빌드된 엔터티를 사용하여 발화에 레이블을 지정할 필요가 없습니다. 엔터티는 자동으로 검색됩니다.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: 4697bad15a374bed0de08b7cabc5aceaad7f1259
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: aaeddac98e3f192d5e6a87ecfd48005526379ff2
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876718"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390992"
 ---
 # <a name="tutorial-identify-common-intents-and-entities"></a>자습서: 일반적인 의도 및 엔터티 식별
 

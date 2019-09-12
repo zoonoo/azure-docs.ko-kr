@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 11eae0e3bae501cdf39d7fe1d5d39524c1f83e6c
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: c5399f46106d94d593a15530ee0c223a3f5f3eaf
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035991"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802056"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>자습서: 연결된 Azure Resource Manager 템플릿 만들기
 
@@ -287,7 +287,7 @@ echo "Linked template URI with SAS token: $templateURI"
 
 스토리지 계정은 이제 연결된 템플릿에서 정의되므로 `Microsoft.Compute/virtualMachines` 리소스의 다음 두 요소를 업데이트해야 합니다.
 
-* `dependOn` 요소를 다시 구성합니다. 스토리지 계정 정의가 연결된 템플릿으로 이동합니다.
+* `dependsOn` 요소를 다시 구성합니다. 스토리지 계정 정의가 연결된 템플릿으로 이동합니다.
 * `properties/diagnosticsProfile/bootDiagnostics/storageUri` 요소를 다시 구성합니다. [연결된 템플릿 만들기](#create-the-linked-template)에서 출력 값을 추가했습니다.
 
     ```json

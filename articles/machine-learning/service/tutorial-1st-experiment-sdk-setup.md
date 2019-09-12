@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 08/28/2019
-ms.openlocfilehash: f1003324e9f4b3762b5d8eca703af4a1fbd4613a
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: d968d6e799b75940d1fb73aa31c22eb84068df7d
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308809"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860416"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>자습서: Python SDK로 첫 번째 ML 실험 만들기 시작
 
@@ -79,3 +79,5 @@ Azure Machine Learning 작업 영역은 기계 학습 모델을 실험하고, �
 
 > [!IMPORTANT]
 > 이 자습서 또는 다른 자습서의 2부를 따르지 않을 경우 비용을 절감하기 위해 사용하지 않을 때는 [클라우드 Notebook 서버 VM](tutorial-1st-experiment-sdk-train.md#clean-up-resources)을 중지해야 합니다.
+
+

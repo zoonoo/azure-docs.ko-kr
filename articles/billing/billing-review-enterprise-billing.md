@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/06/2018
 ms.author: banders
 ms.openlocfilehash: 25d9b48696dc2a83ea0ba77c1be2c7aad7627fff
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "68443143"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>REST API를 사용하여 기업 등록 청구 검토
@@ -43,13 +43,13 @@ Authorization: Bearer
 
 |요청 헤더|설명|  
 |--------------------|-----------------|  
-|*Content-Type:*|필수 요소. `application/json`로 설정합니다.|  
-|*Authorization:*|필수 요소. 유효한 `Bearer` [API 키](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based)를 설정합니다. |  
+|*Content-Type:*|필수 사항입니다. `application/json`로 설정합니다.|  
+|*권한 부여*|필수 사항입니다. 유효한 `Bearer` [API 키](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based)를 설정합니다. |  
 
 이 예에서는 현재 청구 주기의 세부 정보를 반환하는 동기 호출을 나타냅니다. 성능상의 이유로 동기 호출은 지난 달에 대한 정보를 반환합니다.  [API 비동기](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) 호출을 통해 36개월의 데이터를 반환할 수도 있습니다.
 
 
-## <a name="response"></a>응답  
+## <a name="response"></a>response  
 
 상태 코드 200(OK)은 계정의 상세 비용 목록이 포함된 성공적인 응답에 대해 반환됩니다.
 
@@ -94,14 +94,14 @@ Authorization: Bearer
 
 다음과 같은 헤더가 필요합니다. 
 
-|요청 헤더|Description|  
+|요청 헤더|설명|  
 |--------------------|-----------------|  
-|*Content-Type:*|필수 요소. `application/json`로 설정합니다.|  
-|*Authorization:*|필수 요소. 유효한 `Bearer` [API 키](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based)를 설정합니다. |  
+|*Content-Type:*|필수 사항입니다. `application/json`로 설정합니다.|  
+|*권한 부여*|필수 사항입니다. 유효한 `Bearer` [API 키](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based)를 설정합니다. |  
 
 이 예에서는 현재 청구 주기의 세부 정보를 반환하는 동기 호출을 나타냅니다. 성능상의 이유로 동기 호출은 지난 달에 대한 정보를 반환합니다.  [API 비동기](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) 호출을 통해 36개월의 데이터를 반환할 수도 있습니다.
 
-### <a name="response"></a>응답  
+### <a name="response"></a>response  
 
 상태 코드 200(OK)은 해당 부서의 청구서 ID, 지정된 청구 기간의 비용 및 자세한 사용량 정보의 목록이 포함된 성공적인 응답에 대해 반환됩니다.
 
@@ -152,12 +152,12 @@ Authorization: Bearer
 
 |요청 헤더|설명|  
 |--------------------|-----------------|  
-|*Content-Type:*|필수 요소. `application/json`로 설정합니다.|  
-|*Authorization:*|필수 요소. 유효한 `Bearer` [API 키](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based)를 설정합니다. |  
+|*Content-Type:*|필수 사항입니다. `application/json`로 설정합니다.|  
+|*권한 부여*|필수 사항입니다. 유효한 `Bearer` [API 키](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based)를 설정합니다. |  
 
 이 예에서는 현재 청구 주기의 세부 정보를 반환하는 동기 호출을 나타냅니다. 성능상의 이유로 동기 호출은 지난 달에 대한 정보를 반환합니다.  [API 비동기](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) 호출을 통해 36개월의 데이터를 반환할 수도 있습니다.
 
-### <a name="response"></a>응답  
+### <a name="response"></a>response  
 
 상태 코드 200(OK)은 해당 부서의 청구서 ID, 지정된 청구 기간의 비용 및 자세한 사용량 정보의 목록이 포함된 성공적인 응답에 대해 반환됩니다.
 

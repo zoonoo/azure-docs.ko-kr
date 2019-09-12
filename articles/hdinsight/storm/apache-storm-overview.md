@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
 ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 00c536120ed9507d5ecc6fe930429d12514945b3
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 0540d8a83a8dc1da9bc763bce0b30463889cfe90
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483830"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915029"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Azure HDInsight의 Apache Storm이란?
 
@@ -64,7 +64,7 @@ Nimbus 노드는 Apache Hadoop JobTracker와 유사한 기능을 제공하며 [A
 
 Apache Storm 클러스터의 기본 구성에는 Nimbus 노드 하나만 있습니다. HDInsight의 Storm은 두 개의 Nimbus 노드를 제공합니다. 주 노드에 장애가 발생하면 주 노드가 복구되는 동안 Storm 클러스터에서 보조 노드로 전환합니다. 다음 다이어그램은 HDInsight에서 Storm에 대한 작업 흐름 구성을 보여 줍니다.
 
-![nimbus, zookeeper 및 감독자 다이어그램](./media/apache-storm-overview/nimbus.png)
+![nimbus, zookeeper 및 감독자 다이어그램](./media/apache-storm-overview/storm-diagram-nimbus.png)
 
 ## <a name="ease-of-creation"></a>만들기 편의성
 

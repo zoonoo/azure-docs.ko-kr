@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
 ms.date: 08/15/2019
-ms.openlocfilehash: d6127d4fba3d2255dee28cd41179f16394545328
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 16845e5891117cc01bef5fae28cf4b36c0508651
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207220"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899550"
 ---
 # <a name="what-is-apache-hadoop-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Hadoop이란?
 
@@ -30,10 +30,6 @@ Apache Hadoop MapReduce는 방대한 양의 데이터를 처리하는 작업을 
 * **매퍼**: 입력 데이터를 사용하고, 일반적으로 필터 및 정렬 작업을 통해 분석하며, 튜플(키-값 쌍)을 내보냅니다.
 
 * **리듀서**: 매퍼에서 내보낸 튜플을 사용하고 매퍼 데이터에서 더 작고 결합된 결과를 만드는 요약 작업을 수행합니다.
-
-다음 다이어그램에서는 기본 단어 계산 MapReduce 작업 예제를 보여줍니다.
-
-![HDI.WordCountDiagram][image-hdi-wordcountdiagram]
 
 이 작업의 출력은 텍스트에서 각 단어가 발생한 횟수입니다.
 

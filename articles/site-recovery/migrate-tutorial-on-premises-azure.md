@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: df4f89bd1b2e3c0423f5d758cfa637e4da9e04d0
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 7534313a5862ececf4757be807e59b6df39f6430
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66396533"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873352"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Azure로 온-프레미스 컴퓨터 마이그레이션
 
@@ -21,7 +21,7 @@ ms.locfileid: "66396533"
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 Azure로 온-프레미스 머신을 마이그레이션하는 방법을 설명합니다. 일반적으로 Site Recovery는 온-프레미스 머신 및 Azure VM의 재해 복구를 관리 및 오케스트레이션하는 데 사용됩니다. 하지만 마이그레이션에도 사용할 수 있습니다. 마이그레이션은 재해 복구와 동일한 단계를 따르지만 한 가지 예외가 있습니다. 마이그레이션에서는 온-프레미스 사이트에서 머신 장애 조치(fail-over)를 수행하는 것이 마지막 단계입니다. 재해 복구와 달리 마이그레이션 시나리오에서는 온-프레미스로 장애 복구할 수 없습니다.
 
 
-이 자습서는 온-프레미스 VM 및 물리적 서버를 Azure로 마이그레이션하는 방법을 보여 줍니다. 다음 방법에 대해 알아봅니다.
+이 자습서는 온-프레미스 VM 및 물리적 서버를 Azure로 마이그레이션하는 방법을 보여 줍니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 마이그레이션의 원본 및 대상 환경 설정
@@ -46,7 +46,7 @@ ms.locfileid: "66396533"
 2. 온-프레미스 [VMware](vmware-azure-tutorial-prepare-on-premises.md) 또는 [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) 서버를 준비합니다. 물리적 머신을 마이그레이션하는 경우 아무것도 준비할 필요가 없습니다. [지원 매트릭스](vmware-physical-azure-support-matrix.md)를 확인하기만 하면 됩니다.
 
 
-## <a name="select-a-replication-goal"></a>복제 목표 선택
+## <a name="select-a-protection-goal"></a>보호 목표 선택
 
 복제할 대상과 복제할 위치를 선택합니다.
 1. **Recovery Services 자격 증명 모음** > 자격 증명 모음을 클릭합니다.
@@ -103,7 +103,7 @@ Hyper-V | [복제 활성화](hyper-v-azure-tutorial.md#enable-replication)<br/><
 마이그레이션할 컴퓨터에 대해 장애 조치(Failover)를 실행합니다.
 
 1. **설정** > **복제된 항목**에서 컴퓨터 > **장애 조치(Failover)** 를 클릭합니다.
-2. **장애 조치(Failover)** 에서 장애 조치할 **복구 지점**을 선택합니다. 최신 복구 지점을 선택합니다.
+2. **장애 조치(Failover)** 에서 장애 조치할 **복구 시점**을 선택합니다. 최신 복구 시점을 선택합니다.
 3. 암호화 키 설정은 이 시나리오와 관련이 없습니다.
 4. **장애 조치(failover)를 시작하기 전에 컴퓨터를 종료합니다.** 를 선택합니다. Site Recovery는 장애 조치(failover)를 트리거하기 전에 가상 머신을 종료하려고 시도합니다. 종료가 실패하더라도 장애 조치는 계속됩니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다.
 5. Azure VM이 예상대로 Azure에 표시되는지 확인합니다.

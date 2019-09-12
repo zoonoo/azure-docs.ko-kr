@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 07/16/2019
+ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: ba128f5ad87083f8d57c33011969756f3b3a8c93
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ead314e4c889b79892857eb07ecdd63377131b12
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559816"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376345"
 ---
-# <a name="get-answers-to-a-question-from-a-knowledge-base-with-c"></a>C#을 사용하여 기술 자료에서 질문에 대한 답변 얻기
+# <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-c"></a>빠른 시작: C#을 사용하여 기술 자료에서 질문에 대한 답변 얻기
 
 이 빠른 시작에서는 게시된 QnA Maker 기술 자료에서 프로그래밍 방식으로 답변을 가져오는 방법을 안내합니다. 기술 자료에는 FAQ와 같은 [데이터 원본](../Concepts/data-sources-supported.md)의 질문과 답변이 있습니다. [질문](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration)은 QnA Maker 서비스로 전송됩니다. [응답](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties)은 예상되는 상위 답변을 포함합니다. 
 

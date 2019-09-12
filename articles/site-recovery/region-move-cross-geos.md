@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 63150b8924438df8d77fdd088811d9fbe3ec2d84
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: bff6268507c0d2ec0aa1eac0c7e2e9d2513ded58
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967302"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376134"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Azure Government와 공용 Azure 지역 간에 Azure VM 이동 
 
@@ -68,8 +68,8 @@ Azure 계정에 Azure로 VM을 복제하기 위한 권한이 있는지 확인합
 
 [Azure Storage 계정](../storage/common/storage-quickstart-create-account.md)을 설정합니다.
 
-- Site Recovery는 온-프레미스 컴퓨터를 Azure Storage에 복제합니다. 장애 조치(failover)가 발생한 후에 스토리지에서 Azure VM을 만듭니다.
-- 스토리지 계정은 Recovery Services 자격 증명 모음과 동일한 지역에 있어야 합니다.
+- Site Recovery는 온-프레미스 컴퓨터를 Azure Storage에 복제합니다. 장애 조치가 발생한 후에 스토리지에서 Azure VM을 만듭니다.
+- 스토리지 계정은 Recovery Services 자격 증명 모음과 동일한 영역에 있어야 합니다.
 
 
 ## <a name="prepare-the-source-vms"></a>원본 VM 준비
@@ -98,8 +98,8 @@ Azure 계정에 Azure로 VM을 복제하기 위한 권한이 있는지 확인합
      다음 문서를 참조하여 원본 VM 구성에 따라 가장 일반적으로 사용되는 네트워크 리소스를 만드세요.
 
     - [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-    - [공용 IP](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+    - [부하 분산 장치](https://docs.microsoft.com/azure/load-balancer)
+    - [공용 IP](../virtual-network/virtual-network-public-ip-address.md)
     
     그 외의 네트워킹 구성 요소는 네트워킹 [설명서](https://docs.microsoft.com/azure/#pivot=products&panel=network)를 참조하세요. 
 
@@ -212,8 +212,8 @@ IP 주소 기반 방화벽 규칙은 HTTPS(443) 포트를 통해 위에 나열�
 2. **테스트 장애 조치**에서 장애 조치에 사용할 복구 지점을 선택합니다.
 
    - **가장 최근에 처리됨**: VM을 Site Recovery 서비스에서 처리된 최신 복구 지점으로 장애 조치합니다. 타임스탬프가 표시됩니다. 이 옵션을 사용하면 데이터를 처리하는 데 시간을 소비하지 않으므로 낮은 RTO(복구 시간 목표)가 제공됩니다.
-   - **최신 앱 일치**: 모든 VM을 최신 앱 일치 복구 지점으로 장애 조치합니다. 타임스탬프가 표시됩니다.
-   - **사용자 지정**: 복구 지점을 선택합니다.
+   - **최신 앱 일치**: 모든 VM을 최신 앱 일치 복구 시점으로 장애 조치합니다. 타임스탬프가 표시됩니다.
+   - **사용자 지정**: 복구 시점을 선택합니다.
 
 3. 구성을 테스트하기 위해 Azure VM을 이동할 대상 Azure 가상 네트워크를 선택합니다. 
 

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 08/28/2019
 ms.author: shthowse
-ms.openlocfilehash: c3cd64d0a683a60132808bca6a7ceb4aa84db4f1
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: b5eb327daa74d8e6f384d6f8e1054fb265ce4a7d
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195197"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375880"
 ---
 # <a name="quickstart-text-analytics-client-library-for-nodejs"></a>빠른 시작: Node.js용 Text Analytics 클라이언트 라이브러리
 <a name="HOLTop"></a>
@@ -29,7 +29,7 @@ Node.js용 Text Analytics 클라이언트 라이브러리를 사용하여 수행
 * 엔터티 인식
 * 핵심 문구 추출
 
-[참조 설명서](https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/textanalytics?view=azure-node-latest) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesTextAnalytics) | [패키지(NPM)](https://www.npmjs.com/package/azure-cognitiveservices-textanalytics) | [샘플](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
+[참조 설명서](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesTextAnalytics) | [패키지(NPM)](https://www.npmjs.com/package/azure-cognitiveservices-textanalytics) | [샘플](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
 
 ## <a name="prerequisites"></a>필수 조건
 

@@ -1,5 +1,5 @@
 ---
-title: 패턴 역할 - LUIS
+title: '자습서: 패턴 역할 - LUIS'
 titleSuffix: Azure Cognitive Services
 description: 패턴은 적절한 형식의 템플릿 발언에서 데이터를 추출합니다. 템플릿 발언은 간단한 엔터티와 역할을 사용하여 원본 위치 및 대상 위치 같은 관련 데이터를 추출합니다.
 ms.custom: seodec18
@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 07/16/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 7586a81eac95a2e4a08b045b3a2826132d9919f7
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7b95dcf6a93c9abdeab9520f0a0fd80eb17dccff
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560026"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70387633"
 ---
 # <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>자습서: 역할을 사용하여 컨텍스트 관련 패턴 추출
 

@@ -5,15 +5,15 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 07a5ee6ccdaecc78c9a8e61ae9e64a5264e3a875
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 6064c32e14ffba7edd51c2dae7787067d14e33c9
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66418345"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814342"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>온-프레미스 재해 복구를 위한 Azure 리소스 준비
 
@@ -50,7 +50,7 @@ Azure 체험 계정을 방금 만든 경우 본인이 해당 구독의 관리자
 
 ## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-복제된 컴퓨터의 이미지는 Azure Storage에 유지됩니다. 온-프레미스에서 Azure로 장애 조치할 때 스토리지에서 Azure VM이 만들어집니다. 스토리지 계정은 Recovery Services 자격 증명 모음과 동일한 지역에 있어야 합니다.
+복제된 컴퓨터의 이미지는 Azure Storage에 유지됩니다. 온-프레미스에서 Azure로 장애 조치할 때 스토리지에서 Azure VM이 만들어집니다. 스토리지 계정은 Recovery Services 자격 증명 모음과 동일한 영역에 있어야 합니다.
 
 1. [Azure Portal](https://portal.azure.com) 메뉴에서 **리소스 만들기** > **스토리지** > **스토리지 계정 - BLOB, 파일, 테이블, 큐**를 선택합니다.
 2. **스토리지 계정 만들기**에서 계정의 이름을 입력합니다.  선택한 이름은 Azure 내에서 고유해야 하고, 3 ~ 24자 길이이고, 소문자와 숫자만 사용해야 합니다. 이 자습서에서는 **contosovmsacct1910171607**을 사용합니다.

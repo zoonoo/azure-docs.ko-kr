@@ -1,5 +1,5 @@
 ---
-title: Application Insights, C# - LUIS
+title: '자습서: Application Insights, C# - LUIS'
 titleSuffix: Azure Cognitive Services
 description: 이 자습서에서는 Application Insights 원격 분석 데이터 스토리지에 봇 및 Language Understanding 정보가 추가됩니다.
 services: cognitive-services
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/16/2019
+ms.date: 09/06/2019
 ms.author: diberry
-ms.openlocfilehash: bc8cf9973ed6889b0820e5ada5565d0541532fa3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 51860efdcc440d6b8a4ea57777ad31fa718657b5
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560059"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772814"
 ---
-# <a name="add-luis-results-to-application-insights-from-a-bot-in-c"></a>C#의 봇에서 Application Insights에 LUIS 결과 추가
+# <a name="tutorial-add-luis-results-to-application-insights-from-a-bot-in-c"></a>자습서: C#의 봇에서 Application Insights에 LUIS 결과 추가
 
 이 자습서에서는 [Application Insights](https://azure.microsoft.com/services/application-insights/) 원격 분석 데이터 스토리지에 봇 및 Language Understanding 정보가 추가됩니다. 해당 데이터가 있으면 Kusto 언어 또는 Power BI로 데이터를 쿼리하여 발화의 의도 및 엔터티를 실시간으로 분석, 집계 및 보고할 수 있습니다. 이 분석을 통해 LUIS 앱의 의도와 엔터티를 추가하거나 편집해야 할지 결정할 수 있습니다.
 
@@ -160,7 +160,7 @@ Application Insights에 데이터를 추가하려면 계측 키가 필요합니�
 1. Visual Studio에서 봇을 빌드하고 실행합니다. 
 1. 봇 에뮬레이터를 시작하고 봇을 엽니다. 이 [단계](luis-csharp-tutorial-bf-v4.md#use-the-bot-emulator-to-test-the-bot)는 이전 자습서에 나와 있습니다.
 
-1. 봇에 질문을 합니다. 이 [단계](luis-csharp-tutorial-bf-v4.md#ask-bot-a-question-for-the-book-flight-intent)는 이전 자습서에 나와 있습니다.
+1. 봇에 질문을 합니다. 이 [단계](luis-csharp-tutorial-bf-v4.md##use-the-bot-emulator-to-test-the-bot)는 이전 자습서에 나와 있습니다.
 
 ## <a name="view-luis-entries-in-application-insights"></a>Application Insights에서 LUIS 항목 보기
 

@@ -3,8 +3,8 @@ title: 자습서 - PowerShell을 사용하여 기존 가상 네트워크에 배�
 description: PowerShell을 사용하여 전용 HSM을 기존 가상 네트워크에 배포하는 방법을 보여 주는 자습서입니다.
 services: dedicated-hsm
 documentationcenter: na
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 editor: ''
 ms.service: key-vault
 ms.topic: tutorial
@@ -12,13 +12,13 @@ ms.custom: mvc, seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
-ms.author: barclayn
-ms.openlocfilehash: 581ce6d75df8f42bb72bbfc93e85684d97620e3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: mbaldwin
+ms.openlocfilehash: 53fb4fa344839957a3f98275d174bbb787fa5e38
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66159047"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880996"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>자습서 - PowerShell을 사용하여 기존 가상 네트워크에 HSM 배포
 
@@ -217,7 +217,7 @@ ssh 도구를 사용하여 가상 머신에 연결합니다. 이 명령은 다�
 `ssh adminuser@hsmlinuxvm.westus.cloudapp.azure.com`
 
 사용할 암호는 매개 변수 파일의 암호입니다.
-Linux VM에 로그온하면 포털에서 리소스 \<prefix>hsm_vnic에 대해 확인된 사설 IP 주소를 사용하여 HSM에 로그인할 수 있습니다.
+Linux VM에 로그온하면 포털에서 리소스 \<prefix&gt;hsm_vnic에 대해 확인된 개인 IP 주소를 사용하여 HSM에 로그인할 수 있습니다.
 
 ```powershell
 
