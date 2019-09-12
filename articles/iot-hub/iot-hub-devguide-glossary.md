@@ -43,13 +43,13 @@ Azure IoT Hub에서 자동 디바이스 관리는 전체 수명 주기를 통해
 ## <a name="azure-iot-tools"></a>Azure IoT Tools
 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)는 VS Code에서 디바이스 및 Azure IoT Hub 관리에 도움이 되는 플랫폼 간 오픈 소스 Visual Studio Code 확장입니다. IoT 개발자는 Azure IoT Tools를 사용하여 손쉽게 VS Code에서 IoT 프로젝트를 개발할 수 있습니다.
 
-## <a name="azure-portal"></a>Azure portal
+## <a name="azure-portal"></a>Azure Portal
 [Microsoft Azure Portal](https://portal.azure.com)은 Azure 리소스를 프로비전 및 관리할 수 있는 중앙 위치입니다. _블레이드_를 사용하여 해당 콘텐츠를 구성합니다.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 [Azure PowerShell](/powershell/azure/overview)은 Windows PowerShell로 Azure를 관리하는 데 사용할 수 있는 cmdlet 컬렉션입니다. cmdlet을 사용하여 Azure 플랫폼을 통해 제공되는 솔루션과 서비스를 만들고 테스트, 배포 및 관리할 수 있습니다.
 
-## <a name="azure-resource-manager"></a>Azure 리소스 관리자
+## <a name="azure-resource-manager"></a>Azure Resource Manager
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)를 사용하면 솔루션에서 리소스를 그룹으로 사용할 수 있습니다. 조정된 단일 작업에서 솔루션에 대한 리소스를 배포, 업데이트 또는 삭제할 수 있습니다.
 
 ## <a name="azure-service-bus"></a>Azure Service Bus
@@ -67,10 +67,10 @@ Azure IoT Hub에서 자동 디바이스 관리는 전체 수명 주기를 통해
 ## <a name="cloud-gateway"></a>클라우드 게이트웨이
 클라우드 게이트웨이를 통해 [IoT Hub](#iot-hub)에 직접 연결할 수 없는 디바이스의 연결이 가능합니다. 클라우드 게이트웨이는 디바이스에 대해 로컬로 시행되는 [필드 게이트웨이](#field-gateway)와 달리, 클라우드에서 호스트됩니다. 클라우드 게이트웨이를 위한 일반 사용 사례는 디바이스에 대한 프로토콜 변환을 구현하는 것입니다.
 
-## <a name="cloud-to-device"></a>클라우드-장치
+## <a name="cloud-to-device"></a>클라우드-디바이스
 IoT Hub에서 연결된 디바이스로 전송되는 메시지를 참조하세요. 대개 이러한 메시지는 디바이스에 작업을 수행하도록 하는 명령입니다. 자세한 내용은 [IoT Hub를 통해 메시지 보내고 받기](iot-hub-devguide-messaging.md)를 참조하세요.
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 [자동 디바이스 구성](iot-hub-auto-device-config.md)의 컨텍스트에서 IoT Hub 내의 구성은 디바이스 쌍의 집합에 대해 원하는 구성을 정의하고 상태 및 진행률을 보고하도록 메트릭 집합을 제공합니다.
 
 ## <a name="connection-string"></a>연결 문자열
@@ -136,7 +136,7 @@ IoT의 컨텍스트에서 일반적으로 디바이스는 데이터를 수집하
 IoT Hub는 앱을 IoT Hub에 연결할 수 있도록 해주는 여러 [엔드포인트](iot-hub-devguide-endpoints.md)를 노출합니다. 디바이스가 [디바이스-클라우드](#device-to-cloud) 메시지 보내기 및 [클라우드-디바이스](#cloud-to-device) 메시지 받기와 같은 작업을 수행할 수 있도록 해주는 디바이스 지향 엔드포인트가 있습니다. [백 엔드 앱](#back-end-app)이 [디바이스 ID](#device-identity) 관리 및 디바이스 쌍 관리와 같은 작업을 수행할 수 있도록 하는 서비스 지향 관리 엔드포인트가 있습니다. 디바이스-클라우드 메시지 를 읽기 위한 서비스 지향 [기본 제공 엔드포인트](#built-in-endpoints)가 있습니다. [사용자 지정 엔드포인트](#custom-endpoints)를 만들어 [라우팅 규칙](#routing-rules)으로 발송된 디바이스-클라우드 메시지를 받을 수 있습니다.
 
 ## <a name="event-hubs-service"></a>Event Hubs 서비스
-[Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md)는 초당 수백만의 이벤트를 유입할 수 있는 확장성이 뛰어난 수집 서비스입니다. 이 서비스를 사용하면 연결된 장치와 애플리케이션에서 생성한 대량의 데이터를 처리하고 분석할 수 있습니다. IoT Hub 서비스와 비교는 [Azure IoT Hub 및 Azure Event Hubs의 비교](iot-hub-compare-event-hubs.md)를 참조하세요.
+[Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md)는 초당 수백만의 이벤트를 유입할 수 있는 확장성이 뛰어난 수집 서비스입니다. 이 서비스를 사용하면 연결된 디바이스와 애플리케이션에서 생성한 대량의 데이터를 처리하고 분석할 수 있습니다. IoT Hub 서비스와 비교는 [Azure IoT Hub 및 Azure Event Hubs의 비교](iot-hub-compare-event-hubs.md)를 참조하세요.
 
 ## <a name="event-hub-compatible-endpoint"></a>Event Hub 호환 엔드포인트
 IoT Hub에 전송된 [디바이스-클라우드](#device-to-cloud) 메시지를 읽으려면 허브에 있는 엔드포인트에 연결하고 Event Hub 호환 메서드를 사용하여 해당 메시지를 읽을 수 있습니다. 모든 Event Hub 호환 메서드에는 [Event Hubs SDK](../event-hubs/event-hubs-programming-guide.md) 및 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 사용이 포함됩니다.
@@ -154,7 +154,7 @@ IoT Hub에 전송된 [디바이스-클라우드](#device-to-cloud) 메시지를 
 [ID 레지스트리](iot-hub-devguide-identity-registry.md)는 IoT Hub에 연결이 허용된 개별 디바이스에 대한 정보를 저장하는 IoT Hub의 기본 제공 구성 요소입니다.
 
 ## <a name="interactive-message"></a>대화형 메시지
-대화형 메시지는 솔루션 백 엔드에서 즉각적인 작업을 트리거하는 [클라우드-장치](#cloud-to-device) 메시지입니다. 예를 들어 디바이스는 CRM 시스템에 자동으로 로깅되는 실패에 대한 경보를 보낼 수 있습니다.
+대화형 메시지는 솔루션 백 엔드에서 즉각적인 작업을 트리거하는 [클라우드-디바이스](#cloud-to-device) 메시지입니다. 예를 들어 디바이스는 CRM 시스템에 자동으로 로깅되는 실패에 대한 경보를 보낼 수 있습니다.
 
 [!INCLUDE [azure-iot-hub-edge-glossary-includes](../../includes/azure-iot-hub-edge-glossary-includes.md)]
 
@@ -220,7 +220,7 @@ IoT Hub에서 디바이스 지향 또는 서비스 지향 엔드포인트에 연
 ## <a name="retry-policy"></a>다시 시도 정책
 클라우드 서비스에 연결할 때는 재시도 정책을 사용하여 [일시적인 오류](/azure/architecture/best-practices/transient-faults)를 처리합니다.
 
-## <a name="routing-rules"></a>라우팅 규칙
+## <a name="routing-rules"></a>회람 규칙
 IoT Hub에서 [기본 제공 엔드포인트](#built-in-endpoints) 또는 [사용자 지정 엔드포인트](#custom-endpoints)로 디바이스-클라우드 메시지를 라우팅하여 솔루션 백 엔드에서 처리하도록 [라우팅 규칙](iot-hub-devguide-messages-read-custom.md)을 구성합니다.
 
 ## <a name="sasl-plain"></a>SASL PLAIN
@@ -238,7 +238,7 @@ SASL PLAIN은 AMQP 프로토콜에서 보안 토큰을 전송하는 데 사용�
 ## <a name="simulated-device"></a>시뮬레이션된 디바이스
 편의를 위해 많은 IoT Hub 자습서에서 시뮬레이션된 디바이스를 사용하여 로컬 머신에서 샘플을 실행할 수 있도록 합니다. 반면에, [물리적 디바이스](#physical-device)는 Raspberry Pi처럼 IoT Hub에 연결되는 실제 디바이스입니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 _솔루션_은 하나 이상의 프로젝트를 포함하는 Visual Studio 솔루션을 나타낼 수 있습니다. _솔루션_은 또한 디바이스, [디바이스 앱](#device-app), IoT Hub, 기타 Azure 서비스 및 [백 엔드 앱](#back-end-app)과 같은 요소를 포함하는 IoT 솔루션을 나타낼 수 있습니다.
 
 ## <a name="subscription"></a>구독

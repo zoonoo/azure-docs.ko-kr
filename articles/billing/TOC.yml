@@ -123,8 +123,6 @@
       href: billing-how-to-change-azure-account-profile.md
     - name: 요금 청구에 대한 액세스 권한 부여
       href: billing-manage-access.md
-    - name: Azure의 EA 역할
-      href: billing-understand-ea-roles.md
     - name: Azure에서 Microsoft 고객 계약 역할
       href: billing-understand-mca-roles.md
     - name: 파트너 ID 연결
@@ -133,8 +131,26 @@
       href: billing-view-all-accounts.md
     - name: 청구서 섹션으로 비용 구성
       href: billing-mca-section-invoice.md
-    - name: Microsoft 고객 계약의 EA 작업
-      href: billing-mca-enterprise-operations.md
+    - name: EA 관리
+      items:
+        - name: Azure EA 포털에서 시작
+          href: billing-ea-portal-get-started.md
+        - name: Azure의 EA 역할
+          href: billing-understand-ea-roles.md
+        - name: Azure EA 포털 관리
+          href: billing-ea-portal-administration.md
+        - name: Azure EA 계약 및 수정안
+          href: billing-ea-portal-agreements.md
+        - name: 기업 등록계약 송장
+          href: billing-ea-portal-enrollment-invoices.md
+        - name: Azure 엔터프라이즈 REST API
+          href: billing-ea-portal-rest-apis.md
+        - name: Azure EA VM 예약 인스턴스
+          href: billing-ea-portal-vm-reservations.md
+        - name: Azure EA 포털 액세스 문제 해결
+          href: billing-ea-portal-troubleshoot.md
+        - name: Microsoft 고객 계약의 EA 작업
+          href: billing-mca-enterprise-operations.md
     - name: 미지불액 해결
       href: billing-azure-subscription-past-due-balance.md
     - name: Microsoft 고객 계약에 대한 청구 계정 설정

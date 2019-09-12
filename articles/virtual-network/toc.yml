@@ -255,6 +255,10 @@
           href: manage-public-ip-address-prefix.md
     - name: 문제 해결
       items:
+        - name: 가상 네트워크 피어링 문제 해결
+          href: virtual-network-troubleshoot-peering-issues.md
+        - name: VNet 또는 VPN 연결 구성 및 유효성 검사
+          href: virtual-network-configure-vnet-connections.md
         - name: 네트워크 보안 그룹
           href: diagnose-network-traffic-filter-problem.md
         - name: 경로

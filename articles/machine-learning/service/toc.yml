@@ -152,18 +152,20 @@
         - name: 학습 환경 설정
           displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
           href: how-to-set-up-training-targets.md
-        - name: 학습에서 추정 만들기
-          href: how-to-train-ml-models.md
-        - name: Scikit-learn 사용
-          href: how-to-train-scikit-learn.md
-        - name: TensorFlow 사용
-          href: how-to-train-tensorflow.md
-        - name: Keras 사용
-          href: how-to-train-keras.md
-        - name: PyTorch 사용
-          href: how-to-train-pytorch.md
-        - name: Chainer 사용
-          href: how-to-train-chainer.md
+        - name: 추정기를 사용하여 학습
+          items:
+            - name: 학습에서 추정 만들기
+              href: how-to-train-ml-models.md
+            - name: Scikit-learn 사용
+              href: how-to-train-scikit-learn.md
+            - name: TensorFlow 사용
+              href: how-to-train-tensorflow.md
+            - name: Keras 사용
+              href: how-to-train-keras.md
+            - name: PyTorch 사용
+              href: how-to-train-pytorch.md
+            - name: Chainer 사용
+              href: how-to-train-chainer.md
         - name: hyperparameters 조정
           displayName: parameter
           href: how-to-tune-hyperparameters.md
@@ -189,7 +191,7 @@
         - name: 자동화된 ML 사용(Python)
           displayName: SDK automl
           href: how-to-configure-auto-train.md
-        - name: 자동화된 ML 사용(Azure Portal)
+        - name: 자동화된 ML 사용(작업 영역 방문 페이지)
           href: how-to-create-portal-experiments.md
         - name: 원격 컴퓨팅 대상 사용
           displayName: automl automated auto ml
