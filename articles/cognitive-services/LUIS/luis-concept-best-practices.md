@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 7a2802bd4daa1a009c610688120c9a56583b054f
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 91ff99f674439580d369aad1490ded85d39d377c
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639281"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382886"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Cognitive Services로 Language Understanding 앱을 빌드하는 경우의 모범 사례
 앱 제작 프로세스를 사용 하 여 LUIS 앱을 빌드합니다. 
@@ -84,7 +84,7 @@ LUIS의 예측 데이터를 사용하여 의도가 겹치는지 확인합니다.
 
 모델 디자인을 시작할 때 기능을 추가해도 아무 문제 없지만, 모델이 발화로 테스트된 후에 각 기능이 결과를 어떻게 바꾸는지 확인하는 것이 더 편리합니다. 
 
-[활성 학습](luis-concept-review-endpoint-utterances.md)의 추가 혜택을 얻을 수 있도록 [엔드포인트](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance)를 통해 테스트하는 것이 좋습니다. [대화형 테스트 창](luis-interactive-test.md)도 유효한 테스트 방법입니다. 
+[활성 학습](luis-concept-review-endpoint-utterances.md)의 추가 혜택을 얻을 수 있도록 [엔드포인트](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint)를 통해 테스트하는 것이 좋습니다. [대화형 테스트 창](luis-interactive-test.md)도 유효한 테스트 방법입니다. 
  
 
 ### <a name="phrase-lists"></a>문구 목록

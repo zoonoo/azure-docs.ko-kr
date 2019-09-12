@@ -59,7 +59,7 @@
           href: time-series-insights-update-storage-ingress.md
         - name: 사용 사례
           href: time-series-insights-update-use-cases.md
-        - name: 데이터 모델링
+        - name: 시계열 모델
           href: time-series-insights-update-tsm.md
         - name: 데이터 쿼리
           href: time-series-insights-update-tsq.md

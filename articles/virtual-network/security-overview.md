@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop
 ms.reviewer: kumud
-ms.openlocfilehash: 25c732d1311e2bcffe0fda0d5e427d5df5f99da6
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 1d9fc022a0b0d5ba96517b4ed06b4a2576245a26
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70065939"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70886021"
 ---
 # <a name="security-groups"></a>보안 그룹
 <a name="network-security-groups"></a>
@@ -87,7 +87,7 @@ Azure [가상 네트워크](virtual-networks-overview.md)의 Azure 리소스와 
 * **Sql*** (리소스 관리자에만 해당): 이 태그는 Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL 및 Azure SQL Data Warehouse 서비스의 주소 접두사를 나타냅니다. 값의 *Sql*을 지정하는 경우 트래픽은 Sql에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 sql에 대 한 액세스를 허용 하려는 경우에는 다음 형식으로 지역을 지정할 수 있습니다. [region name]. 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 SQL 데이터베이스 또는 서버가 아닌 Azure SQL Database 서비스를 나타냅니다. 이 태그는 아웃 바운드 보안 규칙에 권장 됩니다. 
 * **Sqlmanagement*** (리소스 관리자에만 해당): 이 태그는 SQL 전용 배포에 대 한 관리 트래픽의 주소 접두사를 나타냅니다. 값으로 *Sqlmanagement* 를 지정 하는 경우에는 sqlmanagement에 대해 트래픽이 허용 되거나 거부 됩니다. 이 태그는 인바운드/아웃 바운드 보안 규칙에 권장 됩니다. 
 * **저장소*** (리소스 관리자에만 해당): 이 태그는 Azure Storage 서비스의 IP 주소 공간을 나타냅니다. 값의 *스토리지*를 지정하는 경우 트래픽은 스토리지에 대해 허용되거나 거부됩니다. 특정 [지역의](https://azure.microsoft.com/regions)저장소에 대 한 액세스만 허용 하려는 경우 다음 형식 저장소에서 지역을 지정할 수 있습니다. [지역 이름]. 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 Azure Storage 계정이 아닌 Azure Storage 서비스를 나타냅니다. 이 태그는 아웃 바운드 보안 규칙에 권장 됩니다. 
-* **VirtualNetwork**(Resource Manager)(클래식의 경우 **VIRTUAL_NETWORK**): 이 태그에는 가상 네트워크 주소 공간 (가상 네트워크에 대해 정의 된 모든 CIDR 범위), 연결 된 모든 온-프레미스 주소 공간, [피어 링](virtual-network-peering-overview.md) 가상 네트워크 또는 가상 네트워크 [게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json) 및 주소에 연결 된 가상 네트워크가 포함 됩니다. [사용자 정의 경로](virtual-networks-udr-overview.md)에 사용 되는 접두사입니다. 이 태그에는 기본 경로가 포함 될 수 있습니다. 
+* **VirtualNetwork**(Resource Manager)(클래식의 경우 **VIRTUAL_NETWORK**): 이 태그에는 가상 네트워크 주소 공간 (가상 네트워크에 대해 정의 된 모든 CIDR 범위), 연결 된 모든 온-프레미스 주소 공간, [피어 링](virtual-network-peering-overview.md) 가상 네트워크 또는 가상 네트워크 (가상 네트워크 [게이트웨이에](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json) [연결 된 가상 네트워크)가 포함 됩니다. ](security-overview.md#azure-platform-considerations) [사용자 정의 경로](virtual-networks-udr-overview.md)에 사용 되는 호스트 및 주소 접두사의 가상 IP 주소입니다. 이 태그에는 기본 경로가 포함 될 수 있습니다. 
 
 > [!NOTE]
 > Azure 서비스의 서비스 태그는 사용되는 특정 클라우드의 주소 접두사를 나타냅니다. 
@@ -111,19 +111,19 @@ Azure는 사용자가 만드는 각 네트워크 보안 그룹에 다음과 같�
 
 #### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|Priority|Source|원본 포트|Destination|대상 포트|프로토콜|액세스|
+|Priority|원본|원본 포트|Destination|대상 포트|프로토콜|액세스|
 |---|---|---|---|---|---|---|
 |65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|임의의 값|Allow|
 
 #### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|Priority|Source|원본 포트|Destination|대상 포트|프로토콜|액세스|
+|Priority|원본|원본 포트|Destination|대상 포트|프로토콜|액세스|
 |---|---|---|---|---|---|---|
 |65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|임의의 값|Allow|
 
 #### <a name="denyallinbound"></a>DenyAllInbound
 
-|Priority|Source|원본 포트|Destination|대상 포트|프로토콜|액세스|
+|Priority|원본|원본 포트|Destination|대상 포트|프로토콜|액세스|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|임의의 값|거부|
 
@@ -131,23 +131,23 @@ Azure는 사용자가 만드는 각 네트워크 보안 그룹에 다음과 같�
 
 #### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|Priority|Source|원본 포트| Destination | 대상 포트 | 프로토콜 | 액세스 |
+|Priority|원본|원본 포트| Destination | 대상 포트 | 프로토콜 | 액세스 |
 |---|---|---|---|---|---|---|
 | 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | 임의의 값 | Allow |
 
 #### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|Priority|Source|원본 포트| Destination | 대상 포트 | 프로토콜 | 액세스 |
+|Priority|원본|원본 포트| Destination | 대상 포트 | 프로토콜 | 액세스 |
 |---|---|---|---|---|---|---|
 | 65001 | 0.0.0.0/0 | 0-65535 | 인터넷 | 0-65535 | 임의의 값 | Allow |
 
 #### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|Priority|Source|원본 포트| Destination | 대상 포트 | 프로토콜 | 액세스 |
+|Priority|원본|원본 포트| Destination | 대상 포트 | 프로토콜 | 액세스 |
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | 임의의 값 | 거부 |
 
-**원본** 및 **대상** 열에서 *VirtualNetwork*, *AzureLoadBalancer* 및 *인터넷*은 IP 주소가 아닌 [서비스 태그](#service-tags)입니다. 프로토콜 열에는 TCP , UDP 및 ICMP가 포함 됩니다. 규칙을 만들 때 TCP, UDP, ICMP 또는 Any를 지정할 수 있습니다. **소스** 및 **대상** 열에서 *0.0.0.0/0*은 모든 주소를 나타냅니다. Azure Portal, Azure CLI 또는 Powershell과 같은 클라이언트는이 식에 * 또는 any를 사용할 수 있습니다.
+**원본** 및 **대상** 열에서 *VirtualNetwork*, *AzureLoadBalancer* 및 *인터넷*은 IP 주소가 아닌 [서비스 태그](#service-tags)입니다. 프로토콜 열에는 TCP, UDP 및 ICMP **가 포함 됩니다** . 규칙을 만들 때 TCP, UDP, ICMP 또는 Any를 지정할 수 있습니다. **소스** 및 **대상** 열에서 *0.0.0.0/0*은 모든 주소를 나타냅니다. Azure Portal, Azure CLI 또는 Powershell과 같은 클라이언트는이 식에 * 또는 any를 사용할 수 있습니다.
  
 기본 규칙을 제거할 수 없지만 더 높은 우선 순위의 규칙을 만들어서 재정의할 수 있습니다.
 
@@ -163,7 +163,7 @@ Azure는 사용자가 만드는 각 네트워크 보안 그룹에 다음과 같�
 
 이 규칙은 인터넷에서 웹 서버로 가는 트래픽을 허용하기 위해 필요합니다. 인터넷의 인바운드 트래픽을 [DenyAllInbound](#denyallinbound) 기본 보안 규칙에서 거부하기 때문에 *AsgLogic* 또는 *AsgDb* 애플리케이션 보안 그룹에 대한 규칙을 추가하지 않아도 됩니다.
 
-|Priority|Source|원본 포트| Destination | 대상 포트 | 프로토콜 | 액세스 |
+|Priority|원본|원본 포트| Destination | 대상 포트 | 프로토콜 | 액세스 |
 |---|---|---|---|---|---|---|
 | 100 | 인터넷 | * | AsgWeb | 80 | TCP | Allow |
 
@@ -171,7 +171,7 @@ Azure는 사용자가 만드는 각 네트워크 보안 그룹에 다음과 같�
 
 [AllowVNetInBound](#allowvnetinbound) 기본 보안 규칙은 동일한 가상 네트워크의 리소스 간 통신을 모두 허용하므로, 모든 리소스에서 들어오는 트래픽을 거부하려면 이 규칙이 필요합니다.
 
-|Priority|Source|원본 포트| Destination | 대상 포트 | 프로토콜 | 액세스 |
+|Priority|원본|원본 포트| Destination | 대상 포트 | 프로토콜 | 액세스 |
 |---|---|---|---|---|---|---|
 | 120 | * | * | AsgDb | 1433 | 임의의 값 | 거부 |
 
@@ -179,7 +179,7 @@ Azure는 사용자가 만드는 각 네트워크 보안 그룹에 다음과 같�
 
 이 규칙은 *AsgLogic* 애플리케이션 보안 그룹에서 *AsgDb* 애플리케이션 보안 그룹으로 가는 트래픽을 허용합니다. 이 규칙의 우선 순위는 *Deny-Database-All* 규칙의 우선 순위보다 높습니다. 결과적으로 이 규칙이 *Deny-Database-All* 규칙보다 먼저 처리되므로 *AsgLogic* 애플리케이션 보안 그룹의 트래픽은 허용되는 반면, 그 외의 트래픽은 모두 차단됩니다.
 
-|Priority|Source|원본 포트| Destination | 대상 포트 | 프로토콜 | 액세스 |
+|Priority|원본|원본 포트| Destination | 대상 포트 | 프로토콜 | 액세스 |
 |---|---|---|---|---|---|---|
 | 110 | AsgLogic | * | AsgDb | 1433 | TCP | Allow |
 

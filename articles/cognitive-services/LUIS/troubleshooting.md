@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: 7874a2bad63a4c5b47545c06a91228e64d523849
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 3907a244bc2d85e7225f94b15150298fd80a032f
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258802"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382332"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding FAQ(질문과 대답)
 
@@ -265,7 +265,7 @@ Azure에서 테넌트는 서비스와 연결된 클라이언트 또는 조직을
 먼저 문제가 LUIS와 관련이 있는지, 또는 LUIS 미들웨어 외부에서 발생하는지 확인해야 합니다. 
 
 #### <a name="resolve-issue-in-luis"></a>LUIS의 문제 해결
-[LUIS 엔드포인트](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance)에서 LUIS로 동일한 발화를 전달합니다. 오류가 표시되면, 오류가 더 이상 반환되지 않을 때까지 LUIS의 문제를 해결합니다. 일반적인 오류는 다음과 같습니다.
+[LUIS 엔드포인트](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint)에서 LUIS로 동일한 발화를 전달합니다. 오류가 표시되면, 오류가 더 이상 반환되지 않을 때까지 LUIS의 문제를 해결합니다. 일반적인 오류는 다음과 같습니다.
 
 * `Out of call volume quota. Quota will be replenished in <time>.` - 이 문제는 작성 키에서 [엔드포인트 키](luis-how-to-azure-subscription.md)로 변경해야 하거나, [서비스 계층](luis-how-to-azure-subscription.md#change-pricing-tier)을 변경해야 함을 나타냅니다. 
 

@@ -8,12 +8,12 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: bwren
-ms.openlocfilehash: cf2aee475f5d3933421de45fa5b2ade687bed62f
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 18e6e162764ce190a1953a4126e4f9ef2eb717f5
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348076"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899522"
 ---
 # <a name="get-started-with-log-analytics-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 시작
 
@@ -162,7 +162,7 @@ x 및 y축과 같은 보기의 다른 속성이나 기본 설정의 그룹화 �
 ![스마트 진단](media/get-started-portal/smart-diagnostics.png)
 
 ## <a name="pin-to-dashboard"></a>대시보드에 고정
-다이어그램 또는 테이블을 공유 Azure 대시보드 중 하나에 고정하려면 핀 아이콘을 클릭합니다.
+다이어그램 또는 테이블을 공유 Azure 대시보드 중 하나에 고정하려면 핀 아이콘을 클릭합니다. 이 아이콘은 아래 스크린샷에서와는 Log Analytics 창의 맨 위로 이동 되었습니다.
 
 ![대시보드에 고정](media/get-started-portal/pin-dashboard.png)
 

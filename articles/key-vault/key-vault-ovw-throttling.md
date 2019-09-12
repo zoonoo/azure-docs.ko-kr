@@ -1,22 +1,22 @@
 ---
-title: Azure Key Vault 제한 지침
+title: Azure Key Vault 제한 참고 자료
 description: Key Vault 제한은 리소스의 과용을 방지하기 위해 동시 호출 수를 제한합니다.
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 tags: ''
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 06b96ac6ea0202b74638b9331d754c0e0cc28ad0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f10f40551701cafd94692afc0916972b1fd73aff
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64695241"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883039"
 ---
-# <a name="azure-key-vault-throttling-guidance"></a>Azure Key Vault 제한 지침
+# <a name="azure-key-vault-throttling-guidance"></a>Azure Key Vault 제한 참고 자료
 
 제한은 리소스의 과용을 방지하기 위해 Azure 서비스에 대한 동시 호출 수를 제한하는 사용자 시작 프로세스입니다. Azure Key Vault(AKV)는 많은 양의 요청을 처리하도록 설계되었습니다. 매우 많은 수의 요청이 발생할 경우 클라이언트의 요청을 제한하면 AKV 서비스의 최적의 성능 및 안정성을 유지하는 데 도움이 됩니다.
 
@@ -31,7 +31,7 @@ Key Vault의 서비스 한도는 리소스의 오용을 방지하고 모든 Key 
 
 ## <a name="how-to-throttle-your-app-in-response-to-service-limits"></a>서비스 한도에 대응하여 앱을 제한하는 방법
 
-다음은 **모범 사례** 서비스는 제한 되는 경우 구현 해야 합니다.
+다음은 서비스가 제한 될 때 구현 해야 하는 모범 **사례** 입니다.
 - 요청당 작업 수를 줄입니다.
 - 요청의 빈도를 줄입니다.
 - 즉시 재시도를 방지합니다. 
@@ -112,7 +112,7 @@ Key Vault의 서비스 한도는 리소스의 오용을 방지하고 모든 Key 
 ```
 
 
-C 클라이언트에서이 코드를 사용 하 여\# 응용 프로그램은 간단 합니다. 다음 예제는 HttpClient 클래스를 사용하는 방법을 보여 줍니다.
+클라이언트 C\# 응용 프로그램에서이 코드를 사용 하는 것은 간단 합니다. 다음 예제는 HttpClient 클래스를 사용하는 방법을 보여 줍니다.
 
 ```csharp
 public async Task<Cart> GetCartItems(int page)
@@ -145,7 +145,7 @@ HTTP 오류 코드 429가 발생할 경우 지수 백오프 접근법을 사용�
 
 이때 HTTP 429 응답 코드가 발생해서는 안 됩니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 Microsoft Cloud의 제한에 대한 더 자세한 소개는 [제한 패턴](https://docs.microsoft.com/azure/architecture/patterns/throttling)을 참조하세요.
 

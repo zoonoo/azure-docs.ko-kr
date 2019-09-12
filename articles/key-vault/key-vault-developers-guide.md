@@ -3,17 +3,17 @@ title: Azure Key Vault 개발자 가이드
 description: 개발자는 Microsoft Azure 환경 내에서 Azure Key Vault를 사용하여 암호화 키를 관리할 수 있습니다.
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 72ec3080658b98376952f72f746c1b53fdf7de77
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca640b058a1d91d15c5accb9367936368511a3ef
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64704334"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881598"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault 개발자 가이드
 
@@ -39,7 +39,7 @@ Azure Key Vault에 대한 일반적인 내용은 [키 자격 증명 모음이란
 
 새 Storage 계정 키 기능에 대한 자세한 내용은 [Azure Key Vault Storage 계정 키 개요](key-vault-ovw-storage-keys.md)를 참조하세요.
 
-## <a name="videos"></a>동영상
+## <a name="videos"></a>비디오
 
 이 비디오에서는 사용자 고유의 키 자격 증명 모음을 만드는 방법과 'Hello Key Vault' 샘플 애플리케이션에서 이를 사용하는 방법을 보여 줍니다.
 
@@ -70,7 +70,7 @@ Key Vault에서 키, 암호 또는 인증서를 사용하기 전에 다음 문�
 
 ### <a name="supported-programming-and-scripting-languages"></a>지원되는 프로그래밍 및 스크립팅 언어
 
-#### <a name="rest"></a>REST (영문)
+#### <a name="rest"></a>REST(영문)
 
 REST 인터페이스를 통해 자격 증명 모음, 키, 암호 등을 비롯한 모든 Key Vault 리소스에 액세스할 수 있습니다. 
 
@@ -148,7 +148,7 @@ Node.js에서 Key Vault 관리 API와 Key Vault 개체 API는 별개입니다. �
 - [Key Vault 스토리지 계정 키 개요](key-vault-ovw-storage-keys.md)에서는 Key Vault 통합 Azure Storage 계정 키에 대해 설명합니다.
 - [Key Vault 보안 권역](key-vault-ovw-security-worlds.md)에서는 지역과 보안 영역 간의 관계를 설명합니다.
 
-## <a name="social"></a>사회적
+## <a name="social"></a>소셜
 
 - [키 자격 증명 모음 블로그](https://aka.ms/kvblog)
 - [키 자격 증명 모음 포럼](https://aka.ms/kvforum)

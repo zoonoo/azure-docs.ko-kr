@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: ea7d3f56aa512b8f5998d710451ff3b37659ca13
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 93d5b3de47ec0b3c0494589da0baf87f91a0233a
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697836"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390251"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Text Analytics에서 명명된 엔터티 인식 사용 방법
 
@@ -98,7 +98,7 @@ Text Analytics [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com/do
 
 + **POST** 요청을 만듭니다. 이 요청에 대한 API 문서인 [엔터티 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
-+ 엔터티 추출에 대한 HTTP 끝점을 설정합니다. `/entities` 리소스(`https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1/entities`)를 포함해야 합니다.
++ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨테이너](text-analytics-how-to-install-containers.md)를 사용 하 여 키 구 추출에 대 한 HTTP 끝점을 설정 합니다. 을 포함 `/text/analytics/v2.1/entities`해야 합니다. 예를 들어 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`을 참조하십시오.
 
 + Text Analytics 작업에 대 한 [액세스 키](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) 를 포함 하도록 요청 헤더를 설정 합니다.
 

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: be69f18f30b796e7401ef68aa5088153e07f14f5
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: cb0552612d95500e01edd91aff36406d4c2282bd
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127879"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70909972"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Translator Text API에 대한 언어 및 지역 지원
 
@@ -229,6 +229,7 @@ Translator Text API는 번역 및 음에 사용할 수 있는 모든 언어를 �
 | 헝가리어      | `hu`          |
 | 아이슬란드어 | `is` |
 | 인도네시아어|   `id`    |
+| 아일랜드어 | `ga`  |
 | 이탈리아어      | `it`          |
 | 일본어      | `ja`          |
 |스와힐리어| `sw`    |
