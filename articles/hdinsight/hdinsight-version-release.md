@@ -7,16 +7,16 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 77260eaa2e19135586e438576397b4647afe7ece
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 74cd6a6919db1c01535fb984d1e8e0d0ad2d5ade
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483969"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879335"
 ---
-# <a name="hdinsight-40-overview"></a>HDInsight 4.0 개요
+# <a name="azure-hdinsight-40-overview"></a>Azure HDInsight 4.0 개요
 
-Azure HDInsight는 Azure에서 오픈 소스 Apache Hadoop 및 Apache Spark 분석을 위해 기업 고객들 사이에서 가장 인기 있는 서비스 중 하나입니다. HDInsight 4.0은 클라우드 배포판의 Apache Hadoop 구성 요소입니다. 이 문서에서는 가장 최근 Azure HDInsight 릴리스 및 업그레이드 방법에 대한 정보를 제공합니다.
+Azure HDInsight는 Azure에서 오픈 소스 Apache Hadoop 및 Apache Spark 분석을 위해 기업 고객들 사이에서 가장 인기 있는 서비스 중 하나입니다. HDInsight 4.0은 Apache Hadoop 구성 요소의 클라우드 배포입니다. 이 문서에서는 가장 최근 Azure HDInsight 릴리스 및 업그레이드 방법에 대한 정보를 제공합니다.
 
 ## <a name="whats-new-in-hdinsight-40"></a>HDInsight 4.0의 새로운 기능
 

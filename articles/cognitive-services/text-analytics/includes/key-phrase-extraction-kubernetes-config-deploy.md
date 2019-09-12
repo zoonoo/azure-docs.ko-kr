@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/21/2019
 ms.author: dapine
-ms.openlocfilehash: e29aec66d9986b509a5133f5ebe8a99a00f7b9cf
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: e79717b15cabe815debfa9fd960c0b2623e8088e
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70052113"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70847709"
 ---
 ## <a name="deploy-the-key-phrase-extraction-container-to-an-aks-cluster"></a>AKS 클러스터에 핵심 구 추출 컨테이너 배포
 
@@ -119,7 +119,7 @@ ms.locfileid: "70052113"
     kubectl get services
     ```
 
-    Pod에서 *감정* 서비스의 실행 상태에 대 한 출력입니다.
+    Pod에서 *키 구* 서비스의 실행 상태에 대 한 출력입니다.
 
     ```console
     NAME         TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE

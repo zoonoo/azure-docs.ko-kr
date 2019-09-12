@@ -8,14 +8,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: e5ae05b2ad1dc03bad210b1f67834865afd49df3
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 751d5b47006f5c99a747503ad4f052b3e03a043c
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810884"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882439"
 ---
-# <a name="analyze-apache-hadoop-logs"></a>Apache Hadoop 로그 분석
+# <a name="analyze-apache-hadoop-logs-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Hadoop 로그 분석
 
 Azure HDInsight의 Apache Hadoop 클러스터 각각에는 기본 파일 시스템으로 사용되는 Azure Storage 계정이 있습니다. 이 Storage 계정을 기본 Storage 계정이라고 합니다. 클러스터는 기본 Storage 계정의 Azure Table Storage 및 Blob Storage를 사용하여 로그를 저장합니다.  클러스터용 기본 스토리지 계정을 알아보려면 [HDInsight의 Apache Hadoop 클러스터 관리](../hdinsight-administer-use-portal-linux.md#find-the-storage-accounts)를 참조하세요. 로그는 클러스터를 삭제한 후에 Storage 계정에 유지됩니다.
 

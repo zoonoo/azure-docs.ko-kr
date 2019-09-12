@@ -7,12 +7,12 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 77cb18a858ca87acbb8182bf708e403010251365
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: ec2a174c365e31520fe99ca0b505bbb62faad8c6
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70191786"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883411"
 ---
 # <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>상업적 Marketplace 제안의 게시 상태를 확인 합니다.
 
@@ -99,6 +99,9 @@ ms.locfileid: "70191786"
 
 **미리 보기 생성** 단계에서 제품의 미리 보기 섹션에서 지정한 대상 그룹에만 액세스할 수 있는 제품의 버전을 만듭니다.
 
+>[!Note]
+> 이 단계를 사용 하 여 조직에서 제공 하는 제품을 외부 사용자에 게 제공 하지 마십시오. 대신 **개인 제품** 옵션을 사용 하세요. 이 시점에서 제품이 완전히 테스트 및 검증 되지 않았으며 외부 배포를 위한 준비가 되지 않았습니다.
+
 ## <a name="publisher-approval"></a>게시자 승인
 
 이 단계에서는 최종 게시 단계 전에 제품 미리 보기를 검토 하 고 승인 하도록 요청 하는 전자 메일을 받게 됩니다.
@@ -115,7 +118,7 @@ Microsoft를 통해 제품을 판매 하도록 선택한 경우 제품의 획득
 
 ## <a name="publish"></a>게시
 
-이제 제품을 사용 하도록 선택 하 여 marketplace에서 사용할 수 있도록 선택 했으므로 live 제품이 제품의 미리 보기 버전 처럼 구성 되도록 하는 일련의 최종 유효성 검사가 수행 됩니다.
+이제 **제품을 사용 하도록 선택** 하 여 marketplace에서 사용할 수 있도록 선택 했으므로 live 제품이 제품의 미리 보기 버전 처럼 구성 되도록 하는 일련의 최종 유효성 검사가 수행 됩니다.
 
 - **구매 흐름 설정 제공 (> 10 분)**
 

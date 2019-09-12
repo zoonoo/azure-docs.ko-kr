@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/09/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 3fd593ff199ff87b1c69e1097852a81a21adc1dd
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: afa6c5e40918906eb9fe0e40ed633715e3f2741d
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883953"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844809"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>LUIS 모델 및 키에 대한 경계
 LUIS에는 여러 경계 영역이 있습니다. 첫 번째는 LUIS에서 의도, 엔터티 및 기능을 제어하는 [모델 경계](#model-boundaries)입니다. 두 번째 영역은 키 유형을 기반으로 하는 [할당량 한도](#key-limits)입니다. 세 번째 경계 영역은 LUIS 웹 사이트를 제어하기 위한 [키보드 조합](#keyboard-controls)입니다. 네 번째 영역은 LUIS 작성 웹 사이트와 LUIS [엔드포인트](luis-glossary.md#endpoint) API 간의 [세계 지역 매핑](luis-reference-regions.md)입니다. 
@@ -29,6 +29,7 @@ LUIS에는 여러 경계 영역이 있습니다. 첫 번째는 LUIS에서 의도
 |영역|제한|
 |--|:--|
 | [앱 이름][luis-get-started-create-app] | *기본 문자 최댓값 |
+| 애플리케이션| 500 Azure 제작 리소스 당 응용 프로그램 |
 | [일괄 처리 테스트][batch-testing]| 10개 데이터 세트, 데이터 세트당 1000개 발화|
 | 명시적 목록 | 애플리케이션당 50개|
 | 외부 엔터티 | 제한 없음 |
@@ -44,7 +45,7 @@ LUIS에는 여러 경계 영역이 있습니다. 첫 번째는 LUIS에서 의도
 | [Roles](luis-concept-roles.md)|애플리케이션당 300개 역할. 엔터티당 10개 역할|
 | [Utterance][utterances] | 500자|
 | [길이 발언][utterances] | 15000 응용 프로그램당-길이 발언 수에 제한이 없습니다.|
-| [버전](luis-concept-version.md)| 제한 없음 |
+| [버전](luis-concept-version.md)| 응용 프로그램당 100 버전 |
 | [버전 이름][luis-how-to-manage-versions] | 영숫자 및 마침표(.)로 제한되는 10자 |
 
 *기본 문자 최댓값은 50자입니다. 
@@ -64,19 +65,24 @@ LUIS에는 여러 경계 영역이 있습니다. 첫 번째는 LUIS에서 의도
 
 언어 인식에는 예측 엔드포인트 작성 및 쿼리용으로 하나씩 두 가지 유형의 개별 키가 포함됩니다. 키 유형의 차이에 대해 자세히 알아보려면 [LUIS의 작성 및 쿼리 예측 엔드포인트 키](luis-concept-keys.md)를 참조하세요.
 
-## <a name="key-limits"></a>키 제한
+<a name="key-limits"></a>
 
-작성 키는 작성 및 엔드포인트에 대한 제한이 다릅니다. LUIS 서비스 엔드포인트 키는 엔드포인트 쿼리에만 유효합니다.
+## <a name="resource-key-limits"></a>리소스 키 제한
 
+리소스 키에는 제작 및 끝점의 제한이 다릅니다. LUIS 예측 쿼리 끝점 키는 끝점 쿼리에만 유효 합니다. 
+
+* 500 Azure 제작 리소스 당 응용 프로그램 
 
 |Key|제작|엔드포인트|용도|
 |--|--|--|--|
-|Language Understanding 작성/시작|100만/월, 5/초|1000/월, 5/초|LUIS 앱 작성|
-|Language Understanding [구독][pricing] F0-무료 계층 |잘못됨|10000/월, 5/초|LUIS 엔드포인트 쿼리|
-|Language Understanding [구독][pricing] -S0-기본 계층|잘못됨|50/초|LUIS 엔드포인트 쿼리|
-|인지 서비스 [구독][pricing] -S0-표준 계층|잘못됨|50/초|LUIS 엔드포인트 쿼리|
-|[감정 분석 통합](luis-how-to-publish-app.md#enable-sentiment-analysis)|잘못됨|무료|핵심 구 데이터 추출을 포함하여 감정 정보 추가 |
-|[음성 통합](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|잘못됨|$5.50 USD/1000개 엔드포인트 요청|음성 발화를 텍스트 발화로 변환하고 LUIS 결과 반환|
+|스타터|100만/월, 5/초|1000/월, 5/초|LUIS 앱 작성|
+|F0-무료 계층 |100만/월, 5/초|10000/월, 5/초|LUIS 엔드포인트 쿼리|
+|S0-기본 계층|-|50/초|LUIS 엔드포인트 쿼리|
+|S0-표준 계층|-|50/초|LUIS 엔드포인트 쿼리|
+|[감정 분석 통합](luis-how-to-publish-app.md#enable-sentiment-analysis)|-|-|다른 Azure 리소스를 요구 하지 않고 키 구 데이터 추출을 포함 하 여 감정 정보를 추가 하는 것이 제공 됩니다. |
+|[음성 통합](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|-|1000 단위 비용 당 끝점 요청 수|음성 발화를 텍스트 발화로 변환하고 LUIS 결과 반환|
+
+[가격 책정에 대해 자세히 알아보세요.][pricing]
 
 ## <a name="keyboard-controls"></a>키보드 제어
 

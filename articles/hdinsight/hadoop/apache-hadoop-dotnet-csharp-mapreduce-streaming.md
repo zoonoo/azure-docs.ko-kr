@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: b06f19736c4d50ab7d246a5c71da04ada95b6f98
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f82ad65ecc805d5a45c78e8b190dd0eee4c340c
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64727374"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882360"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>HDInsight의 Apache Hadoop에서 MapReduce 스트리밍으로 C# 사용
 
@@ -42,7 +42,7 @@ __Linux 기반 HDInsight__ 클러스터는 [Mono(https://mono-project.com)](http
 
 스트리밍에 대한 자세한 내용은 [Hadoop 스트리밍](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * .NET Framework 4.5를 대상으로 하는 C# 코드 작성 및 빌드에 대해 잘 알고 있어야 합니다. 이 문서의 단계는 Visual Studio 2017을 사용합니다.
 
@@ -152,7 +152,7 @@ namespace reducer
 
 4. 이 애플리케이션을 배포하려는 HDInsight 클러스터를 확장합니다. 텍스트가 포함된 항목 __(기본 Storage 계정)__ 이 목록에 표시됩니다.
 
-    ![클러스터에 대한 스토리지 계정을 보여주는 서버 탐색기](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/storage.png)
+    ![클러스터에 대한 스토리지 계정을 보여주는 서버 탐색기](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-storage-account.png)
 
     * 이 항목을 확장할 수 있는 경우 클러스터의 기본 스토리지로 __Azure Storage 계정__을 사용하고 있음을 의미합니다. 클러스터의 기본 스토리지에서 파일을 보려면 항목을 확장한 다음 __(기본 컨테이너)__ 를 두 번 클릭합니다.
 
@@ -162,7 +162,7 @@ namespace reducer
 
    * __Azure Storage 계정__을 사용하는 경우 업로드 아이콘을 클릭한 다음 **bin\debug** 폴더로 이동하여 **mapper** 프로젝트를 검색합니다. 마지막으로 **mapper.exe** 파일을 선택한 다음 **확인**을 클릭합니다.
 
-       ![업로드 아이콘](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/upload.png)
+        ![업로드 아이콘](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png)
     
    * __Azure Data Lake Storage__를 사용하는 경우 마우스 오른쪽 버튼으로 파일 목록의 빈 영역을 클릭한 다음, __업로드__를 선택합니다. 마지막으로 **mapper.exe** 파일을 선택한 다음 **열기**를 클릭합니다.
 

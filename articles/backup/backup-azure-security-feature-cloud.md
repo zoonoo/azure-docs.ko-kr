@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/04/2019
 ms.author: dacurwin
-ms.openlocfilehash: 938c65371b05807c774c9f2d73d4c27efe706c47
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 173e261266bffd042e12b327e26fda3a4e55ea4b
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70143571"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899000"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Azure Backup를 사용 하는 클라우드 워크 로드를 보호 하는 데 도움이 되는 보안 기능
 
@@ -26,7 +26,7 @@ ms.locfileid: "70143571"
 
 ### <a name="supported-regions"></a>지원되는 지역
 
-일시 삭제는 현재 미국 서 부 지역에서 지원 됩니다.
+일시 삭제는 현재 미국 서 부 중부 지역 및 동아시아에서 지원 됩니다.
 
 ### <a name="soft-delete-for-vms"></a>Vm에 대 한 일시 삭제
 
@@ -136,4 +136,4 @@ Recovery services 자격 증명 모음에 사용 되는 저장소 계정은 격�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Backup에 대 한 보안 특성을](https://docs.microsoft.com/en-us/azure/backup/backup-security-attributes)참조 하세요.
+* [Azure Backup에 대 한 보안 제어를](backup-security-controls.md)참조 하세요.

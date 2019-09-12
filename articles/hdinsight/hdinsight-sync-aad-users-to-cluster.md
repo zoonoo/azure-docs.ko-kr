@@ -8,18 +8,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: e6534026bef139a94d2784be42025f8ea8b096ef
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: f58c847f512f2db72fdca823637192c3b638b1ae
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811782"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879354"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Azure Active Directory 사용자를 HDInsight 클러스터와 동기화
 
 [ESP(Enterprise Security Package)가 포함된 HDInsight 클러스터](hdinsight-domain-joined-introduction.md)는 Azure AD(Azure Active Directory) 사용자에 대해 강력한 인증을 사용하고, RBAC(*역할 기반 액세스 제어*) 정책도 사용할 수 있습니다. Azure AD에 사용자 및 그룹을 추가하면 클러스터에 액세스해야 하는 사용자를 동기화할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 아직 하지 않은 경우 [Enterprise Security Package가 포함된 HDInsight 클러스터를 만듭니다](hdinsight-domain-joined-configure.md).
 
@@ -47,7 +47,7 @@ ms.locfileid: "70811782"
 
 1. [SSH 사용하여 클러스터에 연결](hdinsight-hadoop-linux-use-ssh-unix.md)합니다. Azure Portal의 클러스터에 대한 개요 창에서 **SSH(보안 셸)** 단추를 선택합니다.
 
-    ![SSH(보안 셸)](./media/hdinsight-sync-aad-users-to-cluster/ssh.png)
+    ![SSH(보안 셸)](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-secure-shell.png)
 
 2. 표시되는 `ssh` 명령을 복사한 후 SSH 클라이언트에 붙여 넣습니다. ssh 사용자 암호를 입력하라고 요구되면 입력합니다.
 
@@ -139,7 +139,7 @@ ms.locfileid: "70811782"
 
 3. 새 사용자가 사용자 테이블 내에 표시되어야 합니다. 유형은 `Local`이 아닌 `LDAP`로 설정됩니다.
 
-    ![사용자 페이지](./media/hdinsight-sync-aad-users-to-cluster/users.png)
+    ![사용자 페이지](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-page.png)
 
 ## <a name="log-in-to-ambari-as-the-new-user"></a>새 사용자 권한으로 Ambari에 로그인
 

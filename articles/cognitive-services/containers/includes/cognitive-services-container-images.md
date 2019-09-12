@@ -1,18 +1,27 @@
 ---
-ms.openlocfilehash: fe9879f9574fe1496ebdf20ac76fe5b759d4ea6a
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+title: 컨테이너 리포지토리 및 이미지
+services: cognitive-services
+author: IEvangelist
+manager: nitinme
+description: 모든 인지 서비스 제공에 대 한 컨테이너 레지스트리, 리포지토리 및 이미지 이름을 나타내는 두 테이블
+ms.service: cognitive-services
+ms.topic: include
+ms.date: 09/06/2019
+ms.author: dapine
+ms.openlocfilehash: 600c01fc2a273141b06996369231c2389c5d6d57
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051218"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70775876"
 ---
 ### <a name="container-repositories-and-images"></a>컨테이너 리포지토리 및 이미지
 
 아래 표는 Azure Cognitive Services에서 제공 하는 사용 가능한 컨테이너 이미지의 포괄적인 목록입니다.
 
-#### <a name="public-container-registry-mcrmicrosoftcom"></a>공용 (컨테이너 레지스트리: `mcr.microsoft.com`)
+#### <a name="public-ungated-container-registry-mcrmicrosoftcom"></a>공용 "제어 되지 않음" (컨테이너 레지스트리 `mcr.microsoft.com`:)
 
-Microsoft Container Registry는 Cognitive Services에 대 한 GA (일반 공급) 컨테이너를 모두 호스팅합니다.
+Microsoft Container Registry는 Cognitive Services에 대해 공개적으로 사용할 수 있는 "제어 되지 않은" 컨테이너를 모두 호스팅합니다.
 
 | 서비스 | 컨테이너 | Container Registry/리포지토리/이미지 이름 |
 |--|--|--|
@@ -21,9 +30,9 @@ Microsoft Container Registry는 Cognitive Services에 대 한 GA (일반 공급)
 | [텍스트 분석](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | 언어 감지 | `mcr.microsoft.com/azure-cognitive-services/language` |
 | [텍스트 분석](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | 감정 분석 | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
-#### <a name="public-preview-container-registry-containerpreviewazurecrio"></a>공개 미리 보기 (컨테이너 레지스트리 `containerpreview.azurecr.io`:)
+#### <a name="public-gated-preview-container-registry-containerpreviewazurecrio"></a>공용 "제어 된" 미리 보기 (컨테이너 `containerpreview.azurecr.io`레지스트리:)
 
-컨테이너 미리 보기 레지스트리는 GA (일반 공급)로 아직 진행 되지 않은 Cognitive Services에 대 한 모든 "공개 미리 보기" 컨테이너를 호스트 합니다. 이러한 컨테이너는 이러한 컨테이너를 사용 하기 위해 액세스를 위한 공식 요청이 필요 합니다.
+Container Preview 레지스트리는 Cognitive Services에 대해 공개적으로 사용할 수 있는 "제어 된" 컨테이너를 모두 호스팅합니다. 이러한 컨테이너는 이러한 컨테이너를 사용 하기 위해 액세스를 위한 공식 요청이 필요 합니다.
 
 | 서비스 | 컨테이너 | Container Registry/리포지토리/이미지 이름 |
 |--|--|--|

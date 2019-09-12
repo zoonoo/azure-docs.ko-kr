@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 62c9dcc039c68b0b6c8b8bf29ed9f13f88936723
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 68be0d7d13785c9631044766a290eec93637ea64
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059577"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879991"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Linux 기반 HDInsight에서 Apache Hadoop 서비스에 힙 덤프 사용
 
@@ -81,7 +81,7 @@ map 프로세스와 reduce 프로세스는 MapReduce 서비스의 자식 프로�
 
 서비스에 대한 구성을 수정하려면 다음 단계를 사용합니다.
 
-1. 클러스터에 대한 Ambari 웹 UI를 엽니다. URL은 https://YOURCLUSTERNAME.azurehdinsight.net 입니다.
+1. 클러스터에 대한 Ambari 웹 UI를 엽니다. URL은 https://YOURCLUSTERNAME.azurehdinsight.net 합니다.
 
     메시지가 나타나면 클러스터의 HTTP 계정 이름(기본값: admin) 및 암호를 사용하여 사이트를 인증합니다.
 
@@ -90,15 +90,15 @@ map 프로세스와 reduce 프로세스는 MapReduce 서비스의 자식 프로�
 
 2. 왼쪽의 목록을 사용하여 수정할 서비스 영역을 선택합니다. 예를 들어 **HDFS**를 선택합니다. 가운데 영역에서 **Configs** 탭을 선택합니다.
 
-    ![HDFS Configs 탭이 선택된 Ambari 웹의 이미지](./media/hdinsight-hadoop-heap-dump-linux/serviceconfig.png)
+    ![HDFS Configs 탭이 선택된 Ambari 웹의 이미지](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-service-config-tab.png)
 
 3. **Filter...** 항목에 **opts**를 입력합니다. 이 텍스트가 포함된 항목만 표시됩니다.
 
-    ![필터링된 목록](./media/hdinsight-hadoop-heap-dump-linux/filter.png)
+    ![필터링된 목록](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png)
 
 4. 힙 덤프를 사용할 서비스에 대한 **\*\_OPTS** 항목을 찾아서 사용할 옵션을 추가합니다. 다음 그림에서는 **HADOOP\_NAMENODE\_OPTS** 항목에 `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/`를 추가했습니다.
 
-    ![-XX가 포함된 HADOOP_NAMENODE_OPTS:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
+    ![-XX가 포함된 HADOOP_NAMENODE_OPTS:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png)
 
    > [!NOTE]  
    > map 또는 reduce 자식 프로세스에 힙 덤프를 사용할 경우 **mapreduce.admin.map.child.java.opts** 및 **mapreduce.admin.reduce.child.java.opts** 필드를 찾습니다.
@@ -107,15 +107,15 @@ map 프로세스와 reduce 프로세스는 MapReduce 서비스의 자식 프로�
 
 5. 변경 내용이 적용되면 하나 이상의 서비스 옆에 **다시 시작 필요** 아이콘이 표시됩니다.
 
-    ![restart required 단추 및 restart 단추](./media/hdinsight-hadoop-heap-dump-linux/restartrequiredicon.png)
+    ![restart required 단추 및 restart 단추](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/restart-required-icon.png)
 
 6. 다시 시작해야 하는 각 서비스를 선택하고 **Service Actions** 단추를 사용하여 **Turn On Maintenance Mode**를 지정합니다. 유지 관리 모드에서는 다시 시작할 때 서비스에서 경고가 표시되지 않습니다.
 
-    ![Turn on maintenance mode 메뉴](./media/hdinsight-hadoop-heap-dump-linux/maintenancemode.png)
+    ![Turn on maintenance mode 메뉴](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-maintenance-mode.png)
 
 7. 유지 관리 모드를 설정한 후에는 **Restart** 단추를 사용하여 서비스에 대해 **Restart All Effected**를 지정합니다.
 
-    ![Restart All Affected 항목](./media/hdinsight-hadoop-heap-dump-linux/restartbutton.png)
+    ![Restart All Affected 항목](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-restart-all-button.png)
 
    > [!NOTE]  
    > **Restart** 단추의 항목은 서비스마다 다를 수 있습니다.
