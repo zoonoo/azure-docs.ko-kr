@@ -76,8 +76,8 @@
           href: deployment-manager-health-check.md
     - name: Resource Manager 및 클래식 배포
       href: resource-manager-deployment-model.md
-    - name: Azure 공통 보안 특성
-      href: azure-resource-manager-security-attributes.md
+    - name: 기본 제공 보안 컨트롤
+      href: azure-resource-manager-security-controls.md
 - name: 방법
   items:
     - name: 템플릿 만들기
