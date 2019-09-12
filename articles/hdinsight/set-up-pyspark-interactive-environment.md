@@ -8,12 +8,12 @@ ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 8e90be5a38ff40b748c11539e1d5c6558d198b62
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: d220d81b8dc57541113f7ef1e477bb77d394e206
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814226"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879299"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Visual Studio Code용 PySpark 대화형 환경 설정
 
@@ -43,7 +43,7 @@ ms.locfileid: "70814226"
 
 오류 메시지가 표시 되 면 다음 명령을 실행 하 여 필요한 패키지를 설치 합니다.
 
-   ![Python pip 버전](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
+   ![libkrb5-dev 패키지](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
 
 ```
 sudo apt-get install libkrb5-dev

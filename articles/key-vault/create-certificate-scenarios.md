@@ -3,18 +3,18 @@ title: 인증서 만들기 모니터링 및 관리
 description: Key Vault를 사용하여 인증서 만들기 프로세스를 만들고, 모니터링하고, 상호 작용하기 위한 다양한 옵션을 설명하는 시나리오입니다.
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3d86960e726ae18fba8d171ab9f85d7c991b4e40
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f88af7027f6c907b5b55eb9aac545d98e2fbb7a
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64729224"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880840"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>인증서 만들기 모니터링 및 관리
 적용 대상: Azure
@@ -37,9 +37,9 @@ ms.locfileid: "64729224"
 
 ## <a name="request-a-kv-certificate-with-a-supported-issuer"></a>지원되는 발급자로 KV 인증서 요청 
 
-|방법|요청 URI|
+|메서드|요청 URI|
 |------------|-----------------|
-|POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
+|올리기|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
 
 다음 예제에는 DigiCert로 발급자 공급자와 함께 키 자격 증명 모음에서 이미 사용할 수 있는 "mydigicert"라는 개체가 필요합니다. 인증서 발급자는 Azure KV(Key Vault)에 CertificateIssuer 리소스로 표시되는 엔터티입니다. KV 인증서의 원본에 대한 정보(발급자 이름, 공급자, 자격 증명 및 기타 관리 세부 정보)를 제공하는 데 사용됩니다.
 
@@ -59,7 +59,7 @@ ms.locfileid: "64729224"
 }
 ```
 
-### <a name="response"></a>response
+### <a name="response"></a>응답
 
 ```
 StatusCode: 202, ReasonPhrase: 'Accepted'
@@ -80,9 +80,9 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ## <a name="get-pending-request---request-status-is-inprogress"></a>보류 중인 요청 가져오기 - 요청 상태는 "진행 중"
 
-|방법|요청 URI|
+|메서드|요청 URI|
 |------------|-----------------|
-|GET|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
+|가져오기|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
 ### <a name="request"></a>요청
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
@@ -94,7 +94,7 @@ GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-vers
 > [!NOTE]
 > *request_id*가 쿼리에서 지정된 경우 필터처럼 작동합니다. 쿼리와 보류 중인 개체의 *request_id*가 다른 경우 404의 http 상태 코드가 반환됩니다.
 
-### <a name="response"></a>response
+### <a name="response"></a>응답
 
 ```
 StatusCode: 200, ReasonPhrase: 'OK'
@@ -116,9 +116,9 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 ### <a name="request"></a>요청
 
-|방법|요청 URI|
+|메서드|요청 URI|
 |------------|-----------------|
-|GET|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
+|가져오기|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
@@ -126,7 +126,7 @@ GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-vers
 
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
-### <a name="response"></a>response
+### <a name="response"></a>응답
 
 ```
 StatusCode: 200, ReasonPhrase: 'OK'
@@ -148,9 +148,9 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 ### <a name="request"></a>요청
 
-|방법|요청 URI|
+|메서드|요청 URI|
 |------------|-----------------|
-|GET|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
+|가져오기|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
@@ -158,7 +158,7 @@ GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-vers
 
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
-### <a name="response"></a>response
+### <a name="response"></a>응답
 
 ```
 StatusCode: 200, ReasonPhrase: 'OK'
@@ -186,9 +186,9 @@ StatusCode: 200, ReasonPhrase: 'OK'
 ## <a name="get-pending-request---pending-request-status-is-deleted-or-overwritten"></a>보류 중인 요청 가져오기 - 보류 중인 요청 상태는 "삭제" 또는 "덮어쓰기"
 해당 상태가 "진행 중"이 아닌 경우 만들기/가져오기 작업으로 보류 중인 개체를 삭제하거나 덮어쓸 수 있습니다.
 
-|방법|요청 URI|
+|메서드|요청 URI|
 |------------|-----------------|
-|GET|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
+|가져오기|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
 ### <a name="request"></a>요청
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
@@ -197,7 +197,7 @@ GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-vers
 
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
-### <a name="response"></a>response
+### <a name="response"></a>응답
 
 ```
 StatusCode: 404, ReasonPhrase: 'Not Found'
@@ -224,9 +224,9 @@ StatusCode: 404, ReasonPhrase: 'Not Found'
 > [!NOTE]
 > 보류 중인 개체를 삭제하는 것은 공급자로 x509 인증서 요청을 취소하거나 취소하지 않을 수 있습니다.
 
-|방법|요청 URI|
+|메서드|요청 URI|
 |------------|-----------------|
-|POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
+|올리기|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
 
 ### <a name="request"></a>요청
 
@@ -243,7 +243,7 @@ StatusCode: 404, ReasonPhrase: 'Not Found'
 }
 ```
 
-### <a name="response"></a>response
+### <a name="response"></a>응답
 
 ```
 StatusCode: 409, ReasonPhrase: 'Conflict'
@@ -261,9 +261,9 @@ StatusCode: 409, ReasonPhrase: 'Conflict'
 
 x509 인증서 만들기 요청이 어떤 이유로 실패하거나 취소되는 경우, x509 인증서를 대역 외 방법으로 검색할 수 있는 경우 병합 작업은 KV 인증서를 완료하여 수행될 수 있습니다.
 
-|방법|요청 URI|
+|메서드|요청 URI|
 |------------|-----------------|
-|POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending/merge?api-version={api-version}`|
+|올리기|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending/merge?api-version={api-version}`|
 
 ### <a name="request"></a>요청
 
@@ -274,7 +274,7 @@ x509 인증서 만들기 요청이 어떤 이유로 실패하거나 취소되는
 
 ```
 
-### <a name="response"></a>response
+### <a name="response"></a>응답
 
 ```json
 StatusCode: 403, ReasonPhrase: 'Forbidden'
@@ -290,9 +290,9 @@ StatusCode: 403, ReasonPhrase: 'Forbidden'
 ## <a name="request-a-cancellation-while-the-pending-request-status-is-inprogress"></a>보류 중인 요청 상태가 "진행 중"인 동안 취소 요청
 취소만 요청할 수 있습니다. 요청이 취소되거나 취소되지 않을 수 있습니다. 요청이 "진행 중"이 아닌 경우 400(잘못된 요청)의 http 상태가 반환됩니다.
 
-|방법|요청 URI|
+|메서드|요청 URI|
 |------------|-----------------|
-|패치|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
+|PATCH|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
 ### <a name="request"></a>요청
 PATCH `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
@@ -308,7 +308,7 @@ PATCH `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-ve
 
 ```
 
-### <a name="response"></a>response
+### <a name="response"></a>응답
 
 ```
 StatusCode: 200, ReasonPhrase: 'OK'
@@ -330,7 +330,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 > [!NOTE]
 > 보류 중인 개체를 삭제하는 것은 공급자로 x509 인증서 요청을 취소하거나 취소하지 않을 수 있습니다.
 
-|방법|요청 URI|
+|메서드|요청 URI|
 |------------|-----------------|
 |DELETE|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
@@ -341,7 +341,7 @@ DELETE `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-v
 
 DELETE `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
-### <a name="response"></a>response
+### <a name="response"></a>응답
 
 ```
 StatusCode: 200, ReasonPhrase: 'OK'
@@ -360,9 +360,9 @@ StatusCode: 200, ReasonPhrase: 'OK'
 ## <a name="create-a-kv-certificate-manually"></a>수동으로 KV 인증서 만들기
 수동 만들기 프로세스를 통해 원하는 CA로 발급된 인증서를 만들 수 있습니다. 발급자의 이름을 "알 수 없음"으로 설정하거나 발급자 필드를 지정하지 마십시오.
 
-|방법|요청 URI|
+|메서드|요청 URI|
 |------------|-----------------|
-|POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
+|올리기|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
 
 ### <a name="request"></a>요청
 
@@ -380,7 +380,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 ```
 
-### <a name="response"></a>response
+### <a name="response"></a>응답
 
 ```
 StatusCode: 202, ReasonPhrase: 'Accepted'
@@ -400,9 +400,9 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ## <a name="merge-when-a-pending-request-is-created---manual-certificate-creation"></a>보류 중인 요청이 만들어질 때 병합 - 수동 인증서 만들기
 
-|방법|요청 URI|
+|메서드|요청 URI|
 |------------|-----------------|
-|POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending/merge?api-version={api-version}`|
+|올리기|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending/merge?api-version={api-version}`|
 
 ### <a name="request"></a>요청
 
@@ -413,11 +413,11 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ```
 
-|요소 이름|필수|Type|Version|설명|
+|요소 이름|필수|형식|버전|Description|
 |------------------|--------------|----------|-------------|-----------------|
-|x5c|예|array|\<소개 버전>|기본 64 문자열 배열로 X509 인증서 체인|
+|x5c|예|배열|\<소개 버전>|기본 64 문자열 배열로 X509 인증서 체인|
 
-### <a name="response"></a>response
+### <a name="response"></a>응답
 
 ```
 StatusCode: 201, ReasonPhrase: 'Created'
@@ -475,5 +475,5 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1?api-version
 
 ```
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 - [키, 비밀 및 인증서에 대한 정보](about-keys-secrets-and-certificates.md)

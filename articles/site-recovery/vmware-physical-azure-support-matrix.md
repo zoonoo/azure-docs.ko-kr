@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 09/11/2019
 ms.author: raynew
-ms.openlocfilehash: fd24d0d9f05855cf22da547f95b16da0a8d2c788
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 47914a635afe754cb4205a1e089622a69b706b51
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617637"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910432"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -131,7 +131,7 @@ BTRFS | BTRFS는 [업데이트 롤업 34](https://support.microsoft.com/help/449
 
 ## <a name="vmdisk-management"></a>VM/디스크 관리
 
-**동작** | **세부 정보**
+**작업** | **세부 정보**
 --- | ---
 복제된 VM에서 디스크 크기 조정 | 지원됩니다.
 복제된 VM에 디스크 추가 | 지원되지 않습니다.<br/> VM에 대해 복제를 사용 하지 않도록 설정 하 고, 디스크를 추가한 다음, 복제를 다시 사용 하도록 설정 합니다.
@@ -167,7 +167,7 @@ IPv4 | 예
 Azure 가상 네트워크 서비스 엔드포인트<br/> | 예
 가속화된 네트워킹 | 아니요
 
-## <a name="storage"></a>스토리지
+## <a name="storage"></a>저장 공간
 **구성 요소** | **지원됨**
 --- | ---
 동적 디스크 | OS 디스크는 기본 디스크 여야 합니다. <br/><br/>데이터 디스크는 동적 디스크일 수 있습니다.
@@ -214,7 +214,7 @@ Docker 디스크 구성 | 아니요
 핫 스토리지| 아니요
 블록 Blob | 아니요
 미사용 암호화 (SSE)| 예
-프리미엄 스토리지 | 예
+Premium Storage | 예
 Import/Export 서비스 | 아니요
 Vnet에 대 한 Azure Storage 방화벽 | 예.<br/> 복제 데이터를 저장 하는 데 사용 되는 대상 저장소/캐시 저장소 계정에 구성 됩니다.
 범용 v2 저장소 계정 (핫 및 쿨 계층) | 예 (v 2에 비해 트랜잭션 비용이 V1에 비해 크게 높음)
@@ -246,6 +246,10 @@ FC 디스크 | 지원되지 않습니다. | 지원되지 않는 경우 확인이
 BitLocker | 지원되지 않습니다. | 컴퓨터의 복제를 사용하도록 설정하기 전에 Bitlocker를 사용하지 않도록 설정해야 합니다. |
 VM 이름 | 1~63자 사이입니다.<br/><br/> 문자, 숫자 및 하이픈으로 제한됩니다.<br/><br/> 컴퓨터 이름은 문자 또는 숫자로 시작하고 끝나야 합니다. |  Site Recovery에서 컴퓨터 속성의 값을 업데이트합니다.
 
+## <a name="resource-group-limits"></a>리소스 그룹 제한
+
+단일 리소스 그룹에서 보호할 수 있는 가상 머신의 수를 이해 하려면 [구독 제한 및 할당량](https://docs.microsoft.com/azure/azure-subscription-service-limits#resource-group-limits) 에 대 한 문서를 참조 하세요.
+
 ## <a name="churn-limits"></a>변동 제한
 
 다음 테이블에는 Azure Site Recovery 제한이 제공됩니다. 
@@ -275,7 +279,7 @@ VM의 모든 디스크에 대한 최고 데이터 변동률 | 54MB/초
 
 ## <a name="vault-tasks"></a>자격 증명 모음 작업
 
-**동작** | **지원됨**
+**작업** | **지원됨**
 --- | ---
 리소스 그룹 간 자격 증명 모음 이동 | 아니요
 구독 내 및 구독 간에 자격 증명 모음 이동 | 아니요

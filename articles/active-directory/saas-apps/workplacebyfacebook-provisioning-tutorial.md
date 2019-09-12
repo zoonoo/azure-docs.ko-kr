@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72c2e23b0d60ca242549ebf2c058ea8f44f2b1c8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f040ff4c8e59f764676aa6fdd9460ec94641684a
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60520149"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881791"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Workplace by Facebook 구성
 
 이 자습서의 목적은 사용자 계정을 Azure AD에서 Workplace by Facebook으로 자동으로 프로비전 및 프로비전 해제하도록 Workplace by Facebook 및 Azure AD에서 수행해야 하는 단계를 설명하는 것입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Workplace by Facebook과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -98,7 +98,10 @@ Azure AD는 할당된 사용자의 계정 세부 정보를 Workplace by Facebook
 
 이제 테스트 계정을 만들 수 있습니다. 이제 최대 20분 동안 기다린 후 계정이 Workplace by Facebook에 동기화되었는지 확인합니다.
 
-## <a name="additional-resources"></a>추가 리소스
+> [!NOTE]
+> Microsoft는 Facebook 팀과 긴밀 하 게 협력 하 여 Azure AD 응용 프로그램이 승인 되 고 새 지침을 충족 하는지 확인 합니다.   
+
+## <a name="additional-resources"></a>추가 자료
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](tutorial-list.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)

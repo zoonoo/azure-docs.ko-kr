@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 45c802fb42088be1eecd7c711c6693d325252c91
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 29a771b93e1d686f7972e7dc4d9e78e5858644d6
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985793"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899395"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>IoT Edge 솔루션을 프로덕션 단계에서 배포하도록 준비
 
@@ -209,13 +209,15 @@ IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에
 
 컨테이너 엔진 로그 옵션에서 모든 컨테이너 로그의 크기를 제한할 수 있습니다. 다음 예에서는 파일의 크기 및 수 `json-file` 에 대 한 제한으로 로그 드라이버를 (권장)로 설정 합니다.
 
-    {
-        "log-driver": "json-file",
-        "log-opts": {
-            "max-size": "10m",
-            "max-file": "3"
-        }
+```JSON
+{
+    "log-driver": "json-file",
+    "log-opts": {
+        "max-size": "10m",
+        "max-file": "3"
     }
+}
+```
 
 이 정보를 이라는 `daemon.json` 파일에 추가 (또는 추가) 하 고 장치 플랫폼의 올바른 위치에 배치 합니다.
 
@@ -230,18 +232,19 @@ IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에
 
 각 모듈의 **Createoptions** 에서이 작업을 수행할 수 있습니다. 예:
 
-    "createOptions": {
-        "HostConfig": {
-            "LogConfig": {
-                "Type": "json-file",
-                "Config": {
-                    "max-size": "10m",
-                    "max-file": "3"
-                }
+```yml
+"createOptions": {
+    "HostConfig": {
+        "LogConfig": {
+            "Type": "json-file",
+            "Config": {
+                "max-size": "10m",
+                "max-file": "3"
             }
         }
     }
-
+}
+```
 
 **Linux 시스템에 대 한 추가 옵션**
 

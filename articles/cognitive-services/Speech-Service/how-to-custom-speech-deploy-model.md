@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 15e2ce437a746d15622dc4e093a63c87448f100d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fcd3e5fd6db0d7c18a5f9bfba030cd3d809b452f
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559670"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802527"
 ---
 # <a name="deploy-a-custom-model"></a>사용자 지정 모델 배포
 
-데이터를 업로드하고 검사하고, 정확도를 평가하고, 사용자 지정 모델을 학습시킨 후에 앱, 도구 및 제품에 사용할 사용자 지정 끝점을 배포할 수 있습니다. 이 문서를 만들고 사용자 지정 음성 포털을 사용하는 끝점을 배포하는 방법을 배웁니다.
+데이터를 업로드하고 검사하고, 정확도를 평가하고, 사용자 지정 모델을 학습시킨 후에 앱, 도구 및 제품에 사용할 사용자 지정 끝점을 배포할 수 있습니다. 이 문서에서는 [Custom Speech 포털](https://speech.microsoft.com/customspeech)을 사용 하 여 끝점을 만들고 배포 하는 방법을 알아봅니다.
 
 ## <a name="create-a-custom-endpoint"></a>사용자 지정 끝점 만들기
 
-새 사용자 지정 끝점을 만들려면, 페이지의 맨 위에 있는 사용자 지정 음성 메뉴에서 **배포**를 선택합니다. 첫 번째 실행의 경우 표에 나열된 끝점이 없는 것을 확인할 수 있습니다. 끝점을 만든 후에 배포된 각 끝점을 추적하려면 이 페이지를 사용 합니다.
+새 사용자 지정 끝점을 만들려면 [Custom Speech 포털](https://speech.microsoft.com/customspeech) 에 로그인 하 고 페이지 맨 위에 있는 Custom Speech 메뉴에서 **배포** 를 선택 합니다. 첫 번째 실행의 경우 표에 나열된 끝점이 없는 것을 확인할 수 있습니다. 끝점을 만든 후에 배포된 각 끝점을 추적하려면 이 페이지를 사용 합니다.
 
 다음으로, **끝점 추가**를 선택하고 사용자 지정 끝점에 대한 **이름** 및 **설명**을 입력합니다. 그런 다음 이 끝점과 연결하려는 사용자 지정 모델을 선택합니다. 이 페이지에서 로깅도 사용 설정할 수 있습니다. 로깅을 사용하면 끝점의 트래픽을 모니터링할 수 있습니다. 사용하지 않으면 트래픽을 저장할 수 없습니다.
 

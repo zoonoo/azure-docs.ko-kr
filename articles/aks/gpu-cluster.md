@@ -8,19 +8,19 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/16/2019
 ms.author: zarhoads
-ms.openlocfilehash: 4eef31a050072c0413421a5490b35b765cb9557d
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: e805ca87a34a6b50e9f799909efe8fcbe859883c
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381822"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899473"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 계산 집약적 워크로드에 GPU 사용
 
 GPU(그래픽 처리 장치)는 그래픽 및 시각화 워크로드 같은 계산 집약적 워크로드에 자주 사용됩니다. AKS는 Kubernetes에서 이러한 계산 집약적 워크로드를 실행할 수 있도록 GPU 지원 노드 풀 만들기를 지원합니다. 사용 가능한 GPU 사용 Vm에 대 한 자세한 내용은 [Azure에서 gpu 최적화 vm 크기][gpu-skus]를 참조 하세요. AKS 노드의 경우 권장하는 최소 크기는 *Standard_NC6*입니다.
 
 > [!NOTE]
-> GPU 지원 VM에는 더 높은 가격 및 지역 가용성에 맞는 특별한 하드웨어가 포함되어 있습니다. 자세한 내용은 [가격 책정][azure-pricing] tool and [region availability][azure-availability]을 참조 하세요.
+> GPU 지원 VM에는 더 높은 가격 및 지역 가용성에 맞는 특별한 하드웨어가 포함되어 있습니다. 자세한 내용은 [가격 책정][azure-pricing] 도구 및 [지역 가용성][azure-availability]을 참조 하세요.
 
 현재 GPU 사용 노드 풀을 사용 하는 것은 Linux 노드 풀에만 사용할 수 있습니다.
 
@@ -73,7 +73,7 @@ apiVersion: extensions/v1beta1
 kind: DaemonSet
 metadata:
   name: nvidia-device-plugin-daemonset
-  namespace: kube-system
+  namespace: gpu-resources
 spec:
   updateStrategy:
     type: RollingUpdate

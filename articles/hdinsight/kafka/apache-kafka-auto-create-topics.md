@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/18/2018
-ms.openlocfilehash: af26bcee08ded8eb66d640f954113be3e7672e1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4f40a625b10243ca13163e549a51a760cf105917
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64709128"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900445"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>자동으로 토픽을 작성하기 위해 HDInsight에서 Apache Kafka를 구성하는 방법
 
@@ -42,7 +42,7 @@ Ambari 웹 UI를 통해 기존 클러스터에서 자동 토픽 생성을 사용
 
 5. 필터 필드에 `auto.create` 값을 입력합니다. 
 
-    ![필터 필드의 이미지](./media/apache-kafka-auto-create-topics/filter.png)
+    ![필터 필드의 이미지](./media/apache-kafka-auto-create-topics/hdinsight-filter-field.png)
 
     이렇게 하면 속성 목록이 필터링되고 `auto.create.topics.enable` 설정이 표시됩니다.
 

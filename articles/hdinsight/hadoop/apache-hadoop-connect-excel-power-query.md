@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: c1255296854fd28cca4427b6cac04de7dc7919d8
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: de72daa6d34ea54517d5a21d7467a62d8097581c
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810910"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882632"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>파워 쿼리를 사용하여 Apache Hadoop에 Excel 연결
 Microsoft의 빅데이터 솔루션의 주요 기능 중 하나는 Microsoft BI(비즈니스 인텔리전스) 구성 요소를 Azure HDInsight의 Apache Hadoop 클러스터와 통합하는 것입니다. 주요 예제로 Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 Hadoop 클러스터와 연결된 데이터가 포함된 Azure Storage 계정에 Excel을 연결하는 기능이 있습니다. 이 자습서에서는 파워 쿼리를 설정하고 사용하여 HDInsight로 관리하는 Hadoop 클러스터와 연결된 데이터를 쿼리하는 방법을 단계별로 안내합니다.
@@ -21,14 +21,14 @@ Microsoft의 빅데이터 솔루션의 주요 기능 중 하나는 Microsoft BI(
 ### <a name="prerequisites"></a>필수 구성 요소
 이 문서를 시작하기 전에 다음 항목이 있어야 합니다.
 
-* **HDInsight 클러스터**. 구성하려면 [Azure HDInsight 시작][hdinsight-get-started]을 참조하세요.
+* **HDInsight 클러스터**. 하나를 구성 하려면 [Azure HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)을 참조 하세요.
 * **워크스테이션** .
 * **Office 2016, Office 2013 Professional Plus, Office 365 ProPlus, Excel 2013 Standalone 또는 Office 2010 Professional Plus**.
 
 ## <a name="install-power-query"></a>파워 쿼리 설치
 파워 쿼리는 출력되었거나 HDInsight 클러스터에 대해 실행되는 Hadoop 작업에서 생성된 데이터를 가져올 수 있습니다.
 
-Excel 2016에서는 파워 쿼리가 데이터 리본의 가져오기 및 변환 섹션 아래에 통합되었습니다. 이전 Excel 버전의 경우 [Microsoft 다운로드 센터][powerquery-download] 에서 Microsoft Excel용 파워 쿼리를 다운로드 하 여 설치 합니다.
+Excel 2016에서는 파워 쿼리가 데이터 리본의 가져오기 및 변환 섹션 아래에 통합되었습니다. 이전 Excel 버전의 경우 [Microsoft 다운로드 센터](https://go.microsoft.com/fwlink/?LinkID=286689) 에서 Microsoft Excel용 파워 쿼리를 다운로드 하 여 설치 합니다.
 
 ## <a name="import-hdinsight-data-into-excel"></a>Excel로 HDInsight 데이터 가져오기
 Excel용 파워 쿼리 추가 기능을 사용하면 HDInsight 클러스터에서 Excel로 쉽게 데이터를 가져올 수 있으며, 여기서 PowerPivot 및 파워 맵 같은 BI 도구를 사용하여 데이터를 검사하고 분석하며 표시할 수 있습니다.
@@ -43,13 +43,13 @@ Excel용 파워 쿼리 추가 기능을 사용하면 HDInsight 클러스터에�
 
      - **데이터** 메뉴를 클릭하고 **데이터 가져오기 및 변환** 리본에서 **데이터 가져오기**를 클릭한 후 **Azure에서**를 클릭하고 **Azure HDInsight(HDFS)에서**를 클릭합니다.
 
-       ![HDI. PowerQuery. SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.selecthdisource.excel2016.png)
+       ![HDI. PowerQuery. SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/powerquery-selecthdisource-excel2016.png)
 
    - Excel 2013/2010
 
      - **파워 쿼리** 메뉴를 클릭하고 **Azure에서**를 클릭한 후 **Microsoft Azure HDInsight에서**를 클릭합니다.
    
-       ![HDI.PowerQuery.SelectHdiSource][image-hdi-powerquery-hdi-source]
+       ![HDI.PowerQuery.SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/powerquery-selecthdisource.png)
        
        **참고:** **파워 쿼리** 메뉴가 표시 되지 않으면 **파일** > **옵션** > **추가 기능**으로 이동 하 고 페이지 맨 아래에 있는 드롭다운 **관리** 상자에서 **COM 추가 기능** 을 선택 합니다. **이동...** 단추를 선택하고 Excel용 파워 쿼리 추가 기능에 해당하는 상자가 선택되어 있는지 확인합니다.
        
@@ -59,10 +59,11 @@ Excel용 파워 쿼리 추가 기능을 사용하면 HDInsight 클러스터에�
 6. Azure File Storage는 표준 SMB 프로토콜을 사용하여 클라우드에서 파일 공유를 제공합니다. 기본적으로 컨테이너 이름은 클러스터 이름과 같습니다.
 7. **Name** 열에서 **HiveSampleData.txt**(폴더 경로 **../hive/warehouse/hivesampletable/** )를 찾은 후 HiveSampleData.txt 왼쪽에 있는 **Binary**를 클릭합니다. HiveSampleData.txt는 모든 클러스터와 함께 제공됩니다. 필요에 따라 사용자의 파일을 사용할 수 있습니다.
    
-    ![HDI.PowerQuery.ImportData][image-hdi-powerquery-importdata]
+    ![HDI.PowerQuery.ImportData](./media/apache-hadoop-connect-excel-power-query/powerquery-importdata.png)
+
 8. 원하는 경우 열 이름을 바꿀 수 있습니다. 준비가 되면 **닫은 후 로드**를 클릭합니다.  통합 문서에 데이터가 로드됩니다.
    
-    ![HDI.PowerQuery.ImportedTable][image-hdi-powerquery-imported-table]
+    ![HDI.PowerQuery.ImportedTable](./media/apache-hadoop-connect-excel-power-query/powerquery-importedtable.png)
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 파워 쿼리를 사용하여 HDInsight에서 Excel로 데이터를 가져오는 방법을 알아보았습니다. 마찬가지로 HDInsight에서 Azure SQL Database로 데이터를 가져올 수 있습니다. 데이터를 HDInsight에 업로드할 수도 있습니다. 자세한 내용은 다음 문서를 참조하세요.
@@ -74,9 +75,3 @@ Excel용 파워 쿼리 추가 기능을 사용하면 HDInsight 클러스터에�
 * [Data Lake Tools for Visual Studio를 사용하여 Azure HDInsight에 연결 및 Apache Hive 쿼리 실행](apache-hadoop-visual-studio-tools-get-started.md)
 * [Azure HDInsight Tool for Visual Studio Code 사용](../hdinsight-for-vscode.md)
 * [HDInsight에 데이터 업로드](./../hdinsight-upload-data.md)
-
-[image-hdi-powerquery-hdi-source]: ./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.selecthdisource.png
-[image-hdi-powerquery-importdata]: ./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.importdata.png
-[image-hdi-powerquery-imported-table]: ./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.importedtable.PNG
-
-[powerquery-download]: https://go.microsoft.com/fwlink/?LinkID=286689

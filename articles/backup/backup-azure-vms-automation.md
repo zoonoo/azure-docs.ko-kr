@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 09/11/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5176fc36b62fc1e970bd51f6386191ea34c5170c
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: d624f6a1711bf2c2bad5ebc252d00c299ebca225
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872669"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70909825"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>PowerShell을 사용 하 여 Azure Vm 백업 및 복원
 
@@ -61,7 +61,7 @@ Azure 라이브러리에서 **Az. RecoveryServices** [cmdlet 참조](https://doc
 3. **Connect-AzAccount**를 사용하여 Azure 계정에 로그인합니다. 이 cmdlet은 계정 자격 증명을 묻는 웹 페이지를 엽니다.
 
     * 또는 **Connect-AzAccount** cmdlet에서 **-Credential** 매개 변수를 사용하여 계정 자격 증명을 매개 변수로 포함할 수 있습니다.
-    * 사용자가 테넌트를 대신하여 작업 중인 CSP 파트너인 경우 tenantID 또는 테넌트 기본 도메인 이름을 사용하여 고객을 테넌트로 지정합니다. 예를 들어: **Connect-AzAccount -Tenant "fabrikam.com"**
+    * 사용자가 테넌트를 대신하여 작업 중인 CSP 파트너인 경우 tenantID 또는 테넌트 기본 도메인 이름을 사용하여 고객을 테넌트로 지정합니다. 예: **Connect-AzAccount -Tenant "fabrikam.com"**
 
 4. 계정에 여러 구독이 있을 수 있으므로 사용하려는 구독을 계정과 연결합니다.
 
@@ -716,6 +716,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleR
     ```
 
 7. ADE 확장을 푸시합니다.
+   ADE 확장이 푸시되 지 않으면 데이터 디스크가 암호화 되지 않은 것으로 표시 되므로 아래 단계를 실행 하는 것이 필수입니다.
 
    * **Azure AD가 포함된 VM** - 다음 명령을 사용하여 데이터 디스크에 대해 암호화를 수동으로 사용하도록 설정합니다.  
 
@@ -746,6 +747,8 @@ New-AzResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleR
       ```powershell  
       Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
       ```
+> [!NOTE]
+> 암호화 된 VM 복원 디스크 프로세스의 일부로 만든 JASON 파일을 수동으로 삭제 해야 합니다.
 
 
 ## <a name="restore-files-from-an-azure-vm-backup"></a>Azure VM 백업에서 파일 복원

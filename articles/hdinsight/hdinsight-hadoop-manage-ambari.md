@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: d0641a1c058db59acd5e9a64b10bb57b334f82bd
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 3ca9c12caa7fa9b54cd63c2655166d95477dffa2
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442062"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885282"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Apache Ambari Web UI를 사용하여 HDInsight 클러스터 관리
 
@@ -49,7 +49,7 @@ Ambari 웹 UI를 연결할 때 페이지에 인증하라는 메시지가 나옵�
 
 ![ambari-nav](./media/hdinsight-hadoop-manage-ambari/ambari-nav.png)
 
-|항목 |설명 |
+|항목 |Description |
 |---|---|
 |Ambari 로고|클러스터를 모니터링 하는 데 사용할 수 있는 대시보드를 엽니다.|
 |클러스터 이름 # ops|진행 중인 Ambari 작업 수를 표시 합니다. 클러스터 이름 또는 **# ops**를 선택하면 백그라운드 작업 목록이 표시됩니다.|
@@ -76,7 +76,7 @@ Ambari 웹 UI를 연결할 때 페이지에 인증하라는 메시지가 나옵�
 
 경고는 여러 가지 기본 그룹으로 구성되며 **Alerts** 페이지에서 볼 수 있습니다.
 
-![경고 페이지](./media/hdinsight-hadoop-manage-ambari/alerts.png)
+![경고 페이지](./media/hdinsight-hadoop-manage-ambari/hdinsight-alerts-page.png)
 
 **작업** 메뉴를 사용하고 **경고 그룹 관리**를 선택하여 그룹을 관리할 수 있습니다.
 
@@ -92,11 +92,11 @@ Ambari 웹 UI를 연결할 때 페이지에 인증하라는 메시지가 나옵�
 
 대시보드의 **Metrics** 탭은 클러스터의 상태를 한 눈에 쉽게 모니터할 수 있는 일련의 위젯을 포함합니다. **CPU Usage**와 같은 여러 위젯은 클릭하면 추가 정보를 제공합니다.
 
-![메트릭이 표시된 대시보드](./media/hdinsight-hadoop-manage-ambari/metrics.png)
+![메트릭이 표시된 대시보드](./media/hdinsight-hadoop-manage-ambari/hdi-metrics-dashboard.png)
 
 **Heatmaps** 탭은 녹색에서 빨간색으로 변하는 히트맵처럼 메트릭을 표시합니다.
 
-![히트맵이 표시된 대시보드](./media/hdinsight-hadoop-manage-ambari/heatmap.png)
+![히트맵이 표시된 대시보드](./media/hdinsight-hadoop-manage-ambari/hdi-heatmap-dashboard.png)
 
 클러스터 내의 노드에 대한 자세한 내용은 **호스트**를 선택합니다. 그런 다음 관심 있는 특정 노드를 선택합니다.
 
@@ -142,7 +142,7 @@ Ambari 웹 UI를 연결할 때 페이지에 인증하라는 메시지가 나옵�
 
 **Hosts** 페이지는 클러스터의 모든 호스트를 나열합니다. 호스트를 관리하려면 다음 단계를 따르세요.
 
-![호스트 페이지](./media/hdinsight-hadoop-manage-ambari/hosts.png)
+![호스트 페이지](./media/hdinsight-hadoop-manage-ambari/hdinsight-hosts-page.png)
 
 > [!NOTE]  
 > 호스트 추가, 서비스 해제 및 서비스 등록은 HDInsight 클러스터에서 사용할 수 없습니다.

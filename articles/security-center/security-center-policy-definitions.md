@@ -2,24 +2,18 @@
 title: Azure Security Center에서 모니터링되는 Azure 정책 정의 | Microsoft Docs
 description: Azure Security Center에서 모니터링되는 Azure 정책 정의를 다룹니다.
 services: security-center
-documentationcenter: na
 author: monhaber
 manager: barbkess
-editor: ''
-ms.assetid: c89cb1aa-74e8-4ed1-980a-02a7a25c1a2f
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 8/22/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 56e6285501529f26e3622e2f773dbd373c169c10
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 37c29a40596a0ea7989b91d1ffcbabf930e5ed93
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69990497"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910361"
 ---
 # <a name="azure-security-policies-monitored-by-security-center"></a>Security Center에서 모니터링 하는 Azure 보안 정책
 이 문서에서는 Azure Security Center에서 모니터링할 수 있는 Azure Policy 정의의 목록을 제공 합니다. 보안 정책에 대한 자세한 내용은 [보안 정책 작업](tutorial-security-policy.md)을 참조하세요.
@@ -50,7 +44,7 @@ Security Center에서 모니터링 하는 기본 제공 정책에 대 한 자세
 |Azure Data Lake Store의 진단 로그를 사용 하도록 설정 해야 합니다.|로그 사용을 감사 하 고 1 년까지 유지 합니다. 이렇게 하면 보안 인시던트가 발생 하거나 네트워크가 손상 된 경우 조사를 위한 활동 기록이 생성 됩니다.|
 |Data Lake Analytics의 진단 로그를 사용 하도록 설정 해야 합니다.|로그 사용을 감사 하 고 최대 1 년 동안 보관 합니다. 이렇게 하면 보안 인시던트가 발생 하거나 네트워크가 손상 된 경우 조사를 위한 활동 기록이 생성 됩니다.|
 |저장소 계정은 new AzureRM 리소스에 마이그레이션해야 합니다.|저장소 계정에 대 한 Azure Resource Manager를 사용 하 여 보안 강화 기능을 제공 합니다. 이러한 개체는 다음과 같습니다. <br>-더 강력한 액세스 제어 (RBAC)<br>-더 나은 감사<br>-Azure Resource Manager 기반 배포 및 거 버 넌 스<br>-관리 되는 id에 대 한 액세스<br>-암호에 대 한 Azure Key Vault 액세스<br>-Azure AD 기반 인증<br>-보다 쉬운 보안 관리를 위한 태그 및 리소스 그룹 지원|
-|가상 컴퓨터를 새 AzureRM 리소스에 마이그레이션해야 합니다.|가상 컴퓨터에 대 한 Azure Resource Manager를 사용 하 여 보안 강화 기능을 제공 합니다.  이러한 개체는 다음과 같습니다. <br>-더 강력한 액세스 제어 (RBAC)<br>-더 나은 감사<br>-Azure Resource Manager 기반 배포 및 거 버 넌 스<br>-관리 되는 id에 대 한 액세스<br>-암호에 대 한 Azure Key Vault 액세스<br>-Azure AD 기반 인증<br>-보다 쉬운 보안 관리를 위한 태그 및 리소스 그룹 지원|
+|가상 컴퓨터를 새 AzureRM 리소스에 마이그레이션해야 합니다.|가상 컴퓨터에 대 한 Azure Resource Manager를 사용 하 여 보안 강화 기능을 제공 합니다. 이러한 개체는 다음과 같습니다. <br>-더 강력한 액세스 제어 (RBAC)<br>-더 나은 감사<br>-Azure Resource Manager 기반 배포 및 거 버 넌 스<br>-관리 되는 id에 대 한 액세스<br>-암호에 대 한 Azure Key Vault 액세스<br>-Azure AD 기반 인증<br>-보다 쉬운 보안 관리를 위한 태그 및 리소스 그룹 지원|
 |Batch 계정에서 메트릭 경고 규칙을 구성 해야 합니다.|Azure Batch 계정에서 메트릭 경고 규칙의 구성을 감사 하 여 필요한 메트릭을 사용 하도록 설정 합니다.|
 |Batch 계정의 진단 로그를 사용 하도록 설정 해야 합니다.|로그 사용을 감사 하 고 최대 1 년 동안 보관 합니다. 이렇게 하면 보안 인시던트가 발생 하거나 네트워크가 손상 된 경우 조사를 위한 활동 기록이 생성 됩니다.|
 |Automation 계정 변수에 암호화를 사용 하도록 설정 해야 합니다.|중요 한 데이터를 저장 하는 경우 Azure Automation 계정 변수 자산의 암호화를 사용 하도록 설정 하는 것이 중요 합니다.|
@@ -59,12 +53,12 @@ Security Center에서 모니터링 하는 기본 제공 정책에 대 한 자세
 |SQL server 감사를 사용 하도록 설정 해야 합니다.|서버 수준에서 SQL 감사가 있는지 감사 합니다.|
 |\[미리 보기]: Azure Security Center에서 암호화되지 않은 SQL 데이터베이스 모니터링|Azure Security Center는 암호화 되지 않은 SQL 서버나 데이터베이스를 권장 하는 대로 모니터링 합니다.|
 |\[미리 보기]: Azure Security Center에서 감사되지 않은 SQL 데이터베이스 모니터링|Azure Security Center SQL 감사를 설정 하지 않은 SQL server 및 데이터베이스를 모니터링 하는 것이 좋습니다.|
-|\[미리 보기]: 시스템 업데이트를 컴퓨터에 설치 해야 합니다.|Azure Security Center은 권장 사항에 따라 서버에서 누락 된 보안 시스템 업데이트를 모니터링 합니다.|
+|\[미리 보기]: 시스템 업데이트를 머신에 설치해야 합니다.|Azure Security Center은 권장 사항에 따라 서버에서 누락 된 보안 시스템 업데이트를 모니터링 합니다.|
 |\[미리 보기]: 스토리지 계정에 대해 누락된 Blob 암호화 감사|Blob 암호화를 사용 하지 않는 저장소 계정을 감사 합니다. 이는 다른 공급자의 저장소가 아닌 Microsoft storage 리소스 유형에만 적용 됩니다. Azure Security Center는 권장 된 대로 네트워크 just-in-time 액세스를 모니터링할 수 있습니다.|
 |\[미리 보기]: 가상 머신에서 Just-In-Time 네트워크 액세스 제어를 적용해야 합니다.|Azure Security Center는 권장 된 대로 네트워크 just-in-time 액세스를 모니터링할 수 있습니다.|
 |\[미리 보기]: 가상 머신에서 적응형 애플리케이션 제어를 사용하도록 설정해야 합니다.|Azure Security Center에서 가능한 응용 프로그램 허용 목록 구성을 모니터링 합니다.|
 |\[미리 보기]: 가상 컴퓨터에 대 한 누락 된 네트워크 보안 그룹을 구성 해야 합니다.|Azure Security Center은 권장 사항에 따라 허용 규칙이 너무 많은 네트워크 보안 그룹을 모니터링 합니다.|
-|\[미리 보기]: 컴퓨터에서 보안 구성의 취약성을 재구성 해야 함|Azure Security Center 구성 된 기준을 충족 하지 않는 서버를 모니터링 하는 것이 좋습니다.| 
+|\[미리 보기]: 머신 보안 구성의 취약성을 수정해야 합니다.|Azure Security Center 구성 된 기준을 충족 하지 않는 서버를 모니터링 하는 것이 좋습니다.| 
 |\[미리 보기]: 가상 컴퓨터에 Endpoint protection을 설치 해야 합니다.|Azure Security Center는 Microsoft System Center Endpoint Protection 에이전트가 설치 되어 있지 않은 서버를 모니터링 하는 것이 좋습니다.|
 |\[미리 보기]: 가상 머신에서 디스크 암호화를 적용해야 합니다.|Azure Security Center 권장 된 대로 디스크 암호화를 사용 하지 않는 가상 컴퓨터를 모니터링 합니다.|
 |\[미리 보기]: 취약성 평가 솔루션으로 취약성을 수정해야 합니다.|취약성 평가 솔루션에 의해 검색 된 취약점과 Azure Security Center의 취약점 평가 솔루션이 없는 Vm을 모니터링 하는 것이 좋습니다.|

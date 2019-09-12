@@ -3,18 +3,18 @@ title: 공통 매개 변수 및 헤더
 description: 매개 변수 및 헤더는 Key Vault 리소스와 관련하여 사용자가 수행할 수 있는 모든 작업에 공통적입니다.
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 01ac02ca0e449dcac8fcd05450566fd8138acba3
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 7ec8e1df71e6513b13e9c37174a3363471be01d9
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64696683"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879275"
 ---
 # <a name="common-parameters-and-headers"></a>공통 매개 변수 및 헤더
 
@@ -41,10 +41,10 @@ ms.locfileid: "64696683"
 
 |요소 이름 | 형식 | 설명 |
 |---|---|---|
-| code | 문자열 | 발생한 오류의 유형입니다.|
-| message | 문자열 | 오류 원인에 대한 설명입니다. |
+| code | string | 발생한 오류의 유형입니다.|
+| message | string | 오류 원인에 대한 설명입니다. |
 
 
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
  [Azure Key Vault REST API 참조](/rest/api/keyvault/)

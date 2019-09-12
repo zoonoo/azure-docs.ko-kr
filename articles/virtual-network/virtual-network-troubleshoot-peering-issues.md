@@ -1,0 +1,234 @@
+---
+title: 가상 네트워크 피어링 문제 해결
+description: 대부분의 가상 네트워크 피어 링 문제를 해결 하는 데 도움이 되는 단계입니다.
+services: virtual-network
+documentationcenter: na
+author: v-miegge
+manager: dcscontentpm
+editor: ''
+ms.assetid: 1a3d1e84-f793-41b4-aa04-774a7e8f7719
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: troubleshooting
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 08/28/2019
+ms.author: kaushika
+ms.openlocfilehash: fc01a20a077a1c624ed490600db919fe3197556c
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70901764"
+---
+# <a name="troubleshoot-virtual-network-peering-issues"></a>가상 네트워크 피어링 문제 해결
+
+이 문제 해결 가이드에서는 대부분의 [가상 네트워크 피어 링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) 문제를 해결 하는 데 유용한 단계를 제공 합니다.
+
+![IMAGE](./media/virtual-network-troubleshoot-peering-issues/4489538_en_1.png)
+
+## <a name="scenario-1-configure-virtual-network-peering-between-two-virtual-networks"></a>시나리오 1: 두 가상 네트워크 간에 가상 네트워크 피어 링 구성
+
+가상 네트워크가 동일한 구독 또는 다른 구독에 있나요?
+
+### <a name="connection-type-1-the-virtual-networks-are-in-the-same-subscription"></a>연결 형식 1: 가상 네트워크가 동일한 구독에 있습니다.
+
+동일한 구독에 있는 가상 네트워크에 대 한 가상 네트워크 피어 링을 구성 하려면 다음 문서에서 제공 하는 방법을 적절 하 게 사용 합니다.
+
+* 가상 네트워크가 **동일한 지역**에 있는 경우 [동일한 구독에서 가상 네트워크에 대 한 피어 링을 만드는](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#create-a-peering)단계를 수행 합니다.
+* 가상 네트워크가 **서로 다른 지역**에 있는 경우 [글로벌 가상 네트워크 피어 링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)을 설정 하는 단계를 수행 합니다.  
+
+> [!Note]
+> 다음 리소스에 대 한 글로벌 VNet 피어 링을 통해 연결이 작동 하지 않습니다. 
+>
+> * 기본 ILB SKU 뒤의 Vm
+> * Redis Cache (기본 ILB SKU 사용)
+> * Application Gateway (기본 ILB SKU 사용)
+> * 크기 집합 (기본 ILB SKU 사용)
+> * 클러스터 Service Fabric (기본 ILB SKU 사용)
+> * SQL Always on (기본 ILB SKU 사용)
+> * ASE (App Service 환경) (기본 ILB SKU 사용)
+> * API Management (기본 ILB SKU 사용)
+> * Azure Active Directory 도메인 서비스 (추가) (기본 ILB SKU 사용)
+
+자세한 내용은 전역 피어 링의 [요구 사항 및 제약 조건](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) 을 참조 하세요.
+
+### <a name="connection-type-2-the-virtual-networks-are-in-different-subscriptions-or-ad-tenants"></a>연결 유형 2: 가상 네트워크가 서로 다른 구독 또는 AD 테 넌 트에 있습니다.
+
+다른 구독 또는 Active Directory 테 넌 트의 가상 네트워크에 대 한 가상 네트워크 피어 링을 구성 하려면 [Azure CLI에 대해 다른 구독에서 피어 링 만들기](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions#cli)의 단계를 따르세요.
+
+> [!Note]
+> 네트워크 피어 링을 구성 하려면 두 구독 모두에서 **네트워크 참가자** 권한이 있어야 합니다. 자세한 내용은 [피어 링 권한](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering%23permissions)을 참조 하세요.
+
+## <a name="scenario-2-configure-virtual-network-peering-with-hub-spoke-topology-that-uses-on-premises-resources"></a>시나리오 2: 온-프레미스 리소스를 사용 하는 허브-스포크 토폴로지를 사용 하 여 가상 네트워크 피어 링 구성
+
+![IMAGE](./media/virtual-network-troubleshoot-peering-issues/4488712_en_1a.png)
+
+### <a name="connection-type-1-for-site-to-site-connection-or-expressroute-connection"></a>연결 형식 1: 사이트 간 연결 또는 Express 경로 연결의 경우
+
+의 단계를 수행 합니다. [가상 네트워크 피어 링에 대 한 VPN gateway 전송을 구성](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json)합니다.
+
+### <a name="connection-type-2-for-point-to-site-connections"></a>연결 유형 2: 지점 및 사이트 간 연결의 경우
+
+1. 의 단계를 수행 합니다. [가상 네트워크 피어 링에 대 한 VPN gateway 전송을 구성](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json)합니다.
+2. 가상 네트워크 피어 링이 설정 되거나 변경 된 후 지점 및 사이트 간 클라이언트에서 스포크 가상 네트워크에 업데이트 된 경로를 가져오도록 지점 및 사이트 간 패키지를 다시 다운로드 하 여 설치 해야 합니다.
+
+## <a name="scenario-3-configure-virtual-network-peering-with-hub-spoke-topology-for-azure-virtual-network"></a>시나리오 3: Azure Virtual Network에 대 한 허브-스포크 토폴로지를 사용 하 여 가상 네트워크 피어 링 구성
+
+![IMAGE](./media/virtual-network-troubleshoot-peering-issues/4488712_en_1b.png)
+
+### <a name="connection-type-1-the-virtual-networks-are-in-the-same-region"></a>연결 형식 1: 가상 네트워크가 동일한 지역에 있습니다.
+
+허브 가상 네트워크에서 NVA (네트워크 가상 어플라이언스)를 구성 하 고 스포크 가상 네트워크에 다음 홉 "네트워크 가상 어플라이언스"가 적용 된 사용자 정의 경로를 구성 해야 합니다. 자세한 내용은 [서비스](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#service-chaining)연결을 참조 하세요.
+
+> [!Note]
+> NVA를 설정 하는 데 도움이 필요한 경우 [nva 공급 업체에 문의 하세요](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+
+NVA 장치 설정 및 라우팅 문제를 해결 하는 데 도움이 필요한 경우 [Azure의 네트워크 가상 어플라이언스 문제](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva)를 참조 하세요.
+
+### <a name="connection-type-2-the-virtual-networks-are-in-different-regions"></a>연결 유형 2: 가상 네트워크가 서로 다른 지역에 있습니다.
+
+이제 글로벌 VNet 피어 링을 통한 전송이 지원 됩니다. 다음 리소스에 대 한 글로벌 VNet 피어 링을 통해 연결이 작동 하지 않습니다.
+
+* 기본 ILB SKU 뒤의 Vm
+* Redis Cache (기본 ILB SKU 사용)
+* Application Gateway (기본 ILB SKU 사용)
+* 크기 집합 (기본 ILB SKU 사용)
+* 클러스터 Service Fabric (기본 ILB SKU 사용)
+* SQL Always on (기본 ILB SKU 사용)
+* ASE (App Service 환경) (기본 ILB SKU 사용)
+* API Management (기본 ILB SKU 사용)
+* Azure Active Directory 도메인 서비스 (추가) (기본 ILB SKU 사용)
+
+전역 피어 링 요구 사항 및 제한은에 대 한 자세한 내용은 [가상 네트워크 피어 링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints)을 참조 하세요.
+
+## <a name="scenario-4-i-have-a-connectivity-issue-between-two-peered-virtual-networks"></a>시나리오 4: 두 피어 링 가상 네트워크 간의 연결 문제가 있습니다.
+
+필요한 [역할 및 사용 권한이](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#roles-permissions)있는 계정으로 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다. 가상 네트워크를 선택 하 고 **피어 링**을 선택한 다음 **상태** 필드를 확인 합니다. 상태는 무엇 인가요?
+
+### <a name="connection-type-1-the-peering-status-shows-connected"></a>연결 형식 1: 피어 링 상태는 ' 연결 됨 '을 표시 합니다.
+
+문제를 해결 하려면 다음 단계를 수행 합니다.
+
+1. 네트워크 트래픽 흐름을 확인 합니다.
+
+   원본 VM에서 대상 VM으로의 [연결 문제 해결](https://docs.microsoft.com/azure/network-watcher/network-watcher-connectivity-overview) 및 [IP 흐름 확인](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview) 을 사용 하 여 트래픽 흐름에 간섭을 일으키는 nsg 또는 udr이 있는지 여부를 확인 합니다.
+
+   방화벽 또는 NVA 어플라이언스를 사용 하는 경우 다음 단계를 수행 합니다. 
+   1. 이 단계가 완료 된 후 복원할 수 있도록 UDR 매개 변수를 문서화 합니다.
+   2. NVA를 가리키는 원본 VM 서브넷 또는 NIC에서 UDR을 다음 홉으로 제거 합니다. NVA를 우회 하는 대상에 직접 원본 VM의 연결을 확인 합니다. 이 단계가 작동 하면 [Nva 문제 해결사](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva)를 참조 하세요.
+
+2. 네트워크 추적을 사용 합니다. 
+   1. 대상 VM에서 네트워크 추적을 시작 합니다. Windows의 경우 **Netsh**를 사용할 수 있습니다. Linux의 경우 **TCPDump**를 사용 합니다.
+   2. 원본에서 대상 IP로 **Tcpping** 또는 **psping** 를 실행 합니다.
+
+   * 다음은 **Tcpping** 명령의 예입니다.`tcping64.exe -t <destination VM address> 3389`
+
+   3. **Tcpping** 이 완료 되 면 대상에서 네트워크 추적을 중지 합니다.
+   4. 패킷이 원본에서 도착 하는 경우 네트워킹 문제가 발생 하지 않습니다. VM 방화벽과 해당 포트에서 수신 대기 하는 응용 프로그램을 모두 검사 하 여 구성 문제를 찾습니다.
+
+   > [!Note]
+   > 글로벌 가상 네트워크 피어 링 (다른 지역의 가상 네트워크)을 통해 다음 리소스 유형에 연결할 수 없습니다.
+   >
+   > * 기본 ILB SKU 뒤의 Vm
+   > * Redis Cache (기본 ILB SKU 사용)
+   > * Application Gateway (기본 ILB SKU 사용)
+   > * 크기 집합 (기본 ILB SKU 사용)
+   > * 클러스터 Service Fabric (기본 ILB SKU 사용)
+   > * SQL Always on (기본 ILB SKU 사용)
+   > * ASE (App Service 환경) (기본 ILB SKU 사용)
+   > * API Management (기본 ILB SKU 사용)
+   > * Azure Active Directory 도메인 서비스 (추가) (기본 ILB SKU 사용)
+
+자세한 내용은 전역 피어 링의 [요구 사항 및 제약 조건](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) 을 참조 하세요.
+
+### <a name="connection-type-2-the-peering-status-shows-disconnected"></a>연결 유형 2: 피어 링 상태가 ' 연결 끊김 '으로 표시 됩니다.
+
+두 Vnet에서 피어 링을 삭제 하 고 다시 만들어야 합니다.
+
+## <a name="scenario-5-i-have-a-connectivity-issue-between-a-hub-spoke-virtual-network-and-on-premises-resource"></a>시나리오 5: 허브-스포크 가상 네트워크와 온-프레미스 리소스 간의 연결 문제가 있습니다.
+
+타사 NVA 또는 VPN gateway를 사용 하나요?
+
+### <a name="connection-type-1-my-network-uses-a-third-party-nva-or-vpn-gateway"></a>연결 형식 1: 네트워크에서 타사 NVA 또는 VPN gateway를 사용 합니다.
+
+타사 NVA 또는 VPN gateway에 영향을 주는 연결 문제를 해결 하려면 다음 문서를 참조 하세요.
+
+* [NVA 문제 해결사](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva)
+* [서비스 체인](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#service-chaining)
+
+### <a name="connection-type-2-my-network-does-not-a-third-party-nva-or-vpn-gateway"></a>연결 유형 2: 네트워크는 타사 NVA 또는 VPN gateway가 아닙니다.
+
+허브 및 스포크 가상 네트워크 모두에 VPN 게이트웨이가 있나요?
+
+#### <a name="both-the-hub-and-spoke-virtual-networks-have-a-vpn-gateway"></a>허브 및 스포크 가상 네트워크 모두에 VPN gateway가 있습니다.
+
+원격 게이트웨이 사용은 지원 되지 않습니다.
+
+VNet 피어 링 제한으로 인해 스포크 VNet에 VPN 게이트웨이가 이미 있는 경우에는 **원격 게이트웨이 사용** 이 스포크 vnet에서 지원 되지 않습니다.
+
+#### <a name="both-the-hub-and-spoke-virtual-networks-dont-have-a-vpn-gateway"></a>허브 및 스포크 가상 네트워크에는 모두 VPN gateway가 없습니다.
+
+사이트 간 또는 Express 경로 연결의 경우 온-프레미스에서 원격 가상 네트워크에 대 한 연결 문제의 주요 원인을 확인 합니다.
+
+* 게이트웨이가 있는 가상 네트워크에서 **전달 된 트래픽 허용** 확인란이 선택 되어 있는지 확인 합니다.
+* 게이트웨이가 없는 가상 네트워크에서 **원격 게이트웨이 사용** 확인란이 선택 되어 있는지 확인 합니다.
+* 네트워크 관리자에 게 온-프레미스 장치를 확인 하 여 모든 사용자에 게 원격 가상 네트워크 주소 공간이 추가 되었는지 확인 합니다.
+
+지점 및 사이트 간 연결의 경우:
+
+* 게이트웨이가 있는 가상 네트워크에서 **전달 된 트래픽 허용** 확인란이 선택 되어 있는지 확인 합니다.
+* 게이트웨이가 없는 가상 네트워크에서 **원격 게이트웨이 사용** 확인란이 선택 되어 있는지 확인 합니다.
+* 지점 및 사이트 간 클라이언트 패키지를 다시 다운로드 하 여 설치 합니다. 새로 피어 링 가상 네트워크 경로는 지점 및 사이트 간 클라이언트에 경로를 자동으로 추가 하지 않습니다.
+
+## <a name="scenario-6-i-have-a-hub-spoke-network-connectivity-issue-between-spoke-virtual-networks-in-the-same-region"></a>시나리오 6: 동일한 지역의 스포크 가상 네트워크 간에 허브-스포크 네트워크 연결 문제가 있음
+
+허브 네트워크에서 NVA를 구성 하 고, NVA가 다음 홉으로 설정 된 스포크에서 UDRs를 구성 하 고, 허브 가상 네트워크에서 **전달 된 트래픽을 허용** 하도록 설정 해야 합니다.
+
+자세한 내용은 [서비스](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#service-chaining)연결을 참조 하 고, 원하는 [nva 공급 업체](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) 와 이러한 요구 사항을 논의 합니다.
+
+## <a name="scenario-7-i-have-a-hub-spoke-network-connectivity-issue-between-spoke-virtual-networks-in-different-regions"></a>시나리오 7: 다른 지역의 스포크 가상 네트워크 간에 허브-스포크 네트워크 연결 문제가 있음
+
+이제 글로벌 VNet 피어 링을 통한 전송이 지원 됩니다. 다음 리소스에 대 한 글로벌 VNet 피어 링을 통해 연결이 작동 하지 않습니다.
+
+* 기본 ILB SKU 뒤의 Vm
+* Redis Cache (기본 ILB SKU 사용)
+* Application Gateway (기본 ILB SKU 사용)
+* 크기 집합 (기본 ILB SKU 사용)
+* 클러스터 Service Fabric (기본 ILB SKU 사용)
+* SQL Always on (기본 ILB SKU 사용)
+* ASE (App Service 환경) (기본 ILB SKU 사용)
+* API Management (기본 ILB SKU 사용)
+* Azure Active Directory 도메인 서비스 (추가) (기본 ILB SKU 사용)
+
+자세한 내용은 전역 피어 링의 [요구 사항 및 제약 조건](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) 및 [다른 VPN 토폴로지](https://blogs.msdn.microsoft.com/igorpag/2016/02/11/hubspoke-daisy-chain-and-full-mesh-vnet-topologies-in-azure-arm-v2/)를 참조 하십시오.
+
+## <a name="scenario-8-i-have-a-hub-spoke-network-connectivity-issue-between-a-web-app-and-the-spoke-virtual-network"></a>시나리오 8: 웹 앱과 스포크 가상 네트워크 간에 허브-스포크 네트워크 연결 문제가 있음
+
+이 문제를 해결 하려면 다음 단계를 수행 합니다.
+
+1. Azure Portal에 로그인 합니다. 웹 앱으로 이동 하 고 **네트워킹**을 선택한 다음 **VNet 통합**을 선택 합니다.
+2. 원격 가상 네트워크를 볼 수 있는지 여부를 확인 합니다. 수동으로 원격 가상 네트워크 주소 공간 (**동기화 네트워크** 및 **추가 경로**)을 입력 합니다.
+
+자세한 내용은 다음 문서를 참조하세요.
+
+* [Azure Virtual Network에 앱 통합](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
+* [지점 및 사이트 간 VPN 라우팅 정보](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-point-to-site-routing)
+
+## <a name="scenario-9-i-receive-an-error-when-configuring-virtual-network-peering"></a>시나리오 9: 가상 네트워크 피어 링을 구성할 때 오류가 표시 됩니다.
+
+### <a name="error-1-current-tenant-tenant-id-isnt-authorized-to-access-linked-subscription"></a>오류 1: 현재 테 `<TENANT ID>` 넌 트가 연결 된 구독에 액세스할 수 있는 권한이 없습니다.
+
+이 문제를 해결 하려면 [피어 링 만들기-Azure CLI](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions#cli)의 단계를 따르세요.
+
+### <a name="error-2-not-connected"></a>오류 2: 연결 안 됨
+
+두 Vnet에서 피어 링을 삭제 하 고 다시 만들어야 합니다.
+
+### <a name="error-3-failed-to-peer-a-databricks-virtual-network"></a>오류 3: Databricks 가상 네트워크를 피어 링 하지 못했습니다.
+
+이 문제를 해결 하려면 **Azure Databricks** 블레이드에서 가상 네트워크 피어 링을 구성 하 고 **리소스 ID**를 사용 하 여 대상 가상 네트워크를 지정 합니다. 자세한 내용은 [Databricks virtual network를 원격 가상 네트워크에 피어](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-peering.html#id2)링을 참조 하세요.
+
+## <a name="next-steps"></a>다음 단계
+
+* [Azure VM 간의 연결 문제 해결](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-connectivity-problem-between-vms)

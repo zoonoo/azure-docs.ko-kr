@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: quickstart
-ms.date: 08/20/2019
+ms.topic: reference
+ms.date: 09/05/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: aae59747422fd9dfb53266ee9693c3380c35f73b
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
-ms.translationtype: HT
+ms.openlocfilehash: 617878d559c5c89e76c86bfe04fbd24484b911bb
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647122"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70391030"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-java"></a>Java에서 QnA Maker REST API를 사용하는 방법 
 <a name="HOLTop"></a>
@@ -40,7 +40,7 @@ ms.locfileid: "69647122"
 
 [!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 코드를 컴파일하고 실행하려면 [JDK 7 또는 8](https://aka.ms/azure-jdks)이 필요합니다. 즐겨찾기가 있는 경우 Java IDE를 사용할 수 있지만 텍스트 편집기로 충분합니다.
 
@@ -2133,6 +2133,6 @@ public class PutAlterations {
 > [!div class="nextstepaction"]
 > [QnA Maker(V4) REST API 참조](https://go.microsoft.com/fwlink/?linkid=2092179)
 
-## <a name="see-also"></a>참고 항목 
+## <a name="see-also"></a>참고자료 
 
 [QnA Maker 개요](../Overview/overview.md)

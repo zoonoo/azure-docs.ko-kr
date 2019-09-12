@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: cfa6a363725c35083b32d6de1dd1371777f91907
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7133e8bc7d04b3653b6b788347b7bc5176087f4c
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240293"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883466"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Mobile Apps 및 Mobile Services에서 클라이언트 및 서버 버전 관리
 Azure Mobile Services의 최신 버전은 Azure App Service의 **Mobile Apps** 기능입니다.
@@ -29,12 +29,10 @@ Mobile Apps 클라이언트 및 서버 SDK는 원래 Mobile Services를 기반�
 
 참고: 이 문서가 *Mobile Services* 백 엔드를 참조할 때마다 반드시 Mobile Services에서 호스팅해야 할 필요는 없습니다. 이제 코드를 변경하지 않고 App Service에서 실행되도록 Mobile Services를 마이그레이션할 수 있지만 서비스는 *Mobile Services* SDK 버전을 사용합니다.
 
-코드 변경 없이 App Service로 마이그레이션에 대 한 자세한 내용은 [Azure App Service에 모바일 서비스 마이그레이션] 문서를 참조 합니다.
-
 ## <a name="header-specification"></a>헤더 사양
 키 `ZUMO-API-VERSION` 는 HTTP 헤더 또는 쿼리 문자열에 지정될 수 있습니다. 값은 **x.y.z**형식의 버전 문자열입니다.
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 GET https://service.azurewebsites.net/tables/TodoItem
 
@@ -61,15 +59,15 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 ### <a name="mobile-apps-server-sdks"></a>Mobile *Apps* 서버 SDK
 버전 검사는 다음 서버 SDK 버전에 포함됩니다.
 
-| 서버 플랫폼 | SDK) | 수락된 버전 헤더 |
+| 서버 플랫폼 | SDK | 수락된 버전 헤더 |
 | --- | --- | --- |
 | .NET |[Microsoft.Azure.Mobile.Server](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) |2.0.0 |
 | Node.js |[azure-mobile-apps)](https://www.npmjs.com/package/azure-mobile-apps) |2.0.0 |
 
 ### <a name="behavior-of-mobile-apps-backends"></a>Mobile Apps 백 엔드의 동작
-| ZUMO-API-VERSION | MS_SkipVersionCheck의 값 | response |
+| ZUMO-API-VERSION | MS_SkipVersionCheck의 값 | 응답 |
 | --- | --- | --- |
-| x.y.z 또는 Null |True |200 - 확인 |
+| x.y.z 또는 Null |True |200 - 정상 |
 | Null |False/지정되지 않음 |400 - 잘못된 요청 |
 | 1.x.y |False/지정되지 않음 |400 - 잘못된 요청 |
 | 2.0.0-2.x.y |False/지정되지 않음 |200 - 확인 |
