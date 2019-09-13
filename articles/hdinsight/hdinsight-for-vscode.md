@@ -292,7 +292,7 @@ Python 작업을 제출한 후 전송 로그가 Visual Studio Code의 **출력**
 
     | name | description | type | 
     | :- | :- | :- | 
-    | 파일 | 실행할 애플리케이션을 포함하는 파일 | path (필수) |
+    | files | 실행할 애플리케이션을 포함하는 파일 | path (필수) |
     | proxyUser | 작업을 실행할 때 가장하는 사용자 | String |
     | className | 애플리케이션 Java/Spark 주 클래스 | String |
     | args | 응용 프로그램에 대 한 명령줄 인수 | 문자열 목록 |
