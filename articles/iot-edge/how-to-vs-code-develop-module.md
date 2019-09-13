@@ -8,12 +8,12 @@ ms.author: xshi
 ms.date: 08/07/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: b63b68b7721dd848e6a72b3b7d9cfa38bf031b23
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: b451e501b216b02ecb052ee159d0e26343af7901
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035080"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910237"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Visual Studio Code를 사용하여 Azure IoT Edge용 모듈 개발 및 디버그
 
@@ -89,7 +89,7 @@ C에서 모듈을 개발하지 않는 한, IoT Edge 솔루션을 디버그, 실�
 
 1. 모듈의 이름을 입력합니다. 컨테이너 레지스트리 내에서 고유한 이름을 선택합니다.
 
-1. 모듈의 이미지 리포지토리 이름을 입력합니다. Visual Studio Code는 **localhost:5000/<모듈 이름\>** 으로 모듈 이름을 자동으로 채웁니다. 고유한 레지스트리 정보로 바꿉니다. 테스트를 위해 로컬 Docker 레지스트리를 사용하는 경우 **localhost**를 사용해도 됩니다. Azure Container Registry를 사용하는 경우 레지스트리 설정의 로그인 서버를 사용합니다. 로그인 서버는 * **\<레지스트리 이름\>*.azurecr.io**와 같이 표시됩니다. 최종 결과가 * *\<’레지스트리 이름’\>.azurecr.io/’\<모듈 이름\>’**과 같이 표시되도록 문자열의 **localhost:5000** 부분을 바꾸면 됩니다.*
+1. 모듈의 이미지 리포지토리 이름을 입력합니다. Visual Studio Code는 **localhost:5000/<모듈 이름\>** 으로 모듈 이름을 자동으로 채웁니다. 고유한 레지스트리 정보로 바꿉니다. 테스트를 위해 로컬 Docker 레지스트리를 사용하는 경우 **localhost**를 사용해도 됩니다. Azure Container Registry를 사용하는 경우 레지스트리 설정의 로그인 서버를 사용합니다. 로그인 서버는   **_\<레지스트리 이름\>_ . azurecr.io**와 같습니다. 최종 결과가  **\< *레지스트리 이름* _\<\>_ 으로 표시 되도록 문자열의 localhost: 5000 부분만 바꿉니다. 모듈 이름을\>azurecr.io/합니다.**
 
    ![Docker 이미지 리포지토리 제공](./media/how-to-develop-csharp-module/repository.png)
 
@@ -106,7 +106,7 @@ Visual Studio Code는 입력한 정보를 사용하여 IoT Edge 솔루션을 만
   > [!NOTE]
   > 환경 파일은 모듈에 대한 이미지 리포지토리를 제공하는 경우에만 생성됩니다. localhost 기본값을 로컬로 테스트하고 디버그하도록 수락하는 경우 환경 변수를 선언할 필요가 없습니다.
 
-- SimulatedTemperatureSensor 파일에는 테스트에 사용할 수 있는 데이터를 시뮬레이트하는 샘플 모듈과 함께 새 모듈이 나열 됩니다. 배포 매니페스트 작동 방식에 대한 자세한 내용은 [배포 매니페스트를 사용하여 모듈을 배포하고 경로를 설정하는 방법 알아보기](module-composition.md)를 참조하세요.
+- SimulatedTemperatureSensor **파일에는 테스트** 에 사용할 수 있는 데이터를 시뮬레이트하는 샘플 모듈과 함께 새 모듈이 나열 됩니다. 배포 매니페스트 작동 방식에 대한 자세한 내용은 [배포 매니페스트를 사용하여 모듈을 배포하고 경로를 설정하는 방법 알아보기](module-composition.md)를 참조하세요.
 
 ## <a name="add-additional-modules"></a>모듈 더 추가
 

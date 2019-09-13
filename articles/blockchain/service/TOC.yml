@@ -13,6 +13,8 @@
       href: create-member-cli.md
     - name: 트랜잭션 노드에 연결
       items:
+        - name: VS Code 사용
+          href: connect-vscode.md
         - name: MetaMask 사용
           href: connect-metamask.md
         - name: Geth 사용

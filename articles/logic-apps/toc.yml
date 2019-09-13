@@ -15,7 +15,7 @@
       href: quickstart-create-logic-apps-visual-studio-code.md
 - name: 자습서
   items:
-    - name: 트래픽을 정기적으로 확인
+    - name: 일정 기반 워크플로 만들기
       href: tutorial-build-schedule-recurring-logic-app-workflow.md
     - name: 메일 그룹 요청 관리
       href: tutorial-process-mailing-list-subscriptions-workflow.md

@@ -22,6 +22,8 @@
       href: view-recommendations.md
     - name: 권한 및 차단된 작업
       href: permissions.md
+    - name: 권장 사항에 대한 경고 구성
+      href: advisor-alerts.md
 - name: 참고 자료
   items:
     - name: Security Center

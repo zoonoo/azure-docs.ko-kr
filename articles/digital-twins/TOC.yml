@@ -19,7 +19,7 @@
           href: tutorial-facilities-udf.md
         - name: Logic Apps를 사용하여 알림
           href: tutorial-facilities-events.md
-        - name: TSI를 사용하여 이벤트 시각화
+        - name: Time Series Insights를 사용하여 이벤트 시각화
           href: tutorial-facilities-analyze.md
 - name: 개념
   items:

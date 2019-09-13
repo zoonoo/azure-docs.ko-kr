@@ -37,10 +37,12 @@
       href: concepts-limits-quotas.md
 - name: 방법 가이드
   items:
-    - name: IoT 디바이스 워크벤치 사용
-      href: howto-use-iot-device-workbench.md
+    - name: Visual Studio 및 Visual Studio Code를 사용하여 개발
+      href: howto-develop-with-vs-vscode.md
     - name: IoT Explorer 설치
       href: howto-install-iot-explorer.md
+    - name: Azure CLI 확장 설치
+      href: howto-install-pnp-cli.md
     - name: IoT 포털에 등록
       href: howto-onboard-portal.md
     - name: 모델 관리
