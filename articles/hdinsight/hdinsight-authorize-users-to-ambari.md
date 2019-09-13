@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: hrasheed
-ms.openlocfilehash: f5052d7e35c3d1c81a3d958bd6e340b9a6a5a244
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: bcc29902628f4e7051d6a838d2e9ac145df9e45e
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810688"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916821"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>사용자에게 Apache Ambari Views에 대한 권한 부여
 
@@ -30,7 +30,7 @@ ms.locfileid: "70810688"
 
 [Apache Ambari 웹 UI](hdinsight-hadoop-manage-ambari.md)에서 **Ambari 관리 페이지**로 이동하려면 **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`** 으로 이동하세요. 클러스터를 만들 때 정의한 클러스터 관리자 사용자 이름 및 암호를 입력합니다. 다음으로, Ambari 대시보드의 **관리자** 메뉴 아래에서 **Ambari 관리**를 선택합니다
 
-![Ambari 관리](./media/hdinsight-authorize-users-to-ambari/manage-ambari.png)
+![Ambari 관리](./media/hdinsight-authorize-users-to-ambari/manage-apache-ambari.png)
 
 ## <a name="grant-permissions-to-apache-hive-views"></a>Apache Hive View에 대한 권한 부여
 
@@ -38,36 +38,36 @@ Ambari에는 [Apache Hive](https://hive.apache.org/) 및 [Apache TEZ](https://te
 
 1. 관리 페이지에서, 왼쪽에 있는 **Views** 메뉴 머리글 아래에서 **보기** 연결을 선택합니다.
 
-    ![보기 연결](./media/hdinsight-authorize-users-to-ambari/views-link.png)
+    ![보기 연결](./media/hdinsight-authorize-users-to-ambari/apache-ambari-views-link.png)
 
 2. 보기 페이지에서 **HIVE** 행을 확장합니다. 클러스터에 Hive 서비스가 추가될 때 만들어진 기본 Hive 보기가 하나 있습니다. 필요한 만큼 Hive 보기 인스턴스를 더 만들 수 있습니다. Hive 보기를 선택합니다.
 
-    ![보기 - Hive 보기](./media/hdinsight-authorize-users-to-ambari/views-hive-view.png)
+    ![보기 - Hive 보기](./media/hdinsight-authorize-users-to-ambari/views-apache-hive-view.png)
 
 3. 보기 페이지의 맨 아래로 스크롤합니다. *권한* 섹션 아래를 보면 도메인 사용자에게 보기에 대한 권한을 부여하는 두 가지 옵션이 있습니다.
 
-**다음 사용자에게 권한 부여** ![다음 사용자에게 권한 부여](./media/hdinsight-authorize-users-to-ambari/add-user-to-view.png)
+**다음 사용자에게 권한 부여** ![다음 사용자에게 권한 부여](./media/hdinsight-authorize-users-to-ambari/hdi-add-user-to-view.png)
 
-**다음 그룹에게 권한 부여** ![다음 그룹에게 권한 부여](./media/hdinsight-authorize-users-to-ambari/add-group-to-view.png)
+**다음 그룹에게 권한 부여** ![다음 그룹에게 권한 부여](./media/hdinsight-authorize-users-to-ambari/add-group-to-view-permission.png)
 
 1. 사용자를 추가하려면 **사용자 추가** 단추를 선택합니다.
 
    * 사용자 이름 입력을 시작하면 이전에 정의한 이름의 드롭다운 목록이 표시될 것입니다.
 
-     ![사용자 자동 완성](./media/hdinsight-authorize-users-to-ambari/user-autocomplete.png)
+     ![사용자 자동 완성](./media/hdinsight-authorize-users-to-ambari/ambari-user-autocomplete.png)
 
    * 사용자 이름을 선택하거나 직접 입력합니다. 이 사용자 이름을 새 사용자로 추가하려면 **새로 만들기** 단추를 선택합니다.
 
    * 변경 내용을 저장하려면 **파란색 확인란**을 선택합니다.
 
-     ![사용자 입력됨](./media/hdinsight-authorize-users-to-ambari/user-entered.png)
+     ![사용자 입력됨](./media/hdinsight-authorize-users-to-ambari/user-entered-permissions.png)
 
 1. 그룹을 추가하려면 **그룹 추가** 단추를 선택합니다.
 
    * 그룹 이름 입력을 시작합니다. 기존 그룹 이름을 선택하거나 새 그룹을 추가하는 프로세스는 사용자를 추가하는 프로세스와 똑같습니다.
    * 변경 내용을 저장하려면 **파란색 확인란**을 선택합니다.
 
-     ![그룹 입력됨](./media/hdinsight-authorize-users-to-ambari/group-entered.png)
+     ![그룹 입력됨](./media/hdinsight-authorize-users-to-ambari/ambari-group-entered.png)
 
 보기를 사용할 사용자에게 권한을 할당하되, 해당 사용자를 추가 권한이 있는 그룹 구성원으로 할당하지 않으려면 보기에 사용자를 직접 추가하는 것이 좋습니다. 관리 오버헤드를 줄이려는 경우 그룹에 권한을 할당하는 것이 좀 더 간단할 수 있습니다.
 
@@ -77,7 +77,7 @@ Ambari에는 [Apache Hive](https://hive.apache.org/) 및 [Apache TEZ](https://te
 
 Tez 보기 인스턴스에 사용자 및 그룹을 할당하려면 앞서 설명했듯이 보기 페이지에서 **TEZ** 행을 확장합니다.
 
-![보기 - Tez 보기](./media/hdinsight-authorize-users-to-ambari/views-tez-view.png)
+![보기 - Tez 보기](./media/hdinsight-authorize-users-to-ambari/views-apache-tez-view.png)
 
 사용자 또는 그룹을 추가하려면 이전 섹션의 3-5단계를 반복합니다.
 
@@ -93,11 +93,11 @@ Tez 보기 인스턴스에 사용자 및 그룹을 할당하려면 앞서 설명
 
 역할을 관리하려면 **Ambari 관리 페이지**로 이동한 후 왼쪽에 있는 *클러스터* 메뉴 내에서 **역할** 연결을 선택합니다.
 
-![역할 메뉴 연결](./media/hdinsight-authorize-users-to-ambari/roles-link.png)
+![역할 메뉴 연결](./media/hdinsight-authorize-users-to-ambari/cluster-roles-menu-link.png)
 
 각 역할에 지정된 권한 목록을 보려면 역할 페이지의 **역할** 테이블 머리글 옆에 있는 파란색 물음표를 클릭합니다.
 
-![역할 메뉴 링크 권한](./media/hdinsight-authorize-users-to-ambari/roles-permissions.png "역할 메뉴 링크 권한")
+![역할 메뉴 링크 권한](./media/hdinsight-authorize-users-to-ambari/roles-menu-permissions.png "역할 메뉴 링크 권한")
 
 이 페이지에는 사용자 및 그룹에 대한 역할을 관리하는 데 사용할 수 있는 두 가지 보기가 있습니다. 블록 및 목록
 
@@ -105,7 +105,7 @@ Tez 보기 인스턴스에 사용자 및 그룹을 할당하려면 앞서 설명
 
 블록 보기는 각 역할을 자체 행에 표시하며, 앞서 설명한 대로 **다음 사용자에게 역할 할당** 및 **다음 그룹에게 역할 할당** 옵션을 제공합니다.
 
-![역할 블록 보기](./media/hdinsight-authorize-users-to-ambari/roles-block-view.png)
+![역할 블록 보기](./media/hdinsight-authorize-users-to-ambari/ambari-roles-block-view.png)
 
 ### <a name="list-view"></a>목록 뷰
 
@@ -125,7 +125,7 @@ Tez 보기 인스턴스에 사용자 및 그룹을 할당하려면 앞서 설명
 
 Microsoft Azure Active Directory 도메인 사용자 "hiveuser1" 권한을 Hive 및 Tez 보기에 할당했습니다. Ambari 웹 UI를 실행하고 이 사용자의 도메인 자격 증명(전자 메일 형식의 Microsoft Azure Active Directory 사용자 이름과 암호)을 입력하면 사용자가 Ambari 보기 페이지로 리디렉션됩니다. 여기서 사용자는 액세스 가능한 보기를 선택할 수 있습니다. 사용자는 대시보드, 서비스, 호스트, 경고 또는 관리 페이지를 포함하여 사이트의 다른 부분을 방문할 수 없습니다.
 
-![보는 것만 가능한 사용자](./media/hdinsight-authorize-users-to-ambari/user-views-only.png)
+![보는 것만 가능한 사용자](./media/hdinsight-authorize-users-to-ambari/ambari-user-views-only.png)
 
 ## <a name="log-in-to-ambari-as-a-cluster-user"></a>클러스터 사용자로 Ambari에 로그인
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: fad0fada4d9dd888b0b2a37b59e4eac1e016aec4
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: b18e1b755b4e1339bf00380d8228fc28e355d3e1
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663592"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802507"
 ---
 # <a name="prepare-data-for-custom-speech"></a>사용자 지정 음성에 대한 데이터 준비
 
@@ -35,7 +35,7 @@ Microsoft 음성 인식이 정확한 지 확인 하거나 모델을 학습 하�
 
 ## <a name="upload-data"></a>데이터 업로드
 
-데이터를 업로드할 준비가 되면, **데이터 업로드**를 클릭하여 마법사를 시작하고 첫 번째 데이터 집합을 만듭니다. 데이터 업로드를 허용하기 전에 데이터 집합에 대한 음성 데이터 형식을 선택하라는 메시지가 표시됩니다.
+데이터를 업로드할 준비가 되 면 [Custom Speech 포털로](https://speech.microsoft.com/customspeech)이동한 후 **데이터 업로드** 를 클릭 하 여 마법사를 시작 하 고 첫 번째 데이터 집합을 만듭니다. 데이터 업로드를 허용하기 전에 데이터 집합에 대한 음성 데이터 형식을 선택하라는 메시지가 표시됩니다.
 
 ![음성 포털에서 오디오를 선택 합니다.](./media/custom-speech/custom-speech-select-audio.png)
 
@@ -96,7 +96,7 @@ Microsoft 음성 인식이 정확한 지 확인 하거나 모델을 학습 하�
 
 기록은 시스템에서 처리할 수 있도록 텍스트로 정규화됩니다. 그러나 데이터를 사용자 지정 음성 서비스에 업로드하기 _전에_ 사용자가 수행해야 하는 몇몇 중요한 정규화 작업이 있습니다. 기록을 준비할 때 사용할 적절한 언어에 대해서는 [사람 레이블 기록을 만드는 방법](how-to-custom-speech-human-labeled-transcriptions.md)을 확인합니다.
 
-오디오 파일 및 해당 기록을 수집한 후, 사용자 지정 음성 포털에 업로드하기 전에 단일 .zip 파일로 패키지화되어야 합니다. 세 개의 오디오 파일과 사람 레이블 기록 파일을 사용한 예제 데이터 집합은 다음과 같습니다.
+오디오 파일 및 해당 하는 소리를 수집한 후에는 [Custom Speech 포털](https://speech.microsoft.com/customspeech)에 업로드 하기 전에 단일 .zip 파일로 패키지 해야 합니다. 세 개의 오디오 파일과 사람 레이블 기록 파일을 사용한 예제 데이터 집합은 다음과 같습니다.
 
 ![음성 포털에서 오디오를 선택 합니다.](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
 
@@ -109,7 +109,7 @@ Microsoft 음성 인식이 정확한 지 확인 하거나 모델을 학습 하�
 | 발언 및/또는 문장 | 문장의 컨텍스트 내에서 제품 이름 또는 산업별 어휘를 인식하는 경우 정확도를 높일 수 있습니다. |
 | 발음 | 일반적이지 않은 용어, 약어, 또는 정의되지 않은 발음을 사용하는 다른 단어의 발음을 개선할 수 있습니다. |
 
-단일 또는 여러 텍스트 파일로 발언을 제공할 수 있습니다. 텍스트 데이터가 말할 내용과 가까울수록 정확도가 향상될 가능성이 더 커집니다. 발음은 단일 텍스트 파일로 제공되어야 합니다. 모두를 단일 zip 파일로 패키지화하여 사용자 지정 음성 포털에 업로드할 수 있습니다.
+단일 또는 여러 텍스트 파일로 발언을 제공할 수 있습니다. 텍스트 데이터가 말할 내용과 가까울수록 정확도가 향상될 가능성이 더 커집니다. 발음은 단일 텍스트 파일로 제공되어야 합니다. 모든 항목을 단일 zip 파일로 패키지 하 고 [Custom Speech 포털](https://speech.microsoft.com/customspeech)에 업로드할 수 있습니다.
 
 ### <a name="guidelines-to-create-an-utterances-file"></a>발언 파일 작성 지침
 

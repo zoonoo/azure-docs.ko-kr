@@ -6,14 +6,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: a078fc205403983f4f6484f6a7ccde7f99c4dd58
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 401ccda62805cbdebc99317c925aeb1b0ffc66bb
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734538"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915364"
 ---
-# <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>Azure HDInsight IO 캐시를 사용하여 Apache Spark 워크로드의 성능 개선(미리 보기)
+# <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Azure HDInsight IO 캐시를 사용 하 여 Apache Spark 작업의 성능 향상 
 
 IO 캐시는 Apache Spark 작업의 성능을 개선하는 Azure HDInsight에 대한 데이터 캐싱 서비스입니다. IO 캐시는 [Apache Spark](https://spark.apache.org/) 클러스터에서 실행할 수 있는 [Apache TEZ](https://tez.apache.org/) 및 [Apache Hive](https://hive.apache.org/) 워크로드에서도 작동합니다. IO 캐시는 RubiX라는 오픈 소스 캐싱 구성 요소를 사용합니다. RubiX는 클라우드 스토리지 시스템의 데이터에 액세스하는 빅 데이터 분석 엔진에 사용하기 위한 로컬 디스크 캐시입니다. RubiX는 캐싱 목적으로 작동 메모리를 예약하지 않고 SSD(반도체 드라이브)를 사용하므로 캐싱 시스템에 고유한 기능입니다. IO 캐시 서비스는 클러스터의 각 작업자 노드에서 RubiX 메타데이터 서버를 시작하고 관리합니다. 또한 클러스터의 모든 서비스를 RubiX 캐시의 투명한 사용에 적합하도록 구성합니다.
 

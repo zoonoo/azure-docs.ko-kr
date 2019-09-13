@@ -4,14 +4,14 @@ description: Azure Cosmos DB에서 인덱싱의 작동 방식을 파악하고
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 09/10/2019
 ms.author: thweiss
-ms.openlocfilehash: c8e21ea89f3e23709d636ab8af4716bff76d7217
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 4d961f8635a52a09011543b793ce8a87eaa4ea9e
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479280"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914187"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Azure Cosmos DB 인덱싱-개요
 
@@ -25,6 +25,7 @@ Azure Cosmos DB은 스키마를 포함 하지 않는 데이터베이스 이며 �
 
 예를 들어 다음 항목을 살펴보세요.
 
+```json
     {
         "locations": [
             { "country": "Germany", "city": "Berlin" },
@@ -36,6 +37,7 @@ Azure Cosmos DB은 스키마를 포함 하지 않는 데이터베이스 이며 �
             { "city": "Athens" }
         ]
     }
+```
 
 다음 트리로 표시 됩니다.
 
@@ -70,13 +72,13 @@ Azure Cosmos DB 항목을 트리로 변환 하는 이유는 해당 트리 내에
 
     ```sql
    SELECT * FROM container c WHERE c.property = 'value'
-    ```
+   ```
 
 - 범위 쿼리:
 
    ```sql
    SELECT * FROM container c WHERE c.property > 'value'
-   ``` 
+   ```
   ( `>` ,`<`, ,`!=`,)에 대해 작동 합니다. `<=` `>=`
 
 - `ORDER BY`쿼리
@@ -107,15 +109,27 @@ Azure Cosmos DB 항목을 트리로 변환 하는 이유는 해당 트리 내에
    SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })
    ```
 
-올바른 형식의 [GeoJSON](geospatial.md) 개체에 대해 공간 인덱스를 사용할 수 있습니다. Points, LineStrings 및 다각형이 현재 지원 됩니다.
+올바른 형식의 [GeoJSON](geospatial.md) 개체에 대해 공간 인덱스를 사용할 수 있습니다. Points, LineStrings, Polygon 및 MultiPolygons은 현재 지원 됩니다.
 
 **복합** 인덱스 종류는 다음에 사용 됩니다.
 
-- `ORDER BY`여러 속성에 대 한 쿼리: 
+- `ORDER BY`여러 속성에 대 한 쿼리:
 
-   ```sql
-   SELECT * FROM container c ORDER BY c.firstName, c.lastName
-   ```
+```sql
+ SELECT * FROM container c ORDER BY c.property1, c.property2
+```
+
+- 필터 및 `ORDER BY`를 사용 하 여 쿼리 합니다. 이러한 쿼리는 필터 속성이 `ORDER BY` 절에 추가 된 경우 복합 인덱스를 활용할 수 있습니다.
+
+```sql
+ SELECT * FROM container c WHERE c.property1 = 'value' ORDER BY c.property1, c.property2
+```
+
+- 하나 이상의 속성이 같음 필터 인 두 개 이상의 속성에 대 한 필터를 사용 하 여 쿼리
+
+```sql
+ SELECT * FROM container c WHERE c.property1 = 'value' AND c.property2 > 'value'
+```
 
 ## <a name="querying-with-indexes"></a>인덱스를 사용한 쿼리
 
@@ -126,7 +140,7 @@ Azure Cosmos DB 항목을 트리로 변환 하는 이유는 해당 트리 내에
 ![트리 내의 특정 경로 일치](./media/index-overview/matching-path.png)
 
 > [!NOTE]
-> 단일 속성을 기준으로 정렬 하는  절은항상범위인덱스가필요하며참조하는경로에는이인덱스가없는경우실패`ORDER BY` 합니다. 마찬가지로 다중 `ORDER BY` 쿼리에는 *항상* 복합 인덱스가 필요 합니다.
+> 단일 속성을 기준으로 정렬 하는 절은항상범위인덱스가필요하며참조하는경로에는이인덱스가없는경우실패`ORDER BY` 합니다. 마찬가지로, `ORDER BY` 여러 속성으로 정렬 하는 쿼리는 *항상* 복합 인덱스가 필요 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,16 +9,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
-ms.openlocfilehash: 1b86085a76f5ff87147db9dbd0a584784f5e4a2e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4ec427ad7af18f4f301e1e62ca21af643a0425aa
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64686499"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914001"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>Visual Studio를 사용하여 로컬로 Stream Analytics 쿼리 테스트
 
-Visual Studio용 Azure Stream Analytics 도구를 사용하여 같은 데이터로 Stream Analytics 작업을 로컬로 테스트할 수 있습니다.
+Visual Studio 용 Azure Stream Analytics 도구를 사용 하 여 샘플 데이터 또는 [라이브 데이터](stream-analytics-live-data-local-testing.md)를 사용 하 여 Stream Analytics 작업을 로컬로 테스트할 수 있습니다. 
 
 이 [빠른 시작](stream-analytics-quick-create-vs.md)을 통해 Visual Studio를 사용하여 Stream Analytics 작업을 만드는 방법을 알아보세요.
 
@@ -44,7 +44,7 @@ Azure Stream Analytics 프로젝트에서 **Script.asaql**을 두 번 클릭하�
    
 쿼리 편집기에서 **로컬로 실행**을 선택합니다. 또는 F5 키를 눌러도 됩니다.
    
-![로컬로 실행](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-local-run-01.png)
+![로컬에서 실행](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-local-run-01.png)
    
 Visual Studio에서 바로 출력을 테이블 형식으로 볼 수 있습니다.
 
@@ -74,7 +74,9 @@ Event Hubs 또는 IoT Hub에서만 데이터 스트리밍을 샘플링할 수 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Visual Studio를 사용하여 Azure Stream Analytics 작업 보기](stream-analytics-vs-tools.md)
+
 * [빠른 시작: Visual Studio를 사용 하 여 Stream Analytics 작업 만들기](stream-analytics-quick-create-vs.md)
-* [자습서: Azure DevOps를 사용 하 여 CI/CD를 사용 하 여 Azure Stream Analytics 작업 배포](stream-analytics-tools-visual-studio-cicd-vsts.md)
+* [Visual Studio를 사용하여 Azure Stream Analytics 작업 보기](stream-analytics-vs-tools.md)
+* [Azure Stream Analytics Tools for Visual Studio를 사용하여 로컬로 라이브 데이터 테스트(미리 보기)](stream-analytics-live-data-local-testing.md)
+* [자습서: Azure DevOps를 사용 하 여 CI/CD로 Azure Stream Analytics 작업 배포](stream-analytics-tools-visual-studio-cicd-vsts.md)
 * [Stream Analytics 도구를 사용하여 지속적으로 통합 및 개발](stream-analytics-tools-for-visual-studio-cicd.md)

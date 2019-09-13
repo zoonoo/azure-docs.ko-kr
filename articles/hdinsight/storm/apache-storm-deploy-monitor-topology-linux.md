@@ -8,25 +8,25 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: ac1a4c77589f4ef88c9ee862cb871b376ca8a0fe
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 1c219c85836eb4730fa90918385555c433a12449
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483843"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915070"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Storm 토폴로지 배포 및 관리 
 
 이 문서에서는 HDInsight의 Storm 클러스터에서 실행되는 [Apache Storm](https://storm.apache.org/) 토폴로지의 모니터링 및 관리에 관한 기본 사항을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-* HDInsight에서 Apache Storm 클러스터입니다. 참조 [Azure portal을 사용 하 여 Apache Hadoop 만들기 클러스터](../hdinsight-hadoop-create-linux-clusters-portal.md) 선택한 **Storm** 에 대 한 **클러스터 유형**합니다.
+* HDInsight의 Apache Storm 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형**에 **Storm**을 선택합니다.
 
 
-* (선택 사항) SSH 및 SCP 사용 경험: 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+* 필드 SSH 및 SCP 사용에 대 한 지식: 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-* (선택 사항) Visual Studio: Azure SDK 2.5.1 이상 및 Data Lake Tools for Visual Studio. 자세한 내용은 [Data Lake Tools for Visual Studio 시작](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
+* 필드 Visual Studio: Azure SDK 2.5.1 이상 및 Data Lake Tools for Visual Studio. 자세한 내용은 [Data Lake Tools for Visual Studio 시작](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
 
     다음과 같은 Visual Studio 버전 중 하나:
 
@@ -54,7 +54,7 @@ HDInsight 도구는 Storm 클러스터에 C# 또는 하이브리드 토폴로지
 
 3. **새 프로젝트** 대화 상자에서 **설치됨** > **템플릿**을 확장하고 **HDInsight**를 선택합니다. 템플릿 목록에서 **Storm 샘플**을 선택합니다. 대화 상자 아래쪽에서 애플리케이션 이름을 입력합니다.
 
-    ![image](./media/apache-storm-deploy-monitor-topology-linux/sample.png)
+    ![image](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-sample1.png)
 
 4. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **HDInsight에서 Storm에 제출**을 선택합니다.
 
@@ -78,7 +78,7 @@ HDInsight 도구는 Storm 클러스터에 C# 또는 하이브리드 토폴로지
     이 명령은 클러스터에서 예제 WordCount 토폴로지를 시작합니다. 이 토폴로지는 임의로 문장을 생성한 다음 문장에서 각 단어의 발생 횟수를 계산합니다.
 
    > [!NOTE]  
-   > 클러스터에 토폴로지를 제출할 때 `storm` 명령을 사용하기 전에 먼저 Jar 파일을 포함하는 클러스터를 복사해야 합니다. 클러스터에 파일을 복사하려면 `scp` 명령을 사용할 수 있습니다. 예를 들어 `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
+   > 클러스터에 토폴로지를 제출할 때 `storm` 명령을 사용하기 전에 먼저 Jar 파일을 포함하는 클러스터를 복사해야 합니다. 클러스터에 파일을 복사하려면 `scp` 명령을 사용할 수 있습니다. 예를 들면 `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
    >
    > WordCount 예제 및 다른 Storm 스타터 예제는 `/usr/hdp/current/storm-client/contrib/storm-starter/`에서 클러스터에 이미 포함되어 있습니다.
 
@@ -90,7 +90,7 @@ Nimbus 서비스를 사용하여 토폴로지를 프로그래밍 방식으로 �
 
 Visual Studio를 사용하여 토폴로지를 제출하는 경우 **Storm 토폴로지** 보기가 나타납니다. 실행 중인 토폴로지에 대한 정보를 보려면 목록에서 토폴로지를 선택합니다.
 
-![VISUAL STUDIO 모니터](./media/apache-storm-deploy-monitor-topology-linux/vsmonitor.png)
+![VISUAL STUDIO 모니터](./media/apache-storm-deploy-monitor-topology-linux/visual-studio-monitor.png)
 
 > [!NOTE]  
 > **Azure** > **HDInsight**를 확장한 다음 HDInsight의 Storm 클러스터를 마우스 오른쪽 단추로 클릭하고 **Storm 토폴로지 보기**를 선택하여 **서버 탐색기**에서 **Storm 토폴로지**를 볼 수도 있습니다.
@@ -101,7 +101,7 @@ Visual Studio를 사용하여 토폴로지를 제출하는 경우 **Storm 토폴
 
 토폴로지를 비활성화하면 작업을 중단하거나 다시 활성화할 때까지 일시 중지합니다. 이러한 작업을 수행하려면 __토폴로지 요약__ 맨 위에 있는 __비활성화__ 및 __다시 활성화__ 단추를 사용합니다.
 
-### <a name="rebalance"></a>균형 재조정
+### <a name="rebalance"></a>부하 다시 분산
 
 토폴로지의 균형을 재조정하면 시스템이 토폴로지의 병렬 처리를 수정할 수 있습니다. 예를 들어 클러스터 크기를 조정하고 더 많은 메모를 추가하려면 균형을 재조정하여 토폴로지가 새 노드를 확인할 수 있습니다.
 
@@ -209,7 +209,7 @@ Storm UI는 REST API의 맨 위에 기본 제공되므로 REST API를 사용하�
 
 ### <a name="base-uri"></a>기본 URI
 
-Linux 기반 HDInsight 클러스터에서 REST API에 대 한 기본 URI가 있는 헤드 노드에서 사용할 수 있습니다 **https:\//HEADNODEFQDN:8744/api/v1/** 합니다. 헤드 노드의 도메인 이름은 클러스터를 만드는 동안 생성되고 고정적이지 않습니다.
+Linux 기반 HDInsight 클러스터의 REST API에 대 한 기본 URI는 **https\/:/헤드 nodefqdn: 8744/API/v1/** 의 헤드 노드에서 사용할 수 있습니다. 헤드 노드의 도메인 이름은 클러스터를 만드는 동안 생성되고 고정적이지 않습니다.
 
 다양한 방법으로 클러스터 헤드 노드의 정규화된 도메인 이름(FQDN)을 찾을 수 있습니다.
 
@@ -217,7 +217,7 @@ Linux 기반 HDInsight 클러스터에서 REST API에 대 한 기본 URI가 있�
 * **Ambari 웹에서**: 페이지 맨 위에서 **서비스**를 선택한 다음, **Storm**을 선택합니다. **요약** 탭에서 **Storm UI 서버**를 선택합니다. Storm UI 및 REST API가 호스팅하는 노드의 FQDN은 페이지 맨 위에 표시됩니다.
 * **Ambari REST API에서**: `curl -u admin -G "https:\//CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` 명령을 사용하여 Storm UI 및 REST API가 실행 중인 노드에 관한 정보를 검색합니다. **CLUSTERNAME** 을 클러스터 이름으로 바꿉니다. 메시지가 표시되면 로그인(관리자) 계정에 대한 암호를 입력합니다. 응답에서 "host_name" 항목에는 노드의 FQDN이 포함됩니다.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>인증
 
 REST API 요청에서는 **기본 인증**을 사용해야 하므로 HDInsight 클러스터 관리자 이름 및 암호를 사용합니다.
 

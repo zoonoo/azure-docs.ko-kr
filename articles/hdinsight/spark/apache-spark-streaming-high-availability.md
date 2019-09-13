@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/26/2018
-ms.openlocfilehash: dcd9095a1e5010a3d0dd5ea7ad884e36e24c7c1d
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 9424ebbd4ed2e1536a10d77a88257bad948628e2
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814017"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915398"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>YARN을 사용하여 고가용성 Apache Spark Streaming 작업 만들기
 
@@ -29,7 +29,7 @@ Spark Streaming은 *불연속화 스트림*(DStream)을 사용하여 데이터�
 
 Spark 코어는 RDD(*복원력 있는 분산 데이터 세트*)를 사용합니다. RDD는 클러스터의 여러 노드에 걸쳐 데이터를 배포하여, 각 노드가 최상의 성능을 위해 메모리 내에 데이터를 완전한 상태로 유지하도록 합니다. 각 RDD는 일괄 처리 간격 동안 수집된 이벤트를 나타냅니다. 일괄 처리 간격이 지나면 Spark Streaming은 해당 간격의 모든 데이터를 포함하는 새 RDD을 생성합니다. RDD의 연속 집합은 DStream으로 수집됩니다. Spark Streaming 애플리케이션은 각 일괄 처리의 RDD에 저장된 데이터를 처리합니다.
 
-![Spark DStream](./media/apache-spark-streaming-high-availability/DStream.png)
+![Spark DStream](./media/apache-spark-streaming-high-availability/apache-spark-dstream.png)
 
 ## <a name="spark-structured-streaming-jobs"></a>Spark Structured Streaming 작업
 

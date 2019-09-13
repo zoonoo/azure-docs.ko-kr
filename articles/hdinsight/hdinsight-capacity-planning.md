@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: 608d097f1ebad9e4e1092c7ec54a573ccb58ad81
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 64de4078fb529140859f1d4ff2e973fd081a5400
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734658"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916569"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 클러스터의 용량 계획
 
@@ -96,9 +96,6 @@ VM 크기와 유형은 CPU 처리 성능, RAM 크기 및 네트워크 대기 시
 
 경우에 따라 오류가 여러 맵의 병렬 실행으로 인해 발생하고, 다중 노드 클러스터의 구성 요소를 줄일 수 있습니다. 문제를 격리 하려면 단일 작업자 노드 클러스터에서 동시에 여러 작업을 실행 하 여 분산 테스트를 시도한 다음이 방법을 확장 하 여 둘 이상의 노드가 포함 된 클러스터에서 여러 작업을 동시에 실행 합니다. Azure에서 단일 노드 HDInsight 클러스터를 만들려면 *사용자 지정 (크기, 설정, 앱)* 옵션을 사용 하 고 포털에서 새 클러스터를 프로 비전 할 때 **클러스터 크기** 섹션의 *작업자 노드 수* 에 값 1을 사용 합니다.
 
-로컬 컴퓨터에서 단일 노드 개발 환경을 설치하고 해당 환경에서 솔루션을 테스트할 수도 있습니다. Hortonworks는 초기 개발, 개념 증거 및 테스트에 유용한 Hadoop 기반 솔루션을 위한 단일 노드 로컬 개발 환경을 제공합니다. 자세한 내용은 [Hortonworks 샌드박스](https://hortonworks.com/products/hortonworks-sandbox/)를 참조하세요.
-
-로컬 단일 노드 클러스터의 문제를 식별하려면 실패한 작업을 다시 실행하고 입력 데이터를 조정하거나 더 작은 데이터 세트를 사용할 수 있습니다. 이러한 작업을 실행하는 방법은 플랫폼 및 애플리케이션 유형에 따라 달라집니다.
 
 ## <a name="quotas"></a>할당량
 

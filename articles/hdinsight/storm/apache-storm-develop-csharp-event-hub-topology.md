@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: dd1a46ea008ce5f8fb02dd468b27494d231717f0
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 53399fbdeba44b184ef4e76c89affefd29dbc413
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483927"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915297"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>HDInsight의 Apache Storm으로 Azure Event Hubs의 이벤트 처리(C#)
 
@@ -103,11 +103,11 @@ topologyBuilder.SetJavaBolt(
 
 ## <a name="download-the-completed-project"></a>완성된 프로젝트 다운로드
 
-이 문서에서 만든 프로젝트의 전체 버전을 다운로드할 수 있습니다 [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub)합니다. 그러나이 문서의 단계에 따라 구성 설정을 제공 해야 있습니다.
+이 문서에서 만든 전체 버전의 프로젝트는 [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub)에서 다운로드할 수 있습니다. 그러나이 문서의 단계에 따라 구성 설정을 제공 해야 합니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>전제 조건
 
-* HDInsight에서 Apache Storm 클러스터입니다. 참조 [Azure portal을 사용 하 여 Apache Hadoop 만들기 클러스터](../hdinsight-hadoop-create-linux-clusters-portal.md) 선택한 **Storm** 에 대 한 **클러스터 유형**합니다.
+* HDInsight의 Apache Storm 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형**에 **Storm**을 선택합니다.
 
     > [!WARNING]  
     > 이 문서에서 사용되는 예제에는 HDInsight 버전 3.5 또는 3.6에서 Storm이 필요합니다. 이 내용은 주요 클래스 이름 변경 때문에 이전 버전의 HDInsight에는 적용되지 않습니다. 이전 클러스터에서 작동하는 이 예제의 버전은 [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub/releases)를 참조하세요.
@@ -135,12 +135,12 @@ Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../..
 
 1. 이벤트 허브가 생성된 후에는 Azure Portal에서 **EventHub** 설정을 보고 **공유 액세스 정책**을 선택합니다. **+ 추가**를 선택하여 다음 정책을 추가합니다.
 
-   | Name | 권한 |
+   | 이름 | 사용 권한 |
    | --- | --- |
-   | 기록기 |보내기 |
-   | 판독기 |수신 대기 |
+   | 기록기 |Send |
+   | 판독기 |수신 |
 
-    ![공유 액세스 정책 창의 스크린샷](./media/apache-storm-develop-csharp-event-hub-topology/sas.png)
+    ![공유 액세스 정책 창의 스크린샷](./media/apache-storm-develop-csharp-event-hub-topology/share-access-policies.png)
 
 2. **판독기** 및 **기록기** 정책을 선택합니다. 이러한 값은 나중에 사용되므로 두 정책에 대한 기본 키 값을 복사 및 저장합니다.
 
@@ -152,7 +152,7 @@ Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../..
 
 3. **EventHubWriter** 프로젝트에서 **App.config** 파일을 엽니다. 앞에서 구성한 이벤트 허브에 대한 정보를 다음 키에 대한 값에 입력합니다.
 
-   | 키 | 값 |
+   | Key | 값 |
    | --- | --- |
    | EventHubPolicyName |기록기(*보내기* 권한이 있는 정책에 다른 이름을 사용한 경우 대신 사용) |
    | EventHubPolicyKey |기록기 정책에 대한 키 |
@@ -168,7 +168,7 @@ Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../..
 
 2. **EventHubReader**에 대한 **App.config** 파일을 엽니다. 앞에서 구성한 이벤트 허브에 대한 정보를 다음 키에 대한 값에 입력합니다.
 
-   | 키 | 값 |
+   | Key | 값 |
    | --- | --- |
    | EventHubPolicyName |판독기(*수신 대기* 권한이 있는 정책에 다른 이름을 사용한 경우 대신 사용) |
    | EventHubPolicyKey |판독기 정책에 대한 키 |
@@ -182,15 +182,15 @@ Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../..
 
 1. **솔루션 탐색기**에서 **EventHubReader** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **HDInsight의 Storm에 제출**을 선택합니다.
 
-    ![HDInsight의 Storm에 제출이 강조 표시된 솔루션 탐색기 스크린샷](./media/apache-storm-develop-csharp-event-hub-topology/submittostorm.png)
+    ![HDInsight의 Storm에 제출이 강조 표시된 솔루션 탐색기 스크린샷](./media/apache-storm-develop-csharp-event-hub-topology/submit-to-apache-storm.png)
 
 2. **토폴로지 제출** 대화 상자에서 **Storm 클러스터**를 선택합니다. **추가 구성**을 확장하고 **Java 파일 경로**, **...** 을 차례로 선택한 다음 이전에 다운로드한 JAR 파일이 포함된 디렉터리를 선택합니다. 마지막으로 **제출**을 클릭합니다.
 
-    ![토폴로지 제출 대화 상자의 스크린샷](./media/apache-storm-develop-csharp-event-hub-topology/submit.png)
+    ![토폴로지 제출 대화 상자의 스크린샷](./media/apache-storm-develop-csharp-event-hub-topology/submit-storm-topology.png)
 
 3. 토폴로지가 제출되었으면 **Storm Topologies Viewer** 가 나타납니다. 토폴로지 정보를 보려면 왼쪽 창에서 **EventHubReader** 토폴로지를 선택합니다.
 
-    ![Storm Topologies Viewer의 스크린샷](./media/apache-storm-develop-csharp-event-hub-topology/topologyviewer.png)
+    ![Storm Topologies Viewer의 스크린샷](./media/apache-storm-develop-csharp-event-hub-topology/storm-topology-viewer.png)
 
 4. **솔루션 탐색기**에서 **EventHubWriter** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **HDInsight의 Storm에 제출**을 선택합니다.
 
@@ -212,7 +212,7 @@ Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../..
 
 토폴로지를 중지하려면 **Storm Topology Viewer**에서 각 토폴로지를 선택한 다음 **중단**을 클릭합니다.
 
-![종료 단추가 강조 표시된 Storm Topologies Viewer의 스크린샷](./media/apache-storm-develop-csharp-event-hub-topology/killtopology.png)
+![종료 단추가 강조 표시된 Storm Topologies Viewer의 스크린샷](./media/apache-storm-develop-csharp-event-hub-topology/kill-storm-topology1.png)
 
 ## <a name="delete-your-cluster"></a>클러스터 삭제
 

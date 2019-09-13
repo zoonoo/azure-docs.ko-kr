@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 08/15/2019
-ms.openlocfilehash: 6e7157f4e40dbc585d19affaf0c12af2e6ba60c1
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 69f897d1f279279c067eeff30ac711f85d3bb89b
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813905"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915225"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Azure HDInsight의 Apache Spark에 대 한 OutOfMemoryError 예외
 
@@ -119,11 +119,11 @@ Spark 구성에서 속성을 `SPARK_DAEMON_MEMORY` 편집 하 고 모든 서비�
 
 Spark2/Config/Advanced Spark2 섹션을 선택 하 여 Ambari 브라우저 UI 내에서이 작업을 수행할 수 있습니다.
 
-![Advanced spark2-env 섹션](./media/apache-spark-ts-outofmemory-heap-space/image01.png)
+![Advanced spark2-env 섹션](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image01.png)
 
 다음 속성을 추가 하 여 Spark 기록 서버 메모리를 1g에서 4g:로 `SPARK_DAEMON_MEMORY=4g`변경 합니다.
 
-![Spark 속성](./media/apache-spark-ts-outofmemory-heap-space/image02.png)
+![Spark 속성](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image02.png)
 
 Ambari에서 영향을 받는 모든 서비스를 다시 시작 해야 합니다.
 

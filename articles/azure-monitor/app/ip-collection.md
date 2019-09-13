@@ -8,14 +8,14 @@ ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
 ms.service: application-insights
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 09/11/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3a504fe4475cee8e2949ee121c632b792f349758
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 49534cbce7bb0bbf540416785e31b451509d5bf6
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694299"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916174"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>지리적 위치 및 IP 주소 처리
 
@@ -36,10 +36,9 @@ IP 주소는 원격 분석 데이터의 일부로 Application Insights 전송 �
 
 기본 동작은 개인 데이터의 수집을 최소화 하는 것 이지만 여전히 IP 주소 데이터를 수집 하 고 저장할 수 있는 유연성을 제공 합니다. IP 주소와 같은 개인 데이터를 저장 하도록 선택 하기 전에 적용 되는 규정 준수 요구 사항 또는 규정을 위반 하지 않는지 확인 하는 것이 좋습니다. Application Insights에서 개인 데이터를 처리 하는 방법에 대 한 자세한 내용은 [개인 데이터에 대 한 지침](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt)을 참조 하세요.
 
-## <a name="storing-partial-ip-address-data"></a>부분 IP 주소 데이터 저장
+## <a name="storing-ip-address-data"></a>IP 주소 데이터 저장
 
-부분 IP 컬렉션과 저장소 `DisableIpMasking` 를 사용 하도록 설정 하려면 Application Insights 구성 요소의 속성을로 `true`설정 해야 합니다. 이 속성은 Azure Resource Manager 템플릿을 통해 설정 하거나 REST API를 호출 하 여 설정할 수 있습니다. IP 주소는 마지막 8 진수가 0으로 기록 됩니다.
-
+IP 컬렉션과 저장소 `DisableIpMasking` 를 사용 하도록 설정 하려면 Application Insights 구성 요소의 속성을로 `true`설정 해야 합니다. 이 속성은 Azure Resource Manager 템플릿을 통해 설정 하거나 REST API를 호출 하 여 설정할 수 있습니다. 
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
 
@@ -92,7 +91,7 @@ IP 주소는 원격 분석 데이터의 일부로 Application Insights 전송 �
 
     이 경우 새를 구매 하는 것이 아니라 기존 Application Insights 리소스의 구성을 업데이트 합니다.
 
-6. 배포가 완료 되 면 새 원격 분석 데이터가 IP를 사용 하 여 처음 3 개의 8 진수가 기록 되 고 마지막 옥텟은 0으로 채워집니다.
+6. 배포가 완료 되 면 새 원격 분석 데이터가 기록 됩니다.
 
     템플릿을 다시 선택 하 고 편집 하는 경우 기본 템플릿만 표시 되며 새로 추가 된 속성 및 관련 값이 표시 되지 않습니다. IP 주소 데이터가 표시 되지 않고 `"DisableIpMasking": true` 가 설정 되어 있는지 확인 하려는 경우 다음 PowerShell을 실행 합니다. 적절 한 `Fabrikam-dev` 리소스 및 리소스 그룹 이름으로 대체 합니다.
     
@@ -128,7 +127,7 @@ Content-Length: 54
 
 ## <a name="telemetry-initializer"></a>원격 분석 이니셜라이저
 
-처음 세 개의 8 진수 대신 전체 IP 주소를 기록해 야 하는 경우 [원격 분석 이니셜라이저](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) 를 사용 하 여 ip 주소를 마스킹 되지 않을 사용자 지정 필드에 복사할 수 있습니다.
+전체 또는 일부 ip 주소를 기록 하 `DisableIpMasking` 는 것 보다 더 유연한 대안이 필요한 경우 [원격 분석 이니셜라이저](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) 를 사용 하 여 ip 전체 또는 일부를 사용자 지정 필드에 복사할 수 있습니다. 
 
 ### <a name="aspnet--aspnet-core"></a>ASP.NET/ASP.NET Core
 

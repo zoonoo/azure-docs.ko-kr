@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d9a1dff9c44403ad14e58b3fc3cda880cf65a29c
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 28b5c2db0f347b27beb31d427c7f189d74903dff
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679101"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70913972"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Azure Event Hubs에 대한 프로그래밍 가이드
 이 문서에서는 Azure Event Hubs를 사용하여 코드를 작성하는 몇 가지 일반적인 시나리오를 설명합니다. Event Hubs에 대한 예비 이해가 있다고 가정합니다. Event Hubs의 개요에 대한 개념은 [Event Hubs 개요](event-hubs-what-is-event-hubs.md)를 참조하세요.
@@ -140,7 +140,10 @@ await eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>();
 
 ## <a name="publisher-revocation"></a>게시자 해지
 
-[EventProcessorHost][]의 고급 런타임 기능 외에도 Event Hubs는 이벤트 허브로 이벤트를 보내는 특정 게시자를 차단하기 위해 게시자를 해지할 수 있습니다. 이러한 기능은 게시자의 토큰이 손상되거나 소프트웨어 업데이트가 부적절하게 동작을 일으킨 경우 유용합니다. 이러한 상황에서 해당 SAS 토큰의 일부인 게시자의 id가 이벤트 게시에서 차단될 수 있습니다.
+이벤트 프로세서 호스트의 고급 런타임 기능 외에도 Event Hubs 서비스를 사용 하면 특정 게시자가 이벤트 허브로 이벤트를 보내지 못하도록 차단 하기 위해 [게시자를 해지할](/rest/api/eventhub/revoke-publisher) 수 있습니다. 이러한 기능은 게시자의 토큰이 손상되거나 소프트웨어 업데이트가 부적절하게 동작을 일으킨 경우 유용합니다. 이러한 상황에서 해당 SAS 토큰의 일부인 게시자의 id가 이벤트 게시에서 차단될 수 있습니다.
+
+> [!NOTE]
+> 현재 REST API만이 기능 ([게시자 해지](/rest/api/eventhub/revoke-publisher))을 지원 합니다.
 
 게시자 해지 및 게시자로 Event Hubs에 보내는 방법에 대한 자세한 내용은 [Event Hubs 대규모 보안 게시](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab) 샘플을 참조하세요.
 

@@ -1,115 +1,238 @@
 ---
-title: 요청 및 응답 작업 사용 | Microsoft Docs
-description: Azure 논리 앱의 요청, 응답 트리거 및 작업에 대한 개요
-services: ''
-documentationcenter: ''
-author: jeffhollan
-manager: erikre
-editor: ''
-tags: connectors
-ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
+title: HTTP 요청에 응답-Azure Logic Apps
+description: Azure Logic Apps를 사용 하 여 HTTP를 통해 실시간으로 이벤트에 응답
+services: logic-apps
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewers: klam, LADocs
+manager: carmonm
+ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/18/2016
-ms.author: jehollan
-ms.openlocfilehash: 0f6ee8729cbed9cb8baf3668f7b1a332bc5eddc1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 09/06/2019
+tags: connectors
+ms.openlocfilehash: 07f143b261d0cff9eba0d4b1803753446c311818
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60538129"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914369"
 ---
-# <a name="get-started-with-the-request-and-response-components"></a>요청 및 응답 구성 요소 시작
-논리 앱의 요청 및 응답 구성 요소를 사용하여 이벤트에 실시간으로 응답할 수 있습니다.
+# <a name="respond-to-http-requests-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 HTTP 요청에 응답
 
-예를 들어 다음을 수행할 수 있습니다.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 기본 제공 요청 트리거 또는 응답 작업을 사용 하면 HTTP 요청을 실시간으로 수신 하 고 응답 하는 자동화 된 작업 및 워크플로를 만들 수 있습니다. 예를 들어 논리 앱을 사용할 수 있습니다.
 
-* 논리 앱을 통해 온-프레미스 데이터베이스의 데이터를 사용하여 HTTP 요청에 응답합니다.
-* 외부 웹후크 이벤트에서 논리 앱을 트리거합니다.
-* 다른 논리 앱 내에서 요청 및 응답 작업으로 논리 앱을 호출합니다.
+* 온-프레미스 데이터베이스의 데이터에 대 한 HTTP 요청에 응답 합니다.
+* 외부 webhook 이벤트가 발생 하는 경우 워크플로를 트리거합니다.
+* 다른 논리 앱 내에서 논리 앱을 호출 합니다.
 
-논리 앱에서 요처 및 응답 작업 사용을 시작하려면 [논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 참조하세요.
+## <a name="prerequisites"></a>필수 구성 요소
 
-## <a name="use-the-http-request-trigger"></a>HTTP 요청 트리거 사용
-트리거는 논리 앱에서 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. 
-[트리거에 대해 자세히 알아보세요.](../connectors/apis-list.md)
+* Azure 구독. 구독이 없는 경우 [무료 Azure 계정에 등록할](https://azure.microsoft.com/free/)수 있습니다.
 
-논리 앱 디자이너에서 HTTP 요청을 설정 하는 방법의 예제 시퀀스는 다음과 같습니다.
+* [논리 앱](../logic-apps/logic-apps-overview.md)에 대 한 기본 지식. 논리 앱을 처음 접하는 경우 [첫 번째 논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 대해 알아보세요.
 
-1. 논리 앱에서 **요청 - HTTP 요청을 받은 경우** 트리거를 추가합니다. 요청 본문에 대해 JSON 스키마를 선택적으로 제공할 수 있습니다( [JSONSchema.net](https://jsonschema.net)과 같은 도구 사용). 이렇게 하면 디자이너가 HTTP 요청에서 속성에 대한 토큰을 생성할 수 있습니다.
-2. 논리 앱을 저장할 수 있도록 다른 작업을 추가합니다.
-3. 논리 앱을 저장한 후 요청 카드에서 HTTP 요청 URL을 가져올 수 있습니다.
-4. URL에 대한 HTTP POST( [Postman](https://www.getpostman.com/)과 같은 도구 사용)는 논리 앱을 트리거합니다.
+<a name="add-request"></a>
 
-> [!NOTE]
-> 응답 작업을 정의하지 않으면 `202 ACCEPTED` 응답이 호출자에게 즉시 반환됩니다. 응답 작업을 사용하여 응답을 사용자 지정할 수 있습니다.
-> 
-> 
+## <a name="add-a-request-trigger"></a>요청 트리거 추가
 
-![응답 트리거](./media/connectors-native-reqres/using-trigger.png)
+이 기본 제공 트리거는 들어오는 HTTP 요청을 받을 수 있는 수동으로 호출할 수 있는 끝점을 만듭니다. 이 이벤트가 발생 하면 트리거가 발생 하 고 논리 앱을 실행 합니다. 트리거의 기본 JSON 정의 및이 트리거를 호출 하는 방법에 대 한 자세한 내용은 [요청 트리거 형식](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) 및 [HTTP 끝점을 사용 하 여 워크플로 호출, 트리거 또는 중첩](../logic-apps/logic-apps-http-endpoint.md) 을 참조 Azure Logic Apps
 
-## <a name="use-the-http-response-action"></a>HTTP 응답 작업 사용
-HTTP 응답 작업은 HTTP 요청에 의해 트리거되는 워크플로에서 사용할 때만 유효합니다. 응답 작업을 정의하지 않으면 `202 ACCEPTED` 응답이 호출자에게 즉시 반환됩니다.  응답 작업은 워크플로 내의 어느 단계에도 추가할 수 있습니다. 논리 앱은 들어오는 요청이 있을 때 응답을 받기 위해 1분 동안만 열어둡니다.  1분 후에 워크플로에서 전송된 응답이 없으면(정의에는 응답 작업이 있음) `504 GATEWAY TIMEOUT` 이 호출자에게 반환됩니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 빈 논리 앱을 만듭니다.
 
-HTTP 응답 작업을 추가하는 방법은 다음과 같습니다.
+1. 논리 앱 디자이너가 열리면 검색 상자에 "http 요청"을 필터로 입력 합니다. 트리거 목록에서 논리 앱 워크플로의 첫 단계인 **HTTP 요청을 받을 때** 트리거를 선택 합니다.
 
-1. **새 단계** 단추를 선택합니다.
-2. **작업 추가**를 선택합니다.
-3. 작업 검색 상자에 **response** 를 입력하여 응답 작업을 나열합니다.
-   
-    ![응답 작업 선택](./media/connectors-native-reqres/using-action-1.png)
-4. HTTP 응답 메시지에 필요한 모든 매개 변수를 추가합니다.
-   
-    ![응답 작업 완료](./media/connectors-native-reqres/using-action-2.png)
-5. 도구 모음의 왼쪽 위 모서리를 클릭하여 저장하면 논리 앱이 저장하고 게시합니다(활성화).
+   ![HTTP 요청 트리거 선택](./media/connectors-native-reqres/select-request-trigger.png)
 
-## <a name="request-trigger"></a>요청 트리거
-여기에는 이 커넥터가 지원하는 트리거에 대한 세부 정보가 나와 있습니다. 단일 요청 트리거가 있습니다.
+   요청 트리거는 다음과 같은 속성을 표시 합니다.
 
-| 트리거 | 설명 |
-| --- | --- |
-| 요청 |HTTP 요청을 받을 때 발생합니다. |
+   ![요청 트리거](./media/connectors-native-reqres/request-trigger.png)
 
-## <a name="response-action"></a>응답 작업
-여기에는 이 커넥터가 지원하는 작업에 대한 세부 정보가 나와 있습니다. 요청 트리거와 함께 나올 때만 사용할 수 있는 단일 응답 작업이 있습니다.
+   | 속성 이름 | JSON 속성 이름 | 필수 | Description |
+   |---------------|--------------------|----------|-------------|
+   | **HTTP 게시 URL** | {없음} | 예 | 논리 앱을 저장 한 후에 생성 되 고 논리 앱을 호출 하는 데 사용 되는 끝점 URL입니다. |
+   | **요청 본문 JSON 스키마** | `schema` | 아니요 | 들어오는 HTTP 요청 본문의 속성 및 값을 설명 하는 JSON 스키마입니다. |
+   |||||
 
-| 액션(Action) | 설명 |
-| --- | --- |
-| response |상호 관련된 HTTP 요청에 대한 응답을 반환합니다. |
+1. 필요에 따라 **본문 Json 스키마 요청** 상자에서 들어오는 요청의 HTTP 요청 본문을 설명 하는 JSON 스키마를 입력 합니다. 예를 들면 다음과 같습니다.
 
-### <a name="trigger-and-action-details"></a>트리거 및 작업 세부 정보
-다음 표는 트리거 및 작업에 대한 입력 필드와 해당 출력 세부 정보를 설명합니다.
+   ![JSON 스키마 예제](./media/connectors-native-reqres/provide-json-schema.png)
 
-#### <a name="request-trigger"></a>요청 트리거
-다음은 들어오는 HTTP 요청의 트리거에 대한 입력 필드입니다.
+   디자이너는이 스키마를 사용 하 여 요청에서 속성에 대 한 토큰을 생성 합니다. 이렇게 하면 논리 앱에서 트리거를 통해 요청에서 데이터를 구문 분석 하 고, 사용 하 고, 전달할 수 있습니다.
 
-| Display name | 속성 이름 | 설명 |
-| --- | --- | --- |
-| JSON 스키마 |schema |HTTP 요청 본문의 JSON 스키마 |
+   샘플 스키마는 다음과 같습니다.
 
-<br>
+   ```json
+   {
+      "type": "object",
+      "properties": {
+         "account": {
+            "type": "object",
+            "properties": {
+               "name": {
+                  "type": "string"
+               },
+               "ID": {
+                  "type": "string"
+               },
+               "address": {
+                  "type": "object",
+                  "properties": {
+                     "number": {
+                        "type": "string"
+                     },
+                     "street": {
+                        "type": "string"
+                     },
+                     "city": {
+                        "type": "string"
+                     },
+                     "state": {
+                        "type": "string"
+                     },
+                     "country": {
+                        "type": "string"
+                     },
+                     "postalCode": {
+                        "type": "string"
+                     }
+                  }
+               }
+            }
+         }
+      }
+   }
+   ```
 
-**출력 세부 정보**
+   JSON 스키마를 입력 하면 요청에 헤더를 `Content-Type` 포함 하 고 해당 헤더 값을로 `application/json`설정 하는 미리 알림이 디자이너에 표시 됩니다. 자세한 내용은 [콘텐츠 형식 처리](../logic-apps/logic-apps-content-type.md)를 참조 하세요.
 
-다음은 요청에 대한 출력 세부 정보를 출력합니다.
+   !["Content-type" 헤더를 포함 하는 미리 알림](./media/connectors-native-reqres/include-content-type.png)
 
-| 속성 이름 | 데이터 형식 | 설명 |
-| --- | --- | --- |
-| headers |object |헤더 요청 |
-| 본문 |object |요청 개체 |
+   JSON 형식의이 헤더는 다음과 같습니다.
 
-#### <a name="response-action"></a>응답 작업
-다음은 HTTP 응답 작업에 대한 입력 필드입니다. A*는 필수 필드 임을 의미합니다.
+   ```json
+   {
+      "Content-Type": "application/json"
+   }
+   ```
 
-| Display name | 속성 이름 | 설명 |
-| --- | --- | --- |
-| 상태 코드* |statusCode |HTTP 상태 코드 |
-| 헤더 |headers |포함할 응답 헤더의 JSON 개체 |
-| 본문 |본문 |응답 본문 |
+   예상 페이로드 (데이터)를 기반으로 하는 JSON 스키마를 생성 하려면 [JSONSchema.net](https://jsonschema.net)와 같은 도구를 사용 하거나 다음 단계를 수행할 수 있습니다.
+
+   1. 요청 트리거에서 **샘플 페이로드를 사용하여 스키마 생성**을 선택합니다.
+
+      ![페이로드에서 스키마 생성](./media/connectors-native-reqres/generate-from-sample-payload.png)
+
+   1. 샘플 페이로드를 입력 하 고 **완료**를 선택 합니다.
+
+      ![페이로드에서 스키마 생성](./media/connectors-native-reqres/enter-payload.png)
+
+      샘플 페이로드는 다음과 같습니다.
+
+      ```json
+      {
+         "account": {
+            "name": "Contoso",
+            "ID": "12345",
+            "address": { 
+               "number": "1234",
+               "street": "Anywhere Street",
+               "city": "AnyTown",
+               "state": "AnyState",
+               "country": "USA",
+               "postalCode": "11111"
+            }
+         }
+      }
+      ```
+
+1. 추가 속성을 지정 하려면 **새 매개 변수 추가** 목록을 열고 추가 하려는 매개 변수를 선택 합니다.
+
+   | 속성 이름 | JSON 속성 이름 | 필수 | 설명 |
+   |---------------|--------------------|----------|-------------|
+   | **메서드** | `method` | 아니요 | 들어오는 요청에서 논리 앱을 호출 하는 데 사용 해야 하는 메서드입니다. |
+   | **상대 경로** | `relativePath` | 아니요 | 논리 앱의 끝점 URL에서 수락할 수 있는 매개 변수의 상대 경로입니다. |
+   |||||
+
+   이 예제에서는 **메서드** 속성을 추가 합니다.
+
+   ![메서드 매개 변수 추가](./media/connectors-native-reqres/add-parameters.png)
+
+   **메서드** 속성은 목록에서 메서드를 선택할 수 있도록 트리거에 표시 됩니다.
+
+   ![방법 선택](./media/connectors-native-reqres/select-method.png)
+
+1. 이제 워크플로의 다음 단계로 다른 작업을 추가 합니다. 트리거 아래에서 추가 하려는 작업을 찾을 수 있도록 **다음 단계** 를 선택 합니다.
+
+   예를 들어 사용자 지정 된 응답을 반환 하는 데 사용할 수 있으며이 항목의 뒷부분에서 설명 하는 [응답 작업을 추가](#add-response)하 여 요청에 응답할 수 있습니다.
+
+   논리 앱은 1 분 동안만 들어오는 요청을 열어 둡니다. 논리 앱 워크플로에 응답 작업이 포함 되어 있다고 가정 하면 논리 앱이이 시간 경과 후 응답을 반환 하지 않는 경우 논리 앱은를 `504 GATEWAY TIMEOUT` 호출자에 게 반환 합니다. 그렇지 않고 논리 앱에 응답 동작이 포함 되지 않은 경우 논리 앱은 즉시 호출자에 게 `202 ACCEPTED` 응답을 반환 합니다.
+
+1. 완료되면 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장**을 선택합니다. 
+
+   이 단계에서는 논리 앱을 트리거하는 요청을 보내는 데 사용할 URL을 생성 합니다. 이 URL을 복사 하려면 URL 옆에 있는 복사 아이콘을 선택 합니다.
+
+   ![논리 앱을 트리거하는 데 사용할 URL](./media/connectors-native-reqres/generated-url.png)
+
+1. 논리 앱을 트리거하려면 생성 된 URL에 HTTP POST를 보냅니다. 예를 들어 [Postman](https://www.getpostman.com/)과 같은 도구를 사용할 수 있습니다.
+
+### <a name="trigger-outputs"></a>트리거 출력
+
+요청 트리거의 출력에 대 한 자세한 내용은 다음과 같습니다.
+
+| JSON 속성 이름 | 데이터 형식 | Description |
+|--------------------|-----------|-------------|
+| `headers` | Object | 요청의 헤더를 설명 하는 JSON 개체입니다. |
+| `body` | Object | 요청의 본문 콘텐츠를 설명 하는 JSON 개체입니다. |
+||||
+
+<a name="add-response"></a>
+
+## <a name="add-a-response-action"></a>응답 동작 추가
+
+응답 작업을 사용 하 여 HTTP 요청에 의해 트리거되는 논리 앱 에서만 들어오는 HTTP 요청에 대 한 페이로드 (데이터)에 응답할 수 있습니다. 워크플로의 어떤 지점에서 든 응답 작업을 추가할 수 있습니다. 이 트리거에 대 한 기본 JSON 정의에 대 한 자세한 내용은 [응답 작업 형식](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action)을 참조 하세요.
+
+논리 앱은 1 분 동안만 들어오는 요청을 열어 둡니다. 논리 앱 워크플로에 응답 작업이 포함 되어 있다고 가정 하면 논리 앱이이 시간 경과 후 응답을 반환 하지 않는 경우 논리 앱은를 `504 GATEWAY TIMEOUT` 호출자에 게 반환 합니다. 그렇지 않고 논리 앱에 응답 동작이 포함 되지 않은 경우 논리 앱은 즉시 호출자에 게 `202 ACCEPTED` 응답을 반환 합니다.
+
+1. 논리 앱 디자이너에서 응답 작업을 추가 하려는 단계 아래에 있는 **새 단계**를 선택 합니다.
+
+   예를 들어 앞에서 요청 트리거를 사용 합니다.
+
+   ![새 단계 추가](./media/connectors-native-reqres/add-response.png)
+
+   단계 사이에 작업을 추가 하려면 해당 단계 사이의 화살표 위로 포인터를 이동 합니다. 표시 되는 더하기 기호 **+** ()를 선택 하 고 **작업 추가**를 선택 합니다.
+
+1. **작업 선택**아래의 검색 상자에 "응답"을 필터로 입력 하 고 **응답** 작업을 선택 합니다.
+
+   ![응답 작업을 선택 합니다.](./media/connectors-native-reqres/select-response-action.png)
+
+   이 예제에서는 편의상 요청 트리거가 축소 되어 있습니다.
+
+1. 응답 메시지에 필요한 값을 추가 합니다. 
+
+   일부 필드에서 상자 내부를 클릭 하면 동적 콘텐츠 목록이 열립니다. 그런 다음 워크플로의 이전 단계에서 사용 가능한 출력을 나타내는 토큰을 선택할 수 있습니다. 이전 예제에 지정 된 스키마의 속성은 이제 동적 콘텐츠 목록에 표시 됩니다.
+
+   예를 들어 **헤더** 상자의 경우이 항목의 `Content-Type` 앞부분에서 설명한 대로 키 이름으로를 포함 하 고 `application/json` 키 값을로 설정 합니다. **본문** 상자의 동적 콘텐츠 목록에서 트리거 본문 출력을 선택할 수 있습니다.
+
+   ![응답 작업 세부 정보](./media/connectors-native-reqres/response-details.png)
+
+   JSON 형식의 헤더를 보려면 **텍스트 뷰로 전환**을 선택 합니다.
+
+   ![머리글-텍스트 뷰로 전환](./media/connectors-native-reqres/switch-to-text-view.png)
+
+   응답 작업에서 설정할 수 있는 속성에 대 한 자세한 내용은 다음과 같습니다. 
+
+   | 속성 이름 | JSON 속성 이름 | 필수 | Description |
+   |---------------|--------------------|----------|-------------|
+   | **상태 코드** | `statusCode` | 예 | 응답에 반환할 HTTP 상태 코드입니다. |
+   | **헤더** | `headers` | 아니요 | 응답에 포함할 하나 이상의 헤더를 설명 하는 JSON 개체입니다. |
+   | **본문** | `body` | 아니요 | 응답 본문 |
+   |||||
+
+1. 응답 본문에 대 한 JSON 스키마와 같은 추가 속성을 지정 하려면 **새 매개 변수 추가** 목록을 열고 추가 하려는 매개 변수를 선택 합니다.
+
+1. 완료되면 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장**을 선택합니다. 
 
 ## <a name="next-steps"></a>다음 단계
-이제 플랫폼을 사용해 보고 [논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md). [API 목록](apis-list.md)에서 논리 앱의 사용 가능한 다른 커넥터를 확인할 수 있습니다.
 
+* [Logic Apps 커넥터](../connectors/apis-list.md)

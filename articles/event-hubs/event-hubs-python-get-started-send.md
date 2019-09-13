@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: shvija
-ms.openlocfilehash: 9018df73c85486f5ffc9b16c1dbb70d4d99fcc65
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 22726ed8acae69adc09389b8f5f28df594a570a3
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360174"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915415"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-using-python"></a>Python을 사용 하 여 Event Hubs에서 이벤트 보내기 또는 받기
 
@@ -42,6 +42,9 @@ pip install azure-eventhub
 ```
 
 ## <a name="send-events"></a>이벤트 보내기
+
+> [!NOTE]
+> 이 섹션의 코드는 Event Hubs SDK의 현재 안정적인 버전 (1.3.1)에 대 한 것입니다. SDK의 미리 보기 버전을 사용 하는 샘플 코드를 찾고 있는 경우 [이 페이지](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhubs/examples)를 참조 하세요.
 
 ### <a name="create-a-python-script-to-send-events"></a>이벤트를 보내는 Python 스크립트 만들기
 

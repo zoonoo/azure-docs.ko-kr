@@ -8,27 +8,27 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 497ffb5acf6262dfb42f490efe68e1ea26c777cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a41a811e9313f79c9c3165e02cb5eaa4353b65ab
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64572379"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914465"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Azure Maps 검색 서비스를 사용하여 주소 찾기
 
 Maps 검색 서비스는 개발자가 주소, 위치, 관심 지점, 비즈니스 목록 및 기타 지리 정보를 검색할 수 있도록 설계된 일단의 RESTful API입니다. 검색 서비스는 특정 주소, 교차로, 지리적 특징 또는 POI(관심 지점)에 위도/경고를 할당합니다. 검색에서 반환된 위도 및 경도를 라우트 및 트래픽 흐름과 같은 다른 맵 서비스에서 매개 변수로 사용할 수 있습니다.
 
-이 문서를 배우게 됩니다 하는 방법.
+이 문서에서는 다음 방법에 대해 알아봅니다.
 
-* 사용 하 여 주소 검색 [유사 항목 검색 API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
+* [유사 항목 검색 API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) 를 사용 하 여 주소 검색
 * 속성 및 좌표와 함께 주소 검색
-* 확인 된 [역 주소 검색](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) 주소 검색
-* 사용 하 여 간 거리에 대 한 검색 [검색 주소 역방향 간 거리 API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet)
+* 주소 검색을 위한 [역방향 주소 검색](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) 만들기
+* [검색 주소 역방향 교차 주소 API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet) 를 사용 하 여 교차 주소 검색
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-맵 서비스 API에 대한 호출을 생성하려면 맵 계정 및 키가 필요합니다. 계정 만들기 및 키 검색에 대한 자세한 내용은 [Azure Maps 계정 및 키를 관리하는 방법](how-to-manage-account-keys.md)을 참조하세요.
+맵 서비스 API에 대한 호출을 생성하려면 맵 계정 및 키가 필요합니다. 계정을 만드는 방법에 대 한 자세한 내용은 [계정 관리](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) 의 지침에 따르고 [기본 키 가져오기](./tutorial-search-location.md#getkey) 의 단계에 따라 계정에 대 한 기본 구독 키를 검색 합니다.
 
 이 문서에서는 [우체부 앱](https://www.getpostman.com/apps)을 사용하여 REST 호출을 빌드합니다. 선호하는 모든 API 개발 환경을 사용할 수 있습니다.
 
@@ -46,11 +46,11 @@ Maps 검색 서비스는 개발자가 주소, 위치, 관심 지점, 비즈니�
 
     ![유사 항목 검색](./media/how-to-search-for-address/fuzzy_search_url.png)
 
-    | 매개 변수 | 제안 값 |
+    | 매개 변수 | 제안된 값 |
     |---------------|------------------------------------------------|
-    | HTTP 메서드 | GET |
+    | HTTP 메서드 | 가져오기 |
     | 요청 URL | [https://atlas.microsoft.com/search/fuzzy/json?](https://atlas.microsoft.com/search/fuzzy/json?) |
-    | 권한 부여 | 인증 없음 |
+    | Authorization | 인증 없음 |
 
     URL 경로의 **json** 특성은 응답 형식을 결정합니다. 이 문서 전체에서 편의성과 가독성을 위해 json을 사용합니다. 사용 가능한 응답 형식은 [Maps 기능 API 참조](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)의 **유사 항목 검색 가져오기** 정의에서 찾을 수 있습니다.
 
@@ -58,7 +58,7 @@ Maps 검색 서비스는 개발자가 주소, 위치, 관심 지점, 비즈니�
 
     ![유사 항목 검색](./media/how-to-search-for-address/fuzzy_search_params.png)
 
-    | 키 | 값 |
+    | Key | 값 |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | 구독 키 | \<사용자의 Azure 맵 키\> |
@@ -68,11 +68,11 @@ Maps 검색 서비스는 개발자가 주소, 위치, 관심 지점, 비즈니�
 
     "pizza"라는 모호한 쿼리 문자열을 사용하면 "pizza"(피자)와 "restaurant"(음식점)에 속한 범주의 [POI(관심 지점)](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) 결과 10개가 반환되었습니다. 각 결과는 위치에 대한 도로 주소, 위도 / 경도 값, 뷰 포트 및 진입점을 반환합니다.
   
-    결과는 특정 기준 위치에 연결되지 않고 이 쿼리에 대해 변화됩니다. 사용할 수는 **countrySet** 기본 동작을 잠재적으로 불필요 한 결과 반환 하는 전체 세계를 검색 하는 만큼만 국가/지역에 일일이 검사를 지정 하려면 매개 변수입니다.
+    결과는 특정 기준 위치에 연결되지 않고 이 쿼리에 대해 변화됩니다. **CountrySet** 매개 변수를 사용 하 여 응용 프로그램에 적용 해야 하는 국가/지역만 지정할 수 있습니다. 기본 동작은 전체 세계를 검색 하 여 불필요 한 결과를 반환 하는 것입니다.
 
 5. **Params** 섹션에 다음 키/값 쌍을 추가하고 **보내기**를 클릭합니다.
 
-    | 키 | 값 |
+    | Key | 값 |
     |------------------|-------------------------|
     | countrySet | US |
   
@@ -84,7 +84,7 @@ Maps 검색 서비스는 개발자가 주소, 위치, 관심 지점, 비즈니�
 
     ![유사 항목 검색](./media/how-to-search-for-address/fuzzy_search_latlon.png)
   
-    | 키 | 값 |
+    | Key | 값 |
     |-----|------------|
     | 윈도 | 47.620525 |
     | 경도 | -122.349274 |
@@ -98,17 +98,17 @@ Maps 검색 서비스는 개발자가 주소, 위치, 관심 지점, 비즈니�
 
     ![주소 검색](./media/how-to-search-for-address/address_search_url.png)
   
-    | 매개 변수 | 제안 값 |
+    | 매개 변수 | 제안된 값 |
     |---------------|------------------------------------------------|
-    | HTTP 메서드 | GET |
+    | HTTP 메서드 | 가져오기 |
     | 요청 URL | [https://atlas.microsoft.com/search/address/json?](https://atlas.microsoft.com/search/address/json?) |
-    | 권한 부여 | 인증 없음 |
+    | Authorization | 인증 없음 |
 
 3. **Params**를 클릭하고 요청 URL에 쿼리 또는 경로 매개 변수로 사용할 다음 키 / 값 쌍을 입력합니다.
   
     ![주소 검색](./media/how-to-search-for-address/address_search_params.png)
   
-    | 키 | 값 |
+    | Key | 값 |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | 구독 키 | \<사용자의 Azure 맵 키\> |
@@ -125,7 +125,7 @@ Maps 검색 서비스는 개발자가 주소, 위치, 관심 지점, 비즈니�
 
 6. **Params** 섹션에 다음 키/값 쌍을 추가하고 **보내기**를 클릭합니다.
 
-    | 키 | 값 |
+    | Key | 값 |
     |-----|------------|
     | typeahead | true |
 
@@ -139,17 +139,17 @@ Maps 검색 서비스는 개발자가 주소, 위치, 관심 지점, 비즈니�
   
     ![역 주소 검색 URL](./media/how-to-search-for-address/reverse_address_search_url.png)
   
-    | 매개 변수 | 제안 값 |
+    | 매개 변수 | 제안된 값 |
     |---------------|------------------------------------------------|
-    | HTTP 메서드 | GET |
+    | HTTP 메서드 | 가져오기 |
     | 요청 URL | [https://atlas.microsoft.com/search/address/reverse/json?](https://atlas.microsoft.com/search/address/reverse/json?) |
-    | 권한 부여 | 인증 없음 |
+    | Authorization | 인증 없음 |
   
 3. **Params**를 클릭하고 요청 URL에 쿼리 또는 경로 매개 변수로 사용할 다음 키 / 값 쌍을 입력합니다.
   
     ![역 주소 검색 매개 변수](./media/how-to-search-for-address/reverse_address_search_params.png)
   
-    | 키 | 값 |
+    | Key | 값 |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | 구독 키 | \<사용자의 Azure 맵 키\> |
@@ -161,7 +161,7 @@ Maps 검색 서비스는 개발자가 주소, 위치, 관심 지점, 비즈니�
   
 5. **Params** 섹션에 다음 키/값 쌍을 추가하고 **보내기**를 클릭합니다.
 
-    | 키 | 값 |
+    | Key | 값 |
     |-----|------------|
     | number | true |
 
@@ -169,7 +169,7 @@ Maps 검색 서비스는 개발자가 주소, 위치, 관심 지점, 비즈니�
   
 6. **Params** 섹션에 다음 키/값 쌍을 추가하고 **보내기**를 클릭합니다.
 
-    | 키 | 값 |
+    | Key | 값 |
     |-----|------------|
     | returnSpeedLimit | true |
   
@@ -177,7 +177,7 @@ Maps 검색 서비스는 개발자가 주소, 위치, 관심 지점, 비즈니�
 
 7. **Params** 섹션에 다음 키/값 쌍을 추가하고 **보내기**를 클릭합니다.
 
-    | 키 | 값 |
+    | Key | 값 |
     |-----|------------|
     | returnRoadUse | true |
 
@@ -185,7 +185,7 @@ Maps 검색 서비스는 개발자가 주소, 위치, 관심 지점, 비즈니�
 
 8. **Params** 섹션에 다음 키/값 쌍을 추가하고 **보내기**를 클릭합니다.
 
-    | 키 | 값 |
+    | Key | 값 |
     |-----|------------|
     | roadUse | true |
 
@@ -199,15 +199,15 @@ Maps 검색 서비스는 개발자가 주소, 위치, 관심 지점, 비즈니�
   
     ![역 주소 교차로 검색](./media/how-to-search-for-address/reverse_address_search_url.png)
   
-    | 매개 변수 | 제안 값 |
+    | 매개 변수 | 제안된 값 |
     |---------------|------------------------------------------------|
-    | HTTP 메서드 | GET |
+    | HTTP 메서드 | 가져오기 |
     | 요청 URL | [https://atlas.microsoft.com/search/address/reverse/crossstreet/json?](https://atlas.microsoft.com/search/address/reverse/crossstreet/json?) |
-    | 권한 부여 | 인증 없음 |
+    | Authorization | 인증 없음 |
   
 3. **Params**를 클릭하고 요청 URL에 쿼리 또는 경로 매개 변수로 사용할 다음 키 / 값 쌍을 입력합니다.
   
-    | 키 | 값 |
+    | Key | 값 |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | 구독 키 | \<사용자의 Azure 맵 키\> |

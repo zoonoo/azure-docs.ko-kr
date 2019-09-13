@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: ashishth
-ms.openlocfilehash: 15bb65e004de916862297f91278328cddb16487d
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 43465a1c31b953620c45dfe759de7b6e1b4dc3c9
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810423"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70917257"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>psql을 사용하여 Apache Phoenix로 데이터 대량 로드
 
@@ -29,7 +29,7 @@ MapReduce는 여러 스레드를 사용하므로, 일반적으로 프로덕션 �
 
 데이터 로드를 시작하기 전에, Phoenix가 사용되도록 설정되어 있는지와 쿼리 제한 시간 설정이 예상대로 지정되어 있는지 확인합니다.  HDInsight 클러스터 [Apache Ambari](https://ambari.apache.org/) 대시보드에 액세스하고, HBase를 선택한 후 구성 탭을 선택합니다.  아래로 스크롤하여 Apache Phoenix가 표시된 것처럼 `enabled`로 설정되어 있는지 확인합니다.
 
-![Apache Phoenix HDInsight 클러스터 설정](./media/apache-hbase-phoenix-psql/ambari-phoenix.png)
+![Apache Phoenix HDInsight 클러스터 설정](./media/apache-hbase-phoenix-psql/apache-ambari-phoenix.png)
 
 ### <a name="use-psql-to-bulk-load-tables"></a>`psql`을 사용하여 테이블 대량 로드
 

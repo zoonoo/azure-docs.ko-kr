@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/30/2019
+ms.date: 09/11/2019
 ms.author: magoedte
-ms.openlocfilehash: d2aa25af4ebf721d04ada46ffab37107bf73113b
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: bd4016d91000ee23023eaa64872bff9a057058d1
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861123"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916059"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>VM용 Azure Monitor 사용 (미리 보기) 개요
 
@@ -31,7 +31,7 @@ VM용 Azure Monitor을 설정 하려면:
 * PowerShell을 사용하여 지정된 구독 또는 리소스 그룹에 걸친 둘 이상의 Azure VM 또는 가상 머신 확장 집합을 사용하도록 설정합니다.
 * VM용 Azure Monitor 사용 하 여 회사 네트워크 또는 다른 클라우드 환경에서 호스트 되는 Vm 또는 물리적 컴퓨터를 모니터링할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 시작하기 전에 다음 섹션의 정보를 이해해야 합니다. 
 
@@ -93,10 +93,10 @@ Log Analytics 작업 영역에서 Azure Policy, Azure PowerShell 또는 Azure Re
 |Windows 8 | X | X | |
 |Windows 7 SP1 | X | X | |
 |Red Hat Enterprise Linux (RHEL) 6, 7| X | X| X |
-|Ubuntu 14.04, 16.04, 18.04 | X | X | X |
-|CentOS Linux 6, 7 | X | X | X |
+|Ubuntu 18.04, 16.04 | X | X | X |
+|CentOS Linux 7, 6 | X | X | X |
 |SLES(SUSE Linux Enterprise Server) 12 | X | X | X |
-|Debian 8, 9.4 | X<sup>1</sup> | | X |
+|Debian 9.4, 8 | X<sup>1</sup> | | X |
 
 <sup>1</sup> VM용 Azure Monitor의 성능 기능은 Azure Monitor에서만 사용할 수 있습니다. Azure VM의 왼쪽 창에서 직접 사용할 수 없습니다.
 
@@ -110,45 +110,51 @@ Log Analytics 작업 영역에서 Azure Policy, Azure PowerShell 또는 Azure Re
 > - PAE(Physical Address Extension) 및 Xen과 같은 비표준 커널 릴리스는 Linux 배포판에 대해 지원되지 않습니다. 예를 들어 *2.6.16.21-0.8-xen*의 릴리스 문자열이 있는 시스템은 지원되지 않습니다.
 > - 표준 커널 다시 컴파일이 포함 된 사용자 지정 커널은 지원 되지 않습니다.
 > - CentOSPlus 커널이 지원 됩니다.
+> - 스펙터 취약성에 대해 Linux 커널의 패치를 적용 해야 합니다. 자세한 내용은 Linux 배포 공급 업체에 문의 하세요.
 
 #### <a name="red-hat-linux-7"></a>Red Hat Linux 7
 
 | OS 버전 | 커널 버전 |
 |:--|:--|
-| 7.4 | 3.10.0-693 |
-| 7.5 | 3.10.0-862 |
 | 7.6 | 3.10.0-957 |
+| 7.5 | 3.10.0-862 |
+| 7.4 | 3.10.0-693 |
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 
 | OS 버전 | 커널 버전 |
 |:--|:--|
-| 6.9 | 2.6.32-696 |
 | 6.10 | 2.6.32-754 |
+| 6.9 | 2.6.32-696 |
 
 #### <a name="centosplus"></a>CentOSPlus
+
 | OS 버전 | 커널 버전 |
 |:--|:--|
-| 6.9 | 2.6.32-696.18.7<br>2.6.32-696.30.1 |
-| 6.10 | 2.6.32-696.30.1<br>2.6.32-754.3.5 |
+| 6.10 | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
+| 6.9 | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
 
 #### <a name="ubuntu-server"></a>Ubuntu Server
 
 | OS 버전 | 커널 버전 |
 |:--|:--|
-| Ubuntu 18.04 | kernel 4.15.\*<br>4.18* |
-| Ubuntu 16.04.3 | kernel 4.15.* |
-| 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
-| 14.04 | 3.13.\*<br>4.4.\* |
+| 18.04 | 5.0 (Azure 조정 커널 포함)<br>4.18 *<br>4.15* |
+| 16.04.3 | 4.15. * |
+| 16.04 | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
 
 #### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
 
-| OS 버전 | 커널 버전
+| OS 버전 | 커널 버전 |
 |:--|:--|
-|12 SP2 | 4.4.* |
+|12 SP4 | 4.12. * (Azure 조정 커널 포함) |
 |12 SP3 | 4.4.* |
-|12 SP4 | 4.4.* |
-|12 SP4 | Azure 튜닝 커널 |
+|12 SP2 | 4.4.* |
+
+#### <a name="debian"></a>Debian 
+
+| OS 버전 | 커널 버전 |
+|:--|:--|
+| 9 | 4.9 | 
 
 ### <a name="the-microsoft-dependency-agent"></a>Microsoft Dependency Agent
 
@@ -186,7 +192,7 @@ Log Analytics 작업 영역에 대한 액세스를 제어하는 방법에 대한
 
 이 표에 설명 된 방법 중 하나를 사용 하 여 VM용 Azure Monitor를 사용 하도록 설정 합니다.
 
-| 배포 상태 | 메서드 | 설명 |
+| 배포 상태 | 메서드 | Description |
 |------------------|--------|-------------|
 | 단일 Azure VM 또는 가상 머신 확장 집합 | [VM에서 사용](vminsights-enable-single-vm.md) | VM 또는 가상 머신 확장 집합에서 직접 **Insights (미리 보기)** 를 선택 하 여 단일 Azure vm을 사용 하도록 설정할 수 있습니다. |
 | 여러 Azure Vm 또는 가상 머신 확장 집합 | [Azure Policy 통해 사용](vminsights-enable-at-scale-policy.md) | Azure Policy 및 사용 가능한 정책 정의를 사용 하 여 여러 Azure Vm을 사용 하도록 설정할 수 있습니다. |

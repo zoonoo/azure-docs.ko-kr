@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9d459f88cd252303384acb4a72d0af0cce6ee226
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e6f6ba131a4fb5dd31f113afd2b6de2d65aeaea0
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428462"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915181"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Data Lake tools for Visual Studio를 사용하여 Apache Storm의 C# 토폴로지 개발
 
@@ -28,7 +28,7 @@ Linux 기반 클러스터에 C# 토폴로지를 사용하려면 프로젝트에 
 
 | HDInsight 버전 | Apache Storm 버전 | SCP.NET 버전 | 기본 모노 버전 |
 |:-----------------:|:-------------:|:---------------:|:--------------------:|
-| 3.3 |0.10.x |0.10.x.x</br>(Windows 기반 HDInsight만 해당) | 해당 없음 |
+| 3.3 |0.10.x |0.10.x.x</br>(Windows 기반 HDInsight만 해당) | NA |
 | 3.4 | 0.10.0.x | 0.10.0.x | 3.2.8 |
 | 3.5 | 1.0.2.x | 1.0.0.x | 4.2.1 |
 | 3.6 | 1.1.0.x | 1.0.0.x | 4.2.8 |
@@ -100,10 +100,10 @@ namespace ConsoleApplication2
 
 Data Lake Tools for Visual Studio는 다음 템플릿을 제공합니다.
 
-| 프로젝트 형식 | 데모 |
+| 프로젝트 형식 | 세부 항목 |
 | --- | --- |
 | Storm 애플리케이션 |빈 Storm 토폴로지 프로젝트 |
-| Storm Azure SQL 기록기 샘플 |Azure SQL Database에 쓰는 방법 |
+| Storm Azure SQL 기록기 샘플 |Azure SQL Database에 쓰는 방법. |
 | Storm Azure Cosmos DB 판독기 샘플 |Azure Cosmos DB에서 읽는 방법 |
 | Storm Azure Cosmos DB 기록기 샘플 |Azure Cosmos DB에 기록하는 방법 |
 | Storm 이벤트 허브 판독기 샘플 |Azure Event Hubs에서 읽는 방법 |
@@ -155,7 +155,7 @@ HBase 판독기 및 기록기 템플릿은 HBase Java API가 아니라 HBase RES
 
    * **NextTuple**: Spout에서 새 튜플을 내보낼 수 있도록 허용되면 Storm이 호출합니다.
 
-   * **Ack**(트랜잭션 토폴로지만 해당): Spout에서 보낸 튜플의 경우 토폴로지에서 다른 구성 요소에 의해 시작된 승인을 처리합니다. 튜플을 승인하면 spout가 다운스트림 구성 요소에 의해 성공적으로 처리되었음을 알 수 있습니다.
+   * **Ack**(트랜잭션 토폴로지만 해당): Spout에서 전송 된 튜플의 토폴로지에서 다른 구성 요소에 의해 시작 된 승인을 처리 합니다. 튜플을 승인하면 spout가 다운스트림 구성 요소에 의해 성공적으로 처리되었음을 알 수 있습니다.
 
    * **Fail**(트랜잭션 토폴로지만 해당): 토폴로지에서 다른 구성 요소 처리에 실패한 튜플을 처리합니다. Fail 메서드를 구현하면 튜플을 다시 처리할 수 있도록 튜플을 다시 내보낼 수 있습니다.
 
@@ -432,7 +432,7 @@ return topologyBuilder;
 
 * **메타데이터 캐싱**: Spout는 내보낸 데이터에 대한 메타데이터를 저장해야 하므로 오류가 발생하는 경우 해당 데이터를 검색하고 다시 내보낼 수 있습니다. 샘플로 내보낸 데이터는 작기 때문에 각 튜플의 원시 데이터는 재생을 위해 사전에 저장됩니다.
 
-* **Ack**: 토폴로지의 각 Bolt는 `this.ctx.Ack(tuple)`를 호출하여 튜플을 성공적으로 처리했음을 승인할 수 있습니다. 모든 bolt가 튜플을를 승인 합니다 `Ack` spout의 메서드가 호출 됩니다. `Ack` 메서드를 통해 Spout가 재생용으로 캐시된 데이터를 제거할 수 있습니다.
+* **Ack**: 토폴로지의 각 Bolt는 `this.ctx.Ack(tuple)`를 호출하여 튜플을 성공적으로 처리했음을 승인할 수 있습니다. 모든 볼트가 튜플을 `Ack` 승인한 경우 spout의 메서드가 호출 됩니다. `Ack` 메서드를 통해 Spout가 재생용으로 캐시된 데이터를 제거할 수 있습니다.
 
 * **Fail**: 각 Bolt는 `this.ctx.Fail(tuple)`을 호출하여 튜플 처리에 실패했음을 나타냅니다. 캐시된 메타데이터를 사용하여 튜플을 재생할 수 있는 Spout의 `Fail` 메서드로 오류가 전파됩니다.
 
@@ -559,14 +559,14 @@ Linux 기반 HDInsight 클러스터의 경우 프로젝트에서 .NET 4.5에 대
 
 ### <a name="test-a-topology-locally"></a>로컬로 토폴로지 테스트
 
-토폴로지를 클러스터로 배포하는 것은 쉽지만, 일부 경우에 토폴로지를 로컬로 테스트해야 할 수 있습니다. 다음 단계를 사용 하 여 실행 하 고 로컬 개발 환경에서에서이 문서의 예제 토폴로지를 테스트 합니다.
+토폴로지를 클러스터로 배포하는 것은 쉽지만, 일부 경우에 토폴로지를 로컬로 테스트해야 할 수 있습니다. 다음 단계를 사용 하 여이 문서의 예제 토폴로지를 개발 환경에서 로컬로 실행 하 고 테스트할 수 있습니다.
 
 > [!WARNING]  
 > 로컬 테스트는 기본 C# 전용 토폴로지에서만 작동합니다. 하이브리드 토폴로지나 여러 스트림을 사용하는 토폴로지에는 로컬 테스트를 사용할 수 없습니다.
 
 1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. 프로젝트 속성에서 **출력 유형**을 **콘솔 애플리케이션**으로 변경합니다.
 
-    ![출력 유형이 강조 표시된 프로젝트 속성의 스크린샷](./media/apache-storm-develop-csharp-visual-studio-topology/outputtype.png)
+    ![출력 유형이 강조 표시된 프로젝트 속성의 스크린샷](./media/apache-storm-develop-csharp-visual-studio-topology/hdi-output-type-window.png)
 
    > [!NOTE]
    > 토폴로지를 클러스터로 배포하기 전에 **출력 유형**을 **클래스 라이브러리**로 다시 변경해야 합니다.
@@ -683,7 +683,7 @@ Linux 기반 HDInsight 클러스터의 경우 프로젝트에서 .NET 4.5에 대
 
 2. 변경 내용을 저장한 다음 **F5**를 클릭하거나 **디버그** > **디버깅 시작**을 선택하여 프로젝트를 시작합니다. 콘솔 창이 나타나며 로그 상태가 테스트로 진행됩니다. **테스트 완료** 가 나타나면 아무 키나 눌러 창을 닫습니다.
 
-3. **Windows 탐색기**를 사용하여 프로젝트가 포함된 디렉터리를 찾습니다. 예를 들면 다음과 같습니다. **C:\Users\<your_user_name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. 이 디렉터리에서 **Bin**을 열고 **디버그**를 클릭합니다. 테스트가 실행될 때 생성된 텍스트 파일(sentences.txt, counter.txt 및 splitter.txt)이 표시됩니다. 각각의 텍스트 파일을 열고 데이터를 검사합니다.
+3. **Windows 탐색기**를 사용하여 프로젝트가 포함된 디렉터리를 찾습니다. 예를 들어: **C:\Users\<your_user_name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. 이 디렉터리에서 **Bin**을 열고 **디버그**를 클릭합니다. 테스트가 실행될 때 생성된 텍스트 파일(sentences.txt, counter.txt 및 splitter.txt)이 표시됩니다. 각각의 텍스트 파일을 열고 데이터를 검사합니다.
 
    > [!NOTE]  
    > 문자열 데이터는 이러한 파일에 10진수 값의 배열로 유지됩니다. 예를 들어, **splitter.txt** 파일의 \[[97,103,111]]은 *and*라는 단어입니다.
@@ -712,7 +712,7 @@ Context.Logger.Info("Component started");
 
 2. **Spout** 및 **Bolts**의 경우 **마지막 오류** 열에 마지막 오류에 대한 정보가 있습니다.
 
-3. 오류가 나열된 구성 요소의 **Spout Id** 또는 **Bolt Id**를 선택합니다. 표시되는 세부 사항 페이지에서 추가 오류 정보는 페이지 아래쪽의 **오류** 섹션에 나열됩니다.
+3. 오류가 나열 된 구성 요소에 대 한 **SPOUT id** 또는 **볼트 id** 를 선택 합니다. 표시되는 세부 사항 페이지에서 추가 오류 정보는 페이지 아래쪽의 **오류** 섹션에 나열됩니다.
 
 4. 더 많은 정보를 얻으려면 페이지의 **실행기** 섹션에서 **포트**를 선택하여 지난 몇 분 동안의 Storm 작업자 로그를 확인하십시오.
 

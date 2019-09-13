@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 75fe9c120eae99e517aa52b704fbd6c170e78649
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 4c53d1c1ffbc80e694a9a7b423b2aaf9c6d38b48
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802286"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914391"
 ---
 # <a name="request-real-time-data-using-the-azure-maps-mobility-service"></a>Azure Maps 모바일 서비스를 사용 하 여 실시간 데이터 요청
 
@@ -29,7 +29,7 @@ ms.locfileid: "70802286"
 
 ## <a name="prerequisites"></a>전제 조건
 
-Azure Maps 공용 전송 Api에 대 한 호출을 수행 하려면 Maps 계정 및 키가 필요 합니다. 계정 만들기 및 키 검색에 대한 자세한 내용은 [Azure Maps 계정 및 키를 관리하는 방법](how-to-manage-account-keys.md)을 참조하세요.
+Azure Maps 공용 전송 Api에 대 한 호출을 수행 하려면 Maps 계정 및 키가 필요 합니다. 계정을 만드는 방법에 대 한 자세한 내용은 [계정 관리](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) 의 지침에 따르고 [기본 키 가져오기](./tutorial-search-location.md#getkey) 의 단계에 따라 계정에 대 한 기본 구독 키를 검색 합니다.
 
 이 문서에서는 [우체부 앱](https://www.getpostman.com/apps)을 사용하여 REST 호출을 빌드합니다. 선호하는 모든 API 개발 환경을 사용할 수 있습니다.
 

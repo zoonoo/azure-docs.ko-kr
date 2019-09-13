@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 12fecfc3a20d91b9324e1662f3f937340b7ff5c4
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 83dc9e26e03eb955d88340d1ed21084d4e685ed8
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972446"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70913942"
 ---
 # <a name="cloudsimple-node-quota-limits"></a>CloudSimple 노드 할당량 한도
 
@@ -32,9 +32,6 @@ CloudSimple 서비스에 대해 구독을 사용 하도록 설정한 경우 4 �
 
 지원 티켓의 세부 정보에서 필요한 노드 수와 노드 SKU를 제공 합니다.
 
-Microsoft 계정 담당자 [azurevmwaresales@microsoft.com](mailto:azurevmwaresales@microsoft.com) 에 게 연락 하 여 구독에 대 한 노드 할당량을 높일 수도 있습니다.  다음을 제공 해야 합니다.
-
-* 구독 ID
 * 노드 SKU
 * 할당량 증가를 요청 하는 추가 노드 수
 

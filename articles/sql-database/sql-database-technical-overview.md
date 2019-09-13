@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: f7fc5b32fb18da60816056c72dde8c53d439befe
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: d7cb473c54dc9cf735e43c65bc079fb4f21e4c97
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812199"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70913998"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Azure SQL Database 서비스 정의
 
@@ -26,6 +26,8 @@ Microsoft의 클라우드 우선 전략을 사용하여 SQL Server의 최신 기
 
 > [!NOTE]
 > Azure SQL Database의 용어집은 [SQL Database 용어집](sql-database-glossary-terms.md)을 참조하세요.
+
+## <a name="deployment-models"></a>배포 모델
 
 Azure SQL Database는 Azure SQL 데이터베이스에 다음과 같은 옵션을 제공합니다.
 
@@ -51,11 +53,19 @@ SQL Database의 모든 기능을 사용 하면 할당 되는 리소스의 양을
 
 동적 확장성은 자동 크기 조정과 다릅니다. 자동 크기 조정은 서비스가 조건에 따라 자동으로 크기를 조정하는 경우인 반면 동적 확장성은 가동 중지 시간 없이 수동 크기 조정을 허용합니다. 단일 데이터베이스는 수동 동적 확장성을 지원하지만 자동 크기 조정은 지원하지 않습니다. 더 많은 *자동* 환경은 데이터베이스에서 개별 데이터베이스 요구 사항에 따라 풀에 리소스를 공유하도록 허용하는 탄력적 풀을 사용하는 것이 좋습니다. 그러나 단일 데이터베이스에 대한 확장성을 자동화할 수 있는 스크립트가 있습니다. 예제는 [PowerShell을 사용하여 단일 데이터베이스 모니터링 및 크기 조정](scripts/sql-database-monitor-and-scale-database-powershell.md)을 참조하세요.
 
-### <a name="purchasing-models-service-tiers-compute-sizes-and-storage-amounts"></a>구매 모델, 서비스 계층, 컴퓨팅 크기 및 스토리지의 용량
+### <a name="purchasing-models"></a>구매 모델
 
 SQL Database는 다음 두 가지 구매 모델을 제공합니다.
-- [Vcore 기반 구매 모델](sql-database-service-tiers-vcore.md) 을 사용 하면 vcore 수, 메모리 양 및 저장소의 양과 속도를 선택할 수 있습니다. vCore 기반 구매 모델을 사용하면 [SQL Server용 Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 사용하여 비용을 절약할 수도 있습니다. Azure 하이브리드 혜택에 대한 자세한 내용은 [질문과 대답](#sql-database-frequently-asked-questions-faq)을 참조하세요.
+- [Vcore 기반 구매 모델](sql-database-service-tiers-vcore.md) 을 사용 하면 vcore 수, 메모리 양 및 저장소의 양과 속도를 선택할 수 있습니다. VCore 기반 구매 모델을 사용 하 여 **[SQL Server에 대 한 Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)** 를 사용 하 여 비용을 절감할 수 있습니다. Azure 하이브리드 혜택에 대한 자세한 내용은 [질문과 대답](#sql-database-frequently-asked-questions-faq)을 참조하세요.
 - [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)에서는 경량부터 중량까지의 데이터베이스 워크로드를 지원하기 위해 세 가지 서비스 계층으로 컴퓨팅, 메모리, IO 리소스를 함께 제공합니다. 각 계층 내의 컴퓨팅 크기는 이러한 리소스의 다양한 조합을 제공하여 추가 스토리지 리소스를 추가할 수 있습니다.
+- 작업 부하에 따라 자동으로 계산을 확장 하는 [서버 리스 모델](sql-database-serverless.md) 및 초당 사용 된 계산의 양에 대 한 청구입니다. 서버를 사용 하지 않는 계산 계층은 저장소가 청구 될 때 비활성 기간 동안 데이터베이스를 자동으로 일시 중지 하 고 작업이 반환 될 때 데이터베이스를 자동으로 다시 시작 합니다.
+
+### <a name="service-tiers"></a>서비스 계층
+
+Azure SQL Database는 다음과 같은 다양 한 유형의 응용 프로그램을 위해 설계 된 세 가지 서비스 계층을 제공 합니다.
+- 일반적인 작업을 위해 설계 된 범용 [/표준](sql-database-service-tier-general-purpose.md) 서비스 계층입니다. 예산 중심의 균형 잡힌 컴퓨팅 및 스토리지 옵션을 제공합니다.
+- 트랜잭션 전송률이 높고 대기 시간이 가장 낮은 OLTP 응용 프로그램용으로 설계 된 [중요 비즈니스용/프리미엄](sql-database-service-tier-business-critical.md) 서비스 계층입니다. 다수의 격리된 복제본을 사용하여 장애에 대해 최고의 복원력을 제공합니다.
+- 매우 큰 OLTP 데이터베이스용으로 설계 된 [대규모로 확장 된 서비스 계층](sql-database-service-tier-hyperscale.md) 및 저장소의 크기를 자동으로 조정 하 고 계산 유동적으로를 확장 하는 기능입니다. 
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>리소스 사용률 극대화를 위한 탄력적 풀
 
