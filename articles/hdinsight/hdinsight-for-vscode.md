@@ -298,14 +298,14 @@ Python 작업을 제출한 후 전송 로그가 Visual Studio Code의 **출력**
     | args | 응용 프로그램에 대 한 명령줄 인수 | 문자열 목록 |
     | jars | 이 세션에서 사용할 jar | 문자열 목록 | 
     | pyFiles | 이 세션에 사용할 Python 파일 | 문자열 목록 |
-    | 파일 | 이 세션에 사용할 파일입니다. | 문자열 목록 |
+    | files | 이 세션에 사용할 파일입니다. | 문자열 목록 |
     | driverMemory | 드라이버 프로세스에 사용할 메모리의 양 | String |
     | driverCores | 드라이버 프로세스에 사용할 코어 수 | Int |
     | executorMemory | 실행기 프로세스당 사용할 메모리의 양 | String |
     | executorCores | 각 실행기에 사용할 코어 수 | Int |
     | numExecutors | 이 세션에 대해 시작할 실행기 수 | Int |
     | archives | 이 세션에 사용할 아카이브 | 문자열 목록 |
-    | 큐 | 제출할 YARN 큐의 이름입니다.| 문자열 |
+    | queue | 제출할 YARN 큐의 이름입니다.| 문자열 |
     | name | 이 세션의 이름 | 문자열 |
     | conf | Spark 구성 속성 | key=val의 맵 |
 
