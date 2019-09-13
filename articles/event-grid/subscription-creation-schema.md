@@ -35,8 +35,8 @@ PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Micro
 
 | 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
-| 대상 | 개체(object) | 엔드포인트를 정의하는 개체입니다. |
-| filter | 개체(object) | 이벤트 유형을 필터링하기 위한 선택적 필드입니다. |
+| destination | object | 엔드포인트를 정의하는 개체입니다. |
+| filter | object | 이벤트 유형을 필터링하기 위한 선택적 필드입니다. |
 
 ### <a name="destination-object"></a>대상 개체
 
