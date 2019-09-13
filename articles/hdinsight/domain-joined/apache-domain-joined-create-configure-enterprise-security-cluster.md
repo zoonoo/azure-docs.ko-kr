@@ -308,10 +308,10 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
         | Source port ranges | * |
         | Destination | Any |
         | Destination port range | 636 |
-        | 프로토콜 | Any |
+        | Protocol | Any |
         | Action | Allow |
         | Priority | \<Desired Number\> |
-        | 이름 | Port_LDAP_636 |
+        | Name | Port_LDAP_636 |
 
     ![인바운드 보안 규칙](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
 
