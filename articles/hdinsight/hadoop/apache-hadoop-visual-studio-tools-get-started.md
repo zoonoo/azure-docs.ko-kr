@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 7a243dd0eca179317309438c31c114c94f94bf00
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 706bcbed39ca2a3fe0a38eba864edb863c31b4ec
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736425"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70884054"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Data Lake Tools for Visual Studio를 사용하여 Azure HDInsight에 연결 및 Apache Hive 쿼리 실행
 
@@ -46,7 +46,7 @@ Data Lake Tools for Visual Studio를 사용하여 Azure Data Lake Analytics 및 
 
   기존 설치의 경우 메뉴 모음에서 **도구** > **도구 및 기능 가져오기** ...로 이동 하 여 Visual Studio 설치 관리자을 엽니다.  그런 다음, 최소한의 작업 **Azure 개발** 또는 **데이터 저장 및 처리를**선택 합니다.
 
-  ![Visual Studio 설치 관리자 스크린샷](./media/apache-hadoop-visual-studio-tools-get-started/vs2017_installation.png)
+  ![Visual Studio 설치 관리자 스크린샷](./media/apache-hadoop-visual-studio-tools-get-started/vs-2017-installation.png)
 
 * Visual Studio 2013 및 2015  
   [Data Lake 도구를 다운로드](https://www.microsoft.com/download/details.aspx?id=49504)합니다. Visual Studio 버전과 일치하는 Data Lake Tools 버전을 선택하세요.  
@@ -195,13 +195,13 @@ Hive 쿼리를 만들고 실행하기 위한 두 가지 옵션이 있습니다.
 
       **대화형** 이 선택 되어 있는지 확인 하 고 **실행**을 선택 합니다.
 
-      ![쿼리 및 실행 스크린샷](./media/apache-hadoop-visual-studio-tools-get-started/execute.png)  
+      ![쿼리 및 실행 스크린샷](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-query-execute.png)  
 
     * **일괄 처리**  
 
       **일괄 처리** 가 선택 되어 있는지 확인 한 다음 **제출**을 선택 합니다.  고급 제출 옵션을 선택 하는 경우 스크립트에 대 한 **작업 이름**, **인수**, **추가 구성**및 **상태 디렉터리** 를 구성 합니다.
 
-      ![쿼리 및 일괄 처리 스크린샷](./media/apache-hadoop-visual-studio-tools-get-started/batch.png)  
+      ![쿼리 및 일괄 처리 스크린샷](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-query-batch.png)  
 
       ![HDInsight Hadoop Hive 쿼리의 스크린샷](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-submit-jobs-advanced.png "쿼리 제출")
 
@@ -224,7 +224,7 @@ Hive 솔루션을 만들고 실행하려면,
 
 작업 요약은 **일괄 처리** 모드와 **대화형** 모드에서 약간 다릅니다.
 
-![작업 요약](./media/apache-hadoop-visual-studio-tools-get-started/jobSummary.png "Hive 작업 요약")
+![작업 요약](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-job-summary.png "Hive 작업 요약")
 
 작업 상태가 **완료**로 변경 될 때까지 **새로 고침** 단추를 사용 하 여 상태를 업데이트 합니다.  
 
@@ -232,7 +232,7 @@ Hive 솔루션을 만들고 실행하려면,
 
 * **대화형** 모드의 작업 세부 정보는 tabs **Output** and **HiveServer2 output**을 참조 하세요.
 
-  ![작업 세부 정보](./media/apache-hadoop-visual-studio-tools-get-started/tabs.png "Hive 작업 세부 정보")
+  ![작업 세부 정보](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-job-details.png "Hive 작업 세부 정보")
 
 ### <a name="view-job-graph"></a>작업 그래프 보기
 

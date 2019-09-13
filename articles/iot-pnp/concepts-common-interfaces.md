@@ -3,16 +3,16 @@ title: 공통 인터페이스-IoT 플러그 앤 플레이 미리 보기 | Micros
 description: IoT 플러그 앤 플레이 개발자를 위한 일반적인 인터페이스 설명
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 07/16/2019
+ms.date: 09/08/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5a5aeac06ccf31e88a8ec670e57b22e753553ff5
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 2eae778230fa5fce1be095106a02b2b643ff436e
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114260"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70935335"
 ---
 # <a name="iot-plug-and-play-preview-common-interfaces"></a>IoT 플러그 앤 플레이 미리 보기 공통 인터페이스
 
@@ -20,7 +20,7 @@ ms.locfileid: "70114260"
 
 ## <a name="summary-of-common-interfaces"></a>공용 인터페이스 요약
 
-| 이름 | ID | 설명 | Azure IoT SDK에 의해 구현 됨 | 기능 모델에서 선언 해야 합니다. |
+| 이름 | ID | Description | Azure IoT SDK에 의해 구현 됨 | 기능 모델에서 선언 해야 합니다. |
 | -------- | -------- | -------- | -------- | -------- | -------- |
 | 모델 정보 | urn: azureiot: ModelDiscovery: Modeldiscovery: 1 | 장치에서 기능 모델 ID 및 인터페이스를 선언 합니다. 모든 IoT 플러그 앤 플레이 장치에 필요 합니다. | 예 | 아니요 |
 | 디지털 쌍 클라이언트 SDK 정보 | urn: azureiot: 클라이언트: SDKInformation: 1 | Azure에 장치를 연결 하기 위한 클라이언트 SDK [인증](tutorial-build-device-certification.md) 에 필요 | 예 | 아니요 |
@@ -38,11 +38,11 @@ ms.locfileid: "70114260"
 Azure CLI에 대 한 Azure IoT 확장을 사용 하 여 공용 모델 리포지토리에서 공통 인터페이스를 검색할 수 있습니다.
 
 ```cmd/sh
-az iot pnp interface show --interface {InterfaceID} --login {ModelRepoConnectionString}
+az iot pnp interface show --interface {InterfaceID}
 ```
 
 ```cmd/sh
-az iot pnp model show --interface {InterfaceID} --login {ModelRepoConnectionString}
+az iot pnp capability-model show --model {ModelID}
 ```
 
 ### <a name="vs-code"></a>VS Code

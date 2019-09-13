@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: ad619ad965cf4b7d94b781818c658152f71250a7
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: cb5a3b8572cebfd6c0731a9e572e966fda280be6
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595011"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772797"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v3.0
 
@@ -41,7 +41,7 @@ Microsoft Translator Text API에 대한 요청은 대부분 요청이 시작된 
 
 특정 Azure 지리에서 요청을 처리 하도록 강제 하려면 API 요청의 전역 끝점을 원하는 지역 끝점으로 변경 합니다.
 
-|Description|Azure 지리|기준 URL|
+|설명|Azure 지리|기준 URL|
 |:--|:--|:--|
 |Azure|Global (비 지역)|   api.cognitive.microsofttranslator.com|
 |Azure|미국|   api-nam.cognitive.microsofttranslator.com|
@@ -55,7 +55,7 @@ Microsoft Cognitive Services에서 Translator Text API 또는 [Cognitive Service
 
 구독을 인증하는 데 사용할 수 있는 헤더는 세 개가 있습니다. 이 표에 각 사용 방법이 설명되어 있습니다.
 
-|헤더|Description|
+|헤더|설명|
 |:----|:----|
 |Ocp-Apim-Subscription-Key|*비밀 키를 전달하는 경우 Cognitive Services 구독에 사용합니다*.<br/>값은 Translator Text API 구독에 대한 Azure 비밀 키입니다.|
 |Authorization|*인증 토큰을 전달하는 경우 Cognitive Services 구독에 사용합니다*.<br/>값은 전달자 토큰인 `Bearer <token>`입니다.|
@@ -99,7 +99,7 @@ Authorization: Bearer <Base64-access_token>
 
 다중 서비스 텍스트 API 구독에는 지역이 필요 합니다. 선택한 지역은 다중 서비스 구독 키를 사용 하는 경우 텍스트 번역에 사용할 수 있는 유일한 지역 이며 Azure Portal를 통해 다중 서비스 구독에 등록할 때 선택한 것과 동일한 지역 이어야 합니다.
 
-사용 가능한 지역은 `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus` 및 `westus2`입니다.
+사용 가능한 지역은 `australiaeast` `brazilsouth` ,,`centralindia` `centralus`,, ,,`japanwest`,,,,,,입니다. `centraluseuap` `eastasia` `canadacentral` `eastus` `eastus2` `francecentral` `japaneast` ,`koreacentral`,,,,,,,, 및`southafricanorth`가 있습니다. `northcentralus` `northeurope` `southcentralus` `southeastasia` `uksouth` `westcentralus` `westeurope` `westus` `westus2`
 
 `Subscription-Key` 매개 변수를 사용한 쿼리 문자열에 비밀 키를 전달하는 경우 `Subscription-Region` 쿼리 매개 변수를 사용하여 지역을 지정해야 합니다.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2019
 ms.author: mlottner
-ms.openlocfilehash: a8f751d0a40a8d8e1555549c200a9a7ca8ef0661
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: b8100fc78eced9aa26fe185a8d68244d8f665ff2
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600619"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933895"
 ---
 # <a name="security-agent-event-aggregation"></a>보안 에이전트 이벤트 집계
 
@@ -59,6 +59,7 @@ IoT 보안 에이전트에 대 한 Azure Security Center 로컬 장치에서 데
 
 각 이벤트에 대 한 집계 시작 시간, 종료 시간 및 적중 횟수는 조사 중에 사용할 Log Analytics 내의 이벤트 **ExtraDetails** 필드에 기록 됩니다. 
 
+집계 된 각 이벤트는 24 시간 동안 수집 된 경고를 나타냅니다. 각 이벤트의 왼쪽 위에 있는 이벤트 옵션 메뉴를 사용 하 여 각 개별 집계 이벤트를 **해제할** 수 있습니다.    
 
 ## <a name="event-aggregation-twin-configuration"></a>이벤트 집계 쌍 구성
 **Azureiotsecurity** 모듈의 모듈 쌍 id의 [에이전트 구성 개체](how-to-agent-configuration.md) 내에서 IoT 이벤트 집계에 대 한 Azure Security Center 구성을 변경 합니다.

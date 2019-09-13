@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 14fbca6dea735ed1ee13fca20f19379cc2c4d0a9
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 79428520eed95e6e79f29e1676e2711e6ee24087
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742332"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934843"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>SQL Server에 대한 재해 복구 설정
 
@@ -111,7 +111,7 @@ SQL Always On와 같은 일부 BCDR 기술은 기본적으로 테스트 장애 �
 
     ![서버 이름 및 상태를 표시 하는 Content_AG 레이블이 지정 된 창의 스크린샷](./media/site-recovery-sql/bring-listener-online.png)
 
-1. 부하 분산 장치를 만듭니다. 각 가용성 그룹 수신기에 대해 프런트 엔드 IP 풀에서 하나의 IP 주소를 만듭니다. 또한 백 엔드 풀에 SQL Server VM를 추가 합니다.
+1. 장애 조치 (failover) 네트워크의 부하 분산 장치에 각 가용성 그룹 수신기에 해당 하는 프런트 엔드 IP 주소 풀에서 그리고 백 엔드 풀의 SQL Server VM 하나의 IP 주소가 있는지 확인 합니다.
 
      !["SQL-AlwaysOn-LB-프런트 엔드 IP 풀" 이라는 창의 스크린샷](./media/site-recovery-sql/create-load-balancer1.png)
 

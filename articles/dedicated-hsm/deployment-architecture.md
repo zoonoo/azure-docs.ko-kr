@@ -2,8 +2,8 @@
 title: 배포 아키텍처 - Azure Dedicated HSM | Microsoft Docs
 description: 애플리케이션 아키텍처의 일부로 Azure Dedicated HSM을 사용할 때 생각해야 하는 기본적인 설계 고려 사항
 services: dedicated-hsm
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
@@ -11,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2019
-ms.author: barclayn
-ms.openlocfilehash: f078df7677e771d131f15056ac4a54a58a3134bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mbaldwin
+ms.openlocfilehash: 93755ded8f9db27cf8e78079f32e90cccfac2831
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60912291"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883824"
 ---
 # <a name="azure-dedicated-hsm-deployment-architecture"></a>Azure 전용 HSM 배포 아키텍처
 
@@ -29,14 +29,14 @@ Azure Dedicated HSM은 Azure에서 암호화 키 스토리지를 제공합니다
 
 HSM은 Microsoft의 데이터 센터에 분산되며 고가용성 솔루션의 기반이 되는 디바이스 쌍으로 쉽게 프로비전할 수 있습니다. 또한 여러 Azure 지역에 배포하여 재해 복구 솔루션을 구현할 수도 있습니다. 현재 Dedicated HSM을 사용할 수 있는 Azure 지역은 다음과 같습니다.
 
-* 미국 동부
+* East US
 * 미국 동부 2
 * 미국 서부
 * 미국 중남부
 * 동남아시아
-* 동아시아
+* 아시아 동부
 * 유럽 북부
-* 서유럽
+* 유럽 서부
 * 영국 남부
 * 영국 서부
 * 캐나다 중부

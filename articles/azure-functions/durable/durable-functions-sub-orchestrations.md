@@ -7,18 +7,18 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 09/07/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 868efad58e14fd817729f0aa9ac785bc0f960867
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 74f33a1ce1026424a6cdb97699223aeb5ff8277f
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087024"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933140"
 ---
 # <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>지속성 함수의 하위 오케스트레이션(Azure Functions)
 
-오케스트레이터 함수는 작업 함수를 호출하는 것 외에도 다른 오케스트레이터 함수를 호출할 수 있습니다. 예를 들어 오케스트레이터 함수 라이브러리에서 더 큰 오케스트레이션을 작성할 수 있습니다. 또는 오케스트레이터 함수의 여러 인스턴스를 병렬로 실행할 수 있습니다.
+오케스트레이터 함수는 활동 함수를 호출하는 것 외에도 다른 오케스트레이터 함수를 호출할 수 있습니다. 예를 들어 오케스트레이터 함수 라이브러리에서 더 큰 오케스트레이션을 작성할 수 있습니다. 또는 오케스트레이터 함수의 여러 인스턴스를 병렬로 실행할 수 있습니다.
 
 오케스트레이터 함수는 .NET에서 [CallSubOrchestratorAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorAsync_) 또는 [CallSubOrchestratorWithRetryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorWithRetryAsync_) 메서드를 호출하거나 JavaScript에서 `callSubOrchestrator` 또는 `callSubOrchestratorWithRetry` 메서드를 호출하여 다른 오케스트레이터 함수를 호출할 수 있습니다. [오류 처리 및 보정](durable-functions-error-handling.md#automatic-retry-on-failure) 문서에서는 자동 다시 시도에 대해 자세히 설명하고 있습니다.
 
@@ -118,7 +118,10 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+> [!NOTE]
+> 하위 오케스트레이션은 부모 오케스트레이션과 동일한 함수 앱에서 정의 되어야 합니다. 를 호출 하 고 다른 함수 앱에서 오케스트레이션을 대기 해야 하는 경우 HTTP Api 및 HTTP 202 폴링 소비자 패턴에 대 한 기본 제공 지원을 사용 하는 것이 좋습니다. 자세한 내용은 [HTTP 기능](durable-functions-http-features.md) 항목을 참조 하세요.
+
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [작업 허브 정의 및 구성](durable-functions-task-hubs.md)
+> [사용자 지정 오케스트레이션 상태를 설정 하는 방법 알아보기](durable-functions-custom-orchestration-status.md)

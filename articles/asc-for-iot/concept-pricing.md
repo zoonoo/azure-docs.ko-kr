@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 603df1def011232ad2120c37ad1ba256f2a30526
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: e742848df56e4e2be1b9edf42586e642f0c938cb
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596525"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933798"
 ---
 # <a name="pricing-and-associated-costs"></a>가격 책정 및 관련 비용
 
@@ -55,7 +55,7 @@ IoT에 대 한 Azure Security Center에는 다음과 같은 두 가지 유형의
 
 2. **보안**에서 **개요**를 클릭 합니다.
 
-3.           **설정**을 클릭합니다.
+3. **설정**을 클릭합니다.
 
 다음 표에서는 각 옵션의 관련 비용 및 의미에 대 한 요약을 제공 합니다.
 
@@ -66,9 +66,10 @@ IoT에 대 한 Azure Security Center에는 다음과 같은 두 가지 유형의
 | **Log Analytics 저장소** |  |
 | 장치 권장 사항 및 경고| 서비스에서 생성 하는 보안 권장 사항 및 경고 | 선택 사항 아님 |
 | 원시 보안 데이터| IoT 장치에서 보안 에이전트로 수집 된 원시 보안 데이터 | _원시 장치 보안 이벤트 저장_ 사용 안 함 |
+|
 
 >[!Important]
-> 옵트아웃은 사용 가능한 보안 기능에 심각한 영향을 미칩니다.
+> 옵트아웃은 IoT 보안 기능 가용성에 대 한 Azure Security Center에 심각한 영향을 미칩니다. 
   
 | 옵트아웃 | 관련성 |
 | --- | --- |

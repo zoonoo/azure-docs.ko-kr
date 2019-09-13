@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: ffc6ea447ae90649be0455abbed6245c078e518d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 18031400155b92f243877ae8c8d7a56e1d5295a0
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596349"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933637"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>IoT 장치에서 보안 에이전트 선택 및 배포
 
@@ -78,7 +78,7 @@ C 기반 보안 에이전트는 메모리 사용 공간이 적고 사용 가능�
 
 - X64 아키텍처를 사용 하는 Linux 배포를 사용 하 고 있나요?
 
-    두 에이전트 버전을 사용할 수 있습니다. <br>
+    두 에이전트의 버전을 모두 사용할 수 있습니다. <br>
     [Linux 용 C 기반 보안 에이전트를 배포](how-to-deploy-linux-c.md) 하거나 [linux 용 기반 보안 에이전트 C#를 배포](how-to-deploy-linux-cs.md)합니다.
 
 두 에이전트 모두 동일한 기능 집합을 제공 하 고 유사한 구성 옵션을 지원 합니다.
@@ -97,7 +97,7 @@ C 기반 보안 에이전트는 메모리 사용 공간이 적고 사용 가능�
 |C#|Ubuntu 18.04    |X64|
 |C#|Debian 9    |X64|
 |C#|Windows Server 2016|    X64|
-|C#|Windows 10 IoT Core 빌드 17763 |X64|
+|C#|Windows 10 IoT Core, 빌드 17763    |X64|
 |
 
 ## <a name="next-steps"></a>다음 단계

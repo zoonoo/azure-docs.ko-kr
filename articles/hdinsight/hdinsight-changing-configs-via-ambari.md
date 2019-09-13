@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5c533c3b0005528eae646744e8e720e2c54436e1
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
-ms.translationtype: HT
+ms.openlocfilehash: d34cb7b8bfae14c25950cc4d77c6625c675e813b
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70880282"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934548"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Apache Ambari를 사용하여 HDInsight 클러스터 구성 최적화
 
@@ -23,7 +23,7 @@ Ambari Web UI 사용에 대한 소개는 [Apache Ambari Web UI를 사용하여 H
 
 `https://CLUSTERNAME.azurehdidnsight.net`에서 클러스터 자격 증명을 사용하여 Ambari에 로그인합니다. 초기 화면에 개요 대시보드가 표시됩니다.
 
-![Ambari 대시보드](./media/hdinsight-changing-configs-via-ambari/ambari-dashboard.png)
+![Ambari 대시보드](./media/hdinsight-changing-configs-via-ambari/apache-ambari-dashboard.png)
 
 Ambari 웹 UI는 호스트, 서비스, 경고, 구성 및 보기를 관리하는 데 사용됩니다. HDInsight 클러스터 생성, 서비스 업그레이드, 스택 및 버전 관리, 호스트 서비스 해제 또는 재승인, 클러스터에 서비스 추가 등의 작업에는 Ambari를 사용할 수 없습니다.
 
@@ -31,7 +31,7 @@ Ambari 웹 UI는 호스트, 서비스, 경고, 구성 및 보기를 관리하는
 
 구성 설정은 특정 서비스를 조정하는 데 도움이 됩니다. 서비스의 구성 설정을 수정하려면 **서비스** 사이드바(왼쪽)에서 서비스를 선택한 다음 서비스 세부 정보 페이지에서 **Configs**(구성) 탭으로 이동합니다.
 
-![서비스 사이드바](./media/hdinsight-changing-configs-via-ambari/services-sidebar.png)
+![서비스 사이드바](./media/hdinsight-changing-configs-via-ambari/ambari-services-sidebar.png)
 
 ### <a name="modify-namenode-java-heap-size"></a>NameNode Java 힙 크기 수정
 
@@ -41,15 +41,15 @@ NameNode Java 힙 크기를 수정하려면:
 
 1. 서비스 사이드바에서 **HDFS**를 선택하고 **Configs**(구성) 탭으로 이동합니다.
 
-    ![HDFS 구성](./media/hdinsight-changing-configs-via-ambari/hdfs-config.png)
+    ![HDFS 구성](./media/hdinsight-changing-configs-via-ambari/ambari-apache-hdfs-config.png)
 
 1. **NameNode Java heap size**(NameNode Java 힙 크기) 설정을 찾습니다. **필터** 텍스트 상자에 특정 설정을 입력하여 찾을 수도 있습니다. 설정 이름 옆에 있는 **펜** 아이콘을 선택합니다.
 
-    ![NameNode Java 힙 크기](./media/hdinsight-changing-configs-via-ambari/java-heap-size.png)
+    ![NameNode Java 힙 크기](./media/hdinsight-changing-configs-via-ambari/ambari-java-heap-size.png)
 
 1. 텍스트 상자에 새 값을 입력한 다음 **Enter** 키를 눌러 변경 내용을 저장합니다.
 
-    ![NameNode Java heap 고 있습니다 편집](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit.png)
+    ![NameNode Java heap 고 있습니다 편집](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit1.png)
 
 1. NameNode Java 힙 크기는 2gb에서 1gb로 변경 됩니다.
 
@@ -57,7 +57,7 @@ NameNode Java 힙 크기를 수정하려면:
 
 1. 구성 화면 위쪽에서 **저장** 단추를 클릭하여 변경 내용을 저장합니다.
 
-    ![변경 내용 저장](./media/hdinsight-changing-configs-via-ambari/save-changes.png)
+    ![변경 내용 저장](./media/hdinsight-changing-configs-via-ambari/ambari-save-changes1.png)
 
 ## <a name="apache-hive-optimization"></a>Apache Hive 최적화
 
@@ -72,11 +72,11 @@ Hive는 [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_t
 
 1. Hive **Configs**(구성) 탭의 필터 상자에 **실행 엔진**을 입력합니다.
 
-    ![검색 실행 엔진](./media/hdinsight-changing-configs-via-ambari/search-execution.png)
+    ![검색 실행 엔진](./media/hdinsight-changing-configs-via-ambari/ambari-search-execution.png)
 
 1. **Optimization**(최적화) 속성의 기본값은 **Tez**입니다.
 
-    ![최적화 - Tez](./media/hdinsight-changing-configs-via-ambari/optimization-tez.png)
+    ![최적화 - Tez](./media/hdinsight-changing-configs-via-ambari/optimization-apache-tez.png)
 
 ### <a name="tune-mappers"></a>매퍼 조정
 
@@ -93,7 +93,7 @@ Hadoop은 단일 파일을 여러 파일로 분할(*매핑*)하여 생성되는 
 
 1. 두 매개 변수를 모두 **33,554,432** 바이트(32MB)로 설정합니다.
 
-    ![Tez 그룹화 크기](./media/hdinsight-changing-configs-via-ambari/tez-grouping-size.png)
+    ![Tez 그룹화 크기](./media/hdinsight-changing-configs-via-ambari/apache-tez-grouping-size.png)
  
 이러한 변화는 서버의 모든 Tez 작업에 영향을 미칩니다. 최적의 결과를 내려면 적절한 매개 변수 값을 선택합니다.
 
@@ -109,7 +109,7 @@ Hadoop은 단일 파일을 여러 파일로 분할(*매핑*)하여 생성되는 
 
 1. 매개 변수를 수정하려면 Hive **Configs**(구성) 탭으로 이동하고 설정 페이지에서 **Data per Reducer**(리듀서당 데이터) 매개 변수를 찾습니다.
 
-    ![리듀서당 데이터](./media/hdinsight-changing-configs-via-ambari/data-per-reducer.png)
+    ![리듀서당 데이터](./media/hdinsight-changing-configs-via-ambari/ambari-data-per-reducer.png)
  
 1. **편집**을 선택하여 값을 128MB(134,217,728바이트)로 수정한 다음 **Enter**를 눌러 저장합니다.
 
@@ -127,7 +127,7 @@ Hive 쿼리는 하나 이상의 단계에서 실행됩니다. 독립적인 단�
  
 1.  동시에 실행 되는 작업 수를 제한 하려면 `hive.exec.parallel.thread.number` 속성을 수정 합니다. 기본값은 8입니다.
 
-    ![Hive 병렬 실행](./media/hdinsight-changing-configs-via-ambari/hive-exec-parallel.png)
+    ![Hive 병렬 실행](./media/hdinsight-changing-configs-via-ambari/apache-hive-exec-parallel.png)
 
 
 ### <a name="enable-vectorization"></a>벡터화 사용
@@ -181,7 +181,7 @@ Hadoop 작업은 일반적으로 I/O 병목 상태가 됩니다. 데이터를 �
 | Gzip | Gzip | DEFLATE | .gz | 아니요 |
 | Bzip2 | Bzip2 | Bzip2 |.bz2 | 예 |
 | LZO | Lzop | LZO | .lzo | 예(인덱싱된 경우) |
-| Snappy | N/A | Snappy | Snappy | 아니요 |
+| Snappy | 해당 사항 없음 | Snappy | Snappy | 아니요 |
 
 일반적으로 분할 가능한 압축 방법이 있는 것이 중요합니다. 그렇지 않으면 매우 적은 수의 매퍼가 생성됩니다. 입력 데이터가 텍스트인 경우 `bzip2`가 최고 옵션입니다. ORC 형식의 경우 Snappy가 가장 빠른 압축 옵션입니다.
 
@@ -373,7 +373,7 @@ HBase 힙 크기는 *영역* 및 *마스터* 서버에서 사용할 최대 힙 �
 
 1. 기본값을 5,000MB로 변경합니다.
 
-    ![HBASE_HEAPSIZE](./media/hdinsight-changing-configs-via-ambari/hbase-heapsize.png)
+    ![HBASE_HEAPSIZE](./media/hdinsight-changing-configs-via-ambari/ambari-hbase-heapsize.png)
 
 
 ### <a name="optimize-read-heavy-workloads"></a>읽기 작업이 많은 워크로드 최적화

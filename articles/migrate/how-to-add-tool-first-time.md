@@ -1,77 +1,86 @@
 ---
-title: Azure Migrate에서 처음으로 평가/마이그레이션 도구에 추가 | Microsoft Docs
-description: Azure Migrate 프로젝트를 만들고 평가/마이그레이션 도구에 추가 하는 방법을 설명 합니다.
+title: Azure Migrate에서 처음으로 평가/마이그레이션 도구를 추가 합니다. | Microsoft Docs
+description: Azure Migrate 프로젝트를 만들고 평가/마이그레이션 도구를 추가 하는 방법을 설명 합니다.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/09/2019
 ms.author: raynew
-ms.openlocfilehash: b226f7c5879673b573133cde45db78d8d1f2fffa
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: bd119956ced79b73b0376fe4530c9eafaf870238
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67812026"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934171"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>처음으로 평가/마이그레이션 도구에 추가
 
-이 문서에서는 평가 또는 마이그레이션 도구를 추가 하는 방법에 설명 합니다는 [Azure Migrate](migrate-overview.md) 처음에 대 한 프로젝트입니다.  
-Azure Migrate 검색, 평가 및 온-프레미스 앱 및 워크 로드 및 사설/공용 클라우드 Vm에서 Azure로 마이그레이션을 추적 하는 중앙 허브를 제공 합니다. 다른 공급 업체, 독립 소프트웨어 공급 업체 (ISV) 뿐만 아니라 평가 및 마이그레이션을 위한 Azure Migrate 도구를 제공 하는 허브 [제품](migrate-services-overview.md#isv-integration) 합니다. 
+이 문서에서는 [Azure Migrate](migrate-overview.md) 프로젝트에 평가 또는 마이그레이션 도구를 처음으로 추가 하는 방법을 설명 합니다.  
+Azure Migrate는 Azure에 대 한 온-프레미스 앱 및 워크 로드 및 사설/공용 클라우드 Vm의 검색, 평가 및 마이그레이션을 추적 하는 중앙 허브를 제공 합니다. 허브는 평가 및 마이그레이션과 타사 ISV (독립 소프트웨어 공급 업체) [제품](migrate-services-overview.md#isv-integration) 에 대 한 Azure Migrate 도구를 제공 합니다. 
 
-## <a name="create-a-project-and-add-a-tool"></a>프로젝트를 만들고 도구 추가
+## <a name="create-a-project-and-add-a-tool"></a>프로젝트 만들기 및 도구 추가
 
 Azure 구독에 새 Azure Migrate 프로젝트를 설정 하 고 도구를 추가 합니다.
 
-- Azure Migrate 프로젝트를 검색, 평가 및 평가 또는 마이그레이션 중인 환경에서 수집 하는 마이그레이션 메타 데이터 저장에 사용 됩니다. 
-- 프로젝트에서 검색 된 자산을 추적 하 고 평가 및 마이그레이션 작업을 조정 합니다.
+- Azure Migrate 프로젝트는 평가 하거나 마이그레이션하는 환경에서 수집 된 검색, 평가 및 마이그레이션 메타 데이터를 저장 하는 데 사용 됩니다. 
+- 프로젝트에서 검색 된 자산을 추적 하 고 평가 및 마이그레이션을 오케스트레이션 할 수 있습니다.
 
-1. Azure portal에서 > **모든 서비스**, 검색할 **Azure Migrate**합니다.
-2. 아래 **Services**를 선택 **Azure Migrate**합니다.
+1. Azure Portal > **모든 서비스**에서 **Azure Migrate**를 검색합니다.
+2. **서비스** 아래에서 **Azure Migrate**를 선택합니다.
 
-    ![Azure Migrate를 설정합니다](./media/how-to-add-tool-first-time/azure-migrate-search.png)
+    ![Azure Migrate 설정](./media/how-to-add-tool-first-time/azure-migrate-search.png)
 
-3. **개요**, 클릭 **평가 서버를 마이그레이션하고**합니다.
-4. 아래 **검색 및 평가 하 고 서버를 마이그레이션하려면**, 클릭 **평가 서버를 마이그레이션하고**합니다.
+3. **개요**에서 **서버 평가 및 마이그레이션**을 클릭합니다.
+4. **서버 검색, 평가 및 마이그레이션** 아래에서 **서버 평가 및 마이그레이션**을 클릭합니다.
 
-    ![검색 및 서버를 평가 합니다.](./media/how-to-add-tool-first-time/assess-migrate.png)
+    ![서버 검색 및 평가](./media/how-to-add-tool-first-time/assess-migrate.png)
 
-1. **검색 및 평가 하 고 서버를 마이그레이션하려면**, 클릭 **도구 추가**합니다.
-2. **마이그레이션 프로젝트**, Azure 구독을 선택 하 고 없는 경우 리소스 그룹을 만듭니다.
-3. **프로젝트 세부 정보**, 프로젝트 이름과 프로젝트를 만들려고 할 수 있는 지리적 위치를 지정 합니다. 
+1. **서버 검색, 평가 및 마이그레이션**에서 **도구 추가**를 클릭합니다.
+2. **프로젝트 마이그레이션**에서 Azure 구독을 선택하고, 아직 없는 경우 리소스 그룹을 만듭니다.
+3. 프로젝트 **세부 정보**에서 프로젝트 이름을 지정 하 고 프로젝트를 만들려는 geography를 지정 합니다. 
 
     ![Azure Migrate 프로젝트 만들기](./media/how-to-add-tool-first-time/migrate-project.png)
 
-    이러한 지역에서 Azure Migrate 프로젝트를 만들 수 있습니다.
+    Azure Migrate 프로젝트는 다음 지역 중 하나에서 만들 수 있습니다.
 
-    **Geography** | **저장소 위치 지역**
+   **Geography** | **저장소 위치 영역**
     --- | ---
-    아시아 | 동남 아시아 또는 동아시아
-    Europe | 남부 유럽 또는 유럽 서 부
-    영국 | 영국 남부 또는 영국 서 부
-    미국 | 미국 중서부 또는 미국 서 부 2
+    아시아   | 동남 아시아 또는 동아시아
+    Europe | 북유럽 또는 유럽 서부
+    일본  | 일본 동부 또는 일본 서 부
+    영국 | 영국 남부 또는 영국 서부
+    미국 | 미국 중부 또는 미국 서 부 2
+    캐나다 | 캐나다 중부
+    인도  | 인도 중부 또는 인도 남부
+    오스트레일리아 | 오스트레일리아 남동쪽
 
-    프로젝트에 대해 지정된 지리는 온-프레미스 VM에서 수집된 메타데이터를 저장하는 데 사용됩니다. 실제 마이그레이션에 대 한 모든 대상 지역을 선택할 수 있습니다.
+    프로젝트에 대해 지정된 지리는 온-프레미스 VM에서 수집된 메타데이터를 저장하는 데 사용됩니다. 실제 마이그레이션에 대한 대상 지역을 선택할 수 있습니다.
 
-4. 클릭 **다음**, 평가 또는 마이그레이션 도구를 추가 합니다.
+    마이그레이션 프로젝트 및 관련 리소스를 배포 하기 위해 지리 내에 특정 영역을 지정 하려는 경우 (구독의 정책 제한으로 인해 특정 Azure 지역에만 Azure 리소스를 배포할 수 있음) 아래 API를 사용할 수 있습니다. 마이그레이션 프로젝트를 만듭니다. 구독 ID, 리소스 그룹 이름, 위치와 함께 마이그레이션 프로젝트 이름 (Azure Migrate 배포 되는 테이블에 언급 된 모든 Azure 지역)을 지정 합니다.
+
+    `PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/MigrateProjects/<mymigrateprojectname>?api-version=2018-09-01-preview "{location: 'centralus', properties: {}}"`   
+
+
+4. **다음**을 클릭 하 고 평가 또는 마이그레이션 도구를 추가 합니다.
 
     > [!NOTE]
     > 프로젝트를 만들 때 하나 이상의 평가 또는 마이그레이션 도구를 추가 해야 합니다.
 
-5. **선택 평가 도구**, 평가 도구에 추가 합니다. 평가 도구는 필요 하지 않으면, 선택 **지금은 평가 도구를 추가 하지 않고 건너뛰거나** > **다음**합니다. 
-2. **선택 마이그레이션 도구**, 필요에 따라 마이그레이션 도구를 추가 합니다. 마이그레이션 도구를 지금 바로 필요 하지 않으면, 선택 **이제 마이그레이션 도구를 추가 하지 않고 건너뛰거나** > **다음**합니다.
-3. **검토 도구 추가 +** 설정을 검토 하 고 클릭 **도구 추가**합니다.
+5. **평가 도구 선택**에서 평가 도구를 추가 합니다. 평가 도구가 필요 하지 않은 경우 > 지금**다음** **에 대 한 평가 도구 추가 건너뛰기**를 선택 합니다. 
+2. **마이그레이션 도구 선택**에서 필요에 따라 마이그레이션 도구를 추가 합니다. 지금은 마이그레이션 도구가 필요 하지 않은 경우 >  **지금 마이그레이션 도구 추가 건너뛰기**를**선택 합니다.**
+3. **검토 + 도구 추가**에서 설정을 검토 하 고 **도구 추가**를 클릭 합니다.
 
-프로젝트를 만든 후 서버 및 워크 로드, 데이터베이스 및 웹 앱의 마이그레이션하고 평가 위한 추가 도구를 선택할 수 있습니다.
+프로젝트를 만든 후에는 서버와 작업, 데이터베이스 및 웹 앱의 평가 및 마이그레이션을 위한 추가 도구를 선택할 수 있습니다.
 
 ## <a name="create-additional-projects"></a>추가 프로젝트 만들기
 
-경우에 따라 추가 Azure Migrate 프로젝트를 만드는 해야 합니다. 예를 들어 서로 다른 지역 데이터 센터에 또는 다른 지역에 메타 데이터를 저장 해야 합니다. 다음과 같이 추가 프로젝트를 만듭니다.
+경우에 따라 Azure Migrate 프로젝트를 추가로 만들어야 할 수도 있습니다. 예를 들어 다른 지역에 데이터 센터가 있거나 다른 지리에 메타 데이터를 저장 해야 하는 경우입니다. 다음과 같이 추가 프로젝트를 만듭니다.
 
-1. 현재 Azure Migrate 프로젝트에서 클릭 **서버** 하거나 **데이터베이스**합니다.
-2. 오른쪽 위 모퉁이에서 클릭 **변경** 현재 프로젝트 이름 옆에 있습니다.
-3. **설정을**를 선택 **새 프로젝트를 만들려면 여기를 클릭 하십시오.** 합니다.
-4. 새 프로젝트를 만들고 이전 절차에 설명 된 대로 새 도구를 추가 합니다.
+1. 현재 Azure Migrate 프로젝트에서 **서버** 또는 **데이터베이스**를 클릭 합니다.
+2. 오른쪽 위 모서리에서 현재 프로젝트 이름 옆의 **변경** 을 클릭 합니다.
+3. **설정**에서 **새 프로젝트를 만들려면 여기를 클릭**하십시오 .를 선택 합니다.
+4. 이전 절차에 설명 된 대로 새 프로젝트를 만들고 새 도구를 추가 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-더 추가 하는 방법을 알아봅니다 [평가](how-to-assess.md) 하 고 [마이그레이션](how-to-migrate.md) 도구입니다. 
+[평가](how-to-assess.md) 및 [마이그레이션](how-to-migrate.md) 도구를 추가 하는 방법에 대해 알아봅니다. 

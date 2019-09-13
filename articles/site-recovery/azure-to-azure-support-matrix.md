@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/06/2019
+ms.date: 09/12/2019
 ms.author: raynew
-ms.openlocfilehash: dc98a0ab47e269aa99f21d3f10952cdabe2c897f
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 950ad6d5f55186b63f879bac3f0675c501b57276
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736033"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934445"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>한 지역에서 다른 지역으로 Azure VM 복제를 위한 지원 매트릭스
 
@@ -72,6 +72,7 @@ Azure Government    | US Gov 버지니아, US Gov 아이오와, US Gov 애리조
 **설정** | **지원** | **세부 정보**
 --- | --- | ---
 범용 V2 스토리지 계정(핫 및 쿨 계층) | 지원됨 | V 2에 대 한 트랜잭션 비용은 V1 저장소 계정 보다 훨씬 더 GPv2 사용 하지 않는 것이 좋습니다.
+Premium Storage | 지원되지 않음 | 표준 저장소 계정은 캐시 저장소에 사용 되며 비용을 최적화 하는 데 도움이 됩니다.
 가상 네트워크의 Azure Storage 방화벽  | 지원됨 | 방화벽 지원 캐시 스토리지 계정 또는 대상 스토리지 계정을 사용하는 경우 ['신뢰할 수 있는 Microsoft 서비스 허용'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)을 선택해야 합니다.
 
 

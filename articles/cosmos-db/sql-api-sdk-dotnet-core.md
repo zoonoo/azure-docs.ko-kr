@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 1b1e9338f92aaefab8e7754139066ac03e8b8213
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: c39db870e44d4e810817b70e2793b8805088180e
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142628"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932537"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>SQL API에 대한 Azure Cosmos DB .NET Core SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -44,6 +44,11 @@ ms.locfileid: "70142628"
 
 > [!NOTE]
 > .NET Core를 사용 하는 경우 .NET Standard를 대상으로 하는 [.NET SDK](sql-api-sdk-dotnet-standard.md)의 최신 버전을 참조 하세요. 
+
+### <a name="a-name260260"></a><a name="2.6.0"/>2.6.0
+
+* ConnectionPolicy에 PortReusePolicy 추가 됨
+* Ntdll.dll를 수정 했습니다. UWP 앱에서 SDK를 사용할 때 RtlGetVersion TypeLoadException 문제
 
 ### <a name="a-name251251"></a><a name="2.5.1"/>2.5.1
 
@@ -259,7 +264,7 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 사용 중지된 SDK를 사용하는 Azure Cosmos DB에 대한 요청은 서비스에서 거부됩니다.
 
 > [!WARNING]
-> SQL API 에 대 한 .NET Core SDK의 모든 버전은 **2020 년 8 월 30 일**에 사용 중지 됩니다.
+> SQL API에 대 한 .NET Core SDK의 **모든 버전은** **2020 년 8 월 30 일**에 사용 중지 됩니다.
 > 
 >
 <br/>
@@ -267,6 +272,7 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.6.0](#2.6.0) |2019 년 8 월 30 일 |--- |
 | [2.5.1](#2.5.1) |2019 년 7 월 02 일 |--- |
 | [2.4.1](#2.4.1) |6 월 20 일, 2019 |--- |
 | [2.4.0](#2.4.0) |5 월 5 일, 2019 |--- |

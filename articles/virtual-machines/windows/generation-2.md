@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 05/23/2019
+ms.date: 09/10/2019
 ms.author: lahugh
-ms.openlocfilehash: fd794662ef41112cb04bdfde087253c8abdb6983
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5e342418dc6cc9ed0a3bbbfaad42801d5ffe9e9d
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079374"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900250"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Azure에서 2 세대 Vm (미리 보기)에 대 한 지원
 
@@ -38,14 +38,18 @@ ms.locfileid: "70079374"
 1 세대 Vm은 Azure의 모든 VM 크기에서 지원 됩니다. 이제 Azure는 다음과 같은 선택한 VM 시리즈에 대 한 미리 보기 2 세대 지원을 제공 합니다.
 
 * [B 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/b-series-burstable)
+* [DC 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dc-series)
 * [Dsv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv2-series) 및 [Dsv3 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv3-series-1)
 * [Esv3 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#esv3-series)
 * [Fsv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-compute#fsv2-series-1)
 * [GS-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#gs-series)
+* [HB-시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#hb-series)
+* [HC 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#hc-series)
 * [Ls 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#ls-series) 및 [Lsv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-storage#lsv2-series)
 * [Mv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#mv2-series)
 * [NCv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#ncv2-series) 및 [NCv3 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#ncv3-series)
 * [ND 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#nd-series)
+* [NVv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#nvv3-series--1)
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Azure Marketplace의 2 세대 VM 이미지
 
@@ -55,6 +59,8 @@ ms.locfileid: "70079374"
 * Windows Server 2016 Datacenter
 * Windows Server 2012 R2 Datacenter
 * Windows Server 2012 Datacenter
+* SUSE Linux Enterprise Server 15 SP1
+* SUSE Linux Enterprise Server 12 SP4
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>온-프레미스 및 Azure 2 세대 Vm
 
@@ -121,6 +127,21 @@ Azure Portal 또는 Azure CLI에서는 UEFI 부팅을 지 원하는 Marketplace 
 
 * **1 세대 및 2 세대 Vm 간에 가격 차이가 있나요?**  
    아니요.
+
+* **온-프레미스 2 세대 VM의 .vhd 파일이 있습니다. 이 .vhd 파일을 사용 하 여 Azure에서 2 세대 VM을 만들 수 있나요?**
+  예, 2 세대 .vhd 파일을 Azure로 가져와서이를 사용 하 여 2 세대 VM을 만들 수 있습니다. 이렇게 하려면 다음 단계를 사용 합니다.
+    1. VM을 만들려는 동일한 지역의 저장소 계정에 .vhd를 업로드 합니다.
+    1. .Vhd 파일에서 관리 디스크를 만듭니다. HyperV 생성 속성을 V2로 설정 합니다. 다음 PowerShell 명령은 관리 디스크를 만들 때 HyperV 생성 속성을 설정 합니다.
+
+        ```powershell
+        $sourceUri = 'https://xyzstorage.blob.core.windows.net/vhd/abcd.vhd'. #<Provide location to your uploaded .vhd file>
+        $osDiskName = 'gen2Diskfrmgenvhd'  #<Provide a name for your disk>
+        $diskconfig = New-AzDiskConfig -Location '<location>' -DiskSizeGB 127 -AccountType Standard_LRS -OsType Windows -HyperVGeneration "V2" -SourceUri $sourceUri -CreateOption 'Import'
+        New-AzDisk -DiskName $osDiskName -ResourceGroupName '<Your Resource Group>' -Disk $diskconfig
+        ```
+
+    1. 디스크를 사용할 수 있게 되 면이 디스크를 연결 하 여 VM을 만듭니다. 만든 VM은 2 세대 VM이 됩니다.
+    2 세대 VM을 만들 때 필요에 따라이 VM의 이미지를 일반화할 수 있습니다. 이미지를 일반화 하 여 여러 Vm을 만드는 데 사용할 수 있습니다.
 
 * **OS 디스크 크기를 늘릴 어떻게 할까요? 있나요?**  
   2tb 보다 큰 OS 디스크는 2 세대 Vm에 대 한 새로운 것입니다. 기본적으로 OS 디스크는 2 세대 Vm의 경우 2tb 보다 작습니다. 최대 4 TB까지 디스크 크기를 늘릴 수 있습니다. Azure CLI 또는 Azure Portal를 사용 하 여 OS 디스크 크기를 늘립니다. 디스크를 프로그래밍 방식으로 확장 하는 방법에 대 한 자세한 내용은 [디스크 크기 조정](expand-os-disk.md)을 참조 하세요.

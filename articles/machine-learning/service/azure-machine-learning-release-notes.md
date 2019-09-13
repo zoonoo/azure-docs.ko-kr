@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6aca340994f10bd546a25e577258d90d7b7b1368
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 2721e134e03d3d622e61085dc39a2914098ba570
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860928"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70930734"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 서비스의 릴리스 정보
 
@@ -25,7 +25,7 @@ ms.locfileid: "70860928"
 
 ## <a name="2019-09-09"></a>2019-09-09
 
-### <a name="new-web-experience-for-azure-machine-learning-workspaces-preview"></a>Azure Machine Learning 작업 영역에 대 한 새로운 웹 환경 (미리 보기)
+### <a name="new-web-experience-preview-for-azure-machine-learning-workspaces"></a>Azure Machine Learning 작업 영역에 대 한 새로운 웹 환경 (미리 보기) 
 새로운 웹 환경을 통해 데이터 과학자 및 데이터 엔지니어가 prepping에서 종단 간 기계 학습 수명 주기를 완료 하 고 데이터를 시각화 하 여 단일 위치에서 모델을 학습 하 고 배포할 수 있습니다. 
 
 ![Azure Machine Learning 작업 영역 UI (미리 보기)](./media/azure-machine-learning-release-notes/new-ui-for-workspaces.jpg)
@@ -34,7 +34,7 @@ ms.locfileid: "70860928"
 
 이제이 새로운 Azure Machine Learning 인터페이스를 사용 하 여 다음을 수행할 수 있습니다.
 + 노트북 관리 또는 Jupyter에 연결
-+ 자동화 된 ML 실험 실행
++ [자동화 된 ML 실험 실행](tutorial-first-experiment-automated-ml.md)
 + [로컬 파일, datastores, & 웹 파일에서 데이터 집합 만들기](how-to-create-register-datasets.md)
 + 모델을 만들기 위한 데이터 집합 준비 & 탐색
 + 모델에 대 한 데이터 드리프트 모니터링 
@@ -272,7 +272,7 @@ ms.locfileid: "70860928"
     + 예측 작업에서 매개 변수 `target_lags` 는 이제 단일 정수 값 이나 정수 목록을 허용 합니다. 정수를 제공한 경우에는 한 개의 지연만 생성 됩니다. 목록이 제공 되는 경우에는 고유한 지연 값이 사용 됩니다. target_lags = [1, 2, 2, 4]은 1, 2, 4 기간의 지연 시간을 만듭니다.
     + 변환 후 열 유형 손실에 대 한 버그 수정 (버그 링크)
     + 에서 `model.forecast(X, y_query)`y_query는 begin (#459519)에서 None (s)을 포함 하는 개체 유형이 될 수 있습니다.
-    + Automl output에 예상 값 추가
+    + automl output에 예상 값 추가
   + **azureml-datadrift**
     +  데이터를 보강 때 azureml (azureml)를 포함 하는 예제 노트북의 향상 된 기능-opendatasets 및 성능 향상
   + **azureml-설명-모델**

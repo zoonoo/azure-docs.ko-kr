@@ -9,16 +9,16 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 07/01/2019
-ms.openlocfilehash: 65c1d427939dc39aebece24b923bc4ebfbf136bb
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: ed2ba70b803940700044e900a1b2bb6607c0f051
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861059"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934069"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Azure Logic Apps에서 온-프레미스 데이터 원본에 연결
 
-논리 앱에서 온-프레미스 데이터 원본에 액세스하려면 Azure Portal에서 온-프레미스 데이터 게이트웨이 리소스를 만듭니다. 그러면 논리 앱은 [온-프레미스 커넥터](../logic-apps/logic-apps-gateway-install.md#supported-connections)를 사용할 수 있습니다. 이 문서에서는 [로컬 컴퓨터에서 게이트웨이를 다운로드하여 설치](../logic-apps/logic-apps-gateway-install.md)한 *후* Azure 게이트웨이 리소스를 만드는 방법을 보여 줍니다. 게이트웨이의 작동 방식에 대 한 자세한 내용은 [게이트웨이의 작동](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service)원리를 참조 하세요.
+논리 앱에서 온-프레미스 데이터 원본에 액세스하려면 Azure Portal에서 온-프레미스 데이터 게이트웨이 리소스를 만듭니다. 그러면 논리 앱은 [온-프레미스 커넥터](../connectors/apis-list.md#on-premises-connectors)를 사용할 수 있습니다. 이 문서에서는 [로컬 컴퓨터에 게이트웨이를 다운로드 하 여 설치한](../logic-apps/logic-apps-gateway-install.md) *후* Azure 게이트웨이 리소스를 만드는 방법을 보여 줍니다. 게이트웨이에 대 한 자세한 내용은 [게이트웨이의 작동](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service)원리를 참조 하세요.
 
 > [!TIP]
 > Azure Virtual Network에 연결하려면 대신 [*통합 서비스 환경*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)을 만드는 것을 고려합니다. 
@@ -30,7 +30,28 @@ ms.locfileid: "70861059"
 * [Microsoft PowerApps 온-프레미스 데이터 게이트웨이](https://powerapps.microsoft.com/tutorials/gateway-management/)
 * [Azure Analysis Services 온-프레미스 데이터 게이트웨이](../analysis-services/analysis-services-gateway.md)
 
-## <a name="prerequisites"></a>전제 조건
+<a name="supported-connections"></a>
+
+## <a name="supported-data-sources"></a>지원되는 데이터 원본
+
+Azure Logic Apps 온-프레미스 데이터 게이트웨이는 이러한 데이터 원본에 대 한 온 [-프레미스 커넥터](../connectors/apis-list.md#on-premises-connectors) 를 지원 합니다.
+
+* BizTalk Server 2016
+* 파일 시스템
+* IBM DB2  
+* IBM Informix
+* IBM MQ
+* MySQL
+* Oracle Database
+* PostgreSQL
+* SAP
+* SharePoint Server
+* SQL Server
+* Teradata
+
+게이트웨이 자체는 추가 비용이 발생 하지 않지만 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md) 은 Azure Logic Apps의 이러한 커넥터 및 기타 작업에 적용 됩니다.
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 이미 [로컬 컴퓨터에 온-프레미스 데이터 게이트웨이를 설치](../logic-apps/logic-apps-gateway-install.md)했습니다.
 
@@ -58,7 +79,7 @@ ms.locfileid: "70861059"
 
 1. **연결 게이트웨이 만들기**에서 게이트웨이 리소스에 대해이 정보를 제공 합니다. 완료되면 **만들기**를 선택합니다.
 
-   | 속성 | Description |
+   | 속성 | 설명 |
    |----------|-------------|
    | **리소스 이름** | 문자, 숫자, 하이픈 (`-`), 밑줄 (`_`), 괄호 (`(`, `)`) 및 마침표 (`.`)만 포함할 수 있는 게이트웨이 리소스 이름입니다. |
    | **구독** | Azure 구독-게이트웨이 설치 및 논리 앱과 동일 해야 합니다. 기본 구독은 로그인하는 데 사용한 Azure 계정을 기반으로 합니다. |
@@ -135,6 +156,13 @@ Azure 구독에 연결된 모든 API 연결을 찾으려면:
 <a name="faq"></a>
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
+
+**Q**: Azure에서 게이트웨이 리소스를 만들 때 내 게이트웨이 설치가 보이지 않는 이유는 무엇인가요? <br/>
+**A**: 이 문제는 다음과 같은 이유 때문에 발생할 수 있습니다.
+
+* 게이트웨이 설치가 Azure의 다른 게이트웨이 리소스에 의해 이미 등록되고 클레임되었습니다. 게이트웨이 설치는 게이트웨이 리소스가 만들어진 후에 인스턴스 목록에 나타나지 않습니다. Azure Portal에서 게이트웨이 등록을 확인하려면 *모든* Azure 구독에 대해 **온-프레미스 데이터 게이트웨이** 유형을 사용하여 모든 Azure 리소스를 검토합니다.
+
+* 게이트웨이를 설치한 사용자의 Azure AD ID가 Azure Portal에 로그인한 사용자의 ID와 다릅니다. 게이트웨이를 설치할 때 사용한 것과 동일한 ID로 로그인되어 있는지 확인합니다.
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 

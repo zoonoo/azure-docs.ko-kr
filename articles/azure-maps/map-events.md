@@ -1,22 +1,22 @@
 ---
-title: Azure Maps로 마우스 이벤트 처리 | Microsoft Docs
+title: Azure Maps를 사용 하 여 이벤트 처리 | Microsoft Docs
 description: 지도 이벤트를 사용 하 여 대화형 웹 SDK 맵을 만드는 방법
 author: jingjing-z
 ms.author: jinzh
-ms.date: 07/29/2019
+ms.date: 09/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 37a3fc3178fe5caeacedfd355a6065ee189a5890
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: c5b4ed73d7bc4d89a67280a0bb183f374ae093d8
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976538"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899442"
 ---
-# <a name="interact-with-the-map---mouse-events"></a>맵과 상호 작용 - 마우스 이벤트
+# <a name="interact-with-the-map"></a>맵과 상호 작용
 
 이 문서에서는 map [class events](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?#events) 속성을 사용 하 여 지도의 이벤트와 지도의 여러 계층에 대 한 이벤트를 강조 표시 하는 방법을 보여 줍니다. 또한 map 클래스 events 속성을 사용하여 HTML 표식과 상호 작용할 때 발생하는 이벤트를 강조 표시하는 방법을 보여 줍니다.
 
@@ -46,6 +46,61 @@ ms.locfileid: "68976538"
 
 <iframe height='500' scrolling='no' title='맵 - HTML 표식 이벤트와 상호 작용' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에 의해 펜 <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>맵 - HTML 표식 이벤트와 상호 작용</a>을 참조하세요.
 </iframe>
+
+다음 표에서는 지원 되는 모든 map 클래스 이벤트를 보여 줍니다.
+
+| 이벤트             | Description |
+|-------------------|-------------|
+| boxzoomend        | "상자 확대/축소" 상호 작용이 종료 될 때 발생 합니다.|
+| box확대/시작      | "상자 확대/축소" 조작이 시작 될 때 발생 합니다.|
+| 클릭할             | 포인팅 장치를 눌렀다가 동일한 지점에서 눌렀다 놓을 때 발생 합니다.|
+| 닫기             | 수동으로 또는 프로그래밍 방식으로 팝업을 닫을 때 발생 합니다.|
+| contextmenu       | 마우스 오른쪽 단추를 클릭할 때 발생 합니다.|
+| dataadded 됨         | 데이터 원본에 셰이프를 추가할 때 발생 합니다.|
+| dataremoved 됨       | 데이터 원본에서 셰이프를 제거할 때 발생 합니다.|
+| datasourceupdated 됨 | DataSource 개체가 업데이트 될 때 발생 합니다.|
+| dblclick          | 포인팅 장치를 맵의 동일한 지점에서 두 번 클릭할 때 발생 합니다.|
+| 옵니다              | 지도, 팝업 또는 HTML 표식에서 "위아래로 이동" 하는 동안 반복적으로 발생 합니다.|
+| dragend           | 지도, 팝업 또는 HTML 표식에서 "이동 하기" 상호 작용이 종료 될 때 발생 합니다.|
+| dragstart         | 지도, 팝업 또는 HTML 표식에서 "이동 하기" 상호 작용이 시작 될 때 발생 합니다.|
+| 오류             | 오류가 발생할 때 발생 합니다.|
+| keydown           | 키를 누를 때 발생 합니다.|
+| keypress          | Typable 문자 (ANSI 키)를 생성 하는 키를 누를 때 발생 합니다.|
+| keyup             | 키를 놓을 때 발생 합니다.|
+| layeradded        | 지도에 계층이 추가 될 때 발생 합니다.|
+| 로드              | 필요한 모든 리소스를 다운로드 하 고 처음으로 지도를 시각적으로 완료 한 후 즉시 발생 합니다.|
+| mousedown         | 지도 내에서 포인팅 장치를 누를 때 발생 합니다.|
+| mousemove         | 포인팅 장치를 지도 내에서 이동할 때 발생 합니다.|
+| mouseout          | 지점 장치가 지도의 캔버스를 벗어나면 발생 합니다.|
+| 컨트롤이         | 포인팅 장치를 지도 내에서 이동할 때 발생 합니다.|
+| system.windows.uielement.mouseup>           | 포인팅 장치가 지도 내에서 출시 될 때 발생 합니다.|
+| 이동              | 사용자 상호 작용이 나 메서드의 결과로 한 뷰에서 다른 뷰로 애니메이션 전환을 수행 하는 동안 반복적으로 발생 합니다.|
+| moveend           | 사용자 상호 작용이 나 메서드의 결과로 map이 한 뷰에서 다른 뷰로의 전환을 완료 한 후에 발생 합니다.|
+| movestart         | 사용자 상호 작용이 나 메서드의 결과로 맵이 한 뷰에서 다른 뷰로 전환을 시작 하기 직전에 발생 합니다.|
+| 열기              | 팝업을 수동으로 또는 프로그래밍 방식으로 열 때 발생 합니다.|
+| 피치             | 사용자 상호 작용이 나 메서드의 결과로 지도의 피치 (기울기)가 변경 될 때마다 발생 합니다.|
+| pitchend          | 사용자 상호 작용이 나 메서드의 결과로 지도의 피치 (기울기)가 변경 되 면 즉시 발생 합니다.|
+| pitchstart        | 사용자 상호 작용 또는 메서드의 결과로 지도의 피치 (기울기)가 변경 될 때마다 발생 합니다.|
+| 준비             | 지도를 프로그래밍 방식으로 상호 작용할 수 있도록 하기 위해 필요한 최소한의 map 리소스가 로드 될 때 발생 합니다.|
+| render            | <p> 다음의 결과로 지도를 화면에 그릴 때마다 발생 합니다.<ul><li>지도의 위치, 확대/축소, 피치 또는 베어링에 대 한 변경 내용입니다.</li><li>지도의 스타일에 대 한 변경 내용입니다.</li><li>DataSource 소스에 대 한 변경 내용입니다.</li><li>벡터 타일, GeoJSON 파일, 문자 모양 또는 스프라이트를 로드 하는 중입니다.</li></ul></p>|
+| 조정해            | 맵의 크기가 조정 된 직후에 발생 합니다.|
+| 시키거나            | "회전 하려면 끌기" 작업을 수행 하는 동안 반복적으로 발생 합니다.|
+| rotateend         | "끌기를 끌 때" 상호 작용이 종료 될 때 발생 합니다.|
+| rotatestart       | "회전 하려면 끌기" 조작이 시작 될 때 발생 합니다.|
+| shapechanged      | 셰이프 개체 속성이 변경 될 때 발생 합니다.|
+| sourceadded 됨       | DataSource 또는 VectorTileSource가 맵에 추가 될 때 발생 합니다.|
+| sourceremoved     | DataSource 또는 VectorTileSource가 맵에서 제거 될 때 발생 합니다.|
+| styledata         | 지도의 스타일이 로드 되거나 변경 될 때 발생 합니다.|
+| tokenacquired 됨     | AAD 액세스 토큰을 가져올 때 발생 합니다.|
+| touchcancel       | 지도 내에서 touchcancel 이벤트가 발생할 때 발생 합니다.|
+| touchend          | 지도 내에서 touchend 이벤트가 발생할 때 발생 합니다.|
+| system.windows.uielement.touchmove>         | 지도 내에서 system.windows.uielement.touchmove> 이벤트가 발생할 때 발생 합니다.|
+| touchstart        | 지도 내에서 touchstart 이벤트가 발생할 때 발생 합니다.|
+| wheel             | 지도 내에서 마우스 휠 이벤트가 발생할 때 발생 합니다.|
+| 맞게              | 사용자 상호 작용이 나 메서드의 결과로 한 확대/축소 수준에서 다른 확대/축소 수준으로의 애니메이션 전환을 반복 하는 동안 반복적으로 발생 합니다.|
+| zoomend           | 사용자 상호 작용이 나 메서드의 결과로 map이 한 확대/축소 수준에서 다른 확대/축소 수준으로의 전환을 완료 한 후에 발생 합니다.|
+| 확대/시작         | 사용자 상호 작용이 나 메서드의 결과로 맵이 한 확대/축소 수준에서 다른 확대/축소 수준으로의 전환을 시작 하기 직전에 발생 합니다.|
+
 
 ## <a name="next-steps"></a>다음 단계
 

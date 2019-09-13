@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 3683550045699a24c27a3226fba2e90a671f80e1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 536e2e3732a0b196801e37c51dfb6c746e070441
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101022"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910451"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Azure Security Center에서 네트워크 리소스 보호
 Azure Security Center는 네트워크 보안 모범 사례에 대한 Azure 리소스의 보안 상태를 지속적으로 분석합니다. Security Center에서 잠재적인 보안 취약점을 식별하는 경우 리소스를 보호하고 강화하는 데 필요한 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다.
@@ -128,13 +128,13 @@ Azure Security Center는 네트워크 보안 모범 사례에 대한 Azure 리�
 
 테이블은 심각도별로 정렬됩니다(가상 머신 및 서브넷).
 
-이 토폴로지 보기에서 첫 번째 수준은 Vnet을 표시합니다. 두 번째 표시에는 서브넷이 있고, 세 번째 수준은 해당 서브넷에 속하는 가상 머신을 표시합니다. 오른쪽 열에는 해당 리소스의 네트워크 보안 그룹 권장 사항의 현재 상태가 표시됩니다.
+이 토폴로지 보기에서 첫 번째 수준은 Vnet을 표시합니다. 두 번째는 서브넷을 표시 하 고 세 번째 수준에는 해당 서브넷에 속하는 가상 컴퓨터가 표시 됩니다. 오른쪽 열에는 해당 리소스의 네트워크 보안 그룹 권장 사항의 현재 상태가 표시됩니다.
 
-세 번째 수준은 이전에 설명한 것과 유사한 가상 머신을 표시합니다. 리소스를 클릭하여 필요한 보안 제어 또는 구성을 자세히 알아보거나 적용할 수 있습니다.
+세 번째 수준은 이전에 설명한 것과 유사한 가상 머신을 표시합니다. 리소스를 클릭 하 여 자세히 알아보거나 필요한 보안 제어 또는 구성을 적용할 수 있습니다.
 
 ## <a name="network-recommendations"></a>네트워크 권장 사항
 
-|권장 사항 이름|설명|Severity|보안 점수|리소스 형식|
+|권장 사항 이름|Description|Severity|보안 점수|리소스 형식|
 |----|----|----|----|----|----|
 |서브넷 수준의 네트워크 보안 그룹을 사용 하도록 설정 해야 합니다.|네트워크 보안 그룹을 사용 하 여 서브넷에 배포 된 리소스에 대 한 네트워크 액세스를 제어 합니다.|높음/보통|30|Subnet|
 |가상 컴퓨터는 네트워크 보안 그룹에 연결 해야 합니다.|가상 머신의 네트워크 액세스를 제어하기 위해 네트워크 보안 그룹을 활성화합니다.|높음/보통|30|가상 머신|

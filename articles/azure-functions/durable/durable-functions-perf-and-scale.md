@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ed0fe22903412d4164fb3a85dbd9afafdc7023e6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 53f561283d4d07d58bd03b59a24a30d8010caaf0
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097993"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933283"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>지속성 함수의 성능 및 크기 조정(Azure Functions)
 
@@ -243,4 +243,4 @@ Azure Functions는 단일 응용 프로그램 인스턴스 내에서 여러 함�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [C#로 첫 번째 지속형 함수 만들기](durable-functions-create-first-csharp.md)
+> [재해 복구 및 지역 배포에 대 한 자세한 정보](durable-functions-disaster-recovery-geo-distribution.md)

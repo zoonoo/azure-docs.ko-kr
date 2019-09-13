@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: 580712c4d1815b1c994fd62be78e8d7f3f1c9a01
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
-ms.translationtype: MT
+ms.openlocfilehash: 9fba32c9c21faa6e02c8b48b3907ab67e47036d5
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70809432"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885495"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Hortonworks Sandbox와 Azure Data Lake tools for Visual Studio 사용
 
@@ -21,7 +21,7 @@ Azure Data Lake는 제네릭 Apache Hadoop 클러스터를 사용하기 위한 �
 
 Hortonworks Sandbox를 사용하여 개발 환경에서 로컬로 Hadoop를 사용할 수 있습니다. 솔루션을 개발하여 대규모로 배포했으므로 HDInsight 클러스터를 살펴볼 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 개발 환경의 가상 머신에서 실행되는 Hortonworks Sandbox입니다. 이 문서는 Oracle VirtualBox에서 실행 중인 샌드박스로 작성 및 테스트되었으며, 샌드박스 설정에 대한 자세한 내용은 [Hortonworks 샌드박스 시작](hadoop/apache-hadoop-emulator-get-started.md) 문서를 참조하세요.
 
@@ -185,7 +185,7 @@ Hive에서는 구조화된 데이터로 작업하기 위한 SQL과 유사한 쿼
 
 데이터베이스 또는 테이블의 속성을 볼 수 있습니다. **속성**을 선택하면 [속성] 창에서 선택한 항목에 대한 세부 정보가 표시됩니다. 예를 들어, 다음 스크린샷에 표시된 정보를 참조하세요.
 
-![속성 창의 스크린샷](./media/hdinsight-hadoop-emulator-visual-studio/properties.png)
+![속성 창의 스크린샷](./media/hdinsight-hadoop-emulator-visual-studio/hdi-properties-window.png)
 
 ### <a name="create-a-table"></a>테이블 만들기
 

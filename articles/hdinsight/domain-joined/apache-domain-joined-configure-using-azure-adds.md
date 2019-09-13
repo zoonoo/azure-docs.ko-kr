@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: 83e9e1364293601337f854f083bbb279361e29c5
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: aa18c4a078edf579e8d9c4c09df99100dfcea148
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810994"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918322"
 ---
 # <a name="enterprise-security-package-configurations-with-azure-active-directory-domain-services-in-hdinsight"></a>HDInsight에서 Azure Active Directory Domain Services를 사용 하 여 Enterprise Security Package 구성
 
@@ -74,7 +74,7 @@ ESP 클러스터를 설정하려면 사용자 할당 관리 ID를 만들어야 �
 
 Azure AD-DS를 사용하도록 설정하면 로컬 DNS(도메인 이름 서비스) 서버가 AD VM(Virtual Machine)에서 실행됩니다. 이러한 사용자 지정 DNS 서버를 사용하도록 Azure AD-DS VNET(가상 네트워크)을 구성합니다. 올바른 IP 주소를 찾으려면 **관리** 범주 아래에서 **속성**을 선택하고, **가상 네트워크의 IP 주소** 아래에 나열된 IP 주소를 살펴봅니다.
 
-![로컬 DNS 서버의 IP 주소 찾기](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-dns.png)
+![로컬 DNS 서버의 IP 주소 찾기](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-dns1.png)
 
 **설정** 범주 아래에서 **DNS 서버**를 선택하여 이러한 사용자 지정 IP를 사용하도록 Azure AD-DS VNET에서 DNS 서버의 구성을 변경합니다. 그런 다음, **사용자 지정** 옆에 있는 라디오 단추를 클릭하고, 아래의 텍스트 상자에 첫 번째 IP 주소를 입력하고, **저장**을 클릭합니다. 동일한 단계를 사용하여 추가 IP 주소를 추가합니다.
 

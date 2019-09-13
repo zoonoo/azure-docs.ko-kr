@@ -2,31 +2,25 @@
 title: Azure Security Center에서 Just-In-Time 가상 머신 액세스 | Microsoft Docs
 description: 이 문서에서는 Azure Security Center에서 Just-In-Time VM 액세스가 Azure 가상 머신에 대한 액세스를 제어하는 데 어떻게 도움이 되는지 보여 줍니다.
 services: security-center
-documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
-ms.assetid: 671930b1-fc84-4ae2-bf7c-d34ea37ec5c7
+author: memildin
+manager: rkarlin
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 8/20/2019
-ms.author: v-mohabe
-ms.openlocfilehash: f3e6cc0464c8f395db7cac0ebf8a16230f5ebcbe
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.date: 09/10/2019
+ms.author: memildin
+ms.openlocfilehash: 9948f4d9e6287530004b073adf10bb723899e96d
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872923"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910617"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Just-In-Time을 사용하여 가상 머신 액세스 관리
 
-JIT(Just-In-Time) VM(가상 머신) 액세스를 사용하면 Azure VM으로의 인바운드 트래픽을 잠글 수 있어 필요할 때 VM 연결을 위한 간편한 액세스를 제공하면서도 공격에 대한 노출을 줄일 수 있습니다.
+JIT (just-in-time) VM (가상 머신) 액세스를 사용 하 여 Azure Vm에 대 한 인바운드 트래픽을 잠글 수 있으며, 필요할 때 Vm에 연결 하는 데 편리한 액세스를 제공 하는 동시에 공격에 대 한 노출을 줄일 수 있습니다.
 
 > [!NOTE]
-> Just-In-Time 기능은 Security Center의 표준 계층에서 사용할 수 있습니다.  Security Center의 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md)을 참조하세요.
+> Just-In-Time 기능은 Security Center의 표준 계층에서 사용할 수 있습니다. Security Center의 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md)을 참조하세요.
 
 
 > [!NOTE]
@@ -36,7 +30,7 @@ JIT(Just-In-Time) VM(가상 머신) 액세스를 사용하면 Azure VM으로의 
 
 무차별 암호 대입 공격(brute force attack)은 일반적으로 VM에 대한 액세스 권한을 얻는 방법으로 관리 포트를 대상으로 합니다. 성공하면 공격자가 VM을 제어할 수 있으며 사용자 환경으로의 발판을 마련하게 됩니다.
 
-무차별 암호 대입 공격을 줄이기 위한 한 가지 방법은 포트가 열려 있는 시간의 양을 제한하는 것입니다. 관리 포트는 항상 열려 있을 필요가 없습니다. 예를 들어 관리 또는 유지 관리 작업을 수행하기 위해 VM에 연결되는 동안에만 열려 있어야 합니다. Just-in-time을 사용 하는 경우 Security Center는 nsg ( [네트워크 보안 그룹](../virtual-network/security-overview.md#security-rules) ) 및 Azure 방화벽 규칙을 사용 하 여 공격자의 대상이 될 수 없도록 관리 포트에 대 한 액세스를 제한 합니다.
+무차별 암호 대입 공격을 줄이기 위한 한 가지 방법은 포트가 열려 있는 시간의 양을 제한하는 것입니다. 관리 포트는 항상 열려 있지 않아도 됩니다. 예를 들어 관리 또는 유지 관리 작업을 수행 하기 위해 VM에 연결 되어 있는 동안에만 열려 있어야 합니다. Just-in-time을 사용 하는 경우 Security Center는 nsg ( [네트워크 보안 그룹](../virtual-network/security-overview.md#security-rules) ) 및 Azure 방화벽 규칙을 사용 하 여 공격자의 대상이 될 수 없도록 관리 포트에 대 한 액세스를 제한 합니다.
 
 ![Just-In-Time 시나리오](./media/security-center-just-in-time/just-in-time-scenario.png)
 
@@ -61,7 +55,7 @@ Just-In-Time을 사용하도록 설정하면 Security Center는 NSG 규칙을 �
 
 ## <a name="configure-jit-on-a-vm"></a>VM에서 JIT 구성
 
-VM에서 JIT 정책을 구성 하는 방법에는 3 가지가 있습니다.
+VM에서 JIT 정책을 구성 하는 방법에는 다음 세 가지가 있습니다.
 
 - [Azure Security Center에서 JIT 액세스 구성](#jit-asc)
 - [Azure VM 블레이드에서 JIT 액세스 구성](#jit-vm)
@@ -76,7 +70,7 @@ ASC에서 jit 정책을 구성 하 고 JIT 정책을 사용 하 여 VM에 대 �
 
 1. **Security Center** 대시보드를 엽니다.
 
-2. 왼쪽 창에서 **JUST-IN-TIME VM 액세스**를 선택 합니다.
+2. 왼쪽 창에서 **Just-In-Time VM 액세스**를 선택합니다.
 
     ![Just-In-Time VM 액세스 타일](./media/security-center-just-in-time/just-in-time.png)
 
@@ -87,7 +81,7 @@ ASC에서 jit 정책을 구성 하 고 JIT 정책을 사용 하 여 VM에 대 �
     **Just-In-Time VM 액세스**는 VM 상태에 대한 정보를 제공합니다.
 
     - **구성됨** - Just-In-Time VM 액세스를 지원하도록 구성된 VM입니다. 표시된 데이터는 지난 주에 대한 데이터이며 각 VM에 대해 승인된 요청 수, 마지막 액세스 날짜 및 시간, 마지막 사용자를 포함합니다.
-    - **권장** - Just-In-Time VM 액세스를 지원할 수 있지만 구성되지 않은 VM입니다. 이러한 VM에는 Just-In-Time VM 액세스 제어를 사용하도록 설정하는 것이 좋습니다. 
+    - **권장** -just-in-time vm 액세스를 지원할 수 있지만로 구성 되지 않은 vm입니다. 이러한 VM에는 Just-In-Time VM 액세스 제어를 사용하도록 설정하는 것이 좋습니다.
     - **권장 사항 없음** - VM이 권장되지 않을 수 있는 이유입니다.
       - 누락된 NSG - Just-In-Time 솔루션을 사용하려면 NSG가 있어야 합니다.
       - 클래식 VM - Security Center Just-In-Time VM 액세스는 현재 Azure Resource Manager를 통해 배포된 VM만 지원합니다. 클래식 배포는 Just-In-Time 솔루션에서 지원되지 않습니다. 
@@ -131,7 +125,7 @@ ASC를 통해 VM에 대 한 액세스를 요청 하려면 다음을 수행 합�
 
     - **연결 정보** 열의 아이콘은 nsg 또는 FW에서 JIT를 사용 하도록 설정 했는지 여부를 나타냅니다. 둘 다에서 사용 하도록 설정 된 경우 방화벽 아이콘만 표시 됩니다.
 
-    - **연결 정보** 열은 VM을 연결 하는 데 필요한 올바른 정보를 제공 하며 열린 포트를 나타냅니다.
+    - **연결 정보** 열은 VM 및 열려 있는 포트를 연결 하는 데 필요한 정보를 제공 합니다.
 
       ![Just-In-Time 액세스 요청](./media/security-center-just-in-time/request-just-in-time-access.png)
 
@@ -139,7 +133,7 @@ ASC를 통해 VM에 대 한 액세스를 요청 하려면 다음을 수행 합�
 
       ![JIT 정보](./media/security-center-just-in-time/just-in-time-details.png)
 
-4. **액세스 요청** 아래에서 각 VM에 대해 열려는 포트, 포트가 열려 있는 원본 IP 주소 및 포트를 열어 둘 기간을 구성합니다. Just-In-Time 정책에 구성된 포트에만 액세스를 요청할 수 있습니다. 각 포트에는 Just-In-Time 정책에서 파생된 최대 허용된 시간이 있습니다.
+4. **액세스 요청** 아래에서 각 VM에 대해 열려는 포트, 포트가 열려 있는 원본 IP 주소 및 포트를 열어 둘 기간을 구성합니다. Just-in-time 정책에 구성 된 포트에 대 한 액세스를 요청할 수 있습니다. 각 포트에는 Just-In-Time 정책에서 파생된 최대 허용된 시간이 있습니다.
 
 5. **포트 열기**를 클릭 합니다.
 
@@ -162,7 +156,7 @@ VM의 기존 Just-In-Time 정책을 편집하려면
 로그 검색을 사용하여 VM 활동에 대한 정보를 얻을 수 있습니다. 로그를 보려면
 
 1. **Just-In-Time VM 액세스**에서 **구성됨** 탭을 선택합니다.
-2. Vm에서 해당 vm의 행에 있는 세 개의 점을 클릭 하 고 메뉴에서 **활동 로그** 를 선택 하 여 정보를 볼 vm을 선택 합니다. **활동 로그가** 열립니다.
+2. Vm **에서 해당**vm의 행에 있는 세 개의 점을 클릭 하 고 메뉴에서 **활동 로그** 를 선택 하 여 정보를 볼 vm을 선택 합니다. **활동 로그가** 열립니다.
 
    ![활동 로그 선택](./media/security-center-just-in-time/select-activity-log.png)
 
@@ -191,11 +185,11 @@ VM에서 Just-In-Time 액세스를 쉽게 롤아웃할 수 있도록 하려면 V
 
 - Windows 서버:
     - RDP 포트 3389
-    - 허용되는 최대 액세스: 3시간
+    - 허용 되는 최대 액세스 3 시간
     - 허용 되는 원본 IP 주소는 Any로 설정 됩니다.
 - Linux 서버:
     - SSH 포트 22
-    - 허용되는 최대 액세스: 3시간
+    - 허용 되는 최대 액세스 3 시간
     - 허용 되는 원본 IP 주소는 Any로 설정 됩니다.
      
 VM에 이미 Just-In-Time이 사용 설정된 경우 구성 페이지로 이동하면 Just-In-Time이 사용하도록 설정되었으며 링크를 사용해 Azure Security Center에서 정책을 열어 설정을 보고 변경할 수 있음을 확인할 수 있습니다.
@@ -213,7 +207,7 @@ Azure Portal에서 VM에 연결하려고 할 때 Azure는 해당 VM에 구성된
   액세스는 다음 기본 매개 변수를 사용 하 여 요청 됩니다.
 
   - **원본 IP**: ' Any ' (*) (변경할 수 없음)
-  - **시간 범위**: 3 시간 (변경할 수 없음)  <!--Isn't this set in the policy-->
+  - **시간 범위**: 3 시간 (변경할 수 없음) <!--Isn't this set in the policy-->
   - **포트 번호** Windows/포트 22 (Linux의 경우)에 대 한 RDP 포트 3389 (변경 가능)
 
     > [!NOTE]

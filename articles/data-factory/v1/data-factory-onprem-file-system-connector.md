@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 92274f63db78d53bdd0fa3fd440977422be3b4a1
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: eea0b930ab26e3f4d816fed69ccf8e987e6d33c7
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036277"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881358"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Azure Data Factory를 통한 온-프레미스 파일 시스템에서의 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -85,7 +85,7 @@ Linux 파일 공유를 사용하려면 Linux 서버에 [Samba](https://www.samba
 | 시나리오 | 연결된 서비스 정의의 호스트 | 데이터 세트 정의의 folderPath |
 | --- | --- | --- |
 | 데이터 관리 게이트웨이 컴퓨터의 로컬 폴더: <br/><br/>예를 들면 다음과 같습니다. D:\\\* 또는 D:\folder\subfolder\\\* |D:\\\\(데이터 관리 게이트웨이 버전 2.0 이상) <br/><br/> localhost(데이터 관리 게이트웨이 버전 2.0 미만) |.\\\\ 또는 folder\\\\subfolder(데이터 관리 게이트웨이 버전 2.0 이상) <br/><br/>D:\\\\ 또는 D:\\\\folder\\\\subfolder(게이트웨이 버전 2.0 미만) |
-| 원격 공유 폴더: <br/><br/>예: \\ \\myservershare\\*또는\\myserver share 폴더하위\\폴더 \\\\\\ \\\\\\* |\\\\\\\\myserver\\\\share |.\\\\ 또는 folder\\\\subfolder |
+| 원격 공유 폴더: <br/><br/>예: \\\\myserver\\share\\\* 또는 \\\\myserver\\share\\folder\\subfolder\\\\* |\\\\\\\\myserver\\\\share |.\\\\ 또는 folder\\\\subfolder |
 
 >[!NOTE]
 >UI를 통해 작성하는 경우 JSON을 사용할 때처럼 이스케이프하기 위해 이중 백슬래시(`\\`)를 입력할 필요가 없으며 단일 백슬래시를 지정합니다.
@@ -180,7 +180,7 @@ typeProperties 섹션은 데이터 세트의 각 형식마다 다릅니다. 데�
 
 **FileSystemSource**는 다음 속성을 지원합니다.
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | recursive |하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. |True, False(기본값) |아니요 |
 

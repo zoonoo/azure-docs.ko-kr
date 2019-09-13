@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.openlocfilehash: da871a1fed0663c5654ebcfd61f4189bf2267026
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: ce5dc7e17020e1e4564ebe1f531645f7329718dc
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814057"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900714"
 ---
 # <a name="script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-on-hdinsight"></a>HDInsight의 Apache Spark에서 Jupyter 노트북용 외부 Python 패키지를 설치 하는 스크립트 작업
 
@@ -29,11 +29,11 @@ ms.locfileid: "70814057"
 
 이 문서에서는 클러스터에서 스크립트 작업을 사용하여 [TensorFlow](https://www.tensorflow.org/) 패키지를 설치하고 Jupyter 노트북을 통해 예제로 사용하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 다음이 있어야 합니다.
 
 * Azure 구독. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-* HDInsight의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
+* HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
    > [!NOTE]  
    > Hdinsight Linux에 Spark 클러스터가 아직 없는 경우 클러스터를 만드는 동안 스크립트 작업을 실행할 수 있습니다. [사용자 지정 스크립트 작업을 사용하는 방법](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)에 대한 설명서를 참조하세요.
@@ -97,7 +97,7 @@ HDInsight 서비스에서 사용할 수 있는 오픈 소스 구성 요소에는
 
     결과 다음과 같습니다.
     
-    ![TensorFlow 코드 실행](./media/apache-spark-python-package-installation/execution.png "TensorFlow 코드 실행")
+    ![TensorFlow 코드 실행](./media/apache-spark-python-package-installation/tensorflow-execution.png "TensorFlow 코드 실행")
 
 > [!NOTE]  
 > 클러스터에 두 개의 python 설치 프로그램이 있습니다. Spark는 `/usr/bin/anaconda/bin`에 있는 Anaconda python 설치를 사용하며, 기본적으로 Python 2.7 환경에 해당합니다. Python 3.x을 사용하고 PySpark3 커널에서 패키지를 설치하려면 해당 환경의 `conda` 실행 경로를 사용하고 `-n` 매개 변수를 사용하여 환경을 지정합니다. 예를 들어, 명령 `/usr/bin/anaconda/envs/py35/bin/conda install -c conda-forge ggplot -n py35`는 `conda-forge` 채널을 사용하여 Python 3.5 환경에 `ggplot` 패키지를 설치합니다.

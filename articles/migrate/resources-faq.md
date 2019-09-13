@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: snehaa
-ms.openlocfilehash: 46c6ac52e1afb6c1619b814580a1059fd3dfedda
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: ec4cb58692cd98a799f1dc58f60b11a0552829c8
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279496"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934914"
 ---
 # <a name="azure-migrate-frequently-asked-questions-faq"></a>Azure Migrate: 질문과 대답(FAQ)
 
@@ -26,6 +26,37 @@ ms.locfileid: "70279496"
 ### <a name="whats-the-difference-between-azure-migrate-and-azure-site-recovery"></a>Azure Migrate와 Azure Site Recovery의 차이점은 무엇 인가요?
 
 Azure Migrate은 마이그레이션을 시작 하 고, 컴퓨터 및 워크 로드의 검색 및 평가를 실행 하 고 추적 하 고, 컴퓨터 및 워크 로드를 Azure로 마이그레이션하는 작업을 실행 하 고 추적 하는 중앙 허브를 제공 합니다. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) 은 재해 복구 솔루션입니다. Azure Migrate 서버 마이그레이션은 백 엔드에서 Azure Site Recovery를 사용 하 여 온-프레미스 컴퓨터의 리프트 앤 시프트 마이그레이션에 대 한 마이그레이션 시나리오를 사용 하도록 설정 합니다.
+
+### <a name="how-do-i-delete-an-azure-migrate-project"></a>Azure Migrate 프로젝트 어떻게 할까요? 삭제
+
+Azure Migrate 프로젝트 및 사이트, recovery services 자격 증명 모음, 자격 증명 모음, 키 자격 증명 모음, 평가 프로젝트 마이그레이션 등의 연결 된 리소스를 삭제 하려면 Azure Portal에서 "리소스 그룹" 페이지로 이동 하 여 마이그레이션 프로젝트가 포함 된 리소스 그룹을 선택 합니다. 을 (를) 만들고 "숨겨진 형식 표시"를 선택 합니다. 그런 다음 아래 나열 된 마이그레이션 프로젝트 및 관련 리소스를 선택 하 고 삭제 합니다. 또는 마이그레이션 프로젝트와 관련 리소스가 리소스 그룹을 독점적으로 사용 하는 경우 전체 리소스 그룹을 삭제할 수 있습니다. 이 목록은 모든 시나리오 (검색, 평가 및 마이그레이션)에 대해 생성 된 모든 리소스 종류의 완전 한 목록입니다. 리소스 그룹에서 시나리오에 대해 생성 된 리소스만 찾을 수 있습니다.
+
+#### <a name="resources-created-for-discovered-assessed-or-migrated-servers-on-vmware-or-physical-servers-resource-type"></a>VMware 또는 물리적 서버에서 검색, 평가 또는 마이그레이션된 서버에 대해 만들어진 리소스 [리소스 (유형)]:
+
+- "Appliancename" kv (Key vault)
+- "Appliancename" 사이트 (Microsoft. OffAzure/VMwareSites
+- "ProjectName" (migrateprojects/)
+- "ProjectName" 프로젝트 (Microsoft. 마이그레이션/assessmentProjects)
+- "ProjectName" rsvault (Recovery Services 자격 증명 모음)
+- "ProjectName"-MigrateVault-* (Recovery Services 자격 증명 모음)
+- migrateappligwsa * (저장소 계정)
+- migrateapplilsa * (저장소 계정)
+- migrateapplicsa * (저장소 계정)
+- migrateapplikv * (Key vault)
+- migrateapplisbns16041 (Service Bus 네임 스페이스)
+
+참고: 저장소 계정 및 키 자격 증명 모음을 각각 응용 프로그램 데이터 및 보안 키가 포함 될 수 있으므로 주의 하 여 삭제 합니다.
+
+#### <a name="resources-created-for-discovered-assessed-or-migrated-servers-on-hyper-v-resource-type"></a>Hyper-v에서 검색, 평가 또는 마이그레이션된 서버에 대해 만들어진 리소스 [리소스 (유형)]:
+
+- "ProjectName" (migrateprojects/)
+- "ProjectName" 프로젝트 (Microsoft. 마이그레이션/assessmentProjects)
+- HyperV * kv (Key vault)
+- HyperV * 사이트 (Microsoft. OffAzure/HyperVSites)
+- "ProjectName"-MigrateVault-* (Recovery Services 자격 증명 모음) 
+
+참고: 키 자격 증명 모음을 삭제 하 고 보안 키가 포함 될 수 있으므로 주의 하세요.
+
 
 ## <a name="azure-migrate-appliance"></a>Azure Migrate 어플라이언스
 

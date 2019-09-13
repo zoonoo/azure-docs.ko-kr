@@ -7,32 +7,33 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.openlocfilehash: 6764d8d812789c9f54fa59e10b2a3e416e583a9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 564bced9ae71213cb534393a7dcc45c929df3794
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62129402"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70917351"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>HDInsight에서 Hadoop과 Apache Sqoop 사용
+
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-HDInsight에서 Apache Sqoop를 사용 하 여 HDInsight 클러스터와 Azure SQL database 간에 데이터 가져오기 및 내보내기 하는 방법을 알아봅니다.
+Hdinsight에서 Apache Sqoop을 사용 하 여 HDInsight 클러스터와 Azure SQL database 간에 데이터를 가져오고 내보내는 방법에 대해 알아봅니다.
 
-Apache Hadoop 로그 파일과 같은 구조화 되지 않은 / 반 구조화 된 데이터를 처리 하기 위한 자연 스러운 선택 되어도 있을 수도 있습니다 관계형 데이터베이스에 저장 된 구조화 된 데이터를 처리 해야 합니다.
+로그 및 파일과 같은 구조화 되지 않은 데이터 및 반 구조화 된 데이터를 처리 하기 위한 자연 스러운 선택 Apache Hadoop 있지만 관계형 데이터베이스에 저장 된 구조적 데이터를 처리 해야 할 수도 있습니다.
 
-[Apache Sqoop](https://sqoop.apache.org/docs/1.99.7/user.html) Hadoop 클러스터와 관계형 데이터베이스 간 데이터 전송을 위해 설계 된 도구입니다. 이 도구를 사용하면 SQL Server, MySQL, Oracle 등의 RDBMS(관계형 데이터베이스 관리 시스템)에서 HDFS(Hadoop 분산 파일 시스템)로 데이터를 가져오고, MapReduce 또는 Apache Hive로 Hadoop의 데이터를 변환한 후 데이터를 RDBMS로 다시 내보낼 수 있습니다. 이 문서에서는 관계형 데이터베이스에 대 한 SQL Server 데이터베이스를 사용 합니다.
+[Apache Sqoop](https://sqoop.apache.org/docs/1.99.7/user.html) 은 Hadoop 클러스터와 관계형 데이터베이스 간에 데이터를 전송 하도록 설계 된 도구입니다. 이 도구를 사용하면 SQL Server, MySQL, Oracle 등의 RDBMS(관계형 데이터베이스 관리 시스템)에서 HDFS(Hadoop 분산 파일 시스템)로 데이터를 가져오고, MapReduce 또는 Apache Hive로 Hadoop의 데이터를 변환한 후 데이터를 RDBMS로 다시 내보낼 수 있습니다. 이 문서에서는 관계형 데이터베이스에 대 한 SQL Server 데이터베이스를 사용 합니다.
 
 > [!IMPORTANT]  
-> 이 문서에서는 데이터 전송을 수행 하려면 테스트 환경을 설정 합니다. 다음 섹션의 방법 중 하나에서이 환경에 대 한 데이터 전송 메서드를 선택 [실행할 Sqoop 작업](#run-sqoop-jobs), 아래 추가 합니다.
+> 이 문서에서는 데이터 전송을 수행 하는 테스트 환경을 설정 합니다. 그런 다음 아래의 [Sqoop 작업 실행](#run-sqoop-jobs)섹션에 있는 방법 중 하나에서이 환경에 대 한 데이터 전송 방법을 선택 합니다.
 
-HDInsight 클러스터에서 지원 되는 Sqoop 버전을 참조 하세요. [HDInsight에서 제공 하는 클러스터 버전의 새로운 기능?](../hdinsight-component-versioning.md)
+HDInsight 클러스터에서 지원 되는 Sqoop 버전을 보려면 [hdinsight에서 제공 하는 클러스터 버전의 새로운 기능](../hdinsight-component-versioning.md) 을 참조 하세요.
 
 ## <a name="understand-the-scenario"></a>시나리오 이해
 
 HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. 다음 두 샘플을 사용합니다.
 
-* Apache Log4j 로그 파일에 있는 `/example/data/sample.log`합니다. 이 파일에서 다음 로그가 추출됩니다.
+* 에 `/example/data/sample.log`있는 Apache Log4j 로그 파일입니다. 이 파일에서 다음 로그가 추출됩니다.
 
 ```text
 2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
@@ -41,26 +42,26 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. 다
 ...
 ```
 
-* 명명 된 Hive 테이블 `hivesampletable`에 있는 데이터 파일을 참조 하는 `/hive/warehouse/hivesampletable`합니다. 이 테이블에는 일부 모바일 디바이스 데이터가 포함되어 있습니다.
+* `hivesampletable` 에`/hive/warehouse/hivesampletable`있는 데이터 파일을 참조 하는 라는 Hive 테이블 이 테이블에는 일부 모바일 디바이스 데이터가 포함되어 있습니다.
   
   | 필드 | 데이터 형식 |
   | --- | --- |
-  | clientid |문자열 |
-  | querytime |문자열 |
-  | market |문자열 |
-  | deviceplatform |문자열 |
-  | devicemake |문자열 |
-  | devicemodel |문자열 |
-  | state |문자열 |
-  | country |문자열 |
+  | clientid |string |
+  | querytime |string |
+  | market |string |
+  | deviceplatform |string |
+  | devicemake |string |
+  | devicemodel |string |
+  | state |string |
+  | country |string |
   | querydwelltime |double |
-  | sessionid |bigint |
-  | sessionpagevieworder |bigint |
+  | sessionid |BIGINT |
+  | sessionpagevieworder |BIGINT |
 
-이 문서에서는 이러한 두 데이터 집합을 사용 하 여 테스트 Sqoop 가져오기 및 내보내기.
+이 문서에서는 이러한 두 데이터 집합을 사용 하 여 Sqoop 가져오기 및 내보내기를 테스트 합니다.
 
 ## <a name="create-cluster-and-sql-database"></a>테스트 환경 설정
-클러스터, SQL database 및 기타 개체는 Azure Resource Manager 템플릿을 사용 하 여 Azure portal을 통해 생성 됩니다. 서식 파일에서 찾을 수 있습니다 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/)합니다. Resource Manager 템플릿은 SQL database에 테이블 스키마를 배포 하는 bacpac 패키지를 호출 합니다.  백업 패키지는 공용 Blob 컨테이너, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac 에 있습니다. Bacpac 파일에 대한 프라이빗 컨테이너를 사용하려는 경우 템플릿에 다음 값을 사용합니다.
+클러스터, SQL database 및 기타 개체는 Azure Resource Manager 템플릿을 사용 하 여 Azure Portal를 통해 생성 됩니다. 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/)에서 찾을 수 있습니다. 리소스 관리자 템플릿은 bacpac 패키지를 호출 하 여 SQL database에 테이블 스키마를 배포 합니다.  백업 패키지는 공용 Blob 컨테이너, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac 에 있습니다. Bacpac 파일에 대한 프라이빗 컨테이너를 사용하려는 경우 템플릿에 다음 값을 사용합니다.
 
 ```json
 "storageKeyType": "Primary",
@@ -70,30 +71,30 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. 다
 > [!NOTE]  
 > 템플릿 또는 Azure Portal을 사용하여 가져오기는 Azure Blob Storage에서 BACPAC 파일을 가져오는 것만 지원합니다.
 
-1. Azure portal에서 Resource Manager 템플릿을 열려면 다음 이미지를 선택 합니다.
+1. Azure Portal에서 리소스 관리자 템플릿을 열려면 다음 이미지를 선택 합니다.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-sql-database%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-use-sqoop/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-sql-database%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-use-sqoop/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
 
 2. 다음과 같은 속성을 입력합니다.
 
     |필드 |값 |
     |---|---|
     |구독 |드롭다운 목록에서 Azure 구독을 선택 합니다.|
-    |리소스 그룹 |드롭다운 목록에서 리소스 그룹을 선택 하거나 새로 만듭니다|
-    |Location |드롭다운 목록에서 지역을 선택 합니다.|
+    |리소스 그룹 |드롭다운 목록에서 리소스 그룹을 선택 하거나 새 리소스 그룹을 만듭니다.|
+    |위치 |드롭다운 목록에서 지역을 선택합니다.|
     |클러스터 이름 |Hadoop 클러스터에 사용할 이름을 입력합니다. 소문자만 사용 합니다.|
-    |클러스터 로그인 사용자 이름 |미리 채워진된 값을 유지 `admin`합니다.|
+    |클러스터 로그인 사용자 이름 |미리 채워진 값 `admin`을 유지 합니다.|
     |클러스터 로그인 암호 |암호를 입력합니다.|
-    |Ssh 사용자 이름 |미리 채워진된 값을 유지 `sshuser`합니다.|
+    |Ssh 사용자 이름 |미리 채워진 값 `sshuser`을 유지 합니다.|
     |Ssh 암호 |암호를 입력합니다.|
-    |Sql 관리자 로그인 |미리 채워진된 값을 유지 `sqluser`합니다.|
+    |Sql 관리자 로그인 |미리 채워진 값 `sqluser`을 유지 합니다.|
     |Sql 관리자 암호 |암호를 입력합니다.|
-    |_artifacts 위치 | 다른 위치에 bacpac 파일을 직접 사용 하려는 경우가 아니면 기본값을 사용 합니다.|
-    |_artifacts 위치 Sas 토큰 |비워 둡니다.|
-    |Bacpac 파일 이름 |Bacpac 파일을 직접 사용 하려는 경우가 아니면 기본값을 사용 합니다.|
-    |Location |기본값을 사용합니다.|
+    |아티팩트 위치 (_s) | 다른 위치에서 사용자 고유의 bacpac 파일을 사용 하려는 경우가 아니면 기본값을 사용 합니다.|
+    |아티팩트 위치 Sas 토큰 (_s) |비워 둡니다.|
+    |Bacpac 파일 이름 |사용자 고유의 bacpac 파일을 사용 하려는 경우가 아니면 기본값을 사용 합니다.|
+    |위치 |기본값을 사용합니다.|
 
-    Azure SQL Server 이름은 `<ClusterName>dbserver`합니다. 데이터베이스 이름은 `<ClusterName>db`합니다. 기본 저장소 계정 이름은 `e6qhezrh2pdqu`합니다.
+    Azure SQL Server 이름은 `<ClusterName>dbserver`입니다. 데이터베이스 이름은 `<ClusterName>db`입니다. 기본 저장소 계정 이름은 `e6qhezrh2pdqu`입니다.
 
 3. **위에 명시된 사용 약관에 동의함**을 선택합니다.
 

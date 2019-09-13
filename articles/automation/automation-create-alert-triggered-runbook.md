@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f58783a4d5ce1b81e951b811dfa8d65bc2a4f926
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 6c818114df436dbbd3ac1a51b6eeec00b9eec4d3
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477763"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915723"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>경고를 사용하여 Azure Automation Runbook 트리거
 
@@ -29,13 +29,13 @@ ms.locfileid: "67477763"
 * 근 실시간 메트릭 경고
 
 > [!NOTE]
-> 일반 경고 스키마는 현재 Azure에서 경고 알림에 대 한 사용 환경의 표준화합니다. 지금까지 자신의 전자 메일 템플릿, 웹 후크 스키마 등 세 가지 경고 유형 Azure에서 현재 (메트릭, 로그 및 활동 로그) 했습니다. 자세한 내용은를 참조 하세요. [경고 공통 스키마](../azure-monitor/platform/alerts-common-schema.md)
+> 일반적인 경고 스키마는 현재 Azure에서 경고 알림에 대 한 소비 환경을 표준화 합니다. 지금까지 Azure의 세 가지 경고 유형 (메트릭, 로그 및 활동 로그)에는 자체 전자 메일 템플릿, webhook 스키마 등이 있습니다. 자세히 알아보려면 [일반적인 경고 스키마](../azure-monitor/platform/alerts-common-schema.md) 를 참조 하세요.
 
 경고가 Runbook을 호출할 때 실제 호출은 웹후크에 대한 HTTP POST 요청입니다. POST 요청의 본문에는 경고와 관련된 유용한 속성을 포함하는 JSON으로 포맷된 개체가 포함되어 있습니다. 다음 표에는 각 경고 유형에 대한 페이로드 스키마 링크가 나열되어 있습니다.
 
-|경고  |설명|페이로드 스키마  |
+|알림  |설명|페이로드 스키마  |
 |---------|---------|---------|
-|[일반적인 경고](../azure-monitor/platform/alerts-common-schema.md?toc=%2fazure%2fautomation%2ftoc.json)|현재 Azure에서 경고 알림에 대 한 사용 환경을 표준화 하는 일반적인 경고 스키마.|[일반 경고 페이로드 스키마](../azure-monitor/platform/alerts-common-schema-definitions.md?toc=%2fazure%2fautomation%2ftoc.json#sample-alert-payload)|
+|[일반 경고](../azure-monitor/platform/alerts-common-schema.md?toc=%2fazure%2fautomation%2ftoc.json)|현재 Azure에서 경고 알림에 대 한 소비 환경을 표준화 하는 일반적인 경고 스키마입니다.|일반적인 경고 페이로드 스키마|
 |[활동 로그 경고](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Azure 활동 로그의 새 이벤트가 특정 조건과 일치하는 경우 알림을 보냅니다. 예를 들어 `Delete VM` 작업이 **myProductionResourceGroup**에서 발생하거나 새 Azure Service Health 이벤트가 **활성** 상태로 표시되는 경우입니다.| [활동 로그 경고 페이로드 스키마](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
 |[근 실시간 메트릭 경고 만들기](../azure-monitor/platform/alerts-metric-near-real-time.md?toc=%2fazure%2fautomation%2ftoc.json)    |하나 이상의 플랫폼 수준 메트릭이 지정된 조건을 충족하는 경우 메트릭 경고보다 빠르게 알림을 보냅니다. 예를 들어 VM의 **CPU %** 값이 **90**보다 큰 경우 및 **네트워크 입력**의 값이 지난 5분 동안 **500MB**보다 큰 경우입니다.| [근 실시간 메트릭 경고 페이로드 스키마](../azure-monitor/platform/alerts-webhooks.md#payload-schema)          |
 
@@ -54,10 +54,10 @@ Runbook은 **AzureRunAsConnection** [실행 계정](automation-create-runas-acco
 이 예제를 사용하여 Runbook에서 호출한 **Stop-AzureVmInResponsetoVMAlert**을 만듭니다. PowerShell 스크립트를 수정하고 여러 다른 리소스와 함께 사용할 수 있습니다.
 
 1. Azure Automation 계정으로 이동합니다.
-2. 아래 **프로세스 자동화**를 선택 **Runbook**합니다.
-3. Runbook의 목록 맨 위에 있는 선택 **+ runbook 만들기**합니다.
-4. 에 **Runbook 추가** 페이지에서 입력 **Stop-azurevminresponsetovmalert** runbook 이름입니다. Runbook 형식으로 **PowerShell**을 선택합니다. 그런 다음 **만들기**를 선택합니다.  
-5. 다음 PowerShell 예제를 복사 합니다 **편집** 페이지입니다.
+2. **프로세스 자동화** 아래에서 **Runbook**을 선택합니다.
+3. Runbook의 목록 맨 위에서 **+ Runbook 만들기**를 선택합니다.
+4. **Runbook 추가** 페이지에서 runbook 이름에 대해 **Stop-AzureVmInResponsetoVMAlert** 를 입력 합니다. Runbook 형식으로 **PowerShell**을 선택합니다. 그런 다음 **만들기**를 선택합니다.  
+5. 다음 PowerShell 예제를 **편집** 페이지에 복사합니다.
 
     ```powershell-interactive
     [OutputType("PSAzureOperationResponse")]
@@ -172,26 +172,26 @@ Runbook은 **AzureRunAsConnection** [실행 계정](automation-create-runas-acco
 
 ## <a name="create-the-alert"></a>경고 만들기
 
-경고는 컬렉션인 경고에 의해 트리거되는 작업의 작업 그룹을 사용 합니다. Runbook은 작업 그룹에서 사용할 수 있는 많은 작업 중 하나일 뿐입니다.
+경고는 경고에 의해 트리거되는 작업 컬렉션인 작업 그룹을 사용 합니다. Runbook은 작업 그룹에서 사용할 수 있는 많은 작업 중 하나일 뿐입니다.
 
-1. Automation 계정에서 선택 **경고** 아래에서 **모니터링**합니다.
-1. 선택 **+ 새 경고 규칙**합니다.
-1. 클릭 **선택** 아래에서 **리소스**합니다. 에 **리소스를 선택** 페이지에서 경고를 해제 하기 위해 VM을 선택 하 고 클릭 **수행**합니다.
-1. 클릭 **조건 추가** 아래에서 **조건**합니다. 예를 들어 사용 하려는 신호를 선택 **CPU 비율** 클릭 **수행**합니다.
-1. 에 **신호 논리 구성** 페이지에서 입력에 **임계값** 아래에 있는 **경고 논리**, 클릭 **수행**합니다.
+1. Automation 계정에서 **모니터링**아래에 있는 **경고** 를 선택 합니다.
+1. **+ 새 경고 규칙**을 선택 합니다.
+1. **리소스**에서 **선택** 을 클릭 합니다. **리소스 선택** 페이지에서 경고를 해제할 VM을 선택 하 고 **완료**를 클릭 합니다.
+1. **조건**에서 **조건 추가** 를 클릭 합니다. **CPU 백분율** 등 사용 하려는 신호를 선택 하 고 **완료**를 클릭 합니다.
+1. **신호 논리 구성** 페이지에서 **경고 논리**아래에 **임계값** 을 입력 하 고 **완료**를 클릭 합니다.
 1. **작업 그룹** 아래에서 **새로 만들기**를 선택합니다.
-1. 에 **작업 그룹 추가** 페이지에서 이름과 약식 이름을 작업 그룹을 지정 합니다.
-1. 작업 이름을 지정 합니다. 작업 유형 선택 **Automation Runbook**합니다.
-1. 선택 **세부 정보 편집**합니다. **Runbook 구성** 페이지의 **Runbook 원본**에서 **사용자**를 선택합니다.  
+1. **작업 그룹 추가** 페이지에서 작업 그룹에 이름 및 짧은 이름을 지정 합니다.
+1. 작업에 이름을 지정 합니다. 작업 유형에서 **Automation Runbook**을 선택 합니다.
+1. **세부 정보 편집**을 선택 합니다. **Runbook 구성** 페이지의 **Runbook 원본**에서 **사용자**를 선택합니다.  
 1. **구독** 및 **Automation 계정**을 선택한 다음 **Stop-AzureVmInResponsetoVMAlert** Runbook을 선택합니다.  
-1. 선택 **Yes** 에 대 한 **경고 공통 스키마를 사용 하도록 설정**합니다.
+1. **일반 경고 스키마 사용**에 대해 **예** 를 선택 합니다.
 1. 작업 그룹을 만들려면 **확인**을 선택합니다.
 
     ![작업 그룹 페이지 추가](./media/automation-create-alert-triggered-runbook/add-action-group.png)
 
     만드는 [활동 로그 경고](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json) 및 [근 실시간 경고](../azure-monitor/platform/alerts-overview.md?toc=%2fazure%2fautomation%2ftoc.json)에서 이 작업 그룹을 사용할 수 있습니다.
 
-1. 아래 **경고 세부 정보**, 경고 규칙 이름 및 설명을 추가 하 고 클릭 **경고 규칙 만들기**합니다.
+1. **경고 정보**에서 경고 규칙 이름 및 설명을 추가 하 고 **경고 규칙 만들기**를 클릭 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

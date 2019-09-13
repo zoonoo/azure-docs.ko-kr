@@ -1,18 +1,18 @@
 ---
-title: 개인 Sku 및 계획 | Azure Marketplace
+title: 비공개 Sku 및 요금제 | Azure Marketplace
 description: 프라이빗 SKU를 사용하여 제품 가용성을 관리하는 방법입니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 08/15/2019
 ms.author: pabutler
-ms.openlocfilehash: 6efdb1c28777d9230727066fdba03d2850be62b0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 940b50cf4a04abacd4d7be2104dd97fb8b3db736
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935917"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883121"
 ---
 <a name="private-skus-and-plans"></a>프라이빗 SKU 및 플랜
 ============
@@ -37,7 +37,7 @@ SKU를 프라이빗으로 표시하려면 SKU가 프라이빗인지 여부를 �
 
 ![SKU를 프라이빗으로 표시](./media/cloud-partner-portal-publish-virtual-machine/markingskuprivate.png)
 
-다른 SKU의 디스크를 재사용하고 가격 또는 설명을 수정할 수 있습니다. 디스크를 재사용하려면 “이 SKU에서 공개 SKU의 이미지를 재사용합니까” 프롬프트에 대한 응답으로 **예**를 선택합니다.
+다른 SKU의 디스크를 재사용하고 가격 또는 설명을 수정할 수 있습니다. 디스크를 다시 사용 하려면 "이 SKU가 공용 SKU에서 이미지를 다시 사용 합니까" 프롬프트에 대 한 응답으로 **예** 를 선택 합니다.
 
 SKU가 프라이빗으로 표시되었으며 제품이 재사용 가능한 디스크가 있는 다른 SKU를 포함하는 경우 SKU에서 다른 SKU의 디스크를 재사용함을 표시해야 합니다. 또한 프라이빗 SKU의 대상 그룹을 지정해야 합니다.
 
@@ -47,13 +47,11 @@ SKU가 프라이빗으로 표시되었으며 제품이 재사용 가능한 디�
 <a name="select-an-image"></a>이미지 선택
 ------------------
 
-프라이빗 SKU에 대해 새 디스크를 제공하거나, 다른 SKU에 이미 제공된 동일한 디스크를 재사용하고 가격 또는 설명만 수정할 수 있습니다. 디스크를 재사용하려면 “이 SKU에서 공개 SKU의 이미지를 재사용합니까” 프롬프트에 대한 응답으로 **예**를 선택합니다.
+프라이빗 SKU에 대해 새 디스크를 제공하거나, 다른 SKU에 이미 제공된 동일한 디스크를 재사용하고 가격 또는 설명만 수정할 수 있습니다. 디스크를 다시 사용 하려면 "이 SKU에서 공용 SKU에서 이미지를 다시 사용 합니다." 라는 메시지에 대 한 응답으로 **예** 를 선택 합니다.
 
-![이미지 재사용 표시](./media/cloud-partner-portal-publish-virtual-machine/selectimage1.png)
+![이미지 다시 사용 표시](./media/cloud-partner-portal-publish-virtual-machine/selectimage1.png)
 
-SKU가 다른 SKU의 이미지를 재사용함을 확인한 후 이미지 원본인 SKU를 식별합니다.
-
-다음 화면 캡처의 프롬프트는 프라이빗 SKU에서 선택한 SKU의 이미지를 재사용함을 식별하는 방법을 보여 줍니다.
+SKU에서 이미지를 다시 사용할 것을 확인 한 후 이미지의 원본 또는 *기본* SKU를 선택 합니다.
 
 ![이미지 선택](./media/cloud-partner-portal-publish-virtual-machine/selectimage2.png)
 
@@ -84,15 +82,93 @@ SKU가 다른 SKU의 이미지를 재사용함을 확인한 후 이미지 원본
 
 수동 입력에서 CSV 업로드 뷰로 전환하거나 CSV에서 수동 입력으로 전환할 때 SKU에 대한 액세스 권한이 있는 이전 구독 ID 목록은 유지되지 않습니다. 경고가 표시되며, 제품을 저장하는 경우에만 목록을 덮어씁니다.
 
-<a name="sync-private-subscriptions"></a>프라이빗 구독 동기화
+<a name="managing-private-audiences"></a>개인 대상 관리
 -------------------------
 
-프라이빗 SKU 또는 플랜을 사용하여 게시된 제품에 구독을 추가하는 경우 제품을 다시 게시하여 대상 그룹 정보를 추가할 필요가 없습니다. 단순히 Azure 구독 ID(플랜 및 SKU) 또는 테넌트 ID(플랜 전용)를 사용하여 대상 그룹을 추가합니다.
+**전체 제품을 다시 게시 하지 않고 대상을 업데이트 하기 위해 대상 그룹을 변경 하 고 (UI 또는 API 사용) "개인 대상 사용자 동기화" 작업을 시작 합니다.**
 
-<a name="previewing-private-offers"></a>프라이빗 제품 미리 보기
+대상이 10 개 이하인 경우에는 CPP UI를 사용 하 여 해당 구독을 완전히 관리할 수 있습니다.
+
+사용자가 10 개를 초과 하는 구독을 사용 하는 경우에는 CPP UI에 업로드 하거나 API를 사용 하 여 CSV 파일을 사용 하 여 관리할 수 있습니다.
+
+API를 사용 하 고 CSV 파일을 유지 관리 하지 않으려는 경우 아래 지침에 따라 API를 사용 하 여 직접 대상 그룹을 관리할 수 있습니다.
+
+> [!NOTE]
+> Azure 구독 ID (요금제 및 Sku) 또는 테 넌 트 ID (요금제만 해당)를 사용 하 여 개인 제품에 대상 그룹을 추가 합니다.
+
+###  <a name="managing-subscriptions-with-the-api"></a>API를 사용 하 여 구독 관리
+
+API를 사용 하 여 csv를 업로드 하거나 CSV를 사용 하지 않고 직접 대상 그룹을 관리할 수 있습니다. 일반적으로 제품을 검색 하 고 `restrictedAudience` 개체를 업데이트 한 다음 해당 변경 내용을 제품에 다시 제출 하 여 대상 그룹 멤버를 추가 하거나 제거 해야 합니다.
+
+다음은 사용자 그룹 목록을 프로그래밍 방식으로 업데이트 하는 방법입니다.
+
+1. [제품 데이터를 검색 합니다](cloud-partner-portal-api-retrieve-specific-offer.md) .
+
+    ```
+    GET https://cloudpartner.azure.com/api/publishers//offers/?api-version=2017-10-31&includeAllPricing=true
+    ```
+
+2. 이 JPath 쿼리를 사용 하 여 제품의 각 SKU에서 제한 된 대상 개체를 찾습니다.
+
+    ```
+    $.definition.plans[*].restrictedAudience
+    ```
+3. 제품에 대 한 제한 된 대상 개체를 업데이트 합니다.
+
+    **CSV 파일에서 개인 제품에 대 한 구독 목록을 원래 업로드 한 경우:**
+
+    *RestrictedAudience* 개체는 다음과 같습니다.
+    ```
+    "restrictedAudience": {
+                  "uploadedCsvUri": "{SasUrl}"
+    }
+    ```
+
+    제한 된 각 대상 개체에 대해 다음을 수행 합니다.
+
+    a. 의 `restrictedAudience.uploadedCsvUri`콘텐츠를 다운로드 합니다. 콘텐츠는 헤더를 포함 하는 CSV 파일 일 뿐입니다. 예:
+
+        type,id,description
+        subscriptionId,541a269f-3df2-486e-8fe3-c8f9dcf28205,sub1
+        subscriptionId,c0da499c-25ec-4e4b-a42a-6e75635253b9,sub2
+
+    b. 다운로드 한 CSV 파일에서 필요에 따라 구독을 추가 하거나 삭제 합니다.
+
+    c. [Azure Blob storage](../../storage/blobs/storage-blobs-overview.md) 또는 [OneDrive](https://onedrive.live.com)와 같은 위치에 업데이트 된 CSV 파일을 업로드 하 고 파일에 대 한 읽기 전용 링크를 만듭니다. 새 *SasUrl*됩니다.
+
+    d. `restrictedAudience.uploadedCsvUri` 새 *SasUrl*키를 업데이트 합니다.
+
+    **Cloud 파트너 포털에서 개인 제품의 원래 구독 목록을 수동으로 입력 한 경우:**
+
+    *RestrictedAudience* 개체는 다음과 같습니다.
+
+    ```
+    "restrictedAudience": {
+        "manualEntries": [{
+            "type": "subscriptionId",
+            "id": "541a269f-3df2-486e-8fe3-c8f9dcf28205",
+            "description": "sub1"
+            }, {
+            "type": "subscriptionId",
+            "id": "c0da499c-25ec-4e4b-a42a-6e75635253b9",
+            "description": "sub2"
+            }
+        ]}
+    ```
+
+    a. 제한 된 `restrictedAudience.manualEntries` 각 대상 개체에 대해 필요에 따라 목록에서 항목을 추가 하거나 삭제 합니다.
+
+4. 개인 제품의 각 SKU에 대 한 모든 *restrictedAudience* 개체를 업데이트 하는 작업을 완료 하면 [제품을 업데이트 합니다](cloud-partner-portal-api-creating-offer.md).
+
+    ```
+    PUT https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>?api-version=2017-10-31
+    ```
+    이제 업데이트 된 대상 그룹 목록이 적용 됩니다.
+
+<a name="previewing-private-offers"></a>비공개 제품 미리 보기
 -------------------------
 
-미리 보기/스테이징 단계 중에는 제품 수준 미리 보기 구독만 SKU에 액세스할 수 있습니다. 이는 제품이 대상 고객에게 어떻게 표시되는지 검증할 수 있는 테스트 단계이며, 모든 게시 유형에 대해 표준입니다.
+미리 보기/스테이징 단계 중에는 제품 수준 미리 보기 구독만 SKU에 액세스할 수 있습니다. 이 테스트 단계에서는 대상 고객에 게 표시 되는 제품을 미리 볼 수 있습니다.
 
 스테이징된 제품에 액세스하기 위한 제품 수준 미리 보기 구독:
 

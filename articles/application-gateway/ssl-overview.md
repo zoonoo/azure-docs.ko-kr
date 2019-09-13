@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: 199fcdf2ebf10852906b842f09fe7beafd2acdb5
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: e52a32c1897a7add939880fbe27d6b4b7fbee0bd
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326617"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883579"
 ---
 # <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>Application Gateway를 사용 하는 SSL 종료 및 종단 간 SSL 개요
 
@@ -95,7 +95,7 @@ Application Gateway는 알려진 백 엔드 인스턴스, 즉 Application Gatewa
    
 > [!NOTE] 
 >
-> SSL 인증서를 신뢰할 수 있도록 하려면 응용 프로그램 권한 게이트웨이의 신뢰할 수 있는 저장소에 포함 된 CA에서 백 엔드 서버의 인증서를 발급 해야 합니다. 신뢰할 수 있는 CA에서 인증서를 발급 하지 않은 경우에는 Application Gateway에서 다음을 확인 합니다. 발급 CA의 인증서가 신뢰할 수 있는 ca에서 발급 되었는지, 신뢰할 수 있는 ca가 검색 될 때까지 (신뢰할 수 있는 보안 연결이 설정 된 경우) 또는 신뢰할 수 있는 CA를 찾을 수 없을 때까지 (응용 프로그램 권한 게이트웨이가 해당 백 엔드를 표시 하지 않을 때까지)를 확인 합니다. 합니다. 따라서 백 엔드 서버 인증서에 루트 및 intermidiate Ca를 모두 포함 하는 것이 좋습니다.
+> SSL 인증서를 신뢰할 수 있도록 하려면 Application Gateway의 신뢰할 수 있는 저장소에 포함 된 CA에서 백 엔드 서버의 인증서를 발급 해야 합니다. 신뢰할 수 있는 CA에서 인증서를 발급 하지 않은 경우 Application Gateway에서 확인 됩니다. 발급 CA의 인증서가 신뢰할 수 있는 ca에서 발급 되었는지, 신뢰할 수 있는 ca를 찾을 때까지 (신뢰할 수 있는 보안 연결이 설정 된 경우) 또는 신뢰할 수 있는 CA를 찾을 수 없을 때까지 (Application Gateway에서 백 엔드를 표시 하는 경우)를 확인 합니다. 비정상). 따라서 백 엔드 서버 인증서에 루트 및 intermidiate Ca를 모두 포함 하는 것이 좋습니다.
 
 - 인증서가 자체 서명되었거나 알 수 없는 매개체가 서명한 경우 v2 SKU에서 종단 간 SSL을 사용하도록 설정하려면 신뢰할 수 있는 루트 인증서를 정의해야 합니다. Application Gateway는 해당 서버 인증서의 루트 인증서가 풀과 연결된 백 엔드 http 설정의 신뢰할 수 있는 루트 인증서 목록 중 하나와 일치하는 백 엔드와만 통신합니다.
 

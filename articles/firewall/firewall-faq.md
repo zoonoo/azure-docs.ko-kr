@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: victorh
-ms.openlocfilehash: 119f28bcc4f88f0b4dc0ce65584dbce326087eba
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: da5880d27e5dd51d3a5f90b7cd6cf2e7dec50f89
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114772"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932739"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -133,7 +133,7 @@ Azure 방화벽은 대상 IP 주소가 [IANA RFC 1918](https://tools.ietf.org/ht
 
 Azure Firewall에는 직접 인터넷 연결이 있어야 합니다. AzureFirewallSubnet이 BGP를 통해 온-프레미스 네트워크에 대한 기본 경로를 학습하는 경우 이 경로를 직접 인터넷 연결을 유지하기 위해 **Internet**으로 설정된 **NextHopType** 값을 통해 0.0.0.0/0 UDR로 재정의해야 합니다. 기본적으로 Azure Firewall은 온-프레미스 네트워크에 대한 강제 터널링을 지원하지 않습니다.
 
-그러나 구성에 온-프레미스 네트워크에 대한 강제 터널링이 필요한 경우 Microsoft는 사례별로 지원할 예정입니다. 사용자의 사례를 검토할 수 있도록 지원 부서에 연락해주시기 바랍니다. 수락 되 면 구독을 허용 하 고 필요한 방화벽 인터넷 연결이 유지 되는지 확인 합니다.
+그러나 구성에 온-프레미스 네트워크에 대한 강제 터널링이 필요한 경우 Microsoft는 사례별로 지원할 예정입니다. 사용자의 사례를 검토할 수 있도록 지원 부서에 연락해주시기 바랍니다. 수락되면 사용자의 구독을 허용하고 필요한 방화벽 인터넷 연결이 유지되도록 합니다.
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>방화벽 리소스 그룹 제한 사항이 있나요?
 
@@ -150,6 +150,9 @@ Azure Firewall에는 직접 인터넷 연결이 있어야 합니다. AzureFirewa
 ## <a name="what-does-provisioning-state-failed-mean"></a>프로 비전 *상태는 다음과 같습니다. 실패* 평균
 
 구성 변경이 적용 될 때마다 Azure 방화벽은 모든 기본 백 엔드 인스턴스를 업데이트 하려고 합니다. 드문 경우 지만 이러한 백 엔드 인스턴스 중 하나가 새 구성으로 업데이트 되지 않고 업데이트 프로세스가 실패 한 프로 비전 상태로 중지 될 수 있습니다. Azure 방화벽은 여전히 작동 하지만 적용 된 구성은 일관 되지 않은 상태일 수 있습니다 .이 경우 일부 인스턴스에는 업데이트 된 규칙 집합이 있는 이전 구성이 있습니다. 이 문제가 발생 하는 경우 작업이 성공 하 고 방화벽이 *성공한* 프로 비전 상태에 도달할 때까지 구성을 한 번 더 업데이트 해 보세요.
+
+### <a name="how-does-azure-firewall-handle-planned-maintenance-and-unplanned-failures"></a>Azure 방화벽은 계획 된 유지 관리 및 계획 되지 않은 오류를 어떻게 처리 하나요?
+Azure 방화벽은 활성-활성 구성의 여러 백 엔드 노드로 구성 됩니다.  계획 된 유지 관리를 위해 노드를 정상적으로 업데이트 하는 연결 드레이닝 논리가 있습니다.  업무 외 시간에는 각 Azure 지역에 대 한 업무 외 시간에 업데이트를 계획 하 여 중단 위험을 추가로 제한할 수 있습니다.  계획 되지 않은 문제의 경우에는 새 노드를 인스턴스화하여 오류가 발생 한 노드를 대체 합니다.  새 노드에 대 한 연결은 일반적으로 오류가 발생 한 시간부터 10 초 이내에 다시 설정 됩니다.
 
 ## <a name="is-there-a-character-limit-for-a-firewall-name"></a>방화벽 이름에 대 한 문자 제한이 있나요?
 

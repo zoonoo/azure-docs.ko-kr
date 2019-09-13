@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 91407fc76d0a7555a87a8a3dcd1b3ad04ee2af80
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: f9dbddcba1545e0a110faa9fbf8e3de9ff189525
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736227"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879500"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 ML 서비스 클러스터 운영
 
@@ -50,31 +50,31 @@ HDInsight에서 ML 서비스 클러스터를 사용하여 데이터 모델링을
 
 1. 선택할 수 있는 옵션이 표시됩니다. 다음 스크린샷에 표시된 첫 번째 옵션인 **운영을 위해 ML Server 구성**을 선택합니다.
 
-    ![one-box 조작화](./media/r-server-operationalize/admin-util-one-box-1.png)
+    ![한 상자 op1](./media/r-server-operationalize/admin-util-one-box-1.png)
 
 1. 이제 ML Server를 운영하는 방법을 선택할 수 있는 옵션이 표시됩니다. 표시된 옵션에서 **A**를 입력하여 첫 번째 옵션을 선택합니다.
 
-    ![one-box 조작화](./media/r-server-operationalize/admin-util-one-box-2.png)
+    ![한 상자 op2](./media/r-server-operationalize/admin-util-one-box-2.png)
 
 1. 메시지가 표시되면 로컬 관리 사용자의 암호를 입력하고 다시 입력합니다.
 
 1. 조작이 성공했음을 알리는 출력이 표시됩니다. 메뉴에서 다른 옵션을 선택하라는 메시지도 표시됩니다. E를 선택하여 주 메뉴로 돌아갑니다.
 
-    ![one-box 조작화](./media/r-server-operationalize/admin-util-one-box-3.png)
+    ![한 상자 op3](./media/r-server-operationalize/admin-util-one-box-3.png)
 
 1. 필요에 따라 다음과 같이 진단 테스트를 실행하여 진단 검사를 수행할 수 있습니다.
 
     a. 주 메뉴에서 **6**을 선택하여 진단 테스트를 실행합니다.
 
-    ![one-box 조작화](./media/r-server-operationalize/diagnostic-1.png)
+    ![diagnostic1](./media/r-server-operationalize/diagnostic-1.png)
 
     b. 진단 테스트 메뉴에서 **A**를 선택합니다. 메시지가 표시되면 로컬 관리 사용자에 대해 지정한 암호를 입력합니다.
 
-    ![one-box 조작화](./media/r-server-operationalize/diagnostic-2.png)
+    ![diagnostic2](./media/r-server-operationalize/diagnostic-2.png)
 
     c. 출력에서 전체 상태가 성공으로 표시되는지 확인합니다.
 
-    ![one-box 조작화](./media/r-server-operationalize/diagnostic-3.png)
+    ![diagnostic3](./media/r-server-operationalize/diagnostic-3.png)
 
     d. 표시된 메뉴 옵션에서 **E**를 입력하여 주 메뉴로 돌아간 다음 **8**을 입력하여 관리 유틸리티를 종료합니다.
 

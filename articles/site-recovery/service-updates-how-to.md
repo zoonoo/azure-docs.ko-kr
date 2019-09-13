@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: rajanaki
-ms.openlocfilehash: e06cd77a1d46208fe0f7aa166be3ccd3b9b7dbb4
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 3489f7f812798504d0c57a265a04e57344105419
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828604"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910470"
 ---
 # <a name="service-updates-in-site-recovery"></a>Site Recovery의 서비스 업데이트
 
@@ -103,8 +103,7 @@ Site Recovery는 전자 메일 (전자 메일 알림을 구독 하는 경우) �
 
 1. 현재 버전 및 [지원 정책](#support-statement-for-azure-site-recovery)에 따라 [다음 지침](vmware-azure-deploy-configuration-server.md#upgrade-the-configuration-server)을 사용 하 여 온-프레미스 구성 서버에 먼저 업데이트를 설치 합니다. 
 2. 스케일 아웃 프로세스 서버를 사용 하는 경우 다음 [지침](vmware-azure-manage-process-server.md#upgrade-a-process-server)을 사용 하 여 해당 서버를 업데이트 합니다.
-3. 보호 된 각 컴퓨터에서 모바일 에이전트를 업데이트 하려면 **보호 된 항목** > **복제**된 항목을 엽니다.
-4. VM을 선택 하 고 각 VM에 대 한 페이지 맨 아래에 표시 되는 **에이전트 업데이트** 단추를 선택 합니다. 그러면 모든 보호 된 Vm에서 모바일 서비스 에이전트가 업데이트 됩니다.
+3. 각 보호 된 컴퓨터에서 모바일 에이전트를 업데이트 하려면 [이](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal) 문서를 참조 하세요.
 
 ### <a name="reboot-after-mobility-service-upgrade"></a>모바일 서비스 업그레이드 후 다시 부팅
 

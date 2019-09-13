@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 96a8eab57f1714eed4831bea01508e9140d1dfad
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
-ms.translationtype: MT
+ms.openlocfilehash: 69631b39403dedab56ed75cb145d464c0e1f747c
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934979"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70935353"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage 탐색기 문제 해결 가이드
 
@@ -71,7 +71,7 @@ Storage 탐색기를 통해 Azure 리소스에 연결 하는 데 필요한 정�
 Storage Explorer가 자체 서명된 인증서나 신뢰할 수 없는 인증서를 발견하면, 수신된 HTTPS 메시지가 변경되었는지 여부를 더 이상 알 수 없습니다. 자체 서명된 인증서의 복사본이 있으면 다음 단계를 통해 Storage Explorer가 이를 신뢰하게 할 수 있습니다.
 
 1. 인증서의 Base-64 인코딩 X.509(.cer) 사본 가져오기
-2. **편집** > **SSL 인증서** > **인증서 가져오기**를 클릭한 다음, 파일 선택기를 사용하여 해당 .cer 파일을 찾고 선택하고 엽니다.
+2. **편집** → **SSL 인증서** → **인증서 가져오기**를 클릭 하 고 파일 선택기를 사용 하 여 .cer 파일을 찾고 선택 하 고 엽니다.
 
 이 문제는 여러 인증서(루트 및 중간)의 결과로 발생할 수도 있습니다. 오류를 해결하려면 인증서를 모두 추가해야 합니다.
 
@@ -86,7 +86,7 @@ Storage Explorer가 자체 서명된 인증서나 신뢰할 수 없는 인증서
 3. `s_client -showcerts -connect microsoft.com:443` 실행
 4. 자체 서명된 인증서를 찾습니다. 자체 서명 된 인증서를 잘 모르는 경우에는 주체 `("s:")` 와 발급자 `("i:")` 가 동일한 위치에서 찾을 수 있습니다.
 5. 자체 서명된 인증서를 찾았으면 각 인증서에 대해 **----- BEGIN CERTIFICATE -----** 부터 **----- END CERTIFICATE -----** 까지 모든 줄을 복사하여 새 .cer 파일에 붙여넣습니다.
-6. Storage Explorer를 열고 **편집** > **SSL 인증서** > **인증서 가져오기**를 클릭한 다음, 파일 선택기를 사용하여 만든 .cer 파일을 찾고 선택하고 엽니다.
+6. Storage 탐색기 열고 **편집** → **SSL 인증서** → **인증서 가져오기**를 클릭 한 다음 파일 선택기를 사용 하 여 만든 .cer 파일을 찾고 선택 하 고 엽니다.
 
 이전 단계를 사용 하 여 자체 서명 된 인증서를 찾을 수 없는 경우 자세한 도움말은 사용자 의견 도구를 통해 문의해 주세요. 명령줄에서 `--ignore-certificate-errors` 플래그를 사용 하 여 Storage 탐색기를 시작 하도록 선택할 수도 있습니다. 이 플래그로 시작하면 Storage Explorer가 인증서 오류를 무시하게 됩니다.
 
@@ -215,6 +215,58 @@ Windows 용 Fiddler와 같은 네트워킹 도구가 있는 경우 다음과 같
 
 계정 키가 표시 되 면 문제를 해결 하는 데 도움이 될 수 있도록 GitHub에서 문제를 파일에 표시 합니다.
 
+## <a name="error-occurred-while-adding-new-connection-typeerror-cannot-read-property-version-of-undefined"></a>새 연결을 추가 하는 동안 오류 발생: TypeError Undefined의 ' version ' 속성을 읽을 수 없습니다.
+
+사용자 지정 연결을 추가 하려고 할 때이 오류 메시지가 표시 되 면 로컬 자격 증명 관리자에 저장 된 연결 데이터가 손상 되었을 수 있습니다.
+이 문제를 해결 하기 위해 손상 된 로컬 연결을 삭제 한 다음 다시 추가 해 볼 수 있습니다.
+
+1. Storage 탐색기를 시작 합니다. 상단 메뉴에서 도움말 → 전환 개발자 도구로 이동 합니다.
+2. 열린 창에서 응용 프로그램 탭 → 로컬 저장소 (왼쪽) → file://로 이동 합니다.
+3. 문제가 발생 하는 연결 유형에 따라 키를 찾아 해당 값을 텍스트 편집기에 복사 합니다. 값은 사용자 지정 연결 이름으로 이루어진 배열입니다.
+    * 저장소 계정
+        * `StorageExplorer_CustomConnections_Accounts_v1`
+    * Blob 컨테이너
+        * `StorageExplorer_CustomConnections_Blobs_v1`
+        * `StorageExplorer_CustomConnections_Blobs_v2`
+    * 파일 공유
+        * `StorageExplorer_CustomConnections_Files_v1`
+    * 큐
+        * `StorageExplorer_CustomConnections_Queues_v1`
+    * 테이블
+        * `StorageExplorer_CustomConnections_Tables_v1`
+4. 현재 연결 이름을 저장 한 후 개발자 도구 `[]`의 값을로 설정 합니다.
+
+손상 되지 않은 연결을 유지 하려는 경우 다음 단계를 수행 하 여 손상 된 연결을 찾을 수 있습니다. 기존 연결을 모두 잃지 않는 경우 다음 단계를 건너뛰고 플랫폼별 지침에 따라 연결 데이터를 지울 수 있습니다.
+
+1. 텍스트 편집기에서 각 연결 이름을 다시 개발자 도구 다시 추가 하 고 연결이 계속 작동 하는지 확인 합니다.
+2. 연결이 제대로 작동 하는 경우 손상 되지 않으므로 안전 하 게 유지할 수 있습니다. 연결이 작동 하지 않는 경우 개발자 도구에서 해당 값을 제거 하 고 기록 하 여 나중에 다시 추가할 수 있습니다.
+3. 모든 연결을 검사할 때까지 반복 합니다.
+
+모든 연결을 이동한 후에는 다시 추가 되지 않는 모든 연결 이름에 대해 손상 된 데이터 (있는 경우)를 지우고 Storage 탐색기를 사용 하 여 일반적인 단계를 통해 다시 추가 해야 합니다.
+
+# <a name="windowstabwindows"></a>[Windows](#tab/Windows)
+
+1. 시작 메뉴를 열고 ' 자격 증명 관리자 '를 검색 하 여 ' 자격 증명 관리자 '를 엽니다.
+2. 열린 창에서 ' Windows 자격 증명 '으로 이동 합니다.
+3. ' 일반 자격 증명 ' 아래에서 키 `<connection_type_key>/<corrupted_connection_name>` 가 있는 항목을 찾습니다 ( `StorageExplorer_CustomConnections_Accounts_v1/account1`예:).
+4. 이러한 항목을 제거 하 고 다시 연결을 추가 합니다.
+
+# <a name="macostabmacos"></a>[macOS](#tab/macOS)
+
+1. 스포트라이트 (명령 공간 모음)를 열고 ' 키 집합 액세스 '를 검색 합니다.
+2. 키 `<connection_type_key>/<corrupted_connection_name>` 가 있는 항목을 찾습니다 ( `StorageExplorer_CustomConnections_Accounts_v1/account1`예:).
+3. 이러한 항목을 삭제 하 고 다시 연결을 추가 합니다.
+
+# <a name="linuxtablinux"></a>[Linux](#tab/Linux)
+
+로컬 자격 증명 관리는 Linux 배포에 따라 다릅니다. Linux 배포판에서 로컬 자격 증명 관리에 대 한 기본 제공 GUI 도구를 제공 하지 않는 경우 타사 도구를 설치 하 여 로컬 자격 증명을 관리할 수 있습니다. 예를 들어 Linux 로컬 자격 증명을 관리 하기 위한 오픈 소스 GUI 도구인 [Seahorse](https://wiki.gnome.org/Apps/Seahorse/)를 사용할 수 있습니다.
+
+1. 로컬 자격 증명 관리 도구를 열고 저장 된 자격 증명을 찾습니다.
+2. 키 `<connection_type_key>/<corrupted_connection_name>` 가 있는 항목을 찾습니다 ( `StorageExplorer_CustomConnections_Accounts_v1/account1`예:).
+3. 이러한 항목을 삭제 하 고 다시 연결을 추가 합니다.
+
+이러한 단계를 수행한 후에도이 오류가 계속 발생 하거나, 연결을 손상 시킬 것으로 예상 되는 내용을 공유 하려면 GitHub 페이지에서 [문제를 여세요](https://github.com/microsoft/AzureStorageExplorer/issues) .
+
 ## <a name="issues-with-sas-url"></a>SAS URL 문제
 
 SAS URL을 사용하여 서비스에 연결하고 이 오류가 발생하는 경우:
@@ -233,15 +285,15 @@ SAS URL을 사용하여 서비스에 연결하고 이 오류가 발생하는 경
 
 ## <a name="linux-dependencies"></a>Linux 종속성
 
-<!-- Storage Explorer 1.9.0 and later is available as a snap from the Snap Store. The Storage Explorer snap installs all of its dependencies with no extra hassle.
+Storage 탐색기 1.10.0 이상은 Snap 저장소에서 스냅으로 사용할 수 있습니다. 새 버전의 snap를 사용할 수 있는 경우 Storage 탐색기 snap는 모든 종속 항목을 자동으로 설치 하 고 업데이트 합니다. 권장 설치 방법은 Storage 탐색기 snap를 설치 하는 것입니다.
 
-Storage Explorer requires the use of a password manager, which may need to be connected manually before Storage Explorer will work correctly. You can connect Storage Explorer to your system's password manager with the following command:
+Storage 탐색기을 사용 하려면 암호 관리자를 사용 해야 합니다. 암호 관리자는 Storage 탐색기 제대로 작동 하려면 수동으로 연결 해야 할 수도 있습니다. 다음 명령을 사용 하 여 Storage 탐색기를 시스템의 암호 관리자에 연결할 수 있습니다.
 
 ```bash
 snap connect storage-explorer:password-manager-service :password-manager-service
 ```
 
-You can also download the application .tar.gz file, but you'll have to install dependencies manually. -->
+응용 프로그램을 release.tar.gz 파일로 다운로드할 수도 있지만 종속성을 수동으로 설치 해야 합니다.
 
 > [!IMPORTANT]
 > Release.tar.gz 다운로드에 제공 된 Storage 탐색기는 Ubuntu 배포에 대해서만 지원 됩니다. 다른 배포판은 확인 되지 않으며 대체 또는 추가 패키지가 필요할 수 있습니다.

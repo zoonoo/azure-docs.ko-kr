@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/09/2019
 ms.author: diberry
-ms.openlocfilehash: 36d03e20c9a56d7b317b867f01c1c0b5767c802c
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 5c2e81cd11826a0325cd78384a22ec7eefb3a565
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70257031"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844874"
 ---
 # <a name="using-authoring-and-runtime-resource-keys"></a>제작 및 런타임 리소스 키 사용
 
@@ -38,7 +38,7 @@ LUIS 포털에 로그인 하면 다음 작업을 계속 하도록 선택할 수 
 1. [LUIS 포털](https://www.luis.ai) 에 로그인 하 고 사용 약관에 동의 합니다.
 1. 사용 하려는 LUIS 제작 키 유형 (무료 평가판 키 또는 새 Azure LUIS authoring key)을 선택 하 여 LUIS 앱을 시작 합니다. 
 
-    ![Language Understanding 제작 리소스의 유형을 선택 합니다.](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)
+    ![Language Understanding 제작 리소스의 유형을 선택합니다.](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)
 
 1. 리소스 선택 프로세스를 완료 하면 [새 앱을 만듭니다](luis-how-to-start-new-app.md#create-new-app-in-luis). 
 
@@ -72,6 +72,38 @@ LUIS 포털의 **사용자 설정** 페이지와 **관리-> Azure 리소스** �
     |런타임 가격 책정 계층|가격 책정 계층은 초당 최대 트랜잭션 수와 월을 결정 합니다.|
 
     두 리소스를 모두 만든 후에는 LUIS 포털에서 리소스를 할당 합니다.
+
+## <a name="create-resources-in-azure-cli"></a>Azure CLI에서 리소스 만들기
+
+[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 를 사용 하 여 각 리소스를 개별적으로 만들 수 있습니다. 
+
+리소스 `kind`:
+
+* 만들`LUIS.Authoring`
+* 예측`LUIS` 
+
+1. Azure CLI에 로그인 합니다.
+
+    ```console
+    az login
+    ```
+
+    그러면 올바른 계정을 선택 하 고 인증을 제공할 수 있는 브라우저가 열립니다.
+
+1. 지역`westus` 에 대해 `LUIS.Authoring`이라는 `my-luis-authoring-resource` 기존리소스그룹에이라는종류의LUISauthoring`my-resource-group` resource를 만듭니다. 
+
+    ```console
+    az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
+    ```
+
+1. 지역`westus` 에 대해 `LUIS`이라는 `my-luis-prediction-resource` 기존리소스그룹에이라는이름의LUIS예측끝점`my-resource-group` 리소스를 만듭니다. 무료 계층 보다 높은 처리량을 원하는 경우로 `F0` `S0`변경 합니다. [가격 책정 계층 및 처리량](luis-boundaries.md#key-limits)에 대해 자세히 알아보세요.
+
+    ```console
+    az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
+    ```
+
+    > [!Note] 
+    > 이 키는 LUIS 포털에서 **관리 > Azure 리소스**의 LUIS 포털에 할당 될 때까지 사용 **되지 않습니다** .
 
 ## <a name="assign-an-authoring-resource-in-the-luis-portal-for-all-apps"></a>모든 앱에 대해 LUIS 포털에서 제작 리소스 할당
 
@@ -186,6 +218,6 @@ Azure에서 LUIS 사용량 정보를 볼 수 있습니다. **개요** 페이지�
 ## <a name="next-steps"></a>다음 단계
 
 * 버전을 사용 하 여 앱 수명 주기를 제어 하 [는 방법을](luis-how-to-manage-versions.md) 알아봅니다.
-* 해당 리소스에 대 한 [제작 리소스](/luis-concept-keys.md#authoring-key) 및 [참가자](luis-concept-keys.md#contributions-from-other-authors) 를 비롯 한 개념을 이해 합니다.
+* 해당 리소스에 대 한 [제작 리소스](luis-concept-keys.md#authoring-key) 및 [참가자](luis-concept-keys.md#contributions-from-other-authors) 를 비롯 한 개념을 이해 합니다.
 * 제작 및 런타임 리소스 [를 만드는 방법](luis-how-to-azure-subscription.md) 알아보기
 * 새 [제작 리소스로](luis-migration-authoring.md) 마이그레이션 

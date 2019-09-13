@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c06cd53e408ebcae24de487fe1d4d25e14aae11b
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 0dd5ede110255b6e53bbc397e683e66b3beffc65
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240723"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910542"
 ---
 # <a name="connect-from-on-premises-to-cloudsimple-using-expressroute"></a>Express 경로를 사용 하 여 온-프레미스에서 CloudSimple로 연결
 
@@ -23,16 +23,16 @@ ms.locfileid: "70240723"
 
 ## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
-온-프레미스에서 Global Reach 연결을 설정 하려면 **/29** 네트워크 주소 블록이 필요 합니다.  /29 주소 공간은 Express 경로 회로 간의 전송 네트워크에 사용 됩니다.  전송 네트워크는 Azure 가상 네트워크, 온-프레미스 네트워크 또는 CloudSimple 사설 클라우드 네트워크와 겹치지 않아야 합니다.
+온-프레미스에서 Global Reach 연결을 설정 하려면 **/29** 네트워크 주소 블록이 필요 합니다.  /29 주소 공간은 Express 경로 회로 간의 전송 네트워크에 사용 됩니다.  전송 네트워크는 Azure 가상 네트워크, 온-프레미스 네트워크 또는 CloudSimple 사설 클라우드 네트워크와 겹치면 안 됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 회로와 CloudSimple 사설 클라우드 네트워크 간의 연결을 설정 하려면 Azure Express 경로 회로가 필요 합니다.
 * 사용자는 Express 경로 회로에서 인증 키를 만들 수 있는 권한이 필요 합니다.
 
 ## <a name="scenarios"></a>시나리오
 
-사설 클라우드 네트워크에 온-프레미스 네트워크를 연결 하면 다음을 포함 하 여 다양 한 방법으로 사설 클라우드를 사용할 수 있습니다.
+사설 클라우드 네트워크에 온-프레미스 네트워크를 연결 하면 다음과 같은 시나리오를 비롯 하 여 다양 한 방법으로 사설 클라우드를 사용할 수 있습니다.
 
 * 사이트 간 VPN 연결을 만들지 않고 사설 클라우드 네트워크에 액세스 합니다.
 * 사설 클라우드의 id 원본으로 온-프레미스 Active Directory을 사용 합니다.
@@ -43,6 +43,7 @@ ms.locfileid: "70240723"
 ## <a name="connecting-expressroute-circuits"></a>Express 경로 회로 연결
 
 Express 경로 연결을 설정 하려면 Express 경로 회로에 대 한 권한 부여를 만들고 CloudSimple에 권한 부여 정보를 제공 해야 합니다.
+
 
 ### <a name="create-expressroute-authorization"></a>Express 경로 권한 부여 만들기
 
@@ -70,6 +71,11 @@ Express 경로 연결을 설정 하려면 Express 경로 회로에 대 한 권�
     * 문제 하위 유형: **온-프레미스에 대 한 Express 경로 연결 만들기**
     * 세부 정보 창에서 복사 하 여 저장 한 리소스 ID와 권한 부여 키를 제공 합니다.
     * 전송 네트워크에 대 한/29 네트워크 주소 공간을 제공 합니다.
+    * Express 경로를 통해 기본 경로를 전송 하 고 있나요?
+    * 사설 클라우드 트래픽이 Express 경로를 통해 전송 되는 기본 경로를 사용 해야 하나요?
+
+    > [!IMPORTANT]
+    > 기본 경로를 전송 하면 온-프레미스 인터넷 연결을 사용 하 여 사설 클라우드의 모든 인터넷 트래픽을 보낼 수 있습니다.  사설 클라우드에 구성 된 기본 경로를 사용 하지 않도록 설정 하 고 온-프레미스 연결 기본 경로를 사용 하려면 지원 티켓에 세부 정보를 제공 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

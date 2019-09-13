@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: quickstart
-ms.date: 08/20/2019
+ms.topic: reference
+ms.date: 09/05/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: a6a8c0118e8179da570ce91b9fa7e3523bae1d3f
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
-ms.translationtype: HT
+ms.openlocfilehash: 3882401fe4d470478651fac97c0bfd34c9a0122d
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650557"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390928"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-nodejs"></a>Node.js에서 QnA Maker REST API를 사용하는 방법 
 <a name="HOLTop"></a>
@@ -40,7 +40,7 @@ ms.locfileid: "69650557"
 
 [!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 코드를 실행하려면 [Node.js 6](https://nodejs.org/en/download/)이 필요합니다.
 
@@ -1766,6 +1766,6 @@ put_alterations (path, content, function (result) {
 > [!div class="nextstepaction"]
 > [QnA Maker(V4) REST API 참조](https://go.microsoft.com/fwlink/?linkid=2092179)
 
-## <a name="see-also"></a>참고 항목 
+## <a name="see-also"></a>참고자료 
 
 [QnA Maker 개요](../Overview/overview.md)

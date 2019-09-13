@@ -8,16 +8,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/13/2017
 ms.author: ashishth
-ms.openlocfilehash: 707869880c5df619def2d707264b59e22e03c521
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f833d045f297679ae3629f8e0afe20b3ca834821
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720307"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885584"
 ---
-# <a name="use-the-net-sdk-for-apache-hbase"></a>Apache HBase 용.NET SDK를 사용 합니다.
+# <a name="use-the-net-sdk-for-apache-hbase"></a>Apache HBase 용 .NET SDK 사용
 
-[Apache HBase](apache-hbase-overview.md) 데이터와 함께 작동 하려면 두 가지 기본 옵션을 제공 합니다. [Apache Hive 쿼리와 HBase's RESTful API에 대 한 호출](apache-hbase-tutorial-get-started-linux.md)합니다. `curl`명령 또는 이와 유사한 유틸리티를 사용하여 REST API로 직접 작업할 수 있습니다.
+[Apache HBase](apache-hbase-overview.md) 는 데이터 작업에 사용할 수 있는 두 가지 기본 옵션을 제공 합니다. [Apache Hive 쿼리 및 HBase의 RESTFUL API에 대 한 호출](apache-hbase-tutorial-get-started-linux.md)입니다. `curl`명령 또는 이와 유사한 유틸리티를 사용하여 REST API로 직접 작업할 수 있습니다.
 
 C# 및 .NET 애플리케이션의 경우 [.NET용 Microsoft HBase REST 클라이언트 라이브러리](https://www.nuget.org/packages/Microsoft.HBase.Client/)가 HBase REST API 기반 클라이언트 라이브러리를 제공합니다.
 
@@ -114,9 +114,9 @@ await client.StoreCellsAsync("RestSDKTable", set);
 
 HBase는 데이터 형식이 다음처럼 표시되도록 [Cloud BigTable](https://cloud.google.com/bigtable/)을 구현합니다.
 
-![클러스터 사용자 역할이 있는 사용자](./media/apache-hbase-rest-sdk/table.png)
+![클러스터 사용자 역할이 있는 사용자](./media/apache-hbase-rest-sdk/hdinsight-table-roles.png)
 
-## <a name="select-data"></a>데이터를 선택합니다.
+## <a name="select-data"></a>데이터 선택
 
 HBase 테이블에서 데이터를 읽으려면 테이블 이름과 행 키를 `CellSet`를 반환하는 `GetCellsAsync` 메서드로 전달합니다.
 

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: 2a037a495a1e1ed211bd9a535891ccf75fdb140b
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: e75de16d0e16bc639a0439220a1c9dfe53e1689b
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278173"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879053"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측 모델 자동 학습
 
@@ -35,7 +35,7 @@ ms.locfileid: "70278173"
 
 학습 데이터에서 추출 된 기능은 중요 한 역할을 합니다. 그리고 자동화 된 ML은 표준 전처리 단계를 수행 하 고, 계절 효과를 캡처하고 예측 정확도를 최대화 하기 위한 추가 시계열 기능을 생성 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure Machine Learning 서비스 작업 영역. 작업 영역을 만들려면 [Azure Machine Learning 서비스 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 * 이 문서에서는 자동화 된 machine learning 실험을 설정 하는 방법에 대 한 기본 지식이 있다고 가정 합니다. [자습서](tutorial-auto-train-models.md) 또는 [방법에](how-to-configure-auto-train.md) 따라 기본적인 자동화 된 기계 학습 실험 디자인 패턴을 볼 수 있습니다.
@@ -138,8 +138,12 @@ local_run = experiment.submit(automl_config, show_output=True)
 best_run, fitted_model = local_run.get_output()
 ```
 
-> [!NOTE]
-> 교차 유효성 검사 (CV) 절차의 경우 시계열 데이터는 정식 K 접기 교차 유효성 검사 전략의 기본 통계 가정을 위반할 수 있으므로 자동화 된 machine learning은 만들 롤링 원본 유효성 검사 절차를 구현 합니다. 시계열 데이터에 대 한 교차 유효성 검사 접기. 이 절차를 사용 하려면 `n_cross_validations` `AutoMLConfig` 개체에 매개 변수를 지정 합니다. 유효성 검사를 무시 하 고 `X_valid` 및 `y_valid` 매개 변수를 사용 하 여 고유한 유효성 검사 집합을 사용할 수 있습니다.
+다음을 포함 하 여 고급 예측 구성의 자세한 코드 예제는 [에너지 수요 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) 을 참조 하세요.
+
+* 휴일 검색 및 기능화
+* 롤링 원본 교차 유효성 검사
+* 구성 가능한 지연
+* 창 롤링 집계 기능
 
 ### <a name="view-feature-engineering-summary"></a>기능 엔지니어링 요약 보기
 

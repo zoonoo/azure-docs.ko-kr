@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 08/27/2019
-ms.openlocfilehash: 33e21b54927280e2692a58c311e2de23e257f923
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 0dea447ed44a61b20faf9a0a1690b2bbdd674b30
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845373"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70930617"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>관리 되는 인스턴스 리소스 제한 Azure SQL Database 개요
 
@@ -58,16 +58,15 @@ Azure SQL Database 관리 되는 인스턴스는 두 가지 하드웨어 세대�
 | 인스턴스당 최대 데이터베이스 수 | 100 | 100 |
 | 인스턴스당 데이터베이스 파일의 최대 수 | 최대 280개 | 데이터베이스당 32,767개 파일 |
 | 최대 파일 크기 | 8 TB | 4 TB |
+| 최대 로그 파일 크기 | 2TB | 2TB |
 | 데이터/로그 IOPS(근사치) | 파일당 500~7,500<br/>\*[더 많은 IOPS를 얻기 위해 파일 크기 늘리기](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5.5 k-110 K (1375/vCore)<br/>더 나은 IO 성능을 얻으려면 vCores를 더 추가 합니다. |
 | 로그 쓰기 처리량 제한 | vCore당 3MB/초<br/>인스턴스당 최대 22 m b/초 | vCore 당 4mb/s<br/>인스턴스당 최대 48 m b/초|
-| 데이터 처리량(근사치) | 파일당 100~250MB/초<br/>\*[더 나은 IO 성능을 얻으려면 파일 크기를 늘립니다.](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 해당 사항 없음 |
+| 데이터 처리량(근사치) | 파일당 100~250MB/초<br/>\*[더 나은 IO 성능을 얻으려면 파일 크기를 늘립니다.](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/A |
 | 저장소 IO 대기 시간 (근사치) | 5~10ms | 1~2ms |
 | 최대 tempDB 크기 | 192~1,920GB(vCore당 24GB)<br/>더 많은 vCores를 추가 하 여 TempDB 공간을 더 확보 합니다. | 최대 인스턴스 저장소 크기에 의해 제한 됩니다. TempDB 로그 파일 크기는 현재 24GB/vCore로 제한 됩니다. |
 | 메모리 내 OLTP | 지원되지 않음 | 사용 가능 |
 | 최대 세션 | 30000 | 30000 |
 | [읽기 전용 복제본](sql-database-read-scale-out.md) | 0 | 1 (가격에 포함 됨) |
-| 가격 책정/청구 | [Vcore 및 예약 된 저장소](https://azure.microsoft.com/pricing/details/sql-database/managed/) 에는 요금이 부과 됩니다. <br/>IOPS에는 요금이 부과 되지 않습니다.<br/>백업 저장소에 아직 요금이 청구 되지 않았습니다. | [Vcore 및 예약 된 저장소](https://azure.microsoft.com/pricing/details/sql-database/managed/) 에는 요금이 부과 됩니다. <br/>IOPS에는 요금이 부과 되지 않습니다.<br/>백업 저장소에 아직 요금이 청구 되지 않았습니다. | 
-| 할인 모델 | [예약 인스턴스](sql-database-reserved-capacity.md)<br/>[Azure 하이브리드 혜택](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (개발/테스트 구독에서 사용할 수 없음)<br/>[엔터프라이즈](https://azure.microsoft.com/offers/ms-azr-0148p/) 및 [종 량](https://azure.microsoft.com/offers/ms-azr-0023p/) 제 개발/테스트 구독| [예약 인스턴스](sql-database-reserved-capacity.md)<br/>[Azure 하이브리드 혜택](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (개발/테스트 구독에서 사용할 수 없음)<br/>[엔터프라이즈](https://azure.microsoft.com/offers/ms-azr-0148p/) 및 [종 량](https://azure.microsoft.com/offers/ms-azr-0023p/) 제 개발/테스트 구독|
 
 > [!NOTE]
 > - 사용자 및 시스템 데이터베이스의 데이터 및 로그 파일 크기는 최대 스토리지 크기 제한과 비교되는 인스턴스 스토리지 크기에 포함됩니다. <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> 시스템 뷰를 사용하여 데이터베이스에서 사용되는 총 공간을 확인합니다. 오류 로그는 영구적이지 않으며 크기에 포함되지 않습니다. 백업은 스토리지 크기에 포함되지 않습니다.

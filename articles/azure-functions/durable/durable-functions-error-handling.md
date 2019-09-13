@@ -9,20 +9,20 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7b357189a9ce67f27952985b78dd3134517ffba5
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 5a3cfb78fe97b52abb1406dff64132fc1b3fb985
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734297"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933419"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>지속성 함수의 오류 처리(Azure Functions)
 
-지속성 함수 오케스트레이션은 코드로 구현되며 프로그래밍 언어의 오류 처리 기능을 사용할 수 있습니다. 이 점을 염두에 두면 오케스트레이션으로 오류 처리 및 보정을 통합 하는 방법에 대해 알아야 하는 새로운 개념은 없습니다. 그러나 알고 있어야 하는 몇 가지 동작이 있습니다.
+지 속성 함수 오케스트레이션은 코드로 구현 되며 프로그래밍 언어의 기본 제공 오류 처리 기능을 사용할 수 있습니다. 오케스트레이션에 오류 처리 및 보정을 추가 하기 위해 배워야 하는 새로운 개념은 없습니다. 그러나 알고 있어야 하는 몇 가지 동작이 있습니다.
 
 ## <a name="errors-in-activity-functions"></a>작업 함수의 오류
 
-작업 함수에서 throw되는 모든 예외는 오케스트레이터 함수에 다시 마샬링되고 `FunctionFailedException`으로 throw됩니다. 오케스트레이터 함수에서 요구 사항에 적합한 오류 처리 및 보정 코드를 작성할 수 있습니다.
+작업 함수에서 throw 되는 모든 예외는 오 케 스트레이 터 함수로 마샬링되 고로 `FunctionFailedException`throw 됩니다. 오케스트레이터 함수에서 요구 사항에 적합한 오류 처리 및 보정 코드를 작성할 수 있습니다.
 
 예를 들어 한 계정에서 다른 계정으로 자금을 이체하는 다음 오케스트레이터 함수를 살펴보세요.
 
@@ -139,7 +139,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-대상 계정에 대해 **CreditAccount** 함수를 호출하지 못하면 오케스트레이터 함수는 자금을 원본 계정에 다시 입금하여 보정합니다.
+첫 번째 **CreditAccount** 함수 호출이 실패 하면 오 케 스트레이 터 함수는 자금을 원본 계정에 다시 연결 하 여 보상 합니다.
 
 ## <a name="automatic-retry-on-failure"></a>실패 시 자동 다시 시도
 
@@ -192,18 +192,18 @@ module.exports = df.orchestrator(function*(context) {
 
 `CallActivityWithRetryAsync`(.NET) 또는 `callActivityWithRetry`(JavaScript) API는 `RetryOptions` 매개 변수를 사용합니다. `CallSubOrchestratorWithRetryAsync`(.NET) 또는 `callSubOrchestratorWithRetry`(JavaScript) API를 사용하는 하위 오케스트레이션 호출은 이처럼 동일한 다시 시도 정책을 사용할 수 있습니다.
 
-자동 다시 시도 정책을 사용자 지정하기 위한 몇 가지 옵션이 있습니다. 이러한 형식은 다음과 같습니다.
+자동 재시도 정책을 사용자 지정 하는 몇 가지 옵션이 있습니다.
 
 * **최대 시도 횟수**: 최대 재시도 횟수입니다.
 * **첫 번째 다시 시도 간격**: 첫 번째 다시 시도를 수행할 때까지 기다리는 시간입니다.
 * **백오프 계수**: 백오프의 증가율을 결정하는 데 사용되는 계수입니다. 기본값은 1입니다.
 * **최대 다시 시도 간격**: 다시 시도 간에 기다리는 최대 시간입니다.
 * **다시 시도 시간 제한**: 다시 시도하는 데 소요되는 최대 시간입니다. 기본 동작은 무기한으로 다시 시도하는 것입니다.
-* **처리**: 함수 호출을 다시 시도해야 하는지 여부를 결정하는 사용자 정의 콜백을 지정할 수 있습니다.
+* **처리**: 사용자 정의 콜백을 지정 하 여 함수를 다시 시도해 야 하는지 여부를 결정할 수 있습니다.
 
 ## <a name="function-timeouts"></a>함수 시간 제한
 
-오케스트레이터 함수가 완료되는 데 시간이 너무 오래 걸리는 경우 함수 호출을 중단할 수도 있습니다. 현재 이 작업을 제대로 수행하는 방법은 다음 예제와 같이 `Task.WhenAny`(.NET) 또는 `context.df.Task.any`(JavaScript)와 함께 `context.CreateTimer`(.NET) 또는 `context.df.createTimer`(JavaScript)를 사용하여 [지속성 타이머](durable-functions-timers.md)를 만드는 것입니다.
+완료 하는 데 시간이 너무 오래 걸리는 경우 오 케 스트레이 터 함수 내에서 함수 호출을 중단 하려고 할 수 있습니다. 현재 이 작업을 제대로 수행하는 방법은 다음 예제와 같이 `Task.WhenAny`(.NET) 또는 `context.df.Task.any`(JavaScript)와 함께 `context.CreateTimer`(.NET) 또는 `context.df.createTimer`(JavaScript)를 사용하여 [지속성 타이머](durable-functions-timers.md)를 만드는 것입니다.
 
 ### <a name="precompiled-c"></a>미리 컴파일된 C#
 
@@ -296,6 +296,9 @@ module.exports = df.orchestrator(function*(context) {
 처리되지 않은 예외로 인해 오케스트레이터 함수가 실패하면 예외 정보가 자세히 기록되고 인스턴스가 `Failed` 상태로 완료됩니다.
 
 ## <a name="next-steps"></a>다음 단계
+
+> [!div class="nextstepaction"]
+> [영구 오케스트레이션에 대 한 자세한 정보](durable-functions-eternal-orchestrations.md)
 
 > [!div class="nextstepaction"]
 > [문제 진단](durable-functions-diagnostics.md)

@@ -7,21 +7,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 09/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bbce41271914df4bb8a75804bc66ae538fe766fa
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 5ae12742c2ad50d5bf1caaf14ae2f6d34bd6d3a2
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716761"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880792"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 인터페이스 사용자 지정 정보
 
-Azure AD(Azure Active Directory) B2C가 애플리케이션에 제공하는 UI(사용자 인터페이스)를 브랜드하고 사용자 지정하는 기능은 고객에게 원활한 환경을 제공하는 데 중요합니다. 이러한 환경에는 등록, 로그인, 프로필 편집 및 암호 재설정이 포함됩니다. 이 문서에서는 애플리케이션의 UI를 사용자 지정하는 데 유용한 정보를 제공합니다.
+사용자가 응용 프로그램에 기능을 제공 하 Azure AD B2C Azure Active Directory B2C는 UI (사용자 인터페이스)를 브랜드 및 사용자 지정 하는 기능은 고객에 게 원활한 환경을 제공 하는 데 중요 합니다. 이러한 환경에는 등록, 로그인, 프로필 편집 및 암호 재설정이 포함됩니다. 이 문서에서는 애플리케이션의 UI를 사용자 지정하는 데 유용한 정보를 제공합니다.
 
-이러한 환경에 있어 필요에 따라 다양한 방식으로 애플리케이션의 UI를 사용자 지정할 수 있습니다. 예를 들어:
+이러한 환경에 있어 필요에 따라 다양한 방식으로 애플리케이션의 UI를 사용자 지정할 수 있습니다. 예:
 
 - [사용자 흐름](active-directory-b2c-reference-policies.md)을 사용하여 애플리케이션에 등록 또는 로그인, 암호 재설정 또는 프로필 편집 환경을 제공하는 경우 [UI를 사용자 지정하는 Azure Portal](tutorial-customize-ui.md)을 사용합니다.
 - v2 사용자 흐름을 사용하는 경우 [페이지 레이아웃 템플릿](#page-layout-templates)을 사용하여 추가 사용자 지정 없이 사용자 흐름 페이지의 모양을 변경할 수 있습니다. 예를 들어 사용자 흐름의 모든 페이지에 바다색 또는 녹회색 테마를 적용할 수 있습니다.
@@ -119,7 +119,7 @@ UI를 사용자 지정하려면 다음을 수행합니다.
 | 소셜 계정 등록 | Facebook 또는 Google과 같은 소셜 ID 공급자의 기존 계정을 사용하여 등록하는 경우 나타날 수 있습니다. 등록 양식을 사용하여 고객으로부터 추가 정보를 수집해야 할 때 사용됩니다. |
 | 통합 등록 또는 로그인 | Facebook, Google 또는 로컬 계정과 같은 소셜 ID 공급자를 사용할 수 있는 고객의 등록과 로그인을 모두 다룹니다. |
 | 다단계 인증 | 고객은 등록 또는 로그인 중에 전화 번호(텍스트 또는 음성 사용)를 확인할 수 있습니다. |
-| Error | 고객에게 오류 정보를 제공합니다. |
+| 오류 | 고객에게 오류 정보를 제공합니다. |
 
 
 ## <a name="how-do-i-localize-content"></a>콘텐츠를 어떻게 지역화하나요?
@@ -134,6 +134,9 @@ Azure AD B2C 테넌트에서 [사용자 언어 지정](active-directory-b2c-refe
 
 ## <a name="next-steps"></a>다음 단계
 
-- 사용자 흐름을 사용하는 경우 다음과 같은 자습서를 사용하여 UI를 사용자 지정할 수 있습니다. [Azure Active Directory B2C에서 애플리케이션의 사용자 인터페이스 사용자 지정](tutorial-customize-ui.md).
-- 사용자 지정 정책을 사용하는 경우 다음과 같은 문서를 사용하여 UI를 사용자 지정할 수 있습니다. [Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 애플리케이션의 사용자 인터페이스 사용자 지정](active-directory-b2c-ui-customization-custom.md).
+- **사용자 흐름**을 사용 하는 경우 자습서를 사용 하 여 UI 사용자 지정을 시작할 수 있습니다.
 
+    [Azure Active Directory B2C에서 애플리케이션의 사용자 인터페이스 사용자 지정](tutorial-customize-ui.md).
+- **사용자 지정 정책을**사용 하는 경우 다음 문서를 사용 하 여 UI 사용자 지정을 시작할 수 있습니다.
+
+    [Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 애플리케이션의 사용자 인터페이스 사용자 지정](active-directory-b2c-ui-customization-custom.md).

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 9b809681b68fe3347a68cb2b2006c41783a356a6
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: c617e4aa62ce2ff468545bef0b2ebe2c4d0e4f03
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932803"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382351"
 ---
 # <a name="how-to-review-endpoint-utterances-in-luis-portal-for-active-learning"></a>활성 학습을 위해 LUIS 포털에서 엔드포인트 길이 발언을 검토 하는 방법
 
@@ -25,11 +25,11 @@ ms.locfileid: "68932803"
 
 ## <a name="enable-active-learning"></a>활성 학습 사용
 
-활성 학습을 사용 하도록 설정 하려면 사용자 쿼리를 로깅합니다. 이렇게 하려면 `log=true` querystring 매개 변수 및 값을 사용 하 여 [끝점 쿼리](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) 를 설정 합니다.
+활성 학습을 사용 하도록 설정 하려면 사용자 쿼리를 로깅합니다. 이렇게 하려면 `log=true` querystring 매개 변수 및 값을 사용 하 여 [끝점 쿼리](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) 를 설정 합니다.
 
 ## <a name="disable-active-learning"></a>활성 학습 사용 안 함
 
-활성 학습을 사용 하지 않도록 설정 하려면 사용자 쿼리를 기록 하지 않습니다. 이렇게 하려면 `log=false` querystring 매개 변수 및 값을 사용 하 여 [끝점 쿼리](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) 를 설정 합니다.
+활성 학습을 사용 하지 않도록 설정 하려면 사용자 쿼리를 기록 하지 않습니다. 이렇게 하려면 `log=false` querystring 매개 변수 및 값을 사용 하 여 [끝점 쿼리](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) 를 설정 합니다.
 
 ## <a name="filter-utterances"></a>발화 필터링
 

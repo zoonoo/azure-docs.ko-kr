@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: 877fc3a4e29fc1753d7b4f92091b34d4b2537846
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 9071b41ab39c62f639b62a439e4d2530a7d7e11b
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810335"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880079"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Azure HDInsight 클러스터 크기 자동 조정 (미리 보기)
 
@@ -85,7 +85,7 @@ HDInsight 서비스는 현재 CPU 및 메모리 요구 사항을 충족 하는 �
     * **최소** 작업자 노드 수  
     * **최대** 작업자 노드 수  
 
-    ![작업자 노드 부하 기반 자동 크기 조정 사용](./media/hdinsight-autoscale-clusters/usingAutoscale.png)
+    ![작업자 노드 부하 기반 자동 크기 조정 사용](./media/hdinsight-autoscale-clusters/hdinsight-using-autoscale.png)
 
 초기 작업자 노드 수는 최소 작업자 노드 수~최대 작업자 노드 수 사이여야 합니다(최댓값 및 최솟값 포함). 이 값은 클러스터를 만들 때 초기 크기를 정의합니다. 최소 작업자 노드 수는 0보다 커야 합니다.
 

@@ -1,18 +1,18 @@
 ---
-title: Azure Site Recovery의 새로운 기능 | Microsoft Docs
+title: Azure Site Recovery의 새로운 기능
 description: 에 도입 된 새로운 기능에 대 한 요약을 제공 Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 09/12/2019
 ms.author: raynew
-ms.openlocfilehash: 5cd4b86c9c70f713a207f7feea9fa8efc06b6247
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 2d40e6fef215219035720ee64492a91fcdafb472
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70146911"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933929"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery의 새로운 기능
 
@@ -24,16 +24,56 @@ ms.locfileid: "70146911"
 
 Site Recovery 구성 요소의 경우 N-4 버전을 지원 합니다. 여기서 N은 최신 릴리스 버전입니다. 각각은 다음 표에 요약되어 있습니다.
 
-**Update 함수** |  **통합 설정** | **구성 서버 ova** | **모바일 서비스 에이전트** | **Site Recovery 공급자** | **Recovery Services 에이전트** 
---- | --- | --- | --- | ---
+**Update 함수** |  **통합 설정** | **구성 서버 ova** | **모바일 서비스 에이전트** | **Site Recovery 공급자** | **Recovery Services 에이전트**
+--- | --- | --- | --- | --- | ---
+[롤업 40](https://support.microsoft.com/help/4517283/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
 [롤업 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
 [롤업 38](https://support.microsoft.com/help/4513507/) | 9.26.5269.1 | 5.1.4500.0 | 9.26.5269.1 | 5.1.4500.0 | 2.0.9165.0
 [롤업 37](https://support.microsoft.com/help/4508614/) | 9.25.5241.1 | 5.1.4300.0 | 9.25.5241.1 | 5.1.4300.0 | 2.0.9163.0
 [롤업 36](https://support.microsoft.com/help/4503156/) | 9.24.5211.1 | 5.1.4150.0 | 9.24.5211.1 | 5.1.4150.0 | 2.0.9160.0 
-[롤업 35](https://support.microsoft.com/help/4494485/) | 9.23.5163.1 | 5.1.4000.0 | 9.23.5163.1 | 5.1.4000.0 | 2.0.9156.0 
         
 
 업데이트 설치 및 지원에 [대해 자세히 알아보세요](service-updates-how-to.md) .
+
+
+## <a name="updates-september-2019"></a>업데이트 (9 월 2019)
+
+### <a name="update-rollup-40"></a>업데이트 롤업 40
+
+[업데이트 롤업 40](h https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) 은 다음과 같은 업데이트를 제공 합니다.
+
+**Update 함수** | **세부 정보**
+--- | ---
+**공급자 및 에이전트** | Site Recovery 에이전트 및 공급자 업데이트 (롤업에 설명 된 대로)
+**문제 해결/향상** | 다양 한 수정 및 개선 사항 (롤업에 자세히 설명)
+
+
+
+
+### <a name="azure-vm-disaster-recovery"></a>Azure VM 재해 복구
+
+Azure VM 재해 복구에 대 한 새로운 기능이 표에 요약 되어 있습니다.
+
+**기능** | **세부 정보**
+--- | ---
+**장애 복구 후 정리** | 보조 Azure로 장애 조치 (failover) 한 후 주 지역으로 장애 복구 (failback) 한 후 보조 지역에서 자동으로 컴퓨터를 정리 Site Recovery 합니다. VM 및 Nic를 수동으로 삭제할 필요가 없습니다.
+**테스트 장애 조치 (failover)에서 IP 주소 유지** | 이제 재해 복구 훈련 중에 원본 VM의 IP 주소를 유지 하 고 테스트 장애 조치 (failover)에 대 한 고정 IP 주소를 선택할 수 있습니다.
+
+## <a name="vmwarephysical-server-disaster-recovery"></a>VMware/물리적 서버 재해 복구
+
+이번 달에 추가 된 기능은 표에 요약 되어 있습니다.
+
+**기능** | **세부 정보**
+--- | ---
+새 프로세스 서버 경고 | 새 프로세스 서버 경고가 추가 되었습니다. [자세히 알아보기](vmware-physical-azure-monitor-process-server.md). 
+
+## <a name="hyper-v-disaster-recovery"></a>Hyper-v 재해 복구
+
+이번 달에 추가 된 기능은 표에 요약 되어 있습니다.
+
+**기능** | **세부 정보**
+--- | ---
+Storage 계정 | Site Recovery는 이제 RBAC (역할 기반 액세스 제어)를 사용 하는 저장소 계정 사용을 지원 합니다. 저장소 계정에 대 한 액세스 제어에 대해 [자세히 알아보세요](../storage/common/storage-account-manage.md#access-control) . 
 
 
 ## <a name="updates-august-2019"></a>업데이트 (8 월 2019)

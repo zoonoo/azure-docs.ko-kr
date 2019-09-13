@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 88b1d05a47f4a8267ab936a922ac190a925bd5ba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 11a9fc521a7b17ae0ff2f579f173f4d43383bdd5
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510171"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880098"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Azure AD Graph API 사용
 
@@ -42,13 +42,15 @@ B2C 테넌트를 설정한 후에 [Azure Portal](https://portal.azure.com)을 �
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 페이지의 오른쪽 위 모서리에서 계정을 선택하여 Azure AD B2C 테넌트를 선택합니다.
-3. 왼쪽 탐색 창에서 **모든 서비스**를 선택하고 **앱 등록**을 클릭한 다음, **추가**를 클릭합니다.
+3. 왼쪽 탐색 창에서 **모든 서비스**를 선택 하 고 **앱 등록**을 클릭 한 다음 **새 등록**을 클릭 합니다.
 4. 프롬프트에 따라 새 애플리케이션을 만듭니다. 
-    1. 애플리케이션 형식에 **Web App/API**를 입력합니다.    
-    2. 제공 **로그온 URL** (예: `https://B2CGraphAPI`) 이므로이 예제에서는 적합 합니다.  
+    1. 적절 한 이름 추가
+    2. **이 조직 디렉터리 에서만 계정** 선택
+    3. 응용 프로그램 유형으로 **웹** 을 선택 하 고이 예와 관련이 없는 로그온 **URL** `https://B2CGraphAPI`(예:)을 제공 합니다.  
+    4. 등록을 클릭 합니다.
 5. 이제 애플리케이션은 애플리케이션의 목록을 표시합니다. 이를 클릭하여 **애플리케이션 ID**(클라이언트 ID라고도 함)를 가져옵니다. 이후 섹션에서 필요하므로 복사합니다.
-6. 설정 메뉴에서 **키**를 클릭합니다.
-7. **암호** 섹션에서 키 설명을 입력하고 기간을 선택한 다음, **저장**을 클릭합니다. 이후 섹션에서 사용하기 위해 키 값(클라이언트 비밀이라고도 함)을 복사합니다.
+6. 설정 메뉴에서 **인증서 & 암호**를 클릭 합니다.
+7. **클라이언트 암호** 섹션에서 **새 클라이언트 암호**를 클릭 하 고 암호에 대 한 설명을 입력 한 다음 기간을 선택 하 고 **추가**를 클릭 합니다. 이후 섹션에서 사용할 비밀 값 (클라이언트 암호 라고도 함)을 복사 합니다.
 
 ## <a name="configure-create-read-and-update-permissions-for-your-application"></a>애플리케이션에 대한 만들기, 읽기 및 업데이트 사용 권한 구성
 이제 사용자를 만들기, 읽기, 업데이트 및 삭제하는 데 필요한 모든 권한을 가져오도록 애플리케이션을 구성해야 합니다.

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 226862c51417e311bc39feefa9f5e860d55b7dc1
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 51f0e223abd7103663fddd8c06dcdf0be549c671
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034101"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70930770"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Visual Studio Code Spark & Hive 도구 사용
 
@@ -56,7 +56,7 @@ Windows, Linux 및 macOS를 포함 하는 Visual Studio Code에서 지원 되는
 
 2. **탐색기** 보기에서 **hdexample** 대상 폴더를 선택 하 고 작업 폴더 옆의 **새 파일** 아이콘을 선택 합니다.
 
-   ![새 파일](./media/hdinsight-for-vscode/new-file.png)
+   ![새 파일](./media/hdinsight-for-vscode/visual-studio-code-new-file.png)
 
 3. `.hql` (Hive 쿼리) `.py` 또는 (Spark 스크립트) 파일 확장명을 사용 하 여 새 파일의 이름을로 합니다. 이 예제에서는 **HelloWorld.hql**을 사용합니다.
 
@@ -131,7 +131,7 @@ Visual Studio Code에서 클러스터에 스크립트를 제출 하려면 먼저
 
 3. **출력** 보기를 검토합니다. 이 보기에는 Azure 구독에 연결 된 클러스터 (또는 클러스터)와 모든 클러스터가 표시 됩니다.
 
-    ![기본 클러스터 구성 설정](./media/hdinsight-for-vscode/list-cluster-result.png)
+    ![기본 클러스터 구성 설정](./media/hdinsight-for-vscode/list-cluster-result1.png)
 
 ## <a name="set-the-default-cluster"></a>기본 클러스터 설정
 
@@ -266,7 +266,7 @@ Python 작업을 제출한 후 전송 로그가 Visual Studio Code의 **출력**
 
 ## <a name="apache-livy-configuration"></a>Apache Livy 구성
 
-[Apache Livy](https://livy.incubator.apache.org/) 구성이 지원 됩니다. 에서 구성할 수 있습니다 **.** 작업 영역 폴더에 있는 Vscode\settingsfile입니다. 현재 Livy 구성은 Python 스크립트만 지원 합니다. 자세한 내용은 [LIVY 추가](https://github.com/cloudera/livy/blob/master/README.rst )정보를 참조 하세요.
+[Apache Livy](https://livy.incubator.apache.org/) 구성이 지원 됩니다. 에서 구성할 수 있습니다 **. 작업 영역 폴더에 있는 Vscode\settingsfile** 입니다. 현재 Livy 구성은 Python 스크립트만 지원 합니다. 자세한 내용은 [LIVY 추가](https://github.com/cloudera/livy/blob/master/README.rst )정보를 참조 하세요.
 
 <a id="triggerlivyconf"></a>**Livy 구성을 트리거하는 방법**
 
@@ -280,10 +280,10 @@ Python 작업을 제출한 후 전송 로그가 Visual Studio Code의 **출력**
 
 + 프로젝트 설정:
 
-    ![Livy 구성](./media/hdinsight-for-vscode/hdi-livyconfig.png)
+    ![Livy 구성](./media/hdinsight-for-vscode/hdi-apache-livy-config.png)
 
     >[!NOTE]
-    >**Drivermemory** 및 **executormemory** 설정에 대해 값과 단위를 설정 합니다. 예: 1g 또는 1024m.
+    >**Drivermemory** 및 **executormemory** 설정에 대해 값과 단위를 설정 합니다. 예를 들어: 1g 또는 1024m.
 
 + 지원 되는 Livy 구성:   
 
@@ -292,7 +292,7 @@ Python 작업을 제출한 후 전송 로그가 Visual Studio Code의 **출력**
 
     | name | description | type | 
     | :- | :- | :- | 
-    | 파일 | 실행할 애플리케이션을 포함하는 파일 | Path (필수) |
+    | 파일 | 실행할 애플리케이션을 포함하는 파일 | path (필수) |
     | proxyUser | 작업을 실행할 때 가장하는 사용자 | String |
     | className | 애플리케이션 Java/Spark 주 클래스 | String |
     | args | 응용 프로그램에 대 한 명령줄 인수 | 문자열 목록 |
@@ -301,11 +301,11 @@ Python 작업을 제출한 후 전송 로그가 Visual Studio Code의 **출력**
     | 파일 | 이 세션에 사용할 파일입니다. | 문자열 목록 |
     | driverMemory | 드라이버 프로세스에 사용할 메모리의 양 | String |
     | driverCores | 드라이버 프로세스에 사용할 코어 수 | Int |
-    | executorMemory | 실행기 프로세스당 사용할 메모리의 양 | 문자열 |
+    | executorMemory | 실행기 프로세스당 사용할 메모리의 양 | String |
     | executorCores | 각 실행기에 사용할 코어 수 | Int |
     | numExecutors | 이 세션에 대해 시작할 실행기 수 | Int |
     | archives | 이 세션에 사용할 아카이브 | 문자열 목록 |
-    | 큐 | 제출할 YARN 큐의 이름입니다.| String |
+    | 큐 | 제출할 YARN 큐의 이름입니다.| 문자열 |
     | name | 이 세션의 이름 | 문자열 |
     | conf | Spark 구성 속성 | key=val의 맵 |
 
@@ -409,7 +409,7 @@ HDInsight 클러스터에 작업을 제출 하는 경우 클러스터에 대 한
   >
   >를 사용 `Spark / Hive: List Cluster` 하 여 연결 된 클러스터를 확인할 수 있습니다.
   >
-  >![연결 된 Visual Studio Code 판독기 용 Spark & Hive 도구](./media/hdinsight-for-vscode/list-cluster-result.png)
+  >![연결 된 Visual Studio Code 판독기 용 Spark & Hive 도구](./media/hdinsight-for-vscode/list-cluster-result1.png)
 
 ## <a name="azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2
 

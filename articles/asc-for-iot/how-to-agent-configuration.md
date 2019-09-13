@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 8b4764d855663325b2445f7b588b795c15f4edde
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 095c8fa080d96c9dc6d40261ee5afc559e9ca06b
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596330"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933878"
 ---
 # <a name="tutorial-configure-security-agents"></a>자습서: 보안 에이전트 구성
 
@@ -87,28 +87,28 @@ IoT 보안 에이전트에 대 한 Azure Security Center는 **azureiotsecurity**
 
 1. IoT Hub에서 변경 하려는 장치를 찾아 선택 합니다.
 
-2. 장치를 클릭 한 다음 **azureiotsecurity** 모듈에서 클릭 합니다.
+1. 장치를 클릭 한 다음 **azureiotsecurity** 모듈에서 클릭 합니다.
 
-3. **모듈 id**쌍을 클릭 합니다.
+1. **모듈 id**쌍을 클릭 합니다.
 
-4. 보안 모듈에서 변경 하려는 속성을 편집 합니다.
+1. 보안 모듈에서 변경 하려는 속성을 편집 합니다.
    
    예를 들어 연결 이벤트를 높은 우선 순위로 구성 하 고 7 분 마다 높은 우선 순위 이벤트를 수집 하려면 다음 구성을 사용 합니다.
    
-   ```json
+    ```json
     "desired": {
-      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration": {
-        "highPriorityMessageFrequency": {
-          "value" : "PT7M"
-        },    
-        "eventPriorityConnectionCreate": {
-          "value" : "High" 
+        "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration": {
+            "highPriorityMessageFrequency": {
+                "value": "PT7M"
+            },
+            "eventPriorityConnectionCreate": {
+                "value": "High"
+            }
         }
-      } 
-    }, 
+    }
     ```
 
-5. **Save**을 클릭합니다.
+1. **Save**을 클릭합니다.
 
 ### <a name="using-a-default-value"></a>기본값 사용
 
@@ -120,7 +120,7 @@ IoT 보안 에이전트에 대 한 Azure Security Center는 **azureiotsecurity**
 
 [GitHub](https\://aka.ms/iot-security-module-default)의 적절 한 스키마에서 기본값을 사용할 수 있습니다.
 
-| 이름| Status | 유효한 값| 기본값| 설명 |
+| 이름| Status | 유효한 값| 기본값| Description |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |highPriorityMessageFrequency|필수: false |유효한 값:  ISO 8601 형식의 기간 |기본값: PT7M |우선 순위가 높은 메시지가 전송 되기 전의 최대 시간 간격입니다.|
 |lowPriorityMessageFrequency |필수: false|유효한 값:  ISO 8601 형식의 기간 |기본값: PT5H |낮은 우선 순위의 메시지가 전송 되기 전의 최대 시간입니다.| 
@@ -131,7 +131,7 @@ IoT 보안 에이전트에 대 한 Azure Security Center는 **azureiotsecurity**
 
 ### <a name="supported-security-events"></a>지원 되는 보안 이벤트
 
-|이벤트 이름| PropertyName | 기본값| 스냅숏 이벤트| 세부 정보 상태  |
+|이벤트 이름| PropertyName | Default Value| 스냅숏 이벤트| 세부 정보 상태  |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |진단 이벤트|eventPriorityDiagnostic| 끄기| 거짓| 에이전트 관련 진단 이벤트입니다. 자세한 정보 로깅에이 이벤트를 사용 합니다.| 
 |구성 오류 |eventPriorityConfigurationError |낮음 |거짓 |에이전트가 구성을 구문 분석 하지 못했습니다. 스키마에 대 한 구성을 확인 합니다.| 

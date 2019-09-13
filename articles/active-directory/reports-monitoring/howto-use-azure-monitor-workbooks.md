@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c1ecdb80263efda4cbbb43caaa4e27a04b261f81
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 288fa54a1a6dd4eb05f953a4490bf7736d6d7ff8
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989798"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931243"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Azure Active Directory 보고서에 Azure Monitor 통합 문서를 사용 하는 방법
 
@@ -41,13 +41,22 @@ ms.locfileid: "68989798"
  
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 통합 문서 모니터링을 사용 하려면 다음이 필요 합니다.
 
 - Premium (P1 또는 P2) 라이선스가 있는 Active Directory 테 넌 트. [프리미엄 라이선스를 얻는](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium)방법에 대해 알아봅니다.
 
 - [Log Analytics 작업 영역](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)입니다.
+
+## <a name="roles"></a>역할
+다음 역할 중 하나에 있어야 하며 통합 문서를 관리 하기 위해 [기본 Log Analytics 작업 영역에 액세스할](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) 수 있어야 합니다.
+-   전역 관리자
+-   보안 관리자
+-   보안 읽기 권한자
+-   보고서 구독자
+-   응용 프로그램 관리자
+
 
 ## <a name="workbook-access"></a>통합 문서 액세스 
 
@@ -136,7 +145,7 @@ ms.locfileid: "68989798"
 ## <a name="sign-ins-by-conditional-access"></a>조건부 액세스로 로그인 
 
 
-[조건부 액세스 정책의](../conditional-access/overview.md)로그인에 대 한 통합 문서에 액세스 하려면 조건부 액세스 섹션 에서 **조건부 액세스 별 로그인**을 선택 합니다. 
+[조건부 액세스 정책의](../conditional-access/overview.md)로그인에 대 한 통합 문서에 액세스 **하려면 조건부 액세스 섹션에서** **조건부 액세스 별 로그인**을 선택 합니다. 
 
 이 통합 문서에서는 비활성화 된 로그인에 대 한 추세를 보여 줍니다. 각 추세는 다음 범주로 필터링 할 수 있습니다.
 
