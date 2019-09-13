@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: c7d8b946fc587d58f13e16c1d7d806390e712104
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 4e23a440f46b52633a88d0212e08c7b584f61a38
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879553"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932466"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Azure IoT 탐색기 설치 및 사용
 
@@ -24,7 +24,7 @@ Azure IoT 탐색기는 IoT 플러그 앤 플레이 미리 보기 장치를 조�
 - Azure IoT 탐색기 도구를 설치 하 고 구성 합니다.
 - 도구를 사용 하 여 장치를 조작 하 고 테스트 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 Azure IoT 탐색기 도구를 사용 하려면 다음이 필요 합니다.
 
@@ -85,7 +85,7 @@ IoT 플러그 앤 플레이 장치에 대 한 모델 정의는 공용 리포지�
 
 이 섹션에는 **장치 id**, **원격 분석**및 **장치** 쌍 탭이 포함 되어 있습니다.
 
-- 장치 id 탭에서 장치 id 정보를 확인 하 고 업데이트할 수 있습니다.
+- **장치 id 탭에서** 장치 id 정보를 확인 하 고 업데이트할 수 있습니다.
 - 장치가 연결 되어 있으며 데이터를 적극적으로 전송 하는 경우 **원격 분석** 탭에서 원격 분석을 볼 수 있습니다.
 - 장치 쌍 정보는 **장치** 쌍 탭에서 액세스할 수 있습니다.
 
@@ -120,4 +120,4 @@ IoT 플러그 앤 플레이 장치에 대 한 모델 정의는 공용 리포지�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 방법 문서에서는 Azure IoT 탐색기를 설치 하 고 사용 하 여 IoT 플러그 앤 플레이 장치와 상호 작용 하는 방법을 배웠습니다. 제안 된 다음 단계는 [모델을 관리](./howto-manage-models.md)하는 방법을 배우는 것입니다.
+이 방법 문서에서는 Azure IoT 탐색기를 설치 하 고 사용 하 여 IoT 플러그 앤 플레이 장치와 상호 작용 하는 방법을 배웠습니다. 제안 된 다음 단계는 [Azure CLI 확장을 설치 하 고 사용](./howto-install-pnp-cli.md)하는 방법을 배우는 것입니다.

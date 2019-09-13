@@ -2,19 +2,19 @@
 title: 지속성 함수의 진단 - Azure
 description: Azure Functions의 지속성 함수 확장을 사용하여 문제를 진단하는 방법을 알아봅니다.
 services: functions
-author: ggailey777
+author: cgillum
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 7c02d4dfde7869da7985817b06f6de398bbef38d
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: d2badee3eaa5a9af48e89adc1b59beacc1571792
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734485"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933516"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Azure의 지속성 함수에서 진단
 
@@ -32,7 +32,7 @@ Azure Functions에서 진단 및 모니터링을 수행하려면 [Application In
 
 * **hubName**: 오케스트레이션이 실행 중인 작업 허브의 이름입니다.
 * **appName**: 함수 앱의 이름입니다. 여러 함수 앱에서 동일한 Application Insights 인스턴스를 공유하는 경우에 유용합니다.
-* **slotName**: 현재 함수 앱이 실행 중인 [배포 슬롯](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/)입니다. 배포 슬롯을 활용하여 오케스트레이션의 버전을 관리하는 경우에 유용합니다.
+* **slotName**: 현재 함수 앱이 실행 중인 [배포 슬롯](../functions-deployment-slots.md)입니다. 배포 슬롯을 활용하여 오케스트레이션의 버전을 관리하는 경우에 유용합니다.
 * **functionName**: 오케스트레이터 또는 작업 함수의 이름입니다.
 * **functionType**: **Orchestrator** 또는 **Activity**와 같은 함수 유형입니다.
 * **instanceId**: 오케스트레이션 인스턴스의 고유 ID입니다.
@@ -349,12 +349,13 @@ GET /admin/extensions/DurableTaskExtension/instances/instance123
 
 Azure Functions는 디버깅 함수 코드를 직접 지원하며, Azure 또는 로컬에서 실행하는지 여부와 관계 없이 동일한 지원이 지속성 함수에 전달됩니다. 그러나 디버그할 때 고려해야 할 몇 가지 동작이 있습니다.
 
-* **재생**: 오케스트레이터 함수는 새 입력을 받으면 정기적으로 재생됩니다. 즉 오케스트레이터 함수의 단일 *논리* 실행은 특히 함수 코드의 초기에 설정된 경우 동일한 중단점에 여러 번 도달할 수 있습니다.
-* **대기**: `await`가 발생할 때마다 지속성 작업 프레임워크 디스패처로 제어가 반환됩니다. 특정 `await`가 처음 발생한 경우 관련 작업이 *절대로* 다시 시작되지 않습니다 . 작업이 다시 시작되지 않으므로 실제로 대기(Visual Studio에서 F10)를 *단계별로 실행*할 수 없습니다. 작업이 재생되는 경우에만 단계별 실행이 작동합니다.
-* **메시지 시간 제한**: 지속성 함수는 내부적으로 큐 메시지를 사용하여 오케스트레이터 함수와 작업 함수를 모두 실행합니다. 다중 VM 환경에서 오랜 시간 동안 디버그하는 경우 다른 VM에서 메시지를 선택하여 중복 실행이 발생할 수 있습니다. 이 동작은 일반 큐 트리거 함수에도 적용되지만, 큐가 구현 세부 정보이므로 이 컨텍스트에서 지시하는 것이 중요합니다.
+* **재생**: Orchestrator 함수는 새 입력을 받을 때 정기적으로 [재생](durable-functions-orchestrations.md#reliability) 됩니다. 즉 오케스트레이터 함수의 단일 *논리* 실행은 특히 함수 코드의 초기에 설정된 경우 동일한 중단점에 여러 번 도달할 수 있습니다.
+* **대기**: `await` 가 오 케 스트레이 터 함수에서 발생할 때마다 지 속성 작업 프레임 워크 디스패처로 제어를 다시 생성 합니다. 특정 `await`가 처음 발생한 경우 관련 작업이 *절대로* 다시 시작되지 않습니다 . 작업이 다시 시작되지 않으므로 실제로 대기(Visual Studio에서 F10)를 *단계별로 실행*할 수 없습니다. 작업이 재생되는 경우에만 단계별 실행이 작동합니다.
+* **메시지 시간 제한**: Durable Functions는 내부적으로 큐 메시지를 사용 하 여 orchestrator, activity 및 entity 함수의 실행을 구동 합니다. 다중 VM 환경에서 오랜 시간 동안 디버그하는 경우 다른 VM에서 메시지를 선택하여 중복 실행이 발생할 수 있습니다. 이 동작은 일반 큐 트리거 함수에도 적용되지만, 큐가 구현 세부 정보이므로 이 컨텍스트에서 지시하는 것이 중요합니다.
+* **중지 및 시작**: 지 속성 함수의 메시지는 디버그 세션 간에 유지 됩니다. 지 속성 함수를 실행 하는 동안 디버깅을 중지 하 고 로컬 호스트 프로세스를 종료 하면 이후 디버그 세션에서 해당 함수가 자동으로 다시 실행 될 수 있습니다. 이는 예상 하지 않을 때 혼동 될 수 있습니다. 이 동작을 방지 하는 한 가지 방법은 디버그 세션 간의 [내부 저장소 큐](durable-functions-perf-and-scale.md#internal-queue-triggers) 에서 모든 메시지를 지우는 것입니다.
 
 > [!TIP]
-> 중단점을 설정할 때 재생되지 않는 실행에서만 중단하려면 `IsReplaying`이 `false`인 경우에만 중단되는 조건부 중단점을 설정할 수 있습니다.
+> Orchestrator 함수에서 중단점을 설정할 때 재생 되지 않는 실행 에서만 중단 하려면이 인 `IsReplaying` `false`경우에만 중단 되는 조건부 중단점을 설정할 수 있습니다.
 
 ## <a name="storage"></a>저장 공간
 
@@ -370,4 +371,4 @@ Azure Functions는 디버깅 함수 코드를 직접 지원하며, Azure 또는 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [지속성 타이머 사용](durable-functions-timers.md)
+> [Azure Functions 모니터링에 대 한 자세한 정보](../functions-monitoring.md)

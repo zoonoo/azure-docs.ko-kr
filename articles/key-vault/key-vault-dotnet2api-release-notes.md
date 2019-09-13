@@ -3,18 +3,18 @@ title: Key Vault .NET 2.x API 릴리스 정보 | Microsoft Docs
 description: .NET 개발자는 Azure Key Vault에 대한 코드에 이 API를 사용합니다.
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 editor: bryanla
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: mbaldwin
-ms.openlocfilehash: e173ff54020f2d365348ae037793cfbba3f9ed7f
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 07502b4c4487a7517e2fe73b62eae0a237a6f22b
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68260437"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883276"
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure Key Vault .NET 2.0 - 릴리스 정보 및 마이그레이션 가이드
 다음 정보는 C# 및 .NET용 Azure Key Vault 라이브러리 2.0 버전으로 마이그레이션하는 데 도움이됩니다.  이전 버전용으로 작성된 앱은 최신 버전을 지원하도록 업데이트해야 합니다.  이러한 변경 사항은 **Key Vault 인증서**와 같이 새롭고 향상된 기능을 완벽하게 지원하는 데 필요합니다.

@@ -6,14 +6,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 06/18/2019
+ms.date: 09/11/2019
 ms.author: dacurwin
-ms.openlocfilehash: 3c16d8b5f1611c6c05e60d65551f73eb2d395668
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 847a4ec7da3c9b00753e5d07baf2952b31d2b5bb
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872901"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934856"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Azure VM의 SQL Server 데이터베이스 백업
 
@@ -36,8 +36,7 @@ SQL Server 데이터베이스를 백업 하기 전에 다음 조건을 확인 �
 1. SQL Server 인스턴스를 호스트 하는 VM과 동일한 지역 또는 로캘로 [Recovery Services 자격 증명 모음](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) 을 식별 하거나 만듭니다.
 2. VM이 [네트워크에 연결](backup-sql-server-database-azure-vms.md#establish-network-connectivity)되어 있는지 확인 합니다.
 3. SQL Server 데이터베이스가 [Azure Backup에 대 한 데이터베이스 명명 지침](#database-naming-guidelines-for-azure-backup)을 따르는지 확인 합니다.
-4. 특히 SQL 2008 및 2008 r 2의 경우 서버 등록을 사용 하도록 [레지스트리 키를 추가](#add-registry-key-to-enable-registration) 합니다. 기능이 일반 공급 되는 경우에는이 단계가 필요 하지 않습니다.
-5. 데이터베이스에 대해 다른 백업 솔루션을 사용 하도록 설정 하지 않았는지 확인 합니다. 데이터베이스를 백업 하기 전에 다른 모든 SQL Server 백업을 사용 하지 않도록 설정 합니다.
+4. 데이터베이스에 대해 다른 백업 솔루션을 사용 하도록 설정 하지 않았는지 확인 합니다. 데이터베이스를 백업 하기 전에 다른 모든 SQL Server 백업을 사용 하지 않도록 설정 합니다.
 
 > [!NOTE]
 > Azure VM에 대해 Azure Backup를 사용 하도록 설정 하 고 충돌 없이 VM에서 실행 되는 SQL Server 데이터베이스에도 사용 하도록 설정할 수 있습니다.
@@ -98,22 +97,6 @@ HTTP 프록시 사용 | 저장소 Url에 대 한 프록시를 세부적으로 �
 
 별칭은 지원 되지 않는 문자에 사용할 수 있지만이를 방지 하는 것이 좋습니다. 자세한 내용은 [테이블 서비스 데이터 모델 이해](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN)를 참조하세요.
 
-### <a name="add-registry-key-to-enable-registration"></a>등록을 사용 하도록 설정 하는 레지스트리 키 추가
-
-1. Regedit 열기
-2. 레지스트리 디렉터리 경로를 만듭니다. HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WorkloadBackup\TestHook (WorkloadBackup 아래에 ' 키 ' TestHook를 만들어야 하며,이는 Microsoft에서 생성 해야 합니다.)
-3. 레지스트리 디렉터리 경로 아래에서 문자열 이름 **AzureBackupEnableWin2K8R2SP1** 및 값을 사용 하 여 새 ' 문자열 값 '을 만듭니다. **True**
-
-    ![등록을 사용 하도록 설정 하는 RegEdit](media/backup-azure-sql-database/reg-edit-sqleos-bkp.png)
-
-또는 다음 명령을 사용 하 여 .reg 파일을 실행 하 여이 단계를 자동화할 수 있습니다.
-
-```csharp
-Windows Registry Editor Version 5.00
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WorkloadBackup\TestHook]
-"AzureBackupEnableWin2K8R2SP1"="True"
-```
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -222,7 +205,7 @@ VM에서 실행 되는 데이터베이스를 검색 하는 방법:
 
    - **매일**의 경우 백업 작업이 시작될 때 시간과 표준 시간대를 선택합니다.
    - **매주**의 경우 백업 작업이 시작되는 요일, 시간 및 표준 시간대를 선택합니다.
-   - 전체 백업 옵션을 해제할 수 없기 때문에 전체 백업을 실행 합니다.
+   - **전체 백업 옵션을** 해제할 수 없기 때문에 전체 백업을 실행 합니다.
    - 정책을 보려면 **전체 백업** 을 선택 합니다.
    - 매일 전체 백업에 대해서는 차등 백업을 만들 수 없습니다.
 
@@ -261,18 +244,6 @@ VM에서 실행 되는 데이터베이스를 검색 하는 방법:
     - 백 엔드에서, Azure Backup은 SQL 네이티브 백업 압축을 사용합니다.
 
 14. 백업 정책 편집을 완료 한 후, **확인**을 선택합니다.
-
-
-### <a name="modify-policy"></a>정책 수정
-정책을 수정 하 여 백업 빈도 또는 보존 범위를 변경 합니다.
-
-> [!NOTE]
-> 보존 기간을 변경 하면 새 복구 지점이 아닌 모든 이전 복구 소급 적용 됩니다.
-
-자격 증명 모음 대시보드에서**백업 정책** **관리** > 로 이동 하 여 편집 하려는 정책을 선택 합니다.
-
-  ![백업 정책 관리](./media/backup-azure-sql-database/modify-backup-policy.png)
-
 
 ## <a name="enable-auto-protection"></a>자동 보호 사용  
 

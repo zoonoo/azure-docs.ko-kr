@@ -6,14 +6,14 @@ services: key-vault
 ms.service: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
-manager: barbkess
+manager: rkarlin
 ms.date: 03/01/2019
-ms.openlocfilehash: 251a7c21b671052a23f6ee18cb4278737464b25c
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 86ac58aea174ca05580da99b6bde0cc3823ab151
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744866"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883071"
 ---
 # <a name="manage-storage-account-keys-with-azure-key-vault-and-the-azure-cli"></a>Azure Key Vault 및 Azure CLI를 사용 하 여 저장소 계정 키 관리 
 
@@ -53,7 +53,7 @@ Key Vault은 모든 Azure AD 테 넌 트에서 미리 등록 된 Microsoft 응�
 
 <!-- Add closing sentences to summarize what the user accomplished in this section. -->
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Key Vault를 사용 하 여 저장소 계정 키를 관리 하기 전에 필수 구성 요소를 검토 합니다.
 

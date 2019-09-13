@@ -8,22 +8,22 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: d566b57ae12520b9eee26334a67d2e10c05f8040
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a3919cf84714b69776222fa35d3163e0915869f7
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64709089"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881984"
 ---
-# <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-apache-hadoop-in-hdinsight-ssh"></a>HDInsight(SSH)의 Linux 기반 Apache Hadoop와 함께 Apache Mahout를 사용하여 영화 추천 생성
+# <a name="generate-movie-recommendations-using-apache-mahout-with-apache-hadoop-in-hdinsight-ssh"></a>HDInsight에서 Apache Hadoop와 함께 Apache Mahout를 사용 하 여 영화 추천 생성 (SSH)
 
 [!INCLUDE [mahout-selector](../../../includes/hdinsight-selector-mahout.md)]
 
 Azure HDInsight에서 [Apache Mahout](https://mahout.apache.org) 기계 학습 라이브러리를 사용하여 영화 추천을 생성하는 방법에 대해 알아봅니다.
 
-Mahout은는 [기계 학습](https://en.wikipedia.org/wiki/Machine_learning) Apache Hadoop 용 라이브러리입니다. Mahout에는 필터링, 분류 및 클러스터링과 같은 데이터 처리를 위한 알고리즘이 포함됩니다. 이 문서에서는 권장 엔진을 사용하여 친구가 본 영화를 기준으로 영화 권장을 생성합니다.
+Mahout는 Apache Hadoop에 대 한 [기계 학습](https://en.wikipedia.org/wiki/Machine_learning) 라이브러리입니다. Mahout에는 필터링, 분류 및 클러스터링과 같은 데이터 처리를 위한 알고리즘이 포함됩니다. 이 문서에서는 권장 엔진을 사용하여 친구가 본 영화를 기준으로 영화 권장을 생성합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * HDInsight의 Apache Hadoop 클러스터. [Linux에서 HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
@@ -47,7 +47,7 @@ Mahout에서 제공하는 기능 중 하나가 추천 엔진입니다. 이 엔�
 
 ### <a name="understanding-the-data"></a>데이터 이해
 
-편리 하 게 [GroupLens Research](https://grouplens.org/datasets/movielens/) 영화 Mahout과 호환 되는 형식에 대 한 평가 데이터를 제공 합니다. 이 데이터는 클러스터의 기본 스토리지( `/HdiSamples/HdiSamples/MahoutMovieData`)에서 사용할 수 있습니다.
+Mahout와 호환 되는 형식의 영화에 대 한 등급 데이터를 편리 하 [게 제공 합니다](https://grouplens.org/datasets/movielens/) . 이 데이터는 클러스터의 기본 스토리지( `/HdiSamples/HdiSamples/MahoutMovieData`)에서 사용할 수 있습니다.
 
 `moviedb.txt` 및 `user-ratings.txt` 등 두 가지 파일이 있습니다. `user-ratings.txt` 파일은 분석 중 사용됩니다. `moviedb.txt`은 결과를 볼 때 사용자 친화적인 텍스트 정보를 제공하기 위해 사용됩니다.
 

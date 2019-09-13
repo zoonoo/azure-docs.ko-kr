@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 8e61f52282bcbc62a3eb069272cd7c1f3e329d3b
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 43d91bff6b8b67e79a9549c1524f918166c9adc4
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172698"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934003"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Azure 데이터 탐색기 (미리 보기)를 사용 하 여 Azure Monitor에서 데이터 쿼리
 
@@ -23,7 +23,7 @@ Azure 데이터 탐색기 프록시 흐름:
 
 ![ADX 프록시 흐름](media/adx-proxy/adx-proxy-flow.png)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 > [!NOTE]
 > ADX 프록시는 미리 보기 모드입니다. 이 기능을 사용 하도록 설정 하려면 [Adxproxy](mailto:adxproxy@microsoft.com) 팀에 문의 하세요.
@@ -107,7 +107,7 @@ union <ADX table>, cluster(CL1).database(<workspace-name>).<table name>
 
 ![Azure 데이터 탐색기 프록시의 크로스 쿼리](media/adx-proxy/cross-query-adx-proxy.png)
 
-Union 대신 연산자를 사용 하는 경우에는 프록시가 아닌 Azure 데이터 탐색기 네이티브 클러스터에서 실행 하는 힌트가 필요할 수 있습니다. [ `join` ](/azure/kusto/query/joinoperator) 
+연산자를 사용 하는 대신 연산자를 사용 하 여 [`hint`](/azure/kusto/query/joinoperator#join-hints) Azure 데이터 탐색기 기본 클러스터 (프록시가 아닌)에서 실행 해야 할 수 있습니다. [ `join` ](/azure/kusto/query/joinoperator) 
 
 ## <a name="additional-syntax-examples"></a>추가 구문 예제
 

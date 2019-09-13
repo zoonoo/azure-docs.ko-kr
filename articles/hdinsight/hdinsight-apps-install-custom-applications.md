@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 22a2eddcd94f6082d248450d825c5ba12b31571e
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 372ff752f27360058c4a2c2722e24efe15202dd8
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810350"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916729"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight에 사용자 지정 Apache Hadoop 애플리케이션 설치
 
@@ -45,7 +45,7 @@ HDInsight 애플리케이션은 Linux 기반 HDInsight 클러스터에 사용자
 
 1. Azure에 로그인하여 Azure Portal에서 Azure Resource Manager 템플릿을 열려면 다음 이미지를 클릭합니다.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FHue%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FHue%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
 
     이 단추는 Azure 포털에서 Resource Manager 템플릿을 엽니다.  Resource Manager 템플릿의 위치는 [https://github.com/hdinsight/Iaas-Applications/tree/master/Hue](https://github.com/hdinsight/Iaas-Applications/tree/master/Hue)입니다.  이 Resource Manager 템플릿을 작성하는 방법을 알아보려면 [MSDN: HDInsight 애플리케이션 설치](https://msdn.microsoft.com/library/mt706515.aspx)를 참조하세요.
 2. **매개 변수** 블레이드에서 다음을 입력합니다.
@@ -60,7 +60,7 @@ HDInsight 애플리케이션은 Linux 기반 HDInsight 클러스터에 사용자
 
 1. Azure에 로그인하여 Azure Portal에서 Azure Resource Manager 템플릿을 열려면 다음 이미지를 클릭합니다.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhdinsightapps%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhdinsightapps%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
 
     이 단추는 Azure 포털에서 Resource Manager 템플릿을 엽니다.  Resource Manager 템플릿의 위치는 [https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json)입니다.  이 Resource Manager 템플릿을 작성하는 방법을 알아보려면 [MSDN: HDInsight 애플리케이션 설치](https://msdn.microsoft.com/library/mt706515.aspx)를 참조하세요.
 2. 지시를 따라서 클러스터를 만들고 Hue를 설치합니다. HDInsight 클러스터를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
@@ -88,12 +88,12 @@ Azure 포털에서 애플리케이션 상태를 확인하여 애플리케이션 
 
     포털에서 클러스터를 열고 설정 블레이드에서 애플리케이션을 클릭합니다.
 
-    ![hdinsight 애플리케이션 애플리케이션 설치 오류](./media/hdinsight-apps-install-applications/hdinsight-apps-error.png)
+    ![hdinsight 애플리케이션 애플리케이션 설치 오류](./media/hdinsight-apps-install-custom-applications/hdinsight-apps-error.png)
 * HDInsight 스크립트 작업: HDInsight 애플리케이션의 오류 메시지가 스크립트 작업 실패를 나타내는 경우 스크립트 오류에 대한 자세한 내용이 스크립트 작업 창에 표시됩니다.
 
     설정 블레이드에서 스크립트 작업을 클릭합니다. 스크립트 작업 기록에 오류 메시지가 표시됩니다.
 
-    ![hdinsight 애플리케이션 스크립트 작업 오류](./media/hdinsight-apps-install-applications/hdinsight-apps-script-action-error.png)
+    ![hdinsight 애플리케이션 스크립트 작업 오류](./media/hdinsight-apps-install-custom-applications/hdinsight-apps-script-action-error.png)
 * Ambari 웹 UI: 설치 스크립트가 오류의 원인인 경우 Ambari 웹 UI를 사용하여 설치 스크립트에 대한 전체 로그를 확인합니다.
 
     자세한 내용은 [문제 해결](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)을 참조하세요.

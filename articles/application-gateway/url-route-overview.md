@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 09/10/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 0dfeb6a80cbf227f20b24def7641882ad0444489
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 2234ae4ce8257559f78d6aa50ecae59ae742ba33
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844600"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910016"
 ---
 # <a name="url-path-based-routing-overview"></a>URL 경로 기반 라우팅 개요
 
@@ -83,7 +83,7 @@ PathPattern은 일치시킬 경로 패턴의 목록입니다. 각각은 /로 시
 
 #### <a name="v2"></a>v2
 
-경로 규칙은 대/소문자를 구분합니다.
+경로 규칙은 대/소문자를 구분하지 않습니다.
 
 |v2 경로 패턴  |지원 여부  |
 |---------|---------|

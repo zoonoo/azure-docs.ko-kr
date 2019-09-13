@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: hrasheed
-ms.openlocfilehash: bded3ac97732a7cd18411cc9f4ef1707dbdf68e3
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 129f200bc9f61d70f4403b1154978d57e09fee26
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735812"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70917503"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Visual Studio용 Data Lake 도구를 사용하여 Apache Hive 쿼리 실행
 
@@ -59,7 +59,7 @@ Hive 쿼리를 만들고 실행하기 위한 두 가지 옵션이 있습니다.
 
 6. **일괄 처리** 모드에서 동일한 쿼리를 실행 하려면 드롭다운 목록을 **대화형** 에서 **일괄 처리**로 전환 합니다. 실행 단추는 **실행** 에서 **전송**으로 변경 됩니다.
 
-    ![Hive 쿼리 제출 스크린샷](./media/apache-hadoop-use-hive-visual-studio/vs-batch-query.png)
+    ![Hive 쿼리 제출 스크린샷](./media/apache-hadoop-use-hive-visual-studio/visual-studio-batch-query.png)
 
     Hive 편집기는 IntelliSense를 지원합니다. Data Lake Tools for Visual Studio는 Hive 스크립트를 편집할 때 원격 메타데이터 로드를 지원합니다. 예를 들어를 입력 `SELECT * FROM`하면 IntelliSense에서 제안 된 테이블 이름을 모두 나열 합니다. 테이블 이름이 지정되면 IntelliSense에서 열 이름을 나열합니다. 이 도구는 대부분의 Hive DML 문, 하위 쿼리 및 기본 제공 UDF를 지원합니다. IntelliSense는 HDInsight 도구 모음에서 선택한 클러스터의 메타데이터만 제안합니다.
 
@@ -71,7 +71,7 @@ Hive 쿼리를 만들고 실행하기 위한 두 가지 옵션이 있습니다.
 
    고급 제출 옵션을 선택하는 경우 스크립트에 대한 **작업 이름**, **인수**, **추가 구성** 및 **상태 디렉터리**를 구성합니다.
 
-    ![HDInsight Hadoop Hive 쿼리의 스크린샷](./media/apache-hadoop-use-hive-visual-studio/hdinsight.visual.studio.tools.submit.jobs.advanced.png "쿼리 제출")
+    ![HDInsight Hadoop Hive 쿼리의 스크린샷](./media/apache-hadoop-use-hive-visual-studio/vs-tools-submit-jobs-advanced.png "쿼리 제출")
 
 ### <a name="hive-application"></a>Hive 응용 프로그램
 
@@ -115,11 +115,11 @@ Hive 쿼리를 만들고 실행하기 위한 두 가지 옵션이 있습니다.
 
 6. 도구 모음에서 쿼리에 사용할 **HDInsight 클러스터**를 선택합니다. **제출**을 선택하여 Hive 작업으로 문을 실행합니다.
 
-   ![제출 표시줄](./media/apache-hadoop-use-hive-visual-studio/toolbar.png)
+   ![제출 표시줄](./media/apache-hadoop-use-hive-visual-studio/hdinsight-toolbar-submit.png)
 
 7. **Hive 작업 요약** 이 표시되고 실행 중인 작업 정보가 표시됩니다. **작업 상태**가 **완료**로 변경될 때까지 **새로 고침** 링크를 사용하여 작업 정보를 새로 고칩니다.
 
-   ![완료된 작업을 표시하는 작업 요약](./media/apache-hadoop-use-hive-visual-studio/jobsummary.png)
+   ![완료된 작업을 표시하는 작업 요약](./media/apache-hadoop-use-hive-visual-studio/hdinsight-job-summary.png)
 
 8. 이 작업의 출력을 보려면 **작업 출력** 링크를 사용합니다. 이 쿼리로 반환된 값으로 `[ERROR] 3`이 표시되어야 합니다.
 

@@ -7,12 +7,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: b21847d27dc7f444afaf1b73efa19b0b0087cfe4
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: d601dc1efe8dc3f6f2678f5d4df03f172146cd07
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811687"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900542"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Apache Hadoop과 함께 Apache Oozie를 사용하여 Linux 기반 Azure HDInsight에서 워크플로 정의 및 실행
 
@@ -29,7 +29,7 @@ Oozie를 사용하여 Java 프로그램이나 셸 스크립트와 같은 시스�
 > HDInsight를 사용하여 워크플로를 정의하는 또 다른 옵션은 Azure Data Factory를 사용하는 것입니다. Data Factory에 대 한 자세한 내용은 [Data Factory에서 Apache Pig 및 Apache Hive 사용][azure-data-factory-pig-hive]을 참조 하세요. Enterprise Security Package가 포함된 클러스터에서 Oozie를 사용하려면 [Enterprise Security Package가 포함된 HDInsight Hadoop 클러스터에서 Apache Oozie 실행](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md)을 참조하세요.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * **HDInsight의 Hadoop 클러스터** [Linux에서 HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
@@ -510,29 +510,29 @@ Oozie 웹 UI에 액세스하려면 다음 단계를 완료하세요.
 
 3. 페이지의 왼쪽부터 **Oozie** > **빠른 링크** > **Oozie 웹 UI**를 선택합니다.
 
-    ![메뉴 이미지](./media/hdinsight-use-oozie-linux-mac/ooziewebuisteps.png)
+    ![메뉴 이미지](./media/hdinsight-use-oozie-linux-mac/hdi-oozie-web-ui-steps.png)
 
 4. Oozie 웹 UI는 기본적으로 실행 중인 워크플로 작업을 표시합니다. 모든 워크플로 작업을 보려면 **모든 작업**을 선택합니다.
 
-    ![모든 작업 표시](./media/hdinsight-use-oozie-linux-mac/ooziejobs.png)
+    ![모든 작업 표시](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-jobs.png)
 
 5. 작업에 대한 자세한 내용을 보려면 해당 작업을 선택합니다.
 
-    ![작업 정보](./media/hdinsight-use-oozie-linux-mac/jobinfo.png)
+    ![작업 정보](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-info.png)
 
 6. **작업 정보** 탭에서 기본 작업 정보 및 작업 내의 개별 동작을 볼 수 있습니다. 맨 위에 있는 탭을 사용하여 **작업 정의**, **작업 구성**을 보거나, **작업 로그**에 액세스하거나, **작업 DAG**에서 작업의 DAG(방향성 비순환 그래프)를 확인할 수 있습니다.
 
    * **작업 로그**: **로그 가져오기** 단추를 선택하여 작업에 대한 모든 로그를 가져오거나 **검색 필터 입력** 필드를 사용하여 로그를 필터링합니다.
 
-       ![작업 로그](./media/hdinsight-use-oozie-linux-mac/joblog.png)
+       ![작업 로그](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-log.png)
 
    * **작업 DAG**: DAG는 워크플로를 통해 가져온 데이터 경로의 그래픽 개요입니다.
 
-       ![작업 DAG](./media/hdinsight-use-oozie-linux-mac/jobdag.png)
+       ![작업 DAG](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-dag.png)
 
 7. **작업 정보** 탭에서 동작 중 하나를 선택하면 해당 동작에 대한 정보가 표시됩니다. 예를 들어 **RunHiveScript** 동작을 선택합니다.
 
-    ![동작 정보](./media/hdinsight-use-oozie-linux-mac/action.png)
+    ![동작 정보](./media/hdinsight-use-oozie-linux-mac/oozie-job-action-info.png)
 
 8. **콘솔 URL** 링크 등 작업에 대한 세부 정보를 확인할 수 있습니다. 이 링크를 사용하여 작업에 대한 작업 추적기 정보를 볼 수 있습니다.
 
@@ -632,18 +632,18 @@ Oozie 웹 UI에 액세스하려면 다음 단계를 완료하세요.
 
 7. Oozie 웹 UI를 방문하여 **코디네이터 작업** 탭을 선택하면 다음 그림과 유사한 정보가 표시됩니다.
 
-    ![코디네이터 작업 탭](./media/hdinsight-use-oozie-linux-mac/coordinatorjob.png)
+    ![코디네이터 작업 탭](./media/hdinsight-use-oozie-linux-mac/coordinator-jobs-tab.png)
 
     **다음 구체화** 항목에는 다음에 작업이 실행되는 시간이 포함됩니다.
 
 8. 이전의 워크플로 작업과 마찬가지로 웹 UI에서 작업 항목을 선택하면 작업에 대한 정보가 표시됩니다.
 
-    ![코디네이터 작업 정보](./media/hdinsight-use-oozie-linux-mac/coordinatorjobinfo.png)
+    ![코디네이터 작업 정보](./media/hdinsight-use-oozie-linux-mac/coordinator-job-info.png)
 
     > [!NOTE]  
     > 이 이미지는 성공한 작업 실행만 표시하며, 예약된 워크플로 내의 개별 동작은 표시하지 않습니다. 개별 작업을 보려면 **동작** 항목 중 하나를 선택합니다.
 
-    ![코디네이터 작업 정보](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
+    ![코디네이터 작업 정보](./media/hdinsight-use-oozie-linux-mac/coordinator-action-job.png)
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -747,7 +747,7 @@ Oozie UI를 사용하여 Oozie 로그를 볼 수 있습니다. Oozie UI에는 �
 
 [cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-[img-workflow-diagram]: ./media/hdinsight-use-oozie-linux-mac/HDI.UseOozie.Workflow.Diagram.png
+[img-workflow-diagram]: ./media/hdinsight-use-oozie-linux-mac/oozie-workflow-diagram.png
 [img-preparation-output]: ./media/hdinsight-use-oozie-linux-mac/HDI.UseOozie.Preparation.Output1.png
 [img-runworkflow-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.RunWF.Output.png
 

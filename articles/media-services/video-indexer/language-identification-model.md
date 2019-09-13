@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 09/12/2019
 ms.author: ellbe
-ms.openlocfilehash: ea7d2c451127283f2af204de2c961747880e1bfe
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: 843b92d3fe34d592b39cd86ece447fef2ff9af67
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494893"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931104"
 ---
 # <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>언어 식별 모델을 사용 하 여 음성 언어 자동 식별
 
@@ -23,7 +23,7 @@ Video Indexer는 오디오에서 음성 언어 콘텐츠를 자동으로 식별 
 
 ## <a name="choosing-auto-language-identification-on-indexing"></a>인덱싱에서 자동 언어 식별 선택
 
-API를 사용 하 여 [비디오를 인덱싱하거나](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) 인덱싱할 때 `auto detect` `sourceLanguage` 매개 변수에서 옵션을 선택 합니다.
+API를 사용 하 여 [비디오를 인덱싱하거나 인덱싱할 때](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) `auto detect` `sourceLanguage` 매개 변수에서 옵션을 선택 합니다.
 
 포털을 사용 하는 경우 [Video Indexer](https://www.videoindexer.ai/) 홈 페이지의 **계정 비디오** 로 이동 하 여 다시 인덱싱할 비디오의 이름을 마우스로 가리킵니다. 오른쪽 아래 모서리에서 인덱스 다시 설정 단추를 클릭 합니다. 비디오 **다시 인덱싱** 대화 상자의 **비디오 원본 언어** 드롭다운 상자에서 *자동 검색* 을 선택 합니다.
 
@@ -59,4 +59,5 @@ API를 사용 하 여 [비디오를 인덱싱하거나](https://api-portal.video
 
 ## <a name="next-steps"></a>다음 단계
 
-[개요](video-indexer-overview.md)
+* [개요](video-indexer-overview.md)
+* [자동으로 다국어 콘텐츠 식별 및 높여줄](multi-language-identification-transcription.md)

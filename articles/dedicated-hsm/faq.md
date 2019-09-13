@@ -3,7 +3,7 @@ title: 질문과 대답 - Azure 전용 HSM | Microsoft Docs
 description: Azure 전용 HSM의 다양한 주제를 다루는 질문과 대답
 services: dedicated-hsm
 author: johncdawson
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 ms.custom: mvc
 ms.service: key-vault
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 5/8/2019
-ms.author: barclayn
-ms.openlocfilehash: b73b6bdc0158591565281ca2e86a9a474c4196d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mbaldwin
+ms.openlocfilehash: b79ed7ea3113f097f767ad7ff8bdc47b4e4916eb
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65467731"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883558"
 ---
 # <a name="frequently-asked-questions-faq"></a>질문과 대답(FAQ)
 
@@ -58,22 +58,22 @@ HSM은 SSL(Secure Sockets Layer), 데이터 암호화, PKI(공개 키 인프라)
 
 Microsoft는 Dedicated HSM 서비스를 통해 Gemalto SafeNet Luna Network HSM만 제공하며, 고객이 제공하는 디바이스를 호스팅할 수 없습니다.
 
-### <a name="q-does-azure-dedicated-hsm-support-payment-pinetf-features"></a>Q: Azure 전용 HSM 지원 결제 (PIN/ETF) 기능을 하나요?
+### <a name="q-does-azure-dedicated-hsm-support-payment-pinetf-features"></a>Q: Azure 전용 HSM은 지불 (PIN/ETF) 기능을 지원 하나요?
 
-Azure 전용 HSM 서비스는 SafeNet Luna Network HSM 7(모델 A790) 디바이스를 사용합니다. 이러한 디바이스는 결제 HSM 특정 기능(예: PIN 또는 ETF)이나 인증을 지원하지 않습니다. 나중에 결제 Hsm을 지원 하도록 Azure 전용 HSM 서비스를 사용할 수 있도록 하려는 경우 전달 하세요 피드백에 Microsoft 계정 담당자를 합니다.
+Azure 전용 HSM 서비스는 SafeNet Luna Network HSM 7(모델 A790) 디바이스를 사용합니다. 이러한 디바이스는 결제 HSM 특정 기능(예: PIN 또는 ETF)이나 인증을 지원하지 않습니다. 향후 지불 Hsm을 지원 하기 위해 Azure 전용 HSM 서비스를 원하는 경우 Microsoft 계정 담당자에 게 피드백을 전달 하세요.
 
-### <a name="q-which-azure-regions-is-dedicated-hsm-available-in"></a>Q: Azure 지역은 전용 HSM을 사용할 수 있습니다?
+### <a name="q-which-azure-regions-is-dedicated-hsm-available-in"></a>Q: 에서 사용할 수 있는 Azure 지역은 전용 HSM은 무엇 인가요?
 
-런타임에 년 3 월 2019 일부 터 전용 HSM은 아래에 나열 된 14 개 지역에서 사용할 수 있습니다. 추가 영역을 계획 및 Microsoft 계정 담당자를 통해 논의 될 수 있습니다.
+2019 년 3 월을 기준으로 아래 나열 된 14 개 지역에서 전용 HSM을 사용할 수 있습니다. 추가 지역은 계획 되 고 Microsoft 계정 담당자를 통해 설명할 수 있습니다.
 
-* 미국 동부
+* East US
 * 미국 동부 2
 * 미국 서부
 * 미국 중남부
 * 동남아시아
-* 동아시아
+* 아시아 동부
 * 유럽 북부
-* 서유럽
+* 유럽 서부
 * 영국 남부
 * 영국 서부
 * 캐나다 중부
@@ -155,9 +155,9 @@ Azure Dedicated HSM은 마이그레이션 시나리오에 가장 적합합니다
 
 Microsoft에는 HSM에 대한 관리 또는 암호화 제어 권한이 없습니다. 대신 Microsoft에는 온도 및 구성 요소 상태와 같은 기본 원격 분석 데이터를 검색하기 위해 직렬 포트 연결을 통한 모니터 수준 액세스 권한이 있습니다. Microsoft는 이를 통해 상태 문제에 대한 자동 관리 알림을 제공할 수 있습니다. 필요한 경우 고객은 이 계정을 사용하지 않도록 설정할 수 있습니다.
 
-### <a name="q-what-is-the-tenantadmin-account-microsoft-uses-i-am-used-to-the-admin-user-being-admin-on-safenet-hsms"></a>Q: 사용 하 여 Microsoft "tenantadmin" 계정 이란 무엇 이며, SafeNet Hsm에서 "관리자" 관리자에 사용 하 던?
+### <a name="q-what-is-the-tenantadmin-account-microsoft-uses-i-am-used-to-the-admin-user-being-admin-on-safenet-hsms"></a>Q: Microsoft에서 사용 하는 "tenantadmin" 계정 이란 "관리 사용자가 사용 하 고 있습니다.
 
-HSM 장치는 일반적인 기본 암호를 사용 하 여 관리자의 기본 사용자를 사용 하 여 제공 됩니다. Microsoft 고객이 프로 비전 하려고 대기 하는 풀의 모든 장치는 기본 암호를 사용에서 하지 않았습니다. 이 엄격한 보안 요구 사항을 충족 하지 것입니다. 이러한 이유로 프로 비전 시간에서 삭제 된 강력한 암호를 설정 합니다. 또한 프로 비전 시간에서는 새 사용자를 만듭니다 "tenantadmin"를 호출 하는 관리자 역할에서입니다. 이 사용자의 기본 암호 및 고객에 게가 변경 첫 번째 작업으로 먼저 새로 프로 비전 된 장치에 로그인 할 때입니다. 이 프로세스 높은 수준의 보안을 보장 하 고 고객에 대 한 우리의 약속 유일한 관리 제어를 유지 합니다. "Tenantadmin" 사용자를 해당 계정을 사용 하 길 원하는 고객의 관리자 사용자 암호 재설정을 사용할 수 있도록 확인 해야 합니다. 
+HSM 장치는 일반적인 기본 암호를 사용 하 여 관리자의 기본 사용자와 함께 제공 됩니다. Microsoft는 고객이 프로 비전을 기다리는 풀에 있는 동안 기본 암호를 사용 하지 않으려고 합니다. 이는 엄격한 보안 요구 사항을 충족 하지 않습니다. 이러한 이유로 프로 비전 시에 삭제 되는 강력한 암호를 설정 합니다. 또한 프로 비전 시 "tenantadmin" 라는 관리자 역할에 새 사용자를 만듭니다. 이 사용자는 기본 암호를 가지 며, 처음에 새로 프로 비전 된 장치에 로그인 할 때 첫 번째 작업으로이를 변경 합니다. 이 프로세스는 높은 수준의 보안을 보장 하 고 고객에 대 한 관리 제어의 약속을 유지 합니다. 고객이 해당 계정을 사용 하도록 선호 하는 경우 "tenantadmin" 사용자를 사용 하 여 관리자 사용자 암호를 다시 설정할 수 있다는 점에 유의 해야 합니다. 
 
 ### <a name="q-can-microsoft-or-anyone-at-microsoft-access-keys-in-my-dedicated-hsm"></a>Q: Microsoft 또는 Microsoft의 모든 사용자가 전용 HSM의 키에 액세스할 수 있나요?
 
@@ -185,9 +185,9 @@ Gemalto HSM 클라이언트 소프트웨어를 사용하여 HSM 및 파티션을
 
 ## <a name="high-availability"></a>고가용성
 
-### <a name="q-is-it-possible-to-configure-high-availability-in-the-same-region-or-across-multiple-regions"></a>Q: 동일한 지역 또는 여러 지역 간에 고가용성을 구성할 수는?
+### <a name="q-is-it-possible-to-configure-high-availability-in-the-same-region-or-across-multiple-regions"></a>Q: 동일한 지역 또는 여러 지역에서 고가용성을 구성할 수 있나요?
 
-예. 고가용성 구성 및 설정은 Gemalto에서 제공하는 HSM 클라이언트 소프트웨어에서 수행됩니다. 사이트-사이트를 사용 하 여 VNET에 연결 된 동일한 VNET 또는 다른 Vnet을 동일한 지역에 지역 또는 온-프레미스 Hsm에서 Hsm 또는 지점 간 VPN을 동일한 고가용성 구성에 추가할 수 있습니다. 키 자료만 및 역할과 같은 특정 하지 않은 구성 항목 동기화이 점에 유의 해야 합니다.
+예. 고가용성 구성 및 설정은 Gemalto에서 제공하는 HSM 클라이언트 소프트웨어에서 수행됩니다. 동일한 지역 또는 여러 지역에 있는 동일한 VNET 또는 다른 Vnet의 Hsm 또는 사이트 간 또는 지점 간 VPN을 사용 하 여 VNET에 연결 된 온-프레미스 Hsm의 Hsm을 동일한 고가용성 구성에 추가할 수 있습니다. 키 자료만 동기화 하 고 역할과 같은 특정 구성 항목은 동기화 하지 않도록 주의 해야 합니다.
 
 ### <a name="q-can-i-add-hsms-from-my-on-premises-network-to-a-high-availability-group-with-azure-dedicated-hsm"></a>Q: Q: Azure Dedicated HSM을 사용하여 온-프레미스 네트워크의 HSM을 고가용성 그룹에 추가할 수 있나요?
 
@@ -199,13 +199,13 @@ Gemalto HSM 클라이언트 소프트웨어를 사용하여 HSM 및 파티션을
 
 ### <a name="q-how-many-hsms-can-i-add-to-the-same-high-availability-configuration-from-one-single-application"></a>Q: 단일 애플리케이션에서 동일한 고가용성 구성에 추가할 수 있는 HSM의 수는 어떻게 되나요?
 
-16 HA 그룹 구성원에 뛰어난 결과 사용 하 여 테스트에서 완료, 전체 제한
+16 HA 그룹의 멤버는 뛰어난 결과를 포함 하는 낮은 수준의 전체 스로틀 테스트를 포함 합니다.
 
 ## <a name="support"></a>지원
 
 ### <a name="q-what-is-the-sla-for-dedicated-hsm-service"></a>Q: 전용 HSM 서비스에 대한 SLA는 어떻게 되나요?
 
-보장은 없습니다 특정 가동 시간 전용 HSM 서비스를 제공 합니다. 대신 Microsoft는 디바이스에 대한 네트워크 수준의 액세스를 보장하므로 표준 Azure 네트워킹 SLA가 적용됩니다.
+전용 HSM 서비스에는 특정 작동 시간 보증이 제공 되지 않습니다. 대신 Microsoft는 디바이스에 대한 네트워크 수준의 액세스를 보장하므로 표준 Azure 네트워킹 SLA가 적용됩니다.
 
 ### <a name="q-how-are-the-hsms-used-in-azure-dedicated-hsm-protected"></a>Q: Azure 전용 HSM에 사용되는 HSM은 어떻게 보호되나요?
 
@@ -221,19 +221,19 @@ Dedicated HSM 서비스는 SafeNet Network HSM 7 어플라이언스를 사용합
 
 ### <a name="q-how-do-i-get-support-for-dedicated-hsm"></a>Q: 전용 HSM에 대한 지원을 받으려면 어떻게 할까요?
 
-Microsoft와 Gemalto에서 지원 됩니다.  하드웨어 또는 네트워크 액세스 문제가 있다면 Microsoft와 HSM 구성, 소프트웨어를 사용 하 여 문제가 있는 경우 및 응용 프로그램 개발 Gemalto 사용 하 여 지원 요청을 제기해 주세요 지원 요청을 발생 시킵니다. Microsoft 사용 하 여 지원 요청을 지정 하지 않은 문제가 있는 경우으로 Gemalto 수 참여 하는 다음이 필요 합니다. 
+지원은 Microsoft와 Gemalto 모두에서 제공 됩니다.  하드웨어 또는 네트워크 액세스에 문제가 있는 경우 Microsoft와의 지원 요청을 제기 하 고 HSM 구성, 소프트웨어 및 응용 프로그램 개발에 문제가 있는 경우 Gemalto를 사용 하 여 지원 요청을 제기 하세요. 결정 되지 않은 문제가 발생 하는 경우 Microsoft를 사용 하 여 지원 요청을 생성 한 다음 필요한 대로 Gemalto를 수행할 수 있습니다. 
 
-### <a name="q-how-do-i-get-the-client-software-documentation-and-access-to-integration-guidance-for-the-safenet-luna-7-hsm"></a>Q: 어떻게 가져오나 요 클라이언트 소프트웨어, 설명서 및 SafeNet Luna 7 HSM에 대 한 통합 지침에 액세스할 수 있습니까?
+### <a name="q-how-do-i-get-the-client-software-documentation-and-access-to-integration-guidance-for-the-safenet-luna-7-hsm"></a>Q: 클라이언트 소프트웨어, 설명서 및 Luna 7 HSM에 대 한 통합 지침에 대 한 액세스를 얻는 어떻게 할까요??
 
-서비스를 등록 한 후 Gemalto 고객 ID Gemalto 고객 지원 포털에서 등록에 허용 되는 제공 됩니다. 이렇게 하면 모든 소프트웨어 및 설명서 뿐만 아니라 Gemalto와 직접 사용 하도록 설정 하면 지원 요청에 대 한 액세스.
+서비스에 등록 한 후에는 Gemalto 고객 지원 포털에서 등록을 허용 하는 Gemalto 고객 ID가 제공 됩니다. 그러면 모든 소프트웨어 및 설명서에 액세스할 수 있을 뿐만 아니라 Gemalto에서 직접 지원 요청을 사용 하도록 설정할 수 있습니다.
 
 ### <a name="q-if-there-is-a-security-vulnerability-found-and-a-patch-is-released-by-gemalto-who-is-responsible-for-upgradingpatching-osfirmware"></a>Q: 보안 취약성이 있고 Gemalto에서 패치를 릴리스한 경우 OS/펌웨어 업그레이드/패치 작업은 누가 수행해야 하나요?
 
 Microsoft는 고객에게 할당된 HSM에 연결할 수 없습니다. 따라서 고객이 HSM을 업그레이드하고 패치해야 합니다.
 
-### <a name="q-what-if-i-need-to-reboot-my-hsm"></a>Q: 내 HSM 다시 부팅 해야 하는 경우에 어떻게 합니까?
+### <a name="q-what-if-i-need-to-reboot-my-hsm"></a>Q: HSM을 다시 부팅 해야 하는 경우 어떻게 하나요?
 
-그러나 HSM 명령줄 다시 부팅 옵션, 다시 부팅 중단 문제가 간헐적으로 발생 하 고 가장 안전한 방법에 대 한는 것이 좋습니다. 이러한 이유로 장치를 물리적으로 다시 부팅 하려면 microsoft 지원 요청을 발생 하는 다시 부팅 됩니다. 
+HSM에는 명령줄 다시 부팅 옵션이 있지만,이는 다시 부팅 중단 문제가 간헐적으로 발생 하며,이 때문에 장치를 물리적으로 다시 부팅 하는 Microsoft와 지원 요청을 발생 시키는 가장 안전한 부팅에 권장 됩니다. 
 
 ## <a name="cryptography-and-standards"></a>암호화 및 표준
 
@@ -289,11 +289,11 @@ Dedicated HSM은 SafeNet Network HSM 7 어플라이언스(모델 A790)를 프로
 
 ### <a name="q-how-many-partitions-can-be-created-in-dedicated-hsm"></a>Q: 전용 HSM에 만들 수 있는 파티션의 수는 어떻게 되나요?
 
-A790 사용 SafeNet Luna HSM 7 모델은 서비스의 비용에 10 개의 파티션에 대 한 라이선스를 포함 합니다. 장치에 파티션 수가 100 개로 제한 하 고 추가 라이선스 비용이 부과 되 고 장치의 새 라이선스 파일을 설치할 필요는 것이 한도까지 파티션을 추가 합니다.
+사용 된 Luna HSM 7 model A790에는 서비스 비용의 10 개 파티션에 대 한 라이선스가 포함 되어 있습니다. 장치는 파티션 수가 100 개로 제한 되 고이 제한까지 파티션을 추가 하면 추가 라이선스 비용이 발생 하 고 장치에 새 라이선스 파일이 설치 되어야 합니다.
 
 ### <a name="q-how-many-keys-can-be-supported-in-dedicated-hsm"></a>Q: 전용 HSM에서 지원할 수 있는 키의 수는 어떻게 되나요?
 
-키의 최대 수는 사용 가능한 메모리의 함수입니다. 사용 중인 SafeNet Luna 7 모델 A790에 32MB의 메모리만 있습니다. 비대칭 키를 사용 하는 경우에 다음 숫자 키 쌍에 적용할 수 있습니다.
+최대 키 수는 사용 가능한 메모리의 함수입니다. 사용 중인 A790 Enet Luna 7 모델에는 32MB의 메모리가 있습니다. 비대칭 키를 사용 하는 경우 다음 숫자는 키 쌍에도 적용 됩니다.
 
 * RSA-2048 - 19,000개
 * ECC-P256 - 91,000개

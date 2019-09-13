@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: dacurwin
-ms.openlocfilehash: 078c8763a08df339b9291807102e2d187d2a882f
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 26d07ac0b09655e170b53af91f890f21d15afb1b
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827577"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70909793"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>질문과 대답-Azure Vm 백업
 
@@ -120,6 +120,12 @@ PowerShell에서 이 작업을 수행하는 방법을 [자세히 알아보세요
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>복원 성능을 높이려면 어떻게 해야 하나요?
 [즉시 복원](backup-instant-restore-capability.md) 기능을 사용 하면 스냅숏에서 빠르게 백업 하 고 즉시 복원할 수 있습니다.
+
+### <a name="what-happens-when-we-change-the-key-vault-settings-for-the-encrypted-vm"></a>암호화 된 VM에 대 한 주요 자격 증명 모음 설정을 변경 하면 어떻게 되나요?
+
+암호화 된 VM에 대 한 키 자격 증명 모음 설정을 변경한 후에는 백업에서 새로운 세부 정보 집합을 계속 사용할 수 있지만, 변경 하기 전에 복구 지점에서 복원한 후에는에서 VM을 만들기 전에 KeyVault에서 암호를 복원 해야 합니다.  메서드. 자세한 내용은이 [문서](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret) 를 참조 하세요.
+
+비밀/키 롤오버와 같은 작업에는이 단계가 필요 하지 않으며 복원 후 동일한 KeyVault를 사용할 수 있습니다.
 
 ## <a name="manage-vm-backups"></a>VM 백업 관리
 

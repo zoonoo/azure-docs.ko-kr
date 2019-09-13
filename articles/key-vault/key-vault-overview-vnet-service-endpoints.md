@@ -4,16 +4,16 @@ description: Key Vault의 가상 네트워크 서비스 엔드포인트 개요
 services: key-vault
 author: amitbapat
 ms.author: ambapat
-manager: barbkess
+manager: rkarlin
 ms.date: 01/02/2019
 ms.service: key-vault
 ms.topic: conceptual
-ms.openlocfilehash: 45499dac3cc50e2b6e79f9ebcb1bc3e7b4330beb
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 2617ae7bd1c761ae7977eac518c2e40ca55da00c
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165845"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883229"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Azure Key Vault의 가상 네트워크 서비스 엔드포인트
 
@@ -53,7 +53,7 @@ Azure Key Vault의 가상 네트워크 서비스 엔드포인트를 사용하면
 > 다음과 같은 구성 제한 사항을 고려해야 합니다.
 > * 최대한 127개 가상 네트워크 규칙 및 127개 IPv4 규칙이 허용됩니다. 
 > * "/31" 또는 "/32" 접두사 크기를 사용하는 작은 주소 범위는 지원되지 않습니다. 대신 개별 IP 주소 규칙을 사용하여 이러한 범위를 구성합니다.
-> * IP 네트워크 규칙은 공용 IP 주소에 대해서만 허용됩니다. 프라이빗 네트워크용으로 예약된 IP 주소 범위(RFC 1918에 정의)는 IP 규칙에서 허용되지 않습니다. 개인 네트워크로 시작 하는 주소를 포함할 **10.** , **172.16 31**, 및 **192.168.** 합니다. 
+> * IP 네트워크 규칙은 공용 IP 주소에 대해서만 허용됩니다. 프라이빗 네트워크용으로 예약된 IP 주소 범위(RFC 1918에 정의)는 IP 규칙에서 허용되지 않습니다. 개인 네트워크는 **172.16, 31**, **192.168.** **로 시작**하는 주소를 포함 합니다. 
 > * 현재 IPv4 주소만 지원됩니다.
 
 ## <a name="trusted-services"></a>신뢰할 수 있는 서비스
@@ -73,7 +73,7 @@ Azure Key Vault의 가상 네트워크 서비스 엔드포인트를 사용하면
 |Azure Storage|[Azure Key Vault의 고객 관리 키를 사용하여 Storage 서비스 암호화](../storage/common/storage-service-encryption-customer-managed-keys.md).|
 |Azure Data Lake Store|고객 관리 키를 사용하여 [Azure Data Lake Store의 데이터 암호화](../data-lake-store/data-lake-store-encryption.md).|
 |Azure Databricks|[빠르고 쉬우며 공동 작업이 가능한 Apache Spark 기반 분석 서비스](../azure-databricks/what-is-azure-databricks.md)|
-|Azure API Management|[MSI를 사용 하 여 Key Vault에서 사용자 지정 도메인에 대 한 인증서를 배포 합니다.](../api-management/api-management-howto-use-managed-service-identity.md#use-the-managed-service-identity-to-access-other-resources)|
+|Azure API Management|[MSI를 사용 하 여 Key Vault에서 사용자 지정 도메인에 대 한 인증서 배포](../api-management/api-management-howto-use-managed-service-identity.md#use-the-managed-service-identity-to-access-other-resources)|
 
 
 

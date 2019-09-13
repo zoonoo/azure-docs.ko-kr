@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 8edb361000110da16ce2a230d8768b204076ad21
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 516d4f47cb971dee91bc678ff56eeca71a28183a
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844279"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915848"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여러 노드 풀 만들기 및 관리
 
@@ -35,7 +35,7 @@ Azure CLI 버전 2.0.61 이상이 설치 및 구성 되어 있어야 합니다. 
 
 ### <a name="install-aks-preview-cli-extension"></a>aks-preview CLI 확장 설치
 
-여러 노드 풀을 사용 하려면 *aks-preview* CLI extension version 0.4.1 이상이 필요 합니다. [Az extension add][az-extension-add] 명령을 사용 하 여 *aks-preview* Azure CLI 확장을 설치한 다음 [az extension update][az-extension-update] 명령을 사용 하 여 사용 가능한 업데이트를 확인 합니다.
+여러 노드 풀을 사용 하려면 *aks-preview* CLI extension version 0.4.12 이상이 필요 합니다. [Az extension add][az-extension-add] 명령을 사용 하 여 *aks-preview* Azure CLI 확장을 설치한 다음 [az extension update][az-extension-update] 명령을 사용 하 여 사용 가능한 업데이트를 확인 합니다.
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -98,7 +98,7 @@ az group create --name myResourceGroup --location eastus
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --enable-vmss \
+    --vm-set-type VirtualMachineScaleSets \
     --node-count 2 \
     --generate-ssh-keys \
     --kubernetes-version 1.13.10

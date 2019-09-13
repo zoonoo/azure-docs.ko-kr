@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/14/2018
+ms.date: 09/11/2019
 ms.author: dacurwin
-ms.openlocfilehash: 1d50f239a0ef4de02c9f0c87a28b0f5092d9c529
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 5ef4ca3f6cbf45ac67bad6531926a7de54cd2012
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019029"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934805"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>백업한 SQL Server 데이터베이스 관리 및 모니터링
 
@@ -140,6 +140,32 @@ SQL database에 대 한 보호를 다시 시작 하려면:
 4. 보호 된 서버를 마우스 오른쪽 단추로 클릭 하 고 **등록 취소**를 선택 합니다.
 
    ![삭제 선택](./media/backup-azure-sql-database/delete-protected-server.jpg)
+
+
+## <a name="modify-policy"></a>정책 수정
+정책을 수정 하 여 백업 빈도 또는 보존 범위를 변경 합니다.
+
+> [!NOTE]
+> 보존 기간을 변경 하면 새 복구 지점이 아닌 모든 이전 복구 소급 적용 됩니다.
+
+자격 증명 모음 대시보드에서**백업 정책** **관리** > 로 이동 하 여 편집 하려는 정책을 선택 합니다.
+
+  ![백업 정책 관리](./media/backup-azure-sql-database/modify-backup-policy.png)
+
+  ![백업 정책 수정](./media/backup-azure-sql-database/modify-backup-policy-impact.png)
+
+정책 수정은 관련 된 모든 백업 항목 및 트리거 **구성 보호** 작업에 영향을 줍니다. 
+
+#### <a name="inconsistent-policy"></a>일관 되지 않은 정책 
+
+경우에 따라 정책 수정 작업을 수행 하면 일부 백업 항목에 대해 **일관** 되지 않은 정책 버전이 발생할 수 있습니다. 이는 정책 수정 작업이 트리거된 후 백업 항목에 대 한 해당 **보호 구성** 작업이 실패할 때 발생 합니다. 백업 항목 보기에서 다음과 같이 표시 됩니다.
+ 
+  ![일관성 없는 정책](./media/backup-azure-sql-database/inconsistent-policy.png)
+
+한 번의 클릭으로 영향을 받는 모든 항목에 대 한 정책 버전을 수정할 수 있습니다.
+
+  ![일관 되지 않은 정책 수정](./media/backup-azure-sql-database/fix-inconsistent-policy.png)
+ 
 
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>SQL Server VM 확장을 다시 등록 합니다.
 

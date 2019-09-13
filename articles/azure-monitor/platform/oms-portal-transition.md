@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: bwren
-ms.openlocfilehash: 126d96cbd85f4e91de5a6393be02a15240b51ade
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: e8fd49781301406e0c35e1de57cea3040167c6c3
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035578"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915860"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Azure로 이동하는 OMS 포털
 
@@ -50,7 +50,7 @@ Azure Portal은 모든 Azure 서비스의 허브이며, 리소스 고정을 위�
 Azure Portal로 전환하는 방법에 대한 자세한 내용은 [Log Analytics 사용자를 위한 OMS 포털에서 Azure Portal로 전환에 대한 일반적인 질문](oms-portal-faq.md)을 참조하세요. 
 
 ## <a name="user-access-and-role-migration"></a>사용자 액세스 및 역할 마이그레이션
-Azure Portal 액세스 관리는 OMS 포털에서 액세스 관리보다 더욱 풍부하고 더욱 강력합니다. Log Analytics의 액세스 관리에 대 한 자세한 내용은 [Azure Monitor 로그 작업 영역 디자인] 디자인-로그-deployment.md)를 참조 하세요.
+Azure Portal 액세스 관리는 OMS 포털에서 액세스 관리보다 더욱 풍부하고 더욱 강력합니다. Log Analytics 액세스 관리에 대 한 자세한 내용은 [Azure Monitor 로그 작업 영역 디자인](design-logs-deployment.md) 을 참조 하세요.
 
 > [!NOTE]
 > 이 문서의 이전 버전은 사용 권한이 OMS 포털에서 Azure Portal로 자동으로 변환되는 것을 명시했습니다. 이 자동 대화는 더 이상 계획에 없으며, 스스로 변환을 수행해야 합니다.

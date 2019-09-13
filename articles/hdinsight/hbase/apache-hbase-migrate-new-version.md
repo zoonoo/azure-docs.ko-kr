@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: ashishth
-ms.openlocfilehash: 546d491c24198d5f7a92765876e5f6919ca32020
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 75158fbe5604c6fcf54c2fa08636cb87dfd9da80
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735802"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70917428"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Apache HBase 클러스터를 최신 버전으로 마이그레이션
 
@@ -180,7 +180,7 @@ Azure HDInsight에서 Apache HBase 클러스터를 업그레이드 하려면 다
 5. memstore의 최근 데이터가 플러시되도록 하려면 이전 스크립트를 다시 실행합니다.
 6. 이전 클러스터 https://OLDCLUSTERNAME.azurehdidnsight.net) 에서 [Apache Ambari](https://ambari.apache.org/) 에 로그인 하 고 HBase 서비스를 중지 합니다. 서비스를 중지 하 시겠습니까를 확인 하는 메시지가 표시 되 면 해당 확인란을 선택 하 여 HBase에 대 한 유지 관리 모드를 설정 합니다. Ambari 연결 및 사용에 대한 자세한 내용은 [Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](../hdinsight-hadoop-manage-ambari.md)를 참조하세요.
 
-    ![Ambari에서 서비스 > HBase > 서비스 작업에서 중지를 클릭 합니다.](./media/apache-hbase-migrate-new-version/stop-hbase-services.png)
+    ![Ambari에서 서비스 > HBase > 서비스 작업에서 중지를 클릭 합니다.](./media/apache-hbase-migrate-new-version/stop-hbase-services1.png)
 
     ![HBase에 대한 [유지 관리 모드 켜기] 확인란을 선택한 다음, 확인함](./media/apache-hbase-migrate-new-version/turn-on-maintenance-mode.png)
 

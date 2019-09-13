@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
+ms.date: 03/20/2019
 ms.author: v-mohabe
-ms.openlocfilehash: cb6025b47aec50121a0f96f7b6cba7ad726db291
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: c8f381a3440d742cca880f44b73cbc22bde92ecc
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907965"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910554"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Azure Security Center에서 머신 및 애플리케이션 보호
 Azure Security Center는 Azure 리소스, 비 Azure 서버 및 가상 컴퓨터의 보안 상태를 분석 합니다. 보안 센터가 잠재적인 보안 취약점을 식별하는 경우 필요한 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다. 이러한 권장 사항은 VM(가상 머신)과 컴퓨터, 애플리케이션, 네트워킹, SQL과 ID 및 액세스 등의 Azure 리소스 유형에 적용됩니다.
@@ -108,7 +108,6 @@ VM 및 컴퓨터 섹션에는 모든 VM과 컴퓨터의 권장 사항에 대한 
 각 권장 사항에 표시되는 아이콘은 주의를 기울여야 하는 VM과 컴퓨터 및 권장 사항의 형식을 식별하는 데 도움이 됩니다. 필터를 사용하여 **리소스 종류** 및 **심각도**를 기준으로 목록을 검색할 수도 있습니다.
 
 각 VM에 대한 보안 권장 사항으로 드릴다운하려면 VM을 클릭합니다.
-VM 또는 컴퓨터에 대한 보안 세부 정보는 다음과 같습니다. 맨 아래에서 권장되는 작업과 각 문제의 심각도를 볼 수 있습니다.
 ![Cloud services](./media/security-center-virtual-machine-recommendations/recommendation-list.png)
 
 ### <a name="cloud-services"></a>Cloud Services
@@ -125,7 +124,7 @@ VM 또는 컴퓨터에 대한 보안 세부 정보는 다음과 같습니다. �
 ![OS 버전 업데이트](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png)
 
 ### <a name="app-services"></a>앱 서비스
-App Service 정보를 확인하려면 구독에서 App Service를 사용하도록 설정해야 합니다. 이 기능을 사용하는 방법에 대한 지침은 [Azure Security Center를 통해 App Service 보호](security-center-app-services.md)를 참조하세요.
+App Service 정보를 보려면 구독에서 App Service를 사용 하도록 설정 해야 합니다. 이 기능을 사용 하는 방법에 대 한 지침은 [Azure Security Center를 사용 하 여 App Service 보호](security-center-app-services.md)를 참조 하세요.
 [!NOTE]
 > App Service 모니터링은 미리 보기로 제공되며 Security Center의 표준 계층에서만 사용할 수 있습니다.
 
@@ -170,7 +169,7 @@ Microsoft Monitoring Agent를 설치하려면
 
    ![MMS 설치](./media/security-center-virtual-machine-recommendations/install-mms.png)
 
-Microsoft Monitoring Agent를 자동으로 설치하도록 새 확장 집합을 설정하려면
+Microsoft Monitoring Agent를 자동으로 설치 하도록 새 확장 집합을 설정 하려면:
 1. Azure Policy로 이동한 후 **정의**를 클릭합니다.
 2. **Windows 가상 머신 확장 집합에 대 한 정책 배포 Log Analytics 에이전트** 를 검색 하 고 클릭 합니다.
 3. **할당**을 클릭합니다.
@@ -208,10 +207,10 @@ Microsoft Monitoring Agent를 설치하도록 기존의 모든 확장 집합을 
 |Machine|40|머신의 모니터링 에이전트 상태 문제 해결|완벽한 Security Center 보호를 위해 문제 해결 가이드의 지침에 따라 머신에서 모니터링 에이전트 문제를 해결합니다.| 
 |Machine|40|머신의 엔드포인트 보호 상태 문제 해결|완벽한 Security Center 보호를 위해 문제 해결 가이드의 지침에 따라 머신에서 모니터링 에이전트 문제를 해결합니다.|
 |Machine|40|머신의 검사 데이터 누락 문제 해결|가상 머신 및 컴퓨터에서 검사 데이터 누락 문제를 해결합니다. 머신의 검사 데이터 누락은 업데이트 검사, 기준 검사 같은 보안 평가 누락과 엔드포인트 보호 솔루션 검사 누락을 초래합니다.|
-|Machine|40|시스템 업데이트를 컴퓨터에 설치 해야 합니다.|누락된 시스템 보안 및 중요 업데이트를 설치하여 Windows 및 Linux 가상 머신과 컴퓨터를 보호합니다.
+|Machine|40|시스템 업데이트를 머신에 설치해야 합니다.|누락된 시스템 보안 및 중요 업데이트를 설치하여 Windows 및 Linux 가상 머신과 컴퓨터를 보호합니다.
 |Machine|15|웹 애플리케이션 방화벽 추가| WAF(웹 애플리케이션 방화벽) 솔루션을 배포하여 웹 애플리케이션을 보호합니다. |
 |Machine|40|클라우드 서비스 역할에 대한 OS 버전 업데이트|클라우드 서비스 역할의 OS(운영 체제) 버전을 OS 제품군의 사용 가능한 최신 버전으로 업데이트합니다.|
-|Machine|35|컴퓨터에서 보안 구성의 취약성을 재구성 해야 함|머신의 보안 구성에서 취약성을 수정하여 공격으로부터 보호합니다.|
+|Machine|35|머신 보안 구성의 취약성을 수정해야 합니다.|머신의 보안 구성에서 취약성을 수정하여 공격으로부터 보호합니다.|
 |Machine|35|컨테이너의 보안 구성에서 취약성 수정|Docker가 설치된 머신의 보안 구성에서 취약성을 수정하여 공격으로부터 보호합니다.|
 |Machine|25|적응형 애플리케이션 제어 사용|애플리케이션 제어를 사용하도록 설정하여 Azure에 있는 VM에서 실행할 수 있는 애플리케이션을 제어합니다. 이렇게 하면 VM을 강화하여 맬웨어로부터 보호할 수 있습니다. Security Center는 기계 학습을 통해 각 VM에서 실행 중인 애플리케이션을 분석하고 이러한 인텔리전스를 사용하여 허용 목록 규칙을 적용할 수 있습니다. 이 기능은 애플리케이션 허용 목록의 구성 및 유지 관리 프로세스를 간소화합니다.|
 |Machine|20|머신에 Endpoint Protection 솔루션 설치|가상 머신에 엔드포인트 보호 솔루션을 설치하여 위협 및 취약성으로부터 보호합니다.|

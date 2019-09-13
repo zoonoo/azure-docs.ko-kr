@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18, seo-java-august2019
 ms.date: 04/15/2019
 ms.author: shvija
-ms.openlocfilehash: 8684e786de64f91acba0c61017083015288ca4eb
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: c622e9af4263c844fb25dc65657998cfc82d4a2d
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172779"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70884205"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs"></a>Java를 사용 하 여 Azure에서 이벤트를 보내거나 이벤트를 수신 Event Hubs
 
@@ -88,10 +88,10 @@ ConnectionStringBuilder 클래스를 사용하여 Event Hubs 클라이언트 인
 
 ```java
         final ConnectionStringBuilder connStr = new ConnectionStringBuilder()
-                .setNamespaceName("speventhubns") 
-                .setEventHubName("speventhub")
+                .setNamespaceName("<EVENTHUB NAMESPACE") 
+                .setEventHubName("EVENT HUB")
                 .setSasKeyName("RootManageSharedAccessKey")
-                .setSasKey("2+WMsyyy1XmUtEnRsfOmTTyGasfJgsVjGAOIN20J1Y8=");
+                .setSasKey("SHARED ACCESS KEY");
 ```
 
 ### <a name="write-code-to-send-events"></a>이벤트를 전송 하는 코드 작성

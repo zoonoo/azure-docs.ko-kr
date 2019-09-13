@@ -6,14 +6,14 @@ ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 08/21/2019
-ms.openlocfilehash: 6e92016c0dcd65ee5b7f43c2c257b7d2198d6552
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 9a4142010ef9e47a1a41e472c945b694f197f34f
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736256"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885060"
 ---
-# <a name="scenario-apache-spark-job-run-slowly-when-the-azure-storage-container-contains-many-files-in-azure-hdinsight"></a>시나리오: Azure 저장소 컨테이너에 Azure HDInsight의 많은 파일이 포함 되어 있으면 Apache Spark 작업이 느리게 실행 됩니다.
+# <a name="apache-spark-job-run-slowly-when-the-azure-storage-container-contains-many-files-in-azure-hdinsight"></a>Azure 저장소 컨테이너에 Azure HDInsight의 많은 파일이 포함 되어 있으면 Apache Spark 작업이 느리게 실행 됩니다.
 
 이 문서에서는 Azure HDInsight 클러스터에서 Apache Spark 구성 요소를 사용 하는 경우 문제 해결 단계와 가능한 문제 해결 방법을 설명 합니다.
 

@@ -4,16 +4,16 @@ description: Enterprise Security Package를 사용 하 여 Azure HDInsight 클�
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
-ms.reviewer: mamccrea
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: acf11b8107855c6f087f63f592cdbbad3766795e
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: e5062ce27e1e9367a262d263070ab01f899dfc54
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811033"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918897"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Enterprise Security Package를 사용하여 HDInsight 클러스터 관리
 HDInsight ESP(Enterprise Security Package)의 사용자 및 역할과 ESP 클러스터 관리 방법을 알아봅니다.
@@ -34,7 +34,7 @@ Apache Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 �
    
 3. **List cluster** 명령을 사용하여 연결된 클러스터를 볼 수 있습니다. 이제 연결된 클러스터에 스크립트를 제출할 수 있습니다.
 
-   ![연결 된 클러스터](./media/apache-domain-joined-manage/linked-cluster.png "연결 된 클러스터")
+   ![연결 된 클러스터](./media/apache-domain-joined-manage/hdinsight-linked-cluster.png "연결 된 클러스터")
 
 4. 명령 팔레트에서 **HDInsight: Unlink a Cluster**를 입력하여 클러스터의 연결을 끊을 수도 있습니다.
 
@@ -60,7 +60,7 @@ Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러�
 
 4. **Azure Explorer**에서 클러스터 연결을 해제할 수도 있습니다.
    
-   ![연결 되지 않은 클러스터 intellij](./media/apache-domain-joined-manage/unlink.png)
+   ![연결 되지 않은 클러스터 intellij](./media/apache-domain-joined-manage/hdinsight-unlink-cluster.png)
 
 ## <a name="use-eclipse-to-link-to-domain-joined-cluster"></a>Eclipse를 사용하여 도메인 가입된 클러스터에 연결
 
@@ -71,7 +71,7 @@ Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러�
 
 2. **클러스터 이름**, **사용자 이름** 및 **암호**를 입력한 다음, 확인 단추를 클릭하여 클러스터에 연결합니다. 선택적으로 스토리지 계정, 스토리지 키를 입력한 다음, Storage Explorer의 스토리지 컨테이너를 선택하여 왼쪽 트리 뷰에서 작업합니다.
    
-   ![클러스터 연결 대화 상자 eclipse](./media/apache-domain-joined-manage/link-cluster-dialog.png)
+   ![클러스터 연결 대화 상자 eclipse](./media/apache-domain-joined-manage/link-cluster-dialog1.png)
    
    > [!NOTE]  
    > 클러스터가 Azure 구독 및 연결된 클러스터 모두에 로그인되어 있으면, 연결된 스토리지 키, 사용자 이름 및 암호를 사용합니다.
@@ -83,7 +83,7 @@ Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러�
 
 4. **Azure Explorer**에서 클러스터 연결을 해제할 수도 있습니다.
    
-   ![연결 되지 않은 클러스터 eclipse](./media/apache-domain-joined-manage/unlink.png)
+   ![연결 되지 않은 클러스터 eclipse](./media/apache-domain-joined-manage/hdinsight-unlink-cluster.png)
 
 ## <a name="access-the-clusters-with-enterprise-security-package"></a>엔터프라이즈 보안 패키지를 사용하여 클러스터에 액세스합니다.
 

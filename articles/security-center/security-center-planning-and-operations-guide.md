@@ -2,31 +2,25 @@
 title: 보안 센터 계획 및 작업 가이드| Microsoft Docs
 description: 이 문서는 Azure Security Center 도입 전 계획과 일상 운영과 관련한 고려 사항을 지원합니다.
 services: security-center
-documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
-ms.assetid: f984e4a2-ac97-40bf-b281-2f7f473494c4
+author: memildin
+manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/22/2019
-ms.author: v-mohabe
-ms.openlocfilehash: afb7d4530a56687e7cd4d9c279451870d5567284
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.date: 09/10/2019
+ms.author: memildin
+ms.openlocfilehash: b731c5fe6b6c7055b7397386b1e9fd4bed47db8a
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032115"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910600"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Azure Security Center 계획 및 작업 가이드
-이 가이드는 Azure Security Center의 사용을 계획 중인 정보 기술(IT) 전문가, IT 설계자, 정보 보안 분석가 및 클라우드 관리자를 대상으로 합니다.
+이 가이드는 IT (정보 기술) 전문가, IT 설계자, 정보 보안 분석가 및 클라우드 관리자가 Azure Security Center 사용을 계획 하는 데 사용 됩니다.
 
 
 ## <a name="planning-guide"></a>계획 가이드
-이 가이드에서는 조직의 보안 요구 사항과 클라우드 관리 모델에 따라 보안 센터의 사용을 최적화하기 위해 따를 수 있는 일련의 단계 및 작업을 다룹니다. Security Center를 완벽하게 활용하려면 조직의 서로 다른 개인 또는 팀이 보안 개발 및 운영, 모니터링, 관리 및 사고 대응 요구에 맞게 서비스를 사용하는 방법에 대해 이해하는 것이 중요합니다. 보안 센터의 사용을 계획할 때 고려할 주요 영역은 다음과 같습니다.
+이 가이드에서는 조직의 보안 요구 사항과 클라우드 관리 모델에 따라 Security Center 사용을 최적화 하기 위해 수행할 수 있는 작업을 설명 합니다. Security Center를 완벽하게 활용하려면 조직의 서로 다른 개인 또는 팀이 보안 개발 및 운영, 모니터링, 관리 및 사고 대응 요구에 맞게 서비스를 사용하는 방법에 대해 이해하는 것이 중요합니다. 보안 센터의 사용을 계획할 때 고려할 주요 영역은 다음과 같습니다.
 
 * 보안 역할 및 Access Control
 * 보안 정책 및 권장 사항
@@ -81,7 +75,7 @@ Security Center는 Azure에서 사용자, 그룹 및 서비스에 [기본 제공
 - **보안 읽기 권한자**: 이 역할에 속하는 사용자는 권장 사항, 경고, 정책 및 상태를 포함하는 Security Center 구성을 볼 수 있지만 변경할 수는 없습니다.
 - **보안 관리자**: 보안 읽기 권한자와 동일하지만 보안 정책을 업데이트하고 권장 사항 및 경고를 해제할 수 있습니다.
 
-위에서 설명한 Security Center 역할은 Storage, 웹 및 모바일, 사물 인터넷 등 Azure의 다른 서비스 영역에 액세스할 수 없습니다.  
+위에서 설명한 Security Center 역할은 Storage, 웹 및 모바일, 사물 인터넷 등 Azure의 다른 서비스 영역에 액세스할 수 없습니다.
 
 이전 다이어그램에 설명된 가상 사용자를 사용하는 경우 다음 RBAC가 필요합니다.
 
@@ -142,7 +136,7 @@ Azure Security Center은 Microsoft Monitoring Agent 사용 합니다 .이는 Azu
 
 Windows용 Microsoft Monitoring Agent는 TCP 포트 443을 사용해야 합니다. 추가 세부 정보는 [문제 해결 문서](security-center-troubleshooting-guide.md)를 참조하세요.
 
-데이터 수집을 사용하지 않으려는 특정 지점의 경우 보안 정책에서 수집을 해제할 수 있습니다. 그러나 다른 Azure Management 및 모니터링 서비스에서 Microsoft Monitoring Agent를 사용할 수 있기 때문에 Security Center에서 데이터 수집을 끄는 경우에도 자동으로 에이전트를 제거하지 않습니다. 필요한 경우 에이전트를 수동으로 제거할 수 있습니다.
+데이터 수집을 사용하지 않으려는 특정 지점의 경우 보안 정책에서 수집을 해제할 수 있습니다. 그러나 Microsoft Monitoring Agent 다른 Azure 관리 및 모니터링 서비스에서 사용 될 수 있기 때문에 Security Center에서 데이터 수집을 해제 하면 에이전트가 자동으로 제거 되지 않습니다. 필요한 경우 에이전트를 수동으로 제거할 수 있습니다.
 
 > [!NOTE]
 > 지원되는 VM 목록을 찾아보려면 [Azure Security Center FAQ](security-center-faq.md)를 읽어보세요.
@@ -197,21 +191,21 @@ Azure 환경에 새 리소스(VM, SQL DB)를 추가하면 보안 센터가 자�
 1. 가상 머신의 경우 **방지** 섹션에서 **Compute**를 클릭합니다. 데이터를 사용하도록 설정하는 것과 관련한 문제나 관련 권장 사항은 **개요** 탭 및 **모니터링 권장 사항** 섹션에 표시됩니다.
 2. 새 리소스에 대한 보안 위협이 있다면 무엇인지를 확인하기 위해 **권장 사항** 을 봅니다.
 3. 새 VM이 환경에 추가되면 운영 체제만 최초로 설치되는 것이 매우 일반적입니다. 리소스 소유자는 이러한 VM에서 사용할 다른 앱을 배포하는 데 다소 시간이 걸릴 수 있습니다.  이상적으로는 이 워크로드의 최종 목적을 파악하고 있어야 합니다. 애플리케이션 서버가 됩니까? 이 새 워크로드의 용도에 맞게 적절한 **보안 정책**을 사용하도록 설정할 수 있으며, 이 워크플로의 세 번째 단계에 해당합니다.
-4. 새 리소스가 Azure 환경에 추가되면 **보안 경고** 타일에 새 경고가 표시될 수 있습니다. 항상 이 타일에 새 경고가 있는지 확인하고 보안 센터 권장 사항에 따라 조치를 취합니다.
+4. 새 리소스가 Azure 환경에 추가 되 면 **보안 경고** 타일에 새 경고가 나타날 수 있습니다. 이 타일에서 새 경고를 찾고 권장 사항을 따릅니다.
 
-또한 기존 리소스 상태를 정기적으로 모니터링하여 보안 위험을 초래하고 권장 기준에 미치지 못하는 구성 변경 내용과 보안 경고를 파악하고자 할 수 있습니다. 보안 센터 대시보드에서 시작합니다. 여기에서는 일관된 기준에 따라 3가지 주요 영역을 검토하게 됩니다.
+또한 보안 위험을 생성 하 고, 권장 되는 기준에서 드리프트 하 고, 보안 경고를 발생 시킬 수 있는 구성 변경에 대 한 기존 리소스도 정기적으로 모니터링 해야 합니다. 보안 센터 대시보드에서 시작합니다. 여기에서 일관 된 기준으로 검토할 세 가지 주요 영역이 있습니다.
 
 ![작업](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig4-newUI.png)
 
 1. **방지** 섹션 패널은 주요 리소스에 대한 신속한 액세스를 제공합니다. 이 옵션을 사용하여 Compute, 네트워킹, Storage와 데이터 및 애플리케이션을 모니터링합니다.
-2. **권장 사항** 패널에서 Security Center 권장 사항을 검토할 수 있습니다. 지속적인 모니터링이 이루어질 때는 매일 권장 사항이 있는 것이 아닙니다. 이것은 최초 Security Center 설정 시 모든 권장 사항을 해결했기 때문에 정상입니다. 따라서 매일 이 섹션에 새 정보가 있는 것은 아니며 필요에 따라 액세스하면 됩니다.
+2. **권장 사항** 패널에서 Security Center 권장 사항을 검토할 수 있습니다. 진행 중인 모니터링을 수행 하는 동안에는 매일 권장 사항이 없다는 것을 알 수 있습니다. 초기 Security Center 설정에 대 한 모든 권장 사항을 해결 했기 때문에 정상입니다. 따라서 매일 이 섹션에 새 정보가 있는 것은 아니며 필요에 따라 액세스하면 됩니다.
 3. **감지** 섹션은 매우 자주 또는 매우 드물게 변경될 수 있습니다. 항상 보안 경고를 검토하고 보안 센터 권장 사항에 따라 조치를 취합니다.
 
 ### <a name="hardening-access-and-applications"></a>액세스 및 애플리케이션 강화
 
 또한 보안 작업의 일환으로 VM에 대한 액세스 권한을 제한하는 예방 조치를 채택하고 VM에서 실행되는 애플리케이션을 제어해야 합니다. Azure VM에 인바운드 트래픽을 잠금으로써 공격에 대한 노출을 줄이고 동시에 필요할 때 VM에 쉽게 연결할 수 있는 액세스 권한을 제공합니다. [Just in Time VM](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) 액세스 기능을 사용하여 VM에 대한 액세스 권한을 강화합니다.
 
-[적응형 애플리케이션 제어](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)를 사용하여 Azure에 위치한 VM에서 실행할 수 있는 애플리케이션을 제어할 수 있습니다. 여러 장점이 있지만 이를 통해 맬웨어에 대해 VM을 강화할 수 있습니다. Security Center는 기계 학습을 통해 VM에서 실행 중인 프로세스를 분석하고 이러한 인텔리전스를 사용하여 허용 목록 규칙을 적용할 수 있습니다.
+[적응 응용 프로그램 컨트롤](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application) 을 사용 하 여 Azure에 있는 vm에서 실행할 수 있는 응용 프로그램을 제한할 수 있습니다. 다른 이점 중 하나는 맬웨어에 대해 Vm을 강화 하는 데 도움이 됩니다. Machine learning을 사용 하 여 VM에서 실행 되는 프로세스를 분석 Security Center 허용 목록 규칙을 만드는 데 도움이 됩니다.
 
 
 ## <a name="incident-response"></a>사고 대응
@@ -237,13 +231,13 @@ Azure 환경에 새 리소스(VM, SQL DB)를 추가하면 보안 센터가 자�
 
 ![의심스러운 활동](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-ga.png)
 
-이 페이지에서는 공격 발생 시간, 소스 호스트 이름, 대상 VM과 관련한 자세한 내용을 표시하며 권장 단계를 제공합니다. 일부 상황에서는 공격의 소스 정보가 비어 있을 수 있습니다. 이러한 동작 유형에 대한 자세한 내용은 [Azure Security Center 경고에 누락된 원본 정보](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/) 를 참고하세요.
+이 페이지에서는 공격 발생 시간, 소스 호스트 이름, 대상 VM과 관련한 자세한 내용을 표시하며 권장 단계를 제공합니다. 경우에 따라 공격의 원본 정보가 비어 있을 수 있습니다. 이러한 동작 유형에 대한 자세한 내용은 [Azure Security Center 경고에 누락된 원본 정보](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/) 를 참고하세요.
 
 또한 이 페이지에서 [조사](https://docs.microsoft.com/azure/security-center/security-center-investigation)를 시작하여 공격의 타임라인, 공격 발생 방법, 잠재적으로 손상된 시스템, 사용된 자격 증명을 이해하고 전체 공격 체인의 그래프 표현을 확인할 수도 있습니다.
 
 손상된 시스템을 식별하면 이전에 만든 보안 [플레이북](https://docs.microsoft.com/azure/security-center/security-center-playbooks)을 실행할 수 있습니다. 보안 플레이북은 특정 플레이북이 선택한 경고에서 트리거되면 Security Center에서 실행될 수 있는 프로시저의 컬렉션입니다.
 
-[사고 대응에 대해 Azure Security Center 및 Microsoft Operations Management Suite를 활용하는 방법](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) 비디오를 통해 각 단계에서 Security Center를 사용할 수 있는 방식을 이해하는 데 도움이 되는 몇 가지 데모를 확인할 수 있습니다.
+[인시던트 대응을 위해 Azure Security Center & Microsoft Operations Management Suite를 활용 하는 방법](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) 비디오에서 이러한 각 단계에서 Security Center를 사용 하는 방법을 이해 하는 데 도움이 되는 몇 가지 데모를 확인할 수 있습니다.
 
 > [!NOTE]
 > Security Center 기능을 사용 하 여 인시던트 대응 프로세스 중에 도움을 주는 방법에 대 한 자세한 내용은 [Azure Security Center의 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) 을 참조 하세요.

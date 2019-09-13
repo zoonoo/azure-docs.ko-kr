@@ -1,6 +1,6 @@
 ---
-title: 진단 및 Azure Cosmos DB.NET SDK를 사용 하는 경우 문제 해결
-description: 클라이언트 쪽 로깅 및 식별, 진단 및.NET SDK를 사용 하는 경우 Azure Cosmos DB 문제를 해결 하려면 다른 타사 도구 등의 기능을 사용.
+title: Azure Cosmos DB .NET SDK를 사용 하는 경우 문제 진단 및 해결
+description: 클라이언트 쪽 로깅 및 기타 타사 도구와 같은 기능을 사용 하 여 .NET SDK를 사용 하는 경우 Azure Cosmos DB 문제를 식별, 진단 및 해결 합니다.
 author: j82w
 ms.service: cosmos-db
 ms.date: 05/28/2019
@@ -8,59 +8,59 @@ ms.author: jawilley
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: b9511562b81f7ac0c1582897d703f4c5ccb89716
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 51b37c43b94ad59090f32af0d57bbefaa57f30fa
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67806391"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932551"
 ---
-# <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>진단 및 Azure Cosmos DB.NET SDK를 사용 하는 경우 문제 해결
-이 문서에서는 일반적인 문제, 해결, 진단 단계 및 도구 사용 하는 경우는 [.NET SDK](sql-api-sdk-dotnet.md) Azure Cosmos DB SQL API 계정으로 합니다.
-.NET SDK는 Azure Cosmos DB SQL API에 액세스 하려면 클라이언트 쪽 논리적 표현을 제공 합니다. 이 문서에서는 문제가 발생하는 경우 사용자에게 도움이 되는 도구 및 방법을 설명합니다.
+# <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Azure Cosmos DB .NET SDK를 사용 하는 경우 문제 진단 및 해결
+이 문서에서는 [.NET SDK](sql-api-sdk-dotnet.md) 를 사용 하 여 SQL API 계정을 Azure Cosmos DB 하는 일반적인 문제, 해결 방법, 진단 단계 및 도구에 대해 설명 합니다.
+.NET SDK는 Azure Cosmos DB SQL API에 액세스 하는 클라이언트 쪽 논리적 표현을 제공 합니다. 이 문서에서는 문제가 발생하는 경우 사용자에게 도움이 되는 도구 및 방법을 설명합니다.
 
 ## <a name="checklist-for-troubleshooting-issues"></a>문제 해결을 위한 검사 목록:
-프로덕션 환경에 응용 프로그램을 이동 하기 전에 다음 검사 목록을 것이 좋습니다. 검사 목록을 사용 하 여 문제를 방지할 수 몇 가지 일반적인 표시 될 수 있습니다. 또한 신속 하 게 문제가 발생 하는 경우를 진단할 수 있습니다.
+응용 프로그램을 프로덕션 환경으로 이동 하기 전에 다음 검사 목록을 고려 하십시오. 검사 목록을 사용 하면 표시 되는 몇 가지 일반적인 문제를 방지할 수 있습니다. 문제가 발생 하는 경우 신속 하 게 진단할 수도 있습니다.
 
-*   최신 [SDK](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md)합니다. 미리 보기 Sdk 프로덕션용 쓰일 수 없습니다. 그러면 이미 해결 된 알려진된 문제가 발생 하지 것입니다.
-*   [성능 팁](performance-tips.md)을 검토하고 제안된 사례를 따릅니다. 크기 조정, 대기 시간 및 다른 성능 문제를 방지 하는 데 도움이 됩니다.
-*   문제를 해결 하는 데 SDK 로깅을 사용 합니다. 로깅을 사용 하도록 설정 하면 문제를 해결 하는 경우에 사용 하도록 설정 하는 것이 가장 좋습니다 성능이 저하 될 수 있습니다. 다음 로그를 사용할 수 있습니다.
-    *   [로그 메트릭](monitor-accounts.md) Azure portal을 사용 하 여 합니다. 포털 메트릭을 Azure Cosmos DB에 해당 하는 문제 또는 클라이언트 쪽에서 온 경우를 결정 하는 데 도움이 되는 Azure Cosmos DB 원격 분석을 보여 줍니다.
-    *   로그는 [진단 문자열](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet) 지점 작업 응답에서.
-    *   로그는 [SQL 쿼리 메트릭](sql-api-query-metrics.md) 모든 쿼리 응답에서 
-    *   에 대 한 설정에 따라 [SDK 로깅]( https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/docs/documentdb-sdk_capture_etl.md)
+*   최신 [SDK](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md)를 사용 합니다. Preview Sdk는 프로덕션 환경에서 사용 하면 안 됩니다. 이렇게 하면 이미 수정 된 알려진 문제를 해결할 수 있습니다.
+*   [성능 팁](performance-tips.md)을 검토하고 제안된 사례를 따릅니다. 이렇게 하면 크기 조정, 대기 시간 및 기타 성능 문제를 방지할 수 있습니다.
+*   문제를 해결 하는 데 도움이 되도록 SDK 로깅을 사용 하도록 설정 합니다. 로깅을 사용 하도록 설정 하면 성능에 영향을 줄 수 있으므로 문제를 해결할 때만 사용 하도록 설정 하는 것이 좋습니다. 다음 로그를 사용 하도록 설정할 수 있습니다.
+    *   Azure Portal를 사용 하 여 [메트릭을 기록](monitor-accounts.md) 합니다. 포털 메트릭은 Azure Cosmos DB 원격 분석을 표시 합니다 .이는 문제가 Azure Cosmos DB에 해당 하는지 또는 클라이언트 쪽의 것인지를 확인 하는 데 도움이 됩니다.
+    *   시점 작업 응답에서 [진단 문자열](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet) 을 기록 합니다.
+    *   모든 쿼리 응답에서 [SQL 쿼리 메트릭](sql-api-query-metrics.md) 기록 
+    *   [SDK 로깅]( https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/docs/documentdb-sdk_capture_etl.md) 설정 따르기
 
 이 문서의 [일반적인 문제 및 해결 방법](#common-issues-workarounds) 섹션을 살펴봅니다.
 
-확인 합니다 [GitHub 문제 섹션](https://github.com/Azure/azure-cosmos-dotnet-v2/issues) 적극적으로 모니터링 됩니다. 해결 방법이 있는 유사한 문제가 이미 제출되었는지 확인합니다. 솔루션을 찾지 못한 경우 GitHub 문제를 제출 합니다. 긴급 한 문제에 대 한 지원 틱을 열 수 있습니다.
+적극적으로 모니터링 되는 [GitHub 문제 섹션](https://github.com/Azure/azure-cosmos-dotnet-v2/issues) 을 확인 합니다. 해결 방법이 있는 유사한 문제가 이미 제출되었는지 확인합니다. 솔루션을 찾지 못한 경우 GitHub 문제를 파일에 표시 합니다. 긴급 한 문제에 대 한 지원 틱을 열 수 있습니다.
 
 
 ## <a name="common-issues-workarounds"></a>일반적인 문제 및 해결 방법
 
 ### <a name="general-suggestions"></a>일반 제안
-* 가능 하면 Azure Cosmos DB 계정으로 동일한 Azure 지역에서 앱을 실행 합니다. 
-* 클라이언트 컴퓨터에 리소스가 부족 하 여 연결/가용성 문제로 인해 발생할 수 있습니다. Azure Cosmos DB 클라이언트를 실행 하는 노드의 CPU 사용률을 모니터링 하는 것이 좋습니다 및 크기 조정 업/아웃 높은 부하 상태에서 실행 중인 경우.
+* 가능 하면 Azure Cosmos DB 계정과 동일한 Azure 지역에서 앱을 실행 합니다. 
+* 클라이언트 컴퓨터의 리소스가 부족 하 여 연결/가용성 문제가 발생할 수 있습니다. Azure Cosmos DB 클라이언트를 실행 하는 노드에서 CPU 사용률을 모니터링 하 고 높은 부하 상태에서 실행 중인 경우 확장/축소 하는 것이 좋습니다.
 
-### <a name="check-the-portal-metrics"></a>포털 메트릭을 확인 합니다.
-확인 합니다 [포털 메트릭](monitor-accounts.md) 클라이언트 쪽 문제 인지 아니면 서비스를 사용 하 여 문제가 발생 하는 경우를 결정 하는 데 도움이 됩니다. 예를 들어 메트릭을 높은 비율의 속도가 제한 요청 (HTTP 상태 코드 429)를 포함 하는 경우 요청 제한적입니다. 즉, 한 다음 확인 합니다 [너무 커서 요청 속도] 섹션입니다. 
+### <a name="check-the-portal-metrics"></a>포털 메트릭 확인
+[포털 메트릭을](monitor-accounts.md) 확인 하면 클라이언트 쪽 문제 인지 또는 서비스에 문제가 있는지 확인 하는 데 도움이 됩니다. 예를 들어 메트릭에 처리율이 제한 된 요청 (HTTP 상태 코드 429)이 포함 된 경우 요청을 제한 하는 것을 의미 하는 요청 [빈도 너무 큼] 섹션을 확인 합니다. 
 
 ### <a name="request-timeouts"></a>요청 시간 제한
-RequestTimeout 직접/t c P를 사용 하는 경우 일반적으로 발생 하지만 게이트웨이 모드에서 발생할 수 있습니다. 이들은 일반적인 알려진된 원인 및 문제를 해결 하는 방법에 대 한 제안 사항입니다.
+RequestTimeout은 일반적으로 Direct/TCP를 사용할 때 발생 하지만 게이트웨이 모드에서 발생할 수 있습니다. 이는 일반적인 알려진 원인과 문제를 해결 하는 방법에 대 한 제안입니다.
 
-* CPU 사용률이 높습니다는 대기 시간이 발생할 및/또는 시간 제한 요청 합니다. 고객이 더 많은 리소스를 제공 하려면 호스트 컴퓨터를 확장할 수 또는 더 많은 컴퓨터 간에 부하를 배포할 수 있습니다.
-* 소켓 / 포트 가용성 낮을 수 있습니다. 2\.0 버전 이전에 릴리스된.NET Sdk를 사용 하면 Azure에서 실행 하는 클라이언트 적중 수는 [Azure SNAT(PAT) 포트 고갈]합니다. 이 항상 최신 SDK 버전을 실행 하려면 권장 되는 이유의 예입니다.
-* 여러 DocumentClient 인스턴스를 만드는 연결 경합 및 시간 제한 문제가 발생할 수 있습니다. 수행 합니다 [성능 팁](performance-tips.md), 단일 DocumentClient 인스턴스를 사용 하 여 전체 프로세스를 통해.
-* 사용자가 해당 컬렉션은 프로 비전 되지 않습니다 충분히 백 엔드 요청을 제한 하 고 클라이언트가이 호출자에 게 표시 하지 않고 내부적으로 다시 시도 하기 때문에 높은 대기 시간 또는 요청 시간 제한을 때로는 참조 하십시오. 확인 합니다 [포털 메트릭](monitor-accounts.md)합니다.
-* Azure Cosmos DB는 전체 프로 비전 된 처리량은 실제 파티션 간에 균등 하 게 배포합니다. 포털 메트릭을 워크 로드는 핫 발생 하는 경우 참조 확인 [파티션 키](partition-data.md)합니다. 이렇게 하면 집계 사용 된 처리량 (RU/s)를 프로 비전 된 Ru를 아래에 표시 되어야 하지만 사용 하는 단일 파티션의 처리량 (RU/s)을 프로 비전된 된 처리량을 초과 합니다. 
-* 또한 2.0 SDK는 직접/TCP 연결에 채널 의미 체계를 추가합니다. 동시에 여러 요청에 대 한 하나의 TCP 연결이 됩니다. 이 특정 사례에서 두 가지 문제가 발생할 수 있습니다.
-    * 채널에서 동시성 수준이 높은 경합이 발생할 수 있습니다.
-    * 큰 요청 또는 응답 채널에서 head 아웃오브 라인 차단 될 하 고 상대적으로 낮은 수준의 동시성을 사용 하더라도 경합을 떨어뜨릴 수 있습니다.
-    * 이러한 두 범주에 속하는 경우 하는 경우 (또는 CPU 사용률이 의심 되는 경우), 다음은 가능한 완화 방법:
-        * 업/아웃 응용 프로그램 크기 조정 하려고 합니다.
-        * 또한를 통해 SDK 로그를 캡처할 수 있습니다 [추적 수신기](https://github.com/Azure/azure-cosmosdb-dotnet/blob/master/docs/documentdb-sdk_capture_etl.md) 자세한 세부 정보를 가져옵니다.
+* CPU 사용률이 높으면 대기 시간 및/또는 요청 시간 제한이 발생 합니다. 고객은 호스트 컴퓨터를 확장 하 여 더 많은 리소스를 제공 하거나 부하가 더 많은 컴퓨터에 분산 될 수 있습니다.
+* 소켓/포트 가용성이 낮을 수 있습니다. Azure에서 실행 하는 경우 .NET SDK를 사용 하는 클라이언트는 Azure SNAT (PAT) 포트 고갈에 도달할 수 있습니다. 이 문제가 발생할 가능성을 줄이려면 .NET SDK의 최신 버전인 2.x 또는 3.x를 사용 합니다. 이 예는 항상 최신 SDK 버전을 실행 하는 것이 좋습니다.
+* 여러 DocumentClient 인스턴스를 만들면 연결 경합 및 시간 제한 문제가 발생할 수 있습니다. [성능 팁](performance-tips.md)을 따르고 전체 프로세스에서 단일 documentclient 인스턴스를 사용 합니다.
+* 사용자는 컬렉션의 컬렉션이 프로 비전 되 고 백 엔드 제한 요청이 발생 하 고 호출자에 게이를 표시 하지 않고 내부적으로 다시 시도 하기 때문에 사용자에 게 높은 대기 시간 또는 요청 시간 제한이 표시 될 수도 있습니다. [포털 메트릭을](monitor-accounts.md)확인 합니다.
+* Azure Cosmos DB는 전체 프로 비전 된 처리량을 실제 파티션에 균등 하 게 분산 합니다. 포털 메트릭을 확인 하 여 워크 로드에서 핫 [파티션 키](partition-data.md)가 발생 하는지 확인 합니다. 이로 인해 집계 된 처리량 (r u/초)이 프로 비전 된 RUs 아래에 있는 것 처럼 보이지만 처리량을 사용 하는 단일 파티션 (r u/초)이 프로 비전 된 처리량을 초과 하 게 됩니다. 
+* 또한 2.0 SDK는 직접/TCP 연결에 채널 의미 체계를 추가 합니다. 한 번에 하나의 TCP 연결이 여러 요청에 사용 됩니다. 이 경우 다음과 같은 두 가지 문제가 발생할 수 있습니다.
+    * 동시성 수준이 높으면 채널 경합이 발생할 수 있습니다.
+    * 대량 요청이 나 응답은 비교적 낮은 동시성을 사용 하는 경우에도 채널 및 악화 경합의 줄이 차단 될 수 있습니다.
+    * 사례가 이러한 두 범주 중 하나에 해당 하는 경우 (또는 높은 CPU 사용률이 의심 되는 경우) 다음과 같은 완화 방법을 사용할 수 있습니다.
+        * 응용 프로그램의 크기를 조정 합니다.
+        * 또한 자세한 정보를 얻기 위해 [추적 수신기](https://github.com/Azure/azure-cosmosdb-dotnet/blob/master/docs/documentdb-sdk_capture_etl.md) 를 통해 SDK 로그를 캡처할 수 있습니다.
 
 ### <a name="connection-throttling"></a>연결 제한
-연결 제한 호스트 컴퓨터에서 연결 제한으로 인해 발생할 수 있습니다. 2\.0 이전의 Azure에서 실행 하는 클라이언트 적중 수는 [Azure SNAT(PAT) 포트 고갈]합니다.
+연결 제한은 호스트 컴퓨터의 연결 제한 때문에 발생할 수 있습니다. 2\.0 이전에 Azure에서 실행 되는 클라이언트는 [Azure SNAT(PAT) 포트 고갈]에 도달할 수 있습니다.
 
 ### <a name="snat"></a>Azure SNAT(PAT) 포트 고갈
 
@@ -77,18 +77,18 @@ RequestTimeout 직접/t c P를 사용 하는 경우 일반적으로 발생 하�
 HTTP 프록시를 사용하는 경우 SDK `ConnectionPolicy`에서 구성된 연결 수를 지원할 수 있는지 확인합니다.
 그렇지 않으면 연결 문제가 발생할 수 있습니다.
 
-### 너무 많은 요청 속도<a name="request-rate-too-large"></a>
-'요청 속도 너무 큽니다.' 또는 오류 코드 429 사용 된 처리량 (RU/s) 프로 비전된 된 처리량을 초과 했으므로 요청 제한 되는 나타냅니다. SDK를 기반으로 지정 하는 요청 자동으로 다시 시도 [다시 시도 정책](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions?view=azure-dotnet)합니다. 종종이 오류를 받게 되 면 컬렉션의 처리량을 늘리는 것이 좋습니다. 확인 합니다 [포털의 메트릭](use-metrics.md) 429 오류가 발생 하는 경우를 확인 합니다. 검토 하 [파티션 키](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey) 균등 요청 및 저장소 볼륨에서에서 발생 하도록 합니다. 
+### 요청 비율이 너무 큼<a name="request-rate-too-large"></a>
+' 요청 속도 너무 큼 ' 또는 오류 코드 429은 사용 된 처리량 (r u/초)이 프로 비전 된 처리량을 초과 하 여 요청을 제한 하 고 있음을 나타냅니다. SDK는 지정 된 [재시도 정책](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions?view=azure-dotnet)에 따라 요청을 자동으로 다시 시도 합니다. 이 오류가 자주 발생 하는 경우 컬렉션에 대 한 처리량을 높이는 것이 좋습니다. 429 오류를 받고 있는지 확인 하려면 [포털의 메트릭을](use-metrics.md) 확인 하세요. [파티션 키](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey) 를 검토 하 여 저장소 및 요청 볼륨의 균등 한 배포가 발생 하는지 확인 합니다. 
 
-### <a name="slow-query-performance"></a>느린 쿼리 성능
-합니다 [메트릭을 쿼리](sql-api-query-metrics.md) 쿼리는 대부분의 시간을 소모 하는 상황을 확인 하는 데 도움이 됩니다. 쿼리 메트릭을 볼 수 있습니다 되는 한 정도에 소요 되는 백 엔드 vs 클라이언트입니다.
-* 백 엔드 쿼리가 신속 하 게 반환 하 고 클라이언트에서 많은 시간을 소비 하는 경우 컴퓨터의 부하를 확인 합니다. 응답을 처리할 수 있는 리소스에 대 한 SDK 기다리고 하에 충분 한 리소스가 없을 가능성이 있습니다.
-* 백 엔드 쿼리 속도가 느린 경우 시도 [쿼리를 최적화할](optimize-cost-queries.md) 현재 살펴보고 [인덱싱 정책](index-overview.md) 
+### <a name="slow-query-performance"></a>쿼리 성능 저하
+쿼리 [메트릭은](sql-api-query-metrics.md) 쿼리가 가장 많은 시간을 소비 하는 위치를 확인 하는 데 도움이 됩니다. 쿼리 메트릭에 따라 백 엔드 및 클라이언트에서 얼마나 많은 시간이 소요 되는지 확인할 수 있습니다.
+* 백 엔드 쿼리가 신속 하 게 반환 하 고 클라이언트에서 많은 시간을 소비 하는 경우 컴퓨터의 부하를 확인 합니다. 리소스가 부족 하 여 SDK에서 응답을 처리 하는 데 리소스를 사용할 수 있을 때까지 대기 하 고 있을 수 있습니다.
+* 백 엔드 쿼리가 느려지는 경우 [쿼리를 최적화](optimize-cost-queries.md) 하 고 현재 [인덱싱 정책을](index-overview.md) 확인 하십시오. 
 
  <!--Anchors-->
 [Common issues and workarounds]: #common-issues-workarounds
 [Enable client SDK logging]: #logging
-[너무 커서 요청 속도]: #request-rate-too-large
+[빈도 너무 큼]: #request-rate-too-large
 [Request Timeouts]: #request-timeouts
 [Azure SNAT(PAT) 포트 고갈]: #snat
 [Production check list]: #production-check-list

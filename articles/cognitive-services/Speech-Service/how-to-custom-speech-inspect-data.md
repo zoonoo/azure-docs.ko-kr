@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: b58f9c17995128091b5c4badd228356dbacc6ae9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0b5f064204c5bca35ccb1a628cb06978180c318c
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562855"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801439"
 ---
 # <a name="inspect-custom-speech-data"></a>사용자 지정 음성 데이터 검사
 
 > [!NOTE]
 > [사용자 지정 음성에 대한 테스트 데이터 준비](how-to-custom-speech-test-data.md)를 읽고 검사에 대한 데이터 집합을 업로드했다고 가정합니다.
 
-사용자 지정 음성은 오디오 데이터와 해당 인식 결과를 비교하여 모델의 인식 품질을 시각적으로 검사할 수 있는 도구를 제공합니다. 사용자 지정 음성 포털에서 업로드된 오디오를 재생하고 제공된 인식 결과가 올바른지 결정할 수 있습니다. 이 도구를 사용하면 모든 오디오 데이터를 기록하지 않고도 학습된 사용자 지정 모델이나 Microsoft의 기본 음성-텍스트 모델의 품질을 신속하게 검사할 수 있습니다.
+사용자 지정 음성은 오디오 데이터와 해당 인식 결과를 비교하여 모델의 인식 품질을 시각적으로 검사할 수 있는 도구를 제공합니다. [Custom Speech 포털](https://speech.microsoft.com/customspeech)에서 업로드 된 오디오를 재생 하 고 제공 된 인식 결과가 올바른지 확인할 수 있습니다. 이 도구를 사용하면 모든 오디오 데이터를 기록하지 않고도 학습된 사용자 지정 모델이나 Microsoft의 기본 음성-텍스트 모델의 품질을 신속하게 검사할 수 있습니다.
 
 이 문서에서는 이전에 업로드한 학습 데이터를 사용하여 모델의 품질을 시각적으로 검사하는 방법을 배웁니다.
 
@@ -32,11 +32,12 @@ ms.locfileid: "68562855"
 
 테스트를 만들려면 다음 지침을 따르세요.
 
-1. **음성-텍스트 > 사용자 지정 음성 > 테스트**로 이동합니다.
-2. **테스트 추가**를 클릭합니다.
-3. **품질 검사(오디오 전용 데이터)** 를 선택 합니다. 테스트 이름, 설명을 제공하고 오디오 데이터 집합을 선택합니다.
-4. 테스트하려고 하는 최대 두 개의 모델을 선택합니다.
-5. **만들기**를 클릭합니다.
+1. [Custom Speech 포털](https://speech.microsoft.com/customspeech)에 로그인 합니다.
+2. **음성-텍스트 > 사용자 지정 음성 > 테스트**로 이동합니다.
+3. **테스트 추가**를 클릭합니다.
+4. **품질 검사(오디오 전용 데이터)** 를 선택 합니다. 테스트 이름, 설명을 제공하고 오디오 데이터 집합을 선택합니다.
+5. 테스트하려고 하는 최대 두 개의 모델을 선택합니다.
+6. **만들기**를 클릭합니다.
 
 테스트를 성공적으로 만든 후에, 모델을 나란히 비교할 수 있습니다.
 

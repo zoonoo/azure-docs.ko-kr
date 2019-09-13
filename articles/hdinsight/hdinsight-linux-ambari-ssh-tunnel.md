@@ -8,14 +8,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: hrasheed
-ms.openlocfilehash: 943bf0f4bba014c31a11bb30bf8d3b6a7c11a343
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cad2988a9b6d6cdf557eeabee7cc93e0bbba9267
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66299362"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879534"
 ---
-# <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>SSH 터널링을 사용하여 Apache Ambari Web UI, JobHistory, NameNode, Apache Oozie 및 기타 웹 UI에 액세스
+# <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-uis"></a>SSH 터널링을 사용 하 여 Apache Ambari 웹 UI, JobHistory, NameNode, Apache Oozie 및 기타 Ui에 액세스
 
 HDInsight 클러스터는 인터넷을 통해 Apache Ambari Web UI에 대한 액세스를 제공하지만, 일부 기능을 사용하려면 SSH 터널이 필요합니다. 예를 들어 Apache Oozie 서비스에 대한 웹 UI는 SSH 터널 없이 인터넷을 통해 액세스할 수 없습니다.
 
@@ -40,7 +40,7 @@ Ambari의 일부 메뉴만 SSH 터널을 통해 작동합니다. 이러한 메�
 
 [SSH(Secure Shell) 터널링](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling)은 로컬 컴퓨터의 포트를 HDInsight의 헤드 노드에 연결합니다. 로컬 포트로 전송된 트래픽은 SSH 연결을 통해 헤드 노드로 라우팅됩니다. 해당 요청은 마치 헤드 노드에서 시작된 것처럼 확인됩니다. 그러면 응답은 워크스테이션에 대한 터널을 통해 다시 라우팅됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
@@ -56,7 +56,7 @@ Ambari의 일부 메뉴만 SSH 터널을 통해 작동합니다. 이러한 메�
 
 ## <a name="usessh"></a>SSH 명령을 사용하여 터널 만들기
 
-`ssh` 명령을 사용하여 SSH 터널을 만들려면 다음 명령을 사용합니다. 바꿉니다 `sshuser` 바꾸고 서버 HDInsight 클러스터의 SSH 사용자를 사용 하 여 `clustername` HDInsight 클러스터의 이름:
+`ssh` 명령을 사용하여 SSH 터널을 만들려면 다음 명령을 사용합니다. 을 `sshuser` hdinsight 클러스터에 대 한 SSH 사용자로 바꾸고을 hdinsight `clustername` 클러스터의 이름으로 바꿉니다.
 
 ```cmd
 ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
@@ -81,7 +81,7 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 
 ### <a name="create-or-load-a-session"></a>세션 만들기 또는 로드
 
-1. PuTTY를 열고 왼쪽 메뉴에서 **세션**이 선택되어 있는지 확인합니다. 가 이미를 저장 한 경우 세션에서 세션 이름을 선택 합니다 **저장 된 세션** 나열 하 고 선택 **부하**합니다.
+1. PuTTY를 열고 왼쪽 메뉴에서 **세션**이 선택되어 있는지 확인합니다. 세션을 이미 저장 한 경우에는 **저장 된 세션** 목록에서 세션 이름을 선택 하 고 **로드**를 선택 합니다.
 
 1. 저장된 세션이 없는 경우 연결 정보를 입력합니다.
     * **호스트 이름(또는 IP 주소)** - HDInsight 클러스터의 SSH 주소입니다. 예: **mycluster-ssh.azurehdinsight.net**
@@ -102,9 +102,9 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 
    * **Dynamic** - 동적 SOCKS 프록시 라우팅을 활성화합니다.
      
-     ![터널링 옵션 이미지](./media/hdinsight-linux-ambari-ssh-tunnel/puttytunnel.png)
+     ![터널링 옵션 이미지](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-putty-tunnel.png)
 
-1. 선택 **추가** 설정을 추가 하 고 클릭 한 다음 **엽니다** 를 SSH 연결을 엽니다.
+1. **추가** 를 선택 하 여 설정을 추가 하 고 **열기** 를 클릭 하 여 SSH 연결을 엽니다.
 
 1. 메시지가 표시 되 면 서버에 로그인 합니다.
 
@@ -115,7 +115,7 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 
 1. **localhost**와 **SOCKS v5** 프록시로 터널을 만들 때 사용한 포트를 사용하도록 브라우저를 구성합니다. Firefox 설정은 다음과 같습니다. 9876이 아닌 다른 포트를 사용한 경우 포트를 사용한 포트로 변경합니다.
    
-    ![Firefox 설정 이미지](./media/hdinsight-linux-ambari-ssh-tunnel/firefoxproxy.png)
+    ![Firefox 설정 이미지](./media/hdinsight-linux-ambari-ssh-tunnel/firefox-proxy-settings.png)
    
    > [!NOTE]  
    > **Remote DNS**를 선택하면 HDInsight 클러스터를 통해 DNS(Domain Name System) 요청이 확인됩니다. 이 설정은 클러스터의 헤드 노드를 사용하여 DNS를 확인합니다.
@@ -129,15 +129,15 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 1. 브라우저에서 `http://headnodehost:8080`으로 이동합니다. `headnodehost` 주소는 터널을 통해 클러스터로 전송되며 Ambari가 실행 중인 헤드 노드를 확인합니다. 메시지가 표시되면 클러스터의 관리자 사용자 이름(관리자) 및 암호를 입력합니다. Ambari 웹 UI에서 두 번째로 메시지가 표시될 수 있습니다. 이러한 경우 정보를 다시 입력합니다.
 
    > [!NOTE]  
-   > `http://headnodehost:8080` 주소를 사용하여 클러스터에 연결할 경우 터널을 통해 연결됩니다. 통신 보안은 HTTPS가 아닌 SSH 터널을 사용하여 유지됩니다. HTTPS를 사용 하 여 인터넷을 통해 연결 하려면 `https://clustername.azurehdinsight.net`여기서 `clustername` 클러스터의 이름입니다.
+   > `http://headnodehost:8080` 주소를 사용하여 클러스터에 연결할 경우 터널을 통해 연결됩니다. 통신 보안은 HTTPS가 아닌 SSH 터널을 사용하여 유지됩니다. HTTPS를 사용 하 여 인터넷을 통해 연결 `https://clustername.azurehdinsight.net`하려면를 `clustername` 사용 합니다. 여기서은 클러스터의 이름입니다.
 
 2. Ambari 웹 UI에서 페이지의 왼쪽 목록에서 HDFS를 선택합니다.
 
-    ![HDFS가 선택된 이미지](./media/hdinsight-linux-ambari-ssh-tunnel/hdfsservice.png)
+    ![HDFS가 선택된 이미지](./media/hdinsight-linux-ambari-ssh-tunnel/hdfs-service-selected.png)
 
 3. HDFS 서비스 정보가 표시되면 **빠른 링크**를 선택합니다. 클러스터 헤드 노드 목록이 표시됩니다. 헤드 노드 중 하나를 선택한 다음 **NameNode UI**를 선택합니다.
 
-    ![확장된 빠른 링크 메뉴의 이미지](./media/hdinsight-linux-ambari-ssh-tunnel/namenodedropdown.png)
+    ![확장된 빠른 링크 메뉴의 이미지](./media/hdinsight-linux-ambari-ssh-tunnel/namenode-drop-down-menu.png)
 
     > [!NOTE]  
     > __빠른 링크__를 선택하면 대기 표시기가 표시될 수 있습니다. 인터넷 연결 속도가 느린 경우 이러한 상태가 발생할 수 있습니다. 데이터를 서버에서 받을 때까지 기다렸다가 목록을 다시 시도하세요.
@@ -146,10 +146,10 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 
 4. 다음 이미지와 유사한 페이지가 표시됩니다.
 
-    ![NameNode UI의 이미지](./media/hdinsight-linux-ambari-ssh-tunnel/namenode.png)
+    ![NameNode UI의 이미지](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-namenode-ui.png)
 
     > [!NOTE]  
-    > 이 페이지에 대 한 url 와 유사 해야 `http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster`합니다. 이 URI는 노드의 내부 FQDN(정규화된 도메인 이름)을 사용하며 SSH 터널을 통해서만 액세스할 수 있습니다.
+    > 이 페이지에 대 한 URL을 확인 합니다. 와 유사 `http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster`합니다. 이 URI는 노드의 내부 FQDN(정규화된 도메인 이름)을 사용하며 SSH 터널을 통해서만 액세스할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: ced0655d2e8ff012b3043dd123a8483674b4c472
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 1ed722ad68280226387b98b3fefb77647f5cd825
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404553"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918584"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>온-프레미스 네트워크에 HDInsight 연결
 
@@ -67,7 +67,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
   
 2. 왼쪽 메뉴에서 **+ 리소스** > 만들기**계산** > **Ubuntu Server 18.04 lts**로 이동 합니다.
 
-    ![Ubuntu 가상 머신 만들기](./media/connect-on-premises-network/create-ubuntu-vm.png)
+    ![Ubuntu 가상 머신 만들기](./media/connect-on-premises-network/create-ubuntu-virtual-machine.png)
 
 3. __기본__ 탭에 다음 정보를 입력합니다.  
   
@@ -84,7 +84,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
     |암호 또는 SSH 공개 키 | 사용 가능한 필드는 **인증 형식**에 대한 사용자의 선택에 따라 결정됩니다.  적절한 값을 입력합니다.|
     |공용 인바운드 포트|**선택한 포트 허용**을 선택합니다. 그런 다음 **인바운드 포트 선택** 드롭다운 목록에서 **SSH (22)** 를 선택 합니다.|
 
-    ![가상 컴퓨터 기본 구성](./media/connect-on-premises-network/vm-basics.png)
+    ![가상 컴퓨터 기본 구성](./media/connect-on-premises-network/virtual-machine-basics.png)
 
     다른 항목은 기본값으로 두고 **네트워킹** 탭을 선택합니다.
 
@@ -109,7 +109,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
 
 2. 나중에 사용할 수 있도록 **공용 IP 주소/DNS 이름 레이블**과 **개인 IP 주소** 값을 적어둡니다.
 
-   ![공용 및 개인 IP 주소](./media/connect-on-premises-network/vm-ip-addresses.png)
+   ![공용 및 개인 IP 주소](./media/connect-on-premises-network/virtual-machine-ip-addresses.png)
 
 ### <a name="install-and-configure-bind-dns-software"></a>Bind(DNS 소프트웨어) 설치 및 구성
 
@@ -239,7 +239,7 @@ Azure Recursive Resolver 대신 사용자 지정 DNS 서버를 사용하도록 �
 
 4. __사용자 지정__을 선택하고 사용자 지정 DNS 서버의 **개인 IP 주소**를 입력합니다.   
 
-5.           __저장__을 선택합니다.  <br />  
+5. __저장__을 선택합니다.  <br />  
 
     ![네트워크에 사용자 지정 DNS 서버 설정](./media/connect-on-premises-network/configure-custom-dns.png)
 

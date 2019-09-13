@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 09/10/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73784afd9577d66850596056df1974accd62e4b4
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 1bd79b9a6fa8aedd45f41b64f8f81a908feab71f
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844455"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882992"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>그룹 설정을 구성하는 Azure Active Directory cmdlets
 이 문서에서는 Azure Active Directory(Azure AD) PowerShell cmdlet을 사용하여 그룹을 만들고 업데이트하는 방법을 설명합니다. 이 콘텐츠는 Office 365 그룹에만 적용됩니다(통합 그룹이라고도 함). 
@@ -34,13 +34,31 @@ Office 365 그룹 설정은 설정 개체와 SettingsTemplate 개체를 사용�
 
 cmdlet은 Azure Active Directory PowerShell V2 모듈의 일부입니다. 컴퓨터에 모듈을 다운로드하여 설치하는 방법에 대한 지침은 [Azure Active Directory PowerShell 버전 2](https://docs.microsoft.com/powershell/azuread/)를 참조하세요. 모듈의 버전 2 릴리스를 [PowerShell 갤러리](https://www.powershellgallery.com/packages/AzureAD/)에서 설치할 수 있습니다.
 
-## <a name="create-settings-at-the-directory-level"></a>디렉터리 수준에서 설정 만들기
-다음 단계는 디렉터리 수준에서 설정을 만드는 것입니다. 이 설정은 디렉터리에 있는 모든 Office 365 그룹에 적용됩니다. Get-AzureADDirectorySettingTemplate cmdlet은 [Graph에 대한 Azure AD PowerShell 미리 보기 모듈](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137)에서만 지원됩니다.
+## <a name="install-powershell-cmdlets"></a>PowerShell cmdlet 설치
 
-1. DirectorySettings cmdlet에서 사용하려는 SettingsTemplate의 ID를 지정해야 합니다. 이 ID를 모르면 cmdlet이 모든 설정 템플릿 목록을 반환합니다.
+PowerShell 명령을 실행하기 전에 Windows PowerShell용 그래프 모듈에 대한 Azure Active Directory PowerShell의 이전 버전을 제거하고 [그래프용 Azure Active Directory PowerShell - 공용 미리 보기 릴리스 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137)을 설치해야 합니다.
+
+1. 관리자로 Windows PowerShell 앱을 엽니다.
+2. AzureADPreview의 이전 버전을 제거합니다.
+  
+   ``` PowerShell
+   Uninstall-Module AzureADPreview
+   Uninstall-Module azuread
+   ```
+
+3. AzureADPreview의 최신 버전을 설치합니다.
+  
+   ``` PowerShell
+   Install-Module AzureADPreview
+
+## Create settings at the directory level
+These steps create settings at directory level, which apply to all Office 365 groups in the directory. The Get-AzureADDirectorySettingTemplate cmdlet is available only in the [Azure AD PowerShell Preview module for Graph](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
+
+1. In the DirectorySettings cmdlets, you must specify the ID of the SettingsTemplate you want to use. If you do not know this ID, this cmdlet returns the list of all settings templates:
   
    ```powershell
    Get-AzureADDirectorySettingTemplate
+
    ```
    이 cmdlet을 호출하면 사용할 수 있는 모든 템플릿이 반환됩니다.
   
@@ -95,12 +113,12 @@ UsageGuideLinesUrl의 값을 제거 하려면 위의 4 단계를 사용 하 여 
 | **설정** | **설명** |
 | --- | --- |
 |  <ul><li>EnableGroupCreation<li>형식: Boolean<li>기본값: True |관리자가 아닌 사용자에 의해 디렉터리에서 Office 365 그룹 만들기가 허용되는지 여부를 나타내는 플래그입니다. 이 설정에는 Azure Active Directory Premium P1 라이선스가 필요하지 않습니다.|
-|  <ul><li>GroupCreationAllowedGroupId<li>형식: String<li>기본값: “” |EnableGroupCreation == false일 때도 구성원이 Office 365 그룹을 만들도록 허용된 보안 그룹의 GUID입니다. |
+|  <ul><li>GroupCreationAllowedGroupId<li>형식: 문자열<li>기본값: “” |EnableGroupCreation == false일 때도 구성원이 Office 365 그룹을 만들도록 허용된 보안 그룹의 GUID입니다. |
 |  <ul><li>UsageGuidelinesUrl<li>형식: String<li>기본값: “” |그룹 사용 지침 링크입니다. |
-|  <ul><li>ClassificationDescriptions<li>형식: String<li>기본값: “” | 쉼표로 구분된 분류 설명 목록입니다. ClassificationDescriptions 값은 다음 형식일 때만 유효합니다.<br>$setting ["ClassificationDescriptions"] = "분류: 설명, 분류: 설명"<br>여기서 분류가 ClassificationList의 문자열과 일치 합니다.|
+|  <ul><li>ClassificationDescriptions<li>형식: 문자열<li>기본값: “” | 쉼표로 구분된 분류 설명 목록입니다. ClassificationDescriptions 값은 다음 형식일 때만 유효합니다.<br>$setting ["ClassificationDescriptions"] = "분류: 설명, 분류: 설명"<br>여기서 분류가 ClassificationList의 문자열과 일치 합니다.|
 |  <ul><li>DefaultClassification<li>형식: String<li>기본값: “” | 설정이 지정되지 않은 경우에 그룹의 기본 분류로 사용되는 분류입니다.|
-|  <ul><li>PrefixSuffixNamingRequirement<li>형식: 문자열<li>기본값: “” | Office 365 그룹에 대해 구성된 명명 규칙을 정의하는 최대 64자의 문자열입니다. 자세한 내용은 [Office 365 그룹에 대한 명명 정책 적용](groups-naming-policy.md)을 참조하세요. |
-| <ul><li>CustomBlockedWordsList<li>형식: 문자열<li>기본값: “” | 사용자가 그룹 이름 또는 별칭에서 사용하도록 허용되지 않은 쉼표로 구분된 구의 문자열입니다. 자세한 내용은 [Office 365 그룹에 대한 명명 정책 적용](groups-naming-policy.md)을 참조하세요. |
+|  <ul><li>PrefixSuffixNamingRequirement<li>형식: String<li>기본값: “” | Office 365 그룹에 대해 구성된 명명 규칙을 정의하는 최대 64자의 문자열입니다. 자세한 내용은 [Office 365 그룹에 대한 명명 정책 적용](groups-naming-policy.md)을 참조하세요. |
+| <ul><li>CustomBlockedWordsList<li>형식: String<li>기본값: “” | 사용자가 그룹 이름 또는 별칭에서 사용하도록 허용되지 않은 쉼표로 구분된 구의 문자열입니다. 자세한 내용은 [Office 365 그룹에 대한 명명 정책 적용](groups-naming-policy.md)을 참조하세요. |
 | <ul><li>EnableMSStandardBlockedWords<li>형식: Boolean<li>기본값: “False” | 사용 안 함
 |  <ul><li>AllowGuestsToBeGroupOwner<li>형식: Boolean<li>기본값: 거짓 | 게스트 사용자가 그룹의 소유자일 수 있는지 여부를 나타내는 부울 값입니다. |
 |  <ul><li>AllowGuestsToAccessGroups<li>형식: Boolean<li>기본값: True | 게스트 사용자가 Office 365 그룹의 콘텐츠에 액세스할 수 있는지 여부를 나타내는 부울 값입니다.  이 설정에는 Azure Active Directory Premium P1 라이선스가 필요하지 않습니다.|

@@ -5,12 +5,12 @@ ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: 4be1ed779ad424d30ac34fd55f117ada3ed9c7a2
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: c881c95fb860befbc978aba5a6c73375dce235fe
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70166746"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70919712"
 ---
 표준화 된 VM (가상 머신) 이미지를 사용 하면 조직에서 클라우드로 마이그레이션하고 배포의 일관성을 유지할 수 있습니다. 이미지에는 일반적으로 미리 정의 된 보안 및 구성 설정 및 필수 소프트웨어가 포함 되어 있습니다. 사용자 고유의 이미징 파이프라인을 설정 하려면 시간, 인프라 및 설정이 필요 하지만, Azure VM 이미지 작성기를 사용 하면 이미지를 설명 하는 간단한 구성을 제공 하 고, 서비스에 제출 하 고, 이미지를 빌드하고 배포할 수 있습니다.
  
@@ -47,7 +47,7 @@ AIB는 Azure Marketplace 기본 OS 이미지를 지원 합니다.
 - Ubuntu 16.04
 - RHEL 7.6
 - CentOS 7.6
-- Windows 10 RS5 Enterprize/Professional/Enterprise for Virtual Desktop (EVD) 
+- Windows 10 RS5 Enterprise/Professional/Enterprise for Virtual Desktop (EVD) 
 - Windows 2016
 - Windows 2019
 

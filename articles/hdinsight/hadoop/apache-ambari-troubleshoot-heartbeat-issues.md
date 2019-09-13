@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 08/02/2019
-ms.openlocfilehash: 0b20bb5265dd5fa139a691fcb21aaa1795ff352c
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.date: 09/11/2019
+ms.openlocfilehash: 6b1c30ab218b47e080935d2959cb3f701806ac68
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735979"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918147"
 ---
 # <a name="apache-ambari-heartbeat-issues-in-azure-hdinsight"></a>Azure HDInsight의 Apache Ambari 하트 비트 문제
 
@@ -21,7 +21,7 @@ ms.locfileid: "70735979"
 
 ### <a name="issue"></a>문제점
 
-Ambari 에이전트의 CPU 사용률이 높아,이로 인해 일부 노드에 대해 Ambari agent 하트 비트가 손실 된 Ambari UI의 경고가 발생 합니다.
+Ambari 에이전트의 CPU 사용률이 높아,이로 인해 일부 노드에 대해 Ambari agent 하트 비트가 손실 된 Ambari UI의 경고가 발생 합니다. 하트 비트 손실 경고는 일반적으로 일시적입니다. 
 
 ### <a name="cause"></a>원인
 

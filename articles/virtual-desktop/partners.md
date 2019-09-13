@@ -7,27 +7,16 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: bd5ec1e75fa1669b0ca33e4cb4629793b09a9bad
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: ddfe5c855b6cd0171494f1af20dc5eb4ae571a6e
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036132"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918985"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Windows 가상 데스크톱 파트너 통합
 
 이 문서에서는 Windows 가상 데스크톱의 파트너를 알파벳 순서로 나열 합니다.
-
-## <a name="active-cypher"></a>활성 암호
-
-![활성 암호 로고](./media/partners/active-cypher.png)
-
-Active 암호는 엔터프라이즈에서 위반 및 데이터 손실을 방지 하는 데 도움을 주는 암호화 기술로 뛰어난 하는 Windows 가상 데스크톱 부가 가치 서비스 공급자입니다. Active 암호를 사용 하는 혁신적인 암호화 기술은 Azure에서 Windows 가상 데스크톱을 실행 하기 위한 전체 파일 보호 전략을 지원 합니다.
-
-Windows 가상 데스크톱과 함께 사용 하는 경우 Active 암호는 사용자 데이터의 접근성과 이동성을 가능 하 게 하 고 실수로 인 한 데이터 손실을 방지 하는 추가 기능을 제공 합니다. Active 암호를 사용 하면 Azure Information Protection의 기존 그룹 보안 정책 및 사용 권한을 활용 하 여 Windows 가상 데스크톱을 사용 하는 동안 사용자 파일을 암호화할 수 있습니다.
-
-- [공동 솔루션 brief를 참조 하세요.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oNLu)
-- [파트너 웹 사이트로 이동 합니다.](https://activecypher.com/)
 
 ## <a name="cloudjumper"></a>CloudJumper
 

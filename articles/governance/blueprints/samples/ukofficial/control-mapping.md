@@ -8,18 +8,21 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: b53f293f6289377d85f4346933f7edb7369065cf
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 43848e99f679e306747c4cb7b31a4d4692c888cc
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231637"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918351"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>영국 공식 및 UK NHS 청사진 예제의 매핑 제어
 
 다음 문서에서는 영국 공식 및 영국 NHS 청사진 샘플이 영국 공식 및 영국 NHS 컨트롤에 매핑되는 방법에 대해 자세히 설명 합니다. 컨트롤에 대 한 자세한 내용은 [영국 공식](https://www.gov.uk/government/publications/government-security-classifications)을 참조 하세요.
 
 다음 매핑은 **영국 공식** 및 **영국 nhs** 컨트롤에 대 한 것입니다. 특정 컨트롤 매핑으로 바로 점프하려면 오른쪽의 탐색 기능을 사용합니다. 많은 매핑된 컨트롤은 [Azure Policy](../../../policy/overview.md) 이니셔티브를 사용하여 구현됩니다. 전체 이니셔티브를 검토하려면 Azure Portal에서 **정책**을 열고 **정의** 페이지를 선택합니다. 그런 다음  **\[Preview\] uk 공식 및 영국 nhs 컨트롤을 찾아 선택 하 고 특정 VM 확장을 배포 하 여 감사 요구 사항** 기본 제공 정책 이니셔티브를 지원 합니다.
+
+> [!IMPORTANT]
+> 아래 각 컨트롤은 하나 이상의 [Azure Policy](../../../policy/overview.md) 정의와 연결 되어 있습니다. 이러한 정책을 통해 컨트롤의 [호환성을 평가](../../../policy/how-to/get-compliance-data.md) 하는 데 도움이 될 수 있습니다. 그러나 컨트롤 및 하나 이상의 정책 사이에는 1:1 또는 전체 일치가 없는 경우가 많습니다. 이와 같이 Azure Policy의 **규격** 은 정책 자체만을 나타냅니다. 이렇게 하면 컨트롤의 모든 요구 사항을 완벽 하 게 준수할 수 없습니다. 또한 준수 표준에는 현재 Azure Policy 정의로 처리 되지 않는 컨트롤이 포함 됩니다. 따라서 Azure Policy의 호환성은 전체 준수 상태에 대 한 부분 보기 일 뿐입니다. 이 규정 준수 청사진 샘플에 대 한 컨트롤 및 Azure Policy 정의 간의 연결은 시간이 지남에 따라 변경 될 수 있습니다. 변경 기록을 보려면 [GitHub 커밋 기록](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ukofficial/control-mapping.md)을 참조 하세요.
 
 ## <a name="1-data-in-transit-protection"></a>전송 보호의 데이터 1 개
 

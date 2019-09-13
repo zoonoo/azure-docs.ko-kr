@@ -6,13 +6,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 02/27/2019
-ms.openlocfilehash: 58c09c71aad2b6244f6e2f3d144c033665932f50
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/11/2019
+ms.openlocfilehash: 4aa18379962c289f5094795988a247f4c7e35df2
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925571"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910649"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Mobility Service 푸시 설치 문제 해결
 
@@ -58,7 +58,7 @@ ms.locfileid: "64925571"
 
 ## <a name="insufficient-privileges-failure-errorid-95518"></a>권한 부족 오류(ErrorID: 95518)
 
-원본 컴퓨터에 로그인 하는 동안 오류가 발생 하면 도메인 트러스트 관계 설정 주 도메인 및 워크스테이션 간의 95518 오류 ID를 사용 하 여 모바일 에이전트 설치가 실패 합니다. 따라서 모바일 에이전트를 설치 하는 데 사용 하는 사용자 계정에 원본 컴퓨터의 주 도메인을 통해 로그인 하려면 관리자 권한이 있는지 확인 합니다.
+원본 컴퓨터에 로그인을 시도 하는 동안 주 도메인과 워크스테이션 간에 도메인 트러스트 관계가 설정 되지 않으면 모바일 에이전트 설치는 오류 ID 95518와 함께 실패 합니다. 따라서 모바일 에이전트를 설치 하는 데 사용 되는 사용자 계정에 원본 컴퓨터의 주 도메인을 통해 로그인 할 수 있는 관리 권한이 있는지 확인 합니다.
 
 선택한 사용자 계정의 자격 증명을 수정하려면 [여기](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation)에 제공된 지침을 따릅니다.
 
@@ -80,7 +80,7 @@ ms.locfileid: "64925571"
 
 ### <a name="logon-servers-are-not-available-on-the-source-machine-errorid-95521"></a>원본 머신에서 로그온 서버를 사용할 수 없음(ErrorID: 95521)
 
-이 오류는 원본 머신에서 로그온 서버를 사용할 수 없는 경우에 발생합니다. 로그온 서버를 사용할 수 없는 경우 로그인 요청이 실패하여 모바일 에이전트를 설치할 수 없습니다. 로그인에 성공하려면 원본 머신에서 로그온 서버를 사용할 수 있는지 확인하고 로그온 서비스를 시작합니다. 자세한 지침은 KB [139410](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available) 오류 메시지: 현재 아니요 로그온 서버 사용할 수 있습니다.
+이 오류는 원본 머신에서 로그온 서버를 사용할 수 없는 경우에 발생합니다. 로그온 서버를 사용할 수 없는 경우 로그인 요청이 실패하여 모바일 에이전트를 설치할 수 없습니다. 로그인에 성공하려면 원본 머신에서 로그온 서버를 사용할 수 있는지 확인하고 로그온 서비스를 시작합니다. 자세한 지침은 KB [139410](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available) 오류 메시지를 참조 하세요. 현재 사용할 수 있는 로그온 서버가 없습니다.
 
 ### <a name="logon-service-isnt-running-on-the-source-machine-errorid-95522"></a>원본 머신에서 로그온 서비스가 실행되지 않음(ErrorID: 95522)
 
@@ -122,9 +122,9 @@ ms.locfileid: "64925571"
 * 그룹 정책을 사용하여 파일 공유가 가능하도록 하려면,
   * 시작으로 이동하여 gpmc.msc를 입력하고 검색합니다.
   * 탐색 창에서 로컬 컴퓨터 정책, 사용자 구성, 관리 템플릿, Windows 구성 요소 및 네트워크 공유 폴더를 엽니다.
-  * 세부 정보 창에서 **사용자 프로필 내의 파일 공유 안 함**을 두 번 클릭합니다. 그룹 정책 설정을 사용하지 않도록 설정하고 사용자가 파일을 공유할 수 있도록 하려면 사용 안 함을 클릭합니다. 확인을 클릭하여 변경 내용을 저장합니다. 자세한 내용은 참조 하세요 [그룹 정책을 사용 하 여 파일 공유를 사용할지](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10))합니다.
+  * 세부 정보 창에서 **사용자 프로필 내의 파일 공유 안 함**을 두 번 클릭합니다. 그룹 정책 설정을 사용하지 않도록 설정하고 사용자가 파일을 공유할 수 있도록 하려면 사용 안 함을 클릭합니다. 확인을 클릭하여 변경 내용을 저장합니다. 자세히 알아보려면 [그룹 정책에서 파일 공유 사용 또는 사용 안 함](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10))을 참조 하세요.
 
-에 대 한 **이상 버전**에 제공 된 지침에 따라 [VMware Vm 및 물리적 서버의 재해 복구를 위해 모바일 서비스 설치](vmware-azure-install-mobility-service.md) 파일 및 프린터 공유를 사용 하도록 설정 합니다.
+**이후 버전**의 경우 파일 및 프린터 공유를 사용 하도록 설정 하려면 [VMware vm 및 물리적 서버에 대 한 재해 복구를 위해 모바일 서비스 설치](vmware-azure-install-mobility-service.md) 에 제공 된 지침을 따르세요.
 
 ## <a name="windows-management-instrumentation-wmi-configuration-check-error-code-95103"></a>WMI(Windows Management Instrumentation) 구성 확인(오류 코드: 95103)
 
@@ -167,7 +167,7 @@ Azure Site Recovery에서 어떤 운영 체제 및 커널 버전이 지원되는
 ## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-errorid-95320"></a>UUID 대신 디바이스 이름이 GRUB 구성에 언급되어 보호를 사용하도록 설정하지 못함(ErrorID: 95320)
 
 **가능한 원인:** </br>
-GRUB 구성 파일("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" 또는 "/etc/default/grub")에는 **root** 및 **resume** 매개 변수의 값이 UUID가 아닌 실제 디바이스 이름으로 포함되어 있을 수 있습니다. Site Recovery에서는 UUID를 사용해야 합니다. 디바이스 이름은 VM을 다시 부팅하면 변경될 수 있는데, 장애 조치(failover) 시에 VM 이름이 달라지면 문제가 발생하기 때문입니다. 예를 들면 다음과 같습니다. </br>
+GRUB 구성 파일("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" 또는 "/etc/default/grub")에는 **root** 및 **resume** 매개 변수의 값이 UUID가 아닌 실제 디바이스 이름으로 포함되어 있을 수 있습니다. Site Recovery에서는 UUID를 사용해야 합니다. 디바이스 이름은 VM을 다시 부팅하면 변경될 수 있는데, 장애 조치(failover) 시에 VM 이름이 달라지면 문제가 발생하기 때문입니다. 예를 들어: </br>
 
 
 - 아래에는 이러한 오류의 원인이 되는 GRUB 파일 **/boot/grub2/grub.cfg**에서 발췌한 줄이 나와 있습니다. <br>
@@ -183,7 +183,7 @@ GRUB 구성 파일("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/gr
 디바이스 이름을 해당 UUID로 바꿔야 합니다.<br>
 
 
-1. 명령을 실행 하 여 장치의 UUID를 찾으려면 "blkid \<장치 이름 >"입니다. 예를 들면 다음과 같습니다.<br>
+1. "Blkid \<device name >" 명령을 실행 하 여 장치의 UUID를 찾습니다. 예를 들어:<br>
    ```
    blkid /dev/sda1
    /dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
@@ -191,7 +191,7 @@ GRUB 구성 파일("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/gr
    /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
    ```
 
-2. 이제 장치 이름으로 같은 형식으로 해당 UUID 바꿉니다 "루트 UUID = =\<UUID >"입니다. 예를 들어, 루트에 대 한 UUID를 사용 하 여 장치 이름을 대체 하 고 파일에 위에서 언급 한 매개 변수를 다시 시작 하는 경우 "/ boot/grub2/grub.cfg", "/ boot/grub2/grub.cfg" 또는 "/ 등/기본/grub: 파일의 줄을 다음과 같이 보입니다. <br>
+2. 이제 "root = uuid =\<uuid >"와 같은 형식의 UUID로 장치 이름을 바꿉니다. 예를 들어 "/boot/grub2/grub.cfg", "/boot/grub2/grub.cfg" 또는 "/etc/default/grub:" 파일에서 위에 언급 된 루트의 경우 UUID로 장치 이름을 바꾸면 파일의 줄은 처럼 보입니다. <br>
    *kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
 3. 보호 다시 시작
 
@@ -199,10 +199,10 @@ GRUB 구성 파일("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/gr
 
 Site Recovery 모바일 서비스에는 여러 구성 요소가 있으며, 그중에서 하나를 필터 드라이버라고 합니다. 필터 드라이버는 시스템 재부팅 시에만 시스템 메모리에 로드됩니다. 따라서 시스템 재부팅 시 새 필터 드라이버가 로드될 때만 필터 드라이버를 수정할 수 있습니다.
 
-이는 경고이며, 기존 복제는 새 에이전트 업데이트 후에도 작동한다는 것에 **유의**하세요. 작업에서 이전 필터 드라이버 유지를 다시 부팅 하지 하는 경우 새 필터 드라이버의 이점을 활용 해야 할 때마다 다시 부팅 하도록 선택할 수 있습니다. 따라서 재부팅하지 않고 업데이트한 후에는 필터 드라이버를 제외한 **모바일 서비스의 기타 개선 사항과 수정 사항의 혜택이 실현**됩니다. 즉,이 좋지만, 업그레이드가 수행 될 때마다 다시 부팅 하는 필수적이 지 않습니다. 경우에 대 한 다시 부팅 필수 정보를 설정 합니다 [모바일 에이전트를 업그레이드 한 후 원본 컴퓨터의 다시 부팅 ](https://aka.ms/v2a_asr_reboot) 섹션에서는 Azure Site Recovery에서 서비스 업데이트에서.
+이는 경고이며, 기존 복제는 새 에이전트 업데이트 후에도 작동한다는 것에 **유의**하세요. 새 필터 드라이버의 이점을 얻기 위해 언제 든 지 다시 부팅 하도록 선택할 수 있지만 이전 필터 드라이버를 다시 부팅 하지 않으면 계속 작동 합니다. 따라서 재부팅하지 않고 업데이트한 후에는 필터 드라이버를 제외한 **모바일 서비스의 기타 개선 사항과 수정 사항의 혜택이 실현**됩니다. 따라서 업그레이드 후에는 다시 부팅 하지 않아도 됩니다. 다시 부팅 해야 하는 경우에 대 한 자세한 내용은 Azure Site Recovery의 서비스 업데이트에서 [모바일 에이전트 업그레이드 후 원본 컴퓨터 다시 부팅](https://aka.ms/v2a_asr_reboot) 섹션을 설정 합니다.
 
 > [!TIP]
->유지 관리 기간에 업그레이드 일정에서 모범 사례에 대 한 참조를 [최신 OS/커널 버전에 대 한 지원을](https://aka.ms/v2a_asr_upgrade_practice) Azure Site Recovery에서 서비스 업데이트에서.
+>유지 관리 기간 동안 업그레이드를 예약 하는 방법에 대 한 모범 사례는 Azure Site Recovery의 서비스 업데이트에서 [최신 OS/커널 버전 지원](https://aka.ms/v2a_asr_upgrade_practice) 을 참조 하세요.
 
 ## <a name="lvm-support-from-920-version"></a>9\.20 버전의 LVM 지원
 
@@ -220,7 +220,7 @@ VSS 설치는 모바일 에이전트 설치의 일부입니다. 이 서비스는
 
 ### <a name="vss-error--2147023170-0x800706be---exit-code-511"></a>VSS 오류 -2147023170 [0x800706BE] - 종료 코드 511
 
-이 문제는 바이러스 백신 소프트웨어가 Azure Site Recovery 서비스의 작업을 차단 하는 경우에 주로 표시 됩니다. 이 문제를 해결하려면:
+이 문제는 바이러스 백신 소프트웨어가 Azure Site Recovery 서비스의 작업을 차단할 때 주로 표시 됩니다. 이 문제를 해결하려면:
 
 1. [여기](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program)에서 언급된 모든 폴더를 제외합니다.
 2. 바이러스 백신 공급자가 게시한 지침을 따라 Windows에서 DLL의 등록을 차단 해제합니다.
@@ -241,6 +241,8 @@ VSS 설치는 모바일 에이전트 설치의 일부입니다. 이 서비스는
 
 `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
 
+오류가 발생 하는 경우에는 바이러스 백신 프로그램이 나 다른 서비스가 "시작 중" 상태에서 중단 되었는지 확인 합니다. 데이터베이스 서비스에 대 한 잠금을 유지할 수 있습니다. VSS 공급자를 설치 하는 동안 오류가 발생 합니다. 서비스가 "시작 중" 상태에 있지 않은지 확인 한 후 위의 작업을 다시 시도 하십시오.
+
 ### <a name="vss-exit-code-806"></a>VSS 종료 코드 806
 
 이 오류는 설치에 사용되는 사용자 계정에 CSScript 명령을 실행할 수 있는 사용 권한이 없는 경우에 발생합니다. 사용자 계정에 스크립트를 실행하기 위해 필요한 권한을 제공하고 작업을 다시 시도합니다.
@@ -255,43 +257,43 @@ VSS 설치는 모바일 에이전트 설치의 일부입니다. 이 서비스는
 
 ## <a name="vss-error---0x8004e00f"></a>VSS 오류-0x8004E00F
 
-이 오류는 일반적으로 DCOM 및 DCOM 위험 상태에서는 문제로 인해 모바일 에이전트를 설치 하는 동안 발생 합니다.
+이 오류는 일반적으로 DCOM 및 DCOM의 문제로 인해 모바일 에이전트를 설치 하는 동안 발생 합니다.
 
-오류의 원인을 확인 하려면 다음 절차를 따르십시오.
+다음 절차를 사용 하 여 오류의 원인을 확인할 수 있습니다.
 
 **설치 로그를 검사 합니다.**
 
-1. C:\ProgramData\ASRSetupLogs\ASRUnifiedAgentInstaller.log에 있는 설치 로그를 엽니다.
-2. 다음 오류가 있으면이이 문제를 나타냅니다.
+1. C:\ProgramData\ASRSetupLogs\ASRUnifiedAgentInstaller.log.에 있는 설치 로그를 엽니다.
+2. 다음 오류가 발생 하면이 문제를 나타냅니다.
 
-    기존 응용 프로그램의 등록을 취소 하는 중...  카탈로그 개체를 만들고 응용 프로그램의 컬렉션을 가져옵니다. 
+    기존 응용 프로그램의 등록을 취소 하는 중 ...  카탈로그 개체 만들기 응용 프로그램 컬렉션 가져오기 
 
     오류:
 
-    - 오류 코드: [0x8004E00F]-2147164145
+    - 오류 코드:-2147164145 [0x8004E00F]
     - 종료 코드: 802
 
 이 문제를 해결하려면
 
-연락처를 [Microsoft Windows 플랫폼 팀](https://aka.ms/Windows_Support) DCOM 문제 해결 도움을 가져오려고 합니다.
+DCOM 문제 해결에 대 한 지원을 받으려면 [Microsoft Windows 플랫폼 팀](https://aka.ms/Windows_Support) 에 문의 하세요.
 
-DCOM 문제가 해결 되 면 다음 명령을 사용 하 여 수동으로 Azure Site Recovery VSS 공급자를 다시 설치 합니다.
+DCOM 문제가 해결 되 면 다음 명령을 사용 하 여 Azure Site Recovery VSS 공급자를 수동으로 다시 설치 합니다.
  
-**C:\Program 파일 (x86) \Microsoft Azure Site Recovery\agent > "C:\Program 파일 (x86) \Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd**
+**C:\Program Files (x86) \Microsoft Azure Site Recovery\agent > "C:\Program Files (x86) \Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd**
   
-응용 프로그램 일관성 재해 복구 요구 사항에 대 한 중요 하지 않은 경우에 VSS 공급자 설치를 무시할 수 있습니다. 
+응용 프로그램 일관성이 재해 복구 요구 사항에 중요 하지 않은 경우 VSS 공급자 설치를 무시할 수 있습니다. 
 
-Azure Site Recovery VSS 공급자 설치를 무시 하 수동으로 설치 된 후에 Azure Site Recovery VSS 공급자를 설치 합니다.
+Azure Site Recovery VSS 공급자 설치를 우회 하 고 Azure Site Recovery VSS 공급자 사후 설치를 수동으로 설치 하려면 다음을 수행 합니다.
 
 1. 모바일 서비스를 설치 합니다. 
    > [!Note]
    > 
-   > '설치 후 구성' 단계에서 설치가 실패 합니다. 
-2. VSS 설치 하지 않으려면:
-   1. 에 있는 Azure Site Recovery 모바일 서비스 설치 디렉터리를 엽니다.
+   > ' 설치 후 구성 ' 단계에서 설치가 실패 합니다. 
+2. VSS 설치를 무시 하려면:
+   1. 다음 위치에 있는 Azure Site Recovery Mobility Service 설치 디렉터리를 엽니다.
    
-      C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
-   2. Azure Site Recovery VSS 공급자 설치 스크립트를 수정 **nMageVSSProvider_Install** 하 고 **InMageVSSProvider_Uninstall.cmd** 다음 줄을 추가 하 여 항상 성공 하려면:
+      C:\Program Files (x86) \Microsoft Azure Site Recovery\agent
+   2. 다음 줄을 추가 하 여 Azure Site Recovery VSS 공급자 설치 스크립트 **nMageVSSProvider_Install** 및 **InMageVSSProvider_Uninstall** 를 항상 성공적으로 수정 합니다.
     
       ```     
       rem @echo off
@@ -300,39 +302,39 @@ Azure Site Recovery VSS 공급자 설치를 무시 하 수동으로 설치 된 �
       ```
 
 3. 모바일 에이전트 설치를 수동으로 다시 실행 합니다. 
-4. 설치가 성공 하 고 다음 단계로 이동 되 면 **구성**에서 추가한 줄을 제거 합니다.
+4. 설치가 성공 하 고 다음 단계로 이동 하면 추가 된 줄을 **구성**하 고 제거 합니다.
 5. VSS 공급자를 설치 하려면 관리자 권한으로 명령 프롬프트를 열고 다음 명령을 실행 합니다.
    
-    **C:\Program 파일 (x86) \Microsoft Azure Site Recovery\agent >.\InMageVSSProvider_Install.cmd**
+    **C:\Program Files (x86) \Microsoft Azure Site Recovery\agent > .\InMageVSSProvider_Install.cmd**
 
-9. Windows 서비스에서 서비스로 ASR VSS 공급자 설치 되어 있는지 확인 하 고 ASR VSS 공급자가 표시 되는지 확인 하려면 구성 요소 서비스 MMC를 엽니다.
-10. VSS 공급자를 설치 하는 경우 실패 CX CAPI2에서 권한 오류를 해결 하기를 사용 하 여 작업을 계속 합니다.
+9. ASR VSS 공급자가 Windows 서비스에 서비스로 설치 되어 있는지 확인 하 고 구성 요소 서비스 MMC를 열어 ASR VSS 공급자가 표시 되는지 확인 합니다.
+10. VSS 공급자 설치를 계속 실패할 경우 CX를 사용 하 여 CAPI2의 사용 권한 오류를 해결 하십시오.
 
-## <a name="vss-provider-installation-fails-due-to-the-cluster-service-being-enabled-on-non-cluster-machine"></a>비클러스터 컴퓨터에 사용 되는 클러스터 서비스가 VSS 공급자 설치 실패
+## <a name="vss-provider-installation-fails-due-to-the-cluster-service-being-enabled-on-non-cluster-machine"></a>클러스터가 아닌 컴퓨터에서 클러스터 서비스를 사용 하도록 설정 하 여 VSS 공급자를 설치 하지 못했습니다.
 
-이 문제로 인해 Azure Site Recovery Mobility Agent 설치에 VSS 공급자 설치를 방지 하는 COM +를 사용 하 여 문제로 인해 ASAzure 사이트 복구 VSS 공급자 설치 단계 중에 실패 합니다.
+이 문제는 VSS 공급자의 설치를 방해 하는 COM + 문제로 인해 ASAzure Site RecoveryR VSS 공급자 설치 단계 중에 Azure Site Recovery 모바일 에이전트 설치에 실패 하는 원인이 됩니다.
  
 ### <a name="to-identify-the-issue"></a>문제를 식별 하려면
 
-C:\ProgramData\ASRSetupLogs\UploadedLogs에서 구성 서버에 있는 로그에\<날짜-시간 > UA_InstallLogFile.log, 다음 예외를 찾을 수 있습니다.
+C:\ProgramData\ASRSetupLogs\UploadedLogs\<날짜-시간 > UA_InstallLogFile에 있는 구성 서버에 있는 로그에서 다음 예외가 발견 됩니다.
 
-COM +에서 Microsoft Distributed Transaction Coordinator와 통신할 수 없습니다 (HRESULT의 예외: 0x8004E00F)
+COM +가 Microsoft DTC(Distributed Transaction Coordinator)와 통신할 수 없습니다 (HRESULT의 예외: 0x8004E00F)
 
 이 문제를 해결하려면
 
-1.  이 컴퓨터를 클러스터가 아닌 컴퓨터 인지 하 고 클러스터 구성 요소를 사용 되는 확인 합니다.
-3.  구성 요소를 사용 하지 않는 경우 컴퓨터에서 클러스터 구성 요소를 제거 합니다.
+1.  이 컴퓨터가 클러스터가 아닌 컴퓨터이 고 클러스터 구성 요소가 사용 되 고 있지 않은지 확인 하십시오.
+3.  구성 요소가 사용 되지 않는 경우 컴퓨터에서 클러스터 구성 요소를 제거 합니다.
 
-## <a name="drivers-are-missing-on-the-source-server"></a>드라이버가 원본 서버에서 누락 되었습니다.
+## <a name="drivers-are-missing-on-the-source-server"></a>원본 서버에 드라이버가 없습니다.
 
-모바일 에이전트 설치가 실패할 경우 C:\ProgramData\ASRSetupLogs 일부 컨트롤 집합에 누락 된 경우 일부 필요한 드라이버를 확인 하려면 로그를 확인 합니다.
+모바일 에이전트 설치에 실패 하는 경우 C:\ProgramData\ASRSetupLogs 아래의 로그를 검토 하 여 일부 컨트롤 집합에서 필요한 드라이버 중 일부가 누락 되었는지 확인 합니다.
  
 이 문제를 해결하려면
   
-1. Regedit.msc 같은 레지스트리 편집기를 사용 하 여 레지스트리를 엽니다.
+1. Regedit.exe와 같은 레지스트리 편집기를 사용 하 여 레지스트리를 엽니다.
 2. HKEY_LOCAL_MACHINE\SYSTEM 노드를 엽니다.
-3. 시스템 노드에서 찾을 컨트롤 집합입니다.
-4. 각 컨트롤 집합을 열고 다음 Windows 드라이버가 설치 되어 있는지 확인 합니다.
+3. 시스템 노드에서 컨트롤 집합을 찾습니다.
+4. 각 컨트롤 집합을 열고 다음 Windows 드라이버가 있는지 확인 합니다.
 
    - Atapi
    - Vmbus
@@ -340,7 +342,7 @@ COM +에서 Microsoft Distributed Transaction Coordinator와 통신할 수 없�
    - Storvsc
    - intelide
  
-모든 누락 된 드라이버를 다시 설치 합니다.
+누락 된 드라이버를 모두 다시 설치 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

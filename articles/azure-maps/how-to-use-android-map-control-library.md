@@ -9,22 +9,22 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9abe9eb9cdad6351f49fba2dace64095783455cf
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 934fe2219ccca917999cf49cb9c9826276545e73
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376014"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915668"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Azure Maps Android SDK 시작
 
 Azure Maps Android SDK는 Android 용 벡터 맵 라이브러리입니다. 이 문서에서는 Azure Maps Android SDK를 설치 하 고 지도를 로드 하는 프로세스를 안내 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="create-an-azure-maps-account"></a>Azure Maps 계정 만들기
 
-이 문서의 절차를 완료 하려면 먼저 S1 가격 책정 계층에서 [Azure Maps 계정을 만들어야](how-to-manage-account-keys.md) 합니다.
+이 문서의 절차를 완료 하려면 먼저 S1 가격 책정 계층에서 [Azure Maps 계정을 만들어야](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) 합니다.
 
 ### <a name="download-android-studio"></a>Android Studio 다운로드
 

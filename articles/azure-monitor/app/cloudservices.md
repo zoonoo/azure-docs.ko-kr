@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 64995ad0560efd06bfa0084c948527e8a01e1890
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 9325d2dd6c897f4c8dacb3dcf3a382f9f0e856a8
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "67443331"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933005"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Azure Cloud Services용 Application Insights
 [Application Insights][start] 는 Application Insights sdk의 데이터를 클라우드 서비스의 [Azure 진단](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) 데이터와 결합 하 여 [Azure 클라우드 서비스 앱](https://azure.microsoft.com/services/cloud-services/) 의 가용성, 성능, 실패 및 사용 현황을 모니터링할 수 있습니다. 앱의 성능 및 효과에 대한 생생한 피드백을 통해 충분한 정보를 바탕으로 각 개발 수명 주기의 디자인 방향을 결정할 수 있습니다.
 
 ![개요 대시보드](./media/cloudservices/overview-graphs.png)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 작업을 시작하려면 다음이 필요합니다.
 
 * [Azure](https://azure.com) 구독. Windows, Xbox Live 또는 기타 Microsoft 클라우드 서비스의 Microsoft 계정으로 로그인합니다. 
@@ -84,8 +84,9 @@ Application Insights를 사용하여 클라우드 서비스를 모니터링하�
 
     ![Application Insights 창](./media/cloudservices/01-new.png)
 
-1. **애플리케이션 유형** 드롭다운 목록에서 **ASP.NET 웹 애플리케이션**을 선택합니다.  
-    각 리소스는 계측 키로 식별됩니다. 이 키는 나중에 SDK의 구성을 수동으로 구성하거나 확인하려는 경우에 필요할 수 있습니다.
+1. **애플리케이션 유형** 드롭다운 목록에서 **ASP.NET 웹 애플리케이션**을 선택합니다.
+
+각 리소스는 계측 키로 식별됩니다. 이 키는 나중에 SDK의 구성을 수동으로 구성하거나 확인하려는 경우에 필요할 수 있습니다.
 
 
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>각 역할에 대한 Azure Diagnostics 설정
@@ -101,7 +102,7 @@ Application Insights를 사용하여 앱을 모니터링하려면 이 옵션을 
 
 그러면 Application Insights 계측 키가 *ServiceConfiguration.\*.cscfg* 파일에 삽입됩니다. 다음은 [샘플 코드](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg)입니다.
 
-Application Insights로 전송되는 진단 정보의 수준을 변경하려는 경우 [.cscfg 파일을 직접 편집](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)할 수 있습니다. 
+Application Insights로 전송되는 진단 정보의 수준을 변경하려는 경우 [.cscfg 파일을 직접 편집](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)할 수 있습니다.
 
 ## <a name="sdk"></a>각 프로젝트에 SDK 설치
 이 옵션을 사용하여 임의 역할에 사용자 지정 비즈니스 원격 분석을 추가할 수 있습니다. 이 옵션은 앱이 사용되는 방식과 성능을 좀 더 자세히 분석해서 제공합니다.
@@ -120,7 +121,7 @@ Visual Studio에서 각 클라우드 앱 프로젝트에 Application Insights SD
 
 1. Application Insights 리소스에 데이터를 보내도록 SDK를 구성하려면
 
-    a. 적합한 시작 함수에서 .cscfg 파일의 구성 설정에서 계측 키를 설정합니다. 
+    a. 적합한 시작 함수에서 .cscfg 파일의 구성 설정에서 계측 키를 설정합니다.
  
     ```csharp
    
@@ -133,8 +134,9 @@ Visual Studio에서 각 클라우드 앱 프로젝트에 Application Insights SD
     * [작업자 역할](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
     * [웹 페이지](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13) 
 
-1. 항상 출력 디렉터리에 복사되도록 *ApplicationInsights.config* 파일을 설정합니다.  
-    *.config* 파일에 계측 키를 배치하도록 요청하는 메시지가 표시됩니다. 그러나 클라우드 앱의 경우에는 *.cscfg* 파일에서 설정하는 것이 좋습니다. 그래야 포털에서 역할이 정확하게 식별됩니다.
+1. 항상 출력 디렉터리에 복사되도록 *ApplicationInsights.config* 파일을 설정합니다.
+
+   *.config* 파일에 계측 키를 배치하도록 요청하는 메시지가 표시됩니다. 그러나 클라우드 앱의 경우에는 *.cscfg* 파일에서 설정하는 것이 좋습니다. 그래야 포털에서 역할이 정확하게 식별됩니다.
 
 ## <a name="set-up-status-monitor-to-collect-full-sql-queries-optional"></a>전체 SQL 쿼리를 수집 하도록 상태 모니터 설정 (선택 사항)
 
@@ -171,16 +173,19 @@ Visual Studio에서 각 클라우드 앱 프로젝트에 Application Insights SD
 
 1. 앱을 실행하고 Azure에 로그인합니다. 
 
-1. 만든 Application Insights 리소스를 엽니다.  
-    개별 데이터 요소는 [Search](../../azure-monitor/app/diagnostic-search.md)에 표시되고 집계된 데이터는 [메트릭 탐색기](../../azure-monitor/app/metrics-explorer.md)에 표시됩니다. 
+1. 만든 Application Insights 리소스를 엽니다.
+
+   개별 데이터 요소는 [Search][diagnostic]에 표시되고 집계된 데이터는 [메트릭 탐색기](../../azure-monitor/app/metrics-explorer.md)에 표시됩니다.
 
 1. 원격 분석을 더 추가하고(다음 섹션 참조) 앱을 게시하여 라이브 진단 및 사용 피드백을 가져옵니다. 
 
 데이터가 없는 경우 다음을 수행합니다.
+
 1. 개별 이벤트를 보려면 [검색][diagnostic] 타일을 엽니다.
 1. 앱에서 원격 분석이 생성되도록 다양한 페이지를 엽니다.
 1. 몇 초 정도 기다렸다가 **새로 고침**을 클릭합니다.  
-    자세한 내용은 [문제 해결][qna]을 참조하세요.
+
+자세한 내용은 [문제 해결][qna]을 참조하세요.
 
 ## <a name="view-azure-diagnostics-events"></a>Azure Diagnostics 이벤트 보기
 다음 위치에서 Application Insights의 [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) 정보를 찾을 수 있습니다.

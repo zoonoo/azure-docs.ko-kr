@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 973ac928900cc02f176931ffa3865c2997e552f2
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 4bec14cd3aa88d885f83142143c7a901ca82057b
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810839"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918238"
 ---
 # <a name="deep-dive---advanced-analytics"></a>딥 다이브 분석 - 고급 분석
 
@@ -23,7 +23,7 @@ HDInsight는 대량의 구조화된 데이터, 구조화되지 않은 데이터 
 
 ## <a name="advanced-analytics-process"></a>고급 분석 프로세스
 
-![프로세스](./media/apache-hadoop-deep-dive-advanced-analytics/process.png)
+![프로세스](./media/apache-hadoop-deep-dive-advanced-analytics/hdinsight-analytic-process.png)
 
 비즈니스 문제를 확인하고 데이터 수집 및 처리를 시작한 후에는 예측하려는 질문을 나타내는 모델을 만들어야 합니다. 모델은 하나 이상의 기계 학습 알고리즘을 사용하여 비즈니스 요구에 가장 적합한 유형의 예측을 만듭니다.  대부분의 데이터는 모델을 학습하는 데 사용해야 하고, 나머지는 모델을 테스트하거나 평가하는 데 사용해야 합니다. 
 
@@ -33,7 +33,7 @@ HDInsight는 대량의 구조화된 데이터, 구조화되지 않은 데이터 
 
 고급 분석 솔루션은 일단의 기계 학습 알고리즘을 제공합니다. 다음은 알고리즘 범주 및 관련된 일반적인 비즈니스 사용 사례를 요약한 것입니다.
 
-![기계 학습 사용 사례](./media/apache-hadoop-deep-dive-advanced-analytics/ml-use-cases.png)
+![기계 학습 사용 사례](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-use-cases.png)
 
 가장 적합한 알고리즘을 선택하는 것과 함께 학습용 데이터를 제공해야 하는지 여부를 고려해야 합니다. 기계 학습 알고리즘은 다음과 같이 분류됩니다.
 
@@ -98,7 +98,7 @@ HDInsight를 사용하는 고급 분석 기계 학습 파이프라인의 예를 
 
 이 예에서는 Alex Krizhevsky, Vinod Nair 및 Geoffrey Hinton이 컴파일하고 배포한 CIFAR-10 이미지 집합을 사용합니다. CIFAR-10 데이터 세트에는 상호 배타적인 10개의 클래스에 속하는 60,000개의 32×32 컬러 이미지가 포함되어 있습니다.
 
-![이미지](./media/apache-hadoop-deep-dive-advanced-analytics/ml-images.png)
+![이미지](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-images.png)
 
 데이터 세트에 대한 자세한 내용은 Alex Krizhevsky의 [작은 이미지에서 여러 계층의 기능 학습](https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf)을 참조하세요.
 
@@ -111,7 +111,7 @@ HDInsight를 사용하는 고급 분석 기계 학습 파이프라인의 예를 
 
 4개의 작업자 노드가 있는 클러스터에서 10,000개의 이미지 전체를 사전 처리하고 점수를 매기는 데 1분 미만이 걸립니다. 이 모델은 9,100개(91%)까지의 이미지에 대한 레이블을 정확하게 예측합니다. 혼동 행렬에서는 가장 일반적인 분류 오류를 보여 줍니다. 예를 들어 행렬에서는 개가 고양이로 잘못 지정되거나 그 반대로 잘못 지정되는 레이블이 다른 레이블 쌍보다 더 자주 발생한다는 것을 보여 줍니다.
 
-![결과](./media/apache-hadoop-deep-dive-advanced-analytics/ml-results.png)
+![결과](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-results.png)
 
 ### <a name="try-it-out"></a>사용해 보세요!
 

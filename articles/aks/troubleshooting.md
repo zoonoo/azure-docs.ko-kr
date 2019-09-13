@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 50bb26aa1a29dc8b1454fadec416aceea76405b2
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 6ff273236f9f8465de9ec0cda89ed3ff8996ecec
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844252"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932654"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 
@@ -141,3 +141,9 @@ AKS 클러스터를 만들 때 사용자를 대신 하 여 리소스를 만들�
 1. 지역에 걸쳐 이미 전파 된 기존 서비스 사용자를 사용 하 여 클러스터 만들기 시간에 AKS에 전달 합니다.
 2. 자동화 스크립트를 사용 하는 경우 서비스 주체 만들기와 AKS 클러스터 만들기 사이의 시간 지연을 추가 합니다.
 3. Azure Portal 사용 하는 경우 만드는 동안 클러스터 설정으로 돌아가서 몇 분 후에 유효성 검사 페이지를 다시 시도 합니다.
+
+## <a name="im-receiving-errors-after-restricting-my-egress-traffic"></a>송신 트래픽을 제한 한 후 오류를 수신 합니다.
+
+AKS 클러스터에서 송신 트래픽을 제한 하는 경우 [필수 및 선택적으로 권장](limit-egress-traffic.md) 되는 아웃 바운드 포트/네트워크 규칙 및 AKS에 대 한 FQDN/응용 프로그램 규칙이 필요 합니다. 설정이 이러한 규칙과 충돌 하는 경우 특정 `kubectl` 명령을 실행 하지 못할 수 있습니다. AKS 클러스터를 만들 때 오류가 표시 될 수도 있습니다.
+
+설정이 필수 또는 옵션인 권장 아웃 바운드 포트/네트워크 규칙 및 FQDN/응용 프로그램 규칙과 충돌 하지 않는지 확인 합니다.

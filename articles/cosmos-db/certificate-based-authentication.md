@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: 9d06cf334f08ba6ec9c47450d21d33733900ebe5
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 594367db838266a6d11f4fbf3b763b024f8e14d4
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356585"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882852"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Azure Cosmos DB 계정의 키에 액세스 하기 위해 Azure AD id에 대 한 인증서 기반 인증
 
@@ -231,6 +231,6 @@ namespace TodoListDaemonWithCert
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Key Vault를 사용 하 여 Azure Cosmos 키 보호](access-secrets-from-keyvault.md)
+* [Azure Key Vault를 사용하여 Azure Cosmos 키 보호](access-secrets-from-keyvault.md)
 
-* [Azure Cosmos DB의 보안 특성](cosmos-db-security-attributes.md)
+* [Azure Cosmos DB에 대 한 보안 제어](cosmos-db-security-controls.md)

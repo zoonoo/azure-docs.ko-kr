@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: b6343931287ed59363db2715641ca63a814a9c32
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 6619fd842f225a6d362a4b308dde6e35b43677c9
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638802"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915750"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>래스터 맵에서 사용자 지정 데이터 렌더링
 
@@ -27,7 +27,8 @@ ms.locfileid: "68638802"
 
 ### <a name="create-an-azure-maps-account"></a>Azure Maps 계정 만들기
 
-이 문서의 절차를 완료 하려면 먼저 S1 가격 책정 계층에서 [Azure Maps 계정을 만들어야](how-to-manage-account-keys.md) 합니다.
+이 문서의 절차를 완료 하려면 먼저 [계정 관리](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) 의 지침에 따라 Azure Maps 계정을 만들고 [기본 키 가져오기](./tutorial-search-location.md#getkey) 의 단계를 수행 하 여 계정에 대 한 기본 구독 키를 검색 해야 합니다.
+
 
 ## <a name="render-pushpins-with-labels-and-a-custom-image"></a>레이블 및 사용자 지정 이미지를 사용 하 여 압정 렌더링
 
@@ -145,7 +146,7 @@ Azure Maps 계정 S0 계층은 `pins` 매개 변수의 단일 인스턴스만 �
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
    ```
 
-6. 을 (를) 가져오려면 Postman 앱에서 새 탭을 열고 작성기 탭에서 GET HTTP 메서드를 선택 하 고 상태 URI에서 GET 요청을 수행 합니다. 데이터 업로드가 성공적으로 완료 되 면 응답 본문에 udId가 표시 됩니다. UdId를 복사 합니다.
+6. 을 (를) 가져오려면 Postman 앱에서 새 탭을 열고 작성기 탭에서 GET HTTP 메서드를 선택 하 고 상태 URI에서 GET 요청을 수행 합니다. 데이터 업로드가 성공하면 응답 본문에 udId가 있습니다. UdId를 복사 합니다.
 
    ```JSON
    {

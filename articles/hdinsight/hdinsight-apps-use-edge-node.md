@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: hrasheed
-ms.openlocfilehash: 41313c7d484df5568fbf729b683a0e9df5325abc
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 31cffc71937f7be158da8cbbd1d8abe6e3fe8372
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67433747"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916633"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>HDInsight의 Apache Hadoop 클러스터에서 빈 에지 노드 사용
 
@@ -74,12 +74,12 @@ HDInsight 클러스터에 빈 에지 노드를 추가하는 방법을 알아봅�
 
 1. Azure에 로그인하여 Azure Portal에서 Azure Resource Manager 템플릿을 열려면 다음 이미지를 클릭합니다. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-add-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-add-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
 3. 다음 속성을 구성합니다.
    
    * **구독**: 이 클러스터를 만드는 데 사용되는 Azure 구독을 선택합니다.
    * **리소스 그룹**: 기존 HDInsight 클러스터에 사용되는 리소스 그룹을 선택합니다.
-   * **Location**: 기존 HDInsight 클러스터의 위치를 선택합니다.
+   * **위치**: 기존 HDInsight 클러스터의 위치를 선택합니다.
    * **클러스터 이름**: 기존 HDInsight 클러스터의 이름을 입력합니다.
    * **에지 노드 크기**: VM 크기 중 하나를 선택합니다. VM 크기는 작업자 노드 VM 크기 요구 사항을 충족해야 합니다. 권장되는 작업자 노드 VM 크기에 대한 자세한 내용은 [HDInsight에서 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md#cluster-types)를 참조하세요.
    * **에지 노드 접두사**: 기본값은 **new**입니다.  에지 노드 이름의 기본값은 **new-edgenode**가 사용됩니다.  포털에서 접두사를 사용자 지정할 수 있습니다. 템플릿에서 전체 이름을 사용자 지정할 수도 있습니다.
@@ -90,19 +90,19 @@ HDInsight 클러스터에 빈 에지 노드를 추가하는 방법을 알아봅�
 > 기존 HDInsight 클러스터에 대한 Azure 리소스 그룹을 선택해야 합니다.  그렇지 않으면 "중첩된 리소스에서 요청한 작업을 수행할 수 없습니다. 부모 리소스 '&lt;ClusterName>' 찾을 수 없음"이라는 오류 메시지를 받습니다.
 
 ## <a name="add-an-edge-node-when-creating-a-cluster"></a>클러스터를 만들 때 에지 노드 추가
-이 섹션에서는 Resource Manager 템플릿을 사용하여 에지 노드로 HDInsight 클러스터를 만듭니다.  Resource Manager 템플릿을 찾을 수 있습니다 합니다 [Azure 빠른 시작 템플릿 갤러리](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/)합니다. Resource Manager 템플릿은 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh 에 있는 스크립트 작업을 호출합니다. 스크립트는 어떤 작업도 수행하지 않습니다.  Resource Manager 템플릿에서 스크립트 호출 작업을 보여 주기 위한 것입니다.
+이 섹션에서는 Resource Manager 템플릿을 사용하여 에지 노드로 HDInsight 클러스터를 만듭니다.  리소스 관리자 템플릿은 [Azure 빠른 시작 템플릿 갤러리](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/)에서 찾을 수 있습니다. Resource Manager 템플릿은 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh 에 있는 스크립트 작업을 호출합니다. 스크립트는 어떤 작업도 수행하지 않습니다.  Resource Manager 템플릿에서 스크립트 호출 작업을 보여 주기 위한 것입니다.
 
 **에지 노드를 사용하여 HDInsight 클러스터를 만들려면**
 
 1. 아직 없는 경우 HDInsight 클러스터를 만듭니다.  [HDInsight에서 Hadoop 사용 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 2. Azure에 로그인하여 Azure Portal에서 Azure Resource Manager 템플릿을 열려면 다음 이미지를 클릭합니다. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
 3. 다음 속성을 구성합니다.
    
    * **구독**: 이 클러스터를 만드는 데 사용되는 Azure 구독을 선택합니다.
    * **리소스 그룹**: 클러스터에 사용되는 새 리소스 그룹을 만듭니다.
-   * **Location**: 리소스 그룹의 위치를 선택합니다.
+   * **위치**: 리소스 그룹의 위치를 선택합니다.
    * **클러스터 이름**: 만들려는 새 클러스터의 이름을 입력합니다.
    * **클러스터 로그인 사용자 이름**: Hadoop HTTP 사용자 이름을 입력합니다.  기본 이름은 **admin**입니다.
    * **클러스터 로그인 암호**: Hadoop HTTP 사용자 암호를 입력합니다.

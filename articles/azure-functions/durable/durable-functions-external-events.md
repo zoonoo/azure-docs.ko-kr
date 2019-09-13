@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: d9c546064589e82cfef367978ebea98c2c202307
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e38f118e10c9d0e2347edb7cbaa5d7b68a0e63f2
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087298"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933406"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>지속성 함수의 외부 이벤트 처리(Azure Functions)
 
@@ -201,10 +201,7 @@ module.exports = async function(context, instanceId) {
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [영구 오케스트레이션 설정](durable-functions-eternal-orchestrations.md)
-
-> [!div class="nextstepaction"]
-> [외부 이벤트를 기다리는 샘플 실행](durable-functions-phone-verification.md)
+> [오류 처리를 구현 하는 방법 알아보기](durable-functions-error-handling.md)
 
 > [!div class="nextstepaction"]
 > [인간 상호 작용을 기다리는 샘플 실행](durable-functions-phone-verification.md)

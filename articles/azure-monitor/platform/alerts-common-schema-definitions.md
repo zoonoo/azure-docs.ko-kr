@@ -1,6 +1,6 @@
 ---
-title: 웹 후크/Logic Apps/Azure Functions/자동화 Runbook에 대 한 일반적인 경고 스키마 정의
-description: 웹 후크/Logic Apps/Azure Functions/자동화 Runbook에 대 한 일반적인 경고 스키마 정의 이해
+title: Azure Monitor에 대 한 일반적인 경고 스키마 정의
+description: Azure Monitor에 대 한 일반적인 경고 스키마 정의 이해
 author: anantr
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,24 +8,22 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
 ms.subservice: alerts
-ms.openlocfilehash: 94938358bc4e4782e91401e24a01a3688c6a51ba
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 5f05b95085048515c5f8612f3029ffb2efa28091
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034797"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916025"
 ---
 # <a name="common-alert-schema-definitions"></a>일반 경고 스키마 정의
 
-이 문서에서는 웹 후크/Logic Apps/Azure Functions/자동화 Runbook에 대 한 [일반적인 경고 스키마 정의](https://aka.ms/commonAlertSchemaDocs) 에 대해 설명 합니다. 
+이 문서에서는 웹 후크, Azure Logic Apps, Azure Functions 및 Azure Automation runbook을 포함 하 여 Azure Monitor에 대 한 [일반적인 경고 스키마 정의](https://aka.ms/commonAlertSchemaDocs) 에 대해 설명 합니다. 
 
-## <a name="overview"></a>개요
+모든 경고 인스턴스는 영향을 받은 리소스 및 경고의 원인을 설명 합니다. 이러한 인스턴스는 다음 섹션의 공용 스키마에 설명 되어 있습니다.
+* **Essentials**: 모든 경고 유형에 공통적인 표준화 된 필드 집합으로, 경고가 발생 하는 리소스를 설명 하 고, 추가 공통 경고 메타 데이터 (예: 심각도 또는 설명)와 함께 사용 됩니다. 
+* **경고 컨텍스트**: 경고 유형에 따라 달라 지는 필드를 사용 하 여 경고의 원인을 설명 하는 필드 집합입니다. 예를 들어 메트릭 경고는 경고 컨텍스트에 메트릭 이름 및 메트릭 값과 같은 필드를 포함 하는 반면, 활동 로그 경고에는 경고를 생성 한 이벤트에 대 한 정보가 포함 됩니다. 
 
-경고 인스턴스는 **영향을 받은 리소스** 및 **경고의 원인을**설명 하며, 이러한 인스턴스는 다음 섹션의 공통 스키마에 설명 되어 있습니다.
-* **Essentials**: 모든 경고 유형에 공통 된 **표준화 된 필드**집합으로, 경고가 발생 하는 **리소스** 를 설명 하는 추가 일반적인 경고 메타 데이터 (예: 심각도 또는 설명)입니다. 
-* **경고 컨텍스트**: 경고 **유형에 따라**달라 지는 필드를 사용 하 여 **경고의 원인을**설명 하는 필드 집합입니다. 예를 들어 메트릭 경고는 경고 컨텍스트에 메트릭 이름 및 메트릭 값과 같은 필드를 포함 하는 반면, 활동 로그 경고에는 경고를 생성 한 이벤트에 대 한 정보가 포함 됩니다. 
-
-##### <a name="sample-alert-payload"></a>샘플 경고 페이로드
+**샘플 경고 페이로드**
 ```json
 {
   "schemaId": "azureMonitorCommonAlertSchema",
@@ -74,25 +72,25 @@ ms.locfileid: "70034797"
 }
 ```
 
-## <a name="essentials-fields"></a>' Essentials ' 필드
+## <a name="essentials"></a>기본 정보
 
 | 필드 | Description|
 |:---|:---|
 | alertId | 경고 인스턴스를 고유 하 게 식별 하는 GUID입니다. |
 | alertRule | 경고 인스턴스를 생성 한 경고 규칙의 이름입니다. |
-| Severity | 경고의 심각도입니다. 가능한 값은 다음과 같습니다. Sev0, Sev1, Sev2, Sev3, Sev4 |
-| signalType | 경고 규칙이 정의 된 신호를 식별 합니다. 가능한 값은 다음과 같습니다. 메트릭, 로그, 활동 로그 |
-| monitorCondition | 경고가 발생 하면 경고의 모니터 조건이 ' 발생 '으로 설정 됩니다. 경고를 발생 시킨 기본 조건이 취소 되 면 모니터 조건이 ' 해결 됨 '으로 설정 됩니다.   |
+| Severity | 경고의 심각도입니다. 가능한 값은 다음과 같습니다. Sev0, Sev1, Sev2, Sev3 또는 Sev4입니다. |
+| signalType | 경고 규칙이 정의 된 신호를 식별 합니다. 가능한 값은 다음과 같습니다. 메트릭, 로그 또는 활동 로그입니다. |
+| monitorCondition | 경고가 발생 하면 경고의 모니터 조건이 실행 됨으로 설정 **됩니다.** 경고를 발생 시킨 기본 조건이 취소 되 면 모니터 조건이 **해결 됨**으로 설정 됩니다.   |
 | monitoringService | 경고를 생성 한 모니터링 서비스 또는 솔루션입니다. 경고 컨텍스트에 대 한 필드는 모니터링 서비스에 의해 결정 됩니다. |
-| alertTargetIds | 영향을 받는 모든 경고 대상의 ARM Id 목록입니다. Log Analytics 작업 영역 또는 Application Insights 인스턴스에 정의 된 로그 경고의 경우 해당 작업 영역/응용 프로그램입니다. |
-| originAlertId | 모니터링 서비스에서 생성 한 경고 인스턴스의 ID입니다. |
-| firedDateTime | 경고 인스턴스가 실행 된 날짜 시간 (UTC) |
-| resolvedDateTime | 경고 인스턴스의 모니터 조건이 UTC (' 해결 됨 ')로 설정 된 날짜/시간입니다. 현재 메트릭 경고에만 적용 됩니다.|
-| description | 경고 규칙에 정의 된 설명 |
+| alertTargetIds | 경고의 대상에 영향을 주는 Azure Resource Manager Id의 목록입니다. Log Analytics 작업 영역 또는 Application Insights 인스턴스에 정의 된 로그 경고의 경우 해당 작업 영역 또는 응용 프로그램입니다. |
+| originAlertId | 경고를 생성 하는 모니터링 서비스에서 생성 된 경고 인스턴스의 ID입니다. |
+| firedDateTime | 경고 인스턴스가 실행 된 날짜 및 시간 (UTC)입니다. |
+| resolvedDateTime | 경고 인스턴스의 모니터 조건이 UTC로 **확인** 되도록 설정 된 날짜 및 시간입니다. 현재 메트릭 경고에만 적용 됩니다.|
+| description | 경고 규칙에 정의 된 설명입니다. |
 |essentialsVersion| Essentials 섹션의 버전 번호입니다.|
-|alertContextVersion | AlertContext 섹션의 버전 번호 |
+|alertContextVersion | `alertContext` 섹션의 버전 번호입니다. |
 
-##### <a name="sample-values"></a>샘플 값
+**샘플 값**
 ```json
 {
   "essentials": {
@@ -114,13 +112,13 @@ ms.locfileid: "70034797"
 }
 ```
 
-## <a name="alert-context-fields"></a>' 경고 컨텍스트 ' 필드
+## <a name="alert-context"></a>경고 컨텍스트
 
 ### <a name="metric-alerts"></a>메트릭 경고
 
-#### <a name="monitoringservice--platform"></a>monitoringService = ' Platform '
+#### <a name="monitoringservice--platform"></a>`monitoringService` = `Platform`
 
-##### <a name="sample-values"></a>샘플 값
+**샘플 값**
 ```json
 {
   "alertContext": {
@@ -154,12 +152,11 @@ ms.locfileid: "70034797"
 ### <a name="log-alerts"></a>로그 경고
 
 > [!NOTE]
-> + 사용자 지정 JSON 페이로드가 정의 된 로그 경고의 경우 공통 스키마를 사용 하도록 설정 하면 페이로드 스키마가 아래에 설명 된 것으로 되돌아갑니다.
-> + 공통 스키마를 사용 하는 경고에는 경고 당 256KB의 상한 크기가 사용 됩니다. **검색 결과는 경고 크기가이 임계값을 초과 하는 경우 로그 경고 페이로드에 포함 되지 않습니다.** 이는 ' IncludedSearchResults ' 플래그를 확인 하 여 확인할 수 있습니다. 검색 결과가 포함 되지 않은 시나리오에서는 검색 쿼리를 [LOG ANALYTICS API](https://docs.microsoft.com/rest/api/loganalytics/query/get)와 함께 사용 하는 것이 좋습니다. 
+> 사용자 지정 JSON 페이로드가 정의 된 로그 경고의 경우 공통 스키마를 사용 하도록 설정 하면 페이로드 스키마가 다음과 같이 설명 된 것으로 되돌아갑니다. 공통 스키마를 사용 하는 경고는 경고 당 256 KB로 제한 됩니다. 검색 결과는 경고 크기가이 임계값을 초과 하는 경우 로그 경고 페이로드에 포함 되지 않습니다. 플래그 `IncludedSearchResults`를 확인 하 여이를 확인할 수 있습니다. 검색 결과가 포함 되지 않은 경우 [LOG ANALYTICS API](https://docs.microsoft.com/rest/api/loganalytics/query/get)와 함께 검색 쿼리를 사용 해야 합니다. 
 
-#### <a name="monitoringservice--log-analytics"></a>monitoringService = 'Log Analytics'
+#### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 
-##### <a name="sample-values"></a>샘플 값
+**샘플 값**
 ```json
 {
   "alertContext": {
@@ -224,9 +221,9 @@ ms.locfileid: "70034797"
 }
 ```
 
-#### <a name="monitoringservice--application-insights"></a>monitoringService = ' Application Insights '
+#### <a name="monitoringservice--application-insights"></a>`monitoringService` = `Application Insights`
 
-##### <a name="sample-values"></a>샘플 값
+**샘플 값**
 ```json
 {
   "alertContext": {
@@ -289,9 +286,9 @@ ms.locfileid: "70034797"
 
 ### <a name="activity-log-alerts"></a>활동 로그 경고
 
-#### <a name="monitoringservice--activity-log---administrative"></a>monitoringService = ' 활동 로그-관리 '
+#### <a name="monitoringservice--activity-log---administrative"></a>`monitoringService` = `Activity Log - Administrative`
 
-##### <a name="sample-values"></a>샘플 값
+**샘플 값**
 ```json
 {
   "alertContext": {
@@ -316,9 +313,9 @@ ms.locfileid: "70034797"
 }
 ```
 
-#### <a name="monitoringservice--activity-log---policy"></a>monitoringService = ' 활동 로그-정책 '
+#### <a name="monitoringservice--activity-log---policy"></a>`monitoringService` = `Activity Log - Policy`
 
-##### <a name="sample-values"></a>샘플 값
+**샘플 값**
 ```json
 {
   "alertContext": {
@@ -349,9 +346,9 @@ ms.locfileid: "70034797"
 }
 ```
 
-#### <a name="monitoringservice--activity-log---autoscale"></a>monitoringService = ' 활동 로그-자동 크기 조정 '
+#### <a name="monitoringservice--activity-log---autoscale"></a>`monitoringService` = `Activity Log - Autoscale`
 
-##### <a name="sample-values"></a>샘플 값
+**샘플 값**
 ```json
 {
   "alertContext": {
@@ -379,9 +376,9 @@ ms.locfileid: "70034797"
 }
 ```
 
-#### <a name="monitoringservice--activity-log---security"></a>monitoringService = ' 활동 로그-보안 '
+#### <a name="monitoringservice--activity-log---security"></a>`monitoringService` = `Activity Log - Security`
 
-##### <a name="sample-values"></a>샘플 값
+**샘플 값**
 ```json
 {
   "alertContext": {
@@ -412,9 +409,9 @@ ms.locfileid: "70034797"
 }
 ```
 
-#### <a name="monitoringservice--servicehealth"></a>monitoringService = 'ServiceHealth'
+#### <a name="monitoringservice--servicehealth"></a>`monitoringService` = `ServiceHealth`
 
-##### <a name="sample-values"></a>샘플 값
+**샘플 값**
 ```json
 {
   "alertContext": {
@@ -456,9 +453,9 @@ ms.locfileid: "70034797"
   }
 }
 ```
-#### <a name="monitoringservice--resource-health"></a>monitoringService = 'Resource Health'
+#### <a name="monitoringservice--resource-health"></a>`monitoringService` = `Resource Health`
 
-##### <a name="sample-values"></a>샘플 값
+**샘플 값**
 ```json
 {
   "alertContext": {
@@ -487,6 +484,6 @@ ms.locfileid: "70034797"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [일반적인 경고 스키마에 대 한 자세한 정보](https://aka.ms/commonAlertSchemaDocs)
-- [일반적인 경고 스키마를 활용 하 여 모든 경고를 처리 하는 논리 앱을 만드는 방법에 대해 알아봅니다.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 
+- [일반적인 경고 스키마](https://aka.ms/commonAlertSchemaDocs)에 대해 자세히 알아보세요.
+- [일반적인 경고 스키마를 사용 하 여 모든 경고를 처리 하는 논리 앱을 만드는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations)에 대해 알아봅니다. 
 

@@ -8,19 +8,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: tyfox
-ms.openlocfilehash: 2035f5c7666d93068fd8007555bfe1aadae58ff1
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 3f4ccd8de1f26ea898b0e7ec4bb57aa20b1be209
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67873926"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885353"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Azure PowerShell을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
 Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동화하기 위해 사용할 수 있습니다. 이 문서에서는 Azure PowerShell Az module을 사용 하 여 Azure HDInsight에서 [Apache Hadoop](https://hadoop.apache.org/) 클러스터를 관리 하는 방법에 대해 알아봅니다. HDInsight PowerShell cmdlet의 목록은 [Az. hdinsight 참조](https://docs.microsoft.com/powershell/module/az.hdinsight)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
@@ -89,7 +89,7 @@ HDInsight에서 지원되는 클러스터의 각 형식에 대한 데이터 노�
 
     Storm 웹 UI는 HDInsight 클러스터에서 제공됩니다.
 
-    ![HDInsight Storm 규모 균형 재조정](./media/hdinsight-administer-use-powershell/hdinsight.portal.scale.cluster.png)
+    ![HDInsight Storm 규모 균형 재조정](./media/hdinsight-administer-use-powershell/portal-scale-cluster.png)
 
     다음은 CLI 명령을 사용하여 Storm 토폴로지 균형을 다시 조정하는 방법의 예입니다.
 
@@ -206,7 +206,7 @@ $resourceGroupName = $cluster.ResourceGroup
 
 [HDInsight에 데이터 업로드를](hdinsight-upload-data.md)참조 하세요.
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 
 * [HDInsight Cmdlet 참조 설명서](https://msdn.microsoft.com/library/azure/dn479228.aspx)
 * [Azure Portal을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리](hdinsight-administer-use-portal-linux.md)

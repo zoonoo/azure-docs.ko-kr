@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: ea896697c8f6986c4c77f3ce86a62947d9a3327e
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: e4d961603ab0ade1bb175161fffd7f085a1f644b
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861399"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934093"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Azure Blob 저장소 수명 주기 관리
 
@@ -54,7 +54,7 @@ ms.locfileid: "70861399"
 이 문서에서는 포털 및 PowerShell 메서드를 사용 하 여 정책을 관리 하는 방법을 보여 줍니다.  
 
 > [!NOTE]
-> 스토리지 계정에 방화벽 규칙을 사용하도록 설정하면 수명 주기 관리 요청이 차단될 수 있습니다. 예외를 제공하여 이러한 요청을 차단 해제할 수 있습니다. 필요한 바이패스 `AzureServices`는입니다. 자세한 내용은 [방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)의 예외 섹션을 참조하세요.
+> 스토리지 계정에 방화벽 규칙을 사용하도록 설정하면 수명 주기 관리 요청이 차단될 수 있습니다. 신뢰할 수 있는 Microsoft 서비스에 대 한 예외를 제공 하 여 이러한 요청의 차단을 해제할 수 있습니다. 자세한 내용은 [방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)의 예외 섹션을 참조하세요.
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -293,7 +293,7 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 
 수명 주기 관리는 blob의 계층화 및 삭제와 blob 스냅숏 삭제를 지원 합니다. Blob 또는 Blob 스냅샷에 대한 각 규칙에 하나 이상의 작업을 정의합니다.
 
-| 동작        | 기본 Blob                                   | 스냅숏      |
+| 작업        | 기본 Blob                                   | 스냅숏      |
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | 현재 핫 계층에서 Blob을 지원합니다.         | 지원되지 않음 |
 | tierToArchive | 현재 핫 또는 쿨 계층에서 Blob을 지원합니다. | 지원되지 않음 |

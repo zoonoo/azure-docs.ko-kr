@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: gwallace
-ms.openlocfilehash: 19aa0877c7c37083a6206e094aced40542d0ef72
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c4028ff4fef5472ba2a964f70db6d4fe11eeaba6
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092676"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918806"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링
 
@@ -49,7 +49,7 @@ Azure PowerShell cmdlet, Azure CLI 스크립트, ARM 템플릿 또는 Azure Port
 
 다운로드 가능한 구성은 예로 든 것일 뿐입니다. 사용자 요구 사항에 맞게 수정합니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>전제 조건
 
 * **Azure Linux 에이전트 버전 2.2.0 이상**. 대부분의 Azure VM Linux 갤러리 이미지에는 2.2.7 이후 버전이 포함되어 있습니다. VM에 설치된 버전을 확인하려면 `/usr/sbin/waagent -version`을 실행합니다. VM이 게스트 에이전트의 이전 버전을 실행 중인 경우 [이 지침](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)에 따라 업데이트합니다.
 * **Azure CLI** 머신에 [Azure CLI 환경을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다.
@@ -59,10 +59,10 @@ Azure PowerShell cmdlet, Azure CLI 스크립트, ARM 템플릿 또는 Azure Port
 
 ### <a name="sample-installation"></a>샘플 설치
 
-처음 세 줄에 올바른 매개 변수를 입력한 다음 루트로 이 스크립트를 실행합니다.
+실행 하기 전에 첫 번째 섹션의 변수에 대해 올바른 값을 입력 합니다.
 
 ```bash
-# Set your Azure VM diagnostic parameters correctly below
+# Set your Azure VM diagnostic variables correctly below
 my_resource_group=<your_azure_resource_group_name_containing_your_azure_linux_vm>
 my_linux_vm=<your_azure_linux_vm_name>
 my_diagnostic_storage_account=<your_azure_storage_account_for_storing_vm_diagnostic_data>

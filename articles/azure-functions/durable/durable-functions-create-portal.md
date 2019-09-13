@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: glenga
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 520579334d88bbab8ac28df7e446879aa9736248
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b765e7a03f84211d4a86c4242e9484b3517c95f9
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098199"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933555"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Azure Portal을 사용하는 Durable Functions 만들기
 
@@ -139,4 +139,4 @@ JavaScript Durable Functions를 만드는 경우 [`durable-functions` npm 패키
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [일반적인 지속성 함수 패턴에 대해 알아보기](durable-functions-concepts.md)
+> [일반적인 지속성 함수 패턴에 대해 알아보기](durable-functions-overview.md#application-patterns)

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: c6f55b40b3ee077b81a3cdd6f3add7a2cad23f95
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 226a3b0ffa4b770d1738e69fd04592476b9f4075
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70809932"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70935228"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>스크립트 작업을 사용 하 여 Azure HDInsight 클러스터 사용자 지정
 
@@ -165,11 +165,11 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 3. __고급 설정__ 섹션에서 __스크립트 작업__을 선택합니다. __스크립트 동작__ 섹션에서 __+ 새로운 항목 제출__을 선택합니다.
 
-    ![새 스크립트 작업 제출](./media/hdinsight-hadoop-customize-cluster-linux/add-script-action.png)
+    ![새 스크립트 작업 제출](./media/hdinsight-hadoop-customize-cluster-linux/add-new-script-action.png)
 
 4. __스크립트 선택__ 항목을 사용하여 미리 만들어져 있는 스크립트를 선택합니다. 사용자 지정 스크립트를 사용하려면 __사용자 지정__을 선택합니다. 그런 다음, 스크립트에 대한 __이름__ 및 __Bash 스크립트 URI__를 제공합니다.
 
-    ![엄선된 스크립트 양식에서 스크립트 추가](./media/hdinsight-hadoop-customize-cluster-linux/select-script.png)
+    ![엄선된 스크립트 양식에서 스크립트 추가](./media/hdinsight-hadoop-customize-cluster-linux/hdinsight-select-script.png)
 
     다음 표에서는 양식의 요소에 대해 설명합니다.
 
@@ -185,7 +185,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 5. __만들기__를 선택하여 스크립트를 저장합니다. 그런 다음, __+ 새로운 항목 제출__을 사용하여 다른 스크립트를 추가할 수 있습니다.
 
-    ![여러 스크립트 작업](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts.png)
+    ![여러 스크립트 작업](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts-actions.png)
 
     스크립트 추가가 완료되면 __선택__, __다음__ 단추를 차례로 선택하여 __클러스터 요약__ 섹션으로 돌아갑니다.
 
@@ -251,7 +251,7 @@ HDInsight .NET SDK는 .NET 애플리케이션에서 HDInsight를 더 쉽게 사�
 
 4. __스크립트 선택__ 항목을 사용하여 미리 만들어져 있는 스크립트를 선택합니다. 사용자 지정 스크립트를 사용하려면 __사용자 지정__을 선택합니다. 그런 다음, 스크립트에 대한 __이름__ 및 __Bash 스크립트 URI__를 제공합니다.
 
-    ![엄선된 스크립트 양식에서 스크립트 추가](./media/hdinsight-hadoop-customize-cluster-linux/select-script.png)
+    ![엄선된 스크립트 양식에서 스크립트 추가](./media/hdinsight-hadoop-customize-cluster-linux/hdinsight-select-script.png)
 
     다음 표에서는 양식의 요소에 대해 설명합니다.
 
@@ -310,7 +310,7 @@ HDInsight .NET SDK는 .NET 애플리케이션에서 HDInsight를 더 쉽게 사�
 
     이 명령에 대한 매개 변수를 생략하면 해당 매개 변수를 요구하는 메시지가 표시됩니다. `-u`를 사용하여 지정한 스크립트에서 매개 변수를 허용하는 경우 `-p` 매개 변수를 사용하여 지정할 수 있습니다.
 
-    유효한 노드 형식은 `headnode`, `workernode` 및 `zookeeper`입니다. 스크립트를 여러 노드 유형에 적용해야 하는 경우 세미콜론(`;`)으로 구분하여 형식을 지정합니다. [http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest](`-n headnode;workernode`)을 입력합니다.
+    유효한 노드 형식은 `headnode`, `workernode` 및 `zookeeper`입니다. 스크립트를 여러 노드 유형에 적용해야 하는 경우 세미콜론(`;`)으로 구분하여 형식을 지정합니다. 예를 들어, `-n headnode;workernode`을 입력합니다.
 
     스크립트를 유지하려면 `--persistOnSuccess`를 추가합니다. 나중에 `azure hdinsight script-action persisted set`을(를) 사용하여 스크립트를 지속할 수도 있습니다.
 
@@ -356,7 +356,7 @@ HDInsight .NET SDK는 .NET 애플리케이션에서 HDInsight를 더 쉽게 사�
 
 6. 스크립트 동작 섹션에 있는 항목의 오른쪽에서 줄임표( **...** )를 선택하여 해당 동작을 수행할 수도 있습니다.
 
-    ![스크립트 동작, 줄임표](./media/hdinsight-hadoop-customize-cluster-linux/deletepromoted.png)
+    ![스크립트 동작, 줄임표](./media/hdinsight-hadoop-customize-cluster-linux/hdi-delete-promoted-sa.png)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -438,11 +438,11 @@ Ambari 웹 UI를 사용하여 스크립트 동작에서 기록한 정보를 볼 
 
 2. 페이지 위쪽의 모음에서 **작업** 항목을 선택합니다. Ambari를 통해 클러스터에서 수행된 현재 및 이전 작업이 목록에 표시됩니다.
 
-    ![선택한 작업으로 Ambari 웹 UI 모음](./media/hdinsight-hadoop-customize-cluster-linux/ambari-nav.png)
+    ![선택한 작업으로 Ambari 웹 UI 모음](./media/hdinsight-hadoop-customize-cluster-linux/hdi-apache-ambari-nav.png)
 
 3. **작업** 열에 **run\_customscriptaction**이 있는 항목을 찾습니다. 이러한 항목을 스크립트 동작을 실행할 때 생성됩니다.
 
-    ![작업의 스크린샷](./media/hdinsight-hadoop-customize-cluster-linux/ambariscriptaction.png)
+    ![작업의 스크린샷](./media/hdinsight-hadoop-customize-cluster-linux/ambari-script-action.png)
 
     **STDOUT** 및 **STDERR** 출력을 보려면 **run\customscriptaction** 항목을 선택하고 링크를 통해 드릴다운합니다. 이 출력은 스크립트가 실행될 때 생성되며, 여기에는 유용한 정보가 있을 수 있습니다.
 
@@ -452,7 +452,7 @@ Ambari 웹 UI를 사용하여 스크립트 동작에서 기록한 정보를 볼 
 
 * 스토리지 로그는 `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`에서 지원됩니다.
 
-    ![스크립트 동작 로그](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
+    ![스크립트 동작 로그](./media/hdinsight-hadoop-customize-cluster-linux/script-action-logs-in-storage.png)
 
     이 디렉터리에서 로그는 **헤드 노드**, **작업자 노드** 및 **Zookeeper 노드**에 대해 별도로 구성됩니다. 다음 예를 참조하십시오.
 
@@ -520,4 +520,4 @@ SSH를 사용하여 클러스터에 연결하는 방법에 대한 자세한 내�
 * [HDInsight 클러스터에 Apache Giraph 설치 및 사용](hdinsight-hadoop-giraph-install-linux.md)
 * [HDInsight 클러스터에 추가 스토리지 추가](hdinsight-hadoop-add-storage.md)
 
-[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "클러스터를 만드는 동안의 단계"
+[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/cluster-provisioning-states.png "클러스터를 만드는 동안의 단계"

@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 8d058c55eab3d161e625d7d4ca3ef53b36497e00
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: cda974a71c0d24bda9422fb8444fbf4dec0088f9
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814083"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885112"
 ---
-# <a name="optimize-apache-spark-jobs"></a>Apache Spark 작업 최적화
+# <a name="optimize-apache-spark-jobs-in-hdinsight"></a>HDInsight에서 Apache Spark 작업 최적화
 
 특정 워크로드에 대해 [Apache Spark](https://spark.apache.org/) 클러스터 구성을 최적화하는 방법에 대해 알아봅니다.  가장 일반적인 문제는 부적절한 구성(특히 크기가 틀린 실행기), 장기 실행 작업, 카티전 작업으로 이어지는 작업으로 인한 메모리 압력입니다. 적절한 캐싱을 사용하고 [데이터 기울이기](#optimize-joins-and-shuffles)를 허용하여 작업 속도를 높일 수 있습니다. 최고의 성능을 얻기 위해 장기 실행 및 리소스 소모 Spark 작업 실행을 모니터링하고 검토합니다.
 

@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: aedaa194a9667f1b89a3370c39c74424f2d01734
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 0cedc9ede43d18d0b94b8a516170db53e3a27910
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208080"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885640"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>데이터 과학 Virtual Machine에서 지원되는 언어 
 
@@ -48,183 +48,189 @@ DSVM (Data Science Virtual Machine)은 AI (인공 지능) 응용 프로그램을
     # To run Python 3.6
     activate 
     python --version 
-* Use in an IDE:
+    ```
+    
+* IDE에서 사용:
 
-  Use Python Tools for Visual Studio (PTVS), installed in the Visual Studio Community edition. By default, the only environment that's set up automatically in PTVS is Python 3.6. 
+  Visual Studio Community edition에 설치 된 PTVS (Visual Studio용 Python 도구)를 사용 합니다. 기본적으로 PTVS에서 자동으로 설정 되는 유일한 환경은 Python 3.6입니다. 
 
     > [!NOTE]
-    > To point PTVS at Python 2.7, you must create a  custom environment in PTVS. To set this environment path in the Visual Studio  Community Edition, go to **Tools** -> **Python Tools** -> **Python Environments** and select **+ Custom**. Then, set the location to **c:\anaconda\envs\python2** and select **Auto Detect**.
+    > PTVS에서 Python 2.7을 가리키도록 하려면 PTVS에서 사용자 지정 환경을 만들어야 합니다. Visual Studio Community Edition에서이 환경 경로를 설정 하려면 **도구** -> **python 도구** -> **python 환경** 으로 이동한 다음 **+ 사용자 지정**을 선택 합니다. 그런 다음 위치를 **c:\anaconda\envs\python2** 로 설정 하 고 **자동 검색**을 선택 합니다.
 
-* Use in Jupyter:
+* Jupyter에서 사용:
 
-  Open Jupyter and select **New** to create a new notebook. You can set the kernel type as _Python [Conda Root]_ for Python 3.6 and _Python [Conda env:python2]_ for Python 2.7.
+  Jupyter를 열고 **새로** 만들기를 선택 하 여 새 노트북을 만듭니다. 커널 형식은 python 3.6에 대해 python _[Conda Root]_ 로 설정 하 고 python 2.7의 경우 Python _[Conda env: python2]_ 로 설정할 수 있습니다.
 
-* Install Python packages:
+* Python 패키지 설치:
 
-  The default Python environments on the DSVM are global environments that are readable by all users. But only administrators can write and install global packages. To install packages to the global environment, activate to the root or python2 environment by using the `activate` command as an administrator. Then, you can use a package manager like `conda` or `pip` to install or update packages.
+  DSVM의 기본 Python 환경은 모든 사용자가 읽을 수 있는 전역 환경입니다. 하지만 관리자만 전역 패키지를 작성 하 고 설치할 수 있습니다. 전역 환경에 패키지를 설치 하려면 관리자 권한으로 `activate` 명령을 사용 하 여 root 또는 python2 환경을 활성화 합니다. 그런 다음 또는 `conda` `pip` 와 같은 패키지 관리자를 사용 하 여 패키지를 설치 하거나 업데이트할 수 있습니다.
 
-## Python (Linux and Windows Server 2012 edition)
+## <a name="python-linux-and-windows-server-2012-edition"></a>Python (Linux 및 Windows Server 2012 버전)
 
 |    |           |
 | ------------- | ------------- |
-| Language versions supported | Python 2.7 and 3.5 |
-| Supported DSVM editions      | Linux, Windows Server 2012    |
-| How is it configured / installed on the DSVM?  | Two global `conda` environments are created: <br /> * `root` environment located at `/anaconda/` is Python 2.7. <br/> * `py35` environment located at `/anaconda/envs/py35`is Python 3.5.       |
-| Links to samples      | Sample Jupyter notebooks for Python are included.     |
-| Related tools on the DSVM      | PySpark, R, Julia      |
-### How to use and run it    
+| 지원 되는 언어 버전 | Python 2.7 및 3.5 |
+| 지원 되는 DSVM 버전      | Linux, Windows Server 2012    |
+| DSVM에 구성/설치 방법  | 두 개의 `conda` 글로벌 환경을 만듭니다. <br /> * `root`에 `/anaconda/` 있는 환경은 Python 2.7입니다. <br/> * `py35`에 `/anaconda/envs/py35`있는 환경은 Python 3.5입니다.       |
+| 샘플에 대한 링크      | Python 용 샘플 Jupyter 노트북이 포함 되어 있습니다.     |
+| DSVM의 관련 도구      | PySpark, R, Julia      |
+### <a name="how-to-use-and-run-it"></a>사용 및 실행 방법    
 
 **Linux**
-* Run in a terminal:
+* 터미널에서 실행:
 
-  Open the terminal and do one of the following, depending on the version of Python you want to run:
+  터미널을 열고 실행 하려는 Python 버전에 따라 다음 중 하나를 수행 합니다.
 
     ```
-    # <a name="to-run-python-27"></a>Python 2.7를 실행 하려면
-    원본 활성화 python--버전
+    # To run Python 2.7
+    source activate 
+    python --version
     
-    # <a name="to-run-python-35"></a>Python 3.5를 실행 하려면
-    원본 활성화 py35 python--버전
+    # To run Python 3.5
+    source activate py35
+    python --version
     
     ```
-* Use in an IDE:
+* IDE에서 사용:
 
-  Use PyCharm, installed in the Visual Studio Community edition. 
+  Visual Studio Community edition에 설치 된 PyCharm를 사용 합니다. 
 
-* Use in Jupyter:
+* Jupyter에서 사용:
 
-  Open Jupyter and select **New** to create a new notebook. You can set the kernel type as **Python [Conda Root]** for Python 2.7 and **Python [Conda env:py35]** for the Python 3.5 environment. 
+  Jupyter를 열고 **새로** 만들기를 선택 하 여 새 노트북을 만듭니다. Python 3.5 환경에 대해 python 2.7 및 **python [Conda env: py35]** 에 대해 커널 유형을 **Python [Conda Root]** 로 설정할 수 있습니다. 
 
-* Install Python packages:
+* Python 패키지 설치:
 
-  The default Python environments on the DSVM are global environments readable by all users. But only administrators can write and install global packages. To install packages to the global environment, activate to the root or py35 environment by using the `source activate` command as an administrator or as a user with sudo permissions. Then, you can use a package manager like `conda` or `pip` to install or update packages.
+  DSVM의 기본 Python 환경은 모든 사용자가 읽을 수 있는 전역 환경입니다. 하지만 관리자만 전역 패키지를 작성 하 고 설치할 수 있습니다. 전역 환경에 패키지를 설치 하려면 관리자 권한으로 `source activate` 명령을 사용 하거나 sudo 권한이 있는 사용자로 사용 하 여 root 또는 py35 환경을 활성화 합니다. 그런 다음 또는 `conda` `pip` 와 같은 패키지 관리자를 사용 하 여 패키지를 설치 하거나 업데이트할 수 있습니다.
 
 **Windows 2012**
-* Run at a command prompt:
+* 명령 프롬프트에서를 실행 합니다.
 
-  Open a command prompt and do one of the following, depending on the version of Python you want to run:
+  명령 프롬프트를 열고 실행 하려는 Python 버전에 따라 다음 중 하나를 수행 합니다.
 
      ```
-    # <a name="to-run-python-27"></a>Python 2.7를 실행 하려면
-    python 활성화--버전
+    # To run Python 2.7
+    activate 
+    python --version
     
-    # <a name="to-run-python-35"></a>Python 3.5를 실행 하려면
-    py35 python 활성화--버전
+    # To run Python 3.5
+    activate py35
+    python --version
     
     ```
-* Use in an IDE:
+* IDE에서 사용:
 
-  Use Python Tools for Visual Studio (PTVS) installed in the Visual Studio Community edition. The only environment that's set up automatically in PTVS is Python 2.7.
+  Visual Studio Community Edition에 설치된 PTVS(Visual Studio용 Python Tools)를 사용합니다. PTVS에서 자동으로 설정 되는 유일한 환경은 Python 2.7입니다.
     > [!NOTE]
-    > To point PTVS at Python 3.5, you need to create a custom environment in PTVS. To set this environment path in the Visual Studio Community edition, go to **Tools** -> **Python Tools** -> **Python Environments** and select **+ Custom**. Then, set the location to `c:\anaconda\envs\py35` and select _Auto Detect_.
+    > PTVS에서 Python 3.5을 가리키도록 하려면 PTVS에서 사용자 지정 환경을 만들어야 합니다. Visual Studio Community edition에서이 환경 경로를 설정 하려면 **도구** -> **python 도구** -> **python 환경** 으로 이동한 다음 **+ 사용자 지정**을 선택 합니다. 그런 다음 위치를로 `c:\anaconda\envs\py35` 설정 하 고 _자동 검색_을 선택 합니다.
 
-* Use in Jupyter:
+* Jupyter에서 사용:
 
-  Open Jupyter and select **New** to create a new notebook. You can set the kernel type as **Python [Conda Root]** for Python 2.7 and **Python [Conda env:py35]** for Python 3.5. 
+  Jupyter를 열고 **새로** 만들기를 선택 하 여 새 노트북을 만듭니다. 커널 형식은 python 2.7에 대해 python **[Conda Root]** 로 설정 하 고 python 3.5의 경우 Python **[Conda env: py35]** 로 설정할 수 있습니다. 
 
-* Install Python packages:
+* Python 패키지 설치:
 
-  The default Python environments on the DSVM are global environments that are readable by all users. But only administrators can write and install global packages. To install packages to the global environment, activate to the root or py35 environment by using the `activate` command as an administrator. Then, you can use a package manager like `conda` or `pip` to install or update packages.
+  DSVM의 기본 Python 환경은 모든 사용자가 읽을 수 있는 전역 환경입니다. 하지만 관리자만 전역 패키지를 작성 하 고 설치할 수 있습니다. 전역 환경에 패키지를 설치 하려면 관리자 권한으로 `activate` 명령을 사용 하 여 root 또는 py35 환경을 활성화 합니다. 그런 다음 또는 `conda` `pip` 와 같은 패키지 관리자를 사용 하 여 패키지를 설치 하거나 업데이트할 수 있습니다.
 
-## R
-
-|    |           |
-| ------------- | ------------- |
-| Language versions supported | Microsoft R Open 3.x (100% compatible with CRAN-R)<br /> Microsoft R Server 9.x Developer edition (a scalable enterprise-ready R platform)|
-| Supported DSVM editions      | Linux, Windows     |
-| How is it configured / installed on the DSVM?  | Windows: `C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux: `/usr/lib64/microsoft-r/3.3/lib64/R`    |
-| Links to samples      | Sample Jupyter notebooks for R are included.     |
-| Related tools on the DSVM      | SparkR, Python, Julia      |
-### How to use and run it    
-
-**Windows**:
-
-* Run at a command prompt:
-
-  Open a command prompt and type `R`.
-
-* Use in an IDE:
-
-  Use RTools for Visual Studio (RTVS) installed in the Visual Studio Community edition or RStudio. These are available on the Start menu or as a desktop icon. 
-
-* Use in Jupyter
-
-  Open Jupyter and select **New** to create a new notebook. You can set the kernel type as **R** to use the Jupyter R kernel (IRKernel).
-
-* Install R packages:
-
-  R is installed on the DSVM in a global environment that's readable by all users. But only administrators can write and install global packages. To install packages to the global environment, run R by using one of the preceding methods. Then, you can run the R package manager `install.packages()` to install or update packages.
-
-**Linux**:
-
-* Run in terminal:
-
-  Open a terminal and run `R`.  
-
-* Use in an IDE:
-
-  Use RStudio, installed on the Linux DSVM.  
-
-* Use in Jupyter:
-
-  Open Jupyter and select **New** to create a new notebook. You can set the kernel type as **R** to use the Jupyter R kernel (IRKernel). 
-
-* Install R packages:
-
-  R is installed on the DSVM in a global environment that's readable by all users. But only administrators can write and install global packages. To install packages to the global environment, run R by using one of the preceding methods. Then, you can run the R package manager `install.packages()` to install or update packages.
-
-
-## Julia
+## <a name="r"></a>R
 
 |    |           |
 | ------------- | ------------- |
-| Language versions supported | 0.6 |
-| Supported DSVM editions      | Linux, Windows     |
-| How is it configured / installed on the DSVM?  | Windows: Installed at `C:\JuliaPro-VERSION`<br /> Linux: Installed at `/opt/JuliaPro-VERSION`    |
-| Links to samples      | Sample Jupyter notebooks for Julia are included.     |
-| Related tools on the DSVM      | Python, R      |
-### How to use and run it    
+| 지원 되는 언어 버전 | Microsoft R Open 3(sp3) (100%와 CRAN-R 호환)<br /> Microsoft R Server 8.x Developer edition (확장성 있는 엔터프라이즈급 R 플랫폼)|
+| 지원 되는 DSVM 버전      | Linux, Windows     |
+| DSVM에 구성/설치 방법  | Windows: `C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux: `/usr/lib64/microsoft-r/3.3/lib64/R`    |
+| 샘플에 대한 링크      | R에 대 한 샘플 Jupyter 노트북이 포함 되어 있습니다.     |
+| DSVM의 관련 도구      | SparkR, Python, Julia      |
+### <a name="how-to-use-and-run-it"></a>사용 및 실행 방법    
 
 **Windows**:
 
-* Run at a command prompt
+* 명령 프롬프트에서를 실행 합니다.
 
-  Open a command prompt and run `julia`.
-* Use in an IDE:
+  명령 프롬프트를 열고을 입력 `R`합니다.
 
-  Use `Juno` with the Julia IDE installed on the DSVM and available as a desktop shortcut.
+* IDE에서 사용:
 
-* Use in Jupyter:
+  Visual Studio Community Edition 또는 RStudio에 설치된 RTVS(Visual Studio용 RTools)를 사용합니다. 이러한 도구는 시작 메뉴 또는 바탕 화면 아이콘에서 사용할 수 있습니다. 
 
-  Open Jupyter and select **New** to create a new notebook. You can set the kernel type as **Julia VERSION**.
+* Jupyter에서 사용
 
-* Install Julia packages:
+  Jupyter를 열고 **새로** 만들기를 선택 하 여 새 노트북을 만듭니다. 커널 유형을 **R** 로 설정 하 여 Jupyter r 커널 (irkernel)을 사용할 수 있습니다.
 
-  The default Julia location is a global environment that's readable by all users. But only administrators can write and install global packages. To install packages to the global environment, run Julia by using one of the preceding methods. Then, you can run Julia package manager commands like `Pkg.add()` to install or update packages.
+* R 패키지 설치:
+
+  R은 모든 사용자가 읽을 수 있는 전역 환경에서 DSVM에 설치 됩니다. 하지만 관리자만 전역 패키지를 작성 하 고 설치할 수 있습니다. 전역 환경에 패키지를 설치 하려면 위의 방법 중 하나를 사용 하 여 R을 실행 합니다. 그런 다음 R 패키지 관리자 `install.packages()` 를 실행 하 여 패키지를 설치 하거나 업데이트할 수 있습니다.
+
+**Linux**:
+
+* 터미널에서 실행:
+
+  터미널을 열고를 실행 `R`합니다.  
+
+* IDE에서 사용:
+
+  Linux DSVM에 설치 된 RStudio를 사용 합니다.  
+
+* Jupyter에서 사용:
+
+  Jupyter를 열고 **새로** 만들기를 선택 하 여 새 노트북을 만듭니다. 커널 유형을 **R** 로 설정 하 여 Jupyter r 커널 (irkernel)을 사용할 수 있습니다. 
+
+* R 패키지 설치:
+
+  R은 모든 사용자가 읽을 수 있는 전역 환경에서 DSVM에 설치 됩니다. 하지만 관리자만 전역 패키지를 작성 하 고 설치할 수 있습니다. 전역 환경에 패키지를 설치 하려면 위의 방법 중 하나를 사용 하 여 R을 실행 합니다. 그런 다음 R 패키지 관리자 `install.packages()` 를 실행 하 여 패키지를 설치 하거나 업데이트할 수 있습니다.
+
+
+## <a name="julia"></a>Julia
+
+|    |           |
+| ------------- | ------------- |
+| 지원 되는 언어 버전 | 0.6 |
+| 지원 되는 DSVM 버전      | Linux, Windows     |
+| DSVM에 구성/설치 방법  | Windows: `C:\JuliaPro-VERSION`에 설치됨<br /> Linux: `/opt/JuliaPro-VERSION`에 설치됨    |
+| 샘플에 대한 링크      | 줄리아 용 샘플 Jupyter 노트북이 포함 되어 있습니다.     |
+| DSVM의 관련 도구      | Python, R      |
+### <a name="how-to-use-and-run-it"></a>사용 및 실행 방법    
+
+**Windows**:
+
+* 명령 프롬프트에서 실행
+
+  명령 프롬프트를 열고를 실행 `julia`합니다.
+* IDE에서 사용:
+
+  Dsvm에 설치 되 고 바탕 화면 바로 가기로 사용할 수 있는 줄리아 IDE와 함께 사용 `Juno` 합니다.
+
+* Jupyter에서 사용:
+
+  Jupyter를 열고 **새로** 만들기를 선택 하 여 새 노트북을 만듭니다. 커널 유형을 **줄리아 버전**으로 설정할 수 있습니다.
+
+* 줄리아 패키지 설치:
+
+  기본 줄리아 위치는 모든 사용자가 읽을 수 있는 전역 환경입니다. 하지만 관리자만 전역 패키지를 작성 하 고 설치할 수 있습니다. 전역 환경에 패키지를 설치 하려면 위의 방법 중 하나를 사용 하 여 줄리아를 실행 합니다. 그런 다음,와 같은 `Pkg.add()` 줄리아 패키지 관리자 명령을 실행 하 여 패키지를 설치 하거나 업데이트할 수 있습니다.
 
 
 **Linux**:
-* Run in a terminal:
+* 터미널에서 실행:
 
-  Open a terminal and run `julia`.
-* Use in an IDE:
+  터미널을 열고를 실행 `julia`합니다.
+* IDE에서 사용:
 
-  Use `Juno`, with the Julia IDE installed on the DSVM and available as an **Application** menu shortcut.
+  Dsvm에 설치 되 고 `Juno` **응용 프로그램** 메뉴 바로 가기로 사용할 수 있는 줄리아 IDE와 함께를 사용 합니다.
 
-* Use in Jupyter:
+* Jupyter에서 사용:
 
-  Open Jupyter and select **New** to create a new notebook. You can set the kernel type as **Julia VERSION**.
+  Jupyter를 열고 **새로** 만들기를 선택 하 여 새 노트북을 만듭니다. 커널 유형을 **줄리아 버전**으로 설정할 수 있습니다.
 
-* Install Julia packages:
+* 줄리아 패키지 설치:
 
-  The default Julia location is a global environment that's readable by all users. But only administrators can write and install global packages. To install packages to the global environment, run Julia by using one of the preceding methods. Then, you can run Julia package manager commands like `Pkg.add()` to install or update packages.
+  기본 줄리아 위치는 모든 사용자가 읽을 수 있는 전역 환경입니다. 하지만 관리자만 전역 패키지를 작성 하 고 설치할 수 있습니다. 전역 환경에 패키지를 설치 하려면 위의 방법 중 하나를 사용 하 여 줄리아를 실행 합니다. 그런 다음,와 같은 `Pkg.add()` 줄리아 패키지 관리자 명령을 실행 하 여 패키지를 설치 하거나 업데이트할 수 있습니다.
 
-## Other languages
+## <a name="other-languages"></a>기타 언어
 
-**C#**: Available on Windows and accessible through the Visual Studio Community edition or at the `Developer Command Prompt for Visual Studio`, where you can run the `csc` command.
+**C#** : Windows에서 사용 가능 하며 Visual Studio Community edition 또는 `Developer Command Prompt for Visual Studio` `csc` 명령을 실행할 수 있는에서 액세스할 수 있습니다.
 
-**Java**: OpenJDK is available on both the Linux and Windows editions of the DSVM and is set on the path. To use Java, type the `javac` or `java` command at a command prompt in Windows or on the bash shell in Linux.
+**Java**: OpenJDK는 DSVM의 Linux 및 Windows 버전 둘 다에서 사용할 수 있으며 경로에 설정 됩니다. Java를 사용 하려면 Windows의 `javac` 명령 `java` 프롬프트 또는 Linux의 bash 셸에 또는 명령을 입력 합니다.
 
-**Node.js**: Node.js is available on both the Linux and Windows editions of the DSVM and is set on the path. To access Node.js, type the `node` or `npm` command at a command prompt in Windows or on the bash shell in Linux. On Windows, the Visual Studio extension for the Node.js tools is installed to provide a graphical IDE to develop your Node.js application.
+**Node.js**: Node.js는 DSVM의 Linux 및 Windows 버전 둘 다에서 사용할 수 있으며 경로에 설정 됩니다. Node.js에 액세스 하려면 Windows의 명령 프롬프트 `node` 또는 `npm` Linux의 bash 셸에 또는 명령을 입력 합니다. Windows에서 node.js 응용 프로그램을 개발 하는 그래픽 IDE를 제공 하기 위해 node.js 도구의 Visual Studio 확장을 설치 합니다.
 
-**F#**: Available on Windows and accessible through the Visual Studio Community edition or at a `Developer Command Prompt for Visual Studio`, where you can run the `fsc` command.
+**F#** : Windows에서 사용 가능 하며 Visual Studio Community edition 또는 `Developer Command Prompt for Visual Studio` `fsc` 명령을 실행할 수 있는에서 액세스할 수 있습니다.

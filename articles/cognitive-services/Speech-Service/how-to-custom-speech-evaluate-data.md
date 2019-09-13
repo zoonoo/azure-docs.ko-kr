@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: bd8bbc28247ecd924db25cb4b916d1d466065606
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 77dc50df7b46aeb6ddfddf92710d576f85492471
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562868"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801551"
 ---
 # <a name="evaluate-custom-speech-accuracy"></a>사용자 지정 음성 정확도 평가
 
@@ -51,11 +51,12 @@ ms.locfileid: "68562868"
 
 모델을 나란히 평가하려면:
 
-1. **음성-텍스트 > 사용자 지정 음성 > 테스트**로 이동합니다.
-2. **테스트 추가**를 클릭합니다.
-3. **정확도 평가**를 선택합니다. 테스트 이름, 설명을 제공하고 사용자의 오디오 + 사람 레이블 기록 데이터 집합을 선택합니다.
-4. 테스트 하려고 하는 최대 두 개의 모델을 선택합니다.
-5. **만들기**를 클릭합니다.
+1. [Custom Speech 포털](https://speech.microsoft.com/customspeech)에 로그인 합니다.
+2. **음성-텍스트 > 사용자 지정 음성 > 테스트**로 이동합니다.
+3. **테스트 추가**를 클릭합니다.
+4. **정확도 평가**를 선택합니다. 테스트 이름, 설명을 제공하고 사용자의 오디오 + 사람 레이블 기록 데이터 집합을 선택합니다.
+5. 테스트 하려고 하는 최대 두 개의 모델을 선택합니다.
+6. **만들기**를 클릭합니다.
 
 테스트가 성공적으로 생성된 후, 결과를 나란히 비교할 수 있습니다.
 

@@ -7,27 +7,27 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: tutorial
-ms.date: 07/29/2019
+ms.topic: conceptual
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 979cbe16653c09ea1b019310d820b070be4a5a91
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
-ms.translationtype: HT
+ms.openlocfilehash: a722ce39a679fa13e1fe849c46b44f786ea5ee42
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946060"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390280"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>엔터티 검색을 높이기 위한 목록 엔터티 사용 
-이 자습서에서는 엔터티 검색을 높이기 위한 [목록 엔터티](luis-concept-entity-types.md) 사용을 설명합니다. 목록 엔터티는 용어가 정확히 일치하므로 레이블을 지정할 필요가 없습니다.  
+이 문서에서는 엔터티 검색을 늘리기 위해 [목록 엔터티](luis-concept-entity-types.md) 를 사용 하는 방법을 보여 줍니다. 목록 엔터티는 용어가 정확히 일치하므로 레이블을 지정할 필요가 없습니다.  
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
 > * 목록 엔터티 만들기 
 > * 정규화된 값 및 동의어 추가
 > * 향상된 엔터티 ID의 유효성 검사
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 > [!div class="checklist"]
 > * 최신 [Node.js](https://nodejs.org)
@@ -37,7 +37,7 @@ ms.locfileid: "68946060"
 > [!Tip]
 > 아직 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)으로 등록할 수 있습니다.
 
-이 자습서의 모든 코드는 [Azure-Samples GitHub 리포지토리](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity)에서 사용할 수 있습니다. 
+이 문서의 모든 코드는 [Azure 샘플 GitHub 리포지토리에서](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity)사용할 수 있습니다. 
 
 ## <a name="use-homeautomation-app"></a>HomeAutomation 앱 사용
 HomeAutomation 앱은 조명, 엔터테인먼트 시스템 및 환경 제어(예: 냉난방)와 같은 디바이스 제어 기능을 제어합니다. 이러한 시스템은 제조업체 이름, 애칭, 머리글자어 및 속어를 포함할 수 있는 여러 개의 다른 이름이 있습니다. 
@@ -59,7 +59,7 @@ HomeAutomation.Device 엔터티는 적은 수의 디바이스 또는 이름 변�
 
 건물 또는 캠퍼스 내 디바이스에 대한 용어 집합이 알려진 집합이므로 그것이 거대한 집합인 경우라도 **목록 엔터티**는 이 시나리오에 적합합니다. 목록 엔터티를 사용하면 LUIS가 thermostat에 대한 집합에서 가능한 값을 수신하고, 단일 디바이스 “thermostat”에서 해결할 수 있습니다. 
 
-이 자습서에서는 thermostat으로 엔터티 목록을 만듭니다. 이 자습서에서 thermostat에 대한 대체 이름은 다음과 같습니다. 
+이 문서에서는 자동 온도 조절기를 사용 하 여 엔터티 목록을 만듭니다. 이 문서에서 자동 온도 조절기의 대체 이름은 다음과 같습니다. 
 
 |thermostat에 대한 대체 이름|
 |--|
@@ -212,7 +212,7 @@ node train.js
 
 두 개의 다른 발언을 시도하여 thermostat으로 반환되는지 확인합니다. 
 
-|#|발언|엔터티|형식|값|
+|#|발언|엔터티(entity)|type|value|
 |--|--|--|--|--|
 |1|turn on the ac| ac | DevicesList | Thermostat|
 |2|turn up the heat|heat| DevicesList |Thermostat|

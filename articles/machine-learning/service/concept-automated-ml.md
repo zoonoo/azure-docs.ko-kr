@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 319871280b94f54b99f7a9957f671ec50122ebf3
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: b7347be086cd9e85dda7b8271548ccb44e8114ff
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860917"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882022"
 ---
 # <a name="what-is-automated-machine-learning"></a>자동화된 Machine Learning이란?
 
@@ -98,7 +98,12 @@ AutoML이 라고도 하는 자동화 된 machine learning은 기계 학습 모�
 
 자동화 된 시간 계열 실험은 다중 변형 회귀 문제로 처리 됩니다. 이전 시간 계열 값은 다른 예측 변수와 함께 회귀 변수의 추가 차원이 되도록 "피벗" 됩니다. 클래식 시계열 메서드와 달리이 방법은 학습 중에 여러 상황별 변수와 해당 변수 간의 관계를 자연스럽 게 통합 하는 이점을 제공 합니다. 자동화 된 ML은 데이터 집합 및 예측 horizons의 모든 항목에 대해 종종 내부적으로 분기 된 단일 모델을 학습 합니다. 따라서 모델 매개 변수를 예측 하는 데 더 많은 데이터를 사용할 수 있으며 보이지 않는 시리즈에 대 한 일반화가 가능 합니다.
 
-자세한 정보 및 [시계열 예측에 대 한 자동화 된 기계 학습](how-to-auto-train-forecast.md)예를 참조 하세요.
+자세한 정보 및 [시계열 예측에 대 한 자동화 된 기계 학습](how-to-auto-train-forecast.md)예를 참조 하세요. 또는 다음을 비롯 한 고급 예측 구성의 자세한 코드 예제는 [에너지 수요 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) 을 참조 하세요.
+
+* 휴일 검색 및 기능화
+* 롤링 원본 교차 유효성 검사
+* 구성 가능한 지연
+* 창 롤링 집계 기능
 
 ## <a name="ensemble"></a>앙상블 모델
 

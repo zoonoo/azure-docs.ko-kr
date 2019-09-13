@@ -1,19 +1,19 @@
 ---
 title: .NET를 사용하여 Apache Hadoop 클러스터 만들기 - Azure HDInsight
 description: HDInsight .NET SDK를 사용하여 HDInsight용 Linux에서 Apache Hadoop, Apache HBase, Apache Storm 또는 Apache Spark 클러스터를 만드는 방법을 알아봅니다.
-author: mamccrea
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/16/2018
-ms.author: mamccrea
-ms.openlocfilehash: d560c61339bd608ab9385f99583613526156ca41
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.author: hrasheed
+ms.openlocfilehash: fccb29167dc04bf75a85935eeb57b0420b151f64
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508064"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916496"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>.NET SDK를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
 
@@ -27,7 +27,7 @@ ms.locfileid: "67508064"
 >
 > 노드 크기 및 관련된 비용에 대한 자세한 내용은 [HDInsight 가격 책정](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -185,7 +185,7 @@ ms.locfileid: "67508064"
     ```
 
 6. 클래스 멤버 값을 대체합니다.
-7. **F5** 키를 눌러 애플리케이션을 실행합니다. 콘솔 창이 열리고 애플리케이션의 상태가 표시되며 또한 Azure 계정 자격 증명을 입력하라는 메시지가 표시됩니다. Azure 계정 자격 증명을 입력하라는 메시지가 표시됩니다. 일반적으로 15분 정도입니다.
+7. **F5** 키를 눌러 응용 프로그램을 실행합니다. 콘솔 창이 열리고 애플리케이션의 상태가 표시되며 또한 Azure 계정 자격 증명을 입력하라는 메시지가 표시됩니다. Azure 계정 자격 증명을 입력하라는 메시지가 표시됩니다. 일반적으로 15분 정도입니다.
 
 ## <a name="use-bootstrap"></a>부트스트랩 사용
 

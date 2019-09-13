@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: e6e1014ac20ef70f21344ec6ece5627eccb7ba66
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 421e88374a4ca03311fa77a6568a676aa9ffafa5
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "67148442"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70919708"
 ---
 다음은 Azure AD(Azure Active Directory) 서비스에 대한 사용 제약 조건 및 기타 서비스 제한입니다.
 
@@ -26,7 +26,7 @@ ms.locfileid: "67148442"
 | 애플리케이션 |최대 100명의 사용자가 단일 애플리케이션의 소유자가 될 수 있습니다. |
 | 그룹 |<ul><li>최대 100명의 사용자가 단일 그룹의 소유자가 될 수 있습니다.</li><li>단일 그룹의 멤버가 될 수 있는 개체의 수는 제한이 없습니다.</li><li>사용자는 모든 그룹의 멤버가 될 수 있습니다.</li><li>Azure AD Connect를 사용하여 온-프레미스 Active Directory에서 Azure Active Directory로 동기화할 수 있는 그룹 내 멤버 수는 50,000으로 제한됩니다.</li></ul> |
 | 응용 프로그램 프록시 | <ul><li>앱 프록시 응용 프로그램당 초당 최대 500 개의 트랜잭션</li><li>테 넌 트의 초당 최대 750 개의 트랜잭션</li></ul><br/>트랜잭션은 단일 http 요청 및 고유 리소스에 대 한 응답으로 정의 됩니다. 제한 되는 경우 클라이언트는 429 응답 (너무 많은 요청)을 수신 합니다. |
-| 액세스 패널 |<ul><li>사용자당 액세스 패널에서 볼 수 있는 애플리케이션의 수는 제한이 없습니다. 이는 Azure AD Premium 또는 Enterprise Mobility Suite용 라이선스가 할당된 사용자에게 적용됩니다.</li><li>각 사용자는 액세스 패널에서 최대 10개의 앱 타일을 볼 수 있습니다. 이러한 제한은 Azure Active Directory의 무료 또는 Azure AD 기본 버전용 라이선스가 할당된 사용자에게 적용됩니다. 앱 타일의 예로는 Box, Salesforce 또는 Dropbox가 있습니다. 관리자 계정에는 이 제한이 적용되지 않습니다.</li></ul> |
+| 액세스 패널 |<ul><li>사용자당 액세스 패널에서 볼 수 있는 애플리케이션의 수는 제한이 없습니다. 이는 Azure AD Premium 또는 Enterprise Mobility Suite용 라이선스가 할당된 사용자에게 적용됩니다.</li><li>각 사용자는 액세스 패널에서 최대 10개의 앱 타일을 볼 수 있습니다. 이 제한은 Azure AD Free 라이선스 계획에 대 한 라이선스가 할당 된 사용자에 게 적용 됩니다. 앱 타일의 예로는 Box, Salesforce 또는 Dropbox가 있습니다. 관리자 계정에는 이 제한이 적용되지 않습니다.</li></ul> |
 | 보고서 | 최대 1,000행을 표시하거나 보고서에 다운로드할 수 있습니다. 그 외의 데이터는 잘립니다. |
 | 관리 단위 | 개체는 30개 이하 관리 단위의 멤버일 수 있습니다. |
 | 관리자 역할 및 권한 | <ul><li>그룹을 [소유자로](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership)추가할 수 없습니다.</li><li>그룹을 [역할](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)에 할당할 수 없습니다.</li><li>모든 디렉터리 정보에 대 한 관리자가 아닌 사용자의 모든 액세스를 사용 하지 않도록 설정 하기 위해 다른 사용자의 디렉터리 정보를 읽는 기능을 테 넌 트 전체 스위치 외부에서 제한할 수 없습니다 (권장 하지 않음). 기본 권한에 대 한 자세한 내용은 [여기](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users)를 참조 하세요.</li><li>관리자 역할 멤버 자격을 추가 하 고 해지 적용 하려면 최대 15 분이 걸릴 수 있습니다.</li></ul> |

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/08/2019
 ms.author: diberry
-ms.openlocfilehash: 7fe35edfbfc8f50aa9428e41e7d807a0838417ec
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
-ms.translationtype: MT
+ms.openlocfilehash: 5828d4f453afeccfaac206195f064e43a20d1ba0
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259757"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844761"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Azure 리소스 제작 키로 마이그레이션
 
@@ -43,7 +43,7 @@ LUIS () 제작 인증을 전자 메일 계정에서 Azure 리소스로 변경 �
 마이그레이션은 다음과 같습니다. 
 
 * 협력자를 수집 하 고 자동으로 이동 하거나 Azure 제작 리소스에 추가 하는 프로세스입니다. 앱 소유자는이 단계를 완료 해야 합니다. 이 단계를 수행 하려면 적절 한 리소스에 대 한 권한이 필요 합니다.
-* 예측 런타임 리소스를 만들고 할당 하는 프로세스입니다. 예측 런타임 리소스를 필요로 하는 경우 [별도의 프로세스](/luis-how-to-azure-subscription.md#create-runtime-resource-in-the-azure-portal) 이며 변경 되지 않습니다. 
+* 예측 런타임 리소스를 만들고 할당 하는 프로세스입니다. 예측 런타임 리소스를 필요로 하는 경우 [별도의 프로세스](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) 이며 변경 되지 않습니다. 
 
 ## <a name="how-are-the-apps-migrating"></a>앱이 어떻게 마이그레이션 되나요?
 
@@ -62,7 +62,9 @@ LUIS () 제작 인증을 전자 메일 계정에서 Azure 리소스로 변경 �
 
 * **필요에 따라**각 앱을 내보내거나 내보내기 [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40)를 사용 하 여 LUIS 포털의 앱 목록에서 앱을 백업 합니다.
 * **필요에 따라**각 앱의 collaborator's 목록을 저장 합니다. 이 전자 메일 목록은 마이그레이션 프로세스의 일부로 제공 됩니다.
-* **필수**, [Azure 구독이](https://azure.microsoft.com/free/)있어야 합니다. 구독 프로세스의 일부에는 청구 정보가 필요 합니다. 그러나 LUIS를 사용 하는 경우 무료 (F0) 가격 책정 계층을 사용할 수 있습니다. 결과적으로 사용량이 늘어남에 따라 유료 계층이 필요할 수 있습니다. 
+* **필수**, [Azure 구독이](https://azure.microsoft.com/free/)있어야 합니다. 구독 프로세스의 일부에는 청구 정보가 필요 합니다. 그러나 LUIS를 사용 하는 경우 무료`F0`() 가격 책정 계층을 사용할 수 있습니다. 
+
+**LUIS 앱 작성은** `F0` 계층으로 표시 되는 무료입니다. [가격 책정 계층에](luis-boundaries.md#key-limits)대해 자세히 알아보세요.
 
 Azure 구독이 없는 경우 [등록](https://azure.microsoft.com/free/)합니다. 
 
@@ -91,7 +93,7 @@ _Azure Portal_, 해당 리소스에 대 한 **Access Control (IAM)** 페이지�
 
 ### <a name="after-the-app-is-migrated"></a>앱이 마이그레이션된 후
 
-마이그레이션 프로세스 후에는 앱 소유자가 Azure 제작 리소스에 추가 해야 합니다.  
+마이그레이션 프로세스 후 원본 앱에 액세스 해야 하는 경우 앱 소유자가 Azure authoring resource를 협력자로 추가 해야 합니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

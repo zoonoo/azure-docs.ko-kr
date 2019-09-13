@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: 8ed854a5775dfc20e258c14de51fe2066fa6caad
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 68bbe22a4a6f7697c2bfab291412aae85efc32e9
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810279"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916993"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight에 타사 Apache Hadoop 애플리케이션 설치
 
@@ -59,7 +59,7 @@ HDInsight 애플리케이션은 HDInsight 클러스터에 사용자가 설치할
     ![HDInsight 애플리케이션 포털 메뉴](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
 5. 메뉴에서 **+ 추가** 를 선택 합니다. 사용 가능한 응용 프로그램의 목록을 볼 수 있습니다.  **+ 추가** 가 회색으로 표시 되는 경우이 버전의 HDInsight 클러스터에 대 한 응용 프로그램이 없는 것입니다.
    
-    ![HDInsight 애플리케이션 사용 가능한 애플리케이션](./media/hdinsight-apps-install-applications/hdinsight-apps-list.png)
+    ![HDInsight 애플리케이션 사용 가능한 애플리케이션](./media/hdinsight-apps-install-applications/hdinsight-apps-list1.png)
 6. 사용 가능한 응용 프로그램 중 하나를 선택 하 고 지침에 따라 약관에 동의 합니다.
 
 포털 알림에서 설치 상태를 확인할 수 있습니다 (포털 맨 위에 있는 종 모양 아이콘 선택). 애플리케이션이 설치되면 설치된 앱 목록에 표시됩니다.
@@ -80,13 +80,13 @@ HDInsight 애플리케이션은 HDInsight 클러스터에 사용자가 설치할
     ![HDInsight 애플리케이션 설치 앱](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
 5. 설치 된 응용 프로그램 중 하나를 선택 하 여 속성을 표시 합니다. 속성 목록:
 
-    |속성 | Description |
+    |속성 | 설명 |
     |---|---|
     |앱 이름 |애플리케이션 이름입니다. |
     |Status |응용 프로그램 상태입니다. |
     |웹 페이지 |에지 노드에 배포한 웹 애플리케이션의 URL입니다. 자격 증명은 클러스터에 대해 구성한 HTTP 사용자 자격 증명과 동일합니다. |
     |SSH 엔드포인트 |SSH를 사용하여 에지 노드에 연결할 수 있습니다. SSH 자격 증명은 클러스터에 대해 구성한 SSH 사용자 자격 증명과 동일합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요. |
-    |Description | 응용 프로그램 설명입니다. |
+    |설명 | 응용 프로그램 설명입니다. |
 
 6. 애플리케이션을 삭제하려면 애플리케이션을 마우스 오른쪽 단추로 클릭한 다음, 상황에 맞는 메뉴에서 **삭제**를 클릭합니다.
 

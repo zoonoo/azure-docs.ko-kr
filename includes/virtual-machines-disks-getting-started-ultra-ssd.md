@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/15/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: db8147717e825d9cc48b7f0704dc5eea0be223a9
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 3f910a3d0466153bd60fe23ef2f9f656cac292ee
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510332"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70919713"
 ---
 # <a name="using-azure-ultra-disks"></a>Azure ultra disks 사용
 
@@ -79,7 +79,7 @@ $vmSize = "Standard_E64s_v3"
 
 먼저, 배포할 VM 크기를 결정 합니다. 지금은 DsV3 및 EsV3 VM 제품군만 ultra disks를 지원 합니다. 이러한 VM 크기에 대 한 자세한 내용은 이 [블로그](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/)의 두 번째 표를 참조하세요.
 
-여러 개의 ultra disks를 사용 하 여 VM을 만들려면 샘플 [단일 ultra disks를 사용 하 여 Vm 만들기](https://aka.ms/UltraSSDTemplate)를 참조 하세요.
+여러 개의 ultra disks를 사용 하 여 VM을 만들려면 샘플 [단일 ultra disks를 사용 하 여 Vm 만들기](https://aka.ms/ultradiskArmTemplate)를 참조 하세요.
 
 사용자 고유의 템플릿을 사용 하려는 경우 및 `Microsoft.Compute/Disks` 에 대 한 `Microsoft.Compute/virtualMachines` **apiVersion** 이 (이상)로 `2018-06-01` 설정 되어 있는지 확인 합니다.
 

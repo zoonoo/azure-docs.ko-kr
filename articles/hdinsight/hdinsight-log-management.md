@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: d4774dcc96e5f7639ca0b03bca992c9a3126230b
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
-ms.translationtype: MT
+ms.openlocfilehash: 5264491220a4b0756a2a9f0a96aae4ed67809618
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69623889"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879441"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>HDInsight 클러스터에 대한 로그 관리
 
@@ -93,7 +93,7 @@ HDInsight [스크립트 동작](hdinsight-hadoop-customize-cluster-linux.md)은 
 
 다음 단계는 다양한 서비스에 대한 작업 실행 로그 파일을 검토하는 것입니다.  Apache HBase, Apache Spark 및 기타 여러 서비스가 포함될 수 있습니다. Hadoop 클러스터는 자세한 정보 표시 로그를 대량으로 생성하므로 유용한 로그와 그렇지 않은 로그를 확인하는 데 시간이 오래 걸릴 수 있습니다.  로그 파일 대상 관리가 가능하도록 로깅 시스템을 이해하는 것이 중요합니다.  다음은 로그 파일 예제입니다.
 
-![HDInsight 로그 파일 예](./media/hdinsight-log-management/logs.png)
+![HDInsight 로그 파일 예](./media/hdinsight-log-management/hdi-log-file-example.png)
 
 ### <a name="access-the-hadoop-log-files"></a>Hadoop 로그 파일에 액세스
 
@@ -148,7 +148,7 @@ YARN ResourceManager UI는 클러스터 헤드 노드에서 실행되며 Ambari 
 
 특정 로그 파일의 경우 보다 저렴한 로그 파일 보관 방법을 사용할 수 있습니다. Azure Resource Manager 활동 로그의 경우 Azure Portal을 사용하여 이 방법을 살펴볼 수 있습니다.  HDInsight 인스턴스에 대한 Azure Portal에서 **활동 로그** 링크를 선택하여 ARM 로그 보관을 설정합니다.  활동 로그 검색 페이지 맨 위에서 **내보내기** 메뉴 항목을 선택하여 **활동 로그 내보내기** 창을 엽니다.  구독, 지역, 스토리지 계정에 내보낼 것인지 여부, 로그를 보존할 일 수를 입력합니다. 이 창에서 이벤트 허브로 내보낼 것인지 여부도 나타낼 수 있습니다. 
 
-![로그 파일 내보내기](./media/hdinsight-log-management/archive.png)
+![로그 파일 내보내기](./media/hdinsight-log-management/hdi-export-log-files.png)
 
 또는 PowerShell을 사용하여 로그 보관을 스크립팅할 수 있습니다.  PowerShell 스크립트 예제는 [Azure Blob Storage에 Azure Automation 로그 보관](https://gallery.technet.microsoft.com/scriptcenter/Archive-Azure-Automation-898a1aa8)을 참조하세요.
 

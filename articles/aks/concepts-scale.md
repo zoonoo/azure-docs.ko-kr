@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: c25bc316a345404c759b346b4fb877de42ee4d13
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4fc34ed5cdd53977aa20bef84200ba2bf5386979
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561548"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899484"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 크기 조정 옵션
 
@@ -51,7 +51,7 @@ Horizontal Pod Autoscaler는 30분 간격으로 Metrics API를 확인하므로 �
 
 ## <a name="cluster-autoscaler"></a>클러스터 자동 크기 조정기
 
-Pod 요구 사항 변경에 응답하기 위해 Kubernetes에는 노드 풀의 요청된 계산 리소스를 기반으로 노드의 수를 조정하는 클러스터 자동 크기 조정기(현재 AKS에서 프리뷰)가 있습니다. 기본적으로 클러스터 자동 크기 조정기는 API 서버에서 10초 간격으로 필요한 노드 개수 변경을 확인합니다. 클러스터 자동 크기 조정기가 변경이 필요하다고 판단하면 AKS 클러스터의 노드 수가 그에 따라 증가하거나 감소합니다. 클러스터 자동 크기 조정기는 Kubernetes1.10.x 이상을 실행하는 RBAC 지원 AKS 클러스터에서 작동합니다.
+Pod 요구 사항 변경에 응답하기 위해 Kubernetes에는 노드 풀의 요청된 계산 리소스를 기반으로 노드의 수를 조정하는 클러스터 자동 크기 조정기(현재 AKS에서 프리뷰)가 있습니다. 기본적으로 클러스터 autoscaler는 노드 수의 필수 변경에 대해 10 초 마다 메트릭 API 서버를 확인 합니다. 클러스터 자동 크기 조정기가 변경이 필요하다고 판단하면 AKS 클러스터의 노드 수가 그에 따라 증가하거나 감소합니다. 클러스터 자동 크기 조정기는 Kubernetes1.10.x 이상을 실행하는 RBAC 지원 AKS 클러스터에서 작동합니다.
 
 ![Kubernetes 클러스터 자동 크기 조정기](media/concepts-scale/cluster-autoscaler.png)
 

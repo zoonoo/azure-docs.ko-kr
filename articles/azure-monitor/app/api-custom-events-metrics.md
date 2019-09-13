@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: 9bedb74f4e882ac6e4206ee7fef676c94dc2422d
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: cdc16c2ea01d14edc236d0d6a0897e0dd9578924
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "68717458"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70909806"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>사용자 지정 이벤트 및 메트릭용 Application Insights API
 
@@ -584,14 +584,14 @@ trackTrace(message: string, properties?: {[string]:string}, severityLevel?: AI.S
 ---|---
 `message` | 진단 데이터입니다. 이름보다 훨씬 길어질 수 있습니다.
 `properties` | 문자열 대 문자열의 맵: 포털에서 [예외를 필터링](https://azure.microsoft.com/documentation/articles/app-insights-api-custom-events-metrics/#properties)하는 데 사용되는 추가 데이터입니다. 기본적으로 비어 있습니다.
-`severityLevel` | 지원되는 값: [SeverityLevel.ts](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/JavaScript/JavaScriptSDK.Interfaces/Contracts/Generated/SeverityLevel.ts)
+`severityLevel` | 지원되는 값: [SeverityLevel.ts](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/shared/AppInsightsCommon/src/Interfaces/Contracts/Generated/SeverityLevel.ts)
 
 메시지 내용을 검색할 수 있지만 속성 값과는 달리 필터링할 수는 없습니다.
 
 `message`의 크기 제한이 속성의 크기 제한보다 훨씬 높습니다.
 TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수 있습니다. 예를 들어, POST 데이터를 인코딩할 수 있습니다.  
 
-또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대해 필터링 또는 검색하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 예를 들어:
+또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대해 필터링 또는 검색하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 예:
 
 *C#*
 
@@ -1154,7 +1154,7 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## <a name="telemetrycontext"></a>TelemetryContext
 
-TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격 분석 데이터와 함께 전송되는 값을 포함하고 있습니다. 일반적으로 표준 원격 분석 모듈에 의해 설정되지만 사용자가 직접 설정할 수도 있습니다. 예를 들어:
+TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격 분석 데이터와 함께 전송되는 값을 포함하고 있습니다. 일반적으로 표준 원격 분석 모듈에 의해 설정되지만 사용자가 직접 설정할 수도 있습니다. 예:
 
 ```csharp
 telemetry.Context.Operation.Name = "MyOperationName";

@@ -9,16 +9,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: b8670fc7958e66e7c25e27bb3a22429ab20b2514
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 9c67d511f6c94c8b9af034835e149875304e2235
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69990965"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918977"
 ---
 # <a name="test-an-azure-stream-analytics-job-with-sample-data"></a>샘플 데이터를 사용하여 Azure Stream Analytics 작업 테스트
 
-Azure Stream Analytics에서 작업을 시작 하거나 중지 하지 않고 쿼리를 테스트할 수 있습니다. 입력 싱크에서 들어오는 데이터에 대 한 쿼리를 테스트 하거나 로컬 파일에서 업로드 된 샘플 데이터를 테스트할 수 있습니다.
+Azure Stream Analytics에서 작업을 시작 하거나 중지 하지 않고 쿼리를 테스트할 수 있습니다. 입력 싱크에서 들어오는 데이터에 대 한 쿼리를 테스트 하거나 Azure Portal의 로컬 파일에서 예제 데이터를 업로드할 수 있습니다. 또한 [Visual Studio](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-live-data-local-testing) 의 로컬 샘플 데이터 또는 라이브 데이터에서 로컬로 쿼리를 테스트 하 고 [Visual Studio Code](https://docs.microsoft.com/en-us/azure/stream-analytics/vscode-local-run)수 있습니다. 
 
 ## <a name="sample-incoming-data-from-input"></a>입력에서 들어오는 데이터 샘플링
 
