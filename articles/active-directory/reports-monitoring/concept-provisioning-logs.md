@@ -17,12 +17,12 @@ ms.date: 07/29/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74b2d80d21822758991ad8b3bc1d3bb44e2257f4
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 3d48aa3ead28ab0b0a22478a0c4183995483058a
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129810"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983496"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Azure Active Directory 포털에서 보고서 프로 비전 (미리 보기)
 
@@ -50,7 +50,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 모든 프로 비전 활동 보고서를 보려면 테 넌 트에 연결 된 Azure AD Premium 라이선스가 있어야 합니다. [Azure Active Directory Premium 시작하기](../fundamentals/active-directory-get-started-premium.md)를 참조하여 Azure Active Directory 버전을 업그레이드하세요. 
 
-## <a name="provisioning-logs"></a>프로 비전 로그
+## <a name="provisioning-logs"></a>프로비저닝 로그
 
 프로 비전 로그는 다음 질문에 대 한 답변을 제공 합니다.
 
@@ -85,7 +85,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 자세한 정보를 가져오려면 목록 보기에서 항목을 선택합니다.
 
-![자세한 정보](./media/concept-provisioning-logs/detailed-information.png "자세한 정보")
+![자세한 정보](./media/concept-provisioning-logs/steps.png "필터")
 
 
 ## <a name="filter-provisioning-activities"></a>프로 비전 작업 필터링
@@ -93,7 +93,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 보고 된 데이터를 자신에 게 적합 한 수준으로 좁히려면 다음 기본 필드를 사용 하 여 프로 비전 데이터를 필터링 할 수 있습니다. 필터의 값은 테 넌 트에 따라 동적으로 채워집니다. 예를 들어 테 넌 트에 생성 이벤트가 없는 경우 create에 대 한 필터 옵션이 없습니다.
 
 - 클레임
-- 작업
+- 동작
 - 원본 시스템
 - 대상 시스템
 - Status

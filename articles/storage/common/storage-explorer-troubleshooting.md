@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 69631b39403dedab56ed75cb145d464c0e1f747c
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
-ms.translationtype: HT
+ms.openlocfilehash: 3a95d52f2a0aa07094f91b0653fcb94ff1f88d44
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935353"
+ms.locfileid: "70958992"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage 탐색기 문제 해결 가이드
 
@@ -264,6 +264,7 @@ Windows 용 Fiddler와 같은 네트워킹 도구가 있는 경우 다음과 같
 1. 로컬 자격 증명 관리 도구를 열고 저장 된 자격 증명을 찾습니다.
 2. 키 `<connection_type_key>/<corrupted_connection_name>` 가 있는 항목을 찾습니다 ( `StorageExplorer_CustomConnections_Accounts_v1/account1`예:).
 3. 이러한 항목을 삭제 하 고 다시 연결을 추가 합니다.
+---
 
 이러한 단계를 수행한 후에도이 오류가 계속 발생 하거나, 연결을 손상 시킬 것으로 예상 되는 내용을 공유 하려면 GitHub 페이지에서 [문제를 여세요](https://github.com/microsoft/AzureStorageExplorer/issues) .
 

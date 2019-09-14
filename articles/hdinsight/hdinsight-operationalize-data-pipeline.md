@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 524386c046534b0ef0050e15d326118b84822822
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dec3cdd63f3e3ff303bfd60ca1ae77a4c4641190
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64718036"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961285"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>데이터 분석 파이프라인 운영
 
@@ -33,7 +33,7 @@ ms.locfileid: "64718036"
 
 아래 다이어그램은 이 예제 파이프라인을 보여 줍니다.
 
-![비행 데이터 파이프라인](./media/hdinsight-operationalize-data-pipeline/pipeline-overview.png)
+![비행 데이터 파이프라인](./media/hdinsight-operationalize-data-pipeline/flight-pipeline-overview.png)
 
 ## <a name="apache-oozie-solution-overview"></a>Apache Oozie 솔루션 개요
 
@@ -55,19 +55,19 @@ Oozie는 *작업*, *워크플로* 및 *코디네이터*의 측면에서 해당 �
 2. `oozie` 리소스 그룹 내에서 Azure SQL Server 및 Database를 프로비전합니다. S1 표준 가격 책정 계층보다 큰 데이터베이스는 필요하지 않습니다.
 3. Azure Portal을 사용하여 새로 배포된 SQL Database에 대한 창으로 이동한 후 **도구**를 선택합니다.
 
-    ![도구 단추](./media/hdinsight-operationalize-data-pipeline/sql-db-tools.png)
+    ![도구 단추](./media/hdinsight-operationalize-data-pipeline/hdi-sql-db-tools-button.png)
 
 4. **쿼리 편집기**를 선택합니다.
 
-    ![쿼리 편집기 단추](./media/hdinsight-operationalize-data-pipeline/sql-db-query-editor.png)
+    ![쿼리 편집기 단추](./media/hdinsight-operationalize-data-pipeline/sql-db-query-editor1.png)
 
 5. **쿼리 편집기** 창에서 **로그인**을 선택합니다.
 
-    ![로그인 단추](./media/hdinsight-operationalize-data-pipeline/sql-db-login1.png)
+    ![로그인 단추](./media/hdinsight-operationalize-data-pipeline/sql-db-login-window1.png)
 
 6. SQL Database 자격 증명을 입력하고 **확인**을 선택합니다.
 
-   ![로그인 폼](./media/hdinsight-operationalize-data-pipeline/sql-db-login2.png)
+   ![로그인 폼](./media/hdinsight-operationalize-data-pipeline/sql-db-login-window2.png)
 
 7. 쿼리 편집기의 텍스트 영역에서 다음 SQL 문을 입력하여 파이프라인의 각 실행에서 요약된 데이터를 저장하는 `dailyflights` 테이블을 만듭니다.
 
@@ -90,7 +90,7 @@ Oozie는 *작업*, *워크플로* 및 *코디네이터*의 측면에서 해당 �
 
 8. **실행**을 선택하여 SQL 문을 실행합니다.
 
-    ![실행 단추](./media/hdinsight-operationalize-data-pipeline/sql-db-run.png)
+    ![실행 단추](./media/hdinsight-operationalize-data-pipeline/hdi-sql-db-run-button.png)
 
 이제 Azure SQL Database가 준비되었습니다.
 
@@ -100,24 +100,24 @@ Oozie는 *작업*, *워크플로* 및 *코디네이터*의 측면에서 해당 �
 2. **만들기**를 선택합니다.
 3. 기본 사항 창에서 클러스터에 대한 고유한 이름을 입력하고 Azure 구독을 선택합니다.
 
-    ![HDInsight 클러스터 이름 및 구독](./media/hdinsight-operationalize-data-pipeline/hdi-name-sub.png)
+    ![HDInsight 클러스터 이름 및 구독](./media/hdinsight-operationalize-data-pipeline/cluster-name-subscription.png)
 
 4. **클러스터 유형** 창에서 **Hadoop** 클러스터 유형**Linux** 운영 체제 및 최신 버전의 HDInsight 클러스터를 선택합니다. **클러스터 계층**은 **표준** 상태로 둡니다.
 
-    ![HDInsight 클러스터 유형](./media/hdinsight-operationalize-data-pipeline/hdi-cluster-type.png)
+    ![HDInsight 클러스터 유형](./media/hdinsight-operationalize-data-pipeline/hdinsight-cluster-type.png)
 
 5. **선택**을 선택하여 클러스터 유형 선택 항목을 적용합니다.
 6. 로그인 암호를 제공하고 목록에서 `oozie` 리소스 그룹을 선택하여 **기본 사항** 창을 완료한 후 **다음**을 선택합니다.
 
-    ![HDInsight 기본 사항 창](./media/hdinsight-operationalize-data-pipeline/hdi-basics.png)
+    ![HDInsight 기본 사항 창](./media/hdinsight-operationalize-data-pipeline/hdinsight-basics-pane.png)
 
 7. **스토리지** 창에서 기본 스토리지 유형을 **Azure Storage**로 두고 **새로 만들기**를 선택한 후 새 계정에 대한 이름을 제공합니다.
 
-    ![HDInsight 스토리지 계정 설정](./media/hdinsight-operationalize-data-pipeline/hdi-storage.png)
+    ![HDInsight 스토리지 계정 설정](./media/hdinsight-operationalize-data-pipeline/storage-account-settings.png)
 
 8. **Metastore 설정**의 **Hive용 SQL 데이터베이스 선택** 아래에서 이전에 만든 데이터베이스를 선택합니다.
 
-    ![HDInsight Hive Metastore 설정](./media/hdinsight-operationalize-data-pipeline/hdi-metastore-hive.png)
+    ![HDInsight Hive Metastore 설정](./media/hdinsight-operationalize-data-pipeline/hive-metastore-settings.png)
 
 9. **SQL Database 인증**을 선택합니다.
 
@@ -175,7 +175,7 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
 
 이제 샘플 데이터를 사용할 수 있습니다. 그러나 파이프라인에는 들어오는 데이터(`rawFlights`)와 요약된 데이터(`flights`)를 처리하는 2개의 Hive 테이블이 필요합니다. 다음과 같이 Ambari에 이러한 테이블을 만듭니다.
 
-1. Http로 이동 하 여 Ambari에 로그인:\//headnodehost:8080 합니다.
+1. Http:\//헤드 nodehost: 8080으로 이동 하 여 Ambari에 로그인 합니다.
 2. 서비스 목록에서 **Hive**를 선택합니다.
 
     ![Ambari에서 하이브 선택](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)
@@ -411,7 +411,7 @@ day=03
 
 다음 표에서는 각 속성을 요약하고, 사용자가 자신의 환경에 해당하는 값을 찾을 수 있는 위치를 나타냅니다.
 
-| 자산 | 값 원본 |
+| 속성 | 값 원본 |
 | --- | --- |
 | nameNode | HDInsight 클러스터에 연결된 Azure Storage Container의 전체 경로입니다. |
 | jobTracker | 활성 클러스터의 YARN 헤드 노드에 대한 내부 호스트 이름입니다. Ambari 홈 페이지의 서비스 목록에서 YARN을 선택한 다음, Azure Resource Manager를 선택합니다. 호스트 이름 URI가 페이지 위쪽에 표시됩니다. 포트 8050을 추가합니다. |
@@ -604,7 +604,7 @@ sqlDatabaseTableName=dailyflights
 
 이 `job.properties` 파일에 도입된 유일한 새 속성은 다음과 같습니다.
 
-| 자산 | 값 원본 |
+| 속성 | 값 원본 |
 | --- | --- |
 | oozie.coord.application.path | 실행할 Oozie 코디네이터를 포함하는 `coordinator.xml` 파일의 위치를 나타냅니다. |
 | hiveDailyTableNamePrefix | 준비 테이블의 테이블 이름을 동적으로 만들 때 사용되는 접두사입니다. |

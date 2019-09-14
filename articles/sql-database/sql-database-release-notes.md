@@ -9,18 +9,20 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: sstein
-ms.openlocfilehash: 55e8121152aa281ab1025f1e8ded53c4b00c3d44
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ef19d22b5c47c51f5ee3f74a4d7ab06725f7ed41
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566945"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70968326"
 ---
 # <a name="sql-database-release-notes"></a>SQL Database 릴리스 정보
 
 이 문서에는 현재 공개 미리 보기로 제공 되는 SQL Database 기능이 나열 되어 있습니다. SQL Database 업데이트 및 개선 사항에 대해서는 [SQL Database 서비스 업데이트](https://azure.microsoft.com/updates/?product=sql-database)를 참조 하세요. 다른 Azure 서비스에 대 한 업데이트 및 개선 사항은 [서비스 업데이트](https://azure.microsoft.com/updates)를 참조 하세요.
 
 ## <a name="features-in-public-preview"></a>공개 미리 보기의 기능
+
+### <a name="single-databasetabsingle-database"></a>[단일 데이터베이스](#tab/single-database)
 
 | 기능 | 세부 정보 |
 | ---| --- |
@@ -42,6 +44,19 @@ ms.locfileid: "68566945"
 | 관리 되는 인스턴스를 사용 하 여 위협 감지 |자세한 내용은 [Azure SQL Database 관리 되는 인스턴스에서 위협 감지 구성](sql-database-managed-instance-threat-detection.md)을 참조 하세요.|
 | 관리 되는 인스턴스를 사용 하는 Bring Your Own Key (BYOK)를 사용 하는 TDE (투명 한 데이터 암호화) |자세한 내용은 Azure Key Vault에서 [고객이 관리 하는 키를 사용 하 여 Azure SQL 투명한 데이터 암호화를 참조 하세요. Bring Your Own Key 지원](transparent-data-encryption-byok-azure-sql.md).|
 | &nbsp; |
+
+### <a name="managed-instancetabmanaged-instance"></a>[Managed Instance](#tab/managed-instance)
+
+| 기능 | 세부 정보 |
+| ---| --- |
+| <a href="/azure/sql-database/sql-database-instance-pools">인스턴스 풀</a> | 더 작은 SQL 인스턴스를 클라우드로 마이그레이션하는 편리 하 고 비용 효율적인 방법입니다. |
+| <a href="https://aka.ms/managed-instance-tde-byok">사용자 고유의 암호화 키 가져오기</a> | 이미 투명한 데이터 암호화 (TDE)를 사용 하도록 설정 된 온-프레미스에서 데이터베이스를 기존 TDE 키로 마이그레이션합니다. |
+| <a href="https://aka.ms/managed-instance-failover-groups">지리적으로 분산 장애 조치 (failover) 그룹</a> | 다른 지역에 인스턴스의 복사본을 보관 하 고 지역 재해 시나리오 에서도 데이터를 사용할 수 있도록 합니다. |
+| <a href="https://aka.ms/managed-instance-aadlogins">인스턴스 수준 Azure AD 서버 보안 주체 (로그인)</a> | <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> 문을 사용 하 여 서버 수준 로그인을 만듭니다. |
+| [트랜잭션 복제자](sql-database-managed-instance-transactional-replication.md) | 테이블의 변경 내용을 관리 되는 인스턴스, 단일 데이터베이스 또는 SQL Server 인스턴스에 배치 된 다른 데이터베이스로 복제 하거나 다른 관리 되는 인스턴스 또는 SQL Server 인스턴스에서 일부 행이 변경 될 때 테이블을 업데이트 합니다. |
+| &nbsp; |
+
+---
 
 ## <a name="updates"></a>업데이트
 

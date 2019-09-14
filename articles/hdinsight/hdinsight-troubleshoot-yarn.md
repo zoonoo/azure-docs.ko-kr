@@ -6,12 +6,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 8bfe249b0295bc860cf17a006c3787ff8afa676b
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 15ef18663a42153c11a55d4c5963d47f0e2514d6
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69573715"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961771"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Hadoop YARN 문제를 해결합니다.
 
@@ -33,27 +33,27 @@ Ambari에서 다음 단계를 사용하여 새 YARN 큐를 만들고 모든 큐�
 
 1. **Ambari 뷰** 아이콘을 선택한 다음, 그리드 패턴을 선택합니다. 다음으로, **YARN 큐 관리자**를 선택합니다.
 
-    ![Ambari 뷰 아이콘 선택](media/hdinsight-troubleshoot-yarn/create-queue-1.png)
+    ![Ambari 뷰 아이콘 선택](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
 2. **default** 큐를 선택합니다.
 
-    ![default 큐 선택](media/hdinsight-troubleshoot-yarn/create-queue-2.png)
+    ![default 큐 선택](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
 3. **default** 큐의 경우 **용량**을 50%에서 25%로 변경합니다. **thriftsvr** 큐의 경우 **용량**을 25%로 변경합니다.
 
-    ![default 및 thriftsvr 큐에 대해 용량을 25%로 변경](media/hdinsight-troubleshoot-yarn/create-queue-3.png)
+    ![default 및 thriftsvr 큐에 대해 용량을 25%로 변경](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
 4. 새 큐를 만들려면 **큐 추가**를 선택합니다.
 
-    ![큐 추가 선택](media/hdinsight-troubleshoot-yarn/create-queue-4.png)
+    ![큐 추가 선택](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
 
 5. 새 큐 이름을 지정합니다.
 
-    ![큐 이름을 Spark로 지정](media/hdinsight-troubleshoot-yarn/create-queue-5.png)  
+    ![큐 이름을 Spark로 지정](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
 
 6. **용량** 값을 50%로 두고 **작업** 단추를 선택합니다.
 
-    ![작업 단추 선택](media/hdinsight-troubleshoot-yarn/create-queue-6.png)  
+    ![작업 단추 선택](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
 7. **큐 저장 및 새로 고침**을 선택합니다.
 
-    ![큐 저장 및 새로 고침 선택](media/hdinsight-troubleshoot-yarn/create-queue-7.png)  
+    ![큐 저장 및 새로 고침 선택](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png)  
 
 이러한 변경 내용은 YARN Scheduler UI에 즉시 표시됩니다.
 

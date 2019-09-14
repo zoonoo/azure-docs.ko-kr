@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
-ms.openlocfilehash: 62269490355414a6b75759361cd574ac7e90e162
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: d98a5f04f60cb7d933ea91e0657f6067fb1c59a8
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598677"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962809"
 ---
 # <a name="prerequisites-for-managing-accounts-on-the-cloud-partner-portal"></a>Cloud 파트너 포털에서 계정을 관리 하기 위한 필수 조건 
 
@@ -21,7 +21,7 @@ ms.locfileid: "68598677"
 
 ## <a name="account-terms-and-guidelines"></a>계정 약관 및 지침
 
-계정을 만들기 전에 [Microsoft 서비스 계약](https://www.microsoft.com/servicesagreement) 및 [Microsoft 사용 약관](https://www.microsoft.com/en-us/legal/intellectualproperty/copyright/default.aspx) 에 따라 권한 및 책임을 신중 하 게 검토 합니다.  
+계정을 만들기 전에 [Microsoft 서비스 계약](https://www.microsoft.com/servicesagreement) 및 [Microsoft 사용 약관](https://www.microsoft.com/us-en/legal/intellectualproperty/copyright/default.aspx) 에 따라 권한 및 책임을 신중 하 게 검토 합니다.  
 
 계정 이름을 신중 하 게 선택 합니다.  이는 조직을 나타내므로 저작권 또는 contentious 단어를 포함 하지 않아야 합니다.  예를 들어 Microsoft는 계정 이름에 "Azure" 및 "Microsoft"와 같은 저작권 사용 약관 사용을 금지 합니다.  자세한 내용은 [Azure Marketplace에 대 한 지침](https://docs.microsoft.com/azure/marketplace/guidelines) 을 참조 하세요.
 

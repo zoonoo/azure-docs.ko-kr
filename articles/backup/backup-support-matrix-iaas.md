@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: dacurwin
-ms.openlocfilehash: da987b5e841824dc62f3b740cae2961de9d7b293
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 62f633b617abb52e1be4003f65cc537cc9ff2a25
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872898"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983786"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 [Azure Backup 서비스](backup-overview.md) 를 사용 하 여 온-프레미스 컴퓨터 및 워크 로드와 Azure vm (가상 머신)을 백업할 수 있습니다. 이 문서에서는 Azure Backup를 사용 하 여 Azure Vm을 백업할 때 지원 설정 및 제한 사항을 요약 합니다.
@@ -180,7 +180,7 @@ Nic (네트워크 인터페이스) 수 | 특정 Azure VM 크기에서 지원되�
 여러 네트워크 어댑터를 사용하는 VM  | 지원됩니다. <br/><br/> 특수한 네트워크 설정을 사용하여 VM을 복원하는 방법에 대해 [자세히 알아봅니다](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations).
 공용 IP 주소가 있는 VM    | 지원됩니다.<br/><br/> 기존 공용 IP 주소를 NIC와 연결 하거나, 복원을 완료 한 후 주소를 만들고 NIC와 연결 합니다.
 NIC/서브넷의 NSG(네트워크 보안 그룹)입니다. |   지원됩니다.
-예약된 IP 주소(고정) | 지원되지 않습니다.<br/><br/> 예약 된 IP 주소를 사용 하는 VM은 백업할 수 없으며 끝점은 백업할 수 없습니다.
+고정 IP 주소 | 지원되지 않습니다.<br/><br/> 복원 지점에서 만든 새 VM에는 동적 IP 주소가 할당 됩니다.<br/><br/> 클래식 Vm의 경우 예약 된 IP 주소를 사용 하는 VM을 백업할 수 없으며 끝점이 정의 되어 있지 않습니다.
 동적 IP 주소 |    지원됩니다.<br/><br/> 원본 VM의 NIC가 동적 IP 주소 지정을 사용 하는 경우 기본적으로 복원 된 VM의 NIC가이를 사용 합니다.
 Azure Traffic Manager   | 지원됩니다.<br/><br/>백업 된 VM이 Traffic Manager에 있는 경우 복원 된 VM을 동일한 Traffic Manager 인스턴스에 수동으로 추가 합니다.
 Azure DNS | 지원됩니다.

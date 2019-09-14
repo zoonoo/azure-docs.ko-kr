@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: juliako
-ms.openlocfilehash: d45842a4c61f871a479c91f7b192de8e567f9821
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 8158611678acc23d89bab377c170759c6bf9677f
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70862019"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962627"
 ---
 # <a name="animated-character-detection-preview"></a>애니메이션 문자 검색 (미리 보기)
 
@@ -91,8 +91,7 @@ Video Indexer 유료 계정을 소유 하 고 있는 경우 먼저 Custom Vision
     1. 새 이름을 입력한 후 새 이름 옆에 있는 확인 아이콘을 클릭합니다. 그러면 새 이름이 Video Indexer 모델에 저장 됩니다.
     1. 원하는 모든 이름 편집을 마친 후 모델을 학습 해야 합니다.
 
-        * 평가판 계정: 사용자 지정 페이지를 열고 애니메이션 문자 탭을 클릭 한 다음 원하는 **학습** 단추 모델을 클릭 합니다.
-        * 유료 계정: 사용자 지정 페이지를 열고 애니메이션 문자 탭을 클릭 합니다. 관련 모델의 경우 **Custom Vision에서 편집** 링크를 클릭 합니다. 그런 다음 Custom Vision의 모델 페이지로 전달 됩니다. "학습" 단추를 클릭 하 여 모델을 학습 합니다. 
+        사용자 지정 페이지를 열고 **애니메이션 문자** 탭을 클릭 합니다. 관련 모델의 경우 **Custom Vision에서 편집** 링크를 클릭 합니다. 그런 다음 Custom Vision의 모델 페이지로 전달 됩니다. **학습** 단추를 클릭 하 여 모델을 학습 합니다. 
     1. 학습 된 후에는 해당 모델을 사용 하 여 인덱싱하거나 인덱싱해야는 학습 된 문자를 인식 합니다. 
     Custom Vision 계정에 대 한 액세스 권한이 있는 유료 계정은 모델 및 태그가 지정 된 이미지를 볼 수 있습니다. [Custom Vision에서 분류자를 개선 하](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier)는 방법에 대해 자세히 알아보세요.
 

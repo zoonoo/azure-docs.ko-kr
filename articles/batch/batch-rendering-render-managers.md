@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6878d3b4fc8648db540d016389747eceb45d936a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: eb3ce47e5ffed697392065a1faacbbfaec19f4d1
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67436170"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983683"
 ---
 # <a name="using-azure-batch-with-render-farm-managers"></a>렌더링 팜 관리자로 Azure Batch 사용
 
@@ -26,9 +26,15 @@ Azure는 주요 렌더링 관리자에 대한 기본 제공 지원 또는 추가
 * [Royal Render](https://www.royalrender.de/)
 * [Thinkbox Deadline](https://deadline.thinkboxsoftware.com/)
 
+## <a name="azure-render-hub"></a>Azure 렌더링 허브
+
+Azure 렌더링 허브는 Azure 렌더링 팜을 만들고 관리 하는 것을 간소화 합니다.  렌더링 허브는 PipelineFx 이상 및 최종 기한 10에 대 한 기본 지원을 제공 합니다.  자세한 내용 및 자세한 지침은 [GitHub 리포지토리를](https://github.com/Azure/azure-render-hub)참조 하세요.
+
 ## <a name="using-azure-with-pipelinefx-qube"></a>Azure에 PipelineFX Qube 사용
 
-Azure Batch 풀 VM을 Qube 작업자로 사용하도록 활성화하기 위한 스크립트와 명령은 [GitHub 리포지토리](https://github.com/Azure/azure-qube)에 있습니다.
+Azure 렌더링 허브는 최종 기한을 비롯 한 인기 있는 렌더링 관리자를 지원 합니다.  렌더링 허브를 배포 하 고 사용 하는 방법에 대 한 지침은 [GitHub 리포지토리를](https://github.com/Azure/azure-render-hub)참조 하세요.
+
+Azure Batch 풀 Vm을 사용할 수 있도록 하는 스크립트와 지침은 [GitHub 리포지토리에서](https://github.com/Azure/azure-qube)사용할 수 있습니다.
 
 ## <a name="using-azure-with-royal-render"></a>Azure에 Royal Render 사용
 
@@ -38,7 +44,7 @@ Azure 통합을 사용하는 Royal Render 고객 예는 [Jellyfish Pictures 고�
 
 ## <a name="using-azure-with-thinkbox-deadline"></a>Azure에 Thinkbox Deadline 사용
 
-Azure Batch 풀 VM을 Deadline 슬레이브로 사용하도록 활성화하기 위한 스크립트와 명령은 [GitHub 리포지토리](https://github.com/Azure/azure-deadline)에 있습니다.
+Azure 렌더링 허브는 최종 기한을 비롯 한 인기 있는 렌더링 관리자를 지원 합니다.  렌더링 허브를 배포 하 고 사용 하는 방법에 대 한 지침은 [GitHub 리포지토리를](https://github.com/Azure/azure-render-hub)참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

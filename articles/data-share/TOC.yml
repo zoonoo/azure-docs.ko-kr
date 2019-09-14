@@ -47,6 +47,10 @@
       href: /rest/api/datashare
 - name: 리소스
   items:
+    - name: MSDN 포럼
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDataShare'
+    - name: 스택 오버플로
+      href: 'https://stackoverflow.com/questions/tagged/azure-data-share'
     - name: 블로그
       href: 'https://azure.microsoft.com/blog/announcing-preview-of-azure-data-share/'
     - name: Microsoft 기술 커뮤니티

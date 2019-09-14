@@ -141,6 +141,8 @@
       href: how-to-legacy-device-symm-key.md
     - name: 개발에 SDK 도구 사용
       href: how-to-use-sdk-tools.md
+    - name: 문제 해결
+      href: how-to-troubleshoot-dps.md
 - name: 참고 자료
   items:
     - name: REST API

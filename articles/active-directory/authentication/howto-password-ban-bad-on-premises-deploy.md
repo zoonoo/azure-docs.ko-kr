@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5949f57a87f324dc2e6651611574f4b66215c8a8
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 895d44ea7ab6bfebee44014ad4e96016a555c08e
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70389772"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70959930"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Azure AD 암호 보호 배포
 
@@ -65,6 +65,14 @@ ms.locfileid: "70389772"
 * Azure AD를 사용 하 여 암호 보호 및 포리스트에 대 한 프록시 서비스를 등록 하는 전역 관리자 계정.
 * Windows Server Active Directory 포리스트를 Azure AD에 등록할 수 있는 포리스트 루트 도메인의 도메인 관리자 권한이 있는 계정 Active Directory 합니다.
 * DC 에이전트 서비스 소프트웨어를 실행 하는 모든 Active Directory 도메인은 sysvol 복제를 위해 DFSR (분산 파일 시스템 복제)을 사용 해야 합니다.
+
+  도메인이 아직 DFSR을 사용 하지 않는 경우 Azure AD 암호 보호를 설치 하기 전에 DFSR을 사용 하도록 마이그레이션해야 합니다. 자세한 내용은 다음 링크를 참조 하세요.
+
+  [SYSVOL 복제 마이그레이션 가이드: DFS 복제 FRS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
+
+  > [!WARNING]
+  > Azure AD 암호 보호 DC 에이전트 소프트웨어는 현재 sysvol (DFSR에 대 한 선행 기술)을 사용 하는 도메인의 도메인 컨트롤러에 설치 되며,이 환경에서는 소프트웨어가 제대로 작동 하지 않습니다. 추가 부정적 부작용에는 복제에 실패 한 개별 파일이 포함 되며 sysvol 복원 절차는 성공 하는 것 처럼 보이지만 자동으로 모든 파일을 복제 하지 못합니다. DFSR의 내재 된 혜택을 제공 하 고 Azure AD 암호 보호 배포의 차단을 해제 하기 위해 가능한 한 빨리 DFSR을 사용 하려면 도메인을 마이그레이션해야 합니다. 이후 버전의 소프트웨어는 여전히 FRS를 사용 하는 도메인에서 실행 되는 경우 자동으로 사용 하지 않도록 설정 됩니다.
+
 * Windows Server 2012를 실행 하는 도메인의 모든 도메인 컨트롤러에서 키 배포 서비스를 사용 하도록 설정 해야 합니다. 기본적으로이 서비스는 수동 트리거 시작을 통해 사용 하도록 설정 됩니다.
 
 ## <a name="single-forest-deployment"></a>단일 포리스트 배포
@@ -281,7 +289,7 @@ Azure AD 암호 보호에는 두 가지 필수 설치 관리자가 있습니다.
 
    도메인 컨트롤러가 아닌 컴퓨터에는 DC 에이전트 서비스를 설치할 수 있습니다. 이 경우 서비스가 시작 되어 실행 되지만 컴퓨터가 도메인 컨트롤러로 승격 될 때까지 비활성 상태로 유지 됩니다.
 
-   표준 MSI 절차를 사용 하 여 소프트웨어 설치를 자동화할 수 있습니다. 예를 들어:
+   표준 MSI 절차를 사용 하 여 소프트웨어 설치를 자동화할 수 있습니다. 예:
 
    `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`
 

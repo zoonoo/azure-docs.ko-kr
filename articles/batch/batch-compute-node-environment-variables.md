@@ -9,14 +9,14 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 08/13/2019
+ms.date: 09/12/2019
 ms.author: lahugh
-ms.openlocfilehash: 916dceb7c5e4314df98407b4e8fa4ed75cdb308c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 995dfeaf26180b74f135ed2b74fa40faf3a12c08
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095273"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70958799"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Azure Batch 런타임 환경 변수
 
@@ -48,7 +48,7 @@ Batch에 환경 변수를 사용 하는 방법에 대 한 자세한 내용은 [�
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
 | AZ_BATCH_ACCOUNT_NAME           | 태스크가 속한 Batch 계정의 이름입니다.                  | 모든 태스크입니다.   | mybatchaccount |
 | AZ_BATCH_ACCOUNT_URL            | 배치 계정의 URL입니다. | 모든 태스크입니다. | `https://myaccount.westus.batch.azure.com` |
-| AZ_BATCH_APP_PACKAGE            | 모든 앱 패키지 환경 변수의 접두사입니다. 예를 들어 애플리케이션 “Foo” 버전 “1”이 풀에 설치된 경우 환경 변수는 AZ_BATCH_APP_PACKAGE_FOO_1입니다. AZ_BATCH_APP_PACKAGE_FOO_1는 패키지가 다운로드 된 위치 (폴더)를 가리킵니다. | 관련 앱 패키지가 있는 모든 작업입니다. 또한 노드 자체에 애플리케이션 패키지가 있는 경우 모든 작업에 사용할 수 있습니다. | AZ_BATCH_APP_PACKAGE_FOO_1 |
+| AZ_BATCH_APP_PACKAGE            | 모든 앱 패키지 환경 변수의 접두사입니다. 예를 들어 애플리케이션 “Foo” 버전 “1”이 풀에 설치된 경우 환경 변수는 AZ_BATCH_APP_PACKAGE_FOO_1입니다. AZ_BATCH_APP_PACKAGE_FOO_1는 패키지가 다운로드 된 위치 (폴더)를 가리킵니다. 앱 패키지의 기본 버전을 사용 하는 경우 버전 번호 없이 AZ_BATCH_APP_PACKAGE 환경 변수를 사용 합니다. | 관련 앱 패키지가 있는 모든 작업입니다. 또한 노드 자체에 애플리케이션 패키지가 있는 경우 모든 작업에 사용할 수 있습니다. | AZ_BATCH_APP_PACKAGE_FOO_1 |
 | AZ_BATCH_AUTHENTICATION_TOKEN   | Batch 서비스 작업의 제한된 집합에 대한 액세스를 부여하는 인증 토큰입니다. 이 환경 변수는 [작업이 추가](/rest/api/batchservice/task/add#request-body)될 때 [authenticationTokenSettings](/rest/api/batchservice/task/add#authenticationtokensettings)가 설정된 경우에만 존재합니다. 토큰 값은 [BatchClient.Open() .NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_)와 같은 Batch API에서 Batch 클라이언트를 만들 때 자격 증명으로 사용됩니다. | 모든 태스크입니다. | OAuth2 액세스 토큰 |
 | AZ_BATCH_CERTIFICATES_DIR       | Linux 계산 노드에 대 한 인증서가 저장 되는 [태스크 작업 디렉터리][files_dirs] 내의 디렉터리입니다. 이 환경 변수는 Windows 계산 노드에 적용 되지 않습니다.                                                  | 모든 태스크입니다.   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
 | AZ_BATCH_HOST_LIST              | 형식`nodeIP,nodeIP`으로 [다중 인스턴스 작업][multi_instance] 에 할당 되는 노드 목록입니다. | 다중 인스턴스 기본 및 하위 태스크입니다. | `10.0.0.4,10.0.0.5` |

@@ -3,7 +3,7 @@ title: Azure NetApp Files 네트워크 계획에 대 한 지침 | Microsoft Docs
 description: Azure NetApp Files를 사용 하 여 효과적인 네트워크 아키텍처를 설계 하는 데 도움이 되는 지침을 설명 합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: ram-kakani
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 087ecee053069a02e4d4dd6f636d05ea15269e2e
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 02852b325a22f274b4aa6e793b03c733c38bb9aa
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383494"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984131"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Azure NetApp Files 네트워크 계획 지침
 
@@ -36,13 +36,13 @@ Azure NetApp Files 네트워크를 계획 하는 경우 몇 가지 고려 사항
 아래 기능은 현재 Azure NetApp Files에 대해 지원 되지 않습니다. 
 
 * 위임 된 서브넷에 적용 된 NSGs (네트워크 보안 그룹)
-* Azure NetApp files 서브넷으로 다음 홉이 포함 된 UDRs (사용자 정의 경로)
+* 주소 접두사가 Azure NetApp files 서브넷 인 UDRs (사용자 정의 경로)
 * Azure NetApp Files 인터페이스의 Azure 정책 (예: 사용자 지정 명명 정책)
 * Azure NetApp Files 트래픽에 대 한 부하 분산 장치
 
 Azure NetApp Files에는 다음과 같은 네트워크 제한이 적용 됩니다.
 
-* Azure NetApp Files (피어 링 Vnet 포함)를 사용 하 여 VNet에서 사용 중인 Ip 수는 1000를 초과할 수 없습니다.
+* Azure NetApp Files (피어 링 Vnet 포함)를 사용 하 여 VNet에서 사용 중인 Ip 수는 1000를 초과할 수 없습니다. 고객 규모 수요를 충족 하기 위해이 제한을 증가 시키기 위해 노력 하 고 있습니다. 중간에 더 많은 Ip를 요구 하는 경우 사용 사례 및 필요한 한도를 포함 하 여 지원 팀에 문의 하세요.
 * 각 Azure Virtual Network(VNet)에서 하나의 서브넷만 Azure NetApp Files에 위임할 수 있습니다.
 
 

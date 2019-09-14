@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: pabutler
-ms.openlocfilehash: 98d33dd1aad726d4da8499006166dfd2c043378f
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 40170540458b7bc7ddb30f88117d472858937e8c
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977163"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962943"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 파트너 고객 사용량 특성
 
@@ -99,7 +99,7 @@ Resource Manager 템플릿을 사용하는 경우 앞에서 설명한 지침에 
 > [!Note]
 > 문자열의 형식이 중요합니다. **pid-** 접두사가 포함되지 않으면 데이터를 쿼리할 수 없습니다. SDK마다 다른 방법으로 추적합니다. 이 방법을 구현하려면 기본 설정 Azure SDK에 대한 지원 및 추적 방법을 검토하세요.
 
-#### <a name="example-the-python-sdk"></a>예: Python SDK
+#### <a name="example-the-python-sdk"></a>예제: Python SDK
 
 Python의 경우 **config** 특성을 사용합니다. 이 특성은 UserAgent에만 추가할 수 있습니다. 예를 들면 다음과 같습니다.
 
@@ -247,7 +247,7 @@ foreach ($deployment in $deployments){
 
 ## <a name="report"></a>보고서
 
-파트너 센터 분석 대시보드에서 고객 사용 특성에 대 한 보고서를 찾을 수 있습니다. ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). 보고서를 보려면 파트너 센터 자격 증명을 사용 하 여 로그인 해야 합니다. 보고서 또는 로그인에 문제가 발생 하는 경우 지원 받기 섹션의 지침에 따라 지원 요청을 만듭니다.
+파트너 센터 분석 대시보드에서 고객 사용 특성에 대 한 보고서를 찾을 수 있습니다. ([https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). 보고서를 보려면 파트너 센터 자격 증명을 사용 하 여 로그인 해야 합니다. 보고서 또는 로그인에 문제가 발생 하는 경우 지원 받기 섹션의 지침에 따라 지원 요청을 만듭니다.
 
 파트너 연결 유형 드롭다운 목록에서 추적 된 템플릿을 선택 하 여 보고서를 표시 합니다.
 
@@ -269,7 +269,7 @@ foreach ($deployment in $deployments){
 
 사용자가 직면 한 문제에 따라 두 개의 지원 채널이 있습니다.
 
-파트너 센터에서 고객 사용 특성 보고서 또는 로그인과 같은 문제가 발생 하는 경우 파트너 센터 지원 팀과 함께 지원 요청을 만드세요.[https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
+파트너 센터에서 고객 사용 특성 보고서 또는 로그인과 같은 문제가 발생 하는 경우 파트너 센터 지원 팀과 함께 지원 요청을 만드세요.[https://partner.microsoft.com/support](https://partner.microsoft.com/support)
 
 ![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 

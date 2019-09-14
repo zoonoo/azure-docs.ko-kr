@@ -1,5 +1,5 @@
 ---
-title: B2B 공동 작업-Azure Active Directory 문제 해결 | Microsoft Docs
+title: B2B 공동 작업 문제 해결-Azure Active Directory | Microsoft Docs
 description: Azure Active Directory B2B 협업과 관련된 일반 문제를 해결하는 방법
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4185d29ff1770ed9549b4b63a2e5da579bcf054f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f91ddee8668316df69c98ed14fbcabcb06b6da82
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65767165"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983391"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Azure Active Directory B2B 협업 문제 해결
 
@@ -35,7 +35,7 @@ SPO(SharePoint Online) 사용자 선택에서 기존 게스트 사용자를 검�
 
 ## <a name="invitations-have-been-disabled-for-directory"></a>디렉터리에 대한 초대가 사용하도록 설정되지 않았습니다.
 
-사용자를 초대할 수 있는 권한이 없다는 알림이 표시되면 사용자 설정에서 사용자 계정이 외부 사용자를 초대할 권한이 있는지 확인합니다.
+사용자를 초대할 수 있는 권한이 없다는 알림이 표시 되는 경우 외부 사용자 > > > 사용자 설정 Azure Active Directory 외부 사용자를 초대할 수 있는 권한이 있는 사용자 계정에 외부 공동 작업 설정을 관리할 수 있는 권한이 있는지 확인 합니다.
 
 ![외부 사용자 설정을 보여 주는 스크린샷](media/troubleshoot/external-user-settings.png)
 
@@ -49,7 +49,7 @@ SPO(SharePoint Online) 사용자 선택에서 기존 게스트 사용자를 검�
 
 Azure Active Directory를 사용하는 조직의 사용자를 초대하였으나 특정 사용자의 계정이 없는(예: Azure AD contoso.com에 존재하지 않는 사용자) 경우입니다. contoso.com의 관리자가 정책을 사용하여 사용자를 만들지 못하게 할 수 있습니다. 사용자는 외부 사용자가 허용된 경우인지 해당 관리자에게 확인해야 합니다. 외부 사용자의 관리자가 자체 도메인의 전자 메일 확인 사용자를 허용해야 할 수도 있습니다(전자 메일 확인 사용자 허용은 이 [문서](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)를 확인).
 
-![오류 메시지가 테 넌 트에는 전자 메일 확인 사용자](media/troubleshoot/allow-email-verified-users.png)
+![테 넌 트가 전자 메일 확인 사용자를 허용 하지 않음을 나타내는 오류](media/troubleshoot/allow-email-verified-users.png)
 
 ### <a name="external-user-does-not-exist-already-in-a-federated-domain"></a>외부 사용자가 이미 페더레이션된 도메인에 존재하지 않습니다.
 
@@ -78,15 +78,15 @@ Azure Active Directory를 사용하는 조직의 사용자를 초대하였으나
 
 이 시나리오가 중요한 경우 API 초대 전자 메일을 표시하지 않으면서 선택한 전자 메일 메커니즘을 통해 전송할 수 있습니다. 조직의 법률 자문에게 문의하여 이러한 방식으로 전송하는 전자 메일이 개인 정보 보호 법률을 준수하는지도 확인하세요.
 
-## <a name="you-receive-an-aadsts65005-error-when-you-try-to-log-in-to-an-azure-resource"></a>Azure 리소스에 로그인 하려고 할 때 "AADSTS65005" 오류가 표시
+## <a name="you-receive-an-aadsts65005-error-when-you-try-to-log-in-to-an-azure-resource"></a>Azure 리소스에 로그인을 시도할 때 "AADSTS65005" 오류가 표시 됩니다.
 
-게스트 계정을 가진 사용자는 다음 오류 메시지가 수신 하 고 로그온 할 수 없습니다.
+게스트 계정이 있는 사용자는 로그온 할 수 없으며 다음과 같은 오류 메시지가 수신 됩니다.
 
     AADSTS65005: Using application 'AppName' is currently not supported for your organization contoso.com because it is in an unmanaged state. An administrator needs to claim ownership of the company by DNS validation of contoso.com before the application AppName can be provisioned.
 
-사용자는 Azure 사용자 계정을 보유 하 고 중단 되거나 관리 되지 않는 하는 바 이럴 테 넌 트. 또한 가지 이상 전역 테 넌 트에서 관리자가 회사 또는 합니다.
+사용자에 게는 Azure 사용자 계정이 있고, 중단 또는 관리 되지 않는 바 이럴 테 넌 트가 있습니다. 또한 테 넌 트에는 전역 또는 회사 관리자가 없습니다.
 
-이 문제를 해결 하려면 중단 된 테 넌 트를 통해 수행 해야 합니다. 가리킵니다 [Azure Active Directory에서 관리자 권한으로 관리 되지 않는 디렉터리 인수](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover)합니다. 또한 해당 도메인 접미사에 대 한 인터넷 DNS 네임 스페이스의 컨트롤에 있는 직접 증거를 제공 하기 위해 액세스 해야 합니다. 테 넌 트를 관리 되는 상태로 반환 되 면 사용자를 유지 하는지 여부를 고객에 게 문의 하십시오 후 확인 된 도메인 이름에는 조직에 대 한 가장 안전한 옵션입니다.
+이 문제를 해결 하려면 중단 된 테 넌 트를 수행 해야 합니다. [Azure Active Directory 관리 되지 않는 디렉터리를 관리자 권한으로 사용](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover)을 참조 하세요. 또한 네임 스페이스를 제어 하 고 있는 직접적인 증거를 제공 하기 위해 해당 도메인 접미사에 대 한 인터넷 연결 DNS에 액세스 해야 합니다. 테 넌 트가 관리 되는 상태로 반환 된 후 사용자와 확인 된 도메인 이름이 조직에 가장 적합 한 옵션 인지 여부를 고객과 논의 하십시오.
 
 ## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>Just-in-Time 또는 "바이럴" 테넌트가 있는 게스트 사용자가 암호를 재설정할 수 없음
 

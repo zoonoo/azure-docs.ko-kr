@@ -4,14 +4,14 @@ description: 리소스 배포를 위해 Azure Resource Manager 템플릿을 사�
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/07/2019
+ms.date: 09/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 61e9bbabee969280c07521edb05d67ba68c0c58e
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 6d0d162f0f6f3024f6b4b63b8df1df9fd413afc8
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801994"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965306"
 ---
 # <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
 
@@ -21,43 +21,35 @@ ms.locfileid: "70801994"
 
 Azure 솔루션에 대 한 코드로 인프라를 구현 하려면 Azure Resource Manager 템플릿을 사용 합니다. 템플릿은 프로젝트의 인프라 및 구성을 정의 하는 JSON (JavaScript Object Notation) 파일입니다. 템플릿에서는 선언적 구문을 사용 합니다 .이 구문을 사용 하면 프로그래밍 명령의 시퀀스를 작성 하지 않고도 배포 하려는 항목의 상태를 지정할 수 있습니다. 템플릿에서 배포할 리소스 및 해당 리소스에 대 한 속성을 지정 합니다.
 
-## <a name="benefits-of-resource-manager-templates"></a>리소스 관리자 템플릿의 이점
+## <a name="why-choose-resource-manager-templates"></a>리소스 관리자 템플릿을 선택 해야 하는 이유
 
-리소스 관리자 템플릿은 다음과 같은 이점을 제공 합니다.
+리소스 관리자 템플릿과 다른 인프라 중 하나를 코드 서비스로 사용 하는 방법을 결정 하려는 경우 템플릿 사용 시 다음과 같은 이점을 고려 하세요.
 
-* 이러한 리소스를 개별적으로 처리 하는 대신, 솔루션에 대 한 모든 리소스를 그룹으로 배포, 관리 및 모니터링 합니다.
+* **선언 구문**: 리소스 관리자 템플릿을 사용 하면 전체 Azure 인프라를 선언적으로 만들고 배포할 수 있습니다. 예를 들어 virtual machines 뿐만 아니라 네트워크 인프라, 저장소 시스템 및 필요한 기타 리소스도 배포할 수 있습니다.
 
-* 개발 수명 주기 내내 솔루션을 반복적으로 배포 하 고 리소스가 일관 된 상태로 배포 되도록 합니다.
+* **반복 가능한 결과**: 개발 수명 주기 전반에 걸쳐 인프라를 반복적으로 배포 하 고 일관 된 방식으로 리소스를 배포할 수 있습니다. 템플릿은 idempotent입니다. 즉, 동일한 템플릿을 여러 번 배포 하 고 동일한 상태에서 동일한 리소스 종류를 가져올 수 있습니다. 업데이트를 나타내는 별도의 여러 템플릿을 개발 하는 대신 원하는 상태를 나타내는 하나의 템플릿을 개발할 수 있습니다.
 
-* 스크립트 대신 선언적 템플릿을 통해 인프라를 관리 합니다.
-
-리소스 관리자 템플릿 또는 다른 인프라 중 하나를 코드 서비스로 사용 하는 방법을 결정 하려는 경우 해당 서비스에 대해 다음과 같은 이점을 고려 하세요.
-
-* 새 Azure 서비스 및 기능은 템플릿에서 즉시 사용할 수 있습니다. 리소스 공급자가 새 리소스를 도입 하는 즉시 템플릿을 통해 해당 리소스를 배포할 수 있습니다. 다른 인프라를 코드 서비스로 사용 하는 경우 제 3 자가 새 리소스에 대 한 인터페이스를 구현할 때까지 기다려야 합니다.
-
-* 템플릿 배포는 여러 명령적 명령을 통해서가 아니라 템플릿의 단일 제출을 통해 처리 됩니다. 리소스 관리자은 올바른 순서로 생성 되도록 상호 의존적인 리소스의 배포를 오케스트레이션 합니다. 템플릿을 구문 분석 하 고 리소스 간 참조를 기반으로 배포의 올바른 순서를 결정 합니다.
+* **오케스트레이션**: 정렬 작업의 복잡성에 대해 걱정 하지 않아도 됩니다. 리소스 관리자은 올바른 순서로 생성 되도록 상호 의존적인 리소스의 배포를 오케스트레이션 합니다. 가능 하면 리소스 관리자는 리소스가 병렬로 배포 되므로 배포가 직렬 배포 보다 더 빨리 완료 됩니다. 여러 명령적 명령을 통해서가 아니라 명령 하나를 통해 템플릿을 배포 합니다.
 
    ![템플릿 배포 비교](./media/template-deployment-overview/template-processing.png)
 
-* 템플릿 배포는 Azure Portal에서 추적 됩니다. 배포 기록을 검토 하 고 템플릿 배포에 대 한 정보를 가져올 수 있습니다. 배포 된 템플릿, 전달 된 매개 변수 값 및 출력 값을 볼 수 있습니다. 코드 서비스를 비롯 한 다른 인프라는 포털을 통해 추적 되지 않습니다.
+* **기본 제공 유효성 검사**: 템플릿은 유효성 검사를 통과 한 후에만 배포 됩니다. 리소스 관리자 배포를 시작 하기 전에 템플릿을 확인 하 여 배포에 성공 하는지 확인 합니다. 배포는 반 완료 상태에서 중지 될 가능성이 적습니다.
+
+* **모듈식 파일**: 템플릿을 더 작고 재사용 가능한 구성 요소로 나누고 배포 시 함께 연결할 수 있습니다. 하나의 템플릿을 다른 템플릿 내에 중첩할 수도 있습니다.
+
+* **모든 Azure 리소스를 만듭니다**. 템플릿에서 새로운 Azure 서비스 및 기능을 즉시 사용할 수 있습니다. 리소스 공급자가 새 리소스를 도입 하는 즉시 템플릿을 통해 해당 리소스를 배포할 수 있습니다. 새 서비스를 사용 하기 전에 도구 또는 모듈이 업데이트 될 때까지 기다릴 필요가 없습니다.
+
+* **추적 된 배포**: Azure Portal에서 배포 기록을 검토 하 고 템플릿 배포에 대 한 정보를 가져올 수 있습니다. 배포 된 템플릿, 전달 된 매개 변수 값 및 출력 값을 볼 수 있습니다. 코드 서비스를 비롯 한 다른 인프라는 포털을 통해 추적 되지 않습니다.
 
    ![배포 기록](./media/template-deployment-overview/deployment-history.png)
 
-* 템플릿 배포는 미리 처리 된 유효성 검사를 거칩니다. 리소스 관리자 배포를 시작 하기 전에 템플릿을 확인 하 여 배포에 성공 하는지 확인 합니다. 배포는 반 완료 상태에서 중지 될 가능성이 적습니다.
+* **코드로 서의 정책**: [Azure Policy](../governance/policy/overview.md) 는 거 버 넌 스를 자동화 하는 코드 프레임 워크로 서의 정책입니다. Azure 정책을 사용 하는 경우 템플릿을 통해 배포 되는 경우 비규격 리소스에서 정책 관리가 수행 됩니다.
 
-* [Azure 정책을](../governance/policy/overview.md)사용 하는 경우 템플릿을 통해 배포 되는 경우 비규격 리소스에서 정책 관리가 수행 됩니다.
+* **배포 청사진**: Microsoft에서 제공 하는 [청사진](../governance/blueprints/overview.md) 을 활용 하 여 규정 및 규정 준수 표준을 충족할 수 있습니다. 이러한 청사진에는 다양 한 아키텍처를 위한 미리 빌드된 템플릿이 포함 되어 있습니다.
 
-* Microsoft는 규정 및 규정 준수 표준을 충족 하는 배포 [청사진](../governance/blueprints/overview.md) 을 제공 합니다. 이러한 청사진에는 다양 한 아키텍처를 위한 미리 빌드된 템플릿이 포함 되어 있습니다.
+* **내보낼**수 있는 코드: 리소스 그룹의 현재 상태를 내보내거나 특정 배포에 사용 된 템플릿을 확인 하 여 기존 리소스 그룹에 대 한 템플릿을 가져올 수 있습니다. [내보낸 템플릿](export-template-portal.md)을 살펴보면 템플릿 구문에 대해 알아보는 데 도움이 됩니다.
 
-## <a name="idempotent"></a>Idempotent
-
-Idempotent는 동일한 작업을 여러 번 실행 하 여 동일한 결과를 얻을 수 있음을 의미 합니다. 리소스 관리자 템플릿 배포는 idempotent입니다. 동일한 템플릿을 여러 번 배포 하 고 동일한 상태에서 동일한 리소스 종류를 가져올 수 있습니다. 이 개념은 템플릿을 기존 리소스 그룹에 재배포 하거나 새 리소스 그룹에 템플릿을 배포 하는 경우 일관 된 결과를 얻을 수 있다는 것을 의미 하기 때문에 중요 합니다.
-
-리소스 그룹에 3 개의 리소스를 배포한 다음 네 번째 리소스를 추가 해야 한다고 가정 하겠습니다. 새 리소스를 포함 하는 새 템플릿만 생성 하는 대신 기존 템플릿에 네 번째 리소스를 추가할 수 있습니다. 이미 3 개의 리소스가 있는 리소스 그룹에 새 템플릿을 배포할 경우 수행할 작업을 리소스 관리자 합니다.
-
-리소스가 리소스 그룹에 있고 요청에 속성에 대 한 업데이트가 포함 되어 있지 않으면 아무 동작도 수행 되지 않습니다. 리소스가 존재 하지만 속성이 변경 된 경우 기존 리소스가 업데이트 됩니다. 리소스가 존재 하지 않는 경우 새 리소스가 생성 됩니다.
-
-배포가 완료 되 면 리소스는 항상 예상 상태에 있게 됩니다.
+* **작성 도구**: [Visual Studio Code](resource-manager-tools-vs-code.md) 및 템플릿 도구 확장을 사용 하 여 템플릿을 제작할 수 있습니다. Intellisense, 구문 강조 표시, 온라인 도움말 및 기타 많은 언어 함수를 얻을 수 있습니다.
 
 ## <a name="template-file"></a>템플릿 파일
 
@@ -74,20 +66,6 @@ Idempotent는 동일한 작업을 여러 번 실행 하 여 동일한 결과를 
 * [리소스](resource-group-authoring-templates.md#resources) -배포할 리소스를 지정 합니다.
 
 * [출력](template-outputs.md) -배포 된 리소스의 값을 반환 합니다.
-
-## <a name="template-features"></a>템플릿 기능
-
-리소스 관리자는 종속성을 분석 하 여 리소스가 올바른 순서로 생성 되도록 합니다. 대부분의 종속성은 암시적으로 결정 됩니다. 그러나 한 리소스가 다른 리소스 보다 먼저 배포 되도록 종속성을 명시적으로 설정할 수 있습니다. 자세한 정보는 [Azure 리소스 관리자 템플릿에서 종속성 정의](resource-group-define-dependencies.md)를 참조하세요.
-
-템플릿에 리소스를 추가 하 고 필요에 따라 배포할 수 있습니다. 일반적으로 리소스를 배포 해야 하는지 여부를 나타내는 매개 변수 값을 전달 합니다. 자세한 내용은 [리소스 관리자 템플릿에서 조건부 배포](conditional-resource-deployment.md)를 참조 하세요.
-
-템플릿에서 JSON 블록을 여러 번 반복 하는 대신 복사 요소를 사용 하 여 변수, 속성 또는 리소스의 인스턴스를 둘 이상 지정할 수 있습니다. 자세한 내용은 [Azure Resource Manager 템플릿에서 리소스, 속성 또는 변수 반복](resource-group-create-multiple.md)을 참조 하세요.
-
-## <a name="export-templates"></a>템플릿 내보내기
-
-리소스 그룹의 현재 상태를 내보내거나 특정 배포에 사용 된 템플릿을 확인 하 여 기존 리소스 그룹에 대 한 템플릿을 가져올 수 있습니다. [내보낸 템플릿](export-template-portal.md)을 살펴보면 템플릿 구문에 대해 알아보는 데 도움이 됩니다.
-
-포털에서 솔루션을 만들 때 자동으로 솔루션에 배포 템플릿을 포함합니다. 솔루션용 템플릿으로 시작하고 특정 요구 사항에 맞게 사용자 지정할 수 있기 때문에 서식 파일을 처음부터 새로 만들 필요가 없습니다. 샘플은 [빠른 시작: Azure Portal을 사용하여 Azure Resource Manager 템플릿 만들기 및 배포](./resource-manager-quickstart-create-templates-use-the-portal.md)를 참조하세요.
 
 ## <a name="template-deployment-process"></a>템플릿 배포 프로세스
 
@@ -146,6 +124,7 @@ REQUEST BODY
 ## <a name="next-steps"></a>다음 단계
 
 * 템플릿 파일의 속성에 대 한 자세한 내용은 [Azure Resource Manager 템플릿 구조 및 구문 이해](resource-group-authoring-templates.md)를 참조 하세요.
-* 템플릿 개발을 시작 하려면 [Visual Studio Code를 사용 하 여 Azure Resource Manager 템플릿 만들기](resource-manager-tools-vs-code.md)를 참조 하세요.
-* 관리 기능을 포함 하 여 리소스 관리자 서비스에 대 한 소개는 [Azure Resource Manager 개요](resource-group-overview.md)를 참조 하세요.
-
+* 한 리소스가 다른 리소스 보다 먼저 배포 되도록 종속성을 명시적으로 설정 하려면 [Azure Resource Manager 템플릿에서 종속성 정의](resource-group-define-dependencies.md)를 참조 하세요.
+* 템플릿에 리소스를 추가 하 고 필요에 따라 배포할 수 있습니다. 자세한 내용은 [리소스 관리자 템플릿에서 조건부 배포](conditional-resource-deployment.md)를 참조 하세요.
+* 템플릿에서 JSON 블록을 여러 번 반복 하는 대신 변수, 속성 또는 리소스의 인스턴스를 둘 이상 지정할 수 있습니다. 자세한 내용은 [Azure Resource Manager 템플릿에서 리소스, 속성 또는 변수 반복](resource-group-create-multiple.md)을 참조 하세요.
+* 템플릿 내보내기에 대 한 자세한 내용은 [빠른 시작: Azure Portal을 사용하여 Azure Resource Manager 템플릿 만들기 및 배포](./resource-manager-quickstart-create-templates-use-the-portal.md)를 참조하세요.

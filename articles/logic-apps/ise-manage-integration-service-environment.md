@@ -8,17 +8,17 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 07/26/2019
-ms.openlocfilehash: 8f10e3d3fd7c67d1e803e8f85c9918c91bb81d59
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.date: 08/01/2019
+ms.openlocfilehash: 6a6b096911ac8596fe29aeb4596f1da6d5266794
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68517463"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967802"
 ---
 # <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>Azure Logic Apps에서 ISE (통합 서비스 환경) 관리
 
-Ise [(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 의 네트워크 상태를 확인 하 고 ise에 존재 하는 논리 앱, 연결, 통합 계정 및 사용자 지정 커넥터를 관리 하려면이 항목의 단계를 따르세요.
+Ise [(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 의 네트워크 상태를 확인 하 고 ise에 존재 하는 논리 앱, 연결, 통합 계정 및 커넥터를 관리 하려면이 항목의 단계를 따르세요. ISE에 이러한 아티팩트를 추가 하려면 [통합 서비스 환경에 아티팩트 추가](../logic-apps/add-artifacts-integration-service-environment-ise.md)를 참조 하세요.
 
 ## <a name="view-your-ise"></a>ISE 보기
 
@@ -46,31 +46,49 @@ ISE 메뉴의 **설정**에서 **네트워크 상태**를 선택 합니다. 이 
 
 ## <a name="manage-your-logic-apps"></a>논리 앱 관리
 
+ISE에 있는 논리 앱을 보고 관리할 수 있습니다.
+
 1. ISE 메뉴의 **설정**아래에서 **논리 앱**을 선택 합니다.
 
-   ![논리 앱 찾기](./media/ise-manage-integration-service-environment/ise-find-logic-apps.png)
+   ![논리 앱 보기](./media/ise-manage-integration-service-environment/ise-find-logic-apps.png)
 
-1. 더 이상 필요 하지 않을 때 ISE에서 논리 앱을 제거 하려면 해당 논리 앱을 선택한 다음 **삭제**를 선택 합니다.
+1. ISE에서 더 이상 필요 하지 않은 논리 앱을 제거 하려면 해당 논리 앱을 선택한 다음 **삭제**를 선택 합니다. 삭제를 확인 하려면 **예**를 선택 합니다.
 
 <a name="find-api-connections"></a>
 
 ## <a name="manage-api-connections"></a>API 연결 관리
 
-1. ISE에서 실행 되는 논리 앱에서 생성 된 API 연결을 보려면 ISE 메뉴의 **설정**에서 **API 연결**을 선택 합니다.
+ISE에서 실행 되는 논리 앱에서 만든 연결을 보고 관리할 수 있습니다.
 
-   ![API 연결 찾기](./media/ise-manage-integration-service-environment/ise-find-api-connections.png)
+1. ISE 메뉴의 **설정**에서 **API 연결**을 선택 합니다.
 
-1. 더 이상 필요 하지 않을 때 ISE에서 연결을 제거 하려면 해당 연결을 선택한 다음 **삭제**를 선택 합니다.
+   ![API 연결 보기](./media/ise-manage-integration-service-environment/ise-find-api-connections.png)
+
+1. ISE에서 더 이상 필요 하지 않은 연결을 제거 하려면 해당 연결을 선택한 다음 **삭제**를 선택 합니다. 삭제를 확인 하려면 **예**를 선택 합니다.
+
+<a name="manage-api-connectors"></a>
+
+## <a name="manage-ise-connectors"></a>ISE 커넥터 관리
+
+ISE에 배포 된 API 커넥터를 보고 관리할 수 있습니다.
+
+1. ISE 메뉴의 **설정**에서 **관리 되는 커넥터**를 선택 합니다.
+
+   ![관리 되는 커넥터 보기](./media/ise-manage-integration-service-environment/ise-view-managed-connectors.png)
+
+1. ISE에서 사용 하지 않으려는 커넥터를 제거 하려면 해당 커넥터를 선택한 다음 **삭제**를 선택 합니다. 삭제를 확인 하려면 **예**를 선택 합니다.
 
 <a name="find-custom-connectors"></a>
 
 ## <a name="manage-custom-connectors"></a>사용자 지정 커넥터 관리
 
-1. Ise에서 만든 사용자 지정 커넥터를 보려면 ISE 메뉴의 **설정**에서 **사용자 지정 커넥터**를 선택 합니다.
+ISE에 배포한 사용자 지정 커넥터를 보고 관리할 수 있습니다.
+
+1. ISE 메뉴의 **설정**에서 **사용자 지정 커넥터**를 선택 합니다.
 
    ![사용자 지정 커넥터 찾기](./media/ise-manage-integration-service-environment/ise-find-custom-connectors.png)
 
-1. 더 이상 필요 하지 않을 때 ISE에서 사용자 지정 커넥터를 제거 하려면 해당 커넥터를 선택한 다음 **삭제**를 선택 합니다.
+1. ISE에서 더 이상 필요 하지 않은 사용자 지정 커넥터를 제거 하려면 해당 커넥터를 선택한 다음 **삭제**를 선택 합니다. 삭제를 확인 하려면 **예**를 선택 합니다.
 
 <a name="find-integration-accounts"></a>
 

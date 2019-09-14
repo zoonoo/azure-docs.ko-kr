@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 09/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7e97bd50e3d37218e0f88f722387fd1a53167e27
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 675d8ecd3d6a3310a9b102df37df18bed02df3de
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60534172"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70958817"
 ---
 # <a name="use-gateway-for-data-sources-on-an-azure-virtual-network-vnet"></a>Azure VNet(Virtual Network)에서 데이터 원본에 게이트웨이 사용
 
@@ -21,10 +21,12 @@ ms.locfileid: "60534172"
 
 ## <a name="server-access-to-vnet-data-sources"></a>VNet 데이터 원본에 대한 서버 액세스
 
-VNet을 통해 데이터 원본에 액세스하는 경우 Azure Analysis Services 서버는 해당 데이터 원본이 사용자 환경의 온-프레미스에 있는 경우 해당 데이터 원본에 연결해야 합니다. **AlwaysUseGateway** 서버 속성을 구성하여 [온-프레미스 게이트웨이](analysis-services-gateway.md)를 통해 모든 데이터 원본 데이터에 액세스하도록 서버를 지정할 수 있습니다. 
+VNet을 통해 데이터 원본에 액세스하는 경우 Azure Analysis Services 서버는 해당 데이터 원본이 사용자 환경의 온-프레미스에 있는 경우 해당 데이터 원본에 연결해야 합니다. **AlwaysUseGateway** 서버 속성을 구성 하 여 [온-프레미스 게이트웨이](analysis-services-gateway.md)를 통해 모든 데이터 원본에 액세스 하도록 서버를 지정할 수 있습니다. 
+
+Azure SQL Database Managed Instance 데이터 소스는 개인 IP 주소를 사용 하 여 Azure VNet 내에서 실행 됩니다. 인스턴스에서 공용 끝점을 사용 하도록 설정한 경우에는 게이트웨이가 필요 하지 않습니다. 공용 끝점을 사용할 수 없는 경우 온-프레미스 데이터 게이트웨이가 필요 하 고 AlwaysUseGateway 속성을 true로 설정 해야 합니다.
 
 > [!NOTE]
-> 이 속성은 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)가 설치되고 구성된 경우에만 유효합니다. 게이트웨이는 VNet에 있을 수 있습니다.
+> 이 속성은 온 [-프레미스 데이터 게이트웨이](analysis-services-gateway.md) 를 설치 하 고 구성한 경우에만 적용 됩니다. 게이트웨이는 VNet에 있을 수 있습니다.
 
 ## <a name="configure-alwaysusegateway-property"></a>AlwaysUseGateway 속성 구성
 
@@ -34,7 +36,7 @@ VNet을 통해 데이터 원본에 액세스하는 경우 Azure Analysis Service
     ![항상 게이트웨이 속성 사용](media/analysis-services-vnet-gateway/aas-ssms-always-property.png)
 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 [온-프레미스 데이터 원본에 연결](analysis-services-gateway.md)   
 [온-프레미스 데이터 게이트웨이 설치 및 구성](analysis-services-gateway-install.md)   
 [Azure VNET(Virtual Network)](../virtual-network/virtual-networks-overview.md)   

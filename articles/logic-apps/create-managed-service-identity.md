@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
-ms.openlocfilehash: bb1443afa14f2a23b807af52ab8fef6ac41ea200
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
-ms.translationtype: HT
+ms.openlocfilehash: d6cf19a07829afea924d3d799b1309cfc5f6329f
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934030"
+ms.locfileid: "70959964"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Azure Logic Apps에서 관리 ID로 리소스에 인증 및 액세스
 
@@ -23,7 +23,7 @@ ms.locfileid: "70934030"
 > [!NOTE]
 > 논리 앱은 관리 되는 id를 지 원하는 커넥터에서 관리 id를 사용할 수 있습니다. 현재는 HTTP 커넥터만 관리 되는 id를 지원 합니다.
 >
-> 현재는 각 Azure 구독에 시스템 할당 관리 ID를 사용하는 논리 앱 워크플로를 10개까지 포함할 수 있습니다.
+> 현재 각 Azure 구독에서 시스템 할당 관리 id를 사용 하는 논리 앱 워크플로를 100 개까지 포함할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -59,7 +59,7 @@ Azure Portal을 통해 논리 앱에 시스템 할당 관리 ID를 사용하려�
 
    ![개체 ID에 대한 GUID](./media/create-managed-service-identity/object-id.png)
 
-   | 속성 | 값 | Description |
+   | 속성 | 값 | 설명 |
    |----------|-------|-------------|
    | **개체 ID** | <*identity-resource-ID*> | Azure AD 테넌트의 논리 앱에 대한 시스템 할당 관리 ID를 나타내는 GUID(Globally Unique Identifier) |
    ||||
@@ -76,7 +76,7 @@ Azure Portal을 통해 논리 앱에 시스템 할당 관리 ID를 사용하려�
 }
 ```
 
-예를 들어:
+예:
 
 ```json
 {
@@ -168,7 +168,7 @@ Azure에서 논리 앱이 생성될 때 이 논리 앱의 워크플로 정의에
    > 
    > **대상** 속성에서, 리소스 ID 값은 필수 후행 슬래시를 포함하여 Azure AD의 예상과 정확히 일치해야 합니다. 
    > 이러한 리소스 ID 값은 [Azure AD를 지원하는 Azure 서비스에 대해 설명하는 표](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)에서 찾을 수 있습니다. 
-   > 예를 들어 Azure Resoruce Manager 리소스 ID를 사용하는 경우 URI에 후행 슬래시가 있어야 합니다.
+   > 예를 들어 Azure Resource Manager 리소스 ID를 사용 하는 경우 URI에 슬래시가 있는지 확인 합니다.
 
 1. 논리 앱을 원하는 방식으로 계속 빌드합니다.
 

@@ -6,14 +6,14 @@ author: dlepow
 manager: gwallace
 ms.service: container-registry
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 09/06/2019
 ms.author: danlep
-ms.openlocfilehash: 6cf5efb33340844d782dc4481f5834d7590e745a
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: c0d4bd397c68fe3ed2d36404af9230e2316f3362
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172302"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70959181"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Azure Container Registry의 콘텐츠 신뢰
 
@@ -43,7 +43,7 @@ Azure Container Registry는 Docker의 [콘텐츠 신뢰][docker-content-trust] �
 
 첫 번째 단계는 레지스트리 수준에서 콘텐츠 신뢰를 사용하도록 설정하는 것입니다. 콘텐츠 신뢰를 사용하도록 설정하면 클라이언트(사용자 또는 서비스)가 서명된 이미지를 레지스트리에 푸시할 수 있습니다. 레지스트리에서 콘텐츠 신뢰를 사용하도록 설정해도 레지스트리 사용 범위가 콘텐츠 신뢰가 설정된 소비자로 제한되지 않습니다. 콘텐츠 신뢰가 설정되지 않은 소비자는 계속해서 정상적으로 레지스트리를 사용할 수 있습니다. 그러나 클라이언트에서 콘텐츠 신뢰를 설정한 사용자는 *오직* 레지스트리의 서명된 이미지만 볼 수 있습니다.
 
-레지스트리에 콘텐츠 신뢰를 사용하려면 먼저 Azure Portal에서 레지스트리로 이동합니다. **정책** 아래에서 **콘텐츠 신뢰** > **사용** > **저장**을 선택합니다.
+레지스트리에 콘텐츠 신뢰를 사용하려면 먼저 Azure Portal에서 레지스트리로 이동합니다. **정책** 아래에서 **콘텐츠 신뢰** > **사용** > **저장**을 선택합니다. Azure CLI에서 [az acr config content-trust update][az-acr-config-content-trust-update] 명령을 사용할 수도 있습니다.
 
 ![Azure Portal에서 레지스트리에 콘텐츠 신뢰를 사용하도록 설정][content-trust-01-portal]
 
@@ -75,6 +75,9 @@ docker build --disable-content-trust -t myacr.azurecr.io/myimage:v1 .
 ## <a name="grant-image-signing-permissions"></a>이미지 서명 권한 부여
 
 권한이 부여된 사용자 또는 시스템만 레지스트리에 신뢰할 수 있는 이미지를 푸시할 수 있습니다. 사용자(또는 서비스 주체를 사용하는 시스템)에게 신뢰할 수 있는 이미지 푸시 권한을 부여하려면 사용자의 Azure Active Directory ID에 `AcrImageSigner` 역할을 부여합니다. 이미지를 레지스트리에 푸시하는 데 필요한 `AcrPush`(또는 상응하는 것) 역할 외에도 이 역할이 필요합니다. 자세한 내용은 [Azure Container Registry 역할 및 권한](container-registry-roles.md)을 참조하세요.
+
+> [!NOTE]
+> Azure container registry의 [관리자 계정](container-registry-authentication.md#admin-account) 에는 신뢰할 수 있는 이미지 푸시 권한을 부여할 수 없습니다.
 
 Azure Portal 및 Azure CLI에서 `AcrImageSigner` 역할을 부여하는 자세한 방법은 다음과 같습니다.
 
@@ -113,7 +116,8 @@ az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee 
 
 `<service principal ID>`는 서비스 사용자의 **appId**, **objectId** 또는 **servicePrincipalNames** 중 하나입니다. 서비스 사용자 및 Azure Container Registry 사용에 대한 자세한 내용은 [서비스 사용자로 Azure Container Registry 인증](container-registry-auth-service-principal.md)을 참조하세요.
 
-역할을 변경한 후, `az acr login`을 실행하여 새 역할이 영향을 받을 수 있도록 Azure CLI에 대한 로컬 ID 토큰을 새로 고칩니다.
+> [!IMPORTANT]
+> 역할을 변경한 후, `az acr login`을 실행하여 새 역할이 영향을 받을 수 있도록 Azure CLI에 대한 로컬 ID 토큰을 새로 고칩니다. Id의 역할을 확인 하는 방법에 대 한 자세한 내용은 [rbac를 사용 하 여 azure 리소스에 대 한 액세스 관리 및 Azure CLI](../role-based-access-control/role-assignments-cli.md) 하 고 [azure 리소스에 대 한 rbac 문제 해결](../role-based-access-control/troubleshooting.md)
 
 ## <a name="push-a-trusted-image"></a>신뢰할 수 있는 이미지 푸시
 
@@ -214,3 +218,4 @@ umask 077; tar -zcvf docker_private_keys_backup.tar.gz ~/.docker/trust/private; 
 
 <!-- LINKS - internal -->
 [azure-cli]: /cli/azure/install-azure-cli
+[az-acr-config-content-trust-update]: /cli/azure/acr/config/content-trust#az-acr-config-content-trust-update

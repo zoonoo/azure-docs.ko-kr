@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 694bd3b5f14ac37229763b33fb97c17bd4e573d4
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 4305213d272172cb89bfdd207b6c8106af3f4939
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69893803"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983943"
 ---
 # <a name="create-resource-manager-parameter-file"></a>리소스 관리자 매개 변수 파일 만들기
 
@@ -204,6 +204,6 @@ ms.locfileid: "69893803"
 
 ## <a name="next-steps"></a>다음 단계
 
-- 템플릿에서 매개 변수를 정의하는 방법을 이해하려면 [Azure Resource Manager 템플릿의 구조 및 구문 이해](resource-group-authoring-templates.md)를 참조하세요.
+- 템플릿에서 매개 변수를 정의 하는 방법을 이해 하려면 [Azure Resource Manager 템플릿의 매개 변수](template-parameters.md)를 참조 하세요.
 - 키 자격 증명 모음의 값 사용에 대 한 자세한 내용은 [Azure Key Vault를 사용 하 여 배포 중에 보안 매개 변수 값 전달](resource-manager-keyvault-parameter.md)을 참조 하세요.
-
+- 매개 변수에 대 한 자세한 내용은 [Azure Resource Manager 템플릿의 매개 변수](template-parameters.md)를 참조 하세요.

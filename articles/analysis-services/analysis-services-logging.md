@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 09/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 357e7975b1c4fe44d86b7e29e96a9abb6ab63c35
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 6b311135832e1ec861cf6e14e5ad7e82574294bf
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932264"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70959062"
 ---
 # <a name="setup-diagnostic-logging"></a>진단 로깅 설정
 
@@ -43,7 +43,7 @@ Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법
 |쿼리     |   Query End      |
 |명령     |  Command Begin       |
 |명령     |  Command End       |
-|오류 및 경고     |   Error      |
+|오류 및 경고     |   오류      |
 |발견     |   Discover End      |
 |알림     |    알림     |
 |세션     |  Session Initialize       |
@@ -67,7 +67,7 @@ Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법
 
 ### <a name="all-metrics"></a>모든 메트릭
 
-메트릭 범주는 메트릭에서 표시된 동일한 [서버 메트릭](analysis-services-monitor.md#server-metrics)을 기록합니다.
+메트릭 범주는 동일한 [서버 메트릭을](analysis-services-monitor.md#server-metrics) azuremetrics 테이블에 기록 합니다. 쿼리 [확장](analysis-services-scale-out.md) 을 사용 하 고 각 읽기 복제본에 대해 메트릭을 분리 해야 하는 경우 azurediagnostics 테이블을 대신 사용 합니다. 여기서 **OperationName** 은 **logmetric**과 같습니다.
 
 ## <a name="setup-diagnostics-logging"></a>진단 로깅 설정
 
@@ -81,7 +81,7 @@ Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법
 
     * **이름**. 만들 로그에 대한 이름을 입력합니다.
 
-    * **스토리지 계정에 보관**. 이 옵션을 사용하려면 연결할 기존 스토리지 계정이 필요합니다. [스토리지 계정 만들기](../storage/common/storage-create-storage-account.md)를 참조하세요. 지침에 따라 리소스 관리자와 범용 계정을 만든 다음 포털에서 이 페이지로 돌아가 해당 스토리지 계정을 선택합니다. 새로 만든 스토리지 계정이 드롭다운 메뉴에 나타나기까지 몇 분 정도 걸릴 수 있습니다.
+    * **스토리지 계정에 보관**. 이 옵션을 사용하려면 연결할 기존 스토리지 계정이 필요합니다. [스토리지 계정 만들기](../storage/common/storage-create-storage-account.md)를 참조하세요. 지침에 따라 리소스 관리자와 범용 계정을 만든 다음 포털에서 이 페이지로 돌아가 해당 스토리지 계정을 선택합니다. 새로 만들어진 스토리지 계정이 드롭다운 메뉴에 나타나는 데 몇 분이 걸릴 수 있습니다.
     * **이벤트 허브로 스트림**. 이 옵션을 사용하려면 연결할 기존 Event Hub 네임스페이스 및 이벤트 허브가 필요합니다. 자세한 내용은 [Azure Portal을 사용하여 이벤트 허브 네임스페이스 및 이벤트 허브 만들기](../event-hubs/event-hubs-create.md)를 참조하세요. 그런 다음 포털의 이 페이지로 돌아가 Event Hub 네임스페이스 및 정책 이름을 선택합니다.
     * **Azure Monitor(Log Analytics 작업 영역)로 보내기**. 이 옵션을 사용하려면 기존 작업 영역을 사용하거나, 포털에서 [새 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace.md) 리소스를 사용합니다. 로그를 보는 방법에 대한 자세한 내용은 이 문서의 [Log Analytics 작업 영역에서 로그 보기](#view-logs-in-log-analytics-workspace)를 참조하세요.
 
@@ -145,7 +145,7 @@ PowerShell을 사용하여 메트릭 및 진단 로깅을 사용하도록 설정
 
 ## <a name="manage-your-logs"></a>로그 관리
 
-로그는 일반적으로 로깅을 설정하는 몇 시간 내에 사용할 수 있습니다. 스토리지 계정의 로그 관리에 따라 다릅니다.
+로그는 일반적으로 로깅을 설정하는 몇 시간 내에 사용할 수 있습니다. 스토리지 계정에서 로그를 관리하는 것은 사용자의 책임입니다.
 
 * 표준 Azure 액세스 제어 방법을 사용하여 액세스할 수 있는 사용자를 제한하는 방식으로 로그를 보호합니다.
 * 스토리지 계정에 더 이상 보존하지 않을 로그를 삭제합니다.
@@ -161,27 +161,53 @@ PowerShell을 사용하여 메트릭 및 진단 로깅을 사용하도록 설정
 
 쿼리 작성기에서 **LogManagement** > **AzureDiagnostics**를 확장합니다. AzureDiagnostics에는 엔진 및 서비스 이벤트가 포함됩니다. 쿼리는 즉석에서 생성됩니다. EventClass\_의 필드에는 xEvent 이름이 포함됩니다. 온-프레미스 로깅에 xEvents를 사용한 경우 익숙해 보일 수 있습니다. **EventClass\_s** 또는 이벤트 이름 중 하나를 클릭하면 Log Analytics 작업 영역이 계속 쿼리를 생성합니다. 나중에 다시 사용하려면 쿼리를 저장해야 합니다.
 
-### <a name="example-query"></a>예제 쿼리
-이 쿼리는 model 데이터베이스 및 서버에 대한 각 쿼리 종료/새로 고침 종료 이벤트의 CPU를 계산하고 반환합니다.
+### <a name="example-queries"></a>쿼리 예
+
+#### <a name="example-1"></a>예제 1
+
+다음 쿼리는 모델 데이터베이스 및 서버에 대 한 각 쿼리 종료/새로 고침 종료 이벤트에 대 한 기간을 반환 합니다. 스케일 아웃 하는 경우 복제본 번호가 ServerName_s에 포함 되어 있으므로 결과는 복제본으로 구분 됩니다. RootActivityId_g를 기준으로 그룹화 하면 Azure 진단 REST API에서 검색 되는 행 수가 줄어들고 [Log Analytics Rate 제한](https://dev.loganalytics.io/documentation/Using-the-API/Limits)에 설명 된 대로 제한 내에서 유지 됩니다.
 
 ```Kusto
-let window =  AzureDiagnostics
-   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and ServerName_s =~"MyServerName" and DatabaseName_s == "Adventure Works Localhost" ;
+let window = AzureDiagnostics
+   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and Resource =~ "MyServerName" and DatabaseName_s =~ "MyDatabaseName" ;
 window
 | where OperationName has "QueryEnd" or (OperationName has "CommandEnd" and EventSubclass_s == 38)
 | where extract(@"([^,]*)", 1,Duration_s, typeof(long)) > 0
 | extend DurationMs=extract(@"([^,]*)", 1,Duration_s, typeof(long))
-| extend Engine_CPUTime=extract(@"([^,]*)", 1,CPUTime_s, typeof(long))
-| project  StartTime_t,EndTime_t,ServerName_s,OperationName,RootActivityId_g ,TextData_s,DatabaseName_s,ApplicationName_s,Duration_s,EffectiveUsername_s,User_s,EventSubclass_s,DurationMs,Engine_CPUTime
-| join kind=leftouter (
-window
-    | where OperationName == "ProgressReportEnd" or (OperationName == "VertiPaqSEQueryEnd" and EventSubclass_s  != 10) or OperationName == "DiscoverEnd" or (OperationName has "CommandEnd" and EventSubclass_s != 38)
-    | summarize sum_Engine_CPUTime = sum(extract(@"([^,]*)", 1,CPUTime_s, typeof(long))) by RootActivityId_g
-    ) on RootActivityId_g
-| extend totalCPU = sum_Engine_CPUTime + Engine_CPUTime
-
+| project  StartTime_t,EndTime_t,ServerName_s,OperationName,RootActivityId_g,TextData_s,DatabaseName_s,ApplicationName_s,Duration_s,EffectiveUsername_s,User_s,EventSubclass_s,DurationMs
+| order by StartTime_t asc
 ```
 
+#### <a name="example-2"></a>예제 2
+
+다음 쿼리는 서버에 대 한 메모리 및 QPU 소비량을 반환 합니다. 스케일 아웃 하는 경우 복제본 번호가 ServerName_s에 포함 되어 있으므로 결과는 복제본으로 구분 됩니다.
+
+```Kusto
+let window = AzureDiagnostics
+   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and Resource =~ "MyServerName";
+window
+| where OperationName == "LogMetric" 
+| where name_s == "memory_metric" or name_s == "qpu_metric"
+| project ServerName_s, TimeGenerated, name_s, value_s
+| summarize avg(todecimal(value_s)) by ServerName_s, name_s, bin(TimeGenerated, 1m)
+| order by TimeGenerated asc 
+```
+
+#### <a name="example-3"></a>예제 3
+
+다음 쿼리는 서버에 대 한 행 읽기/초 Analysis Services 엔진 성능 카운터를 반환 합니다.
+
+```Kusto
+let window =  AzureDiagnostics
+   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and Resource =~ "MyServerName";
+window
+| where OperationName == "LogMetric" 
+| where parse_json(tostring(parse_json(perfobject_s).counters))[0].name == "Rows read/sec" 
+| extend Value = tostring(parse_json(tostring(parse_json(perfobject_s).counters))[0].value) 
+| project ServerName_s, TimeGenerated, Value
+| summarize avg(todecimal(Value)) by ServerName_s, bin(TimeGenerated, 1m)
+| order by TimeGenerated asc 
+```
 
 사용할 수 있는 수백 개의 쿼리가 있습니다. 쿼리에 대한 자세한 내용은 [Azure Monitor 로그 쿼리 시작](../azure-monitor/log-query/get-started-queries.md)을 참조하세요.
 

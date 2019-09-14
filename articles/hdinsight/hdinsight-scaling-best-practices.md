@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 2e79f38fb6495d75e0438fa3622cc226886c0773
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: aabcf7ac6c7bf14264178831bb3e4f6670d29984
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885558"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960900"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터 크기 조정
 
@@ -37,7 +37,7 @@ Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티�
 |[Azure CLI](hdinsight-administer-use-command-line.md)|azure hdinsight 클러스터 크기 \<조정 clusterName \<> 대상 인스턴스 수 > |
 |[Azure Portal](https://portal.azure.com)|HDInsight 클러스터 창을 열고 왼쪽 메뉴에서 **클러스터 크기** 를 선택한 다음 클러스터 크기 창에서 작업자 노드 수를 입력 하 고 저장을 선택 합니다.|  
 
-![클러스터 크기 조정](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
+![클러스터 크기 조정](./media/hdinsight-scaling-best-practices/scale-cluster-blade1.png)
 
 이러한 방법 중 하나를 사용하여 몇 분 만에 HDInsight 클러스터를 확장 또는 축소할 수 있습니다.
 
@@ -112,7 +112,7 @@ Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티�
 3. Ambari UI의 왼쪽 메뉴에 있는 서비스 목록에서 **YARN** 를 선택 합니다.  
 4. YARN 페이지에서 **빠른 링크** 를 선택 하 고 활성 헤드 노드 위로 마우스를 이동한 다음 **ResourceManager UI**를 선택 합니다.
 
-    ![ResourceManager UI](./media/hdinsight-scaling-best-practices/resourcemanager-ui.png)
+    ![ResourceManager UI](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
 
 `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`에서 ResourceManager UI에 직접 액세스할 수 있습니다.
 
@@ -126,7 +126,7 @@ Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티�
 yarn application -kill <application_id>
 ```
 
-예:
+예를 들어:
 
 ```bash
 yarn application -kill "application_1499348398273_0003"

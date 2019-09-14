@@ -1,5 +1,5 @@
 ---
-title: Azure Marketplace에 대 한 Dynamics 365 Finance and Operations에 대 한 제공
+title: Azure Marketplace에 대 한 금융 및 운영 제안의 Dynamics 365
 description: Cloud 파트너 포털에서 Dynamics 365 for Finance and Operations 제품을 만드는 방법에 대해 설명합니다.
 services: Azure Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pabutler
-ms.openlocfilehash: bd7a78730186e4ea3d34449fd7977f7575bb8180
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd19723b80fdf4e4fc7e4581a9b8dcb80ca42045
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935241"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962901"
 ---
 # <a name="dynamics-365-for-finance-and-operations-offer"></a>Dynamics 365 for Finance and Operations 제품
 
@@ -23,7 +23,7 @@ ms.locfileid: "64935241"
 
 다음 단계를 사용하여 Dynamics 365 for Finance and Operations 앱을 개발하고 이 앱을 AppSource에 게시합니다.
 
-1. 필수 조건으로 [인증된 개발자 센터](https://dev.windows.com/en-us/registration?accountProgram=Azure)가 되어야 합니다.
+1. 필수 조건으로 [인증된 개발자 센터](https://dev.windows.com/registration?accountProgram=Azure)가 되어야 합니다.
 2. 코드를 업그레이드합니다.
 3. [LCS](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lifecycle-services/lcs)(Lifecycle Services)를 사용하여 데이터를 빌드, 패키지 및 배포합니다.
 4. LCS에서 구현 방법을 만듭니다.

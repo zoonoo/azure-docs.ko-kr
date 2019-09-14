@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 58591302280c67dbd0f69ebe0bc47cf95c8bfc18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cd6b09a1130e50fae7bd83579a0f176af0b5b9cd
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65956751"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962616"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Azure Marketplace 및 AppSource 게시 가이드
 
@@ -52,7 +52,7 @@ Marketplace에서 솔루션 포트폴리오를 활용하여 새로운 시장, �
 
 Marketplace를 통해 사용할 수 있는 인사이트 및 분석을 통해 품목의 성과에 대한 정보를 얻을 수 있습니다. 캠페인 성능, 주문과 결제에 대한 정보와 솔루션에 대한 캠페인 활동을 극대화하는 방법에 대한 정보를 얻을 수 있습니다.
 
-### <a name="marketplace-go-to-market-benefits"></a>Marketplace Go-To-Market 혜택 
+### <a name="commercial-marketplace-benefits"></a>상업적 marketplace 혜택 
 
 Marketplace의 새 품목은 파트너가 Marketplace에서 사업을 성장시키는 데 도움이 되는 다양한 무료 혜택을 받을 수 있습니다. 이러한 혜택은 다음 범주로 구분됩니다. 
 
@@ -62,9 +62,9 @@ Marketplace의 새 품목은 파트너가 Marketplace에서 사업을 성장시�
 
 *   공동 판매: Marketplace를 통해 Microsoft와 함께 판매를 시작하고 가속화할 수 있습니다. 프로그램 및 지원에 액세스하여 Microsoft 팀과의 공동 판매를 촉진합니다.
 
-일단 Marketplace에 [솔루션을 제출](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv)하면 온보딩 팀에서 게시 환경 지원을 위해 사용자에게 연락합니다.  참조 [파트너 센터 계정을 만드는 방법을](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) 자세한 내용은 합니다.
+일단 Marketplace에 [솔루션을 제출](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv)하면 온보딩 팀에서 게시 환경 지원을 위해 사용자에게 연락합니다.  자세한 내용은 [파트너 센터 계정을 만드는 방법](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) 을 참조 하세요.
 
-Microsoft Go-to-Market 혜택 및 Marketplace에서 비즈니스를 확장하는 방법에 대한 자세한 내용은 [Microsoft Go-To-Market 서비스](https://partner.microsoft.com/reach-customers/gtm)를 참조하세요.
+[상업적 marketplace 혜택](https://docs.microsoft.com//azure/marketplace/gtm-your-marketplace-benefits)에 대해 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 

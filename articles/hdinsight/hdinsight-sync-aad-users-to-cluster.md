@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: f58c847f512f2db72fdca823637192c3b638b1ae
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 9a7008ca7967135209b8fc2c341998570a2679be
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879354"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960809"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Azure Active Directory 사용자를 HDInsight 클러스터와 동기화
 
@@ -31,11 +31,11 @@ ms.locfileid: "70879354"
 
 2. 왼쪽 메뉴에서 **모든 사용자**를 선택한 후 **새 사용자**를 선택합니다.
 
-    ![모든 사용자 창](./media/hdinsight-sync-aad-users-to-cluster/aad-users.png)
+    ![모든 사용자 창](./media/hdinsight-sync-aad-users-to-cluster/users-and-groups-new.png)
 
 3. 새 사용자 양식을 완료합니다. 클러스터 기반 사용 권한 할당을 위해 만든 그룹을 선택합니다. 이 예제에서는 새 사용자를 할당할 수 있는 "HiveUsers"라는 그룹을 만듭니다. ESP 클러스터를 만들기 위한 [예제 지침](hdinsight-domain-joined-configure.md)에는 2개의 그룹인 `HiveUsers` 및 `AAD DC Administrators`의 추가가 포함됩니다.
 
-    ![새 사용자 창](./media/hdinsight-sync-aad-users-to-cluster/aad-new-user.png)
+    ![새 사용자 창](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-new-user-form.png)
 
 4. **만들기**를 선택합니다.
 
@@ -131,11 +131,11 @@ ms.locfileid: "70879354"
 
 1. Ambari 대시보드의 **관리자** 메뉴 아래에서 **Ambari 관리**를 선택합니다
 
-    ![Ambari 관리](./media/hdinsight-sync-aad-users-to-cluster/manage-ambari.png)
+    ![Ambari 관리](./media/hdinsight-sync-aad-users-to-cluster/manage-apache-ambari.png)
 
 2. 페이지 왼쪽의 **사용자 + 그룹 관리** 메뉴 그룹 아래에서 **사용자**를 선택합니다.
 
-    ![사용자 메뉴 항목](./media/hdinsight-sync-aad-users-to-cluster/users-link.png)
+    ![사용자 메뉴 항목](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-menu-item.png)
 
 3. 새 사용자가 사용자 테이블 내에 표시되어야 합니다. 유형은 `Local`이 아닌 `LDAP`로 설정됩니다.
 

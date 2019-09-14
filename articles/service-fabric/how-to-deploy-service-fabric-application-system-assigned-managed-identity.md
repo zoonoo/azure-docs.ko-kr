@@ -7,12 +7,12 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 07/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: 9f6f3d43f80b3c69b0c1106b8e395b4d8f5d32ab
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: cf04efd8dac3ba4d252701d79c65b1bf56619fe0
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640697"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70968250"
 ---
 # <a name="deploy-service-fabric-application-with-system-assigned-managed-identity-preview"></a>시스템 할당 관리 id (미리 보기)를 사용 하 여 Service Fabric 응용 프로그램 배포
 
@@ -25,7 +25,7 @@ Azure Service Fabric 응용 프로그램의 관리 되는 id 기능에 액세스
 
 ### <a name="application-template"></a>애플리케이션 템플릿
 
-시스템 할당 관리 id를 사용 하 여 응용 프로그램을 사용 하도록 설정 하려면 아래 예제와 같이 Systemassigned 형식이 **지정** 된 **identity** 속성을 응용 프로그램 리소스에 추가 합니다.
+시스템 할당 관리 id를 사용 하 여 응용 프로그램을 사용 하도록 설정 하려면 아래 예제와 같이 **systemassigned** 형식이 **지정** 된 identity 속성을 응용 프로그램 리소스에 추가 합니다.
 
 ```json
     {
@@ -93,15 +93,9 @@ Azure Service Fabric 응용 프로그램의 관리 되는 id 기능에 액세스
     이는 위에 설명 된 대로 서비스에 대 한 id와 동등한 매핑 이며 서비스 정의의 관점에서 설명 합니다. Id는 응용 프로그램 매니페스트에 선언 된 대로 이름 (`WebAdmin`)으로 참조 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-
 * Azure Service Fabric에서 [관리 되는 id 지원](./concepts-managed-identity.md) 검토
-
 * [새 배포](./configure-new-azure-service-fabric-enable-managed-identity.md) 관리 되는 id를 지 원하는 Azure Service Fabric 클러스터 
-
 * 기존 Azure Service Fabric 클러스터에서 [관리 되는 Id 사용](./configure-existing-cluster-enable-managed-identity-token-service.md)
-
 * [소스 코드에서](./how-to-managed-identity-service-fabric-app-code.md) Service Fabric 응용 프로그램의 관리 되는 id 활용
-
 * [사용자 할당 관리 id를 사용 하 여 Azure Service Fabric 응용 프로그램 배포](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
-
 * [Azure Service Fabric 응용 프로그램에 다른 Azure 리소스에 대 한 액세스 권한 부여](./how-to-grant-access-other-resources.md)
