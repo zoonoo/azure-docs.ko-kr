@@ -67,7 +67,7 @@ END_NAMESPACE(WeatherStation);
 | 형식 | Description |
 | --- | --- |
 | double |배정밀도 부동 소수점 숫자 |
-| ssNoversion |32비트 정수 |
+| int |32비트 정수 |
 | float |단정밀도 부동 소수점 숫자 |
 | long |정수(Long) |
 | int8\_t |8비트 정수 |
