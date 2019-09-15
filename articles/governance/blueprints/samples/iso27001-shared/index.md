@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: b590eeb86972a8e769fc240b1935c6c8ed32530a
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: e723fab12c6ba88ec5698a697ba1ddd774eed7e2
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231727"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000506"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>ISO 27001 Shared Services 청사진 샘플 개요
 
@@ -38,7 +38,7 @@ VDC는 Microsoft에서 대기업 고객과 함께 사용하는 입증된 참조 
   - 수신 스택 서브넷에 배포된 [Azure Firewall](../../../../firewall/overview.md)을 통해서만 액세스할 수 있는, 관리 용도로 사용되는 Jumpbox 또는 요새 호스트
   - Jumpbox를 통해서만 액세스할 수 있는 ADDS(Active Directory 도메인 서비스) 및 DNS를 실행하는 두 대의 가상 머신, VPN 또는 [ExpressRoute](../../../../expressroute/expressroute-introduction.md) 연결을 통해서만 AD를 복제하도록 구성할 수 있습니다(청사진으로 배포되지 않음).
   - [Azure Net Watcher](../../../../network-watcher/network-watcher-monitoring-overview.md) 및 표준 DDoS 보호 사용
-- 공유 서비스 환경에 배포된 VM에 사용되는 비밀을 호스팅하는 데 사용되는 [Azure Key Vault](../../../../key-vault/key-vault-whatis.md) 인스턴스
+- 공유 서비스 환경에 배포된 VM에 사용되는 비밀을 호스팅하는 데 사용되는 [Azure Key Vault](../../../../key-vault/key-vault-overview.md) 인스턴스
 
 이러한 모든 요소는 [Azure 아키텍처 센터 - 참조 아키텍처](/azure/architecture/reference-architectures/)에 게시된 검증된 사례를 따릅니다.
 

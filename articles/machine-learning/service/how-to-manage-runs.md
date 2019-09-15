@@ -1,6 +1,6 @@
 ---
 title: Python에서 학습 실행 시작, 모니터링 및 취소
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: 기계 학습 실험을 시작 하 고, 상태를 설정 하 고, 태그를 구성 하 고, 구성 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
@@ -11,12 +11,12 @@ author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2019
-ms.openlocfilehash: b938d55749373711ddf2a19df12b987276b224ca
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 6615b5c277577ee2238434591c61362885f2fec6
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376305"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002738"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Python에서 학습 실행 시작, 모니터링 및 취소
 
@@ -29,13 +29,13 @@ Python 및 [MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md) [용 
 * 자식 실행을 만듭니다.
 * 태그를 만들고 실행을 찾습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 다음 항목이 필요 합니다.
 
-* Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
+* Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 현재 [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree) 을 사용해 보세요.
 
-* [Azure Machine Learning 서비스 작업 영역](how-to-manage-workspace.md)입니다.
+* [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)입니다.
 
 * Python 용 Azure Machine Learning SDK (버전 1.0.21 이상) 최신 버전의 SDK를 설치 하거나 업데이트 하려면 [Sdk 설치 또는 업데이트](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)를 참조 하세요.
 
@@ -45,7 +45,7 @@ Python 및 [MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md) [용 
     print(azureml.core.VERSION)
     ```
 
-* [Azure Machine Learning 서비스에 대 한](reference-azure-machine-learning-cli.md) [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 및 CLI 확장입니다.
+* [Azure Machine Learning에 대 한](reference-azure-machine-learning-cli.md) [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 및 CLI 확장입니다.
 
 ## <a name="start-a-run-and-its-logging-process"></a>실행 및 해당 로깅 프로세스를 시작 합니다.
 
@@ -79,7 +79,7 @@ notebook_run.log(name="message", value="Hello from run!")
     az login
     ```
 
-1. 학습 스크립트를 포함 하는 폴더에 작업 영역 구성을 연결 합니다. Azure Machine Learning `myworkspace` 서비스 작업 영역으로 대체 합니다. 을 `myresourcegroup` 작업 영역을 포함 하는 Azure 리소스 그룹으로 바꿉니다.
+1. 학습 스크립트를 포함 하는 폴더에 작업 영역 구성을 연결 합니다. 을 `myworkspace` Azure Machine Learning 작업 영역으로 바꿉니다. 을 `myresourcegroup` 작업 영역을 포함 하는 Azure 리소스 그룹으로 바꿉니다.
 
     ```azurecli-interactive
     az ml folder attach -w myworkspace -g myresourcegroup
@@ -253,7 +253,7 @@ print(parent_run.get_children())
 
 ## <a name="tag-and-find-runs"></a>태그 및 실행 찾기
 
-Azure Machine Learning 서비스에서 속성과 태그를 사용 하 여 중요 한 정보에 대 한 실행을 구성 하 고 쿼리 하는 데 도움이 됩니다.
+Azure Machine Learning에서 속성과 태그를 사용 하 여 중요 한 정보에 대 한 실행을 구성 하 고 쿼리 하는 데 도움이 됩니다.
 
 ### <a name="add-properties-and-tags"></a>속성 및 태그 추가
 

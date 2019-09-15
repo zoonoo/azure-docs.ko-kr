@@ -9,12 +9,12 @@ ms.date: 04/16/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c8ec6b1e90eb6638c99ca43715c5e8bea6e48c22
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 892cbe66222626a6847ad7a5b6c990d23991c182
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030957"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002263"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-the-azure-portal"></a>Azure Portal에서 Azure Storage 암호화를 위해 고객이 관리 하는 키 구성
 
@@ -44,7 +44,7 @@ Azure Portal에서 고객이 관리 하는 키를 사용 하도록 설정 하려
 
 키를 URI로 지정 하려면 다음 단계를 수행 합니다.
 
-1. Azure Portal에서 키 URI를 찾으려면 키 자격 증명 모음으로 이동 하 고 키 설정을 선택 합니다 . 원하는 키를 선택한 다음 키를 클릭 하 여 해당 설정을 봅니다. URI를 제공 하는 **키 식별자** 필드의 값을 복사 합니다.
+1. Azure Portal에서 키 URI를 찾으려면 키 자격 증명 모음으로 이동 하 고 **키 설정을 선택** 합니다. 원하는 키를 선택한 다음 키를 클릭 하 여 해당 설정을 봅니다. URI를 제공 하는 **키 식별자** 필드의 값을 복사 합니다.
 
     ![주요 자격 증명 모음 키 URI를 보여 주는 스크린샷](media/storage-encryption-keys-portal/key-uri-portal.png)
 
@@ -73,4 +73,4 @@ Azure Portal에서 고객이 관리 하는 키를 사용 하도록 설정 하려
 ## <a name="next-steps"></a>다음 단계
 
 - [휴지 상태의 데이터에 대 한 암호화 Azure Storage](storage-service-encryption.md)
-- [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)이란?
+- [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)이란?

@@ -1,7 +1,7 @@
 ---
 title: GPU를 사용 하 여 유추를 위한 모델 배포
-titleSuffix: Azure Machine Learning service
-description: 이 문서에서는 Azure Machine Learning 서비스를 사용 하 여 GPU 사용 Tensorflow 심층 학습 모델을 웹 서비스로 배포 하는 방법을 설명 합니다. 서비스 및 점수 유추 요청
+titleSuffix: Azure Machine Learning
+description: 이 문서에서는 Azure Machine Learning를 사용 하 여 GPU 사용 Tensorflow 심층 학습 모델을 웹 서비스로 배포 하는 방법을 설명 합니다. 서비스 및 점수 유추 요청
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 07/24/2019
-ms.openlocfilehash: 3113ad050ec6040d4f7964e940c507024bcf002d
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: bfed4daed51e95bb0b86ef187d45722e2c3a25ab
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844992"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002778"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>GPU를 사용 하 여 유추를 위한 심층 학습 모델 배포
 
-이 문서에서는 Azure Machine Learning 서비스를 사용 하 여 GPU 사용 모델을 웹 서비스로 배포 하는 방법을 설명 합니다. 이 문서의 정보는 AKS (Azure Kubernetes Service)에 모델을 배포 하는 방법을 기반으로 합니다. AKS 클러스터는 유추를 위해 모델에서 사용 하는 GPU 리소스를 제공 합니다.
+이 문서에서는 Azure Machine Learning를 사용 하 여 GPU 사용 모델을 웹 서비스로 배포 하는 방법을 설명 합니다. 이 문서의 정보는 AKS (Azure Kubernetes Service)에 모델을 배포 하는 방법을 기반으로 합니다. AKS 클러스터는 유추를 위해 모델에서 사용 하는 GPU 리소스를 제공 합니다.
 
 유추 또는 모델 점수 매기기는 배포 된 모델을 사용 하 여 예측을 수행 하는 단계입니다. Cpu 대신 Gpu를 사용 하면 매우 병렬화 계산에서 성능상의 이점이 있습니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "70844992"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure Machine Learning 서비스 작업 영역. 자세한 내용은 [Azure Machine Learning 서비스 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
+* Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 
 * Azure Machine Learning SDK가 설치 된 Python 개발 환경. 자세한 내용은 [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)를 참조 하세요.  
 
@@ -51,7 +51,7 @@ ms.locfileid: "70844992"
 기존 작업 영역에 연결 하려면 다음 코드를 사용 합니다.
 
 > [!IMPORTANT]
-> 이 코드 조각에서는 작업 영역 구성을 현재 디렉터리 또는 부모에 저장할 것으로 예상 합니다. 작업 영역을 만드는 방법에 대 한 자세한 내용은 [Azure Machine Learning 서비스 작업 영역 만들기 및 관리](how-to-manage-workspace.md)를 참조 하세요.   구성을 파일에 저장 하는 방법에 대 한 자세한 내용은 [작업 영역 구성 파일 만들기](how-to-configure-environment.md#workspace)를 참조 하세요.
+> 이 코드 조각에서는 작업 영역 구성을 현재 디렉터리 또는 부모에 저장할 것으로 예상 합니다. 작업 영역을 만드는 방법에 대 한 자세한 내용은 [Azure Machine Learning 작업 영역 만들기 및 관리](how-to-manage-workspace.md)를 참조 하세요.   구성을 파일에 저장 하는 방법에 대 한 자세한 내용은 [작업 영역 구성 파일 만들기](how-to-configure-environment.md#workspace)를 참조 하세요.
 
 ```python
 from azureml.core import Workspace
@@ -93,7 +93,7 @@ except ComputeTargetException:
 > [!IMPORTANT]
 > Azure는 AKS 클러스터가 있는 한 요금을 청구 합니다. 작업을 완료 하면 AKS 클러스터를 삭제 해야 합니다.
 
-Azure Machine Learning service에서 AKS를 사용 하는 방법에 대 한 자세한 내용은 [Azure Kubernetes service에 배포 하는 방법](how-to-deploy-azure-kubernetes-service.md)을 참조 하세요.
+Azure Machine Learning와 함께 AKS를 사용 하는 방법에 대 한 자세한 내용은 [Azure Kubernetes Service에 배포 하는 방법](how-to-deploy-azure-kubernetes-service.md)을 참조 하세요.
 
 ## <a name="write-the-entry-script"></a>항목 스크립트 작성
 

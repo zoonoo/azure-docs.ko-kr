@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
-ms.openlocfilehash: 0eca458c344e5c44ad62121db14e6b286dc19a86
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: c42732df1bcfa8649c89899febc364bb1f5f9b5a
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614448"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999923"
 ---
 # <a name="azure-cosmos-db-sql-query-execution"></a>Azure Cosmos DB SQL 쿼리 실행
 
@@ -245,7 +245,7 @@ Cosmos DB는 HTTP를 통해 개방형 RESTful 프로그래밍 모델을 제공�
 
 `IDocumentQueryable` `ResponseContinuationToken` `RequestContinuationToken` `FeedOptions`개체를 사용 하 여 개체를 만든 다음 값을 읽고에서와 같이 다시 전달 하 여 페이징을 명시적으로 제어할 수도 있습니다. `IQueryable` 구성 된 인덱싱 `EnableScanInQuery` 정책에서 쿼리를 지원 하지 않는 경우 검색을 사용 하도록 설정할 수 있습니다. 분할 된 컨테이너의 경우를 사용 `PartitionKey` 하 여 단일 파티션에 대해 쿼리를 실행할 수 있지만 Azure Cosmos DB는 쿼리 텍스트에서이를 자동으로 추출할 수 있습니다. 를 사용 `EnableCrossPartitionQuery` 하 여 여러 파티션에 대해 쿼리를 실행할 수 있습니다.
 
-쿼리를 사용 하는 .NET 샘플에 대 한 자세한 내용은 GitHub의 [Azure Cosmos DB .net 샘플](https://github.com/Azure/azure-cosmosdb-dotnet) 을 참조 하세요.
+쿼리를 사용 하는 .NET 샘플에 대 한 자세한 내용은 GitHub의 [Azure Cosmos DB .net 샘플](https://github.com/Azure/azure-cosmos-dotnet-v3) 을 참조 하세요.
 
 ## <a id="JavaScript-server-side-API"></a>JavaScript 서버 쪽 API
 
@@ -288,5 +288,5 @@ Azure Cosmos DB는 저장 프로시저 및 트리거를 사용 하 여 컨테이
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Cosmos DB 소개](introduction.md)
-- [Azure Cosmos DB .NET 샘플](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET 샘플](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Azure Cosmos DB 일관성 수준](consistency-levels.md)

@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: f619a0179849e2ca17a0528d97ef13f0788a4838
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 15638d90fe24938a45f6d4cce156e998f1f9afc2
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811552"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000111"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Kafka에 대 한 고유한 키 가져오기
 
@@ -58,7 +58,7 @@ BYOK를 사용 하도록 설정 된 Kafka 클러스터를 만들려면 다음 �
 
         b. **옵션**을 **생성**으로 설정하고 키에 이름을 지정합니다.
 
-        ![키 이름 생성](./media/apache-kafka-byok/kafka-create-a-key.png "키 이름 생성")
+        ![키 이름 생성](./media/apache-kafka-byok/apache-kafka-create-key.png "키 이름 생성")
 
         c. 키 목록에서 만든 키를 선택합니다.
 
@@ -96,14 +96,14 @@ BYOK를 사용 하도록 설정 된 Kafka 클러스터를 만들려면 다음 �
 
    ![Azure Portal의 Kafka 디스크 암호화](./media/apache-kafka-byok/apache-kafka-byok-portal.png)
 
-   클러스터를 만드는 동안 키 버전을 포함한 전체 키 URL을 제공합니다. [http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest](`https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`)을 입력합니다. 또한 클러스터에 관리 ID를 할당하고 키 URI를 제공해야 합니다.
+   클러스터를 만드는 동안 키 버전을 포함한 전체 키 URL을 제공합니다. 예를 들어, `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`을 입력합니다. 또한 클러스터에 관리 ID를 할당하고 키 URI를 제공해야 합니다.
 
 ## <a name="rotating-the-encryption-key"></a>암호화 키 회전
    Kafka 클러스터를 만든 후에 사용 하는 암호화 키를 변경 해야 하는 시나리오가 있을 수 있습니다. 이는 포털을 통해 쉽게 수행할 수 있습니다. 이 작업의 경우 클러스터는 현재 키와 원래 새 키 모두에 대 한 액세스 권한이 있어야 합니다. 그렇지 않으면 키 회전 작업이 실패 합니다.
 
    키를 회전 하려면 새 키의 전체 url이 있어야 합니다 ( [Key Vault 및 키 설정](#setup-the-key-vault-and-keys)의 3 단계 참조). 이를 완료 한 후에는 포털의 Kafka 클러스터 속성 섹션으로 이동 하 고 **디스크 암호화 키 URL**에서 **키 변경** 을 클릭 합니다. 새 키 url을 입력 하 고 전송 하 여 키를 회전 합니다.
 
-   ![Kafka 회전 디스크 암호화 키](./media/apache-kafka-byok/kafka-change-key.png)
+   ![Kafka 회전 디스크 암호화 키](./media/apache-kafka-byok/apache-kafka-change-key.png)
 
 ## <a name="faq-for-byok-to-apache-kafka"></a>Apache Kafka에 대한 BYOK FAQ
 
@@ -146,5 +146,5 @@ BYOK를 사용 하도록 설정 된 Kafka 클러스터를 만들려면 다음 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Key Vault에 대한 자세한 내용은 [Azure Key Vault란?](../../key-vault/key-vault-whatis.md)을 참조하세요.
+* Azure Key Vault에 대한 자세한 내용은 [Azure Key Vault란?](../../key-vault/key-vault-overview.md)을 참조하세요.
 * Azure Key Vault를 시작하려면 [Azure Key Vault 시작](../../key-vault/key-vault-overview.md)을 참조하세요.

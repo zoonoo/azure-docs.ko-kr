@@ -9,18 +9,18 @@ ms.date: 10/20/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 93386bd1fa3be88cbcdfab3d59ae07d3eb2b046d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 921ea148c12a23ece47688a26743e1195caf52f4
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65911927"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003790"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Microsoft Azure Storage용 클라이언트 쪽 암호화 및 Azure Key Vault
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>개요
-합니다 [.NET 용 Azure Storage Client Library](/dotnet/api/overview/azure/storage/client) Azure Storage에 업로드 하 고 클라이언트로 다운로드 하는 동안 데이터 암호를 해독 하기 전에 클라이언트 응용 프로그램 내에서 데이터를 암호화를 지원 합니다. 라이브러리 또한 스토리지 계정 키 관리를 위해 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)와의 통합을 지원합니다.
+[.Net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage/client) 는 Azure Storage에 업로드 하기 전에 클라이언트 응용 프로그램 내에서 데이터를 암호화 하 고 클라이언트에 다운로드 하는 동안 데이터 암호를 해독 합니다. 라이브러리 또한 스토리지 계정 키 관리를 위해 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)와의 통합을 지원합니다.
 
 클라이언트 쪽 암호화와 Azure Key Vault를 사용하여 Blob을 암호화하는 프로세스를 안내하는 단계별 자습서는 [Azure Key Vault를 사용하여 Microsoft Azure Storage에서 Blob 암호화 및 해독](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)을 참조하세요.
 
@@ -52,7 +52,7 @@ Java를 사용하는 클라이언트 쪽 암호화는 [Microsoft Azure Storage�
 스토리지 클라이언트 라이브러리는 사용자 데이터를 암호화하기 위해 [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 를 사용합니다. 특히, AES를 이용한 [CBC(암호화 블록 체인)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) 모드입니다. 각 서비스는 하는 일이 각각 다르므로 여기서 이것들을 살펴볼 것입니다.
 
 ### <a name="blobs"></a>Blob
-클라이언트 라이브러리는 현재 전체 blob 암호화만 지원합니다. 사용자가 사용할 때 암호화가 지원 특히 합니다 **UploadFrom** 메서드 또는 **OpenWrite** 메서드. 다운로드는 전체 및 범위 다운로드가 모두 지원됩니다.
+클라이언트 라이브러리는 현재 전체 blob 암호화만 지원합니다. 특히 사용자가 **가 uploadfrom** 메서드나 **OpenWrite** 메서드를 사용할 때 암호화가 지원 됩니다. 다운로드는 전체 및 범위 다운로드가 모두 지원됩니다.
 
 암호화 하는 동안 클라이언트 라이브러리는 임의 IV (Initialization Vector) 32 바이트의 임의의 콘텐츠 암호화 키 (CEK)와 함께 16 바이트를 생성 하고 이 정보를 사용 여 blob 데이터의 봉투 (envelope) 암호화를 수행 합니다. 래핑된 CEK 및 일부 추가 암호화 메타 데이터 서비스에서 암호화 된 blob과 함께 메타 데이터를 blob으로 저장합니다.
 
@@ -61,9 +61,9 @@ Java를 사용하는 클라이언트 쪽 암호화는 [Microsoft Azure Storage�
 > 
 > 
 
-사용한 전체 blob의 콘텐츠 검색을 포함 하는 암호화 된 blob을 다운로드 합니다 **DownloadTo**/**BlobReadStream** 편의 메서드. 래핑된 CEK는 IV (blob 메타 데이터로 저장된 경우)와 함께 암호해독되고 사용되어 지며 해독된 데이터가 사용자에게 돌아갑니다.
+암호화 된 blob 다운로드 **에는 downloadto**/**BlobReadStream** 편의 메서드를 사용 하 여 전체 blob의 콘텐츠를 검색 하는 작업이 포함 됩니다. 래핑된 CEK는 IV (blob 메타 데이터로 저장된 경우)와 함께 암호해독되고 사용되어 지며 해독된 데이터가 사용자에게 돌아갑니다.
 
-임의의 범위를 다운로드 (**DownloadRange** 메서드) 암호화 된 blob에 성공적으로 요청 된 암호 해독에 사용할 수 있는 추가 데이터의 작은 용량을 얻기 위해 사용자가 제공한는 범위가 조정 됩니다 범위입니다.
+암호화 된 blob에서 임의의 범위 (**downloadrange** 메서드)를 다운로드 하려면 요청 된 범위를 성공적으로 암호를 해독 하는 데 사용할 수 있는 소량의 추가 데이터를 얻기 위해 사용자가 제공 하는 범위를 조정 해야 합니다.
 
 이 스키마를 사용하여 모든 blob 유형(블록 blob, 페이지 blob 및 추가 blob)을 암호화/암호 해독할 수 있습니다.
 
@@ -106,7 +106,7 @@ Java를 사용하는 클라이언트 쪽 암호화는 [Microsoft Azure Storage�
 > 쿼리 작업을 수행 하려면 결과 집합에 있는 모든 키를 확인할 수 있는 키 확인자를 지정 해야 합니다. 공급자에는 쿼리 결과에 포함 된 엔터티를 확인할 수 없으면, 클라이언트 라이브러리는 오류를 throw 합니다. 서버 쪽 프로젝션을 수행하는 모든 쿼리에 대해 클라이언트 라이브러리는 선택한 열에 기본적으로 특별한 암호 메타데이터 속성(_ClientEncryptionMetadata1 및 _ClientEncryptionMetadata2)을 추가합니다.
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
-Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 됩니다. Azure Key Vault를 사용하여, 사용자는 키와 비밀(예: 인증 키, 스토리지 계정 키, 데이터 암호화 키, PFX 파일 및 암호)을 암호화하여 하드웨어 보안 모듈(HSM)로 보호된 키를 사용합니다. 자세한 내용은 [Azure Key Vault란?](../../key-vault/key-vault-whatis.md)을 참조하세요.
+Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 됩니다. Azure Key Vault를 사용하여, 사용자는 키와 비밀(예: 인증 키, 스토리지 계정 키, 데이터 암호화 키, PFX 파일 및 암호)을 암호화하여 하드웨어 보안 모듈(HSM)로 보호된 키를 사용합니다. 자세한 내용은 [Azure Key Vault란?](../../key-vault/key-vault-overview.md)을 참조하세요.
 
 스토리지 클라이언트 라이브러리는 Azure 내에서 키를 관리 하기 위한 공통 프레임 워크를 제공 하기 위해 키 자격 증명 모음 핵심 라이브러리를 사용 합니다. 사용자는 또한 키 자격 증명 모음 확장 라이브러리를 사용하여 추가적인 이점을 제공을 받습니다. 이 확장 라이브러리는 간단하고 원활한 대칭/RSA 로컬 및 집계와 캐싱같은 클라우드 키 공급자 관련 유용한 기능을 제공합니다. .
 
@@ -245,4 +245,4 @@ EncryptionPolicy 개체를 만드는 동안 사용자만 키를 공급 (IKey 구
 * [자습서: Microsoft Azure Storage에서 Azure Key Vault를 사용하여 Blob 암호화 및 암호 해독](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
 * [Azure Storage Client Library for .NET NuGet package](https://www.nuget.org/packages/WindowsAzure.Storage)
 * Azure Key Vault NuGet [코어](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [클라이언트](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/), [확장](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) 패키지 다운로드  
-* [Azure Key Vault 설명서](../../key-vault/key-vault-whatis.md)
+* [Azure Key Vault 설명서](../../key-vault/key-vault-overview.md)

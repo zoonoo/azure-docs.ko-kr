@@ -1,6 +1,6 @@
 ---
 title: Scikit를 사용 하 여 기계 학습 모델 학습-배우기
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Azure Machine Learning의 기능을 사용 하는 평가기 클래스를 사용 하 여 엔터프라이즈 규모에서 scikit 교육 스크립트를 실행 하는 방법을 알아봅니다. 예제 스크립트는 조리개 꽃 이미지를 분류 하 여 scikit의 조리개 데이터 집합을 기반으로 기계 학습 모델을 작성 합니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +10,14 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5c44f4ed5cd6488520bf6dd99f502f33049b9b17
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 2b05ba7e4d38b596bdf76655fad0736425f8ce89
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68962992"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002529"
 ---
-# <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning-service"></a>빌드 scikit-Azure Machine Learning 서비스를 사용 하 여 대규모로 모델 학습
+# <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>빌드 scikit-Azure Machine Learning를 사용 하 여 규모에 맞게 모델 학습
 
 이 문서에서는 Azure Machine Learning의 기능을 사용 하는 [평가기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) 클래스를 사용 하 여 엔터프라이즈 규모에서 scikit 교육 스크립트를 실행 하는 방법에 대해 알아봅니다. 
 
@@ -65,7 +65,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### <a name="initialize-a-workspace"></a>작업 영역 초기화
 
-[Azure Machine Learning 서비스 작업 영역은](concept-workspace.md) 서비스에 대 한 최상위 리소스입니다. 사용자가 만드는 모든 아티팩트를 사용할 수 있는 중앙 집중식 환경을 제공 합니다. Python SDK에서 개체를 [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) 만들어 작업 영역 아티팩트에 액세스할 수 있습니다.
+[Azure Machine Learning 작업 영역은](concept-workspace.md) 서비스에 대 한 최상위 리소스입니다. 사용자가 만드는 모든 아티팩트를 사용할 수 있는 중앙 집중식 환경을 제공 합니다. Python SDK에서 개체를 [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) 만들어 작업 영역 아티팩트에 액세스할 수 있습니다.
 
 `config.json` [전제 조건 섹션](#prerequisites)에서 만든 파일에서 작업 영역 개체를 만듭니다.
 
@@ -193,7 +193,7 @@ model = run.register_model(model_name='sklearn-iris', model_path='model.joblib')
 ## <a name="next-steps"></a>다음 단계
 
 
-이 문서에서는 Azure Machine Learning 서비스에서 Keras 모델을 학습 하 고 등록 했습니다. 모델을 배포 하는 방법에 대 한 자세한 내용은 모델 배포 문서를 참조 하세요.
+이 문서에서는 Azure Machine Learning에서 Keras 모델을 학습 하 고 등록 했습니다. 모델을 배포 하는 방법에 대 한 자세한 내용은 모델 배포 문서를 참조 하세요.
 
 > [!div class="nextstepaction"]
 > [모델을 배포 하는 방법 및 위치](how-to-deploy-and-where.md)

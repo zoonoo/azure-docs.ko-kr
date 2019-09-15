@@ -8,24 +8,23 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: f57d054134b9f2c8b327fe157e7a5b5e3d5ff183
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: b8e830cb187b375e17b3dc33c582126adfa32f3e
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813929"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002481"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>HDInsight Spark 클러스터를 사용하여 Data Lake Storage Gen1의 데이터 분석
 
 이 문서에서는 HDInsight Spark 클러스터에서 사용할 수 있는 [Jupyter Notebook](https://jupyter.org/) 를 사용 하 여 Data Lake Storage 계정에서 데이터를 읽는 작업을 실행 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure Data Lake Storage Gen1 계정. [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](../../data-lake-store/data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다.
 
 * Data Lake Storage Gen1을 스토리지로 사용하는 Azure HDInsight Spark 클러스터. [빠른 시작: HDInsight에서 클러스터 설정](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
 
-    
 ## <a name="prepare-the-data"></a>데이터 준비
 
 > [!NOTE]  
@@ -57,7 +56,7 @@ Data Lake Storage를 추가 스토리지로, Azure Storage Blob을 기본 스토
 
 ## <a name="use-an-hdinsight-spark-cluster-with-data-lake-storage-gen1"></a>Data Lake Storage Gen1을 포함한 HDInsight Spark 클러스터 사용
 
-1. [Azure Portal](https://portal.azure.com/)의 시작 보드에서 Apache Spark 클러스터에 대한 타일을 클릭합니다(시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.
+1. [Azure Portal](https://portal.azure.com/)시작 보드에서 Apache Spark 클러스터 (시작 보드에 고정 한 경우)에 대 한 타일을 클릭 합니다. **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.
 
 2. Spark 클러스터 블레이드에서 **빠른 연결**을 클릭한 다음 **클러스터 대시보드** 블레이드에서 **Jupyter Notebook**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
@@ -120,7 +119,7 @@ Data Lake Storage를 추가 스토리지로, Azure Storage Blob을 기본 스토
 
      다른 시각화로 결과를 볼 수도 있습니다. 예를 들어 동일한 출력에 대한 영역 그래프는 다음과 같습니다.
 
-     ![쿼리 결과 영역 그래프](./media/apache-spark-use-with-data-lake-store/jupyter-area-output.png "쿼리 결과 영역 그래프")
+     ![쿼리 결과 영역 그래프](./media/apache-spark-use-with-data-lake-store/jupyter-area-output1.png "쿼리 결과 영역 그래프")
 
 8. 애플리케이션 실행을 완료한 후 리소스를 해제하도록 Notebook을 종료해야 합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 클릭합니다. 그러면 Notebook이 종료되고 닫힙니다.
 

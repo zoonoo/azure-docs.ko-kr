@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: vikurpad
 ms.subservice: cognitive-search
-ms.openlocfilehash: 2dd61a4511d406fefec5aacd0702fa732f79de92
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 85376bddbfbf8249438c9027eaf4dc63b83fe2fe
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186240"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71004013"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-search"></a>Azure Search의 기술 자료 저장소에서 프로젝션 사용
 
@@ -34,7 +34,7 @@ Azure Search는 인덱싱의 일부로 AI 인식 기술 및 사용자 지정 기
 
 + **개체**: 데이터 및 강화의 JSON 표현이 필요한 경우 개체 프로젝션이 blob으로 저장 됩니다.
 
-컨텍스트에 정의 된 프로젝션을 보려면 [기술 자료 저장소를 시작 하는 방법을](knowledge-store-howto.md) 단계별로 안내 합니다.
+컨텍스트에 정의 된 프로젝션을 보려면 [기술 자료 저장소를 시작 하는 방법을](knowledge-store-howto.md)단계별로 안내 합니다.
 
 ## <a name="projection-groups"></a>프로젝션 그룹
 
@@ -66,6 +66,9 @@ Azure Search는 인덱싱의 일부로 AI 인식 기술 및 사용자 지정 기
 ### <a name="defining-a-table-projection"></a>테이블 프로젝션 정의
 
 기술의 `knowledgeStore` 요소 내에서 테이블 프로젝션을 정의 하는 경우 먼저 보강 트리의 노드를 테이블 원본에 매핑합니다. 일반적으로이 노드는 테이블에 프로젝션 해야 하는 특정 셰이프를 생성 하는 기술 목록에 추가 된 **Shaper** 기술의 출력입니다. 프로젝트를 선택 하 여 프로젝트를 여러 테이블로 분할할 수 있습니다. 테이블 정의는 프로젝트 하려는 테이블의 목록입니다. 
+
+#### <a name="projection-slicing"></a>프로젝션 조각화
+테이블 프로젝션 그룹을 정의할 때 보강 트리의 단일 노드를 여러 관련 테이블로 분할할 수 있습니다. 기존 테이블 프로젝션의 자식인 원본 경로를 사용 하 여 테이블을 추가 하면 자식 노드가 부모 노드에서 분리 되 고 새 관련 테이블에 프로젝션 됩니다. 이를 통해 모든 테이블 프로젝션의 원본으로 사용할 수 있는 shaper 기술에서 단일 노드를 정의할 수 있습니다.
 
 각 테이블에는 세 가지 속성이 필요 합니다.
 

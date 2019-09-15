@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/26/2018
-ms.openlocfilehash: 9424ebbd4ed2e1536a10d77a88257bad948628e2
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: e4414a64b2ee34ec16fde56dd750f2faa26b2e09
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915398"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002963"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>YARN을 사용하여 고가용성 Apache Spark Streaming 작업 만들기
 
@@ -21,7 +21,7 @@ ms.locfileid: "70915398"
 
 Spark Streaming은 데이터에 변환을 적용한 다음, 해당 결과를 파일 시스템, 데이터베이스, 대시보드 및 콘솔에 푸시할 수 있는 장기 실행 작업을 만듭니다. Spark Streaming은 정의된 시간 간격 동안 이벤트 일괄 처리를 우선 수집하여 데이터를 마이크로 단위로 일괄로 처리합니다. 다음으로, 처리 및 출력을 위해 해당 일괄 처리가 전송됩니다. 일괄 처리 시간 간격은 일반적으로 소수 초 단위로 정의됩니다.
 
-![Spark 스트리밍](./media/apache-spark-streaming-high-availability/spark-streaming.png)
+![Spark 스트리밍](./media/apache-spark-streaming-high-availability/apache-spark-streaming.png)
 
 ## <a name="dstreams"></a>DStreams
 
@@ -57,7 +57,7 @@ RDD는 고가용성의 내결함성 Spark Streaming 작업을 지원하는 다�
 
 HDInsight에서 클러스터 작업은 YARN(*Yet Another Resource Negotiator*)에 의해 조정됩니다. Spark Streaming에 대한 고가용성을 디자인할 때는 Spark Streaming 기법과 YARN 구성 요소에 대한 기술이 사용됩니다.  YARN을 사용하는 예제 구성은 아래와 같습니다. 
 
-![YARN 아키텍처](./media/apache-spark-streaming-high-availability/yarn-arch.png)
+![YARN 아키텍처](./media/apache-spark-streaming-high-availability/hdi-yarn-architecture.png)
 
 다음 섹션에서는 이 구성에 대한 디자인 고려 사항을 설명합니다.
 

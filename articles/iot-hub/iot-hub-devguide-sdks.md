@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: e51313bbed21459de9f717edd123887caed18f4b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7113914fe8681ca099fc0f3fc1e4a7d064c19480
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60400663"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000261"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Azure IoT Hub SDK 이해 및 사용
 
@@ -59,7 +59,7 @@ C(ANSI C - C99)용 Azure IoT Hub 디바이스 SDK:
 * [모듈 참조](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h)
 * [다른 플랫폼에 C SDK 이식](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)
 * 교차 컴파일, 여러 플랫폼에서 시작하기 등에 대한 정보를 제공하는 [개발자 설명서](https://github.com/Azure/azure-iot-sdk-c/tree/master/doc)
-* [Azure IoT Hub C SDK 리소스 사용량 정보](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md)
+* [Azure IoT Hub C SDK 리소스 소비 정보](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md)
 
 Java용 Azure IoT Hub 디바이스 SDK: 
 
@@ -77,9 +77,9 @@ Node.js용 Azure IoT Hub 디바이스 SDK:
 
 Python용 Azure IoT Hub 디바이스 SDK: 
 
-* [pip](https://pypi.python.org/pypi/azure-iothub-device-client/)에서 설치
+* [pip](https://pypi.org/project/azure-iot-device/)에서 설치
 * [소스 코드](https://github.com/Azure/azure-iot-sdk-python)
-* API 참조: [C API 참조](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/) 참조
+* [API 참조](https://docs.microsoft.com/python/api/azure-iot-device)
 
 iOS용 Azure IoT Hub 디바이스 SDK: 
 
@@ -112,7 +112,7 @@ Node.js용 Azure IoT Hub 서비스 SDK:
 Python용 Azure IoT Hub 서비스 SDK: 
 
 * [pip](https://pypi.python.org/pypi/azure-iothub-service-client/)에서 다운로드
-* [소스 코드](https://github.com/Azure/azure-iot-sdk-python)
+* [소스 코드](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated)
 
 C용 Azure IoT Hub 서비스 SDK: 
 
@@ -157,8 +157,8 @@ Node.js용 Azure 프로비저닝 디바이스 및 서비스 SDK:
 
 Python용 Azure 프로비저닝 디바이스 및 서비스 SDK:
 
-* [소스 코드](https://github.com/Azure/azure-iot-sdk-python)
-* pip에서 [디바이스 SDK](https://pypi.org/project/azure-iot-provisioning-device-client/) 및 [서비스 SDK](https://pypi.org/project/azure-iothub-provisioningserviceclient/) 다운로드
+* [소스 코드](https://github.com/Azure/azure-iot-device)
+* pip에서 [디바이스 SDK](https://pypi.org/project/azure-iot-device/) 및 [서비스 SDK](https://pypi.org/project/azure-iothub-provisioningserviceclient/) 다운로드
 
 ## <a name="next-steps"></a>다음 단계
 

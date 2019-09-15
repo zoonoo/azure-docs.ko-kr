@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 06/28/2019
-ms.openlocfilehash: 6c16b38cce31c45158a5871c10dbd01339da9203
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: be10d144fadb21a695c5573c82681a26136e71d4
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845425"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71004104"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 및 데이터 보호
 
@@ -185,7 +185,7 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 논리 앱을 실행 하는 동안 [TLS (전송 계층 보안)](https://azure.microsoft.com/updates/app-service-and-functions-hosted-apps-can-now-update-tls-versions/) 및 [미사용](../security/fundamentals/encryption-atrest.md)데이터를 사용 하 여 전송 하는 동안 모든 데이터를 암호화 합니다. 논리 앱의 실행이 완료 되 면 각 동작에 대 한 상태, 기간, 입력 및 출력과 함께 실행 된 단계를 포함 하 여 해당 실행에 대 한 기록을 볼 수 있습니다. 이 풍부한 정보는 논리 앱이 실행 되는 방법 및 발생 하는 문제 해결을 시작할 수 있는 위치에 대 한 통찰력을 제공 합니다.
 
-논리 앱의 실행 기록에 액세스 하는 경우 Logic Apps는 액세스를 인증 하 고 논리 앱 실행에서 요청 및 응답의 입력 및 출력에 대 한 링크를 제공 합니다. 그러나 암호, 비밀, 키 또는 기타 중요 한 정보를 처리 하는 작업의 경우 다른 사용자가 해당 데이터를 보고 액세스 하지 못하도록 하는 것이 좋습니다. 예를 들어 논리 앱이 HTTP 작업을 인증할 때 사용할 [Azure Key Vault](../key-vault/key-vault-whatis.md) 에서 비밀을 가져오는 경우 해당 비밀을 뷰에서 숨깁니다.
+논리 앱의 실행 기록에 액세스 하는 경우 Logic Apps는 액세스를 인증 하 고 논리 앱 실행에서 요청 및 응답의 입력 및 출력에 대 한 링크를 제공 합니다. 그러나 암호, 비밀, 키 또는 기타 중요 한 정보를 처리 하는 작업의 경우 다른 사용자가 해당 데이터를 보고 액세스 하지 못하도록 하는 것이 좋습니다. 예를 들어 논리 앱이 HTTP 작업을 인증할 때 사용할 [Azure Key Vault](../key-vault/key-vault-overview.md) 에서 비밀을 가져오는 경우 해당 비밀을 뷰에서 숨깁니다.
 
 논리 앱의 실행 기록에서 입력 및 출력에 대 한 액세스를 제어 하기 위해 다음 옵션을 사용할 수 있습니다.
 
@@ -370,7 +370,7 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 [Azure Resource Manager 템플릿을](../azure-resource-manager/resource-group-authoring-templates.md#parameters)사용 하 여 배포를 자동화 하는 경우 `securestring` 및 `secureobject` 유형을 사용 하 여 배포 시 평가 되는 보안 템플릿 매개 변수를 정의할 수 있습니다. 템플릿 매개 변수를 정의 하려면 템플릿의 최상위 `parameters` 섹션을 사용 합니다 .이 섹션은 워크플로 `parameters` 정의 섹션과는 다르며 서로 다릅니다. 템플릿 매개 변수에 대 한 값을 제공 하려면 별도의 [매개 변수 파일](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values)을 사용 합니다.
 
-예를 들어, 비밀을 사용 하는 경우 배포 시 [Azure Key Vault](../key-vault/key-vault-whatis.md) 에서 해당 비밀을 검색 하는 보안 템플릿 매개 변수를 정의 하 고 사용할 수 있습니다. 그런 다음 매개 변수 파일에서 키 자격 증명 모음 및 암호를 참조할 수 있습니다. 자세한 내용은 다음 항목을 참조하세요.
+예를 들어, 비밀을 사용 하는 경우 배포 시 [Azure Key Vault](../key-vault/key-vault-overview.md) 에서 해당 비밀을 검색 하는 보안 템플릿 매개 변수를 정의 하 고 사용할 수 있습니다. 그런 다음 매개 변수 파일에서 키 자격 증명 모음 및 암호를 참조할 수 있습니다. 자세한 내용은 다음 항목을 참조하세요.
 
 * [Azure Key Vault를 사용 하 여 배포 시 보안 매개 변수 값 전달](../azure-resource-manager/resource-manager-keyvault-parameter.md)
 * 이 항목의 뒷부분에 [Azure Resource Manager 템플릿의 보안 매개 변수](#secure-parameters-deployment-template)
@@ -425,7 +425,7 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 ### <a name="secure-parameters-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 보안 매개 변수
 
-논리 앱에 대 한 리소스 관리자 템플릿에는 여러 `parameters` 섹션이 있습니다. 암호, 키, 암호 및 기타 중요 한 정보를 보호 하려면 `securestring` 또는 `secureobject` 형식을 사용 하 여 템플릿 수준 및 워크플로 정의 수준에서 보안 매개 변수를 정의 합니다. 그런 다음 [Azure Key Vault](../key-vault/key-vault-whatis.md) 에 이러한 값을 저장 하 고 [매개 변수 파일](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values) 을 사용 하 여 키 자격 증명 모음 및 암호를 참조할 수 있습니다. 그런 다음 템플릿에서 해당 정보를 검색 합니다. 자세한 내용은 [Azure Key Vault를 사용 하 여 배포 시 보안 매개 변수 값 전달을](../azure-resource-manager/resource-manager-keyvault-parameter.md)참조 하세요.
+논리 앱에 대 한 리소스 관리자 템플릿에는 여러 `parameters` 섹션이 있습니다. 암호, 키, 암호 및 기타 중요 한 정보를 보호 하려면 `securestring` 또는 `secureobject` 형식을 사용 하 여 템플릿 수준 및 워크플로 정의 수준에서 보안 매개 변수를 정의 합니다. 그런 다음 [Azure Key Vault](../key-vault/key-vault-overview.md) 에 이러한 값을 저장 하 고 [매개 변수 파일](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values) 을 사용 하 여 키 자격 증명 모음 및 암호를 참조할 수 있습니다. 그런 다음 템플릿에서 해당 정보를 검색 합니다. 자세한 내용은 [Azure Key Vault를 사용 하 여 배포 시 보안 매개 변수 값 전달을](../azure-resource-manager/resource-manager-keyvault-parameter.md)참조 하세요.
 
 이러한 `parameters` 섹션에 대 한 자세한 내용은 다음과 같습니다.
 
@@ -437,7 +437,7 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 이 예제 템플릿에는 `securestring` 형식을 사용 하는 여러 보안 매개 변수 정의가 포함 되어 있습니다.
 
-| 매개 변수 이름 | 설명 |
+| 매개 변수 이름 | Description |
 |----------------|-------------|
 | `TemplatePasswordParam` | 워크플로 정의의 `basicAuthPasswordParam` 매개 변수에 전달 되는 암호를 수락 하는 템플릿 매개 변수입니다. |
 | `TemplateUsernameParam` | 워크플로 정의의 `basicAuthUserNameParam` 매개 변수에 전달 되는 사용자 이름을 허용 하는 템플릿 매개 변수입니다. |

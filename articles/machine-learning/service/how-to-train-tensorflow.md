@@ -1,7 +1,7 @@
 ---
 title: TensorFlow를 사용 하 여 심층 학습 신경망 학습
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스를 사용 하 여 대규모로 TensorFlow 교육 스크립트를 실행 하는 방법을 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning를 사용 하 여 대규모로 TensorFlow 교육 스크립트를 실행 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9b65a9b7440922d2b1d7a02a79cc6d0811a1d9fc
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 52c675369fa70d1b1113f34b9b0dda2126547e0a
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639335"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002512"
 ---
 # <a name="build-a-tensorflow-deep-learning-model-at-scale-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 대규모로 TensorFlow 심층 학습 모델 빌드
 
@@ -25,7 +25,7 @@ TensorFlow 모델을 처음부터 개발 하 든, [기존 모델](how-to-deploy-
 
 [심층 학습 vs machine learning](concept-deep-learning-vs-machine-learning.md)에 대해 자세히 알아보세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
 
@@ -65,7 +65,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### <a name="initialize-a-workspace"></a>작업 영역 초기화
 
-[Azure Machine Learning 서비스 작업 영역은](concept-workspace.md) 서비스에 대 한 최상위 리소스입니다. 사용자가 만드는 모든 아티팩트를 사용할 수 있는 중앙 집중식 환경을 제공 합니다. Python SDK에서 개체를 [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) 만들어 작업 영역 아티팩트에 액세스할 수 있습니다.
+[Azure Machine Learning 작업 영역은](concept-workspace.md) 서비스에 대 한 최상위 리소스입니다. 사용자가 만드는 모든 아티팩트를 사용할 수 있는 중앙 집중식 환경을 제공 합니다. Python SDK에서 개체를 [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) 만들어 작업 영역 아티팩트에 액세스할 수 있습니다.
 
 `config.json` [전제 조건 섹션](#prerequisites)에서 만든 파일에서 작업 영역 개체를 만듭니다.
 
@@ -201,9 +201,9 @@ for f in run.get_file_names():
 
 ## <a name="distributed-training"></a>분산 학습
 
-또한 [`TensorFlow`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) 평가기는 CPU 및 GPU 클러스터에서 분산 된 학습을 지원 합니다. Distributed TensorFlow 작업을 쉽게 실행할 수 있고 Azure Machine Learning 서비스에서 오케스트레이션을 관리할 수 있습니다.
+또한 [`TensorFlow`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) 평가기는 CPU 및 GPU 클러스터에서 분산 된 학습을 지원 합니다. Distributed TensorFlow 작업을 쉽게 실행할 수 있으며, Azure Machine Learning는 오케스트레이션을 관리할 수 있습니다.
 
-Azure Machine Learning 서비스는 TensorFlow에서 두 가지 분산 된 교육 방법을 지원 합니다.
+Azure Machine Learning은 TensorFlow에서 두 가지 분산 학습 방법을 지원합니다.
 
 - [Horovod](https://github.com/uber/horovod) framework를 사용 하는 [MPI 기반](https://www.open-mpi.org/) 분산 교육
 - Parameter server 메서드를 사용 하는 네이티브 [Distributed TensorFlow](https://www.tensorflow.org/deploy/distributed)

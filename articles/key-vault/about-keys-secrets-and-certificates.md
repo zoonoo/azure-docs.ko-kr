@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 8ea7fc5a318775b05c03166df3d9b457ec004273
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 4bbe9d9bfaf49fe93631787b347a3446e4b0f817
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773121"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000576"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>키, 비밀 및 인증서 정보
 
@@ -25,7 +25,7 @@ Azure Key Vault는 Microsoft Azure 애플리케이션 및 사용자가 여러 �
 - 인증서: 인증서를 지원합니다. 인증서는 키와 비밀을 기반으로 하며 자동 갱신 기능을 추가합니다.
 - Azure Storage: 관리자를 대신하여 Azure Storage 계정의 키를 관리할 수 있습니다. 내부적으로 Key Vault는 Azure Storage 계정을 사용하여 키를 나열(동기화)하고, 주기적으로 키를 다시 생성(회전)할 수 있습니다. 
 
-Key Vault에 대한 일반적 내용은 [Azure Key Vault란?](/azure/key-vault/key-vault-whatis)을 참조하세요.
+Key Vault에 대한 일반적 내용은 [Azure Key Vault란?](/azure/key-vault/key-vault-overview)을 참조하세요.
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
 
@@ -363,14 +363,14 @@ Key Vault 인증서를 처음부터 새로 만드는 경우 정책을 제공해�
 
 |**X509 키 사용 플래그**|**Key Vault 키 작업**|**기본 동작**|
 |----------|--------|--------|
-|DataEncipherment|encrypt, decrypt| N/A |
+|DataEncipherment|encrypt, decrypt| 해당 사항 없음 |
 |DecipherOnly|decrypt| 해당 사항 없음  |
 |DigitalSignature|sign, verify| 인증서를 만들 때 사용하도록 지정하지 않은 Key Vault 기본값 | 
 |EncipherOnly|encrypt| 해당 사항 없음 |
-|KeyCertSign|sign, verify|해당 사항 없음|
+|KeyCertSign|sign, verify|N/A|
 |KeyEncipherment|wrapKey, unwrapKey| 인증서를 만들 때 사용하도록 지정하지 않은 Key Vault 기본값 | 
 |NonRepudiation|sign, verify| 해당 사항 없음 |
-|crlsign|sign, verify| N/A |
+|crlsign|sign, verify| 해당 사항 없음 |
 
 ### <a name="certificate-issuer"></a>인증서 발급자
 
@@ -473,7 +473,7 @@ Key Vault는 Azure Storage 계정 키를 관리할 수 있습니다.
 
 자세한 내용은 [Key Vault REST API 참조의 스토리지 계정 작업](/rest/api/keyvault)을 참조하세요. 권한 설정에 대한 내용은 [자격 증명 모음 - 만들기 또는 업데이트](/rest/api/keyvault/vaults/createorupdate) 및 [자격 증명 모음 - 액세스 정책 업데이트](/rest/api/keyvault/vaults/updateaccesspolicy)를 참조하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 
 - [인증, 요청 및 응답](authentication-requests-and-responses.md)
 - [Key Vault 개발자 가이드](/azure/key-vault/key-vault-developers-guide)

@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 03/01/2019
-ms.openlocfilehash: 86ac58aea174ca05580da99b6bde0cc3823ab151
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 68c9279333e9ee92cbca1034f70801c153b6cdb8
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883071"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000544"
 ---
 # <a name="manage-storage-account-keys-with-azure-key-vault-and-the-azure-cli"></a>Azure Key Vault 및 Azure CLI를 사용 하 여 저장소 계정 키 관리 
 
@@ -158,7 +158,7 @@ Key Vault에 인증 하는 방법에는 다음 세 가지가 있습니다.
 - 서비스 주체 및 인증서를 사용 합니다. 
 - 서비스 사용자 및 암호를 사용 합니다. 이 방법은 사용 하지 않는 것이 좋습니다.
 
-자세한 내용은 Azure Key Vault를 참조 [하세요. 기본 개념](key-vault-whatis.md#basic-concepts).
+자세한 내용은 Azure Key Vault를 참조 [하세요. 기본 개념](basic-concepts.md).
 
 다음 예제에서는 공유 액세스 서명 토큰을 가져오는 방법을 보여 줍니다. 공유 액세스 서명 정의를 만든 후에 토큰을 페치합니다. 
 

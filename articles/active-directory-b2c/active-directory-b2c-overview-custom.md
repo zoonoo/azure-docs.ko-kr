@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: be6d54886f23b0fa219b1e4b8948b4a4c51f5864
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: a3ded11ac6a68e82fba76e7551699f29f3cb6075
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716834"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70998428"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 지정 정책
 
@@ -55,7 +55,7 @@ Azure의 CIAM(고객 ID 및 액세스 관리) 서비스에는 다음이 포함�
 
 Azure AD B2C는 순서대로 ID 공급자, 사용자, 고객, 기타 시스템 및 로컬 사용자 디렉터리와 상호 작용하여 ID 작업을 완료합니다. 예를 들어 사용자를 로그인하거나, 새 사용자를 등록하거나, 암호를 다시 설정합니다. ID 경험 프레임워크 및 정책(사용자 경험 또는 보안 프레임워크 정책이라고도 함)은 다자간 신뢰를 설정하고 행위자, 작업, 프로토콜 및 완료할 단계 시퀀스를 명시적으로 정의합니다.
 
-Id 경험 프레임 워크는 Openid connect Connect, OAuth, SAML, WSFed와 같은 표준 프로토콜 형식에서 엔터티 간의 신뢰를 오케스트레이션 하는 완전히 구성 가능한 정책 중심의 클라우드 기반 Azure 플랫폼입니다. 예를 들어 REST API 기반 시스템 간 클레임 교환. 이 프레임워크는 HTML 및 CSS를 지원하는 사용자에게 친숙한 화이트 레이블 환경을 만듭니다.
+Id 경험 프레임 워크는 Openid connect Connect, OAuth, SAML, 몇 가지 비표준와 같은 표준 프로토콜 형식의 엔터티 사이에 신뢰를 오케스트레이션 하는 완전히 구성 가능한 정책 중심의 클라우드 기반 Azure 플랫폼입니다 (예: REST). API 기반 시스템 간 클레임 교환. 이 프레임워크는 HTML 및 CSS를 지원하는 사용자에게 친숙한 화이트 레이블 환경을 만듭니다.
 
 사용자 지정 정책은 계층 구조 체인에서 서로를 참조하는 하나 또는 여러 XML 형식 파일로 표시됩니다. XML 요소는 다른 요소 간에 클레임 스키마, 클레임 변환, 콘텐츠 정의, 클레임 공급자, 기술 프로필 및 사용자 경험 오케스트레이션 단계를 정의합니다. 사용자 지정 정책은 신뢰 당사자에서 호출할 때 ID 경험 프레임워크에서 실행하는 하나 이상의 XML 파일에 액세스할 수 있습니다. 사용자 지정 정책을 구성하는 개발자는 신뢰할 수 있는 관계를 세부적으로 신중하게 정의하여 메타데이터 엔드포인트, 정확한 클레임 정의 교환을 포함하고 ID 공급자 각각의 필요에 따라 암호, 키 및 인증서를 구성해야 합니다.
 

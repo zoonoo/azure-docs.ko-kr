@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: e6f6ba131a4fb5dd31f113afd2b6de2d65aeaea0
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 828ec2b925535df3f925093466556447e703cd76
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915181"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003805"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Data Lake tools for Visual Studio를 사용하여 Apache Storm의 C# 토폴로지 개발
 
@@ -135,7 +135,7 @@ HBase 판독기 및 기록기 템플릿은 HBase Java API가 아니라 HBase RES
 
 2. **새 프로젝트** 창에서 **설치됨** > **템플릿**을 확장하고 **Azure Data Lake**를 선택합니다. 템플릿 목록에서 **Storm 애플리케이션**을 선택합니다. 화면 아래쪽에서 애플리케이션 이름으로 **WordCount**를 입력합니다.
 
-    ![새 프로젝트 창의 스크린샷](./media/apache-storm-develop-csharp-visual-studio-topology/new-project.png)
+    ![새 프로젝트 창의 스크린샷](./media/apache-storm-develop-csharp-visual-studio-topology/apache-storm-new-project.png)
 
 3. 프로젝트를 만든 후에는 다음 파일이 있어야 합니다.
 
@@ -338,7 +338,7 @@ HBase 판독기 및 기록기 템플릿은 HBase Java API가 아니라 HBase RES
 
 Spout 및 bolt는 그래프로 정렬되며, 이는 구성 요소 간에 데이터의 흐름 방식을 정의합니다. 이 토폴로지의 경우 그래프는 다음과 같습니다.
 
-![구성 요소 정렬 방식 다이어그램](./media/apache-storm-develop-csharp-visual-studio-topology/wordcount-topology.png)
+![구성 요소 정렬 방식 다이어그램](./media/apache-storm-develop-csharp-visual-studio-topology/word-count-topology1.png)
 
 문장이 Spout에서 내보내지며 Splitter Bolt의 인스턴스에 배포됩니다. Splitter bolt는 Counter bolt로 배포된 단어로 문장을 나눕니다.
 
@@ -461,7 +461,6 @@ return topologyBuilder;
   > [!NOTE]  
   > 이 버전은 텍스트 파일에서 Clojure 코드를 Java 구성 요소로 사용하는 방법을 설명하기도 합니다.
 
-
 프로젝트가 제출될 때 사용된 토폴로지를 전환하려면 클러스터에 제출하기 전에 사용하려는 토폴로지로 `[Active(true)]` 문을 이동합니다.
 
 > [!NOTE]  
@@ -571,15 +570,15 @@ Linux 기반 HDInsight 클러스터의 경우 프로젝트에서 .NET 4.5에 대
    > [!NOTE]
    > 토폴로지를 클러스터로 배포하기 전에 **출력 유형**을 **클래스 라이브러리**로 다시 변경해야 합니다.
 
-2. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **추가** > **새 항목**을 차례로 선택합니다. **클래스**를 선택하고 클래스 이름으로 **LocalTest.cs**를 입력합니다. 마지막으로 **추가**를 클릭합니다.
+1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **추가** > **새 항목**을 차례로 선택합니다. **클래스**를 선택하고 클래스 이름으로 **LocalTest.cs**를 입력합니다. 마지막으로 **추가**를 클릭합니다.
 
-3. **LocalTest.cs**를 열고 다음 **using** 문을 맨 위에 추가합니다.
+1. **LocalTest.cs**를 열고 다음 **using** 문을 맨 위에 추가합니다.
 
     ```csharp
     using Microsoft.SCP;
     ```
 
-4. **LocalTest** 클래스의 내용으로 다음 코드를 사용합니다.
+1. **LocalTest** 클래스의 내용으로 다음 코드를 사용합니다.
 
     ```csharp
     // Drives the topology components
@@ -681,9 +680,9 @@ Linux 기반 HDInsight 클러스터의 경우 프로젝트에서 .NET 4.5에 대
     Console.ReadKey();
     ```
 
-2. 변경 내용을 저장한 다음 **F5**를 클릭하거나 **디버그** > **디버깅 시작**을 선택하여 프로젝트를 시작합니다. 콘솔 창이 나타나며 로그 상태가 테스트로 진행됩니다. **테스트 완료** 가 나타나면 아무 키나 눌러 창을 닫습니다.
+1. 변경 내용을 저장한 다음 **F5**를 클릭하거나 **디버그** > **디버깅 시작**을 선택하여 프로젝트를 시작합니다. 콘솔 창이 나타나며 로그 상태가 테스트로 진행됩니다. **테스트 완료** 가 나타나면 아무 키나 눌러 창을 닫습니다.
 
-3. **Windows 탐색기**를 사용하여 프로젝트가 포함된 디렉터리를 찾습니다. 예를 들어: **C:\Users\<your_user_name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. 이 디렉터리에서 **Bin**을 열고 **디버그**를 클릭합니다. 테스트가 실행될 때 생성된 텍스트 파일(sentences.txt, counter.txt 및 splitter.txt)이 표시됩니다. 각각의 텍스트 파일을 열고 데이터를 검사합니다.
+1. **Windows 탐색기**를 사용하여 프로젝트가 포함된 디렉터리를 찾습니다. 예: **C:\Users\<your_user_name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. 이 디렉터리에서 **Bin**을 열고 **디버그**를 클릭합니다. 테스트가 실행될 때 생성된 텍스트 파일(sentences.txt, counter.txt 및 splitter.txt)이 표시됩니다. 각각의 텍스트 파일을 열고 데이터를 검사합니다.
 
    > [!NOTE]  
    > 문자열 데이터는 이러한 파일에 10진수 값의 배열로 유지됩니다. 예를 들어, **splitter.txt** 파일의 \[[97,103,111]]은 *and*라는 단어입니다.

@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: ca640b058a1d91d15c5accb9367936368511a3ef
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: a2749ca35e6137d42a09b79da9315c8f7b242c31
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881598"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000805"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault 개발자 가이드
 
@@ -24,7 +24,7 @@ Key Vault를 사용하면 애플리케이션 내에서 중요한 정보를 안�
 - 애플리케이션은 서명 및 암호화를 위해 키를 사용할 수 있지만, 애플리케이션 외부에서 키 관리를 유지할 수 있으므로 지리적으로 분산된 앱에 적합한 솔루션을 구현할 수 있습니다.
 - Key Vault의 2016년 9월 릴리스를 통해 애플리케이션에서 Key Vault 인증서를 관리할 수 있게 되었습니다. 자세한 내용은 [키, 암호 및 인증서 정보](/rest/api/keyvault/about-keys--secrets-and-certificates)를 참조하세요.
 
-Azure Key Vault에 대한 일반적인 내용은 [키 자격 증명 모음이란?](key-vault-whatis.md)을 참조하세요.
+Azure Key Vault에 대한 일반적인 내용은 [키 자격 증명 모음이란?](key-vault-overview.md)을 참조하세요.
 
 ## <a name="public-previews"></a>공개 미리 보기
 

@@ -1,7 +1,7 @@
 ---
-title: Azure Machine Learning Service에서 로깅 사용
-titleSuffix: Azure Machine Learning service
-description: 기본 Python 로깅 패키지와 SDK 특정 기능을 둘 다 활용하여 Azure Machine Learning Service에서 로깅을 사용하는 방법을 알아봅니다.
+title: Azure Machine Learning에서 로깅 사용
+titleSuffix: Azure Machine Learning
+description: 기본 Python 로깅 패키지를 사용 하 고 SDK 관련 기능을 사용 하 여 Azure Machine Learning에서 로깅을 사용 하도록 설정 하는 방법을 알아봅니다.
 ms.author: trbye
 author: trevorbye
 services: machine-learning
@@ -10,14 +10,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 07/12/2019
-ms.openlocfilehash: 9deb369dc812616cd7256bbab4101531ca08f127
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 80508a31db8d86569c52df98697ceb62520059d2
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847922"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002762"
 ---
-# <a name="enable-logging-in-azure-machine-learning-service"></a>Azure Machine Learning Service에서 로깅 사용
+# <a name="enable-logging-in-azure-machine-learning"></a>Azure Machine Learning에서 로깅 사용
 
 Azure Machine Learning Python SDK를 사용하면 로컬 로깅 및 포털의 작업 영역 로깅을 위해 기본 Python 로깅 패키지와 SDK 특정 기능 둘 다로 로깅을 사용할 수 있습니다. 로그는 애플리케이션 상태에 대한 실시간 정보를 개발자에게 제공하며 오류 또는 경고 진단에 도움이 될 수 있습니다. 이 문서의 다음 영역에서는 로깅을 사용하는 다양한 방법을 설명합니다.
 
@@ -27,7 +27,7 @@ Azure Machine Learning Python SDK를 사용하면 로컬 로깅 및 포털의 �
 > * 배포된 모델
 > * Python `logging` 설정
 
-[Azure Machine Learning Service 작업 영역을 만듭니다](how-to-manage-workspace.md). SDK에 대 한 자세한 내용은 [가이드를 참조](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) 하십시오.
+[Azure Machine Learning 작업 영역을 만듭니다](how-to-manage-workspace.md). SDK에 대 한 자세한 내용은 [가이드를 참조](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) 하십시오.
 
 ## <a name="training-models-and-compute-target-logging"></a>모델 학습 및 컴퓨팅 대상 로깅
 

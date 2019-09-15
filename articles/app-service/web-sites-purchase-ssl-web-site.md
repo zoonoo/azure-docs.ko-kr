@@ -15,22 +15,22 @@ ms.date: 10/16/2018
 ms.author: cephalin
 ms.reviewer: apurvajo
 ms.custom: seodec18
-ms.openlocfilehash: d6d3e91bef6c4f837b068d755994b2f3268600da
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 7c899bae6cf36e68664a3ce60939f72a4b5bd1ab
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074046"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71001201"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Azure App Service에 대한 SSL 인증서 구입 및 구성
 
-이 자습서에서는 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)에서 App Service 인증서를 작성(구매)한 다음, App Service 앱에 바인딩하여 [App Service 앱](https://docs.microsoft.com/azure/app-service/) 또는 [함수 앱](https://docs.microsoft.com/azure/azure-functions/)을 보호하는 방법을 보여 줍니다.
+이 자습서에서는 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)에서 App Service 인증서를 작성(구매)한 다음, App Service 앱에 바인딩하여 [App Service 앱](https://docs.microsoft.com/azure/app-service/) 또는 [함수 앱](https://docs.microsoft.com/azure/azure-functions/)을 보호하는 방법을 보여 줍니다.
 
 > [!TIP]
 > App Service Certificates는 Azure 또는 비 Azure 서비스에 대해 사용할 수 있으며 App Services로 제한되지 않습니다. 그렇게 하려면 어디서든 사용할 수 있는 App Service Certificate의 로컬 PFX 복사본을 만들어야 합니다. 자세한 내용은 [App Service Certificate의 로컬 PFX 복사본 만들기](https://blogs.msdn.microsoft.com/benjaminperkins/2017/04/12/export-an-azure-app-service-certificate-pfx-powershell/)를 참고하세요.
 >
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 방법 가이드를 수행하려면 다음이 필요합니다.
 
@@ -47,7 +47,7 @@ ms.locfileid: "70074046"
 
 다음 표를 사용하여 인증서를 구성할 수 있습니다. 작업을 마쳤으면 **만들기**를 클릭합니다.
 
-| 설정 | 설명 |
+| 설정 | Description |
 |-|-|
 | 이름 | App Service Certificate에 대한 식별 이름입니다. |
 | Naked 도메인 호스트 이름 | 여기에서 루트 도메인을 지정 합니다. 발급 된 인증서는 루트 도메인과 `www` 하위 도메인을 모두 보호 합니다. 발급 된 인증서에서 일반 이름 필드는 루트 도메인을 포함 하 고, 주체 대체 이름 필드는 `www` 도메인을 포함 합니다. 하위 도메인만 보호하려면 여기에 하위 도메인의 정규화된 도메인 이름을 지정합니다(예: `mysubdomain.contoso.com`).|
@@ -64,11 +64,11 @@ ms.locfileid: "70074046"
 
 ![KV에 저장할 준비 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/ReadyKV.png)
 
-[Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)는 클라우드 애플리케이션 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 되는 Azure 서비스입니다. App Service Certificate에 대해 선택한 스토리지입니다.
+[Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)는 클라우드 애플리케이션 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 되는 Azure 서비스입니다. App Service Certificate에 대해 선택한 스토리지입니다.
 
 **Key Vault 상태** 페이지에서 **Key Vault 리포지토리**를 클릭하여 새 자격 증명 모음을 만들거나 기존 자격 증명 모음을 선택합니다. 새 자격 증명 모음을 만들려면 다음 표를 사용하여 자격 증명 모음을 구성하고 만들기를 클릭합니다. 동일한 구독 및 리소스 그룹 내에서 새로운 Key Vault 생성을 참조하세요.
 
-| 설정 | Description |
+| 설정 | 설명 |
 |-|-|
 | 이름 | 영숫자와 대시로 구성된 고유한 이름입니다. |
 | 리소스 그룹 | 권장 사항으로, App Service Certificate과 동일한 리소스 그룹을 선택합니다. |
@@ -111,7 +111,7 @@ ms.locfileid: "70074046"
 
 다음 표를 사용하여 **SSL 바인딩** 대화 상자에서 바인딩을 구성한 다음, **바인딩 추가**를 클릭합니다.
 
-| 설정 | 설명 |
+| 설정 | Description |
 |-|-|
 | Hostname | SSL 바인딩을 추가할 도메인 이름입니다. |
 | 프라이빗 인증서 지문 | 바인딩할 인증서입니다. |
@@ -125,7 +125,7 @@ ms.locfileid: "70074046"
 
 인증서의 개인 키가 손상 되었다고 생각 되는 경우 인증서를 다시 만들 수 있습니다. [App Service 인증서](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) 페이지에서 인증서를 선택 하 고 왼쪽 탐색 모음에서 키 다시 생성 **및 동기화** 를 선택 합니다.
 
-키 다시 생성을 클릭 하 여 프로세스를 시작 합니다. 이 프로세스는 완료하는 데 1-10분 정도 걸릴 수 있습니다.
+키 다시 **생성을 클릭 하 여 프로세스** 를 시작 합니다. 이 프로세스는 완료하는 데 1-10분 정도 걸릴 수 있습니다.
 
 ![SSL 키 다시 생성 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/Rekey.png)
 

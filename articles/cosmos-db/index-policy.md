@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: thweiss
-ms.openlocfilehash: 60b323c12e5c548c974a7d660d08861637ac2381
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 944c05a28eb33c659bf4aaa600985530122f8d3e
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996676"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000316"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책
 
@@ -26,8 +26,11 @@ Azure Cosmos DB 모든 컨테이너에는 컨테이너의 항목을 인덱싱하
 
 Azure Cosmos DB는 두 가지 인덱싱 모드를 지원 합니다.
 
-- **일관성**: 컨테이너의 인덱싱 정책이 일관 되 게 설정 된 경우 항목을 만들거나 업데이트 하거나 삭제 하면 인덱스가 동기적으로 업데이트 됩니다. 즉, 읽기 쿼리의 일관성은 [계정에 대해 구성 된 일관성](consistency-levels.md)이 됩니다.
-- **없음**: 컨테이너의 인덱싱 정책을 None으로 설정 하면 해당 컨테이너에서 인덱싱이 효과적으로 비활성화 됩니다. 이는 컨테이너를 보조 인덱스가 없어도 순수 키-값 저장소로 사용할 때 일반적으로 사용 됩니다. 대량 삽입 작업의 속도를 높일 수도 있습니다.
+- **일관성**: 항목을 만들거나 업데이트 하거나 삭제 하면 인덱스가 동기적으로 업데이트 됩니다. 즉, 읽기 쿼리의 일관성은 [계정에 대해 구성 된 일관성](consistency-levels.md)이 됩니다.
+- **없음**: 컨테이너에서 인덱싱을 사용할 수 없습니다. 이는 컨테이너를 보조 인덱스가 없어도 순수 키-값 저장소로 사용할 때 일반적으로 사용 됩니다. 이를 사용 하 여 대량 작업의 성능을 향상 시킬 수도 있습니다. 대량 작업이 완료 되 면 인덱스 모드를 일관 된 상태로 설정 하 고 완료 될 때까지 [IndexTransformationProgress](how-to-manage-indexing-policy.md#use-the-net-sdk-v2) 를 사용 하 여 모니터링할 수 있습니다.
+
+> [!NOTE]
+> Cosmos DB는 지연 인덱싱 모드도 지원 합니다. 지연 인덱싱은 엔진이 다른 작업을 수행 하지 않을 때 훨씬 낮은 우선 순위 수준으로 인덱스 업데이트를 수행 합니다. 이로 인해 **일치 하지 않거나 불완전** 한 쿼리 결과가 발생할 수 있습니다. 또한 대량 작업에 대해 ' 없음 ' 대신 지연 인덱싱을 사용 하면 인덱스 모드를 변경 하면 인덱스를 삭제 하 고 다시 만드는 이점도 없습니다. 이러한 이유로이를 사용 하는 고객에 게 권장 됩니다. 대량 작업에 대 한 성능을 향상 시키려면 인덱스 모드를 없음으로 설정 하 고 일관성 있는 모드로 돌아간 후 `IndexTransformationProgress` 완료 될 때까지 컨테이너의 속성을 모니터링 합니다.
 
 기본적으로 인덱싱 정책은로 `automatic`설정 됩니다. 인덱싱 정책에서 `automatic` 속성을로 `true`설정 하 여 구현 합니다. 이 속성을로 `true` 설정 하면 Azure CosmosDB가 작성 된 문서를 자동으로 인덱싱할 수 있습니다.
 

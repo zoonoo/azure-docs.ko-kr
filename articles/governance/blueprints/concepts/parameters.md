@@ -7,18 +7,18 @@ ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 9670433284ae963783b655322c4b18f748df52c5
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: ee44d744c580dd9fbf20e7186b6e76fdc74cc5d0
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231962"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71004081"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>매개 변수를 통해 동적 청사진 만들기
 
 다양한 아티팩트(예: 리소스 그룹, Resource Manager 템플릿, 정책 또는 역할 할당)를 사용하여 완벽하게 정의된 청사진은 Azure 내에서 개체를 신속하고 일관적으로 만드는 방법을 제공합니다. 이러한 재사용 가능한 디자인 패턴과 컨테이너를 유연하게 사용할 수 있도록, Azure Blueprint는 매개 변수를 지원합니다. 매개 변수는 정의 및 할당 과정에서 청사진을 통해 배포된 아티팩트의 속성을 변경할 수 있는 유연성을 제공합니다.
 
-간단한 예로 리소스 그룹 아티팩트가 있습니다. 리소스 그룹을 만들 때 반드시 제공해야 하는 두 가지 값이 있는데, 그것은 바로 이름과 위치입니다. 청사진에 리소스 그룹을 추가할 때 매개 변수가 없으면 청사진을 사용할 때마다 이름과 위치를 정의해야 합니다. 따라서 이 반복에서는 청사진을 사용할 때마다 동일한 리소스 그룹에 아티팩트를 만들게 됩니다. 이로 인해 해당 리소스 그룹 내부의 리소스가 중복되고 충돌을 일으킵니다.
+간단한 예로 리소스 그룹 아티팩트가 있습니다. 리소스 그룹을 만들 때 반드시 제공해야 하는 두 가지 값이 있는데, 그것은 바로 이름과 위치입니다. 청사진에 리소스 그룹을 추가할 때 매개 변수가 존재 하지 않으면 청사진을 사용할 때마다 해당 이름과 위치를 정의 합니다. 따라서 이 반복에서는 청사진을 사용할 때마다 동일한 리소스 그룹에 아티팩트를 만들게 됩니다. 이로 인해 해당 리소스 그룹 내부의 리소스가 중복되고 충돌을 일으킵니다.
 
 > [!NOTE]
 > 서로 다른 두 청사진에 이름이 같은 리소스 그룹이 포함되더라도 아무 문제가 없습니다.

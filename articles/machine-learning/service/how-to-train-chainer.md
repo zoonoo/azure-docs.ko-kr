@@ -1,6 +1,6 @@
 ---
 title: 체 이너로 심층 학습 신경망 학습
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Azure Machine Learning의 체 이너 평가기 클래스를 사용 하 여 엔터프라이즈 규모에서 PyTorch 학습 스크립트를 실행 하는 방법을 알아봅니다.  예제 스크립트는 필기 숫자 이미지를 classifis 하 여 numpy에서 실행 되는 체 이너 Python 라이브러리를 사용 하 여 심층 학습 신경망을 빌드합니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +10,14 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
-ms.openlocfilehash: bc14ba2bcaa80236717c062abd1dc8a63b58305c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 91e638793d77a6d38f9813345829720d98545293
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966842"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002729"
 ---
-# <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning-service"></a>Azure Machine Learning 서비스를 사용 하 여 대규모로 체 이너 모델 학습 및 등록
+# <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 대규모로 체 이너 모델 학습 및 등록
 
 이 문서에서는 Azure Machine Learning의 [체 이너 평가기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) 클래스를 사용 하 여 엔터프라이즈 규모에서 [체 이너](https://chainer.org/) 교육 스크립트를 실행 하는 방법에 대해 알아봅니다. 이 문서의 예제 학습 스크립트는 인기 있는 [Mnist 데이터 집합](http://yann.lecun.com/exdb/mnist/) 을 사용 하 여 [numpy](https://www.numpy.org/)에서 실행 되는 체 이너 Python 라이브러리를 사용 하 여 빌드된 DNN (심층 신경망)를 사용 하 여 필기 된 숫자를 분류 합니다.
 
@@ -25,9 +25,9 @@ ms.locfileid: "68966842"
 
 [심층 학습 vs machine learning](concept-deep-learning-vs-machine-learning.md)에 대해 자세히 알아보세요.
 
-Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
+Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 현재 [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree) 을 사용해 보세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
 
@@ -60,7 +60,7 @@ print("SDK version:", azureml.core.VERSION)
 
 ### <a name="initialize-a-workspace"></a>작업 영역 초기화
 
-[Azure Machine Learning 서비스 작업 영역은](concept-workspace.md) 서비스에 대 한 최상위 리소스입니다. 사용자가 만드는 모든 아티팩트를 사용할 수 있는 중앙 집중식 환경을 제공 합니다. Python SDK에서 개체를 [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) 만들어 작업 영역 아티팩트에 액세스할 수 있습니다.
+[Azure Machine Learning 작업 영역은](concept-workspace.md) 서비스에 대 한 최상위 리소스입니다. 사용자가 만드는 모든 아티팩트를 사용할 수 있는 중앙 집중식 환경을 제공 합니다. Python SDK에서 개체를 [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) 만들어 작업 영역 아티팩트에 액세스할 수 있습니다.
 
 [필수 조건 섹션](#prerequisites)에서 만든 파일을 `config.json` 읽어 작업 영역 개체를 만듭니다.
 
@@ -96,7 +96,7 @@ shutil.copy('chainer_mnist.py', project_folder)
 
 ### <a name="create-a-deep-learning-experiment"></a>심층 학습 실험 만들기
 
-실험을 만듭니다. 이 예에서는 "체 이너-mnist" 라는 실험을 만듭니다.
+실험 만들기 이 예에서는 "체 이너-mnist" 라는 실험을 만듭니다.
 
 ```
 from azureml.core import Experiment
@@ -209,7 +209,7 @@ for f in run.get_file_names():
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure Machine Learning 서비스에서 체 이너를 사용 하 여 심층 학습, 신경망을 학습 하 고 등록 했습니다. 모델을 배포 하는 방법에 대 한 자세한 내용은 [모델 배포](how-to-deploy-and-where.md) 문서를 참조 하세요.
+이 문서에서는 Azure Machine Learning에 체 이너를 사용 하 여 심층 학습, 신경망을 학습 하 고 등록 했습니다. 모델을 배포 하는 방법에 대 한 자세한 내용은 [모델 배포](how-to-deploy-and-where.md) 문서를 참조 하세요.
 
 * [하이퍼 매개 변수 조정](how-to-tune-hyperparameters.md)
 

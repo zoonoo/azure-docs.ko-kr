@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 33128cbece3b217778182b3831b02e2f3f654f3b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c01f695210ebbd69a26b957e846ff645b1dea5bb
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853208"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999020"
 ---
 # <a name="microsoft-identity-platform-integration-checklist"></a>Microsoft id 플랫폼 통합 검사 목록
 
@@ -66,7 +66,7 @@ Microsoft id 플랫폼 통합 검사 목록은 고품질 및 보안 통합에 �
 | ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 응용 프로그램이 디렉터리에 등록 된 경우 앱 등록 소유자 목록을 최소화 하 고 수동으로 모니터링 합니다. |
 | ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 명시적으로 필요한 경우가 아니면 [OAuth2 암시적 권한 부여 흐름](v2-oauth2-implicit-grant-flow.md) 에 대 한 지원을 사용 하도록 설정 하지 마세요. [여기](v1-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant)에서 유효한 시나리오에 대해 알아보세요. |
 | ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 사용자 암호를 직접 처리 하는 [ROPC (리소스 소유자 암호 자격 증명 흐름)](v2-oauth-ropc.md)를 사용 하지 마세요. 이 흐름에는 높은 수준의 신뢰 및 사용자 노출이 필요 하며, 더 안전 하 고 다른 흐름을 사용할 수 없는 경우에만 사용 해야 합니다. |
-| ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 앱 자격 증명을 보호 하 고 관리 합니다. 암호 자격 증명 (클라이언트 암호)이 아닌 [인증서 자격 증명](active-directory-certificate-credentials.md)을 사용 합니다. 암호 자격 증명을 사용 해야 하는 경우 수동으로 설정 하지 마세요. 자격 증명은 코드 또는 구성에 저장 하지 않으며, 이러한 자격 증명은 사람이 처리할 수 없습니다. 가능 하면 Azure 리소스 또는 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) [관리 되는 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 를 사용 하 여 자격 증명을 저장 하 고 정기적으로 회전 합니다. |
+| ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 앱 자격 증명을 보호 하 고 관리 합니다. 암호 자격 증명 (클라이언트 암호)이 아닌 [인증서 자격 증명](active-directory-certificate-credentials.md)을 사용 합니다. 암호 자격 증명을 사용 해야 하는 경우 수동으로 설정 하지 마세요. 자격 증명은 코드 또는 구성에 저장 하지 않으며, 이러한 자격 증명은 사람이 처리할 수 없습니다. 가능 하면 Azure 리소스 또는 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) [관리 되는 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 를 사용 하 여 자격 증명을 저장 하 고 정기적으로 회전 합니다. |
 | ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 응용 프로그램에서 최소 권한 권한을 요청 하는지 확인 합니다. 응용 프로그램에 필요한 권한만 필요한 경우에만 요청 합니다. 여러 [사용 권한 유형을](v1-permissions-and-consent.md#types-of-permissions)이해 합니다. 필요한 경우에만 응용 프로그램 권한을 사용 합니다. 가능한 경우 위임 된 사용 권한을 사용 합니다. Microsoft Graph 사용 권한의 전체 목록은이 [권한 참조](https://docs.microsoft.com/graph/permissions-reference)를 참조 하세요. |
 | ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | Microsoft id 플랫폼을 사용 하 여 API를 보호 하는 경우 노출 해야 하는 사용 권한을 신중 하 게 고려해 야 합니다. 솔루션에 대 한 올바른 세분성과 관리자 동의가 필요한 권한을 고려 합니다. 권한 부여를 결정 하기 전에 들어오는 토큰에 필요한 권한이 있는지 확인 하십시오. |
 

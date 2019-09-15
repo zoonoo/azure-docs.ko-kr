@@ -1,6 +1,6 @@
 ---
 title: PyTorch를 사용 하 여 심층 학습 신경망 학습
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Azure Machine Learning의 PyTorch 평가기 클래스를 사용 하 여 엔터프라이즈 규모에서 PyTorch 학습 스크립트를 실행 하는 방법을 알아봅니다.  예제 스크립트는 닭 및 터키 이미지를 분류 하 여 PyTorch의 전송 학습 자습서에 따라 심층 학습 신경망을 빌드합니다.
 services: machine-learning
 ms.service: machine-learning
@@ -11,12 +11,12 @@ author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7ac3675ec9d90fc51bc9e3c72b76d8fb80312a8
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: c688f5a59a9a6d980f50a726f9da4dc4379ce073
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966780"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002562"
 ---
 # <a name="train-pytorch-deep-learning-models-at-scale-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 대규모로 Pytorch 심층 학습 모델 학습
 
@@ -67,7 +67,7 @@ from azureml.train.dnn import PyTorch
 
 ### <a name="initialize-a-workspace"></a>작업 영역 초기화
 
-[Azure Machine Learning 서비스 작업 영역은](concept-workspace.md) 서비스에 대 한 최상위 리소스입니다. 사용자가 만드는 모든 아티팩트를 사용할 수 있는 중앙 집중식 환경을 제공 합니다. Python SDK에서 개체를 [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) 만들어 작업 영역 아티팩트에 액세스할 수 있습니다.
+[Azure Machine Learning 작업 영역은](concept-workspace.md) 서비스에 대 한 최상위 리소스입니다. 사용자가 만드는 모든 아티팩트를 사용할 수 있는 중앙 집중식 환경을 제공 합니다. Python SDK에서 개체를 [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) 만들어 작업 영역 아티팩트에 액세스할 수 있습니다.
 
 `config.json` [전제 조건 섹션](#prerequisites)에서 만든 파일에서 작업 영역 개체를 만듭니다.
 
@@ -93,7 +93,7 @@ experiment = Experiment(ws, name=experiment_name)
 
 ### <a name="prepare-training-scripts"></a>학습 스크립트 준비
 
-이 자습서에서는 학습 스크립트 `pytorch_train.py`인가 이미 제공 되어 있습니다. 실제로 사용자 지정 학습 스크립트를 그대로 사용 하 고 Azure Machine Learning 서비스를 사용 하 여 실행할 수 있습니다.
+이 자습서에서는 학습 스크립트 `pytorch_train.py`인가 이미 제공 되어 있습니다. 실제로는 사용자 지정 학습 스크립트를 그대로 사용 하 고 Azure Machine Learning를 사용 하 여 실행할 수 있습니다.
 
 Pytorch 교육 스크립트를 `pytorch_train.py`업로드 합니다.
 
@@ -101,7 +101,7 @@ Pytorch 교육 스크립트를 `pytorch_train.py`업로드 합니다.
 shutil.copy('pytorch_train.py', project_folder)
 ```
 
-그러나 Azure Machine Learning 서비스 추적 및 메트릭 기능을 사용 하려는 경우 학습 스크립트 내에 작은 양의 코드를 추가 해야 합니다. 메트릭 추적의 예는에서 `pytorch_train.py`찾을 수 있습니다.
+그러나 Azure Machine Learning 추적 및 메트릭 기능을 사용 하려는 경우 학습 스크립트 내에 작은 양의 코드를 추가 해야 합니다. 메트릭 추적의 예는에서 `pytorch_train.py`찾을 수 있습니다.
 
 ## <a name="create-a-compute-target"></a>컴퓨팅 대상 만들기
 
@@ -189,7 +189,7 @@ for f in run.get_file_names():
 
 ## <a name="distributed-training"></a>분산 학습
 
-또한 [`PyTorch`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) 평가기는 CPU 및 GPU 클러스터에서 분산 된 학습을 지원 합니다. Distributed PyTorch 작업을 쉽게 실행할 수 있고 Azure Machine Learning 서비스에서 오케스트레이션을 관리할 수 있습니다.
+또한 [`PyTorch`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) 평가기는 CPU 및 GPU 클러스터에서 분산 된 학습을 지원 합니다. Distributed PyTorch 작업을 쉽게 실행할 수 있으며, Azure Machine Learning는 오케스트레이션을 관리할 수 있습니다.
 
 ### <a name="horovod"></a>Horovod
 [Horovod](https://github.com/uber/horovod) 는 uber에서 개발한 분산 교육을 위한 오픈 소스를 모두 줄인 프레임 워크입니다. Distributed GPU PyTorch 작업에 대 한 쉬운 경로를 제공 합니다.
@@ -222,7 +222,7 @@ import horovod
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure Machine Learning service에서 PyTorch를 사용 하 여 딥 러닝 신경망을 학습 하 고 등록 했습니다. 모델을 배포 하는 방법에 대 한 자세한 내용은 모델 배포 문서를 참조 하세요.
+이 문서에서는 PyTorch Azure Machine Learning에서를 사용 하 여 딥 러닝 신경망을 학습 하 고 등록 했습니다. 모델을 배포 하는 방법에 대 한 자세한 내용은 모델 배포 문서를 참조 하세요.
 
 > [!div class="nextstepaction"]
 > [모델을 배포 하는 방법 및 위치](how-to-deploy-and-where.md)

@@ -1,6 +1,6 @@
 ---
 title: ML 실험 & 메트릭 기록
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Azure ML 실험을 모니터링 하 고 실행 메트릭을 모니터링 하 여 모델 생성 프로세스를 향상 시킵니다. 학습 스크립트에 로깅을 추가 하 고 실행의 기록 된 결과를 확인 합니다.  Start_logging 또는 ScriptRunConfig를 사용 합니다.
 services: machine-learning
 author: heatherbshapiro
@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1c2747c8eaac0323ac32f67afb27ac854a3a5ce9
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: a37ed7c7f39324a7fb4750389c0d76c36539c3cc
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959954"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002701"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Azure ML 실험 실행 및 메트릭 모니터링
 
-실험 및 모니터링 실행 메트릭을 추적 하 여 모델 생성 프로세스를 개선 합니다. 이 문서에서는 학습 스크립트에 로깅 코드를 추가 하 고, 실험 실행을 제출 하 고, 실행을 모니터링 하 고, Azure Machine Learning 서비스에서 결과를 검사 하는 방법에 대해 알아봅니다.
+실험 및 모니터링 실행 메트릭을 추적 하 여 모델 생성 프로세스를 개선 합니다. 이 문서에서는 학습 스크립트에 로깅 코드를 추가 하 고, 실험 실행을 제출 하 고, 실행을 모니터링 하 고, Azure Machine Learning 결과를 검사 하는 방법에 대해 알아봅니다.
 
 > [!NOTE]
-> Azure Machine Learning 서비스는 자동화 된 Machine Learning 실행 또는 학습 작업을 실행 하는 Docker 컨테이너와 같은 학습 중 다른 원본의 정보를 기록할 수도 있습니다. 이러한 로그는 문서화 되어 있지 않습니다. 문제가 발생 하 고 Microsoft 지원에 문의 하는 경우 문제 해결 중에 이러한 로그를 사용할 수 있습니다.
+> 자동화 된 Machine Learning 실행 또는 교육 작업을 실행 하는 Docker 컨테이너와 같은 학습 중 다른 원본의 정보를 기록할 수도 Azure Machine Learning. 이러한 로그는 문서화 되어 있지 않습니다. 문제가 발생 하 고 Microsoft 지원에 문의 하는 경우 문제 해결 중에 이러한 로그를 사용할 수 있습니다.
 
 ## <a name="available-metrics-to-track"></a>추적할 수 있는 메트릭
 
@@ -65,7 +65,7 @@ ms.locfileid: "70959954"
 
 **start_logging**은 노트북과 같은 시나리오에서 사용할 대화형 실행을 만듭니다. 세션 중에 기록된 모든 메트릭이 실험의 실행 기록에 추가됩니다.
 
-다음 예제에서는 로컬 Jupyter 노트북에서 간단한 sklearn Ridge 모델을 로컬로 학습합니다. 다른 환경에 실험을 제출하는 방법에 대해 자세히 알아 보려면 [Azure Machine Learning 서비스를 사용하여 모델을 학습하기 위한 컴퓨팅 대상 설정](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets)을 참조하세요.
+다음 예제에서는 로컬 Jupyter 노트북에서 간단한 sklearn Ridge 모델을 로컬로 학습합니다. 다른 환경에 실험을 제출 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 학습을 위한 계산 대상 설정](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets)을 참조 하세요.
 
 1. 로컬 Jupyter 노트북에 학습 스크립트를 만듭니다. 
 
@@ -91,7 +91,7 @@ ms.locfileid: "70959954"
    joblib.dump(value = reg, filename = 'model.pkl');
    ```
 
-2. Azure Machine Learning 서비스 SDK를 사용하여 실험 추적을 추가하고 지속형 모델을 실험 실행 기록에 업로드합니다. 다음 코드는 태그를 지정하고, 기록하고, 모델 파일을 실험 실행에 업로드합니다.
+2. Azure Machine Learning SDK를 사용 하 여 실험 추적을 추가 하 고 지속 된 모델을 실험 실행 레코드에 업로드 합니다. 다음 코드는 태그를 지정하고, 기록하고, 모델 파일을 실험 실행에 업로드합니다.
 
    ```python
     # Get an experiment object from Azure Machine Learning

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 62fcc19f3cfe9109097d1f2a70d785060b5bdc53
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 408c9fb58b428c1671794c6e4e5cc890a153813f
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727365"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003937"
 ---
 # <a name="azure-encryption-overview"></a>Azure 암호화 개요
 
@@ -61,7 +61,7 @@ Azure는 서비스 관리 키를 사용하는 서버 쪽 암호화, Key Vault의
 
 [Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) 기술과 Linux [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt)를 사용하여 전체 볼륨 암호화로 운영 체제 디스크와 데이터 디스크를 모두 보호하는 [Azure Disk Encryption](/azure/security/azure-security-disk-encryption)으로 Windows 및 Linux 가상 머신을 보호할 수 있습니다.
 
-암호화 키 및 비밀은 사용자의 [Azure Key Vault](../../key-vault/key-vault-whatis.md) 구독에서 보호됩니다. Azure Backup 서비스를 사용하여 KEK(키 암호화) 구성으로 암호화된 VM을 백업 및 복원할 수 있습니다.
+암호화 키 및 비밀은 사용자의 [Azure Key Vault](../../key-vault/key-vault-overview.md) 구독에서 보호됩니다. Azure Backup 서비스를 사용하여 KEK(키 암호화) 구성으로 암호화된 VM을 백업 및 복원할 수 있습니다.
 
 ### <a name="azure-storage-service-encryption"></a>Azure Storage 서비스 암호화
 
@@ -105,7 +105,7 @@ CLE에는 대칭 또는 비대칭 키를 사용하고 인증서의 공개 키 �
 
 ### <a name="cosmos-db-database-encryption"></a>Cosmos DB 데이터베이스 암호화
 
-[Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md)는 전 세계에 배포된 Microsoft의 멀티모델 데이터베이스입니다. 비휘발성 스토리지(반도체 드라이브)의 Cosmos DB에 저장된 사용자 데이터는 기본적으로 암호화됩니다. 이를 설정하거나 해제하는 컨트롤은 없습니다. 미사용 암호화는 보안 키 스토리지 시스템, 암호화된 네트워크 및 암호화 API를 비롯한 수많은 보안 기술을 사용하여 구현되었습니다. 암호화 키는 Microsoft에서 관리하며 Microsoft 내부 지침에 따라 순환됩니다.
+[Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md)는 전 세계에 배포된 Microsoft의 멀티모델 데이터베이스입니다. 비휘발성 스토리지(반도체 드라이브)의 Cosmos DB에 저장된 사용자 데이터는 기본적으로 암호화됩니다. 이를 설정하거나 해제하는 컨트롤은 없습니다. 저장 데이터 암호화는 보안 키 스토리지 시스템, 암호화된 네트워크 및 암호화 API를 비롯한 수많은 보안 기술을 사용하여 구현되었습니다. 암호화 키는 Microsoft에서 관리하며 Microsoft 내부 지침에 따라 순환됩니다.
 
 ### <a name="at-rest-encryption-in-data-lake"></a>Data Lake의 미사용 암호화
 
@@ -181,7 +181,7 @@ Azure에서 원격 데스크톱을 사용하여 Azure의 Linux VM에 연결할 �
 
 Azure Portal, PowerShell 또는 Azure CLI를 사용하여 가상 네트워크에 사이트 간 VPN 연결을 구성할 수 있습니다.
 
-참조 항목:
+자세한 내용은 다음을 참조하세요.
 
 [Azure Portal에서 사이트 간 연결 만들기](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 

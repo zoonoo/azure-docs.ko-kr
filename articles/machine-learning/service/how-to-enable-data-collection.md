@@ -1,6 +1,6 @@
 ---
 title: 프로덕션 모델에서 데이터 수집
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Azure Blob Storage에서 Azure Machine Learning 입력 모델 데이터를 수집하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
@@ -11,16 +11,16 @@ ms.author: marthalc
 author: marthalc
 ms.date: 07/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 16fac492fe4c193ecd7ffa7eeff1e884acb742ae
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: d836b600a39b73f60c0847c5a9642f396fb70d17
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860525"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002851"
 ---
 # <a name="collect-data-for-models-in-production"></a>프로덕션 환경에서 모델용 데이터 수집
 
-이 문서에서는 AKS(Azure Kubernetes 클러스터)에 배포한 Azure Machine Learning Services에서 Azure Blob Storage로 입력 모델 데이터를 수집하는 방법을 확인할 수 있습니다. 
+이 문서에서는 azure Kubernetes Cluster (AKS)에 배포한 Azure Machine Learning에서 Azure Blob 저장소로 입력 모델 데이터를 수집 하는 방법을 배울 수 있습니다. 
 
 데이터를 수집하도록 설정하면 이렇게 수집한 데이터는 다음과 같은 용도로 활용할 수 있습니다.
 * 프로덕션 데이터가 모델에 입력 되는 [데이터 상태가 모니터링](how-to-monitor-data-drift.md)
@@ -50,9 +50,9 @@ Blob에서 출력 데이터의 경로 형식은 다음 구문을 따릅니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 바로 [Azure Machine Learning Service의 체험 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+- Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 현재 [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree) 을 사용해 보세요.
 
-- Azure Machine Learning 서비스 작업 영역, 스크립트가 포함된 로컬 디렉터리 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. [개발 환경 구성 방법](how-to-configure-environment.md) 문서를 사용하여 이러한 필수 구성 요소를 충족하는 방법을 알아보세요.
+- Azure Machine Learning 작업 영역, 스크립트가 포함된 로컬 디렉터리 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. [개발 환경 구성 방법](how-to-configure-environment.md) 문서를 사용하여 이러한 필수 구성 요소를 충족하는 방법을 알아보세요.
 
 - AKS(Azure Kubernetes Service)에 배포할 학습된 Machine Learning 모델. 이러한 모델이 없으면 [이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 자습서를 참조하세요.
 
@@ -61,7 +61,7 @@ Blob에서 출력 데이터의 경로 형식은 다음 구문을 따릅니다.
 - [환경을 설정](how-to-configure-environment.md)하고 [모니터링 SDK](https://aka.ms/aml-monitoring-sdk)를 설치합니다.
 
 ## <a name="enable-data-collection"></a>데이터 컬렉션 활성화
-Azure Machine Learning 서비스 또는 기타 도구를 통해 모듈을 배포하는지에 관계없이 데이터 수집을 사용하도록 설정할 수 있습니다. 
+Azure Machine Learning 또는 다른 도구를 통해 배포 되는 모델에 관계 없이 데이터 수집을 사용 하도록 설정할 수 있습니다. 
 
 데이터 수집을 사용하도록 설정하려면 다음 단계를 수행해야 합니다.
 

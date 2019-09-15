@@ -1,21 +1,21 @@
 ---
-title: Azure Cosmos DB에서 WHERE 절
-description: Azure Cosmos DB에 대 한 SQL WHERE 절에 알아봅니다
+title: Azure Cosmos DB의 WHERE 절
+description: Azure Cosmos DB에 대 한 SQL WHERE 절 알아보기
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: 6a942e48ffea7785fe971cc2f8fa66e8569ed672
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 362024868de269ed64a440a25e8c19c5b68bef80
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342692"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003473"
 ---
 # <a name="where-clause"></a>WHERE 절
 
-선택 사항인 WHERE 절 (`WHERE <filter_condition>`) 조건을 지정 소스 JSON 항목 결과에 포함 하려면 쿼리에 대 한 충족 해야 합니다. JSON 항목을 지정된 된 조건을 평가 해야 `true` 결과 대해 고려해 야 합니다. 인덱스 계층 결과 포함 될 수 있는 소스 항목의 가장 작은 하위 집합을 확인 하려면 WHERE 절을 사용 합니다.
+선택적인 where 절 (`WHERE <filter_condition>`)은 원본 JSON 항목이 결과에 포함 하기 위해 쿼리를 위해 충족 해야 하는 조건을 지정 합니다. JSON 항목은 결과에 대해 고려할 지정 된 `true` 조건을 평가 해야 합니다. 인덱스 계층은 WHERE 절을 사용 하 여 결과에 포함 될 수 있는 소스 항목의 가장 작은 하위 집합을 결정 합니다.
   
 ## <a name="syntax"></a>구문
   
@@ -33,7 +33,7 @@ WHERE <filter_condition>
   
 - `<scalar_expression>`  
   
-   계산할 값을 나타내는 식입니다. 참조 [스칼라 식](sql-query-scalar-expressions.md) 세부 정보에 대 한 합니다.  
+   계산할 값을 나타내는 식입니다. 자세한 내용은 [스칼라 식](sql-query-scalar-expressions.md) 을 참조 하세요.  
   
 
 ## <a name="remarks"></a>설명
@@ -42,7 +42,7 @@ WHERE <filter_condition>
 
 ## <a name="examples"></a>예
 
-다음 쿼리를 포함 하는 요청 항목을 `id` 값이 속성의 `AndersenFamily`합니다. 제외 되지 않은 모든 항목을 `id` 속성 또는 값이 일치 하지 않습니다 `AndersenFamily`합니다.
+다음 쿼리는 값이 `id` `AndersenFamily`인 속성을 포함 하는 항목을 요청 합니다. `id` 속성이 없거나 해당 값이 일치 `AndersenFamily`하지 않는 항목은 제외 됩니다.
 
 ```sql
     SELECT f.address
@@ -62,11 +62,11 @@ WHERE <filter_condition>
     }]
 ```
 
-### <a name="scalar-expressions-in-the-where-clause"></a>WHERE 절에 스칼라 식
+### <a name="scalar-expressions-in-the-where-clause"></a>WHERE 절의 스칼라 식
 
-앞의 예제는 단순한 같음 쿼리를 보여 주었습니다. SQL API도 다양 한 지원 [스칼라 식](sql-query-scalar-expressions.md)합니다. 가장 일반적으로 사용되는 식은 이항 및 단항 식입니다. 소스 JSON 개체의 속성 참조도 유효한 식입니다.
+앞의 예제는 단순한 같음 쿼리를 보여 주었습니다. SQL API는 다양 한 [스칼라 식](sql-query-scalar-expressions.md)도 지원 합니다. 가장 일반적으로 사용되는 식은 이항 및 단항 식입니다. 소스 JSON 개체의 속성 참조도 유효한 식입니다.
 
-다음 지원 되는 이항 연산자를 사용할 수 있습니다.  
+다음과 같이 지원 되는 이항 연산자를 사용할 수 있습니다.  
 
 |**연산자 유형**  | **값** |
 |---------|---------|
@@ -76,7 +76,7 @@ WHERE <filter_condition>
 |비교 | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
 |String     |  \|\|(연결) |
 
-다음 쿼리는 이항 연산자를 사용합니다.
+다음 쿼리는 이항 연산자를 사용 합니다.
 
 ```sql
     SELECT *
@@ -92,7 +92,7 @@ WHERE <filter_condition>
     WHERE c.grade >= 5    -- matching grades == 5
 ```
 
-단항 연산자를 사용할 수도 있습니다 +,-, ~, 및 쿼리를 다음 예제에 표시 된 대로 되지 않습니다.
+다음 예제와 같이 쿼리에는 없고 단항 연산자 +,-, ~를 사용할 수도 있습니다.
 
 ```sql
     SELECT *
@@ -104,10 +104,10 @@ WHERE <filter_condition>
     WHERE (-c.grade = -5)  -- matching grades == 5
 ```
 
-또한 쿼리에서 속성 참조를 사용할 수 있습니다. 예를 들어 `SELECT * FROM Families f WHERE f.isRegistered` 속성을 포함 하는 JSON 항목 반환 `isRegistered` 값과 같은 `true`합니다. 와 같은 다른 값을 `false`, `null`를 `Undefined`, `<number>`를 `<string>`를 `<object>`, 또는 `<array>`, 결과에서 항목을 제외 합니다. 
+쿼리에서 속성 참조를 사용할 수도 있습니다. 예 `SELECT * FROM Families f WHERE f.isRegistered` 를 들어는와 같은 `true`값을 갖는 속성 `isRegistered` 을 포함 하는 JSON 항목을 반환 합니다. `false` ,`null`, ,`<object>`,, 또는`<array>`와 같은 다른 값은 결과에서 항목을 제외 합니다. `<number>` `Undefined` `<string>` 
 
 ## <a name="next-steps"></a>다음 단계
 
 - [시작](sql-query-getting-started.md)
-- [Azure Cosmos DB .NET 샘플](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET 샘플](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [FROM 절](sql-query-from.md)

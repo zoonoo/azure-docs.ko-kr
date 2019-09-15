@@ -1,21 +1,21 @@
 ---
-title: Azure Cosmos DB SQL 쿼리에서 스칼라 식
-description: Azure Cosmos DB에 대 한 스칼라 식을 SQL 구문에 알아봅니다.
+title: Azure Cosmos DB SQL 쿼리의 스칼라 식
+description: Azure Cosmos DB에 대 한 스칼라 식 SQL 구문에 대해 알아봅니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: 4464c39a45c47c680a13f3ebc34841b47ee0d7c6
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: c35ad65a584f8ee95142e9bc85a58b5b6cd99744
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342576"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003533"
 ---
-# <a name="scalar-expressions-in-azure-cosmos-db-sql-queries"></a>Azure Cosmos DB SQL 쿼리에서 스칼라 식
+# <a name="scalar-expressions-in-azure-cosmos-db-sql-queries"></a>Azure Cosmos DB SQL 쿼리의 스칼라 식
 
-합니다 [SELECT 절](sql-query-select.md) 스칼라 식도 지원 합니다. 스칼라 식은 단일 값을 얻기 위해 평가될 수 있는 기호와 연산자의 조합입니다. 스칼라 식의 예로: 상수, 속성 참조, 배열 요소 참조, 별칭 참조 또는 함수 호출 합니다. 스칼라 식 연산자를 사용 하 여 복잡 한 식으로 결합할 수 있습니다.
+[SELECT 절](sql-query-select.md) 은 스칼라 식을 지원 합니다. 스칼라 식은 단일 값을 얻기 위해 평가될 수 있는 기호와 연산자의 조합입니다. 스칼라 식의 예로는 상수, 속성 참조, 배열 요소 참조, 별칭 참조 또는 함수 호출 등이 있습니다. 스칼라 식은 연산자를 사용 하 여 복잡 한 식으로 결합 될 수 있습니다.
 
 ## <a name="syntax"></a>구문
   
@@ -59,11 +59,11 @@ ms.locfileid: "67342576"
   
 - `<scalar_expression>.property_name`  
   
-   개체의 속성 값을 나타냅니다. 속성이 존재 하지 않습니다 또는 속성이 없는 개체를 값에서 참조 되는 경우 식이 **정의 되지 않은** 값입니다.  
+   개체의 속성 값을 나타냅니다. 속성이 없거나 속성이 개체가 아닌 값에서 참조 되 면 식이 **undefined** 값으로 평가 됩니다.  
   
 - `<scalar_expression>'['"property_name"|array_index']'`  
   
-   이름 가진 속성의 값을 나타냅니다 `property_name` 또는 배열 요소의 인덱스를 사용 하 여 `array_index` 배열입니다. 속성/배열 인덱스가 존재하지 않거나 속성/배열이 아닌 값에서 참조되면 식이 undefined 값으로 평가됩니다.  
+   배열의 인덱스 `property_name` `array_index` 를 사용 하는 이름 또는 배열 요소를 사용 하 여 속성의 값을 나타냅니다. 속성/배열 인덱스가 존재하지 않거나 속성/배열이 아닌 값에서 참조되면 식이 undefined 값으로 평가됩니다.  
   
 - `unary_operator <scalar_expression>`  
   
@@ -99,7 +99,7 @@ ms.locfileid: "67342576"
   
 ## <a name="remarks"></a>설명
   
-  기본 제공 또는 사용자 정의 스칼라 함수를 호출할 때 모든 인수가 정의 되어야 합니다. 인수 중 하나라도 정의되지 않으면 함수가 호출되지 않고 결과가 정의되지 않습니다.  
+  기본 제공 또는 사용자 정의 스칼라 함수를 호출 하는 경우 모든 인수를 정의 해야 합니다. 인수 중 하나라도 정의되지 않으면 함수가 호출되지 않고 결과가 정의되지 않습니다.  
   
   개체를 만들 때 정의되지 않은 값이 할당된 속성은 건너뛰고 만든 개체에 포함되지 않습니다.  
   
@@ -119,7 +119,7 @@ ms.locfileid: "67342576"
     }]
 ```
 
-다음 쿼리를 스칼라 식의 결과 부울 값:
+다음 쿼리에서 스칼라 식의 결과는 부울입니다.
 
 ```sql
     SELECT f.address.city = f.address.state AS AreFromSameCityState
@@ -142,5 +142,5 @@ ms.locfileid: "67342576"
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Cosmos DB 소개](introduction.md)
-- [Azure Cosmos DB .NET 샘플](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET 샘플](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [하위 쿼리](sql-query-subquery.md)

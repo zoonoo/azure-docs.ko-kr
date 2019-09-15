@@ -1,21 +1,21 @@
 ---
-title: Azure Cosmos DB의 SELECT 절
-description: Azure Cosmos DB에 대 한 SQL SELECT 절에 알아봅니다. Azure Cosmos DB JSON 쿼리 언어로 SQL을 사용 합니다.
+title: Azure Cosmos DB에서 절 선택
+description: Azure Cosmos DB에 대 한 SQL SELECT 절에 대해 알아봅니다. Azure Cosmos DB JSON 쿼리 언어로 SQL을 사용 합니다.
 author: ginarobinson
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: girobins
-ms.openlocfilehash: 84d0212f7f212b4554b506726e027fe51f795eea
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: d34b1c39d9789409dc365cd4cf07fdc3d5a780fd
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342593"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003513"
 ---
 # <a name="select-clause"></a>SELECT 절
 
-모든 쿼리는 SELECT 절 및 선택적 구성 됩니다 [FROM](sql-query-from.md) 하 고 [여기서](sql-query-where.md) ANSI SQL 표준에 따라 절. 일반적으로 FROM 절에서 원본 열거 되 고 WHERE 절은 JSON 항목의 하위 집합을 검색 하기 위해 원본에 필터를 적용 합니다. 다음 SELECT 절은 select 목록에 요청된 된 JSON 값을 프로젝션합니다.
+모든 쿼리는 ANSI SQL 표준에 따라 SELECT 절과 optional [from](sql-query-from.md) 및 [WHERE](sql-query-where.md) 절로 구성 됩니다. 일반적으로 FROM 절의 소스는 열거 되 고 WHERE 절은 소스에 필터를 적용 하 여 JSON 항목의 하위 집합을 검색 합니다. 그런 다음 SELECT 절은 요청 된 JSON 값을 select 목록에 프로젝션 합니다.
 
 ## <a name="syntax"></a>구문
 
@@ -52,7 +52,7 @@ SELECT <select_specification>
  
 - `DISTINCT`
   
-  프로젝션 된 속성의 중복을 제거 해야 한다는 것을 지정 합니다.  
+  프로젝션 된 속성의 중복 항목을 제거 하도록 지정 합니다.  
 
 - `<scalar_expression>`  
 
@@ -78,7 +78,7 @@ SELECT <select_specification>
   
 ## <a name="examples"></a>예
 
-다음 SELECT 쿼리 예제에서는 반환 `address` 에서 `Families` 인 `id` 일치 `AndersenFamily`:
+다음 SELECT 쿼리 `address` 예제에서는 `id` 와 일치 `Families` 하 `AndersenFamily`는을 반환 합니다.
 
 ```sql
     SELECT f.address
@@ -99,7 +99,7 @@ SELECT <select_specification>
 ```
 
 ### <a name="quoted-property-accessor"></a>따옴표 붙은 속성 접근자
-따옴표 붙은 속성 연산자 사용 하 여 속성에 액세스할 수 있습니다. 예를 들어 `SELECT c.grade` and `SELECT c["grade"]` 와 동일합니다. 이 구문은 공백, 특수 문자가 포함 되어 있거나 SQL 키워드 또는 예약어와 이름이 같은 속성을 이스케이프 하는 데 유용 합니다.
+따옴표 붙은 속성 연산자 []를 사용 하 여 속성에 액세스할 수 있습니다. 예를 들어 `SELECT c.grade` and `SELECT c["grade"]` 와 동일합니다. 이 구문은 공백이 나 특수 문자가 포함 된 속성을 이스케이프 하거나 SQL 키워드 또는 예약어와 동일한 이름을 가진 속성을 이스케이프 하는 데 유용 합니다.
 
 ```sql
     SELECT f["lastName"]
@@ -109,7 +109,7 @@ SELECT <select_specification>
 
 ### <a name="nested-properties"></a>중첩 속성
 
-다음 예제에서는 두 개의 중첩 된 속성을 프로젝션 `f.address.state` 고 `f.address.city`입니다.
+다음 예제에서는 및 `f.address.state` `f.address.city`라는 두 개의 중첩 된 속성을 프로젝션 합니다.
 
 ```sql
     SELECT f.address.state, f.address.city
@@ -127,7 +127,7 @@ SELECT <select_specification>
 ```
 ### <a name="json-expressions"></a>JSON 식
 
-프로젝션은 다음 예와에서 같이도 JSON 식도 지원:
+또한 다음 예제와 같이 프로젝션은 JSON 식도 지원 합니다.
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city, "name": f.id }
@@ -147,7 +147,7 @@ SELECT <select_specification>
     }]
 ```
 
-앞의 예제에서 SELECT 절 JSON 개체를 만드는 데 필요한 및 암시적 인수 변수 이름을 절을 사용 하 여 키가 없습니다.에서 제공 하는 샘플 이므로 `$1`합니다. 다음 쿼리는 두 개의 암시적 인수 변수를 반환 합니다. `$1` 고 `$2`입니다.
+앞의 예제에서 SELECT 절은 JSON 개체를 만들어야 하며, 샘플에서 키를 제공 하지 않으므로 절은 암시적 인수 변수 이름을 `$1`사용 합니다. 다음 쿼리는 두 개의 암시적 인수 변수인 `$1` 및 `$2`를 반환 합니다.
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city },
@@ -173,5 +173,5 @@ SELECT <select_specification>
 ## <a name="next-steps"></a>다음 단계
 
 - [시작](sql-query-getting-started.md)
-- [Azure Cosmos DB .NET 샘플](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET 샘플](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [WHERE 절](sql-query-where.md)

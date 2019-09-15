@@ -9,12 +9,12 @@ ms.date: 07/22/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 58c88e9b7cf2e0f80c88d32e02d13096a9623a4b
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: ed668f744716b062fd70d2f63d89152f6fc8a902
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914022"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999132"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Visual Studio 2019을 사용 하 여 Azure IoT Edge에 대 한 모듈 개발 및 디버그
 
@@ -44,7 +44,7 @@ Visual Studio 2019이 준비 되 면 다음 도구 및 구성 요소도 필요 �
 
 - [Docker Community Edition](https://docs.docker.com/install/)을 개발 머신에 다운로드 및 설치하여 모듈 이미지를 빌드하고 실행합니다. Linux 컨테이너 모드 또는 Windows 컨테이너 모드에서 실행할 Docker CE를 설정해야 합니다.
 
-- [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/)을 설치하여 IoT Edge 솔루션을 디버그, 실행 및 테스트할 로컬 개발 환경을 설정합니다. [Python(2.7/3.6) 및 Pip](https://www.python.org/)를 설치한 후 터미널에서 다음 명령을 실행하여 **iotedgehubdev** 패키지를 설치합니다. Azure IoT EdgeHub Dev Tool 버전이 0.3.0보다 높아야 합니다.
+- [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/)을 설치하여 IoT Edge 솔루션을 디버그, 실행 및 테스트할 로컬 개발 환경을 설정합니다. [Python (2.7/3.6 +) 및 Pip](https://www.python.org/) 를 설치한 다음 터미널에서 다음 명령을 실행 하 여 **iotedgehubdev** 패키지를 설치 합니다. Azure IoT EdgeHub Dev Tool 버전이 0.3.0보다 높아야 합니다.
 
    ```cmd
    pip install --upgrade iotedgehubdev

@@ -9,12 +9,12 @@ ms.date: 06/24/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 837e3be209da1fe42ced9e4a23a75c46612cebd2
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: ca155763109dbf4292738354244dc397272d06f4
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036630"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002248"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-azure-cli"></a>Azure CLI에서 Azure Storage 암호화를 위해 고객이 관리 하는 키 구성
 
@@ -120,4 +120,4 @@ az storage account update
 ## <a name="next-steps"></a>다음 단계
 
 - [휴지 상태의 데이터에 대 한 암호화 Azure Storage](storage-service-encryption.md) 
-- [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)이란?
+- [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)이란?

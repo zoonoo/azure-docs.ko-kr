@@ -1,6 +1,6 @@
 ---
 title: 모델 해석력
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Azure Machine Learning SDK를 사용 하 여 모델이 예측을 수행 하는 이유를 설명 하는 방법을 알아봅니다. 학습 및 유추 중에 모델에서 예측을 만드는 방법을 이해 하는 데 사용할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +10,14 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 06/21/2019
-ms.openlocfilehash: 2e8eb79c4baebebb1974a977394215545ef944db
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 6b825e61542dabc92baf482ede6c93edc486e059
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872400"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002350"
 ---
-# <a name="model-interpretability-with-azure-machine-learning-service"></a>Azure Machine Learning 서비스를 사용 하는 모델 interpretability
+# <a name="model-interpretability-with-azure-machine-learning"></a>Azure Machine Learning 모델 interpretability
 
 이 문서에서는 Azure Machine Learning Python SDK의 다양 한 interpretability 패키지를 사용 하 여 모델에서 예측을 수행한 이유를 설명 하는 방법에 대해 알아봅니다.
 
@@ -219,7 +219,7 @@ Python `numpy.array`, `pandas.DataFrame` `explain` , 또는`iml.datatypes.DenseD
 
 ### <a name="train-and-explain-remotely"></a>원격 학습 및 설명
 
-Azure Machine Learning service에서 지 원하는 다양 한 계산 대상을 학습할 수 있지만이 섹션의 예제에서는 Azure Machine Learning 계산 대상을 사용 하 여이 작업을 수행 하는 방법을 보여 줍니다.
+Azure Machine Learning에서 지 원하는 다양 한 계산 대상을 학습할 수 있지만이 섹션의 예제에서는 Azure Machine Learning 계산 대상을 사용 하 여이 작업을 수행 하는 방법을 보여 줍니다.
 
 1. 로컬 Jupyter 노트북 (예: py)에서 학습 스크립트를 만듭니다.
 
@@ -279,7 +279,7 @@ Azure Machine Learning service에서 지 원하는 다양 한 계산 대상을 �
 
 다음 그림에서는 학습 된 모델을 예측 및 설명과 함께 전체적으로 보여 주는 방법을 제공 합니다.
 
-|그림|설명|
+|그림|Description|
 |----|-----------|
 |데이터 탐색| 예측 값과 함께 데이터 집합에 대 한 개요입니다.|
 |글로벌 중요도|최상위 K (구성 가능 K) 중요 기능을 전역적으로 보여 줍니다. 이 차트는 기본 모델의 전역 동작을 이해 하는 데 유용 합니다.|
@@ -474,7 +474,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
 
 1. 계산 대상에 이미지를 배포 합니다.
 
-   1. 점수 매기기 파일 만들기 (이 단계를 수행 하기 전에 [Azure Machine Learning 서비스를 사용 하 여 모델 배포](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where) 의 단계에 따라 원래 예측 모델을 등록)
+   1. 점수 매기기 파일 만들기 (이 단계를 수행 하기 전에 [Azure Machine Learning으로 모델 배포](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where) 의 단계에 따라 원래 예측 모델을 등록)
 
         ```python
         %%writefile score.py

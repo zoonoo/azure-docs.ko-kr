@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: cdb1b49af5d3a85dc1853e5964c1cdfdd5c3a7cd
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 679de2d3a5519e57978239ddd75a4b9fa2ffef3c
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716680"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70998766"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C 사용자 지정 정책의 기술 프로필 정보
 
@@ -37,7 +37,6 @@ ms.locfileid: "68716680"
 - [RESTful provider](restful-technical-profile.md) -사용자 입력의 유효성을 검사 하거나, 사용자 데이터를 보강 하거나, lob (기간 업무) 응용 프로그램과 통합 하는 등 REST API 서비스에 대 한 호출입니다.
 - [SAML2](saml-technical-profile.md) - SAML 프로토콜 ID 공급자와 페더레이션됩니다.
 - [자체 어설션](self-asserted-technical-profile.md) - 사용자와 상호 작용합니다. 예를 들어, 로그인할 사용자의 자격 증명을 수집하고 등록 페이지 또는 암호 재설정을 렌더링합니다.
-- **WsFed** - WsFed 프로토콜 ID 공급자와 페더레이션됩니다.
 - [세션 관리](active-directory-b2c-reference-sso-custom.md) - 여러 유형의 세션을 처리합니다.
 - **Application insights**
 
@@ -49,7 +48,7 @@ ms.locfileid: "68716680"
  
 1. **InputClaimsTransformation** - 모든 입력 [클레임 변환](claimstransformations.md)의 입력 클레임이 클레임 모음에서 선택되고 실행 후 출력 클레임이 다시 클레임 모음에 저장됩니다. 입력 클레임 변환의 출력 클레임이 후속 입력 클레임 변환의 입력 클레임이 될 수 있습니다.
 2. **InputClaims** - 클레임이 클레임 모음에서 선택되고 기술 프로필에 사용됩니다. 예를 들어, [자체 어설션 기술 프로필](self-asserted-technical-profile.md)은 입력 클레임을 사용하여 사용자가 제공하는 출력 클레임을 미리 채웁니다. REST API 기술 프로필은 입력 클레임을 사용하여 입력 매개 변수를 REST API 엔드포인트에 보냅니다. Azure Active Directory는 입력 클레임을 고유 식별자로 사용하여 계정을 읽거나, 업데이트하거나, 삭제합니다.
-3. **기술 프로필 실행** - 기술 프로필이 클레임을 구성된 당사자와 교환합니다. 예를 들어:
+3. **기술 프로필 실행** - 기술 프로필이 클레임을 구성된 당사자와 교환합니다. 예:
     - 사용자를 ID 공급자로 리디렉션하여 로그인을 완료합니다. 로그인에 성공하면 사용자가 다시 돌아가고 기술 프로필 실행이 계속됩니다.
     - 매개 변수를 InputClaims로 보내고 정보를 다시 OutputClaims로 가져오는 동안 REST API를 호출합니다.
     - 사용자 계정을 만들거나 업데이트합니다.

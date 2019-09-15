@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: ca2f346950d84fda736437f439efc5d35e342799
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 5329323122d8470b19055040b6f00b6db7c0e75f
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934582"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70998943"
 ---
 # <a name="azure-service-fabric-security-overview"></a>Azure Service Fabric 보안 개요
 [Azure Service Fabric](../../service-fabric/service-fabric-overview.md)은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다. Service Fabric은 클라우드 애플리케이션 개발 및 관리에서 발생하는 과제를 해결합니다. 개발자와 관리자가 복잡한 인프라 문제를 피하고 업무 수행에 필수적인 까다로운 워크로드를 확장 가능하고 신뢰할 수 있도록 구현하는 데 집중할 수 있습니다.
@@ -132,7 +132,7 @@ Active Directory 도메인 내에서 컴퓨터 그룹을 사용하려는 경우 
 ### <a name="manage-secrets-in-service-fabric-applications"></a>Service Fabric 애플리케이션에서 비밀 관리
 스토리지 연결 문자열, 암호, 일반 텍스트로 처리하면 안 되는 값 등 모든 민감한 정보를 비밀로 처리할 수 있습니다.
 
-[Azure Key Vault](../../key-vault/key-vault-whatis.md)를 사용하여 키와 비밀을 관리할 수 있습니다. 그러나 애플리케이션에서 암호 사용은 특정 클라우드 플랫폼을 필요로 하지 않습니다. 어디서나 호스팅되는 클러스터에 애플리케이션을 배포할 수 있습니다. 이 흐름은 주요 네 단계로 구성됩니다.
+[Azure Key Vault](../../key-vault/key-vault-overview.md)를 사용하여 키와 비밀을 관리할 수 있습니다. 그러나 애플리케이션에서 암호 사용은 특정 클라우드 플랫폼을 필요로 하지 않습니다. 어디서나 호스팅되는 클러스터에 애플리케이션을 배포할 수 있습니다. 이 흐름은 주요 네 단계로 구성됩니다.
 
 1.  데이터 암호화 인증서를 가져옵니다.
 2.  클러스터에 인증서를 설치합니다.

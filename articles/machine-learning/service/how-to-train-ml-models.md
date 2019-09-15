@@ -1,7 +1,7 @@
 ---
 title: 추정기를 사용하여 ML 모델 학습
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스 Estimator 클래스를 사용하여 일반적인 Machine Learning 및 딥 러닝 모델의 단일 노드 분산 학습을 수행하는 방법을 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning 평가기 클래스를 사용 하 여 기존 기계 학습 및 심층 학습 모델에 대 한 단일 노드 및 분산 교육을 수행 하는 방법을 알아봅니다.
 ms.author: maxluk
 author: maxluk
 services: machine-learning
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 10aee302377c4f71e47d93f5cd975043efcea375
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 041f80937e3ebae15dd5bd64858ccbd8269104a0
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815910"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002589"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>추정기를 사용하여 Azure Machine Learning에서 모델 학습
 
@@ -56,7 +56,7 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 
 이 코드 조각에서 `Estimator` 생성자에 지정한 매개 변수는 다음과 같습니다.
 
-매개 변수 | Description
+매개 변수 | 설명
 --|--
 `source_directory`| 학습 작업에 필요한 모든 코드가 포함된 로컬 디렉터리입니다. 이 폴더는 로컬 컴퓨터에서 원격 계산으로 복사 됩니다.
 `script_params`| 학습 스크립트 `entry_script` `<command-line argument, value>` 에 전달할 명령줄 인수를 쌍으로 지정 하는 사전입니다. 에서 `script_params`자세한 정보 플래그를 지정 하려면를 `<command-line argument, "">`사용 합니다.

@@ -1,7 +1,7 @@
 ---
 title: OData 지역 공간 함수 참조-Azure Search
 description: OData 지역 공간 함수, 지역. distance 및 geo는 Azure Search 쿼리에서 교차 합니다.
-ms.date: 06/13/2019
+ms.date: 09/13/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,18 +19,21 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 9585a9a7ea976ed32ccb8eed1e69877339196f87
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 03220786c65ab510a632252b20d593cd96a90494
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647574"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003444"
 ---
 # <a name="odata-geo-spatial-functions-in-azure-search---geodistance-and-geointersects"></a>Azure Search- `geo.distance` 및의 OData 지역 공간 함수`geo.intersects`
 
 Azure Search는 및 `geo.distance` `geo.intersects` 함수를 통해 [OData 필터 식](query-odata-filter-orderby-syntax.md) 의 지역 공간 쿼리를 지원 합니다. 함수 `geo.distance` 는 두 요소 사이의 거리를 킬로미터 단위로 반환 합니다. 하나는 필드 또는 범위 변수가 되 고 하나는 필터의 일부로 전달 되는 상수입니다. 함수 `geo.intersects` 는 지정 `true` 된 점이 지정 된 다각형 내에 있는 경우를 반환 합니다. 여기서 point는 필드 또는 범위 변수이 고 다각형은 필터의 일부로 전달 되는 상수로 지정 됩니다.
 
 함수 `geo.distance` 를 [ **$orderby** 매개 변수에](search-query-odata-orderby.md) 사용 하 여 지정 된 지점 으로부터의 거리를 기준으로 검색 결과를 정렬할 수도 있습니다. **$orderby**에서 `geo.distance`에 대한 구문은 **$filter**에 있을 때와 같습니다. $Orderby에서 `geo.distance` 를사용 하는 경우이 필드가 적용 되는 필드는 형식 `Edm.GeographyPoint` 이어야 하며 **정렬할**수 있어야 합니다.
+
+> [!NOTE]
+> $Orderby 매개 `geo.distance` 변수에서 를 사용 하는 경우 함수에 전달 하는 필드는 단일 지리적 지점만 포함 해야 합니다. 즉, 형식이 아닌 `Edm.GeographyPoint` `Collection(Edm.GeographyPoint)`형식 이어야 합니다. Azure Search에서는 컬렉션 필드를 기준으로 정렬할 수 없습니다.
 
 ## <a name="syntax"></a>구문
 

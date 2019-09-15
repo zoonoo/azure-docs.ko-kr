@@ -1,7 +1,7 @@
 ---
 title: 모델에 대한 하이퍼 매개 변수 튜닝
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스를 사용하여 딥 러닝/기계 학습 모델에 대한 하이퍼 매개 변수를 효율적으로 조정합니다. 매개 변수 검색 공간을 정의 하 고 최적화할 기본 메트릭을 지정 하 고 잘못 된 실행을 조기에 종료 하는 방법에 대해 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning를 사용 하 여 심층 학습/기계 학습 모델에 대 한 하이퍼 매개 변수를 효율적으로 조정 합니다. 매개 변수 검색 공간을 정의 하 고 최적화할 기본 메트릭을 지정 하 고 잘못 된 실행을 조기에 종료 하는 방법에 대해 알아봅니다.
 ms.author: swatig
 author: swatig007
 ms.reviewer: sgilley
@@ -11,16 +11,16 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5a6f7c6de005112578cc29865574e5e255c99a8e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: cb4023be41377846ed209b3d6702188f5d79ba00
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873059"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999381"
 ---
-# <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning-service"></a>Machine Learning Service를 사용하여 모델에 대한 하이퍼 매개 변수 튜닝
+# <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 모델에 대 한 하이퍼 매개 변수 조정
 
-Azure Machine Learning 서비스를 사용하여 모델에 대한 하이퍼 매개 변수를 효율적으로 조정합니다.  하이퍼 매개 변수 조정에는 다음 단계가 포함됩니다.
+Azure Machine Learning를 사용 하 여 모델에 대 한 하이퍼 매개 변수를 효율적으로 조정 합니다.  하이퍼 매개 변수 조정에는 다음 단계가 포함됩니다.
 
 * 매개 변수 검색 공간 정의
 * 최적화할 기본 메트릭 지정  
@@ -94,7 +94,7 @@ Azure Machine Learning을 통해 효율적인 방식으로 하이퍼 매개 변�
 
 ### <a name="sampling-the-hyperparameter-space"></a>하이퍼 매개 변수 공간 샘플링
 
-하이퍼 매개 변수 공간 정의를 통해 사용하도록 매개 변수 샘플링 방법을 지정할 수도 있습니다. Azure Machine Learning 서비스는 무작위 샘플링, 그리드 샘플링 및 Bayesian 샘플링을 지원합니다.
+하이퍼 매개 변수 공간 정의를 통해 사용하도록 매개 변수 샘플링 방법을 지정할 수도 있습니다. Azure Machine Learning는 무작위 샘플링, 그리드 샘플링 및 Bayesian 샘플링을 지원 합니다.
 
 #### <a name="random-sampling"></a>무작위 샘플링
 
@@ -186,7 +186,7 @@ run_logger.log("accuracy", float(val_accuracy))
 * `evaluation_interval`: 정책 적용에 대한 빈도입니다. 학습 스크립트에서 기본 메트릭을 기록할 때마다 한 번의 간격으로 계산됩니다. 따라서 1의 `evaluation_interval`은 학습 스크립트에서 기본 메트릭을 보고할 때마다 정책을 적용합니다. 2의 `evaluation_interval`은 학습 스크립트에서 기본 메트릭을 보고할 때마다 하나 걸러 한 번씩 정책을 적용합니다. 지정하지 않으면 `evaluation_interval`은 기본적으로 1로 설정됩니다.
 * `delay_evaluation`: 지정된 간격 동안 첫 번째 정책 평가를 지연합니다. 학습 실행의 이른 종료를 방지하도록 간격의 초기 최소 수에 대해 모든 구성이 실행되도록 허용하는 선택적 매개 변수입니다. 지정된 경우 정책은 delay_evaluation보다 크거나 같은 evaluation_interval의 모든 배수마다 적용됩니다.
 
-Azure Machine Learning 서비스는 다음 초기 종료 정책을 지원합니다.
+Azure Machine Learning는 다음과 같은 조기 종료 정책을 지원 합니다.
 
 ### <a name="bandit-policy"></a>산적 정책
 
@@ -304,7 +304,7 @@ experiment = Experiment(workspace, experiment_name)
 hyperdrive_run = experiment.submit(hyperdrive_run_config)
 ```
 
-`experiment_name`은 하이퍼 매개 변수 조정 실험에 할당하려는 이름이고, `workspace`는 실험을 만들려는 작업 영역입니다(실험에 대한 자세한 내용은 [Azure Machine Learning 서비스 작동 방법](concept-azure-machine-learning-architecture.md) 참조).
+`experiment_name`는 하이퍼 매개 변수 튜닝 실험에 할당 하는 이름이 며 `workspace` 실험을 만들 작업 영역입니다. 실험에 대 한 자세한 내용은 [Azure Machine Learning 작동 방식](concept-azure-machine-learning-architecture.md)을 참조 하세요.
 
 ## <a name="visualize-experiment"></a>실험 시각화
 

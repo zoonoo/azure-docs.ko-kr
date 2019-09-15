@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: ca5d857e4d473c7f76b7fac62e8a8bab39769b25
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: a0fe65428a3329d4843ec913e934fb7a91b13759
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233136"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000230"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 Windows Server 노드 풀 및 응용 프로그램 작업에 대 한 현재 제한 사항
 
@@ -36,11 +36,11 @@ AKS는 Windows Server 2019를 호스트 OS 버전으로 사용 하며 프로세�
 
 Kubernetes는 주로 Linux에 초점을 맞추고 있습니다. 업스트림 [Kubernetes.io][kubernetes] 웹 사이트에서 사용 되는 많은 예제는 Linux 노드에서 사용 하기 위한 것입니다. Windows Server 컨테이너를 사용 하는 배포를 만들 때 OS 수준에서 다음과 같은 사항을 고려해 야 합니다.
 
-- **Id** -Linux는 정수 형식으로 표현 된 USERID (UID) 및 GROUPID (GID)를 사용 합니다. 사용자 및 그룹 이름은 정식이 아닙니다. */etc/groups* 또는 */etc/passwd* 에서 UID + GID로의 별칭입니다.
+- **Id** -Linux는 정수 UID (사용자 id)를 사용 하 여 사용자를 식별 합니다. 사용자에 게는 로그온에 사용할 수 있는 영숫자 사용자 이름도 있으며, Linux는 사용자의 UID로 변환 됩니다. 마찬가지로 Linux는 정수 그룹 식별자 (GID)를 기준으로 사용자 그룹을 식별 하 고 그룹 이름을 해당 GID로 변환 합니다.
     - Windows Server에서는 Windows 보안 액세스 관리자 (SAM) 데이터베이스에 저장 된 더 큰 이진 SID (보안 식별자)를 사용 합니다. 이 데이터베이스는 호스트와 컨테이너 간에 공유 되거나 컨테이너 간에 공유 되지 않습니다.
 - **파일 사용 권한** -Windows Server는 사용 권한 비트 마스크 및 UID + GID가 아닌 sid를 기반으로 하는 액세스 제어 목록을 사용 합니다.
 - **파일 경로** -Windows Server의 규칙은/대신 \를 사용 하는 것입니다.
-    - 볼륨을 탑재 하는 pod 사양에서 Windows Server 컨테이너에 대 한 경로를 올바르게 지정 합니다. 예를 들어 Linux 컨테이너에서 */mnt/volume* 의 탑재 지점 대신 드라이브 문자 및 위치를 지정 합니다. 예를 들어 *K:* 드라이브로 탑재 하려면/sk/shhhs와 같이 지정 합니다.
+    - 볼륨을 탑재 하는 pod 사양에서 Windows Server 컨테이너에 대 한 경로를 올바르게 지정 합니다. 예를 들어 Linux 컨테이너에서 */mnt/volume* 의 탑재 지점 대신 드라이브 문자 및 위치를 지정 합니다. 예를 들어 *K:* 드라이브로 탑재 하려면 */sk/shhhs* 와 같이 지정 합니다.
 
 ## <a name="what-kind-of-disks-are-supported-for-windows"></a>Windows에서 지원 되는 디스크 종류는 무엇 인가요?
 

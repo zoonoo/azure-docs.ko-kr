@@ -9,12 +9,12 @@ ms.date: 05/14/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: d7c740133911689c6d3f8e29c2cb20aa8873f0c7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 34dbcaeedb544a8a8808aab3e8e3315f1790dd9a
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65788004"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003428"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>자습서: Microsoft Azure Storage에서 Azure Key Vault를 사용하여 Blob 암호화 및 해독
 
@@ -23,11 +23,11 @@ ms.locfileid: "65788004"
 
 **예상 완료 시간:** 20분
 
-Azure Key Vault에 대한 개요는 [Azure Key Vault란?](../../key-vault/key-vault-whatis.md)을 참조하세요.
+Azure Key Vault에 대한 개요는 [Azure Key Vault란?](../../key-vault/key-vault-overview.md)을 참조하세요.
 
 Azure Storage에 대한 클라이언트 쪽 암호화의 개요 정보는 [Microsoft Azure Storage에 대한 클라이언트 쪽 암호화 및 Azure Key Vault](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -48,7 +48,7 @@ Azure Storage에 대한 클라이언트 쪽 암호화의 개요는 [Microsoft St
 
 ## <a name="set-up-your-azure-key-vault"></a>Azure Key Vault 설정
 
-이 자습서를 계속 하려면 자습서에 설명 된 다음 단계를 수행 해야 [빠른 시작: 설정 및.NET 웹 앱을 사용 하 여 Azure Key Vault에서 비밀을 검색할](../../key-vault/quick-create-net.md):
+이 자습서를 진행 하려면 자습서 [빠른 시작에 설명 된 다음 단계를 수행 해야 합니다. .NET 웹 앱](../../key-vault/quick-create-net.md)을 사용 하 여 Azure Key Vault에서 비밀을 설정 하 고 검색 합니다.
 
 * 키 자격 증명 모음을 만듭니다.
 * 키 또는 암호를 키 자격 증명 모음에 추가합니다.
@@ -229,7 +229,7 @@ SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
     "https://contosokeyvault.vault.azure.net/secrets/TestSecret2/",
     CancellationToken.None).GetAwaiter().GetResult();
 ```
-이것으로 끝입니다. 마음껏 즐기세요!
+이제 끝났습니다! 마음껏 즐기세요!
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -13,17 +13,17 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: d2fe8da1c4d49f5b57f907a5940ec9c445d0d1f7
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 9057cefa5108924c57dbc85bbb895b31e804a51c
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984330"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000650"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Azure Data Factory에서 SSIS 패키지 실행 작업을 사용하여 SSIS 패키지 실행
 이 문서에서는 SSIS 패키지 실행 작업을 사용 하 여 Azure Data Factory (ADF) 파이프라인에서 SSIS (SQL Server Integration Services) 패키지를 실행 하는 방법을 설명 합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -269,7 +269,7 @@ Azure-SSIS IR(Integration Runtime)이 없는 경우 [자습서: Azure-SSIS IR �
    }
    ```
 
-파일 시스템/파일 공유/Azure Files에 저장 된 패키지를 실행 하려면 다음과 같이 패키지/로그 위치 속성에 대 한 값을 입력할 수 있습니다.
+   파일 시스템/파일 공유/Azure Files에 저장 된 패키지를 실행 하려면 다음과 같이 패키지/로그 위치 속성에 대 한 값을 입력할 수 있습니다.
 
    ```json
    {
@@ -318,7 +318,7 @@ Azure-SSIS IR(Integration Runtime)이 없는 경우 [자습서: Azure-SSIS IR �
    }
    ```
 
-파일 시스템/파일 공유/Azure Files에 저장 된 프로젝트 내에서 패키지를 실행 하려면 다음과 같이 패키지 위치 속성에 대 한 값을 입력할 수 있습니다.
+   파일 시스템/파일 공유/Azure Files에 저장 된 프로젝트 내에서 패키지를 실행 하려면 다음과 같이 패키지 위치 속성에 대 한 값을 입력할 수 있습니다.
 
    ```json
    {

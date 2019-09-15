@@ -1,6 +1,6 @@
 ---
 title: 자동화 된 ML 결과 이해
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: 자동화 된 각 기계 학습 실행에 대 한 차트 및 메트릭을 보고 이해 하는 방법에 대해 알아봅니다.
 services: machine-learning
 author: nilesha
@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.openlocfilehash: 60ecd71419bbf65cceab257cb97a96929d24ec08
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 56d8dff7d158cedb4ab33e811cf5134cdbc475ab
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860551"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999439"
 ---
 # <a name="understand-automated-machine-learning-results"></a>자동화 된 machine learning 결과 이해
 
@@ -26,9 +26,9 @@ ms.locfileid: "70860551"
 + [회귀 모델에 대 한 메트릭, 차트 및 그래프](#regression)
 + [모델 interpretability 및 기능 중요도](#explain-model)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
-* Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
+* Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 현재 [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree) 을 사용해 보세요.
 
 * SDK를 사용 하 여 Azure Portal 또는 작업 영역 방문 페이지 (미리 보기)에서 자동화 된 machine learning 실험을 만듭니다.
 
@@ -75,7 +75,7 @@ ms.locfileid: "70860551"
 
 다음 메트릭은 분류 태스크에 대 한 각 실행 반복에 저장 됩니다.
 
-|메트릭|Description|계산|추가 매개 변수
+|메트릭|설명|계산|추가 매개 변수
 --|--|--|--|
 AUC_Macro| AUC는 Receiver Operating Characteristic Curve 아래의 영역입니다. Macro(매크로)는 각 클래스에 대한 AUC의 산술 평균입니다.  | [계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="macro"|
 AUC_Micro| AUC는 Receiver Operating Characteristic Curve 아래의 영역입니다. 마이크로는 각 클래스에서 참 긍정 및 거짓 긍정을 결합 하 여 전역적으로 계산 됩니다.| [계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|
@@ -170,7 +170,7 @@ ROC(수신기 작동 특성)는 특정 모델에 대해 올바르게 분류된 �
 
 회귀 또는 예측 작업에 대해 각 실행 반복에 다음 메트릭이 저장 됩니다.
 
-|메트릭|Description|계산|추가 매개 변수
+|메트릭|설명|계산|추가 매개 변수
 --|--|--|--|
 explained_variance|Explained variance(설명된 분산)는 수학 모델에서 지정된 데이터 세트의 편차가 고려되는 비율입니다. 오차 분산에 대한 원래 데이터의 분산 감소율입니다. 오차의 평균이 0이면 explained variance와 같습니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|없음|
 r2_score|R2는 평균을 출력하는 기준선 모델과 비교한 제곱 오차의 결정 계수 또는 환원율입니다. |[계산](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|없음|

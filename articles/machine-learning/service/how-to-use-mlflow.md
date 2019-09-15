@@ -1,6 +1,6 @@
 ---
 title: MLflow 사용
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Azure Machine Learning를 사용 하 여 MLflow를 설정 하 여 메트릭을 & 아티팩트를 기록 하 고 Databricks, 로컬 환경 또는 VM 환경에서 모델을 배포 합니다.
 services: machine-learning
 author: rastala
@@ -11,18 +11,18 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: c7bed307373289c6a6f76117fa07ee2ee3242bfc
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: b1b2255b4e0f5aa34e3c7159b00156aee5224928
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860448"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999280"
 ---
-# <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-service-preview"></a>MLflow 및 Azure Machine Learning 서비스 (미리 보기)를 사용 하 여 메트릭 추적 및 모델 배포
+# <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-preview"></a>MLflow 및 Azure Machine Learning를 사용 하 여 메트릭 추적 및 모델 배포 (미리 보기)
 
-이 문서에서는 Azure Machine Learning 서비스를 사용 하 여 MLflow 추적 URI 및 로깅 API ( [Mlflow 추적](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api))를 사용 하도록 설정 하는 방법을 보여 줍니다. 이렇게 하면 다음 작업을 수행할 수 있습니다.
+이 문서에서는 Azure Machine Learning를 사용 하 여 [mlflow 추적](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api)URI 및 로깅 API를 사용 하도록 설정 하는 방법을 보여 줍니다. 이렇게 하면 다음 작업을 수행할 수 있습니다.
 
-+ [Azure Machine Learning 서비스 작업 영역](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspaces)에서 실험 메트릭과 아티팩트를 추적 하 고 기록 합니다. 실험에 MLflow 추적을 이미 사용 하 고 있는 경우 작업 영역에서 교육 메트릭과 모델을 저장할 수 있는 중앙 집중화 된 안전 하 고 확장 가능한 위치를 제공 합니다.
++ [Azure Machine Learning 작업 영역](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspaces)에서 실험 메트릭과 아티팩트를 추적 하 고 기록 합니다. 실험에 MLflow 추적을 이미 사용 하 고 있는 경우 작업 영역에서 교육 메트릭과 모델을 저장할 수 있는 중앙 집중화 된 안전 하 고 확장 가능한 위치를 제공 합니다.
 
 + MLflow 실험을 Azure Machine Learning 웹 서비스로 배포 합니다. 웹 서비스로 배포 하 여 Azure Machine Learning 모니터링 및 데이터 드리프트 검색 기능을 프로덕션 모델에 적용할 수 있습니다. 
 
@@ -34,7 +34,7 @@ ms.locfileid: "70860448"
 
 ## <a name="compare-mlflow-and-azure-machine-learning-clients"></a>MLflow 및 Azure Machine Learning 클라이언트 비교
 
- 아래 표에는 Azure Machine Learning 서비스를 사용할 수 있는 여러 클라이언트와 해당 기능 기능이 요약 되어 있습니다.
+ 아래 표에는 Azure Machine Learning 사용할 수 있는 여러 클라이언트와 해당 기능 기능이 요약 되어 있습니다.
 
  MLflow 추적은 [Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 통해 사용 가능한 경우에만 사용할 수 있는 메트릭 로깅 및 아티팩트 저장소 기능을 제공 합니다.
 
@@ -59,7 +59,7 @@ ms.locfileid: "70860448"
 
 ## <a name="track-local-runs"></a>로컬 실행 추적
 
-Azure Machine Learning 서비스를 사용 하 여 MLflow 추적을 사용 하면 로컬 실행의 기록 된 메트릭과 아티팩트를 Azure Machine Learning 작업 영역에 저장할 수 있습니다.
+MLflow 추적 Azure Machine Learning를 사용 하면 로컬 실행의 기록 된 메트릭과 아티팩트를 Azure Machine Learning 작업 영역에 저장할 수 있습니다.
 
 Jupyter Notebook 또는 `azureml-contrib-run` 코드 편집기에서 로컬로 실행 되는 실험에서 Azure Machine Learning를 사용 하 여 mlflow 추적을 사용 하려면 패키지를 설치 합니다.
 
@@ -98,7 +98,7 @@ with mlflow.start_run():
 
 ## <a name="track-remote-runs"></a>원격 실행 추적
 
-Azure Machine Learning 서비스를 사용 하 여 MLflow 추적을 사용 하면 원격 실행의 기록 된 메트릭과 아티팩트를 Azure Machine Learning 작업 영역에 저장할 수 있습니다.
+MLflow 추적 Azure Machine Learning를 사용 하면 원격 실행의 기록 된 메트릭과 아티팩트를 Azure Machine Learning 작업 영역에 저장할 수 있습니다.
 
 원격 실행을 사용 하면 GPU를 사용 하는 가상 컴퓨터 또는 Machine Learning 컴퓨팅 클러스터와 같은 보다 강력한 계산을 통해 모델을 학습할 수 있습니다. 다양 한 계산 옵션에 대 한 자세한 내용은 [모델 학습을 위한 계산 대상 설정](how-to-set-up-training-targets.md) 을 참조 하세요.
 
@@ -141,7 +141,7 @@ run = exp.submit(src)
 
 ## <a name="track-azure-databricks-runs"></a>Azure Databricks 실행 추적
 
-Azure Machine Learning 서비스를 사용 하 여 MLflow 추적을 사용 하면 Databricks 실행의 기록 된 메트릭과 아티팩트를 Azure Machine Learning 작업 영역에 저장할 수 있습니다.
+MLflow 추적 Azure Machine Learning를 사용 하면 Azure Machine Learning 작업 영역에서 Databricks 실행의 기록 된 메트릭과 아티팩트를 저장할 수 있습니다.
 
 Azure Databricks를 사용 하 여 Mlflow 실험을 실행 하려면 먼저 [Azure Databricks 작업 영역 및 클러스터](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) 를 만들어야 합니다.
 

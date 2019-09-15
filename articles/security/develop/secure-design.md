@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 87acc6e8c561349b734bd9cd98300b65e730abe7
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 316ed596cfa49987e229004c388267286ff50927
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68928082"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000976"
 ---
 # <a name="design-secure-applications-on-azure"></a>Azure에서 보안 응용 프로그램 디자인
 이 문서에서는 클라우드 용 응용 프로그램을 디자인할 때 고려해 야 할 보안 작업 및 제어를 제공 합니다. Microsoft [SDL (보안 개발 수명 주기)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) 의 요구 사항 및 디자인 단계에서 고려해 야 하는 보안 질문 및 개념과 함께 학습 리소스를 다룹니다. 목표는 보다 안전한 응용 프로그램을 디자인 하는 데 사용할 수 있는 활동 및 Azure 서비스를 정의 하는 데 도움을 주는 것입니다.
@@ -155,7 +155,7 @@ Azure는 웹 사이트 및 웹 응용 프로그램을 호스트 하는 데 사�
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | 스푸핑               | 인증        | [HTTPS 연결이 필요](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio)합니다. |
 | 변조              | 무결성             | SSL/TLS 인증서의 유효성을 검사 합니다. SSL/TLS를 사용 하는 응용 프로그램은 연결 하는 엔터티의 x.509 인증서를 완전히 확인 해야 합니다. Azure Key Vault 인증서를 사용 하 여 [x509 인증서를 관리](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-certificates)합니다. |
-| 거부            | 부인 방지       | Azure [모니터링 및 진단](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)을 사용하도록 설정합니다.|
+| 거부            | 거부 없음       | Azure [모니터링 및 진단](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)을 사용하도록 설정합니다.|
 | 정보 공개 | 기밀성       | [미사용](../fundamentals/encryption-atrest.md) 및 [전송 중](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit)에 중요 한 데이터를 암호화 합니다. |
 | 서비스 거부      | 가용성          | 잠재적 서비스 거부 조건에 대 한 성능 메트릭을 모니터링 합니다. 연결 필터를 구현합니다. 응용 프로그램 설계 모범 사례와 결합 된 [Azure DDoS protection](../../virtual-network/ddos-protection-overview.md#next-steps)은 DDoS 공격에 대 한 방어를 제공 합니다.|
 | 권한 상승 | Authorization         | Azure Active Directory <span class="underline"></span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)를 사용 합니다.|
@@ -203,7 +203,7 @@ SDL의 확인 단계에서 [공격 노출 영역 검토를 수행](secure-develo
 
 #### <a name="enforce-multi-factor-authentication-for-users"></a>사용자에 대해 multi-factor authentication 적용
 
-따라서 2단계 인증을 사용해야 합니다. 2 단계 인증은 인증 및 권한 부여에 대 한 현재 표준 이며 인증의 사용자 이름 및 암호 유형에 내재 된 보안 약점을 방지 합니다. Azure 관리 인터페이스 (Azure Portal/원격 PowerShell) 및 고객 관련 서비스에 대 한 액세스는 [Azure Multi-factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)을 사용 하도록 설계 및 구성 해야 합니다.
+따라서 2단계 인증을 사용해야 합니다. 2 단계 인증은 인증 및 권한 부여에 대 한 현재 표준 이며 인증의 사용자 이름 및 암호 유형에 내재 된 보안 약점을 방지 합니다. Azure 관리 인터페이스 (Azure Portal/원격 PowerShell) 및 고객 관련 서비스에 대 한 액세스는 [azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)를 사용 하도록 설계 및 구성 해야 합니다.
 
 #### <a name="use-strong-authentication-and-authorization-platforms"></a>강력한 인증 및 권한 부여 플랫폼 사용
 
@@ -242,7 +242,7 @@ JIT ( *just-in-time* ) 액세스를 구현 하 여 권한 노출 시간을 더 �
 
 키와 자격 증명을 잃어 버리는 것은 일반적인 문제입니다. 키 및 자격 증명을 분실하는 것보다 더 위험한 상황은 권한이 없는 사람이 해당 정보에 액세스하는 것뿐입니다. 공격자는 자동화 된 수동 기법을 활용 하 여 GitHub와 같은 코드 리포지토리에 저장 된 키 및 암호를 찾을 수 있습니다. 이러한 공용 코드 리포지토리 또는 다른 서버에는 키와 비밀을 넣지 마세요.
 
-키 관리 솔루션에는 항상 키, 인증서, 암호 및 연결 문자열을 입력 합니다. 키와 비밀이 Hsm (하드웨어 보안 모듈)에 저장 되는 중앙 집중화 된 솔루션을 사용할 수 있습니다. Azure는 [Azure Key Vault](../../key-vault/key-vault-whatis.md)를 사용 하 여 클라우드에서 HSM을 제공 합니다.
+키 관리 솔루션에는 항상 키, 인증서, 암호 및 연결 문자열을 입력 합니다. 키와 비밀이 Hsm (하드웨어 보안 모듈)에 저장 되는 중앙 집중화 된 솔루션을 사용할 수 있습니다. Azure는 [Azure Key Vault](../../key-vault/key-vault-overview.md)를 사용 하 여 클라우드에서 HSM을 제공 합니다.
 
 *비밀 저장소*Key Vault입니다. 응용 프로그램 암호를 저장 하는 중앙 집중식 클라우드 서비스입니다. Key Vault는 응용 프로그램 비밀을 단일 중앙 위치에 보관 하 고 보안 액세스, 권한 제어 및 액세스 로깅을 제공 하 여 기밀 데이터를 안전 하 게 유지 합니다.
 
@@ -277,7 +277,7 @@ JIT ( *just-in-time* ) 액세스를 구현 하 여 권한 노출 시간을 더 �
 
 기본적으로 개발 프로젝트의 모든 항목은 배포 시 공용 지식이 있는 것으로 가정 합니다. 프로젝트에 모든 종류의 중요 한 데이터를 포함 하지 않도록 합니다.
 
-이전에는 [Azure Key Vault](../../key-vault/key-vault-whatis.md)에 대해 설명 했습니다. Key Vault를 사용 하 여 키 및 암호와 같은 암호를 하드 코딩 하는 대신 저장할 수 있습니다. Azure 리소스에 대 한 관리 되는 id와 함께 Key Vault를 사용 하는 경우 Azure 웹 앱은 원본 제어 또는 구성에 비밀을 저장 하지 않고도 안전 하 고 안전 하 게 암호 구성 값에 액세스할 수 있습니다. 자세한 내용은 [Azure Key Vault를 사용 하 여 서버 앱에서 비밀 관리](https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/)를 참조 하세요.
+이전에는 [Azure Key Vault](../../key-vault/key-vault-overview.md)에 대해 설명 했습니다. Key Vault를 사용 하 여 키 및 암호와 같은 암호를 하드 코딩 하는 대신 저장할 수 있습니다. Azure 리소스에 대 한 관리 되는 id와 함께 Key Vault를 사용 하는 경우 Azure 웹 앱은 원본 제어 또는 구성에 비밀을 저장 하지 않고도 안전 하 고 안전 하 게 암호 구성 값에 액세스할 수 있습니다. 자세한 내용은 [Azure Key Vault를 사용 하 여 서버 앱에서 비밀 관리](https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/)를 참조 하세요.
 
 ### <a name="implement-fail-safe-measures"></a>유사 시 대기 조치 구현
 

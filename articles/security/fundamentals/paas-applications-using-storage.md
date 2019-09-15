@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
-ms.openlocfilehash: 9d88b8101f37fde5d1ab8ac11253884b6534e3b5
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 675e10101d01d831aad7652c70cbfcf320085a3c
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726758"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999160"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Azure Storage를 사용하여 PaaS 웹 및 모바일 애플리케이션 보안을 유지하는 모범 사례
 이 문서에서는 PaaS(Platform as a Service) 웹 및 모바일 애플리케이션 보안을 위한 Azure Storage 보안 모범 사례에 대해 설명합니다. 이러한 모범 사례는 Azure에 대한 Microsoft와 고객의 경험에서 비롯된 것입니다.
@@ -71,7 +71,7 @@ RBAC에 대한 자세한 내용은 다음을 참조하세요.
 ## <a name="use-client-side-encryption-for-high-value-data"></a>고가치 데이터에 대해 클라이언트 쪽 암호화 사용
 클라이언트 쪽 암호화를 사용하여 Azure Storage에 데이터를 업로드하기 전에 전송 중인 데이터를 프로그래밍 방식으로 암호화하고, 데이터를 검색할 때 프로그래밍 방식으로 암호를 해독할 수 있습니다. 이를 통해 전송 중인 데이터와 미사용 데이터를 모두 암호화할 수 있습니다. 클라이언트 쪽 암호화는 데이터를 암호화하는 가장 안전한 방법이지만 애플리케이션을 프로그래밍 방식으로 변경하고 키 관리 프로세스를 배치해야 합니다.
 
-또한 클라이언트 쪽 암호화를 사용하면 암호화 키를 단독으로 제어할 수 있습니다. 자체 암호화 키를 생성하고 관리할 수 있습니다. 클라이언트 쪽 암호화는 Azure Storage 클라이언트 라이브러리가 CEK(콘텐츠 암호화 키)를 생성하고 KEK(키 암호화 키)를 사용하여 래핑(암호화)하는 봉투(envelope) 기술을 사용합니다. KEK는 키 식별자로 식별되고 비대칭 키 쌍 또는 대칭 키일 수 있으며 로컬로 관리되거나 [Azure Key Vault](/azure/key-vault/key-vault-whatis)에 저장됩니다.
+또한 클라이언트 쪽 암호화를 사용하면 암호화 키를 단독으로 제어할 수 있습니다. 자체 암호화 키를 생성하고 관리할 수 있습니다. 클라이언트 쪽 암호화는 Azure Storage 클라이언트 라이브러리가 CEK(콘텐츠 암호화 키)를 생성하고 KEK(키 암호화 키)를 사용하여 래핑(암호화)하는 봉투(envelope) 기술을 사용합니다. KEK는 키 식별자로 식별되고 비대칭 키 쌍 또는 대칭 키일 수 있으며 로컬로 관리되거나 [Azure Key Vault](/azure/key-vault/key-vault-overview)에 저장됩니다.
 
 클라이언트 쪽 암호화는 Java 및 .NET 스토리지 클라이언트 라이브러리에 기본적으로 제공되어 있습니다. 클라이언트 애플리케이션 내에서 데이터를 암호화하고 자체 암호화 키를 생성 및 관리하는 방법에 대한 자세한 내용은 [Microsoft Azure Storage용 클라이언트 쪽 암호화 및 Azure Key Vault](/azure/storage/common/storage-client-side-encryption)를 참조하세요.
 

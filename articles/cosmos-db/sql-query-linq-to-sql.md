@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: tisande
-ms.openlocfilehash: ce9d96a90a2463d1ab8e1a9774a019e38ca681f4
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: ad6dcf7307955300a781a7a649b6ac76b3c69589
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036041"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003547"
 ---
 # <a name="linq-to-sql-translation"></a>LINQ to SQL 변환
 
@@ -324,5 +324,5 @@ SQL .NET SDK에 포함 된 LINQ 공급자는 다음과 같은 연산자를 지�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Cosmos DB .NET 샘플](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET 샘플](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [모델 문서 데이터](modeling-data.md)

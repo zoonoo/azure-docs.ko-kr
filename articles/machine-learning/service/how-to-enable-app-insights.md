@@ -1,7 +1,7 @@
 ---
 title: ML 모델을 모니터링 하도록 Azure 애플리케이션 Insights 설정
-titleSuffix: Azure Machine Learning service
-description: Azure 애플리케이션 Insights를 사용 하 여 Azure Machine Learning 서비스로 배포 된 웹 서비스 모니터링
+titleSuffix: Azure Machine Learning
+description: Azure 애플리케이션 Insights를 사용 하 여 Azure Machine Learning 배포 된 웹 서비스 모니터링
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.author: marthalc
 author: marthalc
 ms.date: 07/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: ff9261e2720ed80fc96131cea69d2985c8e0883e
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 785507e9ae12d8da564a223c8cdf544a98b8de61
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858747"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002877"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Application Insights를 사용하여 Azure Machine Learning 모델 모니터링
 
-이 문서에서는 Azure Machine Learning 서비스에 대해 Azure Application Insights를 설정하는 방법을 알아봅니다. Application Insights를 통해 다음을 모니터링할 수 있습니다.
+이 문서에서는 Azure Machine Learning에 대 한 Azure 애플리케이션 정보를 설정 하는 방법에 대해 알아봅니다. Application Insights를 통해 다음을 모니터링할 수 있습니다.
 * 요청 속도, 응답 시간 및 실패율
 * 종속성 비율, 응답 시간 및 실패율
 * 예외.
@@ -30,7 +30,7 @@ ms.locfileid: "70858747"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
+* Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 현재 [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree) 을 사용해 보세요.
 
 * Azure Machine Learning 작업 영역, 스크립트가 포함된 로컬 디렉터리 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. 이러한 필수 구성 요소를 충족하는 방법을 알아보려면 [개발 환경 구성 방법](how-to-configure-environment.md)을 참조하세요.
 * AKS(Azure Kubernetes Service) 또는 ACI(Azure Container Instances)에 배포할 학습된 Machine Learning 모델. 이러한 모델이 없으면 [이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 자습서를 참조하세요.
@@ -111,7 +111,7 @@ Azure Portal에서 Application Insights를 사용하거나 사용하지 않도�
  
 
 ## <a name="evaluate-data"></a>데이터 평가
-서비스의 데이터는 Azure Machine Learning 서비스가 있는 동일한 리소스 그룹 내 Application Insights 계정에 저장됩니다.
+서비스의 데이터는 Azure Machine Learning와 동일한 리소스 그룹 내에 Application Insights 계정에 저장 됩니다.
 이 데이터를 보려면:
 1. [Azure Portal](https://portal.azure.com)의 Machine Learning Service 작업 영역으로 이동하여 Application Insights 링크를 클릭합니다.
 

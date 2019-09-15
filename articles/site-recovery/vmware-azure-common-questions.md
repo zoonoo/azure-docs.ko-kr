@@ -8,12 +8,12 @@ services: site-recovery
 ms.date: 06/27/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 27e5323e2c9fed3886b2ddf175a2c67718ad52d0
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: c1897b73164b05dfd881729147e6d082be547530
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959143"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002285"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>VMware에서 Azure로 복제에 대 한 일반적인 질문
 
@@ -231,7 +231,7 @@ Site Recovery는 N-1 지원 모델을 따릅니다. 이전 버전에서 업그�
 
 ### <a name="can-i-manually-set-up-the-configuration-server-instead-of-using-a-template"></a>구성 서버는 템플릿을 사용하는 대신 수동으로 설정할 수 있나요?
 
-최신 버전의 사용자 지정 버전을 사용 하 여 [구성 서버 VM을 만드는](vmware-azure-deploy-configuration-server.md) 것이 좋습니다. 템플릿을 사용할 수 없는 경우 (예: VMware 서버에 대 한 액세스 권한이 없는 경우) 포털에서 설치 파일을 [다운로드](physical-azure-set-up-source.md) 하 고 구성 서버를 설정 합니다.
+최신 버전의 Open Virtualization Format (파일) 템플릿을 사용 하 여 [구성 서버 VM을 만드는](vmware-azure-deploy-configuration-server.md) 것이 좋습니다. 템플릿을 사용할 수 없는 경우 (예: VMware 서버에 대 한 액세스 권한이 없는 경우) 포털에서 설치 파일을 [다운로드](physical-azure-set-up-source.md) 하 고 구성 서버를 설정 합니다.
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>구성 서버에서 둘 이상의 지역에 복제할 수 있나요?
 

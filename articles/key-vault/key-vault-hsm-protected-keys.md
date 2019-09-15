@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3cd8cd0b72f1b3ccea557ce0e12394081329dc5b
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 71b7e4bd9406e7fb300ebccd86908820b7628c29
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883308"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000772"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Azure Key Vault에 대해 HSM 보호된 키를 생성하고 전송하는 방법
 
@@ -27,7 +27,7 @@ ms.locfileid: "70883308"
 이 기능은 Azure 중국에 사용할 수 없습니다.
 
 > [!NOTE]
-> Azure Key Vault에 대한 자세한 내용은 [Azure Key Vault란?](key-vault-whatis.md)  
+> Azure Key Vault에 대한 자세한 내용은 [Azure Key Vault란?](key-vault-overview.md)  
 > HSM 보호 키에 대한 자격 증명 모음을 만드는 내용이 포함된 자습서를 시작하려면 [Azure Key Vault란?](key-vault-overview.md)을 참조하세요.
 
 다음은 인터넷을 통해 HSM 보호된 키를 생성하고 전송하는 작업에 대한 추가 정보입니다.

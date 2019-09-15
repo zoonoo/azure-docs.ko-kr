@@ -1,6 +1,6 @@
 ---
 title: 리소스 할당량 관리 및 요청
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: 이 방법 가이드에서는 Azure Machine Learning에 대한 리소스의 다양한 할당량에 대해 설명하고 더 많은 할당량을 요청하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
@@ -11,26 +11,26 @@ author: nishankgu
 ms.author: nigup
 ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: bc0455b34ebdcb080e0cd702e58d8163228b60ff
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 2ee819625f772c96ac6c5a771935da17ee05f3aa
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278061"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002682"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Azure 리소스에 대한 할당량 관리 및 요청
 
-다른 Azure 서비스와 마찬가지로, Azure Machine Learning 서비스와 연결된 특정 리소스에 대한 한도가 있습니다. 이러한 제한 범위는 모델 학습 또는 유추/점수 매기기에 사용 되는 실제 기본 계산을 제한 하기 위해 만들 수 있는 작업 영역 수의 상한 범위에 있습니다. 
+다른 Azure 서비스와 마찬가지로 Azure Machine Learning와 연결 된 특정 리소스에 대 한 제한이 있습니다. 이러한 제한 범위는 모델 학습 또는 유추/점수 매기기에 사용 되는 실제 기본 계산을 제한 하기 위해 만들 수 있는 작업 영역 수의 상한 범위에 있습니다. 
 
 이 문서에서는 구독에 사용되는 다양한 Azure 리소스에 대해 미리 구성된 한도를 자세히 설명하고, 각 리소스 유형의 할당량 증가를 요청할 수 있는 간편한 링크를 제공합니다. 사기로 인해 예산이 초과되는 것을 방지하고 Azure 용량 제약 조건을 준수하려면 이러한 한도를 적용해야 합니다.
 
-프로덕션 워크로드용 Azure Machine Learning Service 리소스를 설계 및 강화할 때는 이러한 할당량을 고려해야 합니다. 예를 들어 클러스터가 지정한 대상 노드 수에 도달 하지 않은 경우 구독에 대 한 Azure Machine Learning 계산 코어 제한에 도달 했을 수 있습니다. 기본 제한 이상으로 제한 또는 할당량을 높이려는 경우 비용 없이 온라인 고객 지원 요청을 개설합니다. Azure 용량 제약 조건으로 인해 다음 표에 표시되는 최대 한도 값 이상으로 한도를 높일 수 없습니다. 최대 한도 열이 없는 경우 리소스에 조정 가능한 한도가 없는 것입니다.
+프로덕션 워크 로드에 대 한 Azure Machine Learning 리소스를 설계 하 고 확장할 때 이러한 할당량을 염두에 두어야 합니다. 예를 들어 클러스터가 지정한 대상 노드 수에 도달 하지 않은 경우 구독에 대 한 Azure Machine Learning 계산 코어 제한에 도달 했을 수 있습니다. 기본 제한 이상으로 제한 또는 할당량을 높이려는 경우 비용 없이 온라인 고객 지원 요청을 개설합니다. Azure 용량 제약 조건으로 인해 다음 표에 표시되는 최대 한도 값 이상으로 한도를 높일 수 없습니다. 최대 한도 열이 없는 경우 리소스에 조정 가능한 한도가 없는 것입니다.
 
 ## <a name="special-considerations"></a>특별 고려 사항
 
 + 할당량은 신용 한도액일 뿐이며 용량을 보장하는 것은 아닙니다. 대규모 용량이 필요한 경우 Azure 지원에 문의하세요.
 
-+ 할당량은 Azure Machine Learning Service를 포함하여 구독의 모든 서비스에서 공유됩니다. 할당량이 공유되지 않는 경우는 컴퓨팅 코어 할당량과는 다른 별도의 할당량이 적용되는 Azure Machine Learning 컴퓨팅뿐입니다. 용량 요구 사항을 평가할 때 모든 서비스의 할당량 사용량을 계산해야 합니다.
++ 할당량은 Azure Machine Learning를 포함 하 여 구독에 있는 모든 서비스에서 공유 됩니다. 할당량이 공유되지 않는 경우는 컴퓨팅 코어 할당량과는 다른 별도의 할당량이 적용되는 Azure Machine Learning 컴퓨팅뿐입니다. 용량 요구 사항을 평가할 때 모든 서비스의 할당량 사용량을 계산해야 합니다.
 
 + 기본 한도는 평가판, 종량제 및 Dv2, F, G 등의 시리즈와 같은 제품 범주 유형에 따라 다릅니다.
 

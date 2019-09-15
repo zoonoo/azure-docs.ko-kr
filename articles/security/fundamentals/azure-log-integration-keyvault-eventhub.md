@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 01ab4f6f0535f137c7ffeb99c36ecd1e831de6f7
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 15223c59f270dc562e521697186cfaf7f30073b9
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727670"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71004121"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Azure Log Integration 자습서: Event Hubs를 사용하여 Azure Key Vault 이벤트 처리
 
@@ -44,7 +44,7 @@ Azure 로그를 통합하는 가장 좋은 방법은 SIEM 공급업체의 Azure 
 
 이 자습서에 언급된 서비스에 대한 자세한 내용은 다음을 참조하세요. 
 
-- [Azure Key Vault](/azure/key-vault/key-vault-whatis)
+- [Azure Key Vault](/azure/key-vault/key-vault-overview)
 - [Azure Event Hubs](/azure/event-hubs/event-hubs-what-is-event-hubs)
 - [Azure 로그 통합](azure-log-integration-overview.md)
 
