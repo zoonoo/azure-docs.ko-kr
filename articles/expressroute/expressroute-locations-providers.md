@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: 69226cafc31771ae5307999e921cec4ae7841f8c
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 17d1a8e2e98f1b2967b4f2e33e14ee187a765190
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967147"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995716"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -82,7 +82,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 ### <a name="production-azure"></a>프로덕션 Azure
 | **위치** | **소유자 및 주소** | **로컬 Azure 지역** | **서비스 공급자** |
 | --- | --- | --- | --- |
-| **암스테르담** | [서-ix AM5](https://www.equinix.com/locations/europe-colocation/netherlands-colocation/amsterdam-data-centers/am5/) | 유럽 서부 | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Telia Carrier, Verizon, Zayo |
+| **암스테르담** | [서-ix AM5](https://www.equinix.com/locations/europe-colocation/netherlands-colocation/amsterdam-data-centers/am5/) | 유럽 서부 | Aryaka Networks, & T NetBond, 영국령 텔레콤, Colt, 의사 Inix, euNetworks, GÉANT, InterCloud, Interx이온, KPN, IX Reach, 수준 3 통신, Megaport, NTT 통신, 주황색, Tata 통신 Zayo |
 | **암스테르담2** | [Interxion AMS8](https://www.interxion.com/Locations/amsterdam/schiphol/) | 유럽 서부 | CenturyLink Cloud Connect, DECIX, Colt, Interxion, Vodafone |
 | **애틀랜타** | [서-ix AT2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/atlanta-data-centers/at2/) | n/a | Equinix, Megaport |
 | **오클랜드** | [Vocus Group NZ 올버니](https://www.vocus.co.nz/business/cloud-data-centres) | n/a | Devoli, Kordia, Megaport, Spark NZ, Vocus Group NZ |
@@ -195,16 +195,16 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 ## <a name="c1partners"></a>추가 서비스 공급자를 통한 연결
 | **위치** | **Exchange** | **연결 공급자** |
 | --- | --- | --- |
-| **암스테르담** | Telecity, Interxion, Level 3 통신, | BICS, CloudXpress, Eurofiber, Fastweb S. p. A, Gulf Bridge 국제, Kalaam 텔레콤 바레인 Bics, MainOne, Nianet, POST 통신 룩셈부르크, Proximus, TDC Erhverv, 텔레콤 Italia 반짝, Telekom Deutschland GmbH, Telia |
+| **암스테르담** | 수준 3 통신, Interxion | BICS, CloudXpress, Eurofiber, Fastweb S. p. A, Gulf Bridge 국제, Kalaam 텔레콤 바레인 Bics, MainOne, Nianet, POST 통신 룩셈부르크, Proximus, TDC Erhverv, 텔레콤 Italia 반짝, Telekom Deutschland GmbH, Telia |
 | **애틀랜타** | Equinix| Ccs (crown 성
 | **케이프타운** | Teraco | MTN |
 | **시카고** | Equinix| Ccs (crown 성, 스펙트럼 Enterprise, Windstream |
 | **댈러스** | Equinix, Megaport | Axtel, C3ntro 텔레콤, Cox Business, Ccs (crown 성, Data Foundry, 스펙트럼 Enterprise, and Stelco |
-| **프랑크푸르트** | Telecity | BICS, Cinia, Nianet, QSC AG, Telekom Deutschland GmbH |
+| **프랑크푸르트** | Interxion | BICS, Cinia, Nianet, QSC AG, Telekom Deutschland GmbH |
 | **함부르크** | Equinix | 중국 |
 | **Hong Kong SAR** | Equinix | Chief, Macroview Telecom |
 | **요하네스버그** | Teraco | MTN |
-| **런던** | BICS, Equinix, euNetworks, Telecity | Bezeq International Ltd., CoreAzure, Epsilon Telecommunications Limited, Exponential E, HSO, NexGen Networks, Proximus, Tamares Telecom, Zain |
+| **런던** | BICS, 서-Ix, euNetworks| Bezeq International Ltd., CoreAzure, Epsilon Telecommunications Limited, Exponential E, HSO, NexGen Networks, Proximus, Tamares Telecom, Zain |
 | **로스앤젤레스** | Equinix |Ccs (crown 성, 스펙트럼 Enterprise, and Stelco |
 | **마드리드** | Level3 | Zertia |
 | **Montreal** | Cologix, Equinix | Airgate Technologies, Inc. Aptum 기술, Iwmentor, Zirro |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/15/2019
 ms.author: magoedte
-ms.openlocfilehash: 36f70ebaaf3fe6d841ef700561bbd6a200366c84
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 17135f896140a843dd95c8d9624e9faf1d7194c3
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563875"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996255"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>저장소에 대 한 Azure Monitor를 사용 하 여 저장소 서비스 모니터링 (미리 보기)
 
@@ -42,6 +42,10 @@ ms.locfileid: "69563875"
 
 >[!NOTE]
 >이 기능에 액세스 하는 것은 무료로 제공 되며 [Azure Monitor 가격 책정 정보](https://azure.microsoft.com/pricing/details/monitor/) 페이지에 설명 된 대로 구성 하거나 사용 하도록 설정한 Azure Monitor 필수 기능에 대해서만 요금이 부과 됩니다.
+
+>[!NOTE]
+>저장소에 대 한 Azure Monitor [범용 v1 계정을](../../storage/common/storage-account-overview.md#general-purpose-v1-accounts)지원 하지 않습니다.
+>
 
 ## <a name="view-from-azure-monitor"></a>Azure Monitor에서 보기
 
@@ -115,7 +119,7 @@ Azure Monitor에서 구독의 여러 저장소 계정에서 트랜잭션, 대기
 
 여러 저장소 계정 **개요** 통합 문서에서 **사용 가능**열 값, **E2E 대기 시간**, **서버 대기 시간**및 **트랜잭션 오류 유형/오류** 를 선택 했는지 여부에 관계 없이 다음 단추 중 하나를 선택 합니다. **개요** 통합 문서에서 **발생**하는 오류, **성능**, **가용성**및 **용량** 은 특정 저장소 계정에서 각 범주에 맞게 조정 된 대화형 저장소 관련 정보 집합을 제공 합니다.  
 
-* **가용성** 가용성 통합 문서를 엽니다. Azure Storage 서비스의 현재 상태를 표시 하 고, 선택 된 시간 범위를 나타내는 추세 선이 있는 저장소 계정에 정의 된 데이터 서비스에 의해 분류 된 각 개체의 사용 가능한 상태와에 대 한 가용성 추세 차트를 보여 주는 테이블입니다. 계정의 각 데이터 서비스입니다.  
+* **가용성** **가용성 통합 문서** 를 엽니다. Azure Storage 서비스의 현재 상태를 표시 하 고, 선택 된 시간 범위를 나타내는 추세 선이 있는 저장소 계정에 정의 된 데이터 서비스에 의해 분류 된 각 개체의 사용 가능한 상태와에 대 한 가용성 추세 차트를 보여 주는 테이블입니다. 계정의 각 데이터 서비스입니다.  
 
     ![가용성 보고서 예제](./media/storage-insights-overview/storage-account-availability-01.png)
 
@@ -181,7 +185,7 @@ Azure Monitor에서 구독의 여러 저장소 계정에서 트랜잭션, 대기
 
 1. 포털에서 **모니터** 를 선택 하 고 왼쪽 창에서 **저장소 계정 (미리 보기)** 을 선택 합니다.
 
-2. 용량 을 선택 하 여 용량 통합 문서로 전환 하 고 명령 모음에서 명령 모음에서 **편집** 을 선택 합니다.
+2. 용량 **을 선택 하** 여 용량 통합 문서로 전환 하 고 명령 모음에서 명령 모음에서 **편집** 을 선택 합니다.
 
     ![편집을 선택 하 여 통합 문서 수정](./media/storage-insights-overview/workbook-edit-workbook.png)
 
@@ -201,7 +205,7 @@ Azure Monitor에서 구독의 여러 저장소 계정에서 트랜잭션, 대기
 
 1. 메트릭 표에서 **열 설정** 을 선택 합니다.
 
-2. **열 설정 편집** 창의 **열** 섹션에서 **, $ | microsoft storage/Storageaccounts/Blobservices-capacity-blobservices $ | microsoft. storage/를 선택 합니다. storageaccounts/fileservices-FileCapacity $ | queueservices/storageaccounts/-QueueCapacity $ | microsoft storage/storageaccounts/tableservices-TableCapacity $** . 드롭다운 목록 색상표에서 **녹색**을선택 합니다.
+2. **열 설정 편집** 창의 **열** 섹션에서 **, $ | microsoft storage/Storageaccounts/Blobservices-capacity-blobservices $ | microsoft. storage/를 선택 합니다. storageaccounts/fileservices-FileCapacity $ | queueservices/storageaccounts/-QueueCapacity $ | microsoft storage/storageaccounts/tableservices-TableCapacity $** . 드롭다운 **목록 색상표에서** **녹색**을 선택 합니다.
 
 3. **저장 후 닫기** 를 선택 하 여 변경 내용을 커밋합니다.
 

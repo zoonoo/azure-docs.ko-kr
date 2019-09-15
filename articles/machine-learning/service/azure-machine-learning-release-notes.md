@@ -1,7 +1,7 @@
 ---
 title: 릴리스의 새로운 기능이란?
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스 및 기계 학습 및 데이터 준비 Python SDK에 대한 최신 업데이트에 대해 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning에 대 한 최신 업데이트 및 기계 학습 및 데이터 준비 Python Sdk에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2721e134e03d3d622e61085dc39a2914098ba570
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 26d66dad1e9953ddcbdbe0fd3b495bb3e418b3e7
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70930734"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993417"
 ---
-# <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 서비스의 릴리스 정보
+# <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
-이 문서에서는 Azure Machine Learning 서비스의 릴리스에 대해 알아봅니다.  전체 SDK 참조 콘텐츠는 Azure Machine Learning의 [**Python 용 기본 SDK**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 참조 페이지를 참조 하세요. 
+이 문서에서는 Azure Machine Learning 릴리스에 대해 알아봅니다.  전체 SDK 참조 콘텐츠는 Azure Machine Learning의 [**Python 용 기본 SDK**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 참조 페이지를 참조 하세요. 
 
 알려진 버그 및 해결 방법에 대해 알아 보려면 [알려진 문제 목록](resource-known-issues.md)을 참조하세요.
 
@@ -557,7 +557,7 @@ Azure Portal에서 이제 다음을 수행할 수 있습니다.
 + 보고서 실행 및 실행 세부 정보 페이지에서 라이브 차트 및 메트릭 업데이트
 + 실행 세부 정보 페이지에서 로그, 출력 및 스냅숏에 대 한 파일 뷰어를 업데이트 했습니다.
 + 실험 탭에서 새롭게 향상 된 보고서 생성 환경을 제공 합니다. 
-+ Azure Machine Learning 서비스 작업 영역의 개요 페이지에서 config.xml 파일을 다운로드 하는 기능이 추가 되었습니다.
++ Azure Machine Learning 작업 영역의 개요 페이지에서 config.xml 파일을 다운로드 하는 기능이 추가 되었습니다.
 + Azure Databricks 작업 영역에서 Machine Learning 서비스 작업 영역 만들기 지원 
 
 ## <a name="2019-04-26"></a>2019-04-26
@@ -576,7 +576,7 @@ Azure Portal에서 이제 다음을 수행할 수 있습니다.
 +  최신 버전의 Azure Machine Learning SDK 및 관련 패키지를 포함 하는 [미리 구성 된 노트북 VM](tutorial-1st-experiment-sdk-setup.md)을 신속 하 게 실행 합니다.
 + 액세스는 HTTPS, Azure Active Directory 인증 및 권한 부여와 같은 입증 된 기술을 통해 보안이 유지 됩니다.
 + Azure Machine Learning 작업 영역 blob storage 계정에서 노트북 및 코드의 신뢰할 수 있는 클라우드 저장소입니다. 작업을 잃지 않고 노트북 VM을 안전 하 게 삭제할 수 있습니다.
-+ Azure Machine Learning 서비스 기능을 탐색 하 고 시험해 볼 수 있는 미리 설치 된 샘플 노트북.
++ Azure Machine Learning 기능을 탐색 하 고 시험해 볼 수 있는 미리 설치 된 샘플 노트북.
 + Azure Vm의 전체 사용자 지정 기능, 모든 VM 유형, 패키지, 모든 드라이버. 
 
 ## <a name="2019-04-26"></a>2019-04-26
@@ -873,7 +873,7 @@ Azure Machine Learning SDK for Python v 1.0.30가 릴리스 되었습니다.
 
 ## <a name="2018-12-04-general-availability"></a>2018-12-04: 일반 공급
 
-이제 Azure Machine Learning Service가 일반 공급됩니다.
+Azure Machine Learning 이제 일반 공급 됩니다.
 
 ### <a name="azure-machine-learning-compute"></a>Azure Machine Learning 컴퓨팅
 이번 릴리스에서는 [Azure Machine Learning 컴퓨팅](how-to-set-up-training-targets.md#amlcompute)을 통해 새로운 관리형 컴퓨팅 환경을 발표합니다. 이 컴퓨팅 대상은 Azure Machine Learning에 대한 Azure Batch AI 컴퓨팅을 대체합니다. 
@@ -985,7 +985,7 @@ Azure Machine Learning 컴퓨팅은 Azure Portal 또는 CLI를 사용하여 Pyth
 ## <a name="2018-11-05"></a>2018-11-05
 
 ### <a name="azure-portal"></a>Azure Portal 
-Azure Machine Learning 서비스에 대한 Azure Portal은 다음과 같이 업데이트되었습니다.
+Azure Machine Learning에 대 한 Azure Portal에는 다음 업데이트가 포함 됩니다.
   * 게시된 파이프라인에 대한 새 **파이프라인** 탭.
   * 기존 HDInsight 클러스터를 컴퓨팅 대상으로 연결할 수 있도록 지원이 추가되었습니다.
 
@@ -1098,4 +1098,4 @@ Azure Machine Learning 서비스에 대한 Azure Portal은 다음과 같이 업�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Machine Learning Service](../service/overview-what-is-azure-ml.md)에 대한 개요를 참조하세요.
+[Azure Machine Learning](../service/overview-what-is-azure-ml.md)에 대한 개요를 참조하세요.

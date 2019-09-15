@@ -1,7 +1,7 @@
 ---
 title: Machine Learning CLI 확장
-titleSuffix: Azure Machine Learning service
-description: Azure CLI용 Azure Machine Learning CLI 확장에 대해 알아봅니다. Azure CLI는 Azure 클라우드의 리소스로 작업할 수 있도록 해주는 플랫폼 간 명령줄 유틸리티입니다. Machine Learning 확장을 사용하면 Azure Machine Learning 서비스로 작업할 수 있습니다.
+titleSuffix: Azure Machine Learning
+description: Azure CLI용 Azure Machine Learning CLI 확장에 대해 알아봅니다. Azure CLI는 Azure 클라우드의 리소스로 작업할 수 있도록 해주는 플랫폼 간 명령줄 유틸리티입니다. Machine Learning 확장을 사용 하면 Azure Machine Learning를 사용할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.author: jordane
 author: jpe316
 ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6c5068512f8ba26f7710bca7c0fccb98e0a5be33
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 85ebcc36d32b86ec2640ce7ce02190deaab19d6b
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996738"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997077"
 ---
-# <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Azure Machine Learning 서비스용 CLI 확장 사용
+# <a name="use-the-cli-extension-for-azure-machine-learning"></a>Azure Machine Learning에 CLI 확장 사용
 
-Azure Machine Learning CLI는 Azure 플랫폼용 플랫폼 간 명령줄 인터페이스인 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)에 대한 확장입니다. 이 확장은 Azure Machine Learning 서비스를 사용 하기 위한 명령을 제공 합니다. 이를 통해 machine learning 작업을 자동화할 수 있습니다. 다음 목록에서는 CLI 확장으로 수행할 수 있는 몇 가지 예제 작업을 보여 줍니다.
+Azure Machine Learning CLI는 Azure 플랫폼용 플랫폼 간 명령줄 인터페이스인 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)에 대한 확장입니다. 이 확장 프로그램은 Azure Machine Learning 작업을 위한 명령을 제공 합니다. 이를 통해 machine learning 작업을 자동화할 수 있습니다. 다음 목록에서는 CLI 확장으로 수행할 수 있는 몇 가지 예제 작업을 보여 줍니다.
 
 + 실험을 실행하여 Machine Learning 모델 생성
 
@@ -30,9 +30,9 @@ Azure Machine Learning CLI는 Azure 플랫폼용 플랫폼 간 명령줄 인터�
 
 CLI는 Azure Machine Learning SDK를 대체하는 것이 아닙니다. 자동화에 잘 맞는 매우 중요 한 작업을 처리 하도록 최적화 된 보완 도구입니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-* CLI를 사용하려면 Azure 구독이 있어야 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
+* CLI를 사용하려면 Azure 구독이 있어야 합니다. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 현재 [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree) 을 사용해 보세요.
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 
@@ -86,7 +86,7 @@ az extension remove -n azure-cli-ml
     az group create -n myresourcegroup -l westus2
     ```
 
-+ Azure Machine Learning 서비스 작업 영역을 만듭니다.
++ Azure Machine Learning 작업 영역을 만듭니다.
 
     ```azurecli-interactive
     az ml workspace create -w myworkspace -g myresourcegroup
@@ -163,7 +163,7 @@ az extension remove -n azure-cli-ml
 
 ## <a name="environment-management"></a>환경 관리
 
-다음 명령에서는 작업 영역에 대 한 Azure Machine Learning 서비스 [환경을](how-to-configure-environment.md) 만들고 등록 하 고 나열 하는 방법을 보여 줍니다.
+다음 명령에서는 작업 영역에 대 한 Azure Machine Learning [환경을](how-to-configure-environment.md) 만들고 등록 하 고 나열 하는 방법을 보여 줍니다.
 
 + 환경에 대 한 스 캐 폴딩 파일 만들기:
 

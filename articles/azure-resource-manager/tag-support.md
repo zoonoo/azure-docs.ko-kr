@@ -4,14 +4,14 @@ description: 태그를 지원하는 Azure 리소스 종류를 보여 줍니다. 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 09/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: bf10274e8c492363cb54c5610ff8d912ab308d1c
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 7b8d3de3eaa9cdbb945879f2acc283d74c8b4e82
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194724"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996819"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 리소스에 대한 태그 지원
 이 문서에서는 리소스 종류가 [태그](resource-group-using-tags.md)를 지원하는지 여부를 설명합니다. **태그 지원** 이라는 열은 리소스 형식에 태그에 대 한 속성이 있는지 여부를 나타냅니다. **비용 보고서에서 태그** 레이블이 지정 된 열은 리소스 종류가 태그를 비용 보고서에 전달 하는지 여부를 나타냅니다.
@@ -21,7 +21,6 @@ ms.locfileid: "70194724"
 리소스 공급자 네임 스페이스로 이동 합니다.
 > [!div class="op_single_selector"]
 > - [Microsoft.AAD](#microsoftaad)
-> - [AADDomainServices](#microsoftaaddomainservices)
 > - [Addons](#microsoftaddons)
 > - [ADHybridHealthService](#microsoftadhybridhealthservice)
 > - [Microsoft Advisor](#microsoftadvisor)
@@ -29,6 +28,7 @@ ms.locfileid: "70194724"
 > - [Microsoft.AnalysisServices](#microsoftanalysisservices)
 > - [Microsoft.ApiManagement](#microsoftapimanagement)
 > - [Microsoft.AppConfiguration](#microsoftappconfiguration)
+> - [Microsoft AppPlatform](#microsoftappplatform)
 > - [Microsoft 증명](#microsoftattestation)
 > - [Microsoft.Authorization](#microsoftauthorization)
 > - [Microsoft.Automation](#microsoftautomation)
@@ -62,14 +62,12 @@ ms.locfileid: "70194724"
 > - [Microsoft.ContentModerator](#microsoftcontentmoderator)
 > - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
 > - [Microsoft.CostManagement](#microsoftcostmanagement)
-> - [Microsoft.CustomerInsights](#microsoftcustomerinsights)
 > - [Microsoft. CustomerLockbox](#microsoftcustomerlockbox)
 > - [Microsoft CustomProviders](#microsoftcustomproviders)
 > - [Microsoft.DataBox](#microsoftdatabox)
 > - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
 > - [Microsoft.Databricks](#microsoftdatabricks)
 > - [Microsoft.DataCatalog](#microsoftdatacatalog)
-> - [Microsoft.DataConnect](#microsoftdataconnect)
 > - [Microsoft.DataFactory](#microsoftdatafactory)
 > - [Microsoft.DataLakeAnalytics](#microsoftdatalakeanalytics)
 > - [Microsoft.DataLakeStore](#microsoftdatalakestore)
@@ -112,7 +110,6 @@ ms.locfileid: "70194724"
 > - [Microsoft.MachineLearning](#microsoftmachinelearning)
 > - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
 > - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
-> - [Microsoft ManagedLab](#microsoftmanagedlab)
 > - [Microsoft ManagedServices](#microsoftmanagedservices)
 > - [Microsoft 관리](#microsoftmanagement)
 > - [Microsoft.Maps](#microsoftmaps)
@@ -154,6 +151,7 @@ ms.locfileid: "70194724"
 > - [Microsoft.SiteRecovery](#microsoftsiterecovery)
 > - [SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft.Solutions](#microsoftsolutions)
+> - [Microsoft .SQL](#microsoftsql)
 > - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
 > - [Microsoft.Storage](#microsoftstorage)
 > - [Microsoft.StorageCache](#microsoftstoragecache)
@@ -179,13 +177,6 @@ ms.locfileid: "70194724"
 > | DomainServices | 예 |예 |
 > | DomainServices/oucontainer | 아니요 |아니요 |
 > | DomainServices/ReplicaSets | 예 |예 |
-
-## <a name="microsoftaaddomainservices"></a>AADDomainServices
-
-> [!div class="mx-tableFixed"]
-> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
-> | ------------- | ----------- | ----------- |
-> | domains | 아니요 |아니요 |
 
 ## <a name="microsoftaddons"></a>Microsoft.Addons
 
@@ -232,7 +223,7 @@ ms.locfileid: "70194724"
 > | alertsSummary | 아니요 |아니요 |
 > | alertsSummaryList | 아니요 |아니요 |
 > | 있으신가요 | 아니요 |아니요 |
-> | smartDetectorAlertRules | 아니요 |아니요 |
+> | smartDetectorAlertRules | 예 |예 |
 > | smartDetectorRuntimeEnvironments | 아니요 |아니요 |
 > | smartGroups | 아니요 |아니요 |
 
@@ -259,6 +250,13 @@ ms.locfileid: "70194724"
 > | ------------- | ----------- | ----------- |
 > | configurationStores | 예 |예 |
 > | configurationStores/eventGridFilters | 아니요 |아니요 |
+
+## <a name="microsoftappplatform"></a>Microsoft AppPlatform
+
+> [!div class="mx-tableFixed"]
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
+> | ------------- | ----------- | ----------- |
+> | 봄 | 예 |예 |
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
 
@@ -328,6 +326,10 @@ ms.locfileid: "70194724"
 > [!div class="mx-tableFixed"]
 > | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
+> | hybridDataManagers | 예 |예 |
+> | postgresInstances | 예 |예 |
+> | sqlBigDataClusters | 예 |예 |
+> | sqlInstances | 예 |예 |
 > | sqlServerRegistrations | 예 |예 |
 > | sqlServerRegistrations/sqlServers | 아니요 |아니요 |
 
@@ -354,11 +356,28 @@ ms.locfileid: "70194724"
 > | ------------- | ----------- | ----------- |
 > | billingAccounts | 아니요 |아니요 |
 > | billingAccounts/규약 | 아니요 |아니요 |
+> | billingAccounts/billingPermissions | 아니요 |아니요 |
 > | billingAccounts/billingProfiles | 아니요 |아니요 |
+> | billingAccounts/billingProfiles/billingPermissions | 아니요 |아니요 |
+> | billingAccounts/billingProfiles/billingRoleAssignments | 아니요 |아니요 |
+> | billingAccounts/billingProfiles/billingRoleDefinitions | 아니요 |아니요 |
 > | billingAccounts/billingProfiles/billingSubscriptions | 아니요 |아니요 |
+> | billingAccounts/billingProfiles/createBillingRoleAssignment | 아니요 |아니요 |
+> | billingAccounts/billingProfiles/고객 | 아니요 |아니요 |
 > | billingAccounts/billingProfiles/invoices | 아니요 |아니요 |
 > | billingAccounts/billingProfiles/invoices/pricesheet | 아니요 |아니요 |
 > | billingAccounts/billingProfiles/invoiceSections | 아니요 |아니요 |
+> | billingAccounts/billingProfiles/invoiceSections/billingPermissions | 아니요 |아니요 |
+> | billingAccounts/billingProfiles/invoiceSections/billingRoleAssignments | 아니요 |아니요 |
+> | billingAccounts/billingProfiles/invoiceSections/billingRoleDefinitions | 아니요 |아니요 |
+> | billingAccounts/billingProfiles/invoiceSections/billingSubscriptions | 아니요 |아니요 |
+> | billingAccounts/billingProfiles/invoiceSections/createBillingRoleAssignment | 아니요 |아니요 |
+> | billingAccounts/billingProfiles/invoiceSections/initiateTransfer | 아니요 |아니요 |
+> | billingAccounts/billingProfiles/invoiceSections/products | 아니요 |아니요 |
+> | billingAccounts/billingProfiles/invoiceSections/products/transfer | 아니요 |아니요 |
+> | billingAccounts/billingProfiles/invoiceSections/products/updateAutoRenew | 아니요 |아니요 |
+> | billingAccounts/billingProfiles/invoiceSections/트랜잭션 | 아니요 |아니요 |
+> | billingAccounts/billingProfiles/invoiceSections/transfer | 아니요 |아니요 |
 > | billingAccounts/BillingProfiles/patchOperations | 아니요 |아니요 |
 > | billingAccounts/billingProfiles/paymentMethods | 아니요 |아니요 |
 > | billingAccounts/billingProfiles/policies | 아니요 |아니요 |
@@ -366,10 +385,17 @@ ms.locfileid: "70194724"
 > | billingAccounts/billingProfiles/pricesheetDownloadOperations | 아니요 |아니요 |
 > | billingAccounts/billingProfiles/products | 아니요 |아니요 |
 > | billingAccounts/billingProfiles/transactions | 아니요 |아니요 |
+> | billingAccounts/billingRoleAssignments | 아니요 |아니요 |
+> | billingAccounts/billingRoleDefinitions | 아니요 |아니요 |
 > | billingAccounts/billingSubscriptions | 아니요 |아니요 |
+> | billingAccounts/createBillingRoleAssignment | 아니요 |아니요 |
 > | billingAccounts/createInvoiceSectionOperations | 아니요 |아니요 |
 > | billingAccounts/고객 | 아니요 |아니요 |
 > | billingAccounts/customers/billingSubscriptions | 아니요 |아니요 |
+> | billingAccounts/customers/initiateTransfer | 아니요 |아니요 |
+> | billingAccounts/고객/제품 | 아니요 |아니요 |
+> | billingAccounts/고객/트랜잭션 | 아니요 |아니요 |
+> | billingAccounts/고객/전송 | 아니요 |아니요 |
 > | billingAccounts/departments | 아니요 |아니요 |
 > | billingAccounts/enrollmentAccounts | 아니요 |아니요 |
 > | billingAccounts/invoices | 아니요 |아니요 |
@@ -392,11 +418,11 @@ ms.locfileid: "70194724"
 > | billingAccounts/products | 아니요 |아니요 |
 > | billingAccounts/transactions | 아니요 |아니요 |
 > | billingPeriods | 아니요 |아니요 |
-> | billingPermissions | 아니요 |아니요 |
+> | BillingPermissions | 아니요 |아니요 |
 > | billingProperty | 아니요 |아니요 |
-> | billingRoleAssignments | 아니요 |아니요 |
-> | billingRoleDefinitions | 아니요 |아니요 |
-> | createBillingRoleAssignment | 아니요 |아니요 |
+> | BillingRoleAssignments | 아니요 |아니요 |
+> | BillingRoleDefinitions | 아니요 |아니요 |
+> | CreateBillingRoleAssignment | 아니요 |아니요 |
 > | departments | 아니요 |아니요 |
 > | enrollmentAccounts | 아니요 |아니요 |
 > | invoices | 아니요 |아니요 |
@@ -404,6 +430,7 @@ ms.locfileid: "70194724"
 > | transfers/acceptTransfer | 아니요 |아니요 |
 > | transfers/declineTransfer | 아니요 |아니요 |
 > | transfers/operationStatus | 아니요 |아니요 |
+> | 전송/validateTransfer | 아니요 |아니요 |
 > | validateAddress | 아니요 |아니요 |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
@@ -570,12 +597,16 @@ ms.locfileid: "70194724"
 > | publicImages | 아니요 |아니요 |
 > | quotas | 아니요 |아니요 |
 > | storageAccounts | 예 |예 |
+> | storageAccounts/blobServices | 아니요 |아니요 |
+> | storageAccounts/fileServices | 아니요 |아니요 |
 > | storageAccounts/metricDefinitions | 아니요 |아니요 |
 > | storageAccounts/메트릭 | 아니요 |아니요 |
+> | storageAccounts/queueServices | 아니요 |아니요 |
 > | storageAccounts/services | 아니요 |아니요 |
 > | storageAccounts/services/diagnosticSettings | 아니요 |아니요 |
 > | storageAccounts/services/metricDefinitions | 아니요 |아니요 |
 > | storageAccounts/서비스/메트릭 | 아니요 |아니요 |
+> | storageAccounts/tableServices | 아니요 |아니요 |
 > | storageAccounts/vmImages | 아니요 |아니요 |
 > | vmImages | 아니요 |아니요 |
 
@@ -747,25 +778,6 @@ ms.locfileid: "70194724"
 > | showbackRules | 아니요 |아니요 |
 > | 뷰 | 아니요 |아니요 |
 
-## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
-
-> [!div class="mx-tableFixed"]
-> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
-> | ------------- | ----------- | ----------- |
-> | hubs | 예 |예 |
-> | hubs/authorizationPolicies | 아니요 |아니요 |
-> | hubs/connectors | 아니요 |아니요 |
-> | hubs/connectors/mappings | 아니요 |아니요 |
-> | hubs/interactions | 아니요 |아니요 |
-> | hubs/kpi | 아니요 |아니요 |
-> | hubs/links | 아니요 |아니요 |
-> | hubs/profiles | 아니요 |아니요 |
-> | hubs/roleAssignments | 아니요 |아니요 |
-> | hubs/roles | 아니요 |아니요 |
-> | hubs/suggestTypeSchema | 아니요 |아니요 |
-> | hubs/views | 아니요 |아니요 |
-> | hubs/widgetTypes | 아니요 |아니요 |
-
 ## <a name="microsoftcustomerlockbox"></a>Microsoft.CustomerLockbox
 
 > [!div class="mx-tableFixed"]
@@ -810,15 +822,12 @@ ms.locfileid: "70194724"
 > | ------------- | ----------- | ----------- |
 > | catalogs | 예 |예 |
 > | datacatalogs | 예 |예 |
+> | datacatalogs/데이터 원본 | 아니요 |아니요 |
+> | datacatalogs/데이터 원본/검색 | 아니요 |아니요 |
+> | datacatalogs/데이터 원본/검색/데이터 집합 | 아니요 |아니요 |
+> | datacatalogs/데이터 원본/검색/트리거 | 아니요 |아니요 |
 > | datacatalogs/scantargets | 아니요 |아니요 |
 > | datacatalogs/scantargets/데이터 집합 | 아니요 |아니요 |
-
-## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
-
-> [!div class="mx-tableFixed"]
-> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
-> | ------------- | ----------- | ----------- |
-> | connectionManagers | 예 |예 |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
@@ -936,7 +945,6 @@ ms.locfileid: "70194724"
 > | ------------- | ----------- | ----------- |
 > | applicationgroups | 예 |예 |
 > | applicationgroups/응용 프로그램 | 아니요 |아니요 |
-> | applicationgroups/assignedusers | 아니요 |아니요 |
 > | applicationgroups/startmenuitems | 아니요 |아니요 |
 > | hostpools | 예 |예 |
 > | hostpools/sessionhosts | 아니요 |아니요 |
@@ -949,7 +957,7 @@ ms.locfileid: "70194724"
 > [!div class="mx-tableFixed"]
 > | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | ElasticPools | 예 |예 |
+> | elasticPools | 예 |예 |
 > | ElasticPools/IotHubTenants | 예 |예 |
 > | IotHubs | 예 |예 |
 > | IotHubs/eventGridFilters | 아니요 |아니요 |
@@ -1081,6 +1089,7 @@ ms.locfileid: "70194724"
 > [!div class="mx-tableFixed"]
 > | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
+> | autoManagedVmConfigurationProfiles | 예 |예 |
 > | guestConfigurationAssignments | 아니요 |아니요 |
 > | software | 아니요 |아니요 |
 > | softwareUpdateProfile | 아니요 |아니요 |
@@ -1207,6 +1216,7 @@ ms.locfileid: "70194724"
 > | hostingEnvironments | 예 |예 |
 > | integrationAccounts | 예 |예 |
 > | integrationServiceEnvironments | 예 |예 |
+> | integrationServiceEnvironments/managedApis | 예 |예 |
 > | isolatedEnvironments | 예 |예 |
 > | workflows | 예 |예 |
 
@@ -1234,13 +1244,6 @@ ms.locfileid: "70194724"
 > | ------------- | ----------- | ----------- |
 > | ID | 아니요 |아니요 |
 > | userAssignedIdentities | 예 |예 |
-
-## <a name="microsoftmanagedlab"></a>Microsoft.ManagedLab
-
-> [!div class="mx-tableFixed"]
-> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
-> | ------------- | ----------- | ----------- |
-> | labaccounts | 예 |예 |
 
 ## <a name="microsoftmanagedservices"></a>Microsoft ManagedServices
 
@@ -1348,8 +1351,11 @@ ms.locfileid: "70194724"
 > [!div class="mx-tableFixed"]
 > | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
+> | holographicsBroadcastAccounts | 예 |예 |
+> | objectUnderstandingAccounts | 예 |예 |
 > | remoteRenderingAccounts | 예 |예 |
 > | spatialAnchorsAccounts | 예 |예 |
+> | surfaceReconstructionAccounts | 예 |예 |
 
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 
@@ -1475,6 +1481,7 @@ ms.locfileid: "70194724"
 > [!div class="mx-tableFixed"]
 > | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
+> | clusters | 예 |예 |
 > | 디바이스 | 아니요 |아니요 |
 > | linkTargets | 아니요 |아니요 |
 > | storageInsightConfigs | 아니요 |아니요 |
@@ -1501,6 +1508,8 @@ ms.locfileid: "70194724"
 > | legacyPeerings | 아니요 |아니요 |
 > | peerAsns | 아니요 |아니요 |
 > | 피어링 | 예 |예 |
+> | peeringServiceProviders | 아니요 |아니요 |
+> | peeringServices | 예 |예 |
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 
@@ -1596,21 +1605,18 @@ ms.locfileid: "70194724"
 > [!div class="mx-tableFixed"]
 > | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | 배포 | 아니요 |아니요 |
+> | 배포 | 예 |아니요 |
 > | 배포/작업 | 아니요 |아니요 |
 > | links | 아니요 |아니요 |
 > | notifyResourceJobs | 아니요 |아니요 |
 > | providers | 아니요 |아니요 |
-> | resourceGroups | 아니요 |아니요 |
+> | resourceGroups | 예 |아니요 |
 > | 리소스 | 아니요 |아니요 |
 > | 구독 | 아니요 |아니요 |
 > | subscriptions/providers | 아니요 |아니요 |
-> | subscriptions/resourceGroups | 아니요 |아니요 |
-> | subscriptions/resourcegroups/resources | 아니요 |아니요 |
 > | subscriptions/resources | 아니요 |아니요 |
 > | subscriptions/tagnames | 아니요 |아니요 |
 > | subscriptions/tagNames/tagValues | 아니요 |아니요 |
-> | 태그 | 아니요 |아니요 |
 > | tenants | 아니요 |아니요 |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
@@ -1626,7 +1632,6 @@ ms.locfileid: "70194724"
 > [!div class="mx-tableFixed"]
 > | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | 흐름 | 예 |예 |
 > | jobcollections | 예 |예 |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
@@ -1661,6 +1666,7 @@ ms.locfileid: "70194724"
 > | iotSecuritySolutions/analyticsModels/aggregatedAlerts | 아니요 |아니요 |
 > | iotSecuritySolutions/analyticsModels/aggregatedRecommendations | 아니요 |아니요 |
 > | jitNetworkAccessPolicies | 아니요 |아니요 |
+> | Networkdata.xml | 아니요 |아니요 |
 > | playbookConfigurations | 예 |예 |
 > | 정책 | 아니요 |아니요 |
 > | pricings | 아니요 |아니요 |
@@ -1693,6 +1699,7 @@ ms.locfileid: "70194724"
 > | ------------- | ----------- | ----------- |
 > | 집계 | 아니요 |아니요 |
 > | alertRules | 아니요 |아니요 |
+> | alertRuleTemplates | 아니요 |아니요 |
 > | 내부의 | 아니요 |아니요 |
 > | cases | 아니요 |아니요 |
 > | dataConnectors | 아니요 |아니요 |
@@ -1814,6 +1821,7 @@ ms.locfileid: "70194724"
 > | servers/restorableDroppedDatabases | 아니요 | 아니요 |
 > | servers/serviceobjectives | 아니요 | 아니요 |
 > | servers/tdeCertificates | 아니요 | 아니요 |
+> | virtualClusters | 아니요 | 아니요 |
 
 <a id="sqlnote" />
 
@@ -1919,6 +1927,7 @@ ms.locfileid: "70194724"
 > | ------------- | ----------- | ----------- |
 > | cancel | 아니요 |아니요 |
 > | CreateSubscription | 아니요 |아니요 |
+> | 사용 | 아니요 |아니요 |
 > | 이름 바꾸기 | 아니요 |아니요 |
 > | SubscriptionDefinitions | 아니요 |아니요 |
 > | SubscriptionOperations | 아니요 |아니요 |

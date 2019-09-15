@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: ba4e1e933b00aa8ca74be30a6ea5e1a22844b15f
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: e6c815b317e60d7a65a2f26249782451bc917097
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858508"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993460"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>서버를 사용 하지 않는 Azure SQL Database (미리 보기)
 
@@ -132,7 +132,7 @@ Autopausing는 데이터베이스를 온라인 상태로 만들어야 하는 일
 |감사|감사 레코드 보기,<br>감사 정책 업데이트 또는 보기|
 |데이터 마스킹|데이터 마스킹 규칙 추가, 수정, 삭제 또는 보기|
 |투명한 데이터 암호화|투명한 데이터 암호화 상태 또는 상태 보기|
-|쿼리(성능) 데이터 저장소|쿼리 저장소 설정 수정 또는 보기, 자동 튜닝|
+|쿼리(성능) 데이터 저장소|쿼리 저장소 설정 수정 또는 보기|
 |자동 튜닝|자동 인덱싱과 같은 자동 실행 추천 사항의 적용 및 확인|
 |데이터베이스 복사|복사본으로 데이터베이스를 만듭니다.<br>BACPAC 파일로 내보냅니다.|
 |SQL 데이터 동기화|구성 가능한 예약에 따라 실행되거나 수동으로 수행되는 허브 및 멤버 데이터베이스 간의 동기화|

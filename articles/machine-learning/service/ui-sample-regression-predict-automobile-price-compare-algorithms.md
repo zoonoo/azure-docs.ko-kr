@@ -1,6 +1,6 @@
 ---
 title: '시각적 인터페이스 예제 #3: 회귀를 가격과 비교 하는 알고리즘'
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: 이 문서에서는 시각적 인터페이스를 사용 하 여 코드를 한 줄도 작성 하지 않고 복잡 한 기계 학습 실험을 빌드하는 방법을 보여 줍니다. 여러 회귀 모델을 학습 하 고 비교 하 여 기술 기능에 따라 자동차 가격을 예측 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: d05a601196ec4a5349a0acb4763098d9716c17f5
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 2c45ccf55b1adde7150dee17fd562b24ee4777ba
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990014"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997095"
 ---
 # <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>샘플 2-회귀: 가격 예측 및 알고리즘 비교
 
@@ -27,7 +27,7 @@ ms.locfileid: "68990014"
 
 [![실험 그래프](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 

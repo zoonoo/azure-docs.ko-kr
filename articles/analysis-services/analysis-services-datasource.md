@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 09/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 096f8b3aa6ae66e65bbbd9ea6e2204af619199dd
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 81fc73ffd61a49eae1c4f107733b6f9f53efbb4f
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899422"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993379"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services에서 지원되는 데이터 원본
 
@@ -42,7 +42,7 @@ Visual Studio에서 데이터 가져오기 또는 마법사 가져오기에 표�
 **공급자**   
 Azure 데이터 원본에 연결된 메모리 내 모델 및 DirectQuery 모델은 .NET Framework Data Provider for SQL Server를 사용합니다.
 
-## <a name="on-premises-data-sources"></a>온-프레미스 데이터 원본
+## <a name="other-data-sources"></a>기타 데이터 원본
 
 온-프레미스 데이터 원본 및 Azure AS 서버에 연결하려면 온-프레미스 게이트웨이가 필요합니다. 게이트웨이를 사용하는 경우 64비트 공급자는 필수입니다.
 
@@ -113,6 +113,10 @@ Azure 데이터 원본에 연결된 메모리 내 모델 및 DirectQuery 모델�
 클라우드 데이터 원본의 경우:
 
 * SQL 인증을 사용하는 경우 가장은 서비스 계정이어야 합니다.
+
+## <a name="oauth-credentials"></a>OAuth 자격 증명
+
+1400 이상의 호환성 수준에서 테이블 형식 모델의 경우 Azure SQL Database, Azure SQL Data Warehouse, Dynamics 365 및 SharePoint 목록에서 OAuth 자격 증명을 지원 합니다. Azure Analysis Services는 장기 실행 새로 고침 작업에 대 한 시간 제한을 방지 하기 위해 OAuth 데이터 원본에 대 한 토큰 새로 고침을 관리 합니다. 유효한 토큰을 생성 하려면 SSMS를 사용 하 여 자격 증명을 설정 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 [온-프레미스 게이트웨이](analysis-services-gateway.md)   

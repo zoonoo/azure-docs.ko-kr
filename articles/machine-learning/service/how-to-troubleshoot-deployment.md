@@ -1,7 +1,7 @@
 ---
 title: 배포 문제 해결 가이드
-titleSuffix: Azure Machine Learning service
-description: Azure Kubernetes Service에서 일반적인 Docker 배포 오류를 해결 하 고 해결 하 고 Azure Machine Learning 서비스를 사용 하 여 Azure Container Instances 하는 방법을 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Kubernetes Service 및 Azure Machine Learning를 사용 하 여 Azure Container Instances 일반적인 Docker 배포 오류를 해결 하 고 해결 하 고 해결 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,18 +11,18 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 07/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5ec92e34ffa68718525e9b407dc9e58f4c409975
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 08b9434dbcca96ff57e2c8182693023a5eb2eea9
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183547"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997169"
 ---
-# <a name="troubleshooting-azure-machine-learning-service-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Azure Kubernetes Service 및 Azure Container Instances 배포 Azure Machine Learning 문제 해결
+# <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Azure Kubernetes Service 및 Azure Container Instances 배포 Azure Machine Learning 문제 해결
 
-Azure Machine Learning 서비스를 사용 하 여 Azure Container Instances (ACI) 및 Azure Kubernetes 서비스 (AKS)를 통해 일반적인 Docker 배포 오류를 해결 하거나 해결 하는 방법에 대해 알아봅니다.
+Azure Machine Learning를 사용 하 여 Azure Container Instances (ACI) 및 Azure Kubernetes 서비스 (AKS)를 통해 일반적인 Docker 배포 오류를 해결 하거나 해결 하는 방법에 대해 알아봅니다.
 
-Azure Machine Learning 서비스에서 모델을 배포할 때 시스템에서 많은 작업을 수행합니다. 배포 작업은 다음과 같습니다.
+Azure Machine Learning에서 모델을 배포 하는 경우 시스템에서 많은 작업을 수행 합니다. 배포 작업은 다음과 같습니다.
 
 1. 모델을 작업 영역 모델 레지스트리에 등록합니다.
 
@@ -346,7 +346,7 @@ Azure Kubernetes 서비스 배포는 복제본을 추가 하 여 추가 부하�
 
         ```json
         {
-            "name": "Azure Machine Learning service: Docker Debug",
+            "name": "Azure Machine Learning: Docker Debug",
             "type": "python",
             "request": "attach",
             "port": 5678,
@@ -479,7 +479,7 @@ myregistry.azurecr.io/myimage:1
     docker run --rm --name debug -p 8000:5001 -p 5678:5678 debug:1
     ```
 
-1. 컨테이너 내부에 VS Code을 연결 하려면 VS Code를 열고 F5 키를 사용 하거나 __디버그__를 선택 합니다. 메시지가 표시 되 면 Azure Machine Learning __서비스를 선택 합니다. Docker 디버그__ 구성. Azure Machine Learning 서비스의 __측면 표시줄에서 디버그 아이콘을 선택할 수도 있습니다. 디버그 드롭다운__ 메뉴의 Docker 디버그 항목을 클릭 한 다음 녹색 화살표를 사용 하 여 디버거를 연결 합니다.
+1. 컨테이너 내부에 VS Code을 연결 하려면 VS Code를 열고 F5 키를 사용 하거나 __디버그__를 선택 합니다. 메시지가 표시 되 면 Azure Machine Learning __를 선택 합니다. Docker 디버그__ 구성. __Azure Machine Learning 측면에서 디버그 아이콘을 선택할 수도 있습니다. 디버그 드롭다운__ 메뉴의 Docker 디버그 항목을 클릭 한 다음 녹색 화살표를 사용 하 여 디버거를 연결 합니다.
 
     ![디버그 아이콘, 디버깅 시작 단추 및 구성 선택기](media/how-to-troubleshoot-deployment/start-debugging.png)
 

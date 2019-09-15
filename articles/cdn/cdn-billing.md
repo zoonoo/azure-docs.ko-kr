@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 09/13/2019
 ms.author: magattus
-ms.openlocfilehash: 2fd3d2f8fbc98d8c7b19cbcc365748cc088d76fd
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 8704d715a20b94dc170f232b07a0acd54bb1e6f1
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594091"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996802"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Azure CDN 청구 이해
 
@@ -57,9 +57,12 @@ Azure CDN을 사용하면 개체의 원본으로 사용되는 서비스에 대�
 
 - 사용된 실제 GB: 원본 개체의 실제 스토리지입니다.
 
+- 트랜잭션: 캐시를 채우는 데 필요합니다.
+
 - 전송량(GB): CDN 캐시를 채우기 위해 전송된 데이터의 양입니다.
 
-- 트랜잭션: 캐시를 채우는 데 필요합니다.
+> [!NOTE]
+> 2019 년 10 월부터 Microsoft에서 Azure CDN를 사용 하는 경우 Azure에 호스트 된 원본에서 CDN Pop로 데이터를 전송 하는 비용은 무료로 제공 됩니다. Verizon의 Azure CDN와 Akamai의 Azure CDN에는 아래 설명 된 요금이 적용 됩니다.
 
 Azure Storage 청구에 대한 자세한 내용은 [Azure Storage 청구 이해 - 대역폭, 트랜잭션 및 용량](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/)을 참조하세요.
 
@@ -83,6 +86,36 @@ CDN POP는 캐시를 채워야 할 때마다 캐시되는 개체의 원본에 �
 - 개체를 로드해야 하는 노드 수: 노드가 원본에서 개체를 로드할 때마다 청구 가능한 트랜잭션이 발생합니다. 따라서 글로벌 콘텐츠에서 더 많은 청구 가능 트랜잭션이 발생합니다(더 많은 노드에서 액세스하므로).
 
 - TTL 영향: 개체의 TTL이 높다는 것은 원본에서 개체를 가져오는 빈도를 낮춰야 한다는 뜻입니다. 또한 브라우저 같은 클라이언트에서 개체를 더 오래 캐시할 수 있으며, 따라서 CDN의 트랜잭션을 줄일 수 있다는 의미입니다.
+
+## <a name="which-origin-services-are-eligible-for-free-data-transfer-with-azure-cdn-from-microsoft"></a>Microsoft의 Azure CDN을 사용 하 여 데이터를 무료로 전송할 수 있는 원본 서비스는 무엇 인가요? 
+다음 Azure 서비스 중 하나를 CDN 원본으로 사용 하는 경우 원본에서 CDN Pop로의 데이터 전송에 대 한 요금이 청구 되지 않습니다. 
+
+- Azure Storage
+- Azure Media Services
+- Azure Virtual Machines
+- Virtual Network
+- Load Balancer
+- 애플리케이션 게이트웨이
+- Azure DNS
+- ExpressRoute
+- VPN 게이트웨이
+- Traffic Manager
+- Network Watcher
+- Azure Firewall
+- Azure Front Door Service
+- Azure Bastion
+- Azure App Service
+- Azure Functions
+- Azure Data Factory
+- Azure API Management
+- Azure Batch 
+- Azure Data Explorer
+- HDInsight
+- Azure Cosmos DB
+- Azure Data Lake Store
+- Azure Machine Learning 서비스 
+- Azure SQL 데이터베이스
+- Azure Cache for Redis
 
 ## <a name="how-do-i-manage-my-costs-most-effectively"></a>비용을 효과적으로 관리하는 방법
 콘텐츠에서 TTL을 최대한 길게 설정합니다. 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 240b2110db66af0982e4e1bf95d3715cbe733a60
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 0e11949804e0c3de52db315424f83905516b4da8
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816526"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996609"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Azure Files 성능 문제 해결
 
@@ -85,6 +85,7 @@ ms.locfileid: "68816526"
 
 - 코어 크기가 더 큰 VM을 가져오면 처리량을 향상 시킬 수 있습니다.
 - 여러 Vm에서 클라이언트 응용 프로그램을 실행 하면 처리량이 증가 합니다.
+
 - 가능한 경우 REST Api를 사용 합니다.
 
 ## <a name="throughput-on-linux-clients-is-significantly-lower-when-compared-to-windows-clients"></a>Windows 클라이언트에 비해 Linux 클라이언트의 처리량은 훨씬 낮습니다.
@@ -95,8 +96,9 @@ Linux에서 SMB 클라이언트를 구현 하는 것과 관련 하 여 알려진
 
 ### <a name="workaround"></a>해결 방법
 
-- 여러 Vm에 부하 분산
+- 부하를 여러 Vm에 분산 합니다.
 - 동일한 VM에서 **nosharesock** 옵션을 사용 하 여 여러 탑재 위치를 사용 하 고 이러한 탑재 지점의 부하를 분산 합니다.
+- Linux에서 **nostrictsync** 옵션으로 탑재를 시도 하 여 모든 fsync 호출에서 SMB 플러시를 방지 합니다. Azure Files의 경우이 옵션은 데이터 consistentcy을 방해 하지 않지만 디렉터리 목록 (**ls-l** 명령)에서 오래 된 파일 메타 데이터를 생성 하 게 될 수 있습니다. 파일의 메타 데이터를 직접 쿼리하면 (**stat** 명령) 최신 파일 메타 데이터가 반환 됩니다.
 
 ## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>광범위 한 열기/닫기 작업을 포함 하는 메타 데이터 사용량이 많은 작업에 대 한 대기 시간이 깁니다.
 

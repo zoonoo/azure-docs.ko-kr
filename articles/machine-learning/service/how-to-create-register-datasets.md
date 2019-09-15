@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/22/2019
-ms.openlocfilehash: 215660b0f0b8748461849f20e65a3585f939085e
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 8f684a9c0c40774c8c17a08801997c569be74c8d
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858787"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993359"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 집합 만들기 및 액세스 (미리 보기)
 
@@ -30,7 +30,7 @@ Azure Machine Learning 데이터 집합을 사용 하 여 다음을 수행할 �
 
 * 다른 사용자와 **공동으로 데이터 & 공유** 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 데이터 집합을 만들고 작업 하려면 다음이 필요 합니다.
 
@@ -76,7 +76,12 @@ workspace = Workspace.from_config()
 # retrieve an existing datastore in the workspace by name
 datastore = Datastore.get(workspace, datastore_name)
 ```
+
 ### <a name="create-tabulardatasets"></a>TabularDatasets 만들기
+
+TabularDatasets는 SDK를 통해 또는 작업 영역 방문 페이지 (미리 보기)를 사용 하 여 만들 수 있습니다.
+
+#### <a name="sdk"></a>SDK 
 
 클래스의 `from_delimited_files()` `TabularDatasetFactory` 메서드를 사용 하 여 csv 또는 tsv 형식의 파일을 읽고 등록 되지 않은 TabularDataset를 만듭니다. 여러 파일에서 읽는 경우 결과는 하나의 테이블 형식 표현으로 집계 됩니다.
 
@@ -103,7 +108,18 @@ titanic_ds.take(3).to_pandas_dataframe()
 1|2|1|1|Cumings, Mrs Bradley (Florence Briggs Th ...|female|38.0|1|0|PC 17599|71.2833|C85|C
 2|3|1|3|Heikkinen, 누락. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
 
+#### <a name="workspace-landing-page"></a>작업 영역 방문 페이지 
+
+[작업 영역 방문 페이지](https://ml.azure.com) 에 로그인 하 여 웹 환경을 통해 데이터 집합을 만듭니다. 현재 작업 영역 방문 페이지는 TabularDatasets 만들기만 지원 합니다.
+
+다음 애니메이션은 작업 영역 방문 페이지에서 데이터 집합을 만드는 방법을 보여 줍니다. 
+
+먼저 왼쪽 창의 **자산** 섹션에서 **데이터 집합** 을 선택 합니다. 그런 다음, **데이터 집합 만들기** 를 선택 하 여 데이터 집합의 원본을 선택 합니다. 이 파일은 로컬 파일, 데이터 저장소 또는 공용 웹 url 중 하나일 수 있습니다. **설정 및 미리 보기** 및 **스키마** 양식은 파일 형식에 따라 지능적으로 채워집니다. **다음** 을 선택 하 여 해당 항목을 검토 하거나 만들기 전에 데이터 집합을 추가로 구성 합니다. **완료** 를 선택 하 여 데이터 집합 만들기를 완료 합니다. 
+
+![UI를 사용 하 여 데이터 집합 만들기](media/how-to-create-register-datasets/create-dataset-ui.gif)
+
 ### <a name="create-filedatasets"></a>FileDatasets 만들기
+
 클래스의 `from_files()` `FileDatasetFactory` 메서드를 사용 하 여 모든 형식의 파일을 로드 하 고 등록 되지 않은 filedataset을 만듭니다.
 
 ```Python
@@ -134,6 +150,9 @@ titanic_ds = titanic_ds.register(workspace = workspace,
                                  description = 'titanic training data')
 ```
 
+>[!Note]
+> 작업 영역 방문 페이지를 통해 만든 데이터 집합은 작업 영역에 자동으로 등록 됩니다. 
+
 ## <a name="version-datasets"></a>버전 데이터 집합
 
 새 버전을 만들어 동일한 이름으로 새 데이터 집합을 등록할 수 있습니다. 데이터 집합 버전은 실험 또는 향후 복제를 위해 데이터 집합의 특정 버전을 적용할 수 있도록 데이터의 상태에 책갈피를 지정 하는 방법입니다. 버전 관리를 고려 하는 일반적인 시나리오: 
@@ -141,7 +160,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 * 다른 데이터 준비 또는 기능 엔지니어링 방법을 적용 하는 경우
 
 ```Python
-# create a TabularDataset from new Titanic training data
+# create a TabularDataset from Titanic training data
 web_paths = [
             'https://dprepdata.blob.core.windows.net/demo/Titanic.csv',
             'https://dprepdata.blob.core.windows.net/demo/Titanic2.csv'

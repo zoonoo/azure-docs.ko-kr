@@ -1,6 +1,6 @@
 ---
 title: '시각적 인터페이스 예제 #4: 신용 위험을 예측 하는 분류 (비용 구분)'
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: 이 문서에서는 시각적 인터페이스를 사용 하 여 복잡 한 기계 학습 실험을 빌드하는 방법을 보여 줍니다. 사용자 지정 Python 스크립트를 구현 하 고 여러 모델을 비교 하 여 가장 적합 한 옵션을 선택 하는 방법을 배웁니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: ee4b67c82ef2bf5a1ef9c060687cc1c937328e66
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 977ff101b0f697a48b3e5595834c98fef0f1119a
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990424"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997038"
 ---
 # <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>샘플 4-분류: 신용 위험 예측 (비용 구분)
 
@@ -29,7 +29,7 @@ Machine learning을 처음 사용 하는 경우 [기본 분류자 샘플](ui-sam
 
 [![실험 그래프](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 

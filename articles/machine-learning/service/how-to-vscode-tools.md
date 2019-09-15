@@ -1,6 +1,6 @@
 ---
 title: 기계 학습에 Visual Studio Code 사용
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Visual Studio Code용 Azure Machine Learning을 설치하고 Azure Machine Learning에서 간단한 실험을 만드는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,24 +10,24 @@ ms.author: ronglu
 author: ronglums
 ms.date: 7/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: b1d18006e6ec3ff1659f8fb80f8cf6766797d76b
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 0507080a390a4bb9f981b0d911961337e9b2c62a
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114424"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997187"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Visual Studio Code용 Azure Machine Learning 시작
 
 이 문서에서는 Visual Studio Code에 대 한 Azure Machine Learning 확장을 사용 하 여 기계 학습 및 심층 학습 모델을 학습 하 고 배포 하는 방법을 알아봅니다.
 
-[Azure Machine Learning 서비스](overview-what-is-azure-ml.md) 는 로컬 및 원격 계산 대상에서 실행 하는 실험에 대 한 지원을 제공 합니다. 모든 실험에서 여러 다른 기법, 하이퍼 매개 변수 등을 반복적으로 시도하기 위해 여러 실행을 추적할 수 있습니다. Azure Machine Learning을 사용하여 사용자 지정 메트릭 및 실험 실행을 추적하여 데이터 과학을 재현하고 감사하도록 할 수 있습니다.
+[Azure Machine Learning](overview-what-is-azure-ml.md) 는 로컬 및 원격 계산 대상에서 실행 하는 실험에 대 한 지원을 제공 합니다. 모든 실험에서 여러 다른 기법, 하이퍼 매개 변수 등을 반복적으로 시도하기 위해 여러 실행을 추적할 수 있습니다. Azure Machine Learning을 사용하여 사용자 지정 메트릭 및 실험 실행을 추적하여 데이터 과학을 재현하고 감사하도록 할 수 있습니다.
 
 테스트 및 프로덕션 요구에 맞게 이러한 모델을 배포할 수도 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-+ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
++ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 + Visual Studio Code를 설치해야 합니다. Visual Studio Code은 데스크톱에서 실행 되는 간단 하지만 강력한 소스 코드 편집기입니다. Python 및 기타 프로그래밍 언어에 대 한 기본 제공 지원이 제공 됩니다. Visual Studio Code를 아직 설치 하지 않은 경우 [방법을 확인](https://code.visualstudio.com/docs/setup/setup-overview)하세요.
 
@@ -69,13 +69,13 @@ Azure Machine Learning 확장을 설치 하려면:
 
    ![인터프리터 선택](./media/vscode-tools-for-ai/python.png)
 
-1. 창의 오른쪽 아래 모서리에 [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 가 자동으로 설치 되 고 있음을 나타내는 알림이 표시 됩니다. 새로 만든 Python 환경은 로컬 및 개인 환경 이며 Azure Machine Learning 서비스를 사용 하기 위한 Visual Studio Code 필수 구성 요소가 있습니다.
+1. 창의 오른쪽 아래 모서리에 [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 가 자동으로 설치 되 고 있음을 나타내는 알림이 표시 됩니다. 새로 만든 Python 환경은 로컬 및 개인 환경 이며 Azure Machine Learning 사용 하기 위한 Visual Studio Code 필수 구성 요소가 있습니다.
 
    ![Python용 Azure Machine Learning SDK 설치](./media/vscode-tools-for-ai/runtimedependencies.png)
 
 ## <a name="get-started-with-azure-machine-learning"></a>Azure Machine Learning 시작
 
-Visual Studio Code에서 기계 학습 모델을 학습 하 고 배포 하기 전에 클라우드에서 [Azure Machine Learning 서비스 작업 영역](concept-workspace.md) 을 만들어야 합니다. 이 작업 영역에는 모델과 리소스가 포함 됩니다. 
+Visual Studio Code에서 기계 학습 모델을 학습 하 고 배포 하기 전에 클라우드에서 [Azure Machine Learning 작업 영역](concept-workspace.md) 을 만들어야 합니다. 이 작업 영역에는 모델과 리소스가 포함 됩니다. 
 
 작업 영역을 만들고 첫 번째 실험을 추가 하려면 다음을 수행 합니다.
 
@@ -117,7 +117,7 @@ Visual Studio Code에 대 한 Azure Machine Learning를 사용 하 여 데이터
 
 1. Visual Studio Code 활동 표시줄에서 Azure 아이콘을 선택 합니다. Azure: Machine Learning 사이드바가 나타납니다.
 
-2. 트리 보기에서 Azure 구독 및 Azure Machine Learning 서비스 작업 영역을 확장합니다. 다음 예제 이미지에서 구독 이름은 **무료 평가판**이며 작업 영역은 **teamworkspace**입니다. 
+2. 트리 뷰에서 Azure 구독 및 Azure Machine Learning 작업 영역을 확장 합니다. 다음 예제 이미지에서 구독 이름은 **무료 평가판**이며 작업 영역은 **teamworkspace**입니다. 
 
 3. 작업 영역 노드에서 **컴퓨팅** 노드를 마우스 오른쪽 단추로 클릭하고 **컴퓨팅 만들기**를 선택합니다.
 
@@ -147,7 +147,7 @@ Azure Machine Learning를 사용 하 여 로컬로 실험을 실행 하려면 �
 
 1. Visual Studio Code 활동 표시줄에서 Azure 아이콘을 선택 합니다. Azure: Machine Learning 사이드바가 나타납니다.
 
-1. 트리 보기에서 Azure 구독 및 Azure Machine Learning 서비스 작업 영역을 확장합니다. 
+1. 트리 뷰에서 Azure 구독 및 Azure Machine Learning 작업 영역을 확장 합니다. 
 
 1. 작업 영역 노드에서 **계산** 노드를 확장 하 고 사용 하려는 계산의 **실행 구성** 을 마우스 오른쪽 단추로 클릭 합니다. 
 
@@ -196,7 +196,7 @@ dependencies:
 
 1. Visual Studio Code 활동 표시줄에서 Azure 아이콘을 선택 합니다. Azure: Machine Learning 사이드바가 나타납니다.
 
-1. 트리 보기에서 Azure 구독 및 Azure Machine Learning 서비스 작업 영역을 확장합니다. 
+1. 트리 뷰에서 Azure 구독 및 Azure Machine Learning 작업 영역을 확장 합니다. 
 
 1. 편집기 창에서 Python 스크립트를 마우스 오른쪽 단추로 클릭 하 고 AML: **를 선택 합니다. Azure에서 실험으로 실행**을 선택합니다. 
 
@@ -224,7 +224,7 @@ Azure Machine Learning에서는 클라우드와에 지에서 기계 학습 모�
 
 1. Visual Studio Code 활동 표시줄에서 Azure 아이콘을 선택 합니다. Azure: Machine Learning 사이드바가 나타납니다.
 
-1. 트리 보기에서 Azure 구독 및 Azure Machine Learning 서비스 작업 영역을 확장합니다.
+1. 트리 뷰에서 Azure 구독 및 Azure Machine Learning 작업 영역을 확장 합니다.
 
 1. 작업 영역 노드에서 **모델**을 마우스 오른쪽 단추로 클릭하고 **모델 등록**을 선택합니다.
 
@@ -247,13 +247,13 @@ Visual Studio Code에서 웹 서비스를 배포할 수 있습니다.
 + 테스트를 위한 ACI (Azure Container Instances).
 + 프로덕션을 위한 AKS (Azure Kubernetes Service)
 
-ACI 컨테이너는 즉석에서 만들어지기 때문에 미리 테스트할 ACI 컨테이너를 만들 필요가 없습니다. 그러나 AKS 클러스터를 미리 구성 해야 합니다. 자세한 내용은 [Azure Machine Learning 서비스를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
+ACI 컨테이너는 즉석에서 만들어지기 때문에 미리 테스트할 ACI 컨테이너를 만들 필요가 없습니다. 그러나 AKS 클러스터를 미리 구성 해야 합니다. 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
 
 웹 서비스를 배포 하려면:
 
 1. Visual Studio Code 활동 표시줄에서 Azure 아이콘을 선택 합니다. Azure: Machine Learning 사이드바가 나타납니다.
 
-1. 트리 보기에서 Azure 구독 및 Azure Machine Learning 서비스 작업 영역을 확장합니다.
+1. 트리 뷰에서 Azure 구독과 Azure Machine Learning 작업 영역을 확장 합니다.
 
 1. 작업 영역 노드에서 **모델** 노드를 확장합니다.
 

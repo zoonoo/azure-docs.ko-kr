@@ -1,6 +1,6 @@
 ---
 title: '시각적 인터페이스 예제 #5: 변동 + 욕구 + 위쪽 판매를 예측 하는 분류'
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: 이 시각적 인터페이스 샘플 실험에서는 CRM (고객 관계 관리)에 대 한 일반 작업 인 변동의 이진 분류자 예측을 보여 줍니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: a2eabdd601fcf350d2076d33882e3d90255fee92
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 054ac3ea5224a4ffea2e7bae9da329ba7bc81233
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016459"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997127"
 ---
 # <a name="sample-5---classification-predict-churn-appetency-and-up-selling"></a>샘플 5-분류: 변동, 욕구 및 업 판매 예측 
 
@@ -29,7 +29,7 @@ ms.locfileid: "69016459"
 
 ![실험 그래프](./media/ui-sample-classification-predict-churn/experiment-graph.png)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
@@ -37,7 +37,7 @@ ms.locfileid: "69016459"
 
     ![실험 열기](media/ui-sample-classification-predict-churn/open-sample5.png)
 
-## <a name="data"></a>data
+## <a name="data"></a>보기
 
 이 실험에 사용 하는 데이터는 KDD 컵 2009입니다. 데이터 집합에는 5만 개의 행과 230 기능 열이 있습니다. 이 작업은 이러한 기능을 사용 하는 고객을 위한 변동, 욕구 및 업 판매를 예측 하는 것입니다. 데이터 및 작업에 대 한 자세한 내용은 [Kdd 웹 사이트](https://www.kdd.org/kdd-cup/view/kdd-cup-2009)를 참조 하세요.
 

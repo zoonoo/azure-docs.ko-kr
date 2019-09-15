@@ -1,6 +1,6 @@
 ---
 title: 모델 학습 및 배포를 위한 환경 만들기, 사용 및 관리
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: 모델 학습 및 배포를 위한 환경을 만들고 관리 합니다. 환경에 대 한 Python 패키지 및 기타 설정을 관리 합니다.
 services: machine-learning
 author: rastala
@@ -11,18 +11,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: e506259b980c0aaf0300c0bb0a1aa0803171643a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 242f3cec0ac766e537bd0483725ba51685bb7ced
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098947"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996630"
 ---
 # <a name="create-and-manage-environments-for-training-and-deployment"></a>학습 및 배포를 위한 환경 만들기 및 관리
 
 이 문서에서는 프로젝트의 소프트웨어 종속성이 진화 함에 따라 추적 하 고 재현할 수 있도록 Azure Machine Learning [환경을](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) 만들고 관리 하는 방법을 알아봅니다.
 
-소프트웨어 종속성 관리는 개발자를 위한 일반적인 작업입니다. 많은 수동 소프트웨어 구성 없이 빌드를 재현할 수 있도록 하려고 합니다. Pip 및 Conda와 같은 로컬 개발을 위한 솔루션을 사용 하 여 Azure Machine Learning 서비스 환경 클래스는 로컬 및 분산 클라우드 개발을 위한 솔루션을 제공 합니다.
+소프트웨어 종속성 관리는 개발자를 위한 일반적인 작업입니다. 많은 수동 소프트웨어 구성 없이 빌드를 재현할 수 있도록 하려고 합니다. Pip 및 Conda와 같은 로컬 개발을 위한 솔루션을 사용 하 여 Azure Machine Learning 환경 클래스는 로컬 및 분산 클라우드 개발을 위한 솔루션을 제공 합니다.
 
 이 문서의 예제에서는 다음 작업을 수행 하는 방법을 보여 줍니다.
 
@@ -52,7 +52,7 @@ ms.locfileid: "70098947"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * Python 용 Azure Machine Learning SDK가 [설치 되어](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)있습니다.
-* [Azure Machine Learning 서비스 작업 영역](how-to-manage-workspace.md)입니다.
+* [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)입니다.
 
 ## <a name="create-an-environment"></a>환경 만들기
 

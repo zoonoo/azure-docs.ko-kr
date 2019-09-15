@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 07/11/2019
-ms.openlocfilehash: 28c2c01e85120ec17e6f782fb0686a627d50d0d0
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.date: 09/13/2019
+ms.openlocfilehash: 3ceb8b4f3c2c50ac0ac3bd12831b5497f9a05afb
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70136736"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993036"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>Azure Database for MariaDB에 데이터 복제
 
@@ -37,7 +37,7 @@ ms.locfileid: "70136736"
 - 마스터 서버에서 ssl을 사용 하도록 설정한 경우 도메인에 제공 된 ssl CA 인증서가 `mariadb.az_replication_change_master` 저장 프로시저에 포함 되어 있는지 확인 합니다. 다음 [예제](https://docs.microsoft.com/azure/mariadb/howto-data-in-replication#link-the-master-and-replica-servers-to-start-data-in-replication) 와 `master_ssl_ca` 매개 변수를 참조 하세요.
 - 마스터 서버의 IP 주소가 Azure Database for MariaDB 복제본 서버의 방화벽 규칙에 추가되었는지 확인합니다. [Azure Portal](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-portal) 또는 [Azure CLI](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-cli)를 사용하여 방화벽 규칙을 업데이트합니다.
 - 마스터 서버를 호스트하는 컴퓨터에서 포트 3306에 대한 인바운드 및 아웃바운드 트래픽을 둘 다 허용하는지 확인합니다.
-- 마스터 서버에 **공용 IP 주소**가 있거나 DNS가 공용으로 액세스할 수 있는지 확인합니다.
+- 마스터 서버에 **공용 IP 주소가**있거나, DNS에 공개적으로 액세스할 수 있거나, FQDN (정규화 된 도메인 이름)이 있는지 확인 합니다.
 
 ### <a name="other"></a>기타
 - 입력 데이터 복제는 범용 및 메모리 최적화 가격 책정 계층에서만 지원됩니다.

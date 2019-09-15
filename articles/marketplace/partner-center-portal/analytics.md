@@ -7,12 +7,12 @@ ms.author: shthota
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/09/2019
-ms.openlocfilehash: be1da90ef089da412545ac8af6fabb04198d821c
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 4357a91a87648885def69d8e75e19e38a5a3f751
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70880147"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993714"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>파트너 센터의 상업적 Marketplace에 대 한 분석
 
@@ -26,7 +26,6 @@ Microsoft 파트너 센터의 분석 보고서에 액세스 하 여 판매를 �
 |[주문과](#orders-dashboard)|그래픽 및 다운로드 가능한 형식으로 주문에 대 한 정보|
 |[고객](#customer-dashboard)|그래픽 및 다운로드 가능한 형식으로 제공 되는 증가 추세를 비롯 한 고객에 대 한 정보|
 |[다운로드](#downloads-dashboard)|최근 30 일 동안의 다운로드 요청 목록|
-|[등급 및 리뷰](#ratings-and-reviews)| 고객의 등급 및 리뷰에 대 한 정보는 획득 한 제품에 대 한 정보를 유지 합니다.
 
 ## <a name="summary-dashboard"></a>요약 대시보드
 
@@ -245,7 +244,7 @@ Microsoft 파트너 센터의 분석 보고서에 액세스 하 여 판매를 �
 | 클라우드 인스턴스 이름: Azure Government | 주문| 다음 정부 중 하나인 정부 관련 Microsoft 클라우드: 중국, 독일 또는 대한민국.| |
 | 고객 구/군/시| 고객| 고객이 제공한 도시 이름입니다. 도시는 고객의 Azure 구독에서 구/군/시와 다를 수 있습니다.||
 | 고객 통신 언어  | 고객| 고객이 통신용으로 선택한 기본 설정 언어입니다.||
-| 고객 회사 이름 | 고객, 주문 | 고객이 제공한 회사 이름입니다. 이름은 고객의 Azure 구독에서 구/군/시와 다를 수 있습니다.|  |
+| 고객 회사 이름 | 고객, 주문 | 고객이 제공한 회사 이름입니다. 이름은 고객의 Azure 구독에 있는 이름과 다를 수 있습니다.|  |
 | 고객 국가 | 고객, 주문 | 고객이 제공한 국가 이름입니다. Country는 고객의 Azure 구독에 있는 국가와 다를 수 있습니다.|  |
 | 고객 이메일| 고객| 최종 고객이 제공한 전자 메일 주소입니다. 전자 메일은 고객의 Azure 구독에 있는 전자 메일 주소와 다를 수 있습니다.||
 | 고객 이름| 고객| 고객이 제공한 이름입니다. 이름은 고객의 Azure 구독에 제공 된 이름과 다를 수 있습니다.| |
@@ -286,38 +285,3 @@ Microsoft 파트너 센터의 분석 보고서에 액세스 하 여 판매를 �
 | 공급자 이름| 고객| Microsoft와 최종 고객 간의 관계에 관련 된 공급자의 이름입니다. 고객이 대리점을 통해 엔터프라이즈 인 경우 재판매인이 됩니다. CSP (클라우드 솔루션 공급자)가 관련 된 경우이는 CSP가 됩니다.|
 | SKU| 주문| 게시 하는 동안 정의 된 SKU 이름입니다. 제품에는 많은 Sku가 있을 수 있지만 SKU는 단일 제품에만 연결 될 수 있습니다.||
 | 평가판 종료 날짜| 주문| 이 주문의 평가 기간이 종료되었거나 종료될 예정인 날짜입니다.||
-
-## <a name="ratings-and-reviews"></a>평점 및 리뷰
-
-두 마켓플레이스에서 고객이 찾아보거나 검색 하 고 구매할 때 제공 하는 제품에 대 한 등급과 리뷰를 남길 수 있습니다. 새 등급 또는 리뷰를 제출 하 고 이미 제출 된 등급 또는 리뷰를 업데이트 하거나 삭제할 수 있습니다. 리뷰는 제품의 제품 표시 페이지의 리뷰 탭에 있는 Azure marketplace 또는 AppSource에 게시 됩니다. 고객은 등급 또는 리뷰에 대 한 이름을 포함 하거나 익명으로 게시할 수 있습니다.  
-
-> [!NOTE]
-> 고객은 자신이 소유 하는 등급과 리뷰만 변경할 수 있습니다.
-
-**등급 & 검토 대시보드** 는 고객 활동의 추세와 통찰력을 표시 합니다. 다음을 그래픽으로 표현 합니다.
-
-- 등급 & 리뷰  
-- 의견 검토
-
-### <a name="marketplace-storefront-tabs"></a>Marketplace storefront 탭
-
-게시자는 AppSource & Azure Marketplace 탭에서 제품 메트릭을 별도로 볼 수 있습니다. 특정 제품 메트릭을 보려면 드롭다운에서 **제안** 을 선택 합니다.
-
-![파트너 센터 분석 제안 드롭다운](./media/analyze-offer-dropdown.png)
-
-### <a name="ratings-and-reviews-summary"></a>등급 및 리뷰 요약
-
-등급 & 검토 요약 섹션에는 선택한 날짜 범위에 대 한 아래 메트릭이 표시 됩니다.
-
-- **평균 등급:** 선택한 제품에 대해 고객이 제출한 모든 등급의 가중치 평균 별 등급입니다.
-- **등급 분석:** 등급을 제출한 고객의 수 별 등급 분석 가로 막대형 차트는 실제 및 수정 된 등급 (업데이트 된 등급 수)으로 누적 됩니다.
-- **총 등급:** 전송 된 전체 등급의 수입니다. 이 개수에는 검토를 포함 하거나 포함 하지 않는 등급도 포함 됩니다.
-- **검토가 포함 된 등급:** 제출 된 리뷰 수입니다.
-
-![파트너 센터의 등급 및 리뷰 요약 분석](./media/analyze-ratings-summary.png)
-
-### <a name="review-comments"></a>의견 검토
-
-검토는 게시 된 시간 순으로 표시 됩니다. 기본 보기에는 모든 검토가 표시 됩니다. 드롭다운 메뉴의 **필터** 를 사용 하 여 별 등급 별 리뷰를 통해 필터링 할 수 있습니다. 검토에 표시 되는 키워드를 검색할 수도 있습니다.  
-
-![파트너 센터 분석 검토 설명](./media/analyze-reviews.png)

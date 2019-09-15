@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
-ms.date: 07/08/2019
-ms.openlocfilehash: 7d47b74d4fef3676101f3f624dcacb832dcedc3a
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.date: 09/13/2019
+ms.openlocfilehash: 80c5ad26150547263469c9f59366e270bf660335
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858698"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993202"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에 배포 된 모델에서 데이터 드리프트 (미리 보기) 검색
 
@@ -42,7 +42,7 @@ Azure Machine Learning 서비스를 사용 하 여 AKS에 배포 된 모델에 �
 
 데이터 드리프트는 Azure Machine Learning 서비스를 사용 하 여 데이터 집합 또는 배포를 통해 모니터링 됩니다. 데이터 드리프트를 모니터링 하기 위해 기본 데이터 집합 (일반적으로 모델에 대 한 학습 데이터 집합)이 지정 됩니다. 두 번째 데이터 집합 (일반적으로 배포에서 수집 된 입력 데이터 모델)은 기준선 데이터 집합에 대해 테스트 됩니다. 데이터 집합은 모두 프로 파일링 되 고 데이터 드리프트 모니터링 서비스에 입력 됩니다. 기계 학습 모델을 학습 하 여 두 데이터 집합 간의 차이를 검색 합니다. 모델의 성능은 두 데이터 집합 간의 드리프트 크기를 측정 하는 드리프트 계수로 변환 됩니다. [모델 interpretability](machine-learning-interpretability-explainability.md)를 사용 하 여 드리프트 계수에 영향을 주는 기능을 계산 합니다. 데이터 집합 프로필에서 각 기능에 대 한 통계 정보를 추적 합니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독. 계정이 없는 경우 시작 하기 전에 무료 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
 
@@ -133,7 +133,6 @@ datadrift_contribution|드리프트에 영향을 주는 기능의 중요 한 기
 
 * [Jupyter 위젯을 사용 합니다.](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) `RunDetails`
 * [`get_metrics()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#get-metrics-name-none--recursive-false--run-type-none--populate-false-) 모든`datadrift` 실행 개체에 대해 함수를 사용 합니다.
-* 모델에서 Azure Portal의 메트릭을 확인 합니다.
 * [작업 영역 방문 페이지 (미리 보기)](https://ml.azure.com)의 **모델** 섹션에서 메트릭을 확인 합니다.
 
 다음 Python 예제에서는 관련 데이터 드리프트 메트릭을 그리는 방법을 보여 줍니다. 반환 된 메트릭을 사용 하 여 사용자 지정 시각화를 빌드할 수 있습니다.
@@ -159,17 +158,16 @@ datadrift.enable_schedule()
 datadrift.disable_schedule()
 ```
 
-데이터 드리프트 탐지기 구성은 Azure Portal 또는 작업 영역 방문 페이지 (미리 보기)의 모델 정보 페이지에서 볼 수 있습니다.
+데이터 드리프트 탐지기의 구성은 [작업 영역 방문 페이지 (미리 보기)](https://ml.azure.com)의 **세부 정보** 탭에 있는 **모델** 에서 볼 수 있습니다.
 
-![데이터 드리프트 구성 Azure Portal](media/how-to-monitor-data-drift/drift_config.png)
+![Azure Portal 데이터 드리프트](media/how-to-monitor-data-drift/drift-config.png)
 
-## <a name="view-results-in-azure-portal"></a>Azure Portal 결과 보기
+## <a name="view-results-in-your-workspace-landing-page"></a>작업 영역 방문 페이지에서 결과 보기
 
-[Azure Portal](https://portal.azure.com)작업 영역에서 결과를 보려면 모델 페이지로 이동 합니다. 모델의 자세히 탭에 데이터 드리프트 구성이 표시 됩니다. 이제 데이터 드리프트 메트릭을 시각화 하는 ' 데이터 드리프트 (미리 보기) ' 탭을 사용할 수 있습니다. 
+작업 영역 [방문 페이지 (미리 보기)](https://ml.azure.com)의 작업 영역에서 결과를 보려면 모델 페이지로 이동 합니다. 모델의 자세히 탭에 데이터 드리프트 구성이 표시 됩니다. 이제 **데이터 드리프트 탭을** 사용 하 여 데이터 드리프트 메트릭을 시각화할 수 있습니다. 
 
-![Azure Portal 데이터 드리프트](media/how-to-monitor-data-drift/drift_ui.png)
+[![작업 영역 방문 페이지 데이터 드리프트](media/how-to-monitor-data-drift/drift-ui.png)](media/how-to-monitor-data-drift/drift-ui-expanded.png)
 
-[작업 영역 방문 페이지 (미리 보기)](https://ml.azure.com)의 모델 세부 정보 에서도 결과를 사용할 수 있습니다.
 
 ## <a name="receiving-drift-alerts"></a>드리프트 경고 수신
 

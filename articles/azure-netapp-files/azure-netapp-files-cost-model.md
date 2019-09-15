@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: b-juche
-ms.openlocfilehash: 563416418b3f387f103fddc88b3ba9ad4c93fdd4
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: aea783b818550b8219e1a0498256280f61f678e1
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030805"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995109"
 ---
 # <a name="cost-model-for-azure-netapp-files"></a>Azure NetApp Files 비용 모델 
 
@@ -73,7 +73,7 @@ Azure NetApp Files는 프로 비전 된 저장소 용량에 대해 요금이 청
     * 볼륨 1 ~ 8에는 각각 60 TiB의 할당량이 할당 됩니다.  사용 된 총 용량은 480 TiB입니다.  
         각 볼륨에는 처리량이 3.75 GiB/s 인 QoS 제한이 있습니다 (60 TiB * 64 MiB/s).  
     * 볼륨 9에는 20 TiB의 할당량이 할당 됩니다.  
-        볼륨 9의 QoS 제한은 처리량이 1.25 GiB/s (60 TiB * 64 MiB/s)입니다.
+        볼륨 9의 QoS 제한은 처리량이 1.25 GiB/s (20 TiB * 64 MiB/s)입니다.
 * 볼륨 9는 초과분 시나리오입니다. 실제 소비의 25 TiB 있습니다.  
     * 1 시간 유예 기간 후에는 용량 풀의 크기가 505 TiB으로 조정 됩니다.  
         즉, 사용 되는 총 용량 = 8 * 60-볼륨 1부터 8 까지의 TiB 할당량 및 볼륨 9에 대 한 실제 소비의 25 TiB입니다.

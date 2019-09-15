@@ -1,6 +1,6 @@
 ---
 title: 학습 실행에서 비밀 사용
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: 작업 영역을 사용 하 여 안전한 방식으로 학습 실행에 비밀 전달 Key Vault
 services: machine-learning
 author: rastala
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 777818b74f935a560047d1eea20e0d0e657efcac
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 4872ba8a707192cd61ec371fa982a076d410e918
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019421"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996564"
 ---
 # <a name="use-secrets-in-training-runs"></a>학습 실행에서 비밀 사용
 
@@ -69,4 +69,4 @@ Set 및 get 메서드는 한 번에 여러 비밀에 액세스 하기 위한 bat
 ## <a name="next-steps"></a>다음 단계
 
  * [예제 노트북 보기](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/manage-azureml-service/authentication-in-azureml/authentication-in-azureml.ipynb)
- * [Azure Machine Learning 서비스를 사용 하 여 엔터프라이즈 보안에 대해 알아보기](concept-enterprise-security.md)
+ * [Azure Machine Learning를 사용 하 여 엔터프라이즈 보안에 대해 알아보기](concept-enterprise-security.md)

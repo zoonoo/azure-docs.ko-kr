@@ -1,7 +1,7 @@
 ---
 title: 시각적 인터페이스
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 보기)를 구성 하는 용어, 개념 및 워크플로에 대해 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning에 대 한 시각적 인터페이스 (미리 보기)를 구성 하는 용어, 개념 및 워크플로에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/15/2019
-ms.openlocfilehash: 70141e3ad438ff7ff6d4486e6c27ff4163416e95
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 65daf1468d27825d9904a14e42e43796d3985321
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860404"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996516"
 ---
-# <a name="what-is-the-visual-interface-for-azure-machine-learning-service"></a>Azure Machine Learning 서비스에 대 한 시각적 인터페이스는 무엇 인가요? 
+# <a name="what-is-the-visual-interface-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 시각적 인터페이스는 무엇 인가요? 
 
-Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 보기)를 사용 하면 코드를 작성 하지 않고도 데이터를 준비 하 고, 학습, 테스트, 배포, 관리, 기계 학습 모델을 추적할 수 있습니다.
+Azure Machine Learning의 시각적 인터페이스 (미리 보기)를 사용 하면 코드를 작성 하지 않고도 데이터를 준비 하 고, 학습, 테스트, 배포, 관리 및 추적할 수 있습니다.
 
 모델을 생성 하기 위해 [데이터 집합](#dataset) 및 [모듈](#module) 을 시각적으로 연결 하는 데 필요한 프로그래밍은 없습니다.
 
-시각적 인터페이스는 Azure Machine Learning 서비스 [작업 영역](concept-workspace.md) 을 사용 하 여 다음 작업을 수행 합니다.
+시각적 인터페이스는 Azure Machine Learning [작업 영역](concept-workspace.md) 을 사용 하 여 다음 작업을 수행 합니다.
 
 + [실험](#experiment) 실행의 아티팩트를 작업 영역으로 작성 합니다.
 + [데이터 집합](#dataset)에 액세스 합니다.

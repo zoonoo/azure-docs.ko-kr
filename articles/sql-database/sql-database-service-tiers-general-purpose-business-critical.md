@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 02/23/2019
-ms.openlocfilehash: 8709d88c4d21a40ac8ebb27e5c1669d8f5fa3555
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 41acef4ebe13ac6152d795db4adfae5a6ae1ad91
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934218"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995423"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Azure SQL Database 서비스 계층
 
@@ -37,25 +37,23 @@ Azure SQL Database는 인프라 오류가 발생 한 경우에도 99.99%의 가�
 | **적합한 대상** | |  대부분의 비즈니스 워크로드. 예산 중심의 균형 잡힌 컴퓨팅 및 스토리지 옵션을 제공합니다. | 데이터 용량 요구 사항이 많은 데이터 응용 프로그램, 저장소를 최대 100 TB까지 자동 크기 조정 하는 기능 및 크기 계산 유동적으로. | 트랜잭션 속도가 높고 지연 시간이 적은 OLTP 애플리케이션. 다수의 격리된 복제본을 사용하여 장애에 대해 최고의 복원력을 제공합니다.|
 |  **리소스 종류에서 사용 가능:** ||단일 데이터베이스/탄력적 풀/관리되는 인스턴스 | 단일 데이터베이스 | 단일 데이터베이스/탄력적 풀/관리되는 인스턴스 |
 | **컴퓨팅 크기**|단일 데이터베이스/탄력적 풀 | vCore 1~80개 | 1 ~ 80 vCores | vCore 1~80개 |
-| | Managed Instance | 4, 8, 16, 24, 32, 40, 64, 80 vCores | 해당 사항 없음 | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
-| | 관리 되는 인스턴스 풀 | 2, 4, 8, 16, 24, 32, 40, 64, 80 vCores | 해당 사항 없음 | N/A |
+| | Managed Instance | 4, 8, 16, 24, 32, 40, 64, 80 vCores | N/A | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
+| | 관리 되는 인스턴스 풀 | 2, 4, 8, 16, 24, 32, 40, 64, 80 vCores | 해당 사항 없음 | 해당 사항 없음 |
 | **저장소 유형** | 모두 | 프리미엄 원격 스토리지(인스턴스별) | 로컬 SSD 캐시를 사용한 분리형 스토리지(인스턴스별) | 초고속 로컬 SSD 스토리지(인스턴스별) |
 | **데이터베이스 크기** | 단일 데이터베이스/탄력적 풀 | 5GB~4TB | 최대 100TB | 5GB~4TB |
 | | Managed Instance  | 32GB~8TB | 해당 사항 없음 | 32GB~4TB |
 | **스토리지 크기** | 단일 데이터베이스/탄력적 풀 | 5GB~4TB | 최대 100TB | 5GB~4TB |
 | | Managed Instance  | 32GB~8TB | 해당 사항 없음 | 32GB~4TB |
 | **TempDB 크기** | 단일 데이터베이스/탄력적 풀 | [vCore 당 32 GB](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-for-provisioned-compute) | [vCore 당 32 GB](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-for-provisioned-compute) | [vCore 당 32 GB](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute) |
-| | Managed Instance  | [vCore 당 24gb](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | 해당 사항 없음 | [저장소 크기에 따라](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) 최대 4 TB 제한 |
-| **IO 처리량** | 단일 데이터베이스 | [vCore 당 500 IOPS](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-for-provisioned-compute) | 유효 IOPs는 워크 로드에 따라 달라 집니다. | [vCore 당 4000 IOPS](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute)|
-| | Managed Instance | [파일당 100-250MB/s 및 500-7500 IOPS](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | N/A | [vCore 당 1375 IOPS](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
+| | Managed Instance  | [vCore 당 24gb](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | N/A | [저장소 크기에 따라](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) 최대 4 TB 제한 |
 | **로그 쓰기 처리량** | 단일 데이터베이스 | [vCore 당 1.875 m b/초 (최대 30 m b/초)](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-for-provisioned-compute) | 100MB/초 | [vCore 당 6mb/s (최대 96 m b/초)](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute) |
-| | Managed Instance | [vCore 당 3MB/s (최대 22 m b/초)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | N/A | [vcore 당 4mb/s (최대 48 m b/초)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
+| | Managed Instance | [vCore 당 3MB/s (최대 22 m b/초)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | 해당 사항 없음 | [vcore 당 4mb/s (최대 48 m b/초)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
 |**Availability**|모두| 99.99% |  [보조 복제본이 하나인 99.95%, 추가 복제본이 있는 99.99%](sql-database-service-tier-hyperscale-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99.99% <br/> [영역 중복 단일 데이터베이스가 포함 된 99.995%](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
 |**백업**|모두|RA-GRS, 7-35일(기본값: 7일)| RA-GRS, 7 일, 상수 시간 지정 시간 복구 (PITR) | RA-GRS, 7-35일(기본값: 7일) |
-|**메모리 내 OLTP** | | 해당 사항 없음 | N/A | 사용 가능 |
+|**메모리 내 OLTP** | | 해당 사항 없음 | 해당 사항 없음 | 사용 가능 |
 |**읽기 전용 복제본**| | 0  | 0 - 4 | 1 (기본 제공, 가격에 포함 됨) |
 |**가격 책정/청구** | 단일 데이터베이스 | [Vcore, 예약 된 저장소 및 백업 저장소가](https://azure.microsoft.com/pricing/details/sql-database/single/) 청구 됩니다. <br/>IOPS에는 요금이 부과 되지 않습니다. | [각 복제본 및 사용 된 저장소에 대 한 Vcore에](https://azure.microsoft.com/pricing/details/sql-database/single/) 는 요금이 부과 됩니다. <br/>IOPS에는 요금이 부과 되지 않습니다.<br/>백업 저장소에 아직 요금이 청구 되지 않았습니다. | [Vcore, 예약 된 저장소 및 백업 저장소가](https://azure.microsoft.com/pricing/details/sql-database/single/) 청구 됩니다. <br/>IOPS에는 요금이 부과 되지 않습니다. |
-|| 관리되는 인스턴스 | [Vcore 및 예약 된 저장소](https://azure.microsoft.com/pricing/details/sql-database/managed/) 에는 요금이 부과 됩니다. <br/>IOPS에는 요금이 부과 되지 않습니다.<br/>백업 저장소에 아직 요금이 청구 되지 않았습니다. | 해당 사항 없음 | [Vcore 및 예약 된 저장소](https://azure.microsoft.com/pricing/details/sql-database/managed/) 에는 요금이 부과 됩니다. <br/>IOPS에는 요금이 부과 되지 않습니다.<br/>백업 저장소에 아직 요금이 청구 되지 않았습니다. | 
+|| 관리되는 인스턴스 | [Vcore 및 예약 된 저장소](https://azure.microsoft.com/pricing/details/sql-database/managed/) 에는 요금이 부과 됩니다. <br/>IOPS에는 요금이 부과 되지 않습니다.<br/>백업 저장소에 아직 요금이 청구 되지 않았습니다. | N/A | [Vcore 및 예약 된 저장소](https://azure.microsoft.com/pricing/details/sql-database/managed/) 에는 요금이 부과 됩니다. <br/>IOPS에는 요금이 부과 되지 않습니다.<br/>백업 저장소에 아직 요금이 청구 되지 않았습니다. | 
 |**할인 모델**| | [예약 인스턴스](sql-database-reserved-capacity.md)<br/>[Azure 하이브리드 혜택](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (개발/테스트 구독에서 사용할 수 없음)<br/>[엔터프라이즈](https://azure.microsoft.com/offers/ms-azr-0148p/) 및 [종 량](https://azure.microsoft.com/offers/ms-azr-0023p/) 제 개발/테스트 구독| [Azure 하이브리드 혜택](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (개발/테스트 구독에서 사용할 수 없음)<br/>[엔터프라이즈](https://azure.microsoft.com/offers/ms-azr-0148p/) 및 [종 량](https://azure.microsoft.com/offers/ms-azr-0023p/) 제 개발/테스트 구독| [예약 인스턴스](sql-database-reserved-capacity.md)<br/>[Azure 하이브리드 혜택](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (개발/테스트 구독에서 사용할 수 없음)<br/>[엔터프라이즈](https://azure.microsoft.com/offers/ms-azr-0148p/) 및 [종 량](https://azure.microsoft.com/offers/ms-azr-0023p/) 제 개발/테스트 구독|
 
 자세한 내용은 [단일 데이터베이스 (vcore)](sql-database-vcore-resource-limits-single-databases.md), 단일 [데이터베이스 풀 (vcore)](sql-database-dtu-resource-limits-single-databases.md), [단일 데이터베이스 (dtu](sql-database-dtu-resource-limits-single-databases.md)), [dtu (단일 데이터베이스 풀)](sql-database-dtu-resource-limits-single-databases.md)및 [Managed Instance](sql-database-managed-instance-resource-limits.md) 의 서비스 계층 간의 자세한 차이점을 참조 하세요. 마주보.

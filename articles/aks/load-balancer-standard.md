@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: zarhoads
-ms.openlocfilehash: 9cfced0860b206e41b3e9f82f1ed2b92867e6b39
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 42323af40ee18a965363321196a04aa75c00aa40
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914832"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996948"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에서 표준 SKU 부하 분산 장치 사용
 
@@ -277,6 +277,8 @@ azure-vote-front    LoadBalancer   10.0.227.198   52.179.23.131   80:31201/TCP  
 
 기본적으로 생성 되는 관리 되는 아웃 바운드 공용 Ip를 사용 하 여 *표준* SKU 부하 분산 장치를 사용 하는 경우, *부하 분산 장치 관리-ip 카운트* 매개 변수를 사용 하 여 관리 되는 아웃 바운드 공용 ip 수를 조정할 수 있습니다.
 
+기존 클러스터를 업데이트 하려면 다음 명령을 실행 합니다. 이 매개 변수는 클러스터 만들기 시간에 여러 관리 되는 아웃 바운드 공용 Ip를 갖도록 설정할 수도 있습니다.
+
 ```azurecli-interactive
 az aks update \
     --resource-group myResourceGroup \
@@ -284,11 +286,15 @@ az aks update \
     --load-balancer-managed-outbound-ip-count 2
 ```
 
-위의 예에서는 *Myresourcegroup*의 *myAKSCluster* 클러스터에 대 한 관리 되는 아웃 바운드 공용 ip 수를 *2* 로 설정 합니다. 또한 *부하 분산 장치-ip 카운트* 매개 변수를 사용 하 여 클러스터를 만들 때 관리 되는 아웃 바운드 공용 ip의 초기 수를 설정할 수 있습니다. 관리 되는 아웃 바운드 공용 Ip의 기본 수는 1입니다.
+위의 예에서는 *Myresourcegroup*의 *myAKSCluster* 클러스터에 대 한 관리 되는 아웃 바운드 공용 ip 수를 *2* 로 설정 합니다. 
+
+또한 매개 변수를 `--load-balancer-managed-outbound-ip-count` 추가 하 고 원하는 값으로 설정 하 여 클러스터를 만들 때 *부하 분산 장치-관리-ip 카운트* 매개 변수를 사용 하 여 초기에 관리 되는 아웃 바운드 공용 ip 수를 설정할 수 있습니다. 관리 되는 아웃 바운드 공용 Ip의 기본 수는 1입니다.
 
 ## <a name="optional---provide-your-own-public-ips-or-prefixes-for-egress"></a>선택 사항-사용자 고유의 공용 Ip 또는 송신에 대 한 접두사를 제공 합니다.
 
-*표준* sku 부하 분산 장치를 사용 하는 경우 AKS 클러스터는 AKS 클러스터에 대해 생성 된 동일한 리소스 그룹에서 공용 ip를 자동으로 만들고 *표준* SKU 부하 분산 장치에 공용 ip를 할당 합니다. 또는 사용자 고유의 공용 IP를 할당할 수 있습니다.
+*표준* sku 부하 분산 장치를 사용 하는 경우 AKS 클러스터는 AKS 클러스터에 대해 생성 된 동일한 리소스 그룹에서 공용 ip를 자동으로 만들고 *표준* SKU 부하 분산 장치에 공용 ip를 할당 합니다. 또는 클러스터를 만들 때 사용자 고유의 공용 IP를 할당 하거나 기존 클러스터의 부하 분산 장치 속성을 업데이트할 수 있습니다.
+
+여러 IP 주소 또는 접두사를 가져오면 단일 부하 분산 장치 개체 뒤에 IP 주소를 정의할 때 여러 지원 서비스를 정의할 수 있습니다. 특정 노드의 송신 끝점은 연결 된 서비스에 따라 달라 집니다.
 
 > [!IMPORTANT]
 > 부하 분산 장치를 *표준* sku와 함께 수신 하려면 *표준* sku 공용 ip를 사용 해야 합니다. [Az network public ip show][az-network-public-ip-show] 명령을 사용 하 여 공용 IP의 SKU를 확인할 수 있습니다.
@@ -324,8 +330,6 @@ az network public-ip prefix show --resource-group myResourceGroup --name myPubli
 
 위의 명령은 *Myresourcegroup* 리소스 그룹의 *myPublicIPPrefix* 공용 IP 접두사에 대 한 ID를 표시 합니다.
 
-이전 명령의 Id를 사용 하 여 aks *매개 변수와* 함께 *az update* 명령을 사용 합니다.
-
 다음 예제에서는 이전 명령의 Id를 사용 하 여 *부하 분산 장치-아웃 바운드 ip 접두사* 매개 변수를 사용 합니다.
 
 ```azurecli-interactive
@@ -337,6 +341,36 @@ az aks update \
 
 > [!IMPORTANT]
 > 공용 Ip 및 IP 접두사는 AKS 클러스터와 동일한 구독의 일부 및 동일한 지역에 있어야 합니다.
+
+### <a name="define-your-own-public-ip-or-prefixes-at-cluster-create-time"></a>클러스터를 만들 때 사용자 고유의 공용 IP 또는 접두사를 정의 합니다.
+
+허용 목록 송신 끝점과 같은 시나리오를 지원 하기 위해 클러스터를 만들 때 송신 하기 위해 고유한 IP 주소 또는 IP 접두사를 가져올 수 있습니다. 클러스터 생성 단계에 위에 표시 된 것과 동일한 매개 변수를 추가 하 여 클러스터의 수명 주기 시작 부분에 고유한 공용 ip 및 IP 접두사를 정의 합니다.
+
+Aks *매개 변수와* 함께 *az create* 명령을 사용 하 여 시작 시 공용 ip를 사용 하 여 새 클러스터를 만듭니다.
+
+```
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --vm-set-type VirtualMachineScaleSets \
+    --node-count 1 \
+    --load-balancer-sku standard \
+    --generate-ssh-keys \
+    --load-balancer-outbound-ips <publicIpId1>,<publicIpId2>
+```
+
+*로드 균형 조정기-* aks 매개 변수와 함께 *az create* 명령을 사용 하 여 시작 시 공용 ip 접두사를 사용 하 여 새 클러스터를 만듭니다.
+
+```
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --vm-set-type VirtualMachineScaleSets \
+    --node-count 1 \
+    --load-balancer-sku standard \
+    --generate-ssh-keys \
+    --load-balancer-outbound-ip-prefixes <publicIpPrefixId1>,<publicIpPrefixId2>
+```
 
 ## <a name="clean-up-the-standard-sku-load-balancer-configuration"></a>표준 SKU 부하 분산 장치 구성 정리
 

@@ -3,16 +3,17 @@ title: 분산 심층 학습을 위해 Azure HDInsight Spark에서 Caffe 사용
 description: Azure HDInsight에서 분산 심층 학습을 위해 Apache Spark에서 Caffe을 사용 합니다.
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: 31911c6c2456ab8b4949bab6ef8e541b91fc8a2c
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: bb234e5b34bd8046c4e65d7cc6812cde0db3b5b2
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814203"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995588"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>분산 심층 학습을 위해 Azure HDInsight Spark에서 Caffe 사용
 
@@ -65,7 +66,7 @@ HDInsight는 PaaS 솔루션으로, 뛰어난 플랫폼 기능을 제공하므로
 
 시작하기 위해 모든 작업자 노드 및 헤드 노드 (HDInsight 3.5용)에 대한 클러스터에 대해 이 스크립트 동작을 실행할 수 있습니다. 기존 클러스터에 대해 스크립트 동작을 실행하거나 클러스터 생성 동안 스크립트 동작을 사용할 수 있습니다. 스크립트 동작에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux) 설명서를 참조하세요.
 
-![종속성 설치를 위한 스크립트 동작](./media/apache-spark-deep-learning-caffe/Script-Action-1.png)
+![종속성 설치를 위한 스크립트 동작](./media/apache-spark-deep-learning-caffe/submit-script-action.png)
 
 
 ## <a name="step-2-build-caffe-on-apache-spark-for-hdinsight-on-the-head-node"></a>2단계: 헤드 노드에서 HDInsight용 Apache Spark에 Caffe 빌드
@@ -175,7 +176,8 @@ CaffeOnSpark는 MNIST 학습을 위한 몇 가지 네트워크 토폴로지를 �
     # solver mode: CPU or GPU
     solver_mode: CPU
 
-![Caffe Config1](./media/apache-spark-deep-learning-caffe/Caffe-1.png)
+![Caffe Config1](./media/apache-spark-deep-learning-caffe/caffe-configuration1.png
+)
 
 필요에 따라 다른 줄을 변경할 수 있습니다.
 
@@ -184,7 +186,7 @@ CaffeOnSpark는 MNIST 학습을 위한 몇 가지 네트워크 토폴로지를 �
 - "file:/Users/mridul/bigml/demodl/mnist_train_lmdb"를 "wasb:///projects/machine_learning/image_dataset/mnist_train_lmdb"로 변경합니다.
 - "file:/Users/mridul/bigml/demodl/mnist_test_lmdb/"를 "wasb:///projects/machine_learning/image_dataset/mnist_test_lmdb"로 변경합니다.
 
-![Caffe Config2](./media/apache-spark-deep-learning-caffe/Caffe-2.png)
+![Caffe Config2](./media/apache-spark-deep-learning-caffe/caffe-configuration2.png)
 
 네트워크를 정의하는 방법에 대한 자세한 내용은 [MNIST 데이터 세트에 대한 Caffe 설명서](https://caffe.berkeleyvision.org/gathered/examples/mnist.html)를 확인하세요.
 
@@ -204,15 +206,15 @@ YARN 클러스터 모드를 사용 중이고 이 경우 임의 컨테이너(및 
 
     https://yourclustername.azurehdinsight.net/yarnui
    
-![YARN UI](./media/apache-spark-deep-learning-caffe/YARN-UI-1.png)
+![YARN UI](./media/apache-spark-deep-learning-caffe/apache-yarn-window-1.png)
 
 이 특정 애플리케이션에 대해 얼마나 많은 리소스가 할당되는지를 살펴볼 수 있습니다. "Scheduler" 링크를 클릭하면 이 애플리케이션에 대해 9개의 컨테이너가 실행 중인 것을 볼 수 있습니다. YARN에 8개의 실행기를 제공하도록 요청하고 다른 컨테이너는 드라이버 프로세스용입니다. 
 
-![YARN Scheduler](./media/apache-spark-deep-learning-caffe/YARN-Scheduler.png)
+![YARN Scheduler](./media/apache-spark-deep-learning-caffe/apache-yarn-scheduler.png)
 
 오류가 있는 경우 드라이버 로그 또는 컨테이너 로그를 확인하려 할 수 있습니다. 드라이버 로그의 경우 YARN UI에서 애플리케이션 ID를 클릭한 후 [로그] 단추를 클릭하면 됩니다. 드라이버 로그는 stderr에 기록됩니다.
 
-![YARN UI 2](./media/apache-spark-deep-learning-caffe/YARN-UI-2.png)
+![YARN UI 2](./media/apache-spark-deep-learning-caffe/apache-yarn-window-2.png)
 
 예를 들어 드라이버 로그에서 아래와 같이 너무 많은 실행기를 할당했음을 나타내는 몇 가지 오류가 표시될 수 있습니다.
 

@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: c40fd4f776e0372d7368d182d30cfb2e01a4b0e2
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 2547ca3af3039af53cb5fd5b244669b9152c21b3
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858827"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993295"
 ---
 # <a name="what-are-ml-pipelines-in-azure-machine-learning-service"></a>Azure Machine Learning 서비스의 ML 파이프라인 이란?
 
@@ -86,7 +86,7 @@ Azure Portal 또는 [작업 영역 방문 페이지 (미리 보기)](https://ml.
 
 + [첫 번째 파이프라인을 만드는](how-to-create-your-first-pipeline.md) 방법을 알아봅니다.
 
-+ [대량 데이터에서 일괄 처리 예측을 실행](how-to-run-batch-predictions.md)하는 방법에 대해 알아봅니다.
++ [대량 데이터에서 일괄 처리 예측을 실행](tutorial-pipeline-batch-scoring-classification.md)하는 방법에 대해 알아봅니다.
 
 + [파이프라인에 대 한 SDK 참조 문서](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py)를 참조 하세요.
 

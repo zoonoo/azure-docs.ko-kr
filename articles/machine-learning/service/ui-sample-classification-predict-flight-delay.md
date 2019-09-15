@@ -1,6 +1,6 @@
 ---
 title: '시각적 인터페이스 예제 #6: 비행 지연 예측을 위한 분류'
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: 이 문서에서는 끌어서 놓기 시각적 인터페이스와 사용자 지정 R 코드를 사용 하 여 비행 지연을 예측 하는 기계 학습 모델을 빌드하는 방법을 보여 줍니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 07/02/2019
-ms.openlocfilehash: 4c0a990ae3f45fc7b08c157f180d8ecf805c24e6
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 3d1363d24aa6e5f8875ba90513a8d9d5b951c9db
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990017"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997117"
 ---
 # <a name="sample-6---classification-predict-flight-delays-using-r"></a>샘플 6-분류: R을 사용 하 여 비행 지연 예측
 
@@ -59,7 +59,7 @@ ms.locfileid: "68990017"
 
 ### <a name="flight-data"></a>비행 데이터
 
-**OriginAirportID**및 **DestAirportID** 열은 정수로 저장 됩니다. 그러나 범주 특성 이므로 **메타 데이터 편집** 모듈을 사용 하 여 범주를 범주로 변환 합니다.
+**OriginAirportID**및 **DestAirportID** **열은**정수로 저장 됩니다. 그러나 범주 특성 이므로 **메타 데이터 편집** 모듈을 사용 하 여 범주를 범주로 변환 합니다.
 
 ![편집-메타 데이터](media/ui-sample-classification-predict-flight-delay/edit-metadata.png)
 

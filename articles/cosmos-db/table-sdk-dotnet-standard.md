@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
-ms.openlocfilehash: 8fd3aedd2e371e511730fd98751ae3214545c489
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: c1422b6411fc60383cffa6c3082108bb940c4343
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034575"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996209"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB 테이블 .NET Standard API: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -41,6 +41,9 @@ ms.locfileid: "70034575"
 
 ## <a name="release-notes-for-100-series"></a>1\.0.0 시리즈에 대 한 릴리스 정보
 1.0.0 시리즈는 [Microsoft. Azure DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)에 대 한 종속성을 사용 합니다.
+
+### <a name="a-name105105"></a><a name="1.0.5"/>1.0.5
+* TableClientConfiguration 아래에 새 구성을 도입 하 여 Rest 실행자를 사용 하 여 Cosmos DB와 통신 Table API
 
 ### <a name="a-name105-preview105-preview"></a><a name="1.0.5-preview"/>1.0.5-미리 보기
 * 버그 수정
@@ -92,6 +95,7 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 ### <a name="100-series"></a>1.0.0 시리즈
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.0.5](#1.0.5) |2019 년 9 월 13 일 |--- |
 | [1.0.5-미리 보기](#1.0.5-preview) |Iguest 20, 2019 |--- |
 | [1.0.4](#1.0.4) |2019, |--- |
 | [1.0.4-미리 보기](#1.0.4-preview) |2019 년 7 월 26 일 |--- |

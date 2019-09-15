@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: c6b9c0a8615960772ccac824c293b5f4ea6cfe55
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 78e113f881d1f62c9848ba40f039fa19eeb09055
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129187"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996458"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure 파일 동기화 문제 해결
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -395,6 +395,18 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
     ```
 2. [스토리지 계정이 있는지 확인합니다.](#troubleshoot-storage-account)
 3. [저장소 계정에 대 한 방화벽 및 가상 네트워크 설정이 제대로 구성 되어 있는지 확인 합니다 (설정 된 경우).](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
+
+<a id="-2134364022"></a><a id="storage-unknown-error"></a>**저장소 계정에 액세스 하는 동안 알 수 없는 오류가 발생 했습니다.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c8308a |
+| **HRESULT(10진)** | -2134364022 |
+| **오류 문자열** | ECS_E_STORAGE_ACCOUNT_UNKNOWN_ERROR |
+| **재구성 필요** | 예 |
+
+1. [스토리지 계정이 있는지 확인합니다.](#troubleshoot-storage-account)
+2. [저장소 계정에 대 한 방화벽 및 가상 네트워크 설정이 제대로 구성 되어 있는지 확인 합니다 (설정 된 경우).](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
 
 <a id="-1906441138"></a>**동기화 데이터베이스에 문제가 있어 동기화에 실패했습니다.**  
 

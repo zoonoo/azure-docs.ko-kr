@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: cda974a71c0d24bda9422fb8444fbf4dec0088f9
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 673c83c861e1f044a521786a903dd7b21db8c170
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885112"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995552"
 ---
 # <a name="optimize-apache-spark-jobs-in-hdinsight"></a>HDInsight에서 Apache Spark 작업 최적화
 
@@ -96,7 +96,7 @@ Spark는 데이터를 메모리에 두고 작업하기 때문에 Spark 작업 �
 
 [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)을 사용하는 경우 YARN은 각 Spark 노드에서 모든 컨테이너에서 사용되는 메모리의 최대 합계를 제어합니다.  다음 다이어그램에서는 주요 개체 및 해당 관계를 보여 줍니다.
 
-![YARN Spark 메모리 관리](./media/apache-spark-perf/yarn-spark-memory.png)
+![YARN Spark 메모리 관리](./media/apache-spark-perf/apache-yarn-spark-memory.png)
 
 '메모리 부족' 메시지를 해결하려면 다음을 시도합니다.
 

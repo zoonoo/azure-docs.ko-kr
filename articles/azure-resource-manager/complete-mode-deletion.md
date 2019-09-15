@@ -4,14 +4,14 @@ description: 리소스 종류가 Azure Resource Manager 템플릿에서 전체 �
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/04/2019
+ms.date: 09/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: d783ab9c12952393f0a74b245109dda58bff3927
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: d8238dddee041573d9b122e62cec66118c681ef6
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194403"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995256"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>완료 모드 배포를 위한 Azure 리소스의 삭제
 
@@ -19,12 +19,11 @@ ms.locfileid: "70194403"
 
 **예** 로 표시 된 리소스 유형은 형식이 전체 모드로 배포 된 템플릿에 없는 경우 삭제 됩니다.
 
-로 표시 된 리소스 종류 는 템플릿에 없을 때 자동으로 삭제 되지 않습니다. 그러나 부모 리소스를 삭제 하는 경우 삭제 됩니다. 동작에 대한 전체 설명은 [Azure Resource Manager 배포 모드](deployment-modes.md)를 참조하세요.
+로 표시 된 리소스 종류는 템플릿에 없을 때 자동으로 삭제 **되지 않습니다.** 그러나 부모 리소스를 삭제 하는 경우 삭제 됩니다. 동작에 대한 전체 설명은 [Azure Resource Manager 배포 모드](deployment-modes.md)를 참조하세요.
 
 리소스 공급자 네임 스페이스로 이동 합니다.
 > [!div class="op_single_selector"]
 > - [Microsoft.AAD](#microsoftaad)
-> - [AADDomainServices](#microsoftaaddomainservices)
 > - [Addons](#microsoftaddons)
 > - [ADHybridHealthService](#microsoftadhybridhealthservice)
 > - [Microsoft Advisor](#microsoftadvisor)
@@ -32,6 +31,7 @@ ms.locfileid: "70194403"
 > - [Microsoft.AnalysisServices](#microsoftanalysisservices)
 > - [Microsoft.ApiManagement](#microsoftapimanagement)
 > - [Microsoft.AppConfiguration](#microsoftappconfiguration)
+> - [Microsoft AppPlatform](#microsoftappplatform)
 > - [Microsoft 증명](#microsoftattestation)
 > - [Microsoft.Authorization](#microsoftauthorization)
 > - [Microsoft.Automation](#microsoftautomation)
@@ -65,14 +65,12 @@ ms.locfileid: "70194403"
 > - [Microsoft.ContentModerator](#microsoftcontentmoderator)
 > - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
 > - [Microsoft.CostManagement](#microsoftcostmanagement)
-> - [Microsoft.CustomerInsights](#microsoftcustomerinsights)
 > - [Microsoft. CustomerLockbox](#microsoftcustomerlockbox)
 > - [Microsoft CustomProviders](#microsoftcustomproviders)
 > - [Microsoft.DataBox](#microsoftdatabox)
 > - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
 > - [Microsoft.Databricks](#microsoftdatabricks)
 > - [Microsoft.DataCatalog](#microsoftdatacatalog)
-> - [Microsoft.DataConnect](#microsoftdataconnect)
 > - [Microsoft.DataFactory](#microsoftdatafactory)
 > - [Microsoft.DataLakeAnalytics](#microsoftdatalakeanalytics)
 > - [Microsoft.DataLakeStore](#microsoftdatalakestore)
@@ -115,7 +113,6 @@ ms.locfileid: "70194403"
 > - [Microsoft.MachineLearning](#microsoftmachinelearning)
 > - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
 > - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
-> - [Microsoft ManagedLab](#microsoftmanagedlab)
 > - [Microsoft ManagedServices](#microsoftmanagedservices)
 > - [Microsoft 관리](#microsoftmanagement)
 > - [Microsoft.Maps](#microsoftmaps)
@@ -157,6 +154,7 @@ ms.locfileid: "70194403"
 > - [Microsoft.SiteRecovery](#microsoftsiterecovery)
 > - [SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft.Solutions](#microsoftsolutions)
+> - [Microsoft .SQL](#microsoftsql)
 > - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
 > - [Microsoft.Storage](#microsoftstorage)
 > - [Microsoft.StorageCache](#microsoftstoragecache)
@@ -182,13 +180,6 @@ ms.locfileid: "70194403"
 > | DomainServices | 예 |
 > | DomainServices/oucontainer | 아니요 |
 > | DomainServices/ReplicaSets | 예 |
-
-## <a name="microsoftaaddomainservices"></a>AADDomainServices
-
-> [!div class="mx-tableFixed"]
-> | 리소스 형식 | 전체 모드 삭제 |
-> | ------------- | ----------- |
-> | domains | 아니요 |
 
 ## <a name="microsoftaddons"></a>Microsoft.Addons
 
@@ -235,7 +226,7 @@ ms.locfileid: "70194403"
 > | alertsSummary | 아니요 |
 > | alertsSummaryList | 아니요 |
 > | 있으신가요 | 아니요 |
-> | smartDetectorAlertRules | 아니요 |
+> | smartDetectorAlertRules | 예 |
 > | smartDetectorRuntimeEnvironments | 아니요 |
 > | smartGroups | 아니요 |
 
@@ -262,6 +253,13 @@ ms.locfileid: "70194403"
 > | ------------- | ----------- |
 > | configurationStores | 예 |
 > | configurationStores/eventGridFilters | 아니요 |
+
+## <a name="microsoftappplatform"></a>Microsoft AppPlatform
+
+> [!div class="mx-tableFixed"]
+> | 리소스 형식 | 전체 모드 삭제 |
+> | ------------- | ----------- |
+> | 봄 | 예 |
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
 
@@ -331,6 +329,10 @@ ms.locfileid: "70194403"
 > [!div class="mx-tableFixed"]
 > | 리소스 형식 | 전체 모드 삭제 |
 > | ------------- | ----------- |
+> | hybridDataManagers | 예 |
+> | postgresInstances | 예 |
+> | sqlBigDataClusters | 예 |
+> | sqlInstances | 예 |
 > | sqlServerRegistrations | 예 |
 > | sqlServerRegistrations/sqlServers | 아니요 |
 
@@ -357,11 +359,28 @@ ms.locfileid: "70194403"
 > | ------------- | ----------- |
 > | billingAccounts | 아니요 |
 > | billingAccounts/규약 | 아니요 |
+> | billingAccounts/billingPermissions | 아니요 |
 > | billingAccounts/billingProfiles | 아니요 |
+> | billingAccounts/billingProfiles/billingPermissions | 아니요 |
+> | billingAccounts/billingProfiles/billingRoleAssignments | 아니요 |
+> | billingAccounts/billingProfiles/billingRoleDefinitions | 아니요 |
 > | billingAccounts/billingProfiles/billingSubscriptions | 아니요 |
+> | billingAccounts/billingProfiles/createBillingRoleAssignment | 아니요 |
+> | billingAccounts/billingProfiles/고객 | 아니요 |
 > | billingAccounts/billingProfiles/invoices | 아니요 |
 > | billingAccounts/billingProfiles/invoices/pricesheet | 아니요 |
 > | billingAccounts/billingProfiles/invoiceSections | 아니요 |
+> | billingAccounts/billingProfiles/invoiceSections/billingPermissions | 아니요 |
+> | billingAccounts/billingProfiles/invoiceSections/billingRoleAssignments | 아니요 |
+> | billingAccounts/billingProfiles/invoiceSections/billingRoleDefinitions | 아니요 |
+> | billingAccounts/billingProfiles/invoiceSections/billingSubscriptions | 아니요 |
+> | billingAccounts/billingProfiles/invoiceSections/createBillingRoleAssignment | 아니요 |
+> | billingAccounts/billingProfiles/invoiceSections/initiateTransfer | 아니요 |
+> | billingAccounts/billingProfiles/invoiceSections/products | 아니요 |
+> | billingAccounts/billingProfiles/invoiceSections/products/transfer | 아니요 |
+> | billingAccounts/billingProfiles/invoiceSections/products/updateAutoRenew | 아니요 |
+> | billingAccounts/billingProfiles/invoiceSections/트랜잭션 | 아니요 |
+> | billingAccounts/billingProfiles/invoiceSections/transfer | 아니요 |
 > | billingAccounts/BillingProfiles/patchOperations | 아니요 |
 > | billingAccounts/billingProfiles/paymentMethods | 아니요 |
 > | billingAccounts/billingProfiles/policies | 아니요 |
@@ -369,10 +388,17 @@ ms.locfileid: "70194403"
 > | billingAccounts/billingProfiles/pricesheetDownloadOperations | 아니요 |
 > | billingAccounts/billingProfiles/products | 아니요 |
 > | billingAccounts/billingProfiles/transactions | 아니요 |
+> | billingAccounts/billingRoleAssignments | 아니요 |
+> | billingAccounts/billingRoleDefinitions | 아니요 |
 > | billingAccounts/billingSubscriptions | 아니요 |
+> | billingAccounts/createBillingRoleAssignment | 아니요 |
 > | billingAccounts/createInvoiceSectionOperations | 아니요 |
 > | billingAccounts/고객 | 아니요 |
 > | billingAccounts/customers/billingSubscriptions | 아니요 |
+> | billingAccounts/customers/initiateTransfer | 아니요 |
+> | billingAccounts/고객/제품 | 아니요 |
+> | billingAccounts/고객/트랜잭션 | 아니요 |
+> | billingAccounts/고객/전송 | 아니요 |
 > | billingAccounts/departments | 아니요 |
 > | billingAccounts/enrollmentAccounts | 아니요 |
 > | billingAccounts/invoices | 아니요 |
@@ -395,11 +421,11 @@ ms.locfileid: "70194403"
 > | billingAccounts/products | 아니요 |
 > | billingAccounts/transactions | 아니요 |
 > | billingPeriods | 아니요 |
-> | billingPermissions | 아니요 |
+> | BillingPermissions | 아니요 |
 > | billingProperty | 아니요 |
-> | billingRoleAssignments | 아니요 |
-> | billingRoleDefinitions | 아니요 |
-> | createBillingRoleAssignment | 아니요 |
+> | BillingRoleAssignments | 아니요 |
+> | BillingRoleDefinitions | 아니요 |
+> | CreateBillingRoleAssignment | 아니요 |
 > | departments | 아니요 |
 > | enrollmentAccounts | 아니요 |
 > | invoices | 아니요 |
@@ -407,6 +433,7 @@ ms.locfileid: "70194403"
 > | transfers/acceptTransfer | 아니요 |
 > | transfers/declineTransfer | 아니요 |
 > | transfers/operationStatus | 아니요 |
+> | 전송/validateTransfer | 아니요 |
 > | validateAddress | 아니요 |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
@@ -573,12 +600,16 @@ ms.locfileid: "70194403"
 > | publicImages | 아니요 |
 > | quotas | 아니요 |
 > | storageAccounts | 예 |
+> | storageAccounts/blobServices | 아니요 |
+> | storageAccounts/fileServices | 아니요 |
 > | storageAccounts/metricDefinitions | 아니요 |
 > | storageAccounts/메트릭 | 아니요 |
+> | storageAccounts/queueServices | 아니요 |
 > | storageAccounts/services | 아니요 |
 > | storageAccounts/services/diagnosticSettings | 아니요 |
 > | storageAccounts/services/metricDefinitions | 아니요 |
 > | storageAccounts/서비스/메트릭 | 아니요 |
+> | storageAccounts/tableServices | 아니요 |
 > | storageAccounts/vmImages | 아니요 |
 > | vmImages | 아니요 |
 
@@ -750,25 +781,6 @@ ms.locfileid: "70194403"
 > | showbackRules | 아니요 |
 > | 뷰 | 아니요 |
 
-## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
-
-> [!div class="mx-tableFixed"]
-> | 리소스 형식 | 전체 모드 삭제 |
-> | ------------- | ----------- |
-> | hubs | 예 |
-> | hubs/authorizationPolicies | 아니요 |
-> | hubs/connectors | 아니요 |
-> | hubs/connectors/mappings | 아니요 |
-> | hubs/interactions | 아니요 |
-> | hubs/kpi | 아니요 |
-> | hubs/links | 아니요 |
-> | hubs/profiles | 아니요 |
-> | hubs/roleAssignments | 아니요 |
-> | hubs/roles | 아니요 |
-> | hubs/suggestTypeSchema | 아니요 |
-> | hubs/views | 아니요 |
-> | hubs/widgetTypes | 아니요 |
-
 ## <a name="microsoftcustomerlockbox"></a>Microsoft.CustomerLockbox
 
 > [!div class="mx-tableFixed"]
@@ -813,15 +825,12 @@ ms.locfileid: "70194403"
 > | ------------- | ----------- |
 > | catalogs | 예 |
 > | datacatalogs | 예 |
+> | datacatalogs/데이터 원본 | 아니요 |
+> | datacatalogs/데이터 원본/검색 | 아니요 |
+> | datacatalogs/데이터 원본/검색/데이터 집합 | 아니요 |
+> | datacatalogs/데이터 원본/검색/트리거 | 아니요 |
 > | datacatalogs/scantargets | 아니요 |
 > | datacatalogs/scantargets/데이터 집합 | 아니요 |
-
-## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
-
-> [!div class="mx-tableFixed"]
-> | 리소스 형식 | 전체 모드 삭제 |
-> | ------------- | ----------- |
-> | connectionManagers | 예 |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
@@ -940,7 +949,6 @@ ms.locfileid: "70194403"
 > | ------------- | ----------- |
 > | applicationgroups | 예 |
 > | applicationgroups/응용 프로그램 | 아니요 |
-> | applicationgroups/assignedusers | 아니요 |
 > | applicationgroups/startmenuitems | 아니요 |
 > | hostpools | 예 |
 > | hostpools/sessionhosts | 아니요 |
@@ -953,7 +961,7 @@ ms.locfileid: "70194403"
 > [!div class="mx-tableFixed"]
 > | 리소스 형식 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | ElasticPools | 예 |
+> | elasticPools | 예 |
 > | ElasticPools/IotHubTenants | 예 |
 > | IotHubs | 예 |
 > | IotHubs/eventGridFilters | 아니요 |
@@ -1085,6 +1093,7 @@ ms.locfileid: "70194403"
 > [!div class="mx-tableFixed"]
 > | 리소스 형식 | 전체 모드 삭제 |
 > | ------------- | ----------- |
+> | autoManagedVmConfigurationProfiles | 예 |
 > | guestConfigurationAssignments | 아니요 |
 > | software | 아니요 |
 > | softwareUpdateProfile | 아니요 |
@@ -1211,6 +1220,7 @@ ms.locfileid: "70194403"
 > | hostingEnvironments | 예 |
 > | integrationAccounts | 예 |
 > | integrationServiceEnvironments | 예 |
+> | integrationServiceEnvironments/managedApis | 예 |
 > | isolatedEnvironments | 예 |
 > | workflows | 예 |
 
@@ -1238,13 +1248,6 @@ ms.locfileid: "70194403"
 > | ------------- | ----------- |
 > | ID | 아니요 |
 > | userAssignedIdentities | 예 |
-
-## <a name="microsoftmanagedlab"></a>Microsoft.ManagedLab
-
-> [!div class="mx-tableFixed"]
-> | 리소스 형식 | 전체 모드 삭제 |
-> | ------------- | ----------- |
-> | labaccounts | 예 |
 
 ## <a name="microsoftmanagedservices"></a>Microsoft ManagedServices
 
@@ -1352,8 +1355,11 @@ ms.locfileid: "70194403"
 > [!div class="mx-tableFixed"]
 > | 리소스 형식 | 전체 모드 삭제 |
 > | ------------- | ----------- |
+> | holographicsBroadcastAccounts | 예 |
+> | objectUnderstandingAccounts | 예 |
 > | remoteRenderingAccounts | 예 |
 > | spatialAnchorsAccounts | 예 |
+> | surfaceReconstructionAccounts | 예 |
 
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 
@@ -1474,6 +1480,7 @@ ms.locfileid: "70194403"
 > [!div class="mx-tableFixed"]
 > | 리소스 형식 | 전체 모드 삭제 |
 > | ------------- | ----------- |
+> | clusters | 예 |
 > | 디바이스 | 아니요 |
 > | linkTargets | 아니요 |
 > | storageInsightConfigs | 아니요 |
@@ -1500,6 +1507,8 @@ ms.locfileid: "70194403"
 > | legacyPeerings | 아니요 |
 > | peerAsns | 아니요 |
 > | 피어링 | 예 |
+> | peeringServiceProviders | 아니요 |
+> | peeringServices | 예 |
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 
@@ -1625,7 +1634,6 @@ ms.locfileid: "70194403"
 > [!div class="mx-tableFixed"]
 > | 리소스 형식 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | 흐름 | 예 |
 > | jobcollections | 예 |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
@@ -1660,6 +1668,7 @@ ms.locfileid: "70194403"
 > | iotSecuritySolutions/analyticsModels/aggregatedAlerts | 아니요 |
 > | iotSecuritySolutions/analyticsModels/aggregatedRecommendations | 아니요 |
 > | jitNetworkAccessPolicies | 아니요 |
+> | Networkdata.xml | 아니요 |
 > | playbookConfigurations | 예 |
 > | 정책 | 아니요 |
 > | pricings | 아니요 |
@@ -1692,6 +1701,7 @@ ms.locfileid: "70194403"
 > | ------------- | ----------- |
 > | 집계 | 아니요 |
 > | alertRules | 아니요 |
+> | alertRuleTemplates | 아니요 |
 > | 내부의 | 아니요 |
 > | cases | 아니요 |
 > | dataConnectors | 아니요 |
@@ -1813,6 +1823,7 @@ ms.locfileid: "70194403"
 > | servers/restorableDroppedDatabases | 아니요 |
 > | servers/serviceobjectives | 아니요 |
 > | servers/tdeCertificates | 아니요 |
+> | virtualClusters | 아니요 |
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 
@@ -1910,6 +1921,7 @@ ms.locfileid: "70194403"
 > | ------------- | ----------- |
 > | cancel | 아니요 |
 > | CreateSubscription | 아니요 |
+> | 사용 | 아니요 |
 > | 이름 바꾸기 | 아니요 |
 > | SubscriptionDefinitions | 아니요 |
 > | SubscriptionOperations | 아니요 |

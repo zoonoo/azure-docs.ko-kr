@@ -7,14 +7,14 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 08/15/2019
 ms.author: v-qiwe
-ms.openlocfilehash: 2d23b2b39844d48c6414d269f8d69d7b96fff272
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 13a7769e310bcd0cb28eddbf9dded3fe1d62eec7
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860296"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993675"
 ---
-# <a name="publishing-integrated-solutions"></a>게시 통합 솔루션
+# <a name="publishing-integrated-solutions"></a>통합 솔루션 게시
 
 통합 솔루션은 si (시스템 통합자)의 배포 및 서비스와 함께 SI (시스템 통합자)의 배포 및 서비스와 함께, SI에서 [컨설팅 서비스 제품으로 제공](https://docs.microsoft.com/azure/marketplace/consulting-services)되는 단일 번들로 제공 되는 여러 ISV 지점 솔루션 기술을 함께 결합 합니다.
 
@@ -89,5 +89,9 @@ ms.locfileid: "70860296"
 ## <a name="going-to-market-with-your-integrated-solution"></a>통합 솔루션으로 출시 
 
 솔루션이 Azure Marketplace 또는 AppSource에 살고 있으면 마케팅 활동을 통해 인식 및 수요 생성을 유도 하는 것이 좋습니다. 파트너가 자신의 팀 내에서 서로 연결할 수 있는 작업을 포함 하 여 [프로젝트 계획 및 타임 라인](https://aka.ms/AA5qiuc)에 나열 된 작업을 검토 합니다. 그런 다음 marketplace에 게시 한 파트너에 게 제공 되는 [시장 출시 혜택](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#list-trial-and-consulting-benefits) 에 액세스 하세요. 모든 통합 솔루션 제품은 평가판 수준의 혜택을 받을 자격이 있습니다.
+
+## <a name="next-steps"></a>다음 단계
+
+Marketplace에서 통합 솔루션을 구매 하는 방법에 대 한 자세한 내용은 [통합 솔루션](https://docs.microsoft.com/azure/marketplace/integrated-solutions) 을 참조 하세요.
 
 ---

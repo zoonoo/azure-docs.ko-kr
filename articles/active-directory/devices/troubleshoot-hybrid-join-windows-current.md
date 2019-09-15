@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4b0b5bd5972e544c4254ee0f425e27cc8c465f0
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 6d4a0f00c8bcf511f220d3e0df81adac1e9ff0d4
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297584"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995153"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>하이브리드 Azure Active Directory 연결 된 장치 문제 해결 
 
@@ -404,6 +404,9 @@ WamDefaultAuthority: organizations
 - 대체 로그인 ID
 - HTTP 프록시를 찾을 수 없음
 
+## <a name="known-issues"></a>알려진 문제
+- 설정-> 계정-회사 또는 학교에 액세스 > 하는 하이브리드 Azure AD 조인 장치는 모바일 핫스팟 또는 외부 WiFi 네트워크에 연결 된 경우 Azure AD 용과 온-프레미스 AD에 대해 각각 하나씩 두 개의 계정을 표시할 수 있습니다. 이는 UI 문제 이며 기능에 영향을 주지 않습니다. 
+ 
 ## <a name="next-steps"></a>다음 단계
 
 [Dsregcmd.exe 명령을 사용 하 여 장치 문제 해결](troubleshoot-device-dsregcmd.md) 계속

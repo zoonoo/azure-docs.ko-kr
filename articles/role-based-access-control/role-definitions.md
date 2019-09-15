@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/18/2019
+ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 4bf2e057f4c5dad650834f9b42c75be3aedec46e
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 1cd5325be7def4bc631d994f8811734e6c3cf545
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142849"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996428"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Azure 리소스에 대한 역할 정의 이해
 
@@ -213,16 +213,18 @@ REST API에서 데이터 작업을 보고 사용하려면 **api-version** 매개
 
 ## <a name="assignablescopes"></a>AssignableScopes
 
-속성 `AssignableScopes` 은이 역할 정의를 사용할 수 있는 범위 (구독, 리소스 그룹 또는 리소스)를 지정 합니다. 역할을 요구 하는 구독 또는 리소스 그룹 에서만 할당할 수 있도록 하 고 구독 또는 리소스 그룹의 나머지 부분에 대 한 사용자 환경을 복잡 하 게 만들 수 있습니다. 구독, 리소스 그룹 또는 리소스 ID를 적어도 하나 사용해야 합니다.
+속성 `AssignableScopes` 은이 역할 정의를 사용할 수 있는 범위 (관리 그룹, 구독, 리소스 그룹 또는 리소스)를 지정 합니다. 역할을 요구 하는 관리 그룹, 구독 또는 리소스 그룹 에서만 할당에 사용할 수 있도록 설정할 수 있습니다. 하나 이상의 관리 그룹, 구독, 리소스 그룹 또는 리소스 ID를 사용해야 합니다.
 
 기본 제공 역할에는 루트 범위(`"/"`)로 설정된 `AssignableScopes`가 있습니다. 루트 범위는 모든 범위에서 역할을 할당에 사용할 수 있음을 나타냅니다. 유효한 할당 가능한 범위의 예는 다음과 같습니다.
 
-| 시나리오 | 예제 |
+| 역할을 할당에 사용할 수 있습니다. | 예제 |
 |----------|---------|
-| 역할은 단일 구독에 할당할 수 있습니다. | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"` |
-| 역할은 두 개의 구독에 할당할 수 있습니다. | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e", "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"` |
-| 역할은 네트워크 리소스 그룹에만 할당할 수 있습니다. | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network"` |
-| 모든 범위에서 역할을 할당할 수 있습니다 (기본 제공 역할에만 적용 됨). | `"/"` |
+| 구독 하나 사용 | `"/subscriptions/{subscriptionId1}"` |
+| 두 구독 | `"/subscriptions/{subscriptionId1}", "/subscriptions/{subscriptionId2}"` |
+| 네트워크 리소스 그룹 | `"/subscriptions/{subscriptionId1}/resourceGroups/Network"` |
+| 단일 관리 그룹 | `"/providers/Microsoft.Management/managementGroups/{groupId1}"` |
+| 관리 그룹 및 구독 | `"/providers/Microsoft.Management/managementGroups/{groupId1}", /subscriptions/{subscriptionId1}",` |
+| 모든 범위 (기본 제공 역할에만 적용 됨) | `"/"` |
 
 사용자 지정 역할의 `AssignableScopes`에 대한 자세한 내용은 [Azure 리소스에 대한 사용자 지정 역할](custom-roles.md)을 참조하세요.
 

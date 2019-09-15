@@ -8,18 +8,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/06/2019
 ms.author: hrasheed
-ms.openlocfilehash: 489685485af4e3c8868f7e0281d2f81464a166f6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6ce3ff8e00bc92911a7405de1bb0bb7286fb5c15
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066187"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993746"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>컴퓨터에 Jupyter 노트북을 설치하고 HDInsight에서 Apache Spark에 연결
 
 이 문서에서는 Spark Magic을 사용하여 사용자 지정 PySpark(Python용) 및 Apache Spark(Scala용) 커널로 Jupyter Notebook을 설치한 후 해당 노트북을 HDInsight 클러스터에 연결하는 방법을 알아봅니다. 로컬 컴퓨터에 Jupyter를 설치하는 여러 가지 이유와 몇 가지 어려운 문제가 있을 수 있습니다. 이에 대한 자세한 내용은 이 문서의 끝에 있는 [내 컴퓨터에 Jupyter를 설치해야 하는 이유](#why-should-i-install-jupyter-on-my-computer) 섹션을 참조하세요.
 
-Jupyter를 설치 하 고 HDInsight에서 Apache Spark에 연결 하는 데 참여할는 네 가지 주요 단계가 있습니다.
+Jupyter를 설치 하 고 HDInsight에서 Apache Spark에 연결 하는 데는 4 가지 주요 단계가 있습니다.
 
 * Spark 클러스터를 구성 합니다.
 * Jupyter 노트를 설치합니다.
@@ -28,28 +28,28 @@ Jupyter를 설치 하 고 HDInsight에서 Apache Spark에 연결 하는 데 참�
 
 HDInsight 클러스터의 Jupyter Notebook에 사용할 수 있는 사용자 지정 커널 및 Spark Magic에 대한 자세한 내용은 [HDInsight의 Apache Spark Linux 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](apache-spark-jupyter-notebook-kernels.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 여기에 나열된 필수 구성 요소는 Jupyter를 설치하기 위한 것이 아니며 Jupyter 노트북이 설치되면 HDInsight 클러스터를 노트북을 연결하기 위한 것입니다.
 
-* HDInsight의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
+* HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
 ## <a name="install-jupyter-notebook-on-your-computer"></a>컴퓨터에 Jupyter 노트북 설치
 
-Jupyter 노트북을 설치하려면 먼저 Python을 설치해야 합니다. 합니다 [Anaconda 배포](https://www.anaconda.com/download/) Python 및 Jupyter Notebook을 모두 설치 됩니다.
+Jupyter 노트북을 설치하려면 먼저 Python을 설치해야 합니다. [Anaconda 배포](https://www.anaconda.com/download/) 는 Python 및 Jupyter Notebook를 모두 설치 합니다.
 
-사용하는 플랫폼용 [Anaconda 설치 관리자](https://www.anaconda.com/download/) 를 다운로드하고 설치 프로그램을 실행합니다. 설치 마법사를 실행하는 동안 PATH 변수에 Anaconda를 추가하는 옵션을 선택해야 합니다.  도 참조 하세요 [Anaconda를 사용 하 여 Jupyter 설치](https://jupyter.readthedocs.io/en/latest/install.html)합니다.
+사용하는 플랫폼용 [Anaconda 설치 관리자](https://www.anaconda.com/download/) 를 다운로드하고 설치 프로그램을 실행합니다. 설치 마법사를 실행하는 동안 PATH 변수에 Anaconda를 추가하는 옵션을 선택해야 합니다.  또한 Anaconda를 [사용 하 여 Jupyter 설치](https://jupyter.readthedocs.io/en/latest/install.html)를 참조 하세요.
 
 ## <a name="install-spark-magic"></a>Spark magic 설치
 
-1. Spark magic 설치를 아래 명령 중 하나를 입력 합니다. 도 참조 하세요 [sparkmagic 설명서](https://github.com/jupyter-incubator/sparkmagic#installation)합니다.
+1. 아래 명령 중 하나를 입력 하 여 Spark magic을 설치 합니다. 또한 [sparkmagic 설명서](https://github.com/jupyter-incubator/sparkmagic#installation)를 참조 하세요.
 
-    |클러스터 버전 | 명령을 설치 합니다. |
+    |클러스터 버전 | Install 명령 |
     |---|---|
-    |v3.5 및 v3.6의 경우 |`pip install sparkmagic==0.12.7`|
+    |v 3.6 및 v 3.5 |`pip install sparkmagic==0.12.7`|
     |v3.4|`pip install sparkmagic==0.2.3`|
 
-1. 확인 `ipywidgets` 다음 명령을 실행 하 여 제대로 설치 되어 있습니다.
+1. 다음 `ipywidgets` 명령을 실행 하 여를 제대로 설치 했는지 확인 합니다.
 
     ```cmd
     jupyter nbextension enable --py --sys-prefix widgetsnbextension
@@ -57,15 +57,15 @@ Jupyter 노트북을 설치하려면 먼저 Python을 설치해야 합니다. �
 
 ## <a name="install-pyspark-and-spark-kernels"></a>PySpark 및 Spark 커널 설치
 
-1. 위치를 식별 `sparkmagic` 다음 명령을 입력 하 여 설치 됩니다.
+1. 다음 명령을 `sparkmagic` 입력 하 여가 설치 되는 위치를 식별 합니다.
 
     ```cmd
     pip show sparkmagic
     ```
 
-    다음 위의 명령을 사용 하 여 식별 된 위치에 작업 디렉터리를 변경 합니다.
+    그런 다음 작업 디렉터리를 위 명령으로 식별 된 위치로 변경 합니다.
 
-1. 새 작업 디렉터리에서 하나 이상의 원하는 kernel(s)를 설치 하려면 아래 명령을 입력 합니다.
+1. 새 작업 디렉터리에서 아래 명령을 하나 이상 입력 하 여 원하는 커널을 설치 합니다.
 
     |커널 | 명령 |
     |---|---|
@@ -82,7 +82,7 @@ Jupyter 노트북을 설치하려면 먼저 Python을 설치해야 합니다. �
 
 ## <a name="configure-spark-magic-to-connect-to-hdinsight-spark-cluster"></a>HDInsight Spark 클러스터에 연결하도록 Spark Magic 구성
 
-이 섹션에서는 Apache Spark 클러스터에 연결 하려면 이전에 설치한 Spark magic를 구성 합니다.
+이 섹션에서는 이전에 설치한 Spark magic을 구성 하 여 Apache Spark 클러스터에 연결 합니다.
 
 1. 다음 명령을 사용 하 여 Python 셸을 시작 합니다.
 
@@ -90,7 +90,7 @@ Jupyter 노트북을 설치하려면 먼저 Python을 설치해야 합니다. �
     python
     ```
 
-2. Jupyter 구성 정보는 일반적으로 사용자 홈 디렉터리에 저장됩니다. 홈 디렉터리를 식별 하려면 다음 명령을 입력 하 고 라는 폴더를 만듭니다 **.sparkmagic**합니다.  전체 경로 출력 합니다.
+2. Jupyter 구성 정보는 일반적으로 사용자 홈 디렉터리에 저장됩니다. 다음 명령을 입력 하 여 홈 디렉터리를 식별 하 고 **sparkmagic**라는 폴더를 만듭니다.  전체 경로가 출력 됩니다.
 
     ```python
     import os
@@ -100,7 +100,7 @@ Jupyter 노트북을 설치하려면 먼저 Python을 설치해야 합니다. �
     exit()
     ```
 
-3. 폴더 내의 `.sparkmagic`, 라는 파일을 만듭니다 **config.json** 및 그 안에 다음 JSON 코드 조각을 추가 합니다.  
+3. 폴더 `.sparkmagic`내에서 **app.config** 라는 파일을 만들고 그 안에 다음 json 코드 조각을 추가 합니다.  
 
     ```json
     {
@@ -122,16 +122,16 @@ Jupyter 노트북을 설치하려면 먼저 Python을 설치해야 합니다. �
     }
     ```
 
-4. 파일에 다음 편집을 확인 합니다.
+4. 파일을 다음과 같이 편집 합니다.
 
     |템플릿 값 | 새 값 |
     |---|---|
-    |{USERNAME}|클러스터 로그인 기본값은 `admin`합니다.|
-    |{CLUSTERDNSNAME}|클러스터 이름|
-    |{BASE64ENCODEDPASSWORD}|Base64 인코딩된 실제 암호에 대 한 암호입니다.  base64 암호를 생성할 수 있습니다 [ https://www.url-encode-decode.com/base64-encode-decode/ ](https://www.url-encode-decode.com/base64-encode-decode/)합니다.|
-    |`"livy_server_heartbeat_timeout_seconds": 60`|사용 하는 경우 유지 `sparkmagic 0.12.7` (v3.5 및 v3.6 클러스터).  사용 하는 경우 `sparkmagic 0.2.3` (v3.4 클러스터)를 사용 하 여 대체 `"should_heartbeat": true`합니다.|
+    |이름|클러스터 로그인 이며 기본값은 `admin`입니다.|
+    |CLUSTERDNSNAME|클러스터 이름|
+    |{BASE64ENCODEDPASSWORD}|실제 암호에 대 한 base64 인코딩 암호입니다.  에서 [https://www.url-encode-decode.com/base64-encode-decode/](https://www.url-encode-decode.com/base64-encode-decode/)base64 암호를 생성할 수 있습니다.|
+    |`"livy_server_heartbeat_timeout_seconds": 60`|을 사용 하 `sparkmagic 0.12.7` 는 경우 유지 합니다 (클러스터 v1.0 및 v 3.6).  (클러스터 `sparkmagic 0.2.3` v 3.4)를 사용 하는 경우 `"should_heartbeat": true`를로 바꿉니다.|
 
-    전체 예제 파일을 볼 수 있습니다 [샘플 config.json](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json)합니다.
+    [샘플 app.config](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json)에서 전체 예제 파일을 볼 수 있습니다.
 
    > [!TIP]  
    > 세션이 유출되지 않도록 하트 비트가 전송됩니다. 컴퓨터가 절전 모드로 전환되거나 종료되면, 하트비트가 전송되지 않으므로 세션이 삭제됩니다. 클러스터 v3.4의 경우, 이 동작을 사용하지 않도록 설정하려면 Ambari UI에서 Livy 구성 `livy.server.interactive.heartbeat.timeout`를 `0`로 설정할 수 있습니다. 클러스터 v 3.5의 경우, 위의 3.5 구성을 설정하지 않으면 세션이 삭제되지 않습니다.
@@ -142,14 +142,14 @@ Jupyter 노트북을 설치하려면 먼저 Python을 설치해야 합니다. �
     jupyter notebook
     ```
 
-6. 와 커널에서 사용 가능한 Spark magic을 사용할 수 있는 것을 확인 합니다. 다음 단계를 수행합니다.
+6. 커널을 사용할 수 있는 Spark magic을 사용할 수 있는지 확인 합니다. 다음 단계를 수행합니다.
 
-    a. 새 Notebook을 만듭니다. 오른쪽 모서리에서 선택 **새로 만들기**합니다. 기본 커널 나타납니다 **Python 2** 또는 **Python 3** 및 설치한 커널을 합니다. 실제 값은 선택한 설치에 따라 달라질 수 있습니다.  선택 **PySpark**합니다.
+    a. 새 Notebook을 만듭니다. 오른쪽 모서리에서 **새로 만들기**를 선택 합니다. 기본 커널 **python 2** 또는 **python 3** 및 사용자가 설치한 커널을 표시 되어야 합니다. 실제 값은 설치 선택 사항에 따라 달라질 수 있습니다.  **PySpark**를 선택 합니다.
 
-    ![Jupyter 노트북의 커널](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels.png "Jupyter 노트북의 커널")
+    ![Jupyter 노트북의 커널](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Jupyter 노트북의 커널")
 
     > [!IMPORTANT]  
-    > 선택한 후 **새로 만들기** 셸을 오류를 검토 합니다.  오류를 표시 하는 경우 `TypeError: __init__() got an unexpected keyword argument 'io_loop'` 토네이도의 특정 버전의 알려진된 문제가 발생할 수 있습니다.  그렇다면 커널을 중지 하 고 다음 명령 사용 하 여 토네이도 설치 다운 그레이드: `pip install tornado==4.5.3`합니다.
+    > **새로 만들기** 를 선택한 후 오류에 대 한 셸을 검토 합니다.  오류가 `TypeError: __init__() got an unexpected keyword argument 'io_loop'` 표시 되는 경우 특정 버전의 토네이도에서 알려진 문제가 발생할 수 있습니다.  그렇다면 커널을 중지 한 후 다음 명령을 `pip install tornado==4.5.3`사용 하 여 토네이도 설치를 다운 그레이드 합니다.
 
     b. 다음 코드 조각을 실행합니다.
 
@@ -160,7 +160,7 @@ Jupyter 노트북을 설치하려면 먼저 Python을 설치해야 합니다. �
 
     출력을 검색할 수 있으면 HDInsight 클러스터에 대한 연결이 테스트됩니다.
 
-    다른 클러스터에 연결 하도록 노트북 구성을 업데이트 하려는 경우는 위의 3 단계에서에서 값의 새 집합으로 config.json을를 업데이트 합니다.
+    다른 클러스터에 연결 하도록 노트북 구성을 업데이트 하려는 경우 위의 3 단계와 같이 새 값 집합을 사용 하 여 app.config를 업데이트 합니다.
 
 ## <a name="why-should-i-install-jupyter-on-my-computer"></a>내 컴퓨터에 Jupyter를 설치해야 해야 이유는 무엇인가요?
 

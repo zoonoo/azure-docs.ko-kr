@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: thweiss
-ms.openlocfilehash: 86ac042bdddce36f00be71cc5109618bec909d90
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 60b323c12e5c548c974a7d660d08861637ac2381
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914184"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996676"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책
 
@@ -29,7 +29,7 @@ Azure Cosmos DB는 두 가지 인덱싱 모드를 지원 합니다.
 - **일관성**: 컨테이너의 인덱싱 정책이 일관 되 게 설정 된 경우 항목을 만들거나 업데이트 하거나 삭제 하면 인덱스가 동기적으로 업데이트 됩니다. 즉, 읽기 쿼리의 일관성은 [계정에 대해 구성 된 일관성](consistency-levels.md)이 됩니다.
 - **없음**: 컨테이너의 인덱싱 정책을 None으로 설정 하면 해당 컨테이너에서 인덱싱이 효과적으로 비활성화 됩니다. 이는 컨테이너를 보조 인덱스가 없어도 순수 키-값 저장소로 사용할 때 일반적으로 사용 됩니다. 대량 삽입 작업의 속도를 높일 수도 있습니다.
 
-또한 인덱싱 정책에서 **자동** 속성을 **true**로 설정 해야 합니다. 이 속성을 true로 설정 하면 Azure Cosmos DB 작성 된 문서를 자동으로 인덱싱할 수 있습니다.
+기본적으로 인덱싱 정책은로 `automatic`설정 됩니다. 인덱싱 정책에서 `automatic` 속성을로 `true`설정 하 여 구현 합니다. 이 속성을로 `true` 설정 하면 Azure CosmosDB가 작성 된 문서를 자동으로 인덱싱할 수 있습니다.
 
 ## <a name="including-and-excluding-property-paths"></a>속성 경로 포함 및 제외
 
