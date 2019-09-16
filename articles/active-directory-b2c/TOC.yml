@@ -226,7 +226,7 @@
               href: active-directory-b2c-troubleshoot-custom.md
             - name: 정책 유효성 검사
               href: active-directory-b2c-guide-troubleshooting-custom.md
-        - name: 사용 현황 분석
+        - name: 사용량 현황 분석
           href: active-directory-b2c-custom-guide-eventlogger-appins.md
         - name: 참고 자료
           items:

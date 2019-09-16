@@ -74,7 +74,7 @@ ms.locfileid: "70073815"
 | header-name                | 확인할 HTTP 헤더의 이름입니다.                                                                                                                                  | 예      | 해당 사항 없음     |
 | ignore-case                | True 또는 False로 설정할 수 있습니다. True로 설정되면 헤더 값을 허용 가능한 값 집합과 비교할 때 대소문자가 무시됩니다.                                    | 예      | N/A     |
 
-### <a name="usage"></a>사용 현황
+### <a name="usage"></a>사용
 
 이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
 
@@ -134,7 +134,7 @@ ms.locfileid: "70073815"
 | calls          | `renewal-period`에 지정된 시간 간격 동안 허용된 전체 최대 호출 수입니다. | 예      | N/A     |
 | renewal-period | 할당량이 재설정되는 초 단위의 기간입니다.                                              | 예      | 해당 사항 없음     |
 
-### <a name="usage"></a>사용 현황
+### <a name="usage"></a>사용
 
 이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
 
@@ -198,7 +198,7 @@ ms.locfileid: "70073815"
 | increment-condition | 요청을 할당량에 포함할지를 지정하는 부울 식입니다(`true`).        | 아니요       | N/A     |
 | renewal-period      | 할당량이 재설정되는 초 단위의 기간입니다.                                              | 예      | 해당 사항 없음     |
 
-### <a name="usage"></a>사용 현황
+### <a name="usage"></a>사용
 
 이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
 
@@ -245,7 +245,7 @@ ms.locfileid: "70073815"
 | address-range from="address" to="address" | 액세스를 허용 또는 거부할 IP 주소 범위                                        | `address-range` 요소가 사용될 때 필요합니다. | 해당 사항 없음     |
 | ip-filter action="allow &#124; forbid"    | 지정된 IP 주소 및 범위에 대해 호출을 허용해야 할지 여부를 지정합니다. | 예                                                | N/A     |
 
-### <a name="usage"></a>사용 현황
+### <a name="usage"></a>사용
 
 이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
 
@@ -302,7 +302,7 @@ ms.locfileid: "70073815"
 | calls          | `renewal-period`에 지정된 시간 간격 동안 허용된 전체 최대 호출 수입니다.     | `calls`, `bandwidth` 또는 둘 다 함께 지정해야 합니다. | 해당 사항 없음     |
 | renewal-period | 할당량이 재설정되는 초 단위의 기간입니다.                                                  | 예                                                              | N/A     |
 
-### <a name="usage"></a>사용 현황
+### <a name="usage"></a>사용
 
 이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
 
@@ -363,7 +363,7 @@ ms.locfileid: "70073815"
 | increment-condition | 요청을 할당량에 포함할지를 지정하는 부울 식입니다(`true`).             | 아니요                                                               | 해당 사항 없음     |
 | renewal-period      | 할당량이 재설정되는 초 단위의 기간입니다.                                                  | 예                                                              | 해당 사항 없음     |
 
-### <a name="usage"></a>사용 현황
+### <a name="usage"></a>사용
 
 이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
 
@@ -550,7 +550,7 @@ ms.locfileid: "70073815"
 | url                             | Open ID 구성 메타데이터를 가져올 수 있는 Open ID 구성 엔드포인트 URL입니다. 응답은 URL `https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`에서 정의된 사양을 따라야 합니다. Azure Active Directory의 경우 다음 URL을 사용합니다. `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` 여기서 사용자의 디렉터리 테넌트 이름을 대체합니다(예: `contoso.onmicrosoft.com`). | 예                                                                              | N/A                                                                               |
 output-token-variable-name|문자열. 토큰 유효성 검사가 성공 했을 때 형식의 [`Jwt`](api-management-policy-expressions.md) 개체로 토큰 값을 받는 컨텍스트 변수의 이름입니다.|아니요|N/A
 
-### <a name="usage"></a>사용 현황
+### <a name="usage"></a>사용
 
 이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
 

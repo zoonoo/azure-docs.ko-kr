@@ -59,7 +59,7 @@ ms.locfileid: "70073731"
 |username|기본 자격 증명의 사용자 이름을 지정합니다.|예|해당 사항 없음|
 |password|기본 자격 증명의 비밀번호를 지정합니다.|예|해당 사항 없음|
 
-### <a name="usage"></a>사용 현황
+### <a name="usage"></a>사용
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
 
 -   **정책 섹션:** inbound
@@ -99,7 +99,7 @@ ms.locfileid: "70073731"
 |thumbprint|클라이언트 인증서에 대한 지문입니다.|`thumbprint` 또는`certificate-id` 중 하나를 제공 해야 합니다.|해당 사항 없음|  
 |인증서 id|인증서 리소스 이름입니다.|`thumbprint` 또는`certificate-id` 중 하나를 제공 해야 합니다.|해당 사항 없음|  
   
-### <a name="usage"></a>사용 현황  
+### <a name="usage"></a>사용  
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
   
 -   **정책 섹션:** inbound  

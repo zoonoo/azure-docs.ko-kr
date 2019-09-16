@@ -177,7 +177,7 @@ CORS를 통해 브라우저와 서버가 상호 작용하여 특정 원본 간 �
 |----------|-----------------|--------------|-------------|
 |callback-parameter-name|함수가 상주하는 정규화된 도메인 이름이 접두사로 지정된 도메인 간 JavaScript 함수 호출|예|해당 사항 없음|
 
-### <a name="usage"></a>사용 현황
+### <a name="usage"></a>사용
 이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
 
 - **정책 섹션:** outbound

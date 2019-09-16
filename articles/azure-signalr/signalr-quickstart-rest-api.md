@@ -97,7 +97,7 @@ dotnet run -- client <ClientName> -c "<ConnectionString>" -h <HubName>
 
 샘플의 루트 디렉터리에서 `dotnet user-secrets set Azure:SignalR:ConnectionString "<ConnectionString>"`을 실행할 수 있습니다. 그 뒤에는 `-c "<ConnectionString>"` 옵션이 더 이상 필요하지 않습니다.
 
-## <a name="usage"></a>사용 현황
+## <a name="usage"></a>사용
 
 서버가 시작된 후에 명령을 사용하여 메시지를 보냅니다.
 

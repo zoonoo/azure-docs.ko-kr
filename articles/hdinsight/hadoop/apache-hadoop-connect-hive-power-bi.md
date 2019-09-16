@@ -23,7 +23,7 @@ Apache Hive 데이터 시각화 하 고 ODBC를 사용 하 여 Azure HDInsight�
 >[!IMPORTANT]
 > Hive ODBC 드라이버를 활용하여 Power BI Desktop에서 제네릭 ODBC 커넥터를 통해 가져오기를 수행할 수 있습니다. 그러나 BI 워크로드의 경우 Hive 쿼리 엔진의 비대화형 특성을 지정하지 않는 것이 좋습니다. 성능을 개선하기 위해 [대화형 쿼리 HDInsight 커넥터](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md) 및 [HDInsight Spark 커넥터](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect)를 선택할 수 있습니다.
 
-이 문서에서 데이터 로드는 `hivesampletable` Power BI로 Hive 테이블. Hive 테이블에는 일부 휴대폰 사용 현황 데이터가 포함되어 있습니다. 그런 다음 전 세계 맵에 사용 현황 데이터를 그림으로 나타냅니다.
+이 문서에서 데이터 로드는 `hivesampletable` Power BI로 Hive 테이블. Hive 테이블에는 일부 휴대폰 사용량 현황 데이터가 포함되어 있습니다. 그런 다음 전 세계 맵에 사용량 현황 데이터를 그림으로 나타냅니다.
 
 ![HDInsight Power BI 맵 보고서](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-visualization.png)
 

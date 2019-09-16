@@ -564,7 +564,7 @@ Azure Premium Storage는 다음을 제공하는 것을 목표로 도입되었습
 
 이를 위해 여러 가지 사항이 변경되었으며, 그 중에서 가장 중요한 두 가지 변경 사항은 다음과 같습니다.
 
-* Azure Storage 노드에 SSD 디스크 사용
+* Azure Storage 노드에 SSD 디스크 사용량
 * Azure 컴퓨팅 노드의 로컬 SSD에서 지원하는 새 캐시 읽기
 
 해당 기능이 디스크(또는 VHD)의 크기에 따라 달라지지 않는 Standard Storage와 달리, Premium Storage에는 <https://azure.microsoft.com/pricing/details/storage/unmanaged-disks/> 문서에 나와 있는 각기 다른 세 가지 디스크 범주가 있습니다.

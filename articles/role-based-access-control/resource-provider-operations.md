@@ -1232,7 +1232,7 @@ ms.locfileid: "70114679"
 > | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 액션(Action) | Microsoft.Commerce/RateCard/read | 지정된 구독에 대한 제안 데이터, 리소스/미터 메타데이터 및 요율을 제공합니다. |
-> | 액션(Action) | Microsoft.Commerce/UsageAggregates/read | 구독별 Microsoft Azure 소비를 검색합니다. 결과에는 특정 시간 범위의 집계 사용 현황 데이터, 구독 및 리소스 관련 정보가 포함됩니다. |
+> | 액션(Action) | Microsoft.Commerce/UsageAggregates/read | 구독별 Microsoft Azure 소비를 검색합니다. 결과에는 특정 시간 범위의 집계 사용량 현황 데이터, 구독 및 리소스 관련 정보가 포함됩니다. |
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
@@ -1563,11 +1563,11 @@ ms.locfileid: "70114679"
 > | 작업 | Microsoft.CostManagement/externalBillingAccounts/read | 인증 된 사용자에 대 한 externalBillingAccounts를 나열 합니다. |
 > | 작업 | Microsoft.CostManagement/externalSubscriptions/read | 인증 된 사용자에 대 한 externalSubscriptions을 나열 합니다. |
 > | 작업 | Microsoft.CostManagement/externalSubscriptions/write | ExternalSubscription의 연결 된 관리 그룹 업데이트 |
-> | 동작 | Microsoft.CostManagement/query/action | 범위별 사용 현황 데이터를 쿼리합니다. |
-> | 작업 | Microsoft.CostManagement/query/read | 범위별 사용 현황 데이터를 쿼리합니다. |
+> | 동작 | Microsoft.CostManagement/query/action | 범위별 사용량 현황 데이터를 쿼리합니다. |
+> | 작업 | Microsoft.CostManagement/query/read | 범위별 사용량 현황 데이터를 쿼리합니다. |
 > | 작업 | Microsoft.CostManagement/register/action | 구독에의 한 CostManagement 범위에 대 한 작업을 등록 합니다. |
-> | 작업 | Microsoft.CostManagement/reports/action | 범위별 사용 현황 데이터에 관한 보고서를 예약합니다. |
-> | 작업 | Microsoft.CostManagement/reports/read | 범위별 사용 현황 데이터에 관한 보고서를 예약합니다. |
+> | 작업 | Microsoft.CostManagement/reports/action | 범위별 사용량 현황 데이터에 관한 보고서를 예약합니다. |
+> | 작업 | Microsoft.CostManagement/reports/read | 범위별 사용량 현황 데이터에 관한 보고서를 예약합니다. |
 > | 작업 | Microsoft.CostManagement/tenants/register/action | CostManagement의 범위에 대 한 작업을 테 넌 트에 등록 합니다. |
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
@@ -4286,7 +4286,7 @@ ms.locfileid: "70114679"
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/read | 스토리지 구성을 가져옵니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/write | 새 스토리지 구성을 만듭니다. 이러한 구성은 기존 스토리지 계정의 위치에서 데이터를 가져오는 데 사용됩니다. |
 > | 작업 | Microsoft.OperationalInsights/workspaces/upgradetranslationfailures/read | 작업 영역에 대한 검색 업그레이드 변환 오류 로그를 가져옵니다. |
-> | 동작 | Microsoft.OperationalInsights/workspaces/usages/read | 작업 영역에서 읽는 데이터 양을 포함하여 작업 영역에 대한 사용 현황 데이터를 가져옵니다. |
+> | 동작 | Microsoft.OperationalInsights/workspaces/usages/read | 작업 영역에서 읽는 데이터 양을 포함하여 작업 영역에 대한 사용량 현황 데이터를 가져옵니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/write | 새 작업 영역을 만들거나 기존 작업 영역의 고객 ID를 제공하여 기존 작업 영역에 연결합니다. |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement

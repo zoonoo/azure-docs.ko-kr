@@ -189,7 +189,7 @@ ms.locfileid: "70072618"
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | duration         | 캐시된 항목의 TTL(Time-to-Live)로 초 단위로 지정합니다.                                                                                                                                                                                                                                                                                                   | 예      | 해당 사항 없음               |
 
-### <a name="usage"></a>사용 현황
+### <a name="usage"></a>사용
 이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
 
 - **정책 섹션:** outbound
@@ -235,7 +235,7 @@ ms.locfileid: "70072618"
 | Key              | 조회에 사용할 캐시 키 값입니다.                                                                                                                                                                                                                                                                                                                       | 예      | N/A               |
 | variable-name    | 조회에 성공한 경우 조회된 값이 할당될 [컨텍스트 변수](api-management-policy-expressions.md#ContextVariables)의 이름입니다. 조회 시 누락 항목이 있는 경우 변수에 `default-value` 특성 또는 `null`(`default-value` 특성이 생략된 경우)이 할당됩니다.                                       | 예      | 해당 사항 없음               |
 
-### <a name="usage"></a>사용 현황
+### <a name="usage"></a>사용
 이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
 
 - **정책 섹션:** inbound, outbound, backend, on-error
@@ -277,7 +277,7 @@ ms.locfileid: "70072618"
 | duration         | 제공된 기간 값 동안 값(초 단위로 지정)이 캐시됩니다.                                                                                                                                                                                                                                                                                 | 예      | N/A               |
 | Key              | 값을 저장할 캐시 키입니다.                                                                                                                                                                                                                                                                                                                   | 예      | N/A               |
 | value            | 캐시될 값입니다.                                                                                                                                                                                                                                                                                                                                     | 예      | 해당 사항 없음               |
-### <a name="usage"></a>사용 현황
+### <a name="usage"></a>사용
 이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
 
 - **정책 섹션:** inbound, outbound, backend, on-error

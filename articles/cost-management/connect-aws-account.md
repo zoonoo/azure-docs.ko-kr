@@ -1,6 +1,6 @@
 ---
 title: Azure의 Cloudyn에 Amazon Web Services 계정 연결 | Microsoft Docs
-description: Cloudyn 보고서에서 비용 및 사용 현황 데이터를 보려면 Amazon Web Services 계정을 연결합니다.
+description: Cloudyn 보고서에서 비용 및 사용량 현황 데이터를 보려면 Amazon Web Services 계정을 연결합니다.
 services: cost-management
 keywords: ''
 author: bandersmsft
@@ -19,7 +19,7 @@ ms.locfileid: "66002154"
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Amazon Web Services 계정 연결
 
-AWS(Amazon Web Services)를 Cloudyn에 연결하는 옵션은 두 가지입니다. IAM 역할 또는 읽기 전용 IAM 사용자 계정으로 연결할 수 있습니다. 정의된 권한이 포함된 액세스 권한을 신뢰할 수 있는 엔터티에 위임할 수 있으므로 IAM 역할을 사용하는 것이 좋습니다. IAM 역할은 장기 액세스 키를 공유하지 않아도 됩니다. AWS 계정을 Cloudyn에 연결하면 Cloudyn 보고서에서 비용 및 사용 현황 데이터를 볼 수 있습니다. 이 문서에서는 두 가지 옵션을 모두 안내합니다.
+AWS(Amazon Web Services)를 Cloudyn에 연결하는 옵션은 두 가지입니다. IAM 역할 또는 읽기 전용 IAM 사용자 계정으로 연결할 수 있습니다. 정의된 권한이 포함된 액세스 권한을 신뢰할 수 있는 엔터티에 위임할 수 있으므로 IAM 역할을 사용하는 것이 좋습니다. IAM 역할은 장기 액세스 키를 공유하지 않아도 됩니다. AWS 계정을 Cloudyn에 연결하면 Cloudyn 보고서에서 비용 및 사용량 현황 데이터를 볼 수 있습니다. 이 문서에서는 두 가지 옵션을 모두 안내합니다.
 
 AWS IAM ID에 대한 자세한 내용은 [ID(사용자, 그룹 및 역할)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html)를 참조하세요.
 

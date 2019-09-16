@@ -206,7 +206,7 @@ RBAC에는 권한을 할당하는 데 사용할 수 있는 몇 가지 기본 제
 
 Azure의 중요한 구성 요소 중 하나가 청구 정보를 볼 수 있는 기능입니다. Azure Portal은 Azure 청구에 대한 상세한 정보를 제공합니다.
 
-자세한 내용은 [Azure 청구 송장 및 일간 사용 현황 데이터를 다운로드하는 방법](../../billing/billing-download-azure-invoice-daily-usage-date.md)을 참조하세요.
+자세한 내용은 [Azure 청구 송장 및 일간 사용량 현황 데이터를 다운로드하는 방법](../../billing/billing-download-azure-invoice-daily-usage-date.md)을 참조하세요.
 
 ### <a name="get-billing-information-from-billing-apis"></a>청구 API에서 청구 정보 가져오기
 

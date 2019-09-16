@@ -57,7 +57,7 @@ ms.locfileid: "67537700"
 - Azure Service Fabric 클러스터에 모든 리소스를 배포합니다.
  
 
-## <a name="usage"></a>사용 현황
+## <a name="usage"></a>사용
 
 Maven Java 앱에서 Maven 플러그 인을 사용하려면 pom.xml 파일에 다음 코드 조각을 추가합니다.
 

@@ -29,7 +29,7 @@ Azure Billing API를 사용하여 사용량 및 리소스 데이터를 기본 �
 ## <a name="azure-invoice-download-api-preview"></a>Azure 청구서 다운로드 API(미리 보기)
 [옵트인이 완료되면](billing-manage-access.md#opt-in) 미리 보기 버전의 [청구서 API](/rest/api/billing)를 사용하여 청구서를 다운로드합니다. 기능은 다음과 같습니다.
 
-* **Azure 역할 기반 Access Control** - [Azure Portal](https://portal.azure.com) 또는 [Azure PowerShell cmdlet](/powershell/azure/overview)을 통해 액세스 정책을 구성하여 사용자 또는 애플리케이션이 구독의 사용 현황 데이터에 액세스를 얻도록 지정할 수 있습니다. 호출자가 인증에 대한 표준 Azure Active Directory 토큰을 사용해야 합니다. 호출자가 특정 Azure 구독에 대한 사용 데이터에 액세스하려면 호출자를 청구서 읽기 권한자, 읽기 권한자, 소유자 또는 참가자 역할에 추가해야 합니다.
+* **Azure 역할 기반 Access Control** - [Azure Portal](https://portal.azure.com) 또는 [Azure PowerShell cmdlet](/powershell/azure/overview)을 통해 액세스 정책을 구성하여 사용자 또는 애플리케이션이 구독의 사용 현황 데이터에 액세스를 얻도록 지정할 수 있습니다. 호출자가 인증에 대한 표준 Azure Active Directory 토큰을 사용해야 합니다. 호출자가 특정 Azure 구독에 대한 사용량 현황 데이터에 액세스하려면 호출자를 청구서 읽기 권한자, 읽기 권한자, 소유자 또는 참가자 역할에 추가해야 합니다.
 * **날짜 필터링** - 모든 청구서를 청구일 기간 종료 날짜의 반대 순서로 가져오려면 `$filter` 매개 변수를 사용합니다.
 
 > [!NOTE]
@@ -38,7 +38,7 @@ Azure Billing API를 사용하여 사용량 및 리소스 데이터를 기본 �
 ## <a name="azure-resource-usage-api-preview"></a>Azure 리소스 사용량 API(미리 보기)
 Azure [리소스 사용량 API](/previous-versions/azure/reference/mt219003(v=azure.100))를 사용하여 예상된 Azure 사용량 데이터를 가져올 수 있습니다. API에는 다음이 포함됩니다.
 
-* **Azure 역할 기반 Access Control** - [Azure Portal](https://portal.azure.com) 또는 [Azure PowerShell cmdlet](/powershell/azure/overview)을 통해 액세스 정책을 구성하여 사용자 또는 애플리케이션이 구독의 사용 현황 데이터에 액세스를 얻도록 지정할 수 있습니다. 호출자가 인증에 대한 표준 Azure Active Directory 토큰을 사용해야 합니다. 호출자가 특정 Azure 구독에 대한 사용 데이터에 액세스하려면 호출자를 청구서 읽기 권한자, 읽기 권한자, 소유자 또는 참가자 역할에 추가해야 합니다.
+* **Azure 역할 기반 Access Control** - [Azure Portal](https://portal.azure.com) 또는 [Azure PowerShell cmdlet](/powershell/azure/overview)을 통해 액세스 정책을 구성하여 사용자 또는 애플리케이션이 구독의 사용 현황 데이터에 액세스를 얻도록 지정할 수 있습니다. 호출자가 인증에 대한 표준 Azure Active Directory 토큰을 사용해야 합니다. 호출자가 특정 Azure 구독에 대한 사용량 현황 데이터에 액세스하려면 호출자를 청구서 읽기 권한자, 읽기 권한자, 소유자 또는 참가자 역할에 추가해야 합니다.
 * **매시간 또는 매일 집계** -호출자는 Azure 사용 데이터를 매시간 버킷 또는 매일 버킷으로 할지 지정할 수 있습니다. 기본값은 매일입니다.
 * **인스턴스 메타데이터(리소스 태그 포함)** – 정규화된 리소스 uri(/subscriptions/{subscription-id}/..)와 같은 인스턴스 수준 정보, 리소스 그룹 정보 및 리소스 태그를 가져옵니다. 이 메타데이터를 통해 청구 구간 같은 사용 사례에 대한 태그로 사용을 프로그래밍 방식으로 명확하게 할당할 수 있습니다.
 * **리소스 메타데이터** - 측정기 이름, 측정기 범주, 측정기 하위 범주, 단위 및 하위 지역과 같은 리소스 세부 정보를 통해 호출자는 사용된 것을 더 잘 이해할 수 있습니다. Azure Portal, Azure 사용 CSV, EA 청구 CSV 및 다른 공용 환경을 통해 리소스 메타데이터 용어를 정렬하기 위해 노력하여 환경을 통해 데이터를 서로 연결할 수 있도록 합니다.
@@ -53,7 +53,7 @@ Azure [리소스 사용량 API](/previous-versions/azure/reference/mt219003(v=az
 ## <a name="scenarios"></a>시나리오
 다음은 사용 및 RateCard Api의 조합을 사용하여 가능하게 된 일부 시나리오입니다.
 
-* **해당월 Azure 소비** - 사용 및 RateCard API 조합을 사용하여 해당 월 동안 클라우드 소비에 대한 높은 통찰력을 얻을 수 있습니다. 사용 및 요금 예측량의 매시간 및 매일 버킷을 분석할 수 있습니다.
+* **해당월 Azure 소비** - 사용 및 RateCard API 조합을 사용하여 해당 월 동안 클라우드 소비에 대한 높은 통찰력을 얻을 수 있습니다. 사용량 및 요금 예측량의 매시간 및 매일 버킷을 분석할 수 있습니다.
 * **경고 설정** – 사용 및 RateCard API를 사용하여 예상되는 클라우드 사용량 및 요금을 가져오고 리소스 기반 또는 통화 기반 경로를 설정합니다.
 * **예측 청구** – 예상된 소비량 및 클라우드 소비량을 얻을 수 있으며 청구 주기가 끝날 때 청구를 예측할 기계 학습 알고리즘을 적용합니다.
 * **사전 소비 비용 분석** – RateCard API를 사용하여 워크로드를 Azure에 이동하면 예상 사용량에 대해 얼마가 청구되는지 예측할 수 있습니다. 다른 클라우드 또는 프라이빗 클라우드에 기존 워크로드를 가진 경우 Azure 속도로 사용을 매핑하여 Azure 소비를 더 잘 예측할 수 있습니다. 이러한 예측을 통해 제품을 피벗하고 약정 금액 및 금액 크레딧과 같은 종량제뿐만 아니라 다른 제품 유형 간에 비교 및 대조하는 기능을 제공할 수 있습니다. 또한 API를 사용하면 지역별 비용 차이를 볼 수 있으며 배포 의사 결정에 도움이 되는 가정 비용 분석을 수행할 수 있습니다.

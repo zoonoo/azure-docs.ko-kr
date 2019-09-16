@@ -36,7 +36,7 @@ Monitoring Reader 역할이 할당된 사용자는 구독에서 모든 모니터
 * 자동 크기 조정 설정을 봅니다.
 * 경고 활동 및 설정을 봅니다.
 * Application Insights 데이터에 액세스하고 AI Analytics에서 데이터를 봅니다.
-* 작업 영역에 대한 사용 현황 데이터를 포함하여 Log Analytics 작업 영역 데이터를 검색합니다.
+* 작업 영역에 대한 사용량 현황 데이터를 포함하여 Log Analytics 작업 영역 데이터를 검색합니다.
 * Log Analytics 관리 그룹을 봅니다.
 * Log Analytics 작업 영역에서 검색 스키마를 검색 합니다.
 * Log Analytics 작업 영역에서 모니터링 팩을 나열 합니다.

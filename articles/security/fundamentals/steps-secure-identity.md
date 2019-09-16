@@ -150,7 +150,7 @@ Microsoft Azure 서비스 및 기능은 구성 가능한 보안 감사 및 로�
 
 ### <a name="monitor-azure-ad-connect-health-in-hybrid-environments"></a>하이브리드 환경에서 Azure AD Connect Health 모니터링
 
-[Azure AD Connect Health를 통한 AD FS 모니터링](../../active-directory/hybrid/how-to-connect-health-adfs.md)은 AD FS 인프라에서 잠재적인 문제 및 공격의 시각화에 대한 통찰력을 높여줍니다. Azure AD Connect Health는 세부 정보, 해결 단계 및 인증 트래픽에 관련된 여러 가지 메트릭에 대한 사용 현황 분석, 성능 모니터링 및 보고서와 같은 관련된 문서에 대한 링크를 제공합니다.
+[Azure AD Connect Health를 통한 AD FS 모니터링](../../active-directory/hybrid/how-to-connect-health-adfs.md)은 AD FS 인프라에서 잠재적인 문제 및 공격의 시각화에 대한 통찰력을 높여줍니다. Azure AD Connect Health는 세부 정보, 해결 단계 및 인증 트래픽에 관련된 여러 가지 메트릭에 대한 사용량 현황 분석, 성능 모니터링 및 보고서와 같은 관련된 문서에 대한 링크를 제공합니다.
 
 ![Azure AD Connect Health](./media/steps-secure-identity/azure-ad-sec-steps4.png)
 

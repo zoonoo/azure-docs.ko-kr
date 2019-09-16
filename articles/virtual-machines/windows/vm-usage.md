@@ -23,7 +23,7 @@ ms.lasthandoff: 08/06/2019
 ms.locfileid: "68834597"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Azure Virtual Machine 사용 이해
-Azure 사용 데이터를 분석하면 조직 전체의 비용 관리와 할당을 개선할 수 있는 강력한 소비 통찰력을 확보할 수 있습니다. 이 문서에서는 Azure Compute 소비에 대한 심층적인 세부 정보를 제공합니다. 일반 Azure 사용에 대한 자세한 내용은 [청구서 이해](../../billing/billing-understand-your-bill.md)로 이동합니다.
+Azure 사용량 현황 데이터를 분석하면 조직 전체의 비용 관리와 할당을 개선할 수 있는 강력한 소비 통찰력을 확보할 수 있습니다. 이 문서에서는 Azure Compute 소비에 대한 심층적인 세부 정보를 제공합니다. 일반 Azure 사용에 대한 자세한 내용은 [청구서 이해](../../billing/billing-understand-your-bill.md)로 이동합니다.
 
 ## <a name="download-your-usage-details"></a>사용 세부 정보 다운로드
 먼저 [사용 세부 정보를 다운로드](../../billing/billing-download-azure-invoice-daily-usage-date.md)합니다. 다음 표에서는 Azure Resource Manager를 통해 배포된 Virtual Machines의 정의 및 예제 값을 제공합니다. 이 문서에는 클래식 모델을 통해 배포된 VM에 대한 상세 정보는 없습니다.

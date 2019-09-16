@@ -210,7 +210,7 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 
 #### <a name="header"></a>머리글
 
-| 필드 이름 | 사용 현황 | API 이름 |
+| 필드 이름 | 사용 | API 이름 |
 | --- | --- | --- |
 | durable |- |- |
 | priority |- |- |
@@ -220,7 +220,7 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 
 #### <a name="properties"></a>properties
 
-| 필드 이름 | 사용 현황 | API 이름 |
+| 필드 이름 | 사용 | API 이름 |
 | --- | --- | --- |
 | message-id |이 메시지에 대한 애플리케이션 정의 자유 형식 식별자입니다. 중복 검색에 사용됩니다. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | user-id |Service Bus에서 해석되지 않는 애플리케이션 정의 사용자 식별자입니다. |Service Bus API를 통해 액세스할 수 없습니다. |
@@ -240,7 +240,7 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 
 AMQP 메시지 속성의 일부가 아니고, 메시지의 `MessageAnnotations`로 전달되는 다른 서비스 버스 메시지 속성이 몇 개 있습니다.
 
-| 주석 맵 키 | 사용 현황 | API 이름 |
+| 주석 맵 키 | 사용 | API 이름 |
 | --- | --- | --- |
 | x-opt-scheduled-enqueue-time | 메시지가 엔터티에 표시되어야 하는 시간을 선언합니다. |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc?view=azure-dotnet) |
 | x-opt-partition-key | 메시지가 배치되어야 하는 파티션을 지정하는 애플리케이션 정의 키입니다. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |

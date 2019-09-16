@@ -26,7 +26,7 @@ ms.locfileid: "60371855"
 ## <a name="counting-users"></a>사용자 수 계산
 **사용자 동작 분석 도구에 따르면 내 앱에 하나의 사용자/세션이 있다고 표시되지만 내가 알기로 내 앱에는 여러 사용자/세션이 있습니다. 이러한 잘못된 수를 어떻게 수정할 수 있나요?**
 
-Application Insights의 모든 원격 분석 이벤트에는 표준 속성 중 2가지인 [익명 사용자 ID](../../azure-monitor/app/data-model-context.md) 및 [세션 ID](../../azure-monitor/app/data-model-context.md)가 있습니다. 기본적으로 모든 사용 현황 분석 도구는 이러한 ID를 기준으로 사용자 및 세션 수를 계산합니다. 이러한 표준 속성이 앱의 각 사용자 및 세션의 고유 ID로 채워지지 않을 경우 사용 현황 분석 도구에 잘못된 수의 사용자 및 세션이 표시됩니다.
+Application Insights의 모든 원격 분석 이벤트에는 표준 속성 중 2가지인 [익명 사용자 ID](../../azure-monitor/app/data-model-context.md) 및 [세션 ID](../../azure-monitor/app/data-model-context.md)가 있습니다. 기본적으로 모든 사용량 현황 분석 도구는 이러한 ID를 기준으로 사용자 및 세션 수를 계산합니다. 이러한 표준 속성이 앱의 각 사용자 및 세션의 고유 ID로 채워지지 않을 경우 사용량 현황 분석 도구에 잘못된 수의 사용자 및 세션이 표시됩니다.
 
 웹앱을 모니터링하는 경우 가장 쉬운 방법은 앱에 [Application Insights JavaScript SDK](../../azure-monitor/app/javascript.md)를 추가하고, 모니터링하려는 각 페이지에 스크립트 조각이 로드되는지 확인하는 것입니다. JavaScript SDK는 익명 사용자 및 세션 ID를 자동으로 생성한 다음, 앱에서 전송되는 원격 분석 이벤트를 이러한 ID로 채웁니다.
 

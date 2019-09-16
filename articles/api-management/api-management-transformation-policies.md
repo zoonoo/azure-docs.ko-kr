@@ -160,7 +160,7 @@ ms.locfileid: "70073303"
 |from|검색할 문자열|예|N/A|
 |to|대체 문자열입니다. 검색 문자열을 제거하려면 길이가 0인 대체 문자열을 지정합니다.|예|N/A|
 
-### <a name="usage"></a>사용 현황
+### <a name="usage"></a>사용
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
 
 -   **정책 섹션:** inbound, outbound, backend, on-error
@@ -276,7 +276,7 @@ ms.locfileid: "70073303"
 |sf-service-instance-name|백 엔드가 Service Fabric 서비스인 경우에만 적용됩니다. 런타임에 서비스 인스턴스를 변경할 수 있습니다. |아니요|해당 사항 없음|
 |sf-listener-name|백 엔드가 Service Fabric 서비스이고 'backend-id'를 사용하여 지정된 경우에만 적용됩니다. Service Fabric Reliable Services를 사용하면 서비스에서 여러 수신기를 만들 수 있습니다. 백 엔드 Reliable Service에 둘 이상의 수신기가 있을 때 이 특성은 사용하여 특정 수신기를 선택합니다. 이 특성을 지정하지 않으면 API Management에서는 이름 없이 수신기를 사용하려고 합니다. 이름이 없는 수신기는 수신기가 하나만 있는 Reliable Services에 일반적입니다. |아니요|해당 사항 없음|
 
-### <a name="usage"></a>사용 현황
+### <a name="usage"></a>사용
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
 
 -   **정책 섹션:** inbound, backend
@@ -515,7 +515,7 @@ OriginalUrl.
 |exists-action|헤더가 이미 지정되어 있는 경우 수행할 작업을 지정합니다. 이 특성에는 다음 값 중 하나가 있어야 합니다.<br /><br /> - override: 기존 헤더 값을 바꿉니다.<br />- skip: 기존 헤더 값을 바꾸지 않습니다.<br />- append: 기존 헤더 값에 값을 추가합니다.<br />- delete: 요청에서 헤더를 제거합니다.<br /><br /> `override`로 설정할 때 동일한 이름의 여러 항목을 등록하면 모든 항목(여러 번 나열됨)에 따라 헤더가 설정되며, 나열된 값만 결과에 설정됩니다.|아니요|override|
 |name|설정할 헤더의 이름을 지정합니다.|예|N/A|
 
-### <a name="usage"></a>사용 현황
+### <a name="usage"></a>사용
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
 
 -   **정책 섹션:** inbound, outbound, backend, on-error
@@ -575,7 +575,7 @@ OriginalUrl.
 |exists-action|쿼리 매개 변수가 이미 지정되어 있는 경우 수행할 작업을 지정합니다. 이 특성에는 다음 값 중 하나가 있어야 합니다.<br /><br /> - override: 기존 쿼리 매개 변수 값을 바꿉니다.<br />- skip: 기존 쿼리 매개 변수 값을 바꾸지 않습니다.<br />- append: 기존 쿼리 매개 변수 값에 값을 추가합니다.<br />- delete: 요청에서 쿼리 매개 변수를 제거합니다.<br /><br /> `override`로 설정할 때 동일한 이름의 여러 항목을 등록하면 모든 항목(여러 번 나열됨)에 따라 쿼리 매개 변수가 설정되며, 나열된 값만 결과에 설정됩니다.|아니요|override|
 |name|설정할 쿼리 매개 변수의 이름을 지정합니다.|예|N/A|
 
-### <a name="usage"></a>사용 현황
+### <a name="usage"></a>사용
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
 
 -   **정책 섹션:** inbound, backend

@@ -390,7 +390,7 @@
                   href: app/usage-retention.md
                 - name: 사용자 흐름
                   href: app/usage-flows.md
-                - name: 사용 현황 분석
+                - name: 사용량 현황 분석
                   href: app/usage-troubleshoot.md
             - name: Azure DevOps
               items:

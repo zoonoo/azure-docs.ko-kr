@@ -37,7 +37,7 @@ Azure AD Connect는 하이브리드 ID 목표를 충족하고 달성하도록 �
 
 Azure AD(Azure Active Directory) Connect Health에서는 온-프레미스 ID 인프라에 대한 강력한 모니터링을 제공합니다. 이 기능을 사용하면 Office 365 및 Microsoft Online Services에 대한 신뢰할 수 있는 연결을 유지 관리할 수 있습니다.  핵심 ID 구성 요소에 대한 모니터링 기능을 통해 이러한 신뢰성을 보장합니다. 또한 이러한 구성 요소에 대한 핵심 데이터 요소에 쉽게 액세스할 수 있습니다.
 
-정보는 [Azure AD Connect Health 포털](https://aka.ms/aadconnecthealth)에 표시됩니다. Azure AD Connect Health 포털을 사용하여 경고, 성능 모니터링, 사용 현황 분석, 기타 정보를 확인합니다. Azure AD Connect Health는 핵심 ID 구성 요소의 상태를 한 곳에서 볼 수 있게 해주는 단일 렌즈의 역할을 합니다.
+정보는 [Azure AD Connect Health 포털](https://aka.ms/aadconnecthealth)에 표시됩니다. Azure AD Connect Health 포털을 사용하여 경고, 성능 모니터링, 사용량 현황 분석, 기타 정보를 확인합니다. Azure AD Connect Health는 핵심 ID 구성 요소의 상태를 한 곳에서 볼 수 있게 해주는 단일 렌즈의 역할을 합니다.
 
 ![Azure AD Connect Health 정의](./media/whatis-hybrid-identity-health/aadconnecthealth2.png)
 

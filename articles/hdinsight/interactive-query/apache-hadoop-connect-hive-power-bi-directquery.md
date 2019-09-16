@@ -17,7 +17,7 @@ ms.locfileid: "70811624"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-hdinsight"></a>HDInsight에서 직접 쿼리를 사용 하 여 Microsoft Power BI로 대화형 쿼리 Apache Hive 데이터 시각화
 
-이 문서에서는 Microsoft Power BI를 Azure HDInsight 대화형 쿼리 클러스터에 연결하고 직접 쿼리를 사용하여 Apache Hive 데이터를 시각화하는 방법을 설명합니다. 제공 된 예제에서는 `hivesampletable` Hive 테이블의 데이터를 Power BI 로드 합니다. Hive `hivesampletable` 테이블은 일부 휴대폰 사용 데이터를 포함 합니다. 그런 다음 전 세계 맵에 사용 현황 데이터를 그림으로 나타냅니다.
+이 문서에서는 Microsoft Power BI를 Azure HDInsight 대화형 쿼리 클러스터에 연결하고 직접 쿼리를 사용하여 Apache Hive 데이터를 시각화하는 방법을 설명합니다. 제공 된 예제에서는 `hivesampletable` Hive 테이블의 데이터를 Power BI 로드 합니다. Hive `hivesampletable` 테이블은 일부 휴대폰 사용 데이터를 포함 합니다. 그런 다음 전 세계 맵에 사용량 현황 데이터를 그림으로 나타냅니다.
 
 ![HDInsight Power BI 맵 보고서](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-visualization.png)
 

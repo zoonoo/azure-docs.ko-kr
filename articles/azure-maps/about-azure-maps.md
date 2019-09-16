@@ -164,7 +164,7 @@ Azure Maps는 이동성을 위해 빌드되었으며 플랫폼 간 애플리케�
 
 또한 Azure Maps는 웹 및 모바일 애플리케이션을 쉽고 빠르게 개발할 수 있는 간단한 프로그래밍 모델이 포함된 편리한 [JavaScript 지도 컨트롤](https://docs.microsoft.com/javascript/api/azure-maps-control)을 제공합니다.
 
-## <a name="usage"></a>사용 현황
+## <a name="usage"></a>사용
 
 Azure Maps 서비스에 액세스하려면 [Azure Portal](https://portal.azure.com)로 이동하여 Azure Maps 계정을 만들어야 합니다.
 

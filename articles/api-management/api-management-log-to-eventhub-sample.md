@@ -24,7 +24,7 @@ ms.locfileid: "60656752"
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Azure API Management, Event Hubs 및 Moesif를 사용하여 API 모니터링
 [API Management 서비스](api-management-key-concepts.md)는 HTTP API로 전송 된 HTTP 요청의 처리를 향상시키기 위해 다양한 기능을 제공합니다. 그러나 요청 및 응답의 존재는 일시적입니다. 요청이 생성되면 API Management 서비스를 통해 백 엔드 API로 전달됩니다. API는 요청을 처리하고 응답은 API 소비자를 통해 다시 전달합니다. API Management 서비스는 Azure Portal 대시보드에 표시하기 위해 API에 대한 중요한 통계를 일부 유지하지만 세부 정보는 사라집니다.
 
-API Management 서비스에서 log-to-eventhub 정책을 사용하여 요청 및 응답에서 [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md)에 세부 정보를 보낼 수 있습니다. API로 전송되는 HTTP 메시지에서 이벤트를 생성하려는 다양한 이유가 있습니다. 예에는 업데이트의 감사 내역, 사용 분석, 예외 경고 및 타사 통합이 포함됩니다.
+API Management 서비스에서 log-to-eventhub 정책을 사용하여 요청 및 응답에서 [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md)에 세부 정보를 보낼 수 있습니다. API로 전송되는 HTTP 메시지에서 이벤트를 생성하려는 다양한 이유가 있습니다. 예에는 업데이트의 감사 내역, 사용량 현황 분석, 예외 경고 및 타사 통합이 포함됩니다.
 
 이 문서는 전체 HTTP 요청 및 응답 메시지를 캡처하고 이를 Event Hub에 보낸 다음 HTTP 로깅 및 모니터링 서비스를 제공하는 타사 서비스에 해당 메시지를 릴레이하는 방법을 보여줍니다.
 

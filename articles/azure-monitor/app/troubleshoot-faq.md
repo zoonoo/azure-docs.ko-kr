@@ -196,7 +196,7 @@ POST 데이터를 자동으로 기록 하지 않지만 TrackTrace 호출을 사�
 | 종속성 원격 분석 |[서버에 AI 상태 모니터 설치](monitor-performance-live-website-now.md) |데이터베이스 또는 다른 외부 구성 요소의 문제 진단 |
 | 예외에서 스택 추적 가져오기 |[TrackException 호출을 코드에 삽입](asp-net-exceptions.md)(하지만 일부는 자동으로 보고됨) |예외 감지 및 진단 |
 | 로그 추적 검색 |[로깅 어댑터 추가](asp-net-trace-logs.md) |예외, 성능 문제 진단 |
-| 클라이언트 사용 기본 사항: 페이지 보기, 세션,... |[웹 페이지의 JavaScript 이니셜라이저](javascript.md) |사용 현황 분석 |
+| 클라이언트 사용 기본 사항: 페이지 보기, 세션,... |[웹 페이지의 JavaScript 이니셜라이저](javascript.md) |사용량 현황 분석 |
 | 클라이언트 사용자 지정 메트릭 |[웹 페이지에서 추적 호출](api-custom-events-metrics.md) |사용자 환경 향상 |
 | 서버 사용자 지정 메트릭 |[서버에서 호출 추적](api-custom-events-metrics.md) |비즈니스 인텔리전스 |
 

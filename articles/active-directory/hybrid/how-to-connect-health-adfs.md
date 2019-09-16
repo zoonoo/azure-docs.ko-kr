@@ -35,16 +35,16 @@ Azure AD Connect Health 경고 섹션은 활성 경고 목록을 제공합니다
 ![Azure AD Connect Health 포털](./media/how-to-connect-health-adfs/alert2.png)
 
 ## <a name="usage-analytics-for-ad-fs"></a>AD FS의 사용량 분석
-Azure AD Connect Health 사용 현황 분석에서는 페더레이션 서버의 인증 트래픽을 분석합니다. 사용 현황 분석 상자를 두 번 클릭하면, 몇 가지 메트릭 및 그룹화를 보여주는 사용 현황 분석 블레이드가 열립니다.
+Azure AD Connect Health 사용 현황 분석에서는 페더레이션 서버의 인증 트래픽을 분석합니다. 사용량 현황 분석 상자를 두 번 클릭하면, 몇 가지 메트릭 및 그룹화를 보여주는 사용량 현황 분석 블레이드가 열립니다.
 
 > [!NOTE]
-> AD FS와 사용 현황 분석을 사용하려면 AD FS 감사가 사용하도록 설정되어 있어야 합니다. 자세한 내용은 [AD FS 감사 사용](how-to-connect-health-agent-install.md#enable-auditing-for-ad-fs)을 참조하십시오.
+> AD FS와 사용량 현황 분석을 사용하려면 AD FS 감사가 사용하도록 설정되어 있어야 합니다. 자세한 내용은 [AD FS 감사 사용](how-to-connect-health-agent-install.md#enable-auditing-for-ad-fs)을 참조하십시오.
 >
 >
 
 ![Azure AD Connect Health 포털](./media/how-to-connect-health-adfs/report1.png)
 
-추가 메트릭을 선택하거나, 시간 범위를 지정하거나, 그룹화를 변경하려면 사용 현황 분석 차트를 마우스 오른쪽 단추로 클릭하고 차트 편집을 선택합니다. 그런 다음 시간 범위를 지정하고 다른 메트릭을 선택하고 그룹화를 변경할 수 있습니다. 다음 섹션에 설명된 다양한 “메트릭”을 기반으로 인증 트래픽 분산을 살펴보고 적절한 “그룹화 기준” 매개 변수를 사용하여 각 메트릭을 그룹화할 수 있습니다.
+추가 메트릭을 선택하거나, 시간 범위를 지정하거나, 그룹화를 변경하려면 사용량 현황 분석 차트를 마우스 오른쪽 단추로 클릭하고 차트 편집을 선택합니다. 그런 다음 시간 범위를 지정하고 다른 메트릭을 선택하고 그룹화를 변경할 수 있습니다. 다음 섹션에 설명된 다양한 “메트릭”을 기반으로 인증 트래픽 분산을 살펴보고 적절한 “그룹화 기준” 매개 변수를 사용하여 각 메트릭을 그룹화할 수 있습니다.
 
 **메트릭: 총 요청 수** - AD FS 서버에서 처리한 총 요청 수.
 

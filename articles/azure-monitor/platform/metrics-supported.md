@@ -1400,7 +1400,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |DeadletteredMessages|큐/토픽에서 배달 못 한 메시지의 수입니다. (미리 보기)|개수|평균|큐/토픽에서 배달 못 한 메시지의 수입니다. (미리 보기)|EntityName|
 |ScheduledMessages|큐/토픽에 있는 예약 된 메시지 수입니다. (미리 보기)|개수|평균|큐/토픽에 있는 예약 된 메시지 수입니다. (미리 보기)|EntityName|
 |CPUXNS|네임스페이스당 CPU 사용량|Percent|최대값|서비스 버스 프리미엄 네임스페이스 CPU 사용량 메트릭|차원 없음|
-|WSXNS|네임스페이스당 메모리 크기 사용|Percent|최대값|서비스 버스 프리미엄 네임스페이스 메모리 사용량 메트릭|차원 없음|
+|WSXNS|네임스페이스당 메모리 크기 사용량|Percent|최대값|서비스 버스 프리미엄 네임스페이스 메모리 사용량 메트릭|차원 없음|
 
 ## <a name="microsoftservicefabricmeshapplications"></a>Microsoft.ServiceFabricMesh/applications
 
