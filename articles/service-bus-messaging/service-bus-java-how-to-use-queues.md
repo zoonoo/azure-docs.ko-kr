@@ -14,17 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.custom: seo-java-july2019, seo-java-august2019
-ms.openlocfilehash: 84f035a55256ab22c823b2aaed9c9c2400eebf5b
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: b85099605d7f660b792186f7e17b0ed4ea43ef04
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173419"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967845"
 ---
 # <a name="use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Java가 있는 Azure Service Bus 큐를 사용 하 여 메시지 보내기 및 받기
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-이 자습서에서는 Service Bus 큐에 메시지를 보내고 메시지를 수신 하는 Java 응용 프로그램을 만드는 방법에 대해 알아봅니다. 
+이 자습서에서는 Azure Service Bus 큐에 메시지를 보내고 메시지를 수신 하는 Java 응용 프로그램을 만드는 방법에 대해 알아봅니다. 
 
 > [!NOTE]
 > Java 샘플은 GitHub의 [azure-service-bus 리포지토리](https://github.com/Azure/azure-service-bus/tree/master/samples/Java)에 있습니다.

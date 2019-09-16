@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9464b408f43f55cb75a57798b098be6335328e3
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: d5f271f75a4faa7067f8a52d63a34772780c6448
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70136516"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70959895"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID를 지원하는 서비스
 
@@ -33,7 +33,7 @@ Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리
 | 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
 | 시스템 할당 | 사용 가능 | Preview | Preview | Preview | 
-| 사용자 할당 | Preview | Preview | Preview | Preview |
+| 사용자 할당 항목 | 사용 가능 | Preview | Preview | Preview |
 
 사용 가능한 지역에서 Azure Virtual Machines용 관리 ID를 구성하려면 다음 목록을 참조하세요.
 
@@ -48,7 +48,7 @@ Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리
 |관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
 | 시스템 할당 | 사용 가능 | Preview | Preview | Preview |
-| 사용자 할당 | Preview | Preview | Preview | Preview |
+| 사용자 할당 항목 | 사용 가능 | Preview | Preview | Preview |
 
 사용 가능한 지역에서 Azure Virtual Machines Scale Sets용 관리 ID를 구성하려면 다음 목록을 참조하세요.
 
@@ -210,7 +210,7 @@ Azure Resource Manager에 대 한 액세스를 구성 하려면 다음 목록을
 
 | 클라우드 | 리소스 ID | Status |
 |--------|------------|--------|
-| Azure 글로벌 | `https://eventhubs.azure.net` | Preview |
+| Azure 글로벌 | `https://eventhubs.azure.net` | 사용 가능 |
 | Azure Government |  | 사용할 수 없음 |
 | Azure Germany |   | 사용할 수 없음 |
 | Azure China 21Vianet |  | 사용할 수 없음 |
@@ -219,7 +219,7 @@ Azure Resource Manager에 대 한 액세스를 구성 하려면 다음 목록을
 
 | 클라우드 | 리소스 ID | Status |
 |--------|------------|--------|
-| Azure 글로벌 | `https://servicebus.azure.net`  | Preview |
+| Azure 글로벌 | `https://servicebus.azure.net`  | 사용 가능 |
 | Azure Government |  | 사용할 수 없음 |
 | Azure Germany |   | 사용할 수 없음 |
 | Azure China 21Vianet |  | 사용할 수 없음 |

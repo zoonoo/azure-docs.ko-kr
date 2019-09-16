@@ -14,19 +14,19 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.custom: seo-java-july2019, seo-java-august2019
-ms.openlocfilehash: 2e64f996a346e0241fd5feefb11a38a0c8605b27
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 7cd7bcd4bd10152ecd2fa60e4e8418f17db16b61
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173393"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967844"
 ---
 # <a name="use-service-bus-topics-and-subscriptions-with-java"></a>Java를 사용 하 여 Service Bus 토픽 및 구독 사용
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-이 빠른 시작에서는 메시지를 Service Bus 토픽으로 보낸 다음 구독에서 해당 토픽으로 메시지를 수신 하는 Java 코드를 작성 합니다. 
+이 빠른 시작에서는 메시지를 Azure Service Bus 토픽으로 보낸 다음 구독에서 해당 토픽으로 메시지를 수신 하는 Java 코드를 작성 합니다. 
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

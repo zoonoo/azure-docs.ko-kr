@@ -15,12 +15,12 @@ ms.date: 08/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: c3ca873cb4dd49d77ba818b3d05c3aa41e89276f
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: eb7c2cb4a20c89f3a54f23e354d56e5dc3711ef0
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982731"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967111"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Azure 리소스에 대한 RBAC 문제 해결
 
@@ -28,7 +28,7 @@ ms.locfileid: "69982731"
 
 ## <a name="problems-with-rbac-role-assignments"></a>RBAC 역할 할당 관련 문제
 
-- 추가**역할 할당** 추가 옵션이 사용 하지 않도록 설정 되어 있거나 >  **액세스 제어 (IAM)** 의 Azure Portal에서 역할 할당을 추가할 수 없는 경우 "개체 id가 있는 클라이언트에 작업을 수행 하기 위한 권한 부여-역할을 할당 하려는 범위에서 `Microsoft.Authorization/roleAssignments/write` [소유자](built-in-roles.md#owner) 또는 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 와 같은 권한이 있는 사용자로 현재 로그인 했는지 확인 합니다.
+- **추가** > **역할 할당** 추가 옵션이 사용 하지 않도록 설정 되어 있거나 **액세스 제어 (IAM)** 의 Azure Portal에서 역할 할당을 추가할 수 없는 경우 "개체 id가 있는 클라이언트에 작업을 수행 하기 위한 권한 부여-역할을 할당 하려는 범위에서 `Microsoft.Authorization/roleAssignments/write` [소유자](built-in-roles.md#owner) 또는 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 와 같은 권한이 있는 사용자로 현재 로그인 했는지 확인 합니다.
 - "추가 역할 할당을 만들 수 없습니다 (코드: RoleAssignmentLimitExceeded)" 오류 메시지가 표시되면 그룹에 역할을 할당하여 역할 할당 수를 줄여보세요. Azure는 구독당 최대 **2000**개의 역할 할당을 지원합니다.
 
 ## <a name="problems-with-custom-roles"></a>사용자 지정 역할의 문제
@@ -182,6 +182,8 @@ Azure Resource Manager는 경우에 따라 성능 향상을 위해 구성 및 �
 판독기는 **플랫폼 기능** 탭을 클릭한 다음, **모든 설정**을 클릭하여 함수 앱(웹앱과 유사)에 관련된 일부 설정을 볼 수 있지만 이러한 설정을 수정할 수 없습니다. 이러한 기능에 액세스 하려면 [참가자](built-in-roles.md#contributor) 역할이 필요 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [RBAC 및 Azure Portal을 사용하여 Azure 리소스에 대한 액세스 관리](role-assignments-portal.md)
-* [Azure 리소스에 대한 RBAC 변경 내용의 활동 로그 보기](change-history-report.md)
+
+- [게스트 사용자에 대 한 문제 해결](role-assignments-external-users.md#troubleshoot)
+- [RBAC 및 Azure Portal을 사용하여 Azure 리소스에 대한 액세스 관리](role-assignments-portal.md)
+- [Azure 리소스에 대한 RBAC 변경 내용의 활동 로그 보기](change-history-report.md)
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5264491220a4b0756a2a9f0a96aae4ed67809618
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
-ms.translationtype: HT
+ms.openlocfilehash: 4e9a6a9ca435971d64ec8f59203a518287e6db4e
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879441"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961019"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>HDInsight 클러스터에 대한 로그 관리
 
@@ -79,11 +79,11 @@ Apache Ambari는 웹 UI 및 REST API를 제공하므로 HDInsight 클러스터�
 
 서비스 보기 목록을 열려면 HDInsight의 Azure Portal 페이지에서 **Ambari 보기** 창을 선택합니다.  이 목록은 설치된 라이브러리에 따라 달라집니다.  예를 들어 YARN 큐 관리자, Hive 보기 및 Tez 보기가 표시될 수 있습니다.  아무 서비스 링크를 선택하여 구성 및 서비스 정보를 살펴봅니다.  Ambari UI **스택 및 버전** 페이지는 클러스터 서비스의 구성 및 서비스 버전 기록에 대한 정보를 제공합니다. Ambari UI에서 이 섹션으로 이동하려면 **관리자** 메뉴를 선택한 다음 **스택 및 버전**을 선택합니다.  **버전** 탭을 선택하여 서비스 버전 정보를 봅니다.
 
-![스택 및 버전](./media/hdinsight-log-management/stack-versions.png)
+![스택 및 버전](./media/hdinsight-log-management/ambari-stack-versions.png)
 
-Ambari UI를 사용하여 클러스터의 특정 호스트(또는 노드)에서 실행 중인 특정 서비스 또는 모든 서비스에 대한 구성을 다운로드할 수 있습니다.  **호스트** 메뉴를 선택한 다음 원하는 호스트의 링크를 선택합니다. 해당 호스트의 페이지에서 **호스트 작업** 단추를 선택한 다음 **클라이언트 구성 다운로드**를 선택합니다. 
+Ambari UI를 사용하여 클러스터의 특정 호스트(또는 노드)에서 실행 중인 특정 서비스 또는 모든 서비스에 대한 구성을 다운로드할 수 있습니다.  **호스트** 메뉴를 선택한 다음 원하는 호스트의 링크를 선택합니다. 해당 호스트의 페이지에서 **호스트 작업** 단추를 선택한 다음 **클라이언트 구성 다운로드**를 선택합니다.
 
-![호스트 클라이언트 구성](./media/hdinsight-log-management/client-configs.png)
+![호스트 클라이언트 구성](./media/hdinsight-log-management/download-client-configs.png)
 
 ### <a name="view-the-script-action-logs"></a>스크립트 동작 로그 보기
 

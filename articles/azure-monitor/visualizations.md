@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 4e9bb9bd86e22efa5dd514e742481911b09c5e17
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6390384220830d473b56f4082a98dfaa8aa686d1
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61088298"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984179"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Azure Monitor의 데이터 시각화
 이 문서에서는 Azure Monitor에 저장된 로그 및 메트릭 데이터를 시각화하는 데 사용할 수 있는 방법을 요약해서 보여 줍니다.
@@ -32,11 +32,11 @@ ms.locfileid: "61088298"
 ![대시보드](media/visualizations/dashboard.png)
 
 ### <a name="advantages"></a>장점
-- Azure에 긴밀하게 통합됩니다. 메트릭 탐색기, Log Analytics 및 Application Insights를 포함 하 여 여러 Azure 페이지에서 시각화를 대시보드에 고정할 수 있습니다.
+- Azure에 긴밀하게 통합됩니다. 시각화는 메트릭 탐색기, Log Analytics 및 Application Insights를 비롯 한 여러 Azure 페이지에서 대시보드에 고정 될 수 있습니다.
 - 메트릭 및 로그를 둘 다 지원합니다.
-- 출력을 포함 하 여 여러 원본의 데이터를에서 결합할 [메트릭 탐색기](platform/metrics-charts.md), [쿼리를 기록](log-query/log-query-overview.md), 및 [매핑합니다](app/app-map.md) 및 Application Insights에서 가용성입니다.
+- [메트릭 탐색기](platform/metrics-charts.md), [로그 쿼리](log-query/log-query-overview.md), Application Insights의 [맵](app/app-map.md) 및 가용성의 출력을 포함 하 여 여러 소스의 데이터를 결합 합니다.
 - 개인 또는 공유 대시보드 옵션을 제공합니다. Azure [역할 기반 인증(RBAC)](../role-based-access-control/overview.md)과 통합됩니다.
-- 자동으로 새로 고침됩니다. 메트릭 새로 고침은 시간 범위에 따라 달라지며, 시간 범위는 최소 5분입니다. 로그는 1분마다 새로 고침됩니다.
+- 자동으로 새로 고침됩니다. 메트릭 새로 고침은 시간 범위에 따라 달라지며, 시간 범위는 최소 5분입니다. 지정 된 시각화에서 "새로 고침" 아이콘을 클릭 하거나 전체 대시보드를 새로 고쳐 요청 시 수동 새로 고침 옵션을 사용 하 여 매시간 로그를 새로 고칩니다.
 - 타임스탬프 및 사용자 지정 매개 변수로 메트릭 대시보드가 매개 변수화됩니다.
 - 유연한 레이아웃 옵션을 제공합니다.
 - 전체 화면 모드를 제공합니다.
@@ -140,7 +140,7 @@ ms.locfileid: "61088298"
 - [Azure Monitor에서 수집하는 데이터](platform/data-platform.md)에 대해 알아봅니다.
 - [Azure 대시보드](../azure-portal/azure-portal-dashboards.md)에 대해 알아봅니다.
 - [Azure Monitor의 뷰](platform/view-designer.md)에 대해 알아봅니다.
-- 에 대 한 자세한 [통합 문서](../azure-monitor/app/usage-workbooks.md)합니다.
+- [통합 문서](../azure-monitor/app/usage-workbooks.md)에 대해 알아봅니다.
 - [Power BI로 로그 데이터 가져오기](../azure-monitor/platform/powerbi.md)에 대해 알아봅니다.
 - [Grafana Azure Monitor 데이터 원본 플러그 인](../azure-monitor/platform/grafana-plugin.md)에 대해 알아봅니다.
 

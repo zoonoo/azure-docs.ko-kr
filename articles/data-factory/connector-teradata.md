@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory를 사용 하 여 Teradata에서 데이터 복사 Microsoft Docs
-description: Data Factory 서비스의 Teradata 커넥터를 사용 하 여 Teradata 데이터베이스의 데이터를 싱크로 Data Factory 지원 되는 데이터 저장소에 복사할 수 있습니다.
+title: Azure Data Factory를 사용 하 여 Teradata 유리한에서 데이터 복사 Microsoft Docs
+description: Data Factory 서비스의 Teradata 커넥터를 사용 하 여 Teradata 유리한에서 Data Factory 지원 되는 데이터 저장소에 싱크로 데이터를 복사할 수 있습니다.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,26 +10,26 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 09/13/2019
 ms.author: jingwang
-ms.openlocfilehash: bec1c0c3523e6d9cfb0b2fdbc7a093ffe0637743
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: f17a7ef2131662cdb9ef4d138303556215810fba
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232505"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70959021"
 ---
-# <a name="copy-data-from-teradata-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Teradata에서 데이터 복사
+# <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Teradata 유리한에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 >
 > * [버전 1](v1/data-factory-onprem-teradata-connector.md)
 > * [현재 버전](connector-teradata.md)
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용 하 여 Teradata 데이터베이스에서 데이터를 복사 하는 방법을 설명 합니다. [복사 작업 개요](copy-activity-overview.md)를 기반으로 합니다.
+이 문서에서는 Azure Data Factory의 복사 작업을 사용 하 여 Teradata 유리한에서 데이터를 복사 하는 방법을 설명 합니다. [복사 작업 개요](copy-activity-overview.md)를 기반으로 합니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
-Teradata 데이터베이스에서 지원 되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
+Teradata 유리한에서 지원 되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
 특히 이 Teradata 커넥터는 다음을 지원합니다.
 
@@ -41,7 +41,7 @@ Teradata 데이터베이스에서 지원 되는 모든 싱크 데이터 저장�
 >
 > 자체 호스팅 integration runtime v 3.18의 릴리스 후에는 Teradata 커넥터가 업그레이드 Azure Data Factory. 이전 Teradata 커넥터를 사용 하는 기존 작업은 계속 지원 됩니다. 그러나 새 워크 로드의 경우 새 워크 로드를 사용 하는 것이 좋습니다. 새 경로에는 연결 된 서비스, 데이터 집합 및 복사 원본의 다른 집합이 필요 합니다. 구성 세부 정보는 다음에 나오는 해당 섹션을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -62,8 +62,8 @@ Teradata 연결 된 서비스는 다음 속성을 지원 합니다.
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | Type 속성은 **Teradata**로 설정 되어야 합니다. | 예 |
-| connectionString | Teradata 데이터베이스 인스턴스에 연결 하는 데 필요한 정보를 지정 합니다. 다음 샘플을 참조하세요.<br/>Azure Key Vault에 암호를 입력 하 고 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 을 참조 하세요. | 예 |
-| username | Teradata 데이터베이스에 연결할 사용자 이름을 지정 합니다. Windows 인증을 사용 하는 경우 적용 됩니다. | 아니요 |
+| connectionString | Teradata 인스턴스에 연결 하는 데 필요한 정보를 지정 합니다. 다음 샘플을 참조하세요.<br/>Azure Key Vault에 암호를 입력 하 고 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 을 참조 하세요. | 예 |
+| username | Teradata에 연결할 사용자 이름을 지정 합니다. Windows 인증을 사용 하는 경우 적용 됩니다. | 아니요 |
 | password | 사용자 이름에 대해 지정한 사용자 계정의 암호를 지정 합니다. [Azure Key Vault에 저장 된 비밀을 참조](store-credentials-in-key-vault.md)하도록 선택할 수도 있습니다. <br>Windows 인증을 사용 하거나 기본 인증을 위해 Key Vault의 암호를 참조 하는 경우에 적용 됩니다. | 아니요 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [전제 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |예 |
 
@@ -142,8 +142,8 @@ Teradata에서 데이터를 복사 하려면 다음 속성이 지원 됩니다.
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 집합의 type 속성을로 `TeradataTable`설정 해야 합니다. | 예 |
-| database | Teradata 데이터베이스의 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
-| table | Teradata 데이터베이스에 있는 테이블의 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
+| database | Teradata 인스턴스의 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
+| table | Teradata 인스턴스의 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제:**
 
@@ -197,7 +197,7 @@ Teradata에서 데이터를 복사 하려면 복사 작업 **원본** 섹션에�
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을로 `TeradataSource`설정 해야 합니다. | 예 |
 | query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제입니다. `"SELECT * FROM MyTable"`<br>분할 된 로드를 사용 하도록 설정 하는 경우 쿼리에 해당 하는 기본 제공 파티션 매개 변수를 후크 해야 합니다. 예제는 [Teradata에서 Parallel 복사](#parallel-copy-from-teradata) 섹션을 참조 하세요. | 아니요 (데이터 집합의 테이블이 지정 된 경우) |
-| partitionOptions | Teradata에서 데이터를 로드 하는 데 사용 되는 데이터 분할 옵션을 지정 합니다. <br>허용 되는 값은 다음과 같습니다. **없음** (기본값), **Hash** 및 **dynamicrange**입니다.<br>파티션 옵션을 사용 하도록 설정 하는 경우 (즉 `None`,이 아님), Teradata 데이터베이스에서 데이터를 동시에 로드 하는 병렬 처리 수준은 [`parallelCopies`](copy-activity-performance.md#parallel-copy) 복사 작업의 설정에 의해 제어 됩니다. | 아니요 |
+| partitionOptions | Teradata에서 데이터를 로드 하는 데 사용 되는 데이터 분할 옵션을 지정 합니다. <br>허용 되는 값은 다음과 같습니다. **없음** (기본값), **Hash** 및 **dynamicrange**입니다.<br>파티션 옵션을 사용 하도록 설정 하는 경우 (즉 `None`,이 아님) Teradata에서 데이터를 동시에 로드 하는 병렬 처리 수준은 [`parallelCopies`](copy-activity-performance.md#parallel-copy) 복사 작업의 설정에 의해 제어 됩니다. | 아니요 |
 | partitionSettings | 데이터 분할에 대 한 설정 그룹을 지정 합니다. <br>Partition 옵션을 사용할 수 `None`없는 경우에 적용 합니다. | 아니요 |
 | partitionColumnName | 병렬 복사를 위해 범위 파티션 또는 해시 파티션에서 사용할 원본 열의 이름을 지정 합니다. 지정 하지 않으면 테이블의 주 인덱스가 자동으로 검색 되 고 파티션 열로 사용 됩니다. <br>Partition 옵션이 또는 `DynamicRange`인 경우에 `Hash` 적용 됩니다. 쿼리를 사용 하 여 원본 데이터, 후크 `?AdfHashPartitionCondition` 또는 `?AdfRangePartitionColumnName` where 절을 검색 하는 경우 [Teradata의 Parallel copy](#parallel-copy-from-teradata) 섹션에서 예제를 참조 하세요. | 아니요 |
 | partitionUpperBound | 데이터를 복사할 파티션 열의 최대값입니다. <br>파티션 옵션이 인 `DynamicRange`경우 적용 합니다. 쿼리를 사용 하 여 원본 데이터를 검색 하 `?AdfRangePartitionUpbound` 는 경우 WHERE 절에 후크 합니다. 예제는 [Teradata에서 Parallel 복사](#parallel-copy-from-teradata) 섹션을 참조 하세요. | 아니요 |
@@ -245,9 +245,9 @@ Data Factory Teradata 커넥터는 Teradata에서 병렬로 데이터를 복사 
 
 ![파티션 옵션의 스크린샷](./media/connector-teradata/connector-teradata-partition-options.png)
 
-분할 된 복사를 사용 하도록 설정 하면 Data Factory는 Teradata 원본에 대해 병렬 쿼리를 실행 하 여 파티션당 데이터를 로드 합니다. 병렬 수준은 복사 작업의 [`parallelCopies`](copy-activity-performance.md#parallel-copy) 설정에 의해 제어 됩니다. 예를 들어를 4로 `parallelCopies` 설정 하는 경우 Data Factory는 지정 된 파티션 옵션 및 설정을 기반으로 4 개의 쿼리를 동시에 생성 하 고 실행 하며 각 쿼리는 Teradata 데이터베이스에서 데이터의 일부를 검색 합니다.
+분할 된 복사를 사용 하도록 설정 하면 Data Factory는 Teradata 원본에 대해 병렬 쿼리를 실행 하 여 파티션당 데이터를 로드 합니다. 병렬 수준은 복사 작업의 [`parallelCopies`](copy-activity-performance.md#parallel-copy) 설정에 의해 제어 됩니다. 예를 들어를 4로 `parallelCopies` 설정 하는 경우 Data Factory는 지정 된 파티션 옵션 및 설정을 기반으로 4 개의 쿼리를 동시에 생성 하 고 실행 하며 각 쿼리는 Teradata에서 데이터의 일부를 검색 합니다.
 
-데이터 분할으로 병렬 복사를 사용 하도록 설정 하는 것이 좋습니다 .이는 Teradata 데이터베이스에서 많은 양의 데이터를 로드 하는 경우에 유용 합니다. 다음은 다양 한 시나리오에 권장 되는 구성입니다. 파일 기반 데이터 저장소로 데이터를 복사 하는 경우 폴더에 여러 파일 (폴더 이름만 지정)로 기록 하는 것이 좋습니다 .이 경우에는 단일 파일에 쓰는 것 보다 성능이 좋습니다.
+특히 Teradata에서 많은 양의 데이터를 로드 하는 경우 데이터 분할으로 병렬 복사를 사용 하도록 설정 하는 것이 좋습니다. 다음은 다양 한 시나리오에 권장 되는 구성입니다. 파일 기반 데이터 저장소로 데이터를 복사 하는 경우 폴더에 여러 파일 (폴더 이름만 지정)로 기록 하는 것이 좋습니다 .이 경우에는 단일 파일에 쓰는 것 보다 성능이 좋습니다.
 
 | 시나리오                                                     | 제안 된 설정                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -294,7 +294,7 @@ Teradata에서 데이터를 복사 하는 경우 다음 매핑이 적용 됩니�
 | Byte |Byte[] |
 | ByteInt |Int16 |
 | Char |String |
-| Clob |String |
+| Clob |문자열 |
 | 날짜 |DateTime |
 | Decimal |Decimal |
 | Double |Double |

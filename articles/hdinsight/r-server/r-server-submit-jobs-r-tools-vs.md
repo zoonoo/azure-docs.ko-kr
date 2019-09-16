@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: 0ae717487f1538536601c8578e744d976798bf76
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 2d53f1bfc6eade535bfb1b3bb07d5115ffe5fc80
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899955"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967931"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Visual Studio용 R 도구에서 작업 제출
 
@@ -55,7 +55,8 @@ RTVS는 ggplot2 및 ggviz 등의 R 라이브러리, [R 코드 디버깅](https:/
 5. `A first look at R` 솔루션 폴더에서 `1-Getting Started with R.R` 파일을 엽니다.
 6. 파일 맨 위부터, Ctrl + Enter를 눌러 각 줄을 한 번에 하나씩 지나가면서 R 대화형 창까지 이동합니다. 일부 줄은 패키지를 설치하므로 다소 시간이 걸릴 수 있습니다.
     * 또는 R 파일의 모든 줄을 선택한 다음(Ctrl+A), 모든 줄을 실행하거나(Ctrl+Enter) 도구 모음에서 대화형으로 실행 아이콘을 선택합니다.
-        ![대화형으로 실행](./media/r-server-submit-jobs-r-tools-vs/execute-interactive.png)
+
+        ![대화형 실행](./media/r-server-submit-jobs-r-tools-vs/execute-interactive1.png)
 
 7. 스크립트에 모든 줄을 실행하면 다음과 비슷한 출력이 표시됩니다.
 
@@ -82,20 +83,20 @@ PuTTY가 장착된 Windows 컴퓨터에서 Microsoft ML Server/Microsoft R Clien
     # Create the Spark Cluster compute context
     mySparkCluster <- RxSpark(
           sshUsername = mySshUsername,
-      sshHostname = mySshHostname,
-      sshSwitches = mySshSwitches,
-      sshProfileScript = mySshProfileScript,
-      consoleOutput = TRUE,
-      hdfsShareDir = myHdfsShareDir,
-      shareDir = myShareDir,
-      sshClientDir = mySshClientDir
+          sshHostname = mySshHostname,
+          sshSwitches = mySshSwitches,
+          sshProfileScript = mySshProfileScript,
+          consoleOutput = TRUE,
+          hdfsShareDir = myHdfsShareDir,
+          shareDir = myShareDir,
+          sshClientDir = mySshClientDir
     )
-    
+
     # Set the current compute context as the Spark compute context defined above
     rxSetComputeContext(mySparkCluster)
     ```
-    
-    ![Spark 컨텍스트 설정](./media/r-server-submit-jobs-r-tools-vs/spark-context.png)
+
+   ![Spark 컨텍스트 설정](./media/r-server-submit-jobs-r-tools-vs/apache-spark-context.png)
 
 1. R 대화형 창에서 다음 명령을 실행합니다.
 
@@ -107,13 +108,12 @@ PuTTY가 장착된 Windows 컴퓨터에서 Microsoft ML Server/Microsoft R Clien
 
     다음과 유사한 결과가 표시됩니다.
 
-    ![성공적인 rx 명령 실행](./media/r-server-submit-jobs-r-tools-vs/rx-commands.png)
-
+    ![Rx 명령 실행](./media/r-server-submit-jobs-r-tools-vs/successful-rx-commands.png) 성공
 1. `rxHadoopCopy`가 예제 데이터 폴더의 `people.json` 파일을 새로 만든 `/user/RevoShare/newUser` 폴더로 복사했는지 확인합니다.
 
     1. Azure의 HDInsight ML 서비스 클러스터 창의 왼쪽 메뉴에서 **스토리지 계정**을 선택합니다.
 
-        ![저장소 계정](./media/r-server-submit-jobs-r-tools-vs/storage-accounts.png)
+        ![저장소 계정](./media/r-server-submit-jobs-r-tools-vs/hdinsight-storage-accounts.png)
 
     2. 클러스터의 기본 스토리지 계정을 선택하고 컨테이너/디렉터리 이름을 적어둡니다.
 
@@ -123,7 +123,7 @@ PuTTY가 장착된 Windows 컴퓨터에서 Microsoft ML Server/Microsoft R Clien
 
     4. 클러스터의 컨테이너 이름을 선택하고, **사용자** 폴더(목록 맨 아래의 *추가 로드*를 클릭해야 할 수 있음)로 이동한 후 *RevoShare*, **newUser**를 차례로 선택합니다. `people.json` 파일이 `newUser` 폴더에 표시되어야 합니다.
 
-        ![복사된 파일](./media/r-server-submit-jobs-r-tools-vs/copied-file.png)
+        ![복사된 파일](./media/r-server-submit-jobs-r-tools-vs/hdinsight-copied-file.png)
 
 1. 현재 Apache Spark 컨텍스트의 사용이 끝나면 중지해야 합니다. 여러 컨텍스트를 한 번에 실행할 수 없습니다.
 

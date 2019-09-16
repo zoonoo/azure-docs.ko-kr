@@ -1,5 +1,5 @@
 ---
-title: Azure 가상 머신 부팅 오류
+title: Azure Virtual Machine 부트 오류
 description: 가상 머신이 복구 콘솔에 들어간 가상 머신을 부팅 하지 못했습니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2019
 ms.author: tiag
-ms.openlocfilehash: 14bf7b289f3d03dd1437a18b0b5bd35fdec567ea
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 9995b9049378a0ab4f3450ec577d034598d171e9
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70143311"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984834"
 ---
 # <a name="vm-boot-error"></a>VM 부팅 오류
 
@@ -48,7 +48,7 @@ VM (가상 컴퓨터)에서 복구 콘솔을 입력 한 것으로 확인 되었�
 
     2. 그런 다음, 다음 명령을 실행 하 여 구성을 다시 생성 합니다.`grub2-mkconfig -o /boot/grub2/grub.cfg`
 
-   * 파일이 `/boot/grub/menu.lst`없는 경우이 오류는 이전 OS 버전 (**RHEL**, **Centos** , **14.04 및 Ubuntu**)에 대 한 것 이므로 명령이 지연 될 수 있습니다. 이전 서버를 실행 하 고 올바른 명령이 제공 되는지 테스트 해야 합니다.
+   * 파일이 `/boot/grub/menu.lst`없는 경우이 오류는 이전 OS 버전 (**RHEL**, **Centos** , **14.04 및 Ubuntu**)에 대 한 것 이므로 명령이 다를 수 있습니다. 이전 서버를 실행 하 고 올바른 명령이 제공 되는지 테스트 해야 합니다.
 
 ### <a name="error---no-such-partition"></a>오류-해당 파티션 없음
 

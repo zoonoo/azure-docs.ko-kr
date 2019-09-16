@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: d20ea4a6e86bb889615d3ab9bfcac5aedf838ceb
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 67a34b2b0a997a118cb2fe1b99de04bd58063307
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098636"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999056"
 ---
 # <a name="securing-paas-deployments"></a>PaaS 배포 보안
 
@@ -88,7 +88,7 @@ PaaS 배포와 기존 온-프레미스 배포 간의 또 다른 중요한 차이
 ID 경계 관리를 위한 모범 사례는 다음과 같습니다.
 
 **모범 사례**: 키와 자격 증명을 안전하게 보관하여 PaaS 배포를 보호합니다.   
-**세부 정보**: 키와 자격 증명을 잃어 버리는 것은 일반적인 문제입니다. 키와 암호를 Hsm (하드웨어 보안 모듈)에 저장할 수 있는 중앙 집중화 된 솔루션을 사용할 수 있습니다. [Azure Key Vault](../../key-vault/key-vault-whatis.md) 는 hsm으로 보호 되는 키를 사용 하 여 인증 키, 저장소 계정 키, 데이터 암호화 키, .pfx 파일 및 암호를 암호화 하 여 키와 비밀을 보호 합니다.
+**세부 정보**: 키와 자격 증명을 잃어 버리는 것은 일반적인 문제입니다. 키와 암호를 Hsm (하드웨어 보안 모듈)에 저장할 수 있는 중앙 집중화 된 솔루션을 사용할 수 있습니다. [Azure Key Vault](../../key-vault/key-vault-overview.md) 는 hsm으로 보호 되는 키를 사용 하 여 인증 키, 저장소 계정 키, 데이터 암호화 키, .pfx 파일 및 암호를 암호화 하 여 키와 비밀을 보호 합니다.
 
 **모범 사례**: 소스 코드 또는 GitHub에 자격 증명 및 기타 비밀을 포함하지 않습니다.   
 **세부 정보**: 키 및 자격 증명을 분실하는 것보다 더 위험한 상황은 권한이 없는 사람이 해당 정보에 액세스하는 것뿐입니다. 공격자는 봇 기술을 이용하여 GitHub와 같은 코드 리포지토리에 저장된 키와 비밀을 찾을 수 있습니다. 따라서 공용 코드 리포지토리에 키와 비밀 정보를 보관해서는 안 됩니다.
@@ -133,7 +133,7 @@ App Service 사용 시의 모범 사례는 다음과 같습니다.
 **세부 정보**: 데이터 액세스를 위한 보안 정책을 시행하려는 조직에서는 액세스를 반드시 제한해야 합니다. RBAC를 사용하여 특정 범위에서 사용자, 그룹 및 애플리케이션에 권한을 할당할 수 있습니다. 사용자에게 애플리케이션 액세스 권한을 부여하는 방법에 대해 자세히 알아보려면 [액세스 관리 시작](/azure/role-based-access-control/overview)을 참조하세요.
 
 **모범 사례**: 키를 보호합니다.   
-**세부 정보**: Azure Key Vault를 사용하면 클라우드 애플리케이션과 서비스에 사용되는 암호화 키 및 비밀을 보호할 수 있습니다. Key Vault를 사용하면 HSM(하드웨어 보안 모듈)을 통해 보호되는 키를 통해 키와 비밀(예: 인증 키, 스토리지 계정 키, 데이터 암호화 키, .PFX 파일 및 암호)를 암호화할 수 있습니다. 추가된 보증을 위해, HSM에서 키를 생성하거나 가져올 수 있습니다. 자세한 내용은 [Azure Key Vault](/azure/key-vault/key-vault-whatis)를 참조하세요. 또한 Key Vault를 사용하여 자동 갱신으로 TLS 인증서를 관리할 수도 있습니다.
+**세부 정보**: Azure Key Vault를 사용하면 클라우드 애플리케이션과 서비스에 사용되는 암호화 키 및 비밀을 보호할 수 있습니다. Key Vault를 사용하면 HSM(하드웨어 보안 모듈)을 통해 보호되는 키를 통해 키와 비밀(예: 인증 키, 스토리지 계정 키, 데이터 암호화 키, .PFX 파일 및 암호)를 암호화할 수 있습니다. 추가된 보증을 위해, HSM에서 키를 생성하거나 가져올 수 있습니다. 자세한 내용은 [Azure Key Vault](/azure/key-vault/key-vault-overview)를 참조하세요. 또한 Key Vault를 사용하여 자동 갱신으로 TLS 인증서를 관리할 수도 있습니다.
 
 **모범 사례**: 들어오는 원본 IP 주소를 제한합니다.   
 **세부 정보**: [App Service Environment](/azure/app-service/environment/intro)에는 네트워크 보안 그룹을 통해 들어오는 원본 IP 주소를 제한하는 데 도움이 되는 가상 네트워크 통합 기능이 있습니다. 가상 네트워크에서는 액세스를 제어할 수 있는 인터넷이 아닌 라우팅 가능 네트워크에 Azure 리소스를 배치할 수 있습니다. 자세히 알아보려면 [Azure Virtual Network에 앱 통합](/azure/app-service/web-sites-integrate-with-vnet)을 참조하세요.

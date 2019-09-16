@@ -8,19 +8,19 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 07/26/2019
-ms.openlocfilehash: df43b52514eebc3216dbec01cff0d8a3b14e7940
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.date: 08/01/2019
+ms.openlocfilehash: 8e2e9d30fa24e56711a0d6800a8ca9a34e53c12e
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68517658"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967211"
 ---
 # <a name="add-artifacts-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Azure Logic Apps에서 ISE (통합 서비스 환경)에 아티팩트를 추가 합니다.
 
-[ISE (통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)를 만든 후에는 Azure 가상 네트워크의 리소스에 액세스할 수 있도록 논리 앱, 통합 계정 및 사용자 지정 커넥터와 같은 아티팩트를 추가 합니다.
+[ISE (통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)를 만든 후에는 Azure 가상 네트워크의 리소스에 액세스할 수 있도록 논리 앱, 통합 계정 및 커넥터와 같은 아티팩트를 추가 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "68517658"
 
 <a name="create-logic-apps-environment"></a>
 
-## <a name="create-logic-apps-in-an-ise"></a>ISE에서 논리 앱 만들기
+## <a name="create-logic-apps"></a>논리 앱 만들기
 
 ISE (통합 서비스 환경)에서 실행 되는 논리 앱을 빌드하려면 다음 단계를 수행 합니다.
 
@@ -57,7 +57,7 @@ ISE (통합 서비스 환경)에서 실행 되는 논리 앱을 빌드하려면 
 
 <a name="create-integration-account-environment"></a>
 
-## <a name="create-integration-accounts-in-an-ise"></a>ISE에서 통합 계정 만들기
+## <a name="create-integration-accounts"></a>통합 계정 만들기
 
 생성 시 선택 된 [ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) 에 따라 ise에 추가 비용 없이 특정 통합 계정 사용이 포함 됩니다. ISE (integration service environment)에 있는 논리 앱은 동일한 ISE에 있는 통합 계정만 참조할 수 있습니다. 따라서 통합 계정이 ISE에서 논리 앱과 작동 하려면 통합 계정 및 논리 앱 모두 해당 위치와 *동일한 환경을* 사용 해야 합니다. 통합 계정 및 ISEs에 대 한 자세한 내용은 ISE [](connect-virtual-network-vnet-isolated-environment-overview.md#create-integration-account-environment
 )와 통합 계정을 참조 하세요.
@@ -84,9 +84,25 @@ ISE를 사용 하는 통합 계정을 만들려면 다음 단계를 수행 합�
 
 1. ISE에서 통합 계정을 관리 하려면 [integration service Environment 관리](../logic-apps/ise-manage-integration-service-environment.md)를 참조 하세요.
 
+<a name="add-ise-connectors-environment"></a>
+
+## <a name="add-ise-connectors"></a>ISE 커넥터 추가
+
+ISE에서 사용 하기 위해 사용할 수 있지만 ISE에 배포 되지 않은 Microsoft 관리 커넥터를 추가할 수 있습니다.
+
+1. ISE 메뉴의 **설정**에서 **관리 되는 커넥터**를 선택 합니다. 도구 모음에서 **추가**를 선택합니다.
+
+   ![관리 되는 커넥터 보기](./media/add-artifacts-integration-service-environment-ise/ise-view-managed-connectors.png)
+
+1. **새 관리 커넥터 추가** 창에서 **커넥터 찾기** 목록을 엽니다. 원하는 커넥터를 사용할 수 있는 경우 해당 커넥터를 선택한 다음 **만들기**를 선택 합니다.
+
+   이 목록에는 적격 하지만 ISE에 배포 되지 않은 커넥터만 표시 됩니다. ISE에 이미 배포 된 커넥터는 선택할 수 없는 것으로 나타납니다.
+
+   ![적격 커넥터 선택](./media/add-artifacts-integration-service-environment-ise/add-managed-connector.png)
+
 <a name="create-custom-connectors-environment"></a>
 
-## <a name="create-custom-connectors-in-an-ise"></a>ISE에서 사용자 지정 커넥터 만들기
+## <a name="create-custom-connectors"></a>사용자 지정 커넥터 만들기
 
 ISE에서 사용자 지정 커넥터를 사용 하려면 ISE 내에서 직접 사용자 지정 커넥터를 만듭니다.
 

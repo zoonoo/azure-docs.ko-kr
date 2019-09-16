@@ -1,22 +1,17 @@
 ---
 title: Azure Resource Manager 템플릿에 대한 모범 사례
 description: Azure Resource Manager 템플릿 작성에 대한 권장되는 방법을 설명합니다. 템플릿을 사용할 때 일반적인 문제를 방지하기 위한 제안을 제공합니다.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/16/2019
+ms.date: 09/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 361fcc6b60e863ee43d348cedd6b1571f3f563a2
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: bd3167b7f0daf7ebd595b2c33b1147140415c3de
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812910"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983816"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure Resource Manager 템플릿 모범 사례
 
@@ -47,7 +42,8 @@ Azure 구독을 관리하는 방법에 대한 권장 사항은 [Azure 엔터프�
 리소스 그룹의 지역이 일시적으로 사용할 수 없는 경우 메타데이터를 사용할 수 없기 때문에 리소스 그룹의 리소스를 업데이트할 수 없습니다. 다른 지역에 있는 리소스는 여전히 예상대로 작동하지만 업데이트는 불가능합니다. 위험을 최소화하려면 동일한 지역에 있는 리소스 그룹 및 리소스를 찾습니다.
 
 ## <a name="parameters"></a>매개 변수
-이 섹션의 정보는 [매개 변수](resource-group-authoring-templates.md#parameters)로 작업하는 경우 도움이 될 수 있습니다.
+
+이 섹션의 정보는 [매개 변수](template-parameters.md)로 작업하는 경우 도움이 될 수 있습니다.
 
 ### <a name="general-recommendations-for-parameters"></a>매개 변수에 대한 일반 권장 사항
 
@@ -149,7 +145,7 @@ Azure 구독을 관리하는 방법에 대한 권장 사항은 [Azure 엔터프�
 
 ## <a name="variables"></a>변수
 
-다음 정보는 [변수](resource-group-authoring-templates.md#variables)로 작업하는 경우 도움이 될 수 있습니다.
+다음 정보는 [변수](template-variables.md)로 작업하는 경우 도움이 될 수 있습니다.
 
 * 변수 이름에 카멜식 대/소문자를 사용 합니다.
 
@@ -286,7 +282,7 @@ Azure 구독을 관리하는 방법에 대한 권장 사항은 [Azure 엔터프�
 
 ## <a name="outputs"></a>출력
 
-템플릿을 사용하여 공용 IP 주소를 만드는 경우 IP 주소 및 FQDN(정규화된 도메인 이름)의 세부 정보를 반환하는 [출력 섹션](resource-group-authoring-templates.md#outputs)을 포함합니다. 출력 값을 사용하여 배포 후 공용 IP 주소 및 FQDN에 대한 세부 정보를 쉽게 검색할 수 있습니다.
+템플릿을 사용하여 공용 IP 주소를 만드는 경우 IP 주소 및 FQDN(정규화된 도메인 이름)의 세부 정보를 반환하는 [출력 섹션](template-outputs.md)을 포함합니다. 출력 값을 사용하여 배포 후 공용 IP 주소 및 FQDN에 대한 세부 정보를 쉽게 검색할 수 있습니다.
 
 ```json
 "outputs": {

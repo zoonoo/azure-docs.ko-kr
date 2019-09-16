@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 706f0333f1cca984b44e0fc96a5b014d4157ce4c
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 936307399b658b75962e6969820215f9808d053f
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879704"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961145"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Azure HDInsight에서 클러스터 성능 모니터링
 
@@ -36,11 +36,11 @@ Hadoop 클러스터는 클러스터의 부하가 모든 노드에 균등하게 �
 
 또한 각 호스트의 코어 수와 RAM 양, 디스크 사용량 및 로드 평균을 보여주는 열이 표시됩니다.
 
-![호스트 탭](./media/hdinsight-key-scenarios-to-monitor/hosts-tab.png)
+![호스트 탭](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-hosts-tab.png)
 
 해당 호스트에서 실행되는 구성 요소와 메트릭을 자세히 살펴보려면 호스트 이름 중 하나를 선택합니다. 메트릭은 CPU 사용량, 로드, 디스크 사용량, 메모리 사용, 네트워크 사용량 및 프로세스 수에 대한 선택 가능한 타임라인으로 표시됩니다.
 
-![호스트 세부 정보](./media/hdinsight-key-scenarios-to-monitor/host-details.png)
+![호스트 세부 정보](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-host-details.png)
 
 경고를 설정하고 메트릭을 보는 방법에 대한 자세한 내용은 [Apache Ambari Web UI를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요.
 
@@ -56,7 +56,7 @@ Resource Manager는 *순수 스케줄러*로써 모든 경합 애플리케이션
 
 YARN은 이러한 큐에 리소스를 할당할 수 있도록 허용하며 모든 가용 리소스의 할당 여부를 보여줍니다. 큐에 대한 정보를 보려면 Ambari 웹 UI에 로그인한 다음, 상단의 메뉴에서 **YARN 큐 관리자**를 선택합니다.
 
-![YARN 큐 관리자](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager.png)
+![YARN 큐 관리자](./media/hdinsight-key-scenarios-to-monitor/apache-yarn-queue-manager.png)
 
 YARN 큐 관리자 페이지의 왼쪽에는 큐 목록과 각 큐에 할당된 용량 백분율이 표시됩니다.
 
@@ -64,11 +64,11 @@ YARN 큐 관리자 페이지의 왼쪽에는 큐 목록과 각 큐에 할당된 
 
 큐에 대한 세부 정보를 보려면 Ambari 대시보드의 왼쪽에 있는 목록에서 **YARN** 서비스를 선택합니다. 그런 다음, **빠른 연결** 드롭다운 메뉴에서 활성 노드 아래의 **Resource Manager UI**를 선택합니다.
 
-![Resource Manager UI 메뉴 연결](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
+![Resource Manager UI 메뉴 연결](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu-link.png)
 
 Resource Manager UI의 왼쪽 메뉴에서 **스케줄러**를 선택합니다. *애플리케이션 큐* 아래에 큐 목록이 보입니다. 여기서 각 큐에 사용되는 용량, 작업이 큐 간에 얼마나 잘 분산되었는지 여부, 리소스가 제한된 작업이 있는지 여부를 볼 수 있습니다.
 
-![리소스 관리자 UI 메뉴](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
+![리소스 관리자 UI 메뉴](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
 
 ## <a name="storage-throttling"></a>스토리지 제한
 

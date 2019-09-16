@@ -7,16 +7,16 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: vainolo
-ms.author: arib
+author: barmichal
+ms.author: mibar
 ms.reviewer: vanto
 ms.date: 03/22/2019
-ms.openlocfilehash: 5f5123624b5b9388baf799b48127b5b796eec21b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f2fd6cb73428c69fbb27cb93377f851a4e06221d
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568223"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70959127"
 ---
 # <a name="azure-sql-database-feature-restrictions"></a>Azure SQL Database 기능 제한 사항
 
@@ -32,7 +32,7 @@ EXEC sp_add_feature_restriction <feature>, <object_class>, <object_name>
 
 다음 기능을 제한할 수 있습니다.
 
-| 기능          | Description |
+| 기능          | 설명 |
 |------------------|-------------|
 | N'ErrorMessages' | 제한 되 면 오류 메시지 내의 모든 사용자 데이터가 마스킹 됩니다. [오류 메시지 기능 제한](#error-messages-feature-restriction) 을 참조 하세요. |
 | N'Waitfor'       | 제한 되 면 지연 없이 명령이 즉시 반환 됩니다. [WAITFOR 기능 제한](#waitfor-feature-restriction) 을 참조 하세요. |

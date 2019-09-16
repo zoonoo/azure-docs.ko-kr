@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/26/2019
+ms.date: 09/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5431dd74629b9ed76a6a072d8ada286ce71a7633
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 7c7aaf911930f83775f66c47377bc68edb059519
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596111"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70958978"
 ---
 # <a name="monitor-server-metrics"></a>서버 메트릭 모니터링
 
@@ -55,6 +55,10 @@ Analysis Services는 포털의 무료 도구인 Azure 메트릭 탐색기에서 
 |MemoryLimitLow|메모리: 메모리 제한 하한|바이트|평균|하한 메모리 제한, 구성 파일 원본입니다.|
 |MemoryLimitVertiPaq|메모리: 메모리 제한 VertiPaq|바이트|평균|구성 파일의 메모리 내 제한입니다.|
 |MemoryUsage|메모리: 메모리 사용량|바이트|평균|더욱 명확한 메모리 비용 계산에 사용되는 서버 프로세스의 메모리 사용량입니다. 메모리 매핑된 데이터 크기를 더한 카운터 Process\PrivateBytes와 동일하며 엔진 메모리 제한을 초과하여 메모리 내 분석 엔진(VertiPaq)에서 매핑하거나 할당하는 메모리를 무시합니다.|
+|private_bytes_metric|전용 바이트 |바이트|평균|다른 프로세스와 공유 되는 메모리를 제외 하 고 Analysis Services 엔진 프로세스와 매시업 컨테이너 프로세스가 할당 한 총 메모리 양입니다.|
+|virtual_bytes_metric|가상 바이트 |바이트|평균|Analysis Services 엔진 프로세스와 매시업 컨테이너 프로세스에서 사용 하는 가상 주소 공간의 현재 크기입니다.|
+|mashup_engine_private_bytes_metric|M 엔진 전용 바이트 |바이트|평균|다른 프로세스와 공유 되는 메모리를 제외 하 고 할당 된 메모리 매시업 컨테이너 프로세스의 총 크기입니다.|
+|mashup_engine_virtual_bytes_metric|M 엔진 가상 바이트 |바이트|평균|사용 중인 가상 주소 공간 매시업 컨테이너 프로세스의 현재 크기입니다.|
 |할당량|메모리: 할당량|바이트|평균|현재 메모리 할당량, 바이트 단위입니다. 메모리 할당량은 메모리 부여 또는 메모리 예약이라고도 합니다.|
 |QuotaBlocked|메모리: 차단된 할당량|개수|평균|다른 메모리 할당량이 해제될 때까지 차단되는 할당량 요청의 현재 수입니다.|
 |VertiPaqNonpaged|메모리: 페이징되지 않은 VertiPaq|바이트|평균|메모리 내 엔진에서 사용하기 위해 설정된 작동 중에 잠긴 메모리 바이트입니다.|

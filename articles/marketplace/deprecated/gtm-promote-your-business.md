@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: 8bb064deae87e6545d003ffb1fa85058926f5dee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9549e40ea3b79c356867c2fe36dc336e69795c8b
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688958"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962834"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Microsoft를 통한 비즈니스 홍보
 
@@ -28,7 +28,7 @@ Marketplace 파트너는 MPN(Microsoft 파트너 네트워크)에 속해야 합�
 
 | 이점 | 리소스 |
 |:--- |:--- |
-| 핵심적인 혜택 활용 | Microsoft 파트너 네트워크의 일환으로 시간과 비용을 절약하는 데 도움이 되는 일단의 핵심적 혜택을 받게 됩니다. 혜택은 다음과 같은 작업에 도움이 됩니다. <ul> <li> 기능 강화, </li> <li> 고객에게 더 나은 서비스 제공 및 </li> <li> 전체 비즈니스 잠재 고객에 도달하기 위한 연결 빌드 </li> </ul> 핵심 혜택에 대한 자세한 내용은 [핵심 혜택 및 요구 사항](https://partner.microsoft.com/en-US/membership/core-benefits#tab-content-1)을 참조하세요. |
+| 핵심적인 혜택 활용 | Microsoft 파트너 네트워크의 일환으로 시간과 비용을 절약하는 데 도움이 되는 일단의 핵심적 혜택을 받게 됩니다. 혜택은 다음과 같은 작업에 도움이 됩니다. <ul> <li> 기능 강화, </li> <li> 고객에게 더 나은 서비스 제공 및 </li> <li> 전체 비즈니스 잠재 고객에 도달하기 위한 연결 빌드 </li> </ul> 핵심 혜택에 대한 자세한 내용은 [핵심 혜택 및 요구 사항](https://partner.microsoft.com/membership/core-benefits#tab-content-1)을 참조하세요. |
 | 클라우드 플랫폼 역량 확보 | 역량을 확보하면 다음과 같은 작업에 도움이 됩니다. <ul> <li> 다른 Microsoft 파트너와 차별화 </li> <li> 시장에서 기술적인 전문성과 고객 성공 데모 </li> </ul> 역량은 Co-Sell과 같은 많은 핵심 파트너 프로그램의 필수 조건입니다. 자세한 내용은 [클라우드 플랫폼 역량](https://partner.microsoft.com/reach-customers/selling-with-microsoft)을 참조하세요. |
 | IP Co-Sell 준비 완료 | IP Co-Sell 준비 프로그램에 대한 자격이 있을 수 있습니다.  이 프로그램을 사용하면 다음을 수행할 수 있습니다. <ul> <li> Microsoft 판매자 및 다른 파트너와 직접 공동으로 작업하면서 고객 창출 기회를 포착하고 계정 계획을 세웁니다. </li> <li> 솔루션이 판매자 솔루션 카탈로그를 통해 Microsoft 판매자에게 표시되도록 합니다. </li> <li> 여러분과 협력하고 우세한 Microsoft 판매자에게는 보상이 제공됩니다. </li> </ul> 자격 요구 사항을 비롯한 자세한 내용은 [Co-Sell 준비 프로그램 및 비즈니스 홍보](https://partner.microsoft.com/reach-customers/selling-with-microsoft)를 참조하세요. |
 

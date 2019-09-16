@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: c06a338ec041c83588c3ee5126795b8c445ef469
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2a660fe0f7663ac87b82038a3bd3d4c4fbf18544
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937981"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962764"
 ---
 # <a name="offer-listing-best-practices"></a>목록에 제품 추가 모범 사례
 
@@ -28,7 +28,7 @@ ms.locfileid: "64937981"
 | 상점 설정 | 모범 사례 |
 |:--- |:--- |  
 | 산업: AppSource 앱 및 컨설팅 서비스만 해당 | 제품에서 산업별 요구 사항을 처리하는 경우 산업을 선택합니다. <ul><li> 제품 설명에서 산업 관련 기능을 호출합니다.</li> </ul> **참고**: 최대 옵션 수는 제품 유형에 따라 다르며, [Cloud 파트너 포털](https://cloudpartner.azure.com/#insights)에 표시됩니다. |
-| Categories | 제품에 가장 적합한 범주를 선택합니다.<br> <ul> <li> 고객이 관련 앱을 검색할 때 사용하므로 범주를 신중하게 선택합니다. </li> <li> 제품에서 제품 설명의 범주 관련 요구 사항을 지원하는 방법을 호출해야 합니다. </li> </ul> **참고**: 최대 옵션 수는 제품 유형에 따라 다르며, [Cloud 파트너 포털](https://cloudpartner.azure.com/#insights)에 표시됩니다. |
+| 범주 | 제품에 가장 적합한 범주를 선택합니다.<br> <ul> <li> 고객이 관련 앱을 검색할 때 사용하므로 범주를 신중하게 선택합니다. </li> <li> 제품에서 제품 설명의 범주 관련 요구 사항을 지원하는 방법을 호출해야 합니다. </li> </ul> **참고**: 최대 옵션 수는 제품 유형에 따라 다르며, [Cloud 파트너 포털](https://cloudpartner.azure.com/#insights)에 표시됩니다. |
 | 앱이 작동하는 제품(최대 3개): AppSource 앱만 해당 | 솔루션에서 사용하거나 확장하는 추가 제품과 기술을 나열합니다. 예: Azure IoT Hub 또는 Azure Machine Learning |
 | 검색 키워드(최대 3개) | 검색 키워드는 비즈니스 사용자가 검색 시 제품을 찾을 수 있도록 도와줍니다. <ul> <li> Azure Marketplace </li> <li> AppSource </li> <li> 검색 엔진 사용 </li> </ul> 목록이 이러한 검색에 표시되려면 다음을 수행해야 합니다. <ul> <li> 제품의 상위 검색 키워드 3개를 식별합니다. </li> <li> 제품 요약 및 설명에 검색 키워드를 통합합니다. </li> <li> 여기에 검색 키워드를 나열합니다. </li> </ul> |
 
@@ -53,7 +53,7 @@ ms.locfileid: "64937981"
 
 ## <a name="next-steps"></a>다음 단계
 
-[출시 서비스](https://partner.microsoft.com/reach-customers/gtm)로 이동하여 마켓플레이스 GTM 서비스에 대해 자세히 알아봅니다.
+[상업적 marketplace 혜택](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits)에 대해 자세히 알아보세요.
 
 제품을 만들고 구성하려면 [Cloud 파트너 포털](https://cloudpartner.azure.com)에 로그인합니다.
 

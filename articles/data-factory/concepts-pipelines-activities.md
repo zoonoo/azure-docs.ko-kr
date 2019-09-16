@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.openlocfilehash: c986b4efea905ce4e1d9ee6f08b688fe6ef6ef5e
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: cb776b28a8c06784a2aa41e42429a3f183254138
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142565"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984217"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory의 파이프라인 및 작업
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -95,7 +95,7 @@ Azure Data Factory는 개별적 또는 다른 작업과 연계하여 파이프�
 }
 ```
 
-Tag | Description | 형식 | 필수
+Tag | 설명 | 형식 | 필수
 --- | ----------- | ---- | --------
 name | 파이프라인의 이름입니다. 파이프라인이 수행하는 작업을 나타내는 이름을 지정합니다. <br/><ul><li>최대 문자 수: 140</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | String | 예
 description | 파이프라인의 용도를 설명하는 텍스트를 지정합니다. | String | 아니요
@@ -149,7 +149,7 @@ dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이
     "properties": {
       "activities": [
         {
-          "name": "MyCopyBlobtoSqlActivity"
+          "name": "MyCopyBlobtoSqlActivity",
           "type": "Copy",
           "typeProperties": {
             ...
@@ -169,7 +169,7 @@ dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이
 }
 ```
 
-JSON 이름 | Description | 허용되는 값 | 필수
+JSON 이름 | 설명 | 허용되는 값 | 필수
 --------- | ----------- | -------------- | --------
 timeout | 작업 실행에 대한 시간 제한을 지정합니다. | Timespan | 아니요. 기본 시간 제한은 7일입니다.
 다시 시도 | 최대 다시 시도 횟수 | 정수 | 아니요. 기본값은 0입니다.
@@ -193,7 +193,7 @@ secureOutput | true로 설정된 경우 작업의 출력은 안전하다고 여�
 }
 ```
 
-Tag | Description | 필수
+Tag | 설명 | 필수
 --- | ----------- | --------
 name | 활동의 이름입니다. 활동이 수행하는 작업을 나타내는 이름을 지정합니다.<br/><ul><li>최대 문자 수: 55</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | 예</li><ul>
 description | 활동의 용도를 설명하는 텍스트입니다. | 예

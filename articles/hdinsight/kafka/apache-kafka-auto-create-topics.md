@@ -3,16 +3,17 @@ title: Apache Kafka에서 자동 토픽 생성 사용 - Azure HDInsight
 description: 자동으로 토픽을 만들도록 HDInsight에서 Apache Kafka를 구성하는 방법에 대해 알아봅니다. Ambari를 통해 auto.create.topics.enable을 true로 설정하거나 또는 PowerShell 또는 Resource Manager 템플릿을 통해 클러스터를 만드는 동안에 Kafka를 구성할 수 있습니다.
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/18/2018
-ms.openlocfilehash: 4f40a625b10243ca13163e549a51a760cf105917
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 5d990a1c39495090fed1c78f1ddf5e879490e6c4
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900445"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960646"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>자동으로 토픽을 작성하기 위해 HDInsight에서 Apache Kafka를 구성하는 방법
 
@@ -34,11 +35,11 @@ Ambari 웹 UI를 통해 기존 클러스터에서 자동 토픽 생성을 사용
 
 3. 페이지 왼쪽 목록에서 Kafka 서비스를 선택합니다.
 
-    ![서비스 목록](./media/apache-kafka-auto-create-topics/service-list.png)
+    ![서비스 목록](./media/apache-kafka-auto-create-topics/hdinsight-service-list.png)
 
 4. 페이지 중간의 Config를 선택합니다.
 
-    ![서비스 구성 탭](./media/apache-kafka-auto-create-topics/service-config.png)
+    ![서비스 구성 탭](./media/apache-kafka-auto-create-topics/hdinsight-service-config.png)
 
 5. 필터 필드에 `auto.create` 값을 입력합니다. 
 

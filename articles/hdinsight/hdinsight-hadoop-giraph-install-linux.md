@@ -1,18 +1,18 @@
 ---
-title: 설치 하 고 Azure HDInsight에서 Giraph를 사용 합니다.
-description: 스크립트 동작을 사용 하 여 HDInsight 클러스터에 Giraph를 설치 하는 방법에 알아봅니다. 그래프는 Azure 클라우드에서 Apache Hadoop에서 처리를 위해 Giraph를 사용할 수 있습니다.
+title: Azure HDInsight에서 Giraph 설치 및 사용
+description: 스크립트 작업을 사용 하 여 HDInsight 클러스터에 Giraph를 설치 하는 방법에 대해 알아봅니다. Giraph를 사용 하 여 Azure 클라우드의 Apache Hadoop에서 그래프 처리를 수행할 수 있습니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.openlocfilehash: aa13d8dfc65f020f3f27183423913933cd0b9404
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f1ca536ffa2166df4ef6cf51654b7b410e72ea66
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64697597"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962053"
 ---
 # <a name="install-apache-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>HDInsight Hadoop 클러스터에 Apache Giraph를 설치하고 Giraph를 사용하여 대규모 그래프를 처리합니다.
 
@@ -111,7 +111,7 @@ HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다�
 
     개체 간 거리로 값(또는 가중치)을 사용하여 그리면 데이터는 다음 다이어그램과 같을 수 있습니다.
 
-    ![원과 거리가 다른 선으로 그린 tiny_graph.txt](./media/hdinsight-hadoop-giraph-install-linux/giraph-graph.png)
+    ![원과 거리가 다른 선으로 그린 tiny_graph.txt](./media/hdinsight-hadoop-giraph-install-linux/hdinsight-giraph-graph.png)
 
 3. 파일을 저장하려면 **Ctrl + X**, **Y**, 마지막으로 **Enter**를 차례로 사용하여 파일 이름을 적용합니다.
 
@@ -143,7 +143,7 @@ HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다�
 
     이 밖에 Giraph 샘플과 함께 사용된 기타 매개 변수에 대한 자세한 내용은 [Giraph 빠른 시작](https://giraph.apache.org/quick_start.html)을 참조하세요.
 
-6. 작업이 완료 되 면 결과에 저장 되므로 합니다 **/example/out/shortestpaths** 디렉터리입니다. 출력 파일 이름은 **part-m-** 으로 시작하고 첫 번째, 두 번째 파일 등을 나타내는 숫자로 끝납니다. 다음 명령을 사용하여 출력을 봅니다.
+6. 작업이 완료 되 면 결과는 **/example/out/shortestpaths** 디렉터리에 저장 됩니다. 출력 파일 이름은 **part-m-** 으로 시작하고 첫 번째, 두 번째 파일 등을 나타내는 숫자로 끝납니다. 다음 명령을 사용하여 출력을 봅니다.
 
     ```bash
     hdfs dfs -text /example/output/shortestpaths/*
@@ -161,7 +161,7 @@ HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다�
 
     이 데이터를 시각화하면 ID 1과 다른 모든 개체 간의 가장 짧은 경로를 이동하여 결과를 확인할 수 있습니다. ID 1과 ID 4 간의 가장 짧은 경로는 5입니다. 이 값은 <span style="color:orange">ID 1과 3</span> 사이의 총 거리와 <span style="color:red">ID 3과 4</span> 사이의 총 거리입니다.
 
-    ![가장 짧은 경로와 함께 원으로 그린 개체](./media/hdinsight-hadoop-giraph-install-linux/giraph-graph-out.png)
+    ![가장 짧은 경로와 함께 원으로 그린 개체](./media/hdinsight-hadoop-giraph-install-linux/hdinsight-giraph-graph-out.png)
 
 ## <a name="next-steps"></a>다음 단계
 

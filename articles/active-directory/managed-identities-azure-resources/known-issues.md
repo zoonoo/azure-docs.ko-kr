@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1eb5600a9793963a722967e1bbe702cf3b2f670e
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 8d882b34bc4f057035a16b7916249cfe8f0b8d0b
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147108"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983425"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID 관련 FAQ 및 알려진 문제
 
@@ -38,7 +38,7 @@ ms.locfileid: "67147108"
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>Azure 리소스에 대한 관리 ID가 ADAL(Active Directory Authentication Library) 또는 MSAL(Microsoft Authentication Library)에서 작동하나요?
 
-아니요. Azure 리소스에 대한 관리 ID는 ADAL 또는 MSAL에 아직 통합되어 있지 않습니다. REST 끝점을 사용 하 여 Azure 리소스에 대 한 관리 되는 id에 대 한 토큰 획득에 대 한 내용은 참조 하세요 [Azure VM에서 Azure 리소스에 대 한 관리 되는 id를 사용 하 여 액세스 토큰을 획득 하는 방법을](how-to-use-vm-token.md)합니다.
+아니요. Azure 리소스에 대한 관리 ID는 ADAL 또는 MSAL에 아직 통합되어 있지 않습니다. REST 끝점을 사용 하 여 Azure 리소스에 대 한 관리 id 토큰을 획득 하는 방법에 대 한 자세한 내용은 [AZURE VM에서 azure 리소스에 대해 관리 되는 id를 사용 하 여 액세스 토큰을 가져오는 방법](how-to-use-vm-token.md)을 참조 하세요.
 
 ### <a name="what-is-the-security-boundary-of-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID의 보안 경계란 무엇인가요?
 
@@ -50,25 +50,25 @@ ID의 보안 경계는 연결되는 리소스입니다. 예를 들어, Azure 리
 - 시스템에서 할당된 관리 ID가 활성화되지 않은 경우 사용자가 할당한 관리 ID 하나만 있으면 IMDS 기본값은 사용자가 할당한 관리 ID가 됩니다. 
 - 시스템에서 할당된 관리 ID가 활성화되지 않은 경우 사용자가 할당한 관리 ID가 여러 개 존재하면 요청에 관리 ID를 지정해야 합니다.
 
-### <a name="should-i-use-the-managed-identities-for-azure-resources-imds-endpoint-or-the-vm-extension-endpoint"></a>Azure 리소스 IMDS 엔드포인트 또는 VM 확장 엔드포인트에 대 한 관리 되는 id를 사용 해야 합니까?
+### <a name="should-i-use-the-managed-identities-for-azure-resources-imds-endpoint-or-the-vm-extension-endpoint"></a>Azure 리소스 IMDS 끝점 또는 VM 확장 끝점에 관리 되는 id를 사용 해야 하나요?
 
-Vm 사용 하 여 Azure 리소스에 대 한 관리 되는 id를 사용 하는 경우 IMDS 엔드포인트를 사용 하는 것이 좋습니다. Azure Instance Metadata Service는 Azure Resource Manager를 통해 생성된 모든 IaaS VM에 액세스할 수 있는 REST 엔드포인트입니다. 
+Vm을 사용 하 여 Azure 리소스에 관리 id를 사용 하는 경우 IMDS 끝점을 사용 하는 것이 좋습니다. Azure Instance Metadata Service는 Azure Resource Manager를 통해 생성된 모든 IaaS VM에 액세스할 수 있는 REST 엔드포인트입니다. 
 
 IMDS에 비해 Azure 리소스에 대한 관리 ID를 사용할 때는 몇 가지 이점은 다음과 같습니다.
 - 모든 Azure IaaS 지원 운영 체제는 IMDS이 아닌 Azure 리소스에 대한 관리 ID를 사용할 수 있습니다.
 - 이제 Azure 리소스에 대한 관리 ID를 사용하기 위해 VM에 확장을 설치하지 않아도 됩니다. 
 - Azure 리소스에 대한 관리 ID에 사용되는 인증서가 VM에는 더 이상 없습니다.
 - IMDS 엔드포인트는 잘 알려진 라우팅 불가능 IP 주소로, VM 내에서만 사용할 수 있습니다.
-- 관리 되는 id 1000 사용자 할당은 단일 VM에 할당할 수 있습니다. 
+- 1000 사용자 할당 관리 id는 단일 VM에 할당할 수 있습니다. 
 
-Azure 리소스 VM 확장에 대 한 관리 되는 id는 여전히 사용할 수 있습니다. 그러나에 새로운 기능을 개발 하지 않습니다. IMDS 엔드포인트를 사용 하도록 전환 하는 것이 좋습니다. 
+Azure 리소스 VM 확장에 대 한 관리 id는 계속 사용할 수 있습니다. 그러나 더 이상 새로운 기능을 개발 하지 않습니다. IMDS 끝점을 사용 하도록 전환 하는 것이 좋습니다. 
 
-VM 확장 엔드포인트를 사용 하 여의 한계는 다음과 같습니다.
-- Linux 배포판에 대 한 제한 된 지원: CoreOS의 Stable, CentOS 7.1, 7.2 Red Hat, Ubuntu 15.04, Ubuntu 16.04
-- VM에 32 개의 사용자 할당 관리 id는 할당할 수 있습니다.
+VM 확장 끝점 사용에 대 한 몇 가지 제한 사항은 다음과 같습니다.
+- Linux 배포판에 대 한 제한 된 지원: CoreOS 안정, CentOS 7.1, Red Hat 7.2, Ubuntu 15.04, Ubuntu 16.04
+- 32 사용자 할당 관리 id만 VM에 할당할 수 있습니다.
 
 
-참고: Azure 리소스 VM 확장에 대 한 관리 되는 id는 2019 년 1 월에에서는 지원 되지 것입니다. 
+참고: Azure 리소스 VM 확장에 대 한 관리 되는 id는 1 월 2019 일에 지원 되지 않습니다. 
 
 Azure Instance Metadata Service에 대한 자세한 내용은 [IMDS 설명서](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)를 참조하세요.
 
@@ -82,10 +82,10 @@ Azure Instance Metadata Service에 대한 자세한 내용은 [IMDS 설명서](h
 
 아니요. 관리 ID는 현재 교차 디렉터리 시나리오를 지원하지 않습니다. 
 
-### <a name="what-azure-rbac-permissions-are-required-to-managed-identity-on-a-resource"></a>리소스에 대해 관리 되는 id 하는 데 필요한 Azure RBAC 권한은 무엇입니까? 
+### <a name="what-azure-rbac-permissions-are-required-to-managed-identity-on-a-resource"></a>리소스에서 관리 id에 필요한 Azure RBAC 권한은 무엇 인가요? 
 
-- 관리 되는 id 시스템 할당 합니다. 리소스를 통해 쓰기 권한이 필요 합니다. Exampl, 가상 머신에 대 한 필요 Microsoft.Compute/virtualMachines/write 합니다. 이 작업은 리소스 특정 기본 제공 역할에에서 포함 된 [Virtual Machine 참여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)합니다.
-- 사용자 할당 관리 되는 id: 리소스를 통해 쓰기 권한이 필요 합니다. 예를 들어, 가상 머신 Microsoft.Compute/virtualMachines/write 해야합니다. 외에 [관리 Id 운영자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) 역할 할당을 통해 관리 되는 id입니다.
+- 시스템 할당 관리 id: 리소스에 대 한 쓰기 권한이 있어야 합니다. 예를 들어 virtual machines의 경우 virtualMachines/write/write가 필요 합니다. 이 작업은 [가상 컴퓨터 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)와 같은 리소스 특정 기본 제공 역할에 포함 됩니다.
+- 사용자 할당 관리 id: 리소스에 대 한 쓰기 권한이 있어야 합니다. 예를 들어 virtual machines의 경우 virtualMachines/write/write가 필요 합니다. 관리 id에 대 한 [관리 Id 운영자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) 역할 할당 외에도
 
 ### <a name="how-do-you-restart-the-managed-identities-for-azure-resources-extension"></a>Azure 리소스에 대한 관리 ID 확장을 다시 시작하려면 어떻게 하나요?
 Windows 및 특정 버전의 Linux에서 확장이 중지한 경우 다음 cmdlet 사용하여 수동으로 다시 시작할 수 있습니다.
@@ -94,7 +94,7 @@ Windows 및 특정 버전의 Linux에서 확장이 중지한 경우 다음 cmdle
 Set-AzVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
 ```
 
-위치: 
+각 항목이 나타내는 의미는 다음과 같습니다. 
 - Windows의 확장 이름 및 형식은 다음과 같습니다. ManagedIdentityExtensionForWindows
 - Linux의 확장 이름 및 형식은 다음과 같습니다. ManagedIdentityExtensionForLinux
 
@@ -143,11 +143,11 @@ DNS 조회 오류로 인해 VM 확장의 프로비저닝이 실패할 수 있습
 
 구독이 다른 디렉터리로 이동/전송되면 관리 ID는 업데이트되지 않습니다. 결과적으로, 존재하는 시스템에서 할당하거나 사용자가 할당한 관리 ID가 모두 손상됩니다. 
 
-다른 디렉터리로 이동 된 구독에서 관리 되는 id에 대 한 해결 방법:
+다른 디렉터리로 이동한 구독의 관리 되는 id에 대 한 해결 방법:
 
  - 시스템에서 할당된 관리 ID: 비활성화하거나 재활성화합니다. 
  - 사용자가 할당한 관리 ID: 삭제한 후 다시 생성하여 필요한 리소스(예: 가상 머신)에 다시 연결합니다.
 
 ### <a name="moving-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>사용자 할당 관리 id를 다른 리소스 그룹/구독으로 이동
 
-사용자가 할당한 관리 ID를 다른 리소스 그룹으로 이동하면 ID가 손상됩니다. 결과적으로, 해당 id를 사용 하 여 리소스 (예: VM)에 토큰을 요청에 대 한 수 없습니다. 
+사용자가 할당한 관리 ID를 다른 리소스 그룹으로 이동하면 ID가 손상됩니다. 따라서 해당 id를 사용 하는 리소스 (예: VM)는 토큰을 요청할 수 없습니다. 

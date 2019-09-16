@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.openlocfilehash: 20c4571ee795c280e6c916e3080279a6d13fecce
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: c262d3841acd3497667c00a9deee04b304ddae76
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814218"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984794"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>HDInsight Spark 클러스터를 사용하여 Azure SQL 데이터베이스에서 데이터 읽기 및 쓰기
 
@@ -182,7 +182,7 @@ Azure HDInsight의 Apache Spark 클러스터를 Azure SQL 데이터베이스에 
 
 1. 출력에는 **HVAC.csv**의 스키마가 표시됩니다. **hvactable** 또한 동일한 스키마를 갖습니다. 출력에는 테이블의 열이 표시됩니다.
 
-    ![테이블의 스키마](./media/apache-spark-connect-to-sql-database/schema-of-table.png "테이블의 스키마")
+    ![테이블의 스키마](./media/apache-spark-connect-to-sql-database/hdinsight-schema-table.png "테이블의 스키마")
 
 1. 마지막으로 다음 코드 조각을 사용하여 HVAC.csv에서 데이터를 읽은 후 Azure SQL 데이터베이스의 **hvactable**로 스트리밍합니다. 이 코드 조각을 코드 셀에 붙여 넣고, 자리 표시자 값을 Azure SQL 데이터베이스에 대한 값으로 바꾼 다음, **SHIFT + ENTER**를 눌러 실행합니다.
 

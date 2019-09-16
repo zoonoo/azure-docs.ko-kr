@@ -1,5 +1,5 @@
 ---
-title: Azure HDInsight의 Apache Kafka에 대 한 azure Monitor 로그
+title: Apache Kafka에 대 한 Azure Monitor 로그-Azure HDInsight
 description: Azure Monitor 로그를 사용 하 여 Azure HDInsight의 Apache Kafka 클러스터에서 로그를 분석 하는 방법을 알아봅니다.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,39 +8,39 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.openlocfilehash: 1e141aea3b22bfdcb981513f03e595b6c2f15466
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 44eea1bc6390e743aff104550e5b6d7e97c45929
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65147977"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960128"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>HDInsight의 Apache Kafka에 대한 로그 분석
 
-Azure Monitor 로그를 사용 하 여 HDInsight의 Apache Kafka에서 생성 된 로그를 분석 하는 방법을 알아봅니다.
+Azure Monitor 로그를 사용 하 여 HDInsight에서 Apache Kafka 생성 된 로그를 분석 하는 방법을 알아봅니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="enable-azure-monitor-logs-for-apache-kafka"></a>Apache Kafka에 대 한 Azure Monitor 로그를 사용 하도록 설정
+## <a name="enable-azure-monitor-logs-for-apache-kafka"></a>Apache Kafka에 대 한 Azure Monitor 로그 사용
 
-HDInsight에 대 한 Azure Monitor 로그를 사용 하는 단계는 모든 HDInsight 클러스터에 대해 동일 합니다. 다음 링크를 사용하여 필요한 서비스를 만들고 구성하는 방법을 이해하세요.
+HDInsight에 대 한 Azure Monitor 로그를 사용 하도록 설정 하는 단계는 모든 HDInsight 클러스터에 대해 동일 합니다. 다음 링크를 사용하여 필요한 서비스를 만들고 구성하는 방법을 이해하세요.
 
-1. Log Analytics 작업 영역을 만듭니다. 자세한 내용은 참조는 [Azure Monitor의 로그](../../azure-monitor/platform/data-platform-logs.md) 문서.
+1. Log Analytics 작업 영역을 만듭니다. 자세한 내용은 [Azure Monitor의 로그](../../azure-monitor/platform/data-platform-logs.md) 문서를 참조 하세요.
 
 2. HDInsight 클러스터에서 Kafka를 만듭니다. 자세한 내용은 [HDInsight에서 Apache Kafka 시작](apache-kafka-get-started.md) 문서를 참조하세요.
 
-3. Azure Monitor 로그를 사용 하도록 Kafka 클러스터를 구성 합니다. 자세한 내용은 참조는 [HDInsight 모니터링을 사용 하 여 Azure Monitor 로그](../hdinsight-hadoop-oms-log-analytics-tutorial.md) 문서.
+3. Azure Monitor 로그를 사용 하도록 Kafka 클러스터를 구성 합니다. 자세한 내용은 [Azure Monitor 로그를 사용 하 여 HDInsight 모니터링](../hdinsight-hadoop-oms-log-analytics-tutorial.md) 문서를 참조 하세요.
 
 > [!IMPORTANT]  
-> 데이터는 Azure Monitor 로그 수까지 약 20 분 정도 걸릴 수 있습니다.
+> Azure Monitor 로그에 데이터를 사용할 수 있을 때까지 약 20 분 정도 걸릴 수 있습니다.
 
 ## <a name="query-logs"></a>쿼리 로그
 
 1. [Azure Portal](https://portal.azure.com)에서 Log Analytics 작업 영역을 선택합니다.
 
-2. 왼쪽된 메뉴에서 아래 **일반적인**를 선택 **로그**합니다. 여기서 Kafka에서 수집한 데이터를 검색할 수 있습니다. 쿼리 창에서 쿼리를 입력 하 고 선택한 **실행**합니다. 다음은 검색 예제입니다.
+2. 왼쪽 메뉴의 **일반**에서 **로그**를 선택 합니다. 여기서 Kafka에서 수집한 데이터를 검색할 수 있습니다. 쿼리 창에 쿼리를 입력 한 다음 **실행**을 선택 합니다. 다음은 검색 예제입니다.
 
-* 디스크 사용량:
+* 디스크 사용:
 
     ```kusto
     Perf 
@@ -56,7 +56,7 @@ HDInsight에 대 한 Azure Monitor 로그를 사용 하는 단계는 모든 HDIn
     | summarize AggregatedValue = avg(CounterValue) by Computer, bin(TimeGenerated, 1h)
     ```
 
-* 초당 들어오는 메시지:
+* 초당 들어오는 메시지 수:
 
     ```kusto
     metrics_kafka_CL 
@@ -64,7 +64,7 @@ HDInsight에 대 한 Azure Monitor 로그를 사용 하는 단계는 모든 HDIn
     | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_MessagesInPerSec_Count_value_d) by HostName_s, bin(TimeGenerated, 1h)
     ```
 
-* 초당 들어오는 바이트:
+* 초당 수신 바이트:
 
     ```kusto
     metrics_kafka_CL 
@@ -85,17 +85,17 @@ HDInsight에 대 한 Azure Monitor 로그를 사용 하는 단계는 모든 HDIn
     
     `*`를 입력하여 기록된 모든 종류를 검색할 수도 있습니다. 현재 다음 로그를 쿼리에 사용할 수 있습니다.
     
-    | 로그 형식 | 설명 |
+    | 로그 형식 | Description |
     | ---- | ---- |
     | log\_kafkaserver\_CL | Kafka broker server.log |
     | log\_kafkacontroller\_CL | Kafka broker controller.log |
     | metrics\_kafka\_CL | Kafka JMX 메트릭 |
     
-    ![CPU 사용량 검색의 이미지](./media/apache-kafka-log-analytics-operations-management/kafka-cpu-usage.png)
+    ![CPU 사용량 검색의 이미지](./media/apache-kafka-log-analytics-operations-management/apache-kafka-cpu-usage.png)
  
 ## <a name="next-steps"></a>다음 단계
 
-Azure Monitor에 대 한 자세한 내용은 참조 하세요. [Azure Monitor 개요](../../log-analytics/log-analytics-get-started.md), 및 [HDInsight 클러스터를 모니터링 하려면 로그 쿼리 Azure Monitor](../hdinsight-hadoop-oms-log-analytics-use-queries.md)합니다.
+Azure Monitor에 대 한 자세한 내용은 [Azure Monitor 개요](../../log-analytics/log-analytics-get-started.md)및 [HDInsight 클러스터 모니터링을 위한 Azure Monitor 로그 쿼리](../hdinsight-hadoop-oms-log-analytics-use-queries.md)를 참조 하세요.
 
 Apache Kafka 작업에 대한 자세한 내용은 다음 문서를 참조하세요.
 

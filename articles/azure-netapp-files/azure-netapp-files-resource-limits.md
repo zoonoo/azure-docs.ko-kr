@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: b-juche
-ms.openlocfilehash: 4ce40fdf36f7d66e60e15955318e43f1f24f275f
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 15d0a584d88045f6020162a88124cd9d6a4735bf
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515855"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983999"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Azure NetApp Files에 대한 리소스 제한
 
@@ -36,7 +36,7 @@ Azure NetApp Files에 대한 리소스 제한을 이해하면 볼륨을 관리�
 |  용량 풀 당 볼륨 수     |    500   |    예     |
 |  볼륨당 스냅숏 수       |    255     |    아니요        |
 |  Azure Virtual Network Azure NetApp Files (Microsoft NetApp/볼륨)에 위임 된 서브넷 수    |   1   |    아니요    |
-|  Azure NetApp Files에 액세스할 수 있는 VNet의 동시 Ip 수 (피어 링 Vnet 포함)   |    1000   |    아니요   |
+|  Azure NetApp Files에 액세스할 수 있는 VNet (피어 링 Vnet 포함)의 Ip 수   |    1000   |    예   |
 |  단일 용량 풀의 최소 크기   |  4TiB     |    아니요  |
 |  단일 용량 풀의 최대 크기    |  500TiB   |   아니요   |
 |  단일 볼륨의 최소 크기    |    100GiB    |    아니요    |
@@ -53,7 +53,7 @@ Azure Portal 탐색 평면에서:
 2. **+ 새 지원 요청**을 클릭 합니다.
 3. 기본 사항 탭에서 다음 정보를 제공 합니다. 
     1. 문제 유형: **서비스 및 구독 제한 (할당량)** 을 선택 합니다.
-    2. 구독: 할당량이 증가 해야 하는 리소스에 대 한 구독을 선택 합니다.
+    2. 등에 할당량이 증가 해야 하는 리소스에 대 한 구독을 선택 합니다.
     3. 할당량 유형: 저장소 **선택: Azure NetApp Files 제한**.
     4. **다음: 솔루션**.
 4. 세부 정보 탭에서 다음을 수행 합니다.

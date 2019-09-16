@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: 9ba03f6b1e658e08c3d07d7ccb5e2a99e96fe69c
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: fad2c83138f211e83e9462182d33f6169cbdb833
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736465"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967998"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>확장된 Apache Spark 기록 서버를 사용하여 Apache Spark 애플리케이션 디버그 및 진단
 
@@ -47,23 +47,23 @@ Spark 기록 서버 웹 UI는 다음과 같습니다.
 
 + 별도로 탭을 선택하여 **입력**, **출력** 및 **테이블 작업**을 확인합니다.
 
-    ![데이터 탭](./media/apache-azure-spark-history-server/sparkui-data-tabs.png)
+    ![데이터 탭](./media/apache-azure-spark-history-server/apache-spark-data-tabs.png)
 
 + **복사** 단추를 클릭하여 모든 행을 복사합니다.
 
-    ![데이터 복사](./media/apache-azure-spark-history-server/sparkui-data-copy.png)
+    ![데이터 복사](./media/apache-azure-spark-history-server/apache-spark-data-copy.png)
 
 + **csv** 단추를 클릭하여 모든 데이터를 CSV 파일로 저장합니다.
 
-    ![데이터 저장](./media/apache-azure-spark-history-server/sparkui-data-save.png)
+    ![데이터 저장](./media/apache-azure-spark-history-server/apache-spark-data-save.png)
 
 + **검색** 필드에서 키워드를 입력하여 검색하면 검색 결과가 즉시 표시됩니다.
 
-    ![데이터 검색](./media/apache-azure-spark-history-server/sparkui-data-search.png)
+    ![데이터 검색](./media/apache-azure-spark-history-server/apache-spark-data-search.png)
 
 + 열 헤더를 클릭하여 테이블을 정렬하고, 자세한 세부 정보를 표시하려면 더하기 기호를 클릭하여 행을 확장하거나, 빼기 기호를 클릭하여 행을 축소합니다.
 
-    ![데이터 테이블](./media/apache-azure-spark-history-server/sparkui-data-table.png)
+    ![데이터 테이블](./media/apache-azure-spark-history-server/apache-spark-data-table.png)
 
 + 오른쪽에 있는 **부분 다운로드** 단추를 클릭하여 단일 파일을 다운로드한 다음, 선택한 파일을 로컬에 다운로드합니다. 파일이 더 이상 존재하지 않는 경우 새 탭이 열리고 오류 메시지가 표시됩니다.
 
@@ -75,7 +75,7 @@ Spark 기록 서버 웹 UI는 다음과 같습니다.
 
 + 한 페이지에 너무 많은 행이 표시될 경우 테이블 아래의 숫자를 클릭하여 페이지를 탐색합니다. 
 
-    ![데이터 페이지](./media/apache-azure-spark-history-server/sparkui-data-page.png)
+    ![데이터 페이지](./media/apache-azure-spark-history-server/apache-spark-data-page.png)
 
 + 데이터 옆의 물음표를 마우스로 가리켜 도구 설명을 표시하거나 물음표를 클릭하여 자세한 정보를 가져옵니다.
 
@@ -93,7 +93,7 @@ Spark 기록 서버 웹 UI는 다음과 같습니다.
 
 + 기본적으로 모든 작업이 표시되며, **작업 ID**에서 필터링할 수 있습니다.
 
-    ![그래프 작업 ID](./media/apache-azure-spark-history-server/sparkui-graph-jobid.png)
+    ![그래프 작업 ID](./media/apache-azure-spark-history-server/apache-spark-graph-jobid.png)
 
 + 기본적으로 **진행률**을 선택하면 사용자는 **표시**의 드롭다운 목록에서 **읽기/쓰기**를 선택하여 데이터 흐름을 확인할 수 있습니다.
 
@@ -211,15 +211,15 @@ Spark 기록 서버 웹 UI는 다음과 같습니다.
 5. 이제 속성을 **false**로 설정합니다.
 6. 구성을 저장하려면 **Save**를 클릭합니다.
 
-    ![기능 끄기](./media/apache-azure-spark-history-server/sparkui-turn-off.png)
+    ![기능 끄기](./media/apache-azure-spark-history-server/apache-spark-turn-off.png)
 
 7. **요약** 탭 아래의 왼쪽 패널에서 **Spark2**를 클릭하고 **Spark2 기록 서버**를 클릭합니다.
 
-    ![서버1 다시 시작](./media/apache-azure-spark-history-server/sparkui-restart-1.png) 
+    ![서버1 다시 시작](./media/apache-azure-spark-history-server/apache-spark-restart1.png) 
 
 8. **Spark2 기록 서버**의 **다시 시작**을 클릭하여 기록 서버를 다시 시작합니다.
 
-    ![서버2 다시 시작](./media/apache-azure-spark-history-server/sparkui-restart-2.png)  
+    ![서버2 다시 시작](./media/apache-azure-spark-history-server/apache-spark-restart2.png)  
 
 9. Spark 기록 서버 웹 UI를 새로 고침하면 커뮤니티 버전으로 되돌려집니다.
 
@@ -236,7 +236,7 @@ Spark 기록 서버 웹 UI는 다음과 같습니다.
 
 3. 오류의 제목 및 설명을 제공하고, zip 파일을 편집 필드를 끌어온 다음, **새 문제 제출**을 클릭합니다.
 
-    ![파일 문제](./media/apache-azure-spark-history-server/sparkui-file-issue.png)
+    ![파일 문제](./media/apache-azure-spark-history-server/apache-spark-file-issue.png)
 
 
 ### <a name="3-upgrade-jar-file-for-hotfix-scenario"></a>3. 핫픽스 시나리오에 대한 jar 파일 업그레이드
@@ -314,7 +314,7 @@ Spark 기록 서버 웹 UI는 다음과 같습니다.
    + **헤드** 및 **작업자**를 확인합니다.
    + **매개 변수**: Bash 사용량에 따라 매개 변수를 설정합니다.
 
-     ![로그 업로드 또는 핫픽스 업그레이드](./media/apache-azure-spark-history-server/sparkui-upload2.png)
+     ![로그 업로드 또는 핫픽스 업그레이드](./media/apache-azure-spark-history-server/apache-spark-upload1.png)
 
 
 ## <a name="known-issues"></a>알려진 문제

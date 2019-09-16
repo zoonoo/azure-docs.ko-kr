@@ -4,14 +4,14 @@ description: 선언적 JSON 구문을 사용하여 Azure Resource Manager 템플
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 09/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: d396b6b48687e451396849cc256c25f847a219cf
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 4a5c1a99911c31f539d4f55adefb2c5f06243dd0
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306834"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984089"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 구조 및 구문 이해
 
@@ -36,7 +36,7 @@ ms.locfileid: "70306834"
 }
 ```
 
-| 요소 이름 | 필수 | 설명 |
+| 요소 이름 | 필수 | Description |
 |:--- |:--- |:--- |
 | $schema |예 |템플릿 언어의 버전을 설명하는 JSON 스키마 파일의 위치입니다.<br><br> 리소스 그룹 배포의 경우 `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`을 사용합니다.<br><br>구독 배포의 경우 `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`을 사용합니다. |
 | contentVersion |예 |템플릿의 버전입니다(예: 1.0.0.0). 이 요소에 값을 제공할 수 있습니다. 이 값을 사용하여 템플릿에서 중요한 변경 내용을 문서화할 수 있습니다. 템플릿을 사용하여 리소스를 배포할 때 이 값을 사용하면 정확한 템플릿이 사용되도록 할 수 있습니다. |
@@ -72,7 +72,7 @@ ms.locfileid: "70306834"
 }
 ```
 
-| 요소 이름 | 필수 | 설명 |
+| 요소 이름 | 필수 | Description |
 |:--- |:--- |:--- |
 | 매개 변수-이름 |예 |매개 변수의 이름입니다. 유효한 JavaScript 식별자여야 합니다. |
 | type |예 |매개 변수 값의 유형입니다. 허용되는 유형 및 값은 **string**, **securestring**, **int**, **bool**, **object**, **secureObject** 및 **array**입니다. |
@@ -83,6 +83,8 @@ ms.locfileid: "70306834"
 | minLength |아니요 |string, securestring 및 array 형식 매개 변수의 최소 길이이며, 이 값이 포함됩니다. |
 | maxLength |아니요 |string, securestring 및 array 형식 매개 변수의 최대 길이이며, 이 값이 포함됩니다. |
 | description |아니요 |포털에서 사용자에게 표시되는 매개 변수의 설명입니다. 자세한 내용은 [템플릿의 주석](#comments)을 참조하세요. |
+
+매개 변수를 사용 하는 방법에 대 한 예제는 [Azure Resource Manager 템플릿의 매개 변수](template-parameters.md)를 참조 하세요.
 
 ## <a name="variables"></a>변수
 
@@ -116,6 +118,8 @@ ms.locfileid: "70306834"
 ```
 
 를 사용 `copy` 하 여 변수에 대 한 여러 값을 만드는 방법에 대 한 자세한 내용은 [변수 반복](resource-group-create-multiple.md#variable-iteration)을 참조 하세요.
+
+변수를 사용 하는 방법에 대 한 예제는 [Azure Resource Manager 템플릿의 변수](template-variables.md)를 참조 하세요.
 
 ## <a name="functions"></a>함수
 
@@ -151,7 +155,7 @@ ms.locfileid: "70306834"
 ],
 ```
 
-| 요소 이름 | 필수 | Description |
+| 요소 이름 | 필수 | 설명 |
 |:--- |:--- |:--- |
 | namespace |예 |사용자 지정 함수에 대 한 네임 스페이스입니다. 템플릿 함수와의 이름 충돌을 방지 하는 데 사용 합니다. |
 | 함수 이름 |예 |사용자 지정 함수의 이름입니다. 함수를 호출할 때 함수 이름을 네임 스페이스와 결합 합니다. 예를 들어 contoso 네임 스페이스에서 uniqueName 이라는 함수를 호출 하려면를 사용 `"[contoso.uniqueName()]"`합니다. |
@@ -159,6 +163,8 @@ ms.locfileid: "70306834"
 | 매개 변수-값 |아니요 |매개 변수 값의 유형입니다. 허용되는 유형 및 값은 **string**, **securestring**, **int**, **bool**, **object**, **secureObject** 및 **array**입니다. |
 | 출력 형식 |예 |출력 값의 유형입니다. 출력 값은 함수 입력 매개 변수와 동일한 형식을 지원 합니다. |
 | 출력-값 |예 |함수에서 계산 되 고 반환 되는 템플릿 언어 식입니다. |
+
+사용자 지정 함수를 사용 하는 방법에 대 한 예제는 [Azure Resource Manager 템플릿의 사용자 정의 함수](template-user-defined-functions.md)를 참조 하세요.
 
 ## <a name="resources"></a>리소스
 
@@ -259,6 +265,8 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 일반�
 | 조건 |아니요 | 이 출력 값의 반환 여부를 나타내는 부울 값입니다. `true`이면 해당 값이 배포의 출력에 포함됩니다. `false`이면 이 배포에 대한 출력 값을 건너뜁니다. 지정하지 않으면 기본값은 `true`입니다. |
 | type |예 |출력 값의 유형입니다. 출력 값은 템플릿 입력 매개 변수와 동일한 유형을 지원합니다. 출력 유형에 대해 **securestring** 을 지정 하는 경우 값은 배포 기록에 표시 되지 않으며 다른 템플릿에서 검색할 수 없습니다. 둘 이상의 템플릿에서 비밀 값을 사용 하려면 Key Vault에 비밀을 저장 하 고 매개 변수 파일에서 비밀을 참조 합니다. 자세한 내용은 [Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달](resource-manager-keyvault-parameter.md)을 참조하세요. |
 | value |예 |출력 값으로 계산되어 반환되는 템플릿 언어 식입니다. |
+
+출력을 사용 하는 방법에 대 한 예제는 [Azure Resource Manager 템플릿의 출력](template-outputs.md)을 참조 하세요.
 
 <a id="comments" />
 

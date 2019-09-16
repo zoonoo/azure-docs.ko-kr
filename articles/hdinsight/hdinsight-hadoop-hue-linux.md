@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: 74ccf2af2d379b3c1966543885df6ebe5cf0f47a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 67f338b583ef428b8dd04e859a5204fd708ce434
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059430"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962026"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>HDInsight Hadoop 클러스터에 Hue 설치 및 사용
 
@@ -56,7 +56,7 @@ Linux 기반 HDInsight 클러스터에서 Hue를 설치하는 스크립트는 ht
    >
 2. **선택적 구성** 블레이드에서 **스크립트 동작**을 선택하고 아래와 같은 정보를 제공합니다.
 
-    ![색상에 대한 스크립트 작업 매개 변수 제공](./media/hdinsight-hadoop-hue-linux/hue-script-action.png "색상에 대한 스크립트 작업 매개 변수 제공")
+    ![색상에 대한 스크립트 작업 매개 변수 제공](./media/hdinsight-hadoop-hue-linux/hdi-hue-script-action.png "색상에 대한 스크립트 작업 매개 변수 제공")
 
    * **이름**: 스크립트 동작의 이름을 입력합니다.
    * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
@@ -91,7 +91,7 @@ SSH 터널링이 실행되면 클러스터에서 Hue를 액세스하는 유일�
         hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
 
     Hue 웹 사이트가 위치한 기본 헤드의 호스트 이름입니다.
-4. 브라우저를 사용 하 여 http에서 Hue 포털을 엽니다.\//HOSTNAME:8888 합니다. HOSTNAME을 이전 단계에서 얻은 이름으로 바꿉니다.
+4. 브라우저를 사용 하 여 http:\//hostname: 8888에서 색상 포털을 엽니다. HOSTNAME을 이전 단계에서 얻은 이름으로 바꿉니다.
 
    > [!NOTE]  
    > 처음으로 로그인할 때 Hue 포털에 로그인할 계정을 만들라는 메시지가 표시됩니다. 여기에서 지정한 자격 증명은 포털로 제한되며 클러스터를 프로비전하는 동안 지정한 관리자 또는 SSH 사용자 자격 증명과 관련이 없습니다.

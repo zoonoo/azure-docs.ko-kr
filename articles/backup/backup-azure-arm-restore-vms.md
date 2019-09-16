@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: dacurwin
-ms.openlocfilehash: 41e01531535fe41fa894f8de3181a56885ab3bcf
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 3d7497b7afd44a05f3691d3e3094e84c3dd73747
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955065"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983912"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Azure Portal에서 Azure VM 데이터를 복원 하는 방법
 
@@ -28,7 +28,7 @@ Azure Backup은 VM을 복원하는 다양한 방법을 제공합니다.
 
 **복원 옵션** | **세부 정보**
 --- | ---
-**새 VM 만들기** | 복원 지점에서 기본 VM을 빠르게 만들고, 준비하고, 실행할 수 있습니다.<br/><br/> VM의 이름을 지정 하 고, 리소스 그룹 및 가상 네트워크 (VNet)를 선택 하 고, 복원 된 VM에 대 한 저장소 계정을 지정할 수 있습니다.
+**새 VM 만들기** | 복원 지점에서 기본 VM을 빠르게 만들고, 준비하고, 실행할 수 있습니다.<br/><br/> VM의 이름을 지정 하 고, 리소스 그룹 및 가상 네트워크 (VNet)를 선택 하 고, 복원 된 VM에 대 한 저장소 계정을 지정할 수 있습니다. 새 VM은 원본 VM과 동일한 지역에 만들어야 합니다.
 **디스크 복원** | 새 VM을 만드는 데 사용할 수 있는 VM 디스크를 복원 합니다.<br/><br/> Azure Backup은 VM을 사용자 지정하고 만드는 데 도움이 되는 템플릿을 제공합니다. <br/><br> 복원 작업은 다운로드하여 사용자 지정 VM 설정을 지정하고 VM을 만드는 데 사용할 수 있는 템플릿을 생성합니다.<br/><br/> 지정 하는 저장소 계정에 디스크가 복사 됩니다.<br/><br/> 또는 디스크를 기존 VM에 연결하거나 PowerShell을 사용하여 새 VM을 만들 수 있습니다.<br/><br/> 이 옵션은 VM을 사용자 지정하거나, 백업 시 존재하지 않았던 구성 설정을 추가하거나, 템플릿 또는 PowerShell을 사용하여 구성해야 하는 설정을 추가하려는 경우에 유용합니다.
 **기존 항목 바꾸기** | 디스크를 복원하고 이 디스크를 사용하여 기존 VM의 디스크를 바꿀 수 있습니다.<br/><br/> 현재 VM이 있어야 합니다. 삭제 된 경우에는이 옵션을 사용할 수 없습니다.<br/><br/> Azure Backup는 디스크를 교체 하기 전에 기존 VM의 스냅숏을 만들어 지정한 스테이징 위치에 저장 합니다. VM에 연결 된 기존 디스크는 선택한 복원 지점으로 대체 됩니다.<br/><br/> 스냅숏은 자격 증명 모음에 복사 되 고 보존 정책에 따라 보존 됩니다. <br/><br/> 기존 항목 바꾸기는 암호화되지 않은 관리 VM에 대해 지원됩니다. 관리되지 않는 디스크, [일반화된 VM](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) 또는 [사용자 지정 이미지를 사용하여 만든](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/) VM에 대해서는 지원되지 않습니다.<br/><br/> 현재 VM보다 많거나 적은 디스크가 복원 지점에 있는 경우 복원 지점의 디스크 수에는 VM 구성만 반영됩니다.<br/><br/>
 
@@ -53,7 +53,7 @@ Azure Backup은 VM을 복원하는 다양한 방법을 제공합니다.
     - 관리 Vm을 복원 하는 경우 네트워크 규칙으로 구성 된 premium storage 계정은 지원 되지 않습니다.
 
 
-## <a name="before-you-start"></a>시작하기 전에
+## <a name="before-you-start"></a>시작하기 전 주의 사항
 
 Vm을 복원 하려면 (새 VM 만들기) VM 복원 작업에 대 한 올바른 RBAC (역할 기반 액세스 제어) [권한이](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) 있는지 확인 합니다.
 

@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 135855ee33f783e85b398c7f9716c2c897633de9
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: a0c9c729081da9f6c7b8f549a4906d432af6ecb2
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779534"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961630"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Azure HDInsight에 대 한 가상 네트워크 계획
 
@@ -212,7 +212,7 @@ Azure Virtual Networks의 네트워크 트래픽은 다음 방법을 사용하�
 
 관리 서비스인 HDInsight는 VNET에서 들어오고 나가는 트래픽에 대해 HDInsight 상태 및 관리 서비스에 대 한 무제한 액세스가 필요 합니다. NSGs를 사용 하는 경우 이러한 서비스가 HDInsight 클러스터와 계속 통신할 수 있는지 확인 해야 합니다.
 
-![Azure 사용자 지정 VNET에서 만든 HDInsight 엔터티 다이어그램](./media/hdinsight-virtual-network-architecture/vnet-diagram.png)
+![Azure 사용자 지정 VNET에서 만든 HDInsight 엔터티 다이어그램](./media/hdinsight-plan-virtual-network-deployment/hdinsight-vnet-diagram.png)
 
 ### <a name="hdinsight-with-network-security-groups"></a>네트워크 보안 그룹을 사용 하는 HDInsight
 
@@ -220,7 +220,7 @@ Azure Virtual Networks의 네트워크 트래픽은 다음 방법을 사용하�
 
 1. HDInsight에 대해 사용할 Azure 지역을 식별합니다.
 
-2. HDInsight에 필요한 IP 주소를 식별합니다. 자세한 내용은 [HDInsight 관리 IP 주소](hdinsight-management-ip-addresses.md)를 참조 하세요.
+2. HDInsight에 필요한 IP 주소를 식별합니다. 자세한 내용은 [HDInsight 관리 IP 주소](hdinsight-management-ip-addresses.md)를 참조하세요.
 
 3. HDInsight를 설치 하려는 서브넷의 네트워크 보안 그룹을 만들거나 수정 합니다.
 

@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: a8d79e15a0c967c4b00f337928f00e76f6d296fd
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: a61188ce5a0c3ba5e4170e15ed81d599af205205
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70733224"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961557"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Azure HDInsight에서 Grafana에 액세스
 
@@ -29,7 +29,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. 아래 **Azure에 배포** 단추를 클릭하여 Azure에 로그인하고 Azure Portal에서 Resource Manager 템플릿을 엽니다. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-interactive-hive%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-grafana/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-interactive-hive%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-grafana/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
 
 2. 다음 스크린샷에서 설명된 대로 값을 입력하거나 선택합니다.
 
@@ -42,7 +42,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     다음 값을 입력하거나 선택합니다.
     
-    |속성  |Description  |
+    |속성  |설명  |
     |---------|---------|
     |**구독**     |  Azure 구독을 선택합니다. |
     |**리소스 그룹**     | 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다.  리소스 그룹은 Azure 구성 요소의 컨테이너입니다.  이 경우 리소스 그룹에는 HDInsight 클러스터 및 종속 Azure Storage 계정이 포함되어 있습니다. |
@@ -78,7 +78,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     ![HDInsight 클러스터 대시보드 포털](./media/hdinsight-grafana/hdinsight-portal-cluster-dashboard.png "포털의 HDInsight 클러스터 대시보드")
 
-4. 대시보드에서 **Grafana** 타일을 클릭합니다. 또는 클러스터 URL의 `/grafana/` 경로로 이동합니다. [http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest](`https://<clustername>.azurehdinsight.net/grafana/`)을 입력합니다.
+4. 대시보드에서 **Grafana** 타일을 클릭합니다. 또는 클러스터 URL의 `/grafana/` 경로로 이동합니다. 예를 들어, `https://<clustername>.azurehdinsight.net/grafana/`을 입력합니다.
 
 5. Hadoop 클러스터 사용자 자격 증명을 입력합니다.
 

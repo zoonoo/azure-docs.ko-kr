@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 08/13/2019
+ms.date: 09/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: 07d48ed195f74c9aef5d34de1925ab8fc2a3ae21
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 095c7c4bf2a0fb08c0a7fe7e0a8118e76732c9c7
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899906"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961622"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Azure 기본 인증서 인증 P2S 구성용 VPN 클라이언트 구성 파일 만들기 및 설치
 
@@ -149,7 +149,7 @@ Ubuntu 18.0.4에서 다음 지침이 생성 되었습니다. Ubuntu 16.0.10은 s
 7. 연결의 **클라이언트** 섹션에서 **인증**에 대해 **인증서/프라이빗 키**를 선택합니다. **인증서** 및 **프라이빗 키**에 대해 이전에 만든 인증서 및 프라이빗 키를 선택합니다. **옵션**에서 **내부 IP 주소 요청**을 선택합니다. 그런 다음 **추가**를 클릭합니다.
 
    ![내부 IP 주소 요청](./media/point-to-site-vpn-client-configuration-azure-cert/turnon.png)
-8. 연결을 설정합니다.
+8. **연결을 설정 합니다**.
 
 ## <a name="linuxinstallcli"></a>Linux(strongSwan CLI)
 

@@ -4,14 +4,14 @@ description: Azure Resource Manager 템플릿에서 배포 정보를 검색하�
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 01/03/2019
+ms.date: 09/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 236fbb9e4ed3283ecf9147e6eb5033fb906a127b
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 12698d1655c414b1ee3b9866cc975dc53e4ef095
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194343"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983986"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 배포 함수 
 
@@ -24,8 +24,6 @@ Resource Manager는 템플릿의 섹션에서 값을 가져오고 배포와 관�
 리소스, 리소스 그룹 또는 구독에서 값을 가져오려면 [리소스 함수](resource-group-template-functions-resource.md)를 참조하세요.
 
 <a id="deployment" />
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="deployment"></a>deployment
 `deployment()`
@@ -136,18 +134,6 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 }
 ```
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
-```
-
 배포 기능을 사용하는 구독 수준 템플릿의 경우 [구독 배포 기능](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json)을 참조하세요. `az deployment create` 또는 `New-AzDeployment` 명령을 사용하여 배포됩니다.
 
 <a id="parameters" />
@@ -248,23 +234,13 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
-| stringOutput | String | 옵션 1 |
+| stringOutput | 문자열 | 옵션 1 |
 | intOutput | Int | 1 |
 | objectOutput | Object | {“one”: “a”, “two”: “b”} |
 | arrayOutput | Array | [1, 2, 3] |
-| crossOutput | 문자열 | 옵션 1 |
+| crossOutput | String | 옵션 1 |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/parameters.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/parameters.json
-```
+매개 변수 사용에 대 한 자세한 내용은 [Azure Resource Manager 템플릿의 매개 변수](template-parameters.md)를 참조 하세요.
 
 <a id="variables" />
 
@@ -356,17 +332,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Object | {“property1”: “value1”, “property2”: “value2”} |
 
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/variables.json
-```
-
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/variables.json
-```
+변수를 사용 하는 방법에 대 한 자세한 내용은 [Azure Resource Manager 템플릿에서 변수](template-variables.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * Azure Resource Manager 템플릿의 섹션에 대한 설명은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.

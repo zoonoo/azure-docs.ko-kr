@@ -7,16 +7,16 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: vainolo
-ms.author: arib
+author: barmichal
+ms.author: mibar
 ms.reviewer: vanto
 ms.date: 01/03/2019
-ms.openlocfilehash: 334d277370bb8d6678679c887f6a2b89d65652c3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 19795d5dc3998f601de8121176e52ef9dc83ee47
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569467"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70958452"
 ---
 # <a name="sql-database-audit-log-format"></a>SQL Database 감사 로그 형식
 
@@ -53,7 +53,7 @@ Blob storage에 저장 된 감사 로그는 Azure Storage 계정의 컨테이너
 | class_type | class_type_s | 감사가 수행 되는 감사 가능한 엔터티의 형식 | varchar(2) | string |
 | class_type_desc | class_type_description_s | 감사가 수행 되는 감사 가능한 엔터티에 대 한 설명 | 해당 사항 없음 | string |
 | client_ip | client_ip_s | 클라이언트 응용 프로그램의 원본 IP | nvarchar(128) | string |
-| connection_id | 해당 사항 없음 | 서버에 있는 연결의 ID입니다. | GUID | N/A |
+| connection_id | 해당 사항 없음 | 서버에 있는 연결의 ID입니다. | GUID | 해당 사항 없음 |
 | data_sensitivity_information | data_sensitivity_information_s | 데이터베이스의 분류 된 열을 기반으로 감사 된 쿼리에서 반환 되는 정보 유형 및 민감도 레이블입니다. [Azure SQL Database 데이터 검색 및 분류](sql-database-data-discovery-and-classification.md) 에 대 한 자세한 정보 | nvarchar(4000) | string |
 | database_name | database_name_s | 동작이 발생 한 데이터베이스 컨텍스트입니다. | sysname | string |
 | database_principal_id | database_principal_id_d | 작업이 수행 되는 데이터베이스 사용자 컨텍스트의 ID입니다. | ssNoversion | ssNoversion |
@@ -62,13 +62,13 @@ Blob storage에 저장 된 감사 로그는 Azure Storage 계정의 컨테이너
 | event_time | event_time_t | 감사 가능한 동작이 발생 한 날짜 및 시간 | Datetime2 | Datetime |
 | host_name | 해당 사항 없음 | 클라이언트 호스트 이름 | string | 해당 사항 없음 |
 | is_column_permission | is_column_permission_s | 열 수준 사용 권한 인지 여부를 나타내는 플래그입니다. 1 = true, 0 = false | bit | string |
-| 해당 사항 없음 | is_server_level_audit_s | 이 감사가 서버 수준에 있는지를 나타내는 플래그입니다. | 해당 사항 없음 | string |
+| 해당 사항 없음 | is_server_level_audit_s | 이 감사가 서버 수준에 있는지를 나타내는 플래그입니다. | N/A | string |
 | object_ id | object_id_d | 감사가 수행 된 엔터티의 ID입니다. 여기에는 서버 개체, 데이터베이스, 데이터베이스 개체, 스키마 개체 등이 포함 됩니다. 엔터티가 서버 자체 이거나 개체 수준에서 감사가 수행 되지 않는 경우 0입니다. | ssNoversion | ssNoversion |
 | object_name | object_name_s | 감사가 수행된 대상 엔터티의 이름입니다. 여기에는 서버 개체, 데이터베이스, 데이터베이스 개체, 스키마 개체 등이 포함 됩니다. 엔터티가 서버 자체 이거나 개체 수준에서 감사가 수행 되지 않는 경우 0입니다. | sysname | string |
 | permission_bitmask | permission_bitmask_s | 해당되는 경우 부여, 거부 또는 취소된 사용 권한을 표시합니다. | varbinary(16) | string |
 | response_rows | response_rows_d | 결과 집합에 반환 된 행 수 | BIGINT | ssNoversion |
 | schema_name | schema_name_s | 동작이 수행된 스키마 컨텍스트입니다. 스키마 외부에서 발생 하는 감사의 경우 NULL | sysname | string |
-| N/A | securable_class_type_s | 감사 중인 class_type에 매핑되는 보안 개체입니다. | N/A | string |
+| 해당 사항 없음 | securable_class_type_s | 감사 중인 class_type에 매핑되는 보안 개체입니다. | N/A | string |
 | sequence_group_id | sequence_group_id_g | 고유 식별자 | varbinary | GUID |
 | sequence_number | sequence_number_d | 너무 커서 감사에 대 한 쓰기 버퍼에 맞지 않는 단일 감사 레코드 내의 레코드 시퀀스를 추적 합니다. | ssNoversion | ssNoversion |
 | server_instance_name | server_instance_name_s | 감사가 수행 된 서버 인스턴스의 이름입니다. | sysname | string |

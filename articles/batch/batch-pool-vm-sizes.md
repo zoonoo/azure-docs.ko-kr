@@ -11,15 +11,15 @@ ms.service: batch
 ms.workload: ''
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/01/2019
+ms.date: 09/12/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: f894a7438c56c3830eb62c516447195f10fc3b76
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e3d96ad7783c43dba6b69f6b11acccf790d0d6c9
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094663"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983745"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Azure Batch 풀의 컴퓨팅 노드에 대한 VM 크기 선택
 
@@ -45,16 +45,18 @@ VM 크기를 선택하는 데는 몇 가지 예외 및 제한 사항이 있습�
 | Av2 시리즈 | 모든 크기 | 임의의 값 |
 | B 시리즈 | 없음 | 사용할 수 없음 |
 | DC 시리즈 | 없음 | 사용할 수 없음 |
-| Dv2, Dsv2 시리즈 | 모든 크기 | 임의의 값 |
+| Dv2, DSv2 시리즈 | 모든 크기 | 임의의 값 |
 | Dv3, Dsv3 시리즈 | 모든 크기 | 임의의 값 |
-| [메모리 액세스에 최적화 된 크기](../virtual-machines/linux/sizes-memory.md) | 없음 | 사용할 수 없음 |
+| Ev3, Esv3 시리즈 | 모든 크기 | 임의의 값 |
 | Fsv2 시리즈 | 모든 크기 | 임의의 값 |
 | H 시리즈 | 모든 크기 | 임의의 값 |
-| Hb-시리즈<sup>2</sup> | 모든 크기 | 임의의 값 |
-| Hc 시리즈<sup>2</sup> | 모든 크기 | 임의의 값 |
+| HB-시리즈<sup>2</sup> | 모든 크기 | 임의의 값 |
+| HC 시리즈<sup>2</sup> | 모든 크기 | 임의의 값 |
 | Ls 시리즈 | 모든 크기 | 임의의 값 |
 | Lsv2 시리즈 | 없음 | 사용할 수 없음 |
-| M 시리즈 | Standard_M64ms (낮은 우선 순위 전용), Standard_M128s (낮은 우선 순위만 해당) | 임의의 값 |  
+| M 시리즈 | Standard_M64ms (낮은 우선 순위 전용), Standard_M128s (낮은 우선 순위만 해당) | 임의의 값 |
+| Mv2 시리즈 | 없음 | 사용할 수 없음 |
+| NC 시리즈 | 모든 크기 | 임의의 값 |
 | NCv2-series<sup>2</sup> | 모든 크기 | 임의의 값 |
 | NCv3-series<sup>2</sup> | 모든 크기 | 임의의 값 |
 | ND-series<sup>2</sup> | 모든 크기 | 임의의 값 |

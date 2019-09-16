@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.openlocfilehash: 950294094584958e83f6a16630a6e1f897785e46
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.date: 09/12/2019
+ms.openlocfilehash: e5d1dbc8c212d4cdefb12fb740a454324d3adfa1
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69897282"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962930"
 ---
 # <a name="supported-azure-database-for-mariadb-server-versions"></a>지원되는 Azure Database for MariaDB 서버 버전
 
@@ -26,15 +26,15 @@ Azure Database for MariaDB는 현재 다음 버전을 지원합니다.
 
 ## <a name="mariadb-version-102"></a>MariaDB 버전 10.2
 
-패치 버전: 10.2.23
+패치 버전: 10.2.25
 
-해결 방법에 대 한 자세한 내용은 10.2.23 Iadb [설명서](https://mariadb.com/kb/en/library/mariadb-10223-release-notes/) 를 참조 하세요.
+이 버전의 향상 된 기능 및 수정 내용에 대 한 자세한 내용은 [Aadb 설명서](https://mariadb.com/kb/en/library/mariadb-10225-release-notes/) 를 참조 하세요.
 
 ## <a name="mariadb-version-103"></a>MariaDB 버전 10.3
 
-패치 버전: 10.3.14
+패치 버전: 10.3.16
 
-해결 방법에 대 한 자세한 내용은 10.3.14 Iadb [설명서](https://mariadb.com/kb/en/library/mariadb-10314-release-notes/) 를 참조 하세요.
+이 버전의 향상 된 기능 및 수정 내용에 대 한 자세한 내용은 [Aadb 설명서](https://mariadb.com/kb/en/library/mariadb-10316-release-notes/) 를 참조 하세요.
 
 ## <a name="managing-updates-and-upgrades"></a>업데이트 및 업그레이드 관리
 서비스는 패치 업데이트에 대 한 업그레이드를 자동으로 관리 합니다. 예를 들어 10.2.21를 10.2.23로 변환할 수 있습니다.  
