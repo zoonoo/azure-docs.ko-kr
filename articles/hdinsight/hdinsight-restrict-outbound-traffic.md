@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 829f3e730b4993a6a7f32a9224d3c6c38bd4c06e
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 070365c79e14b80c50c70aa3277a6eddd9286a37
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811949"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018754"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>방화벽을 사용 하 여 Azure HDInsight 클러스터에 대 한 아웃 바운드 네트워크 트래픽 구성 (미리 보기)
 
@@ -63,7 +63,8 @@ Azure Portal에서 새 방화벽 **FW01** 을 선택 합니다. **설정**응용
    | **이름** | **원본 주소** | **Protocol:Port** | **대상 FQDN** | **참고** |
    | --- | --- | --- | --- | --- |
    | Rule_2 | * | https:443 | login.windows.net | Windows 로그인 작업을 허용 합니다. |
-   | Rule_3 | * | https: 443, http: 80 | <storage_account_name.blob.core.windows.net> | 클러스터가 WASB에서 지원 되는 경우 WASB에 대 한 규칙을 추가 합니다. Https 연결만 사용 하려면 저장소 계정에 ["보안 전송 필요"](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) 가 설정 되어 있는지 확인 합니다. |
+   | Rule_3 | * | https:443 | login.microsoftonline.com | Windows 로그인 작업을 허용 합니다. |
+   | Rule_4 | * | https: 443, http: 80 | <storage_account_name.blob.core.windows.net> | 클러스터가 WASB에서 지원 되는 경우 WASB에 대 한 규칙을 추가 합니다. Https 연결만 사용 하려면 저장소 계정에 ["보안 전송 필요"](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) 가 설정 되어 있는지 확인 합니다. |
 
 1. **추가**를 클릭합니다.
 

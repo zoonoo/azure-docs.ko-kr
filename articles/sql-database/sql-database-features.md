@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: 2ddef73121ef2f6c145516ca114989aa12b8003c
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 3cad1a73dd98928ed12748e2acffaea158dc5924
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873503"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010290"
 ---
 # <a name="azure-sql-database-features"></a>Azure SQL Database 기능
 
@@ -32,7 +32,7 @@ Azure SQL Database는 데이터베이스를 관리 하 고 고가용성을 보�
 
 다음 표에서는 SQL Server의 주요 기능을 나열 하 고 기능에 대 한 자세한 정보를 제공 하는 링크를 통해 Managed Instance 또는 Single Database 및 탄력적 풀에서 기능을 부분적으로 지원 하는지 또는 완전히 지원 하는지에 대 한 정보를 제공 합니다.
 
-| **SQL 기능** | **단일 데이터베이스 및 탄력적 풀** | **관리 되는 인스턴스** |
+| **SQL 기능** | **단일 데이터베이스 및 탄력적 풀** | **관리 되는 인스턴스 및 인스턴스 풀** |
 | --- | --- | --- |
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | 예 - [인증서 저장소](sql-database-always-encrypted.md) 및 [키 자격 증명 모음](sql-database-always-encrypted-azure-key-vault.md) 참조 | 예 - [인증서 저장소](sql-database-always-encrypted.md) 및 [키 자격 증명 모음](sql-database-always-encrypted-azure-key-vault.md) 참조 |
 | [Always On 가용성 그룹](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [고가용성](sql-database-high-availability.md)은 모든 데이터베이스에 포함됩니다. 재해 복구는 [Azure SQL Database의 비즈니스 연속성 개요](sql-database-business-continuity.md)에서 설명합니다. | [고가용성](sql-database-high-availability.md) 은 모든 데이터베이스에 포함 되며 [사용자가 관리할 수 없습니다](sql-database-managed-instance-transact-sql-information.md#always-on-availability). 재해 복구는 [Azure SQL Database의 비즈니스 연속성 개요](sql-database-business-continuity.md)에서 설명합니다. |
@@ -112,7 +112,7 @@ Azure SQL Database는 데이터베이스를 관리 하 고 고가용성을 보�
 
 Azure platform은 표준 데이터베이스 기능에 추가 값으로 추가 된 다양 한 PaaS 기능을 제공 합니다. Azure SQL Database 서비스와 함께 사용할 수 있는 여러 외부 서비스가 있습니다. 
 
-| **플랫폼 기능** | **단일 데이터베이스 및 탄력적 풀** | **관리 되는 인스턴스** |
+| **플랫폼 기능** | **단일 데이터베이스 및 탄력적 풀** | **관리 되는 인스턴스 및 인스턴스 풀** |
 | --- | --- | --- |
 | [활성 지역 복제](sql-database-active-geo-replication.md) | 예-대규모 이외의 모든 서비스 계층 | 아니요, 대 안으로 [자동 장애 조치 그룹 (미리 보기)](sql-database-auto-failover-group.md) 을 참조 하세요. |
 | [자동 장애 조치(failover) 그룹](sql-database-auto-failover-group.md) | 예-대규모 이외의 모든 서비스 계층 | 예, [공개 미리 보기 상태](sql-database-auto-failover-group.md)|
@@ -131,7 +131,7 @@ Azure platform은 표준 데이터베이스 기능에 추가 값으로 추가 �
 | [정책 기반 관리](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | 아니요 | 아니요 |
 | 공용 IP 주소 | 예. 방화벽 또는 서비스 끝점을 사용 하 여 액세스를 제한할 수 있습니다.  | 예. 명시적으로 사용 하도록 설정 해야 하며, NSG 규칙에서 포트 3342를 사용 하도록 설정 해야 합니다. 필요한 경우 공용 IP를 사용 하지 않도록 설정할 수 있습니다. 자세한 내용은 [공용 끝점](sql-database-managed-instance-public-endpoint-securely.md) 을 참조 하세요. | 
 | [지정 시간 데이터베이스 복원](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | 예-대규모 이외의 모든 서비스 계층- [SQL Database 복구](sql-database-recovery-using-backups.md#point-in-time-restore) 참조 | 예 - [SQL Database 복구](sql-database-recovery-using-backups.md#point-in-time-restore) 참조 |
-| 리소스 풀 | 예, [탄력적 풀](sql-database-elastic-pool.md) 로 | 아니요. 단일 관리 되는 인스턴스는 동일한 리소스 풀을 공유 하는 여러 데이터베이스를 포함할 수 있습니다. 관리 되는 인스턴스는 리소스를 공유할 수 없습니다. |
+| 리소스 풀 | 예, [탄력적 풀](sql-database-elastic-pool.md) 로 | 예. 단일 관리 되는 인스턴스는 동일한 리소스 풀을 공유 하는 여러 데이터베이스를 포함할 수 있습니다. 또한 리소스를 공유할 수 있는 [인스턴스 풀 (미리 보기)](sql-database-instance-pools.md) 에 여러 개의 관리 되는 인스턴스를 배포할 수 있습니다. |
 | 규모 확장 또는 축소 (온라인) | 예, 최소 가동 중지 시간으로 DTU 또는 예약 vCores 또는 max storage를 변경할 수 있습니다. | 예, 최소 가동 중지 시간으로 예약 된 vCores 또는 max storage를 변경할 수 있습니다. |
 | SQL 별칭 | 예, [DNS 별칭](dns-alias-overview.md) 을 참조 하세요. | 아니요 |
 | [SQL Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | 예 | 예 |
@@ -146,7 +146,7 @@ Azure platform은 표준 데이터베이스 기능에 추가 값으로 추가 �
 ## <a name="tools"></a>도구
 Azure SQL database는 데이터를 관리 하는 데 도움이 될 수 있는 다양 한 데이터 도구를 지원 합니다.
 
-| **도구** | **단일 데이터베이스 및 탄력적 풀** | **관리 되는 인스턴스** |
+| **도구** | **단일 데이터베이스 및 탄력적 풀** | **관리 되는 인스턴스 및 인스턴스 풀** |
 | --- | --- | --- |
 | Azure Portal | 예 | 예 |
 | Azure CLI | 예 | 예|
@@ -167,7 +167,7 @@ Azure SQL database는 데이터를 관리 하는 데 도움이 될 수 있는 �
 
 서로 다른 마이그레이션 방법을 사용 하 여 SQL Server, Single Database 및 Managed Instance 데이터베이스 간에 데이터를 이동할 수 있습니다. 일부 메서드는 **온라인** 상태 이며 마이그레이션을 실행 하는 동안 원본에 적용 된 모든 변경 내용을 선택 하지만, **오프 라인** 방법에서는 마이그레이션이 진행 되는 동안 원본에서 데이터를 수정 하는 작업을 중지 해야 합니다.
 
-| **원본** | **단일 데이터베이스 및 탄력적 풀** | **Managed Instance** |
+| **원본** | **단일 데이터베이스 및 탄력적 풀** | **Managed Instance 및 인스턴스 풀** |
 | --- | --- | --- |
 | SQL Server (온-프레미스, Add-azurevm, Amazon RDS) | **온라인:** [DMS (데이터 마이그레이션 서비스](https://docs.microsoft.com/sql/dma/dma-overview)), [트랜잭션 복제](sql-database-managed-instance-transactional-replication.md) <br/> **라인인** [BACPAC 파일 (가져오기)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP | **온라인:** [DMS (데이터 마이그레이션 서비스](https://docs.microsoft.com/sql/dma/dma-overview)), [트랜잭션 복제](sql-database-managed-instance-transactional-replication.md) <br/> **라인인** 네이티브 백업/복원, [BACPAC 파일 (가져오기)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP, [스냅숏 복제](sql-database-managed-instance-transactional-replication.md) |
 | 단일 데이터베이스 | **라인인** [BACPAC 파일 (가져오기)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP | **라인인** [BACPAC 파일 (가져오기)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP |
@@ -183,3 +183,4 @@ Microsoft는 Azure SQL Database에 계속해서 기능을 추가하고 있습니
 Azure SQL Database 특성에 대 한 자세한 내용은 다음을 참조 하세요.
 - [SQL Database 정의](sql-database-technical-overview.md)
 - [Managed Instance란?](sql-database-managed-instance.md)
+- [Managed Instance 풀 이란?](sql-database-instance-pools.md)

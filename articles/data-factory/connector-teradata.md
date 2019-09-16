@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: jingwang
-ms.openlocfilehash: f17a7ef2131662cdb9ef4d138303556215810fba
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: b91ec46d47814418de21e9afe3e6e5534473c921
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959021"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71008975"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Teradata 유리한에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -28,6 +28,11 @@ ms.locfileid: "70959021"
 이 문서에서는 Azure Data Factory의 복사 작업을 사용 하 여 Teradata 유리한에서 데이터를 복사 하는 방법을 설명 합니다. [복사 작업 개요](copy-activity-overview.md)를 기반으로 합니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
+
+이 Teradata 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
+
+- [지원 되는 원본 행렬이](copy-activity-overview.md) 포함 된 [복사 작업](copy-activity-overview.md)
+- [조회 작업](control-flow-lookup-activity.md)
 
 Teradata 유리한에서 지원 되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
@@ -41,7 +46,7 @@ Teradata 유리한에서 지원 되는 모든 싱크 데이터 저장소로 데�
 >
 > 자체 호스팅 integration runtime v 3.18의 릴리스 후에는 Teradata 커넥터가 업그레이드 Azure Data Factory. 이전 Teradata 커넥터를 사용 하는 기존 작업은 계속 지원 됩니다. 그러나 새 워크 로드의 경우 새 워크 로드를 사용 하는 것이 좋습니다. 새 경로에는 연결 된 서비스, 데이터 집합 및 복사 원본의 다른 집합이 필요 합니다. 구성 세부 정보는 다음에 나오는 해당 섹션을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -293,8 +298,8 @@ Teradata에서 데이터를 복사 하는 경우 다음 매핑이 적용 됩니�
 | Blob |Byte[] |
 | Byte |Byte[] |
 | ByteInt |Int16 |
-| Char |String |
-| Clob |문자열 |
+| Char |문자열 |
+| Clob |String |
 | 날짜 |DateTime |
 | Decimal |Decimal |
 | Double |Double |
@@ -320,7 +325,7 @@ Teradata에서 데이터를 복사 하는 경우 다음 매핑이 적용 됩니�
 | 기간 (타임 스탬프) |지원되지 않습니다. 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
 | 기간 (표준 시간대를 사용 하는 타임 스탬프) |지원되지 않습니다. 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
 | SmallInt |Int16 |
-| 시간 |TimeSpan |
+| Time |TimeSpan |
 | Time With Time Zone |TimeSpan |
 | Timestamp |DateTime |
 | Timestamp With Time Zone |DateTime |
@@ -328,6 +333,11 @@ Teradata에서 데이터를 복사 하는 경우 다음 매핑이 적용 됩니�
 | VarChar |String |
 | VarGraphic |지원되지 않습니다. 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
 | Xml |지원되지 않습니다. 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
+
+
+## <a name="lookup-activity-properties"></a>조회 작업 속성
+
+속성에 대 한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인 하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

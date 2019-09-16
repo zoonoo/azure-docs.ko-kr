@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: raynew
-ms.openlocfilehash: 2d40e6fef215219035720ee64492a91fcdafb472
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 867a2dc9739e839a6957190f93311a811556df15
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933929"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010239"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery의 새로운 기능
 
@@ -59,7 +59,7 @@ Azure VM 재해 복구에 대 한 새로운 기능이 표에 요약 되어 있�
 **장애 복구 후 정리** | 보조 Azure로 장애 조치 (failover) 한 후 주 지역으로 장애 복구 (failback) 한 후 보조 지역에서 자동으로 컴퓨터를 정리 Site Recovery 합니다. VM 및 Nic를 수동으로 삭제할 필요가 없습니다.
 **테스트 장애 조치 (failover)에서 IP 주소 유지** | 이제 재해 복구 훈련 중에 원본 VM의 IP 주소를 유지 하 고 테스트 장애 조치 (failover)에 대 한 고정 IP 주소를 선택할 수 있습니다.
 
-## <a name="vmwarephysical-server-disaster-recovery"></a>VMware/물리적 서버 재해 복구
+### <a name="vmwarephysical-server-disaster-recovery"></a>VMware/물리적 서버 재해 복구
 
 이번 달에 추가 된 기능은 표에 요약 되어 있습니다.
 
@@ -67,13 +67,13 @@ Azure VM 재해 복구에 대 한 새로운 기능이 표에 요약 되어 있�
 --- | ---
 새 프로세스 서버 경고 | 새 프로세스 서버 경고가 추가 되었습니다. [자세히 알아보기](vmware-physical-azure-monitor-process-server.md). 
 
-## <a name="hyper-v-disaster-recovery"></a>Hyper-v 재해 복구
+### <a name="hyper-v-disaster-recovery"></a>Hyper-v 재해 복구
 
 이번 달에 추가 된 기능은 표에 요약 되어 있습니다.
 
 **기능** | **세부 정보**
 --- | ---
-Storage 계정 | Site Recovery는 이제 RBAC (역할 기반 액세스 제어)를 사용 하는 저장소 계정 사용을 지원 합니다. 저장소 계정에 대 한 액세스 제어에 대해 [자세히 알아보세요](../storage/common/storage-account-manage.md#access-control) . 
+Storage 계정 | Site Recovery은 이제 Hyper-v에서 Azure로 재해 복구를 위해 방화벽을 사용 하도록 설정 된 저장소 계정 사용을 지원 합니다.  방화벽 사용 저장소 계정을 대상 계정 또는 캐시 저장소로 선택할 수 있습니다. 방화벽이 사용 되는 계정을 사용 하는 경우 신뢰할 수 있는 Microsoft 서비스를 허용 하는 옵션을 사용 하도록 설정 해야 합니다.
 
 
 ## <a name="updates-august-2019"></a>업데이트 (8 월 2019)

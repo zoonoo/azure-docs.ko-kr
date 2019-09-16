@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 07/24/2019
 ms.author: osamaz
-ms.openlocfilehash: 681a99d31e7ededda74aa186ff36cc837125bbda
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: a496b91ab8ec14ce859df0da93e0ad5d87c50982
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70052213"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71019026"
 ---
 # <a name="connecting-azure-with-public-clouds"></a>공용 클라우드와 Azure 연결
 
@@ -36,7 +36,7 @@ Express 경로를 통해 연결 하는 방법에는 세 가지가 있습니다.
 
 ![](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l3.png)
 
-공급자는 각 클라우드 공급자를 별도의 VRF에 연결할 수 있습니다. 모든 클라우드 공급자의 트래픽이 고객 라우터에 도달 하면이 고, 고객이 서비스 공급자를 사용 하 여 BGP를 실행 하는 경우 이러한 경로는 기본적으로 다른 클라우드 공급자에 게 다시 보급 됩니다. 
+모든 클라우드 공급자의 트래픽이 고객 라우터를 통해 전달 되는 경우 공급자는 별도의 VRF에 각 클라우드 공급자를 연결할 수 있습니다. 고객이 서비스 공급자를 사용 하 여 BGP를 실행 하는 경우 이러한 경로는 기본적으로 다른 클라우드 공급자에 게 다시 보급 됩니다. 
 
 서비스 공급자가 동일한 VRF의 모든 클라우드 공급자에 연결한 경우 경로는 서비스 공급자의 다른 클라우드 공급자에 게 직접 보급 됩니다. 이는 eBGP 경로가 기본적으로 다른 eBGP 환경에 보급 되는 표준 BGP 작업 이라고 가정 합니다.
 

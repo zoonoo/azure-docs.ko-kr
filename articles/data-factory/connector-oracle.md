@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 28c7ca6470e15f4ff1f5e80df2ab63fa19da1544
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 318014ec10bda0fa0ead9787067bb30f57707930
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277804"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71008587"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Oracle 간 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -27,6 +27,11 @@ ms.locfileid: "70277804"
 이 문서에서는 Azure Data Factory의 복사 작업을 사용 하 여 Oracle 데이터베이스 간에 데이터를 복사 하는 방법을 설명 합니다. [복사 작업 개요](copy-activity-overview.md)를 기반으로 합니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
+
+이 Oracle 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
+
+- [지원 되는 원본/싱크 매트릭스](copy-activity-overview.md) 를 사용 하 여 [복사 작업](copy-activity-overview.md)
+- [조회 작업](control-flow-lookup-activity.md)
 
 Oracle 데이터베이스에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 지원되는 모든 원본 데이터 저장소의 데이터를 Oracle에 복사할 수도 있습니다. 복사 작업의 원본 또는 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
@@ -110,7 +115,7 @@ Oracle 연결에서 암호화를 사용하도록 설정하려면 다음 두 가�
         ```
 
     3.  자체 호스팅 `truststore` IR 컴퓨터에 파일을 저장 합니다. 예를 들어 파일을 C:\mytrustfilefilefilefilefilefilefile.
-    4.  `EncryptionMethod=1` Azure Data Factory에서 및 해당 `TrustStore` /값 을사용하여Oracle연결문자열을구성합니다.`TrustStorePassword` [http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest](`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`)을 입력합니다.
+    4.  `EncryptionMethod=1` Azure Data Factory에서 및 해당 `TrustStore` /값 을사용하여Oracle연결문자열을구성합니다.`TrustStorePassword` 예를 들어, `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`을 입력합니다.
 
 **예제:**
 
@@ -354,15 +359,15 @@ Oracle에서 Oracle로 데이터를 복사 하는 경우 다음 매핑이 적용
 | INTEGER |Decimal, 문자열(전체 자릿수의 경우 > 28) |
 | LONG |String |
 | LONG RAW |Byte[] |
-| NCHAR |String |
-| NCLOB |String |
+| NCHAR |문자열 |
+| NCLOB |문자열 |
 | NUMBER |Decimal, 문자열(전체 자릿수의 경우 > 28) |
-| NVARCHAR2 |String |
+| NVARCHAR2 |문자열 |
 | RAW |Byte[] |
-| ROWID |문자열 |
+| ROWID |String |
 | TIMESTAMP |DateTime |
 | TIMESTAMP WITH LOCAL TIME ZONE |문자열 |
-| TIMESTAMP WITH TIME ZONE |문자열 |
+| TIMESTAMP WITH TIME ZONE |String |
 | UNSIGNED INTEGER |NUMBER |
 | VARCHAR2 |String |
 | XML |String |
@@ -370,6 +375,9 @@ Oracle에서 Oracle로 데이터를 복사 하는 경우 다음 매핑이 적용
 > [!NOTE]
 > 데이터 형식 INTERVAL YEAR TO MONTH 및 INTERVAL DAY TO SECOND는 지원되지 않습니다.
 
+## <a name="lookup-activity-properties"></a>조회 작업 속성
+
+속성에 대 한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 Data Factory에서 복사 활동을 통해 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](copy-activity-overview.md##supported-data-stores-and-formats)를 참조하세요.

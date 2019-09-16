@@ -4,15 +4,16 @@ description: Apache Spark 및 Azure HDInsight 작업에 대한 일반적인 질�
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 143a941b8266734a8415c71daafc07681bc13b80
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 8931f9b09836d30f95e25cee245932475c3cf64c
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70049589"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018324"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Spark 문제 해결
 
@@ -26,49 +27,49 @@ Spark 구성 값을 튜닝 하 여 Apache Spark 응용 프로그램 `OutofMemory
 
 1. **Spark2** > **Configs**로 이동 합니다.
 
-    ![Configs 탭 선택](./media/apache-troubleshoot-spark/update-config-2.png)
+    ![Configs 탭 선택](./media/apache-troubleshoot-spark/apache-spark-ambari-config2.png)
 
 1. 구성 목록에서 **spark2-defaults**를 선택 하 고 확장 합니다.
 
 1. **spark.executor.memory**와 같이 조정해야 하는 값 설정을 찾습니다. 이 경우에는 **9728m** 의 값이 너무 높습니다.
 
-    ![custom-spark-defaults 선택](./media/apache-troubleshoot-spark/update-config-4.png)
+    ![custom-spark-defaults 선택](./media/apache-troubleshoot-spark/apache-spark-ambari-config4.png)
 
 1. 값을 권장 설정으로 지정합니다. 이 설정에는 **2048m** 값이 권장됩니다.
 
 1. 값을 저장하고 구성을 저장합니다. **저장**을 선택합니다.
 
-    ![값을 2048m으로 변경](./media/apache-troubleshoot-spark/update-config-6a.png)
+    ![값을 2048m으로 변경](./media/apache-troubleshoot-spark/apache-spark-ambari-config6a.png)
 
     구성 변경 내용에 대한 메모를 작성하고 **저장**을 선택합니다.
 
-    ![변경 내용에 대한 메모 입력](./media/apache-troubleshoot-spark/update-config-6c.png)
+    ![변경 내용에 대한 메모 입력](./media/apache-troubleshoot-spark/apache-spark-ambari-config6c.png)
 
     주의할 필요가 있는 구성이면 알림이 표시됩니다. 항목을 확인한 후 **계속 진행**을 선택합니다.
 
-    ![계속 진행 선택](./media/apache-troubleshoot-spark/update-config-6b.png)
+    ![계속 진행 선택](./media/apache-troubleshoot-spark/apache-spark-ambari-config6b.png)
 
 1. 구성이 저장될 때마다 서비스를 다시 시작하라는 메시지가 표시됩니다. **다시 시작**을 선택합니다.
 
-    ![다시 시작 선택](./media/apache-troubleshoot-spark/update-config-7a.png)
+    ![다시 시작 선택](./media/apache-troubleshoot-spark/apache-spark-ambari-config7a.png)
 
     다시 시작을 확인합니다.
 
-    ![다시 시작 확인 선택](./media/apache-troubleshoot-spark/update-config-7b.png)
+    ![다시 시작 확인 선택](./media/apache-troubleshoot-spark/apache-spark-ambari-config7b.png)
 
     실행 중인 프로세스를 검토할 수 있습니다.
 
-    ![실행 중인 프로세스 검토](./media/apache-troubleshoot-spark/update-config-7c.png)
+    ![실행 중인 프로세스 검토](./media/apache-troubleshoot-spark/apache-spark-ambari-config7c.png)
 
 1. 구성을 추가할 수 있습니다. 구성 목록에서 **Custom-spark2-defaults**를 선택하고 **속성 추가**를 선택합니다.
 
-    ![속성 추가 선택](./media/apache-troubleshoot-spark/update-config-8.png)
+    ![속성 추가 선택](./media/apache-troubleshoot-spark/apache-spark-ambari-config8.png)
 
 1. 새 속성을 정의합니다. 데이터 형식과 같은 특정 설정에 대한 대화 상자를 사용하여 단일 속성을 정의할 수 있습니다. 또는 줄당 하나의 정의를 사용하여 여러 속성을 정의할 수 있습니다.
 
     이 예제에서 **spark.driver.memory** 속성의 값은 **4g**로 정의되었습니다.
 
-    ![새 속성 정의](./media/apache-troubleshoot-spark/update-config-9.png)
+    ![새 속성 정의](./media/apache-troubleshoot-spark/apache-spark-ambari-config9.png)
 
 1. 6단계와 7단계에서 설명한 대로 구성을 저장하고 서비스를 다시 시작합니다.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 3cdf2255208069e20f5a230cc2acd82a628fdcfd
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 41ed51fc0cec9843525275613cca211d2e1bf409
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840204"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018634"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Java에서 Apache Storm 토폴로지 만들기
 
@@ -25,7 +25,7 @@ ms.locfileid: "68840204"
 > [!NOTE]  
 > 이 문서에서 만든 Storm 토폴로지 예제의 전체 버전은 [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount)에서 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * [JDK(Java Developer Kit) 버전 8](https://aka.ms/azure-jdks)
 
@@ -487,7 +487,7 @@ public class WordCount extends BaseBasicBolt {
 
 다음 이미지는 이 토폴로지에 대한 구성 요소 그래프의 기본 다이어그램입니다.
 
-![Spout 및 Bolt 배열을 보여 주는 다이어그램](./media/apache-storm-develop-java-topology/wordcount-topology.png)
+![Spout 및 Bolt 배열을 보여 주는 다이어그램](./media/apache-storm-develop-java-topology/word-count-topology1.png)
 
 토폴로지를 구현 하려면 아래 명령을 입력 하 여 새 파일 `WordCountTopology.java`을 만들고 엽니다.
 

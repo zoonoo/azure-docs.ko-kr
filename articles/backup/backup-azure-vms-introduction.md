@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 09/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: 72ab33cd280892ac6de827986e21e04672e58960
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: db3e4b8a8abea4718f5779790906bf45591d221c
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951858"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018700"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Azure VM 백업 개요
 
@@ -140,48 +140,13 @@ OS 디스크 | 4,095GB | 17GB
 이 경우 VM의 실제 크기는 17GB+30GB+0GB=47GB입니다. 이 보호 된 인스턴스 크기 (47 g b)는 월별 청구의 기반이 됩니다. VM의 데이터 양이 증가 함에 따라 청구 변경 내용이 일치 하는 데 사용 되는 보호 된 인스턴스 크기입니다.
 
 <a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb"></a>
-## <a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>제한 된 공개 미리 보기: 최대 30tb의 디스크 크기를 포함 하는 VM 백업
+## <a name="public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>공개 미리 보기: 최대 30tb의 디스크 크기를 포함 하는 VM 백업
 
-이제 Azure Backup은 최대 30tb의 강력 하 고 강력한 [Azure Managed Disks](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/) 의 제한 된 공개 미리 보기를 지원 합니다. 이 미리 보기는 관리 되는 가상 컴퓨터에 대 한 프로덕션 수준 지원을 제공 합니다.
+이제 Azure Backup은 최대 30tb의 강력한 [Azure Managed Disks](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/) 에 대 한 공개 미리 보기를 지원 합니다. 이 미리 보기는 관리 되는 가상 컴퓨터에 대 한 프로덕션 수준 지원을 제공 합니다.
 
-진행 중인 백업에 영향을 주지 않고 미리 보기에서 원활 하 게 등록할 수 있습니다. 미리 보기에 구독을 등록 한 후에는 디스크 크기가 최대 30tb 인 모든 가상 머신을 성공적으로 백업 해야 합니다. 미리 보기에 등록 하려면:
- 
-관리자 권한 PowerShell 터미널에서 다음 cmdlet을 실행합니다.
+각 디스크 크기가 최대 30TB이 고 VM의 모든 디스크에 대해 최대 256TB가 결합 된 가상 머신의 백업은 기존 백업에 영향을 주지 않고 원활 하 게 작동 해야 합니다. 가상 컴퓨터가 이미 Azure Backup로 구성 된 경우 큰 크기의 디스크에 대해 실행 되는 백업을 가져오는 데 필요한 사용자 작업은 없습니다.
 
-1. Azure 계정에 로그인합니다.
-
-    ```powershell
-    PS C:> Login-AzureRmAccount
-    ```
-
-2. 업그레이드를 위해 등록 하려는 구독을 선택 합니다.
-
-    ```powershell
-    PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
-    ```
-3. 이 구독을 미리 보기 프로그램에 등록 합니다. 
-
-    ```powershell
-    PS C:> Register-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices
-    ```
-
-    구독이 미리 보기에 등록 될 때까지 30 분 동안 기다립니다. 
-
- 4. 상태를 확인 하려면 다음 cmdlet을 실행 합니다.
-
-    ```powershell
-    PS C:> Get-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices 
-    ```
-5. 구독이 등록 된 것으로 표시 되 면 다음 명령을 실행 합니다.
-    
-    ```powershell
-    PS C:> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
-    ```
-
-> [!NOTE]
-> 1TB 보다 큰 디스크가 있는 암호화 된 Vm은이 미리 보기에서 지원 되지 않습니다.
-
-
+백업이 구성 된 디스크가 많은 Azure Virtual Machines는 성공적으로 백업 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

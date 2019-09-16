@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 1d64a25fc60a1a1cbe1ed04f87a57556b7de0b88
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 94512fbd34e08db554e3a26c5ae28ab4418be8a7
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259012"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010444"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 SAP 테이블에서 데이터 복사
 
@@ -27,6 +27,11 @@ ms.locfileid: "70259012"
 >SAP 데이터 통합 시나리오에 대 한 ADF의 전반적인 지원에 대 한 자세한 내용은 [Azure Data Factory 백서를 사용 하 여 sap 데이터 통합](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) 에서 자세한 소개, comparsion 및 지침을 참조 하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
+
+이 SAP table 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
+
+- [지원 되는 원본 행렬이](copy-activity-overview.md) 포함 된 [복사 작업](copy-activity-overview.md)
+- [조회 작업](control-flow-lookup-activity.md)
 
 SAP 테이블에서 지원 되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본 또는 싱크로 지원 되는 데이터 저장소 목록은 [지원 되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조 하세요.
 
@@ -212,8 +217,8 @@ SAP 테이블에서 데이터를 복사 하기 위해 지원 되는 속성은 �
 | :------------------------------- | :----------------------------------------------------------- | :------- |
 | `type`                             | 합니다 `type` 속성으로 설정 되어 있어야 `SapTableSource`합니다.         | 예      |
 | `rowCount`                         | 검색할 행의 수입니다.                              | 아니요       |
-| `rfcTableFields`                   | SAP 테이블에서 복사할 필드 (열)입니다. [http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest](`column0, column1`)을 입력합니다. | 아니요       |
-| `rfcTableOptions`                  | SAP 테이블의 행을 필터링 하는 옵션입니다. [http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest](`COLUMN0 EQ 'SOMEVALUE'`)을 입력합니다. 이 문서의 뒷부분에 나오는 SAP 쿼리 연산자 표를 참조 하세요. | 아니요       |
+| `rfcTableFields`                   | SAP 테이블에서 복사할 필드 (열)입니다. 예를 들어, `column0, column1`을 입력합니다. | 아니요       |
+| `rfcTableOptions`                  | SAP 테이블의 행을 필터링 하는 옵션입니다. 예를 들어, `COLUMN0 EQ 'SOMEVALUE'`을 입력합니다. 이 문서의 뒷부분에 나오는 SAP 쿼리 연산자 표를 참조 하세요. | 아니요       |
 | `customRfcReadTableFunctionModule` | SAP 테이블에서 데이터를 읽는 데 사용할 수 있는 사용자 지정 RFC 함수 모듈입니다.<br>사용자 지정 RFC 함수 모듈을 사용 하 여 SAP 시스템에서 데이터를 검색 하 여 Data Factory로 반환 하는 방법을 정의할 수 있습니다. 사용자 지정 함수 모듈에는 Data Factory에서 사용 하는 기본 인터페이스인와 비슷한 `/SAPDS/RFC_READ_TABLE2`구현 된 인터페이스 (가져오기, 내보내기, 테이블)가 있어야 합니다. | 아니요       |
 | `partitionOption`                  | SAP 테이블에서 읽을 파티션 메커니즘입니다. 지원 되는 옵션은 다음과 같습니다. <ul><li>`None`</li><li>`PartitionOnInt`(와 `0000012345`같이 왼쪽의 안쪽 여백이 0 인 법선 정수 또는 정수 값)</li><li>`PartitionOnCalendarYear`("YYYY" 형식의 4 자리 숫자)</li><li>`PartitionOnCalendarMonth`("YYYYMM" 형식의 6 자리 숫자)</li><li>`PartitionOnCalendarDate`("YYYYMMDD" 형식의 8 진수)</li></ul> | 아니요       |
 | `partitionColumnName`              | 데이터를 분할 하는 데 사용 되는 열의 이름입니다.                | 아니요       |
@@ -293,6 +298,11 @@ SAP 테이블에서 데이터를 복사 하는 경우 SAP 테이블 데이터 �
 | `P`(BCD 압축, 통화, 10 진수, 수량) | `Decimal` |
 | `N`번호 | `String` |
 | `X`(이진 및 원시) | `String` |
+
+## <a name="lookup-activity-properties"></a>조회 작업 속성
+
+속성에 대 한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인 하세요.
+
 
 ## <a name="next-steps"></a>다음 단계
 

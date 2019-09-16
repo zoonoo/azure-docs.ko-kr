@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 61cdcb98fc5c0947a25954161676c55ebf902688
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 14bcded4e3074023aa496588f5bd79eedbe889cf
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720740"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71008927"
 ---
 # <a name="copy-data-from-jira-using-azure-data-factory-preview"></a>Azure Data Factory(미리 보기)를 사용하여 Jira에서 데이터 복사
 
@@ -27,6 +27,11 @@ ms.locfileid: "68720740"
 > 이 커넥터는 현재 미리 보기로 제공되고 있습니다. 사용해 보고 피드백을 제공할 수 있습니다. 솔루션의 미리 보기 커넥터에 종속성을 적용하려면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
+
+이 Jira 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
+
+- [지원 되는 원본 행렬이](copy-activity-overview.md) 포함 된 [복사 작업](copy-activity-overview.md)
+- [조회 작업](control-flow-lookup-activity.md)
 
 Jira에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
@@ -47,7 +52,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 | type | type 속성을 다음으로 설정해야 합니다. **Jira** | 예 |
 | 호스트 | Jira 서비스의 IP 주소 또는 호스트 이름입니다. (예: jira.example.com)  | 예 |
 | port | Jira 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. 기본값은 HTTPS를 통해 연결하는 경우 443이고, HTTP를 통해 연결하는 경우 8080입니다.  | 아니요 |
-| username 이름 | Jira 서비스에 액세스하는 데 사용하는 사용자 이름입니다.  | 예 |
+| username | Jira 서비스에 액세스하는 데 사용하는 사용자 이름입니다.  | 예 |
 | password | username 필드에서 제공한 사용자 이름에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
 | useHostVerification | SSL을 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
@@ -145,6 +150,10 @@ Jira에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Jira
     }
 ]
 ```
+
+## <a name="lookup-activity-properties"></a>조회 작업 속성
+
+속성에 대 한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

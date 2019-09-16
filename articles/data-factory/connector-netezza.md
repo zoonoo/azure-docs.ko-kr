@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 20e5e23e2000095a95913964673ce90a72b87e59
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 5d5db9e837846a20bf4b68f7dc5c39ad587f4de9
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813534"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009969"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Netezza에서 데이터 복사
 
@@ -28,13 +28,19 @@ ms.locfileid: "70813534"
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
+이 Netezza 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
+
+- [지원 되는 원본 행렬이](copy-activity-overview.md) 포함 된 [복사 작업](copy-activity-overview.md)
+- [조회 작업](control-flow-lookup-activity.md)
+
+
 Netezza에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)을 참조하세요.
 
 Netezza 커넥터는 원본에서의 병렬 복사를 지원 합니다. 자세한 내용은 [Netezza에서 병렬 복사](#parallel-copy-from-netezza) 섹션을 참조 하세요.
 
 Azure Data Factory는 연결을 허용하는 기본 제공 드라이버를 제공합니다. 이 커넥터를 사용하기 위해 드라이버를 수동으로 설치할 필요가 없습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -159,9 +165,9 @@ Netezza에서 데이터를 복사하려면 복사 작업의 **원본** 형식을
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **형식** 속성을 **NetezzaSource**로 설정해야 합니다. | 예 |
 | query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
-| partitionOptions | Netezza에서 데이터를 로드 하는 데 사용 되는 데이터 분할 옵션을 지정 합니다. <br>허용 되는 값은 다음과 같습니다. **없음** (기본값), **DataSlice** 및 **dynamicrange**입니다.<br>파티션 옵션을 사용 하도록 설정 하는 경우 (즉 `None`,이 아님) Netezza 데이터베이스에서 데이터를 동시에 로드 하는 병렬 처리 수준은 [`parallelCopies`](copy-activity-performance.md#parallel-copy) 복사 작업에서를 설정 하 여 제어 됩니다. | 아니요 |
+| partitionOptions | Netezza에서 데이터를 로드 하는 데 사용 되는 데이터 분할 옵션을 지정 합니다. <br>허용 되는 값은 다음과 같습니다. **없음** (기본값), **DataSlice**및 **dynamicrange**입니다.<br>파티션 옵션을 사용 하도록 설정 하는 경우 (즉 `None`,이 아님) Netezza 데이터베이스에서 데이터를 동시에 로드 하는 병렬 처리 수준은 [`parallelCopies`](copy-activity-performance.md#parallel-copy) 복사 작업에서를 설정 하 여 제어 됩니다. | 아니요 |
 | partitionSettings | 데이터 분할에 대 한 설정 그룹을 지정 합니다. <br>Partition 옵션을 사용할 수 `None`없는 경우에 적용 합니다. | 아니요 |
-| partitionColumnName | 병렬 복사를 위해 범위 분할에서 사용할 원본 열의 이름을 **정수 형식으로** 지정 합니다. 지정 하지 않으면 테이블의 기본 키가 자동으로 검색 되 고 파티션 열로 사용 됩니다. <br>파티션 옵션이 인 경우에 적용 `DynamicRange`됩니다. 쿼리를 사용 하 여 원본 데이터를 검색 하는 경우 `?AdfRangePartitionColumnName` WHERE 절에 후크 합니다. [Netezza의 Parallel copy](#parallel-copy-from-netezza) 섹션에서 예제를 참조 하세요. | 아니요 |
+| partitionColumnName | 병렬 복사를 위해 범위 분할에서 사용할 원본 열의 이름을 **정수 형식으로** 지정 합니다. 지정 하지 않으면 테이블의 기본 키가 자동으로 검색 되어 파티션 열로 사용 됩니다. <br>파티션 옵션이 인 경우에 적용 `DynamicRange`됩니다. 쿼리를 사용 하 여 원본 데이터를 검색 하는 경우 `?AdfRangePartitionColumnName` WHERE 절에 후크 합니다. [Netezza의 Parallel copy](#parallel-copy-from-netezza) 섹션에서 예제를 참조 하세요. | 아니요 |
 | partitionUpperBound | 데이터를 복사할 파티션 열의 최대값입니다. <br>파티션 옵션이 인 `DynamicRange`경우 적용 합니다. 쿼리를 사용 하 여 원본 데이터를 검색 하 `?AdfRangePartitionUpbound` 는 경우 WHERE 절에 후크 합니다. 예제를 보려면 [Netezza에서 Parallel 복사](#parallel-copy-from-netezza) 섹션을 참조 하세요. | 아니요 |
 | partitionLowerBound | 데이터를 복사할 파티션 열의 최소값입니다. <br>파티션 옵션이 인 경우에 적용 `DynamicRange`됩니다. 쿼리를 사용 하 여 원본 데이터를 검색 하는 경우 `?AdfRangePartitionLowbound` WHERE 절에 후크 합니다. 예제를 보려면 [Netezza에서 Parallel 복사](#parallel-copy-from-netezza) 섹션을 참조 하세요. | 아니요 |
 
@@ -237,6 +243,11 @@ Data Factory Netezza 커넥터는 Netezza에서 병렬로 데이터를 복사 �
     }
 }
 ```
+
+## <a name="lookup-activity-properties"></a>조회 작업 속성
+
+속성에 대 한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인 하세요.
+
 
 ## <a name="next-steps"></a>다음 단계
 

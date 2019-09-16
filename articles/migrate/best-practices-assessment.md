@@ -1,21 +1,21 @@
 ---
-title: Azure Migrate Server 평가를 사용 하 여 평가를 만드는 모범 사례 | Microsoft Docs
+title: Azure Migrate Server 평가를 사용 하 여 평가를 만드는 모범 사례
 description: Azure Migrate Server 평가를 사용 하 여 평가를 만드는 방법에 대 한 팁을 제공 합니다.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/15/2019
+ms.date: 09/16/2019
 ms.author: raynew
-ms.openlocfilehash: 18b82b5553f7045c38c9de532199c2a0fd815ee1
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: a07e83c805fc422c861f6c644a59da0b42bb8072
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234309"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71007722"
 ---
 # <a name="best-practices-for-creating-assessments"></a>평가 만들기에 대 한 모범 사례
 
-[Azure Migrate](migrate-overview.md) 는 앱, 인프라 및 워크 로드를 검색 하 고, 평가 하 고, Microsoft Azure으로 마이그레이션하는 데 도움이 되는 도구 허브를 제공 합니다. 허브는 Azure Migrate 도구 및 타사 ISV (독립 소프트웨어 공급 업체) 제품을 포함 합니다.
+[Azure Migrate](migrate-overview.md)는 앱, 인프라 및 워크로드를 검색, 평가 및 Microsoft Azure로 마이그레이션하는 데 도움이 되는 도구의 허브를 제공합니다. 허브에는 Azure Migrate 도구와 타사 ISV(독립 소프트웨어 공급업체) 제품이 포함되어 있습니다.
 
 이 문서에서는 Azure Migrate 서버 평가 도구를 사용 하 여 평가를 만들 때의 모범 사례를 요약 합니다.
 
@@ -33,8 +33,8 @@ Azure Migrate Server 평가를 사용 하 여 만든 평가는 데이터의 특�
 
 - **성능 기반 평가**:
     - 코어 (4 x 0.20 = 0.8) 및 메모리 (8gb x 0.10 = 0.8) 사용률을 기준으로 유효한 코어 및 메모리를 식별 합니다.
-    - 평가 속성에 지정 된 편안한 요소를 적용 하 여 크기 조정에 사용할 값을 가져옵니다. 
-    - ~ 1.4 코어 (0.8 x 1.3) 및 ~ 1.4 GB (0.8 x 1.3) 메모리를 지원할 수 있는 Azure의 가장 가까운 VM 크기를 권장 합니다.
+    - 평가 속성에 지정 된 편안한 요소를 적용 하 여 (예를 들어 1.3 x) 크기 조정에 사용할 값을 가져옵니다. 
+    - ~ 1.04 코어 (0.8 x 1.3) 및 ~ 1.04 GB (0.8 x 1.3) 메모리를 지원할 수 있는 Azure의 가장 가까운 VM 크기를 권장 합니다.
 
 - **As (온-프레미스) 평가**:
     -  4 개의 코어가 있는 VM을 권장 합니다. 8gb의 메모리
@@ -85,9 +85,9 @@ Azure Migrate 어플라이언스는 온-프레미스 환경을 지속적으로 �
 
 - 평가를 작성하는 기간 동안 환경을 프로파일링하지 않았습니다. 예를 들어 성능 기간을 1 주일으로 설정 하 여 *성능 기반 평가* 를 만드는 경우 모든 데이터 요소에 대 한 검색을 시작 하 고 나 서 적어도 한 주 동안 기다려야 합니다. 언제 든 지 **다시 계산** 을 클릭 하 여 해당 하는 최신 신뢰 등급을 확인할 수 있습니다. 신뢰 등급은 *성능 기반* 평가를 만들 때만 적용 됩니다.
 
-- 평가 계산 기간에 일부 VM이 종료되었습니다. 일부 Vm이 일부 기간 동안 꺼진 경우 서버 평가는 해당 기간에 대 한 성능 데이터를 수집할 수 없습니다.
+- 평가 계산 기간에 일부 VM이 종료되었습니다. 평가 기간 중 일부 VM이 꺼지면 Server Assessment에서 해당 기간의 성능 데이터를 수집할 수 없습니다.
 
-- 서버 평가에서 검색을 시작한 후 몇 개의 Vm이 생성 되었습니다. 예를 들어 마지막 1달의 성능 기록에 대한 평가를 만들려고 하는데, 일부 VM이 불과 일주일 전에 환경에서 생성되었습니다. 이 경우에는 새 Vm에 대 한 성능 데이터를 전체 기간에 사용할 수 없으며 신뢰 등급이 낮습니다.
+- Server Assessment에서 검색이 시작된 후 VM 몇 개가 생성되었습니다. 예를 들어 마지막 1달의 성능 기록에 대한 평가를 만들려고 하는데, 일부 VM이 불과 일주일 전에 환경에서 생성되었습니다. 이 경우 새 VM의 성능 데이터를 전체 기간에 사용할 수 없으며 신뢰 등급이 낮아집니다.
 
 
 ## <a name="next-steps"></a>다음 단계

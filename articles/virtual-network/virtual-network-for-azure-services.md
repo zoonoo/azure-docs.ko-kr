@@ -13,21 +13,21 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: malop
 ms.reviewer: kumud
-ms.openlocfilehash: 80d89914f33273fcb033ab47098a8864b11974c9
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: c345b31c218c4678e7811c36113c94e0c4d2ac03
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876158"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71019051"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Azure 서비스에 대한 가상 네트워크 통합
 
-Azure 서비스를 Azure 가상 네트워크에 통합하면 가상 네트워크의 가상 머신 또는 컴퓨팅 리소스에서 서비스에 대한 프라이빗 액세스가 가능합니다.
+Azure 서비스를 Azure 가상 네트워크에 통합하면 가상 네트워크의 가상 머신 또는 컴퓨팅 리소스에서 서비스에 대한 비공개 액세스가 가능합니다.
 다음 옵션을 사용하여 가상 네트워크의 Azure 서비스를 통합할 수 있습니다.
 - 서비스의 전용 인스턴스를 가상 네트워크에 배포합니다. 이렇게 하면 가상 네트워크 내에서 그리고 온-프레미스에서 서비스에 비공개적으로 액세스할 수 있습니다.
-- 서비스 엔드포인트를 통해 가상 네트워크를 서비스로 확장합니다. 서비스 엔드포인트를 통해 개별 서비스 리소스를 가상 네트워크로 보호할 수 있습니다.
+- [개인 링크](../private-link/private-link-overview.md) 를 사용 하 여 가상 네트워크 및 온-프레미스 네트워크에서 서비스의 개인용 특정 인스턴스에 액세스할 수 있습니다.
 
-여러 Azure 서비스를 가상 네트워크에 통합하려면 위의 패턴 중 하나 이상을 결합하면 됩니다. 예를 들어 가상 네트워크에 HDInsight를 배포하고 서비스 엔드포인트를 통해 스토리지 계정을 HDInsight 서브넷으로 보호할 수 있습니다.
+서비스 [끝점](virtual-network-service-endpoints-overview.md)을 통해 가상 네트워크를 서비스로 확장 하 여 공용 끝점을 사용 하 여 서비스에 액세스할 수도 있습니다. 서비스 끝점을 사용 하면 가상 네트워크에 대 한 서비스 리소스의 보안을 유지할 수 있습니다.
  
 ## <a name="deploy-azure-services-into-virtual-networks"></a>가상 네트워크에 Azure 서비스 배포
 
@@ -57,12 +57,7 @@ Azure 서비스를 Azure 가상 네트워크에 통합하면 가상 네트워크
 | 클레임 | [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json) |아니요 <br/>
 | 컨테이너 | [AKS(Azure Kubernetes Service)](../aks/concepts-network.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[ACI(Azure Container Instance)](https://www.aka.ms/acivnet)<br/>Azure Virtual Network CNI [플러그 인](https://github.com/Azure/acs-engine/tree/master/examples/vnet)을 사용하는 [Azure Container Service 엔진](https://github.com/Azure/acs-engine)|없음 ²<br/> 예 <br/><br/> 아니요
 | Web | [API Management](../api-management/api-management-using-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[App Service Environment](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>|예 <br/> 예 <br/> 예
-| 호스트형 | [Azure 전용 HSM](../dedicated-hsm/index.yml?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>|예 <br/> 예 <br/>
+| 호스트됨 | [Azure 전용 HSM](../dedicated-hsm/index.yml?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>|예 <br/> 예 <br/>
 | | |
 
 ¹ ' 전용 '은 서비스 특정 리소스만이 서브넷에 배포할 수 있으며 고객 VM/VMSSs와 함께 사용할 수 없음을 의미 합니다. <br/> 권장 되지만 서비스에 적용 되는 필수 요구 사항은 아닙니다.
-
-
-## <a name="service-endpoints-for-azure-services"></a>Azure 서비스에 대한 서비스 엔드포인트
-
-일부 Azure 서비스는 가상 네트워크에 배포할 수 없습니다. 필요한 경우 가상 네트워크 서비스 엔드포인트를 사용하도록 설정하여 일부 서비스 리소스에 대한 액세스를 특정 가상 네트워크 서브넷으로만 제한할 수 있습니다.  [가상 네트워크 서비스 엔드포인트](virtual-network-service-endpoints-overview.md) 및 엔드포인트를 사용할 수 있는 서비스에 대해 자세히 알아봅니다.

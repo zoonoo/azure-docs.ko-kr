@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 3082c568b3ce3fa5199c7a7d0d082db36720d293
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 561f383327738c9a2ab29f2907f00ace1eec6def
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233024"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010284"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Cosmos DB(SQL API) 간 데이터 복사
 
@@ -31,6 +31,11 @@ ms.locfileid: "70233024"
 >이 커넥터는 Cosmos DB SQL API 간 데이터 복사만을 지원합니다. MongoDB API의 경우 [Azure Cosmos DB의 API for MongoDB용 커넥터](connector-azure-cosmos-db-mongodb-api.md)를 참조하세요. 다른 API 형식은 이제 지원되지 않습니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
+
+이 Azure Cosmos DB (SQL API) 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
+
+- [지원 되는 원본/싱크 매트릭스](copy-activity-overview.md) 를 사용 하 여 [복사 작업](copy-activity-overview.md)
+- [조회 작업](control-flow-lookup-activity.md)
 
 Azure Cosmos DB(SQL API)에서 모든 지원되는 싱크 데이터 저장소로 또는 모든 지원되는 원본 데이터 저장소에서 Azure Cosmos DB(SQL API)로 데이터를 복사할 수 있습니다. 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)을 참조하세요.
 
@@ -251,6 +256,9 @@ Azure Cosmos DB(SQL API)로 데이터를 복사하려면 복사 작업의 **sink
     }
 ]
 ```
+## <a name="lookup-activity-properties"></a>조회 작업 속성
+
+속성에 대 한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인 하세요.
 
 ## <a name="import-or-export-json-documents"></a>JSON 문서 가져오기 또는 내보내기
 

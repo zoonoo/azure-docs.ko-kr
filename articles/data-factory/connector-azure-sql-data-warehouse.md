@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 0c8c2f2adb11a30b438fb41dca07519b2f74baf7
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 29f5b9b704bcf4648e9c24516d8eff5429a0ce1d
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813581"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009949"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 복사 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스의 버전을 선택 합니다."]
@@ -28,7 +28,7 @@ ms.locfileid: "70813581"
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
-이 Azure Blob 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
+이 Azure SQL Data Warehouse 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
 
 - [지원 되는 원본/싱크 행렬](copy-activity-overview.md) 테이블이 포함 된 [복사 작업](copy-activity-overview.md)
 - [데이터 흐름 매핑](concepts-data-flow-overview.md)
@@ -440,7 +440,7 @@ PolyBase SQL Data Warehouse Azure Blob, Azure Data Lake Storage Gen1 및 Azure D
    3. `rowDelimiter`**기본값**, **\n**, **\r\n**또는 **\r**입니다.
    4. `nullValue`는 기본값 이거나 **빈 문자열** ("") `treatEmptyAsNull` 로 설정 된 상태로 유지 되며 기본값 이거나 true로 설정 됩니다.
    5. `encodingName`는 기본값으로 유지 되거나 **u t f-8**로 설정 됩니다.
-   6. `quoteChar`, `escapeChar` 및`skipLineCount` 가 지정 되지 않았습니다. PolyBase 지원은 ADF에서 `firstRowAsHeader`로 구성될 수 있는 머리글 행을 건너뜁니다.
+   6. `quoteChar`, `escapeChar` 및`skipLineCount` 가 지정 되지 않았습니다. PolyBase는 ADF에서로 `firstRowAsHeader` 구성할 수 있는 skip 머리글 행을 지원 합니다.
    7. `compression`은 **no compression**, **GZip** 또는 **Deflate**일 수 있습니다.
 
 3. 원본이 폴더 `recursive` 이면 복사 작업에서을 true로 설정 해야 합니다.
@@ -556,7 +556,7 @@ ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data typ
 ```
 
 이 솔루션은 복사 작업 싱크에서 PolyBase 설정 > "**형식 기본값 사용**" 옵션을 선택 취소 하는 것입니다 (false로 설정). "[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
-)"은 polybase가 텍스트 파일에서 데이터를 검색할 때 분리 된 텍스트 파일에서 누락 값을 처리 하는 방법을 지정 하는 PolyBase 네이티브 구성입니다. 
+)"은 polybase 네이티브 구성으로, polybase가 텍스트 파일에서 데이터를 검색할 때 분리 된 텍스트 파일에서 누락 값을 처리 하는 방법을 지정 합니다. 
 
 **`tableName`Azure SQL Data Warehouse에서**
 
@@ -625,6 +625,14 @@ Azure SQL Data Warehouse에서/로 데이터를 복사하는 경우, Azure SQL D
 | uniqueidentifier                      | Guid                           |
 | varbinary                             | Byte[]                         |
 | varchar                               | String, Char[]                 |
+
+## <a name="lookup-activity-properties"></a>조회 작업 속성
+
+속성에 대 한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인 하세요.
+
+## <a name="getmetadata-activity-properties"></a>GetMetadata 활동 속성
+
+속성에 대 한 자세한 내용을 보려면 [GetMetadata 활동](control-flow-get-metadata-activity.md) 을 확인 하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 Azure Data Factory의 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md##supported-data-stores-and-formats)을 참조하세요.

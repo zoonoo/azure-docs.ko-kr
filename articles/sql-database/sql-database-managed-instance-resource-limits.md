@@ -10,20 +10,20 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 08/27/2019
-ms.openlocfilehash: 0dea447ed44a61b20faf9a0a1690b2bbdd674b30
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.date: 09/16/2019
+ms.openlocfilehash: 7f7faf11ed18fa2a85587c193376a3e4ce905fd2
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70930617"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010199"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>관리 되는 인스턴스 리소스 제한 Azure SQL Database 개요
 
-이 문서에서는 Azure SQL Database 관리 되는 인스턴스의 리소스 제한에 대 한 개요를 제공 하 고 이러한 제한에 대 한 증가를 요청 하는 방법에 대 한 정보를 제공 합니다.
+이 문서에서는 Azure SQL Database 관리 되는 인스턴스의 기술 특성 및 리소스 제한에 대 한 개요를 제공 하 고 이러한 제한에 대 한 증가를 요청 하는 방법에 대 한 정보를 제공 합니다.
 
 > [!NOTE]
-> 지원되는 기능 및 T-SQL 문의 차이점은 [기능 차이](sql-database-features.md) 및 [T-SQL 문 지원](sql-database-managed-instance-transact-sql-information.md)을 참조하세요.
+> 지원되는 기능 및 T-SQL 문의 차이점은 [기능 차이](sql-database-features.md) 및 [T-SQL 문 지원](sql-database-managed-instance-transact-sql-information.md)을 참조하세요. 단일 데이터베이스의 서비스 계층과 관리 되는 인스턴스의 일반적인 differencess [서비스 계층 비교](sql-database-service-tiers-general-purpose-business-critical.md#service-tier-comparison)를 참조 하세요.
 
 ## <a name="instance-level-resource-limits"></a>인스턴스 수준 리소스 제한
 
@@ -36,18 +36,18 @@ Azure SQL Database 관리 되는 인스턴스는 두 가지 하드웨어 세대�
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
 | 하드웨어 | Intel E5-2673 v3(Haswell) 2.4GHz 프로세서, 연결형 SSD, vCore = 1PP(물리적 코어) | Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서, 고속 NVMe SSD, vCore = 1LP(하이퍼스레드) |
-| VCores 수 | 8, 16, 24개 vCore | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
+| vCore 수 | 8, 16, 24개 vCore | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
 | 최대 메모리 (메모리/코어 비율) | vCore당 7GB<br/>더 많은 메모리를 얻기 위해 vCores를 추가 합니다. | vCore당 5.1GB<br/>더 많은 메모리를 얻기 위해 vCores를 추가 합니다. |
 | 최대 메모리 내 OLTP 메모리 | 인스턴스 제한: vCore당 3GB<br/>데이터베이스 제한:<br/> -8 코어: 데이터베이스당 8gb<br/> -16-코어: 데이터베이스당 20GB<br/> -24-코어: 데이터베이스당 36 GB | 인스턴스 제한: vCore 당 2.5 GB<br/>데이터베이스 제한:<br/> -8 코어: 데이터베이스당 13gb<br/> -16-코어: 데이터베이스당 32 GB |
 | 최대 인스턴스 예약 된 저장소 |  일반 용도: 8TB<br/>중요 비즈니스용: 1TB | 일반 용도: 8 TB<br/> 중요 비즈니스용 1tb, 2tb 또는 4 TB의 코어 수에 따라 |
 
 > [!IMPORTANT]
 > - Gen4 하드웨어를 단계적으로 확장 하 고 있습니다. Gen5 하드웨어에 새로운 관리 되는 인스턴스를 배포 하는 것이 좋습니다.
-> - 이 시점에서 Gen4 하드웨어는 다음 지역에서 제공 됩니다. 서유럽, 유럽 서부, 미국 동부, 미국 중 북부, 미국 중부, 미국 서 부 2, 미국 중부, 캐나다 중부, 인도 남부, 동남 아시아 및 한국 중부.
+> - 현재 Gen4 하드웨어는 다음 지역 에서만 사용할 수 있습니다. 서유럽, 유럽 서부, 미국 동부, 미국 중 북부, 미국 중부, 미국 서 부 2, 미국 중부, 캐나다 중부, 인도 남부, 동남 아시아 및 한국 중부.
 
 ### <a name="service-tier-characteristics"></a>서비스 계층 특성
 
-관리 되는 인스턴스에는 다음과 같은 두 개의 서비스 계층이 있습니다. 범용 및 중요 비즈니스용. 이러한 계층은 아래 표에서 설명한 대로 다양한 기능을 제공합니다.
+관리 되는 인스턴스에는 다음과 같은 두 개의 서비스 계층이 있습니다. [범용 및](sql-database-service-tier-general-purpose.md) [중요 비즈니스용](sql-database-service-tier-business-critical.md). 이러한 계층은 아래 표에 설명 된 대로 [다양 한 기능](sql-database-service-tiers-general-purpose-business-critical.md)을 제공 합니다.
 
 | **기능** | **범용** | **중요 비즈니스** |
 | --- | --- | --- |
@@ -61,7 +61,7 @@ Azure SQL Database 관리 되는 인스턴스는 두 가지 하드웨어 세대�
 | 최대 로그 파일 크기 | 2TB | 2TB |
 | 데이터/로그 IOPS(근사치) | 파일당 500~7,500<br/>\*[더 많은 IOPS를 얻기 위해 파일 크기 늘리기](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5.5 k-110 K (1375/vCore)<br/>더 나은 IO 성능을 얻으려면 vCores를 더 추가 합니다. |
 | 로그 쓰기 처리량 제한 | vCore당 3MB/초<br/>인스턴스당 최대 22 m b/초 | vCore 당 4mb/s<br/>인스턴스당 최대 48 m b/초|
-| 데이터 처리량(근사치) | 파일당 100~250MB/초<br/>\*[더 나은 IO 성능을 얻으려면 파일 크기를 늘립니다.](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/A |
+| 데이터 처리량(근사치) | 파일당 100~250MB/초<br/>\*[더 나은 IO 성능을 얻으려면 파일 크기를 늘립니다.](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 해당 사항 없음 |
 | 저장소 IO 대기 시간 (근사치) | 5~10ms | 1~2ms |
 | 최대 tempDB 크기 | 192~1,920GB(vCore당 24GB)<br/>더 많은 vCores를 추가 하 여 TempDB 공간을 더 확보 합니다. | 최대 인스턴스 저장소 크기에 의해 제한 됩니다. TempDB 로그 파일 크기는 현재 24GB/vCore로 제한 됩니다. |
 | 메모리 내 OLTP | 지원되지 않음 | 사용 가능 |
@@ -72,6 +72,9 @@ Azure SQL Database 관리 되는 인스턴스는 두 가지 하드웨어 세대�
 > - 사용자 및 시스템 데이터베이스의 데이터 및 로그 파일 크기는 최대 스토리지 크기 제한과 비교되는 인스턴스 스토리지 크기에 포함됩니다. <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> 시스템 뷰를 사용하여 데이터베이스에서 사용되는 총 공간을 확인합니다. 오류 로그는 영구적이지 않으며 크기에 포함되지 않습니다. 백업은 스토리지 크기에 포함되지 않습니다.
 > - 또한 처리량 및 IOPS는 관리 되는 인스턴스에 의해 명시적으로 제한 되지 않는 페이지 크기에 따라 달라 집니다.
 > 자동 장애 조치 그룹을 사용 하 여 다른 Azure 지역에서 읽을 수 있는 다른 복제본을 만들 수 있습니다.
+
+> [!NOTE]
+> [이 문서에서는 관리 되는 인스턴스 풀의 리소스 제한](sql-database-instance-pools.md#instance-pools-resource-limitations)에 대 한 자세한 정보를 확인 합니다.
 
 ## <a name="supported-regions"></a>지원되는 지역
 
@@ -93,7 +96,7 @@ Azure SQL Database 관리 되는 인스턴스는 두 가지 하드웨어 세대�
 지원되는 구독 유형에는 지역당 제한된 수의 리소스가 포함될 수 있습니다. 관리 되는 인스턴스에는 구독 유형의 유형에 따라 Azure 지역 당 두 가지 기본 제한이 있습니다.
 
 - **서브넷 제한**: 관리되는 인스턴스가 단일 지역에 배포되는 서브넷의 최대 수입니다.
-- **Vcore 제한**: 단일 지역의 모든 인스턴스에 배포할 수 있는 최대 vCores 수입니다.
+- **Vcore 제한**: 단일 지역의 모든 인스턴스에 배포할 수 있는 최대 vCores 수입니다. 총 인스턴스 수는 vCore 제한 내에 있기만 하면 제한 되지 않습니다.
 
 > [!Note]
 > 이러한 제한은 기술 제한이 아닌 기본 설정입니다. 현재 지역에서 더 많은 관리 되는 인스턴스가 필요한 경우 [Azure Portal에서 특수 지원 요청](#obtaining-a-larger-quota-for-sql-managed-instance) 을 만들어 요청 시 제한을 늘릴 수 있습니다. 대신 지원 요청을 보내지 않고 다른 Azure 지역에서 새 관리 되는 인스턴스를 만들 수 있습니다.
@@ -110,7 +113,7 @@ Azure SQL Database 관리 되는 인스턴스는 두 가지 하드웨어 세대�
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional 및 MSDN 플랫폼|2|32|
 
-\*배포 계획에서 중요 비즈니스용 (BC) 서비스 계층에는 일반 용도 (GP) 서비스 계층 보다 4 배 더 많은 vCore 용량이 필요 하다는 점을 고려 하세요. 예를 들어: 1 GP vCore = 1 vCore 단위 및 1 BC vCore = 4 vCore 단위 기본 제한에 대해 사용량 분석을 간소화 하기 위해는 관리 되는 인스턴스가 배포 된 지역의 모든 서브넷에서 vCore 단위를 요약 하 고 해당 결과를 구독 유형에 대 한 인스턴스 단위 제한과 비교 합니다. **최대 vCore 단위 수** 제한은 한 지역의 각 구독에 적용 됩니다. 여러 서브넷에 배포 된 모든 **Vcores의 합계가 최대 vcores 단위 수**와 같거나 작아야 한다는 점만 제외 하 고 개별 서브넷 당 제한이 없습니다.
+\*배포 계획에서 중요 비즈니스용 (BC) 서비스 계층에는 일반 용도 (GP) 서비스 계층 보다 4 배 더 많은 vCore 용량이 필요 하다는 점을 고려 하세요. 예: 1 GP vCore = 1 vCore 단위 및 1 BC vCore = 4 vCore 단위 기본 제한에 대해 사용량 분석을 간소화 하기 위해는 관리 되는 인스턴스가 배포 된 지역의 모든 서브넷에서 vCore 단위를 요약 하 고 해당 결과를 구독 유형에 대 한 인스턴스 단위 제한과 비교 합니다. **최대 vCore 단위 수** 제한은 한 지역의 각 구독에 적용 됩니다. 여러 서브넷에 배포 된 모든 **Vcores의 합계가 최대 vcores 단위 수**와 같거나 작아야 한다는 점만 제외 하 고 개별 서브넷 당 제한이 없습니다.
 
 \*\*더 큰 서브넷 및 vCore 제한은 다음 지역에서 제공 됩니다. 오스트레일리아 동부, 미국 동부, 미국 동부 2, 서유럽, 미국 중 북부, 동남 아시아, 영국 남부, 유럽 서부, 미국 서 부 2
 

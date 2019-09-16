@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: 5671c3e36a49680b72b1f7b138cbd6e9c0bc4313
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 877d0a17b9ff06e9b9ac2c843c1847c9cb9726e4
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914860"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018705"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes 서비스 (AKS)에서 응용 프로그램 요구 사항을 충족 하도록 클러스터를 자동으로 확장 합니다.
 
@@ -104,7 +104,7 @@ az aks create \
 ## <a name="change-the-cluster-autoscaler-settings"></a>클러스터 자동 크기 조정기 설정 변경
 
 > [!IMPORTANT]
-> 구독에서 *여러 에이전트 풀* 기능을 사용 하도록 설정한 경우 [여러 에이전트 풀을 사용 하 여 자동 크기 조정 섹션](##use-the-cluster-autoscaler-with-multiple-node-pools-enabled)으로 건너뜁니다. 여러 에이전트 풀을 사용 하도록 설정한 클러스터는 `az aks nodepool` `az aks`명령 집합을 사용 하 여 대신 노드 풀 특정 속성을 변경 해야 합니다. 아래 지침에서는 여러 노드 풀을 사용 하도록 설정 하지 않은 것으로 가정 합니다. 을 사용 하도록 설정 했는지 확인 하려면를 실행 `az feature  list -o table` 하 고을 `Microsoft.ContainerService/multiagentpoolpreview`찾습니다.
+> 구독에서 *여러 에이전트 풀* 기능을 사용 하도록 설정한 경우 [여러 에이전트 풀을 사용 하 여 자동 크기 조정 섹션](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled)으로 건너뜁니다. 여러 에이전트 풀을 사용 하도록 설정한 클러스터는 `az aks nodepool` `az aks`명령 집합을 사용 하 여 대신 노드 풀 특정 속성을 변경 해야 합니다. 아래 지침에서는 여러 노드 풀을 사용 하도록 설정 하지 않은 것으로 가정 합니다. 을 사용 하도록 설정 했는지 확인 하려면를 실행 `az feature  list -o table` 하 고을 `Microsoft.ContainerService/multiagentpoolpreview`찾습니다.
 
 이전 단계에서 AKS 클러스터를 만들거나 기존 노드 풀을 업데이트 하려면 클러스터 autoscaler 최소 노드 수를 *1*로 설정 하 고 최대 노드 수를 *3*으로 설정 했습니다. 애플리케이션 수요가 변경되면 클러스터 자동 크기 조정기의 노드 수를 조정해야 할 수 있습니다.
 

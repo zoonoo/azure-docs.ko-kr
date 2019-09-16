@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 0bba755ec5683e988bb8ae3f2308a1c298b228b0
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: b85793223e23aa3d668d6f86494da3ee78c43e91
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000554"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009982"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>데이터 검색 & 분류 Azure SQL Database 및 SQL Data Warehouse
 
@@ -142,10 +142,13 @@ T-SQL을 사용하여 열 분류를 추가/제거하고 전체 데이터베이�
 
 또한 REST API를 사용하여 프로그래밍 방식으로 분류를 관리할 수 있습니다. 게시된 REST API는 다음과 같은 작업을 지원합니다.
 
-- [만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) - 지정된 열의 민감도 레이블을 만들거나 업데이트합니다.
+- [만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) -지정 된 열의 민감도 레이블을 만들거나 업데이트 합니다.
 - [삭제](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) - 지정된 열의 민감도 레이블을 삭제합니다.
+- [권장 안 함](https://docs.microsoft.com/en-us/rest/api/sql/sensitivitylabels/disablerecommendation) -지정 된 열에 대 한 민감도 권장 사항을 사용 하지 않도록 설정 합니다.
+- [권장 구성 사용](https://docs.microsoft.com/en-us/rest/api/sql/sensitivitylabels/enablerecommendation) -지정 된 열에서 민감도 권장 사항을 사용 하도록 설정 합니다 (권장 사항은 모든 열에 대해 기본적으로 사용 하도록 설정 됨).
 - [가져오기](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) - 지정된 열의 민감도 레이블을 가져옵니다.
 - [데이터베이스별 최신 목록](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) - 지정된 데이터베이스의 최신 민감도 레이블을 가져옵니다.
+
 - [데이터베이스에서 권장 하는 목록](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) -지정 된 데이터베이스의 권장 민감도 레이블을 가져옵니다.
 
 ## <a name="manage-data-discovery-and-classification-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 데이터 검색 및 분류 관리

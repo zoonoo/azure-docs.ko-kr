@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 3f7bf3ce8c01e82fa69b3b041b573b4b31a719d2
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 18fdb14430eee97ff2780d963abf3e5ceafe1126
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514098"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009389"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Dynamics 365(Common Data Service) 또는 Dynamics CRM 간에 데이터 복사
 
@@ -25,17 +25,22 @@ ms.locfileid: "67514098"
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
+이 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
+
+- [지원 되는 원본/싱크 매트릭스](copy-activity-overview.md) 를 사용 하 여 [복사 작업](copy-activity-overview.md)
+- [조회 작업](control-flow-lookup-activity.md)
+
 Dynamics 365(Common Data Service) 또는 Dynamics CRM에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 지원되는 모든 원본 데이터 저장소의 데이터를 Dynamics 365(Common Data Service) 또는 Dynamics CRM에 복사할 수도 있습니다. 복사 작업의 원본 또는 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 테이블을 참조하세요.
 
-이 Dynamics 커넥터는 Dynamics 버전 지원 7.x 둘 다에 대해 9.x 온라인 또는 온-프레미스에 있습니다. 더 구체적으로 살펴보면 다음과 같습니다.
+이 Dynamics 커넥터는 온라인 또는 온-프레미스 둘 다에 대해 Dynamics 버전 8.x에서 4.x. x를 지원 합니다. 더 구체적으로 살펴보면 다음과 같습니다.
 
-- Dynamics CRM 2015 버전 7.x 맵
-- Dynamics CRM 2016 및 Dynamics 365 초기 버전을 버전 8.x 맵
-- 버전 9.x 매핑됩니다 이후 버전의 Dynamics 365
+- 버전 4.x는 Dynamics CRM 2015에 매핑됩니다.
+- 버전 4.x는 Dynamics CRM 2016 및 Dynamics 365의 초기 버전에 매핑됩니다.
+- 버전 4.x는 최신 버전의 Dynamics 365에 매핑됩니다.
 
-지원 되는 인증 유형 및 해당 Dynamics 버전/제품에 대 한 구성에는 다음 표를 참조 하세요. IFD는 Internet-facing Deployment(인터넷 연결 배포)의 약어입니다.
+각 Dynamics 버전/제품에 대해 지원 되는 인증 유형 및 구성에 대해서는 다음 표를 참조 하세요. IFD는 Internet-facing Deployment(인터넷 연결 배포)의 약어입니다.
 
-| Dynamics 버전 | 인증 형식 | 연결된 서비스 샘플 |
+| Dynamics 버전 | 인증 유형 | 연결된 서비스 샘플 |
 |:--- |:--- |:--- |
 | Dynamics 365 온라인 <br> Dynamics CRM Online | Office365 | [Dynamics Online + Office365 인증](#dynamics-365-and-dynamics-crm-online) |
 | IFD로 Dynamics 365 온-프레미스 <br> IFD로 Dynamics CRM 2016 온-프레미스 <br> IFD로 Dynamics CRM 2015 온-프레미스 | IFD | [IFD + IFD 인증으로 Dynamics 온-프레미스](#dynamics-365-and-dynamics-crm-on-premises-with-ifd) |
@@ -50,12 +55,12 @@ Dynamics 365(Common Data Service) 또는 Dynamics CRM에서 지원되는 모든 
 
 다른 애플리케이션 유형(예: Finance and Operations, Talent 등)은 이 커넥터에서 지원되지 않습니다.
 
-이 Dynamics 커넥터의 맨 위에 빌드되 [Dynamics XRM 도구](https://docs.microsoft.com/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools)합니다.
+이 Dynamics 커넥터는 [DYNAMICS XRM 도구](https://docs.microsoft.com/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools)를 기반으로 빌드됩니다.
 
 >[!TIP]
 >**Dynamics 365 Finance and Operations**에서 데이터를 복사하려면 [Dynamics AX 커넥터](connector-dynamics-ax.md)를 사용할 수 있습니다.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -67,7 +72,7 @@ Dynamics 연결 서비스에 다음 속성이 지원됩니다.
 
 ### <a name="dynamics-365-and-dynamics-crm-online"></a>Dynamics 365 및 Dynamics CRM Online
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **Dynamics**로 설정해야 합니다. | 예 |
 | deploymentType | Dynamics 인스턴스의 배포 유형입니다. Dynamics Online에 대해 **"Online"** 이어야 합니다. | 예 |
@@ -110,7 +115,7 @@ Dynamics 연결 서비스에 다음 속성이 지원됩니다.
 
 *Dyanmics Online에 비교되는 추가 속성은 "hostName" 및 "port"입니다.*
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **Dynamics**로 설정해야 합니다. | 예 |
 | deploymentType | Dynamics 인스턴스의 배포 유형입니다. IFD를 사용하는 Dynamics 온-프레미스에 대해 **"OnPremisesWithIfd"** 여야 합니다.| 예 |
@@ -156,15 +161,15 @@ Dynamics 연결 서비스에 다음 속성이 지원됩니다.
 
 Dynamics 간에 데이터를 복사하려면 데이터 세트의 type 속성을 **DynamicsEntity**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 **DynamicsEntity**로 설정해야 합니다. |예 |
 | entityName | 검색할 엔터티의의 논리적 이름입니다. | 원본에는 아니요(작업 원본에서 "query"가 지정된 경우)이고 싱크에는 예입니다. |
 
 > [!IMPORTANT]
->- Dynamics에서 데이터를 복사할 때 "structure" 섹션에는 선택 사항 이지만 항상 recommanded 결정적 복사 결과 확인 하려면 Dynamics 데이터 집합. 이것은 복사하려는 Dynamics 데이터의 열 이름과 데이터 형식을 정의합니다. 자세한 내용은 [데이터 세트 구조](concepts-datasets-linked-services.md#dataset-structure-or-schema) 및 [Dynamics에 대한 데이터 형식 매핑](#data-type-mapping-for-dynamics)을 참조하세요.
->- UI 작성 과정에서 스키마를 가져올 때 ADF는 Dynamics 쿼리 결과의 맨 위 행을 샘플링하여 스키마를 유추해 구조 생성을 초기화합니다. 이 경우 값이 없는 열은 생략됩니다. 명시적 구조 정의가 없는 경우 실행을 복사 하려면 동일한 동작이 적용 됩니다. 필요에 따라 열을 검토하여 더 많은 열을 Dynamics 데이터 세트 스키마/구조에 추가할 수 있습니다. 그러면 복사 런타임에 해당 열이 유지됩니다.
->- Dynamics에 데이터를 복사하는 경우 Dynamics 데이터 세트에서 "structure" 섹션은 선택 사항입니다. 복사할 열은 원본 데이터 스키마에 의해 결정 됩니다. 입력 데이터 세트에서 원본이 헤더 없는 CSV 파일인 경우 열 이름과 데이터 형식으로 "구조"를 지정합니다. CSV 파일의 필드에 순서대로 일대일로 매핑됩니다.
+>- Dynamics에서 데이터를 복사 하는 경우 "structure" 섹션은 선택 사항 이지만 Dynamics 데이터 집합에서 매우 다시 작동 하 여 결정적 복사 결과를 확인 합니다. 이것은 복사하려는 Dynamics 데이터의 열 이름과 데이터 형식을 정의합니다. 자세한 내용은 [데이터 세트 구조](concepts-datasets-linked-services.md#dataset-structure-or-schema) 및 [Dynamics에 대한 데이터 형식 매핑](#data-type-mapping-for-dynamics)을 참조하세요.
+>- UI 작성 과정에서 스키마를 가져올 때 ADF는 Dynamics 쿼리 결과의 맨 위 행을 샘플링하여 스키마를 유추해 구조 생성을 초기화합니다. 이 경우 값이 없는 열은 생략됩니다. 명시적 구조체 정의가 없는 경우에도 복사 실행에 동일한 동작이 적용 됩니다. 필요에 따라 열을 검토하여 더 많은 열을 Dynamics 데이터 세트 스키마/구조에 추가할 수 있습니다. 그러면 복사 런타임에 해당 열이 유지됩니다.
+>- Dynamics에 데이터를 복사하는 경우 Dynamics 데이터 세트에서 "structure" 섹션은 선택 사항입니다. 복사할 대상 열은 원본 데이터 스키마에 의해 결정 됩니다. 입력 데이터 세트에서 원본이 헤더 없는 CSV 파일인 경우 열 이름과 데이터 형식으로 "구조"를 지정합니다. CSV 파일의 필드에 순서대로 일대일로 매핑됩니다.
 
 **예제:**
 
@@ -210,10 +215,10 @@ Dynamics 간에 데이터를 복사하려면 데이터 세트의 type 속성을 
 
 Dynamics에서 데이터를 복사하려면 복사 작업의 원본 형식을 **DynamicsSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 형식 속성을 **DynamicsSource**로 설정해야 합니다. | 예 |
-| query | FetchXML은 Dynamics에 사용되는 전용 쿼리 언어(온라인 및 온-프레미스)입니다. 다음 예제를 참조하세요. 자세한 내용은 참조 하세요 [FetchXML로 쿼리 작성](https://msdn.microsoft.com/library/gg328332.aspx)합니다. | 아니요(데이터 세트의 "entityName"이 지정된 경우) |
+| query | FetchXML은 Dynamics에 사용되는 전용 쿼리 언어(온라인 및 온-프레미스)입니다. 다음 예제를 참조하세요. 자세히 알아보려면 [FetchXML로 쿼리 작성](https://msdn.microsoft.com/library/gg328332.aspx)을 참조 하세요. | 아니요(데이터 세트의 "entityName"이 지정된 경우) |
 
 >[!NOTE]
 >PK 열은 FetchXML 쿼리에서 구성한 열 프로젝트에 포함되지 않은 경우에도 항상 복사됩니다.
@@ -274,7 +279,7 @@ Dynamics에서 데이터를 복사하려면 복사 작업의 원본 형식을 **
 
 Dynamics에 데이터를 복사하려면 복사 작업의 싱크 형식을 **DynamicsSink**로 설정합니다. 복사 작업 **sink** 섹션에서 다음 속성이 지원됩니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 형식 속성은 **DynamicsSink**로 설정해야 합니다. | 예 |
 | writeBehavior | 작업의 쓰기 동작입니다.<br/>허용되는 값은 **"Upsert"** 입니다. | 예 |
@@ -330,10 +335,10 @@ Dynamics에서 데이터를 복사하는 경우 Dynamics 데이터 형식에서 
 
 | Dynamics 데이터 형식 | Data Factory 중간 데이터 형식 | 원본으로 지원됨 | 싱크로 지원됨 |
 |:--- |:--- |:--- |:--- |
-| AttributeTypeCode.BigInt | long | ✓ | ✓ |
+| AttributeTypeCode.BigInt | 길게 | ✓ | ✓ |
 | AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
 | AttributeType.Customer | Guid | ✓ | |
-| AttributeType.DateTime | DateTime | ✓ | ✓ |
+| AttributeType.DateTime | Datetime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |
 | AttributeType.EntityName | String | ✓ | ✓ |
@@ -350,7 +355,11 @@ Dynamics에서 데이터를 복사하는 경우 Dynamics 데이터 형식에서 
 | AttributeType.Status | Int32 | ✓ | ✓ |
 
 > [!NOTE]
-> Dynamics 데이터 형식 AttributeType.CalendarRules, AttributeType.MultiSelectPicklist 및 AttributeType.PartyList는 지원 되지 않습니다.
+> Dynamics 데이터 형식 AttributeType. CalendarRules, AttributeType. MultiSelectPicklist 및 Attributetype.partylist는 지원 되지 않습니다.
+
+## <a name="lookup-activity-properties"></a>조회 작업 속성
+
+속성에 대 한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 Data Factory에서 복사 활동을 통해 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
