@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/15/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7385888c54d46e706621f781a64d12d3ae7aa5fb
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 87e130d3a4569971bffb9b1ac2e189babb900225
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512658"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997677"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Azure에서 사용할 수 있는 디스크 유형
 
@@ -33,7 +33,7 @@ Azure managed disks는 현재 4 개의 디스크 유형을 제공 합니다. 각
 
 ## <a name="ultra-disk"></a>Ultra disk
 
-Azure ultra disks는 Azure IaaS Vm에 대해 높은 처리량, 높은 IOPS 및 일관 된 짧은 대기 시간 디스크 저장소를 제공 합니다. Ultra disks의 추가 이점에는 가상 컴퓨터를 다시 시작할 필요 없이 워크 로드와 함께 디스크의 성능을 동적으로 변경 하는 기능이 포함 됩니다. Ultra disks는 SAP HANA, 최상위 계층 데이터베이스 및 트랜잭션 집약적인 워크 로드와 같은 데이터를 많이 사용 하는 워크 로드에 적합 합니다. Ultra disks는 데이터 디스크로만 사용할 수 있습니다. 프리미엄 SSD는 OS 디스크로 사용하는 것이 좋습니다.
+Azure ultra disks는 Azure IaaS Vm에 대해 높은 처리량, 높은 IOPS 및 일관 된 짧은 대기 시간 디스크 저장소를 제공 합니다. Ultra disks의 몇 가지 추가 이점에는 VM (가상 머신)을 다시 시작할 필요 없이 워크 로드와 함께 디스크의 성능을 동적으로 변경 하는 기능이 포함 됩니다. Ultra disks는 SAP HANA, 최상위 계층 데이터베이스 및 트랜잭션 집약적인 워크 로드와 같은 데이터를 많이 사용 하는 워크 로드에 적합 합니다. Ultra disks는 데이터 디스크로만 사용할 수 있습니다. 프리미엄 SSD는 OS 디스크로 사용하는 것이 좋습니다.
 
 ### <a name="performance"></a>성능
 
@@ -44,7 +44,7 @@ Azure ultra disks는 Azure IaaS Vm에 대해 높은 처리량, 높은 IOPS 및 �
 - 디스크 용량: Ultra disks 용량은 GiB 4부터 64 TiB까지 범위를 가집니다.
 - 디스크 IOPS: Ultra disks는 디스크당 300 IOPS/160 GiB의 IOPS 제한을 지원 합니다. 프로 비전 된 IOPS를 얻으려면 선택한 디스크 IOPS가 VM IOPS 제한 보다 적은지 확인 합니다. 디스크당 최소 IOPS는 2 IOPS/GiB 이며 전체 기준이 최소 100 IOPS입니다. 예를 들어 GiB 울트라 디스크가 4 개 있는 경우 8 IOPS 대신 최소 100 IOPS를 갖게 됩니다.
 - 디스크 처리량: Ultra disks를 사용 하는 경우 단일 디스크의 처리량 제한은 각 프로 비전 된 2000 IOPS에 대해 256 KiB/s입니다 (초당 MBps = 10 ^ 6 바이트). 디스크당 최소 처리량은 프로 비전 된 각 IOPS에 대해 4KiB/s 이며, 최소 1 MBps의 전체 기준이 사용 됩니다.
-- Ultra disks는 가상 머신에서 디스크를 분리 하지 않고도 런타임에 디스크 성능 특성 (IOPS 및 처리량) 조정을 지원 합니다. 디스크 성능 크기 조정 작업이 디스크에서 실행된 후 변경 내용이 실제로 적용되려면 최대 한 시간이 걸릴 수 있습니다.
+- Ultra disks는 가상 머신에서 디스크를 분리 하지 않고도 런타임에 디스크 성능 특성 (IOPS 및 처리량) 조정을 지원 합니다. 디스크 성능 크기 조정 작업이 디스크에서 실행된 후 변경 내용이 실제로 적용되려면 최대 한 시간이 걸릴 수 있습니다. 24 시간 동안 성능 크기 조정 작업은 4 개로 제한 됩니다. 성능 대역폭 용량이 부족 하기 때문에 성능 크기 조정 작업이 실패할 수 있습니다.
 
 ### <a name="disk-size"></a>디스크 크기
 
@@ -71,3 +71,4 @@ Azure ultra disks는 Azure IaaS Vm에 대해 높은 처리량, 높은 IOPS 및 �
 - 빈 디스크로만 만들 수 있음  
 - 디스크 스냅숏, VM 이미지, 가용성 집합, 가상 머신 확장 집합 및 Azure disk encryption은 아직 지원 하지 않습니다.
 - Azure Backup 또는 Azure Site Recovery와의 통합을 아직 지원 하지 않습니다.
+- GA Vm에서 현재 IOPS의 최대 제한은 8만입니다.
