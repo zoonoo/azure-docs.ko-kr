@@ -4,6 +4,8 @@
   items:
     - name: Azure Portal 정보
       href: azure-portal-overview.md
+    - name: Azure Quickstart Center 시작
+      href: azure-portal-quickstart-center.md
     - name: 지원되는 브라우저 및 디바이스
       href: azure-portal-supported-browsers-devices.md
 - name: 개념
@@ -25,7 +27,7 @@
     - name: 사용자 설정 내보내기 또는 삭제
       href: azure-portal-export-delete-settings.md
     - name: Azure Portal 방법 비디오 시리즈
-      href: 'https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR'
+      href: azure-portal-video-series.md
 - name: 참고 자료
   items:
     - name: 바로 가기 키

@@ -253,6 +253,10 @@
           href: virtual-network-public-ip-address.md
         - name: 공용 IP 접두사
           href: manage-public-ip-address-prefix.md
+    - name: 지역 간 이동
+      items:
+        - name: 가상 네트워크 - 포털
+          href: virtual-network-azure-to-azure-migrate-vnet-portal.md
     - name: 문제 해결
       items:
         - name: 가상 네트워크 피어링 문제 해결

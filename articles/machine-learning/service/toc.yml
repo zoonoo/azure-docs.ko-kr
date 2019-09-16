@@ -1,9 +1,9 @@
-- name: Azure Machine Learning Service 설명서
+- name: Azure Machine Learning 설명서
   href: ../index.yml
 - name: 개요
   expanded: true
   items:
-    - name: Azure Machine Learning 서비스란?
+    - name: Azure Machine Learning이란?
       displayName: 'AML, services, overview, introduction'
       href: overview-what-is-azure-ml.md
     - name: 아키텍처 및 용어
@@ -31,6 +31,11 @@
             - name: ML 모델 자동 학습
               displayName: 'automl, automated, auto ml,'
               href: tutorial-auto-train-models.md
+        - name: 파이프라인을 사용한 일괄 처리 점수 매기기(고급)
+          items:
+            - name: 분류 모델 일괄 처리 점수 매기기
+              displayName: pipelines
+              href: tutorial-pipeline-batch-scoring-classification.md
     - name: 시각적 인터페이스
       items:
         - name: 1. 회귀 모델 학습
@@ -122,7 +127,7 @@
         - name: Resource Manager 템플릿 사용
           displayName: arm
           href: how-to-create-workspace-template.md
-    - name: "개발 환경 설정\_"
+    - name: 개발 환경 설정
       items:
         - name: 개발 환경 구성
           displayName: 'local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB'

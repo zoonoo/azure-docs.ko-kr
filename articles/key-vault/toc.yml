@@ -58,6 +58,8 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=key-vault'
 - name: 개념
   items:
+    - name: 기본 개념
+      href: basic-concepts.md
     - name: 보안
       items:
         - name: 보안 개요
@@ -68,8 +70,6 @@
           href: key-vault-ovw-security-worlds.md
         - name: 키 자격 증명 모음 보안
           href: key-vault-secure-your-key-vault.md
-    - name: Key Vault란 무엇인가요?
-      href: key-vault-whatis.md
     - name: 일시 삭제
       href: key-vault-ovw-soft-delete.md
     - name: 제한
@@ -92,6 +92,8 @@
           href: create-certificate-scenarios.md
 - name: 방법 가이드
   items:
+    - name: App Service 관리 ID 사용
+      href: managed-identity.md
     - name: Azure Key Vault 로깅
       href: key-vault-logging.md
     - name: 방화벽 뒤에 액세스

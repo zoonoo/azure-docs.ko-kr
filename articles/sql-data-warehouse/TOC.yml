@@ -129,10 +129,16 @@
               href: /sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest
         - name: 구체화된 뷰
           items:
+            - name: 성능 튜닝 지침
+              href: performance-tuning-materialized-views.md
             - name: 생성
               href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql
             - name: 변경
               href: /sql/t-sql/statements/alter-materialized-view-transact-sql
+        - name: 순서가 지정된 클러스터형 columnstore 인덱스
+          items:
+            - name: 성능 튜닝 지침
+              href: performance-tuning-ordered-CCI.md
         - name: 결과 세트 캐싱
           href: /sql/t-sql/statements/set-result-set-caching-transact-sql
         - name: 테이블

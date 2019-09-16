@@ -236,7 +236,7 @@
         - name: 시작하기
           href: automation-dsc-getting-started.md
           displayName: DSC
-        - name: Linux 구성 관리
+        - name: 머신 구성 관리
           href: automation-quickstart-dsc-configuration.md
           displayName: 'DSC, state configuration, config, node configuration, node'
     - name: 온보딩

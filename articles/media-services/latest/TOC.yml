@@ -32,6 +32,10 @@
     - name: DRM을 사용하여 동적으로 암호화
       displayName: 'PlayReady, Widevine, FairPlay'
       href: protect-with-drm.md
+- name: 샘플
+  items:
+    - name: Media Services 샘플
+      href: 'https://docs.microsoft.com/samples/browse/?products=azure-media-services'
 - name: 개념
   items:
     - name: 개요

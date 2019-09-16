@@ -144,8 +144,6 @@
               href: platform/service-providers.md
             - name: 액세스 관리
               href: platform/manage-access.md
-            - name: Configuration Manager와 상호 작용
-              href: platform/collect-sccm.md
         - name: 사용량 및 비용
           items:
             - name: 사용량 및 예상 비용
@@ -643,8 +641,6 @@
               href: insights/service-map.md
             - name: 컴퓨터 그룹
               href: platform/computer-groups.md
-            - name: 구성 관리자
-              href: platform/collect-sccm.md
         - name: Azure 리소스
           items:
             - name: 진단 로그
@@ -745,6 +741,8 @@
               href: platform/om-agents.md
             - name: Operations Manager 평가
               href: insights/scom-assessment.md
+            - name: 구성 관리자 연결
+              href: platform/collect-sccm.md
         - name: Event Hubs로 데이터 스트리밍
           href: platform/diagnostic-logs-stream-event-hubs.md
     - name: 데이터 분석
@@ -764,6 +762,8 @@
             - name: 로그 쿼리 개요
               displayname: 'log query, log queries, query, queries'
               href: log-query/log-query-overview.md
+            - name: 간단한 로그 환경
+              href: log-query/simple-logs.md
             - name: 자습서
               items:
                 - name: Log Analytics 자습서
@@ -785,9 +785,9 @@
                 - name: 언어 차이
                   href: log-query/data-explorer-difference.md
                 - name: 유용한 연산자
-                  href: log-query/functions.md
-                - name: Functions
                   href: log-query/useful-operators.md
+                - name: Functions
+                  href: log-query/functions.md
                 - name: 로그 검색에서 전환
                   href: log-query/log-search-transition.md
                 - name: 단원

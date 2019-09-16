@@ -121,6 +121,10 @@
           href: billing-understand-free-service-meter-mapping.md
     - name: 프로필 편집
       href: billing-how-to-change-azure-account-profile.md
+    - name: 오픈 뱅킹 및 강력한 고객 인증
+      href: billing-open-banking-strong-customer-authentication.md
+    - name: 미지불액 해결
+      href: billing-azure-subscription-past-due-balance.md
     - name: 요금 청구에 대한 액세스 권한 부여
       href: billing-manage-access.md
     - name: Azure에서 Microsoft 고객 계약 역할
@@ -131,6 +135,8 @@
       href: billing-view-all-accounts.md
     - name: 청구서 섹션으로 비용 구성
       href: billing-mca-section-invoice.md
+    - name: Microsoft 고객 계약의 EA 작업
+      href: billing-mca-enterprise-operations.md
     - name: EA 관리
       items:
         - name: Azure EA 포털에서 시작
@@ -151,8 +157,6 @@
           href: billing-ea-portal-troubleshoot.md
         - name: Microsoft 고객 계약의 EA 작업
           href: billing-mca-enterprise-operations.md
-    - name: 미지불액 해결
-      href: billing-azure-subscription-past-due-balance.md
     - name: Microsoft 고객 계약에 대한 청구 계정 설정
       href: billing-mca-setup-account.md
     - name: Office 365 계정을 사용하여 등록

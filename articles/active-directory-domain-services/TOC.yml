@@ -89,7 +89,7 @@
       items:
         - name: Azure AD 애플리케이션 프록시 배포
           href: deploy-azure-app-proxy.md
-        - name: SharePoint Server에 대한 프로필 동기화 지원 구성
+        - name: SharePoint Server에 대한 프로필 동기화 사용
           href: deploy-sp-profile-sync.md
     - name: 문제 해결
       items:

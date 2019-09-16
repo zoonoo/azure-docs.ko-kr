@@ -40,13 +40,15 @@
       items:
         - name: 포털
           href: role-assignments-portal.md
+        - name: 포털 - 게스트 사용자
+          href: role-assignments-external-users.md
         - name: PowerShell
           href: role-assignments-powershell.md
         - name: Azure CLI
           href: role-assignments-cli.md
         - name: REST API
           href: role-assignments-rest.md
-        - name: Template
+        - name: 템플릿
           href: role-assignments-template.md
     - name: 액세스 거부
       items:
@@ -72,8 +74,6 @@
       href: change-history-report.md
     - name: 모든 구독을 관리하도록 액세스 권한 상승
       href: elevate-access-global-admin.md
-    - name: 외부 사용자를 위한 액세스 관리
-      href: role-assignments-external-users.md
     - name: 클래식 관리자
       href: classic-administrators.md
     - name: 문제 해결

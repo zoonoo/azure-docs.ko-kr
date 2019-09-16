@@ -1,0 +1,91 @@
+### YamlMime:Landing
+title: Azure Data Lake Analytics 설명서
+summary: Azure Data Lake Analytics를 사용하면 방대한 데이터 세트로 확장되는 빅 데이터 분석 작업을 실행할 수 있습니다.
+metadata:
+  title: Azure 데이터 레이크 분석
+  description: Azure Data Lake Analytics를 사용하면 방대한 데이터 세트로 확장되는 빅 데이터 분석 작업을 실행할 수 있습니다.
+  services: service
+  ms.service: data-lake-analytics
+  ms.subservice: subservice
+  ms.topic: landing-page
+  ms.collection: collection
+  author: hrasheed-msft
+  ms.author: hrasheed
+  ms.date: 09/13/2019
+  ms.openlocfilehash: a370cf424d7ebdf32fcdd2e0f8653e2e36b7162b
+  ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 09/14/2019
+  ms.locfileid: "70997250"
+landingContent:
+- title: Data Lake Analytics 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Data Lake Analytics이란?
+      url: data-lake-analytics-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Azure Portal에서 U-SQL 작업 만들기
+      url: data-lake-analytics-get-started-portal.md
+    - text: Azure CLI를 사용하여 U-SQL 작업 만들기
+      url: data-lake-analytics-get-started-cli.md
+    - text: Visual Studio Code에서 U-SQL 작업 만들기
+      url: data-lake-analytics-data-lake-tools-for-vscode.md
+- title: U-SQL 언어에 대해 알아보기
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: U-SQL 시작
+      url: data-lake-analytics-u-sql-get-started.md
+    - text: U-SQL 언어 참조
+      url: https://docs.microsoft.com/u-sql/
+    - text: U-SQL 카탈로그 시작
+      url: data-lake-analytics-u-sql-catalog.md
+    - text: 사용자 정의 연산자 사용
+      url: data-lake-analytics-u-sql-develop-user-defined-operators.md
+- title: U-SQL 프로그램 개발
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Visual Studio용 Data Lake 도구 사용
+      url: data-lake-analytics-data-lake-tools-get-started.md
+    - text: Visual Studio에서 U-SQL 데이터베이스 프로젝트 사용
+      url: data-lake-analytics-data-lake-tools-develop-usql-database.md
+    - text: 작업 브라우저 및 작업 보기 사용
+      url: data-lake-analytics-data-lake-tools-view-jobs.md
+    - text: 사용자 정의 C# 코드 디버그
+      url: data-lake-analytics-debug-u-sql-jobs.md
+    - text: Azure Data Lake Tools for Visual Studio Code 사용
+      url: data-lake-analytics-data-lake-tools-for-vscode.md
+    - text: Visual Studio Code에서 U-SQL과 함께 사용자 지정 코드 사용
+      url: data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md
+    - text: SSIS를 사용하여 작업 예약
+      url: data-lake-analytics-schedule-jobs-ssis.md
+- title: Data Lake Analytics 관리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Azure Portal을 사용하여 관리
+      url: data-lake-analytics-manage-use-portal.md
+    - text: Azure CLI를 사용하여 관리
+      url: data-lake-analytics-manage-use-cli.md
+    - text: .NET 앱을 사용하여 관리
+      url: data-lake-analytics-manage-use-dotnet-sdk.md
+    - text: Azure Portal에서 사용자 추가
+      url: data-lake-analytics-add-users.md
+    - text: 정책을 사용하여 Azure Data Lake Analytics 관리
+      url: data-lake-analytics-policies.md
+- title: 연속 통합 및 연속 배포
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: CI/CD 파이프라인 설정
+      url: data-lake-analytics-cicd-overview.md
+    - text: U-SQL 어셈블리 관리
+      url: data-lake-analytics-cicd-manage-assemblies.md
+    - text: U-SQL 스크립트 테스트
+      url: data-lake-analytics-cicd-test.md
+    - text: U-SQL SDK 사용
+      url: data-lake-analytics-u-sql-sdk.md
