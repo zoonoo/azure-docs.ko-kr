@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 84a82e5fae7c56a13aeb4603079e9378b38785cb
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: a2e1017192d57031c7b6f439a5cee46f3135415c
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277554"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71008816"
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 PostgreSQL에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -28,11 +28,16 @@ ms.locfileid: "70277554"
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
+이 PostgreSQL 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
+
+- [지원 되는 원본 행렬이](copy-activity-overview.md) 포함 된 [복사 작업](copy-activity-overview.md)
+- [조회 작업](control-flow-lookup-activity.md)
+
 PostgreSQL 데이터베이스에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
 특히 이 PostgreSQL 커넥터는 PostgreSQL **버전 7.4 이상**을 지원합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -58,8 +63,8 @@ PostgreSQL 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 속성 | Description | 변수 | 필수 |
 |:--- |:--- |:--- |:--- |
-| EncryptionMethod(EM)| 드라이버와 데이터베이스 서버 간에 전송되는 데이터를 암호화하기 위해 드라이버에서 사용하는 메서드입니다. 예를 들어 `EncryptionMethod=<0/1/6>;`| 0(암호화 없음) **(기본값)** / 1(SSL) / 6(RequestSSL) | 아니요 |
-| ValidateServerCertificate(VSC) | SSL 암호화를 사용할 때(암호화 메서드=1) 데이터베이스 서버에서 보내는 인증서의 유효성을 드라이버가 검사하는지 여부를 결정합니다. 예를 들어 `ValidateServerCertificate=<0/1>;`| 0(사용 안 함) **(기본값)** / 1(사용) | 아니요 |
+| EncryptionMethod(EM)| 드라이버와 데이터베이스 서버 간에 전송되는 데이터를 암호화하기 위해 드라이버에서 사용하는 메서드입니다. 예:`EncryptionMethod=<0/1/6>;`| 0(암호화 없음) **(기본값)** / 1(SSL) / 6(RequestSSL) | 아니요 |
+| ValidateServerCertificate(VSC) | SSL 암호화를 사용할 때(암호화 메서드=1) 데이터베이스 서버에서 보내는 인증서의 유효성을 드라이버가 검사하는지 여부를 결정합니다. 예:`ValidateServerCertificate=<0/1>;`| 0(사용 안 함) **(기본값)** / 1(사용) | 아니요 |
 
 **예제:**
 
@@ -219,6 +224,11 @@ PostgreSQL에서 데이터를 복사 하기 위해 복사 작업 **원본** 섹�
 ```
 
 형식화 된 소스를 `RelationalSource` 사용 하는 경우에는 계속 해 서 새 항목을 사용 하는 것이 좋습니다.
+
+## <a name="lookup-activity-properties"></a>조회 작업 속성
+
+속성에 대 한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인 하세요.
+
 
 ## <a name="next-steps"></a>다음 단계
 Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md##supported-data-stores-and-formats)를 참조하세요.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 0a695f08f00b99fcd0bc634d12e30c0f3cfbd312
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: d8773b330349356410589cf66e8f50636d92b601
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813099"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009181"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HDFS에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -30,7 +30,7 @@ ms.locfileid: "70813099"
 
 이 HDFS 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
 
-- [지원 되는 원본/싱크 매트릭스](copy-activity-overview.md) 를 사용 하 여 [복사 작업](copy-activity-overview.md)
+- [지원 되는 원본 행렬이](copy-activity-overview.md) 포함 된 [복사 작업](copy-activity-overview.md)
 - [조회 작업](control-flow-lookup-activity.md)
 
 특히 이 HDFS 커넥터는 다음을 지원합니다.
@@ -39,7 +39,7 @@ ms.locfileid: "70813099"
 - **webhdfs** 프로토콜 또는 **기본 제공 DistCp** 지원을 사용하여 파일을 복사합니다.
 - 파일을 있는 그대로 복사하거나 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs.md)을 사용하여 파일을 붙여넣거나 생성합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -322,7 +322,7 @@ HDFS에서 **ORC 형식**으로 데이터를 복사 하기 위해 복사 작업 
 
 복사 작업은 DistCp를 사용 하 여 Azure Blob ( [준비 된 복사](copy-activity-performance.md)포함)에 있는 그대로 파일을 복사 하거나 Azure Data Lake Store 하 여 자체 호스팅 Integration Runtime를 실행 하는 대신 클러스터의 기능을 완벽 하 게 활용할 수 있습니다. 클러스터가 매우 강력한 경우에 특히 더 나은 복사 처리량을 제공합니다. Azure Data Factory의 구성에 따라 복사 작업은 자동으로 distcp 명령을 생성하고, Hadoop 클러스터에 제출하고, 복사 상태를 모니터링합니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 DistCp를 사용하여 HDFS에서 Azure Blob(준비된 복사 포함) 또는 Azure Data Lake Store로 파일을 있는 그대로 복사하려면 Hadoop 클러스터가 아래 요구 사항을 충족하는지 확인합니다.
 
@@ -481,6 +481,10 @@ HDFS 커넥터에 Kerberos 인증을 사용하도록 온-프레미스 환경을 
 **Azure Data Factory에서:**
 
 * HDFS 데이터 원본에 연결하는 도메인 계정 또는 Kerberos 주체와 **Windows 인증**을 함께 사용하여 HDFS 커넥터를 구성합니다. 구성 세부 정보에서 [HDFS 연결된 서비스 속성](#linked-service-properties)을 확인합니다.
+
+## <a name="lookup-activity-properties"></a>조회 작업 속성
+
+속성에 대 한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인 하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
