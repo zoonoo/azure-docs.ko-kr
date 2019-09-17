@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 08/04/2019
+ms.date: 09/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: 173e261266bffd042e12b327e26fda3a4e55ea4b
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 4fb88cbed4e73a7cea2b0ccf01b1429a3ff321f3
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899000"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018192"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Azure Backup를 사용 하는 클라우드 워크 로드를 보호 하는 데 도움이 되는 보안 기능
 
@@ -26,47 +26,47 @@ ms.locfileid: "70899000"
 
 ### <a name="supported-regions"></a>지원되는 지역
 
-일시 삭제는 현재 미국 서 부 중부 지역 및 동아시아에서 지원 됩니다.
+일시 삭제는 현재 미국 서 부, 동아시아, 캐나다 중부, 캐나다 동부, 프랑스 중부, 프랑스 남부, 대한민국 중부, 대한민국, 영국 남부, 영국 서부, 오스트레일리아 동부, 오스트레일리아 남부 동부, 유럽 서 부, 미국 서 부, 미국 서 부, 미국 미국, 미국 서 부에서 지원 됩니다. 동아시아, 미국 중 북부, 미국 중 북부, 일본 동부, 일본 서 부, 인도 남부, 인도 중부, 인도 서 부, 미국 동부 2, 스위스 북부, 스위스 서부, 모든 국가 지역.
 
 ### <a name="soft-delete-for-vms"></a>Vm에 대 한 일시 삭제
 
 1. VM의 백업 데이터를 삭제 하려면 백업을 중지 해야 합니다. Azure Portal 복구 서비스 자격 증명 모음으로 이동 하 여 백업 항목을 마우스 오른쪽 단추로 클릭 하 고 **백업 중지**를 선택 합니다.
 
-    ![Azure Portal 백업 항목의 스크린샷](./media/backup-azure-security-feature-cloud/backup-stopped.png)
+   ![Azure Portal 백업 항목의 스크린샷](./media/backup-azure-security-feature-cloud/backup-stopped.png)
 
 2. 다음 창에는 백업 데이터를 삭제 하거나 보존할 수 있는 옵션이 제공 됩니다. **백업 데이터 삭제** 를 선택한 다음 **백업 중지**를 선택 하면 VM 백업이 영구적으로 삭제 되지 않습니다. 대신 백업 데이터는 일시 삭제 된 상태에서 14 일 동안 보존 됩니다. **백업 데이터 삭제** 를 선택 하면 사용자에 게 14 일 동안 백업 데이터에 대 한 보존 기간이 남아 있음을 알리는 전자 메일 삭제 경고가 구성 된 전자 메일 ID로 전송 됩니다. 또한 12 일에 전자 메일 경고가 전송 되어 삭제 된 데이터를 부활 시킬 두 일이 남아 있음을 알려 줍니다. 영구적 삭제가 발생 하 고 데이터의 영구 삭제를 알리는 최종 전자 메일 경고가 전송 될 때 15 일이 지연 됩니다.
 
-    ![Azure Portal, 백업 중지 화면 스크린샷](./media/backup-azure-security-feature-cloud/delete-backup-data.png)
+   ![Azure Portal, 백업 중지 화면 스크린샷](./media/backup-azure-security-feature-cloud/delete-backup-data.png)
 
 3. 이 14 일 동안 Recovery Services 자격 증명 모음에 일시 삭제 된 VM이 옆에 빨간색 "일시 삭제" 아이콘이 표시 됩니다.
 
-    ![Azure Portal의 스크린샷, 일시 삭제 상태의 VM](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
+   ![Azure Portal의 스크린샷, 일시 삭제 상태의 VM](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
-> [!NOTE]
-> 일시 삭제 된 백업 항목이 자격 증명 모음에 있으면 해당 시점에 자격 증명 모음을 삭제할 수 없습니다. 백업 항목이 영구적으로 삭제 된 후 자격 증명 모음 삭제를 시도 하 고, 자격 증명 모음에 일시 삭제 됨 상태의 항목이 없습니다.
+   > [!NOTE]
+   > 일시 삭제 된 백업 항목이 자격 증명 모음에 있으면 해당 시점에 자격 증명 모음을 삭제할 수 없습니다. 백업 항목이 영구적으로 삭제 된 후 자격 증명 모음 삭제를 시도 하 고, 자격 증명 모음에 일시 삭제 됨 상태의 항목이 없습니다.
 
 4. 일시 삭제 된 VM을 복원 하려면 먼저 삭제를 취소 해야 합니다. 삭제를 취소 하려면 일시 삭제 된 VM을 선택 하 고 **삭제 취소**옵션을 클릭 합니다.
 
-     ![Azure Portal의 스크린샷, VM 삭제 취소](./media/backup-azure-security-feature-cloud/choose-undelete.png)
+   ![Azure Portal의 스크린샷, VM 삭제 취소](./media/backup-azure-security-feature-cloud/choose-undelete.png)
 
-삭제 취소를 선택 하면 VM에 대 한 모든 복원 지점이 삭제 취소 되 고 복원 작업을 수행 하는 데 사용할 수 있다는 경고가 표시 됩니다. VM은 백업 정책이 적용 되지 않고 일시 중지 되 고 백업 데이터가 영구적으로 보존 되는 "데이터 보존을 사용 하 여 보호 중지" 상태로 유지 됩니다.
+   삭제 취소를 선택 하면 VM에 대 한 모든 복원 지점이 삭제 취소 되 고 복원 작업을 수행 하는 데 사용할 수 있다는 경고가 표시 됩니다. VM은 백업 정책이 적용 되지 않고 일시 중지 되 고 백업 데이터가 영구적으로 보존 되는 "데이터 보존을 사용 하 여 보호 중지" 상태로 유지 됩니다.
 
- ![Azure Portal의 스크린샷, VM 삭제 취소 확인](./media/backup-azure-security-feature-cloud/undelete-vm.png)
+   ![Azure Portal의 스크린샷, VM 삭제 취소 확인](./media/backup-azure-security-feature-cloud/undelete-vm.png)
 
-이 시점에서 선택한 복원 지점에서 **Vm 복원** 을 선택 하 여 vm을 복원할 수도 있습니다.  
+   이 시점에서 선택한 복원 지점에서 **Vm 복원** 을 선택 하 여 vm을 복원할 수도 있습니다.  
 
    ![Azure Portal, VM 복원 옵션의 스크린샷](./media/backup-azure-security-feature-cloud/restore-vm.png)
 
-> [!NOTE]
-> 사용자가 **백업 다시 시작** 작업을 수행한 후에만 가비지 수집기가 만료 된 복구 지점만 실행 및 정리 합니다.
+   > [!NOTE]
+   > 사용자가 **백업 다시 시작** 작업을 수행한 후에만 가비지 수집기가 만료 된 복구 지점만 실행 및 정리 합니다.
 
 5. 삭제 취소 프로세스가 완료 되 면 상태는 "데이터 보존으로 백업 중지"로 돌아간 다음 **백업 다시 시작**을 선택할 수 있습니다. 백업 **다시 시작** 작업은 백업 및 보존 일정을 정의 하는 사용자가 선택한 백업 정책과 연결 된 활성 상태의 백업 항목을 다시 가져옵니다.
 
-      ![Azure Portal, 백업 다시 시작 옵션의 스크린샷](./media/backup-azure-security-feature-cloud/resume-backup.png)
+   ![Azure Portal, 백업 다시 시작 옵션의 스크린샷](./media/backup-azure-security-feature-cloud/resume-backup.png)
 
 이 순서도는 백업 항목의 여러 단계와 상태를 보여 줍니다.
 
-   ![일시 삭제 된 백업 항목의 수명 주기](./media/backup-azure-security-feature-cloud/lifecycle.png)
+![일시 삭제 된 백업 항목의 수명 주기](./media/backup-azure-security-feature-cloud/lifecycle.png)
 
 자세한 내용은 아래의 질문과 대답 (질문과 [대답](backup-azure-security-feature-cloud.md#frequently-asked-questions) ) 섹션을 참조 하세요.
 
@@ -101,23 +101,23 @@ Recovery services 자격 증명 모음에 사용 되는 저장소 계정은 격�
 #### <a name="can-i-configure-the-number-of-days-for-which-my-data-will-be-retained-in-soft-deleted-state-after-delete-operation-is-complete"></a>삭제 작업이 완료 된 후 내 데이터가 일시 삭제 된 상태로 유지 되는 일 수를 구성할 수 있나요?
 
 아니요, 삭제 작업 후 14 일 동안 추가 보존 기간이 수정 됩니다.
-  
+ 
 #### <a name="do-i-need-to-pay-the-cost-for-this-additional-14-day-retention"></a>이 14 일 추가 보존에 대 한 비용을 지불 해야 하나요?
 
 아니요,이 14 일 추가 보존은 일시 삭제 기능의 일부로 무료로 제공 됩니다.
-  
+ 
 #### <a name="can-i-perform-a-restore-operation-when-my-data-is-in-soft-delete-state"></a>내 데이터가 일시 삭제 상태일 때 복원 작업을 수행할 수 있나요?
 
 아니요, 복원 하려면 일시 삭제 된 리소스를 삭제 취소 해야 합니다. 삭제 취소 작업은 모든 특정 시점으로 복원할 수 있는 **데이터 보관을 사용 하 여 보호 중지 상태로** 리소스를 다시 가져옵니다. 가비지 수집기는이 상태에서 일시 중지 된 상태로 유지 됩니다.
-  
+ 
 #### <a name="will-my-snapshots-follow-the-same-lifecycle-as-my-recovery-points-in-the-vault"></a>내 스냅숏은 자격 증명 모음에서 복구 지점과 동일한 수명 주기를 따르고 있나요?
 
 예.
-  
+ 
 #### <a name="how-can-i-trigger-the-scheduled-backups-again-for-a-soft-deleted-resource"></a>일시 삭제 된 리소스에 대해 예약 된 백업을 다시 트리거하는 방법
 
 다시 시작 작업 후 삭제 취소 작업은 리소스를 다시 보호 합니다. 다시 시작 작업은 백업 정책을 연결 하 여 선택한 보존 기간을 사용 하 여 예약 된 백업을 트리거합니다. 또한 가비지 수집기는 다시 시작 작업이 완료 되는 즉시 실행 됩니다. 만료 날짜를 지난 복구 지점에서 복원을 수행 하려는 경우 다시 시작 작업을 트리거하기 전에 수행 하는 것이 좋습니다.
-  
+ 
 #### <a name="can-i-delete-my-vault-if-there-are-soft-deleted-items-in-the-vault"></a>자격 증명 모음에 일시 삭제 된 항목이 있는 경우 자격 증명 모음을 삭제할 수 있나요?
 
 자격 증명 모음에 일시 삭제 된 상태의 백업 항목이 있는 경우에는 Recovery Services 자격 증명 모음을 삭제할 수 없습니다. 일시 삭제 된 항목은 삭제 작업을 14 일 후에 영구적으로 삭제 됩니다. 모든 일시 삭제 된 항목이 제거 된 후에만 자격 증명 모음을 삭제할 수 있습니다.  

@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/3/2018
 ms.author: victorh
-ms.openlocfilehash: e154b830df6b49855414563be8c740bfe513c85a
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 5c881a42cdd6fd76c591cf12b341fd777d18baea
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967882"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018260"
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Application Gateway에서 SSL 정책 버전 및 암호 그룹 구성
 
@@ -116,13 +116,7 @@ CipherSuites:
 * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 
 > [!IMPORTANT]
-> 사용자 지정 SSL 정책을 구성할 때 다음 목록에서 하나 이상의 암호 그룹을 선택해야 합니다. Application Gateway는 백 엔드 관리를 위해 RSA SHA256 암호 그룹을 사용합니다.
-> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-> * TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
-> * TLS_RSA_WITH_AES_128_GCM_SHA256
-> * TLS_RSA_WITH_AES_256_CBC_SHA256
-> * TLS_RSA_WITH_AES_128_CBC_SHA256
+> 사용자 지정 SSL 정책을 구성할 때 TLS_RSA_WITH_AES_256_CBC_SHA256를 선택 해야 합니다. Application gateway는 백 엔드 관리를 위해이 암호 그룹을 사용 합니다. 이를 다른 모든 도구 모음과 함께 사용할 수 있지만이 항목을 선택 해야 합니다. 
 
 ```powershell
 # get an application gateway resource
