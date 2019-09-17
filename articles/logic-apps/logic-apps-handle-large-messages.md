@@ -119,7 +119,7 @@ HTTP 작업에서 청크 분할 콘텐츠를 업로드하려면 작업의 `runti
 
    | Logic Apps 요청 헤더 필드 | 값 | 형식 | Description |
    |---------------------------------|-------|------|-------------|
-   | **x-ms-transfer-mode** | chunked | 문자열 | 콘텐츠가 청크로 업로드됨을 나타냅니다. |
+   | **x-ms-transfer-mode** | chunked | String | 콘텐츠가 청크로 업로드됨을 나타냅니다. |
    | **x-ms-content-length** | <*content-length*> | Integer | 청크 분할 이전의 전체 콘텐츠 크기(바이트)입니다. |
    ||||
 
