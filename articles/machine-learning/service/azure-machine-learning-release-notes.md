@@ -10,18 +10,67 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 26d66dad1e9953ddcbdbe0fd3b495bb3e418b3e7
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 5191f8b565762e9377f3718cc147c96e491f5a0d
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993417"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067722"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
 이 문서에서는 Azure Machine Learning 릴리스에 대해 알아봅니다.  전체 SDK 참조 콘텐츠는 Azure Machine Learning의 [**Python 용 기본 SDK**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 참조 페이지를 참조 하세요. 
 
 알려진 버그 및 해결 방법에 대해 알아 보려면 [알려진 문제 목록](resource-known-issues.md)을 참조하세요.
+
+## <a name="2019-09-16"></a>2019-09-16
+
+### <a name="azure-machine-learning-sdk-for-python-v1062"></a>Azure Machine Learning SDK for Python v 1.0.62
+
++ **새로운 기능**
+  + TabularDataset에 시계열 특성을 도입 했습니다. 이러한 특성을 사용 하 여 TabularDataset 데이터에 대 한 쉽게 타임 스탬프를 필터링 할 수 있습니다. 예를 들어 시간 범위 또는 최신 데이터의 모든 데이터를 가져올 수 있습니다. TabularDataset의 시계열 특성에 대 한 자세한 내용은 설명서 또는 https://aka.ms/azureml-data https://aka.ms/azureml-tsd-notebook 예제 노트북을 참조 하세요. 
+  + TabularDataset 및 FileDataset으로 학습을 사용 하도록 설정 했습니다. 예제 노트북 https://aka.ms/dataset-tutorial 은을 (를) 참조 하세요. 
+  
+  + **azureml-train-core**
+    + PyTorch 평가기에서 Nccl 및 Gloo 지원이 추가 되었습니다.
+  
++ **버그 수정 및 향상 된 기능**
+  + **azureml-automl-core**
+    + AutoML 설정 ' lag_length ' 및 LaggingTransformer를 사용 하지 않습니다.
+    + 데이터 흐름 형식으로 지정 된 경우 입력 데이터의 올바른 유효성 검사를 수정 했습니다.
+    + Fit_pipeline py를 수정 하 여 그래프 json을 생성 하 고 아티팩트에 업로드 합니다. 
+    + Cytoscape를 사용 하 여 userrun에서 그래프를 렌더링 했습니다.
+  + **azureml-core**
+    + ADB 코드에서 예외 처리를 확인 하 고 새 오류 처리에 따라를 변경 합니다.
+    + 노트북 Vm에 대 한 자동 MSI 인증을 추가 했습니다.
+    + 실패 한 재시도로 인해 손상 되었거나 비어 있는 모델을 업로드할 수 있는 버그를 수정 합니다.
+    + `DataReference` `as_upload` `as_download` `as_mount`모드가 변경 될 때 (예:, 또는를 호출할 때) 이름이 변경 되는 버그를 수정 했습니다. `DataReference`
+    + `target_path` 및 `mount_point` 의`FileDataset.download`경우 및를 선택 합니다. `FileDataset.mount`
+    + 할당 된 타임 스탬프 열 없이 시간 serials 관련 API를 호출 하거나 할당 된 타임 스탬프 열을 삭제 한 경우에는 타임 스탬프 열을 찾을 수 없습니다. 예외가 throw 됩니다.
+    + Serials 열에는 형식이 Date 인 열이 할당 되어야 합니다. 그렇지 않으면 예외가 예상 됩니다.
+    + ' With_timestamp_columns ' API를 할당 하는 시간 serials 열에는 None 값을 사용 하 여 이전에 할당 된 타임 스탬프 열을 지울 수 있습니다.
+    + 목록 삭제 시 타임 스탬프 열을 제외 하 고 삭제할 수 있는 사용자에 대 한 표시를 사용 하 여 with_time_stamp를 호출 하거나 해제 하는 값이 없는 값을 해제 하 여 릴리스 타임 스탬프를 해제 한 후에 예외가 발생 합니다. 세로
+    + 열 목록 유지 또는 없음을 사용 하 여 with_time_stamp 호출에서 timestamp 열을 포함 한 후에 수행할 수 있는 사용자에 대 한 표시가 있는 열을 열 목록에 포함 목록에 포함 되지 않은 경우 예외가 발생 합니다. 타임 스탬프 열을 해제 하는 값입니다.
+    + 등록 된 모델의 크기에 대 한 로깅을 추가 했습니다.
+  + **azureml-explain-model**
+    + "패키징" python 패키지가 설치 되지 않은 경우 콘솔에 경고를 수정 했습니다. "지원 되는 버전 보다 오래 된 버전의 lightgbm를 사용 하는 경우 2.2.1 보다 큰 버전으로 업그레이드 하세요."
+    + 다양 한 기능을 갖춘 글로벌 설명에 대 한 분할를 사용 하 여 다운로드 모델 설명 수정
+    + 출력 설명에 대 한 설명 누락 된 초기화 예제를 수정 했습니다.
+    + 두 가지 모델 유형을 사용 하는 설명 클라이언트를 사용 하 여 업로드할 때 설정 속성에 대 한 변경할 수 없는 오류 해결
+    + Get_raw 매개 변수를 추가 하 여 설명 ()를 계산 하 고, 하나의 점수 매기기 설명는 엔지니어링 된 값과 원시 값을 모두 반환할 수 있습니다.
+  + **azureml-train-automl**
+    + Automl의 지원 설명을 위한 automl의 공용 Api를 도입 했습니다. automl 기능화를 분리 하 여 AutoML 설명을 지원 하 고, 자동 ml 용 azureml 설명 SDK의 SDK 통합 원시 설명 지원을 설명 합니다. 모델인.
+    + 원격 학습 환경에서 azureml 기본값 제거
+    + FileCacheStore의 기본 캐시 저장소 위치를 AzureFileCacheStore에서 AutoML on AzureDatabricks 코드 경로로 변경 했습니다.
+    + 데이터 흐름 형식으로 지정 된 경우 입력 데이터의 올바른 유효성 검사를 수정 했습니다.
+  + **azureml-train-core**
+    + Source_directory_data_store 사용 중단을 되돌립니다.
+    + Azureml 설치 패키지 버전을 재정의 하는 기능이 추가 되었습니다. 
+    + 추정의 `environment_definition` 매개 변수에 dockerfile 지원이 추가 되었습니다.
+    + 추정의 단순화 된 분산 교육 매개 변수
+         ```py 
+        from azureml.train.dnn import TensorFlow, Mpi, ParameterServer 
+        ```
 
 ## <a name="2019-09-09"></a>2019-09-09
 

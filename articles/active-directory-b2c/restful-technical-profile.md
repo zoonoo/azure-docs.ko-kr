@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f535bc7d67198b3fe06326260bc1910b6afd36f2
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 13eedeb66d826d212b814fac321f920e78758cb8
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68346763"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063732"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 RESTful 기술 프로필 정의
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure AD(Active Directory) B2C에서는 고유한 RESTful 서비스를 지원합니다. Azure AD B2C는 입력 클레임 컬렉션의 RESTful 서비스로 데이터를 보내고 출력 클레임 컬렉션에 데이터를 다시 수신합니다. RESTful 서비스 통합을 사용하면 다음과 같은 작업을 수행할 수 있습니다.
+Azure Active Directory B2C (Azure AD B2C)는 사용자 고유의 RESTful 서비스에 대 한 지원을 제공 합니다. Azure AD B2C는 입력 클레임 컬렉션의 RESTful 서비스로 데이터를 보내고 출력 클레임 컬렉션에 데이터를 다시 수신합니다. RESTful 서비스 통합을 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
 - **사용자 입력 데이터의 유효성 검사** - 잘못된 형식의 데이터가 Azure AD B2C에 저장되지 않도록 방지합니다. 사용자의 값이 유효하지 않으면 RESTful 서비스는 사용자에게 항목을 제공하도록 지시하는 오류 메시지를 반환합니다. 예를 들어 사용자가 제공한 전자 메일 주소가 고객 데이터베이스에서 종료되었는지 확인할 수 있습니다.
 - **입력 클레임 덮어쓰기** - 입력 클레임의 값 서식을 다시 지정할 수 있습니다. 예를 들어 사용자가 이름을 모두 소문자 또는 대문자로 입력한 경우 이름의 첫 번째 문자만을 대문자로 시작하도록 서식을 지정할 수 있습니다.
@@ -43,7 +43,7 @@ Azure AD(Active Directory) B2C에서는 고유한 RESTful 서비스를 지원합
 <TechnicalProfile Id="REST-UserMembershipValidator">
   <DisplayName>Validate user input data and return loyaltyNumber claim</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-  ...    
+  ...
 ```
 
 ## <a name="input-claims"></a>입력 클레임
@@ -70,7 +70,7 @@ Azure AD(Active Directory) B2C에서는 고유한 RESTful 서비스를 지원합
 
 - **loyaltyNumber** 클레임 이름에 매핑된 **MembershipId** 클레임입니다.
 
-기술 프로필은 ID 공급자에서 반환되지 않은 클레임도 반환합니다. 
+기술 프로필은 ID 공급자에서 반환되지 않은 클레임도 반환합니다.
 
 - 기본값이 `true`로 설정된 **loyaltyNumberIsNew** 클레임입니다.
 
@@ -85,11 +85,11 @@ Azure AD(Active Directory) B2C에서는 고유한 RESTful 서비스를 지원합
 
 | 특성 | 필수 | Description |
 | --------- | -------- | ----------- |
-| ServiceUrl | 예 | REST API 엔드포인트의 URL입니다. | 
-| AuthenticationType | 예 | RESTful 클레임 공급자가 수행하는 인증 형식입니다. 가능한 값은 `None`, `Basic` 또는 `ClientCertificate`입니다. `None` 값은 REST API가 익명이 아님을 나타냅니다. `Basic` 값은 REST API가 HTTP 기본 인증으로 보호됨을 나타냅니다. Azure AD B2C를 포함하여 확인된 사용자만 API에 액세스할 수 있습니다. `ClientCertificate`(권장) 값은 REST API가 클라이언트 인증서 인증을 사용한 액세스를 제한함을 나타냅니다. Azure AD B2C와 같은 적절한 인증서를 가진 서비스만 사용자 서비스에 액세스할 수 있습니다. | 
-| SendClaimsIn | 아니요 | 입력 클레임이 RESTful 클레임 공급자에게 전송되는 방법을 지정합니다. 가능한 값은 `Body`(기본값), `Form`, `Header` 또는 `QueryString`입니다. `Body` 값은 JSON 형식의 요청 본문에 전송되는 입력 클레임입니다. `Form` 값은 앰퍼샌드 '&'로 구분된 키 값 형식의 요청 본문에 전송되는 입력 클레임입니다. `Header` 값은 요청 헤더에 전송되는 입력 클레임입니다. `QueryString` 값은 요청 쿼리 문자열에 전송되는 입력 클레임입니다. | 
-| ClaimsFormat | 아니요 | 출력 클레임의 형식을 지정합니다. 가능한 값은 `Body`(기본값), `Form`, `Header` 또는 `QueryString`입니다. `Body` 값은 JSON 형식의 요청 본문에 전송되는 출력 클레임입니다. `Form` 값은 앰퍼샌드 '&'로 구분된 키 값 형식의 요청 본문에 전송되는 출력 클레임입니다. `Header` 값은 요청 헤더에 전송되는 출력 클레임입니다. `QueryString` 값은 요청 쿼리 문자열에 전송되는 출력 클레임입니다. | 
-| DebugMode | 아니요 | 디버그 모드에서 기술 프로필을 실행합니다. 디버그 모드에서 REST API는 자세한 정보를 반환할 수 있습니다. 오류 메시지 반환 섹션을 참조하세요. | 
+| ServiceUrl | 예 | REST API 엔드포인트의 URL입니다. |
+| AuthenticationType | 예 | RESTful 클레임 공급자가 수행하는 인증 형식입니다. 가능한 값은 `None`, `Basic` 또는 `ClientCertificate`입니다. `None` 값은 REST API가 익명이 아님을 나타냅니다. `Basic` 값은 REST API가 HTTP 기본 인증으로 보호됨을 나타냅니다. Azure AD B2C를 포함하여 확인된 사용자만 API에 액세스할 수 있습니다. `ClientCertificate`(권장) 값은 REST API가 클라이언트 인증서 인증을 사용한 액세스를 제한함을 나타냅니다. Azure AD B2C와 같은 적절한 인증서를 가진 서비스만 사용자 서비스에 액세스할 수 있습니다. |
+| SendClaimsIn | 아니요 | 입력 클레임이 RESTful 클레임 공급자에게 전송되는 방법을 지정합니다. 가능한 값은 `Body`(기본값), `Form`, `Header` 또는 `QueryString`입니다. `Body` 값은 JSON 형식의 요청 본문에 전송되는 입력 클레임입니다. `Form` 값은 앰퍼샌드 '&'로 구분된 키 값 형식의 요청 본문에 전송되는 입력 클레임입니다. `Header` 값은 요청 헤더에 전송되는 입력 클레임입니다. `QueryString` 값은 요청 쿼리 문자열에 전송되는 입력 클레임입니다. |
+| ClaimsFormat | 아니요 | 출력 클레임의 형식을 지정합니다. 가능한 값은 `Body`(기본값), `Form`, `Header` 또는 `QueryString`입니다. `Body` 값은 JSON 형식의 요청 본문에 전송되는 출력 클레임입니다. `Form` 값은 앰퍼샌드 '&'로 구분된 키 값 형식의 요청 본문에 전송되는 출력 클레임입니다. `Header` 값은 요청 헤더에 전송되는 출력 클레임입니다. `QueryString` 값은 요청 쿼리 문자열에 전송되는 출력 클레임입니다. |
+| DebugMode | 아니요 | 디버그 모드에서 기술 프로필을 실행합니다. 디버그 모드에서 REST API는 자세한 정보를 반환할 수 있습니다. 오류 메시지 반환 섹션을 참조하세요. |
 
 ## <a name="cryptographic-keys"></a>암호화 키
 
@@ -111,7 +111,7 @@ Azure AD(Active Directory) B2C에서는 고유한 RESTful 서비스를 지원합
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| BasicAuthenticationUsername | 예 | 인증에 사용되는 사용자 이름입니다. | 
+| BasicAuthenticationUsername | 예 | 인증에 사용되는 사용자 이름입니다. |
 | BasicAuthenticationPassword | 예 | 인증에 사용되는 암호입니다. |
 
 다음 예제는 기본 인증을 사용하는 기술 프로필을 보여 줍니다.
@@ -134,9 +134,9 @@ Azure AD(Active Directory) B2C에서는 고유한 RESTful 서비스를 지원합
 
 인증 형식이 `ClientCertificate`으로 설정된 경우 **CryptographicKeys** 요소에 다음 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필수 | Description |
 | --------- | -------- | ----------- |
-| ClientCertificate | 예 | 인증에 사용할 X509 인증서(RSA 키 집합)입니다. | 
+| ClientCertificate | 예 | 인증에 사용할 X509 인증서(RSA 키 집합)입니다. |
 
 ```XML
 <TechnicalProfile Id="REST-API-SignUp">
@@ -157,15 +157,15 @@ Azure AD(Active Directory) B2C에서는 고유한 RESTful 서비스를 지원합
 
 REST API가 'CRM 시스템에서 사용자를 찾을 수 없습니다.'와 같은 오류 메시지를 반환해야 할 수 있습니다. 오류가 발생하면 REST API는 다음 특성을 사용하여 HTTP 409 오류 메시지(충돌 응답 상태 코드)를 반환해야 합니다.
 
-| 특성 | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| version | 예 | 1.0.0 | 
-| 상태 | 예 | 409 | 
-| code | 아니요 | `DebugMode`를 사용으로 설정한 경우에 표시되는 RESTful 엔드포인트 공급자의 오류 코드입니다. | 
-| requestId | 아니요 | `DebugMode`를 사용으로 설정한 경우에 표시되는 RESTful 엔드포인트 공급자의 요청 식별자입니다. | 
-| userMessage | 예 | 사용자에게 표시되는 오류 메시지입니다. | 
-| developerMessage | 아니요 | `DebugMode`를 사용으로 설정한 경우에 표시되는, 문제점 및 해결 방법에 대한 자세한 설명입니다. | 
-| moreInfo | 아니요 | `DebugMode`를 사용으로 설정한 경우에 표시되는, 추가 정보를 가리키는 URI입니다. | 
+| version | 예 | 1.0.0 |
+| 상태 | 예 | 409 |
+| code | 아니요 | `DebugMode`를 사용으로 설정한 경우에 표시되는 RESTful 엔드포인트 공급자의 오류 코드입니다. |
+| requestId | 아니요 | `DebugMode`를 사용으로 설정한 경우에 표시되는 RESTful 엔드포인트 공급자의 요청 식별자입니다. |
+| userMessage | 예 | 사용자에게 표시되는 오류 메시지입니다. |
+| developerMessage | 아니요 | `DebugMode`를 사용으로 설정한 경우에 표시되는, 문제점 및 해결 방법에 대한 자세한 설명입니다. |
+| moreInfo | 아니요 | `DebugMode`를 사용으로 설정한 경우에 표시되는, 추가 정보를 가리키는 URI입니다. |
 
 다음 예제는 JSON 형식의 오류 메시지를 반환하는 REST API를 보여 줍니다.
 
@@ -175,9 +175,9 @@ REST API가 'CRM 시스템에서 사용자를 찾을 수 없습니다.'와 같�
   "status": 409,
   "code": "API12345",
   "requestId": "50f0bd91-2ff4-4b8f-828f-00f170519ddb",
-  "userMessage": "Message for the user", 
-  "developerMessage": "Verbose description of problem and how to fix it.", 
-  "moreInfo": "https://restapi/error/API12345/moreinfo" 
+  "userMessage": "Message for the user",
+  "developerMessage": "Verbose description of problem and how to fix it.",
+  "moreInfo": "https://restapi/error/API12345/moreinfo"
 }
 ```
 
@@ -197,7 +197,7 @@ public class ResponseContent
 ```
 
 ## <a name="examples"></a>예를 들면 다음과 같습니다.
-- [Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 사용자 입력의 유효성 검사로 통합](active-directory-b2c-custom-rest-api-netfw.md) 
+- [Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 사용자 입력의 유효성 검사로 통합](active-directory-b2c-custom-rest-api-netfw.md)
 - [HTTP 기본 인증을 사용하여 RESTful 서비스 보호](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
 - [클라이언트 인증서를 사용하여 RESTful 서비스 보호](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
 - [연습: Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 사용자 입력의 유효성 검사로 통합](active-directory-b2c-rest-api-validation-custom.md)

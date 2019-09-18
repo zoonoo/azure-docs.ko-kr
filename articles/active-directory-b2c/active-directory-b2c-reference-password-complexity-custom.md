@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 04a37e6faf51787457d7ca4ab8434fd253deb2ed
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6454d380b0f34e940951e3de44d1dee0ff6b597f
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509150"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065544"
 ---
 # <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 암호 복잡성 구성
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure AD(Azure Active Directory) B2C에서는 계정을 만들 때 사용자가 제공한 암호의 복잡성 요구 사항을 구성할 수 있습니다. 기본적으로 Azure AD B2C는 **강력한** 암호를 사용합니다. 이 문서에서는 [사용자 지정 정책](active-directory-b2c-overview-custom.md)에서 암호 복잡성을 구성하는 방법을 보여 줍니다. [사용자 흐름](active-directory-b2c-reference-password-complexity.md)에서 암호 복잡성을 구성할 수도 있습니다.
+Azure Active Directory B2C (Azure AD B2C)에서 계정을 만들 때 사용자가 제공 하는 암호의 복잡성 요구 사항을 구성할 수 있습니다. 기본적으로 Azure AD B2C는 **강력한** 암호를 사용합니다. 이 문서에서는 [사용자 지정 정책](active-directory-b2c-overview-custom.md)에서 암호 복잡성을 구성하는 방법을 보여 줍니다. [사용자 흐름](active-directory-b2c-reference-password-complexity.md)에서 암호 복잡성을 구성할 수도 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [Active Directory B2C에서 사용자 지정 정책을 사용하여 시작하기](active-directory-b2c-get-started-custom.md)에 있는 단계를 완료합니다.
 
@@ -112,8 +112,8 @@ Azure AD B2C에서 애플리케이션을 테스트하는 경우 포함된 클레
 ### <a name="upload-the-files"></a>파일 업로드
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
-3. Azure Portal의 왼쪽 위에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+2. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 테 넌 트가 포함 된 디렉터리를 선택 하 여 Azure AD B2C 테 넌 트를 포함 하는 디렉터리를 사용 하 고 있는지 확인 합니다.
+3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 4. **ID 경험 프레임워크**를 선택합니다.
 5. 사용자 지정 정책 페이지에서 **정책 업로드**를 클릭합니다.
 6. **정책이 있는 경우 덮어쓰기**를 선택한 후 *SingUpOrSignInPasswordComplexity.xml* 파일을 검색하여 선택합니다.
