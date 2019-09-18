@@ -104,6 +104,8 @@
               href: concepts-monitoring.md
             - name: 서버 로그
               href: concepts-server-logs.md
+            - name: 감사 로그
+              href: concepts-audit.md
             - name: 쿼리 저장소
               items:
                 - name: 쿼리 저장소
