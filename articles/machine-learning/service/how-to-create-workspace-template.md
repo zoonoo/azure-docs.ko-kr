@@ -1,7 +1,7 @@
 ---
 title: Azure Resource Manager 템플릿을 사용 하 여 작업 영역 만들기
-titleSuffix: Azure Machine Learning service
-description: Azure Resource Manager 템플릿을 사용하여 새 Azure Machine Learning Service 작업 영역을 만드는 방법을 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Resource Manager 템플릿을 사용 하 여 새 Azure Machine Learning 작업 영역을 만드는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,28 +10,28 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/16/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 34522c9a672de51cfa53ce52c5a6a6506fcd5454
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 7e0897f92dd5ead939cbae9d6bf269bd22152419
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390505"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034770"
 ---
-# <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure Machine Learning 서비스에 대 한 작업 영역 만들기
+# <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure Machine Learning에 대 한 작업 영역을 만듭니다.
 
-이 문서에서는 Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning Service 작업 영역을 만드는 몇 가지 방법을 설명합니다. Resource Manager 템플릿을 사용하면 조정된 단일 작업으로 리소스를 쉽게 만들 수 있습니다. 템플릿은 배포에 필요한 리소스를 정의하는 JSON 문서입니다. 배포 매개 변수도 지정할 수 있습니다. 매개 변수는 템플릿 사용 시 입력 값을 제공하는 데 사용됩니다.
+이 문서에서는 Azure Resource Manager 템플릿을 사용 하 여 Azure Machine Learning 작업 영역을 만드는 여러 가지 방법을 알아봅니다. Resource Manager 템플릿을 사용하면 조정된 단일 작업으로 리소스를 쉽게 만들 수 있습니다. 템플릿은 배포에 필요한 리소스를 정의하는 JSON 문서입니다. 배포 매개 변수도 지정할 수 있습니다. 매개 변수는 템플릿 사용 시 입력 값을 제공하는 데 사용됩니다.
 
 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 애플리케이션 배포](../../azure-resource-manager/resource-group-template-deploy.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* **Azure 구독**. 구독이 없는 경우[Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+* **Azure 구독**. 없는 경우 [무료 또는 유료 버전의 Azure Machine Learning](https://aka.ms/AMLFree)을 사용해 보세요.
 
 * CLI에서 템플릿을 사용하려면 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)가 필요합니다.
 
 ## <a name="resource-manager-template"></a>Resource Manager 템플릿
 
-다음 리소스 관리자 템플릿을 사용 하 여 Azure Machine Learning 서비스 작업 영역 및 연결 된 Azure 리소스를 만들 수 있습니다.
+다음 리소스 관리자 템플릿을 사용 하 여 Azure Machine Learning 작업 영역 및 연결 된 Azure 리소스를 만들 수 있습니다.
 
 [!code-json[create-azure-machine-learning-service-workspace](~/quickstart-templates/101-machine-learning-create/azuredeploy.json)]
 

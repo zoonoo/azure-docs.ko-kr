@@ -1,19 +1,19 @@
 ---
 title: PowerShell을 사용하여 HDInsight에서 Apache Hadoop 클러스터 관리 - Azure
 description: Azure PowerShell을 사용하여 HDInsight의 Apache Hadoop 클러스터에 대한 관리 작업을 수행하는 방법에 대해 알아봅니다.
-ms.reviewer: tyfox
+ms.reviewer: jasonh
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: tyfox
-ms.openlocfilehash: 3f4ccd8de1f26ea898b0e7ec4bb57aa20b1be209
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 751f064df271aeb0899a00aea8b1ff09e8b8bdf4
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885353"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077040"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Azure PowerShell을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -206,7 +206,7 @@ $resourceGroupName = $cluster.ResourceGroup
 
 [HDInsight에 데이터 업로드를](hdinsight-upload-data.md)참조 하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 
 * [HDInsight Cmdlet 참조 설명서](https://msdn.microsoft.com/library/azure/dn479228.aspx)
 * [Azure Portal을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리](hdinsight-administer-use-portal-linux.md)

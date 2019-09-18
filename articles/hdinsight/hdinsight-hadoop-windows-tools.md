@@ -3,16 +3,17 @@ title: HDInsight에서 Hadoop을 통해 Windows PC 사용 - Azure
 description: HDInsight에서 Hadoop의 Windows PC에서 작업. PowerShell, Visual Studio 및 Linux 도구를 사용하는 클러스터를 관리 및 쿼리합니다. .NET을 사용하는 빅 데이터 솔루션을 개발합니다.
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: conceptual
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/24/2019
-ms.openlocfilehash: 5045c48a00c51a16d37dcf4b7f72f25633f23b3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 942ca2fe89441ab7497e98c6ffe1fffb9847da77
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926022"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076582"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Windows PC에서 HDInsight의 Apache Hadoop 에코시스템 작업
 
@@ -33,7 +34,7 @@ PowerShell로 수행할 수 있는 작업의 예:
 
 ## <a name="utilities-you-can-run-in-a-browser"></a>브라우저에서 실행할 수 있는 유틸리티
 다음 유틸리티는 브라우저에서 실행되는 웹 UI가 있습니다.
-* **[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)**  은 브라우저에 내에서 실행 되는 대화형 명령줄 셸입니다 Azure portal.
+* **[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)** 은 브라우저에서 실행 되 고 Azure Portal 내에서 실행 되는 대화형 명령줄 셸입니다.
 * **[Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md)** 는 다음과 같은 다양한 종류의 작업을 관리하는 데 사용할 수 있으며 Azure Portal에서 사용 가능한 관리 및 모니터링 유틸리티입니다.
     * [REST API로 Apache Ambari 사용](hdinsight-hadoop-manage-ambari-rest-api.md)
     * [Apache Ambari에서 Apache Hive 보기](hadoop/apache-hadoop-use-hive-ambari-view.md)
@@ -78,13 +79,13 @@ HDInsight의 Apache Spark 클러스터는 Jupyter Notebook과 함께 사용할 �
 
 Linux에서만 사용 가능한 도구 또는 기술을 사용해야 하는 상황이 발생한 경우 다음 옵션을 고려합니다.
 
-* **Windows 10에서 ubuntu의 bash** Windows에서 Linux 하위 시스템을 제공 합니다. Bash를 사용하면 전용 Linux 설치를 유지하지 않고도 Linux 유틸리티를 직접 실행할 수 있습니다. 참조 [Linux 설치 가이드에 대 한 Windows 10 용 Windows 하위 시스템](https://docs.microsoft.com/windows/wsl/install-win10) 설치 단계에 대 한 합니다.  다른 [Unix 셸](https://www.gnu.org/software/bash/) 도 작동 합니다.
+* **Windows 10의 Ubuntu에 있는 Bash** 는 Windows에서 Linux 하위 시스템을 제공 합니다. Bash를 사용하면 전용 Linux 설치를 유지하지 않고도 Linux 유틸리티를 직접 실행할 수 있습니다. [Windows 10을 위한 Linux용 Windows 하위 시스템 설치 가이드](https://docs.microsoft.com/windows/wsl/install-win10)에서 설치 단계를 참조하세요.  다른 [Unix 셸](https://www.gnu.org/software/bash/)도 작동합니다.
 * **Windows용 Docker**는 대부분의 Linux 기반 도구에 대한 액세스를 제공하며 Windows에서 직접 실행할 수 있습니다. 예를 들어, Docker를 사용하여 Hive에 대한 Beeline 클라이언트를 Windows에서 직접 실행할 수 있습니다. 또한 Docker를 사용하여 로컬 Jupyter Notebook을 실행하고 HDInsight의 Spark에 원격으로 연결할 수 있습니다. [Windows용 Docker 시작](https://docs.docker.com/docker-for-windows/)
 * **[MobaXTerm](https://mobaxterm.mobatek.net/)** 을 사용하면 그래픽 방식으로 SSH 연결을 통해 클러스터 파일 시스템을 찾아볼 수 있습니다.
 
 ## <a name="cross-platform-tools"></a>플랫폼 간 도구
 
-Azure CLI(명령줄 인터페이스)는 Azure 리소스를 관리하기 위한 Microsoft의 플랫폼 간 명령줄 환경입니다.  자세한 내용은 [Azure 명령줄 인터페이스 (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)합니다.
+Azure CLI(명령줄 인터페이스)는 Azure 리소스를 관리하기 위한 Microsoft의 플랫폼 간 명령줄 환경입니다.  자세한 내용은 [Azure 명령줄 인터페이스 (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 Linux 기반 클러스터에서 작업하는 데 익숙하지 않은 경우 다음 문서를 참조하세요.

@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 130186af13b9207326cd52b46b880c1f13a16100
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 3633ffb09d71bd166cb7366f860662d9b91c7f07
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67848085"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063391"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 사용자 흐름 만들기
 
-응용 프로그램에 사용자가 등록, 로그인 또는 프로필을 관리할 수 있는 [사용자 흐름이](active-directory-b2c-reference-policies.md) 있을 수 있습니다. zure AD(Azure Active Directory) B2C 테넌트에 다른 형식의 여러 사용자 흐름을 만들고 필요에 따라 애플리케이션에서 사용할 수 있습니다. 애플리케이션에 사용자 흐름을 다시 사용할 수 있습니다.
+응용 프로그램에 사용자가 등록, 로그인 또는 프로필을 관리할 수 있는 [사용자 흐름이](active-directory-b2c-reference-policies.md) 있을 수 있습니다. Azure Active Directory B2C (Azure AD B2C) 테 넌 트에서 다른 형식의 여러 사용자 흐름을 만들고 필요에 따라 응용 프로그램에서 사용할 수 있습니다. 애플리케이션에 사용자 흐름을 다시 사용할 수 있습니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -41,7 +41,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 등록 및 로그인 사용자 흐름은 단일 구성으로 가입 및 로그인 환경을 둘 다 처리합니다. 애플리케이션 사용자는 컨텍스트에 따라 올바른 경로로 안내됩니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
+1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 테 넌 트가 포함 된 디렉터리를 선택 하 여 Azure AD B2C 테 넌 트를 포함 하는 디렉터리를 사용 하 고 있는지 확인 합니다.
 
     ![B2C 테 넌 트가 선택 된 디렉터리 및 구독 필터](./media/tutorial-create-user-flows/switch-directories.PNG)
 

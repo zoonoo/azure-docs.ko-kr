@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 246e00418c784ee463170d78543e4a9aae3d7da8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ae30b316133b7479b66a69a3467497a7151dbc8
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509046"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065388"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 Single Sign-On 세션 관리
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure AD(Active Directory) B2C의 SSO(Single Sign-On) 세션 관리를 통해 관리자는 사용자가 이미 인증된 후 사용자에 대한 상호 작용을 제어할 수 있습니다. 예를 들어 관리자는 ID 공급자의 선택이 표시되는지 여부 또는 로컬 계정 세부 정보를 다시 입력해야 하는지 여부를 제어할 수 있습니다. 이 문서에서는 Azure AD B2C에 대한 SSO 설정을 구성하는 방법을 설명합니다.
+Azure Active Directory B2C (Azure AD B2C)의 SSO (Single sign-on) 세션 관리를 통해 관리자는 사용자가 이미 인증 된 후 사용자와의 상호 작용을 제어할 수 있습니다. 예를 들어 관리자는 ID 공급자의 선택이 표시되는지 여부 또는 로컬 계정 세부 정보를 다시 입력해야 하는지 여부를 제어할 수 있습니다. 이 문서에서는 Azure AD B2C에 대한 SSO 설정을 구성하는 방법을 설명합니다.
 
 SSO 세션 관리에는 두 가지 부분이 있습니다. 첫 번째 부분은 Azure AD B2C와 사용자의 직접 상호 작용을 다루고, 다른 부분은 Facebook과 같은 외부 당사자와 사용자의 상호 작용을 다룹니다. Azure AD B2C는 외부 당사자에 의해 보관될 수 있는 SSO 세션을 재정의하거나 무시하지 않습니다. 외부 당사자에게 가져오는 Azure AD B2C를 통한 경로를 "기억"하여 사용자에게 해당 소셜 공급자 또는 엔터프라이즈 ID 공급자를 선택하라는 메시지를 다시 표시하지 않도록 합니다. 최종 SSO 결정은 외부 당사자에서 유지됩니다.
 
@@ -63,7 +63,7 @@ Azure AD B2C는 사용할 수 있는 SSO 세션 공급자 수를 정의합니다
 
 ## <a name="externalloginssosessionprovider"></a>ExternalLoginSSOSessionProvider
 
-이 공급자는 "ID 공급자 선택" 화면을 무시하는 데 사용됩니다. 일반적으로 Facebook 등의 외부 ID 공급자에 구성된 기술 프로필에서 참조됩니다. 
+이 공급자는 "ID 공급자 선택" 화면을 무시하는 데 사용됩니다. 일반적으로 Facebook 등의 외부 ID 공급자에 구성된 기술 프로필에서 참조됩니다.
 
 ```XML
 <TechnicalProfile Id="SM-SocialLogin">
@@ -89,7 +89,7 @@ Azure AD B2C는 사용할 수 있는 SSO 세션 공급자 수를 정의합니다
 
 기술 프로필에는 두 개의 메타데이터 항목이 있습니다.
 
-| 항목 | 기본값 | 가능한 값 | 설명
+| 항목 | Default Value | 가능한 값 | 설명
 | --- | --- | --- | --- |
 | IncludeSessionIndex | true | True/False | 공급자에게 세션 인덱스를 저장해야 함을 의미합니다. |
 | RegisterServiceProviders | true | True/False | 공급자가 어설션을 발급한 모든 SAML 서비스 공급자를 등록해야 함을 의미합니다. |

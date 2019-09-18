@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bf8d4889c277d59d0c42894281a89345fbf90a84
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: b1bfa945843d185a46f1f1d79fd4dab0e991c769
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716686"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063802"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-**RelyingParty** 요소는 Azure AD(Active Directory) B2C로의 현재 요청에 대해 적용할 사용자 경험을 지정합니다. 또한 발급된 토큰의 일부로 RP(신뢰 당사자) 애플리케이션에 필요한 클레임 목록도 지정합니다. 웹, 모바일, 데스크톱 애플리케이션 등의 RP 애플리케이션은 RP 정책 파일을 호출합니다. RP 정책 파일은 로그인, 암호 재설정, 프로필 편집 등의 특정 작업을 실행합니다. 여러 애플리케이션이 동일한 RP 정책을 사용할 수도 있고 단일 애플리케이션이 여러 정책을 사용할 수도 있습니다. 모든 RP 애플리케이션은 클레임이 포함된 동일 토큰을 수신하며, 사용자는 같은 사용자 경험을 진행하게 됩니다.
+**RelyingParty** 요소는 현재 요청 Azure Active Directory B2C (Azure AD B2C)에 적용할 사용자 경험을 지정 합니다. 또한 발급된 토큰의 일부로 RP(신뢰 당사자) 애플리케이션에 필요한 클레임 목록도 지정합니다. 웹, 모바일, 데스크톱 애플리케이션 등의 RP 애플리케이션은 RP 정책 파일을 호출합니다. RP 정책 파일은 로그인, 암호 재설정, 프로필 편집 등의 특정 작업을 실행합니다. 여러 애플리케이션이 동일한 RP 정책을 사용할 수도 있고 단일 애플리케이션이 여러 정책을 사용할 수도 있습니다. 모든 RP 애플리케이션은 클레임이 포함된 동일 토큰을 수신하며, 사용자는 같은 사용자 경험을 진행하게 됩니다.
 
 다음 예제에서는 *B2C_1A_signup_signin* 정책 파일의 **RelyingParty** 요소를 보여 줍니다.
 
@@ -74,7 +74,7 @@ ms.locfileid: "68716686"
 
 선택적 **RelyingParty** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 | Description |
+| 요소 | 발생 | 설명 |
 | ------- | ----------- | ----------- |
 | DefaultUserJourney | 1:1 | RP 애플리케이션의 기본 사용자 경험입니다. |
 | UserJourneyBehaviors | 0:1 | 사용자 경험 동작의 범위입니다. |
@@ -131,7 +131,7 @@ ms.locfileid: "68716686"
 
 **JourneyInsights** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | TelemetryEngine | 예 | 값은 `ApplicationInsights`여야 합니다. |
 | InstrumentationKey | 예 | Application Insights 요소의 계측 키를 포함하는 문자열입니다. |
@@ -152,7 +152,7 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 
 **ContentDefinitionParameters** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 | 설명 |
+| 요소 | 발생 | Description |
 | ------- | ----------- | ----------- |
 | ContentDefinitionParameter | 0:n | 콘텐츠 정의 로드 URI의 쿼리 문자열에 추가되는 키 값 쌍을 포함하는 문자열입니다. |
 
@@ -168,13 +168,13 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 
 **TechnicalProfile** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| ID | 예 | 값은 `PolicyProfile`여야 합니다. |
+| Id | 예 | 값은 `PolicyProfile`여야 합니다. |
 
 **TechnicalProfile**에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 | Description |
+| 요소 | 발생 | 설명 |
 | ------- | ----------- | ----------- |
 | DisplayName | 0:1 | 사용자에게 표시되는 기술 프로필의 이름이 들어 있는 문자열입니다. |
 | Description | 0:1 | 사용자에게 표시되는 기술 프로필의 설명이 들어 있는 문자열입니다. |
@@ -213,7 +213,7 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 
 **SubjectNamingInfo** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필수 | Description |
 | --------- | -------- | ----------- |
 | ClaimType | 예 | 출력 클레임의 **PartnerClaimType**에 대한 참조입니다. 신뢰 당사자 정책 **OutputClaims** 컬렉션에서 출력 클레임을 정의해야 합니다. |
 

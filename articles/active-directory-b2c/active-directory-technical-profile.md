@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8b8bbe540d9e296b0f6a0c11a62d3b861e0115d3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4383980953147560b9e51e4ccab3032dd8173dd4
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66507441"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064617"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 Azure Active Directory 기술 프로필 정의
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure AD(Azure Active Directory) B2C는 Azure Active Directory 사용자 관리를 지원합니다. 이 문서에서는 이 표준 프로토콜을 지원하는 클레임 공급자와 상호 작용하기 위한 기술 프로필에 대해 구체적으로 설명합니다.
+Azure Active Directory B2C (Azure AD B2C) Azure Active Directory 사용자 관리를 지원 합니다. 이 문서에서는 이 표준 프로토콜을 지원하는 클레임 공급자와 상호 작용하기 위한 기술 프로필에 대해 구체적으로 설명합니다.
 
 ## <a name="protocol"></a>프로토콜
 
@@ -31,7 +31,7 @@ Azure AD(Azure Active Directory) B2C는 Azure Active Directory 사용자 관리�
 
 - **AAD-UserReadUsingAlternativeSecurityId** 및 **AAD-UserReadUsingAlternativeSecurityId-NoError** - 디렉터리에서 소셜 계정을 조회합니다.
 - **AAD-UserWriteUsingAlternativeSecurityId** - 새 소셜 계정을 만듭니다.
-- **AAD-UserReadUsingEmailAddress** - 디렉터리에서 로컬 계정을 조회합니다. 
+- **AAD-UserReadUsingEmailAddress** - 디렉터리에서 로컬 계정을 조회합니다.
 - **AAD-UserWriteUsingLogonEmail** - 새 로컬 계정을 만듭니다.
 - **AAD-UserWritePasswordUsingObjectId** - 로컬 계정의 암호를 업데이트합니다.
 - **AAD-UserWriteProfileUsingObjectId** - 로컬 또는 소셜 계정의 사용자 프로필을 업데이트합니다.
@@ -91,7 +91,7 @@ Azure AD(Azure Active Directory) B2C는 Azure Active Directory 사용자 관리�
 
 ## <a name="persistedclaims"></a>PersistedClaims
 
-**PersistedClaims** 요소는 정책의 ClaimsSchema 섹션에 이미 정의된 클레임 유형과 Azure AD 특성 이름 간에 가능한 매핑 정보를 사용하여 Azure AD에서 저장해야 하는 모든 값을 포함합니다. 
+**PersistedClaims** 요소는 정책의 ClaimsSchema 섹션에 이미 정의된 클레임 유형과 Azure AD 특성 이름 간에 가능한 매핑 정보를 사용하여 Azure AD에서 저장해야 하는 모든 값을 포함합니다.
 
 새 로컬 계정을 만드는 **AAD-UserWriteUsingLogonEmail** 기술 프로필은 다음 클레임을 저장합니다.
 
@@ -113,16 +113,16 @@ Azure AD 특성 이름을 포함하는 **PartnerClaimType** 특성이 지정되�
 
 ## <a name="requirements-of-an-operation"></a>작업 요구사항
 
-- 모든 Azure AD 기술 프로필의 클레임 모음에 정확히 하나의 **InputClaim** 요소가 있어야 합니다. 
+- 모든 Azure AD 기술 프로필의 클레임 모음에 정확히 하나의 **InputClaim** 요소가 있어야 합니다.
 - 작업이 `Write` 또는 `DeleteClaims`이면 **PersistedClaims** 요소에도 표시되어야 합니다.
 - **userPrincipalName** 클레임의 값은 `user@tenant.onmicrosoft.com` 형식이어야 합니다.
 - **displayName** 클레임은 필수이며 빈 문자열일 수 없습니다.
 
 ## <a name="azure-ad-technical-provider-operations"></a>Azure AD 기술 공급자 작업
 
-### <a name="read"></a>읽기
+### <a name="read"></a>Read
 
-**Read** 작업은 단일 사용자 계정에 대한 데이터를 읽습니다. 사용자 데이터를 읽으려면 **objectId**, **userPrincipalName**, **signInNames**(모든 유형, 사용자 이름 및 메일 기반 계정) 또는 **alternativeSecurityId**와 같은 키를 입력 클레임으로 제공해야 합니다.  
+**Read** 작업은 단일 사용자 계정에 대한 데이터를 읽습니다. 사용자 데이터를 읽으려면 **objectId**, **userPrincipalName**, **signInNames**(모든 유형, 사용자 이름 및 메일 기반 계정) 또는 **alternativeSecurityId**와 같은 키를 입력 클레임으로 제공해야 합니다.
 
 다음 기술 프로필은 사용자의 objectId를 사용하여 사용자 계정에 대한 데이터를 읽습니다.
 
@@ -152,9 +152,9 @@ Azure AD 특성 이름을 포함하는 **PartnerClaimType** 특성이 지정되�
 </TechnicalProfile>
 ```
 
-### <a name="write"></a>쓰기
+### <a name="write"></a>Write
 
-**Write** 작업은 단일 사용자 계정을 만들거나 업데이트합니다. 사용자 계정을 쓰려면 **objectId**, **userPrincipalName**, **signInNames.emailAddress** 또는 **alternativeSecurityId**와 같은 키를 입력 클레임으로 제공해야 합니다.  
+**Write** 작업은 단일 사용자 계정을 만들거나 업데이트합니다. 사용자 계정을 쓰려면 **objectId**, **userPrincipalName**, **signInNames.emailAddress** 또는 **alternativeSecurityId**와 같은 키를 입력 클레임으로 제공해야 합니다.
 
 다음 기술 프로필은 새 소셜 계정을 만듭니다.
 
@@ -196,7 +196,7 @@ Azure AD 특성 이름을 포함하는 **PartnerClaimType** 특성이 지정되�
 
 ### <a name="deleteclaims"></a>DeleteClaims
 
-**DeleteClaims** 작업은 제공된 클레임 목록에서 정보를 지웁니다. 클레임에서 정보를 삭제하려면 **objectId**, **userPrincipalName**, **signInNames.emailAddress** 또는 **alternativeSecurityId**와 같은 키를 입력 클레임으로 제공해야 합니다.  
+**DeleteClaims** 작업은 제공된 클레임 목록에서 정보를 지웁니다. 클레임에서 정보를 삭제하려면 **objectId**, **userPrincipalName**, **signInNames.emailAddress** 또는 **alternativeSecurityId**와 같은 키를 입력 클레임으로 제공해야 합니다.
 
 다음 기술 프로필은 클레임을 삭제합니다.
 
@@ -219,7 +219,7 @@ Azure AD 특성 이름을 포함하는 **PartnerClaimType** 특성이 지정되�
 
 ### <a name="deleteclaimsprincipal"></a>DeleteClaimsPrincipal
 
-**DeleteClaimsPrincipal** 작업은 디렉터리에서 단일 사용자 계정을 삭제합니다. 사용자 계정을 삭제하려면 **objectId**, **userPrincipalName**, **signInNames.emailAddress** 또는 **alternativeSecurityId**와 같은 키를 입력 클레임으로 제공해야 합니다.  
+**DeleteClaimsPrincipal** 작업은 디렉터리에서 단일 사용자 계정을 삭제합니다. 사용자 계정을 삭제하려면 **objectId**, **userPrincipalName**, **signInNames.emailAddress** 또는 **alternativeSecurityId**와 같은 키를 입력 클레임으로 제공해야 합니다.
 
 다음 기술 프로필은 사용자 계정 이름을 사용하여 디렉터리에서 사용자 계정을 삭제합니다.
 
@@ -250,17 +250,17 @@ Azure AD 특성 이름을 포함하는 **PartnerClaimType** 특성이 지정되�
   <IncludeTechnicalProfile ReferenceId="AAD-Common" />
 </TechnicalProfile>
 ```
-## <a name="metadata"></a>Metadata
+## <a name="metadata"></a>메타데이터
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| 작업(Operation) | 예 | 수행할 작업입니다. 가능한 값은 `Read`, `Write`, `DeleteClaims` 또는 `DeleteClaimsPrincipal`입니다. | 
-| RaiseErrorIfClaimsPrincipalDoesNotExist | 아닙니다. | 사용자 개체가 디렉터리에 없는 경우 오류가 발생합니다. 가능한 값은 `true` 또는 `false`입니다. | 
-| UserMessageIfClaimsPrincipalDoesNotExist | 아닙니다. | 오류가 발생해야 한다면(RaiseErrorIfClaimsPrincipalDoesNotExist 특성 설명 참조), 사용자 개체가 없는 경우 사용자에게 표시할 메시지를 지정합니다. 값을 [지역화](localization.md)할 수 있습니다.| 
-| RaiseErrorIfClaimsPrincipalAlreadyExists | 아닙니다. | 사용자 개체가 이미 있는 경우 오류가 발생합니다. 가능한 값은 `true` 또는 `false`입니다.| 
-| UserMessageIfClaimsPrincipalAlreadyExists | 아닙니다. | 오류가 발생해야 한다면(RaiseErrorIfClaimsPrincipalAlreadyExists 특성 설명 참조), 사용자 개체가 이미 있는 경우 사용자에게 표시할 메시지를 지정합니다. 값을 [지역화](localization.md)할 수 있습니다.| 
-| ApplicationObjectId | 아닙니다. | 확장 특성에 대한 애플리케이션 개체 ID입니다. 값: 애플리케이션의 ObjectId입니다. 자세한 내용은 [사용자 지정 프로필 편집 정책에서 사용자 지정 특성 사용](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)을 참조하세요. | 
-| clientid | 아닙니다. | 테넌트에 제3자로 액세스하기 위한 클라이언트 식별자입니다. 자세한 내용은 [사용자 지정 프로필 편집 정책에서 사용자 지정 특성 사용](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)을 참조하세요. | 
+| 연산 | 예 | 수행할 작업입니다. 가능한 값은 `Read`, `Write`, `DeleteClaims` 또는 `DeleteClaimsPrincipal`입니다. |
+| RaiseErrorIfClaimsPrincipalDoesNotExist | 아니요 | 사용자 개체가 디렉터리에 없는 경우 오류가 발생합니다. 가능한 값은 `true` 또는 `false`입니다. |
+| UserMessageIfClaimsPrincipalDoesNotExist | 아니요 | 오류가 발생해야 한다면(RaiseErrorIfClaimsPrincipalDoesNotExist 특성 설명 참조), 사용자 개체가 없는 경우 사용자에게 표시할 메시지를 지정합니다. 값을 [지역화](localization.md)할 수 있습니다.|
+| RaiseErrorIfClaimsPrincipalAlreadyExists | 아니요 | 사용자 개체가 이미 있는 경우 오류가 발생합니다. 가능한 값은 `true` 또는 `false`입니다.|
+| UserMessageIfClaimsPrincipalAlreadyExists | 아니요 | 오류가 발생해야 한다면(RaiseErrorIfClaimsPrincipalAlreadyExists 특성 설명 참조), 사용자 개체가 이미 있는 경우 사용자에게 표시할 메시지를 지정합니다. 값을 [지역화](localization.md)할 수 있습니다.|
+| ApplicationObjectId | 아니요 | 확장 특성에 대한 애플리케이션 개체 ID입니다. 값: 애플리케이션의 ObjectId입니다. 자세한 내용은 [사용자 지정 프로필 편집 정책에서 사용자 지정 특성 사용](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)을 참조하세요. |
+| clientid | 아니요 | 테넌트에 제3자로 액세스하기 위한 클라이언트 식별자입니다. 자세한 내용은 [사용자 지정 프로필 편집 정책에서 사용자 지정 특성 사용](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)을 참조하세요. |
 
 
 

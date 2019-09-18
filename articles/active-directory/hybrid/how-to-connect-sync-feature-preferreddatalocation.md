@@ -16,12 +16,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13beafe9a6937b0404a58d3508a9aba9892ac04d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 50cb5a76c6b19668fc23147244d65a0d996ebf90
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073867"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033731"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect 동기화: Office 365 리소스에 대한 기본 설정 데이터 위치 구성
 이 항목의 목적은 Azure AD(Azure Active Directory) Connect 동기화에서 기본 데이터 위치에 대한 특성을 구성하는 방법을 안내하는 것입니다. Office 365에서 다중 지역 기능을 사용하는 경우, 이 특성을 사용하여 사용자의 Office 365 데이터의 지리적 위치를 지정할 수 있습니다. *region(지역)* 과 *Geo(지역)* 라는 용어는 서로 바꿔 사용할 수 있습니다.
@@ -139,7 +139,7 @@ Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **prefe
 5. 모든 개체를 포함하려면 **범위 지정 필터**를 비워 둡니다. Azure AD Connect 배포에 따라 범위 지정 필터를 조정해야 할 수도 있습니다.
 6. **변환 탭**으로 이동하여 다음 변환 규칙을 구현합니다.
 
-    | 흐름 형식 | 대상 특성 | Source | 한 번 적용 | 병합 종류 |
+    | 흐름 형식 | 대상 특성 | 원본 | 한 번 적용 | 병합 종류 |
     | --- | --- | --- | --- | --- |
     |직접 | preferredDataLocation | 원본 특성 선택 | 선택 취소 되어 있음 | 업데이트 |
 
@@ -158,7 +158,7 @@ Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **prefe
     | 특성 | 값 | 세부 정보 |
     | ----- | ------ | --- |
     | 이름 | *이름 제공* | 예: "Azure AD - User preferredDataLocation로 아웃바운드" |
-    | Description | *설명 제공* ||
+    | 설명 | *설명 제공* ||
     | 연결된 시스템 | *Azure AD 커넥터에 선택* ||
     | 연결된 시스템 개체 유형 | **User** ||
     | 메타버스 개체 유형 | **Person** ||
@@ -172,11 +172,11 @@ Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **prefe
     | sourceObjectType | EQUAL | 사용자 |
     | cloudMastered | NOTEQUAL | True |
 
-    범위 지정 필터는 이 아웃바운드 동기화 규칙이 적용되는 Azure AD 개체를 결정합니다. 이 예에서는 "Out to AD - User Identity" OOB(out-of-box) 동기화 규칙과 동일한 범위 지정 필터를 사용합니다. 온-프레미스 Active Directory와 동기화되지 않은 **User** 개체에 동기화 규칙이 적용되지 않도록 합니다. Azure AD Connect 배포에 따라 범위 지정 필터를 조정해야 할 수도 있습니다.
+    범위 지정 필터는 이 아웃바운드 동기화 규칙이 적용되는 Azure AD 개체를 결정합니다. 이 예제에서는 "Out to Azure AD – User Identity" OOB (기본 제공) 동기화 규칙에서 동일한 범위 지정 필터를 사용 합니다. 온-프레미스 Active Directory와 동기화되지 않은 **User** 개체에 동기화 규칙이 적용되지 않도록 합니다. Azure AD Connect 배포에 따라 범위 지정 필터를 조정해야 할 수도 있습니다.
 
 6. **변환** 탭으로 이동하여 다음 변환 규칙을 구현합니다.
 
-    | 흐름 형식 | 대상 특성 | Source | 한 번 적용 | 병합 종류 |
+    | 흐름 형식 | 대상 특성 | 원본 | 한 번 적용 | 병합 종류 |
     | --- | --- | --- | --- | --- |
     | 직접 | preferredDataLocation | preferredDataLocation | 선택 취소 되어 있음 | 업데이트 |
 

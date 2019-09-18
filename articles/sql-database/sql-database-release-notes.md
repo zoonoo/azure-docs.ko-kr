@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: sstein
-ms.openlocfilehash: ed41ccea0754f3eeffdd0248bac567859db1492c
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 21f80a2be09302e47817ccfd4223207bdcdd0413
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001518"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066805"
 ---
 # <a name="sql-database-release-notes"></a>SQL Database 릴리스 정보
 
@@ -26,6 +26,7 @@ ms.locfileid: "71001518"
 
 | 기능 | 세부 정보 |
 | ---| --- |
+| [Azure 개인 링크](https://azure.microsoft.com/updates/private-link-now-available-in-preview/)| 개인 링크는 네트워크 아키텍처를 간소화 하 고 azure 네트워크에 데이터를 유지 하 여 인터넷에 대 한 노출을 제거 함으로써 Azure에서 끝점 간의 연결을 보호 합니다. 개인 링크를 사용 하 여 Azure에서 사용자 고유의 서비스를 만들고 렌더링할 수도 있습니다. |
 | 단일 데이터베이스 및 탄력적 풀을 사용한 가속화 된 데이터베이스 복구 | 자세한 내용은 [가속화 데이터베이스 복구](sql-database-accelerated-database-recovery.md)를 참조 하세요.|
 |대략적인 고유 카운트|자세한 내용은 [대략적인 개수 Distinct](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing)를 참조 하십시오.|
 |Rowstore의 일괄 처리 모드 (호환성 수준 150)|자세한 내용은 [Rowstore의 일괄 처리 모드](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore)를 참조 하세요.|
@@ -55,6 +56,24 @@ ms.locfileid: "71001518"
 | &nbsp; |
 
 ---
+
+## <a name="new-features"></a>새 기능
+
+### <a name="managed-instance-h2-2019-updates"></a>관리 되는 인스턴스 H2 2019 업데이트
+
+- [전역 추적 플래그](https://azure.microsoft.com/updates/global-trace-flags-are-now-available-in-azure-sql-database-managed-instance/)를 사용 하 여 관리 되는 인스턴스 동작을 구성 합니다.
+
+### <a name="managed-instance-h1-2019-updates"></a>관리 되는 인스턴스 H1 2019 업데이트
+
+다음 기능은 H1 2019의 관리 되는 인스턴스 배포 모델에서 사용할 수 있습니다.
+  - <a href="https://aka.ms/sql-mi-visual-studio-subscribers">Visual Studio 구독자를 위한 Azure 월간 크레딧을</a> 사용 하 여 구독에 대 한 지원을 제공 하 고 [지역별 제한을](sql-database-managed-instance-resource-limits.md#regional-resource-limitations)늘립니다.
+  - <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019">SharePoint 2016 및 SharePoint 2019</a>와 <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance">Dynamics 365 Business Central</a> 지원
+  - <a href="https://aka.ms/managed-instance-collation">서버 수준 데이터 정렬</a> 및 원하는 <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">표준 시간대</a> 를 사용 하 여 인스턴스를 만듭니다.
+  - 이제 관리 되는 인스턴스가 <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">기본 제공 방화벽</a>으로 보호 됩니다.
+  - [공용 끝점](sql-database-managed-instance-public-endpoint-configure.md)을 사용 하 여 프록시를 구성 하 고, [프록시를 재정의](/sql-database-connectivity-architecture.md#connection-policy) 하 여 네트워크 성능을 향상 하거나, <a href="https://aka.ms/four-cores-sql-mi-update">Gen5 하드웨어 세대에서 4 개의 vcores</a> 를 사용 하거나, 지정 시간 복원의 경우 <a href="https://aka.ms/managed-instance-configurable-backup-retention">최대 35 일 동안 백업 보존을 구성</a> 합니다. 장기 백업 보존 (최대 10 년)은 아직 사용 되지 않으므로 <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">복사 전용 백업을</a> 대체 방법으로 사용할 수 있습니다.
+  - 새 기능을 통해 <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">PowerShell을 사용 하 여 데이터베이스를 다른 데이터 센터로 지역 복원</a>하 고, [데이터베이스 이름을 바꾸고](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/), [가상 클러스터를 삭제할](sql-database-managed-instance-delete-virtual-cluster.md)수 있습니다.
+  - 새로운 기본 제공 [인스턴스 기여자 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) 을 사용 하면 보안 원칙 및 엔터프라이즈 표준 준수와 관련 하 여 의무 (안 함) 규정 준수를 구분할 수 있습니다.
+  - 관리 되는 인스턴스는 다음 Azure Government 지역에서 GA (US Gov 텍사스, US Gov 애리조나) 및 중국 북부 2와 중국 동부 2에서 사용할 수 있습니다. 다음 공개 지역 에서도 사용할 수 있습니다. 오스트레일리아 중부, 오스트레일리아 중부 2, 브라질 남부, 프랑스 남부, 아랍에미리트 중부, 아랍에미리트 북부, 남아프리카 북부, 남아프리카 공화국 서 부.
 
 ## <a name="fixed-known-issues"></a>알려진 문제 해결
 

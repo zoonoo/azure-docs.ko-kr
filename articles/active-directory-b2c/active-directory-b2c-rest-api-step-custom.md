@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 42129870c6ab2bb5e58bdf9aaa323a3d64b479f8
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 12ddbe9f43baf68f6c11c9b720a0f684316af46a
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69644917"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065327"
 ---
 # <a name="add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>에서 사용자 지정 정책에 클레임 교환을 추가 REST API Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C에서 [사용자 지정 정책](active-directory-b2c-overview-custom.md) 에 RESTful API와의 상호 작용을 추가할 수 있습니다. 이 문서에서는 RESTful services와 상호 작용 하는 Azure AD B2C 사용자 경험을 만드는 방법을 보여 줍니다.
+Azure Active Directory B2C (Azure AD B2C)의 [사용자 지정 정책](active-directory-b2c-overview-custom.md) 에 RESTful API와의 상호 작용을 추가할 수 있습니다. 이 문서에서는 RESTful services와 상호 작용 하는 Azure AD B2C 사용자 경험을 만드는 방법을 보여 줍니다.
 
 상호 작용에는 REST API 클레임과 Azure AD B2C 간의 정보 교환 클레임 교환이 포함 됩니다. 클레임 교환의 특징은 다음과 같습니다.
 
@@ -36,7 +36,7 @@ Azure Active Directory (Azure AD) B2C에서 [사용자 지정 정책](active-dir
 2. 해당 사용자를 등록한 도시를 가져옵니다.
 3. 해당 특성을 클레임으로 애플리케이션에 반환합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - [사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md)의 단계를 완료합니다.
 - 상호 작용할 REST API 엔드포인트 이 문서에서는 간단한 Azure 함수를 예로 사용 합니다. Azure 함수를 만들려면 [Azure Portal에서 첫 번째 함수 만들기](../azure-functions/functions-create-first-azure-function.md)를 참조 하세요.

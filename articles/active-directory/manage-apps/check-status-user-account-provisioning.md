@@ -15,12 +15,12 @@ ms.date: 09/09/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fda7654ca2d825ae4112dd06021c7e83ed6867cd
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 2e5ef4067f22d0e9e015e4d9a646f8b92309010a
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381251"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033514"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>자습서: 자동 사용자 계정 프로비전에 대한 보고
 
@@ -44,72 +44,32 @@ Azure AD (Azure Active Directory)에는 종단 간 id 수명 주기 관리를 �
 
 ## <a name="getting-provisioning-reports-from-the-azure-portal"></a>Azure Portal에서 프로 비전 보고서 가져오기
 
-지정 된 응용 프로그램에 대 한 프로 비전 보고서 정보를 가져오려면 먼저 [Azure Portal](https://portal.azure.com) 를 시작 하 고 프로 비전이 구성 된 엔터프라이즈 응용 프로그램을 검색 합니다. 예를 들어 사용자를 LinkedIn Elevate로 프로비전하는 경우 애플리케이션 세부 정보의 탐색 경로는 다음과 같습니다.
+지정 된 응용 프로그램에 대 한 프로 비전 보고서 정보를 가져오려면 먼저 [Azure Portal](https://portal.azure.com) 를 &gt; 시작 하 고 **Enterprise Apps** &gt; **프로 비전 로그 (미리 보기)** 를 Azure Active Directory 합니다 **. 작업** 섹션 프로 비전이 구성 된 엔터프라이즈 응용 프로그램으로 이동할 수도 있습니다. 예를 들어 사용자를 LinkedIn Elevate로 프로비전하는 경우 애플리케이션 세부 정보의 탐색 경로는 다음과 같습니다.
 
 **Azure Active Directory &gt; 엔터프라이즈 애플리케이션 &gt; 모든 애플리케이션 &gt; LinkedIn Elevate**
 
-여기서는 아래에서 설명하는 프로비저닝 요약 보고서와 프로비저닝 감사 로그에 모두 액세스할 수 있습니다.
+여기에서 아래에 설명 된 프로 비전 진행률 표시줄과 프로 비전 로그 모두에 액세스할 수 있습니다.
 
-## <a name="provisioning-summary-report"></a>요약 보고서 프로비전
+## <a name="provisioning-progress-bar"></a>프로 비전 진행률 표시줄
 
-프로비전 요약 보고서는 지정된 애플리케이션에 대한 **프로비전** 탭에 표시됩니다. **설정** 아래의 **동기화 세부 정보** 섹션에 있으며, 제공되는 정보는 다음과 같습니다.
+[프로 비전 진행률 표시줄이](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar) 지정 된 응용 프로그램의 **프로 비전** 탭에 표시 됩니다. **설정**아래의 **현재 상태** 섹션에 있으며 현재 초기 또는 증분 주기의 상태를 표시 합니다. 이 섹션에는 다음도 나와 있습니다.
 
 * 동기화되어 현재의 원본 시스템과 대상 시스템 간 프로비전에 해당하는 범위에 포함된 총 사용자 및/또는 그룹 수
-* 동기화가 마지막으로 실행된 시간 - 일반적으로 [초기 동기화](user-provisioning.md#what-happens-during-provisioning)가 완료된 후 20-40분마다 동기화가 발생합니다.
-* [초기 동기화](user-provisioning.md#what-happens-during-provisioning)가 완료되었는지 여부.
+* 동기화가 마지막으로 실행된 시간 - 일반적으로 동기화는 [초기 순환이](user-provisioning.md#what-happens-during-provisioning) 완료 된 후 20-40 분 마다 발생 합니다.
+* [초기 순환이](user-provisioning.md#what-happens-during-provisioning) 완료 되었는지 여부입니다.
 * 프로비저닝 프로세스의 격리 여부 및 격리 상태에 대한 이유(예: 잘못된 관리자 자격 증명으로 인해 대상 시스템과 통신하지 못하는 경우).
 
-프로비전 요약 보고서는 프로비전 작업의 작동 상태를 확인하기 위해 관리자가 먼저 확인해야 합니다.
+**현재 상태** 는 관리자가 프로 비전 작업의 작동 상태를 확인 하는 첫 번째 위치 여야 합니다.
 
- ![요약 보고서](./media/check-status-user-account-provisioning/summary_report.PNG)
+ ![요약 보고서](./media/check-status-user-account-provisioning/provisioning-progress-bar-section.png)
 
-## <a name="provisioning-audit-logs"></a>감사 로그 프로비전
+## <a name="provisioning-logs-preview"></a>로그 프로 비전 (미리 보기)
 
-프로비전 서비스에서 수행되는 모든 활동은 Azure AD 감사 로그에 기록되며, **계정 프로비전** 범주 아래의 **감사 로그** 탭에서 볼 수 있습니다. 기록되는 활동 이벤트 유형은 다음과 같습니다.
-
-* **가져오기 이벤트** - Azure AD 프로비전 서비스에서 원본 시스템 또는 대상 시스템의 개별 사용자 또는 그룹에 대한 정보를 검색할 때마다 "가져오기" 이벤트가 기록됩니다. 동기화하는 동안 먼저 "가져오기" 이벤트로 기록된 결과와 함께 원본 시스템에서 사용자를 검색합니다. 그런 다음 검색된 사용자와 일치하는 ID에 대해 대상 시스템에 쿼리하여 "가져오기" 이벤트로 기록된 결과와 함께 해당 ID가 있는지 확인합니다. 이러한 이벤트는 이벤트 발생 시 Azure AD 프로비전 서비스에서 표시한 모든 매핑된 사용자 특성과 해당 값을 기록합니다.
-* **동기화 규칙 이벤트** - 원본 및 대상 시스템에서 사용자 데이터를 가져와서 평가한 후에 특성 매핑 규칙 및 구성된 모든 범위 지정 필터에 기반한 결과를 보고합니다. 예를 들어 원본 시스템의 사용자가 프로비전 범위에 포함되지만 대상 시스템에 존재하지 않는 것으로 간주되는 경우 이 이벤트는 대상 시스템에 해당 사용자를 프로비전할 것이라고 기록합니다.
-* **내보내기 이벤트** - Azure AD 프로비전 서비스에서 사용자 계정 또는 그룹 개체를 대상 시스템에 작성할 때마다 "내보내기" 이벤트가 기록됩니다. 이러한 이벤트는 이벤트 발생 시 Azure AD 프로비전 서비스에서 작성한 모든 사용자 특성과 해당 값을 기록합니다. 사용자 계정 또는 그룹 개체를 대상 시스템에 작성하는 동안 오류가 발생하면 여기에 표시됩니다.
-* **프로세스 에스크로 이벤트** - 프로비전 서비스에서 작업을 시도하는 동안 오류가 발생하고 백오프 간격으로 작업 다시 시도를 시작할 때 프로세스 에스크로가 발생합니다. 프로비저닝 작업이 다시 시도될 때마다 “에스크로” 이벤트가 기록됩니다.
-
-개별 사용자에 대한 프로비전 이벤트를 볼 때 일반적으로 다음과 같은 순서로 이벤트가 발생합니다.
-
-1. 가져오기 이벤트: 원본 시스템에서 사용자를 검색합니다.
-1. 가져오기 이벤트: 검색된 사용자의 존재 여부를 확인하기 위해 대상 시스템을 쿼리합니다.
-1. 동기화 규칙 이벤트: 구성된 특성 매핑 규칙 및 범위 지정 필터를 통해 원본 및 대상 시스템의 사용자 데이터를 평가하여 수행해야 할 작업(있는 경우)을 결정합니다.
-1. 내보내기 이벤트: 동기화 규칙 이벤트에서 수행해야 할 작업(추가, 업데이트, 삭제)을 지시하면 해당 작업 결과를 내보내기 이벤트에 기록합니다.
-
-   ![예제: 활동 및 상태를 보여 주는 감사 로그 페이지](./media/check-status-user-account-provisioning/audit_logs.PNG)
-
-### <a name="looking-up-provisioning-events-for-a-specific-user"></a>특정 사용자에 대한 프로비전 이벤트 조회
-
-프로비저닝 감사 로그에 대한 가장 일반적인 사용 사례는 개별 사용자 계정의 프로비저닝 상태를 확인하는 것입니다. 특정 사용자에 대한 마지막 프로비전 이벤트를 조회하려면 다음을 수행합니다.
-
-1. **감사 로그** 섹션으로 이동합니다.
-1. **범주** 메뉴에서 **계정 프로비전**을 선택합니다.
-1. **날짜 범위** 메뉴에서 검색할 날짜 범위를 선택합니다.
-1. **검색** 창에서 검색하려는 사용자의 사용자 ID를 입력합니다. ID 값의 형식은 특성 매핑 구성에서 일치하는 기본 ID로 선택한 것과 일치해야 합니다(예: userPrincipalName 또는 직원 ID 번호). 필요한 ID 값은 [대상] 열에 표시됩니다.
-1. Enter 키를 눌러 검색합니다. 가장 최근의 프로비전 이벤트가 먼저 반환됩니다.
-1. 이벤트가 반환되면 활동 유형과 성공 또는 실패 여부를 기록합니다. 결과가 반환되지 않으면 사용자가 존재하지 않거나 전체 동기화가 아직 완료되지 않은 경우 프로비전 프로세스에서 해당 사용자를 검색하지 못했음을 의미합니다.
-1. 개별 이벤트를 클릭하면 이벤트의 일부로 검색, 평가 또는 작성된 모든 사용자 특성을 포함하여 펼쳐진 세부 정보를 볼 수 있습니다.
-
-감사 로그를 사용하는 방법에 대한 데모는 아래 비디오를 참조하세요. 감사 로그는 5:30 태그에 표시됩니다.
-
-> [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
-
-### <a name="tips-for-viewing-the-provisioning-audit-logs"></a>프로비전 감사 로그 보기 팁
-
-Azure Portal에서 최상의 가독성을 얻으려면 **열** 단추를 선택하고 다음 열을 선택합니다.
-
-* **날짜** - 이벤트가 발생한 날짜를 표시합니다.
-* **대상** - 이벤트의 주체인 앱 이름과 사용자 ID를 표시합니다.
-* **활동** - 앞에서 설명한 활동 유형입니다.
-* **상태** - 이벤트가 성공했는지 여부입니다.
-* **상태 설명** - 프로비전 이벤트에서 발생한 상황에 대한 요약입니다.
+프로 비전 서비스에서 수행 하는 모든 작업은 Azure AD [프로 비전 로그](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)에 기록 됩니다. **작업** 섹션에서 **Azure Active Directory** &gt; **Enterprise Apps** &gt; **프로 비전 로그 (미리 보기)** 를 선택 하 여 Azure Portal에서 프로 비전 로그에 액세스할 수 있습니다. 원본 시스템이 나 대상 시스템에서 사용자의 이름 또는 식별자를 기반으로 프로 비전 데이터를 검색할 수 있습니다. 자세한 내용은 [로그 프로 비전 (미리 보기)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)을 참조 하세요. 기록되는 활동 이벤트 유형은 다음과 같습니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
-프로비저닝 요약 보고서 및 감사 로그는 관리자가 다양한 사용자 계정 프로비저닝 문제를 해결하는 데 중요한 역할을 합니다.
+프로 비전 요약 보고서 및 프로비저닝 로그는 관리자가 다양 한 사용자 계정 프로 비전 문제를 해결 하는 데 도움이 되는 주요 역할을 합니다.
 
 자동 사용자 프로비전 문제를 해결하는 방법에 대한 시나리오 기반 지침은 [애플리케이션에 사용자를 구성 및 프로비전하는 문제](application-provisioning-config-problem.md)를 참조하세요.
 

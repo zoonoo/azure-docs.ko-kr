@@ -4,7 +4,7 @@ description: Azure에서 액세스 제어 목록에 대한 자세한 정보
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-service-management
 ms.assetid: 83d66c84-8f6b-4388-8767-cd2de3e72d76
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 3a7155380a51273d376226c6be7a004f386181ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 38655a9da103d1d669f87c6195be7f17702f9348
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61035260"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056683"
 ---
 # <a name="what-is-an-endpoint-access-control-list"></a>엔드포인트 액세스 제어 목록이란?
 
 > [!IMPORTANT]
-> Azure에는 두 가지 [배포 모델](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 만들고 리소스를 사용 하 여 작업 합니다. Resource Manager 및 클래식 합니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 Resource Manager 배포 모델을 사용하는 것이 좋습니다. 
+> Azure에는 리소스를 만들고 작업 하기 위한 두 가지 [배포 모델이](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 있습니다. 리소스 관리자 및 클래식. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 Resource Manager 배포 모델을 사용하는 것이 좋습니다. 
 
 엔드포인트 ACL(액세스 제어 목록)은 Azure 배포에 사용할 수 있는 보안 향상 기능입니다. ACL은 가상 컴퓨터 엔드포인트의 트래픽을 선택적으로 허용하거나 거부하는 기능을 제공합니다. 이 패킷 필터링 기능을 통해 보안을 강화할 수 있습니다. 엔드포인트에 대해서만 네트워크 ACL을 지정할 수 있습니다. 가상 네트워크 또는 가상 네트워크에 포함된 특정 서브넷에 대해서는 ACL을 지정할 수 없습니다. 가능하면 ACL 대신 NSG(네트워크 보안 그룹)를 사용하는 것이 좋습니다. NSG를 사용하면 엔드포인트 액세스 제어 목록이 대체되고 더 이상 적용되지 않습니다. NSG에 대해 자세히 알아보려면 [네트워크 보안 그룹 개요](security-overview.md)를 참조하세요.
 

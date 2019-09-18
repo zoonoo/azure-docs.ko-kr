@@ -1,7 +1,7 @@
 ---
 title: 체 이너로 심층 학습 신경망 학습
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning의 체 이너 평가기 클래스를 사용 하 여 엔터프라이즈 규모에서 PyTorch 학습 스크립트를 실행 하는 방법을 알아봅니다.  예제 스크립트는 필기 숫자 이미지를 classifis 하 여 numpy에서 실행 되는 체 이너 Python 라이브러리를 사용 하 여 심층 학습 신경망을 빌드합니다.
+description: Azure Machine Learning의 체 이너 평가기 클래스를 사용 하 여 엔터프라이즈 규모에서 PyTorch 학습 스크립트를 실행 하는 방법을 알아봅니다.  예제 스크립트는 numpy 위에서 실행 되는 체 이너 Python 라이브러리를 사용 하 여 심층 학습 신경망을 빌드하기 위해 필기 숫자 이미지를 분류 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
-ms.openlocfilehash: 91e638793d77a6d38f9813345829720d98545293
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 79c0cadc1b266a6d160cd36fc21dcaf36637a2b1
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002729"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076416"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 대규모로 체 이너 모델 학습 및 등록
 
@@ -27,7 +27,7 @@ ms.locfileid: "71002729"
 
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 현재 [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree) 을 사용해 보세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
 
@@ -84,7 +84,7 @@ os.makedirs(project_folder, exist_ok=True)
 
 Azure ML의 추적 및 메트릭 기능을 사용 하려면 교육 스크립트 내에 적은 양의 Azure ML 코드를 추가 합니다.  학습 스크립트 **chainer_mnist** 는 스크립트 내에서 개체를 `Run` 사용 하 여 Azure ML 실행에 일부 메트릭을 기록 하는 방법을 보여 줍니다.
 
-제공 된 학습 스크립트는 체 이너 `datasets.mnist.get_mnist` 함수의 예제 데이터를 사용 합니다.  사용자 고유의 데이터에 대해 데이터 [집합 및 스크립트 업로드](how-to-train-keras.md#upload-dataset-and-scripts) 와 같은 단계를 사용 하 여 학습 중에 데이터를 사용할 수 있도록 해야 할 수 있습니다.
+제공 된 학습 스크립트는 체 이너 `datasets.mnist.get_mnist` 함수의 예제 데이터를 사용 합니다.  사용자 고유의 데이터에 대해 데이터 [집합 및 스크립트 업로드](how-to-train-keras.md) 와 같은 단계를 사용 하 여 학습 중에 데이터를 사용할 수 있도록 해야 할 수 있습니다.
 
 학습 스크립트 **chainer_mnist** 을 프로젝트 디렉터리에 복사 합니다.
 

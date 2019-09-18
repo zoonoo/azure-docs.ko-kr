@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4c13c0b7601257c120c46ec341156a8e8bba332f
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: da9ab6eef98a602635e5e92dca3bd5628846ce62
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967778"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036341"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
 
@@ -95,7 +95,7 @@ Azure Backup는 프리미엄 파일 공유에 사용할 수 있으며 Azure Kube
 현재 표준 파일 공유와 프리미엄 파일 공유 사이에서 직접 변환할 수 없습니다. 두 계층으로 전환 하려는 경우 해당 계층에서 새 파일 공유를 만들고 원래 공유에서 만든 새 공유로 데이터를 수동으로 복사 해야 합니다. Azure Files 지원 되는 복사 도구 (예: Robocopy 또는 AzCopy)를 사용 하 여이 작업을 수행할 수 있습니다.
 
 > [!IMPORTANT]
-> 프리미엄 파일 공유는 LRS 에서만 사용할 수 있으며, 저장소 계정을 제공 하는 대부분의 지역에서 사용할 수 있습니다. 현재 지역에서 프리미엄 파일 공유를 사용할 수 있는지 확인 하려면 Azure에 대 한 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=storage) 페이지를 참조 하세요.
+> 프리미엄 파일 공유는 저장소 계정을 제공 하는 대부분의 지역에서 더 작은 하위 집합의 ZRS로 LRS와 함께 사용할 수 있습니다. 현재 지역에서 프리미엄 파일 공유를 사용할 수 있는지 확인 하려면 Azure에 대 한 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=storage) 페이지를 참조 하세요. ZRS를 지 원하는 지역을 알아보려면 [지원 범위 및 지역 가용성](../common/storage-redundancy-zrs.md#support-coverage-and-regional-availability)을 참조 하세요.
 
 #### <a name="provisioned-shares"></a>프로비전된 공유
 
@@ -157,7 +157,7 @@ Azure Backup는 프리미엄 파일 공유에 사용할 수 있으며 Azure Kube
 
 Azure Files 표준 공유는 LRS (로컬 중복 저장소), ZRS (영역 중복 저장소), GRS (지역 중복 저장소) 및 GZRS (지역 중복 저장소) (미리 보기)의 4 가지 데이터 중복성 옵션을 지원 합니다.
 
-Azure Files 프리미엄 공유는 LRS (로컬 중복 저장소)만 지원 합니다.
+프리미엄 공유 Azure Files LRS와 ZRS를 모두 지원 하며, ZRS는 현재 더 작은 하위 집합에서 사용할 수 있습니다.
 
 다음 섹션에서는 서로 다른 중복 옵션의 차이점에 대해 설명합니다.
 

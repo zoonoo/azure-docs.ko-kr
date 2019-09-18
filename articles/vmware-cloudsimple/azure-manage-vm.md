@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b7d09ebd9c6ef04aff4d750024216b51513c3cca
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 44a0b8fe56477620c0ac47d5c5de8830dac46214
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69576824"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037481"
 ---
 # <a name="manage-your-cloudsimple-private-cloud-virtual-machines-in-azure"></a>Azure에서 CloudSimple 사설 클라우드 가상 머신 관리
 
-[CloudSimple 사설 클라우드에 대해 만든](azure-create-vm.md)가상 컴퓨터를 관리 하려면 [Azure Portal](http://portal.azure.com)에 로그인 합니다. 가상을 검색 하 고 선택 합니다 ( **모든 서비스** 에서 검색 또는 측면 메뉴의 **Virtual Machines** ).
+[CloudSimple 사설 클라우드에 대해 만든](azure-create-vm.md)가상 컴퓨터를 관리 하려면 [Azure Portal](https://portal.azure.com)에 로그인 합니다. 가상을 검색 하 고 선택 합니다 ( **모든 서비스** 에서 검색 또는 측면 메뉴의 **Virtual Machines** ).
 
 ## <a name="control-virtual-machine-operation"></a>가상 컴퓨터 작업 제어
 
@@ -40,7 +40,7 @@ ms.locfileid: "69576824"
 
 다음 차트가 표시 됩니다.
 
-| 항목 | 설명 |
+| 항목 | Description |
 | ------------ | ------------- |
 | CPU (평균) | 선택한 간격 동안의 평균 CPU 사용률 (%)입니다.   |
 | 네트워크 | 선택한 간격 동안 네트워크 들어오고 나가는 트래픽 (MB)  |
@@ -74,7 +74,7 @@ VM의 용량을 변경 하려면 선택한 VM에 대 한 **크기** 페이지를
 
 인터페이스를 추가 하려면 **네트워크 인터페이스 추가**를 클릭 합니다. 인라인 옵션을 입력 하거나 선택 하 여 다음 설정을 각각 구성 합니다. **Save**을 클릭합니다.
 
-   | 컨트롤 | 설명 |
+   | 컨트롤 | Description |
    | ------------ | ------------- |
    | 이름 | 인터페이스를 식별하는 이름을 입력합니다.  |
    | 네트워크 | 사설 클라우드 vSphere 구성 된 네트워크 목록에서 선택 합니다.  |

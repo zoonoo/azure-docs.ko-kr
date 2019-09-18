@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: e5062ce27e1e9367a262d263070ab01f899dfc54
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: b98c62908885bc13cd5f473967cc70709af693d2
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918897"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034111"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Enterprise Security Package를 사용하여 HDInsight 클러스터 관리
 HDInsight ESP(Enterprise Security Package)의 사용자 및 역할과 ESP 클러스터 관리 방법을 알아봅니다.
@@ -21,69 +21,73 @@ HDInsight ESP(Enterprise Security Package)의 사용자 및 역할과 ESP 클러
 ## <a name="use-vscode-to-link-to-domain-joined-cluster"></a>VSCode를 사용하여 도메인 가입된 클러스터에 연결
 
 Apache Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러스터를 연결하고, 도메인 사용자 이름(예: `user1@contoso.com`)을 사용하여 보안 Apache Hadoop 클러스터를 연결할 수 있습니다.
+
 1. **Ctrl+Shift+P**를 선택하여 명령 팔레트를 연 다음, **HDInsight: Link a cluster**를 입력합니다.
 
-   ![클러스터 연결 명령](./media/apache-domain-joined-manage/link-cluster-command.png)
+   ![명령 팔레트, 클러스터 연결](./media/apache-domain-joined-manage/link-cluster-command.png)
 
 2. HDInsight 클러스터 URL 입력 -> 사용자 이름 입력 -> 암호 입력 -> 클러스터 유형 선택 -> 확인을 통과하면 성공 정보가 표시됩니다.
-   
-   ![클러스터 연결 대화 상자](./media/apache-domain-joined-manage/link-cluster-process.png)
+
+   ![클러스터 프로세스 단계 연결 대화 상자](./media/apache-domain-joined-manage/link-cluster-process.png)
 
    > [!NOTE]  
-   > 클러스터가 Azure 구독 및 연결된 클러스터 모두에 로그인되어 있으면, 연결된 사용자 이름 및 암호가 사용됩니다. 
-   
+   > 클러스터가 Azure 구독 및 연결된 클러스터 모두에 로그인되어 있으면, 연결된 사용자 이름 및 암호가 사용됩니다.
+
 3. **List cluster** 명령을 사용하여 연결된 클러스터를 볼 수 있습니다. 이제 연결된 클러스터에 스크립트를 제출할 수 있습니다.
 
-   ![연결 된 클러스터](./media/apache-domain-joined-manage/hdinsight-linked-cluster.png "연결 된 클러스터")
+   ![클러스터 명령 출력 확인 목록](./media/apache-domain-joined-manage/hdinsight-linked-cluster.png "연결 된 클러스터")
 
 4. 명령 팔레트에서 **HDInsight: Unlink a Cluster**를 입력하여 클러스터의 연결을 끊을 수도 있습니다.
 
 ## <a name="use-intellij-to-link-to-domain-joined-cluster"></a>IntelliJ를 사용하여 도메인 가입된 클러스터에 연결
 
-Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러스터를 연결할 수 있고 도메인 사용자 이름(예: `user1@contoso.com`)을 사용하여 보안 Hadoop 클러스터를 연결할 수 있습니다. 
+Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러스터를 연결할 수 있고 도메인 사용자 이름(예: `user1@contoso.com`)을 사용하여 보안 Hadoop 클러스터를 연결할 수 있습니다.
+
 1. **Azure Explorer**에서 **Link a cluster**(클러스터 연결)를 클릭합니다.
 
    ![클러스터 연결 상황에 맞는 메뉴 intellij](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
 
 2. **클러스터 이름**, **사용자 이름** 및 **암호**를 입력합니다. 인증에 실패하면 사용자 이름과 암호를 확인해야 합니다. 필요에 따라 스토리지 계정, 스토리지 키를 추가한 다음, 스토리지 컨테이너에서 컨테이너를 선택합니다. 저장소 정보는 왼쪽 트리의 스토리지 탐색기용입니다.
-   
-   ![클러스터 연결 대화 상자 intellij](./media/apache-domain-joined-manage/link-a-cluster-dialog.png)
+
+   ![Azure 탐색기 링크 클러스터 대화 상자 intellij](./media/apache-domain-joined-manage/link-a-cluster-dialog.png)
 
    > [!NOTE]  
    > 클러스터가 Azure 구독 및 연결된 클러스터 모두에 로그인되어 있으면, 연결된 스토리지 키, 사용자 이름 및 암호를 사용합니다.
-   > ![IntelliJ의 스토리지 탐색기](./media/apache-domain-joined-manage/storage-explorer-in-IntelliJ.png)
+   > 
+   > ![IntelliJ의 Azure Explorer 저장소 계정](./media/apache-domain-joined-manage/storage-explorer-in-IntelliJ.png)
 
-   
 3. 입력 정보가 올바르면 연결된 클러스터가 **HDInsight** 노드에 표시됩니다. 이제 애플리케이션을 연결된 클러스터에 제출할 수 있습니다.
 
-   ![연결 된 클러스터 intellij](./media/apache-domain-joined-manage/linked-cluster-intellij.png "연결 된 클러스터 intellij]")
+   ![Azure 탐색기 연결 된 클러스터 intellij](./media/apache-domain-joined-manage/linked-cluster-intellij.png "연결 된 클러스터 intellij]")
 
 4. **Azure Explorer**에서 클러스터 연결을 해제할 수도 있습니다.
-   
-   ![연결 되지 않은 클러스터 intellij](./media/apache-domain-joined-manage/hdinsight-unlink-cluster.png)
+
+   ![Azure 탐색기 연결 되지 않은 클러스터 intellij](./media/apache-domain-joined-manage/hdinsight-unlink-cluster.png)
 
 ## <a name="use-eclipse-to-link-to-domain-joined-cluster"></a>Eclipse를 사용하여 도메인 가입된 클러스터에 연결
 
 Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러스터를 연결할 수 있고 도메인 사용자 이름(예: `user1@contoso.com`)을 사용하여 보안 Hadoop 클러스터를 연결할 수 있습니다.
+
 1. **Azure Explorer**에서 **Link a cluster**(클러스터 연결)를 클릭합니다.
 
    ![클러스터 연결 상황에 맞는 메뉴 eclipse](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
 
 2. **클러스터 이름**, **사용자 이름** 및 **암호**를 입력한 다음, 확인 단추를 클릭하여 클러스터에 연결합니다. 선택적으로 스토리지 계정, 스토리지 키를 입력한 다음, Storage Explorer의 스토리지 컨테이너를 선택하여 왼쪽 트리 뷰에서 작업합니다.
-   
-   ![클러스터 연결 대화 상자 eclipse](./media/apache-domain-joined-manage/link-cluster-dialog1.png)
-   
+
+   ![Azure 탐색기 링크 클러스터 대화 상자 eclipse](./media/apache-domain-joined-manage/link-cluster-dialog1.png)
+
    > [!NOTE]  
    > 클러스터가 Azure 구독 및 연결된 클러스터 모두에 로그인되어 있으면, 연결된 스토리지 키, 사용자 이름 및 암호를 사용합니다.
-   > ![Eclipse의 스토리지 탐색기](./media/apache-domain-joined-manage/storage-explorer-in-Eclipse.png)
+   > 
+   > ![Eclipse의 Azure Explorer 저장소 계정](./media/apache-domain-joined-manage/storage-explorer-in-Eclipse.png)
 
 3. 입력 정보가 올바르면 확인 단추를 클릭한 후 **HDInsight** 노드에 연결된 클러스터가 표시됩니다. 이제 애플리케이션을 연결된 클러스터에 제출할 수 있습니다.
 
-   ![연결 된 클러스터 eclipse](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
+   ![Azure 탐색기 연결 된 클러스터 eclipse](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
 
 4. **Azure Explorer**에서 클러스터 연결을 해제할 수도 있습니다.
    
-   ![연결 되지 않은 클러스터 eclipse](./media/apache-domain-joined-manage/hdinsight-unlink-cluster.png)
+   ![Azure Explorer 연결 되지 않은 클러스터 eclipse](./media/apache-domain-joined-manage/hdinsight-unlink-cluster.png)
 
 ## <a name="access-the-clusters-with-enterprise-security-package"></a>엔터프라이즈 보안 패키지를 사용하여 클러스터에 액세스합니다.
 
@@ -104,8 +108,8 @@ Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러�
 
 표준 API를 사용하면 보안 측면에서 도움이 됩니다. 또한 다음과 같은 이점도 얻을 수 있습니다.
 
-1.  **관리** – 표준 API(Livy, HS2 등)를 사용하여 코드를 관리하고 작업을 자동화할 수 있습니다.
-2.  **감사** – SSH를 사용하면 클러스터에 대해 SSH를 수행한 사용자를 감사할 방법이 없습니다. 작업이 사용자 컨텍스트에서 실행될 때처럼 표준 엔드포인트를 통해 생성되는 경우는 여기에 해당되지 않습니다. 
+- **관리** – 표준 API(Livy, HS2 등)를 사용하여 코드를 관리하고 작업을 자동화할 수 있습니다.
+- **감사** – SSH를 사용하면 클러스터에 대해 SSH를 수행한 사용자를 감사할 방법이 없습니다. 작업이 사용자 컨텍스트에서 실행될 때처럼 표준 엔드포인트를 통해 생성되는 경우는 여기에 해당되지 않습니다. 
 
 
 
@@ -183,11 +187,11 @@ HDInsight Enterprise Security Package에는 다음과 같은 역할이 있습니
 4. 클러스터 관리자 도메인 사용자 이름 및 암호를 사용 하 여 Ambari에 로그인 합니다.
 5. 오른쪽 상단 모서리에서 **관리자** 드롭다운 메뉴를 클릭한 다음 **Ambari 관리**를 클릭합니다.
 
-    ![ESP HDInsight Ambari 관리](./media/apache-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png)
+    ![ESP HDInsight의 Apache Ambari 관리](./media/apache-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png)
 
     UI는 다음과 같습니다.
 
-    ![ESP HDInsight Ambari 관리 UI](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui.png)
+    ![ESP HDInsight Apache Ambari 관리 UI](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui.png)
 
 ## <a name="list-the-domain-users-synchronized-from-your-active-directory"></a>Active Directory에서 동기화된 도메인 사용자 나열
 1. Ambari 관리 UI를 엽니다.  [Ambari 관리 UI 열기](#open-the-ambari-management-ui)를 참조하세요.

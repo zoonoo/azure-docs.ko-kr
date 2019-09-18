@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: df47b4fc5b8048f76f94486e213285896dab9cb9
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 042c4fa18ce583f714bbe71f522b1f8f1af3dfdb
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874087"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066113"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 액세스 토큰 요청
 
-*액세스 토큰* 에는 api에 부여 된 사용 권한을 확인 하기 위해 Azure Active Directory (Azure AD) B2C에서 사용할 수 있는 클레임이 포함 되어 있습니다. 리소스 서버를 호출 하는 경우에는 HTTP 요청에 액세스 토큰이 있어야 합니다. 액세스 토큰은 Azure AD B2C 응답에서 **access_token** 로 표시 됩니다.
+*액세스 토큰* 에는 Azure Active Directory B2C (Azure AD B2C)에서 api에 부여 된 사용 권한을 식별 하는 데 사용할 수 있는 클레임이 포함 되어 있습니다. 리소스 서버를 호출 하는 경우에는 HTTP 요청에 액세스 토큰이 있어야 합니다. 액세스 토큰은 Azure AD B2C 응답에서 **access_token** 로 표시 됩니다.
 
 이 문서에서는 웹 응용 프로그램 및 web API에 대 한 액세스 토큰을 요청 하는 방법을 보여 줍니다. Azure AD B2C 토큰에 대 한 자세한 내용은 [Azure Active Directory B2C의 토큰 개요](active-directory-b2c-reference-tokens.md)를 참조 하세요.
 

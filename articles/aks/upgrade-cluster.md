@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: 50264b1364f40ff5e68ae4a93783d62837c167b3
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: d881ffff81119167f54b5ef8f0c5e2c1ad1e4791
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898823"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71075126"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>AKS(Azure Kubernetes Service) 클러스터 업그레이드
 
@@ -36,9 +36,9 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --outpu
 ```
 
 > [!NOTE]
-> AKS 클러스터를 업그레이드하는 경우 Kubernetes 부 버전은 건너뛸 수 없습니다. 예를 들어 *1.12* -> . x ->  -> *1.13 x x* x x x x x x x x x x x x x x x x x x x x x x x x x x x. x를 사용할 수 있지만*1.14*
+> AKS 클러스터를 업그레이드하는 경우 Kubernetes 부 버전은 건너뛸 수 없습니다. 예를 들어 *1.12* ->  -> . x*1.13 x x* x x x x *x x x*x x x x x x x x x x x x x x x x x x x x *. x를* 사용할 *수* -> 있지만*1.14*
 >
-> *1.14* -> 에서 업그레이드 하려면 -> 먼저1.12.x1.13.x에서업그레이드한다음1.13.x1.14에서업그레이드 -> 합니다.
+>  -> *1.14*에서 업그레이드 -> 하려면 *먼저 1.12. x* *1.13.* *x에서 업그레이드*한 다음 *1.13.* x 1.14에서 업그레이드 합니다. -> 
 
 다음 예제 출력에서는 *1.13.9* 및 *1.13.10*버전으로 클러스터를 업그레이드할 수 있음을 보여 줍니다.
 
@@ -46,6 +46,10 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --outpu
 Name     ResourceGroup     MasterVersion    NodePoolVersion    Upgrades
 -------  ----------------  ---------------  -----------------  ---------------
 default  myResourceGroup   1.12.8           1.12.8             1.13.9, 1.13.10
+```
+업그레이드를 사용할 수 없는 경우 다음을 얻게 됩니다.
+```console
+ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
 ```
 
 ## <a name="upgrade-an-aks-cluster"></a>AKS 클러스터 업그레이드

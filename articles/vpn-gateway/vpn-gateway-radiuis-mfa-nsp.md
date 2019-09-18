@@ -4,7 +4,7 @@ description: Multi-Factor Authentication을 위한 NPS 서버와 Azure 게이트
 services: vpn-gateway
 documentationcenter: na
 author: ahmadnyasin
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/31/2018
+ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: 8e10151cd117a3400893f94559b2c9892de9f3c7
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: ab152cca1d809d92803a3e50ea83da1cbcd8243c
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67666210"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058891"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Multi-Factor Authentication을 위한 NPS 서버와 Azure VPN Gateway RADIUS 인증 통합 
 
@@ -52,7 +52,7 @@ MFA를 사용하려면 사용자가 Azure AD(Azure Active Directory)에 있어�
 ### <a name="step-2-configure-the-nps-for-azure-mfa"></a>2단계 Azure MFA용 NPS 구성
 
 1. NPS 서버에서 [Azure MFA용 NPS 확장을 설치](../active-directory/authentication/howto-mfa-nps-extension.md#install-the-nps-extension)합니다.
-2. NPS 콘솔을 열고 마우스 오른쪽 단추로 **RADIUS 클라이언트**를 선택한 후 **새로 만들기**합니다. 다음 설정을 지정 하 여 RADIUS 클라이언트를 만듭니다.
+2. NPS 콘솔을 열고 **RADIUS 클라이언트**를 마우스 오른쪽 단추로 클릭 한 다음 **새로 만들기**를 선택 합니다. 다음 설정을 지정 하 여 RADIUS 클라이언트를 만듭니다.
 
     - **친숙한 이름**: 이름을 입력합니다.
     - **주소(IP 또는 DNS)** : 1단계에서 만든 게이트웨이 서브넷을 입력합니다.
@@ -63,7 +63,7 @@ MFA를 사용하려면 사용자가 Azure AD(Azure Active Directory)에 있어�
  
 3.  **고급** 탭에서 공급업체 이름을 **RADIUS 표준**으로 설정하고 **추가 옵션** 확인란이 선택되지 않았는지 확인합니다.
 
-    ![RADIUS 클라이언트에 대 한 고급 설정에 대 한 이미지](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client2.png)
+    ![RADIUS 클라이언트 고급 설정에 대 한 이미지](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client2.png)
 
 4. **정책** > **네트워크 정책**으로 이동하고 **Microsoft 라우팅 및 원격 액세스 서버에 연결** 정책을 두 번 클릭하여 **액세스 권한 부여**를 선택한 다음 **확인**을 클릭합니다.
 

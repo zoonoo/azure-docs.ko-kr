@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 0b78b05e30185487df0b06d861b60b63741dc938
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 217601a430b40772eaf1f24c8e1501bc4b4fcae5
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073196"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71055303"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 구성 및 관리 FAQ
 
@@ -71,7 +71,7 @@ App Service 웹앱에 대한 SSL 인증서를 구매 및 설정하는 방법을 
     * 값 = *원하는 표준 시간대*
 3. **저장**을 선택합니다.
 
-허용되는 값은 [기본 표준 시간대](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) 문서에서 **표준 시간대** 열을 참조하세요.
+Windows에서 실행 되는 앱 서비스의 경우 [기본 표준 시간대](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) 문서의 **표준** 시간대 열에서 허용 되는 값을 참조 하세요. Linux에서 실행 되는 앱 서비스에 대해 [TZ 데이터베이스 이름을](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) 표준 시간대 값으로 설정 합니다. 다음은 TZ 데이터베이스 이름의 예입니다. 아메리카/Adak.
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>내 연속 WebJobs가 때때로 실패하는 이유는 무엇인가요?
 
@@ -96,7 +96,7 @@ Azure 앱 웹 사이트에 대해 실행된 인바운드 호출에 대한 전용
 
 ## <a name="can-i-export-my-app-service-certificate-to-use-outside-azure-such-as-for-a-website-hosted-elsewhere"></a>다른 곳에서 호스트되는 웹 사이트와 같은 Azure 외부에서 사용하도록 내 App Service Certificate를 내보낼 수 있나요? 
 
-App Service Certificate는 Azure 리소스로 간주합니다. 이 인증서는 Azure 서비스 외부에서 사용할 수 없습니다. Azure 외부에서 사용하도록 인증서를 내보낼 수 없습니다. 자세한 내용은 [FAQs for App Service certificates and custom domains](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview)(App Service Certificate 및 사용자 지정 도메인에 대한 FAQ)를 참조하세요.
+예, Azure 외부에서 사용할 수 있도록 내보낼 수 있습니다. 자세한 내용은 [FAQs for App Service certificates and custom domains](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview)(App Service Certificate 및 사용자 지정 도메인에 대한 FAQ)를 참조하세요.
 
 ## <a name="can-i-export-my-app-service-certificate-to-use-with-other-azure-cloud-services"></a>다른 Azure Cloud Services에서 사용하도록 내 App Service Certificate를 내보낼 수 있나요?
 

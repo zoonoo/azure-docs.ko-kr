@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: hrasheed
-ms.openlocfilehash: 129f200bc9f61d70f4403b1154978d57e09fee26
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 1e5e3854f0b132ede38e182f99435a569c04d49e
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70917503"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076277"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Visual Studio용 Data Lake 도구를 사용하여 Apache Hive 쿼리 실행
 
@@ -115,7 +115,7 @@ Hive 쿼리를 만들고 실행하기 위한 두 가지 옵션이 있습니다.
 
 6. 도구 모음에서 쿼리에 사용할 **HDInsight 클러스터**를 선택합니다. **제출**을 선택하여 Hive 작업으로 문을 실행합니다.
 
-   ![제출 표시줄](./media/apache-hadoop-use-hive-visual-studio/hdinsight-toolbar-submit.png)
+   ![Azure HDInsight 도구 모음 제출](./media/apache-hadoop-use-hive-visual-studio/hdinsight-toolbar-submit.png)
 
 7. **Hive 작업 요약** 이 표시되고 실행 중인 작업 정보가 표시됩니다. **작업 상태**가 **완료**로 변경될 때까지 **새로 고침** 링크를 사용하여 작업 정보를 새로 고칩니다.
 

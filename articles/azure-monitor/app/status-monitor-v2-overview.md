@@ -3,21 +3,21 @@ title: Azure 상태 모니터 v2 개요 | Microsoft Docs
 description: 상태 모니터 v2의 개요입니다. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
 services: application-insights
 documentationcenter: .net
-author: MS-TimothyMothra
+author: TimothyMothra
 manager: alexklim
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 09/16/2019
 ms.author: tilee
-ms.openlocfilehash: 0264cf3a972c35edb3ad6dc600ca39bdaa076dfd
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 3060659c5f870be60f1ac02e432dd0a8333f0900
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333693"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057826"
 ---
 # <a name="status-monitor-v2"></a>상태 모니터 v2
 
@@ -59,7 +59,15 @@ ms.locfileid: "68333693"
   *예*. 상태 모니터 v2를 다운로드 하는 방법에는 여러 가지가 있습니다. 컴퓨터에서 인터넷에 액세스할 수 있는 경우 매개 변수를 사용 `-Proxy` 하 여 PowerShell 갤러리에 등록할 수 있습니다.
 또한 모듈을 수동으로 다운로드 하 고 컴퓨터에 설치 하거나 직접 사용할 수 있습니다.
 이러한 각 옵션에 대 한 [자세한 지침은](status-monitor-v2-detailed-instructions.md)을 참조 하십시오.
+
+- V2는 ASP.NET Core 응용 프로그램을 지원 상태 모니터 합니까?
+
+  *아니요*. ASP.NET Core 응용 프로그램 모니터링을 사용 하도록 설정 하는 지침은 [ASP.NET Core 응용 프로그램에 대 한 Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)를 참조 하세요. ASP.NET Core 응용 프로그램에 대 한 StatusMonitor를 설치할 필요가 없습니다. ASP.NET Core 응용 프로그램이 IIS에서 호스팅되는 경우에도 마찬가지입니다.
   
+V2는 ASP.NET Core 응용 프로그램을 지원 상태 모니터 합니까? 
+
+  *아니요*. ASP.NET Core 응용 프로그램에 대 한 모니터링을 사용 하도록 설정 하려면 [다음](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) 지침을 따르세요. ASP.NET Core 응용 프로그램에 대 한 StatusMonitor를 설치할 필요가 없습니다. ASP.NET Core 응용 프로그램이 IIS에서 호스팅되는 경우에도 마찬가지입니다.
+
 - 성공적으로 작동 하 고 있는지 확인 어떻게 할까요??
 
   - [ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md) cmdlet을 사용 하 여 사용이 성공 했는지 확인할 수 있습니다.

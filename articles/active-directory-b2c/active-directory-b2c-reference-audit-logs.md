@@ -11,12 +11,12 @@ ms.date: 09/14/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: cbb748e9856b6de9004d57e4393e205ddfcfffb4
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c216512aef117a332d3aabfc83ec5615b70b202c
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70998837"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033820"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Azure AD B2C 감사 로그 액세스
 
@@ -92,12 +92,13 @@ Azure AD 보고 API에 대 한 스크립트 또는 응용 프로그램 기반 �
 * Microsoft Graph
   * 프로그램별 모든 감사 로그 데이터 읽기
 
-B2C 테 넌 트 내의 기존 응용 프로그램 등록에 대해 이러한 권한을 사용 하도록 설정 하거나 감사 로그 자동화에 사용 하기 위해 특별히 새 응용 프로그램을 만들 수 있습니다.
+B2C 테 넌 트 내의 기존 Azure Active Directory 응용 프로그램 등록에 대해 이러한 권한을 사용 하도록 설정 하거나 감사 로그 자동화에 사용 하기 위해 특별히 새 응용 프로그램을 만들 수 있습니다.
 
 새 응용 프로그램을 만들고, 필요한 API 권한을 할당 하 고, 클라이언트 암호를 만들려면 다음 단계를 수행 합니다.
 
-1. 애플리케이션 등록
-    1. [Azure Portal](https://portal.azure.com)에 로그인 하 여 Azure AD B2C 테 넌 트가 포함 된 디렉터리로 전환 하 고 **Azure AD B2C**로 이동 합니다.
+1. Azure Active Directory에 응용 프로그램 등록
+    1. [Azure Portal](https://portal.azure.com) 에 로그인 하 고 Azure AD B2C 테 넌 트가 포함 된 디렉터리로 전환 합니다.
+    1. 왼쪽 메뉴에서 **Azure Active Directory** (Azure AD B2C*아님* )를 선택 합니다. 또는 **모든 서비스**를 선택한 다음 **Azure Active Directory**을 검색 하 고 선택 합니다.
     1. 왼쪽 메뉴의 **관리** 에서 **앱 등록 (레거시)** 를 선택 합니다.
     1. **새 응용 프로그램 등록** 을 선택 합니다.
     1. 애플리케이션의 이름을 입력합니다. 예를 들어 *감사 로그 앱*입니다.

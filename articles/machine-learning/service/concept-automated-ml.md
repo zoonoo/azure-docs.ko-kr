@@ -1,7 +1,7 @@
 ---
 title: 자동화 된 ML/automl 이란?
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning Service에서 알고리즘을 자동으로 선택하고, 모델에 가장 적합한 알고리즘을 선택하기 위해 사용자가 제공한 매개 변수 및 기준에 따라 모델을 생성하여 시간을 절약하는 방법을 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: 사용자가 알고리즘을 자동으로 선택 하 고 모델에서 모델을 생성 하 여 사용자가 모델에 가장 적합 한 알고리즘을 선택 하는 데 사용 하는 매개 변수 및 조건을 사용 하 여 시간을 절약할 수 있는 Azure Machine Learning 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: b7347be086cd9e85dda7b8271548ccb44e8114ff
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 32ff1ba599f4f95cc413bc2bb2c3bbc442405022
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882022"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035716"
 ---
 # <a name="what-is-automated-machine-learning"></a>자동화된 Machine Learning이란?
 
@@ -39,7 +39,7 @@ AutoML이 라고도 하는 자동화 된 machine learning은 기계 학습 모�
 
 ## <a name="how-automated-ml-works"></a>자동화 된 ML 작동 방법
 
-**Azure Machine Learning 서비스**를 사용 하 여 다음 단계를 통해 자동화 된 ML 학습 실험을 디자인 하 고 실행할 수 있습니다.
+**Azure Machine Learning**를 사용 하 여 다음 단계를 통해 자동화 된 ML 학습 실험을 디자인 하 고 실행할 수 있습니다.
 
 1. 해결 될 기계 학습 **문제 식별** : 분류, 예측 또는 회귀
 
@@ -53,7 +53,7 @@ AutoML이 라고도 하는 자동화 된 machine learning은 기계 학습 모�
 
   ![자동화 된 기계 학습](./media/how-to-automated-ml/automl-concept-diagram2.png)
 
-학습 하는 동안 Azure Machine Learning 서비스는 다양 한 알고리즘 및 매개 변수를 시도 하는 여러 병렬 파이프라인을 만듭니다. 실험에 정의 된 종료 조건에 도달 하면 중지 됩니다.
+학습 하는 동안 Azure Machine Learning는 여러 알고리즘 및 매개 변수를 시도 하는 많은 수의 병렬 파이프라인을 만듭니다. 실험에 정의 된 종료 조건에 도달 하면 중지 됩니다.
 
 실행 중에 수집 된 [메트릭을 포함](how-to-understand-automated-ml.md) 하는 로그 된 실행 정보를 검사할 수도 있습니다. 학습 실행은 모델 및 데이터 전처리를 포함`.pkl` 하는 Python 직렬화 된 개체 (파일)를 생성 합니다.
 
@@ -74,7 +74,7 @@ AutoML이 라고도 하는 자동화 된 machine learning은 기계 학습 모�
 
 자동화 된 모든 기계 학습 실험에서 데이터는 알고리즘의 성능을 향상 시킬 수 있도록 자동으로 확장 되거나 정규화 됩니다.  모델 학습 중에는 다음 크기 조정 또는 정규화 기술 중 하나가 각 모델에 적용 됩니다.
 
-|정규화&nbsp;확장&&nbsp;| Description |
+|정규화&nbsp;확장&&nbsp;| 설명 |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | 단위 분산의 평균 및 크기 조정을 제거 하 여 기능 표준화  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | 해당 열의 최소값과 최대값을 기준으로 각 기능의 크기를 조정 하 여 기능을 변환 합니다.  |

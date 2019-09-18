@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b8b2cad95929d6132a4f0ae52597fb1633874ff1
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 673807377914aabad5b90d1ac2ecc16623870d30
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68592118"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063366"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -38,10 +38,10 @@ ms.locfileid: "68592118"
 
 **TrustFrameworkPolicy** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필수 | Description |
+| 특성 | 필수 | 설명 |
 |---------- | -------- | ----------- |
 | PolicySchemaVersion | 예 | 정책을 실행하는 데 사용할 스키마 버전입니다. 값은 `0.3.0.0`이어야 합니다. |
-| TenantObjectId | 아니요 | Azure AD(Azure Active Directory) B2C 테넌트의 고유한 개체 식별자입니다. |
+| TenantObjectId | 아니요 | Azure Active Directory B2C (Azure AD B2C) 테 넌 트의 고유 개체 식별자입니다. |
 | TenantId | 예 | 이 정책이 속한 테넌트의 고유 식별자입니다. |
 | PolicyId | 예 | 정책의 고유 식별자입니다. 이 식별자 앞에는 *B2C_1A_* 가 접두사로 추가되어야 합니다. |
 | PublicPolicyUri | 예 | 테넌트 ID와 정책 ID의 조합인 정책 URI입니다. |

@@ -5,7 +5,7 @@ keywords: ssh 연결 거부,ssh 오류,azure ssh,SSH 연결 실패
 services: virtual-machines-linux
 documentationcenter: ''
 author: genlin
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: b8e8be5f-e8a6-489d-9922-9df8de32e839
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 41265973df21be289e63cbd6ed2703febc50cff2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3807f713065d16d4c6743c65f6a770d158ac7191
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70090491"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058497"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Azure에서 Linux VM에 연결할 때의 문제에 대한 자세한 SSH 문제 해결 단계
 SSH 클라이언트가 VM의 SSH 서비스에 도달할 수 없는 데에는 여러 원인이 있습니다. 추가적인 [일반 SSH 문제 해결 단계](troubleshoot-ssh-connection.md)를 진행한 경우 연결 문제를 추가적으로 해결해야 합니다. 이 문서에서는 SSH 연결에 문제가 있는지 확인하는 자세한 문제 해결 단계와 해결 방법을 안내합니다.

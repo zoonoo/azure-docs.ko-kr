@@ -4,23 +4,20 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: 8a596293a5c1572b30ea6101dad16328c8db2634
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 935a6201e24e97deaa0a1a65e499310f74a49e2d
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182103"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059055"
 ---
-## <a name="what-is-queue-storage"></a>Queue Storage 정의
-Azure Queue Storage는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통해 전 세계 어디에서나 액세스할 수 있는 다수의 메시지를 저장하기 위한 서비스입니다. 단일 큐 메시지의 크기는 최대 64KB일 수 있으며, 하나의 큐에 스토리지 계정의 총 용량 제한까지 수백만 개의 메시지가 포함될 수 있습니다.
+## <a name="what-is-queue-storage"></a>Queue storage 란?
 
-Queue Storage의 일반적인 사용은 다음과 같습니다.
-
-* 비동기적으로 처리할 작업 백로그 만들기
-* Azure 웹 역할에서 Azure 작업자 역할로 메시지 전달
+Azure Queue Storage는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통해 전 세계 어디에서나 액세스할 수 있는 다수의 메시지를 저장하기 위한 서비스입니다. 단일 큐 메시지의 크기는 최대 64KB일 수 있으며, 하나의 큐에 스토리지 계정의 총 용량 제한까지 수백만 개의 메시지가 포함될 수 있습니다. 큐 저장소는 비동기적으로 처리할 작업의 백로그를 만드는 데 주로 사용 됩니다.
 
 ## <a name="queue-service-concepts"></a>큐 서비스 개념
-큐 서비스에는 다음 구성 요소가 포함됩니다.
+
+Azure 큐 서비스에는 다음 구성 요소가 포함 되어 있습니다.
 
 ![Queue1](./media/storage-queue-concepts-include/queue1.png)
 

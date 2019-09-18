@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/06/2019
+ms.date: 09/17/2019
 ms.author: magoedte
-ms.openlocfilehash: c63feb02712447d2427061cbfabc525622107043
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 945dc6c35eacab99db28172703e1aebed10bd58a
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744586"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067081"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor를 사용하여 AKS 클러스터 성능 이해
 컨테이너에 대 한 Azure Monitor를 사용 하면 성능 차트와 상태를 사용 하 여 두 가지 관점에서 AKS (Azure Kubernetes Service) 클러스터의 작업을 모니터링할 수 있습니다. AKS 클러스터에서 직접 모니터링 하거나 Azure Monitor 구독의 모든 AKS 클러스터를 모니터링할 수 있습니다. Azure Container Instances 보기는 특정 AKS 클러스터를 모니터링 하는 경우에도 가능 합니다.
@@ -170,9 +170,13 @@ Linux OS를 실행 하는 Azure Container Instances 가상 노드는 목록의 �
 
 페이지 맨 위에 있는 컨트롤러 또는 컨테이너를 선택 하 여 해당 개체의 상태 및 리소스 사용률을 검토 합니다. 메모리 사용률을 검토 하려면 **메트릭** 드롭다운 목록에서 **메모리 RSS** 또는 **메모리 작업 집합**을 선택 합니다. **메모리 RSS**는 Kubernetes 버전 1.8 이상에서만 지원됩니다. 그렇지 않으면 **Min&nbsp;%** 에 대한 값이 *NaN&nbsp;%* 로 표시됩니다. 이것은 정의되지 않았거나 표현할 수 없는 값을 나타내는 숫자 데이터 형식 값입니다.
 
-**메모리 작업 집합** 에는 포함 된 메모리 및 가상 메모리 (캐시)가 모두 표시 되 고 응용 프로그램에서 사용 하는 총 메모리와 총 메모리가 표시 됩니다. **메모리 RSS** 는 주 메모리만 표시 합니다. 즉,이 경우에는 상주 하는 메모리는 없습니다. 이 메트릭은 사용 가능한 메모리의 실제 용량을 보여 줍니다.
-
 ![컨테이너 노드 성능 보기](./media/container-insights-analyze/containers-node-metric-dropdown.png)
+
+**메모리 작업 집합** 에는 포함 된 메모리 및 가상 메모리 (캐시)가 모두 표시 되 고 응용 프로그램에서 사용 하는 총 메모리와 총 메모리가 표시 됩니다. **메모리 RSS** 는 주 메모리만 표시 합니다. 즉,이 경우에는 상주 하는 메모리는 없습니다. 이 메트릭은 사용 가능한 메모리의 실제 용량을 보여 줍니다. 상주 메모리와 가상 메모리의 차이점은 무엇 인가요?
+
+- 상주 하는 메모리 또는 주 메모리는 클러스터의 노드에 사용할 수 있는 실제 컴퓨터 메모리 양입니다.
+
+- 가상 메모리는 메모리 부족 시 운영 체제에서 메모리의 데이터를 디스크로 교환 하는 데 사용 되는 예약 된 하드 디스크 공간 (캐시) 이며 필요한 경우 메모리에 다시 인출 됩니다.
 
 기본적으로 성능 데이터는 지난 6 시간을 기반으로 하지만 왼쪽 위에서 **TimeRange** 옵션을 사용 하 여 창을 변경할 수 있습니다. 백분위 수 선택기에서 **Min**, **Avg**, **50**, **90**, **95**, **Max** 를 선택 하 여 시간 범위 내에서 결과를 필터링 할 수도 있습니다. 
 

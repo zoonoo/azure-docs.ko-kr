@@ -4,7 +4,7 @@ description: Azure에서 클래식 VM을 만들거나 다시 시작하거나 크
 services: azure-service-management
 documentationcenter: ''
 author: genlin
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue,azure-resource-manager,azure-service-management
 ms.assetid: bb939e23-77fc-4948-96f7-5037761c30e8
@@ -12,12 +12,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 7cd7897e3a0b940bbc636b2fbc3dbbc13b7cf540
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d43176e04337c2faf7be0bea682428056bc4ab46
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60505572"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059188"
 ---
 # <a name="troubleshooting-steps-specific-to-allocation-failure-scenarios-in-the-classic-deployment-model"></a>클래식 배포 모델의 할당 오류 시나리오와 관련된 문제 해결 단계
 
@@ -52,7 +52,7 @@ VM 크기를 조정하거나 기존 클라우드 서비스에 VM 또는 역할 �
 
 오류가 Upgrade_VMSizeNotSupported*이면, 다른 VM 크기를 시도합니다. 다른 VM 크기를 사용할 수는 없지만 다른 VIP(가상 IP 주소)를 사용하는 것이 허용되면, 새로운 VM을 호스트할 새 클라우드 서비스를 만들고 새 클라우드 서비스를 기존 VM이 실행되는 지역 가상 네트워크에 추가합니다. 기존 클라우드 서비스가 지역 가상 네트워크를 사용하지 않더라도 새 클라우드 서비스에 새 가상 네트워크를 만든 후 [기존 가상 네트워크를 새 가상 네트워크](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)에 연결할 수 있습니다. [지역 가상 네트워크](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)에 대한 자세한 내용을 참조하세요.
 
-오류가 GeneralError*이면 리소스 유형(예: 특정한 VM 크기)이 클러스터에서 지원되지만 해당 시점에 클러스터에 유휴 리소스가 없을 가능성이 있습니다. 위의 시나리오와 유사하게 새 클라우드 서비스(새 클라우드 서비스는 다른 VIP를 사용해야 함)를 생성하여 원하는 계산 리소스를 추가하고 지역 가상 네트워크를 사용하여 클라우드 서비스를 연결합니다.
+오류가 GeneralError*이면 리소스 유형(예: 특정한 VM 크기)이 클러스터에서 지원되지만 해당 시점에 클러스터에 유휴 리소스가 없을 가능성이 있습니다. 위의 시나리오와 유사하게 새 클라우드 서비스(새 클라우드 서비스는 다른 VIP를 사용해야 함)를 생성하여 원하는 컴퓨팅 리소스를 추가하고 지역 가상 네트워크를 사용하여 클라우드 서비스를 연결합니다.
 
 ## <a name="restart-partially-stopped-deallocated-vms"></a>부분적으로 중지(할당 취소)된 VM 다시 시작
 **오류**
@@ -103,7 +103,7 @@ New_General* 또는 New_VMSizeNotSupported\*
 
 **클러스터 고정의 원인**
 
-선호도 그룹에 할당된 모든 계산 리소스는 하나의 클러스터에 연결됩니다. 해당 선호도 그룹에 속하는 새 컴퓨팅 리소스 요청은 기존 리소스를 호스트하는 동일한 클러스터에서 시도됩니다. 새로운 리소스가 새 클라우드 서비스에서 만들어지건 아니면 기존 클라우드 서비스를 통해 만들어지건 이 내용은 사실입니다.
+선호도 그룹에 할당된 모든 컴퓨팅 리소스는 하나의 클러스터에 연결됩니다. 해당 선호도 그룹에 속하는 새 컴퓨팅 리소스 요청은 기존 리소스를 호스트하는 동일한 클러스터에서 시도됩니다. 새로운 리소스가 새 클라우드 서비스에서 만들어지건 아니면 기존 클라우드 서비스를 통해 만들어지건 이 내용은 사실입니다.
 
 **해결 방법**
 
@@ -116,7 +116,7 @@ New_General* 또는 New_VMSizeNotSupported\*
 
 **클러스터 고정의 원인**
 
-지역 가상 네트워크가 도입되기 전에는 가상 네트워크를 선호도 그룹과 연결해야 했습니다. 결과적으로, 선호도 그룹에 배치 하는 리소스에 설명 된 대로 동일한 제약 조건에 의해 바인딩된를 계산 합니다 "할당 시나리오: 선호도 그룹 (V m/서비스 근접성) "위의 섹션입니다. 컴퓨팅 리소스는 한 개의 클러스터에 연결됩니다.
+지역 가상 네트워크가 도입되기 전에는 가상 네트워크를 선호도 그룹과 연결해야 했습니다. 따라서 선호도 그룹에 배치 된 계산 리소스는 다음과 같은 제약 조건에 의해 바인딩됩니다. 선호도 그룹 (v m/서비스 근접) "섹션을 나열 합니다. 컴퓨팅 리소스는 한 개의 클러스터에 연결됩니다.
 
 **해결 방법**
 

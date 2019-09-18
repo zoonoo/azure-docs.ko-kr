@@ -1,7 +1,7 @@
 ---
 title: '계산 대상: 모델을 학습 하 고 배포 하는 위치'
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스를 사용 하 여 모델을 학습 하거나 배포 하려는 위치를 정의 합니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning를 사용 하 여 모델을 학습 하거나 배포할 위치를 정의 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/10/2019
-ms.openlocfilehash: b2e4c9160ccad66b04dd30979f0568da68836d76
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: fe60b740312ee49510ea931bba1346ceaef9f31a
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860595"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035528"
 ---
-#  <a name="what-are-compute-targets-in-azure-machine-learning-service"></a>Azure Machine Learning 서비스에서 계산 대상 이란? 
+#  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Azure Machine Learning에서 계산 대상 이란? 
 
 **계산 대상은** 교육 스크립트를 실행 하거나 서비스 배포를 호스트 하는 지정 된 계산 리소스/환경입니다. 이 위치는 로컬 컴퓨터 또는 클라우드 기반 계산 리소스 일 수 있습니다. 계산 대상을 사용 하면 나중에 코드를 변경할 필요 없이 계산 환경을 쉽게 변경할 수 있습니다.  
 
@@ -29,7 +29,7 @@ ms.locfileid: "70860595"
 
 ## <a name="train"></a>계산 대상 학습
 
-Azure Machine Learning 서비스는 다양 한 계산 리소스에 대해 다양 한 지원을 제공 합니다.  다양 한 시나리오에 대 한 지원이 다를 수 있지만 고유한 계산 리소스를 연결할 수도 있습니다.
+Azure Machine Learning는 여러 계산 리소스에 대해 다양 한 지원을 제공 합니다.  다양 한 시나리오에 대 한 지원이 다를 수 있지만 고유한 계산 리소스를 연결할 수도 있습니다.
 
 [!INCLUDE [aml-compute-target-train](../../../includes/aml-compute-target-train.md)]
 
@@ -46,7 +46,7 @@ Azure Machine Learning 서비스는 다양 한 계산 리소스에 대해 다양
 <a name="amlcompute"></a>
 ## <a name="azure-machine-learning-compute-managed"></a>Azure Machine Learning compute (관리)
 
-관리 되는 계산 리소스는 Azure Machine Learning 서비스에 의해 생성 되 고 관리 됩니다. 이 계산은 machine learning 워크 로드에 최적화 되어 있습니다. Azure Machine Learning Compute는 2019 년 5 월 30 일에서 유일 하 게 관리 되는 계산입니다. 추가 관리 되는 계산 리소스를 나중에 추가할 수 있습니다.
+Azure Machine Learning에서 관리 되는 계산 리소스를 만들고 관리 합니다. 이 계산은 machine learning 워크 로드에 최적화 되어 있습니다. Azure Machine Learning Compute는 2019 년 5 월 30 일에서 유일 하 게 관리 되는 계산입니다. 추가 관리 되는 계산 리소스를 나중에 추가할 수 있습니다.
 
 학습 및 batch 추론 (미리 보기)에 대 한 Azure Machine Learning 계산을 사용할 수 있습니다.  이 계산 리소스를 사용 하 여 다음을 수행 합니다.
 
@@ -59,7 +59,7 @@ Azure Portal 또는 [작업 영역 방문 페이지 (미리 보기)](https://ml.
 
 ## <a name="unmanaged-compute"></a>관리 되지 않는 계산
 
-관리 되지 않는 계산 대상이 Azure Machine Learning 서비스에서 관리 *되지* 않습니다. Azure Machine Learning 외부에서이 유형의 계산 대상을 만든 다음 작업 영역에 연결 합니다. 관리 되지 않는 계산 리소스를 유지 관리 하거나 machine learning 작업의 성능을 향상 시키기 위해 추가 단계가 필요할 수 있습니다.
+관리 되지 않는 계산 대상이 Azure Machine Learning에서 관리 *되지* 않습니다. Azure Machine Learning 외부에서이 유형의 계산 대상을 만든 다음 작업 영역에 연결 합니다. 관리 되지 않는 계산 리소스를 유지 관리 하거나 machine learning 작업의 성능을 향상 시키기 위해 추가 단계가 필요할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,7 +1,7 @@
 ---
 title: SSL을 사용 하 여 웹 서비스 보안
-titleSuffix: Azure Machine Learning service
-description: HTTPS를 사용 하도록 설정 하 여 Azure Machine Learning 서비스를 통해 배포 된 웹 서비스를 보호 하는 방법을 알아봅니다. HTTPS는 SSL (secure socket layer)을 대체 하는 TLS (transport layer security)를 사용 하 여 클라이언트에서 데이터를 보호 합니다. 또한 클라이언트는 HTTPS를 사용 하 여 웹 서비스의 id를 확인 합니다.
+titleSuffix: Azure Machine Learning
+description: HTTPS를 사용 하도록 설정 하 여 Azure Machine Learning를 통해 배포 된 웹 서비스를 보호 하는 방법을 알아봅니다. HTTPS는 SSL (secure socket layer)을 대체 하는 TLS (transport layer security)를 사용 하 여 클라이언트에서 데이터를 보호 합니다. 또한 클라이언트는 HTTPS를 사용 하 여 웹 서비스의 id를 확인 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.author: aashishb
 author: aashishb
 ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8805e065c92b42013c1e56f20b4a032d280cb8ac
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: ce60806c26359ae682f5ab468e4f4265d3572c87
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772514"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034372"
 ---
 # <a name="use-ssl-to-secure-a-web-service-through-azure-machine-learning"></a>SSL을 사용 하 여 Azure Machine Learning 통해 웹 서비스 보호
 
-이 문서에서는 Azure Machine Learning 서비스를 통해 배포 된 웹 서비스를 보호 하는 방법을 보여 줍니다.
+이 문서에서는 Azure Machine Learning를 통해 배포 된 웹 서비스를 보호 하는 방법을 보여 줍니다.
 
 [HTTPS](https://en.wikipedia.org/wiki/HTTPS) 를 사용 하 여 웹 서비스에 대 한 액세스를 제한 하 고 클라이언트에서 제출 하는 데이터를 보호 합니다. HTTPS는 둘 간의 통신을 암호화 하 여 클라이언트와 웹 서비스 간의 통신을 보호 하는 데 도움이 됩니다. 암호화는 [TLS (전송 계층 보안)](https://en.wikipedia.org/wiki/Transport_Layer_Security)를 사용 합니다. Tls는 TLS의 선행 작업 인 *SSL(Secure Sockets Layer)* (SSL) 라고도 합니다.
 
@@ -151,7 +151,7 @@ aci_config = AciWebservice.deploy_configuration(
 
   왼쪽 창의 **설정** 아래에 있는 **구성** 탭에서 AKS 클러스터의 공용 IP 주소에 대 한 DNS를 업데이트 합니다. 다음 이미지를 참조 하세요. 공용 IP 주소는 AKS 에이전트 노드 및 기타 네트워킹 리소스를 포함 하는 리소스 그룹에 생성 된 리소스 형식입니다.
 
-  [![Azure Machine Learning 서비스: SSL을 사용 하 여 웹 서비스 보안](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
+  [![Azure Machine Learning: SSL을 사용 하 여 웹 서비스 보안](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
 
 ## <a name="update-the-ssl-certificate"></a>SSL 인증서 업데이트
 

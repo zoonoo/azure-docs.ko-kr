@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a5f15aa5264c0abf87cb15f0468e8a3a924e0b5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ef28520edd8500be0da52996e6484a0407fb03c8
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562348"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056438"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>웹 Api를 호출 하는 디먼 앱-토큰 획득
 
@@ -31,45 +31,44 @@ ms.locfileid: "68562348"
 
 클라이언트 자격 증명 흐름에 대해 요청할 범위는 리소스의 이름 뒤에 나옵니다 `/.default`. 이 표기법은 Azure AD에서 응용 프로그램 등록 중에 정적으로 선언 된 **응용 프로그램 수준 권한을** 사용 하도록 지시 합니다. 또한 앞서 살펴본 것 처럼 테 넌 트 관리자가 이러한 API 권한을 부여 해야 합니다.
 
-### <a name="net"></a>.NET
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 ```CSharp
 ResourceId = "someAppIDURI";
 var scopes = new [] {  ResourceId+"/.default"};
 ```
 
-### <a name="python"></a>Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 MSAL에서 Python의 구성 파일은 다음 코드 조각과 같습니다.
 
-```Python
+```Json
 {
-    "authority": "https://login.microsoftonline.com/organizations",
-    "client_id": "your_client_id",
-    "secret": "This is a sample only. You better NOT persist your password."
-    "scope": ["https://graph.microsoft.com/.default"]
+    "scope": ["https://graph.microsoft.com/.default"],
 }
 ```
 
-### <a name="java"></a>Java
+# <a name="javatabjava"></a>[Java](#tab/java)
 
 ```Java
-public final static String KEYVAULT_DEFAULT_SCOPE = "https://vault.azure.net/.default";
+final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default";
 ```
 
-### <a name="all"></a>모두
-
-클라이언트 자격 증명에 사용 되는 범위는 항상 resourceId + "/.default" 여야 합니다.
+---
 
 ### <a name="case-of-azure-ad-v10-resources"></a>Azure AD (v1.0) 리소스의 사례
 
+클라이언트 자격 증명에 사용 되는 범위는 항상 resourceId + "/.default" 여야 합니다.
+
 > [!IMPORTANT]
-> MSAL (Microsoft id 플랫폼 끝점)의 경우, v1.0 액세스 토큰을 수락 하는 리소스에 대 한 액세스 토큰을 요청 하는 경우, Azure AD는 마지막 슬래시 앞에 있는 모든 항목을 사용 하 고 리소스 식별자로 사용 하 여 요청 된 범위에서 원하는 대상 그룹을 구문 분석 합니다.
+> V 1.0 액세스 토큰을 수락 하는 리소스에 대 한 액세스 토큰을 요청 하는 MSAL의 경우, Azure AD는 마지막 슬래시 앞에 있는 모든 항목을 사용 하 고 리소스 식별자로 사용 하 여 요청 된 범위에서 원하는 대상 그룹을 구문 분석 합니다.
 > 따라서 azure sql ( **https://database.windows.net** )와 같이 리소스에서 슬래시 (azure `https://database.windows.net/` sql의 경우)로 끝나는 대상이 필요한 경우 범위 `https://database.windows.net//.default` 를 요청 해야 합니다 (이중 슬래시 참고). 참고 항목 MSAL.NET issue [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): 리소스 url의 후행 슬래시가 생략 되어 sql 인증 실패가 발생 했습니다.
 
 ## <a name="acquiretokenforclient-api"></a>AcquireTokenForClient API
 
-### <a name="net"></a>.NET
+앱에 대 한 토큰을 얻으려면 플랫폼에 따라 또는 `AcquireTokenForClient` 이와 동등한를 사용 합니다.
+
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 ```CSharp
 using Microsoft.Identity.Client;
@@ -98,13 +97,12 @@ catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
 }
 ```
 
-#### <a name="application-token-cache"></a>응용 프로그램 토큰 캐시
-
-MSAL.NET에서는 `AcquireTokenForClient` 를 호출 `AcquireTokenSilent` 하기 `AcquireTokenForClient` 전에 `AcquireTokenSilent` **사용자** 토큰 캐시를 사용 하 여 **응용 프로그램 토큰 캐시** 를 사용 합니다 (다른 모든 AcquireTokenXX 메서드는 사용자 토큰 캐시를 사용 함). `AcquireTokenForClient`**응용 프로그램** 토큰 캐시 자체를 확인 하 고 업데이트 합니다.
-
-### <a name="python"></a>Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 ```Python
+# The pattern to acquire a token looks like this.
+result = None
+
 # Firstly, looks up a token from cache
 # Since we are looking for token for the current app, NOT for an end user,
 # notice we give account parameter as None.
@@ -113,20 +111,42 @@ result = app.acquire_token_silent(config["scope"], account=None)
 if not result:
     logging.info("No suitable token exists in cache. Let's get a new one from AAD.")
     result = app.acquire_token_for_client(scopes=config["scope"])
+
+if "access_token" in result:
+    # Call a protected API with the access token
+    print(result["token_type"])
+    print(result["expires_in"])  # You don't normally need to care about this.
+                                 # It will be good for at least 5 minutes.
+else:
+    print(result.get("error"))
+    print(result.get("error_description"))
+    print(result.get("correlation_id"))  # You may need this when reporting a bug
 ```
 
-### <a name="java"></a>Java
+# <a name="javatabjava"></a>[Java](#tab/java)
 
 ```Java
-ClientCredentialParameters parameters = ClientCredentialParameters
-        .builder(Collections.singleton(KEYVAULT_DEFAULT_SCOPE))
+ClientCredentialParameters clientCredentialParam = ClientCredentialParameters.builder(
+        Collections.singleton(GRAPH_DEFAULT_SCOPE))
         .build();
 
-CompletableFuture<AuthenticationResult> future = cca.acquireToken(parameters);
+CompletableFuture<IAuthenticationResult> future = app.acquireToken(clientCredentialParam);
 
-// You can complete the future in many different ways. Here we use .get() for simplicity
-AuthenticationResult result = future.get();
+BiConsumer<IAuthenticationResult, Throwable> processAuthResult = (res, ex) -> {
+    if (ex != null) {
+        System.out.println("Oops! We have an exception - " + ex.getMessage());
+    }
+    System.out.println("Returned ok - " + res);
+    System.out.println("ID Token - " + res.idToken());
+
+    /* call a protected API with res.accessToken() */
+};
+
+future.whenCompleteAsync(processAuthResult);
+future.join();
 ```
+
+---
 
 ### <a name="protocol"></a>프로토콜
 
@@ -159,9 +179,11 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 &grant_type=client_credentials
 ```
 
-### <a name="learn-more-about-the-protocol"></a>프로토콜에 대 한 자세한 정보
-
 자세한 내용은 프로토콜 설명서를 참조 하세요. [Microsoft id 플랫폼 및 OAuth 2.0 클라이언트 자격 증명 흐름](v2-oauth2-client-creds-grant-flow.md)
+
+## <a name="application-token-cache"></a>응용 프로그램 토큰 캐시
+
+MSAL.NET에서는 `AcquireTokenForClient` 를 호출 `AcquireTokenSilent` 하기 `AcquireTokenForClient` 전에 `AcquireTokenSilent` **사용자** 토큰 캐시를 사용 하 여 **응용 프로그램 토큰 캐시** 를 사용 합니다 (다른 모든 AcquireTokenXX 메서드는 사용자 토큰 캐시를 사용 함). `AcquireTokenForClient`**응용 프로그램** 토큰 캐시 자체를 확인 하 고 업데이트 합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 

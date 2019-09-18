@@ -1,7 +1,7 @@
 ---
 title: Azure App Service에 ml 모델 배포 (미리 보기)
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스를 사용 하 여 Azure App Service에서 웹 앱에 모델을 배포 하는 방법을 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning를 사용 하 여 Azure App Service에서 웹 앱에 모델을 배포 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,21 +10,21 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/27/2019
-ms.openlocfilehash: 20a90a70c66310f6838b41a40aa945308bf338d4
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 24ec49a0f23516638d1f525341ea44e204653fea
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147900"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034591"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Azure App Service에 machine learning 모델 배포 (미리 보기)
 
-Azure App Service에서 웹 앱으로 Azure Machine Learning 서비스에서 모델을 배포 하는 방법에 대해 알아봅니다.
+Azure App Service에서 웹 앱으로 Azure Machine Learning에서 모델을 배포 하는 방법에 대해 알아봅니다.
 
 > [!IMPORTANT]
-> Azure Machine Learning 서비스와 Azure App Service를 모두 사용할 수 있지만 Machine Learning 서비스에서 App Service로 모델을 배포 하는 기능은 미리 보기 상태입니다.
+> Azure Machine Learning와 Azure App Service를 모두 사용할 수 있지만 Machine Learning 서비스에서 App Service로 모델을 배포 하는 기능은 미리 보기 상태입니다.
 
-Azure Machine Learning 서비스를 사용 하 여 학습 된 기계 학습 모델에서 Docker 이미지를 만들 수 있습니다. 이 이미지에는 데이터를 수신 하 고 모델에 제출한 다음 응답을 반환 하는 웹 서비스가 포함 되어 있습니다. Azure App Service는 이미지를 배포 하는 데 사용할 수 있으며 다음과 같은 기능을 제공 합니다.
+Azure Machine Learning를 통해 학습 된 기계 학습 모델에서 Docker 이미지를 만들 수 있습니다. 이 이미지에는 데이터를 수신 하 고 모델에 제출한 다음 응답을 반환 하는 웹 서비스가 포함 되어 있습니다. Azure App Service는 이미지를 배포 하는 데 사용할 수 있으며 다음과 같은 기능을 제공 합니다.
 
 * 보안 강화를 위한 고급 [인증](/azure/app-service/configure-authentication-provider-aad) 인증 방법에는 Azure Active Directory 및 multi-factor auth가 모두 포함 됩니다.
 * 다시 배포할 필요 없이 [자동으로 크기를 조정](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json) 합니다.
@@ -37,7 +37,7 @@ Azure App Service에서 제공 하는 기능에 대 한 자세한 내용은 [App
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure Machine Learning 서비스 작업 영역. 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md) 문서를 참조 하세요.
+* Azure Machine Learning 작업 영역 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md) 문서를 참조 하세요.
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * 작업 영역에 등록 된 학습 된 기계 학습 모델입니다. 모델이 없는 경우 [이미지 분류 자습서: 학습 모델 학습](tutorial-train-models-with-aml.md) 및 등록을 사용 합니다.
 
@@ -48,7 +48,7 @@ Azure App Service에서 제공 하는 기능에 대 한 자세한 내용은 [App
     > * `model`-배포 될 등록 된 모델입니다.
     > * `inference_config`-모델에 대 한 유추 구성입니다.
     >
-    > 이러한 변수를 설정 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning 서비스를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
+    > 이러한 변수를 설정 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
 
 ## <a name="prepare-for-deployment"></a>배포 준비
 
@@ -66,7 +66,7 @@ Azure App Service에서 제공 하는 기능에 대 한 자세한 내용은 [App
     >
     > 시나리오에 사용할 수 있는 또 다른 대안은 점수를 매길 때 데이터 저장소에 대 한 액세스를 제공 하는 [일괄 처리 예측](how-to-run-batch-predictions.md)입니다.
 
-    항목 스크립트에 대 한 자세한 내용은 [Azure Machine Learning 서비스를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
+    항목 스크립트에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
 
 * 항목 스크립트나 모델을 실행 하는 데 필요한 도우미 스크립트 또는 Python/Conda 패키지와 같은 **종속성**
 
@@ -89,7 +89,7 @@ Azure App Service에서 제공 하는 기능에 대 한 자세한 내용은 [App
 
 환경에 대 한 자세한 내용은 [교육 및 배포를 위한 환경 만들기 및 관리](how-to-use-environments.md)를 참조 하세요.
 
-유추 구성에 대 한 자세한 내용은 [Azure Machine Learning 서비스를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
+유추 구성에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
 
 > [!IMPORTANT]
 > Azure App Service에 배포 하는 경우 __배포 구성을__만들 필요가 없습니다.
@@ -99,7 +99,7 @@ Azure App Service에서 제공 하는 기능에 대 한 자세한 내용은 [App
 Azure App Service에 배포 되는 Docker 이미지를 만들려면 [모델인 패키지](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config--generate-dockerfile-false-)를 사용 합니다. 다음 코드 조각에서는 모델 및 유추 구성에서 새 이미지를 작성 하는 방법을 보여 줍니다.
 
 > [!NOTE]
-> 이 `model` 코드 조각에서는에 등록 된 모델이 포함 되어 `inference_config` 있고 유추 환경에 대 한 구성이 포함 되어 있다고 가정 합니다. 자세한 내용은 [Azure Machine Learning 서비스를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
+> 이 `model` 코드 조각에서는에 등록 된 모델이 포함 되어 `inference_config` 있고 유추 환경에 대 한 구성이 포함 되어 있다고 가정 합니다. 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
 
 ```python
 from azureml.core import Model
@@ -110,7 +110,7 @@ package.wait_for_creation(show_output=True)
 print(package.location)
 ```
 
-인 `show_output=True`경우 Docker 빌드 프로세스의 출력이 표시 됩니다. 프로세스가 완료 되 면 작업 영역에 대 한 Azure Container Registry에 이미지가 생성 됩니다. 이미지가 빌드되면 Azure Container Registry의 위치가 표시 됩니다. 반환 된 위치는 형식 `<acrinstance>.azurecr.io/package:<imagename>`입니다. `myml08024f78fd10.azurecr.io/package:20190827151241` )을 입력합니다.
+인 `show_output=True`경우 Docker 빌드 프로세스의 출력이 표시 됩니다. 프로세스가 완료 되 면 작업 영역에 대 한 Azure Container Registry에 이미지가 생성 됩니다. 이미지가 빌드되면 Azure Container Registry의 위치가 표시 됩니다. 반환 된 위치는 형식 `<acrinstance>.azurecr.io/package:<imagename>`입니다. 예를 들어, `myml08024f78fd10.azurecr.io/package:20190827151241`을 입력합니다.
 
 > [!IMPORTANT]
 > 이미지를 배포할 때 사용 되는 위치 정보를 저장 합니다.
@@ -153,7 +153,7 @@ print(package.location)
     이 예제에서는 __기본__ 가격 책정 계층 (`--sku B1`)이 사용 됩니다.
 
     > [!IMPORTANT]
-    > Azure Machine Learning 서비스에서 만든 이미지는 Linux를 사용 하므로 매개 변수를 `--is-linux` 사용 해야 합니다.
+    > Azure Machine Learning에서 만든 이미지는 Linux를 사용 하므로 매개 변수를 `--is-linux` 사용 해야 합니다.
 
 1. 웹 앱을 만들려면 다음 명령을 사용 합니다. 사용할 `<app-name>` 이름으로 대체 합니다. `package.location` 및 `<acrinstance>` 를앞에서반환된의값으로바꿉니다.`<imagename>`
 
@@ -242,7 +242,7 @@ az webapp show --name <app-name> --resource-group myresourcegroup
 
 ## <a name="use-the-web-app"></a>웹 앱 사용
 
-모델에 요청을 전달 하는 웹 서비스는에 `{baseurl}/score`있습니다. `https://<app-name>.azurewebsites.net/score` )을 입력합니다. 다음 Python 코드는 URL에 데이터를 전송 하 고 응답을 표시 하는 방법을 보여 줍니다.
+모델에 요청을 전달 하는 웹 서비스는에 `{baseurl}/score`있습니다. 예를 들어, `https://<app-name>.azurewebsites.net/score`을 입력합니다. 다음 Python 코드는 URL에 데이터를 전송 하 고 응답을 표시 하는 방법을 보여 줍니다.
 
 ```python
 import requests

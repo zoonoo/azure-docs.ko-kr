@@ -4,7 +4,7 @@ description: 부팅 시 VM이 파일 시스템 확인 중을 표시하는 문제
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 ms.service: virtual-machines-windows
 ms.topic: troubleshooting
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
-ms.openlocfilehash: ad4053c2dda50598853528bb6e8b3441c455fbba
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 839803c8cf54a85946e7134fdb6fe6be2da3dc4c
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70080236"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058089"
 ---
 # <a name="windows-shows-checking-file-system-when-booting-an-azure-vm"></a>Azure VM을 부팅할 때 Windows에서 "파일 시스템 확인 중"을 표시합니다.
 

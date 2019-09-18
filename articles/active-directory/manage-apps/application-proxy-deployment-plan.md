@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: 04a2a3f2557ccef510a831a5c9fbf89bb62cb9a7
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 959d959cd269884b3b75c4c23bfd0054ae64ced7
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812840"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033641"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Azure AD 응용 프로그램 프록시 배포 계획
 
@@ -64,7 +64,7 @@ Azure AD 응용 프로그램 프록시를 구성 하 고 구현 하려면 다음
 
 *  **Azure 온 보 딩**: 응용 프로그램 프록시를 배포 하기 전에 사용자 id를 온-프레미스 디렉터리에서 동기화 하거나 Azure AD 테 넌 트 내에서 직접 만들어야 합니다. ID 동기화를 통해 Azure AD가 사용자에게 App Proxy 게시 애플리케이션에 대한 액세스 권한을 부여하기 전에 미리 인증하고 SSO(Single Sign-On)를 수행하는 데 필요한 사용자 식별자 정보를 가질 수 있습니다.
 
-* **조건부 액세스 요구 사항**: 인트라넷 액세스에는 응용 프로그램 프록시를 사용 하지 않는 것이 좋습니다. 이렇게 하면 사용자에 게 영향을 주는 대기 시간이 추가 됩니다. 인터넷에서 원격 액세스에 대 한 사전 인증 및 조건부 액세스 정책과 함께 응용 프로그램 프록시를 사용 하는 것이 좋습니다.  인트라넷 사용에 대 한 조건부 액세스를 제공 하는 방법은 응용 프로그램을 현대화 하 여 AAD를 사용 하 여 인증할 수 있도록 하는 것입니다. 자세한 내용은 [AAD로 응용 프로그램 마이그레이션에 대 한 리소스](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) 를 참조 하세요. 
+* **조건부 액세스 요구 사항**: 인트라넷 액세스에는 응용 프로그램 프록시를 사용 하지 않는 것이 좋습니다. 이렇게 하면 사용자에 게 영향을 주는 대기 시간이 추가 됩니다. 인터넷에서 원격 액세스에 대 한 사전 인증 및 조건부 액세스 정책과 함께 응용 프로그램 프록시를 사용 하는 것이 좋습니다.  인트라넷 사용에 대 한 조건부 액세스를 제공 하는 방법은 응용 프로그램을 현대화 하 여 AAD로 직접 인증할 수 있도록 하는 것입니다. 자세한 내용은 [AAD로 응용 프로그램 마이그레이션에 대 한 리소스](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) 를 참조 하세요. 
 
 * **서비스 제한**: 개별 테 넌 트가 과도 하 게 리소스를 사용 하지 않도록 보호 하기 위해 응용 프로그램 및 테 넌 트 당 제한 한도가 설정 됩니다. 이러한 한도를 확인 하려면 [AZURE AD 서비스 제한 및 제한 사항](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions)을 참조 하세요. 이러한 제한 제한은 일반적인 사용량 볼륨 위에 있는 벤치 마크를 기반으로 하며 대다수 배포에 대 한 충분 한 버퍼를 제공 합니다.
 
@@ -93,8 +93,8 @@ Azure AD 응용 프로그램 프록시를 구성 하 고 구현 하려면 다음
 
 | 정보 유형| 수집할 정보 |
 |---|---|
-| 서비스 종류| 예를 들어: SharePoint, SAP, CRM, 사용자 지정 웹 응용 프로그램, API |
-| 애플리케이션 플랫폼 | 예를 들어: Windows IIS, Linux의 Apache, Tomcat, NGINX |
+| 서비스 종류| 예: SharePoint, SAP, CRM, 사용자 지정 웹 응용 프로그램, API |
+| 애플리케이션 플랫폼 | 예: Windows IIS, Linux의 Apache, Tomcat, NGINX |
 | 도메인 멤버 자격| 웹 서버의 FQDN (정규화 된 도메인 이름) |
 | 응용 프로그램 위치 | 웹 서버 또는 팜이 인프라에 있는 위치 |
 | 내부 액세스 | 내부적으로 응용 프로그램에 액세스할 때 사용 되는 정확한 URL입니다. <br> 팜이 사용 중인 부하 분산 유형은 무엇 인가요? <br> 응용 프로그램이 자체가 아닌 소스에서 콘텐츠를 그릴지 여부를 지정 합니다.<br> 응용 프로그램이 Websocket을 통해 작동 하는지 확인 합니다. |
@@ -239,7 +239,7 @@ SSO (Single sign-on)를 사용 하 여 단일 응용 프로그램에 대해 원�
 
 3. **사전 인증** 필드에서 드롭다운 목록을 사용 하 여 **Azure Active Directory**를 선택 하 고 **저장**을 선택 합니다.
 
-사전 인증을 사용 하는 경우 Azure AD는 인증을 위해 먼저 사용자에 게 질문을 하 고, Single Sign-On configued 경우 백 엔드 응용 프로그램은 응용 프로그램에 대 한 액세스가 부여 되기 전에 사용자도 확인 합니다. 이전 인증 모드를 통과에서 Azure AD로 변경 하면 HTTPS를 사용 하 여 외부 URL도 구성 되므로 HTTP에 대해 초기에 구성 된 모든 응용 프로그램은 이제 HTTPS를 사용 하 여 보안이 유지 됩니다.
+사전 인증을 사용 하는 경우 Azure AD는 인증을 위해 먼저 사용자에 게 질문을 하 고 Single Sign-On 구성 된 경우 응용 프로그램에 대 한 액세스가 부여 되기 전에 백 엔드 응용 프로그램도 사용자를 확인 합니다. 이전 인증 모드를 통과에서 Azure AD로 변경 하면 HTTPS를 사용 하 여 외부 URL도 구성 되므로 HTTP에 대해 초기에 구성 된 모든 응용 프로그램은 이제 HTTPS를 사용 하 여 보안이 유지 됩니다.
 
 ### <a name="enable-single-sign-on"></a>Single Sign-On 사용
 
@@ -292,11 +292,11 @@ Microsoft는 Azure AD에서 필요한 작업을 수행할 수 있는 최소한�
 
 ### <a name="reporting-and-monitoring"></a>보고 및 모니터링
 
-Azure AD는 [감사 로그 및 보고서](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs)를 통해 조직의 응용 프로그램 사용 현황 및 작업 상태에 대 한 추가 정보를 제공 합니다. 응용 프로그램 프록시를 사용 하면 Azure AD 포털 및 Windows 이벤트 로그에서 커넥터를 매우 쉽게 모니터링할 수 있습니다.
+Azure AD는 [감사 로그 및 보고서](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)를 통해 조직의 응용 프로그램 사용 현황 및 작업 상태에 대 한 추가 정보를 제공 합니다. 응용 프로그램 프록시를 사용 하면 Azure AD 포털 및 Windows 이벤트 로그에서 커넥터를 매우 쉽게 모니터링할 수 있습니다.
 
 #### <a name="application-audit-logs"></a>애플리케이션 감사 로그
 
-이러한 로그는 응용 프로그램 프록시 및 장치와 응용 프로그램에 액세스 하는 사용자로 구성 된 응용 프로그램에 로그인 하는 방법에 대 한 자세한 정보를 제공 합니다. [감사 로그](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs) 는 Azure Portal 및 내보내기에 대 한 [감사 API](https://docs.microsoft.com/graph/api/resources/directoryaudit?view=graph-rest-beta) 에 있습니다. 또한 응용 프로그램에 대 한 [사용량 및 통찰력 보고서](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-usage-insights-report) 도 사용할 수 있습니다.
+이러한 로그는 응용 프로그램 프록시 및 장치와 응용 프로그램에 액세스 하는 사용자로 구성 된 응용 프로그램에 로그인 하는 방법에 대 한 자세한 정보를 제공 합니다. [감사 로그](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) 는 Azure Portal 및 내보내기에 대 한 [감사 API](https://docs.microsoft.com/graph/api/resources/directoryaudit?view=graph-rest-beta) 에 있습니다. 또한 응용 프로그램에 대 한 [사용량 및 통찰력 보고서](../reports-monitoring/concept-usage-insights-report.md?context=azure/active-directory/manage-apps/context/manage-apps-context) 도 사용할 수 있습니다.
 
 #### <a name="application-proxy-connector-monitoring"></a>응용 프로그램 프록시 커넥터 모니터링
 

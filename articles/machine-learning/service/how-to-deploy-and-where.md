@@ -1,7 +1,7 @@
 ---
 title: 모델을 배포 하는 방법 및 위치
-titleSuffix: Azure Machine Learning service
-description: Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge 및 필드 프로그래밍 가능 게이트 배열을 포함 하 여 Azure Machine Learning 서비스 모델을 배포 하는 방법 및 위치를 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge 및 필드 프로그래밍 가능 게이트 배열을 포함 하 여 Azure Machine Learning 모델을 배포 하는 방법 및 위치를 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +11,14 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: ff3a19a543f87833420f585bbdf7891cc7589746
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: f70975749be52e8498488d7019bf5cb8d858df54
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70997199"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034697"
 ---
-# <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning Services를 사용하여 모델 배포
+# <a name="deploy-models-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 모델 배포
 
 Azure 클라우드의 웹 서비스로 machine learning 모델을 배포 하거나 장치를 Azure IoT Edge 하는 방법에 대해 알아봅니다.
 
@@ -29,11 +29,11 @@ Azure 클라우드의 웹 서비스로 machine learning 모델을 배포 하거�
 1. 계산 대상에 모델을 배포 합니다.
 1. 웹 서비스 라고도 하는 배포 된 모델을 테스트 합니다.
 
-배포 워크플로와 관련 된 개념에 대 한 자세한 내용은 [Azure Machine Learning 서비스를 사용 하 여 모델 관리, 배포 및 모니터링](concept-model-management-and-deployment.md)을 참조 하세요.
+배포 워크플로와 관련 된 개념에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 관리, 배포 및 모니터링](concept-model-management-and-deployment.md)을 참조 하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- Azure Machine Learning 서비스 작업 영역. 자세한 내용은 [Azure Machine Learning 서비스 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
+- Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 
 - 모델. 학습 된 모델이 없는 경우 [이 자습서](https://aka.ms/azml-deploy-cloud)에 제공 된 모델 및 종속성 파일을 사용할 수 있습니다.
 
@@ -41,7 +41,7 @@ Azure 클라우드의 웹 서비스로 machine learning 모델을 배포 하거�
 
 ## <a name="connect-to-your-workspace"></a>작업 영역에 연결
 
-다음 코드에서는 로컬 개발 환경에 캐시 된 정보를 사용 하 여 Azure Machine Learning 서비스 작업 영역에 연결 하는 방법을 보여 줍니다.
+다음 코드에서는 로컬 개발 환경에 캐시 된 정보를 사용 하 여 Azure Machine Learning 작업 영역에 연결 하는 방법을 보여 줍니다.
 
 + **SDK 사용**
 
@@ -118,7 +118,7 @@ Azure 클라우드의 웹 서비스로 machine learning 모델을 배포 하거�
 
 ### <a name="register-a-model-from-a-local-file"></a>로컬 파일에서 모델 등록
 
-모델의 로컬 경로를 제공 하 여 모델을 등록할 수 있습니다. 폴더 또는 단일 파일의 경로를 제공할 수 있습니다. 이 메서드를 사용 하 여 Azure Machine Learning 서비스로 학습 한 모델을 등록 한 다음 다운로드할 수 있습니다. 이 메서드를 사용 하 여 Azure Machine Learning 외부에서 학습 된 모델을 등록할 수도 있습니다.
+모델의 로컬 경로를 제공 하 여 모델을 등록할 수 있습니다. 폴더 또는 단일 파일의 경로를 제공할 수 있습니다. 이 메서드를 사용 하 여 Azure Machine Learning으로 학습 된 모델을 등록 한 다음 다운로드할 수 있습니다. 이 메서드를 사용 하 여 Azure Machine Learning 외부에서 학습 된 모델을 등록할 수도 있습니다.
 
 [!INCLUDE [trusted models](../../../includes/machine-learning-service-trusted-model.md)]
 
@@ -154,7 +154,7 @@ Azure 클라우드의 웹 서비스로 machine learning 모델을 배포 하거�
 
 자세한 내용은 [모델 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py)에 대 한 설명서를 참조 하세요.
 
-Azure Machine Learning 서비스 외부에서 학습 한 모델을 사용 하는 방법에 대 한 자세한 내용은 [기존 모델을 배포 하는 방법](how-to-deploy-existing-model.md)을 참조 하세요.
+Azure Machine Learning 외부에서 학습 한 모델을 사용 하는 방법에 대 한 자세한 내용은 [기존 모델을 배포 하는 방법](how-to-deploy-existing-model.md)을 참조 하세요.
 
 <a name="target"></a>
 
@@ -214,7 +214,7 @@ model_path = Model.get_model_path('sklearn_mnist')
 
 #### <a name="optional-automatic-schema-generation"></a>필드 자동 스키마 생성
 
-웹 서비스에 대 한 스키마를 자동으로 생성 하려면 정의 된 형식 개체 중 하나에 대 한 생성자에서 입력 및/또는 출력의 샘플을 제공 합니다. 유형 및 샘플은 스키마를 자동으로 만드는 데 사용 됩니다. 그런 다음 Azure Machine Learning 서비스는 배포 중에 웹 서비스에 대 한 [Openapi](https://swagger.io/docs/specification/about/) (Swagger) 사양을 만듭니다.
+웹 서비스에 대 한 스키마를 자동으로 생성 하려면 정의 된 형식 개체 중 하나에 대 한 생성자에서 입력 및/또는 출력의 샘플을 제공 합니다. 유형 및 샘플은 스키마를 자동으로 만드는 데 사용 됩니다. 그런 다음 Azure Machine Learning는 배포 중에 웹 서비스에 대 한 [Openapi](https://swagger.io/docs/specification/about/) (Swagger) 사양을 만듭니다.
 
 현재 지원 되는 형식은 다음과 같습니다.
 
@@ -630,7 +630,7 @@ print(response.json())
     "swagger": "2.0",
     "info": {
         "title": "myservice",
-        "description": "API specification for the Azure Machine Learning service myservice",
+        "description": "API specification for Azure Machine Learning myservice",
         "version": "1.0"
     },
     "schemes": [
@@ -762,7 +762,7 @@ print(response.json())
 사양에서 클라이언트 라이브러리를 만들 수 있는 유틸리티는 [swagger-codegen](https://github.com/swagger-api/swagger-codegen)를 참조 하세요.
 
 ### <a id="azuremlcompute"></a>일괄 처리 유추
-Azure Machine Learning 계산 대상은 Azure Machine Learning 서비스에서 만들어지고 관리 됩니다. Azure Machine Learning 파이프라인에서 일괄 처리 예측에 사용할 수 있습니다.
+Azure Machine Learning Azure Machine Learning 계산 대상이 만들어지고 관리 됩니다. Azure Machine Learning 파이프라인에서 일괄 처리 예측에 사용할 수 있습니다.
 
 Azure Machine Learning 계산을 사용한 일괄 처리 유추 연습은 [일괄 처리를 실행 하는 방법](tutorial-pipeline-batch-scoring-classification.md)을 참조 하세요.
 
@@ -776,7 +776,7 @@ Azure Machine Learning 계산을 사용한 일괄 처리 유추 연습은 [일�
 
 ## <a name="continuously-deploy-models"></a>지속적으로 모델 배포
 
-[Azure DevOps](https://azure.microsoft.com/services/devops/)에 대 한 Machine Learning 확장을 사용 하 여 모델을 지속적으로 배포할 수 있습니다. 새 Machine Learning 모델이 Azure Machine Learning 서비스 작업 영역에 등록 된 경우 Azure DevOps 용 Machine Learning 확장을 사용 하 여 배포 파이프라인을 트리거할 수 있습니다.
+[Azure DevOps](https://azure.microsoft.com/services/devops/)에 대 한 Machine Learning 확장을 사용 하 여 모델을 지속적으로 배포할 수 있습니다. 새 Machine Learning 모델이 Azure Machine Learning 작업 영역에 등록 된 경우 Azure DevOps 용 Machine Learning 확장을 사용 하 여 배포 파이프라인을 트리거할 수 있습니다.
 
 1. 응용 프로그램을 사용 가능한 플랫폼 또는 클라우드에 지속적으로 통합 하 고 제공 하는 [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops)에 등록 하세요. Azure Pipelines은 [Machine Learning 파이프라인과](concept-ml-pipelines.md#compare)동일 하지 않습니다.
 
@@ -784,7 +784,7 @@ Azure Machine Learning 계산을 사용한 일괄 처리 유추 연습은 [일�
 
 1. [Azure Pipelines에 대 한 Machine Learning 확장](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml&targetId=6756afbe-7032-4a36-9cb6-2771710cadc2&utm_source=vstsproduct&utm_medium=ExtHubManageList)을 설치 합니다.
 
-1. 서비스 연결을 사용 하 여 아티팩트에 액세스할 수 있도록 Azure Machine Learning 서비스 작업 영역에 대 한 서비스 사용자 연결을 설정 합니다. 프로젝트 설정으로 이동 하 여 **서비스 연결**을 선택 하 고 **Azure Resource Manager**를 선택 합니다.
+1. 서비스 연결을 사용 하 여 아티팩트에 액세스할 수 있도록 Azure Machine Learning 작업 영역에 대 한 서비스 사용자 연결을 설정 합니다. 프로젝트 설정으로 이동 하 여 **서비스 연결**을 선택 하 고 **Azure Resource Manager**를 선택 합니다.
 
     [![Azure Resource Manager 선택](media/how-to-deploy-and-where/view-service-connection.png)](media/how-to-deploy-and-where/view-service-connection-expanded.png)
 

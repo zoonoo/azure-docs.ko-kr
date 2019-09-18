@@ -4,7 +4,7 @@ description: Windows용 Azure Performance Diagnostics VM 확장을 소개합니�
 services: virtual-machines-windows'
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: na
 tags: ''
 ms.service: virtual-machines-windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f933a7414771d5e485498ef909a7dea8e0b1210c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6f104fc6513874bfef5f4bf9fe7f536c3e3d69cf
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70090378"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057538"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Windows용 Azure Performance Diagnostics VM 확장
 
@@ -27,7 +27,7 @@ Azure 성능 진단 VM 확장을 통해 Windows VM의 성능 진단 데이터를
 > [!NOTE]
 > 클래식이 아닌 VM에 대한 Azure Portal의 VM에서 진단을 실행하려는 경우 새 환경을 사용하는 것이 좋습니다. 자세한 내용은 [Azure 가상 머신에 대한 진단 수행](performance-diagnostics.md)을 참조 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 확장은 Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 및 Windows Server 2016에 설치될 수 있습니다. Windows 8.1 및 Windows 10에 설치할 수도 있습니다.
 

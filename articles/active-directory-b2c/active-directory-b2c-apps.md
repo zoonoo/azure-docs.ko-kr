@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 09cdc2fb5dba152e467164fd757225c7a9183264
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: b0472b10de3641f1575f7f9a5c223ab5032f0e16
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68369409"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066157"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Active Directory B2C에서 사용할 수 있는 응용 프로그램 유형
 
-Azure AD(Azure Active Directory) B2C는 다양한 최신 애플리케이션 아키텍처의 인증을 지원합니다. 모두 업계 표준 프로토콜인 [OAuth 2.0](active-directory-b2c-reference-protocols.md) 또는 [OpenID Connect](active-directory-b2c-reference-protocols.md)를 기반으로 합니다. 이 문서에서는 선호 하는 언어 또는 플랫폼에 독립적으로 빌드할 수 있는 응용 프로그램의 유형을 설명 합니다. 또한 애플리케이션 빌드를 시작하기 전에 대략적인 시나리오에 대한 이해를 돕습니다.
+Azure Active Directory B2C (Azure AD B2C)는 다양 한 최신 응용 프로그램 아키텍처에 대 한 인증을 지원 합니다. 모두 업계 표준 프로토콜인 [OAuth 2.0](active-directory-b2c-reference-protocols.md) 또는 [OpenID Connect](active-directory-b2c-reference-protocols.md)를 기반으로 합니다. 이 문서에서는 선호 하는 언어 또는 플랫폼에 독립적으로 빌드할 수 있는 응용 프로그램의 유형을 설명 합니다. 또한 애플리케이션 빌드를 시작하기 전에 대략적인 시나리오에 대한 이해를 돕습니다.
 
 Azure AD B2C를 사용하는 모든 애플리케이션은 [Azure Portal](https://portal.azure.com/)을 사용하여 [Azure AD B2C 테넌트](active-directory-b2c-get-started.md)에 등록해야 합니다. 애플리케이션 등록 프로세스는 다음과 같은 값을 수집하고 할당합니다.
 
@@ -39,7 +39,7 @@ Azure AD B2C로 전송 되는 각 요청은 **사용자 흐름** (기본 제공 
 
 이러한 단계는 빌드 중인 애플리케이션의 유형에 따라 약간씩 다를 수 있습니다.
 
-## <a name="web-applications"></a>웹 애플리케이션
+## <a name="web-applications"></a>웹 응용 프로그램
 
 서버에서 호스트되며 브라우저를 통해 액세스하는 웹 애플리케이션(.NET, PHP, Java, Ruby, Python, Node.js 등)의 경우, Azure AD B2C는 모든 사용자 환경에 [OpenID Connect](active-directory-b2c-reference-protocols.md)를 지원합니다. OpenID Connect의 Azure AD B2C 구현에서 웹 애플리케이션은 Azure AD로 인증 요청을 발급하여 사용자 환경을 시작합니다. 요청의 결과는 `id_token`입니다. 이 보안 토큰은 사용자의 ID를 나타냅니다. 또한 클레임 형태로 사용자에 대한 정보를 제공합니다.
 
@@ -132,12 +132,12 @@ On-Behalf-Of 흐름이라고도 하는 OAuth 2.0 JWT 전달자 자격 증명 권
 
 다음과 같은 방식으로 Azure AD B2C 애플리케이션을 편집하지 마세요.
 
--  [애플리케이션 등록 포털](https://apps.dev.microsoft.com/)과 같은 다른 애플리케이션 관리 포털
+-  [애플리케이션 등록 포털](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)과 같은 다른 애플리케이션 관리 포털
 - Graph API 또는 PowerShell 사용
 
 Azure Portal 외부에서 Azure AD B2C 애플리케이션을 편집하는 경우 오류가 발생한 애플리케이션이 되며 더 이상 Azure AD B2C에 사용할 수 없습니다. 이러한 경우에는 애플리케이션을 삭제한 후에 다시 만드세요.
 
-애플리케이션을 삭제하려면 [애플리케이션 등록 포털](https://apps.dev.microsoft.com/)로 이동하고 거기에서 애플리케이션을 삭제합니다. 애플리케이션을 표시하려면 애플리케이션의 소유자여야 합니다(테넌트의 관리자가 아님).
+애플리케이션을 삭제하려면 [애플리케이션 등록 포털](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)로 이동하고 거기에서 애플리케이션을 삭제합니다. 애플리케이션을 표시하려면 애플리케이션의 소유자여야 합니다(테넌트의 관리자가 아님).
 
 ## <a name="next-steps"></a>다음 단계
 

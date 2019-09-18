@@ -4,7 +4,7 @@ description: PowerShell을 사용하여 다중 NIC이 있는 VM(클래식)을 �
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-service-management
 ms.assetid: 6e50f39a-2497-4845-a5d4-7332dbc203c5
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 087b52bd603e8aed6078ab340e84c1f6bd0e8082
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: af22bc43a06be74c7a4b6c869725a19fc87a0f3e
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60748493"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058739"
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>PowerShell을 사용하여 다중 NIC이 있는 VM(클래식) 만들기
 
@@ -36,7 +36,7 @@ Azure에서 VM(가상 머신)을 만들고 각 VM에 여러 NIC(네트워크 인
 
 다음 단계에서는 WEB 서버에 *IaaSStory*라는 리소스 그룹을, DB 서버에 *IaaSStory-BackEnd*라는 리소스 그룹을 사용합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 DB 서버를 만들려면 먼저 이 시나리오에 필요한 모든 리소스로 *IaaSStory* 리소스 그룹을 만들어야 합니다. 이러한 리소스를 만들려면 다음 단계를 완료합니다. [가상 네트워크 만들기](virtual-networks-create-vnet-classic-netcfg-ps.md) 문서에 나오는 단계를 따라 VNet을 만듭니다.
 

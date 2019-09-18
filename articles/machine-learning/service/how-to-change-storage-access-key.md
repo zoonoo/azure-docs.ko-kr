@@ -1,7 +1,7 @@
 ---
 title: 저장소 계정 액세스 키 변경
-titleSuffix: Azure Machine Learning service
-description: 작업 영역에서 사용 하는 Azure Storage 계정의 액세스 키를 변경 하는 방법에 대해 알아봅니다. Azure Machine Learning 서비스는 Azure Storage 계정을 사용 하 여 데이터 및 모델을 저장 합니다. 저장소 계정에 대 한 액세스 키를 다시 생성 하는 경우 새 키를 사용 하도록 Azure Machine Learning 서비스를 업데이트 해야 합니다.
+titleSuffix: Azure Machine Learning
+description: 작업 영역에서 사용 하는 Azure Storage 계정의 액세스 키를 변경 하는 방법에 대해 알아봅니다. Azure Machine Learning는 Azure Storage 계정을 사용 하 여 데이터 및 모델을 저장 합니다. 저장소 계정에 대 한 액세스 키를 다시 생성 하는 경우 새 키를 사용 하도록 Azure Machine Learning를 업데이트 해야 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,22 +10,22 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/16/2019
-ms.openlocfilehash: e386e34a8326a51753631ee9ea4215d01ba7ceb3
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 6c87d4553c7b0fd34513d761558a06cd527c4e3b
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558235"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034963"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>저장소 계정 액세스 키 다시 생성
 
-Azure Machine Learning 서비스에서 사용 하는 Azure Storage 계정의 액세스 키를 변경 하는 방법에 대해 알아봅니다. 저장소 계정을 사용 하 여 데이터 나 학습 된 모델을 저장할 수 Azure Machine Learning.
+Azure Machine Learning에서 사용 하는 Azure Storage 계정의 액세스 키를 변경 하는 방법에 대해 알아봅니다. 저장소 계정을 사용 하 여 데이터 나 학습 된 모델을 저장할 수 Azure Machine Learning.
 
 보안을 위해 Azure Storage 계정에 대 한 액세스 키를 변경 해야 할 수 있습니다. 액세스 키를 다시 생성 하는 경우 새 키를 사용 하도록 Azure Machine Learning 업데이트 해야 합니다. Azure Machine Learning은 모델 저장소 및 데이터 저장소에 대 한 저장소 계정을 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure Machine Learning 서비스 작업 영역. 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md) 문서를 참조 하세요.
+* Azure Machine Learning 작업 영역 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md) 문서를 참조 하세요.
 
 * [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)입니다.
 
@@ -35,7 +35,7 @@ Azure Machine Learning 서비스에서 사용 하는 Azure Storage 계정의 액
 
 ## <a name="what-needs-to-be-updated"></a>업데이트 해야 하는 항목
 
-저장소 계정은 Azure Machine Learning 서비스 작업 영역에서 사용할 수 있습니다. 즉, 로그, 모델, 스냅숏 등을 저장 하 고 데이터 저장소로 사용할 수 있습니다. 작업 영역을 업데이트 하는 프로세스는 단일 Azure CLI 명령이 며 저장소 키를 업데이트 한 후에 실행할 수 있습니다. 데이터 저장소를 업데이트 하는 프로세스는 더 복잡 하며, 현재 저장소 계정을 사용 하는 데이터 저장소를 검색 한 다음 다시 등록 해야 합니다.
+저장소 계정은 Azure Machine Learning 작업 영역에서 사용할 수 있습니다. 즉, 로그, 모델, 스냅숏 등을 저장 하 고 데이터 저장소로 사용할 수 있습니다. 작업 영역을 업데이트 하는 프로세스는 단일 Azure CLI 명령이 며 저장소 키를 업데이트 한 후에 실행할 수 있습니다. 데이터 저장소를 업데이트 하는 프로세스는 더 복잡 하며, 현재 저장소 계정을 사용 하는 데이터 저장소를 검색 한 다음 다시 등록 해야 합니다.
 
 > [!IMPORTANT]
 > Azure CLI를 사용 하 여 작업 영역을 업데이트 하 고 Python을 사용 하 여 데이터 저장소를 동시에 업데이트 합니다. 하나만 업데이트 해도 충분 하지 않으며 둘 다 업데이트 될 때까지 오류가 발생할 수 있습니다.
@@ -74,7 +74,7 @@ for name, ds in datastores.items():
 
 ## <a name="update-the-access-key"></a>액세스 키 업데이트
 
-새 키를 사용 하도록 Azure Machine Learning 서비스를 업데이트 하려면 다음 단계를 사용 합니다.
+새 키를 사용 하도록 Azure Machine Learning를 업데이트 하려면 다음 단계를 사용 합니다.
 
 > [!IMPORTANT]
 > 모든 단계를 수행 하 여 CLI를 사용 하 여 작업 영역을 업데이트 하 고 Python을 사용 하 여 데이터 저장소를 업데이트 합니다. 하나만 업데이트 하면 둘 다 업데이트 될 때까지 오류가 발생할 수 있습니다.

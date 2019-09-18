@@ -1,6 +1,6 @@
 ---
 title: ML 파이프라인 이란?
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: 이 문서에서는 Python용 Azure Machine Learning SDK로 빌드할 수 있는 기계 학습 파이프라인 및 파이프라인 사용의 장점에 대해 알아보겠습니다. ML(기계 학습) 파이프라인은 데이터 과학자가 해당 기계 학습 워크플로를 빌드 및 최적화하고 관리하는 데 사용합니다.
 services: machine-learning
 ms.service: machine-learning
@@ -11,16 +11,16 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2547ca3af3039af53cb5fd5b244669b9152c21b3
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 07efde7c3664ba1866e59f23c31b9c385ed9c366
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993295"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035496"
 ---
-# <a name="what-are-ml-pipelines-in-azure-machine-learning-service"></a>Azure Machine Learning 서비스의 ML 파이프라인 이란?
+# <a name="what-are-ml-pipelines-in-azure-machine-learning"></a>Azure Machine Learning의 ML 파이프라인 이란?
 
-Azure Machine Learning 서비스를 사용 하 여 빌드 및 관리할 수 있는 machine learning 파이프라인에 대해 알아봅니다. 
+Azure Machine Learning를 사용 하 여 빌드 및 관리할 수 있는 machine learning 파이프라인에 대해 알아봅니다. 
 
 ML(기계 학습) 파이프라인, 데이터 과학자, 데이터 엔지니어 및 IT 전문가를 사용하면 다음에 포함된 단계에서 공동 작업을 할 수 있습니다.
 + 정규화 및 변환 같은 데이터 준비
@@ -30,7 +30,7 @@ ML(기계 학습) 파이프라인, 데이터 과학자, 데이터 엔지니어 �
 
 [첫 번째 파이프라인을 만드는](how-to-create-your-first-pipeline.md) 방법을 알아봅니다.
 
-![Azure Machine Learning Service의 기계 학습 파이프라인](./media/concept-ml-pipelines/pipeline-flow.png)
+![Azure Machine Learning의 기계 학습 파이프라인](./media/concept-ml-pipelines/pipeline-flow.png)
 
 <a name="compare"></a>
 ### <a name="which-azure-pipeline-technology-should-i-use"></a>어떤 Azure 파이프라인 기술을 사용 해야 하나요?

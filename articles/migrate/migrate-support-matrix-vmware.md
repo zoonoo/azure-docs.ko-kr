@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: ecceb1177d7b7015afc92f10284a9372d0cfb4a2
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: a0ca483005cf1f5aaadcd7a6107b092d581d6773
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375309"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067765"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>VMware 평가 및 마이그레이션 지원 매트릭스
 
@@ -43,10 +43,13 @@ ms.locfileid: "70375309"
 Azure Government | US Gov 버지니아
 아시아 태평양 | 동아시아 또는 동남 아시아
 오스트레일리아 | 오스트레일리아 동부 또는 오스트레일리아 남동쪽
+브라질 | 브라질 남부
 캐나다 | 캐나다 중부 또는 캐나다 동부
 Europe | 북유럽 또는 유럽 서부
+프랑스 | 프랑스 중부
 인도 | 인도 중부 또는 인도 남부
 일본 |  일본 동부 또는 일본 서 부
+대한민국 | 대한민국 중부 또는 한국 남부
 영국 | 영국 남부 또는 영국 서부
 미국 | 미국 중부 또는 미국 서 부 2
 
@@ -73,7 +76,7 @@ Azure Migrate는 경량 어플라이언스를 실행 하 여 VMware Vm을 검색
 
 **지원** | **세부 정보**
 --- | ---
-**어플라이언스 배포** | 어플라이언스를 VMware VM으로 배포 합니다. 32 g b RAM, 8 개 vCPUs, 80 GB의 디스크 저장소 및 외부 가상 스위치를 사용 하 여 VM을 할당 하려면 vCenter Server에 충분 한 리소스가 필요 합니다.<br/><br/> 어플라이언스는 직접 또는 프록시를 통해 인터넷에 액세스 해야 합니다.<br/> 어플라이언스 VM은 버전 5.5 이상을 실행 하는 ESXi 호스트에 배포 해야 합니다. 
+**어플라이언스 배포** | 어플라이언스를 VMware VM으로 배포 합니다. 32 g b RAM, 8 개 vCPUs, 80 GB의 디스크 저장소 및 외부 가상 스위치를 사용 하 여 VM을 할당 하려면 vCenter Server에 충분 한 리소스가 필요 합니다.<br/><br/> 어플라이언스는 직접 또는 프록시를 통해 인터넷에 액세스 해야 합니다.<br/> 어플라이언스 VM은 버전 5.5 이상을 실행 하는 ESXi 호스트에 배포 해야 합니다.
 **Azure Migrate 프로젝트** | 어플라이언스는 단일 프로젝트에 연결할 수 있습니다. <br/> 모든 수의 어플라이언스를 단일 프로젝트에 연결할 수 있습니다.<br/> 프로젝트에서 최대 35000 개의 Vm을 평가할 수 있습니다.
 **조사** | 어플라이언스는 vCenter Server에서 VMware Vm을 1만 개까지 검색할 수 있습니다.<br/> 어플라이언스는 단일 vCenter Server에 연결할 수 있습니다.
 **평가 그룹** | 단일 그룹에 최대 35000 대의 컴퓨터를 추가할 수 있습니다.

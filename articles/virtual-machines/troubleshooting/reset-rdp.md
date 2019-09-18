@@ -4,7 +4,7 @@ description: Azure Portal 또는 Azure PowerShell을 사용하여 Windows VM에�
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 45c69812-d3e4-48de-a98d-39a0f5675777
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: caa0066f8020c19cecccaa0421f90188260c644b
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 580ec443dc087f270e30856c336a5699bbf1ae71
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710633"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058453"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Windows VM에서 원격 데스크톱 서비스 또는 해당 관리자 암호 다시 설정
 Windows VM(가상 머신)에 연결할 수 없는 경우 로컬 관리자 암호를 다시 설정하거나 원격 데스크톱 서비스 구성을 다시 설정할 수 있습니다(Windows 도메인 컨트롤러에서는 지원되지 않음). 암호를 다시 설정하려면 Azure Portal이나 Azure PowerShell의 VM 액세스 확장을 사용합니다. VM에 로그인한 후 해당 로컬 관리자의 암호를 다시 설정합니다.  
@@ -45,7 +45,7 @@ PowerShell을 사용하는 경우 [최신 PowerShell 모듈을 설치 및 구성
 
 ### <a name="reset-the-remote-desktop-services-configuration"></a>**원격 데스크톱 서비스 구성 다시 설정**
 
-이 프로세스는 VM에서 원격 데스크톱 서비스를 사용 하도록 설정 되며 기본 RDP 포트인 3389에 대 한 방화벽 규칙을 만듭니다.
+이 프로세스는 VM에서 원격 데스크톱 서비스를 사용 하도록 설정 하 고 기본 RDP 포트 3389에 대 한 방화벽 규칙을 만듭니다.
 
 1. Windows VM을 선택한 다음, **지원 + 문제 해결** 아래에서 **암호 다시 설정**을 선택합니다. **암호 다시 설정** 창이 표시됩니다. 
 

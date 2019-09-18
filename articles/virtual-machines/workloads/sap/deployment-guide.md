@@ -13,14 +13,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/26/2018
+ms.date: 09/16/2019
 ms.author: sedusch
-ms.openlocfilehash: b9db5cbb9e65fc7bc8aa306a69a0889f29b61be3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 549fd8f4cb770d472eefd1c504e42837fa8230dd
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101345"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066858"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 배포
 
@@ -121,12 +121,12 @@ ms.locfileid: "70101345"
 [deployment-guide-4.4]:deployment-guide.md#c7cbb0dc-52a4-49db-8e03-83e7edc2927d (Azure VM 에이전트 다운로드, 설치 및 사용)
 [deployment-guide-4.5.1]:deployment-guide.md#987cf279-d713-4b4c-8143-6b11589bb9d4 (Azure PowerShell)
 [deployment-guide-4.5.2]:deployment-guide.md#408f3779-f422-4413-82f8-c57a23b4fc2f (Azure CLI)
-[deployment-guide-4.5]:deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca (SAP용 Azure 고급 모니터링 확장 구성)
-[deployment-guide-5.1]:deployment-guide.md#bb61ce92-8c5c-461f-8c53-39f5e5ed91f2 (SAP용 Azure 고급 모니터링에 대한 준비 검사)
-[deployment-guide-5.2]:deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (Azure 모니터링 인프라에 대한 상태 검사)
-[deployment-guide-5.3]:deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8 (SAP용 Azure 모니터링 문제 해결)
+[deployment-guide-4.5]:deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca (SAP 용 Azure 확장 구성)
+[deployment-guide-5.1]:deployment-guide.md#bb61ce92-8c5c-461f-8c53-39f5e5ed91f2 (SAP 용 Azure 확장에 대 한 준비 검사)
+[deployment-guide-5.2]:deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (SAP 용 Azure 확장 구성에 대 한 상태 검사)
+[deployment-guide-5.3]:deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8 (SAP 용 Azure 확장 문제 해결)
 
-[deployment-guide-configure-monitoring-scenario-1]:deployment-guide.md#ec323ac3-1de9-4c3a-b770-4ff701def65b (모니터링 구성)
+[deployment-guide-configure-monitoring-scenario-1]:deployment-guide.md#ec323ac3-1de9-4c3a-b770-4ff701def65b (VM 확장 구성)
 [deployment-guide-configure-proxy]:deployment-guide.md#baccae00-6f79-4307-ade4-40292ce4e02d (프록시 구성)
 [deployment-guide-figure-100]:media/virtual-machines-shared-sap-deployment-guide/100-deploy-vm-image.png
 [deployment-guide-figure-1000]:media/virtual-machines-shared-sap-deployment-guide/1000-service-properties.png
@@ -150,7 +150,7 @@ ms.locfileid: "70101345"
 [deployment-guide-figure-azure-cli-installed]:deployment-guide.md#402488e5-f9bb-4b29-8063-1c5f52a892d0
 [deployment-guide-figure-azure-cli-version]:deployment-guide.md#0ad010e6-f9b5-4c21-9c09-bb2e5efb3fda
 [deployment-guide-install-vm-agent-windows]:deployment-guide.md#b2db5c9a-a076-42c6-9835-16945868e866
-[deployment-guide-troubleshooting-chapter]:deployment-guide.md#564adb4f-5c95-4041-9616-6635e83a810b (엔드투엔드 모니터링 설정 확인 및 문제 해결)
+[deployment-guide-troubleshooting-chapter]:deployment-guide.md#564adb4f-5c95-4041-9616-6635e83a810b (SAP 호스트 에이전트의 종단 간 데이터 수집에 대 한 확인 및 문제 해결)
 
 [deploy-template-cli]:../../../resource-group-template-deploy-cli.md
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
@@ -327,7 +327,7 @@ Windows 또는 Linux VM을 관리하려면 PowerShell 스크립트와 Azure Port
 
 ### <a name="internet-connection"></a>인터넷 연결
 
-SAP 소프트웨어 배포에 필요한 도구와 스크립트를 다운로드하고 실행하려면 인터넷에 연결해야 합니다. 또한 SAP용 Azure 고급 모니터링 확장을 실행하는 Azure VM에서 인터넷에 액세스해야 합니다. Azure VM이 Azure virtual network 또는 온-프레미스 도메인의 일부인 경우 [프록시 구성][deployment-guide-configure-proxy]에 설명 된 대로 관련 프록시 설정이 설정 되었는지 확인 합니다.
+SAP 소프트웨어 배포에 필요한 도구와 스크립트를 다운로드하고 실행하려면 인터넷에 연결해야 합니다. SAP 용 Azure 확장을 실행 하는 Azure VM에는 인터넷에 대 한 액세스 권한도 필요 합니다. Azure VM이 Azure virtual network 또는 온-프레미스 도메인의 일부인 경우 [프록시 구성][deployment-guide-configure-proxy]에 설명 된 대로 관련 프록시 설정이 설정 되었는지 확인 합니다.
 
 ### <a name="microsoft-azure-subscription"></a>Microsoft Azure 구독
 
@@ -412,7 +412,7 @@ Azure Marketplace에서 Microsoft 또는 타사에서 제공하는 이미지를 
 
 Azure Marketplace에서 이미지를 사용하여 새 가상 머신을 만드는 가장 쉬운 방법은 Azure Portal을 사용하는 것입니다.
 
-1.  [https://partnercenter.microsoft.com/partner/support](<https://portal.azure.com/#create/hub>)로 이동하세요.  또는 Azure Portal 메뉴에서 **+새로 만들기**를 선택합니다.
+1.  로 이동하세요.<https://portal.azure.com/#create/hub>  또는 Azure Portal 메뉴에서 **+새로 만들기**를 선택합니다.
 1.  **Compute**를 선택한 다음, 배포할 운영 체제 유형을 선택합니다. 예를 들어, Windows Server 2012 R2, SUSE Linux Enterprise Server 12(SLES 12), Red Hat Enterprise Linux 7.2(RHEL 7.2) 또는 Oracle Linux 7.2입니다. 기본 목록 보기에는 지원되는 일부 운영 체제가 표시되지 않을 수도 있습니다. 전체 목록을 보려면 **모두 보기**를 선택합니다. SAP 소프트웨어 배포를 위한 지원되는 운영 체제에 대한 자세한 내용은 SAP Note [1928533]을 참조하세요.
 1.  다음 페이지에서 약관을 검토합니다.
 1.  **배포 모델 선택** 목록에서 **Resource Manager**를 선택합니다.
@@ -421,7 +421,7 @@ Azure Marketplace에서 이미지를 사용하여 새 가상 머신을 만드는
 마법사의 필수 매개 변수 설정을 통해 네트워크 인터페이스 및 스토리지 계정과 같은 모든 필요한 리소스와 함께 가상 머신을 만들 수 있습니다. 다음은 일부 매개 변수입니다.
 
 1. **기본 사항**:
-   * **이름**: 리소스 이름(가상 머신 이름)입니다.
+   * **Name**: 리소스 이름(가상 머신 이름)입니다.
    * **VM 디스크 유형**: OS 디스크의 디스크 유형을 선택합니다. 데이터 디스크로 Premium Storage를 사용하려는 경우 OS 디스크에도 Premium Storage를 사용하는 것이 좋습니다.
    * **사용자 이름 및 암호** 또는 **SSH 공개 키**: 사용자 이름과 프로비전 중에 만든 사용자 암호를 입력합니다. Linux 가상 컴퓨터의 경우 컴퓨터에 로그인하는 데 사용하는 공용 SSH(Secure Shell) 키를 입력할 수 있습니다.
    * **구독**: 새 가상 머신을 프로비전하는 데 사용할 구독을 선택합니다.
@@ -440,7 +440,7 @@ Azure Marketplace에서 이미지를 사용하여 새 가상 머신을 만드는
      * **가상 네트워크** 및 **서브넷**: 인트라넷에 가상 머신을 통합하려면 온-프레미스 네트워크에 연결된 가상 네트워크를 선택합니다.
      * **공용 IP 주소**: 사용하려는 공용 IP 주소를 선택하거나 매개 변수를 입력하여 새 공용 IP 주소를 만듭니다. 인터넷에서 가상 머신에 액세스하는 공용 IP 주소를 사용할 수 있습니다. 또한 가상 머신에 안전하게 액세스하려면 네트워크 보안 그룹을 만들어야 합니다.
      * **네트워크 보안 그룹**: 자세한 내용은 [네트워크 보안 그룹을 사용 하 여 네트워크 트래픽 흐름 제어][virtual-networks-nsg]를 참조 하세요.
-   * **확장**: 확장을 배포에 추가하여 가상 머신 확장을 설치할 수 있습니다. 이 단계에서는 확장을 추가할 필요가 없습니다. SAP 지원에 필요한 확장은 나중에 설치됩니다. 이 가이드의 [SAP 용 Azure 고급 모니터링 확장 구성][deployment-guide-4.5] 챕터를 참조 하세요.
+   * **확장**: 확장을 배포에 추가하여 가상 머신 확장을 설치할 수 있습니다. 이 단계에서는 확장을 추가할 필요가 없습니다. SAP 지원에 필요한 확장은 나중에 설치됩니다. 이 가이드의 [SAP 용 Azure 확장 구성][deployment-guide-4.5] 챕터를 참조 하세요.
    * **고가용성**: 가용성 집합을 선택하거나 매개 변수를 입력하여 새 가용성 집합을 만듭니다. 자세한 내용은 [Azure 가용성 집합][planning-guide-3.2.3]을 참조 하세요.
    * **모니터링**
      * **부팅 진단**: 부팅 진단을 **사용 안 함**으로 선택할 수 있습니다.
@@ -508,19 +508,19 @@ Azure Marketplace에서 이미지를 사용하는 경우 Azure VM 에이전트�
 
 #### <a name="configure-proxy-settings"></a>프록시 설정 구성
 
-온-프레미스 네트워크가 구성된 방법에 따라 VM에 프록시를 설정해야 할 수 있습니다. VM이 VPN 또는 ExpressRoute를 통해 온-프레미스 네트워크에 연결된 경우 인터넷에 액세스하지 못할 수도 있으며 필수 확장을 다운로드하거나 모니터링 데이터를 수집할 수 없습니다. 자세한 내용은 [프록시 구성][deployment-guide-configure-proxy]을 참조 하세요.
+온-프레미스 네트워크가 구성된 방법에 따라 VM에 프록시를 설정해야 할 수 있습니다. VM이 VPN 또는 Express 경로를 통해 온-프레미스 네트워크에 연결 된 경우 VM이 인터넷에 액세스 하지 못할 수 있으며, 필요한 VM 확장을 다운로드 하거나 SAP 확장을 통해 SAP 호스트 에이전트에 대 한 Azure 인프라 정보를 수집할 수 없습니다. Azure의 경우. 자세한 내용은 [프록시 구성][deployment-guide-configure-proxy]을 참조 하세요.
 
 #### <a name="join-a-domain-windows-only"></a>도메인 가입(Windows에만 해당)
 
 Azure 배포가 azure 사이트 간 VPN 연결 또는 Express 경로를 통해 온-프레미스 Active Directory 또는 DNS 인스턴스에 연결 된 경우 (이는 Azure에서 *온-프레미스* 로, [SAP에 대 한 계획 및 구현 Virtual Machines NetWeaver][planning-guide])는 VM이 온-프레미스 도메인에 가입 하는 것으로 예상 됩니다. 이 작업에 대 한 고려 사항에 대 한 자세한 내용은 [온-프레미스 도메인에 VM 가입 (Windows에만 해당)][deployment-guide-4.3]을 참조 하세요.
 
-#### <a name="ec323ac3-1de9-4c3a-b770-4ff701def65b"></a>모니터링 구성
+#### <a name="ec323ac3-1de9-4c3a-b770-4ff701def65b"></a>VM 확장 구성
 
-Sap에서 사용자 환경을 지원 하도록 하려면 [sap 용 Azure 고급 모니터링 확장 구성][deployment-guide-4.5]에 설명 된 대로 Sap 용 Azure 모니터링 확장을 설정 합니다. Sap [리소스][deployment-guide-2.2]에 나열 된 리소스에서 sap 모니터링의 필수 구성 요소와 sap 커널 및 Sap 호스트 에이전트의 필수 최소 버전을 확인 합니다.
+Sap에서 사용자 환경을 지원 하도록 하려면 [sap 용 Azure 확장 구성][deployment-guide-4.5]에 설명 된 대로 Sap 용 azure 확장을 설정 합니다. Sap [리소스][deployment-guide-2.2]에 나열 된 리소스에서 sap의 필수 구성 요소와 sap 커널 및 Sap 호스트 에이전트의 필수 최소 버전을 확인 합니다.
 
-#### <a name="monitoring-check"></a>모니터링 확인
+#### <a name="vm-extension-for-sap-check"></a>SAP 검사를 위한 VM 확장
 
-[종단 간 모니터링 설정에 대 한 검사 및 문제 해결][deployment-guide-troubleshooting-chapter]에 설명 된 대로 모니터링이 작동 하는지 확인 합니다.
+[Sap 호스트 에이전트의 종단 간 데이터 수집에 대 한 검사 및 문제 해결][deployment-guide-troubleshooting-chapter]에 설명 된 대로 SAP 용 VM 확장이 작동 하는지 확인 합니다.
 
 #### <a name="post-deployment-steps"></a>배포 후 단계
 
@@ -555,13 +555,13 @@ Linux에 대한 프라이빗 이미지를 만들려면 Windows에 대해 프라�
 
 Managed Disk 이미지에서 새 가상 머신을 만드는 가장 쉬운 방법은 Azure Portal을 사용하는 것입니다. Manage Disk 이미지를 만드는 방법에 대한 자세한 내용은 [Azure에서 일반화된 VM의 관리되는 이미지 캡처](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource)를 읽어보세요.
 
-1.  [https://partnercenter.microsoft.com/partner/support](<https://ms.portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Compute%2Fimages>)로 이동하세요. 또는 Azure Portal 메뉴에서 **이미지**를 선택합니다.
+1.  로 이동하세요.<https://ms.portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Compute%2Fimages> 또는 Azure Portal 메뉴에서 **이미지**를 선택합니다.
 1.  배포하려는 Managed Disk 이미지를 선택하고 **VM 만들기**를 클릭합니다.
 
 마법사의 필수 매개 변수 설정을 통해 네트워크 인터페이스 및 스토리지 계정과 같은 모든 필요한 리소스와 함께 가상 머신을 만들 수 있습니다. 다음은 일부 매개 변수입니다.
 
 1. **기본 사항**:
-   * **이름**: 리소스 이름(가상 머신 이름)입니다.
+   * **Name**: 리소스 이름(가상 머신 이름)입니다.
    * **VM 디스크 유형**: OS 디스크의 디스크 유형을 선택합니다. 데이터 디스크로 Premium Storage를 사용하려는 경우 OS 디스크에도 Premium Storage를 사용하는 것이 좋습니다.
    * **사용자 이름 및 암호** 또는 **SSH 공개 키**: 사용자 이름과 프로비전 중에 만든 사용자 암호를 입력합니다. Linux 가상 컴퓨터의 경우 컴퓨터에 로그인하는 데 사용하는 공용 SSH(Secure Shell) 키를 입력할 수 있습니다.
    * **구독**: 새 가상 머신을 프로비전하는 데 사용할 구독을 선택합니다.
@@ -579,7 +579,7 @@ Managed Disk 이미지에서 새 가상 머신을 만드는 가장 쉬운 방법
      * **가상 네트워크** 및 **서브넷**: 인트라넷에 가상 머신을 통합하려면 온-프레미스 네트워크에 연결된 가상 네트워크를 선택합니다.
      * **공용 IP 주소**: 사용하려는 공용 IP 주소를 선택하거나 매개 변수를 입력하여 새 공용 IP 주소를 만듭니다. 인터넷에서 가상 머신에 액세스하는 공용 IP 주소를 사용할 수 있습니다. 또한 가상 머신에 안전하게 액세스하려면 네트워크 보안 그룹을 만들어야 합니다.
      * **네트워크 보안 그룹**: 자세한 내용은 [네트워크 보안 그룹을 사용 하 여 네트워크 트래픽 흐름 제어][virtual-networks-nsg]를 참조 하세요.
-   * **확장**: 확장을 배포에 추가하여 가상 머신 확장을 설치할 수 있습니다. 이 단계에서는 확장을 추가할 필요가 없습니다. SAP 지원에 필요한 확장은 나중에 설치됩니다. 이 가이드의 [SAP 용 Azure 고급 모니터링 확장 구성][deployment-guide-4.5] 챕터를 참조 하세요.
+   * **확장**: 확장을 배포에 추가하여 가상 머신 확장을 설치할 수 있습니다. 이 단계에서는 확장을 추가할 필요가 없습니다. SAP 지원에 필요한 확장은 나중에 설치됩니다. 이 가이드의 [SAP 용 Azure 확장 구성][deployment-guide-4.5] 챕터를 참조 하세요.
    * **고가용성**: 가용성 집합을 선택하거나 매개 변수를 입력하여 새 가용성 집합을 만듭니다. 자세한 내용은 [Azure 가용성 집합][planning-guide-3.2.3]을 참조 하세요.
    * **모니터링**
      * **부팅 진단**: 부팅 진단을 **사용 안 함**으로 선택할 수 있습니다.
@@ -654,22 +654,22 @@ Azure 배포가 azure 사이트 간 VPN 연결 또는 Azure Express 경로를 �
 
 #### <a name="configure-proxy-settings"></a>프록시 설정 구성
 
-온-프레미스 네트워크가 구성된 방법에 따라 VM에 프록시를 설정해야 할 수 있습니다. VM이 VPN 또는 ExpressRoute를 통해 온-프레미스 네트워크에 연결된 경우 인터넷에 액세스하지 못할 수도 있으며 필수 확장을 다운로드하거나 모니터링 데이터를 수집할 수 없습니다. 자세한 내용은 [프록시 구성][deployment-guide-configure-proxy]을 참조 하세요.
+온-프레미스 네트워크가 구성된 방법에 따라 VM에 프록시를 설정해야 할 수 있습니다. VM이 VPN 또는 Express 경로를 통해 온-프레미스 네트워크에 연결 된 경우 VM이 인터넷에 액세스 하지 못할 수 있으며, 필요한 VM 확장을 다운로드 하거나 SAP 확장을 통해 SAP 호스트 에이전트에 대 한 Azure 인프라 정보를 수집할 수 없습니다. Azure의 경우 [프록시 구성][deployment-guide-configure-proxy]을 참조 하세요.
 
-#### <a name="configure-monitoring"></a>모니터링 구성
+#### <a name="configure-azure-vm-extension-for-sap"></a>SAP 용 Azure VM 확장 구성
 
-Sap에서 사용자 환경을 지원 하도록 하려면 [sap 용 Azure 고급 모니터링 확장 구성][deployment-guide-4.5]에 설명 된 대로 Sap 용 Azure 모니터링 확장을 설정 합니다. Sap [리소스][deployment-guide-2.2]에 나열 된 리소스에서 sap 모니터링의 필수 구성 요소와 sap 커널 및 Sap 호스트 에이전트의 필수 최소 버전을 확인 합니다.
+Sap에서 사용자 환경을 지원 하도록 하려면 [sap 용 Azure 확장 구성][deployment-guide-4.5]에 설명 된 대로 Sap 용 azure 확장을 설정 합니다. Sap [리소스][deployment-guide-2.2]에 나열 된 리소스에서 sap의 필수 구성 요소와 sap 커널 및 Sap 호스트 에이전트의 필수 최소 버전을 확인 합니다.
 
-#### <a name="monitoring-check"></a>모니터링 확인
+#### <a name="sap-vm-extension-check"></a>SAP VM 확장 확인
 
-[종단 간 모니터링 설정에 대 한 검사 및 문제 해결][deployment-guide-troubleshooting-chapter]에 설명 된 대로 모니터링이 작동 하는지 확인 합니다.
+[Sap 호스트 에이전트의 종단 간 데이터 수집에 대 한 검사 및 문제 해결][deployment-guide-troubleshooting-chapter]에 설명 된 대로 SAP 용 VM 확장이 작동 하는지 확인 합니다.
 
 
 ### <a name="a9a60133-a763-4de8-8986-ac0fa33aa8c1"></a>시나리오 3: SAP에서 일반화되지 않은 Azure VHD를 사용하여 온-프레미스 VM 이동
 
 이 시나리오에서는 온-프레미스 환경에서 특정 SAP 시스템을 Azure로 이동하려고 합니다. OS, SAP 이진 파일 및 결과적 DBMS 이진 파일을 포함하고 있는 VHD와 함께 DBMS 데이터와 로그 파일이 있는 VHD를 Azure에 업로드하여 이 작업을 수행할 수 있습니다. [시나리오 2: Sap][deployment-guide-3.3]용 사용자 지정 이미지를 사용 하 여 VM을 배포 하는 경우 온-프레미스 환경에서 구성 되었기 때문에 Azure vm에서 호스트 이름, sap SID 및 sap 사용자 계정을 유지 합니다. OS를 일반화할 필요가 없습니다. 이 시나리오는 SAP 지형의 일부는 온-프레미스를 실행하고 일부는 Azure에서 실행하는 프레미스 간 시나리오에 가장 자주 적용됩니다.
 
-이 시나리오에서 VM 에이전트는 배포하는 동안 자동으로 설치되지 **않습니다.** Azure에서 SAP NetWeaver을 실행하려면 VM 에이전트 및 SAP용 Azure 고급 모니터링 확장이 필요하므로 가상 머신을 만든 후에 두 구성 요소를 모두 수동으로 다운로드하여 설치하고 사용하도록 설정해야 합니다.
+이 시나리오에서 VM 에이전트는 배포하는 동안 자동으로 설치되지 **않습니다.** Azure에서 SAP NetWeaver을 실행 하려면 VM 에이전트 및 SAP 용 Azure 확장이 필요 하므로 가상 머신을 만든 후에 두 구성 요소를 모두 수동으로 다운로드 하 여 설치 하 고 사용 하도록 설정 해야 합니다.
 
 Azure VM 에이전트에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
@@ -744,26 +744,26 @@ Azure 배포가 azure 사이트 간 VPN 연결 또는 Express 경로를 통해 �
 
 #### <a name="configure-proxy-settings"></a>프록시 설정 구성
 
-온-프레미스 네트워크가 구성된 방법에 따라 VM에 프록시를 설정해야 할 수 있습니다. VM이 VPN 또는 ExpressRoute를 통해 온-프레미스 네트워크에 연결된 경우 인터넷에 액세스하지 못할 수도 있으며 필수 확장을 다운로드하거나 모니터링 데이터를 수집할 수 없습니다. 자세한 내용은 [프록시 구성][deployment-guide-configure-proxy]을 참조 하세요.
+온-프레미스 네트워크가 구성된 방법에 따라 VM에 프록시를 설정해야 할 수 있습니다. VM이 VPN 또는 Express 경로를 통해 온-프레미스 네트워크에 연결 된 경우 VM이 인터넷에 액세스 하지 못할 수 있으며, 필요한 VM 확장을 다운로드 하거나 SAP 확장을 통해 SAP 호스트 에이전트에 대 한 Azure 인프라 정보를 수집할 수 없습니다. Azure의 경우 [프록시 구성][deployment-guide-configure-proxy]을 참조 하세요.
 
-#### <a name="configure-monitoring"></a>모니터링 구성
+#### <a name="configure-azure-vm-extension-for-sap"></a>SAP 용 Azure VM 확장 구성
 
-Sap에서 사용자 환경을 지원 하도록 하려면 [sap 용 Azure 고급 모니터링 확장 구성][deployment-guide-4.5]에 설명 된 대로 Sap 용 Azure 모니터링 확장을 설정 합니다. Sap [리소스][deployment-guide-2.2]에 나열 된 리소스에서 sap 모니터링의 필수 구성 요소와 sap 커널 및 Sap 호스트 에이전트의 필수 최소 버전을 확인 합니다.
+Sap에서 사용자 환경을 지원 하도록 하려면 [sap 용 Azure 확장 구성][deployment-guide-4.5]에 설명 된 대로 Sap 용 azure 확장을 설정 합니다. Sap [리소스][deployment-guide-2.2]에 나열 된 리소스에서 sap의 필수 구성 요소와 sap 커널 및 Sap 호스트 에이전트의 필수 최소 버전을 확인 합니다.
 
-#### <a name="monitoring-check"></a>모니터링 확인
+#### <a name="sap-vm-check"></a>SAP VM 확인
 
-[종단 간 모니터링 설정에 대 한 검사 및 문제 해결][deployment-guide-troubleshooting-chapter]에 설명 된 대로 모니터링이 작동 하는지 확인 합니다.
+[Sap 호스트 에이전트의 종단 간 데이터 수집에 대 한 검사 및 문제 해결][deployment-guide-troubleshooting-chapter]에 설명 된 대로 SAP 용 VM 확장이 작동 하는지 확인 합니다.
 
-## <a name="update-the-monitoring-configuration-for-sap"></a>SAP용 모니터링 구성 업데이트
+## <a name="update-the-configuration-of-azure-extension-for-sap"></a>SAP 용 Azure 확장의 구성 업데이트
 
-다음과 시나리오에서 SAP 모니터링 구성을 업데이트합니다.
-* Microsoft/SAP 공동 팀은 모니터링 기능을 확장했으며 더 많거나 적은 카운터를 요청하고 있습니다.
-* Microsoft는 모니터링 데이터를 제공하는 새 버전의 기본 Azure 인프라를 도입했으며, SAP용 Azure 고급 모니터링 확장은 이러한 변화에 적응해야 합니다.
-* Azure VM에서 데이터 디스크를 추가로 탑재하거나 제거합니다. 이 시나리오에서 스토리지 관련 데이터의 컬렉션을 업데이트합니다. 엔드포인트를 추가 또는 삭제하거나 VM에 IP 주소를 할당하여 구성을 변경해도 모니터링 구성에 영향을 주지 않습니다.
+다음 시나리오에서 SAP 용 Azure 확장의 구성을 업데이트 합니다.
+* 공동 Microsoft/SAP 팀은 VM 확장의 기능을 확장 하 고 더 많거나 더 작은 카운터를 요청 합니다.
+* Microsoft는 데이터를 제공 하는 새로운 버전의 기본 Azure 인프라를 도입 했으며, SAP 용 Azure 확장을 이러한 변경 내용에 맞게 조정 해야 합니다.
+* Azure VM에서 데이터 디스크를 추가로 탑재하거나 제거합니다. 이 시나리오에서 스토리지 관련 데이터의 컬렉션을 업데이트합니다. 끝점을 추가 또는 삭제 하거나 VM에 IP 주소를 할당 하 여 구성을 변경 해도 확장 구성에는 영향을 주지 않습니다.
 * Azure VM의 크기를 변경합니다(예: 크기 A5에서 다른 VM 크기로).
 * Azure VM에 새 네트워크 인터페이스를 추가합니다.
 
-모니터링 설정을 업데이트 하려면 [SAP 용 Azure 고급 모니터링 확장 구성][deployment-guide-4.5]의 단계에 따라 모니터링 인프라를 업데이트 합니다.
+설정을 업데이트 하려면 [sap 용 Azure 확장 구성][deployment-guide-4.5]의 단계를 수행 하 여 Sap 용 azure 확장의 구성을 업데이트 합니다.
 
 ## <a name="detailed-tasks-for-sap-software-deployment"></a>SAP 소프트웨어 배포에 대한 세부 작업
 
@@ -925,15 +925,15 @@ Windows에서 프록시를 구성하기 위해 거치는 단계는 Linux에서 �
 
 사용자 정의 경로에 대 한 자세한 내용은 [사용자 정의 경로 및 IP 전달][virtual-networks-udr-overview]을 참조 하세요.
 
-### <a name="d98edcd3-f2a1-49f7-b26a-07448ceb60ca"></a>SAP용 Azure 고급 모니터링 확장 구성
+### <a name="d98edcd3-f2a1-49f7-b26a-07448ceb60ca"></a>SAP 용 Azure 확장 구성
 
-[Azure의 SAP 용 Vm 배포 시나리오][deployment-guide-3]에 설명 된 대로 vm을 준비한 경우 Azure vm 에이전트가 가상 컴퓨터에 설치 됩니다. 다음 단계는 글로벌 Azure 데이터 센터에 있는 Azure 확장 리포지토리에서 사용할 수 있는 SAP용 Azure 고급 모니터링 확장을 배포하는 것입니다. 자세한 내용은 [SAP NetWeaver에 대 한 Azure Virtual Machines 계획 및 구현][planning-guide-9.1]을 참조 하세요.
+[Azure의 SAP 용 Vm 배포 시나리오][deployment-guide-3]에 설명 된 대로 vm을 준비한 경우 Azure vm 에이전트가 가상 컴퓨터에 설치 됩니다. 다음 단계는 글로벌 Azure 데이터 센터의 Azure 확장 리포지토리에서 사용할 수 있는 SAP 용 Azure 확장을 배포 하는 것입니다. 자세한 내용은 [SAP NetWeaver에 대 한 Azure Virtual Machines 계획 및 구현][planning-guide-9.1]을 참조 하세요.
 
-PowerShell 또는 Azure CLI를 사용하여 SAP용 Azure 고급 모니터링 확장을 사용할 수 있습니다. Windows 컴퓨터를 사용 하 여 Windows 또는 Linux VM에 확장을 설치 하려면 [Azure PowerShell][deployment-guide-4.5.1]를 참조 하세요. Linux 데스크톱을 사용 하 여 Linux VM에 확장을 설치 하려면 [Azure CLI][deployment-guide-4.5.2]를 참조 하세요.
+PowerShell 또는 Azure CLI를 사용 하 여 SAP 용 Azure 확장을 설치 및 구성할 수 있습니다. Windows 컴퓨터를 사용 하 여 Windows 또는 Linux VM에 확장을 설치 하려면 [Azure PowerShell][deployment-guide-4.5.1]를 참조 하세요. Linux 데스크톱을 사용 하 여 Linux VM에 확장을 설치 하려면 [Azure CLI][deployment-guide-4.5.2]를 참조 하세요.
 
 #### <a name="987cf279-d713-4b4c-8143-6b11589bb9d4"></a>Linux 및 Windows VM용 Azure PowerShell
 
-PowerShell을 사용하여 SAP용 Azure 고급 모니터링 확장을 설치하려면:
+PowerShell을 사용 하 여 SAP 용 Azure 확장을 설치 하려면:
 
 1. 최신 버전의 Azure PowerShell cmdlet을 설치했는지 확인합니다. 자세한 내용은 [Azure PowerShell Cmdlet 배포][deployment-guide-4.1]를 참조 하세요.  
 1. 다음 PowerShell cmdlet을 실행합니다.
@@ -952,21 +952,21 @@ PowerShell을 사용하여 SAP용 Azure 고급 모니터링 확장을 설치하�
 
 ![SAP 관련 Azure cmdlet AzVMAEMExtension가 성공적으로 실행 되었습니다.][deployment-guide-figure-900]
 
-`Set-AzVMAEMExtension` 구성은 SAP을 위해 호스트 모니터링을 구성하는 모든 단계를 수행합니다.
+구성 `Set-AzVMAEMExtension` 에서는 SAP 용 호스트 데이터 수집을 구성 하는 모든 단계를 수행 합니다.
 
 스크립트 출력에는 다음 정보가 포함됩니다.
 
-* OS 디스크 및 모든 추가 데이터 디스크에 대한 모니터링이 구성되었다는 확인이 표시됩니다.
+* OS 디스크 및 모든 추가 데이터 디스크에 대 한 데이터 수집이 구성 되었는지 확인 합니다.
 * 다음 두 개의 메시지는 특정 Storage 계정에 대한 Storage 메트릭의 구성을 확인합니다.
-* 출력 한 줄에는 모니터링 구성의 실제 업데이트 상태가 표시됩니다.
+* 출력 한 줄은 SAP 구성에 대 한 VM 확장의 실제 업데이트 상태를 제공 합니다.
 * 출력의 또 다른 줄은 구성이 배포되거나 업데이트되었음을 확인해 줍니다.
-* 출력의 마지막 줄은 정보 제공용이며, 모니터링 구성을 테스트 하는 옵션을 표시합니다.
-* Azure 고급 모니터링의 모든 단계가 성공적으로 실행 되 고 Azure 인프라가 필요한 데이터를 제공 하는지 확인 하려면에 [설명 된 대로 SAP 용 Azure 고급 모니터링 확장에 대 한 준비 검사를 진행 합니다. SAP 용 Azure 고급 모니터링에 대 한 준비 검사][deployment-guide-5.1]
+* 출력의 마지막 줄은 정보 제공용이며, SAP 구성을 위한 VM 확장을 테스트 하는 옵션을 보여 줍니다.
+* SAP 구성에 대 한 Azure VM 확장의 모든 단계가 성공적으로 실행 되었는지 확인 하 고 Azure 인프라가 필요한 데이터를 제공 하는지 확인 하려면 준비 검사에 설명 된 대로 SAP 용 Azure 확장에 대 한 준비 검사를 진행 합니다. [ SAP 용 Azure 확장의 경우][deployment-guide-5.1].
 * Azure Diagnostics가 관련 데이터를 수집하도록 15-30분 동안 기다립니다.
 
 #### <a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>Linux VM용 Azure CLI
 
-Azure CLI를 사용하여 SAP용 Azure 고급 모니터링 확장을 설치하려면:
+Azure CLI를 사용 하 여 SAP 용 Azure 확장을 설치 하려면:
 
    1. Azure [클래식 Cli 설치][azure-cli]에 설명 된 대로 AZURE 클래식 cli를 설치 합니다.
    1. Azure 계정으로 로그인합니다.
@@ -981,7 +981,7 @@ Azure CLI를 사용하여 SAP용 Azure 고급 모니터링 확장을 설치하�
       azure config mode arm
       ```
 
-   1. Azure 고급 모니터링을 사용하도록 설정합니다.
+   1. SAP 용 Azure 확장을 사용 하도록 설정 합니다.
 
       ```
       azure vm enable-aem <resource-group-name> <vm-name>
@@ -1008,7 +1008,7 @@ Azure CLI를 사용하여 SAP용 Azure 고급 모니터링 확장을 설치하�
       az vm aem set -g <resource-group-name> -n <vm name>
       ```
 
-1. Azure 고급 모니터링 확장이 Azure Linux VM에서 활성 상태인지 확인합니다. \\var\\lib\\AzureEnhancedMonitor\\PerfCounters 파일이 있는지 여부를 확인합니다. 존재하면 명령 프롬프트에서 이 명령을 실행하여 Azure 고급 모니터가 수집한 정보를 표시합니다.
+1. Azure Linux VM에서 SAP 용 Azure 확장이 활성화 되어 있는지 확인 합니다. \\var\\lib\\AzureEnhancedMonitor\\PerfCounters 파일이 있는지 여부를 확인합니다. 존재 하는 경우 명령 프롬프트에서이 명령을 실행 하 여 SAP 용 Azure 확장에서 수집한 정보를 표시 합니다.
 
    ```
    cat /var/lib/AzureEnhancedMonitor/PerfCounters
@@ -1022,25 +1022,25 @@ Azure CLI를 사용하여 SAP용 Azure 고급 모니터링 확장을 설치하�
    ...
    ```
 
-## <a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>엔드투엔드 모니터링 확인 및 문제 해결
+## <a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>SAP 호스트 에이전트의 종단 간 데이터 수집에 대 한 확인 및 문제 해결
 
-Azure VM을 배포하고 관련 Azure 모니터링 인프라를 설정한 후 Azure 고급 모니터링 확장의 모든 구성 요소가 예상한 대로 작동하는지 확인합니다.
+Azure VM을 배포 하 고 SAP 용 관련 Azure 확장을 설정한 후 확장의 모든 구성 요소가 예상 대로 작동 하는지 확인 합니다.
 
-[Sap 용 Azure 고급 모니터링 확장에 대 한 준비 검사][deployment-guide-5.1]에 설명 된 대로 Sap 용 Azure 고급 모니터링 확장에 대 한 준비 검사를 실행 합니다. 모든 준비 검사 결과가 긍정적이고 모든 관련 성능 카운터가 정상으로 나타나면 Azure 모니터링이 성공적으로 설정된 것입니다. Sap [리소스][deployment-guide-2.2]의 sap 참고에 설명 된 대로 Sap 호스트 에이전트 설치를 진행할 수 있습니다. 준비 검사에서 카운터가 누락 되었음을 나타내는 경우 [azure 모니터링 인프라 구성에 대 한 상태 검사][deployment-guide-5.2]에 설명 된 대로 azure 모니터링 인프라에 대 한 상태 검사를 실행 합니다. 문제 해결 옵션에 대 한 자세한 내용은 [SAP 용 Azure 모니터링 문제 해결][deployment-guide-5.3]을 참조 하세요.
+[Sap 용 Azure 확장에 대 한 준비 검사][deployment-guide-5.1]에 설명 된 대로 Sap 용 azure 확장에 대 한 준비 검사를 실행 합니다. 모든 준비 검사 결과가 긍정적이 고 모든 관련 성능 카운터가 정상으로 나타나면 SAP 용 Azure 확장이 성공적으로 설정 된 것입니다. Sap [리소스][deployment-guide-2.2]의 sap 참고에 설명 된 대로 Sap 호스트 에이전트 설치를 진행할 수 있습니다. 준비 검사에서 카운터가 누락 되었음을 나타내는 경우 SAP 용 azure [확장에 대 한 상태 검사][deployment-guide-5.2]에 설명 된 대로 Sap 용 azure 확장에 대 한 상태 검사를 실행 합니다. 추가 문제 해결 옵션은 [SAP 용 Azure 확장 문제 해결][deployment-guide-5.3]을 참조 하세요.
 
-### <a name="bb61ce92-8c5c-461f-8c53-39f5e5ed91f2"></a>SAP용 Azure 고급 모니터링 확장에 대한 준비 검사
+### <a name="bb61ce92-8c5c-461f-8c53-39f5e5ed91f2"></a>SAP 용 Azure 확장에 대 한 준비 검사
 
-이 검사에서는 SAP 애플리케이션 내부에 나타나는 모든 성능 메트릭이 기반 Azure 모니터링 인프라에서 제공되는지 확인합니다.
+이 검사를 통해 sap 응용 프로그램 내에 표시 되는 모든 성능 메트릭이 SAP 용 기본 Azure 확장에서 제공 되는지 확인 합니다.
 
 #### <a name="run-the-readiness-check-on-a-windows-vm"></a>Windows VM에서 준비 검사 실행
 
 1. Azure Virtual Machine에 로그인합니다(관리자 계정 사용은 필요하지 않음).
 1. 명령 프롬프트 창을 엽니다.
-1. 명령 프롬프트에서 디렉터리를 SAP용 Azure 고급 모니터링 확장의 설치 폴더( C:\\Packages\\Plugins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\&lt;버전>\\drop)로 변경합니다.
+1. 명령 프롬프트에서 SAP 용 Azure 확장의 설치 폴더로 디렉터리를 변경 합니다. C:\\Packages\\Plugins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\&lt;버전>\\drop)로 변경합니다.
 
-   모니터링 확장에 대한 경로의 *버전*이 다를 수 있습니다. 설치 폴더에 여러 모니터링 확장 버전의 폴더가 표시되는 경우 AzureEnhancedMonitoring Windows 서비스의 구성을 확인한 다음 *실행 파일 경로*로 나타난 폴더로 전환합니다.
+   확장 경로에 있는 *버전이* 다를 수 있습니다. 설치 폴더에 여러 버전의 확장에 대 한 폴더가 표시 되는 경우 AzureEnhancedMonitoring Windows 서비스의 구성을 확인 한 다음 *실행 파일의 경로로*지정 된 폴더로 전환 합니다.
 
-   ![SAP용 Azure 고급 모니터링 확장을 실행하는 서비스 속성][deployment-guide-figure-1000]
+   ![SAP 용 Azure 확장을 실행 하는 서비스의 속성][deployment-guide-figure-1000]
 
 1. 명령 프롬프트에서 매개 변수 없이 **azperflib.exe**를 실행합니다.
 
@@ -1049,15 +1049,15 @@ Azure VM을 배포하고 관련 Azure 모니터링 인프라를 설정한 후 Az
    >
    >
 
-Azure 고급 모니터링 확장이 설치되어 있지 않거나 AzureEnhancedMonitoring 서비스가 실행되고 있지 않으면 확장이 올바르게 구성되지 않은 것입니다. 확장을 배포 하는 방법에 대 한 자세한 내용은 [SAP 용 Azure 모니터링 인프라 문제 해결][deployment-guide-5.3]을 참조 하세요.
+SAP 용 Azure 확장이 설치 되어 있지 않거나 AzureEnhancedMonitoring 서비스가 실행 되 고 있지 않으면 확장이 올바르게 구성 되지 않은 것입니다. 확장을 배포 하는 방법에 대 한 자세한 내용은 [SAP 용 Azure 확장 문제 해결][deployment-guide-5.3]을 참조 하세요.
 
 > [!NOTE]
-> Azperflib.exe는 자체 용도로 사용할 수 없는 구성 요소입니다. 이 구성 요소는 VM과 관련된 Azure 모니터링 데이터를 SAP 호스트 에이전트에 전달합니다.
+> Azperflib.exe는 자체 용도로 사용할 수 없는 구성 요소입니다. SAP 호스트 에이전트에 대해서만 VM과 관련 된 Azure 인프라 데이터를 제공 하는 구성 요소입니다.
 > 
 
 ##### <a name="check-the-output-of-azperflibexe"></a>azperflib.exe의 출력 확인
 
-Azperflib.exe 출력은 SAP용 Azure 성능 카운터가 모두 채워진 상태로 표시됩니다. 수집된 카운터 목록의 맨 아래에 있는 요약 및 상태 표시기가 Azure 모니터링의 상태를 보여 줍니다.
+Azperflib.exe 출력은 SAP용 Azure 성능 카운터가 모두 채워진 상태로 표시됩니다. 수집 된 카운터 목록의 맨 아래에서 요약 및 상태 표시기는 SAP 용 Azure 확장의 상태를 표시 합니다.
 
 ![문제가 없음을 나타내는 azperflib.exe를 실행하여 표시된 상태 검사 출력][deployment-guide-figure-1100]
 <a name="figure-11"></a>
@@ -1066,20 +1066,20 @@ Azperflib.exe 출력은 SAP용 Azure 성능 카운터가 모두 채워진 상태
 
 결과 값을 다음과 같이 해석합니다.
 
-| Azperflib.exe 결과 값 | Azure 모니터링 상태 정보 |
+| Azperflib.exe 결과 값 | SAP health 용 Azure 확장 상태 |
 | --- | --- |
 | **API 호출 - 사용할 수 없음** | 사용할 수 없는 카운터는 가상 컴퓨터 구성에 적용할 수 없거나 오류입니다. **상태 정보**를 참조하세요. |
 | **카운터 합계 - 비어 있음** |다음 두 Azure Storage 카운터는 비어 있을 수 있습니다. <ul><li>스토리지 읽기 작업 대기 시간 서버 밀리초</li><li>스토리지 읽기 작업 대기 시간 E2E 밀리초</li></ul>그 외의 카운터는 값이 있어야 합니다. |
 | **상태 정보** |반환 상태가 **OK**를 표시하는 경우에만 OK입니다. |
 | **진단** |상태 정보에 대한 자세한 정보입니다. |
 
-상태 값 이 **정상**이 아닌 경우 [Azure 모니터링 인프라 구성에 대 한 상태 검사][deployment-guide-5.2]의 지침을 따르세요.
+**상태** 값이 비정상 이면 [SAP 구성에 대 한 Azure 확장에 대 한 상태 검사][deployment-guide-5.2]의 **지침을 따르세요**.
 
 #### <a name="run-the-readiness-check-on-a-linux-vm"></a>Linux VM에서 준비 검사 실행
 
 1. SSH를 사용하여 Azure Virtual Machine에 연결합니다.
 
-1. Azure 고급 모니터링 확장의 출력을 확인합니다.
+1. SAP 용 Azure 확장의 출력을 확인 합니다.
 
    a.  `more /var/lib/AzureEnhancedMonitor/PerfCounters`를 실행합니다.
 
@@ -1105,11 +1105,11 @@ Azperflib.exe 출력은 SAP용 Azure 성능 카운터가 모두 채워진 상태
 
    **예상 결과**: `python /usr/sbin/waagent -daemon`과 유사한 하나의 항목을 표시합니다.
 
-1. Azure 고급 모니터링 확장이 설치되고 실행되고 있는지 확인합니다.
+1. SAP 용 Azure 확장이 설치 되어 실행 되 고 있는지 확인 합니다.
 
    a.  `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-*/'`를 실행합니다.
 
-   **예상 결과**: Azure 고급 모니터링 확장 디렉터리의 내용을 나열합니다.
+   **예상 결과**: SAP 용 Azure 확장 디렉터리의 콘텐츠를 나열 합니다.
 
    b. `ps -ax | grep AzureEnhanced`를 실행합니다.
 
@@ -1125,11 +1125,11 @@ Azperflib.exe 출력은 SAP용 Azure 성능 카운터가 모두 채워진 상태
 
 SAP NetWeaver ABAP 애플리케이션 서버가 이미 설치된 경우 트랜잭션 ST06을 열고 고급 모니터링이 사용하도록 설정되어 있는지 여부를 확인합니다.
 
-이러한 검사 중 하나라도 실패 하는 경우 확장을 다시 배포 하는 방법에 대 한 자세한 내용은 [SAP 용 Azure 모니터링 인프라 문제 해결][deployment-guide-5.3]을 참조 하세요.
+이러한 검사 중 하나라도 실패 하는 경우 확장을 다시 배포 하는 방법에 대 한 자세한 내용은 [SAP 용 Azure 확장 문제 해결][deployment-guide-5.3]을 참조 하세요.
 
-### <a name="e2d592ff-b4ea-4a53-a91a-e5521edb6cd1"></a>Azure 모니터링 인프라 구성에 대한 상태 검사
+### <a name="e2d592ff-b4ea-4a53-a91a-e5521edb6cd1"></a>SAP 용 Azure 확장 구성에 대 한 상태 검사
 
-[SAP 용 azure 고급 모니터링에 대 한 준비 검사][deployment-guide-5.1]에 설명 된 테스트에 표시 된 대로 일부 모니터링 데이터가 올바르게 전달 되지 않는 경우 `Test-AzVMAEMExtension` cmdlet을 실행 하 여 azure 모니터링 인프라 및 모니터링이 있는지 확인 합니다. SAP 용 확장이 올바르게 구성 되어 있습니다.
+[Sap 용 azure 확장에 대 한 준비 검사][deployment-guide-5.1]에 설명 된 테스트에 표시 된 대로 일부 인프라 데이터가 올바르게 전달 되지 않는 경우 `Test-AzVMAEMExtension` cmdlet을 실행 하 여 azure 인프라 및 sap 용 azure 확장이 있는지 확인 합니다. 올바르게 구성 되었습니다.
 
 1. [Azure PowerShell Cmdlet 배포][deployment-guide-4.1]에 설명 된 대로 Azure PowerShell cmdlet의 최신 버전을 설치 했는지 확인 합니다.
 1. 다음 PowerShell cmdlet을 실행합니다. 사용 가능한 환경 목록을 보려면 `Get-AzEnvironment` cmdlet을 실행합니다. 전역 Azure를 사용하려면**AzureCloud** 환경을 선택합니다. 중국의 Azure인 경우 **AzureChinaCloud**를 선택합니다.
@@ -1146,21 +1146,21 @@ SAP NetWeaver ABAP 애플리케이션 서버가 이미 설치된 경우 트랜�
 
 1. 선택한 가상 컴퓨터의 구성을 테스트하는 스크립트입니다.
 
-   ![SAP용 Azure 모니터링 인프라의 성공적인 테스트 출력][deployment-guide-figure-1300]
+   ![SAP 용 Azure 확장의 성공적인 테스트 출력][deployment-guide-figure-1300]
 
-모든 상태 검사 결과가 **OK**인지 확인합니다. 일부 검사에서 **OK**가 표시 되지 않는 경우 [SAP 용 Azure 고급 모니터링 확장 구성][deployment-guide-4.5]에 설명 된 대로 업데이트 cmdlet을 실행 합니다. 15 분 동안 기다렸다가 azure 고급 모니터링에 대 한 [Azure 고급 모니터링][deployment-guide-5.1] 에 대 한 준비 확인 및 [Azure 모니터링 인프라 구성에 대 한 상태 검사][deployment-guide-5.2]에 설명 된 검사를 반복 합니다. 검사에서 여전히 일부 또는 모든 카운터에 문제가 있음을 나타내는 경우 [SAP 용 Azure 모니터링 인프라 문제 해결][deployment-guide-5.3]을 참조 하세요.
+모든 상태 검사 결과가 **OK**인지 확인합니다. 일부 검사에서 **OK**가 표시 되지 않는 경우 [SAP 용 Azure 확장 구성][deployment-guide-4.5]에 설명 된 대로 업데이트 cmdlet을 실행 합니다. 15 분 동안 기다렸다가 sap [용 Azure 확장에 대 한 준비 확인][deployment-guide-5.1] 및 sap 용 azure [확장에 대 한 상태 검사][deployment-guide-5.2]에 설명 된 검사를 반복 합니다. 검사에서 여전히 일부 또는 모든 카운터에 문제가 있음을 나타내는 경우 [SAP 용 Azure 확장 문제 해결][deployment-guide-5.3]을 참조 하세요.
 
 > [!Note]
-> 관리되는 표준 Azure 디스크를 사용하는 경우 일부 경고가 발생할 수 있습니다. 테스트에서 "확인"을 반환하는 대신 경고가 표시됩니다. 이 경고는 해당 디스크 형식의 경우 정상적이며 의도된 것입니다. 또한 [SAP 용 Azure 모니터링 인프라 문제 해결을][deployment-guide-5.3] 참조 하세요.
+> 관리되는 표준 Azure 디스크를 사용하는 경우 일부 경고가 발생할 수 있습니다. 테스트에서 "확인"을 반환하는 대신 경고가 표시됩니다. 이 경고는 해당 디스크 형식의 경우 정상적이며 의도된 것입니다. 또한 [SAP 용 Azure 확장 문제 해결을][deployment-guide-5.3] 참조 하세요.
 > 
 
-### <a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>SAP용 Azure 모니터링 인프라 문제 해결
+### <a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>SAP 용 Azure 확장 문제 해결
 
 #### <a name="windowslogo_windows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows][Logo_Windows] Azure 성능 카운터가 전혀 표시되지 않습니다.
 
 AzureEnhancedMonitoring Windows 서비스에서 Azure의 성능 메트릭을 수집합니다. 서비스가 올바르게 설치되지 않은 경우 또는 VM에서 실행되지 않는 경우 성능 메트릭을 수집할 수 없습니다.
 
-##### <a name="the-installation-directory-of-the-azure-enhanced-monitoring-extension-is-empty"></a>Azure 고급 모니터링 확장의 설치 디렉터리가 비어 있습니다.
+##### <a name="the-installation-directory-of-the-azure-extension-for-sap-is-empty"></a>SAP 용 Azure 확장의 설치 디렉터리가 비어 있습니다.
 
 ###### <a name="issue"></a>문제점
 
@@ -1170,7 +1170,7 @@ AzureEnhancedMonitoring Windows 서비스에서 Azure의 성능 메트릭을 수
 
 확장이 설치되지 않았습니다. (앞에서 설명한) 프록시 문제인지 여부를 결정합니다. 컴퓨터를 다시 시작하거나 `Set-AzVMAEMExtension` 구성 스크립트를 다시 실행해야 할 수 있습니다.
 
-##### <a name="service-for-azure-enhanced-monitoring-does-not-exist"></a>Azure 고급 모니터링 서비스가 없습니다.
+##### <a name="service-for-azure-extension-for-sap-does-not-exist"></a>SAP 용 Azure 확장 서비스가 없습니다.
 
 ###### <a name="issue"></a>문제점
 
@@ -1178,16 +1178,16 @@ AzureEnhancedMonitoring Windows 서비스가 존재하지 않습니다.
 
 Azperflib.exe 출력에 오류가 발생합니다.
 
-![SAP용 Azure 고급 모니터링 확장의 서비스가 실행되고 있지 않음을 나타내는 Azperflib.exe의 실행][deployment-guide-figure-1400]
+![Azperflib.exe 실행은 SAP 용 Azure 확장의 서비스가 실행 되 고 있지 않음을 나타냅니다.][deployment-guide-figure-1400]
 <a name="figure-14"></a>
 
 ###### <a name="solution"></a>솔루션
 
-서비스가 없으면 SAP용 Azure 고급 모니터링 확장이 제대로 설치되지 않았습니다. [Azure의 SAP 용 Vm 배포 시나리오][deployment-guide-3]에서 배포 시나리오에 대해 설명 된 단계를 사용 하 여 확장을 다시 배포 합니다.
+서비스가 없으면 SAP 용 Azure 확장이 제대로 설치 되지 않은 것입니다. [Azure의 SAP 용 Vm 배포 시나리오][deployment-guide-3]에서 배포 시나리오에 대해 설명 된 단계를 사용 하 여 확장을 다시 배포 합니다.
 
 확장을 배포하고 1시간 후 Azure VM 내에서 Azure 성능 카운터가 제공되는지 여부를 다시 확인합니다.
 
-##### <a name="service-for-azure-enhanced-monitoring-exists-but-fails-to-start"></a>Azure 고급 모니터링에 대한 서비스가 있지만 시작하지 못합니다.
+##### <a name="service-for-azure-extension-for-sap-exists-but-fails-to-start"></a>SAP 용 Azure 확장에 대 한 서비스가 존재 하지만 시작 하지 못함
 
 ###### <a name="issue"></a>문제점
 
@@ -1195,7 +1195,7 @@ AzureEnhancedMonitoring Windows 서비스가 존재하고 사용하도록 설정
 
 ###### <a name="solution"></a>솔루션
 
-구성이 올바르지 않습니다. [SAP 용 Azure 고급 모니터링 확장 구성][deployment-guide-4.5]에 설명 된 대로 VM에 대 한 모니터링 확장을 다시 시작 합니다.
+구성이 올바르지 않습니다. [Sap 용 Azure 확장 구성][deployment-guide-4.5]에서 설명한 대로 VM에서 Sap 용 azure 확장을 다시 시작 합니다.
 
 #### <a name="windowslogo_windows-some-azure-performance-counters-are-missing"></a>![Windows][Logo_Windows] 일부 Azure 성능 카운터가 없습니다.
 
@@ -1207,11 +1207,11 @@ SAP Note [1999351]을 사용한 문제 해결로 문제가 해결되지 않으�
 
 Azure의 성능 메트릭은 데몬에 의해 수집됩니다. 데몬이 실행되지 않는 경우 성능 메트릭은 전혀 수집할 수 없습니다.
 
-##### <a name="the-installation-directory-of-the-azure-enhanced-monitoring-extension-is-empty"></a>Azure 고급 모니터링 확장의 설치 디렉터리가 비어 있습니다.
+##### <a name="the-installation-directory-of-the-azure-extension-for-sap-is-empty"></a>SAP 용 Azure 확장의 설치 디렉터리가 비어 있습니다.
 
 ###### <a name="issue"></a>문제점
 
-디렉터리 \\var\\lib\\waagent\\에 Azure 고급 모니터링 확장에 대한 하위 디렉터리가 없습니다.
+디렉터리 \\var\\lib\\waagent\\ 에는 SAP 용 Azure 확장에 대 한 하위 디렉터리가 없습니다.
 
 ###### <a name="solution"></a>솔루션
 
@@ -1233,13 +1233,13 @@ WARNING: [WARN] Standard Managed Disks are not supported. Extension will be inst
 
 ###### <a name="solution"></a>솔루션
 
-이 메시지는 표준 Azure Storage 계정에 대한 통계를 확인하기 위해 모니터링 확장에서 사용하는 API를 표준 관리 디스크가 전달하지 않는다는 사실 때문에 발생합니다. 심각한 문제는 아닙니다. 표준 디스크 스토리지 계정에 대한 모니터링을 소개하는 이유는 자주 발생하는 I/O 제한 때문입니다. 관리 디스크는 스토리지 계정에서 디스크 수를 제한하여 이러한 제한을 방지합니다. 따라서 해당 유형의 모니터링 데이터가 있는지 여부는 중요하지 않습니다.
+이 메시지는 표준 Managed Disks sap 확장에서 표준 Azure Storage 계정의 통계를 확인 하는 데 사용 하는 Api를 제공 하지 않기 때문에 발생 합니다. 심각한 문제는 아닙니다. 표준 디스크 저장소 계정에 대 한 데이터 수집을 도입 하는 이유는 자주 발생 하는 i/o의 제한 이었습니다. 관리 디스크는 스토리지 계정에서 디스크 수를 제한하여 이러한 제한을 방지합니다. 따라서 해당 데이터 형식이 중요 하지 않습니다.
 
 
 #### <a name="linuxlogo_linux-some-azure-performance-counters-are-missing"></a>![Linux][Logo_Linux] 일부 Azure 성능 카운터가 없습니다.
 
 Azure에서 성능 메트릭은 여러 원본에서 데이터를 가져오는 데몬에 의해 수집됩니다. 일부 구성 데이터는 로컬로 수집되고 일부 성능 메트릭은 Azure Diagnostics에서 읽습니다. 스토리지 카운터는 스토리지 구독의 로그에서 제공됩니다.
 
-알려진 문제의 전체 최신 목록은 SAP용 고급 Azure 모니터링에 대한 추가 문제 해결 정보를 포함하고 있는 SAP Note [1999351]을 참조하세요.
+알려진 문제에 대 한 전체 목록과 최신 목록은 sap 용 Azure 확장에 대 한 추가 문제 해결 정보가 포함 된 SAP Note [1999351]을 참조 하세요.
 
-Sap Note [1999351] 을 사용 하 여 문제를 해결 해도 문제가 해결 되지 않는 `Set-AzVMAEMExtension` 경우 [sap 용 Azure 고급 모니터링 확장 구성][deployment-guide-4.5]에 설명 된 대로 구성 스크립트를 다시 실행 합니다. 사용하도록 설정한 후 바로 스토리지 분석 또는 진단 카운터가 생성되지 않을 수 있으므로 1시간 동안 기다려야 할 수 있습니다. 문제가 지속되면 Windows용 BC-OP-NT-AZR 또는 Linux 가상 머신용 BC-OP-LNX-AZR 구성 요소에 대한 SAP 고객 지원 메시지를 엽니다.
+Sap Note [1999351] 을 사용 하 여 문제를 해결 해도 문제가 해결 되지 않는 `Set-AzVMAEMExtension` 경우 [sap 용 Azure 확장 구성][deployment-guide-4.5]에 설명 된 대로 구성 스크립트를 다시 실행 합니다. 사용하도록 설정한 후 바로 스토리지 분석 또는 진단 카운터가 생성되지 않을 수 있으므로 1시간 동안 기다려야 할 수 있습니다. 문제가 지속되면 Windows용 BC-OP-NT-AZR 또는 Linux 가상 머신용 BC-OP-LNX-AZR 구성 요소에 대한 SAP 고객 지원 메시지를 엽니다.

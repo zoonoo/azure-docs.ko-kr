@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 679de2d3a5519e57978239ddd75a4b9fa2ffef3c
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: f90b69cde4a961457c987f004e2605e6884bf323
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70998766"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063336"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C 사용자 지정 정책의 기술 프로필 정보
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-기술 프로필은 Azure AD(Azure Active Directory) B2C의 사용자 지정 정책을 사용하여 다른 유형의 당사자와 통신하기 위한 기본 제공 메커니즘이 있는 프레임워크를 제공합니다. 기술 프로필은 Azure AD B2C 테넌트와 통신하거나, 사용자를 만들거나, 사용자 프로필을 읽는 데 사용됩니다. 기술 프로필은 사용자와 상호 작용이 가능하도록 자체 어설션될 수 있습니다. 예를 들어, 로그인할 사용자의 자격 증명을 수집한 후 등록 페이지 또는 암호 재설정 페이지를 렌더링합니다.
+기술 프로필은 Azure Active Directory B2C (Azure AD B2C)의 사용자 지정 정책을 사용 하 여 다른 종류의 당사자와 통신 하는 기본 제공 메커니즘을 프레임 워크에 제공 합니다. 기술 프로필은 Azure AD B2C 테넌트와 통신하거나, 사용자를 만들거나, 사용자 프로필을 읽는 데 사용됩니다. 기술 프로필은 사용자와 상호 작용이 가능하도록 자체 어설션될 수 있습니다. 예를 들어, 로그인할 사용자의 자격 증명을 수집한 후 등록 페이지 또는 암호 재설정 페이지를 렌더링합니다.
 
 ## <a name="type-of-technical-profiles"></a>기술 프로필 유형
 

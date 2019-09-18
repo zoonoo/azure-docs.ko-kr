@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a3ded11ac6a68e82fba76e7551699f29f3cb6075
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 335b6c1a12f3786d7c0f1083f5b052aaac4beccb
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70998428"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065784"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 지정 정책
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-사용자 지정 정책은 Azure AD(Azure Active Directory) B2C 테넌트의 동작을 정의하는 구성 파일입니다. 사용자 흐름은 가장 일반적인 ID 태스크에 대해 Azure AD B2C 포털에서 미리 정의됩니다. 사용자 지정 정책은 많은 다른 태스크를 완료하기 위해 ID 개발자가 완전히 편집할 수 있습니다.
+사용자 지정 정책은 Azure Active Directory B2C (Azure AD B2C) 테 넌 트의 동작을 정의 하는 구성 파일입니다. 사용자 흐름은 가장 일반적인 ID 태스크에 대해 Azure AD B2C 포털에서 미리 정의됩니다. 사용자 지정 정책은 많은 다른 태스크를 완료하기 위해 ID 개발자가 완전히 편집할 수 있습니다.
 
 ## <a name="comparing-user-flows-and-custom-policies"></a>사용자 흐름 및 사용자 지정 정책 비교
 

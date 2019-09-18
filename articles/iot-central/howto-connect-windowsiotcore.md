@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: b14d6f70f4c4163f16c8275f4e071da6a9e0bc78
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: 3513dc0a1928168d6313e9d49a8f3d5d27aca781
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019814"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066342"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에 Windows IoT Core 디바이스 연결
 
@@ -43,13 +43,27 @@ ms.locfileid: "70019814"
 
 ## <a name="add-a-real-device"></a>실제 디바이스 추가
 
-Azure IoT Central 응용 프로그램에서 **Device Explorer** 페이지를 사용 하 여 **Windows 10 IoT Core** 장치 템플릿에서 실제 장치를 추가 합니다. 장치 연결 정보 (**범위 ID**, **장치 ID**및 **기본 키**)를 기록해 둡니다. 자세한 내용은 [연결 정보 가져오기](howto-generate-connection-string.md#get-connection-information)를 참조 하세요.
+Azure IoT Central 응용 프로그램에서 **Device Explorer** 페이지를 사용 하 여 **Windows 10 IoT Core** 장치 템플릿에서 실제 장치를 추가 합니다. 장치 연결 정보 (**범위 ID**, **장치 ID**및 **기본 키**)를 기록해 둡니다.
 
 ## <a name="prepare-the-device"></a>장치 준비
 
 장치에서 IoT Central에 연결 하려면 연결 문자열이 필요 합니다.
 
-[!INCLUDE [iot-central-howto-connection-string](../../includes/iot-central-howto-connection-string.md)]
+1. 다음과 같이 `dps-keygen` 명령줄 유틸리티를 사용하여 연결 문자열을 생성합니다.
+
+    [키 생성기 유틸리티](https://github.com/Azure/dps-keygen)를 설치하려면 다음 명령을 실행합니다.
+
+    ```cmd/sh
+    npm i -g dps-keygen
+    ```
+
+1. 연결 문자열을 생성하려면 앞에서 적어 놓은 연결 세부 정보를 사용하여 다음 명령을 실행합니다.
+
+    ```cmd/sh
+    dps-keygen -di:<Device ID> -dk:<Primary or Secondary Key> -si:<Scope ID>
+    ```
+
+1. 디바이스 코드에 사용할 연결 문자열을 `dps-keygen` 출력에서 복사합니다.
 
 장치 코드에서 연결 문자열에 액세스 하려면 Windows 10 IoT Core 장치의 폴더 `C:\Data\Users\DefaultAccount\Documents\` 에 있는 **iothub** 라는 파일에 저장 합니다.
 
@@ -76,7 +90,7 @@ Azure IoT Central 응용 프로그램에서 **Device Explorer** 페이지를 사
 [Windows 장치 포털](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal) 에는 장치 문제를 해결 하는 데 사용할 수 있는 도구가 포함 되어 있습니다.
 
 - **앱 관리자** 페이지를 사용 하 여 장치에서 실행 되는 앱을 제어할 수 있습니다.
-- 장치에 연결 된 모니터가 없는 경우 장치 **설정** 페이지를 사용 하 여 장치에서 스크린샷을 캡처할 수 있습니다. 예를 들어:
+- 장치에 연결 된 모니터가 없는 경우 장치 **설정** 페이지를 사용 하 여 장치에서 스크린샷을 캡처할 수 있습니다. 예:
 
     ![앱 스크린샷](media/howto-connect-windowsiotcore/iot-hub-foreground-client.png)
 

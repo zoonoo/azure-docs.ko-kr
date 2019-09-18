@@ -1,6 +1,6 @@
 ---
 title: 심층 학습 및 기계 학습
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: 심층 학습 및 기계 학습에 대해 알아보고 두 개념이 인공 지능과 어떤 관계가 있는지 알아보세요. 딥 러닝은 사기 감지, 음성 및 얼굴 인식, 감정 분석, 시계열 예측 등의 시나리오에서 적용할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 08/07/2019
-ms.openlocfilehash: 3b0546c42ddd5252b35d1a77d7b152733beec233
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: cff31916f837141ae54f3c14dd125be6a92a5008
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240949"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035514"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>심층 학습 및 기계 학습
 
@@ -106,9 +106,9 @@ Feedforward 신경망은 가장 기본적인 유형의 인공 신경망입니다
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 문서에서는 [Azure Machine Learning 서비스](https://docs.microsoft.com/azure/machine-learning/service/?WT.mc_id=docs-article-lazzeri)에서 심층 학습 기술을 사용 하는 방법을 보여 줍니다.
+다음 문서에서는 [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/?WT.mc_id=docs-article-lazzeri)에서 심층 학습 기술을 사용 하는 방법을 보여 줍니다.
 
 - [TensorFlow 모델을 사용 하 여 필기 숫자 분류](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
 - [TensorFlow 평가기 및 Keras를 사용 하 여 필기 숫자 분류](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
 - [Pytorch 모델을 사용 하 여 이미지 분류](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
-- [체 이너 모델을 사용 하 여 필기 숫자 분류](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-train-chainer?WT.mc_id=docs-article-lazzeri)
+- [체 이너 모델을 사용 하 여 필기 숫자 분류](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-chainer?WT.mc_id=docs-article-lazzeri)

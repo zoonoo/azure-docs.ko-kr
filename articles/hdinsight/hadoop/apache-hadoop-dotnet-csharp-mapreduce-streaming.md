@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 7f82ad65ecc805d5a45c78e8b190dd0eee4c340c
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 5784fb4f4ab0f46d2db7e5e8cfe9deeafabb4e90
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882360"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066954"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>HDInsight의 Apache Hadoop에서 MapReduce 스트리밍으로 C# 사용
 
@@ -162,7 +162,7 @@ namespace reducer
 
    * __Azure Storage 계정__을 사용하는 경우 업로드 아이콘을 클릭한 다음 **bin\debug** 폴더로 이동하여 **mapper** 프로젝트를 검색합니다. 마지막으로 **mapper.exe** 파일을 선택한 다음 **확인**을 클릭합니다.
 
-        ![업로드 아이콘](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png)
+        ![맵 편집기에 대 한 HDInsight 업로드 아이콘](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png)
     
    * __Azure Data Lake Storage__를 사용하는 경우 마우스 오른쪽 버튼으로 파일 목록의 빈 영역을 클릭한 다음, __업로드__를 선택합니다. 마지막으로 **mapper.exe** 파일을 선택한 다음 **열기**를 클릭합니다.
 

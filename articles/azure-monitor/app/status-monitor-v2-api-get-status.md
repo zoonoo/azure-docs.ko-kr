@@ -3,7 +3,7 @@ title: 'Azure 상태 모니터 v2 API 참조: 상태 가져오기 | Microsoft Do
 description: V2 API 참조를 상태 모니터 합니다. Get-ApplicationInsightsMonitoringStatus. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. VM 또는 Azure의 온-프레미스에서 호스트되는 ASP.NET 웹앱으로 작업합니다.
 services: application-insights
 documentationcenter: .net
-author: MS-TimothyMothra
+author: TimothyMothra
 manager: alexklim
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 50703ede205b42032e9618c1b16b0de2bd7f3a23
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: c3982e7eb78c1113c73a8e7e9d7b00ad403ac486
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424133"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058266"
 ---
 # <a name="status-monitor-v2-api-get-applicationinsightsmonitoringstatus"></a>상태 모니터 v2 API: ApplicationInsightsMonitoringStatus
 

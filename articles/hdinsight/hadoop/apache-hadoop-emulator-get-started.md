@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: a1d31eb3fa6e37302e1afa5ebd36d04f75830dea
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 9515f0ecae92e6350924b3856aa6cbf20e608d51
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918154"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066683"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>가상 컴퓨터의 에뮬레이터 인 Apache Hadoop 샌드박스 시작
 
@@ -42,7 +42,7 @@ Hadoop 에코 시스템에 대해 알아보기 위해 가상 머신에서 Horton
 1. **파일** 메뉴에서 **Import Appliance(어플라이언스 가져오기)** 를 클릭한 다음 Hortonworks Sandbox 이미지를 지정합니다.
 1. Hortonworks Sandbox를 선택한 다음 **시작**, **일반 시작**을 차례로 선택합니다. 가상 머신이 부팅 프로세스를 완료하면 로그인 지침이 표시됩니다.
 
-    ![일반 시작](./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png)
+    ![virtualbox 관리자 정상 시작](./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png)
 
 1. 웹 브라우저를 열고 표시 된 URL (일반적으로 `http://127.0.0.1:8888`)로 이동 합니다.
 

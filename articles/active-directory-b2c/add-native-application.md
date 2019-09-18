@@ -10,20 +10,20 @@ ms.custom: mvc
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: b4e9b95cb226aeec686816d0ed7160062e110c62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6fc953d5c6109fbc6eacbd946ecd112db4639fa5
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511831"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064585"
 ---
 # <a name="add-a-native-client-application-to-your-azure-active-directory-b2c-tenant"></a>Active Directory B2C 테넌트에 네이티브 클라이언트 애플리케이션 추가
 
 애플리케이션이 Azure Active Directory B2C와 통신하려면 네이티브 클라이언트 리소스를 테넌트에 등록해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
-3. Azure Portal의 왼쪽 위에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+2. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 테 넌 트가 포함 된 디렉터리를 선택 하 여 Azure AD B2C 테 넌 트를 포함 하는 디렉터리를 사용 하 고 있는지 확인 합니다.
+3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 1. **애플리케이션**을 선택하고 **추가**를 선택합니다.
 2. 애플리케이션의 이름을 입력합니다. 예를 들어 *nativeapp1*과 같습니다.
 3. **웹앱/웹 API 포함**에 **아니요**를 선택합니다.

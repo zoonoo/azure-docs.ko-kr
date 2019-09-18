@@ -2,17 +2,18 @@
 title: Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용
 description: Azure HDInsight 클러스터와 함께 Azure Data Lake Storage Gen2를 사용 하는 방법을 알아봅니다.
 author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: a8ef347b874bf01fc2832d0a785f6fcec58ef095
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: bd459998568287db767e98a2094d6f80a126ccde
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70961216"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077104"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용
 
@@ -99,7 +100,7 @@ Azure Data Lake Storage Gen2 스토리지 계정을 만듭니다.
 
 [샘플 템플릿 파일을 다운로드](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) 하 고 [샘플 매개 변수 파일을 다운로드할](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json)수 있습니다. 템플릿 및 Azure CLI 코드 조각을 사용 하기 전에 다음 자리 표시자를 올바른 값으로 바꿉니다.
 
-| 자리표시자 | Description |
+| 자리표시자 | 설명 |
 |---|---|
 | `<SUBSCRIPTION_ID>` | Azure 구독의 ID입니다. |
 | `<RESOURCEGROUPNAME>` | 새 클러스터 및 저장소 계정을 만들 리소스 그룹입니다. |

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4e6825b40700fe3bd24631094a2a6060d94524cc
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: fa40f206447f631c78052bda085b26a56e481194
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882288"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066913"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>HDInsight C# 에서 Apache Hadoop의 Apache Hive 및 Apache Pig에서 사용자 정의 함수 사용
 
@@ -24,7 +24,7 @@ HDInsight에서 Apache Hive 및 Apache Pig와 함께 C# UDF(사용자 정의 함
 
 Hive 및 Pig 모두 외부 애플리케이션으로 데이터를 전달해 처리할 수 있습니다. 이 프로세스를 _스트리밍_이라고 합니다. .NET 애플리케이션을 사용하는 경우 데이터가 STDIN의 애플리케이션으로 전달된 다음 애플리케이션이 STDOUT에서 결과를 반환합니다. STDIN 및 STDOUT에서 읽거나 쓰려면 콘솔 애플리케이션에서 `Console.ReadLine()` 및 `Console.WriteLine()`을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * .NET Framework 4.5를 대상으로 하는 C# 코드 작성 및 빌드에 대해 잘 알고 있어야 합니다.
 
@@ -171,7 +171,7 @@ Hive 및 Pig 모두 외부 애플리케이션으로 데이터를 전달해 처�
 
    * __Azure Storage 계정__을 사용하는 경우 업로드 아이콘을 클릭한 다음 **bin\debug** 폴더로 이동하여 **HiveCSharp** 프로젝트를 검색합니다. 마지막으로 **HiveCSharp.exe** 파일을 선택하고 **확인**을 클릭합니다.
 
-       ![업로드 아이콘](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png)
+       ![새 프로젝트에 대 한 HDInsight 업로드 아이콘](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png)
     
    * __Azure Data Lake Storage__를 사용하는 경우 마우스 오른쪽 버튼으로 파일 목록의 빈 영역을 클릭한 다음, __업로드__를 선택합니다. 마지막으로 **HiveCSharp.exe** 파일을 선택하고 **열기**를 클릭합니다.
 
@@ -213,7 +213,7 @@ Hive 및 Pig 모두 외부 애플리케이션으로 데이터를 전달해 처�
 
 ## <a name="run-an-apache-pig-job"></a>Apache Pig 작업 실행
 
-1. SSH를 사용하여 HDInsight 클러스터에 연결합니다. 예를 들어, `ssh sshuser@mycluster-ssh.azurehdinsight.net`을 입력합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+1. SSH를 사용하여 HDInsight 클러스터에 연결합니다. `ssh sshuser@mycluster-ssh.azurehdinsight.net` 을 입력합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 2. Pig 명령줄을 시작하려면 다음 명령을 사용합니다.
 

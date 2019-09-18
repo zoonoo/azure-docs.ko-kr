@@ -4,7 +4,7 @@ description: 부팅할 때 블루 스크린이 오류가 수신되는 문제를 
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 ms.service: virtual-machines-windows
 ms.topic: troubleshooting
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: genli
-ms.openlocfilehash: 397f9f4de21ecb27435c132d80074ed442202448
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 921e97fa393a3005e3ba392502d291301df3d65c
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70089965"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058074"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>Windows는 Azure VM을 부팅할 때 블루 스크린 오류를 표시
 이 문서에서는 Microsoft Azure에서 Windows VM(Virtual Machine)을 부팅할 때 발생할 수 있는 블루 스크린 오류에 대해 설명합니다. 지원 티켓에 대한 데이터를 수집할 수 있도록 하는 단계를 제공합니다. 

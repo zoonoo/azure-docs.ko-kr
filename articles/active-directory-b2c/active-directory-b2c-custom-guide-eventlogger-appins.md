@@ -10,18 +10,18 @@ ms.workload: identity
 ms.date: 10/12/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e18157c95dac0de90c50b4b7e8591e32c5b76aaf
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: c02757fb4b48ebf1220a5826bc9699741faa5170
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227242"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066179"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Application Insights를 사용하여 Azure Active Directory B2C에서 사용자 동작 추적
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Azure AD(Azure Active Directory) B2C를 Azure Application Insights와 함께 사용하는 경우 사용자 경험을 위해 자세하고 사용자 지정된 이벤트 로그를 가져올 수 있습니다. 이 문서에서는 다음 방법을 설명합니다.
+Azure 애플리케이션 Insights와 함께 Azure Active Directory B2C (Azure AD B2C)를 사용 하는 경우 사용자 경험에 대 한 자세한 사용자 지정 이벤트 로그를 얻을 수 있습니다. 이 문서에서는 다음 방법을 설명합니다.
 
 * 사용자 동작에 대한 정보를 얻습니다.
 * 개발에서 또는 프로덕션 환경에서 사용자 고유의 정책 문제를 해결합니다.
@@ -36,7 +36,7 @@ Azure AD B2C에서 ID 경험 프레임워크는 공급자 `Handler="Web.TPEngine
 
 Application Insights는 상관 관계 ID를 사용하여 사용자 세션을 기록하는 이벤트를 통합할 수 있습니다. Application Insights는 짧은 시간 안에 이벤트 및 세션을 사용할 수 있게 하며, 많은 시각화, 내보내기 및 분석 도구를 제공합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 [사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md)의 단계를 완료합니다. 이 문서에서는 사용자 지정 정책 시작 팩을 사용하고 있다고 가정합니다. 하지만 시작 팩은 필요하지 않습니다.
 
@@ -45,7 +45,7 @@ Application Insights는 상관 관계 ID를 사용하여 사용자 세션을 기
 Application Insights를 Azure AD B2C와 함께 사용하는 경우 리소스를 만들고 계측 키를 가져오기만 하면 됩니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Azure 구독을 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 구독이 포함된 디렉터리를 선택합니다. 이 테넌트는 Azure AD B2C 테넌트가 아닙니다.
+2. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 구독을 포함 하는 디렉터리를 선택 하 여 Azure 구독이 포함 된 디렉터리를 사용 하 고 있는지 확인 합니다. 이 테넌트는 Azure AD B2C 테넌트가 아닙니다.
 3. Azure Portal의 왼쪽 상단 모서리에서 **리소스 만들기**를 선택하고 **Application Insights**를 검색하여 선택합니다.
 4. **만들기**를 클릭합니다.
 5. 리소스의 **이름**을 입력합니다.
@@ -111,10 +111,10 @@ Application Insights를 Azure AD B2C와 함께 사용하는 경우 리소스를 
 
 | 기술 프로필 | 태스크 |
 | ----------------- | -----|
-| AzureInsights-Common | 모든 Azure Insights 기술 프로필에 포함할 공통 매개 변수 집합을 만듭니다. | 
-| AzureInsights-SignInRequest | 로그인 요청이 수신되었을 때 클레임 집합을 사용하여 SignIn 이벤트를 만듭니다. | 
-| AzureInsights-UserSignup | 사용자가 등록/로그인 경험에서 등록 옵션을 트리거할 때 UserSignup 이벤트를 만듭니다. | 
-| AzureInsights-SignInComplete | 토큰이 신뢰 당사자 애플리케이션에 전송되었을 때 인증이 성공적으로 완료되었다고 기록합니다. | 
+| AzureInsights-Common | 모든 Azure Insights 기술 프로필에 포함할 공통 매개 변수 집합을 만듭니다. |
+| AzureInsights-SignInRequest | 로그인 요청이 수신되었을 때 클레임 집합을 사용하여 SignIn 이벤트를 만듭니다. |
+| AzureInsights-UserSignup | 사용자가 등록/로그인 경험에서 등록 옵션을 트리거할 때 UserSignup 이벤트를 만듭니다. |
+| AzureInsights-SignInComplete | 토큰이 신뢰 당사자 애플리케이션에 전송되었을 때 인증이 성공적으로 완료되었다고 기록합니다. |
 
 프로필을 스타터 팩의 *TrustFrameworkExtensions.xml* 파일에 추가합니다. 이러한 요소를 **ClaimsProviders** 요소에 추가합니다.
 
@@ -230,11 +230,11 @@ Application Insights를 Azure AD B2C와 함께 사용하는 경우 리소스를 
 
 ## <a name="next-steps"></a>다음 단계
 
-필요에 맞게 사용자 경험에 클레임 유형 및 이벤트를 추가합니다. [클레임 확인자](claim-resolver-overview.md) 또는 문자열 클레임 유형을 사용하고 **입력 클레임** 요소를 Application Insights 이벤트 또는 Azure Insights 공통 기술 프로필에 추가하여 클레임을 추가합니다. 
+필요에 맞게 사용자 경험에 클레임 유형 및 이벤트를 추가합니다. [클레임 확인자](claim-resolver-overview.md) 또는 문자열 클레임 유형을 사용하고 **입력 클레임** 요소를 Application Insights 이벤트 또는 Azure Insights 공통 기술 프로필에 추가하여 클레임을 추가합니다.
 
 - **ClaimTypeReferenceId**는 클레임 유형에 대한 참조입니다.
-- **PartnerClaimType**은 Azure Insights에 나타나는 속성의 이름입니다. `{property:NAME}`의 구분을 사용합니다. 단, `NAME`은 이벤트에 추가하는 속성입니다. 
-- **DefaultValue**는 임의의 문자열 값 또는 클레임 확인자를 사용합니다. 
+- **PartnerClaimType**은 Azure Insights에 나타나는 속성의 이름입니다. `{property:NAME}`의 구분을 사용합니다. 단, `NAME`은 이벤트에 추가하는 속성입니다.
+- **DefaultValue**는 임의의 문자열 값 또는 클레임 확인자를 사용합니다.
 
 ```XML
 <InputClaim ClaimTypeReferenceId="app_session" PartnerClaimType="{property:app_session}" DefaultValue="{OAUTH-KV:app_session}" />

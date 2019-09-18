@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 83269a5ae0d2e5fb7ae2651dbc27926c910a0e03
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: b7eb004dbeba499e6f67f98165b72d7ec8615f1b
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302482"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065841"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책 시작
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-[사용자 지정 정책](active-directory-b2c-overview-custom.md)은 Azure AD(Azure Active Directory) B2C 테넌트의 동작을 정의하는 구성 파일입니다. 이 문서에서는 전자 메일 주소와 암호를 사용한 로콜 계정 등록 또는 로그인을 지원하는 사용자 지정 정책을 만듭니다. ID 공급자를 추가하기 위한 환경도 준비합니다.
+[사용자 지정 정책은](active-directory-b2c-overview-custom.md) Azure Active Directory B2C (Azure AD B2C) 테 넌 트의 동작을 정의 하는 구성 파일입니다. 이 문서에서는 전자 메일 주소와 암호를 사용한 로콜 계정 등록 또는 로그인을 지원하는 사용자 지정 정책을 만듭니다. ID 공급자를 추가하기 위한 환경도 준비합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독에 연결된 [Azure AD B2C 테넌트](tutorial-create-tenant.md)가 아직 없으면 만들어야 합니다.
 - Azure AD B2C와 통신할 수 있도록 만든 테 넌 트에 [응용 프로그램을 등록](tutorial-register-applications.md) 합니다.
@@ -31,7 +31,7 @@ ms.locfileid: "68302482"
 ## <a name="add-signing-and-encryption-keys"></a>서명 및 암호화 키 추가
 
 1. Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Azure AD B2C 테 넌 트를 포함 하는 디렉터리를 사용 하 고 있는지 확인 합니다. 상단 메뉴에서 **디렉터리 및 구독 필터** 를 클릭 하 고 테 넌 트가 포함 된 디렉터리를 선택 합니다.
+2. Azure AD B2C 테 넌 트를 포함 하는 디렉터리를 사용 하 고 있는지 확인 합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 테 넌 트가 포함 된 디렉터리를 선택 합니다.
 3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 4. 개요 페이지에서 **ID 경험 프레임워크**를 선택합니다.
 

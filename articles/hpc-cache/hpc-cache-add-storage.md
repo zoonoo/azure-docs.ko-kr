@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: 4554214b74b4d09fa40e355270208bebda4076b7
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: ca8e13e322c3e192b697248f1252b65f6cbeda7f
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775261"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037242"
 ---
 # <a name="add-storage"></a>스토리지 추가
 
@@ -27,13 +27,15 @@ Azure HPC 캐시를 만드는 동안 또는 나중에 저장소 대상을 추가
 
 캐시 생성 마법사의 **저장소 대상** 탭을 사용 하 여 캐시 인스턴스를 만들 때 저장소를 정의할 수 있습니다.
 
-![저장소 대상 페이지의 스크린샷](media/create-targets.png)
+![저장소 대상 페이지의 스크린샷](media/hpc-cache-storage-targets-pop.png)
 
 저장소를 추가 하려면 **저장소 대상 추가** 링크를 클릭 합니다.
 
 ## <a name="add-storage-targets-from-the-cache"></a>캐시에서 저장소 대상 추가
 
 Azure Portal에서 캐시 인스턴스를 열고 왼쪽 세로 막대에서 **저장소 대상** 을 클릭 합니다. 저장소 대상 페이지에는 기존의 모든 대상이 나열 되며 새 대상이 추가 될 수 있는 링크가 제공 됩니다.
+
+![범주 제목 설정 및 모니터링의 제목 구성 아래에 있는 사이드바의 저장소 대상 링크 스크린샷](media/hpc-cache-storage-targets-sidebar.png)
 
 ## <a name="add-a-new-azure-blob-storage-target"></a>새 Azure Blob 저장소 대상 추가
 
@@ -52,15 +54,13 @@ Azure Blob 컨테이너를 정의 하려면이 정보를 입력 합니다.
 
 * **가상 네임 스페이스 경로** -이 저장소 대상에 대 한 클라이언트 연결 filepath를 설정 합니다. 가상 네임 스페이스 기능에 대해 자세히 알아보려면 [집계 된 네임 스페이스 구성](hpc-cache-namespace.md) 을 참조 하세요.
 
-<!--  The namespace path value must end with a slash (``/``) and should not start with one.  -->
-
 완료 되 면 **확인** 을 클릭 하 여 저장소 대상을 추가 합니다.
 
 ### <a name="add-the-access-control-roles-to-your-account"></a>계정에 액세스 제어 역할 추가
 
 Azure HPC 캐시는 [RBAC (역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/index) 를 사용 하 여 캐시 응용 프로그램이 Azure Blob 저장소 대상에 대 한 저장소 계정에 액세스 하도록 권한을 부여 합니다.
 
-저장소 계정 소유자는 "StorageCache 리소스 공급자" 사용자에 대 한 롤 [저장소 계정 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) 및 [저장소 Blob 데이터 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) 를 명시적으로 추가 해야 합니다.
+저장소 계정 소유자는 "StorageCache 리소스 공급자" 사용자에 대 한 역할 [저장소 계정 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) 및 [저장소 Blob 데이터 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) 를 명시적으로 추가 해야 합니다.
 
 이렇게 하려면 나중에 또는 Blob 저장소 대상을 추가 하는 페이지의 링크를 클릭 하면 됩니다.
 

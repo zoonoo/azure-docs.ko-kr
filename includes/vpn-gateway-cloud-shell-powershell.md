@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 3ef848d12e3a39c3bd83ea44fcb86d67bbdb38dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d1e12a5cbdf145bb95fc2166a20ca1e9a77539cf
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66736007"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059745"
 ---
 이 문서에서는 PowerShell cmdlet을 사용합니다. cmdlet을 실행하려면 Azure Cloud Shell을 사용하면 됩니다. Azure Cloud Shell은 Azure에서 호스팅되고 브라우저를 통해 사용되는 대화형 셸 환경입니다. Azure Cloud Shell에는 Azure PowerShell cmdlet이 미리 설치되어 있습니다.
 
@@ -23,7 +23,7 @@ Azure Cloud Shell에서 이 문서에 포함된 코드를 실행하려면 Cloud 
 
 |  |   |
 |-----------------------------------------------|---|
-| 코드 블록의 오른쪽 위 모서리에서 **사용**을 선택합니다. 이것으로 Cloud Shell로 텍스트가 자동 복사되는 것은 __아닙니다__. | ![Azure Cloud Shell에 대한 사용 예제](./media/cloud-shell-try-it/cli-try-it.png) |
-| 브라우저에서 [shell.azure.com](https://shell.azure.com)을 엽니다. | [![Azure Cloud Shell 단추 시작](./media/cloud-shell-try-it/launchcloudshell.png)](https://shell.azure.com) |
-| [Azure Portal](https://portal.azure.com) 오른쪽 위에 있는 메뉴에서 **Cloud Shell** 단추를 선택합니다. | ![Azure Portal의 Cloud Shell 단추](./media/cloud-shell-try-it/cloud-shell-menu.png) |
+| 코드 블록의 오른쪽 위 모서리에서 **사용**을 선택합니다. 이것으로 Cloud Shell로 텍스트가 자동 복사되는 것은 __아닙니다__. | ![Azure Cloud Shell에 대한 사용 예제](./media/cloud-shell-try-it/hdi-azure-cli-try-it.png) |
+| 브라우저에서 [shell.azure.com](https://shell.azure.com)을 엽니다. | [![Azure Cloud Shell 단추 시작](./media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com) |
+| [Azure Portal](https://portal.azure.com) 오른쪽 위에 있는 메뉴에서 **Cloud Shell** 단추를 선택합니다. | ![Azure Portal의 Cloud Shell 단추](./media/cloud-shell-try-it/hdi-cloud-shell-menu.png) |
 

@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1e8f03b17c5e8ea68affa9fe83875382fd5d8512
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: b1262d34f93ecbcdb71586fd551d28fde477f92a
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716711"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063935"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에 Openid connect Connect 기술 프로필 정의
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C는 [Openid connect Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) 프로토콜 id 공급자에 대 한 지원을 제공 합니다. OpenID Connect 1.0은 OAuth 2.0을 토대로 ID 계층을 정의하고 최신 인증 프로토콜을 나타냅니다. Openid connect Connect 기술 프로필을 사용 하 여 Azure AD와 같은 Openid connect Connect 기반 id 공급자와 페더레이션 할 수 있습니다. Id 공급자와의 페더레이션을 통해 사용자는 기존 소셜 또는 엔터프라이즈 id로 로그인 할 수 있습니다.
+Azure Active Directory B2C (Azure AD B2C)는 [Openid connect Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) 프로토콜 id 공급자에 대 한 지원을 제공 합니다. OpenID Connect 1.0은 OAuth 2.0을 토대로 ID 계층을 정의하고 최신 인증 프로토콜을 나타냅니다. Openid connect Connect 기술 프로필을 사용 하 여 Azure AD와 같은 Openid connect Connect 기반 id 공급자와 페더레이션 할 수 있습니다. Id 공급자와의 페더레이션을 통해 사용자는 기존 소셜 또는 엔터프라이즈 id로 로그인 할 수 있습니다.
 
 ## <a name="protocol"></a>프로토콜
 
@@ -73,7 +73,7 @@ Azure Active Directory (Azure AD) B2C는 [Openid connect Connect](https://openid
 
 ## <a name="metadata"></a>메타데이터
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필수 | Description |
 | --------- | -------- | ----------- |
 | client_id | 예 | ID 공급자의 애플리케이션 식별자입니다. |
 | IdTokenAudience | 아니요 | id_token의 대상 그룹입니다. 지정된 경우 Azure AD B2C는 토큰이 ID 공급자에서 반환된 클레임에 있고 지정된 토큰과 같은지 확인합니다. |
@@ -92,7 +92,7 @@ Azure Active Directory (Azure AD) B2C는 [Openid connect Connect](https://openid
 
 **CryptographicKeys** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필수 | Description |
 | --------- | -------- | ----------- |
 | client_secret | 예 | ID 공급자 애플리케이션의 클라이언트 암호입니다. 암호화 키는 **response_types** 메타데이터가 `code`로 설정된 경우에만 필요합니다. 이 경우 Azure AD B2C는 액세스 토큰에 대한 인증 코드를 교환하는 다른 호출을 수행합니다. 메타데이터가 `id_token`으로 설정된 경우 암호화 키를 생략할 수 있습니다.  |
 

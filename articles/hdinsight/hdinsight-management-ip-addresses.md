@@ -3,20 +3,21 @@ title: Azure HDInsight 관리 IP 주소
 description: Azure HDInsight를 사용 하 여 가상 네트워킹에 대해 네트워크 보안 그룹 및 사용자 정의 경로를 올바르게 구성 하기 위해에서 인바운드 트래픽을 허용 해야 하는 IP 주소에 대해 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: 0a41d1d57257db8f88481766e65eb8ee7569da87
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 3f0b31cd3d37c3040ff99a89c1a5201b413fd3fc
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479195"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076642"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>HDInsight 관리 IP 주소
 
-NSGs (네트워크 보안 그룹) 또는 UDRs (사용자 정의 경로)를 사용 하 여 HDInsight 클러스터에 대 한 인바운드 트래픽을 제어 하는 경우 클러스터가 중요 한 Azure 상태 및 관리 서비스와 통신할 수 있는지 확인 해야 합니다.  이러한 서비스의 일부 IP 주소는 지역에 따라 달라 지 며, 일부는 모든 Azure 지역에 적용 됩니다. 사용자 지정 DNS를 사용 하지 않는 경우 Azure DNS 서비스의 트래픽을 허용 해야 할 수도 있습니다.
+NSGs (네트워크 보안 그룹) 또는 UDRs (사용자 정의 경로)를 사용 하 여 HDInsight 클러스터에 대 한 인바운드 트래픽을 제어 하는 경우 클러스터가 중요 한 Azure 상태 및 관리 서비스와 통신할 수 있는지 확인 해야 합니다.  이러한 서비스의 일부 IP 주소는 지역에 따라 달라 지 며, 일부는 모든 Azure 지역에 적용 됩니다. 사용자 지정 DNS를 사용하지 않는 경우에도 Azure DNS 서비스의 트래픽을 허용해야 할 수도 있습니다.
 
 다음 섹션에서는 허용 해야 하는 특정 IP 주소에 대해 설명 합니다.
 

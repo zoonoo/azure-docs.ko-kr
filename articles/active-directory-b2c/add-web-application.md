@@ -10,25 +10,25 @@ ms.custom: mvc
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: a1d098550c6fb733e088f8ad211d29f48f55d2d6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50a4ead58cc70524ec464e52ce546b36f9685df5
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511713"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064543"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Azure Active Directory B2C 테넌트에 웹 API 애플리케이션 추가
 
- 동의 하 고 액세스 토큰을 제공 하는 클라이언트 응용 프로그램에서 요청에 응답할 수 있도록 테 넌 트의 웹 API 리소스를 등록 합니다. 이 문서에서는 Azure Active Directory (Azure AD) B2C에서 응용 프로그램을 등록 하는 방법을 보여 줍니다.
+ 액세스 토큰을 제공 하는 클라이언트 응용 프로그램에서 요청을 수락 하 고 응답할 수 있도록 테 넌 트에 Web API 리소스를 등록 합니다. 이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에 응용 프로그램을 등록 하는 방법을 보여 줍니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. Azure AD B2C 테 넌 트를 포함 하는 디렉터리 사용 했는지 확인 합니다. 선택 된 **디렉터리 및 구독 필터** 최상위 메뉴에서 테 넌 트를 포함 하는 디렉터리를 선택 합니다.
-3. Azure Portal의 왼쪽 위에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+2. Azure AD B2C 테 넌 트를 포함 하는 디렉터리를 사용 하 고 있는지 확인 합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 테 넌 트가 포함 된 디렉터리를 선택 합니다.
+3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 4. **애플리케이션**을 선택하고 **추가**를 선택합니다.
 5. 애플리케이션의 이름을 입력합니다. 예를 들어 *webapi1*과 같습니다.
 6. **웹앱/웹 API 포함** 및 **암시적 흐름 허용**에 **예**를 선택합니다.
-7. **회신 URL**에는 Azure AD B2C에서 애플리케이션이 요청한 토큰을 반환하는 엔드포인트를 입력합니다. 프로덕션 응용 프로그램에서 설정할 수 있습니다 회신 URL 값과 같은 `https://localhost:44332`합니다. 테스트를 위해 회신 URL로 설정 `https://jwt.ms`합니다.
-8. **앱 ID URI**에 웹 API에 사용하는 식별자를 입력합니다. 도메인을 포함하는 전체 식별자 URI가 생성됩니다. 예: `https://contosotenant.onmicrosoft.com/api`
+7. **회신 URL**에는 Azure AD B2C에서 애플리케이션이 요청한 토큰을 반환하는 엔드포인트를 입력합니다. 프로덕션 응용 프로그램에서 회신 URL을와 `https://localhost:44332`같은 값으로 설정할 수 있습니다. 테스트 목적으로 회신 URL을로 `https://jwt.ms`설정 합니다.
+8. **앱 ID URI**에 웹 API에 사용하는 식별자를 입력합니다. 도메인을 포함하는 전체 식별자 URI가 생성됩니다. 예를 들어, `https://contosotenant.onmicrosoft.com/api`을 입력합니다.
 9. **만들기**를 클릭합니다.
 10. 속성 페이지에서 웹 애플리케이션을 구성할 때 사용할 애플리케이션 ID를 기록합니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "66511713"
 2. **게시된 범위**를 선택합니다.
 3. **범위**에 `Read`를 입력하고, 설명에 `Read access to the application`를 입력합니다.
 4. **범위**에 `Write`를 입력하고, 설명에 `Write access to the application`를 입력합니다.
-5. **저장**을 클릭합니다.
+5. **Save**을 클릭합니다.
 
 게시된 범위는 클라이언트 애플리케이션 사용 권한을 웹 API에 부여하는 데 사용할 수 있습니다.
 

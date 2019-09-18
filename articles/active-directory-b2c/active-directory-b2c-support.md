@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 12/06/2016
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a4bb82665ecd9d04c097a127f46814bb7198f393
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: f7f2217677b81c6f3e87eaa2612880adf3b499c2
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227186"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064931"
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C: 지원 요청 제출
-다음 단계를 사용하여 Azure 포털에서 Azure AD(Azure Active Directory) B2C에 대한 지원 요청을 제출할 수 있습니다.
+다음 단계를 사용 하 여 Azure Portal에서 Azure Active Directory B2C (Azure AD B2C)에 대 한 지원 요청을 수행할 수 있습니다.
 
 1. B2C 테넌트를, 연결된 Azure 구독이 있는 다른 테넌트로 전환합니다. 일반적으로 후자는 직원 테넌트 또는 Azure 구독에 등록할 경우 만들어진 기본 테넌트입니다. 자세한 내용은 [Azure 구독과 Azure AD의 연관 관계](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
 

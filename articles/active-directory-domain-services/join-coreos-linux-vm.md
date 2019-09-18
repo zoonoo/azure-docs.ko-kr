@@ -1,79 +1,95 @@
 ---
-title: 'Azure Active Directory Domain Services: CoreOS Linux VM 참여 | Microsoft Docs'
-description: CoreOS Linux 가상 머신을 Azure AD Domain Services에 가입
+title: CoreOS VM을 Azure AD Domain Services에 조인 | Microsoft Docs '
+description: CoreOS 가상 머신을 구성 하 고 관리 되는 Azure AD Domain Services 도메인에 가입 하는 방법을 알아봅니다.
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 ms.assetid: 5db65f30-bf69-4ea3-9ea5-add1db83fdb8
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 09/14/2019
 ms.author: iainfou
-ms.openlocfilehash: dc76d9a0d492d8ef0e37c0c34173216ff4c75164
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: c0c298a9aa0b9d46ec2c7510cdb5c3ba1c8c84af
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69990561"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71075546"
 ---
-# <a name="join-a-coreos-linux-virtual-machine-to-a-managed-domain"></a>CoreOS Linux 가상 머신을 관리되는 도메인에 가입
-이 문서에서는 Azure에서 CoreOS Linux 가상 머신을 Azure AD Domain Services 관리되는 도메인에 가입하는 방법을 보여 줍니다.
+# <a name="join-a-coreos-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>CoreOS 가상 컴퓨터를 관리 되는 Azure AD Domain Services 도메인에 가입
 
-[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
+사용자가 단일 자격 증명 집합을 사용 하 여 Azure에서 Vm (가상 머신)에 로그인 할 수 있도록 Vm을 Azure Active Directory Domain Services (AD DS) 관리 되는 도메인에 조인할 수 있습니다. Azure AD DS 관리 되는 도메인에 VM을 가입 하는 경우 도메인의 사용자 계정 및 자격 증명을 사용 하 여 서버에 로그인 하 고 서버를 관리할 수 있습니다. VM의 파일 또는 서비스에 대 한 액세스를 제어할 수 있도록 Azure AD DS 관리 되는 도메인의 그룹 멤버 자격도 적용 됩니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
-이 문서에 나열된 작업을 수행하려면 다음이 필요합니다.
-1. 유효한 **Azure 구독**.
-2. **Azure AD 디렉터리** - 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화됩니다.
-3. **Azure AD 도메인 서비스** 를 사용하도록 설정해야 합니다. 그렇지 않은 경우 [시작 가이드](tutorial-create-instance.md)에 간략히 설명된 모든 작업을 따릅니다.
-4. 관리되는 도메인의 IP 주소를 가상 네트워크에 대한 DNS 서버로 구성했는지 확인합니다. 자세한 내용은 [Azure 가상 네트워크에 대한 DNS 설정을 업데이트하는 방법](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network)을 참조하세요.
-5. [Azure AD Domain Services 관리되는 도메인에 암호를 동기화](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)하는 데 필요한 단계를 완료합니다.
+이 문서에서는 Azure AD DS 관리 되는 도메인에 CoreOS VM을 조인 하는 방법을 보여 줍니다.
 
+## <a name="prerequisites"></a>전제 조건
 
-## <a name="provision-a-coreos-linux-virtual-machine"></a>CoreOS Linux 가상 머신 프로비전
-다음 방법 중 하나를 사용하여 CoreOS 가상 머신을 프로비전합니다.
+이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
+
+* 활성화된 Azure 구독.
+    * Azure 구독이 없는 경우 [계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
+    * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant] [Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
+* Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
+    * 필요한 경우 첫 번째 자습서에서 [Azure Active Directory Domain Services 인스턴스를 만들고 구성합니다][create-azure-ad-ds-instance].
+* Azure AD 테넌트의 *Azure AD DC Administrators* 그룹에 속한 멤버인 사용자 계정
+
+## <a name="create-and-connect-to-a-coreos-linux-vm"></a>CoreOS Linux VM 만들기 및 연결
+
+Azure에 기존 CoreOS Linux VM이 있는 경우 SSH를 사용 하 여 연결 하 고 다음 단계를 계속 진행 하 여 [vm 구성을 시작](#configure-the-hosts-file)합니다.
+
+CoreOS Linux VM을 만들거나이 문서에서 사용할 테스트 VM을 만들려는 경우 다음 방법 중 하나를 사용할 수 있습니다.
+
 * [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
-이 문서에서는 Azure의 **CoreOS Linux(안정화)** 가상 컴퓨터 이미지를 사용합니다.
+VM을 만들 때 VM이 Azure AD DS 관리 되는 도메인과 통신할 수 있는지 확인 하려면 가상 네트워크 설정에 주의를 기울여야 합니다.
 
-> [!IMPORTANT]
-> * **Azure AD Domain Services를 활성화한 동일한 가상 네트워크**에 가상 머신을 배포합니다.
-> * Azure AD Domain Services를 활성화한 서브넷이 아닌 **다른 서브넷**을 선택합니다.
->
+* Azure AD Domain Services를 사용 하도록 설정한 것과 동일한 또는 피어 링 가상 네트워크에 VM을 배포 합니다.
+* Azure AD Domain Services 인스턴스와 다른 서브넷에 VM을 배포 합니다.
 
+VM을 배포한 후에는 SSH를 사용 하 여 VM에 연결 하는 단계를 수행 합니다.
 
-## <a name="connect-remotely-to-the-newly-provisioned-linux-virtual-machine"></a>새로 프로비전된 Linux 가상 머신에 원격으로 연결
-CoreOS 가상 머신이 Azure에서 프로비전되었습니다. 다음 작업은 VM을 프로비전할 때 만든 로컬 관리자 계정을 사용하여 가상 머신에 원격으로 연결하는 것입니다.
+## <a name="configure-the-hosts-file"></a>호스트 파일 구성
 
-Linux를 실행 하는 [가상 머신에 로그인 하는 방법](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)문서의 지침을 따릅니다.
-
-
-## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>Linux 가상 컴퓨터에서 호스트 파일 구성
-SSH 터미널에서 /etc/hosts 파일을 편집하고 컴퓨터의 IP 주소 및 호스트 이름을 업데이트합니다.
+VM 호스트 이름이 관리 되는 도메인에 대해 올바르게 구성 되었는지 확인 하려면 */etc/hosts* 파일을 편집 하 고 호스트 이름을 설정 합니다.
 
 ```console
 sudo vi /etc/hosts
 ```
 
-호스트 파일에 다음 값을 입력합니다.
+*Hosts* 파일에서 *localhost* 주소를 업데이트 합니다. 다음 예제에서는
+
+* *contoso.com* 는 Azure AD DS 관리 되는 도메인의 DNS 도메인 이름입니다.
+* *coreos* 는 관리 되는 도메인에 가입 하는 coreos VM의 호스트 이름입니다.
+
+이러한 이름을 사용자 고유의 값으로 업데이트 합니다.
 
 ```console
-127.0.0.1 contoso-coreos.contoso.com contoso-coreos
+127.0.0.1 coreos coreos.contoso.com
 ```
 
-여기서 ' contoso.com '는 관리 되는 도메인의 DNS 도메인 이름입니다. 'contoso-coreos'는 관리되는 도메인에 가입한 CoreOS 가상 컴퓨터의 호스트 이름입니다.
+완료 되 면 편집기의 `:wq` 명령을 사용 하 여 *hosts* 파일을 저장 하 고 종료 합니다.
 
+## <a name="configure-the-sssd-service"></a>SSSD 서비스 구성
 
-## <a name="configure-the-sssd-service-on-the-linux-virtual-machine"></a>Linux 가상 머신에서 SSSD 서비스 구성
-다음으로, 다음 샘플과 일치하도록 ('/etc/sssd/sssd.conf')의 SSSD 구성 파일을 업데이트합니다.
+*/Etc/sssd/sssd.conf* sssd 구성을 업데이트 합니다.
+
+```console
+sudo vi /etc/sssd/sssd.conf
+```
+
+다음 매개 변수에 대 한 사용자 고유의 Azure AD DS 관리 되는 도메인 이름을 지정 합니다.
+
+* 모든 사례의 *도메인*
+* *[domain/contoso]* CONTOSO가 모두 대문자 인 경우
+* *ldap_uri*
+* *ldap_search_base*
+* *krb5_server*
+* 모든 대문자 *krb5_realm*
 
 ```console
 [sssd]
@@ -102,56 +118,61 @@ krb5_server = contoso.com
 krb5_realm = CONTOSO.COM
 ```
 
-' CONTOSO '를 바꿉니다. COM에서 관리 되는 도메인의 DNS 도메인 이름으로 바꿉니다. 구성 파일에서 도메인 이름은 대문자로 지정해야 합니다.
+## <a name="join-the-vm-to-the-managed-domain"></a>VM을 관리 되는 도메인에 가입
 
+SSSD 구성 파일이 업데이트 되 면 이제 가상 컴퓨터를 관리 되는 도메인에 가입 시킵니다.
 
-## <a name="join-the-linux-virtual-machine-to-the-managed-domain"></a>Linux 가상 컴퓨터를 관리되는 도메인에 가입
-이제 필요한 패키지를 Linux 가상 머신에 설치했고 다음 작업은 가상 머신을 관리되는 도메인에 가입하는 것입니다.
+1. 먼저 `adcli info` 명령을 사용 하 여 Azure AD DS 관리 되는 도메인에 대 한 정보를 볼 수 있는지 확인 합니다. 다음 예에서는 도메인 *CONTOSO.COM*에 대 한 정보를 가져옵니다. Azure AD DS 관리 되는 도메인 이름을 모두 대문자로 지정 합니다.
 
-```console
-sudo adcli join -D CONTOSO.COM -U bob@CONTOSO.COM -K /etc/krb5.keytab -H contoso-coreos.contoso.com -N coreos
-```
+    ```console
+    sudo adcli info CONTOSO.COM
+    ```
 
+   `adcli info` 명령이 Azure AD DS 관리 되는 도메인을 찾을 수 없는 경우 다음 문제 해결 단계를 검토 합니다.
 
-> [!NOTE]
-> **문제 해결:** *adcli*가 관리되는 도메인을 찾을 수 없는 경우:
->   * 해당 도메인을 가상 머신에서 연결 가능한지 확인합니다(ping 시도).
->   * 또한 관리되는 도메인을 사용할 수 있는 동일한 가상 네트워크에 가상 머신을 확실히 배포했는지 확인합니다.
->   * 가상 네트워크가 관리되는 도메인의 도메인 컨트롤러를 가리키도록 DNS 서버 설정을 업데이트했는지 확인합니다.
+    * VM에서 도메인에 연결할 수 있는지 확인 합니다. `ping contoso.com` 긍정 회신이 반환 되는지 확인 합니다.
+    * VM이 Azure AD DS 관리 되는 도메인을 사용할 수 있는 동일한 또는 피어 링 가상 네트워크에 배포 되었는지 확인 합니다.
+    * 가상 네트워크에 대 한 DNS 서버 설정이 Azure AD DS 관리 되는 도메인의 도메인 컨트롤러를 가리키도록 업데이트 되었는지 확인 합니다.
 
-SSSD 서비스를 시작합니다. SSH 터미널에서 다음 명령을 입력합니다.
+1. 이제 `adcli join` 명령을 사용 하 여 Azure AD DS 관리 되는 도메인에 VM을 가입 시킵니다. *AAD DC 관리자* 그룹에 속한 사용자를 지정 합니다. 필요한 경우 [AZURE AD의 그룹에 사용자 계정을 추가](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md)합니다.
+
+    Azure AD DS 관리 되는 도메인 이름을 모두 대문자로 입력 해야 합니다. 다음 예에서는 라는 `contosoadmin@contoso.com` 계정이 Kerberos를 초기화 하는 데 사용 됩니다. *AAD DC Administrators* 그룹의 구성원 인 사용자 계정을 입력 합니다.
+
+    ```console
+    sudo adcli join -D CONTOSO.COM -U contosoadmin@CONTOSO.COM -K /etc/krb5.keytab -H coreos.contoso.com -N coreos
+    ```
+
+    VM `adcli join` 이 Azure AD DS 관리 되는 도메인에 성공적으로 가입 된 경우에는 명령이 정보를 반환 하지 않습니다.
+
+1. 도메인 가입 구성을 적용 하려면 SSSD 서비스를 시작 합니다.
   
-```console
-sudo systemctl start sssd.service
-```
-
-
-## <a name="verify-domain-join"></a>도메인 가입 확인
-컴퓨터가 관리되는 도메인에 성공적으로 가입되었는지 여부를 확인합니다. 다른 SSH 연결을 사용하여 도메인에 가입된 CoreOS VM에 연결합니다. 도메인 사용자 계정을 사용하고 사용자 계정이 올바른지 확인합니다.
-
-1. SSH 터미널에서 다음 명령을 입력하고 SSH를 사용하여 도메인에 가입된 CoreOS 가상 머신에 연결합니다. 관리되는 도메인에 속하는 도메인 계정을 사용합니다(예: 여기서는 ‘bob@CONTOSO.COM’).
-    
     ```console
-    ssh -l bob@CONTOSO.COM contoso-coreos.contoso.com
+    sudo systemctl start sssd.service
     ```
 
-2. SSH 터미널에서 다음 명령을 입력하여 홈 디렉터리가 올바르게 초기화되었는지 확인합니다.
-    
+## <a name="sign-in-to-the-vm-using-a-domain-account"></a>도메인 계정을 사용 하 여 VM에 로그인 합니다.
+
+VM이 Azure AD DS 관리 되는 도메인에 성공적으로 가입 되었는지 확인 하려면 도메인 사용자 계정을 사용 하 여 새 SSH 연결을 시작 합니다. 홈 디렉터리가 만들어지고 도메인의 그룹 구성원이 적용 되었는지 확인 합니다.
+
+1. 콘솔에서 새 SSH 연결을 만듭니다. `ssh -l` 명령을 사용 하 여 관리 되는 도메인에 속하는 도메인 계정을 사용 하 `contosoadmin@contoso.com` 고 (예:) *coreos.contoso.com*와 같은 VM의 주소를 입력 합니다. Azure Cloud Shell 사용 하는 경우 내부 DNS 이름이 아닌 VM의 공용 IP 주소를 사용 합니다.
+
     ```console
-    pwd
+    ssh -l contosoadmin@CONTOSO.com coreos.contoso.com
     ```
 
-3. SSH 터미널에서 다음 명령을 입력하여 그룹 멤버 자격이 올바르게 확인되었는지 확인합니다.
-   
+1. 이제 그룹 멤버 자격이 올바르게 확인 되는지 확인 합니다.
+
     ```console
     id
     ```
 
+    Azure AD DS 관리 되는 도메인에서 그룹 멤버 자격을 확인 해야 합니다.
 
-## <a name="troubleshooting-domain-join"></a>도메인 가입 문제 해결
-[도메인 가입 문제 해결](join-windows-vm.md#troubleshoot-domain-join-issues) 문서를 참조하세요.
+## <a name="next-steps"></a>다음 단계
 
-## <a name="related-content"></a>관련 내용
-* [Azure AD 도메인 서비스 - 시작 가이드](tutorial-create-instance.md)
-* [Windows Server 가상 머신을 Azure AD 도메인 서비스 관리되는 도메인에 가입](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Linux를 실행 하는 가상 머신에 로그인 하는 방법](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+VM을 Azure AD DS 관리 되는 도메인에 연결 하거나 도메인 계정으로 로그인 하는 데 문제가 있는 경우 [도메인 가입 문제 해결](join-windows-vm.md#troubleshoot-domain-join-issues)을 참조 하세요.
+
+<!-- INTERNAL LINKS -->
+[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
+[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-ds-instance]: tutorial-create-instance.md

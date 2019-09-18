@@ -3,7 +3,7 @@ title: Azure 상태 모니터 v2 문제 해결 및 알려진 문제 | Microsoft 
 description: 상태 모니터 v 2의 알려진 문제 및 문제 해결 예제입니다. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
 services: application-insights
 documentationcenter: .net
-author: MS-TimothyMothra
+author: TimothyMothra
 manager: alexklim
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: e34beba32eace370664893225dd85b6f4b79c886
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: c3e9bffaf3b533ef8fbe3e32c1dca671fb67c911
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424108"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058287"
 ---
 # <a name="troubleshooting-status-monitor-v2"></a>V2 상태 모니터 문제 해결
 

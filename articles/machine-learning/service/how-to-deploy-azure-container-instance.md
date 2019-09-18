@@ -1,7 +1,7 @@
 ---
 title: Azure Container Instances에 모델을 배포 하는 방법
-titleSuffix: Azure Machine Learning service
-description: Azure Container Instances를 사용 하 여 Azure Machine Learning 서비스 모델을 웹 서비스로 배포 하는 방법을 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Container Instances를 사용 하 여 Azure Machine Learning 모델을 웹 서비스로 배포 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,25 +10,25 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: cb80cb92ef93132aae3c57e74c108293da3a7834
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 27988edaf9d6fe70288352b0ba45945e32976d4d
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279148"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034641"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Azure Container Instances에 모델 배포
 
-Azure Machine Learning 서비스를 사용 하 여 ACI (Azure Container Instances에 웹 서비스로 모델을 배포 하는 방법에 대해 알아봅니다. 다음 조건 중 하나에 해당 하는 경우 Azure Container Instances를 사용 합니다.
+Azure Machine Learning를 사용 하 여 ACI (Azure Container Instances에서 웹 서비스로 모델을 배포 하는 방법을 알아봅니다. 다음 조건 중 하나에 해당 하는 경우 Azure Container Instances를 사용 합니다.
 
 - 모델을 빠르게 배포하고 유효성을 검사해야 합니다. ACI 컨테이너를 미리 만들 필요는 없습니다. 배포 프로세스의 일부로 생성 됩니다.
 - 개발 중인 모델을 테스트합니다. 
 
 ACI의 할당량 및 지역 가용성에 대 한 자세한 내용은 [Azure Container Instances 문서에 대 한 할당량 및 지역 가용성](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) 을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
-- Azure Machine Learning 서비스 작업 영역. 자세한 내용은 [Azure Machine Learning 서비스 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
+- Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 
 - 작업 영역에 등록 된 machine learning 모델입니다. 등록 된 모델이 없는 경우 모델을 배포 하 [는 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
 

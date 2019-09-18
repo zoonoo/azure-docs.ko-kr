@@ -4,7 +4,7 @@ description: Azure VM에서 BitLocker 부팅 오류를 해결하는 방법을 �
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: v-jesits
 ms.service: virtual-machines-windows
 ms.topic: troubleshooting
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
-ms.openlocfilehash: b9ff0dfa98fb3b6f12974512e197142d44223b80
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b0b8528a8eaf5cab22bb2482bd60e760d8bf5e3d
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70080280"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058101"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Azure VM의 BitLocker 부팅 오류
 
@@ -47,7 +47,7 @@ ms.locfileid: "70080280"
 이 방법으로 문제가 해결되지 않으면 다음 단계에 따라 BEK 파일을 수동으로 복원합니다.
 
 1. 영향을 받는 VM의 시스템 디스크의 스냅샷을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
-2. [복구 VM에 시스템 디스크 연결](troubleshoot-recovery-disks-portal-windows.md). 7 단계에서 [manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) 명령을 실행 하려면 복구 VM에서 **BitLocker 드라이브 암호화** 기능을 사용 하도록 설정 해야 합니다.
+2. [복구 VM에 OS 디스크를 연결합니다](troubleshoot-recovery-disks-portal-windows.md). 7 단계에서 [manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) 명령을 실행 하려면 복구 VM에서 **BitLocker 드라이브 암호화** 기능을 사용 하도록 설정 해야 합니다.
 
     관리 디스크를 연결할 때 “암호화 설정이 포함되어 있으므로 데이터 디스크로 사용할 수 없습니다.” 오류 메시지가 표시될 수 있습니다. 이 경우 다음 스크립트를 실행하여 디스크를 다시 연결합니다.
 

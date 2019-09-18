@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/07/2019
+ms.date: 09/16/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e87ea28f2454ec3c969574b21ef383e81b3148c2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d9b9476d8cc62585be7e7003d837607b502c8566
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098761"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067857"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 
@@ -344,6 +344,7 @@ Microsoft Azure Virtual Machine 서비스와 함께 Microsoft는 포괄적인 Ia
 * SAP 자산: 고객의 IT 자산 중 SAP 자산 전체를 의미합니다. SAP 지형에는 모든 프로덕션 및 비프로덕션 환경이 포함됩니다.
 * SAP 시스템: SAP ERP 개발 시스템, SAP BW 테스트 시스템, SAP CRM 프로덕션 시스템 등의 애플리케이션 계층과 DBMS 계층의 조합입니다. Azure 배포에서는 온-프레미스와 Azure 간에 이러한 두 계층을 나눌 수 없습니다. 즉, SAP 시스템은 온-프레미스에 배포되거나 Azure에 배포됨을 의미합니다. 그러나 Azure 또는 온-프레미스에는 SAP 지형의 서로 다른 시스템을 배포할 수 있습니다. 예를 들어 Azure에는 SAP CRM 개발 및 테스트 시스템을 배포할 수 있지만 온-프레미스에는 SAP CRM 프로덕션 시스템을 배포할 수 있습니다.
 * 크로스-프레미스 또는 하이브리드: VM이 온-프레미스 데이터 센터와 Azure 간에 사이트-사이트, 다중 사이트 또는 ExpressRoute 방식으로 연결되는 Azure 구독에 배포되는 시나리오를 설명합니다. 공통 Azure 설명서에서 이러한 종류의 배포를 크로스-프레미스 또는 하이브리드 시나리오라고도 합니다. 연결하는 이유는 온-프레미스 도메인, 온-프레미스 Active Directory/OpenLDAP 및 온-프레미스 DNS를 Azure로 확장하기 위한 것입니다. 온-프레미스 배경은 구독의 Azure 자산으로 확장됩니다. 이렇게 확장된 VM은 온-프레미스 도메인에 속할 수 있습니다. 온-프레미스 도메인의 도메인 사용자는 서버에 액세스하고 이러한 VM에서 서비스(예: DBMS 서비스)를 실행할 수 있습니다. 온-프레미스에 배포된 VM과 Azure에 배포된 VM 간의 통신 및 이름 확인이 가능합니다. 이는 SAP 자산을 Azure에 배포하는 가장 일반적이며 거의 독점적인 사례입니다. 자세한 내용은 [이][vpn-gateway-cross-premises-options] 문서 및 [이][vpn-gateway-site-to-site-create]문서를 참조 하세요.
+* SAP 용 azure 모니터링 확장, 향상 된 모니터링 및 Azure 확장: 하나 및 동일한 항목을 설명 합니다. SAP 호스트 에이전트에 Azure 인프라에 대 한 몇 가지 기본 데이터를 제공 하기 위해 사용자가 배포 해야 하는 VM 확장을 설명 합니다. Sap notes의 SAP는 모니터링 확장 또는 향상 된 모니터링으로이를 참조할 수 있습니다. Azure에서 **SAP 용 Azure 확장**으로 참조 하 고 있습니다.
 
 > [!NOTE]
 > 프로덕션 SAP 시스템의 경우 SAP 시스템을 실행 중인 Azure Virtual Machines가 온-프레미스 도메인의 멤버인 SAP 시스템의 크로스-프레미스 또는 하이브리드 배포가 지원됩니다. 일부 또는 전체 SAP 환경을 Azure로 배포하는 데 크로스-프레미스 또는 하이브리드 구성이 지원됩니다. Azure에서 전체 SAP 지형을 실행하려고 해도 이러한 VM이 온-프레미스 도메인 및 ADS/OpenLDAP에 포함되어야 합니다. 
@@ -799,7 +800,7 @@ Azure PowerShell cmdlet을 설치, 업데이트 및 구성 하는 방법에 대 
 예제는 <https://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>에서 참조하세요.
 
 
-SAP 용 Azure 모니터링 확장 배포 (이 문서에서 [sap 용 Azure 모니터링 솔루션][planning-guide-9.1] 장 참조)는 POWERSHELL 또는 CLI를 통해서만 가능 합니다. 따라서 Azure에서 SAP NetWeaver 시스템을 배포 또는 관리하는 경우 PowerShell 또는 CLI를 반드시 설치하고 구성해야 합니다.  
+SAP 용 Azure 확장 배포 (이 문서에서 [sap 용 Azure 확장][planning-guide-9.1] 챕터 참조)는 POWERSHELL 또는 CLI를 통해서만 가능 합니다. 따라서 Azure에서 SAP NetWeaver 시스템을 배포 또는 관리하는 경우 PowerShell 또는 CLI를 반드시 설치하고 구성해야 합니다.  
 
 Azure에서는 더 많은 기능을 제공하므로 cmdlet 업데이트를 요구하는 새로운 PS cmdlet이 추가될 예정입니다. 따라서 매월 한 번 이상 Azure 다운로드 사이트 <https://azure.microsoft.com/downloads/>를 확인하여 새 버전의 cmdlet이 있는지 확인하는 것이 좋습니다. 새 버전은 이전 버전이 그대로 유지된 상태로 설치됩니다.
 
@@ -816,7 +817,7 @@ Azure CLI는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령
 * [Azure Resource Manager 템플릿 및 Azure CLI를 사용하여 가상 머신 배포 및 관리][../../linux/create-ssh-secured-vm-from-template.md]
 * [Azure Resource Manager에서 Mac, Linux 및 Windows 용 Azure 클래식 CLI 사용][xplat-cli-azure-resource-manager]
 
-또한 Azure CLI를 사용 하 여 SAP 용 Azure 모니터링 확장을 배포 하는 방법에 대 한 [배포 가이드][planning-guide] 에서 [Linux vm에 대 한 Azure CLI][deployment-guide-4.5.2] 챕터를 읽어 보세요.
+또한 Azure CLI를 사용 하 여 SAP 용 Azure 확장을 배포 하는 방법에 대 한 [배포 가이드][planning-guide] 에서 [Linux vm에 대 한 Azure CLI][deployment-guide-4.5.2] 챕터를 읽어 보세요.
 
 ## <a name="different-ways-to-deploy-vms-for-sap-in-azure"></a>Azure에서 SAP용 VM을 배포하는 다른 방법
 
@@ -1302,7 +1303,7 @@ Azure 지역에서 복제 기능은 VM의 각 VHD에서 로컬로 작동하며, 
 ---
 ### <a name="final-deployment"></a>최종 배포
 
-특히 SAP 확장 모니터링의 배포와 관련 하 여 최종 배포 및 정확한 단계는 [배포 가이드][deployment-guide]를 참조 하세요.
+SAP 용 Azure 확장의 배포와 관련 하 여 최종 배포 및 정확한 단계는 [배포 가이드][deployment-guide]를 참조 하세요.
 
 ## <a name="accessing-sap-systems-running-within-azure-vms"></a>Azure VM 내에서 실행되는 SAP 시스템에 액세스
 
@@ -1775,29 +1776,29 @@ Azure에 있는 SAP 인스턴스는 회사 프레미스 내에 있는 파일 공
 
 ## <a name="supportability"></a>지원 가능성
 
-### <a name="6f0a47f3-a289-4090-a053-2521618a28c3"></a>SAP용 Azure 모니터링 솔루션
+### <a name="6f0a47f3-a289-4090-a053-2521618a28c3"></a>SAP 용 Azure 확장
 
-Azure에서 업무에 중요한 SAP 시스템의 모니터링을 사용하도록 설정하기 위해 SAP 모니터링 도구인 SAPOSCOL 또는 SAP 호스트 에이전트가 SAP용 Azure 모니터링 확장을 통해 Azure Virtual Machine 서비스 호스트에서 데이터를 가져옵니다. SAP의 요구는 SAP 애플리케이션에 따라 크게 달라지므로 Microsoft는 일반적으로 Azure에 필요한 기능을 구현하지 않기로 결정했지만, 고객이 Azure에서 실행되는 Virtual Machines에 필요한 모니터링 구성 요소와 구성을 배포할 수 있도록 허용합니다. 그러나 모니터링 구성 요소의 배포 및 수명 주기 관리는 대부분 Azure에서 자동으로 수행됩니다.
+Sap 호스트 에이전트 인스턴스에 중요 업무용 SAP 시스템의 일부 Azure 인프라 정보를 제공 하기 위해, SAP 용 Azure (VM) 확장은 배포 된 Vm에 대해 설치 되어야 합니다. SAP에서 요구 하는 사항은 SAP 응용 프로그램에만 적용 되므로 Microsoft는 일반적으로 Azure에 필요한 기능을 구현 하지 않기로 결정 했지만, 고객이 필요한 VM 확장 및 구성을 실행 중인 Virtual Machines에 배포 하는 것이 좋습니다. Azure에서. 그러나 SAP 용 Azure VM 확장의 배포 및 수명 주기 관리는 대부분 Azure에 의해 자동화 됩니다.
 
 #### <a name="solution-design"></a>솔루션 디자인
 
-SAP 모니터링을 사용 가능하도록 하기 위해 개발된 솔루션은 Azure VM 에이전트 및 확장 프레임워크의 아키텍처를 기반으로 합니다. Azure VM 에이전트 및 확장 프레임워크는 VM 내에 있는 Azure VM 확장 갤러리에서 소프트웨어 애플리케이션을 설치할 수 있도록 허용합니다. 이 개념의 원리는 특수한 기능을 VM에 배포하고 배포 시에 이러한 소프트웨어를 구성할 수 있도록 하는 것입니다(SAP용 Azure 모니터링 확장과 같음).
+SAP 호스트 에이전트에서 필요한 정보를 가져올 수 있도록 개발 된 솔루션은 Azure VM 에이전트 및 확장 프레임 워크의 아키텍처를 기반으로 합니다. Azure VM 에이전트 및 확장 프레임워크는 VM 내에 있는 Azure VM 확장 갤러리에서 소프트웨어 애플리케이션을 설치할 수 있도록 허용합니다. 이 개념의 개념은 SAP 용 Azure 확장 등의 경우, VM에 특수 기능을 배포 하 고 배포 시에 이러한 소프트웨어를 구성 하는 것을 허용 하는 것입니다.
 
 Azure Portal에서 VM을 생성할 때 기본적으로 VM 내의 특정 Azure VM 확장을 처리할 수 있도록 하는 'Azure VM 에이전트'가 Windows에 주입됩니다. SUSE, Red Hat 또는 Oracle Linux의 경우 VM 에이전트가 이미 Azure Marketplace 이미지의 일부입니다. Linux VM을 온-프레미스에서 Azure로 업로드하는 경우 VM 에이전트를 수동으로 설치해야 합니다.
 
-Azure에서 SAP용 모니터링 솔루션의 기본 구성 요소는 다음과 같습니다.
+Azure에서 SAP 호스트 에이전트에 Azure 인프라 정보를 제공 하는 솔루션의 기본 구성 요소는 다음과 같습니다.
 
 ![Microsoft Azure 확장 구성 요소][planning-guide-figure-2400]
 
-위의 블록 다이어그램에 나와 있는 것처럼 SAP용 모니터링 솔루션의 한 부분은 Azure VM 이미지 및 Azure Operations에 의해 관리되는 전역적으로 복제 리포지토리인 Azure 확장 갤러리에서 호스트됩니다. Azure Operations를 사용하여 SAP용 Azure 모니터링 확장의 새 버전을 게시하는 것은 Azure의 SAP 구현과 관련해서 작업하는 공동 SAP/MS 팀의 책임입니다.
+위의 블록 다이어그램에 표시 된 것 처럼 솔루션의 한 부분은 azure 작업에서 관리 되는 전역적으로 복제 된 리포지토리 인 azure VM 이미지 및 Azure 확장 갤러리에서 호스팅됩니다. Azure 작업을 사용 하 여 SAP 용 Azure 확장의 새 버전을 게시 하기 위해 SAP의 Azure 구현에서 작업 하는 공동 SAP/MS 팀의 책임입니다.
 
-새 Windows VM을 배포하는 경우 'Azure VM 에이전트'가 VM에 자동으로 추가됩니다. 이 에이전트의 기능은 SAP NetWeaver Systems의 모니터링을 위해 Azure 확장의 로드 및 구성을 조정하는 것입니다. Linux VM의 경우 Azure VM 에이전트가 이미 Azure Marketplace OS 이미지의 일부입니다.
+새 Windows VM을 배포하는 경우 'Azure VM 에이전트'가 VM에 자동으로 추가됩니다. 이 에이전트의 기능은 Vm의 Azure 확장에 대 한 로드 및 구성을 조정 하는 것입니다. Linux VM의 경우 Azure VM 에이전트가 이미 Azure Marketplace OS 이미지의 일부입니다.
 
 그러나 고객이 실행해야 하는 단계는 여전히 남아 있습니다. 바로 성능 컬렉션의 활성화 및 구성입니다. '구성' 관련 프로세스는 PowerShell 스크립트 또는 CLI 명령에 의해 자동화됩니다. PowerShell 스크립트는 [배포 가이드][deployment-guide]에 설명 된 대로 Microsoft Azure 스크립트 센터에서 다운로드할 수 있습니다.
 
-SAP용 Azure 모니터링 솔루션의 전반적인 아키텍처는 다음과 같습니다.
+SAP 용 Azure 확장의 전반적인 아키텍처는 다음과 같습니다.
 
-![SAP NetWeaver용 Azure 모니터링 솔루션][planning-guide-figure-2500]
+![SAP 용 Azure 확장 ][planning-guide-figure-2500]
 
 **배포 하는 동안 이러한 PowerShell cmdlet 또는 CLI 명령을 사용 하는 정확한 방법 및 자세한 단계는 [배포 가이드][deployment-guide]에 제공 된 지침을 따르세요.**
 

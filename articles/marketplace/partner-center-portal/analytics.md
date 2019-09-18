@@ -7,12 +7,12 @@ ms.author: shthota
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/09/2019
-ms.openlocfilehash: 4357a91a87648885def69d8e75e19e38a5a3f751
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 87ecf534fa7d4f3609882f5f18b314c246e388bd
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993714"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036639"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>파트너 센터의 상업적 Marketplace에 대 한 분석
 
@@ -250,7 +250,7 @@ Microsoft 파트너 센터의 분석 보고서에 액세스 하 여 판매를 �
 | 고객 이름| 고객| 고객이 제공한 이름입니다. 이름은 고객의 Azure 구독에 제공 된 이름과 다를 수 있습니다.| |
 | 고객 ID | 고객, 주문 | 고객에 게 할당 된 고유 식별자입니다. 고객은 Azure Marketplace 구독이 0 개 이상 있을 수 있습니다.|  |
 | 고객 우편 번호  | 고객| 고객이 제공한 우편 번호입니다. 코드는 고객의 Azure 구독에서 제공 되는 우편 번호와 다를 수 있습니다.| |
-| 고객 시/도| 고객| 고객이 제공한 상태 (주소)입니다. 상태는 고객의 Azure 구독에 제공 된 이름과 다를 수 있습니다.| |
+| 고객 시/도| 고객| 고객이 제공한 상태 (주소)입니다. 상태는 고객의 Azure 구독에 제공 된 상태와 다를 수 있습니다.| |
 | 취득일| 고객| 고객이 게시 한 제품을 처음 구입한 날짜입니다.| |
 | 취소일| 고객| 고객이 이전에 구매한 모든 제품의 마지막 날짜를 취소 한 마지막 날짜입니다.||
 | 새 고객  | 주문| 이 값은 하나 이상의 제품을 처음으로 획득 한 새 고객을 식별 합니다. "취득일"에 대해 동일한 월 내에 값이 "예"로 나타납니다. 고객이 보고 한 월 이전에 제품을 구매한 경우 값은 "아니요"입니다. |

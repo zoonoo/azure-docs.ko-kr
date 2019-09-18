@@ -3,18 +3,18 @@ title: Microsoft Azure Virtual Network에 대한 VPN 처리량 유효성 검사 
 description: 이 문서의 목적은 사용자가 온-프레미스 리소스에서 Azure 가상 머신으로의 네트워크 처리량을 유효성 검사하도록 돕는 것입니다.
 services: vpn-gateway
 author: cherylmc
-manager: jasmc
+manager: dcscontentpm
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 05/29/2019
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: 1531bbe97c842fbae2ffe7df41f19a3a7be689d5
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 9c2f50c49037305663330a3c455e40291b9e6242
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228348"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058808"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>가상 네트워크에 대한 VPN 처리량의 유효성을 검사하는 방법
 

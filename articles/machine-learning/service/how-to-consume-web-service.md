@@ -1,6 +1,6 @@
 ---
 title: 배포된 웹 서비스를 사용하는 클라이언트 만들기
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Azure Machine Learning 모델을 사용하여 모델을 배포한 경우 생성된 웹 서비스를 사용하는 방법을 알아봅니다. REST API를 노출하는 웹 서비스입니다. 선택한 프로그래밍 언어를 사용하여 이 API에 대한 클라이언트를 만듭니다.
 services: machine-learning
 ms.service: machine-learning
@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5f57be9a1fc5d260ce580b969c8f92c87aea17a8
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: e005cf0860faeaad7010ea4da3ca1c5227ade14b
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279123"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034788"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>웹 서비스로 배포된 Azure Machine Learning 모델 사용
 
@@ -43,7 +43,7 @@ Azure Container Instances, Azure Kubernetes Service 또는 FPGA (필드 프로�
 * `auth_enabled`키 인증을 `True`사용 하면이 고, `False`그렇지 않으면입니다.
 * `token_auth_enabled`토큰 인증을 `True`사용 하면이 고, `False`그렇지 않으면입니다.
 * `scoring_uri` - REST API 주소입니다.
-* `swagger_uri`-OpenAPI 사양의 주소입니다. 자동 스키마 생성을 사용 하도록 설정한 경우이 URI를 사용할 수 있습니다. 자세한 내용은 [Azure Machine Learning 서비스를 사용 하 여 모델 배포](how-to-deploy-and-where.md#schema)를 참조 하세요.
+* `swagger_uri`-OpenAPI 사양의 주소입니다. 자동 스키마 생성을 사용 하도록 설정한 경우이 URI를 사용할 수 있습니다. 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md#schema)를 참조 하세요.
 
 배포된 웹 서비스에 대해 이 정보를 검색하는 세 가지 방법이 있습니다.
 

@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/11/2019
+ms.date: 09/17/2019
 ms.author: magoedte
-ms.openlocfilehash: bd4016d91000ee23023eaa64872bff9a057058d1
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: f3aca6f62ff529dc2ea8356e18a0162e7d9a85d8
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916059"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067060"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>VM용 Azure Monitor 사용 (미리 보기) 개요
 
@@ -31,7 +31,7 @@ VM용 Azure Monitor을 설정 하려면:
 * PowerShell을 사용하여 지정된 구독 또는 리소스 그룹에 걸친 둘 이상의 Azure VM 또는 가상 머신 확장 집합을 사용하도록 설정합니다.
 * VM용 Azure Monitor 사용 하 여 회사 네트워크 또는 다른 클라우드 환경에서 호스트 되는 Vm 또는 물리적 컴퓨터를 모니터링할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 섹션의 정보를 이해해야 합니다. 
 
@@ -45,10 +45,13 @@ VM용 Azure Monitor는 다음 지역에서 Log Analytics 작업 영역을 지원
 - 미국 중서부
 - 미국 서 부 2<sup>1</sup>
 - East US
+- 동부 미국<sup>1</sup>
 - 캐나다 중부
 - 영국 남부
+- 북아메리카 유럽<sup>1</sup>
 - 유럽 서부
 - 동남아시아
+- 일본 동부<sup>1</sup>
 - 오스트레일리아 동부<sup>1</sup>
 - 오스트레일리아 남동쪽<sup>1</sup>
 

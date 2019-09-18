@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1ba36ece6b221908bfbaae58430a52b4753c2ed6
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 98d3fa50f405658b33f879ed8e7b95667cddcedf
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846770"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064121"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 액세스 관리
 
-이 문서에서는 Azure AD(Azure Active Directory) B2C를 사용하여 애플리케이션에 대한 사용자 액세스를 관리하는 방법에 대해 설명합니다. 애플리케이션의 액세스 관리에는 다음 항목이 포함됩니다.
+이 문서에서는 Azure Active Directory B2C (Azure AD B2C)를 사용 하 여 응용 프로그램에 대 한 사용자 액세스를 관리 하는 방법을 설명 합니다. 애플리케이션의 액세스 관리에는 다음 항목이 포함됩니다.
 
 - 미성년자 식별 및 애플리케이션에 대한 사용자 액세스 제어
 - 애플리케이션을 사용하는 미성년자에 대한 보호자의 동의 요구
@@ -78,7 +78,7 @@ ms.locfileid: "67846770"
 
 4. 두 계산에서 모두 true를 반환하지 않으면 **Adult**를 반환합니다.
 
-응용 프로그램에서 다른 방법으로 DOB 또는 국가/지역 데이터를 안정적으로 수집한 경우 응용 프로그램은 Graph API를 사용 하 여이 정보로 사용자 레코드를 업데이트할 수 있습니다. 예를 들어:
+응용 프로그램에서 다른 방법으로 DOB 또는 국가/지역 데이터를 안정적으로 수집한 경우 응용 프로그램은 Graph API를 사용 하 여이 정보로 사용자 레코드를 업데이트할 수 있습니다. 예:
 
 - 사용자가 성인으로 알려지면 디렉터리 특성인 **ageGroup**의 값을 **Adult**로 업데이트합니다.
 - 사용자가 미성년자인 것으로 확인되면 **ageGroup** 디렉터리 특성을 **Minor** 값으로 업데이트하고 **consentProvidedForMinor**를 적절하게 설정합니다.

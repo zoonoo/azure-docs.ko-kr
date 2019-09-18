@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8bd1bee82941953e96eed1defa04c9fddef3e293
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: d852b786c1cc1c1eb9d39b931f9b8a142f969815
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70809208"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065862"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: 질문과 대답(FAQ)
 
-이 페이지는 Azure AD(Azure Active Directory) B2C에 대한 자주 묻는 질문에 응답합니다. 업데이트를 계속 확인합니다.
+이 페이지는 Azure Active Directory B2C (Azure AD B2C)에 대 한 자주 묻는 질문에 답변 합니다. 업데이트를 계속 확인합니다.
 
 ### <a name="why-cant-i-access-the-azure-ad-b2c-extension-in-the-azure-portal"></a>Azure Portal에서 Azure AD B2C 확장에 액세스할 수 없는 이유는 무엇인가요?
 

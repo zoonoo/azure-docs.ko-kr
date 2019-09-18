@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: a93f8286c6927a3e87e03fb73e680c9638285336
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 34b9993482d1036570805af7caba29361b231426
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70917808"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077175"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure Virtual Network에서 Apache HBase 클러스터 복제 설정
 
@@ -38,7 +38,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
 
 [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication)에 있는 [스크립트 동작](../hdinsight-hadoop-customize-cluster-linux.md) 스크립트를 사용하여 클러스터를 복제할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 문서를 시작 하기 전에 Azure 구독이 있어야 합니다. [Azure 평가판 받기](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)를 참조하세요.
 
 ## <a name="set-up-the-environments"></a>환경 설정
@@ -60,7 +60,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
 
 두 개의 서로 다른 지역에 두 개의 가상 네트워크를 만들고 VNet 간에 VPN 연결을 만드는 템플릿을 사용하려면 다음 **Azure에 배포** 단추를 선택합니다. 템플릿 정의는 [공용 Blob Storage](https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json)에 저장됩니다.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
 템플릿의 하드 코드된 일부 값:
 
@@ -386,7 +386,7 @@ sudo service bind9 status
 - **모든 테이블에서 복제를 사용하지 않도록 설정**:
 
         -m hn1 -s <source hbase cluster name> -sp Mypassword\!789 -all
-  로 구분하거나 여러
+  또는
 
         --src-cluster=<source hbase cluster name> --dst-cluster=<destination hbase cluster name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 1a1196da62b9d28280150dd1ddf1582db64a93d4
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: d1c80e2ab9ae6a893b1adea6bd68e9b585288d8b
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073791"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71074950"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API 가져오기 제한 사항 및 알려진 문제
 
@@ -49,9 +49,6 @@ OpenAPI 문서를 가져올 때 오류가 표시되면 해당 문서의 유효�
 -   여러 **서버**를 지정하면 API Management에서는 첫 번째 HTTPs URL 선택을 시도합니다. HTTPs URL이 없으면 첫 번째 HTTP URL이 선택됩니다. HTTP URL도 없으면 서버 URL은 비어 있게 됩니다.
 -   **Examples**는 지원되지 않지만 **example**은 지원됩니다.
 -   **여러 부분/형식으로 된 데이터**는 지원되지 않습니다.
-
-> [!IMPORTANT]
-> OpenAPI 가져오기와 관련된 중요한 정보 및 팁은 이 [문서](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/)를 참조하세요.
 
 ## <a name="wsdl"> </a>WSDL
 

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: dacurwin
-ms.openlocfilehash: 6ac15e042f93befe406553d622c790eeabad7c2c
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 9f16a00bd8bc8e61aecbf6d6bd7f31e90f50140a
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70060712"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067095"
 ---
 # <a name="back-up-an-sap-hana-database-to-azure"></a>Azure에 SAP HANA 데이터베이스 백업
 
@@ -26,8 +26,8 @@ ms.locfileid: "70060712"
 **지원** | **세부 정보**
 --- | ---
 **지원되는 지역** | 오스트레일리아 남부 동부, 동부 오스트레일리아 <br> 브라질 남부 <br> 캐나다 중부, 캐나다 동부 <br> 남부 동아시아, 동아시아 <br> 미국 동부, 미국 동부 2, 미국 서 부, 미국 서 부, 미국 서 부 2, 미국 중 북부, 미국 중부, 미국 중 북부<br> 인도 중부, 인도 남부 <br> 일본 동부, 일본 서부<br> 한국 중부, 한국 남부 <br> 북유럽, 서유럽 <br> 영국 남부, 영국 서부
-**지원 되는 VM 운영 체제** | SLES 12 SP2 또는 SP3.
-**지원 되는 HANA 버전** | SDC on HANA 1.x, MDC on HANA 2.x <= SPS03
+**지원 되는 VM 운영 체제** | SLES 12 SP2, SP3 또는 SP4
+**지원 되는 HANA 버전** | HANA 1.x의 SDC, HANA 2.x의 MDC < = SPS04 Rev 42
 
 ### <a name="current-limitations"></a>현재 제한 사항
 

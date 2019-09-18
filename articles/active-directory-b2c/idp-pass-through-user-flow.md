@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 66b3dc4aba5d1b29cc0c6190877fbd6b26a11f0c
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: a1a9ad0c615e50db746548a1ed5b557fe6fdea5a
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510093"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064294"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 애플리케이션으로 액세스 토큰의 사용자 흐름 통과
 
@@ -23,7 +23,7 @@ Azure Active Directory B2C (Azure AD B2C) [사용자 흐름](active-directory-b2
 
 Azure AD B2C는 현재 [Facebook](active-directory-b2c-setup-fb-app.md) 및 [Google](active-directory-b2c-setup-goog-app.md)이 포함된 [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) ID 공급자의 액세스 토큰 통과만 지원합니다. 다른 모든 ID 공급자에 대한 클레임은 빈 상태로 반환됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * 애플리케이션에서 [v2 사용자 흐름](user-flow-versions.md)을 사용하고 있어야 합니다.
 * 사용자 흐름은 OAuth 2.0 ID 공급자를 사용하여 구성됩니다.
@@ -31,7 +31,7 @@ Azure AD B2C는 현재 [Facebook](active-directory-b2c-setup-fb-app.md) 및 [Goo
 ## <a name="enable-the-claim"></a>클레임 사용
 
 1. Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Azure AD B2C 테 넌 트를 포함 하는 디렉터리를 사용 하 고 있는지 확인 합니다. 상단 메뉴에서 **디렉터리 및 구독 필터** 를 선택 하 고 테 넌 트가 포함 된 디렉터리를 선택 합니다.
+2. Azure AD B2C 테 넌 트를 포함 하는 디렉터리를 사용 하 고 있는지 확인 합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 테 넌 트가 포함 된 디렉터리를 선택 합니다.
 3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 4. **사용자 흐름 (정책)** 을 선택 하 고 사용자 흐름을 선택 합니다. 예를 들면 **B2C_1_signupsignin1**입니다.
 5. **애플리케이션 클레임**을 선택합니다.

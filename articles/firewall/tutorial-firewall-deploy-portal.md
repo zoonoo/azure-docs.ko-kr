@@ -40,7 +40,7 @@ Azure 서브넷에서 아웃바운드 네트워크로의 액세스를 제어하�
 > * 테스트 네트워크 환경 설정
 > * 방화벽 배포
 > * 기본 경로 만들기
-> * www.google.com 액세스를 허용하도록 애플리케이션 규칙 구성
+> * [www.google.com]\(www.google.com) 액세스를 허용하도록 애플리케이션 규칙 구성
 > * 외부 DNS 서버 액세스를 허용하도록 네트워크 규칙 구성
 > * 방화벽 테스트
 
@@ -183,7 +183,7 @@ VNet에 방화벽을 배포합니다.
 
 ## <a name="configure-an-application-rule"></a>애플리케이션 규칙 구성
 
-[www.google.com](www.google.com) 에 대한 아웃바운드 액세스를 허용하는 애플리케이션 규칙입니다.
+[www.google.com]\(www.google.com) 에 대한 아웃바운드 액세스를 허용하는 애플리케이션 규칙입니다.
 
 1. **Test-FW-RG**를 열고 **Test-FW01** 방화벽을 선택합니다.
 2. **Test-FW01** 페이지의 **설정**에서 **규칙**을 선택합니다.
@@ -195,7 +195,7 @@ VNet에 방화벽을 배포합니다.
 8. **규칙**, **대상 FQDN** 아래에서 **이름**으로 **Allow-Google**을 입력합니다.
 9. **원본 주소**에 **10.0.2.0/24**를 입력합니다.
 10. **Protocol:port**에 **http, https**를 입력합니다.
-11. **대상 FQDN**에 대해 **www.google.com**을 입력합니다.
+11. **대상 FQDN**에 대해 **[www.google.com]\(www.google.com)** 을 입력합니다.
 12. **추가**를 선택합니다.
 
 Azure Firewall은 기본적으로 허용되는 인프라 FQDN에 대한 기본 제공 규칙 컬렉션을 포함합니다. 이러한 FQDN은 플랫폼에 대해 특정적이며 다른 용도로 사용할 수 없습니다. 자세한 내용은 [인프라 FQDN](infrastructure-fqdns.md)을 참조하세요.

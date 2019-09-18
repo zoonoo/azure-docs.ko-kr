@@ -1,7 +1,7 @@
 ---
 title: Azure storage 서비스의 데이터에 액세스
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스를 사용 하 여 학습 하는 동안 데이터 저장소를 사용 하 여 Azure storage 서비스에 액세스 하는 방법 알아보기
+titleSuffix: Azure Machine Learning
+description: 을 사용 하 여 학습 하는 동안 데이터 저장소를 사용 하 여 Azure storage 서비스에 액세스 하는 방법을 알아봅니다 Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 08/2/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7b800a7ef38624dbe89a61dd04e2bd97b02066bb
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: eaed6e7b0ea044ba39a1055ad14de13d5deb9b05
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70191921"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035306"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Azure storage 서비스의 데이터에 액세스
 
@@ -28,7 +28,7 @@ ms.locfileid: "70191921"
 * [데이터 저장소를 사용 하 여 데이터 업로드 및 다운로드](#up-and-down)
 * [학습 중 데이터 액세스](#train)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 데이터 저장소를 사용하려면 먼저 [작업 영역](concept-workspace.md)이 필요합니다.
 
@@ -151,7 +151,7 @@ datastore.download(target_path='your target path',
 
 다음 표에서는 실행 중에 데이터 저장소를 사용 하는 방법을 계산 대상에 알려 주는 방법을 보여 줍니다. 
 
-Way|메서드|설명|
+Way|메서드|Description|
 ----|-----|--------
 탑재| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-mount--)| 를 사용 하 여 계산 대상에 데이터 저장소를 탑재 합니다.
 다운로드|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-download-path-on-compute-none-)|를 사용 하 여에 지정 `path_on_compute`된 위치에 데이터 저장소의 콘텐츠를 다운로드 합니다. <br> 이 다운로드는 실행 전에 발생 합니다.
@@ -207,14 +207,14 @@ Datastores는 현재 다음 행렬에 나열 된 저장소 서비스에 대 한 
 
 |컴퓨팅|[AzureBlobDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py)                                       |[AzureFileDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azurefiledatastore?view=azure-ml-py)                                      |[AzureDataLakeDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_data_lake_datastore.azuredatalakedatastore?view=azure-ml-py) |[AzureDataLakeGen2Datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_data_lake_datastore.azuredatalakegen2datastore?view=azure-ml-py) [AzurePostgreSqlDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_postgre_sql_datastore.azurepostgresqldatastore?view=azure-ml-py) [AzureSqlDatabaseDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_sql_database_datastore.azuresqldatabasedatastore?view=azure-ml-py) |
 |--------------------------------|----------------------------------------------------------|----------------------------------------------------------|------------------------|----------------------------------------------------------------------------------------|
-| 로컬|[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)|[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)|N/A         |N/A                                                                         |
-| Azure Machine Learning 컴퓨팅 |[as_mount()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--), [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-), [ML&nbsp;pipelines](concept-ml-pipelines.md)|[as_mount()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--), [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-), [ML&nbsp;pipelines](concept-ml-pipelines.md)|해당 사항 없음         |해당 사항 없음                                                                         |
-| 가상 머신               |[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                           | [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                            |해당 사항 없음         |N/A                                                                         |
-| HDInsight                      |[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                            | [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                            |N/A         |해당 사항 없음                                                                         |
-| 데이터 전송                  |[ML&nbsp;파이프라인](concept-ml-pipelines.md)                                               |N/A                                           |[ML&nbsp;파이프라인](concept-ml-pipelines.md)            |[ML&nbsp;파이프라인](concept-ml-pipelines.md)                                                                            |
+| 로컬|[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)|[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)|N/A         |해당 사항 없음                                                                         |
+| Azure Machine Learning 컴퓨팅 |[as_mount()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--), [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-), [ML&nbsp;pipelines](concept-ml-pipelines.md)|[as_mount()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--), [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-), [ML&nbsp;pipelines](concept-ml-pipelines.md)|해당 사항 없음         |N/A                                                                         |
+| 가상 머신               |[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                           | [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                            |N/A         |N/A                                                                         |
+| HDInsight                      |[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                            | [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                            |해당 사항 없음         |N/A                                                                         |
+| 데이터 전송                  |[ML&nbsp;파이프라인](concept-ml-pipelines.md)                                               |해당 사항 없음                                           |[ML&nbsp;파이프라인](concept-ml-pipelines.md)            |[ML&nbsp;파이프라인](concept-ml-pipelines.md)                                                                            |
 | Databricks                     |[ML&nbsp;파이프라인](concept-ml-pipelines.md)                                              |해당 사항 없음                                           |[ML&nbsp;파이프라인](concept-ml-pipelines.md)             |해당 사항 없음                                                                         |
-| Azure Batch                    |[ML&nbsp;파이프라인](concept-ml-pipelines.md)                                               |N/A                                           |해당 사항 없음         |해당 사항 없음                                                                         |
-| Azure DataLake 분석       |해당 사항 없음                                           |해당 사항 없음                                           |[ML&nbsp;파이프라인](concept-ml-pipelines.md)             |해당 사항 없음                                                                         |
+| Azure Batch                    |[ML&nbsp;파이프라인](concept-ml-pipelines.md)                                               |N/A                                           |해당 사항 없음         |N/A                                                                         |
+| Azure DataLake 분석       |N/A                                           |해당 사항 없음                                           |[ML&nbsp;파이프라인](concept-ml-pipelines.md)             |해당 사항 없음                                                                         |
 
 > [!NOTE]
 > 매우 반복적이 고 큰 데이터 프로세스가 대신를 사용 하 여 `as_download()` 더 빠르게 실행 되는 시나리오가 있을 수 있습니다 .이는 experimentally의 `as_mount()`유효성을 검사할 수 있습니다.
@@ -232,9 +232,9 @@ run_config.source_directory_data_store = "workspaceblobstore"
 
 ## <a name="access-data-during-scoring"></a>점수 매기기 중 데이터 액세스
 
-Azure Machine Learning 서비스는 모델을 사용 하 여 점수를 매기는 여러 가지 방법을 제공 합니다. 이러한 메서드 중 일부는 데이터 저장소에 대 한 액세스를 제공 하지 않습니다. 다음 표를 사용 하 여 점수 매기기 중에 데이터 저장소에 액세스할 수 있는 방법을 알아봅니다.
+Azure Machine Learning에서는 모델을 사용 하 여 점수를 매기는 여러 가지 방법을 제공 합니다. 이러한 메서드 중 일부는 데이터 저장소에 대 한 액세스를 제공 하지 않습니다. 다음 표를 사용 하 여 점수 매기기 중에 데이터 저장소에 액세스할 수 있는 방법을 알아봅니다.
 
-| 메서드 | 데이터 저장소 액세스 | 설명 |
+| 메서드 | 데이터 저장소 액세스 | Description |
 | ----- | :-----: | ----- |
 | [일괄 처리 예측](how-to-run-batch-predictions.md) | ✔ | 많은 양의 데이터를 비동기적으로 예측 합니다. |
 | [웹 서비스](how-to-deploy-and-where.md) | &nbsp; | 모델을 웹 서비스로 배포 합니다. |

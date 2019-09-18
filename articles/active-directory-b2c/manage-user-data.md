@@ -11,32 +11,32 @@ ms.date: 05/06/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4cbca467b50dd0e43132b6d09dc0785c501fca0f
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 78726620db119abf617be8a30cf03697b04e382b
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204687"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064076"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 데이터 관리
 
- 이 아티클에서는 [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/api/api-catalog)에서 제공하는 작업을 사용하여 Azure AD(Azure Active Directory) B2C에서 사용자 데이터를 관리할 수 있는 방법을 설명합니다. 사용자 데이터를 관리하는 작업에는 감사 로그에서 데이터를 삭제하거나 내보내는 작업이 포함됩니다.
+ 이 문서에서는 [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/api/api-catalog)에서 제공 하는 작업을 사용 하 여 Azure Active Directory B2C (Azure AD B2C)에서 사용자 데이터를 관리 하는 방법을 설명 합니다. 사용자 데이터를 관리하는 작업에는 감사 로그에서 데이터를 삭제하거나 내보내는 작업이 포함됩니다.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="delete-user-data"></a>사용자 데이터 삭제
 
-사용자 데이터는 Azure AD B2C 디렉터리와 감사 로그에 저장됩니다. 모든 사용자 감사 데이터는 Azure AD B2C에서는 7 일 동안 보존 됩니다. 사용자 데이터는 7 일 이내 삭제 하려는 경우 사용할 수 있습니다 합니다 [사용자 삭제](/previous-versions/azure/ad/graph/api/users-operations#DeleteUser) 작업 합니다. 데이터가 상주할 수도 있는 Azure AD B2C 테넌트마다 삭제 작업이 필요합니다. 
+사용자 데이터는 Azure AD B2C 디렉터리와 감사 로그에 저장됩니다. 모든 사용자 감사 데이터는 Azure AD B2C 7 일 동안 보존 됩니다. 7 일 동안 사용자 데이터를 삭제 하려는 경우 [사용자 삭제](/previous-versions/azure/ad/graph/api/users-operations#DeleteUser) 작업을 사용할 수 있습니다. 데이터가 상주할 수도 있는 Azure AD B2C 테넌트마다 삭제 작업이 필요합니다.
 
-Azure AD B2C의 모든 사용자에게는 개체 ID가 할당됩니다. 개체 ID는 Azure AD B2C에서 사용자 데이터를 삭제하는 데 사용할 수 있는 명확한 식별자를 제공합니다. 아키텍처에 따라 개체 ID는 재무, 마케팅 및 고객 관계 관리 데이터베이스와 같은 기타 서비스 전반에서 유용한 상관 관계 식별자가 될 수 있습니다. 
+Azure AD B2C의 모든 사용자에게는 개체 ID가 할당됩니다. 개체 ID는 Azure AD B2C에서 사용자 데이터를 삭제하는 데 사용할 수 있는 명확한 식별자를 제공합니다. 아키텍처에 따라 개체 ID는 재무, 마케팅 및 고객 관계 관리 데이터베이스와 같은 기타 서비스 전반에서 유용한 상관 관계 식별자가 될 수 있습니다.
 
-사용자에 대한 개체에 ID를 확보하는 가장 정확한 방법은 Azure AD B2C 인증 과정에서 확보하는 것입니다. 다른 방법을 사용하여 사용자로부터 유효한 데이터 요청을 수신하는 경우 사용자를 찾고 연결된 개체 ID를 기록하는 데 고객 서비스 지원 에이전트 검색 등의 오프라인 프로세스가 필요할 수 있습니다. 
+사용자에 대한 개체에 ID를 확보하는 가장 정확한 방법은 Azure AD B2C 인증 과정에서 확보하는 것입니다. 다른 방법을 사용하여 사용자로부터 유효한 데이터 요청을 수신하는 경우 사용자를 찾고 연결된 개체 ID를 기록하는 데 고객 서비스 지원 에이전트 검색 등의 오프라인 프로세스가 필요할 수 있습니다.
 
 다음 예제에는 가능한 데이터 삭제 흐름을 보여줍니다.
 
 1. 사용자가 로그인하여 **내 데이터 삭제**를 선택합니다.
 2. 애플리케이션이 애플리케이션의 관리 섹션 내에 데이터를 삭제하는 옵션을 제공합니다.
-3. 애플리케이션이 Azure AD B2C에 인증을 강제로 수행합니다. Azure AD B2C가 사용자의 개체 ID가 포함된 토큰을 애플리케이션에 제공합니다. 
+3. 애플리케이션이 Azure AD B2C에 인증을 강제로 수행합니다. Azure AD B2C가 사용자의 개체 ID가 포함된 토큰을 애플리케이션에 제공합니다.
 4. 애플리케이션이 토큰을 수신하고 개체 ID가 Azure AD Graph API에 대한 호출을 통해 사용자 데이터를 삭제하는 데 사용됩니다. Azure AD Graph API가 사용자 데이터를 삭제하고 200 OK 상태 코드를 반환합니다.
 5. 애플리케이션이 개체 ID나 기타 식별자를 사용하여 필요에 따라 다른 조직 시스템에서 사용자 데이터 삭제를 조정합니다.
 6. 애플리케이션이 데이터 삭제를 확인하고 사용자에게 다음 단계를 제공합니다.
@@ -47,7 +47,7 @@ Azure AD B2C에서 고객 데이터를 내보내는 프로세스는 삭제 프�
 
 Azure AD B2C 사용자 데이터는 다음 항목으로 제한됩니다.
 
-- **Azure Active Directory에 저장된 데이터**: 개체 ID나 이메일 또는 사용자 이름과 같은 로그인 이름을 사용하여 Azure AD B2C 인증 사용자 경험에서 데이터를 검색할 수 있습니다. 
+- **Azure Active Directory에 저장된 데이터**: 개체 ID나 이메일 또는 사용자 이름과 같은 로그인 이름을 사용하여 Azure AD B2C 인증 사용자 경험에서 데이터를 검색할 수 있습니다.
 - **사용자별 감사 이벤트 보고서**: 개체 ID를 사용하여 데이터를 인덱싱할 수 있습니다.
 
 다음과 같은 데이터 내보내기 흐름 예제에서 애플리케이션이 수행하는 것으로 언급된 단계는 백 엔드 프로세스 또는 디렉터리의 관리자 역할이 있는 사용자에 의해 수행될 수도 있습니다.

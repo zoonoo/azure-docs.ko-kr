@@ -4,7 +4,7 @@ description: Windows Azure VM에 대한 네트워크 인터페이스를 다시 �
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: genlin
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
-ms.openlocfilehash: 3a8e005f8678deef9fc4aebd2d620619fe6074bc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: afb8335d3206a76b8f9bc47733e9816126e80af0
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60307311"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058458"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Windows Azure VM에 대한 네트워크 인터페이스를 다시 설정하는 방법 
 
@@ -50,7 +50,7 @@ ms.locfileid: "60307311"
 #### <a name="use-azure-powershell"></a>Azure PowerShell 사용
 
 1. 먼저 [최신 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)을 설치했는지 확인합니다.
-2. 관리자 권한 Azure PowerShell 세션(관리자 권한으로 실행)을 엽니다. 다음 명령을 실행합니다.
+2. 관리자 권한 Azure PowerShell 세션(관리자 권한으로 실행)을 엽니다. 다음 명령을 실행 합니다.
 
     ```powershell
     #Set the variables 
@@ -91,7 +91,7 @@ ms.locfileid: "60307311"
 #### <a name="use-azure-powershell"></a>Azure PowerShell 사용
 
 1. 먼저 [최신 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)을 설치했는지 확인합니다.
-2. 관리자 권한 Azure PowerShell 세션(관리자 권한으로 실행)을 엽니다. 다음 명령을 실행합니다.
+2. 관리자 권한 Azure PowerShell 세션(관리자 권한으로 실행)을 엽니다. 다음 명령을 실행 합니다.
 
     ```powershell
     #Set the variables 

@@ -1,6 +1,6 @@
 ---
-title: Azure와 통합 identities 관리 | Microsoft Docs
-description: Azure를 사용 하는 방법은 id를 사용 하 여 인증 및 Azure 앱 구성에 대 한 액세스 관리
+title: Azure 관리 되는 id와 통합 | Microsoft Docs
+description: Azure 관리 되는 id를 사용 하 여 Azure 앱 구성에 인증 하 고 액세스 하는 방법을 알아봅니다.
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 3977991386dbcd07e92f21d1ac541f486b4f7f0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4318c4b4d8f1b1f0974d0fae0a2ae5bd6e94b593
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393661"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076527"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Azure 관리 ID와 통합
 
@@ -30,13 +30,13 @@ Azure App Configuration과 .NET Core, .NET 및 Java Spring 클라이언트 라�
 
 이 자습서의 단계는 임의의 코드 편집기를 사용하여 수행할 수 있습니다. [Visual Studio Code](https://code.visualstudio.com/)는 Windows, macOS 및 Linux 플랫폼에서 사용할 수 있는 훌륭한 옵션입니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * App Configuration에 대한 관리 ID 액세스 권한을 부여합니다.
 > * App Configuration에 연결할 때 관리 ID를 사용하도록 앱을 구성합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음 항목이 필요합니다.
 
@@ -49,11 +49,13 @@ Azure App Configuration과 .NET Core, .NET 및 Java Spring 클라이언트 라�
 
 포털에서 관리 ID를 설정하려면 먼저 애플리케이션을 정상적으로 만든 다음, 해당 기능을 사용하도록 설정합니다.
 
-1. 평소와 같이 [Azure Portal](https://portal.azure.com)에서 앱을 만듭니다. 포털에서 이동합니다.
+1. 일반적으로 [Azure Portal](https://portal.azure.com) 에서 App Services 인스턴스를 만듭니다. 포털에서 이동합니다.
 
 2. 왼쪽 창에서 **설정** 그룹까지 아래로 스크롤하고 **ID**를 선택합니다.
 
 3. **시스템 할당** 탭에서 **상태**를 **켜기**로 전환하고 **저장**을 선택합니다.
+
+4. 시스템 할당 관리 id를 사용 하도록 설정 하 라는 메시지가 표시 되 면 **예** 를 대답 합니다.
 
     ![App Service에서 관리형 ID 설정](./media/set-managed-identity-app-service.png)
 
@@ -75,7 +77,9 @@ Azure App Configuration과 .NET Core, .NET 및 Java Spring 클라이언트 라�
 
 ## <a name="use-a-managed-identity"></a>관리 ID 사용
 
-1. *appsettings.json*을 열고 다음 스크립트를 추가합니다. *\<service_endpoint>* (대괄호 포함)를 앱 구성 저장소의 URL로 바꿉니다.
+1. Azure Portal에서 구성 화면으로 이동한 다음 **액세스 키** 탭을 클릭 하 여 앱 구성 저장소에 대 한 URL을 찾습니다.
+
+2. *appsettings.json*을 열고 다음 스크립트를 추가합니다. *\<Service_endpoint >* (대괄호 포함)를 앱 구성 저장소에 대 한 URL로 바꿉니다. 
 
     ```json
     "AppConfig": {
@@ -83,7 +87,7 @@ Azure App Configuration과 .NET Core, .NET 및 Java Spring 클라이언트 라�
     }
     ```
 
-2. *Program.cs*를 열고 `config.AddAzureAppConfiguration()` 메서드를 대체하여 `CreateWebHostBuilder` 메서드를 업데이트합니다.
+3. *Program.cs*를 열고 `config.AddAzureAppConfiguration()` 메서드를 대체하여 `CreateWebHostBuilder` 메서드를 업데이트합니다.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -110,6 +114,13 @@ Kudu 빌드 서버를 사용하여 앱에 로컬 Git 배포를 사용하도록 �
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
 ### <a name="enable-local-git-with-kudu"></a>Kudu로 로컬 Git을 사용하도록 설정
+앱에 대 한 로컬 git 리포지토리가 아직 없는 경우 앱의 프로젝트 디렉터리에서 다음 명령을 실행 하 여 앱을 초기화 해야 합니다.
+
+```cmd
+git init
+git add .
+git commit -m "Initial version"
+```
 
 Kudu 빌드 서버를 사용하여 앱에 로컬 Git 배포를 사용하도록 설정하려면 Cloud Shell에서 [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git)을 실행합니다.
 

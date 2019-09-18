@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a14c648e55c25c6244f1ba09d5b73bf31e5f7337
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b872fcfbc2ead2cebdd32ff718b582c13af314e
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509306"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065574"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 다단계 인증 사용 | Microsoft Docs
 
-Azure Active Directory(Azure AD) B2C는 [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)에 직접 통합하여 애플리케이션에서 등록 및 로그인하는 데 두 번째 보안 계층을 추가할 수 있습니다. 코드 작성 없이도 다단계 인증을 사용하도록 설정할 수 있습니다. 이미 가입 및 로그인 사용자 흐름을 만든 경우에도 다단계 인증을 사용할 수 있습니다.
+Azure Active Directory B2C (Azure AD B2C)는 [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) 와 직접 통합 되므로 응용 프로그램에서 등록 및 로그인 환경에 두 번째 보안 계층을 추가할 수 있습니다. 코드 작성 없이도 다단계 인증을 사용하도록 설정할 수 있습니다. 이미 가입 및 로그인 사용자 흐름을 만든 경우에도 다단계 인증을 사용할 수 있습니다.
 
 이 기능은 애플리케이션에서 다음과 같은 시나리오를 처리하는 데 도움이 됩니다.
 
@@ -40,11 +40,11 @@ Azure Active Directory(Azure AD) B2C는 [Azure Multi-Factor Authentication](../a
 
 ## <a name="add-multi-factor-authentication"></a>다단계 인증 추가
 
-이전에 만든 사용자 흐름에서 다단계 인증을 사용하도록 설정할 수 있습니다. 
+이전에 만든 사용자 흐름에서 다단계 인증을 사용하도록 설정할 수 있습니다.
 
 다단계 인증을 사용하도록 설정하려면
 
-1. 사용자 흐름을 연 다음, **속성**을 선택합니다. 
+1. 사용자 흐름을 연 다음, **속성**을 선택합니다.
 2. **다단계 인증** 옆의 **사용**을 선택합니다.
 3. 페이지 위쪽에서 **저장**을 클릭합니다.
 

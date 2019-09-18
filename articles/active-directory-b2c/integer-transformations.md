@@ -10,27 +10,27 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 976cf55dd8f1c11d1ea605b25086fa644afec980
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d82f7fecfb35c63d586993fed73a83209782a890
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510812"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064207"
 ---
 # <a name="integer-claims-transformations"></a>정수 클레임 변환
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-이 문서에서는 Azure AD(Azure Active Directory) B2C에서 ID 환경 프레임워크 스키마의 정수 클레임 변환을 사용하는 예를 제공합니다. 자세한 내용은 [ClaimsTransformations](claimstransformations.md)를 참조하세요.
+이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에서 Id 경험 프레임 워크 스키마의 정수 클레임 변환을 사용 하는 예제를 제공 합니다. 자세한 내용은 [ClaimsTransformations](claimstransformations.md)를 참조하세요.
 
-## <a name="convertnumbertostringclaim"></a>ConvertNumberToStringClaim 
+## <a name="convertnumbertostringclaim"></a>ConvertNumberToStringClaim
 
 long 데이터 형식을 문자열 데이터 형식으로 변환합니다.
 
-| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
+| 항목 | TransformationClaimType | 데이터 형식 | 참고 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | long | 문자열로 변환할 ClaimType입니다. |
-| OutputClaim | outputClaim | 문자열 | 이 ClaimsTransformation이 호출된 후에 생성되는 ClaimType입니다. |
+| OutputClaim | outputClaim | string | 이 ClaimsTransformation이 호출된 후에 생성되는 ClaimType입니다. |
 
 이 예제에서는 값 형식이 long인 `numericUserId` 클레임이 값 형식이 문자열인 `UserId` 클레임으로 변환됩니다.
 
@@ -45,10 +45,10 @@ long 데이터 형식을 문자열 데이터 형식으로 변환합니다.
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 - 입력 클레임:
     - **inputClaim**: 12334(long)
-- 출력 클레임: 
+- 출력 클레임:
     - **outputClaim**: "12334"(string)
 

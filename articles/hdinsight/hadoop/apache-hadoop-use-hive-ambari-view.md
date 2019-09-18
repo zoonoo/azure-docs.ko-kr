@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 3ab2bf0334b58f3a5ac8ad4abacfcc45e0366240
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: da4d1ed7dec8b3b0bc61dd2959a868d03875039c
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70917693"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077004"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>HDInsight에서 Apache Hadoop과 Apache Ambari Hive 보기 사용
 
@@ -34,7 +34,7 @@ Apache Ambari Hive 보기를 사용하여 Hive 쿼리를 실행하는 방법을 
 
 3. 보기 목록에서 __Hive 보기__를 선택합니다.
 
-    ![Hive 보기 선택](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
+    ![Apache Ambari select Apache Hive 보기](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
 
     Hive 보기 페이지는 다음 이미지와 유사합니다.
 
@@ -98,25 +98,25 @@ Apache Ambari Hive 보기를 사용하여 Hive 쿼리를 실행하는 방법을 
 쿼리에 대 한 Tez UI를 표시 하려면 워크시트 아래에서 **Tez ui** 탭을 선택 합니다.
 
 > [!IMPORTANT]  
-> Tez는 모든 쿼리를 해결하는 데 사용되지 않습니다. Tez를 사용하지 않고도 많은 쿼리를 확인할 수 있습니다. 
+> Tez는 모든 쿼리를 해결하는 데 사용되지 않습니다. Tez를 사용하지 않고도 많은 쿼리를 확인할 수 있습니다.
 
 ## <a name="view-job-history"></a>작업 기록 보기
 
 __작업__ 탭에 Hive 쿼리의 기록이 표시됩니다.
 
-![작업 기록 이미지](./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png)
+![작업 탭 기록 Apache Hive 보기](./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png)
 
 ## <a name="database-tables"></a>데이터베이스 테이블
 
 __테이블__ 탭을 사용하여 Hive 데이터베이스 내의 테이블을 사용할 수 있습니다.
 
-![테이블 탭의 이미지](./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png)
+![Apache Hive 테이블 탭의 이미지](./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png)
 
 ## <a name="saved-queries"></a>저장된 쿼리
 
 **쿼리** 탭에서 필요에 따라 쿼리를 저장할 수 있습니다. 쿼리를 저장한 후에 __저장된 쿼리__ 탭에서 다시 사용할 수 있습니다.
 
-![저장된 쿼리 탭의 이미지](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
+![저장 된 쿼리 탭 Apache Hive 보기](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
 
 > [!TIP]  
 > 저장된 쿼리는 기본 클러스터 스토리지에 저장됩니다. `/user/<username>/hive/scripts` 경로에서 저장된 쿼리를 찾을 수 있습니다. 이러한 쿼리는 일반 텍스트 `.hql` 파일로 저장됩니다.
@@ -129,7 +129,7 @@ UDF(사용자 정의 함수)를 통해 Hive를 확장할 수 있습니다. UDF�
 
 Hive 보기 위쪽의 **UDF** 탭을 사용하여 UDF 집합을 선언하고 저장합니다. UDF는 **쿼리 편집기**를 통해 사용할 수 있습니다.
 
-![UDF 탭의 이미지](./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png)
+![Udf 탭 표시 Apache Hive 보기](./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png)
 
 UDF를 Hive 보기에 추가한 후에 **쿼리 편집기** 아래쪽에 **udf 삽입** 단추가 표시됩니다. 이 항목을 선택하면 Hive 뷰에서 정의된 UDF의 드롭다운 목록이 표시됩니다. UDF를 선택하면 쿼리에 HiveQL 문을 추가하여 UDF를 사용하도록 설정합니다.
 

@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 08/30/2019
 ms.author: jingwang
-ms.openlocfilehash: fbf6ddc2db0312b2dfd34e79aa04c246ce2ac8d6
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: e7952192a0c3150e6c323370653544ea9ad97b62
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174641"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71032735"
 ---
 | 범주              | 데이터 저장소                                                   | [복사 작업](../articles/data-factory/copy-activity-overview.md)  (원본/싱크) | [데이터 흐름 매핑](../articles/data-factory/concepts-data-flow-overview.md) | [조회 작업](../articles/data-factory/control-flow-lookup-activity.md) | [메타데이터 작업 가져오기](../articles/data-factory/control-flow-get-metadata-activity.md) | [활동 삭제](../articles/data-factory/delete-activity.md) |
 | :-------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | ------------------------------------------------------------ | :----------------------------------------------------------- |
@@ -21,7 +21,7 @@ ms.locfileid: "70174641"
 | &nbsp;                | [Azure Data Lake Storage Gen2](../articles/data-factory/connector-azure-data-lake-storage.md) | ✓/✓                                                          | ✓ <br> <small>지원 되는 형식: 구분 기호로 분리 된 텍스트, Parquet</small>                  | ✓                                                            | ✓                                                            | ✓                                                            |
 | &nbsp;                | [Azure Database for MariaDB](../articles/data-factory/connector-azure-database-for-mariadb.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Azure Database for MySQL](../articles/data-factory/connector-azure-database-for-mysql.md) | ✓/✓                                                          |                                                              | ✓                                                            |                                                              |                                                              |
-| &nbsp;                | [Azure Database for PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
+| &nbsp;                | [Azure Database for PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) | ✓/✓                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Azure File Storage](../articles/data-factory/connector-azure-file-storage.md) | ✓/✓                                                          |                                                              | ✓                                                            | ✓                                                            | ✓                                                            |
 | &nbsp;                | [Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) | ✓/✓                                                           | ✓                                                            | ✓                                                            | ✓                                                            |                                                              |
 | &nbsp;                | [Azure SQL Database Managed Instance](../articles/data-factory/connector-azure-sql-database-managed-instance.md) | ✓/✓                                                          |                                                              | ✓                                                            | ✓                                                            |                                                              |

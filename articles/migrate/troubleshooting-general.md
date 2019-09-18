@@ -4,14 +4,14 @@ description: Azure Migrate 서비스의 알려진 문제에 대 한 개요 및 �
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: 16e0fe51137ce7e96cf98c0a8acf7c490e9087b3
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 49c43d393ef0722424088e0073942b56787f1bc7
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232412"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067819"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Migrate 문제 해결
 
@@ -78,7 +78,7 @@ Azure Migrate의 현재 버전에서 프로젝트를 삭제 하려면 다음을 
 2. 리소스 그룹 페이지에서 **숨겨진 유형 표시**를 선택 합니다.
 3. 삭제할 마이그레이션 프로젝트를 선택 합니다. 리소스 종류는 Microsoft. 마이그레이션/migrateprojects 이며 삭제 합니다.
 
-이전 버전의 Azure Migrate에서 프로젝트를 삭제 하려면 다음을 수행 합니다. 
+이전 버전의 Azure Migrate에서 프로젝트를 삭제 하려면 다음을 수행 합니다.
 
 1. 프로젝트가 생성 된 Azure 리소스 그룹을 엽니다.
 2. 삭제할 마이그레이션 프로젝트를 선택 합니다. 리소스 종류는 마이그레이션 프로젝트 이며 삭제 합니다.
@@ -90,7 +90,7 @@ Azure Migrate의 현재 버전에서 프로젝트를 삭제 하려면 다음을 
 * Azure Migrate 프로젝트를 삭제 하지 않은 경우 **Essentials** > **서버 평가**에서 작업 영역에 대 한 링크를 찾을 수 있습니다.
        ![LA 작업 영역](./media/troubleshooting-general/loganalytics-workspace.png)
 
-     * If you've already deleted the Azure Migrate project, select **Resource Groups** in the left pane of the Azure portal. Locate the workspace in the relevant resources group, and [follow the instructions](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) to delete it. 
+     * If you've already deleted the Azure Migrate project, select **Resource Groups** in the left pane of the Azure portal. Locate the workspace in the relevant resources group, and [follow the instructions](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) to delete it.
 
 
 ## <a name="error-requests-must-contain-user-identity-headers"></a>"요청에 사용자 id 헤더가 포함 되어야 합니다." 오류
@@ -140,7 +140,7 @@ Azure Migrate의 현재 버전에서 프로젝트를 삭제 하려면 다음을 
 
 ## <a name="error-unabletoconnecttoserver"></a>오류: UnableToConnectToServer
 
-이 연결 오류가 발생 하는 경우 vCenter Server *Servername*: 9443에 연결 하지 못할 수 있습니다. 오류 세부 정보는 메시지를 수락할 수 있는 https://: 9443/sdk에서 수신 대기 하는 끝점이 없음을 표시 합니다.
+이 연결 오류가 발생 하는 경우 vCenter Server *Servername*: 9443에 연결 하지 못할 수 있습니다. 오류 세부 정보는 메시지를 수락할 수*있는 https://:* 9443/sdk에서 수신 대기 하는 끝점이 없음을 표시 합니다.
 
 - 최신 버전의 어플라이언스를 실행 하 고 있는지 확인 합니다. 그렇지 않은 경우 어플라이언스를 [최신 버전](https://docs.microsoft.com/azure/migrate/concepts-collector)으로 업그레이드 하세요.
 - 최신 버전에서 문제가 계속 발생 하는 경우 기기가 지정 된 vCenter Server 이름을 확인할 수 없거나 지정 된 포트가 잘못 되었을 수 있습니다. 기본적으로 포트를 지정 하지 않으면 수집기가 포트 번호 443에 연결을 시도 합니다.
@@ -153,7 +153,7 @@ Azure Migrate의 현재 버전에서 프로젝트를 삭제 하려면 다음을 
 
 ## <a name="error-appliance-might-not-be-registered"></a>오류: 기기가 등록 되지 않았을 수 있습니다.
 
-- 오류 60052, "어플라이언스를 Azure Migrate 프로젝트에 성공적으로 등록 하지 못할 수 있습니다."는 어플라이언스를 등록 하는 데 사용 된 Azure 계정에 권한이 부족 한 경우 발생 합니다. 
+- 오류 60052, "어플라이언스를 Azure Migrate 프로젝트에 성공적으로 등록 하지 못할 수 있습니다."는 어플라이언스를 등록 하는 데 사용 된 Azure 계정에 권한이 부족 한 경우 발생 합니다.
     - 어플라이언스를 등록 하는 데 사용 되는 Azure 사용자 계정에 구독에 대 한 참가자 이상의 권한이 있는지 확인 합니다.
     - 필요한 Azure 역할 및 권한에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) .
 - 오류 60039, "어플라이언스를 등록 하는 데 사용 된 Azure Migrate 프로젝트를 찾을 수 없어 등록이 실패 하는 경우" 기기가 Azure Migrate 프로젝트에 성공적으로 등록 되지 않을 수 있습니다. "가 발생할 수 있습니다.
@@ -162,7 +162,7 @@ Azure Migrate의 현재 버전에서 프로젝트를 삭제 하려면 다음을 
 
 ## <a name="error-key-vault-management-operation-failed"></a>오류: Key Vault 관리 작업에 실패 했습니다.
 
-60030 또는 60031 오류 "Azure Key Vault 관리 작업에 실패 했습니다."가 표시 되 면 다음을 수행 합니다. 
+60030 또는 60031 오류 "Azure Key Vault 관리 작업에 실패 했습니다."가 표시 되 면 다음을 수행 합니다.
 - 어플라이언스를 등록 하는 데 사용 되는 Azure 사용자 계정에 구독에 대 한 참가자 이상의 권한이 있는지 확인 합니다.
 - 계정에 오류 메시지에 지정 된 키 자격 증명 모음에 대 한 액세스 권한이 있는지 확인 한 후 작업을 다시 시도 하십시오.
 - 문제가 지속되면 Microsoft 지원에 문의하세요.
@@ -187,7 +187,7 @@ Azure Migrate의 현재 버전에서 프로젝트를 삭제 하려면 다음을 
 
 ## <a name="discovered-vms-not-in-portal"></a>검색 된 Vm이 포털에 없음
 
-검색을 시작 하 여 **서버 평가** 및 **서버 마이그레이션을** 진행 중인 **검색**을 표시 하지만 아직 포털에서 vm이 표시 되지 않도록 하려면 다음을 참고 하세요. 
+검색을 시작 하 여 **서버 평가** 및 **서버 마이그레이션을** 진행 중인 **검색**을 표시 하지만 아직 포털에서 vm이 표시 되지 않도록 하려면 다음을 참고 하세요.
 
 - 어플라이언스에서 검색을 시작한 후 VMware VM 검색에 대해 15 분 정도 걸리며, Hyper-v VM 검색에 추가 된 각 호스트에 대해 약 2 분이 소요 됩니다.
 - 이러한 대기 기간 후에도 계속 **진행 중인 검색** 을 확인 하는 경우 **서버** 탭에서 **새로 고침** 을 선택 합니다. **서버 평가** 및 **서버 마이그레이션의**검색 된 서버 수가 표시 됩니다.
@@ -202,7 +202,7 @@ Azure Migrate의 현재 버전에서 프로젝트를 삭제 하려면 다음을 
 
     1. 서버 Azure Migrate**서버 평가**에서 **개요**를 선택 합니다. > 
     2. **관리**에서를 선택 **에이전트 상태**
-    3. **에이전트 새로 고침**을 선택 합니다. 
+    3. **에이전트 새로 고침**을 선택 합니다.
     1. 새로 고침 작업이 완료 될 때까지 기다립니다. 이제 최신 정보가 표시 됩니다.
 
 ## <a name="vm-information-isnt-in-the-portal"></a>포털에 VM 정보가 없습니다.
@@ -212,7 +212,7 @@ Azure Migrate의 현재 버전에서 프로젝트를 삭제 하려면 다음을 
 
     1. 서버 Azure Migrate**서버 평가**에서 **개요**를 선택 합니다. > 
     2. **관리**에서를 선택 **에이전트 상태**
-    3. **에이전트 새로 고침**을 선택 합니다. 
+    3. **에이전트 새로 고침**을 선택 합니다.
     1. 새로 고침 작업이 완료 될 때까지 기다립니다. 이제 최신 정보가 표시 됩니다.
 
 
@@ -259,10 +259,6 @@ Microsoft Visual Studio 구독이 필요 합니다. | 컴퓨터에서 Visual Stu
 내부 오류로 인해 하나 이상의 디스크에 대 한 적합성을 확인할 수 없습니다. | 그룹에 대한 새 평가를 만들어 봅니다.
 내부 오류로 인해 하나 이상의 네트워크 어댑터에 대 한 적합성을 확인할 수 없습니다. | 그룹에 대한 새 평가를 만들어 봅니다.
 
-## <a name="cant-add-enterprise-agreement-ea-in-an-assessment"></a>평가에서 EA (기업계약)를 추가할 수 없습니다.
-
-Azure Migrate Server 평가는 현재 EA (기업계약) 가격 책정을 지원 하지 않습니다. 이 제한 사항을 해결 하려면 Azure 제품으로 **종 량** 제를 사용 하 고 **할인** 속성을 사용 하 여 사용자 지정 할인을 지정 합니다. 평가를 사용자 지정 하는 방법을 [알아봅니다](https://aka.ms/migrate/selfhelp/eapricing) .
-
 ## <a name="linux-vms-are-conditionally-ready"></a>Linux Vm은 "조건부로 준비" 됩니다.
 
 서버 평가는 서버 평가의 알려진 격차 때문에 Linux Vm을 "조건부로 준비"로 표시 합니다.
@@ -279,7 +275,7 @@ Azure Migrate 서버 평가는 평가 유형에 따라 현재 온-프레미스 �
 
 
 - VM SKU 권장 사항은 평가 속성에 따라 달라 집니다.
-- 이는 서버 평가에서 수행 하는 평가의 유형에 의해 영향을 받습니다. *성능 기반*또는 *온-프레미스로* 
+- 이는 서버 평가에서 수행 하는 평가의 유형에 의해 영향을 받습니다. *성능 기반*또는 *온-프레미스로*
 - 성능 기반 평가의 경우 서버 평가는 온-프레미스 vm (CPU, 메모리, 디스크 및 네트워크 사용률)의 사용률 데이터를 고려 하 여 온-프레미스 Vm의 올바른 대상 VM SKU를 확인 합니다. 또한 효과적인 사용률을 결정할 때 편안 하 게 요소를 추가 합니다.
 - 온-프레미스 크기 조정의 경우 성능 데이터를 고려 하지 않으며 대상 SKU는 온-프레미스 할당을 기반으로 하는 것이 좋습니다.
 
@@ -288,14 +284,14 @@ Azure Migrate 서버 평가는 평가 유형에 따라 현재 온-프레미스 �
 50% CPU 사용률과 50%의 메모리 사용률과 지정 된 1.3 편안 하 게 코어와 8 GB의 메모리가 있는 온-프레미스 VM이 있습니다.
 
 -  평가를 **온-프레미스로**사용 하는 경우 4 개 코어와 8gb의 메모리를 사용 하는 AZURE VM SKU를 사용 하는 것이 좋습니다.
-- 평가는 유효한 CPU 및 메모리 사용률 50 (4 개 코어 * 1.3 = 2.6 코어 및 50% 8gb 메모리 * 1.3 = 5.3 GB 메모리)을 기반으로 하 여 성능에 따라 결정 됩니다. 4 개 코어 (지원 되는 가장 가까운 코어 수)와 8GB의 메모리 (가장 근접 하 게 지원 됨)의 VM SKU가 가장 저렴 합니다. 메모리 크기)를 권장 합니다. 
+- 평가는 유효한 CPU 및 메모리 사용률 50 (4 개 코어 * 1.3 = 2.6 코어 및 50% 8gb 메모리 * 1.3 = 5.3 GB 메모리)을 기반으로 하 여 성능에 따라 결정 됩니다. 4 개 코어 (지원 되는 가장 가까운 코어 수)와 8GB의 메모리 (가장 근접 하 게 지원 됨)의 VM SKU가 가장 저렴 합니다. 메모리 크기)를 권장 합니다.
 - 평가 크기 조정에 대해 [자세히 알아보세요](concepts-assessment-calculation.md#sizing) .
 
 ## <a name="azure-disk-skus-bigger-than-on-premises"></a>온-프레미스 보다 큰 Azure disk Sku
 
 Azure Migrate Server 평가는 평가 유형에 따라 더 큰 디스크를 권장할 수 있습니다.
 - 서버 평가의 디스크 크기 조정은 두 가지 평가 속성인 크기 조정 조건 및 저장소 유형에 따라 달라 집니다.
-- 크기 조정 기준이 성능에 **따라 결정**되 고 저장소 유형이 **자동**으로 설정 된 경우 대상 디스크 유형 (표준 HDD, 표준 SSD 또는 프리미엄)을 식별할 때 디스크의 IOPS 및 처리량 값이 고려 됩니다. 그런 다음 디스크 유형의 디스크 SKU를 권장 하며 권장 사항은 온-프레미스 디스크의 크기 요구 사항을 고려 합니다. 
+- 크기 조정 기준이 성능에 **따라 결정**되 고 저장소 유형이 **자동**으로 설정 된 경우 대상 디스크 유형 (표준 HDD, 표준 SSD 또는 프리미엄)을 식별할 때 디스크의 IOPS 및 처리량 값이 고려 됩니다. 그런 다음 디스크 유형의 디스크 SKU를 권장 하며 권장 사항은 온-프레미스 디스크의 크기 요구 사항을 고려 합니다.
 - 크기 조정 기준이 **성능 기반**이며 저장소 유형이 **프리미엄**인 경우 온-프레미스 디스크의 IOPS, 처리량 및 크기 요구 사항에 따라 AZURE의 premium disk SKU를 사용 하는 것이 좋습니다. 크기 조정 기준이 **온-프레미스** 이 고 저장소 유형이 **표준 HDD**, **표준 SSD**또는 **Premium**인 경우 동일한 논리를 사용 하 여 디스크 크기를 조정 합니다.
 
 예를 들어 32 GB의 메모리를 포함 하는 온-프레미스 디스크가 있지만 디스크에 대 한 집계 된 읽기/쓰기 IOPS는 800 IOPS 인 경우 서버 평가는 프리미엄 디스크 (IOPS 요구 사항)를 권장 하 고 r을 지원할 수 있는 디스크 SKU를 권장 합니다. e IOPS 및 크기. 이 예제에서 가장 가까운 일치 항목은 P15(256GB, 1100IOPS)입니다. 온-프레미스 디스크에 필요한 크기가 32 GB 이더라도 서버 평가는 온-프레미스 디스크의 높은 IOPS 요구 사항으로 인해 더 큰 디스크를 권장 합니다.

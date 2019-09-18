@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b86841cc6889eb8e716df3f6d1ac9bc7b158992
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: ae0912203f2427694d2a9b8611966a55e1e6889e
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852717"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056391"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>시나리오: 웹 Api를 호출 하는 디먼 응용 프로그램
 
 웹 Api를 호출 하는 디먼 응용 프로그램을 빌드하는 데 필요한 모든 것을 알아보세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
@@ -60,7 +60,7 @@ ms.locfileid: "68852717"
 개발자를 위해이 시나리오에 대 한 종단 간 환경에는 다음과 같은 측면이 있습니다.
 
 - 디먼 응용 프로그램은 Azure AD 테 넌 트에서만 작동할 수 있습니다. Microsoft 개인 계정을 조작 하려고 하는 디먼 응용 프로그램을 빌드하는 것은 의미가 없습니다. LOB (기간 업무) 앱 개발자 인 경우 테 넌 트에서 디먼 앱을 만듭니다. ISV 인 경우 다중 테 넌 트 데몬 응용 프로그램을 만드는 것이 좋습니다. 각 테 넌 트 관리자가 동의한 해야 합니다.
-- [응용 프로그램 등록](./scenario-daemon-app-registration.md)중에는 **회신 URI** 가 필요 하지 않습니다. 암호 또는 인증서를 Azure AD와 공유 해야 하며, 응용 프로그램 사용 권한을 요청 하 고 해당 앱 사용 권한을 사용 하도록 관리자 동의를 부여 해야 합니다.
+- [응용 프로그램 등록](./scenario-daemon-app-registration.md)중에는 **회신 URI** 가 필요 하지 않습니다. 암호 또는 인증서 또는 서명 된 어설션을 Azure AD와 공유 해야 하며, 응용 프로그램 사용 권한을 요청 하 고 해당 앱 사용 권한을 사용 하도록 관리자 동의를 부여 해야 합니다.
 - 응용 프로그램 [구성](./scenario-daemon-app-configuration.md) 에서는 응용 프로그램을 등록 하는 동안 Azure AD와 공유 되는 클라이언트 자격 증명을 제공 해야 합니다.
 - 클라이언트 자격 증명 흐름을 사용 하 여 토큰을 획득 하는 데 사용 되는 [범위](scenario-daemon-acquire-token.md#scopes-to-request) 는 정적 범위 여야 합니다.
 

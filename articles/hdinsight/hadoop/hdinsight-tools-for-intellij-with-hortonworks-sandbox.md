@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5234835f5fbfd5617e6b0440ff38fa900051470a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 783d7fc8bc26ce2c715c774e63ecf60c5b75a439
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450118"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076264"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Hortonworks 샌드박스에서 IntelliJ용 HDInsight Tools 사용
 
@@ -22,7 +22,7 @@ IntelliJ용 HDInsight 도구를 사용하여 컴퓨터에서 실행되는 [Horto
 
 [IntelliJ IDEA](https://www.jetbrains.com/idea/)는 컴퓨터 소프트웨어를 개발하기 위한 Java IDE(통합 개발 환경)입니다. Hortonworks 샌드박스에서 애플리케이션을 개발하고 테스트한 후에 [Azure HDInsight](apache-hadoop-introduction.md)로 애플리케이션을 이동할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 문서를 시작하기 전에 다음 항목이 있어야 합니다.
 
@@ -55,7 +55,7 @@ IntelliJ용 HDInsight 도구를 사용하여 컴퓨터에서 실행되는 [Horto
       * **Maven**: Scala 프로젝트 만들기 마법사 지원의 경우
       * **SBT**: 종속성 관리 및 Scala 프로젝트에 대한 빌드의 경우
 
-   ![새 프로젝트 대화 상자](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
+   ![Intellij create new scala project](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
 
 2. **다음**을 선택합니다.
 3. 다음 **새 프로젝트** 대화 상자에서 다음 단계를 완료합니다.
@@ -142,7 +142,7 @@ IntelliJ IDEA를 에뮬레이터에 연결한 후에는 프로젝트를 제출�
 2. 다음 단계를 완료합니다.
 
     1. **Spark 클러스터(Linux만 해당)** 드롭다운 목록에서 로컬 Hortonworks 샌드박스를 선택합니다.
-    2. **기본 클래스 이름** 상자에서 기본 클래스 이름을 선택하거나 입력합니다. 이 문서에서는 이름이 **GroupByTest**합니다.
+    2. **기본 클래스 이름** 상자에서 기본 클래스 이름을 선택하거나 입력합니다. 이 문서에서는 이름이 **Groupbytest**입니다.
 
 3. **제출**을 선택합니다. 작업 제출 로그가 Spark 제출 도구 창에 표시됩니다.
 

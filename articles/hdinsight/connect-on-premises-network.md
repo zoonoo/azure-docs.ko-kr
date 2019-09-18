@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: 1ed722ad68280226387b98b3fefb77647f5cd825
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: ad43af0f6f9bd8d5d78cef78b26345436169c0fd
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918584"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034123"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>온-프레미스 네트워크에 HDInsight 연결
 
@@ -40,9 +40,9 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
 
 다음 다이어그램에서 녹색 선은 가상 네트워크의 DNS 접미사로 끝나는 리소스에 대한 요청입니다. 파란색 선은 온-프레미스 네트워크 또는 공용 인터넷에 있는 리소스에 대한 요청입니다.
 
-![이 문서에 사용되는 구성에서 DNS 요청을 해결하는 방법의 다이어그램](./media/connect-on-premises-network/on-premises-to-cloud-dns.png)
+![구성에서 DNS 요청을 확인 하는 방법에 대 한 다이어그램](./media/connect-on-premises-network/on-premises-to-cloud-dns.png)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](./hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 * PowerShell을 사용 하는 경우 [AZ Module](https://docs.microsoft.com/powershell/azure/overview)이 필요 합니다.
@@ -96,7 +96,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
     |Subnet | 이전에 만든 가상 네트워크에 대한 기본 서브넷을 선택합니다. VPN Gateway에서 사용되는 서브넷을 선택하지 __않습니다__.|
     |공용 IP | 채워집니다 값을 사용 합니다.  |
 
-    ![가상 네트워크 설정](./media/connect-on-premises-network/virtual-network-settings.png)
+    ![HDInsight 가상 네트워크 설정](./media/connect-on-premises-network/virtual-network-settings.png)
 
     다른 항목은 기본값으로 두고 **검토 + 만들기**를 선택합니다.
 

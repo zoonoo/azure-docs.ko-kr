@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 07/01/2019
-ms.openlocfilehash: ed2ba70b803940700044e900a1b2bb6607c0f051
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.date: 09/01/2019
+ms.openlocfilehash: dcb0fe4da968408a261e387c636cc548fa757a09
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934069"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036666"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Azure Logic Apps에서 온-프레미스 데이터 원본에 연결
 
@@ -51,7 +51,7 @@ Azure Logic Apps 온-프레미스 데이터 게이트웨이는 이러한 데이�
 
 게이트웨이 자체는 추가 비용이 발생 하지 않지만 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md) 은 Azure Logic Apps의 이러한 커넥터 및 기타 작업에 적용 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * 이미 [로컬 컴퓨터에 온-프레미스 데이터 게이트웨이를 설치](../logic-apps/logic-apps-gateway-install.md)했습니다.
 
@@ -79,7 +79,7 @@ Azure Logic Apps 온-프레미스 데이터 게이트웨이는 이러한 데이�
 
 1. **연결 게이트웨이 만들기**에서 게이트웨이 리소스에 대해이 정보를 제공 합니다. 완료되면 **만들기**를 선택합니다.
 
-   | 속성 | 설명 |
+   | 속성 | Description |
    |----------|-------------|
    | **리소스 이름** | 문자, 숫자, 하이픈 (`-`), 밑줄 (`_`), 괄호 (`(`, `)`) 및 마침표 (`.`)만 포함할 수 있는 게이트웨이 리소스 이름입니다. |
    | **구독** | Azure 구독-게이트웨이 설치 및 논리 앱과 동일 해야 합니다. 기본 구독은 로그인하는 데 사용한 Azure 계정을 기반으로 합니다. |
@@ -149,7 +149,7 @@ Azure 구독에 연결된 모든 API 연결을 찾으려면:
 
 1. 게이트웨이 리소스 메뉴에서 아직 선택하지 않은 경우 **온-프레미스 데이터 게이트웨이**를 선택합니다. 게이트웨이 리소스 도구 모음에서 **삭제**를 선택 합니다.
 
-   예를 들어:
+   예:
 
    ![게이트웨이 삭제](./media/logic-apps-gateway-connection/gateway-delete.png)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 26f05e60761af0b8f0db9508488f28613b82293f
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 81e386be98f9c5684402c376372f43e90fefcb42
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69880242"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066741"
 ---
 # <a name="device-connectivity-in-azure-iot-central-preview-features"></a>Azure IoT Central의 장치 연결 (미리 보기 기능)
 
@@ -34,15 +34,18 @@ DPS를 사용 하면 다음을 수행할 수 있습니다.
 
 이 문서에서는 다음과 같은 사용 사례에 대해 설명 합니다.
 
-1. [SAS를 사용 하 여 단일 장치를 신속 하 게 연결](#connect-a-single-device)
-1. [SAS를 사용 하 여 대규모로 장치 연결](#connect-devices-at-scale-using-sas)
-1. [X.509 인증서를 사용 하 여 대규모로 장치를 연결](#connect-devices-using-x509-certificates) 합니다 .이는 프로덕션 환경에 권장 되는 방법입니다.
-1. [먼저 디바이스를 등록하지 않고 연결](#connect-without-registering-devices)
-1. [IoT 플러그 앤 플레이 기능을 사용 하 여 장치 연결](howto-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+- [SAS를 사용 하 여 단일 장치를 신속 하 게 연결](#connect-a-single-device)
+- [SAS를 사용 하 여 대규모로 장치 연결](#connect-devices-at-scale-using-sas)
+- [X.509 인증서를 사용 하 여 대규모로 장치를 연결](#connect-devices-using-x509-certificates) 합니다 .이는 프로덕션 환경에 권장 되는 방법입니다.
+- [먼저 디바이스를 등록하지 않고 연결](#connect-without-registering-devices)
+- [IoT 플러그 앤 플레이 기능을 사용 하 여 장치 연결](howto-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 
 ## <a name="connect-a-single-device"></a>단일 디바이스 연결
 
-이 방법은 IoT Central 또는 테스트 장치를 시험 하는 경우에 유용 합니다. IoT Central 된 응용 프로그램의 장치 연결 정보를 사용 하 여 장치에 대 한 연결 문자열을 생성할 수 있습니다. 자세한 단계는 [Azure IoT Central 응용 프로그램에 연결 하는 장치 연결 문자열을 생성 하는 방법](howto-generate-connection-string.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)을 참조 하세요.
+이 방법은 IoT Central 또는 테스트 장치를 시험 하는 경우에 유용 합니다. IoT Central 응용 프로그램의 장치 연결 정보를 사용 하 여 DPS (장치 프로 비전 서비스)를 통해 장치를 IoT Central 응용 프로그램에 연결할 수 있습니다. 다음 언어에 대 한 샘플 DPS 장치 클라이언트 코드를 찾을 수 있습니다.
+
+- [C\#](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device)
+- [Node.js](https://github.com/Azure-Samples/azure-iot-samples-node/tree/master/provisioning/Samples/device)
 
 ## <a name="connect-devices-at-scale-using-sas"></a>SAS를 사용 하 여 대규모로 장치 연결
 
@@ -140,7 +143,7 @@ IoT Central 응용 프로그램으로 많은 수의 장치를 등록 하려면 C
 
 1. 그런 다음 장치를 사용 하 여 IoT Central 응용 프로그램에 연결 합니다. 장치를 전환 하면 먼저 DPS에 연결 하 여 IoT Central 등록 정보를 검색 합니다.
 
-1. 연결 된 장치는 처음에 **장치** 페이지에 연결 되지 않은 것으로 표시 됩니다. 디바이스의 프로비전 상태는 **등록**됩니다. 장치를 적절 한 장치 템플릿으로 **마이그레이션하고** 장치를 승인 하 여 IoT Central 응용 프로그램에 연결 합니다. 그런 다음 장치는 IoT Hub에서 연결 문자열을 검색 하 고 데이터 보내기를 시작할 수 있습니다. 이제 장치 프로 비전이 완료 되었으며 프로 비전 상태가 **프로**비전 됩니다.
+1. 연결 된 장치는 처음에 **장치** 페이지에 연결 되지 **않은 것으로** 표시 됩니다. 디바이스의 프로비전 상태는 **등록**됩니다. 장치를 적절 한 장치 템플릿으로 **마이그레이션하고** 장치를 승인 하 여 IoT Central 응용 프로그램에 연결 합니다. 그런 다음 장치는 IoT Hub에서 연결 문자열을 검색 하 고 데이터 보내기를 시작할 수 있습니다. 이제 장치 프로 비전이 완료 되었으며 프로 비전 상태가 **프로**비전 됩니다.
 
 ## <a name="connect-devices-with-iot-plug-and-play"></a>IoT를 사용 하 여 장치 연결 플러그 앤 플레이
 
@@ -168,16 +171,16 @@ IoT 플러그 앤 플레이 장치를 연결 하는 방법에 대 한 자세한 
 
 1. 장치 상태는 먼저 **등록**됩니다. 이 상태는 장치가 IoT Central에서 만들어지고 장치 ID가 있음을 의미 합니다. 장치는 다음과 같은 경우에 등록 됩니다.
     - **장치** 페이지에 새 실제 장치가 추가 됩니다.
-    - 장치 페이지에서 **가져오기** 를 사용 하 여 일련의 장치를 추가 합니다.
+    - **장치 페이지에서** **가져오기** 를 사용 하 여 일련의 장치를 추가 합니다.
 
 1. 유효한 자격 증명을 사용 하 여 IoT Central 응용 프로그램에 연결 된 장치에서 프로 비전 단계가 완료 되 면 장치 상태가 **프로 비전** 됨으로 변경 됩니다. 이 단계에서 장치는 IoT Hub에서 연결 문자열을 검색 합니다. 이제 장치에서 IoT Hub에 연결 하 여 데이터 보내기를 시작할 수 있습니다.
 
 1. 운영자는 장치를 차단할 수 있습니다. 장치가 차단 되 면 데이터를 IoT Central 응용 프로그램으로 보낼 수 없습니다. 차단 된 장치의 상태가 **차단 됨**입니다. 운영자는 데이터 보내기를 다시 시작 하기 전에 장치를 다시 설정 해야 합니다. 운영자가 장치를 차단 해제 하면 상태가 이전 값으로 반환 되 고 **등록** 되거나 **프로 비전**됩니다.
 
-1. 장치 상태가 **승인 대기 중** 입니다. 즉, **자동 승인** 옵션이 사용 되지 않도록 설정 되어 있으며, IoT Central에 연결 하는 모든 장치를 운영자가 명시적으로 승인 해야 합니다. 장치 페이지에 수동으로 등록 되지 않았지만 유효한 자격 증명으로 연결 된 장치는 **승인 대기 중인**장치 상태를 가집니다. 운영자는 **승인** 단추를 사용 하 여 **장치** 페이지에서 이러한 장치를 승인할 수 있습니다.
+1. 장치 상태가 **승인 대기 중** 입니다. 즉, **자동 승인** 옵션이 사용 되지 않도록 설정 되어 있으며, IoT Central에 연결 하는 모든 장치를 운영자가 명시적으로 승인 해야 합니다. **장치 페이지에** 수동으로 등록 되지 않았지만 유효한 자격 증명으로 연결 된 장치는 **승인 대기 중인**장치 상태를 가집니다. 운영자는 **승인** 단추를 사용 하 여 **장치** 페이지에서 이러한 장치를 승인할 수 있습니다.
 
-1. 장치 상태가 연결 되어 있지 않습니다. 즉, IoT Central에 연결 하는 장치에 장치 템플릿이 연결 되어 있지 않음을 의미 합니다. 이는 일반적으로 다음과 같은 시나리오에서 발생 합니다.
-    - 장치 템플릿을 지정 하지 않고 장치 페이지에서 **가져오기** 를 사용 하 여 일련의 장치를 추가 합니다.
+1. 장치 상태가 연결 되어 있지 않습니다. 즉, IoT Central에 연결 하는 장치에 장치 템플릿이 **연결 되어 있지** 않음을 의미 합니다. 이는 일반적으로 다음과 같은 시나리오에서 발생 합니다.
+    - 장치 템플릿을 지정 하지 않고 장치 페이지에서 **가져오기** 를 사용 하 여 일련의 장치를 **추가 합니다.**
     - **장치** 페이지에 수동으로 등록 하지 않은 장치는 등록 중에 템플릿 ID를 지정 하지 않고 유효한 자격 증명으로 연결 됩니다.  
 운영자는 **마이그레이션** 단추를 사용 하 여 장치를 **장치** 페이지에서 템플릿에 연결할 수 있습니다.
 
@@ -190,8 +193,6 @@ Azure 장치 Sdk는 장치 코드를 구현 하는 가장 쉬운 방법을 제�
 - [Node.js용 Azure IoT SDK](https://github.com/azure/azure-iot-sdk-node)
 - [Java용 Azure IoT SDK](https://github.com/azure/azure-iot-sdk-java)
 - [.NET용 Azure IoT SDK](https://github.com/azure/azure-iot-sdk-csharp)
-
-각 디바이스는 디바이스를 식별하는 고유한 연결 문자열을 사용하여 연결합니다. 장치는 등록 된 IoT hub에만 연결할 수 있습니다. Azure IoT Central 응용 프로그램에서 실제 장치를 만들 때 응용 프로그램은를 사용 하 여 `dps-keygen`연결 문자열을 생성 하는 데 필요한 정보를 생성 합니다.
 
 ### <a name="sdk-features-and-iot-hub-connectivity"></a>SDK 기능 및 IoT Hub 연결
 

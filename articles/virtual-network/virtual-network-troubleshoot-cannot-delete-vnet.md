@@ -4,7 +4,7 @@ description: Azure에서 가상 네트워크를 삭제할 수 없는 문제를 �
 services: virtual-network
 documentationcenter: na
 author: chadmath
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-network
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 5d2e10a4c5cd5b5dc1a8fe19cef7bc47f68d3fbe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2d427a8b40fcb537801ce76aae6bc32fcda3a307
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235005"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056937"
 ---
-# <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>문제 해결: Azure의 가상 네트워크를 삭제 하지 못함
+# <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>문제 해결: Azure에서 가상 네트워크를 삭제 하지 못했습니다.
 
 Microsoft Azure에서 가상 네트워크를 삭제하려고 할 때 오류가 발생할 수 있습니다. 이 문서에서는 이 문제를 해결하는 데 도움이 되는 문제 해결 단계를 제공합니다. 
 

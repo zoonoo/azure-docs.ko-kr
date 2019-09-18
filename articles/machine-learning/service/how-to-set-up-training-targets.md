@@ -1,6 +1,6 @@
 ---
 title: 모델 학습의 컴퓨팅 대상 만들기 및 사
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: 기계 학습 모델 학습의 학습 환경(컴퓨팅 대상)을 구성합니다. 학습 환경을 쉽게 전환할 수 있습니다. 로컬로 학습을 시작합니다. 규모 확장이 필요한 경우 클라우드 기반 컴퓨팅 대상으로 전환합니다.
 services: machine-learning
 author: heatherbshapiro
@@ -11,18 +11,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0a34ccf5201b81a2c74c2eccd0ec3f311a1158ab
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 7c3bae2fff9e20ed9427c72b5f5f632d975f9f94
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860547"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034425"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>모델 학습을 위한 계산 대상 설정 및 사용 
 
-Azure Machine Learning Service를 사용하여 다양한 리소스 또는 환경(총체적으로 [__컴퓨팅 대상__](concept-azure-machine-learning-architecture.md#compute-targets)이라고 함)에서 모델을 학습할 수 있습니다. 컴퓨팅 대상은 로컬 컴퓨터 또는 클라우드 리소스(예: Azure Machine Learning Compute, Azure HDInsight 또는 원격 가상 머신)일 수 있습니다.  ["모델 배포 위치 및 방법"](how-to-deploy-and-where.md)의 설명에 따라 모델 배포용 컴퓨팅 대상을 만들 수도 있습니다.
+Azure Machine Learning를 사용 하면 [__계산 대상__](concept-azure-machine-learning-architecture.md#compute-targets)이라고 하는 다양 한 리소스 또는 환경에서 모델을 학습 시킬 수 있습니다. 컴퓨팅 대상은 로컬 컴퓨터 또는 클라우드 리소스(예: Azure Machine Learning Compute, Azure HDInsight 또는 원격 가상 머신)일 수 있습니다.  ["모델 배포 위치 및 방법"](how-to-deploy-and-where.md)의 설명에 따라 모델 배포용 컴퓨팅 대상을 만들 수도 있습니다.
 
-Azure Machine Learning SDK, Azure Portal, 작업 영역 방문 페이지 (미리 보기), Azure CLI 또는 Azure Machine Learning VS Code 확장을 사용 하 여 계산 대상을 만들고 관리할 수 있습니다. 다른 서비스(예: HDInsight 클러스터)를 통해 만든 컴퓨팅 대상이 있는 경우 해당 컴퓨팅 대상을 Azure Machine Learning Service 작업 영역에 연결하여 사용할 수 있습니다.
+Azure Machine Learning SDK, Azure Portal, 작업 영역 방문 페이지 (미리 보기), Azure CLI 또는 Azure Machine Learning VS Code 확장을 사용 하 여 계산 대상을 만들고 관리할 수 있습니다. 다른 서비스 (예: HDInsight 클러스터)를 통해 생성 된 계산 대상이 있는 경우 Azure Machine Learning 작업 영역에 연결 하 여 사용할 수 있습니다.
  
 이 문서에서는 모델 학습에 다양한 컴퓨팅 대상을 사용하는 방법을 알아봅니다.  모든 컴퓨팅 대상에 대한 단계는 동일한 워크플로를 따릅니다.
 1. 컴퓨팅 대상이 이미 없는 경우 __만듭니다__.
@@ -35,7 +35,7 @@ Azure Machine Learning SDK, Azure Portal, 작업 영역 방문 페이지 (미리
 
 ## <a name="compute-targets-for-training"></a>학습용 컴퓨팅 대상
 
-Azure Machine Learning Service에는 다양한 컴퓨팅 대상에 대한 다양한 지원이 있습니다. 일반적인 모델 개발 수명 주기는 작은 양의 데이터에 대한 개발/실험으로 시작합니다. 이 단계에서는 로컬 환경을 사용하는 것이 좋습니다. 예를 들어 로컬 컴퓨터 또는 클라우드 기반 VM입니다. 더 큰 데이터 세트를 기반으로 학습을 확장하거나 분산 학습을 수행할 경우 Azure Machine Learning 컴퓨팅을 사용하여 실행을 제출할 때마다 자동 크기 조정되는 단일 또는 다중 노드 클러스터를 만드는 것이 좋습니다. 다음 설명대로 다양한 시나리오 지원이 달라질 수는 있지만 고유한 컴퓨팅 리소스를 연결할 수도 있습니다.
+Azure Machine Learning 다양 한 계산 대상에서 다양 한 지원을 제공 합니다. 일반적인 모델 개발 수명 주기는 작은 양의 데이터에 대한 개발/실험으로 시작합니다. 이 단계에서는 로컬 환경을 사용하는 것이 좋습니다. 예를 들어 로컬 컴퓨터 또는 클라우드 기반 VM입니다. 더 큰 데이터 세트를 기반으로 학습을 확장하거나 분산 학습을 수행할 경우 Azure Machine Learning 컴퓨팅을 사용하여 실행을 제출할 때마다 자동 크기 조정되는 단일 또는 다중 노드 클러스터를 만드는 것이 좋습니다. 다음 설명대로 다양한 시나리오 지원이 달라질 수는 있지만 고유한 컴퓨팅 리소스를 연결할 수도 있습니다.
 
 [!INCLUDE [aml-compute-target-train](../../../includes/aml-compute-target-train.md)]
 
@@ -45,7 +45,7 @@ Azure Machine Learning Service에는 다양한 컴퓨팅 대상에 대한 다양
 
 ## <a name="whats-a-run-configuration"></a>실행 구성이란?
 
-학습 시에는 보통 로컬 컴퓨터에서 시작한 후 나중에 다른 컴퓨팅 대상에서 해당 학습 스크립트를 실행합니다. Azure Machine Learning Service를 사용하면 스크립트를 변경할 필요 없이 다양한 컴퓨팅 대상에서 스크립트를 실행할 수 있습니다.
+학습 시에는 보통 로컬 컴퓨터에서 시작한 후 나중에 다른 컴퓨팅 대상에서 해당 학습 스크립트를 실행합니다. Azure Machine Learning를 사용 하면 스크립트를 변경 하지 않고도 다양 한 계산 대상에서 스크립트를 실행할 수 있습니다.
 
 **실행 구성**내에서 각 계산 대상에 대 한 환경을 정의 하기만 하면 됩니다.  그런 다음 다른 컴퓨팅 대상에서 학습 실험을 실행하려는 경우에 해당 컴퓨팅에 대한 실행 구성을 지정합니다. 환경을 지정 하 고 구성 실행에 바인딩하는 방법에 대 한 자세한 내용은 [학습 및 배포를 위한 환경 만들기 및 관리](how-to-use-environments.md)를 참조 하세요.
 
@@ -143,7 +143,7 @@ Azure Machine Learning 컴퓨팅을 런타임에 컴퓨팅 대상으로 만들 �
 
 ### <a id="vm"></a>원격 가상 머신
 
-Azure Machine Learning은 자신만의 컴퓨팅 리소스를 가져와서 작업 영역에 연결하는 기능을 지원합니다. 해당 리소스 유형은 Azure Machine Learning Service에서 액세스할 수 있는 한 임의의 원격 VM입니다. 리소스는 조직 또는 온-프레미스에 있는 Azure VM 또는 원격 서버일 수 있습니다. 특히 IP 주소 및 자격 증명(사용자 이름 및 암호 또는 SSH 키)이 지정되면 원격 실행에 액세스 가능한 VM을 사용할 수 있습니다.
+Azure Machine Learning은 자신만의 컴퓨팅 리소스를 가져와서 작업 영역에 연결하는 기능을 지원합니다. 이러한 리소스 종류 중 하나는 Azure Machine Learning에서 액세스할 수 있는 임의의 원격 VM입니다. 리소스는 조직 또는 온-프레미스에 있는 Azure VM 또는 원격 서버일 수 있습니다. 특히 IP 주소 및 자격 증명(사용자 이름 및 암호 또는 SSH 키)이 지정되면 원격 실행에 액세스 가능한 VM을 사용할 수 있습니다.
 
 시스템 빌드 conda 환경, 기존 Python 환경 또는 Docker 컨테이너를 사용할 수 있습니다. Docker 컨테이너에서 실행하려면 Docker 엔진이 VM에서 실행 되어야 합니다. 이 기능은 로컬 머신보다 더 유연한 클라우드 기반 개발/실험 환경을 원하는 경우에 특히 유용합니다.
 
@@ -327,7 +327,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 ### <a id="portal-reuse"></a>컴퓨팅 대상 연결
 
-Azure Machine Learning Service 작업 영역 외부에서 만든 컴퓨팅 대상을 사용하려면 연결해야 합니다. 컴퓨팅 대상을 연결하면 작업 영역에서 사용할 수 있습니다.
+Azure Machine Learning 작업 영역 외부에서 만든 계산 대상을 사용 하려면 연결 해야 합니다. 컴퓨팅 대상을 연결하면 작업 영역에서 사용할 수 있습니다.
 
 컴퓨팅 대상의 목록을 보려면 이전에 설명한 단계를 수행합니다. 그런 다음, 아래 단계에 따라 컴퓨팅 대상을 연결합니다. 
 
@@ -356,7 +356,7 @@ Azure Machine Learning Service 작업 영역 외부에서 만든 컴퓨팅 대�
 
 ## <a name="set-up-with-cli"></a>CLI를 사용 하 여 설정
 
-Azure Machine Learning Service용 [CLI 확장](reference-azure-machine-learning-cli.md)을 사용하여 작업 영역과 연결되어 있는 컴퓨팅 대상에 액세스할 수 있습니다.  CLI를 사용하여 다음을 수행할 수 있습니다.
+Azure Machine Learning에 대 한 [CLI 확장](reference-azure-machine-learning-cli.md) 을 사용 하 여 작업 영역과 연결 된 계산 대상에 액세스할 수 있습니다.  CLI를 사용하여 다음을 수행할 수 있습니다.
 
 * 관리되는 컴퓨팅 대상 만들기
 * 관리되는 컴퓨팅 대상 업데이트
@@ -366,7 +366,7 @@ Azure Machine Learning Service용 [CLI 확장](reference-azure-machine-learning-
 
 ## <a name="set-up-with-vs-code"></a>VS Code로 설정
 
-Azure Machine Learning 서비스에 대 한 [VS Code 확장](how-to-vscode-tools.md#create-and-manage-compute-targets) 을 사용 하 여 작업 영역과 연결 된 계산 대상을 액세스, 생성 및 관리할 수 있습니다.
+Azure Machine Learning에 대 한 [VS Code 확장](how-to-vscode-tools.md#create-and-manage-compute-targets) 을 사용 하 여 작업 영역과 연결 된 계산 대상을 액세스, 생성 및 관리할 수 있습니다.
 
 ## <a id="submit"></a>Azure Machine Learning SDK를 사용 하 여 학습 실행 제출
 
@@ -515,4 +515,4 @@ az ml run submit-hyperdrive -e <experiment> -c <runconfig> --hyperdrive-configur
 * 하이퍼 [매개 변수를 효율적으로 조정](how-to-tune-hyperparameters.md) 하 여 더 나은 모델을 만드는 방법에 대해 알아봅니다.
 * 모델을 학습했으면 [모델을 배포하는 방법 및 위치](how-to-deploy-and-where.md)를 알아봅니다.
 * [RunConfiguration 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) SDK 참조를 확인합니다.
-* [Azure Virtual Networks에서 Azure Machine Learning Service 사용](how-to-enable-virtual-network.md)
+* [Azure 가상 네트워크와 Azure Machine Learning 사용](how-to-enable-virtual-network.md)

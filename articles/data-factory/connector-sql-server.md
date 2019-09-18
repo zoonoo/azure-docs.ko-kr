@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 4b6e5d90d72e84f3a8a54ea0aadcad687b598b2d
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 7b266a21aabf37765de4f4f94cd3939cec697585
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010339"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058510"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 SQL Server 간에 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Azure Data Factory의 버전을 선택 합니다."]
@@ -48,7 +48,7 @@ SQL Server 데이터베이스에서 지원 되는 모든 싱크 데이터 저장
 >[!NOTE]
 >지금은이 커넥터에서 SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) 지원 되지 않습니다. 이 문제를 해결 하려면 [일반 odbc 커넥터](connector-odbc.md) 와 SQL Server ODBC 드라이버를 사용할 수 있습니다. ODBC 드라이버 다운로드 및 연결 문자열 구성에서 [이 지침](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=sql-server-2017) 을 따르세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -158,7 +158,9 @@ SQL Server 데이터베이스에서 데이터를 복사 하려면 다음 속성�
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 **SqlServerTable**로 설정해야 합니다. | 예 |
-| tableName |이 속성은 연결 된 서비스에서 참조 하는 SQL Server 데이터베이스 인스턴스에서 테이블 또는 뷰의 이름입니다. | 원본에는 아니요이고 싱크에는 예입니다 |
+| schema | 스키마의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
+| table | 테이블/뷰의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
+| tableName | 스키마가 포함 된 테이블/뷰의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원 됩니다. 새 워크 로드의 경우 `schema` 및 `table`를 사용 합니다. | 원본에는 아니요이고 싱크에는 예입니다 |
 
 **예제**
 
@@ -174,7 +176,8 @@ SQL Server 데이터베이스에서 데이터를 복사 하려면 다음 속성�
         },
         "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
-            "tableName": "MyTable"
+            "schema": "<schema_name>",
+            "table": "<table_name>"
         }
     }
 }

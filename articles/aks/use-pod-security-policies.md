@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2019
 ms.author: mlearned
-ms.openlocfilehash: df8aa51558bc3aa456758510792c198a8bd9cf78
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 3c9e5185bfcaf99765ec29874cea407fe55bfb17
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061850"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058319"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes Service에서 pod 보안 정책을 사용 하 여 클러스터 보호 (AKS)
 
@@ -67,7 +67,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ## <a name="overview-of-pod-security-policies"></a>Pod 보안 정책 개요
 
-Kubernetes 클러스터에서 허용 컨트롤러는 리소스를 만들 때 API 서버에 대 한 요청을 가로채는 데 사용 됩니다. 그러면 허용 컨트롤러는 규칙 집합에 대해 리소스 요청의 *유효성을 검사* 하거나 배포 매개 변수를 변경 하도록 리소스를 변경할 수 있습니다.
+Kubernetes 클러스터에서 허용 컨트롤러는 리소스를 만들 때 API 서버에 대 한 요청을 가로채는 데 사용 됩니다. 그러면 허용 컨트롤러는 규칙 집합에 대해 리소스 요청의 *유효성을 검사* 하거나 배포 매개 변수를 변경 하도록 *리소스를 변경할* 수 있습니다.
 
 *PodSecurityPolicy* 는 pod 사양이 정의 된 요구 사항을 충족 하는지 확인 하는 허용 컨트롤러입니다. 이러한 요구 사항에 따라 권한 있는 컨테이너의 사용, 특정 유형의 저장소에 대 한 액세스 또는 컨테이너를 실행할 수 있는 사용자 또는 그룹을 제한할 수 있습니다. Pod 사양이 pod 보안 정책에 설명 된 요구 사항을 충족 하지 않는 리소스를 배포 하려고 하면 요청이 거부 됩니다. AKS 클러스터에서 예약할 수 있는 pod을 제어 하는이 기능은 몇 가지 가능한 보안 취약점 또는 권한 에스컬레이션을 방지 합니다.
 
@@ -95,22 +95,21 @@ az aks update \
 
 ## <a name="default-aks-policies"></a>기본 AKS 정책
 
-Pod 보안 정책을 사용 하도록 설정 하면 AKS는 *특권* 이라는 두 가지 기본 정책을만듭니다. 이러한 기본 정책은 편집 하거나 제거 하지 마십시오. 대신 제어 하려는 설정을 정의 하는 고유한 정책을 만듭니다. 먼저 이러한 기본 정책이 pod 배포에 영향을 주는 방식을 살펴보겠습니다.
+Pod 보안 정책을 사용 하도록 설정 하는 경우 AKS은 *권한*있는 이라는 기본 정책 하나를 만듭니다. 기본 정책을 편집 하거나 제거 하지 마세요. 대신 제어 하려는 설정을 정의 하는 고유한 정책을 만듭니다. 먼저 이러한 기본 정책이 pod 배포에 영향을 주는 방식을 살펴보겠습니다.
 
-사용 가능한 정책을 보려면 다음 예제와 같이 [kubectl get psp][kubectl-get] 명령을 사용 합니다. 기본 *제한* 정책의 일부로 사용자는 권한 있는 pod 에스컬레이션에 대해 *PRIV* 사용이 거부 되 고 사용자가 *MustRunAsNonRoot*됩니다.
+사용 가능한 정책을 보려면 다음 예제에 표시 된 것 처럼 [kubectl get psp][kubectl-get] 명령을 사용 합니다.
 
 ```console
 $ kubectl get psp
 
 NAME         PRIV    CAPS   SELINUX    RUNASUSER          FSGROUP     SUPGROUP    READONLYROOTFS   VOLUMES
-privileged   true    *      RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *
-restricted   false          RunAsAny   MustRunAsNonRoot   MustRunAs   MustRunAs   false            configMap,emptyDir,projected,secret,downwardAPI,persistentVolumeClaim
+privileged   true    *      RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *     configMap,emptyDir,projected,secret,downwardAPI,persistentVolumeClaim
 ```
 
-*제한* 된 pod 보안 정책은 AKS 클러스터의 모든 인증 된 사용자에 게 적용 됩니다. 이 할당은 ClusterRoles 및 ClusterRoleBindings에 의해 제어 됩니다. [Kubectl get clusterrolebindings][kubectl-get] 명령을 사용 하 여 *default: 제한:* binding을 검색 합니다.
+*권한* 있는 pod 보안 정책은 AKS 클러스터의 모든 인증 된 사용자에 게 적용 됩니다. 이 할당은 ClusterRoles 및 ClusterRoleBindings에 의해 제어 됩니다. [Kubectl get clusterrolebindings][kubectl-get] 명령을 사용 하 고 *기본: 특수:* binding을 검색 합니다.
 
 ```console
-kubectl get clusterrolebindings default:restricted -o yaml
+kubectl get clusterrolebindings default:priviledged -o yaml
 ```
 
 다음 압축 된 출력과 같이 *psp: 제한* 된 ClusterRole는 모든 *시스템: 인증* 된 사용자에 게 할당 됩니다. 이 기능은 사용자 고유의 정책을 정의 하지 않아도 기본적인 제한 수준을 제공 합니다.
@@ -120,12 +119,12 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   [...]
-  name: default:restricted
+  name: default:priviledged
   [...]
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: psp:restricted
+  name: psp:priviledged
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: Group
@@ -387,8 +386,7 @@ $ kubectl get psp
 
 NAME                  PRIV    CAPS   SELINUX    RUNASUSER          FSGROUP     SUPGROUP    READONLYROOTFS   VOLUMES
 privileged            true    *      RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *
-psp-deny-privileged   false          RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *
-restricted            false          RunAsAny   MustRunAsNonRoot   MustRunAs   MustRunAs   false            configMap,emptyDir,projected,secret,downwardAPI,persistentVolumeClaim
+psp-deny-privileged   false          RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *          configMap,emptyDir,projected,secret,downwardAPI,persistentVolumeClaim
 ```
 
 ## <a name="allow-user-account-to-use-the-custom-pod-security-policy"></a>사용자 계정이 사용자 지정 pod 보안 정책을 사용할 수 있도록 허용

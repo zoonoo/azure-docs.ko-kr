@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: hrasheed
-ms.openlocfilehash: 689926d0dbaebaaf56c8238e8fed7a691e8cacf4
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: cd8a6c7e7f5ddf781fcd63f3969eedd8f45424bc
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882528"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058608"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>HDInsight에서 JDBC 드라이버를 통해 Apache Hive 쿼리
 
@@ -67,7 +67,7 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
 
 4. **드라이버** 대화 상자 위쪽의 아이콘에서 **+** 아이콘을 선택하여 드라이버를 만듭니다.
 
-    ![드라이버 아이콘](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-driversicons.png)
+    ![SQuirreL SQL 응용 프로그램 드라이버 아이콘](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-driversicons.png)
 
 5. 드라이버 추가 대화 상자에 다음 정보를 추가합니다.
 
@@ -76,13 +76,13 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
     * **추가 클래스 경로**: **추가** 단추를 사용 하 여 이전에 다운로드 한 모든 jar 파일을 추가 합니다.
     * **클래스 이름**: org.apache.hive.jdbc.HiveDriver
 
-   ![드라이버 추가 대화 상자](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-add-driver.png)
+   ![매개 변수를 사용 하 여 드라이버 추가 대화 상자](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-add-driver.png)
 
    **확인** 을 선택 하 여 이러한 설정을 저장 합니다.
 
 6. SQuirreL SQL 창의 왼쪽에서 **별칭**을 선택합니다. 그런 다음 아이콘 **+** 을 선택 하 여 연결 별칭을 만듭니다.
 
-    ![새 별칭 추가](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-new-aliases.png)
+    ![SQuirreL SQL 새 별칭 추가 대화 상자](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-new-aliases.png)
 
 7. **별칭 추가** 대화 상자에서 다음 값을 사용합니다.
 
@@ -98,16 +98,16 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
 
     * **암호**: 클러스터 로그인 계정의 암호입니다.
 
-   ![별칭 추가 대화 상자](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-addalias-dialog.png)
+   ![매개 변수를 사용 하 여 별칭 추가 대화 상자](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-addalias-dialog.png)
 
-    > [!IMPORTANT] 
+    > [!IMPORTANT]
     > **테스트** 단추를 사용하여 연결이 작동하는지 확인합니다. **연결 대상: Hive on HDInsight** 대화 상자가 나타나면 **연결**을 선택하여 테스트를 수행합니다. 테스트가 성공하면 **연결 성공** 대화 상자가 표시됩니다. 오류가 발생하는 경우 [문제 해결](#troubleshooting)을 참조하세요.
 
     연결 별칭을 저장하려면 **별칭 추가** 대화 상자의 아래쪽에 있는 **확인** 단추를 사용합니다.
 
 8. SQuirreL SQL 위쪽의 **연결 대상** 드롭다운에서 **Hive on HDInsight**를 선택합니다. 메시지가 표시되면 **연결**을 선택합니다.
 
-    ![연결 대화 상자](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-connect-dialog.png)
+    ![매개 변수가 있는 연결 대화 상자](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-connect-dialog.png)
 
 9. 연결 되 면 SQL 쿼리 대화 상자에 다음 쿼리를 입력 한 다음 **실행** 아이콘 (실행 중인 사용자)을 선택 합니다. 결과 영역에 쿼리 결과가 표시됩니다.
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: d34cb7b8bfae14c25950cc4d77c6625c675e813b
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 7261aad8f42168449f2c892fe8aaaa6667964654
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934548"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076952"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Apache Ambari를 사용하여 HDInsight 클러스터 구성 최적화
 
@@ -23,7 +23,7 @@ Ambari Web UI 사용에 대한 소개는 [Apache Ambari Web UI를 사용하여 H
 
 `https://CLUSTERNAME.azurehdidnsight.net`에서 클러스터 자격 증명을 사용하여 Ambari에 로그인합니다. 초기 화면에 개요 대시보드가 표시됩니다.
 
-![Ambari 대시보드](./media/hdinsight-changing-configs-via-ambari/apache-ambari-dashboard.png)
+![Apache Ambari 사용자 대시보드가 표시 됨](./media/hdinsight-changing-configs-via-ambari/apache-ambari-dashboard.png)
 
 Ambari 웹 UI는 호스트, 서비스, 경고, 구성 및 보기를 관리하는 데 사용됩니다. HDInsight 클러스터 생성, 서비스 업그레이드, 스택 및 버전 관리, 호스트 서비스 해제 또는 재승인, 클러스터에 서비스 추가 등의 작업에는 Ambari를 사용할 수 없습니다.
 
@@ -31,25 +31,25 @@ Ambari 웹 UI는 호스트, 서비스, 경고, 구성 및 보기를 관리하는
 
 구성 설정은 특정 서비스를 조정하는 데 도움이 됩니다. 서비스의 구성 설정을 수정하려면 **서비스** 사이드바(왼쪽)에서 서비스를 선택한 다음 서비스 세부 정보 페이지에서 **Configs**(구성) 탭으로 이동합니다.
 
-![서비스 사이드바](./media/hdinsight-changing-configs-via-ambari/ambari-services-sidebar.png)
+![Apache Ambari Services 사이드바](./media/hdinsight-changing-configs-via-ambari/ambari-services-sidebar.png)
 
 ### <a name="modify-namenode-java-heap-size"></a>NameNode Java 힙 크기 수정
 
-NameNode Java 힙 크기는 클러스터의 로드, 파일 수 및 블록 수와 같은 많은 요소에 따라 달라집니다. 기본 크기인 1GB는 대부분의 클러스터에서 잘 작동하지만, 일부 워크로드에는 메모리가 더 많이 또는 적게 필요할 수 있습니다. 
+NameNode Java 힙 크기는 클러스터의 로드, 파일 수 및 블록 수와 같은 많은 요소에 따라 달라집니다. 기본 크기인 1GB는 대부분의 클러스터에서 잘 작동하지만, 일부 워크로드에는 메모리가 더 많이 또는 적게 필요할 수 있습니다.
 
 NameNode Java 힙 크기를 수정하려면:
 
 1. 서비스 사이드바에서 **HDFS**를 선택하고 **Configs**(구성) 탭으로 이동합니다.
 
-    ![HDFS 구성](./media/hdinsight-changing-configs-via-ambari/ambari-apache-hdfs-config.png)
+    ![Apache Ambari HDFS 구성](./media/hdinsight-changing-configs-via-ambari/ambari-apache-hdfs-config.png)
 
 1. **NameNode Java heap size**(NameNode Java 힙 크기) 설정을 찾습니다. **필터** 텍스트 상자에 특정 설정을 입력하여 찾을 수도 있습니다. 설정 이름 옆에 있는 **펜** 아이콘을 선택합니다.
 
-    ![NameNode Java 힙 크기](./media/hdinsight-changing-configs-via-ambari/ambari-java-heap-size.png)
+    ![Apache Ambari NameNode Java 힙 크기](./media/hdinsight-changing-configs-via-ambari/ambari-java-heap-size.png)
 
 1. 텍스트 상자에 새 값을 입력한 다음 **Enter** 키를 눌러 변경 내용을 저장합니다.
 
-    ![NameNode Java heap 고 있습니다 편집](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit1.png)
+    ![Ambari Edit NameNode Java heap 고 있습니다](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit1.png)
 
 1. NameNode Java 힙 크기는 2gb에서 1gb로 변경 됩니다.
 
@@ -57,7 +57,7 @@ NameNode Java 힙 크기를 수정하려면:
 
 1. 구성 화면 위쪽에서 **저장** 단추를 클릭하여 변경 내용을 저장합니다.
 
-    ![변경 내용 저장](./media/hdinsight-changing-configs-via-ambari/ambari-save-changes1.png)
+    ![Ambari Ambari 저장 구성](./media/hdinsight-changing-configs-via-ambari/ambari-save-changes1.png)
 
 ## <a name="apache-hive-optimization"></a>Apache Hive 최적화
 
@@ -72,11 +72,11 @@ Hive는 [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_t
 
 1. Hive **Configs**(구성) 탭의 필터 상자에 **실행 엔진**을 입력합니다.
 
-    ![검색 실행 엔진](./media/hdinsight-changing-configs-via-ambari/ambari-search-execution.png)
+    ![Apache Ambari 검색 실행 엔진](./media/hdinsight-changing-configs-via-ambari/ambari-search-execution.png)
 
 1. **Optimization**(최적화) 속성의 기본값은 **Tez**입니다.
 
-    ![최적화 - Tez](./media/hdinsight-changing-configs-via-ambari/optimization-apache-tez.png)
+    ![최적화-Apache Tez 엔진](./media/hdinsight-changing-configs-via-ambari/optimization-apache-tez.png)
 
 ### <a name="tune-mappers"></a>매퍼 조정
 
@@ -93,8 +93,8 @@ Hadoop은 단일 파일을 여러 파일로 분할(*매핑*)하여 생성되는 
 
 1. 두 매개 변수를 모두 **33,554,432** 바이트(32MB)로 설정합니다.
 
-    ![Tez 그룹화 크기](./media/hdinsight-changing-configs-via-ambari/apache-tez-grouping-size.png)
- 
+    ![Apache Ambari Tez 그룹화 크기](./media/hdinsight-changing-configs-via-ambari/apache-tez-grouping-size.png)
+
 이러한 변화는 서버의 모든 Tez 작업에 영향을 미칩니다. 최적의 결과를 내려면 적절한 매개 변수 값을 선택합니다.
 
 ### <a name="tune-reducers"></a>리듀서 조정
@@ -109,11 +109,11 @@ Hadoop은 단일 파일을 여러 파일로 분할(*매핑*)하여 생성되는 
 
 1. 매개 변수를 수정하려면 Hive **Configs**(구성) 탭으로 이동하고 설정 페이지에서 **Data per Reducer**(리듀서당 데이터) 매개 변수를 찾습니다.
 
-    ![리듀서당 데이터](./media/hdinsight-changing-configs-via-ambari/ambari-data-per-reducer.png)
- 
+    ![리 듀 서 당 Apache Ambari 데이터](./media/hdinsight-changing-configs-via-ambari/ambari-data-per-reducer.png)
+
 1. **편집**을 선택하여 값을 128MB(134,217,728바이트)로 수정한 다음 **Enter**를 눌러 저장합니다.
 
-    ![리듀서당 데이터 - 편집됨](./media/hdinsight-changing-configs-via-ambari/data-per-reducer-edited.png)
+    ![리 듀 서 당 Ambari 데이터-편집 됨](./media/hdinsight-changing-configs-via-ambari/data-per-reducer-edited.png)
   
     리듀서당 데이터가 128MB이며 입력 크기가 1,024MB이면 리듀서는 8개(1024/128)입니다.
 
@@ -123,22 +123,21 @@ Hadoop은 단일 파일을 여러 파일로 분할(*매핑*)하여 생성되는 
 
 Hive 쿼리는 하나 이상의 단계에서 실행됩니다. 독립적인 단계를 병렬로 실행할 수 있으면 쿼리 성능이 향상됩니다.
 
-1.  병렬 쿼리 실행을 사용하려면 Hive **Config**(구성) 탭으로 이동하여 `hive.exec.parallel` 속성을 검색합니다. 기본값은 false입니다. 값을 true로 변경한 다음 **Enter**를 눌러서 값을 저장합니다.
- 
-1.  동시에 실행 되는 작업 수를 제한 하려면 `hive.exec.parallel.thread.number` 속성을 수정 합니다. 기본값은 8입니다.
+1. 병렬 쿼리 실행을 사용하려면 Hive **Config**(구성) 탭으로 이동하여 `hive.exec.parallel` 속성을 검색합니다. 기본값은 false입니다. 값을 true로 변경한 다음 **Enter**를 눌러서 값을 저장합니다.
 
-    ![Hive 병렬 실행](./media/hdinsight-changing-configs-via-ambari/apache-hive-exec-parallel.png)
+1. 동시에 실행 되는 작업 수를 제한 하려면 `hive.exec.parallel.thread.number` 속성을 수정 합니다. 기본값은 8입니다.
 
+    ![Apache Hive exec 병렬 표시](./media/hdinsight-changing-configs-via-ambari/apache-hive-exec-parallel.png)
 
 ### <a name="enable-vectorization"></a>벡터화 사용
 
 Hive는 데이터를 한 행씩 처리합니다. 벡터화는 Hive가 데이터를 한 번에 1개 행이 아니라 1,024개의 행 블록으로 처리하도록 지시합니다. 벡터화는 ORC 파일 형식에만 적용됩니다.
 
 1. 벡터화된 쿼리 실행을 사용하도록 설정하려면 Hive **Configs**(구성) 탭으로 이동하여 `hive.vectorized.execution.enabled` 매개 변수를 검색합니다. Hive 0.13.0 이상에서는 기본값이 true입니다.
- 
+
 1. 쿼리의 리듀스 측에 대해 벡터화된 실행을 사용하도록 설정하려면 `hive.vectorized.execution.reduce.enabled` 매개 변수를 true로 설정합니다. 기본값은 false입니다.
 
-    ![Hive 벡터화된 실행](./media/hdinsight-changing-configs-via-ambari/hive-vectorized-execution.png)
+    ![Apache Hive 벡터화 실행](./media/hdinsight-changing-configs-via-ambari/hive-vectorized-execution.png)
 
 ### <a name="enable-cost-based-optimization-cbo"></a>CBO(비용 기반 최적화) 사용
 
@@ -146,7 +145,7 @@ Hive는 데이터를 한 행씩 처리합니다. 벡터화는 Hive가 데이터�
 
 CBO를 사용하도록 설정하려면 Hive **Configs**(구성) 탭으로 이동하여 `parameter hive.cbo.enable`을 검색한 다음 토글 단추를 **On**으로 전환합니다.
 
-![CBO 구성](./media/hdinsight-changing-configs-via-ambari/hdinsight-cbo-config.png)
+![HDInsight 비용 기반 최적화 프로그램](./media/hdinsight-changing-configs-via-ambari/hdinsight-cbo-config.png)
 
 다음과 같은 추가적인 구성 매개 변수는 CBO를 사용할 때 Hive 쿼리 성능을 높입니다.
 
@@ -154,13 +153,13 @@ CBO를 사용하도록 설정하려면 Hive **Configs**(구성) 탭으로 이동
 
     true로 설정하면 Hive는 metastore에 저장된 통계를 사용하여 `count(*)`와 같은 간단한 쿼리에 응답합니다.
 
-    ![CBO 통계](./media/hdinsight-changing-configs-via-ambari/hive-compute-query-using-stats.png)
+    ![통계를 사용 하 여 계산 쿼리 Apache Hive](./media/hdinsight-changing-configs-via-ambari/hive-compute-query-using-stats.png)
 
 * `hive.stats.fetch.column.stats`
 
     열 통계는 CBO를 사용하도록 설정한 경우 생성됩니다. Hive는 metastore에 저장된 열 통계를 사용하여 쿼리를 최적화합니다. 열의 수가 많을수록 각 열의 열 통계를 가져오는 시간이 길어집니다. false로 설정하면 metastore에서 열 통계 가져오기를 사용하지 않도록 설정됩니다.
 
-    ![Hive 통계 설정 열 통계](./media/hdinsight-changing-configs-via-ambari/hive-stats-fetch-column-stats.png)
+    ![Apache Hive 통계 집합 열 통계](./media/hdinsight-changing-configs-via-ambari/hive-stats-fetch-column-stats.png)
 
 * `hive.stats.fetch.partition.stats`
 
@@ -206,7 +205,7 @@ Hadoop 작업은 일반적으로 I/O 병목 상태가 됩니다. 데이터를 �
 
     e. **추가**를 클릭합니다.
 
-    ![Hive 사용자 지정 속성](./media/hdinsight-changing-configs-via-ambari/hive-custom-property.png)
+    ![사용자 지정 속성 추가 Apache Hive](./media/hdinsight-changing-configs-via-ambari/hive-custom-property.png)
 
     이렇게 하면 Snappy 압축을 사용하여 중간 파일이 압축됩니다. 속성이 추가되면 사용자 지정 hive-site 창에 나타납니다.
 
@@ -221,7 +220,7 @@ Hadoop 작업은 일반적으로 I/O 병목 상태가 됩니다. 데이터를 �
 
 1. 출력 압축 코덱을 선택하려면 이전 섹션 3단계의 설명에 따라 사용자 지정 hive-site 창에 `mapred.output.compression.codec` 사용자 지정 속성을 추가합니다.
 
-    ![Hive 사용자 지정 속성](./media/hdinsight-changing-configs-via-ambari/hive-custom-property2.png)
+    ![사용자 지정 속성 Apache Hive add2](./media/hdinsight-changing-configs-via-ambari/hive-custom-property2.png)
 
 ### <a name="enable-speculative-execution"></a>투기적 실행 사용
 
@@ -240,9 +239,9 @@ Hive에서는 각 파티션을 미리 정의하지 않고 테이블에 레코드
 1. Hive에서 동적 파티션을 수행하려면 `hive.exec.dynamic.partition` 매개 변수 값이 true(기본값)여야 합니다.
 
 1. 동적 파티션 모드를 *strict*로 변경합니다. strict 모드에서는 적어도 하나의 파티션이 static이어야 합니다. 이렇게 하면 WHERE 절에서 파티션 필터가 없는 쿼리를 방지합니다. 즉 *strict*는 모든 파티션을 검색하는 쿼리를 방지합니다. Hive **Configs**(구성) 탭으로 이동한 다음 `hive.exec.dynamic.partition.mode`를 **strict**로 설정합니다. 기본값은 **nonstrict**입니다.
- 
+
 1. 생성되는 동적 파티션 수를 제한하려면 `hive.exec.max.dynamic.partitions` 매개 변수를 수정합니다. 기본값은 5000입니다.
- 
+
 1. 노드당 동적 파티션의 총 수를 제한하려면 `hive.exec.max.dynamic.partitions.pernode`를 수정합니다. 기본값은 2000입니다.
 
 ### <a name="enable-local-mode"></a>로컬 모드 사용
@@ -251,7 +250,7 @@ Hive에서는 각 파티션을 미리 정의하지 않고 테이블에 레코드
 
 로컬 모드를 사용하려면 [중간 압축 사용](#enable-intermediate-compression) 섹션의 3단계 설명에 따라 `hive.exec.mode.local.auto` 매개 변수를 사용자 지정 hive-site 패널에 추가합니다.
 
-![Hive 실행 모드 로컬 자동](./media/hdinsight-changing-configs-via-ambari/hive-exec-mode-local-auto.png)
+![Apache Hive exec 모드 로컬 자동](./media/hdinsight-changing-configs-via-ambari/hive-exec-mode-local-auto.png)
 
 ### <a name="set-single-mapreduce-multigroup-by"></a>단일 MapReduce MultiGROUP BY 설정
 
@@ -269,7 +268,7 @@ Hive에서는 각 파티션을 미리 정의하지 않고 테이블에 레코드
 
 Hive의 기본 조인 유형은 *순서 섞기 조인*입니다. Hive에서는 특수 매퍼가 입력을 읽어서 조인 키/값 쌍을 중간 파일로 내보냅니다. Hadoop은 이러한 쌍을 순서 섞기 단계에서 정렬하고 병합합니다. 순서 섞기 단계는 비용이 높습니다. 데이터를 기반으로 올바른 조인을 선택하면 성능이 상당히 향상될 수 있습니다.
 
-| 조인 유형 | 시간 | 방법 | Hive 설정 | 주석 |
+| 조인 유형 | 디렉터리 계층 구조에 | 방법 | Hive 설정 | 주석 |
 | -- | -- | -- | -- | -- |
 | 순서 섞기 조인 | <ul><li>기본적 선택</li><li>항상 작동</li></ul> | <ul><li>테이블 중 하나의 부분 읽기</li><li>조인 키 버킷 및 정렬</li><li>각 리듀스에 하나의 버킷 보내기</li><li>리듀스 측에서 조인 수행</li></ul> | 특정 Hive 설정 필요 없음 | 매번 작동 |
 | 맵 조인 | <ul><li>하나의 테이블이 메모리에 들어가는 경우</li></ul> | <ul><li>작은 테이블을 메모리 해시 테이블로 읽기</li><li>큰 파일의 일부를 통해 스트리밍</li><li>해시 테이블에서 각 레코드 조인</li><li>매퍼 단독으로 조인</li></ul> | `hive.auto.confvert.join=true` | 매우 빠르지만 제한적임 |
@@ -297,8 +296,8 @@ Hive 실행 엔진 최적화를 위한 추가 권장 사항:
 
 1. 창의 오른쪽 위에 있는 **저장** 을 선택 하 여 새 값을 저장 합니다. 일부 속성은 서비스를 다시 시작해야 할 수도 있습니다.
 
-    ![고급 Pig 속성](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
- 
+    ![고급 Apache pig 속성](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
+
 > [!NOTE]  
 > 모든 세션 수준 설정은 `pig.properties` 파일의 속성 값을 재정의합니다.
 
@@ -310,7 +309,6 @@ Pig 스크립트를 실행하기 위해 두 개의 실행 엔진 즉, MapReduce 
 
 1. 기본값은 **MapReduce**입니다. 이것을 **Tez**로 변경합니다.
 
-
 ### <a name="enable-local-mode"></a>로컬 모드 사용
 
 Hive와 마찬가지로 로컬 모드는 비교적 양이 적은 데이터의 작업 속도를 높이는 데 사용됩니다.
@@ -318,7 +316,6 @@ Hive와 마찬가지로 로컬 모드는 비교적 양이 적은 데이터의 �
 1. 로컬 모드를 사용하도록 설정하려면 `pig.auto.local.enabled`를 **true**로 설정합니다. 기본값은 false입니다.
 
 1. 입력 데이터 크기가 `pig.auto.local.input.maxbytes` 속성 값보다 작은 작업은 작은 작업으로 간주됩니다. 기본값은 1GB입니다.
-
 
 ### <a name="copy-user-jar-cache"></a>사용자 jar 캐시 복사
 
@@ -328,7 +325,6 @@ Pig는 UDF에 필요한 JAR 파일을 태스크 노드에서 사용할 수 있�
 
 1. 캐시된 jar의 기본 경로를 설정하려면 `pig.user.cache.location`을 기본 경로로 설정합니다. 기본값은 `/tmp`입니다.
 
-
 ### <a name="optimize-performance-with-memory-settings"></a>메모리 설정으로 성능 최적화
 
 다음 메모리 설정은 Pig 스크립트 성능을 최적화하는 데 도움이 됩니다.
@@ -336,7 +332,6 @@ Pig는 UDF에 필요한 JAR 파일을 태스크 노드에서 사용할 수 있�
 * `pig.cachedbag.memusage`: bag에 할당된 메모리 양입니다. bag은 튜플의 컬렉션입니다. 튜플은 정렬된 필드 집합이며 필드는 데이터의 일부입니다. bag의 데이터가 할당된 메모리를 초과하면 데이터가 디스크로 유출됩니다. 기본값은 0.2이며, 이것은 사용 가능한 메모리의 20%를 나타냅니다. 이 메모리는 애플리케이션의 모든 bag에서 공유됩니다.
 
 * `pig.spill.size.threshold`: 이 유출 크기 임계값(바이트 단위)보다 큰 bag은 디스크로 유출됩니다. 기본값은 5MB입니다.
-
 
 ### <a name="compress-temporary-files"></a>임시 파일 압축
 
@@ -350,16 +345,13 @@ Pig는 작업 실행 중에 임시 파일을 생성합니다. 임시 파일을 �
 
 사용하도록 설정하면 맵 작업 수가 줄어들도록 작은 파일이 결합됩니다. 이렇게 하면 작은 파일이 많이 있는 작업의 효율이 향상됩니다. 사용하도록 설정하려면 `pig.noSplitCombination`을 true로 설정합니다. 기본값은 false입니다.
 
-
 ### <a name="tune-mappers"></a>매퍼 조정
 
 매퍼 수는 `pig.maxCombinedSplitSize` 속성을 수정하여 제어됩니다. 이것은 단일 맵 작업으로 처리되는 데이터 크기를 지정합니다. 기본값은 파일 시스템의 기본 블록 크기입니다. 이 값을 높이면 매퍼 작업 수가 감소됩니다.
 
-
 ### <a name="tune-reducers"></a>리듀서 조정
 
 리듀서 수는 `pig.exec.reducers.bytes.per.reducer` 매개 변수를 기반으로 계산됩니다. 이 매개 변수는 리듀서당 처리되는 바이트 수를 지정하며 기본값은 1GB입니다. 최대 리듀서 수를 제한하려면 `pig.exec.reducers.max` 속성을 설정합니다. 기본값은 999입니다.
-
 
 ## <a name="apache-hbase-optimization-with-the-ambari-web-ui"></a>Ambari Web UI로 Apache HBase 최적화
 
@@ -373,8 +365,7 @@ HBase 힙 크기는 *영역* 및 *마스터* 서버에서 사용할 최대 힙 �
 
 1. 기본값을 5,000MB로 변경합니다.
 
-    ![HBASE_HEAPSIZE](./media/hdinsight-changing-configs-via-ambari/ambari-hbase-heapsize.png)
-
+    ![Apache Ambari HBase memory heapsize](./media/hdinsight-changing-configs-via-ambari/ambari-hbase-heapsize.png)
 
 ### <a name="optimize-read-heavy-workloads"></a>읽기 작업이 많은 워크로드 최적화
 
@@ -386,10 +377,9 @@ HBase 힙 크기는 *영역* 및 *마스터* 서버에서 사용할 최대 힙 �
 
 1. 이 매개 변수를 수정하려면 HBase **Configs**(구성) 탭의 **Settings**(설정) 탭으로 이동한 다음 **% of RegionServer Allocated to Read Buffers**(버퍼를 읽기 위해 할당된 RegionServer의 %)를 찾습니다.
 
-    ![HBase 블록 캐시 크기](./media/hdinsight-changing-configs-via-ambari/hbase-block-cache-size.png)
- 
-1. 값을 변경하려면 **편집** 아이콘을 선택합니다.
+    ![Apache HBase 메모리 블록 캐시 크기](./media/hdinsight-changing-configs-via-ambari/hbase-block-cache-size.png)
 
+1. 값을 변경하려면 **편집** 아이콘을 선택합니다.
 
 #### <a name="memstore-size"></a>Memstore 크기
 
@@ -401,30 +391,26 @@ HBase 힙 크기는 *영역* 및 *마스터* 서버에서 사용할 최대 힙 �
 
 임의 읽기를 최적화하려면 Memstore 상한 및 하한을 줄입니다.
 
-
 #### <a name="number-of-rows-fetched-when-scanning-from-disk"></a>디스크에서 스캔할 때 페치하는 행 수
 
 `hbase.client.scanner.caching` 설정은 스캐너에서 `next` 메서드가 호출될 때 디스크에서 읽어오는 행 수를 정의합니다.  기본값은 100입니다. 숫자가 높을수록 클라이언트에서 영역 서버로의 원격 호출이 줄어들어 스캔 속도가 빨라집니다. 단, 이렇게 하면 클라이언트의 메모리 부족도 증가합니다.
 
-![HBase 페치한 행 수](./media/hdinsight-changing-configs-via-ambari/hbase-num-rows-fetched.png)
+![인출 된 Apache HBase 행 수](./media/hdinsight-changing-configs-via-ambari/hbase-num-rows-fetched.png)
 
 > [!IMPORTANT]  
 > 스캐너에서 다음 메서드 호출 사이의 간격이 스캐너 시간 제한보다 크도록 값을 설정하지 않습니다. 스캐너 시간 제한 기간은 `hbase.regionserver.lease.period` 속성에 의해 정의됩니다.
-
 
 ### <a name="optimize-write-heavy-workloads"></a>쓰기 작업이 많은 워크로드 최적화
 
 다음 구성은 쓰기 작업이 많은 워크로드의 성능을 향상시키는 데 중요합니다.
 
-
 #### <a name="maximum-region-file-size"></a>최대 영역 파일 크기
 
 HBase는 *HFile*이라는 내부 파일 형식으로 데이터를 저장합니다. `hbase.hregion.max.filesize` 속성은 영역에 대한 단일 HFile의 크기를 정의합니다.  영역 내 모든 HFile의 합계가 이 설정보다 큰 경우 하나의 영역이 두 영역으로 분할됩니다.
- 
-![HBase HRegion 최대 파일 크기](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-max-filesize.png)
+
+![Apache HBase HRegion 최대 filesize](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-max-filesize.png)
 
 영역 파일 크기가 클수록 분할 수가 줄어듭니다. 파일 크기를 늘려서 쓰기 성능이 최대화되는 값을 결정할 수 있습니다.
-
 
 #### <a name="avoid-update-blocking"></a>업데이트 차단 방지
 
@@ -436,20 +422,17 @@ HBase는 *HFile*이라는 내부 파일 형식으로 데이터를 저장합니�
 
     플러시 크기 및 블록 승수의 기본값을 사용하면 Memstore 크기가 128 * 4 = 512MB인 경우 업데이트가 차단됩니다. 업데이트 차단 횟수를 줄이려면 `hbase.hregion.memstore.block.multiplier` 값을 늘립니다.
 
-![HBase 영역 블록 승수](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-block-multiplier.png)
-
+![Apache HBase 영역 블록 승수](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-block-multiplier.png)
 
 ### <a name="define-memstore-size"></a>Memstore 크기 정의
 
 Memstore 크기는 `hbase.regionserver.global.memstore.UpperLimit` 및 `hbase.regionserver.global.memstore.LowerLimit` 매개 변수로 정의됩니다. 이 값을 서로 같게 설정하면 쓰기 중에 일시 중지가 줄어들어서(또한 플러시 빈도가 높아져서) 쓰기 성능이 향상됩니다.
 
-
 ### <a name="set-memstore-local-allocation-buffer"></a>Memstore 로컬 할당 버퍼 설정
 
 Memstore 로컬 할당 버퍼 사용은 `hbase.hregion.memstore.mslab.enabled` 속성으로 결정됩니다. 사용하도록(true) 설정되면 쓰기 작업이 과도할 때 힙 조각화를 막습니다. 기본값은 true입니다.
- 
-![hbase.hregion.memstore.mslab.enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
 
+![hbase.hregion.memstore.mslab.enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
 
 ## <a name="next-steps"></a>다음 단계
 

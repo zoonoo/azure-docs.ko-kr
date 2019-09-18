@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: 4b3116230a085bfbb9a6139fbada4179d802bf5e
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 75beb7b66863efd2fb3679f034a3663dca4a6d2f
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296079"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076710"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리의 함수 사용
 
@@ -26,27 +26,25 @@ ms.locfileid: "67296079"
 
 ## <a name="create-a-function"></a>함수 만들기
 
-클릭 하 여 Azure portal에서 Log Analytics를 사용 하 여 함수를 만듭니다 **저장할** 후 다음 표의 정보를 제공 합니다.
+**저장** 을 클릭 하 고 다음 표의 정보를 제공 하 여 Azure Portal에서 Log Analytics를 사용 하 여 함수를 만듭니다.
 
 | 설정 | 설명 |
 |:---|:---|
-| Name           | **쿼리 탐색기**에 나타나는 쿼리의 표시 이름입니다. |
-| 다른 이름으로 저장        | 함수 |
+| 이름           | **쿼리 탐색기**에 나타나는 쿼리의 표시 이름입니다. |
+| 다른 이름으로 저장        | 기능 |
 | 함수 별칭 | 다른 쿼리에서 함수를 사용하기 위한 약식 이름입니다. 공백을 포함할 수 없으며 고유해야 합니다. |
-| Category       | **쿼리 탐색기**에서 저장된 쿼리 및 함수를 구성하는 범주입니다. |
+| 범주       | **쿼리 탐색기**에서 저장된 쿼리 및 함수를 구성하는 범주입니다. |
 
 > [!NOTE]
 > Azure Monitor의 함수는 다른 함수를 포함할 수 없습니다.
 
-> [!NOTE]
-> Azure Monitor 로그 쿼리에는 함수를 저장할 수 있지만, Application Insights 쿼리의 경우는 현재 이러한 기능이 지원되지 않습니다.
 
 
 
 ## <a name="use-a-function"></a>함수 사용
 다른 쿼리에 해당 별칭을 포함하여 함수를 사용합니다. 다른 테이블처럼 사용할 수 있습니다.
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 다음 샘플 쿼리는 마지막 날에 보고된 모든 누락된 보안 업데이트를 반환합니다. 별칭 _security_updates_last_day_를 사용하여 이 쿼리를 함수로 저장합니다. 
 
 ```Kusto

@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ae6d55180785c9407662776a95fcba31f8ba5275
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: e29e2e3e61594870cc9d704d64b1040a4211a520
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835199"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066221"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 클레임 추가 및 사용자 지정 정책을 사용하여 사용자 입력 사용자 지정
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-이 문서에서는 사용자가 제공한 새 항목(클레임)을 Azure AD(Azure Active Directory) B2C의 등록 사용자 경험에 추가합니다.  드롭다운으로 항목을 구성 하 고가 필요한 지 여부를 정의 합니다.
+이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에서 등록 사용자 경험에 새 사용자 제공 항목 (클레임)을 추가 합니다.  항목을 드롭다운으로 구성 하 고 필요 여부를 정의 합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -29,12 +29,12 @@ ms.locfileid: "67835199"
 
 ## <a name="add-claims"></a>클레임 추가
 
-사용자로부터 초기 데이터를 수집하는 작업은 등록 또는 로그인 사용자 경험을 사용하여 수행됩니다. 나중에 프로필 편집 사용자 경험을 통해 추가 클레임을 수집할 수 있습니다. Azure AD B2C를 대화형으로 사용자에서 직접 정보 수집, 언제 든 지 Identity Experience Framework를 해당 자체 어설션된 공급자를 사용 합니다.
+사용자로부터 초기 데이터를 수집하는 작업은 등록 또는 로그인 사용자 경험을 사용하여 수행됩니다. 나중에 프로필 편집 사용자 경험을 통해 추가 클레임을 수집할 수 있습니다. 언제 든 지 사용자가 대화형으로 정보를 수집 Azure AD B2C Id 경험 프레임 워크는 자체 어설션된 공급자를 사용 합니다.
 
 
 ### <a name="define-the-claim"></a>클레임 정의
 
-해당 도시에 대 한 사용자에 게 요청 해 보겠습니다. TrustFrameworkBase 정책 파일의 **ClaimsSchema** 요소에 다음 요소를 추가합니다.
+사용자에 게 도시를 요청 해 보겠습니다. TrustFrameworkBase 정책 파일의 **ClaimsSchema** 요소에 다음 요소를 추가합니다.
 
 ```xml
 <ClaimType Id="city">
@@ -79,7 +79,7 @@ ms.locfileid: "67835199"
 
 #### <a name="dropdownsingleselect"></a>DropdownSingleSelect
 
-![몇 가지 옵션을 보여 주는 단일 선택 드롭다운 컨트롤](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
+![여러 옵션을 표시 하는 단일 선택 드롭다운 컨트롤](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
 
 ```xml
 <ClaimType Id="city">
@@ -96,7 +96,7 @@ ms.locfileid: "67835199"
 
 #### <a name="checkboxmultiselect"></a>CheckboxMultiSelect
 
-![몇 가지 옵션을 보여 주는 다중 선택 확인란 컨트롤](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
+![여러 옵션을 보여 주는 다중 선택 확인란 컨트롤](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
 
 ```xml
 <ClaimType Id="city">
@@ -261,7 +261,7 @@ ms.locfileid: "67835199"
 ## <a name="test-the-custom-policy"></a>사용자 지정 정책 테스트
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 맨 위 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 Azure AD 테넌트가 포함된 디렉터리를 선택하여 Azure AD 테넌트가 포함된 디렉터리를 사용합니다.
+2. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 azure ad 테 넌 트가 포함 된 디렉터리를 선택 하 여 azure ad 테 넌 트를 포함 하는 디렉터리를 사용 하 고 있는지 확인 합니다.
 3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택한 다음, **앱 등록**을 검색하여 선택합니다.
 4. **Identity Experience Framework(미리 보기)** 를 선택합니다.
 5. **사용자 지정 정책 업로드**를 선택한 후 변경한 두 정책 파일을 업로드합니다.

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 09/16/2019
 ms.author: jingwang
-ms.openlocfilehash: 29f5b9b704bcf4648e9c24516d8eff5429a0ce1d
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 78b74c1db5f331e7b74a730148d52b1ff7694ec0
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71009949"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058993"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 복사 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스의 버전을 선택 합니다."]
@@ -444,6 +444,9 @@ PolyBase SQL Data Warehouse Azure Blob, Azure Data Lake Storage Gen1 및 Azure D
    7. `compression`은 **no compression**, **GZip** 또는 **Deflate**일 수 있습니다.
 
 3. 원본이 폴더 `recursive` 이면 복사 작업에서을 true로 설정 해야 합니다.
+
+>[!NOTE]
+>원본이 폴더인 경우 PolyBase는 폴더와 모든 하위 폴더에서 파일을 검색 하 고, 여기에 설명 된 [위치 인수](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest#arguments-2)에 설명 된 대로 파일 이름이 밑줄 (_) 또는 마침표 (.)로 시작 하는 파일에서 데이터를 검색 하지 않습니다.
 
 ```json
 "activities":[

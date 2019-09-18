@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: cawa
-ms.openlocfilehash: a08fc7d7822b4aeddafb588fdb73e86559ce2b12
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 84e423ac055c074028df217060a548b932823496
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68849163"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033375"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Azure Monitor에서 응용 프로그램 변경 분석 (미리 보기) 사용
 
@@ -87,57 +87,39 @@ Azure Monitor 변경 분석은 현재 셀프 서비스 **진단 및 문제 해�
 
 ### <a name="enable-change-analysis-at-scale"></a>규모에 맞게 변경 분석 설정
 
-구독에 다양 한 웹 앱이 포함 되어 있는 경우 웹 앱 수준에서 서비스를 사용 하도록 설정 하는 것은 비효율적입니다. 이 경우 다음과 같은 대체 지침을 따릅니다.
+구독에 다양 한 웹 앱이 포함 되어 있는 경우 웹 앱 수준에서 서비스를 사용 하도록 설정 하는 것은 비효율적입니다. 다음 스크립트를 실행 하 여 구독의 모든 웹 앱을 사용 하도록 설정 합니다.
 
-### <a name="register-the-change-analysis-resource-provider-for-your-subscription"></a>구독에 대 한 변경 분석 리소스 공급자 등록
+필수 조건:
+* PowerShell Az Module. [Azure PowerShell 모듈 설치](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-2.6.0) 의 지침을 따르세요.
 
-1. 변경 분석 기능 플래그 (미리 보기)를 등록 합니다. 기능 플래그는 미리 보기 상태 이므로 구독에 표시 하려면 등록 해야 합니다.
+다음 스크립트를 실행합니다.
 
-   1. [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/)을 엽니다.
+```PowerShell
+# Log in to your Azure subscription
+Connect-AzAccount
 
-      ![변경 Cloud Shell 스크린샷](./media/change-analysis/cloud-shell.png)
+# Get subscription Id
+$SubscriptionId = Read-Host -Prompt 'Input your subscription Id'
 
-   1. 셸 유형을 **PowerShell**로 변경 합니다.
+# Make Feature Flag visible to the subscription
+Set-AzContext -SubscriptionId $SubscriptionId
 
-      ![변경 Cloud Shell 스크린샷](./media/change-analysis/choose-powershell.png)
+# Register resource provider
+Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
 
-   1. 다음 PowerShell 명령을 실행합니다.
 
-        ``` PowerShell
-        Set-AzContext -Subscription <your_subscription_id> #set script execution context to the subscription you are trying to enable
-        Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.ChangeAnalysis" -ListAvailable #Check for feature flag availability
-        Register-AzureRmProviderFeature -FeatureName PreviewAccess -ProviderNamespace Microsoft.ChangeAnalysis #Register feature flag
-        ```
+# Enable each web app
+$webapp_list = Get-AzWebApp | Where-Object {$_.kind -eq 'app'}
+foreach ($webapp in $webapp_list)
+{
+    $tags = $webapp.Tags
+    $tags[“hidden-related:diagnostics/changeAnalysisScanEnabled”]=$true
+    Set-AzResource -ResourceId $webapp.Id -Tag $tags -Force
+}
 
-1. 구독에 대 한 변경 분석 리소스 공급자를 등록 합니다.
+```
 
-   - **구독**으로 이동 하 고 변경 서비스에서 사용 하도록 설정할 구독을 선택 합니다. 그런 다음 리소스 공급자를 선택 합니다.
 
-        ![변경 분석 리소스 공급자를 등록 하는 방법을 보여 주는 스크린샷](./media/change-analysis/register-rp.png)
-
-       - **Microsoft. ChangeAnalysis**를 선택 합니다. 그런 다음 페이지 맨 위에서 **등록**을 선택 합니다.
-
-       - 리소스 공급자를 사용 하도록 설정한 후에는 웹 앱에서 숨겨진 태그를 설정 하 여 배포 수준에서 변경 내용을 검색할 수 있습니다. 숨겨진 태그를 설정 하려면 **변경 분석 정보를 페치할 수 없음**아래의 지침을 따르세요.
-
-   - 또는 PowerShell 스크립트를 사용 하 여 리소스 공급자를 등록할 수 있습니다.
-
-        ```PowerShell
-        Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState #Check if RP is ready for registration
-
-        Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis" #Register the Change Analysis RP
-        ```
-
-        PowerShell을 사용 하 여 웹 앱에 숨겨진 태그를 설정 하려면 다음 명령을 실행 합니다.
-
-        ```powershell
-        $webapp=Get-AzWebApp -Name <name_of_your_webapp>
-        $tags = $webapp.Tags
-        $tags[“hidden-related:diagnostics/changeAnalysisScanEnabled”]=$true
-        Set-AzResource -ResourceId <your_webapp_resourceid> -Tag $tag
-        ```
-
-     > [!NOTE]
-     > 숨겨진 태그를 추가한 후에도 변경 내용을 보기 시작 하기 전에 최대 4 시간까지 기다려야 할 수 있습니다. 변경 분석에서 웹 앱을 4 시간 마다 검색 하므로 결과가 지연 됩니다. 4 시간 일정은 검색의 성능 영향을 제한 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

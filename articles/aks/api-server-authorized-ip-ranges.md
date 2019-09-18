@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 487940bfb5d6e7c5eebf99f804f57c3e17709377
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 59e64b7c84e589da57ea28d6655c9305f4fdc101
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70276495"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058339"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes 서비스 (AKS)에서 권한이 부여 된 IP 주소 범위를 사용 하 여 API 서버에 안전 하 게 액세스할 수 있습니다.
 
@@ -28,7 +28,7 @@ Kubernetes에서 API 서버는 리소스를 만들거나 노드 수를 조정 �
 
 ## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
-이 문서에서는 [kubenet] [kubenet]를 사용 하는 클러스터로 작업 하는 assumess 합니다.  [Azure 컨테이너 네트워킹 인터페이스 (CNI)] [cni-네트워킹] 기반 클러스터를 사용 하는 경우 액세스를 보호 하는 데 필요한 경로 테이블이 없습니다.  경로 테이블을 수동으로 만들어야 합니다.  자세한 내용은 [경로 테이블 관리](https://docs.microsoft.com/azure/virtual-network/manage-route-table) 를 참조 하세요.
+이 문서에서는 [kubenet][kubenet]를 사용 하는 클러스터로 작업 하는 assumess 합니다.  [Azure 컨테이너 네트워킹 인터페이스 (CNI)][cni-networking] 기반 클러스터를 사용 하는 경우 액세스를 보호 하는 데 필요한 경로 테이블이 없습니다.  경로 테이블을 수동으로 만들어야 합니다.  자세한 내용은 [경로 테이블 관리](https://docs.microsoft.com/azure/virtual-network/manage-route-table) 를 참조 하세요.
 
 API server 권한 있는 IP 범위는 새로 만든 AKS 클러스터에만 적용 됩니다. 이 문서에서는 Azure CLI를 사용 하 여 AKS 클러스터를 만드는 방법을 보여 줍니다.
 
@@ -111,7 +111,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 > [!WARNING]
 > Azure 방화벽을 사용 하면 월간 청구 주기 동안 상당한 비용이 발생할 수 있습니다. Azure 방화벽을 사용 하는 요구 사항은 초기 미리 보기 기간에만 필요 합니다. 자세한 내용 및 비용 계획은 [Azure 방화벽 가격 책정][azure-firewall-costs]을 참조 하세요.
 >
-> 또는 클러스터에서 [표준 SKU 부하 분산 장치][standard-sku-lb]를 사용 하는 경우 Azure 방화벽을 아웃 바운드 게이트웨이로 구성할 필요가 없습니다. [Az network 공용 ip list][az-network-public-ip-list] 를 사용 하 고 AKS 클러스터의 리소스 그룹을 지정 합니다 .이는 일반적으로 *MC_* 로 시작 합니다. 그러면 허용 목록 수 있는 클러스터의 공용 IP가 표시 됩니다. 예:
+> 또는 클러스터에서 [표준 SKU 부하 분산 장치][standard-sku-lb]를 사용 하는 경우 Azure 방화벽을 아웃 바운드 게이트웨이로 구성할 필요가 없습니다. [Az network 공용 ip list][az-network-public-ip-list] 를 사용 하 고 AKS 클러스터의 리소스 그룹을 지정 합니다 .이는 일반적으로 *MC_* 로 시작 합니다. 그러면 허용 목록 수 있는 클러스터의 공용 IP가 표시 됩니다. 예를 들어:
 >
 > ```azurecli-interactive
 > RG=$(az aks show --resource-group myResourceGroup --name myAKSClusterSLB --query nodeResourceGroup -o tsv)
@@ -256,6 +256,8 @@ az aks update \
 
 <!-- LINKS - external -->
 [azure-firewall-costs]: https://azure.microsoft.com/pricing/details/azure-firewall/
+[kubenet]: https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet
+[cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md

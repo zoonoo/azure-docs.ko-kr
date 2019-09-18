@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: cephalin
-ms.openlocfilehash: 67b9c0ba2566206b0e70db51844b21e5d5d3c261
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: ddeb46a2c7bc7f24f55c22f446926529cee7b598
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182780"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059753"
 ---
 도메인 이름의 레코드가 전파된 후 브라우저를 사용하여 Azure App Service의 웹앱에 액세스하는 데 사용자 지정 도메인 이름을 사용할 수 있는지 확인할 수 있습니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "67182780"
    
     ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 3. **사용자 지정 도메인** 블레이드에서 **호스트 이름 추가**를 클릭합니다.
-4. **호스트 이름** 텍스트 상자에 이 웹앱과 연결할 Traffic Manager 도메인 이름을 입력합니다.
+4. **호스트 이름** 텍스트 상자를 사용 하 여이 웹 앱과 연결할 사용자 지정 도메인 이름을 입력 합니다.
    
     ![](./media/custom-dns-web-site/dncmntask-cname-8.png)
 5. **유효성 검사** 를 클릭하여 도메인 이름 구성을 저장합니다.

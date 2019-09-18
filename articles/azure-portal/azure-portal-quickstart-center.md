@@ -1,6 +1,6 @@
 ---
 title: Azure Portal 개요 | Microsoft Docs
-description: 안내가 제공 되는 환경을 사용 하 여 Azure 시작
+description: Azure 빠른 시작 센터의 단계별 환경을 사용 하 여 Azure를 시작 하세요.
 services: azure-portal
 keywords: ''
 author: kfollis
@@ -9,12 +9,12 @@ ms.date: 09/13/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 2dd34c11bc6a8d09c8a375cf73e5efad4fceff04
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 5086198a4e4efafe3ac05f1f182f7f09d867a709
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71004255"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076744"
 ---
 # <a name="get-started-with-the-azure-quickstart-center"></a>Azure 빠른 시작 센터 시작
 

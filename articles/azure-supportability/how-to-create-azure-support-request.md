@@ -14,27 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: gangan
-ms.openlocfilehash: f6d9e683e1feff670c26b01a31ce977557295bff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 462a14d7845c6723a3482e50b01c50e3d913beee
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62129062"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71072075"
 ---
 # <a name="how-to-create-an-azure-support-request"></a>Azure 지원 요청을 만드는 방법
 ## <a name="summary"></a>요약
 Azure 고객은 Azure Portal([https://portal.azure.com](https://portal.azure.com))에서 지원 요청을 만들고 관리할 수 있습니다.
 
 > [!NOTE]
-> 독일 Azure Portal은 [https://portal.microsoftazure.de](https://portal.microsoftazure.de)  입니다.  
-> 미국 정부에 대한 Azure Portal은 [https://portal.azure.us](https://portal.azure.us)입니다.
+> Azure Portal에 대 한 주석 erical [https://portal.azure.com](https://portal.azure.com) 사용은 독일의 Azure Portal입니다.[https://portal.microsoftazure.de](https://portal.microsoftazure.de)   
+> 미국 정부에 대 한 Azure Portal입니다.[https://portal.azure.us](https://portal.azure.us)
 
 
 고객의 의견에 따라 다음 세 가지 기본 목표에 초점을 맞춰 지원 요청 환경을 업데이트했습니다.
 
-* **간소화 된**: 클릭 및 블레이드 지원 요청을 제출 하는 프로세스를 간단 하 게 줄입니다.
-* **통합**: Azure 리소스를 사용 하 여 문제를 해결 하는 경우 쉽게 컨텍스트 전환 없이 해당 리소스에 대 한 지원 요청을 개설할 여야 합니다.
-* **효율성**: 지원 엔지니어에 게 효율적으로 문제를 해결 하는 데 필요한 주요 정보를 수집 합니다.
+* **간소화**: 지원 요청을 간단 하 게 제출 하는 프로세스를 수행 하려면 클릭 및 블레이드를 줄입니다.
+* **통합**: Azure 리소스 문제를 해결 하는 경우 컨텍스트를 전환 하지 않고 해당 리소스에 대 한 지원 요청을 쉽게 열 수 있습니다.
+* **효율성**: 지원 엔지니어가 문제를 효율적으로 해결 하는 데 필요한 주요 정보를 수집 합니다.
 
 ## <a name="getting-started"></a>시작
 위쪽 탐색 메뉴에서 또는 리소스 블레이드에서 직접 지원 요청을 만들 수 있습니다.
@@ -54,7 +54,7 @@ Azure 고객은 Azure Portal([https://portal.azure.com](https://portal.azure.com
 ## <a name="basics"></a>기본 사항
 지원 요청 프로세스의 첫 번째 단계에서는 문제 및 지원 계획에 대한 기본 정보를 수집합니다.
 
-예를 들어를 보겠습니다. 가상 컴퓨터를 사용 하 여 기술적인 문제가 직면 한 네트워크 연결 문제가 의심 있습니다.
+예를 들어 보겠습니다. 가상 머신에서 기술적인 문제가 발생 하 여 네트워크 연결 문제가 의심 되는 경우
 마법사의 첫 번째 단계에서 서비스("Windows를 실행하는 Virtual Machine")와 리소스 (가상 머신의 이름)을 선택하면 이 문제에 대한 도움을 얻는 프로세스가 시작됩니다.
 
 ![기본 사항 블레이드](./media/how-to-create-azure-support-request/Basics.png)
@@ -64,7 +64,7 @@ Azure 고객은 Azure Portal([https://portal.azure.com](https://portal.azure.com
 >
 >
 
-## <a name="problem"></a>문제
+## <a name="problem"></a>문제점
 마법사의 두 번째 단계에서는 문제에 대한 추가 정보를 수집합니다. 이 단계에서 정확한 정보가 제공되면 이 문제에 가장 적합한 지원 담당 엔지니어에게 사례를 라우팅하고 가능한 한 빨리 문제 진단을 시작할 수 있습니다.
 
 ![문제 블레이드](./media/how-to-create-azure-support-request/Problem01.png)

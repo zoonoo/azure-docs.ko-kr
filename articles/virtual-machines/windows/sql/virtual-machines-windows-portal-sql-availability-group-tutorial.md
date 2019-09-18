@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 7683812c5ee98d21d5aa8191a88926669b2ed120
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6485b7c102977f4fb6963418084f4da050c68558
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102371"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036519"
 ---
 # <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>자습서: 수동으로 Azure VM에서 Always On 가용성 그룹 구성
 
@@ -32,7 +32,7 @@ ms.locfileid: "70102371"
 
 ![가용성 그룹](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 자습서는 사용자가 SQL Server Always On 가용성 그룹을 기본적으로 이해하고 있다고 가정합니다. 자세한 내용은 [Always On 가용성 그룹 개요(SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx)를 참조하세요.
 
@@ -81,6 +81,9 @@ ms.locfileid: "70102371"
    | 확인 |스토리지 공간을 사용하지 않는 경우 기본값을 사용합니다. 이 표 다음의 참고 사항을 참조하세요. |
 
 ### <a name="set-the-windows-server-failover-cluster-ip-address"></a>Windows Server 장애 조치(Failover) 클러스터 IP 주소 설정
+
+  > [!NOTE]
+  > Windows Server 2019에서는 클러스터가 **클러스터 네트워크 이름**대신 **분산 서버 이름을** 만듭니다. Windows Server 2019를 사용 하는 경우이 자습서의 cluster core 이름을 참조 하는 단계를 건너뜁니다. [PowerShell](virtual-machines-windows-portal-sql-create-failover-cluster.md#windows-server-2019)을 사용 하 여 클러스터 네트워크 이름을 만들 수 있습니다. 블로그 [장애 조치 (Failover) 클러스터 검토: 자세한 내용은 클러스터](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97) 네트워크 개체를. 
 
 1. **장애 조치(Failover) 클러스터 관리자**에서 **클러스터 코어 리소스**로 아래로 스크롤하여 클러스터 세부 정보를 확장합니다. **이름** 및 **IP 주소** 리소스가 **실패** 상태에 모두 표시됩니다. 클러스터에 컴퓨터 자체와 동일한 IP 주소가 할당되어 주소가 중복되므로 IP 주소 리소스는 온라인 상태로 전환할 수 없습니다.
 
@@ -415,7 +418,7 @@ Azure Load Balancer는 표준 Load Balancer 또는 기본 Load Balancer일 수 �
 
 1. 수신기 부하 분산 규칙을 다음과 같이 설정합니다.
 
-   | 설정 | 설명 | 예제
+   | 설정 | Description | 예제
    | --- | --- |---
    | **이름** | 텍스트 | SQLAlwaysOnEndPointListener |
    | **프런트 엔드 IP 주소** | 주소 선택 |부하 분산 장치를 만들 때 생성된 주소를 사용합니다. |
@@ -442,7 +445,7 @@ WSFC IP 주소는 부하 분산 장치에 배치되어야 합니다.
 
 1. WSFC 클러스터 코어 IP 주소 상태 프로브를 다음과 같이 설정합니다.
 
-   | 설정 | Description | 예제
+   | 설정 | 설명 | 예제
    | --- | --- |---
    | **이름** | 텍스트 | WSFCEndPointProbe |
    | **프로토콜** | TCP 선택 | TCP |
@@ -456,7 +459,7 @@ WSFC IP 주소는 부하 분산 장치에 배치되어야 합니다.
 
 1. 클러스터 코어 IP 주소 부하 분산 규칙을 다음과 같이 설정합니다.
 
-   | 설정 | Description | 예제
+   | 설정 | 설명 | 예제
    | --- | --- |---
    | **이름** | 텍스트 | WSFCEndPoint |
    | **프런트 엔드 IP 주소** | 주소 선택 |WSFC IP 주소를 구성할 때 생성된 주소를 사용합니다. 수신기 IP 주소와는 다릅니다. |

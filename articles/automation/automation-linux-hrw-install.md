@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 94d34c8a9a3480032a79d100af883a85868d327e
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 878e79097114f60aff084d60c835661196cec5ce
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478481"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076018"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Linux Hybrid Runbook Worker 배포
 
@@ -51,7 +51,7 @@ Linux Hybrid Runbook Worker에 대한 최소 요구 사항은 다음과 같습�
 |Glibc |GNU C 라이브러리| 2.5-12 |
 |Openssl| OpenSSL 라이브러리 | 1.0(TLS 1.1 및 TLS 1.2가 지원됨)|
 |Curl | cURL 웹 클라이언트 | 7.15.5|
-|Python-ctypes | |
+|Python-ctypes | Python 2.x가 필요 합니다. |
 |PAM | 플러그형 인증 모듈|
 | **선택적 패키지** | **설명** | **최소 버전**|
 | PowerShell Core | PowerShell Runbook을 실행하려면 PowerShell을 설치해야 합니다. 설치하는 방법에 대해 알아보려면 [Linux에 PowerShell Core 설치](/powershell/scripting/setup/installing-powershell-core-on-linux)를 참조하세요.  | 6.0.0 |
@@ -62,7 +62,7 @@ Linux Hybrid Runbook Worker에 대한 최소 요구 사항은 다음과 같습�
 
 1. 다음 방법 중 하나를 사용하여 Azure에서 **Automation Hybrid Worker** 솔루션을 활성화합니다.
 
-   * 추가 합니다 **Automation Hybrid Worker** 의 절차를 사용 하 여 구독에 솔루션 [작업 영역에 솔루션을 기록 하는 Azure Monitor 추가](../log-analytics/log-analytics-add-solutions.md)합니다.
+   * [작업 영역에 Azure Monitor 로그 솔루션 추가](../log-analytics/log-analytics-add-solutions.md)의 절차를 사용 하 여 구독에 **Automation Hybrid Worker** 솔루션을 추가 합니다.
    * 다음 cmdlet을 실행합니다.
 
         ```azurepowershell-interactive
@@ -86,11 +86,11 @@ Linux Hybrid Runbook Worker에 대한 최소 요구 사항은 다음과 같습�
 1. 명령이 완료되면 Azure Portal의 **Hybrid Worker 그룹** 페이지는 새 그룹 및 멤버 수를 표시합니다. 기존 그룹인 경우 멤버 수가 증가합니다. **Hybrid Worker 그룹** 페이지의 목록에서 그룹을 선택하고 **Hybrid Worker** 타일을 선택합니다. **Hybrid Worker** 페이지에서 나열된 그룹의 각 멤버를 확인합니다.
 
 > [!NOTE]
-> Azure VM에 대 한 Linux 용 Azure Monitor 가상 머신 확장을 사용 중인 경우 것이 좋습니다 설정 `autoUpgradeMinorVersion` 를 false로 자동으로 업그레이드 하는 버전 문제가 발생할 수 있습니다 Hybrid Runbook Worker입니다. 참조를 수동으로 확장을 업그레이드 하는 방법을 알아보려면 [Azure CLI 배포 ](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment)합니다.
+> Azure VM에 대 한 Linux 용 Azure Monitor 가상 머신 확장을 사용 하는 경우 자동 업그레이드 `autoUpgradeMinorVersion` 버전에서 Hybrid Runbook Worker 문제를 일으킬 수 있으므로 false로 설정 하는 것이 좋습니다. 확장을 수동으로 업그레이드 하는 방법을 알아보려면 [Azure CLI 배포 ](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment)를 참조 하세요.
 
 ## <a name="turning-off-signature-validation"></a>서명 유효성 검사 끄기
 
-기본적으로 Linux Hybrid Runbook Worker는 서명 유효성 검사를 요구합니다. 작업자에 대해 서명되지 않은 Runbook을 실행하는 경우 "서명 유효성 검사에 실패"를 나타내는 오류가 표시됩니다. 서명 유효성 검사를 해제하려면 다음 명령을 실행합니다. Log analytics 작업 영역 ID를 사용 하 여 두 번째 매개 변수 대체
+기본적으로 Linux Hybrid Runbook Worker는 서명 유효성 검사를 요구합니다. 작업자에 대해 서명되지 않은 Runbook을 실행하는 경우 "서명 유효성 검사에 실패"를 나타내는 오류가 표시됩니다. 서명 유효성 검사를 해제하려면 다음 명령을 실행합니다. 두 번째 매개 변수를 log analytics 작업 영역 ID로 바꿉니다.
 
  ```bash
  sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <LogAnalyticsworkspaceId>

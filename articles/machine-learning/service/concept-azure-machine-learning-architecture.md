@@ -1,7 +1,7 @@
 ---
 title: 아키텍처 & 주요 개념
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스를 구성 하는 아키텍처, 용어, 개념 및 워크플로에 대해 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning를 구성 하는 아키텍처, 용어, 개념 및 워크플로에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,18 +10,18 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4e953ad732852f9ee99c7830997e2d1dc29b8f84
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 91c747b8b4ca58e7714dc101777bad51f9f0286f
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844998"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035589"
 ---
-# <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 서비스 작동 방법: 아키텍처 및 개념
+# <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Azure Machine Learning 작동 방법: 아키텍처 및 개념
 
-Azure Machine Learning 서비스에 대 한 아키텍처, 개념 및 워크플로에 대해 알아봅니다. 다음 다이어그램에서 서비스의 주요 구성 요소와 서비스를 사용하기 위한 일반적인 워크플로를 보여줍니다.
+Azure Machine Learning에 대 한 아키텍처, 개념 및 워크플로에 대해 알아봅니다. 다음 다이어그램에서 서비스의 주요 구성 요소와 서비스를 사용하기 위한 일반적인 워크플로를 보여줍니다.
 
-![Azure Machine Learning 서비스 아키텍처 및 워크플로](./media/concept-azure-machine-learning-architecture/workflow.png)
+![Azure Machine Learning 아키텍처 및 워크플로](./media/concept-azure-machine-learning-architecture/workflow.png)
 
 ## <a name="workflow"></a>워크플로
 
@@ -47,10 +47,10 @@ Azure Machine Learning 다음 도구를 사용 합니다.
 +  [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 사용 하 여 python 환경에서 서비스와 상호 작용 합니다.
 + [AZURE MACHINE LEARNING CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)를 사용 하 여 기계 학습 작업을 자동화 합니다.
 + [Azure Machine Learning VS Code 확장](how-to-vscode-tools.md) 을 사용 하 여 Visual Studio Code에 코드 작성
-+ [Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 보기)](ui-concept-visual-interface.md) 를 사용 하 여 코드를 작성 하지 않고 워크플로 단계를 수행 합니다.
++ [Azure Machine Learning에 대 한 시각적 인터페이스 (미리 보기)](ui-concept-visual-interface.md) 를 사용 하 여 코드를 작성 하지 않고 워크플로 단계를 수행 합니다.
 
 > [!NOTE]
-> 이 문서에서는 Azure Machine Learning에서 사용되는 용어와 개념을 정의하지만, Azure 플랫폼에 대한 용어와 개념은 다루지 않습니다. Azure 플랫폼 용어에 대한 자세한 내용은 [Microsoft Azure 용어집](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology)을 참조하세요.
+> 이 문서에서는 Azure Machine Learning에서 사용 하는 용어와 개념을 정의 하지만, Azure 플랫폼에 대 한 용어 및 개념은 정의 하지 않습니다. Azure 플랫폼 용어에 대한 자세한 내용은 [Microsoft Azure 용어집](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology)을 참조하세요.
 
 ## <a name="glossary"></a>용어 설명
 
@@ -75,7 +75,7 @@ Azure Machine Learning 다음 도구를 사용 합니다.
 
 ### <a name="workspaces"></a>작업 영역
 
-[작업 영역은](concept-workspace.md) Azure Machine Learning 서비스에 대 한 최상위 리소스입니다. 작업 영역은 Azure Machine Learning Service를 사용하는 경우 만드는 모든 아티팩트를 사용할 수 있는 중앙 집중식 위치를 제공합니다. 작업 영역을 다른 사용자와 공유할 수 있습니다. 작업 영역에 대 한 자세한 설명은 [Azure Machine Learning 작업 영역 이란?](concept-workspace.md)을 참조 하세요.
+[작업 영역은](concept-workspace.md) Azure Machine Learning의 최상위 리소스입니다. Azure Machine Learning를 사용할 때 생성 하는 모든 아티팩트를 사용할 수 있는 중앙 집중식 환경을 제공 합니다. 작업 영역을 다른 사용자와 공유할 수 있습니다. 작업 영역에 대 한 자세한 설명은 [Azure Machine Learning 작업 영역 이란?](concept-workspace.md)을 참조 하세요.
 
 ### <a name="experiments"></a>실험
 
@@ -87,13 +87,13 @@ Azure Machine Learning 다음 도구를 사용 합니다.
 
 간단하게 설명하면, 하나의 모델은 입력을 받아들이고 출력을 생성하는 코드의 한 조각을 말합니다. 기계 학습 모델을 만드는 동안 알고리즘을 선택하고, 데이터를 제공하고, 하이퍼 매개 변수를 조정합니다. 학습은 학습된 모델을 생성하는 반복 프로세스이며, 학습된 모듈에는 모델이 학습 프로세스 중에 습득한 내용이 캡슐화되어 있습니다.
 
-모델은 Azure Machine Learning에서 실행을 통해 생성됩니다. Azure Machine Learning 외부에서 학습된 모델을 사용할 수도 있습니다. Azure Machine Learning Service 작업 영역에 모델을 등록할 수 있습니다.
+모델은 Azure Machine Learning에서 실행을 통해 생성됩니다. Azure Machine Learning 외부에서 학습된 모델을 사용할 수도 있습니다. 모델을 Azure Machine Learning 작업 영역에 등록할 수 있습니다.
 
-Azure Machine Learning Service는 프레임워크에 관계없이 사용할 수 있습니다. 모델을 만들 때 Scikit, XGBoost, PyTorch, TensorFlow 및 체 이너와 같은 인기 있는 기계 학습 프레임 워크를 사용할 수 있습니다.
+Azure Machine Learning은 프레임워크에 제약이 없습니다. 모델을 만들 때 Scikit, XGBoost, PyTorch, TensorFlow 및 체 이너와 같은 인기 있는 기계 학습 프레임 워크를 사용할 수 있습니다.
 
-Scikit 및 평가기를 사용 하 여 모델을 학습 하는 방법에 대 한 [예제를 보려면 자습서: Azure Machine Learning Service를 사용하여 이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 노트북에서 모델 학습을 수행합니다.
+Scikit 및 평가기를 사용 하 여 모델을 학습 하는 방법에 대 한 [예제를 보려면 자습서: Azure Machine Learning](tutorial-train-models-with-aml.md)를 사용 하 여 이미지 분류 모델을 학습 합니다.
 
-**모델 레지스트리** 는 Azure Machine Learning 서비스 작업 영역의 모든 모델을 추적 합니다.
+**모델 레지스트리** 는 Azure Machine Learning 작업 영역에 있는 모든 모델을 추적 합니다.
 
 모델은 이름 및 버전으로 식별됩니다. 기존 이름과 동일한 이름을 사용하여 모델을 등록할 때마다 레지스트리는 해당 모델을 새 버전으로 간주합니다. 버전 번호가 증가하면 동일 이름으로 새 모델을 등록합니다.
 
@@ -124,8 +124,8 @@ PyTorch, TensorFlow 및 체 이너 Azure Machine Learning 작업의 경우 이�
 
 * [추정를 사용 하 여 ML 모델을 학습](how-to-train-ml-models.md)합니다.
 * [Azure Machine Learning를 사용 하 여 대규모로 Pytorch 심층 학습 모델을 학습](how-to-train-pytorch.md)합니다.
-* [Azure Machine Learning 서비스를 사용 하 여 대규모로 TensorFlow 모델을 학습 하 고 등록](how-to-train-tensorflow.md)합니다.
-* [Azure Machine Learning 서비스를 통해 대규모로 체 이너 모델을 학습 하 고 등록](how-to-train-chainer.md)합니다.
+* [Azure Machine Learning를 사용 하 여 대규모로 TensorFlow 모델을 학습 하 고 등록](how-to-train-tensorflow.md)합니다.
+* [Azure Machine Learning를 사용 하 여 대규모로 체 이너 모델을 학습 하 고 등록](how-to-train-chainer.md)합니다.
 
 ### <a name="datasets-and-datastores"></a>데이터 집합 및 데이터 저장소
 
@@ -147,7 +147,7 @@ PyTorch, TensorFlow 및 체 이너 Azure Machine Learning 작업의 경우 이�
 
 모델을 학습시키려면 학습 스크립트 및 연결된 파일을 포함하는 디렉터리를 지정합니다. 학습 중에 수집된 정보를 저장하는 데 사용되는 실험 이름도 지정합니다. 학습 중에 전체 디렉터리가 학습 환경(컴퓨팅 대상)에 복사되고 실행 구성을 통해 지정된 스크립트가 시작됩니다. 또한 디렉터리의 스냅샷이 작업 영역의 실험 아래에 저장됩니다.
 
-예제는 [자습서: Azure Machine Learning Service를 사용하여 이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 노트북에서 모델 학습을 수행합니다.
+예제는 [자습서: Azure Machine Learning](tutorial-train-models-with-aml.md)를 사용 하 여 이미지 분류 모델을 학습 합니다.
 
 ### <a name="runs"></a>실행
 
@@ -193,7 +193,7 @@ Azure Machine Learning은 다음과 같은 두 가지 유형의 이미지를 만
 * **FPGA 이미지**: Azure의 FPGA(Field-Programmable Gate Array)에 배포할 때 사용됩니다.
 * **Docker 이미지**: FPGA 이외의 컴퓨팅 대상에 배포할 때 사용됩니다. 예제로는 Azure Container Instances 및 Azure Kubernetes Service가 있습니다.
 
-Azure Machine Learning 서비스는 기본적으로 사용 되는 기본 이미지를 제공 합니다. 사용자 고유의 사용자 지정 이미지를 제공할 수도 있습니다.
+Azure Machine Learning은 기본적으로 사용 되는 기본 이미지를 제공 합니다. 사용자 고유의 사용자 지정 이미지를 제공할 수도 있습니다.
 
 ### <a name="image-registry"></a>이미지 레지스트리
 
@@ -239,8 +239,8 @@ Azure IoT Edge는 모듈이 실행 중인지 확인하고 모듈을 호스트 �
 
 ### <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning Service를 시작하려면 다음을 참조하세요.
+Azure Machine Learning를 시작 하려면 다음을 참조 하세요.
 
-* [Azure Machine Learning Service란?](overview-what-is-azure-ml.md)
-* [Azure Machine Learning 서비스 작업 영역 만들기](how-to-manage-workspace.md)
+* [Azure Machine Learning이란 무엇인가요?](overview-what-is-azure-ml.md)
+* [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)
 * [자습서(1부): 모델 학습](tutorial-train-models-with-aml.md)

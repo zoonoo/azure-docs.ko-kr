@@ -15,18 +15,18 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95aeeacfd85dd79453bff4e365e5b050039f77b9
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
-ms.translationtype: MT
+ms.openlocfilehash: 7b898a93b87811fa5139e148a3273d7051af851b
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852461"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056283"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>시나리오: 사용자가 로그인하는 웹앱
 
 Microsoft id 플랫폼을 사용 하 여 사용자를 로그인 하는 웹 앱을 빌드하는 데 필요한 모든 것을 알아보세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
@@ -55,7 +55,7 @@ ASP.NET를 계속 사용 하려는 경우 다음 자습서를 사용해 보세�
 
 ## <a name="specifics"></a>자세히
 
-- 응용 프로그램을 등록 하는 동안 여러 위치에 앱을 배포 하는 경우 (여러 위치에 앱을 배포 하는 경우) 회신 Uri를 제공 해야 합니다. 일부 경우 (ASP.NET/ASP.NET Core) IDToken을 사용 하도록 설정 해야 합니다. 마지막으로 응용 프로그램이 사용자 로그 아웃에 반응 하도록 로그 아웃 URI를 설정 하는 것이 좋습니다.
+- 응용 프로그램을 등록 하는 동안 여러 위치에 앱을 배포 하는 경우 (여러 위치에 앱을 배포 하는 경우) 회신 Uri를 제공 해야 합니다. 경우에 따라 (ASP.NET/ASP.NET Core) ID 토큰을 사용 하도록 설정 해야 합니다. 마지막으로 응용 프로그램이 사용자 로그 아웃에 반응 하도록 로그 아웃 URI를 설정 하는 것이 좋습니다.
 - 응용 프로그램에 대 한 코드에서 웹 앱이 로그인 하는 권한을 제공 해야 합니다. 토큰 유효성 검사를 사용자 지정 하는 것이 좋습니다 (특히 ISV 시나리오에서).
 - 웹 응용 프로그램은 모든 계정 유형을 지원 합니다. 자세한 내용은 [지원 되는 계정 유형](v2-supported-account-types.md)을 참조 하세요.
 

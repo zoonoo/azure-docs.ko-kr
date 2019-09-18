@@ -4,7 +4,7 @@ description: 고정 내부 개인 IP(DIP) 및 관리 방법 이해
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: tysonn
 ms.assetid: 93444c6f-af1b-41f8-a035-77f5c0302bf0
 ms.service: virtual-network
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: b83a6e2c81eac9993c481561e3cebbed681d2c4a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c37c49d8f7e09334014af290bf3a8c8e6d35f04b
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60640330"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058362"
 ---
 # <a name="how-to-set-a-static-internal-private-ip-address-using-powershell-classic"></a>PowerShell을 사용하여 고정 내부 개인 IP 주소를 설정하는 방법(클래식)
 대부분의 경우 가상 머신에 고정 내부 IP 주소를 지정할 필요가 없습니다. 가상 네트워크의 VM은 사용자가 지정한 범위의 내부 IP 주소를 자동으로 받습니다. 그러나 특정한 상황에서는 특정 VM에 고정 IP 주소를 지정하는 것이 적합한 경우도 있습니다. 예를 들어 VM에서 DNS를 실행하거나 VM을 도메인 컨트롤러로 구성하는 경우입니다. 고정 내부 IP 주소는 중지 상태 및 프로비전 해제 상태에서도 VM에 유지됩니다. 

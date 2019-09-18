@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 751d5b47006f5c99a747503ad4f052b3e03a043c
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 8ad2bdd0f12abad08515f0314b9c03cc971127cb
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882439"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059210"
 ---
 # <a name="analyze-apache-hadoop-logs-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Hadoop 로그 분석
 
@@ -89,7 +89,7 @@ HDInsight 클러스터를 만들 때 6개 테이블은 기본 Table Storage에�
 3. **클라우드 탐색기**에서 **리소스 유형**을 선택합니다.  사용 가능한 다른 옵션은 **리소스 그룹**입니다.
 4. **Storage 계정은**, 클러스터에 대한 기본 Storage 계정, **테이블**을 차례로 확장합니다.
 5. **hadoopservicelog**를 두 번 클릭합니다.
-6. 필터를 추가합니다. 예를 들어:
+6. 필터를 추가합니다. 예:
    
         TraceLevel eq 'ERROR'
    
@@ -110,7 +110,7 @@ Azure Tables에 기록된 로그는 HDInsight 클러스터에 발생한 사항�
 ### <a name="access-the-ambari-ui"></a>Ambari UI에 액세스
 Azure Portal에서 HDInsight 클러스터 이름을 클릭하여 클러스터 창을 엽니다. 클러스터 창에서 **대시보드**를 클릭합니다.
 
-![클러스터 대시보드 시작](./media/apache-hadoop-debug-jobs/hdi-debug-launch-dashboard.png)
+![HDInsight 시작 클러스터 대시보드](./media/apache-hadoop-debug-jobs/hdi-debug-launch-dashboard.png)
 
 
 ### <a name="access-the-yarn-ui"></a>Yarn UI에 액세스
@@ -120,7 +120,7 @@ YARN UI를 사용하여 다음을 수행할 수 있습니다.
 
 * **클러스터 상태를 가져옵니다**. 왼쪽 창에서 **클러스터**를 확장하고 **정보**를 클릭합니다. 이 현재 클러스터는 전체 할당된 메모리, 사용된 코어, 클러스터 리소스 관리자의 상태, 클러스터 버전 등을 자세히 설명합니다.
   
-    ![클러스터 대시보드 시작 yarn](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png "클러스터 대시보드 시작 yarn")
+    ![HDInsight 시작 클러스터 대시보드 yarn](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png "HDInsight 시작 클러스터 대시보드 yarn")
 * **노드 상태를 가져옵니다**. 왼쪽 창에서 **클러스터**를 확장하고 **노드**를 클릭합니다. 클러스터의 모든 노드, 각 노드의 HTTP 주소, 각 노드에 할당된 리소스 등을 나열합니다.
 * **작업 상태를 모니터링**합니다. 왼쪽 창에서 **클러스터**를 확장하고 **애플리케이션**을 클릭하여 클러스터의 모든 작업을 나열합니다. 특정 상태(새로움, 제출됨, 실행 중과 같은)에 있는 작업을 확인하려면 **애플리케이션**에서 적절한 링크를 클릭합니다. 더 자세한 내용을 보려면 작업 이름을 클릭하여 출력, 로그 등을 비롯하여 작업에 대해 자세히 확인할 수 있습니다.
 

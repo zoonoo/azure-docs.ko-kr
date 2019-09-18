@@ -3,17 +3,17 @@ title: Azure IoT Central에 일반 Node.js 클라이언트 애플리케이션 �
 description: 장치 개발자는 일반 node.js 장치를 Azure IoT Central 응용 프로그램에 연결 하는 방법을 설명 합니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/14/2019
+ms.date: 09/12/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 3b73344a233182fe8366795cfa111b706c6d06ac
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 75b900ecb37ae8d092d4e37129b7f39f801c470d
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876251"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066438"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Azure IoT Central 애플리케이션에 일반 클라이언트 애플리케이션 연결(Node.js)
 
@@ -25,8 +25,8 @@ ms.locfileid: "69876251"
 
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
-1. Azure IoT Central 애플리케이션. 자세한 내용은 [애플리케이션 만들기 빠른 시작](quick-deploy-iot-central.md)을 참조하세요.
-1. [Node.js](https://nodejs.org/) 버전 4.0.0 이상이 설치된 개발 컴퓨터. 명령줄에서 `node --version` 명령을 실행하여 버전을 확인할 수 있습니다. Node.js는 다양한 운영 체제에 사용할 수 있습니다.
+- Azure IoT Central 애플리케이션. 자세한 내용은 [애플리케이션 만들기 빠른 시작](quick-deploy-iot-central.md)을 참조하세요.
+- [Node.js](https://nodejs.org/) 버전 4.0.0 이상이 설치된 개발 컴퓨터. 명령줄에서 `node --version` 명령을 실행하여 버전을 확인할 수 있습니다. Node.js는 다양한 운영 체제에 사용할 수 있습니다.
 
 ## <a name="create-a-device-template"></a>디바이스 템플릿 만들기
 
@@ -66,7 +66,7 @@ Azure IoT Central 응용 프로그램에서 다음 측정, 장치 속성, 설정
 
 | 표시 이름 | 필드 이름  | Severity |
 | ------------ | ----------- | -------- |
-| 과열  | overheat    | Error    |
+| 과열  | overheat    | 오류    |
 
 > [!NOTE]
 > 이벤트 측정값의 데이터 형식은 문자열입니다.
@@ -125,11 +125,13 @@ Azure IoT Central 응용 프로그램에서 다음 측정, 장치 속성, 설정
 
 Azure IoT Central 응용 프로그램에서 이전 섹션에서 만든 장치 템플릿에 실제 장치를 추가 합니다.
 
-그런 다음 "장치 추가" 자습서의 지침에 따라 [실제 장치에 대 한 연결 문자열을 생성](tutorial-add-device.md#generate-connection-string)합니다. 다음 섹션에서이 연결 문자열을 사용 합니다.
+**장치 연결** 페이지에서 장치 연결 정보를 적어 둡니다. **범위 ID**, **장치 Id**및 **기본 키**입니다. 이 방법 가이드의 뒷부분에서 이러한 값을 장치 코드에 추가 합니다.
+
+![장치 연결 정보](./media/howto-connect-nodejs/device-connection.png)
 
 ### <a name="create-a-nodejs-application"></a>Node.js 애플리케이션 만들기
 
-다음 단계에서는 애플리케이션에 추가한 실제 디바이스를 구현하는 클라이언트 애플리케이션을 만드는 방법을 보여줍니다. Node.js 애플리케이션은 실제 디바이스를 나타냅니다. 
+다음 단계에서는 애플리케이션에 추가한 실제 디바이스를 구현하는 클라이언트 애플리케이션을 만드는 방법을 보여줍니다. Node.js 애플리케이션은 실제 디바이스를 나타냅니다.
 
 1. 컴퓨터에 `connected-air-conditioner-adv`이라는 폴더를 만듭니다. 명령줄 환경에서 해당 폴더로 이동합니다.
 
@@ -137,7 +139,7 @@ Azure IoT Central 응용 프로그램에서 이전 섹션에서 만든 장치 �
 
     ```cmd/sh
     npm init
-    npm install azure-iot-device azure-iot-device-mqtt --save
+    npm install azure-iot-device azure-iot-device-mqtt azure-iot-provisioning-device-mqtt azure-iot-security-symmetric-key --save
     ```
 
 1. `connected-air-conditioner-adv` 폴더에 **connectedAirConditionerAdv.js**라는 파일을 만듭니다.
@@ -148,22 +150,31 @@ Azure IoT Central 응용 프로그램에서 이전 섹션에서 만든 장치 �
     "use strict";
 
     // Use the Azure IoT device SDK for devices that connect to Azure IoT Central.
-    var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
+    var iotHubTransport = require('azure-iot-device-mqtt').Mqtt;
+    var Client = require('azure-iot-device').Client;
     var Message = require('azure-iot-device').Message;
-    var ConnectionString = require('azure-iot-device').ConnectionString;
+    var ProvisioningTransport = require('azure-iot-provisioning-device-mqtt').Mqtt;
+    var SymmetricKeySecurityClient = require('azure-iot-security-symmetric-key').SymmetricKeySecurityClient;
+    var ProvisioningDeviceClient = require('azure-iot-provisioning-device').ProvisioningDeviceClient;
     ```
 
 1. 다음 변수 선언을 파일에 추가합니다.
 
     ```javascript
-    var connectionString = '{your device connection string}';
+    var provisioningHost = 'global.azure-devices-provisioning.net';
+    var idScope = '{your Scope ID}';
+    var registrationId = '{your Device ID}';
+    var symmetricKey = '{your Primary Key};
+    var provisioningSecurityClient = new SymmetricKeySecurityClient(registrationId, symmetricKey);
+    var provisioningClient = ProvisioningDeviceClient.create(provisioningHost, idScope, new ProvisioningTransport(), provisioningSecurityClient);
+    var hubClient;
+
     var targetTemperature = 0;
     var locLong = -122.1215;
     var locLat = 47.6740;
-    var client = clientFromConnectionString(connectionString);
     ```
 
-    `{your device connection string}` [장치 연결 문자열](tutorial-add-device.md#generate-connection-string)을 사용 하 여 자리 표시자를 업데이트 합니다. 이 샘플에서는를 0으로 `targetTemperature` 초기화 하 여 장치에서 현재 읽기 또는 장치 쌍의 값을 사용할 수 있습니다.
+    자리 표시자 `{your Scope ID}`, `{your Device ID}`및 `{your Primary Key}` 을 이전에 기록해 둔 값으로 업데이트 합니다. 이 샘플에서는를 0으로 `targetTemperature` 초기화 하 여 장치에서 현재 읽기 또는 장치 쌍의 값을 사용할 수 있습니다.
 
 1. 원격 분석, 상태, 이벤트 및 위치 측정을 Azure IoT Central 응용 프로그램으로 보내려면 파일에 다음 함수를 추가 합니다.
 
@@ -187,7 +198,7 @@ Azure IoT Central 응용 프로그램에서 이전 섹션에서 만든 장치 �
             lat: locationLat }
         });
       var message = new Message(data);
-      client.sendEvent(message, (err, res) => console.log(`Sent message: ${message.getData()}` +
+      hubClient.sendEvent(message, (err, res) => console.log(`Sent message: ${message.getData()}` +
         (err ? `; error: ${err.toString()}` : '') +
         (res ? `; status: ${res.constructor.name}` : '')));
     }
@@ -262,14 +273,14 @@ Azure IoT Central 응용 프로그램에서 이전 섹션에서 만든 장치 �
     // Handle countdown command
     function onCountdown(request, response) {
       console.log('Received call to countdown');
-
+    
       var countFrom = (typeof(request.payload.countFrom) === 'number' && request.payload.countFrom < 100) ? request.payload.countFrom : 10;
-
+    
       response.send(200, (err) => {
         if (err) {
           console.error('Unable to send method response: ' + err.toString());
         } else {
-          client.getTwin((err, twin) => {
+          hubClient.getTwin((err, twin) => {
             function doCountdown(){
               if ( countFrom >= 0 ) {
                 var patch = {
@@ -282,7 +293,7 @@ Azure IoT Central 응용 프로그램에서 이전 섹션에서 만든 장치 �
                 setTimeout(doCountdown, 2000 );
               }
             }
-
+    
             doCountdown();
           });
         }
@@ -301,13 +312,13 @@ Azure IoT Central 응용 프로그램에서 이전 섹션에서 만든 장치 �
         console.log('Device successfully connected to Azure IoT Central');
 
         // Create handler for countdown command
-        client.onDeviceMethod('countdown', onCountdown);
+        hubClient.onDeviceMethod('countdown', onCountdown);
 
         // Send telemetry measurements to Azure IoT Central every 1 second.
         setInterval(sendTelemetry, 1000);
 
         // Get device twin from Azure IoT Central.
-        client.getTwin((err, twin) => {
+        hubClient.getTwin((err, twin) => {
           if (err) {
             console.log(`Error getting device twin: ${err.toString()}`);
           } else {
@@ -325,8 +336,20 @@ Azure IoT Central 응용 프로그램에서 이전 섹션에서 만든 장치 �
       }
     };
 
-    // Start the device (connect it to Azure IoT Central).
-    client.open(connectCallback);
+    // Start the device (register and connect to Azure IoT Central).
+    provisioningClient.register((err, result) => {
+      if (err) {
+        console.log('Error registering device: ' + err);
+      } else {
+        console.log('Registration succeeded');
+        console.log('Assigned hub=' + result.assignedHub);
+        console.log('DeviceId=' + result.deviceId);
+        var connectionString = 'HostName=' + result.assignedHub + ';DeviceId=' + result.deviceId + ';SharedAccessKey=' + symmetricKey;
+        hubClient = Client.fromConnectionString(connectionString, iotHubTransport);
+
+        hubClient.open(connectCallback);
+      }
+    });
     ```
 
 ## <a name="run-your-nodejs-application"></a>Node.js 애플리케이션 실행

@@ -1,7 +1,7 @@
 ---
 title: Python 개발 환경 설정
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning Service 작업 시 개발 환경을 구성하는 방법을 알아봅니다. 이 문서에서는 Conda 환경을 사용 하 고 구성 파일을 만들고 고유한 클라우드 기반 노트북 서버, Jupyter 노트북, Azure Databricks, Ide, 코드 편집기 및 Data Science Virtual Machine를 구성 하는 방법에 대해 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning 작업할 때 개발 환경을 구성 하는 방법에 대해 알아봅니다. 이 문서에서는 Conda 환경을 사용 하 고 구성 파일을 만들고 고유한 클라우드 기반 노트북 서버, Jupyter 노트북, Azure Databricks, Ide, 코드 편집기 및 Data Science Virtual Machine를 구성 하는 방법에 대해 알아봅니다.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -11,16 +11,16 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 39daff8be5ac072479463dc10c9041cda6b7b628
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 933ae5b70d8e0485360a94ede1fff99c02f75a4c
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860568"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034866"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 
-이 문서에서는 Azure Machine Learning Service에서 작동하는 개발 환경을 구성하는 방법을 알아봅니다. Azure Machine Learning 서비스는 플랫폼에 독립적입니다. 개발 환경에 대 한 유일한 하드 요구 사항은 Python 3입니다. Anaconda 또는 Virtualenv와 같은 격리 된 환경도 권장 됩니다.
+이 문서에서는 Azure Machine Learning을 사용 하도록 개발 환경을 구성 하는 방법에 대해 알아봅니다. Azure Machine Learning는 플랫폼에 독립적입니다. 개발 환경에 대 한 유일한 하드 요구 사항은 Python 3입니다. Anaconda 또는 Virtualenv와 같은 격리 된 환경도 권장 됩니다.
 
 다음 표에서는이 문서에서 설명 하는 각 개발 환경과 장점 및 단점을 보여 줍니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "70860568"
 
 ## <a name="prerequisites"></a>전제 조건
 
-Azure Machine Learning 서비스 작업 영역. 작업 영역을 만들려면 [Azure Machine Learning 서비스 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요. 작업 영역은 사용자 고유의 [클라우드 기반 노트북 서버](#notebookvm), [dsvm](#dsvm)또는 [Azure Databricks](#aml-databricks)를 시작 하는 데 필요 합니다.
+Azure Machine Learning 작업 영역 작업 영역을 만들려면 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요. 작업 영역은 사용자 고유의 [클라우드 기반 노트북 서버](#notebookvm), [dsvm](#dsvm)또는 [Azure Databricks](#aml-databricks)를 시작 하는 데 필요 합니다.
 
 [로컬 컴퓨터](#local)에 대 한 SDK 환경을 설치 하려면 [Jupyter Notebook 서버](#jupyter) 또는 [Visual Studio Code](#vscode) 도 필요 합니다.
 
@@ -70,7 +70,7 @@ Azure Machine Learning 서비스 작업 영역. 작업 영역을 만들려면 [A
   + 심층 학습 프레임 워크 선택
 
 
-  코드를 사용 하는 경우 VM에는 Azure Machine Learning 서비스를 사용 하는 방법을 탐색 하 고 학습할 수 있는 자습서와 샘플이 포함 되어 있습니다. 샘플 노트북은 Vm 전체에서 공유할 수 있도록 작업 영역의 Azure Blob Storage 계정에 저장 됩니다. 실행 되 면 작업 영역의 데이터 저장소 및 계산 리소스에 액세스할 수 있습니다.
+  코드를 사용 하는 경우 VM에는 Azure Machine Learning 사용 방법을 탐색 하 고 배우는 데 도움이 되는 자습서와 샘플이 포함 되어 있습니다. 샘플 노트북은 Vm 전체에서 공유할 수 있도록 작업 영역의 Azure Blob Storage 계정에 저장 됩니다. 실행 되 면 작업 영역의 데이터 저장소 및 계산 리소스에 액세스할 수 있습니다.
 
 + **간단한 설정**: Azure Machine Learning 작업 영역 내에서 언제 든 지 하나를 만듭니다. 이름을 입력 하 고 Azure VM 유형을 지정 합니다. 이 [자습서를 사용 하 여 지금 사용해 보세요. 환경 및 작업 영역 설정](tutorial-1st-experiment-sdk-setup.md)을 완료하는 것입니다.
 
@@ -145,7 +145,7 @@ Azure Machine Learning SDK는 DSVM의 Ubuntu 또는 Windows 버전에서 작동�
     print(azureml.core.VERSION)
     ```
 
-1. Azure Machine Learning Service 작업 영역을 사용하도록 DSVM을 구성하려면 [작업 영역 구성 파일 만들기](#workspace) 섹션을 참조하세요.
+1. Azure Machine Learning 작업 영역을 사용 하도록 DSVM을 구성 하려면 [작업 영역 구성 파일 만들기](#workspace) 섹션을 참조 하세요.
 
 자세한 내용은 [Data Science Virtual Machine](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)를 참조하세요.
 
@@ -255,7 +255,7 @@ Jupyter Notebook은 [Jupyter 프로젝트](https://jupyter.org/)의 일부입니
     sys.path
     ```
     
-1. Azure Machine Learning Service 작업 영역을 사용하도록 Jupyter Notebook을 구성하려면 [작업 영역 구성 파일 만들기](#workspace) 섹션으로 이동하세요.
+1. Azure Machine Learning 작업 영역을 사용 하도록 Jupyter Notebook를 구성 하려면 [작업 영역 구성 파일 만들기](#workspace) 섹션으로 이동 합니다.
 
 
 ### <a id="vscode"></a>Visual Studio Code
@@ -287,7 +287,7 @@ Visual Studio Code는 크로스 플랫폼 코드 편집기입니다. 로컬 Pyth
 ## <a name="azure-databricks"></a>Azure Databricks
 Azure Databricks는 Azure 클라우드의 Apache Spark 기반 환경입니다. CPU 또는 GPU 기반 계산 클러스터가 포함 된 공동 노트북 기반 환경을 제공 합니다.
 
-Azure Machine Learning 서비스와 Azure Databricks 작동 방법:
+Azure Machine Learning에서 Azure Databricks 작동 방법:
 + Spark MLlib를 사용 하 여 모델을 학습 하 고 Azure Databricks 내에서 ACI/AKS에 모델을 배포할 수 있습니다.
 + Azure Databricks로 특수 한 Azure ML SDK에서 [자동화 된 기계 학습](concept-automated-ml.md) 기능을 사용할 수도 있습니다.
 + [Azure Machine Learning 파이프라인](concept-ml-pipelines.md)에서 계산 대상으로 Azure Databricks를 사용할 수 있습니다.
@@ -355,7 +355,7 @@ Databricks에 자동화 된 machine learning이 ![설치 된 자동화 된 machi
 
 ## <a id="workspace"></a>작업 영역 구성 파일 만들기
 
-작업 영역 구성 파일은 Azure Machine Learning Service 작업 영역과 통신하는 방법을 SDK에 알려주는 JSON 파일입니다. 파일 이름은 *config.json*이고 형식은 다음과 같습니다.
+작업 영역 구성 파일은 SDK에서 Azure Machine Learning 작업 영역과 통신 하는 방법을 알려 주는 JSON 파일입니다. 파일 이름은 *config.json*이고 형식은 다음과 같습니다.
 
 ```json
 {

@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 14aff313ece93feabc39194ba6859e3bca6be3bc
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 134ca92671a41eb53201101a3622215466a60c09
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622394"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065104"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Microsoft 계정으로 등록 설정 및 로그인
 
 ## <a name="create-a-microsoft-account-application"></a>Microsoft 계정 애플리케이션 만들기
 
-Azure Active Directory (Azure AD) B2C에서 Microsoft 계정를 [id 공급자로](active-directory-b2c-reference-oidc.md) 사용 하려면 azure ad 테 넌 트에서 응용 프로그램을 만들어야 합니다. Azure AD 테넌트는 Azure AD B2C 테넌트와 다릅니다. Microsoft 계정 아직 없는 경우에서 [https://www.live.com/](https://www.live.com/)가져올 수 있습니다.
+Azure Active Directory B2C (Azure AD B2C)에서 Microsoft 계정를 [id 공급자로](active-directory-b2c-reference-oidc.md) 사용 하려면 Azure AD 테 넌 트에서 응용 프로그램을 만들어야 합니다. Azure AD 테넌트는 Azure AD B2C 테넌트와 다릅니다. Microsoft 계정 아직 없는 경우에서 [https://www.live.com/](https://www.live.com/)가져올 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 azure ad 테 넌 트가 포함 된 디렉터리를 선택 하 여 azure ad 테 넌 트를 포함 하는 디렉터리를 사용 하 고 있는지 확인 합니다.

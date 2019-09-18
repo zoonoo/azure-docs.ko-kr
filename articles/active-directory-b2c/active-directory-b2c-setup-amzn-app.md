@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 89dd592e6e5ea1ce71277035654068ce2f782890
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: bddbd9b588d8ffc2ace3a937fa2c72876eb5e4e9
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622218"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065222"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Amazon 계정으로 등록 설정 및 로그인
 
 ## <a name="create-an-amazon-application"></a>Amazon 애플리케이션 만들기
 
-Azure AD(Azure Active Directory) B2C에서 Amazon 계정을 [ID 공급자](active-directory-b2c-reference-oauth-code.md)로 사용하려면 테넌트에 해당 계정을 나타내는 애플리케이션을 만들어야 합니다. Amazon 계정이 아직 없는 경우에서 [https://www.amazon.com/](https://www.amazon.com/)등록할 수 있습니다.
+Amazon 계정을 Azure Active Directory B2C (Azure AD B2C)에서 [id 공급자로](active-directory-b2c-reference-oauth-code.md) 사용 하려면 테 넌 트에서 응용 프로그램을 나타내는 응용 프로그램을 만들어야 합니다. Amazon 계정이 아직 없는 경우에서 [https://www.amazon.com/](https://www.amazon.com/)등록할 수 있습니다.
 
 1. Amazon 계정 자격 증명을 사용하여 [Amazon 개발자 센터](https://login.amazon.com/)에 로그인합니다.
 1. 이미 수행한 경우 **등록**을 클릭하고 개발자 등록 단계를 수행하며 정책에 동의합니다.

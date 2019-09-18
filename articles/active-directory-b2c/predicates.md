@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6163f1cbf878f4d4678b2b66829522b0dd16ae22
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: ecec18945b53711094307162c4aeab2e0580bd5e
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835624"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063864"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates 및 PredicateValidations
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-**Predicates** 및 **PredicateValidations** 요소를 사용하면 Azure AD(Active Directory) B2C 테넌트에 적절한 형식의 데이터만 입력하도록 유효성 검사 프로세스를 수행할 수 있습니다.
+**조건자** 및 **PredicateValidations** 요소를 사용 하면 올바른 형식의 데이터만 Azure AD B2C (Azure Active Directory B2C) 테 넌 트에 입력 되도록 유효성 검사 프로세스를 수행할 수 있습니다.
 
 아래 다이어그램에서는 요소 간의 관계가 나와 있습니다.
 
@@ -33,9 +33,9 @@ ms.locfileid: "67835624"
 
 **Predicates** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 | Description |
 | ------- | ----------- | ----------- |
-| Predicate | 1:n | 조건자 목록입니다. |
+| 조건자 | 1:n | 조건자 목록입니다. |
 
 **Predicate** 요소에는 다음과 같은 특성이 포함됩니다.
 
@@ -46,20 +46,20 @@ ms.locfileid: "67835624"
 
 **Predicate** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 | Description |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 | 확인이 실패하면 사용자에게 표시할 오류 메시지입니다. [언어 사용자 지정](localization.md)을 통해 이 문자열을 지역화할 수 있습니다. |
 | 매개 변수 | 1:1 | 문자열 유효성 검사의 메서드 형식에 대한 매개 변수입니다. |
 
 **Parameters** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 | Description |
 | ------- | ----------- | ----------- |
 | 매개 변수 | 1:n | 문자열 유효성 검사의 메서드 형식에 대한 매개 변수입니다. |
 
 **Parameter** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 | Description |
 | ------- | ----------- | ----------- |
 | Id | 1:1 | 매개 변수의 식별자입니다. |
 
@@ -132,7 +132,7 @@ ms.locfileid: "67835624"
 
 **PredicateValidations** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 | Description |
 | ------- | ----------- | ----------- |
 | PredicateValidation | 1:n | 조건자 유효성 검사 목록입니다. |
 
@@ -144,13 +144,13 @@ ms.locfileid: "67835624"
 
 **PredicateValidation** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 | Description |
 | ------- | ----------- | ----------- |
 | PredicateGroups | 1:n | 조건자 그룹 목록입니다. |
 
 **PredicateGroups** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 | Description |
 | ------- | ----------- | ----------- |
 | PredicateGroup | 1:n | 조건자 목록입니다. |
 
@@ -162,26 +162,26 @@ ms.locfileid: "67835624"
 
 **PredicateGroup** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 | Description |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 |  사용자가 입력해야 하는 값을 쉽게 확인할 수 있는 조건자 설명입니다. |
 | PredicateReferences | 1:n | 조건자 참조 목록입니다. |
 
 **PredicateReferences** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필수 | Description |
 | --------- | -------- | ----------- |
 | MatchAtLeast | 아니요 | 입력이 허용되려면 값이 일치해야 하는 조건자 정의의 최소 수를 지정합니다. |
 
 **PredicateReferences** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 | 설명 |
 | ------- | ----------- | ----------- |
 | PredicateReference | 1:n | 조건자에 대한 참조입니다. |
 
 **PredicateReference** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필수 | Description |
 | --------- | -------- | ----------- |
 | Id | 예 | 조건자 유효성 검사에 사용되는 식별자입니다.  |
 
@@ -348,7 +348,7 @@ ms.locfileid: "67835624"
 
 아래에는 Azure AD B2C에서 오류 메시지가 표시될 때 요소가 구성되는 방식이 나와 있습니다.
 
-![조건자 및 PredicateGroup 암호 복잡성 예제 다이어그램](./media/predicates/predicates-pass.png)
+![조건자 및 PredicateGroup 암호 복잡성 예 다이어그램](./media/predicates/predicates-pass.png)
 
 ## <a name="configure-a-date-range"></a>날짜 범위 구성
 

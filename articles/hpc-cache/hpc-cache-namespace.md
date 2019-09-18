@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: 41361a3513c052d960726498d55745bf09afdfbb
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: c3d14eaefaa1f317cb061273866ffee83747f12b
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775196"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036852"
 ---
 # <a name="configure-aggregated-namespace"></a>집계 된 네임 스페이스 구성
 <!-- change link in GUI -->

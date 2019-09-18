@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5dfc1ef732c8456356de82f7fe026476fdfc075b
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 92ac1e6a85023d49ceb8242b93651a60da3d2166
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227139"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064176"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용하기 위한 JavaScript 샘플
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Azure AD(Azure Active Directory) B2C 애플리케이션에 사용자 고유의 JavaScript 클라이언트 쪽 코드를 추가할 수 있습니다. 응용 프로그램에 대해 JavaScript를 사용 하도록 설정 하려면 [사용자 지정 정책](active-directory-b2c-overview-custom.md)에 요소를 추가 하 고, [페이지 레이아웃](page-layout.md)을 선택 하 고, 요청에 [b2clogin.com](b2clogin.md) 를 사용 해야 합니다. 이 문서에서는 사용자 지정 정책을 변경 하 여 스크립트 실행을 사용 하도록 설정 하는 방법을 설명 합니다.
+사용자 고유의 JavaScript 클라이언트 쪽 코드를 Azure Active Directory B2C (Azure AD B2C) 응용 프로그램에 추가할 수 있습니다. 응용 프로그램에 대해 JavaScript를 사용 하도록 설정 하려면 [사용자 지정 정책](active-directory-b2c-overview-custom.md)에 요소를 추가 하 고, [페이지 레이아웃](page-layout.md)을 선택 하 고, 요청에 [b2clogin.com](b2clogin.md) 를 사용 해야 합니다. 이 문서에서는 사용자 지정 정책을 변경 하 여 스크립트 실행을 사용 하도록 설정 하는 방법을 설명 합니다.
 
 > [!NOTE]
 > 사용자 흐름에 JavaScript를 사용 하도록 설정 하려면 [Azure Active Directory B2C의 javascript 및 페이지 레이아웃 버전](user-flow-javascript-overview.md)을 참조 하세요.

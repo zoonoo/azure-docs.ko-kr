@@ -7,12 +7,12 @@ ms.service: virtual-network
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 031055dce66361cc128ed42a4d0c942ccb5a3b82
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: c2f26c1f672644edd4993010c64062ee4108ca40
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71017972"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057813"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Azure 개인 끝점 이란?
 
@@ -55,8 +55,8 @@ Azure 개인 끝점은 Azure 개인 링크를 통해 제공 되는 서비스에 
 |**개인 링크 서비스** (사용자 고유의 서비스)   |  Microsoft. Network/privateLinkServices       | empty |
 |**Azure SQL Database** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
 |**Azure SQL Data Warehouse** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
-|**Azure Storage**  | (Microsoft. Storage/storageAccounts)    |  Blob (blob, blob_secondary)<BR> 테이블 (table, table_secondary)<BR> Queue (queue, queue_secondary)<BR> File (file, file_secondary)<BR> 웹 (웹, web_secondary)        |
-|**Azure Data Lake Storage Gen2**  | (Microsoft. Storage/storageAccounts)    |  Blob (blob, blob_secondary)       |
+|**Azure Storage**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> 테이블 (table, table_secondary)<BR> Queue (queue, queue_secondary)<BR> File (file, file_secondary)<BR> 웹 (웹, web_secondary)        |
+|**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)       |
  
  
 ## <a name="network-security-of-private-endpoints"></a>개인 끝점의 네트워크 보안 
@@ -119,7 +119,7 @@ Azure는 공용 DNS에서 정식 이름 DNS 레코드 (CNAME)를 만들어 해�
 다음 표에서는 개인 끝점을 사용 하는 경우의 알려진 제한 사항 목록을 제공 합니다. 
 
 
-|제한 사항 |Description |완화  |
+|제한 사항 |설명 |완화  |
 |---------|---------|---------|
 |NSG (네트워크 보안 그룹) 규칙이 개인 끝점에 적용 되지 않음    |NSG는 개인 끝점에서 지원 되지 않습니다. 개인 끝점을 포함 하는 서브넷에 NSG가 연결 되어 있을 수 있지만 규칙은 개인 끝점에서 처리 하는 트래픽에 적용 되지 않습니다. 서브넷에 개인 끝점을 배포 하려면 [네트워크 정책 적용을 사용 하지 않도록 설정](disable-private-endpoint-network-policy.md) 해야 합니다. NSG는 동일한 서브넷에서 호스트 되는 다른 워크 로드에도 적용 됩니다.   | 원본 클라이언트의 아웃 바운드 트래픽에 대 한 NSG 규칙을 사용 하 여 트래픽을 제어 합니다.        |
 |서비스 끝점 또는 특수 작업에 대해 사용 하도록 설정 된 서브넷에서는 개인 끝점을 만들 수 없습니다.    |전용 끝점은 서비스 끝점에 대해 사용 하도록 설정 된 서브넷 또는 특수 작업으로 위임 된 서브넷에 배포할 수 없습니다.|  개별 서브넷을 만들어 개인 끝점을 배포 합니다.        |

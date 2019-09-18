@@ -4,7 +4,7 @@ description: Azure에서 Windows 가상 머신에 연결할 수 없는 원격 �
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 keywords: 원격 데스크탑에 연결할 수 없습니다, 원격 데스크톱 문제 해결, 원격 데스크톱을 연결할 수 없습니다, 원격 데스크톱 오류, 원격 데스크톱 문제 해결, 원격 데스크톱 문제
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: a0f4c4172661b0f041a30df2d4d63ba58f203e89
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 053a209829f30ea92d76b29f24d028d77ca732e7
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70080530"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058912"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Azure의 Windows VM에 대한 원격 데스크톱 연결 문제의 자세한 문제 해결 단계
 이 문서에서는 Windows 기반 Azure 가상 머신에 대한 복잡한 원격 데스크톱 오류를 진단 및 해결하는 자세한 문제 해결 단계를 제공합니다.

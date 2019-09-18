@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48eb36151948dc6e39edd4ae0fd863c63e83a52b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: b135838558a493cff0e28a8429d31f5a03a69857
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68741358"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033465"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>SCIM(System for Cross-Domain Identity Management)을 사용하여 사용자 및 그룹을 Azure Active Directory에서 애플리케이션으로 자동 프로비전
 
@@ -91,10 +91,10 @@ Azure AD 애플리케이션 갤러리에 있는 "비-갤러리 애플리케이�
 1. **저장** 을 선택 하 여 Azure AD 프로 비전 서비스를 시작 합니다.
 1. 할당 된 사용자 및 그룹만 동기화 하는 경우 (권장) **사용자 및 그룹** 탭을 선택 하 고 동기화 할 사용자 또는 그룹을 할당 해야 합니다.
 
-초기 동기화가 시작 되 면 왼쪽 패널에서 **감사 로그** 를 선택 하 여 앱의 프로 비전 서비스에서 수행 하는 모든 작업을 표시 하는 진행률을 모니터링할 수 있습니다. Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](check-status-user-account-provisioning.md)를 참조하세요.
+초기 주기가 시작 되 면 왼쪽 패널에서 **감사 로그** 를 선택 하 여 앱의 프로 비전 서비스에서 수행 하는 모든 작업을 표시 하는 진행률을 모니터링할 수 있습니다. Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](check-status-user-account-provisioning.md)를 참조하세요.
 
 > [!NOTE]
-> 초기 동기화는 서비스가 실행 되는 동안 약 40 분 마다 발생 하는 이후 동기화 보다 수행 하는 데 더 많은 시간이 걸립니다.
+> 초기 주기는 서비스가 실행 되는 동안 약 40 분 마다 발생 하는 이후 동기화 보다 수행 하는 데 더 많은 시간이 걸립니다.
 
 ## <a name="understanding-the-azure-ad-scim-implementation"></a>Azure AD SCIM 구현 이해
 
@@ -693,7 +693,7 @@ Azure AD에서 프로비전 요청을 수락할 수 있는 SCIM 엔드포인트�
 1. **저장** 을 선택 하 여 Azure AD 프로 비전 서비스를 시작 합니다.
 1. 할당 된 사용자 및 그룹만 동기화 하는 경우 (권장) **사용자 및 그룹** 탭을 선택 하 고 동기화 할 사용자 또는 그룹을 할당 해야 합니다.
 
-초기 동기화가 시작 되 면 왼쪽 패널에서 **감사 로그** 를 선택 하 여 앱의 프로 비전 서비스에서 수행 하는 모든 작업을 표시 하는 진행률을 모니터링할 수 있습니다. Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](check-status-user-account-provisioning.md)를 참조하세요.
+초기 주기가 시작 되 면 왼쪽 패널에서 **감사 로그** 를 선택 하 여 앱의 프로 비전 서비스에서 수행 하는 모든 작업을 표시 하는 진행률을 모니터링할 수 있습니다. Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](check-status-user-account-provisioning.md)를 참조하세요.
 
 이 샘플을 확인하는 마지막 단계는 Windows 컴퓨터에서 \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug 폴더에 TargetFile.csv 파일을 여는 것입니다. 프로비전 프로세스가 실행되면 이 파일은 할당되고 프로비전된 모든 사용자 및 그룹의 세부 사항을 표시합니다.
 
@@ -834,7 +834,7 @@ CLI 라이브러리를 사용 하는 개발자는 실행 가능한 CLI 어셈블
 
 ### <a name="handling-endpoint-authentication"></a>엔드포인트 인증 처리
 
-Azure Active Directory에서 요청은 OAuth 2.0 전달자 토큰을 포함합니다.   요청을 수신 하는 모든 서비스는 Azure Active Directory Graph 웹 서비스에 액세스 하기 위해 필요한 Azure Active Directory 테 넌 트에 대해 Azure Active Directory 되는 발급자를 인증 해야 합니다.  토큰에서 발급자는 "iss": "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/ "와 같은 iss 클레임으로 식별 됩니다.  이 예에서 클레임 값 https://sts.windows.net 의 기준 주소는 발급자로 Azure Active Directory를 식별 하는 반면, 상대 주소 세그먼트 cbb1a5ac-f33b-45fa-9bf5-f37db0fed422은에 대 한 Azure Active Directory 테 넌 트의 고유 식별자입니다. 발급 된 토큰입니다. 토큰의 대상은 갤러리에 있는 앱의 응용 프로그램 템플릿 id가 됩니다. 모든 사용자 지정 앱의 응용 프로그램 템플릿 id는 8adf8e6e-67b2-4cf2-a259-e3dc5476c621입니다. 갤러리의 각 앱에 대 한 응용 프로그램 템플릿 id는 다릅니다. 갤러리 응용 ProvisioningFeedback@microsoft.com 프로그램의 응용 프로그램 템플릿 id에 대 한 질문이 있으면 문의 하세요. 단일 테 넌 트에 등록 된 각 응용 프로그램은 scim `iss` 요청과 동일한 클레임을 받을 수 있습니다.
+Azure Active Directory에서 요청은 OAuth 2.0 전달자 토큰을 포함합니다.   요청을 수신 하는 모든 서비스는 Azure Active Directory Graph 웹 서비스에 액세스 하기 위해 필요한 Azure Active Directory 테 넌 트에 대해 Azure Active Directory 되는 발급자를 인증 해야 합니다.  토큰에서 발급자는 "iss": "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/ "와 같은 iss 클레임으로 식별 됩니다.  이 예에서 클레임 값 https://sts.windows.net 의 기준 주소는 발급자로 Azure Active Directory를 식별 하는 반면, 상대 주소 세그먼트 cbb1a5ac-f33b-45fa-9bf5-f37db0fed422은에 대 한 Azure Active Directory 테 넌 트의 고유 식별자입니다. 발급 된 토큰입니다. 토큰의 대상은 갤러리에 있는 앱의 응용 프로그램 템플릿 ID가 됩니다. 모든 사용자 지정 앱의 응용 프로그램 템플릿 ID는 8adf8e6e-67b2-4cf2-a259-e3dc5476c621입니다. 갤러리의 각 앱에 대 한 응용 프로그램 템플릿 ID는 다릅니다. 갤러리 응용 ProvisioningFeedback@microsoft.com 프로그램의 응용 프로그램 템플릿 ID에 대 한 질문이 있으면 문의 하세요. 단일 테 넌 트에 등록 된 각 응용 프로그램은 scim `iss` 요청과 동일한 클레임을 받을 수 있습니다.
 
 SCIM 서비스를 빌드하기 위해 Microsoft에서 제공 하는 CLI 라이브러리를 사용 하는 개발자는 다음 단계에 따라 ActiveDirectory 패키지를 사용 하 여 Azure Active Directory에서 요청을 인증할 수 있습니다. 
 

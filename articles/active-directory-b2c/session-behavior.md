@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b18a7d98654422951773c0a5497f69db93782f51
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: c75eae72b94c807897d74e365ec9f4ef74c83dd9
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849441"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063664"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 세션 동작 구성
 
@@ -49,7 +49,7 @@ Azure AD B2C는 웹 애플리케이션에 대한 보안 로그인을 활성화�
 ## <a name="configure-the-properties"></a>속성 구성
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 맨 위 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 Azure AD B2C 테넌트가 포함된 디렉터리를 선택하여 Azure AD B2C 테넌트가 포함된 디렉터리를 사용합니다.
+2. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 Azure AD B2C 테 넌 트가 포함 된 디렉터리를 선택 하 여 Azure AD B2C 테 넌 트를 포함 하는 디렉터리를 사용 하 고 있는지 확인 합니다.
 3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 4. **사용자 흐름 (정책)** 을 선택 합니다.
 5. 이전에 만든 사용자 흐름을 엽니다.

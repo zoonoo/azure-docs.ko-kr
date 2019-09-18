@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/28/2019
 ms.author: victorh
-ms.openlocfilehash: 6df78a46e6bc8055f8cce89e199d01ad631e178e
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 896e1fb3e93fc0a542f0dca75cc1d87b3a2c237c
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306201"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057904"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Application Gateway에 대 한 백 엔드 상태 및 진단 로그
 
@@ -255,7 +255,7 @@ Application Gateway 및 WAF v 2의 경우 로그에 약간의 추가 정보가 �
 이전 단계에서 설명한 대로 성능 로그는 각 Application Gateway 인스턴스에서 이러한 로그를 사용하도록 설정한 경우에만 생성됩니다. 데이터는 로깅을 사용하도록 설정할 때 지정한 스토리지 계정에 저장됩니다. 성능 로그 데이터는 1분 간격으로 생성됩니다. 다음 데이터가 로깅됩니다.
 
 
-|값  |설명  |
+|값  |Description  |
 |---------|---------|
 |instanceId     |  성능 데이터가 생성되는 Application Gateway 인스턴스입니다. 다중 인스턴스 애플리케이션 게이트웨이의 경우 인스턴스마다 하나의 행이 있습니다.        |
 |healthyHostCount     | 백 엔드 풀의 정상 호스트 수        |
@@ -292,7 +292,7 @@ Application Gateway 및 WAF v 2의 경우 로그에 약간의 추가 정보가 �
 이전 단계에서 설명한 대로 방화벽 로그는 각 애플리케이션 게이트웨이에서 이러한 로그를 사용하도록 설정한 경우에만 생성됩니다. 또한 이 로그를 사용하려면 애플리케이션 게이트웨이에서 웹 애플리케이션 방화벽을 구성해야 합니다. 데이터는 로깅을 사용하도록 설정할 때 지정한 스토리지 계정에 저장됩니다. 다음 데이터가 로깅됩니다.
 
 
-|값  |설명  |
+|값  |Description  |
 |---------|---------|
 |인스턴스 ID     | 방화벽 데이터가 생성되는 Application Gateway 인스턴스입니다. 다중 인스턴스 애플리케이션 게이트웨이의 경우 인스턴스마다 하나의 행이 있습니다.         |
 |clientIp     |   요청에 대한 원래 IP      |
@@ -309,6 +309,8 @@ Application Gateway 및 WAF v 2의 경우 로그에 약간의 추가 정보가 �
 |details.data     | 규칙과 일치하는 요청 내 특정 데이터         |
 |details.file     | 규칙이 포함된 구성 파일        |
 |details.line     | 이벤트를 트리거한 구성 파일의 줄 번호       |
+|호스트 이름   | Application Gateway의 호스트 이름 또는 IP 주소입니다.    |
+|transactionId  | 동일한 요청 내에서 발생 한 여러 규칙 위반을 그룹화 하는 데 도움이 되는 지정 된 트랜잭션에 대 한 고유 ID입니다.   |
 
 ```json
 {
@@ -333,6 +335,8 @@ Application Gateway 및 WAF v 2의 경우 로그에 약간의 추가 정보가 �
       "file": "rules/REQUEST-941-APPLICATION-ATTACK-XSS.conf",
       "line": "865"
     }
+    "hostname": "40.90.218.100", 
+    "transactionId": "AYAcUqAcAcAcAcAcASAcAcAc"
   }
 } 
 

@@ -8,16 +8,17 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: bwren
-ms.openlocfilehash: 18e6e162764ce190a1953a4126e4f9ef2eb717f5
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 950768326228960192f48d99e5c5fa849b2c2bda
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899522"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076815"
 ---
 # <a name="get-started-with-log-analytics-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 시작
 
-[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
+> [!NOTE]
+> 하나 이상의 가상 머신에서 데이터를 수집 하는 경우 사용자 환경에서이 연습을 수행할 수 있습니다. 그렇지 않은 경우 샘플 데이터를 많이 포함 하는 [데모 환경을](https://portal.loganalytics.io/demo)사용 합니다.
 
 이 자습서에서는 Azure Portal에서 Log Analytics를 사용 하 여 Azure Monitor 로그 쿼리를 작성 하는 방법을 알아봅니다. 다음을 수행하는 방법에 대해 알아봅니다.
 

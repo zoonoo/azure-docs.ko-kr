@@ -4,7 +4,7 @@ description: PowerShell을 사용하여 VNet에서 라우팅을 제어하는 방
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-service-management
 ms.assetid: d8d07c16-cbe5-4536-acd6-870269346fe3
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
-ms.openlocfilehash: 1441ee9a3d4a563ab35cd9b01e8347d8f51b827a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2f2c17740bd94629209c2bffb82689ecc931fc8
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60743412"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058763"
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a>PowerShell 사용하여 라우팅 제어 및 가상 어플라이언스(클래식) 사용
 

@@ -1,7 +1,7 @@
 ---
 title: 포털에서 Azure ML 작업 영역 만들기
-titleSuffix: Azure Machine Learning service
-description: Azure Portal에서 Azure Machine Learning Service 작업 영역을 만들고 확인하고 삭제하는 방법을 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Portal에서 Azure Machine Learning 작업 영역을 만들고, 확인 하 고, 삭제 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,20 +11,20 @@ ms.author: shipatel
 author: shivp950
 ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: df015df3c20cdb99512167e3dc3e455da2762c52
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 776b873e089c331f2f2867c94e542903075be4f7
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744781"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034518"
 ---
-# <a name="create-and-manage-azure-machine-learning-service-workspaces-in-the-azure-portal"></a>Azure Portal에서 Azure Machine Learning 서비스 작업 영역 만들기 및 관리
+# <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Azure Portal에서 Azure Machine Learning 작업 영역 만들기 및 관리
 
-이 문서에서는 Azure Portal에서 [Azure Machine Learning Service](overview-what-is-azure-ml.md)용 [**Azure Machine Learning Service 작업 영역**](concept-workspace.md)을 만들고 확인하고 삭제해 봅니다.  포털은 작업 영역을 시작 하는 가장 쉬운 방법 이지만 변경 내용 또는 automation 증가 요구 사항에 따라 [CLI를 사용 하 여](reference-azure-machine-learning-cli.md)작업 영역을 만들고 삭제할 수도 있습니다 (예를 들어, [Python 코드를](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 사용 하거나 [VS Code 확장을 통해](how-to-vscode-tools.md#get-started-with-azure-machine-learning)).
+이 문서에서는 [Azure Machine Learning](overview-what-is-azure-ml.md)에 대 한 Azure Portal에서 [**Azure Machine Learning 작업 영역**](concept-workspace.md) 을 만들고, 확인 하 고, 삭제 합니다.  포털은 작업 영역을 시작 하는 가장 쉬운 방법 이지만 변경 내용 또는 automation 증가 요구 사항에 따라 [CLI를 사용 하 여](reference-azure-machine-learning-cli.md)작업 영역을 만들고 삭제할 수도 있습니다 (예를 들어, [Python 코드를](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 사용 하거나 [VS Code 확장을 통해](how-to-vscode-tools.md#get-started-with-azure-machine-learning)).
 
 ## <a name="create-a-workspace"></a>작업 영역 만들기
 
-작업 영역을 만들려면 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
+작업 영역을 만들려면 Azure 구독이 필요합니다. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 현재 [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree) 을 사용해 보세요.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
@@ -47,7 +47,7 @@ ms.locfileid: "70744781"
 
 1. **Machine Learning 서비스 작업 영역**을 선택 합니다.
 
-   ![Azure Machine Learning 서비스 작업 영역 검색](media/how-to-manage-workspace/all-services.png)
+   ![Azure Machine Learning 작업 영역 검색](media/how-to-manage-workspace/all-services.png)
 
 1. 검색된 작업 영역 목록을 살펴봅니다. 구독, 리소스 그룹 및 위치를 기준으로 필터링 할 수 있습니다.  
 
@@ -66,7 +66,7 @@ ms.locfileid: "70744781"
 
 ## <a name="next-steps"></a>다음 단계
 
-전체 자습서의 단계에 따라 작업 영역을 사용하여 Azure Machine Learning 서비스로 모델을 빌드, 교육 및 배포하는 방법을 알아보세요.
+전체 길이 자습서에 따라 작업 영역을 사용 하 여 Azure Machine Learning으로 모델을 작성, 학습 및 배포 하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [자습서: 모델 학습](tutorial-train-models-with-aml.md)

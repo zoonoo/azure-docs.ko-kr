@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 09/04/2019
+ms.date: 09/17/2019
 ms.author: dalek
-ms.openlocfilehash: f0a3930cfb3ff403e0ce9d9be308370810e2065a
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 62f2ea36468e30b20ef08bde21bfde961faae8f9
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277004"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067023"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Application Insights의 사용량 및 비용 관리
 
@@ -151,7 +151,7 @@ systemEvents
 ## <a name="change-the-data-retention-period"></a>데이터 보존 기간 변경
 
 > [!NOTE]
-> 가능한 문제를 해결 하는 동안이 기능을 일시적으로 제거 했습니다.  2019 년 9 월 일에 다시 사용할 예정입니다.
+> 가능한 문제를 해결 하는 동안이 기능을 일시적으로 제거 했습니다.  2019 년 10 월에 첫 번째 주에 다시 제공 됩니다.
 
 Application Insights 리소스에 대 한 기본 보존 기간은 90 일입니다. 각 Application Insights 리소스에 대해 서로 다른 보존 기간을 선택할 수 있습니다. 사용 가능한 보존 기간의 전체 집합은 30, 60, 90, 120, 180, 270, 365, 550 또는 730 일입니다. 
 

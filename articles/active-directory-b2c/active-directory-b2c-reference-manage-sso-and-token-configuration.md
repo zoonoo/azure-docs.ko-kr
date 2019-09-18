@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f3621b176e4bbfdfbd171339d6d01a1f91ed0ae7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 966386bfed5f94556f145afab1c665eb3c90546a
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509292"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065551"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 SSO 및 토큰 사용자 지정 관리
 
-이 문서에서는 Azure AD(Active Directory)에서 [사용자 지정 정책](active-directory-b2c-overview-custom.md)을 사용하여 토큰, 세션 및 SSO(Single Sign-On) 구성을 관리할 수 있는 방법을 설명합니다.
+이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에서 [사용자 지정 정책을](active-directory-b2c-overview-custom.md) 사용 하 여 토큰, 세션 및 SSO (Single Sign-On) 구성을 관리 하는 방법에 대 한 정보를 제공 합니다.
 
 ## <a name="token-lifetimes-and-claims-configuration"></a>토큰 수명 및 클레임 구성
 
-토큰 수명 설정을 변경하려면 변경할 정책의 신뢰 당사자 파일에 [ClaimsProviders](claimsproviders.md) 요소를 추가합니다.  **ClaimsProviders** 요소는 [TrustFrameworkPolicy](trustframeworkpolicy.md) 요소의 자식입니다. 
+토큰 수명 설정을 변경하려면 변경할 정책의 신뢰 당사자 파일에 [ClaimsProviders](claimsproviders.md) 요소를 추가합니다.  **ClaimsProviders** 요소는 [TrustFrameworkPolicy](trustframeworkpolicy.md) 요소의 자식입니다.
 
-BasePolicy 요소와 신뢰 당사자 파일의 RelyingParty 요소 간에 ClaimsProviders 요소를 삽입 합니다.
+BasePolicy 요소와 신뢰 당사자 파일의 RelyingParty 요소 사이에 ClaimsProviders 요소를 삽입 합니다.
 
 이 안에 토큰 수명에 영향을 주는 정보를 입력해야 합니다. XML은 다음과 비슷합니다.
 
@@ -56,33 +56,33 @@ BasePolicy 요소와 신뢰 당사자 파일의 RelyingParty 요소 간에 Claim
 - **새로 고침 토큰 수명** - **refresh_token_lifetime_secs** 메타데이터 항목을 통해 새로 고침 토큰 수명 값이 설정됩니다. 기본값은 1209600초(14일)입니다.
 - **새로 고침 토큰 슬라이딩 윈도우 수명** - 새로 고침 토큰에 대한 슬라이딩 윈도우 수명을 설정하려면 **rolling_refresh_token_lifetime_secs** 메타데이터 항목의 값을 설정합니다. 기본값은 7776000(90일)입니다. 슬라이딩 윈도우 수명을 적용하지 않으려면 이 항목을 `<Item Key="allow_infinite_rolling_refresh_token">True</Item>`로 바꿉니다.
 - **발급자(iss) 클레임** - **IssuanceClaimPattern** 메타데이터 항목을 통해 발급자(iss) 클레임을 설정합니다. 적용 가능한 값은 `AuthorityAndTenantGuid` 및 `AuthorityWithTfp`입니다.
-- **정책 ID를 나타내는 클레임 설정** - 이 값을 설정하기 위한 옵션은 `TFP`(보안 프레임워크 정책) 및 `ACR`(인증 컨텍스트 참조)입니다. 권장 값은 `TFP`입니다. `None` 값으로 **AuthenticationContextReferenceClaimPattern**을 설정하고 
+- **정책 ID를 나타내는 클레임 설정** - 이 값을 설정하기 위한 옵션은 `TFP`(보안 프레임워크 정책) 및 `ACR`(인증 컨텍스트 참조)입니다. 권장 값은 `TFP`입니다. `None` 값으로 **AuthenticationContextReferenceClaimPattern**을 설정하고
 
-    **ClaimsSchema** 요소에서 이 요소를 추가합니다. 
-    
+    **ClaimsSchema** 요소에서 이 요소를 추가합니다.
+
     ```XML
     <ClaimType Id="trustFrameworkPolicy">
       <DisplayName>Trust framework policy name</DisplayName>
       <DataType>string</DataType>
     </ClaimType>
     ```
-    
+
     **OutputClaims** 요소에 다음 요소를 추가합니다.
-    
+
     ```XML
     <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />
     ```
 
     ACR의 경우 **AuthenticationContextReferenceClaimPattern** 항목을 제거합니다.
 
-- **주체(sub) 클레임** - 이 옵션은 기본적으로 ObjectID입니다. 이 설정을 `Not Supported`로 전환하려면 아래 줄을 
+- **주체(sub) 클레임** - 이 옵션은 기본적으로 ObjectID입니다. 이 설정을 `Not Supported`로 전환하려면 아래 줄을
 
     ```XML
     <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
     ```
-    
+
     다음 줄로 바꿉니다.
-    
+
     ```XML
     <OutputClaim ClaimTypeReferenceId="sub" />
     ```
@@ -101,6 +101,6 @@ BasePolicy 요소와 신뢰 당사자 파일의 RelyingParty 요소 간에 Claim
 
 위의 예제에서는 다음 값이 구성됩니다.
 
-- **SSO(Single Sign-On)** - **SingleSignOn**을 사용하여 Single Sign-On이 구성됩니다. 적용 가능한 값은 `Tenant`, `Application`, `Policy` 및 `Suppressed`입니다. 
+- **SSO(Single Sign-On)** - **SingleSignOn**을 사용하여 Single Sign-On이 구성됩니다. 적용 가능한 값은 `Tenant`, `Application`, `Policy` 및 `Suppressed`입니다.
 - **웹앱 세션 수명(분)** - **SessionExpiryInSeconds** 요소를 사용하여 웹앱 세션 수명을 설정합니다. 기본값은 86400초(1440분)입니다.
 - **웹앱 세션 시간 제한** - **SessionExpiryType** 요소를 사용하여 웹앱 세션 시간 제한을 설정합니다. 적용 가능한 값은 `Absolute` 및 `Rolling`입니다.

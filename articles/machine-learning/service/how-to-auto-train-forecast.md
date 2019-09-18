@@ -1,7 +1,7 @@
 ---
 title: 시계열 예측 모델 자동 학습
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스를 사용 하 여 자동화 된 Machine Learning을 사용 하 여 시계열 예측 회귀 모델을 학습 하는 방법을 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning를 사용 하 여 자동화 된 Machine Learning을 사용 하 여 시계열 예측 회귀 모델을 학습 하는 방법을 알아봅니다.
 services: machine-learning
 author: trevorbye
 ms.author: trbye
@@ -10,16 +10,16 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: e75de16d0e16bc639a0439220a1c9dfe53e1689b
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: c49d8000888d4094ea1df47920c1927747927f5c
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879053"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035057"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측 모델 자동 학습
 
-이 문서에서는 Azure Machine Learning 서비스에서 자동화 된 machine learning을 사용 하 여 시계열 예측 회귀 모델을 학습 하는 방법에 대해 알아봅니다. 예측 모델을 구성 하는 것은 자동화 된 machine learning을 사용 하 여 표준 회귀 모델을 설정 하는 것과 유사 하지만 시계열 데이터로 작업 하기 위한 특정 구성 옵션 및 전처리 단계가 있습니다. 다음 예제에서는 다음 방법을 보여 줍니다.
+이 문서에서는 Azure Machine Learning에서 자동화 된 machine learning을 사용 하 여 시계열 예측 회귀 모델을 학습 하는 방법에 대해 알아봅니다. 예측 모델을 구성 하는 것은 자동화 된 machine learning을 사용 하 여 표준 회귀 모델을 설정 하는 것과 유사 하지만 시계열 데이터로 작업 하기 위한 특정 구성 옵션 및 전처리 단계가 있습니다. 다음 예제에서는 다음 방법을 보여 줍니다.
 
 * 시계열 모델링에 대 한 데이터 준비
 * [`AutoMLConfig`](/python/api/azureml-train-automl/azureml.train.automl.automlconfig) 개체의 특정 시계열 매개 변수 구성
@@ -35,9 +35,9 @@ ms.locfileid: "70879053"
 
 학습 데이터에서 추출 된 기능은 중요 한 역할을 합니다. 그리고 자동화 된 ML은 표준 전처리 단계를 수행 하 고, 계절 효과를 캡처하고 예측 정확도를 최대화 하기 위한 추가 시계열 기능을 생성 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
-* Azure Machine Learning 서비스 작업 영역. 작업 영역을 만들려면 [Azure Machine Learning 서비스 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
+* Azure Machine Learning 작업 영역 작업 영역을 만들려면 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 * 이 문서에서는 자동화 된 machine learning 실험을 설정 하는 방법에 대 한 기본 지식이 있다고 가정 합니다. [자습서](tutorial-auto-train-models.md) 또는 [방법에](how-to-configure-auto-train.md) 따라 기본적인 자동화 된 기계 학습 실험 디자인 패턴을 볼 수 있습니다.
 
 ## <a name="preparing-data"></a>데이터 준비

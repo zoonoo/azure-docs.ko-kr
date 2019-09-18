@@ -4,7 +4,7 @@ description: 클래식 배포 모델에서 Azure CLI를 사용하여 VNet에서 
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-service-management
 ms.assetid: ca2b4638-8777-4d30-b972-eb790a7c804f
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: e1b8bb3544a08b60564ceb5bd7e1666214059e09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1193145b315175e6394db4caf93ab2e76a942ed9
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60743924"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058782"
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>Azure CLI를 사용하여 라우팅 제어 및 가상 어플라이언스(클래식) 사용
 
@@ -51,7 +51,7 @@ ms.locfileid: "60743924"
     azure config mode asm
     ```
 
-    출력
+    출력:
 
         info:    New mode is asm
 
@@ -61,7 +61,7 @@ ms.locfileid: "60743924"
     azure network route-table create -n UDR-FrontEnd -l uswest
     ```
    
-    출력
+    출력:
    
         info:    Executing command network route-table create
         info:    Creating route table "UDR-FrontEnd"
@@ -72,7 +72,7 @@ ms.locfileid: "60743924"
    
     매개 변수
    
-   * **-l(또는 --location)** . 새 NSG를 만들 Azure 지역입니다. 이 시나리오에서는 *westus*입니다.
+   * **-l (or --location)** . 새 NSG를 만들 Azure 지역입니다. 이 시나리오에서는 *westus*입니다.
    * **-n (or --name)** . 새 NSG의 이름입니다. 이 시나리오에서는 *NSG-FrontEnd*입니다.
 3. 다음 명령을 실행하여 경로 테이블에 경로를 만들고 백 엔드 서브넷(192.168.2.0/24)으로 보내진 모든 트래픽을 **FW1** VM(192.168.0.4)으로 보냅니다.
 
@@ -80,7 +80,7 @@ ms.locfileid: "60743924"
     azure network route-table route set -r UDR-FrontEnd -n RouteToBackEnd -a 192.168.2.0/24 -t VirtualAppliance -p 192.168.0.4
     ```
 
-    출력
+    출력:
    
         info:    Executing command network route-table route set
         info:    Getting route table "UDR-FrontEnd"
@@ -99,7 +99,7 @@ ms.locfileid: "60743924"
     azure network vnet subnet route-table add -t TestVNet -n FrontEnd -r UDR-FrontEnd
     ```
    
-    출력
+    출력:
    
         info:    Executing command network vnet subnet route-table add
         info:    Looking up the subnet "FrontEnd"

@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 388ef66351140dab18bd7c92290d84f0f4d734ac
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: bc7828b7926ea6e7f2d6bc3891ee231972ae3208
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622780"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063246"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C의 애플리케이션에 ID 공급자 추가
 
-애플리케이션에서 사용자가 다른 ID 공급자로 로그인하도록 허용할 수 있습니다. ‘ID 공급자’는 애플리케이션에 인증 서비스를 제공하는 동시에 ID 정보를 만들고 유지 관리합니다. Azure Portal을 사용하여 Azure AD(Azure Active Directory) B2C에서 지원하는 ID 공급자를 [사용자 흐름](active-directory-b2c-reference-policies.md)에 추가할 수 있습니다.
+애플리케이션에서 사용자가 다른 ID 공급자로 로그인하도록 허용할 수 있습니다. ‘ID 공급자’는 애플리케이션에 인증 서비스를 제공하는 동시에 ID 정보를 만들고 유지 관리합니다. Azure Portal를 사용 하 여 [사용자 흐름](active-directory-b2c-reference-policies.md) 에 Azure Active Directory B2C (Azure AD B2C)에서 지 원하는 id 공급자를 추가할 수 있습니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -45,10 +45,10 @@ ID 공급자 애플리케이션은 Azure AD B2C 테넌트와 통신할 수 있�
 Azure AD에서 사용자 로그인을 허용하려면 Azure AD 테넌트 내에 애플리케이션을 등록해야 합니다. Azure AD 테넌트는 Azure AD B2C 테넌트와 다릅니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 맨 위 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 Azure AD 테넌트가 포함된 디렉터리를 선택하여 Azure AD 테넌트가 포함된 디렉터리를 사용합니다.
+1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 azure ad 테 넌 트가 포함 된 디렉터리를 선택 하 여 azure ad 테 넌 트를 포함 하는 디렉터리를 사용 하 고 있는지 확인 합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택한 다음, **앱 등록**을 검색하여 선택합니다.
 1. **새 등록**을 선택합니다.
-1. 애플리케이션의 이름을 입력합니다. `Azure AD B2C App` )을 입력합니다.
+1. 애플리케이션의 이름을 입력합니다. 예를 들어, `Azure AD B2C App`을 입력합니다.
 1. 이 응용 프로그램에 대해서 **만이 조직 디렉터리에서 선택한 계정** 에 동의 합니다.
 1. **리디렉션 URI**의 경우 **웹** 값을 그대로 사용 하 고 다음 URL을 모두 소문자로 입력 하 고를 Azure AD B2C `your-B2C-tenant-name` 테 넌 트의 이름으로 바꿉니다.
 
@@ -56,13 +56,13 @@ Azure AD에서 사용자 로그인을 허용하려면 Azure AD 테넌트 내에 
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
-    `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp` )을 입력합니다.
+    예를 들어, `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`을 입력합니다.
 
     이제 모든 URL은 [b2clogin.com](b2clogin.md)을 사용해야 합니다.
 
 1. **등록**을 선택 하 고 이후 단계에서 사용 하는 **응용 프로그램 (클라이언트) ID** 를 기록 합니다.
 1. 응용 프로그램 메뉴의 **관리** 에서 **인증서 & 암호**를 선택한 다음 **새 클라이언트 암호**를 선택 합니다.
-1. 클라이언트 암호에 대 한 **설명을** 입력 합니다. `Azure AD B2C App Secret` )을 입력합니다.
+1. 클라이언트 암호에 대 한 **설명을** 입력 합니다. 예를 들어, `Azure AD B2C App Secret`을 입력합니다.
 1. 만료 기간을 선택 합니다. 이 응용 프로그램의 경우 **1 년의**선택 항목을 수락 합니다.
 1. **추가**를 선택한 다음 이후 단계에서 사용 하는 새 클라이언트 암호의 값을 기록 합니다.
 
@@ -86,7 +86,7 @@ Azure AD B2C의 ID 공급자로 Facebook 계정을 사용하려면 Facebook에�
 1. **제품**옆에 있는 더하기 기호를 선택 하 고 **Facebook 로그인**아래에서 **설정**을 선택 합니다.
 1. 왼쪽 메뉴의 **Facebook 로그인** 아래에서 **설정**을 선택 합니다.
 1. **유효한 OAuth 리디렉션 URI**에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`를 입력합니다. `your-tenant-name`을 테넌트 이름으로 바꿉니다. 페이지 맨 아래에 있는 **변경 내용 저장** 을 선택 합니다.
-1. Facebook 응용 프로그램을 Azure AD B2C 사용할 수 있도록 하려면 페이지의 오른쪽 위에 있는 **상태** 선택기를 클릭 하 여 응용 프로그램을 공개로 설정한 다음 **확인**을 클릭 합니다. 이때 상태가 **개발**에서 **라이브**로 변경됩니다.
+1. Facebook 응용 프로그램을 Azure AD B2C 사용할 수 있도록 하려면 페이지의 오른쪽 위에 있는 **상태** 선택기를 클릭 하 여 응용 프로그램을 **공개로 설정한** 다음 **확인**을 클릭 합니다. 이때 상태가 **개발**에서 **라이브**로 변경됩니다.
 
 ## <a name="add-the-identity-providers"></a>ID 공급자 추가
 
@@ -104,7 +104,7 @@ Azure AD B2C의 ID 공급자로 Facebook 계정을 사용하려면 Facebook에�
     https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
     ```
 
-    `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration` )을 입력합니다.
+    예를 들어, `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`을 입력합니다.
 
 1. **클라이언트 id**에 대해 이전에 기록한 응용 프로그램 id를 입력 합니다.
 1. **클라이언트 암호**에 대해 이전에 기록한 클라이언트 암호를 입력 합니다.

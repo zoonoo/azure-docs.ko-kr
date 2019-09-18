@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/13/2019
+ms.date: 09/16/2019
 ms.author: cherylmc
-ms.openlocfilehash: ebd6e2fa38284a1bdaf6c3d28fb32568ae228d74
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 997d6b29ef41c84766348c8b0ff74c5bc5c877d0
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993081"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033938"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -92,7 +92,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 | **[C3ntro](https://www.c3ntro.com/data1/express-route1.php)** |지원됨 |지원됨 |마이애미 |
 | **CDC** | 지원됨 | 지원됨 | 캔버라, 캔버라2 |
 | **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |지원됨 |지원됨 |Amsterdam2, 시카고, 홍콩, Las Vegas, 뉴욕, 파리, San Antonio, 실리콘 계곡, 도쿄,, 워싱턴 DC |
-| **Chief Telecom** |지원됨 |지원됨 |홍콩, 타이베이 |
+| **[최고 통신](https://www.chief.com.tw/dispPageBox/ct.aspx?ddsPageID=ENCLOUDSERVICE&dbid=4852937342)** |지원됨 |지원됨 |홍콩, 타이베이 |
 | **China Telecom Global** |지원됨 |지원됨 |홍콩 특별 행정구 |
 | **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |지원됨 |지원됨 |시카고, 댈러스, 몬트리올, 토론토, 워싱턴 DC |
 | **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |지원됨 |지원됨 |암스테르담, Amsterdam2, 더블린, 런던, Newport, 오사카, 파리, 싱가포르 2, 도쿄 |
@@ -159,7 +159,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 | **[Viasat](http://www.directcloud.viasatbusiness.com/)** | 지원됨 | 지원됨 | 워싱턴 DC2 |
 | **[Vocus Group NZ](https://www.vocus.co.nz/business/cloud-data-centres)** | 지원됨 | 지원됨 | 오클랜드, 시드니 |
 | **[Vodafone](https://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |지원됨 |지원됨 |Amsterdam2, 런던, 싱가포르 |
-| **Vodafone Idea** | 지원됨 | 지원됨 | 뭄바이, 뭄바이2 |
+| **[Vodafone 아이디어](https://discover.vodafone.in/business/enterprise-solutions/connectivity/vpn-extended-connect)** | 지원됨 | 지원됨 | 뭄바이, 뭄바이2 |
 | **[Zayo](https://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |지원됨 |지원됨 |암스테르담, 시카고, 달라스, 덴버, 런던, 로스앤젤레스, 몬트리올, 뉴욕, 파리, 시애틀, 실리콘 계곡, 전, 워싱턴 DC, 워싱턴 DC2 |
 
  **+** 는 서비스 예정을 나타냄

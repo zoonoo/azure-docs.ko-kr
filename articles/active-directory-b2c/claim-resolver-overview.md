@@ -10,20 +10,20 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a13d4b0b44c51f78a068b1619fe083a08756af6b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f08c85cee2378f4a879daf197af7a2adf0c20f45
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511599"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064409"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C 사용자 지정 정책의 클레임 해결 프로그램 정보
 
-Azure AD(Azure Active Directory) B2C [사용자 지정 정책](active-directory-b2c-overview-custom.md)의 클레임 해결 프로그램은 정책 이름, 요청 상관 관계 ID, 사용자 인터페이스 언어 등과 같은 권한 부여 요청에 대한 컨텍스트 정보를 제공합니다.
+Azure Active Directory B2C (Azure AD B2C) [사용자 지정 정책의](active-directory-b2c-overview-custom.md) 클레임 확인자는 정책 이름, 요청 상관 관계 ID, 사용자 인터페이스 언어 등과 같은 권한 부여 요청에 대 한 컨텍스트 정보를 제공 합니다.
 
-입력 또는 출력 클레임에서 클레임 해결 프로그램을 사용하려면 [ClaimsSchema](claimsschema.md) 요소 아래에서 **ClaimType** 문자열을 정의한 후 입력 또는 출력 클레임 요소의 클레임 해결 프로그램에 **DefaultValue**를 설정합니다. Azure AD B2C는 클레임 해결 프로그램의 값을 읽고 기술 프로필의 값을 사용합니다. 
+입력 또는 출력 클레임에서 클레임 해결 프로그램을 사용하려면 [ClaimsSchema](claimsschema.md) 요소 아래에서 **ClaimType** 문자열을 정의한 후 입력 또는 출력 클레임 요소의 클레임 해결 프로그램에 **DefaultValue**를 설정합니다. Azure AD B2C는 클레임 해결 프로그램의 값을 읽고 기술 프로필의 값을 사용합니다.
 
-다음 예에서는 이름이 `correlationId`인 클레임 유형이 `string`의 **DataType**으로 정의됩니다.  
+다음 예에서는 이름이 `correlationId`인 클레임 유형이 `string`의 **DataType**으로 정의됩니다.
 
 ```XML
 <ClaimType Id="correlationId">
@@ -45,16 +45,16 @@ Azure AD(Azure Active Directory) B2C [사용자 지정 정책](active-directory-
 
 ### <a name="culture"></a>Culture
 
-| 클레임 | 설명 | 예 |
+| 클레임 | Description | 예제 |
 | ----- | ----------- | --------|
-| {Culture:LanguageName} | 언어에 대한 2자 ISO 코드 | en |
+| {Culture:LanguageName} | 언어에 대한 2자 ISO 코드 | ko-KR |
 | {Culture:LCID}   | 언어 코드의 LCID | 1033 |
 | {Culture:RegionName} | 지역에 대한 2자 ISO 코드 | US |
-| {Culture:RFC5646} | RFC5646 언어 코드 | en-US |
+| {Culture:RFC5646} | RFC5646 언어 코드 | ko-KR |
 
 ### <a name="policy"></a>정책
 
-| 클레임 | 설명 | 예 |
+| 클레임 | 설명 | 예제 |
 | ----- | ----------- | --------|
 | {Policy:PolicyId} | 신뢰 당사자 정책 이름입니다. | B2C_1A_signup_signin |
 | {Policy:RelyingPartyTenantId} | 신뢰 당사자 정책의 테넌트 ID입니다. | your-tenant.onmicrosoft.com |
@@ -63,26 +63,26 @@ Azure AD(Azure Active Directory) B2C [사용자 지정 정책](active-directory-
 
 ### <a name="openid-connect"></a>OpenID Connect
 
-| 클레임 | 설명 | 예 |
+| 클레임 | Description | 예제 |
 | ----- | ----------- | --------|
-| {OIDC:AuthenticationContextReferences} |`acr_values` 쿼리 문자열 매개 변수입니다. | N/A |
+| {OIDC:AuthenticationContextReferences} |`acr_values` 쿼리 문자열 매개 변수입니다. | 해당 사항 없음 |
 | {OIDC:ClientId} |`client_id` 쿼리 문자열 매개 변수입니다. | 00000000-0000-0000-0000-000000000000 |
 | {OIDC:DomainHint} |`domain_hint` 쿼리 문자열 매개 변수입니다. | facebook.com |
 | {OIDC:LoginHint} |  `login_hint` 쿼리 문자열 매개 변수입니다. | someone@contoso.com |
-| {OIDC:MaxAge} | `max_age`입니다. | N/A |
+| {OIDC:MaxAge} | `max_age`입니다. | 해당 사항 없음 |
 | {OIDC:Nonce} |`Nonce` 쿼리 문자열 매개 변수입니다. | defaultNonce |
 | {OIDC:Prompt} | `prompt` 쿼리 문자열 매개 변수입니다. | 로그인 |
-| {OIDC:Resource} |`resource` 쿼리 문자열 매개 변수입니다. | N/A |
+| {OIDC:Resource} |`resource` 쿼리 문자열 매개 변수입니다. | 해당 사항 없음 |
 | {OIDC:scope} |`scope` 쿼리 문자열 매개 변수입니다. | openid |
 
-### <a name="context"></a>Context
+### <a name="context"></a>컨텍스트
 
-| 클레임 | 설명 | 예 |
+| 클레임 | Description | 예제 |
 | ----- | ----------- | --------|
 | {Context:BuildNumber} | ID 경험 프레임워크 버전(빌드 번호)입니다.  | 1.0.507.0 |
 | {Context:CorrelationId} | 상관관계 ID입니다.  | 00000000-0000-0000-0000-000000000000 |
 | {Context:DateTimeInUtc} |날짜 시간(UTC)입니다.  | 10/10/2018 12:00:00 PM |
-| {Context:DeploymentMode} |정책 배포 모드입니다.  | 프로덕션 |
+| {Context:DeploymentMode} |정책 배포 모드입니다.  | Production |
 | {Context:IPAddress} | 사용자 IP 주소입니다. | 11.111.111.11 |
 
 
@@ -90,7 +90,7 @@ Azure AD(Azure Active Directory) B2C [사용자 지정 정책](active-directory-
 
 OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 사용자 경험에서 클레임에 매핑될 수 있습니다. 예를 들어, 애플리케이션의 요청에는 이름이 `app_session`, `loyalty_number` 또는 사용자 지정 쿼리 문자열인 쿼리 문자열 매개 변수가 포함될 수 있습니다.
 
-| 클레임 | 설명 | 예 |
+| 클레임 | Description | 예제 |
 | ----- | ----------------------- | --------|
 | {OAUTH-KV:campaignId} | 쿼리 문자열 매개 변수입니다. | hawaii |
 | {OAUTH-KV:app_session} | 쿼리 문자열 매개 변수입니다. | A3C5R |
@@ -99,7 +99,7 @@ OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 
 
 ### <a name="oauth2"></a>OAuth2
 
-| 클레임 | 설명 | 예 |
+| 클레임 | 설명 | 예제 |
 | ----- | ----------------------- | --------|
 | {oauth2:access_token} | 액세스 토큰 | N/A |
 
@@ -107,7 +107,7 @@ OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 
 
 ### <a name="restful-technical-profile"></a>RESTful 기술 프로필
 
-[RESTful](restful-technical-profile.md) 기술 프로필에서 사용자 언어, 정책 이름, 범위 및 클라이언트 ID를 전송할 수 있습니다. 이 클레임을 기반으로 하여 REST API가 사용자 지정 비즈니스 논리를 실행할 수 있고 필요한 경우 지역화된 오류 메시지를 발생합니다. 
+[RESTful](restful-technical-profile.md) 기술 프로필에서 사용자 언어, 정책 이름, 범위 및 클라이언트 ID를 전송할 수 있습니다. 이 클레임을 기반으로 하여 REST API가 사용자 지정 비즈니스 논리를 실행할 수 있고 필요한 경우 지역화된 오류 메시지를 발생합니다.
 
 다음 예제는 RESTful 기술 프로필을 보여 줍니다.
 

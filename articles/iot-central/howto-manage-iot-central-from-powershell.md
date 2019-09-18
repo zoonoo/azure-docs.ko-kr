@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 07/11/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 85afb69a7656e96e2f7163ded5cb23ac1b2560ea
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: e91d2d487a8b3409c53a0a0731700c39cf56dd63
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70380962"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066348"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Azure PowerShell에서 IoT Central 관리
 
@@ -21,7 +21,7 @@ ms.locfileid: "70380962"
 
 [Azure IoT Central application manager](https://aka.ms/iotcentral) 웹 사이트에서 IoT Central 응용 프로그램을 만들고 관리 하는 대신 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 를 사용 하 여 응용 프로그램을 관리할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -45,7 +45,7 @@ Install-Module Az.IotCentral
 
 ## <a name="create-an-application"></a>애플리케이션 만들기
 
-[New-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/New-AzIotCentralApp) cmdlet을 사용하여 Azure 구독에 IoT Central 애플리케이션을 만듭니다. 예를 들어:
+[New-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/New-AzIotCentralApp) cmdlet을 사용하여 Azure 구독에 IoT Central 애플리케이션을 만듭니다. 예:
 
 ```powershell
 # Create a resource group for the IoT Central application
@@ -66,7 +66,7 @@ New-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
 |매개 변수         |Description |
 |------------------|------------|
 |ResourceGroupName |애플리케이션을 포함하는 리소스 그룹입니다. 리소스 그룹이 구독에 이미 있어야 합니다. |
-|위치 |기본적으로 이 cmdlet은 리소스 그룹의 위치를 사용합니다. 현재 **미국 동부**, **미국 서부**, **북유럽** 또는 **유럽 서부** 지역에서 IoT Central 애플리케이션을 만들 수 있습니다. |
+|위치 |기본적으로 이 cmdlet은 리소스 그룹의 위치를 사용합니다. 현재 **미국 동부**, **미국 서 부**, **유럽**서 부 또는 **유럽 서부** 지역 또는 **오스트레일리아** 지리에 IoT Central 응용 프로그램을 만들 수 있습니다. |
 |이름              |Azure Portal의 애플리케이션 이름입니다. |
 |하위 도메인         |애플리케이션 URL의 하위 도메인입니다. 예제에서 애플리케이션 URL은 https://mysubdomain.azureiotcentral.com 입니다. |
 |SKU               |현재 유일한 값은 **S1**(표준 계층)입니다. [Azure IoT Central 가격 책정](https://azure.microsoft.com/pricing/details/iot-central/)을 참조하세요. |
@@ -100,7 +100,7 @@ Set-AzIotCentralApp -Name "myiotcentralapp" `
 
 ## <a name="remove-an-application"></a>애플리케이션 제거
 
-[Remove-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/Remove-AzIotCentralApp) cmdlet을 사용하여 IoT Central 애플리케이션을 삭제합니다. 예를 들어:
+[Remove-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/Remove-AzIotCentralApp) cmdlet을 사용하여 IoT Central 애플리케이션을 삭제합니다. 예:
 
 ```powershell
 Remove-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `

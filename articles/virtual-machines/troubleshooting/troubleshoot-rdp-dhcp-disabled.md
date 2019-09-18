@@ -4,7 +4,7 @@ description: Microsoft Azure에서 DHCP 클라이언트 서비스가 해제되�
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 ms.service: virtual-machines-windows
 ms.topic: troubleshooting
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: d16c5b6304f598440fe4d70648dd652f0dcf06ec
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ef44931cc3b36bcab64a2de840d9264c1b8fdedb
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70089930"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058015"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>DHCP 클라이언트 서비스가 해제되어 Azure Virtual Machines에 RDP로 연결할 수 없음
 
@@ -33,9 +33,9 @@ VM에서 DHCP 클라이언트 서비스가 해제되어 Azure의 VM에 RDP로 �
 **날짜**: 2015/12/16 AM 11:19:36 </br>
 **이벤트 ID**: 7022 </br>
 **작업 범주**: 없음 </br>
-**수준**: Error </br>
+**수준**: 오류 </br>
 **키워드**: 클래식</br>
-**사용자**: N/A </br>
+**사용자**: 해당 사항 없음 </br>
 **컴퓨터**: myvm.cosotos.com</br>
 **설명**: DHCP 클라이언트 서비스가 시작 시 멈춥니다.</br>
 
@@ -76,7 +76,7 @@ VM에서 DHCP 클라이언트 서비스가 실행되고 있지 않습니다.
     VM에 연결해 보고 문제가 해결되었는지 확인합니다.
 5. 서비스가 시작되지 않으면 받은 오류 메시지에 따라 다음 중 적절한 솔루션을 사용합니다.
 
-    | Error  |  솔루션 |
+    | 오류  |  솔루션 |
     |---|---|
     | 5- ACCESS DENIED  | [액세스 거부 오류로 인해 DHCP 클라이언트 서비스가 중지됨](#dhcp-client-service-is-stopped-because-of-an-access-denied-error)을 참조하세요.  |
     |1053 - ERROR_SERVICE_REQUEST_TIMEOUT   | [DHCP 클라이언트 서비스가 충돌 또는 중지됨](#dhcp-client-service-crashes-or-hangs)을 참조하세요.  |
@@ -123,7 +123,7 @@ VM에서 DHCP 클라이언트 서비스가 실행되고 있지 않습니다.
 
     1. [VM에 데이터 디스크를 연결합니다](../windows/attach-managed-disk-portal.md
 ).
-    2. 새 드라이브에 파일을 복사할 수 있는 직렬 콘솔을 사용합니다. `copy C:\temp\ProcMonTrace.PML F:\` )을 입력합니다. 이 명령에서 F는 연결된 데이터 디스크의 드라이브 문자입니다. 문자를 올바른 값으로 적절하게 바꿉니다.
+    2. 새 드라이브에 파일을 복사할 수 있는 직렬 콘솔을 사용합니다. 예를 들어, `copy C:\temp\ProcMonTrace.PML F:\`을 입력합니다. 이 명령에서 F는 연결된 데이터 디스크의 드라이브 문자입니다. 문자를 올바른 값으로 적절하게 바꿉니다.
     3. 데이터 드라이브를 분리하고 프로세스 모니터 ubstakke가 설치되어 있는 작동 중인 VM에 연결합니다.
 
 6. 작동 중인 VM에서 프로세스 모니터를 사용하여 **ProcMonTrace.PML**을 엽니다. 그런 다음, 다음 스크린샷에 나온 것처럼  **결과가 액세스 거부됨**으로 필터링합니다.

@@ -8,17 +8,17 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: de72daa6d34ea54517d5a21d7467a62d8097581c
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: e64905cdfeac8d507df1c3dd92c245cb910a79b2
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882632"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033565"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>파워 쿼리를 사용하여 Apache Hadoop에 Excel 연결
 Microsoft의 빅데이터 솔루션의 주요 기능 중 하나는 Microsoft BI(비즈니스 인텔리전스) 구성 요소를 Azure HDInsight의 Apache Hadoop 클러스터와 통합하는 것입니다. 주요 예제로 Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 Hadoop 클러스터와 연결된 데이터가 포함된 Azure Storage 계정에 Excel을 연결하는 기능이 있습니다. 이 자습서에서는 파워 쿼리를 설정하고 사용하여 HDInsight로 관리하는 Hadoop 클러스터와 연결된 데이터를 쿼리하는 방법을 단계별로 안내합니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>전제 조건
 이 문서를 시작하기 전에 다음 항목이 있어야 합니다.
 
 * **HDInsight 클러스터**. 하나를 구성 하려면 [Azure HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)을 참조 하세요.
@@ -58,12 +58,12 @@ Excel용 파워 쿼리 추가 기능을 사용하면 HDInsight 클러스터에�
 5. 표준 스토리지 계정에는 Blob, 테이블, 큐 및 File Storage가 포함됩니다. (이 저장소에 처음 액세스할 때만 계정 정보를 입력하면 됩니다.)
 6. Azure File Storage는 표준 SMB 프로토콜을 사용하여 클라우드에서 파일 공유를 제공합니다. 기본적으로 컨테이너 이름은 클러스터 이름과 같습니다.
 7. **Name** 열에서 **HiveSampleData.txt**(폴더 경로 **../hive/warehouse/hivesampletable/** )를 찾은 후 HiveSampleData.txt 왼쪽에 있는 **Binary**를 클릭합니다. HiveSampleData.txt는 모든 클러스터와 함께 제공됩니다. 필요에 따라 사용자의 파일을 사용할 수 있습니다.
-   
-    ![HDI.PowerQuery.ImportData](./media/apache-hadoop-connect-excel-power-query/powerquery-importdata.png)
+
+    ![HDI Excel 파워 쿼리 데이터 가져오기](./media/apache-hadoop-connect-excel-power-query/powerquery-importdata.png)
 
 8. 원하는 경우 열 이름을 바꿀 수 있습니다. 준비가 되면 **닫은 후 로드**를 클릭합니다.  통합 문서에 데이터가 로드됩니다.
-   
-    ![HDI.PowerQuery.ImportedTable](./media/apache-hadoop-connect-excel-power-query/powerquery-importedtable.png)
+
+    ![HDI Excel 파워 쿼리 가져온 테이블](./media/apache-hadoop-connect-excel-power-query/powerquery-importedtable.png)
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 파워 쿼리를 사용하여 HDInsight에서 Excel로 데이터를 가져오는 방법을 알아보았습니다. 마찬가지로 HDInsight에서 Azure SQL Database로 데이터를 가져올 수 있습니다. 데이터를 HDInsight에 업로드할 수도 있습니다. 자세한 내용은 다음 문서를 참조하세요.

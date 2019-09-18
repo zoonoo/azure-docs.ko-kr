@@ -1,7 +1,7 @@
 ---
 title: 작업 영역 이란?
-titleSuffix: Azure Machine Learning service
-description: 작업 영역은 Azure Machine Learning 서비스의 최상위 리소스입니다. 로그, 메트릭, 출력 및 스크립트의 스냅숏을 비롯 하 여 모든 학습 실행에 대 한 기록을 유지 합니다. 이 정보를 사용 하 여 최상의 모델을 생성 하는 학습 실행을 결정 합니다.
+titleSuffix: Azure Machine Learning
+description: 작업 영역은 Azure Machine Learning의 최상위 리소스입니다. 로그, 메트릭, 출력 및 스크립트의 스냅숏을 비롯 하 여 모든 학습 실행에 대 한 기록을 유지 합니다. 이 정보를 사용 하 여 최상의 모델을 생성 하는 학습 실행을 결정 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 08/06/2019
-ms.openlocfilehash: ef060c083109a7096b62ebb35f2b49bb37a371b8
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 84aad0f1a797bb7eccf1872bd291e72ecefa7eee
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860506"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035316"
 ---
-# <a name="what-is-an-azure-machine-learning-service-workspace"></a>Azure Machine Learning 서비스 작업 영역 이란 무엇 인가요?
+# <a name="what-is-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역 이란 무엇 인가요?
 
-작업 영역은 Azure Machine Learning 서비스에 대 한 최상위 리소스 이며 Azure Machine Learning 서비스를 사용할 때 생성 하는 모든 아티팩트를 사용할 수 있는 중앙 집중식 환경을 제공 합니다.  작업 영역에는 로그, 메트릭, 출력 및 스크립트의 스냅숏을 비롯 하 여 모든 학습 실행의 기록이 유지 됩니다. 이 정보를 사용하여 최고의 모델을 생성하는 학습 실행을 확인합니다.  
+작업 영역은 Azure Machine Learning의 최상위 리소스 이며 Azure Machine Learning를 사용할 때 만드는 모든 아티팩트를 사용할 수 있는 중앙 집중식 환경을 제공 합니다.  작업 영역에는 로그, 메트릭, 출력 및 스크립트의 스냅숏을 비롯 하 여 모든 학습 실행의 기록이 유지 됩니다. 이 정보를 사용하여 최고의 모델을 생성하는 학습 실행을 확인합니다.  
 
 원하는 모델이 있으면 작업 영역에 등록 합니다. 그런 다음 등록 된 모델 및 점수 매기기 스크립트를 사용 하 여 Azure Container Instances, Azure Kubernetes Service에 배포 하거나 FPGA (필드 프로그래밍 가능 게이트 배열)에 REST 기반 HTTP 끝점으로 배포 합니다. 모델을 Azure IoT Edge 장치에 모듈로 배포할 수도 있습니다.
 
@@ -103,9 +103,9 @@ Machine learning 작업은 작업 영역에 대 한 아티팩트를 읽고 씁�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning Service를 시작하려면 다음을 참조하세요.
+Azure Machine Learning를 시작 하려면 다음을 참조 하세요.
 
-+ [Azure Machine Learning 서비스 개요](overview-what-is-azure-ml.md)
++ [Azure Machine Learning 개요](overview-what-is-azure-ml.md)
 + [작업 영역 만들기](how-to-manage-workspace.md)
 + [작업 영역 관리](how-to-manage-workspace.md)
 + [자습서: 모델 학습시키기](tutorial-train-models-with-aml.md)

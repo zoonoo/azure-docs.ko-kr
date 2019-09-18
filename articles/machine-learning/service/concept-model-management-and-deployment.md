@@ -1,7 +1,7 @@
 ---
 title: 'MLOps: ML 모델 관리, 배포, & 모니터링'
-titleSuffix: Azure Machine Learning service
-description: MLOps에 대해 Azure Machine Learning 서비스를 사용 하는 방법에 대해 알아봅니다. 모델을 배포, 관리 및 모니터링 하 여 지속적으로 개선 합니다. Azure Machine Learning Service를 사용하여 학습시킨 모델을 로컬 컴퓨터 또는 다른 원본에서 배포할 수 있습니다.
+titleSuffix: Azure Machine Learning
+description: MLOps에 대해 Azure Machine Learning를 사용 하는 방법에 대해 알아봅니다. 모델을 배포, 관리 및 모니터링 하 여 지속적으로 개선 합니다. Azure Machine Learning을 사용하여 학습한 모델을 로컬 머신 또는 다른 원본에서 배포할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,25 +11,25 @@ author: jpe316
 ms.author: jordane
 ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2f3c3532637bef041ad1983b7573837dd0f29211
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 98a3102d47504b40a6b62eb329b508468947ca79
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860600"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035476"
 ---
-# <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>MLOps: Azure Machine Learning Service를 사용하여 모델 관리, 배포 및 모니터링
+# <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning"></a>MLOps: Azure Machine Learning을 사용하여 모델 관리, 배포 및 모니터링
 
-이 문서에서는 Azure Machine Learning 서비스를 사용 하 여 모델의 수명 주기를 관리 하는 방법에 대해 알아봅니다. Azure Machine Learning는 MLOps (Machine Learning 작업) 방법을 사용 하 여 Machine Learning 솔루션의 품질과 일관성을 향상 시킵니다. 
+이 문서에서는 Azure Machine Learning 사용 하 여 모델의 수명 주기를 관리 하는 방법에 대해 알아봅니다. Azure Machine Learning는 MLOps (Machine Learning 작업) 방법을 사용 하 여 Machine Learning 솔루션의 품질과 일관성을 향상 시킵니다. 
 
-Azure Machine Learning 서비스는 다음과 같은 MLOps 기능을 제공 합니다.
+Azure Machine Learning는 다음과 같은 MLOps 기능을 제공 합니다.
 
 - **어디에서 나 ML 프로젝트 배포**
 - **운영 및 ml 관련 문제에 대 한 ml 응용 프로그램 모니터링** -학습 및 유추 간 모델 입력을 비교 하 고, 모델 관련 메트릭을 탐색 하 고, ML 인프라에 대 한 모니터링 및 경고를 제공 합니다.
 - 모델을 게시 하는 사람, 변경 하는 이유 및 프로덕션 환경에서 모델을 배포 하거나 사용한 경우를 포함 하 여 **ML 수명 주기에 대 한 종단 간 감사 내역을 설정 하는 데 필요한 데이터를 캡처합니다**.
 - **Azure Machine Learning 및 Azure DevOps를 사용 하 여 종단 간 ML 수명 주기를 자동화** 하 여 모델을 자주 업데이트 하 고, 새 모델을 테스트 하 고, 다른 응용 프로그램 및 서비스와 함께 새 ML 모델을 지속적으로 롤아웃 하세요.
 
-MLOps의 개념 및이를 Azure Machine Learning 서비스에 적용 하는 방법에 대 한 자세한 내용은 다음 동영상을 시청 하세요.
+MLOps의 개념 및이를 Azure Machine Learning에 적용 하는 방법에 대 한 자세한 내용은 다음 동영상을 시청 하세요.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GX]
 
@@ -47,10 +47,10 @@ Azure Machine Learning의 ML 파이프라인을 사용 하 여 데이터 준비�
 > [!TIP]
 > 등록 된 모델은 모델을 구성 하는 하나 이상의 파일에 대 한 논리적 컨테이너입니다. 예를 들어 여러 파일에 저장 된 모델의 경우 Azure Machine Learning 작업 영역에서 단일 모델로 등록할 수 있습니다. 등록 후 등록 된 모델을 다운로드 하거나 배포 하 고 등록 된 모든 파일을 받을 수 있습니다.
  
-등록된 모델은 이름 및 버전으로 식별됩니다. 모델을 기존 이름과 동일한 이름으로 등록할 때마다 레지스트리에서 버전을 증가시킵니다. 또한 모델을 검색할 때 사용할 수 있는 추가 메타데이터 태그를 등록 중에 제공할 수도 있습니다. Azure Machine Learning 서비스는 Python 3.5.2 이상을 사용 하 여 로드할 수 있는 모든 모델을 지원 합니다.
+등록된 모델은 이름 및 버전으로 식별됩니다. 모델을 기존 이름과 동일한 이름으로 등록할 때마다 레지스트리에서 버전을 증가시킵니다. 또한 모델을 검색할 때 사용할 수 있는 추가 메타데이터 태그를 등록 중에 제공할 수도 있습니다. Azure Machine Learning는 Python 3.5.2 이상을 사용 하 여 로드할 수 있는 모든 모델을 지원 합니다.
 
 > [!TIP]
-> Azure Machine Learning 서비스 외부에서 학습 한 모델을 등록할 수도 있습니다.
+> Azure Machine Learning 외부에서 학습 한 모델을 등록할 수도 있습니다.
 
 활성 배포에서 사용 중인 등록 된 모델은 삭제할 수 없습니다.
 자세한 내용은 [모델 배포](how-to-deploy-and-where.md#registermodel)의 모델 등록 섹션을 참조하세요.
@@ -65,13 +65,13 @@ Azure Machine Learning의 ML 파이프라인을 사용 하 여 데이터 준비�
 
 ### <a name="validate-and-profile-models"></a>모델 유효성 검사 및 프로 파일링
 
-Azure Machine Learning 서비스는 프로 파일링을 사용 하 여 모델을 배포할 때 사용할 이상적인 CPU 및 메모리 설정을 결정할 수 있습니다. 모델 유효성 검사는 프로 파일링 프로세스에 제공 하는 데이터를 사용 하 여이 프로세스의 일부로 수행 됩니다.
+프로 파일링을 사용 하 여 모델을 배포할 때 사용할 이상적인 CPU 및 메모리 설정을 결정할 수 Azure Machine Learning. 모델 유효성 검사는 프로 파일링 프로세스에 제공 하는 데이터를 사용 하 여이 프로세스의 일부로 수행 됩니다.
 
 ### <a name="convert-and-optimize-models"></a>모델 변환 및 최적화
 
 모델을 onnx ( [신경망 교환](https://onnx.ai) )를 열도록 변환 하면 성능이 향상 될 수 있습니다. 평균적으로 ONNX로 변환 하면 성능이 2 배 늘어날 수 있습니다.
 
-Azure Machine Learning 서비스를 사용 하는 ONNX에 대 한 자세한 내용은 [ML 모델 만들기 및 가속화](concept-onnx.md) 문서를 참조 하세요.
+Azure Machine Learning에 대 한 자세한 내용은 [ML 모델 만들기 및 가속화](concept-onnx.md) 문서를 참조 하세요.
 
 ### <a name="use-models"></a>모델 사용
 
@@ -90,14 +90,14 @@ Azure Machine Learning 서비스를 사용 하는 ONNX에 대 한 자세한 내�
 
 * GPU 사용: Docker 이미지에서 GPU 지원을 사용 하도록 설정 하는 데 사용 됩니다. 이미지는 Azure Container Instances, Azure Kubernetes Service, Azure Machine Learning 계산 또는 Azure Virtual Machines와 같은 Microsoft Azure 서비스에서 사용 해야 합니다.
 * 추가 docker 파일 단계: Docker 이미지를 만들 때 실행할 추가 Docker 단계를 포함 하는 파일입니다.
-* 기본 이미지: 기본 이미지로 사용할 사용자 지정 이미지입니다. 사용자 지정 이미지를 사용 하지 않는 경우 기본 이미지는 Azure Machine Learning 서비스에서 제공 됩니다.
+* 기본 이미지: 기본 이미지로 사용할 사용자 지정 이미지입니다. 사용자 지정 이미지를 사용 하지 않는 경우 Azure Machine Learning에서 기본 이미지를 제공 합니다.
 
 또한 대상 배포 플랫폼의 구성을 제공 합니다. 예를 들어 Azure Kubernetes Service에 배포할 때 VM 제품군 유형, 사용 가능한 메모리 및 코어 수가 있습니다.
 
-이미지를 만들 때 Azure Machine Learning 서비스에 필요한 구성 요소도 추가 됩니다. 예를 들어, 웹 서비스를 실행 하 고 IoT Edge와 상호 작용 하는 데 필요한 자산이 있습니다.
+이미지를 만들 때 Azure Machine Learning에 필요한 구성 요소도 추가 됩니다. 예를 들어, 웹 서비스를 실행 하 고 IoT Edge와 상호 작용 하는 데 필요한 자산이 있습니다.
 
 > [!NOTE]
-> Docker 이미지에 사용 되는 웹 서버 또는 IoT Edge 구성 요소를 수정 하거나 변경할 수 없습니다. Azure Machine Learning 서비스는 웹 서버 구성을 사용 하 고 Microsoft에서 테스트 하 고 지 원하는 구성 요소를 IoT Edge 합니다.
+> Docker 이미지에 사용 되는 웹 서버 또는 IoT Edge 구성 요소를 수정 하거나 변경할 수 없습니다. Azure Machine Learning는 Microsoft에서 테스트 및 지 원하는 웹 서버 구성 및 IoT Edge 구성 요소를 사용 합니다.
 
 #### <a name="web-service"></a>웹 서비스
 
@@ -153,11 +153,11 @@ GitHub 및 Azure Pipelines를 사용 하 여 모델을 학습 하는 연속 통�
 * 서비스 연결을 정의할 때 작업 영역을 선택할 수 있습니다.
 * 학습 파이프라인에서 생성 된 학습 된 모델을 사용 하 여 릴리스 파이프라인을 트리거할 수 있습니다.
 
-Azure Machine Learning에서 Azure Pipelines를 사용 하는 방법에 대 한 자세한 내용은 Azure Pipelines 문서 및 [Azure Machine Learning Service MLOps](https://aka.ms/mlops) 리포지토리를 사용 하 여 [ML 모델의 연속 통합 및 배포](/azure/devops/pipelines/targets/azure-machine-learning) 를 참조 하세요.
+Azure Machine Learning에서 Azure Pipelines를 사용 하는 방법에 대 한 자세한 내용은 Azure Pipelines 문서 및 [Azure Machine Learning MLOps](https://aka.ms/mlops) 리포지토리를 사용 하 여 [ML 모델의 연속 통합 및 배포](/azure/devops/pipelines/targets/azure-machine-learning) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning 서비스를 사용하여 [모델을 배포할 수 있는 방법과 위치](how-to-deploy-and-where.md)에 대해 자세히 알아봅니다. 배포 예제를 보려면 [자습서: Azure Container Instances](tutorial-deploy-models-with-aml.md)에서 이미지 분류 모델을 배포 합니다.
+Azure Machine Learning를 사용 하 여 [모델을 배포할 수 있는 방법과 위치](how-to-deploy-and-where.md) 에 대해 자세히 알아보세요. 배포 예제를 보려면 [자습서: Azure Container Instances](tutorial-deploy-models-with-aml.md)에서 이미지 분류 모델을 배포 합니다.
 
 Azure Pipelines를 사용 하 [여 ML 모델의 지속적인 통합 및 배포](/azure/devops/pipelines/targets/azure-machine-learning)를 만드는 방법에 대해 알아봅니다. 
 

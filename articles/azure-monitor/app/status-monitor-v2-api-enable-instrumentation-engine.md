@@ -3,7 +3,7 @@ title: 'Azure 상태 모니터 v2 API 참조: 계측 엔진 사용 | Microsoft D
 description: V2 API 참조를 상태 모니터 합니다. InstrumentationEngine를 사용 합니다. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
 services: application-insights
 documentationcenter: .net
-author: MS-TimothyMothra
+author: TimothyMothra
 manager: alexklim
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: d4683a1cad5172f7104e745433bd141bcf36d56f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 3c0f4e015d3e01e86daaf101c15e16857540a520
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326382"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033161"
 ---
 # <a name="status-monitor-v2-api-enable-instrumentationengine"></a>상태 모니터 v2 API: InstrumentationEngine
 
 이 문서에서는 [Az. ApplicationMonitor PowerShell 모듈](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)의 멤버인 cmdlet에 대해 설명 합니다.
 
-## <a name="description"></a>설명
+## <a name="description"></a>Description
 
 일부 레지스트리 키를 설정 하 여 계측 엔진을 사용 하도록 설정 합니다.
 변경 내용을 적용 하려면 IIS를 다시 시작 하십시오.

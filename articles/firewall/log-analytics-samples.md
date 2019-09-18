@@ -1,36 +1,36 @@
 ---
-title: Azure 방화벽 log analytics 샘플
-description: Azure 방화벽 log analytics 샘플
+title: Azure 방화벽 로그 분석 샘플
+description: Azure 방화벽 로그 분석 샘플
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 2/15/2019
+ms.date: 09/17/2019
 ms.author: victorh
-ms.openlocfilehash: 3f329d3dd4af1faef8f77d08db655cc7d6ef79fd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a4ab1263abac67714357594e5bd87a4b910953b1
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60461537"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033990"
 ---
-# <a name="azure-firewall-log-analytics-samples"></a>Azure 방화벽 log analytics 샘플
+# <a name="azure-firewall-log-analytics-samples"></a>Azure 방화벽 로그 분석 샘플
 
-다음 Azure Monitor 로그 샘플 Azure 방화벽 로그를 분석에 사용할 수 있습니다. Azure Monitor에서 뷰 디자이너에 샘플 파일을 기본 제공 되는 [Azure Monitor에서 뷰 디자이너](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) 기술 자료 문서에 뷰 디자인 개념에 대 한 자세한 정보.
+다음 Azure Monitor 로그 예제를 사용 하 여 Azure 방화벽 로그를 분석할 수 있습니다. 이 샘플 파일은 Azure Monitor의 뷰 디자이너에서 작성 되었으며 [Azure Monitor의 뷰 디자이너](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) 에는 뷰 디자인 개념에 대 한 자세한 정보가 있습니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="azure-monitor-logs-view"></a>Azure Monitor 로그 보기
 
-Azure Monitor 로그 시각화 예제를 구성 하는 방법을 다음과 같습니다. [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview) 리포지토리에서 시각화 예제를 다운로드할 수 있습니다. 가장 쉬운 방법은 이 페이지의 하이퍼링크를 마우스 오른쪽 단추로 클릭하고 *다른 이름으로 저장*을 클릭한 후, **AzureFirewall.omsview**와 같은 이름을 입력합니다. 
+로그 시각화 Azure Monitor 예제를 구성 하는 방법은 다음과 같습니다. [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview) 리포지토리에서 시각화 예제를 다운로드할 수 있습니다. 가장 쉬운 방법은 이 페이지의 하이퍼링크를 마우스 오른쪽 단추로 클릭하고 *다른 이름으로 저장*을 클릭한 후, **AzureFirewall.omsview**와 같은 이름을 입력합니다. 
 
-Log Analytics 작업 영역에 뷰를 추가 하려면 다음 단계를 실행 합니다.
+다음 단계를 실행 하 여 Log Analytics 작업 영역에 보기를 추가 합니다.
 
 1. Azure Portal에서 Log Analytics 작업 영역을 엽니다.
 2. **일반** 아래에서 **뷰 디자이너**를 엽니다.
 3. **가져오기**를 클릭합니다.
 4. 이전에 다운로드한 **AzureFirewall.omsview** 파일을 찾아 선택합니다.
-5. **저장**을 클릭합니다.
+5. **Save**을 클릭합니다.
 
 애플리케이션 규칙 로그 데이터에 대한 뷰는 다음과 같이 표시됩니다.
 
@@ -40,7 +40,7 @@ Log Analytics 작업 영역에 뷰를 추가 하려면 다음 단계를 실행 �
 
 ![네트워크 규칙 로그 데이터]( ./media/log-analytics-samples/azurefirewall-networkrulelogstats.png)
 
-Azure 방화벽 로그 데이터를 AzureDiagnostics 아래 범주 중 하나로 **AzureFirewallApplicationRule** 하거나 **AzureFirewallNetworkRule**합니다. 세부 정보가 포함된 데이터는 msg_s 필드에 저장됩니다. [parse](https://docs.microsoft.com/azure/kusto/query/parseoperator) 연산자를 사용하면 msg_s 필드에서 다양한 흥미로운 속성을 추출할 수 있습니다. 아래 쿼리는 두 범주에 대한 정보를 추출합니다.
+Azure 방화벽은 범주가 포함 된 AzureDiagnostics 아래에 **AzureFirewallApplicationRule** 또는 **AzureFirewallNetworkRule**로 데이터를 기록 합니다. 세부 정보가 포함된 데이터는 msg_s 필드에 저장됩니다. [parse](https://docs.microsoft.com/azure/kusto/query/parseoperator) 연산자를 사용하면 msg_s 필드에서 다양한 흥미로운 속성을 추출할 수 있습니다. 아래 쿼리는 두 범주에 대한 정보를 추출합니다.
 
 ## <a name="application-rules-log-data-query"></a>애플리케이션 규칙 로그 데이터 쿼리
 
@@ -70,7 +70,7 @@ SourcePort = tostring(SourcePortInt)
 TargetPort = tostring(TargetPortInt)
 | extend
 //make sure we only have Allowed / Deny in the Action Field
-Action1 = case(Action1 == "denied","Deny","Unknown Action")
+Action1 = case(Action1 == "Deny","Deny","Unknown Action")
 | extend
     Action = case(Action2 == "",Action1,Action2),
     Rule = case(Rule2a == "",case(Rule1 == "",case(Rule2b == "","N/A", Rule2b),Rule1),Rule2a), 
@@ -92,7 +92,7 @@ AzureDiagnostics
 | parse TempDetails with * "Deny." RuleCollection2b ". Proceeding with" Rule2b
 | extend SourcePort = tostring(SourcePortInt)
 | extend TargetPort = tostring(TargetPortInt)
-| extend Action1 = case(Action1 == "denied","Deny","Unknown Action")
+| extend Action1 = case(Action1 == "Deny","Deny","Unknown Action")
 | extend Action = case(Action2 == "",Action1,Action2),Rule = case(Rule2a == "", case(Rule1 == "",case(Rule2b == "","N/A", Rule2b),Rule1),Rule2a), 
 RuleCollection = case(RuleCollection2b == "",case(RuleCollection2a == "","No rule matched",RuleCollection2a), RuleCollection2b),FQDN = case(FQDN == "", "N/A", FQDN),TargetPort = case(TargetPort == "", "N/A", TargetPort)
 | project TimeGenerated, msg_s, Protocol, SourceIP, SourcePort, FQDN, TargetPort, Action ,RuleCollection, Rule
@@ -100,7 +100,7 @@ RuleCollection = case(RuleCollection2b == "",case(RuleCollection2a == "","No rul
 
 ## <a name="network-rules-log-data-query"></a>네트워크 규칙 로그 데이터 쿼리
 
-다음 쿼리는 네트워크 규칙 로그 데이터를 구문 분석합니다. 다양한 주석 줄에 쿼리가 빌드된 방식에 대한 몇 가지 지침이 나와 있습니다.
+다음 쿼리는 네트워크 규칙 로그 데이터를 구문 분석 합니다. 다양한 주석 줄에 쿼리가 빌드된 방식에 대한 몇 가지 지침이 나와 있습니다.
 
 ```Kusto
 AzureDiagnostics
@@ -153,7 +153,7 @@ AzureDiagnostics
 
 ## <a name="threat-intelligence-log-data-query"></a>위협 인텔리전스 로그 데이터 쿼리
 
-다음 쿼리는 위협 인텔리전스 규칙 로그 데이터를 구문 분석:
+다음 쿼리는 위협 인텔리전스 규칙 로그 데이터를 구문 분석 합니다.
 
 ```Kusto
 AzureDiagnostics
@@ -168,4 +168,4 @@ AzureDiagnostics
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure 방화벽이 모니터링 및 진단 하는 방법에 대 한 자세한 참조 [자습서: Azure 방화벽 로그와 메트릭 모니터링](tutorial-diagnostics.md)합니다.
+Azure 방화벽 모니터링 및 진단에 대 한 자세한 내용은 [자습서: Azure 방화벽 로그 및 메트릭을](tutorial-diagnostics.md)모니터링 합니다.

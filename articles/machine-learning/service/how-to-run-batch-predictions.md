@@ -1,7 +1,7 @@
 ---
 title: 파이프라인을 사용 하 여 대량 데이터에서 일괄 처리 예측 실행
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning Service를 사용하여 대용량 데이터에서 비동기적으로 일괄 예측을 수행하는 방법을 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning를 사용 하 여 대량의 데이터에서 일괄 처리를 비동기적으로 수행 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.reviewer: jmartens, garye
 ms.author: jordane
 author: jpe316
 ms.date: 07/12/2019
-ms.openlocfilehash: b0d8eef025efb6398f1d7c734ca558540b157fef
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 3997f327bd6512eeee2cb5e7a0af802f12d1727a
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128261"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034307"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-pipelines"></a>Azure Machine Learning 파이프라인을 사용 하 여 대량 데이터 집합에서 일괄 처리 예측 실행
 
-이 문서에서는 Azure Machine Learning 서비스에서 ML 파이프라인을 사용 하 여 대량의 데이터를 비동기적으로 예측 하는 방법에 대해 알아봅니다.
+이 문서에서는 Azure Machine Learning로 ML 파이프라인을 사용 하 여 대량의 데이터를 비동기적으로 예측 하는 방법에 대해 알아봅니다.
 
 일괄 예측(또는 일괄 채점)은 비동기 애플리케이션에 대한 최상의 처리량으로 비용 효율적인 유추를 제공합니다. 일괄 예측 파이프라인은 프로덕션 데이터의 테라바이트에 대한 유추를 수행하도록 확장할 수 있습니다. 일괄 예측은 데이터의 대규모 컬렉션에 대한 높은 처리량, fire-and-forget(실행 후 망각) 예측에 맞게 최적화되었습니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "70128261"
 
 ## <a name="prerequisites"></a>전제 조건
 
-- Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning 서비스의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+- Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 - 개발 환경을 구성하여 Azure Machine Learning SDK를 설치합니다. 자세한 내용은 [Azure Machine Learning에 대한 개발 환경 구성](how-to-configure-environment.md)을 참조하세요.
 

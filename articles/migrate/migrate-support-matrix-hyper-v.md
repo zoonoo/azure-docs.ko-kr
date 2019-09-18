@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: 97972be655a6a03cfe29d8589a144d1e027b86fc
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 0d0329be0b7f864edbfc3c2aabc08f1742359670
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376089"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066773"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Hyper-V 평가 및 마이그레이션 지원 매트릭스
 
@@ -27,9 +27,9 @@ ms.locfileid: "70376089"
 **배포** | **대해***
 --- | ---
 **온-프레미스 Hyper-v Vm 평가** | 첫 번째 평가를 [설정](tutorial-prepare-hyper-v.md) 합니다.<br/><br/> 대규모 평가를 [실행](scale-hyper-v-assessment.md) 합니다.
-**Hyper-V VM을 Azure로 마이그레이션** | Azure로의 마이그레이션을 [시도](tutorial-migrate-hyper-v.md) 합니다. 
+**Hyper-V VM을 Azure로 마이그레이션** | Azure로의 마이그레이션을 [시도](tutorial-migrate-hyper-v.md) 합니다.
 
-System Center Virtual Machine Manager (VMM)로 관리 되는 Hyper-v 서버의 마이그레이션은 Azure Migrate Server Migration에서 지원 되지 않습니다. 
+System Center Virtual Machine Manager (VMM)로 관리 되는 Hyper-v 서버의 마이그레이션은 Azure Migrate Server Migration에서 지원 되지 않습니다.
 
 ## <a name="azure-migrate-projects"></a>Azure Migrate 프로젝트
 
@@ -44,10 +44,13 @@ Hyper-V VM | 단일 프로젝트에서 최대 35000 Hyper-v Vm을 평가 합니�
   Azure Government | US Gov 버지니아
   아시아 태평양 | 동아시아 또는 동남 아시아
   오스트레일리아 | 오스트레일리아 동부 또는 오스트레일리아 남동쪽
+  브라질 | 브라질 남부
   캐나다 | 캐나다 중부 또는 캐나다 동부
   Europe | 북유럽 또는 유럽 서부
+  프랑스 | 프랑스 중부
   인도 | 인도 중부 또는 인도 남부
   일본 |  일본 동부 또는 일본 서 부
+  대한민국 | 대한민국 중부 또는 한국 남부
   영국 | 영국 남부 또는 영국 서부
   미국 | 미국 중부 또는 미국 서 부 2
 

@@ -1,7 +1,7 @@
 ---
 title: 사용자 지정 Docker 기본 이미지를 사용 하 여 모델 배포
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스 모델을 배포할 때 사용자 지정 Docker 기본 이미지를 사용 하는 방법에 대해 알아봅니다. 학습 된 모델을 배포 하는 경우 유추를 위해 모델을 실행 하기 위해 기본 컨테이너 이미지를 배포 합니다. Azure Machine Learning service는 기본 기본 이미지를 제공 하지만 사용자 고유의 기본 이미지를 사용할 수도 있습니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning 모델을 배포할 때 사용자 지정 Docker 기본 이미지를 사용 하는 방법에 대해 알아봅니다. 학습 된 모델을 배포 하는 경우 유추를 위해 모델을 실행 하기 위해 기본 컨테이너 이미지를 배포 합니다. Azure Machine Learning 기본 이미지를 제공 하는 동안 고유한 기본 이미지를 사용할 수도 있습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,20 +10,20 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/22/2019
-ms.openlocfilehash: 753f0bece5b8b52ebb50ab2a6e93056ce209cfbc
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 04d81f8e16a3f34f7abf15c9606833002fafb39c
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183553"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034524"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>사용자 지정 Docker 기본 이미지를 사용 하 여 모델 배포
 
-Azure Machine Learning 서비스를 사용 하 여 학습 된 모델을 배포할 때 사용자 지정 Docker 기본 이미지를 사용 하는 방법을 알아봅니다.
+Azure Machine Learning를 사용 하 여 학습 된 모델을 배포할 때 사용자 지정 Docker 기본 이미지를 사용 하는 방법을 알아봅니다.
 
 웹 서비스 또는 IoT Edge 장치에 학습 된 모델을 배포할 때 들어오는 요청을 처리할 웹 서버를 포함 하는 패키지가 생성 됩니다.
 
-Azure Machine Learning 서비스는 기본 Docker 기본 이미지를 제공 하므로 만들 때 걱정할 필요가 없습니다. 또한 Azure Machine Learning 서비스 __환경을__ 사용 하 여 특정 기본 이미지를 선택 하거나 사용자가 제공 하는 사용자 지정 이미지를 사용할 수 있습니다.
+Azure Machine Learning는 기본 Docker 기본 이미지를 제공 하므로 만들 때 걱정할 필요가 없습니다. Azure Machine Learning __환경을__ 사용 하 여 특정 기본 이미지를 선택 하거나 사용자가 제공 하는 사용자 지정 이미지를 사용할 수도 있습니다.
 
 기본 이미지는 배포에 대해 이미지를 만들 때 시작 지점으로 사용 됩니다. 기본 운영 체제 및 구성 요소를 제공 합니다. 그런 다음 배포 프로세스에서 모델, conda 환경 및 기타 자산과 같은 추가 구성 요소를 배포 하기 전에 이미지에 추가 합니다.
 
@@ -42,7 +42,7 @@ Azure Machine Learning 서비스는 기본 Docker 기본 이미지를 제공 하
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure Machine Learning 서비스 작업 그룹입니다. 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md) 문서를 참조 하세요.
+* Azure Machine Learning 작업 그룹입니다. 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md) 문서를 참조 하세요.
 * [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)입니다. 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [Azure Machine Learning에 대 한 CLI 확장](reference-azure-machine-learning-cli.md)입니다.
@@ -51,9 +51,9 @@ Azure Machine Learning 서비스는 기본 Docker 기본 이미지를 제공 하
 
 ## <a name="create-a-custom-base-image"></a>사용자 지정 기본 이미지 만들기
 
-이 섹션에서는 Azure Container Registry를 사용 하 여 Docker 이미지를 저장 한다고 가정 합니다. Azure Machine Learning 서비스에 대 한 사용자 지정 이미지를 만들 계획인 경우 다음 검사 목록을 사용 합니다.
+이 섹션에서는 Azure Container Registry를 사용 하 여 Docker 이미지를 저장 한다고 가정 합니다. Azure Machine Learning에 대 한 사용자 지정 이미지를 만들 계획인 경우 다음 검사 목록을 사용 합니다.
 
-* Azure Machine Learning 서비스 작업 영역에 대해 만든 Azure Container Registry 또는 독립 실행형 Azure Container Registry을 사용 하나요?
+* Azure Machine Learning 작업 영역에 대해 만든 Azure Container Registry 또는 독립 실행형 Azure Container Registry을 사용 하나요?
 
     __작업 영역에 대 한 컨테이너 레지스트리에__저장 된 이미지를 사용 하는 경우 레지스트리에 인증할 필요가 없습니다. 작업 영역에서 인증을 처리 합니다.
 
@@ -70,7 +70,7 @@ Azure Machine Learning 서비스는 기본 Docker 기본 이미지를 제공 하
 
 * Azure Container Registry 및 이미지 정보: 이미지 이름을 사용 해야 하는 모든 사용자에 게 제공 합니다. 예를 들어 라는 `myimage` `myregistry`레지스트리에 저장 된 이라는 이미지는 모델 배포에 이미지를 사용 `myregistry.azurecr.io/myimage` 하는 경우로 참조 됩니다.
 
-* 이미지 요구 사항: Azure Machine Learning 서비스는 다음 소프트웨어를 제공 하는 Docker 이미지만 지원 합니다.
+* 이미지 요구 사항: Azure Machine Learning는 다음 소프트웨어를 제공 하는 Docker 이미지만 지원 합니다.
 
     * Ubuntu 16.04 이상.
     * Conda 4.5. # 이상
@@ -80,12 +80,12 @@ Azure Machine Learning 서비스는 기본 Docker 기본 이미지를 제공 하
 
 ### <a name="get-container-registry-information"></a>컨테이너 레지스트리 정보 가져오기
 
-이 섹션에서는 Azure Machine Learning 서비스 작업 영역에 대 한 Azure Container Registry의 이름을 가져오는 방법에 대해 알아봅니다.
+이 섹션에서는 Azure Machine Learning 작업 영역에 대 한 Azure Container Registry의 이름을 가져오는 방법에 대해 알아봅니다.
 
 > [!WARNING]
 > 작업 영역에 대 한 Azure Container Registry는 처음으로 작업 영역을 사용 하 여 __모델을 학습 하거나 배포할 때 생성__ 됩니다. 새 작업 영역을 만들었지만 모델을 학습 하거나 만들지 않은 경우 작업 영역에 대 한 Azure Container Registry 없습니다.
 
-Azure Machine Learning 서비스를 사용 하 여 모델을 이미 학습 하거나 배포한 경우 작업 영역에 대해 컨테이너 레지스트리를 만들었습니다. 이 컨테이너 레지스트리의 이름을 찾으려면 다음 단계를 사용 합니다.
+Azure Machine Learning를 사용 하 여 모델을 이미 학습 하거나 배포한 경우 작업 영역에 대해 컨테이너 레지스트리를 만들었습니다. 이 컨테이너 레지스트리의 이름을 찾으려면 다음 단계를 사용 합니다.
 
 1. 새 셸 또는 명령 프롬프트를 열고 다음 명령을 사용 하 여 Azure 구독에 인증 합니다.
 
@@ -95,7 +95,7 @@ Azure Machine Learning 서비스를 사용 하 여 모델을 이미 학습 하�
 
     프롬프트에 따라 구독에 인증 합니다.
 
-2. 다음 명령을 사용 하 여 작업 영역에 대 한 컨테이너 레지스트리를 나열 합니다. 을 `<myworkspace>` Azure Machine Learning 서비스 작업 영역 이름으로 바꿉니다. 을 `<resourcegroup>` 작업 영역을 포함 하는 Azure 리소스 그룹으로 바꿉니다.
+2. 다음 명령을 사용 하 여 작업 영역에 대 한 컨테이너 레지스트리를 나열 합니다. 을 `<myworkspace>` Azure Machine Learning 작업 영역 이름으로 바꿉니다. 을 `<resourcegroup>` 작업 영역을 포함 하는 Azure 리소스 그룹으로 바꿉니다.
 
     ```azurecli-interactive
     az ml workspace show -w <myworkspace> -g <resourcegroup> --query containerRegistry
@@ -171,7 +171,7 @@ Azure Container Registry에 기존 이미지를 업로드 하는 방법에 대 �
 * __이미지 이름__입니다. 예를 들어 `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` 은 Microsoft에서 제공 하는 기본 Docker 이미지에 대 한 경로입니다.
 * 이미지가 __개인 리포지토리에__있는 경우 다음 정보가 필요 합니다.
 
-    * 레지스트리 __주소__입니다. `myregistry.azureecr.io` )을 입력합니다.
+    * 레지스트리 __주소__입니다. 예를 들어, `myregistry.azureecr.io`을 입력합니다.
     * 레지스트리에 대 한 읽기 권한이 있는 서비스 사용자 __이름__ 및 __암호__ 입니다.
 
     이 정보가 없는 경우 관리자에 게 이미지를 포함 하는 Azure Container Registry에 대해 문의 하십시오.
@@ -182,7 +182,7 @@ Microsoft는 공개적으로 액세스할 수 있는 리포지토리에 여러 d
 
 | 이미지 | Description |
 | ----- | ----- |
-| `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Azure Machine Learning 서비스에 대 한 기본 이미지 |
+| `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Azure Machine Learning에 대 한 기본 이미지 |
 | `mcr.microsoft.com/azureml/onnxruntime:v0.4.0` | ONNX 런타임을 포함 합니다. |
 | `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-cuda10.0-cudnn7` | ONNX 런타임 및 CDA 구성 요소를 포함 합니다. |
 | `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-tensorrt19.03` | ONNX 런타임 및 TensorRT를 포함 합니다. |
@@ -193,7 +193,7 @@ Microsoft는 공개적으로 액세스할 수 있는 리포지토리에 여러 d
 > [!IMPORTANT]
 > TensorRT를 사용 하는 Microsoft 이미지는 Microsoft Azure 서비스 에서만 사용 해야 합니다.
 
-자세한 내용은 [Azure Machine Learning 서비스 컨테이너](https://github.com/Azure/AzureML-Containers)를 참조 하세요.
+자세한 내용은 [Azure Machine Learning 컨테이너](https://github.com/Azure/AzureML-Containers)를 참조 하세요.
 
 > [!TIP]
 >__모델을 Azure Machine Learning 계산에 대해 학습 하는 경우__Azure Machine Learning SDK의 __버전 1.0.22 이상을__ 사용 하면 학습 중에 이미지가 생성 됩니다. 이 이미지의 이름을 검색 하려면를 사용 `run.properties["AzureML.DerivedImageName"]`합니다. 다음 예제에서는이 이미지를 사용 하는 방법을 보여 줍니다.
@@ -248,7 +248,7 @@ service.wait_for_deployment(show_output = True)
 print(service.state)
 ```
 
-배포에 대 한 자세한 내용은 [Azure Machine Learning 서비스를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
+배포에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
 
 ### <a name="use-an-image-with-the-machine-learning-cli"></a>Machine Learning CLI를 사용 하 여 이미지 사용
 
@@ -276,7 +276,7 @@ Machine Learning CLI를 사용 하 여 모델을 배포 하는 경우 사용자 
 az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json --ct akscomputetarget
 ```
 
-ML CLI를 사용 하 여 모델을 배포 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning 서비스에 대 한 CLI 확장](reference-azure-machine-learning-cli.md#model-registration-profiling-deployment) 문서의 "모델 등록, 프로 파일링 및 배포" 섹션을 참조 하세요.
+ML CLI를 사용 하 여 모델을 배포 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning에 대 한 CLI 확장](reference-azure-machine-learning-cli.md#model-registration-profiling-deployment) 의 "모델 등록, 프로 파일링 및 배포" 섹션을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

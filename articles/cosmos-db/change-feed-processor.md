@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 2f0f3d70d51ff35e37506eab1082fc07b16e711c
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 4074f26cdefd650c1b927293f422623841dfff7d
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018776"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71073702"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Azure Cosmos DB의 변경 피드 프로세서 
 
@@ -95,5 +95,6 @@ Cosmos 컨테이너 내부 및 외부의 데이터 이동은 항상 RU를 사용
 이제 다음 문서에서 변경 피드 프로세서에 대해 자세히 알아볼 수 있습니다.
 
 * [변경 피드 개요](change-feed.md)
+* [변경 피드 프로세서 라이브러리에서 마이그레이션하는 방법](how-to-migrate-from-change-feed-library.md)
 * [변경 피드 평가기 사용](how-to-use-change-feed-estimator.md)
 * [변경 피드 프로세서 시작 시간](how-to-configure-change-feed-start-time.md)

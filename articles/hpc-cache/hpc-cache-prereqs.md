@@ -4,14 +4,14 @@ description: Azure HPC 캐시를 사용 하기 위한 필수 구성 요소
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: 7bd1268784df50168e03673ac809b3a5854e2be7
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 50c60e38b58815be04cfb892c3622b9579529e67
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775339"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036863"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Azure HPC 캐시의 필수 구성 요소
 
@@ -22,7 +22,7 @@ Azure Portal를 사용 하 여 새 Azure HPC 캐시를 만들기 전에 사용�
 유료 구독을 권장 합니다.
 
 > [!NOTE]
-> 공개 미리 보기 릴리스에서는 Azure HPC 캐시 팀이 액세스 목록에 구독을 추가 해야 캐시 인스턴스를 만들 수 있습니다. 이 절차를 통해 각 고객이 테스트 캐시에서 고품질의 응답성을 유지할 수 있습니다. 액세스를 요청 하려면 [이 양식을](https://aka.ms/onboard-hpc-cache) 작성 하세요.
+> Preview 릴리스 중에 Azure HPC 캐시 팀은 액세스 목록에 구독을 추가 해야 캐시 인스턴스를 만드는 데 사용할 수 있습니다. 이 절차를 통해 각 고객이 테스트 캐시에서 고품질의 응답성을 유지할 수 있습니다. 액세스를 요청 하려면 [이 양식을](https://aka.ms/onboard-hpc-cache) 작성 하세요.
 
 ## <a name="network-infrastructure"></a>네트워크 인프라
 
