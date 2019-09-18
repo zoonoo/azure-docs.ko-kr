@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Data Warehouse에 예약 할인을 적용 하는 방법 | Microsoft Docs
-description: 절감 하는 데 Azure SQL Data Warehouse에 예약 할인을 적용 하는 방법을 알아봅니다.
+title: Azure SQL Data Warehouse에 예약 할인이 적용되는 방식 | Microsoft Docs
+description: 비용을 절감하는 데 도움이 되도록 Azure SQL Data Warehouse에 예약 할인이 적용되는 방식을 알아봅니다.
 services: billing
 author: yashesvi
 manager: yashar
@@ -9,33 +9,33 @@ ms.topic: conceptual
 ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: 10e19377d31489cd19465fe6171ffb530bd58c28
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "60918404"
 ---
-# <a name="how-reservation-discounts-apply-to-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 예약 할인을 적용 하는 방법
+# <a name="how-reservation-discounts-apply-to-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 예약 할인이 적용되는 방식
 
-Azure SQL Data Warehouse 예약 용량을 구입 후 예약 할인은 해당 지역에 존재 하는 데이터 웨어하우스를 자동으로 적용 됩니다. SQL Data Warehouse cDWU 미터에서 내보낸 사용량에 예약 할인이 적용 됩니다. 저장소 및 네트워킹 종 량 제 요금으로 요금이 청구 됩니다.
+Azure SQL Data Warehouse 예약 용량을 구매한 후에는 해당 지역에 존재하는 데이터 웨어하우스에 예약 할인이 자동으로 적용됩니다. 예약 할인은 SQL Data Warehouse cDWU 미터에서 내보낸 사용량에 적용됩니다. 스토리지 및 네트워킹은 종량제 요금으로 청구됩니다.
 
-## <a name="reservation-discount-application"></a>예약 할인 응용 프로그램
+## <a name="reservation-discount-application"></a>예약 할인 애플리케이션
 
-SQL Data Warehouse 용량 예약된 할인은 웨어하우스 매시간 실행에 적용 됩니다. 1 시간 동안 배포 된 웨어하우스가 없는 경우에 해당 시간에 대 한 예약된 된 용량 낭비 됩니다. 이 전달 되지 않습니다.
+SQL Data Warehouse 예약된 용량 할인은 매시간으로 실행 중인 웨어하우스에 적용됩니다. 한 시간 동안 배포된 웨어하우스가 없는 경우 해당 시간 동안 예약된 용량이 낭비됩니다. 전달되지 않습니다.
 
-구매 후 구입할 수 있는 예약 시간에 언제 든 지 웨어하우스를 실행 하 여 SQL Data Warehouse 사용량과에 일치 됩니다. 일부 웨어하우스를 종료 하는 경우 다음 예약 할인에 자동으로 적용 다른 일치 하는 웨어하우스에 합니다.
+구입 후에 구매한 예약은 언제든지 웨어하우스를 실행하여 내보낸 SQL Data Warehouse 사용량과 일치합니다. 일부 웨어하우스를 종료하는 경우 일치하는 다른 웨어하우스에 예약 할인이 자동으로 적용됩니다.
 
-전체 시간에 대 한 실행 하지 않는 웨어하우스에 대 한 예약이 해당 시간에 자동으로 일치 하는 다른 인스턴스에 적용 됩니다.
+전체 시간 동안 실행되지 않는 웨어하우스의 경우 해당 시간의 다른 일치하는 인스턴스에 예약이 자동으로 적용됩니다.
 
-## <a name="discount-examples"></a>예를 할인
+## <a name="discount-examples"></a>할인 예제
 
-다음 예제에서는 배포에 따라 SQL Data Warehouse 용량 예약된 할인이 적용 하는 방법을 보여 줍니다.
+다음 예제에서는 배포에 따라 SQL Data Warehouse 예약된 용량 할인이 적용되는 방법을 보여 줍니다.
 
-- **예제 1**: 구매한 100 예약 cDWU 용량의 5 단위입니다. 1 시간 동안 DW1500c SQL Data Warehouse 인스턴스를 실행 합니다. 이 경우 15 단위 100 cDWU 사용에 대 한 사용 현황이 내보내집니다. 예약 할인을 적용 하는 5 단위에 적용 됩니다. 나머지 10 단위 수는 100 cDWU 사용에 대 한 종 량 제 요금으로 청구 됩니다.
+- **예제 1**: 5단위의 100 cDWU 예약된 용량을 구입합니다. 1시간 동안 DW1500c SQL Data Warehouse 인스턴스를 실행합니다. 이 경우 15단위의 100 cDWU 사용량에 대한 사용량이 내보내집니다. 예약 할인은 사용한 5단위에 적용됩니다. 사용한 나머지 10단위의 100 cDWU 사용량에 대해서는 종량제 요금을 사용하여 요금이 부과됩니다.
 
-- **예제 2**: 구매한 100 예약 cDWU 용량의 5 단위입니다. 시간에 대 한 두 개의 DW100c SQL Data Warehouse 인스턴스를 실행 합니다. 이 경우 1 단위 100 cDWU 사용에 대 한 두 사용 이벤트가 내보내집니다. 두 사용 이벤트에는 예약 된 용량 할인 받기. 나머지 3 개 단위의 100 cDWU 예약 용량 낭비 됩니다 및 향후 사용에 대 한 전달 하지 않습니다.
+- **예제 2**: 5단위의 100 cDWU 예약된 용량을 구입합니다. 한 시간 동안 두 개의 DW100c SQL Data Warehouse 인스턴스를 실행합니다. 이 경우 1단위의 100 cDWU 사용량에 대해 두 개의 사용량 이벤트가 내보내집니다. 두 사용량 이벤트 모두 예약된 용량 할인을 받습니다. 나머지 3단위의 100 cDWU 예약된 용량은 낭비되며 나중에 사용하도록 전달되지 않습니다.
 
-- **예제 3**: 1 개 단위 100 cDWU 예약 용량을 구매합니다. 두 DW100c SQL Data Warehouse 인스턴스를 실행할 수 있습니다. 각각 30 분 동안 실행 됩니다. 이 예제의 경우 둘 다 사용 이벤트 예약 된 용량 할인을 가져옵니다. 사용 하지 않는 종 량 제 요금으로 요금이 청구 됩니다.
+- **예제 3**: 1단위의 100 cDWU 예약된 용량을 구입합니다. 두 개의 DW100c SQL Data Warehouse 인스턴스를 실행합니다. 각각 30분 동안 실행됩니다. 이 경우 두 사용량 이벤트 모두 예약된 용량 할인을 받습니다. 종량제 요금을 사용하여 요금이 부과되지 않습니다.
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의처
 
@@ -47,5 +47,5 @@ Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure 예약이란?](billing-save-compute-costs-reservations.md)
 - [예약 트랜잭션 보기](billing-view-reservations.md)
-- [예약 트랜잭션 및 API 통해 사용률 가져오기](billing-reservation-apis.md)
+- [API를 통해 예약 트랜잭션 및 사용률 가져오기](billing-reservation-apis.md)
 - [예약 관리](billing-manage-reserved-vm-instance.md)

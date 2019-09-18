@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f04e6f8df55059e2aa2981f85f40e487c6f0f8b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 3249957fa20c208d0fd06c676200753163d4bfc8
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68823675"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376070"
 ---
 # <a name="tutorial-integrate-learning-at-work-with-azure-active-directory"></a>자습서: Learning at Work와 Azure Active Directory 통합
 
@@ -90,9 +90,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Learning at Work 클라이언트 지원 팀](https://www.learninga-z.com/site/contact/support)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-5. Learning at Work 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는  **nameidentifier** 가  **user.userprincipalname**과 매핑되는 기본 특성 목록을 보여줍니다.
+5. Learning at Work 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 **nameidentifier**가 **user.userprincipalname**과 매핑되는 기본 특성 목록을 보여줍니다.
 
-    조직 설정에 따라 Azure AD에서 **nameidentifier** 값을 업데이트할 수 있으며, 이 값은 SABA 클라우드의 **사용자 ID**와 일치해야 하며, 이를 위해서는  **편집**  아이콘을 클릭하여 특성 매핑을 편집하고 특성 매핑을 변경해야 합니다.
+    조직 설정에 따라 Azure AD에서 **nameidentifier** 값을 업데이트할 수 있으며, 이 값은 SABA 클라우드의 **사용자 ID**와 일치해야 하며, 이를 위해서는 **편집** 아이콘을 클릭하여 특성 매핑을 편집하고 특성 매핑을 변경해야 합니다.
 
     ![이미지](common/edit-attribute.png)
 
@@ -140,7 +140,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ### <a name="create-learning-at-work-test-user"></a>Learning at Work 테스트 사용자 만들기
 
-이 섹션에서는 Learning at Work에서 B.Simon이라는 사용자를 만듭니다. Learning at Work 플랫폼에서 사용자를 추가하려면  [Learning at Work 지원 팀](https://www.learninga-z.com/site/contact/support)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Learning at Work에서 B.Simon이라는 사용자를 만듭니다. Learning at Work 플랫폼에 사용자를 추가하려면 [Learning at Work 지원 팀](https://www.learninga-z.com/site/contact/support)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="test-sso"></a>SSO 테스트 
 

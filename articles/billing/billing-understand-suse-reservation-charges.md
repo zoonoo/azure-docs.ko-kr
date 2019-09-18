@@ -1,6 +1,6 @@
 ---
-title: 소프트웨어 계획 할인-Azure | Microsoft Docs
-description: 가상 컴퓨터에서 소프트웨어를 소프트웨어 계획 할인이 적용 되는 방법에 대해 알아봅니다.
+title: 소프트웨어 요금제 할인 - Azure | Microsoft Docs
+description: 가상 머신의 소프트웨어에 소프트웨어 요금제 할인이 적용되는 방법을 알아봅니다.
 documentationcenter: ''
 author: yashesvi
 manager: yashar
@@ -13,43 +13,43 @@ ms.workload: na
 ms.date: 04/12/2019
 ms.author: banders
 ms.openlocfilehash: bcbf5ab48f3476a911fc4ade1eb0c395fb335d43
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "60370233"
 ---
-# <a name="azure-software-plan-discount"></a>Azure 소프트웨어 계획 할인
+# <a name="azure-software-plan-discount"></a>Azure 소프트웨어 요금제 할인
 
-SUSE 및 RedHat에 대 한 azure 소프트웨어 계획 배포 된 Vm에 적용 되는 예약 됩니다. 소프트웨어 계획 할인은 예약 일치 하는 배포 된 Vm의 소프트웨어 사용에 적용 됩니다.
+SUSE 및 RedHat에 대한 Azure 소프트웨어 요금제는 배포된 VM에 적용되는 예약입니다. 소프트웨어 요금제 할인은 예약과 일치하는 배포된 VM의 소프트웨어 사용량에 적용됩니다.
 
-VM을 종료 하는 경우 사용 가능한 경우 할인 다른 일치 하는 VM에 자동으로 적용 됩니다. 소프트웨어 플랜에서는 VM에서 소프트웨어를 실행 하는 비용을 설명 합니다. 계산, 저장소, 네트워킹 등 기타 요금이 별도로 청구 됩니다.
+VM을 종료하면 사용 가능한 경우 일치하는 다른 VM에 할인이 자동으로 적용됩니다. 소프트웨어 요금제는 VM에서 소프트웨어를 실행하는 비용을 포함합니다. 컴퓨팅, 스토리지, 네트워킹 등의 기타 요금은 별도로 청구됩니다.
 
-올바른 요금제를 구입 하려면 VM 사용 현황 및 해당 Vm의 Vcpu 수를 이해 해야 합니다. 사용 현황 데이터에 따라 다음 섹션에서는 구입 하려면 어떤 계획을 식별 하는 데 사용 합니다.
+적절한 요금제를 구입하려면 VM 사용량과 해당 VM에 있는 vCPU 수를 이해해야 합니다. 다음 섹션은 사용량 데이터에 따라 구입할 요금제를 식별하는 데 도움이 됩니다.
 
-## <a name="how-reservation-discount-is-applied"></a>예약 할인은 적용 하는 방법
+## <a name="how-reservation-discount-is-applied"></a>예약 할인이 적용되는 방법
 
-예약 할인은 "*사용 하 여-it 또는-손실-it*"입니다. 따라서 모든 시간에 대 한 일치 하는 리소스 없다면, 손실 된 경우 예약 수량을 해당 시간에 대 한 합니다. 수행할 수 없습니다. 사용 되지 않는 예약 된 시간을 전달 합니다.
+예약 할인은 "*use-it-or-lose-it*"입니다. 따라서 모든 시간에 대해 일치하는 리소스가 없는 경우 해당 시간의 예약 수량이 손실됩니다. 사용하지 않는 예약 시간은 이월할 수 없습니다.
 
-리소스를 종료 하면 예약 할인은 지정된 된 범위에서 일치 하는 다른 리소스에 자동으로 적용 됩니다. 일치 하는 리소스가 없는 지정된 된 범위에 있는 경우 예약 된 시간은 *손실*합니다.
+리소스를 종료할 때 예약 할인이 지정된 범위에서 일치하는 다른 리소스에 자동으로 적용됩니다. 지정된 범위에서 일치하는 리소스를 찾을 수 없는 경우 예약된 시간은 *손실*됩니다.
 
-## <a name="review-redhat-vm-usage-before-you-buy"></a>구입 하기 전에 RedHat VM 사용량을 검토 합니다.
+## <a name="review-redhat-vm-usage-before-you-buy"></a>구매하기 전에 RedHat VM 사용량 검토
 
-사용 현황 데이터에서 제품 이름을 가져와 동일한 형식 및 크기를 사용 하 여 RedHat 계획을 구입 합니다.
+사용량 데이터에서 제품 이름을 가져오고 동일한 유형 및 크기의 RedHat 요금제를 구입합니다.
 
-예를 들어 사용 현황을 제품 **Red Hat Enterprise Linux-1-4 vCPU VM 라이선스**를 구입 해야 **Red Hat Enterprise Linux** 에 대 한 **1-4 vCPU VM**합니다.
+예를 들어 사용량에 제품 **Red Hat Enterprise Linux - 1-4 vCPU VM 라이선스**가 있는 경우 **1-4 vCPU VM**에 대한 **Red Hat Enterprise Linux**를 구매해야 합니다.
 
 <!--ADD RHEL SCREENSHOT -->
 
-## <a name="review-suse-vm-usage-before-you-buy"></a>구입 하기 전에 SUSE VM 사용량을 검토 합니다.
+## <a name="review-suse-vm-usage-before-you-buy"></a>구매하기 전에 SUSE VM 사용량 검토
 
-사용 현황 데이터에서 제품 이름을 가져와 동일한 형식 및 크기를 사용 하 여 SUSE 계획을 구입 합니다.
+사용량 데이터에서 제품 이름을 가져오고 동일한 유형 및 크기의 SUSE 요금제를 구입합니다.
 
-예를 들어 제품에 대 한 사용량이 **SUSE Linux Enterprise Server 우선 순위-2 ~ 4 vCPU VM 지원**를 구입 해야 **SUSE Linux Enterprise Server 우선 순위** 에 대 한 **2 ~ 4 vCPU**.
+예를 들어 사용량이 제품 **SUSE Linux Enterprise Server 우선 순위 - 2-4 vCPU VM 지원**에 대한 것인 경우 **2-4 vCPU**에 대한 **SUSE Linux Enterprise Server 우선 순위**를 구매해야 합니다.
 
-![제품 구입을 선택 하는 예제](./media/billing-understand-suse-reservation-charges/select-suse-linux-enterprise-server-priority-2-4-vcpu.png)
+![구매할 제품을 선택하는 예제](./media/billing-understand-suse-reservation-charges/select-suse-linux-enterprise-server-priority-2-4-vcpu.png)
 
-## <a name="discount-applies-to-different-vm-sizes-for-suse-plans"></a>SUSE 계획에 대 한 다양 한 VM 크기에 할인이 적용 됩니다.
+## <a name="discount-applies-to-different-vm-sizes-for-suse-plans"></a>SUSE 요금제의 다른 VM 크기에 할인이 적용됩니다.
 
 Reserved VM Instances와 같이 SUSE 요금제 구매는 인스턴스 크기 유연성을 제공합니다. 즉, 다른 vCPU 수를 사용하는 VM을 배포할 때도 할인이 적용됩니다. 소프트웨어 요금제 내의 다른 VM 크기에도 할인이 적용됩니다.
 
@@ -145,7 +145,7 @@ Azure Portal Marketplace 이름:
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의처
 
-문의 사항이 있거나 도움이 필요한 경우 [지원 요청을 만드는](https://go.microsoft.com/fwlink/?linkid=2083458)합니다.
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>다음 단계
 

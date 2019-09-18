@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 0448ffbccddc913bd6359f5f6bbf42988239afb4
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "68706396"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Azure 계정에 파트너 ID 연결
 
-Microsoft 파트너는 고객이 Microsoft 제품을 사용 하 여 비즈니스 및 업무 목표를 달성할 수 있도록 하는 서비스를 제공 합니다. 고객을 대신 하 여 Azure 서비스를 관리, 구성 및 지원 하는 경우 파트너 사용자는 고객 환경에 액세스할 수 있어야 합니다. 파트너는 파트너 관리 링크를 사용 하 여 파트너 네트워크 ID를 서비스 배달에 사용 되는 자격 증명과 연결할 수 있습니다.
+Microsoft 파트너는 고객이 Microsoft 제품을 사용하여 비즈니스 및 업무 목표를 달성할 수 있도록 하는 서비스를 제공합니다. 고객을 대신하여 Azure 서비스를 관리, 구성 및 지원하는 경우 파트너 사용자는 고객 환경에 액세스할 수 있어야 합니다. 파트너는 파트너 관리 링크를 사용하여 파트너 네트워크 ID를 서비스 배달에 사용되는 자격 증명과 연결할 수 있습니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -54,7 +54,7 @@ Microsoft 파트너는 고객이 Microsoft 제품을 사용 하 여 비즈니스
 
 ### <a name="use-powershell-to-link-to-a-new-partner-id"></a>PowerShell을 사용하여 새 파트너 ID에 연결
 
-1. [Az. ManagementPartner](https://www.powershellgallery.com/packages/Az.ManagementPartner/) PowerShell 모듈을 설치 합니다.
+1. [Az.ManagementPartner](https://www.powershellgallery.com/packages/Az.ManagementPartner/) PowerShell 모듈을 설치합니다.
 
 2. 사용자 계정 또는 서비스 주체를 사용하여 고객의 테넌트에 로그인합니다. 자세한 내용은 [PowerShell로 로그인](https://docs.microsoft.com/powershell/azure/authenticate-azureps)을 참조하세요.
 
@@ -139,22 +139,22 @@ C:\ az managementpartner delete --partner-id 12345
 링크는 사용자 계정 수준에서 연결됩니다. 사용자만이 파트너 ID에 대한 연결을 편집하고 제거할 수 있습니다. 고객 및 다른 파트너는 파트너 ID에 대한 연결을 변경할 수 없습니다.
 
 
-**회사에 여러 개 있는 경우 어떤 MPN ID를 사용 해야 하나요?**
+**회사에 여러 개의 MPN ID가 있는 경우 어떤 MPN ID를 사용해야 하나요?**
 
-파트너 위치 계정 및 연결 된 MPN Id는 파트너 ID를 연결 하는 데 사용 해야 합니다.  [파트너 계정](https://docs.microsoft.com/partner-center/account-structure) 에 대 한 자세한 정보
+파트너 위치 계정 및 연결된 MPN ID는 파트너 ID를 연결하는 데 사용해야 합니다.  [파트너 계정](https://docs.microsoft.com/partner-center/account-structure)에 대한 자세한 정보
 
-**연결 된 파트너 ID에 대 한 영향을 받는 수익 보고는 어디에서 찾을 수 있나요?**
+**연결된 파트너 ID에 대한 영향을 받는 수익 보고는 어디에서 찾을 수 있나요?**
 
-클라우드 제품 성능 보고는 파트너 센터의 [Insights 대시보드에서](https://partner.microsoft.com/membership/reports/myinsights)파트너에 게 제공 됩니다. 파트너 연결 형식으로 Partner Admin 링크를 선택 해야 합니다.
+클라우드 제품 성능 보고는 [내 인사이트 대시보드](https://partner.microsoft.com/membership/reports/myinsights)의 파트너 센터에서 파트너에게 제공됩니다. 파트너 연결 형식으로 파트너 관리 링크를 선택해야 합니다.
 
 **보고서에서 고객을 볼 수 없는 이유는 무엇입니까?**
 
 다음과 같은 이유로 인해 보고서에서 고객을 볼 수 없습니다.
 
-1. 연결 된 사용자 계정에는 고객 Azure 구독 또는 리소스에 대 한 [역할 기반 액세스](https://docs.microsoft.com/azure/role-based-access-control/overview) 권한이 없습니다.
+1. 연결된 사용자 계정에는 고객 Azure 구독 또는 리소스에 대한 [역할 기반 액세스](https://docs.microsoft.com/azure/role-based-access-control/overview) 권한이 없습니다.
 
-2. 사용자에 게 [역할 기반 액세스](https://docs.microsoft.com/azure/role-based-access-control/overview) 권한이 있는 Azure 구독에는 사용 권한이 없습니다.
+2. 사용자에게 [역할 기반 액세스](https://docs.microsoft.com/azure/role-based-access-control/overview) 권한이 있는 Azure 구독에는 사용 권한이 없습니다.
 
-**연결 파트너 ID는 Azure Stack와 작동 하나요?**
+**연결 파트너 ID는 Azure Stack과 작동하나요?**
 
-예, Azure Stack에 대 한 파트너 ID를 연결할 수 있습니다.
+예, Azure Stack에 대한 파트너 ID를 연결할 수 있습니다.

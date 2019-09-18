@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 07/26/2019
 ms.author: pafarley
-ms.openlocfilehash: f0bd4a49a35392c25b8985aa68ad4e4b66be026c
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 2a74dbe9c306c1bf2420fdaac78a9b9183cacab1
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306512"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376145"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>빠른 시작: Python용 Face 클라이언트 라이브러리
 
@@ -26,6 +26,7 @@ Python용 Face 클라이언트 라이브러리를 사용하여 다음을 수행�
 * 유사 얼굴 찾기
 * 사람 그룹 만들기 및 학습
 * 얼굴 식별
+* 얼굴 확인
 * 데이터 마이그레이션용 스냅샷 만들기
 
 [참조 설명서](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [패키지(PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [샘플](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face&sort=0)
@@ -90,6 +91,7 @@ Face Python SDK의 주요 기능 중 일부를 처리하는 클래스와 인터�
 * [유사 얼굴 찾기](#find-similar-faces)
 * [사람 그룹 만들기 및 학습](#create-and-train-a-person-group)
 * [얼굴 식별](#identify-a-face)
+* [얼굴 확인](#verify-faces)
 * [데이터 마이그레이션용 스냅샷 만들기](#take-a-snapshot-for-data-migration)
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
@@ -185,6 +187,32 @@ Face Python SDK의 주요 기능 중 일부를 처리하는 클래스와 인터�
 **identify** 메서드는 감지된 얼굴의 배열을 사용하여 **PersonGroup**과 비교합니다. 감지된 얼굴을 **Person**과 일치시킬 수 있으면 결과가 저장됩니다. 이 코드는 자세한 일치 항목 결과를 콘솔에 출력합니다.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_identify)]
+
+## <a name="verify-faces"></a>얼굴 확인
+
+확인 작업은 얼굴 ID와 다른 얼굴 ID 또는 **Person** 개체를 가져와서 동일한 사람에게 속하는지 여부를 확인합니다.
+
+다음 코드는 두 개의 원본 이미지에서 얼굴을 감지한 다음, 대상 이미지에서 검색된 얼굴에 대해 확인합니다.
+
+### <a name="get-test-images"></a>테스트 이미지 가져오기
+
+다음 코드 블록은 확인 작업을 위한 소스 및 대상 이미지를 가리키는 변수를 선언합니다.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify_baseurl)]
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify_photos)]
+
+### <a name="detect-faces-for-verification"></a>확인을 위한 얼굴 감지
+
+다음 코드는 소스 및 대상 이미지에서 얼굴을 감지하고 변수에 저장합니다.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify_detect)]
+
+### <a name="get-verification-results"></a>확인 결과 가져오기
+
+다음 코드는 각 원본 이미지를 대상 이미지와 비교하고 동일한 사람에 속하는지 여부를 나타내는 메시지를 출력합니다.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify)]
 
 ## <a name="take-a-snapshot-for-data-migration"></a>데이터 마이그레이션용 스냅샷 만들기
 

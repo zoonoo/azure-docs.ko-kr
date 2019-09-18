@@ -1,6 +1,6 @@
 ---
 title: Azure의 Microsoft 고객 계약 청구서 이해
-description: Azure에서 Microsoft 고객 계약 청구서를 읽고 이해 하는 방법 알아보기
+description: Azure에서 Microsoft 고객 계약 청구서를 읽고 이해하는 방법 알아보기
 author: bandersmsft
 manager: jureid
 tags: billing
@@ -12,94 +12,94 @@ ms.workload: na
 ms.date: 07/22/2019
 ms.author: banders
 ms.openlocfilehash: a5f77120c1d4e8a6721f3bc207132bee19a7772f
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "68383545"
 ---
-# <a name="terms-in-your-microsoft-customer-agreement-invoice"></a>Microsoft 고객 계약 청구서의 약관
+# <a name="terms-in-your-microsoft-customer-agreement-invoice"></a>Microsoft 고객 계약 청구서의 용어
 
-이 문서는 Microsoft 고객 계약에 대 한 Azure 청구 계정에 적용 됩니다. [Microsoft 고객 계약에 대 한 액세스 권한이 있는지 확인](#check-access-to-a-microsoft-customer-agreement)합니다.
+이 문서는 Microsoft 고객 계약에 대한 Azure 청구 계정에 적용됩니다. [Microsoft 고객 계약에 액세스할 수 있는지 확인하세요](#check-access-to-a-microsoft-customer-agreement).
 
-청구서는 요금 및 지불에 대 한 지침을 요약 하 여 제공 합니다. [Azure Portal](https://portal.azure.com/)에서 .pdf(Portable Document Format)로 다운로드하고 전자 메일을 통해 전송할 수 있습니다. 자세한 내용은 [Microsoft Azure 청구서 보기 및 다운로드](billing-download-azure-invoice.md)를 참조 하세요.
+청구서에는 요금에 대한 요약과 결제 지침이 제공됩니다. [Azure Portal](https://portal.azure.com/)에서 .pdf(Portable Document Format)로 다운로드하고 전자 메일을 통해 전송할 수 있습니다. 자세한 내용은 [Microsoft Azure 청구서 보기 및 다운로드](billing-download-azure-invoice.md)를 참조하세요.
 
 ## <a name="billing-period"></a>청구 기간
 
-월 기준으로 송장이 청구 됩니다. [Azure Portal](https://portal.azure.com/)에서 청구 프로필 속성 아래의 *청구서 날짜* 를 확인 하 여 청구서를 받는 월을 확인할 수 있습니다. 청구 기간 및 청구서 날짜 사이에 발생 하는 요금은 다음 달의 청구서에 포함 됩니다 (다음 청구 기간에 포함 됨). 각 송장의 청구 기간 시작 및 종료 날짜가 청구서의 청구서 **요약**에 나열 되어 있습니다.
+청구서는 월 단위로 제공됩니다. [Azure Portal](https://portal.azure.com/)의 청구 프로필 속성 아래에서 *청구서 날짜*를 확인하면 매달 청구서를 받는 날짜를 알 수 있습니다. 청구 기간 종료 날짜와 청구서 날짜 사이에 발생하는 요금은 다음 청구 기간에 속하기 때문에 다음 달 청구서에 포함됩니다. 각 청구서의 청구 기간 시작 및 종료 날짜는 **청구 요약** 위의 청구서 PDF에 나열됩니다.
 
-## <a name="invoice-terms-and-descriptions"></a>송장 용어 및 설명
+## <a name="invoice-terms-and-descriptions"></a>청구서 용어 및 설명
 
-다음 섹션에서는 청구서에 표시 되는 중요 한 용어를 나열 하 고 각 용어에 대 한 설명을 제공 합니다.
+다음 섹션에는 청구서에 표시되는 중요한 용어가 나열되어 있고 각 용어에 대한 설명이 제공됩니다.
 
-### <a name="invoice-summary"></a>송장 요약
+### <a name="invoice-summary"></a>청구서 요약
 
-**청구서 요약은** 첫 번째 페이지의 맨 위에 있으며 청구 프로필 및 지불 방법에 대 한 정보를 표시 합니다.
+**청구서 요약**은 첫 페이지 맨 위에 있고 청구 프로필 및 지불 방법에 대한 정보를 표시합니다.
 
 ![청구서 요약 섹션](./media/billing-understand-your-invoice-mca/invoicesummary.png)
 
-| 용어 | Description |
+| 용어 | 설명 |
 | --- | --- |
-| 구매처 |청구 계정 속성에 있는 법률 엔터티의 주소|
-| 청구지 |청구 프로필 속성에 있는 청구서를 받는 청구 프로필의 청구 주소|
-| 청구 프로필 |송장을 받는 청구 프로필의 이름 |
+| 구매처 |결제 계정 속성에 있는 법적 실체의 주소|
+| 청구지 |청구 프로필 속성에 있는, 청구서를 받는 청구 프로필의 청구 주소|
+| 청구 프로필 |청구서를 받는 청구 프로필의 이름 |
 | P.O. number |추적을 위해 사용자에 의해 할당된 선택적 구매 주문 번호 |
-| 청구서 번호 |추적 목적으로 사용 되는 고유한 Microsoft 생성 송장 번호 |
-| 청구서 날짜 |송장이 생성 되는 날짜입니다. 일반적으로 청구 주기가 끝난 후에는 일반적으로 5 ~ 12 일입니다. 청구 프로필 속성에서 청구서 날짜를 확인할 수 있습니다.|
-| 지불 조건 |Microsoft 청구서 요금을 지불 하는 방법입니다. *Net 30 일* 은 청구서 날짜의 30 일 이내에 지불 하는 것을 의미 합니다. |
+| 청구서 번호 |추적 용도로 사용하는 Microsoft에서 생성한 고유 청구서 번호 |
+| 청구서 날짜 |청구서가 생성된 날짜이며 일반적으로 청구 주기 종료 날짜에서 5~12일 후입니다. 청구서 날짜는 청구 프로필 속성에서 확인할 수 있습니다.|
+| 지불 조건 |Microsoft 청구서 지불 방법입니다. *30일*은 청구서 날짜로부터 30일 내에 지불한다는 의미입니다. |
 
 ### <a name="billing-summary"></a>청구 요약
 
-**청구 요약은** 이전 청구 기간 이후 청구 프로필에 대 한 요금, 적용 된 크레딧, 세금 및 총 금액을 보여 줍니다.
+**청구 요약**에는 이전 청구 기간 이후 청구 프로필에 대한 요금과, 적용된 크레딧, 세금 및 지불 총액이 표시됩니다.
 
 ![청구 요약 섹션](./media/billing-understand-your-invoice-mca/billingsummary.png)
 
 | 용어 | 설명 |
 | --- | --- |
-| 요금|마지막 청구 기간 이후이 청구 프로필에 대 한 총 Microsoft 요금 수 |
-| 인증 |에서 받은 크레딧을 반환 합니다. |
-| Azure 크레딧이 적용 됨 | 각 청구 기간에 Azure에 자동으로 적용 되는 azure 크레딧을 청구 합니다. |
-| 소계 |만기 전 세 액 |
-| 세금 |청구 프로필의 국가/지역에 따라 지불 하는 세금의 유형 및 양입니다. 세금을 지불 하지 않아도 되는 경우 청구서에 세금이 표시 되지 않습니다. |
-| 예상 총 절감 액 |유효 할인율에서 저장 한 예상 총 금액입니다. 해당 하는 경우 유효한 할인 요금은 청구서의 세부 정보 섹션에 있는 구매 품목 항목 아래에 나열 됩니다. |
+| Charges|마지막 청구 기간 이후 청구 프로필에 대한 총 Microsoft 요금 수 |
+| 크레딧 |반품에서 받은 크레딧 |
+| 적용된 Azure 크레딧 | 청구 기간마다 Azure 요금에 자동으로 적용되는 Azure 크레딧 |
+| 소계 |세전 금액 |
+| 세금 |청구 프로필의 국가/지역에 따라 납부하는 세금의 유형 및 금액. 세금을 납부할 필요가 없으면 청구서에 세금이 표시되지 않습니다. |
+| 총 예상 절감액 |유효 할인을 통해 절감한 총 예상 금액입니다. 해당하는 경우 청구서 섹션별 세부 정보의 구매 품목 아래에 유효 할인율이 나열됩니다. |
 
 ### <a name="invoice-sections"></a>청구서 섹션
 
-청구 프로필 아래의 각 송장 섹션에 대해 요금, 적용 되는 Azure 크레딧의 양, 세금 및 총 금액을 확인할 수 있습니다.
+청구 프로필 아래 각 청구서 섹션마다 요금, 적용된 Azure 크레딧 금액, 세금 및 지불 총액이 표시됩니다.
 
 `Total = Charges - Azure Credit + Tax`
 
-### <a name="details-by-invoice-section"></a>송장 별 세부 정보 섹션
+### <a name="details-by-invoice-section"></a>청구서 섹션별 세부 정보
 
-세부 정보는 각 송장 섹션에 대 한 비용을 제품 주문 별로 구분 하 여 보여 줍니다. 각 제품 주문 내에서 비용은 서비스 유형에 따라 세분화 됩니다. Azure Portal 및 Azure 사용량에서 제품 및 서비스에 대 한 일별 요금을 찾고 CSV에 요금을 청구할 수 있습니다. 자세히 알아보려면 [Microsoft 고객 계약에 대 한 청구서의 요금 이해](billing-mca-understand-your-bill.md)를 참조 하세요.
+세부 정보에는 각 청구서 섹션에 대한 비용이 제품 주문별로 분류되어 표시됩니다. 각 제품 주문 내에 서비스 유형별로 비용이 분류됩니다. 제품 및 서비스에 대한 일별 요금은 Azure Portal과 Azure 사용량 및 요금 CSV에서 찾을 수 있습니다. 자세한 내용은 [Microsoft 고객 계약에 대한 청구서의 요금 이해](billing-mca-understand-your-bill.md)를 참조하세요.
 
-각 서비스 제품군에 대 한 총 금액은 *크레딧/요금* 에서 *Azure 크레딧을* 빼서 *세금*을 추가 하 여 계산 됩니다.
+각 서비스 제품군에 대한 지불 총액은 *크레딧/요금*에서 *Azure 크레딧*을 빼고 *세금*을 추가하여 계산됩니다.
 
 
-![송장 별 세부 정보 섹션](./media/billing-understand-your-invoice-mca/invoicesectiondetails.png)
+![청구서 섹션별 세부 정보](./media/billing-understand-your-invoice-mca/invoicesectiondetails.png)
 
 | 용어 |설명 |
 | --- | --- |
-| 단가 | 사용량을 평가 하는 데 사용 되는 서비스의 유효 단가 (가격 책정 통화)입니다. 제품, 서비스 제품군, 미터 및 제안에 대해 고유 합니다. |
-| Qty | 청구 기간 동안 구입 또는 소비 된 수량 |
-| 요금/크레딧 | 크레딧/환불 적용 후의 순 요금 |
-| Azure 크레딧 | 요금/크레딧에 적용 되는 Azure 크레딧의 양|
-| 세금 | 국가/지역에 따라 세율 |
-| 세금 금액 | 세금을 기준으로 구매에 적용 되는 세금의 양 |
-| Total | 구매의 총 금액 |
+| 단가 | 사용량을 평가하는 데 사용되는 서비스의 유효 단가(가격 책정 통화 단위)입니다. 제품, 서비스 제품군, 미터 및 제안에 대해 고유합니다. |
+| 수량 | 청구 기간 동안 구매 또는 소비한 수량 |
+| 요금/크레딧 | 크레딧/환불 적용 후 순 청구액 |
+| Azure 크레딧 | 요금/크레딧에 적용되는 Azure 크레딧 금액|
+| 세율 | 국가/지역별 세율 |
+| 세액 | 세율을 기반으로 구매에 적용되는 세금 액수 |
+| 합계 | 구매에 대한 지불 총액 |
 
 ### <a name="how-to-pay"></a>지불 방법
 
-청구서의 맨 아래에는 청구서 요금을 지불 하기 위한 지침이 있습니다. 확인, 통신 또는 온라인으로 요금을 지불할 수 있습니다. 온라인으로 지불 하는 경우에는 신용 카드나 Azure 크레딧을 사용할 수 있습니다 (해당 하는 경우).
+청구서 맨 아래에 청구서 지불 지침이 있습니다. 수표, 전신 송금 또는 온라인으로 지불할 수 있습니다. 온라인으로 지불하는 경우에는 신용 카드나 Azure 크레딧을 사용할 수 있습니다(해당하는 경우).
 
 ### <a name="publisher-information"></a>게시자 정보
 
-청구서에 타사 서비스가 있는 경우 각 게시자의 이름과 주소가 청구서의 아래쪽에 나열 됩니다.
+청구서에 타사 서비스가 있으면 각 게시자의 이름과 주소가 청구서 맨 아래에 나열됩니다.
 
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대 한 액세스 확인
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 액세스 확인
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>도움이 필요하십니까? 문의하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 
@@ -108,4 +108,4 @@ ms.locfileid: "68383545"
 - [청구 프로필 청구서의 요금 이해](billing-mca-understand-your-bill.md)
 - [Azure 청구서 및 일간 사용 현황 데이터를 가져오는 방법](billing-download-azure-invoice-daily-usage-date.md)
 - [조직의 Azure 가격 책정 보기](billing-ea-pricing.md)
-- [청구 프로필에 대 한 세금 문서 보기](billing-mca-download-tax-document.md)
+- [청구 프로필에 대한 세금 문서 보기](billing-mca-download-tax-document.md)

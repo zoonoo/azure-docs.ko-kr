@@ -10,21 +10,21 @@ ms.date: 04/13/2019
 ms.author: banders
 ms.reviewer: sngun
 ms.openlocfilehash: d5a13e4466234d73bafe8dbe76cae92955cf64bd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "60370750"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Azure Cosmos DB에 예약 할인이 적용되는 방식 이해
 
 Azure Cosmos DB 예약된 용량을 구입하고 나면 예약의 특성 및 수량과 일치하는 Azure Cosmos DB 리소스에 예약 할인이 자동으로 적용됩니다. 예약은 Azure Cosmos DB 리소스에 대해 프로비전된 처리량을 포함합니다. 소프트웨어, 네트워킹, 스토리지 또는 미리 정의된 컨테이너 요금은 포함하지 않습니다.
 
-## <a name="how-reservation-discount-is-applied"></a>예약 할인은 적용 하는 방법
+## <a name="how-reservation-discount-is-applied"></a>예약 할인이 적용되는 방법
 
-예약 할인은 "*사용 하 여-it 또는-손실-it*"입니다. 따라서 모든 시간에 대 한 일치 하는 리소스 없다면, 손실 된 경우 예약 수량을 해당 시간에 대 한 합니다. 수행할 수 없습니다. 사용 되지 않는 예약 된 시간을 전달 합니다.
+예약 할인은 "*use-it-or-lose-it*"입니다. 따라서 모든 시간에 대해 일치하는 리소스가 없는 경우 해당 시간의 예약 수량이 손실됩니다. 사용하지 않는 예약 시간은 이월할 수 없습니다.
 
-리소스를 종료 하면 예약 할인은 지정된 된 범위에서 일치 하는 다른 리소스에 자동으로 적용 됩니다. 일치 하는 리소스가 없는 지정된 된 범위에 있는 경우 예약 된 시간은 *손실*합니다.
+리소스를 종료할 때 예약 할인이 지정된 범위에서 일치하는 다른 리소스에 자동으로 적용됩니다. 지정된 범위에서 일치하는 리소스를 찾을 수 없는 경우 예약된 시간은 *손실*됩니다.
 
 ## <a name="reservation-discount-applied-to-azure-cosmos-db-accounts"></a>Azure Cosmos DB 계정에 적용되는 예약 할인
 
@@ -119,8 +119,8 @@ Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure 예약이란?](../billing/billing-save-compute-costs-reservations.md)  
 * [Azure Cosmos DB 예약된 용량을 사용하여 Azure Cosmos DB 리소스 요금 선결제](../cosmos-db/cosmos-db-reserved-capacity.md)  
-* [Azure SQL Database 예약 용량을 사용하여 SQL Database 계산 리소스 요금 선결제](../sql-database/sql-database-reserved-capacity.md)  
-* [Azure에 대 한 예약 관리](../billing/billing-manage-reserved-vm-instance.md)  
+* [Azure SQL Database 예약 용량을 사용하여 SQL Database 컴퓨팅 리소스 요금 선결제](../sql-database/sql-database-reserved-capacity.md)  
+* [Azure용 예약 관리](../billing/billing-manage-reserved-vm-instance.md)  
 * [종량제 구독의 예약 사용량 이해](../billing/billing-understand-reserved-instance-usage.md)  
 * [엔터프라이즈 등록의 예약 사용량 이해](../billing/billing-understand-reserved-instance-usage-ea.md)
 * [CSP 구독의 예약 사용량 이해](https://docs.microsoft.com/partner-center/azure-reservations)

@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: baf694fbc3176732d43094c8d20ee112af927f16
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: b890fe1a9ef30e18a54ced9f48015bed39298807
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186467"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858873"
 ---
 # <a name="tutorial-create-and-test-a-device-capability-model-using-visual-studio-code"></a>자습서: Visual Studio Code를 사용하여 디바이스 기능 모델 만들기 및 테스트
 
@@ -35,10 +35,10 @@ ms.locfileid: "70186467"
 이 자습서에서 디바이스 기능 모델을 사용하려면 다음이 필요합니다.
 
 * [Visual Studio Code](https://code.visualstudio.com/download): VS Code는 여러 플랫폼에 사용할 수 있습니다.
-* VS Code의 Azure IoT Device Workbench 확장. 다음 단계에 따라 Azure IoT Device Workbench 확장을 VS Code에 설치합니다.
+* [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 확장 팩. 다음 단계에 따라 VS Code에 확장 팩을 설치합니다.
 
     1. VS Code에서 **확장** 탭을 선택합니다.
-    1. **Azure IoT Device Workbench**를 검색합니다.
+    1. **Azure IoT Tools**를 검색합니다.
     1. **설치**를 선택합니다.
 
 이 자습서에서 생성된 C 코드를 Windows에 빌드하려면 다음이 필요합니다.
@@ -61,7 +61,7 @@ ms.locfileid: "70186467"
 
 ## <a name="model-your-device"></a>디바이스 모델링
 
-_디지털 쌍 정의 언어_를 사용하여 디바이스 기능 모델을 만듭니다. 모델은 일반적으로 여러 _인터페이스_ 정의 파일과 단일 모델 파일로 구성됩니다. **VS Code용 Azure IoT Device Workbench 확장**에는 이러한 JSON 파일을 만들고 편집할 수 있는 도구가 포함되어 있습니다.
+_디지털 쌍 정의 언어_를 사용하여 디바이스 기능 모델을 만듭니다. 모델은 일반적으로 여러 _인터페이스_ 정의 파일과 단일 모델 파일로 구성됩니다. **Azure IoT Tools for VS Code**에는 이러한 JSON 파일을 만들고 편집할 수 있는 도구가 포함되어 있습니다.
 
 ### <a name="create-the-interface-file"></a>인터페이스 파일 만들기
 
@@ -298,7 +298,7 @@ VS Code에서 회사 리포지토리를 열려면 다음을 수행합니다.
 
 ## <a name="generate-code"></a>코드 생성
 
-**VS Code용 Azure IoT Device Workbench 확장**을 사용하여 모델에서 기본 C 코드를 생성할 수 있습니다. VS Code에서 기본 코드를 생성하려면 다음을 수행합니다.
+**Azure IoT Tools for VS Code**를 사용하여 모델에서 기본 C 코드를 생성할 수 있습니다. VS Code에서 기본 코드를 생성하려면 다음을 수행합니다.
 
 1. **Ctrl+Shift+P**를 사용하여 명령 팔레트를 엽니다.
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: 77c1a85136b2117af7396b8eec2d8b92b335d61d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "60369967"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Microsoft Azure 청구서의 조건 이해
@@ -99,9 +99,9 @@ ms.locfileid: "60369967"
 
 | 용어 |설명 |
 | --- | --- |
-| 이름 |사용 현황의 최상위 서비스를 식별합니다. |
+| Name |사용 현황의 최상위 서비스를 식별합니다. |
 | Type |요율에 영향을 줄 수 있는 Azure 서비스 유형을 정의합니다. |
-| Resource |사용 중인 미터에 대한 측정 단위를 식별합니다. |
+| 리소스 |사용 중인 미터에 대한 측정 단위를 식별합니다. |
 | 지역 |데이터 센터 위치에 따라 가격이 책정되는 특정 서비스에 대한 데이터 센터의 위치를 식별합니다. |
 | 사용 |청구 기간 동안 사용된 미터의 양입니다. |
 | 포함 |현재 청구 기간 동안 무료로 제공되는 미터의 양입니다. |
@@ -116,4 +116,4 @@ ms.locfileid: "60369967"
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
-문의 사항이 있거나 도움이 필요한 경우 [지원 요청을 만드는](https://go.microsoft.com/fwlink/?linkid=2083458)합니다.
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).

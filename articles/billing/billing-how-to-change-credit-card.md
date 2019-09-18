@@ -1,6 +1,6 @@
 ---
-title: Azure에 대 한 신용 카드 변경
-description: Azure 구독 요금을 지불 하는 데 사용 되는 신용 카드를 변경 하는 방법을 설명 합니다.
+title: Azure에 대한 신용 카드 변경
+description: Azure 구독 지불에 사용하는 신용 카드를 변경하는 방법에 대해 설명합니다.
 author: bandersmsft
 manager: jureid
 tags: billing
@@ -12,40 +12,40 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: banders
 ms.openlocfilehash: 7719ae83525883a6d3f014dbb99877b7319f2ccd
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "68383669"
 ---
-# <a name="add-update-or-remove-a-credit-card-for-azure"></a>Azure에 대 한 신용 카드 추가, 업데이트 또는 제거
+# <a name="add-update-or-remove-a-credit-card-for-azure"></a>Azure에 대한 신용 카드 추가, 업데이트 또는 제거
 
-Azure Portal에서 새 신용 카드를 추가 하거나, 기존 신용 카드를 업데이트 하거나, 사용 하지 않는 신용 카드를 삭제할 수 있습니다. 이러한 변경을 수행하려면 [계정 관리자](billing-subscription-transfer.md#whoisaa)여야 합니다.
+Azure Portal에서 새 신용 카드를 추가하거나, 기존 신용 카드를 업데이트하거나, 사용하지 않는 신용 카드를 삭제할 수 있습니다. 이러한 변경을 수행하려면 [계정 관리자](billing-subscription-transfer.md#whoisaa)여야 합니다.
 
-[Microsoft 고객 계약이](#check-access-to-a-microsoft-customer-agreement)있는 경우 결제 방법이 청구 프로필에 연결 됩니다. [청구 프로필에 대 한 기본 결제 방법을 변경](#change-payment-method-for-a-billing-profile)하는 방법에 대해 알아봅니다. Azure에 등록 한 사용자만 지불 방법을 업데이트할 수 있습니다.
+[Microsoft 고객 계약](#check-access-to-a-microsoft-customer-agreement)의 경우 결제 방법은 청구 프로필과 연결됩니다. [청구 프로필에 대한 기본 결제 방법을 변경](#change-payment-method-for-a-billing-profile)하는 방법에 대해 알아봅니다. Azure에 등록한 사용자만 결제 방법을 업데이트할 수 있습니다.
 
-**청구서로 지불 하도록 전환 하 시겠습니까 (확인/실시간 전송)?** [청구서로 Azure 구독 비용 지불](billing-how-to-pay-by-invoice.md)을 참조하세요.
+**청구서로 지불(수표/전신 송금)로 전환하시겠습니까?** [청구서로 Azure 구독 비용 지불](billing-how-to-pay-by-invoice.md)을 참조하세요.
 
 <a id="addcard"></a>
 
 ## <a name="add-a-new-credit-card-to-an-azure-subscription"></a>Azure 구독에 새 신용 카드 추가
 
 1. 계정 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **Cost Management + 청구**를 검색 합니다.
+1. **Cost Management + 청구**를 검색합니다.
 
-    ![검색을 보여 주는 스크린샷](./media/billing-how-to-change-credit-card/search.png)
+    ![검색을 보여주는 스크린샷](./media/billing-how-to-change-credit-card/search.png)
 
-1. 신용 카드를 추가 하려는 구독을 선택 합니다.
+1. 신용 카드를 추가하려는 구독을 선택합니다.
 1. **결제 방법**을 선택합니다.
 
     ![선택한 결제 방법 관리 옵션을 보여 주는 스크린샷](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
 1. 왼쪽 위 모서리에서 "+" 기호를 선택하여 카드를 추가합니다. 오른쪽에 신용 카드 양식이 나타납니다.
-1. 신용 카드 정보를 입력 합니다.
+1. 신용 카드 세부 정보를 입력합니다.
 
-    ![새 카드를 추가 하는 방법을 보여 주는 스크린샷](./media/billing-how-to-change-credit-card/sub-add-new-x.png)
+    ![새 카드 추가를 보여주는 스크린샷](./media/billing-how-to-change-credit-card/sub-add-new-x.png)
 
-1. 이 카드를 활성 지불 방법으로 설정 하려면 다음 확인란을 선택 하 여 양식 위의 **활성 결제 방법으로 설정** 합니다. 이 카드는 선택한 구독과 동일한 카드를 사용하는 모든 구독의 활성 결제 방법이 됩니다.
+1. 이 카드를 활성 결제 방법으로 만들려면 양식 위쪽에서 **이 방법을 내 활성 결제 방법으로 설정** 옆에 있는 확인란을 선택합니다. 이 카드는 선택한 구독과 동일한 카드를 사용하는 모든 구독의 활성 결제 방법이 됩니다.
 
 1. **다음**을 선택합니다.
 
@@ -53,57 +53,57 @@ Azure Portal에서 새 신용 카드를 추가 하거나, 기존 신용 카드�
 
 ## <a name="update-existing-credit-card"></a>기존 신용 카드 업데이트
 
-신용 카드가 갱신 되 고 번호가 동일 하 게 유지 되 면 만료 날짜와 같은 기존 신용 카드 세부 정보를 업데이트 합니다. 카드 분실, 도난 또는 만료로 인해 카드 번호가 변경되는 경우 [결제 방법으로 신용 카드 추가](#addcard) 섹션의 단계를 따릅니다. CVV를 업데이트할 필요가 없습니다.
+신용 카드가 갱신되고 번호가 동일하게 유지되는 경우 만료 날짜처럼 기존 신용 카드 세부 정보를 업데이트합니다. 카드 분실, 도난 또는 만료로 인해 카드 번호가 변경되는 경우 [결제 방법으로 신용 카드 추가](#addcard) 섹션의 단계를 따릅니다. CVV를 업데이트할 필요가 없습니다.
 
 1. 계정 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **Cost Management + 청구**를 검색 합니다.
+1. **Cost Management + 청구**를 검색합니다.
 
-    ![검색을 보여 주는 스크린샷](./media/billing-how-to-change-credit-card/search.png)
+    ![검색을 보여주는 스크린샷](./media/billing-how-to-change-credit-card/search.png)
 
 1. **결제 방법**을 선택합니다.
 
     ![선택한 결제 방법 관리 옵션을 보여 주는 스크린샷](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
-1. 편집 하려는 신용 카드를 클릭 합니다. 오른쪽에 신용 카드 양식이 나타납니다.
+1. 편집하려는 신용 카드를 클릭합니다. 오른쪽에 신용 카드 양식이 나타납니다.
 
-    ![선택한 신용 카드를 보여 주는 스크린샷](./media/billing-how-to-change-credit-card/edit-card-x.png)
+    ![선택한 신용 카드를 보여주는 스크린샷](./media/billing-how-to-change-credit-card/edit-card-x.png)
 
-1. 신용 카드 정보를 업데이트 합니다.
-1.           **저장**을 선택합니다.
+1. 신용 카드 세부 정보를 업데이트합니다.
+1. **저장**을 선택합니다.
 
 ## <a name="use-a-different-credit-card"></a>다른 신용 카드 사용
 
-둘 이상의 구독에 동일한 결제 방법이 있는 경우 이러한 구독 중 하나에서 활성 결제 방법을 변경 하면 다른 구독에 대 한 활성 결제 방법도 업데이트 됩니다.
+둘 이상의 구독에 동일한 활성 결제 방법이 있는 경우 이러한 구독 중에서 활성 결제 방법을 변경하면 다른 구독에 대한 활성 결제 방법도 업데이트됩니다.
 
 1. 계정 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **Cost Management + 청구**를 검색 합니다.
+1. **Cost Management + 청구**를 검색합니다.
 
-    ![검색을 보여 주는 스크린샷](./media/billing-how-to-change-credit-card/search.png)
+    ![검색을 보여주는 스크린샷](./media/billing-how-to-change-credit-card/search.png)
 
-1. 신용 카드를 추가 하려는 구독을 선택 합니다.
+1. 신용 카드를 추가하려는 구독을 선택합니다.
 1. **결제 방법**을 선택합니다.
 
     ![선택한 결제 방법 관리 옵션을 보여 주는 스크린샷](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
-1. 활성 결제 방법을 만들려는 카드 옆의 상자를 선택 합니다.
-1. **활성 설정**을 클릭 합니다.
-    ![신용 카드를 선택 하 여 활성으로 설정 하는 스크린샷](./media/billing-how-to-change-credit-card/sub-change-active-x.png)
+1. 활성 결제 방법으로 설정할 카드 옆에 있는 확인란을 선택합니다.
+1. **활성 설정**을 클릭합니다.
+    ![선택한 신용 카드 및 활성 설정을 보여주는 스크린샷](./media/billing-how-to-change-credit-card/sub-change-active-x.png)
 
 ## <a name="remove-a-credit-card-from-the-account"></a>계정에서 신용 카드 제거
 
 1. 계정 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 페이지의 왼쪽에서 **Cost Management + 청구** 를 선택 합니다.
+1. 페이지의 왼쪽에서 **Cost Management + 청구**를 선택합니다.
 
-    ![검색을 보여 주는 스크린샷](./media/billing-how-to-change-credit-card/search.png)
+    ![검색을 보여주는 스크린샷](./media/billing-how-to-change-credit-card/search.png)
 
-1. **청구**아래에서 **지불 방법**을 선택 합니다.
+1. **청구**에서 **결제 방법**을 선택합니다.
 
     ![선택한 결제 방법 관리 옵션을 보여 주는 스크린샷](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
-1. 제거 하려는 카드 옆의 상자를 선택 합니다.
+1. 제거하려는 카드 옆에 있는 확인란을 선택합니다.
 1. **삭제**를 클릭합니다.
 
-신용 카드가 Microsoft 구독에 대 한 활성 결제 방법 인 경우 Azure 계정에서 제거할 수 없습니다. 이 신용 카드에 연결 된 모든 구독에 대해 활성 결제 방법을 변경한 후 다시 시도 하십시오.
+신용 카드가 다른 Microsoft 구독에 대한 활성 결제 방법인 경우 Azure 계정에서 제거할 수 없습니다. 이 신용 카드에 연결된 모든 구독에 대해 활성 결제 방법을 변경한 후 다시 시도하십시오.
 <!-- # Add, update, or remove a credit card for Azure
 
 In the Account Center, you can add a new credit card, update an existing credit card, or delete a credit card that you don't use. You must be an [Account Administrator](billing-subscription-transfer.md#whoisaa) to make these changes.
@@ -154,37 +154,37 @@ If your credit card gets renewed and the number remains the same, update the exi
 
 If your credit card is associated with other active Microsoft subscriptions, you can't remove it from your Azure account. Remove the credit card from all active subscriptions that you have with Microsoft and try again. -->
 
-## <a name="change-payment-method-for-a-billing-profile"></a>청구 프로필에 대 한 결제 방법 변경
+## <a name="change-payment-method-for-a-billing-profile"></a>청구 프로필의 결제 방법 변경
 
-청구 프로필에 대 한 결제 방법을 변경 하려면 Azure에 등록 한 사람 이어야 합니다.
+청구 프로필에 대한 결제 방법을 변경하려면 Azure에 등록 한 사람이어야 합니다.
 
-기본 지불 방법을 확인/실시간 전송으로 전환 하려면 [청구 프로필을 확인/실시간 전송으로 전환](billing-how-to-pay-by-invoice.md)하는 방법을 알아보세요.
+기본 결제 방법을 수표/전신 송금으로 전환하려면 [청구 프로필을 수표/전신 송금으로 전환](billing-how-to-pay-by-invoice.md)하는 방법을 알아보세요.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **Cost Management + 청구**에서 검색합니다.
-1. 왼쪽 메뉴에서 **청구 프로필**을 클릭 합니다.
+1. 왼쪽 메뉴에서 **청구 프로필**을 클릭합니다.
 
-    ![메뉴에서 청구 프로필을 보여 주는 스크린샷](./media/billing-how-to-change-credit-card/billing-profile.png)
+    ![메뉴의 청구 프로필을 보여주는 스크린샷](./media/billing-how-to-change-credit-card/billing-profile.png)
 
-1. 청구 프로필을 선택 합니다.
-1. 왼쪽 메뉴에서 **지불 방법**을 선택 합니다.
+1. 청구 프로필을 선택합니다.
+1. 왼쪽 메뉴에서 **결제 방법**을 선택합니다.
 
-   ![메뉴의 지불 메서드를 보여 주는 스크린샷](./media/billing-how-to-change-credit-card/billing-profile-payment-methods.png)
+   ![메뉴의 결제 방법을 보여주는 스크린샷](./media/billing-how-to-change-credit-card/billing-profile-payment-methods.png)
 
-1. 기본 지불 방법 위에 있는 **변경**을 클릭 합니다.
+1. 기본 결제 방법 위에서 **변경**을 클릭합니다.
 
-    ![변경 단추를 표시 하는 스크린샷](./media/billing-how-to-change-credit-card/customer-led-switch-credit-card.png)
+    ![변경 단추를 보여주는 스크린샷](./media/billing-how-to-change-credit-card/customer-led-switch-credit-card.png)
 
-1. 기존 카드를 선택 하거나 새 카드를 추가 합니다.
+1. 기존 카드를 선택하거나 새 카드를 추가합니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
-다음 섹션에서는 신용 카드 정보를 변경 하는 방법에 대 한 자주 묻는 질문에 대답 합니다.
+다음 섹션에서는 신용 카드 정보를 변경하는 방법에 관한 자주 묻는 질문에 대답합니다.
 
 ### <a name="my-subscription-is-disabled-why-cant-i-remove-my-credit-card-now"></a>내 구독을 사용할 수 없습니다. 지금 내 신용 카드를 제거할 수 없는 이유는 무엇입니까?
 
-구독을 비활성화하거나 취소한 후 구독을 영구적으로 삭제하기 전에 90일 동안 기다립니다. 구독을 다시 활성화하려는 경우에 대비해서 보존 기간 동안 파일에 결제 방법을 유지합니다. 그 후에는 구독이 영구적으로 삭제 됩니다.
+구독을 비활성화하거나 취소한 후 구독을 영구적으로 삭제하기 전에 90일 동안 기다립니다. 구독을 다시 활성화하려는 경우에 대비해서 보존 기간 동안 파일에 결제 방법을 유지합니다. 이 기간이 지나면 구독이 영구적으로 삭제됩니다.
 
-90 일의 보존 기간이 끝나기 전에 신용 카드를 제거 해야 하는 경우 구독을 [다시 활성화](billing-subscription-become-disable.md)합니다. 다시 활성화할 수 없는 경우 [Azure 지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
+90일의 보존 기간이 끝나기 전에 신용 카드를 제거해야 할 경우 [구독을 다시 활성화](billing-subscription-become-disable.md)합니다. 다시 활성화할 수 없는 경우 [Azure 지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
 
 ### <a name="why-do-i-keep-getting-your-login-session-has-expired-please-click-here-to-log-back-in"></a>“로그인 세션이 만료되었습니다. 다시 로그인하려면 여기를 클릭하세요.” 메시지를 계속해서 받는 이유는 무엇입니까?
 
@@ -196,20 +196,20 @@ If your credit card is associated with other active Microsoft subscriptions, you
 
 ### <a name="how-do-i-make-payments"></a>지불하려면 어떻게 해야 할까요?
 
-신용 카드를 지불 방법으로 설정 하면 각 청구 기간 후에 자동으로 카드를 청구 합니다. 수행할 작업은 없습니다.
+결제 방법으로 신용 카드를 설정한 경우 각 청구 기간 후에 카드로 자동으로 청구됩니다. 수행할 작업은 없습니다.
 
 [청구서로 지불](billing-how-to-pay-by-invoice.md)하는 경우 청구서 아래쪽에 나열된 위치로 결제 금액을 보냅니다.
 
 ### <a name="how-do-i-change-the-tax-id"></a>세금 ID를 변경하려면 어떻게 할까요?
 
-세금 ID를 추가 하거나 업데이트 하려면 [Azure 계정 센터](https://account.azure.com/Profile)에서 프로필을 업데이트 한 다음 **세금 레코드**를 선택 합니다. 이 세금 ID는 면세 계산에 사용되며 청구서에 표시됩니다.
+세금 ID를 추가 또는 업데이트하려면 [Azure 계정 센터](https://account.azure.com/Profile)에서 프로필을 업데이트한 다음, **세금 레코드**를 선택합니다. 이 세금 ID는 면세 계산에 사용되며 청구서에 표시됩니다.
 
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대 한 액세스 확인
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 액세스 확인
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>도움이 필요하십니까? 문의하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
-궁금한 사항이 있거나 도움이 필요 하면 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure 예약](billing-save-compute-costs-reservations.md) 에 대해 학습 하 여 비용을 절감할 수 있는지 확인 하세요.
+- 비용을 절감할 수 있는지 확인하기 위해 [Azure Reservations](billing-save-compute-costs-reservations.md)에 대해 알아봅니다.

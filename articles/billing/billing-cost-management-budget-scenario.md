@@ -16,10 +16,10 @@ ms.workload: billing
 ms.date: 03/13/2019
 ms.author: banders
 ms.openlocfilehash: 37f129526cb184a2eeee9e36028e8f00b5bbc247
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "68443466"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Azure 예산으로 비용 관리
@@ -148,7 +148,7 @@ Azure가 논리 앱을 배포하면 **Logic Apps 디자이너**가 열리고 소
     텍스트 상자는 다음과 같이 나타납니다.
 
     ![Azure - 논리 앱 - 샘플 JSON 페이로드](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-08.png)
-8.  **완료**를 클릭합니다.
+8.  **Done**을 클릭합니다.
 
 ### <a name="add-the-first-conditional-action"></a>첫 번째 조건문 작업 추가
 
@@ -276,9 +276,9 @@ Azure가 논리 앱을 배포하면 **Logic Apps 디자이너**가 열리고 소
 3.  **작업 그룹** 블레이드에서 **작업 그룹 추가**를 선택합니다.
 4.  다음 사항을 추가하고 확인합니다.
     - 작업 그룹 이름
-    - 약식 이름
-    - 구독
-    - 리소스 그룹
+    - 짧은 이름
+    - Subscription
+    - Resource group
 
     ![Azure - 논리 앱 - 작업 그룹 추가](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-26.png)
 
@@ -289,7 +289,7 @@ Azure가 논리 앱을 배포하면 **Logic Apps 디자이너**가 열리고 소
 
 ## <a name="create-the-azure-budget"></a>Azure 예산 만들기
 
-Cost Management의 [예산 기능](../cost-management/tutorial-acm-create-budgets.md) 을 사용 하 여 Azure Portal에서 예산을 만들 수 있습니다. 또는 REST Api 또는 Powershell cmdlet을 사용 하 여 예산을 만들거나 CLI를 사용할 수 있습니다. 다음 절차는 REST API를 사용합니다. REST API를 호출하기 전에 권한 부여 토큰이 필요합니다. 권한 부여 토큰을 만들기 위해 [ARMClient](https://github.com/projectkudu/ARMClient) 프로젝트를 사용할 수 있습니다. **ARMClient**를 사용하면 Azure Resource Manager에 사용자를 인증하고 API를 호출하도록 토큰을 받을 수 있습니다.
+Cost Management의 [예산 기능](../cost-management/tutorial-acm-create-budgets.md)을 사용하여 Azure Portal에서 예산을 만들 수 있습니다. 또는 REST API, Powershell cmdlet을 사용하여 예산을 만들거나 CLI를 사용할 수 있습니다. 다음 절차는 REST API를 사용합니다. REST API를 호출하기 전에 권한 부여 토큰이 필요합니다. 권한 부여 토큰을 만들기 위해 [ARMClient](https://github.com/projectkudu/ARMClient) 프로젝트를 사용할 수 있습니다. **ARMClient**를 사용하면 Azure Resource Manager에 사용자를 인증하고 API를 호출하도록 토큰을 받을 수 있습니다.
 
 ### <a name="create-an-authentication-token"></a>인증 토큰 만들기
 
@@ -328,7 +328,7 @@ Cost Management의 [예산 기능](../cost-management/tutorial-acm-create-budget
 8.  **값**을 마지막 섹션의 끝 부분에서 ArmClient를 사용하여 만든 토큰으로 설정합니다.
 9.  Postman에서 **본문** 탭을 선택합니다.
 10. **원시** 단추 옵션을 선택합니다.
-11. 텍스트 상자에 아래 샘플 예산 정의를 붙여넣고 구독 ID, 예산에 대 한 고유 이름 및 작업 그룹 이름으로 **subscriptionid**, **budgetname**및 **actiongroupname** 매개 변수를 바꾸어야 합니다. URL과 요청 본문 모두에서을 (를) 만들었습니다.
+11. 텍스트 상자에 아래 샘플 예산 정의를 붙여넣습니다. 단, **subscriptionid**, **budgetname** 및 **actiongroupname** 매개 변수를 사용자의 구독 ID, 예산의 고유한 이름, URL 및 요청 본문 모두에서 만든 작업 그룹 이름으로 바꿔야 합니다.
 
     ```
         {

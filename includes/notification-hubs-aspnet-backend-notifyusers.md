@@ -5,15 +5,15 @@ services: notification-hubs
 author: spelluru
 ms.service: notification-hubs
 ms.topic: include
-ms.date: 03/22/2019
+ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 590ba4b7a61fa437767d99ac6b9ae3e0fa94edc3
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 60d5d8efb10cce54743038599238cc6f61922369
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227787"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934129"
 ---
 ## <a name="create-the-webapi-project"></a>WebAPI 프로젝트 만들기
 
@@ -185,6 +185,9 @@ ms.locfileid: "68227787"
         }
     }
     ```
+    > [!IMPORTANT]
+    > 허브의 **이름**과 **DefaultFullSharedAccessSignature**를 입력하고 계속 진행합니다. 
+    
 7. 다음으로 **RegisterController**라는 새 컨트롤러를 만듭니다. 솔루션 탐색기에서 **Controllers** 폴더를 마우스 오른쪽 단추로 클릭한 후 **추가**, **컨트롤러**를 차례로 선택합니다.
 
 8. **웹 API 2 컨트롤러 - 비어 있음**을 선택한 다음 **추가**를 선택합니다.

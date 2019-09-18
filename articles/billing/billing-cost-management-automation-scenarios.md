@@ -16,10 +16,10 @@ ms.workload: billing
 ms.date: 6/13/2018
 ms.author: banders
 ms.openlocfilehash: 3d06df9b9a90f26b39afc17b8fcd02c85da567a1
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "68443246"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>청구 및 비용 관리 자동화 시나리오
@@ -44,7 +44,7 @@ ms.locfileid: "68443246"
 
 ## <a name="scenario-to-api-mapping"></a>시나리오-API 매핑
 
-|         API        | 청구서 조정    | 교차 청구    | 비용 최적화    | 비용 추적    | 월별 지출    | ,    |
+|         API        | 청구서 조정    | 교차 청구    | 비용 최적화    | 비용 추적    | 월별 지출    | 경고    |
 |:---------------------------:|:-------------------------:|:----------------:|:--------------------:|:----------------:|:------------------:|:---------:|
 | 예산                     |                           |                  |           X          |                  |                    |     X     |
 | Marketplace 요금                |             X             |         X        |           X          |         X        |          X         |     X     |
@@ -52,7 +52,7 @@ ms.locfileid: "68443246"
 | 예약 권장 사항 |                           |                  |           X          |                  |                    |           |
 | 예약 세부 정보         |                           |                  |           X          |         X        |                    |           |
 | 예약 요약       |                           |                  |           X          |         X        |                    |           |
-| 자세한 용도               |             X             |         X        |           X          |         X        |          X         |     X     |
+| 사용량 세부 정보               |             X             |         X        |           X          |         X        |          X         |     X     |
 | 청구 기간             |             X             |         X        |           X          |         X        |                    |           |
 | 송장                    |             X             |         X        |           X          |         X        |                    |           |
 | RateCard                    |             X             |                  |           X          |         X        |          X         |           |
@@ -63,7 +63,7 @@ ms.locfileid: "68443246"
 
 ## <a name="api-summaries"></a>API 요약
 
-### <a name="consumption"></a>소비
+### <a name="consumption"></a>Consumption
 Web Direct 및 기업 고객은 명시된 경우를 제외하고 다음의 모든 API를 사용할 수 있습니다.
 
 -   [예산 API](https://docs.microsoft.com/rest/api/consumption/budgets)(*기업 고객만*): 리소스, 리소스 그룹 또는 청구 측정 단위에 대한 비용 또는 사용 예산을 만들 수 있습니다. 예산을 만들면 정의한 예산 임계값을 초과했을 때 알리도록 경고를 구성할 수 있습니다. 예산액에 도달하면 작업이 진행되도록 구성할 수도 있습니다.
@@ -84,7 +84,7 @@ Web Direct 및 기업 고객은 명시된 경우를 제외하고 다음의 모�
 
 -   [요금 미지정 사용량 API](/previous-versions/azure/reference/mt219003(v=azure.100)): Azure가 계량/청구를 수행하기 이전의 원시 사용량 정보를 가져옵니다.
 
-### <a name="billing"></a>대금 청구
+### <a name="billing"></a>결제
 -   [청구 기간 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods): 해당 기간의 청구서 ID와 함께 분석할 청구 기간을 결정합니다. 청구서 API와 청구서 ID를 사용할 수 있습니다.
 
 -   [청구서 API](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices): 청구 기간에 대한 청구서의 다운로드 URL을 PDF 형식으로 가져옵니다.
@@ -143,4 +143,4 @@ Web Direct 및 기업 고객은 명시된 경우를 제외하고 다음의 모�
 
 - 청구서를 자세한 일별 사용 현황 파일 및 Azure Portal의 비용 관리 보고서와 비교하려면 [Microsoft Azure 요금 청구 방식 이해](billing-understand-your-bill.md)를 참조하세요.
 
-- 궁금한 사항이 있거나 도움이 필요 하면 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
+- 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).

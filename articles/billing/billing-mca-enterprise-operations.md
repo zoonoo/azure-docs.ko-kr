@@ -1,6 +1,6 @@
 ---
-title: Microsoft 고객 계약-Azure의에서 기업 계약 작업을 완료
-description: 새 청구 계정에 기업 계약 작업을 완료 하는 방법을 알아봅니다.
+title: Microsoft 고객 계약의 기업계약 작업 완료 - Azure
+description: 새 청구 계정에서 기업계약 작업을 완료하는 방법에 대해 알아봅니다.
 author: amberbhargava
 manager: amberb
 editor: banders
@@ -13,144 +13,144 @@ ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
 ms.openlocfilehash: 9404908b7c486801480474c5a2c9ff7688e1de48
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67490704"
 ---
-# <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대 한 대금 청구 계정에 기업 계약 작업을 완료 합니다.
+# <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약의 청구 계정에서 기업계약 작업 완료
 
-조직에 기업 계약 등록을 갱신 하는 Microsoft 고객 계약을 서명 하는 경우 새 청구 계정 규약에 대해 만들어집니다. 새 계정에 청구는 기업 계약 다르게 구성 됩니다. 이 문서에서는 새 청구 계정을 사용 하 여 기업 계약에서 수행한 작업을 수행 하는 방법을 설명 합니다.
+조직에서 기업계약 등록을 갱신하는 Microsoft 고객 계약에 서명한 경우 계약에 대한 새 청구 계정이 생성됩니다. 새 계정의 청구는 기업계약과 다르게 구성됩니다. 이 문서에서는 새 청구 계정을 사용하여 기업계약에서 수행한 작업을 수행하는 방법을 설명합니다.
 
-## <a name="billing-organization-in-the-new-account"></a>새 계정에 청구 조직
+## <a name="billing-organization-in-the-new-account"></a>새 계정의 청구 조직
 
-다음 다이어그램은 새 청구 계정에 청구 구성 되는 방식을 설명 합니다.
+다음 다이어그램은 새 청구 계정에서 청구를 구성하는 방법을 설명합니다.
 
-![Ea-mca-post-전환-계층의 이미지](./media/billing-mca-setup-account/mca-post-transition-hierarchy.png)
+![ea-mca-post-transition-hierarchy 이미지](./media/billing-mca-setup-account/mca-post-transition-hierarchy.png)
 
 | 기업 계약   | Microsoft 고객 계약    |
 |------------------------|--------------------------------------------------------|
-| 등록            | 청구 프로필을 사용 하 여 기업 계약 등록 하 여 조직에 대 한 청구를 관리 합니다. 엔터프라이즈 관리자를 사용 하면 청구 프로필의 소유자로 합니다. 청구 프로필에 대 한 자세한 내용은 참조 하세요 [청구 프로필을 이해](billing-mca-overview.md#billing-profiles)합니다.
-| department            | 기업 계약 등록 학부에 고 비용을 구성 하는 송장 섹션을 사용 합니다. 부서 송장 섹션 되며 각 청구서 섹션의 소유자로 부서 관리자. 송장 섹션에 대 한 자세한 내용은 참조 하세요 [이해 송장 섹션](billing-mca-overview.md#invoice-sections)합니다. |
-| 계좌               | 기업 계약에서 생성 된 계정은 새 청구 계정에 지원 되지 않습니다. 계정의 구독 부서에 대 한 해당 청구서 섹션에 속합니다. 계정 소유자를 만들고 해당 청구서 섹션에 대 한 구독을 관리할 수 있습니다. |
+| 등록            | 기업계약 등록과 비슷하게 청구 프로필을 사용하여 조직의 청구를 관리합니다. 엔터프라이즈 관리자는 청구 프로필의 소유자가 됩니다. 청구 프로필에 대해 자세히 알아보려면 [청구 프로필 이해](billing-mca-overview.md#billing-profiles)를 참조하세요.
+| department            | 기업계약 등록에 포함된 부서와 비슷하게 청구서 섹션을 사용하여 비용을 구성할 수 있습니다. 부서는 청구서 섹션이 되고 부서 관리자는 해당 청구서 섹션의 소유자가 됩니다. 청구서 섹션에 대한 자세한 내용은 [청구서 섹션 이해](billing-mca-overview.md#invoice-sections)를 참조하세요. |
+| 계좌               | 기업계약에서 만든 계정은 새 청구 계정에서 지원되지 않습니다. 계정의 구독은 해당 부서의 각 청구서 섹션에 속합니다. 계정 소유자는 청구서 섹션에 대한 구독을 만들고 관리할 수 있습니다. |
 
-## <a name="changes-for-enterprise-administrators"></a>엔터프라이즈 관리자에 대 한 변경 내용
+## <a name="changes-for-enterprise-administrators"></a>엔터프라이즈 관리자를 위한 변경 내용
 
-다음 변경 내용을 엔터프라이즈 관리자가 Microsoft 고객 계약을 갱신 하는 기업 계약이 적용 됩니다.
+다음 변경 내용은 Microsoft 고객 계약으로 갱신된 기업계약의 엔터프라이즈 관리자에게 적용됩니다.
 
-- 청구 프로필 등록에 대해 만들어집니다. 기업 계약 등록 같은 조직에 대 한 청구를 관리 하는 청구 프로필을 사용 합니다. 청구 프로필에 자세히 알아보려면 [청구 프로필을 이해](billing-mca-overview.md#billing-profiles)합니다.
-- 송장 섹션을 각 부서 기업 계약 등록에 대해 생성 됩니다. 부서를 관리 하는 송장 섹션을 사용 합니다. 추가 부서를 설정 하려면 새 청구서 섹션을 만들 수 있습니다. 송장 섹션에 대 한 자세한 내용은 참조 하세요 [청구서 구역 이해](billing-mca-overview.md#invoice-sections)합니다.
-- 다른 사용자가 기업 계약 등록에서 만든 계정은 같은 Azure 구독을 만들 수 있는 권한이 있도록 송장 섹션에서 Azure 구독 작성자 역할을 사용 합니다.
-- 사용 하 여 합니다 [Azure portal](https://portal.azure.com) Azure EA 포털 대신 조직에 대 한 청구를 관리 합니다.
+- 등록에 대한 청구 프로필이 생성됩니다. 기업계약 등록과 비슷하게 청구 프로필을 사용하여 조직의 청구를 관리합니다. 청구 프로필에 대한 자세한 내용은 [청구 프로필 이해](billing-mca-overview.md#billing-profiles)를 참조하세요.
+- 기업계약 등록에 포함된 각 부서의 청구서 섹션이 생성됩니다. 이러한 청구서 섹션을 사용하여 부서를 관리합니다. 새 청구서 섹션을 만들어 추가 부서를 설정할 수 있습니다. 청구서 섹션에 대한 자세한 내용은 [청구서 섹션 이해](billing-mca-overview.md#invoice-sections)를 참조하세요.
+- 기업계약 등록에서 만든 계정처럼 청구서 섹션에서 Azure 구독 작성자 역할을 사용하여 다른 사람에게 Azure 구독을 만들 수 있는 권한을 부여합니다.
+- Azure EA Portal 대신 [Azure Portal](https://portal.azure.com)을 사용하여 조직의 청구를 관리합니다.
 
-다음 역할은 새 청구 계정에 제공 됩니다.
+새 청구 계정에 대한 다음 역할이 제공됩니다.
 
-**청구 프로필 소유자** -계약에 서명한 경우 생성 된 청구 프로필의 청구 프로필 소유자 역할이 할당 됩니다. 역할에는 조직에 대 한 청구를 관리할 수 있습니다. 요금과 청구서를 보려면 청구서의 비용을 구성 및 결제 방법 관리 조직의 대금 청구에 대 한 액세스를 제어할 수 있습니다.
+**청구 프로필 소유자** - 계약에 서명할 때 생성된 청구 프로필에 대한 청구 프로필 소유자 역할이 할당됩니다. 이 역할을 통해 조직의 요금 청구를 관리할 수 있습니다. 요금 및 청구서를 보고, 청구서의 비용을 구성하고, 결제 방법을 관리하고, 조직의 요금 청구에 대한 액세스를 제어할 수 있습니다.
 
-**송장 섹션 소유자** -기업 계약 등록의 학과 대해 만들어진 모든 송장 섹션에서 송장 섹션 소유자 역할이 할당 됩니다. 역할을 사용 하면 Azure 구독을 만들고 다른 제품을 구입할 수 있는 사용자를 제어 합니다.
+**청구서 섹션 소유자** - 기업계약 등록에 포함된 부서에 대해 만들어진 모든 청구서 섹션에서 청구서 섹션 소유자 역할이 할당됩니다. 이 역할을 통해 Azure 구독을 만들고 다른 제품을 구매할 수 있는 사용자를 제어할 수 있습니다.
 
-### <a name="view-charges-and-credits-balance-for-your-organization"></a>조직에 대 한 요금과 크레딧 잔액 확인
+### <a name="view-charges-and-credits-balance-for-your-organization"></a>조직의 요금 및 크레딧 잔액 보기
 
-청구 프로필을 사용 하 여 조직에 기업 계약 등록과 비슷합니다에 대 한 요금과 Azure 크레딧 잔액을 추적할 수 있습니다.
+기업계약 등록과 비슷하게 청구 프로필을 사용하여 조직의 요금 및 크레딧 잔액을 추적합니다.
 
-청구 프로필에 대 한 크레딧 잔액을 보는 방법에 알아보려면 참조 [청구 프로필에 대 한 Azure 크레딧 잔액을 추적할](billing-mca-check-azure-credits-balance.md)합니다.
+청구 프로필의 크레딧 잔액을 확인하는 방법은 [청구 프로필의 Azure 크레딧 잔액 추적](billing-mca-check-azure-credits-balance.md)을 참조하세요.
 
-청구 프로필에 대 한 요금을 보는 방법에 알아보려면 참조 [Microsoft 고객 계약의 청구서 요금 이해](billing-mca-understand-your-bill.md)합니다.
+청구 프로필의 요금을 확인하는 방법은 [Microsoft 고객 계약 청구서의 요금 이해](billing-mca-understand-your-bill.md)를 참조하세요.
 
-### <a name="view-charges-for-a-department"></a>부서에 대 한 요금 보기
+### <a name="view-charges-for-a-department"></a>부서 요금 보기
 
-송장 섹션을 기업 계약에서 제공 되었던 각 부서에 대해 생성 됩니다. Azure portal에는 송장 섹션에 대 한 요금을 볼 수 있습니다. 자세한 내용은 [청구서 섹션에서 트랜잭션을 보고](billing-mca-understand-your-bill.md#view-transactions-by-invoice-sections)합니다.
+기업계약에 포함된 각 부서에 대한 청구서 섹션이 생성됩니다. Azure Portal에서 청구서 섹션의 요금을 볼 수 있습니다. 자세한 내용은 [청구서 섹션별 트랜잭션 보기](billing-mca-understand-your-bill.md#view-transactions-by-invoice-sections)를 참조하세요.
 
-### <a name="view-charges-for-an-account"></a>계정에 대 한 요금 보기
+### <a name="view-charges-for-an-account"></a>계정 요금 보기
 
-기업 계약 등록에서 만들어진 계정은 새 청구 계정에 지원 되지 않습니다. 계정의 구독 부서에 대 한 해당 청구서 섹션에 속합니다. 계정 소유자를 만들고 해당 청구서 섹션에 대 한 구독을 관리할 수 있습니다.
+기업계약 등록에서 만든 계정은 새 청구 계정에서 지원되지 않습니다. 계정의 구독은 해당 부서의 각 청구서 섹션에 속합니다. 계정 소유자는 청구서 섹션에 대한 구독을 만들고 관리할 수 있습니다.
 
-계정에 속한 구독에 대 한 집계 비용을 보려면 각 구독에 대 한 비용 센터를 설정 해야 합니다. 비용 센터 별로 등록을 필터링 하 여 Azure 사용량 및 요금이 csv 파일을 사용할 수 있습니다.
+계정에 포함된 구독의 누적 비용을 보려면 각 구독에 대한 비용 센터를 설정해야 합니다. 그러면 Azure 사용량 및 요금 csv 파일을 사용하여 구독을 비용 센터로 필터링 할 수 있습니다.
 
-### <a name="download-usage-and-charges-csv-price-sheet-and-tax-documents"></a>다운로드 사용량 및 요금이 csv, 가격표, 및 세금 문서
+### <a name="download-usage-and-charges-csv-price-sheet-and-tax-documents"></a>사용량 및 요금 csv 파일, 가격표, 세금 문서 다운로드
 
-월별 청구서는 대금 청구 계정에서 청구 각 프로필에 대해 생성 됩니다. 각 청구서에 대해 해당 하는 경우 Azure 사용량 및 요금이 csv 파일, 가격표, 및 세금 문서 다운로드할 수 있습니다. 또한 이번 달 요금에 대 한 Azure 사용량 및 요금이 csv 파일을 다운로드할 수 있습니다.
+청구 계정의 각 청구 프로필에 대한 월별 청구서가 생성됩니다. 청구서별로 Azure 사용량 및 요금 csv 파일, 가격표, 세금 문서(해당하는 경우)를 다운로드할 수 있습니다. 이번 달 요금에 대한 Azure 사용량 및 요금 csv 파일을 다운로드할 수도 있습니다.
 
-Azure 사용량 및 요금이 csv 파일을 다운로드 하는 방법에 알아보려면 참조 [Microsoft 고객 계약에 대 한 사용 현황 다운로드](billing-download-azure-daily-usage.md#download-usage-for-your-microsoft-customer-agreement)합니다.
+Azure 사용량 및 요금 csv 파일을 다운로드하는 방법은 [Microsoft 고객 계약에 대한 사용량 다운로드](billing-download-azure-daily-usage.md#download-usage-for-your-microsoft-customer-agreement)를 참조하세요.
 
-가격표를 다운로드 하는 방법에 알아보려면 참조 [Microsoft 고객 계약에 대 한 가격 책정 다운로드](billing-ea-pricing.md#microsoft-customer-agreement-pricing)합니다.
+가격표를 다운로드하는 방법은 [Microsoft 고객 계약에 대한 가격표 다운로드](billing-ea-pricing.md#microsoft-customer-agreement-pricing)를 참조하세요.
 
-세금 문서를 다운로드 하는 방법에 알아보려면 참조 [Microsoft 고객 계약에 대 한 세금 문서를 보고](billing-mca-download-tax-document.md#view-and-download-tax-documents)합니다.
+세금 문서를 다운로드하는 방법은 [Microsoft 고객 계약에 대한 세금 문서 보기](billing-mca-download-tax-document.md#view-and-download-tax-documents)를 참조하세요.
 
-### <a name="add-an-additional-enterprise-administrator"></a>추가 엔터프라이즈 관리자를 추가 합니다.
+### <a name="add-an-additional-enterprise-administrator"></a>엔터프라이즈 관리자 추가
 
-보기 수 있도록 청구 프로필에 대 한 사용자 액세스를 제공 하 고 조직에 대 한 청구를 관리 합니다. 사용할 수는 **액세스 제어 (IAM)** 액세스 권한을 부여 하려면 Azure 포털의 페이지입니다.  청구 프로필 역할에 대 한 자세한 내용은 참조 하세요 [청구 프로필 역할 및 작업](billing-understand-mca-roles.md#billing-profile-roles-and-tasks)합니다.
+조직의 요금 청구를 살펴보고 관리할 수 있도록 사용자에게 청구 프로필에 대한 액세스 권한을 부여합니다. Azure Portal에서 **액세스 제어(IAM)** 페이지를 사용하여 액세스 권한을 부여할 수 있습니다.  청구 프로필 역할에 대한 자세한 내용은 [청구 프로필 역할 및 작업](billing-understand-mca-roles.md#billing-profile-roles-and-tasks)을 참조하세요.
 
-청구 프로필에 대 한 액세스를 제공 하는 방법에 알아보려면 참조 [Azure portal에서 청구 역할 관리](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)합니다.
+청구 프로필에 대한 액세스 권한을 제공하는 방법은 [Azure Portal에서 청구 역할 관리](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)를 참조하세요.
 
-### <a name="create-a-new-department"></a>새 학과 만들려면
+### <a name="create-a-new-department"></a>새 부서 만들기
 
-기업 계약 등록의 부서와 마찬가지로 요구 사항에 따라 비용을 구성 하는 송장 섹션을 만듭니다. Azure portal에서 새 청구서 섹션을 만들 수 있습니다. 자세한 내용은 참조 하세요 [비용을 구성 하려면 청구서에 섹션을 만들](billing-mca-section-invoice.md)합니다.
+기업계약 등록의 부서와 비슷하게 청구서 섹션을 만들어서 요구 사항에 따라 비용을 구성할 수 있습니다. Azure Portal에서 새 청구서 섹션을 만들 수 있습니다. 자세한 내용은 [청구서에 섹션을 만들어 비용 정리하기](billing-mca-section-invoice.md)를 참조하세요.
 
 ### <a name="create-a-new-account"></a>새 계정 만들기
 
-사용자가 기업 계약 등록에서 만든 계정은 같은 Azure 구독을 만들 수 있는 권한을 부여할 송장 섹션에서 Azure 구독 작성자 역할을 할당 합니다. 자세한 내용은 [다른 사용자가 Azure 구독을 만들 수 있는 권한이 있도록](billing-mca-create-subscription.md#give-others-permission)입니다.
+기업계약 등록에서 만든 계정처럼 청구서 섹션에서 사용자에게 Azure 구독 작성자 역할을 할당하여 Azure 구독을 만들 수 있는 권한을 부여합니다. 자세한 내용은 [다른 사용자에게 Azure 구독을 만들 수 있는 권한 부여](billing-mca-create-subscription.md#give-others-permission)를 참조하세요.
 
-## <a name="changes-for-department-administrators"></a>부서 관리자에 대 한 변경 내용
+## <a name="changes-for-department-administrators"></a>부서 관리자를 위한 변경 내용
 
-다음과 같이 변경 부서 관리자가 Microsoft 고객 계약을 갱신 하는 기업 계약이 적용 됩니다.
+다음 변경 내용은 Microsoft 고객 계약으로 갱신된 기업계약의 부서 관리자에게 적용됩니다.
 
-- 송장 섹션을 각 부서 기업 계약 등록에 대해 생성 됩니다. 송장 섹션이 부서를 관리 하려면 사용 합니다. 송장 섹션에 대 한 자세한 내용은 참조 하세요 [청구서 구역 이해](billing-mca-overview.md#invoice-sections)합니다.
-- 다른 사용자가 기업 계약 등록에서 만든 계정은 같은 Azure 구독을 만들 수 있는 권한이 있도록 송장 섹션에서 Azure 구독 작성자 역할을 사용 합니다.
-- Azure EA 포털 대신 조직에 대 한 청구를 관리 하려면 Azure portal을 사용 합니다.
+- 기업계약 등록에 포함된 각 부서의 청구서 섹션이 생성됩니다. 이러한 청구서 섹션을 사용하여 부서를 관리합니다. 청구서 섹션에 대한 자세한 내용은 [청구서 섹션 이해](billing-mca-overview.md#invoice-sections)를 참조하세요.
+- 기업계약 등록에서 만든 계정처럼 청구서 섹션에서 Azure 구독 작성자 역할을 사용하여 다른 사람에게 Azure 구독을 만들 수 있는 권한을 부여합니다.
+- Azure EA Portal 대신 Azure Portal을 사용하여 조직의 청구를 관리합니다.
 
-다음 역할은 새 청구 계정에 제공 됩니다.
+새 청구 계정에 대한 다음 역할이 제공됩니다.
 
-**송장 섹션 소유자** -부서 기업 계약에 대해 생성 된 송장 섹션에서 송장 섹션 소유자 역할이 할당 됩니다. 역할 및 보기 및 추적 비용 제어 송장 섹션에 대 한 다른 제품을 구입 하 고 Azure 구독을 만들 수 있는 수 있습니다.
+**청구서 섹션 소유자** - 기업계약에 포함된 부서에 대해 만들어진 청구서 섹션에서 청구서 섹션 소유자 역할이 할당됩니다. 이 역할을 통해 요금을 살펴보고 추적할 수 있으며, 청구서 섹션에 대한 Azure 구독을 만들고 다른 제품을 구매할 수 있는 사용자를 제어할 수 있습니다.
 
-### <a name="view-charges-for-your-department"></a>부서에 대 한 요금 보기
+### <a name="view-charges-for-your-department"></a>부서 요금 보기
 
-Azure 포털의 부서를 만들어지는 송장 섹션에 대 한 요금을 볼 수 있습니다 [Cost Management + 청구 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview)합니다.
+Azure Portal의 [Cost Management + 청구 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview)에서 부서별로 생성된 청구서 섹션의 요금을 볼 수 있습니다.
 
-### <a name="add-an-additional-department-administrator"></a>추가 부서 관리자 추가
+### <a name="add-an-additional-department-administrator"></a>부서 관리자 추가
 
-송장 섹션을 기업 계약에서 제공 되었던 각 부서에 대해 생성 됩니다. 사용할 수는 **액세스 제어 (iam)** 다른 보기 및 송장 섹션 관리에 대 한 액세스를 부여 하려면 Azure 포털의 페이지입니다. 송장 섹션 역할에 대 한 자세한 내용은 참조 하세요 [송장 섹션 역할 및 태스크](billing-understand-mca-roles.md#invoice-section-roles-and-tasks)합니다.
+기업계약에 포함된 각 부서에 대한 청구서 섹션이 생성됩니다. Azure Portal에서 **액세스 제어(IAM)** 페이지를 사용하여 다른 사람에게 청구서 섹션을 살펴보고 관리하는 권한을 부여할 수 있습니다. 청구서 섹션 역할에 대한 자세한 내용은 [청구서 섹션 역할 및 작업](billing-understand-mca-roles.md#invoice-section-roles-and-tasks)을 참조하세요.
 
-송장 섹션에 대 한 액세스를 제공 하는 방법에 알아보려면 참조 [Azure portal에서 청구 역할 관리](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)합니다.
+청구서 섹션에 대한 액세스 권한을 제공하는 방법은 [Azure Portal에서 청구 역할 관리](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)를 참조하세요.
 
-### <a name="create-a-new-account-in-your-department"></a>부서에서 새 계정 만들기
+### <a name="create-a-new-account-in-your-department"></a>부서의 새 계정 만들기
 
-사용자 부서에서 사용자에 대해 생성 된 송장 섹션에서 Azure 구독 작성자 역할을 할당 합니다. 자세한 내용은 [다른 사용자가 Azure 구독을 만들 수 있는 권한이 있도록](billing-mca-create-subscription.md#give-others-permission)입니다.
+부서별로 생성된 청구서 섹션에서 사용자에게 Azure 구독 작성자 역할을 할당합니다. 자세한 내용은 [다른 사용자에게 Azure 구독을 만들 수 있는 권한 부여](billing-mca-create-subscription.md#give-others-permission)를 참조하세요.
 
-### <a name="view-charges-for-accounts-in-your-departments"></a>학부에서 계정에 대 한 요금 보기
+### <a name="view-charges-for-accounts-in-your-departments"></a>부서 내 계정의 요금 보기
 
-기업 계약 등록에서 만들어진 계정은 새 청구 계정에 지원 되지 않습니다. 계정의 구독 부서에 대 한 해당 청구서 섹션에 속합니다. 계정 소유자를 만들고 해당 청구서 섹션에 대 한 구독을 관리할 수 있습니다.
+기업계약 등록에서 만든 계정은 새 청구 계정에서 지원되지 않습니다. 계정의 구독은 해당 부서의 각 청구서 섹션에 속합니다. 계정 소유자는 청구서 섹션에 대한 구독을 만들고 관리할 수 있습니다.
 
-부서에 속한 계정에 속한 구독에 대 한 집계 비용을 보려면 각 구독에 대 한 비용 센터를 설정 해야 합니다. 비용 센터 별로 등록을 필터링 하 여 Azure 사용량 및 요금 파일을 사용할 수 있습니다.
+부서 내 계정에 포함된 구독의 누적 비용을 보려면 각 구독에 대한 비용 센터를 설정해야 합니다. 그러면 Azure 사용량 및 요금 파일을 사용하여 구독을 비용 센터로 필터링 할 수 있습니다.
 
-## <a name="changes-for-account-owners"></a>계정 소유자에 대 한 변경 내용
+## <a name="changes-for-account-owners"></a>계정 소유자를 위한 변경 내용
 
-기업 계약에서 계정 소유자는 새 청구 계정에 Azure 구독을 만들 수 있는 권한을 가져옵니다. 기존 Azure 구독의 부서에서 사용자에 대해 생성 된 송장 섹션에 속합니다. 계정의 부서에 속하지 않습니다, 구독 기본 송장 섹션 이라는 송장 섹션을에 속해야 합니다.
+기업계약의 계정 소유자는 새 청구 계정에서 Azure 구독을 만들 수 있는 권한을 갖게 됩니다. 기존 Azure 구독은 부서별로 생성된 청구서 섹션에 속합니다. 계정이 부서에 속해 있지 않으면 구독은 기본 청구서 섹션이라는 청구서 섹션에 소속됩니다.
 
-추가 Azure 구독을 만들려면 다음과 같은 역할을 새 청구 계정에 제공 됩니다.
+추가 Azure 구독을 만들 수 있도록 새 청구 계정에서 다음 역할이 제공됩니다.
 
-**Azure 구독 작성자** -을 기업 계약에서 부서 만들어지는 송장 섹션에서 azure 구독 작성자 역할을 할당 됩니다. 계정의 부서에 속하지 않습니다, 경우 기본 송장 섹션 라는 섹션에서 Azure 구독 작성자 역할을 가져옵니다. 역할을 통해 청구서 섹션에 대 한 Azure 구독을 만들 수 있습니다.
+**Azure 구독 작성자** - 기업계약의 부서별로 생성된 청구서 섹션에서 Azure 구독 작성자 역할이 할당됩니다. 계정이 부서에 속해 있지 않으면 기본 청구서 섹션이라는 섹션에서 Azure 구독 작성자 역할이 할당됩니다. 이 역할을 통해 청구서 섹션에 대한 Azure 구독을 만들 수 있습니다.
 
 ### <a name="create-an-azure-subscription"></a>Azure 구독을 만듭니다.
 
-Azure portal에서 청구서 섹션에 대 한 Azure 구독을 만들 수 있습니다. 자세한 내용은 참조 하세요. [Microsoft 고객 계약에 대 한 추가 Azure 구독 만들기](billing-mca-create-subscription.md)
+Azure Portal에서 청구서 섹션에 대한 Azure 구독을 만들 수 있습니다. 자세한 내용은 [Microsoft 고객 계약에 대한 추가 Azure 구독 만들기](billing-mca-create-subscription.md)를 참조하세요.
 
-### <a name="view-charges-for-your-account"></a>계정에 대 한 요금 보기
+### <a name="view-charges-for-your-account"></a>계정 요금 보기
 
-계정에 속한 구독에 대 한 요금을 보려면로 이동 합니다 [구독 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) Azure portal에서 합니다. 구독 페이지에는 모든 구독에 대 한 요금이 표시 됩니다.
+계정에 속한 구독의 요금을 보려면 Azure Portal에서 [구독 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)로 이동합니다. 구독 페이지에는 모든 구독의 요금이 표시됩니다.
 
-### <a name="view-charges-for-a-subscription"></a>구독에 대 한 요금 보기
+### <a name="view-charges-for-a-subscription"></a>구독 요금 보기
 
-하거나 구독에 대 한 요금을 볼 수 있습니다에 [구독 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) 또는 Azure 비용 분석 합니다. Azure 비용 분석에 대 한 자세한 내용은 참조 하세요. [탐색 및 분석 비용 분석을 사용 하 여 비용](../cost-management/quick-acm-cost-analysis.md)합니다.
+[구독 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) 또는 Azure 비용 분석에서 구독 요금을 볼 수 있습니다. Azure 비용 분석에 대한 자세한 내용은 [비용 분석을 사용하여 비용 탐색 및 분석](../cost-management/quick-acm-cost-analysis.md)을 참조하세요.
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원 문의
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Microsoft 고객 계약에 대 한 대금 청구 계정 이해](billing-mca-overview.md)
+- [Microsoft 고객 계약에 대한 청구 계정 이해](billing-mca-overview.md)
 - [청구서 이해](billing-understand-your-bill.md)
 - [요금 청구 방식](billing-understand-your-invoice.md)
-- [다른 사용자의 Azure 구독의 소유권 청구](billing-mca-request-billing-ownership.md)
+- [다른 사용자로부터 Azure 구독의 청구 소유권 받기](billing-mca-request-billing-ownership.md)

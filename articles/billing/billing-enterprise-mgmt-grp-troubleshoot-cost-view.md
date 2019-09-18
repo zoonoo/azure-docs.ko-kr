@@ -12,17 +12,17 @@ ms.date: 07/01/2019
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 83f7f424b265582a3830c02973cbbb9962ddfbfb
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67491271"
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>기업 비용 보기 문제 해결
 
 기업 등록계약 내에 등록된 사용자에게 비용이 표시되지 않도록 하는 여러 설정이 있습니다.  이러한 설정은 등록 관리자가 관리합니다. 또는 Microsoft를 통해 직접 등록을 구입하지 않은 경우 파트너가 설정을 관리합니다.  이 문서를 통해 이러한 설정이 무엇이고 등록에 미치는 영향을 이해할 수 있습니다. 이러한 설정은 Azure RBAC(역할 기반 액세스 제어) 역할과는 별개입니다.
 
-## <a name="enable-access-to-costs"></a>비용에 대 한 액세스를 사용 하도록 설정
+## <a name="enable-access-to-costs"></a>비용에 대한 액세스 사용
 
 비용 정보를 검색할 때 권한 없음 또는 *"등록에서 비용 보기를 사용할 수 없습니다."* 라는 메시지가 표시되나요?
 ![구독에 대한 현재 비용 필드에 “권한 없음”이 표시된 스크린샷](media/billing-enterprise-mgmt-groups/unauthorized.png)
@@ -39,7 +39,7 @@ ms.locfileid: "67491271"
 
 ## <a name="asset-is-unavailable"></a>자산을 사용할 수 없음
 
-오류 메시지가 표시 되 면 **이 자산을 사용할 수 없는** 에서 구독 또는 관리 그룹에 액세스 하려고 하면 다음 없는 올바른 역할이이 항목을 보려면.  
+구독 또는 관리 그룹에 액세스하려고 할 때 **이 자산을 사용할 수 없습니다.** 라는 오류 메시지가 표시되는 경우에는 이 항목을 볼 수 있는 올바른 역할이 없는 것입니다.  
 
 ![“자산을 사용할 수 없음” 메시지를 보여 주는 스크린샷](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 

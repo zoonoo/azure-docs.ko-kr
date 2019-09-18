@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/11/2019
-ms.openlocfilehash: 1e30650f932d15d23d7ffe7bd9b9fe07e9872511
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 64062aeab9a807d2aee7f4bca05d4019a3d9b736
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891609"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858639"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>자습서: 그래픽 인터페이스를 사용하여 기계 학습 모델 배포
 
@@ -118,6 +118,8 @@ REST 호출 샘플은 웹 서비스 세부 정보 페이지의 **사용** 탭에
 1. **배포**를 선택합니다. 그러면 모델을 사용하는 모든 웹 서비스가 나열됩니다. 웹 서비스 이름을 선택합니다. 그러면 웹 서비스 세부 정보 페이지로 이동합니다. 다음 페이지에서 웹 서비스에 대한 자세한 정보를 얻을 수 있습니다.
 
     [![자세한 실행 보고서의 스크린샷](./media/ui-tutorial-automobile-price-deploy/deployment-details.png)](./media/ui-tutorial-automobile-price-deploy/deployment-details.png#lightbox)
+
+[작업 영역 방문 페이지(미리 보기)](https://ml.azure.com)의 **모델** 및 **엔드포인트** 섹션에서 이러한 모델 및 배포를 찾을 수도 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

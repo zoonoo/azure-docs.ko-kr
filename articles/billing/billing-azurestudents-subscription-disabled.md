@@ -16,10 +16,10 @@ ms.date: 03/01/2018
 ms.author: banders
 ROBOTS: NOINDEX
 ms.openlocfilehash: 7d41e9b7774bf8840db9e729d3aa9371f5bac04f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "60615914"
 ---
 # <a name="why-is-my-azure-for-students-subscription-disabled-and-how-do-i-reactivate-it"></a>학생용 Azure 구독이 비활성화되는 이유와 다시 활성화하는 방법은 무엇인가요?
@@ -41,7 +41,7 @@ Azure for Students 구독은 크레딧을 모두 사용했거나 크레딧이 �
 
     ![학생용 Azure 크레딧의 사용량 정보를 보여주는 스크린샷](./media/billing-azurestudents-subscription-disabled/azurestudents-credit-usage.png)
 
-테이블에는 다음 열이 있습니다.
+표에는 다음 열이 포함됩니다.
 
 * **서비스 이름:** Azure 크레딧이 소비되는 서비스입니다.
 * **서비스 리소스:** 소비되는 서비스에 대한 측정 단위입니다.
@@ -57,4 +57,4 @@ Azure for Students 구독을 실수로 취소한 경우 [Azure 지원](https://p
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
-문의 사항이 있거나 도움이 필요한 경우 [지원 요청을 만드는](https://go.microsoft.com/fwlink/?linkid=2083458)합니다.
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).

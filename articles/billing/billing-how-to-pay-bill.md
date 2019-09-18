@@ -1,7 +1,7 @@
 ---
-title: Microsoft azure 청구서를 지불 | Microsoft Docs
-description: Azure portal에서 청구서를 지불 하는 방법을 설명 합니다.
-keywords: 대금 청구, 기한, 분산, 이제 비용을 지불 합니다.
+title: Microsoft Azure에 대한 청구서 지불 | Microsoft Docs
+description: Azure Portal에서 청구서를 지불하는 방법을 설명합니다.
+keywords: 청구, 기한 초과, 잔액, 지금 지불
 services: billing
 documentationcenter: ''
 author: jureid
@@ -16,43 +16,43 @@ ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: banders
 ms.openlocfilehash: acb361cb2fd261265339fddca83c4f1b2e59a1c5
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67495546"
 ---
-# <a name="how-to-pay-your-bill-for-microsoft-azure"></a>Microsoft azure 청구서를 지불 하는 방법
+# <a name="how-to-pay-your-bill-for-microsoft-azure"></a>Microsoft Azure에 대한 청구서를 지불하는 방법
 
-이 문서에서는 Azure 웹 사이트를 통해 Azure에 등록 하는 Microsoft 고객 계약을 맺은 고객에 게 적용 됩니다. [Microsoft 고객 계약에 대 한 액세스 확인](#check-access-to-a-microsoft-customer-agreement)합니다.
+이 문서는 Azure 웹 사이트를 통해 Azure에 등록한 Microsoft 고객 계약을 체결한 고객에게 적용됩니다. [Microsoft 고객 계약에 대한 액세스를 확인합니다](#check-access-to-a-microsoft-customer-agreement).
 
-청구 프로필의 기본 결제 방법 수 신용 카드 하거나 확인/통신 전송 합니다. Azure 크레딧 경우 해당 자동으로 적용할 청구서 각 청구 기간입니다. 참조 확인/전신 송금로 지불 하도록 자격이 [청구서로 지불 하는 방법을](billing-how-to-pay-by-invoice.md)합니다.
+청구 프로필의 기본 결제 방법은 신용 카드나 수표/전신 송금일 수 있습니다. Azure 크레딧을 보유한 경우 각 청구 기간마다 청구서에 자동으로 적용됩니다. 수표/전신 송금으로 지불하려면 [청구서로 지불하는 방법](billing-how-to-pay-by-invoice.md)을 참조하세요.
 
-기본 결제 방법 확인/전신 송금 인 경우 청구서 아래쪽에 나열 된 주소에 결제 금액을 보낼 수 있습니다. 또는 지불 하 온라인 Azure portal에서 신용 카드를 사용 하 여 합니다.
+기본 결제 방법이 수표/전신 송금인 경우 청구서 아래쪽에 나열된 주소로 지불을 보낼 수 있습니다. 또는 Azure Portal에서 신용 카드를 사용하여 온라인으로 요금을 지불할 수 있습니다.
 
-기본 결제 방법 신용 카드 이면 자동으로 부과 신용 카드 각 청구 기간의 청구서 생성 후 합니다. 또한 지불 하 온라인 Azure portal에서 자동 충전 실패 하거나 다른 신용 카드를 사용 하려는 경우.
+기본 결제 방법이 신용 카드인 경우 청구서가 생성된 후 각 청구 기간에 대해 신용 카드로 자동으로 결제됩니다. 다른 신용 카드를 사용하려고 하거나 자동 요금이 발생하지 않는 경우 Azure Portal에서 온라인으로 지불할 수도 있습니다.
 
-## <a name="pay-now-in-the-azure-portal"></a>Azure portal에서 지금 지불
+## <a name="pay-now-in-the-azure-portal"></a>Azure Portal에서 지금 지불
 
-Azure portal에서 청구서 지불 청구 프로필 소유자, 참가자 또는 송장 관리자 여야 합니다.
+청구 프로필 소유자, 기여자, 독자 또는 청구서 관리자여야 Azure Portal에서 청구서를 지불할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **Cost Management + 청구**에서 검색합니다.
-1. 에 **개요** 블레이드를 클릭 합니다 *요약* 탭.
+1. **개요** 블레이드에서 *요약* 탭을 클릭합니다.
 
     ![요약 탭을 보여 주는 스크린샷](./media/billing-how-to-pay-bill/billing-account-overview.png)
 
-1. 기한이 있는 경우 또는 기한이 지 나 송장, 총 금액 표시 됩니다.
-1. 파란색 클릭 **지금 지불** 단추입니다.
+1. 기한이거나 기한이 초과된 청구서인 경우 총 지불액이 표시됩니다.
+1. 파란색 **지금 지불** 단추를 클릭합니다.
 
-    ![이제 단추를 지불 보여 주는 스크린샷](./media/billing-how-to-pay-bill/paynow-button-overview.png)
+    ![지금 지불 단추를 보여 주는 스크린샷](./media/billing-how-to-pay-bill/paynow-button-overview.png)
 
-1. 새 블레이드에서 클릭 **지불 방법을 선택한** 기존 신용 카드를 선택 하거나 새 계정을 추가 합니다.<!-- screenshot of select payment method link -->
-1. 결제 방법 선택 되 면 클릭 **지금 지불**합니다.
+1. 새 블레이드에서 **결제 방법 선택**을 클릭하여 기존 신용 카드를 선택하거나 새 신용 카드를 추가합니다.<!-- screenshot of select payment method link -->
+1. 결제 방법을 선택했으면 **지금 지불**을 클릭합니다.
 
-청구서의 상태를 지불 청구서 블레이드에서 업데이트 됩니다. 
+청구서의 상태는 청구서 블레이드에서 지불로 업데이트됩니다. 
 
 <!-- pay now from invoice blade -->
 
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대 한 액세스를 확인 합니다.
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 액세스 확인
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]

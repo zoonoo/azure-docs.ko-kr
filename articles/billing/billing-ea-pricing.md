@@ -1,6 +1,6 @@
 ---
-title: 보기 및 조직의 Azure 가격 책정 다운로드
-description: 보기 및 가격 책정을 다운로드 하거나 조직의 가격으로 비용을 예상 하는 방법에 알아봅니다.
+title: 조직의 Azure 가격 책정 보기 및 다운로드
+description: 조직의 가격 책정으로 가격 책정 또는 예상 비용을 살펴보고 다운로드하는 방법을 알아봅니다.
 author: bandersmsft
 manager: jureid
 tags: billing
@@ -13,22 +13,22 @@ ms.date: 07/01/2019
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: a7f7da197a06dbbb730a7386882e534b8381cf9e
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67491363"
 ---
-# <a name="view-and-download-your-organizations-azure-pricing"></a>보기 및 조직의 Azure 가격 책정 다운로드
+# <a name="view-and-download-your-organizations-azure-pricing"></a>조직의 Azure 가격 책정 보기 및 다운로드
 
-Azure 고객에 게는 Azure 엔터프라이즈 규약 (EA) 또는 [Microsoft 고객 계약](#check-your-access-to-a-microsoft-customer-agreement) 확인 및 Azure portal에서 가격을 다운로드할 수 있습니다.
+Azure EA(기업계약) 또는 [Microsoft 고객 계약](#check-your-access-to-a-microsoft-customer-agreement)이 있는 Azure 고객은 Azure Portal의 가격 책정을 보고 다운로드할 수 있습니다.
 
-## <a name="ea-pricing"></a>EA 가격
+## <a name="ea-pricing"></a>EA 가격 책정
 
 엔터프라이즈 관리자가 조직에 대해 설정한 정책에 따라 특정 관리 역할만 조직의 EA 가격 정보에 대한 액세스 권한을 제공합니다. 자세한 내용은 [Azure의 Azure 기업계약 관리 역할 이해](billing-understand-ea-roles.md)를 참조하세요.
 
-1. 엔터프라이즈 관리자로 로그인 합니다 [Azure portal](https://portal.azure.com/)합니다.
-1. 검색할 *비용 관리 + 청구*합니다.
+1. 엔터프라이즈 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. *Cost Management + 청구*를 검색합니다.
 
    ![Azure Portal 검색을 보여 주는 스크린샷](./media/billing-ea-pricing/portal-cm-billing-search.png)
 
@@ -44,35 +44,35 @@ Azure 고객에 게는 Azure 엔터프라이즈 규약 (EA) 또는 [Microsoft �
 
 ## <a name="microsoft-customer-agreement-pricing"></a>Microsoft 고객 계약 가격 책정
 
-청구 프로필 소유자, 참가자, 판독기 또는 송장 관리자로 보려면 가격 책정을 다운로드 하 여야 합니다. 자세한 청구 역할에 대 한 Microsoft 고객 계약에 대 한 참조 [청구 프로필 역할 및 작업](billing-understand-mca-roles.md#billing-profile-roles-and-tasks)합니다.
+가격 책정을 보고 다운로드하려면 청구 프로필 소유자, 기여자, 독자 또는 청구서 관리자여야 합니다. Microsoft 고객 계약의 청구 역할에 대해 자세히 알아보려면 [청구 프로필 역할 및 작업](billing-understand-mca-roles.md#billing-profile-roles-and-tasks)을 참조하세요.
 
-### <a name="download-price-sheets-for-the-current-billing-period"></a>현재 청구 기간의 가격표 다운로드
-
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
-1. 검색할 *비용 관리 + 청구*합니다.
-1. 청구 프로필을 선택 합니다. 액세스를 따라 대금 청구 계정을 먼저 선택 해야 할 수 있습니다.
-1. 에 **개요** 영역, 월-일 요금은 아래 다운로드 링크를 찾습니다.
-1. 선택 **Azure 가격표**합니다.
-![다운로드 개요에서 보여 주는 스크린샷](./media/billing-ea-pricing/open-pricing.png)
-
-### <a name="download-price-sheets-for-billed-charges"></a>청구 요금에 대 한 가격표를 다운로드 합니다.
+### <a name="download-price-sheets-for-the-current-billing-period"></a>현재 청구 기간에 대한 가격표 다운로드
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
-1. 검색할 *비용 관리 + 청구*합니다.
-1. 청구 프로필을 선택 합니다. 액세스를 따라 대금 청구 계정을 먼저 선택 해야 할 수 있습니다.
+1. *Cost Management + 청구*를 검색합니다.
+1. 청구 프로필을 선택합니다. 액세스 권한에 따라 청구 계정을 먼저 선택해야 할 수도 있습니다.
+1. **개요** 영역에서 월간 누계 요금 아래의 다운로드 링크를 찾습니다.
+1. **Azure 가격표**를 선택합니다.
+![개요에서 다운로드를 보여 주는 스크린샷](./media/billing-ea-pricing/open-pricing.png)
+
+### <a name="download-price-sheets-for-billed-charges"></a>청구 요금에 대한 가격표 다운로드
+
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. *Cost Management + 청구*를 검색합니다.
+1. 청구 프로필을 선택합니다. 액세스 권한에 따라 청구 계정을 먼저 선택해야 할 수도 있습니다.
 1. **청구서**를 선택합니다.
-1. 송장 그리드에서 다운로드 하려는 가격표에 해당 청구서의 행을 찾습니다.
-1. 줄임표 (`...`) 행의 끝입니다.
-![선택 하는 줄임표 (...)를 보여 주는 스크린샷](./media/billing-ea-pricing/billingprofile-invoicegrid.png)
+1. 청구서 그리드에서 다운로드하려는 가격표에 해당하는 청구서의 행을 찾습니다.
+1. 행 끝에 있는 줄임표(`...`)를 클릭합니다.
+![선택한 줄임표를 보여 주는 스크린샷](./media/billing-ea-pricing/billingprofile-invoicegrid.png)
 
-1. 선택한 청구서의 서비스 가격은 참조 하려는 경우 선택 **청구서 가격표**합니다.
-1. 지정된 된 청구 기간에 대 한 모든 Azure 서비스에 대 한 가격을 보려면 원하는 경우 선택할 **Azure 가격표**합니다.
+1. 선택한 청구서에서 서비스에 대한 가격을 확인하려면 **청구서 가격표**를 선택합니다.
+1. 지정된 청구 기간에 대한 모든 Azure 서비스의 가격을 확인하려면 **Azure 가격표**를 선택합니다.
 
-![가격표를 사용 하 여 상황에 맞는 메뉴를 보여 주는 스크린샷](./media/billing-ea-pricing/contextmenu-pricesheet.png)
+![가격표가 있는 상황에 맞는 메뉴를 보여 주는 스크린샷](./media/billing-ea-pricing/contextmenu-pricesheet.png)
 
-## <a name="estimate-costs-with-the-azure-pricing-calculator"></a>Azure 가격 계산기를 사용 하 여 비용을 예상 합니다.
+## <a name="estimate-costs-with-the-azure-pricing-calculator"></a>Azure 가격 책정 계산기가 있는 비용 예상
 
-사용할 수도 있습니다 조직의 가격 Azure 가격 계산기를 사용 하 여 비용을 예측 합니다.
+조직의 가격 책정을 사용하여 Azure 가격 책정 계산기로 비용을 예상할 수도 있습니다.
 
 1. [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator)로 이동합니다.
 1. 오른쪽 맨 위에서 **로그인**을 선택합니다.
@@ -83,25 +83,25 @@ Azure 고객에 게는 Azure 엔터프라이즈 규약 (EA) 또는 [Microsoft �
 
 1. 조직을 선택합니다.
 1. **적용**을 선택합니다.
-1. 검색 하 고 견적에 제품을 추가 합니다.
+1. 제품을 검색한 다음, 예상에 추가합니다.
 1. 표시된 예상 가격은 선택한 조직의 가격을 기준으로 합니다.
 
-## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대 한 액세스를 확인 합니다.
+## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 액세스 확인
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
-EA 고객 인 경우 참조 하세요.
+EA 고객인 경우 다음을 참조하세요.
 
-- [Azure에 대 한 EA 청구 정보에 대 한 액세스 관리](billing-manage-access.md)
-- [보기 및 Microsoft Azure 청구서를 다운로드 합니다.](billing-download-azure-invoice.md)
-- [에 Microsoft Azure 사용 및 요금 보기 및 다운로드](billing-download-azure-daily-usage.md)
-- [기업 계약 고객에 대 한 요금 청구 방식](billing-understand-your-bill-ea.md)
+- [Azure의 EA 청구 정보에 대한 액세스 관리](billing-manage-access.md)
+- [Microsoft Azure 청구서 보기 및 다운로드](billing-download-azure-invoice.md)
+- [Microsoft Azure 사용량 및 요금 보기 및 다운로드](billing-download-azure-daily-usage.md)
+- [기업계약 고객에 대한 청구서 이해](billing-understand-your-bill-ea.md)
 
-Microsoft 고객 계약에 있는 경우 참조 하세요.
+Microsoft 고객 계약이 있는 경우 다음을 참조하세요.
 
-- [Microsoft 고객 계약에 가격표의 용어 이해](billing-mca-understand-pricesheet.md)
-- [보기 및 Microsoft Azure 청구서를 다운로드 합니다.](billing-download-azure-invoice.md)
-- [에 Microsoft Azure 사용 및 요금 보기 및 다운로드](billing-download-azure-daily-usage.md)
-- [보기 및 요금 청구 프로필에 대 한 세금 문서를 다운로드 합니다.](billing-mca-download-tax-document.md)
-- [청구 프로필의 청구서 요금 이해](billing-mca-understand-your-bill.md)
+- [Microsoft 고객 계약에 대한 가격표에서 사용 약관 이해](billing-mca-understand-pricesheet.md)
+- [Microsoft Azure 청구서 보기 및 다운로드](billing-download-azure-invoice.md)
+- [Microsoft Azure 사용량 및 요금 보기 및 다운로드](billing-download-azure-daily-usage.md)
+- [청구 프로필에 대한 세금 문서 보기 및 다운로드](billing-mca-download-tax-document.md)
+- [청구 프로필 청구서의 요금 이해](billing-mca-understand-your-bill.md)

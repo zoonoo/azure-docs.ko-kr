@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 09/11/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: b982e0bcd87a60e29b11c7123fbe5d675ab017b3
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 03ca6163b4f788d50f7f27a2fcaf2c9b6c02d84c
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390418"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910108"
 ---
 ::: zone target="chromeless"
 
@@ -52,7 +52,7 @@ ms.locfileid: "70390418"
 
 다음 단계는 디바이스를 반송하는 위치에 따라 결정됩니다. 지침은 미국/캐나다, EU(유럽 연합) 오스트레일리아 또는 아시아 국가에 따라 다릅니다.
 
-### <a name="pick-up-in-us-canada"></a>미국, 캐나다에서 픽업
+### <a name="in-us-or-canadatabin-us-or-canada"></a>[미국 또는 캐나다에서](#tab/in-us-or-canada)
 
 미국 또는 캐나다에서 디바이스를 반송하는 경우 다음 단계를 수행합니다.
 
@@ -68,7 +68,7 @@ ms.locfileid: "70390418"
     - 추적 번호를 알려주지 않으면 픽업 시 UPS에서 추가 요금을 지불하도록 요구합니다.
     - 픽업을 예약하는 대신 가장 가까운 반납 위치에 Data Box Disk를 반납할 수도 있습니다.
 
-### <a name="pick-up-in-europe"></a>유럽에서 픽업
+### <a name="in-europetabin-europe"></a>[유럽에서](#tab/in-europe)
 
 유럽에서 디바이스를 반송하는 경우 다음 단계를 수행합니다.
 
@@ -81,7 +81,7 @@ ms.locfileid: "70390418"
 4. 국가/지역 DHL Express 웹 사이트로 이동하고 **Courier 컬렉션 예약 > eReturn 배송**을 선택합니다.    
 3. 운송장 번호를 지정하고 **픽업 예약**을 클릭하여 픽업을 준비합니다.
 
-### <a name="pick-up-in-australia"></a>오스트레일리아에서 픽업
+### <a name="in-australiatabin-australia"></a>[오스트레일리아에서](#tab/in-australia)
 
 오스트레일리아의 Azure 데이터 센터에는 추가 보안 알림이 있습니다. 모든 인바운드 배송에는 고급 알림이 있어야 합니다. 오스트레일리아에서 픽업하려면 다음 단계를 수행합니다.
 
@@ -89,9 +89,9 @@ ms.locfileid: "70390418"
 3. 상자에 레이블을 부착합니다. 
 4. 링크 https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference 에서 온라인으로 픽업을 예약합니다. 
 
-### <a name="pick-up-in-asia"></a>아시아에서 픽업
+### <a name="in-japan-koreatabin-japan-korea"></a>[일본, 대한민국에서](#tab/in-japan-korea)
 
-픽업 지침은 일본, 대한민국 및 싱가포르에 따라 다릅니다.
+일본 및 대한민국에 대한 픽업 지침은 다음과 같습니다.
 
 #### <a name="pick-up-in-japan"></a>일본에서 픽업
 
@@ -134,7 +134,8 @@ ms.locfileid: "70390418"
     3. 택배 회사에서 수집을 위해 도착하지 않으면 *Quantium Solutions International* 핫라인으로 전화를 걸어 대체 예약을 요청합니다. 
     4. 전화를 통해 요청하는 경우 구두 확인 메시지를 받습니다.
 
-#### <a name="pick-up-in-singapore"></a>싱가포르에서 픽업
+
+### <a name="in-singaporetabin-singapore"></a>[싱가포르에서](#tab/in-singapore)
 
 1. 포장용 레이블을 인쇄하고 상자에 부착합니다. 레이블이 손상되었거나 손실된 경우 다음을 수행합니다.
     - **개요 > 배송 레이블 다운로드**로 이동하여 반송 포장용 레이블을 가져옵니다.

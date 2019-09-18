@@ -1,27 +1,27 @@
 ---
 title: '빠른 시작: 사용자 지정 음성 우선 가상 도우미(미리 보기), C#(UWP) - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 Cognitive Services Speech SDK(소프트웨어 개발 키트)를 사용하여 C# UWP(유니버설 Windows 플랫폼) 애플리케이션을 만듭니다. 이전에 Direct Line Speech 채널을 사용하도록 만들고 구성한 Bot Framework에 클라이언트 애플리케이션을 연결합니다. 이 애플리케이션은 Speech SDK NuGet 패키지 및 Microsoft Visual Studio 2017로 빌드되었습니다.
+description: 이 문서에서는 Cognitive Services Speech SDK(소프트웨어 개발 키트)를 사용하여 C# UWP(유니버설 Windows 플랫폼) 애플리케이션을 만듭니다. 이전에 Direct Line Speech 채널을 사용하도록 만들고 구성한 Bot Framework에 클라이언트 애플리케이션을 연결합니다. 이 애플리케이션은 Speech SDK NuGet 패키지 및 Microsoft Visual Studio 2019로 빌드되었습니다.
 services: cognitive-services
 author: trrwilson
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
+ms.date: 08/19/2019
 ms.author: travisw
-ms.openlocfilehash: 6d88bcc6d9d2c2e46ef3a3cb841c9268a544e37c
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: c676e98eb812a31d6fb8d7cc0f58929f803c868e
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609695"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382177"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>빠른 시작: Speech SDK UWP를 사용하여 음성 우선 가상 도우미 만들기
 
-빠른 시작은 [음성 텍스트 변환](quickstart-csharp-uwp.md), [텍스트 음성 변환](quickstart-text-to-speech-csharp-uwp.md) 및 [음성 번역](quickstart-translate-speech-uwp.md)에도 사용할 수 있습니다.
+빠른 시작은 [음성 인식](quickstart-csharp-uwp.md), [음성 합성](quickstart-text-to-speech-csharp-uwp.md) 및 [음성 번역](quickstart-translate-speech-uwp.md)에도 사용할 수 있습니다.
 
-이 문서에서는 [Speech SDK](speech-sdk.md)를 사용하여 C# UWP(유니버설 Windows 플랫폼) 애플리케이션을 개발할 것입니다. 이 프로그램은 이전에 클라이언트 애플리케이션의 음성 우선 가상 도우미 환경을 사용하도록 만들고 구성한 봇에 연결됩니다. 이 애플리케이션은 [Speech SDK NuGet 패키지](https://aka.ms/csspeech/nuget) 및 Microsoft Visual Studio 2017 이상(모든 버전)으로 빌드되었습니다.
+이 문서에서는 [Speech SDK](speech-sdk.md)를 사용하여 C# UWP(유니버설 Windows 플랫폼) 애플리케이션을 개발할 것입니다. 이 프로그램은 이전에 클라이언트 애플리케이션의 음성 우선 가상 도우미 환경을 사용하도록 만들고 구성한 봇에 연결됩니다. 이 애플리케이션은 [Speech SDK NuGet 패키지](https://aka.ms/csspeech/nuget) 및 Microsoft Visual Studio 2019(모든 버전)로 빌드되었습니다.
 
 > [!NOTE]
 > 유니버설 Windows 플랫폼을 사용하여 PC, Xbox, Surface Hub 및 기타 디바이스를 비롯하여 Windows 10을 지원하는 모든 디바이스에서 실행되는 앱을 개발할 수 있습니다.
@@ -30,16 +30,16 @@ ms.locfileid: "68609695"
 
 이 빠른 시작에는 다음이 필요합니다.
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 이상
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
 * Speech Service에 대한 Azure 구독 키. [Azure Portal](https://portal.azure.com)에서 [무료로 얻거나](get-started.md) 새로 만듭니다.
 * 이전에 [Direct Line Speech 채널](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)을 사용하여 만들고 구성한 봇
 
-    > [!NOTE]
-    > Direct Line Speech(미리 보기)는 현재 Speech Services 지역의 하위 집합에서 사용할 수 있습니다. [음성 우선 가상 도우미에 대한 지원되는 지역 목록](regions.md#voice-first-virtual-assistants)을 참조하고 리소스가 해당 지역 중 하나에 배포되었는지 확인합니다.
+  > [!NOTE]
+  > Direct Line Speech(미리 보기)는 현재 Speech Services 지역의 하위 집합에서 사용할 수 있습니다. [음성 우선 가상 도우미에 대한 지원되는 지역 목록](regions.md#voice-first-virtual-assistants)을 참조하고 리소스가 해당 지역 중 하나에 배포되었는지 확인합니다.
 
 ## <a name="optional-get-started-fast"></a>선택 사항: 빠른 시작
 
-이 빠른 시작에서는 음성 지원 봇에 연결하는 간단한 클라이언트 애플리케이션을 만드는 방법을 단계별로 설명합니다. 바로 시작하려면 이 빠른 시작에 사용되는 즉시 컴파일 가능한 완전한 소스 코드를 사용하면 됩니다. 이 소스 코드는 `quickstart` 폴더의 [Speech SDK 샘플](https://aka.ms/csspeech/samples) 아래에 있습니다.
+이 빠른 시작에서는 음성 지원 봇에 연결하는 클라이언트 애플리케이션을 만드는 방법을 단계별로 설명합니다. 바로 시작하려면 이 빠른 시작에 사용되는 즉시 컴파일 가능한 완전한 소스 코드를 사용하면 됩니다. 이 소스 코드는 `quickstart` 폴더의 [Speech SDK 샘플](https://aka.ms/csspeech/samples) 아래에 있습니다.
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 
@@ -47,7 +47,15 @@ ms.locfileid: "68609695"
 
 ## <a name="add-sample-code"></a>샘플 코드 추가
 
-1. 애플리케이션의 사용자 인터페이스는 XAML을 사용하여 정의됩니다. 솔루션 탐색기에서 `MainPage.xaml`을 엽니다. 디자이너의 XAML 보기에서 전체 콘텐츠를 아래 내용으로 바꿉니다.
+이제 애플리케이션의 사용자 인터페이스를 정의하는 XAML 코드를 추가하고, C# 코드 숨김 구현을 추가합니다.
+
+### <a name="xaml-code"></a>XAML 코드
+
+먼저 XAML 코드를 추가하여 애플리케이션의 사용자 인터페이스를 만듭니다.
+
+1. **솔루션 탐색기**에서 `MainPage.xaml` 파일을 엽니다.
+
+1. 디자이너의 XAML 보기에서 전체 콘텐츠를 다음 코드 조각으로 바꿉니다.
 
     ```xml
     <Page
@@ -61,16 +69,30 @@ ms.locfileid: "68609695"
         Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
         <Grid>
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Center"  Margin="20,50,0,0" VerticalAlignment="Center" Width="800">
-                <Button x:Name="EnableMicrophoneButton" Content="Enable Microphone"  Margin="0,0,10,0" Click="EnableMicrophone_ButtonClicked" Height="35"/>
-                <Button x:Name="ListenButton" Content="Talk to your bot" Margin="0,10,10,0" Click="ListenButton_ButtonClicked" Height="35"/>
-                <StackPanel x:Name="StatusPanel" Orientation="Vertical" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True">
-                    <TextBlock x:Name="StatusLabel" Margin="0,10,10,0" TextWrapping="Wrap" Text="Status:" FontSize="20"/>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center"  
+                        Margin="20,50,0,0" VerticalAlignment="Center" Width="800">
+                <Button x:Name="EnableMicrophoneButton" Content="Enable Microphone"  
+                        Margin="0,0,10,0" Click="EnableMicrophone_ButtonClicked" 
+                        Height="35"/>
+                <Button x:Name="ListenButton" Content="Talk to your bot" 
+                        Margin="0,10,10,0" Click="ListenButton_ButtonClicked" 
+                        Height="35"/>
+                <StackPanel x:Name="StatusPanel" Orientation="Vertical" 
+                            RelativePanel.AlignBottomWithPanel="True" 
+                            RelativePanel.AlignRightWithPanel="True" 
+                            RelativePanel.AlignLeftWithPanel="True">
+                    <TextBlock x:Name="StatusLabel" Margin="0,10,10,0" 
+                               TextWrapping="Wrap" Text="Status:" FontSize="20"/>
                     <Border x:Name="StatusBorder" Margin="0,0,0,0">
-                        <ScrollViewer VerticalScrollMode="Auto"  VerticalScrollBarVisibility="Auto" MaxHeight="200">
-                            <!-- Use LiveSetting to enable screen readers to announce the status update. -->
-                            <TextBlock x:Name="StatusBlock" FontWeight="Bold" AutomationProperties.LiveSetting="Assertive"
-                    MaxWidth="{Binding ElementName=Splitter, Path=ActualWidth}" Margin="10,10,10,20" TextWrapping="Wrap"  />
+                        <ScrollViewer VerticalScrollMode="Auto"  
+                                      VerticalScrollBarVisibility="Auto" MaxHeight="200">
+                            <!-- Use LiveSetting to enable screen readers to announce 
+                                 the status update. -->
+                            <TextBlock 
+                                x:Name="StatusBlock" FontWeight="Bold" 
+                                AutomationProperties.LiveSetting="Assertive"
+                                MaxWidth="{Binding ElementName=Splitter, Path=ActualWidth}" 
+                                Margin="10,10,10,20" TextWrapping="Wrap"  />
                         </ScrollViewer>
                     </Border>
                 </StackPanel>
@@ -80,14 +102,24 @@ ms.locfileid: "68609695"
     </Page>
     ```
 
-1. `MainPage.xaml.cs` 코드 숨김 원본 파일을 엽니다. `MainPage.xaml` 아래에 그룹화되어 있습니다. 내용을 아래 코드로 바꿉니다. 이 샘플에서 다루는 내용은 다음과 같습니다.
+애플리케이션의 사용자 인터페이스를 표시하도록 디자인 보기가 업데이트됩니다.
 
-    * Speech 및 Speech.Dialog 네임스페이스에 대한 using 문
-    * 단추 처리기에 연결된 마이크 액세스를 보장하는 간단한 구현
-    * 애플리케이션에서 메시지 및 오류를 표시하는 기본 UI 도우미
-    * 나중에 채울 초기화 코드 경로에 대한 시작 지점
-    * 텍스트 음성 변환을 재생할 수 있는 도우미(스트리밍 지원 없음)
-    * 나중에 채울 수신 대기를 시작하는 빈 단추 처리기
+### <a name="c-code-behind-source"></a>C# 코드 숨김 원본
+
+그런 다음, 애플리케이션이 예상대로 작동하도록 코드 숨김 원본을 추가합니다. 코드 숨김 원본은 다음을 포함합니다.
+
+- `Speech` 및`Speech.Dialog` 네임스페이스에 대한 `using` 명령문
+- 단추 처리기에 연결된 마이크 액세스를 보장하는 간단한 구현
+- 애플리케이션에서 메시지 및 오류를 표시하는 기본 UI 도우미
+- 나중에 채울 초기화 코드 경로에 대한 시작 지점
+- 텍스트 음성 변환을 재생할 수 있는 도우미(스트리밍 지원 없음)
+- 나중에 채울 수신 대기를 시작하는 빈 단추 처리기
+
+코드 숨김 원본을 추가하려면 다음 단계를 수행합니다.
+
+1. **솔루션 탐색기**에서 코드 숨김 원본 파일을 엽니다`MainPage.xaml.cs`. (`MainPage.xaml`로 그룹화되어 있습니다.)
+
+1. 파일의 내용을 다음 코드 조각으로 바꿉니다.
 
     ```csharp
     using Microsoft.CognitiveServices.Speech;
@@ -120,14 +152,17 @@ ms.locfileid: "68609695"
                 this.InitializeComponent();
             }
 
-            private async void EnableMicrophone_ButtonClicked(object sender, RoutedEventArgs e)
+            private async void EnableMicrophone_ButtonClicked(
+                object sender, RoutedEventArgs e)
             {
                 bool isMicAvailable = true;
                 try
                 {
                     var mediaCapture = new Windows.Media.Capture.MediaCapture();
-                    var settings = new Windows.Media.Capture.MediaCaptureInitializationSettings();
-                    settings.StreamingCaptureMode = Windows.Media.Capture.StreamingCaptureMode.Audio;
+                    var settings = 
+                        new Windows.Media.Capture.MediaCaptureInitializationSettings();
+                    settings.StreamingCaptureMode = 
+                        Windows.Media.Capture.StreamingCaptureMode.Audio;
                     await mediaCapture.InitializeAsync(settings);
                 }
                 catch (Exception)
@@ -136,7 +171,8 @@ ms.locfileid: "68609695"
                 }
                 if (!isMicAvailable)
                 {
-                    await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-settings:privacy-microphone"));
+                    await Windows.System.Launcher.LaunchUriAsync(
+                        new Uri("ms-settings:privacy-microphone"));
                 }
                 else
                 {
@@ -144,7 +180,8 @@ ms.locfileid: "68609695"
                 }
             }
 
-            private void NotifyUser(string strMessage, NotifyType type = NotifyType.StatusMessage)
+            private void NotifyUser(
+                string strMessage, NotifyType type = NotifyType.StatusMessage)
             {
                 // If called from the UI thread, then update immediately.
                 // Otherwise, schedule a task on the UI thread to perform the update.
@@ -154,7 +191,9 @@ ms.locfileid: "68609695"
                 }
                 else
                 {
-                    var task = Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => UpdateStatus(strMessage, type));
+                    var task = Dispatcher.RunAsync(
+                        Windows.UI.Core.CoreDispatcherPriority.Normal, 
+                        () => UpdateStatus(strMessage, type));
                 }
             }
 
@@ -163,13 +202,16 @@ ms.locfileid: "68609695"
                 switch (type)
                 {
                     case NotifyType.StatusMessage:
-                        StatusBorder.Background = new SolidColorBrush(Windows.UI.Colors.Green);
+                        StatusBorder.Background = new SolidColorBrush(
+                            Windows.UI.Colors.Green);
                         break;
                     case NotifyType.ErrorMessage:
-                        StatusBorder.Background = new SolidColorBrush(Windows.UI.Colors.Red);
+                        StatusBorder.Background = new SolidColorBrush(
+                            Windows.UI.Colors.Red);
                         break;
                 }
-                StatusBlock.Text += string.IsNullOrEmpty(StatusBlock.Text) ? strMessage : "\n" + strMessage;
+                StatusBlock.Text += string.IsNullOrEmpty(StatusBlock.Text) 
+                    ? strMessage : "\n" + strMessage;
 
                 if (!string.IsNullOrEmpty(StatusBlock.Text))
                 {
@@ -181,18 +223,23 @@ ms.locfileid: "68609695"
                     StatusBorder.Visibility = Visibility.Collapsed;
                     StatusPanel.Visibility = Visibility.Collapsed;
                 }
-                // Raise an event if necessary to enable a screen reader to announce the status update.
+                // Raise an event if necessary to enable a screen reader 
+                // to announce the status update.
                 var peer = Windows.UI.Xaml.Automation.Peers.FrameworkElementAutomationPeer.FromElement(StatusBlock);
                 if (peer != null)
                 {
-                    peer.RaiseAutomationEvent(Windows.UI.Xaml.Automation.Peers.AutomationEvents.LiveRegionChanged);
+                    peer.RaiseAutomationEvent(
+                        Windows.UI.Xaml.Automation.Peers.AutomationEvents.LiveRegionChanged);
                 }
             }
 
-            // Waits for accumulates all audio associated with a given PullAudioOutputStream and then plays it to the
-            // MediaElement. Long spoken audio will create extra latency and a streaming playback solution (that plays
-            // audio while it continues to be received) should be used -- see the samples for examples of this.
-            private void SynchronouslyPlayActivityAudio(PullAudioOutputStream activityAudio)
+            // Waits for and accumulates all audio associated with a given 
+            // PullAudioOutputStream and then plays it to the MediaElement. Long spoken 
+            // audio will create extra latency and a streaming playback solution 
+            // (that plays audio while it continues to be received) should be used -- 
+            // see the samples for examples of this.
+            private void SynchronouslyPlayActivityAudio(
+                PullAudioOutputStream activityAudio)
             {
                 var playbackStreamWithHeader = new MemoryStream();
                 playbackStreamWithHeader.Write(Encoding.ASCII.GetBytes("RIFF"), 0, 4); // ChunkID
@@ -219,9 +266,11 @@ ms.locfileid: "68609695"
                 }
                 while (lastRead == pullBuffer.Length);
 
-                var task = Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                var task = Dispatcher.RunAsync(
+                    Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                 {
-                    mediaElement.SetSource(playbackStreamWithHeader.AsRandomAccessStream(), "audio/wav");
+                    mediaElement.SetSource(
+                        playbackStreamWithHeader.AsRandomAccessStream(), "audio/wav");
                     mediaElement.Play();
                 });
             }
@@ -231,7 +280,8 @@ ms.locfileid: "68609695"
                 // New code will go here
             }
 
-            private async void ListenButton_ButtonClicked(object sender, RoutedEventArgs e)
+            private async void ListenButton_ButtonClicked(
+                object sender, RoutedEventArgs e)
             {
                 // New code will go here
             }
@@ -239,119 +289,138 @@ ms.locfileid: "68609695"
     }
     ```
 
-1. 다음으로, 구독 정보를 사용하여 `DialogServiceConnector`를 만듭니다. 다음을 `InitializeDialogServiceConnector`의 메서드 본문에 추가하고, `YourChannelSecret`, `YourSpeechSubscriptionKey` 및 `YourServiceRegion` 문자열을 사용자 고유의 봇, 음성 구독 및 [Azure 지역](regions.md) 값으로 바꿉니다.
-
-    > [!NOTE]
-    > Direct Line Speech(미리 보기)는 현재 Speech Services 지역의 하위 집합에서 사용할 수 있습니다. [음성 우선 가상 도우미에 대한 지원되는 지역 목록](regions.md#voice-first-virtual-assistants)을 참조하고 리소스가 해당 지역 중 하나에 배포되었는지 확인합니다.
-
-    > [!NOTE]
-    > 봇을 구성하고 채널 비밀을 검색하는 방법은 [Direct Line Speech 채널](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)에 대한 Bot Framework 설명서를 참조하세요.
+1. `InitializeDialogServiceConnector`의 메서드 본문에 다음 코드 조각을 추가합니다. 이 코드는 구독 정보를 사용하여 `DialogServiceConnector`를 만듭니다.
 
     ```csharp
-    // create a DialogServiceConfig by providing a bot secret key and Cognitive Services subscription key
-    // the RecoLanguage property is optional (default en-US); note that only en-US is supported in Preview
+    // create a DialogServiceConfig by providing a bot secret key 
+    // and Cognitive Services subscription key
+    // the RecoLanguage property is optional (default en-US); 
+    // note that only en-US is supported in Preview
     const string channelSecret = "YourChannelSecret"; // Your channel secret
     const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
-    const string region = "YourServiceRegion"; // Your subscription service region. Note: only a subset of regions are currently supported
 
-    var botConfig = DialogServiceConfig.FromBotSecret(channelSecret, speechSubscriptionKey, region);
+    // Your subscription service region. 
+    // Note: only a subset of regions are currently supported
+    const string region = "YourServiceRegion"; 
+
+    var botConfig = DialogServiceConfig.FromBotSecret(
+        channelSecret, speechSubscriptionKey, region);
     botConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-US");
     connector = new DialogServiceConnector(botConfig);
     ```
 
-1. `DialogServiceConnector`는 여러 이벤트를 사용하여 봇 작업, 음성 인식 결과 및 기타 정보를 전달합니다. 이러한 이벤트에 대한 처리기를 추가하고, `InitializeDialogServiceConnector`의 메서드 본문 끝에 다음을 추가합니다.
+   > [!NOTE]
+   > Direct Line Speech(미리 보기)는 현재 Speech Services 지역의 하위 집합에서 사용할 수 있습니다. [음성 우선 가상 도우미에 대한 지원되는 지역 목록](regions.md#voice-first-virtual-assistants)을 참조하고 리소스가 해당 지역 중 하나에 배포되었는지 확인합니다.
+
+   > [!NOTE]
+   > 봇을 구성하고 채널 비밀을 검색하는 방법은 [Direct Line Speech 채널](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)에 대한 Bot Framework 설명서를 참조하세요.
+
+1. `YourChannelSecret`, `YourSpeechSubscriptionKey` 및 `YourServiceRegion` 문자열을 사용자 고유의 봇, 음성 구독 및 [지역](regions.md) 값으로 바꿉니다.
+
+1. `InitializeDialogServiceConnector`의 메서드 본문 끝에 다음 코드 조각을 추가합니다. 이 코드는 `DialogServiceConnector`에 의해 의존하는 이벤트에 대한 처리기를 설정하여 봇 작업, 음성 인식 결과 및 기타 정보를 전달합니다.
 
     ```csharp
-    // ActivityReceived is the main way your bot will communicate with the client and uses bot framework activities
+    // ActivityReceived is the main way your bot will communicate with the client 
+    // and uses bot framework activities
     connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
     {
-        NotifyUser($"Activity received, hasAudio={activityReceivedEventArgs.HasAudio} activity={activityReceivedEventArgs.Activity}");
+        NotifyUser(
+            $"Activity received, hasAudio={activityReceivedEventArgs.HasAudio} activity={activityReceivedEventArgs.Activity}");
 
         if (activityReceivedEventArgs.HasAudio)
         {
             SynchronouslyPlayActivityAudio(activityReceivedEventArgs.Audio);
         }
     };
+
     // Canceled will be signaled when a turn is aborted or experiences an error condition
     connector.Canceled += (sender, canceledEventArgs) =>
     {
         NotifyUser($"Canceled, reason={canceledEventArgs.Reason}");
         if (canceledEventArgs.Reason == CancellationReason.Error)
         {
-            NotifyUser($"Error: code={canceledEventArgs.ErrorCode}, details={canceledEventArgs.ErrorDetails}");
+            NotifyUser(
+                $"Error: code={canceledEventArgs.ErrorCode}, details={canceledEventArgs.ErrorDetails}");
         }
     };
-    // Recognizing (not 'Recognized') will provide the intermediate recognized text while an audio stream is being processed
+
+    // Recognizing (not 'Recognized') will provide the intermediate recognized text 
+    // while an audio stream is being processed
     connector.Recognizing += (sender, recognitionEventArgs) =>
     {
         NotifyUser($"Recognizing! in-progress text={recognitionEventArgs.Result.Text}");
     };
-    // Recognized (not 'Recognizing') will provide the final recognized text once audio capture is completed
+
+    // Recognized (not 'Recognizing') will provide the final recognized text 
+    // once audio capture is completed
     connector.Recognized += (sender, recognitionEventArgs) =>
     {
         NotifyUser($"Final speech-to-text result: '{recognitionEventArgs.Result.Text}'");
     };
+
     // SessionStarted will notify when audio begins flowing to the service for a turn
     connector.SessionStarted += (sender, sessionEventArgs) =>
     {
         NotifyUser($"Now Listening! Session started, id={sessionEventArgs.SessionId}");
     };
-    // SessionStopped will notify when a turn is complete and it's safe to begin listening again
+
+    // SessionStopped will notify when a turn is complete and 
+    // it's safe to begin listening again
     connector.SessionStopped += (sender, sessionEventArgs) =>
     {
         NotifyUser($"Listening complete. Session ended, id={sessionEventArgs.SessionId}");
     };
     ```
 
-1. 구성을 설정하고 이벤트 처리기를 등록한 후에는 `DialogServiceConnector`가 수신 대기하기만 하면 됩니다. `MainPage` 클래스의 `ListenButton_ButtonClicked` 메서드 본문에 다음을 추가합니다.
+1. `MainPage` 클래스의 `ListenButton_ButtonClicked` 메서드 본문에 다음 코드 조각을 추가합니다. 이 코드는 이미 구성을 설정하고 이벤트 처리기를 등록했으므로 수신 대기하도록 `DialogServiceConnector`를 설정합니다.
 
     ```csharp
-    private async void ListenButton_ButtonClicked(object sender, RoutedEventArgs e)
+    if (connector == null)
     {
-        if (connector == null)
-        {
-            InitializeDialogServiceConnector();
-            // Optional step to speed up first interaction: if not called, connection happens automatically on first use
-            var connectTask = connector.ConnectAsync();
-        }
+        InitializeDialogServiceConnector();
+        // Optional step to speed up first interaction: if not called, 
+        // connection happens automatically on first use
+        var connectTask = connector.ConnectAsync();
+    }
 
-        try
-        {
-            // Start sending audio to your speech-enabled bot
-            var listenTask = connector.ListenOnceAsync();
+    try
+    {
+        // Start sending audio to your speech-enabled bot
+        var listenTask = connector.ListenOnceAsync();
 
-            // You can also send activities to your bot as JSON strings -- Microsoft.Bot.Schema can simplify this
-            string speakActivity = @"{""type"":""message"",""text"":""Greeting Message"", ""speak"":""Hello there!""}";
-            await connector.SendActivityAsync(speakActivity);
+        // You can also send activities to your bot as JSON strings -- 
+        // Microsoft.Bot.Schema can simplify this
+        string speakActivity = 
+            @"{""type"":""message"",""text"":""Greeting Message"", ""speak"":""Hello there!""}";
+        await connector.SendActivityAsync(speakActivity);
 
-        }
-        catch (Exception ex)
-        {
-            NotifyUser($"Exception: {ex.ToString()}", NotifyType.ErrorMessage);
-        }
+    }
+    catch (Exception ex)
+    {
+        NotifyUser($"Exception: {ex.ToString()}", NotifyType.ErrorMessage);
     }
     ```
 
-1. 프로젝트에 대한 모든 변경 내용을 저장합니다.
+1. 메뉴 모음에서 **파일** > **모두 저장**을 선택하여 변경 내용을 저장합니다.
 
-## <a name="build-and-run-the-app"></a>앱 빌드 및 실행
+## <a name="build-and-run-the-application"></a>애플리케이션 빌드 및 실행
 
-1. 애플리케이션을 빌드합니다. Visual Studio의 메뉴 모음에서 **빌드** > **솔루션 빌드**를 선택합니다. 코드는 이제 오류 없이 컴파일됩니다.
+이제 애플리케이션을 빌드하고 테스트할 준비가 되었습니다.
 
-    ![솔루션 빌드 옵션이 강조 표시된 Visual Studio 애플리케이션의 스크린샷](media/sdk/qs-csharp-uwp-08-build.png "성공적인 빌드")
+1. 메뉴 모음에서 **빌드** > **솔루션 빌드**를 선택하여 애플리케이션을 빌드합니다. 코드는 이제 오류 없이 컴파일됩니다.
 
-1. 애플리케이션을 시작합니다. Visual Studio의 메뉴 모음에서 **디버그** > **디버깅 시작**을 선택하거나 **F5** 키를 누릅니다.
+1. **디버그** > **디버깅 시작**을 선택하거나 **F5**를 눌러 애플리케이션을 시작합니다. **helloworld** 창이 표시됩니다.
 
-    ![디버깅 시작 옵션이 강조 표시된 Visual Studio 애플리케이션의 스크린샷](media/sdk/qs-csharp-uwp-09-start-debugging.png "앱 디버깅 시작")
+   ![C#의 샘플 UWP 가상 길잡이 애플리케이션 - 빠른 시작](media/sdk/qs-virtual-assistant-uwp-helloworld-window.png)
 
-1. 창이 팝업됩니다. 애플리케이션에서 **마이크 사용**을 선택하고, 팝업되는 권한 요청을 승인합니다.
+1. **마이크 사용**을 선택하고, 액세스 권한 요청이 팝업될 때 **예**를 선택합니다.
 
-    ![권한 요청 스크린샷](media/sdk/qs-csharp-uwp-10-access-prompt.png "앱 디버깅 시작")
+   ![마이크 액세스 권한 요청](media/sdk/qs-csharp-uwp-10-access-prompt.png)
 
 1. **봇에게 말하기**를 선택하고, 디바이스의 마이크에 영어로 짧은 구나 문장을 말합니다. 음성은 Direct Line Speech 채널로 전송되어 텍스트로 전사되고 창에 표시됩니다.
-
-    ![성공적인 봇 턴의 스크린샷](media/voice-first-virtual-assistants/quickstart-cs-uwp-bot-successful-turn.png "성공적인 봇 턴의 스크린샷")
-
+<!--
+    ![Successful bot response](media/voice-first-virtual-assistants/quickstart-cs-uwp-bot-successful-turn.png)
+-->
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]

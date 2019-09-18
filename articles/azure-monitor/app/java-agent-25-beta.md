@@ -95,8 +95,8 @@ Azure 앱 서비스에 대해 다음을 수행 합니다.
 
 키: `JAVA_OPTS`기본값`-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.5.0-BETA.jar`
 
-최신 버전의 Java 에이전트는 여기 [](https://github.com/Microsoft/ApplicationInsights-Java/releases
-)에서 릴리스를 확인 하세요. 
+최신 버전의 Java 에이전트는 [여기 에](https://github.com/Microsoft/ApplicationInsights-Java/releases
+)서 릴리스를 확인 하세요. 
 
 에이전트는 D:/home/site/wwwroot/directory에서 종료 되도록 프로젝트에 리소스로 패키지 되어야 합니다. **개발 도구** > **고급 도구** > **디버그 콘솔** 로 이동 하 여 사이트 디렉터리의 콘텐츠를 검사 하 여 에이전트가 올바른 App Service 디렉터리에 있는지 확인할 수 있습니다.    
 

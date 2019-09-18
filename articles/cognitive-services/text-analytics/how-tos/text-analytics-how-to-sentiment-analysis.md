@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 19654a4902ae64e5de63ffc93a8d143cc518e254
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 60ae2136c3fa934c178de95f51d490e570f45faa
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697740"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845348"
 ---
 # <a name="example-detect-sentiment-with-text-analytics"></a>예제: Text Analytics를 사용하여 감정 감지
 
@@ -80,7 +80,7 @@ Text Analytics는 기계 학습 분류 알고리즘을 사용하여 0과1 사이
 
 + POST 요청을 만듭니다. 이 요청에 대한 API 문서를 검토하려면 [감정 분석 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)를 참조하세요.
 
-+ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨테이너](text-analytics-how-to-install-containers.md)를 사용하여 감정 분석을 위한 HTTP 엔드포인트를 설정합니다. `/sentiment` 리소스(`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`)를 포함해야 합니다.
++ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨테이너](text-analytics-how-to-install-containers.md)를 사용하여 감정 분석을 위한 HTTP 엔드포인트를 설정합니다. URL에 `/text/analytics/v2.1/sentiment`를 포함해야 합니다. 예: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`
 
 + Text Analytics 작업에 대한 [액세스 키](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)가 포함되도록 요청 헤더를 설정합니다.
 
@@ -139,8 +139,8 @@ Text Analytics는 기계 학습 분류 알고리즘을 사용하여 0과1 사이
 > [!NOTE]
 > * 감정 분석 v3 요청 형식 및 [데이터 제한](../overview.md#data-limits)은 이전 버전과 동일합니다.
 > * 현재 감정 분석 v3의 특징:
->    * 현재는 영어만 지원합니다.
->    * `Central US`, `Central Canada`, `East Asia` 지역에서 사용할 수 있습니다.
+>    * 현재 영어, 중국어 간체 및 일본어를 지원합니다.
+>    * `Australia East`, `Central Canada`, `Central US`, `East Asia`, `East US`, `East US 2`, `North Europe`, `Southeast Asia`, `South Central US`, `UK South`, `West Europe` 및 `West US 2` 영역에서 사용할 수 있습니다.
 
 |기능 |설명  |
 |---------|---------|

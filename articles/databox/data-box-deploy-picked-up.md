@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 8/27/2019
+ms.date: 09/10/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 5b78dc8b815802502cda5baf2bf5e9646922d671
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 194b90ab27d02c1fa3eb05bb3ddd78395d351599
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70241424"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70898168"
 ---
 ::: zone target="docs"
 
@@ -77,7 +77,7 @@ ms.locfileid: "70241424"
 
 ::: zone-end
 
-## <a name="ship-in-us-canada-europe"></a>미국, 캐나다, 유럽에서 배송
+## <a name="in-us-canada-europetabin-us-canada-europe"></a>[미국, 캐나다, 유럽에서](#tab/in-us-canada-europe)
 
 미국, 캐나다 또는 유럽에서 디바이스를 반송하는 경우 다음 단계를 수행합니다.
 
@@ -94,7 +94,7 @@ ms.locfileid: "70241424"
 4. 운송업체에서 Data Box를 픽업하고 나면 포털의 주문 상태가 **픽업됨**으로 업데이트됩니다. 추적 ID도 표시됩니다.
 
 
-## <a name="ship-in-australia"></a>오스트레일리아에서 배송
+## <a name="in-australiatabin-australia"></a>[오스트레일리아에서](#tab/in-australia)
 
 오스트레일리아의 Azure 데이터 센터에는 추가 보안 알림이 있습니다. 모든 인바운드 배송에는 고급 알림이 있어야 합니다. 오스트레일리아에서 배송하려면 다음 단계를 수행합니다.
 
@@ -126,7 +126,7 @@ ms.locfileid: "70241424"
 - 먼저 픽업을 위한 이메일을 보냅니다.
 - 전화 상으로 주문 이름을 제공합니다.
 
-## <a name="ship-in-japan"></a>일본에서 배송 
+## <a name="in-japantabin-japan"></a>[일본에서](#tab/in-japan) 
 
 1. 반품 발송을 위해 디바이스를 배송하는 데 사용된 원래 상자를 보관하세요.
 2. 디바이스의 전원을 끄고 케이블을 분리합니다.

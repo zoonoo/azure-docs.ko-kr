@@ -9,12 +9,12 @@ ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 63485a41016033b00f787fc8c938b8da7135d657
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 145b643999ff6e4af99ec50c9b0120fc9f11a212
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840145"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858946"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>자습서: Custom Vision Service를 사용하여 에지에서 이미지 분류 수행
 
@@ -39,7 +39,10 @@ Azure IoT Edge를 통해 워크로드를 클라우드에서 에지로 이동하�
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서를 시작하려면 이전 자습서를 진행하여 Linux 컨테이너 개발을 위한 개발 환경이 설정되어 있어야 합니다. [Linux 디바이스를 위한 IoT Edge 모듈을 개발합니다](tutorial-develop-for-linux.md). 이 자습서를 완료하여 다음과 같은 필수 구성 요소를 갖추어야 합니다. 
+>[!TIP]
+>이 자습서는 [Raspberry Pi 3의 Custom Vision 및 Azure IoT Edge](https://github.com/Azure-Samples/Custom-vision-service-iot-edge-raspberry-pi) 샘플 프로젝트의 단순화된 버전입니다. 이 자습서는 클라우드 VM에서 실행되도록 설계되었으며 정적 이미지를 사용하여 이미지 분류자를 학습하고 테스트합니다. 이는 IoT Edge에서 Custom Vision을 평가하기 시작하는 사용자에게 유용합니다. 샘플 프로젝트는 물리적 하드웨어를 사용하고 라이브 카메라 피드를 설정하여 이미지 분류자를 학습하고 테스트합니다. 이는 보다 자세한 실제 시나리오를 시도하려는 사용자에게 유용합니다.
+
+이 자습서를 시작하려면 이전 자습서를 진행하여 Linux 컨테이너 개발을 위한 환경이 설정되어 있어야 합니다. [Linux 디바이스를 위한 IoT Edge 모듈을 개발합니다](tutorial-develop-for-linux.md). 이 자습서를 완료하여 다음과 같은 필수 구성 요소를 갖추어야 합니다. 
 
 * Azure의 무료 또는 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
 * [Azure IoT Edge를 실행하는 Linux 디바이스](quickstart-linux.md)
@@ -51,7 +54,7 @@ Custom Vision 서비스를 사용하여 IoT Edge 모듈을 개발하려면 다�
 
 * [Python](https://www.python.org/downloads/)
 * [Git](https://git-scm.com/downloads)
-* Visual Studio Code용 [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) 확장
+* [Visual Studio Code용 Python 확장](https://marketplace.visualstudio.com/items?itemName=ms-python.python) 
 
 ## <a name="build-an-image-classifier-with-custom-vision"></a>Custom Vision을 사용하여 이미지 분류자 빌드
 
@@ -167,7 +170,7 @@ Visual Studio Code 창에서 IoT Edge 솔루션 작업 영역을 로드합니다
 
 ### <a name="select-your-target-architecture"></a>대상 아키텍처 선택
 
-현재, Visual Studio Code에서는 Linux AMD64 및 Linux ARM32v7 디바이스용 모듈을 개발할 수 있습니다. 컨테이너는 아키텍처 유형별로 다르게 빌드되고 실행되므로 각 솔루션에서 대상으로 지정할 대상 아키텍처를 선택해야 합니다. 기본값은 Linux AMD64입니다. 
+현재, Visual Studio Code에서는 Linux AMD64 및 Linux ARM32v7 디바이스용 모듈을 개발할 수 있습니다. 컨테이너는 아키텍처 유형별로 다르게 빌드되고 실행되므로 각 솔루션에서 대상으로 지정할 대상 아키텍처를 선택해야 합니다. 기본값은 Linux AMD64이며, 이 자습서에서 사용할 수 있습니다. 
 
 1. 명령 팔레트를 열고 **Azure IoT Edge: 에지 솔루션용 기본 대상 플랫폼 설정**을 검색하거나 창의 맨 아래에 있는 사이드바에서 바로 가기 아이콘을 선택합니다. 
 
@@ -191,7 +194,7 @@ Visual Studio 코드의 Python 모듈 템플릿은 IoT Edge를 테스트하도�
 
 6. 분류자 폴더에서 **module.json** 파일을 엽니다. 
 
-7. **플랫폼** 매개 변수를 추가한 새 Dockerfile을 가리키도록 업데이트하고, 현재 Custom Vision 모듈에 대해 지원되지 않는 ARM32 아키텍처 및 AMD64.debug 옵션을 제거합니다. 
+7. 추가한 새 Dockerfile을 가리키도록 **platforms** 매개 변수를 업데이트하고 이 자습서에 사용하고 있는 유일한 아키텍처인 AMD64 이외의 모든 옵션을 제거합니다. 
 
    ```json
    "platforms": {
@@ -351,7 +354,7 @@ Visual Studio 코드의 Python 모듈 템플릿은 IoT Edge를 테스트하도�
 
 3. IoT Edge 솔루션 디렉터리를 찾고 **modules** / **cameraCapture** 폴더에 테스트 이미지를 붙여넣습니다. 이미지는 이전 섹션에서 편집한 main.py 파일과 동일한 폴더에 있어야 합니다. 
 
-3. Visual Studio Code에서 cameraCapture 모듈에 대한 **Dockerfile.amd64** 파일을 엽니다. (ARM32는 현재 Custom Vision 모듈에서 지원되지 않습니다.) 
+3. Visual Studio Code에서 cameraCapture 모듈에 대한 **Dockerfile.amd64** 파일을 엽니다. 
 
 4. 작업 디렉터리, `WORKDIR /app`을 설정하는 줄 뒤에 다음 코드 줄을 추가합니다. 
 

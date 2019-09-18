@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/24/2019
-ms.openlocfilehash: 0b3af3d29e6e938f0301d751a79170c7c1964b45
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.date: 09/10/2019
+ms.openlocfilehash: 8944a5adbe1b9e129b4a95c64aaa7a75fb96ac82
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243793"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845560"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>자습서: DMS를 사용하여 Oracle을 Azure Database for PostgreSQL로 온라인 마이그레이션(미리 보기)
 
@@ -166,27 +166,6 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 
     `'YES'` 응답이 표시됩니다.
 
-> [!IMPORTANT]
-> 이 시나리오의 공개 미리 보기 릴리스의 경우 Azure Database Migration Service는 Oracle 버전 10g 또는 11g을 지원합니다. Oracle 버전 12c 이상을 실행하는 고객은 ODBC 드라이버에서 Oracle에 연결할 수 있도록 허용된 최소 인증 프로토콜이 8이어야 한다는 점에 유의해야 합니다. 버전 12c 이상인 Oracle 원본의 경우 다음과 같이 인증 프로토콜을 구성해야 합니다.
->
-> * SQLNET.ORA를 업데이트합니다.
->
->    ```
->    SQLNET.ALLOWED_LOGON_VERSION_CLIENT = 8
->    SQLNET.ALLOWED_LOGON_VERSION_SERVER = 8
->    ```
->
-> * 새 설정을 적용하기 위해 컴퓨터를 다시 시작합니다.
-> * 기존 사용자에 대한 암호를 변경합니다.
->
->    ```
->    ALTER USER system IDENTIFIED BY {pswd}
->    ```
->
->   자세한 내용은 [이 페이지](http://www.dba-oracle.com/t_allowed_login_version_server.htm)를 참조하세요.
->
-> 마지막으로, 인증 프로토콜을 변경하면 클라이언트 인증에 영향을 줄 수 있습니다.
-
 ## <a name="assess-the-effort-for-an-oracle-to-azure-database-for-postgresql-migration"></a>Oracle에서 Azure Database for PostgreSQL로의 마이그레이션 작업 평가
 
 ora2pg를 사용하여 Oracle에서 Azure Database for PostgreSQL로 마이그레이션하는 데 필요한 작업을 평가하는 것이 좋습니다. `ora2pg -t SHOW_REPORT` 지시문을 사용하여 변환의 일환으로 특별한 주의가 필요할 수 있는 모든 Oracle 개체, 예상 마이그레이션 비용(개발자 작업 일 수) 및 특정 데이터베이스 개체를 나열하는 보고서를 만듭니다.
@@ -215,67 +194,60 @@ psql -f %namespace%\schema\sequences\sequence.sql -h server1-server.postgres.dat
 
 ## <a name="set-up-the-schema-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL에서 스키마 설정
 
-기본적으로 Oracle은 schema.table.column을 모두 대문자로 유지하며, PostgreSQL은 schema.table.column을 소문자로 유지합니다. Azure Database Migration Service가 Oracle에서 Azure Database for PostgreSQL로의 데이터 이동을 시작하려면 schema.table.column이 Oracle 원본과 동일한 대/소문자 형식이어야 합니다.
+Azure Database Migration Service에서 마이그레이션 파이프라인을 시작하기 전에, ora2pg를 사용하여 Oracle 테이블 스키마, 저장 프로시저, 패키지 및 기타 데이터베이스 개체가 Postgres와 호환되도록 변환할 수 있습니다. ora2pg로 작업하는 방법은 아래 링크를 참조하세요.
 
-예를 들어 Oracle 원본의 스키마가 "HR"."EMPLOYEES"."EMPLOYEE_ID"로 있는 경우 PostgreSQL 스키마도 동일한 형식을 사용해야 합니다.
+* [Windows에 ora2pg 설치](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows.pdf)
+* [Oracle에서 Azure PostgreSQL로 마이그레이션 쿡북](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf)
 
-schema.table.column의 대/소문자 형식이 Oracle과 Azure Database for PostgreSQL에서 모두 동일하도록 하려면 다음 단계를 사용하는 것이 좋습니다.
+Azure Database Migration Service는 PostgreSQL 테이블 스키마도 만들 수 있습니다. 이 서비스는 연결된 Oracle 원본의 테이블 스키마에 액세스하여 Azure Database for PostgreSQL에서 호환 가능한 테이블 스키마를 만듭니다. Azure Database Migration Service에서 스키마 생성 및 데이터 이동이 완료되면, Azure Database for PostgreSQL에서 스키마 형식을 검증하고 확인해야 합니다.
+
+> [!IMPORTANT]
+> Azure Database Migration Service는 테이블 스키마만 만듭니다. 저장 프로시저, 패키지, 인덱스 등과 같은 다른 데이터베이스 개체는 생성되지 않습니다.
+
+또한, 전체 로드를 실행하려면 대상 데이터베이스에서 외래 키를 삭제해야 합니다. 외래 키를 삭제하는 데 사용할 수 있는 스크립트는 [이 문서](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online)의 **샘플 스키마 마이그레이션** 섹션을 참조하세요. Azure Database Migration Service를 사용하여 전체 로드 및 동기화를 실행합니다.
+
+### <a name="when-the-postgresql-table-schema-already-exists"></a>PostgreSQL 테이블 스키마가 이미 있는 경우
+
+Azure Database Migration Service를 통해 데이터 이동을 시작하기 전에 ora2pg와 같은 도구를 사용하여 PostgreSQL 스키마를 생성하는 경우에는 Azure Database Migration Service의 대상 테이블에 원본 테이블을 매핑합니다.
+
+1. Azure Database for PostgreSQL 마이그레이션 프로젝트를 새로 만들 때 스키마 선택 단계에서 대상 데이터베이스와 대상 스키마를 선택하라는 메시지가 표시됩니다. 대상 데이터베이스와 대상 스키마를 채우세요.
+
+   ![포털 구독 표시](media/tutorial-oracle-azure-postgresql-online/dms-map-to-target-databases.png)
+
+2. **마이그레이션 설정** 화면에는 Oracle 원본에 있는 테이블 목록이 표시됩니다. Azure Database Migration Service는 테이블 이름을 기반으로 원본 테이블과 대상 테이블의 테이블을 매칭하려고 합니다. 일치하지만 대/소문자가 다른 대상 테이블이 여러 개 있으면 매핑할 대상 테이블을 선택할 수 있습니다.
+
+    ![포털 구독 표시](media/tutorial-oracle-azure-postgresql-online/dms-migration-settings.png)
 
 > [!NOTE]
-> 다른 방법을 사용하여 대문자 스키마를 파생시킬 수 있습니다. 이 단계를 향상시키고 자동화하기 위해 노력하고 있습니다.
+> 원본 테이블 이름을 이름이 다른 테이블에 매핑해야 하는 경우 [dmsfeedback@microsoft.com](mailto:dmsfeedbac@microsoft.com)에 이메일을 보내면 프로세스를 자동화하는 스크립트를 제공받을 수 있습니다.
 
-1. ora2pg를 사용하여 소문자인 스키마를 내보냅니다. 테이블 만들기 sql 스크립트에서 "SCHEMA" 대문자가 있는 스키마를 수동으로 만듭니다.
-2. 트리거, 시퀀스, 프로시저, 형식 및 함수와 같은 나머지 Oracle 개체를 Azure Database for PostgreSQL로 가져옵니다.
-3. TABLE 및 COLUMN을 대문자로 만들려면 다음 스크립트를 실행합니다.
+### <a name="when-the-postgresql-table-schema-doesnt-exist"></a>PostgreSQL 테이블 스키마가 없는 경우
 
-   ```
-   -- INPUT: schema name
-   set schema.var = “HR”;
+대상 PostgreSQL 데이터베이스에 테이블 스키마 정보가 없으면 Azure Database Migration Service는 원본 스키마를 변환하여 대상 데이터베이스에서 다시 만듭니다. 다시 말하지만, Azure Database Migration Service는 테이블 스키마만 만들고, 저장 프로시저, 패키지 및 인덱스와 같은 다른 데이터베이스 개체는 만들지 않습니다.
+Azure Database Migration Service에서 스키마가 생성되도록 하려면 대상 환경에 기존 테이블이 없는 스키마가 포함되어 있어야 합니다. Azure Database Migration Service에서 테이블이 검색되면 ora2pg와 같은 외부 도구를 통해 스키마가 생성된 것으로 가정합니다.
 
-   -- Generate statements to rename tables and columns
-   SELECT 1, 'SET search_path = "' ||current_setting('schema.var')||'";'
-   UNION ALL 
-   SELECT 2, 'alter table "'||c.relname||'" rename '||a.attname||' to "'||upper(a.attname)||'";'
-   FROM pg_class c
-   JOIN pg_attribute a ON a.attrelid = c.oid
-   JOIN pg_type t ON a.atttypid = t.oid
-   LEFT JOIN pg_catalog.pg_constraint r ON c.oid = r.conrelid
-    AND r.conname = a.attname
-   WHERE c.relnamespace = (select oid from pg_namespace where nspname=current_setting('schema.var')) AND a.attnum > 0 AND c.relkind ='r'
-   UNION ALL
-   SELECT 3, 'alter table '||c.relname||' rename to "'||upper(c.relname)||'";'
-   FROM pg_catalog.pg_class c
-    LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
-   WHERE c.relkind ='r' AND n.nspname=current_setting('schema.var')
-   ORDER BY 1;
-   ```
+> [!IMPORTANT]
+> Azure Database Migration Service에서는 Azure Database Migration Service나 ora2pg와 같은 도구 중 하나만 사용하여(둘 다 사용하면 안 됨) 모든 테이블을 동일한 방식으로 만들어야 합니다.
 
-* 전체 로드를 실행하려면 대상 데이터베이스의 외래 키를 삭제합니다. 외래 키를 삭제하는 데 사용할 수 있는 스크립트는 [이 문서](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online)의 **샘플 스키마 마이그레이션** 섹션을 참조하세요.
-* Azure Database Migration Service를 사용하여 전체 로드 및 동기화를 실행합니다.
-* 대상 Azure Database for PostgreSQL 인스턴스의 데이터가 원본을 따라잡으면 Azure Database Migration Service에서 데이터베이스 중단을 수행합니다.
-* SCHEMA, TABLE 및 COLUMN을 소문자로 만들려면(Azure Database for PostgreSQL에 대한 스키마가 애플리케이션 쿼리에서 이 방식이어야 하는 경우) 다음 스크립트를 실행합니다.
+시작하기:
 
-  ```
-  -- INPUT: schema name
-  set schema.var = hr;
-  
-  -- Generate statements to rename tables and columns
-  SELECT 1, 'SET search_path = "' ||current_setting('schema.var')||'";'
-  UNION ALL
-  SELECT 2, 'alter table "'||c.relname||'" rename "'||a.attname||'" to '||lower(a.attname)||';'
-  FROM pg_class c
-  JOIN pg_attribute a ON a.attrelid = c.oid
-  JOIN pg_type t ON a.atttypid = t.oid
-  LEFT JOIN pg_catalog.pg_constraint r ON c.oid = r.conrelid
-     AND r.conname = a.attname
-  WHERE c.relnamespace = (select oid from pg_namespace where nspname=current_setting('schema.var')) AND a.attnum > 0 AND c.relkind ='r'
-  UNION ALL
-  SELECT 3, 'alter table "'||c.relname||'" rename to '||lower(c.relname)||';'
-  FROM pg_catalog.pg_class c
-     LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
-  WHERE c.relkind ='r' AND n.nspname=current_setting('schema.var')
-  ORDER BY 1;
-  ```
+1. 애플리케이션 요구 사항에 따라 대상 데이터베이스에 스키마를 만듭니다. 기본적으로 PostgreSQL 테이블 스키마와 열 이름은 소문자입니다. 반면에 Oracle 테이블 스키마와 열은 기본적으로 모두 대문자입니다.
+2. 스키마 선택 단계에서 대상 데이터베이스와 대상 스키마를 지정합니다.
+3. Azure Database for PostgreSQL에서 만든 스키마를 기반으로 Azure Database Migration Service는 다음과 같은 변환 규칙을 사용합니다.
+
+    Oracle 원본의 스키마 이름과 Azure Database for PostgreSQL의 스키마 이름이 일치하면 Azure Database Migration Service는 *대상과 동일한 대/소문자를 사용하여 테이블 스키마를 생성*합니다.
+
+    예:
+
+    | 원본 Oracle 스키마 | 대상 PostgreSQL Database.Schema | DMS 생성 schema.table.column |
+    | ------------- | ------------- | ------------- |
+    | HR | targetHR.public | public.countries.country_id |
+    | HR | targetHR.trgthr | trgthr.countries.country_id |
+    | HR | targetHR.TARGETHR | “TARGETHR”.”COUNTRIES”.”COUNTRY_ID” |
+    | HR | targetHR.HR | “HR”.”COUNTRIES”.”COUNTRY_ID” |
+    | HR | targetHR.Hr | *대/소문자를 혼합하여 매핑할 수 없음 |
+
+    *대상 PostgreSQL에서 대/소문자 혼합 스키마와 테이블 이름을 생성하려면 [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com)에 문의하세요. 대상 PostgreSQL에서 대/소문자 혼합 스키마를 설정하는 스크립트를 제공받을 수 있습니다.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Microsoft.DataMigration 리소스 공급자 등록
 

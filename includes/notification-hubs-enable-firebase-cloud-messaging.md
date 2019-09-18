@@ -5,15 +5,15 @@ services: notification-hubs
 author: spelluru
 ms.service: notification-hubs
 ms.topic: include
-ms.date: 02/05/2019
+ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: fef6122eceda213fb6353ada53033d0d1e27fd7e
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: ccb5e40738680181e7339b8652d029597c7d0bd4
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509124"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70935155"
 ---
 1. [Firebase 콘솔](https://firebase.google.com/console/)에 로그인합니다. 아직 없는 경우 새 Firebase 프로젝트를 만듭니다.
 2. 프로젝트를 만든 후 **Android 앱에 Firebase 추가**를 선택합니다. 
@@ -36,7 +36,8 @@ ms.locfileid: "67509124"
     2. app-level build.gradle 파일(&lt;project&gt;/&lt;app-module&gt;/build.gradle)에서 **dependencies** 섹션에 다음 명령문을 추가합니다. 
 
         ```
-        implementation 'com.google.firebase:firebase-core:16.0.1'
+        implementation 'com.google.firebase:firebase-core:16.0.8'
+        implementation 'com.google.firebase:firebase-messaging:17.3.4'
         ```
 
     3. app-level build.gradle 파일 끝부분에서 dependenices 섹션 다음에 다음 줄을 추가합니다. 
