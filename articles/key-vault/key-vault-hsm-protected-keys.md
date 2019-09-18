@@ -464,7 +464,7 @@ NCipher nShield **generatekey** 프로그램을 사용 하 여 키를 생성 합
 
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-SUI-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-SUI-1
 
-이 명령을 실행할 때 *contosokey* 를 키 생성 단계의 **3.5단계: 새 키 만들기**에서 지정한 값과 동일한 값으로 바꿉니다.
+이 명령을 실행할 때 *contosokey* 를 [키 생성](#step-3-generate-your-key) 단계의 **3.5단계: 새 키 만들기**에서 지정한 값과 동일한 값으로 바꿉니다.
 
 보안 영역 관리자 카드를 플러그인하라는 메시지가 표시됩니다.
 
@@ -478,7 +478,7 @@ NCipher nShield 유틸리티를 사용 하 여 다음 명령을 사용 하 여 A
 * kmfile-dump.exe:
 
         "%nfast_home%\bin\kmfile-dump.exe" "%NFAST_KMDATA%\local\key_xferacld_contosokey"
-  이 명령을 실행할 때 contosokey를 키 생성 단계의 **3.5단계: 새 키 만들기**에서 지정한 값과 동일한 값으로 바꿉니다.
+  이 명령을 실행할 때 contosokey를 [키 생성](#step-3-generate-your-key) 단계의 **3.5단계: 새 키 만들기**에서 지정한 값과 동일한 값으로 바꿉니다.
 
 ### <a name="step-42-encrypt-your-key-by-using-microsofts-key-exchange-key"></a>4\.2단계: Microsoft의 키 교환 키를 사용하여 키 암호화
 

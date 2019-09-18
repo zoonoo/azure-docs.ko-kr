@@ -1,6 +1,6 @@
 ---
-title: 사전 구매를 사용 하 여 Azure Databricks 비용 최적화
-description: 어떻게 하면 수 선불 Azure Databricks 요금에 대 한 비용을 절약 하려면 예약 된 용량을 사용 하 여에 대해 알아봅니다.
+title: 사전 구매를 사용하여 Azure Databricks 비용 최적화
+description: 요금을 절감하기 위해 예약된 용량으로 Azure Databricks 요금을 선불할 수 있는 방법에 대해 알아봅니다.
 services: billing
 author: yashesvi
 manager: yashar
@@ -9,67 +9,67 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: banders
 ms.openlocfilehash: 99eb4de86aa227d558bec54d011a0b1548d27cf0
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67811259"
 ---
-# <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>사전 구매를 사용 하 여 Azure Databricks 비용 최적화
+# <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>사전 구매를 사용하여 Azure Databricks 비용 최적화
 
-사용자 Azure Databricks에서 저장할 수 있습니다 (DBU) 단위 비용은 Azure Databricks 미리 구입한 경우 1 년 또는 3 년에 대 한 단위 (DBCU)를 커밋합니다. 구매 기간 중 언제 든 지 미리 구입한 DBCUs를 사용할 수 있습니다. Vm의 경우와 달리 미리 구입한 단위 시간 단위로 만료 되지 않습니다 및 구매 기간 중 언제 든 지 사용 합니다.
+1년 또는 3년 동안 DBCU(Azure Databricks 커밋 단위)를 사전 구매하는 경우 DBU(Azure Databricks 단위) 비용을 절감할 수 있습니다. 구매 기간 중에 언제든지 미리 구매한 DBCU를 사용할 수 있습니다. VM과 달리 사전 구매한 단위는 시간 단위로 만료되지 않으며 구매 기간 동안 언제든지 사용할 수 있습니다.
 
-Azure Databricks를 사용할 때 자동으로 미리 구입한 Dbu에서 차감 합니다. 재배포 하거나 사전 구매 할인을 가져오려는 DBU 사용량에 대 한 Azure Databricks 작업 영역에 미리 구입한 계획을 할당할 필요가 없습니다.
+모든 Azure Databricks는 사전 구매한 DBU에서 자동으로 차감됩니다. 사전 구매 할인을 받기 위해 DBU 사용량에 대해 Azure Databricks 작업 영역에 사전 구매 플랜을 다시 배포하거나 할당할 필요가 없습니다.
 
-사전 구매 할인 DBU 사용에만 적용 됩니다. 계산, 저장소, 네트워킹 등 기타 요금이 별도로 청구 됩니다.
+사전 구매 할인은 DBU 사용량에만 적용됩니다. 컴퓨팅, 스토리지 및 네트워킹 등의 기타 요금은 별도로 청구됩니다.
 
-## <a name="determine-the-right-size-to-buy"></a>구입 하려면 적절 한 크기를 결정 합니다.
+## <a name="determine-the-right-size-to-buy"></a>구매할 올바른 크기 결정
 
-Databricks 사전 구매 모든 Databricks 워크 로드 및 계층에 적용 됩니다. 선불 Databricks 커밋 단위 풀으로 사전 구매를 생각할 수 있습니다. 사용량은 워크 로드 또는 계층에 관계 없이 풀에서 차감 됩니다. 사용량 비율을 다음에서 차감 됩니다.
+Databricks 사전 구매는 모든 Databricks 워크로드 및 계층에 적용됩니다. 사전 구매는 선불 Databricks 커밋 단위의 풀로 간주할 수 있습니다. 워크로드 또는 계층에 관계없이 사용량은 풀에서 차감됩니다. 사용량은 다음과 같은 비율로 차감됩니다.
 
-| **작업** | **DBU 응용 프로그램 비율-표준 계층** | **DBU 응용 프로그램 비율-프리미엄 계층** |
+| **워크로드** | **DBU 애플리케이션 비율 - 표준 계층** | **DBU 애플리케이션 비율 - 프리미엄 계층** |
 | --- | --- | --- |
 | 데이터 분석 | 0.4 | 0.55 |
 | 데이터 엔지니어링 | 0.15 | 0.30 |
 | 데이터 엔지니어링 라이트 | 0.07 | 0.22 |
 
-예를 들어, 데이터 분석-의 표준 계층을 사용 하는 경우 미리 구입한 Databricks 커밋 단위 0.4 단위에서 차감 됩니다.
+예를 들어 데이터 분석 수량 - 표준 계층을 사용하는 경우 사전 구매한 Databricks 커밋 단위는 0.4 단위로 차감됩니다.
 
-구입 하기 전에 다양 한 작업 및 계층에 사용 된 총 DBU 수량을 계산 합니다. DBCU 정규화 한 후 다음 하나 또는 3 년간의 총 사용량 프로젝션을 실행 하려면 위의 비율을 사용 합니다.
+구매하기 전에 다른 워크로드 및 계층에 사용되는 총 DBU 수량을 계산합니다. 앞의 비율을 사용하여 DBCU로 표준화한 다음, 다음 1년 또는 3년 동안 총 사용량의 프로젝션을 실행합니다.
 
-## <a name="purchase-databricks-commit-units"></a>Databricks 커밋 단위를 구매 합니다.
+## <a name="purchase-databricks-commit-units"></a>Databricks 커밋 단위 구매
 
-Databricks 계획을 구매할 수 있습니다 합니다 [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D)합니다. 예약 된 용량을 구입 하려면 적어도 하나의 enterprise 구독에 대 한 소유자 역할이 있어야 합니다.
+[Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D)에서 Databricks 플랜을 구매할 수 있습니다. 예약된 용량을 구매하려면 하나 이상의 Enterprise 구독의 소유자 역할이 있어야 합니다.
 
-- 현재 사전 구매할 기업 계약 고객 에게만 제공 됩니다.
-- Enterprise 구독을 하나 이상에 대 한 소유자 역할에 있어야 합니다.
-- Enterprise 구독의 경우 [EA 포털](https://ea.azure.com/)에서 **예약 인스턴스 추가**를 활성화해야 합니다. 또는 해당 설정을 사용 하지 않으면 구독의 EA 관리자 여야 합니다.
+- 현재 사전 구매는 기업계약 고객만 사용할 수 있습니다.
+- 사용자가 하나 이상의 Enterprise 구독에 대해 소유자 역할이어야 합니다.
+- Enterprise 구독의 경우 [EA 포털](https://ea.azure.com/)에서 **예약 인스턴스 추가**를 활성화해야 합니다. 또는 해당 설정을 비활성화하려면 구독의 EA 관리자여야 합니다.
 
-**구매:**
+**구매하려면 다음을 수행합니다.**
 
 1. [Azure 포털](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D)로 이동합니다.
-1. 구독을 선택합니다. 사용 된 **구독** 예약된 용량에 대 한 요금을 지불 하는 데 사용 되는 구독을 선택 하려면 목록입니다. 구독의 결제 예약 된 용량에 대해 선불로 비용이 청구 됩니다. 요금은 등록의 금액 약정 잔액에서 차감 또는 초과분으로 청구 됩니다.
-1. 범위를 선택 합니다. 사용 된 **범위** 구독 범위를 선택 하는 목록:
-    - **리소스 그룹 범위를 단일** -선택한 리소스 그룹에만 일치 하는 리소스에 예약 할인을 적용 합니다.
-    - **구독 범위를 단일** -선택한 구독에서 일치 하는 리소스에 예약 할인을 적용 합니다.
-    - **공유 범위** -를 청구 컨텍스트에서 적합 한 구독에서 리소스를 일치 하는 예약 할인을 적용 합니다. 기업 계약 고객에 대 한 청구 컨텍스트는 등록 합니다.
-1. 구매 및 구매를 완료 하려면 Azure Databricks 커밋 단위 수를 선택 합니다.
+1. 구독을 선택합니다. 예약 용량의 요금을 지불하는 데 사용되는 구독을 선택하려면 **구독** 목록을 사용합니다. 구독의 결제 방법에는 예약 용량에 대한 선불 비용이 청구됩니다. 요금은 등록의 금액 약정 잔액에서 차감되거나 초과분에 대한 요금으로 청구됩니다.
+1. 범위를 선택합니다. 구독 범위를 선택하려면 **범위** 목록을 사용합니다.
+    - **단일 리소스 그룹 범위** - 선택한 리소스 그룹의 일치하는 리소스에만 예약 할인을 적용합니다.
+    - **단일 구독 범위** - 선택한 구독의 일치하는 리소스에만 예약 할인을 적용합니다.
+    - **공유 범위** - 청구 컨텍스트에 있는 적격 구독의 일치하는 리소스에 예약 할인을 적용합니다. 기업계약 고객의 경우 청구 컨텍스트는 등록입니다.
+1. 구매하려는 Azure Databricks 커밋 단위 수를 선택하고 구매를 완료합니다.
 
 
-![Azure portal에서 Azure Databricks 구매를 보여 주는 예제](./media/billing-prepay-databricks-reserved-capacity/data-bricks-pre-purchase.png)
+![Azure Portal에서 Azure Databricks 구매를 보여주는 예제](./media/billing-prepay-databricks-reserved-capacity/data-bricks-pre-purchase.png)
 
-## <a name="change-scope-and-ownership"></a>범위 변경 및 소유권
+## <a name="change-scope-and-ownership"></a>범위 및 소유권 변경
 
-예약 구매 후에 다음과 같은 유형의 변경 내용 만들 수 있습니다.
+구매한 후 예약에 대해 다음과 같은 유형의 변경을 수행할 수 있습니다.
 
-- 예약 범위를 업데이트 합니다.
+- 예약 범위 업데이트
 - 역할 기반 액세스
 
-분할 하거나 병합 커밋 Databricks 단위 사전 구매 수 없습니다. 예약을 관리 하는 방법에 대 한 자세한 내용은 참조 하세요. [예약 구매 후 관리](billing-manage-reserved-vm-instance.md)합니다.
+Databricks 커밋 단위 사전 구매를 분할하거나 병합할 수 없습니다. 예약을 관리하는 방법에 대한 자세한 내용은 [구매 후 예약 관리](billing-manage-reserved-vm-instance.md)를 참조하세요.
 
 ## <a name="cancellations-and-exchanges"></a>취소 및 교환
 
-취소 및 exchange Databricks 사전 구매 요금제에 대 한 지원 되지 않습니다. 모든 구매 최종있지 않습니다.
+Databricks 사전 구매 플랜에 대해서는 취소 및 교환이 지원되지 않습니다. 모든 구매는 최종입니다.
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
@@ -79,5 +79,5 @@ Databricks 계획을 구매할 수 있습니다 합니다 [Azure portal](https:/
 
 - Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
   - [Azure 예약이란?](billing-save-compute-costs-reservations.md)
-  - [Azure Databricks 사전 구매 DBCU 할인이 적용 되는 방식을 이해 합니다.](billing-reservation-discount-databricks.md)
+  - [Azure Databricks 사전 구매 DBCU 할인이 적용되는 방식 이해](billing-reservation-discount-databricks.md)
   - [엔터프라이즈 등록에서 예약 사용량 이해](billing-understand-reserved-instance-usage-ea.md)

@@ -83,7 +83,7 @@ Azure VM에서 온-프레미스 SQL Server 사용자 데이터베이스를 SQL S
 데이터베이스 및 로그 파일을 분리하고 [Azure Blob Storage](https://msdn.microsoft.com/library/dn385720.aspx)로 전송합니다. 그런 다음 Azure VM의 URL에서 데이터베이스를 연결합니다. 실제 데이터베이스 파일을 Blob Storage에 상주시키는 경우 이 방법을 사용합니다. 매우 큰 데이터베이스에 유용할 수 있습니다. 수동 메서드를 사용하여 사용자 데이터베이스를 마이그레이션하려면 다음과 같은 일반적인 단계를 사용합니다.
 
 1. 온-프레미스 데이터베이스 인스턴스에서 데이터베이스 파일을 분리합니다.
-2. 프로젝트 리소스로 Azure File Storage 만들기 및 탑재(선택 사항)
+2. 분리한 데이터베이스 파일을 [AZCopy 명령줄 유틸리티](../../../storage/common/storage-use-azcopy.md)를 사용하여 Azure Blob Storage로 복사합니다.
 3. Azure URL의 데이터베이스 파일을 Azure VM에서 SQL Server 인스턴스로 연결합니다.
 
 ## <a name="convert-to-vm-and-upload-to-url-and-deploy-as-new-vm"></a>VM으로 변환하고 URL에 업로드하고 새 VM으로 배포
