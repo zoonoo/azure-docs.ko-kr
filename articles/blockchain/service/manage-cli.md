@@ -36,8 +36,8 @@ az resource create --resource-group <myResourceGroup> --name <myMemberName> --re
 | 매개 변수 | Description |
 |---------|-------------|
 | **resource-group** | Azure Blockchain Service 리소스가 만들어지는 리소스 그룹 이름입니다. |
-| **name** | Azure Blockchain Service 블록체인 멤버를 식별하는 고유한 이름입니다. 이 이름은 공용 엔드포인트 주소에 사용됩니다. [http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest](`myblockchainmember.blockchain.azure.com`)을 입력합니다. |
-| **location** | 블록체인 멤버가 만들어지는 Azure 지역입니다. [http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest](`eastus`)을 입력합니다. 사용자 또는 다른 Azure 애플리케이션에 가장 가까운 위치를 선택합니다. |
+| **name** | Azure Blockchain Service 블록체인 멤버를 식별하는 고유한 이름입니다. 이 이름은 공용 엔드포인트 주소에 사용됩니다. `myblockchainmember.blockchain.azure.com`을 입력합니다. |
+| **location** | 블록체인 멤버가 만들어지는 Azure 지역입니다. `eastus` 을 입력합니다. 사용자 또는 다른 Azure 애플리케이션에 가장 가까운 위치를 선택합니다. |
 | **password** | 멤버 계정 암호 멤버 계정 암호는 기본 인증을 사용하여 블록체인 멤버의 공용 엔드포인트를 인증할 때 사용됩니다. 암호는 다음 4 가지 요구 사항 중 세 가지 요구 사항을 충족 해야 합니다. 길이는 12 & 72 자, 1 개의 소문자, 1 개의 대문자, 1 개의 숫자, 숫자 기호 (#), 백분율 (%), 쉼표 (,), 별표 (*), 백슬래시 (*)가 아닌 특수 문자 1 자 사이 여야 합니다. (\`), 큰따옴표 ("), 작은따옴표 ('), 대시 (-) 및 semicolumn (;)|
 | **protocol** | 공개 미리 보기는 쿼럼을 지원 합니다. |
 | **consortium** | 참가할 또는 만들 컨소시엄의 이름입니다. |
@@ -72,7 +72,7 @@ az resource create --resource-group <myResourceGroup> --name <myMemberName>/tran
 |---------|-------------|
 | **resource-group** | Azure Blockchain Service 리소스가 만들어지는 리소스 그룹 이름입니다. |
 | **name** | 새 트랜잭션 노드 이름도 포함 하는 Azure Blockchain 서비스 Blockchain 멤버의 이름입니다. |
-| **location** | 블록체인 멤버가 만들어지는 Azure 지역입니다. [http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest](`eastus`)을 입력합니다. 사용자 또는 다른 Azure 애플리케이션에 가장 가까운 위치를 선택합니다. |
+| **location** | 블록체인 멤버가 만들어지는 Azure 지역입니다. `eastus` 을 입력합니다. 사용자 또는 다른 Azure 애플리케이션에 가장 가까운 위치를 선택합니다. |
 | **password** | 트랜잭션 노드 암호입니다. 암호는 다음 4 가지 요구 사항 중 세 가지 요구 사항을 충족 해야 합니다. 길이는 12 & 72 자, 1 개의 소문자, 1 개의 대문자, 1 개의 숫자, 숫자 기호 (#), 백분율 (%), 쉼표 (,), 별표 (*), 백슬래시 (*)가 아닌 특수 문자 1 자 사이 여야 합니다. (\`), 큰따옴표 ("), 작은따옴표 ('), 대시 (-) 및 세미콜론 (;). |
 | **ruleName** | IP 주소 범위 허용 목록에 대 한 규칙 이름입니다. 방화벽 규칙에 대 한 선택적 매개 변수입니다. |
 | **startIpAddress** | 허용 목록에 대 한 IP 주소 범위의 시작입니다. 방화벽 규칙에 대 한 선택적 매개 변수입니다. |

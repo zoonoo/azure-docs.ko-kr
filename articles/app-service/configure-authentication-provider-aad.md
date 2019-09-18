@@ -57,7 +57,7 @@ ms.locfileid: "70743265"
 1. [Azure Portal]에서 App Service 앱으로 이동 하 여 앱의 **URL**을 확인 합니다. Azure Active Directory 앱 등록을 구성 하는 데 사용 합니다.
 1. [Azure Portal]의 왼쪽 메뉴에서 **Active Directory** > **앱 등록** > **새 등록**을 선택 합니다. 
 1. **응용 프로그램 등록** 페이지에서 앱 등록에 대 한 **이름을** 입력 합니다.
-1. **리디렉션 URI**에서 **웹** 을 선택 하 고 App Service 앱의 URL을 입력 한 후 경로 `/.auth/login/aad/callback`를 추가 합니다. [http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest](`https://contoso.azurewebsites.net/.auth/login/aad/callback`)을 입력합니다. 그런 다음 **만들기**를 선택합니다.
+1. **리디렉션 URI**에서 **웹** 을 선택 하 고 App Service 앱의 URL을 입력 한 후 경로 `/.auth/login/aad/callback`를 추가 합니다. `https://contoso.azurewebsites.net/.auth/login/aad/callback` 을 입력합니다. 그런 다음 **만들기**를 선택합니다.
 1. 앱 등록을 만든 후 나중에 **응용 프로그램 (클라이언트) id** 와 **디렉터리 (테 넌 트) id** 를 복사 합니다.
 1. **브랜딩**을 선택 합니다. **홈 페이지 url**에서 App Service 앱의 url을 입력 하 고 **저장**을 선택 합니다.
 1. **API** > **집합**표시를 선택 합니다. App Service 앱의 URL에 붙여 넣고 **저장**을 선택 합니다.
@@ -93,7 +93,7 @@ ms.locfileid: "70743265"
 
 1. [Azure Portal]의 왼쪽 메뉴에서 **Active Directory** > **앱 등록** > **새 등록**을 선택 합니다. 
 1. **응용 프로그램 등록** 페이지에서 앱 등록에 대 한 **이름을** 입력 합니다.
-1. **리디렉션 URI**에서 **공용 클라이언트 (모바일 & 데스크톱)** 를 선택 하 고 App Service 앱의 URL을 입력 한 후 경로 `/.auth/login/aad/callback`를 추가 합니다. [http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest](`https://contoso.azurewebsites.net/.auth/login/aad/callback`)을 입력합니다. 그런 다음 **만들기**를 선택합니다.
+1. **리디렉션 URI**에서 **공용 클라이언트 (모바일 & 데스크톱)** 를 선택 하 고 App Service 앱의 URL을 입력 한 후 경로 `/.auth/login/aad/callback`를 추가 합니다. `https://contoso.azurewebsites.net/.auth/login/aad/callback` 을 입력합니다. 그런 다음 **만들기**를 선택합니다.
 
     > [!NOTE]
     > Windows 응용 프로그램의 경우 대신 [패키지 SID](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) 를 URI로 사용 합니다.
