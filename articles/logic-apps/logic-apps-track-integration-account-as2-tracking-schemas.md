@@ -118,7 +118,7 @@ ms.locfileid: "60845786"
 | agreementName | String | 메시지가 확인되는 AS2 규약의 이름입니다. 선택 사항입니다. |
 | direction |String | 메시지 흐름, 수신 또는 송신 방향입니다. 필수 사항입니다. |
 | messageId | String | AS2 메시지 ID입니다. (선택 사항) |
-| OriginalMessageId |String | AS2 원래 메시지 ID입니다. (선택 사항) |
+| originalMessageId |String | AS2 원래 메시지 ID입니다. (선택 사항) |
 | dispositionType | String | MDN 처리 유형 값입니다. (선택 사항) |
 | isMessageFailed |Boolean | AS2 메시지의 실패 여부입니다. 필수 사항입니다. |
 | isMessageSigned |Boolean | AS2 메시지의 서명 여부입니다. 필수 사항입니다. |
